@@ -1,0 +1,41 @@
+name: CI
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+
+permissions:
+  contents: read
+
+jobs:
+  check:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: pnpm/action-setup@v4
+        with:
+          version: 9.15.9
+
+      - uses: actions/setup-node@v4
+        with:
+          node-version-file: .nvmrc
+          cache: pnpm
+
+      - name: Install
+        run: pnpm install --frozen-lockfile
+
+      # Fonts are gitignored-free (committed), so this only guards against drift.
+      - name: Verify self-hosted fonts are present
+        run: test -f public/fonts/fonts.css && ls public/fonts/*.woff2 > /dev/null
+
+      - name: Lint, typecheck, i18n parity, unit tests
+        run: pnpm check
+
+      - name: Build
+        run: pnpm build
+
+      # Re-run after the build so the dist-only assertions actually execute.
+      - name: Verify the build makes no third-party requests
+        run: pnpm exec vitest run tests/no-external-urls.test.ts

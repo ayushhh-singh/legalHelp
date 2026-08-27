@@ -1,0 +1,92 @@
+{
+  "app": {
+    "name": "Sahayak",
+    "tagline": "Government Assistant",
+    "shortDescription": "Offline-first reference and productivity tool for central government officers."
+  },
+  "nav": {
+    "law": "Law",
+    "lawLong": "Law Converter",
+    "pay": "Pay",
+    "payLong": "Pay & Allowances",
+    "draft": "Draft",
+    "draftLong": "Drafting Studio",
+    "learn": "Learn",
+    "learnLong": "Rules Trainer",
+    "utils": "Tools",
+    "utilsLong": "Utilities",
+    "settings": "Settings",
+    "settingsLong": "Settings"
+  },
+  "a11y": {
+    "skipToContent": "Skip to main content",
+    "mainNavigation": "Main navigation",
+    "tabNavigation": "Main tabs",
+    "mainContent": "Main content",
+    "toggleLanguage": "Switch to Hindi",
+    "toggleTheme": "Switch to dark theme",
+    "toggleThemeLight": "Switch to light theme",
+    "currentPage": "Current page"
+  },
+  "common": {
+    "loading": "Loading…",
+    "offline": "Offline",
+    "online": "Online",
+    "source": "Source",
+    "opensInNewTab": "opens in a new tab",
+    "dataVersion": "Data version",
+    "updated": "Updated",
+    "verifyWithDdo": "Verify with your DDO",
+    "disclaimer": "Reference only; verify with the official gazette/order or your DDO.",
+    "comingSoon": "Coming soon",
+    "retry": "Try again"
+  },
+  "errors": {
+    "title": "Something went wrong",
+    "body": "This section failed to load. Your saved data is safe on this device.",
+    "details": "Technical details"
+  },
+  "pages": {
+    "law": {
+      "title": "Law Converter",
+      "subtitle": "IPC ⇄ BNS · CrPC ⇄ BNSS · Evidence Act ⇄ BSA",
+      "emptyTitle": "Section tables not loaded yet",
+      "emptyBody": "Bidirectional section mapping, aware of the offence date, arrives in a later session."
+    },
+    "pay": {
+      "title": "Pay & Allowances",
+      "subtitle": "7th CPC matrix, allowances, deductions and tax",
+      "emptyTitle": "Pay matrix not loaded yet",
+      "emptyBody": "Level and cell lookup, post-specific allowances and take-home comparison arrive in a later session."
+    },
+    "draft": {
+      "title": "Drafting Studio",
+      "subtitle": "Every CSMOP 2022 document type, with live A4 preview",
+      "emptyTitle": "Templates not loaded yet",
+      "emptyBody": "Office memoranda, notings, notifications and the Hindi administrative glossary arrive in a later session."
+    },
+    "learn": {
+      "title": "Rules Trainer",
+      "subtitle": "Spaced repetition over conduct, leave, pension and financial rules",
+      "emptyTitle": "No cards yet",
+      "emptyBody": "Bilingual questions with rule citations, scheduled by FSRS, arrive in a later session."
+    },
+    "utils": {
+      "title": "Utilities",
+      "subtitle": "Holiday calendar, leave, pension and glossary",
+      "emptyTitle": "Tools not loaded yet",
+      "emptyBody": "Holiday calendar, leave and pension calculators and the portals directory arrive in a later session."
+    },
+    "settings": {
+      "title": "Settings",
+      "subtitle": "Language, appearance and stored data",
+      "language": "Language",
+      "languageHint": "Applies across the whole app.",
+      "theme": "Appearance",
+      "themeLight": "Light",
+      "themeDark": "Dark",
+      "privacyTitle": "Privacy",
+      "privacyBody": "Everything you enter stays on this device, in your browser's storage. There is no account, no server and no analytics."
+    }
+  }
+}

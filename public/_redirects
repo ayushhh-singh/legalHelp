@@ -1,0 +1,3 @@
+# Cloudflare Pages SPA fallback: client-side routes must serve index.html.
+# Without this, a hard refresh on /pay or a shared deep link 404s.
+/*  /index.html  200

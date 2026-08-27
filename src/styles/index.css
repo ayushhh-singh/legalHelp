@@ -1,0 +1,56 @@
+@import './tokens.css';
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+
+  html {
+    /* Prevent iOS text inflation without disabling user zoom. */
+    -webkit-text-size-adjust: 100%;
+  }
+
+  body {
+    @apply bg-background font-sans text-foreground antialiased;
+    font-feature-settings:
+      'liga' 1,
+      'calt' 1;
+  }
+
+  /* The red file thread is the only focus colour in the app. */
+  :focus-visible {
+    @apply outline-2 outline-offset-2 outline-thread;
+  }
+
+  /* Devanagari needs more line height than Latin at the same size. */
+  :lang(hi) {
+    line-height: 1.75;
+  }
+
+  /* Master context: no decorative animation; respect the OS setting. */
+  @media (prefers-reduced-motion: reduce) {
+    *,
+    *::before,
+    *::after {
+      animation-duration: 0.01ms !important;
+      animation-iteration-count: 1 !important;
+      transition-duration: 0.01ms !important;
+      scroll-behavior: auto !important;
+    }
+  }
+}
+
+@layer components {
+  /* Skip link: off-screen until focused, then pinned top-left. */
+  .skip-link {
+    @apply sr-only rounded-sm bg-thread px-4 py-2 font-medium text-white;
+  }
+
+  .skip-link:focus {
+    @apply not-sr-only fixed left-4 top-4 z-50;
+  }
+}

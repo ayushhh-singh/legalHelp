@@ -1,0 +1,44 @@
+# dependencies
+node_modules/
+.pnpm-store/
+
+# build output
+dist/
+dist-ssr/
+build/
+*.local
+
+# test / coverage
+coverage/
+test-results/
+playwright-report/
+blob-report/
+.playwright/
+
+# editor
+.vscode/*
+!.vscode/extensions.json
+.idea/
+*.swp
+.DS_Store
+
+# env
+.env
+.env.*
+!.env.example
+
+# logs
+*.log
+npm-debug.log*
+pnpm-debug.log*
+
+# python (data pipeline, scripts only)
+__pycache__/
+*.py[cod]
+.venv/
+venv/
+
+# caches
+.eslintcache
+.tsbuildinfo
+*.tsbuildinfo

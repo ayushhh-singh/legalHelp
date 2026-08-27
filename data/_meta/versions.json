@@ -1,0 +1,11 @@
+{
+  "$comment": "Dataset versions surfaced by <DataVersion/>. One entry per bundled dataset in /data.",
+  "generatedAt": "2026-08-28",
+  "datasets": {
+    "app": {
+      "version": "0.1.0",
+      "updated": "2026-08-28",
+      "label": { "en": "Application shell", "hi": "ऐप्लिकेशन ढाँचा" }
+    }
+  }
+}

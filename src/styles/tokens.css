@@ -1,0 +1,73 @@
+/*
+ * Sahayak design tokens — "government file" identity.
+ *
+ * Colours are stored as bare HSL triplets (no hsl() wrapper) so a single
+ * declaration serves both Tailwind (`hsl(var(--ink) / <alpha-value>)`) and the
+ * shadcn/ui variable convention. Hex equivalents are in the comments.
+ *
+ * Every foreground/background pair below is verified >= 4.5:1 (WCAG AA, normal
+ * text) by src/styles/tokens.test.ts. Do not edit a value without re-running it.
+ */
+
+:root {
+  /* -- brand: paper and ink ------------------------------------------- */
+  --paper: 42 55.6% 92.9%; /* #F7F1E3 */
+  --paper-2: 43.4 47.5% 88%; /* #EFE7D2 */
+  --ink: 220.9 46.5% 19.8%; /* #1B2A4A */
+  --ink-2: 221.9 23.8% 43.7%; /* #55658A — see ADR-003 */
+  --thread: 5.5 58.9% 43.9%; /* #B23A2E — single accent, the red file thread */
+  --ok: 131 39% 30.2%; /* #2F6B3A */
+
+  /* -- typography ------------------------------------------------------
+   * Declared as variables (not only Tailwind classes) so that jsdom can
+   * resolve a real computed font-family without Tailwind's JIT output.
+   */
+  --font-display: 'Tiro Devanagari Hindi', 'Noto Serif Devanagari', Georgia, serif;
+  --font-ui: 'IBM Plex Sans', 'Tiro Devanagari Hindi', system-ui, -apple-system, sans-serif;
+  --font-mono: 'IBM Plex Mono', ui-monospace, SFMono-Regular, Menlo, monospace;
+
+  /* -- shadcn/ui surface aliases ---------------------------------------
+   * Aliased onto the brand tokens above rather than defined separately, so
+   * --ink / --thread drive every primitive. Government stationery, so the
+   * radius is 2px, not the consumer-app default.
+   */
+  --radius: 2px;
+
+  --background: var(--paper);
+  --foreground: var(--ink);
+
+  --card: var(--paper);
+  --card-foreground: var(--ink);
+  --popover: var(--paper);
+  --popover-foreground: var(--ink);
+
+  --primary: var(--ink);
+  --primary-foreground: var(--paper);
+  --secondary: var(--paper-2);
+  --secondary-foreground: var(--ink);
+
+  --muted: var(--paper-2);
+  --muted-foreground: var(--ink-2);
+  --accent: var(--paper-2);
+  --accent-foreground: var(--ink);
+
+  --destructive: var(--thread);
+  --destructive-foreground: var(--paper);
+
+  --border: 43 25% 78%;
+  --input: 43 25% 78%;
+  --ring: var(--thread);
+}
+
+.dark {
+  /* Warm inverse: warm dark grounds, cream inks, lifted accents. */
+  --paper: 30 13% 9%; /* #1A1714 */
+  --paper-2: 33.3 14.3% 12.4%; /* #24201B */
+  --ink: 40.9 42.3% 89.8%; /* #F0E9DA */
+  --ink-2: 40.6 18.3% 63.5%; /* #B3A891 */
+  --thread: 9 69.8% 62.4%; /* #E2705C */
+  --ok: 131.4 37.8% 59%; /* #6FBE7E */
+
+  --border: 36 10% 24%;
+  --input: 36 10% 24%;
+}
