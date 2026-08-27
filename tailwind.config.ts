@@ -5,7 +5,11 @@ import animate from 'tailwindcss-animate'
 const hsl = (v: string) => `hsl(var(${v}) / <alpha-value>)`
 
 export default {
-  darkMode: ['class'],
+  // Dual dark variant. tokens.css switches the palette on BOTH an explicit
+  // `.dark` class and `prefers-color-scheme`, so the `dark:` utility must match
+  // the same two conditions — otherwise a reader on a dark system would get the
+  // dark palette but light `dark:` utilities.
+  darkMode: ['variant', ['&:is(.dark *)', '@media (prefers-color-scheme: dark) { &:not(.light *) }']],
   content: ['./index.html', './src/**/*.{ts,tsx}'],
   theme: {
     extend: {

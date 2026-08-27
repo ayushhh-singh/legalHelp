@@ -115,14 +115,15 @@ sidebar on desktop. WCAG AA. No decorative animation; respect `prefers-reduced-m
 | Area          | State                                                                                   |
 | ------------- | --------------------------------------------------------------------------------------- |
 | Toolchain     | pnpm 9.15.9 via corepack, Node 24 (ADR-002), TS 5.6 strict + `noUncheckedIndexedAccess` |
-| Design system | `src/styles/tokens.css`, light + warm-inverse dark, all pairs verified WCAG AA          |
+| Design system | `src/styles/tokens.css`, AA-verified; dark applies before paint (ADR-006)               |
 | Fonts         | 10 self-hosted WOFF2 in `public/fonts` (268 KiB). No runtime third-party request        |
 | i18n          | 66 keys × {en, hi}, typed via module augmentation, `fallbackLng: false`                 |
-| Persistence   | Dexie v1 with a `settings` table; zustand store hydrates from it                        |
+| Persistence   | Dexie v1 `settings` table; store hydrates from it and tolerates blocked storage         |
 | Shell         | 6 lazy routes, sidebar ≥1024px / bottom tabs below, skip link, landmarks                |
 | Modules       | All five are placeholder pages (PageHeader + EmptyState + Disclaimer)                   |
-| Tests         | 53 passing across 6 files                                                               |
-| Deferred      | vite-plugin-pwa, Playwright, fuse.js, ts-fsrs, docx, cmdk, recharts                     |
+| PWA / offline | `vite-plugin-pwa` (`generateSW`, `registerType: 'prompt'`); manual `workbox-window` registration + bilingual update/offline-ready toasts (`src/app/pwa.tsx`); real service-worker-era `OfflineBadge`; installable (Lighthouse PWA category 1.0 via a one-off `lighthouse@9` run — ADR-008) |
+| Tests         | 108 unit across 9 files (2 skip without a build) + 1 Playwright e2e (offline shell)     |
+| Deferred      | fuse.js, ts-fsrs, docx, cmdk, recharts                                                  |
 
 ## HOW TO RUN
 
@@ -145,6 +146,8 @@ pnpm dev                 # http://localhost:5173
 | `pnpm test`        | Vitest (jsdom)                                                         |
 | `pnpm i18n:check`  | Fails if `en.json` and `hi.json` disagree on keys                      |
 | `pnpm fonts:fetch` | Re-download and regenerate `public/fonts` (idempotent)                 |
+| `pnpm icons:generate` | Re-rasterize `public/icons/*.png` from `src/assets/pwa-icon.svg` (idempotent, offline, needs `sharp`) |
+| `pnpm test:e2e`     | Playwright; builds + serves `dist/` itself (see `playwright.config.ts`) |
 | `pnpm check`       | `lint && typecheck && i18n:check && test` — run before every commit    |
 
 ### Notes for the next session
@@ -154,3 +157,9 @@ pnpm dev                 # http://localhost:5173
 - `pnpm fonts:fetch` needs network access. The WOFF2 files are committed, so a fresh clone does not
   need to run it.
 - Adding a translation key means adding it to **both** `en.json` and `hi.json`, or CI fails.
+- The service worker only exists in a production build (`import.meta.env.PROD` guard in
+  `src/app/pwa.tsx`) — `pnpm dev` never registers one. `pnpm test:e2e` needs Chromium once:
+  `pnpm exec playwright install chromium`.
+- `docs/DATA-GAPS.md` #8 / ADR-008: current `@lhci/cli` pulls a Lighthouse with no PWA category left.
+  Re-verify installability with a one-off `pnpm dlx lighthouse@9 <preview-url> --only-categories=pwa`
+  if that signal is needed again.

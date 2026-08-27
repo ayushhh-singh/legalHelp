@@ -15,6 +15,7 @@ export interface SettingRow {
 export const SETTING_KEYS = {
   language: 'language',
   theme: 'theme',
+  pwaOfflineReadyNoticeShown: 'pwaOfflineReadyNoticeShown',
 } as const
 
 export type SettingKey = (typeof SETTING_KEYS)[keyof typeof SETTING_KEYS]
@@ -43,7 +44,10 @@ export async function setSetting(key: SettingKey, value: unknown): Promise<void>
   await db.settings.put({ key, value })
 }
 
-/** Used by Settings ("clear stored data") and by tests. */
+/**
+ * Used by Settings ("clear stored data") and by tests. Iterates every table so
+ * a table added in a later session cannot be silently left behind.
+ */
 export async function clearAllData(): Promise<void> {
-  await db.settings.clear()
+  await Promise.all(db.tables.map((table) => table.clear()))
 }

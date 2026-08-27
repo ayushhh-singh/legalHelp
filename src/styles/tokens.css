@@ -5,18 +5,47 @@
  * declaration serves both Tailwind (`hsl(var(--ink) / <alpha-value>)`) and the
  * shadcn/ui variable convention. Hex equivalents are in the comments.
  *
- * Every foreground/background pair below is verified >= 4.5:1 (WCAG AA, normal
- * text) by src/styles/tokens.test.ts. Do not edit a value without re-running it.
+ * The dark palette's VALUES live exactly once, as --dark-* on :root. Two
+ * remapping blocks below point the live tokens at them:
+ *
+ *   1. @media (prefers-color-scheme: dark) — applies before first paint, so a
+ *      reader whose system is dark never sees a flash of light paper while the
+ *      stored preference is read out of IndexedDB (an async read that cannot
+ *      finish before paint).
+ *   2. .dark — an explicit choice, which must win over the system setting.
+ *      .light exists for the same reason in the other direction.
+ *
+ * Every foreground/background pair is verified >= 4.5:1 (WCAG AA, normal text)
+ * in both themes by src/styles/tokens.test.ts, which also asserts the two
+ * remapping blocks stay identical. Do not edit a value without re-running it.
  */
 
 :root {
-  /* -- brand: paper and ink ------------------------------------------- */
+  /* -- brand: paper and ink (light) ----------------------------------- */
   --paper: 42 55.6% 92.9%; /* #F7F1E3 */
   --paper-2: 43.4 47.5% 88%; /* #EFE7D2 */
   --ink: 220.9 46.5% 19.8%; /* #1B2A4A */
   --ink-2: 221.9 23.8% 43.7%; /* #55658A — see ADR-003 */
   --thread: 5.5 58.9% 43.9%; /* #B23A2E — single accent, the red file thread */
   --ok: 131 39% 30.2%; /* #2F6B3A */
+
+  /* Decorative dividers and card edges. WCAG 1.4.11 does not apply to these:
+     they identify no control and convey no state. */
+  --border: 43 25% 78%;
+  /* Form-control and button boundaries. These DO identify a control, so they
+     must clear 3:1 against both paper surfaces (asserted in tokens.test.ts). */
+  --input: 43 20% 45%;
+
+  /* -- brand: warm inverse (dark) — values defined once ---------------- */
+  --dark-paper: 30 13% 9%; /* #1A1714 */
+  --dark-paper-2: 33.3 14.3% 12.4%; /* #24201B */
+  --dark-ink: 40.9 42.3% 89.8%; /* #F0E9DA */
+  --dark-ink-2: 40.6 18.3% 63.5%; /* #B3A891 */
+  --dark-thread: 9 69.8% 62.4%; /* #E2705C */
+  --dark-ok: 131.4 37.8% 59%; /* #6FBE7E */
+
+  --dark-border: 36 10% 24%;
+  --dark-input: 36 12% 42%;
 
   /* -- typography ------------------------------------------------------
    * Declared as variables (not only Tailwind classes) so that jsdom can
@@ -54,20 +83,31 @@
   --destructive: var(--thread);
   --destructive-foreground: var(--paper);
 
-  --border: 43 25% 78%;
-  --input: 43 25% 78%;
   --ring: var(--thread);
 }
 
-.dark {
-  /* Warm inverse: warm dark grounds, cream inks, lifted accents. */
-  --paper: 30 13% 9%; /* #1A1714 */
-  --paper-2: 33.3 14.3% 12.4%; /* #24201B */
-  --ink: 40.9 42.3% 89.8%; /* #F0E9DA */
-  --ink-2: 40.6 18.3% 63.5%; /* #B3A891 */
-  --thread: 9 69.8% 62.4%; /* #E2705C */
-  --ok: 131.4 37.8% 59%; /* #6FBE7E */
+/* System preference, applied before first paint. `.light` opts back out. */
+@media (prefers-color-scheme: dark) {
+  :root:not(.light) {
+    --paper: var(--dark-paper);
+    --paper-2: var(--dark-paper-2);
+    --ink: var(--dark-ink);
+    --ink-2: var(--dark-ink-2);
+    --thread: var(--dark-thread);
+    --ok: var(--dark-ok);
+    --border: var(--dark-border);
+    --input: var(--dark-input);
+  }
+}
 
-  --border: 36 10% 24%;
-  --input: 36 10% 24%;
+/* An explicit choice, which must beat the system setting either way. */
+.dark {
+  --paper: var(--dark-paper);
+  --paper-2: var(--dark-paper-2);
+  --ink: var(--dark-ink);
+  --ink-2: var(--dark-ink-2);
+  --thread: var(--dark-thread);
+  --ok: var(--dark-ok);
+  --border: var(--dark-border);
+  --input: var(--dark-input);
 }

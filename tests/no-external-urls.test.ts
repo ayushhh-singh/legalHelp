@@ -1,5 +1,5 @@
 import { existsSync, readdirSync, statSync } from 'node:fs'
-import { join, relative, extname } from 'node:path'
+import { join, relative, extname, sep } from 'node:path'
 
 import { describe, expect, it } from 'vitest'
 
@@ -35,6 +35,10 @@ const ALLOWED_INERT: ReadonlyArray<{ pattern: RegExp; why: string }> = [
   },
   { pattern: /^https?:\/\/bit\.ly\/2kdckMn$/, why: 'Dexie PrematureCommit error message text' },
   { pattern: /^https?:\/\/tinyurl\.com\/y2uuvskb$/, why: 'Dexie MissingAPI error message text' },
+  {
+    pattern: /^https?:\/\/bit\.ly\/wb-precache$/,
+    why: 'workbox-precaching console.warn text, bundled into dist/workbox-*.js by vite-plugin-pwa',
+  },
   { pattern: /^https?:\/\/fonts\.google\.com\/specimen\//, why: 'font attribution in public/fonts/OFL.txt' },
   { pattern: /^https?:\/\/openfontlicense\.org\//, why: 'OFL licence text link in public/fonts/OFL.txt' },
 ]
@@ -96,7 +100,10 @@ describe('no external URLs', () => {
 
     for (const file of files) {
       if (!existsSync(file)) continue
-      if (file.endsWith('no-external-urls.test.ts')) continue // contains its own patterns
+      // Tests and test helpers are never bundled — only what main.tsx reaches
+      // ships — and their fixtures legitimately name real source URLs. What
+      // actually ships is covered by the dist sweep below.
+      if (/\.test\.tsx?$/.test(file) || file.includes(`${sep}test${sep}`)) continue
       const urls = externalUrlsIn(readFromRoot(relative(projectRoot, file)))
       if (urls.length > 0) offenders[relative(projectRoot, file)] = urls
     }

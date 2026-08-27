@@ -1,7 +1,8 @@
 import { lazy, Suspense, useEffect } from 'react'
-import { Navigate, Route, Routes } from 'react-router-dom'
+import { Navigate, Route, Routes, useLocation } from 'react-router-dom'
 
 import { BottomTabs, Sidebar } from './Nav'
+import { PwaNotices } from './pwa'
 import { HOME_PATH } from './routes'
 import { TopBar } from './TopBar'
 import { useAppStore } from './store'
@@ -28,6 +29,7 @@ function RouteFallback() {
 export function App() {
   const { t } = useT()
   const hydrate = useAppStore((s) => s.hydrate)
+  const { pathname } = useLocation()
 
   useEffect(() => {
     void hydrate()
@@ -46,10 +48,13 @@ export function App() {
 
         <main
           id="main"
+          // Without tabIndex the skip link moves the caret but not focus in
+          // Safari and Firefox, so keyboard users land back at the top.
+          tabIndex={-1}
           aria-label={t('a11y.mainContent')}
-          className="min-w-0 flex-1 px-4 pb-24 pt-6 sm:px-6 lg:pb-10"
+          className="min-w-0 flex-1 px-4 pb-24 pt-6 focus-visible:outline-none sm:px-6 lg:pb-10"
         >
-          <ErrorBoundary>
+          <ErrorBoundary resetKey={pathname}>
             <Suspense fallback={<RouteFallback />}>
               <Routes>
                 <Route path="/" element={<Navigate to={HOME_PATH} replace />} />
@@ -67,6 +72,7 @@ export function App() {
       </div>
 
       <BottomTabs />
+      <PwaNotices />
     </div>
   )
 }

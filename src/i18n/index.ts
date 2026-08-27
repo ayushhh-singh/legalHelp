@@ -27,11 +27,15 @@ export function isLanguage(value: unknown): value is Language {
 /**
  * Master context: default language follows the browser (hi-* -> hi), else en.
  * A stored preference always wins over this; see src/app/store.ts.
+ *
+ * Matches the primary subtag exactly rather than by prefix: `hif` is Fiji
+ * Hindi, a different language, and `startsWith('hi')` would claim it.
  */
 export function detectBrowserLanguage(
   navigatorLanguage: string | undefined = globalThis.navigator?.language,
 ): Language {
-  return navigatorLanguage?.toLowerCase().startsWith('hi') ? 'hi' : DEFAULT_LANGUAGE
+  const primarySubtag = navigatorLanguage?.toLowerCase().split('-')[0]
+  return primarySubtag === 'hi' ? 'hi' : DEFAULT_LANGUAGE
 }
 
 export const resources = {
@@ -47,7 +51,10 @@ export const resources = {
  */
 void i18next.use(initReactI18next).init({
   resources,
-  lng: DEFAULT_LANGUAGE,
+  // Follow the browser on first load. A stored preference overrides this as
+  // soon as hydrate() resolves; starting at DEFAULT_LANGUAGE instead would
+  // show a Hindi reader English until that async read landed.
+  lng: detectBrowserLanguage(),
   supportedLngs: LANGUAGES,
   fallbackLng: false,
   returnNull: false,

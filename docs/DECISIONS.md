@@ -154,6 +154,154 @@ asserting that a Hindi heading renders in Tiro Devanagari Hindi needs the font s
 
 ---
 
+## ADR-006 — Apply the dark palette from `prefers-color-scheme`, not only from a class
+
+**Date:** 2026-08-28 · **Status:** Accepted
+
+### Context
+
+The theme preference lives in IndexedDB, which can only be read asynchronously — the read cannot finish
+before first paint. With the palette switched solely by a `.dark` class applied after hydration, every
+dark-mode reader saw a flash of light paper on every single load.
+
+The usual fix is to mirror the preference into `localStorage` and read it from a blocking inline script.
+That would put user state outside IndexedDB, against a hard rule, for a rendering hint.
+
+### Decision
+
+Switch the palette on **both** conditions, in CSS, with no new storage:
+
+```css
+@media (prefers-color-scheme: dark) {
+  :root:not(.light) {
+    /* dark tokens */
+  }
+}
+.dark {
+  /* dark tokens */
+}
+```
+
+The media query applies before paint. `.dark` and `.light` are both written explicitly by the store, so an
+explicit choice always beats the system setting — `.light` is what lets a reader on a dark system actually
+get light.
+
+The dark values are declared once as `--dark-*` on `:root`; both selectors only remap. `tokens.test.ts`
+asserts the two remap blocks stay identical and that every remap points at a `--dark-*` value.
+
+`tailwind.config.ts` uses a matching dual `dark:` variant, so a `dark:` utility cannot disagree with the
+palette it sits on.
+
+### Consequences
+
+- No flash for a reader whose system is dark and who has expressed no preference — the common case.
+- A reader who explicitly chose the opposite of their system setting still sees a brief flash. Fixing that
+  needs a synchronous pre-paint read, which means storage outside IndexedDB. Not worth the rule.
+- IndexedDB remains the only place a preference is stored.
+
+---
+
+## ADR-007 — Split `--input` from `--border` for non-text contrast
+
+**Date:** 2026-08-28 · **Status:** Accepted
+
+### Context
+
+Both tokens held the same value (`43 25% 78%` light), which scores **1.41:1** against `--paper`. WCAG 1.4.11
+(Non-text Contrast) requires **3:1** for the visual boundary of a UI component — but explicitly does not
+cover decorative dividers or container edges.
+
+One token was serving both jobs, so either form fields got an almost invisible boundary or dividers got a
+heavy one. The modules still to come (Drafting Studio, Pay calculator) are form-dense.
+
+### Decision
+
+Two tokens with different jobs:
+
+| Token      | Job                                                               | Light        | Dark         | vs `--paper` |
+| ---------- | ----------------------------------------------------------------- | ------------ | ------------ | ------------ |
+| `--border` | dividers, card edges — decorative, 1.4.11 does not apply          | `43 25% 78%` | `36 10% 24%` | 1.41:1       |
+| `--input`  | text fields, outline buttons — a control boundary, 1.4.11 applies | `43 20% 45%` | `36 12% 42%` | 3.62:1       |
+
+`tokens.test.ts` asserts `--input` clears 3:1 against both paper surfaces in both themes, and documents why
+`--border` is exempt.
+
+### Consequences
+
+- shadcn's `input` and `outline` button variants already use `border-input`, so they inherit this for free.
+- Form fields read as noticeably firmer than dividers, which is correct for a paper-form identity.
+
+---
+
+## ADR-008 — Offline shell: manual `workbox-window` registration, hand-generated icons, `lighthouse@9` for the PWA check
+
+**Date:** 2026-08-28 · **Status:** Accepted
+
+### Context
+
+`vite-plugin-pwa` (`generateSW` strategy) builds the service worker and the web manifest, but three parts
+of the brief needed a decision beyond the plugin's defaults.
+
+**Registration.** The plugin can inject its own register script (`injectRegister`), driven by
+`virtual:pwa-register`'s callback API. The brief instead asked for `workbox-window` directly, with a
+bilingual update toast — so `injectRegister: false`, and `src/app/pwa.tsx` registers the `Workbox` instance
+itself and drives `waiting` / `installed` / `controlling` by hand.
+
+**Icons.** `vite-plugin-pwa` ships a companion asset generator (`@vite-pwa/assets-generator`, config via a
+`pwaAssets` option) that can rasterize icons from a source image automatically. It was not used: it wants
+its own config surface and preset system, and the maskable safe-zone padding is easier to get right by
+placing shapes deliberately in the source SVG. Instead, `src/assets/pwa-icon.svg` (full-bleed paper
+background, folder shape kept inside the maskable safe circle) is rasterized by `scripts/generate-icons.mjs`
+using `sharp`, the same way `scripts/fetch-fonts.mjs` produces `public/fonts`: a committed, idempotent,
+offline-capable script, output committed to `public/icons/`. `sharp` is a devDependency only — it never
+ships to the browser.
+
+**Lighthouse.** The brief's acceptance check calls for "Lighthouse PWA category ... reports installable" via
+`@lhci/cli`. `pnpm dlx @lhci/cli collect` resolves `lighthouse@12.6.1`, and current Lighthouse has no `pwa`
+category or PWA-specific audits at all — Google removed them upstream (`categories: {}` in the collected
+report; none of `installable-manifest` / `service-worker` / `maskable-icon` / etc. exist in the audit list).
+Recorded as `docs/DATA-GAPS.md` #7 rather than skipped: a one-off `pnpm dlx lighthouse@9` run (the last
+major version with the PWA category) against `pnpm preview` scored the category **1.0**, with every audit
+passing — `service-worker`, `installable-manifest`, `apple-touch-icon`, `splash-screen`, `themed-omnibox`,
+`maskable-icon`, `viewport`, `content-width`. Neither `@lhci/cli` nor `lighthouse@9` is a project dependency;
+both were run via `pnpm dlx` and are reproducible the same way in a future session.
+
+### Decision
+
+1. `registerType: 'prompt'`, `injectRegister: false`; `src/app/pwa.tsx` owns the update-toast and
+   offline-ready-toast lifecycle via `workbox-window`.
+2. `clientsClaim: true` is required for the update flow (the client must actually become controlled by the
+   new worker after `messageSkipWaiting()` for the `controlling` event — the reload trigger — to fire). That
+   same option also fires `controlling` the very first time a worker claims a previously-uncontrolled page,
+   not only on a user-triggered update, so `src/app/pwa.tsx` gates the reload behind a
+   `skipWaitingRequestedRef` flag set only inside the toast's own reload handler. Missed on the first pass —
+   caught by a Playwright run that showed the page auto-reloading on install, before any offline behaviour
+   was even being tested.
+3. Runtime caching: `/data/**/*.json` (not yet populated — `docs/DATA-GAPS.md` #6) → `StaleWhileRevalidate`,
+   cache `data-v1`, 30-day expiry. Everything else → `NetworkFirst`. `navigateFallback: '/index.html'`
+   serves the precached shell for any client-routed page (`/pay`, `/draft`, …) Workbox has no exact
+   precache entry for.
+4. Icon set: `src/assets/pwa-icon.svg` → `scripts/generate-icons.mjs` (`sharp`) → `public/icons/{pwa,
+   maskable-icon}-{192x192,512x512}.png` + `apple-touch-icon.png` (180×180). The "any" and maskable PNGs are
+   pixel-identical renders of the same safe-zone-padded source; nothing in the artwork actually differs
+   between the two manifest purposes.
+5. `tests/no-external-urls.test.ts`'s allowlist gained one entry: `bit.ly/wb-precache`, a `console.warn`
+   string inside workbox-precaching's own source, bundled verbatim into `dist/workbox-*.js` — never fetched,
+   same class of entry as the existing Dexie `bit.ly` / `tinyurl` links.
+
+### Consequences
+
+- The update and offline-ready toasts are plain components with local state, not the `virtual:pwa-register`
+  module — a later session touching update UX should look at `src/app/pwa.tsx`, not for a Vite virtual
+  import.
+- `pnpm icons:generate` needs `sharp` (native bindings) locally; output is committed, so a fresh clone does
+  not need to run it, matching the fonts.
+- No Lighthouse PWA score is enforced in CI — there is currently no tool in the pinned stack that can
+  compute one. `tests/e2e/offline.spec.ts` is the enforced-in-CI proxy: it fails if the built shell stops
+  actually working offline.
+
+---
+
 ## TODO — rename before launch (Session 18)
 
 The human did not supply an app name, so **"Sahayak"** is a working title, used in `package.json`

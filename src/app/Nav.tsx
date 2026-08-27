@@ -53,7 +53,11 @@ export function BottomTabs() {
       className="fixed inset-x-0 bottom-0 z-40 border-t border-border bg-paper lg:hidden"
       style={{ paddingBottom: 'env(safe-area-inset-bottom)' }}
     >
-      <ul className="grid grid-cols-5">
+      {/* Column count is derived, so adding a tab cannot silently break the row. */}
+      <ul
+        className="grid"
+        style={{ gridTemplateColumns: `repeat(${TAB_BAR_ROUTES.length}, minmax(0, 1fr))` }}
+      >
         {TAB_BAR_ROUTES.map(({ path, labelKey, longLabelKey, icon: Icon }) => (
           <li key={path}>
             <NavLink

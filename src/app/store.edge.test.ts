@@ -1,0 +1,147 @@
+import { describe, expect, it, vi, afterEach } from 'vitest'
+
+import { useAppStore } from './store'
+
+import { db, getSetting, setSetting, SETTING_KEYS, clearAllData } from '@/db'
+import i18n from '@/i18n'
+
+/** Edge cases in preference handling. Each one maps to a bug found in review. */
+
+afterEach(() => {
+  vi.restoreAllMocks()
+})
+
+describe('storage failures', () => {
+  // IndexedDB is unavailable in some private-browsing modes and can be blocked
+  // by browser settings. The toggles are fired as `void toggle()`, so a
+  // rejection here surfaced as an uncaught error on every press.
+  it('does not reject when the theme cannot be written', async () => {
+    vi.spyOn(db.settings, 'put').mockRejectedValue(new DOMException('blocked', 'InvalidStateError'))
+
+    await expect(useAppStore.getState().setTheme('dark')).resolves.toBeUndefined()
+
+    // The change still applies for this session.
+    expect(useAppStore.getState().theme).toBe('dark')
+    expect(document.documentElement.classList.contains('dark')).toBe(true)
+    expect(useAppStore.getState().storageBlocked).toBe(true)
+  })
+
+  it('does not reject when the language cannot be written', async () => {
+    vi.spyOn(db.settings, 'put').mockRejectedValue(new Error('QuotaExceededError'))
+
+    await expect(useAppStore.getState().setLanguage('hi')).resolves.toBeUndefined()
+
+    expect(useAppStore.getState().language).toBe('hi')
+    expect(i18n.language).toBe('hi')
+    expect(useAppStore.getState().storageBlocked).toBe(true)
+  })
+
+  it('clears the blocked flag once a write succeeds again', async () => {
+    const spy = vi.spyOn(db.settings, 'put').mockRejectedValue(new Error('nope'))
+    await useAppStore.getState().setTheme('dark')
+    expect(useAppStore.getState().storageBlocked).toBe(true)
+
+    spy.mockRestore()
+    await useAppStore.getState().setTheme('light')
+    expect(useAppStore.getState().storageBlocked).toBe(false)
+  })
+
+  it('falls back to detected defaults when the read fails', async () => {
+    vi.spyOn(db.settings, 'get').mockRejectedValue(new Error('unavailable'))
+    useAppStore.setState({ hydrated: false })
+
+    await expect(useAppStore.getState().hydrate()).resolves.toBeUndefined()
+
+    expect(useAppStore.getState().hydrated).toBe(true)
+    expect(useAppStore.getState().storageBlocked).toBe(true)
+    expect(['en', 'hi']).toContain(useAppStore.getState().language)
+  })
+})
+
+describe('hydrate races', () => {
+  // On a slow device the toggles are interactive before the IndexedDB read
+  // lands. Hydration used to overwrite whatever the reader had just chosen.
+  it('does not overwrite a language chosen while hydrating', async () => {
+    await setSetting(SETTING_KEYS.language, 'en')
+    useAppStore.setState({ hydrated: false, language: 'en' })
+
+    const hydrating = useAppStore.getState().hydrate()
+    await useAppStore.getState().setLanguage('hi')
+    await hydrating
+
+    expect(useAppStore.getState().language).toBe('hi')
+    expect(i18n.language).toBe('hi')
+    expect(await getSetting(SETTING_KEYS.language)).toBe('hi')
+  })
+
+  it('does not overwrite a theme chosen while hydrating', async () => {
+    await setSetting(SETTING_KEYS.theme, 'light')
+    useAppStore.setState({ hydrated: false, theme: 'light' })
+
+    const hydrating = useAppStore.getState().hydrate()
+    await useAppStore.getState().setTheme('dark')
+    await hydrating
+
+    expect(useAppStore.getState().theme).toBe('dark')
+    expect(document.documentElement.classList.contains('dark')).toBe(true)
+  })
+
+  it('lets the newest hydrate win when two overlap', async () => {
+    await setSetting(SETTING_KEYS.theme, 'dark')
+    useAppStore.setState({ hydrated: false, theme: 'light' })
+
+    await Promise.all([useAppStore.getState().hydrate(), useAppStore.getState().hydrate()])
+
+    expect(useAppStore.getState().theme).toBe('dark')
+    expect(useAppStore.getState().hydrated).toBe(true)
+  })
+})
+
+describe('untrusted stored values', () => {
+  it.each([
+    ['a colour that is not a theme', 'purple'],
+    ['an unsupported language code', 'fr'],
+    ['a number', 42],
+    ['null', null],
+    ['an object', { evil: true }],
+  ])('discards %s and uses a detected default', async (_label, value) => {
+    await setSetting(SETTING_KEYS.theme, value)
+    await setSetting(SETTING_KEYS.language, value)
+    useAppStore.setState({ hydrated: false })
+
+    await useAppStore.getState().hydrate()
+
+    expect(['light', 'dark']).toContain(useAppStore.getState().theme)
+    expect(['en', 'hi']).toContain(useAppStore.getState().language)
+  })
+})
+
+describe('theme classes', () => {
+  // tokens.css applies the dark palette from prefers-color-scheme before paint,
+  // so `.light` is what lets a reader on a dark system actually get light.
+  it('sets light and dark as mutually exclusive classes', async () => {
+    await useAppStore.getState().setTheme('dark')
+    expect(document.documentElement.classList.contains('dark')).toBe(true)
+    expect(document.documentElement.classList.contains('light')).toBe(false)
+
+    await useAppStore.getState().setTheme('light')
+    expect(document.documentElement.classList.contains('light')).toBe(true)
+    expect(document.documentElement.classList.contains('dark')).toBe(false)
+  })
+
+  it('mirrors the theme onto color-scheme so form controls follow', async () => {
+    await useAppStore.getState().setTheme('dark')
+    expect(document.documentElement.style.colorScheme).toBe('dark')
+  })
+})
+
+describe('clearing stored data', () => {
+  it('clears every table, not just settings', async () => {
+    await setSetting(SETTING_KEYS.theme, 'dark')
+    await clearAllData()
+
+    for (const table of db.tables) {
+      expect(await table.count(), `${table.name} was left behind`).toBe(0)
+    }
+  })
+})

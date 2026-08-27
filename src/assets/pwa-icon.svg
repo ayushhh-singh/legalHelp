@@ -1,0 +1,13 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="512" height="512" viewBox="0 0 512 512" role="img" aria-label="Sahayak">
+  <!--
+    Source artwork for the installable-app icon set (scripts/generate-icons.mjs).
+    Full-bleed paper background + a folder shape kept inside the maskable safe
+    zone (a circle 80% of the canvas, centred) so the same render works for
+    both "any" and "maskable" manifest purposes. No text, no emblem, no
+    government insignia — an abstract file-folder with the red thread accent.
+  -->
+  <rect width="512" height="512" fill="#F7F1E3"/>
+  <rect x="136" y="112" width="240" height="288" rx="10" fill="#EFE7D2" stroke="#1B2A4A" stroke-width="10"/>
+  <path d="M184 112V400" stroke="#B23A2E" stroke-width="18"/>
+  <path d="M232 208H328M232 256H328M232 304H292" stroke="#1B2A4A" stroke-width="14" stroke-linecap="round"/>
+</svg>

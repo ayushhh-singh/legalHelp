@@ -31,7 +31,6 @@
   "common": {
     "loading": "Loading…",
     "offline": "Offline",
-    "online": "Online",
     "source": "Source",
     "opensInNewTab": "opens in a new tab",
     "dataVersion": "Data version",
@@ -45,6 +44,12 @@
     "title": "Something went wrong",
     "body": "This section failed to load. Your saved data is safe on this device.",
     "details": "Technical details"
+  },
+  "pwa": {
+    "updateAvailable": "A new version is ready.",
+    "reload": "Reload",
+    "readyOffline": "Ready to work offline.",
+    "dismiss": "Dismiss"
   },
   "pages": {
     "law": {

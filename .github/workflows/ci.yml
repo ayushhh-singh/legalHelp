@@ -39,3 +39,11 @@ jobs:
       # Re-run after the build so the dist-only assertions actually execute.
       - name: Verify the build makes no third-party requests
         run: pnpm exec vitest run tests/no-external-urls.test.ts
+
+      - name: Install Playwright browsers
+        run: pnpm exec playwright install --with-deps chromium
+
+      # Builds and serves dist/ itself (playwright.config.ts webServer) — the
+      # service worker under test only exists in a production build.
+      - name: End-to-end (offline shell)
+        run: pnpm test:e2e
