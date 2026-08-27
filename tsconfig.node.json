@@ -13,7 +13,8 @@
     "noUncheckedIndexedAccess": true,
     "noUnusedLocals": true,
     "noUnusedParameters": true,
+    "resolveJsonModule": true,
     "types": ["node"]
   },
-  "include": ["vite.config.ts", "tailwind.config.ts", "playwright.config.ts"]
+  "include": ["vite.config.ts", "tailwind.config.ts", "playwright.config.ts", "src/i18n/en.json", "src/i18n/hi.json"]
 }

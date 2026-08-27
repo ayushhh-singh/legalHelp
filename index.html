@@ -3,7 +3,15 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <meta name="theme-color" content="#F7F1E3" />
+    <!--
+      Two tags, not one: browsers pick whichever media query matches, so this
+      tints the address bar/status bar for the common case of following the
+      system's colour scheme. It cannot react to an explicit in-app light/dark
+      override (store.ts) — only the page content itself does that, via the
+      prefers-color-scheme rule in tokens.css (ADR-006).
+    -->
+    <meta name="theme-color" content="#F7F1E3" media="(prefers-color-scheme: light)" />
+    <meta name="theme-color" content="#1A1714" media="(prefers-color-scheme: dark)" />
     <meta
       name="description"
       content="Sahayak — offline-first bilingual reference and productivity tool for Indian central government officers. Public data only."

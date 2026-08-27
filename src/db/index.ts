@@ -15,7 +15,6 @@ export interface SettingRow {
 export const SETTING_KEYS = {
   language: 'language',
   theme: 'theme',
-  pwaOfflineReadyNoticeShown: 'pwaOfflineReadyNoticeShown',
 } as const
 
 export type SettingKey = (typeof SETTING_KEYS)[keyof typeof SETTING_KEYS]

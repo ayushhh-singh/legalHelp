@@ -4,8 +4,8 @@
  * index.html reference.
  *
  * The source SVG already keeps its shapes inside the maskable safe zone (a
- * circle 80% of the canvas, centred), so the same render is reused for both
- * the "any" and "maskable" manifest icon entries.
+ * circle 80% of the canvas, centred), so each size renders once and covers
+ * both the "any" and "maskable" manifest icon purposes (vite.config.ts).
  *
  * Idempotent and offline: re-run whenever src/assets/pwa-icon.svg changes.
  * Output is committed, like the fonts, so a fresh clone does not need sharp.
@@ -25,8 +25,6 @@ const OUT_DIR = join(ROOT, 'public', 'icons')
 const TARGETS = [
   { name: 'pwa-192x192.png', size: 192 },
   { name: 'pwa-512x512.png', size: 512 },
-  { name: 'maskable-icon-192x192.png', size: 192 },
-  { name: 'maskable-icon-512x512.png', size: 512 },
   { name: 'apple-touch-icon.png', size: 180 },
 ]
 

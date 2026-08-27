@@ -122,7 +122,7 @@ sidebar on desktop. WCAG AA. No decorative animation; respect `prefers-reduced-m
 | Shell         | 6 lazy routes, sidebar ≥1024px / bottom tabs below, skip link, landmarks                |
 | Modules       | All five are placeholder pages (PageHeader + EmptyState + Disclaimer)                   |
 | PWA / offline | `vite-plugin-pwa` (`generateSW`, `registerType: 'prompt'`); manual `workbox-window` registration + bilingual update/offline-ready toasts (`src/app/pwa.tsx`); real service-worker-era `OfflineBadge`; installable (Lighthouse PWA category 1.0 via a one-off `lighthouse@9` run — ADR-008) |
-| Tests         | 108 unit across 9 files (2 skip without a build) + 1 Playwright e2e (offline shell)     |
+| Tests         | 108 unit across 9 files (2 skip without a build) + 2 Playwright e2e (offline shell, zero-third-party requests) |
 | Deferred      | fuse.js, ts-fsrs, docx, cmdk, recharts                                                  |
 
 ## HOW TO RUN

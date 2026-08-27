@@ -1,7 +1,6 @@
 import { useEffect, useRef, useState } from 'react'
 import type { Workbox } from 'workbox-window'
 
-import { getSetting, setSetting, SETTING_KEYS } from '@/db'
 import { useT } from '@/i18n/useT'
 import { cn } from '@/lib/utils'
 
@@ -10,9 +9,19 @@ import { cn } from '@/lib/utils'
  * register script: registerType is "prompt" (vite.config.ts), so the built
  * service worker waits for an explicit skip-waiting message before it takes
  * over, and this component is what sends it after the user agrees to reload.
+ *
+ * No IndexedDB round-trip for "has the offline-ready notice already been
+ * shown": the "installed" event's isUpdate flag already fires false at most
+ * once per origin for the lifetime of a service worker registration — a
+ * fresh register() against an already-active worker of the same version
+ * never re-enters the installing state, so there is nothing a persisted flag
+ * would add. It would also survive `clearAllData` in a misleading way: that
+ * clears settings, not the service worker registration, so the notice still
+ * would not reappear.
  */
 function usePwaLifecycle() {
   const [updateReady, setUpdateReady] = useState(false)
+  const [updateDismissed, setUpdateDismissed] = useState(false)
   const [offlineReady, setOfflineReady] = useState(false)
   const wbRef = useRef<Workbox | null>(null)
   // clientsClaim (vite.config.ts) also fires "controlling" the first time a
@@ -32,21 +41,24 @@ function usePwaLifecycle() {
       const wb = new Workbox('/sw.js')
       wbRef.current = wb
 
-      wb.addEventListener('waiting', () => setUpdateReady(true))
+      wb.addEventListener('waiting', () => {
+        if (cancelled) return
+        // A fresh waiting worker is a new update even if an earlier one was
+        // dismissed — otherwise dismissing once silences every later update
+        // for the rest of the tab's life.
+        setUpdateReady(true)
+        setUpdateDismissed(false)
+      })
       wb.addEventListener('controlling', () => {
-        if (skipWaitingRequestedRef.current) window.location.reload()
+        if (!cancelled && skipWaitingRequestedRef.current) window.location.reload()
       })
       wb.addEventListener('installed', (event) => {
-        if (event.isUpdate) return
-        void (async () => {
-          const alreadyShown = await getSetting<boolean>(SETTING_KEYS.pwaOfflineReadyNoticeShown)
-          if (alreadyShown) return
-          setOfflineReady(true)
-          await setSetting(SETTING_KEYS.pwaOfflineReadyNoticeShown, true)
-        })()
+        if (!cancelled && !event.isUpdate) setOfflineReady(true)
       })
 
-      void wb.register()
+      wb.register().catch((error: unknown) => {
+        console.warn('[sahayak] service worker registration failed', error)
+      })
     })()
 
     return () => {
@@ -61,6 +73,8 @@ function usePwaLifecycle() {
 
   return {
     updateReady,
+    updateDismissed,
+    dismissUpdate: () => setUpdateDismissed(true),
     offlineReady,
     reload,
     dismissOfflineReady: () => setOfflineReady(false),
@@ -110,8 +124,8 @@ function PwaToast({
 /** Mounted once, near the root of the shell. Renders nothing until there's something to say. */
 export function PwaNotices({ className }: { className?: string }) {
   const { t } = useT()
-  const { updateReady, offlineReady, reload, dismissOfflineReady } = usePwaLifecycle()
-  const [updateDismissed, setUpdateDismissed] = useState(false)
+  const { updateReady, updateDismissed, dismissUpdate, offlineReady, reload, dismissOfflineReady } =
+    usePwaLifecycle()
 
   if ((!updateReady || updateDismissed) && !offlineReady) return null
 
@@ -127,7 +141,7 @@ export function PwaNotices({ className }: { className?: string }) {
           message={t('pwa.updateAvailable')}
           actionLabel={t('pwa.reload')}
           onAction={reload}
-          onDismiss={() => setUpdateDismissed(true)}
+          onDismiss={dismissUpdate}
         />
       ) : null}
       {offlineReady ? (

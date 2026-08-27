@@ -281,10 +281,9 @@ both were run via `pnpm dlx` and are reproducible the same way in a future sessi
    cache `data-v1`, 30-day expiry. Everything else → `NetworkFirst`. `navigateFallback: '/index.html'`
    serves the precached shell for any client-routed page (`/pay`, `/draft`, …) Workbox has no exact
    precache entry for.
-4. Icon set: `src/assets/pwa-icon.svg` → `scripts/generate-icons.mjs` (`sharp`) → `public/icons/{pwa,
-   maskable-icon}-{192x192,512x512}.png` + `apple-touch-icon.png` (180×180). The "any" and maskable PNGs are
-   pixel-identical renders of the same safe-zone-padded source; nothing in the artwork actually differs
-   between the two manifest purposes.
+4. Icon set: `src/assets/pwa-icon.svg` → `scripts/generate-icons.mjs` (`sharp`) → `public/icons/pwa-
+   {192x192,512x512}.png` + `apple-touch-icon.png` (180×180). One render per size, listed in the manifest
+   with `purpose: 'any maskable'` — see the addendum below; there is no separate maskable file.
 5. `tests/no-external-urls.test.ts`'s allowlist gained one entry: `bit.ly/wb-precache`, a `console.warn`
    string inside workbox-precaching's own source, bundled verbatim into `dist/workbox-*.js` — never fetched,
    same class of entry as the existing Dexie `bit.ly` / `tinyurl` links.
@@ -299,6 +298,68 @@ both were run via `pnpm dlx` and are reproducible the same way in a future sessi
 - No Lighthouse PWA score is enforced in CI — there is currently no tool in the pinned stack that can
   compute one. `tests/e2e/offline.spec.ts` is the enforced-in-CI proxy: it fails if the built shell stops
   actually working offline.
+
+### Addendum — edge-case pass (same session)
+
+A dedicated review pass (own reading plus a multi-agent code review) turned up several issues in the first
+cut above, all fixed before commit:
+
+- **Update toast, dismissed once, silenced every later update.** `updateDismissed` was a `PwaNotices`-local
+  boolean that, once set, never cleared. Moved into `usePwaLifecycle` and reset on every `waiting` event, so
+  a second, independent deployment gets its own toast even if the first was dismissed. Verified against two
+  real, separately-built service workers (not just reasoned about): built, installed, dismissed, rebuilt
+  again, reloaded — the toast reappeared, and clicking Reload still activated the new worker correctly.
+- **`wb.register()` and the old offline-ready persistence could throw unhandled rejections.** Fixed by adding
+  `.catch()` to `register()` (`console.warn`, matching `store.ts`'s storage-failure convention) and by
+  removing the IndexedDB round-trip entirely (next point) rather than wrapping it in `try`/`catch`.
+- **The offline-ready "shown once" flag didn't need IndexedDB at all.** `wb`'s `installed` event fires with
+  `isUpdate: false` at most once per origin for the life of a service worker registration — a `register()`
+  call against an already-active worker of the same version never re-enters the installing state. The
+  persisted flag added nothing, and `clearAllData` clearing it would have been misleading: that clears
+  settings, not the service worker registration, so the notice would not have reappeared anyway. Simplified
+  to plain component state; `SETTING_KEYS.pwaOfflineReadyNoticeShown` is gone.
+- **The `NetworkFirst` runtime-cache rule was origin-agnostic.** `request.mode !== 'navigate'` alone also
+  matches a hypothetical cross-origin request. Nothing exploits this today (the app makes none), but an
+  opaque cross-origin response can't be inspected and browsers reserve outsized quota against it — added an
+  explicit `url.origin === self.location.origin` guard to both runtime-caching rules. (`self` inside that
+  predicate is the *generated service worker's* global scope, not this Node process — workbox-build
+  serializes the function into `dist/sw.js` — so `vite.config.ts` carries a narrow local `declare const self`
+  shim rather than pulling the DOM lib into `tsconfig.node.json`.)
+- **Manifest description duplicated `en.json`'s `app.shortDescription` as a hand-copied literal.** Now
+  imported directly (`import en from './src/i18n/en.json'`), so the two cannot drift. Needed
+  `resolveJsonModule: true` plus both JSON files added to `tsconfig.node.json`'s `include`.
+- **CI built the app twice.** `playwright.config.ts`'s `webServer.reuseExistingServer` is `false` in CI, so
+  its `command` always ran — which was `pnpm build && pnpm preview`, right after CI's own separate "Build"
+  step had just done the same build. `command` is now `process.env.CI ? 'pnpm preview' : 'pnpm build && pnpm
+  preview'`: CI serves the build the prior step already produced and verified; local runs still work
+  standalone.
+- **The "any" and maskable icon PNGs were byte-identical, listed and precached as four files.** Since the
+  artwork never differed between purposes (the whole point of the safe-zone-padded source), that was two
+  redundant downloads per install for no benefit. Consolidated to two files (192, 512), each declared
+  `purpose: 'any maskable'` — a single space-separated value the manifest spec supports for exactly this
+  case.
+- **No dark-mode-aware `theme-color`.** The installed-app/status-bar tint was pinned to the light paper
+  colour even under `prefers-color-scheme: dark`, inconsistent with `tokens.css` painting the dark palette
+  before first paint (ADR-006). `index.html` now carries two `media`-scoped `theme-color` tags. This does not
+  reach the *web manifest's* static `theme_color` (used for the splash screen) — that field has no media-
+  query equivalent in the spec, so it stays the light colour; picking a single manifest colour that works
+  passably in both themes was judged good enough without adding a second manifest or a JS-driven `<meta>`
+  sync.
+- **The master context's "(enforced by a Playwright test)" claim for zero network requests was not yet
+  true.** `tests/e2e/zero-third-party-requests.spec.ts` is a new test: it visits every route plus a language
+  toggle and asserts no cross-origin request occurs. It does not (yet) assert that no *user-entered* value
+  leaves the page — there is no form that captures one yet (`docs/DATA-GAPS.md` #4, updated rather than
+  closed).
+
+**Looked at, deliberately left alone:**
+
+- `OfflineBadge` still reads `navigator.onLine`, which reports "online" behind a captive portal or a dead
+  uplink — exactly when a government-office reader most wants the badge to be right. Fixing this needs an
+  active reachability probe, not a badge tweak; recorded as `docs/DATA-GAPS.md` #9 rather than built now.
+- The manifest's `lang: 'hi'` is a literal instruction from this session's brief, in tension with the master
+  context's equal-bilingual-footing rule (the actual in-page language is detected per reader, often English).
+  Left as instructed rather than silently changed; recorded as `docs/DATA-GAPS.md` #10 for a human product
+  decision.
 
 ---
 
