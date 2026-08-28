@@ -132,6 +132,46 @@ const ALLOWED_INERT: ReadonlyArray<{ pattern: RegExp; why: string }> = [
     pattern: /^https:\/\/stuk\.github\.io\/jszip\//,
     why: 'JSZip homepage in its own banner comment; JSZip is how `docx` packs the archive',
   },
+  /*
+    recharts 3.10 (Session 12, the Rules Trainer's mock-test accuracy chart)
+    keeps its own internal state in Redux, and bundles Redux's and Redux
+    Toolkit's own minified error-message doc links the same way React 19
+    bundles react.dev/errors/ above. None is ever fetched by this app; recharts
+    itself never renders a network request.
+  */
+  {
+    pattern: /^https?:\/\/(react-)?redux(-toolkit)?\.js\.org\//,
+    why: 'recharts’ internal Redux store — minified Redux/RTK error message text',
+  },
+  {
+    pattern: /^https?:\/\/bit\.ly\/3cXEKWf$/,
+    why: 'Redux Toolkit’s "detected multiple instances" warning link, bundled by recharts',
+  },
+  {
+    pattern: /^https:\/\/example\.gov\.in\/ai-proposed$/,
+    why:
+      'src/ai/tools/rules.ts#registerRulesTools — propose_card’s placeholder `source.url`. `cardSchema` ' +
+      'requires an absolute https URL on every card and an AI-drafted one has no real citation yet; ' +
+      '`example.gov.in` is the same non-resolving placeholder host `src/test/rules-cards.ts`’s fixtures ' +
+      'already use. Rendered as an inert "Source" link, never fetched, and the card stays `reviewState: ' +
+      '"unreviewed"` — unservable — until a human reviews it in `/learn/review-queue`.',
+  },
+  {
+    // The trailing `type=____` is not a typo in this pattern: the source card
+    // itself is malformed, see the note below.
+    pattern: /^http:\/\/cabsec\.nic\.in\/showpdf\.php\?type=/,
+    why:
+      'data/rules/cards/csmop.json — card `csmop-cloze-4-3-definedterm`. CSMOP’s own Table 4.2 quotes this ' +
+      'URL in prose ("Instructions on constitution/reconstitution of High-level Commissions/Committees") the ' +
+      'same way `citationUrls()` below already documents for `data/rules/text/csmop.json`; here the card ' +
+      'GENERATOR additionally chose part of the URL as a cloze blank, mangling it to `type=____ ' +
+      's_highlevel_committee&special`. The card is `reviewState: "unreviewed"` — `isServed` never serves it, ' +
+      'so no reader sees it — and it is exactly the kind of defect `/learn/review-queue` (this session) ' +
+      'exists to catch; a human rejecting it there is the real fix, tracked for the next authoring session ' +
+      'rather than hand-edited here. It ships at all only because `loadAllCards()` reads every act’s card ' +
+      'file eagerly (`src/modules/trainer/data.ts`), unreviewed cards included — the review is what decides ' +
+      'what is SERVED, not what is SHIPPED.',
+  },
 ]
 
 /**
@@ -182,6 +222,27 @@ const CITATION_HOSTS: readonly string[] = [
   'documents.doptcirculars.nic.in',
   'pensionersportal.gov.in',
   'www.indiacode.nic.in',
+  // Session 13, data/holidays, data/portals.json, data/pension — the DoPT
+  // holiday circular's secondary reproduction (dopt.gov.in itself refused
+  // every fetch this session), the portals directory's own links, and the
+  // gratuity/commutation/GPF sources.
+  'bharati.rajbhasha.gov.in',
+  'bhavishya.nic.in',
+  'cpengrams.nic.in',
+  'dea.gov.in',
+  'doppw.gov.in',
+  'egazette.gov.in',
+  'ehrms.gov.in',
+  'gem.gov.in',
+  'igotkarmayogi.gov.in',
+  'kanthasth.rajbhasha.gov.in',
+  'kendriyabhandar.com',
+  'npscra.nsdl.co.in',
+  'persmin.gov.in',
+  'pfms.nic.in',
+  'pgportal.gov.in',
+  'www.epfindia.gov.in',
+  'www.govtstaff.com',
 ]
 
 /** The host of a URL as the sweep's own regex captured it, or '' if unparseable. */

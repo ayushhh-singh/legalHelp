@@ -28,6 +28,9 @@ const ROUTES = [
   // never see any of it.
   '/draft/office-memorandum',
   '/learn',
+  '/learn/browse',
+  '/learn/mock',
+  '/learn/settings',
   '/utils',
   // 1,891 terms is as much markup as the picker sweep would never see —
   // /utils alone never renders a single row of it.
@@ -54,6 +57,7 @@ const READY: Readonly<Record<string, RegExp>> = {
  */
 const READY_BUTTON: Readonly<Record<string, RegExp>> = {
   '/draft/office-memorandum': /Fill with the worked example|नमूने से भरें/,
+  '/learn/mock': /Start test|टेस्ट आरंभ करें/,
 }
 
 /**
@@ -63,6 +67,15 @@ const READY_BUTTON: Readonly<Record<string, RegExp>> = {
  */
 const READY_TEXT: Readonly<Record<string, RegExp>> = {
   '/utils/glossary': /\d+ terms?|\d+ शब्द/,
+  // Every rule book's collapsed row carries its rule count, once
+  // `data/rules`'s twelve card files have loaded — present whether or not the
+  // reader has reviewed a single card yet.
+  '/learn/browse': /\d+ rules?|\d+ नियम/,
+  '/learn/settings': /New cards per day|प्रतिदिन नए कार्ड/,
+  // Home renders EITHER the first-run empty state or the full dashboard on a
+  // fresh device, and both carry this control — but it is a <Link>, not a
+  // <button> (`asChild`), so it has to be matched by text rather than role.
+  '/learn': /Start review|पुनरीक्षण आरंभ करें/,
 }
 
 interface AxeViolation {

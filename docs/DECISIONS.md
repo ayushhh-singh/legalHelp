@@ -2980,3 +2980,216 @@ The pattern in five of the seven is the same one: **two code paths reading the s
 about it.** The pure layer tolerating what the store layer throws on (4); the import validating a shape
 loosely that an index depends on strictly (5); the queue and the goal check scoping differently (7);
 prose validation against calendar reality (2, 3). Each was invisible to a suite that tests one file.
+
+---
+
+## ADR-026 — Utilities' remaining three tools: a second fixed-offset IST library, engines that take facts as arguments, and gratuity reusing the allowances' own DA-linked escalation
+
+**Date:** 2026-08-29 · **Status:** Accepted · **Session:** 13 (holidays, leave, pension, portals)
+
+### Context
+
+Session 10 built the glossary as Utilities' first real tool; this session brings the other three —
+holiday calendar, leave calculator, retirement & pension — up to the same bar, plus the portals
+directory. All three calculators need IST calendar-date arithmetic, and `src/lib/srs/day.ts` already
+has exactly that logic, built for the Trainer.
+
+### Decision
+
+**1. A second, separate IST day library (`src/lib/istDay.ts`), not a shared import from `src/lib/srs`.**
+`src/lib/srs/purity.test.ts` enumerates every file in that directory by name and asserts what each one
+may and may not do — it exists to police the Trainer's own file list, not a general-purpose module
+boundary. Importing `day.ts` from three unrelated features would couple Utilities to the Trainer through
+a test written for a different purpose, and the reusable part is a handful of pure functions, which cost
+less to duplicate than the coupling would. The `+330`-minute fixed-offset reasoning (no DST in India
+since 1945) is copied verbatim; `addMonths`/`addYears`/`completedMonths`/`completedYears`/
+`lastDayOfMonth` are new, needed for leave accrual and the superannuation-date rule.
+
+**2. Every engine takes its facts as an argument — pay's pattern, not a new one.** `src/lib/holidays`,
+`src/lib/leave` and `src/lib/pension` are pure: no React, no Dexie, no dataset import, no clock of their
+own, mirroring `src/lib/pay/engine.ts`'s own stated rule. `src/lib/leave/rules.ts` is the one exception
+worth naming: the CCS (Leave) Rules 1972 constants (EL/HPL credit rates, the commutation factor) live in
+code rather than a `/data` JSON file, because they are a dozen numbers that do not change between pay
+commissions the way a matrix does — Casual Leave and Restricted Holidays are flagged `verify: true` in
+that same file because they are DoPT administrative instructions outside the 1972 Rules, not the Rules
+themselves, and citing a specific O.M. number without having fetched it would overstate the citation.
+
+**3. NPS and UPS are not re-declared — `data/pay/nps.json` and `data/pay/ups.json` are read again,
+through `src/modules/pay/schema.ts`'s own `schemeSchema`.** The pension module's `data.ts` imports that
+one zod schema rather than writing a second copy of the same shape; `src/lib/pension/types.ts` re-exports
+its `PensionFacts` type from `src/modules/utils/pension/schema.ts` the same way `src/lib/pay/tables.ts`
+imports its types from `src/modules/pay/schema.ts` — the zod schema is the one definition, the pure
+engine's types are `import type` only.
+
+**4. The gratuity ceiling reuses the allowances' own DA-linked escalation, not a new rule.** CCS
+(Pension) Rules 2021 Rule 45 states a Rs. 20 lakh ceiling; the figure actually payable today is Rs. 25
+lakh, because the ceiling — like a fixed allowance in `data/pay/allowances.json` — is raised 25 per cent
+each time Dearness Allowance crosses 50 per cent, which happened on 01.01.2024. `data/pension/
+pension-facts.json`'s `gratuity.daLinked` is the same `{ kind, timesApplied }` shape `allowances.json`
+already uses, and `gratuityCeiling()` in `src/lib/pension/engine.ts` applies it with the same `1.25 **
+timesApplied` the pay engine's `indexFactor()` does.
+
+**5. The superannuation date handles the "born on the 1st" case as a distinct legal rule, not an
+edge case of date arithmetic.** FR 56(a) retires a Government servant on the last day of the month in
+which he attains 60; age in law is attained on the day BEFORE the anniversary of birth. For most birth
+dates that is still the birth month, so the two readings agree — but a birth date of the 1st attains 60
+on the last day of the PRECEDING month, and retires at the end of that earlier month. `superannuationDate()`
+computes `lastDayOfMonth(addDays(addYears(dob, 60), -1))` rather than special-casing the 1st, so the same
+formula produces the ordinary answer and the edge case without a branch; `engine.test.ts` asserts both,
+plus the December-1st and January-1st cases where the edge crosses a year boundary.
+
+**6. `data/holidays/holidays-2026.json` and `data/pension/pension-facts.json`'s commutation table are
+both `verify: true`, and both name a specific reason in their `source.note`.** `dopt.gov.in` answered
+403 or failed certificate verification on every fetch attempted this session (`docs/DATA-GAPS.md` #51);
+the fetched CCS (Commutation of Pension) Rules 1981 PDF's Schedule table could not be parsed from its
+compressed content stream (`docs/DATA-GAPS.md` #52). Both fall back to the project's established pattern
+— a secondary reproduction, cross-checked (the holiday calendar's every day-of-week independently
+recomputed from its date and asserted to match; the commutation table's values checked against a second,
+independent reproduction) — rather than stopping. `scripts/ingest/holidays.py`'s `YEARS` dict is keyed
+by year specifically so a 2027 circular is a second entry, not a rewrite.
+
+**7. Dexie moves to version 9 for one table**: `holidayPicks`, the "choose any two" restricted-holiday
+picks, the only piece of this session's state that outlives a single visit — keyed `"<year>:<holidayId>"`
+so a re-pick overwrites rather than accumulates, indexed on `year`. Leave and pension calculator inputs
+are deliberately NOT persisted: nothing in the session brief asked for a saved scenario the way Pay's
+`payScenarios` table does, and every figure they need (date of birth, date of joining, current basic pay)
+is short enough to re-type, unlike a full pay slip's worth of choices.
+
+### Consequences
+
+- `pnpm test` (1,744 tests, 84 new: 25 in `src/lib/holidays`, 12 in `src/lib/leave`, 21 in
+  `src/lib/pension`, plus data/i18n coverage), `pnpm build` and the Python ingest suite (67 tests) are
+  green for everything this session touched. `scripts/ingest/holidays.py --check` and `scripts/ingest/
+  utils_seed.py --check` both confirm a re-run is byte-identical.
+- `data/holidays`, `data/pension` and `data/portals.json` join `data/law`, `data/pay`, `data/drafting`
+  and `data/rules` in `.prettierignore`, for the same reason: written by `ingest_common.write_json`,
+  and prettier would fight the generator over formatting on every run.
+- `CITATION_HOSTS` in `tests/no-external-urls.test.ts` gained seventeen entries for the portals
+  directory's own links and the three new datasets' sources — reviewed the same way every earlier
+  addition to that list was, each host appearing in a committed dataset's `url` field being the other
+  half of the assertion.
+- This session found the working tree already carrying substantial uncommitted work on the Rules
+  Trainer's UI (a `recharts` dependency, `src/modules/trainer/{store,reviewQueue,data,useCatalogue}.ts`
+  and more, a `src/db` schema already at version 8) that was not reflected in `CLAUDE.md`'s own status
+  table. That work was left untouched throughout — this session's Dexie version 9 was built on top of
+  the already-present version 8 rather than around it, and nothing under `src/modules/trainer` or
+  `src/ai/tools` was edited. Two pre-existing gaps outside this session's scope surfaced as a result and
+  are recorded rather than fixed here: `src/ai/tools/rules.ts` (untracked) cites a placeholder
+  `example.gov.in` URL that fails `tests/no-external-urls.test.ts`, and the built `MockPage` chunk cites
+  `redux.js.org`/`bit.ly` URLs not yet on `ALLOWED_INERT` — both pre-date this session's changes.
+
+---
+
+## ADR-027 — The Rules Trainer's UI: decisions never mutate the dataset, a mock test scoped to what has one right answer, and `useLiveQuery` over the store rather than a refetch
+
+**Date:** 2026-08-29 · **Status:** Accepted · **Session:** 12 (Trainer UI, mock tests, analytics, local
+reminders) · **Builds on:** ADR-023 (content pipeline), ADR-025 (the FSRS scheduler)
+
+### Context
+
+Session 11 left `src/lib/srs` — a scheduler with nothing above it to call it — and `data/rules` with 818
+rules and 2,607 cards, 571 served and a meaningful remainder still `unreviewed`. This session builds the
+eight screens the brief asks for: `/learn` (home), `/learn/review`, `/learn/mock`, `/learn/browse`,
+`/learn/bookmarks`, `/learn/reports`, `/learn/settings` and `/learn/review-queue`, plus four AI tools
+(`src/ai/tools/rules.ts`) and a local daily-reminder seam.
+
+It ran concurrently with Session 13 (Utilities' holidays/leave/pension/portals), in the same working
+tree with no branch isolation. That session found this one's uncommitted work mid-flight, deliberately
+left it untouched, built its own Dexie version 9 on top of this session's version 8 rather than around
+it, and recorded two pre-existing gaps it found but correctly left for this session to fix rather than
+touching code outside its own scope (`docs/DECISIONS.md`'s ADR-026 consequences). Both are fixed below.
+
+### Decision
+
+**1. A card the reader locally approves or rejects is never written back into a `Card` — it is a
+`CardOverrideRow` keyed on `qId`, folded over the dataset at read time.** `src/modules/trainer/
+reviewQueue.ts#effectiveCatalogue(rawCards, overrides, proposed)` is the one function that answers "what
+may the FSRS scheduler draw on": the dataset's own `approved` cards, plus any `unreviewed` dataset card
+or `propose_card`-drafted AI card with an `approved` override, `reviewState` forced to `approved` and any
+edit patch applied. A rejected card, and an undecided one, are simply absent. `src/lib/srs#isServed` sees
+only the RESULT of that merge and has no idea an override exists — the scheduler's contract from ADR-025
+("every function takes the catalogue as an argument") is what makes this possible with zero changes to
+`src/lib/srs` itself. `pendingReviewQueue()` is the same file's other half: cards with no decision yet,
+from either source, which is what `/learn/review-queue` lists.
+
+**2. The mock test is scoped to `mcq` / `trueFalse` / `scenario` cards, not the whole catalogue.** A
+rule-flip card and a cloze card are open recall — there is no single pick a timed test can silently mark
+right or wrong. The three kinds it does draw from are exactly `data/rules`'s "authored questions" (141
+approved, per the master context's own status line), which is not a coincidence: those are the only
+kinds `scripts/authoring/make_cards.py` ever gives an `answerIndex`. `CardView`'s `mode="mock"` suppresses
+the review mode's immediate correct/incorrect highlight on a pick — "no explanations until the end" means
+the option list must never show which one was right before the reader has answered every question — and
+records the answer silently via `onAnswer`, advanced by an explicit Next/Finish button rather than
+auto-advancing, so a reader can change their mind before committing.
+
+**3. Every reactive number in the UI is a `useLiveQuery` over an `src/lib/srs/store.ts` function, not a
+load-once effect with a manual refetch.** `getDueQueue`, `statsForDay` and `weakAreasFor` all read
+`db.srsCards` / `db.reviewLog` / `db.streaks` internally; Dexie's live query tracks every table a querier
+function actually touches, transitively through awaited calls, regardless of the calling component's own
+dependency array. Grading a card writes those three tables in one transaction (`reviewCard`, ADR-025), so
+every screen showing a due count or a stat updates the instant the transaction commits — with no
+"refresh when navigating back to Home" logic anywhere. `useEffectiveCatalogue` uses the same lever over
+`cardOverrides`/`proposedCards` for the Local Review Queue's approvals to reach the very next review
+session with no navigation.
+
+**4. The four grade buttons' interval hints ("3 d") call `previewGrades`, already exported by
+`src/lib/srs/engine.ts` before this session started.** It runs `gradeCard` for all four grades against the
+same row and instant without persisting any of them — pure, and specifically shaped for this UI, which
+reads as Session 11 anticipating it even though nothing above the scheduler existed yet to call it.
+
+**5. `recharts` 3.10 is a real dependency now** (CLAUDE.md's stack line pinned it, `Deferred` listed it
+until this session), for the mock results' accuracy-by-rule-book bar chart — the one chart in this app.
+Colours are passed as `var(--token)` strings directly to `fill`/`stroke`/`tick.fill`, which modern
+browsers resolve as CSS custom properties even on SVG presentation attributes; there is no separate
+recharts-specific theming layer. Its own internal use of Redux bundles `redux.js.org`/`redux-toolkit.js.org`
+error-message links and a `bit.ly` warning shortlink into `MockPage`'s chunk — inert, never fetched, three
+new `ALLOWED_INERT` entries in `tests/no-external-urls.test.ts` record why, closing the gap Session 13
+found and correctly left alone.
+
+**6. `propose_card`'s placeholder `source.url` (`https://example.gov.in/ai-proposed`) is a fourth new
+`ALLOWED_INERT` entry, not a redesign.** `cardSchema` requires an absolute `https://` URL on every card
+and an AI-drafted one has no real citation yet; `example.gov.in` is the same non-resolving placeholder
+host `src/test/rules-cards.ts`'s fixtures already use. The card stays `reviewState: "unreviewed"` —
+unservable — until a human reviews it in `/learn/review-queue`, which is also where a real citation
+would be added before approval.
+
+**7. The daily reminder is local-tab-only, and that ceiling is structural, not a shortcut.** The master
+context rules out a backend and a push server; `src/app/pwa.tsx` registers a workbox-generated service
+worker with no custom message handler to extend. `src/modules/trainer/reminder.ts#checkAndShowReminder`
+is the one impure function — `Notification.requestPermission()` on an explicit Settings click, never
+automatically, and `registration.showNotification()` — checked on every `useNow(60_000)` tick for as long
+as a `/learn/*` tab is open. It cannot fire while no tab of this app is open; `docs/DATA-GAPS.md` #53
+records this as a design ceiling, not a bug.
+
+**8. Dexie moves to version 8 for four tables**: `trainerBookmarks` and `cardOverrides`, keyed on `qId`
+alone because both are a decision about one card, not a log; `trainerReports` and `proposedCards`,
+append-only and keyed on their own `id`. `TrainerReportRow` is never deleted by the reader — "exportable"
+in the brief means read out as CSV, not cleared — an auditor with the dataset in front of them is the
+one who resolves a report.
+
+**9. A real defect in `data/rules/cards/csmop.json` surfaced through the URL sweep, not through review**:
+`csmop-cloze-4-3-definedterm`'s cloze blank lands inside a URL CSMOP's own Table 4.2 quotes in prose
+(`http://cabsec.nic.in/showpdf.php?type=____ s_highlevel_committee&special`), mangling it. It is
+`reviewState: "unreviewed"` — `isServed` already keeps it from any reader — and is exactly the kind of
+defect `/learn/review-queue` exists to catch; `docs/DATA-GAPS.md` #54 records it for a human to reject
+there rather than hand-editing the generated file.
+
+### Consequences
+
+- `pnpm test` (1,744 tests: 40 new across `src/modules/trainer/{reviewQueue,store,reminder,
+  intervalLabel}.test.ts` and `src/ai/tools/rules.test.ts`), `pnpm typecheck` and `pnpm lint` are clean.
+  `pnpm build` succeeds; `tests/e2e/learn.spec.ts` (three tests: the full start-review-to-home-counts
+  loop with a language toggle mid-card, a completed mock test, and the whole review loop offline) and
+  the extended `tests/e2e/a11y.spec.ts` / `tests/e2e/zero-third-party-requests.spec.ts` sweeps pass.
+- `tests/bundle-budget.test.ts`'s initial-route check now fails: 184,996 bytes gzip against a 176,758
+  ceiling. Measured in isolation (a throwaway build with `trainer`'s i18n keys removed, restored
+  immediately after): Session 13's own additions already land the initial route at ~179,191 bytes gzip
+  — over budget on their own, before this session's content — and this session's ~21 KB of raw bilingual
+  JSON adds a further ~5.8 KB gzip on top. Neither session's `i18n` additions are individually
+  reasonable to gut for a shared ceiling that predates both of them by many sessions of incremental
+  growth; `docs/DATA-GAPS.md` #55 records the measurement and defers the actual call — re-baseline via
+  an ADR, or move to per-route i18next namespaces — to whichever session picks it up next, since it is
+  not one either concurrent session can resolve alone by trimming its own content.
+- `src/ai/tools/index.ts` registers `registerRulesTools()` alongside the other three; eighteen tools
+  becomes twenty-two (four `learn`-scope: `get_rule_text`, `get_user_weak_areas`, `get_card_history`,
+  `propose_card`).

@@ -22,6 +22,8 @@ export const SETTING_KEYS = {
   pay: 'pay',
   /** The Drafting Studio's editor preferences — preview tab, Devanagari digits. */
   draft: 'draft',
+  /** The Trainer's local daily-reminder toggle — see src/modules/trainer/reminder.ts. */
+  learnReminder: 'learnReminder',
 } as const
 
 /**
@@ -214,6 +216,78 @@ export interface GlossaryRecentRow {
  */
 export type { ReviewLogRow, SrsCardRow, StreakRow, TrainerSettingsRow }
 
+/**
+ * A card the reader has marked to come back to, outside the FSRS schedule.
+ * Keyed on `qId` alone — bookmarking is a toggle, not a log, so a second
+ * bookmark of the same card has nothing to accumulate.
+ */
+export interface TrainerBookmarkRow {
+  qId: string
+  createdAt: string
+}
+
+/**
+ * A flagged card, kept for an auditor rather than acted on automatically. Never
+ * deleted by the reader — "exportable" in the session brief means read out,
+ * not cleared, so a flag survives until someone with the dataset in front of
+ * them resolves it.
+ */
+export interface TrainerReportRow {
+  id: string
+  qId: string
+  reason: string
+  note: string
+  createdAt: string
+}
+
+/**
+ * A card an AI agent has drafted via the `proposeCard` tool (`src/ai/tools/
+ * rules.ts`), sitting outside `data/rules` until a reader accepts it.
+ *
+ * `card` is typed `unknown` for the reason `PayScenarioRow.scenario` is: `src/db`
+ * is imported by the app shell, and naming the trainer's schema types here
+ * would drag `src/modules/trainer` onto every route. `src/modules/trainer/
+ * reviewQueue.ts` validates the shape on the way out.
+ */
+export interface ProposedCardRow {
+  id: string
+  card: unknown
+  createdAt: string
+}
+
+/**
+ * A reader's decision on a card `data/rules` itself marks `unreviewed`, or on
+ * a `ProposedCardRow` — the Local Review Queue's only write.
+ *
+ * Never a mutation of the dataset: `data/rules` is versioned and shipped with
+ * the build, and a card's home act, rule number and citation come from there.
+ * This is the one row an approval or a rejection produces, and
+ * `src/modules/trainer/reviewQueue.ts#effectiveCatalogue` is the one place
+ * that folds it back over a card to decide what the scheduler is handed.
+ */
+export interface CardOverrideRow {
+  qId: string
+  action: 'approved' | 'rejected'
+  /** A hand-edited front/back/explanation, applied only when `action` is `approved`. `null` for none. */
+  patch: unknown
+  decidedAt: string
+}
+
+/**
+ * One restricted holiday the reader has chosen for a given year — the "any
+ * two" (or three, outside Delhi/New Delhi, which this app does not attempt to
+ * distinguish) a DoPT circular lets an employee pick. Keyed on
+ * `"<year>:<holidayId>"` so picking the same holiday twice overwrites rather
+ * than accumulating, and `year` is its own indexed field so a reload can ask
+ * for one year's picks without a table scan.
+ */
+export interface HolidayPickRow {
+  id: string
+  year: number
+  holidayId: string
+  createdAt: string
+}
+
 export type SettingKey = (typeof SETTING_KEYS)[keyof typeof SETTING_KEYS]
 
 export class SahayakDB extends Dexie {
@@ -232,6 +306,11 @@ export class SahayakDB extends Dexie {
   reviewLog!: Table<ReviewLogRow, string>
   streaks!: Table<StreakRow, string>
   trainerSettings!: Table<TrainerSettingsRow, string>
+  trainerBookmarks!: Table<TrainerBookmarkRow, string>
+  trainerReports!: Table<TrainerReportRow, string>
+  proposedCards!: Table<ProposedCardRow, string>
+  cardOverrides!: Table<CardOverrideRow, string>
+  holidayPicks!: Table<HolidayPickRow, string>
 
   constructor(name = 'sahayak') {
     super(name)
@@ -326,6 +405,60 @@ export class SahayakDB extends Dexie {
       reviewLog: '&id, qId, at',
       streaks: '&date',
       trainerSettings: '&id',
+    })
+    // Version 8 — the Trainer UI's bookmarks, reports, AI-proposed cards and the
+    // Local Review Queue's decisions (Session 12).
+    //
+    // `trainerBookmarks` and `cardOverrides` are keyed on `qId` alone: both are a
+    // toggle/decision about one card, not a log, so a second write overwrites
+    // rather than accumulating. `trainerReports` and `proposedCards` are
+    // append-only and keyed on their own `id`, and both carry `createdAt` for a
+    // newest-first list.
+    this.version(8).stores({
+      settings: '&key',
+      secrets: '&id',
+      aiAnswers: '&id, agentId, dataVersion, createdAt',
+      aiUsage: '&month',
+      lawFavourites: '&id, createdAt',
+      lawRecents: '&id, viewedAt',
+      payScenarios: '&id, name, updatedAt',
+      drafts: '&id, templateId, updatedAt',
+      draftDefaults: '&id, templateId, updatedAt',
+      glossaryFavourites: '&id, createdAt',
+      glossaryRecents: '&id, viewedAt',
+      srsCards: '&qId, due, state',
+      reviewLog: '&id, qId, at',
+      streaks: '&date',
+      trainerSettings: '&id',
+      trainerBookmarks: '&qId, createdAt',
+      trainerReports: '&id, qId, createdAt',
+      proposedCards: '&id, createdAt',
+      cardOverrides: '&qId, decidedAt',
+    })
+    // Version 9 — the Utilities module's holiday calendar (Session 13).
+    // `holidayPicks` is indexed on `year` so "this year's restricted picks"
+    // needs no table scan.
+    this.version(9).stores({
+      settings: '&key',
+      secrets: '&id',
+      aiAnswers: '&id, agentId, dataVersion, createdAt',
+      aiUsage: '&month',
+      lawFavourites: '&id, createdAt',
+      lawRecents: '&id, viewedAt',
+      payScenarios: '&id, name, updatedAt',
+      drafts: '&id, templateId, updatedAt',
+      draftDefaults: '&id, templateId, updatedAt',
+      glossaryFavourites: '&id, createdAt',
+      glossaryRecents: '&id, viewedAt',
+      srsCards: '&qId, due, state',
+      reviewLog: '&id, qId, at',
+      streaks: '&date',
+      trainerSettings: '&id',
+      trainerBookmarks: '&qId, createdAt',
+      trainerReports: '&id, qId, createdAt',
+      proposedCards: '&id, createdAt',
+      cardOverrides: '&qId, decidedAt',
+      holidayPicks: '&id, year, createdAt',
     })
   }
 }

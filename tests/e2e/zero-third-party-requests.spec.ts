@@ -125,6 +125,46 @@ test('sends nothing while the glossary is searched, copied and saved', async ({ 
 })
 
 /**
+ * The Rules Trainer's own capture surfaces (Session 12): a grade, a bookmark,
+ * a free-text report note and a settings change — the report note in
+ * particular is the closest thing in this module to an open text field, and
+ * it is exactly the kind of value this rule exists to keep on the device.
+ */
+test('sends nothing while a card is graded, bookmarked, reported and a setting changed', async ({
+  page,
+  baseURL,
+}) => {
+  const origin = new URL(baseURL ?? 'http://localhost:4173').origin
+  const crossOrigin: string[] = []
+
+  page.on('request', (request) => {
+    const url = new URL(request.url())
+    if (url.origin !== origin) crossOrigin.push(`${request.method()} ${request.url()}`)
+  })
+
+  await page.goto('/learn/review')
+  await expect(page.getByRole('heading', { name: 'Review' })).toBeVisible({ timeout: 30_000 })
+  await expect(page.getByText('Rule 1, Central Civil Services (Conduct) Rules, 1964')).toBeVisible({
+    timeout: 30_000,
+  })
+
+  await page.getByRole('button', { name: 'Bookmark this card' }).click()
+  await page.getByRole('button', { name: 'Report this card' }).click()
+  await page.getByLabel('Note (optional)').fill('The Hindi reads oddly here — please check.')
+  await page.getByRole('button', { name: 'Submit report' }).click()
+  await expect(page.getByText('Report saved.')).toBeVisible()
+
+  await page.getByRole('button', { name: 'Show answer' }).click()
+  await page.getByRole('button', { name: /^Good/ }).click()
+
+  await page.goto('/learn/settings')
+  await expect(page.getByLabel('New cards per day')).toBeVisible({ timeout: 30_000 })
+  await page.getByLabel('New cards per day').fill('5')
+
+  expect(crossOrigin).toEqual([])
+})
+
+/**
  * The AI layer's half of the same rule (Session 3A). It is dormant by default,
  * and "dormant" has to mean more than "the button is grey": reading the consent
  * notice, accepting it and choosing a tier must all still send nothing.

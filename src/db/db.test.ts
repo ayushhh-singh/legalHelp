@@ -108,10 +108,10 @@ describe('the version 2 upgrade', () => {
     try {
       await v2.open()
 
-      // The class declares up to version 7 now (the Rules Trainer's spaced
-      // repetition, Session 11), so opening it upgrades a v1 database straight
-      // to the current version rather than stopping at 2.
-      expect(v2.verno).toBe(7)
+      // The class declares up to version 9 now (the Utilities module's
+      // holiday calendar, Session 13), so opening it upgrades a v1 database
+      // straight to the current version rather than stopping at 2.
+      expect(v2.verno).toBe(9)
       expect(await v2.settings.get(SETTING_KEYS.theme)).toEqual({
         key: SETTING_KEYS.theme,
         value: 'dark',
@@ -129,6 +129,11 @@ describe('the version 2 upgrade', () => {
       expect(await v2.reviewLog.count()).toBe(0)
       expect(await v2.streaks.count()).toBe(0)
       expect(await v2.trainerSettings.count()).toBe(0)
+      expect(await v2.trainerBookmarks.count()).toBe(0)
+      expect(await v2.trainerReports.count()).toBe(0)
+      expect(await v2.proposedCards.count()).toBe(0)
+      expect(await v2.cardOverrides.count()).toBe(0)
+      expect(await v2.holidayPicks.count()).toBe(0)
     } finally {
       v2.close()
       await Dexie.delete(name)
@@ -141,18 +146,23 @@ describe('the version 2 upgrade', () => {
     expect(db.tables.map((table) => table.name).sort()).toEqual([
       'aiAnswers',
       'aiUsage',
+      'cardOverrides',
       'draftDefaults',
       'drafts',
       'glossaryFavourites',
       'glossaryRecents',
+      'holidayPicks',
       'lawFavourites',
       'lawRecents',
       'payScenarios',
+      'proposedCards',
       'reviewLog',
       'secrets',
       'settings',
       'srsCards',
       'streaks',
+      'trainerBookmarks',
+      'trainerReports',
       'trainerSettings',
     ])
   })

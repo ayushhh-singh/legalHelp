@@ -4,6 +4,7 @@ import { registerDraftingTools } from './drafting'
 import { registerLawTools } from './law'
 import { registerPayTools } from './pay'
 import { registerTool, registeredToolNames } from './registry'
+import { registerRulesTools } from './rules'
 
 import { DATASETS, DATA_GENERATED_AT, DATA_VERSION } from '@/lib/dataVersion'
 
@@ -27,6 +28,7 @@ export function registerBuiltinTools(): void {
   registerLawTools()
   registerPayTools()
   registerDraftingTools()
+  registerRulesTools()
 
   if (registeredToolNames().includes('dataset_versions')) return
 
