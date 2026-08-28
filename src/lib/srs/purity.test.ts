@@ -84,6 +84,18 @@ describe('src/lib/srs is pure', () => {
     }
   })
 
+  it('sorts by code unit, never by locale', () => {
+    // Every ordering in this library is a claim that two devices holding the
+    // same history produce the same result. `localeCompare` makes that claim
+    // depend on the runtime's locale and its ICU build. `compareStrings` in
+    // `types.ts` is the one comparator.
+    // The call form, not the bare word: `types.ts` and `queue.ts` both name it
+    // in prose to say why they do not use it.
+    for (const name of sources) {
+      expect(read(name), `${name} sorts with localeCompare`).not.toMatch(/\.localeCompare\s*\(/)
+    }
+  })
+
   it('reads no clock of its own — every function is told what time it is', () => {
     for (const name of sources) {
       expect(read(name), `${name} reads the clock`).not.toMatch(/Date\.now\(\)|new Date\(\)/)

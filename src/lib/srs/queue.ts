@@ -1,5 +1,7 @@
 import { istDay, istDayEnd, withinIstDay } from './day'
 
+import { compareStrings } from './types'
+
 import { isServed, type Card } from '@/modules/trainer/schema'
 
 import type { QueueItem, ReviewLogRow, SrsCardRow, TrainerSettings } from './types'
@@ -108,9 +110,10 @@ export function buildQueue(input: QueueInput): QueueItem[] {
     .filter((entry) => Date.parse(entry.srs.due) <= nowMs)
     .sort((a, b) => {
       const byDue = Date.parse(a.srs.due) - Date.parse(b.srs.due)
-      // Tie-break on the id so the queue is the same on every run and on
-      // every device holding the same history.
-      return byDue !== 0 ? byDue : a.card.id.localeCompare(b.card.id)
+      // Tie-break on the id so the queue is the same on every run and on every
+      // device holding the same history — by code unit, because `localeCompare`
+      // would make that depend on the device's locale.
+      return byDue !== 0 ? byDue : compareStrings(a.card.id, b.card.id)
     })
     .slice(0, reviewBudget)
     .map(({ card, srs }): QueueItem => ({ qId: card.id, card, srs, kind: 'review' }))

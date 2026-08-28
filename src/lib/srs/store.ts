@@ -1,4 +1,4 @@
-import { istDay } from './day'
+import { istDay, istDayEnd, istDayStart } from './day'
 import { createCard, gradeCard } from './engine'
 import { buildQueue, dueCount, dueLaterToday, usageForDay } from './queue'
 import { dayStats, weakAreas } from './stats'
@@ -161,9 +161,18 @@ export async function reviewCard(input: ReviewInput): Promise<ReviewResult> {
     await db.reviewLog.put(log)
 
     const states = new Map((await db.srsCards.toArray()).map((row) => [row.qId, row]))
-    const logs = (await db.reviewLog.toArray()).filter((row) => istDay(row.at) === day)
+    const logs = await logsForDay(day)
     const remaining = buildQueue({ cards: catalogue, states, now, settings, logs }).length
-    const pendingLater = dueLaterToday({ cards: catalogue, states, now })
+    // The same act scope the queue was built with. Without it, a card left on a
+    // learning step in a book the reader has since switched away from holds the
+    // day open for ever — the queue is empty, everything they asked for is
+    // done, and the goal can never be met.
+    const pendingLater = dueLaterToday({
+      cards: catalogue,
+      states,
+      now,
+      acts: settings.actsEnabled,
+    })
     const capSpent = usageForDay(logs, now).reviewed >= settings.dailyReviewCap
 
     const held = await db.streaks.get(day)
@@ -191,8 +200,28 @@ export async function forgetCard(qId: string): Promise<void> {
 
 // ---------------------------------------------------------------------- stats
 
-const logsForDay = async (day: IstDay): Promise<ReviewLogRow[]> =>
-  (await db.reviewLog.toArray()).filter((row) => istDay(row.at) === day)
+/**
+ * One IST day's reviews, off the `at` index.
+ *
+ * A range query rather than `toArray().filter(...)`, for two reasons that both
+ * bite. `reviewLog` is append-only and grows for as long as the reader uses the
+ * app — a year of ten cards a day is 3,650 rows, and the queue is rebuilt after
+ * **every** grade, so the scan was reading the whole history to find the
+ * handful of rows belonging to today. And the filter had to parse every stored
+ * timestamp to do it, so a single unreadable `at` threw `RangeError` out of
+ * `getDueQueue` and took the trainer with it — while the pure layer
+ * (`usageForDay`, `dayStats`) tolerated the same row and carried on. A row
+ * outside the range is now simply outside the range.
+ *
+ * This works because `transfer.ts` will not admit a timestamp that is not in
+ * `toISOString` form: IndexedDB orders strings by code unit, which is
+ * chronological order only while every value has the same shape.
+ */
+const logsForDay = (day: IstDay): Promise<ReviewLogRow[]> =>
+  db.reviewLog
+    .where('at')
+    .between(istDayStart(day).toISOString(), istDayEnd(day).toISOString(), true, false)
+    .toArray()
 
 export async function statsForDay(
   catalogue: readonly Card[],
@@ -200,7 +229,9 @@ export async function statsForDay(
   day?: IstDay,
   acts?: readonly string[],
 ): Promise<DayStats> {
-  const [states, logs] = await Promise.all([statesByQId(), db.reviewLog.toArray()])
+  // One day off the index. `weakAreasFor` below is the query that genuinely
+  // wants the whole history, and it is the only one.
+  const [states, logs] = await Promise.all([statesByQId(), logsForDay(day ?? istDay(now))])
   return dayStats({
     cards: catalogue,
     states,

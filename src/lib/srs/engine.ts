@@ -72,8 +72,14 @@ const iso = (at: Date): string => at.toISOString()
  * other stored row, and FSRS throws outside `(0, 1]`. Clamped rather than
  * rejected: a corrupt settings row must not make the trainer unopenable.
  */
-export const clampRetention = (value: number): number =>
-  Number.isFinite(value) ? Math.min(MAX_DESIRED_RETENTION, Math.max(MIN_DESIRED_RETENTION, value)) : 0.9
+export const clampRetention = (value: number): number => {
+  if (!Number.isFinite(value)) return 0.9
+  const bounded = Math.min(MAX_DESIRED_RETENTION, Math.max(MIN_DESIRED_RETENTION, value))
+  // Rounded to three places so the scheduler cache below has a finite set of
+  // keys. 0.9 and 0.9000000001 are the same request and must not become two
+  // entries in a map that nothing ever evicts.
+  return Math.round(bounded * 1_000) / 1_000
+}
 
 /**
  * One `FSRS` instance per retention, built once. The instance is immutable and
@@ -92,9 +98,23 @@ function schedulerFor(desiredRetention: number): FSRS {
   return scheduler
 }
 
-function toFsrsCard(row: SrsCardRow): FsrsCard {
+/**
+ * A stored timestamp, or null if the row does not hold one this runtime can
+ * read. Rows come back from IndexedDB, which is untrusted input like any other
+ * store — and an `Invalid Date` handed to ts-fsrs comes back out of `toRow` as
+ * a `RangeError` from `toISOString`, taking the whole review with it.
+ */
+function readInstant(value: string | null): Date | null {
+  if (value === null) return null
+  const ms = Date.parse(value)
+  return Number.isNaN(ms) ? null : new Date(ms)
+}
+
+function toFsrsCard(row: SrsCardRow, now: Date): FsrsCard {
   const card: FsrsCard = {
-    due: new Date(row.due),
+    // An unreadable due date degrades to "due now", which is what a card whose
+    // schedule has been lost should be. It never degrades to a throw.
+    due: readInstant(row.due) ?? now,
     stability: row.stability,
     difficulty: row.difficulty,
     elapsed_days: row.elapsed,
@@ -104,7 +124,14 @@ function toFsrsCard(row: SrsCardRow): FsrsCard {
     lapses: row.lapses,
     state: STATE_VALUE[row.state],
   }
-  if (row.lastReview) card.last_review = new Date(row.lastReview)
+  const lastReview = readInstant(row.lastReview)
+  if (lastReview) card.last_review = lastReview
+  // A card that has been graded before but whose timestamp cannot be read.
+  // Dropping the field is not a safe degradation — ts-fsrs refuses a card in
+  // `review` state with no last review at all (`FSRSValidationError: Invalid
+  // date`) — so it falls back to `now`, which reads as "no time has passed"
+  // and is the conservative answer when the interval is unknown.
+  else if (row.reps > 0) card.last_review = now
   return card
 }
 
@@ -119,7 +146,7 @@ function toRow(qId: string, card: FsrsCard, lastGrade: Grade | null): SrsCardRow
     reps: card.reps,
     lapses: card.lapses,
     state: STATE_NAME[card.state],
-    lastReview: card.last_review ? iso(card.last_review) : null,
+    lastReview: card.last_review && !Number.isNaN(card.last_review.getTime()) ? iso(card.last_review) : null,
     lastGrade,
     learningSteps: card.learning_steps,
   }
@@ -142,7 +169,7 @@ export const createCard = (qId: string, now: Date): SrsCardRow => toRow(qId, cre
  */
 export function retrievability(row: SrsCardRow, now: Date, desiredRetention = 0.9): number | null {
   if (row.state === 'new' || row.reps === 0) return null
-  return schedulerFor(desiredRetention).get_retrievability(toFsrsCard(row), now, false)
+  return schedulerFor(desiredRetention).get_retrievability(toFsrsCard(row, now), now, false)
 }
 
 export interface GradeOptions {
@@ -173,11 +200,11 @@ export interface GradeResult {
  * negative elapsed time.
  */
 export function gradeCard(row: SrsCardRow, grade: Grade, now: Date, options: GradeOptions = {}): GradeResult {
-  const lastReview = row.lastReview ? Date.parse(row.lastReview) : null
+  const lastReview = readInstant(row.lastReview)?.getTime() ?? null
   const at = lastReview !== null && now.getTime() < lastReview ? new Date(lastReview) : now
 
   const scheduler = schedulerFor(options.desiredRetention ?? 0.9)
-  const before = toFsrsCard(row)
+  const before = toFsrsCard(row, at)
   const predicted = retrievability(row, at, options.desiredRetention ?? 0.9)
 
   const { card, log } = scheduler.next(before, at, RATING[grade])

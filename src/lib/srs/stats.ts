@@ -1,6 +1,6 @@
 import { istDay, istDayEnd, withinIstDay, type IstDay } from './day'
 import { dueCount } from './queue'
-import { isLapse } from './types'
+import { compareStrings, isLapse } from './types'
 
 import { isServed, type Card } from '@/modules/trainer/schema'
 
@@ -194,6 +194,7 @@ export function weakAreas(input: WeakAreaInput): WeakArea[] {
     .filter((group) => group.reviews >= minReviews)
     .map((group) => ({ ...group, rate: group.lapses / group.reviews }))
     .sort(
-      (a, b) => b.rate - a.rate || b.lapses - a.lapses || b.reviews - a.reviews || a.key.localeCompare(b.key),
+      (a, b) =>
+        b.rate - a.rate || b.lapses - a.lapses || b.reviews - a.reviews || compareStrings(a.key, b.key),
     )
 }

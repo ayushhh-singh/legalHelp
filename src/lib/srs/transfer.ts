@@ -1,6 +1,7 @@
 import { z } from 'zod'
 
-import { DEFAULT_TRAINER_SETTINGS, GRADES } from './types'
+import { isIstDay } from './day'
+import { compareStrings, DEFAULT_TRAINER_SETTINGS, GRADES } from './types'
 
 import type { ReviewLogRow, SrsCardRow, StreakRow, TrainerSettings } from './types'
 
@@ -21,8 +22,29 @@ import type { ReviewLogRow, SrsCardRow, StreakRow, TrainerSettings } from './typ
 /** Bump only for a shape change an older reader could not read. */
 export const TRAINER_EXPORT_VERSION = 1
 
-const isoInstant = z.string().refine((value) => !Number.isNaN(Date.parse(value)), 'not an instant')
-const istDayString = z.string().regex(/^\d{4}-\d{2}-\d{2}$/)
+/**
+ * An instant, in exactly the form `Date.prototype.toISOString` produces.
+ *
+ * The round trip is the check, and a looser one is not good enough for two
+ * separate reasons. JavaScript's date parser is lenient about an overflowing
+ * day of the month, so `2026-02-31T00:00:00.000Z` parses — as the 3rd of March
+ * — and a plain `Date.parse` test would wave it through under a date that does
+ * not exist. And `reviewLog.at` is a Dexie **index** that `store.ts` range-
+ * queries on: IndexedDB compares strings by code unit, so lexicographic order
+ * is chronological order only while every value has this one shape. A row
+ * written as `2026-03-02T09:00:00Z`, or with a `+05:30` offset, would sort into
+ * the wrong place and quietly fall outside the day it belongs to.
+ *
+ * Every timestamp this app writes comes from `toISOString()`, so the only file
+ * this rejects is one that was edited by hand.
+ */
+const isoInstant = z.string().refine((value) => {
+  const at = new Date(value)
+  return !Number.isNaN(at.getTime()) && at.toISOString() === value
+}, 'not a canonical UTC instant')
+
+/** A day that exists — see `day.ts#isIstDay` for why the pattern is not enough. */
+const istDayString = z.string().refine(isIstDay, 'not a real calendar day')
 const gradeSchema = z.enum(GRADES)
 const stateSchema = z.enum(['new', 'learning', 'review', 'relearning'])
 
@@ -101,9 +123,9 @@ export interface TrainerData {
  */
 export function sortTrainerData(data: TrainerData): TrainerData {
   return {
-    srsCards: [...data.srsCards].sort((a, b) => a.qId.localeCompare(b.qId)),
-    reviewLog: [...data.reviewLog].sort((a, b) => a.at.localeCompare(b.at) || a.id.localeCompare(b.id)),
-    streaks: [...data.streaks].sort((a, b) => a.date.localeCompare(b.date)),
+    srsCards: [...data.srsCards].sort((a, b) => compareStrings(a.qId, b.qId)),
+    reviewLog: [...data.reviewLog].sort((a, b) => compareStrings(a.at, b.at) || compareStrings(a.id, b.id)),
+    streaks: [...data.streaks].sort((a, b) => compareStrings(a.date, b.date)),
     trainerSettings: data.trainerSettings,
   }
 }

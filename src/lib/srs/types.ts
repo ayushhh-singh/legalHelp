@@ -28,6 +28,19 @@ export type Grade = 'Again' | 'Hard' | 'Good' | 'Easy'
 /** Presentation order, and the order the four buttons appear in. */
 export const GRADES = ['Again', 'Hard', 'Good', 'Easy'] as const satisfies readonly Grade[]
 
+/**
+ * String order, by code unit — never `localeCompare`.
+ *
+ * Every ordering in this library is a claim that two devices holding the same
+ * history produce the same result: the same export, byte for byte, and the same
+ * queue. `localeCompare` cannot make that claim. Its collation depends on the
+ * runtime's locale and on which ICU version was compiled in, it sorts `A-1`
+ * before `a-1` where code-unit order does the opposite, and it treats a hyphen
+ * as a variable-weight character — which is the one punctuation mark every card
+ * id in `data/rules` is built from.
+ */
+export const compareStrings = (a: string, b: string): number => (a < b ? -1 : a > b ? 1 : 0)
+
 /** A grade of `Again` is a lapse. Everything else is a pass. */
 export const isLapse = (grade: Grade): boolean => grade === 'Again'
 

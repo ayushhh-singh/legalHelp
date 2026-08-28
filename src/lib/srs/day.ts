@@ -1,3 +1,5 @@
+import { compareStrings } from './types'
+
 import type { StreakRow } from './types'
 
 /**
@@ -37,6 +39,25 @@ export function istDay(at: Date | string | number): IstDay {
   const ms = msOf(at)
   if (Number.isNaN(ms)) throw new RangeError(`Not an instant: ${String(at)}`)
   return new Date(ms + IST_OFFSET_MS).toISOString().slice(0, 10)
+}
+
+/**
+ * Whether a string names a day that actually exists.
+ *
+ * The pattern alone is not enough, and this is not hypothetical: JavaScript's
+ * date parser is lenient about an overflowing day of the month, so
+ * `2026-02-31` parses — as the 3rd of March. A row carrying it would be the 3rd
+ * of March to anything that walks the calendar and a day that never happens to
+ * anything that matches the string, which is two different answers from one
+ * row. The round trip is what rules it out.
+ */
+export function isIstDay(value: string): boolean {
+  if (!DAY_PATTERN.test(value)) return false
+  try {
+    return istDay(istDayStart(value)) === value
+  } catch {
+    return false
+  }
 }
 
 /** The instant an IST day begins — 00:00:00.000 IST, as UTC. */
@@ -89,7 +110,12 @@ export function currentStreak(rows: readonly StreakRow[], now: Date | string | n
 
 /** The longest run of goal-met days ever recorded. */
 export function longestStreak(rows: readonly StreakRow[]): number {
-  const met = [...new Set(rows.filter((row) => row.goalMet).map((row) => row.date))].sort()
+  // `isIstDay` before the walk, not out of tidiness: this is the one function
+  // here that steps a stored date forward, and a row naming a day that cannot
+  // exist would throw out of `addIstDays` and take the stats screen with it.
+  const met = [
+    ...new Set(rows.filter((row) => row.goalMet && isIstDay(row.date)).map((row) => row.date)),
+  ].sort(compareStrings)
 
   let best = 0
   let run = 0
