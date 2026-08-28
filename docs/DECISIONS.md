@@ -2924,3 +2924,59 @@ row has nothing in it to merge.
   the queue and the engine over the committed `data/rules/cards/*.json` rather than a fixture.
 - What is still owed: the Trainer UI, and a place in Settings for export/import. `store.ts` has the
   functions; nothing calls them yet.
+
+### Addendum — seven defects an edge-case pass found, and what each one taught
+
+Every one of these was found by probing the built code rather than by reading it, every one crossed a
+file boundary — which is why none showed up in the per-file suites — and every one now has a test in
+`src/lib/srs/edge.test.ts` that was confirmed to fail against the code before the fix.
+
+1. **`localeCompare` cannot make the promise the export makes.** Four comparators used it. Its collation
+   depends on the runtime's locale and its ICU build; it sorts `A-1` after `a-1` where code-unit order
+   does the opposite, and it treats a hyphen as a variable-weight character — the one punctuation mark
+   every card id in `data/rules` is built from. The stated property is that two devices holding the same
+   history produce the same file, and a comparator that is a property of the *runtime* cannot deliver it.
+   `compareStrings` in `types.ts` is now the only one, and `purity.test.ts` fails on `.localeCompare(`
+   anywhere in the directory.
+
+2. **`2026-02-31` is a date JavaScript parses — as the 3rd of March.** The streak day was validated by
+   pattern alone, so a row naming an impossible day was accepted by an import, and then meant two
+   different things: the 3rd of March to anything that walked the calendar, and a day that never happens
+   to `currentStreak`, which matches the literal string. `day.ts#isIstDay` validates by round trip
+   instead, which is exact.
+
+3. **A bad day in a backup could take the stats screen down.** `longestStreak` is the one function that
+   steps a stored date *forward*, and `addIstDays` throws `RangeError` on a day that cannot be parsed.
+   Fixing (2) closes the import route; `longestStreak` now also filters, because a row could still arrive
+   from a future release.
+
+4. **The tolerant layer and the crashing layer disagreed about the same row.** A corrupt `at` was
+   silently skipped by `usageForDay` and `dayStats`, and threw `RangeError: Not an instant` — as an
+   *unhandled rejection* — out of `store.ts#logsForDay`, killing `getDueQueue`. One row, two behaviours.
+
+5. **The queue was reading the whole review log on every card graded.** `logsForDay` did
+   `toArray().filter(...)` over an append-only table that grows for as long as the app is used, to find
+   the handful of rows belonging to today — while `reviewLog` carries an index on `at` that nothing used.
+   It is now a range query, which also fixes (4): a row outside the range is simply outside it.
+
+   That range query is only correct while every stored timestamp has the same shape, because IndexedDB
+   orders strings by code unit. So `isoInstant` in `transfer.ts` now requires exactly what
+   `toISOString()` produces — a round trip, not a `Date.parse` test, which would also have admitted
+   `2026-02-31T00:00:00.000Z`.
+
+6. **Dropping an unreadable `last_review` is not a safe degradation.** The first attempt at hardening
+   `toFsrsCard` omitted the field when it could not be parsed; ts-fsrs then refuses the card outright
+   (`FSRSValidationError: Invalid date`) because a `review`-state card must have one. It falls back to
+   `now` instead — elapsed zero, the conservative reading when the interval is unknown. The original
+   defect was worse: an `Invalid Date` came back out of `toRow` as `RangeError: Invalid time value`,
+   losing the review the reader had just given.
+
+7. **A day's goal could become unreachable.** `remaining` was computed with the reader's `actsEnabled`
+   and `pendingLater` without it, so a card left standing on a learning step in a book the reader had
+   since switched away from held the day open for ever: the queue empty, everything they asked for done,
+   and `goalMet` false. Both now use the same scope.
+
+The pattern in five of the seven is the same one: **two code paths reading the same row and disagreeing
+about it.** The pure layer tolerating what the store layer throws on (4); the import validating a shape
+loosely that an index depends on strictly (5); the queue and the goal check scoping differently (7);
+prose validation against calendar reality (2, 3). Each was invisible to a suite that tests one file.
