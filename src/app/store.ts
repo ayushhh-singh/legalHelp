@@ -1,5 +1,6 @@
 import { create } from 'zustand'
 
+import { DEFAULT_AI_SETTINGS, parseAiSettings, type AiSettings } from '@/ai/flags'
 import { db, getSetting, setSetting, SETTING_KEYS } from '@/db'
 import i18n, { detectBrowserLanguage, isLanguage, type Language } from '@/i18n'
 
@@ -10,12 +11,20 @@ const isTheme = (v: unknown): v is Theme => v === 'light' || v === 'dark'
 interface AppState {
   language: Language
   theme: Theme
+  /**
+   * AI feature flags. Lives here rather than in a store of its own so that
+   * `enabled` is available to every module without importing anything from
+   * src/ai beyond the type-only flags module — the AI layer itself stays
+   * behind a dynamic import.
+   */
+  ai: AiSettings
   /** False until the first read from IndexedDB settles. */
   hydrated: boolean
   /** True when a preference could not be written to IndexedDB (see persist). */
   storageBlocked: boolean
   setLanguage: (language: Language) => Promise<void>
   setTheme: (theme: Theme) => Promise<void>
+  setAi: (patch: Partial<AiSettings>) => Promise<void>
   toggleLanguage: () => Promise<void>
   toggleTheme: () => Promise<void>
   hydrate: () => Promise<void>
@@ -50,7 +59,7 @@ const DEFAULT_THEME: Theme = 'light'
  * flight. Without this, a toggle pressed on a slow device is silently reverted
  * when the IndexedDB read lands a moment later.
  */
-const changedDuringHydrate = { language: false, theme: false }
+const changedDuringHydrate = { language: false, theme: false, ai: false }
 
 /** Newest hydrate wins, so an earlier slow read cannot overwrite a later one. */
 let hydrateGeneration = 0
@@ -58,6 +67,7 @@ let hydrateGeneration = 0
 export const useAppStore = create<AppState>((set, get) => ({
   language: detectBrowserLanguage(),
   theme: 'light',
+  ai: DEFAULT_AI_SETTINGS,
   hydrated: false,
   storageBlocked: false,
 
@@ -81,6 +91,18 @@ export const useAppStore = create<AppState>((set, get) => ({
     await persist(SETTING_KEYS.theme, theme, set)
   },
 
+  /**
+   * Patch-and-persist. The whole object is written every time so that a row
+   * written by an older build is normalised on the next change rather than
+   * accumulating fields nobody parses.
+   */
+  setAi: async (patch) => {
+    changedDuringHydrate.ai = true
+    const next = parseAiSettings({ ...get().ai, ...patch })
+    set({ ai: next })
+    await persist(SETTING_KEYS.ai, next, set)
+  },
+
   toggleLanguage: async () => {
     await get().setLanguage(get().language === 'en' ? 'hi' : 'en')
   },
@@ -98,20 +120,26 @@ export const useAppStore = create<AppState>((set, get) => ({
     const generation = ++hydrateGeneration
     changedDuringHydrate.language = false
     changedDuringHydrate.theme = false
+    changedDuringHydrate.ai = false
 
     let language = detectBrowserLanguage()
     let theme: Theme = DEFAULT_THEME
+    let ai: AiSettings = DEFAULT_AI_SETTINGS
     let blocked = false
 
     try {
-      const [storedLanguage, storedTheme] = await Promise.all([
+      const [storedLanguage, storedTheme, storedAi] = await Promise.all([
         getSetting<unknown>(SETTING_KEYS.language),
         getSetting<unknown>(SETTING_KEYS.theme),
+        getSetting<unknown>(SETTING_KEYS.ai),
       ])
       // Anything unrecognised (a hand-edited row, a value from a future
-      // version) is discarded rather than trusted.
+      // version) is discarded rather than trusted. For AI that rule is what
+      // keeps the feature off: parseAiSettings cannot produce a consented
+      // state out of a row it does not understand.
       if (isLanguage(storedLanguage)) language = storedLanguage
       if (isTheme(storedTheme)) theme = storedTheme
+      if (storedAi !== undefined) ai = parseAiSettings(storedAi)
     } catch (error) {
       blocked = true
       console.warn('[sahayak] could not read settings from IndexedDB', error)
@@ -129,6 +157,9 @@ export const useAppStore = create<AppState>((set, get) => ({
     if (!changedDuringHydrate.theme) {
       next.theme = theme
       applyTheme(theme)
+    }
+    if (!changedDuringHydrate.ai) {
+      next.ai = ai
     }
 
     set(next)

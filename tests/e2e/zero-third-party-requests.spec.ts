@@ -38,3 +38,44 @@ test('makes no cross-origin request while browsing every route or switching lang
 
   expect(crossOrigin).toEqual([])
 })
+
+/**
+ * The AI layer's half of the same rule (Session 3A). It is dormant by default,
+ * and "dormant" has to mean more than "the button is grey": reading the consent
+ * notice, accepting it and choosing a tier must all still send nothing.
+ */
+test('sends nothing while the AI section is read, consented to and configured', async ({ page, baseURL }) => {
+  const origin = new URL(baseURL ?? 'http://localhost:4173').origin
+  const crossOrigin: string[] = []
+
+  page.on('request', (request) => {
+    const url = new URL(request.url())
+    if (url.origin !== origin) crossOrigin.push(`${request.method()} ${request.url()}`)
+  })
+
+  await page.goto('/settings')
+
+  // Visible, and off.
+  const heading = page.getByRole('heading', { name: 'AI features' })
+  await expect(heading).toBeVisible()
+  await expect(page.getByText('off', { exact: true })).toBeVisible()
+
+  // Every control is disabled until the notice has been read.
+  const tiers = page.getByRole('radiogroup', { name: 'How AI runs' })
+  await expect(tiers.getByRole('radio', { name: /Your own Anthropic key/ })).toBeDisabled()
+
+  await page.getByRole('button', { name: 'Read what this sends' }).click()
+  const dialog = page.getByRole('dialog', { name: 'Before you turn on AI' })
+  await expect(dialog).toBeVisible()
+  await expect(dialog.getByText(/Never enter official, sensitive or classified content/)).toBeVisible()
+  await dialog.getByRole('button', { name: 'I have read this — enable AI' }).click()
+
+  // Consent alone does not turn anything on, and choosing a tier with no key
+  // does not either.
+  await expect(page.getByText('off', { exact: true })).toBeVisible()
+  await tiers.getByRole('radio', { name: /Your own Anthropic key/ }).click()
+  await expect(page.getByText('needs setup')).toBeVisible()
+  await expect(page.getByLabel('Anthropic API key')).toBeVisible()
+
+  expect(crossOrigin).toEqual([])
+})

@@ -1,39 +1,18 @@
-import { Check } from 'lucide-react'
+import { lazy, Suspense } from 'react'
 
 import { PageHeader } from '@/components/common/PageHeader'
+import { OptionRow } from '@/components/ui-x'
 import { useAppStore, type Theme } from '@/app/store'
 import { LANGUAGES, LANGUAGE_NAMES, type Language } from '@/i18n'
 import { useT } from '@/i18n/useT'
-import { cn } from '@/lib/utils'
 
-/** Radio-style option row; the check mark is the only selected-state colour. */
-function OptionRow({
-  selected,
-  label,
-  onSelect,
-}: {
-  selected: boolean
-  label: string
-  onSelect: () => void
-}) {
-  return (
-    <button
-      type="button"
-      role="radio"
-      aria-checked={selected}
-      onClick={onSelect}
-      className={cn(
-        'flex min-h-11 w-full items-center justify-between rounded-lg border border-border px-3 py-2.5 text-left text-sm transition-colors',
-        selected
-          ? 'border-action bg-accent font-semibold text-accent-foreground'
-          : 'text-muted-foreground hover:bg-muted',
-      )}
-    >
-      <span>{label}</span>
-      {selected ? <Check aria-hidden="true" className="h-4 w-4" /> : null}
-    </button>
-  )
-}
+/**
+ * The AI settings live behind their own dynamic import, not merely behind this
+ * lazy route. Everything they reach — providers, WebCrypto, the tool registry,
+ * the answer cache — is therefore downloaded only by a reader who opened
+ * Settings, and never by one who did not.
+ */
+const AiSettingsSection = lazy(() => import('@/components/ai/AiSettingsSection'))
 
 export default function SettingsPage() {
   const { t, language } = useT()
@@ -82,6 +61,10 @@ export default function SettingsPage() {
         <h2 className="text-lg font-semibold">{t('pages.settings.privacyTitle')}</h2>
         <p className="max-w-prose text-sm text-muted-foreground">{t('pages.settings.privacyBody')}</p>
       </section>
+
+      <Suspense fallback={<p className="text-sm text-muted-foreground">{t('common.loading')}</p>}>
+        <AiSettingsSection />
+      </Suspense>
     </div>
   )
 }

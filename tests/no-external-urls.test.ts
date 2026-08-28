@@ -23,6 +23,17 @@ import { fromRoot, readFromRoot, projectRoot } from '@/test/paths'
 const URL_PATTERN = /https?:\/\/[^\s'"`)>\\]+/g
 
 /**
+ * The one URL this app may ever request, and only after the reader has opted
+ * into Tier 1 (see docs/AI.md). It is confined to a single source file, which
+ * `only the AI provider names api.anthropic.com` below asserts — so the sweep
+ * cannot be used to smuggle a second outbound host in beside it.
+ */
+const OPT_IN_ENDPOINT = {
+  pattern: /^https:\/\/api\.anthropic\.com\//,
+  file: 'src/ai/providers/anthropic-direct.ts',
+}
+
+/**
  * URLs that may appear as inert strings. None is ever requested: they are XML
  * namespaces, exception-message documentation links, or licence attribution.
  */
@@ -53,6 +64,14 @@ const ALLOWED_INERT: ReadonlyArray<{ pattern: RegExp; why: string }> = [
   {
     pattern: /^https?:\/\/bit\.ly\/wb-precache$/,
     why: 'workbox-precaching console.warn text, bundled into dist/workbox-*.js by vite-plugin-pwa',
+  },
+  {
+    pattern: /^https:\/\/json-schema\.org\/draft\/2020-12\/schema$/,
+    why: 'JSON Schema dialect identifier emitted by zod 4 — an identifier, never dereferenced',
+  },
+  {
+    pattern: OPT_IN_ENDPOINT.pattern,
+    why: 'Tier 1 BYOK endpoint; reached only after explicit consent, from one lazy-loaded module',
   },
 ]
 
@@ -122,6 +141,20 @@ describe('no external URLs', () => {
     }
 
     expect(offenders).toEqual({})
+  })
+
+  it('names api.anthropic.com in exactly one module', () => {
+    // The allowlist above lets the endpoint through the sweep. This is the
+    // check that keeps it confined: one file, which is dynamically imported and
+    // only reachable once the reader has consented to Tier 1.
+    const naming = walk(fromRoot('src'), SOURCE_EXTENSIONS)
+      .map((file) => relative(projectRoot, file))
+      .filter((file) => !/\.test\.tsx?$/.test(file))
+      .filter((file) =>
+        (readFromRoot(file).match(URL_PATTERN) ?? []).some((url) => OPT_IN_ENDPOINT.pattern.test(url)),
+      )
+
+    expect(naming).toEqual([OPT_IN_ENDPOINT.file])
   })
 
   it('imports every webfont from a bundled package, never from a CDN', () => {

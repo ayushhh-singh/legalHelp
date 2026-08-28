@@ -139,3 +139,33 @@ test('no axe violations with the More sheet open', async ({ page }) => {
 
   expect(format(await audit(page))).toEqual([])
 })
+
+/**
+ * The consent modal and the enabled AI surface, in both themes.
+ *
+ * Neither is on screen in the default state the sweep above audits: the modal
+ * only opens on a click, and the coral AI banner only renders once a tier has
+ * been chosen. Both are exactly the kind of surface where a contrast or a
+ * focus-order defect hides, so each gets its own run.
+ */
+for (const theme of ['light', 'dark'] as const) {
+  test(`no axe violations on the AI consent modal and banner in ${theme}`, async ({ page }) => {
+    await setChrome(page, 'en', theme)
+    await page.goto('/settings')
+    await expect(page.getByRole('heading', { name: 'AI features' })).toBeVisible()
+
+    await page.getByRole('button', { name: 'Read what this sends' }).click()
+    await expect(page.getByRole('dialog', { name: 'Before you turn on AI' })).toBeVisible()
+    expect(format(await audit(page)), `consent modal (${theme})`).toEqual([])
+
+    await page.getByRole('button', { name: 'I have read this — enable AI' }).click()
+    await page
+      .getByRole('radiogroup', { name: 'How AI runs' })
+      .getByRole('radio', { name: /Your own Anthropic key/ })
+      .click()
+    // The classified-content banner is now on screen, coral on its own tint.
+    await expect(page.getByText(/Do not enter official, sensitive or classified/)).toBeVisible()
+
+    expect(format(await audit(page)), `AI banner (${theme})`).toEqual([])
+  })
+}

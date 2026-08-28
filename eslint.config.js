@@ -44,6 +44,18 @@ export default tseslint.config(
     },
   },
 
+  // The single network seam. `src/ai/providers/wire.ts` is the only module in
+  // the application that may call fetch, and it may only do so on a tier the
+  // reader explicitly consented to. Granting the exception here, rather than
+  // quietly reaching the global as `globalThis.fetch`, keeps the audit question
+  // "what in this app can talk to the network?" answerable from this file.
+  {
+    files: ['src/ai/providers/wire.ts'],
+    rules: {
+      'no-restricted-globals': 'off',
+    },
+  },
+
   // TS config files belong to tsconfig.node.json, not the app project.
   {
     files: ['*.config.ts'],

@@ -85,5 +85,127 @@
       "privacyTitle": "Privacy",
       "privacyBody": "Everything you enter stays on this device, in your browser's storage. There is no account, no server and no analytics."
     }
+  },
+  "ai": {
+    "sectionTitle": "AI features",
+    "sectionSubtitle": "Off by default. With AI off this app makes no network request of any kind.",
+    "statusOff": "off",
+    "statusOn": "on",
+    "statusNotReady": "needs setup",
+    "openConsent": "Read what this sends",
+    "consentRequired": "Read and accept the AI notice before these settings can be changed.",
+    "consentAccepted": "Notice accepted on {{date}}.",
+    "banner": {
+      "label": "AI notice",
+      "title": "AI answers can be wrong.",
+      "classified": "Do not enter official, sensitive or classified content, file numbers, or anything that identifies a person.",
+      "verify": "Check every section number, figure and date against the source shown before you act on it.",
+      "leavesDevice": "What you type is sent off this device.",
+      "staysOnDevice": "Nothing you type leaves this device on this setting."
+    },
+    "consent": {
+      "title": "Before you turn on AI",
+      "intro": "Sahayak works fully without AI. Turning it on changes what leaves this device, so read this first.",
+      "tiersHeading": "What each option sends",
+      "classifiedHeading": "The rule that matters most",
+      "classified": "Never enter official, sensitive or classified content, departmental file numbers, or anything that identifies a person. Nothing in this app can undo that once it has been sent.",
+      "storageHeading": "Where your key is kept",
+      "storage": "A key you enter is encrypted with AES-GCM and stored only in this browser. It is sent nowhere except to Anthropic, as your own credential. Code running on this page could still read it — encryption at rest is not protection against that.",
+      "costHeading": "What it costs",
+      "cost": "Sahayak is free and takes no payment. With your own key, Anthropic bills you directly for every request. You set a monthly token limit here and the app stops at it.",
+      "accept": "I have read this — enable AI",
+      "cancel": "Not now",
+      "tiers": {
+        "local": {
+          "name": "On this device",
+          "leaves": "Nothing leaves the device. The model runs inside your browser.",
+          "cost": "Free, after a large one-time download."
+        },
+        "byok": {
+          "name": "Your own Anthropic key",
+          "leaves": "Your question, the app's instructions and the records it looked up are sent to Anthropic.",
+          "cost": "Anthropic bills your own account."
+        },
+        "proxy": {
+          "name": "Shared service",
+          "leaves": "The same content is sent to this app's operator, who forwards it to Anthropic.",
+          "cost": "Free to you."
+        }
+      }
+    },
+    "tier": {
+      "label": "How AI runs",
+      "off": "Off",
+      "local": "On this device",
+      "byok": "Your own Anthropic key",
+      "proxy": "Shared service"
+    },
+    "tierHint": {
+      "off": "No AI surface is shown and no request is made.",
+      "local": "Arrives in a later session, once the on-device model ships.",
+      "byok": "Paste a key from your Anthropic console. It stays in this browser.",
+      "proxy": "Not configured in this build."
+    },
+    "model": {
+      "label": "Model",
+      "hint": "Sonnet is the default: these answers are lookups over bundled tables, not open reasoning."
+    },
+    "key": {
+      "label": "Anthropic API key",
+      "placeholder": "sk-ant-…",
+      "hint": "Stored encrypted on this device only. Revoke it any time from your Anthropic console.",
+      "save": "Save key",
+      "saved": "Key saved on this device.",
+      "clear": "Clear key",
+      "cleared": "Key removed from this device.",
+      "present": "A key is stored on this device.",
+      "absent": "No key is stored.",
+      "invalid": "That does not look like an Anthropic key.",
+      "show": "Show key",
+      "hide": "Hide key"
+    },
+    "test": {
+      "button": "Test connection",
+      "running": "Testing…",
+      "ok": "The key works.",
+      "failed": "The key was rejected: {{reason}}",
+      "note": "Sends exactly one request, of one token, when you press it."
+    },
+    "budget": {
+      "label": "Monthly token limit",
+      "hint": "A hard stop. When this month's total reaches it, a run refuses to start.",
+      "used": "{{used}} of {{limit}} tokens used this month",
+      "exhausted": "This month's limit is used up."
+    },
+    "cache": {
+      "label": "Reuse recent answers",
+      "hint": "A repeated question is answered from this device instead of being sent again. Questions about you are never stored.",
+      "fromCache": "From cache",
+      "fresh": "Answer fresh"
+    },
+    "kill": {
+      "title": "Turn everything off",
+      "body": "Switches AI off, deletes the stored key and the key that encrypts it, and clears cached answers and the token count.",
+      "button": "Turn off and delete",
+      "confirm": "Delete the stored key and every cached answer?",
+      "cancel": "Keep them",
+      "done": "AI is off and nothing was left behind."
+    },
+    "errors": {
+      "ungrounded": "The answer was not backed by anything the app looked up, so it was discarded.",
+      "invalid_citation": "The answer cited a source that does not support it, so it was discarded.",
+      "budget_exhausted": "This month's token limit is used up.",
+      "max_steps": "The assistant did not finish within the allowed number of steps.",
+      "aborted": "Cancelled.",
+      "no_key": "No key is stored on this device.",
+      "not_installed": "The on-device model is not part of this build.",
+      "not_configured": "AI is not configured.",
+      "auth": "The key was rejected.",
+      "rate_limited": "Too many requests. Try again shortly.",
+      "provider": "The AI service could not be reached.",
+      "tool_timeout": "A lookup took too long to answer.",
+      "invalid_args": "The assistant could not call a lookup correctly.",
+      "unknown_tool": "The assistant asked for a lookup that does not exist."
+    }
   }
 }

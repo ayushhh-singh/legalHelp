@@ -38,8 +38,10 @@ jobs:
         run: pnpm build
 
       # Re-run after the build so the dist-only assertions actually execute.
-      - name: Verify the build makes no third-party requests
-        run: pnpm exec vitest run tests/no-external-urls.test.ts
+      # bundle-budget also proves the AI layer is not in the initial route,
+      # which is a privacy property here, not a performance one (ADR-011).
+      - name: Verify the build makes no third-party requests and stays in budget
+        run: pnpm exec vitest run tests/no-external-urls.test.ts tests/bundle-budget.test.ts
 
       - name: Install Playwright browsers
         run: pnpm exec playwright install --with-deps chromium

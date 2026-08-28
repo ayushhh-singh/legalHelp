@@ -676,3 +676,91 @@ Verified clean at 320 / 390 / 767 / 768 / 1023 / 1024 / 1280px: all six destinat
 one, with no gap at either breakpoint boundary. Every Devanagari node measured at exactly line-height 1.75,
 headings included. `tailwind-merge` 3 was checked directly against the custom token names — `text-sm` beside
 `text-marigold-foreground`, `bg-card` beside `bg-marigold/15` and so on — and drops nothing.
+
+---
+
+## ADR-011 — The AI layer ships dormant, behind a consent gate, with grounding enforced in code
+
+**Date:** 2026-08-28 · **Status:** Accepted · **Implements:** the master context's AI layer (Session 3A)
+
+### Context
+
+The master context calls for an AI layer built in full and dormant by default, in three activation
+tiers, with a consent gate, a classified-content banner and a kill switch. That sits in obvious tension
+with the hard rule the whole app rests on — "zero network requests carrying user-entered data" — so the
+question is not whether to build it but what makes the promise still true, and still testable, once it
+exists.
+
+Three sub-decisions needed making, and none of them is reversible cheaply once a surface has shipped.
+
+### Decision
+
+**1. Consent is the feature flag, not a modal in front of it.**
+`isAiEnabled()` is `tier !== 'off' && consentVersion === CONSENT_VERSION`. The settings UI and every
+module read the same field, so no sequence of clicks reaches an enabled state without the notice, and
+`parseAiSettings()` discards anything it does not recognise — a hand-edited settings row cannot forge
+consent. Bumping `CONSENT_VERSION` re-gates every device.
+
+**2. Laziness is treated as a privacy property, not a performance one.**
+`src/app/store.ts` imports only `src/ai/flags.ts` — a type, a parser and a gate, with no zod, no
+WebCrypto and no provider behind it. Everything else is dynamically imported, so a reader who never
+turns AI on never downloads the code that could reach the network. `tests/bundle-budget.test.ts` asserts
+that `api.anthropic.com`, `anthropic-dangerous-direct-browser-access`, `anthropic-version` and `PBKDF2`
+appear in no initial-route chunk, and that the route stays within 30 KB gzip of the pre-AI baseline
+(measured: **+5.9 KB**, essentially all of it the bilingual consent copy in the i18n catalogues).
+
+**3. Exactly one module may call `fetch`, and the lint config says which.**
+`eslint.config.js` keeps `no-restricted-globals: fetch` across `src/` and grants a single file-scoped
+exception to `src/ai/providers/wire.ts`. Reaching the network as `globalThis.fetch` would have satisfied
+the linter silently; the written exception is what keeps "what in this app can talk to the network?"
+answerable from one file. `tests/no-external-urls.test.ts` gains a matching assertion that
+`api.anthropic.com` is named in exactly one source file, and the URL is allowlisted as opt-in rather
+than inert — the one entry in that list that really is fetched, and only after consent.
+
+**4. Grounding fails closed, in the agent loop, not in a prompt.**
+Each tool result gets a citable handle (`T1`, `T2`, … in execution order). Every agent in `TASK_DEFAULTS`
+sets `groundedRequired`, and a final answer citing none of them ends the run with `error: ungrounded` and
+is never shown. Independently, `validateCitations()` rejects an out-of-range `[k]` and any section or
+rule number that appears in no cited snippet. A prompt instruction would have been advisory; in this
+app an invented section number is the worst thing that can happen, so it is a code path with tests.
+
+**5. `device` mode is the default for the key vault, and the modal says what that is worth.**
+The AES-GCM key is generated non-extractable and stored as a `CryptoKey` handle, so a table dump yields
+nothing reusable; a passphrase mode (PBKDF2-SHA256, 600,000 iterations) is offered for readers who want
+it. Neither defends against code running on the origin, and `src/ai/crypto.ts`, `docs/AI.md` and the
+consent modal all say so in those words rather than implying more.
+
+**6. The default model is Claude Sonnet 4.6, not the largest available.**
+These agents are grounded lookups over bundled tables, not open reasoning, and a BYOK reader pays per
+token. Claude Opus 5 is in the picker. `src/ai/models.ts` is the one place a model id, a price or an
+effort level is written; it also records which parameters each model accepts, so a request never 400s on
+a parameter that model removed.
+
+### Consequences
+
+- **Tier 0 and Tier 2 ship disabled, not hidden.** `LocalProvider` is an interface plus a stub that
+  throws `not_installed`; `ProxyProvider` is complete but this build sets no `VITE_AI_PROXY_URL`. Both
+  appear in Settings greyed with a reason, because a hidden option reads as a missing feature.
+- **`fuse.js` 7.5.0 joins the dependency list**, inside the lazy AI chunk, for the answer cache's
+  similarity search. It was already in the master context's pinned stack as deferred.
+- **Dexie schema version 2** adds `secrets`, `aiAnswers` and `aiUsage`. All three stay empty until AI is
+  turned on; declaring them now means the kill switch has somewhere to clear from on day one.
+- **151 i18n keys, up from 108.** The consent copy is the largest single block of prose in the app and
+  had to be written in both languages before anything could be enabled.
+- The layer costs a reader who never enables it: 5.9 KB gzip of translation strings and a settings
+  section that says "off".
+
+### Two defects this work surfaced, both fixed
+
+- **`instanceof Uint8Array` is the wrong check on a value read back out of IndexedDB.** A structured
+  clone can return a view whose prototype belongs to another realm — the jsdom-over-Node test
+  environment reproduces exactly that, and the browser can too. Every stored key read `null`. Replaced
+  with `ArrayBuffer.isView` plus a same-realm copy (`toBytes()` in `src/ai/crypto.ts`).
+- **`normaliseQuestion()` destroyed Devanagari.** Matras and the virama are combining marks, not
+  letters, so a `\p{L}\p{N}` filter turned "धारा 302 क्या है" into "ध र 302 क य ह" — every Hindi
+  question would have normalised to roughly the same consonant skeleton and the answer cache would have
+  served the wrong answer. `\p{M}` is now in the keep set, with a test in both scripts.
+
+Additionally, `tests/e2e/a11y.spec.ts` grew a run over the consent modal and the enabled AI banner, and
+immediately caught a real contrast failure: `OptionRow`'s hint line dimmed `--muted-foreground` with
+`opacity-80`, dropping it below 4.5:1. Size and weight now carry that hierarchy instead of opacity.
