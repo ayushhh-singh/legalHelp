@@ -2,7 +2,7 @@ import { describe, expect, it } from 'vitest'
 
 import { DROPPED_CASES, SEARCH_CASES } from './fixtures/law-search'
 
-import { buildEngine, searchLaw, sortKeyFor, type LawSearchEngine } from '@/modules/law/search'
+import { browseCode, buildEngine, searchLaw, sortKeyFor, type LawSearchEngine } from '@/modules/law/search'
 import type { LawCorpus, LawDataset, LawIndex } from '@/modules/law/types'
 import { readFromRoot } from '@/test/paths'
 
@@ -134,6 +134,33 @@ describe('ranking rules', () => {
 
   it('survives a query that is only punctuation', () => {
     expect(() => searchLaw(engine, { query: '((()))', direction: 'old-new' })).not.toThrow()
+  })
+})
+
+describe('browsing a code', () => {
+  it('returns every section of that Act, in number order', () => {
+    const bns = browseCode(engine, 'bns')
+    expect(bns).toHaveLength(358)
+    expect(label(bns[0]!)).toBe('BNS 1')
+    expect(label(bns[357]!)).toBe('BNS 358')
+  })
+
+  it('orders a lettered section beside its neighbour, not at the end', () => {
+    const bnss = browseCode(engine, 'bnss').map(label)
+    expect(bnss).toHaveLength(531)
+    expect(bnss.indexOf('BNSS 2')).toBe(bnss.indexOf('BNSS 1') + 1)
+  })
+
+  it('never mixes codes', () => {
+    for (const code of ['bns', 'bnss', 'bsa'] as const) {
+      expect(browseCode(engine, code).every((hit) => hit.doc.code === code)).toBe(true)
+    }
+  })
+
+  it('scores every browse row worse than any real match, so a query wins', () => {
+    // The browse list is replaced the moment anything is typed; the score is
+    // belt and braces for any future caller that merges the two.
+    expect(browseCode(engine, 'bsa').every((hit) => hit.score === 1)).toBe(true)
   })
 })
 

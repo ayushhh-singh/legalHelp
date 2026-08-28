@@ -28,8 +28,15 @@ export function tokenise(text: string): string[] {
   return text.match(/\n|[^\s]+/g) ?? []
 }
 
-/** Punctuation and case are not what a reader means by "what changed". */
-const normalise = (token: string) => token.toLowerCase().replace(/[.,;:"'()‘’“”]/g, '')
+/**
+ * Punctuation and case are not what a reader means by "what changed".
+ *
+ * The danda `।` and double danda `॥` are in the list because they are the
+ * Devanagari full stop: the ingest's Hindi headings end in one and the English
+ * ones do not, so leaving them out reported "हत्या।" and "हत्या" as a deletion
+ * plus an insertion — a spurious change on every Hindi heading pair.
+ */
+const normalise = (token: string) => token.toLowerCase().replace(/[.,;:"'()‘’“”।॥]/g, '')
 
 /**
  * Above this many tokens on either side the algorithm's worst case (O(N·D))

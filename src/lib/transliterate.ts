@@ -125,6 +125,9 @@ const SIGNS: Readonly<Record<string, string>> = {
 
 const DEVANAGARI_DIGITS = '०१२३४५६७८९'
 
+/** Marks that carry no sound: the virama and nukta are consumed above. */
+const SKIPPED = new Set([VIRAMA, NUKTA, 'ऽ', '॰', '\u200c', '\u200d'])
+
 const isDevanagariConsonant = (char: string) => char in CONSONANTS
 
 /**
@@ -193,8 +196,11 @@ export function romanise(input: string): string {
     }
 
     // Latin, punctuation and whitespace pass through untouched, so a mixed
-    // string like "धारा 302" survives intact.
-    if (char !== VIRAMA && char !== NUKTA && char !== 'ऽ' && char !== '॰') {
+    // string like "धारा 302" survives intact. The zero-width joiner and
+    // non-joiner do NOT: they are invisible characters that a Devanagari
+    // keyboard inserts inside conjuncts, and passing them through put them in
+    // the middle of a transcription ("क्‍ष" became "k\u200dsha").
+    if (!SKIPPED.has(char)) {
       out += char
     }
   }

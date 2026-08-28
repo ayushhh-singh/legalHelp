@@ -9,7 +9,7 @@ import { SectionResultCard } from './components/SectionResultCard'
 import { NoteBanner } from './components/NoteBanner'
 import { SearchBar } from './components/SearchBar'
 import { recordLookup } from './saved'
-import { searchLaw, type LawHit } from './search'
+import { browseCode, searchLaw, type LawHit, type LawSearchEngine } from './search'
 import { SEARCH_RESULT_LIMIT } from '@/lib/search'
 import type { LawCode } from './types'
 import { useLawEngine } from './useLawEngine'
@@ -19,6 +19,7 @@ import { EmptyState } from '@/components/common/EmptyState'
 import { PageHeader } from '@/components/common/PageHeader'
 import { Badge, QueryErrorState, SectionCard, SectionNumber, Skeleton } from '@/components/ui-x'
 import { Button } from '@/components/ui/button'
+import type { Language } from '@/i18n'
 import { useT } from '@/i18n/useT'
 
 /**
@@ -37,6 +38,12 @@ import { useT } from '@/i18n/useT'
  */
 /** How long a section must stay on screen before it counts as "looked at". */
 const LOOKUP_DWELL_MS = 1500
+
+/** The Act a code chip names, in the reader's language, for the count line. */
+function actNameFor(engine: LawSearchEngine | null, code: LawCode | null, language: Language): string {
+  if (!engine || !code) return ''
+  return engine.corpus.datasets[code].newAct.name[language]
+}
 
 export default function ConverterPage() {
   const { t, language } = useT()
@@ -65,8 +72,13 @@ export default function ConverterPage() {
   // A date carried over from earlier in this session, when the URL has none.
   const date = view.date ?? recallOffenceDate()
 
-  // The section tables are only worth downloading once there is a question.
-  const engine = useLawEngine(Boolean(query.trim()))
+  /**
+   * Two things ask for the section tables: a query, and picking a code to
+   * browse. Both are explicit actions by the reader, which is what keeps a bare
+   * `/law` free of the 3.9 MB download (ADR-013).
+   */
+  const browsing = !query.trim() && view.code !== null
+  const engine = useLawEngine(Boolean(query.trim()) || browsing)
 
   const update = (patch: Partial<typeof view>) => {
     const next = { ...view, date, ...patch }
@@ -98,7 +110,16 @@ export default function ConverterPage() {
     })
   }, [engine.engine, deferredQuery, view.code, view.direction])
 
-  const hits = result?.hits ?? []
+  /**
+   * With a code chip picked and nothing typed, the list is that Act end to end
+   * — 358 to 531 rows, which is exactly what `ResultList`'s windowing is for.
+   */
+  const browseHits = useMemo(
+    () => (browsing && engine.engine && view.code ? browseCode(engine.engine, view.code) : []),
+    [browsing, engine.engine, view.code],
+  )
+
+  const hits = result?.hits ?? browseHits
 
   /**
    * Which result is open. Derived rather than stored wherever it can be: a
@@ -106,7 +127,14 @@ export default function ConverterPage() {
    * changing the query never leaves a card from the previous search on screen.
    */
   const [chosenId, setChosenId] = useState<string | null>(null)
-  const selected: LawHit | undefined = hits.find((hit) => hit.doc.id === chosenId) ?? hits[0]
+  /**
+   * A SEARCH opens its best result straight away — that is the answer the
+   * reader asked for. BROWSING does not: the whole Act is on screen and
+   * nothing in it has been asked for yet, so opening section 1 (and recording
+   * it as a lookup) would be the app answering a question nobody put.
+   */
+  const chosen = hits.find((hit) => hit.doc.id === chosenId)
+  const selected: LawHit | undefined = chosen ?? (browsing ? undefined : hits[0])
   const [activeIndex, setActiveIndex] = useState(-1)
 
   /**
@@ -208,7 +236,7 @@ export default function ConverterPage() {
         />
       ) : null}
 
-      {engine.status !== 'error' && !view.query.trim() ? (
+      {engine.status !== 'error' && !view.query.trim() && !browsing ? (
         <SectionCard data-print-hide>
           <EmptyState
             icon={Scale}
@@ -262,11 +290,16 @@ export default function ConverterPage() {
       {hits.length > 0 && engine.engine ? (
         <div data-print-hide className="space-y-2">
           <p className="text-sm text-muted-foreground tabular-nums">
-            {t('law.results.count', { count: hits.length })}
+            {browsing
+              ? t('law.results.browsing', {
+                  count: hits.length,
+                  act: actNameFor(engine.engine, view.code, language),
+                })
+              : t('law.results.count', { count: hits.length })}
           </p>
           {/* The search caps its result list; say so rather than presenting a
               truncated list as if it were everything. */}
-          {hits.length >= SEARCH_RESULT_LIMIT ? (
+          {!browsing && hits.length >= SEARCH_RESULT_LIMIT ? (
             <p className="text-xs text-muted-foreground">
               {t('law.results.truncated', { count: hits.length })}
             </p>
@@ -279,6 +312,7 @@ export default function ConverterPage() {
             onSelect={(hit) => setChosenId(hit.doc.id)}
             activeIndex={activeIndex}
             onActiveIndexChange={setActiveIndex}
+            browsing={browsing}
             onLeaveTop={() => {
               setActiveIndex(-1)
               document.getElementById('law-search')?.focus()

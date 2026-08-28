@@ -1161,6 +1161,77 @@ Two more found by reading rendered screenshots rather than by a test, and fixed:
   section has only one, so the whole section was being listed as a sub-section of itself. Clauses equal
   to the section number are filtered out; the status pill above already says the section changed.
 
+### Addendum — adversarial edge-case pass (same session)
+
+A second, deliberately adversarial sweep after the module was working: probing
+scripts over the real datasets rather than invented inputs, plus reading rendered
+screenshots. Nine more defects, each now covered by a test that was checked
+against the code as written.
+
+**Search and parsing**
+
+- **Devanagari digits were not section numbers.** `normalize('NFKC')` folds
+  fullwidth `３０२` to `302` and leaves `३०२` alone — they are a different number
+  system, not a compatibility variant. "धारा ३०२" produced a text search rather
+  than a lookup, in the module whose whole premise is that Hindi is not a
+  second-class way in. `toAsciiDigits` now runs before the reference test.
+- **"The first Act named" named the wrong one.** The scan walked `ACT_TOKENS` in
+  table order, so "ipc 302 bns 103" was read as a question about BNS 302 — the
+  comment said one thing and the code did another. It now takes the token
+  matching earliest in the QUERY, longest match winning a tie, which is what
+  keeps "bnss" from being read as "bns".
+- **"438/CrPC" did not parse.** `/` was not a separator, so the reference kept a
+  trailing slash and failed. Officers write references that way constantly.
+  `u/s` still works: `SECTION_PREFIX` strips it earlier.
+- A sweep of all 2,267 heading words and keywords in the three datasets for
+  accidental Act-name substrings (`bns` inside an ordinary word, and so on)
+  found **none**, so the `includes` match is safe against the real vocabulary.
+  That is worth recording because it is the obvious thing to worry about.
+
+**Diff and transliteration**
+
+- **The danda was not punctuation.** `।` and `॥` are the Devanagari full stop;
+  the ingest's Hindi headings end in one and the English ones do not, so every
+  Hindi heading pair reported a spurious deletion plus insertion.
+- **Zero-width joiners leaked into transcriptions.** A Devanagari keyboard puts
+  U+200D inside conjuncts; `romanise('क्\u200dष')` returned `"k\u200dsha"`.
+
+**Storage**
+
+- **The recent-lookups trim deleted the wrong rows.** `Date.now()` has
+  millisecond resolution, several lookups land inside one, and Dexie breaks a
+  tie on the primary key — a string, where `"bns:10"` sorts before `"bns:2"`.
+  A burst of twenty-five lookups kept 4–9 and deleted 10 and 11. Timestamps are
+  now strictly increasing within the tab, which makes the ordering total and
+  leaves the value a real date.
+
+**The result list**
+
+- **A stale `activeIndex` took the whole list out of the tab order.** The page
+  owns that index and a new query can return fewer rows; when it pointed past
+  the end, no row got `tabIndex={0}`.
+- **The windowing arithmetic stretched the window instead of moving it.**
+  `first = min(fromScroll, active - OVERSCAN)` spans row 0 down to the focused
+  row, so a row near the end of 400 rendered all 400 and switched virtualisation
+  off, while `active` of -1 (nothing focused, the usual state) pinned `first` to
+  0 so scrolling showed blank space. It is now a fixed-width slice that follows
+  the scroll position and re-centres only when the focused row falls outside it.
+
+### Browsing an Act, added after the first pass
+
+The code chips did nothing at all with an empty search box — they selected a
+filter over no results. Picking a code now lists that Act end to end, which is a
+real way to use a law reference and is what `ResultList`'s windowing was built
+for (531 rows for the BNSS).
+
+It stays behind an explicit chip press rather than happening on load, because
+that is what keeps the 3.9 MB download off a bare `/law`. Three things separate
+it from a search, and each was wrong in the first cut: a browse row shows no
+"why this matched" badge (nothing matched), the result cap notice never applies
+(nothing is truncated), and **nothing is auto-opened** — a search opens its best
+result because that is the answer the reader asked for, whereas opening BNS 1
+and recording it as a lookup would be the app answering a question nobody put.
+
 ### Looked at, deliberately not done
 
 - **Splitting the section text out of the search payload.** Measured: dropping `text` takes the
@@ -1169,3 +1240,9 @@ Two more found by reading rendered screenshots rather than by a test, and fixed:
   `docs/DATA-GAPS.md` #22 rather than built at the end of this session.
 - **Showing results as each code arrives.** It would cut the wait for the first answer, and a partial
   result list that looks complete is exactly the failure this module exists to prevent.
+- **Voice search.** Asked for, and it cannot be built the ordinary way here. `SpeechRecognition` in
+  Chrome streams the audio to Google's servers; it is not on-device. A spoken query is user-entered
+  data leaving the device, which is the hard rule `tests/e2e/zero-third-party-requests.spec.ts`
+  enforces. The compatible shape is the AI layer's: off by default, behind a notice that says where
+  the audio goes, with `hi-IN` / `en-IN` locales — a product decision about a hard rule, so it is the
+  human's to make. Recorded as `docs/DATA-GAPS.md` #23.

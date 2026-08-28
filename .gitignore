@@ -46,3 +46,5 @@ venv/
 # ingest: archived source documents (forensic trail, not repository content)
 scripts/ingest/raw/*
 !scripts/ingest/raw/.gitkeep
+scripts/ingest/raw-pay/*
+!scripts/ingest/raw-pay/.gitkeep

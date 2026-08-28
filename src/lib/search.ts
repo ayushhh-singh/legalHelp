@@ -193,9 +193,24 @@ function detectScript(input: string): Script {
   return 'none'
 }
 
+const DEVANAGARI_DIGITS = '०१२३४५६७८९'
+
+/**
+ * `०१२३४५६७८९` -> `0123456789`.
+ *
+ * Devanagari digits are a different NUMBER SYSTEM, not a compatibility variant,
+ * so `normalize('NFKC')` leaves them alone where it happily folds fullwidth
+ * `３０２` to `302`. Without this, "धारा ३०२" produced a text search rather than a
+ * section lookup — in an app whose whole premise is that Hindi is not a
+ * second-class way in.
+ */
+export function toAsciiDigits(input: string): string {
+  return input.replace(/[०-९]/g, (char) => String(DEVANAGARI_DIGITS.indexOf(char)))
+}
+
 /** `"318 (4)"`, `"318( 4 )"` and `"318(4)"` are one reference. */
 export function normaliseRef(input: string): string {
-  return input.normalize('NFKC').replace(/\s+/g, '').replace(/\.$/, '').toUpperCase()
+  return toAsciiDigits(input).normalize('NFKC').replace(/\s+/g, '').replace(/\.$/, '').toUpperCase()
 }
 
 /** `"318(4)"` -> `"318"`. Datasets are keyed by the section number alone. */
@@ -219,27 +234,50 @@ export function parseQuery(input: string): ParsedQuery {
   let code: string | null = null
   let direction: Direction | null = null
 
+  /**
+   * The first Act named IN THE QUERY wins — not the first in `ACT_TOKENS`.
+   *
+   * Scanning the table in order read "ipc 302 bns 103" as a question about
+   * BNS 302, because `bns` is tested before `ipc`. The comment claimed "the
+   * first Act named counts" and the code did something else. A tie — two
+   * tokens matching at the same index — goes to the LONGER match, which is
+   * what keeps "bnss 173" from being read as the BNS.
+   */
+  let bestAt = Number.POSITIVE_INFINITY
+  let bestNeedle = ''
+  let best: ActToken | null = null
+
   for (const token of ACT_TOKENS) {
-    const hit = token.match.find((needle) => rest.includes(needle.toLowerCase()))
-    if (!hit) continue
-    // Only the first Act named counts. "IPC 302 BNS" is one reference with a
-    // stray word, not two questions.
-    act = token.act || null
-    code = token.code
-    direction = token.direction
-    rest = rest.replace(hit.toLowerCase(), ' ')
-    break
+    for (const needle of token.match) {
+      const at = rest.indexOf(needle.toLowerCase())
+      if (at < 0) continue
+      if (at < bestAt || (at === bestAt && needle.length > bestNeedle.length)) {
+        bestAt = at
+        bestNeedle = needle.toLowerCase()
+        best = token
+      }
+    }
+  }
+
+  if (best) {
+    act = best.act || null
+    code = best.code
+    direction = best.direction
+    rest = rest.replace(bestNeedle, ' ')
   }
 
   // Drop the year an Act name may have carried in with it, so "IPC 1860 302"
   // does not read as section 1860.
   rest = rest.replace(/\b(?:1860|1872|1973|2023)\b/g, ' ')
-  rest = rest.replace(SECTION_PREFIX, ' ')
+  rest = toAsciiDigits(rest).replace(SECTION_PREFIX, ' ')
   // "318 (4)" is one reference, and people type it with the space. Closing it
   // up here rather than in the tokeniser keeps the reference in one token.
   rest = rest.replace(/\s*\(\s*/g, '(').replace(/\s*\)/g, ')')
 
-  const tokens = rest.split(/[\s,;]+/).filter(Boolean)
+  // `/` separates as well as whitespace does: "438/CrPC" and "302/34 IPC" are
+  // both ordinary ways to write a reference. `u/s` is already gone by here,
+  // stripped by SECTION_PREFIX above.
+  const tokens = rest.split(/[\s,;/]+/).filter(Boolean)
   const refToken = tokens.find((token) => SECTION_REF.test(normaliseRef(token)))
   const sectionRef = refToken ? normaliseRef(refToken) : null
 

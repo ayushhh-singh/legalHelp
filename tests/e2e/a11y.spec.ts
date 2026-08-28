@@ -148,6 +148,17 @@ for (const language of ['en', 'hi'] as const) {
   }
 }
 
+test('no axe violations while browsing a whole Act', async ({ page }) => {
+  // A windowed list of 531 rows, where only a slice is in the DOM and one row
+  // carries the tab stop. Worth its own run: the sweep above never picks a code.
+  await page.goto('/law')
+  await expect(page.getByRole('heading', { level: 1 })).toBeVisible()
+  await page.getByText('BNSS · CrPC', { exact: true }).click()
+  await expect(page.getByRole('list', { name: 'Search results' })).toBeVisible()
+
+  expect(format(await audit(page))).toEqual([])
+})
+
 test('no axe violations with the More sheet open', async ({ page }) => {
   // The one piece of chrome that is not on screen by default. 390px so the
   // sheet's own breakpoint (<768px) applies.

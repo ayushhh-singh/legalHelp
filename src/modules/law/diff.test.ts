@@ -63,6 +63,14 @@ describe('diffWords', () => {
     expect(hasChanges(diffWords('', ''))).toBe(false)
   })
 
+  it('treats the danda as punctuation, like the full stop it is', () => {
+    // The ingest's Hindi headings end in "।" and the English ones in "."; a
+    // diff that reported it flagged a spurious change on every Hindi pair.
+    expect(hasChanges(diffWords('हत्या।', 'हत्या'))).toBe(false)
+    expect(hasChanges(diffWords('हत्या॥', 'हत्या।'))).toBe(false)
+    expect(hasChanges(diffWords('हत्या।', 'चोरी।'))).toBe(true)
+  })
+
   it('diffs Devanagari by word, not by matra', () => {
     const parts = diffWords('हत्या के लिए दण्ड', 'हत्या के लिए आजीवन दण्ड')
     expect(render(parts)).toBe('हत्या के लिए +[आजीवन] दण्ड')

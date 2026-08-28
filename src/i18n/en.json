@@ -254,13 +254,15 @@
       "reasonOther": "The same number, read the other way",
       "reasonText": "Matches the wording",
       "startTitle": "Type a section number or a word",
-      "startBody": "\"302\" for the number you already know, \"sec 438 crpc\", \"hatya\", \"anticipatory bail\" — all of them work.",
+      "startBody": "\"302\" for the number you already know, \"sec 438 crpc\", \"hatya\", \"anticipatory bail\" — all of them work. Or pick a code above to read that Act end to end.",
       "emptyTitle": "Nothing matched that",
       "emptyBody": "Check the number, or try a word from the offence instead. Every section of all three Sanhitas is on this device.",
       "errorTitle": "The section tables could not be loaded",
       "errorBody": "They are bundled with the app, so this usually means the download was interrupted. Try again.",
       "loading": "Loading the section tables…",
-      "truncated": "Showing the first {{count}} matches. Narrow the search to see fewer."
+      "truncated": "Showing the first {{count}} matches. Narrow the search to see fewer.",
+      "browsing_one": "Browsing the {{act}} — {{count}} section",
+      "browsing_other": "Browsing the {{act}} — {{count}} sections"
     },
     "status": {
       "label": "Status",

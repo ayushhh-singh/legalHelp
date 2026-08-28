@@ -1,7 +1,7 @@
 import { describe, expect, it } from 'vitest'
 
 import { synonymsFor } from './lexicon'
-import { normaliseRef, parseQuery, queryVariants, refBase } from './search'
+import { normaliseRef, parseQuery, queryVariants, refBase, toAsciiDigits } from './search'
 import { romanKey } from './transliterate'
 
 /**
@@ -39,6 +39,22 @@ describe('parseQuery — section references', () => {
     expect(parseQuery('हत्या').sectionRef).toBeNull()
   })
 
+  it('reads Devanagari digits as a section number', () => {
+    // NFKC folds fullwidth ３０２ to 302 but leaves ३०२ alone — they are a
+    // different number system, not a compatibility variant. A Hindi reader
+    // typing "धारा ३०२" was getting a text search.
+    expect(parseQuery('धारा ३०२').sectionRef).toBe('302')
+    expect(parseQuery('३०२').sectionRef).toBe('302')
+    expect(parseQuery('बीएनएसएस १७३').sectionRef).toBe('173')
+    expect(toAsciiDigits('३०२')).toBe('302')
+    expect(toAsciiDigits('302')).toBe('302')
+  })
+
+  it('reads a reference written with a slash, as officers write it', () => {
+    expect(parseQuery('438/crpc')).toMatchObject({ sectionRef: '438', act: 'CrPC' })
+    expect(parseQuery('302/34 ipc').sectionRef).toBe('302')
+  })
+
   it('does not read a section prefix out of an ordinary word', () => {
     // The regression that made this rule explicit: an unanchored `s` prefix
     // turned "suicide" into "uicide" and "sedition" into "edition", and the
@@ -69,6 +85,14 @@ describe('parseQuery — Act names', () => {
     expect(parsed.act).toBe(act)
     expect(parsed.code).toBe(code)
     expect(parsed.direction).toBe(direction)
+  })
+
+  it('takes the first Act named IN THE QUERY, not the first in its own table', () => {
+    // "ipc 302 bns 103" was read as a question about BNS 302, because the
+    // table lists BNS before IPC. The reader named the IPC first.
+    expect(parseQuery('ipc 302 bns 103').act).toBe('IPC')
+    expect(parseQuery('bns 103 ipc 302').act).toBe('BNS')
+    expect(parseQuery('crpc 438 bnss').act).toBe('CrPC')
   })
 
   it('tries BNSS before BNS, or every BNSS query would be a BNS query', () => {
@@ -168,6 +192,8 @@ describe('synonymsFor', () => {
 describe('reference normalisation', () => {
   it('treats spacing inside a reference as insignificant', () => {
     expect(normaliseRef('318 (4)')).toBe('318(4)')
+    expect(normaliseRef('３０２')).toBe('302')
+    expect(normaliseRef('३०२')).toBe('302')
     expect(normaliseRef(' 376ab ')).toBe('376AB')
     expect(normaliseRef('302.')).toBe('302')
   })

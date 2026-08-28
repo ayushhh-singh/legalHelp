@@ -16,6 +16,28 @@ export const RECENT_LIMIT = 20
 
 export const rowId = (code: LawCode, section: string) => `${code}:${section}`
 
+/**
+ * A strictly increasing ISO timestamp.
+ *
+ * `Date.now()` has millisecond resolution, and several lookups can land inside
+ * one millisecond — a burst of Back/Forward through a result list does it. Rows
+ * that share a timestamp are ordered by PRIMARY KEY inside Dexie's index, and
+ * the primary key here is a string: `"bns:10"` sorts before `"bns:2"`. The trim
+ * below then deleted section 10 and kept section 4, which is the opposite of
+ * "keep the last 20".
+ *
+ * Nudging each collision forward by a millisecond makes the ordering total and
+ * keeps the value a real, displayable date. It resets per tab, which is fine:
+ * across tabs the wall clock has long since moved on.
+ */
+let lastStamp = 0
+
+function nextStamp(): string {
+  const now = Date.now()
+  lastStamp = now > lastStamp ? now : lastStamp + 1
+  return new Date(lastStamp).toISOString()
+}
+
 function snapshot(code: LawCode, record: LawSection) {
   return {
     id: rowId(code, record.section),
@@ -39,7 +61,7 @@ export async function isFavourite(code: LawCode, section: string): Promise<boole
 }
 
 export async function addFavourite(code: LawCode, record: LawSection): Promise<void> {
-  await db.lawFavourites.put({ ...snapshot(code, record), createdAt: new Date().toISOString() })
+  await db.lawFavourites.put({ ...snapshot(code, record), createdAt: nextStamp() })
 }
 
 export async function removeFavourite(code: LawCode, section: string): Promise<void> {
@@ -66,7 +88,7 @@ export async function toggleFavourite(code: LawCode, record: LawSection): Promis
       await db.lawFavourites.delete(id)
       return false
     }
-    await db.lawFavourites.put({ ...snapshot(code, record), createdAt: new Date().toISOString() })
+    await db.lawFavourites.put({ ...snapshot(code, record), createdAt: nextStamp() })
     return true
   })
 }
@@ -91,7 +113,7 @@ export async function recordLookup(code: LawCode, record: LawSection, query: str
     await db.lawRecents.put({
       ...snapshot(code, record),
       query: query.trim(),
-      viewedAt: new Date().toISOString(),
+      viewedAt: nextStamp(),
     })
 
     const surplus = (await db.lawRecents.count()) - RECENT_LIMIT

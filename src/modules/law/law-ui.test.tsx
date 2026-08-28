@@ -101,6 +101,14 @@ describe('ResultList', () => {
     expect(screen.getAllByRole('button')).toHaveLength(10)
   })
 
+  it('switches to windowing just above the threshold, not below it', () => {
+    const { unmount } = renderList(50)
+    expect(screen.getAllByRole('button')).toHaveLength(50)
+    unmount()
+    renderList(51)
+    expect(screen.getAllByRole('button').length).toBeLessThan(51)
+  })
+
   it('windows a long list rather than rendering a thousand rows', () => {
     renderList(400)
     const rendered = screen.getAllByRole('button')
@@ -135,6 +143,29 @@ describe('ResultList', () => {
     // to focus, or focus lands nowhere.
     renderList(400, { activeIndex: 250 })
     expect(screen.queryByText('Heading 251')).toBeInTheDocument()
+  })
+
+  it('stays reachable by Tab when the page hands over a stale active row', () => {
+    // The page owns `activeIndex`, and a new query can return fewer rows than
+    // the old one. When it pointed past the end, NO row had `tabIndex={0}` and
+    // the whole list dropped out of the tab order.
+    for (const [count, active] of [
+      [10, 50],
+      [10, 200],
+      [400, 500],
+    ] as const) {
+      const { unmount } = renderList(count, { activeIndex: active })
+      const tabbable = screen.getAllByRole('button').filter((button) => button.tabIndex === 0)
+      expect(tabbable, `count=${count} active=${active}`).toHaveLength(1)
+      unmount()
+    }
+  })
+
+  it('keeps windowing a long list even with a stale active row', () => {
+    // Same cause: `last` was derived from `activeIndex + 1`, so an index past
+    // the end expanded the window to every row and switched virtualisation off.
+    renderList(400, { activeIndex: 500 })
+    expect(screen.getAllByRole('button').length).toBeLessThan(40)
   })
 
   it('puts only the active row in the tab order', () => {

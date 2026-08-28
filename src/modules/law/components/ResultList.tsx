@@ -26,6 +26,8 @@ const OVERSCAN = 6
 export const VIRTUALISE_ABOVE = 50
 /** The height of the scroll container once windowing is on. */
 const VIEWPORT_ROWS = 8
+/** Rows in the DOM at any moment: what fits, plus overscan above and below. */
+const PAGE = VIEWPORT_ROWS + OVERSCAN * 2
 
 interface ResultListProps {
   id: string
@@ -38,6 +40,12 @@ interface ResultListProps {
   onActiveIndexChange: (index: number) => void
   /** ArrowUp from the first row goes back to the search field. */
   onLeaveTop: () => void
+  /**
+   * True when the list is the whole Act rather than a set of matches. The
+   * per-row "why" badge is about ranking, and there is no ranking to explain
+   * when every section of a code is present in number order.
+   */
+  browsing?: boolean
 }
 
 export function ResultList({
@@ -49,6 +57,7 @@ export function ResultList({
   activeIndex,
   onActiveIndexChange,
   onLeaveTop,
+  browsing = false,
 }: ResultListProps) {
   const { t, language } = useT()
   const containerRef = useRef<HTMLDivElement>(null)
@@ -56,30 +65,45 @@ export function ResultList({
 
   const virtualised = hits.length > VIRTUALISE_ABOVE
 
-  // The window ALWAYS contains activeIndex, whatever the scroll position is.
-  // Deriving it from scrollTop alone would mean arrowing past the bottom of the
-  // window focused an element that had not been rendered yet, and the focus
-  // would land nowhere.
+  /**
+   * `activeIndex` is owned by the page, and the page can hand over one that no
+   * longer exists — a new query returns fewer rows than the old one. Two things
+   * broke when it did: NO row got `tabIndex={0}`, so the whole list dropped out
+   * of the tab order; and `last` was computed from `activeIndex + 1`, which
+   * expanded the window to every row and switched virtualisation off.
+   */
+  const active = hits.length === 0 ? -1 : Math.min(activeIndex, hits.length - 1)
+
+  /**
+   * The window is a fixed-size slice that follows the scroll position, and is
+   * re-centred on the focused row when that row falls outside it.
+   *
+   * The first attempt clamped `first` to `min(fromScroll, active - OVERSCAN)`,
+   * which does not move a window — it STRETCHES one, from row 0 down to the
+   * focused row. With a row near the end focused that rendered every row and
+   * turned virtualisation off entirely, and with nothing focused (`active` of
+   * -1, the usual state) it pinned `first` to 0 so scrolling showed blank
+   * space. Both are gone: the slice is `PAGE` rows wide, always.
+   */
   let first = 0
   let last = hits.length
   if (virtualised) {
-    const fromScroll = Math.floor(scrollTop / ROW_HEIGHT) - OVERSCAN
-    // Only pull the window back to activeIndex when there IS one. With
-    // activeIndex at -1 (nothing focused, the usual state) the clamp made
-    // `first` 0 at every scroll position, so scrolling a long list revealed
-    // blank space instead of rows.
-    const anchor = activeIndex >= 0 ? Math.min(fromScroll, activeIndex - OVERSCAN) : fromScroll
-    first = Math.max(0, anchor)
-    last = Math.min(hits.length, Math.max(first + VIEWPORT_ROWS + OVERSCAN * 2, activeIndex + 1))
+    first = Math.max(0, Math.floor(scrollTop / ROW_HEIGHT) - OVERSCAN)
+    last = Math.min(hits.length, first + PAGE)
+
+    if (active >= 0 && (active < first || active >= last)) {
+      first = Math.max(0, active - OVERSCAN)
+      last = Math.min(hits.length, first + PAGE)
+    }
   }
 
   // Move real focus to the active row. `.focus()` scrolls it into view itself,
   // which is also what keeps the windowed container in sync.
   useEffect(() => {
-    if (activeIndex < 0) return
-    const row = containerRef.current?.querySelector<HTMLButtonElement>(`[data-index="${activeIndex}"]`)
+    if (active < 0) return
+    const row = containerRef.current?.querySelector<HTMLButtonElement>(`[data-index="${active}"]`)
     row?.focus()
-  }, [activeIndex, hits])
+  }, [active, hits])
 
   /**
    * Arrow keys live on the ROW, not on the container. A keydown handler on the
@@ -91,11 +115,11 @@ export function ResultList({
   const onKeyDown = (event: React.KeyboardEvent) => {
     if (event.key === 'ArrowDown') {
       event.preventDefault()
-      onActiveIndexChange(Math.min(activeIndex + 1, hits.length - 1))
+      onActiveIndexChange(Math.min(active + 1, hits.length - 1))
     } else if (event.key === 'ArrowUp') {
       event.preventDefault()
-      if (activeIndex <= 0) onLeaveTop()
-      else onActiveIndexChange(activeIndex - 1)
+      if (active <= 0) onLeaveTop()
+      else onActiveIndexChange(active - 1)
     } else if (event.key === 'Home') {
       event.preventDefault()
       onActiveIndexChange(0)
@@ -123,7 +147,7 @@ export function ResultList({
           onKeyDown={onKeyDown}
           // Only the active row is tabbable, so Tab leaves the list rather than
           // walking through every one of a thousand results.
-          tabIndex={index === Math.max(activeIndex, 0) ? 0 : -1}
+          tabIndex={index === Math.max(active, 0) ? 0 : -1}
           aria-current={selected ? 'true' : undefined}
           onClick={() => {
             onActiveIndexChange(index)
@@ -139,13 +163,15 @@ export function ResultList({
             <SectionNumber>
               {record.act} {record.section}
             </SectionNumber>
-            <Badge tone={hit.reason === 'section-other-direction' ? 'warning' : 'neutral'}>
-              {hit.reason === 'section'
-                ? t('law.results.reasonSection')
-                : hit.reason === 'section-other-direction'
-                  ? t('law.results.reasonOther')
-                  : t('law.results.reasonText')}
-            </Badge>
+            {browsing ? null : (
+              <Badge tone={hit.reason === 'section-other-direction' ? 'warning' : 'neutral'}>
+                {hit.reason === 'section'
+                  ? t('law.results.reasonSection')
+                  : hit.reason === 'section-other-direction'
+                    ? t('law.results.reasonOther')
+                    : t('law.results.reasonText')}
+              </Badge>
+            )}
           </span>
           {/*
             On the selected row the surface is --accent, and --muted-foreground

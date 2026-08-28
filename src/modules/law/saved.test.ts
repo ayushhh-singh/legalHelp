@@ -73,9 +73,8 @@ describe('favourites', () => {
     expect(await listFavourites()).toHaveLength(1)
   })
 
-  it('lists the newest first', async () => {
+  it('lists the newest first, with no sleep needed to separate them', async () => {
     await addFavourite(BNS, record('103'))
-    await new Promise((resolve) => setTimeout(resolve, 2))
     await addFavourite(BNS, record('318'))
     expect((await listFavourites()).map((row) => row.section)).toEqual(['318', '103'])
   })
@@ -112,7 +111,6 @@ describe('recent lookups', () => {
   it('moves a re-opened section to the top rather than duplicating it', async () => {
     await recordLookup(BNS, record('103'), '302')
     await recordLookup(BNS, record('318'), '420')
-    await new Promise((resolve) => setTimeout(resolve, 2))
     await recordLookup(BNS, record('103'), 'murder')
 
     const recents = await listRecents()
@@ -135,16 +133,25 @@ describe('recent lookups', () => {
     expect(sections).toContain(String(RECENT_LIMIT + 5))
   })
 
-  it('trims the OLDEST, not an arbitrary row', async () => {
-    for (let i = 1; i <= RECENT_LIMIT; i += 1) {
+  it('trims the OLDEST, even when every write lands in the same millisecond', async () => {
+    // The defect: `Date.now()` has millisecond resolution, so a burst of
+    // lookups shares a timestamp, and Dexie breaks a tie on the PRIMARY KEY —
+    // a string, where "bns:10" sorts before "bns:2". The trim was deleting
+    // sections 10 and 11 and keeping 4 through 9.
+    for (let i = 1; i <= RECENT_LIMIT + 5; i += 1) {
       await recordLookup(BNS, record(String(i)), String(i))
     }
-    await recordLookup(BNS, record('999'), '999')
 
     const sections = (await listRecents()).map((row) => row.section)
-    expect(sections).toContain('999')
-    expect(sections).not.toContain('1')
-    expect(sections).toContain('2')
+    expect(sections).toHaveLength(RECENT_LIMIT)
+    // Exactly the last 20 written, newest first — no string-order surprises.
+    expect(sections).toEqual(Array.from({ length: RECENT_LIMIT }, (_, i) => String(RECENT_LIMIT + 5 - i)))
+  })
+
+  it('gives every row a distinct timestamp even under a burst', async () => {
+    await Promise.all(Array.from({ length: 10 }, (_, i) => recordLookup(BNS, record(String(i + 1)), '')))
+    const stamps = (await listRecents()).map((row) => row.viewedAt)
+    expect(new Set(stamps).size).toBe(stamps.length)
   })
 
   it('is cleared on request', async () => {

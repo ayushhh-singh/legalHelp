@@ -53,6 +53,15 @@ describe('romanise', () => {
   it('returns an empty string for an empty input', () => {
     expect(romanise('')).toBe('')
   })
+
+  it('drops the invisible joiners a Devanagari keyboard puts inside conjuncts', () => {
+    // U+200D between the virama and the next consonant is how some keyboards
+    // request a particular conjunct form. It was landing in the middle of the
+    // transcription.
+    expect(romanise('क्\u200dष')).toBe('ksha')
+    expect(romanise('हत्या\u200d')).toBe('hatyaa')
+    expect(romanise('हत्\u200cया')).toBe('hatyaa')
+  })
 })
 
 describe('toDevanagari', () => {

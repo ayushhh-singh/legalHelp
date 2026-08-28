@@ -69,6 +69,38 @@ test('a repealed provision with no counterpart says so', async ({ page }) => {
   await expect(page.getByText('IPC 377 has no counterpart')).toBeVisible()
 })
 
+test('picking a code with an empty search box browses that Act', async ({ page }) => {
+  await page.goto('/law')
+  await expect(page.getByRole('heading', { level: 1 })).toBeVisible()
+  // Nothing typed: the chips used to select a filter over nothing at all.
+  await expect(page.getByText('Type a section number or a word')).toBeVisible()
+
+  // The radio itself is `sr-only`; the label is what a reader clicks and what
+  // carries the 44px target.
+  await page.getByText('BSA · IEA', { exact: true }).click()
+  await expect(page.getByRole('radio', { name: 'BSA · IEA' })).toBeChecked()
+  await expect(page.getByText(/Browsing the Bharatiya Sakshya Adhiniyam, 2023 — 170 sections/)).toBeVisible()
+
+  const results = page.getByRole('list', { name: 'Search results' })
+  await expect(results.getByRole('button').first()).toContainText('BSA 1')
+
+  // The list is windowed, so the whole Act is not in the DOM at once.
+  expect(await results.getByRole('button').count()).toBeLessThan(40)
+
+  // Browsing is a list, not an answer: nothing is opened until a row is
+  // clicked, and no "why this matched" badge is shown, because nothing matched.
+  await expect(results.getByText('Matches the wording')).toHaveCount(0)
+  await expect(page.getByRole('button', { name: 'Copy citation' })).toHaveCount(0)
+  await expect(page.getByText(/Showing the first/)).toHaveCount(0)
+
+  await results.getByRole('button').first().click()
+  await expect(page.getByRole('heading', { name: /Short title/ })).toBeVisible()
+
+  // Typing replaces the browse list with real results.
+  await page.getByLabel(/Search a section/).fill('63')
+  await expect(page.getByText(/Browsing the/)).toHaveCount(0)
+})
+
 test('the offence date decides which code applies', async ({ page }) => {
   await page.goto('/law')
   const date = page.getByLabel('Date of offence')
