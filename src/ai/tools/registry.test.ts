@@ -150,6 +150,7 @@ describe('the built-in tools', () => {
     // guard in registerTool throws, so a second pass that registered anything
     // twice would fail here rather than silently.
     expect(registeredToolNames()).toEqual([
+      'check_draft',
       'compare_jobs',
       'compare_old_new',
       'compute_pay_for_job',
@@ -158,7 +159,12 @@ describe('the built-in tools', () => {
       'format_citation',
       'get_allowance_source',
       'get_classification',
+      'get_draft_template',
       'get_section',
+      'list_draft_phrases',
+      'list_draft_templates',
+      'lookup_admin_term',
+      'render_draft',
       'search_pay_jobs',
       'search_sections',
       'today_in_india',

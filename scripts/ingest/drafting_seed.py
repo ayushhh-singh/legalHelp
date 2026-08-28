@@ -50,7 +50,7 @@ from ingest_common import DATA_DIR, log, read_json, validate, write_json  # noqa
 OUT_DIR = DATA_DIR / "drafting"
 TEMPLATE_DIR = OUT_DIR / "templates"
 
-VERSION = "1.0.0"
+VERSION = "1.1.0"
 # Fixed, not a clock: a re-run whose content has not changed must produce
 # byte-identical files, or `--check` in CI reports a diff on every run.
 STAMP = "2026-08-28T00:00:00Z"
@@ -1162,6 +1162,7 @@ def template(
     person: str,
     used_by: dict[str, str],
     when: dict[str, str],
+    use_when: dict[str, str],
     csmop: dict[str, Any],
     fields: list[dict[str, Any]],
     layout_en: list[dict[str, Any]],
@@ -1192,6 +1193,10 @@ def template(
         record["notes"] = notes
     record.update(sourced(CSMOP, verify))
     record["_group"] = group
+    # Underscored keys never reach a template file. `useWhen` is the picker's
+    # one line and belongs in index.json, which is the only file the picker
+    # loads; carrying it in the template too would be the same sentence twice.
+    record["_useWhen"] = use_when
     return record
 
 
@@ -1223,6 +1228,10 @@ TEMPLATES.append(
         when=bl(
             "The formal form. Addressed on behalf of the Department to the head of the organisation by designation, opening 'Sir / Madam' and ending 'Yours faithfully'. An Office Memorandum must never be sent to a constitutional or statutory authority — the letter is the form for that.",
             "औपचारिक रूप। विभाग की ओर से संगठन के अध्यक्ष को पदनाम द्वारा संबोधित, 'महोदय/महोदया' से आरंभ और 'भवदीय' पर समाप्त। संवैधानिक या वैधानिक प्राधिकरण को कार्यालय ज्ञापन कभी न भेजें — उसके लिए पत्र ही रूप है।",
+        ),
+        use_when=bl(
+            "Writing to a State Government, the UPSC, a statutory authority or a member of the public.",
+            "राज्य सरकार, संघ लोक सेवा आयोग, किसी वैधानिक प्राधिकरण या जनसाधारण को लिखते समय।",
         ),
         csmop=ref(["8.4(1)", "8.8 Table 8.1", "Appendix 8.1"], [79, 87]),
         salutation=bl("Sir / Madam,", "महोदय / महोदया,"),
@@ -1363,6 +1372,10 @@ TEMPLATES.append(
         when=bl(
             "Written in the first person in a personal and friendly tone, and addressed to an officer of the same level as far as possible — or at most one or two levels below. It should not exceed one page; put the argument in appendices instead.",
             "प्रथम पुरुष में, व्यक्तिगत और मैत्रीपूर्ण लहजे में लिखा जाता है, और यथासंभव समान स्तर के अधिकारी को संबोधित — अधिक से अधिक एक या दो स्तर नीचे तक। यह एक पृष्ठ से अधिक न हो; विस्तृत तर्क परिशिष्ट में रखें।",
+        ),
+        use_when=bl(
+            "One officer drawing another officer's personal attention to something important or urgent.",
+            "एक अधिकारी द्वारा दूसरे अधिकारी का ध्यान किसी महत्वपूर्ण या अत्यावश्यक बात की ओर व्यक्तिगत रूप से आकृष्ट करने पर।",
         ),
         csmop=ref(["8.4(2)", "9.5", "Appendix 8.1"], [79, 88, 104]),
         salutation=bl("My dear Shri / Dear Shri", "प्रिय श्री"),
@@ -1560,6 +1573,10 @@ TEMPLATES.append(
             "The everyday form. Written in the third person, with no salutation and no subscription; the name, designation, email, telephone and fax number of the signing officer are shown. Never send one to a constitutional or statutory authority.",
             "रोज़मर्रा का रूप। अन्य पुरुष में लिखा जाता है, कोई अभिवादन और कोई मानार्थ संबोधन नहीं; हस्ताक्षरकर्ता अधिकारी का नाम, पदनाम, ई-मेल, दूरभाष और फैक्स संख्या दर्शाई जाती है। संवैधानिक या वैधानिक प्राधिकरण को यह कभी न भेजें।",
         ),
+        use_when=bl(
+            "Everyday business between Departments, or with your own employees. Never to a statutory authority.",
+            "विभागों के बीच या अपने कर्मचारियों के साथ रोज़मर्रा का कामकाज। वैधानिक प्राधिकरण को कभी नहीं।",
+        ),
         csmop=ref(["8.4(3)", "8.8 Table 8.1", "Appendix 8.1"], [79, 80, 89]),
         salutation=None,
         subscription=None,
@@ -1675,6 +1692,10 @@ TEMPLATES.append(
             "The Office Memorandum's format with a general addressee. CSMOP 8.4 does not list the circular separately, so it borrows the O.M. chassis: third person, no salutation, no subscription, signature block with designation and telephone.",
             "सामान्य संबोधन के साथ कार्यालय ज्ञापन का प्रारूप। सीएसएमओपी 8.4 में परिपत्र अलग से सूचीबद्ध नहीं है, इसलिए यह कार्यालय ज्ञापन का ढाँचा लेता है: अन्य पुरुष, कोई अभिवादन नहीं, कोई मानार्थ संबोधन नहीं, पदनाम और दूरभाष सहित हस्ताक्षर खंड।",
         ),
+        use_when=bl(
+            "One text going to many addressees at once — instructions everyone concerned must see.",
+            "एक ही पाठ अनेक प्राप्तकर्ताओं को एक साथ — ऐसे अनुदेश जो सभी संबंधितों को देखने हैं।",
+        ),
         csmop=ref(
             ["8.4(3)", "Appendix 8.1"],
             [79, 89],
@@ -1789,6 +1810,10 @@ TEMPLATES.append(
         when=bl(
             "Either recorded on the file being referred, or sent as an independent self-contained note. It is made with the approval of an officer not below Joint Secretary and issued under the signature of an officer not below Under Secretary. State the points on which advice is sought in the concluding paragraph, and prescribe a time limit.",
             "या तो संदर्भित की जा रही फाइल पर दर्ज, या स्वतंत्र स्वतःपूर्ण टिप्पणी के रूप में भेजी जाती है। यह संयुक्त सचिव से अनिम्न अधिकारी के अनुमोदन से की जाती है और अवर सचिव से अनिम्न अधिकारी के हस्ताक्षर से जारी होती है। जिन बिंदुओं पर सलाह चाहिए उन्हें अंतिम पैराग्राफ में लिखें, और समय-सीमा निर्धारित करें।",
+        ),
+        use_when=bl(
+            "Asking another Department for advice or concurrence, with the point stated in the last paragraph.",
+            "किसी अन्य विभाग से सलाह या सहमति माँगते समय, जिसमें अभीष्ट बिंदु अंतिम पैराग्राफ में हो।",
         ),
         csmop=ref(["8.1", "8.1.2(v)", "8.1.2(vi)", "9.6(iv)", "Appendix 8.1"], [75, 76, 92, 106]),
         urgency_allowed=True,
@@ -1961,6 +1986,10 @@ TEMPLATES.append(
         when=bl(
             "A note is a precis of previous papers, an analysis of the issues, the financial and legal implications, a suggestion with its justification, and the authority competent to decide. Keep it to the quantum the case deserves: no note at all on an ephemeral case, three or four sentences on a correspondence case, a standard process sheet on a repetitive one, a structured note on a problem-solving case.",
             "टिप्पणी में पिछले कागजातों का सार, मुद्दों का विश्लेषण, वित्तीय और विधिक निहितार्थ, औचित्य सहित सुझाव, तथा निर्णय के लिए सक्षम प्राधिकारी होते हैं। मामले के अनुरूप मात्रा रखें: क्षणभंगुर मामले पर कोई टिप्पणी नहीं, पत्राचार मामले पर तीन-चार वाक्य, पुनरावर्ती मामले पर मानक प्रक्रिया पत्रक, समस्या-समाधान मामले पर संरचित टिप्पणी।",
+        ),
+        use_when=bl(
+            "Recording on the file what the case is, what the rules provide, and what should be decided.",
+            "फाइल पर यह अंकित करने के लिए कि मामला क्या है, नियम क्या उपबंधित करते हैं और क्या निर्णय होना चाहिए।",
         ),
         csmop=ref(["7.1", "7.2", "7.3", "7.6", "7.14", "6.7", "6.8"], [61, 62, 64, 66, 69, 42, 44]),
         urgency_allowed=True,
@@ -2183,6 +2212,10 @@ TEMPLATES.append(
             "Addressed to the Manager, Government of India Press, for publication, with copies forwarded for information. Orders made in the name of the President are expressed to be so made and signed by an officer of or above the rank of Under Secretary authorised under the Authentication (Orders and Other Instruments) Rules, 2002.",
             "प्रकाशन हेतु प्रबंधक, भारत सरकार मुद्रणालय को संबोधित, सूचनार्थ प्रतिलिपियाँ अग्रेषित करते हुए। राष्ट्रपति के नाम से किए गए आदेश उसी रूप में व्यक्त किए जाते हैं और प्रामाणीकरण (आदेश तथा अन्य लिखत) नियम, 2002 के अधीन प्राधिकृत अवर सचिव या उससे ऊपर के अधिकारी द्वारा हस्ताक्षरित होते हैं।",
         ),
+        use_when=bl(
+            "Promulgating statutory rules, orders or appointments through the Gazette of India.",
+            "भारत के राजपत्र के माध्यम से सांविधिक नियम, आदेश या नियुक्तियाँ अधिसूचित करने के लिए।",
+        ),
         csmop=ref(["8.4(6)", "9.3", "Appendix 8.1", "Appendix 8.2"], [80, 93, 97, 103]),
         urgency_allowed=False,
         fields=[
@@ -2330,6 +2363,10 @@ TEMPLATES.append(
             "Not to be used for communicating copies to State Governments or to statutory and constitutional bodies — the appropriate form for them is a letter.",
             "राज्य सरकारों तथा वैधानिक और संवैधानिक निकायों को प्रतिलिपि भेजने के लिए इसका प्रयोग न करें — उनके लिए उपयुक्त रूप पत्र है।",
         ),
+        use_when=bl(
+            "Returning a paper in original, or sending a copy elsewhere for information or action.",
+            "कोई कागज़ मूल रूप में लौटाने, या उसकी प्रति सूचना अथवा आवश्यक कार्रवाई के लिए अन्यत्र भेजने पर।",
+        ),
         csmop=ref(["8.4(9)", "Appendix 8.1"], [80, 96]),
         fields=[
             f_urgency(),
@@ -2442,6 +2479,10 @@ TEMPLATES.append(
         when=bl(
             "CSMOP prescribes no form for the application itself — it prescribes the Office Order by which leave is granted (Appendix 8.1). This template is the application that precedes it: first person, through proper channel, stating the kind of leave, the dates, the prefixing and suffixing sought, the address during leave and the arrangement for the work.",
             "सीएसएमओपी आवेदन के लिए कोई प्रपत्र निर्धारित नहीं करता — वह उस कार्यालय आदेश का प्रारूप देता है जिससे अवकाश स्वीकृत होता है (परिशिष्ट 8.1)। यह टेम्पलेट उससे पहले का आवेदन है: प्रथम पुरुष, उचित माध्यम से, अवकाश का प्रकार, तारीखें, उपसर्ग/प्रत्यय की माँग, अवकाश के दौरान का पता और कार्य की व्यवस्था बताते हुए।",
+        ),
+        use_when=bl(
+            "Applying to your own controlling officer for leave, with your address while away.",
+            "अपने नियंत्रक अधिकारी को अवकाश के लिए आवेदन, साथ में अवकाश के दौरान का पता।",
         ),
         csmop=ref(
             ["8.4(4)", "Appendix 8.1"],
@@ -2612,6 +2653,10 @@ TEMPLATES.append(
             "CSMOP prescribes no format for a representation; it is written on the letter chassis. One representation, one grievance, addressed to the authority competent to redress it, through the proper channel — the head of office forwards it with the Department's comments.",
             "सीएसएमओपी अभ्यावेदन का कोई प्रारूप निर्धारित नहीं करता; यह पत्र के ढाँचे पर लिखा जाता है। एक अभ्यावेदन, एक शिकायत, उसी प्राधिकारी को संबोधित जो उसका निवारण करने में सक्षम है, उचित माध्यम से — कार्यालय प्रमुख इसे विभाग की टिप्पणी सहित अग्रेषित करता है।",
         ),
+        use_when=bl(
+            "Asking your own Department to reconsider a decision that affects you personally.",
+            "अपने विभाग से ऐसे निर्णय पर पुनर्विचार का अनुरोध जो आप पर व्यक्तिगत रूप से प्रभाव डालता है।",
+        ),
         csmop=ref(
             ["8.4(1)", "8.9", "Appendix 8.1"],
             [79, 86, 87],
@@ -2780,6 +2825,10 @@ TEMPLATES.append(
         when=bl(
             "Within 30 days of receipt. Answer point by point in the applicant's own numbering, say plainly where information is not held or is exempt and under which section, and give the name and address of the First Appellate Authority with the 30-day limit — the Act requires it and its absence is itself a ground of appeal.",
             "प्राप्ति से 30 दिन के भीतर। आवेदक की अपनी क्रम-संख्या में बिंदुवार उत्तर दें, जहाँ सूचना उपलब्ध नहीं है या छूट प्राप्त है वहाँ स्पष्ट रूप से और किस धारा के अधीन यह लिखें, तथा प्रथम अपीलीय प्राधिकारी का नाम-पता 30 दिन की सीमा सहित दें — अधिनियम इसकी अपेक्षा करता है और इसका न होना स्वयं अपील का आधार है।",
+        ),
+        use_when=bl(
+            "Replying to an RTI application within 30 days, naming the First Appellate Authority.",
+            "सूचना का अधिकार आवेदन का 30 दिन के भीतर उत्तर, जिसमें प्रथम अपीलीय प्राधिकारी का नाम हो।",
         ),
         csmop=ref(
             ["8.4(1)", "8.9", "12.5", "Appendix 8.1"],
@@ -2950,6 +2999,10 @@ TEMPLATES.append(
             "Within the time allowed by the notice. Answer each allegation separately and in its own numbering, admit what is true, explain what is not, and ask for what you want — an extension, the documents relied on, or a personal hearing. Keep the language temperate: CSMOP 7.2(xi) asks for it and a disciplinary file is read years later by people who were not there.",
             "नोटिस में दी गई अवधि के भीतर। प्रत्येक आरोप का अलग-अलग, उसी क्रम-संख्या में उत्तर दें, जो सही है उसे स्वीकार करें, जो नहीं है उसे स्पष्ट करें, और जो चाहिए वह माँगें — अवधि विस्तार, आधारभूत दस्तावेज़, या व्यक्तिगत सुनवाई। भाषा संयमित रखें: सीएसएमओपी 7.2(xi) यही चाहता है और अनुशासनिक फाइल वर्षों बाद उन लोगों द्वारा पढ़ी जाती है जो वहाँ नहीं थे।",
         ),
+        use_when=bl(
+            "Answering a show-cause notice on the facts, in courteous and temperate language.",
+            "कारण बताओ नोटिस का तथ्यों पर आधारित उत्तर, शिष्ट और संयत भाषा में।",
+        ),
         csmop=ref(
             ["8.4(1)", "7.2(xi)", "Appendix 8.1"],
             [62, 79, 87],
@@ -3118,6 +3171,10 @@ TEMPLATES.append(
         when=bl(
             "Approved in advance; the approval is what the travelling allowance bill is later settled against. State the purpose, the itinerary date by date, the mode of travel and the entitlement claimed, and whether headquarters will be left on a holiday.",
             "पूर्व अनुमोदन लिया जाता है; यही अनुमोदन वह आधार है जिसके विरुद्ध बाद में यात्रा भत्ता बिल का निपटान होता है। प्रयोजन, तारीखवार यात्रा-कार्यक्रम, यात्रा का साधन और दावा की गई पात्रता, तथा क्या मुख्यालय अवकाश के दिन छोड़ा जाएगा — यह सब लिखें।",
+        ),
+        use_when=bl(
+            "Circulating where an officer will be on tour, and who holds charge meanwhile.",
+            "यह परिचालित करने के लिए कि अधिकारी दौरे पर कहाँ रहेंगे और इस बीच कार्यभार किसके पास रहेगा।",
         ),
         csmop=ref(
             ["8.4(4)", "Appendix 8.1"],
@@ -3289,6 +3346,10 @@ TEMPLATES.append(
         when=bl(
             "The covering letter is what makes the bill checkable: it names the tour and its approval, lists what is enclosed — tickets, boarding passes, hotel receipts — and carries the certificates the DDO needs before passing the claim.",
             "अग्रेषण पत्र ही बिल को जाँच-योग्य बनाता है: उसमें दौरे और उसके अनुमोदन का उल्लेख होता है, संलग्न सामग्री — टिकट, बोर्डिंग पास, होटल रसीदें — सूचीबद्ध होती है, और वे प्रमाणन होते हैं जिनकी आहरण एवं संवितरण अधिकारी को दावा पारित करने से पूर्व आवश्यकता होती है।",
+        ),
+        use_when=bl(
+            "Forwarding a travelling allowance bill with the tickets and receipts it rests on.",
+            "यात्रा भत्ता बिल को उन टिकटों और रसीदों सहित अग्रेषित करने के लिए जिन पर वह आधारित है।",
         ),
         csmop=ref(
             ["8.4(1)", "8.4(9)", "9.2(vii)", "Appendix 8.1"],
@@ -3603,6 +3664,16 @@ def self_check(templates: list[dict[str, Any]]) -> list[str]:
         if record["_group"] not in GROUP_ORDER:
             problems.append(f"{tid}: unknown group '{record['_group']}'")
 
+        # The picker shows `useWhen` as ONE line on a card. Prose that wraps to
+        # four lines there is prose nobody reads while choosing a form, and the
+        # long version already exists as `whenToUse` inside the template.
+        for lang in ("en", "hi"):
+            line = record["_useWhen"][lang]
+            if len(line) > 130:
+                problems.append(f"{tid}/{lang}: useWhen is {len(line)} characters; the picker shows one line")
+            if not line.endswith((".", "\u0964")):
+                problems.append(f"{tid}/{lang}: useWhen does not end in a full stop")
+
     known = seen_ids | {"*"}
     for entry in PHRASES:
         unknown = sorted(set(entry["appliesTo"]) - known)
@@ -3637,13 +3708,14 @@ def build() -> dict[str, Any]:
 
     index: list[dict[str, Any]] = []
     for record in TEMPLATES:
-        payload = {k: v for k, v in record.items() if k != "_group"}
+        payload = {k: v for k, v in record.items() if not k.startswith("_")}
         files[f"drafting/templates/{record['id']}.json"] = envelope({"template": payload})
         index.append(
             {
                 "id": record["id"],
                 "name": record["name"],
                 "shortName": record["shortName"],
+                "useWhen": record["_useWhen"],
                 "group": record["_group"],
                 "person": record["person"],
                 "csmopParas": record["csmopRef"]["paras"],

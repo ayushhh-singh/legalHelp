@@ -62,7 +62,8 @@ export function App() {
                     src/lib/nav.ts stays the one list of navigation destinations. */}
                 <Route path="/law/*" element={<LawPage />} />
                 <Route path="/pay" element={<PayPage />} />
-                <Route path="/draft" element={<DraftPage />} />
+                {/* The Drafting Studio owns /draft and /draft/:type the same way. */}
+                <Route path="/draft/*" element={<DraftPage />} />
                 <Route path="/learn" element={<LearnPage />} />
                 <Route path="/utils" element={<UtilsPage />} />
                 <Route path="/settings" element={<SettingsPage />} />

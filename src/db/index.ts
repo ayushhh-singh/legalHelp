@@ -18,6 +18,8 @@ export const SETTING_KEYS = {
   ai: 'ai',
   /** The last scenario the Pay calculator was left on. */
   pay: 'pay',
+  /** The Drafting Studio's editor preferences — preview tab, Devanagari digits. */
+  draft: 'draft',
 } as const
 
 /**
@@ -128,6 +130,47 @@ export interface PayScenarioRow {
   updatedAt: string
 }
 
+/**
+ * One draft an officer is writing, or has written.
+ *
+ * `values` is a `DraftValues` from `src/lib/drafting/types.ts` — a plain map of
+ * field id to a string, a list of strings, or an `{ en, hi }` pair — and it is
+ * typed `unknown` here for the reason `PayScenarioRow.scenario` is: `src/db` is
+ * imported by the app shell, and naming the drafting types would drag the
+ * Drafting module's imports onto every route. The module validates the shape on
+ * the way out, which it would have to do anyway, because a row written by an
+ * older release is untrusted input like any other.
+ *
+ * `templateId` is denormalised and indexed so the recent list can be rendered,
+ * and a draft resumed, without loading a single 24 KB template.
+ */
+export interface DraftRow {
+  id: string
+  templateId: string
+  /** What the reader named it, or the subject line, or the form's own name. */
+  title: string
+  values: unknown
+  createdAt: string
+  updatedAt: string
+}
+
+/**
+ * "Save as my template" — the field values an officer wants back every time.
+ *
+ * Deliberately a separate table from `drafts` rather than a flag on one. A
+ * draft is a document with a life cycle; this is a set of defaults, it is
+ * applied to new drafts rather than opened, and deleting every draft must not
+ * take an officer's letterhead with it.
+ */
+export interface DraftDefaultsRow {
+  id: string
+  templateId: string
+  name: string
+  values: unknown
+  createdAt: string
+  updatedAt: string
+}
+
 export type SettingKey = (typeof SETTING_KEYS)[keyof typeof SETTING_KEYS]
 
 export class SahayakDB extends Dexie {
@@ -138,6 +181,8 @@ export class SahayakDB extends Dexie {
   lawFavourites!: Table<LawSavedRow, string>
   lawRecents!: Table<LawRecentRow, string>
   payScenarios!: Table<PayScenarioRow, string>
+  drafts!: Table<DraftRow, string>
+  draftDefaults!: Table<DraftDefaultsRow, string>
 
   constructor(name = 'sahayak') {
     super(name)
@@ -177,6 +222,20 @@ export class SahayakDB extends Dexie {
       lawFavourites: '&id, createdAt',
       lawRecents: '&id, viewedAt',
       payScenarios: '&id, name, updatedAt',
+    })
+    // Version 5 — the Drafting Studio (Session 8). `drafts` is indexed on
+    // `updatedAt` because the recent list is only ever read newest-first, and
+    // on `templateId` so "my drafts of this form" needs no table scan.
+    this.version(5).stores({
+      settings: '&key',
+      secrets: '&id',
+      aiAnswers: '&id, agentId, dataVersion, createdAt',
+      aiUsage: '&month',
+      lawFavourites: '&id, createdAt',
+      lawRecents: '&id, viewedAt',
+      payScenarios: '&id, name, updatedAt',
+      drafts: '&id, templateId, updatedAt',
+      draftDefaults: '&id, templateId, updatedAt',
     })
   }
 }

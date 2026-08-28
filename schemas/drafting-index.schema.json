@@ -7,25 +7,59 @@
   "required": ["version", "generatedAt", "disclaimer", "templates"],
   "additionalProperties": false,
   "properties": {
-    "$schema": { "type": "string" },
-    "version": { "type": "string", "pattern": "^\\d+\\.\\d+\\.\\d+$" },
-    "generatedAt": { "type": "string" },
-    "disclaimer": { "$ref": "#/$defs/bilingual" },
+    "$schema": {
+      "type": "string"
+    },
+    "version": {
+      "type": "string",
+      "pattern": "^\\d+\\.\\d+\\.\\d+$"
+    },
+    "generatedAt": {
+      "type": "string"
+    },
+    "disclaimer": {
+      "$ref": "#/$defs/bilingual"
+    },
     "templates": {
       "type": "array",
       "minItems": 1,
       "items": {
         "type": "object",
-        "required": ["id", "name", "shortName", "group", "person", "csmopParas"],
+        "required": ["id", "name", "shortName", "useWhen", "group", "person", "csmopParas"],
         "additionalProperties": false,
         "properties": {
-          "id": { "type": "string", "pattern": "^[a-z0-9-]+$" },
-          "name": { "$ref": "#/$defs/bilingual" },
-          "shortName": { "$ref": "#/$defs/bilingual" },
-          "group": { "type": "string", "enum": ["communication", "internal", "personal", "statutory"] },
-          "person": { "type": "string", "enum": ["first", "third"] },
-          "csmopParas": { "type": "array", "minItems": 1, "items": { "type": "string" } },
-          "verify": { "type": "boolean" }
+          "id": {
+            "type": "string",
+            "pattern": "^[a-z0-9-]+$"
+          },
+          "name": {
+            "$ref": "#/$defs/bilingual"
+          },
+          "shortName": {
+            "$ref": "#/$defs/bilingual"
+          },
+          "useWhen": {
+            "$ref": "#/$defs/bilingual",
+            "description": "One line, shown on the picker card: when this form is the right one."
+          },
+          "group": {
+            "type": "string",
+            "enum": ["communication", "internal", "personal", "statutory"]
+          },
+          "person": {
+            "type": "string",
+            "enum": ["first", "third"]
+          },
+          "csmopParas": {
+            "type": "array",
+            "minItems": 1,
+            "items": {
+              "type": "string"
+            }
+          },
+          "verify": {
+            "type": "boolean"
+          }
         }
       }
     }
@@ -36,8 +70,14 @@
       "required": ["en", "hi"],
       "additionalProperties": false,
       "properties": {
-        "en": { "type": "string", "minLength": 1 },
-        "hi": { "type": "string", "minLength": 1 }
+        "en": {
+          "type": "string",
+          "minLength": 1
+        },
+        "hi": {
+          "type": "string",
+          "minLength": 1
+        }
       }
     }
   }

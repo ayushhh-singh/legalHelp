@@ -2155,3 +2155,132 @@ this app, which is part of why the in-app version was hard to justify.
 A multilingual on-device model that handles Devanagari, or the Web Speech API's `processLocally` landing
 in more than one browser. ADR-014 and ADR-017 stay on record with the designs, and the removal commit
 carries the measured transcription table so the next attempt starts from evidence.
+
+---
+
+## ADR-021 — The Drafting Studio: a form beside a page, a gate that can say no, and an AI seam that stays shut
+
+**Date:** 2026-08-28 · **Status:** Accepted · **Session:** 8
+
+### Context
+
+Session 7 landed the data model: fourteen `DocTemplate` JSON files, a pure engine that knows block
+roles and not document types, and a checklist evaluator whose rules are declarative (ADR-020). This
+session builds the module over it — a picker, an editor, a live A4 preview, export, and drafts that
+persist. Everything below is a decision the data model did not already make.
+
+### Decisions
+
+**1. The form is one column and the page is the other, and the page is not editable.**
+
+The preview renders `document.blocks` and interprets nothing. Paragraph numbers, the enclosure count
+and the normalised date all arrive already decided by the engine, so if the preview is wrong the
+template or the engine is wrong — which is what makes it worth trusting. A WYSIWYG editor over the
+page would have to invent a mapping back to the template's list of paragraphs, and would let an
+officer produce a break the numbering cannot see.
+
+**2. `layoutIndex`, never `role`, is the identity of a block.**
+
+Roles repeat: a demi-official letter has two `header` blocks and two `closing` blocks. Both the React
+keys and the side-by-side pairing use the layout position the engine now carries.
+
+**3. A field holds ONE shared value until the officer says the two issues differ.**
+
+Equal bilingual footing is a rule about the product, not a rule that every box must be typed twice. A
+file number, a telephone number and an e-mail address are the same string in both issues; a subject
+line and a body paragraph are not. So `src/modules/drafting/values.ts` writes a plain value until the
+"Write Hindi separately" control is pressed, and only then an `{ en, hi }` pair — a shape the engine
+already reads. "Fill with the worked example" runs the specimen through `collapseIdentical`, because
+every `sample` is stored as a pair and without it all fifteen fields opened as two boxes.
+
+**4. A failing `must` item blocks the export; a failing `should` item asks once.**
+
+The `must` class is the set of things that make a document the wrong document — an Office Memorandum
+in the first person, paragraphs numbered against the specimen, a `{{signatoryName}}` still in the
+signature block. Exporting one produces a file that looks finished and is not. The `should` class is
+what a careful officer fixes and a busy one might reasonably not, and treating the two as equally
+fatal teaches officers to click past both.
+
+**"Copy as text" is deliberately outside the gate.** An app that held an officer's own words hostage
+to its own checklist would be the wrong kind of app.
+
+**5. The `.docx` names two fonts per run, and embeds none.**
+
+A Word run names one font per script slot, so every run sets `ascii`/`hAnsi` to a Latin face and `cs`
+— the complex-script slot — to a Devanagari one, and the word processor picks per character. That is
+what makes a bilingual signature block come out right with no string scanning. Nirmala UI and Mangal
+ship with Windows, which is what government desktops run; elsewhere the reader's word processor
+substitutes its own Devanagari face. Embedding one would put ~200 KB into every exported file and
+raises a licence question, so it is not done.
+
+The preview is set in the same Times New Roman, through a new `--font-document` token whose whole
+stack is either already bundled or already on the machine. That downloads nothing — the same call
+ADR-018 made against IBM Plex Mono — and buys agreement with the export, which is the only thing a
+preview is for.
+
+**6. `docx` is imported inside the export handler.**
+
+~340 KB (100 KB gzip) for something a reader uses once per document at most, and never if they print.
+`tests/no-external-urls.test.ts` now confines its OOXML namespace strings to that one chunk and
+asserts the chunk is absent from the initial route, so the exception cannot widen quietly.
+
+**7. Every OOXML namespace is an allowed inert URL, confined to one chunk.**
+
+They are `xmlns` values — opaque identifiers per ECMA-376, never dereferenced, exactly as the `w3.org`
+entry already covers for SVG. Matching by host rather than one line per URI keeps the list readable;
+the confinement assertion is what keeps it a review rather than a hole.
+
+**8. Drafts are uncapped, and deletion is undoable.**
+
+Unlike the Pay module's ten named scenarios, there is no limit: an officer who has written sixty
+office memoranda has sixty documents, not fifty-nine and a mistake. And unlike a scenario, a draft
+cannot be refused when the limit is hit, so the other protection applies — `deleteDraft` returns the
+row it removed and that row IS the undo. The offer has no timeout, because a five-second toast is a
+race between an officer noticing and the app forgetting.
+
+**9. "Save as my template" keeps the letterhead and refuses the document.**
+
+Ministry, Department, name, designation, telephone, e-mail. Never the subject, the body, the
+enclosures or the date: restoring last week's paragraphs into a blank form is how a wrong sentence
+gets signed, and a stale date is how it gets signed on the wrong day.
+
+### The AI seam, and how it would be gated
+
+`src/modules/drafting/ai-seam.ts` declares the interface and exports `DRAFTING_AI_ENABLED = false`.
+**Nothing in the UI reads it and nothing renders from it.** It exists so the shape is settled while
+the reasons are fresh. The gating, in order:
+
+1. `DRAFTING_AI_ENABLED` is not wired to a build flag, an environment variable or a setting. Turning
+   it on is a code change that appears in a diff and in a review.
+2. The app-wide AI consent gate still governs. That gate IS the feature flag for the AI layer
+   (ADR-011); this constant can only ever subtract from it.
+3. **Tier 0 (on-device WebLLM) first.** A draft is the most sensitive thing this app holds — it may
+   name a case, a colleague or a grievance — so the default assistant must be one that cannot make a
+   request. Tier 1 and Tier 2 send the draft's text to a model endpoint and may not be the default
+   for this surface even where they are the reader's default elsewhere.
+4. A warning modal, not a banner, before the first use on a given draft: the officer must have said
+   that _this_ draft contains nothing official, sensitive or classified.
+5. **Never applied silently.** A suggestion arrives as a word-level diff with accept and reject per
+   change — `components/SuggestionDiff.tsx`, built and unit-tested now precisely so that the day this
+   is turned on is not also the day someone writes the review UI in a hurry.
+
+The six agent tools registered today (`src/ai/tools/drafting.ts`) are about **templates and rules,
+never the reader's draft**. `render_draft` takes values as an argument; nothing registered can reach
+the `drafts` table, and `registers NO tool that can read the reader's own drafts` asserts it. Adding
+one would silently convert every agent in the app into one that reads unfinished work.
+
+### Consequences
+
+- `src/modules/law/diff.ts` moved to `src/lib/diff.ts`. The project's own convention — stated in the
+  Pay module's `Fields.tsx` — is that a helper moves up on its second caller, and the suggestion diff
+  is that second caller. Three law imports updated; the algorithm is unchanged.
+- Dexie is at version 5, with `drafts` and `draftDefaults`.
+- `data/drafting/index.json` gains a one-line bilingual `useWhen` per template, so the picker can show
+  "use when" from `index.json` alone. Reading it off the templates' `whenToUse` would have meant
+  downloading all fourteen (~330 KB) to draw a grid. `drafting_seed.py`'s `self_check` rejects one
+  over 130 characters or not ending in a full stop.
+- Three defects found in a real browser and fixed, each with a unit test that now fails without the
+  fix: an emptied list box produced `['']` rather than `[]`, so the checklist read a cleared Copy-to
+  box as filled and an emptied body reported no required issue; the sheet's initial focus landed on
+  its close button, which is first in DOM order, rather than its search box; and fifteen
+  identically-named "Write Hindi separately" controls left a screen-reader user counting rows.

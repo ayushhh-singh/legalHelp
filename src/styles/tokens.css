@@ -247,4 +247,26 @@
 @theme {
   --font-sans: 'Inter Variable', 'Inter', 'Noto Sans Devanagari', system-ui, sans-serif;
   --font-heading: 'Poppins', 'Noto Sans Devanagari', system-ui, sans-serif;
+
+  /*
+   * The A4 document preview in the Drafting Studio, and NOTHING else.
+   *
+   * Every face here is either already bundled or already on the machine — this
+   * stack downloads nothing. That is the same call ADR-018 made against IBM
+   * Plex Mono for the pay slip: a fourth and fifth self-hosted family would put
+   * ~50 KB of woff2 each into every offline install and add two faces to
+   * tests/e2e/typography.spec.ts, to buy a look.
+   *
+   * What it buys instead is agreement with the export. The .docx names Times
+   * New Roman in the Latin slot and Nirmala UI in the complex-script slot
+   * (src/lib/drafting/docx.ts), so a preview set in Times New Roman is a
+   * preview of what Word will actually print — which is the only thing the
+   * preview is for.
+   *
+   * Tiro Devanagari Hindi is named ahead of Noto because it is a text face
+   * designed for running Devanagari body copy and many machines have it; where
+   * it is absent, the BUNDLED Noto Sans Devanagari catches the fall, so the
+   * Hindi preview never lands on a platform default.
+   */
+  --font-document: 'Times New Roman', 'Tiro Devanagari Hindi', 'Noto Sans Devanagari', Georgia, serif;
 }

@@ -1,5 +1,6 @@
 import { z } from 'zod'
 
+import { registerDraftingTools } from './drafting'
 import { registerLawTools } from './law'
 import { registerPayTools } from './pay'
 import { registerTool, registeredToolNames } from './registry'
@@ -25,6 +26,7 @@ export function registerBuiltinTools(): void {
   // safe on a hot reload and in a test that imports this module twice.
   registerLawTools()
   registerPayTools()
+  registerDraftingTools()
 
   if (registeredToolNames().includes('dataset_versions')) return
 

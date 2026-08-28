@@ -1,6 +1,6 @@
 import { describe, expect, it } from 'vitest'
 
-import { diffCounts, diffWords, hasChanges, tokenise, type DiffPart } from './diff'
+import { diffCounts, diffWords, hasChanges, tokenise, type DiffPart } from '@/lib/diff'
 
 /** Render a diff back to a readable string, for assertions that read like prose. */
 const render = (parts: DiffPart[] | null) =>

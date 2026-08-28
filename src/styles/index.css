@@ -189,3 +189,79 @@
     display: none !important;
   }
 }
+
+/*
+ * THE A4 DOCUMENT PREVIEW — the Drafting Studio's page.
+ *
+ * On screen the sheet simulates its own margins with padding, because there is
+ * no page box to hang them on. On paper the padding is dropped and the @page
+ * margin below supplies them, so the same element is 1 inch in from the edge
+ * either way and the line breaks an officer saw are the line breaks that print.
+ *
+ * The screen padding is deliberately smaller below `sm`. A true 25.4mm inset on
+ * a 360px-wide phone leaves about 34mm of text column, which wraps a Hindi
+ * subject line to seven lines and tells the reader nothing about the page. The
+ * document is still A4 — `max-width` says so — it is simply inset less while it
+ * is being read on glass.
+ */
+.a4-page {
+  font-family: var(--font-document);
+  width: 100%;
+  max-width: 210mm;
+  padding: 10mm;
+  line-height: 1.5;
+  color: #111;
+  background: #fff;
+}
+
+@media (min-width: 640px) {
+  .a4-page {
+    padding: 25.4mm;
+  }
+}
+
+/* Devanagari keeps the design system's floor even inside the document face. */
+.a4-page:lang(hi),
+.a4-page [lang='hi'] {
+  line-height: 1.75;
+}
+
+@media print {
+  /*
+   * A NAMED page, so that asking for one-inch margins here does not change
+   * every other printable surface in the app — the pay slip and the law
+   * section card both print against the 15mm `@page` rule above, and CSMOP
+   * 7.2(xvi) asks for about an inch on all four sides of a Government
+   * document. A browser that does not implement named pages simply prints the
+   * sheet at 15mm, which is still A4 and still correct in every other respect.
+   */
+  @page draft-a4 {
+    size: A4;
+    margin: 25.4mm;
+  }
+
+  .a4-print-root {
+    page: draft-a4;
+  }
+
+  .a4-page {
+    /* The @page margin is the margin now. Keeping both would double it. */
+    padding: 0 !important;
+    max-width: none !important;
+    border: 0 !important;
+    box-shadow: none !important;
+  }
+
+  /*
+   * The side-by-side view prints as two columns only if it fits; below that
+   * the two issues are printed one after the other, each on its own page,
+   * which is how a bilingual document is actually filed.
+   */
+  .a4-bilingual {
+    display: block !important;
+  }
+
+  .a4-bilingual > * + * {
+    break-before: page;
+  }
+}

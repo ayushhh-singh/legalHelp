@@ -1,4 +1,4 @@
-import { diffCounts, hasChanges, type DiffPart } from '../diff'
+import { diffCounts, hasChanges, type DiffPart } from '@/lib/diff'
 
 import { useT } from '@/i18n/useT'
 

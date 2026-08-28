@@ -1,6 +1,6 @@
 import { expect, test } from '@playwright/test'
 
-const ROUTES = ['/law', '/pay', '/draft', '/learn', '/utils', '/settings']
+const ROUTES = ['/law', '/pay', '/draft', '/draft/office-memorandum', '/learn', '/utils', '/settings']
 
 /**
  * The runtime half of the master context's hard rule ("Zero network requests

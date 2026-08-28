@@ -77,6 +77,44 @@ const ALLOWED_INERT: ReadonlyArray<{ pattern: RegExp; why: string }> = [
     pattern: OPT_IN_ENDPOINT.pattern,
     why: 'Tier 1 BYOK endpoint; reached only after explicit consent, from one lazy-loaded module',
   },
+  /*
+    The Office Open XML namespace identifiers, from the `docx` library (Session
+    8, the Drafting Studio's .docx export).
+
+    Every one of these is an `xmlns` VALUE written into the exported file — it
+    is how Word and LibreOffice identify a schema, in exactly the way the
+    `w3.org` entry at the top of this list already covers for SVG and XML. None
+    is ever dereferenced, by this app or by a word processor: ECMA-376 defines
+    the namespaces as opaque identifiers, and a .docx opens on a machine with no
+    network at all.
+
+    They are matched by HOST rather than one line per URI because there are
+    upwards of sixty of them and an exhaustive list would be a list nobody
+    re-reads. The narrowing that keeps this a review rather than a hole is the
+    `only the .docx exporter carries an OOXML namespace` assertion below: these
+    are permitted in the `docx` vendor chunk and nowhere else in the build, so
+    they cannot be used to smuggle a fetchable URL into application code.
+  */
+  {
+    pattern: /^https?:\/\/schemas\.(openxmlformats\.org|microsoft\.com)\//,
+    why: 'OOXML namespace identifiers written into the exported .docx; opaque per ECMA-376, never fetched',
+  },
+  {
+    pattern: /^https?:\/\/purl\.org\/dc\//,
+    why: 'Dublin Core namespace identifiers in the .docx core-properties part, never fetched',
+  },
+  {
+    pattern: /^https:\/\/answers\.microsoft\.com\/en-us\/msoffice\/forum\//,
+    why: 'docx library source comment about Word’s nine-level list limit, minified into the chunk',
+  },
+  {
+    pattern: /^https:\/\/rolldown\.rs\//,
+    why: 'Rolldown CommonJS-interop warning text in the docx vendor chunk',
+  },
+  {
+    pattern: /^https:\/\/stuk\.github\.io\/jszip\//,
+    why: 'JSZip homepage in its own banner comment; JSZip is how `docx` packs the archive',
+  },
 ]
 
 /**
@@ -326,6 +364,41 @@ describe('no external URLs', () => {
       }
 
       expect(offenders).toEqual({})
+    })
+
+    /**
+     * The OOXML namespaces are allowed in ONE chunk, and this is what makes
+     * that a review rather than a hole.
+     *
+     * `ALLOWED_INERT` matches by host, so without this the entry would let any
+     * module in the app carry a `schemas.microsoft.com` string. Confining them
+     * to the lazily-imported `docx` vendor chunk means an OOXML namespace
+     * appearing in application code — or on the initial route — fails here,
+     * exactly as `names api.anthropic.com in exactly one module` does for the
+     * one endpoint this app may ever reach.
+     */
+    whenBuilt('confines the OOXML namespaces to the .docx exporter’s own chunk', () => {
+      const ooxml = /https?:\/\/(schemas\.(openxmlformats\.org|microsoft\.com)|purl\.org\/dc)\//
+      const carriers = walk(dist, BUILD_EXTENSIONS)
+        .filter((file) => ooxml.test(readFromRoot(relative(projectRoot, file))))
+        .map((file) => relative(projectRoot, file))
+
+      expect(carriers).toHaveLength(1)
+      expect(carriers[0]).toMatch(/^dist[\\/]assets[\\/]docx-[\w-]+\.js$/)
+    })
+
+    /**
+     * And that chunk is not on the initial route.
+     *
+     * `docx` is ~100 KB gzip. It is imported inside the export handler
+     * (`ExportBar.tsx`), so a reader who never presses Export never downloads
+     * it — the same laziness `tests/bundle-budget.test.ts` enforces for the AI
+     * layer, and for a stronger reason there than here: this one is only
+     * weight, that one is reach.
+     */
+    whenBuilt('keeps the .docx exporter out of the initial route', () => {
+      const html = readFromRoot('dist/index.html')
+      expect(html).not.toMatch(/docx-[\w-]+\.js/)
     })
   })
 })

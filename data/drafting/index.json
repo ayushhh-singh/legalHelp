@@ -1,5 +1,5 @@
 {
-  "version": "1.0.0",
+  "version": "1.1.0",
   "generatedAt": "2026-08-28T00:00:00Z",
   "disclaimer": {
     "en": "Reference only; verify with the official gazette/order or your DDO.",
@@ -15,6 +15,10 @@
       "shortName": {
         "en": "Circular",
         "hi": "परिपत्र"
+      },
+      "useWhen": {
+        "en": "One text going to many addressees at once — instructions everyone concerned must see.",
+        "hi": "एक ही पाठ अनेक प्राप्तकर्ताओं को एक साथ — ऐसे अनुदेश जो सभी संबंधितों को देखने हैं।"
       },
       "group": "communication",
       "person": "third",
@@ -33,6 +37,10 @@
       "shortName": {
         "en": "D.O. letter",
         "hi": "अ.स. पत्र"
+      },
+      "useWhen": {
+        "en": "One officer drawing another officer's personal attention to something important or urgent.",
+        "hi": "एक अधिकारी द्वारा दूसरे अधिकारी का ध्यान किसी महत्वपूर्ण या अत्यावश्यक बात की ओर व्यक्तिगत रूप से आकृष्ट करने पर।"
       },
       "group": "communication",
       "person": "first",
@@ -53,6 +61,10 @@
         "en": "Endorsement",
         "hi": "पृष्ठांकन"
       },
+      "useWhen": {
+        "en": "Returning a paper in original, or sending a copy elsewhere for information or action.",
+        "hi": "कोई कागज़ मूल रूप में लौटाने, या उसकी प्रति सूचना अथवा आवश्यक कार्रवाई के लिए अन्यत्र भेजने पर।"
+      },
       "group": "communication",
       "person": "third",
       "csmopParas": [
@@ -70,6 +82,10 @@
       "shortName": {
         "en": "Letter",
         "hi": "पत्र"
+      },
+      "useWhen": {
+        "en": "Writing to a State Government, the UPSC, a statutory authority or a member of the public.",
+        "hi": "राज्य सरकार, संघ लोक सेवा आयोग, किसी वैधानिक प्राधिकरण या जनसाधारण को लिखते समय।"
       },
       "group": "communication",
       "person": "first",
@@ -90,6 +106,10 @@
         "en": "O.M.",
         "hi": "का.ज्ञा."
       },
+      "useWhen": {
+        "en": "Everyday business between Departments, or with your own employees. Never to a statutory authority.",
+        "hi": "विभागों के बीच या अपने कर्मचारियों के साथ रोज़मर्रा का कामकाज। वैधानिक प्राधिकरण को कभी नहीं।"
+      },
       "group": "communication",
       "person": "third",
       "csmopParas": [
@@ -108,6 +128,10 @@
       "shortName": {
         "en": "I.D. note",
         "hi": "अं.वि. टिप्पणी"
+      },
+      "useWhen": {
+        "en": "Asking another Department for advice or concurrence, with the point stated in the last paragraph.",
+        "hi": "किसी अन्य विभाग से सलाह या सहमति माँगते समय, जिसमें अभीष्ट बिंदु अंतिम पैराग्राफ में हो।"
       },
       "group": "internal",
       "person": "third",
@@ -129,6 +153,10 @@
       "shortName": {
         "en": "Noting",
         "hi": "टिप्पणी"
+      },
+      "useWhen": {
+        "en": "Recording on the file what the case is, what the rules provide, and what should be decided.",
+        "hi": "फाइल पर यह अंकित करने के लिए कि मामला क्या है, नियम क्या उपबंधित करते हैं और क्या निर्णय होना चाहिए।"
       },
       "group": "internal",
       "person": "third",
@@ -153,6 +181,10 @@
         "en": "Leave",
         "hi": "अवकाश"
       },
+      "useWhen": {
+        "en": "Applying to your own controlling officer for leave, with your address while away.",
+        "hi": "अपने नियंत्रक अधिकारी को अवकाश के लिए आवेदन, साथ में अवकाश के दौरान का पता।"
+      },
       "group": "personal",
       "person": "first",
       "csmopParas": [
@@ -170,6 +202,10 @@
       "shortName": {
         "en": "Representation",
         "hi": "अभ्यावेदन"
+      },
+      "useWhen": {
+        "en": "Asking your own Department to reconsider a decision that affects you personally.",
+        "hi": "अपने विभाग से ऐसे निर्णय पर पुनर्विचार का अनुरोध जो आप पर व्यक्तिगत रूप से प्रभाव डालता है।"
       },
       "group": "personal",
       "person": "first",
@@ -190,6 +226,10 @@
         "en": "Show-cause reply",
         "hi": "कारण बताओ उत्तर"
       },
+      "useWhen": {
+        "en": "Answering a show-cause notice on the facts, in courteous and temperate language.",
+        "hi": "कारण बताओ नोटिस का तथ्यों पर आधारित उत्तर, शिष्ट और संयत भाषा में।"
+      },
       "group": "personal",
       "person": "first",
       "csmopParas": [
@@ -208,6 +248,10 @@
       "shortName": {
         "en": "T.A. bill cover",
         "hi": "या.भ. बिल अग्रेषण"
+      },
+      "useWhen": {
+        "en": "Forwarding a travelling allowance bill with the tickets and receipts it rests on.",
+        "hi": "यात्रा भत्ता बिल को उन टिकटों और रसीदों सहित अग्रेषित करने के लिए जिन पर वह आधारित है।"
       },
       "group": "personal",
       "person": "first",
@@ -229,6 +273,10 @@
         "en": "Tour",
         "hi": "दौरा"
       },
+      "useWhen": {
+        "en": "Circulating where an officer will be on tour, and who holds charge meanwhile.",
+        "hi": "यह परिचालित करने के लिए कि अधिकारी दौरे पर कहाँ रहेंगे और इस बीच कार्यभार किसके पास रहेगा।"
+      },
       "group": "personal",
       "person": "third",
       "csmopParas": [
@@ -246,6 +294,10 @@
       "shortName": {
         "en": "Notification",
         "hi": "अधिसूचना"
+      },
+      "useWhen": {
+        "en": "Promulgating statutory rules, orders or appointments through the Gazette of India.",
+        "hi": "भारत के राजपत्र के माध्यम से सांविधिक नियम, आदेश या नियुक्तियाँ अधिसूचित करने के लिए।"
       },
       "group": "statutory",
       "person": "third",
@@ -266,6 +318,10 @@
       "shortName": {
         "en": "RTI reply",
         "hi": "सू.अ. उत्तर"
+      },
+      "useWhen": {
+        "en": "Replying to an RTI application within 30 days, naming the First Appellate Authority.",
+        "hi": "सूचना का अधिकार आवेदन का 30 दिन के भीतर उत्तर, जिसमें प्रथम अपीलीय प्राधिकारी का नाम हो।"
       },
       "group": "statutory",
       "person": "first",

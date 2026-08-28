@@ -17,7 +17,20 @@ import { expect, test, type Page } from '@playwright/test'
 const require = createRequire(import.meta.url)
 const AXE_SOURCE = readFileSync(require.resolve('axe-core/axe.min.js'), 'utf8')
 
-const ROUTES = ['/law', '/law/whats-new', '/law/saved', '/pay', '/draft', '/learn', '/utils', '/settings']
+const ROUTES = [
+  '/law',
+  '/law/whats-new',
+  '/law/saved',
+  '/pay',
+  '/draft',
+  // The editor is as much markup again as the picker — a guided form, a body
+  // toolbar, an A4 preview and an export bar — and the picker sweep would
+  // never see any of it.
+  '/draft/office-memorandum',
+  '/learn',
+  '/utils',
+  '/settings',
+]
 
 /**
  * A route that renders a skeleton first must be audited AFTER its data lands.
@@ -29,6 +42,15 @@ const ROUTES = ['/law', '/law/whats-new', '/law/saved', '/pay', '/draft', '/lear
  */
 const READY: Readonly<Record<string, RegExp>> = {
   '/pay': /Post|पद/,
+}
+
+/**
+ * Routes whose data lands after the `<h1>` and which have no combobox to wait
+ * on. Auditing before the template arrives would run axe over a skeleton and
+ * pass the editor without having seen the form.
+ */
+const READY_BUTTON: Readonly<Record<string, RegExp>> = {
+  '/draft/office-memorandum': /Fill with the worked example|नमूने से भरें/,
 }
 
 interface AxeViolation {
@@ -150,6 +172,12 @@ for (const language of ['en', 'hi'] as const) {
         await expect(page.getByRole('heading', { level: 1 })).toBeVisible()
         const ready = READY[route]
         if (ready) await expect(page.getByRole('combobox', { name: ready }).first()).toBeVisible()
+        const readyButton = READY_BUTTON[route]
+        if (readyButton) {
+          await expect(page.getByRole('button', { name: readyButton }).first()).toBeVisible({
+            timeout: 30_000,
+          })
+        }
         // The preference is read back out of IndexedDB after a navigation;
         // audit the page the reader actually sees, not the pre-hydration one.
         await expect(page.locator('html')).toHaveAttribute('lang', language)

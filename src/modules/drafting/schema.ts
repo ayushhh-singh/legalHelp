@@ -217,6 +217,8 @@ export const draftingIndexSchema = z.strictObject({
         id: slug,
         name: bilingual,
         shortName: bilingual,
+        /** One line for the picker card. The long form is `whenToUse` on the template. */
+        useWhen: bilingual,
         group: z.enum(['communication', 'internal', 'personal', 'statutory']),
         person: z.enum(['first', 'third']),
         csmopParas: z.array(z.string()).min(1),

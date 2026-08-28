@@ -570,5 +570,189 @@
       "benefitsTitle": "What the government side also carries",
       "noFigure": "Not a figure this app has"
     }
+  },
+  "draft": {
+    "groups": {
+      "communication": "Correspondence",
+      "internal": "Inside the Department",
+      "personal": "Your own service matters",
+      "statutory": "Statutory and public"
+    },
+    "picker": {
+      "heading": "Choose a form",
+      "lead": "Fourteen Central Secretariat documents. Each one carries the CSMOP paragraph its format comes from, and a checklist that reads what you have written.",
+      "person": {
+        "first": "First person",
+        "third": "Third person"
+      },
+      "csmop": "CSMOP {{paras}}",
+      "notInManual": "Format not prescribed",
+      "notInManualHint": "The manual prescribes no format for this document. It borrows the format of the {{chassis}} — verify against your own Department's practice.",
+      "open": "Open {{name}}"
+    },
+    "recent": {
+      "title": "Recent drafts",
+      "empty": "Nothing yet. Choose a form below and start writing — drafts save themselves as you type.",
+      "resume": "Resume",
+      "duplicate": "Duplicate",
+      "rename": "Rename",
+      "delete": "Delete",
+      "deleted": "Deleted “{{title}}”.",
+      "undo": "Undo",
+      "restored": "Restored “{{title}}”.",
+      "copyOf": "Copy of {{title}}",
+      "renamePrompt": "Name for this draft",
+      "actionsFor": "Actions for “{{title}}”",
+      "untitled": "Untitled draft",
+      "showAll": "Show all {{count}} drafts",
+      "showFewer": "Show fewer"
+    },
+    "privacy": {
+      "title": "Drafts stay on this device.",
+      "body": "Do not enter official, sensitive or classified content. Nothing you type here is sent anywhere, and there is no account and no backup — clearing this browser's storage deletes it."
+    },
+    "editor": {
+      "backToForms": "All forms",
+      "tabs": {
+        "label": "What to show",
+        "form": "Form",
+        "preview": "Preview"
+      },
+      "formHeading": "Fill in the form",
+      "fillSample": "Fill with the worked example",
+      "fillSampleHint": "Replaces everything with CSMOP's own specimen, so you can see a complete document before writing your own.",
+      "clear": "Clear the form",
+      "clearConfirm": "Clear every field of this draft?",
+      "saveDefaults": "Save as my template",
+      "saveDefaultsHint": "Keeps your letterhead — Ministry, Department, name, designation, telephone and e-mail — and applies it to every new draft of this form. The subject, the body, the enclosures and the date are never kept.",
+      "defaultsSaved": "Saved as your template for this form.",
+      "defaultsApplied": "Your saved template was applied.",
+      "clearDefaults": "Forget my template",
+      "defaultsCleared": "Your saved template for this form was deleted.",
+      "saving": "Saving…",
+      "saved": "Saved on this device",
+      "saveFailed": "This device refused to store the draft. Copy the text out before you leave the page.",
+      "required": "required",
+      "splitLanguages": "Write Hindi separately",
+      "mergeLanguages": "Use one text for both",
+      "splitHint": "One text is used for both issues of this document. Separate them to write the Hindi yourself.",
+      "editingIn": "Typing in",
+      "loadFailed": "That form could not be loaded.",
+      "unknownType": "There is no such form.",
+      "unknownTypeBody": "The address names a document type this app does not have. Choose one from the list.",
+      "issues": "What is still missing",
+      "issueCount_one": "{{count}} field still to fill",
+      "issueCount_other": "{{count}} fields still to fill"
+    },
+    "body": {
+      "toolbar": "Insert into the body",
+      "insertPhrase": "Phrase",
+      "insertTerm": "Glossary",
+      "insertEnclosure": "Enclosure line",
+      "insertCopyTo": "Copy-to line",
+      "enclosureText": "A copy of the order referred to above is enclosed.",
+      "copyToText": "Copy forwarded for information and necessary action to the Section concerned.",
+      "paraHint": "One paragraph per line. Blank lines are ignored.",
+      "paraCount_one": "{{count}} paragraph",
+      "paraCount_other": "{{count}} paragraphs"
+    },
+    "phrases": {
+      "title": "Phrase library",
+      "subtitle": "The openings, transitions and closings the manual prints, for this form.",
+      "search": "Search phrases",
+      "empty": "No phrase matches that.",
+      "insert": "Insert",
+      "inserted": "Inserted into the body.",
+      "kind": {
+        "opening": "Opening",
+        "transition": "Transition",
+        "closing": "Closing",
+        "noting": "Noting",
+        "endorsement": "Endorsement",
+        "courtesy": "Courtesy"
+      },
+      "placeholderNote": "Replace anything in braces before you sign."
+    },
+    "glossary": {
+      "title": "Hindi administrative glossary",
+      "subtitle": "The manual's own Hindi for the parts of a document — not the rendering most people expect.",
+      "search": "Search the glossary",
+      "empty": "No term matches that.",
+      "insert": "Insert the Hindi",
+      "insertEnglish": "Insert the English",
+      "alsoKnown": "Also written",
+      "category": {
+        "form": "Form of communication",
+        "part": "Part of a document",
+        "urgency": "Urgency grading",
+        "designation": "Designation",
+        "process": "Procedure",
+        "phraseElement": "Phrase element"
+      }
+    },
+    "preview": {
+      "heading": "Live preview",
+      "view": {
+        "label": "Preview language",
+        "en": "English",
+        "hi": "हिंदी",
+        "both": "Side by side"
+      },
+      "devanagariDigits": "Devanagari numerals in Hindi",
+      "devanagariDigitsHint": "Renders दिनांक २८.०८.२०२६ and paragraph २. An office that files its numbers in Latin digits should leave this off.",
+      "empty": "Nothing to show yet. Fill in the form and the document appears here.",
+      "page": "A4 page",
+      "columnEn": "English",
+      "columnHi": "हिंदी"
+    },
+    "checklist": {
+      "title": "Checklist",
+      "open": "Open the checklist",
+      "close": "Close the checklist",
+      "subtitle": "Every item is CSMOP's, evaluated against the document as it stands.",
+      "must": "Required",
+      "should": "Recommended",
+      "passed": "Passed",
+      "failed": "Not yet",
+      "allPassed": "Every item passes.",
+      "summary_one": "{{count}} required item still failing",
+      "summary_other": "{{count}} required items still failing",
+      "shouldSummary_one": "{{count}} recommended item",
+      "shouldSummary_other": "{{count}} recommended items",
+      "why": "Why",
+      "status": "Checklist status"
+    },
+    "export": {
+      "title": "Export",
+      "docx": "Word (.docx)",
+      "docxFor": "Word (.docx) — {{view}}",
+      "print": "Print / PDF",
+      "copy": "Copy as text",
+      "copied": "Copied to the clipboard.",
+      "copyFailed": "This browser refused the clipboard. Select the preview and copy it by hand.",
+      "building": "Preparing…",
+      "failed": "The file could not be built.",
+      "blockedTitle": "A required item is still failing",
+      "blockedBody": "Exporting is held back until every required checklist item passes. Open the checklist to see which.",
+      "openChecklist": "Open the checklist",
+      "anyway": "Export anyway",
+      "anywayHint": "Only recommended items are failing. You may export, but check them first."
+    },
+    "suggestion": {
+      "title": "Suggested change",
+      "accept": "Accept",
+      "reject": "Reject",
+      "acceptAll": "Accept all",
+      "rejectAll": "Reject all",
+      "apply": "Apply",
+      "cancel": "Cancel",
+      "unchanged": "No change is suggested.",
+      "added": "added",
+      "removed": "removed",
+      "changeCount_one": "{{count}} change",
+      "changeCount_other": "{{count}} changes",
+      "accepted": "{{count}} of {{total}} accepted",
+      "result": "Result"
+    }
   }
 }

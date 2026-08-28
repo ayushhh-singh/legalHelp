@@ -1,4 +1,4 @@
-import { diffWords, hasChanges, type DiffPart } from './diff'
+import { diffWords, hasChanges, type DiffPart } from '@/lib/diff'
 import { lookupOldSection } from './resolve'
 import type { Bilingual, LawIndex, LawSection, OldSectionRef, SectionNote, SectionStatus } from './types'
 
