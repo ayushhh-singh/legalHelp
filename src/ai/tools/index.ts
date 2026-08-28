@@ -1,6 +1,7 @@
 import { z } from 'zod'
 
 import { registerLawTools } from './law'
+import { registerPayTools } from './pay'
 import { registerTool, registeredToolNames } from './registry'
 
 import { DATASETS, DATA_GENERATED_AT, DATA_VERSION } from '@/lib/dataVersion'
@@ -23,6 +24,7 @@ export function registerBuiltinTools(): void {
   // The module tools register themselves. Each one is idempotent, so this is
   // safe on a hot reload and in a test that imports this module twice.
   registerLawTools()
+  registerPayTools()
 
   if (registeredToolNames().includes('dataset_versions')) return
 

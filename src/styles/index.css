@@ -128,6 +128,17 @@
  * than the colour (see DiffView.tsx).
  */
 @media print {
+  /*
+   * A4, because a pay slip is filed. The Law Converter never needed a paper
+   * size — a section card is read and thrown away — but the print of a pay slip
+   * goes into a file beside the order it cites, and a Letter-sized page in an
+   * A4 folder is the kind of thing an office notices.
+   */
+  @page {
+    size: A4;
+    margin: 15mm;
+  }
+
   body {
     background: #fff;
     color: #000;
@@ -160,5 +171,21 @@
   tr,
   section {
     break-inside: avoid;
+  }
+
+  /*
+   * Every "why is this figure what it is" disclosure prints OPEN.
+   *
+   * `<details data-print-open>` is a `<details>` on screen — closed until the
+   * reader asks — and its whole content on paper, because a printed pay slip
+   * whose workings are collapsed is a page of numbers with no provenance, and
+   * provenance is the reason this app shows the figure at all.
+   */
+  [data-print-open] > *:not(summary) {
+    display: revert !important;
+  }
+
+  [data-print-open] > summary {
+    display: none !important;
   }
 }

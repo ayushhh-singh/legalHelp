@@ -121,7 +121,9 @@ src/ai/
     mock.ts               used by every test
   tools/
     registry.ts     registerTool / listTools / toolSpecs / exportToolManifest
-    index.ts        the built-in tools
+    index.ts        the built-in tools; registers the module tools below
+    law.ts          five tools over data/law   (scope: law)
+    pay.ts          five tools over data/pay   (scope: pay)
   agent.ts          the loop: step cap, validation, timeouts, budget, grounding
   context.ts        buildContext / validateCitations
   prompts.ts        persona, cache-ordered system blocks, PROMPT_VERSIONS

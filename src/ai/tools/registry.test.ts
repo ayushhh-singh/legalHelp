@@ -81,7 +81,15 @@ describe('listTools and toolSpecs', () => {
       'section_lookup',
       'today_in_india',
     ])
-    expect(listTools('pay').map((tool) => tool.def.name)).toEqual(['dataset_versions', 'today_in_india'])
+    expect(listTools('pay').map((tool) => tool.def.name)).toEqual([
+      'compare_jobs',
+      'compute_pay_for_job',
+      'dataset_versions',
+      'explain_pay_line',
+      'get_allowance_source',
+      'search_pay_jobs',
+      'today_in_india',
+    ])
   })
 
   it('sends English descriptions only, so the cached prefix is language-stable', () => {
@@ -142,11 +150,16 @@ describe('the built-in tools', () => {
     // guard in registerTool throws, so a second pass that registered anything
     // twice would fail here rather than silently.
     expect(registeredToolNames()).toEqual([
+      'compare_jobs',
       'compare_old_new',
+      'compute_pay_for_job',
       'dataset_versions',
+      'explain_pay_line',
       'format_citation',
+      'get_allowance_source',
       'get_classification',
       'get_section',
+      'search_pay_jobs',
       'search_sections',
       'today_in_india',
     ])

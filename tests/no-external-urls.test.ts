@@ -77,18 +77,75 @@ const ALLOWED_INERT: ReadonlyArray<{ pattern: RegExp; why: string }> = [
     pattern: OPT_IN_ENDPOINT.pattern,
     why: 'Tier 1 BYOK endpoint; reached only after explicit consent, from one lazy-loaded module',
   },
-  {
-    // The master context requires every data card to show its source URL, so
-    // citations necessarily ship. They are rendered as links for the reader to
-    // open, never fetched: `loads every HTML and CSS reference from its own
-    // origin` above covers the markup, the eslint `no-restricted-globals: fetch`
-    // rule covers the code, and tests/e2e/zero-third-party-requests.spec.ts
-    // covers the running app. Scoped to the one directory the datasets cite so a
-    // second NCRB path still has to be looked at by a human.
-    pattern: /^https:\/\/www\.ncrb\.gov\.in\/uploads\/SankalanPortal\//,
-    why: 'NCRB Sankalan source citation in data/_meta/versions.json; displayed as a link, never requested',
-  },
 ]
+
+/**
+ * Every host a dataset under `data/` is allowed to cite.
+ *
+ * The master context requires every data card to show its source URL, so
+ * citations necessarily ship — `data/law/*.json` and `data/pay/*.json` reach
+ * `dist/` as `?raw` chunks (ADR-013, ADR-018). They are rendered as links for
+ * the reader to open and are NEVER fetched: the structural check above covers
+ * the markup, the `no-restricted-globals: fetch` rule in eslint.config.js
+ * covers the code, and tests/e2e/zero-third-party-requests.spec.ts covers the
+ * running app.
+ *
+ * The list is written out rather than derived, and `every host the datasets
+ * cite is on this list` below asserts the two agree in BOTH directions. So a
+ * dataset that starts citing a new host fails this suite until a human has
+ * looked at it — which is the property the whole file exists for — while the
+ * pay datasets' several hundred order URLs do not each need a line here.
+ *
+ * ADR-016 kept these hosts out of `data/_meta/versions.json` for exactly this
+ * reason; the Pay module's `?raw` imports brought them into the build anyway,
+ * so the rule moved from "no pay URLs ship" to "only reviewed hosts ship, only
+ * from data/, and never from src/".
+ */
+const CITATION_HOSTS: readonly string[] = [
+  'cbi.gov.in',
+  'cghs.gov.in',
+  'ddpmod.gov.in',
+  'doe.gov.in',
+  'dopt.gov.in',
+  'indianrailways.gov.in',
+  'kvsangathan.nic.in',
+  'labourbureau.gov.in',
+  'navodaya.gov.in',
+  'ssc.gov.in',
+  'thc.nic.in',
+  'upsc.gov.in',
+  'www.delhipolice.gov.in',
+  'www.drdo.gov.in',
+  'www.incometax.gov.in',
+  'www.isro.gov.in',
+  'www.mha.gov.in',
+  'www.ncrb.gov.in',
+  'www.pfrda.org.in',
+]
+
+/** The host of a URL as the sweep's own regex captured it, or '' if unparseable. */
+function hostOf(url: string): string {
+  try {
+    return new URL(url).host
+  } catch {
+    return ''
+  }
+}
+
+/**
+ * Every URL that appears in a committed dataset, extracted with the SAME regex
+ * the sweep uses — so a URL the regex truncates (the Revised Pay Rules link
+ * contains a bracket) truncates identically on both sides and still matches.
+ */
+function datasetUrls(): Set<string> {
+  const urls = new Set<string>()
+  for (const file of walk(fromRoot('data'), new Set(['.json']))) {
+    for (const url of readFromRoot(relative(projectRoot, file)).match(URL_PATTERN) ?? []) {
+      urls.add(url)
+    }
+  }
+  return urls
+}
 
 const SOURCE_EXTENSIONS = new Set(['.ts', '.tsx', '.css', '.html'])
 const BUILD_EXTENSIONS = new Set(['.js', '.css', '.html', '.txt', '.svg', '.json'])
@@ -112,7 +169,16 @@ function stripComments(code: string): string {
     .replace(/<!--[\s\S]*?-->/g, '')
 }
 
-const isAllowed = (url: string) => ALLOWED_INERT.some(({ pattern }) => pattern.test(url))
+let citations: Set<string> | null = null
+
+const isAllowed = (url: string) => {
+  if (ALLOWED_INERT.some(({ pattern }) => pattern.test(url))) return true
+  // A citation from a committed dataset, on a host that has been reviewed.
+  // Both halves are required: a reviewed host cannot smuggle in a URL that is
+  // not in the data, and a URL in the data cannot smuggle in a new host.
+  citations ??= datasetUrls()
+  return citations.has(url) && CITATION_HOSTS.includes(hostOf(url))
+}
 
 function externalUrlsIn(code: string, { keepComments = false } = {}): string[] {
   const body = keepComments ? code : stripComments(code)
@@ -172,38 +238,28 @@ describe('no external URLs', () => {
     expect(naming).toEqual([OPT_IN_ENDPOINT.file])
   })
 
-  it('constructs a SpeechRecognition in exactly one module', () => {
-    // The second network seam. It does not look like one — it is a browser
-    // global, not a URL — but Chrome streams the captured audio to Google's
-    // servers, so a spoken query leaves the device exactly as a fetch would.
-    // `eslint.config.js` restricts both spellings of the global and grants one
-    // file-scoped exception; this is the assertion that the exception is still
-    // the only place that uses it, and it is deliberately independent of the
-    // lint rule so that disabling the rule does not also disable the check.
-    const naming = walk(fromRoot('src'), SOURCE_EXTENSIONS)
-      .map((file) => relative(projectRoot, file))
-      .filter((file) => !/\.test\.tsx?$/.test(file))
-      .filter((file) =>
-        /new\s+Recognition\b|webkitSpeechRecognition|\bSpeechRecognition\b/.test(readFromRoot(file)),
-      )
-
-    // voiceSettings.ts names the global in a presence check — it decides
-    // whether to SHOW the button — and never constructs one.
-    expect(naming.sort()).toEqual(['src/lib/voice.ts', 'src/lib/voiceSettings.ts'])
-    expect(readFromRoot('src/lib/voiceSettings.ts')).not.toContain('new ')
+  it('cites only hosts that have been reviewed, and every one on the list', () => {
+    // Both directions. A dataset that starts citing a new host fails here until
+    // someone writes it down; a host left on the list after the last citation
+    // using it was removed fails too, so the list cannot silently widen.
+    const hosts = [...new Set([...datasetUrls()].map(hostOf))].filter(Boolean).sort()
+    expect(hosts).toEqual([...CITATION_HOSTS].sort())
   })
 
   it('keeps dataset source citations in data/, out of the source tree', () => {
-    // Allowing the NCRB citation through the dist sweep would otherwise let a
-    // `fetch('https://www.ncrb.gov.in/...')` in src/ pass unnoticed. It reaches
-    // the build only as a string inside data/_meta/versions.json; no module may
-    // name it.
-    const naming = walk(fromRoot('src'), SOURCE_EXTENSIONS)
-      .map((file) => relative(projectRoot, file))
-      .filter((file) => !/\.test\.tsx?$/.test(file))
-      .filter((file) => /ncrb\.gov\.in/.test(readFromRoot(file)))
-
-    expect(naming).toEqual([])
+    // This is what stops the dataset rule above being a way in. A citation may
+    // ship as a string inside data/; no module under src/ may name one of those
+    // hosts, so `fetch('https://doe.gov.in/...')` in a component would fail here
+    // even though the same URL is allowed through the dist sweep.
+    const offenders: Record<string, string[]> = {}
+    for (const file of walk(fromRoot('src'), SOURCE_EXTENSIONS)) {
+      const name = relative(projectRoot, file)
+      if (/\.test\.tsx?$/.test(name) || name.includes(`${sep}test${sep}`)) continue
+      const body = readFromRoot(name)
+      const found = CITATION_HOSTS.filter((host) => body.includes(host))
+      if (found.length > 0) offenders[name] = found
+    }
+    expect(offenders).toEqual({})
   })
 
   it('imports every webfont from a bundled package, never from a CDN', () => {

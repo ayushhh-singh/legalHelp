@@ -1784,3 +1784,271 @@ that removes the compromise".
 `processLocally` is Chrome-only today. If a browser this app must support implements the speech API
 without it, the choice returns — and the answer should still be "no microphone there", not a silent
 cloud fallback. The consent-gated design is in ADR-014 if it is ever genuinely needed.
+
+---
+
+## ADR-018 — The Pay & Allowances Calculator: three bases, a rule that refuses to guess, and Inter for the numerals
+
+**Date:** 2026-08-28 · **Status:** Accepted · **Session:** 5 (Pay & Allowances module)
+
+### Context
+
+`data/pay` had eleven datasets and no consumer (ADR-016). Building the calculator over them raised
+five questions the datasets could not answer, and each one is a place where a plausible
+implementation produces a wrong pay slip rather than an obviously broken one.
+
+**1. What is "basic pay"?** It is not one quantity. Non-Practising Allowance is counted as pay for
+Dearness Allowance and not for House Rent Allowance; the 30 per cent pay element of Running Allowance
+counts for Dearness Allowance, House Rent Allowance and pension — those three — and not for every
+allowance that happens to be expressed as a percentage.
+
+**2. What does the calculator do when an order carries several rates and cannot tell which
+applies?** Ten of the thirty-two allowances do. Which cell of the Risk and Hardship Matrix a posting
+falls in, whether a deputation involved a change of station, which uniform an officer wears: none of
+these is a fact this app has.
+
+**3. How does a payslip's numerals behave?** The brief asked for IBM Plex Mono.
+
+**4. Where does the pay slip put the `verify` flag?** `data/pay/jobs.json` is 66 of 67 posts
+unconfirmed and `data/pay/matrix.json` is 0 of 19 levels confirmed.
+
+**5. What happens when the eleventh named scenario is saved?**
+
+### Decision
+
+**1. Three bases, named, in `src/lib/pay/engine.ts`.**
+
+| Base                  | Contents                                   |
+| --------------------- | ------------------------------------------ |
+| Dearness Allowance    | cell pay + running-staff pay element + NPA |
+| House Rent Allowance  | cell pay + running-staff pay element       |
+| Percentage allowances | cell pay alone                             |
+
+Collapsing them into one number is the single most tempting simplification in the module and it
+mis-states a medical officer's slip in both directions at once — 20 per cent of basic too much House
+Rent Allowance, and 60 per cent of the NPA too little Dearness Allowance. The golden test asserts
+both halves on a Level 11 medical officer.
+
+**2. A rate that cannot be resolved returns nothing, and says so.**
+
+`resolveRate` narrows an allowance's rates by the reader's Level, then: an explicit choice wins; a
+family named `standard` is the default where the dataset has one (Children Education Allowance's
+`standard` against its `divyang`); a single remaining family is used; and **more than one remaining
+family produces a line with `needsChoice: true`, an amount of zero, and the list of choices.** The
+UI renders that as a select, not as ₹0.
+
+The alternative — take the first rate — would have handed a CAPF constable the Dress Allowance of an
+officer of the Army (₹20,000 a year against ₹5,000) with no indication that a choice had been made
+on their behalf. A confident wrong figure is the failure mode this whole module is built against.
+
+**3. The numerals are Inter with `tabular-nums`, not IBM Plex Mono.** The master context's own DESIGN
+block settles the numeral question — "scoreboard numerals = Inter 800 tabular-nums" — and
+`.font-display` implements it. Adding a fourth self-hosted family would put ~25 KB of woff2 into
+every offline install, add a face to `tests/e2e/typography.spec.ts` (which reads back the fonts
+Chromium actually _used_), and buy an alignment that Inter's tabular figures already give. The brief's
+instruction and the master context's disagree; the master context wins, and this records it.
+
+**Every line label carries both languages**, which is the other half of "payslip-style": the reader's
+language decides which of the two is the larger, not which one exists. A government pay slip does the
+same, and an officer showing the slip to a colleague does not have to toggle anything.
+
+**4. `verify` is a banner on the slip, a badge on the allowance row, and a sentence in every agent
+tool result.** `PayResult.verify` is true when any line with a non-zero amount rests on an
+unconfirmed figure, which for a picked post is always. The tools return the same sentence in
+`verifyNote`, so an agent cannot present a job-title pick as an authority either.
+
+**5. The eleventh scenario is REFUSED.** `saveScenario` returns `{ ok: false, reason: 'full' }` and
+the bar says which one to delete. Evicting the least recently used is the obvious implementation and
+it means this app silently deleting something a reader named on purpose. Ten is the brief's limit;
+what the brief does not say is who gets to do the deleting.
+
+**Two smaller decisions worth recording**, because both are the difference between a number an
+officer would believe and one they would not:
+
+- **Marginal relief under the proviso to section 87A** is applied in the new regime. Without it
+  ₹12,00,000 of income pays nothing and ₹12,00,100 pays ₹61,515. The real figure is ₹100. Surcharge
+  gets the same treatment at each band edge, which matters only at the very top of the matrix —
+  exactly where nobody would notice it was wrong.
+- **Section 288A** rounds total income to the nearest ten rupees before the slabs are applied, and
+  every pay-slip line is rounded to the rupee as it is computed, not once at the bottom. The
+  Dearness Allowance order states that rule in terms and `data/pay/allowances.json` carries the
+  sentence.
+
+### Consequences
+
+- **`src/lib/pay/*` is pure and takes its datasets as an argument.** Nothing under it imports a JSON
+  file. The unit suite reads the committed bytes off disk, the UI hands it the lazily-imported
+  chunks, and `src/ai/tools/pay.ts` hands it the same ones — one implementation, three callers, no
+  module-level state to reset between them.
+- **The datasets reach the browser as `?raw` dynamic imports, never a `fetch`** — the arrangement
+  ADR-013 set up for the statute, for the same three reasons. That is what makes
+  `tests/e2e/pay.spec.ts`'s "answers a pay calculation with no network at all" possible on a device
+  that has never opened `/pay` online, and it is what kept `src/ai/providers/wire.ts` the only
+  module in the app that may call `fetch`. It also brought several hundred citation URLs into the
+  build; ADR-019 is what that cost.
+- **73 unit tests over the engine, and every expected figure was worked out from the orders before
+  the code ran.** IB ACIO-II at Level 7 cell 1 in Delhi on 60 per cent DA: basic 44,900, DA 26,940,
+  HRA 13,470, TA 3,600, DA on TA 2,160, Special Security Allowance 8,980, gross 1,00,050, NPS 7,184,
+  CGHS 650, CGEGIS 60, tax nil under the new regime and ₹1,05,290 under the old, net 92,156, annual
+  cost to Government 13,21,296. 38 of the 39 passed on the first run; the one that did not was a
+  wrong city id in the test.
+- **The URL is the state**, as in the Law Converter. The post's own defaults are not repeated in the
+  link — only the reader's departures from them (`on`, `off`, `rk`), so a shared link stays readable
+  and a post whose default allowances change in a later dataset release still opens with the
+  reader's actual choices rather than a frozen copy of last month's defaults.
+- **Parsing the URL needs no datasets.** `parsePayParams` is pure string work and
+  `scenarioFromParams` applies the tables afterwards, so the route renders on the first frame rather
+  than after 1.2 MB has arrived.
+- **Lighthouse**, measured against `pnpm preview`: `/pay?job=ib-acio-ii-executive&city=delhi&da=60`
+  scores **99 desktop** (FCP 0.6 s, LCP 0.9 s, TBT 0 ms, CLS 0) and **78 mobile** (FCP 2.9 s,
+  LCP 4.6 s, TBT 110 ms). The ceiling is the application shell: `/settings`, which loads no module
+  data at all, scores **89** mobile on the same run. `docs/DATA-GAPS.md` #22 carries the numbers and
+  the two levers.
+- **Starting the dataset load at module scope rather than in an effect** halved the gap between the
+  route chunk arriving and the first dataset request (89 ms → 42 ms, unthrottled). It did not move
+  the Lighthouse score, which is dominated by the shell's own critical path; it is kept because the
+  waterfall improvement is real and the cost is one line.
+- **A `<details>` rather than a floating popover** for every "why is this figure what it is"
+  disclosure, and `[data-print-open]` in `index.css` opens all of them on paper. A printed pay slip
+  whose workings are collapsed is a page of numbers with no provenance, and provenance is the reason
+  this app shows the figure at all. `@page { size: A4 }` is there for the same reason: this print
+  goes into a file beside the order it cites.
+
+### Rejected
+
+- **Guessing a rate and flagging it.** A figure with a warning beside it is still a figure, and it is
+  the one that gets copied into a note. `needsChoice` shows no number at all.
+- **`cmdk` for the two pickers.** It is a command palette; what these need is a form control a screen
+  reader announces as one. `Combobox.tsx` is the ARIA 1.2 combobox-with-listbox pattern in about
+  eighty lines, it prints, and it does not put a second interaction model on a page whose other
+  controls are ordinary form fields. `cmdk` stays deferred.
+- **`fuse.js` for the pickers.** The law module indexes 1,059 records of statute and needs fuzzy
+  scoring; this is 67 posts and 102 cities, where fuzzy matching is a hazard rather than a help —
+  "Inspector" fuzzily matches four posts about equally and the reader has to read all four anyway.
+  Exact-and-prefix over a precomputed term list is faster and explainable, and indexing each post id
+  segment by segment is what makes "ACIO" find a post whose title never says it.
+- **Totalling the government benefits in the private-versus-government panel.** Adding an "annual
+  value of CGHS" to a net pay would be an opinion dressed as arithmetic. The benefits are listed with
+  their sources and a sentence saying their value is indicative, and they are never summed.
+- **Treating a private cost to company as cash.** It is the most common error in this comparison and
+  it flatters the private side by about a sixth of basic pay. Every step from a CTC to a take-home is
+  an assumption; each one is an editable field with its default stated, and all of them are printed
+  under the answer rather than hidden behind a disclosure.
+
+---
+
+## ADR-019 — Dataset citations in the build: a reviewed host list, not a per-URL allowlist
+
+**Date:** 2026-08-28 · **Status:** Accepted · **Session:** 5 · **Amends:** ADR-012, ADR-016
+
+### Context
+
+`tests/no-external-urls.test.ts` sweeps the whole build for URL-shaped strings and fails on anything
+not on an explicit allowlist. That is the static half of the master context's hard rule, and its
+value is precisely that **anything new fails until a human has looked at it**.
+
+ADR-016 kept the pay sources out of `data/_meta/versions.json` for exactly this reason: that file is
+bundled, so a URL in it reaches `dist/` and would have needed an allowlist line. The pay datasets are
+compiled from dozens of orders across `doe.gov.in`, `pfrda.org.in`, `ssc.gov.in`, `upsc.gov.in` and
+more, and adding all of those would have turned a deliberate, reviewed exception into a wide-open
+door.
+
+Building the Pay module made the point moot. `data/pay/*.json` now reaches the browser as `?raw`
+chunks (ADR-018), so several hundred citation URLs across nineteen hosts are in `dist/` whatever
+`versions.json` says. The master context requires every data card to show its source, so this is not
+optional.
+
+Three options: list every URL (hundreds of lines, unreviewable, and it changes every ingest); list
+every host as an inert pattern (nineteen lines, but it then lets a `fetch('https://doe.gov.in/…')`
+in `src/` through the sweep unnoticed); or make the rule structural.
+
+### Decision
+
+A URL in the build is allowed if **both** hold:
+
+1. it appears verbatim in a committed dataset under `data/`, and
+2. its host is on `CITATION_HOSTS` — a written list of nineteen names, every one a Government of
+   India domain or the PFRDA's.
+
+Neither half is sufficient. A reviewed host cannot smuggle in a URL that is not in the data; a URL in
+the data cannot smuggle in a new host.
+
+Two tests hold it up, and both fail in the right direction:
+
+- **`cites only hosts that have been reviewed, and every one on the list`** compares the hosts the
+  datasets actually cite against `CITATION_HOSTS` **in both directions**. A dataset that starts
+  citing a new host fails until someone writes it down; a host left on the list after its last
+  citation was removed fails too, so the list cannot silently widen.
+- **`keeps dataset source citations in data/, out of the source tree`** fails if any module under
+  `src/` so much as contains one of those host names. This is what stops the first rule being a way
+  in: the same URL that is allowed through the `dist` sweep is forbidden in a component.
+
+Both were confirmed to fail against a deliberate `https://doe.gov.in/probe` added to
+`src/lib/pay/format.ts`, and to pass again once it was removed.
+
+The NCRB-specific allowlist entry ADR-012 added, and the paired "no module names the host"
+assertion beside it, are both **deleted** — the general rule subsumes them and covers the law
+datasets on the same terms. `CLAUDE.md`'s note to "not remove one without the other" is honoured by
+replacing both at once with a stronger pair.
+
+### Consequences
+
+- The audit question — _what may this app request?_ — still has the same one-line answer:
+  `api.anthropic.com`, from `src/ai/providers/wire.ts`, after explicit consent. Nothing else.
+- The second question — _what URLs ship as text?_ — now has an answer a reviewer can check in one
+  place: nineteen Government of India hosts, cited by the datasets, rendered as links.
+- A future dataset that cites a commercial host fails CI rather than shipping.
+- `data/_meta/versions.json` could now carry the pay `source.url` fields ADR-016 left out. It is left
+  as it is: nothing reads them, and the UI shows the per-record citation, which is where every URL
+  already is.
+
+---
+
+## ADR-018 — Voice search is removed
+
+**Date:** 2026-08-28 · **Status:** Accepted · **Supersedes:** ADR-014 and ADR-017
+
+### Context
+
+Voice search shipped twice in one session. ADR-014 put it behind a consent notice, because Chrome's
+default speech path streams audio to Google. ADR-017 replaced that with a stricter rule — `processLocally`
+required, no cloud fallback, no consent gate needed — which was a better design and worked, in Chrome.
+
+It never worked anywhere else, and the attempt to make it work is what settled this. Self-hosting Whisper
+through transformers.js was measured in full:
+
+- the build blocker was solved (forcing `onnxruntime-web@1.29.0` through a pnpm override);
+- the privacy properties held — model and runtime from our own origin, zero cross-origin requests;
+- the footprint was 54 MB, not the 39 MB first estimated;
+- and the transcription was not usable. **Hindi never came back in Devanagari from either whisper-tiny
+  or whisper-base**, and base was not reliably better than tiny while being twice the size and twice as
+  slow. "अग्रिम जमानत" became "Agrim Jamanat"; "हत्या" became "Hadi.." and then "حدя".
+
+So the feature worked in one browser, and could not be made to work in the others without shipping 54 MB
+of English-only-and-unreliable to an app whose premise is that Hindi is not a second-class way in.
+
+### Decision
+
+**Remove it.** Not disable, not hide behind a flag — delete the code, the settings, the strings, the
+eslint seam and the tests.
+
+A feature that works in one browser is a feature most readers never see, and every line of it was still
+being maintained: a restricted global with a file-scoped exception, a settings section, a WebKit
+Playwright project, four assertions across the privacy and bundle suites. That is a real carrying cost
+for something no reader on Safari, Firefox or any Chromium fork without the flag could use.
+
+`eslint.config.js` goes back to ONE named network seam — `src/ai/providers/wire.ts` and `fetch` —
+which is the cleaner thing to have to explain.
+
+### What this does not change
+
+Nothing about how the search box works. Typing was always the primary path; dictation was an addition to
+it. On a phone or a Mac the keyboard's own dictation still types into the field, exactly as it always
+did, using the operating system's recogniser — which handles Hindi properly. That needed no code from
+this app, which is part of why the in-app version was hard to justify.
+
+### What would bring it back
+
+A multilingual on-device model that handles Devanagari, or the Web Speech API's `processLocally` landing
+in more than one browser. ADR-014 and ADR-017 stay on record with the designs, and the removal commit
+carries the measured transcription table so the next attempt starts from evidence.

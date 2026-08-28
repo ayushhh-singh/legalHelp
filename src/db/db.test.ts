@@ -108,10 +108,10 @@ describe('the version 2 upgrade', () => {
     try {
       await v2.open()
 
-      // The class declares up to version 3 now (the Law Converter's saved
-      // sections, Session 4), so opening it upgrades a v1 database straight to
+      // The class declares up to version 4 now (the Pay calculator's saved
+      // scenarios, Session 5), so opening it upgrades a v1 database straight to
       // the current version rather than stopping at 2.
-      expect(v2.verno).toBe(3)
+      expect(v2.verno).toBe(4)
       expect(await v2.settings.get(SETTING_KEYS.theme)).toEqual({
         key: SETTING_KEYS.theme,
         value: 'dark',
@@ -120,6 +120,7 @@ describe('the version 2 upgrade', () => {
       expect(await v2.secrets.count()).toBe(0)
       expect(await v2.aiAnswers.count()).toBe(0)
       expect(await v2.aiUsage.count()).toBe(0)
+      expect(await v2.payScenarios.count()).toBe(0)
     } finally {
       v2.close()
       await Dexie.delete(name)
@@ -134,6 +135,7 @@ describe('the version 2 upgrade', () => {
       'aiUsage',
       'lawFavourites',
       'lawRecents',
+      'payScenarios',
       'secrets',
       'settings',
     ])

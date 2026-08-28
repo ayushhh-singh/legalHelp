@@ -16,7 +16,8 @@ export const SETTING_KEYS = {
   language: 'language',
   theme: 'theme',
   ai: 'ai',
-  voice: 'voice',
+  /** The last scenario the Pay calculator was left on. */
+  pay: 'pay',
 } as const
 
 /**
@@ -106,6 +107,27 @@ export interface LawRecentRow {
   viewedAt: string
 }
 
+/**
+ * A named pay scenario, saved by the reader.
+ *
+ * `scenario` is a `PayScenario` from `src/lib/pay/scenario.ts`, stored as the
+ * plain object it already is. It is deliberately typed `unknown` here: `src/db`
+ * is imported by the app shell, and naming the pay types would drag the Pay
+ * module's imports onto every route. The Pay module validates the shape on the
+ * way out, which it would have to do anyway — a row written by an older release
+ * is untrusted input like any other.
+ */
+export interface PayScenarioRow {
+  id: string
+  name: string
+  scenario: unknown
+  /** Denormalised so the saved list can render before the datasets load. */
+  jobId: string | null
+  level: string
+  createdAt: string
+  updatedAt: string
+}
+
 export type SettingKey = (typeof SETTING_KEYS)[keyof typeof SETTING_KEYS]
 
 export class SahayakDB extends Dexie {
@@ -115,6 +137,7 @@ export class SahayakDB extends Dexie {
   aiUsage!: Table<AiUsageRow, string>
   lawFavourites!: Table<LawSavedRow, string>
   lawRecents!: Table<LawRecentRow, string>
+  payScenarios!: Table<PayScenarioRow, string>
 
   constructor(name = 'sahayak') {
     super(name)
@@ -142,6 +165,18 @@ export class SahayakDB extends Dexie {
       aiUsage: '&month',
       lawFavourites: '&id, createdAt',
       lawRecents: '&id, viewedAt',
+    })
+    // Version 4 — the Pay calculator's named scenarios (Session 5). Indexed on
+    // `updatedAt` because the list is only ever read newest-first, and on
+    // `name` so a rename can check for a clash without scanning the table.
+    this.version(4).stores({
+      settings: '&key',
+      secrets: '&id',
+      aiAnswers: '&id, agentId, dataVersion, createdAt',
+      aiUsage: '&month',
+      lawFavourites: '&id, createdAt',
+      lawRecents: '&id, viewedAt',
+      payScenarios: '&id, name, updatedAt',
     })
   }
 }

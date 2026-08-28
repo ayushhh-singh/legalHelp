@@ -19,6 +19,18 @@ const AXE_SOURCE = readFileSync(require.resolve('axe-core/axe.min.js'), 'utf8')
 
 const ROUTES = ['/law', '/law/whats-new', '/law/saved', '/pay', '/draft', '/learn', '/utils', '/settings']
 
+/**
+ * A route that renders a skeleton first must be audited AFTER its data lands.
+ *
+ * `/pay` imports 1.2 MB of datasets before it can draw a single figure, and its
+ * `<h1>` is on screen for the whole of that. Auditing on the h1 alone would run
+ * axe over the skeleton and pass the route without ever having seen the form —
+ * which is a green tick for a page nobody checked.
+ */
+const READY: Readonly<Record<string, RegExp>> = {
+  '/pay': /Post|पद/,
+}
+
 interface AxeViolation {
   id: string
   impact: string | null
@@ -136,6 +148,8 @@ for (const language of ['en', 'hi'] as const) {
       for (const route of ROUTES) {
         await page.goto(route)
         await expect(page.getByRole('heading', { level: 1 })).toBeVisible()
+        const ready = READY[route]
+        if (ready) await expect(page.getByRole('combobox', { name: ready }).first()).toBeVisible()
         // The preference is read back out of IndexedDB after a navigation;
         // audit the page the reader actually sees, not the pre-hydration one.
         await expect(page.locator('html')).toHaveAttribute('lang', language)
@@ -147,11 +161,43 @@ for (const language of ['en', 'hi'] as const) {
   }
 }
 
+/**
+ * The Pay module's other three tabs.
+ *
+ * The route sweep above audits `/pay` as it opens, which is the calculator.
+ * The simulations, the comparison and the private-versus-government panels are
+ * as much markup again — a range input, three data tables and two more
+ * comboboxes — and none of it would ever be looked at by the sweep.
+ */
+for (const [tab, ready] of [
+  ['simulate', 'Annual increment'],
+  ['compare', 'Second post'],
+  ['private', 'The private package'],
+] as const) {
+  test(`no axe violations on the pay ${tab} tab`, async ({ page }) => {
+    await page.goto('/pay?job=ib-acio-ii-executive&city=delhi&da=60&pctc=1800000')
+    await expect(page.getByRole('heading', { level: 1 })).toBeVisible()
+    await expect(page.getByRole('combobox', { name: /Post/ }).first()).toBeVisible({ timeout: 30_000 })
+
+    await page.getByRole('radio', { name: TAB_LABELS[tab] }).click()
+    await expect(page.getByText(ready).first()).toBeVisible()
+
+    expect(format(await audit(page)), `/pay (${tab})`).toEqual([])
+  })
+}
+
+const TAB_LABELS = {
+  simulate: 'Simulations',
+  compare: 'Compare posts',
+  private: 'Private vs government',
+} as const
+
 test('the audit still finishes when an infinite animation is on the page', async ({ page }) => {
   // Regression guard for settle(). <Skeleton/> renders `animate-pulse`, whose
   // `finished` promise never resolves; awaiting it hung this spec until
-  // Playwright's timeout. No page renders one yet, so inject exactly what it
-  // renders — otherwise the guard only starts working after the bug reappears.
+  // Playwright's timeout. /pay renders one while its datasets load, but only
+  // for a moment, so this injects exactly what <Skeleton/> renders rather than
+  // racing it — otherwise the guard only works when the load happens to be slow.
   await page.goto('/law')
   await expect(page.getByRole('heading', { level: 1 })).toBeVisible()
   await page.evaluate(() => {
@@ -197,42 +243,6 @@ test('no axe violations while browsing a whole Act', async ({ page }) => {
 
   expect(format(await audit(page))).toEqual([])
 })
-
-for (const theme of ['light', 'dark'] as const) {
-  test(`no axe violations with the microphone listening in ${theme}`, async ({ page }) => {
-    // There is no consent notice any more (ADR-017) — the surface to audit is
-    // the button and the live region that says the microphone is open.
-    await page.addInitScript(() => {
-      class Stub {
-        lang = ''
-        continuous = false
-        interimResults = false
-        maxAlternatives = 0
-        onresult = null
-        onerror = null
-        onend = null
-        static available() {
-          return Promise.resolve('available')
-        }
-        static install() {
-          return Promise.resolve(true)
-        }
-        start() {}
-        stop() {}
-        abort() {}
-      }
-      Object.defineProperty(Stub.prototype, 'processLocally', { value: false, writable: true })
-      Object.defineProperty(window, 'SpeechRecognition', { value: Stub, configurable: true })
-      Reflect.deleteProperty(window, 'webkitSpeechRecognition')
-    })
-    await setChrome(page, 'en', theme)
-    await page.goto('/law')
-    await page.getByRole('button', { name: 'Search by voice' }).click()
-    await expect(page.getByRole('button', { name: 'Stop listening' })).toBeVisible()
-
-    expect(format(await audit(page)), `microphone (${theme})`).toEqual([])
-  })
-}
 
 test('no axe violations with the More sheet open', async ({ page }) => {
   // The one piece of chrome that is not on screen by default. 390px so the
