@@ -1,3 +1,4 @@
+import * as Dialog from '@radix-ui/react-dialog'
 import { Command } from 'cmdk'
 import {
   Calculator,
@@ -156,6 +157,16 @@ export function CommandPalette() {
       overlayClassName="fixed inset-0 z-50 bg-foreground/40"
       contentClassName="fixed top-[10vh] left-1/2 z-50 w-[min(36rem,calc(100vw-2rem))] -translate-x-1/2 overflow-hidden rounded-lg border border-border bg-card shadow-lg"
     >
+      {/*
+        `Command.Dialog`'s own `label` prop only sets aria-label on the
+        content element. Radix still requires a real `Dialog.Title` inside
+        the content — without one it logs an error in every build, not just
+        development, and a screen reader announces the dialog by its label
+        with no heading to move to. Visually hidden, because the input's own
+        placeholder is what a sighted reader reads.
+      */}
+      <Dialog.Title className="sr-only">{t('palette.label')}</Dialog.Title>
+
       <div className="flex items-center border-b border-border px-3">
         <Command.Input
           value={query}
@@ -183,7 +194,12 @@ export function CommandPalette() {
             className="px-1 py-1.5 text-xs font-medium text-muted-foreground [&_[cmdk-group-items]]:mt-1"
           >
             {recents.map((item) => (
-              <PaletteRow key={item.id} item={item} language={language} otherLanguage={otherLanguage} icon={Clock} onSelect={() => go(item, 'recent')} />
+              // `item.hint` is the ORIGINAL section id (`listCommandRecents`
+              // sets it from the stored row's own `section`) — re-recording
+              // with a literal `'recent'` here would overwrite it, so the
+              // next open shows "recent" as this row's own category instead
+              // of "law"/"glossary"/whichever it actually was.
+              <PaletteRow key={item.id} item={item} language={language} otherLanguage={otherLanguage} icon={Clock} onSelect={() => go(item, item.hint ?? 'recent')} />
             ))}
           </Command.Group>
         ) : null}

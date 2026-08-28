@@ -83,7 +83,33 @@ export function useGlobalShortcuts(): void {
           target.tagName === 'SELECT' ||
           target.isContentEditable)
 
-      if ((event.metaKey || event.ctrlKey) && event.key.toLowerCase() === 'k') {
+      // Is some OTHER dialog already open — the AI consent modal, the
+      // shortcuts-help sheet, a Drafting Studio Sheet? None of those is
+      // reachable from `usePaletteStore`, so a live DOM query is what tells
+      // the difference between "nothing is open" and "the palette itself is
+      // open" (which the code below already knows via `latest.current.open`
+      // and does not need this for). Left unguarded, `g p` fired while the
+      // shortcuts sheet was open navigated away and left the sheet showing
+      // over the new page, and Ctrl+K fired while the AI consent modal was
+      // open stacked the palette on top of it — harmless on its own, except
+      // that the modal's own hand-rolled Escape handler and Radix's
+      // Escape-closes-the-topmost-dialog handling both then fired on the
+      // SAME Escape press, closing both at once and losing the reader's
+      // place in the consent flow.
+      const foreignDialogOpen = !latest.current.open && document.querySelector('[role="dialog"]') !== null
+
+      // Lower-cased once: `event.key` reports the character actually
+      // produced, so CapsLock (or Shift) turns "g" into "G" at the OS level —
+      // without this, starting a chord (below) silently stopped working
+      // whenever CapsLock was on, since it compared against the literal
+      // lower-case `'g'`.
+      const key = event.key.toLowerCase()
+
+      // `!event.shiftKey` so Ctrl+Shift+K (Firefox's "Web Console", among
+      // others) is left alone rather than also toggling the palette on top
+      // of whatever that shortcut does.
+      if ((event.metaKey || event.ctrlKey) && !event.shiftKey && !event.altKey && key === 'k') {
+        if (foreignDialogOpen) return
         event.preventDefault()
         clearPending()
         if (latest.current.open) latest.current.closePalette()
@@ -91,7 +117,7 @@ export function useGlobalShortcuts(): void {
         return
       }
 
-      if (typing) {
+      if (typing || foreignDialogOpen) {
         clearPending()
         return
       }
@@ -105,7 +131,7 @@ export function useGlobalShortcuts(): void {
 
       if (pendingG) {
         clearPending()
-        const path = CHORD_TARGETS[event.key.toLowerCase()]
+        const path = CHORD_TARGETS[key]
         if (path) {
           event.preventDefault()
           void latest.current.navigate(path)
@@ -113,7 +139,7 @@ export function useGlobalShortcuts(): void {
         return
       }
 
-      if (event.key === 'g') {
+      if (key === 'g') {
         pendingG = true
         timer = setTimeout(clearPending, CHORD_WINDOW_MS)
         return

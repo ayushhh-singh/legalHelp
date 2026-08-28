@@ -42,4 +42,31 @@ describe('command palette recents', () => {
     expect(recents[0]?.id).toBe(`item-${RECENT_LIMIT + 4}`)
     expect(recents.some((entry) => entry.id === 'item-0')).toBe(false)
   })
+
+  it('marks every row `recordRecent: true`, so re-selecting one FROM the list re-stamps it', async () => {
+    await recordCommandRecent(item('a'), 'law')
+    await recordCommandRecent(item('b'), 'pay')
+
+    // `CommandPalette.tsx#go` only calls `recordCommandRecent` when the
+    // selected item's own `recordRecent` is truthy — a row read back out of
+    // `listCommandRecents()` has to carry that flag itself, or clicking an
+    // already-"Recent" item silently does nothing and it never moves back to
+    // the top on a later visit.
+    const recents = await listCommandRecents()
+    expect(recents.every((entry) => entry.recordRecent === true)).toBe(true)
+
+    // Simulate selecting "a" (currently rank 2) FROM the recents list: the
+    // real code re-records it with the id and section this list already
+    // carries (`item.hint` holds the original section — see the CommandPalette
+    // call site).
+    const a = recents.find((entry) => entry.id === 'a')
+    if (!a) throw new Error('expected "a" in recents')
+    await recordCommandRecent(a, a.hint ?? 'recent')
+
+    const after = await listCommandRecents()
+    expect(after.map((entry) => entry.id)).toEqual(['a', 'b'])
+    // And the section survived the round trip rather than being overwritten
+    // with a generic "recent" label.
+    expect(after.find((entry) => entry.id === 'a')?.hint).toBe('law')
+  })
 })

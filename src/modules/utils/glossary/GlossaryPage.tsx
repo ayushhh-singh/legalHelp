@@ -58,23 +58,29 @@ export default function GlossaryPage() {
 
   /**
    * A share link (`?term=<id>`) puts the term's own English text into the
-   * search box, once — the same one-shot-guard shape `useDraft.ts` uses for a
-   * restore that must not re-fire under React 19's StrictMode double-mount.
-   * There is no separate "focused term" state: putting it into the search box
-   * is what actually surfaces the row, and it stays the ordinary search state
-   * the reader can keep typing over.
+   * search box — guarded by the term id itself, not a one-shot boolean: this
+   * route never remounts when only its search params change (same
+   * `/utils/glossary` element throughout), so picking a SECOND term from the
+   * palette while already on this page must apply too. `lastTermId` is what
+   * makes that "once per distinct id" rather than "once ever" — the same
+   * StrictMode-safe shape `useDraft.ts` uses for a restore, extended to cover
+   * a later navigation rather than only the first mount. There is no separate
+   * "focused term" state: putting it into the search box is what actually
+   * surfaces the row, and it stays the ordinary search state the reader can
+   * keep typing over.
    */
-  const appliedTermParam = useRef(false)
+  const lastTermId = useRef<string | null>(null)
   useEffect(() => {
-    if (appliedTermParam.current || glossary.status !== 'ready') return
-    appliedTermParam.current = true
+    if (glossary.status !== 'ready') return
+    const termId = parseGlossaryTermParam(searchParams)
+    if (!termId || termId === lastTermId.current) return
+    lastTermId.current = termId
     // Deferred a tick rather than set directly in the effect body: the value
-    // comes from data this effect is only reacting to (the dataset settling),
-    // not something it owns, which is the same "external callback" shape
-    // `SectionActions.tsx`'s own effect gets from `isFavourite(...).then(...)`.
+    // comes from data this effect is only reacting to (the dataset settling,
+    // or the URL changing), not something it owns, which is the same
+    // "external callback" shape `SectionActions.tsx`'s own effect gets from
+    // `isFavourite(...).then(...)`.
     queueMicrotask(() => {
-      const termId = parseGlossaryTermParam(searchParams)
-      if (!termId) return
       const term = glossary.status === 'ready' ? glossary.data.terms.find((candidate) => candidate.id === termId) : undefined
       if (term) setQuery(term.en)
     })

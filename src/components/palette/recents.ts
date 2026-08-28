@@ -23,7 +23,12 @@ function nextStamp(): string {
 
 export async function listCommandRecents(): Promise<PaletteItem[]> {
   const rows = await db.commandRecents.orderBy('viewedAt').reverse().limit(RECENT_LIMIT).toArray()
-  return rows.map((row) => ({ id: row.id, en: row.en, hi: row.hi, to: row.to, hint: row.section }))
+  // `recordRecent: true` so selecting a row FROM the recents list re-stamps
+  // it too — without this, re-picking an item already in "Recent" left it
+  // stuck at whatever rank it was already at instead of moving back to the
+  // top, silently breaking the "recent items first" ordering the moment two
+  // different items had ever been recorded.
+  return rows.map((row) => ({ id: row.id, en: row.en, hi: row.hi, to: row.to, hint: row.section, recordRecent: true }))
 }
 
 export async function recordCommandRecent(item: PaletteItem, section: string): Promise<void> {

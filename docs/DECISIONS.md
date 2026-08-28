@@ -3491,3 +3491,69 @@ keystroke".
   captured post-minification" shape the file's existing zod-IPv6-validator entry already documents.
 - "Deferred: cmdk" in CLAUDE.md's stack table is gone — it is finally in a chunk, the one this session
   built.
+
+### Addendum — edge-case pass (same session, on request)
+
+A deliberate hunt across the whole surface — the palette's data flow, the share links, the global
+shortcuts — after the feature was already committed and working. Six defects, each confirmed against a
+real browser before the fix (a manual repro for the four in-app-navigation and keyboard ones; running the
+actual failing sequence, not reasoning about it) and each now fixed:
+
+- **Re-selecting an item FROM the "Recent" group did nothing — it never moved back to the top.**
+  `CommandPalette.tsx#go` only calls `recordCommandRecent` when the selected item's own `recordRecent` is
+  truthy, and `listCommandRecents()`'s mapped rows never set it — so clicking an already-"Recent" row was a
+  silent no-op instead of the "re-recording moves it to the top" behaviour `recents.test.ts` already
+  asserted for the underlying table function. Fixed by setting `recordRecent: true` on every row
+  `listCommandRecents()` returns. A second, related defect rode along: the click handler passed the literal
+  string `'recent'` as the section to re-record under, which would have overwritten the item's REAL section
+  (`'law'`, `'glossary'`, …) the next time it displayed — fixed by passing `item.hint` (the original section,
+  which `listCommandRecents()` already carries there) instead.
+
+- **A share link picked a SECOND time while already on its destination page silently did nothing.**
+  `/utils/glossary?term=<id>` and `/utils/portals?q=<name>` each guarded their one-shot apply with either a
+  boolean ref (glossary) or a `useState` lazy initialiser with no follow-up effect (portals) — correct for
+  the first load of the route, wrong for every navigation after that, because neither route remounts when
+  only its own search params change (same route element throughout). Picking a DIFFERENT glossary term or
+  portal from the palette while already on `/utils/glossary` or `/utils/portals` updated the URL and did
+  nothing else. Confirmed with the palette itself, not a synthetic `goto`: a fresh `page.goto()` always
+  reproduces a working first load regardless of the bug, so proving it needed an in-app navigation from an
+  already-mounted instance. Fixed by keying the guard on the PARAM'S OWN VALUE (glossary: a
+  `lastTermId` ref; portals: a `lastQ` ref plus an effect) rather than "has this ever fired", so a later,
+  different value re-applies while the reader's own typing — which never changes `searchParams` — still
+  cannot be clobbered by it.
+
+- **`g` then a letter silently failed whenever CapsLock was on.** `event.key` reports the character actually
+  produced, so CapsLock (like Shift) turns the physical `g` key into `"G"` — and the code that starts a
+  pending chord compared against the literal lower-case `'g'`, while the code that RESOLVES a chord already
+  lower-cased before the fix. One `.toLowerCase()` at the top of the handler, used everywhere a letter is
+  compared, fixed both the start and the resolve.
+
+- **Ctrl+Shift+K (Firefox's "Web Console", among others) also toggled the palette.** The check only asked
+  whether Ctrl or Cmd was held, not whether anything ELSE was — added `!event.shiftKey && !event.altKey`.
+
+- **`g p`, pressed while the shortcuts-help sheet was open, navigated to `/pay` and left the sheet open over
+  the new page.** Every shortcut's typing-guard checks the FOCUSED element, and the sheet's own close button
+  is a `<button>`, not a text field, so nothing stopped the chord from firing underneath it. The general
+  form of the bug: nothing in `useGlobalShortcuts` knew whether a dialog OTHER than the palette itself —
+  the shortcuts sheet, the AI consent modal, a Drafting Studio `Sheet` — already had the reader's attention.
+  Fixed with one check, `foreignDialogOpen = !latest.current.open && document.querySelector('[role="dialog"]')
+  !== null` (the palette's OWN open state is already known from the store and does not need a DOM query;
+  anything the query still finds belongs to someone else) — gating every shortcut, Ctrl+K included.
+
+- **Ctrl+K, pressed while the AI consent modal was open, stacked the palette on top of it — and the
+  interaction that surfaced was worse than the stacking itself.** Radix Dialog supports nested dialogs
+  correctly on its own (the AI consent modal stayed in the DOM, correctly `aria-hidden` by the palette's own
+  Portal, and reappeared once the palette closed) — the actual defect was Escape: `AiConsentModal.tsx`'s own
+  hand-rolled `document`-level Escape handler has no idea a second dialog is now on top of it, so a single
+  Escape press closed BOTH at once, losing the reader's place in the middle of turning AI on. The same
+  `foreignDialogOpen` guard above fixes this by construction — Ctrl+K is now a no-op while a foreign dialog
+  is open, so the two are never stacked to begin with, which is the fix that stays inside this session's own
+  files rather than teaching `AiConsentModal.tsx` (a different session's surface, predating this one) about
+  a stacking scenario only this feature can create.
+
+None of the six needed a new dataset, a new table, or a new i18n key — `src/components/palette/
+recents.test.ts` gained one regression test for the first; the other five are keyboard/navigation
+interactions best proven in a real browser and were, but are not (yet) captured as permanent Playwright
+specs — `tests/e2e/palette.spec.ts` is a different session's surface as of this session's own commit
+(ADR-031/032-adjacent test-hardening work), and duplicating a spec file mid-restructure would have collided
+with it rather than helped.

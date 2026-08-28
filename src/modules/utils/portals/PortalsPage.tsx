@@ -1,5 +1,5 @@
 import { Check, Copy, ExternalLink, Phone } from 'lucide-react'
-import { useMemo, useState } from 'react'
+import { useEffect, useMemo, useRef, useState } from 'react'
 import { useSearchParams } from 'react-router-dom'
 
 import { loadPortals } from './data'
@@ -22,10 +22,24 @@ export default function PortalsPage() {
   const { t, language } = useT()
   const state = useAsync(loadPortals, 'portals', true)
   const [searchParams] = useSearchParams()
-  // A command palette result (`?q=<name>`) prefills the search box once, on
-  // the first render — `useState`'s lazy initialiser, not an effect, because
-  // the value is available synchronously from the URL and needs no dataset.
+  // A command palette result (`?q=<name>`) prefills the search box — the lazy
+  // initialiser handles the first render (the value is available
+  // synchronously from the URL and needs no dataset), and the effect below
+  // handles every navigation AFTER that: this route never remounts when only
+  // its search params change (same `/utils/portals` element throughout), so
+  // picking a SECOND portal result from the palette while already on this
+  // page updates the URL but not, without this, the search box — `lastQ`
+  // guards against the effect fighting the reader's own typing, which never
+  // changes `searchParams` itself.
   const [query, setQuery] = useState(() => searchParams.get('q') ?? '')
+  const lastQ = useRef(searchParams.get('q') ?? '')
+  useEffect(() => {
+    const q = searchParams.get('q') ?? ''
+    if (q !== lastQ.current) {
+      lastQ.current = q
+      setQuery(q)
+    }
+  }, [searchParams])
   const [category, setCategory] = useState<PortalCategory | 'all'>('all')
   const [copiedId, setCopiedId] = useState<string | null>(null)
 
