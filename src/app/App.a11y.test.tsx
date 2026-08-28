@@ -23,7 +23,7 @@ async function renderShell(language: Language, route = '/law') {
   await useAppStore.getState().setLanguage(language)
 
   const result = render(
-    <MemoryRouter initialEntries={[route]} future={{ v7_startTransition: true, v7_relativeSplatPath: true }}>
+    <MemoryRouter initialEntries={[route]}>
       <App />
     </MemoryRouter>,
   )

@@ -9,18 +9,24 @@ import { readFromRoot } from '@/test/paths'
  * Devanagari must render in Tiro Devanagari Hindi.
  *
  * jsdom does not resolve `var()` in getComputedStyle and never sees Tailwind's
- * JIT output, so this test rebuilds the chain explicitly:
- *   tokens.css --font-display  ->  Tailwind `font-display`  ->  the <h1>
+ * generated utilities, so this test rebuilds the chain explicitly:
+ *   tokens.css @theme --font-display  ->  Tailwind `font-display`  ->  the <h1>
  * and then asserts the resolved stack. Actual glyph rendering can only be
  * confirmed in a real browser; that check belongs to the Playwright session.
  */
 
 const tokensCss = readFromRoot('src/styles/tokens.css')
-const tailwindConfig = readFromRoot('tailwind.config.ts')
+
+/** The `@theme { … }` block, where Tailwind 4 reads the font scale from. */
+function themeBlock(): string {
+  const block = /@theme\s*\{([^}]*)\}/.exec(tokensCss)?.[1]
+  if (!block) throw new Error('no plain `@theme` block found in tokens.css')
+  return block
+}
 
 function displayStack(): string {
-  const value = /--font-display:\s*([^;]+);/.exec(tokensCss)?.[1]
-  if (!value) throw new Error('--font-display is not declared in tokens.css')
+  const value = /--font-display:\s*([^;]+);/.exec(themeBlock())?.[1]
+  if (!value) throw new Error('--font-display is not declared in the @theme block')
   return value.trim()
 }
 
@@ -37,8 +43,13 @@ describe('Devanagari typography', () => {
     expect(displayStack()).toMatch(/^'Tiro Devanagari Hindi'/)
   })
 
-  it('maps the Tailwind display family to the same token', () => {
-    expect(tailwindConfig).toMatch(/display:\s*'var\(--font-display\)'/)
+  it('declares the stack inside @theme, so Tailwind generates `font-display`', () => {
+    // Tailwind 4 derives `font-*` utilities from `--font-*` in @theme. The
+    // block must NOT be `@theme inline` — a plain @theme also emits the
+    // custom property on :root, which is what jsdom can resolve.
+    expect(tokensCss).toMatch(/@theme\s*\{[^}]*--font-display:/)
+    expect(themeBlock()).toMatch(/--font-sans:/)
+    expect(themeBlock()).toMatch(/--font-mono:/)
   })
 
   it('renders a Hindi heading in Tiro Devanagari Hindi', () => {

@@ -52,7 +52,7 @@ export function App() {
           // Safari and Firefox, so keyboard users land back at the top.
           tabIndex={-1}
           aria-label={t('a11y.mainContent')}
-          className="min-w-0 flex-1 px-4 pb-24 pt-6 focus-visible:outline-none sm:px-6 lg:pb-10"
+          className="min-w-0 flex-1 px-4 pt-6 pb-24 focus-visible:outline-none sm:px-6 lg:pb-10"
         >
           <ErrorBoundary resetKey={pathname}>
             <Suspense fallback={<RouteFallback />}>

@@ -28,6 +28,10 @@ export default tseslint.config(
       'jsx-a11y': jsxA11y,
     },
     rules: {
+      // eslint-plugin-react-hooks 7 folds the React Compiler rules (purity,
+      // immutability, set-state-in-effect, …) into `recommended`. The plugin is
+      // registered above rather than spread wholesale so this block keeps its
+      // own `files` scope.
       ...reactHooks.configs.recommended.rules,
       ...jsxA11y.flatConfigs.recommended.rules,
       'react-refresh/only-export-components': ['warn', { allowConstantExport: true }],

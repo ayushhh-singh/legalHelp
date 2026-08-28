@@ -1,8 +1,5 @@
+/* Tailwind's entry point, the theme and the palette all live in tokens.css. */
 @import './tokens.css';
-
-@tailwind base;
-@tailwind components;
-@tailwind utilities;
 
 @layer base {
   * {
@@ -51,6 +48,6 @@
   }
 
   .skip-link:focus {
-    @apply not-sr-only fixed left-4 top-4 z-50;
+    @apply not-sr-only fixed top-4 left-4 z-50;
   }
 }

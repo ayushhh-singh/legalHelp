@@ -13,11 +13,9 @@ import i18n from '@/i18n'
 import en from '@/i18n/en.json'
 import hi from '@/i18n/hi.json'
 
-const ROUTER_FUTURE = { v7_startTransition: true, v7_relativeSplatPath: true } as const
-
 async function renderShell(route: string) {
   const result = render(
-    <MemoryRouter initialEntries={[route]} future={ROUTER_FUTURE}>
+    <MemoryRouter initialEntries={[route]}>
       <App />
     </MemoryRouter>,
   )

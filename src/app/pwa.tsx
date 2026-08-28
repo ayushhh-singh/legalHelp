@@ -144,9 +144,7 @@ export function PwaNotices({ className }: { className?: string }) {
           onDismiss={dismissUpdate}
         />
       ) : null}
-      {offlineReady ? (
-        <PwaToast message={t('pwa.readyOffline')} onDismiss={dismissOfflineReady} />
-      ) : null}
+      {offlineReady ? <PwaToast message={t('pwa.readyOffline')} onDismiss={dismissOfflineReady} /> : null}
     </div>
   )
 }

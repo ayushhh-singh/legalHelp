@@ -16,19 +16,14 @@ document.documentElement.lang = i18n.language
 // Dev-only accessibility reporter. Never bundled into the production build,
 // and it makes no network requests.
 if (import.meta.env.DEV) {
-  void (async () => {
-    const [{ default: axe }, React, ReactDOM] = await Promise.all([
-      import('@axe-core/react'),
-      import('react'),
-      import('react-dom'),
-    ])
-    void axe(React, ReactDOM, 1000)
-  })()
+  void import('./app/axe-dev').then(({ startAxeReporter }) => {
+    startAxeReporter()
+  })
 }
 
 createRoot(container).render(
   <StrictMode>
-    <BrowserRouter future={{ v7_startTransition: true, v7_relativeSplatPath: true }}>
+    <BrowserRouter>
       <App />
     </BrowserRouter>
   </StrictMode>,

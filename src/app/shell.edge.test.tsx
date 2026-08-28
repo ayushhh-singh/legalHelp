@@ -11,11 +11,9 @@ import { useAppStore } from './store'
 import { ErrorBoundary } from '@/components/common/ErrorBoundary'
 import i18n, { detectBrowserLanguage } from '@/i18n'
 
-const ROUTER_FUTURE = { v7_startTransition: true, v7_relativeSplatPath: true } as const
-
 async function renderShell(route = '/law') {
   const result = render(
-    <MemoryRouter initialEntries={[route]} future={ROUTER_FUTURE}>
+    <MemoryRouter initialEntries={[route]}>
       <App />
     </MemoryRouter>,
   )
@@ -73,7 +71,7 @@ describe('error recovery', () => {
 
     function Harness() {
       return (
-        <MemoryRouter initialEntries={['/bad']} future={ROUTER_FUTURE}>
+        <MemoryRouter initialEntries={['/bad']}>
           <Link to="/good">go good</Link>
           <RoutesWithBoundary />
         </MemoryRouter>

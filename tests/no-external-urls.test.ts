@@ -29,10 +29,20 @@ const URL_PATTERN = /https?:\/\/[^\s'"`)>\\]+/g
 const ALLOWED_INERT: ReadonlyArray<{ pattern: RegExp; why: string }> = [
   { pattern: /^https?:\/\/(www\.)?w3\.org\//, why: 'XML/SVG namespace identifiers, never fetched' },
   { pattern: /^https?:\/\/ui\.shadcn\.com\/schema\.json$/, why: 'components.json $schema, tooling only' },
+  { pattern: /^https?:\/\/react\.dev\/errors\//, why: 'React 19 minified-error message text' },
   {
-    pattern: /^https?:\/\/reactjs\.org\/docs\/error-decoder\.html/,
-    why: 'React minified-error message text',
+    pattern: /^https?:\/\/reactrouter\.com\/en\/main\/routers\/picking-a-router/,
+    why: 'React Router warning message text',
   },
+  {
+    pattern: /^https?:\/\/react\.i18next\.com\/latest\/usetranslation-hook$/,
+    why: 'react-i18next warning message text',
+  },
+  {
+    pattern: /^http:\/\/localhost$/,
+    why: "React Router's fallback base for new URL() when window.location is absent — parsed, never fetched",
+  },
+  { pattern: /^https?:\/\/tailwindcss\.com$/, why: 'Tailwind 4 licence banner comment in the built CSS' },
   { pattern: /^https?:\/\/bit\.ly\/2kdckMn$/, why: 'Dexie PrematureCommit error message text' },
   { pattern: /^https?:\/\/tinyurl\.com\/y2uuvskb$/, why: 'Dexie MissingAPI error message text' },
   {

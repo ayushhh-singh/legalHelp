@@ -1,11 +1,12 @@
 import { fileURLToPath, URL } from 'node:url'
 
+import tailwindcss from '@tailwindcss/vite'
 import react from '@vitejs/plugin-react'
 import { VitePWA } from 'vite-plugin-pwa'
 import { defineConfig } from 'vitest/config'
 
-import en from './src/i18n/en.json'
-import hi from './src/i18n/hi.json'
+import en from './src/i18n/en.json' with { type: 'json' }
+import hi from './src/i18n/hi.json' with { type: 'json' }
 
 /**
  * The runtimeCaching `urlPattern` functions below run inside the generated
@@ -18,6 +19,9 @@ declare const self: { location: { origin: string } }
 export default defineConfig({
   plugins: [
     react(),
+    // Tailwind 4 has no PostCSS step and no JS config; the plugin reads
+    // src/styles/tokens.css for the theme (@theme) and the source globs.
+    tailwindcss(),
     VitePWA({
       // Manual registration (src/app/pwa.tsx) drives the update prompt, so
       // the plugin must not also inject its own register script.
@@ -54,7 +58,9 @@ export default defineConfig({
         runtimeCaching: [
           {
             urlPattern: ({ url }) =>
-              url.origin === self.location.origin && url.pathname.startsWith('/data/') && url.pathname.endsWith('.json'),
+              url.origin === self.location.origin &&
+              url.pathname.startsWith('/data/') &&
+              url.pathname.endsWith('.json'),
             handler: 'StaleWhileRevalidate',
             options: {
               cacheName: 'data-v1',
@@ -67,7 +73,8 @@ export default defineConfig({
             // one ever were, an opaque cross-origin response can't be
             // inspected and browsers reserve outsized quota for it — scope
             // this now rather than debug quota eviction later.
-            urlPattern: ({ url, request }) => url.origin === self.location.origin && request.mode !== 'navigate',
+            urlPattern: ({ url, request }) =>
+              url.origin === self.location.origin && request.mode !== 'navigate',
             handler: 'NetworkFirst',
             options: { cacheName: 'runtime-v1' },
           },

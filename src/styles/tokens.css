@@ -1,9 +1,13 @@
 /*
  * Sahayak design tokens — "government file" identity.
  *
- * Colours are stored as bare HSL triplets (no hsl() wrapper) so a single
- * declaration serves both Tailwind (`hsl(var(--ink) / <alpha-value>)`) and the
- * shadcn/ui variable convention. Hex equivalents are in the comments.
+ * Tailwind 4 is CSS-first: there is no tailwind.config.ts. The Tailwind entry
+ * point, the theme mapping (@theme) and the custom `dark` variant all live in
+ * this file, and `src/styles/index.css` imports it first.
+ *
+ * Colours are stored as bare HSL triplets (no hsl() wrapper) so the dark
+ * remapping below can swap a single value that every derived token follows.
+ * Hex equivalents are in the comments.
  *
  * The dark palette's VALUES live exactly once, as --dark-* on :root. Two
  * remapping blocks below point the live tokens at them:
@@ -19,6 +23,32 @@
  * in both themes by src/styles/tokens.test.ts, which also asserts the two
  * remapping blocks stay identical. Do not edit a value without re-running it.
  */
+
+@import 'tailwindcss';
+@import 'tw-animate-css';
+
+/* Tailwind 4 infers sources from the stylesheet's location; state them so the
+   scan cannot drift when this file moves. Paths are relative to THIS file. */
+@source '../../index.html';
+@source '../../src/**/*.{ts,tsx}';
+
+/*
+ * Dual dark variant, replacing Tailwind 3's `darkMode: ['variant', [...]]`.
+ * The palette below switches on BOTH an explicit `.dark` class and
+ * `prefers-color-scheme`, so the `dark:` utility must match the same two
+ * conditions — otherwise a reader on a dark system would get the dark palette
+ * but light `dark:` utilities.
+ */
+@custom-variant dark {
+  &:is(.dark *) {
+    @slot;
+  }
+  @media (prefers-color-scheme: dark) {
+    &:not(.light *) {
+      @slot;
+    }
+  }
+}
 
 :root {
   /* -- brand: paper and ink (light) ----------------------------------- */
@@ -46,14 +76,6 @@
 
   --dark-border: 36 10% 24%;
   --dark-input: 36 12% 42%;
-
-  /* -- typography ------------------------------------------------------
-   * Declared as variables (not only Tailwind classes) so that jsdom can
-   * resolve a real computed font-family without Tailwind's JIT output.
-   */
-  --font-display: 'Tiro Devanagari Hindi', 'Noto Serif Devanagari', Georgia, serif;
-  --font-ui: 'IBM Plex Sans', 'Tiro Devanagari Hindi', system-ui, -apple-system, sans-serif;
-  --font-mono: 'IBM Plex Mono', ui-monospace, SFMono-Regular, Menlo, monospace;
 
   /* -- shadcn/ui surface aliases ---------------------------------------
    * Aliased onto the brand tokens above rather than defined separately, so
@@ -110,4 +132,61 @@
   --ok: var(--dark-ok);
   --border: var(--dark-border);
   --input: var(--dark-input);
+}
+
+/*
+ * Theme mapping. `inline` matters: it substitutes these expressions straight
+ * into the generated utilities, so `.bg-paper` emits `hsl(var(--paper))` and
+ * follows the remapping blocks above. Without it Tailwind would freeze the
+ * light value into `--color-paper` and dark mode would not switch.
+ */
+@theme inline {
+  /* Brand tokens — the vocabulary the app actually writes in. */
+  --color-paper: hsl(var(--paper));
+  --color-paper-2: hsl(var(--paper-2));
+  --color-ink: hsl(var(--ink));
+  --color-ink-2: hsl(var(--ink-2));
+  --color-thread: hsl(var(--thread));
+  --color-ok: hsl(var(--ok));
+
+  /* shadcn/ui aliases, resolving to the same tokens. */
+  --color-background: hsl(var(--background));
+  --color-foreground: hsl(var(--foreground));
+  --color-card: hsl(var(--card));
+  --color-card-foreground: hsl(var(--card-foreground));
+  --color-popover: hsl(var(--popover));
+  --color-popover-foreground: hsl(var(--popover-foreground));
+  --color-primary: hsl(var(--primary));
+  --color-primary-foreground: hsl(var(--primary-foreground));
+  --color-secondary: hsl(var(--secondary));
+  --color-secondary-foreground: hsl(var(--secondary-foreground));
+  --color-muted: hsl(var(--muted));
+  --color-muted-foreground: hsl(var(--muted-foreground));
+  --color-accent: hsl(var(--accent));
+  --color-accent-foreground: hsl(var(--accent-foreground));
+  --color-destructive: hsl(var(--destructive));
+  --color-destructive-foreground: hsl(var(--destructive-foreground));
+  --color-border: hsl(var(--border));
+  --color-input: hsl(var(--input));
+  --color-ring: hsl(var(--ring));
+
+  /* One radius for every step: government stationery, not a consumer app. */
+  --radius-xs: var(--radius);
+  --radius-sm: var(--radius);
+  --radius-md: var(--radius);
+  --radius-lg: var(--radius);
+  --radius-xl: var(--radius);
+  --radius-2xl: var(--radius);
+}
+
+/*
+ * Font stacks. Declared in a non-inline @theme so each one both emits a
+ * `--font-*` custom property on :root (which jsdom can resolve without
+ * Tailwind's generated utilities — see PageHeader.test.tsx) and generates its
+ * `font-*` utility.
+ */
+@theme {
+  --font-display: 'Tiro Devanagari Hindi', 'Noto Serif Devanagari', Georgia, serif;
+  --font-sans: 'IBM Plex Sans', 'Tiro Devanagari Hindi', system-ui, -apple-system, sans-serif;
+  --font-mono: 'IBM Plex Mono', ui-monospace, SFMono-Regular, Menlo, monospace;
 }

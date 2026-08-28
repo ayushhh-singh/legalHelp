@@ -3,8 +3,8 @@ import { Component, type ErrorInfo, type ReactNode } from 'react'
 import { useT } from '@/i18n/useT'
 
 /* React has no hook-based error boundary, so this file must export a class
-   component and cannot participate in fast refresh. */
-/* eslint-disable react-refresh/only-export-components */
+   component alongside its function fallback. eslint-plugin-react-refresh 0.5
+   no longer flags that pairing, so there is no disable directive here. */
 
 interface Props {
   children: ReactNode

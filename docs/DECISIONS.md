@@ -371,3 +371,114 @@ The human did not supply an app name, so **"Sahayak"** is a working title, used 
 Renaming touches: `package.json`, `index.html` `<title>`, `src/i18n/{en,hi}.json` → `app.name`,
 `src/db/index.ts` (the Dexie database name — **needs a migration or the user's data is orphaned**),
 `README.md`, `CLAUDE.md`. The database name is the one that is not cosmetic.
+
+---
+
+## ADR-009 — Move to the current-latest stack (React 19, Vite 8, TypeScript 7, Tailwind 4, zod 4, Vitest 4)
+
+**Date:** 2026-08-28 · **Status:** Accepted · **Supersedes:** the pins in ADR-001, and ADR-004/ADR-005's
+partial reliance on `tailwind.config.ts`
+
+### Context
+
+ADR-001 deliberately pinned the stack one or two majors behind upstream and said "pins hold until an ADR
+says otherwise". A session's worth of upstream had accumulated: React 19.2, Vite 8.2, TypeScript 7.0 (the
+native compiler), Tailwind 4.3 (no JS config), zod 4.4, Vitest 4.1, ESLint 10, React Router 7, i18next 26.
+Doing this now, while the app is still a shell with no module logic, is far cheaper than doing it once five
+modules and a data pipeline are riding on it.
+
+### Decision
+
+Every dependency moved to the current latest published version, verified against the npm registry rather
+than from memory. Four migrations needed real work rather than a version bump:
+
+**Tailwind 4.** `tailwind.config.ts`, `postcss.config.js`, `postcss`, `autoprefixer` and
+`tailwindcss-animate` are gone; `@tailwindcss/vite` + `tw-animate-css` replace them. The Tailwind entry
+point, the source globs, the `dark` variant and the whole theme now live in `src/styles/tokens.css`:
+
+- Colour tokens map through **`@theme inline`**. `inline` is load-bearing: it substitutes the expression
+  into each utility (`.bg-paper { background-color: hsl(var(--paper)) }`) so the utility follows the
+  `.dark` / `prefers-color-scheme` remapping. A plain `@theme` would freeze the light value into
+  `--color-paper` and dark mode would silently stop switching.
+- Font stacks map through a plain **`@theme`**, because that also emits `--font-display` etc. as real
+  custom properties on `:root` — which is what `PageHeader.test.tsx` resolves under jsdom, where Tailwind's
+  generated utilities do not exist.
+- ADR-006's dual dark condition survives as a multi-rule `@custom-variant dark` (class **and**
+  `prefers-color-scheme`, with `.light` opting out), replacing Tailwind 3's `darkMode: ['variant', […]]`.
+- `tailwind-merge` had to go 2 → 3; v2 does not know Tailwind 4's class list.
+- v4 renamed the shadow scale (`shadow` → `shadow-sm`, `shadow-sm` → `shadow-xs`). `shadow` still resolves
+  as a deprecated alias, so the shadcn primitives would have silently rendered a *heavier* shadow than
+  before; the names in `src/components/ui/**` were shifted so the rendered result is unchanged.
+
+**TypeScript 7 side by side with TypeScript 6.** TypeScript 7 is the native (Go) compiler, and its npm
+package **does not ship the classic JavaScript compiler API** — its `exports["."]` is `lib/version.cjs`,
+nothing more. `typescript-eslint` 8.68 `require("typescript")`, reads `ts.versionMajorMinor`, and throws
+outright on major ≥ 7 (it points at Microsoft's own "running side by side with TypeScript 6.0" guidance;
+tracked upstream as typescript-eslint#10940). So a single `typescript` entry cannot serve both `tsc` and
+type-aware linting.
+
+Attempts that do **not** work, recorded so they are not retried: pnpm `packageExtensions` adding
+`typescript` as a dependency of the `@typescript-eslint/*` packages, and pnpm `overrides` with the
+`parent>child` syntax. `typescript` is a **peer** dependency there, and pnpm resolves peers from the root
+importer, so both were deduped straight back to the root's 7.0.2.
+
+What is in place instead — the arrangement Microsoft documents:
+
+| package                                   | version | job                                                     |
+| ----------------------------------------- | ------- | ------------------------------------------------------- |
+| `typescript`                              | 6.0.3   | the JavaScript compiler API — `typescript-eslint`, IDEs |
+| `typescript-native` (`npm:typescript@7.0.2`) | 7.0.2   | the native compiler that `pnpm typecheck` actually runs |
+
+Both packages provide a `tsc` bin, so `node_modules/.bin/tsc` is ambiguous. `pnpm typecheck` therefore
+invokes `node node_modules/typescript-native/bin/tsc` **by path**: which compiler runs is never left to
+whichever package happened to win the bin link.
+
+TypeScript 7 rejected exactly one thing in this repo: `baseUrl` (TS5102, removed). `paths` alone replaces
+it. Everything else — `strict`, `noUncheckedIndexedAccess`, `noUnusedLocals`, `resolveJsonModule`,
+`moduleResolution: bundler`, `allowImportingTsExtensions` — compiles clean. It is also stricter about
+ambient Node types: `src/test/paths.ts` and `tests/no-external-urls.test.ts` genuinely use `node:fs`, so
+`"node"` is now explicit in `tsconfig.json`'s `types` rather than arriving by accident.
+
+**React Router 7.** `<BrowserRouter future={{ v7_startTransition, v7_relativeSplatPath }}>` is a type error
+now: those flags described v6 opt-ins that are simply the behaviour in v7. Removed from `main.tsx` and from
+the three test harnesses. The data-router API is unchanged.
+
+**React 19.** `src/components/ui/{button,card,separator}.tsx` dropped `React.forwardRef` for ref-as-prop
+(`React.ComponentPropsWithRef`), which also removed six `displayName` assignments.
+
+### Consequences
+
+- `pnpm typecheck`, `pnpm lint`, `pnpm test` (108 unit), `pnpm build` and `pnpm test:e2e` (2 Playwright)
+  are all green on the new stack. `vite-plugin-pwa` 1.3 needed no change on Vite 8 — the generated
+  `sw.js` and the offline e2e both still pass.
+- `eslint-plugin-jsx-a11y` 6.10.2 declares `eslint: ^3 || … || ^9` and has no ESLint 10 release. It was
+  **verified working** on ESLint 10 with a deliberate `jsx-a11y/alt-text` violation, so the peer warning is
+  silenced through `pnpm.peerDependencyRules` rather than left as noise. Revisit when the plugin ships an
+  ESLint 10 peer.
+- `eslint-plugin-react-hooks` 7 folds the React Compiler rules (`purity`, `immutability`,
+  `set-state-in-effect`, `refs`, `error-boundaries`, …) into `recommended`. All 16 are on and the codebase
+  passes them. `eslint-plugin-react-refresh` 0.5 no longer flags a class component exported beside its
+  function fallback, so `ErrorBoundary.tsx`'s disable directive is gone.
+- `engines.node` moved `>=20` → `>=22`; Vite 8 and Vitest 4 both require it. `.nvmrc` stays 24 (ADR-002).
+- `tests/no-external-urls.test.ts`'s inert-URL allowlist gained five entries, each read in context in the
+  built bundle before being listed: React 19's `react.dev/errors/` decoder text, React Router's
+  `reactroutercom/…/picking-a-router` warning, react-i18next's `usetranslation-hook` warning, Tailwind 4's
+  licence banner comment in the built CSS, and `http://localhost` — React Router's fallback **base** for
+  `new URL()` when `window.location` is absent, which is parsed and never fetched. The stale
+  `reactjs.org/docs/error-decoder.html` entry (React 18) was removed rather than left to rot.
+
+### Addendum — `@axe-core/react` removed, not upgraded
+
+`@axe-core/react` 4.13.0 is the latest release and it cannot work on React 19. It monkey-patches
+`React.createElement` and identifies what to re-audit by reading `_reactInternalInstance`,
+`_reactInternalFiber` and `_owner._instance` — internals React 19 removed, and which the automatic JSX
+runtime does not route through `createElement` at all. In practice it threw `require_react is not a
+function` on load in `pnpm dev` and reported nothing.
+
+Rather than pin React back for a dev-only reporter, `src/app/axe-dev.ts` now drives `axe-core` directly:
+a `MutationObserver` on `document.body`, debounced 1s, running `axe.run(document, { resultTypes:
+['violations'] })` and grouping violations to the console. `axe-core` was already a dependency
+(`App.a11y.test.tsx`), it has no React coupling, and a MutationObserver is a strictly better "the tree
+changed" signal than a `createElement` hook. Verified both ways in a real browser: silent on the clean
+shell, and it reports `image-alt` within the debounce window when an `<img>` without `alt` is injected.
+`main.tsx` still imports it dynamically behind `import.meta.env.DEV`, so nothing ships.
