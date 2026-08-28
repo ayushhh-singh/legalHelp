@@ -409,7 +409,20 @@ export function computePay(input: PayInput, tables: PayTables): PayResult {
    * Allowance counted at ₹17,960 rather than ₹8,980, with both lines showing
    * the right figure and nothing on screen to say the total was wrong.
    */
-  const choices = new Map((input.allowances ?? []).map((choice) => [choice.id, choice]))
+  const choices = new Map(
+    (input.allowances ?? [])
+      // Filtered before it is trusted. `PayScenario` comes back out of
+      // IndexedDB, where nothing enforces a shape and a row written by an
+      // earlier release outlives it: an array holding `null` threw
+      // `Cannot read properties of null (reading 'id')` and took the whole
+      // route down with it. The engine is fed by a URL, a stored row and an
+      // agent tool, so it is the right place to stop that.
+      .filter(
+        (choice): choice is AllowanceChoice =>
+          Boolean(choice) && typeof choice === 'object' && typeof choice.id === 'string',
+      )
+      .map((choice) => [choice.id, choice]),
+  )
   const selected = [...choices.values()]
   const isOn = (id: string) => choices.get(id)?.enabled === true
   /**

@@ -213,7 +213,12 @@ export function projectEighthCpc(basic: number, fitment: number, tables: PayTabl
   const values = options.map((option) => option.value)
   const low = values.length > 0 ? Math.min(...values) : fitment
   const high = values.length > 0 ? Math.max(...values) : fitment
-  const chosen = Math.min(Math.max(fitment, low), high)
+  // `Math.max(NaN, low)` is NaN, and NaN survives every clamp — the panel then
+  // rendered "Fitment factor — NaN%" over a projected pay of ₹0. A range input
+  // reports '' while it is being dragged with the keyboard on some platforms,
+  // and `Number('')` is 0, but `Number(undefined)` is NaN.
+  const wanted = Number.isFinite(fitment) ? fitment : (tables.cpc8.fitmentFactorsDiscussed[0]?.value ?? low)
+  const chosen = Math.min(Math.max(wanted, low), high)
 
   return {
     fitment: chosen,

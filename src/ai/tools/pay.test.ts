@@ -120,6 +120,49 @@ describe('compute_pay_for_job', () => {
     expect(result.daRate).toBe(60)
   })
 
+  it('can switch on an allowance the post does not carry by default', async () => {
+    // Without this an agent could not answer the commonest question there is —
+    // "what would a constable in a hard-area posting be paid?" — because
+    // nothing that turns on the PLACE of posting is on by default.
+    const result = await call('compute_pay_for_job', {
+      jobId: 'capf-constable-gd',
+      overrides: {
+        daRate: 60,
+        allowances: [{ id: 'risk-and-hardship-allowance', enabled: true, rateKey: 'r1h3' }],
+      },
+    })
+    const lines = result.lines as Array<Record<string, unknown>>
+    const rha = lines.find((line) => line.id === 'risk-and-hardship-allowance')
+    expect(rha?.amount).toBe(5125)
+    expect(rha?.taxable).toBe(false)
+
+    const explained = await call('explain_pay_line', {
+      jobId: 'capf-constable-gd',
+      lineId: 'risk-and-hardship-allowance',
+      overrides: {
+        daRate: 60,
+        allowances: [{ id: 'risk-and-hardship-allowance', enabled: true, rateKey: 'r1h3' }],
+      },
+    })
+    expect(explained.found).toBe(true)
+    expect(explained.inputs).toMatchObject({ daUplift: 1.25 })
+  })
+
+  it('can switch one off, and refuses an allowance id that is not one', async () => {
+    const off = await call('compute_pay_for_job', {
+      jobId: 'ib-acio-ii-executive',
+      overrides: { allowances: [{ id: 'special-security-allowance-ib', enabled: false }] },
+    })
+    const lines = off.lines as Array<Record<string, unknown>>
+    expect(lines.find((line) => line.id === 'special-security-allowance-ib')).toBeUndefined()
+
+    const rejected = validateToolInput(getTool('compute_pay_for_job')!, {
+      jobId: 'ib-acio-ii-executive',
+      overrides: { allowances: [{ id: 'NOT A SLUG', enabled: true }] },
+    })
+    expect(rejected.ok).toBe(false)
+  })
+
   it('says so for a post that does not exist, rather than returning nothing', async () => {
     const result = await call('compute_pay_for_job', { jobId: 'director-of-nothing' })
     expect(result).toEqual({ jobId: 'director-of-nothing', found: false })

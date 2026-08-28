@@ -454,6 +454,29 @@ describe('computePay — input that did not come from the form', () => {
     ).toBe(0)
   })
 
+  it('survives an allowances array that is not what this app wrote', () => {
+    // A `PayScenario` comes back out of IndexedDB, where nothing enforces a
+    // shape. An array holding `null` threw `Cannot read properties of null`
+    // and took the whole route down with a white screen.
+    const result = computePay(
+      {
+        ...base,
+        level: '7',
+        allowances: [
+          null,
+          'special-security-allowance-ib',
+          { enabled: true },
+          { id: 'special-security-allowance-ib', enabled: true },
+        ] as unknown as PayInput['allowances'],
+      },
+      tables,
+    )
+    expect(
+      result.allowancesBreakdown.find((line) => line.id === 'special-security-allowance-ib')?.amount,
+    ).toBe(8980)
+    expect(Number.isFinite(result.netMonthly)).toBe(true)
+  })
+
   it('charges tax on an income above every surcharge band without losing marginal relief', () => {
     const result = computePay({ ...base, level: '18', basic: 10_000_000, group: 'A' }, tables)
     expect(result.taxComputation.new.surchargeRate).toBe(25)

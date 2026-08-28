@@ -135,13 +135,20 @@ export function PrivatePanel({
         <div className="overflow-x-auto" role="region" tabIndex={0} aria-label={t('pay.private.sideBySide')}>
           <table className="w-full min-w-[30rem] text-sm">
             <tbody>
+              {/*
+                The figures are POSITIVE. Every one of these rows whose label
+                begins "Less …" used to carry a negative number as well, which
+                reads as a double negative — "less the employer's Provident
+                Fund, −₹7,200" — and put an ASCII hyphen in a column whose
+                differences elsewhere use a real minus sign.
+              */}
               {[
                 { label: t('pay.private.monthlyCtc'), value: private_.monthlyCtc },
-                { label: t('pay.private.employerPf'), value: -private_.employerPf },
-                { label: t('pay.private.gratuity'), value: -private_.gratuityAccrual },
+                { label: t('pay.private.employerPf'), value: private_.employerPf },
+                { label: t('pay.private.gratuity'), value: private_.gratuityAccrual },
                 { label: t('pay.private.cashGross'), value: private_.cashGross },
-                { label: t('pay.private.employeePf'), value: -private_.employeePf },
-                { label: t('pay.private.incomeTax'), value: -private_.tax },
+                { label: t('pay.private.employeePf'), value: private_.employeePf },
+                { label: t('pay.private.incomeTax'), value: private_.tax },
               ].map((row) => (
                 <tr key={row.label} className="border-b border-border last:border-0">
                   <th scope="row" className="py-2 pr-3 text-left font-normal">

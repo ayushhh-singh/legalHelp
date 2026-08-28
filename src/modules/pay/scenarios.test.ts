@@ -84,4 +84,21 @@ describe('the last scenario', () => {
     expect(asScenario({ level: '7', daRate: 60 })).toBeNull()
     expect(asScenario({ level: '7', daRate: 60, allowances: [] })).not.toBeNull()
   })
+
+  it('drops a row whose allowance entries are not allowances', () => {
+    // The array being an array was not enough: a `null` inside it reached the
+    // engine and threw, which on this route is a white screen.
+    const shell = { level: '7', daRate: 60 }
+    expect(asScenario({ ...shell, allowances: [null] })).toBeNull()
+    expect(asScenario({ ...shell, allowances: ['house-rent-allowance'] })).toBeNull()
+    expect(asScenario({ ...shell, allowances: [{ enabled: true }] })).toBeNull()
+    expect(asScenario({ ...shell, allowances: [{ id: 'x', enabled: true }] })).not.toBeNull()
+  })
+
+  it('keeps the matras in a name written in Hindi', () => {
+    // Devanagari vowel signs are combining MARKS, not letters, so a
+    // letters-and-digits-only slug reduced "दिल्ली पोस्टिंग" to "द-ल-ल-प-स-ट-ग".
+    expect(scenarioId('दिल्ली पोस्टिंग')).toBe('दिल्ली-पोस्टिंग')
+    expect(scenarioId('दिल्ली')).not.toBe(scenarioId('दलील'))
+  })
 })

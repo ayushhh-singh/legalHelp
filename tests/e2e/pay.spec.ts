@@ -216,3 +216,87 @@ test('a switch keeps its knob inside its track, on and off', async ({ page }) =>
   await expect(page.getByText('OFF').first()).toBeVisible()
   await expect(page.getByText('ON').first()).toBeVisible()
 })
+
+/**
+ * The design system forbids sideways scrolling outright, and this page is the
+ * one most likely to do it: four tabs, three tables wide enough to need their
+ * own scroll containers, and a two-column grid whose items default to
+ * `min-width: auto` — which is min-CONTENT width, not zero.
+ */
+const VIEWPORTS = [
+  { name: 'phone', width: 390, height: 844 },
+  { name: 'small phone', width: 360, height: 780 },
+  { name: 'tablet', width: 768, height: 1024 },
+  { name: 'desktop', width: 1280, height: 900 },
+] as const
+
+for (const { name, width, height } of VIEWPORTS) {
+  test(`on ${name}, no tab of the pay calculator scrolls sideways`, async ({ page }) => {
+    await page.setViewportSize({ width, height })
+    await openPay(page, '?job=ib-acio-ii-executive&city=delhi&da=60&pctc=1800000')
+
+    for (const tab of ['Calculator', 'Simulations', 'Compare posts', 'Private vs government']) {
+      await page.getByRole('radio', { name: tab, exact: true }).click()
+      // Let the tab's own content settle before measuring the document.
+      await expect(page.getByRole('radio', { name: tab, exact: true })).toHaveAttribute(
+        'aria-checked',
+        'true',
+      )
+      const { scrollWidth, innerWidth } = await page.evaluate(() => ({
+        scrollWidth: document.documentElement.scrollWidth,
+        innerWidth: window.innerWidth,
+      }))
+      expect(
+        scrollWidth,
+        `${name} / ${tab}: the page overflows by ${scrollWidth - innerWidth}px`,
+      ).toBeLessThanOrEqual(innerWidth)
+    }
+  })
+}
+
+test('a wide table scrolls inside its own region, reachable from the keyboard', async ({ page }) => {
+  // axe reports `scrollable-region-focusable` otherwise, and the columns past
+  // the edge are then mouse-only.
+  await page.setViewportSize({ width: 390, height: 844 })
+  // Not `openPay`: the comparison has two post pickers, so it waits on one of
+  // the side-specific ones instead.
+  await page.goto('/pay?job=ib-acio-ii-executive&city=delhi&da=60&tab=compare')
+  await expect(page.getByRole('heading', { level: 1, name: 'Pay & Allowances' })).toBeVisible()
+  await expect(page.getByRole('combobox', { name: 'First post', exact: true })).toBeVisible({
+    timeout: 30_000,
+  })
+
+  const region = page.getByRole('region', { name: 'Difference' })
+  await expect(region).toBeVisible()
+  await expect(region).toHaveAttribute('tabindex', '0')
+  const scrolls = await region.evaluate((el) => el.scrollWidth > el.clientWidth)
+  expect(scrolls, 'the comparison table is not actually wider than its box').toBe(true)
+})
+
+test('no two controls on any tab share a DOM id', async ({ page }) => {
+  // The comparison renders two of each picker at once. With one hard-coded id
+  // apiece, both "Post" labels pointed at the first input — clicking the second
+  // post's label focused the first post's box. axe reported nothing.
+  await openPay(page, '?job=ib-acio-ii-executive&city=delhi&da=60&pctc=1800000')
+
+  for (const tab of ['Calculator', 'Simulations', 'Compare posts', 'Private vs government']) {
+    await page.getByRole('radio', { name: tab, exact: true }).click()
+    await expect(page.getByRole('radio', { name: tab, exact: true })).toHaveAttribute('aria-checked', 'true')
+    const duplicates = await page.evaluate(() => {
+      const counts = new Map<string, number>()
+      for (const element of document.querySelectorAll('[id]')) {
+        counts.set(element.id, (counts.get(element.id) ?? 0) + 1)
+      }
+      return [...counts].filter(([, n]) => n > 1).map(([id, n]) => `${id} x${n}`)
+    })
+    expect(duplicates, `duplicate ids on the ${tab} tab`).toEqual([])
+
+    // And every label resolves to a control that exists.
+    const orphans = await page.evaluate(() =>
+      [...document.querySelectorAll('label[for]')]
+        .map((label) => label.getAttribute('for')!)
+        .filter((id) => document.getElementById(id) === null),
+    )
+    expect(orphans, `labels pointing at nothing on the ${tab} tab`).toEqual([])
+  }
+})

@@ -390,7 +390,8 @@
       "cityClass": "Class {{class}}",
       "delhiRate": "Paid at Delhi rates",
       "zClass": "Anywhere else (Z)",
-      "zClassHint": "The annexure names the X and Y cities and says the rest is Z."
+      "zClassHint": "The annexure names the X and Y cities and says the rest is Z.",
+      "forSide": "{{label}} — {{side}}"
     },
     "inputs": {
       "payTitle": "Pay",

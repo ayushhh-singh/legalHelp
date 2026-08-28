@@ -83,4 +83,16 @@ describe('projectEighthCpc', () => {
     expect(projectEighthCpc(44_900, 9, tables).fitment).toBe(2.86)
     expect(projectEighthCpc(44_900, 1, tables).fitment).toBe(1.92)
   })
+
+  it('never renders NaN, whatever the slider hands it', () => {
+    // NaN survives every clamp — `Math.max(NaN, 1.92)` is NaN — so the panel
+    // showed "Fitment factor — NaN%" over a projected pay of ₹0.
+    for (const bad of [Number.NaN, Infinity, -Infinity]) {
+      const result = projectEighthCpc(44_900, bad, tables)
+      expect(Number.isFinite(result.fitment)).toBe(true)
+      expect(result.fitment).toBeGreaterThanOrEqual(result.range.low)
+      expect(result.fitment).toBeLessThanOrEqual(result.range.high)
+      expect(result.projectedBasic).toBeGreaterThan(0)
+    }
+  })
 })

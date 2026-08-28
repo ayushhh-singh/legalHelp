@@ -76,6 +76,25 @@ const overrides = z.object({
   regime: z.enum(['old', 'new', 'auto']).optional(),
   children: z.number().int().min(0).max(10).optional(),
   npa: z.boolean().optional().describe('Medical officer drawing Non-Practising Allowance.'),
+  allowances: z
+    .array(
+      z.object({
+        id: z.string().regex(/^[a-z0-9-]+$/),
+        enabled: z.boolean(),
+        rateKey: z
+          .string()
+          .regex(/^[a-zA-Z0-9:._-]+$/)
+          .optional()
+          .describe('Which rate to draw, from get_allowance_source. Required where several apply.'),
+      }),
+    )
+    .max(40)
+    .optional()
+    .describe(
+      'Switch an allowance on or off over and above what the post carries by default. Needed for ' +
+        'anything that turns on the PLACE of posting — Risk and Hardship, Tough Location, Hard Area, ' +
+        'Special Duty (North East) — none of which is on by default, because none follows the post.',
+    ),
 })
 
 type Overrides = z.infer<typeof overrides>
@@ -95,6 +114,13 @@ function scenarioFor(jobId: string, tables: PayTables, patch: Overrides): PaySce
       regime: patch.regime ?? 'auto',
       children: patch.children ?? 0,
       npa: patch.npa ?? false,
+      allowances: (patch.allowances ?? []).reduce(
+        (list, override) =>
+          list.some((choice) => choice.id === override.id)
+            ? list.map((choice) => (choice.id === override.id ? { ...choice, ...override } : choice))
+            : [...list, override],
+        base.allowances,
+      ),
     },
     tables,
   )

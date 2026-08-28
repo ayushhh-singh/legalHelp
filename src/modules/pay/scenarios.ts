@@ -31,7 +31,10 @@ export function scenarioId(name: string): string {
   const slug = name
     .trim()
     .toLowerCase()
-    .replace(/[^\p{L}\p{N}]+/gu, '-')
+    // `\p{M}` as well as `\p{L}`: Devanagari vowel signs are combining MARKS,
+    // so "दिल्ली पोस्टिंग" was reduced to "द-ल-ल-प-स-ट-ग" — every matra gone,
+    // and two different names much likelier to collide on one id.
+    .replace(/[^\p{L}\p{M}\p{N}]+/gu, '-')
     .replace(/^-+|-+$/g, '')
     .slice(0, 60)
   return slug || `scenario-${Date.now()}`
@@ -93,5 +96,12 @@ export function asScenario(value: unknown): PayScenario | null {
   if (typeof record.level !== 'string') return null
   if (typeof record.daRate !== 'number') return null
   if (!Array.isArray(record.allowances)) return null
+  // Every entry, not just the array. A row from an older release can hold
+  // anything, and a `null` in here used to reach the engine and throw.
+  const wellFormed = record.allowances.every(
+    (choice) =>
+      Boolean(choice) && typeof choice === 'object' && typeof (choice as { id?: unknown }).id === 'string',
+  )
+  if (!wellFormed) return null
   return value as PayScenario
 }

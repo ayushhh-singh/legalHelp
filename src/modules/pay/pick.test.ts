@@ -60,6 +60,15 @@ describe('searchJobs', () => {
   it('returns nothing rather than everything for a query that matches nothing', () => {
     expect(ids('zzzzqqq')).toEqual([])
   })
+
+  it('tells an empty box from a query that folded away to nothing', () => {
+    // Folding strips punctuation, so "???" reduced to '' and was read as "show
+    // me everything" — sixty-one posts presented as though each had matched.
+    expect(searchJobs(jobs, '', 100)).toHaveLength(tables.jobs.jobs.length)
+    expect(searchJobs(jobs, '   ', 100)).toHaveLength(tables.jobs.jobs.length)
+    expect(ids('???')).toEqual([])
+    expect(ids('!!! ...')).toEqual([])
+  })
 })
 
 describe('groupByOrganisation', () => {

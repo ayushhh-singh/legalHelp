@@ -50,6 +50,7 @@ export function ComparePanel({
         <Side
           tables={tables}
           scenario={a}
+          side="a"
           heading={t('pay.compare.postA')}
           onChange={onChangeA}
           onPick={onPickA}
@@ -57,6 +58,7 @@ export function ComparePanel({
         <Side
           tables={tables}
           scenario={b}
+          side="b"
           heading={t('pay.compare.postB')}
           onChange={onChangeB}
           onPick={onPickB}
@@ -126,6 +128,7 @@ export function ComparePanel({
 function Side({
   tables,
   scenario,
+  side,
   heading,
   onChange,
   onPick,
@@ -133,6 +136,8 @@ function Side({
 }: {
   tables: PayTables
   scenario: PayScenario
+  /** Suffixes the ids, so the two sides do not share a DOM id or a label. */
+  side: 'a' | 'b'
   heading: string
   onChange: (patch: Partial<PayScenario>) => void
   onPick: (jobId: string | null) => void
@@ -146,6 +151,8 @@ function Side({
       <h2 className="text-base font-semibold">{heading}</h2>
       <JobPicker
         tables={tables}
+        id={`pay-job-picker-${side}`}
+        label={heading}
         selectedId={scenario.jobId}
         onSelect={(option) => onPick(option.job.id)}
         onClear={() => onPick(null)}
@@ -178,6 +185,8 @@ function Side({
       />
       <CityPicker
         tables={tables}
+        id={`pay-city-picker-${side}`}
+        label={t('pay.picker.forSide', { label: t('pay.picker.cityLabel'), side: heading })}
         selectedId={scenario.cityId}
         onSelect={(city) => onChange({ cityId: city.id })}
         onClear={() => onChange({ cityId: null })}

@@ -390,7 +390,8 @@
       "cityClass": "श्रेणी {{class}}",
       "delhiRate": "दिल्ली दरों पर देय",
       "zClass": "अन्य कोई स्थान (Z)",
-      "zClassHint": "अनुबंध X तथा Y शहरों को नामित करता है और शेष को Z कहता है।"
+      "zClassHint": "अनुबंध X तथा Y शहरों को नामित करता है और शेष को Z कहता है।",
+      "forSide": "{{side}} — {{label}}"
     },
     "inputs": {
       "payTitle": "वेतन",

@@ -22,11 +22,22 @@ export function JobPicker({
   selectedId,
   onSelect,
   onClear,
+  id = 'pay-job-picker',
+  label,
 }: {
   tables: PayTables
   selectedId: string | null
   onSelect: (job: JobOption) => void
   onClear: () => void
+  /**
+   * Distinct per instance. The comparison renders TWO of these at once, and
+   * with one hard-coded id both labels pointed at the first input — clicking
+   * the second post's label focused the first post's box. axe did not report
+   * it; a duplicate-id sweep in `tests/e2e/pay.spec.ts` does.
+   */
+  id?: string
+  /** Overridden by the comparison, so the two boxes are not both "Post". */
+  label?: string
 }) {
   const { t, language } = useT()
   const [query, setQuery] = useState('')
@@ -55,8 +66,8 @@ export function JobPicker({
 
   return (
     <Combobox
-      id="pay-job-picker"
-      label={t('pay.picker.jobLabel')}
+      id={id}
+      label={label ?? t('pay.picker.jobLabel')}
       placeholder={t('pay.picker.jobPlaceholder')}
       options={options}
       selectedId={selectedId}
@@ -82,11 +93,15 @@ export function CityPicker({
   selectedId,
   onSelect,
   onClear,
+  id = 'pay-city-picker',
+  label,
 }: {
   tables: PayTables
   selectedId: string | null
   onSelect: (city: HraCity) => void
   onClear: () => void
+  id?: string
+  label?: string
 }) {
   const { t, language } = useT()
   const [query, setQuery] = useState('')
@@ -108,8 +123,8 @@ export function CityPicker({
 
   return (
     <Combobox
-      id="pay-city-picker"
-      label={t('pay.picker.cityLabel')}
+      id={id}
+      label={label ?? t('pay.picker.cityLabel')}
       placeholder={t('pay.picker.cityPlaceholder')}
       options={options}
       selectedId={selectedId}

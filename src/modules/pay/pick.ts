@@ -73,7 +73,13 @@ function scoreEntry<T>(entry: Indexed<T>, query: string): number | null {
  */
 function rank<T>(entries: ReadonlyArray<Indexed<T>>, query: string, limit: number): T[] {
   const whole = romanKey(query)
-  if (!whole) return entries.slice(0, limit).map((entry) => entry.item)
+  if (!whole) {
+    // An EMPTY box means "show me everything", which is what opens the picker
+    // full. A box with "???" in it does not: folding strips punctuation, so a
+    // query that had characters and reduced to nothing used to return the first
+    // sixty posts as though every one of them had matched.
+    return query.trim() === '' ? entries.slice(0, limit).map((entry) => entry.item) : []
+  }
 
   const words = query
     .split(/\s+/)
