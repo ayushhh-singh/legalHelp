@@ -3,7 +3,7 @@
   "private": true,
   "version": "0.1.0",
   "type": "module",
-  "description": "Sahayak \u2014 \u0938\u0930\u0915\u093e\u0930\u0940 \u0938\u0939\u093e\u092f\u0915. Offline-first bilingual reference and productivity PWA for Indian central government officers.",
+  "description": "Sahayak — सरकारी सहायक. Offline-first bilingual reference and productivity PWA for Indian central government officers.",
   "license": "MIT",
   "packageManager": "pnpm@9.15.9",
   "engines": {
@@ -35,6 +35,7 @@
     "date-fns": "4.4.0",
     "dexie": "4.4.5",
     "dexie-react-hooks": "4.4.0",
+    "fuse.js": "7.5.0",
     "i18next": "26.4.0",
     "lucide-react": "1.34.0",
     "react": "19.2.8",
@@ -79,7 +80,7 @@
   },
   "pnpm": {
     "peerDependencyRules": {
-      "_comment": "eslint-plugin-jsx-a11y 6.10.2 declares eslint <=9 but runs correctly on 10 \u2014 verified with a deliberate jsx-a11y/alt-text violation. See ADR-009.",
+      "_comment": "eslint-plugin-jsx-a11y 6.10.2 declares eslint <=9 but runs correctly on 10 — verified with a deliberate jsx-a11y/alt-text violation. See ADR-009.",
       "allowedVersions": {
         "eslint-plugin-jsx-a11y>eslint": "10"
       }
