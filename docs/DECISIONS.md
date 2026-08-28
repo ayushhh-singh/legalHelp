@@ -3314,6 +3314,46 @@ needed.
   rest by name, so a table a later session adds is backed up by default — the same convention
   `clearAllData` already uses for erase.
 
+### Addendum — edge-case pass, requested after the commit
+
+A deliberate review pass over this session's own commit (`cf69afb`), run against the code rather than
+reasoned about. Two real defects, both fixed and now covered by a regression test that was confirmed to
+fail against the pre-fix code by inspection (neither fix touches a code path a test could not reach
+without one):
+
+- **Importing a backup with a `settings` row had no visible effect until a manual reload.**
+  `BackupSection.tsx`'s import flow calls `restoreBackup()`, which `bulkPut`s straight into Dexie — correct
+  for `drafts`, `payScenarios`, `lawFavourites` and every other table, all of which the app reads through
+  `useLiveQuery` and therefore picks up immediately. `settings` is the one table that is not: `theme`,
+  `language`, `ai`, `onboarded` and `devanagariDigits` are read into `useAppStore` once at `hydrate()` and
+  never re-subscribed to Dexie, so a reader who imported a backup taken on another device saw "Restored N
+  rows." and an otherwise unchanged screen. Fixed by showing a "Reload" button whenever the restored file's
+  `tables` object contains a `settings` key — `src/modules/settings/components/BackupSection.test.tsx` is
+  the regression file, including a case asserting the button does NOT appear when `settings` was not part
+  of the restore, and a case asserting a setting NOT in the restored file survives untouched.
+- **`OnboardingPage`'s `finish()` had no error handling.** `writeLastScenario` and `saveSettings` are
+  ordinary Dexie `put`s with no failure fallback of their own (unlike `setOnboarded`, which downgrades a
+  storage failure to `storageBlocked` inside the store and still applies in memory — `src/app/store.ts`'s
+  `persist()`). A thrown write left the reader stuck on step 3 with a re-enabled "Understood" button and no
+  indication anything had gone wrong; "Skip setup" was the only way out, and it silently drops the post and
+  city they had just chosen. Fixed with a `catch` that surfaces a bilingual, role="alert" message naming
+  "Skip setup" as the fallback, without disabling either button — `src/modules/onboarding/
+OnboardingPage.test.tsx` mocks `writeLastScenario` to reject and asserts the alert appears, the reader is
+  still on step 3, and both buttons stay enabled.
+
+**Looked at, deliberately left alone:** the review also flagged that `cf69afb` alone — checked out into a
+clean worktree, independent of the commit that followed it — fails `pnpm typecheck` and `pnpm test`,
+because `src/app/App.tsx` (and two new e2e specs) already referenced `./paletteStore`,
+`./useGlobalShortcuts` and `@/components/palette/PaletteRoot`, files the concurrent command-palette
+session's own commit (`d89abf4`) had not landed yet at the moment this one was made. This is a real
+bisectability gap — `git bisect`, a revert, or a deploy pinned to that exact SHA would all fail — but it is
+the direct, unavoidable consequence of two sessions sharing one working tree and one `App.tsx` at once
+(the same arrangement Sessions 12/13 used, ADR-026/027): both `path="/"` and the palette's own mount point
+live in that file, and neither commit could be made self-contained without either squashing the two
+together (destroying the separate authorship and review history this document relies on) or one session
+blocking on the other's unrelated feature. Left as recorded history rather than rewritten — `main` at
+`d89abf4` and after is a normal, buildable, bisectable line; only the single intermediate commit is not.
+
 ---
 
 ## ADR-029 — The command palette: cmdk's own Radix Dialog for the a11y contract, every section reusing its module's own search, and a "latest ref" listener for the global shortcuts

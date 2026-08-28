@@ -111,7 +111,9 @@
         "export": "Export all my data",
         "import": "Import backup",
         "importError": "That file isn't a Sahayak backup, or it's damaged.",
-        "importSuccess": "Restored {{count}} rows."
+        "importSuccess": "Restored {{count}} rows.",
+        "reloadHint": "Language, theme and AI settings need a reload to take effect.",
+        "reload": "Reload"
       },
       "erase": {
         "title": "Erase all my data",
@@ -159,7 +161,8 @@
       "subtitle": "Three promises Sahayak keeps.",
       "onDevice": "Everything you enter — drafts, scenarios, saved sections — stays on this device, in your browser's own storage.",
       "noAccounts": "No account, no sign-in, no server. There is nothing to lose access to.",
-      "noAnalytics": "No analytics, by default and always — nothing about how you use this app is collected."
+      "noAnalytics": "No analytics, by default and always — nothing about how you use this app is collected.",
+      "finishError": "Could not save your post and city — check your device's storage and try again, or use \"Skip setup\" above to continue without them."
     }
   },
   "ai": {

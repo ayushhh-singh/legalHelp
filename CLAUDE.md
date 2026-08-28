@@ -336,6 +336,19 @@ are load-bearing, and each is enforced by a test rather than by convention:
 a11y.spec.ts` run caught it, exactly the kind of defect `src/styles/tokens.test.ts` cannot see. Fixed by
   dropping the tint and keeping only the border.
 
+- **A requested edge-case pass over `cf69afb` (after the commit) found two more real defects, both fixed
+  — ADR-028's own addendum has the detail.** `BackupSection.tsx`'s "Import backup" restored a `settings`
+  row (theme, language, `ai`, `onboarded`, `devanagariDigits`) straight into Dexie with no visible effect
+  until a manual reload, because that ONE table is read into `useAppStore` once at `hydrate()` rather than
+  through `useLiveQuery` the way every other restored table is — it now offers a "Reload" button exactly
+  when the restored file actually touched `settings`. And `OnboardingPage`'s `finish()` had no error
+  handling at all: a thrown `writeLastScenario`/`saveSettings` left the reader stuck on step 3 with a
+  re-enabled button and no feedback — it now surfaces a role="alert" message naming "Skip setup" as the
+  fallback. The same pass also surfaced, and deliberately left alone, that `cf69afb` checked out on its own
+  fails typecheck (it already referenced the concurrent palette session's files before that session's own
+  commit landed) — not fixable without rewriting shared history, and `main` from `d89abf4` on is a normal,
+  bisectable line regardless.
+
 - **A palette result that builds a `/law` href from a bare section number is wrong roughly as often as it
   is right.** `data/law`'s three Acts each restart their own numbering, and plenty of numbers ALSO exist as
   a real section of the repealed Act the same digits happen to share — `/law?q=101&code=bns` re-parses on

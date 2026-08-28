@@ -80,11 +80,30 @@ export function BackupSection() {
       ) : null}
 
       {importState.status === 'success' ? (
-        <p role="status" className="text-sm text-tulsi-foreground">
-          {t('pages.settings.backup.importSuccess', {
-            count: Object.values(importState.result.restored).reduce((sum, n) => sum + n, 0),
-          })}
-        </p>
+        <div className="flex flex-col gap-2">
+          <p role="status" className="text-sm text-tulsi-foreground">
+            {t('pages.settings.backup.importSuccess', {
+              count: Object.values(importState.result.restored).reduce((sum, n) => sum + n, 0),
+            })}
+          </p>
+          {/*
+            Everything else a restore can touch (drafts, favourites,
+            scenarios, Trainer progress) is read through useLiveQuery, which
+            picks up a Dexie write on its own. `settings` is the one table
+            that is not — theme, language, ai and onboarded are read into
+            useAppStore once at hydrate() and never re-subscribed — so a row
+            restored there sits in IndexedDB with no visible effect until a
+            reload runs hydrate() again.
+          */}
+          {'settings' in importState.result.restored ? (
+            <div>
+              <p className="text-xs text-muted-foreground">{t('pages.settings.backup.reloadHint')}</p>
+              <Button type="button" size="sm" onClick={() => window.location.reload()}>
+                {t('pages.settings.backup.reload')}
+              </Button>
+            </div>
+          ) : null}
+        </div>
       ) : null}
     </div>
   )

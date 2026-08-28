@@ -49,10 +49,22 @@ export default function OnboardingPage() {
   const [job, setJob] = useState<JobOption | null>(null)
   const [cityId, setCityId] = useState<string | null>(null)
   const [finishing, setFinishing] = useState(false)
+  const [finishFailed, setFinishFailed] = useState(false)
 
+  /**
+   * `setOnboarded(true)` itself never throws — `persist()` in the store
+   * downgrades a storage failure to `storageBlocked` and still applies the
+   * in-memory change (src/app/store.ts). What CAN throw here is the post/city
+   * prefill: `writeLastScenario` and `saveSettings` are ordinary Dexie
+   * `put`s with no such fallback. Without this catch, a blocked or full
+   * IndexedDB left the reader stuck on step 3 with a re-enabled button and no
+   * indication anything had gone wrong — "Skip setup" was the only way out,
+   * and it silently drops the post/city they had just chosen.
+   */
   const finish = async () => {
     if (finishing) return
     setFinishing(true)
+    setFinishFailed(false)
     try {
       if (job && tables.status === 'ready') {
         const scenario = scenarioForJob(job.job.id, tables.tables, cityId ? { cityId } : {})
@@ -66,6 +78,8 @@ export default function OnboardingPage() {
       }
       await setOnboarded(true)
       void navigate(HOME_PATH, { replace: true })
+    } catch {
+      setFinishFailed(true)
     } finally {
       setFinishing(false)
     }
@@ -174,6 +188,11 @@ export default function OnboardingPage() {
               <span>{t('onboarding.step3.noAnalytics')}</span>
             </li>
           </ul>
+          {finishFailed ? (
+            <p role="alert" className="mt-4 text-sm text-destructive">
+              {t('onboarding.step3.finishError')}
+            </p>
+          ) : null}
           <div className="mt-6 flex justify-between">
             <Button type="button" variant="outline" onClick={() => setStep(2)} disabled={finishing}>
               {t('onboarding.back')}
