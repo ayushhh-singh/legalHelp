@@ -16,6 +16,7 @@ export const SETTING_KEYS = {
   language: 'language',
   theme: 'theme',
   ai: 'ai',
+  voice: 'voice',
 } as const
 
 /**

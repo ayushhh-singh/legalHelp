@@ -354,5 +354,34 @@
       "clearRecents": "Clear recent lookups",
       "remove": "Remove {{act}} section {{section}} from saved"
     }
+  },
+  "voice": {
+    "start": "Search by voice",
+    "stop": "Stop listening",
+    "listening": "Listening. Speak your search.",
+    "notice": {
+      "title": "Before you use voice search",
+      "leaves": "Your voice leaves this device. Speech recognition in this browser is not on-device — the audio is sent to the browser vendor (Google, in Chrome) and transcribed there.",
+      "rest": "Nothing else about your search leaves the device: the section tables are already here, and the words that come back are typed into the search box like any other query.",
+      "off": "You can turn this off again in Settings. Everything else in this app keeps working with the microphone off.",
+      "accept": "I have read this — use the microphone",
+      "turnOn": "Turn voice search back on",
+      "cancel": "Not now"
+    },
+    "errors": {
+      "denied": "The microphone was blocked. Allow it in your browser settings, or type instead.",
+      "no-microphone": "No microphone was available.",
+      "no-speech": "Nothing was heard. Try again, or type instead.",
+      "network": "The recognition service could not be reached. It needs a connection; typing does not.",
+      "unknown": "Voice search stopped unexpectedly. Try again, or type instead."
+    },
+    "settings": {
+      "title": "Voice search",
+      "hint": "Off by default. With it off, this app makes no request of any kind — see the notice for what turning it on sends.",
+      "on": "On",
+      "off": "Off",
+      "read": "Read what this sends",
+      "unsupported": "This browser has no speech recognition, so voice search is unavailable here."
+    }
   }
 }

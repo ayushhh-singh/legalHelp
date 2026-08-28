@@ -40,6 +40,16 @@ export default tseslint.config(
       'no-restricted-globals': [
         'error',
         { name: 'fetch', message: 'No network requests may carry user data (see CLAUDE.md hard rules).' },
+        {
+          name: 'SpeechRecognition',
+          message:
+            'Speech recognition is a NETWORK service in Chrome — the audio is streamed off the device. Only src/lib/voice.ts may construct one, and only after consent.',
+        },
+        {
+          name: 'webkitSpeechRecognition',
+          message:
+            'Speech recognition is a NETWORK service in Chrome — the audio is streamed off the device. Only src/lib/voice.ts may construct one, and only after consent.',
+        },
       ],
     },
   },
@@ -51,6 +61,18 @@ export default tseslint.config(
   // "what in this app can talk to the network?" answerable from this file.
   {
     files: ['src/ai/providers/wire.ts'],
+    rules: {
+      'no-restricted-globals': 'off',
+    },
+  },
+
+  // The second network seam, and the same reasoning. `SpeechRecognition` looks
+  // like a browser API and behaves like a network client: Chrome streams the
+  // captured audio to Google's servers. src/lib/voice.ts is the only module
+  // that may construct one, it is reached by a dynamic import, and it only runs
+  // after the reader has read the notice (src/lib/voiceConsent.ts).
+  {
+    files: ['src/lib/voice.ts'],
     rules: {
       'no-restricted-globals': 'off',
     },

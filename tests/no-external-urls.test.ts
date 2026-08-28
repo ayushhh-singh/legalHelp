@@ -172,6 +172,27 @@ describe('no external URLs', () => {
     expect(naming).toEqual([OPT_IN_ENDPOINT.file])
   })
 
+  it('constructs a SpeechRecognition in exactly one module', () => {
+    // The second network seam. It does not look like one — it is a browser
+    // global, not a URL — but Chrome streams the captured audio to Google's
+    // servers, so a spoken query leaves the device exactly as a fetch would.
+    // `eslint.config.js` restricts both spellings of the global and grants one
+    // file-scoped exception; this is the assertion that the exception is still
+    // the only place that uses it, and it is deliberately independent of the
+    // lint rule so that disabling the rule does not also disable the check.
+    const naming = walk(fromRoot('src'), SOURCE_EXTENSIONS)
+      .map((file) => relative(projectRoot, file))
+      .filter((file) => !/\.test\.tsx?$/.test(file))
+      .filter((file) =>
+        /new\s+Recognition\b|webkitSpeechRecognition|\bSpeechRecognition\b/.test(readFromRoot(file)),
+      )
+
+    // voiceConsent.ts names the global in a `in window` presence check — it
+    // decides whether to SHOW the button — and never constructs one.
+    expect(naming.sort()).toEqual(['src/lib/voice.ts', 'src/lib/voiceConsent.ts'])
+    expect(readFromRoot('src/lib/voiceConsent.ts')).not.toContain('new ')
+  })
+
   it('keeps dataset source citations in data/, out of the source tree', () => {
     // Allowing the NCRB citation through the dist sweep would otherwise let a
     // `fetch('https://www.ncrb.gov.in/...')` in src/ pass unnoticed. It reaches

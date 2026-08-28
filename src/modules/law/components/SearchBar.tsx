@@ -1,6 +1,7 @@
 import { Search, X } from 'lucide-react'
 import { useEffect, useRef } from 'react'
 
+import { VoiceSearchButton } from '@/components/common/VoiceSearchButton'
 import { useT } from '@/i18n/useT'
 import { cn } from '@/lib/utils'
 
@@ -66,55 +67,69 @@ export function SearchBar({
         {t('law.search.label')}
       </label>
 
-      <div className="relative">
-        <Search
-          aria-hidden="true"
-          className="pointer-events-none absolute top-1/2 left-3 h-4 w-4 -translate-y-1/2 text-muted-foreground"
-        />
-        <input
-          ref={inputRef}
-          id="law-search"
-          type="search"
-          value={value}
-          onChange={(event) => onChange(event.target.value)}
-          onKeyDown={(event) => {
-            if (event.key === 'ArrowDown') {
-              event.preventDefault()
-              onArrowDown()
-            }
-            if (event.key === 'Enter') {
-              event.preventDefault()
-              onSubmit()
-            }
-          }}
-          placeholder={t('law.search.placeholder')}
-          aria-describedby="law-search-hint"
-          aria-controls={resultsId}
-          // The reader is told how many results there are without having to
-          // move focus into the list; `aria-live` on the count below carries it.
-          autoComplete="off"
-          spellCheck={false}
-          className={cn(
-            'h-11 w-full rounded-lg border border-input bg-card pr-10 pl-9 text-base',
-            'placeholder:text-muted-foreground',
-            'focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 focus-visible:ring-offset-background focus-visible:outline-none',
-            // Safari draws its own clear button on type=search, beside ours.
-            '[&::-webkit-search-cancel-button]:appearance-none',
-          )}
-        />
-        {value ? (
-          <button
-            type="button"
-            onClick={() => {
-              onChange('')
-              inputRef.current?.focus()
+      <div className="flex items-center gap-2">
+        <div className="relative flex-1">
+          <Search
+            aria-hidden="true"
+            className="pointer-events-none absolute top-1/2 left-3 h-4 w-4 -translate-y-1/2 text-muted-foreground"
+          />
+          <input
+            ref={inputRef}
+            id="law-search"
+            type="search"
+            value={value}
+            onChange={(event) => onChange(event.target.value)}
+            onKeyDown={(event) => {
+              if (event.key === 'ArrowDown') {
+                event.preventDefault()
+                onArrowDown()
+              }
+              if (event.key === 'Enter') {
+                event.preventDefault()
+                onSubmit()
+              }
             }}
-            aria-label={t('law.search.clear')}
-            className="absolute top-1/2 right-1 flex h-9 w-9 -translate-y-1/2 items-center justify-center rounded-md text-muted-foreground transition-colors hover:bg-accent hover:text-accent-foreground"
-          >
-            <X aria-hidden="true" className="h-4 w-4" />
-          </button>
-        ) : null}
+            placeholder={t('law.search.placeholder')}
+            aria-describedby="law-search-hint"
+            aria-controls={resultsId}
+            // The reader is told how many results there are without having to
+            // move focus into the list; `aria-live` on the count below carries it.
+            autoComplete="off"
+            spellCheck={false}
+            className={cn(
+              'h-11 w-full rounded-lg border border-input bg-card pr-10 pl-9 text-base',
+              'placeholder:text-muted-foreground',
+              'focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 focus-visible:ring-offset-background focus-visible:outline-none',
+              // Safari draws its own clear button on type=search, beside ours.
+              '[&::-webkit-search-cancel-button]:appearance-none',
+            )}
+          />
+          {value ? (
+            <button
+              type="button"
+              onClick={() => {
+                onChange('')
+                inputRef.current?.focus()
+              }}
+              aria-label={t('law.search.clear')}
+              className="absolute top-1/2 right-1 flex h-9 w-9 -translate-y-1/2 items-center justify-center rounded-md text-muted-foreground transition-colors hover:bg-accent hover:text-accent-foreground"
+            >
+              <X aria-hidden="true" className="h-4 w-4" />
+            </button>
+          ) : null}
+        </div>
+
+        {/*
+          Dictation. Renders nothing where the browser has no speech API, and
+          sends nothing until the reader has read the notice behind it — the
+          audio is transcribed off the device (src/lib/voiceConsent.ts).
+        */}
+        <VoiceSearchButton
+          onTranscript={(transcript, isFinal) => {
+            onChange(transcript)
+            if (isFinal) inputRef.current?.focus()
+          }}
+        />
       </div>
 
       <p id="law-search-hint" className="mt-1.5 text-xs text-muted-foreground">

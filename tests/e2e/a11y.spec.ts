@@ -159,6 +159,35 @@ test('no axe violations while browsing a whole Act', async ({ page }) => {
   expect(format(await audit(page))).toEqual([])
 })
 
+for (const theme of ['light', 'dark'] as const) {
+  test(`no axe violations on the voice-search notice in ${theme}`, async ({ page }) => {
+    // A modal that only appears on a click, over a page with a live region on
+    // it — the same class of surface as the AI consent modal, and audited for
+    // the same reason.
+    await page.addInitScript(() => {
+      class Stub {
+        lang = ''
+        continuous = false
+        interimResults = false
+        maxAlternatives = 0
+        onresult = null
+        onerror = null
+        onend = null
+        start() {}
+        stop() {}
+        abort() {}
+      }
+      Object.defineProperty(window, 'SpeechRecognition', { value: Stub, configurable: true })
+    })
+    await setChrome(page, 'en', theme)
+    await page.goto('/law')
+    await page.getByRole('button', { name: 'Search by voice' }).click()
+    await expect(page.getByRole('dialog', { name: 'Before you use voice search' })).toBeVisible()
+
+    expect(format(await audit(page)), `voice notice (${theme})`).toEqual([])
+  })
+}
+
 test('no axe violations with the More sheet open', async ({ page }) => {
   // The one piece of chrome that is not on screen by default. 390px so the
   // sheet's own breakpoint (<768px) applies.

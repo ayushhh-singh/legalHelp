@@ -1246,3 +1246,78 @@ and recording it as a lookup would be the app answering a question nobody put.
   enforces. The compatible shape is the AI layer's: off by default, behind a notice that says where
   the audio goes, with `hi-IN` / `en-IN` locales — a product decision about a hard rule, so it is the
   human's to make. Recorded as `docs/DATA-GAPS.md` #23.
+
+---
+
+## ADR-014 — Voice search ships behind its own consent gate, because it is a network feature
+
+**Date:** 2026-08-28 · **Status:** Accepted · **Session:** 4 (follow-up) ·
+**Follows:** ADR-011's consent-as-feature-flag pattern
+
+### Context
+
+Voice search was asked for, and it collides head-on with the hard rule this app rests on.
+
+`SpeechRecognition` looks like a browser API and behaves like a network client. Chrome's implementation
+**streams the captured audio to Google's servers**; it is not on-device recognition. Firefox implements
+none of it. Safari implements some of it, with no guarantee about where the audio goes.
+
+So a spoken query is user-entered data leaving the device — the thing the master context forbids and
+`tests/e2e/zero-third-party-requests.spec.ts` enforces. And a spoken query is the _most_ identifying
+input this module can take: an officer says an offence and a date out loud.
+
+Building it the ordinary way (a mic button that just works) would have meant weakening the one test that
+proves the promise. The human was asked and chose the opt-in design.
+
+### Decision
+
+**The AI layer's pattern, applied unchanged.** Consent IS the feature flag; there is no second switch
+that could get out of step with it.
+
+1. **`src/lib/voiceConsent.ts` — flags only.** No runtime imports, no browser API. `src/app/store.ts`
+   loads it eagerly, so `voice.enabled` is readable anywhere without pulling in the recogniser.
+   `isVoiceEnabled` requires `enabled === true` **and** `consentVersion === VOICE_CONSENT_VERSION`, so a
+   hand-edited settings row cannot turn the microphone on — `parseVoiceSettings` discards anything it
+   does not recognise, exactly as `parseAiSettings` does.
+2. **`src/lib/voice.ts` — the second network seam, named as one.** `eslint.config.js` now restricts
+   **both** spellings of the global everywhere and grants a single file-scoped exception here, beside
+   the existing one for `fetch` in `src/ai/providers/wire.ts`. "What in this app can send something off
+   the device?" is still answerable by reading two files.
+   `tests/no-external-urls.test.ts` asserts the count independently of the lint rule, so disabling the
+   rule does not also disable the check.
+3. **Reached by a dynamic import on the first press.** The presence check (`'SpeechRecognition' in
+window`) ships, because it decides whether to draw the button at all; the recogniser does not.
+   `tests/bundle-budget.test.ts` asserts that `maxAlternatives`, `interimResults`, `audio-capture` and
+   `service-not-allowed` — strings that exist only inside `listen()` — are absent from the initial route.
+4. **One utterance, never continuous.** A search box is not a dictation surface, and an open microphone
+   that keeps streaming is not something to leave running under somebody who pressed a button once.
+   The session also aborts on unmount: a microphone must not outlive the screen it was opened from.
+5. **Listening is visible and announced** — the icon changes, the button's accessible name becomes
+   "Stop listening", `aria-pressed` flips, and an `aria-live="assertive"` region says so. An open
+   microphone with no indicator is not shippable, and an icon on its own is not an indicator.
+6. **The notice is short and specific.** It names the company that receives the audio, says it is not
+   on-device, and says it can be turned off again. A long notice is a notice nobody reads.
+7. **Turned on from the search bar, off from Settings.** Consent belongs next to the action it enables;
+   a kill switch belongs somewhere findable. Turning it off keeps the recorded consent, so turning it
+   back on does not re-prompt — bumping `VOICE_CONSENT_VERSION` is what re-prompts everybody.
+8. **Recognition runs in the reader's own language** — `hi-IN` and `en-IN`, from the app language.
+   Devanagari-language recognition is the entire point for a reader who does not want to switch keyboards.
+
+### Consequences
+
+- **The privacy suite gained the assertion that matters**: a Playwright test replaces the global with a
+  counting stub _before the app loads_, uses the page normally, opens the notice, declines — and asserts
+  that **zero** recognisers were constructed and no cross-origin request was made. That is the property,
+  stated as a test rather than as a promise.
+- Firefox readers see no microphone button rather than a broken one.
+- 291 i18n keys, up from 270. The notice and five distinct error sentences are written in both languages:
+  "it failed" is not an answer when a microphone is involved, so a refused permission, a missing device,
+  silence, an unreachable service and an unknown fault each say something a reader can act on.
+- `docs/DATA-GAPS.md` #23 is closed by this. It is replaced by nothing: the decision is recorded here.
+
+### The alternative, recorded
+
+On-device recognition would remove the need for any of this — no notice, no seam, no exception. Chrome
+is shipping an on-device mode for the Web Speech API and Safari does some recognition locally. When it
+can be feature-detected and _required_, the honest move is to require it and drop the consent gate.
+Until then the notice is the only truthful thing to show.

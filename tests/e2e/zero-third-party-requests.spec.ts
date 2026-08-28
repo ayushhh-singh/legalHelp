@@ -86,6 +86,68 @@ test('sends nothing while a query, an offence date and a citation are typed, ope
 })
 
 /**
+ * Voice search, off by default (ADR-013 addendum).
+ *
+ * Speech recognition in Chrome is a NETWORK service — the captured audio is
+ * streamed to Google — so "off by default" has to mean more than a grey button:
+ * nothing may construct a recogniser until the reader has read the notice. This
+ * replaces the global with a counting stub before the app loads, then uses the
+ * page normally and asserts the count is still zero.
+ */
+test('never opens the microphone until the notice has been read', async ({ page, baseURL }) => {
+  const origin = new URL(baseURL ?? 'http://localhost:4173').origin
+  const crossOrigin: string[] = []
+  page.on('request', (request) => {
+    const url = new URL(request.url())
+    if (url.origin !== origin) crossOrigin.push(`${request.method()} ${request.url()}`)
+  })
+
+  await page.addInitScript(() => {
+    const counter = { built: 0 }
+    ;(window as unknown as { __speech: typeof counter }).__speech = counter
+    class Stub {
+      lang = ''
+      continuous = false
+      interimResults = false
+      maxAlternatives = 0
+      onresult = null
+      onerror = null
+      onend = null
+      constructor() {
+        counter.built += 1
+      }
+      start() {}
+      stop() {}
+      abort() {}
+    }
+    Object.defineProperty(window, 'SpeechRecognition', { value: Stub, configurable: true })
+  })
+
+  await page.goto('/law')
+  await expect(page.getByRole('heading', { level: 1 })).toBeVisible()
+
+  // The button exists, because this browser has the API.
+  const mic = page.getByRole('button', { name: 'Search by voice' })
+  await expect(mic).toBeVisible()
+
+  // Using the page normally must not open it.
+  await page.getByLabel(/Search a section/).fill('302')
+  await expect(page.getByRole('heading', { name: 'Punishment for murder.' })).toBeVisible()
+
+  // Pressing it opens the NOTICE, not the microphone.
+  await mic.click()
+  await expect(page.getByRole('dialog', { name: 'Before you use voice search' })).toBeVisible()
+  await expect(page.getByText(/Your voice leaves this device/)).toBeVisible()
+  await page.getByRole('button', { name: 'Not now' }).click()
+
+  const built = await page.evaluate(
+    () => (window as unknown as { __speech: { built: number } }).__speech.built,
+  )
+  expect(built, 'a recogniser was constructed without consent').toBe(0)
+  expect(crossOrigin).toEqual([])
+})
+
+/**
  * The AI layer's half of the same rule (Session 3A). It is dormant by default,
  * and "dormant" has to mean more than "the button is grey": reading the consent
  * notice, accepting it and choosing a tier must all still send nothing.
