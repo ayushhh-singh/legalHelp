@@ -48,3 +48,6 @@ scripts/ingest/raw/*
 !scripts/ingest/raw/.gitkeep
 scripts/ingest/raw-pay/*
 !scripts/ingest/raw-pay/.gitkeep
+
+# voice: the on-device speech model (~42 MB) fetched by `pnpm voice:model`
+public/models/
