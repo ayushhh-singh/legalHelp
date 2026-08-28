@@ -97,7 +97,10 @@ export async function unlockVault(passphrase?: string): Promise<boolean> {
   if (!passphrase || !vault.salt) return false
   const candidate = await deriveKeyFromPassphrase(passphrase, vault.salt)
 
-  const stored = toPayload(await db.secrets.get(ANTHROPIC_KEY_ID))
+  // Verified against ANY stored secret, not just the API key: a vault holding
+  // only some future Tier 2 token would otherwise accept every passphrase and
+  // report success, then hand back null on the first read.
+  const stored = (await db.secrets.toArray()).map(toPayload).find(Boolean)
   if (stored) {
     const plaintext = await decryptString(candidate, stored)
     if (plaintext === null) return false

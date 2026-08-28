@@ -215,23 +215,36 @@ export type AiProviderId = (typeof AI_PROVIDER_IDS)[number]
  * Errors
  * ------------------------------------------------------------------ */
 
-export type AiErrorCode =
+/**
+ * Declared as an array so it can be iterated at runtime: every code must have a
+ * bilingual message under `ai.errors` in both catalogues, and
+ * `src/ai/errors.test.ts` walks this list to prove it. A union type alone would
+ * let a new code ship with no way to tell the reader what happened.
+ */
+export const AI_ERROR_CODES = [
   /** The final answer cited no tool result and the agent policy required one. */
-  | 'ungrounded'
-  /** The answer cited a context snippet that does not exist, or invented a section number. */
-  | 'invalid_citation'
-  | 'max_steps'
-  | 'budget_exhausted'
-  | 'aborted'
-  | 'tool_timeout'
-  | 'invalid_args'
-  | 'unknown_tool'
-  | 'no_key'
-  | 'not_configured'
-  | 'not_installed'
-  | 'auth'
-  | 'rate_limited'
-  | 'provider'
+  'ungrounded',
+  /** The answer cited a snippet that does not exist, or invented a section number. */
+  'invalid_citation',
+  'max_steps',
+  /** The model hit max_tokens: the answer on screen would be half a sentence. */
+  'truncated',
+  /** No question to answer, or the model produced no text at all. */
+  'empty',
+  'budget_exhausted',
+  'aborted',
+  'tool_timeout',
+  'invalid_args',
+  'unknown_tool',
+  'no_key',
+  'not_configured',
+  'not_installed',
+  'auth',
+  'rate_limited',
+  'provider',
+] as const
+
+export type AiErrorCode = (typeof AI_ERROR_CODES)[number]
 
 export class AiError extends Error {
   readonly code: AiErrorCode

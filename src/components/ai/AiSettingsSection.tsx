@@ -2,7 +2,7 @@ import { useCallback, useEffect, useState } from 'react'
 
 import { TIER_DISCLOSURES, acceptConsentPatch, tierAvailable } from '@/ai/consent'
 import { hasConsent, isAiEnabled, proxyUrlFromEnv, tierReady } from '@/ai/flags'
-import { AI_MODELS } from '@/ai/models'
+import { AI_MODELS, findModel } from '@/ai/models'
 import { ANTHROPIC_KEY_ID, clearSecret, hasStoredKey, storeSecret } from '@/ai/secrets'
 import { AI_TIERS, type AiTier } from '@/ai/types'
 import { budgetState, type BudgetState } from '@/ai/usage'
@@ -54,6 +54,7 @@ export default function AiSettingsSection() {
   const [keyError, setKeyError] = useState<string | null>(null)
   const [test, setTest] = useState<TestState>({ status: 'idle' })
   const [budget, setBudget] = useState<BudgetState | null>(null)
+  const [purged, setPurged] = useState(false)
 
   const proxyUrl = proxyUrlFromEnv()
   const consented = hasConsent(settings)
@@ -86,7 +87,15 @@ export default function AiSettingsSection() {
       setKeyError(t('ai.key.invalid'))
       return
     }
-    await storeSecret(ANTHROPIC_KEY_ID, value)
+    try {
+      await storeSecret(ANTHROPIC_KEY_ID, value)
+    } catch (error) {
+      // WebCrypto is absent on an insecure origin and IndexedDB can be blocked
+      // outright. Without this the failure was a silent no-op plus an unhandled
+      // rejection, and the reader would think the key had been saved.
+      setKeyError(error instanceof Error ? error.message : t('ai.key.invalid'))
+      return
+    }
     await setAi({ hasKey: true })
     setKeyInput('')
     setTest({ status: 'idle' })
@@ -94,7 +103,13 @@ export default function AiSettingsSection() {
   }, [keyInput, setAi, t])
 
   const removeKey = useCallback(async () => {
-    await clearSecret(ANTHROPIC_KEY_ID)
+    setKeyError(null)
+    try {
+      await clearSecret(ANTHROPIC_KEY_ID)
+    } catch (error) {
+      setKeyError(error instanceof Error ? error.message : t('ai.key.invalid'))
+      return
+    }
     await setAi({ hasKey: false })
     setTest({ status: 'idle' })
     setKeyNotice(t('ai.key.cleared'))
@@ -162,7 +177,10 @@ export default function AiSettingsSection() {
                   disabled={!consented || !selectable}
                   label={t(TIER_LABEL[tier])}
                   hint={t(TIER_HINT[tier])}
-                  onSelect={() => void setAi({ tier })}
+                  onSelect={() => {
+                    setTest({ status: 'idle' })
+                    void setAi({ tier })
+                  }}
                 />
               )
             })}
@@ -229,7 +247,11 @@ export default function AiSettingsSection() {
           <select
             id="ai-model"
             value={settings.model}
-            onChange={(event) => void setAi({ model: event.target.value })}
+            onChange={(event) => {
+              // A result proved the key against the old model, not this one.
+              setTest({ status: 'idle' })
+              void setAi({ model: event.target.value })
+            }}
             className="h-11 rounded-lg border border-input bg-background px-3 text-sm focus-visible:ring-2 focus-visible:ring-ring focus-visible:outline-none"
           >
             {AI_MODELS.map((model) => (
@@ -237,6 +259,11 @@ export default function AiSettingsSection() {
                 {model.label}
               </option>
             ))}
+            {/* A row written by a newer build names a model this one does not
+                know. Showing it keeps the control honest — silently rendering
+                the first option would tell the reader they had chosen
+                something they had not. */}
+            {findModel(settings.model) ? null : <option value={settings.model}>{settings.model}</option>}
           </select>
         </div>
 
@@ -245,14 +272,24 @@ export default function AiSettingsSection() {
             {t('ai.budget.label')}
           </label>
           <p className="text-xs text-muted-foreground">{t('ai.budget.hint')}</p>
+          {/* Uncontrolled, and only committed when it parses. A controlled
+              number input cannot be cleared to retype — `Number('')` is 0, and
+              a budget of 0 blocks every run — so an empty or half-typed field
+              must leave the stored value alone. */}
           <input
             id="ai-budget"
             type="number"
             min={0}
             step={10_000}
             inputMode="numeric"
-            value={settings.monthlyTokenBudget}
-            onChange={(event) => void setAi({ monthlyTokenBudget: Number(event.target.value) })}
+            defaultValue={settings.monthlyTokenBudget}
+            onChange={(event) => {
+              const raw = event.target.value.trim()
+              if (raw === '') return
+              const parsed = Number(raw)
+              if (!Number.isFinite(parsed) || parsed < 0) return
+              void setAi({ monthlyTokenBudget: Math.floor(parsed) })
+            }}
             className="h-11 w-48 rounded-lg border border-input bg-background px-3 text-sm tabular-nums focus-visible:ring-2 focus-visible:ring-ring focus-visible:outline-none"
           />
           {budget ? (
@@ -281,7 +318,16 @@ export default function AiSettingsSection() {
         </div>
       </fieldset>
 
-      {consented || settings.hasKey ? <AiKillSwitch /> : null}
+      {consented || settings.hasKey ? <AiKillSwitch onPurged={() => setPurged(true)} /> : null}
+
+      {/* Owned here, not by the kill switch: turning AI off unmounts the kill
+          switch, so a confirmation it rendered itself would vanish in the same
+          tick it appeared. */}
+      {purged ? (
+        <p role="status" className="text-sm text-tulsi-foreground">
+          {t('ai.kill.done')}
+        </p>
+      ) : null}
 
       <AiConsentModal
         open={consentOpen}

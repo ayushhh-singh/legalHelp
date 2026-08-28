@@ -62,9 +62,23 @@ export function AiConsentModal({ open, onAccept, onCancel }: AiConsentModalProps
 
   useEffect(() => {
     if (!open) return
+
     // Focus the panel itself rather than the first control, so a screen reader
     // reads the title and the warning before it reads a button label.
+    const previous = document.activeElement
     panel.current?.focus()
+
+    // The page behind a modal must not scroll under it.
+    const { overflow } = document.body.style
+    document.body.style.overflow = 'hidden'
+
+    return () => {
+      document.body.style.overflow = overflow
+      // Put focus back where it came from. Without this a keyboard reader who
+      // dismisses the notice lands at the top of the document, several tab
+      // stops away from the button they just pressed.
+      if (previous instanceof HTMLElement && document.contains(previous)) previous.focus()
+    }
   }, [open])
 
   useEffect(() => {
@@ -81,6 +95,16 @@ export function AiConsentModal({ open, onAccept, onCancel }: AiConsentModalProps
       const first = items[0]
       const last = items[items.length - 1]
       if (!first || !last) return
+
+      // The panel itself holds focus on open (tabIndex -1) and is the LAST
+      // element in the document, so an unhandled Tab from it walks straight out
+      // of the dialog into the browser chrome — the trap has to claim that case
+      // explicitly rather than only the two ends of the list.
+      if (document.activeElement === panel.current) {
+        event.preventDefault()
+        ;(event.shiftKey ? last : first).focus()
+        return
+      }
 
       if (event.shiftKey && document.activeElement === first) {
         event.preventDefault()

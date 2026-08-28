@@ -53,4 +53,16 @@ describe('the monthly ledger', () => {
   it('starts an untouched month at zero rather than at undefined', async () => {
     expect(await readMonthUsage('1999-01')).toMatchObject({ month: '1999-01', runs: 0, costUsd: 0 })
   })
+
+  it('does not lose a concurrent write, which would under-count the budget', async () => {
+    // Two runs finishing a turn at the same moment is ordinary. A plain
+    // read-modify-write lets the second overwrite the first, and a ledger that
+    // under-counts is not a hard stop.
+    await Promise.all(Array.from({ length: 12 }, () => recordUsage('claude-sonnet-4-6', usage)))
+
+    const row = await readMonthUsage()
+    expect(row.runs).toBe(12)
+    expect(row.inputTokens).toBe(12 * usage.inputTokens)
+    expect(billableTokens(row)).toBe(12 * 21_000)
+  })
 })

@@ -339,3 +339,166 @@ describe('runAgent — prompt shape', () => {
     expect(tools.at(-1)?.cache).toBe(true)
   })
 })
+
+describe('runAgent — turns that must not reach the reader', () => {
+  it('discards an answer the model was cut off mid-sentence', async () => {
+    // A truncated turn can carry a well-formed citation and a section number.
+    // That is precisely why it must not be shown: it reads as a complete answer.
+    const cutOff: MockScript = {
+      id: 'cut-off',
+      turns: [
+        {
+          stopReason: 'tool_use',
+          content: [{ type: 'tool_use', id: 'a', name: 'dataset_versions', input: {} }],
+        },
+        {
+          stopReason: 'max_tokens',
+          content: [{ type: 'text', text: 'The application dataset is version 0.1.0 [T1] and the' }],
+        },
+      ],
+    }
+    const result = await run(cutOff).promise
+
+    expect(result.ok).toBe(false)
+    expect(result.error?.code).toBe('truncated')
+    expect(result.text).toBe('')
+  })
+
+  it('discards a turn that ended with no text at all', async () => {
+    const silent: MockScript = {
+      id: 'silent',
+      turns: [{ stopReason: 'end_turn', content: [] }],
+    }
+    const result = await run(silent, { groundedRequired: false }).promise
+
+    expect(result.ok).toBe(false)
+    expect(result.error?.code).toBe('empty')
+  })
+
+  it('refuses an empty question rather than sending one the API rejects', async () => {
+    const { provider, promise } = run(GROUNDED_LOOKUP, { userMessage: '   \n  ' })
+    const result = await promise
+
+    expect(result.ok).toBe(false)
+    expect(result.error?.code).toBe('empty')
+    expect(provider.calls).toHaveLength(0)
+  })
+
+  it('trims the question it does send', async () => {
+    const { provider, promise } = run(GROUNDED_LOOKUP, { userMessage: '  Which datasets?  ' })
+    await promise
+
+    expect(provider.calls[0]?.messages[0]?.content[0]).toEqual({
+      type: 'text',
+      text: 'Which datasets?',
+    })
+  })
+})
+
+describe('runAgent — the tool block it sends', () => {
+  it('keeps the cache breakpoint when the agent is given a subset of the registry', async () => {
+    // Filtering a registry-wide spec list can drop the entry that carried the
+    // breakpoint, silently disabling caching for the largest stable prefix in
+    // the request. The agent builds its own list for exactly this reason.
+    const onlyLast = listTools('common').filter((tool) => tool.def.name === 'today_in_india')
+    const { provider, promise } = run(GROUNDED_LOOKUP, { tools: onlyLast, groundedRequired: false })
+    await promise
+
+    const tools = provider.calls[0]?.tools ?? []
+    expect(tools.map((tool) => tool.name)).toEqual(['today_in_india'])
+    expect(tools.at(-1)?.cache).toBe(true)
+  })
+
+  it('sends a tool that is not in the global registry instead of dropping it', async () => {
+    clearRegistry()
+    registerTool({
+      name: 'lone_tool',
+      scope: 'common',
+      description: { en: 'Alone.', hi: 'अकेला।' },
+      inputSchema: z.object({}).strict(),
+      handler: () => Promise.resolve({ ok: true }),
+    })
+    const registered = listTools('common')
+    clearRegistry()
+    registerTestTools()
+
+    const { provider, promise } = run(GROUNDED_LOOKUP, {
+      tools: registered,
+      groundedRequired: false,
+    })
+    await promise
+
+    expect(provider.calls[0]?.tools?.map((tool) => tool.name)).toEqual(['lone_tool'])
+  })
+
+  it('hands the provider a snapshot it cannot see later turns through', async () => {
+    const { provider, promise } = run(GROUNDED_LOOKUP)
+    await promise
+
+    // Two requests were made; the first must still show the one-message
+    // conversation it was actually given.
+    expect(provider.calls[0]?.messages).toHaveLength(1)
+    expect(provider.calls[1]?.messages).toHaveLength(3)
+    expect(provider.calls[0]?.messages[0]?.content).toHaveLength(1)
+  })
+})
+
+describe('runAgent — parallel tool calls', () => {
+  it('returns every result in ONE user message', async () => {
+    // Splitting them across messages teaches the model to stop making parallel
+    // calls at all, which is a silent, permanent quality loss rather than an
+    // error anyone would notice.
+    const bothAtOnce: MockScript = {
+      id: 'both-at-once',
+      turns: [
+        {
+          stopReason: 'tool_use',
+          content: [
+            { type: 'tool_use', id: 'a', name: 'dataset_versions', input: {} },
+            { type: 'tool_use', id: 'b', name: 'today_in_india', input: {} },
+          ],
+        },
+        {
+          stopReason: 'end_turn',
+          content: [{ type: 'text', text: 'Datasets [T1], and today is in [T2].' }],
+        },
+      ],
+    }
+    const { provider, promise } = run(bothAtOnce)
+    const result = await promise
+
+    expect(result.ok).toBe(true)
+    expect(result.toolResults.map((r) => r.id)).toEqual(['T1', 'T2'])
+    expect(result.grounding.citedToolResultIds).toEqual(['T1', 'T2'])
+
+    const followUp = provider.calls[1]?.messages ?? []
+    const userTurns = followUp.filter((message) => message.role === 'user')
+    // The original question, then exactly one turn carrying both results.
+    expect(userTurns).toHaveLength(2)
+    expect(userTurns[1]?.content).toHaveLength(2)
+    expect(userTurns[1]?.content.every((part) => part.type === 'tool_result')).toBe(true)
+  })
+
+  it('numbers the handles by result even when one of the pair fails', async () => {
+    const oneFails: MockScript = {
+      id: 'one-fails',
+      turns: [
+        {
+          stopReason: 'tool_use',
+          content: [
+            { type: 'tool_use', id: 'a', name: 'slow_tool', input: {} },
+            { type: 'tool_use', id: 'b', name: 'dataset_versions', input: {} },
+          ],
+        },
+        { stopReason: 'end_turn', content: [{ type: 'text', text: 'Only [T2] answered.' }] },
+      ],
+    }
+    const result = await run(oneFails, { toolTimeoutMs: 20 }).promise
+
+    expect(result.toolResults.map((r) => [r.id, r.ok])).toEqual([
+      ['T1', false],
+      ['T2', true],
+    ])
+    expect(result.ok).toBe(true)
+  })
+})

@@ -267,6 +267,9 @@ describe('ProxyProvider', () => {
   it('appends the endpoint exactly once, whatever the base URL looks like', () => {
     expect(messagesUrl('https://a.test')).toBe('https://a.test/v1/messages')
     expect(messagesUrl('https://a.test///')).toBe('https://a.test/v1/messages')
+    // Whoever deploys the Worker is as likely to paste the full endpoint.
+    expect(messagesUrl('https://a.test/v1/messages')).toBe('https://a.test/v1/messages')
+    expect(messagesUrl('https://a.test/v1/messages/')).toBe('https://a.test/v1/messages')
   })
 })
 

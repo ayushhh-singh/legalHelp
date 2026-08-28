@@ -18,11 +18,20 @@ import { useT } from '@/i18n/useT'
  * Two steps, and the confirm names what is about to be deleted. Destructive and
  * irreversible; it is the one place in Settings that uses --destructive.
  */
-export function AiKillSwitch() {
+interface AiKillSwitchProps {
+  /**
+   * Reported to the parent rather than rendered here. Turning AI off is exactly
+   * what removes this component's own reason to be on screen, so a confirmation
+   * it owned would be unmounted in the same tick it was set — the reader would
+   * never see it.
+   */
+  onPurged: () => void
+}
+
+export function AiKillSwitch({ onPurged }: AiKillSwitchProps) {
   const { t } = useT()
   const setAi = useAppStore((state) => state.setAi)
   const [confirming, setConfirming] = useState(false)
-  const [done, setDone] = useState(false)
   const [busy, setBusy] = useState(false)
 
   const run = async () => {
@@ -32,10 +41,10 @@ export function AiKillSwitch() {
       // off, which is the safe half of the operation.
       await setAi(killSwitchPatch())
       await purgeAiData()
-      setDone(true)
     } finally {
       setBusy(false)
       setConfirming(false)
+      onPurged()
     }
   }
 
@@ -62,12 +71,6 @@ export function AiKillSwitch() {
           </Button>
         </div>
       )}
-
-      {done ? (
-        <p role="status" className="text-sm text-tulsi-foreground">
-          {t('ai.kill.done')}
-        </p>
-      ) : null}
     </section>
   )
 }

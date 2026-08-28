@@ -56,20 +56,30 @@ export async function readMonthUsage(month: string = currentMonth()): Promise<Ai
   return (await db.aiUsage.get(month)) ?? emptyRow(month)
 }
 
+/**
+ * Read-modify-write, inside a Dexie transaction.
+ *
+ * Without one, two runs finishing a turn at the same moment both read the same
+ * row and the second `put` overwrites the first — the month under-counts, and a
+ * budget that under-counts is not a hard stop. Concurrency here is ordinary:
+ * one agent's tool loop and another surface's run can overlap.
+ */
 export async function recordUsage(
   modelId: string,
   usage: TokenUsage,
   month: string = currentMonth(),
 ): Promise<AiUsageRow> {
-  const current = await readMonthUsage(month)
-  const next: AiUsageRow = {
-    month,
-    ...addUsage(current, usage),
-    costUsd: current.costUsd + estimateCost(modelId, usage),
-    runs: current.runs + 1,
-  }
-  await db.aiUsage.put(next)
-  return next
+  return db.transaction('rw', db.aiUsage, async () => {
+    const current = (await db.aiUsage.get(month)) ?? emptyRow(month)
+    const next: AiUsageRow = {
+      month,
+      ...addUsage(current, usage),
+      costUsd: current.costUsd + estimateCost(modelId, usage),
+      runs: current.runs + 1,
+    }
+    await db.aiUsage.put(next)
+    return next
+  })
 }
 
 export interface BudgetState {

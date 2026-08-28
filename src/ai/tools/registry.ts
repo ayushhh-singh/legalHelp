@@ -92,13 +92,26 @@ export function listTools(scope?: ToolScope | readonly ToolScope[]): RegisteredT
  * an unstable tool order is the classic silent cache invalidator.
  */
 export function toolSpecs(scope?: ToolScope | readonly ToolScope[]): ToolSpec[] {
-  const tools = listTools(scope)
-  return tools.map((tool, index) => ({
+  return toSpecs(listTools(scope))
+}
+
+/**
+ * The wire form of an arbitrary set of tools, sorted by name with ONE cache
+ * breakpoint on the last entry.
+ *
+ * The agent uses this rather than filtering `toolSpecs()` down to the tools it
+ * was handed: filtering can drop the entry that carried the breakpoint, which
+ * would silently disable caching for the tool block — the largest stable prefix
+ * in the request — and would also drop a tool that is not in the global
+ * registry instead of sending it.
+ */
+export function toSpecs(tools: readonly RegisteredTool[]): ToolSpec[] {
+  const sorted = [...tools].sort((a, b) => a.def.name.localeCompare(b.def.name))
+  return sorted.map((tool, index) => ({
     name: tool.def.name,
     description: tool.def.description.en,
     inputSchema: tool.jsonSchema,
-    // One breakpoint, at the end of the tool block.
-    cache: index === tools.length - 1,
+    cache: index === sorted.length - 1,
   }))
 }
 

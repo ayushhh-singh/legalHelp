@@ -764,3 +764,89 @@ a parameter that model removed.
 Additionally, `tests/e2e/a11y.spec.ts` grew a run over the consent modal and the enabled AI banner, and
 immediately caught a real contrast failure: `OptionRow`'s hint line dimmed `--muted-foreground` with
 `opacity-80`, dropping it below 4.5:1. Size and weight now carry that hierarchy instead of opacity.
+
+### Addendum — edge-case pass (same session)
+
+A deliberate hunt for edge cases across `src/ai`, after the layer was working. Sixteen defects, each
+now covered by a test that was verified to fail against the code as first written.
+
+**Transport (`providers/wire.ts`)**
+
+- **A CRLF-framed stream was mis-read as one enormous frame.** `indexOf('\n\n')` never matches
+  `\r\n\r\n`. Anthropic sends bare LF, but nothing in the path guarantees that a corporate proxy — or
+  the Session 24 Worker — will. The whole buffer is now normalised, not just each new chunk, because a
+  `\r` can arrive at the end of one chunk and its `\n` at the start of the next, and per-chunk
+  normalisation would leave that pair intact and mis-frame everything after it.
+- **A stream ending without its final blank line silently lost its last frame** — which is usually the
+  `message_delta` carrying `stop_reason` and the output token count. A turn that stopped on
+  `max_tokens` would have been reported as a clean `end_turn`, and the token ledger would have
+  under-counted.
+- **A cancelled request surfaced as "the AI service could not be reached".** `fetch` rejects with a
+  DOMException on abort, never with an `AiError`; the classification now happens in one `send()` used
+  by both the streaming and the one-token paths.
+- **An empty system block would have 400'd the request.** An absent profile segment or an empty context
+  block produces one, and the API rejects a text block with empty text.
+- **The response body was left un-cancelled on a mid-stream failure**, holding the connection until GC.
+- `data:` with no space after the colon is legal SSE and is now accepted as such rather than by
+  accident of `.trim()`.
+
+**The agent loop**
+
+- **`specsFor` filtered a registry-wide spec list down to the agent's tools, which could drop the entry
+  carrying the `cache_control` breakpoint** — silently disabling prompt caching for the tool block, the
+  largest stable prefix in every request. It also dropped any tool not in the global registry instead of
+  sending it. Both gone: the agent now builds its own list via `toSpecs(tools)`.
+- **A turn that stopped on `max_tokens` was treated as a finished answer.** A truncated answer can carry
+  a well-formed citation and a section number, which is exactly why it must not be shown — it reads as
+  complete. New code `truncated`.
+- **A turn with no text at all passed as a successful run** when grounding was not required. New code
+  `empty`, which also now rejects an empty question before any request is made.
+- **The `messages` snapshot handed to the provider was shallow**, so the `content` arrays were still
+  aliased to the agent's live state.
+
+**Storage and accounting**
+
+- **`recordUsage` was a read-modify-write with no transaction.** Two runs finishing a turn at the same
+  moment — ordinary — and the second `put` overwrote the first. A ledger that under-counts is not a
+  hard stop.
+- **The answer cache had no ceiling.** Every distinct question added a row holding a whole answer, and
+  IndexedDB's failure mode at quota is that some unrelated write starts throwing. Capped at 200,
+  evicted oldest-first.
+- **A passphrase was verified only against the Anthropic key.** A vault holding some future Tier 2 token
+  and no API key accepted every passphrase, reported success, then returned null on the first read.
+- **`decryptString` swallowed an environment failure as a wrong key**, sending the reader to fix the
+  wrong thing; and `randomBytes` threw a bare `TypeError` where WebCrypto is absent. It now refuses
+  loudly — there is no circumstance in which a nonce falls back to `Math.random`.
+
+**Interface**
+
+- **The kill switch's confirmation could never be seen.** Turning AI off is what removes the kill
+  switch's own reason to be on screen, so the component unmounted in the same tick it set its own
+  "nothing was left behind" message. The parent owns that message now.
+- **A key that could not be stored failed silently** — on an insecure origin (no WebCrypto) or with
+  IndexedDB blocked, `storeSecret` rejected into a `void` call and the reader was left believing the key
+  had been saved.
+- **The monthly budget field could not be cleared to retype.** `Number('')` is 0, and a budget of 0
+  refuses every run, so a backspace mid-edit silently disabled the feature. The field is uncontrolled
+  and commits only a value that parses.
+- **A model id written by a newer build rendered as the first option**, telling the reader they had
+  chosen something they had not. It is now shown as itself.
+- **The consent modal's focus trap had a hole at its own entry point.** The panel takes focus on open
+  (`tabIndex={-1}`) and is the last element in the document, so an unhandled Tab from it walked out of
+  the dialog. Focus is also now restored to the button that opened it, and the page behind no longer
+  scrolls under the modal.
+
+**Two changes of judgement rather than defects**
+
+- **`isPersonalQuery` matched a bare "me"**, so "give me the DA rate" was classified as a personal
+  question and excluded from the answer cache — the one feature that keeps a BYOK reader's bill down.
+  "me" now counts only after a preposition ("for me", "to me"). The one-way bias is unchanged and
+  deliberate: reading a general question as personal costs a cache hit, whereas the reverse would store
+  it.
+- **`AiErrorCode` became a runtime array**, so `src/ai/errors.test.ts` can walk it and prove every code
+  has a message in both catalogues. A union type alone let a new code ship with nothing to render but
+  the code itself, or an English string in a Hindi session.
+
+Also added: a Dexie **v1 → v2 upgrade test** — the migration every already-installed device will take,
+and the one path a freshly-opened database can never exercise — and a test that `db.tables` lists
+exactly the four tables `clearAllData()` (and therefore the kill switch) has to clear.

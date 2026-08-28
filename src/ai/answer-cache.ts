@@ -41,6 +41,16 @@ import { DATA_VERSION } from '@/lib/dataVersion'
 export const SIMILARITY_THRESHOLD = 0.92
 
 /**
+ * A ceiling on how many answers the cache may hold.
+ *
+ * Nothing else in this app bounds it: every distinct question adds a row, the
+ * rows hold whole answers, and IndexedDB's quota failure mode is that some
+ * unrelated write starts throwing. Oldest-first is the right eviction order for
+ * a cache whose value is "you asked this recently".
+ */
+export const MAX_CACHED_ANSWERS = 200
+
+/**
  * `ignoreLocation` is required, not cosmetic: without it Fuse weights matches by
  * how near the start of the string they fall, so "DA rate for level 7" and
  * "level 7 DA rate" score very differently. Word order is not meaning here.
@@ -125,6 +135,21 @@ export async function storeAnswer(params: StoreAnswerParams): Promise<void> {
     meta: params.meta,
     createdAt: params.meta.at,
   })
+
+  await evictOldest()
+}
+
+/** Trims the cache back to MAX_CACHED_ANSWERS, oldest first. */
+async function evictOldest(): Promise<number> {
+  const total = await db.aiAnswers.count()
+  if (total <= MAX_CACHED_ANSWERS) return 0
+
+  const surplus = await db.aiAnswers
+    .orderBy('createdAt')
+    .limit(total - MAX_CACHED_ANSWERS)
+    .primaryKeys()
+  await db.aiAnswers.bulkDelete(surplus)
+  return surplus.length
 }
 
 /**

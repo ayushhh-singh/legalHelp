@@ -79,8 +79,14 @@ export function toBytes(value: unknown): Uint8Array | undefined {
 }
 
 export function randomBytes(length: number): Uint8Array {
+  const source = globalThis.crypto
+  if (!source?.getRandomValues) {
+    // Never fall back to Math.random for a nonce or a salt. Refusing to store
+    // the key is the correct outcome on an environment this broken.
+    throw new AiError('not_configured', 'This browser has no secure random source.')
+  }
   const bytes = new Uint8Array(length)
-  globalThis.crypto.getRandomValues(bytes)
+  source.getRandomValues(bytes)
   return bytes
 }
 
@@ -130,14 +136,19 @@ export async function encryptString(key: CryptoKey, plaintext: string): Promise<
  * check is what makes "wrong passphrase" detectable at all.
  */
 export async function decryptString(key: CryptoKey, payload: EncryptedPayload): Promise<string | null> {
+  let buffer: ArrayBuffer
   try {
-    const buffer = await subtle().decrypt(
+    buffer = await subtle().decrypt(
       { name: 'AES-GCM', iv: payload.iv as unknown as BufferSource },
       key,
       payload.ciphertext as unknown as BufferSource,
     )
-    return new TextDecoder().decode(buffer)
-  } catch {
+  } catch (error) {
+    // Only the tag check may read as "wrong key". An environment failure — no
+    // WebCrypto at all — must not be reported to the reader as a bad
+    // passphrase, which would send them to fix the wrong thing.
+    if (error instanceof AiError) throw error
     return null
   }
+  return new TextDecoder().decode(buffer)
 }

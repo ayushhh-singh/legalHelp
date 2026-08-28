@@ -1,0 +1,25 @@
+[project]
+name = "sahayak-ingest"
+version = "0.2.0"
+description = "Public-source data ingestion for Sahayak. Runs in CI and on a developer machine; never in the browser."
+requires-python = ">=3.12"
+dependencies = [
+  "requests==2.32.3",
+  "beautifulsoup4==4.12.3",
+  "lxml==5.3.0",
+  "pdfplumber==0.11.4",
+  "pymupdf==1.24.14",
+  "jsonschema==4.23.0",
+  "rapidfuzz==3.10.1",
+]
+
+[project.scripts]
+ncrb-sankalan = "ncrb_sankalan:main"
+indiacode-seed = "indiacode_seed:main"
+
+[build-system]
+requires = ["setuptools>=69"]
+build-backend = "setuptools.build_meta"
+
+[tool.setuptools]
+py-modules = ["ingest_common", "ncrb_sankalan", "indiacode_seed"]

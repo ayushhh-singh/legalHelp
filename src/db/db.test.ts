@@ -1,3 +1,4 @@
+import Dexie from 'dexie'
 import { describe, expect, it } from 'vitest'
 
 import { clearAllData, db, getSetting, SETTING_KEYS, setSetting, SahayakDB } from './index'
@@ -82,5 +83,54 @@ describe('app store', () => {
     expect(useAppStore.getState().language).toBe('hi')
     await useAppStore.getState().toggleLanguage()
     expect(useAppStore.getState().language).toBe('en')
+  })
+})
+
+describe('the version 2 upgrade', () => {
+  /**
+   * Session 3A added `secrets`, `aiAnswers` and `aiUsage`. Every device that
+   * already has this app installed opens a v1 database and must be carried
+   * across without losing the preferences it holds — the one migration path
+   * that cannot be tested by opening a fresh database, which every other test
+   * here does.
+   */
+  it('carries a v1 database forward without losing what it held', async () => {
+    const name = 'sahayak-upgrade-probe'
+    await Dexie.delete(name)
+
+    // Exactly the schema shipped in Session 1.
+    const v1 = new Dexie(name)
+    v1.version(1).stores({ settings: '&key' })
+    await v1.table('settings').put({ key: SETTING_KEYS.theme, value: 'dark' })
+    v1.close()
+
+    const v2 = new SahayakDB(name)
+    try {
+      await v2.open()
+
+      expect(v2.verno).toBe(2)
+      expect(await v2.settings.get(SETTING_KEYS.theme)).toEqual({
+        key: SETTING_KEYS.theme,
+        value: 'dark',
+      })
+      // The new tables exist and are empty: nothing is turned on by an upgrade.
+      expect(await v2.secrets.count()).toBe(0)
+      expect(await v2.aiAnswers.count()).toBe(0)
+      expect(await v2.aiUsage.count()).toBe(0)
+    } finally {
+      v2.close()
+      await Dexie.delete(name)
+    }
+  })
+
+  it('declares every table clearAllData will have to clear', () => {
+    // clearAllData iterates db.tables, so a table added without being declared
+    // on the class would be silently left behind by the kill switch.
+    expect(db.tables.map((table) => table.name).sort()).toEqual([
+      'aiAnswers',
+      'aiUsage',
+      'secrets',
+      'settings',
+    ])
   })
 })

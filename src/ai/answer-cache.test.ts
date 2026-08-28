@@ -1,6 +1,13 @@
 import { describe, expect, it } from 'vitest'
 
-import { cachedMeta, clearAnswerCache, lookupAnswer, pruneStaleAnswers, storeAnswer } from './answer-cache'
+import {
+  MAX_CACHED_ANSWERS,
+  cachedMeta,
+  clearAnswerCache,
+  lookupAnswer,
+  pruneStaleAnswers,
+  storeAnswer,
+} from './answer-cache'
 import type { AiOutputMeta } from './types'
 
 import { db } from '@/db'
@@ -152,5 +159,33 @@ describe('the answer cache', () => {
     await seed('Which BNS section replaces IPC 302?')
     await clearAnswerCache()
     expect(await db.aiAnswers.count()).toBe(0)
+  })
+
+  it('stores nothing for a question that normalises to nothing', async () => {
+    // "???" and "।।।" are punctuation only. A row keyed on an empty string
+    // would then be returned for every other empty-normalising question.
+    await seed('???')
+    expect(await db.aiAnswers.count()).toBe(0)
+    expect(await lookupAnswer({ agentId: 'law-explain', language: 'en', question: '।।।' })).toBeNull()
+  })
+
+  it('evicts the oldest rows rather than growing without a bound', async () => {
+    // Nothing else in the app caps this table. IndexedDB's failure mode when a
+    // quota is reached is that some unrelated write starts throwing.
+    for (let i = 0; i < MAX_CACHED_ANSWERS + 5; i += 1) {
+      await storeAnswer({
+        agentId: 'law-explain',
+        language: 'en',
+        question: `Which BNS section replaces IPC ${100 + i}?`,
+        answer: `It is BNS ${i}.`,
+        meta: { ...meta, at: new Date(Date.UTC(2026, 0, 1, 0, 0, i)).toISOString() },
+      })
+    }
+
+    expect(await db.aiAnswers.count()).toBe(MAX_CACHED_ANSWERS)
+    // The five oldest went; the newest survived.
+    const remaining = await db.aiAnswers.toArray()
+    expect(remaining.some((row) => row.question.includes('IPC 100'))).toBe(false)
+    expect(remaining.some((row) => row.question.includes(`IPC ${100 + MAX_CACHED_ANSWERS + 4}`))).toBe(true)
   })
 })

@@ -196,6 +196,8 @@
       "invalid_citation": "The answer cited a source that does not support it, so it was discarded.",
       "budget_exhausted": "This month's token limit is used up.",
       "max_steps": "The assistant did not finish within the allowed number of steps.",
+      "truncated": "The answer was cut off before it finished, so it was discarded rather than shown half-written.",
+      "empty": "The assistant returned no answer.",
       "aborted": "Cancelled.",
       "no_key": "No key is stored on this device.",
       "not_installed": "The on-device model is not part of this build.",

@@ -3,7 +3,7 @@ import { errorMessage, parseJson, stringifyToolOutput } from './json'
 import { PROMPT_VERSIONS } from './prompts'
 import { TASK_DEFAULTS, type AgentId } from './models'
 import type { AiProvider } from './provider'
-import { toolSpecs, validateToolInput, type RegisteredTool } from './tools/registry'
+import { toSpecs, validateToolInput, type RegisteredTool } from './tools/registry'
 import {
   AiError,
   EMPTY_USAGE,
@@ -126,8 +126,8 @@ export async function runAgent(params: RunAgentParams): Promise<AgentRun> {
   const model = params.model ?? defaults.model
   const budgetLimit = params.budgetLimit === undefined ? null : params.budgetLimit
 
-  const specs: ToolSpec[] = tools.length > 0 ? specsFor(tools) : []
-  const messages: Message[] = [{ role: 'user', content: [{ type: 'text', text: userMessage }] }]
+  const specs: ToolSpec[] = tools.length > 0 ? toSpecs(tools) : []
+  const messages: Message[] = [{ role: 'user', content: [{ type: 'text', text: userMessage.trim() }] }]
   const toolResults: ToolResult[] = []
   /** One recovery per tool. A second bad call from the same tool ends the run. */
   const invalidAttempts = new Map<string, number>()
@@ -135,6 +135,8 @@ export async function runAgent(params: RunAgentParams): Promise<AgentRun> {
   let usage: TokenUsage = { ...EMPTY_USAGE }
   let steps = 0
   let usedModel = model
+
+  const question = userMessage.trim()
 
   const finish = (over: Partial<AgentRun> & { ok: boolean }): AgentRun => {
     const run: AgentRun = {
@@ -168,6 +170,11 @@ export async function runAgent(params: RunAgentParams): Promise<AgentRun> {
   const fail = (code: AiErrorCode, message: string): AgentRun =>
     finish({ ok: false, error: { code, message } })
 
+  // An empty user turn is rejected by the Messages API, and there is nothing
+  // for an agent to answer anyway. Caught here so the failure names the cause
+  // rather than arriving as an opaque 400.
+  if (!question) return fail('empty', 'There is no question to answer.')
+
   for (steps = 1; steps <= maxSteps; steps += 1) {
     if (signal?.aborted) return fail('aborted', 'The run was cancelled.')
 
@@ -185,9 +192,10 @@ export async function runAgent(params: RunAgentParams): Promise<AgentRun> {
     try {
       turn = await provider.chat({
         system,
-        // A snapshot, not the live array: a provider must not be able to see
-        // (or be confused by) turns appended after its request was built.
-        messages: messages.map((message) => ({ ...message })),
+        // A snapshot, not the live arrays: a provider must not be able to see
+        // (or be confused by) turns appended after its request was built. The
+        // content array is copied too — the outer copy alone still aliased it.
+        messages: messages.map((message) => ({ ...message, content: [...message.content] })),
         model,
         ...(specs.length > 0 ? { tools: specs } : {}),
         ...(jsonSchema ? { jsonSchema } : {}),
@@ -300,6 +308,17 @@ export async function runAgent(params: RunAgentParams): Promise<AgentRun> {
       return fail('provider', 'The model declined to answer this request.')
     }
 
+    // A turn that stopped on max_tokens is half a sentence. It may well contain
+    // a valid-looking citation and a section number, which is exactly why it
+    // must not be shown: a truncated answer reads as a complete one.
+    if (stopReason === 'max_tokens') {
+      return fail('truncated', 'The answer was cut off before it finished.')
+    }
+
+    if (!text) {
+      return fail('empty', 'The model returned no answer.')
+    }
+
     const citedToolResultIds = [...text.matchAll(TOOL_CITATION_PATTERN)]
       .map((match) => `T${match[1] ?? ''}`)
       .filter((id) => toolResults.some((result) => result.id === id))
@@ -344,13 +363,6 @@ export async function runAgent(params: RunAgentParams): Promise<AgentRun> {
       },
     })
   }
-}
-
-function specsFor(tools: readonly RegisteredTool[]): ToolSpec[] {
-  const names = new Set(tools.map((tool) => tool.def.name))
-  // Reuse the registry's wire mapping so the cache breakpoint and the sort
-  // order are decided in exactly one place.
-  return toolSpecs().filter((spec) => names.has(spec.name))
 }
 
 function findTool(tools: readonly RegisteredTool[], name: string): RegisteredTool | undefined {

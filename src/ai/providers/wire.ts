@@ -45,12 +45,19 @@ export interface WireRequest {
 
 const CACHE_CONTROL = { type: 'ephemeral' } as const
 
+/**
+ * Empty blocks are dropped: the Messages API rejects a text block whose text is
+ * empty, and an absent profile segment or an empty context block would
+ * otherwise turn a well-formed prompt into a 400 nobody can read.
+ */
 function systemToWire(blocks: readonly SystemBlock[]): unknown[] {
-  return blocks.map((block) => ({
-    type: 'text',
-    text: block.text,
-    ...(block.cache ? { cache_control: CACHE_CONTROL } : {}),
-  }))
+  return blocks
+    .filter((block) => block.text.trim().length > 0)
+    .map((block) => ({
+      type: 'text',
+      text: block.text,
+      ...(block.cache ? { cache_control: CACHE_CONTROL } : {}),
+    }))
 }
 
 function partToWire(part: ContentPart): unknown {
@@ -160,14 +167,38 @@ function resolveFetch(fetchImpl: typeof globalThis.fetch | undefined): typeof gl
   return impl.bind(globalThis)
 }
 
+/**
+ * Sends the request and classifies a transport failure.
+ *
+ * An aborted fetch rejects with a DOMException named `AbortError`, not with an
+ * AiError — without this, cancelling a run surfaced to the reader as "the AI
+ * service could not be reached", which is both wrong and alarming. Offline is
+ * the other case that lands here, and it is a `provider` failure.
+ */
+async function send(
+  request: WireRequest,
+  doFetch: typeof globalThis.fetch,
+  headers: Record<string, string>,
+): Promise<Response> {
+  try {
+    return await doFetch(request.url, {
+      method: 'POST',
+      headers,
+      body: JSON.stringify(request.body),
+      ...(request.signal ? { signal: request.signal } : {}),
+    })
+  } catch (error) {
+    if (request.signal?.aborted) throw new AiError('aborted', 'Cancelled.')
+    throw new AiError('provider', errorMessage(error))
+  }
+}
+
 /** Non-streaming POST. Used by the one-token connection test, nothing else. */
 export async function postJson(request: WireRequest): Promise<unknown> {
   const doFetch = resolveFetch(request.fetchImpl)
-  const response = await doFetch(request.url, {
-    method: 'POST',
-    headers: { 'content-type': 'application/json', ...request.headers },
-    body: JSON.stringify(request.body),
-    ...(request.signal ? { signal: request.signal } : {}),
+  const response = await send(request, doFetch, {
+    'content-type': 'application/json',
+    ...request.headers,
   })
   if (!response.ok) await throwForStatus(response)
   return safeParse(await response.text())
@@ -195,11 +226,10 @@ interface BlockAccumulator {
  */
 export async function streamMessages(request: WireRequest): Promise<ChatResult> {
   const doFetch = resolveFetch(request.fetchImpl)
-  const response = await doFetch(request.url, {
-    method: 'POST',
-    headers: { 'content-type': 'application/json', accept: 'text/event-stream', ...request.headers },
-    body: JSON.stringify(request.body),
-    ...(request.signal ? { signal: request.signal } : {}),
+  const response = await send(request, doFetch, {
+    'content-type': 'application/json',
+    accept: 'text/event-stream',
+    ...request.headers,
   })
 
   if (!response.ok) await throwForStatus(response)
@@ -218,20 +248,24 @@ export async function streamMessages(request: WireRequest): Promise<ChatResult> 
     for (;;) {
       const { done, value } = await reader.read()
       if (done) break
-      buffer += decoder.decode(value, { stream: true })
-
-      // SSE frames are separated by a blank line. A frame may still be
-      // arriving, so only complete ones are consumed.
-      let boundary = buffer.indexOf('\n\n')
-      while (boundary !== -1) {
-        const frame = buffer.slice(0, boundary)
-        buffer = buffer.slice(boundary + 2)
-        handleFrame(frame)
-        boundary = buffer.indexOf('\n\n')
-      }
+      // Normalising the WHOLE buffer, not just the new chunk, is what makes a
+      // CRLF stream safe: a \r can arrive at the end of one chunk and its \n at
+      // the start of the next, and per-chunk normalisation would leave that
+      // pair intact and mis-frame everything after it.
+      buffer = (buffer + decoder.decode(value, { stream: true })).replace(/\r\n/g, '\n')
+      buffer = drainFrames(buffer)
     }
+    // A stream that ends without its final blank line still carries a complete
+    // frame — usually the `message_delta` that holds stop_reason and the output
+    // token count. Dropping it silently would report end_turn for a turn that
+    // actually stopped on max_tokens.
+    buffer = drainFrames(`${buffer + decoder.decode()}\n\n`)
   } catch (error) {
+    // Abandon the body rather than leaving it half-read: an un-cancelled
+    // response body holds the connection open until GC.
+    void reader.cancel().catch(() => undefined)
     if (request.signal?.aborted) throw new AiError('aborted', 'Cancelled.')
+    if (error instanceof AiError) throw error
     throw new AiError('provider', errorMessage(error))
   } finally {
     reader.releaseLock()
@@ -257,11 +291,25 @@ export async function streamMessages(request: WireRequest): Promise<ChatResult> 
   request.onEvent?.({ type: 'usage', usage, model })
   return { content, stopReason, usage, model }
 
+  /** Consumes every complete frame in `text` and returns what is left over. */
+  function drainFrames(text: string): string {
+    let rest = text
+    let boundary = rest.indexOf('\n\n')
+    while (boundary !== -1) {
+      handleFrame(rest.slice(0, boundary))
+      rest = rest.slice(boundary + 2)
+      boundary = rest.indexOf('\n\n')
+    }
+    return rest
+  }
+
   function handleFrame(frame: string): void {
+    // Per the SSE grammar the space after the colon is optional, and a field
+    // may be repeated — the values are joined with a newline, not concatenated.
     const dataLines = frame
       .split('\n')
       .filter((line) => line.startsWith('data:'))
-      .map((line) => line.slice(5).trim())
+      .map((line) => line.slice(5).replace(/^ /, ''))
     if (dataLines.length === 0) return
 
     const payload = asRecord(safeParse(dataLines.join('\n')))

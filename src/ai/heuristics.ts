@@ -26,16 +26,30 @@
  * The English forms are word-bounded so that "army" and "iota" do not match.
  */
 const PERSONAL_PATTERNS: readonly RegExp[] = [
-  /\b(my|mine|i'm|i am|i have|me|myself|our|ours)\b/i,
-  /\bhow much (?:do|will|can) i\b/i,
-  /\b(am i|can i|do i|should i|will i)\b/i,
-  /(मेरा|मेरी|मेरे|मुझे|मुझको|मुझसे|मैंने|मैं|हमारा|हमारी|हमारे|हमें)/,
-  /(अपना|अपनी|अपने)\s+(वेतन|छुट्टी|अवकाश|पेंशन|प्रगति|खाता)/,
+  /\b(my|mine|myself|i'm|i am|i have|i get|i will)\b/i,
+  /\bhow much (?:do|will|can|would) i\b/i,
+  /\b(am i|can i|do i|did i|should i|will i|would i)\b/i,
+  // "…for me", "…to me": dative, unlike the "give me" of a plain request.
+  /\b(for|to|about) me\b/i,
+  /(मेरा|मेरी|मेरे|मुझे|मुझको|मुझसे|मैंने|मैं)/,
+  /(अपना|अपनी|अपने)\s+(वेतन|छुट्टी|अवकाश|पेंशन|प्रगति|खाता|सेवा)/,
 ]
 
 /**
- * "I" alone is ambiguous in this domain — "level I", "Annexure I", roman
- * numerals in a rule citation. It is matched only with a following verb, above.
+ * Two words are deliberately NOT on their own in that list.
+ *
+ * "I" is ambiguous in this domain — "Level I", "Annexure I", roman numerals in
+ * a citation — so it is matched only with a following verb.
+ *
+ * "me" is not personal at all in the phrasing readers actually use: "give me
+ * the DA rate", "show me the holiday list". Treating it as personal would
+ * exclude a large share of ordinary lookups from the answer cache, which is the
+ * one feature that keeps a BYOK reader's bill down. It counts only after a
+ * preposition ("for me", "to me"), where it really does name the reader.
+ *
+ * The bias everywhere else is deliberate and one-way: reading a general
+ * question as personal only costs a cache hit, whereas reading a personal
+ * question as general would store it.
  */
 export function isPersonalQuery(text: string): boolean {
   const question = text.trim()

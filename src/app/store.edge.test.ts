@@ -97,6 +97,47 @@ describe('hydrate races', () => {
   })
 })
 
+describe('the AI settings slice', () => {
+  it('does not reject when they cannot be written', async () => {
+    vi.spyOn(db.settings, 'put').mockRejectedValue(new DOMException('blocked', 'InvalidStateError'))
+
+    await expect(useAppStore.getState().setAi({ tier: 'byok' })).resolves.toBeUndefined()
+
+    expect(useAppStore.getState().ai.tier).toBe('byok')
+    expect(useAppStore.getState().storageBlocked).toBe(true)
+  })
+
+  it('normalises the whole object on every patch, not just the field that changed', async () => {
+    // A row written by an older or a newer build must not accumulate fields
+    // nobody parses, and a patch must not be able to smuggle one in.
+    await setSetting(SETTING_KEYS.ai, { tier: 'byok', consentVersion: 1, junk: true })
+    await useAppStore.getState().hydrate()
+    await useAppStore.getState().setAi({ model: 'claude-opus-5' })
+
+    const stored = await getSetting<Record<string, unknown>>(SETTING_KEYS.ai)
+    expect(stored).not.toHaveProperty('junk')
+    expect(stored).toMatchObject({ tier: 'byok', consentVersion: 1, model: 'claude-opus-5' })
+  })
+
+  it('does not overwrite a consent given while hydrating', async () => {
+    // The same race the language and theme toggles have: a slow read landing
+    // after the reader has already acted must not revert them.
+    const hydrating = useAppStore.getState().hydrate()
+    await useAppStore.getState().setAi({ consentVersion: 1, tier: 'byok' })
+    await hydrating
+
+    expect(useAppStore.getState().ai).toMatchObject({ consentVersion: 1, tier: 'byok' })
+  })
+
+  it('hydrates back to off when the stored row cannot be parsed', async () => {
+    await setSetting(SETTING_KEYS.ai, 'byok, obviously')
+    await useAppStore.getState().hydrate()
+
+    expect(useAppStore.getState().ai.tier).toBe('off')
+    expect(useAppStore.getState().ai.consentVersion).toBe(0)
+  })
+})
+
 describe('untrusted stored values', () => {
   it.each([
     ['a colour that is not a theme', 'purple'],

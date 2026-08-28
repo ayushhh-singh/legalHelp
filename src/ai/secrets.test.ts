@@ -96,6 +96,18 @@ describe('the key vault', () => {
     expect(isUnlocked()).toBe(false)
   })
 
+  it('verifies a passphrase against whatever secret is stored, not only the API key', async () => {
+    // A vault holding some future Tier 2 token and no API key would otherwise
+    // accept every passphrase, report success, and hand back null on first read.
+    await createVault('passphrase', 'right')
+    await storeSecret('some-other-token', 'value-abc', 'passphrase')
+    lockVault()
+
+    expect(await unlockVault('wrong')).toBe(false)
+    expect(await unlockVault('right')).toBe(true)
+    expect(await readSecret('some-other-token')).toBe('value-abc')
+  })
+
   it('refuses to create a second vault over the first', async () => {
     await createVault('device')
     await expect(createVault('device')).rejects.toThrow(/already exists/)

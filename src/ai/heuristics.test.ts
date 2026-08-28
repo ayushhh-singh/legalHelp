@@ -27,6 +27,23 @@ describe('isPersonalQuery', () => {
     // "Annexure I" and "Level I" appear constantly in this domain.
     expect(isPersonalQuery('Annexure I of the CSMOP')).toBe(false)
   })
+
+  it.each([
+    'Give me the DA rate from January 2026',
+    'Show me the gazetted holiday list',
+    'Tell me which BNS section replaces IPC 302',
+  ])('does not read the "give me" of an ordinary request as personal: %j', (question) => {
+    // A false positive here is not free: it excludes a large share of ordinary
+    // lookups from the answer cache, which is what keeps a BYOK bill down.
+    expect(isPersonalQuery(question)).toBe(false)
+  })
+
+  it.each(['Calculate the arrears for me', 'What does this rule mean for me?'])(
+    'still reads a dative "me" as personal: %j',
+    (question) => {
+      expect(isPersonalQuery(question)).toBe(true)
+    },
+  )
 })
 
 describe('isAnalyticalQuery', () => {

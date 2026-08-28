@@ -64,6 +64,12 @@ export class ProxyProvider implements AiProvider {
   }
 }
 
+/**
+ * `VITE_AI_PROXY_URL` is set by whoever deploys the Worker, and "the URL" is as
+ * likely to be pasted with `/v1/messages` already on it as without. Appending
+ * blindly would produce `/v1/messages/v1/messages` and a 404 nobody would
+ * connect to the trailing slash they typed.
+ */
 export function messagesUrl(baseUrl: string): string {
-  return `${baseUrl.replace(/\/+$/, '')}/v1/messages`
+  return `${baseUrl.replace(/\/+$/, '').replace(/\/v1\/messages$/, '')}/v1/messages`
 }
