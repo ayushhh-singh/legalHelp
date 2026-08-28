@@ -234,8 +234,9 @@ for (const language of ['en', 'hi'] as const) {
 }
 
 test('no axe violations while browsing a whole Act', async ({ page }) => {
-  // A windowed list of 531 rows, where only a slice is in the DOM and one row
-  // carries the tab stop. Worth its own run: the sweep above never picks a code.
+  // 531 rows in the DOM at once, one of which carries the tab stop. Worth its
+  // own run: the sweep above never picks a code, and a list this long is where
+  // a roving tabindex goes wrong.
   await page.goto('/law')
   await expect(page.getByRole('heading', { level: 1 })).toBeVisible()
   await page.getByText('BNSS · CrPC', { exact: true }).click()

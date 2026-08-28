@@ -113,7 +113,8 @@ export default function ConverterPage() {
 
   /**
    * With a code chip picked and nothing typed, the list is that Act end to end
-   * — 358 to 531 rows, which is exactly what `ResultList`'s windowing is for.
+   * — 358 to 531 rows, or all 1,059 with no code picked. `ResultList` renders
+   * every one of them (ADR-016).
    */
   const browseHits = useMemo(
     () => (browsing && engine.engine ? browseCode(engine.engine, view.code) : []),
