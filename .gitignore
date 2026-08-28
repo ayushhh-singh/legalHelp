@@ -42,3 +42,7 @@ venv/
 .eslintcache
 .tsbuildinfo
 *.tsbuildinfo
+
+# ingest: archived source documents (forensic trail, not repository content)
+scripts/ingest/raw/*
+!scripts/ingest/raw/.gitkeep

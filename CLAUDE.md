@@ -140,8 +140,8 @@ SESSION CLOSE-OUT (mandatory at the end of every session):
 
 ## CURRENT STATUS
 
-**Sessions 1 and 3A complete — application shell plus a fully built, fully dormant AI layer.
-No module has real data or logic yet.**
+**Sessions 1, 3A and 2 complete — application shell, a fully built and fully dormant AI layer, and the
+complete law dataset for all three codes. No module has a screen over that data yet.**
 
 | Area          | State                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                  |
 | ------------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
@@ -152,10 +152,12 @@ No module has real data or logic yet.**
 | Persistence   | Dexie v2: `settings`, plus `secrets` / `aiAnswers` / `aiUsage` for the AI layer (all empty until it is turned on). Store hydrates from it and tolerates blocked storage                                                                                                                                                                                                                                                                                                                                                                                                |
 | Shell         | 6 lazy routes from the one `src/lib/nav.ts` config: sidebar ≥1024px, bottom bar below (4 tabs + a "More" sheet under 768px), skip link, landmarks. Active state = 3px gold rule on the chrome edge + semibold                                                                                                                                                                                                                                                                                                                                                          |
 | Components    | `src/components/ui-x/`: Chip, Badge, ProgressBar, InfoCard, SectionCard (the file tab), SectionNumber, StatCard, Skeleton, QueryErrorState, Breadcrumbs                                                                                                                                                                                                                                                                                                                                                                                                                |
-| Modules       | All five are placeholder pages (`ModulePlaceholder`: masthead + file-tabbed card + disclaimer)                                                                                                                                                                                                                                                                                                                                                                                                                                                                         |
+| Modules       | All five are placeholder pages (`ModulePlaceholder`: masthead + file-tabbed card + disclaimer). Law has types, a zod schema and a resolver in `src/modules/law/`, but no screen yet                                                                                                                                                                                                                                                                                                                                                                                    |
 | AI layer      | `src/ai` — built in full, **off by default** (ADR-011, `docs/AI.md`). Consent gate _is_ the feature flag; four tiers (`byok` works, `local` / `proxy` shown disabled with a reason); AES-GCM key vault; agent loop with step cap, zod validation, per-tool timeouts, a hard monthly token budget and grounding that fails closed; tool registry with an MCP-shaped JSON export; numbered type-labelled context + citation validation; bilingual heuristics; local answer cache. Lazy-loaded: **+5.9 KB gzip** on the initial route, essentially all of it consent copy |
 | PWA / offline | `vite-plugin-pwa` (`generateSW`, `registerType: 'prompt'`); manual `workbox-window` registration + bilingual update/offline-ready toasts (`src/app/pwa.tsx`); real service-worker-era `OfflineBadge`; installable (Lighthouse PWA category 1.0 via a one-off `lighthouse@9` run — ADR-008)                                                                                                                                                                                                                                                                             |
-| Tests         | 414 unit across 25 files (5 skip without a build) + 24 Playwright e2e (offline shell, zero cross-origin requests incl. the whole AI opt-in flow, Tier 1 BYOK against an intercepted `api.anthropic.com`, axe × 2 languages × 2 themes plus the consent modal and AI banner, light-default theme, real rendered fonts, bottom-bar keyboard/IDREF/breakpoint edge cases)                                                                                                                                                                                                 |
+| Tests         | 477 unit across 26 files (5 skip without a build) + 24 Playwright e2e (offline shell, zero cross-origin requests incl. the whole AI opt-in flow, Tier 1 BYOK against an intercepted `api.anthropic.com`, axe × 2 languages × 2 themes, light-default theme, real rendered fonts, bottom-bar edge cases). The law suite (63) reads the committed `data/law/*.json` off disk: section coverage, the reverse index, the number-swap warnings, classification, and the curated-Hindi flag                                                                                  |
+| Law data      | `data/law/{bns,bnss,bsa}.json` + `index.json` — 1,059 sections covering every one of BNS 1-358, BNSS 1-531 and BSA 1-170, full English text, 288 BNS sections classified from the BNSS First Schedule, reverse index over IPC/CrPC/IEA with number-swap warnings. 3.9 MB; no route fetches it yet (ADR-012)                                                                                                                                                                                                                                                            |
+| Ingest        | `scripts/ingest/` (Python 3.12): `ncrb_sankalan.py` weekly, `indiacode_seed.py` by hand only. Inline-HTML parse with a live `pdfplumber` fallback, hand-curated overlays the cron cannot write to, an 86-term bilingual offence lexicon                                                                                                                                                                                                                                                                                                                                |
 | Deferred      | ts-fsrs, docx, cmdk, recharts (`fuse.js` landed with the answer cache)                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                 |
 
 ## HOW TO RUN
@@ -181,6 +183,19 @@ pnpm dev                 # http://localhost:5173
 | `pnpm icons:generate` | Re-rasterize `public/icons/*.png` from `src/assets/pwa-icon.svg` (idempotent, offline, needs `sharp`) |
 | `pnpm test:e2e`       | Playwright; builds + serves `dist/` itself (see `playwright.config.ts`)                               |
 | `pnpm check`          | `lint && typecheck && i18n:check && test` — run before every commit                                   |
+
+### The data pipeline
+
+```bash
+cd scripts/ingest && python3 -m venv .venv && .venv/bin/pip install -r requirements.txt
+scripts/ingest/.venv/bin/python scripts/ingest/ncrb_sankalan.py            # refresh data/law from NCRB
+scripts/ingest/.venv/bin/python scripts/ingest/ncrb_sankalan.py --offline  # reparse raw/, no network
+```
+
+Read `scripts/ingest/README.md` before touching either script. Two rules there are structural, not
+stylistic: the weekly cron may never write to `data/law/overlays/` (a step in
+`.github/workflows/ingest-law.yml` fails the run if it does), and `indiacode_seed.py` may never be added
+to that workflow — India Code is fetched by hand, cited, and never crawled (ADR-012).
 
 ### The AI layer
 
@@ -222,5 +237,20 @@ are load-bearing, and each is enforced by a test rather than by convention:
   if that signal is needed again.
 - `tests/bundle-budget.test.ts` also skips without a build. Its `BASELINE_GZIP` is the measured
   pre-AI figure and is deliberately a fixed number, so the budget cannot drift up one commit at a time.
+- **The law datasets are not imported anywhere, on purpose.** 3.9 MB of section text belongs behind a
+  fetch on the Law Converter route, not in a bundle. `tests/law-data.test.ts` reads them off disk with
+  `readFromRoot`, which also means it tests the committed bytes — the artefact the cron opens a PR
+  against. Session 4 wires the route; DATA-GAPS #21 says what it has to decide.
+- `data/law/overlays/` is hand-curated and the cron cannot write to it. Number-swap warnings, the BNSS
+  §531 transitional rule and the curated Hindi live there. Everything else is regenerated weekly and
+  editing it by hand will be silently overwritten.
+- Two schemas describe one shape: `schemas/law-*.schema.json` (Python, at write time) and
+  `src/modules/law/schema.ts` (zod, in `pnpm test`). Changing the dataset means changing both, which is
+  the point — neither producer nor consumer can drift alone.
+- The curated Hindi carries `verify: true`. The Law Converter UI **must** render that visibly: it is the
+  one place a reader could mistake hand-authored text for the Act (DATA-GAPS #18).
+- `tests/no-external-urls.test.ts` now allowlists the NCRB Sankalan citation, because
+  `data/_meta/versions.json` is bundled. It is paired with an assertion that no module under `src/` names
+  the host — do not remove one without the other (ADR-012).
 - Session 24 owes: the WebLLM Tier 0 provider, the Cloudflare Worker for Tier 2, and the first real AI
   surface. `docs/DATA-GAPS.md` #13-#15 record what each still needs.

@@ -1,0 +1,210 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://sahayak.local/schemas/law-mapping.schema.json",
+  "title": "Law mapping dataset",
+  "description": "One repealed-Act-to-new-Act correspondence dataset, keyed by section of the new Act. Produced by scripts/ingest/ncrb_sankalan.py and merged with the hand-curated files in data/law/overlays/.",
+  "type": "object",
+  "required": [
+    "id",
+    "version",
+    "fetchedAt",
+    "newAct",
+    "oldAct",
+    "commencement",
+    "disclaimer",
+    "sources",
+    "counts",
+    "sections"
+  ],
+  "additionalProperties": false,
+  "properties": {
+    "$schema": { "type": "string" },
+    "id": { "enum": ["bns", "bnss", "bsa"] },
+    "version": { "type": "string", "pattern": "^\\d+\\.\\d+\\.\\d+$" },
+    "fetchedAt": { "$ref": "#/$defs/timestamp" },
+    "newAct": { "$ref": "#/$defs/act" },
+    "oldAct": { "$ref": "#/$defs/act" },
+    "commencement": {
+      "type": "object",
+      "required": ["date", "note", "source"],
+      "additionalProperties": false,
+      "properties": {
+        "date": { "type": "string", "pattern": "^\\d{4}-\\d{2}-\\d{2}$" },
+        "note": { "$ref": "#/$defs/bilingualRequired" },
+        "source": {
+          "type": "object",
+          "required": ["name", "url"],
+          "additionalProperties": false,
+          "properties": { "name": { "$ref": "#/$defs/bilingualRequired" }, "url": { "$ref": "#/$defs/url" } }
+        }
+      }
+    },
+    "disclaimer": { "$ref": "#/$defs/bilingualRequired" },
+    "sources": { "type": "array", "minItems": 1, "items": { "$ref": "#/$defs/source" } },
+    "counts": {
+      "type": "object",
+      "required": ["sections", "mappings", "parsePath"],
+      "properties": {
+        "sections": { "type": "integer", "minimum": 1 },
+        "mappings": { "type": "integer", "minimum": 0 },
+        "parsePath": { "enum": ["inline-html", "pdf"] }
+      }
+    },
+    "sections": {
+      "type": "object",
+      "minProperties": 1,
+      "propertyNames": { "$ref": "#/$defs/sectionNumber" },
+      "additionalProperties": { "$ref": "#/$defs/section" }
+    }
+  },
+  "$defs": {
+    "timestamp": { "type": "string", "pattern": "^\\d{4}-\\d{2}-\\d{2}T\\d{2}:\\d{2}:\\d{2}Z$" },
+    "url": { "type": "string", "pattern": "^https://" },
+    "sectionNumber": { "type": "string", "pattern": "^\\d{1,4}[A-Z]{0,2}$" },
+    "sectionRef": { "type": "string", "pattern": "^\\d{1,4}[A-Z]{0,2}(\\([0-9a-zA-Z]{1,4}\\))*$" },
+    "bilingual": {
+      "description": "Equal bilingual footing (CLAUDE.md hard rule): both keys always present. `hi` may be an empty string only where no official Hindi source has been located, and every such section is counted in docs/DATA-GAPS.md.",
+      "type": "object",
+      "required": ["en", "hi"],
+      "additionalProperties": false,
+      "properties": { "en": { "type": "string" }, "hi": { "type": "string" } }
+    },
+    "bilingualRequired": {
+      "type": "object",
+      "required": ["en", "hi"],
+      "additionalProperties": false,
+      "properties": { "en": { "type": "string", "minLength": 1 }, "hi": { "type": "string", "minLength": 1 } }
+    },
+    "act": {
+      "type": "object",
+      "required": ["id", "year", "name"],
+      "additionalProperties": false,
+      "properties": {
+        "id": { "enum": ["BNS", "BNSS", "BSA", "IPC", "CrPC", "IEA"] },
+        "year": { "type": "integer", "minimum": 1800, "maximum": 2100 },
+        "name": { "$ref": "#/$defs/bilingualRequired" }
+      }
+    },
+    "source": {
+      "type": "object",
+      "required": ["id", "name", "url", "fetchedAt"],
+      "additionalProperties": false,
+      "properties": {
+        "id": { "type": "string", "minLength": 1 },
+        "name": { "$ref": "#/$defs/bilingualRequired" },
+        "url": { "$ref": "#/$defs/url" },
+        "fetchedAt": { "type": "string" },
+        "sha256": { "type": "string", "pattern": "^([0-9a-f]{64})?$" },
+        "bytes": { "type": "integer" }
+      }
+    },
+    "oldRef": {
+      "type": "object",
+      "required": ["act", "section", "base", "heading"],
+      "additionalProperties": false,
+      "properties": {
+        "act": { "enum": ["IPC", "CrPC", "IEA"] },
+        "section": { "$ref": "#/$defs/sectionRef" },
+        "base": { "$ref": "#/$defs/sectionNumber" },
+        "heading": { "$ref": "#/$defs/bilingual" }
+      }
+    },
+    "mapping": {
+      "type": "object",
+      "required": ["clause", "old", "isNewProvision", "changed"],
+      "additionalProperties": false,
+      "properties": {
+        "clause": { "$ref": "#/$defs/sectionRef" },
+        "old": { "type": "array", "items": { "$ref": "#/$defs/oldRef" } },
+        "isNewProvision": { "type": "boolean" },
+        "changed": { "type": "boolean" }
+      }
+    },
+    "classification": {
+      "description": "From the BNSS First Schedule and BNSS section 359. Applies to offences under the BNS only; the BNSS and BSA are procedural and carry none.",
+      "type": "object",
+      "required": ["clause", "offence", "punishment", "cognizable", "bailable", "triableBy", "compoundable"],
+      "additionalProperties": true,
+      "properties": {
+        "clause": { "$ref": "#/$defs/sectionRef" },
+        "offence": { "$ref": "#/$defs/bilingual" },
+        "punishment": { "$ref": "#/$defs/bilingual" },
+        "cognizable": { "enum": ["cognizable", "non-cognizable", "depends", "unspecified"] },
+        "bailable": { "enum": ["bailable", "non-bailable", "depends", "unspecified"] },
+        "triableBy": { "$ref": "#/$defs/bilingual" },
+        "compoundable": {
+          "enum": ["compoundable", "compoundable-with-court-permission", "non-compoundable"]
+        },
+        "compoundableBy": { "$ref": "#/$defs/bilingual" },
+        "source": { "type": "string" }
+      }
+    },
+    "note": {
+      "description": "Hand-curated, from data/law/overlays/. `kind: trap` is the number-swap warning a reader most needs.",
+      "type": "object",
+      "required": ["kind", "title", "body"],
+      "additionalProperties": true,
+      "properties": {
+        "kind": { "enum": ["trap", "transitional", "context", "caution"] },
+        "title": { "$ref": "#/$defs/bilingualRequired" },
+        "body": { "$ref": "#/$defs/bilingualRequired" },
+        "source": {
+          "type": "object",
+          "required": ["name", "url"],
+          "properties": { "name": { "$ref": "#/$defs/bilingualRequired" }, "url": { "$ref": "#/$defs/url" } }
+        }
+      }
+    },
+    "section": {
+      "type": "object",
+      "required": [
+        "section",
+        "act",
+        "heading",
+        "status",
+        "chapter",
+        "mappings",
+        "repeals",
+        "text",
+        "classification",
+        "punishment",
+        "keywords",
+        "notes",
+        "sources",
+        "verify"
+      ],
+      "additionalProperties": true,
+      "properties": {
+        "section": { "$ref": "#/$defs/sectionNumber" },
+        "act": { "enum": ["BNS", "BNSS", "BSA"] },
+        "heading": { "$ref": "#/$defs/bilingual" },
+        "status": { "enum": ["unchanged", "changed", "renumbered", "new"] },
+        "chapter": {
+          "type": "object",
+          "required": ["number", "title"],
+          "additionalProperties": false,
+          "properties": { "number": { "type": "string" }, "title": { "$ref": "#/$defs/bilingual" } }
+        },
+        "mappings": { "type": "array", "items": { "$ref": "#/$defs/mapping" } },
+        "repeals": { "type": "array", "items": { "$ref": "#/$defs/sectionNumber" } },
+        "text": { "$ref": "#/$defs/bilingual" },
+        "classification": { "type": "array", "items": { "$ref": "#/$defs/classification" } },
+        "punishment": { "$ref": "#/$defs/bilingual" },
+        "keywords": {
+          "type": "object",
+          "required": ["en", "hi", "roman"],
+          "additionalProperties": false,
+          "properties": {
+            "en": { "type": "array", "items": { "type": "string" } },
+            "hi": { "type": "array", "items": { "type": "string" } },
+            "roman": { "type": "array", "items": { "type": "string" } }
+          }
+        },
+        "notes": { "type": "array", "items": { "$ref": "#/$defs/note" } },
+        "sources": { "type": "array", "minItems": 1, "items": { "type": "string" } },
+        "verify": { "type": "boolean" },
+        "provenance": { "type": "object" }
+      }
+    }
+  }
+}

@@ -3,91 +3,601 @@
   "version": "1.0.0",
   "updated": "2026-08-28",
   "terms": [
-    { "id": "murder", "match": ["murder"], "en": ["murder", "homicide", "killing"], "hi": ["हत्या", "कत्ल"], "roman": ["hatya", "katl", "qatl"] },
-    { "id": "culpable-homicide", "match": ["culpable homicide"], "en": ["culpable homicide", "manslaughter"], "hi": ["गैर इरादतन हत्या", "आपराधिक मानव वध"], "roman": ["gair iradatan hatya", "aapradhik manav vadh"] },
-    { "id": "attempt-to-murder", "match": ["attempt to murder", "attempt to commit murder"], "en": ["attempt to murder", "attempted murder"], "hi": ["हत्या का प्रयास"], "roman": ["hatya ka prayas"] },
-    { "id": "death-by-negligence", "match": ["death by negligence", "rash or negligent"], "en": ["negligence", "rash driving", "accidental death", "hit and run"], "hi": ["लापरवाही से मृत्यु", "उपेक्षा"], "roman": ["laparwahi", "upeksha"] },
-    { "id": "suicide", "match": ["suicide"], "en": ["suicide", "abetment of suicide"], "hi": ["आत्महत्या", "आत्महत्या का दुष्प्रेरण"], "roman": ["atmahatya"] },
-    { "id": "hurt", "match": ["hurt"], "en": ["hurt", "injury", "grievous hurt", "assault"], "hi": ["उपहति", "चोट", "घोर उपहति"], "roman": ["upahati", "chot", "ghor upahati"] },
-    { "id": "assault", "match": ["assault", "criminal force"], "en": ["assault", "criminal force", "attack"], "hi": ["हमला", "मारपीट", "आपराधिक बल"], "roman": ["hamla", "marpeet", "aapradhik bal"] },
-    { "id": "theft", "match": ["theft"], "en": ["theft", "stealing", "larceny"], "hi": ["चोरी", "अपहरण संपत्ति"], "roman": ["chori"] },
-    { "id": "robbery", "match": ["robbery"], "en": ["robbery", "loot"], "hi": ["लूट"], "roman": ["loot", "lut"] },
-    { "id": "dacoity", "match": ["dacoity"], "en": ["dacoity", "gang robbery"], "hi": ["डकैती"], "roman": ["dakaiti", "dakaity"] },
-    { "id": "extortion", "match": ["extortion"], "en": ["extortion", "blackmail"], "hi": ["उद्दापन", "जबरन वसूली"], "roman": ["uddapan", "jabran vasuli"] },
-    { "id": "cheating", "match": ["cheating", "deceive", "fraudulently"], "en": ["cheating", "fraud", "deception", "scam"], "hi": ["धोखाधड़ी", "छल", "ठगी"], "roman": ["dhokhadhadi", "chhal", "thagi", "dhoka"] },
-    { "id": "criminal-breach-of-trust", "match": ["breach of trust", "misappropriation"], "en": ["criminal breach of trust", "misappropriation", "embezzlement"], "hi": ["आपराधिक न्यासभंग", "दुर्विनियोग"], "roman": ["aapradhik nyasbhang", "durviniyog"] },
-    { "id": "forgery", "match": ["forgery", "forged", "counterfeit", "false document"], "en": ["forgery", "counterfeit", "fake document", "forged"], "hi": ["कूटरचना", "जालसाजी", "कूटकरण"], "roman": ["kootrachna", "jaalsazi", "kutkaran"] },
-    { "id": "defamation", "match": ["defamation", "defamatory"], "en": ["defamation", "libel", "slander"], "hi": ["मानहानि"], "roman": ["manhani"] },
-    { "id": "rape", "match": ["rape", "sexual intercourse"], "en": ["rape", "sexual assault"], "hi": ["बलात्संग", "बलात्कार"], "roman": ["balatsang", "balatkar"] },
-    { "id": "sexual-harassment", "match": ["sexual harassment", "outrage", "modesty", "voyeurism", "stalking", "disrobe"], "en": ["sexual harassment", "outraging modesty", "molestation", "stalking", "voyeurism"], "hi": ["लैंगिक उत्पीड़न", "छेड़छाड़", "लज्जा भंग", "पीछा करना", "दृश्यरतिकता"], "roman": ["laingik utpidan", "chhedchhad", "lajja bhang", "peechha karna"] },
-    { "id": "kidnapping", "match": ["kidnap", "abduct"], "en": ["kidnapping", "abduction", "missing person"], "hi": ["अपहरण", "व्यपहरण"], "roman": ["apharan", "vyapaharan"] },
-    { "id": "human-trafficking", "match": ["trafficking", "slavery", "bonded", "unlawful compulsory labour"], "en": ["human trafficking", "bonded labour", "slavery", "forced labour"], "hi": ["मानव तस्करी", "बंधुआ मजदूरी", "दासता"], "roman": ["manav taskari", "bandhua majduri", "dasta"] },
-    { "id": "dowry", "match": ["dowry"], "en": ["dowry", "dowry death"], "hi": ["दहेज", "दहेज मृत्यु"], "roman": ["dahej"] },
-    { "id": "cruelty", "match": ["cruelty"], "en": ["cruelty", "domestic violence", "husband or relative"], "hi": ["क्रूरता", "घरेलू हिंसा"], "roman": ["krurta", "gharelu hinsa"] },
-    { "id": "marriage-offences", "match": ["marriage", "bigamy", "husband", "wife", "adultery", "cohabit"], "en": ["marriage", "bigamy", "second marriage", "deceitful marriage"], "hi": ["विवाह", "द्विविवाह"], "roman": ["vivah", "dvivivah", "shaadi"] },
-    { "id": "child", "match": ["child", "minor", "juvenile"], "en": ["child", "minor", "juvenile"], "hi": ["बालक", "बच्चा", "अवयस्क"], "roman": ["balak", "baccha", "avayask"] },
-    { "id": "criminal-conspiracy", "match": ["conspiracy"], "en": ["criminal conspiracy", "conspiracy"], "hi": ["आपराधिक षड्यंत्र", "साजिश"], "roman": ["aapradhik shadyantra", "saazish"] },
-    { "id": "abetment", "match": ["abet"], "en": ["abetment", "instigation", "aiding"], "hi": ["दुष्प्रेरण", "उकसाना"], "roman": ["dushpreran", "uksana"] },
-    { "id": "attempt", "match": ["attempt"], "en": ["attempt", "attempted offence"], "hi": ["प्रयास"], "roman": ["prayas"] },
-    { "id": "terrorism", "match": ["terrorist", "terror"], "en": ["terrorist act", "terrorism"], "hi": ["आतंकवादी कृत्य", "आतंकवाद"], "roman": ["aatankvadi krity", "aatankvad"] },
-    { "id": "organised-crime", "match": ["organised crime", "organized crime"], "en": ["organised crime", "syndicate", "gang"], "hi": ["संगठित अपराध", "गिरोह"], "roman": ["sangathit apradh", "giroh"] },
-    { "id": "sedition-succession", "match": ["secession", "sovereignty", "endangering", "subversive"], "en": ["sedition", "secession", "anti-national", "acts endangering sovereignty"], "hi": ["राजद्रोह", "देशद्रोह", "अलगाव", "संप्रभुता"], "roman": ["rajdroh", "deshdroh", "sanprabhuta"] },
-    { "id": "waging-war", "match": ["waging war", "war against"], "en": ["waging war", "treason"], "hi": ["युद्ध छेड़ना", "राज्य के विरुद्ध युद्ध"], "roman": ["yuddh chhedna"] },
-    { "id": "mob-lynching", "match": ["group of five or more"], "en": ["mob lynching", "mob violence", "group murder"], "hi": ["भीड़ द्वारा हत्या", "भीड़ हिंसा"], "roman": ["bheed hinsa", "mob lynching"] },
-    { "id": "rioting", "match": ["riot", "unlawful assembly", "affray"], "en": ["rioting", "unlawful assembly", "affray"], "hi": ["बलवा", "विधिविरुद्ध जमाव", "दंगा"], "roman": ["balwa", "danga", "vidhiviruddh jamav"] },
-    { "id": "public-servant", "match": ["public servant"], "en": ["public servant", "government officer", "official"], "hi": ["लोक सेवक", "सरकारी कर्मचारी"], "roman": ["lok sevak", "sarkari karmchari"] },
-    { "id": "bribery-corruption", "match": ["bribery", "gratification", "illegal gratification"], "en": ["bribery", "corruption", "illegal gratification"], "hi": ["रिश्वत", "भ्रष्टाचार", "अवैध परितोषण"], "roman": ["rishwat", "bhrashtachar"] },
-    { "id": "mischief", "match": ["mischief"], "en": ["mischief", "vandalism", "damage to property"], "hi": ["रिष्टि", "नुकसान"], "roman": ["rishti", "nuksan"] },
-    { "id": "criminal-trespass", "match": ["trespass", "house-breaking", "housebreaking"], "en": ["criminal trespass", "house-breaking", "burglary"], "hi": ["आपराधिक अतिचार", "गृह भेदन"], "roman": ["aapradhik atichar", "grih bhedan"] },
-    { "id": "intimidation", "match": ["intimidation", "insult", "annoyance"], "en": ["criminal intimidation", "threat", "insult"], "hi": ["आपराधिक अभित्रास", "धमकी", "अपमान"], "roman": ["aapradhik abhitras", "dhamki", "apman"] },
-    { "id": "false-evidence", "match": ["false evidence", "perjury", "fabricat"], "en": ["false evidence", "perjury", "fabricated evidence"], "hi": ["मिथ्या साक्ष्य", "झूठी गवाही"], "roman": ["mithya sakshya", "jhoothi gawahi"] },
-    { "id": "counterfeit-currency", "match": ["currency-note", "bank-note", "coin"], "en": ["counterfeit currency", "fake note", "coin"], "hi": ["नकली मुद्रा", "जाली नोट", "सिक्का"], "roman": ["nakli mudra", "jaali note", "sikka"] },
-    { "id": "food-drug-adulteration", "match": ["adulterat", "noxious"], "en": ["adulteration", "adulterated food", "noxious drug"], "hi": ["मिलावट", "अपमिश्रण"], "roman": ["milawat", "apmishran"] },
-    { "id": "negligent-act-public", "match": ["public way", "public nuisance", "negligent conduct"], "en": ["public nuisance", "public safety", "negligent conduct"], "hi": ["लोक न्यूसेंस", "लोक बाधा"], "roman": ["lok nyusens", "lok badha"] },
-    { "id": "electronic-record", "match": ["electronic", "digital", "computer resource"], "en": ["electronic record", "digital evidence", "computer resource", "email", "cctv"], "hi": ["इलेक्ट्रॉनिक अभिलेख", "डिजिटल साक्ष्य", "संगणक संसाधन"], "roman": ["electronic abhilekh", "digital sakshya", "sanganak sansadhan"] },
-    { "id": "dying-declaration", "match": ["dying declaration", "cause of death"], "en": ["dying declaration", "statement as to cause of death"], "hi": ["मृत्युकालिक कथन"], "roman": ["mrityukalik kathan"] },
-    { "id": "confession", "match": ["confession"], "en": ["confession", "admission", "statement to police"], "hi": ["संस्वीकृति", "स्वीकारोक्ति"], "roman": ["sanswikriti", "swikarokti"] },
-    { "id": "expert-opinion", "match": ["expert", "opinion", "handwriting", "fingerprint"], "en": ["expert opinion", "handwriting", "fingerprint", "forensic"], "hi": ["विशेषज्ञ राय", "हस्तलेख", "अंगुली छाप"], "roman": ["visheshagya rai", "hastlekh", "anguli chhap"] },
-    { "id": "presumption", "match": ["presum"], "en": ["presumption", "may presume", "shall presume", "conclusive proof"], "hi": ["उपधारणा", "निश्चायक सबूत"], "roman": ["updharna", "nishchayak saboot"] },
-    { "id": "burden-of-proof", "match": ["burden of proof", "onus"], "en": ["burden of proof", "onus of proof"], "hi": ["सबूत का भार"], "roman": ["saboot ka bhar"] },
-    { "id": "witness", "match": ["witness", "testimony", "examination-in-chief", "cross-examination"], "en": ["witness", "testimony", "cross-examination", "deposition"], "hi": ["साक्षी", "गवाह", "प्रतिपरीक्षा"], "roman": ["sakshi", "gawah", "pratipariksha"] },
-    { "id": "fir", "match": ["information relating to", "first information", "information in cognizable"], "en": ["FIR", "first information report", "zero FIR", "e-FIR"], "hi": ["प्रथम सूचना रिपोर्ट", "एफआईआर"], "roman": ["pratham suchna report", "FIR"] },
-    { "id": "arrest", "match": ["arrest"], "en": ["arrest", "custody", "detention"], "hi": ["गिरफ्तारी", "अभिरक्षा"], "roman": ["giraftari", "abhirakshan"] },
-    { "id": "bail", "match": ["bail", "bond", "surety"], "en": ["bail", "bail bond", "surety", "release on bail"], "hi": ["जमानत", "प्रतिभू", "बंधपत्र"], "roman": ["zamanat", "jamanat", "pratibhu"] },
-    { "id": "anticipatory-bail", "match": ["apprehending arrest", "anticipatory"], "en": ["anticipatory bail", "pre-arrest bail"], "hi": ["अग्रिम जमानत"], "roman": ["agrim zamanat", "agrim jamanat"] },
-    { "id": "remand", "match": ["custody of accused", "detention in custody", "remand"], "en": ["remand", "police custody", "judicial custody"], "hi": ["रिमांड", "पुलिस अभिरक्षा", "न्यायिक अभिरक्षा"], "roman": ["remand", "police abhirakshan"] },
-    { "id": "charge-sheet", "match": ["police report", "report of police officer", "charge"], "en": ["charge sheet", "chargesheet", "police report", "framing of charge"], "hi": ["आरोप पत्र", "चार्जशीट", "आरोप विरचन"], "roman": ["aarop patra", "chargesheet"] },
-    { "id": "investigation", "match": ["investigation", "inquiry"], "en": ["investigation", "inquiry", "probe"], "hi": ["अन्वेषण", "जाँच"], "roman": ["anveshan", "jaanch"] },
-    { "id": "search-seizure", "match": ["search", "seizure", "seize"], "en": ["search", "seizure", "search warrant"], "hi": ["तलाशी", "अभिग्रहण", "जब्ती"], "roman": ["talashi", "abhigrahan", "zabti"] },
-    { "id": "summons-warrant", "match": ["summons", "warrant", "proclamation"], "en": ["summons", "warrant", "proclamation", "attachment"], "hi": ["समन", "वारंट", "उद्घोषणा"], "roman": ["saman", "warrant", "udghoshna"] },
-    { "id": "trial", "match": ["trial", "sessions", "magistrate"], "en": ["trial", "sessions trial", "summary trial", "magistrate"], "hi": ["विचारण", "सत्र विचारण", "मजिस्ट्रेट"], "roman": ["vicharan", "satra vicharan", "magistrate"] },
-    { "id": "appeal-revision", "match": ["appeal", "revision", "reference"], "en": ["appeal", "revision", "reference"], "hi": ["अपील", "पुनरीक्षण", "निर्देश"], "roman": ["appeal", "punarikshan", "nirdesh"] },
-    { "id": "sentence-punishment", "match": ["punishment", "sentence", "imprisonment", "fine"], "en": ["punishment", "sentence", "imprisonment", "fine"], "hi": ["दण्ड", "सजा", "कारावास", "जुर्माना"], "roman": ["dand", "saza", "karavas", "jurmana"] },
-    { "id": "community-service", "match": ["community service"], "en": ["community service"], "hi": ["सामुदायिक सेवा"], "roman": ["samudayik seva"] },
-    { "id": "victim-compensation", "match": ["victim", "compensation"], "en": ["victim", "compensation", "victim compensation scheme"], "hi": ["पीड़ित", "प्रतिकर", "मुआवजा"], "roman": ["pidit", "pratikar", "muavza"] },
-    { "id": "plea-bargaining", "match": ["plea bargaining"], "en": ["plea bargaining"], "hi": ["परिवाद सौदेबाजी", "अभिवाक् सौदेबाजी"], "roman": ["plea bargaining"] },
-    { "id": "audio-video", "match": ["audio-video", "audio video", "electronic mode"], "en": ["audio-video recording", "videography", "electronic mode"], "hi": ["ऑडियो-वीडियो अभिलेखन", "इलेक्ट्रॉनिक माध्यम"], "roman": ["audio video abhilekhan"] },
-    { "id": "forensic", "match": ["forensic"], "en": ["forensic science", "forensic expert", "crime scene"], "hi": ["न्यायालयिक विज्ञान", "फोरेंसिक"], "roman": ["nyayalayik vigyan", "forensic"] },
-    { "id": "inquest-postmortem", "match": ["inquest", "post-mortem", "unnatural death"], "en": ["inquest", "post-mortem", "unnatural death"], "hi": ["मृत्यु समीक्षा", "शव परीक्षा"], "roman": ["mrityu samiksha", "shav pariksha"] },
-    { "id": "maintenance", "match": ["maintenance of wives", "maintenance"], "en": ["maintenance", "maintenance of wife and parents"], "hi": ["भरण-पोषण"], "roman": ["bharan poshan"] },
-    { "id": "preventive-action", "match": ["security for keeping the peace", "good behaviour", "preventive"], "en": ["preventive action", "security for keeping the peace", "good behaviour bond"], "hi": ["निवारक कार्रवाई", "परिशांति कायम रखने के लिए प्रतिभूति"], "roman": ["nivarak karyavahi", "parishanti"] },
-    { "id": "public-order", "match": ["unlawful assembly", "public order", "nuisance"], "en": ["public order", "prohibitory order", "dispersal of assembly"], "hi": ["लोक व्यवस्था", "निषेधाज्ञा"], "roman": ["lok vyavastha", "nishedhagya"] },
-    { "id": "property-attachment", "match": ["attachment", "forfeiture", "proceeds of crime"], "en": ["attachment of property", "forfeiture", "proceeds of crime"], "hi": ["संपत्ति कुर्की", "समपहरण"], "roman": ["sampatti kurki", "samapaharan"] },
-    { "id": "limitation", "match": ["limitation", "period of limitation"], "en": ["limitation", "period of limitation"], "hi": ["परिसीमा"], "roman": ["parisima"] },
-    { "id": "documents", "match": ["document", "record"], "en": ["document", "record", "documentary evidence"], "hi": ["दस्तावेज", "अभिलेख"], "roman": ["dastavez", "abhilekh"] },
-    { "id": "relevancy", "match": ["relevan"], "en": ["relevancy", "relevant fact", "admissibility"], "hi": ["सुसंगति", "सुसंगत तथ्य", "ग्राह्यता"], "roman": ["susangati", "grahyata"] },
+    {
+      "id": "murder",
+      "match": ["murder"],
+      "en": ["murder", "homicide", "killing"],
+      "hi": ["हत्या", "कत्ल"],
+      "roman": ["hatya", "katl", "qatl"]
+    },
+    {
+      "id": "culpable-homicide",
+      "match": ["culpable homicide"],
+      "en": ["culpable homicide", "manslaughter"],
+      "hi": ["गैर इरादतन हत्या", "आपराधिक मानव वध"],
+      "roman": ["gair iradatan hatya", "aapradhik manav vadh"]
+    },
+    {
+      "id": "attempt-to-murder",
+      "match": ["attempt to murder", "attempt to commit murder"],
+      "en": ["attempt to murder", "attempted murder"],
+      "hi": ["हत्या का प्रयास"],
+      "roman": ["hatya ka prayas"]
+    },
+    {
+      "id": "death-by-negligence",
+      "match": ["death by negligence", "rash or negligent"],
+      "en": ["negligence", "rash driving", "accidental death", "hit and run"],
+      "hi": ["लापरवाही से मृत्यु", "उपेक्षा"],
+      "roman": ["laparwahi", "upeksha"]
+    },
+    {
+      "id": "suicide",
+      "match": ["suicide"],
+      "en": ["suicide", "abetment of suicide"],
+      "hi": ["आत्महत्या", "आत्महत्या का दुष्प्रेरण"],
+      "roman": ["atmahatya"]
+    },
+    {
+      "id": "hurt",
+      "match": ["hurt"],
+      "en": ["hurt", "injury", "grievous hurt", "assault"],
+      "hi": ["उपहति", "चोट", "घोर उपहति"],
+      "roman": ["upahati", "chot", "ghor upahati"]
+    },
+    {
+      "id": "assault",
+      "match": ["assault", "criminal force"],
+      "en": ["assault", "criminal force", "attack"],
+      "hi": ["हमला", "मारपीट", "आपराधिक बल"],
+      "roman": ["hamla", "marpeet", "aapradhik bal"]
+    },
+    {
+      "id": "theft",
+      "match": ["theft"],
+      "en": ["theft", "stealing", "larceny"],
+      "hi": ["चोरी", "अपहरण संपत्ति"],
+      "roman": ["chori"]
+    },
+    {
+      "id": "robbery",
+      "match": ["robbery"],
+      "en": ["robbery", "loot"],
+      "hi": ["लूट"],
+      "roman": ["loot", "lut"]
+    },
+    {
+      "id": "dacoity",
+      "match": ["dacoity"],
+      "en": ["dacoity", "gang robbery"],
+      "hi": ["डकैती"],
+      "roman": ["dakaiti", "dakaity"]
+    },
+    {
+      "id": "extortion",
+      "match": ["extortion"],
+      "en": ["extortion", "blackmail"],
+      "hi": ["उद्दापन", "जबरन वसूली"],
+      "roman": ["uddapan", "jabran vasuli"]
+    },
+    {
+      "id": "cheating",
+      "match": ["cheating", "deceive", "fraudulently"],
+      "en": ["cheating", "fraud", "deception", "scam"],
+      "hi": ["धोखाधड़ी", "छल", "ठगी"],
+      "roman": ["dhokhadhadi", "chhal", "thagi", "dhoka"]
+    },
+    {
+      "id": "criminal-breach-of-trust",
+      "match": ["breach of trust", "misappropriation"],
+      "en": ["criminal breach of trust", "misappropriation", "embezzlement"],
+      "hi": ["आपराधिक न्यासभंग", "दुर्विनियोग"],
+      "roman": ["aapradhik nyasbhang", "durviniyog"]
+    },
+    {
+      "id": "forgery",
+      "match": ["forgery", "forged", "counterfeit", "false document"],
+      "en": ["forgery", "counterfeit", "fake document", "forged"],
+      "hi": ["कूटरचना", "जालसाजी", "कूटकरण"],
+      "roman": ["kootrachna", "jaalsazi", "kutkaran"]
+    },
+    {
+      "id": "defamation",
+      "match": ["defamation", "defamatory"],
+      "en": ["defamation", "libel", "slander"],
+      "hi": ["मानहानि"],
+      "roman": ["manhani"]
+    },
+    {
+      "id": "rape",
+      "match": ["rape", "sexual intercourse"],
+      "en": ["rape", "sexual assault"],
+      "hi": ["बलात्संग", "बलात्कार"],
+      "roman": ["balatsang", "balatkar"]
+    },
+    {
+      "id": "sexual-harassment",
+      "match": ["sexual harassment", "outrage", "modesty", "voyeurism", "stalking", "disrobe"],
+      "en": ["sexual harassment", "outraging modesty", "molestation", "stalking", "voyeurism"],
+      "hi": ["लैंगिक उत्पीड़न", "छेड़छाड़", "लज्जा भंग", "पीछा करना", "दृश्यरतिकता"],
+      "roman": ["laingik utpidan", "chhedchhad", "lajja bhang", "peechha karna"]
+    },
+    {
+      "id": "kidnapping",
+      "match": ["kidnap", "abduct"],
+      "en": ["kidnapping", "abduction", "missing person"],
+      "hi": ["अपहरण", "व्यपहरण"],
+      "roman": ["apharan", "vyapaharan"]
+    },
+    {
+      "id": "human-trafficking",
+      "match": ["trafficking", "slavery", "bonded", "unlawful compulsory labour"],
+      "en": ["human trafficking", "bonded labour", "slavery", "forced labour"],
+      "hi": ["मानव तस्करी", "बंधुआ मजदूरी", "दासता"],
+      "roman": ["manav taskari", "bandhua majduri", "dasta"]
+    },
+    {
+      "id": "dowry",
+      "match": ["dowry"],
+      "en": ["dowry", "dowry death"],
+      "hi": ["दहेज", "दहेज मृत्यु"],
+      "roman": ["dahej"]
+    },
+    {
+      "id": "cruelty",
+      "match": ["cruelty"],
+      "en": ["cruelty", "domestic violence", "husband or relative"],
+      "hi": ["क्रूरता", "घरेलू हिंसा"],
+      "roman": ["krurta", "gharelu hinsa"]
+    },
+    {
+      "id": "marriage-offences",
+      "match": ["marriage", "bigamy", "husband", "wife", "adultery", "cohabit"],
+      "en": ["marriage", "bigamy", "second marriage", "deceitful marriage"],
+      "hi": ["विवाह", "द्विविवाह"],
+      "roman": ["vivah", "dvivivah", "shaadi"]
+    },
+    {
+      "id": "child",
+      "match": ["child", "minor", "juvenile"],
+      "en": ["child", "minor", "juvenile"],
+      "hi": ["बालक", "बच्चा", "अवयस्क"],
+      "roman": ["balak", "baccha", "avayask"]
+    },
+    {
+      "id": "criminal-conspiracy",
+      "match": ["conspiracy"],
+      "en": ["criminal conspiracy", "conspiracy"],
+      "hi": ["आपराधिक षड्यंत्र", "साजिश"],
+      "roman": ["aapradhik shadyantra", "saazish"]
+    },
+    {
+      "id": "abetment",
+      "match": ["abet"],
+      "en": ["abetment", "instigation", "aiding"],
+      "hi": ["दुष्प्रेरण", "उकसाना"],
+      "roman": ["dushpreran", "uksana"]
+    },
+    {
+      "id": "attempt",
+      "match": ["attempt"],
+      "en": ["attempt", "attempted offence"],
+      "hi": ["प्रयास"],
+      "roman": ["prayas"]
+    },
+    {
+      "id": "terrorism",
+      "match": ["terrorist", "terror"],
+      "en": ["terrorist act", "terrorism"],
+      "hi": ["आतंकवादी कृत्य", "आतंकवाद"],
+      "roman": ["aatankvadi krity", "aatankvad"]
+    },
+    {
+      "id": "organised-crime",
+      "match": ["organised crime", "organized crime"],
+      "en": ["organised crime", "syndicate", "gang"],
+      "hi": ["संगठित अपराध", "गिरोह"],
+      "roman": ["sangathit apradh", "giroh"]
+    },
+    {
+      "id": "sedition-succession",
+      "match": ["secession", "sovereignty", "endangering", "subversive"],
+      "en": ["sedition", "secession", "anti-national", "acts endangering sovereignty"],
+      "hi": ["राजद्रोह", "देशद्रोह", "अलगाव", "संप्रभुता"],
+      "roman": ["rajdroh", "deshdroh", "sanprabhuta"]
+    },
+    {
+      "id": "waging-war",
+      "match": ["waging war", "war against"],
+      "en": ["waging war", "treason"],
+      "hi": ["युद्ध छेड़ना", "राज्य के विरुद्ध युद्ध"],
+      "roman": ["yuddh chhedna"]
+    },
+    {
+      "id": "mob-lynching",
+      "match": ["group of five or more"],
+      "en": ["mob lynching", "mob violence", "group murder"],
+      "hi": ["भीड़ द्वारा हत्या", "भीड़ हिंसा"],
+      "roman": ["bheed hinsa", "mob lynching"]
+    },
+    {
+      "id": "rioting",
+      "match": ["riot", "unlawful assembly", "affray"],
+      "en": ["rioting", "unlawful assembly", "affray"],
+      "hi": ["बलवा", "विधिविरुद्ध जमाव", "दंगा"],
+      "roman": ["balwa", "danga", "vidhiviruddh jamav"]
+    },
+    {
+      "id": "public-servant",
+      "match": ["public servant"],
+      "en": ["public servant", "government officer", "official"],
+      "hi": ["लोक सेवक", "सरकारी कर्मचारी"],
+      "roman": ["lok sevak", "sarkari karmchari"]
+    },
+    {
+      "id": "bribery-corruption",
+      "match": ["bribery", "gratification", "illegal gratification"],
+      "en": ["bribery", "corruption", "illegal gratification"],
+      "hi": ["रिश्वत", "भ्रष्टाचार", "अवैध परितोषण"],
+      "roman": ["rishwat", "bhrashtachar"]
+    },
+    {
+      "id": "mischief",
+      "match": ["mischief"],
+      "en": ["mischief", "vandalism", "damage to property"],
+      "hi": ["रिष्टि", "नुकसान"],
+      "roman": ["rishti", "nuksan"]
+    },
+    {
+      "id": "criminal-trespass",
+      "match": ["trespass", "house-breaking", "housebreaking"],
+      "en": ["criminal trespass", "house-breaking", "burglary"],
+      "hi": ["आपराधिक अतिचार", "गृह भेदन"],
+      "roman": ["aapradhik atichar", "grih bhedan"]
+    },
+    {
+      "id": "intimidation",
+      "match": ["intimidation", "insult", "annoyance"],
+      "en": ["criminal intimidation", "threat", "insult"],
+      "hi": ["आपराधिक अभित्रास", "धमकी", "अपमान"],
+      "roman": ["aapradhik abhitras", "dhamki", "apman"]
+    },
+    {
+      "id": "false-evidence",
+      "match": ["false evidence", "perjury", "fabricat"],
+      "en": ["false evidence", "perjury", "fabricated evidence"],
+      "hi": ["मिथ्या साक्ष्य", "झूठी गवाही"],
+      "roman": ["mithya sakshya", "jhoothi gawahi"]
+    },
+    {
+      "id": "counterfeit-currency",
+      "match": ["currency-note", "bank-note", "coin"],
+      "en": ["counterfeit currency", "fake note", "coin"],
+      "hi": ["नकली मुद्रा", "जाली नोट", "सिक्का"],
+      "roman": ["nakli mudra", "jaali note", "sikka"]
+    },
+    {
+      "id": "food-drug-adulteration",
+      "match": ["adulterat", "noxious"],
+      "en": ["adulteration", "adulterated food", "noxious drug"],
+      "hi": ["मिलावट", "अपमिश्रण"],
+      "roman": ["milawat", "apmishran"]
+    },
+    {
+      "id": "negligent-act-public",
+      "match": ["public way", "public nuisance", "negligent conduct"],
+      "en": ["public nuisance", "public safety", "negligent conduct"],
+      "hi": ["लोक न्यूसेंस", "लोक बाधा"],
+      "roman": ["lok nyusens", "lok badha"]
+    },
+    {
+      "id": "electronic-record",
+      "match": ["electronic", "digital", "computer resource"],
+      "en": ["electronic record", "digital evidence", "computer resource", "email", "cctv"],
+      "hi": ["इलेक्ट्रॉनिक अभिलेख", "डिजिटल साक्ष्य", "संगणक संसाधन"],
+      "roman": ["electronic abhilekh", "digital sakshya", "sanganak sansadhan"]
+    },
+    {
+      "id": "dying-declaration",
+      "match": ["dying declaration", "cause of death"],
+      "en": ["dying declaration", "statement as to cause of death"],
+      "hi": ["मृत्युकालिक कथन"],
+      "roman": ["mrityukalik kathan"]
+    },
+    {
+      "id": "confession",
+      "match": ["confession"],
+      "en": ["confession", "admission", "statement to police"],
+      "hi": ["संस्वीकृति", "स्वीकारोक्ति"],
+      "roman": ["sanswikriti", "swikarokti"]
+    },
+    {
+      "id": "expert-opinion",
+      "match": ["expert", "opinion", "handwriting", "fingerprint"],
+      "en": ["expert opinion", "handwriting", "fingerprint", "forensic"],
+      "hi": ["विशेषज्ञ राय", "हस्तलेख", "अंगुली छाप"],
+      "roman": ["visheshagya rai", "hastlekh", "anguli chhap"]
+    },
+    {
+      "id": "presumption",
+      "match": ["presum"],
+      "en": ["presumption", "may presume", "shall presume", "conclusive proof"],
+      "hi": ["उपधारणा", "निश्चायक सबूत"],
+      "roman": ["updharna", "nishchayak saboot"]
+    },
+    {
+      "id": "burden-of-proof",
+      "match": ["burden of proof", "onus"],
+      "en": ["burden of proof", "onus of proof"],
+      "hi": ["सबूत का भार"],
+      "roman": ["saboot ka bhar"]
+    },
+    {
+      "id": "witness",
+      "match": ["witness", "testimony", "examination-in-chief", "cross-examination"],
+      "en": ["witness", "testimony", "cross-examination", "deposition"],
+      "hi": ["साक्षी", "गवाह", "प्रतिपरीक्षा"],
+      "roman": ["sakshi", "gawah", "pratipariksha"]
+    },
+    {
+      "id": "fir",
+      "match": ["information relating to", "first information", "information in cognizable"],
+      "en": ["FIR", "first information report", "zero FIR", "e-FIR"],
+      "hi": ["प्रथम सूचना रिपोर्ट", "एफआईआर"],
+      "roman": ["pratham suchna report", "FIR"]
+    },
+    {
+      "id": "arrest",
+      "match": ["arrest"],
+      "en": ["arrest", "custody", "detention"],
+      "hi": ["गिरफ्तारी", "अभिरक्षा"],
+      "roman": ["giraftari", "abhirakshan"]
+    },
+    {
+      "id": "bail",
+      "match": ["bail", "bond", "surety"],
+      "en": ["bail", "bail bond", "surety", "release on bail"],
+      "hi": ["जमानत", "प्रतिभू", "बंधपत्र"],
+      "roman": ["zamanat", "jamanat", "pratibhu"]
+    },
+    {
+      "id": "anticipatory-bail",
+      "match": ["apprehending arrest", "anticipatory"],
+      "en": ["anticipatory bail", "pre-arrest bail"],
+      "hi": ["अग्रिम जमानत"],
+      "roman": ["agrim zamanat", "agrim jamanat"]
+    },
+    {
+      "id": "remand",
+      "match": ["custody of accused", "detention in custody", "remand"],
+      "en": ["remand", "police custody", "judicial custody"],
+      "hi": ["रिमांड", "पुलिस अभिरक्षा", "न्यायिक अभिरक्षा"],
+      "roman": ["remand", "police abhirakshan"]
+    },
+    {
+      "id": "charge-sheet",
+      "match": ["police report", "report of police officer", "charge"],
+      "en": ["charge sheet", "chargesheet", "police report", "framing of charge"],
+      "hi": ["आरोप पत्र", "चार्जशीट", "आरोप विरचन"],
+      "roman": ["aarop patra", "chargesheet"]
+    },
+    {
+      "id": "investigation",
+      "match": ["investigation", "inquiry"],
+      "en": ["investigation", "inquiry", "probe"],
+      "hi": ["अन्वेषण", "जाँच"],
+      "roman": ["anveshan", "jaanch"]
+    },
+    {
+      "id": "search-seizure",
+      "match": ["search", "seizure", "seize"],
+      "en": ["search", "seizure", "search warrant"],
+      "hi": ["तलाशी", "अभिग्रहण", "जब्ती"],
+      "roman": ["talashi", "abhigrahan", "zabti"]
+    },
+    {
+      "id": "summons-warrant",
+      "match": ["summons", "warrant", "proclamation"],
+      "en": ["summons", "warrant", "proclamation", "attachment"],
+      "hi": ["समन", "वारंट", "उद्घोषणा"],
+      "roman": ["saman", "warrant", "udghoshna"]
+    },
+    {
+      "id": "trial",
+      "match": ["trial", "sessions", "magistrate"],
+      "en": ["trial", "sessions trial", "summary trial", "magistrate"],
+      "hi": ["विचारण", "सत्र विचारण", "मजिस्ट्रेट"],
+      "roman": ["vicharan", "satra vicharan", "magistrate"]
+    },
+    {
+      "id": "appeal-revision",
+      "match": ["appeal", "revision", "reference"],
+      "en": ["appeal", "revision", "reference"],
+      "hi": ["अपील", "पुनरीक्षण", "निर्देश"],
+      "roman": ["appeal", "punarikshan", "nirdesh"]
+    },
+    {
+      "id": "sentence-punishment",
+      "match": ["punishment", "sentence", "imprisonment", "fine"],
+      "en": ["punishment", "sentence", "imprisonment", "fine"],
+      "hi": ["दण्ड", "सजा", "कारावास", "जुर्माना"],
+      "roman": ["dand", "saza", "karavas", "jurmana"]
+    },
+    {
+      "id": "community-service",
+      "match": ["community service"],
+      "en": ["community service"],
+      "hi": ["सामुदायिक सेवा"],
+      "roman": ["samudayik seva"]
+    },
+    {
+      "id": "victim-compensation",
+      "match": ["victim", "compensation"],
+      "en": ["victim", "compensation", "victim compensation scheme"],
+      "hi": ["पीड़ित", "प्रतिकर", "मुआवजा"],
+      "roman": ["pidit", "pratikar", "muavza"]
+    },
+    {
+      "id": "plea-bargaining",
+      "match": ["plea bargaining"],
+      "en": ["plea bargaining"],
+      "hi": ["परिवाद सौदेबाजी", "अभिवाक् सौदेबाजी"],
+      "roman": ["plea bargaining"]
+    },
+    {
+      "id": "audio-video",
+      "match": ["audio-video", "audio video", "electronic mode"],
+      "en": ["audio-video recording", "videography", "electronic mode"],
+      "hi": ["ऑडियो-वीडियो अभिलेखन", "इलेक्ट्रॉनिक माध्यम"],
+      "roman": ["audio video abhilekhan"]
+    },
+    {
+      "id": "forensic",
+      "match": ["forensic"],
+      "en": ["forensic science", "forensic expert", "crime scene"],
+      "hi": ["न्यायालयिक विज्ञान", "फोरेंसिक"],
+      "roman": ["nyayalayik vigyan", "forensic"]
+    },
+    {
+      "id": "inquest-postmortem",
+      "match": ["inquest", "post-mortem", "unnatural death"],
+      "en": ["inquest", "post-mortem", "unnatural death"],
+      "hi": ["मृत्यु समीक्षा", "शव परीक्षा"],
+      "roman": ["mrityu samiksha", "shav pariksha"]
+    },
+    {
+      "id": "maintenance",
+      "match": ["maintenance of wives", "maintenance"],
+      "en": ["maintenance", "maintenance of wife and parents"],
+      "hi": ["भरण-पोषण"],
+      "roman": ["bharan poshan"]
+    },
+    {
+      "id": "preventive-action",
+      "match": ["security for keeping the peace", "good behaviour", "preventive"],
+      "en": ["preventive action", "security for keeping the peace", "good behaviour bond"],
+      "hi": ["निवारक कार्रवाई", "परिशांति कायम रखने के लिए प्रतिभूति"],
+      "roman": ["nivarak karyavahi", "parishanti"]
+    },
+    {
+      "id": "public-order",
+      "match": ["unlawful assembly", "public order", "nuisance"],
+      "en": ["public order", "prohibitory order", "dispersal of assembly"],
+      "hi": ["लोक व्यवस्था", "निषेधाज्ञा"],
+      "roman": ["lok vyavastha", "nishedhagya"]
+    },
+    {
+      "id": "property-attachment",
+      "match": ["attachment", "forfeiture", "proceeds of crime"],
+      "en": ["attachment of property", "forfeiture", "proceeds of crime"],
+      "hi": ["संपत्ति कुर्की", "समपहरण"],
+      "roman": ["sampatti kurki", "samapaharan"]
+    },
+    {
+      "id": "limitation",
+      "match": ["limitation", "period of limitation"],
+      "en": ["limitation", "period of limitation"],
+      "hi": ["परिसीमा"],
+      "roman": ["parisima"]
+    },
+    {
+      "id": "documents",
+      "match": ["document", "record"],
+      "en": ["document", "record", "documentary evidence"],
+      "hi": ["दस्तावेज", "अभिलेख"],
+      "roman": ["dastavez", "abhilekh"]
+    },
+    {
+      "id": "relevancy",
+      "match": ["relevan"],
+      "en": ["relevancy", "relevant fact", "admissibility"],
+      "hi": ["सुसंगति", "सुसंगत तथ्य", "ग्राह्यता"],
+      "roman": ["susangati", "grahyata"]
+    },
     { "id": "estoppel", "match": ["estoppel"], "en": ["estoppel"], "hi": ["विबंध"], "roman": ["vibandh"] },
-    { "id": "privileged-communication", "match": ["privileged", "professional communication", "official communication"], "en": ["privileged communication", "professional communication"], "hi": ["विशेषाधिकृत संसूचना"], "roman": ["visheshadhikrit sansuchna"] },
-    { "id": "accomplice", "match": ["accomplice"], "en": ["accomplice", "approver"], "hi": ["सहअपराधी", "इकबालिया गवाह"], "roman": ["sah apradhi", "approver"] },
-    { "id": "identification", "match": ["identification", "identity"], "en": ["identification", "test identification parade", "TIP"], "hi": ["शिनाख्त", "पहचान"], "roman": ["shinakht", "pehchan"] },
-    { "id": "summary-proceedings", "match": ["summary"], "en": ["summary trial", "summary proceedings"], "hi": ["संक्षिप्त विचारण"], "roman": ["sankshipt vicharan"] },
-    { "id": "juvenile-women-safeguards", "match": ["woman", "women", "female"], "en": ["woman", "women", "female accused", "woman witness"], "hi": ["महिला", "स्त्री"], "roman": ["mahila", "stri"] },
-    { "id": "obscenity", "match": ["obscene"], "en": ["obscenity", "obscene material"], "hi": ["अश्लीलता", "अश्लील सामग्री"], "roman": ["ashlilta", "ashlil"] },
-    { "id": "drugs-liquor", "match": ["intoxicat"], "en": ["intoxication", "drunkenness"], "hi": ["मत्तता", "नशा"], "roman": ["mattata", "nasha"] },
-    { "id": "animals", "match": ["animal", "cattle"], "en": ["animal", "cattle", "cruelty to animals"], "hi": ["पशु", "जानवर"], "roman": ["pashu", "janwar"] },
-    { "id": "wrongful-restraint", "match": ["wrongful restraint", "wrongful confinement"], "en": ["wrongful restraint", "wrongful confinement", "illegal detention"], "hi": ["सदोष अवरोध", "सदोष परिरोध"], "roman": ["sadosh avrodh", "sadosh parirodh"] },
-    { "id": "definitions", "match": ["definition", "interpretation"], "en": ["definitions", "interpretation clause"], "hi": ["परिभाषाएँ", "निर्वचन"], "roman": ["paribhashaen", "nirvachan"] },
-    { "id": "commencement", "match": ["short title", "commencement", "extent"], "en": ["short title", "commencement", "extent", "application"], "hi": ["संक्षिप्त नाम", "प्रारंभ", "विस्तार"], "roman": ["sankshipt naam", "prarambh", "vistar"] },
-    { "id": "repeal-savings", "match": ["repeal", "saving", "transitional"], "en": ["repeal", "savings", "transitional provision"], "hi": ["निरसन", "व्यावृत्ति", "संक्रमणकालीन उपबंध"], "roman": ["nirasan", "vyavritti", "sankramankalin"] }
+    {
+      "id": "privileged-communication",
+      "match": ["privileged", "professional communication", "official communication"],
+      "en": ["privileged communication", "professional communication"],
+      "hi": ["विशेषाधिकृत संसूचना"],
+      "roman": ["visheshadhikrit sansuchna"]
+    },
+    {
+      "id": "accomplice",
+      "match": ["accomplice"],
+      "en": ["accomplice", "approver"],
+      "hi": ["सहअपराधी", "इकबालिया गवाह"],
+      "roman": ["sah apradhi", "approver"]
+    },
+    {
+      "id": "identification",
+      "match": ["identification", "identity"],
+      "en": ["identification", "test identification parade", "TIP"],
+      "hi": ["शिनाख्त", "पहचान"],
+      "roman": ["shinakht", "pehchan"]
+    },
+    {
+      "id": "summary-proceedings",
+      "match": ["summary"],
+      "en": ["summary trial", "summary proceedings"],
+      "hi": ["संक्षिप्त विचारण"],
+      "roman": ["sankshipt vicharan"]
+    },
+    {
+      "id": "juvenile-women-safeguards",
+      "match": ["woman", "women", "female"],
+      "en": ["woman", "women", "female accused", "woman witness"],
+      "hi": ["महिला", "स्त्री"],
+      "roman": ["mahila", "stri"]
+    },
+    {
+      "id": "obscenity",
+      "match": ["obscene"],
+      "en": ["obscenity", "obscene material"],
+      "hi": ["अश्लीलता", "अश्लील सामग्री"],
+      "roman": ["ashlilta", "ashlil"]
+    },
+    {
+      "id": "drugs-liquor",
+      "match": ["intoxicat"],
+      "en": ["intoxication", "drunkenness"],
+      "hi": ["मत्तता", "नशा"],
+      "roman": ["mattata", "nasha"]
+    },
+    {
+      "id": "animals",
+      "match": ["animal", "cattle"],
+      "en": ["animal", "cattle", "cruelty to animals"],
+      "hi": ["पशु", "जानवर"],
+      "roman": ["pashu", "janwar"]
+    },
+    {
+      "id": "wrongful-restraint",
+      "match": ["wrongful restraint", "wrongful confinement"],
+      "en": ["wrongful restraint", "wrongful confinement", "illegal detention"],
+      "hi": ["सदोष अवरोध", "सदोष परिरोध"],
+      "roman": ["sadosh avrodh", "sadosh parirodh"]
+    },
+    {
+      "id": "definitions",
+      "match": ["definition", "interpretation"],
+      "en": ["definitions", "interpretation clause"],
+      "hi": ["परिभाषाएँ", "निर्वचन"],
+      "roman": ["paribhashaen", "nirvachan"]
+    },
+    {
+      "id": "commencement",
+      "match": ["short title", "commencement", "extent"],
+      "en": ["short title", "commencement", "extent", "application"],
+      "hi": ["संक्षिप्त नाम", "प्रारंभ", "विस्तार"],
+      "roman": ["sankshipt naam", "prarambh", "vistar"]
+    },
+    {
+      "id": "repeal-savings",
+      "match": ["repeal", "saving", "transitional"],
+      "en": ["repeal", "savings", "transitional provision"],
+      "hi": ["निरसन", "व्यावृत्ति", "संक्रमणकालीन उपबंध"],
+      "roman": ["nirasan", "vyavritti", "sankramankalin"]
+    }
   ]
 }

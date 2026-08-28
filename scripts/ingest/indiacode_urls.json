@@ -1,0 +1,1250 @@
+{
+  "$comment": "Sections to seed authoritative text for from India Code, and the URL(s) to fetch each from. `urls` is filled in by hand after browsing https://indiacode.gov.in — CLAUDE.md forbids crawling that site, so nothing here is discovered automatically unless you pass --discover, which is best-effort only. An empty `urls` means the section is wanted but its page has not been located; the run reports it as `no-url` rather than guessing a URL pattern.",
+  "assembledOn": "2026-08-28",
+  "note": {
+    "en": "India Code was unreachable when this list was assembled — see docs/DATA-GAPS.md.",
+    "hi": "इस सूची के संकलन के समय इंडिया कोड अनुपलब्ध था — देखें docs/DATA-GAPS.md।"
+  },
+  "targets": [
+    {
+      "act": "BNS",
+      "section": "3",
+      "urls": []
+    },
+    {
+      "act": "BNS",
+      "section": "49",
+      "urls": []
+    },
+    {
+      "act": "BNS",
+      "section": "54",
+      "urls": []
+    },
+    {
+      "act": "BNS",
+      "section": "61",
+      "urls": []
+    },
+    {
+      "act": "BNS",
+      "section": "62",
+      "urls": []
+    },
+    {
+      "act": "BNS",
+      "section": "63",
+      "urls": []
+    },
+    {
+      "act": "BNS",
+      "section": "64",
+      "urls": []
+    },
+    {
+      "act": "BNS",
+      "section": "65",
+      "urls": []
+    },
+    {
+      "act": "BNS",
+      "section": "66",
+      "urls": []
+    },
+    {
+      "act": "BNS",
+      "section": "67",
+      "urls": []
+    },
+    {
+      "act": "BNS",
+      "section": "68",
+      "urls": []
+    },
+    {
+      "act": "BNS",
+      "section": "69",
+      "urls": []
+    },
+    {
+      "act": "BNS",
+      "section": "70",
+      "urls": []
+    },
+    {
+      "act": "BNS",
+      "section": "74",
+      "urls": []
+    },
+    {
+      "act": "BNS",
+      "section": "75",
+      "urls": []
+    },
+    {
+      "act": "BNS",
+      "section": "76",
+      "urls": []
+    },
+    {
+      "act": "BNS",
+      "section": "77",
+      "urls": []
+    },
+    {
+      "act": "BNS",
+      "section": "78",
+      "urls": []
+    },
+    {
+      "act": "BNS",
+      "section": "79",
+      "urls": []
+    },
+    {
+      "act": "BNS",
+      "section": "80",
+      "urls": []
+    },
+    {
+      "act": "BNS",
+      "section": "84",
+      "urls": []
+    },
+    {
+      "act": "BNS",
+      "section": "85",
+      "urls": []
+    },
+    {
+      "act": "BNS",
+      "section": "86",
+      "urls": []
+    },
+    {
+      "act": "BNS",
+      "section": "87",
+      "urls": []
+    },
+    {
+      "act": "BNS",
+      "section": "88",
+      "urls": []
+    },
+    {
+      "act": "BNS",
+      "section": "95",
+      "urls": []
+    },
+    {
+      "act": "BNS",
+      "section": "96",
+      "urls": []
+    },
+    {
+      "act": "BNS",
+      "section": "98",
+      "urls": []
+    },
+    {
+      "act": "BNS",
+      "section": "99",
+      "urls": []
+    },
+    {
+      "act": "BNS",
+      "section": "100",
+      "urls": []
+    },
+    {
+      "act": "BNS",
+      "section": "101",
+      "urls": []
+    },
+    {
+      "act": "BNS",
+      "section": "103",
+      "urls": []
+    },
+    {
+      "act": "BNS",
+      "section": "105",
+      "urls": []
+    },
+    {
+      "act": "BNS",
+      "section": "106",
+      "urls": []
+    },
+    {
+      "act": "BNS",
+      "section": "108",
+      "urls": []
+    },
+    {
+      "act": "BNS",
+      "section": "109",
+      "urls": []
+    },
+    {
+      "act": "BNS",
+      "section": "110",
+      "urls": []
+    },
+    {
+      "act": "BNS",
+      "section": "111",
+      "urls": []
+    },
+    {
+      "act": "BNS",
+      "section": "112",
+      "urls": []
+    },
+    {
+      "act": "BNS",
+      "section": "113",
+      "urls": []
+    },
+    {
+      "act": "BNS",
+      "section": "115",
+      "urls": []
+    },
+    {
+      "act": "BNS",
+      "section": "117",
+      "urls": []
+    },
+    {
+      "act": "BNS",
+      "section": "118",
+      "urls": []
+    },
+    {
+      "act": "BNS",
+      "section": "121",
+      "urls": []
+    },
+    {
+      "act": "BNS",
+      "section": "124",
+      "urls": []
+    },
+    {
+      "act": "BNS",
+      "section": "125",
+      "urls": []
+    },
+    {
+      "act": "BNS",
+      "section": "126",
+      "urls": []
+    },
+    {
+      "act": "BNS",
+      "section": "127",
+      "urls": []
+    },
+    {
+      "act": "BNS",
+      "section": "130",
+      "urls": []
+    },
+    {
+      "act": "BNS",
+      "section": "131",
+      "urls": []
+    },
+    {
+      "act": "BNS",
+      "section": "132",
+      "urls": []
+    },
+    {
+      "act": "BNS",
+      "section": "135",
+      "urls": []
+    },
+    {
+      "act": "BNS",
+      "section": "137",
+      "urls": []
+    },
+    {
+      "act": "BNS",
+      "section": "140",
+      "urls": []
+    },
+    {
+      "act": "BNS",
+      "section": "143",
+      "urls": []
+    },
+    {
+      "act": "BNS",
+      "section": "147",
+      "urls": []
+    },
+    {
+      "act": "BNS",
+      "section": "148",
+      "urls": []
+    },
+    {
+      "act": "BNS",
+      "section": "152",
+      "urls": []
+    },
+    {
+      "act": "BNS",
+      "section": "189",
+      "urls": []
+    },
+    {
+      "act": "BNS",
+      "section": "190",
+      "urls": []
+    },
+    {
+      "act": "BNS",
+      "section": "191",
+      "urls": []
+    },
+    {
+      "act": "BNS",
+      "section": "192",
+      "urls": []
+    },
+    {
+      "act": "BNS",
+      "section": "196",
+      "urls": []
+    },
+    {
+      "act": "BNS",
+      "section": "197",
+      "urls": []
+    },
+    {
+      "act": "BNS",
+      "section": "223",
+      "urls": []
+    },
+    {
+      "act": "BNS",
+      "section": "226",
+      "urls": []
+    },
+    {
+      "act": "BNS",
+      "section": "227",
+      "urls": []
+    },
+    {
+      "act": "BNS",
+      "section": "229",
+      "urls": []
+    },
+    {
+      "act": "BNS",
+      "section": "238",
+      "urls": []
+    },
+    {
+      "act": "BNS",
+      "section": "248",
+      "urls": []
+    },
+    {
+      "act": "BNS",
+      "section": "296",
+      "urls": []
+    },
+    {
+      "act": "BNS",
+      "section": "299",
+      "urls": []
+    },
+    {
+      "act": "BNS",
+      "section": "302",
+      "urls": []
+    },
+    {
+      "act": "BNS",
+      "section": "303",
+      "urls": []
+    },
+    {
+      "act": "BNS",
+      "section": "304",
+      "urls": []
+    },
+    {
+      "act": "BNS",
+      "section": "305",
+      "urls": []
+    },
+    {
+      "act": "BNS",
+      "section": "308",
+      "urls": []
+    },
+    {
+      "act": "BNS",
+      "section": "309",
+      "urls": []
+    },
+    {
+      "act": "BNS",
+      "section": "310",
+      "urls": []
+    },
+    {
+      "act": "BNS",
+      "section": "314",
+      "urls": []
+    },
+    {
+      "act": "BNS",
+      "section": "316",
+      "urls": []
+    },
+    {
+      "act": "BNS",
+      "section": "317",
+      "urls": []
+    },
+    {
+      "act": "BNS",
+      "section": "318",
+      "urls": []
+    },
+    {
+      "act": "BNS",
+      "section": "319",
+      "urls": []
+    },
+    {
+      "act": "BNS",
+      "section": "324",
+      "urls": []
+    },
+    {
+      "act": "BNS",
+      "section": "329",
+      "urls": []
+    },
+    {
+      "act": "BNS",
+      "section": "331",
+      "urls": []
+    },
+    {
+      "act": "BNS",
+      "section": "336",
+      "urls": []
+    },
+    {
+      "act": "BNS",
+      "section": "338",
+      "urls": []
+    },
+    {
+      "act": "BNS",
+      "section": "340",
+      "urls": []
+    },
+    {
+      "act": "BNS",
+      "section": "351",
+      "urls": []
+    },
+    {
+      "act": "BNS",
+      "section": "352",
+      "urls": []
+    },
+    {
+      "act": "BNS",
+      "section": "353",
+      "urls": []
+    },
+    {
+      "act": "BNS",
+      "section": "356",
+      "urls": []
+    },
+    {
+      "act": "BNSS",
+      "section": "35",
+      "urls": []
+    },
+    {
+      "act": "BNSS",
+      "section": "36",
+      "urls": []
+    },
+    {
+      "act": "BNSS",
+      "section": "39",
+      "urls": []
+    },
+    {
+      "act": "BNSS",
+      "section": "43",
+      "urls": []
+    },
+    {
+      "act": "BNSS",
+      "section": "47",
+      "urls": []
+    },
+    {
+      "act": "BNSS",
+      "section": "58",
+      "urls": []
+    },
+    {
+      "act": "BNSS",
+      "section": "64",
+      "urls": []
+    },
+    {
+      "act": "BNSS",
+      "section": "69",
+      "urls": []
+    },
+    {
+      "act": "BNSS",
+      "section": "72",
+      "urls": []
+    },
+    {
+      "act": "BNSS",
+      "section": "103",
+      "urls": []
+    },
+    {
+      "act": "BNSS",
+      "section": "105",
+      "urls": []
+    },
+    {
+      "act": "BNSS",
+      "section": "124",
+      "urls": []
+    },
+    {
+      "act": "BNSS",
+      "section": "126",
+      "urls": []
+    },
+    {
+      "act": "BNSS",
+      "section": "173",
+      "urls": []
+    },
+    {
+      "act": "BNSS",
+      "section": "174",
+      "urls": []
+    },
+    {
+      "act": "BNSS",
+      "section": "175",
+      "urls": []
+    },
+    {
+      "act": "BNSS",
+      "section": "176",
+      "urls": []
+    },
+    {
+      "act": "BNSS",
+      "section": "179",
+      "urls": []
+    },
+    {
+      "act": "BNSS",
+      "section": "180",
+      "urls": []
+    },
+    {
+      "act": "BNSS",
+      "section": "183",
+      "urls": []
+    },
+    {
+      "act": "BNSS",
+      "section": "184",
+      "urls": []
+    },
+    {
+      "act": "BNSS",
+      "section": "185",
+      "urls": []
+    },
+    {
+      "act": "BNSS",
+      "section": "187",
+      "urls": []
+    },
+    {
+      "act": "BNSS",
+      "section": "190",
+      "urls": []
+    },
+    {
+      "act": "BNSS",
+      "section": "193",
+      "urls": []
+    },
+    {
+      "act": "BNSS",
+      "section": "194",
+      "urls": []
+    },
+    {
+      "act": "BNSS",
+      "section": "195",
+      "urls": []
+    },
+    {
+      "act": "BNSS",
+      "section": "210",
+      "urls": []
+    },
+    {
+      "act": "BNSS",
+      "section": "223",
+      "urls": []
+    },
+    {
+      "act": "BNSS",
+      "section": "230",
+      "urls": []
+    },
+    {
+      "act": "BNSS",
+      "section": "232",
+      "urls": []
+    },
+    {
+      "act": "BNSS",
+      "section": "250",
+      "urls": []
+    },
+    {
+      "act": "BNSS",
+      "section": "251",
+      "urls": []
+    },
+    {
+      "act": "BNSS",
+      "section": "262",
+      "urls": []
+    },
+    {
+      "act": "BNSS",
+      "section": "265",
+      "urls": []
+    },
+    {
+      "act": "BNSS",
+      "section": "266",
+      "urls": []
+    },
+    {
+      "act": "BNSS",
+      "section": "280",
+      "urls": []
+    },
+    {
+      "act": "BNSS",
+      "section": "289",
+      "urls": []
+    },
+    {
+      "act": "BNSS",
+      "section": "308",
+      "urls": []
+    },
+    {
+      "act": "BNSS",
+      "section": "316",
+      "urls": []
+    },
+    {
+      "act": "BNSS",
+      "section": "330",
+      "urls": []
+    },
+    {
+      "act": "BNSS",
+      "section": "346",
+      "urls": []
+    },
+    {
+      "act": "BNSS",
+      "section": "355",
+      "urls": []
+    },
+    {
+      "act": "BNSS",
+      "section": "356",
+      "urls": []
+    },
+    {
+      "act": "BNSS",
+      "section": "359",
+      "urls": []
+    },
+    {
+      "act": "BNSS",
+      "section": "361",
+      "urls": []
+    },
+    {
+      "act": "BNSS",
+      "section": "394",
+      "urls": []
+    },
+    {
+      "act": "BNSS",
+      "section": "396",
+      "urls": []
+    },
+    {
+      "act": "BNSS",
+      "section": "398",
+      "urls": []
+    },
+    {
+      "act": "BNSS",
+      "section": "401",
+      "urls": []
+    },
+    {
+      "act": "BNSS",
+      "section": "413",
+      "urls": []
+    },
+    {
+      "act": "BNSS",
+      "section": "419",
+      "urls": []
+    },
+    {
+      "act": "BNSS",
+      "section": "421",
+      "urls": []
+    },
+    {
+      "act": "BNSS",
+      "section": "422",
+      "urls": []
+    },
+    {
+      "act": "BNSS",
+      "section": "438",
+      "urls": []
+    },
+    {
+      "act": "BNSS",
+      "section": "442",
+      "urls": []
+    },
+    {
+      "act": "BNSS",
+      "section": "446",
+      "urls": []
+    },
+    {
+      "act": "BNSS",
+      "section": "447",
+      "urls": []
+    },
+    {
+      "act": "BNSS",
+      "section": "478",
+      "urls": []
+    },
+    {
+      "act": "BNSS",
+      "section": "479",
+      "urls": []
+    },
+    {
+      "act": "BNSS",
+      "section": "480",
+      "urls": []
+    },
+    {
+      "act": "BNSS",
+      "section": "481",
+      "urls": []
+    },
+    {
+      "act": "BNSS",
+      "section": "482",
+      "urls": []
+    },
+    {
+      "act": "BNSS",
+      "section": "483",
+      "urls": []
+    },
+    {
+      "act": "BNSS",
+      "section": "484",
+      "urls": []
+    },
+    {
+      "act": "BNSS",
+      "section": "485",
+      "urls": []
+    },
+    {
+      "act": "BNSS",
+      "section": "491",
+      "urls": []
+    },
+    {
+      "act": "BNSS",
+      "section": "492",
+      "urls": []
+    },
+    {
+      "act": "BNSS",
+      "section": "494",
+      "urls": []
+    },
+    {
+      "act": "BNSS",
+      "section": "497",
+      "urls": []
+    },
+    {
+      "act": "BNSS",
+      "section": "509",
+      "urls": []
+    },
+    {
+      "act": "BNSS",
+      "section": "510",
+      "urls": []
+    },
+    {
+      "act": "BNSS",
+      "section": "518",
+      "urls": []
+    },
+    {
+      "act": "BNSS",
+      "section": "524",
+      "urls": []
+    },
+    {
+      "act": "BNSS",
+      "section": "528",
+      "urls": []
+    },
+    {
+      "act": "BNSS",
+      "section": "529",
+      "urls": []
+    },
+    {
+      "act": "BNSS",
+      "section": "530",
+      "urls": []
+    },
+    {
+      "act": "BNSS",
+      "section": "531",
+      "urls": []
+    },
+    {
+      "act": "BSA",
+      "section": "2",
+      "urls": []
+    },
+    {
+      "act": "BSA",
+      "section": "3",
+      "urls": []
+    },
+    {
+      "act": "BSA",
+      "section": "4",
+      "urls": []
+    },
+    {
+      "act": "BSA",
+      "section": "5",
+      "urls": []
+    },
+    {
+      "act": "BSA",
+      "section": "6",
+      "urls": []
+    },
+    {
+      "act": "BSA",
+      "section": "7",
+      "urls": []
+    },
+    {
+      "act": "BSA",
+      "section": "8",
+      "urls": []
+    },
+    {
+      "act": "BSA",
+      "section": "9",
+      "urls": []
+    },
+    {
+      "act": "BSA",
+      "section": "14",
+      "urls": []
+    },
+    {
+      "act": "BSA",
+      "section": "15",
+      "urls": []
+    },
+    {
+      "act": "BSA",
+      "section": "16",
+      "urls": []
+    },
+    {
+      "act": "BSA",
+      "section": "18",
+      "urls": []
+    },
+    {
+      "act": "BSA",
+      "section": "19",
+      "urls": []
+    },
+    {
+      "act": "BSA",
+      "section": "21",
+      "urls": []
+    },
+    {
+      "act": "BSA",
+      "section": "22",
+      "urls": []
+    },
+    {
+      "act": "BSA",
+      "section": "23",
+      "urls": []
+    },
+    {
+      "act": "BSA",
+      "section": "24",
+      "urls": []
+    },
+    {
+      "act": "BSA",
+      "section": "25",
+      "urls": []
+    },
+    {
+      "act": "BSA",
+      "section": "26",
+      "urls": []
+    },
+    {
+      "act": "BSA",
+      "section": "27",
+      "urls": []
+    },
+    {
+      "act": "BSA",
+      "section": "28",
+      "urls": []
+    },
+    {
+      "act": "BSA",
+      "section": "30",
+      "urls": []
+    },
+    {
+      "act": "BSA",
+      "section": "31",
+      "urls": []
+    },
+    {
+      "act": "BSA",
+      "section": "32",
+      "urls": []
+    },
+    {
+      "act": "BSA",
+      "section": "33",
+      "urls": []
+    },
+    {
+      "act": "BSA",
+      "section": "36",
+      "urls": []
+    },
+    {
+      "act": "BSA",
+      "section": "39",
+      "urls": []
+    },
+    {
+      "act": "BSA",
+      "section": "41",
+      "urls": []
+    },
+    {
+      "act": "BSA",
+      "section": "45",
+      "urls": []
+    },
+    {
+      "act": "BSA",
+      "section": "51",
+      "urls": []
+    },
+    {
+      "act": "BSA",
+      "section": "54",
+      "urls": []
+    },
+    {
+      "act": "BSA",
+      "section": "56",
+      "urls": []
+    },
+    {
+      "act": "BSA",
+      "section": "57",
+      "urls": []
+    },
+    {
+      "act": "BSA",
+      "section": "58",
+      "urls": []
+    },
+    {
+      "act": "BSA",
+      "section": "59",
+      "urls": []
+    },
+    {
+      "act": "BSA",
+      "section": "61",
+      "urls": []
+    },
+    {
+      "act": "BSA",
+      "section": "62",
+      "urls": []
+    },
+    {
+      "act": "BSA",
+      "section": "63",
+      "urls": []
+    },
+    {
+      "act": "BSA",
+      "section": "64",
+      "urls": []
+    },
+    {
+      "act": "BSA",
+      "section": "65",
+      "urls": []
+    },
+    {
+      "act": "BSA",
+      "section": "67",
+      "urls": []
+    },
+    {
+      "act": "BSA",
+      "section": "68",
+      "urls": []
+    },
+    {
+      "act": "BSA",
+      "section": "69",
+      "urls": []
+    },
+    {
+      "act": "BSA",
+      "section": "70",
+      "urls": []
+    },
+    {
+      "act": "BSA",
+      "section": "72",
+      "urls": []
+    },
+    {
+      "act": "BSA",
+      "section": "74",
+      "urls": []
+    },
+    {
+      "act": "BSA",
+      "section": "75",
+      "urls": []
+    },
+    {
+      "act": "BSA",
+      "section": "78",
+      "urls": []
+    },
+    {
+      "act": "BSA",
+      "section": "82",
+      "urls": []
+    },
+    {
+      "act": "BSA",
+      "section": "85",
+      "urls": []
+    },
+    {
+      "act": "BSA",
+      "section": "94",
+      "urls": []
+    },
+    {
+      "act": "BSA",
+      "section": "98",
+      "urls": []
+    },
+    {
+      "act": "BSA",
+      "section": "103",
+      "urls": []
+    },
+    {
+      "act": "BSA",
+      "section": "105",
+      "urls": []
+    },
+    {
+      "act": "BSA",
+      "section": "107",
+      "urls": []
+    },
+    {
+      "act": "BSA",
+      "section": "113",
+      "urls": []
+    },
+    {
+      "act": "BSA",
+      "section": "119",
+      "urls": []
+    },
+    {
+      "act": "BSA",
+      "section": "120",
+      "urls": []
+    },
+    {
+      "act": "BSA",
+      "section": "124",
+      "urls": []
+    },
+    {
+      "act": "BSA",
+      "section": "128",
+      "urls": []
+    },
+    {
+      "act": "BSA",
+      "section": "132",
+      "urls": []
+    },
+    {
+      "act": "BSA",
+      "section": "134",
+      "urls": []
+    },
+    {
+      "act": "BSA",
+      "section": "136",
+      "urls": []
+    },
+    {
+      "act": "BSA",
+      "section": "139",
+      "urls": []
+    },
+    {
+      "act": "BSA",
+      "section": "141",
+      "urls": []
+    },
+    {
+      "act": "BSA",
+      "section": "143",
+      "urls": []
+    },
+    {
+      "act": "BSA",
+      "section": "148",
+      "urls": []
+    },
+    {
+      "act": "BSA",
+      "section": "152",
+      "urls": []
+    },
+    {
+      "act": "BSA",
+      "section": "155",
+      "urls": []
+    },
+    {
+      "act": "BSA",
+      "section": "158",
+      "urls": []
+    },
+    {
+      "act": "BSA",
+      "section": "160",
+      "urls": []
+    },
+    {
+      "act": "BSA",
+      "section": "164",
+      "urls": []
+    },
+    {
+      "act": "BSA",
+      "section": "167",
+      "urls": []
+    },
+    {
+      "act": "BSA",
+      "section": "168",
+      "urls": []
+    },
+    {
+      "act": "BSA",
+      "section": "169",
+      "urls": []
+    },
+    {
+      "act": "BSA",
+      "section": "170",
+      "urls": []
+    }
+  ]
+}

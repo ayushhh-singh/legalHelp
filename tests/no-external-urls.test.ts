@@ -73,6 +73,17 @@ const ALLOWED_INERT: ReadonlyArray<{ pattern: RegExp; why: string }> = [
     pattern: OPT_IN_ENDPOINT.pattern,
     why: 'Tier 1 BYOK endpoint; reached only after explicit consent, from one lazy-loaded module',
   },
+  {
+    // The master context requires every data card to show its source URL, so
+    // citations necessarily ship. They are rendered as links for the reader to
+    // open, never fetched: `loads every HTML and CSS reference from its own
+    // origin` above covers the markup, the eslint `no-restricted-globals: fetch`
+    // rule covers the code, and tests/e2e/zero-third-party-requests.spec.ts
+    // covers the running app. Scoped to the one directory the datasets cite so a
+    // second NCRB path still has to be looked at by a human.
+    pattern: /^https:\/\/www\.ncrb\.gov\.in\/uploads\/SankalanPortal\//,
+    why: 'NCRB Sankalan source citation in data/_meta/versions.json; displayed as a link, never requested',
+  },
 ]
 
 const SOURCE_EXTENSIONS = new Set(['.ts', '.tsx', '.css', '.html'])
@@ -155,6 +166,19 @@ describe('no external URLs', () => {
       )
 
     expect(naming).toEqual([OPT_IN_ENDPOINT.file])
+  })
+
+  it('keeps dataset source citations in data/, out of the source tree', () => {
+    // Allowing the NCRB citation through the dist sweep would otherwise let a
+    // `fetch('https://www.ncrb.gov.in/...')` in src/ pass unnoticed. It reaches
+    // the build only as a string inside data/_meta/versions.json; no module may
+    // name it.
+    const naming = walk(fromRoot('src'), SOURCE_EXTENSIONS)
+      .map((file) => relative(projectRoot, file))
+      .filter((file) => !/\.test\.tsx?$/.test(file))
+      .filter((file) => /ncrb\.gov\.in/.test(readFromRoot(file)))
+
+    expect(naming).toEqual([])
   })
 
   it('imports every webfont from a bundled package, never from a CDN', () => {

@@ -850,3 +850,95 @@ now covered by a test that was verified to fail against the code as first writte
 Also added: a Dexie **v1 → v2 upgrade test** — the migration every already-installed device will take,
 and the one path a freshly-opened database can never exercise — and a test that `db.tables` lists
 exactly the four tables `clearAllData()` (and therefore the kill switch) has to clear.
+
+---
+
+## ADR-012 — The law datasets are generated, the judgement calls are overlaid, and Hindi says which it is
+
+**Date:** 2026-08-28 · **Status:** Accepted · **Session:** 2 (NCRB law ingestion)
+
+### Context
+
+The Law Converter needs the whole of three codes — 358 BNS, 531 BNSS, 170 BSA sections — mapped in both
+directions, with headings, section text, offence classification and punishment, in both languages, from
+public sources, refreshed by a cron nobody watches.
+
+Four things about the sources shaped everything else:
+
+1. **NCRB Sankalan carries far more than the correspondence tables.** Alongside
+   `SectionTable{BNS,BNSS,BSA}.html` it publishes `Chapters*.html` (the full English text of every
+   section, one `<span id="N">` each), `ScheduleBNSS.html` (the BNSS First Schedule — cognizable,
+   bailable, triable) and BNSS §359 (the two compounding tables). The brief expected classification and
+   punishment to be hand-curated for 80 sections from a First Schedule PDF; the same data is available
+   as parseable HTML for 288.
+2. **The rows are inline HTML today, and that is not a promise.** The pages are DataTables-driven and
+   the `<tbody>` happens to be rendered server-side. A cron that assumes this silently produces an empty
+   dataset the day it changes.
+3. **There is no Hindi anywhere.** `GazetteBNS2023.pdf` and `BNS2023.pdf` contain zero Devanagari
+   characters. `legislative.gov.in` 404s for the Act; MHA hosts English only. India Code — the one place
+   the Hindi text would be — was rebuilt as an Angular application that serves a mount point, and its
+   legacy DSpace host now serves a migration notice. `indiacode_seed.py --discover` recorded 0 of 248
+   sections.
+4. **Some of what a reader most needs is not in any table.** That CrPC 438 and 482 swap places with BNSS
+   482 and 528, that "420" is now BNS 318(4) and not BNS 318, that IPC 124A is marked "Deleted" while
+   BNS 152 is a differently-worded offence rather than a renumbering — no source states these as facts.
+   They are the difference between a correct citation and a wrong one.
+
+### Decision
+
+**Generate everything a source states; overlay everything a human judges; never let the cron write to
+the overlays.**
+
+- `scripts/ingest/ncrb_sankalan.py` writes `data/law/{bns,bnss,bsa}.json` and `data/law/index.json`.
+  `data/law/overlays/*.json` is hand-curated, merged last, and wins on conflict. A step in
+  `.github/workflows/ingest-law.yml` runs `git diff --exit-code -- data/law/overlays/` and fails the run
+  if a refresh has touched one.
+- **Classification and punishment are generated, not curated.** The BNSS First Schedule and §359 give
+  288 BNS sections cognizable/bailable/triable/compoundable and an English punishment, from an official
+  source with a URL and a sha256 — more coverage than the 80 the brief asked for, and refreshed weekly
+  rather than frozen at authoring time. The overlay keeps what only a human can supply.
+- **The PDF fallback is real and reachable.** `rows_are_inline()` checks for a populated `<tbody>` on
+  every run and falls through to `pdfplumber` over the bare act if it is empty. Which path ran is
+  recorded in `data/_meta/versions.json` as `parsePath` and printed into `docs/DATA-GAPS.md`, and
+  `--force-pdf` exercises it deliberately so it is not discovered to be rotten on the day it is needed.
+- **Hindi is either official, absent, or labelled.** Nothing is machine-translated. 965 of 1,059
+  headings and all 1,059 section texts carry `hi: ""` and are counted in `docs/DATA-GAPS.md`. For the 94
+  BNS sections officers cite most, `bns-hindi-curated.json` supplies hand-authored Hindi with
+  `provenance.official: false` and `verify: true` on every section it touches;
+  `tests/law-data.test.ts` fails if a curated section is not flagged.
+- **India Code stays off the cron.** `indiacode_seed.py` is a separate script, absent from the workflow,
+  rate-limited to one request per 3 seconds, naming the project in its User-Agent, refusing to request
+  `/discover` or `/simple-search`, and stopping dead on the first 403 without retry or mirror.
+- **Two schemas for one shape.** `schemas/law-*.schema.json` validates at write time in Python;
+  `src/modules/law/schema.ts` validates the committed bytes with zod in `pnpm test`. A dataset cannot
+  land unless the producer and the consumer agree on it.
+
+### Consequences
+
+- The weekly pull request is small and readable, or it does not exist. Deterministic JSON writing means
+  an unchanged source produces no diff and no PR.
+- A source-shape change is loud rather than silent: the coverage counts in `docs/DATA-GAPS.md` move
+  before the mappings do.
+- **`tests/no-external-urls.test.ts` grew its first data-citation allowlist entry.** The master context
+  requires every data card to show its source URL, so `data/_meta/versions.json` now carries
+  `https://www.ncrb.gov.in/uploads/SankalanPortal/…`, and that file is bundled through
+  `src/lib/dataVersion.ts`. The entry is scoped to that one directory, and a new assertion —
+  `keeps dataset source citations in data/, out of the source tree` — fails if any module under `src/`
+  ever names the host. Without that second half, the allowlist would have quietly permitted a
+  `fetch('https://www.ncrb.gov.in/…')` in application code.
+- `data/law/` is 3.9 MB. Nothing imports it, so the initial route is unchanged and the service worker
+  does not precache it; Session 4 decides how the Law Converter route fetches it (DATA-GAPS #21).
+- The curated Hindi is a debt with a name. It is better than an empty Hindi column on the sections
+  officers use daily, and it is worse than the statutory text. DATA-GAPS #16 and #18 say so, and the UI
+  is required to render `verify: true` visibly.
+
+### Rejected
+
+- **Machine-translating the headings.** The brief forbids it and it is the right call: a wrong Hindi
+  heading on a criminal provision is worse than a missing one, and a reader cannot tell the two apart.
+- **Curating classification for 80 sections by hand.** It would have been less coverage, frozen at
+  authoring time, and unverifiable against the source a year from now.
+- **Scraping India Code's undocumented API.** Its `robots.txt` is currently unreachable and CLAUDE.md
+  treats the site as bot-disallowed. An unreachable `robots.txt` is not permission.
+- **Auto-merging the refresh PR.** This is section-level criminal law. A stale mapping is recoverable; a
+  wrong one shown to an officer is not.

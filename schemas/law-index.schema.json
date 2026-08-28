@@ -1,0 +1,79 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://sahayak.local/schemas/law-index.schema.json",
+  "title": "Repealed-Act reverse index",
+  "description": "oldAct + oldSection -> newSection[]. An officer who knows only the IPC/CrPC/Evidence Act number starts here. An entry with an empty newSections and status \"omitted\" is the answer \"this provision has no counterpart\" — the UI resolves it to null and shows the note.",
+  "type": "object",
+  "required": ["version", "generatedAt", "disclaimer", "acts"],
+  "additionalProperties": false,
+  "properties": {
+    "$schema": { "type": "string" },
+    "version": { "type": "string", "pattern": "^\\d+\\.\\d+\\.\\d+$" },
+    "generatedAt": { "type": "string" },
+    "disclaimer": { "$ref": "#/$defs/bilingualRequired" },
+    "acts": {
+      "type": "object",
+      "minProperties": 1,
+      "propertyNames": { "enum": ["IPC", "CrPC", "IEA"] },
+      "additionalProperties": {
+        "type": "object",
+        "required": ["newAct", "entries"],
+        "additionalProperties": true,
+        "properties": {
+          "newAct": { "enum": ["BNS", "BNSS", "BSA"] },
+          "oldActName": { "$ref": "#/$defs/bilingualRequired" },
+          "newActName": { "$ref": "#/$defs/bilingualRequired" },
+          "entries": {
+            "type": "object",
+            "minProperties": 1,
+            "propertyNames": { "type": "string", "pattern": "^\\d{1,4}[A-Z]{0,2}(\\([0-9a-zA-Z]{1,4}\\))*$" },
+            "additionalProperties": { "$ref": "#/$defs/entry" }
+          }
+        }
+      }
+    }
+  },
+  "$defs": {
+    "bilingual": {
+      "type": "object",
+      "required": ["en", "hi"],
+      "additionalProperties": false,
+      "properties": { "en": { "type": "string" }, "hi": { "type": "string" } }
+    },
+    "bilingualRequired": {
+      "type": "object",
+      "required": ["en", "hi"],
+      "additionalProperties": false,
+      "properties": { "en": { "type": "string", "minLength": 1 }, "hi": { "type": "string", "minLength": 1 } }
+    },
+    "entry": {
+      "type": "object",
+      "required": ["oldAct", "newAct", "newSections", "status", "heading"],
+      "additionalProperties": true,
+      "properties": {
+        "oldAct": { "enum": ["IPC", "CrPC", "IEA"] },
+        "newAct": { "enum": ["BNS", "BNSS", "BSA"] },
+        "newSections": {
+          "type": "array",
+          "items": { "type": "string", "pattern": "^\\d{1,4}[A-Z]{0,2}(\\([0-9a-zA-Z]{1,4}\\))*$" }
+        },
+        "status": { "enum": ["mapped", "omitted"] },
+        "heading": { "$ref": "#/$defs/bilingual" },
+        "note": { "oneOf": [{ "type": "null" }, { "$ref": "#/$defs/bilingualRequired" }] },
+        "warnings": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "required": ["kind", "title", "body"],
+            "additionalProperties": true,
+            "properties": {
+              "kind": { "enum": ["trap", "transitional", "context", "caution"] },
+              "title": { "$ref": "#/$defs/bilingualRequired" },
+              "body": { "$ref": "#/$defs/bilingualRequired" }
+            }
+          }
+        }
+      }
+    }
+  }
+}

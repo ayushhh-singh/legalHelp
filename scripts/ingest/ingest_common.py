@@ -192,8 +192,14 @@ def normalise_section(value: str) -> str:
 # A section reference at the head of a cell: a number, an optional letter suffix
 # (498A, 65B, 52A), then any number of bracketed sub-parts (61(2)(a), 2(f)).
 # Whitespace is tolerated wherever the source puts it and removed afterwards.
+#
+# The `(?![a-z])` on the suffix is load-bearing. Several rows read
+# "151 Arrest to prevent commission of cognizable offences." - without it the
+# "A" of "Arrest" is read as a suffix and the reference becomes "151A", a
+# section that does not exist. A real suffix is followed by a full stop, a
+# bracket, or the end of the reference; never by lower-case letters.
 SECTION_REF = re.compile(
-    r"^(?P<ref>(?P<num>\d{1,4})\s*(?P<alpha>[A-Z]{1,2})?(?:\s*\(\s*[0-9a-zA-Z]{1,4}\s*\))*)"
+    r"^(?P<ref>(?P<num>\d{1,4})\s*(?P<alpha>[A-Z]{1,2}(?![a-z]))?(?:\s*\(\s*[0-9a-zA-Z]{1,4}\s*\))*)"
 )
 
 
@@ -220,7 +226,7 @@ def parse_section_ref(text: str) -> SectionRef | None:
     if not match:
         return None
 
-    section = tidy_parens(match.group("ref")).strip()
+    section = tidy_parens(re.sub(r"\s+", "", match.group("ref")))
     base = match.group("num") + (match.group("alpha") or "")
     heading = cleaned[match.end() :].lstrip(" .-").strip()
     return SectionRef(raw=cleaned, section=section, base=base, heading=heading)
@@ -251,6 +257,41 @@ def write_json(path: Path, payload: Any) -> tuple[bool, str]:
         path.parent.mkdir(parents=True, exist_ok=True)
         path.write_bytes(encoded)
     return changed, digest
+
+
+# Keys whose value changes on every run regardless of whether the data did:
+# when we fetched, how many bytes came back, and the digest of a document NCRB
+# may have re-uploaded byte-for-differently with identical content.
+VOLATILE_KEYS = frozenset({"fetchedAt", "generatedAt", "sha256", "bytes", "updated"})
+
+
+def strip_volatile(value: Any, keys: frozenset[str] = VOLATILE_KEYS) -> Any:
+    """A copy with the run-stamp fields removed, at any depth."""
+    if isinstance(value, dict):
+        return {k: strip_volatile(v, keys) for k, v in value.items() if k not in keys}
+    if isinstance(value, list):
+        return [strip_volatile(item, keys) for item in value]
+    return value
+
+
+def write_if_content_changed(path: Path, payload: Any) -> tuple[bool, str]:
+    """Write only when something other than the run stamps has changed.
+
+    Every run produces a new ``fetchedAt`` and a fresh sha256 of the fetched
+    HTML, so a naive comparison says "changed" every single week. The cron would
+    then open a pull request every week that reads "1,059 sections, all
+    identical, new timestamp", and a reviewer who sees that fifty times stops
+    reading the fifty-first — which is the one that matters.
+
+    So the existing file wins when the data is the same: its timestamps stay,
+    nothing is written, and the workflow's `git diff` finds nothing to open a
+    pull request about.
+    """
+    existing = read_json(path)
+    if existing is not None and strip_volatile(existing) == strip_volatile(payload):
+        encoded = path.read_bytes()
+        return False, hashlib.sha256(encoded).hexdigest()
+    return write_json(path, payload)
 
 
 def read_json(path: Path, default: Any = None) -> Any:

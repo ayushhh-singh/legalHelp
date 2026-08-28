@@ -1,0 +1,648 @@
+{
+  "$comment": "Hand-curated warnings the scraped tables cannot express: numbers that cross over between the old and new Acts, provisions that were dropped outright, and the transitional rule that decides which code applies. Merged by scripts/ingest/ncrb_sankalan.py; never written by the weekly cron.",
+  "id": "traps-and-transitional",
+  "provenance": {
+    "kind": "curated",
+    "authoredBy": "Sahayak maintainers",
+    "authoredOn": "2026-08-28",
+    "official": false
+  },
+  "actSections": {
+    "BNS": {
+      "1": {
+        "notes": [
+          {
+            "kind": "transitional",
+            "title": {
+              "en": "In force from 1 July 2024",
+              "hi": "1 जुलाई 2024 से प्रवृत्त"
+            },
+            "body": {
+              "en": "All three Sanhitas were brought into force on 1 July 2024 by notifications issued on 24 February 2024. BNS section 106(2) (causing death by rash and negligent driving and fleeing) was expressly excluded from that commencement and is not yet in force.",
+              "hi": "तीनों संहिताएँ 24 फरवरी 2024 की अधिसूचनाओं द्वारा 1 जुलाई 2024 से प्रवृत्त हुईं। बीएनएस की धारा 106(2) (उतावलेपन एवं उपेक्षापूर्ण वाहन चालन से मृत्यु कारित कर भाग जाना) को उस प्रवर्तन से अभिव्यक्त रूप से अपवर्जित रखा गया और वह अभी प्रवृत्त नहीं है।"
+            },
+            "source": {
+              "name": {
+                "en": "MHA notification S.O. 850(E) dated 24 February 2024",
+                "hi": "गृह मंत्रालय अधिसूचना एस.ओ. 850(अ), दिनांक 24 फरवरी 2024"
+              },
+              "url": "https://www.ncrb.gov.in/uploads/SankalanPortal/DownloadPDF/GazetteNotificationOfBNS,BNSS,BSA.pdf"
+            }
+          }
+        ]
+      },
+      "63": {
+        "notes": [
+          {
+            "kind": "trap",
+            "title": {
+              "en": "\"376\" is now BNS 64; the definition of rape is BNS 63",
+              "hi": "\"376\" अब बीएनएस 64 है; बलात्संग की परिभाषा बीएनएस 63 है"
+            },
+            "body": {
+              "en": "IPC 375 (definition) and 376 (punishment) become BNS 63 and BNS 64. The aggravated forms that were 376(2), 376A, 376AB, 376D and 376DA are redistributed across BNS 65 to 71 — they are not sub-sections of 64. Check which one applies before charging.",
+              "hi": "भादंसं 375 (परिभाषा) और 376 (दण्ड) अब क्रमशः बीएनएस 63 और बीएनएस 64 हैं। जो गुरुतर रूप 376(2), 376क, 376कख, 376घ और 376घक थे, वे बीएनएस 65 से 71 तक में पुनर्वितरित हैं — वे धारा 64 की उपधाराएँ नहीं हैं। आरोप लगाने से पहले लागू उपबंध जाँच लें।"
+            },
+            "source": {
+              "name": {
+                "en": "BNS sections 63 to 71",
+                "hi": "बीएनएस की धाराएँ 63 से 71"
+              },
+              "url": "https://www.ncrb.gov.in/uploads/SankalanPortal/DownloadPDF/GazetteBNS2023.pdf"
+            }
+          }
+        ]
+      },
+      "64": {
+        "notes": [
+          {
+            "kind": "trap",
+            "title": {
+              "en": "\"376\" is now BNS 64; the definition of rape is BNS 63",
+              "hi": "\"376\" अब बीएनएस 64 है; बलात्संग की परिभाषा बीएनएस 63 है"
+            },
+            "body": {
+              "en": "IPC 375 (definition) and 376 (punishment) become BNS 63 and BNS 64. The aggravated forms that were 376(2), 376A, 376AB, 376D and 376DA are redistributed across BNS 65 to 71 — they are not sub-sections of 64. Check which one applies before charging.",
+              "hi": "भादंसं 375 (परिभाषा) और 376 (दण्ड) अब क्रमशः बीएनएस 63 और बीएनएस 64 हैं। जो गुरुतर रूप 376(2), 376क, 376कख, 376घ और 376घक थे, वे बीएनएस 65 से 71 तक में पुनर्वितरित हैं — वे धारा 64 की उपधाराएँ नहीं हैं। आरोप लगाने से पहले लागू उपबंध जाँच लें।"
+            },
+            "source": {
+              "name": {
+                "en": "BNS sections 63 to 71",
+                "hi": "बीएनएस की धाराएँ 63 से 71"
+              },
+              "url": "https://www.ncrb.gov.in/uploads/SankalanPortal/DownloadPDF/GazetteBNS2023.pdf"
+            }
+          }
+        ]
+      },
+      "103": {
+        "notes": [
+          {
+            "kind": "trap",
+            "title": {
+              "en": "\"302\" is now BNS 103 — and BNS 302 is a religious-feelings offence",
+              "hi": "\"302\" अब बीएनएस 103 है — और बीएनएस 302 धार्मिक भावना संबंधी अपराध है"
+            },
+            "body": {
+              "en": "Punishment for murder moved from IPC 302 to BNS 103. BNS 302 exists but is \"uttering words with deliberate intent to wound religious feelings\", punishable with up to one year. The habit of saying \"302\" for murder is now actively misleading.",
+              "hi": "हत्या के लिए दण्ड भादंसं 302 से बीएनएस 103 में आ गया है। बीएनएस 302 विद्यमान तो है, किंतु वह \"धार्मिक भावनाओं को ठेस पहुँचाने के विमर्शित आशय से शब्दों का उच्चारण\" है, जिसमें एक वर्ष तक का दण्ड है। हत्या के लिए \"302\" कहने की आदत अब भ्रामक है।"
+            },
+            "source": {
+              "name": {
+                "en": "BNS sections 103 and 302",
+                "hi": "बीएनएस की धाराएँ 103 एवं 302"
+              },
+              "url": "https://www.ncrb.gov.in/uploads/SankalanPortal/DownloadPDF/GazetteBNS2023.pdf"
+            }
+          }
+        ]
+      },
+      "106": {
+        "notes": [
+          {
+            "kind": "transitional",
+            "title": {
+              "en": "In force from 1 July 2024",
+              "hi": "1 जुलाई 2024 से प्रवृत्त"
+            },
+            "body": {
+              "en": "All three Sanhitas were brought into force on 1 July 2024 by notifications issued on 24 February 2024. BNS section 106(2) (causing death by rash and negligent driving and fleeing) was expressly excluded from that commencement and is not yet in force.",
+              "hi": "तीनों संहिताएँ 24 फरवरी 2024 की अधिसूचनाओं द्वारा 1 जुलाई 2024 से प्रवृत्त हुईं। बीएनएस की धारा 106(2) (उतावलेपन एवं उपेक्षापूर्ण वाहन चालन से मृत्यु कारित कर भाग जाना) को उस प्रवर्तन से अभिव्यक्त रूप से अपवर्जित रखा गया और वह अभी प्रवृत्त नहीं है।"
+            },
+            "source": {
+              "name": {
+                "en": "MHA notification S.O. 850(E) dated 24 February 2024",
+                "hi": "गृह मंत्रालय अधिसूचना एस.ओ. 850(अ), दिनांक 24 फरवरी 2024"
+              },
+              "url": "https://www.ncrb.gov.in/uploads/SankalanPortal/DownloadPDF/GazetteNotificationOfBNS,BNSS,BSA.pdf"
+            }
+          }
+        ]
+      },
+      "152": {
+        "notes": [
+          {
+            "kind": "trap",
+            "title": {
+              "en": "IPC 124A (sedition) is repealed; BNS 152 is a new and differently worded offence",
+              "hi": "भादंसं 124क (राजद्रोह) निरसित; बीएनएस 152 नया एवं भिन्न शब्दावली वाला अपराध है"
+            },
+            "body": {
+              "en": "NCRB's correspondence table marks IPC 124A \"Deleted\": there is no sedition offence in the BNS. BNS 152 punishes acts endangering the sovereignty, unity and integrity of India, and is worded differently — it turns on secession, armed rebellion, subversive activities and separatist feelings, and it is not a renumbering of 124A. Do not treat 124A case law as automatically carrying over.",
+              "hi": "एनसीआरबी की तत्संगत तालिका भादंसं 124क को \"Deleted\" दर्शाती है: बीएनएस में राजद्रोह का अपराध नहीं है। बीएनएस 152 भारत की प्रभुता, एकता और अखंडता को संकटापन्न करने वाले कार्यों को दण्डित करती है और उसकी शब्दावली भिन्न है — वह अलगाव, सशस्त्र विद्रोह, विध्वंसक क्रियाकलाप और पृथक्तावादी भावनाओं पर आधारित है, और यह 124क का पुनःसंख्यांकन नहीं है। 124क की न्यायिक व्याख्या स्वतः लागू न मानें।"
+            },
+            "source": {
+              "name": {
+                "en": "BNS section 152, read with the NCRB BNS/IPC correspondence table",
+                "hi": "बीएनएस की धारा 152, एनसीआरबी बीएनएस/भादंसं तत्संगत तालिका सहित"
+              },
+              "url": "https://www.ncrb.gov.in/uploads/SankalanPortal/SectionTableBNS.html"
+            }
+          }
+        ]
+      },
+      "302": {
+        "notes": [
+          {
+            "kind": "trap",
+            "title": {
+              "en": "\"302\" is now BNS 103 — and BNS 302 is a religious-feelings offence",
+              "hi": "\"302\" अब बीएनएस 103 है — और बीएनएस 302 धार्मिक भावना संबंधी अपराध है"
+            },
+            "body": {
+              "en": "Punishment for murder moved from IPC 302 to BNS 103. BNS 302 exists but is \"uttering words with deliberate intent to wound religious feelings\", punishable with up to one year. The habit of saying \"302\" for murder is now actively misleading.",
+              "hi": "हत्या के लिए दण्ड भादंसं 302 से बीएनएस 103 में आ गया है। बीएनएस 302 विद्यमान तो है, किंतु वह \"धार्मिक भावनाओं को ठेस पहुँचाने के विमर्शित आशय से शब्दों का उच्चारण\" है, जिसमें एक वर्ष तक का दण्ड है। हत्या के लिए \"302\" कहने की आदत अब भ्रामक है।"
+            },
+            "source": {
+              "name": {
+                "en": "BNS sections 103 and 302",
+                "hi": "बीएनएस की धाराएँ 103 एवं 302"
+              },
+              "url": "https://www.ncrb.gov.in/uploads/SankalanPortal/DownloadPDF/GazetteBNS2023.pdf"
+            }
+          }
+        ]
+      },
+      "318": {
+        "notes": [
+          {
+            "kind": "trap",
+            "title": {
+              "en": "\"420\" is now BNS 318(4), and 318 has four sub-sections with different punishments",
+              "hi": "\"420\" अब बीएनएस 318(4) है, और 318 की चार उपधाराओं में अलग-अलग दण्ड हैं"
+            },
+            "body": {
+              "en": "IPC 415 (cheating), 417, 418 and 420 are consolidated into one section, BNS 318. The offence people call \"420\" is BNS 318(4). Citing BNS 318 alone does not say which sub-section, and the sub-sections differ on punishment, on cognizability and on bail: 318(2) is non-cognizable and bailable, 318(4) is cognizable and non-bailable. Always cite the sub-section.",
+              "hi": "भादंसं की धाराएँ 415 (छल), 417, 418 और 420 अब एक ही धारा — बीएनएस 318 — में समाहित हैं। जिसे लोग \"420\" कहते हैं वह बीएनएस 318(4) है। केवल बीएनएस 318 उद्धृत करने से उपधारा स्पष्ट नहीं होती, और उपधाराओं में दण्ड, संज्ञेयता तथा जमानत भिन्न हैं: 318(2) असंज्ञेय एवं जमानतीय है, 318(4) संज्ञेय एवं अजमानतीय है। उपधारा अवश्य उद्धृत करें।"
+            },
+            "source": {
+              "name": {
+                "en": "BNS section 318, read with the BNSS First Schedule",
+                "hi": "बीएनएस की धारा 318, बीएनएसएस की पहली अनुसूची सहित"
+              },
+              "url": "https://www.ncrb.gov.in/uploads/SankalanPortal/DownloadPDF/GazetteBNS2023.pdf"
+            }
+          }
+        ]
+      }
+    },
+    "BNSS": {
+      "1": {
+        "notes": [
+          {
+            "kind": "transitional",
+            "title": {
+              "en": "In force from 1 July 2024",
+              "hi": "1 जुलाई 2024 से प्रवृत्त"
+            },
+            "body": {
+              "en": "All three Sanhitas were brought into force on 1 July 2024 by notifications issued on 24 February 2024. BNS section 106(2) (causing death by rash and negligent driving and fleeing) was expressly excluded from that commencement and is not yet in force.",
+              "hi": "तीनों संहिताएँ 24 फरवरी 2024 की अधिसूचनाओं द्वारा 1 जुलाई 2024 से प्रवृत्त हुईं। बीएनएस की धारा 106(2) (उतावलेपन एवं उपेक्षापूर्ण वाहन चालन से मृत्यु कारित कर भाग जाना) को उस प्रवर्तन से अभिव्यक्त रूप से अपवर्जित रखा गया और वह अभी प्रवृत्त नहीं है।"
+            },
+            "source": {
+              "name": {
+                "en": "MHA notification S.O. 850(E) dated 24 February 2024",
+                "hi": "गृह मंत्रालय अधिसूचना एस.ओ. 850(अ), दिनांक 24 फरवरी 2024"
+              },
+              "url": "https://www.ncrb.gov.in/uploads/SankalanPortal/DownloadPDF/GazetteNotificationOfBNS,BNSS,BSA.pdf"
+            }
+          }
+        ]
+      },
+      "482": {
+        "notes": [
+          {
+            "kind": "trap",
+            "title": {
+              "en": "Number swap: CrPC 438 is now BNSS 482 — and BNSS 438 is something else",
+              "hi": "संख्या-अदला-बदली: दप्रसं 438 अब बीएनएसएस 482 है — और बीएनएसएस 438 कुछ और है"
+            },
+            "body": {
+              "en": "Anticipatory bail was CrPC section 438. It is now BNSS section 482. The two numbers cross over: old 438 becomes new 482, and old 482 (inherent powers of the High Court) becomes new 528. Quoting \"section 438\" in a BNSS matter points at a different provision altogether. Always name the Act with the number.",
+              "hi": "अग्रिम जमानत पहले दण्ड प्रक्रिया संहिता की धारा 438 थी। अब यह बीएनएसएस की धारा 482 है। दोनों संख्याएँ आपस में बदल गई हैं: पुरानी 438 नई 482 बनी, और पुरानी 482 (उच्च न्यायालय की अंतर्निहित शक्तियाँ) नई 528 बनी। बीएनएसएस के मामले में \"धारा 438\" लिखने पर बिल्कुल दूसरा उपबंध निर्दिष्ट होता है। संख्या के साथ अधिनियम का नाम अवश्य लिखें।"
+            },
+            "source": {
+              "name": {
+                "en": "BNSS sections 482 and 528, read with the CrPC correspondence table",
+                "hi": "बीएनएसएस की धाराएँ 482 एवं 528, दप्रसं तत्संगत तालिका सहित"
+              },
+              "url": "https://www.ncrb.gov.in/uploads/SankalanPortal/SectionTableBNSS.html"
+            }
+          }
+        ]
+      },
+      "528": {
+        "notes": [
+          {
+            "kind": "trap",
+            "title": {
+              "en": "Number swap: CrPC 482 (inherent powers) is now BNSS 528",
+              "hi": "संख्या-अदला-बदली: दप्रसं 482 (अंतर्निहित शक्तियाँ) अब बीएनएसएस 528 है"
+            },
+            "body": {
+              "en": "The High Court's inherent powers were CrPC section 482 and are now BNSS section 528. BNSS section 482 is anticipatory bail — the provision that used to be CrPC 438. A quashing petition filed \"under section 482 BNSS\" asks for the wrong thing.",
+              "hi": "उच्च न्यायालय की अंतर्निहित शक्तियाँ पहले दप्रसं की धारा 482 थीं और अब बीएनएसएस की धारा 528 हैं। बीएनएसएस की धारा 482 अग्रिम जमानत है — वही उपबंध जो पहले दप्रसं 438 था। \"धारा 482 बीएनएसएस के अधीन\" दाखिल अभिखंडन याचिका गलत अनुतोष माँगती है।"
+            },
+            "source": {
+              "name": {
+                "en": "BNSS sections 482 and 528",
+                "hi": "बीएनएसएस की धाराएँ 482 एवं 528"
+              },
+              "url": "https://www.ncrb.gov.in/uploads/SankalanPortal/SectionTableBNSS.html"
+            }
+          }
+        ]
+      },
+      "531": {
+        "notes": [
+          {
+            "kind": "transitional",
+            "title": {
+              "en": "Offences before 1 July 2024 stay under the repealed Act — BNSS 531(2)(a)",
+              "hi": "1 जुलाई 2024 से पहले के अपराध निरसित अधिनियम के अधीन ही रहेंगे — बीएनएसएस 531(2)(क)"
+            },
+            "body": {
+              "en": "BNSS section 531(1) repeals the Code of Criminal Procedure, 1973. Section 531(2)(a) saves everything already under way: any appeal, application, trial, inquiry or investigation pending immediately before 1 July 2024 is disposed of, continued or held under the CrPC as if the BNSS had not come into force. The choice of code follows the date of the offence and the state of the proceeding, not the date you are writing.",
+              "hi": "बीएनएसएस की धारा 531(1) दण्ड प्रक्रिया संहिता, 1973 को निरसित करती है। धारा 531(2)(क) पहले से चल रही कार्यवाहियों को बचाती है: 1 जुलाई 2024 से ठीक पहले लंबित कोई भी अपील, आवेदन, विचारण, जाँच या अन्वेषण दण्ड प्रक्रिया संहिता के अधीन ही निपटाया, जारी रखा या किया जाएगा, मानो बीएनएसएस प्रवृत्त ही न हुई हो। संहिता का चयन अपराध की तारीख और कार्यवाही की स्थिति से तय होता है, आपके लिखने की तारीख से नहीं।"
+            },
+            "source": {
+              "name": {
+                "en": "BNSS section 531, and MHA notifications S.O. 850(E)/851(E)/852(E) dated 24 February 2024 bringing all three Sanhitas into force on 1 July 2024",
+                "hi": "बीएनएसएस की धारा 531, तथा गृह मंत्रालय अधिसूचना एस.ओ. 850(अ)/851(अ)/852(अ), दिनांक 24 फरवरी 2024, जिनके द्वारा तीनों संहिताएँ 1 जुलाई 2024 से प्रवृत्त हुईं"
+              },
+              "url": "https://www.ncrb.gov.in/uploads/SankalanPortal/DownloadPDF/GazetteNotificationOfBNS,BNSS,BSA.pdf"
+            }
+          }
+        ]
+      }
+    },
+    "BSA": {
+      "1": {
+        "notes": [
+          {
+            "kind": "transitional",
+            "title": {
+              "en": "In force from 1 July 2024",
+              "hi": "1 जुलाई 2024 से प्रवृत्त"
+            },
+            "body": {
+              "en": "All three Sanhitas were brought into force on 1 July 2024 by notifications issued on 24 February 2024. BNS section 106(2) (causing death by rash and negligent driving and fleeing) was expressly excluded from that commencement and is not yet in force.",
+              "hi": "तीनों संहिताएँ 24 फरवरी 2024 की अधिसूचनाओं द्वारा 1 जुलाई 2024 से प्रवृत्त हुईं। बीएनएस की धारा 106(2) (उतावलेपन एवं उपेक्षापूर्ण वाहन चालन से मृत्यु कारित कर भाग जाना) को उस प्रवर्तन से अभिव्यक्त रूप से अपवर्जित रखा गया और वह अभी प्रवृत्त नहीं है।"
+            },
+            "source": {
+              "name": {
+                "en": "MHA notification S.O. 850(E) dated 24 February 2024",
+                "hi": "गृह मंत्रालय अधिसूचना एस.ओ. 850(अ), दिनांक 24 फरवरी 2024"
+              },
+              "url": "https://www.ncrb.gov.in/uploads/SankalanPortal/DownloadPDF/GazetteNotificationOfBNS,BNSS,BSA.pdf"
+            }
+          }
+        ]
+      }
+    }
+  },
+  "index": {
+    "IPC": {
+      "302": {
+        "warnings": [
+          {
+            "kind": "trap",
+            "title": {
+              "en": "\"302\" is now BNS 103 — and BNS 302 is a religious-feelings offence",
+              "hi": "\"302\" अब बीएनएस 103 है — और बीएनएस 302 धार्मिक भावना संबंधी अपराध है"
+            },
+            "body": {
+              "en": "Punishment for murder moved from IPC 302 to BNS 103. BNS 302 exists but is \"uttering words with deliberate intent to wound religious feelings\", punishable with up to one year. The habit of saying \"302\" for murder is now actively misleading.",
+              "hi": "हत्या के लिए दण्ड भादंसं 302 से बीएनएस 103 में आ गया है। बीएनएस 302 विद्यमान तो है, किंतु वह \"धार्मिक भावनाओं को ठेस पहुँचाने के विमर्शित आशय से शब्दों का उच्चारण\" है, जिसमें एक वर्ष तक का दण्ड है। हत्या के लिए \"302\" कहने की आदत अब भ्रामक है।"
+            },
+            "source": {
+              "name": {
+                "en": "BNS sections 103 and 302",
+                "hi": "बीएनएस की धाराएँ 103 एवं 302"
+              },
+              "url": "https://www.ncrb.gov.in/uploads/SankalanPortal/DownloadPDF/GazetteBNS2023.pdf"
+            }
+          }
+        ]
+      },
+      "420": {
+        "newSections": [
+          "318(4)"
+        ],
+        "warnings": [
+          {
+            "kind": "trap",
+            "title": {
+              "en": "\"420\" is now BNS 318(4), and 318 has four sub-sections with different punishments",
+              "hi": "\"420\" अब बीएनएस 318(4) है, और 318 की चार उपधाराओं में अलग-अलग दण्ड हैं"
+            },
+            "body": {
+              "en": "IPC 415 (cheating), 417, 418 and 420 are consolidated into one section, BNS 318. The offence people call \"420\" is BNS 318(4). Citing BNS 318 alone does not say which sub-section, and the sub-sections differ on punishment, on cognizability and on bail: 318(2) is non-cognizable and bailable, 318(4) is cognizable and non-bailable. Always cite the sub-section.",
+              "hi": "भादंसं की धाराएँ 415 (छल), 417, 418 और 420 अब एक ही धारा — बीएनएस 318 — में समाहित हैं। जिसे लोग \"420\" कहते हैं वह बीएनएस 318(4) है। केवल बीएनएस 318 उद्धृत करने से उपधारा स्पष्ट नहीं होती, और उपधाराओं में दण्ड, संज्ञेयता तथा जमानत भिन्न हैं: 318(2) असंज्ञेय एवं जमानतीय है, 318(4) संज्ञेय एवं अजमानतीय है। उपधारा अवश्य उद्धृत करें।"
+            },
+            "source": {
+              "name": {
+                "en": "BNS section 318, read with the BNSS First Schedule",
+                "hi": "बीएनएस की धारा 318, बीएनएसएस की पहली अनुसूची सहित"
+              },
+              "url": "https://www.ncrb.gov.in/uploads/SankalanPortal/DownloadPDF/GazetteBNS2023.pdf"
+            }
+          }
+        ]
+      },
+      "415": {
+        "newSections": [
+          "318(1)"
+        ],
+        "warnings": [
+          {
+            "kind": "trap",
+            "title": {
+              "en": "\"420\" is now BNS 318(4), and 318 has four sub-sections with different punishments",
+              "hi": "\"420\" अब बीएनएस 318(4) है, और 318 की चार उपधाराओं में अलग-अलग दण्ड हैं"
+            },
+            "body": {
+              "en": "IPC 415 (cheating), 417, 418 and 420 are consolidated into one section, BNS 318. The offence people call \"420\" is BNS 318(4). Citing BNS 318 alone does not say which sub-section, and the sub-sections differ on punishment, on cognizability and on bail: 318(2) is non-cognizable and bailable, 318(4) is cognizable and non-bailable. Always cite the sub-section.",
+              "hi": "भादंसं की धाराएँ 415 (छल), 417, 418 और 420 अब एक ही धारा — बीएनएस 318 — में समाहित हैं। जिसे लोग \"420\" कहते हैं वह बीएनएस 318(4) है। केवल बीएनएस 318 उद्धृत करने से उपधारा स्पष्ट नहीं होती, और उपधाराओं में दण्ड, संज्ञेयता तथा जमानत भिन्न हैं: 318(2) असंज्ञेय एवं जमानतीय है, 318(4) संज्ञेय एवं अजमानतीय है। उपधारा अवश्य उद्धृत करें।"
+            },
+            "source": {
+              "name": {
+                "en": "BNS section 318, read with the BNSS First Schedule",
+                "hi": "बीएनएस की धारा 318, बीएनएसएस की पहली अनुसूची सहित"
+              },
+              "url": "https://www.ncrb.gov.in/uploads/SankalanPortal/DownloadPDF/GazetteBNS2023.pdf"
+            }
+          }
+        ]
+      },
+      "376": {
+        "warnings": [
+          {
+            "kind": "trap",
+            "title": {
+              "en": "\"376\" is now BNS 64; the definition of rape is BNS 63",
+              "hi": "\"376\" अब बीएनएस 64 है; बलात्संग की परिभाषा बीएनएस 63 है"
+            },
+            "body": {
+              "en": "IPC 375 (definition) and 376 (punishment) become BNS 63 and BNS 64. The aggravated forms that were 376(2), 376A, 376AB, 376D and 376DA are redistributed across BNS 65 to 71 — they are not sub-sections of 64. Check which one applies before charging.",
+              "hi": "भादंसं 375 (परिभाषा) और 376 (दण्ड) अब क्रमशः बीएनएस 63 और बीएनएस 64 हैं। जो गुरुतर रूप 376(2), 376क, 376कख, 376घ और 376घक थे, वे बीएनएस 65 से 71 तक में पुनर्वितरित हैं — वे धारा 64 की उपधाराएँ नहीं हैं। आरोप लगाने से पहले लागू उपबंध जाँच लें।"
+            },
+            "source": {
+              "name": {
+                "en": "BNS sections 63 to 71",
+                "hi": "बीएनएस की धाराएँ 63 से 71"
+              },
+              "url": "https://www.ncrb.gov.in/uploads/SankalanPortal/DownloadPDF/GazetteBNS2023.pdf"
+            }
+          }
+        ]
+      },
+      "375": {
+        "warnings": [
+          {
+            "kind": "trap",
+            "title": {
+              "en": "\"376\" is now BNS 64; the definition of rape is BNS 63",
+              "hi": "\"376\" अब बीएनएस 64 है; बलात्संग की परिभाषा बीएनएस 63 है"
+            },
+            "body": {
+              "en": "IPC 375 (definition) and 376 (punishment) become BNS 63 and BNS 64. The aggravated forms that were 376(2), 376A, 376AB, 376D and 376DA are redistributed across BNS 65 to 71 — they are not sub-sections of 64. Check which one applies before charging.",
+              "hi": "भादंसं 375 (परिभाषा) और 376 (दण्ड) अब क्रमशः बीएनएस 63 और बीएनएस 64 हैं। जो गुरुतर रूप 376(2), 376क, 376कख, 376घ और 376घक थे, वे बीएनएस 65 से 71 तक में पुनर्वितरित हैं — वे धारा 64 की उपधाराएँ नहीं हैं। आरोप लगाने से पहले लागू उपबंध जाँच लें।"
+            },
+            "source": {
+              "name": {
+                "en": "BNS sections 63 to 71",
+                "hi": "बीएनएस की धाराएँ 63 से 71"
+              },
+              "url": "https://www.ncrb.gov.in/uploads/SankalanPortal/DownloadPDF/GazetteBNS2023.pdf"
+            }
+          }
+        ]
+      },
+      "124A": {
+        "newSections": [
+          "152"
+        ],
+        "status": "mapped",
+        "warnings": [
+          {
+            "kind": "trap",
+            "title": {
+              "en": "IPC 124A (sedition) is repealed; BNS 152 is a new and differently worded offence",
+              "hi": "भादंसं 124क (राजद्रोह) निरसित; बीएनएस 152 नया एवं भिन्न शब्दावली वाला अपराध है"
+            },
+            "body": {
+              "en": "NCRB's correspondence table marks IPC 124A \"Deleted\": there is no sedition offence in the BNS. BNS 152 punishes acts endangering the sovereignty, unity and integrity of India, and is worded differently — it turns on secession, armed rebellion, subversive activities and separatist feelings, and it is not a renumbering of 124A. Do not treat 124A case law as automatically carrying over.",
+              "hi": "एनसीआरबी की तत्संगत तालिका भादंसं 124क को \"Deleted\" दर्शाती है: बीएनएस में राजद्रोह का अपराध नहीं है। बीएनएस 152 भारत की प्रभुता, एकता और अखंडता को संकटापन्न करने वाले कार्यों को दण्डित करती है और उसकी शब्दावली भिन्न है — वह अलगाव, सशस्त्र विद्रोह, विध्वंसक क्रियाकलाप और पृथक्तावादी भावनाओं पर आधारित है, और यह 124क का पुनःसंख्यांकन नहीं है। 124क की न्यायिक व्याख्या स्वतः लागू न मानें।"
+            },
+            "source": {
+              "name": {
+                "en": "BNS section 152, read with the NCRB BNS/IPC correspondence table",
+                "hi": "बीएनएस की धारा 152, एनसीआरबी बीएनएस/भादंसं तत्संगत तालिका सहित"
+              },
+              "url": "https://www.ncrb.gov.in/uploads/SankalanPortal/SectionTableBNS.html"
+            }
+          },
+          {
+            "kind": "caution",
+            "title": {
+              "en": "IPC 124A — Sedition — has no counterpart in the BNS",
+              "hi": "भादंसं 124A — राजद्रोह — का बीएनएस में कोई तत्संगत उपबंध नहीं"
+            },
+            "body": {
+              "en": "IPC 124A has no counterpart in the BNS. See the warning on BNS 152, which is a new offence with different ingredients rather than a renumbering.",
+              "hi": "भादंसं 124क का बीएनएस में कोई तत्संगत उपबंध नहीं है। बीएनएस 152 पर दी गई चेतावनी देखें — वह भिन्न अवयवों वाला नया अपराध है, पुनःसंख्यांकन नहीं।"
+            },
+            "source": {
+              "name": {
+                "en": "NCRB Sankalan BNS/IPC correspondence table",
+                "hi": "एनसीआरबी संकलन बीएनएस/भादंसं तत्संगत तालिका"
+              },
+              "url": "https://www.ncrb.gov.in/uploads/SankalanPortal/SectionTableBNS.html"
+            }
+          }
+        ],
+        "heading": {
+          "en": "Sedition.",
+          "hi": "राजद्रोह।"
+        }
+      },
+      "309": {
+        "warnings": [
+          {
+            "kind": "caution",
+            "title": {
+              "en": "IPC 309 — Attempt to commit suicide — has no counterpart in the BNS",
+              "hi": "भादंसं 309 — आत्महत्या का प्रयत्न — का बीएनएस में कोई तत्संगत उपबंध नहीं"
+            },
+            "body": {
+              "en": "IPC 309 has no counterpart in the BNS. Attempting suicide is no longer an offence in itself; section 115 of the Mental Healthcare Act, 2017 had already presumed severe stress and barred prosecution. BNS 226 is narrower and different — attempting suicide to compel or restrain a public servant in the exercise of a lawful power.",
+              "hi": "भादंसं 309 का बीएनएस में कोई तत्संगत उपबंध नहीं है। आत्महत्या का प्रयत्न अब स्वयं में अपराध नहीं है; मानसिक स्वास्थ्य देखरेख अधिनियम, 2017 की धारा 115 पहले ही गंभीर तनाव की उपधारणा कर अभियोजन वर्जित कर चुकी थी। बीएनएस 226 संकीर्ण एवं भिन्न है — लोक सेवक को विधिपूर्ण शक्ति के प्रयोग से विवश या अवरुद्ध करने के लिए आत्महत्या का प्रयत्न।"
+            },
+            "source": {
+              "name": {
+                "en": "NCRB Sankalan BNS/IPC correspondence table",
+                "hi": "एनसीआरबी संकलन बीएनएस/भादंसं तत्संगत तालिका"
+              },
+              "url": "https://www.ncrb.gov.in/uploads/SankalanPortal/SectionTableBNS.html"
+            }
+          }
+        ],
+        "heading": {
+          "en": "Attempt to commit suicide.",
+          "hi": "आत्महत्या का प्रयत्न।"
+        }
+      },
+      "377": {
+        "warnings": [
+          {
+            "kind": "caution",
+            "title": {
+              "en": "IPC 377 — Unnatural offences — has no counterpart in the BNS",
+              "hi": "भादंसं 377 — प्रकृति विरुद्ध अपराध — का बीएनएस में कोई तत्संगत उपबंध नहीं"
+            },
+            "body": {
+              "en": "IPC 377 has no counterpart in the BNS. The Supreme Court had already read down its application to consenting adults in Navtej Singh Johar (2018). The BNS carries forward no equivalent, which leaves non-consensual acts against adult men and against animals to be charged under other provisions — check carefully before framing a charge.",
+              "hi": "भादंसं 377 का बीएनएस में कोई तत्संगत उपबंध नहीं है। उच्चतम न्यायालय नवतेज सिंह जौहर (2018) में सहमत वयस्कों पर इसके प्रयोग को पहले ही सीमित कर चुका था। बीएनएस में कोई समकक्ष उपबंध नहीं है, जिससे वयस्क पुरुषों के विरुद्ध असहमतिपूर्ण कृत्यों तथा पशुओं के विरुद्ध कृत्यों के लिए अन्य उपबंधों का सहारा लेना पड़ता है — आरोप विरचित करने से पहले सावधानी से जाँच करें।"
+            },
+            "source": {
+              "name": {
+                "en": "NCRB Sankalan BNS/IPC correspondence table",
+                "hi": "एनसीआरबी संकलन बीएनएस/भादंसं तत्संगत तालिका"
+              },
+              "url": "https://www.ncrb.gov.in/uploads/SankalanPortal/SectionTableBNS.html"
+            }
+          }
+        ],
+        "heading": {
+          "en": "Unnatural offences.",
+          "hi": "प्रकृति विरुद्ध अपराध।"
+        }
+      },
+      "497": {
+        "warnings": [
+          {
+            "kind": "caution",
+            "title": {
+              "en": "IPC 497 — Adultery — has no counterpart in the BNS",
+              "hi": "भादंसं 497 — जारकर्म — का बीएनएस में कोई तत्संगत उपबंध नहीं"
+            },
+            "body": {
+              "en": "IPC 497 has no counterpart in the BNS. It had already been struck down as unconstitutional in Joseph Shine v. Union of India (2018); the BNS does not re-enact it in any form.",
+              "hi": "भादंसं 497 का बीएनएस में कोई तत्संगत उपबंध नहीं है। जोसेफ शाइन बनाम भारत संघ (2018) में इसे पहले ही असंवैधानिक घोषित किया जा चुका था; बीएनएस इसे किसी रूप में पुनः अधिनियमित नहीं करती।"
+            },
+            "source": {
+              "name": {
+                "en": "NCRB Sankalan BNS/IPC correspondence table",
+                "hi": "एनसीआरबी संकलन बीएनएस/भादंसं तत्संगत तालिका"
+              },
+              "url": "https://www.ncrb.gov.in/uploads/SankalanPortal/SectionTableBNS.html"
+            }
+          }
+        ],
+        "heading": {
+          "en": "Adultery.",
+          "hi": "जारकर्म।"
+        }
+      },
+      "153AA": {
+        "warnings": [
+          {
+            "kind": "caution",
+            "title": {
+              "en": "IPC 153AA — Punishment for knowingly carrying arms in any procession or mass drill — has no counterpart in the BNS",
+              "hi": "भादंसं 153AA — किसी जुलूस या सामूहिक अभ्यास में जानबूझकर आयुध ले जाने के लिए दण्ड — का बीएनएस में कोई तत्संगत उपबंध नहीं"
+            },
+            "body": {
+              "en": "IPC 153AA has no counterpart in the BNS.",
+              "hi": "भादंसं 153कक का बीएनएस में कोई तत्संगत उपबंध नहीं है।"
+            },
+            "source": {
+              "name": {
+                "en": "NCRB Sankalan BNS/IPC correspondence table",
+                "hi": "एनसीआरबी संकलन बीएनएस/भादंसं तत्संगत तालिका"
+              },
+              "url": "https://www.ncrb.gov.in/uploads/SankalanPortal/SectionTableBNS.html"
+            }
+          }
+        ],
+        "heading": {
+          "en": "Punishment for knowingly carrying arms in any procession or mass drill.",
+          "hi": "किसी जुलूस या सामूहिक अभ्यास में जानबूझकर आयुध ले जाने के लिए दण्ड।"
+        }
+      },
+      "376E": {
+        "warnings": [
+          {
+            "kind": "caution",
+            "title": {
+              "en": "IPC 376E — Punishment for repeat offenders — has no counterpart in the BNS",
+              "hi": "भादंसं 376E — पुनरावृत्ति करने वाले अपराधियों के लिए दण्ड — का बीएनएस में कोई तत्संगत उपबंध नहीं"
+            },
+            "body": {
+              "en": "IPC 376E is not carried forward as a separate section. Check BNS 64 to 71 and the relevant special Act before assuming an enhanced-punishment provision applies.",
+              "hi": "भादंसं 376ङ पृथक् धारा के रूप में आगे नहीं लाई गई है। बढ़े हुए दण्ड का उपबंध लागू मानने से पहले बीएनएस 64 से 71 तथा संबंधित विशेष अधिनियम देखें।"
+            },
+            "source": {
+              "name": {
+                "en": "NCRB Sankalan BNS/IPC correspondence table",
+                "hi": "एनसीआरबी संकलन बीएनएस/भादंसं तत्संगत तालिका"
+              },
+              "url": "https://www.ncrb.gov.in/uploads/SankalanPortal/SectionTableBNS.html"
+            }
+          }
+        ],
+        "heading": {
+          "en": "Punishment for repeat offenders.",
+          "hi": "पुनरावृत्ति करने वाले अपराधियों के लिए दण्ड।"
+        }
+      }
+    },
+    "CrPC": {
+      "438": {
+        "warnings": [
+          {
+            "kind": "trap",
+            "title": {
+              "en": "Number swap: CrPC 438 is now BNSS 482 — and BNSS 438 is something else",
+              "hi": "संख्या-अदला-बदली: दप्रसं 438 अब बीएनएसएस 482 है — और बीएनएसएस 438 कुछ और है"
+            },
+            "body": {
+              "en": "Anticipatory bail was CrPC section 438. It is now BNSS section 482. The two numbers cross over: old 438 becomes new 482, and old 482 (inherent powers of the High Court) becomes new 528. Quoting \"section 438\" in a BNSS matter points at a different provision altogether. Always name the Act with the number.",
+              "hi": "अग्रिम जमानत पहले दण्ड प्रक्रिया संहिता की धारा 438 थी। अब यह बीएनएसएस की धारा 482 है। दोनों संख्याएँ आपस में बदल गई हैं: पुरानी 438 नई 482 बनी, और पुरानी 482 (उच्च न्यायालय की अंतर्निहित शक्तियाँ) नई 528 बनी। बीएनएसएस के मामले में \"धारा 438\" लिखने पर बिल्कुल दूसरा उपबंध निर्दिष्ट होता है। संख्या के साथ अधिनियम का नाम अवश्य लिखें।"
+            },
+            "source": {
+              "name": {
+                "en": "BNSS sections 482 and 528, read with the CrPC correspondence table",
+                "hi": "बीएनएसएस की धाराएँ 482 एवं 528, दप्रसं तत्संगत तालिका सहित"
+              },
+              "url": "https://www.ncrb.gov.in/uploads/SankalanPortal/SectionTableBNSS.html"
+            }
+          }
+        ]
+      },
+      "482": {
+        "warnings": [
+          {
+            "kind": "trap",
+            "title": {
+              "en": "Number swap: CrPC 482 (inherent powers) is now BNSS 528",
+              "hi": "संख्या-अदला-बदली: दप्रसं 482 (अंतर्निहित शक्तियाँ) अब बीएनएसएस 528 है"
+            },
+            "body": {
+              "en": "The High Court's inherent powers were CrPC section 482 and are now BNSS section 528. BNSS section 482 is anticipatory bail — the provision that used to be CrPC 438. A quashing petition filed \"under section 482 BNSS\" asks for the wrong thing.",
+              "hi": "उच्च न्यायालय की अंतर्निहित शक्तियाँ पहले दप्रसं की धारा 482 थीं और अब बीएनएसएस की धारा 528 हैं। बीएनएसएस की धारा 482 अग्रिम जमानत है — वही उपबंध जो पहले दप्रसं 438 था। \"धारा 482 बीएनएसएस के अधीन\" दाखिल अभिखंडन याचिका गलत अनुतोष माँगती है।"
+            },
+            "source": {
+              "name": {
+                "en": "BNSS sections 482 and 528",
+                "hi": "बीएनएसएस की धाराएँ 482 एवं 528"
+              },
+              "url": "https://www.ncrb.gov.in/uploads/SankalanPortal/SectionTableBNSS.html"
+            }
+          }
+        ]
+      }
+    }
+  }
+}
