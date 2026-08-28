@@ -1,7 +1,8 @@
-import { Search, X } from 'lucide-react'
+import { Download, Loader2, Mic, MicOff, Search, X } from 'lucide-react'
 import { useEffect, useRef } from 'react'
 
-import { VoiceSearchButton } from '@/components/common/VoiceSearchButton'
+import { useVoiceSearch } from '@/components/common/useVoiceSearch'
+import { Button } from '@/components/ui/button'
 import { useT } from '@/i18n/useT'
 import { cn } from '@/lib/utils'
 
@@ -43,6 +44,16 @@ export function SearchBar({
 }: SearchBarProps) {
   const { t } = useT()
   const inputRef = useRef<HTMLInputElement>(null)
+
+  /**
+   * Dictation. Recognised on the device or refused — see
+   * `src/lib/voiceSettings.ts`. `supported` is false in a browser that cannot
+   * do it locally, and then none of this renders.
+   */
+  const voice = useVoiceSearch((transcript, isFinal) => {
+    onChange(transcript)
+    if (isFinal) inputRef.current?.focus()
+  })
 
   useEffect(() => {
     const onKeyDown = (event: KeyboardEvent) => {
@@ -119,22 +130,61 @@ export function SearchBar({
           ) : null}
         </div>
 
-        {/*
-          Dictation. Renders nothing where the browser has no speech API, and
-          sends nothing until the reader has read the notice behind it — the
-          audio is transcribed off the device (src/lib/voiceConsent.ts).
-        */}
-        <VoiceSearchButton
-          onTranscript={(transcript, isFinal) => {
-            onChange(transcript)
-            if (isFinal) inputRef.current?.focus()
-          }}
-        />
+        {voice.supported ? (
+          <Button
+            type="button"
+            variant={voice.listening ? 'secondary' : 'outline'}
+            size="icon"
+            onClick={voice.press}
+            aria-pressed={voice.listening}
+            aria-label={voice.label}
+            className="shrink-0"
+          >
+            {voice.busy ? (
+              <Loader2 aria-hidden="true" className="animate-spin" />
+            ) : voice.listening ? (
+              <Mic aria-hidden="true" />
+            ) : (
+              <MicOff aria-hidden="true" />
+            )}
+          </Button>
+        ) : null}
       </div>
 
       <p id="law-search-hint" className="mt-1.5 text-xs text-muted-foreground">
         {t('law.search.hint')}
       </p>
+
+      {/* The microphone is open. Say so in text, not only with an icon. */}
+      <p role="status" aria-live="assertive" className="sr-only">
+        {voice.listening ? t('voice.listening') : ''}
+      </p>
+
+      {voice.error ? (
+        <p role="alert" className="mt-1.5 text-xs text-coral-foreground">
+          {t(`voice.errors.${voice.error}`)}
+        </p>
+      ) : null}
+
+      {/*
+        The model is a one-time browser download, offered rather than started:
+        it is large, and a reader who only wanted to type should not pay for it.
+      */}
+      {!voice.error && (voice.status === 'downloadable' || voice.status === 'downloading') ? (
+        <div className="mt-1.5 flex flex-wrap items-center gap-2 text-xs text-muted-foreground">
+          <span className="max-w-prose">{t('voice.download.needed')}</span>
+          <Button type="button" variant="outline" size="sm" disabled={voice.busy} onClick={voice.download}>
+            <Download aria-hidden="true" />
+            {t('voice.download.action')}
+          </Button>
+        </div>
+      ) : null}
+
+      {!voice.error && voice.status === 'unavailable' ? (
+        <p role="status" className="mt-1.5 max-w-prose text-xs text-muted-foreground">
+          {t('voice.errors.no-model')}
+        </p>
+      ) : null}
 
       {/*
         The result count is announced, not just drawn. A reader typing a section

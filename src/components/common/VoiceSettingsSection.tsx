@@ -3,19 +3,18 @@ import { Mic } from 'lucide-react'
 import { useAppStore } from '@/app/store'
 import { Badge, OptionRow } from '@/components/ui-x'
 import { useT } from '@/i18n/useT'
-import { isVoiceEnabled, isVoiceSupported, VOICE_CONSENT_VERSION } from '@/lib/voiceConsent'
+import { isVoiceSupported } from '@/lib/voiceSettings'
 
 /**
  * The off switch for voice search.
  *
- * The microphone is turned ON from the search bar, where the notice is; this is
- * where it is turned off again, and where a reader who has never touched it can
- * see that it exists and is off. That split is deliberate: consent belongs next
- * to the action it enables, and a kill switch belongs somewhere findable.
+ * There is nothing to consent to — speech is recognised on the device and never
+ * sent anywhere (ADR-017) — so this is a preference, not a gate: some readers
+ * would simply rather not have a microphone button in their search field.
  *
- * Turning it off keeps the recorded consent, so turning it back on does not
- * re-prompt — the same contract as the AI tier (ADR-011). Bumping
- * VOICE_CONSENT_VERSION is what re-prompts everybody.
+ * It shows the unsupported case rather than hiding the section, because "this
+ * app has no voice search" and "your browser cannot do it locally" are
+ * different facts and only one of them is about the app.
  */
 export function VoiceSettingsSection() {
   const { t } = useT()
@@ -23,7 +22,7 @@ export function VoiceSettingsSection() {
   const setVoice = useAppStore((s) => s.setVoice)
 
   const supported = isVoiceSupported()
-  const on = isVoiceEnabled(voice)
+  const on = voice.enabled
 
   return (
     <section className="flex flex-col gap-3">
@@ -31,7 +30,7 @@ export function VoiceSettingsSection() {
         <h2 className="flex items-center gap-2 text-lg font-semibold">
           <Mic aria-hidden="true" className="h-4 w-4 text-muted-foreground" />
           {t('voice.settings.title')}
-          <Badge tone={on ? 'warning' : 'neutral'}>
+          <Badge tone={on ? 'success' : 'neutral'}>
             {on ? t('voice.settings.on') : t('voice.settings.off')}
           </Badge>
         </h2>
@@ -48,11 +47,6 @@ export function VoiceSettingsSection() {
           <OptionRow
             selected={on}
             label={t('voice.settings.on')}
-            // Turning it on from here still requires consent on record; a
-            // reader who has never read the notice is sent to it by the mic
-            // button rather than being opted in from a settings row.
-            disabled={voice.consentVersion !== VOICE_CONSENT_VERSION}
-            hint={voice.consentVersion !== VOICE_CONSENT_VERSION ? t('voice.settings.read') : undefined}
             onSelect={() => void setVoice({ enabled: true })}
           />
         </div>

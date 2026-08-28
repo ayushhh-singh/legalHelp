@@ -1,7 +1,7 @@
 import { create } from 'zustand'
 
 import { DEFAULT_AI_SETTINGS, parseAiSettings, type AiSettings } from '@/ai/flags'
-import { DEFAULT_VOICE_SETTINGS, parseVoiceSettings, type VoiceSettings } from '@/lib/voiceConsent'
+import { DEFAULT_VOICE_SETTINGS, parseVoiceSettings, type VoiceSettings } from '@/lib/voiceSettings'
 import { db, getSetting, setSetting, SETTING_KEYS } from '@/db'
 import i18n, { detectBrowserLanguage, isLanguage, type Language } from '@/i18n'
 

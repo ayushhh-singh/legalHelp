@@ -86,15 +86,15 @@ test('sends nothing while a query, an offence date and a citation are typed, ope
 })
 
 /**
- * Voice search, off by default (ADR-013 addendum).
+ * Voice search recognises speech ON THE DEVICE or refuses (ADR-017).
  *
- * Speech recognition in Chrome is a NETWORK service — the captured audio is
- * streamed to Google — so "off by default" has to mean more than a grey button:
- * nothing may construct a recogniser until the reader has read the notice. This
- * replaces the global with a counting stub before the app loads, then uses the
- * page normally and asserts the count is still zero.
+ * "On the device" has to mean more than a comment, so this replaces the global
+ * with a stub that records what the app asked for, uses the microphone, and
+ * asserts two things: every recogniser was created with `processLocally` set,
+ * and availability was checked the same way. With that flag the user agent must
+ * transcribe locally or raise an error — it may not fall back to a server.
  */
-test('never opens the microphone until the notice has been read', async ({ page, baseURL }) => {
+test('only ever asks for on-device recognition', async ({ page, baseURL }) => {
   const origin = new URL(baseURL ?? 'http://localhost:4173').origin
   const crossOrigin: string[] = []
   page.on('request', (request) => {
@@ -103,47 +103,50 @@ test('never opens the microphone until the notice has been read', async ({ page,
   })
 
   await page.addInitScript(() => {
-    const counter = { built: 0 }
-    ;(window as unknown as { __speech: typeof counter }).__speech = counter
+    const log: { built: boolean[]; asked: unknown[] } = { built: [], asked: [] }
+    ;(window as unknown as { __speech: typeof log }).__speech = log
+
     class Stub {
       lang = ''
       continuous = false
       interimResults = false
       maxAlternatives = 0
-      onresult = null
-      onerror = null
-      onend = null
-      constructor() {
-        counter.built += 1
+      onresult: ((event: unknown) => void) | null = null
+      onerror: ((event: unknown) => void) | null = null
+      onend: (() => void) | null = null
+      static available(options: unknown) {
+        log.asked.push(options)
+        return Promise.resolve('available')
       }
-      start() {}
+      static install() {
+        return Promise.resolve(true)
+      }
+      start() {
+        log.built.push((this as unknown as { processLocally?: boolean }).processLocally === true)
+      }
       stop() {}
       abort() {}
     }
+    // The property must be on the PROTOTYPE: that is where the app looks, and
+    // it must not construct one to find out.
+    Object.defineProperty(Stub.prototype, 'processLocally', { value: false, writable: true })
     Object.defineProperty(window, 'SpeechRecognition', { value: Stub, configurable: true })
+    Reflect.deleteProperty(window, 'webkitSpeechRecognition')
   })
 
   await page.goto('/law')
   await expect(page.getByRole('heading', { level: 1 })).toBeVisible()
 
-  // The button exists, because this browser has the API.
   const mic = page.getByRole('button', { name: 'Search by voice' })
   await expect(mic).toBeVisible()
-
-  // Using the page normally must not open it.
-  await page.getByLabel(/Search a section/).fill('302')
-  await expect(page.getByRole('heading', { name: 'Punishment for murder.' })).toBeVisible()
-
-  // Pressing it opens the NOTICE, not the microphone.
   await mic.click()
-  await expect(page.getByRole('dialog', { name: 'Before you use voice search' })).toBeVisible()
-  await expect(page.getByText(/Your voice leaves this device/)).toBeVisible()
-  await page.getByRole('button', { name: 'Not now' }).click()
+  await expect(page.getByRole('button', { name: 'Stop listening' })).toBeVisible()
 
-  const built = await page.evaluate(
-    () => (window as unknown as { __speech: { built: number } }).__speech.built,
+  const log = await page.evaluate(
+    () => (window as unknown as { __speech: { built: boolean[]; asked: unknown[] } }).__speech,
   )
-  expect(built, 'a recogniser was constructed without consent').toBe(0)
+  expect(log.built, 'a recogniser started without processLocally').toEqual([true])
+  expect(log.asked).toEqual([{ langs: ['en-IN'], processLocally: true }])
   expect(crossOrigin).toEqual([])
 })
 

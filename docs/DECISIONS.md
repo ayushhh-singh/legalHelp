@@ -1652,3 +1652,63 @@ worth its complexity — a list of unknown or unbounded length — is not true h
   and the sweep growing from six routes to eight made that race fire. It now waits on the stored value,
   and only for a preference that was actually toggled: a default is never written, so waiting for
   `theme: light` would wait for a row that will never exist.
+
+---
+
+## ADR-017 — Voice search recognises speech on the device, or refuses
+
+**Date:** 2026-08-28 · **Status:** Accepted · **Supersedes:** ADR-014
+
+### Context
+
+ADR-014 shipped voice search behind a consent notice, because Chrome's default speech path streams the
+captured audio to Google. That was the honest design for the platform as it was: explain the trade and
+let the reader decide.
+
+It is no longer the platform. Chrome exposes on-device recognition — `SpeechRecognition.available()`,
+`SpeechRecognition.install()` and a `processLocally` flag on the recogniser — verified present in the
+Chromium this project tests against. With `processLocally` set, the user agent must transcribe on the
+device or raise an error; it may not fall back to a server.
+
+So the choice was no longer "explain the compromise or drop the feature". It was "require the thing
+that removes the compromise".
+
+### Decision
+
+**Require on-device recognition. Refuse where it is unavailable — never fall back to the cloud.**
+
+1. `processLocally = true` on every recogniser this app creates, and `availability()` is consulted
+   before one is started so an absent model is reported as a missing model rather than a generic error.
+2. **The consent gate is deleted.** With nothing leaving the device there is nothing to consent to, and
+   a notice that says "this is private" is worse than no notice — it trains readers to click through.
+   `VoiceSettings` collapses to a single `enabled` flag, default true: a preference, not a gate.
+3. **A browser that has the API but not `processLocally` shows no microphone at all.** `isVoiceSupported`
+   tests for the flag on the prototype, not merely for the constructor. Firefox has neither. A button
+   that quietly uploads what you say is worse than no button.
+4. **The language model is a button, not a side effect.** `available()` reporting `downloadable` offers
+   the reader a download, performed by the browser, of a speech model that carries nothing they said.
+5. **Everything unexpected fails closed** — an older browser with no `available()`, a rejection, an
+   unrecognised status. The alternative to on-device recognition here is not cloud recognition; it is
+   typing, and the error message says so.
+
+### Consequences
+
+- **The hard rule holds with no exception.** Voice was the one feature that needed a carve-out from
+  "nothing a reader enters leaves the device"; it no longer does.
+- `src/lib/voice.ts` keeps its file-scoped eslint exception, and the reason changes: not "this is the
+  module allowed to send audio" but "this is the module that must set `processLocally`, and confining
+  it to one file is what keeps that checkable by reading". `tests/no-external-urls.test.ts` still
+  asserts the count independently of the lint rule.
+- The privacy suite asserts the guarantee rather than describing it: a Playwright test replaces the
+  global with a stub that records what was asked for, drives the microphone, and checks that every
+  recogniser started with `processLocally` set and that availability was queried the same way.
+- `src/lib/voiceConsent.ts` is now `src/lib/voiceSettings.ts`; the module was renamed because a file
+  called "consent" that grants none is a trap for the next reader.
+- Recognition runs in the reader's own language, `hi-IN` or `en-IN`. That was always the point for a
+  reader who does not want to switch keyboards, and it is now true without a caveat.
+
+### What would change this
+
+`processLocally` is Chrome-only today. If a browser this app must support implements the speech API
+without it, the choice returns — and the answer should still be "no microphone there", not a silent
+cloud fallback. The consent-gated design is in ADR-014 if it is ever genuinely needed.

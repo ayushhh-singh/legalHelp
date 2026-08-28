@@ -1,20 +1,12 @@
 import { afterEach, beforeEach, describe, expect, it, vi } from 'vitest'
 
-import {
-  DEFAULT_VOICE_SETTINGS,
-  hasVoiceConsent,
-  isVoiceEnabled,
-  isVoiceSupported,
-  parseVoiceSettings,
-  VOICE_CONSENT_VERSION,
-  VOICE_LOCALES,
-} from './voiceConsent'
+import { DEFAULT_VOICE_SETTINGS, isVoiceSupported, parseVoiceSettings, VOICE_LOCALES } from './voiceSettings'
 
 /**
- * Voice search is the one feature in this app that sends something a reader
- * produced off the device, so the tests that matter are not "does it
- * transcribe" — they are "can it possibly run without consent" and "does it
- * ever start on its own".
+ * Voice search recognises speech ON THE DEVICE or refuses (ADR-017), so the
+ * tests that matter are not "does it transcribe" — they are "can it ever run
+ * without `processLocally`", "does the button appear where the browser has only
+ * the cloud path", and "does it ever start on its own".
  */
 
 /* ------------------------------------------------------------------ *
@@ -22,53 +14,19 @@ import {
  * ------------------------------------------------------------------ */
 
 describe('voice settings', () => {
-  it('is off, unconsented, by default', () => {
-    expect(DEFAULT_VOICE_SETTINGS.enabled).toBe(false)
-    expect(DEFAULT_VOICE_SETTINGS.consentVersion).toBe(0)
-    expect(isVoiceEnabled(DEFAULT_VOICE_SETTINGS)).toBe(false)
+  it('is on by default, because there is nothing to consent to', () => {
+    // Recognition happens on the device (ADR-017). The button still does
+    // nothing until pressed, and pressing it still needs the browser's own
+    // microphone permission.
+    expect(DEFAULT_VOICE_SETTINGS.enabled).toBe(true)
   })
 
-  it('needs BOTH the switch and consent for this version', () => {
-    expect(isVoiceEnabled({ enabled: true, consentVersion: 0, consentAt: null })).toBe(false)
-    expect(isVoiceEnabled({ enabled: false, consentVersion: VOICE_CONSENT_VERSION, consentAt: 'x' })).toBe(
-      false,
-    )
-    expect(isVoiceEnabled({ enabled: true, consentVersion: VOICE_CONSENT_VERSION, consentAt: 'x' })).toBe(
-      true,
-    )
-  })
-
-  it('re-gates every device when the notice changes', () => {
-    // Bumping the version is what makes readers read a changed notice again.
-    const consented = { enabled: true, consentVersion: VOICE_CONSENT_VERSION - 1, consentAt: 'x' }
-    expect(isVoiceEnabled(consented)).toBe(false)
-    expect(hasVoiceConsent(consented)).toBe(false)
-  })
-
-  it('cannot be turned on by a hand-edited settings row', () => {
-    // The same posture as parseAiSettings: anything unrecognised is discarded
-    // rather than trusted, and only an exact `true` counts.
-    for (const forged of [
-      { enabled: 'true', consentVersion: VOICE_CONSENT_VERSION },
-      { enabled: 1, consentVersion: VOICE_CONSENT_VERSION },
-      { enabled: true, consentVersion: '1' },
-      { enabled: true, consentVersion: 1.5 },
-      'enabled',
-      null,
-      [],
-    ]) {
-      expect(isVoiceEnabled(parseVoiceSettings(forged)), JSON.stringify(forged)).toBe(false)
+  it('can be switched off, and only an explicit false does it', () => {
+    expect(parseVoiceSettings({ enabled: false }).enabled).toBe(false)
+    expect(parseVoiceSettings({ enabled: true }).enabled).toBe(true)
+    for (const junk of [{}, { enabled: 'no' }, { enabled: 0 }, 'off', null, []]) {
+      expect(parseVoiceSettings(junk).enabled, JSON.stringify(junk)).toBe(true)
     }
-  })
-
-  it('round-trips a real consent', () => {
-    const settings = {
-      enabled: true,
-      consentVersion: VOICE_CONSENT_VERSION,
-      consentAt: '2026-08-28T00:00:00Z',
-    }
-    expect(parseVoiceSettings(settings)).toEqual(settings)
-    expect(isVoiceEnabled(parseVoiceSettings(settings))).toBe(true)
   })
 
   it('speaks Indian English and Indian Hindi', () => {
@@ -76,9 +34,15 @@ describe('voice settings', () => {
   })
 })
 
-/* ------------------------------------------------------------------ *
- * Feature detection
- * ------------------------------------------------------------------ */
+/**
+ * `processLocally` lives on the PROTOTYPE in a real browser, which is where
+ * `isVoiceSupported` looks — a class field would be an instance property and
+ * would not be found by a check that must not construct anything.
+ */
+function withOnDevice<T extends abstract new (...args: never[]) => object>(Ctor: T): T {
+  Object.defineProperty(Ctor.prototype, 'processLocally', { value: false, writable: true })
+  return Ctor
+}
 
 describe('isVoiceSupported', () => {
   afterEach(() => {
@@ -92,23 +56,34 @@ describe('isVoiceSupported', () => {
   })
 
   it('accepts either spelling of the global', () => {
-    Object.defineProperty(window, 'webkitSpeechRecognition', { value: class {}, configurable: true })
+    const Local = withOnDevice(class {})
+    Object.defineProperty(window, 'webkitSpeechRecognition', { value: Local, configurable: true })
     expect(isVoiceSupported()).toBe(true)
     Reflect.deleteProperty(window, 'webkitSpeechRecognition')
 
-    Object.defineProperty(window, 'SpeechRecognition', { value: class {}, configurable: true })
+    Object.defineProperty(window, 'SpeechRecognition', { value: Local, configurable: true })
     expect(isVoiceSupported()).toBe(true)
+  })
+
+  it('is FALSE where the browser has the API but no on-device switch', () => {
+    // A Chrome without `processLocally` has only the cloud path, and this app
+    // does not offer that path. No button at all is the right answer — one that
+    // quietly uploads what you say is worse than none.
+    Object.defineProperty(window, 'SpeechRecognition', { value: class {}, configurable: true })
+    expect(isVoiceSupported()).toBe(false)
   })
 
   it('detects by presence, never by constructing one', () => {
     // Constructing a recogniser to find out whether recognition exists would
     // be the feature switching itself on to answer a question about itself.
     const construct = vi.fn()
-    class Probe {
-      constructor() {
-        construct()
-      }
-    }
+    const Probe = withOnDevice(
+      class {
+        constructor() {
+          construct()
+        }
+      },
+    )
     Object.defineProperty(window, 'SpeechRecognition', { value: Probe, configurable: true })
 
     expect(isVoiceSupported()).toBe(true)
@@ -125,6 +100,7 @@ interface FakeInstance {
   continuous: boolean
   interimResults: boolean
   maxAlternatives: number
+  processLocally: boolean
   start: ReturnType<typeof vi.fn>
   stop: ReturnType<typeof vi.fn>
   abort: ReturnType<typeof vi.fn>
@@ -142,6 +118,7 @@ function installFake({ throwOnStart = false } = {}) {
     continuous = false
     interimResults = false
     maxAlternatives = 0
+    processLocally = false
     start = vi.fn(() => {
       if (throwOnStart) throw new Error('InvalidStateError')
     })
@@ -167,6 +144,15 @@ describe('listen', () => {
   afterEach(() => {
     Reflect.deleteProperty(window, 'SpeechRecognition')
     vi.resetModules()
+  })
+
+  it('REQUIRES on-device processing on every recogniser it creates', async () => {
+    // The one line that makes the rest of this feature honest: with it set, the
+    // user agent must transcribe locally or raise an error, and may not fall
+    // back to a server (ADR-017).
+    const { listen } = await import('./voice')
+    listen('en', { onTranscript: vi.fn(), onError: vi.fn(), onEnd: vi.fn() })
+    expect(instances[0]?.processLocally).toBe(true)
   })
 
   it('transcribes one utterance and stops, rather than holding the microphone open', async () => {
@@ -206,7 +192,8 @@ describe('listen', () => {
     ['service-not-allowed', 'denied'],
     ['audio-capture', 'no-microphone'],
     ['no-speech', 'no-speech'],
-    ['network', 'network'],
+    ['network', 'no-model'],
+    ['language-not-supported', 'no-model'],
     ['something-else', 'unknown'],
   ])('turns the %s error into "%s", which a sentence can be written for', async (raw, code) => {
     const { listen } = await import('./voice')
@@ -224,7 +211,7 @@ describe('listen', () => {
     const onEnd = vi.fn()
     listen('en', { onTranscript: vi.fn(), onError: vi.fn(), onEnd })
 
-    instances[0]?.onerror?.({ error: 'network' })
+    instances[0]?.onerror?.({ error: 'audio-capture' })
     instances[0]?.onend?.()
     instances[0]?.onend?.()
 

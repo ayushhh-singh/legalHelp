@@ -80,11 +80,11 @@ export default tseslint.config(
     },
   },
 
-  // The second network seam, and the same reasoning. `SpeechRecognition` looks
-  // like a browser API and behaves like a network client: Chrome streams the
-  // captured audio to Google's servers. src/lib/voice.ts is the only module
-  // that may construct one, it is reached by a dynamic import, and it only runs
-  // after the reader has read the notice (src/lib/voiceConsent.ts).
+  // The second seam. `SpeechRecognition` looks like a browser API and behaves
+  // like a network client unless `processLocally` is set — Chrome otherwise
+  // streams the captured audio to Google. src/lib/voice.ts is the only module
+  // that may construct one, and it always sets that flag (ADR-017). Confining
+  // it to one file is what keeps that guarantee checkable by reading.
   {
     files: ['src/lib/voice.ts'],
     rules: {

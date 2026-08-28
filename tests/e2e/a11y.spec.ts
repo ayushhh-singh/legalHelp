@@ -199,10 +199,9 @@ test('no axe violations while browsing a whole Act', async ({ page }) => {
 })
 
 for (const theme of ['light', 'dark'] as const) {
-  test(`no axe violations on the voice-search notice in ${theme}`, async ({ page }) => {
-    // A modal that only appears on a click, over a page with a live region on
-    // it — the same class of surface as the AI consent modal, and audited for
-    // the same reason.
+  test(`no axe violations with the microphone listening in ${theme}`, async ({ page }) => {
+    // There is no consent notice any more (ADR-017) — the surface to audit is
+    // the button and the live region that says the microphone is open.
     await page.addInitScript(() => {
       class Stub {
         lang = ''
@@ -212,18 +211,26 @@ for (const theme of ['light', 'dark'] as const) {
         onresult = null
         onerror = null
         onend = null
+        static available() {
+          return Promise.resolve('available')
+        }
+        static install() {
+          return Promise.resolve(true)
+        }
         start() {}
         stop() {}
         abort() {}
       }
+      Object.defineProperty(Stub.prototype, 'processLocally', { value: false, writable: true })
       Object.defineProperty(window, 'SpeechRecognition', { value: Stub, configurable: true })
+      Reflect.deleteProperty(window, 'webkitSpeechRecognition')
     })
     await setChrome(page, 'en', theme)
     await page.goto('/law')
     await page.getByRole('button', { name: 'Search by voice' }).click()
-    await expect(page.getByRole('dialog', { name: 'Before you use voice search' })).toBeVisible()
+    await expect(page.getByRole('button', { name: 'Stop listening' })).toBeVisible()
 
-    expect(format(await audit(page)), `voice notice (${theme})`).toEqual([])
+    expect(format(await audit(page)), `microphone (${theme})`).toEqual([])
   })
 }
 

@@ -237,8 +237,11 @@ describe('SearchBar', () => {
   })
 
   it('announces the result count rather than only drawing it', () => {
+    // More than one live region here now: the result count, and the one that
+    // says the microphone is open.
     renderBar({ value: '302', resultCount: 3, resultsId: 'law-results' })
-    expect(screen.getByRole('status')).toHaveTextContent('3 results')
+    const announced = screen.getAllByRole('status').map((node) => node.textContent)
+    expect(announced).toContain('3 results')
   })
 })
 

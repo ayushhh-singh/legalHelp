@@ -187,10 +187,10 @@ describe('no external URLs', () => {
         /new\s+Recognition\b|webkitSpeechRecognition|\bSpeechRecognition\b/.test(readFromRoot(file)),
       )
 
-    // voiceConsent.ts names the global in a `in window` presence check — it
-    // decides whether to SHOW the button — and never constructs one.
-    expect(naming.sort()).toEqual(['src/lib/voice.ts', 'src/lib/voiceConsent.ts'])
-    expect(readFromRoot('src/lib/voiceConsent.ts')).not.toContain('new ')
+    // voiceSettings.ts names the global in a presence check — it decides
+    // whether to SHOW the button — and never constructs one.
+    expect(naming.sort()).toEqual(['src/lib/voice.ts', 'src/lib/voiceSettings.ts'])
+    expect(readFromRoot('src/lib/voiceSettings.ts')).not.toContain('new ')
   })
 
   it('keeps dataset source citations in data/, out of the source tree', () => {

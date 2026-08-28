@@ -1,4 +1,4 @@
-import { VOICE_LOCALES } from './voiceConsent'
+import { VOICE_LOCALES, type VoiceAvailability } from './voiceSettings'
 
 import type { Language } from '@/i18n'
 
@@ -14,13 +14,16 @@ import type { Language } from '@/i18n'
  * This module is reached by a DYNAMIC IMPORT from the microphone button, so a
  * reader who never presses it never downloads it.
  *
- * ## What this does not do
+ * ## The one rule
  *
- * It does not make recognition local. Chrome's implementation streams the
- * captured audio to Google's servers, and nothing here can change that; the
- * consent notice says so in those words. It also never starts on its own —
- * `listen()` is called from a click handler and from nowhere else, so the
- * microphone cannot open without a press.
+ * `processLocally` is set on every recogniser this module creates, and
+ * `availability()` is consulted before one is started. Per the specification a
+ * user agent must then transcribe ON THE DEVICE or raise an error; it may not
+ * fall back to a server. THERE IS NO CLOUD PATH IN THIS APP — where on-device
+ * recognition is unavailable the reader is told to type instead.
+ *
+ * It also never starts on its own. `listen()` is called from a click handler
+ * and from nowhere else, so the microphone cannot open without a press.
  */
 
 /** The subset of the Web Speech API this app uses. */
@@ -48,6 +51,8 @@ interface SpeechRecognitionLike {
   continuous: boolean
   interimResults: boolean
   maxAlternatives: number
+  /** Chrome 138+. True forbids the network fallback. */
+  processLocally?: boolean
   start: () => void
   stop: () => void
   abort: () => void
@@ -56,7 +61,12 @@ interface SpeechRecognitionLike {
   onend: (() => void) | null
 }
 
-type RecognitionConstructor = new () => SpeechRecognitionLike
+interface RecognitionStatics {
+  available?: (options: { langs: string[]; processLocally: boolean }) => Promise<string>
+  install?: (options: { langs: string[]; processLocally: boolean }) => Promise<boolean>
+}
+
+type RecognitionConstructor = (new () => SpeechRecognitionLike) & RecognitionStatics
 
 /**
  * Why a spoken query stopped. Each maps to a sentence a reader can act on —
@@ -69,8 +79,8 @@ export type VoiceErrorCode =
   | 'no-microphone'
   /** Heard nothing. */
   | 'no-speech'
-  /** The recognition service could not be reached — it is a network service. */
-  | 'network'
+  /** No on-device model for this language on this device. */
+  | 'no-model'
   | 'unknown'
 
 export interface VoiceSession {
@@ -96,6 +106,46 @@ function constructorFor(): RecognitionConstructor | null {
   return scope.SpeechRecognition ?? scope.webkitSpeechRecognition ?? null
 }
 
+const STATUSES = new Set<string>(['available', 'downloadable', 'downloading', 'unavailable'])
+
+/**
+ * Whether the on-device model for a language is present, fetchable or absent.
+ *
+ * Anything unexpected — a browser with no `available()`, a rejection, a status
+ * this build does not know — is reported as `unavailable`. Failing closed is
+ * the point: the alternative to on-device recognition here is not cloud
+ * recognition, it is typing.
+ */
+export async function availability(language: Language): Promise<VoiceAvailability> {
+  const Recognition = constructorFor()
+  if (!Recognition?.available) return 'unavailable'
+
+  try {
+    const status = await Recognition.available({ langs: [VOICE_LOCALES[language]], processLocally: true })
+    return STATUSES.has(status) ? (status as VoiceAvailability) : 'unavailable'
+  } catch {
+    return 'unavailable'
+  }
+}
+
+/**
+ * Ask the browser to fetch the on-device model for a language.
+ *
+ * A download the BROWSER performs, of a speech model. It carries nothing the
+ * reader typed or said — but it is large, so it is a button rather than
+ * something that happens on their behalf.
+ */
+export async function installModel(language: Language): Promise<boolean> {
+  const Recognition = constructorFor()
+  if (!Recognition?.install) return false
+
+  try {
+    return await Recognition.install({ langs: [VOICE_LOCALES[language]], processLocally: true })
+  } catch {
+    return false
+  }
+}
+
 /** The spec's error strings, narrowed to something a sentence can be written for. */
 function classify(error: string): VoiceErrorCode {
   switch (error) {
@@ -107,7 +157,10 @@ function classify(error: string): VoiceErrorCode {
     case 'no-speech':
       return 'no-speech'
     case 'network':
-      return 'network'
+    case 'language-not-supported':
+      // With `processLocally` set there is no server to reach, so either of
+      // these means the on-device model is not usable.
+      return 'no-model'
     default:
       return 'unknown'
   }
@@ -131,6 +184,9 @@ export function listen(language: Language, handlers: VoiceHandlers): VoiceSessio
   recognition.continuous = false
   recognition.interimResults = true
   recognition.maxAlternatives = 1
+  // THE line. The user agent must now transcribe on the device or raise an
+  // error; it may not fall back to a server.
+  recognition.processLocally = true
 
   let ended = false
   const end = () => {
