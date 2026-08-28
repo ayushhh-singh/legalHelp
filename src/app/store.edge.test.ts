@@ -211,3 +211,70 @@ describe('the OS colour scheme is never consulted', () => {
     expect(document.documentElement.classList.contains('dark')).toBe(true)
   })
 })
+
+describe('a language whose chunk will not load', () => {
+  /*
+    ADR-031 split the catalogues into per-language chunks, which created a
+    failure mode that could not exist before it: the chunk can fail to arrive.
+
+    i18next does not reject in that case. It resolves, moves `language` to the
+    one it could not load, and — with `fallbackLng: false` — renders every key
+    as its own name. Persisting that preference would leave the reader looking
+    at `pages.law.title` on this visit AND every future one, with no working
+    control to escape it, because the toggle's own label would be a raw key too.
+
+    `src/i18n/chunk-failure.test.ts` pins the library behaviour; these are the
+    two rules the store builds on it.
+  */
+  const breakChunk = (language: string) =>
+    vi.spyOn(i18n, 'hasResourceBundle').mockImplementation((lng: string) => lng !== language)
+
+  it('does not move the app into a language it could not load', async () => {
+    await useAppStore.getState().setLanguage('en')
+    breakChunk('hi')
+
+    await expect(useAppStore.getState().setLanguage('hi')).resolves.toBeUndefined()
+
+    // The reader keeps the interface they had, rather than a screen of keys.
+    expect(useAppStore.getState().language).toBe('en')
+    expect(i18n.language).toBe('en')
+    expect(document.documentElement.lang).toBe('en')
+  })
+
+  it('does not persist a preference it could not apply', async () => {
+    await useAppStore.getState().setLanguage('en')
+    await setSetting(SETTING_KEYS.language, 'en')
+    breakChunk('hi')
+
+    await useAppStore.getState().setLanguage('hi')
+
+    // The next visit must not reload into the broken state. This is the half
+    // that matters most: an unrenderable preference written to IndexedDB is a
+    // device the reader cannot fix from inside the app.
+    expect(await getSetting(SETTING_KEYS.language)).toBe('en')
+  })
+
+  it('leaves <html lang> agreeing with the text actually rendered', async () => {
+    await useAppStore.getState().setLanguage('en')
+    breakChunk('hi')
+
+    await useAppStore.getState().setLanguage('hi')
+
+    // A `lang` attribute that disagrees with the rendered strings is worse for
+    // assistive tech than one that lags: it makes a screen reader pronounce
+    // English key names with Hindi phonology.
+    expect(document.documentElement.lang).toBe('en')
+  })
+
+  it('still switches normally when the chunk is there', async () => {
+    // The negative case. Without it, "never switches" would pass all three
+    // assertions above just as well as "switches only when it can".
+    await useAppStore.getState().setLanguage('en')
+    await useAppStore.getState().setLanguage('hi')
+
+    expect(useAppStore.getState().language).toBe('hi')
+    expect(i18n.language).toBe('hi')
+    expect(document.documentElement.lang).toBe('hi')
+    expect(await getSetting(SETTING_KEYS.language)).toBe('hi')
+  })
+})

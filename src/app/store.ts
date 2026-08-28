@@ -50,19 +50,43 @@ interface AppState {
 /**
  * Side effects that must track state, kept out of the reducer bodies.
  *
- * Returns i18next's own promise. Each language is its own chunk (ADR-031), so
- * `changeLanguage` resolves only once that chunk has loaded and `i18n.language`
- * has actually moved — a caller that awaits `setLanguage` is entitled to a
- * fully applied language, not one that is still in flight. `<html lang>` is set
- * synchronously either way, because that is what assistive tech reads and it
- * needs no strings to be correct.
+ * Each language is its own chunk (ADR-031), so `changeLanguage` resolves only
+ * once that chunk has loaded — a caller that awaits `setLanguage` is entitled
+ * to a fully applied language, not one still in flight.
+ *
+ * ## Why the result is checked rather than trusted
+ *
+ * i18next does NOT reject when a backend read fails. It resolves, sets
+ * `i18n.language` to the language it could not load, and — because
+ * `fallbackLng` is deliberately `false` (Hindi and English are on equal
+ * footing, so a missing string must be a visible defect rather than silent
+ * English) — `t()` then returns every key as its own name. A reader whose
+ * Hindi chunk failed would get a screen of `pages.law.title` instead of an
+ * interface, and the preference persists, so a reload reproduces it.
+ *
+ * That failure mode did not exist before the catalogues were split: both used
+ * to be in the entry chunk, so if the app rendered at all, both languages were
+ * there. `hasResourceBundle` is what distinguishes "loaded" from "asked for and
+ * failed", and a language that did not load is not applied at all — the reader
+ * keeps the working one. `<html lang>` moves only on success, because a `lang`
+ * attribute that disagrees with the rendered text is worse for assistive tech
+ * than one that lags.
  */
-function applyLanguage(language: Language): Promise<unknown> {
-  const applied = i18n.changeLanguage(language)
+async function applyLanguage(language: Language): Promise<boolean> {
+  const previous = i18n.language
+  await i18n.changeLanguage(language)
+
+  if (!i18n.hasResourceBundle(language, 'translation')) {
+    // Back to whatever was working. Its bundle is already in memory, so this
+    // cannot fail for the same reason.
+    if (isLanguage(previous) && previous !== language) await i18n.changeLanguage(previous)
+    return false
+  }
+
   if (typeof document !== 'undefined') {
     document.documentElement.lang = language
   }
-  return applied
+  return true
 }
 
 function applyTheme(theme: Theme) {
@@ -114,8 +138,14 @@ export const useAppStore = create<AppState>((set, get) => ({
    */
   setLanguage: async (language) => {
     changedDuringHydrate.language = true
+    const applied = await applyLanguage(language)
+    if (!applied) {
+      // The chunk did not load. Nothing is set and nothing is persisted: a
+      // preference that cannot be rendered is not a preference the reader
+      // should be stuck with on the next visit.
+      return
+    }
     set({ language })
-    await applyLanguage(language)
     await persist(SETTING_KEYS.language, language, set)
   },
 

@@ -2,6 +2,8 @@ import { readdirSync } from 'node:fs'
 
 import { describe, expect, it } from 'vitest'
 
+import { evaluateGate } from './e2e/fixtures'
+
 import { readFromRoot } from '@/test/paths'
 
 /**
@@ -54,10 +56,18 @@ describe('the end-to-end privacy gate covers the whole suite', () => {
       return
     }
 
-    // A value import from @playwright/test is the way the gate gets bypassed.
-    // Matched one statement at a time: a single regex spanning the whole file
-    // reads every import between the first one and the last as one match.
-    const statements = [...source.matchAll(/^import\s+([\s\S]*?)\s+from\s+'([^']+)'/gm)]
+    /*
+      A value import from @playwright/test is the way the gate gets bypassed.
+
+      Matched one statement at a time: a single regex spanning the whole file
+      reads every import between the first and the last as one match. The
+      whitespace is `\s*` rather than `\s+` on purpose — `import{expect,test}from
+      '@playwright/test'` is valid TypeScript, and a guard whose whole job is to
+      be un-bypassable must not be defeated by a formatting choice. Prettier
+      would never produce that spacing, but the guard should not depend on
+      prettier having run.
+    */
+    const statements = [...source.matchAll(/^import\s*([\s\S]*?)\s*from\s*'([^']+)'/gm)]
     const valueImport = statements.find(
       ([, clause = '', specifier]) =>
         specifier === '@playwright/test' && !clause.trimStart().startsWith('type '),
@@ -101,5 +111,124 @@ describe('the fixture itself', () => {
 
   it('checks the request body as well as the URL', () => {
     expect(fixtures).toMatch(/postData/)
+  })
+})
+
+describe('the gate actually fires — the same four cases, without a browser', () => {
+  /*
+    A guarantee nobody has watched fail is a guarantee nobody has tested.
+
+    `evaluateGate` is the whole decision the fixture makes, split out of it so
+    these four cases can run in `pnpm test` rather than only against a live
+    Chromium. Each was first confirmed in a real browser — a spec that fetched
+    https://example.com, one that put a sentinel in a query string, one that put
+    it in a POST body, and one that typed a sentinel and never sent it — and
+    each behaves here exactly as it did there.
+
+    The fourth is not padding. A gate that fires on clean input gets weakened
+    until it stops firing at all, so "does NOT flag a value that was typed and
+    never left the device" is as load-bearing as the three that must fire.
+  */
+  const ORIGIN = 'http://localhost:4173'
+  const sentinels = new Map([['SNTNL-subject-1', 'subject']])
+
+  const request = (url: string, postData: string | null = null) => ({ method: 'GET', url, postData })
+
+  it('catches a cross-origin request', () => {
+    const verdict = evaluateGate({
+      seen: [request(`${ORIGIN}/law`), request('https://example.com/beacon')],
+      origin: ORIGIN,
+      sentinels: new Map(),
+      allowed: [],
+    })
+    expect(verdict.crossOrigin).toEqual(['GET https://example.com/beacon'])
+  })
+
+  it('catches a typed value in a query string', () => {
+    const verdict = evaluateGate({
+      seen: [request(`${ORIGIN}/data/x.json?q=SNTNL-subject-1`)],
+      origin: ORIGIN,
+      sentinels,
+      allowed: [],
+    })
+    expect(verdict.leaked).toHaveLength(1)
+    expect(verdict.leaked[0]).toContain('subject')
+  })
+
+  it('catches a typed value in a POST body', () => {
+    const verdict = evaluateGate({
+      seen: [request(`${ORIGIN}/data/x.json`, JSON.stringify({ subject: 'SNTNL-subject-1' }))],
+      origin: ORIGIN,
+      sentinels,
+      allowed: [],
+    })
+    expect(verdict.leaked).toHaveLength(1)
+  })
+
+  it('catches a typed value that was percent-encoded on the way out', () => {
+    /*
+      This one has to be built by hand, and the reason is worth writing down.
+
+      `network.sentinel()` folds its label to `[A-Za-z0-9-]`, so a minted value
+      passes through percent-encoding unchanged and the raw-URL check alone
+      would catch it — a test using a real sentinel here would pass whether or
+      not `surfaces()` decoded anything, which is a test that proves nothing.
+      The decode step earns its place only for a value containing a character
+      that encoding rewrites, so that is what this uses.
+    */
+    const encodable = new Map([['SNTNL-om subject-9', 'om subject']])
+    const verdict = evaluateGate({
+      seen: [request(`${ORIGIN}/x?q=${encodeURIComponent('SNTNL-om subject-9')}`)],
+      origin: ORIGIN,
+      sentinels: encodable,
+      allowed: [],
+    })
+    expect(verdict.leaked).toHaveLength(1)
+  })
+
+  it('mints a sentinel that no encoding can rewrite', () => {
+    // The other half of the same argument: whatever an author passes as a
+    // label, the value that goes into the field is encoding-stable.
+    const slug = (label: string) => label.replace(/[^A-Za-z0-9-]+/g, '-').replace(/^-+|-+$/g, '') || 'value'
+    for (const label of ['om subject', 'a/b?c=d', 'नमूना', '', '   ']) {
+      const value = `SNTNL-${slug(label)}-1`
+      expect(encodeURIComponent(value), `label ${JSON.stringify(label)}`).toBe(value)
+    }
+  })
+
+  it('does NOT flag a value that was typed and never sent', () => {
+    const verdict = evaluateGate({
+      seen: [request(`${ORIGIN}/law`), request(`${ORIGIN}/assets/index-abc.js`)],
+      origin: ORIGIN,
+      sentinels,
+      allowed: [],
+    })
+    expect(verdict).toEqual({ crossOrigin: [], leaked: [] })
+  })
+
+  it('honours a declared cross-origin exception, and only that one', () => {
+    const verdict = evaluateGate({
+      seen: [request('https://api.anthropic.com/v1/messages'), request('https://example.com/x')],
+      origin: ORIGIN,
+      sentinels: new Map(),
+      allowed: [/^https:\/\/api\.anthropic\.com\//],
+    })
+    expect(verdict.crossOrigin).toEqual(['GET https://example.com/x'])
+  })
+
+  it('reports rather than throws on a request the URL parser cannot handle', () => {
+    // The gate must never be the thing that crashes: a teardown that throws
+    // reports nothing about any of the other requests in the test. A lone `%`
+    // in a query string is ordinary input and used to kill decodeURIComponent.
+    const verdict = evaluateGate({
+      seen: [request(`${ORIGIN}/x?q=100%`), request('not-a-url'), request('about:blank')],
+      origin: ORIGIN,
+      sentinels,
+      allowed: [],
+    })
+    expect(verdict.leaked).toEqual([])
+    // An unparseable URL has no origin, so it is reported as off-origin rather
+    // than silently skipped — a request nobody can classify is not one to trust.
+    expect(verdict.crossOrigin).toEqual(['GET not-a-url', 'GET about:blank'])
   })
 })

@@ -54,8 +54,20 @@ const files = Object.entries(summary)
     branches: value.branches,
     functions: value.functions,
   }))
-  // Weakest first: the top of the table is where the next test belongs.
-  .sort((a, b) => a.lines.pct - b.lines.pct || a.file.localeCompare(b.file))
+  /*
+    Weakest first: the top of the table is where the next test belongs.
+
+    The tie-break is a code-unit comparison, NOT `localeCompare`. CI regenerates
+    this file and fails on a diff, so the row order has to be a property of the
+    data rather than of the runner: ICU collation depends on the locale and on
+    which ICU build was compiled in, and it disagrees with code-unit order on
+    exactly the characters these paths are made of — it sorts `Format.ts` after
+    `format.ts` where code-unit order does the opposite. Two files on the same
+    percentage would then order differently on a developer's machine and on the
+    runner, and the gate would fail on a file nobody edited. Same reasoning as
+    `compareStrings` in src/lib/srs/types.ts.
+  */
+  .sort((a, b) => a.lines.pct - b.lines.pct || (a.file < b.file ? -1 : a.file > b.file ? 1 : 0))
 
 const total = summary.total
 

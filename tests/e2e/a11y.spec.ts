@@ -29,6 +29,11 @@ const ROUTES = [
   // never see any of it.
   '/draft/office-memorandum',
   '/learn',
+  // The review card itself — a radiogroup of options, four grade buttons and a
+  // report dialog — is the single most-used screen in the Trainer and was swept
+  // by neither this sweep nor the offline one until `tests/route-coverage.test.ts`
+  // was written to notice. Every route around it was covered, which is why.
+  '/learn/review',
   '/learn/browse',
   '/learn/mock',
   '/learn/settings',

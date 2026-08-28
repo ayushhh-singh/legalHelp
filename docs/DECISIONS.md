@@ -3977,3 +3977,97 @@ screenshots, video and the HTML report are uploaded on failure.
 - `utils.portals.copied` / `.copyFailed` are two new bilingual keys.
 - `docs/TESTING.md` is the reference: how to run everything, what each suite guarantees, and the
   rules for adding a test here.
+
+### ADR-031 addendum — what an edge-case pass found
+
+Seven defects, in the order they were found. Each was confirmed to fail against the code before its
+fix, which is the only thing that distinguishes a regression test from a test that happens to pass.
+Two suspicions were investigated and cleared, and those are recorded too — a pass that only reports
+hits is a pass whose negative results nobody can reuse.
+
+**1. A language chunk that failed to load left the app unusable, permanently.** The worst of the
+seven, and entirely created by this ADR. `i18next` does **not** reject when a backend read fails: it
+resolves, sets `language` to the one it could not load, and — because `fallbackLng` is deliberately
+`false` — `t()` then returns every key as its own name. `setLanguage` persisted that preference, so
+a reload reproduced it, and the language toggle's own label was a raw key by then too: there was no
+control left to escape with. Before the split this was impossible, because both catalogues were in
+the entry chunk and an app that rendered at all had both. `hasResourceBundle` is the only thing in
+the API that distinguishes "loaded" from "asked for and failed"; `store.ts#applyLanguage` now checks
+it and refuses to switch, persist or move `<html lang>` for a language it could not load, and
+`src/i18n/index.ts` falls through to the other language when the **boot** chunk fails. That last one
+is not the silent English fallback `fallbackLng: false` exists to forbid — that rule is about a
+missing key inside a catalogue that did load, which must stay a visible CI failure. This is a
+delivery failure of the whole file, and a complete interface in the other language beats an unusable
+one in the intended language.
+
+**2. `scripts/coverage-summary.mjs` ordered its rows with `localeCompare`.** CI regenerates
+`docs/COVERAGE.md` and fails on a diff, so row order has to be a property of the data rather than of
+the runner — and ICU collation depends on the locale and on which ICU build was compiled in. Two
+files on the same percentage could order one way on a laptop and the other on a runner, failing the
+gate on a file nobody edited. Now a code-unit comparison, for the reason `compareStrings` in
+`src/lib/srs/types.ts` already gives.
+
+**3. The privacy gate could crash instead of reporting.** `decodeURIComponent` throws `URIError` on
+a lone `%`, and a bare percent sign in a query string is ordinary input. A teardown that throws
+reports nothing about any of the other requests in that test, which is the one failure a privacy
+gate cannot afford. `surfaces()` and the origin check now degrade to the raw URL rather than
+throwing.
+
+**4. A sentinel could be lost to encoding.** `network.sentinel('om subject')` minted a value
+containing a space, which percent-encoding rewrites — so the URL check could have missed the one
+thing it exists to catch, silently. Labels are folded to `[A-Za-z0-9-]` now, so a minted value
+survives any encoding unchanged. Worth noting how this was found: the test that supposedly proved
+the decoding step passed whether or not decoding happened, because every sentinel it used was
+already encoding-stable. A test that cannot fail is not evidence.
+
+**5. `/utils/portals` announced a repeat copy to nobody.** That page has ONE live region shared by
+every row, unlike `TermRow.tsx` where each row owns its own — so copying portal A and then portal B
+wrote the same sentence to the same region twice, and a live region whose text does not change
+announces nothing the second time. The inner span is keyed on a counter now, so each announcement is
+a real DOM insertion. The regression test asserts **node identity**, not text: asserting the text
+passes against the broken version, the same shape as the `elementFromPoint` hit-test in
+`tests/e2e/pay.spec.ts` that CLAUDE.md already records.
+
+**6. `/learn/review` was swept by neither sweep.** The Trainer's actual review card — a radiogroup
+of options, four grade buttons, a report dialog, the most-used screen in the module — was in
+neither `a11y.spec.ts`'s `ROUTES` nor `offline.spec.ts`'s `EVERY_ROUTE`; `/onboarding`,
+`/learn/mock` and `/learn/review-queue` were missing from the offline one. Every route around them
+was covered, which is exactly why nobody noticed. `docs/TESTING.md` told the next person to add new
+routes to both arrays, and a convention with nothing enforcing it lasts until the session that is in
+a hurry. `tests/route-coverage.test.ts` now derives the route set from the routers themselves and
+fails on any route in neither sweep, with an `EXEMPT` map that must carry a reason. All five routes
+passed once swept — the gap was in the coverage, not in the pages.
+
+**7. The e2e harness guard could be defeated by whitespace.** `import{expect,test}from
+'@playwright/test'` is valid TypeScript and the guard's regex required `\s+`. Prettier would never
+produce it, but a guard whose whole purpose is to be un-bypassable must not depend on the formatter
+having run.
+
+### Two suspicions investigated and cleared
+
+**`blob:` and `data:` URLs do not reach the gate.** The concern was that the four blob downloads
+(`.ics`, `.docx`, the backup, the Trainer CSV) would be reported as cross-origin, since
+`new URL('data:…').origin` is the string `"null"`. Driven in Chromium: neither a blob download nor a
+`data:` image emits a `request` event at all, so the case is unreachable. The hardening in (3) stays
+anyway, because it costs nothing and the gate must never be the thing that crashes — but it is
+hardening, not a fix.
+
+**`/draft/office-memorandum` does not rewrite its own URL on a bare visit.** The offline sweep
+asserts the URL after a reload, and the editor writes a `?d=` draft id once a draft exists — so the
+assertion looked like a latent flake. Measured: a bare visit leaves the URL clean, and the id
+appears only after the form is touched. The assertion is correct as written.
+
+### The gate is now provable without a browser
+
+The four cases that matter were confirmed in Chromium first — a spec that fetched
+`https://example.com`, one that put a sentinel in a query string, one that put it in a POST body,
+and one that typed a sentinel and never sent it. `evaluateGate()` is that decision split out as a
+pure function so all four run in `pnpm test`, on every commit, with no browser. The fourth is as
+load-bearing as the other three: a gate that fires on clean input gets weakened until it stops
+firing at all.
+
+Two properties of the gate that only a browser can show were driven the same way and are recorded at
+the listener in `tests/e2e/fixtures.ts` rather than left to reasoning: a request from a **second page**
+in the same context is caught (which is what listening on the context rather than the page buys), and
+a leak on the **first** of five navigations is still caught after the other four — the record lives in
+a Node closure, so navigation cannot wipe it the way it wipes an `addInitScript` global.

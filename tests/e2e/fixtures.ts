@@ -51,6 +51,16 @@ export function t(language: Language, key: string): string {
   return value
 }
 
+/**
+ * A string, escaped so it can be dropped into a `RegExp` and mean itself.
+ *
+ * Anything read out of the i18n catalogue is prose, and prose has full stops,
+ * brackets and question marks in it — `Export .ics`, `Your post and city
+ * (optional)`. Interpolated raw into a pattern those stop being literal, and a
+ * matcher that quietly matches the wrong thing is worse than one that fails.
+ */
+export const literal = (value: string): string => value.replace(/[.*+?^${}()|[\]\\]/g, '\\$&')
+
 /* ------------------------------------------------------------------ *
  * The privacy gate
  * ------------------------------------------------------------------ */
@@ -83,10 +93,81 @@ export interface NetworkGate {
   allowCrossOrigin(pattern: RegExp): void
 }
 
-/** Everything a request could carry a typed value in: the URL and the body. */
+/**
+ * Everything a request could carry a typed value in: the URL and the body.
+ *
+ * Both defensive steps here are about the gate never being the thing that
+ * crashes. `new URL` throws on a scheme it cannot parse, and
+ * `decodeURIComponent` throws `URIError` on a lone `%` — and a query string
+ * containing a bare percent sign is ordinary user input, not an attack. A
+ * privacy gate that dies on an unusual request reports nothing about the
+ * requests around it, which is the one failure it cannot afford; falling back
+ * to the raw URL still catches a sentinel, because a sentinel is plain ASCII
+ * and survives encoding unchanged.
+ */
 function surfaces(request: SeenRequest): string[] {
-  const url = new URL(request.url)
-  return [request.url, decodeURIComponent(url.search), request.postData ?? ''].filter(Boolean)
+  let search: string
+  try {
+    search = decodeURIComponent(new URL(request.url).search)
+  } catch {
+    search = ''
+  }
+  return [request.url, search, request.postData ?? ''].filter(Boolean)
+}
+
+/** Same reasoning: an unparseable URL is reported, never thrown over. */
+function originOf(url: string): string | null {
+  try {
+    return new URL(url).origin
+  } catch {
+    return null
+  }
+}
+
+export interface GateVerdict {
+  crossOrigin: string[]
+  leaked: string[]
+}
+
+/**
+ * The whole decision the gate makes, as a pure function.
+ *
+ * Split out from the fixture so it can be tested without a browser:
+ * `tests/e2e-harness.test.ts` runs it over synthetic request lists and asserts
+ * that it catches a cross-origin request, a sentinel in a query string and a
+ * sentinel in a POST body, and that it does NOT flag a value that was typed but
+ * never sent. That last one is as important as the other three — a gate that
+ * fires on clean input gets weakened until it stops firing at all.
+ *
+ * A guarantee nobody has watched fail is a guarantee nobody has tested.
+ */
+export function evaluateGate({
+  seen,
+  origin,
+  sentinels,
+  allowed,
+}: {
+  seen: readonly SeenRequest[]
+  origin: string
+  sentinels: ReadonlyMap<string, string>
+  allowed: readonly RegExp[]
+}): GateVerdict {
+  const crossOrigin = seen
+    .filter((request) => originOf(request.url) !== origin)
+    .filter((request) => !allowed.some((pattern) => pattern.test(request.url)))
+    .map((request) => `${request.method} ${request.url}`)
+
+  const leaked: string[] = []
+  for (const request of seen) {
+    const text = surfaces(request)
+    for (const [value, label] of sentinels) {
+      if (text.some((surface) => surface.includes(value))) {
+        leaked.push(`"${label}" (${value}) in ${request.method} ${request.url}`)
+      }
+    }
+  }
+
+  return { crossOrigin, leaked }
 }
 
 interface Fixtures {
@@ -106,15 +187,36 @@ export const test = base.extend<Fixtures>({
         seen.push({ method: request.method(), url: request.url(), postData: request.postData() })
       }
 
-      // On the CONTEXT, not the page: a request made by the service worker, or
-      // by a second page a share sheet opens, is exactly the request most
-      // likely to escape a page-scoped listener.
+      /*
+        On the CONTEXT, not the page, and in Node rather than in the page.
+
+        Both halves matter. A request made by the service worker, or by a second
+        page a share sheet opens, escapes a page-scoped listener entirely —
+        confirmed by driving it: a `fetch` from `context.newPage()` is caught
+        here and would not have been on `page`.
+
+        And because the record lives in this closure rather than in the page,
+        navigation cannot wipe it. An `addInitScript` re-runs on every
+        navigation, so a gate that accumulated into a page global would quietly
+        forget every route but the last — a coverage hole rather than a failure,
+        which is the kind that survives. (tests/e2e/csp.spec.ts hit exactly that
+        and now accumulates in sessionStorage.) Driven both ways too: a leak on
+        the FIRST of five navigations is still caught after the other four.
+      */
       context.on('request', record)
 
       const gate: NetworkGate = {
         sentinel(label) {
           minted += 1
-          const value = `SNTNL-${label}-${minted}`
+          // The label is folded to `[A-Za-z0-9-]` so the minted value survives
+          // every encoding a request might apply to it — percent-encoding, form
+          // encoding, JSON escaping — unchanged. A label with a space in it
+          // would otherwise be the one sentinel the URL check could miss, and
+          // it would miss it silently. `surfaces()` decodes as well, but a value
+          // that never needs decoding cannot be lost to an encoding nobody
+          // anticipated.
+          const slug = label.replace(/[^A-Za-z0-9-]+/g, '-').replace(/^-+|-+$/g, '') || 'value'
+          const value = `SNTNL-${slug}-${minted}`
           sentinels.set(value, label)
           return value
         },
@@ -131,19 +233,7 @@ export const test = base.extend<Fixtures>({
       // Teardown is the assertion. Running it here rather than in each spec is
       // what makes the guarantee hold across the WHOLE suite: a spec author has
       // to do nothing to be covered, and cannot opt out by forgetting.
-      const crossOrigin = seen
-        .filter((request) => new URL(request.url).origin !== origin)
-        .filter((request) => !allowed.some((pattern) => pattern.test(request.url)))
-        .map((request) => `${request.method} ${request.url}`)
-
-      const leaked: string[] = []
-      for (const request of seen) {
-        for (const [value, label] of sentinels) {
-          if (surfaces(request).some((text) => text.includes(value))) {
-            leaked.push(`"${label}" (${value}) in ${request.method} ${request.url}`)
-          }
-        }
-      }
+      const { crossOrigin, leaked } = evaluateGate({ seen, origin, sentinels, allowed })
 
       expect(crossOrigin, `${testInfo.title} made a cross-origin request`).toEqual([])
       expect(leaked, `${testInfo.title} put a typed value into a request`).toEqual([])

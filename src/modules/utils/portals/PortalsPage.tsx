@@ -49,8 +49,16 @@ export default function PortalsPage() {
     are `aria-hidden` — so to a screen reader nothing happened at all. Every
     other copy affordance in this app already says so out loud
     (`SectionActions.tsx`, `TermRow.tsx`); this one was the odd one out.
+
+    `seq` is not decoration either. This page has ONE live region shared by
+    every row, unlike `TermRow.tsx` where each row owns its own — so copying
+    portal A and then portal B writes the SAME sentence to the SAME region
+    twice, and a live region whose text does not change announces nothing the
+    second time. Keying the inner span on a counter makes each announcement a
+    real DOM insertion, which is what assistive tech listens for.
   */
-  const [message, setMessage] = useState('')
+  const [announcement, setAnnouncement] = useState({ seq: 0, text: '' })
+  const announce = (text: string) => setAnnouncement((prev) => ({ seq: prev.seq + 1, text }))
 
   const filtered = useMemo(() => {
     const portals = state.status === 'ready' ? state.data.portals : []
@@ -71,10 +79,10 @@ export default function PortalsPage() {
     try {
       await navigator.clipboard.writeText(portal.url)
       setCopiedId(portal.id)
-      setMessage(t('utils.portals.copied'))
+      announce(t('utils.portals.copied'))
     } catch {
       setCopiedId(null)
-      setMessage(t('utils.portals.copyFailed'))
+      announce(t('utils.portals.copyFailed'))
     }
   }
 
@@ -176,7 +184,9 @@ export default function PortalsPage() {
       ) : null}
 
       <p role="status" aria-live="polite" className="min-h-4 text-xs text-muted-foreground">
-        {message}
+        {/* Keyed, so a repeated copy is an insertion rather than an identical
+            re-render that no screen reader would read out. */}
+        <span key={announcement.seq}>{announcement.text}</span>
       </p>
 
       <Disclaimer />

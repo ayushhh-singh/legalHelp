@@ -148,7 +148,13 @@ for (const language of LANGUAGES) {
       await expect(reveal).toBeVisible({ timeout: 30_000 })
       await reveal.click()
 
-      const good = page.getByRole('button', { name: new RegExp(`^${t(language, 'trainer.grade.Good')}`) })
+      // A plain string, not a RegExp built from the catalogue: Playwright matches
+      // a string name as a case-insensitive SUBSTRING, which is what is wanted
+      // here (the button appends its interval hint), and none of the four grade
+      // labels is a substring of another in either language. Interpolating a
+      // catalogue value into a pattern would make a label containing a regex
+      // metacharacter silently match the wrong thing.
+      const good = page.getByRole('button', { name: t(language, 'trainer.grade.Good') })
       await expect(good).toBeVisible()
       await good.click()
 

@@ -1,4 +1,4 @@
-import { expect, serviceWorkerReady, test } from './fixtures'
+import { expect, literal, serviceWorkerReady, test } from './fixtures'
 
 /**
  * The master context's zero-network-requests-for-user-data rule needs a real
@@ -93,6 +93,9 @@ test('answers a glossary lookup with no network at all', async ({ page, context 
  * at all, which would pass this test without ever exercising the fallback.
  */
 const EVERY_ROUTE = [
+  // Onboarding is reachable offline on a device that has never completed it,
+  // which is the likeliest first run for an officer installing this on a train.
+  '/onboarding',
   '/law',
   '/law/whats-new',
   '/law/saved',
@@ -100,10 +103,15 @@ const EVERY_ROUTE = [
   '/draft',
   '/draft/office-memorandum',
   '/learn',
+  '/learn/review',
+  // recharts is behind this route's own chunk; an offline reload is what proves
+  // the chunk was precached rather than fetched on demand.
+  '/learn/mock',
   '/learn/browse',
   '/learn/bookmarks',
   '/learn/reports',
   '/learn/settings',
+  '/learn/review-queue',
   '/utils',
   '/utils/glossary',
   '/utils/holidays',
@@ -131,6 +139,8 @@ test('reloads every route with no network and still renders its own page', async
     await expect(page.getByRole('heading', { level: 1 }), `${route} offline`).toBeVisible({
       timeout: 30_000,
     })
-    await expect(page, `${route} offline`).toHaveURL(new RegExp(`${route}$`))
+    // Escaped: every route here is a plain path today, but a future one
+    // containing a `.` would silently match any character in that position.
+    await expect(page, `${route} offline`).toHaveURL(new RegExp(`${literal(route)}$`))
   }
 })

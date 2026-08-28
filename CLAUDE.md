@@ -339,6 +339,47 @@ are load-bearing, and each is enforced by a test rather than by convention:
 
 ### Notes for the next session
 
+- **A language chunk that fails to load must never become the language the app is in.** i18next does
+  NOT reject on a backend read failure — it resolves, sets `language` to what it could not load, and
+  with `fallbackLng: false` renders every key as its own name. `store.ts#applyLanguage` checks
+  `hasResourceBundle` and refuses to switch, persist or move `<html lang>` in that case, and
+  `src/i18n/index.ts` falls through to the other language if the BOOT chunk fails. Do not "simplify"
+  either check away: without them a reader whose Hindi chunk was evicted gets a screen of
+  `pages.law.title`, persisted, with the toggle's own label a raw key too — no control left to escape
+  with. This is NOT the silent English fallback `fallbackLng: false` forbids; that rule is about a
+  missing key inside a catalogue that DID load, which must stay a CI failure.
+  `src/i18n/chunk-failure.test.ts` pins the library behaviour the whole design rests on
+  (ADR-031 addendum).
+
+- **`tests/route-coverage.test.ts` derives the app's routes from the routers and fails on any route
+  that is in neither the axe sweep nor the offline sweep.** It exists because the convention it
+  replaces had already lapsed: `/learn/review` — the Trainer's review card, the most-used screen in
+  that module — was in neither, and `/onboarding`, `/learn/mock` and `/learn/review-queue` were
+  missing from the offline one. Adding a route to `LearnPage.tsx` now fails this test until the route
+  is swept, or listed in its `EXEMPT` map with a reason. Never satisfy it by adding an exemption
+  without one.
+
+- **When a live region is shared by a whole page rather than owned per row, an identical repeat
+  message announces nothing.** `/utils/portals` has one region for every row (unlike `TermRow.tsx`,
+  where each row owns its own), so copying portal A then portal B wrote the same sentence twice and
+  the second was silent. The inner span is keyed on a counter so each announcement is a real DOM
+  insertion. The regression test asserts NODE IDENTITY, not text — asserting the text passes against
+  the broken version, the same trap the `elementFromPoint` hit-test in `tests/e2e/pay.spec.ts` was
+  written to avoid.
+
+- **Never `localeCompare` in anything CI byte-compares.** `scripts/coverage-summary.mjs` sorted its
+  rows with it, and `docs/COVERAGE.md` is regenerated and diffed by the `unit` job — ICU collation
+  depends on the locale and the ICU build, so two files on the same percentage could order one way
+  on a laptop and the other on the runner and fail the gate on a file nobody edited. Same rule
+  `src/lib/srs/types.ts#compareStrings` states for the export.
+
+- **A test that cannot fail is not evidence, and the sentinel case is the worked example.** The test
+  that supposedly proved `surfaces()` decodes percent-encoding passed whether or not it decoded,
+  because every sentinel it used was already encoding-stable. `network.sentinel()` now folds its
+  label to `[A-Za-z0-9-]` so a minted value survives any encoding, and the decode test uses a value
+  that genuinely needs decoding. Before trusting a new assertion here, break the code and watch it go
+  red.
+
 - **Import `test` and `expect` from `tests/e2e/fixtures.ts`, never from `@playwright/test`, and
   `tests/e2e-harness.test.ts` fails the UNIT suite if you don't.** The fixture arms an automatic
   per-test network gate: no cross-origin request, and no value the test typed (minted by
