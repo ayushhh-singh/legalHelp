@@ -12,20 +12,24 @@
   }
 
   body {
-    @apply bg-background font-sans text-foreground antialiased;
+    @apply bg-background text-foreground antialiased;
+    font-family: var(--font-sans);
     font-feature-settings:
       'liga' 1,
       'calt' 1;
   }
 
-  /* The red file thread is the only focus colour in the app. */
-  :focus-visible {
-    @apply outline-2 outline-offset-2 outline-thread;
-  }
-
-  /* Devanagari needs more line height than Latin at the same size. */
-  :lang(hi) {
-    line-height: 1.75;
+  /* Poppins for headings, Inter for body. Applied at the element level so every
+     heading picks it up with no per-component class. Anything that needs the
+     body face inside a heading opts out with `font-sans`. */
+  h1,
+  h2,
+  h3,
+  h4,
+  h5,
+  h6 {
+    font-family: var(--font-heading);
+    letter-spacing: -0.01em;
   }
 
   /* Master context: no decorative animation; respect the OS setting. */
@@ -41,10 +45,65 @@
   }
 }
 
+/*
+ * DEVANAGARI LINE HEIGHT — the design system's >= 1.75 floor, applied always.
+ *
+ * The `body` rule above cannot carry it on its own: every Tailwind text-size
+ * utility ships its OWN line-height and wins, so any Devanagari that uses a size
+ * utility and wraps would render at 1.25-1.63. Devanagari needs the room —
+ * matras sit above AND below the baseline, so a Latin-calibrated leading
+ * collides them.
+ *
+ * Matched with [class*='text-base'] rather than .text-base so responsive
+ * variants are caught too: `sm:text-lg` is a class literally named `sm:text-lg`,
+ * which `.text-lg` does not match. None of these five strings is a substring of
+ * another size utility — note `text-2xl` does NOT contain `text-xl` — so this
+ * cannot over-match. Above text-xl is display type, which is excluded.
+ *
+ * Exempt, and only these: `leading-none` / `-tight` / `-snug` and any arbitrary
+ * `leading-[...]`, which sit on numerals, badges and chips where 1.75 would blow
+ * out a fixed-height box. The exemptions are wrapped in `:not(:where(...))` so
+ * they add ZERO specificity: the rule stays at (0,2,0) — enough to beat
+ * `.text-sm` and `.leading-relaxed`, without escalating past what later work can
+ * override. Headings are NOT exempt: the master context says >= 1.75 always.
+ */
+:lang(hi) {
+  line-height: 1.75;
+}
+
+:lang(hi)
+  :is(
+    [class*='text-xs'],
+    [class*='text-sm'],
+    [class*='text-base'],
+    [class*='text-lg'],
+    [class*='text-xl']
+  ):not(:where(.leading-none, .leading-tight, .leading-snug, [class*='leading-['])) {
+  line-height: 1.75;
+}
+
+/*
+ * UNLAYERED, deliberately. `.font-display` must beat the `h1-h6` rule in
+ * @layer base, and unlayered styles win over any cascade layer regardless of
+ * specificity. Scoreboard numerals: section counts, pay figures, streaks.
+ */
+.font-display {
+  font-family: var(--font-sans);
+  font-variant-numeric: tabular-nums;
+  font-weight: 800;
+  letter-spacing: -0.02em;
+}
+
+/* Opt-in heading face for text that is a heading in role but not in tag. */
+.font-heading {
+  font-family: var(--font-heading);
+  letter-spacing: -0.01em;
+}
+
 @layer components {
   /* Skip link: off-screen until focused, then pinned top-left. */
   .skip-link {
-    @apply sr-only rounded-sm bg-thread px-4 py-2 font-medium text-white;
+    @apply sr-only rounded-md bg-action px-4 py-2 font-medium text-action-foreground;
   }
 
   .skip-link:focus {

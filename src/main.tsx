@@ -4,6 +4,7 @@ import { BrowserRouter } from 'react-router-dom'
 
 import { App } from './app/App'
 import i18n from './i18n'
+import './styles/fonts.css'
 import './styles/index.css'
 
 const container = document.getElementById('root')

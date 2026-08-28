@@ -31,18 +31,19 @@ function applyLanguage(language: Language) {
 
 function applyTheme(theme: Theme) {
   if (typeof document === 'undefined') return
-  // Both classes are set explicitly. tokens.css applies the dark palette from
-  // `prefers-color-scheme` before paint, so `.light` is what lets a reader on a
-  // dark system choose light and actually get it.
+  // One class, not two. Light is the default palette on :root and dark applies
+  // only from `.dark` — the OS setting is deliberately not consulted anywhere
+  // (ADR-010), so there is nothing for a `.light` class to opt out of.
   const root = document.documentElement
   root.classList.toggle('dark', theme === 'dark')
-  root.classList.toggle('light', theme === 'light')
   root.style.colorScheme = theme
 }
 
-function detectTheme(): Theme {
-  return globalThis.matchMedia?.('(prefers-color-scheme: dark)').matches ? 'dark' : 'light'
-}
+/**
+ * Light, always — never `prefers-color-scheme`. A reader who wants dark asks
+ * for it in the app, and that choice is what gets stored (ADR-010).
+ */
+const DEFAULT_THEME: Theme = 'light'
 
 /**
  * Tracks whether the reader changed a preference while hydrate() was still in
@@ -89,9 +90,9 @@ export const useAppStore = create<AppState>((set, get) => ({
   },
 
   /**
-   * Stored preference wins; otherwise fall back to the browser's language and
-   * colour-scheme hints. Never throws — a blocked or unavailable IndexedDB
-   * degrades to detected defaults rather than an empty screen.
+   * Stored preference wins; otherwise the browser's language and the light
+   * theme. Never throws — a blocked or unavailable IndexedDB degrades to the
+   * defaults rather than an empty screen.
    */
   hydrate: async () => {
     const generation = ++hydrateGeneration
@@ -99,7 +100,7 @@ export const useAppStore = create<AppState>((set, get) => ({
     changedDuringHydrate.theme = false
 
     let language = detectBrowserLanguage()
-    let theme = detectTheme()
+    let theme: Theme = DEFAULT_THEME
     let blocked = false
 
     try {

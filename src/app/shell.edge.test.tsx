@@ -5,11 +5,11 @@ import { Link, MemoryRouter, Route, Routes } from 'react-router-dom'
 import { describe, expect, it, vi } from 'vitest'
 
 import { App } from './App'
-import { TAB_BAR_ROUTES } from './routes'
 import { useAppStore } from './store'
 
 import { ErrorBoundary } from '@/components/common/ErrorBoundary'
 import i18n, { detectBrowserLanguage } from '@/i18n'
+import { NAV_ITEMS, OVERFLOW_NAV_ITEMS, PRIMARY_NAV_ITEMS } from '@/lib/nav'
 
 async function renderShell(route = '/law') {
   const result = render(
@@ -186,24 +186,64 @@ describe('language detection', () => {
 })
 
 describe('bottom tab bar', () => {
-  it('derives its column count from the route list', async () => {
+  it('renders every destination plus the More trigger', async () => {
     await renderShell()
 
     const tabList = screen.getByRole('navigation', { name: i18n.t('a11y.tabNavigation') }).querySelector('ul')
 
     expect(tabList).not.toBeNull()
-    expect(tabList?.getAttribute('style')).toContain(`repeat(${TAB_BAR_ROUTES.length}, minmax(0, 1fr))`)
-    expect(tabList?.children).toHaveLength(TAB_BAR_ROUTES.length)
+    // Four flagship slots + the overflow items (inline from 768px) + "More".
+    expect(tabList?.children).toHaveLength(NAV_ITEMS.length + 1)
+    expect(tabList?.querySelectorAll('a')).toHaveLength(NAV_ITEMS.length)
   })
 
-  it('gives every tab a touch target of at least 44px', async () => {
+  it('gives every tab and the More trigger a target of at least 44px', async () => {
     await renderShell()
 
-    const links = screen.getByRole('navigation', { name: i18n.t('a11y.tabNavigation') }).querySelectorAll('a')
+    const bar = screen.getByRole('navigation', { name: i18n.t('a11y.tabNavigation') })
 
-    for (const link of links) {
-      // 3.5rem = 56px, comfortably over the 44px WCAG 2.5.8 minimum.
-      expect(link.className).toContain('min-h-[3.5rem]')
+    for (const target of bar.querySelectorAll('a, button')) {
+      // min-h-14 = 56px, comfortably over the 44px WCAG 2.5.8 minimum.
+      expect(target.className).toContain('min-h-14')
+    }
+  })
+
+  it('opens the More sheet and closes it on Escape', async () => {
+    const user = userEvent.setup()
+    await renderShell()
+
+    const more = screen.getByRole('button', { name: i18n.t('nav.moreSheet') })
+    expect(more).toHaveAttribute('aria-expanded', 'false')
+
+    await user.click(more)
+    expect(more).toHaveAttribute('aria-expanded', 'true')
+    for (const item of OVERFLOW_NAV_ITEMS) {
+      expect(screen.getAllByRole('link', { name: item.label.en }).length).toBeGreaterThan(0)
+    }
+
+    await user.keyboard('{Escape}')
+    expect(screen.getByRole('button', { name: i18n.t('nav.moreSheet') })).toHaveAttribute(
+      'aria-expanded',
+      'false',
+    )
+  })
+})
+
+describe('the nav config is the single source of truth', () => {
+  it('splits into flagship tabs and overflow with nothing lost', () => {
+    expect([...PRIMARY_NAV_ITEMS, ...OVERFLOW_NAV_ITEMS].map((i) => i.id).sort()).toEqual(
+      NAV_ITEMS.map((i) => i.id).sort(),
+    )
+    // Four flagship slots, because the fifth belongs to "More".
+    expect(PRIMARY_NAV_ITEMS).toHaveLength(4)
+  })
+
+  it('labels every destination in both languages', () => {
+    for (const item of NAV_ITEMS) {
+      for (const language of ['en', 'hi'] as const) {
+        expect(item.label[language], `${item.id}.label.${language}`).toBeTruthy()
+        expect(item.short[language], `${item.id}.short.${language}`).toBeTruthy()
+      }
     }
   })
 })

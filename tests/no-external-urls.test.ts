@@ -43,14 +43,17 @@ const ALLOWED_INERT: ReadonlyArray<{ pattern: RegExp; why: string }> = [
     why: "React Router's fallback base for new URL() when window.location is absent — parsed, never fetched",
   },
   { pattern: /^https?:\/\/tailwindcss\.com$/, why: 'Tailwind 4 licence banner comment in the built CSS' },
+  {
+    pattern:
+      /^(http:\/\/scripts\.sil\.org\/OFL|https:\/\/github\.com\/(rsms\/inter|itfoundry\/Poppins|notofonts\/devanagari))$/,
+    why: 'SIL Open Font License text and copyright lines in public/OFL.txt (pnpm fonts:licenses)',
+  },
   { pattern: /^https?:\/\/bit\.ly\/2kdckMn$/, why: 'Dexie PrematureCommit error message text' },
   { pattern: /^https?:\/\/tinyurl\.com\/y2uuvskb$/, why: 'Dexie MissingAPI error message text' },
   {
     pattern: /^https?:\/\/bit\.ly\/wb-precache$/,
     why: 'workbox-precaching console.warn text, bundled into dist/workbox-*.js by vite-plugin-pwa',
   },
-  { pattern: /^https?:\/\/fonts\.google\.com\/specimen\//, why: 'font attribution in public/fonts/OFL.txt' },
-  { pattern: /^https?:\/\/openfontlicense\.org\//, why: 'OFL licence text link in public/fonts/OFL.txt' },
 ]
 
 const SOURCE_EXTENSIONS = new Set(['.ts', '.tsx', '.css', '.html'])
@@ -121,21 +124,37 @@ describe('no external URLs', () => {
     expect(offenders).toEqual({})
   })
 
-  it('finds none in the generated font CSS', () => {
-    expect(existsSync(fromRoot('public/fonts/fonts.css')), 'run `pnpm fonts:fetch` first').toBe(true)
-    // Comments included: a leaked gstatic URL in a comment still means a stale file.
-    expect(externalUrlsIn(readFromRoot('public/fonts/fonts.css'), { keepComments: true })).toEqual([])
+  it('imports every webfont from a bundled package, never from a CDN', () => {
+    // Fonts moved from a hand-fetched public/fonts/ to @fontsource packages
+    // (ADR-010). Vite emits the .woff2 files into dist/assets and rewrites the
+    // URLs, so nothing is fetched from Google at runtime — but the import list
+    // is where a `https://fonts.googleapis.com` line would slip back in.
+    const css = readFromRoot('src/styles/fonts.css')
+    expect(externalUrlsIn(css, { keepComments: true })).toEqual([])
+
+    const imports = [...css.matchAll(/@import\s+'([^']+)'/g)].map((m) => m[1] ?? '')
+    expect(imports.length).toBeGreaterThan(0)
+    for (const specifier of imports) {
+      expect(specifier.startsWith('@fontsource'), `${specifier} is not an @fontsource package`).toBe(true)
+      expect(existsSync(fromRoot('node_modules', specifier)), `${specifier} is not installed`).toBe(true)
+    }
   })
 
-  it('bundles every font referenced by the font CSS', () => {
-    const css = readFromRoot('public/fonts/fonts.css')
-    const referenced = [...css.matchAll(/url\('([^']+)'\)/g)].map((m) => m[1] ?? '')
-
-    expect(referenced.length).toBeGreaterThan(0)
-    for (const url of referenced) {
-      expect(url.startsWith('/fonts/'), `${url} is not a local /fonts/ path`).toBe(true)
-      expect(existsSync(fromRoot('public', url.replace(/^\//, ''))), `${url} is missing`).toBe(true)
+  it('ships the OFL text alongside the fonts it bundles', () => {
+    // The SIL Open Font License requires the licence to travel with the fonts.
+    // public/OFL.txt is generated from the @fontsource LICENSE files and is
+    // copied into dist/ verbatim by Vite.
+    const ofl = readFromRoot('public/OFL.txt')
+    for (const family of ['Inter', 'Poppins', 'Noto Sans Devanagari']) {
+      expect(ofl, `${family} is not attributed`).toContain(family)
     }
+    expect(ofl).toContain('SIL Open Font License')
+  })
+
+  it('leaves nothing behind in public/fonts', () => {
+    // The old pipeline committed 10 WOFF2 files plus a generated fonts.css and
+    // OFL.txt. If any of that comes back it will be stale, unreferenced weight.
+    expect(existsSync(fromRoot('public/fonts'))).toBe(false)
   })
 
   describe('production build', () => {

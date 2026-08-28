@@ -5,18 +5,9 @@
     "shortDescription": "केंद्रीय सरकारी अधिकारियों के लिए ऑफ़लाइन-प्रथम संदर्भ एवं कार्य-सहायक उपकरण।"
   },
   "nav": {
-    "law": "विधि",
-    "lawLong": "विधि परिवर्तक",
-    "pay": "वेतन",
-    "payLong": "वेतन एवं भत्ते",
-    "draft": "प्रारूप",
-    "draftLong": "प्रारूपण कक्ष",
-    "learn": "अभ्यास",
-    "learnLong": "नियम अभ्यास",
-    "utils": "उपकरण",
-    "utilsLong": "उपयोगी उपकरण",
-    "settings": "सेटिंग",
-    "settingsLong": "सेटिंग"
+    "more": "और",
+    "moreSheet": "अन्य गंतव्य",
+    "close": "बंद करें"
   },
   "a11y": {
     "skipToContent": "मुख्य सामग्री पर जाएँ",
@@ -26,7 +17,8 @@
     "toggleLanguage": "अंग्रेज़ी में बदलें",
     "toggleTheme": "गहरे रंग में बदलें",
     "toggleThemeLight": "हल्के रंग में बदलें",
-    "currentPage": "वर्तमान पृष्ठ"
+    "currentPage": "वर्तमान पृष्ठ",
+    "breadcrumbs": "पथ-सूची"
   },
   "common": {
     "loading": "लोड हो रहा है…",

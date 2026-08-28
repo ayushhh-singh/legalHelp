@@ -1,27 +1,25 @@
 /*
- * Sahayak design tokens — "government file" identity.
+ * Sahayak design tokens — the Neev token system (ADR-010).
  *
  * Tailwind 4 is CSS-first: there is no tailwind.config.ts. The Tailwind entry
- * point, the theme mapping (@theme) and the custom `dark` variant all live in
- * this file, and `src/styles/index.css` imports it first.
+ * point, the source globs, the `dark` variant and the theme mapping all live
+ * in this file; src/styles/index.css imports it first and adds the base layer.
  *
- * Colours are stored as bare HSL triplets (no hsl() wrapper) so the dark
- * remapping below can swap a single value that every derived token follows.
- * Hex equivalents are in the comments.
+ * LIGHT IS THE DEFAULT. Dark applies only from an explicit `.dark` class,
+ * written by src/app/store.ts from the preference stored in IndexedDB. There is
+ * deliberately NO prefers-color-scheme remap: ADR-010 reverses ADR-006.
  *
- * The dark palette's VALUES live exactly once, as --dark-* on :root. Two
- * remapping blocks below point the live tokens at them:
+ * Colours are plain hex so a value can be read, reasoned about and contrast-
+ * checked without a conversion step. src/styles/tokens.test.ts parses this file,
+ * resolves every value numerically and asserts the whole pair matrix in BOTH
+ * themes — 4.5:1 for text, 3:1 for control boundaries. Do not edit a value
+ * without re-running it.
  *
- *   1. @media (prefers-color-scheme: dark) — applies before first paint, so a
- *      reader whose system is dark never sees a flash of light paper while the
- *      stored preference is read out of IndexedDB (an async read that cannot
- *      finish before paint).
- *   2. .dark — an explicit choice, which must win over the system setting.
- *      .light exists for the same reason in the other direction.
- *
- * Every foreground/background pair is verified >= 4.5:1 (WCAG AA, normal text)
- * in both themes by src/styles/tokens.test.ts, which also asserts the two
- * remapping blocks stay identical. Do not edit a value without re-running it.
+ * THE -foreground PAIRING RULE. --marigold / --tulsi / --coral / --violet are
+ * never a raw text or icon colour. Text always uses that colour's paired
+ * `-foreground` token, sitting on the colour's /15 tint. The one exception is
+ * text on SOLID gold, which is always --brand-navy (10.7:1; white measures
+ * 1.6:1 and is forbidden).
  */
 
 @import 'tailwindcss';
@@ -32,161 +30,221 @@
 @source '../../index.html';
 @source '../../src/**/*.{ts,tsx}';
 
-/*
- * Dual dark variant, replacing Tailwind 3's `darkMode: ['variant', [...]]`.
- * The palette below switches on BOTH an explicit `.dark` class and
- * `prefers-color-scheme`, so the `dark:` utility must match the same two
- * conditions — otherwise a reader on a dark system would get the dark palette
- * but light `dark:` utilities.
- */
-@custom-variant dark {
-  &:is(.dark *) {
-    @slot;
-  }
-  @media (prefers-color-scheme: dark) {
-    &:not(.light *) {
-      @slot;
-    }
-  }
-}
+/* Dark is an explicit choice only — never the OS setting. See ADR-010. */
+@custom-variant dark (&:is(.dark *));
 
 :root {
-  /* -- brand: paper and ink (light) ----------------------------------- */
-  --paper: 42 55.6% 92.9%; /* #F7F1E3 */
-  --paper-2: 43.4 47.5% 88%; /* #EFE7D2 */
-  --ink: 220.9 46.5% 19.8%; /* #1B2A4A */
-  --ink-2: 221.9 23.8% 43.7%; /* #55658A — see ADR-003 */
-  --thread: 5.5 58.9% 43.9%; /* #B23A2E — single accent, the red file thread */
-  --ok: 131 39% 30.2%; /* #2F6B3A */
+  /* 12px cards and inputs; --radius-md (10px) is the button radius; chips are
+     pill (`rounded-full`). Strict 4px grid otherwise. */
+  --radius: 0.75rem;
 
-  /* Decorative dividers and card edges. WCAG 1.4.11 does not apply to these:
-     they identify no control and convey no state. */
-  --border: 43 25% 78%;
-  /* Form-control and button boundaries. These DO identify a control, so they
-     must clear 3:1 against both paper surfaces (asserted in tokens.test.ts). */
-  --input: 43 20% 45%;
+  --background: #f7f9fc;
+  --foreground: #0b1d3b;
+  --card: #ffffff;
+  --card-foreground: #0b1d3b;
+  --popover: #ffffff;
+  --popover-foreground: #0b1d3b;
 
-  /* -- brand: warm inverse (dark) — values defined once ---------------- */
-  --dark-paper: 30 13% 9%; /* #1A1714 */
-  --dark-paper-2: 33.3 14.3% 12.4%; /* #24201B */
-  --dark-ink: 40.9 42.3% 89.8%; /* #F0E9DA */
-  --dark-ink-2: 40.6 18.3% 63.5%; /* #B3A891 */
-  --dark-thread: 9 69.8% 62.4%; /* #E2705C */
-  --dark-ok: 131.4 37.8% 59%; /* #6FBE7E */
+  /* Interactive blue: links, active states, tints, focus ring. NOT the primary
+     button — that is --action. */
+  --primary: #1e4fd9;
+  --primary-foreground: #ffffff;
+  --secondary: #e4eaf4;
+  --secondary-foreground: #0b1d3b;
+  --muted: #f2f5fa;
+  --muted-foreground: #667085;
+  --accent: #dbe4f8;
+  --accent-foreground: #123086;
 
-  --dark-border: 36 10% 24%;
-  --dark-input: 36 12% 42%;
+  /* Amended from the specified #DA3125, which measures 4.48:1 as text on
+     --background and 4.32:1 on --muted. See ADR-010. */
+  --destructive: #c92a1e;
+  --destructive-foreground: #ffffff;
 
-  /* -- shadcn/ui surface aliases ---------------------------------------
-   * Aliased onto the brand tokens above rather than defined separately, so
-   * --ink / --thread drive every primitive. Government stationery, so the
-   * radius is 2px, not the consumer-app default.
-   */
-  --radius: 2px;
+  /* Dividers and card edges — decorative. WCAG 1.4.11 does not apply: they
+     identify no control and convey no state (ADR-007). */
+  --border: #dfe5ef;
+  /* Field and control boundaries — 1.4.11 DOES apply, so this must clear 3:1
+     on --background and --card. Split from --border, which measures 1.2:1
+     (ADR-007, re-applied to this palette in ADR-010). */
+  --input: #7b8ba8;
+  --ring: #1e4fd9;
 
-  --background: var(--paper);
-  --foreground: var(--ink);
+  /* The ONE theme-inverting token: navy on white here, gold on navy in dark.
+     Primary buttons, active chips, progress fill, the underline-tab bar. */
+  --action: #0b1d3b;
+  --action-foreground: #ffffff;
 
-  --card: var(--paper);
-  --card-foreground: var(--ink);
-  --popover: var(--paper);
-  --popover-foreground: var(--ink);
+  --marigold: #f7c873;
+  --marigold-foreground: #6b4a05;
+  --tulsi: #10b981;
+  --tulsi-foreground: #06603f;
+  --coral: #f43f5e;
+  --coral-foreground: #9f1239;
+  --violet: #7c3aed;
+  --violet-foreground: #4c1d95;
 
-  --primary: var(--ink);
-  --primary-foreground: var(--paper);
-  --secondary: var(--paper-2);
-  --secondary-foreground: var(--ink);
+  --chart-1: var(--coral);
+  --chart-2: var(--marigold);
+  --chart-3: var(--tulsi);
+  --chart-4: var(--primary);
+  --chart-5: var(--violet);
 
-  --muted: var(--paper-2);
-  --muted-foreground: var(--ink-2);
-  --accent: var(--paper-2);
-  --accent-foreground: var(--ink);
-
-  --destructive: var(--thread);
-  --destructive-foreground: var(--paper);
-
-  --ring: var(--thread);
+  /* Amended from the specified #EFF3FA (4.47:1 with --muted-foreground). */
+  --sidebar: #f1f5fb;
+  --sidebar-foreground: #0b1d3b;
+  --sidebar-primary: #1e4fd9;
+  --sidebar-primary-foreground: #ffffff;
+  --sidebar-accent: #dbe4f8;
+  --sidebar-accent-foreground: #123086;
+  --sidebar-border: #dfe5ef;
+  --sidebar-ring: #1e4fd9;
 }
 
-/* System preference, applied before first paint. `.light` opts back out. */
-@media (prefers-color-scheme: dark) {
-  :root:not(.light) {
-    --paper: var(--dark-paper);
-    --paper-2: var(--dark-paper-2);
-    --ink: var(--dark-ink);
-    --ink-2: var(--dark-ink-2);
-    --thread: var(--dark-thread);
-    --ok: var(--dark-ok);
-    --border: var(--dark-border);
-    --input: var(--dark-input);
-  }
-}
-
-/* An explicit choice, which must beat the system setting either way. */
 .dark {
-  --paper: var(--dark-paper);
-  --paper-2: var(--dark-paper-2);
-  --ink: var(--dark-ink);
-  --ink-2: var(--dark-ink-2);
-  --thread: var(--dark-thread);
-  --ok: var(--dark-ok);
-  --border: var(--dark-border);
-  --input: var(--dark-input);
+  --background: #061225;
+  --foreground: #e8edf5;
+  --card: #102542;
+  --card-foreground: #e8edf5;
+  --popover: #102542;
+  --popover-foreground: #e8edf5;
+
+  /* Lightened from the #1E4FD9 brand blue, which measures 2.4:1 on --card. */
+  --primary: #6e9bff;
+  --primary-foreground: #061225;
+  --secondary: #17304f;
+  --secondary-foreground: #e8edf5;
+  --muted: #17304f;
+  --muted-foreground: #a9b7cc;
+  --accent: #1d3a63;
+  --accent-foreground: #c7daff;
+
+  /* Amended from the specified #F2685C (4.40:1 as text on --muted). */
+  --destructive: #fb8378;
+  --destructive-foreground: #0b1d3b;
+
+  /* Solid, not the specified oklch(1 0 0 / 12%) and /16%: a translucent white
+     leaves --input at 1.6:1 over --card, and a token the contrast test cannot
+     resolve without compositing is a token nobody re-checks. */
+  --border: #22344f;
+  --input: #6b80a4;
+  --ring: #6e9bff;
+
+  --action: #f7c873;
+  --action-foreground: #0b1d3b;
+
+  --marigold: #f7c873;
+  --marigold-foreground: #fbe0ae;
+  --tulsi: #34d399;
+  --tulsi-foreground: #a7f3d0;
+  --coral: #fb7185;
+  --coral-foreground: #fecdd3;
+  --violet: #a78bfa;
+  --violet-foreground: #ddd6fe;
+
+  --chart-1: var(--coral);
+  --chart-2: var(--marigold);
+  --chart-3: var(--tulsi);
+  --chart-4: var(--primary);
+  --chart-5: var(--violet);
+
+  --sidebar: #0a1b31;
+  --sidebar-foreground: #e8edf5;
+  --sidebar-primary: #6e9bff;
+  --sidebar-primary-foreground: #061225;
+  --sidebar-accent: #1d3a63;
+  --sidebar-accent-foreground: #c7daff;
+  --sidebar-border: #22344f;
+  --sidebar-ring: #6e9bff;
+}
+
+/* Literal brand colours — identical in both themes. Use these when the value
+   must NOT flip with the theme: the logo mark, and text on solid gold. */
+:root,
+.dark {
+  --brand-navy: #0b1d3b;
+  --brand-blue: #1e4fd9;
+  --brand-gold: #f7c873;
 }
 
 /*
  * Theme mapping. `inline` matters: it substitutes these expressions straight
- * into the generated utilities, so `.bg-paper` emits `hsl(var(--paper))` and
- * follows the remapping blocks above. Without it Tailwind would freeze the
- * light value into `--color-paper` and dark mode would not switch.
+ * into the generated utilities, so `.bg-card` emits `var(--card)` and follows
+ * the `.dark` block above. A plain @theme would freeze the light value in.
  */
 @theme inline {
-  /* Brand tokens — the vocabulary the app actually writes in. */
-  --color-paper: hsl(var(--paper));
-  --color-paper-2: hsl(var(--paper-2));
-  --color-ink: hsl(var(--ink));
-  --color-ink-2: hsl(var(--ink-2));
-  --color-thread: hsl(var(--thread));
-  --color-ok: hsl(var(--ok));
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+  --color-card: var(--card);
+  --color-card-foreground: var(--card-foreground);
+  --color-popover: var(--popover);
+  --color-popover-foreground: var(--popover-foreground);
+  --color-primary: var(--primary);
+  --color-primary-foreground: var(--primary-foreground);
+  --color-secondary: var(--secondary);
+  --color-secondary-foreground: var(--secondary-foreground);
+  --color-muted: var(--muted);
+  --color-muted-foreground: var(--muted-foreground);
+  --color-accent: var(--accent);
+  --color-accent-foreground: var(--accent-foreground);
+  --color-destructive: var(--destructive);
+  --color-destructive-foreground: var(--destructive-foreground);
+  --color-border: var(--border);
+  --color-input: var(--input);
+  --color-ring: var(--ring);
 
-  /* shadcn/ui aliases, resolving to the same tokens. */
-  --color-background: hsl(var(--background));
-  --color-foreground: hsl(var(--foreground));
-  --color-card: hsl(var(--card));
-  --color-card-foreground: hsl(var(--card-foreground));
-  --color-popover: hsl(var(--popover));
-  --color-popover-foreground: hsl(var(--popover-foreground));
-  --color-primary: hsl(var(--primary));
-  --color-primary-foreground: hsl(var(--primary-foreground));
-  --color-secondary: hsl(var(--secondary));
-  --color-secondary-foreground: hsl(var(--secondary-foreground));
-  --color-muted: hsl(var(--muted));
-  --color-muted-foreground: hsl(var(--muted-foreground));
-  --color-accent: hsl(var(--accent));
-  --color-accent-foreground: hsl(var(--accent-foreground));
-  --color-destructive: hsl(var(--destructive));
-  --color-destructive-foreground: hsl(var(--destructive-foreground));
-  --color-border: hsl(var(--border));
-  --color-input: hsl(var(--input));
-  --color-ring: hsl(var(--ring));
+  --color-action: var(--action);
+  --color-action-foreground: var(--action-foreground);
+  --color-marigold: var(--marigold);
+  --color-marigold-foreground: var(--marigold-foreground);
+  --color-tulsi: var(--tulsi);
+  --color-tulsi-foreground: var(--tulsi-foreground);
+  --color-coral: var(--coral);
+  --color-coral-foreground: var(--coral-foreground);
+  --color-violet: var(--violet);
+  --color-violet-foreground: var(--violet-foreground);
 
-  /* One radius for every step: government stationery, not a consumer app. */
-  --radius-xs: var(--radius);
-  --radius-sm: var(--radius);
-  --radius-md: var(--radius);
+  --color-brand-navy: var(--brand-navy);
+  --color-brand-blue: var(--brand-blue);
+  --color-brand-gold: var(--brand-gold);
+
+  --color-chart-1: var(--chart-1);
+  --color-chart-2: var(--chart-2);
+  --color-chart-3: var(--chart-3);
+  --color-chart-4: var(--chart-4);
+  --color-chart-5: var(--chart-5);
+
+  --color-sidebar: var(--sidebar);
+  --color-sidebar-foreground: var(--sidebar-foreground);
+  --color-sidebar-primary: var(--sidebar-primary);
+  --color-sidebar-primary-foreground: var(--sidebar-primary-foreground);
+  --color-sidebar-accent: var(--sidebar-accent);
+  --color-sidebar-accent-foreground: var(--sidebar-accent-foreground);
+  --color-sidebar-border: var(--sidebar-border);
+  --color-sidebar-ring: var(--sidebar-ring);
+
+  /* 4px grid: 8 / 10 / 12 / 16. --radius-md (10px) is the button radius. */
+  --radius-sm: calc(var(--radius) - 4px);
+  --radius-md: calc(var(--radius) - 2px);
   --radius-lg: var(--radius);
-  --radius-xl: var(--radius);
-  --radius-2xl: var(--radius);
+  --radius-xl: calc(var(--radius) + 4px);
 }
 
 /*
- * Font stacks. Declared in a non-inline @theme so each one both emits a
- * `--font-*` custom property on :root (which jsdom can resolve without
- * Tailwind's generated utilities — see PageHeader.test.tsx) and generates its
- * `font-*` utility.
+ * Font stacks. A plain (non-inline) @theme, so each one both generates its
+ * `font-*` utility AND emits a real custom property on :root — the latter is
+ * what jsdom can resolve, since Tailwind's generated utilities do not exist
+ * there (src/components/common/PageHeader.test.tsx).
+ *
+ * Poppins carries NO Devanagari, and that is deliberate: Noto Sans Devanagari
+ * sits directly behind it, so a Hindi heading falls through glyph-by-glyph and
+ * renders in Noto rather than in whatever the platform would otherwise pick.
+ *
+ * There is no --font-display here. Scoreboard numerals use the unlayered
+ * `.font-display` rule in index.css (Inter 800, tabular-nums): Poppins has no
+ * tabular figures, so digits set in the heading face jitter as they count.
  */
 @theme {
-  --font-display: 'Tiro Devanagari Hindi', 'Noto Serif Devanagari', Georgia, serif;
-  --font-sans: 'IBM Plex Sans', 'Tiro Devanagari Hindi', system-ui, -apple-system, sans-serif;
-  --font-mono: 'IBM Plex Mono', ui-monospace, SFMono-Regular, Menlo, monospace;
+  --font-sans: 'Inter Variable', 'Inter', 'Noto Sans Devanagari', system-ui, sans-serif;
+  --font-heading: 'Poppins', 'Noto Sans Devanagari', system-ui, sans-serif;
 }

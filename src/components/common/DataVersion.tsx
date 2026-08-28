@@ -21,7 +21,7 @@ export function DataVersion({ dataset = 'app', className }: DataVersionProps) {
   const label = entry.label[language] ?? entry.label.en ?? dataset
 
   return (
-    <p className={cn('font-mono text-xs text-ink-2', className)}>
+    <p className={cn('text-xs text-muted-foreground tabular-nums', className)}>
       {label} · {t('common.dataVersion')} {entry.version} · {t('common.updated')} {entry.updated}
     </p>
   )

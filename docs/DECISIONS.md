@@ -282,7 +282,7 @@ both were run via `pnpm dlx` and are reproducible the same way in a future sessi
    serves the precached shell for any client-routed page (`/pay`, `/draft`, …) Workbox has no exact
    precache entry for.
 4. Icon set: `src/assets/pwa-icon.svg` → `scripts/generate-icons.mjs` (`sharp`) → `public/icons/pwa-
-   {192x192,512x512}.png` + `apple-touch-icon.png` (180×180). One render per size, listed in the manifest
+{192x192,512x512}.png` + `apple-touch-icon.png` (180×180). One render per size, listed in the manifest
    with `purpose: 'any maskable'` — see the addendum below; there is no separate maskable file.
 5. `tests/no-external-urls.test.ts`'s allowlist gained one entry: `bit.ly/wb-precache`, a `console.warn`
    string inside workbox-precaching's own source, bundled verbatim into `dist/workbox-*.js` — never fetched,
@@ -322,7 +322,7 @@ cut above, all fixed before commit:
   matches a hypothetical cross-origin request. Nothing exploits this today (the app makes none), but an
   opaque cross-origin response can't be inspected and browsers reserve outsized quota against it — added an
   explicit `url.origin === self.location.origin` guard to both runtime-caching rules. (`self` inside that
-  predicate is the *generated service worker's* global scope, not this Node process — workbox-build
+  predicate is the _generated service worker's_ global scope, not this Node process — workbox-build
   serializes the function into `dist/sw.js` — so `vite.config.ts` carries a narrow local `declare const self`
   shim rather than pulling the DOM lib into `tsconfig.node.json`.)
 - **Manifest description duplicated `en.json`'s `app.shortDescription` as a hand-copied literal.** Now
@@ -331,7 +331,7 @@ cut above, all fixed before commit:
 - **CI built the app twice.** `playwright.config.ts`'s `webServer.reuseExistingServer` is `false` in CI, so
   its `command` always ran — which was `pnpm build && pnpm preview`, right after CI's own separate "Build"
   step had just done the same build. `command` is now `process.env.CI ? 'pnpm preview' : 'pnpm build && pnpm
-  preview'`: CI serves the build the prior step already produced and verified; local runs still work
+preview'`: CI serves the build the prior step already produced and verified; local runs still work
   standalone.
 - **The "any" and maskable icon PNGs were byte-identical, listed and precached as four files.** Since the
   artwork never differed between purposes (the whole point of the safe-zone-padded source), that was two
@@ -341,13 +341,13 @@ cut above, all fixed before commit:
 - **No dark-mode-aware `theme-color`.** The installed-app/status-bar tint was pinned to the light paper
   colour even under `prefers-color-scheme: dark`, inconsistent with `tokens.css` painting the dark palette
   before first paint (ADR-006). `index.html` now carries two `media`-scoped `theme-color` tags. This does not
-  reach the *web manifest's* static `theme_color` (used for the splash screen) — that field has no media-
+  reach the _web manifest's_ static `theme_color` (used for the splash screen) — that field has no media-
   query equivalent in the spec, so it stays the light colour; picking a single manifest colour that works
   passably in both themes was judged good enough without adding a second manifest or a JS-driven `<meta>`
   sync.
 - **The master context's "(enforced by a Playwright test)" claim for zero network requests was not yet
   true.** `tests/e2e/zero-third-party-requests.spec.ts` is a new test: it visits every route plus a language
-  toggle and asserts no cross-origin request occurs. It does not (yet) assert that no *user-entered* value
+  toggle and asserts no cross-origin request occurs. It does not (yet) assert that no _user-entered_ value
   leaves the page — there is no form that captures one yet (`docs/DATA-GAPS.md` #4, updated rather than
   closed).
 
@@ -407,7 +407,7 @@ point, the source globs, the `dark` variant and the whole theme now live in `src
   `prefers-color-scheme`, with `.light` opting out), replacing Tailwind 3's `darkMode: ['variant', […]]`.
 - `tailwind-merge` had to go 2 → 3; v2 does not know Tailwind 4's class list.
 - v4 renamed the shadow scale (`shadow` → `shadow-sm`, `shadow-sm` → `shadow-xs`). `shadow` still resolves
-  as a deprecated alias, so the shadcn primitives would have silently rendered a *heavier* shadow than
+  as a deprecated alias, so the shadcn primitives would have silently rendered a _heavier_ shadow than
   before; the names in `src/components/ui/**` were shifted so the rendered result is unchanged.
 
 **TypeScript 7 side by side with TypeScript 6.** TypeScript 7 is the native (Go) compiler, and its npm
@@ -424,9 +424,9 @@ importer, so both were deduped straight back to the root's 7.0.2.
 
 What is in place instead — the arrangement Microsoft documents:
 
-| package                                   | version | job                                                     |
-| ----------------------------------------- | ------- | ------------------------------------------------------- |
-| `typescript`                              | 6.0.3   | the JavaScript compiler API — `typescript-eslint`, IDEs |
+| package                                      | version | job                                                     |
+| -------------------------------------------- | ------- | ------------------------------------------------------- |
+| `typescript`                                 | 6.0.3   | the JavaScript compiler API — `typescript-eslint`, IDEs |
 | `typescript-native` (`npm:typescript@7.0.2`) | 7.0.2   | the native compiler that `pnpm typecheck` actually runs |
 
 Both packages provide a `tsc` bin, so `node_modules/.bin/tsc` is ambiguous. `pnpm typecheck` therefore
@@ -482,3 +482,146 @@ a `MutationObserver` on `document.body`, debounced 1s, running `axe.run(document
 changed" signal than a `createElement` hook. Verified both ways in a real browser: silent on the clean
 shell, and it reports `image-alt` within the debounce window when an `<img>` without `alt` is injected.
 `main.tsx` still imports it dynamically behind `import.meta.env.DEV`, so nothing ships.
+
+---
+
+## ADR-010 — Adopt the Neev token system; light is the default, dark only on an explicit toggle
+
+**Date:** 2026-08-28 · **Status:** Accepted · **Supersedes:** ADR-003, ADR-005 and ADR-006 ·
+**Re-applies:** ADR-007
+
+### Context
+
+The "government file" identity — cream paper, Tiro Devanagari Hindi, a single red thread — was built in
+Session 1 from the master context as it then read. The master context now specifies a different system,
+ported from Neev: a navy-and-blue institutional palette with one marigold accent, Inter/Poppins/Noto Sans
+Devanagari, and **light as the default with dark reachable only from the in-app toggle**.
+
+That last point is a direct reversal. ADR-006 applied the dark palette from `prefers-color-scheme` as well
+as from `.dark`, specifically so a dark-system reader saw no flash of light paper before IndexedDB could be
+read. The new direction says the opposite: the OS setting must not decide.
+
+### Decision
+
+**1. The palette, wholesale.** `src/styles/tokens.css` now carries the Neev tokens as plain hex on `:root`
+(light) and `.dark` (dark), mapped into Tailwind through `@theme inline`. `--action` is the one
+theme-inverting token — navy on white in light, gold on navy in dark — because navy on a navy page is
+invisible. `--primary` stays the interactive blue for links, active states and the focus ring, and is
+deliberately **not** a button fill.
+
+Colours are plain hex, not the bare HSL triplets of ADR-005. Tailwind 4 composes opacity with `color-mix`
+rather than `<alpha-value>`, so the triplet convention bought nothing and cost legibility.
+
+**2. Dark is an explicit choice.** There is no `prefers-color-scheme` rule anywhere in the CSS —
+`tokens.test.ts` asserts its absence against the comment-stripped file. `src/app/store.ts` defaults to
+light and never calls `matchMedia`; the `.light` class is gone, because light _is_ `:root` and there is now
+nothing for it to opt out of. `tests/e2e/theme.spec.ts` runs the built app with the OS emulated as dark and
+asserts the page is light until the toggle is pressed, dark after, and still dark after a reload.
+
+The cost is the one ADR-006 was written to avoid: a reader who has chosen dark sees one frame of light on
+every load, because IndexedDB cannot be read before first paint. That is now the accepted trade
+(`docs/DATA-GAPS.md` #7, rewritten), and it is the direct consequence of the instruction.
+
+**3. Three values deviate from the palette as specified**, each because it failed a contrast floor this
+project already enforces. Each was measured before and after:
+
+| Token                   | Specified | Shipped   | Why                                                                                         |
+| ----------------------- | --------- | --------- | ------------------------------------------------------------------------------------------- |
+| `--destructive` (light) | `#DA3125` | `#C92A1E` | 4.48:1 as text on `--background`, 4.32:1 on `--muted`. Now 5.19 / 5.01, white-on-solid 5.48 |
+| `--destructive` (dark)  | `#F2685C` | `#FB8378` | 4.40:1 as text on `--muted`. Now 5.48                                                       |
+| `--sidebar` (light)     | `#EFF3FA` | `#F1F5FB` | 4.47:1 with `--muted-foreground`, which every inactive nav label uses. Now 4.55             |
+
+And two more that are ADR-007 re-applied rather than new judgement:
+
+| Token             | Specified                | Shipped   | Why                                                                              |
+| ----------------- | ------------------------ | --------- | -------------------------------------------------------------------------------- |
+| `--input` (light) | `#DFE5EF` (= `--border`) | `#7B8BA8` | 1.20:1 on `--background`; WCAG 1.4.11 wants 3:1 for a control boundary. Now 3.26 |
+| `--input` (dark)  | `oklch(1 0 0 / 16%)`     | `#6B80A4` | translucent white leaves ~1.6:1 over `--card`. Now 3.84                          |
+
+`--border` keeps the specified value in both themes: 1.4.11 does not cover dividers and card edges, which
+identify no control and convey no state.
+
+The dark `--border` and `--input` are also **solid hex rather than `oklch(1 0 0 / 12%)`**. A token whose
+real contrast depends on what it happens to be composited over is a token nobody re-checks, and the test
+would have had to composite it to say anything at all.
+
+**4. `--muted-foreground` was NOT moved, and `--secondary` was NOT lightened.** `#667085` on `--secondary`
+`#E4EAF4` measures 4.12:1 — but `--secondary` is a _fill_ that carries `--secondary-foreground` (13.9:1),
+and muted text is never placed on it. Making that pair pass would have meant lightening `--secondary` until
+it was indistinguishable from `--muted`, destroying a real distinction to satisfy a combination the design
+does not use. The assertion matrix in `tokens.test.ts` states exactly which pairs are checked and why,
+rather than checking every token against every other and then carrying exemptions.
+
+**5. Fonts.** `public/fonts/` (10 hand-fetched WOFF2 files) and `scripts/fetch-fonts.mjs` are deleted.
+`src/styles/fonts.css` imports `@fontsource-variable/inter`, `@fontsource/poppins` (**Latin only**, 500/600/700)
+and `@fontsource/noto-sans-devanagari` (Devanagari only, 400/500/600/700); Vite emits the WOFF2 into
+`dist/assets` and rewrites the URLs, so nothing is fetched from Google at runtime.
+
+Poppins carrying no Devanagari is the point, not an oversight: Noto Sans Devanagari sits directly behind it
+in `--font-heading`, so a Hindi heading falls through glyph-by-glyph to Noto rather than to a platform face.
+
+Three things this forced:
+
+- **`--font-display` is no longer a theme font.** `.font-display` is an unlayered CSS rule (Inter 800,
+  `tabular-nums`, `-0.02em`) so it beats the `h1-h6` rule in `@layer base`. Poppins has no tabular figures,
+  so scoreboard numerals must not use the heading face.
+- **The OFL travels with the fonts.** `scripts/collect-font-licenses.mjs` (`pnpm fonts:licenses`)
+  concatenates the three packages' `LICENSE` files into `public/OFL.txt`, which Vite copies into `dist/`.
+  CI regenerates it and fails on a diff, so a font dependency cannot change without its attribution
+  following. Its four inert URLs are on the allowlist in `tests/no-external-urls.test.ts`.
+- **The service worker skips subsets the app cannot reach.** `@fontsource-variable/inter` ships one
+  variable file per Unicode subset. `unicode-range` already stops a _browser_ fetching Cyrillic, Greek or
+  Vietnamese, but the precache would have downloaded them on install regardless — 92 KiB on every offline
+  install, for an app that is English and Hindi only. `vite.config.ts` now carries a `globIgnores` for them.
+
+**6. Devanagari line height is ≥ 1.75 always, headings included.** Every Tailwind text-size utility ships
+its own line-height in the utilities layer and wins over a `body` rule, so `index.css` carries a `:lang(hi)`
+rule at specificity (0,2,0) that reclaims it across `text-xs` … `text-xl`. `leading-none` / `-tight` /
+`-snug` and arbitrary `leading-[…]` are exempt through a zero-specificity `:not(:where(…))`, because those
+sit on numerals, badges and chips where 1.75 would blow out a fixed-height box.
+
+Applying the floor to headings too is a literal reading of the master context ("Noto Sans Devanagari with
+line-height ≥ 1.75 always"). It makes Hindi headings noticeably airier than Latin ones — Neev itself set
+Devanagari headings to 1.45. Followed as written, flagged for a look on a device
+(`docs/DATA-GAPS.md` #11).
+
+**7. One nav config.** `src/lib/nav.ts` replaces `src/app/routes.ts` and drives the sidebar, the bottom bar
+and the router. Labels are `{ en, hi }` objects typed as `Record<Language, string>`, so a missing Hindi
+label is a compile error — the same guarantee `scripts/i18n-check.mjs` gives the JSON catalogues. The
+`nav.*` label keys are gone from `en.json` / `hi.json`, which now hold only the More sheet's own strings.
+
+Below 768px the bar is four flagship modules plus a **More** sheet; from 768px every destination appears
+inline and More disappears. Both states are pure CSS — a breakpoint held in React state would disagree with
+the rendered layout for a frame after each resize. The sheet's open state is **derived** from the route it
+was opened on (`openedAt === pathname`), not tracked separately and reset in an effect: navigating anywhere
+makes it stale and closes the sheet in the same render. `react-hooks/set-state-in-effect`, new in
+eslint-plugin-react-hooks 7, is what caught the effect version.
+
+**8. Active state is never colour alone** — a 3px `--marigold` rule on the chrome's own edge (the sidebar's
+left, the tab bar's top) plus a `font-semibold` label. That is the same gesture as the file tab, which is
+the signature: a 3px marigold index tab on the top edge of the active module card (`SectionCard active`),
+with the `SectionNumber` chip (tabular numerals on `--muted`) as its partner. No gauge — that is Neev's.
+
+### Consequences
+
+- `pnpm check` (177 unit tests), `pnpm build` and `pnpm test:e2e` (13 Playwright specs) are green.
+- **Two long-standing data gaps are closed.** `tests/e2e/a11y.spec.ts` runs axe over every route × both
+  languages × both themes in a real browser, which is the only place `color-contrast` can actually be
+  evaluated (#2). `tests/e2e/typography.spec.ts` reads Chromium's _used_ fonts through
+  `CSS.getPlatformFontsForNode` — not `font-family`, which reports the stack whether or not a font loaded —
+  and confirms Poppins for a Latin heading, Noto Sans Devanagari for a Devanagari one, and Inter for body
+  copy (#3).
+- The axe sweep found one thing worth recording: sampling during the theme toggle reported a `color-contrast`
+  violation on a pair that measures 8.1:1 once settled, because the nav's `transition-colors` was still
+  mid-flight. The audit now waits on `document.getAnimations()` rather than sleeping, so the race cannot
+  come back disguised as a flake.
+- It also found a real defect: the More sheet's links sat outside every landmark (axe `region`). The sheet
+  now lives inside the `<nav>` rather than beside it.
+- The precached shell grew from 735 KiB to 838 KiB. Noto Sans Devanagari at four weights is 220 KiB of that
+  and is not optional for this app. The `.woff` legacy fallbacks that `@fontsource` declares alongside each
+  `.woff2` are deployed but never precached and never requested — `globPatterns` names only `woff2`.
+- `src/components/ui-x/` is new: Chip, Badge, ProgressBar, InfoCard, SectionCard, SectionNumber, StatCard,
+  Skeleton, QueryErrorState, Breadcrumbs, written fresh rather than copied. The pairing rule is enforced by
+  a test that greps every shipped component for `text-<accent>` without `-foreground`, so a new component
+  cannot quietly opt out.
+- `.claude/skills/frontend-design/SKILL.md` is the working reference for all of the above.

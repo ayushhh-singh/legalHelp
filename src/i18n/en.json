@@ -5,18 +5,9 @@
     "shortDescription": "Offline-first reference and productivity tool for central government officers."
   },
   "nav": {
-    "law": "Law",
-    "lawLong": "Law Converter",
-    "pay": "Pay",
-    "payLong": "Pay & Allowances",
-    "draft": "Draft",
-    "draftLong": "Drafting Studio",
-    "learn": "Learn",
-    "learnLong": "Rules Trainer",
-    "utils": "Tools",
-    "utilsLong": "Utilities",
-    "settings": "Settings",
-    "settingsLong": "Settings"
+    "more": "More",
+    "moreSheet": "More destinations",
+    "close": "Close"
   },
   "a11y": {
     "skipToContent": "Skip to main content",
@@ -26,7 +17,8 @@
     "toggleLanguage": "Switch to Hindi",
     "toggleTheme": "Switch to dark theme",
     "toggleThemeLight": "Switch to light theme",
-    "currentPage": "Current page"
+    "currentPage": "Current page",
+    "breadcrumbs": "Breadcrumbs"
   },
   "common": {
     "loading": "Loading…",

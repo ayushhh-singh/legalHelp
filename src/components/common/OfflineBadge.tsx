@@ -9,9 +9,11 @@ import { cn } from '@/lib/utils'
  * worker (vite.config.ts, src/app/pwa.tsx) is what actually keeps the app
  * usable offline; this badge only reports the network state to the officer.
  *
- * The label shows both languages at once rather than following the current
- * UI language toggle — a status this important should read the same way no
- * matter which language the app happens to be in when the network drops.
+ * The label shows both languages at once rather than following the current UI
+ * language toggle — a status this important should read the same way no matter
+ * which language the app happens to be in when the network drops.
+ *
+ * Coral is the low band; the tint carries --coral-foreground for text and icon.
  */
 export function OfflineBadge({ className }: { className?: string }) {
   const [online, setOnline] = useState(() => globalThis.navigator?.onLine ?? true)
@@ -35,7 +37,7 @@ export function OfflineBadge({ className }: { className?: string }) {
     <span
       data-testid="offline-badge"
       className={cn(
-        'inline-flex items-center gap-1.5 rounded-sm border border-thread/50 bg-thread/10 px-2 py-1 text-xs font-medium text-thread',
+        'inline-flex items-center gap-1.5 rounded-full border border-coral/30 bg-coral/15 px-2.5 py-1 text-xs font-medium text-coral-foreground',
         className,
       )}
     >

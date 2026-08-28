@@ -1,5 +1,7 @@
+import { AlertTriangle } from 'lucide-react'
 import { Component, type ErrorInfo, type ReactNode } from 'react'
 
+import { Button } from '@/components/ui/button'
 import { useT } from '@/i18n/useT'
 
 /* React has no hook-based error boundary, so this file must export a class
@@ -27,21 +29,20 @@ function ErrorFallback({ error, onRetry }: { error: Error; onRetry: () => void }
   const { t } = useT()
 
   return (
-    <div role="alert" className="m-4 flex flex-col gap-2 rounded-sm border border-thread/50 bg-thread/5 p-4">
-      <h2 className="font-display text-lg text-ink">{t('errors.title')}</h2>
-      <p className="text-sm text-ink-2">{t('errors.body')}</p>
-      <div>
-        <button
-          type="button"
-          onClick={onRetry}
-          className="rounded-sm border border-ink px-3 py-1.5 text-sm font-medium text-ink transition-colors hover:bg-ink hover:text-paper"
-        >
-          {t('common.retry')}
-        </button>
+    <div role="alert" className="m-4 flex flex-col gap-3 rounded-lg border border-coral/30 bg-coral/15 p-4">
+      <div className="flex items-center gap-2 text-coral-foreground">
+        <AlertTriangle aria-hidden="true" className="h-4 w-4 shrink-0" />
+        <h2 className="text-base font-semibold">{t('errors.title')}</h2>
       </div>
-      <details className="mt-1 text-xs text-ink-2">
+      <p className="text-sm text-coral-foreground">{t('errors.body')}</p>
+      <div>
+        <Button type="button" variant="outline" size="sm" onClick={onRetry}>
+          {t('common.retry')}
+        </Button>
+      </div>
+      <details className="text-xs text-coral-foreground">
         <summary className="cursor-pointer">{t('errors.details')}</summary>
-        <pre className="mt-2 overflow-x-auto font-mono text-xs">{error.message}</pre>
+        <pre className="mt-2 overflow-x-auto text-xs">{error.message}</pre>
       </details>
     </div>
   )

@@ -50,6 +50,19 @@ export default defineConfig({
         // Everything Vite builds, plus the self-hosted fonts and icons that
         // live in public/ and are copied into the same output directory.
         globPatterns: ['**/*.{js,css,html,woff2,png,svg,ico,webmanifest}'],
+        // @fontsource-variable/inter ships one variable file per Unicode
+        // subset. Sahayak is English and Hindi only, so Cyrillic, Greek and
+        // Vietnamese are never requested — unicode-range sees to that — but
+        // they would still be downloaded by the precache on install. 92 KiB
+        // off every offline install. The .woff legacy fallbacks alongside each
+        // .woff2 are excluded already, by globPatterns naming only woff2.
+        globIgnores: [
+          '**/inter-cyrillic-*',
+          '**/inter-cyrillic-ext-*',
+          '**/inter-greek-*',
+          '**/inter-greek-ext-*',
+          '**/inter-vietnamese-*',
+        ],
         cleanupOutdatedCaches: true,
         clientsClaim: true,
         // Client-routed pages (e.g. /pay) aren't individually precached;

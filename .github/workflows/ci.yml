@@ -26,9 +26,10 @@ jobs:
       - name: Install
         run: pnpm install --frozen-lockfile
 
-      # Fonts are gitignored-free (committed), so this only guards against drift.
-      - name: Verify self-hosted fonts are present
-        run: test -f public/fonts/fonts.css && ls public/fonts/*.woff2 > /dev/null
+      # Fonts come from @fontsource packages now (ADR-010); the licence file
+      # they ship with is generated and committed, so this guards against drift.
+      - name: Verify the bundled font licences are current
+        run: pnpm fonts:licenses && git diff --exit-code public/OFL.txt
 
       - name: Lint, typecheck, i18n parity, unit tests
         run: pnpm check
@@ -44,6 +45,7 @@ jobs:
         run: pnpm exec playwright install --with-deps chromium
 
       # Builds and serves dist/ itself (playwright.config.ts webServer) — the
-      # service worker under test only exists in a production build.
-      - name: End-to-end (offline shell)
+      # service worker, the real fonts and axe's colour-contrast rule all need
+      # a production build in a real browser.
+      - name: End-to-end (offline shell, axe, theme, typography)
         run: pnpm test:e2e

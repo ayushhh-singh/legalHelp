@@ -23,12 +23,14 @@ function OptionRow({
       aria-checked={selected}
       onClick={onSelect}
       className={cn(
-        'flex w-full items-center justify-between rounded-sm border border-border px-3 py-2.5 text-left text-sm transition-colors',
-        selected ? 'border-ink bg-paper-2 font-medium text-ink' : 'text-ink-2 hover:bg-paper-2',
+        'flex min-h-11 w-full items-center justify-between rounded-lg border border-border px-3 py-2.5 text-left text-sm transition-colors',
+        selected
+          ? 'border-action bg-accent font-semibold text-accent-foreground'
+          : 'text-muted-foreground hover:bg-muted',
       )}
     >
       <span>{label}</span>
-      {selected ? <Check aria-hidden="true" className="h-4 w-4 text-thread" /> : null}
+      {selected ? <Check aria-hidden="true" className="h-4 w-4" /> : null}
     </button>
   )
 }
@@ -47,8 +49,8 @@ export default function SettingsPage() {
 
       <section className="flex flex-col gap-3">
         <div>
-          <h2 className="font-display text-lg text-ink">{t('pages.settings.language')}</h2>
-          <p className="text-sm text-ink-2">{t('pages.settings.languageHint')}</p>
+          <h2 className="text-lg font-semibold">{t('pages.settings.language')}</h2>
+          <p className="text-sm text-muted-foreground">{t('pages.settings.languageHint')}</p>
         </div>
         <div role="radiogroup" aria-label={t('pages.settings.language')} className="flex flex-col gap-2">
           {LANGUAGES.map((code: Language) => (
@@ -63,7 +65,7 @@ export default function SettingsPage() {
       </section>
 
       <section className="flex flex-col gap-3">
-        <h2 className="font-display text-lg text-ink">{t('pages.settings.theme')}</h2>
+        <h2 className="text-lg font-semibold">{t('pages.settings.theme')}</h2>
         <div role="radiogroup" aria-label={t('pages.settings.theme')} className="flex flex-col gap-2">
           {themes.map((value) => (
             <OptionRow
@@ -77,8 +79,8 @@ export default function SettingsPage() {
       </section>
 
       <section className="flex flex-col gap-2">
-        <h2 className="font-display text-lg text-ink">{t('pages.settings.privacyTitle')}</h2>
-        <p className="max-w-prose text-sm text-ink-2">{t('pages.settings.privacyBody')}</p>
+        <h2 className="text-lg font-semibold">{t('pages.settings.privacyTitle')}</h2>
+        <p className="max-w-prose text-sm text-muted-foreground">{t('pages.settings.privacyBody')}</p>
       </section>
     </div>
   )

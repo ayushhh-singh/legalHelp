@@ -3,12 +3,12 @@ import { Navigate, Route, Routes, useLocation } from 'react-router-dom'
 
 import { BottomTabs, Sidebar } from './Nav'
 import { PwaNotices } from './pwa'
-import { HOME_PATH } from './routes'
 import { TopBar } from './TopBar'
 import { useAppStore } from './store'
 
 import { ErrorBoundary } from '@/components/common/ErrorBoundary'
 import { useT } from '@/i18n/useT'
+import { HOME_PATH } from '@/lib/nav'
 
 const LawPage = lazy(() => import('@/modules/law/LawPage'))
 const PayPage = lazy(() => import('@/modules/pay/PayPage'))
@@ -20,7 +20,7 @@ const SettingsPage = lazy(() => import('@/modules/settings/SettingsPage'))
 function RouteFallback() {
   const { t } = useT()
   return (
-    <p role="status" className="p-6 text-sm text-ink-2">
+    <p role="status" className="p-6 text-sm text-muted-foreground">
       {t('common.loading')}
     </p>
   )

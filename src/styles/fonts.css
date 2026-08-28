@@ -1,0 +1,27 @@
+/*
+ * Self-hosted webfonts, from @fontsource packages in node_modules. Vite emits
+ * the .woff2 files into dist/assets and rewrites these URLs, so the app makes
+ * no third-party font request at runtime — asserted by
+ * tests/no-external-urls.test.ts and tests/e2e/zero-third-party-requests.spec.ts.
+ *
+ * Imported from main.tsx rather than from index.css so the font bytes are a
+ * visible, separate line item in the bundle.
+ *
+ * Poppins is LATIN ONLY, and only the three heading weights. It has no
+ * Devanagari coverage by design (see tokens.css): Hindi headings fall through
+ * to Noto Sans Devanagari glyph-by-glyph.
+ */
+
+/* Body + numerals. One variable file per subset covers weights 100-900. */
+@import '@fontsource-variable/inter/index.css';
+
+/* Headings, Latin only. */
+@import '@fontsource/poppins/latin-500.css';
+@import '@fontsource/poppins/latin-600.css';
+@import '@fontsource/poppins/latin-700.css';
+
+/* Devanagari, for both body and headings. */
+@import '@fontsource/noto-sans-devanagari/devanagari-400.css';
+@import '@fontsource/noto-sans-devanagari/devanagari-500.css';
+@import '@fontsource/noto-sans-devanagari/devanagari-600.css';
+@import '@fontsource/noto-sans-devanagari/devanagari-700.css';

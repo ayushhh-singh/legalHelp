@@ -4,10 +4,10 @@ import { MemoryRouter } from 'react-router-dom'
 import { describe, expect, it } from 'vitest'
 
 import { App } from './App'
-import { NAV_ROUTES } from './routes'
 import { useAppStore } from './store'
 
 import i18n, { type Language } from '@/i18n'
+import { NAV_ITEMS } from '@/lib/nav'
 
 /**
  * axe over the whole shell, in both languages.
@@ -77,13 +77,10 @@ describe.each(['en', 'hi'] as const)('shell accessibility (%s)', (language) => {
 })
 
 describe('shell routing', () => {
-  it.each(NAV_ROUTES.map((r) => [r.path, r.longLabelKey] as const))(
-    'renders %s without axe violations',
-    async (path) => {
-      const { container } = await renderShell('hi', path)
-      expect(await auditFor(container)).toEqual([])
-    },
-  )
+  it.each(NAV_ITEMS.map((item) => item.path))('renders %s without axe violations', async (path) => {
+    const { container } = await renderShell('hi', path)
+    expect(await auditFor(container)).toEqual([])
+  })
 
   it('translates every visible page string when the language changes', async () => {
     await renderShell('en')

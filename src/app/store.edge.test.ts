@@ -46,7 +46,7 @@ describe('storage failures', () => {
     expect(useAppStore.getState().storageBlocked).toBe(false)
   })
 
-  it('falls back to detected defaults when the read fails', async () => {
+  it('falls back to the defaults when the read fails', async () => {
     vi.spyOn(db.settings, 'get').mockRejectedValue(new Error('unavailable'))
     useAppStore.setState({ hydrated: false })
 
@@ -117,16 +117,14 @@ describe('untrusted stored values', () => {
 })
 
 describe('theme classes', () => {
-  // tokens.css applies the dark palette from prefers-color-scheme before paint,
-  // so `.light` is what lets a reader on a dark system actually get light.
-  it('sets light and dark as mutually exclusive classes', async () => {
+  it('adds and removes exactly one class', async () => {
     await useAppStore.getState().setTheme('dark')
     expect(document.documentElement.classList.contains('dark')).toBe(true)
-    expect(document.documentElement.classList.contains('light')).toBe(false)
 
     await useAppStore.getState().setTheme('light')
-    expect(document.documentElement.classList.contains('light')).toBe(true)
     expect(document.documentElement.classList.contains('dark')).toBe(false)
+    // There is no `.light` class any more: light IS :root (ADR-010).
+    expect(document.documentElement.classList.contains('light')).toBe(false)
   })
 
   it('mirrors the theme onto color-scheme so form controls follow', async () => {
@@ -143,5 +141,32 @@ describe('clearing stored data', () => {
     for (const table of db.tables) {
       expect(await table.count(), `${table.name} was left behind`).toBe(0)
     }
+  })
+})
+
+describe('the OS colour scheme is never consulted', () => {
+  // ADR-010 reverses ADR-006: light is the default and dark is an explicit
+  // choice only, so a reader on a dark system still opens the app in light.
+  it('hydrates to light on a system that prefers dark', async () => {
+    const matchMedia = vi.fn().mockReturnValue({ matches: true, media: '(prefers-color-scheme: dark)' })
+    vi.stubGlobal('matchMedia', matchMedia)
+    useAppStore.setState({ hydrated: false, theme: 'dark' })
+
+    await useAppStore.getState().hydrate()
+
+    expect(useAppStore.getState().theme).toBe('light')
+    expect(document.documentElement.classList.contains('dark')).toBe(false)
+    expect(matchMedia).not.toHaveBeenCalled()
+    vi.unstubAllGlobals()
+  })
+
+  it('still honours a stored dark preference', async () => {
+    await setSetting(SETTING_KEYS.theme, 'dark')
+    useAppStore.setState({ hydrated: false, theme: 'light' })
+
+    await useAppStore.getState().hydrate()
+
+    expect(useAppStore.getState().theme).toBe('dark')
+    expect(document.documentElement.classList.contains('dark')).toBe(true)
   })
 })

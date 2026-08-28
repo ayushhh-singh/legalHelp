@@ -23,7 +23,7 @@ export function SourceChip({ name, url, className }: SourceChipProps) {
       target="_blank"
       rel="noopener noreferrer"
       className={cn(
-        'inline-flex items-center gap-1.5 rounded-sm border border-border bg-paper-2 px-2 py-1 font-mono text-xs text-ink-2 transition-colors hover:border-ink-2 hover:text-ink',
+        'inline-flex items-center gap-1.5 rounded-full border border-border bg-muted px-2.5 py-1 text-xs text-muted-foreground transition-colors hover:border-input hover:text-foreground',
         className,
       )}
     >

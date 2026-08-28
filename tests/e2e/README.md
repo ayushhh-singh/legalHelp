@@ -8,7 +8,7 @@ only exists in a production build):
   shell (`vite.config.ts`, `src/app/pwa.tsx`) work.
 - `zero-third-party-requests.spec.ts` watches real `page.on('request')` traffic across every route plus a
   language toggle and fails on any cross-origin request — the runtime half of the master context's named
-  enforcement mechanism. It does not yet assert that no *user-entered* value leaves the page: no form
+  enforcement mechanism. It does not yet assert that no _user-entered_ value leaves the page: no form
   captures one yet (`docs/DATA-GAPS.md` #4).
 
 The suite still owes these checks, each currently recorded in `docs/DATA-GAPS.md` because jsdom cannot

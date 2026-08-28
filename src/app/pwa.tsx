@@ -97,14 +97,14 @@ function PwaToast({
   return (
     <div
       role="status"
-      className="flex items-center gap-3 rounded-sm border border-ink/20 bg-paper px-4 py-3 text-sm text-ink shadow-md"
+      className="flex items-center gap-3 rounded-lg border border-border bg-card px-4 py-3 text-sm text-foreground shadow-lg"
     >
       <span className="flex-1">{message}</span>
       {actionLabel && onAction ? (
         <button
           type="button"
           onClick={onAction}
-          className="shrink-0 rounded-sm border border-ink px-2.5 py-1 text-xs font-medium text-ink transition-colors hover:bg-ink hover:text-paper"
+          className="shrink-0 rounded-md bg-action px-3 py-1.5 text-xs font-medium text-action-foreground transition-colors hover:bg-action/90"
         >
           {actionLabel}
         </button>
@@ -113,7 +113,7 @@ function PwaToast({
         type="button"
         onClick={onDismiss}
         aria-label={t('pwa.dismiss')}
-        className="shrink-0 text-ink-2 transition-colors hover:text-ink"
+        className="shrink-0 text-muted-foreground transition-colors hover:text-foreground"
       >
         ×
       </button>

@@ -4,14 +4,12 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <!--
-      Two tags, not one: browsers pick whichever media query matches, so this
-      tints the address bar/status bar for the common case of following the
-      system's colour scheme. It cannot react to an explicit in-app light/dark
-      override (store.ts) — only the page content itself does that, via the
-      prefers-color-scheme rule in tokens.css (ADR-006).
+      One tag, not two. Light is the default and dark applies only from the
+      in-app toggle (ADR-010), so a prefers-color-scheme-scoped theme-color
+      would tint the address bar dark for a reader the page is still rendering
+      light for. Matches --background in tokens.css :root.
     -->
-    <meta name="theme-color" content="#F7F1E3" media="(prefers-color-scheme: light)" />
-    <meta name="theme-color" content="#1A1714" media="(prefers-color-scheme: dark)" />
+    <meta name="theme-color" content="#F7F9FC" />
     <meta
       name="description"
       content="Sahayak — offline-first bilingual reference and productivity tool for Indian central government officers. Public data only."
@@ -19,22 +17,8 @@
     <link rel="icon" href="/favicon.svg" type="image/svg+xml" />
     <link rel="apple-touch-icon" href="/icons/apple-touch-icon.png" />
 
-    <!-- Self-hosted fonts. No third-party request is made at runtime. -->
-    <link rel="stylesheet" href="/fonts/fonts.css" />
-    <link
-      rel="preload"
-      href="/fonts/ibm-plex-sans-latin-normal-400-600.woff2"
-      as="font"
-      type="font/woff2"
-      crossorigin
-    />
-    <link
-      rel="preload"
-      href="/fonts/tiro-devanagari-hindi-devanagari-normal-400.woff2"
-      as="font"
-      type="font/woff2"
-      crossorigin
-    />
+    <!-- Fonts are self-hosted from @fontsource and bundled by Vite
+         (src/styles/fonts.css). No third-party request is made at runtime. -->
 
     <title>Sahayak · सरकारी सहायक</title>
   </head>
