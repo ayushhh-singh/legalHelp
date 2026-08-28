@@ -387,14 +387,18 @@ export const onPhone = (page: Page): boolean => (page.viewportSize()?.width ?? 1
  */
 export async function showPreviewPane(page: Page, language: Language = 'en'): Promise<void> {
   if (!onPhone(page)) return
-  const tab = page.getByRole('radio', { name: t(language, 'draft.editor.tabs.preview') })
+  // `.first()`, not the bare locator: Playwright matches a string name as a
+  // SUBSTRING, so the check ("is there at least one?") permitted a state the
+  // action forbids ("there is exactly one") — two matches would fail as a
+  // strict-mode violation rather than as anything a reader could diagnose.
+  const tab = page.getByRole('radio', { name: t(language, 'draft.editor.tabs.preview') }).first()
   if ((await tab.count()) > 0) await tab.click()
 }
 
 /** The form half of the same two-tab layout. */
 export async function showFormPane(page: Page, language: Language = 'en'): Promise<void> {
   if (!onPhone(page)) return
-  const tab = page.getByRole('radio', { name: t(language, 'draft.editor.tabs.form') })
+  const tab = page.getByRole('radio', { name: t(language, 'draft.editor.tabs.form') }).first()
   if ((await tab.count()) > 0) await tab.click()
 }
 
