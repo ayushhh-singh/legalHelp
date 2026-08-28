@@ -2346,3 +2346,74 @@ one would silently convert every agent in the app into one that reads unfinished
   The second: the flush effect's cleanup cleared an `alive` flag that nothing re-armed, so the new
   draft's id never reached the URL and a reload opened an empty form. `useDraft.test.tsx` renders the
   hook inside `<StrictMode>` deliberately, and is where any future effect of this shape belongs.
+
+---
+
+## ADR-022 — A write from an async continuation must be cancelled AND its latch released
+
+**Date:** 2026-08-28 · **Status:** Accepted · **Session:** 8 · **Amends:** ADR-018
+
+### Context
+
+The same defect appeared twice in one day, in two modules, written by two sessions, and the second was
+only recognised because the first had a name. Both are the shape:
+
+```
+effect: arm a latch, start an async read, write on resolve
+```
+
+Two things can go wrong with it, they are independent, and fixing either one alone leaves the other:
+
+1. **The write is not cancelled.** `setSearchParams` navigates to **its own route's** path with the
+   new search, not to wherever the reader now is — so a write from an unmounted `/pay` does not put a
+   stray query on `/law`, it pulls the reader back onto `/pay?level=8&cell=3`. Confirmed under both
+   `MemoryRouter` and `BrowserRouter` with the unmount asserted.
+2. **The latch is not released.** A latch armed by an attempt whose result is discarded is not a
+   guard. `<StrictMode>` mounts, cleans up and mounts again in development, so the second mount finds
+   the latch set and returns without doing the work the first mount threw away. In the Drafting
+   Studio this left the editor on three skeletons for ever; in the Pay calculator it would silently
+   stop restoring the last scenario in `pnpm dev`.
+
+### Decision
+
+**Every effect of that shape carries both halves**: a local `alive` flag checked before the write,
+and a `completed` flag so the cleanup releases the latch only for an attempt that never finished.
+
+```ts
+let alive = true
+let completed = false
+void read().then((value) => {
+  completed = true
+  if (!alive) return
+  write(value)
+})
+return () => {
+  alive = false
+  if (!completed) latch.current = false
+}
+```
+
+Releasing the latch unconditionally is wrong in the other direction: a completed restore leaves the
+URL populated, and re-arming would let a later re-render restore over the reader's own edits.
+
+### How this was got wrong twice, which is the part worth keeping
+
+The Pay half was first reported as unreproducible **by this session, incorrectly**. The probe that
+"disproved" it drove the navigation from a component mounted OUTSIDE `<Routes>`, whose
+`useEffect(..., [go, navigate])` re-fired every time `navigate`'s identity changed — including
+immediately after the stale setter moved the location, navigating straight back and hiding the very
+effect under test. The harness was undoing the thing it was measuring, and it reported a clean pass.
+
+What settled it was running the other session's probe **verbatim** instead of reconstructing it. The
+reconstruction is where the error entered both times: once when the original probe left the component
+mounted, and once when the rebuttal added a navigation loop.
+
+### Consequences
+
+- `src/modules/pay/PayPage.tsx` carries both halves, with `src/modules/pay/pay-restore.test.tsx`
+  covering them: the first test fails against the code before the fix, the second fails against an
+  `alive` flag with no latch release. A fix must satisfy both.
+- `src/modules/drafting/useDraft.ts` already carries both, from 089ce8e.
+- `docs/DATA-GAPS.md` #42 is closed by this.
+- The e2e suite cannot see the StrictMode half at all — it builds for production, where StrictMode is
+  inert. Both halves are unit-tested for that reason, and any new effect of this shape needs the same.

@@ -155,9 +155,32 @@ function Calculator({
     // twice, and two reads racing to write the URL would restore the scenario
     // on top of itself.
     restored.current = true
+
+    /*
+      `alive` is what stops a read that lands after the reader has gone.
+
+      `setSearchParams` navigates to ITS OWN route's path with the new search,
+      not to wherever the reader now is — so a write from an unmounted
+      `/pay` does not append a query to `/law`, it pulls the reader back onto
+      `/pay?level=8&cell=3`. Demonstrated under both MemoryRouter and
+      BrowserRouter with the unmount asserted; the window is one Dexie read,
+      which is tens of milliseconds on a cold IndexedDB open.
+
+      `completed` is the other half, and it is not optional. `restored` is a
+      latch, and a latch armed by an attempt whose result is discarded is not a
+      guard: under StrictMode the first mount arms it, the cleanup cancels the
+      read, and the second mount returns early — so the scenario would never be
+      restored in `pnpm dev`. That is the defect 089ce8e fixed in the Drafting
+      Studio, and resetting the latch only for an attempt that never finished is
+      what keeps it from reappearing here.
+    */
+    let alive = true
+    let completed = false
+
     void readLastScenario()
       .then((last) => {
-        if (!last) return
+        completed = true
+        if (!alive || !last) return
         // A bare URL means the rest of the view IS the default, so nothing from
         // the current render has to be carried in — which is what keeps this
         // effect's dependencies honest.
@@ -171,7 +194,13 @@ function Calculator({
       })
       .catch(() => {
         // Blocked storage. The form opens at its defaults, which is correct.
+        completed = true
       })
+
+    return () => {
+      alive = false
+      if (!completed) restored.current = false
+    }
   }, [hasQuery, setParams, tables])
 
   /** Remembered as the reader works, so the next visit opens where they left. */
