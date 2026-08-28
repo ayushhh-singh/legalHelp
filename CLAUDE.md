@@ -357,7 +357,10 @@ are load-bearing, and each is enforced by a test rather than by convention:
   that module — was in neither, and `/onboarding`, `/learn/mock` and `/learn/review-queue` were
   missing from the offline one. Adding a route to `LearnPage.tsx` now fails this test until the route
   is swept, or listed in its `EXEMPT` map with a reason. Never satisfy it by adding an exemption
-  without one.
+  without one. **All five routes passed the moment they were swept — the gap was in the coverage,
+  not in the pages.** Worth saying, because the opposite assumption is the natural one: finding that
+  a screen was never audited reads like finding that it is broken, and here it meant only that a
+  hand-maintained list had drifted from a hand-maintained app.
 
 - **When a live region is shared by a whole page rather than owned per row, an identical repeat
   message announces nothing.** `/utils/portals` has one region for every row (unlike `TermRow.tsx`,
