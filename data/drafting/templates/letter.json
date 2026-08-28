@@ -334,6 +334,15 @@
     "layout": {
       "en": [
         {
+          "role": "urgency",
+          "align": "right",
+          "emphasis": "bold",
+          "lines": [
+            "{{urgency}}"
+          ],
+          "omitWhenEmpty": true
+        },
+        {
           "role": "fileNumber",
           "align": "left",
           "lines": [
@@ -428,6 +437,15 @@
         }
       ],
       "hi": [
+        {
+          "role": "urgency",
+          "align": "right",
+          "emphasis": "bold",
+          "lines": [
+            "{{urgency}}"
+          ],
+          "omitWhenEmpty": true
+        },
         {
           "role": "fileNumber",
           "align": "left",

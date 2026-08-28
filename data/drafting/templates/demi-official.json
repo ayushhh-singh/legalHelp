@@ -268,7 +268,8 @@
           "lines": [
             "{{signatoryName}}",
             "{{signatoryDesignation}}",
-            "Tele.: {{phone}}"
+            "Tele.: {{phone}}",
+            "Email: {{email}}"
           ]
         },
         {
@@ -359,7 +360,8 @@
           "lines": [
             "{{signatoryName}}",
             "{{signatoryDesignation}}",
-            "दूरभाष : {{phone}}"
+            "दूरभाष : {{phone}}",
+            "ई-मेल : {{email}}"
           ]
         },
         {

@@ -189,27 +189,7 @@
       "additionalProperties": false,
       "properties": {
         "role": {
-          "type": "string",
-          "enum": [
-            "fileNumber",
-            "urgency",
-            "gazetteLine",
-            "header",
-            "title",
-            "dateLine",
-            "addressee",
-            "attention",
-            "subject",
-            "refLine",
-            "salutation",
-            "body",
-            "closing",
-            "signature",
-            "enclosures",
-            "copyTo",
-            "endorsement",
-            "footer"
-          ]
+          "$ref": "#/$defs/blockRole"
         },
         "align": {
           "type": "string",
@@ -285,7 +265,7 @@
           }
         },
         "role": {
-          "type": "string"
+          "$ref": "#/$defs/blockRole"
         },
         "text": {
           "$ref": "#/$defs/bilingual"
@@ -463,6 +443,30 @@
           "type": "boolean"
         }
       }
+    },
+    "blockRole": {
+      "$comment": "The block roles the engine knows. A rule may only name one of these, and drafting_seed.py additionally requires that the template actually places it.",
+      "type": "string",
+      "enum": [
+        "fileNumber",
+        "urgency",
+        "gazetteLine",
+        "header",
+        "title",
+        "dateLine",
+        "addressee",
+        "attention",
+        "subject",
+        "refLine",
+        "salutation",
+        "body",
+        "closing",
+        "signature",
+        "enclosures",
+        "copyTo",
+        "endorsement",
+        "footer"
+      ]
     }
   }
 }

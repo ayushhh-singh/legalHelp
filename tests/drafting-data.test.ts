@@ -4,9 +4,17 @@ import { readdirSync } from 'node:fs'
 import { describe, expect, it } from 'vitest'
 
 import { evaluateChecklist, countFailures } from '@/lib/drafting/checklist'
-import { render, renderDocument, serialise } from '@/lib/drafting/engine'
+import {
+  TEMPLATE_IDS,
+  loadDraftingIndex,
+  loadPhrases,
+  loadStructureTerms,
+  loadTemplate,
+} from '@/modules/drafting/data'
+import { render, renderDocument, sampleValues, serialise } from '@/lib/drafting/engine'
 import {
   docTemplateFileSchema,
+  docTemplateSchema,
   draftingIndexSchema,
   phraseLibrarySchema,
   structureTermsSchema,
@@ -134,6 +142,96 @@ describe('the drafting datasets', () => {
     }
   })
 
+  it('has a loader for every template file, and no loader for a file that is not there', () => {
+    // src/modules/drafting/data.ts writes its fourteen import specifiers out by
+    // hand, because a bundler can only make a chunk for a specifier it can see.
+    // Nothing else would notice a template added to data/ and not to that list.
+    expect([...TEMPLATE_IDS].sort()).toEqual(templates.map((template) => template.id).sort())
+  })
+
+  it('renders the urgency grading on every template that offers one', () => {
+    // The field, its options and the block have to agree. Four templates once
+    // carried the select, the bilingual labels and the Rajbhasha terms — and no
+    // urgency block, so choosing IMMEDIATE printed nothing anywhere. The sample
+    // value is "none", which renders as nothing, so the snapshots looked right.
+    const offering = templates.filter((template) => template.fields.some((field) => field.id === 'urgency'))
+    expect(offering.length).toBeGreaterThanOrEqual(6)
+
+    for (const template of offering) {
+      expect(template.urgencyAllowed, template.id).toBe(true)
+
+      for (const [lang, expected] of [
+        ['en', 'IMMEDIATE'],
+        ['hi', 'तत्काल'],
+      ] as const) {
+        const marked = renderDocument(template, { ...sampleValues(template), urgency: 'immediate' }, lang)
+        expect(marked.document.urgency, `${template.id}/${lang}`).toBe(expected)
+        // 6.13: the grading is a label on the case, so it leads the document.
+        expect(marked.document.blocks[0]?.role, `${template.id}/${lang}`).toBe('urgency')
+      }
+
+      // And "none" means no grading rather than a line that says "None".
+      const ungraded = renderDocument(template, { ...sampleValues(template), urgency: 'none' }, 'en')
+      expect(ungraded.document.urgency, template.id).toBeNull()
+      expect(
+        ungraded.document.blocks.some((block) => block.role === 'urgency'),
+        template.id,
+      ).toBe(false)
+    }
+  })
+
+  it('reserves the option value "none" for the urgency grading alone', () => {
+    // The engine renders the option whose value is "none" as nothing, so the
+    // block drops out instead of printing the word. Any other select using that
+    // value would silently lose the officer's answer.
+    for (const template of templates) {
+      for (const field of template.fields.filter((candidate) => candidate.type === 'select')) {
+        const reserved = (field.options ?? []).some((option) => option.value === 'none')
+        expect(reserved && field.id !== 'urgency', `${template.id}/${field.id}`).toBe(false)
+      }
+    }
+  })
+
+  it('gives a template with no urgency field no urgency block, and says so', () => {
+    for (const template of templates.filter(
+      (candidate) => !candidate.fields.some((f) => f.id === 'urgency'),
+    )) {
+      expect(template.urgencyAllowed ?? false, template.id).toBe(false)
+      for (const lang of LANGS) {
+        expect(
+          template.layout[lang].some((block) => block.role === 'urgency'),
+          template.id,
+        ).toBe(false)
+      }
+    }
+  })
+
+  it('names, in every checklist rule, a role its own layout actually places', () => {
+    // A rule whose role is a typo matches no block. `blockPresent` would then
+    // always fail, which is visible — but `regexAbsent` would always PASS,
+    // which is a checklist item that silently checks nothing.
+    for (const template of templates) {
+      const placed = new Set(template.layout.en.map((block) => block.role))
+      for (const item of template.checklist) {
+        if (!item.rule.role) continue
+        expect(placed, `${template.id}/${item.id}: role "${item.rule.role}"`).toContain(item.rule.role)
+      }
+    }
+  })
+
+  it('carries only regex rules that JavaScript can actually compile', () => {
+    // The patterns are authored in Python and run in JavaScript. A Python-only
+    // construct — an inline `(?i)` flag is the easy one to write — compiles on
+    // the side that writes it and throws on the side that uses it.
+    for (const template of templates) {
+      for (const item of template.checklist) {
+        if (item.rule.kind !== 'regex' && item.rule.kind !== 'regexAbsent') continue
+        expect(item.rule.pattern, `${template.id}/${item.id}`).toBeTruthy()
+        expect(() => new RegExp(item.rule.pattern ?? '', 'iu'), `${template.id}/${item.id}`).not.toThrow()
+      }
+    }
+  })
+
   it('states an Office Memorandum is third person and a demi-official letter is first', () => {
     // CSMOP 8.4(3) and 8.4(2). These two are the manual's own contrast and the
     // one an officer is most often marked down on.
@@ -148,12 +246,35 @@ describe('the drafting datasets', () => {
   })
 })
 
+describe('the loader', () => {
+  it('resolves every one of its fourteen import specifiers', async () => {
+    // TEMPLATE_IDS matching the files on disk does not prove the paths beside
+    // them are right — a typo in one specifier is a route that 404s at runtime
+    // for one document type only.
+    for (const id of TEMPLATE_IDS) {
+      const template = await loadTemplate(id)
+      expect(template.id, id).toBe(id)
+      expect(() => docTemplateSchema.parse(template), id).not.toThrow()
+    }
+  })
+
+  it('loads the index, the phrases and the terms', async () => {
+    expect((await loadDraftingIndex()).templates).toHaveLength(14)
+    expect((await loadPhrases()).phrases.length).toBeGreaterThan(0)
+    expect((await loadStructureTerms()).terms.length).toBeGreaterThan(0)
+  })
+
+  it('rejects an unknown template rather than resolving to nothing', async () => {
+    await expect(loadTemplate('telegram')).rejects.toThrow(/unknown drafting template/)
+  })
+})
+
 describe('rendering every template from its samples', () => {
   for (const template of templates) {
     describe(template.id, () => {
       for (const lang of LANGS) {
         it(`renders in ${lang} with no unresolved placeholder and no issue`, () => {
-          const result = renderDocument(template, {}, lang)
+          const result = renderDocument(template, sampleValues(template), lang)
           const text = serialise(result.document)
 
           expect(text).not.toMatch(/\{\{/)
@@ -163,7 +284,7 @@ describe('rendering every template from its samples', () => {
       }
 
       it('renders bilingually, pairing every block', () => {
-        const result = render(template, {}, 'bilingual')
+        const result = render(template, sampleValues(template), 'bilingual')
         expect(result.issues).toEqual([])
         expect(result.pairs.length).toBeGreaterThan(0)
         for (const pair of result.pairs) {
@@ -174,14 +295,14 @@ describe('rendering every template from its samples', () => {
       })
 
       it('renders in Devanagari digits without breaking its own checklist', () => {
-        const result = renderDocument(template, {}, 'hi', { devanagariDigits: true })
+        const result = renderDocument(template, sampleValues(template), 'hi', { devanagariDigits: true })
         expect(serialise(result.document)).not.toMatch(/\{\{/)
         expect(countFailures(evaluateChecklist(template, result)).must).toBe(0)
       })
 
       for (const lang of LANGS) {
         it(`passes its own checklist in ${lang}`, () => {
-          const result = renderDocument(template, {}, lang)
+          const result = renderDocument(template, sampleValues(template), lang)
           const checks = evaluateChecklist(template, result)
 
           expect(checks).toHaveLength(template.checklist.length)

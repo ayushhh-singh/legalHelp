@@ -13,6 +13,15 @@ export type Lang = 'en' | 'hi'
  */
 export type FieldValue = string | string[] | Partial<Record<Lang, string | string[]>>
 
+/**
+ * What the officer has filled in, by field id.
+ *
+ * A field that is absent renders as nothing and is reported if the template
+ * requires it. It does **not** fall back to the template's sample: a partially
+ * filled form must not quietly emit a document signed by the specimen's
+ * "(A.B.C.), Under Secretary" with the specimen's telephone number. Call
+ * `sampleValues(template)` to ask for the worked example on purpose.
+ */
 export type DraftValues = Record<string, FieldValue | undefined>
 
 export interface RenderOptions {
@@ -28,6 +37,17 @@ export interface RenderOptions {
 
 export interface RenderedBlock {
   role: BlockRole
+  /**
+   * Which entry of `template.layout[lang]` this came from.
+   *
+   * Roles repeat — a demi-official letter has two `header` blocks and two
+   * `closing` blocks — so the role is not an identity. The index is, and it is
+   * the same index in both languages, because `drafting_seed.py` refuses to
+   * write a template whose two layouts place different blocks in a different
+   * order. It is what `renderBilingual` pairs on and what the checklist's
+   * paragraph-numbering rule uses to find the block it is talking about.
+   */
+  layoutIndex: number
   align: 'left' | 'center' | 'right'
   emphasis: 'normal' | 'bold' | 'title'
   lines: string[]
@@ -79,6 +99,8 @@ export interface RenderResult {
 /** A block and its counterpart, for a side-by-side view. */
 export interface BlockPair {
   role: BlockRole
+  /** The layout position both sides came from — a stable key for a list. */
+  layoutIndex: number
   en: RenderedBlock
   hi: RenderedBlock
 }

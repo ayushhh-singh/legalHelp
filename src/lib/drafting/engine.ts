@@ -73,17 +73,35 @@ const MESSAGES = {
   }),
 }
 
+const emptyFor = (field: TemplateField): string | string[] =>
+  field.type === 'list' || field.type === 'paras' ? [] : ''
+
+/**
+ * The template's worked example as a set of values.
+ *
+ * Every template can be rendered from this alone, with no unresolved
+ * placeholder and no validation issue — `tests/drafting-data.test.ts` asserts
+ * it for all fourteen. It is what a "fill with the example" control hands the
+ * engine, and it is deliberately something a caller has to ask for: rendering
+ * an empty form used to fall back to the samples field by field, which meant a
+ * form with one field filled in produced a complete document signed by
+ * "(A.B.C.)" with a specimen telephone number and **no issue reported**.
+ */
+export function sampleValues(template: DocTemplate): DraftValues {
+  return Object.fromEntries(template.fields.map((field) => [field.id, field.sample]))
+}
+
 /** One field's value in one language, as a string or a list of strings. */
 function valueFor(field: TemplateField, values: DraftValues, lang: Lang): string | string[] {
-  const raw: FieldValue | undefined = values[field.id] ?? field.sample
-  if (raw === undefined) return field.type === 'list' || field.type === 'paras' ? [] : ''
+  const raw: FieldValue | undefined = values[field.id]
+  if (raw === undefined) return emptyFor(field)
   if (typeof raw === 'string' || Array.isArray(raw)) return raw
   const picked = raw[lang]
   if (picked !== undefined) return picked
   // A value typed in one language only is still the officer's value: showing it
   // in both columns beats showing an empty box beside it.
   const other = raw[lang === 'en' ? 'hi' : 'en']
-  return other ?? (field.type === 'list' || field.type === 'paras' ? [] : '')
+  return other ?? emptyFor(field)
 }
 
 const asList = (value: string | string[]): string[] =>
@@ -110,6 +128,14 @@ function resolveValues(
 
   for (const field of template.fields) {
     let value = valueFor(field, values, lang)
+
+    // A list is normalised to exactly what will render. `asList` drops blank
+    // items, so a box the officer emptied arrives here as [''] from a textarea
+    // and renders as nothing — while `resolved` still looked non-empty, which
+    // meant a required list reported no issue and `listNonEmpty` passed over a
+    // list with nothing in it. `resolved` is what the checklist reads, so it
+    // has to agree with the page.
+    if (field.type === 'list' || field.type === 'paras') value = asList(value)
 
     if (field.type === 'date' && !Array.isArray(value) && value.trim()) {
       if (parseDate(value)) {
@@ -174,6 +200,7 @@ function substitute(
 
 function renderBlock(
   block: LayoutBlock,
+  layoutIndex: number,
   resolved: Record<string, string | string[]>,
   lang: Lang,
   options: RenderOptions,
@@ -208,13 +235,22 @@ function renderBlock(
     filled = items.length > 0
   } else {
     for (const line of block.lines ?? []) {
-      // Trailing space is what an empty placeholder leaves behind — "No. "
-      // where a file number should be — and it survives into a .docx.
-      const rendered = substitute(line, resolved, seen).replace(/\s+$/u, '')
-      // A line that was nothing but a placeholder for an empty value would
-      // print as blank; drop it and keep the ones that still say something.
-      if (rendered.trim() || !PLACEHOLDER.test(line)) lines.push(rendered)
+      const hasPlaceholder = PLACEHOLDER.test(line)
       PLACEHOLDER.lastIndex = 0
+
+      // A value typed across several lines — an addressee, an address — is
+      // several lines of the document, not one line with newlines in it. Split
+      // it here or every consumer has to: `align` pads against `line.length`,
+      // which would count the newline and the second line's characters, and
+      // `wrap` would break the first line in the wrong place.
+      for (const part of substitute(line, resolved, seen).split('\n')) {
+        // Trailing space is what an empty placeholder leaves behind — "No. "
+        // where a file number should be — and it survives into a .docx.
+        const text = part.replace(/\s+$/u, '')
+        // A line that was nothing but a placeholder for an empty value would
+        // print as blank; drop it and keep the ones that still say something.
+        if (text.trim() || !hasPlaceholder) lines.push(text)
+      }
     }
     // A block with no placeholders at all — "Sir / Madam," — is always filled.
     filled = seen.used.length === 0 || seen.used.some((id) => !isEmpty(resolved[id] ?? ''))
@@ -226,7 +262,7 @@ function renderBlock(
 
   if (!filled && block.omitWhenEmpty) return null
   if (lines.length === 0) return null
-  return { role: block.role, align, emphasis, lines, filled }
+  return { role: block.role, layoutIndex, align, emphasis, lines, filled }
 }
 
 const linesOf = (blocks: RenderedBlock[], role: string): string[] =>
@@ -263,8 +299,8 @@ export function renderDocument(
   const { resolved, issues } = resolveValues(template, values, lang, options)
   const blocks: RenderedBlock[] = []
 
-  for (const block of template.layout[lang]) {
-    const rendered = renderBlock(block, resolved, lang, options, issues)
+  for (const [layoutIndex, block] of template.layout[lang].entries()) {
+    const rendered = renderBlock(block, layoutIndex, resolved, lang, options, issues)
     if (rendered) blocks.push(rendered)
   }
 
@@ -274,12 +310,16 @@ export function renderDocument(
 /**
  * Render both, and pair the blocks for a side-by-side view.
  *
- * The pairing is positional and safe to do that way: `drafting_seed.py`
- * refuses to write a template whose two layouts place different roles in
- * different orders, so `layout.en[i]` and `layout.hi[i]` are the same block in
- * two languages. A block that drops out in one language only — an empty
- * optional subject — is paired with an empty counterpart rather than shifting
- * everything below it by one.
+ * Pairing is by **layout index**, not by role. Roles repeat — a demi-official
+ * letter has two `header` blocks (the writer's letterhead and the Government of
+ * India block) and two `closing` blocks — and pairing by role put both headers
+ * together at the position of the first, which moved `D.O. No.` below the
+ * letterhead in the side-by-side view. The index is safe to pair on because
+ * `drafting_seed.py` refuses to write a template whose two layouts place
+ * different blocks in a different order.
+ *
+ * A block that drops out in one language only — an empty optional subject — is
+ * paired with an empty counterpart rather than shifting everything below it.
  */
 export function renderBilingual(
   template: DocTemplate,
@@ -289,27 +329,28 @@ export function renderBilingual(
   const en = renderDocument(template, values, 'en', options)
   const hi = renderDocument(template, values, 'hi', options)
 
-  const blank = (role: RenderedBlock['role']): RenderedBlock => ({
+  const blank = (role: RenderedBlock['role'], layoutIndex: number): RenderedBlock => ({
     role,
+    layoutIndex,
     align: 'left',
     emphasis: 'normal',
     lines: [],
     filled: false,
   })
 
-  const pairs: BlockPair[] = []
-  const roles = [...new Set([...en.document.blocks, ...hi.document.blocks].map((block) => block.role))]
-  for (const role of roles) {
-    const left = en.document.blocks.filter((block) => block.role === role)
-    const right = hi.document.blocks.filter((block) => block.role === role)
-    for (let index = 0; index < Math.max(left.length, right.length); index += 1) {
-      pairs.push({ role, en: left[index] ?? blank(role), hi: right[index] ?? blank(role) })
-    }
-  }
+  const at = (blocks: RenderedBlock[], index: number) => blocks.find((block) => block.layoutIndex === index)
 
-  // Back into layout order, using whichever language rendered the block.
-  const order = template.layout.en.map((block) => block.role)
-  pairs.sort((a, b) => order.indexOf(a.role) - order.indexOf(b.role))
+  const pairs: BlockPair[] = []
+  const indices = [
+    ...new Set([...en.document.blocks, ...hi.document.blocks].map((block) => block.layoutIndex)),
+  ]
+  for (const index of indices.sort((a, b) => a - b)) {
+    const left = at(en.document.blocks, index)
+    const right = at(hi.document.blocks, index)
+    const role = (left ?? right)?.role
+    if (!role) continue
+    pairs.push({ role, layoutIndex: index, en: left ?? blank(role, index), hi: right ?? blank(role, index) })
+  }
 
   return {
     en,

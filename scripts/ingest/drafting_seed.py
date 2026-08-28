@@ -1280,7 +1280,7 @@ TEMPLATES.append(
             ),
         ],
         layout_en=[
-            *head_en(urgency=False),
+            *head_en(),
             block("addressee", align="left", lines=["To,", "{{addressee}}"]),
             block("attention", align="left", lines=["Attention: {{attention}}"], omitWhenEmpty=True),
             block("subject", align="left", lines=["Subject: {{subject}}"]),
@@ -1292,7 +1292,7 @@ TEMPLATES.append(
             COPY_EN,
         ],
         layout_hi=[
-            *head_hi(urgency=False),
+            *head_hi(),
             block("addressee", align="left", lines=["सेवा में,", "{{addressee}}"]),
             block("attention", align="left", lines=["कृपया ध्यान दें : {{attention}}"], omitWhenEmpty=True),
             block("subject", align="left", lines=["विषय : {{subject}}"]),
@@ -1423,7 +1423,11 @@ TEMPLATES.append(
             ),
         ],
         layout_en=[
-            block("header", align="left", lines=["{{signatoryName}}", "{{signatoryDesignation}}", "Tele.: {{phone}}"]),
+            block(
+                "header",
+                align="left",
+                lines=["{{signatoryName}}", "{{signatoryDesignation}}", "Tele.: {{phone}}", "Email: {{email}}"],
+            ),
             block("fileNumber", align="right", lines=["D.O. No. {{fileNumber}}"]),
             block("header", align="right", lines=["Government of India", "{{ministry}}", "{{department}}"]),
             block("dateLine", align="right", lines=["{{place}}, the {{date}}"]),
@@ -1437,7 +1441,11 @@ TEMPLATES.append(
             ENCL_EN,
         ],
         layout_hi=[
-            block("header", align="left", lines=["{{signatoryName}}", "{{signatoryDesignation}}", "दूरभाष : {{phone}}"]),
+            block(
+                "header",
+                align="left",
+                lines=["{{signatoryName}}", "{{signatoryDesignation}}", "दूरभाष : {{phone}}", "ई-मेल : {{email}}"],
+            ),
             block("fileNumber", align="right", lines=["अर्ध-सरकारी पत्र संख्या {{fileNumber}}"]),
             block("header", align="right", lines=["भारत सरकार", "{{ministry}}", "{{department}}"]),
             block("dateLine", align="right", lines=["{{place}}, दिनांक {{date}}"]),
@@ -1586,7 +1594,7 @@ TEMPLATES.append(
             ),
         ],
         layout_en=[
-            *head_en(urgency=False),
+            *head_en(),
             block("title", align="center", emphasis="title", lines=["OFFICE MEMORANDUM"]),
             block("subject", align="left", lines=["Subject: {{subject}}"]),
             BODY_EN,
@@ -1596,7 +1604,7 @@ TEMPLATES.append(
             COPY_EN,
         ],
         layout_hi=[
-            *head_hi(urgency=False),
+            *head_hi(),
             block("title", align="center", emphasis="title", lines=["कार्यालय ज्ञापन"]),
             block("subject", align="left", lines=["विषय : {{subject}}"]),
             BODY_HI,
@@ -1724,7 +1732,7 @@ TEMPLATES.append(
             ),
         ],
         layout_en=[
-            *head_en(urgency=False),
+            *head_en(),
             block("title", align="center", emphasis="title", lines=["CIRCULAR"]),
             block("subject", align="left", lines=["Subject: {{subject}}"]),
             BODY_EN,
@@ -1734,7 +1742,7 @@ TEMPLATES.append(
             COPY_EN,
         ],
         layout_hi=[
-            *head_hi(urgency=False),
+            *head_hi(),
             block("title", align="center", emphasis="title", lines=["परिपत्र"]),
             block("subject", align="left", lines=["विषय : {{subject}}"]),
             BODY_HI,
@@ -2368,7 +2376,7 @@ TEMPLATES.append(
             f_copy_to(["Shri X.Y.Z., Section Officer", "Guard file"], ["श्री एक्स.वाई.ज़ेड., अनुभाग अधिकारी", "गार्ड फाइल"]),
         ],
         layout_en=[
-            *head_en(urgency=False),
+            *head_en(),
             block("title", align="center", emphasis="title", lines=["ENDORSEMENT"]),
             BODY_EN,
             SIGN_EN,
@@ -2377,7 +2385,7 @@ TEMPLATES.append(
             COPY_EN,
         ],
         layout_hi=[
-            *head_hi(urgency=False),
+            *head_hi(),
             block("title", align="center", emphasis="title", lines=["पृष्ठांकन"]),
             BODY_HI,
             SIGN_HI,
@@ -3449,6 +3457,39 @@ PLACEHOLDER = __import__("re").compile(r"\{\{([a-zA-Z][a-zA-Z0-9]*)\}\}")
 
 GROUP_ORDER = ["communication", "internal", "personal", "statutory"]
 
+BLOCK_ROLES = {
+    "fileNumber",
+    "urgency",
+    "gazetteLine",
+    "header",
+    "title",
+    "dateLine",
+    "addressee",
+    "attention",
+    "subject",
+    "refLine",
+    "salutation",
+    "body",
+    "closing",
+    "signature",
+    "enclosures",
+    "copyTo",
+    "endorsement",
+    "footer",
+}
+
+# Fields that deliberately appear in no layout and in no checklist rule, with
+# the reason. Anything else unused is an officer being asked to type something
+# that goes nowhere — which is how the demi-official letter came to require an
+# e-mail address it never printed.
+GUIDANCE_ONLY: dict[str, str] = {
+    "noting.noteType": (
+        "the functional approach to noting (7.14) — it decides how much to write, "
+        "and the Drafting Studio shows the guidance for the kind chosen. A note "
+        "does not print the category of its own case."
+    ),
+}
+
 
 def self_check(templates: list[dict[str, Any]]) -> list[str]:
     """Everything a JSON Schema cannot say about a template.
@@ -3470,6 +3511,9 @@ def self_check(templates: list[dict[str, Any]]) -> list[str]:
         if len(fields) != len(record["fields"]):
             problems.append(f"{tid}: duplicate field id")
 
+        roles_en = [b["role"] for b in record["layout"]["en"]]
+        roles_hi = [b["role"] for b in record["layout"]["hi"]]
+
         for lang in ("en", "hi"):
             used: set[str] = set()
             for blk in record["layout"][lang]:
@@ -3484,14 +3528,18 @@ def self_check(templates: list[dict[str, Any]]) -> list[str]:
                     kind = next((f["type"] for f in record["fields"] if f["id"] == source), None)
                     if kind not in {"list", "paras"}:
                         problems.append(f"{tid}/{lang}: block source '{source}' is {kind}, not a list or paras field")
+                    if blk.get("lines"):
+                        # The engine renders one or the other; `lines` would
+                        # vanish without a word.
+                        problems.append(f"{tid}/{lang}: block '{blk['role']}' has both lines and a source")
+                if blk.get("numberFrom") and not blk.get("numbered"):
+                    problems.append(f"{tid}/{lang}: block '{blk['role']}' sets numberFrom but is not numbered")
             missing = sorted(used - fields)
             if missing:
                 problems.append(f"{tid}/{lang}: layout uses unknown field(s) {missing}")
 
         # Both layouts must place the same roles, or one language would render a
         # document the other does not.
-        roles_en = [b["role"] for b in record["layout"]["en"]]
-        roles_hi = [b["role"] for b in record["layout"]["hi"]]
         if roles_en != roles_hi:
             problems.append(f"{tid}: the en and hi layouts place different blocks: {roles_en} vs {roles_hi}")
 
@@ -3501,6 +3549,44 @@ def self_check(templates: list[dict[str, Any]]) -> list[str]:
             unknown = sorted(set(named) - fields)
             if unknown:
                 problems.append(f"{tid}/{item['id']}: rule names unknown field(s) {unknown}")
+
+            # A rule whose role is a typo matches no block. `blockPresent` then
+            # always fails, which someone notices; `regexAbsent` always PASSES,
+            # which is a checklist item that silently checks nothing.
+            role = rule.get("role")
+            if role and role not in BLOCK_ROLES:
+                problems.append(f"{tid}/{item['id']}: rule names unknown role '{role}'")
+            elif role and role not in roles_en:
+                problems.append(f"{tid}/{item['id']}: rule names role '{role}', which this layout never places")
+
+        # An unused field is an officer typing something that goes nowhere.
+        used: set[str] = set()
+        for lang in ("en", "hi"):
+            for blk in record["layout"][lang]:
+                for line in list(blk.get("lines") or []) + ([blk["lead"]] if blk.get("lead") else []):
+                    used |= set(PLACEHOLDER.findall(line))
+                if blk.get("source"):
+                    used.add(blk["source"])
+        for item in record["checklist"]:
+            rule = item["rule"]
+            if rule.get("field"):
+                used.add(rule["field"])
+            used |= set(rule.get("fields", []))
+        for orphan in sorted(fields - used):
+            if f"{tid}.{orphan}" not in GUIDANCE_ONLY:
+                problems.append(
+                    f"{tid}/{orphan}: field is in no layout and in no rule — render it, drop it, "
+                    "or add it to GUIDANCE_ONLY with the reason"
+                )
+
+        # The urgency grading is a select whose options carry the labels, so the
+        # field and the block have to agree about whether the form has one.
+        has_urgency_field = any(f["id"] == "urgency" for f in record["fields"])
+        has_urgency_block = any(b["role"] == "urgency" for b in record["layout"]["en"])
+        if bool(record.get("urgencyAllowed")) != has_urgency_field:
+            problems.append(f"{tid}: urgencyAllowed says {record.get('urgencyAllowed')} but the urgency field is {has_urgency_field}")
+        if has_urgency_field != has_urgency_block:
+            problems.append(f"{tid}: has an urgency field but no urgency block, or the reverse")
 
         for f in record["fields"]:
             if f["required"] and not f["sample"]["en"]:

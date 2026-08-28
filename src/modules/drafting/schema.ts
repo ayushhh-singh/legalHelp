@@ -151,7 +151,11 @@ export const ruleSchema = z.strictObject({
   ]),
   field: fieldId.optional(),
   fields: z.array(fieldId).optional(),
-  role: z.string().optional(),
+  // Not `z.string()`: a rule whose role is a typo matches no block, and
+  // `regexAbsent` over no text always passes — a checklist item that silently
+  // checks nothing. `drafting_seed.py` additionally requires that the
+  // template's own layout places the role.
+  role: blockRoleSchema.optional(),
   text: bilingual.optional(),
   pattern: z.string().optional(),
   value: z.string().optional(),

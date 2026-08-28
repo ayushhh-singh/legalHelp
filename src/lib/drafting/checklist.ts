@@ -84,22 +84,33 @@ const isEmpty = (value: string | string[] | undefined): boolean =>
  * The block says `numberFrom`; this checks that what came out matches — the
  * first paragraph unnumbered and the rest running 2, 3, 4 without a gap, or
  * every paragraph numbered from 1.
+ *
+ * It reads the **one block** the numbering belongs to, found by its layout
+ * index, and not `document.paras`. A template may have more than one `body`
+ * block: the tour programme has its paragraphs and then its itinerary, which is
+ * a separate list starting again at 1, and checking the concatenation of the
+ * two would fail a document that is perfectly correct.
  */
 function paraNumberingHolds(result: RenderResult, template: DocTemplate): boolean {
   const lang = result.document.lang
-  const block = template.layout[lang].find((candidate) => candidate.role === 'body' && candidate.numbered)
-  if (!block) return true
+  const index = template.layout[lang].findIndex((block) => block.role === 'body' && block.numbered)
+  if (index === -1) return true
 
-  const paras = result.document.paras
+  const layout = template.layout[lang][index]
+  const rendered = result.document.blocks.find((block) => block.layoutIndex === index)
+  if (!layout || !rendered) return false
+
+  // A lead line is the block's heading, not its first paragraph.
+  const paras = layout.lead ? rendered.lines.slice(1) : rendered.lines
   if (paras.length === 0) return false
 
-  const from = block.numberFrom ?? 2
-  return paras.every((para, index) => {
-    const number = index + 1
+  const from = layout.numberFrom ?? 2
+  return paras.every((para, position) => {
+    const number = position + 1
     const match = /^([0-9]+|[०-९]+)\.\s/u.exec(para)
     if (number < from) return match === null
     if (!match) return false
-    const digits = (match[1] ?? '').replace(/[०-९]/g, (d) => String(d.charCodeAt(0) - 0x0966))
+    const digits = (match[1] ?? '').replace(/[०-९]/g, (digit) => String(digit.charCodeAt(0) - 0x0966))
     return Number(digits) === number
   })
 }

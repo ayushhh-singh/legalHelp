@@ -68,6 +68,67 @@ class SelfCheck(unittest.TestCase):
         problems = seed.self_check([broken])
         self.assertTrue(any("is not one of" in p for p in problems), problems)
 
+    def test_rejects_a_rule_role_that_is_not_a_block_role(self) -> None:
+        broken = a_template()
+        broken["checklist"][0]["rule"] = {"kind": "regexAbsent", "role": "bodyy", "pattern": "x"}
+        problems = seed.self_check([broken])
+        self.assertTrue(any("unknown role 'bodyy'" in p for p in problems), problems)
+
+    def test_rejects_a_rule_role_the_layout_never_places(self) -> None:
+        # regexAbsent over a role that is not there finds nothing and PASSES,
+        # so this one would otherwise be a checklist item that checks nothing.
+        broken = a_template()
+        broken["checklist"][0]["rule"] = {"kind": "regexAbsent", "role": "gazetteLine", "pattern": "x"}
+        problems = seed.self_check([broken])
+        self.assertTrue(any("which this layout never places" in p for p in problems), problems)
+
+    def test_rejects_a_block_with_both_lines_and_a_source(self) -> None:
+        broken = a_template()
+        for lang in ("en", "hi"):
+            block = next(b for b in broken["layout"][lang] if b["role"] == "body")
+            block["lines"] = ["{{subject}}"]
+        problems = seed.self_check([broken])
+        self.assertEqual(2, sum("both lines and a source" in p for p in problems), problems)
+
+    def test_rejects_number_from_without_numbered(self) -> None:
+        broken = a_template()
+        for lang in ("en", "hi"):
+            block = next(b for b in broken["layout"][lang] if b["role"] == "body")
+            del block["numbered"]
+            block["numberFrom"] = 1
+        problems = seed.self_check([broken])
+        self.assertEqual(2, sum("numberFrom but is not numbered" in p for p in problems), problems)
+
+    def test_rejects_a_field_that_appears_nowhere(self) -> None:
+        # The demi-official letter required an e-mail address and printed it in
+        # no layout: the officer typed it and it went nowhere.
+        broken = a_template()
+        broken["fields"].append(
+            seed.field("nobodyAsked", seed.bl("Unused", "अप्रयुक्त"), "text", False, seed.bl("x", "x"))
+        )
+        problems = seed.self_check([broken])
+        self.assertTrue(any("in no layout and in no rule" in p for p in problems), problems)
+
+    def test_allows_a_field_that_is_declared_guidance_only(self) -> None:
+        self.assertIn("noting.noteType", seed.GUIDANCE_ONLY)
+        noting = copy.deepcopy(next(t for t in seed.TEMPLATES if t["id"] == "noting"))
+        self.assertEqual([], [p for p in seed.self_check([noting]) if "in no layout" in p])
+
+    def test_rejects_an_urgency_field_with_no_urgency_block(self) -> None:
+        # Four templates carried the select, its bilingual labels and the
+        # Rajbhasha terms, and no block — so choosing IMMEDIATE printed nothing.
+        broken = a_template()
+        for lang in ("en", "hi"):
+            broken["layout"][lang] = [b for b in broken["layout"][lang] if b["role"] != "urgency"]
+        problems = seed.self_check([broken])
+        self.assertTrue(any("urgency field but no urgency block" in p for p in problems), problems)
+
+    def test_rejects_urgency_allowed_disagreeing_with_the_field(self) -> None:
+        broken = a_template()
+        broken["urgencyAllowed"] = False
+        problems = seed.self_check([broken])
+        self.assertTrue(any("urgencyAllowed says" in p for p in problems), problems)
+
     def test_rejects_a_duplicate_template_id(self) -> None:
         problems = seed.self_check([a_template(), a_template()])
         self.assertTrue(any("duplicate template id" in p for p in problems), problems)

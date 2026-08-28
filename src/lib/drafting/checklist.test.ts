@@ -3,7 +3,7 @@ import { describe, expect, it } from 'vitest'
 import { fixtureTemplate } from '@/test/drafting-fixture'
 
 import { countFailures, evaluateChecklist } from './checklist'
-import { renderDocument } from './engine'
+import { renderDocument, sampleValues } from './engine'
 
 import type { ChecklistItem, DocTemplate } from '@/modules/drafting/schema'
 
@@ -25,16 +25,19 @@ function withRule(rule: ChecklistItem['rule'], overrides: Partial<DocTemplate> =
   })
 }
 
+/** The one rule's verdict, over the worked example with `values` laid on top. */
 const verdict = (
   template: DocTemplate,
   values: Parameters<typeof renderDocument>[1],
   lang: 'en' | 'hi' = 'en',
-) => evaluateChecklist(template, renderDocument(template, values, lang))[0]?.passed
+) =>
+  evaluateChecklist(template, renderDocument(template, { ...sampleValues(template), ...values }, lang))[0]
+    ?.passed
 
 describe('evaluateChecklist', () => {
   it('returns one result per item, in the template order, in the document language', () => {
     const template = fixtureTemplate()
-    const results = evaluateChecklist(template, renderDocument(template, {}, 'hi'))
+    const results = evaluateChecklist(template, renderDocument(template, sampleValues(template), 'hi'))
     expect(results).toHaveLength(1)
     expect(results[0]?.id).toBe('no-placeholders')
     expect(results[0]?.label).toBe('कोई प्लेसहोल्डर नहीं छूटा')
@@ -109,9 +112,48 @@ describe('evaluateChecklist', () => {
     expect(verdict(fromOne, {})).toBe(true)
   })
 
+  it('paraNumbering reads the one block it belongs to, not every body block', () => {
+    // The tour programme's shape: numbered paragraphs, then an itinerary that
+    // is a separate list starting again at 1. Checking the concatenation of the
+    // two failed a document that is perfectly correct.
+    const withItinerary = withRule(
+      { kind: 'paraNumbering' },
+      {
+        layout: {
+          en: [
+            { role: 'body', source: 'paras', numbered: true },
+            { role: 'body', source: 'enclosures', lead: 'Itinerary:', itemPrefix: 'ordinal' },
+          ],
+          hi: [
+            { role: 'body', source: 'paras', numbered: true },
+            { role: 'body', source: 'enclosures', lead: 'यात्रा कार्यक्रम :', itemPrefix: 'ordinal' },
+          ],
+        },
+      },
+    )
+
+    const values = { enclosures: ['first stop', 'second stop'] }
+    expect(verdict(withItinerary, values)).toBe(true)
+    // And it still fails when the numbering it does own is wrong.
+    expect(verdict(withItinerary, { ...values, paras: [] })).toBe(false)
+  })
+
+  it('paraNumbering ignores a lead line, which is a heading and not a paragraph', () => {
+    const led = withRule(
+      { kind: 'paraNumbering' },
+      {
+        layout: {
+          en: [{ role: 'body', source: 'paras', numbered: true, lead: 'Body:' }],
+          hi: [{ role: 'body', source: 'paras', numbered: true, lead: 'मुख्य भाग :' }],
+        },
+      },
+    )
+    expect(verdict(led, {})).toBe(true)
+  })
+
   it('paraNumbering counts Devanagari numerals too', () => {
     const template = withRule({ kind: 'paraNumbering' })
-    const result = renderDocument(template, {}, 'hi', { devanagariDigits: true })
+    const result = renderDocument(template, sampleValues(template), 'hi', { devanagariDigits: true })
     expect(result.document.paras[1]).toBe('२. दूसरा।')
     expect(evaluateChecklist(template, result)[0]?.passed).toBe(true)
   })
@@ -171,7 +213,7 @@ describe('evaluateChecklist', () => {
 
   it('throws on a rule kind nothing implements, rather than passing it', () => {
     const template = withRule({ kind: 'somethingNew' } as unknown as ChecklistItem['rule'])
-    expect(() => evaluateChecklist(template, renderDocument(template, {}, 'en'))).toThrow(
+    expect(() => evaluateChecklist(template, renderDocument(template, sampleValues(template), 'en'))).toThrow(
       /unimplemented checklist rule/,
     )
   })

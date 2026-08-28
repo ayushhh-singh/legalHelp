@@ -1,6 +1,6 @@
 import { describe, expect, it } from 'vitest'
 
-import { render, renderDocument, serialise, serialiseBilingual } from '@/lib/drafting/engine'
+import { render, renderDocument, sampleValues, serialise, serialiseBilingual } from '@/lib/drafting/engine'
 import { docTemplateFileSchema } from '@/modules/drafting/schema'
 import { readFromRoot } from '@/test/paths'
 
@@ -27,30 +27,32 @@ describe('Office Memorandum', () => {
   const template = load('office-memorandum')
 
   it('renders the Appendix 8.1 format in English', async () => {
-    await expect(serialise(renderDocument(template, {}, 'en').document)).toMatchFileSnapshot(
-      './__snapshots__/office-memorandum.en.txt',
-    )
+    await expect(
+      serialise(renderDocument(template, sampleValues(template), 'en').document),
+    ).toMatchFileSnapshot('./__snapshots__/office-memorandum.en.txt')
   })
 
   it('renders the Hindi issue’s format', async () => {
-    await expect(serialise(renderDocument(template, {}, 'hi').document)).toMatchFileSnapshot(
-      './__snapshots__/office-memorandum.hi.txt',
-    )
+    await expect(
+      serialise(renderDocument(template, sampleValues(template), 'hi').document),
+    ).toMatchFileSnapshot('./__snapshots__/office-memorandum.hi.txt')
   })
 
   it('renders both, one under the other, for a side-by-side draft', async () => {
-    await expect(serialiseBilingual(render(template, {}, 'bilingual'))).toMatchFileSnapshot(
-      './__snapshots__/office-memorandum.bilingual.txt',
-    )
+    await expect(
+      serialiseBilingual(render(template, sampleValues(template), 'bilingual')),
+    ).toMatchFileSnapshot('./__snapshots__/office-memorandum.bilingual.txt')
   })
 
   it('puts the addressee below the signature, as the specimen does', () => {
-    const roles = renderDocument(template, {}, 'en').document.blocks.map((block) => block.role)
+    const roles = renderDocument(template, sampleValues(template), 'en').document.blocks.map(
+      (block) => block.role,
+    )
     expect(roles.indexOf('addressee')).toBeGreaterThan(roles.indexOf('signature'))
   })
 
   it('leaves the first paragraph unnumbered and numbers the second 2', () => {
-    const paras = renderDocument(template, {}, 'en').document.paras
+    const paras = renderDocument(template, sampleValues(template), 'en').document.paras
     expect(paras[0]).toMatch(/^The undersigned is directed/)
     expect(paras[1]).toMatch(/^2\. /)
   })
@@ -60,25 +62,25 @@ describe('Noting', () => {
   const template = load('noting')
 
   it('renders a note on a file in English', async () => {
-    await expect(serialise(renderDocument(template, {}, 'en').document)).toMatchFileSnapshot(
-      './__snapshots__/noting.en.txt',
-    )
+    await expect(
+      serialise(renderDocument(template, sampleValues(template), 'en').document),
+    ).toMatchFileSnapshot('./__snapshots__/noting.en.txt')
   })
 
   it('renders a note on a file in Hindi', async () => {
-    await expect(serialise(renderDocument(template, {}, 'hi').document)).toMatchFileSnapshot(
-      './__snapshots__/noting.hi.txt',
-    )
+    await expect(
+      serialise(renderDocument(template, sampleValues(template), 'hi').document),
+    ).toMatchFileSnapshot('./__snapshots__/noting.hi.txt')
   })
 
   it('numbers every paragraph from 1, unlike a communication', () => {
-    const paras = renderDocument(template, {}, 'en').document.paras
+    const paras = renderDocument(template, sampleValues(template), 'en').document.paras
     expect(paras[0]).toMatch(/^1\. /)
     expect(paras[1]).toMatch(/^2\. /)
   })
 
   it('signs on the left with the date, and states the level of disposal', () => {
-    const document = renderDocument(template, {}, 'en').document
+    const document = renderDocument(template, sampleValues(template), 'en').document
     const signature = document.blocks.find((block) => block.role === 'signature')
     expect(signature?.align).toBe('left')
     expect(signature?.lines.at(-1)).toBe('28.08.2026')

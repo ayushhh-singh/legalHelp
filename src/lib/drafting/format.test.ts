@@ -38,6 +38,22 @@ describe('parseDate', () => {
     expect(parseDate('29.02.2026')).toBeNull()
   })
 
+  it('gets the century rule right at the leap-year boundaries', () => {
+    expect(parseDate('29.02.2024')).not.toBeNull() // divisible by 4
+    expect(parseDate('29.02.2000')).not.toBeNull() // divisible by 400
+    expect(parseDate('29.02.1900')).toBeNull() // divisible by 100, not 400
+    expect(parseDate('29.02.2100')).toBeNull()
+  })
+
+  it('accepts the ends of a month without rolling over', () => {
+    expect(parseDate('30.04.2026')).not.toBeNull()
+    expect(parseDate('31.04.2026')).toBeNull()
+    expect(parseDate('31.12.2026')).not.toBeNull()
+    expect(parseDate('32.12.2026')).toBeNull()
+    expect(parseDate('00.12.2026')).toBeNull()
+    expect(parseDate('01.00.2026')).toBeNull()
+  })
+
   it('rejects what is not a date at all', () => {
     expect(parseDate('')).toBeNull()
     expect(parseDate('next Tuesday')).toBeNull()
