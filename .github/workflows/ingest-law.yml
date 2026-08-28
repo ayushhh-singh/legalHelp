@@ -45,6 +45,9 @@ jobs:
       - name: Install the ingest dependencies
         run: pip install -r scripts/ingest/requirements.txt
 
+      - name: Unit-test the parsers before trusting them with a refresh
+        run: python -m unittest discover -s scripts/ingest -t scripts/ingest -v
+
       - name: Fetch NCRB Sankalan and rebuild data/law
         id: ingest
         run: |
@@ -57,8 +60,18 @@ jobs:
       # The overlays are hand-curated and the ingest only ever reads them. If a
       # run has rewritten one, something has changed in the script that must not
       # ship: the whole point of the split is that the cron cannot edit them.
+      #
+      # `git status --porcelain`, not `git diff`: diff cannot see a *new* file,
+      # so a script that started writing its own overlay would have walked
+      # straight past this guard.
       - name: Verify the cron did not touch the hand-curated overlays
-        run: git diff --exit-code -- data/law/overlays/
+        run: |
+          changes=$(git status --porcelain -- data/law/overlays/)
+          if [ -n "$changes" ]; then
+            echo "The ingest modified hand-curated overlays. This must never happen:"
+            echo "$changes"
+            exit 1
+          fi
 
       - name: Report what changed
         id: changes

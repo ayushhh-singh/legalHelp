@@ -157,7 +157,7 @@ complete law dataset for all three codes. No module has a screen over that data 
 | PWA / offline | `vite-plugin-pwa` (`generateSW`, `registerType: 'prompt'`); manual `workbox-window` registration + bilingual update/offline-ready toasts (`src/app/pwa.tsx`); real service-worker-era `OfflineBadge`; installable (Lighthouse PWA category 1.0 via a one-off `lighthouse@9` run — ADR-008)                                                                                                                                                                                                                                                                             |
 | Tests         | 477 unit across 26 files (5 skip without a build) + 24 Playwright e2e (offline shell, zero cross-origin requests incl. the whole AI opt-in flow, Tier 1 BYOK against an intercepted `api.anthropic.com`, axe × 2 languages × 2 themes, light-default theme, real rendered fonts, bottom-bar edge cases). The law suite (63) reads the committed `data/law/*.json` off disk: section coverage, the reverse index, the number-swap warnings, classification, and the curated-Hindi flag                                                                                  |
 | Law data      | `data/law/{bns,bnss,bsa}.json` + `index.json` — 1,059 sections covering every one of BNS 1-358, BNSS 1-531 and BSA 1-170, full English text, 288 BNS sections classified from the BNSS First Schedule, reverse index over IPC/CrPC/IEA with number-swap warnings. 3.9 MB; no route fetches it yet (ADR-012)                                                                                                                                                                                                                                                            |
-| Ingest        | `scripts/ingest/` (Python 3.12): `ncrb_sankalan.py` weekly, `indiacode_seed.py` by hand only. Inline-HTML parse with a live `pdfplumber` fallback, hand-curated overlays the cron cannot write to, an 86-term bilingual offence lexicon                                                                                                                                                                                                                                                                                                                                |
+| Ingest        | `scripts/ingest/` (Python 3.12): `ncrb_sankalan.py` weekly, `indiacode_seed.py` by hand only. Inline-HTML parse with a `pdfplumber` fallback measured at 99.4% agreement, hand-curated overlays the cron cannot write to, an 86-term bilingual offence lexicon. 29 stdlib-`unittest` tests, run by `ci.yml` and by the refresh workflow before it touches `data/`                                                                                                                                                                                                      |
 | Deferred      | ts-fsrs, docx, cmdk, recharts (`fuse.js` landed with the answer cache)                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                 |
 
 ## HOW TO RUN
@@ -252,5 +252,15 @@ are load-bearing, and each is enforced by a test rather than by convention:
 - `tests/no-external-urls.test.ts` now allowlists the NCRB Sankalan citation, because
   `data/_meta/versions.json` is bundled. It is paired with an assertion that no module under `src/` names
   the host — do not remove one without the other (ADR-012).
+- The ingest is tested with **Python `unittest`**, not `pnpm test`:
+  `scripts/ingest/.venv/bin/python -m unittest discover -s scripts/ingest -t scripts/ingest`. `pnpm check`
+  does not run it; CI does. Add a parser test there, not in Vitest.
+- Two invariants the cron depends on, both covered by tests that failed before they were written: a run
+  whose data is unchanged must write **nothing** (timestamps are masked before comparison, or the weekly
+  PR is empty and nobody reads it), and `--code <one>` must **merge** into `index.json` and the DATA-GAPS
+  table rather than replacing them.
+- Section references are not uniformly cased. The suffix is upper (`498A`, `65B`), the sub-clause is
+  lower (`2(f)`, `65B(3)(a)`). `normaliseSectionRef` preserves that split; upper-casing the whole thing
+  makes a sub-clause silently answer with its parent section.
 - Session 24 owes: the WebLLM Tier 0 provider, the Cloudflare Worker for Tier 2, and the first real AI
   surface. `docs/DATA-GAPS.md` #13-#15 record what each still needs.

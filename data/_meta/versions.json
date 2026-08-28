@@ -1,14 +1,13 @@
 {
   "$comment": "Dataset versions surfaced by <DataVersion/>. One entry per bundled dataset in /data.",
-  "generatedAt": "2026-08-28",
   "datasets": {
     "app": {
-      "version": "0.1.0",
-      "updated": "2026-08-28",
       "label": {
         "en": "Application shell",
         "hi": "ऐप्लिकेशन ढाँचा"
-      }
+      },
+      "updated": "2026-08-28",
+      "version": "0.1.0"
     },
     "law-bns": {
       "version": "1.0.0",
@@ -19,8 +18,8 @@
       },
       "rows": 358,
       "mappings": 534,
-      "sha256": "33c7d0fcf84228374f0147008ecfd5d21f2c968d49a105098341e1c048258f6e",
-      "fetchedAt": "2026-08-28T05:57:46Z",
+      "sha256": "13beb7288525cb87d9560b0f163ce62cf400f8f04de0ae805e8523741c9d5051",
+      "fetchedAt": "2026-08-28T06:09:46Z",
       "parsePath": "inline-html",
       "source": {
         "name": "NCRB Sankalan",
@@ -36,8 +35,8 @@
       },
       "rows": 531,
       "mappings": 568,
-      "sha256": "b5457e79eab6b999e89b4167fd8a97a01b4c86bf5149b8d8437f755643a43e6f",
-      "fetchedAt": "2026-08-28T05:57:46Z",
+      "sha256": "9cfed9a043ad80ac7eb96b41bc0b2fbebc70c101548ab9b32fa568ecc956904f",
+      "fetchedAt": "2026-08-28T06:09:46Z",
       "parsePath": "inline-html",
       "source": {
         "name": "NCRB Sankalan",
@@ -53,8 +52,8 @@
       },
       "rows": 170,
       "mappings": 180,
-      "sha256": "34eab4d370241e0cb3414a79aadc4d33730f8119ad7c397a279434b2c994cb82",
-      "fetchedAt": "2026-08-28T05:57:46Z",
+      "sha256": "6d2dbd42bbe25eef29bb2b0e4b8c29dc8924435f67ccde2cef1a27242c2d7445",
+      "fetchedAt": "2026-08-28T06:09:46Z",
       "parsePath": "inline-html",
       "source": {
         "name": "NCRB Sankalan",
@@ -68,13 +67,14 @@
         "en": "Repealed-Act reverse index",
         "hi": "निरसित अधिनियम व्युत्क्रम अनुक्रमणिका"
       },
-      "rows": 1285,
-      "sha256": "79f91c44ea8b18e9681fe0b04a5b02e270d1c6bc54c149f98456f1bfec651df8",
-      "fetchedAt": "2026-08-28T05:57:46Z",
+      "rows": 1293,
+      "sha256": "1bd2ba830c8d39cdd164a89da048e082f3d1625c8f35738d4bbc597270156fcd",
+      "fetchedAt": "2026-08-28T06:08:57Z",
       "source": {
         "name": "NCRB Sankalan",
         "url": "https://www.ncrb.gov.in/uploads/SankalanPortal/Index.html"
       }
     }
-  }
+  },
+  "generatedAt": "2026-08-28"
 }

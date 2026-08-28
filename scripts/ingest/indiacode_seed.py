@@ -69,7 +69,7 @@ HOSTS = [
 RATE_LIMIT_SECONDS = 3.0
 DISALLOWED = ("/discover", "/simple-search")
 
-DEVANAGARI = re.compile(r"[ऀ-ॿ]")
+DEVANAGARI = re.compile(r"[\u0900-\u097F]")
 
 ACT_TITLES = {
     "BNS": "The Bharatiya Nyaya Sanhita, 2023",
@@ -173,9 +173,12 @@ def extract_section(html: str) -> dict[str, str] | None:
     """Pull the section heading and body out of an India Code section page.
 
     India Code renders a section as a heading followed by the provision text.
-    The markup has changed more than once, so this reads the densest text block
-    rather than trusting one class name, and returns None when nothing plausible
-    is found instead of returning a page chrome fragment.
+    The markup has changed more than once, so rather than trusting one class
+    name this collects every candidate container and takes the *smallest* one
+    that still has substance: the selectors are ordered most- to least-specific,
+    and the tightest match is the one least likely to have swept in the site
+    chrome. Returns None when nothing plausible is found, so the caller records
+    "unreachable" instead of storing a navigation menu as a section.
     """
     soup = BeautifulSoup(html, "lxml")
     for tag in soup(["script", "style", "nav", "header", "footer"]):
@@ -197,8 +200,23 @@ def extract_section(html: str) -> dict[str, str] | None:
     return {"heading": heading, "text": text}
 
 
+# India Code renders its chrome bilingually, so a page of English section text
+# carries a handful of Devanagari characters in the navigation. One character is
+# not evidence: filing an English provision as the Hindi text would put the
+# wrong language in front of a reader who asked for Hindi.
+HINDI_SHARE_THRESHOLD = 0.15
+
+
+def hindi_share(value: str) -> float:
+    """The fraction of letters in ``value`` that are Devanagari."""
+    letters = [ch for ch in value if ch.isalpha()]
+    if not letters:
+        return 0.0
+    return sum(1 for ch in letters if DEVANAGARI.match(ch)) / len(letters)
+
+
 def has_hindi(value: str) -> bool:
-    return bool(DEVANAGARI.search(value))
+    return hindi_share(value) >= HINDI_SHARE_THRESHOLD
 
 
 # --------------------------------------------------------------------------
@@ -266,15 +284,14 @@ def main(argv: list[str] | None = None) -> int:
     client = Client()
     discovered: dict[str, str] = {}
     stopped_early: str | None = None
+    seeded: dict[str, dict[str, dict[str, Any]]] = {}
+    results: list[dict[str, Any]] = []
 
     try:
         if args.discover:
             log("discovery: looking for the three Sanhitas on India Code")
             discovered = discover_act_pages(client)
             log(f"  found {len(discovered)}: {', '.join(sorted(discovered)) or 'none'}")
-
-        seeded: dict[str, dict[str, dict[str, Any]]] = {}
-        results: list[dict[str, Any]] = []
 
         for target in targets:
             act, section = target["act"], target["section"]
@@ -307,10 +324,10 @@ def main(argv: list[str] | None = None) -> int:
             results.append({"act": act, "section": section, "status": "ok", "language": language})
 
     except Forbidden as exc:
+        # Whatever was fetched before the refusal is kept; the coverage report
+        # records where it stopped and why.
         stopped_early = str(exc)
         log(f"STOP: {exc}")
-        seeded = locals().get("seeded") or {}
-        results = locals().get("results") or []
 
     ok = [r for r in results if r["status"] == "ok"]
     with_hindi = [r for r in ok if r.get("language") == "hi"]

@@ -424,6 +424,10 @@
           "152"
         ],
         "status": "mapped",
+        "note": {
+          "en": "NCRB's correspondence table marks IPC 124A \"Deleted\": the BNS contains no sedition offence. BNS 152 is the nearest provision but is a new offence with different ingredients, not a renumbering of 124A - read the warning below before citing it.",
+          "hi": "एनसीआरबी की तत्संगत तालिका भादंसं 124क को \"Deleted\" दर्शाती है: बीएनएस में राजद्रोह का अपराध नहीं है। बीएनएस 152 निकटतम उपबंध है, किंतु वह भिन्न अवयवों वाला नया अपराध है, 124क का पुनःसंख्यांकन नहीं - उद्धृत करने से पहले नीचे दी गई चेतावनी पढ़ें।"
+        },
         "warnings": [
           {
             "kind": "trap",

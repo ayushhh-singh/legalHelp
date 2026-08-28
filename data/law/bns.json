@@ -2,7 +2,7 @@
   "$schema": "../../schemas/law-mapping.schema.json",
   "id": "bns",
   "version": "1.0.0",
-  "fetchedAt": "2026-08-28T05:57:46Z",
+  "fetchedAt": "2026-08-28T06:09:46Z",
   "newAct": {
     "id": "BNS",
     "year": 2023,
@@ -45,7 +45,7 @@
         "hi": "एनसीआरबी संकलन — BNS/IPC तत्संगत धारा तालिका"
       },
       "url": "https://www.ncrb.gov.in/uploads/SankalanPortal/SectionTableBNS.html",
-      "fetchedAt": "2026-08-28T05:57:50Z",
+      "fetchedAt": "2026-08-28T05:58:35Z",
       "sha256": "16d042717a7163f8cffaa6011a59e810d01fe54e66278e63ca59133112c7c853"
     },
     {
@@ -55,7 +55,7 @@
         "hi": "एनसीआरबी संकलन — भारतीय न्याय संहिता, 2023, अध्याय एवं धाराएँ"
       },
       "url": "https://www.ncrb.gov.in/uploads/SankalanPortal/ChaptersBNS.html",
-      "fetchedAt": "2026-08-28T05:57:50Z",
+      "fetchedAt": "2026-08-28T05:58:36Z",
       "sha256": "7d25273c0291f8e2a5cffa7e5ce2992bfff6e8b53b85a021e850384d45a1db8d"
     },
     {
@@ -65,7 +65,7 @@
         "hi": "बीएनएसएस की पहली अनुसूची — भारतीय न्याय संहिता के अपराधों का वर्गीकरण"
       },
       "url": "https://www.ncrb.gov.in/uploads/SankalanPortal/ScheduleBNSS.html",
-      "fetchedAt": "2026-08-28T05:57:46Z",
+      "fetchedAt": "2026-08-28T06:03:34Z",
       "sha256": "86064e55558b53bfe5b9ff3f461198a455b541aa8587d30ac4070b990a90a76d"
     },
     {
@@ -75,7 +75,7 @@
         "hi": "बीएनएसएस की धारा 359 — शमनीय अपराध"
       },
       "url": "https://www.ncrb.gov.in/uploads/SankalanPortal/ChaptersBNSS.html",
-      "fetchedAt": "2026-08-28T05:57:48Z",
+      "fetchedAt": "2026-08-28T06:03:37Z",
       "sha256": "36a3128371af4a6152fdf002203b9a4a71608217ebb6b2e68ffd6803cb0d093b"
     },
     {
@@ -1222,7 +1222,7 @@
       "chapter": {
         "number": "II",
         "title": {
-          "en": "Of Punishments",
+          "en": "Of punishments",
           "hi": ""
         }
       },
@@ -1305,7 +1305,7 @@
       "chapter": {
         "number": "II",
         "title": {
-          "en": "Of Punishments",
+          "en": "Of punishments",
           "hi": ""
         }
       },
@@ -1388,7 +1388,7 @@
       "chapter": {
         "number": "II",
         "title": {
-          "en": "Of Punishments",
+          "en": "Of punishments",
           "hi": ""
         }
       },
@@ -1462,7 +1462,7 @@
       "chapter": {
         "number": "II",
         "title": {
-          "en": "Of Punishments",
+          "en": "Of punishments",
           "hi": ""
         }
       },
@@ -1539,7 +1539,7 @@
       "chapter": {
         "number": "II",
         "title": {
-          "en": "Of Punishments",
+          "en": "Of punishments",
           "hi": ""
         }
       },
@@ -1734,7 +1734,7 @@
       "chapter": {
         "number": "II",
         "title": {
-          "en": "Of Punishments",
+          "en": "Of punishments",
           "hi": ""
         }
       },
@@ -1817,7 +1817,7 @@
       "chapter": {
         "number": "II",
         "title": {
-          "en": "Of Punishments",
+          "en": "Of punishments",
           "hi": ""
         }
       },
@@ -1897,7 +1897,7 @@
       "chapter": {
         "number": "II",
         "title": {
-          "en": "Of Punishments",
+          "en": "Of punishments",
           "hi": ""
         }
       },
@@ -1971,7 +1971,7 @@
       "chapter": {
         "number": "II",
         "title": {
-          "en": "Of Punishments",
+          "en": "Of punishments",
           "hi": ""
         }
       },
@@ -2046,7 +2046,7 @@
       "chapter": {
         "number": "II",
         "title": {
-          "en": "Of Punishments",
+          "en": "Of punishments",
           "hi": ""
         }
       },
@@ -2123,7 +2123,7 @@
       "chapter": {
         "number": "III",
         "title": {
-          "en": "General Exceptions",
+          "en": "General exceptions",
           "hi": ""
         }
       },
@@ -2190,7 +2190,7 @@
       "chapter": {
         "number": "III",
         "title": {
-          "en": "General Exceptions",
+          "en": "General exceptions",
           "hi": ""
         }
       },
@@ -2252,7 +2252,7 @@
       "chapter": {
         "number": "III",
         "title": {
-          "en": "General Exceptions",
+          "en": "General exceptions",
           "hi": ""
         }
       },
@@ -2328,7 +2328,7 @@
       "chapter": {
         "number": "III",
         "title": {
-          "en": "General Exceptions",
+          "en": "General exceptions",
           "hi": ""
         }
       },
@@ -2405,7 +2405,7 @@
       "chapter": {
         "number": "III",
         "title": {
-          "en": "General Exceptions",
+          "en": "General exceptions",
           "hi": ""
         }
       },
@@ -2467,7 +2467,7 @@
       "chapter": {
         "number": "III",
         "title": {
-          "en": "General Exceptions",
+          "en": "General exceptions",
           "hi": ""
         }
       },
@@ -2534,7 +2534,7 @@
       "chapter": {
         "number": "III",
         "title": {
-          "en": "General Exceptions",
+          "en": "General exceptions",
           "hi": ""
         }
       },
@@ -2607,7 +2607,7 @@
       "chapter": {
         "number": "III",
         "title": {
-          "en": "General Exceptions",
+          "en": "General exceptions",
           "hi": ""
         }
       },
@@ -2684,7 +2684,7 @@
       "chapter": {
         "number": "III",
         "title": {
-          "en": "General Exceptions",
+          "en": "General exceptions",
           "hi": ""
         }
       },
@@ -2746,7 +2746,7 @@
       "chapter": {
         "number": "III",
         "title": {
-          "en": "General Exceptions",
+          "en": "General exceptions",
           "hi": ""
         }
       },
@@ -2820,7 +2820,7 @@
       "chapter": {
         "number": "III",
         "title": {
-          "en": "General Exceptions",
+          "en": "General exceptions",
           "hi": ""
         }
       },
@@ -2894,7 +2894,7 @@
       "chapter": {
         "number": "III",
         "title": {
-          "en": "General Exceptions",
+          "en": "General exceptions",
           "hi": ""
         }
       },
@@ -2973,7 +2973,7 @@
       "chapter": {
         "number": "III",
         "title": {
-          "en": "General Exceptions",
+          "en": "General exceptions",
           "hi": ""
         }
       },
@@ -3041,7 +3041,7 @@
       "chapter": {
         "number": "III",
         "title": {
-          "en": "General Exceptions",
+          "en": "General exceptions",
           "hi": ""
         }
       },
@@ -3129,7 +3129,7 @@
       "chapter": {
         "number": "III",
         "title": {
-          "en": "General Exceptions",
+          "en": "General exceptions",
           "hi": ""
         }
       },
@@ -3192,7 +3192,7 @@
       "chapter": {
         "number": "III",
         "title": {
-          "en": "General Exceptions",
+          "en": "General exceptions",
           "hi": ""
         }
       },
@@ -3257,7 +3257,7 @@
       "chapter": {
         "number": "III",
         "title": {
-          "en": "General Exceptions",
+          "en": "General exceptions",
           "hi": ""
         }
       },
@@ -3323,7 +3323,7 @@
       "chapter": {
         "number": "III",
         "title": {
-          "en": "General Exceptions",
+          "en": "General exceptions",
           "hi": ""
         }
       },
@@ -3397,7 +3397,7 @@
       "chapter": {
         "number": "III",
         "title": {
-          "en": "General Exceptions",
+          "en": "General exceptions",
           "hi": ""
         }
       },
@@ -3469,7 +3469,7 @@
       "chapter": {
         "number": "III",
         "title": {
-          "en": "General Exceptions",
+          "en": "General exceptions",
           "hi": ""
         }
       },
@@ -3531,7 +3531,7 @@
       "chapter": {
         "number": "III",
         "title": {
-          "en": "General Exceptions",
+          "en": "General exceptions",
           "hi": ""
         }
       },
@@ -3593,7 +3593,7 @@
       "chapter": {
         "number": "III",
         "title": {
-          "en": "General Exceptions",
+          "en": "General exceptions",
           "hi": ""
         }
       },
@@ -3656,7 +3656,7 @@
       "chapter": {
         "number": "III",
         "title": {
-          "en": "General Exceptions",
+          "en": "General exceptions",
           "hi": ""
         }
       },
@@ -3730,7 +3730,7 @@
       "chapter": {
         "number": "III",
         "title": {
-          "en": "General Exceptions",
+          "en": "General exceptions",
           "hi": ""
         }
       },
@@ -3817,7 +3817,7 @@
       "chapter": {
         "number": "III",
         "title": {
-          "en": "General Exceptions",
+          "en": "General exceptions",
           "hi": ""
         }
       },
@@ -3893,7 +3893,7 @@
       "chapter": {
         "number": "III",
         "title": {
-          "en": "General Exceptions",
+          "en": "General exceptions",
           "hi": ""
         }
       },
@@ -3956,7 +3956,7 @@
       "chapter": {
         "number": "III",
         "title": {
-          "en": "General Exceptions",
+          "en": "General exceptions",
           "hi": ""
         }
       },
@@ -4035,7 +4035,7 @@
       "chapter": {
         "number": "III",
         "title": {
-          "en": "General Exceptions",
+          "en": "General exceptions",
           "hi": ""
         }
       },
@@ -4106,7 +4106,7 @@
       "chapter": {
         "number": "III",
         "title": {
-          "en": "General Exceptions",
+          "en": "General exceptions",
           "hi": ""
         }
       },
@@ -4195,7 +4195,7 @@
       "chapter": {
         "number": "III",
         "title": {
-          "en": "General Exceptions",
+          "en": "General exceptions",
           "hi": ""
         }
       },
@@ -4276,7 +4276,7 @@
       "chapter": {
         "number": "III",
         "title": {
-          "en": "General Exceptions",
+          "en": "General exceptions",
           "hi": ""
         }
       },
@@ -4355,7 +4355,7 @@
       "chapter": {
         "number": "IV",
         "title": {
-          "en": "Of Abetment, Criminal Conspiracy And Attempt",
+          "en": "Of abetment, criminal conspiracy and attempt",
           "hi": ""
         }
       },
@@ -4429,7 +4429,7 @@
       "chapter": {
         "number": "IV",
         "title": {
-          "en": "Of Abetment, Criminal Conspiracy And Attempt",
+          "en": "Of abetment, criminal conspiracy and attempt",
           "hi": ""
         }
       },
@@ -4497,7 +4497,7 @@
       "chapter": {
         "number": "IV",
         "title": {
-          "en": "Of Abetment, Criminal Conspiracy And Attempt",
+          "en": "Of abetment, criminal conspiracy and attempt",
           "hi": ""
         }
       },
@@ -4575,7 +4575,7 @@
       "chapter": {
         "number": "IV",
         "title": {
-          "en": "Of Abetment, Criminal Conspiracy And Attempt",
+          "en": "Of abetment, criminal conspiracy and attempt",
           "hi": ""
         }
       },
@@ -4641,7 +4641,7 @@
       "chapter": {
         "number": "IV",
         "title": {
-          "en": "Of Abetment, Criminal Conspiracy And Attempt",
+          "en": "Of abetment, criminal conspiracy and attempt",
           "hi": ""
         }
       },
@@ -4776,7 +4776,7 @@
       "chapter": {
         "number": "IV",
         "title": {
-          "en": "Of Abetment, Criminal Conspiracy And Attempt",
+          "en": "Of abetment, criminal conspiracy and attempt",
           "hi": ""
         }
       },
@@ -4887,7 +4887,7 @@
       "chapter": {
         "number": "IV",
         "title": {
-          "en": "Of Abetment, Criminal Conspiracy And Attempt",
+          "en": "Of abetment, criminal conspiracy and attempt",
           "hi": ""
         }
       },
@@ -4996,7 +4996,7 @@
       "chapter": {
         "number": "IV",
         "title": {
-          "en": "Of Abetment, Criminal Conspiracy And Attempt",
+          "en": "Of abetment, criminal conspiracy and attempt",
           "hi": ""
         }
       },
@@ -5113,7 +5113,7 @@
       "chapter": {
         "number": "IV",
         "title": {
-          "en": "Of Abetment, Criminal Conspiracy And Attempt",
+          "en": "Of abetment, criminal conspiracy and attempt",
           "hi": ""
         }
       },
@@ -5213,7 +5213,7 @@
       "chapter": {
         "number": "IV",
         "title": {
-          "en": "Of Abetment, Criminal Conspiracy And Attempt",
+          "en": "Of abetment, criminal conspiracy and attempt",
           "hi": ""
         }
       },
@@ -5332,7 +5332,7 @@
       "chapter": {
         "number": "IV",
         "title": {
-          "en": "Of Abetment, Criminal Conspiracy And Attempt",
+          "en": "Of abetment, criminal conspiracy and attempt",
           "hi": ""
         }
       },
@@ -5440,7 +5440,7 @@
       "chapter": {
         "number": "IV",
         "title": {
-          "en": "Of Abetment, Criminal Conspiracy And Attempt",
+          "en": "Of abetment, criminal conspiracy and attempt",
           "hi": ""
         }
       },
@@ -5546,7 +5546,7 @@
       "chapter": {
         "number": "IV",
         "title": {
-          "en": "Of Abetment, Criminal Conspiracy And Attempt",
+          "en": "Of abetment, criminal conspiracy and attempt",
           "hi": ""
         }
       },
@@ -5657,7 +5657,7 @@
       "chapter": {
         "number": "IV",
         "title": {
-          "en": "Of Abetment, Criminal Conspiracy And Attempt",
+          "en": "Of abetment, criminal conspiracy and attempt",
           "hi": ""
         }
       },
@@ -5784,7 +5784,7 @@
       "chapter": {
         "number": "IV",
         "title": {
-          "en": "Of Abetment, Criminal Conspiracy And Attempt",
+          "en": "Of abetment, criminal conspiracy and attempt",
           "hi": ""
         }
       },
@@ -5930,7 +5930,7 @@
       "chapter": {
         "number": "IV",
         "title": {
-          "en": "Of Abetment, Criminal Conspiracy And Attempt",
+          "en": "Of abetment, criminal conspiracy and attempt",
           "hi": ""
         }
       },
@@ -6055,7 +6055,7 @@
       "chapter": {
         "number": "IV",
         "title": {
-          "en": "Of Abetment, Criminal Conspiracy And Attempt",
+          "en": "Of abetment, criminal conspiracy and attempt",
           "hi": ""
         }
       },
@@ -6210,7 +6210,7 @@
       "chapter": {
         "number": "IV",
         "title": {
-          "en": "Of Abetment, Criminal Conspiracy And Attempt",
+          "en": "Of abetment, criminal conspiracy and attempt",
           "hi": ""
         }
       },
@@ -6339,7 +6339,7 @@
       "chapter": {
         "number": "V",
         "title": {
-          "en": "Of Offences Against Woman And Child",
+          "en": "Of offences against woman and child",
           "hi": ""
         }
       },
@@ -6455,7 +6455,7 @@
       "chapter": {
         "number": "V",
         "title": {
-          "en": "Of Offences Against Woman And Child",
+          "en": "Of offences against woman and child",
           "hi": ""
         }
       },
@@ -6623,7 +6623,7 @@
       "chapter": {
         "number": "V",
         "title": {
-          "en": "Of Offences Against Woman And Child",
+          "en": "Of offences against woman and child",
           "hi": ""
         }
       },
@@ -6797,7 +6797,7 @@
       "chapter": {
         "number": "V",
         "title": {
-          "en": "Of Offences Against Woman And Child",
+          "en": "Of offences against woman and child",
           "hi": ""
         }
       },
@@ -6940,7 +6940,7 @@
       "chapter": {
         "number": "V",
         "title": {
-          "en": "Of Offences Against Woman And Child",
+          "en": "Of offences against woman and child",
           "hi": ""
         }
       },
@@ -7082,7 +7082,7 @@
       "chapter": {
         "number": "V",
         "title": {
-          "en": "Of Offences Against Woman And Child",
+          "en": "Of offences against woman and child",
           "hi": ""
         }
       },
@@ -7232,7 +7232,7 @@
       "chapter": {
         "number": "V",
         "title": {
-          "en": "Of Offences Against Woman And Child",
+          "en": "Of offences against woman and child",
           "hi": ""
         }
       },
@@ -7359,7 +7359,7 @@
       "chapter": {
         "number": "V",
         "title": {
-          "en": "Of Offences Against Woman And Child",
+          "en": "Of offences against woman and child",
           "hi": ""
         }
       },
@@ -7544,7 +7544,7 @@
       "chapter": {
         "number": "V",
         "title": {
-          "en": "Of Offences Against Woman And Child",
+          "en": "Of offences against woman and child",
           "hi": ""
         }
       },
@@ -7643,7 +7643,7 @@
       "chapter": {
         "number": "V",
         "title": {
-          "en": "Of Offences Against Woman And Child",
+          "en": "Of offences against woman and child",
           "hi": ""
         }
       },
@@ -7747,7 +7747,7 @@
       "chapter": {
         "number": "V",
         "title": {
-          "en": "Of Offences Against Woman And Child",
+          "en": "Of offences against woman and child",
           "hi": ""
         }
       },
@@ -7852,7 +7852,7 @@
       "chapter": {
         "number": "V",
         "title": {
-          "en": "Of Offences Against Woman And Child",
+          "en": "Of offences against woman and child",
           "hi": ""
         }
       },
@@ -8009,7 +8009,7 @@
       "chapter": {
         "number": "V",
         "title": {
-          "en": "Of Offences Against Woman And Child",
+          "en": "Of offences against woman and child",
           "hi": ""
         }
       },
@@ -8164,7 +8164,7 @@
       "chapter": {
         "number": "V",
         "title": {
-          "en": "Of Offences Against Woman And Child",
+          "en": "Of offences against woman and child",
           "hi": ""
         }
       },
@@ -8327,7 +8327,7 @@
       "chapter": {
         "number": "V",
         "title": {
-          "en": "Of Offences Against Woman And Child",
+          "en": "Of offences against woman and child",
           "hi": ""
         }
       },
@@ -8457,7 +8457,7 @@
       "chapter": {
         "number": "V",
         "title": {
-          "en": "Of Offences Against Woman And Child",
+          "en": "Of offences against woman and child",
           "hi": ""
         }
       },
@@ -8602,7 +8602,7 @@
       "chapter": {
         "number": "V",
         "title": {
-          "en": "Of Offences Against Woman And Child",
+          "en": "Of offences against woman and child",
           "hi": ""
         }
       },
@@ -8746,7 +8746,7 @@
       "chapter": {
         "number": "V",
         "title": {
-          "en": "Of Offences Against Woman And Child",
+          "en": "Of offences against woman and child",
           "hi": ""
         }
       },
@@ -8884,7 +8884,7 @@
       "chapter": {
         "number": "V",
         "title": {
-          "en": "Of Offences Against Woman And Child",
+          "en": "Of offences against woman and child",
           "hi": ""
         }
       },
@@ -9011,7 +9011,7 @@
       "chapter": {
         "number": "V",
         "title": {
-          "en": "Of Offences Against Woman And Child",
+          "en": "Of offences against woman and child",
           "hi": ""
         }
       },
@@ -9163,7 +9163,7 @@
       "chapter": {
         "number": "V",
         "title": {
-          "en": "Of Offences Against Woman And Child",
+          "en": "Of offences against woman and child",
           "hi": ""
         }
       },
@@ -9286,7 +9286,7 @@
       "chapter": {
         "number": "V",
         "title": {
-          "en": "Of Offences Against Woman And Child",
+          "en": "Of offences against woman and child",
           "hi": ""
         }
       },
@@ -9430,7 +9430,7 @@
       "chapter": {
         "number": "V",
         "title": {
-          "en": "Of Offences Against Woman And Child",
+          "en": "Of offences against woman and child",
           "hi": ""
         }
       },
@@ -9577,7 +9577,7 @@
       "chapter": {
         "number": "V",
         "title": {
-          "en": "Of Offences Against Woman And Child",
+          "en": "Of offences against woman and child",
           "hi": ""
         }
       },
@@ -9683,7 +9683,7 @@
       "chapter": {
         "number": "V",
         "title": {
-          "en": "Of Offences Against Woman And Child",
+          "en": "Of offences against woman and child",
           "hi": ""
         }
       },
@@ -9818,7 +9818,7 @@
       "chapter": {
         "number": "V",
         "title": {
-          "en": "Of Offences Against Woman And Child",
+          "en": "Of offences against woman and child",
           "hi": ""
         }
       },
@@ -9966,7 +9966,7 @@
       "chapter": {
         "number": "V",
         "title": {
-          "en": "Of Offences Against Woman And Child",
+          "en": "Of offences against woman and child",
           "hi": ""
         }
       },
@@ -10085,7 +10085,7 @@
       "chapter": {
         "number": "V",
         "title": {
-          "en": "Of Offences Against Woman And Child",
+          "en": "Of offences against woman and child",
           "hi": ""
         }
       },
@@ -10229,7 +10229,7 @@
       "chapter": {
         "number": "V",
         "title": {
-          "en": "Of Offences Against Woman And Child",
+          "en": "Of offences against woman and child",
           "hi": ""
         }
       },
@@ -10334,7 +10334,7 @@
       "chapter": {
         "number": "V",
         "title": {
-          "en": "Of Offences Against Woman And Child",
+          "en": "Of offences against woman and child",
           "hi": ""
         }
       },
@@ -10454,7 +10454,7 @@
       "chapter": {
         "number": "V",
         "title": {
-          "en": "Of Offences Against Woman And Child",
+          "en": "Of offences against woman and child",
           "hi": ""
         }
       },
@@ -10569,7 +10569,7 @@
       "chapter": {
         "number": "V",
         "title": {
-          "en": "Of Offences Against Woman And Child",
+          "en": "Of offences against woman and child",
           "hi": ""
         }
       },
@@ -10681,7 +10681,7 @@
       "chapter": {
         "number": "V",
         "title": {
-          "en": "Of Offences Against Woman And Child",
+          "en": "Of offences against woman and child",
           "hi": ""
         }
       },
@@ -10803,7 +10803,7 @@
       "chapter": {
         "number": "V",
         "title": {
-          "en": "Of Offences Against Woman And Child",
+          "en": "Of offences against woman and child",
           "hi": ""
         }
       },
@@ -10933,7 +10933,7 @@
       "chapter": {
         "number": "V",
         "title": {
-          "en": "Of Offences Against Woman And Child",
+          "en": "Of offences against woman and child",
           "hi": ""
         }
       },
@@ -11053,7 +11053,7 @@
       "chapter": {
         "number": "V",
         "title": {
-          "en": "Of Offences Against Woman And Child",
+          "en": "Of offences against woman and child",
           "hi": ""
         }
       },
@@ -11173,7 +11173,7 @@
       "chapter": {
         "number": "V",
         "title": {
-          "en": "Of Offences Against Woman And Child",
+          "en": "Of offences against woman and child",
           "hi": ""
         }
       },
@@ -11293,7 +11293,7 @@
       "chapter": {
         "number": "VI",
         "title": {
-          "en": "Of Offences Affecting The Human Body",
+          "en": "Of offences affecting the human body",
           "hi": ""
         }
       },
@@ -11374,7 +11374,7 @@
       "chapter": {
         "number": "VI",
         "title": {
-          "en": "Of Offences Affecting The Human Body",
+          "en": "Of offences affecting the human body",
           "hi": ""
         }
       },
@@ -11461,7 +11461,7 @@
       "chapter": {
         "number": "VI",
         "title": {
-          "en": "Of Offences Affecting The Human Body",
+          "en": "Of offences affecting the human body",
           "hi": ""
         }
       },
@@ -11535,7 +11535,7 @@
       "chapter": {
         "number": "VI",
         "title": {
-          "en": "Of Offences Affecting The Human Body",
+          "en": "Of offences affecting the human body",
           "hi": ""
         }
       },
@@ -11712,7 +11712,7 @@
       "chapter": {
         "number": "VI",
         "title": {
-          "en": "Of Offences Affecting The Human Body",
+          "en": "Of offences affecting the human body",
           "hi": ""
         }
       },
@@ -11818,7 +11818,7 @@
       "chapter": {
         "number": "VI",
         "title": {
-          "en": "Of Offences Affecting The Human Body",
+          "en": "Of offences affecting the human body",
           "hi": ""
         }
       },
@@ -11954,7 +11954,7 @@
       "chapter": {
         "number": "VI",
         "title": {
-          "en": "Of Offences Affecting The Human Body",
+          "en": "Of offences affecting the human body",
           "hi": ""
         }
       },
@@ -12138,7 +12138,7 @@
       "chapter": {
         "number": "VI",
         "title": {
-          "en": "Of Offences Affecting The Human Body",
+          "en": "Of offences affecting the human body",
           "hi": ""
         }
       },
@@ -12265,7 +12265,7 @@
       "chapter": {
         "number": "VI",
         "title": {
-          "en": "Of Offences Affecting The Human Body",
+          "en": "Of offences affecting the human body",
           "hi": ""
         }
       },
@@ -12397,7 +12397,7 @@
       "chapter": {
         "number": "VI",
         "title": {
-          "en": "Of Offences Affecting The Human Body",
+          "en": "Of offences affecting the human body",
           "hi": ""
         }
       },
@@ -12566,7 +12566,7 @@
       "chapter": {
         "number": "VI",
         "title": {
-          "en": "Of Offences Affecting The Human Body",
+          "en": "Of offences affecting the human body",
           "hi": ""
         }
       },
@@ -12706,7 +12706,7 @@
       "chapter": {
         "number": "VI",
         "title": {
-          "en": "Of Offences Affecting The Human Body",
+          "en": "Of offences affecting the human body",
           "hi": ""
         }
       },
@@ -12983,7 +12983,7 @@
       "chapter": {
         "number": "VI",
         "title": {
-          "en": "Of Offences Affecting The Human Body",
+          "en": "Of offences affecting the human body",
           "hi": ""
         }
       },
@@ -13106,7 +13106,7 @@
       "chapter": {
         "number": "VI",
         "title": {
-          "en": "Of Offences Affecting The Human Body",
+          "en": "Of offences affecting the human body",
           "hi": ""
         }
       },
@@ -13359,7 +13359,7 @@
       "chapter": {
         "number": "VI",
         "title": {
-          "en": "Of Offences Affecting The Human Body",
+          "en": "Of offences affecting the human body",
           "hi": ""
         }
       },
@@ -13429,7 +13429,7 @@
       "chapter": {
         "number": "VI",
         "title": {
-          "en": "Of Offences Affecting The Human Body",
+          "en": "Of offences affecting the human body",
           "hi": ""
         }
       },
@@ -13566,7 +13566,7 @@
       "chapter": {
         "number": "VI",
         "title": {
-          "en": "Of Offences Affecting The Human Body",
+          "en": "Of offences affecting the human body",
           "hi": ""
         }
       },
@@ -13637,7 +13637,7 @@
       "chapter": {
         "number": "VI",
         "title": {
-          "en": "Of Offences Affecting The Human Body",
+          "en": "Of offences affecting the human body",
           "hi": ""
         }
       },
@@ -13821,7 +13821,7 @@
       "chapter": {
         "number": "VI",
         "title": {
-          "en": "Of Offences Affecting The Human Body",
+          "en": "Of offences affecting the human body",
           "hi": ""
         }
       },
@@ -13985,7 +13985,7 @@
       "chapter": {
         "number": "VI",
         "title": {
-          "en": "Of Offences Affecting The Human Body",
+          "en": "Of offences affecting the human body",
           "hi": ""
         }
       },
@@ -14128,7 +14128,7 @@
       "chapter": {
         "number": "VI",
         "title": {
-          "en": "Of Offences Affecting The Human Body",
+          "en": "Of offences affecting the human body",
           "hi": ""
         }
       },
@@ -14277,7 +14277,7 @@
       "chapter": {
         "number": "VI",
         "title": {
-          "en": "Of Offences Affecting The Human Body",
+          "en": "Of offences affecting the human body",
           "hi": ""
         }
       },
@@ -14462,7 +14462,7 @@
       "chapter": {
         "number": "VI",
         "title": {
-          "en": "Of Offences Affecting The Human Body",
+          "en": "Of offences affecting the human body",
           "hi": ""
         }
       },
@@ -14613,7 +14613,7 @@
       "chapter": {
         "number": "VI",
         "title": {
-          "en": "Of Offences Affecting The Human Body",
+          "en": "Of offences affecting the human body",
           "hi": ""
         }
       },
@@ -14720,7 +14720,7 @@
       "chapter": {
         "number": "VI",
         "title": {
-          "en": "Of Offences Affecting The Human Body",
+          "en": "Of offences affecting the human body",
           "hi": ""
         }
       },
@@ -14883,7 +14883,7 @@
       "chapter": {
         "number": "VI",
         "title": {
-          "en": "Of Offences Affecting The Human Body",
+          "en": "Of offences affecting the human body",
           "hi": ""
         }
       },
@@ -15110,7 +15110,7 @@
       "chapter": {
         "number": "VI",
         "title": {
-          "en": "Of Offences Affecting The Human Body",
+          "en": "Of offences affecting the human body",
           "hi": ""
         }
       },
@@ -15244,7 +15244,7 @@
       "chapter": {
         "number": "VI",
         "title": {
-          "en": "Of Offences Affecting The Human Body",
+          "en": "Of offences affecting the human body",
           "hi": ""
         }
       },
@@ -15630,7 +15630,7 @@
       "chapter": {
         "number": "VI",
         "title": {
-          "en": "Of Offences Affecting The Human Body",
+          "en": "Of offences affecting the human body",
           "hi": ""
         }
       },
@@ -15689,7 +15689,7 @@
       "chapter": {
         "number": "VI",
         "title": {
-          "en": "Of Offences Affecting The Human Body",
+          "en": "Of offences affecting the human body",
           "hi": ""
         }
       },
@@ -15769,7 +15769,7 @@
       "chapter": {
         "number": "VI",
         "title": {
-          "en": "Of Offences Affecting The Human Body",
+          "en": "Of offences affecting the human body",
           "hi": ""
         }
       },
@@ -15851,7 +15851,7 @@
       "chapter": {
         "number": "VI",
         "title": {
-          "en": "Of Offences Affecting The Human Body",
+          "en": "Of offences affecting the human body",
           "hi": ""
         }
       },
@@ -15985,7 +15985,7 @@
       "chapter": {
         "number": "VI",
         "title": {
-          "en": "Of Offences Affecting The Human Body",
+          "en": "Of offences affecting the human body",
           "hi": ""
         }
       },
@@ -16129,7 +16129,7 @@
       "chapter": {
         "number": "VI",
         "title": {
-          "en": "Of Offences Affecting The Human Body",
+          "en": "Of offences affecting the human body",
           "hi": ""
         }
       },
@@ -16243,7 +16243,7 @@
       "chapter": {
         "number": "VI",
         "title": {
-          "en": "Of Offences Affecting The Human Body",
+          "en": "Of offences affecting the human body",
           "hi": ""
         }
       },
@@ -16365,7 +16365,7 @@
       "chapter": {
         "number": "VI",
         "title": {
-          "en": "Of Offences Affecting The Human Body",
+          "en": "Of offences affecting the human body",
           "hi": ""
         }
       },
@@ -16503,7 +16503,7 @@
       "chapter": {
         "number": "VI",
         "title": {
-          "en": "Of Offences Affecting The Human Body",
+          "en": "Of offences affecting the human body",
           "hi": ""
         }
       },
@@ -16613,7 +16613,7 @@
       "chapter": {
         "number": "VI",
         "title": {
-          "en": "Of Offences Affecting The Human Body",
+          "en": "Of offences affecting the human body",
           "hi": ""
         }
       },
@@ -16779,7 +16779,7 @@
       "chapter": {
         "number": "VI",
         "title": {
-          "en": "Of Offences Affecting The Human Body",
+          "en": "Of offences affecting the human body",
           "hi": ""
         }
       },
@@ -16846,7 +16846,7 @@
       "chapter": {
         "number": "VI",
         "title": {
-          "en": "Of Offences Affecting The Human Body",
+          "en": "Of offences affecting the human body",
           "hi": ""
         }
       },
@@ -16985,7 +16985,7 @@
       "chapter": {
         "number": "VI",
         "title": {
-          "en": "Of Offences Affecting The Human Body",
+          "en": "Of offences affecting the human body",
           "hi": ""
         }
       },
@@ -17243,7 +17243,7 @@
       "chapter": {
         "number": "VI",
         "title": {
-          "en": "Of Offences Affecting The Human Body",
+          "en": "Of offences affecting the human body",
           "hi": ""
         }
       },
@@ -17331,7 +17331,7 @@
       "chapter": {
         "number": "VI",
         "title": {
-          "en": "Of Offences Affecting The Human Body",
+          "en": "Of offences affecting the human body",
           "hi": ""
         }
       },
@@ -17442,7 +17442,7 @@
       "chapter": {
         "number": "VI",
         "title": {
-          "en": "Of Offences Affecting The Human Body",
+          "en": "Of offences affecting the human body",
           "hi": ""
         }
       },
@@ -17684,7 +17684,7 @@
       "chapter": {
         "number": "VI",
         "title": {
-          "en": "Of Offences Affecting The Human Body",
+          "en": "Of offences affecting the human body",
           "hi": ""
         }
       },
@@ -17816,7 +17816,7 @@
       "chapter": {
         "number": "VI",
         "title": {
-          "en": "Of Offences Affecting The Human Body",
+          "en": "Of offences affecting the human body",
           "hi": ""
         }
       },
@@ -17916,7 +17916,7 @@
       "chapter": {
         "number": "VI",
         "title": {
-          "en": "Of Offences Affecting The Human Body",
+          "en": "Of offences affecting the human body",
           "hi": ""
         }
       },
@@ -18026,7 +18026,7 @@
       "chapter": {
         "number": "VII",
         "title": {
-          "en": "Of Offences Against The State",
+          "en": "Of offences against the state",
           "hi": ""
         }
       },
@@ -18170,7 +18170,7 @@
       "chapter": {
         "number": "VII",
         "title": {
-          "en": "Of Offences Against The State",
+          "en": "Of offences against the state",
           "hi": ""
         }
       },
@@ -18309,7 +18309,7 @@
       "chapter": {
         "number": "VII",
         "title": {
-          "en": "Of Offences Against The State",
+          "en": "Of offences against the state",
           "hi": ""
         }
       },
@@ -18419,7 +18419,7 @@
       "chapter": {
         "number": "VII",
         "title": {
-          "en": "Of Offences Against The State",
+          "en": "Of offences against the state",
           "hi": ""
         }
       },
@@ -18527,7 +18527,7 @@
       "chapter": {
         "number": "VII",
         "title": {
-          "en": "Of Offences Against The State",
+          "en": "Of offences against the state",
           "hi": ""
         }
       },
@@ -18634,7 +18634,7 @@
       "chapter": {
         "number": "VII",
         "title": {
-          "en": "Of Offences Against The State",
+          "en": "Of offences against the state",
           "hi": ""
         }
       },
@@ -18781,7 +18781,7 @@
       "chapter": {
         "number": "VII",
         "title": {
-          "en": "Of Offences Against The State",
+          "en": "Of offences against the state",
           "hi": ""
         }
       },
@@ -18902,7 +18902,7 @@
       "chapter": {
         "number": "VII",
         "title": {
-          "en": "Of Offences Against The State",
+          "en": "Of offences against the state",
           "hi": ""
         }
       },
@@ -19014,7 +19014,7 @@
       "chapter": {
         "number": "VII",
         "title": {
-          "en": "Of Offences Against The State",
+          "en": "Of offences against the state",
           "hi": ""
         }
       },
@@ -19125,7 +19125,7 @@
       "chapter": {
         "number": "VII",
         "title": {
-          "en": "Of Offences Against The State",
+          "en": "Of offences against the state",
           "hi": ""
         }
       },
@@ -19237,7 +19237,7 @@
       "chapter": {
         "number": "VII",
         "title": {
-          "en": "Of Offences Against The State",
+          "en": "Of offences against the state",
           "hi": ""
         }
       },
@@ -19347,7 +19347,7 @@
       "chapter": {
         "number": "VII",
         "title": {
-          "en": "Of Offences Against The State",
+          "en": "Of offences against the state",
           "hi": ""
         }
       },
@@ -19441,7 +19441,7 @@
       "chapter": {
         "number": "VIII",
         "title": {
-          "en": "Of Offences Relating To The Army, Navy And Air Force",
+          "en": "Of offences relating to the army, navy and air force",
           "hi": ""
         }
       },
@@ -19557,7 +19557,7 @@
       "chapter": {
         "number": "VIII",
         "title": {
-          "en": "Of Offences Relating To The Army, Navy And Air Force",
+          "en": "Of offences relating to the army, navy and air force",
           "hi": ""
         }
       },
@@ -19665,7 +19665,7 @@
       "chapter": {
         "number": "VIII",
         "title": {
-          "en": "Of Offences Relating To The Army, Navy And Air Force",
+          "en": "Of offences relating to the army, navy and air force",
           "hi": ""
         }
       },
@@ -19785,7 +19785,7 @@
       "chapter": {
         "number": "VIII",
         "title": {
-          "en": "Of Offences Relating To The Army, Navy And Air Force",
+          "en": "Of offences relating to the army, navy and air force",
           "hi": ""
         }
       },
@@ -19899,7 +19899,7 @@
       "chapter": {
         "number": "VIII",
         "title": {
-          "en": "Of Offences Relating To The Army, Navy And Air Force",
+          "en": "Of offences relating to the army, navy and air force",
           "hi": ""
         }
       },
@@ -20007,7 +20007,7 @@
       "chapter": {
         "number": "VIII",
         "title": {
-          "en": "Of Offences Relating To The Army, Navy And Air Force",
+          "en": "Of offences relating to the army, navy and air force",
           "hi": ""
         }
       },
@@ -20106,7 +20106,7 @@
       "chapter": {
         "number": "VIII",
         "title": {
-          "en": "Of Offences Relating To The Army, Navy And Air Force",
+          "en": "Of offences relating to the army, navy and air force",
           "hi": ""
         }
       },
@@ -20208,7 +20208,7 @@
       "chapter": {
         "number": "VIII",
         "title": {
-          "en": "Of Offences Relating To The Army, Navy And Air Force",
+          "en": "Of offences relating to the army, navy and air force",
           "hi": ""
         }
       },
@@ -20317,7 +20317,7 @@
       "chapter": {
         "number": "VIII",
         "title": {
-          "en": "Of Offences Relating To The Army, Navy And Air Force",
+          "en": "Of offences relating to the army, navy and air force",
           "hi": ""
         }
       },
@@ -20392,7 +20392,7 @@
       "chapter": {
         "number": "VIII",
         "title": {
-          "en": "Of Offences Relating To The Army, Navy And Air Force",
+          "en": "Of offences relating to the army, navy and air force",
           "hi": ""
         }
       },
@@ -20483,7 +20483,7 @@
       "chapter": {
         "number": "IX",
         "title": {
-          "en": "Of Offences Relating To Elections",
+          "en": "Of offences relating to elections",
           "hi": ""
         }
       },
@@ -20559,7 +20559,7 @@
       "chapter": {
         "number": "IX",
         "title": {
-          "en": "Of Offences Relating To Elections",
+          "en": "Of offences relating to elections",
           "hi": ""
         }
       },
@@ -20627,7 +20627,7 @@
       "chapter": {
         "number": "IX",
         "title": {
-          "en": "Of Offences Relating To Elections",
+          "en": "Of offences relating to elections",
           "hi": ""
         }
       },
@@ -20694,7 +20694,7 @@
       "chapter": {
         "number": "IX",
         "title": {
-          "en": "Of Offences Relating To Elections",
+          "en": "Of offences relating to elections",
           "hi": ""
         }
       },
@@ -20767,7 +20767,7 @@
       "chapter": {
         "number": "IX",
         "title": {
-          "en": "Of Offences Relating To Elections",
+          "en": "Of offences relating to elections",
           "hi": ""
         }
       },
@@ -20872,7 +20872,7 @@
       "chapter": {
         "number": "IX",
         "title": {
-          "en": "Of Offences Relating To Elections",
+          "en": "Of offences relating to elections",
           "hi": ""
         }
       },
@@ -20973,7 +20973,7 @@
       "chapter": {
         "number": "IX",
         "title": {
-          "en": "Of Offences Relating To Elections",
+          "en": "Of offences relating to elections",
           "hi": ""
         }
       },
@@ -21074,7 +21074,7 @@
       "chapter": {
         "number": "IX",
         "title": {
-          "en": "Of Offences Relating To Elections",
+          "en": "Of offences relating to elections",
           "hi": ""
         }
       },
@@ -21161,7 +21161,7 @@
       "chapter": {
         "number": "IX",
         "title": {
-          "en": "Of Offences Relating To Elections",
+          "en": "Of offences relating to elections",
           "hi": ""
         }
       },
@@ -21262,7 +21262,7 @@
       "chapter": {
         "number": "X",
         "title": {
-          "en": "Of Offences Relating To Coin, Currency-Notes, Bank-Notes, And Government Stamps",
+          "en": "Of offences relating to coin, currency-notes, bank-notes, and government stamps",
           "hi": ""
         }
       },
@@ -21465,7 +21465,7 @@
       "chapter": {
         "number": "X",
         "title": {
-          "en": "Of Offences Relating To Coin, Currency-Notes, Bank-Notes, And Government Stamps",
+          "en": "Of offences relating to coin, currency-notes, bank-notes, and government stamps",
           "hi": ""
         }
       },
@@ -21687,7 +21687,7 @@
       "chapter": {
         "number": "X",
         "title": {
-          "en": "Of Offences Relating To Coin, Currency-Notes, Bank-Notes, And Government Stamps",
+          "en": "Of offences relating to coin, currency-notes, bank-notes, and government stamps",
           "hi": ""
         }
       },
@@ -21858,7 +21858,7 @@
       "chapter": {
         "number": "X",
         "title": {
-          "en": "Of Offences Relating To Coin, Currency-Notes, Bank-Notes, And Government Stamps",
+          "en": "Of offences relating to coin, currency-notes, bank-notes, and government stamps",
           "hi": ""
         }
       },
@@ -22022,7 +22022,7 @@
       "chapter": {
         "number": "X",
         "title": {
-          "en": "Of Offences Relating To Coin, Currency-Notes, Bank-Notes, And Government Stamps",
+          "en": "Of offences relating to coin, currency-notes, bank-notes, and government stamps",
           "hi": ""
         }
       },
@@ -22175,7 +22175,7 @@
       "chapter": {
         "number": "X",
         "title": {
-          "en": "Of Offences Relating To Coin, Currency-Notes, Bank-Notes, And Government Stamps",
+          "en": "Of offences relating to coin, currency-notes, bank-notes, and government stamps",
           "hi": ""
         }
       },
@@ -22289,7 +22289,7 @@
       "chapter": {
         "number": "X",
         "title": {
-          "en": "Of Offences Relating To Coin, Currency-Notes, Bank-Notes, And Government Stamps",
+          "en": "Of offences relating to coin, currency-notes, bank-notes, and government stamps",
           "hi": ""
         }
       },
@@ -22405,7 +22405,7 @@
       "chapter": {
         "number": "X",
         "title": {
-          "en": "Of Offences Relating To Coin, Currency-Notes, Bank-Notes, And Government Stamps",
+          "en": "Of offences relating to coin, currency-notes, bank-notes, and government stamps",
           "hi": ""
         }
       },
@@ -22508,7 +22508,7 @@
       "chapter": {
         "number": "X",
         "title": {
-          "en": "Of Offences Relating To Coin, Currency-Notes, Bank-Notes, And Government Stamps",
+          "en": "Of offences relating to coin, currency-notes, bank-notes, and government stamps",
           "hi": ""
         }
       },
@@ -22594,7 +22594,7 @@
       "chapter": {
         "number": "X",
         "title": {
-          "en": "Of Offences Relating To Coin, Currency-Notes, Bank-Notes, And Government Stamps",
+          "en": "Of offences relating to coin, currency-notes, bank-notes, and government stamps",
           "hi": ""
         }
       },
@@ -22709,7 +22709,7 @@
       "chapter": {
         "number": "X",
         "title": {
-          "en": "Of Offences Relating To Coin, Currency-Notes, Bank-Notes, And Government Stamps",
+          "en": "Of offences relating to coin, currency-notes, bank-notes, and government stamps",
           "hi": ""
         }
       },
@@ -22820,7 +22820,7 @@
       "chapter": {
         "number": "XI",
         "title": {
-          "en": "Of Offences Against The Public Tranquillity",
+          "en": "Of offences against the public tranquillity",
           "hi": ""
         }
       },
@@ -23258,7 +23258,7 @@
       "chapter": {
         "number": "XI",
         "title": {
-          "en": "Of Offences Against The Public Tranquillity",
+          "en": "Of offences against the public tranquillity",
           "hi": ""
         }
       },
@@ -23392,7 +23392,7 @@
       "chapter": {
         "number": "XI",
         "title": {
-          "en": "Of Offences Against The Public Tranquillity",
+          "en": "Of offences against the public tranquillity",
           "hi": ""
         }
       },
@@ -23585,7 +23585,7 @@
       "chapter": {
         "number": "XI",
         "title": {
-          "en": "Of Offences Against The Public Tranquillity",
+          "en": "Of offences against the public tranquillity",
           "hi": ""
         }
       },
@@ -23709,7 +23709,7 @@
       "chapter": {
         "number": "XI",
         "title": {
-          "en": "Of Offences Against The Public Tranquillity",
+          "en": "Of offences against the public tranquillity",
           "hi": ""
         }
       },
@@ -23911,7 +23911,7 @@
       "chapter": {
         "number": "XI",
         "title": {
-          "en": "Of Offences Against The Public Tranquillity",
+          "en": "Of offences against the public tranquillity",
           "hi": ""
         }
       },
@@ -24034,7 +24034,7 @@
       "chapter": {
         "number": "XI",
         "title": {
-          "en": "Of Offences Against The Public Tranquillity",
+          "en": "Of offences against the public tranquillity",
           "hi": ""
         }
       },
@@ -24201,7 +24201,7 @@
       "chapter": {
         "number": "XI",
         "title": {
-          "en": "Of Offences Against The Public Tranquillity",
+          "en": "Of offences against the public tranquillity",
           "hi": ""
         }
       },
@@ -24367,7 +24367,7 @@
       "chapter": {
         "number": "XI",
         "title": {
-          "en": "Of Offences Against The Public Tranquillity",
+          "en": "Of offences against the public tranquillity",
           "hi": ""
         }
       },
@@ -24514,7 +24514,7 @@
       "chapter": {
         "number": "XII",
         "title": {
-          "en": "Of Offences By Or Relating To Public Servants",
+          "en": "Of offences by or relating to public servants",
           "hi": ""
         }
       },
@@ -24626,7 +24626,7 @@
       "chapter": {
         "number": "XII",
         "title": {
-          "en": "Of Offences By Or Relating To Public Servants",
+          "en": "Of offences by or relating to public servants",
           "hi": ""
         }
       },
@@ -24730,7 +24730,7 @@
       "chapter": {
         "number": "XII",
         "title": {
-          "en": "Of Offences By Or Relating To Public Servants",
+          "en": "Of offences by or relating to public servants",
           "hi": ""
         }
       },
@@ -24846,7 +24846,7 @@
       "chapter": {
         "number": "XII",
         "title": {
-          "en": "Of Offences By Or Relating To Public Servants",
+          "en": "Of offences by or relating to public servants",
           "hi": ""
         }
       },
@@ -24972,7 +24972,7 @@
       "chapter": {
         "number": "XII",
         "title": {
-          "en": "Of Offences By Or Relating To Public Servants",
+          "en": "Of offences by or relating to public servants",
           "hi": ""
         }
       },
@@ -25084,7 +25084,7 @@
       "chapter": {
         "number": "XII",
         "title": {
-          "en": "Of Offences By Or Relating To Public Servants",
+          "en": "Of offences by or relating to public servants",
           "hi": ""
         }
       },
@@ -25194,7 +25194,7 @@
       "chapter": {
         "number": "XII",
         "title": {
-          "en": "Of Offences By Or Relating To Public Servants",
+          "en": "Of offences by or relating to public servants",
           "hi": ""
         }
       },
@@ -25305,7 +25305,7 @@
       "chapter": {
         "number": "XII",
         "title": {
-          "en": "Of Offences By Or Relating To Public Servants",
+          "en": "Of offences by or relating to public servants",
           "hi": ""
         }
       },
@@ -25406,7 +25406,7 @@
       "chapter": {
         "number": "XIII",
         "title": {
-          "en": "Of Contempts Of The Lawful Authority Of Public Servants",
+          "en": "Of contempts of the lawful authority of public servants",
           "hi": ""
         }
       },
@@ -25547,7 +25547,7 @@
       "chapter": {
         "number": "XIII",
         "title": {
-          "en": "Of Contempts Of The Lawful Authority Of Public Servants",
+          "en": "Of contempts of the lawful authority of public servants",
           "hi": ""
         }
       },
@@ -25677,7 +25677,7 @@
       "chapter": {
         "number": "XIII",
         "title": {
-          "en": "Of Contempts Of The Lawful Authority Of Public Servants",
+          "en": "Of contempts of the lawful authority of public servants",
           "hi": ""
         }
       },
@@ -25807,7 +25807,7 @@
       "chapter": {
         "number": "XIII",
         "title": {
-          "en": "Of Contempts Of The Lawful Authority Of Public Servants",
+          "en": "Of contempts of the lawful authority of public servants",
           "hi": ""
         }
       },
@@ -25921,7 +25921,7 @@
       "chapter": {
         "number": "XIII",
         "title": {
-          "en": "Of Contempts Of The Lawful Authority Of Public Servants",
+          "en": "Of contempts of the lawful authority of public servants",
           "hi": ""
         }
       },
@@ -26074,7 +26074,7 @@
       "chapter": {
         "number": "XIII",
         "title": {
-          "en": "Of Contempts Of The Lawful Authority Of Public Servants",
+          "en": "Of contempts of the lawful authority of public servants",
           "hi": ""
         }
       },
@@ -26233,7 +26233,7 @@
       "chapter": {
         "number": "XIII",
         "title": {
-          "en": "Of Contempts Of The Lawful Authority Of Public Servants",
+          "en": "Of contempts of the lawful authority of public servants",
           "hi": ""
         }
       },
@@ -26363,7 +26363,7 @@
       "chapter": {
         "number": "XIII",
         "title": {
-          "en": "Of Contempts Of The Lawful Authority Of Public Servants",
+          "en": "Of contempts of the lawful authority of public servants",
           "hi": ""
         }
       },
@@ -26475,7 +26475,7 @@
       "chapter": {
         "number": "XIII",
         "title": {
-          "en": "Of Contempts Of The Lawful Authority Of Public Servants",
+          "en": "Of contempts of the lawful authority of public servants",
           "hi": ""
         }
       },
@@ -26585,7 +26585,7 @@
       "chapter": {
         "number": "XIII",
         "title": {
-          "en": "Of Contempts Of The Lawful Authority Of Public Servants",
+          "en": "Of contempts of the lawful authority of public servants",
           "hi": ""
         }
       },
@@ -26692,7 +26692,7 @@
       "chapter": {
         "number": "XIII",
         "title": {
-          "en": "Of Contempts Of The Lawful Authority Of Public Servants",
+          "en": "Of contempts of the lawful authority of public servants",
           "hi": ""
         }
       },
@@ -26793,7 +26793,7 @@
       "chapter": {
         "number": "XIII",
         "title": {
-          "en": "Of Contempts Of The Lawful Authority Of Public Servants",
+          "en": "Of contempts of the lawful authority of public servants",
           "hi": ""
         }
       },
@@ -26897,7 +26897,7 @@
       "chapter": {
         "number": "XIII",
         "title": {
-          "en": "Of Contempts Of The Lawful Authority Of Public Servants",
+          "en": "Of contempts of the lawful authority of public servants",
           "hi": ""
         }
       },
@@ -27008,7 +27008,7 @@
       "chapter": {
         "number": "XIII",
         "title": {
-          "en": "Of Contempts Of The Lawful Authority Of Public Servants",
+          "en": "Of contempts of the lawful authority of public servants",
           "hi": ""
         }
       },
@@ -27119,7 +27119,7 @@
       "chapter": {
         "number": "XIII",
         "title": {
-          "en": "Of Contempts Of The Lawful Authority Of Public Servants",
+          "en": "Of contempts of the lawful authority of public servants",
           "hi": ""
         }
       },
@@ -27220,7 +27220,7 @@
       "chapter": {
         "number": "XIII",
         "title": {
-          "en": "Of Contempts Of The Lawful Authority Of Public Servants",
+          "en": "Of contempts of the lawful authority of public servants",
           "hi": ""
         }
       },
@@ -27338,7 +27338,7 @@
       "chapter": {
         "number": "XIII",
         "title": {
-          "en": "Of Contempts Of The Lawful Authority Of Public Servants",
+          "en": "Of contempts of the lawful authority of public servants",
           "hi": ""
         }
       },
@@ -27473,7 +27473,7 @@
       "chapter": {
         "number": "XIII",
         "title": {
-          "en": "Of Contempts Of The Lawful Authority Of Public Servants",
+          "en": "Of contempts of the lawful authority of public servants",
           "hi": ""
         }
       },
@@ -27617,7 +27617,7 @@
       "chapter": {
         "number": "XIII",
         "title": {
-          "en": "Of Contempts Of The Lawful Authority Of Public Servants",
+          "en": "Of contempts of the lawful authority of public servants",
           "hi": ""
         }
       },
@@ -27713,7 +27713,7 @@
       "chapter": {
         "number": "XIII",
         "title": {
-          "en": "Of Contempts Of The Lawful Authority Of Public Servants",
+          "en": "Of contempts of the lawful authority of public servants",
           "hi": ""
         }
       },
@@ -27814,7 +27814,7 @@
       "chapter": {
         "number": "XIII",
         "title": {
-          "en": "Of Contempts Of The Lawful Authority Of Public Servants",
+          "en": "Of contempts of the lawful authority of public servants",
           "hi": ""
         }
       },
@@ -27947,7 +27947,7 @@
       "chapter": {
         "number": "XIV",
         "title": {
-          "en": "Of False Evidence And Offences Against Public Justice",
+          "en": "Of false evidence and offences against public justice",
           "hi": ""
         }
       },
@@ -28030,7 +28030,7 @@
       "chapter": {
         "number": "XIV",
         "title": {
-          "en": "Of False Evidence And Offences Against Public Justice",
+          "en": "Of false evidence and offences against public justice",
           "hi": ""
         }
       },
@@ -28118,7 +28118,7 @@
       "chapter": {
         "number": "XIV",
         "title": {
-          "en": "Of False Evidence And Offences Against Public Justice",
+          "en": "Of false evidence and offences against public justice",
           "hi": ""
         }
       },
@@ -28270,7 +28270,7 @@
       "chapter": {
         "number": "XIV",
         "title": {
-          "en": "Of False Evidence And Offences Against Public Justice",
+          "en": "Of false evidence and offences against public justice",
           "hi": ""
         }
       },
@@ -28406,7 +28406,7 @@
       "chapter": {
         "number": "XIV",
         "title": {
-          "en": "Of False Evidence And Offences Against Public Justice",
+          "en": "Of false evidence and offences against public justice",
           "hi": ""
         }
       },
@@ -28520,7 +28520,7 @@
       "chapter": {
         "number": "XIV",
         "title": {
-          "en": "Of False Evidence And Offences Against Public Justice",
+          "en": "Of false evidence and offences against public justice",
           "hi": ""
         }
       },
@@ -28652,7 +28652,7 @@
       "chapter": {
         "number": "XIV",
         "title": {
-          "en": "Of False Evidence And Offences Against Public Justice",
+          "en": "Of false evidence and offences against public justice",
           "hi": ""
         }
       },
@@ -28752,7 +28752,7 @@
       "chapter": {
         "number": "XIV",
         "title": {
-          "en": "Of False Evidence And Offences Against Public Justice",
+          "en": "Of false evidence and offences against public justice",
           "hi": ""
         }
       },
@@ -28848,7 +28848,7 @@
       "chapter": {
         "number": "XIV",
         "title": {
-          "en": "Of False Evidence And Offences Against Public Justice",
+          "en": "Of false evidence and offences against public justice",
           "hi": ""
         }
       },
@@ -28949,7 +28949,7 @@
       "chapter": {
         "number": "XIV",
         "title": {
-          "en": "Of False Evidence And Offences Against Public Justice",
+          "en": "Of false evidence and offences against public justice",
           "hi": ""
         }
       },
@@ -29048,7 +29048,7 @@
       "chapter": {
         "number": "XIV",
         "title": {
-          "en": "Of False Evidence And Offences Against Public Justice",
+          "en": "Of false evidence and offences against public justice",
           "hi": ""
         }
       },
@@ -29149,7 +29149,7 @@
       "chapter": {
         "number": "XIV",
         "title": {
-          "en": "Of False Evidence And Offences Against Public Justice",
+          "en": "Of false evidence and offences against public justice",
           "hi": ""
         }
       },
@@ -29324,7 +29324,7 @@
       "chapter": {
         "number": "XIV",
         "title": {
-          "en": "Of False Evidence And Offences Against Public Justice",
+          "en": "Of false evidence and offences against public justice",
           "hi": ""
         }
       },
@@ -29429,7 +29429,7 @@
       "chapter": {
         "number": "XIV",
         "title": {
-          "en": "Of False Evidence And Offences Against Public Justice",
+          "en": "Of false evidence and offences against public justice",
           "hi": ""
         }
       },
@@ -29532,7 +29532,7 @@
       "chapter": {
         "number": "XIV",
         "title": {
-          "en": "Of False Evidence And Offences Against Public Justice",
+          "en": "Of false evidence and offences against public justice",
           "hi": ""
         }
       },
@@ -29647,7 +29647,7 @@
       "chapter": {
         "number": "XIV",
         "title": {
-          "en": "Of False Evidence And Offences Against Public Justice",
+          "en": "Of false evidence and offences against public justice",
           "hi": ""
         }
       },
@@ -29761,7 +29761,7 @@
       "chapter": {
         "number": "XIV",
         "title": {
-          "en": "Of False Evidence And Offences Against Public Justice",
+          "en": "Of false evidence and offences against public justice",
           "hi": ""
         }
       },
@@ -29892,7 +29892,7 @@
       "chapter": {
         "number": "XIV",
         "title": {
-          "en": "Of False Evidence And Offences Against Public Justice",
+          "en": "Of false evidence and offences against public justice",
           "hi": ""
         }
       },
@@ -30003,7 +30003,7 @@
       "chapter": {
         "number": "XIV",
         "title": {
-          "en": "Of False Evidence And Offences Against Public Justice",
+          "en": "Of false evidence and offences against public justice",
           "hi": ""
         }
       },
@@ -30104,7 +30104,7 @@
       "chapter": {
         "number": "XIV",
         "title": {
-          "en": "Of False Evidence And Offences Against Public Justice",
+          "en": "Of false evidence and offences against public justice",
           "hi": ""
         }
       },
@@ -30217,7 +30217,7 @@
       "chapter": {
         "number": "XIV",
         "title": {
-          "en": "Of False Evidence And Offences Against Public Justice",
+          "en": "Of false evidence and offences against public justice",
           "hi": ""
         }
       },
@@ -30318,7 +30318,7 @@
       "chapter": {
         "number": "XIV",
         "title": {
-          "en": "Of False Evidence And Offences Against Public Justice",
+          "en": "Of false evidence and offences against public justice",
           "hi": ""
         }
       },
@@ -30464,7 +30464,7 @@
       "chapter": {
         "number": "XIV",
         "title": {
-          "en": "Of False Evidence And Offences Against Public Justice",
+          "en": "Of false evidence and offences against public justice",
           "hi": ""
         }
       },
@@ -30609,7 +30609,7 @@
       "chapter": {
         "number": "XIV",
         "title": {
-          "en": "Of False Evidence And Offences Against Public Justice",
+          "en": "Of false evidence and offences against public justice",
           "hi": ""
         }
       },
@@ -30768,7 +30768,7 @@
       "chapter": {
         "number": "XIV",
         "title": {
-          "en": "Of False Evidence And Offences Against Public Justice",
+          "en": "Of false evidence and offences against public justice",
           "hi": ""
         }
       },
@@ -30926,7 +30926,7 @@
       "chapter": {
         "number": "XIV",
         "title": {
-          "en": "Of False Evidence And Offences Against Public Justice",
+          "en": "Of false evidence and offences against public justice",
           "hi": ""
         }
       },
@@ -31025,7 +31025,7 @@
       "chapter": {
         "number": "XIV",
         "title": {
-          "en": "Of False Evidence And Offences Against Public Justice",
+          "en": "Of false evidence and offences against public justice",
           "hi": ""
         }
       },
@@ -31181,7 +31181,7 @@
       "chapter": {
         "number": "XIV",
         "title": {
-          "en": "Of False Evidence And Offences Against Public Justice",
+          "en": "Of false evidence and offences against public justice",
           "hi": ""
         }
       },
@@ -31292,7 +31292,7 @@
       "chapter": {
         "number": "XIV",
         "title": {
-          "en": "Of False Evidence And Offences Against Public Justice",
+          "en": "Of false evidence and offences against public justice",
           "hi": ""
         }
       },
@@ -31412,7 +31412,7 @@
       "chapter": {
         "number": "XIV",
         "title": {
-          "en": "Of False Evidence And Offences Against Public Justice",
+          "en": "Of false evidence and offences against public justice",
           "hi": ""
         }
       },
@@ -31548,7 +31548,7 @@
       "chapter": {
         "number": "XIV",
         "title": {
-          "en": "Of False Evidence And Offences Against Public Justice",
+          "en": "Of false evidence and offences against public justice",
           "hi": ""
         }
       },
@@ -31661,7 +31661,7 @@
       "chapter": {
         "number": "XIV",
         "title": {
-          "en": "Of False Evidence And Offences Against Public Justice",
+          "en": "Of false evidence and offences against public justice",
           "hi": ""
         }
       },
@@ -31777,7 +31777,7 @@
       "chapter": {
         "number": "XIV",
         "title": {
-          "en": "Of False Evidence And Offences Against Public Justice",
+          "en": "Of false evidence and offences against public justice",
           "hi": ""
         }
       },
@@ -31943,7 +31943,7 @@
       "chapter": {
         "number": "XIV",
         "title": {
-          "en": "Of False Evidence And Offences Against Public Justice",
+          "en": "Of false evidence and offences against public justice",
           "hi": ""
         }
       },
@@ -32103,7 +32103,7 @@
       "chapter": {
         "number": "XIV",
         "title": {
-          "en": "Of False Evidence And Offences Against Public Justice",
+          "en": "Of false evidence and offences against public justice",
           "hi": ""
         }
       },
@@ -32223,7 +32223,7 @@
       "chapter": {
         "number": "XIV",
         "title": {
-          "en": "Of False Evidence And Offences Against Public Justice",
+          "en": "Of false evidence and offences against public justice",
           "hi": ""
         }
       },
@@ -32326,7 +32326,7 @@
       "chapter": {
         "number": "XIV",
         "title": {
-          "en": "Of False Evidence And Offences Against Public Justice",
+          "en": "Of false evidence and offences against public justice",
           "hi": ""
         }
       },
@@ -32525,7 +32525,7 @@
       "chapter": {
         "number": "XIV",
         "title": {
-          "en": "Of False Evidence And Offences Against Public Justice",
+          "en": "Of false evidence and offences against public justice",
           "hi": ""
         }
       },
@@ -32638,7 +32638,7 @@
       "chapter": {
         "number": "XIV",
         "title": {
-          "en": "Of False Evidence And Offences Against Public Justice",
+          "en": "Of false evidence and offences against public justice",
           "hi": ""
         }
       },
@@ -32735,7 +32735,7 @@
       "chapter": {
         "number": "XIV",
         "title": {
-          "en": "Of False Evidence And Offences Against Public Justice",
+          "en": "Of false evidence and offences against public justice",
           "hi": ""
         }
       },
@@ -32835,7 +32835,7 @@
       "chapter": {
         "number": "XIV",
         "title": {
-          "en": "Of False Evidence And Offences Against Public Justice",
+          "en": "Of false evidence and offences against public justice",
           "hi": ""
         }
       },
@@ -32955,7 +32955,7 @@
       "chapter": {
         "number": "XIV",
         "title": {
-          "en": "Of False Evidence And Offences Against Public Justice",
+          "en": "Of false evidence and offences against public justice",
           "hi": ""
         }
       },
@@ -33040,7 +33040,7 @@
       "chapter": {
         "number": "XIV",
         "title": {
-          "en": "Of False Evidence And Offences Against Public Justice",
+          "en": "Of false evidence and offences against public justice",
           "hi": ""
         }
       },
@@ -33162,7 +33162,7 @@
       "chapter": {
         "number": "XV",
         "title": {
-          "en": "Of Offences Affecting The Public Health, Safety, Convenience, Decency And Morals",
+          "en": "Of offences affecting the public health, safety, convenience, decency and morals",
           "hi": ""
         }
       },
@@ -33247,7 +33247,7 @@
       "chapter": {
         "number": "XV",
         "title": {
-          "en": "Of Offences Affecting The Public Health, Safety, Convenience, Decency And Morals",
+          "en": "Of offences affecting the public health, safety, convenience, decency and morals",
           "hi": ""
         }
       },
@@ -33352,7 +33352,7 @@
       "chapter": {
         "number": "XV",
         "title": {
-          "en": "Of Offences Affecting The Public Health, Safety, Convenience, Decency And Morals",
+          "en": "Of offences affecting the public health, safety, convenience, decency and morals",
           "hi": ""
         }
       },
@@ -33457,7 +33457,7 @@
       "chapter": {
         "number": "XV",
         "title": {
-          "en": "Of Offences Affecting The Public Health, Safety, Convenience, Decency And Morals",
+          "en": "Of offences affecting the public health, safety, convenience, decency and morals",
           "hi": ""
         }
       },
@@ -33543,7 +33543,7 @@
       "chapter": {
         "number": "XV",
         "title": {
-          "en": "Of Offences Affecting The Public Health, Safety, Convenience, Decency And Morals",
+          "en": "Of offences affecting the public health, safety, convenience, decency and morals",
           "hi": ""
         }
       },
@@ -33651,7 +33651,7 @@
       "chapter": {
         "number": "XV",
         "title": {
-          "en": "Of Offences Affecting The Public Health, Safety, Convenience, Decency And Morals",
+          "en": "Of offences affecting the public health, safety, convenience, decency and morals",
           "hi": ""
         }
       },
@@ -33759,7 +33759,7 @@
       "chapter": {
         "number": "XV",
         "title": {
-          "en": "Of Offences Affecting The Public Health, Safety, Convenience, Decency And Morals",
+          "en": "Of offences affecting the public health, safety, convenience, decency and morals",
           "hi": ""
         }
       },
@@ -33852,7 +33852,7 @@
       "chapter": {
         "number": "XV",
         "title": {
-          "en": "Of Offences Affecting The Public Health, Safety, Convenience, Decency And Morals",
+          "en": "Of offences affecting the public health, safety, convenience, decency and morals",
           "hi": ""
         }
       },
@@ -33947,7 +33947,7 @@
       "chapter": {
         "number": "XV",
         "title": {
-          "en": "Of Offences Affecting The Public Health, Safety, Convenience, Decency And Morals",
+          "en": "Of offences affecting the public health, safety, convenience, decency and morals",
           "hi": ""
         }
       },
@@ -34048,7 +34048,7 @@
       "chapter": {
         "number": "XV",
         "title": {
-          "en": "Of Offences Affecting The Public Health, Safety, Convenience, Decency And Morals",
+          "en": "Of offences affecting the public health, safety, convenience, decency and morals",
           "hi": ""
         }
       },
@@ -34150,7 +34150,7 @@
       "chapter": {
         "number": "XV",
         "title": {
-          "en": "Of Offences Affecting The Public Health, Safety, Convenience, Decency And Morals",
+          "en": "Of offences affecting the public health, safety, convenience, decency and morals",
           "hi": ""
         }
       },
@@ -34265,7 +34265,7 @@
       "chapter": {
         "number": "XV",
         "title": {
-          "en": "Of Offences Affecting The Public Health, Safety, Convenience, Decency And Morals",
+          "en": "Of offences affecting the public health, safety, convenience, decency and morals",
           "hi": ""
         }
       },
@@ -34392,7 +34392,7 @@
       "chapter": {
         "number": "XV",
         "title": {
-          "en": "Of Offences Affecting The Public Health, Safety, Convenience, Decency And Morals",
+          "en": "Of offences affecting the public health, safety, convenience, decency and morals",
           "hi": ""
         }
       },
@@ -34510,7 +34510,7 @@
       "chapter": {
         "number": "XV",
         "title": {
-          "en": "Of Offences Affecting The Public Health, Safety, Convenience, Decency And Morals",
+          "en": "Of offences affecting the public health, safety, convenience, decency and morals",
           "hi": ""
         }
       },
@@ -34612,7 +34612,7 @@
       "chapter": {
         "number": "XV",
         "title": {
-          "en": "Of Offences Affecting The Public Health, Safety, Convenience, Decency And Morals",
+          "en": "Of offences affecting the public health, safety, convenience, decency and morals",
           "hi": ""
         }
       },
@@ -34716,7 +34716,7 @@
       "chapter": {
         "number": "XV",
         "title": {
-          "en": "Of Offences Affecting The Public Health, Safety, Convenience, Decency And Morals",
+          "en": "Of offences affecting the public health, safety, convenience, decency and morals",
           "hi": ""
         }
       },
@@ -34835,7 +34835,7 @@
       "chapter": {
         "number": "XV",
         "title": {
-          "en": "Of Offences Affecting The Public Health, Safety, Convenience, Decency And Morals",
+          "en": "Of offences affecting the public health, safety, convenience, decency and morals",
           "hi": ""
         }
       },
@@ -34950,7 +34950,7 @@
       "chapter": {
         "number": "XV",
         "title": {
-          "en": "Of Offences Affecting The Public Health, Safety, Convenience, Decency And Morals",
+          "en": "Of offences affecting the public health, safety, convenience, decency and morals",
           "hi": ""
         }
       },
@@ -35058,7 +35058,7 @@
       "chapter": {
         "number": "XV",
         "title": {
-          "en": "Of Offences Affecting The Public Health, Safety, Convenience, Decency And Morals",
+          "en": "Of offences affecting the public health, safety, convenience, decency and morals",
           "hi": ""
         }
       },
@@ -35165,7 +35165,7 @@
       "chapter": {
         "number": "XV",
         "title": {
-          "en": "Of Offences Affecting The Public Health, Safety, Convenience, Decency And Morals",
+          "en": "Of offences affecting the public health, safety, convenience, decency and morals",
           "hi": ""
         }
       },
@@ -35271,7 +35271,7 @@
       "chapter": {
         "number": "XV",
         "title": {
-          "en": "Of Offences Affecting The Public Health, Safety, Convenience, Decency And Morals",
+          "en": "Of offences affecting the public health, safety, convenience, decency and morals",
           "hi": ""
         }
       },
@@ -35383,7 +35383,7 @@
       "chapter": {
         "number": "XV",
         "title": {
-          "en": "Of Offences Affecting The Public Health, Safety, Convenience, Decency And Morals",
+          "en": "Of offences affecting the public health, safety, convenience, decency and morals",
           "hi": ""
         }
       },
@@ -35500,7 +35500,7 @@
       "chapter": {
         "number": "XV",
         "title": {
-          "en": "Of Offences Affecting The Public Health, Safety, Convenience, Decency And Morals",
+          "en": "Of offences affecting the public health, safety, convenience, decency and morals",
           "hi": ""
         }
       },
@@ -35615,7 +35615,7 @@
       "chapter": {
         "number": "XV",
         "title": {
-          "en": "Of Offences Affecting The Public Health, Safety, Convenience, Decency And Morals",
+          "en": "Of offences affecting the public health, safety, convenience, decency and morals",
           "hi": ""
         }
       },
@@ -35738,7 +35738,7 @@
       "chapter": {
         "number": "XV",
         "title": {
-          "en": "Of Offences Affecting The Public Health, Safety, Convenience, Decency And Morals",
+          "en": "Of offences affecting the public health, safety, convenience, decency and morals",
           "hi": ""
         }
       },
@@ -35852,7 +35852,7 @@
       "chapter": {
         "number": "XV",
         "title": {
-          "en": "Of Offences Affecting The Public Health, Safety, Convenience, Decency And Morals",
+          "en": "Of offences affecting the public health, safety, convenience, decency and morals",
           "hi": ""
         }
       },
@@ -35971,7 +35971,7 @@
       "chapter": {
         "number": "XV",
         "title": {
-          "en": "Of Offences Affecting The Public Health, Safety, Convenience, Decency And Morals",
+          "en": "Of offences affecting the public health, safety, convenience, decency and morals",
           "hi": ""
         }
       },
@@ -36109,7 +36109,7 @@
       "chapter": {
         "number": "XV",
         "title": {
-          "en": "Of Offences Affecting The Public Health, Safety, Convenience, Decency And Morals",
+          "en": "Of offences affecting the public health, safety, convenience, decency and morals",
           "hi": ""
         }
       },
@@ -36232,7 +36232,7 @@
       "chapter": {
         "number": "XVI",
         "title": {
-          "en": "Of Offences Relating To Religion",
+          "en": "Of offences relating to religion",
           "hi": ""
         }
       },
@@ -36333,7 +36333,7 @@
       "chapter": {
         "number": "XVI",
         "title": {
-          "en": "Of Offences Relating To Religion",
+          "en": "Of offences relating to religion",
           "hi": ""
         }
       },
@@ -36490,7 +36490,7 @@
       "chapter": {
         "number": "XVI",
         "title": {
-          "en": "Of Offences Relating To Religion",
+          "en": "Of offences relating to religion",
           "hi": ""
         }
       },
@@ -36590,7 +36590,7 @@
       "chapter": {
         "number": "XVI",
         "title": {
-          "en": "Of Offences Relating To Religion",
+          "en": "Of offences relating to religion",
           "hi": ""
         }
       },
@@ -36694,7 +36694,7 @@
       "chapter": {
         "number": "XVI",
         "title": {
-          "en": "Of Offences Relating To Religion",
+          "en": "Of offences relating to religion",
           "hi": ""
         }
       },
@@ -36841,7 +36841,7 @@
       "chapter": {
         "number": "XVII",
         "title": {
-          "en": "Of Offences Against Property",
+          "en": "Of offences against property",
           "hi": ""
         }
       },
@@ -36972,7 +36972,7 @@
       "chapter": {
         "number": "XVII",
         "title": {
-          "en": "Of Offences Against Property",
+          "en": "Of offences against property",
           "hi": ""
         }
       },
@@ -37096,7 +37096,7 @@
       "chapter": {
         "number": "XVII",
         "title": {
-          "en": "Of Offences Against Property",
+          "en": "Of offences against property",
           "hi": ""
         }
       },
@@ -37216,7 +37216,7 @@
       "chapter": {
         "number": "XVII",
         "title": {
-          "en": "Of Offences Against Property",
+          "en": "Of offences against property",
           "hi": ""
         }
       },
@@ -37324,7 +37324,7 @@
       "chapter": {
         "number": "XVII",
         "title": {
-          "en": "Of Offences Against Property",
+          "en": "Of offences against property",
           "hi": ""
         }
       },
@@ -37433,7 +37433,7 @@
       "chapter": {
         "number": "XVII",
         "title": {
-          "en": "Of Offences Against Property",
+          "en": "Of offences against property",
           "hi": ""
         }
       },
@@ -37764,7 +37764,7 @@
       "chapter": {
         "number": "XVII",
         "title": {
-          "en": "Of Offences Against Property",
+          "en": "Of offences against property",
           "hi": ""
         }
       },
@@ -37990,7 +37990,7 @@
       "chapter": {
         "number": "XVII",
         "title": {
-          "en": "Of Offences Against Property",
+          "en": "Of offences against property",
           "hi": ""
         }
       },
@@ -38289,7 +38289,7 @@
       "chapter": {
         "number": "XVII",
         "title": {
-          "en": "Of Offences Against Property",
+          "en": "Of offences against property",
           "hi": ""
         }
       },
@@ -38413,7 +38413,7 @@
       "chapter": {
         "number": "XVII",
         "title": {
-          "en": "Of Offences Against Property",
+          "en": "Of offences against property",
           "hi": ""
         }
       },
@@ -38528,7 +38528,7 @@
       "chapter": {
         "number": "XVII",
         "title": {
-          "en": "Of Offences Against Property",
+          "en": "Of offences against property",
           "hi": ""
         }
       },
@@ -38639,7 +38639,7 @@
       "chapter": {
         "number": "XVII",
         "title": {
-          "en": "Of Offences Against Property",
+          "en": "Of offences against property",
           "hi": ""
         }
       },
@@ -38768,7 +38768,7 @@
       "chapter": {
         "number": "XVII",
         "title": {
-          "en": "Of Offences Against Property",
+          "en": "Of offences against property",
           "hi": ""
         }
       },
@@ -38879,7 +38879,7 @@
       "chapter": {
         "number": "XVII",
         "title": {
-          "en": "Of Offences Against Property",
+          "en": "Of offences against property",
           "hi": ""
         }
       },
@@ -39143,7 +39143,7 @@
       "chapter": {
         "number": "XVII",
         "title": {
-          "en": "Of Offences Against Property",
+          "en": "Of offences against property",
           "hi": ""
         }
       },
@@ -39425,7 +39425,7 @@
       "chapter": {
         "number": "XVII",
         "title": {
-          "en": "Of Offences Against Property",
+          "en": "Of offences against property",
           "hi": ""
         }
       },
@@ -39660,7 +39660,7 @@
       "chapter": {
         "number": "XVII",
         "title": {
-          "en": "Of Offences Against Property",
+          "en": "Of offences against property",
           "hi": ""
         }
       },
@@ -39797,7 +39797,7 @@
       "chapter": {
         "number": "XVII",
         "title": {
-          "en": "Of Offences Against Property",
+          "en": "Of offences against property",
           "hi": ""
         }
       },
@@ -39902,7 +39902,7 @@
       "chapter": {
         "number": "XVII",
         "title": {
-          "en": "Of Offences Against Property",
+          "en": "Of offences against property",
           "hi": ""
         }
       },
@@ -40017,7 +40017,7 @@
       "chapter": {
         "number": "XVII",
         "title": {
-          "en": "Of Offences Against Property",
+          "en": "Of offences against property",
           "hi": ""
         }
       },
@@ -40131,7 +40131,7 @@
       "chapter": {
         "number": "XVII",
         "title": {
-          "en": "Of Offences Against Property",
+          "en": "Of offences against property",
           "hi": ""
         }
       },
@@ -40244,7 +40244,7 @@
       "chapter": {
         "number": "XVII",
         "title": {
-          "en": "Of Offences Against Property",
+          "en": "Of offences against property",
           "hi": ""
         }
       },
@@ -40514,7 +40514,7 @@
       "chapter": {
         "number": "XVII",
         "title": {
-          "en": "Of Offences Against Property",
+          "en": "Of offences against property",
           "hi": ""
         }
       },
@@ -40637,7 +40637,7 @@
       "chapter": {
         "number": "XVII",
         "title": {
-          "en": "Of Offences Against Property",
+          "en": "Of offences against property",
           "hi": ""
         }
       },
@@ -40981,7 +40981,7 @@
       "chapter": {
         "number": "XVII",
         "title": {
-          "en": "Of Offences Against Property",
+          "en": "Of offences against property",
           "hi": ""
         }
       },
@@ -41137,7 +41137,7 @@
       "chapter": {
         "number": "XVII",
         "title": {
-          "en": "Of Offences Against Property",
+          "en": "Of offences against property",
           "hi": ""
         }
       },
@@ -41254,7 +41254,7 @@
       "chapter": {
         "number": "XVII",
         "title": {
-          "en": "Of Offences Against Property",
+          "en": "Of offences against property",
           "hi": ""
         }
       },
@@ -41455,7 +41455,7 @@
       "chapter": {
         "number": "XVII",
         "title": {
-          "en": "Of Offences Against Property",
+          "en": "Of offences against property",
           "hi": ""
         }
       },
@@ -41540,7 +41540,7 @@
       "chapter": {
         "number": "XVII",
         "title": {
-          "en": "Of Offences Against Property",
+          "en": "Of offences against property",
           "hi": ""
         }
       },
@@ -41948,7 +41948,7 @@
       "chapter": {
         "number": "XVII",
         "title": {
-          "en": "Of Offences Against Property",
+          "en": "Of offences against property",
           "hi": ""
         }
       },
@@ -42136,7 +42136,7 @@
       "chapter": {
         "number": "XVII",
         "title": {
-          "en": "Of Offences Against Property",
+          "en": "Of offences against property",
           "hi": ""
         }
       },
@@ -42271,7 +42271,7 @@
       "chapter": {
         "number": "XVII",
         "title": {
-          "en": "Of Offences Against Property",
+          "en": "Of offences against property",
           "hi": ""
         }
       },
@@ -42421,7 +42421,7 @@
       "chapter": {
         "number": "XVIII",
         "title": {
-          "en": "Of Offences Relating To Documents And To Property Marks",
+          "en": "Of offences relating to documents and to property marks",
           "hi": ""
         }
       },
@@ -42522,7 +42522,7 @@
       "chapter": {
         "number": "XVIII",
         "title": {
-          "en": "Of Offences Relating To Documents And To Property Marks",
+          "en": "Of offences relating to documents and to property marks",
           "hi": ""
         }
       },
@@ -42755,7 +42755,7 @@
       "chapter": {
         "number": "XVIII",
         "title": {
-          "en": "Of Offences Relating To Documents And To Property Marks",
+          "en": "Of offences relating to documents and to property marks",
           "hi": ""
         }
       },
@@ -42894,7 +42894,7 @@
       "chapter": {
         "number": "XVIII",
         "title": {
-          "en": "Of Offences Relating To Documents And To Property Marks",
+          "en": "Of offences relating to documents and to property marks",
           "hi": ""
         }
       },
@@ -43022,7 +43022,7 @@
       "chapter": {
         "number": "XVIII",
         "title": {
-          "en": "Of Offences Relating To Documents And To Property Marks",
+          "en": "Of offences relating to documents and to property marks",
           "hi": ""
         }
       },
@@ -43166,7 +43166,7 @@
       "chapter": {
         "number": "XVIII",
         "title": {
-          "en": "Of Offences Relating To Documents And To Property Marks",
+          "en": "Of offences relating to documents and to property marks",
           "hi": ""
         }
       },
@@ -43333,7 +43333,7 @@
       "chapter": {
         "number": "XVIII",
         "title": {
-          "en": "Of Offences Relating To Documents And To Property Marks",
+          "en": "Of offences relating to documents and to property marks",
           "hi": ""
         }
       },
@@ -43533,7 +43533,7 @@
       "chapter": {
         "number": "XVIII",
         "title": {
-          "en": "Of Offences Relating To Documents And To Property Marks",
+          "en": "Of offences relating to documents and to property marks",
           "hi": ""
         }
       },
@@ -43686,7 +43686,7 @@
       "chapter": {
         "number": "XVIII",
         "title": {
-          "en": "Of Offences Relating To Documents And To Property Marks",
+          "en": "Of offences relating to documents and to property marks",
           "hi": ""
         }
       },
@@ -43801,7 +43801,7 @@
       "chapter": {
         "number": "XVIII",
         "title": {
-          "en": "Of Offences Relating To Documents And To Property Marks",
+          "en": "Of offences relating to documents and to property marks",
           "hi": ""
         }
       },
@@ -43906,7 +43906,7 @@
       "chapter": {
         "number": "XVIII",
         "title": {
-          "en": "Of Offences Relating To Documents And To Property Marks",
+          "en": "Of offences relating to documents and to property marks",
           "hi": ""
         }
       },
@@ -44025,7 +44025,7 @@
       "chapter": {
         "number": "XVIII",
         "title": {
-          "en": "Of Offences Relating To Documents And To Property Marks",
+          "en": "Of offences relating to documents and to property marks",
           "hi": ""
         }
       },
@@ -44128,7 +44128,7 @@
       "chapter": {
         "number": "XVIII",
         "title": {
-          "en": "Of Offences Relating To Documents And To Property Marks",
+          "en": "Of offences relating to documents and to property marks",
           "hi": ""
         }
       },
@@ -44285,7 +44285,7 @@
       "chapter": {
         "number": "XVIII",
         "title": {
-          "en": "Of Offences Relating To Documents And To Property Marks",
+          "en": "Of offences relating to documents and to property marks",
           "hi": ""
         }
       },
@@ -44398,7 +44398,7 @@
       "chapter": {
         "number": "XVIII",
         "title": {
-          "en": "Of Offences Relating To Documents And To Property Marks",
+          "en": "Of offences relating to documents and to property marks",
           "hi": ""
         }
       },
@@ -44498,7 +44498,7 @@
       "chapter": {
         "number": "XVIII",
         "title": {
-          "en": "Of Offences Relating To Documents And To Property Marks",
+          "en": "Of offences relating to documents and to property marks",
           "hi": ""
         }
       },
@@ -44637,7 +44637,7 @@
       "chapter": {
         "number": "XIX",
         "title": {
-          "en": "Of Criminal Intimidation, Insult, Annoyance, Defamation, Etc.",
+          "en": "Of criminal intimidation, insult, annoyance, defamation, etc.",
           "hi": ""
         }
       },
@@ -44836,7 +44836,7 @@
       "chapter": {
         "number": "XIX",
         "title": {
-          "en": "Of Criminal Intimidation, Insult, Annoyance, Defamation, Etc.",
+          "en": "Of criminal intimidation, insult, annoyance, defamation, etc.",
           "hi": ""
         }
       },
@@ -44970,7 +44970,7 @@
       "chapter": {
         "number": "XIX",
         "title": {
-          "en": "Of Criminal Intimidation, Insult, Annoyance, Defamation, Etc.",
+          "en": "Of criminal intimidation, insult, annoyance, defamation, etc.",
           "hi": ""
         }
       },
@@ -45145,7 +45145,7 @@
       "chapter": {
         "number": "XIX",
         "title": {
-          "en": "Of Criminal Intimidation, Insult, Annoyance, Defamation, Etc.",
+          "en": "Of criminal intimidation, insult, annoyance, defamation, etc.",
           "hi": ""
         }
       },
@@ -45244,7 +45244,7 @@
       "chapter": {
         "number": "XIX",
         "title": {
-          "en": "Of Criminal Intimidation, Insult, Annoyance, Defamation, Etc.",
+          "en": "Of criminal intimidation, insult, annoyance, defamation, etc.",
           "hi": ""
         }
       },
@@ -45367,7 +45367,7 @@
       "chapter": {
         "number": "XIX",
         "title": {
-          "en": "Of Criminal Intimidation, Insult, Annoyance, Defamation, Etc.",
+          "en": "Of criminal intimidation, insult, annoyance, defamation, etc.",
           "hi": ""
         }
       },
@@ -45577,7 +45577,7 @@
       "chapter": {
         "number": "XIX",
         "title": {
-          "en": "Of Criminal Intimidation, Insult, Annoyance, Defamation, Etc.",
+          "en": "Of criminal intimidation, insult, annoyance, defamation, etc.",
           "hi": ""
         }
       },
@@ -45667,7 +45667,7 @@
       "chapter": {
         "number": "XX",
         "title": {
-          "en": "Repeal And Savings",
+          "en": "Repeal and savings",
           "hi": ""
         }
       },

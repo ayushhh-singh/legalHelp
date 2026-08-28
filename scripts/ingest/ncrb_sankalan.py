@@ -354,8 +354,25 @@ def parse_chapters(soup: BeautifulSoup, max_section: int) -> dict[str, SectionTe
     if not spans:
         raise ValueError("no section spans in the chapters page")
 
-    # Chapter banners are plain <p> siblings ahead of the spans; walk the shared
-    # parent once in document order and remember the last banner seen.
+    # Chapter banners are plain <p> siblings ahead of the spans, so the walk below
+    # goes through one shared parent in document order. That every section span
+    # hangs off that parent is an assumption about NCRB's markup, and if it ever
+    # stops holding the sections would simply not appear -- the quietest possible
+    # failure. Check it instead.
+    reachable = {
+        str(node.get("id"))
+        for node in spans[0].parent.find_all("span", id=True)
+        if re.fullmatch(r"\d{1,4}[A-Z]?", str(node.get("id") or ""))
+    }
+    orphans = sorted({str(span.get("id")) for span in spans} - reachable, key=section_sort_key)
+    if orphans:
+        raise ValueError(
+            f"{len(orphans)} section spans sit outside the container this parser walks "
+            f"(first: {orphans[:5]}). The chapters page has changed shape; fix parse_chapters "
+            "rather than shipping a dataset with sections missing."
+        )
+
+    # Walk the shared parent once and remember the last chapter banner seen.
     chapter_number = ""
     chapter_title = ""
     out: dict[str, SectionText] = {}
@@ -563,6 +580,18 @@ def bilingual(en: str, hi: str = "") -> dict[str, str]:
     return {"en": en, "hi": hi}
 
 
+def sentence_case(value: str) -> str:
+    """"OF OFFENCES AFFECTING THE HUMAN BODY" -> "Of offences affecting the human body".
+
+    The source shouts its chapter titles. `str.title()` was worse than the
+    shouting: it produced "Of Contempts Of The Lawful Authority Of Public
+    Servants", capitalising every preposition in a legal heading.
+    """
+    if not value or not value.isupper():
+        return value
+    return value[0] + value[1:].lower()
+
+
 def derive_status(*, has_old: bool, marked_new: bool, changed: bool, new_base: str, old_bases: list[str]) -> str:
     if marked_new or not has_old:
         return "new"
@@ -601,7 +630,7 @@ def build_code(
             "status": "unchanged",
             "chapter": {
                 "number": info.chapter_number if info else "",
-                "title": bilingual(info.chapter_title.title() if info and info.chapter_title else ""),
+                "title": bilingual(sentence_case(info.chapter_title) if info else ""),
             },
             "mappings": [],
             "repeals": [],
@@ -622,6 +651,8 @@ def build_code(
 
     has_counterpart: set[str] = set()
     changed: set[str] = set()
+    # old base section -> the exact references NCRB marks "Deleted"
+    deleted_refs: dict[str, list[str]] = {}
 
     for row in rows:
         old_refs = [
@@ -635,24 +666,27 @@ def build_code(
         ]
 
         if row.is_deleted:
-            # The old provision has no counterpart in the new Act.
+            # Record *which reference* was deleted and decide what it means
+            # later. Deciding here was wrong: a "Deleted" row for a sub-clause
+            # (IEA 65B(3)(a), CrPC 2(t)) would stamp "no corresponding
+            # provision" onto the whole section, and IEA 65B both maps to BSA 63
+            # and carried a note saying it maps to nothing. Whether a section is
+            # gone is only knowable once every row has been read.
             for old in old_refs:
+                deleted_refs.setdefault(old["base"], []).append(old["section"])
                 entry = reverse.setdefault(
                     old["base"],
                     {"oldAct": spec.old_id, "newAct": spec.new_id, "newSections": [], "status": "omitted",
                      "heading": old["heading"], "note": None},
                 )
-                entry["status"] = "omitted" if not entry["newSections"] else entry["status"]
-                entry["note"] = {
-                    "en": (
-                        f"{spec.old_id} section {old['section']} has no corresponding provision in the "
-                        f"{spec.new_id}. NCRB's correspondence table marks it \"Deleted\"."
-                    ),
-                    "hi": (
-                        f"{spec.old_id} की धारा {old['section']} का {spec.new_id} में कोई तत्संगत उपबंध नहीं है। "
-                        f"एनसीआरबी की तालिका इसे \"Deleted\" दर्शाती है।"
-                    ),
-                }
+                if not entry["heading"]["en"] and old["heading"]["en"]:
+                    entry["heading"] = old["heading"]
+                if old["section"] != old["base"]:
+                    reverse.setdefault(
+                        old["section"],
+                        {"oldAct": spec.old_id, "newAct": spec.new_id, "newSections": [],
+                         "status": "omitted", "heading": old["heading"], "note": None},
+                    )
             continue
 
         if row.new_ref is None:
@@ -695,6 +729,79 @@ def build_code(
                 if row.new_ref.section not in exact["newSections"]:
                     exact["newSections"].append(row.new_ref.section)
                 exact["status"] = "mapped"
+
+    # Now that every row has been read, decide what each "Deleted" row meant.
+    for base, refs in deleted_refs.items():
+        entry = reverse.get(base)
+        if entry is None:
+            continue
+        whole_section_gone = not entry["newSections"]
+        # A deleted row whose reference is the bare section number, on a section
+        # that *does* map, is the source writing a sub-clause sloppily -- NCRB
+        # spells one of them "65B 5 (b)" rather than "65B(5)(b)", so it parses
+        # as plain "65B". Listing it among the dropped parts would have the note
+        # say 65B both maps to BSA 63 and is deleted.
+        exact = sorted(set(refs), key=section_sort_key)
+        specific = [ref for ref in exact if ref != base]
+
+        if whole_section_gone:
+            entry["status"] = "omitted"
+            entry["note"] = {
+                "en": (
+                    f"{spec.old_id} section {base} has no corresponding provision in the "
+                    f"{spec.new_id}. NCRB's correspondence table marks it \"Deleted\"."
+                ),
+                "hi": (
+                    f"{spec.old_id} की धारा {base} का {spec.new_id} में कोई तत्संगत उपबंध नहीं है। "
+                    f"एनसीआरबी की तालिका इसे \"Deleted\" दर्शाती है।"
+                ),
+            }
+        else:
+            # The section survives; only parts of it were dropped. Saying so is
+            # more useful than either silence or a false "no counterpart".
+            targets = ", ".join(entry["newSections"])
+            entry["status"] = "mapped"
+            if specific:
+                dropped = ", ".join(specific)
+                entry["note"] = {
+                    "en": (
+                        f"{spec.old_id} section {base} corresponds to {spec.new_id} {targets}, but NCRB "
+                        f"marks {'these parts' if len(specific) > 1 else 'this part'} \"Deleted\", with no "
+                        f"counterpart: {dropped}."
+                    ),
+                    "hi": (
+                        f"{spec.old_id} की धारा {base} {spec.new_id} {targets} के तत्संगत है, किंतु एनसीआरबी "
+                        f"{'इन भागों' if len(specific) > 1 else 'इस भाग'} को \"Deleted\" दर्शाती है, जिनका "
+                        f"कोई तत्संगत उपबंध नहीं है: {dropped}।"
+                    ),
+                }
+            else:
+                entry["note"] = {
+                    "en": (
+                        f"{spec.old_id} section {base} corresponds to {spec.new_id} {targets}. NCRB also "
+                        f"marks part of the repealed section \"Deleted\", with no counterpart."
+                    ),
+                    "hi": (
+                        f"{spec.old_id} की धारा {base} {spec.new_id} {targets} के तत्संगत है। एनसीआरबी "
+                        f"निरसित धारा के एक भाग को \"Deleted\" भी दर्शाती है, जिसका कोई तत्संगत उपबंध नहीं है।"
+                    ),
+                }
+
+        for ref in specific:
+            sub = reverse.get(ref)
+            if sub is None or sub["newSections"]:
+                continue
+            sub["status"] = "omitted"
+            sub["note"] = {
+                "en": (
+                    f"{spec.old_id} {ref} has no corresponding provision in the {spec.new_id}. "
+                    f"NCRB's correspondence table marks it \"Deleted\"."
+                ),
+                "hi": (
+                    f"{spec.old_id} {ref} का {spec.new_id} में कोई तत्संगत उपबंध नहीं है। "
+                    f"एनसीआरबी की तालिका इसे \"Deleted\" दर्शाती है।"
+                ),
+            }
 
     # Classification and punishment, from the BNSS First Schedule (BNS only).
     for entry in schedule:
@@ -774,7 +881,7 @@ def apply_overlays(dataset: dict[str, Any], overlays: list[dict[str, Any]]) -> d
     and the scraper did not. The cron never writes to ``data/law/overlays/`` -
     that is the whole point of the split.
     """
-    applied = {"sections": 0, "notes": 0, "fields": 0}
+    applied: dict[str, Any] = {"sections": 0, "notes": 0, "fields": 0, "missing": []}
     sections = dataset["sections"]
 
     act = dataset["newAct"]["id"]
@@ -792,6 +899,10 @@ def apply_overlays(dataset: dict[str, Any], overlays: list[dict[str, Any]]) -> d
         for number, patch in patches.items():
             record = sections.get(normalise_section(number))
             if record is None:
+                # A hand-curated patch that matches no section is a typo in the
+                # overlay, and silently skipping it means shipping curation the
+                # author believes is live. The caller turns this into a failure.
+                applied.setdefault("missing", []).append(f"{overlay.get('id', '?')}:{act} {number}")
                 continue
             applied["sections"] += 1
 
@@ -849,11 +960,18 @@ def load_overlays() -> list[dict[str, Any]]:
     return [read_json(path) for path in sorted(OVERLAY_DIR.glob("*.json"))]
 
 
-def apply_index_overlays(index: dict[str, Any], overlays: list[dict[str, Any]]) -> int:
+def apply_index_overlays(index: dict[str, Any], overlays: list[dict[str, Any]]) -> tuple[int, list[str]]:
     applied = 0
+    skipped: list[str] = []
     for overlay in overlays:
         for act, entries in (overlay.get("index") or {}).items():
-            bucket = index["acts"].setdefault(act, {"newAct": "", "entries": {}})
+            bucket = index["acts"].get(act)
+            if bucket is None:
+                # A partial run (--code bns) has no CrPC bucket to patch. Making
+                # one would write `newAct: ""` and fail validation with a message
+                # that says nothing about the real cause.
+                skipped.append(f"{act} ({len(entries)} entries)")
+                continue
             for old_section, patch in entries.items():
                 entry = bucket["entries"].setdefault(
                     normalise_section(old_section),
@@ -869,7 +987,11 @@ def apply_index_overlays(index: dict[str, Any], overlays: list[dict[str, Any]]) 
                     elif value not in (None, "", [], {}):
                         entry[key] = value
                 applied += 1
-    return applied
+    for bucket in index["acts"].values():
+        bucket["entries"] = {
+            key: bucket["entries"][key] for key in sorted(bucket["entries"], key=section_sort_key)
+        }
+    return applied, skipped
 
 
 # --------------------------------------------------------------------------
@@ -936,6 +1058,22 @@ def gap_report(datasets: dict[str, dict[str, Any]], index: dict[str, Any]) -> di
         "sections": [f"{act} {section}" for act, section in omitted],
     }
     return report
+
+
+def recount_totals(codes: dict[str, Any]) -> dict[str, int]:
+    """Re-derive the totals row after a partial run has been merged with the last one."""
+    totals = {"sections": 0, "hindiHeading": 0, "hindiText": 0, "englishText": 0,
+              "classification": 0, "punishmentHi": 0, "unmapped": 0}
+    for code in codes.values():
+        totals["sections"] += code["sections"]
+        totals["hindiHeading"] += code["missingHindiHeading"]["count"]
+        totals["hindiText"] += code["missingHindiText"]["count"]
+        totals["englishText"] += code["missingEnglishText"]["count"]
+        totals["unmapped"] += code["noOldCounterpart"]["count"]
+        if code["classifiedSections"]:
+            totals["classification"] += code["missingClassification"]["count"]
+            totals["punishmentHi"] += code["missingHindiPunishment"]["count"]
+    return totals
 
 
 DOC_MARKER_START = "<!-- law-ingest:begin -->"
@@ -1179,12 +1317,23 @@ def main(argv: list[str] | None = None) -> int:
     log(f"  compoundable: {len(compounding)} sections")
 
     datasets: dict[str, dict[str, Any]] = {}
+    overlay_misses: list[str] = []
+    # A partial run (--code bns) must not publish a shared file built from one
+    # code: index.json would lose CrPC and IEA entirely, and the DATA-GAPS table
+    # would lose two of its three rows. Both start from what is already on disk
+    # and only the codes that actually ran are replaced.
+    previous_index = read_json(LAW_DIR / "index.json") or {}
+    partial = len(selected) < len(CODES)
     index: dict[str, Any] = {
         "$schema": "../../schemas/law-index.schema.json",
         "version": DATASET_VERSION,
         "generatedAt": fetched_at,
         "disclaimer": DISCLAIMER,
-        "acts": {},
+        "acts": {
+            act: bucket
+            for act, bucket in (previous_index.get("acts") or {}).items()
+            if partial and act not in {spec.old_id for spec in selected}
+        },
     }
     parse_paths: dict[str, str] = {}
 
@@ -1251,6 +1400,7 @@ def main(argv: list[str] | None = None) -> int:
             fetched_at=fetched_at,
         )
         applied = apply_overlays(dataset, overlays)
+        overlay_misses.extend(applied.pop("missing", []))
         log(f"  overlays applied: {applied}")
 
         sections = dataset["sections"]
@@ -1276,10 +1426,28 @@ def main(argv: list[str] | None = None) -> int:
             },
         }
 
-    overlay_index_count = apply_index_overlays(index, overlays)
+    overlay_index_count, overlay_index_skipped = apply_index_overlays(index, overlays)
     log(f"index overlay entries: {overlay_index_count}")
+    if overlay_index_skipped:
+        log(f"  skipped (no dataset built this run): {', '.join(overlay_index_skipped)}")
+
+    if overlay_misses:
+        raise ValueError(
+            "overlay patches matched no section (fix the overlay, or the curation is not live):\n  "
+            + "\n  ".join(overlay_misses)
+        )
 
     report = gap_report(datasets, index)
+    if partial:
+        # Same reasoning: keep the rows this run did not measure.
+        previous = read_json(REPORT_DIR / "law-gaps.json") or {}
+        merged = {k: v for k, v in (previous.get("codes") or {}).items() if k not in report["codes"]}
+        if merged:
+            report["codes"] = {**merged, **report["codes"]}
+            report["codes"] = {k: report["codes"][k] for k in CODES if k in report["codes"]}
+            report["totals"] = recount_totals(report["codes"])
+            log(f"partial run: kept the recorded counts for {', '.join(merged)}")
+
     log(json.dumps(report["totals"], indent=None))
 
     if args.no_write:

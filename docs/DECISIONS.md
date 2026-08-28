@@ -942,3 +942,66 @@ the overlays.**
   treats the site as bot-disallowed. An unreachable `robots.txt` is not permission.
 - **Auto-merging the refresh PR.** This is section-level criminal law. A stale mapping is recoverable; a
   wrong one shown to an officer is not.
+
+### Addendum — edge-case pass (same session)
+
+A deliberate hunt across the ingest, the datasets and the resolver after the pipeline was working. Nine
+defects, each demonstrated against the committed code before it was fixed, and each now covered by a
+test. The Python had no tests at all; it has 29 now, wired into both `ci.yml` and the refresh workflow,
+because a dataset is only as trustworthy as the parser that produced it.
+
+**The two that would have mattered most**
+
+- **The weekly cron would have opened an empty pull request every week.** `update_versions` stamped
+  `generatedAt` _before_ comparing, so a run on a later date rewrote `versions.json` even when all three
+  datasets were byte-identical. The whole premise of the workflow is "a PR only when the law moved"; a
+  reviewer who dismisses fifty no-op PRs is not reading the fifty-first. The date now advances only when
+  a dataset entry actually changed, and two consecutive live runs are quiet.
+- **IEA 65B resolved to BSA 63 while carrying a note saying it had no counterpart.** NCRB marks
+  sub-clauses `65B(3)(a)`–`(d)` "Deleted", and the note was stamped onto the base entry — on one of the
+  sections the acceptance criteria name by number. `CrPC 2` and `IPC 124A` were affected too. Whether a
+  section is gone is only knowable once every row has been read, so that decision moved to a final pass:
+  a section with no counterpart is `omitted` with a note, a section that survives with parts dropped
+  says exactly which parts, and each dropped sub-clause becomes a resolvable entry of its own.
+
+**Transport and repeatability**
+
+- **`fetch` had no retry.** NCRB truncated the BSA PDF mid-body on a real run and the whole refresh died.
+  Network failures and 5xx now retry with a linear backoff; a 403 still stops everything with no retry
+  and no mirror, and a 4xx is treated as an answer rather than as weather. A short body against a
+  declared `Content-Length` is a failure too — a truncated document that _parsed_ would look exactly
+  like a source that had dropped half its sections.
+- **The PDF fallback had never executed.** It does now, and it is measured rather than assumed: 178 of
+  the 179 BSA mappings the HTML path finds, 99.4%. Degraded but usable, which is what a fallback needs
+  to be. It is exercised on demand with `--force-pdf`.
+- **`--code bns` would have published shared files built from one code** — `index.json` losing CrPC and
+  IEA, the DATA-GAPS table losing two of three rows. Both now start from what is on disk and replace
+  only the codes that ran.
+
+**Silent failure**
+
+- **An overlay patch matching no section was skipped without a word**, so a typo'd number meant curation
+  the author believed was live. The run now fails and names it.
+- **`parse_chapters` trusted that every section span hangs off one container.** If NCRB reshapes that
+  page the sections would simply not appear — the quietest possible failure. It is checked.
+- **The workflow's "the cron may not touch the overlays" guard used `git diff`**, which cannot see an
+  _added_ file. It uses `git status --porcelain`.
+
+**Client-side**
+
+- **`normaliseSectionRef` upper-cased the whole reference.** Indian drafting writes the suffix upper
+  (498A, 65B) and the sub-clause lower (2(f), 65B(3)(a)), so `65B(3)(a)` normalised to `65B(3)(A)`,
+  missed its own entry, fell back to the base, and answered a question about clause (a) with the whole
+  of 65B. Found by a test written for the _previous_ fix, which is the argument for writing them.
+- **Four bracket-juggling passes were provably redundant**, one of them a lookbehind — a parse-time
+  `SyntaxError` in Safari before 16.4, which takes down the whole chunk rather than the call. Removed
+  for identical output on every input.
+- **Lookups reached `Object.prototype`.** `sections` and `entries` come from `JSON.parse`, so a reader
+  typing "constructor" got a function. `Object.hasOwn` now guards both.
+
+**Smaller**
+
+`str.title()` on chapter titles produced "Of Contempts Of The Lawful Authority Of Public Servants"; it is
+sentence case now. `has_hindi` was a single-character test, so one Devanagari glyph in India Code's
+bilingual chrome would have filed an English provision as the Hindi text; it needs 15% of letters.
+`raw/` grew ~5 MB a run with no bound and had reached 30 MB; three generations per document are kept.

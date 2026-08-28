@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-08-28T05:57:53Z",
+  "generatedAt": "2026-08-28T06:08:08Z",
   "codes": {
     "bns": {
       "act": "BNS",
@@ -3111,8 +3111,12 @@
     "unmapped": 0
   },
   "omittedOldSections": {
-    "count": 34,
+    "count": 42,
     "sections": [
+      "CrPC 2(f)",
+      "CrPC 2(k)",
+      "CrPC 2(q)",
+      "CrPC 2(t)",
       "CrPC 8",
       "CrPC 10",
       "CrPC 16",
@@ -3125,6 +3129,10 @@
       "CrPC 355",
       "CrPC 404",
       "IEA 22A",
+      "IEA 65B(3)(a)",
+      "IEA 65B(3)(b)",
+      "IEA 65B(3)(c)",
+      "IEA 65B(3)(d)",
       "IEA 82",
       "IEA 88",
       "IEA 113",

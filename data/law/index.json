@@ -1,7 +1,7 @@
 {
   "$schema": "../../schemas/law-index.schema.json",
   "version": "1.0.0",
-  "generatedAt": "2026-08-28T05:57:46Z",
+  "generatedAt": "2026-08-28T06:08:57Z",
   "disclaimer": {
     "en": "Reference only; verify with the official gazette/order or your DDO.",
     "hi": "केवल संदर्भ हेतु; आधिकारिक राजपत्र/आदेश या अपने डीडीओ से सत्यापित करें।"
@@ -1634,8 +1634,8 @@
             "hi": "राजद्रोह।"
           },
           "note": {
-            "en": "IPC section 124A has no corresponding provision in the BNS. NCRB's correspondence table marks it \"Deleted\".",
-            "hi": "IPC की धारा 124A का BNS में कोई तत्संगत उपबंध नहीं है। एनसीआरबी की तालिका इसे \"Deleted\" दर्शाती है।"
+            "en": "NCRB's correspondence table marks IPC 124A \"Deleted\": the BNS contains no sedition offence. BNS 152 is the nearest provision but is a new offence with different ingredients, not a renumbering of 124A - read the warning below before citing it.",
+            "hi": "एनसीआरबी की तत्संगत तालिका भादंसं 124क को \"Deleted\" दर्शाती है: बीएनएस में राजद्रोह का अपराध नहीं है। बीएनएस 152 निकटतम उपबंध है, किंतु वह भिन्न अवयवों वाला नया अपराध है, 124क का पुनःसंख्यांकन नहीं - उद्धृत करने से पहले नीचे दी गई चेतावनी पढ़ें।"
           },
           "warnings": [
             {
@@ -7469,8 +7469,64 @@
             "hi": ""
           },
           "note": {
-            "en": "CrPC section 2(t) has no corresponding provision in the BNSS. NCRB's correspondence table marks it \"Deleted\".",
-            "hi": "CrPC की धारा 2(t) का BNSS में कोई तत्संगत उपबंध नहीं है। एनसीआरबी की तालिका इसे \"Deleted\" दर्शाती है।"
+            "en": "CrPC section 2 corresponds to BNSS 2, but NCRB marks these parts \"Deleted\", with no counterpart: 2(f), 2(k), 2(q), 2(t).",
+            "hi": "CrPC की धारा 2 BNSS 2 के तत्संगत है, किंतु एनसीआरबी इन भागों को \"Deleted\" दर्शाती है, जिनका कोई तत्संगत उपबंध नहीं है: 2(f), 2(k), 2(q), 2(t)।"
+          }
+        },
+        "2(f)": {
+          "oldAct": "CrPC",
+          "newAct": "BNSS",
+          "newSections": [],
+          "status": "omitted",
+          "heading": {
+            "en": "India.",
+            "hi": ""
+          },
+          "note": {
+            "en": "CrPC 2(f) has no corresponding provision in the BNSS. NCRB's correspondence table marks it \"Deleted\".",
+            "hi": "CrPC 2(f) का BNSS में कोई तत्संगत उपबंध नहीं है। एनसीआरबी की तालिका इसे \"Deleted\" दर्शाती है।"
+          }
+        },
+        "2(k)": {
+          "oldAct": "CrPC",
+          "newAct": "BNSS",
+          "newSections": [],
+          "status": "omitted",
+          "heading": {
+            "en": "Metropolitan Area.",
+            "hi": ""
+          },
+          "note": {
+            "en": "CrPC 2(k) has no corresponding provision in the BNSS. NCRB's correspondence table marks it \"Deleted\".",
+            "hi": "CrPC 2(k) का BNSS में कोई तत्संगत उपबंध नहीं है। एनसीआरबी की तालिका इसे \"Deleted\" दर्शाती है।"
+          }
+        },
+        "2(q)": {
+          "oldAct": "CrPC",
+          "newAct": "BNSS",
+          "newSections": [],
+          "status": "omitted",
+          "heading": {
+            "en": "Pleader.",
+            "hi": ""
+          },
+          "note": {
+            "en": "CrPC 2(q) has no corresponding provision in the BNSS. NCRB's correspondence table marks it \"Deleted\".",
+            "hi": "CrPC 2(q) का BNSS में कोई तत्संगत उपबंध नहीं है। एनसीआरबी की तालिका इसे \"Deleted\" दर्शाती है।"
+          }
+        },
+        "2(t)": {
+          "oldAct": "CrPC",
+          "newAct": "BNSS",
+          "newSections": [],
+          "status": "omitted",
+          "heading": {
+            "en": "Prescribed.",
+            "hi": ""
+          },
+          "note": {
+            "en": "CrPC 2(t) has no corresponding provision in the BNSS. NCRB's correspondence table marks it \"Deleted\".",
+            "hi": "CrPC 2(t) का BNSS में कोई तत्संगत उपबंध नहीं है। एनसीआरबी की तालिका इसे \"Deleted\" दर्शाती है।"
           }
         },
         "3": {
@@ -15586,8 +15642,64 @@
             "hi": ""
           },
           "note": {
-            "en": "IEA section 65B has no corresponding provision in the BSA. NCRB's correspondence table marks it \"Deleted\".",
-            "hi": "IEA की धारा 65B का BSA में कोई तत्संगत उपबंध नहीं है। एनसीआरबी की तालिका इसे \"Deleted\" दर्शाती है।"
+            "en": "IEA section 65B corresponds to BSA 63, but NCRB marks these parts \"Deleted\", with no counterpart: 65B(3)(a), 65B(3)(b), 65B(3)(c), 65B(3)(d).",
+            "hi": "IEA की धारा 65B BSA 63 के तत्संगत है, किंतु एनसीआरबी इन भागों को \"Deleted\" दर्शाती है, जिनका कोई तत्संगत उपबंध नहीं है: 65B(3)(a), 65B(3)(b), 65B(3)(c), 65B(3)(d)।"
+          }
+        },
+        "65B(3)(a)": {
+          "oldAct": "IEA",
+          "newAct": "BSA",
+          "newSections": [],
+          "status": "omitted",
+          "heading": {
+            "en": "by a combination of computers operating over that period; or.",
+            "hi": ""
+          },
+          "note": {
+            "en": "IEA 65B(3)(a) has no corresponding provision in the BSA. NCRB's correspondence table marks it \"Deleted\".",
+            "hi": "IEA 65B(3)(a) का BSA में कोई तत्संगत उपबंध नहीं है। एनसीआरबी की तालिका इसे \"Deleted\" दर्शाती है।"
+          }
+        },
+        "65B(3)(b)": {
+          "oldAct": "IEA",
+          "newAct": "BSA",
+          "newSections": [],
+          "status": "omitted",
+          "heading": {
+            "en": "by different computers operating in succession over that period; or.",
+            "hi": ""
+          },
+          "note": {
+            "en": "IEA 65B(3)(b) has no corresponding provision in the BSA. NCRB's correspondence table marks it \"Deleted\".",
+            "hi": "IEA 65B(3)(b) का BSA में कोई तत्संगत उपबंध नहीं है। एनसीआरबी की तालिका इसे \"Deleted\" दर्शाती है।"
+          }
+        },
+        "65B(3)(c)": {
+          "oldAct": "IEA",
+          "newAct": "BSA",
+          "newSections": [],
+          "status": "omitted",
+          "heading": {
+            "en": "by different combinations of computers operating in succession over that period; or.",
+            "hi": ""
+          },
+          "note": {
+            "en": "IEA 65B(3)(c) has no corresponding provision in the BSA. NCRB's correspondence table marks it \"Deleted\".",
+            "hi": "IEA 65B(3)(c) का BSA में कोई तत्संगत उपबंध नहीं है। एनसीआरबी की तालिका इसे \"Deleted\" दर्शाती है।"
+          }
+        },
+        "65B(3)(d)": {
+          "oldAct": "IEA",
+          "newAct": "BSA",
+          "newSections": [],
+          "status": "omitted",
+          "heading": {
+            "en": "in any other manner involving the successive operation over that period, in whatever order, of one or more computers and one or more combinations of computers.",
+            "hi": ""
+          },
+          "note": {
+            "en": "IEA 65B(3)(d) has no corresponding provision in the BSA. NCRB's correspondence table marks it \"Deleted\".",
+            "hi": "IEA 65B(3)(d) का BSA में कोई तत्संगत उपबंध नहीं है। एनसीआरबी की तालिका इसे \"Deleted\" दर्शाती है।"
           }
         },
         "66": {

@@ -145,12 +145,49 @@ describe('reverse index', () => {
     expect(lookupOldSection(index, act, typed)).toBeDefined()
   })
 
+  it('returns undefined for keys that live on Object.prototype', () => {
+    // `acts` and `entries` come from JSON.parse, so they carry Object.prototype.
+    // A bare index lookup would hand back a function for "constructor".
+    for (const typed of ['constructor', 'toString', '__proto__', 'hasOwnProperty']) {
+      expect(lookupOldSection(index, 'IPC', typed)).toBeUndefined()
+      expect(getSection(bns, typed)).toBeUndefined()
+    }
+  })
+
   it('normalises a reference the same way the ingest does', () => {
     expect(normaliseSectionRef('318 (4)')).toBe('318(4)')
     expect(normaliseSectionRef('350( 1 )')).toBe('350(1)')
-    expect(normaliseSectionRef('61(2) (a)')).toBe('61(2)(A)')
     expect(sectionBase('318(4)')).toBe('318')
     expect(sectionBase('498a')).toBe('498A')
+  })
+
+  it('upper-cases the section suffix and lower-cases the sub-clause', () => {
+    // Indian drafting writes 498A and 65B upper, and 2(f) and 65B(3)(a) lower.
+    // Uppercasing the whole reference made a sub-clause miss its own entry and
+    // silently answer with the parent section instead.
+    expect(normaliseSectionRef('498a')).toBe('498A')
+    expect(normaliseSectionRef('65 b')).toBe('65B')
+    expect(normaliseSectionRef('2(F)')).toBe('2(f)')
+    expect(normaliseSectionRef('61(2) (A)')).toBe('61(2)(a)')
+    expect(normaliseSectionRef('65b(3)(A)')).toBe('65B(3)(a)')
+  })
+
+  it('answers about the sub-clause asked for, not its parent section', () => {
+    // CrPC 2 maps to BNSS 2, but its definitions 2(f), 2(k), 2(q) and 2(t) were
+    // dropped. Asking about 2(t) must not be answered with the whole of 2.
+    const clause = lookupOldSection(index, 'CrPC', '2(t)')
+    const parent = lookupOldSection(index, 'CrPC', '2')
+    expect(clause?.status).toBe('omitted')
+    expect(parent?.status).toBe('mapped')
+    expect(clause).not.toBe(parent)
+    expect(resolveOldSection(index, 'CrPC', '2(t)')).toBeNull()
+    expect(resolveOldSection(index, 'CrPC', '2')).not.toBeNull()
+  })
+
+  it('still falls back to the parent when the sub-clause has no entry of its own', () => {
+    // Most sub-clauses are not listed separately; "302(1)" should answer with
+    // 302 rather than nothing.
+    expect(lookupOldSection(index, 'IPC', '302(1)')?.newSections).toContain('103')
   })
 
   // Provisions the new Acts do not carry forward at all.
@@ -159,6 +196,35 @@ describe('reverse index', () => {
     ['IPC', '377'],
     ['IPC', '497'],
   ]
+
+  it('never says a section maps to nothing while also mapping it somewhere', () => {
+    // IEA 65B is the case that made this necessary. Only sub-clauses
+    // 65B(3)(a)-(d) are marked "Deleted", but the note landed on the base
+    // entry, so 65B resolved to BSA 63 *and* claimed to have no counterpart.
+    // One of the acceptance sections, telling a reader two opposite things.
+    const contradictions: string[] = []
+    for (const [act, bucket] of Object.entries(index.acts)) {
+      for (const [section, entry] of Object.entries(bucket.entries)) {
+        const claimsNothing = entry.note?.en.includes('has no corresponding provision') ?? false
+        if (entry.newSections.length > 0 && claimsNothing) contradictions.push(`${act} ${section}`)
+        if (entry.status === 'omitted' && entry.newSections.length > 0)
+          contradictions.push(`${act} ${section}`)
+      }
+    }
+    expect(contradictions).toEqual([])
+  })
+
+  it('says which parts of a partly-repealed section were dropped', () => {
+    const entry = lookupOldSection(index, 'IEA', '65B')
+    expect(entry?.status).toBe('mapped')
+    expect(entry?.newSections).toContain('63')
+    expect(entry?.note?.en).toContain('65B(3)(a)')
+    expect(entry?.note?.hi).toContain('65B(3)(a)')
+    // ...and the dropped sub-clause is resolvable in its own right.
+    const clause = lookupOldSection(index, 'IEA', '65B(3)(a)')
+    expect(clause?.status).toBe('omitted')
+    expect(resolveOldSection(index, 'IEA', '65B(3)(a)')).toBeNull()
+  })
 
   it.each(OMITTED)('resolves the repealed %s %s to null, with a note saying why', (act, oldSection) => {
     expect(resolveOldSection(index, act, oldSection)).toBeNull()

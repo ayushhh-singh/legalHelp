@@ -22,7 +22,7 @@ import unicodedata
 from dataclasses import dataclass
 from datetime import datetime, timezone
 from pathlib import Path
-from typing import Any, Iterable, Sequence
+from typing import Any, Callable, Iterable, Sequence
 
 import requests
 
@@ -85,6 +85,18 @@ def utc_now() -> str:
     return datetime.now(timezone.utc).replace(microsecond=0).isoformat().replace("+00:00", "Z")
 
 
+# NCRB's server drops connections part-way through the larger documents often
+# enough to have done it on the first attempt at the BSA PDF. One dropped
+# connection must not be the difference between a weekly refresh and silence.
+ATTEMPTS_PER_URL = 3
+RETRY_BACKOFF_SECONDS = 2.0
+
+
+def _is_retryable(status: int) -> bool:
+    """5xx and 429 are "come back later". Everything else is an answer."""
+    return status >= 500 or status == 429
+
+
 def fetch(
     urls: Sequence[str],
     *,
@@ -92,34 +104,83 @@ def fetch(
     delay: float = 0.0,
     session: requests.Session | None = None,
     allow_status: Iterable[int] = (200,),
+    attempts: int = ATTEMPTS_PER_URL,
+    sleep: Callable[[float], None] = time.sleep,
 ) -> Fetched:
-    """Try each URL in order and return the first that answers.
+    """Try each URL in order, with retries, and return the first that answers.
 
-    ``urls`` is a primary followed by mirrors. A 403 aborts immediately rather
-    than falling through to the next mirror: a site that has refused us is a
-    decision to respect, not an obstacle to route around.
+    ``urls`` is a primary followed by mirrors. Three things are deliberate:
+
+    * A **403 aborts everything** - no retry, no mirror. A site that has refused
+      us is a decision to respect, not an obstacle to route around.
+    * A **4xx other than 403 is not retried** either. It is an answer, and asking
+      again more slowly will not change it.
+    * A **network-level failure or a 5xx is retried** with a linear backoff,
+      because those are the ones that are about the weather rather than about us.
+
+    A truncated body is caught here too: ``requests`` raises
+    ``ChunkedEncodingError`` when the connection dies mid-body, and where the
+    server sent a ``Content-Length`` the received size is checked against it. A
+    short read that parsed would be far worse than one that failed.
     """
     sess = session or requests.Session()
     failures: list[str] = []
 
     for index, url in enumerate(urls):
         if delay and index > 0:
-            time.sleep(delay)
-        try:
-            response = sess.get(url, headers={"User-Agent": USER_AGENT}, timeout=timeout)
-        except requests.RequestException as exc:  # network-level failure
-            failures.append(f"{url} -> {type(exc).__name__}: {exc}")
-            continue
+            sleep(delay)
 
-        if response.status_code == 403:
-            raise Forbidden(f"{url} -> 403 Forbidden. Refusing to retry or try a mirror.")
-        if response.status_code not in allow_status:
-            failures.append(f"{url} -> HTTP {response.status_code}")
-            continue
+        for attempt in range(1, attempts + 1):
+            try:
+                response = sess.get(url, headers={"User-Agent": USER_AGENT}, timeout=timeout)
+            except requests.RequestException as exc:  # network-level failure
+                failures.append(f"{url} (attempt {attempt}) -> {type(exc).__name__}: {exc}")
+                if attempt < attempts:
+                    sleep(RETRY_BACKOFF_SECONDS * attempt)
+                    continue
+                break
 
-        return Fetched(url=url, content=response.content, mirror_index=index, fetched_at=utc_now())
+            if response.status_code == 403:
+                raise Forbidden(f"{url} -> 403 Forbidden. Refusing to retry or try a mirror.")
+
+            if response.status_code not in allow_status:
+                failures.append(f"{url} (attempt {attempt}) -> HTTP {response.status_code}")
+                if _is_retryable(response.status_code) and attempt < attempts:
+                    sleep(RETRY_BACKOFF_SECONDS * attempt)
+                    continue
+                break
+
+            declared = response.headers.get("Content-Length")
+            if declared and declared.isdigit() and len(response.content) != int(declared):
+                failures.append(
+                    f"{url} (attempt {attempt}) -> truncated: {len(response.content)} of {declared} bytes"
+                )
+                if attempt < attempts:
+                    sleep(RETRY_BACKOFF_SECONDS * attempt)
+                    continue
+                break
+
+            return Fetched(url=url, content=response.content, mirror_index=index, fetched_at=utc_now())
 
     raise FetchError("all sources failed:\n  " + "\n  ".join(failures))
+
+
+# How many archived copies of each document to keep. Each full run stores about
+# 5 MB, so an unpruned raw/ on a developer machine passes 100 MB within a month
+# of iterating on the parser. Three is enough to compare "before", "after" and
+# "the one that broke it"; CI checks out fresh and never accumulates at all.
+RAW_GENERATIONS = 3
+
+
+def prune_raw(name: str, keep: int = RAW_GENERATIONS) -> list[Path]:
+    """Drop all but the newest ``keep`` archived copies of one document."""
+    copies = sorted(RAW_DIR.glob(f"*__{name}"))
+    removed: list[Path] = []
+    for stale in copies[: max(0, len(copies) - keep)]:
+        stale.with_suffix(stale.suffix + ".meta.json").unlink(missing_ok=True)
+        stale.unlink(missing_ok=True)
+        removed.append(stale)
+    return removed
 
 
 def archive_raw(name: str, fetched: Fetched, *, stamp: str) -> Path:
@@ -145,6 +206,7 @@ def archive_raw(name: str, fetched: Fetched, *, stamp: str) -> Path:
         + "\n",
         encoding="utf-8",
     )
+    prune_raw(name)
     return path
 
 
@@ -309,11 +371,19 @@ def update_versions(entries: dict[str, dict[str, Any]], *, generated_at: str) ->
     versions = read_json(VERSIONS_FILE, default={"datasets": {}})
     versions.setdefault("datasets", {})
     before = json.dumps(versions, ensure_ascii=False, sort_keys=True)
-    versions["generatedAt"] = generated_at[:10]
+
     for key, entry in entries.items():
         versions["datasets"][key] = entry
-    if before == json.dumps(versions, ensure_ascii=False, sort_keys=True):
+
+    if json.dumps(versions, ensure_ascii=False, sort_keys=True) == before:
         return False
+
+    # Only now. `generatedAt` used to be stamped before the comparison, so a run
+    # on a later date changed the file even when every dataset was identical --
+    # and the weekly cron would have opened a pull request every single week
+    # containing nothing but a new date. A reviewer who dismisses fifty of those
+    # is not reading the fifty-first.
+    versions["generatedAt"] = generated_at[:10]
     write_json(VERSIONS_FILE, versions)
     return True
 

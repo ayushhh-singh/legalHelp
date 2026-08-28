@@ -57,8 +57,8 @@ way Prettier would so `pnpm format` and the weekly cron do not fight over it.
 The classification columns count only the BNS: cognizable, bailable and compoundable are properties
 of offences, and the BNSS and the BSA are procedural.
 
-Repealed-Act sections with no counterpart at all (NCRB marks them "Deleted"): **34** -
-CrPC 8, CrPC 10, CrPC 16, CrPC 17, CrPC 18, CrPC 19, CrPC 27, CrPC 144A, CrPC 153, CrPC 355, CrPC 404, IEA 22A, IEA 82, IEA 88, IEA 113, IEA 166, IPC 14, IPC 18, IPC 29A, IPC 50, IPC 53A, IPC 153AA, IPC 236, IPC 264, ....
+Repealed-Act sections with no counterpart at all (NCRB marks them "Deleted"): **42** -
+CrPC 2(f), CrPC 2(k), CrPC 2(q), CrPC 2(t), CrPC 8, CrPC 10, CrPC 16, CrPC 17, CrPC 18, CrPC 19, CrPC 27, CrPC 144A, CrPC 153, CrPC 355, CrPC 404, IEA 22A, IEA 65B(3)(a), IEA 65B(3)(b), IEA 65B(3)(c), IEA 65B(3)(d), IEA 82, IEA 88, IEA 113, IEA 166, ....
 
 Parse path taken this run (see `scripts/ingest/README.md`): BNS `inline-html`, BNSS `inline-html`, BSA `inline-html`. `inline-html` means the
 correspondence table's rows were in the HTML, as they have been on every run so far; `pdf` means they

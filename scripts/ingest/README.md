@@ -60,6 +60,21 @@ written, and again against `src/modules/law/schema.ts` (zod) in `pnpm test`.
 Two schemas for one shape is deliberate: a dataset cannot land unless the
 producer and the consumer agree on it.
 
+## Tests
+
+```bash
+scripts/ingest/.venv/bin/python -m unittest discover -s scripts/ingest -t scripts/ingest -v
+```
+
+Stdlib `unittest`, no test dependency, no network — `fetch` runs against a fake
+session and a fake clock. Both `.github/workflows/ci.yml` and the refresh
+workflow run it, the latter _before_ it is allowed to touch `data/`.
+
+Most of these tests are oddly specific because the source is: a capital letter
+starting a heading being read as a section suffix, a sub-clause deletion being
+stamped onto its parent section, a date rollover rewriting a dataset. Each was
+written against a defect that existed and was verified to fail before the fix.
+
 ## Sources, and which one answers what
 
 Everything below is public. Nothing departmental, nothing behind a login.
@@ -82,6 +97,11 @@ detail of NCRB's, not a promise. `rows_are_inline()` checks for a populated
 `data/_meta/versions.json`, and the weekly pull request shows the switch. Run
 `--force-pdf` to exercise that path deliberately rather than discovering it is
 rotten on the day it is needed.
+
+The fallback is measured, not assumed: on the BSA it recovers 178 of the 179
+mappings the HTML path finds (99.4%). The one it misses is a multi-paragraph cell
+that `pdfplumber` flattens differently. Degraded but usable, which is what a
+fallback needs to be.
 
 Both paths and the result of the last run are recorded in `docs/DATA-GAPS.md`.
 
