@@ -69,4 +69,20 @@ describe('useGlossarySuggest', () => {
     )
     expect(result.current.map((m) => m.matchedText)).toEqual(['Secretary', 'Under Secretary', 'Secretary'])
   })
+
+  it('does not match a term glued to a digit — a reference number, not the word', () => {
+    // "Panel2" and "Secretary-2024" are file/reference numbers an officer
+    // might actually type; treating either as the English word would offer
+    // to splice Hindi into a code, not a sentence.
+    const panel: Glossary = { ...GLOSSARY, terms: [...GLOSSARY.terms, term('Panel', 'पैनल')] }
+    expect(renderHook(() => useGlossarySuggest('See Panel2 for the list.', panel)).result.current).toEqual([])
+    expect(
+      renderHook(() => useGlossarySuggest('Ref: Secretary-2024/estt.', panel)).result.current,
+    ).toEqual([])
+  })
+
+  it('still matches a term immediately followed by punctuation', () => {
+    const { result } = renderHook(() => useGlossarySuggest("the Secretary's approval, please.", GLOSSARY))
+    expect(result.current.map((m) => m.matchedText)).toEqual(['Secretary'])
+  })
 })

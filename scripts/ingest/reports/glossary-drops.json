@@ -1,0 +1,618 @@
+{
+  "duplicate": [
+    {
+      "en": "Public Relations Officer",
+      "kept_in": "designation",
+      "dropped_from": "office"
+    },
+    {
+      "en": "Nodal officer",
+      "kept_in": "designation",
+      "dropped_from": "office"
+    },
+    {
+      "en": "Presiding officer",
+      "kept_in": "designation",
+      "dropped_from": "office"
+    },
+    {
+      "en": "Guard file",
+      "kept_in": "office",
+      "dropped_from": "file"
+    },
+    {
+      "en": "Record room",
+      "kept_in": "office",
+      "dropped_from": "file"
+    },
+    {
+      "en": "Record keeper",
+      "kept_in": "designation",
+      "dropped_from": "file"
+    },
+    {
+      "en": "Messenger",
+      "kept_in": "designation",
+      "dropped_from": "file"
+    },
+    {
+      "en": "Diary number",
+      "kept_in": "office",
+      "dropped_from": "file"
+    },
+    {
+      "en": "Fair copy",
+      "kept_in": "office",
+      "dropped_from": "file"
+    },
+    {
+      "en": "Certified copy",
+      "kept_in": "office",
+      "dropped_from": "file"
+    },
+    {
+      "en": "True copy",
+      "kept_in": "office",
+      "dropped_from": "file"
+    },
+    {
+      "en": "Classified document",
+      "kept_in": "office",
+      "dropped_from": "file"
+    },
+    {
+      "en": "Custodian of records",
+      "kept_in": "office",
+      "dropped_from": "file"
+    },
+    {
+      "en": "Preservation of records",
+      "kept_in": "office",
+      "dropped_from": "file"
+    },
+    {
+      "en": "Purchase committee",
+      "kept_in": "office",
+      "dropped_from": "finance"
+    },
+    {
+      "en": "Comptroller and Auditor General",
+      "kept_in": "designation",
+      "dropped_from": "finance"
+    },
+    {
+      "en": "Accountant General",
+      "kept_in": "designation",
+      "dropped_from": "finance"
+    },
+    {
+      "en": "Chief Controller of Accounts",
+      "kept_in": "designation",
+      "dropped_from": "finance"
+    },
+    {
+      "en": "Cashier",
+      "kept_in": "designation",
+      "dropped_from": "finance"
+    },
+    {
+      "en": "Receipt",
+      "kept_in": "office",
+      "dropped_from": "finance"
+    },
+    {
+      "en": "Inventory",
+      "kept_in": "office",
+      "dropped_from": "finance"
+    },
+    {
+      "en": "No objection certificate",
+      "kept_in": "office",
+      "dropped_from": "finance"
+    },
+    {
+      "en": "Vigilance clearance",
+      "kept_in": "office",
+      "dropped_from": "finance"
+    },
+    {
+      "en": "Deputation",
+      "kept_in": "office",
+      "dropped_from": "establishment"
+    },
+    {
+      "en": "Selection committee",
+      "kept_in": "office",
+      "dropped_from": "establishment"
+    },
+    {
+      "en": "Departmental Promotion Committee",
+      "kept_in": "office",
+      "dropped_from": "establishment"
+    },
+    {
+      "en": "Screening committee",
+      "kept_in": "office",
+      "dropped_from": "establishment"
+    },
+    {
+      "en": "Interview",
+      "kept_in": "office",
+      "dropped_from": "establishment"
+    },
+    {
+      "en": "Merit list",
+      "kept_in": "office",
+      "dropped_from": "establishment"
+    },
+    {
+      "en": "Waiting list",
+      "kept_in": "office",
+      "dropped_from": "establishment"
+    },
+    {
+      "en": "Panel",
+      "kept_in": "office",
+      "dropped_from": "establishment"
+    },
+    {
+      "en": "Vigilance clearance",
+      "kept_in": "office",
+      "dropped_from": "establishment"
+    },
+    {
+      "en": "Integrity certificate",
+      "kept_in": "office",
+      "dropped_from": "establishment"
+    },
+    {
+      "en": "Cadre controlling authority",
+      "kept_in": "office",
+      "dropped_from": "establishment"
+    },
+    {
+      "en": "Leave encashment",
+      "kept_in": "finance",
+      "dropped_from": "establishment"
+    },
+    {
+      "en": "Restricted holiday",
+      "kept_in": "office",
+      "dropped_from": "establishment"
+    },
+    {
+      "en": "Gazetted holiday",
+      "kept_in": "office",
+      "dropped_from": "establishment"
+    },
+    {
+      "en": "Service book",
+      "kept_in": "finance",
+      "dropped_from": "establishment"
+    },
+    {
+      "en": "No objection certificate",
+      "kept_in": "office",
+      "dropped_from": "establishment"
+    },
+    {
+      "en": "General Provident Fund",
+      "kept_in": "finance",
+      "dropped_from": "establishment"
+    },
+    {
+      "en": "Contributory Provident Fund",
+      "kept_in": "finance",
+      "dropped_from": "establishment"
+    },
+    {
+      "en": "National Pension System",
+      "kept_in": "finance",
+      "dropped_from": "establishment"
+    },
+    {
+      "en": "Last Pay Certificate",
+      "kept_in": "finance",
+      "dropped_from": "establishment"
+    },
+    {
+      "en": "Lien",
+      "kept_in": "office",
+      "dropped_from": "establishment"
+    },
+    {
+      "en": "Pension",
+      "kept_in": "finance",
+      "dropped_from": "establishment"
+    },
+    {
+      "en": "Family pension",
+      "kept_in": "finance",
+      "dropped_from": "establishment"
+    },
+    {
+      "en": "Commutation of pension",
+      "kept_in": "finance",
+      "dropped_from": "establishment"
+    },
+    {
+      "en": "Gratuity",
+      "kept_in": "finance",
+      "dropped_from": "establishment"
+    },
+    {
+      "en": "Death-cum-retirement gratuity",
+      "kept_in": "finance",
+      "dropped_from": "establishment"
+    },
+    {
+      "en": "Provisional pension",
+      "kept_in": "finance",
+      "dropped_from": "establishment"
+    },
+    {
+      "en": "Pension Payment Order",
+      "kept_in": "finance",
+      "dropped_from": "establishment"
+    },
+    {
+      "en": "Pension Sanctioning Authority",
+      "kept_in": "finance",
+      "dropped_from": "establishment"
+    },
+    {
+      "en": "Head of Office",
+      "kept_in": "finance",
+      "dropped_from": "establishment"
+    },
+    {
+      "en": "Seniority list",
+      "kept_in": "office",
+      "dropped_from": "establishment"
+    },
+    {
+      "en": "Charge report",
+      "kept_in": "file",
+      "dropped_from": "establishment"
+    },
+    {
+      "en": "Additional charge",
+      "kept_in": "office",
+      "dropped_from": "establishment"
+    },
+    {
+      "en": "Officer on Special Duty",
+      "kept_in": "designation",
+      "dropped_from": "establishment"
+    },
+    {
+      "en": "In-charge",
+      "kept_in": "office",
+      "dropped_from": "establishment"
+    },
+    {
+      "en": "Induction training",
+      "kept_in": "office",
+      "dropped_from": "establishment"
+    },
+    {
+      "en": "Bond",
+      "kept_in": "finance",
+      "dropped_from": "establishment"
+    },
+    {
+      "en": "Surety",
+      "kept_in": "finance",
+      "dropped_from": "establishment"
+    },
+    {
+      "en": "Undertaking",
+      "kept_in": "office",
+      "dropped_from": "establishment"
+    },
+    {
+      "en": "Identity card",
+      "kept_in": "office",
+      "dropped_from": "establishment"
+    },
+    {
+      "en": "Service certificate",
+      "kept_in": "office",
+      "dropped_from": "establishment"
+    },
+    {
+      "en": "Experience certificate",
+      "kept_in": "office",
+      "dropped_from": "establishment"
+    },
+    {
+      "en": "Standing Committee",
+      "kept_in": "office",
+      "dropped_from": "establishment"
+    },
+    {
+      "en": "Nodal officer",
+      "kept_in": "designation",
+      "dropped_from": "establishment"
+    },
+    {
+      "en": "Liaison officer",
+      "kept_in": "designation",
+      "dropped_from": "establishment"
+    },
+    {
+      "en": "Appellate authority",
+      "kept_in": "establishment",
+      "dropped_from": "legal"
+    },
+    {
+      "en": "Suo motu disclosure",
+      "kept_in": "office",
+      "dropped_from": "legal"
+    },
+    {
+      "en": "Certified copy",
+      "kept_in": "office",
+      "dropped_from": "legal"
+    },
+    {
+      "en": "Grievance redressal",
+      "kept_in": "establishment",
+      "dropped_from": "legal"
+    },
+    {
+      "en": "Government pleader",
+      "kept_in": "designation",
+      "dropped_from": "legal"
+    },
+    {
+      "en": "Law Officer",
+      "kept_in": "designation",
+      "dropped_from": "legal"
+    },
+    {
+      "en": "Vetting of draft",
+      "kept_in": "file",
+      "dropped_from": "legal"
+    },
+    {
+      "en": "Adjournment",
+      "kept_in": "office",
+      "dropped_from": "legal"
+    },
+    {
+      "en": "Appeal",
+      "kept_in": "establishment",
+      "dropped_from": "legal"
+    },
+    {
+      "en": "Review petition",
+      "kept_in": "establishment",
+      "dropped_from": "legal"
+    },
+    {
+      "en": "Legal heir",
+      "kept_in": "establishment",
+      "dropped_from": "legal"
+    },
+    {
+      "en": "Central Administrative Tribunal",
+      "kept_in": "establishment",
+      "dropped_from": "legal"
+    },
+    {
+      "en": "Original application",
+      "kept_in": "establishment",
+      "dropped_from": "legal"
+    },
+    {
+      "en": "Vice-Chairman",
+      "kept_in": "designation",
+      "dropped_from": "legal"
+    },
+    {
+      "en": "Judicial Member",
+      "kept_in": "designation",
+      "dropped_from": "legal"
+    },
+    {
+      "en": "Administrative Member",
+      "kept_in": "designation",
+      "dropped_from": "legal"
+    },
+    {
+      "en": "Departmental inquiry",
+      "kept_in": "establishment",
+      "dropped_from": "legal"
+    },
+    {
+      "en": "Inquiry officer",
+      "kept_in": "establishment",
+      "dropped_from": "legal"
+    },
+    {
+      "en": "Presenting officer",
+      "kept_in": "establishment",
+      "dropped_from": "legal"
+    },
+    {
+      "en": "Charge sheet",
+      "kept_in": "establishment",
+      "dropped_from": "legal"
+    },
+    {
+      "en": "Disciplinary authority",
+      "kept_in": "establishment",
+      "dropped_from": "legal"
+    },
+    {
+      "en": "Appointing authority",
+      "kept_in": "establishment",
+      "dropped_from": "legal"
+    },
+    {
+      "en": "Minor penalty",
+      "kept_in": "establishment",
+      "dropped_from": "legal"
+    },
+    {
+      "en": "Major penalty",
+      "kept_in": "establishment",
+      "dropped_from": "legal"
+    },
+    {
+      "en": "Suspension",
+      "kept_in": "establishment",
+      "dropped_from": "legal"
+    },
+    {
+      "en": "Compulsory retirement",
+      "kept_in": "establishment",
+      "dropped_from": "legal"
+    },
+    {
+      "en": "Dismissal from service",
+      "kept_in": "establishment",
+      "dropped_from": "legal"
+    },
+    {
+      "en": "Removal from service",
+      "kept_in": "establishment",
+      "dropped_from": "legal"
+    },
+    {
+      "en": "Censure",
+      "kept_in": "establishment",
+      "dropped_from": "legal"
+    },
+    {
+      "en": "Withholding of increment",
+      "kept_in": "establishment",
+      "dropped_from": "legal"
+    },
+    {
+      "en": "Amendment",
+      "kept_in": "office",
+      "dropped_from": "legal"
+    },
+    {
+      "en": "Arbitration",
+      "kept_in": "finance",
+      "dropped_from": "legal"
+    },
+    {
+      "en": "Waiver",
+      "kept_in": "office",
+      "dropped_from": "legal"
+    },
+    {
+      "en": "Guarantee",
+      "kept_in": "finance",
+      "dropped_from": "legal"
+    },
+    {
+      "en": "Surety",
+      "kept_in": "finance",
+      "dropped_from": "legal"
+    },
+    {
+      "en": "Undertaking",
+      "kept_in": "office",
+      "dropped_from": "legal"
+    },
+    {
+      "en": "Memorandum of Understanding",
+      "kept_in": "office",
+      "dropped_from": "legal"
+    },
+    {
+      "en": "Force majeure",
+      "kept_in": "finance",
+      "dropped_from": "legal"
+    },
+    {
+      "en": "Ratification",
+      "kept_in": "office",
+      "dropped_from": "legal"
+    },
+    {
+      "en": "Prosecution sanction",
+      "kept_in": "establishment",
+      "dropped_from": "legal"
+    },
+    {
+      "en": "Delegation of powers",
+      "kept_in": "office",
+      "dropped_from": "legal"
+    },
+    {
+      "en": "Public Notice",
+      "kept_in": "office",
+      "dropped_from": "legal"
+    },
+    {
+      "en": "Memorandum of charges",
+      "kept_in": "establishment",
+      "dropped_from": "legal"
+    },
+    {
+      "en": "Quorum",
+      "kept_in": "office",
+      "dropped_from": "legal"
+    },
+    {
+      "en": "Scanner",
+      "kept_in": "office",
+      "dropped_from": "it"
+    },
+    {
+      "en": "Digital Signature",
+      "kept_in": "file",
+      "dropped_from": "it"
+    },
+    {
+      "en": "e-Office",
+      "kept_in": "file",
+      "dropped_from": "it"
+    },
+    {
+      "en": "Government e-Marketplace",
+      "kept_in": "finance",
+      "dropped_from": "it"
+    },
+    {
+      "en": "Public Financial Management System",
+      "kept_in": "finance",
+      "dropped_from": "it"
+    },
+    {
+      "en": "Jeevan Pramaan",
+      "kept_in": "establishment",
+      "dropped_from": "it"
+    },
+    {
+      "en": "Direct Benefit Transfer",
+      "kept_in": "finance",
+      "dropped_from": "it"
+    },
+    {
+      "en": "Data Entry Operator",
+      "kept_in": "designation",
+      "dropped_from": "it"
+    },
+    {
+      "en": "Audit Trail",
+      "kept_in": "finance",
+      "dropped_from": "it"
+    }
+  ],
+  "excludedByStructureTerms": [
+    "Competent authority",
+    "Drawing and Disbursing Officer",
+    "Email",
+    "Notification",
+    "Notification",
+    "Office order",
+    "Section"
+  ]
+}

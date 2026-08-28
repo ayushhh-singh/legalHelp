@@ -53,7 +53,16 @@ export function GlossarySheet({
   const [mode, setMode] = useState<Mode>('structural')
 
   return (
-    <Sheet title={t('draft.glossary.title')} subtitle={t('draft.glossary.subtitle')} onClose={onClose}>
+    <Sheet
+      title={t('draft.glossary.title')}
+      // The structural tab's subtitle ("the manual's own Hindi... not the
+      // rendering most people expect") is a claim that is FALSE of the full
+      // glossary tab — that dataset is explicitly not from the manual
+      // (FullGlossaryPanel says so itself). The header must not keep
+      // asserting the wrong provenance while that tab is open.
+      subtitle={mode === 'structural' ? t('draft.glossary.subtitle') : t('draft.glossary.fullSubtitle')}
+      onClose={onClose}
+    >
       <div
         role="tablist"
         aria-label={t('draft.glossary.title')}
@@ -189,14 +198,25 @@ function StructuralPanel({ onInsert }: { onInsert: (text: string) => void }) {
  * panel is what wires that same `onInsert` callback to it, so the toolbar
  * button an officer already knows reaches both glossaries.
  */
+/**
+ * Narrower than `GlossaryPage.tsx`'s `MAX_RENDERED = 100`: this list renders
+ * inside a modal `Sheet`, not a full page, so the same node-count concern
+ * (ADR-016's "measure before reintroducing virtualisation", applied here in
+ * ADR-024) tops out sooner. Both bound the render, not the search — a query
+ * still reaches every one of the ~1,891 terms.
+ */
+const FULL_GLOSSARY_SHEET_MAX = 60
+
 function FullGlossaryPanel({ onInsert }: { onInsert: (text: string) => void }) {
   const { t, language } = useT()
   const [query, setQuery] = useState('')
   const glossary = useGlossary(true)
-  const index = useMemo(
-    () => (glossary.status === 'ready' ? buildGlossaryIndex(glossary.data) : null),
-    [glossary],
-  )
+  // A STABLE reference once loaded, unlike `glossary` itself — `useGlossary`
+  // returns a fresh wrapper object (`retry` included) on every call, so
+  // memoising on `glossary` directly never actually hits the cache and
+  // rebuilds the Fuse index over ~1,891 terms on every keystroke.
+  const glossaryData = glossary.status === 'ready' ? glossary.data : null
+  const index = useMemo(() => (glossaryData ? buildGlossaryIndex(glossaryData) : null), [glossaryData])
   const results = useMemo(() => (index ? searchGlossary(index, query) : []), [index, query])
 
   return (
@@ -207,13 +227,18 @@ function FullGlossaryPanel({ onInsert }: { onInsert: (text: string) => void }) {
         </label>
         <input
           id="draft-full-glossary-search"
+          // Both tabs mount their own search input, never both at once — the
+          // sheet's default-focus effect (`Sheet.tsx`) looks for whichever
+          // one is actually in the DOM, so both need the attribute or opening
+          // straight into this tab (e.g. a future "remember the last tab
+          // used") would silently focus the Close button instead.
+          data-autofocus
           type="search"
           value={query}
           placeholder={t('utils.glossary.searchPlaceholder')}
           onChange={(event) => setQuery(event.target.value)}
           className="h-11 w-full rounded-lg border border-input bg-card px-3 text-sm focus-visible:ring-2 focus-visible:ring-ring focus-visible:outline-none"
         />
-        <p className="mt-2 text-xs text-muted-foreground">{t('draft.glossary.fullSubtitle')}</p>
       </div>
 
       <div className="min-h-0 flex-1 overflow-y-auto p-4">
@@ -233,8 +258,14 @@ function FullGlossaryPanel({ onInsert }: { onInsert: (text: string) => void }) {
           <p className="py-8 text-center text-sm text-muted-foreground">{t('utils.glossary.empty')}</p>
         ) : null}
 
+        {glossary.status === 'ready' && results.length > FULL_GLOSSARY_SHEET_MAX ? (
+          <p className="mb-2 text-xs text-muted-foreground">
+            {t('utils.glossary.truncated', { shown: FULL_GLOSSARY_SHEET_MAX })}
+          </p>
+        ) : null}
+
         <ul className="space-y-2">
-          {results.slice(0, 60).map((term) => (
+          {results.slice(0, FULL_GLOSSARY_SHEET_MAX).map((term) => (
             <FullTermRow key={term.id} term={term} onInsert={onInsert} language={language} />
           ))}
         </ul>

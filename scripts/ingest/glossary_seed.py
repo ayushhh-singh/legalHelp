@@ -44,6 +44,7 @@ from ingest_common import DATA_DIR, INGEST_DIR, log, read_json, update_versions,
 SOURCES_DIR = INGEST_DIR / "glossary_sources"
 OUT_FILE = DATA_DIR / "glossary.json"
 STRUCTURE_TERMS_FILE = DATA_DIR / "drafting" / "structure-terms.json"
+DROPS_FILE = INGEST_DIR / "reports" / "glossary-drops.json"
 
 VERSION = "1.0.0"
 # Fixed, not a clock: a re-run whose content has not changed must produce a
@@ -88,13 +89,20 @@ def load_excluded_terms() -> set[str]:
     return {t["en"].strip().lower() for t in payload["terms"]}
 
 
-def build() -> dict[str, Any]:
+def build() -> tuple[dict[str, Any], dict[str, Any]]:
+    """The glossary payload, and a report of every term dropped and why."""
     excluded = load_excluded_terms()
     seen_en: dict[str, str] = {}  # lower(en) -> category that kept it
     seen_ids: set[str] = set()
     terms: list[dict[str, Any]] = []
-    dropped_duplicate = 0
-    dropped_excluded = 0
+    # Every drop is named, not just counted — a future run where
+    # structure-terms.json changes (a term added, removed or corrected) needs
+    # to be able to see WHICH glossary term moved, the same way every other
+    # dataset-boundary decision in this repo is logged by name rather than by
+    # count alone (`build()`'s report is written to
+    # scripts/ingest/reports/glossary-drops.json).
+    dropped_duplicate: list[dict[str, str]] = []
+    dropped_excluded: list[str] = []
 
     for category in CATEGORY_ORDER:
         path = SOURCES_DIR / f"{category}.json"
@@ -108,10 +116,10 @@ def build() -> dict[str, Any]:
             key = en.lower()
 
             if key in excluded:
-                dropped_excluded += 1
+                dropped_excluded.append(en)
                 continue
             if key in seen_en:
-                dropped_duplicate += 1
+                dropped_duplicate.append({"en": en, "kept_in": seen_en[key], "dropped_from": category})
                 continue
             seen_en[key] = category
 
@@ -136,17 +144,20 @@ def build() -> dict[str, Any]:
             terms.append(record)
 
     log(
-        f"glossary: {len(terms)} terms from {sum(1 for _ in CATEGORY_ORDER)} categories "
-        f"({dropped_duplicate} cross-category duplicate(s) dropped, "
-        f"{dropped_excluded} already in structure-terms.json dropped)"
+        f"glossary: {len(terms)} terms from {len(CATEGORY_ORDER)} categories "
+        f"({len(dropped_duplicate)} cross-category duplicate(s) dropped, "
+        f"{len(dropped_excluded)} already in structure-terms.json dropped — see "
+        f"{DROPS_FILE.relative_to(DATA_DIR.parent)})"
     )
 
-    return {
+    payload = {
         "version": VERSION,
         "generatedAt": STAMP,
         "disclaimer": DISCLAIMER,
         "terms": terms,
     }
+    drops = {"duplicate": dropped_duplicate, "excludedByStructureTerms": sorted(dropped_excluded)}
+    return payload, drops
 
 
 def main() -> int:
@@ -154,7 +165,7 @@ def main() -> int:
     parser.add_argument("--check", action="store_true", help="validate and compare against disk; write nothing")
     args = parser.parse_args()
 
-    payload = build()
+    payload, drops = build()
     validate(payload, "glossary.schema.json")
 
     by_category: dict[str, int] = {}
@@ -179,6 +190,7 @@ def main() -> int:
 
     changed, digest = write_json(OUT_FILE, payload)
     log(f"{'wrote' if changed else 'same '} {OUT_FILE} ({len(payload['terms'])} terms)")
+    write_json(DROPS_FILE, drops)
 
     update_versions(
         {

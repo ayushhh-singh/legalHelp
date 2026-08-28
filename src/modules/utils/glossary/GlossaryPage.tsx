@@ -25,10 +25,13 @@ type View = 'all' | 'favourites' | 'recents'
  * link, a status region). Rendering all 1,891 unfiltered ran axe-core past a
  * 30s timeout in a real browser and would cost a real reader the same way.
  * Capping the render, not the search, is what `GlossarySheet`'s own full-
- * glossary tab already does (`results.slice(0, 60)`) — a query still searches
+ * glossary tab already does (`FULL_GLOSSARY_SHEET_MAX` in that file, a
+ * smaller cap because a modal sheet is narrower) — a query still searches
  * every term, only the list on screen is bounded.
  */
 const MAX_RENDERED = 100
+
+const EMPTY_MAP: ReadonlyMap<string, GlossaryTerm> = new Map()
 
 /**
  * `/utils/glossary` — the full Hindi administrative glossary.
@@ -50,26 +53,58 @@ export default function GlossaryPage() {
   const [category, setCategory] = useState<GlossaryCategory | 'all'>('all')
   const [view, setView] = useState<View>('all')
 
-  const index = useMemo(
-    () => (glossary.status === 'ready' ? buildGlossaryIndex(glossary.data) : null),
-    [glossary],
+  /**
+   * The settled dataset, or `null` — a STABLE reference once loaded, unlike
+   * `glossary` itself (`useGlossary`'s `useAsync` returns a fresh wrapper
+   * object on every call, `retry` included, so memoising on `glossary`
+   * never actually hits its cache). Building the Fuse index over ~1,891
+   * terms is not cheap; keying on `glossaryData` instead is what makes it
+   * run once per load rather than once per keystroke.
+   */
+  const glossaryData = glossary.status === 'ready' ? glossary.data : null
+
+  const index = useMemo(() => (glossaryData ? buildGlossaryIndex(glossaryData) : null), [glossaryData])
+  const byId = useMemo(
+    () => (glossaryData ? new Map(glossaryData.terms.map((term) => [term.id, term])) : EMPTY_MAP),
+    [glossaryData],
   )
 
-  const byId = useMemo(() => {
-    if (glossary.status !== 'ready') return new Map<string, GlossaryTerm>()
-    return new Map(glossary.data.terms.map((term) => [term.id, term]))
-  }, [glossary])
-
-  const allResults = index ? searchGlossary(index, query, category) : []
-  const favouriteResults = favourites
-    .map((row) => byId.get(row.termId))
-    .filter((term): term is GlossaryTerm => term !== undefined)
-  const recentResults = recents
-    .map((row) => byId.get(row.termId))
-    .filter((term): term is GlossaryTerm => term !== undefined)
+  const allResults = useMemo(
+    () => (view === 'all' && index ? searchGlossary(index, query, category) : []),
+    [view, index, query, category],
+  )
+  const favouriteResults = useMemo(
+    () =>
+      view === 'favourites'
+        ? favourites.map((row) => byId.get(row.termId)).filter((term): term is GlossaryTerm => term !== undefined)
+        : [],
+    [view, favourites, byId],
+  )
+  const recentResults = useMemo(
+    () =>
+      view === 'recents'
+        ? recents.map((row) => byId.get(row.termId)).filter((term): term is GlossaryTerm => term !== undefined)
+        : [],
+    [view, recents, byId],
+  )
 
   const results = view === 'all' ? allResults : view === 'favourites' ? favouriteResults : recentResults
   const visibleResults = results.slice(0, MAX_RENDERED)
+
+  const toggleFavourite = (term: GlossaryTerm) => {
+    void toggle(term).catch(() => {
+      // Blocked or full IndexedDB. The button is a no-op rather than
+      // throwing an unhandled rejection — the same line `store.ts` and
+      // `src/modules/law/ConverterPage.tsx` take for a write that is not
+      // worth interrupting the reader over.
+    })
+  }
+
+  const recordCopy = (term: GlossaryTerm) => {
+    void recordUsed(term).catch(() => {
+      // Same as above: losing a recent-lookup row is not worth a message.
+    })
+  }
 
   return (
     <div className="mx-auto flex max-w-4xl flex-col gap-6">
@@ -127,13 +162,24 @@ export default function GlossaryPage() {
         ) : null}
 
         <div className="min-h-0 flex-1 p-4">
-          {view === 'all' && glossary.status === 'error' ? (
+          {/*
+            Favourites and recents are IndexedDB rows, independent of
+            `data/glossary.json` (`favourites`/`recents` settle before or
+            after the ~700 KB dataset does, in either order). Turning a saved
+            `termId` into a displayable `GlossaryTerm` needs the full dataset,
+            so this view has its OWN loading/error branches keyed on
+            `glossary.status`, gated separately from the "All terms" search —
+            without them, opening "Favourites" before the dataset has loaded
+            fell through to the generic empty-results message and told a
+            reader with real saved terms that none matched.
+          */}
+          {glossary.status === 'error' ? (
             <QueryErrorState body={t('errors.body')} onRetry={glossary.retry} />
           ) : null}
 
-          {view === 'all' && glossary.status === 'loading' ? (
+          {glossary.status === 'loading' ? (
             <div className="space-y-3" aria-live="polite" aria-label={t('common.loading')}>
-              {Array.from({ length: 6 }, (_, i) => (
+              {Array.from({ length: view === 'all' ? 6 : 3 }, (_, i) => (
                 <Skeleton key={i} className="h-16 w-full" />
               ))}
             </div>
@@ -148,7 +194,7 @@ export default function GlossaryPage() {
             </p>
           ) : null}
 
-          {view === 'favourites' && favourites.length === 0 ? (
+          {glossary.status === 'ready' && view === 'favourites' && favourites.length === 0 ? (
             <EmptyState
               icon={BookMarked}
               title={t('utils.glossary.view.favourites')}
@@ -156,7 +202,7 @@ export default function GlossaryPage() {
             />
           ) : null}
 
-          {view === 'recents' && recents.length === 0 ? (
+          {glossary.status === 'ready' && view === 'recents' && recents.length === 0 ? (
             <EmptyState
               icon={BookMarked}
               title={t('utils.glossary.view.recents')}
@@ -164,11 +210,19 @@ export default function GlossaryPage() {
             />
           ) : null}
 
-          {(view !== 'all' || glossary.status === 'ready') &&
-          results.length === 0 &&
-          (view === 'all' ||
-            (view === 'favourites' && favourites.length > 0) ||
-            (view === 'recents' && recents.length > 0)) ? (
+          {/*
+            The generic "nothing matched" message — shown once the relevant
+            source has settled (the search index for "All", the favourite/
+            recent rows for the other two) and turned out to have nothing to
+            show for THIS view specifically. Scoped per view rather than
+            `results.length === 0` alone: that alone would also fire for an
+            empty favourites/recents list, doubling up with the EmptyState
+            above, which already explains how to populate it.
+          */}
+          {glossary.status === 'ready' &&
+          ((view === 'all' && results.length === 0) ||
+            (view === 'favourites' && favourites.length > 0 && results.length === 0) ||
+            (view === 'recents' && recents.length > 0 && results.length === 0)) ? (
             <p className="py-8 text-center text-sm text-muted-foreground">{t('utils.glossary.empty')}</p>
           ) : null}
 
@@ -178,8 +232,8 @@ export default function GlossaryPage() {
                 key={term.id}
                 term={term}
                 favourite={favouriteIds.has(term.id)}
-                onToggleFavourite={(picked) => void toggle(picked)}
-                onCopy={(picked) => void recordUsed(picked)}
+                onToggleFavourite={toggleFavourite}
+                onCopy={recordCopy}
                 language={language}
               />
             ))}
@@ -232,7 +286,7 @@ function CategoryChip({
       className={cn(
         'inline-flex min-h-9 cursor-pointer items-center justify-center rounded-full border px-3 text-xs font-medium transition-colors',
         checked
-          ? 'border-action bg-action font-semibold text-action-foreground'
+          ? 'border-action bg-action text-action-foreground font-semibold'
           : 'border-border bg-card text-muted-foreground hover:border-input hover:text-foreground',
         'has-[:focus-visible]:ring-2 has-[:focus-visible]:ring-ring has-[:focus-visible]:ring-offset-2 has-[:focus-visible]:ring-offset-background',
       )}

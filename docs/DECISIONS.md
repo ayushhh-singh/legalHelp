@@ -2735,6 +2735,79 @@ exercises the dist-dependent checks; `pnpm check` does not build):
   in the manifest and the three `ALLOWED_INERT` entries above. Nothing in `data/rules/`, `scripts/
 authoring/`, or the Rules Trainer's own `CITATION_HOSTS` additions was touched or reviewed by this session.
 
+### Addendum (edge-case pass, same session) — two of these were live bugs, not style
+
+A user-requested review over the glossary commit — seven independent finder passes (line-by-line diff,
+cross-file tracer, removed-behaviour audit, reuse-of-helpers audit, altitude/depth, simplification,
+CLAUDE.md conventions) — found six things worth fixing. Two are correctness bugs a reader would actually
+hit; the rest are real but smaller.
+
+- **Favourites and recents showed "No term matches that." instead of loading, while the dataset was still
+  loading.** `byId` (`GlossaryPage.tsx`) needs the full ~700 KB dataset to turn a saved `termId` into a
+  displayable term, and favourites/recents themselves are IndexedDB rows that usually settle FIRST,
+  independently. Two agents (the cross-file tracer and the reuse-of-helpers audit) found this
+  independently: a reader who opens "Favourites" in that window, with real saved terms, was told none of
+  them matched — indistinguishable from having saved nothing. Fixed by giving that view its own
+  loading/error branches keyed on `glossary.status`, gated separately from the "All terms" search.
+  `GlossaryPage.test.tsx` holds a promise open on purpose (the same technique `pay-restore.test.tsx` uses
+  for its own race) and asserts the failure against the code before the fix, and the fix, both — the same
+  discipline ADR-022 already established for exactly this class of defect.
+- **The Fuse index rebuilt on every keystroke, not once per load.** `useGlossary`'s `useAsync` returns a
+  fresh wrapper object — `{ ...settled, retry }` — on every call, so `useMemo(() => buildGlossaryIndex(...),
+  [glossary])` in both `GlossaryPage.tsx` and `GlossarySheet.tsx`'s `FullGlossaryPanel` never actually hit
+  their cache: typing "avar sachiv" ran eleven full index rebuilds over ~1,891 terms instead of one.
+  `BodyEditor.tsx`'s `useGlossarySuggest` call, written in the same commit, already did this correctly —
+  memoising on `glossary.status === 'ready' ? glossary.data : null`, a reference that IS stable once
+  settled — and both other call sites now match it.
+- **`useGlossarySuggest`'s word boundary let a term glued to a reference number through.**
+  `(?<![A-Za-z])`/`(?![A-Za-z])` excludes adjacent letters but not digits or a hyphen-then-digit, so
+  "Panel2" and "Audit-2024" both offered their glossary term as a replacement — accepting either would
+  splice Hindi into what is actually a file or panel number, not the English word. Fixed with
+  `[A-Za-z0-9_]` plus a second, separate `(?!-\d)`/`(?<!\d-)` pair for the hyphenated shape a plain
+  character-class exclusion cannot express. `useGlossarySuggest.test.ts` gained both cases, plus a check
+  that a term followed by ordinary punctuation ("Secretary's") still matches — the fix narrows what a
+  reference number looks like, not what a sentence looks like.
+- **`GlossarySheet`'s header kept the structural tab's claim on screen while the full-glossary tab was
+  open.** The subtitle — "the manual's own Hindi... not the rendering most people expect" — is true of the
+  78-term CSMOP glossary and false of the ~1,891-term general one, which is explicitly NOT from the manual.
+  The subtitle is now keyed on `mode`. The same pass found `FullGlossaryPanel`'s search box was missing
+  `data-autofocus`, currently harmless only because `mode` always starts `'structural'` and the sheet
+  remounts fresh on every open — a latent trap for the natural next feature (remembering the last tab used)
+  that would have silently focused the Close button instead. Both panels carry it now; only one is ever
+  mounted at a time, so there is no ambiguity for `Sheet.tsx`'s own focus effect to resolve.
+- **`toggle`/`recordUsed` were bare `void`-called promises with no `.catch`,** unlike every other
+  fire-and-forget IndexedDB write in this codebase (`src/modules/law/ConverterPage.tsx`'s equivalent, and
+  `store.ts`'s). A blocked or full IndexedDB turned a tap on the favourite icon into a genuine unhandled
+  promise rejection. Both are wrapped now, matching the established "losing this row is not worth a
+  message" line. Fixing this alongside `useGlossaryFavourites.ts`'s mutation handlers — which used to
+  re-run `listFavourites()`/`listRecents()` against IndexedDB after every single action — also closed a
+  second-order race: two rapid toggles used to race two reads with no ordering guarantee, so a fast
+  double-tap's list could be overwritten by the FIRST tap's slower read resolving after the second. Both
+  handlers now patch the local list from the mutation's own known result via a functional `setState`
+  updater, which React guarantees always sees the latest state regardless of resolution order.
+- `pages.utils.emptyTitle`/`emptyBody` — the placeholder-page copy `ModulePlaceholder` printed before this
+  session — were left in both locale files with nothing referencing them once `UtilsHubPage.tsx` replaced
+  `ModulePlaceholder` on this route, and their content ("Tools not loaded yet") had gone stale the moment
+  the glossary shipped. `scripts/i18n-check.mjs` checks parity, not use, so this passed CI silently; removed
+  from both files.
+- `scripts/ingest/glossary_seed.py`'s cross-dataset drops were counted but not named. A term dropped for
+  colliding with `structure-terms.json`, or with an earlier category's own entry, is now logged by name to
+  `scripts/ingest/reports/glossary-drops.json` (mirroring `scripts/ingest/reports/law-gaps.json`'s existing
+  role) — so a future change to either dataset can see WHICH term moved, not just that the count changed.
+
+Three findings were read and deliberately not acted on, each for a stated reason rather than by omission:
+pinning zod's `to-json-schema.js` to its own build chunk (via `manualChunks`) would settle the
+`ALLOWED_INERT` churn ADR-024's own text above admits is possible again, but touches `vite.config.ts` for
+the whole app rather than this feature, while it ran concurrently with another session also building; a
+`useGlossarySuggest`-style suggestion strip for `FormFields.tsx`'s other bilingual field types (Subject,
+Remarks) is a real feature gap, not a defect in what shipped; and the three near-identical term-card
+components (`TermRow.tsx`, `GlossarySheet.tsx`'s two) stay duplicated, consistent with this project's
+stated "three call sites are not yet a pattern" line — each has different action buttons, not divergent
+copies of the same one.
+
+`pnpm check` (1,624 tests, 72 files) and the full Playwright suite (88 tests, `--workers=1`) are green
+after this pass, including `GlossaryPage.test.tsx` (new) and two new cases in `useGlossarySuggest.test.ts`.
+
 ---
 
 ## ADR-025 — The FSRS scheduler: a pure library, a plain-JSON row, and an IST day

@@ -20,11 +20,21 @@ const escapeRegExp = (value: string) => value.replace(ESCAPE, '\\$&')
  * same position — the alternation operator tries each branch in order and
  * stops at the first that matches.
  *
- * `(?<![A-Za-z])`/`(?![A-Za-z])` rather than `\b` on both sides: `\b` alone
- * would let "e-Office" match inside a longer hyphenated word, and a plain word
- * boundary either side of a multi-word term like "Copy to" already does the
- * right thing at the space, so the lookaround only has to guard the Latin-
- * letter ends.
+ * `(?<![A-Za-z0-9_])`/`(?![A-Za-z0-9_])` rather than `\b` on both sides: `\b`
+ * alone would let "e-Office" match inside a longer hyphenated word, and a
+ * plain word boundary either side of a multi-word term like "Copy to"
+ * already does the right thing at the space, so the lookaround only has to
+ * guard the ends. It excludes digits and `_` as well as letters — not just
+ * `[A-Za-z]` — because a term glued to a number is a reference, not the
+ * word: "Panel2" must not offer "Panel" as a replacement, since accepting it
+ * would splice Hindi into what is actually a panel number.
+ *
+ * A second, separate lookaround guards the hyphen-then-digit shape a plain
+ * `[A-Za-z0-9_]` exclusion misses: "Audit-2024" has a hyphen — not a letter,
+ * digit or underscore — immediately after "Audit", so the first lookaround
+ * alone lets it through and the term matches inside what is actually a file
+ * reference. `(?!-\d)`/`(?<!\d-)` reject a term immediately followed by, or
+ * preceded by, a hyphen that is itself next to a digit.
  */
 function buildMatcher(glossary: Glossary): { regex: RegExp; byLower: Map<string, GlossaryTerm> } | null {
   if (glossary.terms.length === 0) return null
@@ -35,7 +45,10 @@ function buildMatcher(glossary: Glossary): { regex: RegExp; byLower: Map<string,
   }
   const sorted = [...byLower.keys()].sort((a, b) => b.length - a.length)
   const pattern = sorted.map(escapeRegExp).join('|')
-  const regex = new RegExp(`(?<![A-Za-z])(?:${pattern})(?![A-Za-z])`, 'gi')
+  const regex = new RegExp(
+    `(?<![A-Za-z0-9_])(?<!\\d-)(?:${pattern})(?![A-Za-z0-9_])(?!-\\d)`,
+    'gi',
+  )
   return { regex, byLower }
 }
 
