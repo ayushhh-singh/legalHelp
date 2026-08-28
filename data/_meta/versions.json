@@ -303,6 +303,162 @@
       },
       "rows": 62,
       "sha256": "3b63bb8f5dbdabcb6dfeb643591c8b41612fbc02d2965430c726a56b6de9efa9"
+    },
+    "rules-ccs-conduct": {
+      "version": "1.0.0",
+      "updated": "2026-08-28",
+      "label": {
+        "en": "CCS (Conduct) Rules",
+        "hi": "सीसीएस (आचरण) नियम"
+      },
+      "rows": 32,
+      "source": {
+        "name": "Department of Personnel and Training — CCS (Conduct) Rules, 1964 — updated as on 27 February 2015",
+        "url": "https://dopt.gov.in/sites/default/files/CCS_Conduct_Rules_1964_Updated_27Feb15_0.pdf"
+      }
+    },
+    "rules-ccs-cca": {
+      "version": "1.0.0",
+      "updated": "2026-08-28",
+      "label": {
+        "en": "CCS (CCA) Rules",
+        "hi": "सीसीएस (सीसीए) नियम"
+      },
+      "rows": 34,
+      "source": {
+        "name": "Department of Personnel and Training — CCS (CCA) Rules, 1965 — consolidated",
+        "url": "https://dopt.gov.in/sites/default/files/CCS-CCA-Rules-FINAL.pdf"
+      }
+    },
+    "rules-ccs-leave": {
+      "version": "1.0.0",
+      "updated": "2026-08-28",
+      "label": {
+        "en": "CCS (Leave) Rules",
+        "hi": "सीसीएस (छुट्टी) नियम"
+      },
+      "rows": 75,
+      "source": {
+        "name": "Department of Personnel and Training — CCS (Leave) Rules, 1972 — updated as on 24 September 2024",
+        "url": "https://documents.doptcirculars.nic.in/D2/D02est/updatedccsleaverulesN9ExV.pdf"
+      }
+    },
+    "rules-ccs-pension": {
+      "version": "1.0.0",
+      "updated": "2026-08-28",
+      "label": {
+        "en": "CCS (Pension) Rules",
+        "hi": "सीसीएस (पेंशन) नियम"
+      },
+      "rows": 86,
+      "source": {
+        "name": "Department of Pension and Pensioners' Welfare — CCS (Pension) Rules, 2021 — gazette notification, English",
+        "url": "https://pensionersportal.gov.in/Document/CCS-Pension-Rules%202021-English.pdf"
+      }
+    },
+    "rules-gfr": {
+      "version": "1.0.0",
+      "updated": "2026-08-28",
+      "label": {
+        "en": "GFR 2017",
+        "hi": "जीएफआर 2017"
+      },
+      "rows": 307,
+      "source": {
+        "name": "Department of Expenditure, Ministry of Finance — General Financial Rules 2017 — updated up to 31 January 2026",
+        "url": "https://doe.gov.in/files/circulars_document/GFRupdatedupto31012026.pdf"
+      }
+    },
+    "rules-rti": {
+      "version": "1.0.0",
+      "updated": "2026-08-28",
+      "label": {
+        "en": "RTI Act",
+        "hi": "आरटीआई अधिनियम"
+      },
+      "rows": 31,
+      "source": {
+        "name": "Department of Personnel and Training — Right to Information Act, 2005 — updated as on 18 November 2025",
+        "url": "https://dopt.gov.in/sites/default/files/RTI%20Act%202005%20%28updated%20as%20on%2018-11-2025%29.pdf"
+      }
+    },
+    "rules-osa": {
+      "version": "1.0.0",
+      "updated": "2026-08-28",
+      "label": {
+        "en": "OSA 1923",
+        "hi": "ओएसए 1923"
+      },
+      "rows": 14,
+      "source": {
+        "name": "Ministry of Home Affairs — The Official Secrets Act, 1923",
+        "url": "https://www.mha.gov.in/sites/default/files/Official_Secret_Act1923_2.pdf"
+      }
+    },
+    "rules-posh": {
+      "version": "1.0.0",
+      "updated": "2026-08-28",
+      "label": {
+        "en": "PoSH Act 2013",
+        "hi": "पॉश अधिनियम 2013"
+      },
+      "rows": 30,
+      "source": {
+        "name": "Ministry of Women and Child Development — The Sexual Harassment of Women at Workplace Act, 2013",
+        "url": "https://www.indiacode.nic.in/bitstream/123456789/2104/1/A2013-14.pdf"
+      }
+    },
+    "rules-ol-act": {
+      "version": "1.0.0",
+      "updated": "2026-08-28",
+      "label": {
+        "en": "OL Act 1963",
+        "hi": "राजभाषा अधिनियम"
+      },
+      "rows": 8,
+      "source": {
+        "name": "Department of Official Language, Ministry of Home Affairs — The Official Languages Act, 1963 (as amended, 1967)",
+        "url": "https://rajbhasha.gov.in/sites/default/files/rajbhasha_act_1963e.pdf"
+      }
+    },
+    "rules-ol-rules": {
+      "version": "1.0.0",
+      "updated": "2026-08-28",
+      "label": {
+        "en": "OL Rules 1976",
+        "hi": "राजभाषा नियम 1976"
+      },
+      "rows": 12,
+      "source": {
+        "name": "Department of Official Language, Ministry of Home Affairs — Official Languages Rules, 1976 (as amended 1987, 2007, 2011)",
+        "url": "https://rajbhasha.gov.in/en/official-language-rules-1976"
+      }
+    },
+    "rules-fr-sr": {
+      "version": "1.0.0",
+      "updated": "2026-08-28",
+      "label": {
+        "en": "FR & SR",
+        "hi": "एफआर एवं एसआर"
+      },
+      "rows": 77,
+      "source": {
+        "name": "Department of Personnel and Training — Compilation of Fundamental Rules and Supplementary Rules — English",
+        "url": "https://dopt.gov.in/sites/default/files/Compilation_FR_SR_English_2.pdf"
+      }
+    },
+    "rules-csmop": {
+      "version": "1.0.0",
+      "updated": "2026-08-28",
+      "label": {
+        "en": "CSMOP 2022",
+        "hi": "सीएसएमओपी 2022"
+      },
+      "rows": 112,
+      "source": {
+        "name": "Department of Administrative Reforms and Public Grievances — Central Secretariat Manual of Office Procedure, 2022 (16th edition) — English",
+        "url": "https://www.darpg.gov.in/static/uploads/2025/10/774e0b8f427b7875158363d842fa431f.pdf"
+      }
     }
   },
   "generatedAt": "2026-08-29"

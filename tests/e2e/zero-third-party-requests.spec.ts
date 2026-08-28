@@ -9,6 +9,7 @@ const ROUTES = [
   '/utils',
   '/utils/glossary',
   '/settings',
+  '/onboarding',
 ]
 
 /**
@@ -125,6 +126,42 @@ test('sends nothing while the glossary is searched, copied and saved', async ({ 
 })
 
 /**
+ * The command palette (Session 14): every section it searches is a `?raw`
+ * dynamic import over the same datasets each module already loads this way
+ * (ADR-013 and friends) — opening it and typing across several of them must
+ * not turn into a request any more than opening those modules' own pages
+ * does.
+ */
+test('sends nothing while the command palette is opened, searched across sections, and used to navigate', async ({
+  page,
+  baseURL,
+}) => {
+  const origin = new URL(baseURL ?? 'http://localhost:4173').origin
+  const crossOrigin: string[] = []
+
+  page.on('request', (request) => {
+    const url = new URL(request.url())
+    if (url.origin !== origin) crossOrigin.push(`${request.method()} ${request.url()}`)
+  })
+
+  await page.goto('/law')
+  await expect(page.getByRole('heading', { level: 1 })).toBeVisible()
+
+  await page.keyboard.press('Control+k')
+  await expect(page.getByRole('dialog')).toBeVisible()
+
+  for (const query of ['hatya', 'ACIO', 'avar sachiv', 'OM']) {
+    await page.getByRole('combobox').fill(query)
+    await expect(page.getByRole('option').first()).toBeVisible({ timeout: 20_000 })
+  }
+
+  await page.getByRole('option').first().click()
+  await expect(page.getByRole('dialog')).toBeHidden()
+
+  expect(crossOrigin).toEqual([])
+})
+
+/**
  * The Rules Trainer's own capture surfaces (Session 12): a grade, a bookmark,
  * a free-text report note and a settings change — the report note in
  * particular is the closest thing in this module to an open text field, and
@@ -201,6 +238,45 @@ test('sends nothing while the AI section is read, consented to and configured', 
   await tiers.getByRole('radio', { name: /Your own Anthropic key/ }).click()
   await expect(page.getByText('needs setup')).toBeVisible()
   await expect(page.getByLabel('Anthropic API key')).toBeVisible()
+
+  expect(crossOrigin).toEqual([])
+})
+
+/**
+ * First-run onboarding (ADR-028) is the first thing a fresh install shows,
+ * and it is the one place a reader picks a post and a city before they have
+ * seen anything else in the app — worth the same guarantee as every other
+ * form here, checked over the full walk rather than a single field.
+ */
+test('sends nothing while onboarding is walked through, post and city included', async ({
+  page,
+  baseURL,
+}) => {
+  const origin = new URL(baseURL ?? 'http://localhost:4173').origin
+  const crossOrigin: string[] = []
+
+  page.on('request', (request) => {
+    const url = new URL(request.url())
+    if (url.origin !== origin) crossOrigin.push(`${request.method()} ${request.url()}`)
+  })
+
+  await page.goto('/')
+  await expect(page.getByRole('heading', { level: 1, name: 'Choose your language' })).toBeVisible()
+  await page.getByRole('button', { name: 'Continue' }).click()
+
+  const jobPicker = page.getByRole('combobox', { name: 'Post', exact: true })
+  await expect(jobPicker).toBeVisible({ timeout: 30_000 })
+  await jobPicker.fill('ACIO')
+  await page.getByRole('option', { name: /Assistant Central Intelligence Officer, Grade-II/ }).click()
+
+  const cityPicker = page.getByRole('combobox', { name: 'Place of posting', exact: true })
+  await cityPicker.fill('Delhi')
+  await page.getByRole('option', { name: /^Delhi/ }).first().click()
+  await page.getByRole('button', { name: 'Continue' }).click()
+
+  await expect(page.getByRole('heading', { name: 'Before you begin' })).toBeVisible()
+  await page.getByRole('button', { name: 'Understood' }).click()
+  await expect(page.getByRole('heading', { level: 1, name: 'Law Converter' })).toBeVisible()
 
   expect(crossOrigin).toEqual([])
 })

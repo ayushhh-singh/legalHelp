@@ -24,6 +24,10 @@ export const SETTING_KEYS = {
   draft: 'draft',
   /** The Trainer's local daily-reminder toggle — see src/modules/trainer/reminder.ts. */
   learnReminder: 'learnReminder',
+  /** True once the first-run onboarding has been completed or skipped. */
+  onboarded: 'onboarded',
+  /** Devanagari digits (०-९) in place of Arabic ones, applied wherever numerals render. */
+  devanagariDigits: 'devanagariDigits',
 } as const
 
 /**
@@ -288,6 +292,24 @@ export interface HolidayPickRow {
   createdAt: string
 }
 
+/**
+ * One command palette result the reader actually went to — nav destinations,
+ * settings actions and other non-navigating commands are not recorded, the
+ * same line `LawRecentRow`/`GlossaryRecentRow` take: this is a list of places
+ * to jump back to, not a log of every keystroke. Keyed on the item's own id so
+ * revisiting the same law section or job post overwrites rather than
+ * accumulating, and `en`/`hi`/`section` are a snapshot so the list renders
+ * before any of the underlying datasets have loaded.
+ */
+export interface CommandRecentRow {
+  id: string
+  section: string
+  en: string
+  hi: string
+  to: string
+  viewedAt: string
+}
+
 export type SettingKey = (typeof SETTING_KEYS)[keyof typeof SETTING_KEYS]
 
 export class SahayakDB extends Dexie {
@@ -311,6 +333,7 @@ export class SahayakDB extends Dexie {
   proposedCards!: Table<ProposedCardRow, string>
   cardOverrides!: Table<CardOverrideRow, string>
   holidayPicks!: Table<HolidayPickRow, string>
+  commandRecents!: Table<CommandRecentRow, string>
 
   constructor(name = 'sahayak') {
     super(name)
@@ -459,6 +482,32 @@ export class SahayakDB extends Dexie {
       proposedCards: '&id, createdAt',
       cardOverrides: '&qId, decidedAt',
       holidayPicks: '&id, year, createdAt',
+    })
+    // Version 10 — the command palette's recent-jumps list (Session 14). Indexed
+    // on `viewedAt` for the same reason every other recents table is: it is
+    // only ever read newest-first.
+    this.version(10).stores({
+      settings: '&key',
+      secrets: '&id',
+      aiAnswers: '&id, agentId, dataVersion, createdAt',
+      aiUsage: '&month',
+      lawFavourites: '&id, createdAt',
+      lawRecents: '&id, viewedAt',
+      payScenarios: '&id, name, updatedAt',
+      drafts: '&id, templateId, updatedAt',
+      draftDefaults: '&id, templateId, updatedAt',
+      glossaryFavourites: '&id, createdAt',
+      glossaryRecents: '&id, viewedAt',
+      srsCards: '&qId, due, state',
+      reviewLog: '&id, qId, at',
+      streaks: '&date',
+      trainerSettings: '&id',
+      trainerBookmarks: '&qId, createdAt',
+      trainerReports: '&id, qId, createdAt',
+      proposedCards: '&id, createdAt',
+      cardOverrides: '&qId, decidedAt',
+      holidayPicks: '&id, year, createdAt',
+      commandRecents: '&id, viewedAt',
     })
   }
 }

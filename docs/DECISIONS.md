@@ -3193,3 +3193,123 @@ there rather than hand-editing the generated file.
 - `src/ai/tools/index.ts` registers `registerRulesTools()` alongside the other three; eighteen tools
   becomes twenty-two (four `learn`-scope: `get_rule_text`, `get_user_weak_areas`, `get_card_history`,
   `propose_card`).
+
+---
+
+## ADR-028 — Onboarding and Settings: a second fetch exemption, an onboarding gate scoped to `/` alone, and a global Devanagari-digits toggle that finally has something wired to it
+
+**Date:** 2026-08-29 · **Status:** Accepted
+
+### Context
+
+This session's brief: a three-step, skippable first-run onboarding (language; optional job + city, which
+should prefill Pay and enable relevant Trainer acts; a privacy statement), and a Settings screen with
+theme/language (already built), a Devanagari-digits toggle, a daily-reminder shortcut, "Check for data
+updates" (a live fetch against `data/_meta/versions.json`, bypassing cache, diffed against the bundled
+copy), export/import/erase, an About card and a data-sources table. Four of those needed a real decision
+against standing rules rather than a routine build.
+
+### Decision
+
+**1. A second, narrowly-scoped fetch exemption.** ADR-011 point 3 makes `src/ai/providers/wire.ts` the
+only module allowed to call the `fetch` global — `eslint.config.js`'s `no-restricted-globals` rule bans it
+everywhere else in `src/`, on purpose, so "what in this app can talk to the network?" stays answerable
+from one file. "Check for data updates" needs a genuine network round trip: comparing the bundled
+`data/_meta/versions.json` (a build-time import, like `DataVersion.tsx` already does) against what the
+origin currently serves is not answerable from anything already in the bundle. `src/lib/dataUpdates.ts` is
+now a second named exception in that same eslint block, for the same reason wire.ts got one rather than
+reaching the global as `globalThis.fetch` to dodge the rule silently: the request is same-origin, carries
+no user-entered data, and its path is a literal string with a `Date.now()` cache-buster appended — never
+built from a parameter — so the module cannot become a way to fetch anything else. `tests/no-external-
+urls.test.ts` gains a test mirroring `names api.anthropic.com in exactly one module`: it greps `src/` for a
+BARE `fetch(` call (not `globalThis.fetch`, which three AI provider modules reference purely as a type —
+`fetchImpl?: typeof globalThis.fetch` — so an implementation can be injected in tests without any of them
+calling it) and asserts the only file exempted by name that actually contains one is `dataUpdates.ts` —
+`wire.ts` itself never calls the bare identifier either, it always calls an injected `doFetch` — so the
+independent check is "no OTHER file does", not "exactly these two do".
+
+The request bypasses two cache layers, not one: `cache: 'no-store'` skips the browser's HTTP cache, and a
+`?bypass=<timestamp>` query param defeats the service worker's own `StaleWhileRevalidate` rule for `/data/
+**/*.json` (`vite.config.ts`) — that rule serves a cached response for a URL it has already seen, but this
+exact URL, with this exact timestamp, has never been cached, so a miss there is a real network fetch. The
+comparison itself (`diffVersions`) is pure and unit-tested without a network at all; `fetchLatestVersions`
+is the one untested-by-design line that makes the call.
+
+**2. Onboarding gates exactly one route: a bare `/`.** The obvious design — redirect every unauthenticated
+route to `/onboarding` until a flag is set — would have broken every one of the roughly eighty existing
+Playwright specs and dozens of component tests that navigate straight to `/law`, `/pay`, `/settings` and
+so on, none of which seed an `onboarded` row first, because none of them are simulating a fresh install; a
+shared law-section link or a saved pay scenario is exactly the case an onboarding wizard must never
+interrupt. `App.tsx`'s existing `path="/"` route — previously an unconditional `<Navigate to={HOME_PATH}
+/>` — now branches on `hydrated` (show the loading fallback) and, once hydrated, on `onboarded` (Law
+Converter or `/onboarding`). Every other route, known or unknown, is untouched — the catch-all `path="*"`
+still goes straight to `HOME_PATH`. This is also the literal PWA `start_url` (`vite.config.ts`), so the one
+path this gates is the one a fresh install actually opens on.
+
+The hydrated-guard is not decoration: deciding before `hydrate()` resolves would either flash the normal
+shell for an unonboarded device for one frame, or — worse — send an already-onboarded reader who reloaded
+`/` back through the whole wizard for the frame before IndexedDB answers. Two existing test files' own
+`renderShell` helpers had to gain the same `useAppStore.setState({ hydrated: false })` reset `store.edge.
+test.ts` already uses before calling `hydrate()` by hand: `useAppStore` is a module-level singleton that
+outlives any one test within a file, so a `hydrated: true` left over from an earlier case let the `/`
+route's onboarding check decide on stale state for one render frame, before the new mount's own `hydrate()`
+had resolved — `src/components/common/common.edge.test.tsx`'s two new root-route cases (fresh device →
+onboarding; `onboarded: true` written first → straight to Law) are what caught it.
+
+**3. `TrainerActHint.acts: []` means "make no change", not "enable nothing".** `TrainerSettings.actsEnabled`
+already treats an empty array as "every rule book" (`src/lib/srs/types.ts`). The brief's own example — "IB →
+Conduct, OSA, RTI s.24 note" — reads as ADDING relevance, but `actsEnabled` is a restrictive allowlist, and
+narrowing a fresh install's Trainer queue down to one or two rule books for every post (most of `data/pay/
+jobs.json`'s twenty-two organisations have no special relevance to name) would have made the Trainer look
+broken for the common case. `src/modules/onboarding/actHints.ts#trainerActHintsForJob` returns `acts: []`
+— read by the caller as "leave `actsEnabled` alone" — for every organisation with no self-evident link to
+intelligence, investigation or classified material, and only narrows to `['ccs-conduct', 'osa']` for the
+nine that do (`ib`, `nia`, `cbi`, `ncb`, `ed`, `capf`, `delhi-police`, `mod-civ`, `drdo`). The RTI s.24 note
+is shown only for the two organisations named in the RTI Act's Second Schedule beyond any reasonable
+dispute — Intelligence Bureau and National Investigation Agency, the brief's own worked example — rather
+than attempting a legal classification of all twenty-two, which this app is not positioned to make and
+where a wrong "your organisation is exempt from X" is worse than saying nothing. Every one of these is a
+starting preset, changeable in one tap at `/learn/settings`, and the onboarding screen's own note says so.
+
+**4. The Devanagari-digits toggle is global, and it is now wired to something real.** `src/lib/drafting/
+format.ts#toDevanagariDigits` and `RenderOptions.devanagariDigits` (ADR-020's engine) have existed since
+the Drafting Studio shipped, exercised by `tests/drafting-data.test.ts` and exposed as a parameter on the
+`render_draft` AI tool — but no UI control anywhere ever set it; a reader could not actually turn it on.
+Rather than build a second, drafting-local toggle, `devanagariDigits` joins `theme` as a top-level
+`useAppStore` field (`SETTING_KEYS.devanagariDigits`, hydrated and persisted the same way), and `src/
+modules/drafting/EditorPage.tsx`'s two `render`/`renderDocument` calls now read it from the store instead
+of defaulting the option to `false` inline — a change with no default-behaviour risk, since the store's own
+default is `false` too, so every existing drafting test and `.txt` snapshot is unaffected until a reader
+actually flips the switch. It deliberately does NOT reach the Pay calculator's payslip: ADR-018 fixes those
+numerals at Inter `tabular-nums` for column alignment, a decision this toggle does not reopen, and the
+store field's own doc comment says so.
+
+**5. `data/_meta/versions.json` gains twelve entries it should have had already.** The "Data sources &
+versions" table reads this file directly, the same way `DataVersion.tsx` does, and the acceptance check
+asks it to list every dataset in `/data`. It did not: Session 9's whole `data/rules/` — twelve rule books,
+818 rules, 2,607 cards — was never added to `versions.json`, unrelated to anything this session's brief
+asked for. Closed by adding one `rules-<act>` entry per act, generated from `data/rules/index.json`'s own
+per-act `short` label and `source` (already fetched and cited there), rather than leaving the gap for the
+About screen to inherit. All twelve source hosts were already on `tests/no-external-urls.test.ts`'s
+`CITATION_HOSTS` allowlist — `data/rules/text/*.json` cites the same ones — so no allowlist change was
+needed.
+
+### Consequences
+
+- `pnpm typecheck` and `pnpm lint` are clean; `pnpm test` is clean except for pre-existing, unrelated
+  items also visible on `main` before this session (`tests/bundle-budget.test.ts`'s initial-route ceiling,
+  `docs/DATA-GAPS.md` #55) and issues that belong to concurrent work in the same tree at the time of
+  writing (a second session's session's own uncommitted Dexie v10 bump and `PaletteRoot` component;
+  neither is this session's to fix).
+- `src/db/index.ts` gained two more keys in the existing `settings` table (`onboarded`,
+  `devanagariDigits`) and no new Dexie table or schema version — both are booleans a reader can only ever
+  overwrite, not a log or a scheduled row, so the existing key-value table is the right shape.
+- `src/lib/backup.ts` (export/import/erase) and `src/lib/dataUpdates.ts` (the update check) are new,
+  small, pure-where-possible modules with their own unit tests; the settings components that call them
+  (`src/modules/settings/components/*`) are thin UI shells over them, matching the split `usePayTables` /
+  `data.ts` already draw elsewhere.
+- Export excludes `secrets` (the AI key vault — a passphrase-mode vault is only as safe as the passphrase,
+  and moving it into a portable file is a real weakening of "on-device only" even encrypted), `aiAnswers`
+  and `aiUsage` (a cache and a billing ledger, neither saved on purpose) by NAME rather than including the
+  rest by name, so a table a later session adds is backed up by default — the same convention
+  `clearAllData` already uses for erase.

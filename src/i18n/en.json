@@ -18,7 +18,8 @@
     "toggleTheme": "Switch to dark theme",
     "toggleThemeLight": "Switch to light theme",
     "currentPage": "Current page",
-    "breadcrumbs": "Breadcrumbs"
+    "breadcrumbs": "Breadcrumbs",
+    "openCommandPalette": "Open command palette"
   },
   "common": {
     "loading": "Loading…",
@@ -81,7 +82,84 @@
       "themeLight": "Light",
       "themeDark": "Dark",
       "privacyTitle": "Privacy",
-      "privacyBody": "Everything you enter stays on this device, in your browser's storage. There is no account, no server and no analytics."
+      "privacyBody": "Everything you enter stays on this device, in your browser's storage. There is no account, no server and no analytics.",
+      "digits": {
+        "title": "Devanagari digits",
+        "hint": "Use ०-९ instead of 0-9 wherever numerals are shown in Hindi."
+      },
+      "reminder": {
+        "title": "Daily reminder",
+        "on": "On, at {{time}}.",
+        "off": "Off.",
+        "trainerLink": "Set the time and which rule books it covers in Trainer settings"
+      },
+      "updates": {
+        "title": "Check for data updates",
+        "hint": "Compares the dataset versions this build shipped with against what is currently on the server.",
+        "check": "Check for updates",
+        "checking": "Checking…",
+        "error": "Could not reach the server to check. Try again once you have a connection.",
+        "upToDate": "You have the latest data.",
+        "found": "A newer copy of some datasets is available:",
+        "added": "{{id}} — new, not in this build",
+        "removed": "{{id}} — no longer on the server",
+        "reload": "Reload to check for the update"
+      },
+      "backup": {
+        "title": "Export all my data",
+        "hint": "One JSON file with your settings, favourites, drafts, scenarios, Trainer progress and reports — everything except your AI key and cache.",
+        "export": "Export all my data",
+        "import": "Import backup",
+        "importError": "That file isn't a Sahayak backup, or it's damaged.",
+        "importSuccess": "Restored {{count}} rows."
+      },
+      "erase": {
+        "title": "Erase all my data",
+        "hint": "Clears everything this app has stored on this device — settings, favourites, drafts, scenarios, Trainer progress, reports. This cannot be undone; export a backup first if you want one.",
+        "confirmLabel": "Type {{word}} to confirm",
+        "erasing": "Erasing…",
+        "action": "Erase all my data"
+      },
+      "about": {
+        "title": "About",
+        "version": "Version",
+        "build": "Build",
+        "licence": "Licence",
+        "disclaimer": "A personal project, built over public data only. Not affiliated with any department.",
+        "reportError": "Report a data error"
+      },
+      "dataSources": {
+        "title": "Data sources & versions",
+        "hint": "Every dataset bundled into this build, and where it came from.",
+        "dataset": "Dataset",
+        "version": "Version",
+        "updated": "Updated",
+        "rows": "Rows",
+        "source": "Source"
+      }
+    }
+  },
+  "onboarding": {
+    "stepOf": "Step {{step}} of {{total}}",
+    "skipSetup": "Skip setup",
+    "continue": "Continue",
+    "back": "Back",
+    "understood": "Understood",
+    "step1": {
+      "title": "Choose your language",
+      "subtitle": "You can switch this any time — Hindi and English are on equal footing everywhere in Sahayak."
+    },
+    "step2": {
+      "title": "Your post and city (optional)",
+      "subtitle": "Prefills the Pay calculator and highlights relevant Rules Trainer rule books. Skip this if you'd rather set it up later.",
+      "unavailable": "The post and city lists could not be loaded right now — you can set these later from the Pay calculator."
+    },
+    "step3": {
+      "title": "Before you begin",
+      "subtitle": "Three promises Sahayak keeps.",
+      "onDevice": "Everything you enter — drafts, scenarios, saved sections — stays on this device, in your browser's own storage.",
+      "noAccounts": "No account, no sign-in, no server. There is nothing to lose access to.",
+      "noAnalytics": "No analytics, by default and always — nothing about how you use this app is collected."
     }
   },
   "ai": {
@@ -806,7 +884,9 @@
       },
       "favouritesEmpty": "No terms saved yet. Save one from the list to find it here.",
       "recentsEmpty": "No terms copied or inserted yet.",
-      "clearRecents": "Clear recent list"
+      "clearRecents": "Clear recent list",
+      "share": "Copy link",
+      "linkCopied": "Link copied to the clipboard."
     },
     "holidays": {
       "title": "Holiday calendar",
@@ -1025,7 +1105,10 @@
       "masteryNotStarted": "Not started",
       "noCardsYet": "This rule has no approved cards yet.",
       "backToActs": "All rule books",
-      "reviewRule": "Review this rule"
+      "reviewRule": "Review this rule",
+      "copyLink": "Copy link to this rule book",
+      "linkCopied": "Link copied to the clipboard.",
+      "linkCopyFailed": "The browser would not let this app use the clipboard."
     },
     "bookmarks": {
       "title": "Bookmarks",
@@ -1097,5 +1180,36 @@
       "rejectedToast": "Rejected.",
       "progress": "{{current}} of {{total}}"
     }
+  },
+  "palette": {
+    "label": "Global command menu",
+    "searchLabel": "Search",
+    "placeholder": "Search sections, posts, glossary, forms, rules, portals…",
+    "empty": "Nothing matches that yet.",
+    "loading": "Searching…",
+    "groups": {
+      "recent": "Recent",
+      "nav": "Go to",
+      "law": "Law sections",
+      "pay": "Job posts",
+      "glossary": "Glossary",
+      "draft": "Document types",
+      "trainer": "Trainer topics",
+      "portals": "Portals",
+      "settings": "Settings"
+    }
+  },
+  "shortcuts": {
+    "title": "Keyboard shortcuts",
+    "palette": "Open the command palette",
+    "goLaw": "Go to Law Converter",
+    "goPay": "Go to Pay & Allowances",
+    "goDraft": "Go to Drafting Studio",
+    "goLearn": "Go to Rules Trainer",
+    "goUtils": "Go to Utilities",
+    "focusSearch": "Focus this page's search box",
+    "help": "Show this list",
+    "close": "Close a dialog or sheet",
+    "note": "None of these fire while you are typing in a field."
   }
 }

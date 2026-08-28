@@ -2,9 +2,11 @@ import { lazy, Suspense, useEffect } from 'react'
 import { Navigate, Route, Routes, useLocation } from 'react-router-dom'
 
 import { BottomTabs, Sidebar } from './Nav'
+import { usePaletteStore } from './paletteStore'
 import { PwaNotices } from './pwa'
 import { TopBar } from './TopBar'
 import { useAppStore } from './store'
+import { useGlobalShortcuts } from './useGlobalShortcuts'
 
 import { ErrorBoundary } from '@/components/common/ErrorBoundary'
 import { useT } from '@/i18n/useT'
@@ -16,6 +18,17 @@ const DraftPage = lazy(() => import('@/modules/drafting/DraftPage'))
 const LearnPage = lazy(() => import('@/modules/trainer/LearnPage'))
 const UtilsPage = lazy(() => import('@/modules/utils/UtilsPage'))
 const SettingsPage = lazy(() => import('@/modules/settings/SettingsPage'))
+
+/**
+ * The command palette and the shortcuts-help sheet: one lazy chunk, mounted
+ * only once the reader has actually asked for one of them (Ctrl-K, the
+ * search button, or `?`) — the same "laziness as a privacy/perf property"
+ * line the AI layer draws (ADR-011). `useGlobalShortcuts` itself is tiny and
+ * stays a normal import: it only listens and writes to `usePaletteStore`, so
+ * the two overlays it can open are what stay behind the split.
+ */
+const PaletteRoot = lazy(() => import('@/components/palette/PaletteRoot'))
+const OnboardingPage = lazy(() => import('@/modules/onboarding/OnboardingPage'))
 
 function RouteFallback() {
   const { t } = useT()
@@ -29,11 +42,16 @@ function RouteFallback() {
 export function App() {
   const { t } = useT()
   const hydrate = useAppStore((s) => s.hydrate)
+  const hydrated = useAppStore((s) => s.hydrated)
+  const onboarded = useAppStore((s) => s.onboarded)
   const { pathname } = useLocation()
+  const paletteWanted = usePaletteStore((s) => s.open || s.helpOpen)
 
   useEffect(() => {
     void hydrate()
   }, [hydrate])
+
+  useGlobalShortcuts()
 
   return (
     <div className="flex min-h-dvh flex-col bg-background text-foreground">
@@ -57,7 +75,28 @@ export function App() {
           <ErrorBoundary resetKey={pathname}>
             <Suspense fallback={<RouteFallback />}>
               <Routes>
-                <Route path="/" element={<Navigate to={HOME_PATH} replace />} />
+                {/*
+                  Only a bare `/` — the PWA's `start_url` — is ever sent to
+                  onboarding, and only once `hydrate()` has actually answered
+                  whether this device has completed or skipped it. Deciding
+                  before that would flash the normal shell for an unboarded
+                  device or, worse, send an already-onboarded reader who
+                  reloaded a deep link through the whole flow again for the
+                  one frame before IndexedDB settles.
+                */}
+                <Route
+                  path="/"
+                  element={
+                    !hydrated ? (
+                      <RouteFallback />
+                    ) : onboarded ? (
+                      <Navigate to={HOME_PATH} replace />
+                    ) : (
+                      <Navigate to="/onboarding" replace />
+                    )
+                  }
+                />
+                <Route path="/onboarding" element={<OnboardingPage />} />
                 {/* The Law Converter owns its own sub-routes (/law/whats-new, /law/saved);
                     src/lib/nav.ts stays the one list of navigation destinations. */}
                 <Route path="/law/*" element={<LawPage />} />
@@ -79,6 +118,11 @@ export function App() {
 
       <BottomTabs />
       <PwaNotices />
+      {paletteWanted ? (
+        <Suspense fallback={null}>
+          <PaletteRoot />
+        </Suspense>
+      ) : null}
     </div>
   )
 }

@@ -94,6 +94,17 @@ const ALLOWED_INERT: ReadonlyArray<{ pattern: RegExp; why: string }> = [
     pattern: OPT_IN_ENDPOINT.pattern,
     why: 'Tier 1 BYOK endpoint; reached only after explicit consent, from one lazy-loaded module',
   },
+  {
+    pattern: /^https:\/\/radix-ui\.com\/primitives\/docs\/components\/\$\{[^}]*\}$/,
+    why:
+      "@radix-ui/react-dialog's own dev-mode warning — \"DialogContent requires a DialogTitle\"/" +
+      '"...a DialogDescription..." — builds a documentation link from a template literal ' +
+      '(`https://radix-ui.com/primitives/docs/components/${slug}`), the same "captured post-minification, ' +
+      'variable name generic" shape as zod\'s IPv6 validator above. cmdk\'s `Command.Dialog` ' +
+      '(src/components/palette/CommandPalette.tsx) wraps this same Radix Dialog, which is what pulls it into ' +
+      'the palette\'s own lazy chunk. Never fetched; it is `console.warn` text for a developer, and only in ' +
+      'development builds at that.',
+  },
   /*
     The Office Open XML namespace identifiers, from the `docx` library (Session
     8, the Drafting Studio's .docx export).
@@ -396,6 +407,32 @@ describe('no external URLs', () => {
       )
 
     expect(naming).toEqual([OPT_IN_ENDPOINT.file])
+  })
+
+  it('calls the bare fetch global from no file the eslint.config.js exemption does not cover', () => {
+    // `no-restricted-globals: fetch` in eslint.config.js is the rule that
+    // stops a network call anywhere else; this is the independent check that
+    // the exemption and reality agree, the same pairing ADR-011 set up for
+    // `names api.anthropic.com in exactly one module` above.
+    //
+    // A BARE `fetch(` call only — not `globalThis.fetch`, which several AI
+    // provider modules reference purely as a TYPE (`fetchImpl?: typeof
+    // globalThis.fetch`) so an implementation can be injected for testing,
+    // without any of them calling it. Matching that form too would flag
+    // plumbing that never reaches the network. Comments are stripped first:
+    // both data.ts modules that load datasets via `?raw` import mention a
+    // hypothetical `fetch('/data/...')` in prose, which would otherwise read
+    // as a caller.
+    const EXEMPTED = new Set(['src/ai/providers/wire.ts', 'src/lib/dataUpdates.ts'])
+    const callers = walk(fromRoot('src'), SOURCE_EXTENSIONS)
+      .map((file) => relative(projectRoot, file))
+      .filter((file) => !/\.test\.tsx?$/.test(file))
+      .filter((file) => !EXEMPTED.has(file))
+      .filter((file) => /\bfetch\s*\(/.test(stripComments(readFromRoot(file))))
+
+    expect(callers).toEqual([])
+    // Not vacuous: the module the exemption exists for really does call it.
+    expect(/\bfetch\s*\(/.test(stripComments(readFromRoot('src/lib/dataUpdates.ts')))).toBe(true)
   })
 
   it('cites only hosts that have been reviewed, and every one on the list', () => {

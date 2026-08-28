@@ -13,6 +13,7 @@ import { useDraft } from './useDraft'
 import { useTemplate } from './useDraftingData'
 import { asText, blankValues, collapseIdentical, documentFields, readValue } from './values'
 
+import { useAppStore } from '@/app/store'
 import { DataVersion } from '@/components/common/DataVersion'
 import { PageHeader } from '@/components/common/PageHeader'
 import { Badge, Chip, QueryErrorState, SectionCard, Skeleton } from '@/components/ui-x'
@@ -85,6 +86,7 @@ export default function EditorPage() {
 
 function Editor({ template }: { template: DocTemplate }) {
   const { t, language } = useT()
+  const devanagariDigits = useAppStore((s) => s.devanagariDigits)
   const [params, setParams] = useSearchParams()
 
   const parsed = useMemo(() => parseDraftParams(params, language), [params, language])
@@ -128,10 +130,14 @@ function Editor({ template }: { template: DocTemplate }) {
    * bilingual view needs both. `render` is pure and cheap over a form's worth
    * of fields; memoising on the values is enough.
    */
-  const bilingual = useMemo(() => render(template, values, 'bilingual'), [template, values])
+  const bilingual = useMemo(
+    () => render(template, values, 'bilingual', { devanagariDigits }),
+    [template, values, devanagariDigits],
+  )
   const single = useMemo(
-    () => (parsed.view === 'both' ? null : renderDocument(template, values, parsed.view)),
-    [template, values, parsed.view],
+    () =>
+      parsed.view === 'both' ? null : renderDocument(template, values, parsed.view, { devanagariDigits }),
+    [template, values, parsed.view, devanagariDigits],
   )
 
   /**

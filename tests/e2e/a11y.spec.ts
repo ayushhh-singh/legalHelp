@@ -36,6 +36,7 @@ const ROUTES = [
   // /utils alone never renders a single row of it.
   '/utils/glossary',
   '/settings',
+  '/onboarding',
 ]
 
 /**
@@ -318,6 +319,38 @@ test('no axe violations with the More sheet open', async ({ page }) => {
 })
 
 /**
+ * The command palette, empty and with results on screen, and the shortcuts
+ * help sheet — none of the three is on screen in the default sweep above.
+ * `Command.Dialog` wraps Radix Dialog (focus trap, `role="dialog"`,
+ * Escape-to-close) and cmdk's own `Command.Input` supplies the ARIA 1.2
+ * combobox wiring (`role="combobox"`, `aria-controls`, `aria-activedescend-
+ * ant`) — this is what actually proves neither has a hole, in a browser axe
+ * can evaluate `color-contrast` and focus order in.
+ */
+test('no axe violations on the command palette, empty and with results', async ({ page }) => {
+  await page.goto('/law')
+  await expect(page.getByRole('heading', { level: 1 })).toBeVisible()
+
+  await page.getByRole('button', { name: 'Open command palette' }).first().click()
+  await expect(page.getByRole('dialog')).toBeVisible()
+  await expect(page.getByRole('combobox')).toBeFocused()
+  expect(format(await audit(page)), 'palette (empty)').toEqual([])
+
+  await page.getByRole('combobox').fill('murder')
+  await expect(page.getByRole('option').first()).toBeVisible({ timeout: 15_000 })
+  expect(format(await audit(page)), 'palette (with results)').toEqual([])
+})
+
+test('no axe violations on the shortcuts help sheet', async ({ page }) => {
+  await page.goto('/law')
+  await expect(page.getByRole('heading', { level: 1 })).toBeVisible()
+
+  await page.keyboard.press('?')
+  await expect(page.getByRole('dialog', { name: 'Keyboard shortcuts' })).toBeVisible()
+  expect(format(await audit(page))).toEqual([])
+})
+
+/**
  * The consent modal and the enabled AI surface, in both themes.
  *
  * Neither is on screen in the default state the sweep above audits: the modal
@@ -346,3 +379,22 @@ for (const theme of ['light', 'dark'] as const) {
     expect(format(await audit(page)), `AI banner (${theme})`).toEqual([])
   })
 }
+
+/**
+ * Onboarding steps 2 and 3 — neither is on screen from a bare `/onboarding`,
+ * which the sweep above audits as step 1, so each gets its own run: step 2
+ * once the Pay datasets have loaded behind the job/city pickers, step 3 with
+ * the three-promise list.
+ */
+test('no axe violations on onboarding steps 2 and 3', async ({ page }) => {
+  await page.goto('/onboarding')
+  await expect(page.getByRole('heading', { level: 1 })).toBeVisible()
+
+  await page.getByRole('button', { name: 'Continue' }).click()
+  await expect(page.getByRole('combobox', { name: /Post/ })).toBeVisible({ timeout: 30_000 })
+  expect(format(await audit(page)), 'onboarding step 2').toEqual([])
+
+  await page.getByRole('button', { name: 'Continue' }).click()
+  await expect(page.getByRole('heading', { name: 'Before you begin' })).toBeVisible()
+  expect(format(await audit(page)), 'onboarding step 3').toEqual([])
+})

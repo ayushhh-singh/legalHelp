@@ -7,6 +7,7 @@ import i18n, { detectBrowserLanguage, isLanguage, type Language } from '@/i18n'
 export type Theme = 'light' | 'dark'
 
 const isTheme = (v: unknown): v is Theme => v === 'light' || v === 'dark'
+const isBoolean = (v: unknown): v is boolean => typeof v === 'boolean'
 
 interface AppState {
   language: Language
@@ -18,6 +19,20 @@ interface AppState {
    * behind a dynamic import.
    */
   ai: AiSettings
+  /**
+   * True once the first-run onboarding (src/modules/onboarding) has been
+   * completed or skipped. Read by App.tsx's `/` route to decide whether a
+   * fresh device is sent to `/onboarding` — never a deep link, so a shared
+   * section or a direct e2e navigation is never interrupted by it.
+   */
+  onboarded: boolean
+  /**
+   * Devanagari digits (०-९) in place of Arabic ones, wherever a module reads
+   * this flag. NOT applied to the Pay calculator's payslip, deliberately —
+   * ADR-018 fixes its numerals at Inter `tabular-nums` for column alignment,
+   * a decision this toggle does not reopen.
+   */
+  devanagariDigits: boolean
   /** False until the first read from IndexedDB settles. */
   hydrated: boolean
   /** True when a preference could not be written to IndexedDB (see persist). */
@@ -25,6 +40,8 @@ interface AppState {
   setLanguage: (language: Language) => Promise<void>
   setTheme: (theme: Theme) => Promise<void>
   setAi: (patch: Partial<AiSettings>) => Promise<void>
+  setOnboarded: (onboarded: boolean) => Promise<void>
+  setDevanagariDigits: (value: boolean) => Promise<void>
   toggleLanguage: () => Promise<void>
   toggleTheme: () => Promise<void>
   hydrate: () => Promise<void>
@@ -59,7 +76,13 @@ const DEFAULT_THEME: Theme = 'light'
  * flight. Without this, a toggle pressed on a slow device is silently reverted
  * when the IndexedDB read lands a moment later.
  */
-const changedDuringHydrate = { language: false, theme: false, ai: false }
+const changedDuringHydrate = {
+  language: false,
+  theme: false,
+  ai: false,
+  onboarded: false,
+  devanagariDigits: false,
+}
 
 /** Newest hydrate wins, so an earlier slow read cannot overwrite a later one. */
 let hydrateGeneration = 0
@@ -68,6 +91,8 @@ export const useAppStore = create<AppState>((set, get) => ({
   language: detectBrowserLanguage(),
   theme: 'light',
   ai: DEFAULT_AI_SETTINGS,
+  onboarded: false,
+  devanagariDigits: false,
   hydrated: false,
   storageBlocked: false,
 
@@ -103,6 +128,18 @@ export const useAppStore = create<AppState>((set, get) => ({
     await persist(SETTING_KEYS.ai, next, set)
   },
 
+  setOnboarded: async (onboarded) => {
+    changedDuringHydrate.onboarded = true
+    set({ onboarded })
+    await persist(SETTING_KEYS.onboarded, onboarded, set)
+  },
+
+  setDevanagariDigits: async (devanagariDigits) => {
+    changedDuringHydrate.devanagariDigits = true
+    set({ devanagariDigits })
+    await persist(SETTING_KEYS.devanagariDigits, devanagariDigits, set)
+  },
+
   toggleLanguage: async () => {
     await get().setLanguage(get().language === 'en' ? 'hi' : 'en')
   },
@@ -121,17 +158,23 @@ export const useAppStore = create<AppState>((set, get) => ({
     changedDuringHydrate.language = false
     changedDuringHydrate.theme = false
     changedDuringHydrate.ai = false
+    changedDuringHydrate.onboarded = false
+    changedDuringHydrate.devanagariDigits = false
 
     let language = detectBrowserLanguage()
     let theme: Theme = DEFAULT_THEME
     let ai: AiSettings = DEFAULT_AI_SETTINGS
+    let onboarded = false
+    let devanagariDigits = false
     let blocked = false
 
     try {
-      const [storedLanguage, storedTheme, storedAi] = await Promise.all([
+      const [storedLanguage, storedTheme, storedAi, storedOnboarded, storedDigits] = await Promise.all([
         getSetting<unknown>(SETTING_KEYS.language),
         getSetting<unknown>(SETTING_KEYS.theme),
         getSetting<unknown>(SETTING_KEYS.ai),
+        getSetting<unknown>(SETTING_KEYS.onboarded),
+        getSetting<unknown>(SETTING_KEYS.devanagariDigits),
       ])
       // Anything unrecognised (a hand-edited row, a value from a future
       // version) is discarded rather than trusted. For AI that rule is what
@@ -140,6 +183,8 @@ export const useAppStore = create<AppState>((set, get) => ({
       if (isLanguage(storedLanguage)) language = storedLanguage
       if (isTheme(storedTheme)) theme = storedTheme
       if (storedAi !== undefined) ai = parseAiSettings(storedAi)
+      if (isBoolean(storedOnboarded)) onboarded = storedOnboarded
+      if (isBoolean(storedDigits)) devanagariDigits = storedDigits
     } catch (error) {
       blocked = true
       console.warn('[sahayak] could not read settings from IndexedDB', error)
@@ -160,6 +205,12 @@ export const useAppStore = create<AppState>((set, get) => ({
     }
     if (!changedDuringHydrate.ai) {
       next.ai = ai
+    }
+    if (!changedDuringHydrate.onboarded) {
+      next.onboarded = onboarded
+    }
+    if (!changedDuringHydrate.devanagariDigits) {
+      next.devanagariDigits = devanagariDigits
     }
 
     set(next)

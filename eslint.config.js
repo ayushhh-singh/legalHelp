@@ -58,13 +58,15 @@ export default tseslint.config(
     },
   },
 
-  // The single network seam. `src/ai/providers/wire.ts` is the only module in
-  // the application that may call fetch, and it may only do so on a tier the
-  // reader explicitly consented to. Granting the exception here, rather than
-  // quietly reaching the global as `globalThis.fetch`, keeps the audit question
+  // The two network seams. `src/ai/providers/wire.ts` may call fetch to reach
+  // a tier the reader explicitly consented to (cross-origin, opt-in);
+  // `src/lib/dataUpdates.ts` may call it to re-fetch the SAME same-origin
+  // dataset manifest already bundled into the build, for "Check for data
+  // updates" in Settings (ADR-028). Granting both exceptions here, rather
+  // than reaching the global as `globalThis.fetch`, keeps the audit question
   // "what in this app can talk to the network?" answerable from this file.
   {
-    files: ['src/ai/providers/wire.ts'],
+    files: ['src/ai/providers/wire.ts', 'src/lib/dataUpdates.ts'],
     rules: {
       'no-restricted-globals': 'off',
     },

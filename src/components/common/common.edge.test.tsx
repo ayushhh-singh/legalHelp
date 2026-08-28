@@ -9,18 +9,25 @@ import { SourceChip } from './SourceChip'
 
 import { App } from '@/app/App'
 import { useAppStore } from '@/app/store'
+import { setSetting, SETTING_KEYS } from '@/db'
 import i18n from '@/i18n'
 import en from '@/i18n/en.json'
 import hi from '@/i18n/hi.json'
 
 async function renderShell(route: string) {
+  // `useAppStore` is a module-level singleton that outlives any one test, so
+  // a store already `hydrated: true` from an earlier case in this file would
+  // let the `/` route's onboarding check decide on stale state for the one
+  // render frame before THIS mount's own `hydrate()` resolves — exactly the
+  // flash ADR-010's own hydrate-race tests guard against for language/theme.
+  useAppStore.setState({ hydrated: false })
   const result = render(
     <MemoryRouter initialEntries={[route]}>
       <App />
     </MemoryRouter>,
   )
-  await screen.findByRole('heading', { level: 1 })
   await waitFor(() => expect(useAppStore.getState().hydrated).toBe(true))
+  await screen.findByRole('heading', { level: 1 })
   return result
 }
 
@@ -28,10 +35,23 @@ describe('routing edge cases', () => {
   it.each([
     ['an unknown path', '/does-not-exist'],
     ['a deep unknown path', '/law/section/302/extra'],
-    ['the root', '/'],
     ['a path with a trailing slash', '/law/'],
   ])('recovers from %s by landing on the law page', async (_label, route) => {
     await renderShell(route)
+    expect(screen.getByRole('heading', { level: 1 })).toHaveTextContent(en.pages.law.title)
+  })
+
+  // `/` is the one path onboarding gates (App.tsx) — a deep or unknown link
+  // never is, which the three cases above cover. Split out because the
+  // expected heading depends on whether this device has been onboarded.
+  it('sends a fresh device from the root to onboarding, not the law page', async () => {
+    await renderShell('/')
+    expect(screen.getByRole('heading', { level: 1 })).toHaveTextContent(en.onboarding.step1.title)
+  })
+
+  it('sends an already-onboarded device from the root straight to the law page', async () => {
+    await setSetting(SETTING_KEYS.onboarded, true)
+    await renderShell('/')
     expect(screen.getByRole('heading', { level: 1 })).toHaveTextContent(en.pages.law.title)
   })
 

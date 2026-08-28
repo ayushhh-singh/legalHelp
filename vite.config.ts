@@ -1,3 +1,4 @@
+import { execSync } from 'node:child_process'
 import { fileURLToPath, URL } from 'node:url'
 
 import tailwindcss from '@tailwindcss/vite'
@@ -7,6 +8,22 @@ import { defineConfig } from 'vitest/config'
 
 import en from './src/i18n/en.json' with { type: 'json' }
 import hi from './src/i18n/hi.json' with { type: 'json' }
+
+/**
+ * The short commit sha Settings' About card shows next to the package
+ * version. `git` is not available in every environment this config loads in
+ * (a source tarball with no `.git`, a sandboxed CI step) so a failure here
+ * falls back to a literal rather than failing the build over a caption.
+ */
+const BUILD_SHA = (() => {
+  try {
+    return execSync('git rev-parse --short HEAD', { stdio: ['ignore', 'pipe', 'ignore'] })
+      .toString()
+      .trim()
+  } catch {
+    return 'unknown'
+  }
+})()
 
 /**
  * The runtimeCaching `urlPattern` functions below run inside the generated
@@ -99,6 +116,9 @@ export default defineConfig({
     alias: {
       '@': fileURLToPath(new URL('./src', import.meta.url)),
     },
+  },
+  define: {
+    __BUILD_SHA__: JSON.stringify(BUILD_SHA),
   },
   build: {
     // Keep asset URLs relative-free and predictable for the
