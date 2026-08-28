@@ -1,0 +1,715 @@
+{
+  "version": "1.0.0",
+  "generatedAt": "2026-08-28T00:00:00Z",
+  "disclaimer": {
+    "en": "Reference only; verify with the official gazette/order or your DDO.",
+    "hi": "केवल संदर्भ के लिए; सरकारी राजपत्र/आदेश या अपने डीडीओ से सत्यापित करें।"
+  },
+  "template": {
+    "id": "tour-programme",
+    "name": {
+      "en": "Tour programme",
+      "hi": "दौरा कार्यक्रम"
+    },
+    "shortName": {
+      "en": "Tour",
+      "hi": "दौरा"
+    },
+    "person": "third",
+    "usedBy": {
+      "en": "An officer putting up the itinerary of an official tour for the approval of the controlling authority, before the tour is undertaken.",
+      "hi": "दौरा आरंभ होने से पूर्व नियंत्रक प्राधिकारी के अनुमोदन हेतु सरकारी दौरे का यात्रा-कार्यक्रम प्रस्तुत करने वाला अधिकारी।"
+    },
+    "whenToUse": {
+      "en": "Approved in advance; the approval is what the travelling allowance bill is later settled against. State the purpose, the itinerary date by date, the mode of travel and the entitlement claimed, and whether headquarters will be left on a holiday.",
+      "hi": "पूर्व अनुमोदन लिया जाता है; यही अनुमोदन वह आधार है जिसके विरुद्ध बाद में यात्रा भत्ता बिल का निपटान होता है। प्रयोजन, तारीखवार यात्रा-कार्यक्रम, यात्रा का साधन और दावा की गई पात्रता, तथा क्या मुख्यालय अवकाश के दिन छोड़ा जाएगा — यह सब लिखें।"
+    },
+    "salutation": null,
+    "subscription": null,
+    "urgencyAllowed": true,
+    "csmopRef": {
+      "edition": "CSMOP 2022, sixteenth edition",
+      "paras": [
+        "8.4(4)",
+        "Appendix 8.1"
+      ],
+      "pages": [
+        79,
+        90
+      ],
+      "chassis": "office-memorandum",
+      "note": {
+        "en": "CSMOP prescribes no tour programme format. This is the Office Order chassis with an itinerary; the entitlements are in the Travelling Allowance Rules and the pay module carries them.",
+        "hi": "सीएसएमओपी दौरा कार्यक्रम का कोई प्रारूप निर्धारित नहीं करता। यह यात्रा-कार्यक्रम सहित कार्यालय आदेश का ढाँचा है; पात्रताएँ यात्रा भत्ता नियमों में हैं और वेतन मॉड्यूल उन्हें रखता है।"
+      }
+    },
+    "fields": [
+      {
+        "id": "urgency",
+        "label": {
+          "en": "Urgency grading",
+          "hi": "तात्कालिकता ग्रेडिंग"
+        },
+        "type": "select",
+        "required": false,
+        "sample": {
+          "en": "none",
+          "hi": "none"
+        },
+        "hint": {
+          "en": "Marked by or under the orders of an officer not lower than a Section Officer (9.2(xi)).",
+          "hi": "अनुभाग अधिकारी से अनिम्न अधिकारी द्वारा या उनके आदेश से अंकित (9.2(xi))।"
+        },
+        "options": [
+          {
+            "value": "none",
+            "label": {
+              "en": "None",
+              "hi": "कोई नहीं"
+            }
+          },
+          {
+            "value": "immediate",
+            "label": {
+              "en": "IMMEDIATE",
+              "hi": "तत्काल"
+            }
+          },
+          {
+            "value": "priority",
+            "label": {
+              "en": "PRIORITY",
+              "hi": "अग्रता"
+            }
+          },
+          {
+            "value": "top-priority",
+            "label": {
+              "en": "TOP PRIORITY",
+              "hi": "परम अग्रता"
+            }
+          }
+        ]
+      },
+      {
+        "id": "fileNumber",
+        "label": {
+          "en": "File / communication number",
+          "hi": "फाइल / पत्र संख्या"
+        },
+        "type": "text",
+        "required": true,
+        "sample": {
+          "en": "A-11011/2/2026-Estt.",
+          "hi": "ए-11011/2/2026-स्थापना"
+        },
+        "hint": {
+          "en": "Every draft put up on a file bears the file number (9.2(vi)).",
+          "hi": "फाइल पर प्रस्तुत प्रत्येक मसौदे पर फाइल संख्या होती है (9.2(vi))।"
+        }
+      },
+      {
+        "id": "ministry",
+        "label": {
+          "en": "Ministry",
+          "hi": "मंत्रालय"
+        },
+        "type": "text",
+        "required": true,
+        "sample": {
+          "en": "Ministry of Personnel, Public Grievances and Pensions",
+          "hi": "कार्मिक, लोक शिकायत तथा पेंशन मंत्रालय"
+        }
+      },
+      {
+        "id": "department",
+        "label": {
+          "en": "Department",
+          "hi": "विभाग"
+        },
+        "type": "text",
+        "required": true,
+        "sample": {
+          "en": "Department of Personnel and Training",
+          "hi": "कार्मिक और प्रशिक्षण विभाग"
+        }
+      },
+      {
+        "id": "place",
+        "label": {
+          "en": "Place",
+          "hi": "स्थान"
+        },
+        "type": "text",
+        "required": true,
+        "sample": {
+          "en": "New Delhi",
+          "hi": "नई दिल्ली"
+        }
+      },
+      {
+        "id": "date",
+        "label": {
+          "en": "Date",
+          "hi": "दिनांक"
+        },
+        "type": "date",
+        "required": true,
+        "sample": {
+          "en": "2026-08-28",
+          "hi": "2026-08-28"
+        },
+        "hint": {
+          "en": "dd.mm.yyyy in English; दिनांक dd.mm.yyyy in Hindi.",
+          "hi": "अंग्रेज़ी में dd.mm.yyyy; हिंदी में दिनांक dd.mm.yyyy।"
+        }
+      },
+      {
+        "id": "subject",
+        "label": {
+          "en": "Subject",
+          "hi": "विषय"
+        },
+        "type": "text",
+        "required": true,
+        "sample": {
+          "en": "Tour programme of Shri X.Y.Z., Section Officer, from 15.09.2026 to 18.09.2026 — approval regarding.",
+          "hi": "श्री एक्स.वाई.ज़ेड., अनुभाग अधिकारी का दिनांक 15.09.2026 से 18.09.2026 तक का दौरा कार्यक्रम — अनुमोदन के संबंध में।"
+        }
+      },
+      {
+        "id": "officerName",
+        "label": {
+          "en": "Officer on tour",
+          "hi": "दौरे पर जाने वाला अधिकारी"
+        },
+        "type": "text",
+        "required": true,
+        "sample": {
+          "en": "Shri X. Y. Zachariah",
+          "hi": "श्री एक्स. वाई. ज़करिया"
+        }
+      },
+      {
+        "id": "officerDesignation",
+        "label": {
+          "en": "Designation and Level",
+          "hi": "पदनाम और स्तर"
+        },
+        "type": "text",
+        "required": true,
+        "sample": {
+          "en": "Section Officer, Level 8",
+          "hi": "अनुभाग अधिकारी, स्तर 8"
+        }
+      },
+      {
+        "id": "purpose",
+        "label": {
+          "en": "Purpose of the tour",
+          "hi": "दौरे का प्रयोजन"
+        },
+        "type": "textarea",
+        "required": true,
+        "sample": {
+          "en": "To attend the regional review meeting on implementation of e-Office version 7.0 and to inspect the Central Registration Unit of the Regional Office.",
+          "hi": "ई-ऑफिस संस्करण 7.0 के कार्यान्वयन पर क्षेत्रीय समीक्षा बैठक में भाग लेने तथा क्षेत्रीय कार्यालय की केंद्रीय पंजीकरण इकाई का निरीक्षण करने हेतु।"
+        }
+      },
+      {
+        "id": "itinerary",
+        "label": {
+          "en": "Itinerary",
+          "hi": "यात्रा कार्यक्रम"
+        },
+        "type": "list",
+        "required": true,
+        "sample": {
+          "en": [
+            "15.09.2026 — Depart New Delhi 06:00 by Train 12951 (2A); arrive Mumbai 22:30. Halt at Mumbai.",
+            "16.09.2026 — Regional review meeting at the Regional Office, Mumbai, 10:00 to 17:00. Halt at Mumbai.",
+            "17.09.2026 — Inspection of the Central Registration Unit, Regional Office, Mumbai. Halt at Mumbai.",
+            "18.09.2026 — Depart Mumbai 08:00 by Train 12952 (2A); arrive New Delhi 23:35."
+          ],
+          "hi": [
+            "15.09.2026 — नई दिल्ली से प्रस्थान 06:00 बजे, रेलगाड़ी 12951 (द्वितीय वातानुकूलित); मुंबई आगमन 22:30 बजे। रात्रि विश्राम मुंबई।",
+            "16.09.2026 — क्षेत्रीय कार्यालय, मुंबई में क्षेत्रीय समीक्षा बैठक, 10:00 से 17:00 बजे तक। रात्रि विश्राम मुंबई।",
+            "17.09.2026 — केंद्रीय पंजीकरण इकाई, क्षेत्रीय कार्यालय, मुंबई का निरीक्षण। रात्रि विश्राम मुंबई।",
+            "18.09.2026 — मुंबई से प्रस्थान 08:00 बजे, रेलगाड़ी 12952 (द्वितीय वातानुकूलित); नई दिल्ली आगमन 23:35 बजे।"
+          ]
+        }
+      },
+      {
+        "id": "paras",
+        "label": {
+          "en": "Body paragraphs",
+          "hi": "मुख्य पैराग्राफ"
+        },
+        "type": "paras",
+        "required": true,
+        "sample": {
+          "en": [
+            "The tour programme of Shri X.Y.Z., Section Officer (Level 8), for the period 15.09.2026 to 18.09.2026 is placed below for approval.",
+            "Travel is proposed by rail in AC 2-tier, which is the entitlement at Level 8, and the officer will not be leaving headquarters on a public holiday. Daily allowance is claimed for three nights of halt at Mumbai.",
+            "The expenditure is debitable to the sanctioned travel budget of the Division for the current financial year, in which a balance of Rs. 3,80,000 is available."
+          ],
+          "hi": [
+            "श्री एक्स.वाई.ज़ेड., अनुभाग अधिकारी (स्तर 8) का दिनांक 15.09.2026 से 18.09.2026 तक की अवधि का दौरा कार्यक्रम अनुमोदनार्थ नीचे प्रस्तुत है।",
+            "यात्रा रेल द्वारा द्वितीय वातानुकूलित श्रेणी में प्रस्तावित है, जो स्तर 8 पर पात्रता है, और अधिकारी सार्वजनिक अवकाश के दिन मुख्यालय नहीं छोड़ेंगे। मुंबई में तीन रात्रि विश्राम हेतु दैनिक भत्ते का दावा है।",
+            "व्यय चालू वित्त वर्ष के लिए प्रभाग के स्वीकृत यात्रा बजट में नामे है, जिसमें 3,80,000 रुपये का शेष उपलब्ध है।"
+          ]
+        },
+        "hint": {
+          "en": "One paragraph per line. The first is left unnumbered and the rest are numbered from 2.",
+          "hi": "प्रति पंक्ति एक पैराग्राफ। पहला बिना संख्या के रहता है और शेष 2 से क्रमांकित होते हैं।"
+        }
+      },
+      {
+        "id": "signatoryName",
+        "label": {
+          "en": "Name of the signatory",
+          "hi": "हस्ताक्षरकर्ता का नाम"
+        },
+        "type": "text",
+        "required": true,
+        "sample": {
+          "en": "A.B.C.",
+          "hi": "ए.बी.सी."
+        }
+      },
+      {
+        "id": "signatoryDesignation",
+        "label": {
+          "en": "Designation",
+          "hi": "पदनाम"
+        },
+        "type": "text",
+        "required": true,
+        "sample": {
+          "en": "Under Secretary to the Govt. of India",
+          "hi": "अवर सचिव, भारत सरकार"
+        }
+      },
+      {
+        "id": "phone",
+        "label": {
+          "en": "Telephone number",
+          "hi": "दूरभाष संख्या"
+        },
+        "type": "text",
+        "required": true,
+        "sample": {
+          "en": "011-2309 2590",
+          "hi": "011-2309 2590"
+        }
+      },
+      {
+        "id": "email",
+        "label": {
+          "en": "Email",
+          "hi": "ई-मेल"
+        },
+        "type": "text",
+        "required": true,
+        "sample": {
+          "en": "us-estt@nic.in",
+          "hi": "us-estt@nic.in"
+        }
+      },
+      {
+        "id": "approvingAuthority",
+        "label": {
+          "en": "Approving authority",
+          "hi": "अनुमोदनकर्ता प्राधिकारी"
+        },
+        "type": "text",
+        "required": true,
+        "sample": {
+          "en": "Joint Secretary (Administration)",
+          "hi": "संयुक्त सचिव (प्रशासन)"
+        }
+      },
+      {
+        "id": "copyTo",
+        "label": {
+          "en": "Copy to",
+          "hi": "प्रतिलिपि"
+        },
+        "type": "list",
+        "required": false,
+        "sample": {
+          "en": [
+            "The officer concerned",
+            "The Drawing and Disbursing Officer",
+            "Guard file"
+          ],
+          "hi": [
+            "संबंधित अधिकारी",
+            "आहरण एवं संवितरण अधिकारी",
+            "गार्ड फाइल"
+          ]
+        }
+      },
+      {
+        "id": "enclosures",
+        "label": {
+          "en": "Enclosures",
+          "hi": "संलग्नक"
+        },
+        "type": "list",
+        "required": false,
+        "sample": {
+          "en": [],
+          "hi": []
+        },
+        "hint": {
+          "en": "The count goes at the bottom left of the draft — 'Encl. 3' (9.2(vii)).",
+          "hi": "मसौदे के नीचे बाईं ओर संख्या दी जाती है — 'Encl. 3' (9.2(vii))।"
+        }
+      }
+    ],
+    "layout": {
+      "en": [
+        {
+          "role": "urgency",
+          "align": "right",
+          "emphasis": "bold",
+          "lines": [
+            "{{urgency}}"
+          ],
+          "omitWhenEmpty": true
+        },
+        {
+          "role": "fileNumber",
+          "align": "left",
+          "lines": [
+            "No. {{fileNumber}}"
+          ]
+        },
+        {
+          "role": "header",
+          "align": "center",
+          "lines": [
+            "Government of India",
+            "{{ministry}}",
+            "{{department}}"
+          ]
+        },
+        {
+          "role": "dateLine",
+          "align": "right",
+          "lines": [
+            "{{place}}, the {{date}}"
+          ]
+        },
+        {
+          "role": "title",
+          "align": "center",
+          "emphasis": "title",
+          "lines": [
+            "TOUR PROGRAMME"
+          ]
+        },
+        {
+          "role": "subject",
+          "align": "left",
+          "lines": [
+            "Subject: {{subject}}"
+          ]
+        },
+        {
+          "role": "refLine",
+          "align": "left",
+          "lines": [
+            "Officer: {{officerName}}, {{officerDesignation}}",
+            "Purpose: {{purpose}}"
+          ]
+        },
+        {
+          "role": "body",
+          "align": "left",
+          "source": "paras",
+          "numbered": true
+        },
+        {
+          "role": "body",
+          "align": "left",
+          "lead": "Itinerary:",
+          "source": "itinerary",
+          "itemPrefix": "ordinal"
+        },
+        {
+          "role": "footer",
+          "align": "left",
+          "lines": [
+            "Submitted for the approval of {{approvingAuthority}}."
+          ]
+        },
+        {
+          "role": "signature",
+          "align": "right",
+          "lines": [
+            "-Sd/-",
+            "({{signatoryName}})",
+            "{{signatoryDesignation}}",
+            "Tele. No.: {{phone}}",
+            "Email: {{email}}"
+          ]
+        },
+        {
+          "role": "enclosures",
+          "align": "left",
+          "lead": "List of enclosures:",
+          "source": "enclosures",
+          "itemPrefix": "ordinal",
+          "omitWhenEmpty": true
+        },
+        {
+          "role": "copyTo",
+          "align": "left",
+          "lead": "Copy forwarded for information / necessary action to:",
+          "source": "copyTo",
+          "itemPrefix": "ordinal",
+          "omitWhenEmpty": true
+        }
+      ],
+      "hi": [
+        {
+          "role": "urgency",
+          "align": "right",
+          "emphasis": "bold",
+          "lines": [
+            "{{urgency}}"
+          ],
+          "omitWhenEmpty": true
+        },
+        {
+          "role": "fileNumber",
+          "align": "left",
+          "lines": [
+            "संख्या {{fileNumber}}"
+          ]
+        },
+        {
+          "role": "header",
+          "align": "center",
+          "lines": [
+            "भारत सरकार",
+            "{{ministry}}",
+            "{{department}}"
+          ]
+        },
+        {
+          "role": "dateLine",
+          "align": "right",
+          "lines": [
+            "{{place}}, दिनांक {{date}}"
+          ]
+        },
+        {
+          "role": "title",
+          "align": "center",
+          "emphasis": "title",
+          "lines": [
+            "दौरा कार्यक्रम"
+          ]
+        },
+        {
+          "role": "subject",
+          "align": "left",
+          "lines": [
+            "विषय : {{subject}}"
+          ]
+        },
+        {
+          "role": "refLine",
+          "align": "left",
+          "lines": [
+            "अधिकारी : {{officerName}}, {{officerDesignation}}",
+            "प्रयोजन : {{purpose}}"
+          ]
+        },
+        {
+          "role": "body",
+          "align": "left",
+          "source": "paras",
+          "numbered": true
+        },
+        {
+          "role": "body",
+          "align": "left",
+          "lead": "यात्रा कार्यक्रम :",
+          "source": "itinerary",
+          "itemPrefix": "ordinal"
+        },
+        {
+          "role": "footer",
+          "align": "left",
+          "lines": [
+            "{{approvingAuthority}} के अनुमोदनार्थ प्रस्तुत।"
+          ]
+        },
+        {
+          "role": "signature",
+          "align": "right",
+          "lines": [
+            "-हस्ताक्षरित/-",
+            "({{signatoryName}})",
+            "{{signatoryDesignation}}",
+            "दूरभाष संख्या : {{phone}}",
+            "ई-मेल : {{email}}"
+          ]
+        },
+        {
+          "role": "enclosures",
+          "align": "left",
+          "lead": "संलग्नकों की सूची :",
+          "source": "enclosures",
+          "itemPrefix": "ordinal",
+          "omitWhenEmpty": true
+        },
+        {
+          "role": "copyTo",
+          "align": "left",
+          "lead": "प्रति सूचना/आवश्यक कार्रवाई के लिए अग्रेषित :",
+          "source": "copyTo",
+          "itemPrefix": "ordinal",
+          "omitWhenEmpty": true
+        }
+      ]
+    },
+    "checklist": [
+      {
+        "id": "itinerary-listed",
+        "label": {
+          "en": "The itinerary is given date by date",
+          "hi": "यात्रा कार्यक्रम तारीखवार दिया गया है"
+        },
+        "why": {
+          "en": "The travelling allowance bill is settled against the approved itinerary; a programme without dates cannot be checked against a bill.",
+          "hi": "यात्रा भत्ता बिल का निपटान अनुमोदित यात्रा-कार्यक्रम के विरुद्ध होता है; बिना तारीखों के कार्यक्रम की बिल से जाँच नहीं हो सकती।"
+        },
+        "severity": "must",
+        "rule": {
+          "kind": "listNonEmpty",
+          "field": "itinerary"
+        }
+      },
+      {
+        "id": "purpose",
+        "label": {
+          "en": "The purpose of the tour is stated",
+          "hi": "दौरे का प्रयोजन लिखा गया है"
+        },
+        "why": {
+          "en": "The approving authority is approving an expenditure; the purpose is what it is approving it for.",
+          "hi": "अनुमोदनकर्ता प्राधिकारी एक व्यय का अनुमोदन कर रहा है; प्रयोजन ही वह है जिसके लिए वह अनुमोदन दे रहा है।"
+        },
+        "severity": "must",
+        "rule": {
+          "kind": "required",
+          "field": "purpose"
+        }
+      },
+      {
+        "id": "approving-authority",
+        "label": {
+          "en": "The approving authority is named",
+          "hi": "अनुमोदनकर्ता प्राधिकारी का उल्लेख है"
+        },
+        "why": {
+          "en": "Indicate the authority competent to approve, the way a note indicates the level of disposal.",
+          "hi": "अनुमोदन के लिए सक्षम प्राधिकारी का उल्लेख करें, जैसे टिप्पणी में निपटान का स्तर दर्शाया जाता है।"
+        },
+        "severity": "must",
+        "rule": {
+          "kind": "required",
+          "field": "approvingAuthority"
+        },
+        "csmopRef": "7.3(x)"
+      },
+      {
+        "id": "subject",
+        "label": {
+          "en": "The subject is stated",
+          "hi": "विषय लिखा गया है"
+        },
+        "why": {
+          "en": "The specimens in Appendix 8.1 carry a subject line above the body on every form that is addressed to anyone.",
+          "hi": "परिशिष्ट 8.1 के नमूनों में हर संबोधित प्रपत्र पर मुख्य भाग के ऊपर विषय पंक्ति होती है।"
+        },
+        "severity": "must",
+        "rule": {
+          "kind": "blockPresent",
+          "role": "subject"
+        },
+        "csmopRef": "Appendix 8.1"
+      },
+      {
+        "id": "number-and-date",
+        "label": {
+          "en": "Number and date are on the draft",
+          "hi": "मसौदे पर संख्या और दिनांक हैं"
+        },
+        "why": {
+          "en": "Every draft put up on a file bears the file number, and the number and date of the last communication in the series must be quoted.",
+          "hi": "फाइल पर प्रस्तुत प्रत्येक मसौदे पर फाइल संख्या होती है, और शृंखला के अंतिम पत्र की संख्या तथा दिनांक उद्धृत की जानी चाहिए।"
+        },
+        "severity": "must",
+        "rule": {
+          "kind": "allRequired",
+          "fields": [
+            "fileNumber",
+            "date"
+          ]
+        },
+        "csmopRef": "9.2(iv), 9.2(vi)"
+      },
+      {
+        "id": "signature-block",
+        "label": {
+          "en": "Signature block carries designation, telephone and email",
+          "hi": "हस्ताक्षर खंड में पदनाम, दूरभाष और ई-मेल हैं"
+        },
+        "why": {
+          "en": "The name, designation, telephone number, fax number and e-mail address of the signing officer must invariably be on the draft.",
+          "hi": "हस्ताक्षर करने वाले अधिकारी का नाम, पदनाम, दूरभाष संख्या, फैक्स संख्या और ई-मेल पता मसौदे पर अनिवार्यतः होना चाहिए।"
+        },
+        "severity": "must",
+        "rule": {
+          "kind": "allRequired",
+          "fields": [
+            "signatoryName",
+            "signatoryDesignation",
+            "phone",
+            "email"
+          ]
+        },
+        "csmopRef": "9.2(xii)"
+      },
+      {
+        "id": "no-placeholders",
+        "label": {
+          "en": "No placeholder is left unfilled",
+          "hi": "कोई प्लेसहोल्डर अधूरा नहीं छूटा"
+        },
+        "why": {
+          "en": "A draft that goes out with {{…}} still in it has not been read.",
+          "hi": "जिस मसौदे में {{…}} रह जाए, उसे पढ़ा ही नहीं गया।"
+        },
+        "severity": "must",
+        "rule": {
+          "kind": "noPlaceholders"
+        }
+      }
+    ],
+    "source": {
+      "name": "Central Secretariat Manual of Office Procedure, 2022 (16th edition), DARPG",
+      "url": "https://www.darpg.gov.in/static/uploads/2025/10/774e0b8f427b7875158363d842fa431f.pdf",
+      "reference": "CSMOP 2022, sixteenth edition",
+      "dated": "2022-08-05"
+    },
+    "fetchedAt": "2026-08-28T00:00:00Z",
+    "verify": true
+  }
+}

@@ -218,6 +218,45 @@
       "source": {
         "name": "Ministry of Finance Resolution constituting the Eighth Central Pay Commission"
       }
+    },
+    "drafting-templates": {
+      "version": "1.0.0",
+      "updated": "2026-08-28",
+      "label": {
+        "en": "CSMOP document templates",
+        "hi": "सीएसएमओपी दस्तावेज़ टेम्पलेट"
+      },
+      "rows": 14,
+      "sha256": "11d77dde2d6338ec1371ac9510f304ded86586f8aa9ed53deeaf49448eea5dcf",
+      "source": {
+        "name": "Central Secretariat Manual of Office Procedure, 2022 (16th edition), DARPG"
+      }
+    },
+    "drafting-terms": {
+      "version": "1.0.0",
+      "updated": "2026-08-28",
+      "label": {
+        "en": "Rajbhasha structural terms",
+        "hi": "राजभाषा संरचनात्मक शब्दावली"
+      },
+      "rows": 78,
+      "sha256": "9df282c76db26bea04847dbf7a3da51e630de59f3c5284986b66571d7f9dd83a",
+      "source": {
+        "name": "CSMOP 2022 (Hindi issue) and the Saral Prashasanik Shabdavali, Department of Official Language"
+      }
+    },
+    "drafting-phrases": {
+      "version": "1.0.0",
+      "updated": "2026-08-28",
+      "label": {
+        "en": "Drafting phrase library",
+        "hi": "प्रारूपण वाक्यांश संग्रह"
+      },
+      "rows": 49,
+      "sha256": "95f5c9bb8080478be9ef4e7d44d53c65c413ad5a53526e18f102478fe430b3a1",
+      "source": {
+        "name": "Central Secretariat Manual of Office Procedure, 2022 (16th edition), DARPG"
+      }
     }
   },
   "generatedAt": "2026-08-28"

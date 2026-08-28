@@ -44,6 +44,23 @@ MANIFEST: dict[str, str] = {
     "pay/ups.json": "pay-scheme.schema.json",
     "pay/tax.json": "pay-tax.schema.json",
     "pay/cpc8.json": "pay-cpc8.schema.json",
+    "drafting/structure-terms.json": "drafting-terms.schema.json",
+    "drafting/phrases.json": "drafting-phrases.schema.json",
+    "drafting/index.json": "drafting-index.schema.json",
+    "drafting/templates/circular.json": "drafting-template.schema.json",
+    "drafting/templates/demi-official.json": "drafting-template.schema.json",
+    "drafting/templates/endorsement.json": "drafting-template.schema.json",
+    "drafting/templates/id-note.json": "drafting-template.schema.json",
+    "drafting/templates/leave-application.json": "drafting-template.schema.json",
+    "drafting/templates/letter.json": "drafting-template.schema.json",
+    "drafting/templates/notification.json": "drafting-template.schema.json",
+    "drafting/templates/noting.json": "drafting-template.schema.json",
+    "drafting/templates/office-memorandum.json": "drafting-template.schema.json",
+    "drafting/templates/representation.json": "drafting-template.schema.json",
+    "drafting/templates/rti-reply.json": "drafting-template.schema.json",
+    "drafting/templates/show-cause-reply.json": "drafting-template.schema.json",
+    "drafting/templates/ta-bill-cover.json": "drafting-template.schema.json",
+    "drafting/templates/tour-programme.json": "drafting-template.schema.json",
 }
 
 # Files under data/ that legitimately have no schema, each with the reason.

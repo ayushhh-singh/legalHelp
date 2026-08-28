@@ -1,0 +1,1204 @@
+{
+  "version": "1.0.0",
+  "generatedAt": "2026-08-28T00:00:00Z",
+  "disclaimer": {
+    "en": "Reference only; verify with the official gazette/order or your DDO.",
+    "hi": "केवल संदर्भ के लिए; सरकारी राजपत्र/आदेश या अपने डीडीओ से सत्यापित करें।"
+  },
+  "terms": [
+    {
+      "id": "letter",
+      "category": "form",
+      "en": "Letter",
+      "hi": "पत्र",
+      "csmopRef": "8.4(1)",
+      "source": {
+        "name": "केंद्रीय सचिवालय कार्यालय प्रक्रिया नियमावली, 2022 (16वाँ संस्करण), प्रशासनिक सुधार और लोक शिकायत विभाग",
+        "url": "https://www.darpg.gov.in/static/uploads/2025/10/8b5d6eb6c7c47bc69e271e25f1c2cc43.pdf",
+        "reference": "CSMOP 2022, sixteenth edition (Hindi issue)",
+        "dated": "2022-08-05"
+      },
+      "fetchedAt": "2026-08-28T00:00:00Z",
+      "verify": false
+    },
+    {
+      "id": "demi-official-letter",
+      "category": "form",
+      "en": "Demi-official letter",
+      "hi": "अर्ध-सरकारी पत्र",
+      "alsoHi": [
+        "अर्ध-शासकीय पत्र",
+        "डी.ओ. पत्र"
+      ],
+      "note": {
+        "en": "The manual prints अर्ध-सरकारी. अर्ध-शासकीय is the older and still widely used form.",
+        "hi": "नियमावली में अर्ध-सरकारी छपा है। अर्ध-शासकीय पुराना और अब भी प्रचलित रूप है।"
+      },
+      "csmopRef": "8.4(2)",
+      "source": {
+        "name": "केंद्रीय सचिवालय कार्यालय प्रक्रिया नियमावली, 2022 (16वाँ संस्करण), प्रशासनिक सुधार और लोक शिकायत विभाग",
+        "url": "https://www.darpg.gov.in/static/uploads/2025/10/8b5d6eb6c7c47bc69e271e25f1c2cc43.pdf",
+        "reference": "CSMOP 2022, sixteenth edition (Hindi issue)",
+        "dated": "2022-08-05"
+      },
+      "fetchedAt": "2026-08-28T00:00:00Z",
+      "verify": false
+    },
+    {
+      "id": "office-memorandum",
+      "category": "form",
+      "en": "Office Memorandum",
+      "hi": "कार्यालय ज्ञापन",
+      "csmopRef": "8.4(3), Appendix 8.1",
+      "source": {
+        "name": "केंद्रीय सचिवालय कार्यालय प्रक्रिया नियमावली, 2022 (16वाँ संस्करण), प्रशासनिक सुधार और लोक शिकायत विभाग",
+        "url": "https://www.darpg.gov.in/static/uploads/2025/10/8b5d6eb6c7c47bc69e271e25f1c2cc43.pdf",
+        "reference": "CSMOP 2022, sixteenth edition (Hindi issue)",
+        "dated": "2022-08-05"
+      },
+      "fetchedAt": "2026-08-28T00:00:00Z",
+      "verify": false
+    },
+    {
+      "id": "office-order",
+      "category": "form",
+      "en": "Office Order",
+      "hi": "कार्यालय आदेश",
+      "csmopRef": "8.4(4), Appendix 8.1",
+      "source": {
+        "name": "केंद्रीय सचिवालय कार्यालय प्रक्रिया नियमावली, 2022 (16वाँ संस्करण), प्रशासनिक सुधार और लोक शिकायत विभाग",
+        "url": "https://www.darpg.gov.in/static/uploads/2025/10/8b5d6eb6c7c47bc69e271e25f1c2cc43.pdf",
+        "reference": "CSMOP 2022, sixteenth edition (Hindi issue)",
+        "dated": "2022-08-05"
+      },
+      "fetchedAt": "2026-08-28T00:00:00Z",
+      "verify": false
+    },
+    {
+      "id": "order",
+      "category": "form",
+      "en": "Order",
+      "hi": "आदेश",
+      "csmopRef": "8.4(5), Appendix 8.1",
+      "source": {
+        "name": "केंद्रीय सचिवालय कार्यालय प्रक्रिया नियमावली, 2022 (16वाँ संस्करण), प्रशासनिक सुधार और लोक शिकायत विभाग",
+        "url": "https://www.darpg.gov.in/static/uploads/2025/10/8b5d6eb6c7c47bc69e271e25f1c2cc43.pdf",
+        "reference": "CSMOP 2022, sixteenth edition (Hindi issue)",
+        "dated": "2022-08-05"
+      },
+      "fetchedAt": "2026-08-28T00:00:00Z",
+      "verify": false
+    },
+    {
+      "id": "id-note",
+      "category": "form",
+      "en": "Inter-Departmental note",
+      "hi": "अंतर-विभागीय टिप्पणी",
+      "alsoHi": [
+        "अशासकीय टिप्पणी",
+        "यू.ओ. टिप्पणी"
+      ],
+      "note": {
+        "en": "CSMOP 2022 renamed the U.O. note the Inter-Departmental note; अशासकीय टिप्पणी is what the earlier editions and most sections still call it.",
+        "hi": "सीएसएमओपी 2022 ने यू.ओ. टिप्पणी का नाम बदलकर अंतर-विभागीय टिप्पणी कर दिया; पुराने संस्करणों और अधिकांश अनुभागों में इसे अब भी अशासकीय टिप्पणी कहा जाता है।"
+      },
+      "csmopRef": "8.1, Appendix 8.1",
+      "source": {
+        "name": "केंद्रीय सचिवालय कार्यालय प्रक्रिया नियमावली, 2022 (16वाँ संस्करण), प्रशासनिक सुधार और लोक शिकायत विभाग",
+        "url": "https://www.darpg.gov.in/static/uploads/2025/10/8b5d6eb6c7c47bc69e271e25f1c2cc43.pdf",
+        "reference": "CSMOP 2022, sixteenth edition (Hindi issue)",
+        "dated": "2022-08-05"
+      },
+      "fetchedAt": "2026-08-28T00:00:00Z",
+      "verify": false
+    },
+    {
+      "id": "notification",
+      "category": "form",
+      "en": "Notification",
+      "hi": "अधिसूचना",
+      "csmopRef": "8.4(6), Appendix 8.1",
+      "source": {
+        "name": "केंद्रीय सचिवालय कार्यालय प्रक्रिया नियमावली, 2022 (16वाँ संस्करण), प्रशासनिक सुधार और लोक शिकायत विभाग",
+        "url": "https://www.darpg.gov.in/static/uploads/2025/10/8b5d6eb6c7c47bc69e271e25f1c2cc43.pdf",
+        "reference": "CSMOP 2022, sixteenth edition (Hindi issue)",
+        "dated": "2022-08-05"
+      },
+      "fetchedAt": "2026-08-28T00:00:00Z",
+      "verify": false
+    },
+    {
+      "id": "resolution",
+      "category": "form",
+      "en": "Resolution",
+      "hi": "संकल्प",
+      "csmopRef": "8.4(7)",
+      "source": {
+        "name": "केंद्रीय सचिवालय कार्यालय प्रक्रिया नियमावली, 2022 (16वाँ संस्करण), प्रशासनिक सुधार और लोक शिकायत विभाग",
+        "url": "https://www.darpg.gov.in/static/uploads/2025/10/8b5d6eb6c7c47bc69e271e25f1c2cc43.pdf",
+        "reference": "CSMOP 2022, sixteenth edition (Hindi issue)",
+        "dated": "2022-08-05"
+      },
+      "fetchedAt": "2026-08-28T00:00:00Z",
+      "verify": false
+    },
+    {
+      "id": "press-communique",
+      "category": "form",
+      "en": "Press Communiqué / Press Note",
+      "hi": "प्रेस विज्ञप्ति / प्रेस नोट",
+      "csmopRef": "8.4(8)",
+      "source": {
+        "name": "केंद्रीय सचिवालय कार्यालय प्रक्रिया नियमावली, 2022 (16वाँ संस्करण), प्रशासनिक सुधार और लोक शिकायत विभाग",
+        "url": "https://www.darpg.gov.in/static/uploads/2025/10/8b5d6eb6c7c47bc69e271e25f1c2cc43.pdf",
+        "reference": "CSMOP 2022, sixteenth edition (Hindi issue)",
+        "dated": "2022-08-05"
+      },
+      "fetchedAt": "2026-08-28T00:00:00Z",
+      "verify": false
+    },
+    {
+      "id": "endorsement",
+      "category": "form",
+      "en": "Endorsement",
+      "hi": "पृष्ठांकन",
+      "csmopRef": "8.4(9), Appendix 8.1",
+      "source": {
+        "name": "केंद्रीय सचिवालय कार्यालय प्रक्रिया नियमावली, 2022 (16वाँ संस्करण), प्रशासनिक सुधार और लोक शिकायत विभाग",
+        "url": "https://www.darpg.gov.in/static/uploads/2025/10/8b5d6eb6c7c47bc69e271e25f1c2cc43.pdf",
+        "reference": "CSMOP 2022, sixteenth edition (Hindi issue)",
+        "dated": "2022-08-05"
+      },
+      "fetchedAt": "2026-08-28T00:00:00Z",
+      "verify": false
+    },
+    {
+      "id": "minutes",
+      "category": "form",
+      "en": "Minutes",
+      "hi": "कार्यवृत्त",
+      "csmopRef": "8.4(10)",
+      "source": {
+        "name": "Saral Prashasanik Shabdavali, Department of Official Language",
+        "url": "https://rajbhasha.gov.in/sites/default/files/saralshabdavali.pdf",
+        "reference": "Central Translation Bureau, Rajbhasha Vibhag"
+      },
+      "fetchedAt": "2026-08-28T00:00:00Z",
+      "verify": true
+    },
+    {
+      "id": "circular",
+      "category": "form",
+      "en": "Circular",
+      "hi": "परिपत्र",
+      "note": {
+        "en": "CSMOP 8.4 does not list the circular; it is an Office Memorandum addressed to everyone. The Hindi is the Department of Official Language's.",
+        "hi": "सीएसएमओपी 8.4 में परिपत्र सूचीबद्ध नहीं है; यह सभी को संबोधित कार्यालय ज्ञापन है। हिंदी राजभाषा विभाग की है।"
+      },
+      "source": {
+        "name": "Saral Prashasanik Shabdavali, Department of Official Language",
+        "url": "https://rajbhasha.gov.in/sites/default/files/saralshabdavali.pdf",
+        "reference": "Central Translation Bureau, Rajbhasha Vibhag"
+      },
+      "fetchedAt": "2026-08-28T00:00:00Z",
+      "verify": true
+    },
+    {
+      "id": "noting",
+      "category": "form",
+      "en": "Note / noting on a file",
+      "hi": "टिप्पणी",
+      "csmopRef": "7.1",
+      "source": {
+        "name": "केंद्रीय सचिवालय कार्यालय प्रक्रिया नियमावली, 2022 (16वाँ संस्करण), प्रशासनिक सुधार और लोक शिकायत विभाग",
+        "url": "https://www.darpg.gov.in/static/uploads/2025/10/8b5d6eb6c7c47bc69e271e25f1c2cc43.pdf",
+        "reference": "CSMOP 2022, sixteenth edition (Hindi issue)",
+        "dated": "2022-08-05"
+      },
+      "fetchedAt": "2026-08-28T00:00:00Z",
+      "verify": false
+    },
+    {
+      "id": "number",
+      "category": "part",
+      "en": "Number",
+      "hi": "संख्या",
+      "csmopRef": "Appendix 8.1",
+      "source": {
+        "name": "केंद्रीय सचिवालय कार्यालय प्रक्रिया नियमावली, 2022 (16वाँ संस्करण), प्रशासनिक सुधार और लोक शिकायत विभाग",
+        "url": "https://www.darpg.gov.in/static/uploads/2025/10/8b5d6eb6c7c47bc69e271e25f1c2cc43.pdf",
+        "reference": "CSMOP 2022, sixteenth edition (Hindi issue)",
+        "dated": "2022-08-05"
+      },
+      "fetchedAt": "2026-08-28T00:00:00Z",
+      "verify": false
+    },
+    {
+      "id": "government-of-india",
+      "category": "part",
+      "en": "Government of India",
+      "hi": "भारत सरकार",
+      "csmopRef": "Appendix 8.1",
+      "source": {
+        "name": "केंद्रीय सचिवालय कार्यालय प्रक्रिया नियमावली, 2022 (16वाँ संस्करण), प्रशासनिक सुधार और लोक शिकायत विभाग",
+        "url": "https://www.darpg.gov.in/static/uploads/2025/10/8b5d6eb6c7c47bc69e271e25f1c2cc43.pdf",
+        "reference": "CSMOP 2022, sixteenth edition (Hindi issue)",
+        "dated": "2022-08-05"
+      },
+      "fetchedAt": "2026-08-28T00:00:00Z",
+      "verify": false
+    },
+    {
+      "id": "ministry",
+      "category": "part",
+      "en": "Ministry",
+      "hi": "मंत्रालय",
+      "csmopRef": "Appendix 8.1",
+      "source": {
+        "name": "केंद्रीय सचिवालय कार्यालय प्रक्रिया नियमावली, 2022 (16वाँ संस्करण), प्रशासनिक सुधार और लोक शिकायत विभाग",
+        "url": "https://www.darpg.gov.in/static/uploads/2025/10/8b5d6eb6c7c47bc69e271e25f1c2cc43.pdf",
+        "reference": "CSMOP 2022, sixteenth edition (Hindi issue)",
+        "dated": "2022-08-05"
+      },
+      "fetchedAt": "2026-08-28T00:00:00Z",
+      "verify": false
+    },
+    {
+      "id": "department",
+      "category": "part",
+      "en": "Department",
+      "hi": "विभाग",
+      "csmopRef": "Appendix 8.1",
+      "source": {
+        "name": "केंद्रीय सचिवालय कार्यालय प्रक्रिया नियमावली, 2022 (16वाँ संस्करण), प्रशासनिक सुधार और लोक शिकायत विभाग",
+        "url": "https://www.darpg.gov.in/static/uploads/2025/10/8b5d6eb6c7c47bc69e271e25f1c2cc43.pdf",
+        "reference": "CSMOP 2022, sixteenth edition (Hindi issue)",
+        "dated": "2022-08-05"
+      },
+      "fetchedAt": "2026-08-28T00:00:00Z",
+      "verify": false
+    },
+    {
+      "id": "date-line",
+      "category": "part",
+      "en": "Place and date line",
+      "hi": "स्थान और दिनांक पंक्ति",
+      "alsoHi": [
+        "तारीख"
+      ],
+      "note": {
+        "en": "The specimens print both: दिनांक in the letter, तारीख in the Office Memorandum and Order.",
+        "hi": "नमूनों में दोनों छपे हैं: पत्र में दिनांक, कार्यालय ज्ञापन और आदेश में तारीख।"
+      },
+      "csmopRef": "Appendix 8.1",
+      "source": {
+        "name": "केंद्रीय सचिवालय कार्यालय प्रक्रिया नियमावली, 2022 (16वाँ संस्करण), प्रशासनिक सुधार और लोक शिकायत विभाग",
+        "url": "https://www.darpg.gov.in/static/uploads/2025/10/8b5d6eb6c7c47bc69e271e25f1c2cc43.pdf",
+        "reference": "CSMOP 2022, sixteenth edition (Hindi issue)",
+        "dated": "2022-08-05"
+      },
+      "fetchedAt": "2026-08-28T00:00:00Z",
+      "verify": false
+    },
+    {
+      "id": "to",
+      "category": "part",
+      "en": "To (addressee)",
+      "hi": "सेवा में",
+      "csmopRef": "Appendix 8.1",
+      "source": {
+        "name": "केंद्रीय सचिवालय कार्यालय प्रक्रिया नियमावली, 2022 (16वाँ संस्करण), प्रशासनिक सुधार और लोक शिकायत विभाग",
+        "url": "https://www.darpg.gov.in/static/uploads/2025/10/8b5d6eb6c7c47bc69e271e25f1c2cc43.pdf",
+        "reference": "CSMOP 2022, sixteenth edition (Hindi issue)",
+        "dated": "2022-08-05"
+      },
+      "fetchedAt": "2026-08-28T00:00:00Z",
+      "verify": false
+    },
+    {
+      "id": "subject",
+      "category": "part",
+      "en": "Subject",
+      "hi": "विषय",
+      "csmopRef": "Appendix 8.1",
+      "source": {
+        "name": "केंद्रीय सचिवालय कार्यालय प्रक्रिया नियमावली, 2022 (16वाँ संस्करण), प्रशासनिक सुधार और लोक शिकायत विभाग",
+        "url": "https://www.darpg.gov.in/static/uploads/2025/10/8b5d6eb6c7c47bc69e271e25f1c2cc43.pdf",
+        "reference": "CSMOP 2022, sixteenth edition (Hindi issue)",
+        "dated": "2022-08-05"
+      },
+      "fetchedAt": "2026-08-28T00:00:00Z",
+      "verify": false
+    },
+    {
+      "id": "reference",
+      "category": "part",
+      "en": "Reference",
+      "hi": "संदर्भ",
+      "csmopRef": "Appendix 8.1",
+      "source": {
+        "name": "केंद्रीय सचिवालय कार्यालय प्रक्रिया नियमावली, 2022 (16वाँ संस्करण), प्रशासनिक सुधार और लोक शिकायत विभाग",
+        "url": "https://www.darpg.gov.in/static/uploads/2025/10/8b5d6eb6c7c47bc69e271e25f1c2cc43.pdf",
+        "reference": "CSMOP 2022, sixteenth edition (Hindi issue)",
+        "dated": "2022-08-05"
+      },
+      "fetchedAt": "2026-08-28T00:00:00Z",
+      "verify": false
+    },
+    {
+      "id": "salutation",
+      "category": "part",
+      "en": "Salutation",
+      "hi": "संबोधन",
+      "alsoHi": [
+        "अभिवादन"
+      ],
+      "csmopRef": "8.4(1)",
+      "source": {
+        "name": "केंद्रीय सचिवालय कार्यालय प्रक्रिया नियमावली, 2022 (16वाँ संस्करण), प्रशासनिक सुधार और लोक शिकायत विभाग",
+        "url": "https://www.darpg.gov.in/static/uploads/2025/10/8b5d6eb6c7c47bc69e271e25f1c2cc43.pdf",
+        "reference": "CSMOP 2022, sixteenth edition (Hindi issue)",
+        "dated": "2022-08-05"
+      },
+      "fetchedAt": "2026-08-28T00:00:00Z",
+      "verify": false
+    },
+    {
+      "id": "sir-madam",
+      "category": "part",
+      "en": "Sir / Madam",
+      "hi": "महोदय / महोदया",
+      "csmopRef": "8.4(1), Appendix 8.1",
+      "source": {
+        "name": "केंद्रीय सचिवालय कार्यालय प्रक्रिया नियमावली, 2022 (16वाँ संस्करण), प्रशासनिक सुधार और लोक शिकायत विभाग",
+        "url": "https://www.darpg.gov.in/static/uploads/2025/10/8b5d6eb6c7c47bc69e271e25f1c2cc43.pdf",
+        "reference": "CSMOP 2022, sixteenth edition (Hindi issue)",
+        "dated": "2022-08-05"
+      },
+      "fetchedAt": "2026-08-28T00:00:00Z",
+      "verify": false
+    },
+    {
+      "id": "my-dear",
+      "category": "part",
+      "en": "My dear / Dear Shri",
+      "hi": "प्रिय श्री",
+      "csmopRef": "Appendix 8.1",
+      "source": {
+        "name": "केंद्रीय सचिवालय कार्यालय प्रक्रिया नियमावली, 2022 (16वाँ संस्करण), प्रशासनिक सुधार और लोक शिकायत विभाग",
+        "url": "https://www.darpg.gov.in/static/uploads/2025/10/8b5d6eb6c7c47bc69e271e25f1c2cc43.pdf",
+        "reference": "CSMOP 2022, sixteenth edition (Hindi issue)",
+        "dated": "2022-08-05"
+      },
+      "fetchedAt": "2026-08-28T00:00:00Z",
+      "verify": false
+    },
+    {
+      "id": "subscription",
+      "category": "part",
+      "en": "Subscription",
+      "hi": "मानार्थ संबोधन",
+      "csmopRef": "8.4(3)",
+      "source": {
+        "name": "केंद्रीय सचिवालय कार्यालय प्रक्रिया नियमावली, 2022 (16वाँ संस्करण), प्रशासनिक सुधार और लोक शिकायत विभाग",
+        "url": "https://www.darpg.gov.in/static/uploads/2025/10/8b5d6eb6c7c47bc69e271e25f1c2cc43.pdf",
+        "reference": "CSMOP 2022, sixteenth edition (Hindi issue)",
+        "dated": "2022-08-05"
+      },
+      "fetchedAt": "2026-08-28T00:00:00Z",
+      "verify": false
+    },
+    {
+      "id": "yours-faithfully",
+      "category": "part",
+      "en": "Yours faithfully",
+      "hi": "भवदीय",
+      "csmopRef": "8.4(1), Appendix 8.1",
+      "source": {
+        "name": "केंद्रीय सचिवालय कार्यालय प्रक्रिया नियमावली, 2022 (16वाँ संस्करण), प्रशासनिक सुधार और लोक शिकायत विभाग",
+        "url": "https://www.darpg.gov.in/static/uploads/2025/10/8b5d6eb6c7c47bc69e271e25f1c2cc43.pdf",
+        "reference": "CSMOP 2022, sixteenth edition (Hindi issue)",
+        "dated": "2022-08-05"
+      },
+      "fetchedAt": "2026-08-28T00:00:00Z",
+      "verify": false
+    },
+    {
+      "id": "yours-sincerely",
+      "category": "part",
+      "en": "Yours sincerely",
+      "hi": "भवदीय",
+      "alsoHi": [
+        "सादर",
+        "आपका"
+      ],
+      "note": {
+        "en": "The Hindi specimen of a demi-official letter closes भवदीय, the same word it uses for Yours faithfully; सादर is the usual friendlier alternative.",
+        "hi": "अर्ध-सरकारी पत्र के हिंदी नमूने का समापन भवदीय से होता है, वही शब्द जो भवदीय (Yours faithfully) के लिए है; सादर सामान्य आत्मीय विकल्प है।"
+      },
+      "csmopRef": "Appendix 8.1",
+      "source": {
+        "name": "केंद्रीय सचिवालय कार्यालय प्रक्रिया नियमावली, 2022 (16वाँ संस्करण), प्रशासनिक सुधार और लोक शिकायत विभाग",
+        "url": "https://www.darpg.gov.in/static/uploads/2025/10/8b5d6eb6c7c47bc69e271e25f1c2cc43.pdf",
+        "reference": "CSMOP 2022, sixteenth edition (Hindi issue)",
+        "dated": "2022-08-05"
+      },
+      "fetchedAt": "2026-08-28T00:00:00Z",
+      "verify": false
+    },
+    {
+      "id": "with-regards",
+      "category": "part",
+      "en": "With regards",
+      "hi": "शुभकामनाओं सहित",
+      "csmopRef": "Appendix 8.1",
+      "source": {
+        "name": "केंद्रीय सचिवालय कार्यालय प्रक्रिया नियमावली, 2022 (16वाँ संस्करण), प्रशासनिक सुधार और लोक शिकायत विभाग",
+        "url": "https://www.darpg.gov.in/static/uploads/2025/10/8b5d6eb6c7c47bc69e271e25f1c2cc43.pdf",
+        "reference": "CSMOP 2022, sixteenth edition (Hindi issue)",
+        "dated": "2022-08-05"
+      },
+      "fetchedAt": "2026-08-28T00:00:00Z",
+      "verify": false
+    },
+    {
+      "id": "signature",
+      "category": "part",
+      "en": "Signature",
+      "hi": "हस्ताक्षर",
+      "csmopRef": "Appendix 8.1",
+      "source": {
+        "name": "केंद्रीय सचिवालय कार्यालय प्रक्रिया नियमावली, 2022 (16वाँ संस्करण), प्रशासनिक सुधार और लोक शिकायत विभाग",
+        "url": "https://www.darpg.gov.in/static/uploads/2025/10/8b5d6eb6c7c47bc69e271e25f1c2cc43.pdf",
+        "reference": "CSMOP 2022, sixteenth edition (Hindi issue)",
+        "dated": "2022-08-05"
+      },
+      "fetchedAt": "2026-08-28T00:00:00Z",
+      "verify": false
+    },
+    {
+      "id": "signed",
+      "category": "part",
+      "en": "Sd/- (signed)",
+      "hi": "हस्ताक्षरित/-",
+      "csmopRef": "Appendix 8.1",
+      "source": {
+        "name": "केंद्रीय सचिवालय कार्यालय प्रक्रिया नियमावली, 2022 (16वाँ संस्करण), प्रशासनिक सुधार और लोक शिकायत विभाग",
+        "url": "https://www.darpg.gov.in/static/uploads/2025/10/8b5d6eb6c7c47bc69e271e25f1c2cc43.pdf",
+        "reference": "CSMOP 2022, sixteenth edition (Hindi issue)",
+        "dated": "2022-08-05"
+      },
+      "fetchedAt": "2026-08-28T00:00:00Z",
+      "verify": false
+    },
+    {
+      "id": "telephone",
+      "category": "part",
+      "en": "Telephone number",
+      "hi": "दूरभाष संख्या",
+      "csmopRef": "Appendix 8.1",
+      "source": {
+        "name": "केंद्रीय सचिवालय कार्यालय प्रक्रिया नियमावली, 2022 (16वाँ संस्करण), प्रशासनिक सुधार और लोक शिकायत विभाग",
+        "url": "https://www.darpg.gov.in/static/uploads/2025/10/8b5d6eb6c7c47bc69e271e25f1c2cc43.pdf",
+        "reference": "CSMOP 2022, sixteenth edition (Hindi issue)",
+        "dated": "2022-08-05"
+      },
+      "fetchedAt": "2026-08-28T00:00:00Z",
+      "verify": false
+    },
+    {
+      "id": "email",
+      "category": "part",
+      "en": "Email",
+      "hi": "ई-मेल",
+      "csmopRef": "Appendix 8.1",
+      "source": {
+        "name": "केंद्रीय सचिवालय कार्यालय प्रक्रिया नियमावली, 2022 (16वाँ संस्करण), प्रशासनिक सुधार और लोक शिकायत विभाग",
+        "url": "https://www.darpg.gov.in/static/uploads/2025/10/8b5d6eb6c7c47bc69e271e25f1c2cc43.pdf",
+        "reference": "CSMOP 2022, sixteenth edition (Hindi issue)",
+        "dated": "2022-08-05"
+      },
+      "fetchedAt": "2026-08-28T00:00:00Z",
+      "verify": false
+    },
+    {
+      "id": "copy-to",
+      "category": "part",
+      "en": "Copy to",
+      "hi": "प्रतिलिपि",
+      "csmopRef": "Appendix 8.1",
+      "source": {
+        "name": "केंद्रीय सचिवालय कार्यालय प्रक्रिया नियमावली, 2022 (16वाँ संस्करण), प्रशासनिक सुधार और लोक शिकायत विभाग",
+        "url": "https://www.darpg.gov.in/static/uploads/2025/10/8b5d6eb6c7c47bc69e271e25f1c2cc43.pdf",
+        "reference": "CSMOP 2022, sixteenth edition (Hindi issue)",
+        "dated": "2022-08-05"
+      },
+      "fetchedAt": "2026-08-28T00:00:00Z",
+      "verify": false
+    },
+    {
+      "id": "copy-forwarded",
+      "category": "part",
+      "en": "Copy forwarded for information / necessary action",
+      "hi": "प्रति सूचना/आवश्यक कार्रवाई के लिए अग्रेषित",
+      "csmopRef": "Appendix 8.1",
+      "source": {
+        "name": "केंद्रीय सचिवालय कार्यालय प्रक्रिया नियमावली, 2022 (16वाँ संस्करण), प्रशासनिक सुधार और लोक शिकायत विभाग",
+        "url": "https://www.darpg.gov.in/static/uploads/2025/10/8b5d6eb6c7c47bc69e271e25f1c2cc43.pdf",
+        "reference": "CSMOP 2022, sixteenth edition (Hindi issue)",
+        "dated": "2022-08-05"
+      },
+      "fetchedAt": "2026-08-28T00:00:00Z",
+      "verify": false
+    },
+    {
+      "id": "copy-forwarded-info",
+      "category": "part",
+      "en": "Copy forwarded for information",
+      "hi": "प्रतिलिपि सूचनार्थ प्रेषित",
+      "csmopRef": "Appendix 8.1",
+      "source": {
+        "name": "केंद्रीय सचिवालय कार्यालय प्रक्रिया नियमावली, 2022 (16वाँ संस्करण), प्रशासनिक सुधार और लोक शिकायत विभाग",
+        "url": "https://www.darpg.gov.in/static/uploads/2025/10/8b5d6eb6c7c47bc69e271e25f1c2cc43.pdf",
+        "reference": "CSMOP 2022, sixteenth edition (Hindi issue)",
+        "dated": "2022-08-05"
+      },
+      "fetchedAt": "2026-08-28T00:00:00Z",
+      "verify": false
+    },
+    {
+      "id": "enclosure",
+      "category": "part",
+      "en": "Enclosure",
+      "hi": "संलग्नक",
+      "note": {
+        "en": "CSMOP 9.2(vii) requires the count at the bottom left of the draft — 'Encl. 3'; it prints no Hindi form of the line.",
+        "hi": "सीएसएमओपी 9.2(vii) के अनुसार मसौदे के नीचे बाईं ओर संख्या दी जाती है — 'Encl. 3'; इस पंक्ति का हिंदी रूप उसमें नहीं छपा है।"
+      },
+      "source": {
+        "name": "Saral Prashasanik Shabdavali, Department of Official Language",
+        "url": "https://rajbhasha.gov.in/sites/default/files/saralshabdavali.pdf",
+        "reference": "Central Translation Bureau, Rajbhasha Vibhag"
+      },
+      "fetchedAt": "2026-08-28T00:00:00Z",
+      "verify": true
+    },
+    {
+      "id": "enclosure-as-above",
+      "category": "part",
+      "en": "Encl.: as above",
+      "hi": "संलग्नक : उपर्युक्तानुसार",
+      "source": {
+        "name": "Saral Prashasanik Shabdavali, Department of Official Language",
+        "url": "https://rajbhasha.gov.in/sites/default/files/saralshabdavali.pdf",
+        "reference": "Central Translation Bureau, Rajbhasha Vibhag"
+      },
+      "fetchedAt": "2026-08-28T00:00:00Z",
+      "verify": true
+    },
+    {
+      "id": "annexure",
+      "category": "part",
+      "en": "Annexure",
+      "hi": "अनुलग्नक",
+      "source": {
+        "name": "Saral Prashasanik Shabdavali, Department of Official Language",
+        "url": "https://rajbhasha.gov.in/sites/default/files/saralshabdavali.pdf",
+        "reference": "Central Translation Bureau, Rajbhasha Vibhag"
+      },
+      "fetchedAt": "2026-08-28T00:00:00Z",
+      "verify": true
+    },
+    {
+      "id": "list-of-papers",
+      "category": "part",
+      "en": "List of papers forwarded",
+      "hi": "अग्रेषित कागजातों की सूची",
+      "csmopRef": "Appendix 8.1",
+      "source": {
+        "name": "केंद्रीय सचिवालय कार्यालय प्रक्रिया नियमावली, 2022 (16वाँ संस्करण), प्रशासनिक सुधार और लोक शिकायत विभाग",
+        "url": "https://www.darpg.gov.in/static/uploads/2025/10/8b5d6eb6c7c47bc69e271e25f1c2cc43.pdf",
+        "reference": "CSMOP 2022, sixteenth edition (Hindi issue)",
+        "dated": "2022-08-05"
+      },
+      "fetchedAt": "2026-08-28T00:00:00Z",
+      "verify": false
+    },
+    {
+      "id": "attention",
+      "category": "part",
+      "en": "Attention",
+      "hi": "कृपया ध्यान दें",
+      "csmopRef": "9.4",
+      "source": {
+        "name": "Saral Prashasanik Shabdavali, Department of Official Language",
+        "url": "https://rajbhasha.gov.in/sites/default/files/saralshabdavali.pdf",
+        "reference": "Central Translation Bureau, Rajbhasha Vibhag"
+      },
+      "fetchedAt": "2026-08-28T00:00:00Z",
+      "verify": true
+    },
+    {
+      "id": "id-number",
+      "category": "part",
+      "en": "I.D. No.",
+      "hi": "आई.डी. सं.",
+      "csmopRef": "Appendix 8.1",
+      "source": {
+        "name": "केंद्रीय सचिवालय कार्यालय प्रक्रिया नियमावली, 2022 (16वाँ संस्करण), प्रशासनिक सुधार और लोक शिकायत विभाग",
+        "url": "https://www.darpg.gov.in/static/uploads/2025/10/8b5d6eb6c7c47bc69e271e25f1c2cc43.pdf",
+        "reference": "CSMOP 2022, sixteenth edition (Hindi issue)",
+        "dated": "2022-08-05"
+      },
+      "fetchedAt": "2026-08-28T00:00:00Z",
+      "verify": false
+    },
+    {
+      "id": "gazette",
+      "category": "part",
+      "en": "The Gazette of India",
+      "hi": "भारत का राजपत्र",
+      "csmopRef": "Appendix 8.1, Appendix 8.2",
+      "source": {
+        "name": "केंद्रीय सचिवालय कार्यालय प्रक्रिया नियमावली, 2022 (16वाँ संस्करण), प्रशासनिक सुधार और लोक शिकायत विभाग",
+        "url": "https://www.darpg.gov.in/static/uploads/2025/10/8b5d6eb6c7c47bc69e271e25f1c2cc43.pdf",
+        "reference": "CSMOP 2022, sixteenth edition (Hindi issue)",
+        "dated": "2022-08-05"
+      },
+      "fetchedAt": "2026-08-28T00:00:00Z",
+      "verify": false
+    },
+    {
+      "id": "gazette-part",
+      "category": "part",
+      "en": "Part / Section of the Gazette",
+      "hi": "भाग / खंड",
+      "csmopRef": "Appendix 8.1",
+      "source": {
+        "name": "केंद्रीय सचिवालय कार्यालय प्रक्रिया नियमावली, 2022 (16वाँ संस्करण), प्रशासनिक सुधार और लोक शिकायत विभाग",
+        "url": "https://www.darpg.gov.in/static/uploads/2025/10/8b5d6eb6c7c47bc69e271e25f1c2cc43.pdf",
+        "reference": "CSMOP 2022, sixteenth edition (Hindi issue)",
+        "dated": "2022-08-05"
+      },
+      "fetchedAt": "2026-08-28T00:00:00Z",
+      "verify": false
+    },
+    {
+      "id": "government-press",
+      "category": "part",
+      "en": "Government of India Press",
+      "hi": "भारत सरकार मुद्रणालय",
+      "csmopRef": "Appendix 8.1",
+      "source": {
+        "name": "केंद्रीय सचिवालय कार्यालय प्रक्रिया नियमावली, 2022 (16वाँ संस्करण), प्रशासनिक सुधार और लोक शिकायत विभाग",
+        "url": "https://www.darpg.gov.in/static/uploads/2025/10/8b5d6eb6c7c47bc69e271e25f1c2cc43.pdf",
+        "reference": "CSMOP 2022, sixteenth edition (Hindi issue)",
+        "dated": "2022-08-05"
+      },
+      "fetchedAt": "2026-08-28T00:00:00Z",
+      "verify": false
+    },
+    {
+      "id": "undersigned",
+      "category": "phraseElement",
+      "en": "The undersigned",
+      "hi": "अधोहस्ताक्षरी",
+      "csmopRef": "Appendix 8.1",
+      "source": {
+        "name": "केंद्रीय सचिवालय कार्यालय प्रक्रिया नियमावली, 2022 (16वाँ संस्करण), प्रशासनिक सुधार और लोक शिकायत विभाग",
+        "url": "https://www.darpg.gov.in/static/uploads/2025/10/8b5d6eb6c7c47bc69e271e25f1c2cc43.pdf",
+        "reference": "CSMOP 2022, sixteenth edition (Hindi issue)",
+        "dated": "2022-08-05"
+      },
+      "fetchedAt": "2026-08-28T00:00:00Z",
+      "verify": false
+    },
+    {
+      "id": "is-directed",
+      "category": "phraseElement",
+      "en": "is directed to",
+      "hi": "को निदेश हुआ है",
+      "csmopRef": "Appendix 8.1",
+      "source": {
+        "name": "केंद्रीय सचिवालय कार्यालय प्रक्रिया नियमावली, 2022 (16वाँ संस्करण), प्रशासनिक सुधार और लोक शिकायत विभाग",
+        "url": "https://www.darpg.gov.in/static/uploads/2025/10/8b5d6eb6c7c47bc69e271e25f1c2cc43.pdf",
+        "reference": "CSMOP 2022, sixteenth edition (Hindi issue)",
+        "dated": "2022-08-05"
+      },
+      "fetchedAt": "2026-08-28T00:00:00Z",
+      "verify": false
+    },
+    {
+      "id": "draft",
+      "category": "process",
+      "en": "Draft (DFA)",
+      "hi": "मसौदा",
+      "alsoHi": [
+        "प्रारूप"
+      ],
+      "csmopRef": "9.1(iii), 9.2(xiii)",
+      "source": {
+        "name": "केंद्रीय सचिवालय कार्यालय प्रक्रिया नियमावली, 2022 (16वाँ संस्करण), प्रशासनिक सुधार और लोक शिकायत विभाग",
+        "url": "https://www.darpg.gov.in/static/uploads/2025/10/8b5d6eb6c7c47bc69e271e25f1c2cc43.pdf",
+        "reference": "CSMOP 2022, sixteenth edition (Hindi issue)",
+        "dated": "2022-08-05"
+      },
+      "fetchedAt": "2026-08-28T00:00:00Z",
+      "verify": false
+    },
+    {
+      "id": "format",
+      "category": "process",
+      "en": "Format / specimen",
+      "hi": "प्रारूप",
+      "csmopRef": "Appendix 8.1",
+      "source": {
+        "name": "केंद्रीय सचिवालय कार्यालय प्रक्रिया नियमावली, 2022 (16वाँ संस्करण), प्रशासनिक सुधार और लोक शिकायत विभाग",
+        "url": "https://www.darpg.gov.in/static/uploads/2025/10/8b5d6eb6c7c47bc69e271e25f1c2cc43.pdf",
+        "reference": "CSMOP 2022, sixteenth edition (Hindi issue)",
+        "dated": "2022-08-05"
+      },
+      "fetchedAt": "2026-08-28T00:00:00Z",
+      "verify": false
+    },
+    {
+      "id": "immediate",
+      "category": "urgency",
+      "en": "Immediate",
+      "hi": "तत्काल",
+      "csmopRef": "6.13(i)",
+      "source": {
+        "name": "केंद्रीय सचिवालय कार्यालय प्रक्रिया नियमावली, 2022 (16वाँ संस्करण), प्रशासनिक सुधार और लोक शिकायत विभाग",
+        "url": "https://www.darpg.gov.in/static/uploads/2025/10/8b5d6eb6c7c47bc69e271e25f1c2cc43.pdf",
+        "reference": "CSMOP 2022, sixteenth edition (Hindi issue)",
+        "dated": "2022-08-05"
+      },
+      "fetchedAt": "2026-08-28T00:00:00Z",
+      "verify": false
+    },
+    {
+      "id": "priority",
+      "category": "urgency",
+      "en": "Priority",
+      "hi": "अग्रता",
+      "csmopRef": "6.13(i)",
+      "source": {
+        "name": "केंद्रीय सचिवालय कार्यालय प्रक्रिया नियमावली, 2022 (16वाँ संस्करण), प्रशासनिक सुधार और लोक शिकायत विभाग",
+        "url": "https://www.darpg.gov.in/static/uploads/2025/10/8b5d6eb6c7c47bc69e271e25f1c2cc43.pdf",
+        "reference": "CSMOP 2022, sixteenth edition (Hindi issue)",
+        "dated": "2022-08-05"
+      },
+      "fetchedAt": "2026-08-28T00:00:00Z",
+      "verify": false
+    },
+    {
+      "id": "top-priority",
+      "category": "urgency",
+      "en": "Top Priority",
+      "hi": "परम अग्रता",
+      "alsoHi": [
+        "सर्वोच्च अग्रता"
+      ],
+      "note": {
+        "en": "The manual prints परम अग्रता. सर्वोच्च अग्रता is the common rendering and is not what CSMOP 2022 uses.",
+        "hi": "नियमावली में परम अग्रता छपा है। सर्वोच्च अग्रता प्रचलित अनुवाद है, सीएसएमओपी 2022 का प्रयोग नहीं।"
+      },
+      "csmopRef": "6.13(i)",
+      "source": {
+        "name": "केंद्रीय सचिवालय कार्यालय प्रक्रिया नियमावली, 2022 (16वाँ संस्करण), प्रशासनिक सुधार और लोक शिकायत विभाग",
+        "url": "https://www.darpg.gov.in/static/uploads/2025/10/8b5d6eb6c7c47bc69e271e25f1c2cc43.pdf",
+        "reference": "CSMOP 2022, sixteenth edition (Hindi issue)",
+        "dated": "2022-08-05"
+      },
+      "fetchedAt": "2026-08-28T00:00:00Z",
+      "verify": false
+    },
+    {
+      "id": "vip",
+      "category": "urgency",
+      "en": "VIP (Parliament matters)",
+      "hi": "वीआईपी",
+      "note": {
+        "en": "Lok Sabha / Rajya Sabha questions, motions and Bills go in their own file cover; no other urgency grading is then needed.",
+        "hi": "लोक सभा/राज्य सभा के प्रश्न, प्रस्ताव और विधेयक अलग विशिष्ट फाइल कवर में रखे जाते हैं; तब किसी अन्य तात्कालिकता ग्रेडिंग की आवश्यकता नहीं।"
+      },
+      "csmopRef": "6.13(ii), Box-e.6.10",
+      "source": {
+        "name": "केंद्रीय सचिवालय कार्यालय प्रक्रिया नियमावली, 2022 (16वाँ संस्करण), प्रशासनिक सुधार और लोक शिकायत विभाग",
+        "url": "https://www.darpg.gov.in/static/uploads/2025/10/8b5d6eb6c7c47bc69e271e25f1c2cc43.pdf",
+        "reference": "CSMOP 2022, sixteenth edition (Hindi issue)",
+        "dated": "2022-08-05"
+      },
+      "fetchedAt": "2026-08-28T00:00:00Z",
+      "verify": false
+    },
+    {
+      "id": "under-secretary",
+      "category": "designation",
+      "en": "Under Secretary to the Government of India",
+      "hi": "अवर सचिव, भारत सरकार",
+      "csmopRef": "Appendix 8.1",
+      "source": {
+        "name": "केंद्रीय सचिवालय कार्यालय प्रक्रिया नियमावली, 2022 (16वाँ संस्करण), प्रशासनिक सुधार और लोक शिकायत विभाग",
+        "url": "https://www.darpg.gov.in/static/uploads/2025/10/8b5d6eb6c7c47bc69e271e25f1c2cc43.pdf",
+        "reference": "CSMOP 2022, sixteenth edition (Hindi issue)",
+        "dated": "2022-08-05"
+      },
+      "fetchedAt": "2026-08-28T00:00:00Z",
+      "verify": false
+    },
+    {
+      "id": "deputy-secretary",
+      "category": "designation",
+      "en": "Deputy Secretary",
+      "hi": "उप सचिव",
+      "csmopRef": "Appendix 8.1",
+      "source": {
+        "name": "केंद्रीय सचिवालय कार्यालय प्रक्रिया नियमावली, 2022 (16वाँ संस्करण), प्रशासनिक सुधार और लोक शिकायत विभाग",
+        "url": "https://www.darpg.gov.in/static/uploads/2025/10/8b5d6eb6c7c47bc69e271e25f1c2cc43.pdf",
+        "reference": "CSMOP 2022, sixteenth edition (Hindi issue)",
+        "dated": "2022-08-05"
+      },
+      "fetchedAt": "2026-08-28T00:00:00Z",
+      "verify": false
+    },
+    {
+      "id": "director",
+      "category": "designation",
+      "en": "Director",
+      "hi": "निदेशक",
+      "source": {
+        "name": "Saral Prashasanik Shabdavali, Department of Official Language",
+        "url": "https://rajbhasha.gov.in/sites/default/files/saralshabdavali.pdf",
+        "reference": "Central Translation Bureau, Rajbhasha Vibhag"
+      },
+      "fetchedAt": "2026-08-28T00:00:00Z",
+      "verify": true
+    },
+    {
+      "id": "joint-secretary",
+      "category": "designation",
+      "en": "Joint Secretary",
+      "hi": "संयुक्त सचिव",
+      "csmopRef": "Appendix 8.1",
+      "source": {
+        "name": "केंद्रीय सचिवालय कार्यालय प्रक्रिया नियमावली, 2022 (16वाँ संस्करण), प्रशासनिक सुधार और लोक शिकायत विभाग",
+        "url": "https://www.darpg.gov.in/static/uploads/2025/10/8b5d6eb6c7c47bc69e271e25f1c2cc43.pdf",
+        "reference": "CSMOP 2022, sixteenth edition (Hindi issue)",
+        "dated": "2022-08-05"
+      },
+      "fetchedAt": "2026-08-28T00:00:00Z",
+      "verify": false
+    },
+    {
+      "id": "additional-secretary",
+      "category": "designation",
+      "en": "Additional Secretary",
+      "hi": "अपर सचिव",
+      "source": {
+        "name": "Saral Prashasanik Shabdavali, Department of Official Language",
+        "url": "https://rajbhasha.gov.in/sites/default/files/saralshabdavali.pdf",
+        "reference": "Central Translation Bureau, Rajbhasha Vibhag"
+      },
+      "fetchedAt": "2026-08-28T00:00:00Z",
+      "verify": true
+    },
+    {
+      "id": "secretary",
+      "category": "designation",
+      "en": "Secretary to the Government of India",
+      "hi": "सचिव, भारत सरकार",
+      "csmopRef": "Appendix 8.1",
+      "source": {
+        "name": "केंद्रीय सचिवालय कार्यालय प्रक्रिया नियमावली, 2022 (16वाँ संस्करण), प्रशासनिक सुधार और लोक शिकायत विभाग",
+        "url": "https://www.darpg.gov.in/static/uploads/2025/10/8b5d6eb6c7c47bc69e271e25f1c2cc43.pdf",
+        "reference": "CSMOP 2022, sixteenth edition (Hindi issue)",
+        "dated": "2022-08-05"
+      },
+      "fetchedAt": "2026-08-28T00:00:00Z",
+      "verify": false
+    },
+    {
+      "id": "section-officer",
+      "category": "designation",
+      "en": "Section Officer",
+      "hi": "अनुभाग अधिकारी",
+      "csmopRef": "3.1(vi)",
+      "source": {
+        "name": "केंद्रीय सचिवालय कार्यालय प्रक्रिया नियमावली, 2022 (16वाँ संस्करण), प्रशासनिक सुधार और लोक शिकायत विभाग",
+        "url": "https://www.darpg.gov.in/static/uploads/2025/10/8b5d6eb6c7c47bc69e271e25f1c2cc43.pdf",
+        "reference": "CSMOP 2022, sixteenth edition (Hindi issue)",
+        "dated": "2022-08-05"
+      },
+      "fetchedAt": "2026-08-28T00:00:00Z",
+      "verify": false
+    },
+    {
+      "id": "assistant-section-officer",
+      "category": "designation",
+      "en": "Assistant Section Officer",
+      "hi": "सहायक अनुभाग अधिकारी",
+      "csmopRef": "3.1(vi)",
+      "source": {
+        "name": "केंद्रीय सचिवालय कार्यालय प्रक्रिया नियमावली, 2022 (16वाँ संस्करण), प्रशासनिक सुधार और लोक शिकायत विभाग",
+        "url": "https://www.darpg.gov.in/static/uploads/2025/10/8b5d6eb6c7c47bc69e271e25f1c2cc43.pdf",
+        "reference": "CSMOP 2022, sixteenth edition (Hindi issue)",
+        "dated": "2022-08-05"
+      },
+      "fetchedAt": "2026-08-28T00:00:00Z",
+      "verify": false
+    },
+    {
+      "id": "dealing-officer",
+      "category": "designation",
+      "en": "Dealing Officer",
+      "hi": "डीलिंग अधिकारी",
+      "csmopRef": "3.1(vi)",
+      "source": {
+        "name": "केंद्रीय सचिवालय कार्यालय प्रक्रिया नियमावली, 2022 (16वाँ संस्करण), प्रशासनिक सुधार और लोक शिकायत विभाग",
+        "url": "https://www.darpg.gov.in/static/uploads/2025/10/8b5d6eb6c7c47bc69e271e25f1c2cc43.pdf",
+        "reference": "CSMOP 2022, sixteenth edition (Hindi issue)",
+        "dated": "2022-08-05"
+      },
+      "fetchedAt": "2026-08-28T00:00:00Z",
+      "verify": false
+    },
+    {
+      "id": "branch-officer",
+      "category": "designation",
+      "en": "Branch Officer",
+      "hi": "शाखा अधिकारी",
+      "csmopRef": "7.5",
+      "source": {
+        "name": "Saral Prashasanik Shabdavali, Department of Official Language",
+        "url": "https://rajbhasha.gov.in/sites/default/files/saralshabdavali.pdf",
+        "reference": "Central Translation Bureau, Rajbhasha Vibhag"
+      },
+      "fetchedAt": "2026-08-28T00:00:00Z",
+      "verify": true
+    },
+    {
+      "id": "section",
+      "category": "designation",
+      "en": "Section",
+      "hi": "अनुभाग",
+      "csmopRef": "3.1(vi)",
+      "source": {
+        "name": "केंद्रीय सचिवालय कार्यालय प्रक्रिया नियमावली, 2022 (16वाँ संस्करण), प्रशासनिक सुधार और लोक शिकायत विभाग",
+        "url": "https://www.darpg.gov.in/static/uploads/2025/10/8b5d6eb6c7c47bc69e271e25f1c2cc43.pdf",
+        "reference": "CSMOP 2022, sixteenth edition (Hindi issue)",
+        "dated": "2022-08-05"
+      },
+      "fetchedAt": "2026-08-28T00:00:00Z",
+      "verify": false
+    },
+    {
+      "id": "competent-authority",
+      "category": "process",
+      "en": "Competent authority",
+      "hi": "सक्षम प्राधिकारी",
+      "csmopRef": "7.1(ii)",
+      "source": {
+        "name": "केंद्रीय सचिवालय कार्यालय प्रक्रिया नियमावली, 2022 (16वाँ संस्करण), प्रशासनिक सुधार और लोक शिकायत विभाग",
+        "url": "https://www.darpg.gov.in/static/uploads/2025/10/8b5d6eb6c7c47bc69e271e25f1c2cc43.pdf",
+        "reference": "CSMOP 2022, sixteenth edition (Hindi issue)",
+        "dated": "2022-08-05"
+      },
+      "fetchedAt": "2026-08-28T00:00:00Z",
+      "verify": false
+    },
+    {
+      "id": "cpio",
+      "category": "designation",
+      "en": "Central Public Information Officer",
+      "hi": "केंद्रीय लोक सूचना अधिकारी",
+      "source": {
+        "name": "Saral Prashasanik Shabdavali, Department of Official Language",
+        "url": "https://rajbhasha.gov.in/sites/default/files/saralshabdavali.pdf",
+        "reference": "Central Translation Bureau, Rajbhasha Vibhag"
+      },
+      "fetchedAt": "2026-08-28T00:00:00Z",
+      "verify": true
+    },
+    {
+      "id": "appellate-authority",
+      "category": "designation",
+      "en": "First Appellate Authority",
+      "hi": "प्रथम अपीलीय प्राधिकारी",
+      "source": {
+        "name": "Saral Prashasanik Shabdavali, Department of Official Language",
+        "url": "https://rajbhasha.gov.in/sites/default/files/saralshabdavali.pdf",
+        "reference": "Central Translation Bureau, Rajbhasha Vibhag"
+      },
+      "fetchedAt": "2026-08-28T00:00:00Z",
+      "verify": true
+    },
+    {
+      "id": "ddo",
+      "category": "designation",
+      "en": "Drawing and Disbursing Officer",
+      "hi": "आहरण एवं संवितरण अधिकारी",
+      "source": {
+        "name": "Saral Prashasanik Shabdavali, Department of Official Language",
+        "url": "https://rajbhasha.gov.in/sites/default/files/saralshabdavali.pdf",
+        "reference": "Central Translation Bureau, Rajbhasha Vibhag"
+      },
+      "fetchedAt": "2026-08-28T00:00:00Z",
+      "verify": true
+    },
+    {
+      "id": "puc",
+      "category": "process",
+      "en": "Paper under consideration (PUC)",
+      "hi": "विचाराधीन पत्र",
+      "csmopRef": "6.7(iii)",
+      "source": {
+        "name": "Saral Prashasanik Shabdavali, Department of Official Language",
+        "url": "https://rajbhasha.gov.in/sites/default/files/saralshabdavali.pdf",
+        "reference": "Central Translation Bureau, Rajbhasha Vibhag"
+      },
+      "fetchedAt": "2026-08-28T00:00:00Z",
+      "verify": true
+    },
+    {
+      "id": "fresh-receipt",
+      "category": "process",
+      "en": "Fresh receipt (FR)",
+      "hi": "नई प्राप्ति",
+      "csmopRef": "6.7(iii)",
+      "source": {
+        "name": "Saral Prashasanik Shabdavali, Department of Official Language",
+        "url": "https://rajbhasha.gov.in/sites/default/files/saralshabdavali.pdf",
+        "reference": "Central Translation Bureau, Rajbhasha Vibhag"
+      },
+      "fetchedAt": "2026-08-28T00:00:00Z",
+      "verify": true
+    },
+    {
+      "id": "flag",
+      "category": "process",
+      "en": "Flag",
+      "hi": "ध्वजांकन",
+      "csmopRef": "6.7(iii)",
+      "source": {
+        "name": "Saral Prashasanik Shabdavali, Department of Official Language",
+        "url": "https://rajbhasha.gov.in/sites/default/files/saralshabdavali.pdf",
+        "reference": "Central Translation Bureau, Rajbhasha Vibhag"
+      },
+      "fetchedAt": "2026-08-28T00:00:00Z",
+      "verify": true
+    },
+    {
+      "id": "referencing",
+      "category": "process",
+      "en": "Referencing",
+      "hi": "संदर्भ देना",
+      "csmopRef": "6.7",
+      "source": {
+        "name": "केंद्रीय सचिवालय कार्यालय प्रक्रिया नियमावली, 2022 (16वाँ संस्करण), प्रशासनिक सुधार और लोक शिकायत विभाग",
+        "url": "https://www.darpg.gov.in/static/uploads/2025/10/8b5d6eb6c7c47bc69e271e25f1c2cc43.pdf",
+        "reference": "CSMOP 2022, sixteenth edition (Hindi issue)",
+        "dated": "2022-08-05"
+      },
+      "fetchedAt": "2026-08-28T00:00:00Z",
+      "verify": false
+    },
+    {
+      "id": "docketing",
+      "category": "process",
+      "en": "Docketing",
+      "hi": "डॉकेटिंग",
+      "csmopRef": "6.8",
+      "source": {
+        "name": "केंद्रीय सचिवालय कार्यालय प्रक्रिया नियमावली, 2022 (16वाँ संस्करण), प्रशासनिक सुधार और लोक शिकायत विभाग",
+        "url": "https://www.darpg.gov.in/static/uploads/2025/10/8b5d6eb6c7c47bc69e271e25f1c2cc43.pdf",
+        "reference": "CSMOP 2022, sixteenth edition (Hindi issue)",
+        "dated": "2022-08-05"
+      },
+      "fetchedAt": "2026-08-28T00:00:00Z",
+      "verify": false
+    },
+    {
+      "id": "self-contained-note",
+      "category": "process",
+      "en": "Self-contained note",
+      "hi": "स्वतःपूर्ण टिप्पणी",
+      "csmopRef": "7.2(viii)",
+      "source": {
+        "name": "Saral Prashasanik Shabdavali, Department of Official Language",
+        "url": "https://rajbhasha.gov.in/sites/default/files/saralshabdavali.pdf",
+        "reference": "Central Translation Bureau, Rajbhasha Vibhag"
+      },
+      "fetchedAt": "2026-08-28T00:00:00Z",
+      "verify": true
+    },
+    {
+      "id": "running-summary",
+      "category": "process",
+      "en": "Running summary of facts",
+      "hi": "तथ्यों का चालू सारांश",
+      "csmopRef": "7.8",
+      "source": {
+        "name": "Saral Prashasanik Shabdavali, Department of Official Language",
+        "url": "https://rajbhasha.gov.in/sites/default/files/saralshabdavali.pdf",
+        "reference": "Central Translation Bureau, Rajbhasha Vibhag"
+      },
+      "fetchedAt": "2026-08-28T00:00:00Z",
+      "verify": true
+    },
+    {
+      "id": "level-of-disposal",
+      "category": "process",
+      "en": "Level of disposal",
+      "hi": "निपटान का स्तर",
+      "csmopRef": "7.6",
+      "source": {
+        "name": "Saral Prashasanik Shabdavali, Department of Official Language",
+        "url": "https://rajbhasha.gov.in/sites/default/files/saralshabdavali.pdf",
+        "reference": "Central Translation Bureau, Rajbhasha Vibhag"
+      },
+      "fetchedAt": "2026-08-28T00:00:00Z",
+      "verify": true
+    },
+    {
+      "id": "channel-of-submission",
+      "category": "process",
+      "en": "Channel of submission",
+      "hi": "प्रस्तुतीकरण का माध्यम",
+      "csmopRef": "7.6",
+      "source": {
+        "name": "Saral Prashasanik Shabdavali, Department of Official Language",
+        "url": "https://rajbhasha.gov.in/sites/default/files/saralshabdavali.pdf",
+        "reference": "Central Translation Bureau, Rajbhasha Vibhag"
+      },
+      "fetchedAt": "2026-08-28T00:00:00Z",
+      "verify": true
+    },
+    {
+      "id": "through-proper-channel",
+      "category": "process",
+      "en": "Through proper channel",
+      "hi": "उचित माध्यम से",
+      "source": {
+        "name": "Saral Prashasanik Shabdavali, Department of Official Language",
+        "url": "https://rajbhasha.gov.in/sites/default/files/saralshabdavali.pdf",
+        "reference": "Central Translation Bureau, Rajbhasha Vibhag"
+      },
+      "fetchedAt": "2026-08-28T00:00:00Z",
+      "verify": true
+    },
+    {
+      "id": "for-approval",
+      "category": "process",
+      "en": "Submitted for approval",
+      "hi": "अनुमोदनार्थ प्रस्तुत",
+      "source": {
+        "name": "Saral Prashasanik Shabdavali, Department of Official Language",
+        "url": "https://rajbhasha.gov.in/sites/default/files/saralshabdavali.pdf",
+        "reference": "Central Translation Bureau, Rajbhasha Vibhag"
+      },
+      "fetchedAt": "2026-08-28T00:00:00Z",
+      "verify": true
+    }
+  ]
+}

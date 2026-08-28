@@ -1,0 +1,586 @@
+{
+  "version": "1.0.0",
+  "generatedAt": "2026-08-28T00:00:00Z",
+  "disclaimer": {
+    "en": "Reference only; verify with the official gazette/order or your DDO.",
+    "hi": "केवल संदर्भ के लिए; सरकारी राजपत्र/आदेश या अपने डीडीओ से सत्यापित करें।"
+  },
+  "template": {
+    "id": "leave-application",
+    "name": {
+      "en": "Leave application",
+      "hi": "अवकाश आवेदन"
+    },
+    "shortName": {
+      "en": "Leave",
+      "hi": "अवकाश"
+    },
+    "person": "first",
+    "usedBy": {
+      "en": "An officer or member of the staff applying for leave to the authority competent to sanction it, through the Section Officer or Branch Officer.",
+      "hi": "अवकाश स्वीकृत करने के लिए सक्षम प्राधिकारी को, अनुभाग अधिकारी या शाखा अधिकारी के माध्यम से, अवकाश हेतु आवेदन करने वाला अधिकारी या कर्मचारी।"
+    },
+    "whenToUse": {
+      "en": "CSMOP prescribes no form for the application itself — it prescribes the Office Order by which leave is granted (Appendix 8.1). This template is the application that precedes it: first person, through proper channel, stating the kind of leave, the dates, the prefixing and suffixing sought, the address during leave and the arrangement for the work.",
+      "hi": "सीएसएमओपी आवेदन के लिए कोई प्रपत्र निर्धारित नहीं करता — वह उस कार्यालय आदेश का प्रारूप देता है जिससे अवकाश स्वीकृत होता है (परिशिष्ट 8.1)। यह टेम्पलेट उससे पहले का आवेदन है: प्रथम पुरुष, उचित माध्यम से, अवकाश का प्रकार, तारीखें, उपसर्ग/प्रत्यय की माँग, अवकाश के दौरान का पता और कार्य की व्यवस्था बताते हुए।"
+    },
+    "salutation": {
+      "en": "Sir / Madam,",
+      "hi": "महोदय / महोदया,"
+    },
+    "subscription": {
+      "en": "Yours faithfully,",
+      "hi": "भवदीय,"
+    },
+    "urgencyAllowed": false,
+    "csmopRef": {
+      "edition": "CSMOP 2022, sixteenth edition",
+      "paras": [
+        "8.4(4)",
+        "Appendix 8.1"
+      ],
+      "pages": [
+        79,
+        90
+      ],
+      "chassis": "letter",
+      "note": {
+        "en": "The manual gives the format of the Office Order granting leave, not of the application. The sanction rules are in the CCS (Leave) Rules, 1972.",
+        "hi": "नियमावली अवकाश स्वीकृत करने वाले कार्यालय आदेश का प्रारूप देती है, आवेदन का नहीं। स्वीकृति के नियम केंद्रीय सिविल सेवा (छुट्टी) नियम, 1972 में हैं।"
+      }
+    },
+    "fields": [
+      {
+        "id": "place",
+        "label": {
+          "en": "Place",
+          "hi": "स्थान"
+        },
+        "type": "text",
+        "required": true,
+        "sample": {
+          "en": "New Delhi",
+          "hi": "नई दिल्ली"
+        }
+      },
+      {
+        "id": "date",
+        "label": {
+          "en": "Date",
+          "hi": "दिनांक"
+        },
+        "type": "date",
+        "required": true,
+        "sample": {
+          "en": "2026-08-28",
+          "hi": "2026-08-28"
+        },
+        "hint": {
+          "en": "dd.mm.yyyy in English; दिनांक dd.mm.yyyy in Hindi.",
+          "hi": "अंग्रेज़ी में dd.mm.yyyy; हिंदी में दिनांक dd.mm.yyyy।"
+        }
+      },
+      {
+        "id": "addressee",
+        "label": {
+          "en": "To (sanctioning authority)",
+          "hi": "सेवा में (स्वीकृतिकर्ता प्राधिकारी)"
+        },
+        "type": "textarea",
+        "required": true,
+        "sample": {
+          "en": "The Under Secretary (Administration)\nDepartment of Personnel and Training\nNorth Block, New Delhi - 110001\n(Through the Section Officer, Establishment Section)",
+          "hi": "अवर सचिव (प्रशासन)\nकार्मिक और प्रशिक्षण विभाग\nनॉर्थ ब्लॉक, नई दिल्ली - 110001\n(अनुभाग अधिकारी, स्थापना अनुभाग के माध्यम से)"
+        }
+      },
+      {
+        "id": "leaveType",
+        "label": {
+          "en": "Kind of leave",
+          "hi": "अवकाश का प्रकार"
+        },
+        "type": "select",
+        "required": true,
+        "sample": {
+          "en": "earned",
+          "hi": "earned"
+        },
+        "options": [
+          {
+            "value": "earned",
+            "label": {
+              "en": "Earned leave",
+              "hi": "अर्जित अवकाश"
+            }
+          },
+          {
+            "value": "half-pay",
+            "label": {
+              "en": "Half pay leave",
+              "hi": "अर्ध वेतन अवकाश"
+            }
+          },
+          {
+            "value": "commuted",
+            "label": {
+              "en": "Commuted leave",
+              "hi": "परिवर्तित अवकाश"
+            }
+          },
+          {
+            "value": "casual",
+            "label": {
+              "en": "Casual leave",
+              "hi": "आकस्मिक अवकाश"
+            }
+          },
+          {
+            "value": "restricted-holiday",
+            "label": {
+              "en": "Restricted holiday",
+              "hi": "प्रतिबंधित अवकाश"
+            }
+          },
+          {
+            "value": "child-care",
+            "label": {
+              "en": "Child Care Leave",
+              "hi": "बाल देखभाल अवकाश"
+            }
+          },
+          {
+            "value": "maternity",
+            "label": {
+              "en": "Maternity leave",
+              "hi": "प्रसूति अवकाश"
+            }
+          },
+          {
+            "value": "paternity",
+            "label": {
+              "en": "Paternity leave",
+              "hi": "पितृत्व अवकाश"
+            }
+          },
+          {
+            "value": "extraordinary",
+            "label": {
+              "en": "Extraordinary leave",
+              "hi": "असाधारण अवकाश"
+            }
+          }
+        ]
+      },
+      {
+        "id": "fromDate",
+        "label": {
+          "en": "From",
+          "hi": "से"
+        },
+        "type": "date",
+        "required": true,
+        "sample": {
+          "en": "2026-10-01",
+          "hi": "2026-10-01"
+        }
+      },
+      {
+        "id": "toDate",
+        "label": {
+          "en": "To",
+          "hi": "तक"
+        },
+        "type": "date",
+        "required": true,
+        "sample": {
+          "en": "2026-10-30",
+          "hi": "2026-10-30"
+        }
+      },
+      {
+        "id": "days",
+        "label": {
+          "en": "Number of days",
+          "hi": "दिनों की संख्या"
+        },
+        "type": "text",
+        "required": true,
+        "sample": {
+          "en": "30",
+          "hi": "30"
+        }
+      },
+      {
+        "id": "subject",
+        "label": {
+          "en": "Subject",
+          "hi": "विषय"
+        },
+        "type": "text",
+        "required": true,
+        "sample": {
+          "en": "Application for 30 days' earned leave — regarding.",
+          "hi": "30 दिनों के अर्जित अवकाश हेतु आवेदन — के संबंध में।"
+        }
+      },
+      {
+        "id": "paras",
+        "label": {
+          "en": "Body paragraphs",
+          "hi": "मुख्य पैराग्राफ"
+        },
+        "type": "paras",
+        "required": true,
+        "sample": {
+          "en": [
+            "I request that I may kindly be granted 30 days' earned leave from 01.10.2026 to 30.10.2026, with permission to prefix 30.09.2026 and suffix 31.10.2026, both public holidays, to the leave.",
+            "The leave is required to attend to a family commitment. My address during the period of leave will be 14, Rajaji Marg, Coimbatore - 641002, telephone 98xxx xxxxx.",
+            "During my absence the work of the Section may kindly be entrusted to Shri P.Q.R., Assistant Section Officer, who has agreed to hold the charge.",
+            "It is certified that I am likely, on the expiry of this leave, to return to duty at the station from which I proceed on leave."
+          ],
+          "hi": [
+            "अनुरोध है कि मुझे दिनांक 01.10.2026 से 30.10.2026 तक 30 दिनों का अर्जित अवकाश स्वीकृत करने की कृपा की जाए, तथा अवकाश के साथ दिनांक 30.09.2026 को उपसर्ग और 31.10.2026 को प्रत्यय के रूप में जोड़ने की अनुमति दी जाए, ये दोनों सार्वजनिक अवकाश हैं।",
+            "अवकाश एक पारिवारिक दायित्व के निर्वहन हेतु अपेक्षित है। अवकाश की अवधि में मेरा पता 14, राजाजी मार्ग, कोयंबटूर - 641002 तथा दूरभाष 98xxx xxxxx रहेगा।",
+            "मेरी अनुपस्थिति में अनुभाग का कार्य श्री पी.क्यू.आर., सहायक अनुभाग अधिकारी को सौंपने की कृपा की जाए, जिन्होंने कार्यभार संभालने पर सहमति दी है।",
+            "यह प्रमाणित किया जाता है कि इस अवकाश की समाप्ति पर मेरे उसी स्टेशन पर ड्यूटी पर लौटने की संभावना है जहाँ से मैं अवकाश पर जा रहा हूँ।"
+          ]
+        },
+        "hint": {
+          "en": "One paragraph per line. The first is left unnumbered and the rest are numbered from 2.",
+          "hi": "प्रति पंक्ति एक पैराग्राफ। पहला बिना संख्या के रहता है और शेष 2 से क्रमांकित होते हैं।"
+        }
+      },
+      {
+        "id": "signatoryName",
+        "label": {
+          "en": "Your name",
+          "hi": "आपका नाम"
+        },
+        "type": "text",
+        "required": true,
+        "sample": {
+          "en": "X. Y. Zachariah",
+          "hi": "एक्स. वाई. ज़करिया"
+        }
+      },
+      {
+        "id": "signatoryDesignation",
+        "label": {
+          "en": "Your designation and Section",
+          "hi": "आपका पदनाम और अनुभाग"
+        },
+        "type": "text",
+        "required": true,
+        "sample": {
+          "en": "Section Officer, Establishment Section",
+          "hi": "अनुभाग अधिकारी, स्थापना अनुभाग"
+        }
+      },
+      {
+        "id": "phone",
+        "label": {
+          "en": "Telephone / mobile",
+          "hi": "दूरभाष / मोबाइल"
+        },
+        "type": "text",
+        "required": true,
+        "sample": {
+          "en": "011-2309 2591",
+          "hi": "011-2309 2591"
+        }
+      },
+      {
+        "id": "enclosures",
+        "label": {
+          "en": "Enclosures",
+          "hi": "संलग्नक"
+        },
+        "type": "list",
+        "required": false,
+        "sample": {
+          "en": [
+            "Leave account, as verified by the Establishment Section"
+          ],
+          "hi": [
+            "स्थापना अनुभाग द्वारा सत्यापित अवकाश लेखा"
+          ]
+        },
+        "hint": {
+          "en": "The count goes at the bottom left of the draft — 'Encl. 3' (9.2(vii)).",
+          "hi": "मसौदे के नीचे बाईं ओर संख्या दी जाती है — 'Encl. 3' (9.2(vii))।"
+        }
+      }
+    ],
+    "layout": {
+      "en": [
+        {
+          "role": "dateLine",
+          "align": "right",
+          "lines": [
+            "{{place}}, the {{date}}"
+          ]
+        },
+        {
+          "role": "addressee",
+          "align": "left",
+          "lines": [
+            "To,",
+            "{{addressee}}"
+          ]
+        },
+        {
+          "role": "subject",
+          "align": "left",
+          "lines": [
+            "Subject: {{subject}}"
+          ]
+        },
+        {
+          "role": "salutation",
+          "align": "left",
+          "lines": [
+            "Sir / Madam,"
+          ]
+        },
+        {
+          "role": "body",
+          "align": "left",
+          "source": "paras",
+          "numbered": true
+        },
+        {
+          "role": "closing",
+          "align": "right",
+          "lines": [
+            "Yours faithfully,"
+          ]
+        },
+        {
+          "role": "signature",
+          "align": "right",
+          "lines": [
+            "({{signatoryName}})",
+            "{{signatoryDesignation}}",
+            "Tele.: {{phone}}"
+          ]
+        },
+        {
+          "role": "enclosures",
+          "align": "left",
+          "lead": "List of enclosures:",
+          "source": "enclosures",
+          "itemPrefix": "ordinal",
+          "omitWhenEmpty": true
+        }
+      ],
+      "hi": [
+        {
+          "role": "dateLine",
+          "align": "right",
+          "lines": [
+            "{{place}}, दिनांक {{date}}"
+          ]
+        },
+        {
+          "role": "addressee",
+          "align": "left",
+          "lines": [
+            "सेवा में,",
+            "{{addressee}}"
+          ]
+        },
+        {
+          "role": "subject",
+          "align": "left",
+          "lines": [
+            "विषय : {{subject}}"
+          ]
+        },
+        {
+          "role": "salutation",
+          "align": "left",
+          "lines": [
+            "महोदय / महोदया,"
+          ]
+        },
+        {
+          "role": "body",
+          "align": "left",
+          "source": "paras",
+          "numbered": true
+        },
+        {
+          "role": "closing",
+          "align": "right",
+          "lines": [
+            "भवदीय,"
+          ]
+        },
+        {
+          "role": "signature",
+          "align": "right",
+          "lines": [
+            "({{signatoryName}})",
+            "{{signatoryDesignation}}",
+            "दूरभाष : {{phone}}"
+          ]
+        },
+        {
+          "role": "enclosures",
+          "align": "left",
+          "lead": "संलग्नकों की सूची :",
+          "source": "enclosures",
+          "itemPrefix": "ordinal",
+          "omitWhenEmpty": true
+        }
+      ]
+    },
+    "checklist": [
+      {
+        "id": "dates-and-days",
+        "label": {
+          "en": "Kind of leave, dates and number of days are stated",
+          "hi": "अवकाश का प्रकार, तारीखें और दिनों की संख्या दी गई है"
+        },
+        "why": {
+          "en": "An application that does not say which leave, from when and for how many days cannot be sanctioned without going back to the applicant.",
+          "hi": "जिस आवेदन में यह न लिखा हो कि कौन-सा अवकाश, कब से और कितने दिन का, वह आवेदक के पास लौटाए बिना स्वीकृत नहीं हो सकता।"
+        },
+        "severity": "must",
+        "rule": {
+          "kind": "allRequired",
+          "fields": [
+            "leaveType",
+            "fromDate",
+            "toDate",
+            "days"
+          ]
+        }
+      },
+      {
+        "id": "through-channel",
+        "label": {
+          "en": "Routed through the proper channel",
+          "hi": "उचित माध्यम से भेजा गया"
+        },
+        "why": {
+          "en": "The application goes to the sanctioning authority through the Section Officer or Branch Officer; the addressee block should say so.",
+          "hi": "आवेदन अनुभाग अधिकारी या शाखा अधिकारी के माध्यम से स्वीकृतिकर्ता प्राधिकारी को जाता है; संबोधन खंड में यह लिखा होना चाहिए।"
+        },
+        "severity": "should",
+        "rule": {
+          "kind": "regex",
+          "role": "addressee",
+          "pattern": "(?:through|माध्यम से)"
+        }
+      },
+      {
+        "id": "return-certificate",
+        "label": {
+          "en": "The certificate of return to duty is included",
+          "hi": "ड्यूटी पर लौटने का प्रमाणन शामिल है"
+        },
+        "why": {
+          "en": "The Office Order granting leave certifies that the applicant is likely to return to duty at the station from which the leave began; the application should support it.",
+          "hi": "अवकाश स्वीकृत करने वाला कार्यालय आदेश प्रमाणित करता है कि आवेदक उसी स्टेशन पर ड्यूटी पर लौटेगा जहाँ से अवकाश आरंभ हुआ; आवेदन में इसका आधार होना चाहिए।"
+        },
+        "severity": "should",
+        "rule": {
+          "kind": "contains",
+          "role": "body",
+          "text": {
+            "en": "return to duty",
+            "hi": "ड्यूटी पर लौट"
+          }
+        },
+        "csmopRef": "Appendix 8.1"
+      },
+      {
+        "id": "subject",
+        "label": {
+          "en": "The subject is stated",
+          "hi": "विषय लिखा गया है"
+        },
+        "why": {
+          "en": "The specimens in Appendix 8.1 carry a subject line above the body on every form that is addressed to anyone.",
+          "hi": "परिशिष्ट 8.1 के नमूनों में हर संबोधित प्रपत्र पर मुख्य भाग के ऊपर विषय पंक्ति होती है।"
+        },
+        "severity": "must",
+        "rule": {
+          "kind": "blockPresent",
+          "role": "subject"
+        },
+        "csmopRef": "Appendix 8.1"
+      },
+      {
+        "id": "para-numbering",
+        "label": {
+          "en": "Paragraphs are serially numbered",
+          "hi": "पैराग्राफ क्रमानुसार संख्यांकित हैं"
+        },
+        "why": {
+          "en": "The specimens leave the first paragraph unnumbered and number the rest from 2.",
+          "hi": "नमूनों में पहला पैराग्राफ बिना संख्या के रहता है और शेष 2 से क्रमांकित होते हैं।"
+        },
+        "severity": "must",
+        "rule": {
+          "kind": "paraNumbering"
+        },
+        "csmopRef": "Appendix 8.1"
+      },
+      {
+        "id": "enclosures",
+        "label": {
+          "en": "Enclosures mentioned in the text are listed",
+          "hi": "पाठ में उल्लिखित संलग्नक सूचीबद्ध हैं"
+        },
+        "why": {
+          "en": "A draft should clearly specify the enclosures which are to accompany the fair copy, and the number goes at the bottom left.",
+          "hi": "मसौदे में स्पष्ट रूप से बताया जाना चाहिए कि स्वच्छ प्रति के साथ कौन-से संलग्नक जाएँगे, और संख्या नीचे बाईं ओर दी जाती है।"
+        },
+        "severity": "must",
+        "rule": {
+          "kind": "enclosuresConsistent"
+        },
+        "csmopRef": "9.2(vii)"
+      },
+      {
+        "id": "no-placeholders",
+        "label": {
+          "en": "No placeholder is left unfilled",
+          "hi": "कोई प्लेसहोल्डर अधूरा नहीं छूटा"
+        },
+        "why": {
+          "en": "A draft that goes out with {{…}} still in it has not been read.",
+          "hi": "जिस मसौदे में {{…}} रह जाए, उसे पढ़ा ही नहीं गया।"
+        },
+        "severity": "must",
+        "rule": {
+          "kind": "noPlaceholders"
+        }
+      }
+    ],
+    "notes": [
+      {
+        "key": "what-comes-back",
+        "title": {
+          "en": "What the sanction looks like",
+          "hi": "स्वीकृति किस रूप में आती है"
+        },
+        "body": {
+          "en": "Leave is granted by an Office Order, whose specimen is in Appendix 8.1: it names the days, the dates, the holidays prefixed and suffixed, and certifies the likely return to duty. Copies go to the office order file, the cashier, the Section concerned and the applicant.",
+          "hi": "अवकाश कार्यालय आदेश द्वारा स्वीकृत होता है, जिसका नमूना परिशिष्ट 8.1 में है: उसमें दिनों की संख्या, तारीखें, जोड़े गए उपसर्ग/प्रत्यय अवकाश और ड्यूटी पर लौटने की संभावना का प्रमाणन होता है। प्रतिलिपियाँ कार्यालय आदेश फाइल, खजांची, संबंधित अनुभाग और आवेदक को जाती हैं।"
+        },
+        "csmopRef": "Appendix 8.1"
+      }
+    ],
+    "source": {
+      "name": "Central Secretariat Manual of Office Procedure, 2022 (16th edition), DARPG",
+      "url": "https://www.darpg.gov.in/static/uploads/2025/10/774e0b8f427b7875158363d842fa431f.pdf",
+      "reference": "CSMOP 2022, sixteenth edition",
+      "dated": "2022-08-05"
+    },
+    "fetchedAt": "2026-08-28T00:00:00Z",
+    "verify": true
+  }
+}

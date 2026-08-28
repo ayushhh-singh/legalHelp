@@ -1,0 +1,599 @@
+{
+  "version": "1.0.0",
+  "generatedAt": "2026-08-28T00:00:00Z",
+  "disclaimer": {
+    "en": "Reference only; verify with the official gazette/order or your DDO.",
+    "hi": "केवल संदर्भ के लिए; सरकारी राजपत्र/आदेश या अपने डीडीओ से सत्यापित करें।"
+  },
+  "template": {
+    "id": "notification",
+    "name": {
+      "en": "Notification",
+      "hi": "अधिसूचना"
+    },
+    "shortName": {
+      "en": "Notification",
+      "hi": "अधिसूचना"
+    },
+    "person": "third",
+    "usedBy": {
+      "en": "A Department notifying the promulgation of statutory rules and orders, and the appointment or promotion of certain categories of officers, through publication in the Gazette of India.",
+      "hi": "भारत के राजपत्र में प्रकाशन द्वारा वैधानिक नियमों और आदेशों के प्रवर्तन तथा कुछ श्रेणियों के अधिकारियों की नियुक्ति या पदोन्नति की अधिसूचना के लिए।"
+    },
+    "whenToUse": {
+      "en": "Addressed to the Manager, Government of India Press, for publication, with copies forwarded for information. Orders made in the name of the President are expressed to be so made and signed by an officer of or above the rank of Under Secretary authorised under the Authentication (Orders and Other Instruments) Rules, 2002.",
+      "hi": "प्रकाशन हेतु प्रबंधक, भारत सरकार मुद्रणालय को संबोधित, सूचनार्थ प्रतिलिपियाँ अग्रेषित करते हुए। राष्ट्रपति के नाम से किए गए आदेश उसी रूप में व्यक्त किए जाते हैं और प्रामाणीकरण (आदेश तथा अन्य लिखत) नियम, 2002 के अधीन प्राधिकृत अवर सचिव या उससे ऊपर के अधिकारी द्वारा हस्ताक्षरित होते हैं।"
+    },
+    "salutation": null,
+    "subscription": null,
+    "urgencyAllowed": false,
+    "csmopRef": {
+      "edition": "CSMOP 2022, sixteenth edition",
+      "paras": [
+        "8.4(6)",
+        "9.3",
+        "Appendix 8.1",
+        "Appendix 8.2"
+      ],
+      "pages": [
+        80,
+        93,
+        97,
+        103
+      ]
+    },
+    "fields": [
+      {
+        "id": "fileNumber",
+        "label": {
+          "en": "File / communication number",
+          "hi": "फाइल / पत्र संख्या"
+        },
+        "type": "text",
+        "required": true,
+        "sample": {
+          "en": "A-11011/2/2026-Estt.",
+          "hi": "ए-11011/2/2026-स्थापना"
+        },
+        "hint": {
+          "en": "Every draft put up on a file bears the file number (9.2(vi)).",
+          "hi": "फाइल पर प्रस्तुत प्रत्येक मसौदे पर फाइल संख्या होती है (9.2(vi))।"
+        }
+      },
+      {
+        "id": "ministry",
+        "label": {
+          "en": "Ministry",
+          "hi": "मंत्रालय"
+        },
+        "type": "text",
+        "required": true,
+        "sample": {
+          "en": "Ministry of Personnel, Public Grievances and Pensions",
+          "hi": "कार्मिक, लोक शिकायत तथा पेंशन मंत्रालय"
+        }
+      },
+      {
+        "id": "department",
+        "label": {
+          "en": "Department",
+          "hi": "विभाग"
+        },
+        "type": "text",
+        "required": true,
+        "sample": {
+          "en": "Department of Personnel and Training",
+          "hi": "कार्मिक और प्रशिक्षण विभाग"
+        }
+      },
+      {
+        "id": "place",
+        "label": {
+          "en": "Place",
+          "hi": "स्थान"
+        },
+        "type": "text",
+        "required": true,
+        "sample": {
+          "en": "New Delhi",
+          "hi": "नई दिल्ली"
+        }
+      },
+      {
+        "id": "date",
+        "label": {
+          "en": "Date",
+          "hi": "दिनांक"
+        },
+        "type": "date",
+        "required": true,
+        "sample": {
+          "en": "2026-08-28",
+          "hi": "2026-08-28"
+        },
+        "hint": {
+          "en": "dd.mm.yyyy in English; दिनांक dd.mm.yyyy in Hindi.",
+          "hi": "अंग्रेज़ी में dd.mm.yyyy; हिंदी में दिनांक dd.mm.yyyy।"
+        }
+      },
+      {
+        "id": "gazettePart",
+        "label": {
+          "en": "Gazette Part",
+          "hi": "राजपत्र भाग"
+        },
+        "type": "select",
+        "required": true,
+        "sample": {
+          "en": "I",
+          "hi": "I"
+        },
+        "hint": {
+          "en": "Appendix 8.2 sets out what belongs in each Part and Section of the Gazette.",
+          "hi": "परिशिष्ट 8.2 में बताया गया है कि राजपत्र के किस भाग और खंड में क्या प्रकाशित होता है।"
+        },
+        "options": [
+          {
+            "value": "I",
+            "label": {
+              "en": "Part I — non-statutory notifications",
+              "hi": "भाग I — गैर-वैधानिक अधिसूचनाएँ"
+            }
+          },
+          {
+            "value": "II",
+            "label": {
+              "en": "Part II — Acts, Ordinances and statutory rules",
+              "hi": "भाग II — अधिनियम, अध्यादेश और वैधानिक नियम"
+            }
+          },
+          {
+            "value": "III",
+            "label": {
+              "en": "Part III — notifications by other authorities",
+              "hi": "भाग III — अन्य प्राधिकारियों की अधिसूचनाएँ"
+            }
+          },
+          {
+            "value": "IV",
+            "label": {
+              "en": "Part IV — advertisements and notices by private bodies",
+              "hi": "भाग IV — निजी निकायों के विज्ञापन और नोटिस"
+            }
+          }
+        ]
+      },
+      {
+        "id": "gazetteSection",
+        "label": {
+          "en": "Gazette Section",
+          "hi": "राजपत्र खंड"
+        },
+        "type": "text",
+        "required": true,
+        "sample": {
+          "en": "2",
+          "hi": "2"
+        }
+      },
+      {
+        "id": "paras",
+        "label": {
+          "en": "Body paragraphs",
+          "hi": "मुख्य पैराग्राफ"
+        },
+        "type": "paras",
+        "required": true,
+        "sample": {
+          "en": [
+            "No. A-32014/1/2026-Estt. — Shri X.Y.Z., Under Secretary in the Department of Personnel and Training, is appointed to officiate as Deputy Secretary in that Department with effect from 01.10.2026, vice Shri L.M.N., transferred to the Department of Expenditure."
+          ],
+          "hi": [
+            "सं. ए-32014/1/2026-स्थापना — श्री एक्स.वाई.ज़ेड., कार्मिक और प्रशिक्षण विभाग में अवर सचिव, को दिनांक 01.10.2026 से उस विभाग में उप सचिव के रूप में कार्य करने के लिए नियुक्त किया जाता है, श्री एल.एम.एन. के स्थान पर, जिनका स्थानांतरण व्यय विभाग में किया गया है।"
+          ]
+        },
+        "hint": {
+          "en": "The notification number opens the text itself, as in the Appendix 8.1 specimen.",
+          "hi": "परिशिष्ट 8.1 के नमूने की भाँति अधिसूचना संख्या पाठ के आरंभ में ही आती है।"
+        }
+      },
+      {
+        "id": "signatoryName",
+        "label": {
+          "en": "Name of the signatory",
+          "hi": "हस्ताक्षरकर्ता का नाम"
+        },
+        "type": "text",
+        "required": true,
+        "sample": {
+          "en": "A.B.C.",
+          "hi": "ए.बी.सी."
+        }
+      },
+      {
+        "id": "signatoryDesignation",
+        "label": {
+          "en": "Designation",
+          "hi": "पदनाम"
+        },
+        "type": "text",
+        "required": true,
+        "sample": {
+          "en": "Joint Secretary to the Govt. of India",
+          "hi": "संयुक्त सचिव, भारत सरकार"
+        }
+      },
+      {
+        "id": "phone",
+        "label": {
+          "en": "Telephone number",
+          "hi": "दूरभाष संख्या"
+        },
+        "type": "text",
+        "required": true,
+        "sample": {
+          "en": "011-2309 2590",
+          "hi": "011-2309 2590"
+        }
+      },
+      {
+        "id": "email",
+        "label": {
+          "en": "Email",
+          "hi": "ई-मेल"
+        },
+        "type": "text",
+        "required": true,
+        "sample": {
+          "en": "us-estt@nic.in",
+          "hi": "us-estt@nic.in"
+        }
+      },
+      {
+        "id": "addressee",
+        "label": {
+          "en": "Press addressee",
+          "hi": "मुद्रणालय संबोधन"
+        },
+        "type": "textarea",
+        "required": true,
+        "sample": {
+          "en": "The Manager\nGovernment of India Press\nMinto Road, New Delhi",
+          "hi": "प्रबंधक\nभारत सरकार मुद्रणालय\nमिंटो रोड, नई दिल्ली"
+        }
+      },
+      {
+        "id": "copyTo",
+        "label": {
+          "en": "Copy to",
+          "hi": "प्रतिलिपि"
+        },
+        "type": "list",
+        "required": false,
+        "sample": {
+          "en": [
+            "The officer concerned",
+            "The Pay and Accounts Officer",
+            "Guard file"
+          ],
+          "hi": [
+            "संबंधित अधिकारी",
+            "वेतन एवं लेखा अधिकारी",
+            "गार्ड फाइल"
+          ]
+        }
+      },
+      {
+        "id": "enclosures",
+        "label": {
+          "en": "Enclosures",
+          "hi": "संलग्नक"
+        },
+        "type": "list",
+        "required": false,
+        "sample": {
+          "en": [],
+          "hi": []
+        },
+        "hint": {
+          "en": "The count goes at the bottom left of the draft — 'Encl. 3' (9.2(vii)).",
+          "hi": "मसौदे के नीचे बाईं ओर संख्या दी जाती है — 'Encl. 3' (9.2(vii))।"
+        }
+      }
+    ],
+    "layout": {
+      "en": [
+        {
+          "role": "gazetteLine",
+          "align": "center",
+          "lines": [
+            "(To be published in the Gazette of India, Part {{gazettePart}}, Section {{gazetteSection}})"
+          ]
+        },
+        {
+          "role": "fileNumber",
+          "align": "left",
+          "lines": [
+            "No. {{fileNumber}}"
+          ]
+        },
+        {
+          "role": "header",
+          "align": "center",
+          "lines": [
+            "Government of India",
+            "{{ministry}}",
+            "{{department}}"
+          ]
+        },
+        {
+          "role": "dateLine",
+          "align": "right",
+          "lines": [
+            "{{place}}, the {{date}}"
+          ]
+        },
+        {
+          "role": "title",
+          "align": "center",
+          "emphasis": "title",
+          "lines": [
+            "NOTIFICATION"
+          ]
+        },
+        {
+          "role": "body",
+          "align": "left",
+          "source": "paras",
+          "numbered": true
+        },
+        {
+          "role": "signature",
+          "align": "right",
+          "lines": [
+            "-Sd/-",
+            "({{signatoryName}})",
+            "{{signatoryDesignation}}",
+            "Tele. No.: {{phone}}",
+            "Email: {{email}}"
+          ]
+        },
+        {
+          "role": "addressee",
+          "align": "left",
+          "lines": [
+            "{{addressee}}"
+          ]
+        },
+        {
+          "role": "copyTo",
+          "align": "left",
+          "lead": "Copy forwarded for information to:",
+          "source": "copyTo",
+          "itemPrefix": "roman",
+          "omitWhenEmpty": true
+        },
+        {
+          "role": "enclosures",
+          "align": "left",
+          "lead": "List of enclosures:",
+          "source": "enclosures",
+          "itemPrefix": "ordinal",
+          "omitWhenEmpty": true
+        }
+      ],
+      "hi": [
+        {
+          "role": "gazetteLine",
+          "align": "center",
+          "lines": [
+            "(भारत के राजपत्र भाग {{gazettePart}}, खंड {{gazetteSection}} में प्रकाशित होने के लिए)"
+          ]
+        },
+        {
+          "role": "fileNumber",
+          "align": "left",
+          "lines": [
+            "संख्या {{fileNumber}}"
+          ]
+        },
+        {
+          "role": "header",
+          "align": "center",
+          "lines": [
+            "भारत सरकार",
+            "{{ministry}}",
+            "{{department}}"
+          ]
+        },
+        {
+          "role": "dateLine",
+          "align": "right",
+          "lines": [
+            "{{place}}, दिनांक {{date}}"
+          ]
+        },
+        {
+          "role": "title",
+          "align": "center",
+          "emphasis": "title",
+          "lines": [
+            "अधिसूचना"
+          ]
+        },
+        {
+          "role": "body",
+          "align": "left",
+          "source": "paras",
+          "numbered": true
+        },
+        {
+          "role": "signature",
+          "align": "right",
+          "lines": [
+            "-हस्ताक्षरित/-",
+            "({{signatoryName}})",
+            "{{signatoryDesignation}}",
+            "दूरभाष संख्या : {{phone}}",
+            "ई-मेल : {{email}}"
+          ]
+        },
+        {
+          "role": "addressee",
+          "align": "left",
+          "lines": [
+            "{{addressee}}"
+          ]
+        },
+        {
+          "role": "copyTo",
+          "align": "left",
+          "lead": "प्रतिलिपि सूचनार्थ प्रेषित :",
+          "source": "copyTo",
+          "itemPrefix": "roman",
+          "omitWhenEmpty": true
+        },
+        {
+          "role": "enclosures",
+          "align": "left",
+          "lead": "संलग्नकों की सूची :",
+          "source": "enclosures",
+          "itemPrefix": "ordinal",
+          "omitWhenEmpty": true
+        }
+      ]
+    },
+    "checklist": [
+      {
+        "id": "gazette-line",
+        "label": {
+          "en": "The Gazette Part and Section are stated at the top",
+          "hi": "राजपत्र भाग और खंड शीर्ष पर दिए गए हैं"
+        },
+        "why": {
+          "en": "The specimen opens '(To be published in the Gazette of India Part I, Section 2)'; Appendix 8.2 says what goes where.",
+          "hi": "नमूना '(भारत के राजपत्र भाग I, खंड 2 में प्रकाशित होने के लिए)' से आरंभ होता है; परिशिष्ट 8.2 बताता है कि क्या कहाँ जाएगा।"
+        },
+        "severity": "must",
+        "rule": {
+          "kind": "allRequired",
+          "fields": [
+            "gazettePart",
+            "gazetteSection"
+          ]
+        },
+        "csmopRef": "Appendix 8.1, Appendix 8.2"
+      },
+      {
+        "id": "press-addressee",
+        "label": {
+          "en": "Addressed to the Government of India Press",
+          "hi": "भारत सरकार मुद्रणालय को संबोधित"
+        },
+        "why": {
+          "en": "A notification is sent to the Manager, Government of India Press for publication; the people it concerns get copies.",
+          "hi": "अधिसूचना प्रकाशन हेतु प्रबंधक, भारत सरकार मुद्रणालय को भेजी जाती है; जिनसे संबंधित है उन्हें प्रतिलिपि मिलती है।"
+        },
+        "severity": "must",
+        "rule": {
+          "kind": "required",
+          "field": "addressee"
+        },
+        "csmopRef": "Appendix 8.1"
+      },
+      {
+        "id": "authentication",
+        "label": {
+          "en": "Signed at Under Secretary level or above",
+          "hi": "अवर सचिव या उससे ऊपर के स्तर पर हस्ताक्षरित"
+        },
+        "why": {
+          "en": "Orders and instruments made in the name of the President are signed by an officer of or above the rank of Under Secretary, or one specifically authorised under the Authentication (Orders and Other Instruments) Rules, 2002.",
+          "hi": "राष्ट्रपति के नाम से किए गए आदेश और लिखत अवर सचिव या उससे ऊपर के अधिकारी द्वारा, या प्रामाणीकरण (आदेश तथा अन्य लिखत) नियम, 2002 के अधीन विशेष रूप से प्राधिकृत अधिकारी द्वारा हस्ताक्षरित होते हैं।"
+        },
+        "severity": "must",
+        "rule": {
+          "kind": "allRequired",
+          "fields": [
+            "signatoryName",
+            "signatoryDesignation"
+          ]
+        },
+        "csmopRef": "9.3(i)"
+      },
+      {
+        "id": "number-and-date",
+        "label": {
+          "en": "Number and date are on the draft",
+          "hi": "मसौदे पर संख्या और दिनांक हैं"
+        },
+        "why": {
+          "en": "Every draft put up on a file bears the file number, and the number and date of the last communication in the series must be quoted.",
+          "hi": "फाइल पर प्रस्तुत प्रत्येक मसौदे पर फाइल संख्या होती है, और शृंखला के अंतिम पत्र की संख्या तथा दिनांक उद्धृत की जानी चाहिए।"
+        },
+        "severity": "must",
+        "rule": {
+          "kind": "allRequired",
+          "fields": [
+            "fileNumber",
+            "date"
+          ]
+        },
+        "csmopRef": "9.2(iv), 9.2(vi)"
+      },
+      {
+        "id": "enclosures",
+        "label": {
+          "en": "Enclosures mentioned in the text are listed",
+          "hi": "पाठ में उल्लिखित संलग्नक सूचीबद्ध हैं"
+        },
+        "why": {
+          "en": "A draft should clearly specify the enclosures which are to accompany the fair copy, and the number goes at the bottom left.",
+          "hi": "मसौदे में स्पष्ट रूप से बताया जाना चाहिए कि स्वच्छ प्रति के साथ कौन-से संलग्नक जाएँगे, और संख्या नीचे बाईं ओर दी जाती है।"
+        },
+        "severity": "must",
+        "rule": {
+          "kind": "enclosuresConsistent"
+        },
+        "csmopRef": "9.2(vii)"
+      },
+      {
+        "id": "no-placeholders",
+        "label": {
+          "en": "No placeholder is left unfilled",
+          "hi": "कोई प्लेसहोल्डर अधूरा नहीं छूटा"
+        },
+        "why": {
+          "en": "A draft that goes out with {{…}} still in it has not been read.",
+          "hi": "जिस मसौदे में {{…}} रह जाए, उसे पढ़ा ही नहीं गया।"
+        },
+        "severity": "must",
+        "rule": {
+          "kind": "noPlaceholders"
+        }
+      }
+    ],
+    "notes": [
+      {
+        "key": "name-of-government",
+        "title": {
+          "en": "In the name of the Government of India",
+          "hi": "भारत सरकार के नाम से"
+        },
+        "body": {
+          "en": "Where the power to make orders or notifications is conferred by a statute on the Government of India, they are expressed to be made in the name of the Government of India — not in the President's name.",
+          "hi": "जहाँ आदेश या अधिसूचना बनाने की शक्ति किसी संविधि द्वारा भारत सरकार को दी गई है, वहाँ वे भारत सरकार के नाम से किए गए व्यक्त किए जाते हैं — राष्ट्रपति के नाम से नहीं।"
+        },
+        "csmopRef": "9.3(ii)"
+      }
+    ],
+    "source": {
+      "name": "Central Secretariat Manual of Office Procedure, 2022 (16th edition), DARPG",
+      "url": "https://www.darpg.gov.in/static/uploads/2025/10/774e0b8f427b7875158363d842fa431f.pdf",
+      "reference": "CSMOP 2022, sixteenth edition",
+      "dated": "2022-08-05"
+    },
+    "fetchedAt": "2026-08-28T00:00:00Z",
+    "verify": false
+  }
+}

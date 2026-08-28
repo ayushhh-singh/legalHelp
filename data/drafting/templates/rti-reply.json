@@ -1,0 +1,674 @@
+{
+  "version": "1.0.0",
+  "generatedAt": "2026-08-28T00:00:00Z",
+  "disclaimer": {
+    "en": "Reference only; verify with the official gazette/order or your DDO.",
+    "hi": "केवल संदर्भ के लिए; सरकारी राजपत्र/आदेश या अपने डीडीओ से सत्यापित करें।"
+  },
+  "template": {
+    "id": "rti-reply",
+    "name": {
+      "en": "Reply to an RTI application",
+      "hi": "सूचना का अधिकार आवेदन का उत्तर"
+    },
+    "shortName": {
+      "en": "RTI reply",
+      "hi": "सू.अ. उत्तर"
+    },
+    "person": "first",
+    "usedBy": {
+      "en": "The Central Public Information Officer replying to an application under the Right to Information Act, 2005.",
+      "hi": "सूचना का अधिकार अधिनियम, 2005 के अंतर्गत आवेदन का उत्तर देने वाला केंद्रीय लोक सूचना अधिकारी।"
+    },
+    "whenToUse": {
+      "en": "Within 30 days of receipt. Answer point by point in the applicant's own numbering, say plainly where information is not held or is exempt and under which section, and give the name and address of the First Appellate Authority with the 30-day limit — the Act requires it and its absence is itself a ground of appeal.",
+      "hi": "प्राप्ति से 30 दिन के भीतर। आवेदक की अपनी क्रम-संख्या में बिंदुवार उत्तर दें, जहाँ सूचना उपलब्ध नहीं है या छूट प्राप्त है वहाँ स्पष्ट रूप से और किस धारा के अधीन यह लिखें, तथा प्रथम अपीलीय प्राधिकारी का नाम-पता 30 दिन की सीमा सहित दें — अधिनियम इसकी अपेक्षा करता है और इसका न होना स्वयं अपील का आधार है।"
+    },
+    "salutation": {
+      "en": "Sir / Madam,",
+      "hi": "महोदय / महोदया,"
+    },
+    "subscription": {
+      "en": "Yours faithfully,",
+      "hi": "भवदीय,"
+    },
+    "urgencyAllowed": false,
+    "csmopRef": {
+      "edition": "CSMOP 2022, sixteenth edition",
+      "paras": [
+        "8.4(1)",
+        "8.9",
+        "12.5",
+        "Appendix 8.1"
+      ],
+      "pages": [
+        79,
+        86,
+        144
+      ],
+      "chassis": "letter",
+      "note": {
+        "en": "CSMOP 12.5 requires requests under the RTI Act to be monitored for timely disposal; the form and the time limits come from the Act itself.",
+        "hi": "सीएसएमओपी 12.5 के अनुसार सूचना का अधिकार अधिनियम के अंतर्गत अनुरोधों की समयबद्ध निपटान हेतु निगरानी की जाती है; रूप और समय-सीमाएँ अधिनियम से आती हैं।"
+      }
+    },
+    "fields": [
+      {
+        "id": "fileNumber",
+        "label": {
+          "en": "File / communication number",
+          "hi": "फाइल / पत्र संख्या"
+        },
+        "type": "text",
+        "required": true,
+        "sample": {
+          "en": "A-11011/2/2026-Estt.",
+          "hi": "ए-11011/2/2026-स्थापना"
+        },
+        "hint": {
+          "en": "Every draft put up on a file bears the file number (9.2(vi)).",
+          "hi": "फाइल पर प्रस्तुत प्रत्येक मसौदे पर फाइल संख्या होती है (9.2(vi))।"
+        }
+      },
+      {
+        "id": "ministry",
+        "label": {
+          "en": "Ministry",
+          "hi": "मंत्रालय"
+        },
+        "type": "text",
+        "required": true,
+        "sample": {
+          "en": "Ministry of Personnel, Public Grievances and Pensions",
+          "hi": "कार्मिक, लोक शिकायत तथा पेंशन मंत्रालय"
+        }
+      },
+      {
+        "id": "department",
+        "label": {
+          "en": "Department",
+          "hi": "विभाग"
+        },
+        "type": "text",
+        "required": true,
+        "sample": {
+          "en": "Department of Personnel and Training",
+          "hi": "कार्मिक और प्रशिक्षण विभाग"
+        }
+      },
+      {
+        "id": "place",
+        "label": {
+          "en": "Place",
+          "hi": "स्थान"
+        },
+        "type": "text",
+        "required": true,
+        "sample": {
+          "en": "New Delhi",
+          "hi": "नई दिल्ली"
+        }
+      },
+      {
+        "id": "date",
+        "label": {
+          "en": "Date",
+          "hi": "दिनांक"
+        },
+        "type": "date",
+        "required": true,
+        "sample": {
+          "en": "2026-08-28",
+          "hi": "2026-08-28"
+        },
+        "hint": {
+          "en": "dd.mm.yyyy in English; दिनांक dd.mm.yyyy in Hindi.",
+          "hi": "अंग्रेज़ी में dd.mm.yyyy; हिंदी में दिनांक dd.mm.yyyy।"
+        }
+      },
+      {
+        "id": "addressee",
+        "label": {
+          "en": "Applicant",
+          "hi": "आवेदक"
+        },
+        "type": "textarea",
+        "required": true,
+        "sample": {
+          "en": "Shri Ramesh Kumar\n27, Gandhi Nagar\nMeerut, Uttar Pradesh - 250002",
+          "hi": "श्री रमेश कुमार\n27, गांधी नगर\nमेरठ, उत्तर प्रदेश - 250002"
+        }
+      },
+      {
+        "id": "subject",
+        "label": {
+          "en": "Subject",
+          "hi": "विषय"
+        },
+        "type": "text",
+        "required": true,
+        "sample": {
+          "en": "Reply to the application dated 04.08.2026 under the Right to Information Act, 2005 — regarding.",
+          "hi": "सूचना का अधिकार अधिनियम, 2005 के अंतर्गत दिनांक 04.08.2026 के आवेदन का उत्तर — के संबंध में।"
+        }
+      },
+      {
+        "id": "applicationDate",
+        "label": {
+          "en": "Date of the application",
+          "hi": "आवेदन की तारीख"
+        },
+        "type": "date",
+        "required": true,
+        "sample": {
+          "en": "2026-08-04",
+          "hi": "2026-08-04"
+        }
+      },
+      {
+        "id": "receivedOn",
+        "label": {
+          "en": "Date received in this office",
+          "hi": "इस कार्यालय में प्राप्ति की तारीख"
+        },
+        "type": "date",
+        "required": true,
+        "sample": {
+          "en": "2026-08-11",
+          "hi": "2026-08-11"
+        }
+      },
+      {
+        "id": "paras",
+        "label": {
+          "en": "Body paragraphs",
+          "hi": "मुख्य पैराग्राफ"
+        },
+        "type": "paras",
+        "required": true,
+        "sample": {
+          "en": [
+            "Please refer to your application dated 04.08.2026 under the Right to Information Act, 2005, received in this office on 11.08.2026 and registered at No. DOPT/R/2026/60214. The information sought is furnished point-wise below.",
+            "Point 1: The number of posts of Section Officer sanctioned in this Department as on 01.04.2026 is 214, of which 187 are filled. A statement is enclosed.",
+            "Point 2: The information sought relates to the deliberations of a Departmental Promotion Committee and is exempt from disclosure under Section 8(1)(j) of the Act, being personal information the disclosure of which has no relationship to any public activity or interest.",
+            "Point 3: The information sought is not held by this Department. Your application has been transferred in respect of this point to the Central Public Information Officer, Department of Expenditure, under Section 6(3) of the Act, and you are advised accordingly.",
+            "If you are not satisfied with this reply, you may prefer a first appeal under Section 19(1) of the Act within 30 days to Shri A. K. Menon, Deputy Secretary and First Appellate Authority, Department of Personnel and Training, North Block, New Delhi - 110001."
+          ],
+          "hi": [
+            "कृपया सूचना का अधिकार अधिनियम, 2005 के अंतर्गत आपके दिनांक 04.08.2026 के आवेदन का संदर्भ लें, जो इस कार्यालय में दिनांक 11.08.2026 को प्राप्त हुआ और संख्या डीओपीटी/आर/2026/60214 पर पंजीकृत है। माँगी गई सूचना बिंदुवार नीचे दी जा रही है।",
+            "बिंदु 1 : दिनांक 01.04.2026 को इस विभाग में अनुभाग अधिकारी के स्वीकृत पदों की संख्या 214 है, जिनमें से 187 भरे हुए हैं। विवरण संलग्न है।",
+            "बिंदु 2 : माँगी गई सूचना विभागीय पदोन्नति समिति के विचार-विमर्श से संबंधित है और अधिनियम की धारा 8(1)(ञ) के अधीन प्रकटन से छूट प्राप्त है, क्योंकि यह ऐसी व्यक्तिगत सूचना है जिसके प्रकटन का किसी लोक क्रियाकलाप या हित से कोई संबंध नहीं है।",
+            "बिंदु 3 : माँगी गई सूचना इस विभाग के पास उपलब्ध नहीं है। इस बिंदु के संबंध में आपका आवेदन अधिनियम की धारा 6(3) के अधीन केंद्रीय लोक सूचना अधिकारी, व्यय विभाग को अंतरित कर दिया गया है, और आपको तदनुसार सूचित किया जाता है।",
+            "यदि आप इस उत्तर से संतुष्ट नहीं हैं तो आप अधिनियम की धारा 19(1) के अंतर्गत 30 दिन के भीतर श्री ए. के. मेनन, उप सचिव एवं प्रथम अपीलीय प्राधिकारी, कार्मिक और प्रशिक्षण विभाग, नॉर्थ ब्लॉक, नई दिल्ली - 110001 को प्रथम अपील कर सकते हैं।"
+          ]
+        },
+        "hint": {
+          "en": "One paragraph per line. The first is left unnumbered and the rest are numbered from 2.",
+          "hi": "प्रति पंक्ति एक पैराग्राफ। पहला बिना संख्या के रहता है और शेष 2 से क्रमांकित होते हैं।"
+        }
+      },
+      {
+        "id": "signatoryName",
+        "label": {
+          "en": "Name of the signatory",
+          "hi": "हस्ताक्षरकर्ता का नाम"
+        },
+        "type": "text",
+        "required": true,
+        "sample": {
+          "en": "A.B.C.",
+          "hi": "ए.बी.सी."
+        }
+      },
+      {
+        "id": "signatoryDesignation",
+        "label": {
+          "en": "Designation",
+          "hi": "पदनाम"
+        },
+        "type": "text",
+        "required": true,
+        "sample": {
+          "en": "Under Secretary and Central Public Information Officer",
+          "hi": "अवर सचिव एवं केंद्रीय लोक सूचना अधिकारी"
+        }
+      },
+      {
+        "id": "phone",
+        "label": {
+          "en": "Telephone number",
+          "hi": "दूरभाष संख्या"
+        },
+        "type": "text",
+        "required": true,
+        "sample": {
+          "en": "011-2309 2590",
+          "hi": "011-2309 2590"
+        }
+      },
+      {
+        "id": "email",
+        "label": {
+          "en": "Email",
+          "hi": "ई-मेल"
+        },
+        "type": "text",
+        "required": true,
+        "sample": {
+          "en": "us-estt@nic.in",
+          "hi": "us-estt@nic.in"
+        }
+      },
+      {
+        "id": "appellateAuthority",
+        "label": {
+          "en": "First Appellate Authority (name, designation, address)",
+          "hi": "प्रथम अपीलीय प्राधिकारी (नाम, पदनाम, पता)"
+        },
+        "type": "textarea",
+        "required": true,
+        "sample": {
+          "en": "Shri A. K. Menon, Deputy Secretary\nDepartment of Personnel and Training\nNorth Block, New Delhi - 110001",
+          "hi": "श्री ए. के. मेनन, उप सचिव\nकार्मिक और प्रशिक्षण विभाग\nनॉर्थ ब्लॉक, नई दिल्ली - 110001"
+        }
+      },
+      {
+        "id": "enclosures",
+        "label": {
+          "en": "Enclosures",
+          "hi": "संलग्नक"
+        },
+        "type": "list",
+        "required": false,
+        "sample": {
+          "en": [
+            "Statement of sanctioned and filled posts of Section Officer as on 01.04.2026 (1 page)"
+          ],
+          "hi": [
+            "दिनांक 01.04.2026 को अनुभाग अधिकारी के स्वीकृत और भरे हुए पदों का विवरण (1 पृष्ठ)"
+          ]
+        },
+        "hint": {
+          "en": "The count goes at the bottom left of the draft — 'Encl. 3' (9.2(vii)).",
+          "hi": "मसौदे के नीचे बाईं ओर संख्या दी जाती है — 'Encl. 3' (9.2(vii))।"
+        }
+      },
+      {
+        "id": "copyTo",
+        "label": {
+          "en": "Copy to",
+          "hi": "प्रतिलिपि"
+        },
+        "type": "list",
+        "required": false,
+        "sample": {
+          "en": [
+            "The Central Public Information Officer, Department of Expenditure — for information and necessary action under Section 6(3)"
+          ],
+          "hi": [
+            "केंद्रीय लोक सूचना अधिकारी, व्यय विभाग — धारा 6(3) के अधीन सूचना एवं आवश्यक कार्रवाई हेतु"
+          ]
+        }
+      }
+    ],
+    "layout": {
+      "en": [
+        {
+          "role": "fileNumber",
+          "align": "left",
+          "lines": [
+            "No. {{fileNumber}}"
+          ]
+        },
+        {
+          "role": "header",
+          "align": "center",
+          "lines": [
+            "Government of India",
+            "{{ministry}}",
+            "{{department}}"
+          ]
+        },
+        {
+          "role": "dateLine",
+          "align": "right",
+          "lines": [
+            "{{place}}, the {{date}}"
+          ]
+        },
+        {
+          "role": "addressee",
+          "align": "left",
+          "lines": [
+            "To,",
+            "{{addressee}}"
+          ]
+        },
+        {
+          "role": "subject",
+          "align": "left",
+          "lines": [
+            "Subject: {{subject}}"
+          ]
+        },
+        {
+          "role": "refLine",
+          "align": "left",
+          "lines": [
+            "Reference: Your application dated {{applicationDate}}, received on {{receivedOn}}"
+          ]
+        },
+        {
+          "role": "salutation",
+          "align": "left",
+          "lines": [
+            "Sir / Madam,"
+          ]
+        },
+        {
+          "role": "body",
+          "align": "left",
+          "source": "paras",
+          "numbered": true
+        },
+        {
+          "role": "closing",
+          "align": "right",
+          "lines": [
+            "Yours faithfully,"
+          ]
+        },
+        {
+          "role": "signature",
+          "align": "right",
+          "lines": [
+            "-Sd/-",
+            "({{signatoryName}})",
+            "{{signatoryDesignation}}",
+            "Tele. No.: {{phone}}",
+            "Email: {{email}}"
+          ]
+        },
+        {
+          "role": "footer",
+          "align": "left",
+          "lines": [
+            "First Appellate Authority (appeal within 30 days under Section 19(1)):",
+            "{{appellateAuthority}}"
+          ]
+        },
+        {
+          "role": "enclosures",
+          "align": "left",
+          "lead": "List of enclosures:",
+          "source": "enclosures",
+          "itemPrefix": "ordinal",
+          "omitWhenEmpty": true
+        },
+        {
+          "role": "copyTo",
+          "align": "left",
+          "lead": "Copy forwarded for information / necessary action to:",
+          "source": "copyTo",
+          "itemPrefix": "ordinal",
+          "omitWhenEmpty": true
+        }
+      ],
+      "hi": [
+        {
+          "role": "fileNumber",
+          "align": "left",
+          "lines": [
+            "संख्या {{fileNumber}}"
+          ]
+        },
+        {
+          "role": "header",
+          "align": "center",
+          "lines": [
+            "भारत सरकार",
+            "{{ministry}}",
+            "{{department}}"
+          ]
+        },
+        {
+          "role": "dateLine",
+          "align": "right",
+          "lines": [
+            "{{place}}, दिनांक {{date}}"
+          ]
+        },
+        {
+          "role": "addressee",
+          "align": "left",
+          "lines": [
+            "सेवा में,",
+            "{{addressee}}"
+          ]
+        },
+        {
+          "role": "subject",
+          "align": "left",
+          "lines": [
+            "विषय : {{subject}}"
+          ]
+        },
+        {
+          "role": "refLine",
+          "align": "left",
+          "lines": [
+            "संदर्भ : आपका दिनांक {{applicationDate}} का आवेदन, प्राप्ति दिनांक {{receivedOn}}"
+          ]
+        },
+        {
+          "role": "salutation",
+          "align": "left",
+          "lines": [
+            "महोदय / महोदया,"
+          ]
+        },
+        {
+          "role": "body",
+          "align": "left",
+          "source": "paras",
+          "numbered": true
+        },
+        {
+          "role": "closing",
+          "align": "right",
+          "lines": [
+            "भवदीय,"
+          ]
+        },
+        {
+          "role": "signature",
+          "align": "right",
+          "lines": [
+            "-हस्ताक्षरित/-",
+            "({{signatoryName}})",
+            "{{signatoryDesignation}}",
+            "दूरभाष संख्या : {{phone}}",
+            "ई-मेल : {{email}}"
+          ]
+        },
+        {
+          "role": "footer",
+          "align": "left",
+          "lines": [
+            "प्रथम अपीलीय प्राधिकारी (धारा 19(1) के अधीन 30 दिन के भीतर अपील) :",
+            "{{appellateAuthority}}"
+          ]
+        },
+        {
+          "role": "enclosures",
+          "align": "left",
+          "lead": "संलग्नकों की सूची :",
+          "source": "enclosures",
+          "itemPrefix": "ordinal",
+          "omitWhenEmpty": true
+        },
+        {
+          "role": "copyTo",
+          "align": "left",
+          "lead": "प्रति सूचना/आवश्यक कार्रवाई के लिए अग्रेषित :",
+          "source": "copyTo",
+          "itemPrefix": "ordinal",
+          "omitWhenEmpty": true
+        }
+      ]
+    },
+    "checklist": [
+      {
+        "id": "appellate-authority",
+        "label": {
+          "en": "The First Appellate Authority is named with the 30-day limit",
+          "hi": "प्रथम अपीलीय प्राधिकारी का नाम 30 दिन की सीमा सहित दिया गया है"
+        },
+        "why": {
+          "en": "Section 7(8) of the Act requires the reply to state the particulars of the appellate authority and the time limit. Its absence is itself a ground of appeal.",
+          "hi": "अधिनियम की धारा 7(8) के अनुसार उत्तर में अपीलीय प्राधिकारी का विवरण और समय-सीमा दी जानी चाहिए। इसका न होना स्वयं अपील का आधार है।"
+        },
+        "severity": "must",
+        "rule": {
+          "kind": "required",
+          "field": "appellateAuthority"
+        }
+      },
+      {
+        "id": "point-wise",
+        "label": {
+          "en": "Answered point by point",
+          "hi": "बिंदुवार उत्तर दिया गया"
+        },
+        "why": {
+          "en": "Reply in the applicant's own numbering. A single paragraph answering four questions leaves the applicant unable to tell which was refused.",
+          "hi": "आवेदक की अपनी क्रम-संख्या में उत्तर दें। चार प्रश्नों का उत्तर एक ही पैराग्राफ में देने पर आवेदक यह नहीं जान पाता कि किसे अस्वीकार किया गया।"
+        },
+        "severity": "must",
+        "rule": {
+          "kind": "contains",
+          "role": "body",
+          "text": {
+            "en": "Point",
+            "hi": "बिंदु"
+          }
+        }
+      },
+      {
+        "id": "exemption-cited",
+        "label": {
+          "en": "Any refusal cites the section it rests on",
+          "hi": "कोई भी अस्वीकृति उस धारा का उल्लेख करती है जिस पर वह आधारित है"
+        },
+        "why": {
+          "en": "Information withheld must be withheld under a named provision — the section number is what makes the refusal appealable rather than arbitrary.",
+          "hi": "रोकी गई सूचना किसी नामित उपबंध के अधीन ही रोकी जानी चाहिए — धारा संख्या ही अस्वीकृति को मनमानी के बजाय अपील-योग्य बनाती है।"
+        },
+        "severity": "should",
+        "rule": {
+          "kind": "regex",
+          "role": "body",
+          "pattern": "(?:Section|धारा)\\s*\\d"
+        }
+      },
+      {
+        "id": "reply-dates",
+        "label": {
+          "en": "The application date and the date of receipt are both stated",
+          "hi": "आवेदन की तारीख और प्राप्ति की तारीख दोनों दी गई हैं"
+        },
+        "why": {
+          "en": "The 30 days run from receipt, not from the date the applicant wrote. Both dates on the reply are what let anyone check that it was in time.",
+          "hi": "30 दिन प्राप्ति से गिने जाते हैं, आवेदक द्वारा लिखने की तारीख से नहीं। उत्तर पर दोनों तारीखें ही किसी को यह जाँचने देती हैं कि उत्तर समय पर था।"
+        },
+        "severity": "must",
+        "rule": {
+          "kind": "allRequired",
+          "fields": [
+            "applicationDate",
+            "receivedOn"
+          ]
+        },
+        "csmopRef": "12.5"
+      },
+      {
+        "id": "subject",
+        "label": {
+          "en": "The subject is stated",
+          "hi": "विषय लिखा गया है"
+        },
+        "why": {
+          "en": "The specimens in Appendix 8.1 carry a subject line above the body on every form that is addressed to anyone.",
+          "hi": "परिशिष्ट 8.1 के नमूनों में हर संबोधित प्रपत्र पर मुख्य भाग के ऊपर विषय पंक्ति होती है।"
+        },
+        "severity": "must",
+        "rule": {
+          "kind": "blockPresent",
+          "role": "subject"
+        },
+        "csmopRef": "Appendix 8.1"
+      },
+      {
+        "id": "signature-block",
+        "label": {
+          "en": "Signature block carries designation, telephone and email",
+          "hi": "हस्ताक्षर खंड में पदनाम, दूरभाष और ई-मेल हैं"
+        },
+        "why": {
+          "en": "The name, designation, telephone number, fax number and e-mail address of the signing officer must invariably be on the draft.",
+          "hi": "हस्ताक्षर करने वाले अधिकारी का नाम, पदनाम, दूरभाष संख्या, फैक्स संख्या और ई-मेल पता मसौदे पर अनिवार्यतः होना चाहिए।"
+        },
+        "severity": "must",
+        "rule": {
+          "kind": "allRequired",
+          "fields": [
+            "signatoryName",
+            "signatoryDesignation",
+            "phone",
+            "email"
+          ]
+        },
+        "csmopRef": "9.2(xii)"
+      },
+      {
+        "id": "enclosures",
+        "label": {
+          "en": "Enclosures mentioned in the text are listed",
+          "hi": "पाठ में उल्लिखित संलग्नक सूचीबद्ध हैं"
+        },
+        "why": {
+          "en": "A draft should clearly specify the enclosures which are to accompany the fair copy, and the number goes at the bottom left.",
+          "hi": "मसौदे में स्पष्ट रूप से बताया जाना चाहिए कि स्वच्छ प्रति के साथ कौन-से संलग्नक जाएँगे, और संख्या नीचे बाईं ओर दी जाती है।"
+        },
+        "severity": "must",
+        "rule": {
+          "kind": "enclosuresConsistent"
+        },
+        "csmopRef": "9.2(vii)"
+      },
+      {
+        "id": "no-placeholders",
+        "label": {
+          "en": "No placeholder is left unfilled",
+          "hi": "कोई प्लेसहोल्डर अधूरा नहीं छूटा"
+        },
+        "why": {
+          "en": "A draft that goes out with {{…}} still in it has not been read.",
+          "hi": "जिस मसौदे में {{…}} रह जाए, उसे पढ़ा ही नहीं गया।"
+        },
+        "severity": "must",
+        "rule": {
+          "kind": "noPlaceholders"
+        }
+      }
+    ],
+    "source": {
+      "name": "Central Secretariat Manual of Office Procedure, 2022 (16th edition), DARPG",
+      "url": "https://www.darpg.gov.in/static/uploads/2025/10/774e0b8f427b7875158363d842fa431f.pdf",
+      "reference": "CSMOP 2022, sixteenth edition",
+      "dated": "2022-08-05"
+    },
+    "fetchedAt": "2026-08-28T00:00:00Z",
+    "verify": true
+  }
+}

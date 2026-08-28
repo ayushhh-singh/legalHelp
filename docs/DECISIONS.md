@@ -1937,6 +1937,109 @@ officer would believe and one they would not:
 
 ---
 
+## ADR-020 — The Drafting Studio's data model: a layout is data, the engine knows only block roles
+
+**Date:** 2026-08-28 · **Status:** Accepted · **Session:** 7
+
+### Context
+
+Fourteen document types, each bilingual, each with its own arrangement of the same handful of parts.
+An Office Memorandum puts its addressee **below** the signature; a letter puts it above the subject.
+A letter leaves its first paragraph unnumbered and numbers from 2; an Inter-Departmental note and a
+note on a file number every paragraph from 1. A demi-official letter carries the writer's name at
+the top left and is signed by name alone. None of this is decoration — each is a specimen printed in
+CSMOP 2022 Appendix 8.1, and getting one wrong is the thing the module exists to prevent.
+
+The obvious implementation is a React component per document type. It puts fourteen layouts, twenty-
+eight language variants and every formatting rule into TSX, where none of it can be validated, tested
+off disk, cited, or handed to an AI tool without pulling the UI in behind it.
+
+### Decision
+
+**A template is a JSON file. The engine knows block roles and nothing about document types.**
+
+`data/drafting/templates/<id>.json` holds one `DocTemplate`: the fields an officer fills, a layout
+per language as a list of blocks, a checklist whose items carry machine-evaluable rules, the CSMOP
+paragraph each claim comes from, and the source. `src/lib/drafting/engine.ts` renders any of them.
+There is no branch in the engine for an O.M.; a fifteenth form is a fifteenth JSON file.
+
+Three behaviours are the engine's rather than the data's, because each is a rule about documents and
+not about one form: **paragraph numbering** (`numberFrom` picks, the engine counts), **the enclosure
+line** (`Encl.: as above (3)` is appended to any block that lists enclosures — CSMOP 9.2(vii) wants
+the count and nobody remembers to type it), and **dates** (normalised to dd.mm.yyyy however typed,
+Devanagari digits in Hindi on request).
+
+**The checklist is split in the same way.** "An Office Memorandum is written in the third person" is
+a claim about the manual and lives in the template with its paragraph reference; "third person means
+no first-person pronouns in the body" is a claim about text and lives in
+`src/lib/drafting/checklist.ts`. Thirteen rule kinds are implemented there, and an unknown kind
+**throws** — a checklist item that silently passed because nobody implemented its rule would be worse
+than no checklist.
+
+**The data is written by a script, not by hand.** `scripts/ingest/drafting_seed.py` builds all
+seventeen files and writes them through `ingest_common.write_json`, the one formatter for `data/`.
+It reaches no host; every input was fetched by hand once and is cited in every record. `--check`
+rebuilds and compares without writing, which is what CI runs. It is on no cron, for the reason
+`pay_matrix.py` is on none: a manual is revised by a new edition, and a new edition is a reading job.
+
+Its `self_check` rejects what a JSON Schema cannot express — a layout placeholder naming a field the
+template does not define, a block whose `source` is not a list field, a checklist rule naming a field
+that does not exist, a `select` sample that is not one of its own options, a required field with an
+empty sample, two layouts that place different blocks, a phrase pointed at a template that is not
+there. Every one of those would otherwise reach an officer as a `{{signatoryName}}` in a signed
+document; `scripts/ingest/test_drafting_seed.py` breaks a copy of the O.M. in each of those ways and
+asserts the check catches it.
+
+### The Hindi is read off the page, not out of the PDF
+
+The Hindi issue of CSMOP 2022 has a **text layer that cannot be used**: it was typeset from a legacy
+font whose glyph map yields `अभधकायी` where the page renders `अधिकारी`. Extraction with PyMuPDF,
+which works perfectly on the English issue, returns that scrambling for all 284 pages.
+
+Every Hindi string attributed to CSMOP in `data/drafting/` was therefore read off a **rendering** of
+the page — the same route ADR-016 records for the scanned Department of Expenditure orders. The pages
+that were rendered and read are the Appendix 8.1 specimens (Hindi printed 121–130), 8.4 (108–110) and
+6.13 (64).
+
+That work bought something worth having: **the manual's own Hindi is not the Hindi anyone would
+guess.** It prints `परम अग्रता` for Top Priority, not `सर्वोच्च अग्रता`; `अर्ध-सरकारी पत्र` for a
+demi-official letter, not `अर्ध-शासकीय पत्र`; and `अंतर-विभागीय टिप्पणी` for what every section still
+calls the `अशासकीय टिप्पणी`. All three expected forms are carried in `alsoHi`, because an officer will
+meet them and a search for one must find the term. None of the three is what this app prints.
+
+### Seven of the fourteen forms are not in the manual
+
+CSMOP 8.4 lists ten forms. Of the fourteen this session builds, seven — circular, leave application,
+representation, RTI reply, show-cause reply, tour programme, T.A. bill covering letter — are
+documents the Central Secretariat produces every day and the manual prescribes **no format for**.
+
+They are not dropped and they are not passed off as CSMOP. Each carries `verify: true`, a
+`csmopRef.chassis` naming the form whose format it borrows, and a `csmopRef.note` saying in both
+languages what the manual does and does not contribute. `tests/drafting-data.test.ts` fails a
+template that claims to be unverified without naming a chassis and explaining itself. This is the
+same treatment `verify: true` gets in the pay datasets, for the same reason: the reader must never
+have to guess which figures the Government has actually written down.
+
+### Consequences
+
+- A new document type is a JSON file, a manifest line in `validate_data.py`, and a loader line in
+  `src/modules/drafting/data.ts`. No engine change.
+- The templates are validated twice — `schemas/drafting-*.schema.json` by Python at write time, the
+  zod schemas in `src/modules/drafting/schema.ts` by `pnpm test` — so neither producer nor consumer
+  can drift alone, exactly as for law (ADR-012) and pay (ADR-016).
+- Every template renders from its own samples in English, Hindi and bilingually, with no unresolved
+  placeholder and no validation issue, and passes its own checklist; blanking every field moves at
+  least one `must` item to failing, so the evaluator is shown to be capable of saying no.
+- The engine is pure and takes the template as an argument, so `tests/drafting-data.test.ts` renders
+  the committed bytes and the future AI tool will render the same ones.
+- Two hosts join `CITATION_HOSTS` in `tests/no-external-urls.test.ts`: `www.darpg.gov.in` for CSMOP
+  and `rajbhasha.gov.in` for the Department of Official Language's glossary. Adding them was the
+  review (ADR-019).
+- `data/drafting` is ~476 KB, and the picker loads `index.json` alone — one template is fetched only
+  once a form has been chosen, the way `useLawEngine(enabled)` stays lazy.
+
+---
+
 ## ADR-019 — Dataset citations in the build: a reviewed host list, not a per-URL allowlist
 
 **Date:** 2026-08-28 · **Status:** Accepted · **Session:** 5 · **Amends:** ADR-012, ADR-016

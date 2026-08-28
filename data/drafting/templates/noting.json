@@ -1,0 +1,601 @@
+{
+  "version": "1.0.0",
+  "generatedAt": "2026-08-28T00:00:00Z",
+  "disclaimer": {
+    "en": "Reference only; verify with the official gazette/order or your DDO.",
+    "hi": "केवल संदर्भ के लिए; सरकारी राजपत्र/आदेश या अपने डीडीओ से सत्यापित करें।"
+  },
+  "template": {
+    "id": "noting",
+    "name": {
+      "en": "Note on a file (noting)",
+      "hi": "फाइल पर टिप्पणी"
+    },
+    "shortName": {
+      "en": "Noting",
+      "hi": "टिप्पणी"
+    },
+    "person": "third",
+    "usedBy": {
+      "en": "The Dealing Officer and every officer above in the channel of submission, recording a note on the notes portion of a file so that the competent authority can decide.",
+      "hi": "डीलिंग अधिकारी तथा प्रस्तुतीकरण के माध्यम में उससे ऊपर का प्रत्येक अधिकारी, फाइल के टिप्पणी भाग पर टिप्पणी दर्ज करके, ताकि सक्षम प्राधिकारी निर्णय ले सके।"
+    },
+    "whenToUse": {
+      "en": "A note is a precis of previous papers, an analysis of the issues, the financial and legal implications, a suggestion with its justification, and the authority competent to decide. Keep it to the quantum the case deserves: no note at all on an ephemeral case, three or four sentences on a correspondence case, a standard process sheet on a repetitive one, a structured note on a problem-solving case.",
+      "hi": "टिप्पणी में पिछले कागजातों का सार, मुद्दों का विश्लेषण, वित्तीय और विधिक निहितार्थ, औचित्य सहित सुझाव, तथा निर्णय के लिए सक्षम प्राधिकारी होते हैं। मामले के अनुरूप मात्रा रखें: क्षणभंगुर मामले पर कोई टिप्पणी नहीं, पत्राचार मामले पर तीन-चार वाक्य, पुनरावर्ती मामले पर मानक प्रक्रिया पत्रक, समस्या-समाधान मामले पर संरचित टिप्पणी।"
+    },
+    "salutation": null,
+    "subscription": null,
+    "urgencyAllowed": true,
+    "csmopRef": {
+      "edition": "CSMOP 2022, sixteenth edition",
+      "paras": [
+        "7.1",
+        "7.2",
+        "7.3",
+        "7.6",
+        "7.14",
+        "6.7",
+        "6.8"
+      ],
+      "pages": [
+        61,
+        62,
+        64,
+        66,
+        69,
+        42,
+        44
+      ]
+    },
+    "fields": [
+      {
+        "id": "urgency",
+        "label": {
+          "en": "Urgency grading",
+          "hi": "तात्कालिकता ग्रेडिंग"
+        },
+        "type": "select",
+        "required": false,
+        "sample": {
+          "en": "none",
+          "hi": "none"
+        },
+        "hint": {
+          "en": "Marked by or under the orders of an officer not lower than a Section Officer (9.2(xi)).",
+          "hi": "अनुभाग अधिकारी से अनिम्न अधिकारी द्वारा या उनके आदेश से अंकित (9.2(xi))।"
+        },
+        "options": [
+          {
+            "value": "none",
+            "label": {
+              "en": "None",
+              "hi": "कोई नहीं"
+            }
+          },
+          {
+            "value": "immediate",
+            "label": {
+              "en": "IMMEDIATE",
+              "hi": "तत्काल"
+            }
+          },
+          {
+            "value": "priority",
+            "label": {
+              "en": "PRIORITY",
+              "hi": "अग्रता"
+            }
+          },
+          {
+            "value": "top-priority",
+            "label": {
+              "en": "TOP PRIORITY",
+              "hi": "परम अग्रता"
+            }
+          }
+        ]
+      },
+      {
+        "id": "fileNumber",
+        "label": {
+          "en": "File / communication number",
+          "hi": "फाइल / पत्र संख्या"
+        },
+        "type": "text",
+        "required": true,
+        "sample": {
+          "en": "A-11011/2/2026-Estt.",
+          "hi": "ए-11011/2/2026-स्थापना"
+        },
+        "hint": {
+          "en": "Every draft put up on a file bears the file number (9.2(vi)).",
+          "hi": "फाइल पर प्रस्तुत प्रत्येक मसौदे पर फाइल संख्या होती है (9.2(vi))।"
+        }
+      },
+      {
+        "id": "subject",
+        "label": {
+          "en": "Subject",
+          "hi": "विषय"
+        },
+        "type": "text",
+        "required": true,
+        "sample": {
+          "en": "Grant of Children Education Allowance — clarification regarding.",
+          "hi": "बाल शिक्षा भत्ते की स्वीकृति — स्पष्टीकरण के संबंध में।"
+        }
+      },
+      {
+        "id": "noteType",
+        "label": {
+          "en": "Kind of case",
+          "hi": "मामले का प्रकार"
+        },
+        "type": "select",
+        "required": true,
+        "sample": {
+          "en": "problem-solving",
+          "hi": "problem-solving"
+        },
+        "hint": {
+          "en": "The functional approach to noting decides how much to write.",
+          "hi": "नोटिंग का कार्यात्मक दृष्टिकोण तय करता है कि कितना लिखना है।"
+        },
+        "options": [
+          {
+            "value": "ephemeral",
+            "label": {
+              "en": "Ephemeral — no noting",
+              "hi": "क्षणभंगुर — कोई टिप्पणी नहीं"
+            }
+          },
+          {
+            "value": "correspondence",
+            "label": {
+              "en": "Action in correspondence — a few sentences",
+              "hi": "पत्राचार में कार्रवाई — कुछ वाक्य"
+            }
+          },
+          {
+            "value": "repetitive",
+            "label": {
+              "en": "Repetitive — standard process sheet",
+              "hi": "पुनरावर्ती — मानक प्रक्रिया पत्रक"
+            }
+          },
+          {
+            "value": "problem-solving",
+            "label": {
+              "en": "Problem solving — structured note",
+              "hi": "समस्या-समाधान — संरचित टिप्पणी"
+            }
+          },
+          {
+            "value": "policy",
+            "label": {
+              "en": "Policy or planning — detailed note",
+              "hi": "नीति या योजना — विस्तृत टिप्पणी"
+            }
+          }
+        ]
+      },
+      {
+        "id": "references",
+        "label": {
+          "en": "Referencing",
+          "hi": "संदर्भ"
+        },
+        "type": "list",
+        "required": false,
+        "sample": {
+          "en": [
+            "PUC at page 7/c — application of Shri X.Y.Z. dated 04.08.2026",
+            "Flag 'A' — CCS (Leave) Rules, 1972, Rule 26",
+            "Flag 'B' — File No. A-11011/9/2024-Estt., page 12/n (precedent)"
+          ],
+          "hi": [
+            "विचाराधीन पत्र पृष्ठ 7/पत्राचार — श्री एक्स.वाई.ज़ेड. का दिनांक 04.08.2026 का आवेदन",
+            "ध्वज 'क' — केंद्रीय सिविल सेवा (छुट्टी) नियम, 1972, नियम 26",
+            "ध्वज 'ख' — फाइल संख्या ए-11011/9/2024-स्थापना, पृष्ठ 12/टिप्पणी (मिसाल)"
+          ]
+        },
+        "hint": {
+          "en": "Quote the page numbers in the margin; flags come off, page numbers do not.",
+          "hi": "पृष्ठ संख्याएँ हाशिये में उद्धृत करें; ध्वज हट जाते हैं, पृष्ठ संख्याएँ नहीं।"
+        }
+      },
+      {
+        "id": "paras",
+        "label": {
+          "en": "Body paragraphs",
+          "hi": "मुख्य पैराग्राफ"
+        },
+        "type": "paras",
+        "required": true,
+        "sample": {
+          "en": [
+            "The paper under consideration at page 7/c is an application from Shri X.Y.Z., Section Officer, for 30 days' earned leave from 01.10.2026 to 30.10.2026, with permission to prefix 30.09.2026 and suffix 31.10.2026, both public holidays.",
+            "The rule position is at flag 'A'. Rule 26 of the CCS (Leave) Rules, 1972 permits earned leave up to 180 days at a time, and prefixing and suffixing of holidays is admissible unless the leave is on medical grounds followed by fitness certification.",
+            "The applicant has 96 days of earned leave to his credit as on 01.10.2026, as verified from the leave account at page 9/c. The Section can be managed by Shri P.Q.R. during the period.",
+            "A precedent in a similar case is at flag 'B', decided at the level of the Under Secretary.",
+            "In view of the above, it is proposed that the leave applied for may be sanctioned. If approved, a draft Office Order is placed below for signature.",
+            "Under Secretary (Administration) is the competent authority to sanction earned leave to a Section Officer. Submitted for approval."
+          ],
+          "hi": [
+            "पृष्ठ 7/पत्राचार पर विचाराधीन पत्र श्री एक्स.वाई.ज़ेड., अनुभाग अधिकारी का आवेदन है, जिसमें दिनांक 01.10.2026 से 30.10.2026 तक 30 दिनों के अर्जित अवकाश की माँग की गई है, साथ ही दिनांक 30.09.2026 को उपसर्ग तथा 31.10.2026 को प्रत्यय के रूप में जोड़ने की अनुमति चाही गई है, ये दोनों सार्वजनिक अवकाश हैं।",
+            "नियम की स्थिति ध्वज 'क' पर है। केंद्रीय सिविल सेवा (छुट्टी) नियम, 1972 का नियम 26 एक बार में 180 दिन तक अर्जित अवकाश की अनुमति देता है, और चिकित्सा आधार पर अवकाश के अतिरिक्त अन्य मामलों में अवकाश से पूर्व और पश्चात के सार्वजनिक अवकाश जोड़े जा सकते हैं।",
+            "पृष्ठ 9/पत्राचार पर अवकाश लेखा से सत्यापित किया गया है कि दिनांक 01.10.2026 को आवेदक के खाते में 96 दिन का अर्जित अवकाश शेष है। इस अवधि में अनुभाग का कार्य श्री पी.क्यू.आर. द्वारा संभाला जा सकता है।",
+            "इसी प्रकार के मामले की मिसाल ध्वज 'ख' पर है, जिसका निर्णय अवर सचिव के स्तर पर किया गया था।",
+            "उपर्युक्त को देखते हुए प्रस्ताव है कि माँगा गया अवकाश स्वीकृत किया जाए। अनुमोदन होने पर हस्ताक्षर के लिए कार्यालय आदेश का मसौदा नीचे रखा गया है।",
+            "अनुभाग अधिकारी को अर्जित अवकाश स्वीकृत करने के लिए अवर सचिव (प्रशासन) सक्षम प्राधिकारी हैं। अनुमोदनार्थ प्रस्तुत।"
+          ]
+        },
+        "hint": {
+          "en": "Every paragraph is numbered, from 1. Summarise the PUC — do not reproduce it.",
+          "hi": "प्रत्येक पैराग्राफ 1 से संख्यांकित होता है। विचाराधीन पत्र का सार दें — उसे दोहराएँ नहीं।"
+        }
+      },
+      {
+        "id": "levelOfDisposal",
+        "label": {
+          "en": "Competent authority / level of disposal",
+          "hi": "सक्षम प्राधिकारी / निपटान का स्तर"
+        },
+        "type": "text",
+        "required": true,
+        "sample": {
+          "en": "Under Secretary (Administration)",
+          "hi": "अवर सचिव (प्रशासन)"
+        }
+      },
+      {
+        "id": "signatoryName",
+        "label": {
+          "en": "Name of the officer noting",
+          "hi": "टिप्पणी करने वाले अधिकारी का नाम"
+        },
+        "type": "text",
+        "required": true,
+        "sample": {
+          "en": "S. Iyer",
+          "hi": "एस. अय्यर"
+        }
+      },
+      {
+        "id": "signatoryDesignation",
+        "label": {
+          "en": "Designation",
+          "hi": "पदनाम"
+        },
+        "type": "text",
+        "required": true,
+        "sample": {
+          "en": "Assistant Section Officer",
+          "hi": "सहायक अनुभाग अधिकारी"
+        }
+      },
+      {
+        "id": "date",
+        "label": {
+          "en": "Date of the note",
+          "hi": "टिप्पणी की तारीख"
+        },
+        "type": "date",
+        "required": true,
+        "sample": {
+          "en": "2026-08-28",
+          "hi": "2026-08-28"
+        },
+        "hint": {
+          "en": "dd.mm.yyyy in English; दिनांक dd.mm.yyyy in Hindi.",
+          "hi": "अंग्रेज़ी में dd.mm.yyyy; हिंदी में दिनांक dd.mm.yyyy।"
+        }
+      }
+    ],
+    "layout": {
+      "en": [
+        {
+          "role": "urgency",
+          "align": "right",
+          "emphasis": "bold",
+          "lines": [
+            "{{urgency}}"
+          ],
+          "omitWhenEmpty": true
+        },
+        {
+          "role": "fileNumber",
+          "align": "left",
+          "lines": [
+            "File No. {{fileNumber}}"
+          ]
+        },
+        {
+          "role": "subject",
+          "align": "left",
+          "lines": [
+            "Subject: {{subject}}"
+          ]
+        },
+        {
+          "role": "refLine",
+          "align": "left",
+          "lead": "Referencing:",
+          "source": "references",
+          "itemPrefix": "none",
+          "omitWhenEmpty": true
+        },
+        {
+          "role": "body",
+          "align": "left",
+          "source": "paras",
+          "numbered": true,
+          "numberFrom": 1
+        },
+        {
+          "role": "signature",
+          "align": "left",
+          "lines": [
+            "({{signatoryName}})",
+            "{{signatoryDesignation}}",
+            "{{date}}"
+          ]
+        },
+        {
+          "role": "footer",
+          "align": "left",
+          "lines": [
+            "Level of disposal: {{levelOfDisposal}}"
+          ]
+        }
+      ],
+      "hi": [
+        {
+          "role": "urgency",
+          "align": "right",
+          "emphasis": "bold",
+          "lines": [
+            "{{urgency}}"
+          ],
+          "omitWhenEmpty": true
+        },
+        {
+          "role": "fileNumber",
+          "align": "left",
+          "lines": [
+            "फाइल संख्या {{fileNumber}}"
+          ]
+        },
+        {
+          "role": "subject",
+          "align": "left",
+          "lines": [
+            "विषय : {{subject}}"
+          ]
+        },
+        {
+          "role": "refLine",
+          "align": "left",
+          "lead": "संदर्भ :",
+          "source": "references",
+          "itemPrefix": "none",
+          "omitWhenEmpty": true
+        },
+        {
+          "role": "body",
+          "align": "left",
+          "source": "paras",
+          "numbered": true,
+          "numberFrom": 1
+        },
+        {
+          "role": "signature",
+          "align": "left",
+          "lines": [
+            "({{signatoryName}})",
+            "{{signatoryDesignation}}",
+            "{{date}}"
+          ]
+        },
+        {
+          "role": "footer",
+          "align": "left",
+          "lines": [
+            "निपटान का स्तर : {{levelOfDisposal}}"
+          ]
+        }
+      ]
+    },
+    "checklist": [
+      {
+        "id": "numbered-paras",
+        "label": {
+          "en": "Divided into serially numbered paragraphs",
+          "hi": "क्रमानुसार संख्यांकित पैराग्राफों में विभाजित"
+        },
+        "why": {
+          "en": "A note will be divided into serially numbered paragraphs; in a problem-solving or policy case the paragraphs may carry brief titles.",
+          "hi": "टिप्पणी क्रमानुसार संख्यांकित पैराग्राफों में विभाजित होगी; समस्या-समाधान या नीति मामले में पैराग्राफों के संक्षिप्त शीर्षक हो सकते हैं।"
+        },
+        "severity": "must",
+        "rule": {
+          "kind": "paraNumbering"
+        },
+        "csmopRef": "7.2(xiv)"
+      },
+      {
+        "id": "signature-with-date",
+        "label": {
+          "en": "Full signature with the complete date",
+          "hi": "पूरी तारीख सहित पूर्ण हस्ताक्षर"
+        },
+        "why": {
+          "en": "The Dealing Officer affixes a full signature with the complete date (dd/mm/yyyy) on the left below the note; a Section Officer and above sign on the right.",
+          "hi": "डीलिंग अधिकारी टिप्पणी के नीचे बाईं ओर पूरी तारीख (dd/mm/yyyy) सहित पूर्ण हस्ताक्षर करता है; अनुभाग अधिकारी और उससे ऊपर दाईं ओर हस्ताक्षर करते हैं।"
+        },
+        "severity": "must",
+        "rule": {
+          "kind": "allRequired",
+          "fields": [
+            "signatoryName",
+            "signatoryDesignation",
+            "date"
+          ]
+        },
+        "csmopRef": "7.3(xi), 7.4(iv)"
+      },
+      {
+        "id": "competent-authority",
+        "label": {
+          "en": "The competent authority is named",
+          "hi": "सक्षम प्राधिकारी का उल्लेख है"
+        },
+        "why": {
+          "en": "Indicate the authority competent to take the decision, along with the delegation of powers relied on.",
+          "hi": "निर्णय लेने के लिए सक्षम प्राधिकारी का उल्लेख करें, साथ ही जिस शक्ति-प्रत्यायोजन पर भरोसा किया गया है उसका भी।"
+        },
+        "severity": "must",
+        "rule": {
+          "kind": "required",
+          "field": "levelOfDisposal"
+        },
+        "csmopRef": "7.3(x)"
+      },
+      {
+        "id": "referencing",
+        "label": {
+          "en": "Rules, precedents and the PUC are referenced",
+          "hi": "नियम, मिसालें और विचाराधीन पत्र संदर्भित हैं"
+        },
+        "why": {
+          "en": "Place the relevant extracts on the file and draw attention to them in the note, quoting the page numbers in the margin — rather than reproducing the provisions in the note.",
+          "hi": "संबंधित उद्धरण फाइल पर रखें और टिप्पणी में हाशिये में पृष्ठ संख्या उद्धृत करते हुए उनकी ओर ध्यान दिलाएँ — प्रावधानों को टिप्पणी में दोहराने के बजाय।"
+        },
+        "severity": "should",
+        "rule": {
+          "kind": "listNonEmpty",
+          "field": "references"
+        },
+        "csmopRef": "7.2(vii), 6.7(iii)"
+      },
+      {
+        "id": "proposal",
+        "label": {
+          "en": "A course of action is proposed",
+          "hi": "कार्रवाई का मार्ग प्रस्तावित है"
+        },
+        "why": {
+          "en": "Suggest the course of action to be taken with justification, along with the alternatives for the competent authority to consider.",
+          "hi": "औचित्य सहित की जाने वाली कार्रवाई का सुझाव दें, साथ ही सक्षम प्राधिकारी के विचारार्थ विकल्प भी।"
+        },
+        "severity": "must",
+        "rule": {
+          "kind": "contains",
+          "role": "body",
+          "text": {
+            "en": "proposed",
+            "hi": "प्रस्ताव"
+          }
+        },
+        "csmopRef": "7.3(ix)"
+      },
+      {
+        "id": "concise",
+        "label": {
+          "en": "Concise — no verbatim reproduction",
+          "hi": "संक्षिप्त — शब्दशः पुनरुत्पादन नहीं"
+        },
+        "why": {
+          "en": "A note must be concise and to the point; verbatim reproduction of the paper under consideration is to be avoided in favour of a summary.",
+          "hi": "टिप्पणी संक्षिप्त और सारगर्भित होनी चाहिए; विचाराधीन पत्र का शब्दशः पुनरुत्पादन टालकर सारांश दिया जाए।"
+        },
+        "severity": "should",
+        "rule": {
+          "kind": "maxWords",
+          "role": "body",
+          "count": 600
+        },
+        "csmopRef": "7.2(iii)"
+      },
+      {
+        "id": "subject",
+        "label": {
+          "en": "The subject is stated",
+          "hi": "विषय लिखा गया है"
+        },
+        "why": {
+          "en": "The specimens in Appendix 8.1 carry a subject line above the body on every form that is addressed to anyone.",
+          "hi": "परिशिष्ट 8.1 के नमूनों में हर संबोधित प्रपत्र पर मुख्य भाग के ऊपर विषय पंक्ति होती है।"
+        },
+        "severity": "must",
+        "rule": {
+          "kind": "blockPresent",
+          "role": "subject"
+        },
+        "csmopRef": "Appendix 8.1"
+      },
+      {
+        "id": "no-placeholders",
+        "label": {
+          "en": "No placeholder is left unfilled",
+          "hi": "कोई प्लेसहोल्डर अधूरा नहीं छूटा"
+        },
+        "why": {
+          "en": "A draft that goes out with {{…}} still in it has not been read.",
+          "hi": "जिस मसौदे में {{…}} रह जाए, उसे पढ़ा ही नहीं गया।"
+        },
+        "severity": "must",
+        "rule": {
+          "kind": "noPlaceholders"
+        }
+      }
+    ],
+    "notes": [
+      {
+        "key": "quantum",
+        "title": {
+          "en": "How much to write",
+          "hi": "कितना लिखें"
+        },
+        "body": {
+          "en": "Ephemeral case: no noting — the Section Officer records briefly why no action is needed and files it at the dak stage. Correspondence case: three or four sentences. Repetitive case: a standard process sheet, no conventional note at all. Problem-solving case: what the problem is, how it arose, the rule or precedent, the possible solutions, the best one and why, its consequences, whether another Department must be consulted, and who is competent to decide.",
+          "hi": "क्षणभंगुर मामला: कोई टिप्पणी नहीं — अनुभाग अधिकारी संक्षेप में लिखता है कि कार्रवाई क्यों अपेक्षित नहीं और डाक स्तर पर ही फाइल कर देता है। पत्राचार मामला: तीन-चार वाक्य। पुनरावर्ती मामला: मानक प्रक्रिया पत्रक, कोई पारंपरिक टिप्पणी नहीं। समस्या-समाधान मामला: समस्या क्या है, कैसे उठी, नियम या मिसाल, संभावित समाधान, सर्वोत्तम कौन-सा और क्यों, उसके परिणाम, क्या किसी अन्य विभाग से परामर्श आवश्यक है, और निर्णय के लिए कौन सक्षम है।"
+        },
+        "csmopRef": "7.14, Table 7.1"
+      },
+      {
+        "key": "self-contained-to-secretary",
+        "title": {
+          "en": "A self-contained note for the Secretary or Minister",
+          "hi": "सचिव या मंत्री के लिए स्वतःपूर्ण टिप्पणी"
+        },
+        "body": {
+          "en": "Unless a running summary of facts is on the file, or the last note itself serves that purpose, a self-contained note goes up with every case submitted to the Secretary or the Minister — and at least a quarter of a page is left below the last note.",
+          "hi": "जब तक फाइल पर तथ्यों का चालू सारांश न हो, या अंतिम टिप्पणी स्वयं वह प्रयोजन पूरा न करती हो, सचिव या मंत्री को प्रस्तुत प्रत्येक मामले के साथ स्वतःपूर्ण टिप्पणी जाती है — और अंतिम टिप्पणी के नीचे कम से कम एक चौथाई पृष्ठ खाली छोड़ा जाता है।"
+        },
+        "csmopRef": "7.2(viii), 7.3(xii)"
+      },
+      {
+        "key": "never-remove",
+        "title": {
+          "en": "A note is never removed",
+          "hi": "टिप्पणी कभी हटाई नहीं जाती"
+        },
+        "body": {
+          "en": "Under no circumstances is a note pasted over or removed from a file. A mistake or a disagreement is dealt with by recording a fresh note, keeping the earlier one on the file.",
+          "hi": "किसी भी परिस्थिति में टिप्पणी पर चिपकाया या उसे फाइल से हटाया नहीं जाता। भूल या असहमति की स्थिति में पहले वाली टिप्पणी को फाइल पर रखते हुए नई टिप्पणी दर्ज की जाती है।"
+        },
+        "csmopRef": "7.13(ii)"
+      }
+    ],
+    "source": {
+      "name": "Central Secretariat Manual of Office Procedure, 2022 (16th edition), DARPG",
+      "url": "https://www.darpg.gov.in/static/uploads/2025/10/774e0b8f427b7875158363d842fa431f.pdf",
+      "reference": "CSMOP 2022, sixteenth edition",
+      "dated": "2022-08-05"
+    },
+    "fetchedAt": "2026-08-28T00:00:00Z",
+    "verify": false
+  }
+}

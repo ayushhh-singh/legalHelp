@@ -1,0 +1,502 @@
+{
+  "version": "1.0.0",
+  "generatedAt": "2026-08-28T00:00:00Z",
+  "disclaimer": {
+    "en": "Reference only; verify with the official gazette/order or your DDO.",
+    "hi": "केवल संदर्भ के लिए; सरकारी राजपत्र/आदेश या अपने डीडीओ से सत्यापित करें।"
+  },
+  "template": {
+    "id": "show-cause-reply",
+    "name": {
+      "en": "Reply to a show-cause notice",
+      "hi": "कारण बताओ नोटिस का उत्तर"
+    },
+    "shortName": {
+      "en": "Show-cause reply",
+      "hi": "कारण बताओ उत्तर"
+    },
+    "person": "first",
+    "usedBy": {
+      "en": "A Government servant replying to a show-cause notice or a memorandum of charges issued by the disciplinary authority.",
+      "hi": "अनुशासनिक प्राधिकारी द्वारा जारी कारण बताओ नोटिस या आरोप ज्ञापन का उत्तर देने वाला सरकारी सेवक।"
+    },
+    "whenToUse": {
+      "en": "Within the time allowed by the notice. Answer each allegation separately and in its own numbering, admit what is true, explain what is not, and ask for what you want — an extension, the documents relied on, or a personal hearing. Keep the language temperate: CSMOP 7.2(xi) asks for it and a disciplinary file is read years later by people who were not there.",
+      "hi": "नोटिस में दी गई अवधि के भीतर। प्रत्येक आरोप का अलग-अलग, उसी क्रम-संख्या में उत्तर दें, जो सही है उसे स्वीकार करें, जो नहीं है उसे स्पष्ट करें, और जो चाहिए वह माँगें — अवधि विस्तार, आधारभूत दस्तावेज़, या व्यक्तिगत सुनवाई। भाषा संयमित रखें: सीएसएमओपी 7.2(xi) यही चाहता है और अनुशासनिक फाइल वर्षों बाद उन लोगों द्वारा पढ़ी जाती है जो वहाँ नहीं थे।"
+    },
+    "salutation": {
+      "en": "Sir / Madam,",
+      "hi": "महोदय / महोदया,"
+    },
+    "subscription": {
+      "en": "Yours faithfully,",
+      "hi": "भवदीय,"
+    },
+    "urgencyAllowed": false,
+    "csmopRef": {
+      "edition": "CSMOP 2022, sixteenth edition",
+      "paras": [
+        "8.4(1)",
+        "7.2(xi)",
+        "Appendix 8.1"
+      ],
+      "pages": [
+        62,
+        79,
+        87
+      ],
+      "chassis": "letter",
+      "note": {
+        "en": "The manual prescribes no format for this. The procedure is in the CCS (Classification, Control and Appeal) Rules, 1965; what CSMOP contributes is the letter chassis and the requirement of courteous and temperate language.",
+        "hi": "नियमावली इसके लिए कोई प्रारूप निर्धारित नहीं करती। प्रक्रिया केंद्रीय सिविल सेवा (वर्गीकरण, नियंत्रण और अपील) नियम, 1965 में है; सीएसएमओपी का योगदान पत्र का ढाँचा और शिष्ट तथा संयमित भाषा की अपेक्षा है।"
+      }
+    },
+    "fields": [
+      {
+        "id": "place",
+        "label": {
+          "en": "Place",
+          "hi": "स्थान"
+        },
+        "type": "text",
+        "required": true,
+        "sample": {
+          "en": "New Delhi",
+          "hi": "नई दिल्ली"
+        }
+      },
+      {
+        "id": "date",
+        "label": {
+          "en": "Date",
+          "hi": "दिनांक"
+        },
+        "type": "date",
+        "required": true,
+        "sample": {
+          "en": "2026-08-28",
+          "hi": "2026-08-28"
+        },
+        "hint": {
+          "en": "dd.mm.yyyy in English; दिनांक dd.mm.yyyy in Hindi.",
+          "hi": "अंग्रेज़ी में dd.mm.yyyy; हिंदी में दिनांक dd.mm.yyyy।"
+        }
+      },
+      {
+        "id": "addressee",
+        "label": {
+          "en": "To (disciplinary authority)",
+          "hi": "सेवा में (अनुशासनिक प्राधिकारी)"
+        },
+        "type": "textarea",
+        "required": true,
+        "sample": {
+          "en": "The Deputy Secretary (Vigilance)\nDepartment of Personnel and Training\nNorth Block, New Delhi - 110001\n(Through proper channel)",
+          "hi": "उप सचिव (सतर्कता)\nकार्मिक और प्रशिक्षण विभाग\nनॉर्थ ब्लॉक, नई दिल्ली - 110001\n(उचित माध्यम से)"
+        }
+      },
+      {
+        "id": "subject",
+        "label": {
+          "en": "Subject",
+          "hi": "विषय"
+        },
+        "type": "text",
+        "required": true,
+        "sample": {
+          "en": "Reply to the show-cause notice dated 12.08.2026 — regarding.",
+          "hi": "दिनांक 12.08.2026 के कारण बताओ नोटिस का उत्तर — के संबंध में।"
+        }
+      },
+      {
+        "id": "reference",
+        "label": {
+          "en": "Notice being replied to",
+          "hi": "जिस नोटिस का उत्तर है"
+        },
+        "type": "text",
+        "required": true,
+        "sample": {
+          "en": "Show-cause notice No. A-19011/3/2026-Vig. dated 12.08.2026",
+          "hi": "कारण बताओ नोटिस संख्या ए-19011/3/2026-सतर्कता दिनांक 12.08.2026"
+        }
+      },
+      {
+        "id": "paras",
+        "label": {
+          "en": "Body paragraphs",
+          "hi": "मुख्य पैराग्राफ"
+        },
+        "type": "paras",
+        "required": true,
+        "sample": {
+          "en": [
+            "Please refer to the show-cause notice cited above. My reply to the allegations contained in it is submitted below, with respect.",
+            "Allegation 1 — that the files at Sl. Nos. 4 to 9 of the Annexure were not submitted within the prescribed time. The delay in respect of five of these files is admitted. The files were received in the Section on 02.07.2026, when the Section was working with two of its four posts vacant, as recorded in this Department's own O.M. No. A-12011/2/2026-Estt. dated 08.07.2026.",
+            "Allegation 2 — that the delay was not brought to the notice of the Branch Officer. This is not correct. The position was reported in my note dated 09.07.2026 at page 23/n of File No. A-12011/2/2026-Estt., a copy of which is enclosed.",
+            "I have at no stage acted in disregard of the instructions on timely disposal, and no loss has been caused to the Government.",
+            "In view of the above, I request that the notice may kindly be withdrawn and the matter dropped. Should it be considered necessary, I request an opportunity of a personal hearing before a decision is taken."
+          ],
+          "hi": [
+            "कृपया उपर्युक्त कारण बताओ नोटिस का संदर्भ लें। उसमें लगाए गए आरोपों पर मेरा उत्तर सादर नीचे प्रस्तुत है।",
+            "आरोप 1 — कि अनुबंध के क्रम संख्या 4 से 9 तक की फाइलें निर्धारित समय में प्रस्तुत नहीं की गईं। इनमें से पाँच फाइलों के संबंध में विलंब स्वीकार है। ये फाइलें अनुभाग में दिनांक 02.07.2026 को प्राप्त हुईं, जब अनुभाग के चार में से दो पद रिक्त थे, जैसा कि इस विभाग के ही कार्यालय ज्ञापन संख्या ए-12011/2/2026-स्थापना दिनांक 08.07.2026 में अभिलिखित है।",
+            "आरोप 2 — कि विलंब की सूचना शाखा अधिकारी को नहीं दी गई। यह सही नहीं है। यह स्थिति फाइल संख्या ए-12011/2/2026-स्थापना के पृष्ठ 23/टिप्पणी पर मेरी दिनांक 09.07.2026 की टिप्पणी में सूचित की गई थी, जिसकी प्रति संलग्न है।",
+            "मैंने किसी भी स्तर पर समयबद्ध निपटान संबंधी अनुदेशों की अवहेलना नहीं की है, और सरकार को कोई हानि नहीं हुई है।",
+            "उपर्युक्त को देखते हुए अनुरोध है कि नोटिस वापस लेकर मामला समाप्त करने की कृपा की जाए। यदि आवश्यक समझा जाए तो निर्णय से पूर्व व्यक्तिगत सुनवाई का अवसर देने का अनुरोध है।"
+          ]
+        },
+        "hint": {
+          "en": "One paragraph per line. The first is left unnumbered and the rest are numbered from 2.",
+          "hi": "प्रति पंक्ति एक पैराग्राफ। पहला बिना संख्या के रहता है और शेष 2 से क्रमांकित होते हैं।"
+        }
+      },
+      {
+        "id": "signatoryName",
+        "label": {
+          "en": "Your name",
+          "hi": "आपका नाम"
+        },
+        "type": "text",
+        "required": true,
+        "sample": {
+          "en": "X. Y. Zachariah",
+          "hi": "एक्स. वाई. ज़करिया"
+        }
+      },
+      {
+        "id": "signatoryDesignation",
+        "label": {
+          "en": "Your designation and Section",
+          "hi": "आपका पदनाम और अनुभाग"
+        },
+        "type": "text",
+        "required": true,
+        "sample": {
+          "en": "Section Officer, Establishment Section",
+          "hi": "अनुभाग अधिकारी, स्थापना अनुभाग"
+        }
+      },
+      {
+        "id": "phone",
+        "label": {
+          "en": "Telephone / mobile",
+          "hi": "दूरभाष / मोबाइल"
+        },
+        "type": "text",
+        "required": true,
+        "sample": {
+          "en": "011-2309 2591",
+          "hi": "011-2309 2591"
+        }
+      },
+      {
+        "id": "enclosures",
+        "label": {
+          "en": "Enclosures",
+          "hi": "संलग्नक"
+        },
+        "type": "list",
+        "required": false,
+        "sample": {
+          "en": [
+            "Copy of the note dated 09.07.2026 at page 23/n of File No. A-12011/2/2026-Estt."
+          ],
+          "hi": [
+            "फाइल संख्या ए-12011/2/2026-स्थापना के पृष्ठ 23/टिप्पणी पर दिनांक 09.07.2026 की टिप्पणी की प्रति"
+          ]
+        },
+        "hint": {
+          "en": "The count goes at the bottom left of the draft — 'Encl. 3' (9.2(vii)).",
+          "hi": "मसौदे के नीचे बाईं ओर संख्या दी जाती है — 'Encl. 3' (9.2(vii))।"
+        }
+      }
+    ],
+    "layout": {
+      "en": [
+        {
+          "role": "dateLine",
+          "align": "right",
+          "lines": [
+            "{{place}}, the {{date}}"
+          ]
+        },
+        {
+          "role": "addressee",
+          "align": "left",
+          "lines": [
+            "To,",
+            "{{addressee}}"
+          ]
+        },
+        {
+          "role": "subject",
+          "align": "left",
+          "lines": [
+            "Subject: {{subject}}"
+          ]
+        },
+        {
+          "role": "refLine",
+          "align": "left",
+          "lines": [
+            "Reference: {{reference}}"
+          ]
+        },
+        {
+          "role": "salutation",
+          "align": "left",
+          "lines": [
+            "Sir / Madam,"
+          ]
+        },
+        {
+          "role": "body",
+          "align": "left",
+          "source": "paras",
+          "numbered": true
+        },
+        {
+          "role": "closing",
+          "align": "right",
+          "lines": [
+            "Yours faithfully,"
+          ]
+        },
+        {
+          "role": "signature",
+          "align": "right",
+          "lines": [
+            "({{signatoryName}})",
+            "{{signatoryDesignation}}",
+            "Tele.: {{phone}}"
+          ]
+        },
+        {
+          "role": "enclosures",
+          "align": "left",
+          "lead": "List of enclosures:",
+          "source": "enclosures",
+          "itemPrefix": "ordinal",
+          "omitWhenEmpty": true
+        }
+      ],
+      "hi": [
+        {
+          "role": "dateLine",
+          "align": "right",
+          "lines": [
+            "{{place}}, दिनांक {{date}}"
+          ]
+        },
+        {
+          "role": "addressee",
+          "align": "left",
+          "lines": [
+            "सेवा में,",
+            "{{addressee}}"
+          ]
+        },
+        {
+          "role": "subject",
+          "align": "left",
+          "lines": [
+            "विषय : {{subject}}"
+          ]
+        },
+        {
+          "role": "refLine",
+          "align": "left",
+          "lines": [
+            "संदर्भ : {{reference}}"
+          ]
+        },
+        {
+          "role": "salutation",
+          "align": "left",
+          "lines": [
+            "महोदय / महोदया,"
+          ]
+        },
+        {
+          "role": "body",
+          "align": "left",
+          "source": "paras",
+          "numbered": true
+        },
+        {
+          "role": "closing",
+          "align": "right",
+          "lines": [
+            "भवदीय,"
+          ]
+        },
+        {
+          "role": "signature",
+          "align": "right",
+          "lines": [
+            "({{signatoryName}})",
+            "{{signatoryDesignation}}",
+            "दूरभाष : {{phone}}"
+          ]
+        },
+        {
+          "role": "enclosures",
+          "align": "left",
+          "lead": "संलग्नकों की सूची :",
+          "source": "enclosures",
+          "itemPrefix": "ordinal",
+          "omitWhenEmpty": true
+        }
+      ]
+    },
+    "checklist": [
+      {
+        "id": "notice-identified",
+        "label": {
+          "en": "The notice is identified by number and date",
+          "hi": "नोटिस संख्या और तारीख से पहचाना गया है"
+        },
+        "why": {
+          "en": "The number and date of the communication being replied to must always be quoted.",
+          "hi": "जिस पत्र का उत्तर दिया जा रहा है उसकी संख्या और तारीख सदैव उद्धृत की जानी चाहिए।"
+        },
+        "severity": "must",
+        "rule": {
+          "kind": "required",
+          "field": "reference"
+        },
+        "csmopRef": "9.2(iv)"
+      },
+      {
+        "id": "allegation-wise",
+        "label": {
+          "en": "Each allegation is answered separately",
+          "hi": "प्रत्येक आरोप का अलग-अलग उत्तर दिया गया है"
+        },
+        "why": {
+          "en": "A reply that answers the notice as a whole leaves the disciplinary authority to guess which allegation is admitted and which is denied.",
+          "hi": "जो उत्तर नोटिस का समग्र रूप से उत्तर देता है, वह अनुशासनिक प्राधिकारी को अनुमान लगाने पर छोड़ देता है कि कौन-सा आरोप स्वीकार है और कौन-सा अस्वीकार।"
+        },
+        "severity": "must",
+        "rule": {
+          "kind": "contains",
+          "role": "body",
+          "text": {
+            "en": "Allegation",
+            "hi": "आरोप"
+          }
+        }
+      },
+      {
+        "id": "temperate-language",
+        "label": {
+          "en": "Courteous and temperate language, free from personal remarks",
+          "hi": "शिष्ट और संयमित भाषा, व्यक्तिगत टीका-टिप्पणी से मुक्त"
+        },
+        "why": {
+          "en": "Where an incorrect statement has to be countered, care is taken to make the observation in courteous and temperate language free from personal remarks.",
+          "hi": "जहाँ किसी गलत कथन का प्रतिवाद करना हो, वहाँ ध्यान रखा जाता है कि टिप्पणी शिष्ट और संयमित भाषा में, व्यक्तिगत टीका-टिप्पणी से मुक्त हो।"
+        },
+        "severity": "must",
+        "rule": {
+          "kind": "regexAbsent",
+          "role": "body",
+          "pattern": "(?:malafide|mala fide|deliberately false|vendetta|incompetent|दुर्भावना|जान-बूझकर|अक्षम)"
+        },
+        "csmopRef": "7.2(xi)"
+      },
+      {
+        "id": "relief-sought",
+        "label": {
+          "en": "What is asked for is stated",
+          "hi": "जो माँगा जा रहा है वह लिखा गया है"
+        },
+        "why": {
+          "en": "Say whether you want the notice withdrawn, more time, the documents relied on, or a personal hearing.",
+          "hi": "लिखें कि आप नोटिस वापस लेना चाहते हैं, अधिक समय, आधारभूत दस्तावेज़, या व्यक्तिगत सुनवाई।"
+        },
+        "severity": "must",
+        "rule": {
+          "kind": "contains",
+          "role": "body",
+          "text": {
+            "en": "request",
+            "hi": "अनुरोध"
+          }
+        }
+      },
+      {
+        "id": "subject",
+        "label": {
+          "en": "The subject is stated",
+          "hi": "विषय लिखा गया है"
+        },
+        "why": {
+          "en": "The specimens in Appendix 8.1 carry a subject line above the body on every form that is addressed to anyone.",
+          "hi": "परिशिष्ट 8.1 के नमूनों में हर संबोधित प्रपत्र पर मुख्य भाग के ऊपर विषय पंक्ति होती है।"
+        },
+        "severity": "must",
+        "rule": {
+          "kind": "blockPresent",
+          "role": "subject"
+        },
+        "csmopRef": "Appendix 8.1"
+      },
+      {
+        "id": "para-numbering",
+        "label": {
+          "en": "Paragraphs are serially numbered",
+          "hi": "पैराग्राफ क्रमानुसार संख्यांकित हैं"
+        },
+        "why": {
+          "en": "The specimens leave the first paragraph unnumbered and number the rest from 2.",
+          "hi": "नमूनों में पहला पैराग्राफ बिना संख्या के रहता है और शेष 2 से क्रमांकित होते हैं।"
+        },
+        "severity": "must",
+        "rule": {
+          "kind": "paraNumbering"
+        },
+        "csmopRef": "Appendix 8.1"
+      },
+      {
+        "id": "enclosures",
+        "label": {
+          "en": "Enclosures mentioned in the text are listed",
+          "hi": "पाठ में उल्लिखित संलग्नक सूचीबद्ध हैं"
+        },
+        "why": {
+          "en": "A draft should clearly specify the enclosures which are to accompany the fair copy, and the number goes at the bottom left.",
+          "hi": "मसौदे में स्पष्ट रूप से बताया जाना चाहिए कि स्वच्छ प्रति के साथ कौन-से संलग्नक जाएँगे, और संख्या नीचे बाईं ओर दी जाती है।"
+        },
+        "severity": "must",
+        "rule": {
+          "kind": "enclosuresConsistent"
+        },
+        "csmopRef": "9.2(vii)"
+      },
+      {
+        "id": "no-placeholders",
+        "label": {
+          "en": "No placeholder is left unfilled",
+          "hi": "कोई प्लेसहोल्डर अधूरा नहीं छूटा"
+        },
+        "why": {
+          "en": "A draft that goes out with {{…}} still in it has not been read.",
+          "hi": "जिस मसौदे में {{…}} रह जाए, उसे पढ़ा ही नहीं गया।"
+        },
+        "severity": "must",
+        "rule": {
+          "kind": "noPlaceholders"
+        }
+      }
+    ],
+    "source": {
+      "name": "Central Secretariat Manual of Office Procedure, 2022 (16th edition), DARPG",
+      "url": "https://www.darpg.gov.in/static/uploads/2025/10/774e0b8f427b7875158363d842fa431f.pdf",
+      "reference": "CSMOP 2022, sixteenth edition",
+      "dated": "2022-08-05"
+    },
+    "fetchedAt": "2026-08-28T00:00:00Z",
+    "verify": true
+  }
+}

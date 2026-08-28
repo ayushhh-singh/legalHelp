@@ -49,6 +49,9 @@ scripts/ingest/.venv/bin/python scripts/ingest/indiacode_seed.py --urls scripts/
 scripts/ingest/.venv/bin/python scripts/ingest/pay_matrix.py            # write data/pay/matrix.json
 scripts/ingest/.venv/bin/python scripts/ingest/pay_matrix.py --check    # verify only, write nothing
 
+scripts/ingest/.venv/bin/python scripts/ingest/drafting_seed.py         # write data/drafting/*
+scripts/ingest/.venv/bin/python scripts/ingest/drafting_seed.py --check # rebuild and compare, write nothing
+
 scripts/ingest/.venv/bin/python scripts/ingest/validate_data.py         # every dataset vs its JSON Schema
 ```
 
@@ -195,6 +198,36 @@ Rules, 2017 replaced it, with effect from 01.01.2016, by a 20-cell level from
 level is what ships; shipping the 2016 one would be shipping a level that legally
 never existed. Pay is still fixed with the fitment factor of 2.57, not 2.67, and
 the same OM says so in terms.
+
+## The drafting templates
+
+`drafting_seed.py` writes all seventeen files under `data/drafting/` — fourteen
+CSMOP document templates, the Rajbhasha structural terms, the phrase library and
+the index. Like `pay_matrix.py` it reaches no host: every input was fetched by
+hand once and is cited in every record. It is on no cron either, and for a
+stronger reason — the Central Secretariat Manual of Office Procedure is revised
+by a **new edition**, roughly once every three years, and a new edition is a
+reading job, not a fetch (ADR-020).
+
+Two things about it are worth knowing before editing.
+
+**`self_check` rejects what a JSON Schema cannot express.** A schema can say that
+a block's `source` must be a field id; it cannot know whether that id exists in
+_this_ template. So the script refuses to write a layout placeholder naming a
+field the template does not define, a `source` that is not a list or paras field,
+a checklist rule naming a field that does not exist, a `select` sample that is
+not one of its own options, a required field with an empty sample, two layouts
+that place different blocks, or a phrase pointed at a template that is not there.
+Every one of those would otherwise reach an officer as a `{{signatoryName}}` in a
+signed document. `test_drafting_seed.py` breaks a copy of the Office Memorandum
+in each of those ways and asserts the check catches it.
+
+**The Hindi was read off rendered pages, not extracted.** The Hindi issue of
+CSMOP 2022 has a legacy-font glyph map, so its text layer yields `अभधकायी` where
+the page renders `अधिकारी` — see `docs/DATA-GAPS.md` #36. Every Hindi string
+attributed to the manual was read from a 130-dpi rendering of the page it is on,
+which is why the manual's own `परम अग्रता` survives instead of the `सर्वोच्च अग्रता`
+everyone expects. Do not "fix" one of those strings against the extracted text.
 
 ## Validating the datasets
 

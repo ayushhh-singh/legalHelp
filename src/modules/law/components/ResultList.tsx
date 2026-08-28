@@ -144,7 +144,7 @@ export function ResultList({
                 style={{ height: ROW_HEIGHT }}
                 className={cn(
                   'flex w-full flex-col justify-center gap-1 border-b border-border px-4 text-left transition-colors',
-                  'focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-inset focus-visible:outline-none',
+                  'focus-visible:ring-2 focus-visible:ring-ring focus-visible:outline-none focus-visible:ring-inset',
                   selected ? 'bg-accent' : 'hover:bg-muted',
                 )}
               >

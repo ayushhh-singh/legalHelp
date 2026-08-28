@@ -1,0 +1,1108 @@
+{
+  "version": "1.0.0",
+  "generatedAt": "2026-08-28T00:00:00Z",
+  "disclaimer": {
+    "en": "Reference only; verify with the official gazette/order or your DDO.",
+    "hi": "केवल संदर्भ के लिए; सरकारी राजपत्र/आदेश या अपने डीडीओ से सत्यापित करें।"
+  },
+  "phrases": [
+    {
+      "id": "om-undersigned-directed",
+      "kind": "opening",
+      "appliesTo": [
+        "office-memorandum",
+        "circular"
+      ],
+      "text": {
+        "en": "The undersigned is directed to refer to this Department's O.M. No. {number} dated {date} on the subject cited above and to say that",
+        "hi": "अधोहस्ताक्षरी को इस विभाग के कार्यालय ज्ञापन संख्या {number} दिनांक {date} का संदर्भ लेने तथा यह कहने का निदेश हुआ है कि"
+      },
+      "tags": [
+        "reference",
+        "third-person"
+      ],
+      "csmopRef": "Appendix 8.1",
+      "source": {
+        "name": "केंद्रीय सचिवालय कार्यालय प्रक्रिया नियमावली, 2022 (16वाँ संस्करण), प्रशासनिक सुधार और लोक शिकायत विभाग",
+        "url": "https://www.darpg.gov.in/static/uploads/2025/10/8b5d6eb6c7c47bc69e271e25f1c2cc43.pdf",
+        "reference": "CSMOP 2022, sixteenth edition (Hindi issue)",
+        "dated": "2022-08-05"
+      },
+      "fetchedAt": "2026-08-28T00:00:00Z",
+      "verify": false
+    },
+    {
+      "id": "om-undersigned-say",
+      "kind": "opening",
+      "appliesTo": [
+        "office-memorandum",
+        "circular"
+      ],
+      "text": {
+        "en": "The undersigned is directed to say that",
+        "hi": "अधोहस्ताक्षरी को यह कहने का निदेश हुआ है कि"
+      },
+      "tags": [
+        "third-person"
+      ],
+      "csmopRef": "Appendix 8.1, 9.2(iii)",
+      "source": {
+        "name": "केंद्रीय सचिवालय कार्यालय प्रक्रिया नियमावली, 2022 (16वाँ संस्करण), प्रशासनिक सुधार और लोक शिकायत विभाग",
+        "url": "https://www.darpg.gov.in/static/uploads/2025/10/8b5d6eb6c7c47bc69e271e25f1c2cc43.pdf",
+        "reference": "CSMOP 2022, sixteenth edition (Hindi issue)",
+        "dated": "2022-08-05"
+      },
+      "fetchedAt": "2026-08-28T00:00:00Z",
+      "verify": false
+    },
+    {
+      "id": "om-clarify",
+      "kind": "opening",
+      "appliesTo": [
+        "office-memorandum",
+        "circular"
+      ],
+      "text": {
+        "en": "Doubts have been expressed whether the provisions of {rule} also apply to {case}. It is hereby clarified that",
+        "hi": "संदेह व्यक्त किया गया है कि क्या {rule} के प्रावधान {case} पर भी लागू होते हैं। एतद्द्वारा यह स्पष्ट किया जाता है कि"
+      },
+      "tags": [
+        "clarification"
+      ],
+      "csmopRef": "Appendix 8.1",
+      "source": {
+        "name": "केंद्रीय सचिवालय कार्यालय प्रक्रिया नियमावली, 2022 (16वाँ संस्करण), प्रशासनिक सुधार और लोक शिकायत विभाग",
+        "url": "https://www.darpg.gov.in/static/uploads/2025/10/8b5d6eb6c7c47bc69e271e25f1c2cc43.pdf",
+        "reference": "CSMOP 2022, sixteenth edition (Hindi issue)",
+        "dated": "2022-08-05"
+      },
+      "fetchedAt": "2026-08-28T00:00:00Z",
+      "verify": false
+    },
+    {
+      "id": "letter-with-reference",
+      "kind": "opening",
+      "appliesTo": [
+        "letter",
+        "rti-reply",
+        "ta-bill-cover"
+      ],
+      "text": {
+        "en": "With reference to your letter No. {number} dated {date} on the subject cited above, I am directed to say that",
+        "hi": "ऊपर उद्धृत विषय पर आपके दिनांक {date} के पत्र क्रमांक {number} के संदर्भ में, मुझे यह कहने का निदेश हुआ है कि"
+      },
+      "tags": [
+        "reference",
+        "first-person"
+      ],
+      "csmopRef": "Appendix 8.1",
+      "source": {
+        "name": "केंद्रीय सचिवालय कार्यालय प्रक्रिया नियमावली, 2022 (16वाँ संस्करण), प्रशासनिक सुधार और लोक शिकायत विभाग",
+        "url": "https://www.darpg.gov.in/static/uploads/2025/10/8b5d6eb6c7c47bc69e271e25f1c2cc43.pdf",
+        "reference": "CSMOP 2022, sixteenth edition (Hindi issue)",
+        "dated": "2022-08-05"
+      },
+      "fetchedAt": "2026-08-28T00:00:00Z",
+      "verify": false
+    },
+    {
+      "id": "letter-in-continuation",
+      "kind": "opening",
+      "appliesTo": [
+        "letter",
+        "office-memorandum",
+        "circular"
+      ],
+      "text": {
+        "en": "In continuation of this Department's letter No. {number} dated {date}",
+        "hi": "हमारे/इस विभाग के पत्र क्रमांक {number} दिनांक {date} के क्रम में"
+      },
+      "tags": [
+        "reference"
+      ],
+      "csmopRef": "Appendix 8.1",
+      "source": {
+        "name": "केंद्रीय सचिवालय कार्यालय प्रक्रिया नियमावली, 2022 (16वाँ संस्करण), प्रशासनिक सुधार और लोक शिकायत विभाग",
+        "url": "https://www.darpg.gov.in/static/uploads/2025/10/8b5d6eb6c7c47bc69e271e25f1c2cc43.pdf",
+        "reference": "CSMOP 2022, sixteenth edition (Hindi issue)",
+        "dated": "2022-08-05"
+      },
+      "fetchedAt": "2026-08-28T00:00:00Z",
+      "verify": false
+    },
+    {
+      "id": "letter-correspondence-resting",
+      "kind": "opening",
+      "appliesTo": [
+        "letter"
+      ],
+      "text": {
+        "en": "With reference to the correspondence resting with your letter No. {number} dated {date}",
+        "hi": "आपके/इस विभाग के पत्र संख्या {number} दिनांक {date} के पत्राचार के संदर्भ में"
+      },
+      "tags": [
+        "reference"
+      ],
+      "csmopRef": "Appendix 8.1",
+      "source": {
+        "name": "केंद्रीय सचिवालय कार्यालय प्रक्रिया नियमावली, 2022 (16वाँ संस्करण), प्रशासनिक सुधार और लोक शिकायत विभाग",
+        "url": "https://www.darpg.gov.in/static/uploads/2025/10/8b5d6eb6c7c47bc69e271e25f1c2cc43.pdf",
+        "reference": "CSMOP 2022, sixteenth edition (Hindi issue)",
+        "dated": "2022-08-05"
+      },
+      "fetchedAt": "2026-08-28T00:00:00Z",
+      "verify": false
+    },
+    {
+      "id": "do-propose",
+      "kind": "opening",
+      "appliesTo": [
+        "demi-official"
+      ],
+      "text": {
+        "en": "We propose to draw up a model scheme for {subject}; a copy of the outline prepared in this connection is enclosed.",
+        "hi": "हम {subject} के लिए एक मॉडल योजना तैयार करने का प्रस्ताव करते हैं, इस संबंध में तैयार की गई रूपरेखा की प्रति संलग्न है।"
+      },
+      "tags": [
+        "first-person",
+        "active-voice"
+      ],
+      "csmopRef": "Appendix 8.1",
+      "source": {
+        "name": "केंद्रीय सचिवालय कार्यालय प्रक्रिया नियमावली, 2022 (16वाँ संस्करण), प्रशासनिक सुधार और लोक शिकायत विभाग",
+        "url": "https://www.darpg.gov.in/static/uploads/2025/10/8b5d6eb6c7c47bc69e271e25f1c2cc43.pdf",
+        "reference": "CSMOP 2022, sixteenth edition (Hindi issue)",
+        "dated": "2022-08-05"
+      },
+      "fetchedAt": "2026-08-28T00:00:00Z",
+      "verify": false
+    },
+    {
+      "id": "do-i-notice",
+      "kind": "opening",
+      "appliesTo": [
+        "demi-official"
+      ],
+      "text": {
+        "en": "I notice that",
+        "hi": "मैं देख रहा/रही हूँ कि"
+      },
+      "tags": [
+        "first-person",
+        "active-voice"
+      ],
+      "note": {
+        "en": "CSMOP 9.5(i) asks for 'I notice' rather than 'It is noticed' in a demi-official letter.",
+        "hi": "सीएसएमओपी 9.5(i) के अनुसार अर्ध-सरकारी पत्र में 'यह देखा गया है' के स्थान पर 'मैं देख रहा/रही हूँ' लिखा जाए।"
+      },
+      "csmopRef": "9.5(i)",
+      "source": {
+        "name": "केंद्रीय सचिवालय कार्यालय प्रक्रिया नियमावली, 2022 (16वाँ संस्करण), प्रशासनिक सुधार और लोक शिकायत विभाग",
+        "url": "https://www.darpg.gov.in/static/uploads/2025/10/8b5d6eb6c7c47bc69e271e25f1c2cc43.pdf",
+        "reference": "CSMOP 2022, sixteenth edition (Hindi issue)",
+        "dated": "2022-08-05"
+      },
+      "fetchedAt": "2026-08-28T00:00:00Z",
+      "verify": false
+    },
+    {
+      "id": "do-seek-cooperation",
+      "kind": "opening",
+      "appliesTo": [
+        "demi-official"
+      ],
+      "text": {
+        "en": "I seek your cooperation in the matter of {subject}.",
+        "hi": "{subject} के मामले में मैं आपके सहयोग का आकांक्षी/आकांक्षिणी हूँ।"
+      },
+      "tags": [
+        "first-person",
+        "active-voice"
+      ],
+      "csmopRef": "9.5(i)",
+      "source": {
+        "name": "केंद्रीय सचिवालय कार्यालय प्रक्रिया नियमावली, 2022 (16वाँ संस्करण), प्रशासनिक सुधार और लोक शिकायत विभाग",
+        "url": "https://www.darpg.gov.in/static/uploads/2025/10/8b5d6eb6c7c47bc69e271e25f1c2cc43.pdf",
+        "reference": "CSMOP 2022, sixteenth edition (Hindi issue)",
+        "dated": "2022-08-05"
+      },
+      "fetchedAt": "2026-08-28T00:00:00Z",
+      "verify": false
+    },
+    {
+      "id": "id-note-advice",
+      "kind": "opening",
+      "appliesTo": [
+        "id-note"
+      ],
+      "text": {
+        "en": "The present rules regulating {subject} provide, inter alia, that",
+        "hi": "{subject} को विनियमित करने वाले वर्तमान नियमों में अन्य बातों के साथ-साथ यह है कि"
+      },
+      "tags": [
+        "third-person"
+      ],
+      "csmopRef": "Appendix 8.1",
+      "source": {
+        "name": "केंद्रीय सचिवालय कार्यालय प्रक्रिया नियमावली, 2022 (16वाँ संस्करण), प्रशासनिक सुधार और लोक शिकायत विभाग",
+        "url": "https://www.darpg.gov.in/static/uploads/2025/10/8b5d6eb6c7c47bc69e271e25f1c2cc43.pdf",
+        "reference": "CSMOP 2022, sixteenth edition (Hindi issue)",
+        "dated": "2022-08-05"
+      },
+      "fetchedAt": "2026-08-28T00:00:00Z",
+      "verify": false
+    },
+    {
+      "id": "id-note-question",
+      "kind": "opening",
+      "appliesTo": [
+        "id-note",
+        "noting"
+      ],
+      "text": {
+        "en": "A question has now arisen whether",
+        "hi": "अब प्रश्न यह उठता है कि क्या"
+      },
+      "csmopRef": "Appendix 8.1",
+      "source": {
+        "name": "केंद्रीय सचिवालय कार्यालय प्रक्रिया नियमावली, 2022 (16वाँ संस्करण), प्रशासनिक सुधार और लोक शिकायत विभाग",
+        "url": "https://www.darpg.gov.in/static/uploads/2025/10/8b5d6eb6c7c47bc69e271e25f1c2cc43.pdf",
+        "reference": "CSMOP 2022, sixteenth edition (Hindi issue)",
+        "dated": "2022-08-05"
+      },
+      "fetchedAt": "2026-08-28T00:00:00Z",
+      "verify": false
+    },
+    {
+      "id": "endorsement-copy",
+      "kind": "endorsement",
+      "appliesTo": [
+        "endorsement",
+        "ta-bill-cover"
+      ],
+      "text": {
+        "en": "A copy each of the papers mentioned below is forwarded for information and necessary action.",
+        "hi": "नीचे उल्लिखित प्रत्येक कागजात की एक प्रति सूचना एवं आवश्यक कार्रवाई के लिए अग्रेषित की जाती है।"
+      },
+      "csmopRef": "Appendix 8.1",
+      "source": {
+        "name": "केंद्रीय सचिवालय कार्यालय प्रक्रिया नियमावली, 2022 (16वाँ संस्करण), प्रशासनिक सुधार और लोक शिकायत विभाग",
+        "url": "https://www.darpg.gov.in/static/uploads/2025/10/8b5d6eb6c7c47bc69e271e25f1c2cc43.pdf",
+        "reference": "CSMOP 2022, sixteenth edition (Hindi issue)",
+        "dated": "2022-08-05"
+      },
+      "fetchedAt": "2026-08-28T00:00:00Z",
+      "verify": false
+    },
+    {
+      "id": "notification-appointment",
+      "kind": "opening",
+      "appliesTo": [
+        "notification"
+      ],
+      "text": {
+        "en": "Shri {name}, {designation} in the Department of {department}, is appointed to officiate as {newDesignation} in that Department with effect from {date}.",
+        "hi": "श्री {name}, {department} विभाग में {designation}, को उस विभाग में {date} से {newDesignation} के रूप में कार्य करने के लिए नियुक्त किया जाता है।"
+      },
+      "csmopRef": "Appendix 8.1",
+      "source": {
+        "name": "केंद्रीय सचिवालय कार्यालय प्रक्रिया नियमावली, 2022 (16वाँ संस्करण), प्रशासनिक सुधार और लोक शिकायत विभाग",
+        "url": "https://www.darpg.gov.in/static/uploads/2025/10/8b5d6eb6c7c47bc69e271e25f1c2cc43.pdf",
+        "reference": "CSMOP 2022, sixteenth edition (Hindi issue)",
+        "dated": "2022-08-05"
+      },
+      "fetchedAt": "2026-08-28T00:00:00Z",
+      "verify": false
+    },
+    {
+      "id": "leave-request",
+      "kind": "opening",
+      "appliesTo": [
+        "leave-application"
+      ],
+      "text": {
+        "en": "I request that I may kindly be granted {days} days' earned leave from {from} to {to}.",
+        "hi": "अनुरोध है कि मुझे दिनांक {from} से {to} तक {days} दिनों का अर्जित अवकाश स्वीकृत करने की कृपा की जाए।"
+      },
+      "tags": [
+        "first-person",
+        "request"
+      ],
+      "source": {
+        "name": "Saral Prashasanik Shabdavali, Department of Official Language",
+        "url": "https://rajbhasha.gov.in/sites/default/files/saralshabdavali.pdf",
+        "reference": "Central Translation Bureau, Rajbhasha Vibhag"
+      },
+      "fetchedAt": "2026-08-28T00:00:00Z",
+      "verify": true
+    },
+    {
+      "id": "leave-address",
+      "kind": "transition",
+      "appliesTo": [
+        "leave-application"
+      ],
+      "text": {
+        "en": "My address during the period of leave will be {address}, telephone {phone}.",
+        "hi": "अवकाश की अवधि में मेरा पता {address} तथा दूरभाष संख्या {phone} रहेगी।"
+      },
+      "tags": [
+        "first-person"
+      ],
+      "source": {
+        "name": "Saral Prashasanik Shabdavali, Department of Official Language",
+        "url": "https://rajbhasha.gov.in/sites/default/files/saralshabdavali.pdf",
+        "reference": "Central Translation Bureau, Rajbhasha Vibhag"
+      },
+      "fetchedAt": "2026-08-28T00:00:00Z",
+      "verify": true
+    },
+    {
+      "id": "representation-open",
+      "kind": "opening",
+      "appliesTo": [
+        "representation"
+      ],
+      "text": {
+        "en": "I respectfully submit the following representation for kind consideration.",
+        "hi": "मैं सादर निम्नलिखित अभ्यावेदन कृपया विचारार्थ प्रस्तुत करता/करती हूँ।"
+      },
+      "tags": [
+        "first-person",
+        "request"
+      ],
+      "source": {
+        "name": "Saral Prashasanik Shabdavali, Department of Official Language",
+        "url": "https://rajbhasha.gov.in/sites/default/files/saralshabdavali.pdf",
+        "reference": "Central Translation Bureau, Rajbhasha Vibhag"
+      },
+      "fetchedAt": "2026-08-28T00:00:00Z",
+      "verify": true
+    },
+    {
+      "id": "representation-through-channel",
+      "kind": "transition",
+      "appliesTo": [
+        "representation",
+        "leave-application"
+      ],
+      "text": {
+        "en": "Submitted through proper channel.",
+        "hi": "उचित माध्यम से प्रस्तुत।"
+      },
+      "tags": [
+        "channel"
+      ],
+      "source": {
+        "name": "Saral Prashasanik Shabdavali, Department of Official Language",
+        "url": "https://rajbhasha.gov.in/sites/default/files/saralshabdavali.pdf",
+        "reference": "Central Translation Bureau, Rajbhasha Vibhag"
+      },
+      "fetchedAt": "2026-08-28T00:00:00Z",
+      "verify": true
+    },
+    {
+      "id": "rti-reply-open",
+      "kind": "opening",
+      "appliesTo": [
+        "rti-reply"
+      ],
+      "text": {
+        "en": "Please refer to your application dated {date} under the Right to Information Act, 2005, received in this office on {receivedOn}. The information sought is furnished point-wise below.",
+        "hi": "कृपया सूचना का अधिकार अधिनियम, 2005 के अंतर्गत आपके दिनांक {date} के आवेदन का संदर्भ लें, जो इस कार्यालय में दिनांक {receivedOn} को प्राप्त हुआ। माँगी गई सूचना बिंदुवार नीचे दी जा रही है।"
+      },
+      "tags": [
+        "statutory"
+      ],
+      "source": {
+        "name": "Saral Prashasanik Shabdavali, Department of Official Language",
+        "url": "https://rajbhasha.gov.in/sites/default/files/saralshabdavali.pdf",
+        "reference": "Central Translation Bureau, Rajbhasha Vibhag"
+      },
+      "fetchedAt": "2026-08-28T00:00:00Z",
+      "verify": true
+    },
+    {
+      "id": "rti-appeal",
+      "kind": "closing",
+      "appliesTo": [
+        "rti-reply"
+      ],
+      "text": {
+        "en": "If you are not satisfied with this reply, you may prefer a first appeal under Section 19(1) of the Act within 30 days to {appellateAuthority}, {appellateAddress}.",
+        "hi": "यदि आप इस उत्तर से संतुष्ट नहीं हैं तो आप अधिनियम की धारा 19(1) के अंतर्गत 30 दिन के भीतर {appellateAuthority}, {appellateAddress} को प्रथम अपील कर सकते हैं।"
+      },
+      "tags": [
+        "statutory"
+      ],
+      "source": {
+        "name": "Saral Prashasanik Shabdavali, Department of Official Language",
+        "url": "https://rajbhasha.gov.in/sites/default/files/saralshabdavali.pdf",
+        "reference": "Central Translation Bureau, Rajbhasha Vibhag"
+      },
+      "fetchedAt": "2026-08-28T00:00:00Z",
+      "verify": true
+    },
+    {
+      "id": "show-cause-open",
+      "kind": "opening",
+      "appliesTo": [
+        "show-cause-reply"
+      ],
+      "text": {
+        "en": "Please refer to the show-cause notice No. {number} dated {date}. My reply to the allegations contained therein is submitted below.",
+        "hi": "कृपया कारण बताओ नोटिस संख्या {number} दिनांक {date} का संदर्भ लें। उसमें लगाए गए आरोपों पर मेरा उत्तर नीचे प्रस्तुत है।"
+      },
+      "tags": [
+        "first-person"
+      ],
+      "source": {
+        "name": "Saral Prashasanik Shabdavali, Department of Official Language",
+        "url": "https://rajbhasha.gov.in/sites/default/files/saralshabdavali.pdf",
+        "reference": "Central Translation Bureau, Rajbhasha Vibhag"
+      },
+      "fetchedAt": "2026-08-28T00:00:00Z",
+      "verify": true
+    },
+    {
+      "id": "show-cause-close",
+      "kind": "closing",
+      "appliesTo": [
+        "show-cause-reply"
+      ],
+      "text": {
+        "en": "In view of the above, I request that the notice may kindly be withdrawn and the matter dropped.",
+        "hi": "उपर्युक्त को देखते हुए अनुरोध है कि नोटिस वापस लेकर मामला समाप्त करने की कृपा की जाए।"
+      },
+      "tags": [
+        "request"
+      ],
+      "source": {
+        "name": "Saral Prashasanik Shabdavali, Department of Official Language",
+        "url": "https://rajbhasha.gov.in/sites/default/files/saralshabdavali.pdf",
+        "reference": "Central Translation Bureau, Rajbhasha Vibhag"
+      },
+      "fetchedAt": "2026-08-28T00:00:00Z",
+      "verify": true
+    },
+    {
+      "id": "tour-approval",
+      "kind": "closing",
+      "appliesTo": [
+        "tour-programme"
+      ],
+      "text": {
+        "en": "The tour programme is submitted for approval.",
+        "hi": "दौरा कार्यक्रम अनुमोदनार्थ प्रस्तुत है।"
+      },
+      "tags": [
+        "approval"
+      ],
+      "source": {
+        "name": "Saral Prashasanik Shabdavali, Department of Official Language",
+        "url": "https://rajbhasha.gov.in/sites/default/files/saralshabdavali.pdf",
+        "reference": "Central Translation Bureau, Rajbhasha Vibhag"
+      },
+      "fetchedAt": "2026-08-28T00:00:00Z",
+      "verify": true
+    },
+    {
+      "id": "ta-bill-forward",
+      "kind": "opening",
+      "appliesTo": [
+        "ta-bill-cover"
+      ],
+      "text": {
+        "en": "The travelling allowance bill in respect of the tour undertaken from {from} to {to} is forwarded herewith for arranging payment.",
+        "hi": "दिनांक {from} से {to} तक किए गए दौरे का यात्रा भत्ता बिल भुगतान की व्यवस्था हेतु इसके साथ अग्रेषित है।"
+      },
+      "tags": [
+        "forwarding"
+      ],
+      "source": {
+        "name": "Saral Prashasanik Shabdavali, Department of Official Language",
+        "url": "https://rajbhasha.gov.in/sites/default/files/saralshabdavali.pdf",
+        "reference": "Central Translation Bureau, Rajbhasha Vibhag"
+      },
+      "fetchedAt": "2026-08-28T00:00:00Z",
+      "verify": true
+    },
+    {
+      "id": "it-is-requested",
+      "kind": "transition",
+      "appliesTo": [
+        "*"
+      ],
+      "text": {
+        "en": "It is requested that",
+        "hi": "अनुरोध है कि"
+      },
+      "tags": [
+        "request"
+      ],
+      "source": {
+        "name": "Saral Prashasanik Shabdavali, Department of Official Language",
+        "url": "https://rajbhasha.gov.in/sites/default/files/saralshabdavali.pdf",
+        "reference": "Central Translation Bureau, Rajbhasha Vibhag"
+      },
+      "fetchedAt": "2026-08-28T00:00:00Z",
+      "verify": true
+    },
+    {
+      "id": "requested-by-date",
+      "kind": "transition",
+      "appliesTo": [
+        "*"
+      ],
+      "text": {
+        "en": "It is requested that the information may be sent by {date}.",
+        "hi": "अनुरोध है कि सूचना दिनांक {date} तक भेज दी जाए।"
+      },
+      "tags": [
+        "request",
+        "time-limit"
+      ],
+      "note": {
+        "en": "CSMOP 9.2(v): name the date. 'may be sent immediately' is what it tells you not to write.",
+        "hi": "सीएसएमओपी 9.2(v): तारीख लिखें। 'तुरंत भेजी जाए' वही है जिससे यह मना करता है।"
+      },
+      "csmopRef": "9.2(v)",
+      "source": {
+        "name": "केंद्रीय सचिवालय कार्यालय प्रक्रिया नियमावली, 2022 (16वाँ संस्करण), प्रशासनिक सुधार और लोक शिकायत विभाग",
+        "url": "https://www.darpg.gov.in/static/uploads/2025/10/8b5d6eb6c7c47bc69e271e25f1c2cc43.pdf",
+        "reference": "CSMOP 2022, sixteenth edition (Hindi issue)",
+        "dated": "2022-08-05"
+      },
+      "fetchedAt": "2026-08-28T00:00:00Z",
+      "verify": false
+    },
+    {
+      "id": "you-are-requested",
+      "kind": "transition",
+      "appliesTo": [
+        "letter",
+        "office-memorandum",
+        "circular"
+      ],
+      "text": {
+        "en": "You are requested to furnish the information called for above by {date}.",
+        "hi": "आपसे अनुरोध है कि उपर्युक्त माँगी गई सूचना दिनांक {date} तक उपलब्ध कराएँ।"
+      },
+      "tags": [
+        "request",
+        "time-limit"
+      ],
+      "source": {
+        "name": "Saral Prashasanik Shabdavali, Department of Official Language",
+        "url": "https://rajbhasha.gov.in/sites/default/files/saralshabdavali.pdf",
+        "reference": "Central Translation Bureau, Rajbhasha Vibhag"
+      },
+      "fetchedAt": "2026-08-28T00:00:00Z",
+      "verify": true
+    },
+    {
+      "id": "may-be-brought-to-notice",
+      "kind": "transition",
+      "appliesTo": [
+        "circular",
+        "office-memorandum"
+      ],
+      "text": {
+        "en": "This may be brought to the notice of all concerned in your Ministry / Department.",
+        "hi": "इसे आपके मंत्रालय/विभाग के सभी संबंधितों की जानकारी में लाया जाए।"
+      },
+      "tags": [
+        "circulation"
+      ],
+      "source": {
+        "name": "Saral Prashasanik Shabdavali, Department of Official Language",
+        "url": "https://rajbhasha.gov.in/sites/default/files/saralshabdavali.pdf",
+        "reference": "Central Translation Bureau, Rajbhasha Vibhag"
+      },
+      "fetchedAt": "2026-08-28T00:00:00Z",
+      "verify": true
+    },
+    {
+      "id": "issues-with-approval",
+      "kind": "transition",
+      "appliesTo": [
+        "office-memorandum",
+        "circular",
+        "notification"
+      ],
+      "text": {
+        "en": "This issues with the approval of the competent authority.",
+        "hi": "यह सक्षम प्राधिकारी के अनुमोदन से जारी किया जाता है।"
+      },
+      "tags": [
+        "authority"
+      ],
+      "csmopRef": "9.2(iii)",
+      "source": {
+        "name": "केंद्रीय सचिवालय कार्यालय प्रक्रिया नियमावली, 2022 (16वाँ संस्करण), प्रशासनिक सुधार और लोक शिकायत विभाग",
+        "url": "https://www.darpg.gov.in/static/uploads/2025/10/8b5d6eb6c7c47bc69e271e25f1c2cc43.pdf",
+        "reference": "CSMOP 2022, sixteenth edition (Hindi issue)",
+        "dated": "2022-08-05"
+      },
+      "fetchedAt": "2026-08-28T00:00:00Z",
+      "verify": false
+    },
+    {
+      "id": "issues-with-concurrence",
+      "kind": "transition",
+      "appliesTo": [
+        "office-memorandum",
+        "notification"
+      ],
+      "text": {
+        "en": "This issues with the concurrence of the Integrated Finance Division vide their Dy. No. {number} dated {date}.",
+        "hi": "यह एकीकृत वित्त प्रभाग की सहमति से उनके उप संख्या {number} दिनांक {date} द्वारा जारी किया जाता है।"
+      },
+      "tags": [
+        "finance"
+      ],
+      "source": {
+        "name": "Saral Prashasanik Shabdavali, Department of Official Language",
+        "url": "https://rajbhasha.gov.in/sites/default/files/saralshabdavali.pdf",
+        "reference": "Central Translation Bureau, Rajbhasha Vibhag"
+      },
+      "fetchedAt": "2026-08-28T00:00:00Z",
+      "verify": true
+    },
+    {
+      "id": "in-supersession",
+      "kind": "transition",
+      "appliesTo": [
+        "office-memorandum",
+        "notification",
+        "circular"
+      ],
+      "text": {
+        "en": "In supersession of this Department's O.M. of even number dated {date}",
+        "hi": "इस विभाग के समसंख्यक कार्यालय ज्ञापन दिनांक {date} के अधिक्रमण में"
+      },
+      "tags": [
+        "reference"
+      ],
+      "source": {
+        "name": "Saral Prashasanik Shabdavali, Department of Official Language",
+        "url": "https://rajbhasha.gov.in/sites/default/files/saralshabdavali.pdf",
+        "reference": "Central Translation Bureau, Rajbhasha Vibhag"
+      },
+      "fetchedAt": "2026-08-28T00:00:00Z",
+      "verify": true
+    },
+    {
+      "id": "advice-sought",
+      "kind": "transition",
+      "appliesTo": [
+        "id-note"
+      ],
+      "text": {
+        "en": "This Department will be grateful for the advice of the {department} on the issue raised in para {para} above.",
+        "hi": "यह विभाग उपर्युक्त पैरा {para} में उठाए गए मुद्दे पर {department} की सलाह के लिए आभारी रहेगा।"
+      },
+      "csmopRef": "Appendix 8.1",
+      "source": {
+        "name": "केंद्रीय सचिवालय कार्यालय प्रक्रिया नियमावली, 2022 (16वाँ संस्करण), प्रशासनिक सुधार और लोक शिकायत विभाग",
+        "url": "https://www.darpg.gov.in/static/uploads/2025/10/8b5d6eb6c7c47bc69e271e25f1c2cc43.pdf",
+        "reference": "CSMOP 2022, sixteenth edition (Hindi issue)",
+        "dated": "2022-08-05"
+      },
+      "fetchedAt": "2026-08-28T00:00:00Z",
+      "verify": false
+    },
+    {
+      "id": "time-limit-id-note",
+      "kind": "transition",
+      "appliesTo": [
+        "id-note"
+      ],
+      "text": {
+        "en": "The comments of the Department are requested by {date}, please.",
+        "hi": "विभाग की टिप्पणियाँ दिनांक {date} तक अपेक्षित हैं।"
+      },
+      "tags": [
+        "time-limit"
+      ],
+      "csmopRef": "8.1.2(i)",
+      "source": {
+        "name": "केंद्रीय सचिवालय कार्यालय प्रक्रिया नियमावली, 2022 (16वाँ संस्करण), प्रशासनिक सुधार और लोक शिकायत विभाग",
+        "url": "https://www.darpg.gov.in/static/uploads/2025/10/8b5d6eb6c7c47bc69e271e25f1c2cc43.pdf",
+        "reference": "CSMOP 2022, sixteenth edition (Hindi issue)",
+        "dated": "2022-08-05"
+      },
+      "fetchedAt": "2026-08-28T00:00:00Z",
+      "verify": false
+    },
+    {
+      "id": "noting-submitted-approval",
+      "kind": "noting",
+      "appliesTo": [
+        "noting"
+      ],
+      "text": {
+        "en": "Submitted for approval.",
+        "hi": "अनुमोदनार्थ प्रस्तुत।"
+      },
+      "tags": [
+        "approval"
+      ],
+      "source": {
+        "name": "Saral Prashasanik Shabdavali, Department of Official Language",
+        "url": "https://rajbhasha.gov.in/sites/default/files/saralshabdavali.pdf",
+        "reference": "Central Translation Bureau, Rajbhasha Vibhag"
+      },
+      "fetchedAt": "2026-08-28T00:00:00Z",
+      "verify": true
+    },
+    {
+      "id": "noting-submitted-orders",
+      "kind": "noting",
+      "appliesTo": [
+        "noting"
+      ],
+      "text": {
+        "en": "Submitted for orders, please.",
+        "hi": "आदेशार्थ प्रस्तुत।"
+      },
+      "tags": [
+        "approval"
+      ],
+      "source": {
+        "name": "Saral Prashasanik Shabdavali, Department of Official Language",
+        "url": "https://rajbhasha.gov.in/sites/default/files/saralshabdavali.pdf",
+        "reference": "Central Translation Bureau, Rajbhasha Vibhag"
+      },
+      "fetchedAt": "2026-08-28T00:00:00Z",
+      "verify": true
+    },
+    {
+      "id": "noting-submitted-information",
+      "kind": "noting",
+      "appliesTo": [
+        "noting"
+      ],
+      "text": {
+        "en": "Submitted for information, please.",
+        "hi": "सूचनार्थ प्रस्तुत।"
+      },
+      "tags": [
+        "information"
+      ],
+      "csmopRef": "7.2(ii)",
+      "source": {
+        "name": "केंद्रीय सचिवालय कार्यालय प्रक्रिया नियमावली, 2022 (16वाँ संस्करण), प्रशासनिक सुधार और लोक शिकायत विभाग",
+        "url": "https://www.darpg.gov.in/static/uploads/2025/10/8b5d6eb6c7c47bc69e271e25f1c2cc43.pdf",
+        "reference": "CSMOP 2022, sixteenth edition (Hindi issue)",
+        "dated": "2022-08-05"
+      },
+      "fetchedAt": "2026-08-28T00:00:00Z",
+      "verify": false
+    },
+    {
+      "id": "noting-puc",
+      "kind": "noting",
+      "appliesTo": [
+        "noting"
+      ],
+      "text": {
+        "en": "The paper under consideration at page {page}/c is a {what} from {who}.",
+        "hi": "पृष्ठ {page}/पत्राचार पर विचाराधीन पत्र {who} का {what} है।"
+      },
+      "tags": [
+        "referencing"
+      ],
+      "csmopRef": "6.7(iii)",
+      "source": {
+        "name": "केंद्रीय सचिवालय कार्यालय प्रक्रिया नियमावली, 2022 (16वाँ संस्करण), प्रशासनिक सुधार और लोक शिकायत विभाग",
+        "url": "https://www.darpg.gov.in/static/uploads/2025/10/8b5d6eb6c7c47bc69e271e25f1c2cc43.pdf",
+        "reference": "CSMOP 2022, sixteenth edition (Hindi issue)",
+        "dated": "2022-08-05"
+      },
+      "fetchedAt": "2026-08-28T00:00:00Z",
+      "verify": false
+    },
+    {
+      "id": "noting-rule-position",
+      "kind": "noting",
+      "appliesTo": [
+        "noting"
+      ],
+      "text": {
+        "en": "The rule position is at flag '{flag}'. Rule {rule} provides that",
+        "hi": "नियम की स्थिति ध्वज '{flag}' पर है। नियम {rule} में उपबंध है कि"
+      },
+      "tags": [
+        "referencing"
+      ],
+      "csmopRef": "6.7(v), 7.2(vii)",
+      "source": {
+        "name": "केंद्रीय सचिवालय कार्यालय प्रक्रिया नियमावली, 2022 (16वाँ संस्करण), प्रशासनिक सुधार और लोक शिकायत विभाग",
+        "url": "https://www.darpg.gov.in/static/uploads/2025/10/8b5d6eb6c7c47bc69e271e25f1c2cc43.pdf",
+        "reference": "CSMOP 2022, sixteenth edition (Hindi issue)",
+        "dated": "2022-08-05"
+      },
+      "fetchedAt": "2026-08-28T00:00:00Z",
+      "verify": false
+    },
+    {
+      "id": "noting-precedent",
+      "kind": "noting",
+      "appliesTo": [
+        "noting"
+      ],
+      "text": {
+        "en": "A precedent in a similar case is at flag '{flag}', decided at the level of {level}.",
+        "hi": "इसी प्रकार के मामले की मिसाल ध्वज '{flag}' पर है, जिसका निर्णय {level} के स्तर पर किया गया था।"
+      },
+      "tags": [
+        "referencing"
+      ],
+      "csmopRef": "7.3(viii)",
+      "source": {
+        "name": "केंद्रीय सचिवालय कार्यालय प्रक्रिया नियमावली, 2022 (16वाँ संस्करण), प्रशासनिक सुधार और लोक शिकायत विभाग",
+        "url": "https://www.darpg.gov.in/static/uploads/2025/10/8b5d6eb6c7c47bc69e271e25f1c2cc43.pdf",
+        "reference": "CSMOP 2022, sixteenth edition (Hindi issue)",
+        "dated": "2022-08-05"
+      },
+      "fetchedAt": "2026-08-28T00:00:00Z",
+      "verify": false
+    },
+    {
+      "id": "noting-proposal",
+      "kind": "noting",
+      "appliesTo": [
+        "noting"
+      ],
+      "text": {
+        "en": "In view of the above, it is proposed that {proposal}. If approved, a draft {form} is placed below for signature.",
+        "hi": "उपर्युक्त को देखते हुए प्रस्ताव है कि {proposal}। अनुमोदन होने पर हस्ताक्षर के लिए {form} का मसौदा नीचे रखा गया है।"
+      },
+      "tags": [
+        "proposal"
+      ],
+      "csmopRef": "7.3(ix), 9.1(ii)",
+      "source": {
+        "name": "केंद्रीय सचिवालय कार्यालय प्रक्रिया नियमावली, 2022 (16वाँ संस्करण), प्रशासनिक सुधार और लोक शिकायत विभाग",
+        "url": "https://www.darpg.gov.in/static/uploads/2025/10/8b5d6eb6c7c47bc69e271e25f1c2cc43.pdf",
+        "reference": "CSMOP 2022, sixteenth edition (Hindi issue)",
+        "dated": "2022-08-05"
+      },
+      "fetchedAt": "2026-08-28T00:00:00Z",
+      "verify": false
+    },
+    {
+      "id": "noting-competent-authority",
+      "kind": "noting",
+      "appliesTo": [
+        "noting"
+      ],
+      "text": {
+        "en": "{designation} is the competent authority to decide this case.",
+        "hi": "इस मामले का निर्णय करने के लिए {designation} सक्षम प्राधिकारी हैं।"
+      },
+      "tags": [
+        "authority"
+      ],
+      "csmopRef": "7.3(x)",
+      "source": {
+        "name": "केंद्रीय सचिवालय कार्यालय प्रक्रिया नियमावली, 2022 (16वाँ संस्करण), प्रशासनिक सुधार और लोक शिकायत विभाग",
+        "url": "https://www.darpg.gov.in/static/uploads/2025/10/8b5d6eb6c7c47bc69e271e25f1c2cc43.pdf",
+        "reference": "CSMOP 2022, sixteenth edition (Hindi issue)",
+        "dated": "2022-08-05"
+      },
+      "fetchedAt": "2026-08-28T00:00:00Z",
+      "verify": false
+    },
+    {
+      "id": "noting-approved",
+      "kind": "noting",
+      "appliesTo": [
+        "noting"
+      ],
+      "text": {
+        "en": "Approved. Please issue.",
+        "hi": "अनुमोदित। कृपया जारी करें।"
+      },
+      "tags": [
+        "approval"
+      ],
+      "source": {
+        "name": "Saral Prashasanik Shabdavali, Department of Official Language",
+        "url": "https://rajbhasha.gov.in/sites/default/files/saralshabdavali.pdf",
+        "reference": "Central Translation Bureau, Rajbhasha Vibhag"
+      },
+      "fetchedAt": "2026-08-28T00:00:00Z",
+      "verify": true
+    },
+    {
+      "id": "noting-discussed",
+      "kind": "noting",
+      "appliesTo": [
+        "noting"
+      ],
+      "text": {
+        "en": "Discussed. As desired, a self-contained note is put up.",
+        "hi": "चर्चा हुई। यथावांछित, स्वतःपूर्ण टिप्पणी प्रस्तुत है।"
+      },
+      "tags": [
+        "discussion"
+      ],
+      "csmopRef": "7.5(ii)",
+      "source": {
+        "name": "केंद्रीय सचिवालय कार्यालय प्रक्रिया नियमावली, 2022 (16वाँ संस्करण), प्रशासनिक सुधार और लोक शिकायत विभाग",
+        "url": "https://www.darpg.gov.in/static/uploads/2025/10/8b5d6eb6c7c47bc69e271e25f1c2cc43.pdf",
+        "reference": "CSMOP 2022, sixteenth edition (Hindi issue)",
+        "dated": "2022-08-05"
+      },
+      "fetchedAt": "2026-08-28T00:00:00Z",
+      "verify": false
+    },
+    {
+      "id": "receipt-acknowledged",
+      "kind": "closing",
+      "appliesTo": [
+        "letter",
+        "office-memorandum"
+      ],
+      "text": {
+        "en": "Receipt of this communication may kindly be acknowledged.",
+        "hi": "कृपया इस पत्र की प्राप्ति सूचित करें।"
+      },
+      "source": {
+        "name": "Saral Prashasanik Shabdavali, Department of Official Language",
+        "url": "https://rajbhasha.gov.in/sites/default/files/saralshabdavali.pdf",
+        "reference": "Central Translation Bureau, Rajbhasha Vibhag"
+      },
+      "fetchedAt": "2026-08-28T00:00:00Z",
+      "verify": true
+    },
+    {
+      "id": "early-action",
+      "kind": "closing",
+      "appliesTo": [
+        "letter",
+        "office-memorandum",
+        "demi-official"
+      ],
+      "text": {
+        "en": "An early action in the matter will be appreciated.",
+        "hi": "इस मामले में शीघ्र कार्रवाई सराहनीय होगी।"
+      },
+      "source": {
+        "name": "Saral Prashasanik Shabdavali, Department of Official Language",
+        "url": "https://rajbhasha.gov.in/sites/default/files/saralshabdavali.pdf",
+        "reference": "Central Translation Bureau, Rajbhasha Vibhag"
+      },
+      "fetchedAt": "2026-08-28T00:00:00Z",
+      "verify": true
+    },
+    {
+      "id": "do-grateful",
+      "kind": "closing",
+      "appliesTo": [
+        "demi-official"
+      ],
+      "text": {
+        "en": "I shall be grateful if you would let me have your comments as soon as possible.",
+        "hi": "यदि आप मुझे यथाशीघ्र अपनी टिप्पणी दें तो मैं आपका आभारी रहूँगा/रहूँगी।"
+      },
+      "csmopRef": "Appendix 8.1",
+      "source": {
+        "name": "केंद्रीय सचिवालय कार्यालय प्रक्रिया नियमावली, 2022 (16वाँ संस्करण), प्रशासनिक सुधार और लोक शिकायत विभाग",
+        "url": "https://www.darpg.gov.in/static/uploads/2025/10/8b5d6eb6c7c47bc69e271e25f1c2cc43.pdf",
+        "reference": "CSMOP 2022, sixteenth edition (Hindi issue)",
+        "dated": "2022-08-05"
+      },
+      "fetchedAt": "2026-08-28T00:00:00Z",
+      "verify": false
+    },
+    {
+      "id": "do-regards",
+      "kind": "courtesy",
+      "appliesTo": [
+        "demi-official"
+      ],
+      "text": {
+        "en": "With regards,",
+        "hi": "शुभकामनाओं सहित,"
+      },
+      "csmopRef": "Appendix 8.1",
+      "source": {
+        "name": "केंद्रीय सचिवालय कार्यालय प्रक्रिया नियमावली, 2022 (16वाँ संस्करण), प्रशासनिक सुधार और लोक शिकायत विभाग",
+        "url": "https://www.darpg.gov.in/static/uploads/2025/10/8b5d6eb6c7c47bc69e271e25f1c2cc43.pdf",
+        "reference": "CSMOP 2022, sixteenth edition (Hindi issue)",
+        "dated": "2022-08-05"
+      },
+      "fetchedAt": "2026-08-28T00:00:00Z",
+      "verify": false
+    },
+    {
+      "id": "reasons-courteous",
+      "kind": "closing",
+      "appliesTo": [
+        "letter",
+        "rti-reply"
+      ],
+      "text": {
+        "en": "The request cannot be acceded to for the reasons stated above; the inconvenience caused is regretted.",
+        "hi": "उपर्युक्त कारणों से अनुरोध स्वीकार नहीं किया जा सका; असुविधा के लिए खेद है।"
+      },
+      "csmopRef": "8.9(iv)",
+      "source": {
+        "name": "केंद्रीय सचिवालय कार्यालय प्रक्रिया नियमावली, 2022 (16वाँ संस्करण), प्रशासनिक सुधार और लोक शिकायत विभाग",
+        "url": "https://www.darpg.gov.in/static/uploads/2025/10/8b5d6eb6c7c47bc69e271e25f1c2cc43.pdf",
+        "reference": "CSMOP 2022, sixteenth edition (Hindi issue)",
+        "dated": "2022-08-05"
+      },
+      "fetchedAt": "2026-08-28T00:00:00Z",
+      "verify": false
+    },
+    {
+      "id": "interim-reply",
+      "kind": "closing",
+      "appliesTo": [
+        "letter"
+      ],
+      "text": {
+        "en": "This is an interim reply. A final reply will be sent by {date}.",
+        "hi": "यह अंतरिम उत्तर है। अंतिम उत्तर दिनांक {date} तक भेज दिया जाएगा।"
+      },
+      "tags": [
+        "time-limit"
+      ],
+      "csmopRef": "8.9(ii)",
+      "source": {
+        "name": "केंद्रीय सचिवालय कार्यालय प्रक्रिया नियमावली, 2022 (16वाँ संस्करण), प्रशासनिक सुधार और लोक शिकायत विभाग",
+        "url": "https://www.darpg.gov.in/static/uploads/2025/10/8b5d6eb6c7c47bc69e271e25f1c2cc43.pdf",
+        "reference": "CSMOP 2022, sixteenth edition (Hindi issue)",
+        "dated": "2022-08-05"
+      },
+      "fetchedAt": "2026-08-28T00:00:00Z",
+      "verify": false
+    },
+    {
+      "id": "hindi-and-english",
+      "kind": "closing",
+      "appliesTo": [
+        "*"
+      ],
+      "text": {
+        "en": "This communication issues in Hindi and in English; the Hindi version will prevail in case of doubt.",
+        "hi": "यह पत्र हिंदी और अंग्रेज़ी में जारी किया जाता है; संदेह की स्थिति में हिंदी रूपांतर मान्य होगा।"
+      },
+      "tags": [
+        "rajbhasha"
+      ],
+      "csmopRef": "8.11",
+      "source": {
+        "name": "Saral Prashasanik Shabdavali, Department of Official Language",
+        "url": "https://rajbhasha.gov.in/sites/default/files/saralshabdavali.pdf",
+        "reference": "Central Translation Bureau, Rajbhasha Vibhag"
+      },
+      "fetchedAt": "2026-08-28T00:00:00Z",
+      "verify": true
+    }
+  ]
+}

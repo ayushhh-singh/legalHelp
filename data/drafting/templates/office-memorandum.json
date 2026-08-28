@@ -1,0 +1,676 @@
+{
+  "version": "1.0.0",
+  "generatedAt": "2026-08-28T00:00:00Z",
+  "disclaimer": {
+    "en": "Reference only; verify with the official gazette/order or your DDO.",
+    "hi": "केवल संदर्भ के लिए; सरकारी राजपत्र/आदेश या अपने डीडीओ से सत्यापित करें।"
+  },
+  "template": {
+    "id": "office-memorandum",
+    "name": {
+      "en": "Office Memorandum (O.M.)",
+      "hi": "कार्यालय ज्ञापन"
+    },
+    "shortName": {
+      "en": "O.M.",
+      "hi": "का.ज्ञा."
+    },
+    "person": "third",
+    "usedBy": {
+      "en": "A Department communicating a decision to other Departments including its attached and subordinate offices, calling for or providing information, writing to its own employees, and exchanging information between sections within a Ministry.",
+      "hi": "अन्य विभागों — अपने संबद्ध और अधीनस्थ कार्यालयों सहित — को निर्णय संप्रेषित करने, सूचना माँगने या देने, अपने कर्मचारियों को लिखने, तथा मंत्रालय के भीतर अनुभागों के बीच सूचना के आदान-प्रदान के लिए।"
+    },
+    "whenToUse": {
+      "en": "The everyday form. Written in the third person, with no salutation and no subscription; the name, designation, email, telephone and fax number of the signing officer are shown. Never send one to a constitutional or statutory authority.",
+      "hi": "रोज़मर्रा का रूप। अन्य पुरुष में लिखा जाता है, कोई अभिवादन और कोई मानार्थ संबोधन नहीं; हस्ताक्षरकर्ता अधिकारी का नाम, पदनाम, ई-मेल, दूरभाष और फैक्स संख्या दर्शाई जाती है। संवैधानिक या वैधानिक प्राधिकरण को यह कभी न भेजें।"
+    },
+    "salutation": null,
+    "subscription": null,
+    "urgencyAllowed": true,
+    "csmopRef": {
+      "edition": "CSMOP 2022, sixteenth edition",
+      "paras": [
+        "8.4(3)",
+        "8.8 Table 8.1",
+        "Appendix 8.1"
+      ],
+      "pages": [
+        79,
+        80,
+        89
+      ]
+    },
+    "fields": [
+      {
+        "id": "urgency",
+        "label": {
+          "en": "Urgency grading",
+          "hi": "तात्कालिकता ग्रेडिंग"
+        },
+        "type": "select",
+        "required": false,
+        "sample": {
+          "en": "none",
+          "hi": "none"
+        },
+        "hint": {
+          "en": "Marked by or under the orders of an officer not lower than a Section Officer (9.2(xi)).",
+          "hi": "अनुभाग अधिकारी से अनिम्न अधिकारी द्वारा या उनके आदेश से अंकित (9.2(xi))।"
+        },
+        "options": [
+          {
+            "value": "none",
+            "label": {
+              "en": "None",
+              "hi": "कोई नहीं"
+            }
+          },
+          {
+            "value": "immediate",
+            "label": {
+              "en": "IMMEDIATE",
+              "hi": "तत्काल"
+            }
+          },
+          {
+            "value": "priority",
+            "label": {
+              "en": "PRIORITY",
+              "hi": "अग्रता"
+            }
+          },
+          {
+            "value": "top-priority",
+            "label": {
+              "en": "TOP PRIORITY",
+              "hi": "परम अग्रता"
+            }
+          }
+        ]
+      },
+      {
+        "id": "fileNumber",
+        "label": {
+          "en": "File / communication number",
+          "hi": "फाइल / पत्र संख्या"
+        },
+        "type": "text",
+        "required": true,
+        "sample": {
+          "en": "A-11011/2/2026-Estt.",
+          "hi": "ए-11011/2/2026-स्थापना"
+        },
+        "hint": {
+          "en": "Every draft put up on a file bears the file number (9.2(vi)).",
+          "hi": "फाइल पर प्रस्तुत प्रत्येक मसौदे पर फाइल संख्या होती है (9.2(vi))।"
+        }
+      },
+      {
+        "id": "ministry",
+        "label": {
+          "en": "Ministry",
+          "hi": "मंत्रालय"
+        },
+        "type": "text",
+        "required": true,
+        "sample": {
+          "en": "Ministry of Personnel, Public Grievances and Pensions",
+          "hi": "कार्मिक, लोक शिकायत तथा पेंशन मंत्रालय"
+        }
+      },
+      {
+        "id": "department",
+        "label": {
+          "en": "Department",
+          "hi": "विभाग"
+        },
+        "type": "text",
+        "required": true,
+        "sample": {
+          "en": "Department of Personnel and Training",
+          "hi": "कार्मिक और प्रशिक्षण विभाग"
+        }
+      },
+      {
+        "id": "place",
+        "label": {
+          "en": "Place",
+          "hi": "स्थान"
+        },
+        "type": "text",
+        "required": true,
+        "sample": {
+          "en": "New Delhi",
+          "hi": "नई दिल्ली"
+        }
+      },
+      {
+        "id": "date",
+        "label": {
+          "en": "Date",
+          "hi": "दिनांक"
+        },
+        "type": "date",
+        "required": true,
+        "sample": {
+          "en": "2026-08-28",
+          "hi": "2026-08-28"
+        },
+        "hint": {
+          "en": "dd.mm.yyyy in English; दिनांक dd.mm.yyyy in Hindi.",
+          "hi": "अंग्रेज़ी में dd.mm.yyyy; हिंदी में दिनांक dd.mm.yyyy।"
+        }
+      },
+      {
+        "id": "subject",
+        "label": {
+          "en": "Subject",
+          "hi": "विषय"
+        },
+        "type": "text",
+        "required": true,
+        "sample": {
+          "en": "Grant of Children Education Allowance — clarification regarding.",
+          "hi": "बाल शिक्षा भत्ते की स्वीकृति — स्पष्टीकरण के संबंध में।"
+        }
+      },
+      {
+        "id": "paras",
+        "label": {
+          "en": "Body paragraphs",
+          "hi": "मुख्य पैराग्राफ"
+        },
+        "type": "paras",
+        "required": true,
+        "sample": {
+          "en": [
+            "The undersigned is directed to refer to this Department's O.M. No. A-11011/2/2025-Estt. dated 12.03.2025 on the subject cited above and to say that the question of reimbursement of Children Education Allowance in respect of a child studying under the National Institute of Open Schooling has been under consideration.",
+            "Doubts have been expressed whether the provisions of the said O.M. also apply to such a child. It is hereby clarified that reimbursement is admissible on production of a certificate of enrolment from the institution, subject to the two-child limit.",
+            "This issues with the approval of the competent authority."
+          ],
+          "hi": [
+            "अधोहस्ताक्षरी को इस विभाग के कार्यालय ज्ञापन संख्या ए-11011/2/2025-स्थापना दिनांक 12.03.2025 का संदर्भ लेने तथा यह कहने का निदेश हुआ है कि राष्ट्रीय मुक्त विद्यालयी शिक्षा संस्थान के अंतर्गत अध्ययनरत बच्चे के संबंध में बाल शिक्षा भत्ते की प्रतिपूर्ति का प्रश्न विचाराधीन रहा है।",
+            "संदेह व्यक्त किया गया है कि क्या उक्त कार्यालय ज्ञापन के प्रावधान ऐसे बच्चे पर भी लागू होते हैं। एतद्द्वारा यह स्पष्ट किया जाता है कि संस्थान से नामांकन प्रमाणपत्र प्रस्तुत करने पर, दो बच्चों की सीमा के अधीन, प्रतिपूर्ति देय है।",
+            "यह सक्षम प्राधिकारी के अनुमोदन से जारी किया जाता है।"
+          ]
+        },
+        "hint": {
+          "en": "One paragraph per line. The first is left unnumbered and the rest are numbered from 2.",
+          "hi": "प्रति पंक्ति एक पैराग्राफ। पहला बिना संख्या के रहता है और शेष 2 से क्रमांकित होते हैं।"
+        }
+      },
+      {
+        "id": "signatoryName",
+        "label": {
+          "en": "Name of the signatory",
+          "hi": "हस्ताक्षरकर्ता का नाम"
+        },
+        "type": "text",
+        "required": true,
+        "sample": {
+          "en": "A.B.C.",
+          "hi": "ए.बी.सी."
+        }
+      },
+      {
+        "id": "signatoryDesignation",
+        "label": {
+          "en": "Designation",
+          "hi": "पदनाम"
+        },
+        "type": "text",
+        "required": true,
+        "sample": {
+          "en": "Under Secretary to the Govt. of India",
+          "hi": "अवर सचिव, भारत सरकार"
+        }
+      },
+      {
+        "id": "phone",
+        "label": {
+          "en": "Telephone number",
+          "hi": "दूरभाष संख्या"
+        },
+        "type": "text",
+        "required": true,
+        "sample": {
+          "en": "011-2309 2590",
+          "hi": "011-2309 2590"
+        }
+      },
+      {
+        "id": "email",
+        "label": {
+          "en": "Email",
+          "hi": "ई-मेल"
+        },
+        "type": "text",
+        "required": true,
+        "sample": {
+          "en": "us-estt@nic.in",
+          "hi": "us-estt@nic.in"
+        }
+      },
+      {
+        "id": "addressee",
+        "label": {
+          "en": "To",
+          "hi": "सेवा में"
+        },
+        "type": "textarea",
+        "required": true,
+        "sample": {
+          "en": "All Ministries / Departments of the Government of India\n(as per standard list)",
+          "hi": "भारत सरकार के सभी मंत्रालय / विभाग\n(मानक सूची के अनुसार)"
+        },
+        "hint": {
+          "en": "On an Office Memorandum the addressee is written at the foot, below the signature.",
+          "hi": "कार्यालय ज्ञापन में संबोधित पक्ष हस्ताक्षर के नीचे, पत्र के अंत में लिखा जाता है।"
+        }
+      },
+      {
+        "id": "enclosures",
+        "label": {
+          "en": "Enclosures",
+          "hi": "संलग्नक"
+        },
+        "type": "list",
+        "required": false,
+        "sample": {
+          "en": [],
+          "hi": []
+        },
+        "hint": {
+          "en": "The count goes at the bottom left of the draft — 'Encl. 3' (9.2(vii)).",
+          "hi": "मसौदे के नीचे बाईं ओर संख्या दी जाती है — 'Encl. 3' (9.2(vii))।"
+        }
+      },
+      {
+        "id": "copyTo",
+        "label": {
+          "en": "Copy to",
+          "hi": "प्रतिलिपि"
+        },
+        "type": "list",
+        "required": false,
+        "sample": {
+          "en": [
+            "The Pay and Accounts Officer, Department of Personnel and Training",
+            "Guard file",
+            "Hindi Section — for Hindi version"
+          ],
+          "hi": [
+            "वेतन एवं लेखा अधिकारी, कार्मिक और प्रशिक्षण विभाग",
+            "गार्ड फाइल",
+            "हिंदी अनुभाग — हिंदी रूपांतर हेतु"
+          ]
+        }
+      }
+    ],
+    "layout": {
+      "en": [
+        {
+          "role": "fileNumber",
+          "align": "left",
+          "lines": [
+            "No. {{fileNumber}}"
+          ]
+        },
+        {
+          "role": "header",
+          "align": "center",
+          "lines": [
+            "Government of India",
+            "{{ministry}}",
+            "{{department}}"
+          ]
+        },
+        {
+          "role": "dateLine",
+          "align": "right",
+          "lines": [
+            "{{place}}, the {{date}}"
+          ]
+        },
+        {
+          "role": "title",
+          "align": "center",
+          "emphasis": "title",
+          "lines": [
+            "OFFICE MEMORANDUM"
+          ]
+        },
+        {
+          "role": "subject",
+          "align": "left",
+          "lines": [
+            "Subject: {{subject}}"
+          ]
+        },
+        {
+          "role": "body",
+          "align": "left",
+          "source": "paras",
+          "numbered": true
+        },
+        {
+          "role": "signature",
+          "align": "right",
+          "lines": [
+            "-Sd/-",
+            "({{signatoryName}})",
+            "{{signatoryDesignation}}",
+            "Tele. No.: {{phone}}",
+            "Email: {{email}}"
+          ]
+        },
+        {
+          "role": "addressee",
+          "align": "left",
+          "lines": [
+            "To",
+            "{{addressee}}"
+          ]
+        },
+        {
+          "role": "enclosures",
+          "align": "left",
+          "lead": "List of enclosures:",
+          "source": "enclosures",
+          "itemPrefix": "ordinal",
+          "omitWhenEmpty": true
+        },
+        {
+          "role": "copyTo",
+          "align": "left",
+          "lead": "Copy forwarded for information / necessary action to:",
+          "source": "copyTo",
+          "itemPrefix": "ordinal",
+          "omitWhenEmpty": true
+        }
+      ],
+      "hi": [
+        {
+          "role": "fileNumber",
+          "align": "left",
+          "lines": [
+            "संख्या {{fileNumber}}"
+          ]
+        },
+        {
+          "role": "header",
+          "align": "center",
+          "lines": [
+            "भारत सरकार",
+            "{{ministry}}",
+            "{{department}}"
+          ]
+        },
+        {
+          "role": "dateLine",
+          "align": "right",
+          "lines": [
+            "{{place}}, दिनांक {{date}}"
+          ]
+        },
+        {
+          "role": "title",
+          "align": "center",
+          "emphasis": "title",
+          "lines": [
+            "कार्यालय ज्ञापन"
+          ]
+        },
+        {
+          "role": "subject",
+          "align": "left",
+          "lines": [
+            "विषय : {{subject}}"
+          ]
+        },
+        {
+          "role": "body",
+          "align": "left",
+          "source": "paras",
+          "numbered": true
+        },
+        {
+          "role": "signature",
+          "align": "right",
+          "lines": [
+            "-हस्ताक्षरित/-",
+            "({{signatoryName}})",
+            "{{signatoryDesignation}}",
+            "दूरभाष संख्या : {{phone}}",
+            "ई-मेल : {{email}}"
+          ]
+        },
+        {
+          "role": "addressee",
+          "align": "left",
+          "lines": [
+            "सेवा में",
+            "{{addressee}}"
+          ]
+        },
+        {
+          "role": "enclosures",
+          "align": "left",
+          "lead": "संलग्नकों की सूची :",
+          "source": "enclosures",
+          "itemPrefix": "ordinal",
+          "omitWhenEmpty": true
+        },
+        {
+          "role": "copyTo",
+          "align": "left",
+          "lead": "प्रति सूचना/आवश्यक कार्रवाई के लिए अग्रेषित :",
+          "source": "copyTo",
+          "itemPrefix": "ordinal",
+          "omitWhenEmpty": true
+        }
+      ]
+    },
+    "checklist": [
+      {
+        "id": "third-person",
+        "label": {
+          "en": "Written in the third person",
+          "hi": "अन्य पुरुष में लिखा गया"
+        },
+        "why": {
+          "en": "An Office Memorandum is written in the third person and bears no salutation or subscription.",
+          "hi": "कार्यालय ज्ञापन अन्य पुरुष में लिखा जाता है और उसमें कोई अभिवादन या मानार्थ संबोधन नहीं होता।"
+        },
+        "severity": "must",
+        "rule": {
+          "kind": "person",
+          "value": "third"
+        },
+        "csmopRef": "8.4(3)"
+      },
+      {
+        "id": "undersigned-directed",
+        "label": {
+          "en": "Opens 'The undersigned is directed'",
+          "hi": "'अधोहस्ताक्षरी को निदेश हुआ है' से आरंभ"
+        },
+        "why": {
+          "en": "An O.M. conveying the views or orders of the Government must say it was written under the directions of Government; the specimen opens with exactly this phrase.",
+          "hi": "सरकार के विचार या आदेश संप्रेषित करने वाले कार्यालय ज्ञापन में यह व्यक्त होना चाहिए कि वह सरकार के निदेश के अधीन लिखा गया है; नमूना इसी वाक्यांश से आरंभ होता है।"
+        },
+        "severity": "should",
+        "rule": {
+          "kind": "contains",
+          "role": "body",
+          "text": {
+            "en": "undersigned is directed",
+            "hi": "अधोहस्ताक्षरी को"
+          }
+        },
+        "csmopRef": "9.2(iii), Appendix 8.1"
+      },
+      {
+        "id": "number-and-date",
+        "label": {
+          "en": "Number and date are on the draft",
+          "hi": "मसौदे पर संख्या और दिनांक हैं"
+        },
+        "why": {
+          "en": "Every draft put up on a file bears the file number, and the number and date of the last communication in the series must be quoted.",
+          "hi": "फाइल पर प्रस्तुत प्रत्येक मसौदे पर फाइल संख्या होती है, और शृंखला के अंतिम पत्र की संख्या तथा दिनांक उद्धृत की जानी चाहिए।"
+        },
+        "severity": "must",
+        "rule": {
+          "kind": "allRequired",
+          "fields": [
+            "fileNumber",
+            "date"
+          ]
+        },
+        "csmopRef": "9.2(iv), 9.2(vi)"
+      },
+      {
+        "id": "subject",
+        "label": {
+          "en": "The subject is stated",
+          "hi": "विषय लिखा गया है"
+        },
+        "why": {
+          "en": "The specimens in Appendix 8.1 carry a subject line above the body on every form that is addressed to anyone.",
+          "hi": "परिशिष्ट 8.1 के नमूनों में हर संबोधित प्रपत्र पर मुख्य भाग के ऊपर विषय पंक्ति होती है।"
+        },
+        "severity": "must",
+        "rule": {
+          "kind": "blockPresent",
+          "role": "subject"
+        },
+        "csmopRef": "Appendix 8.1"
+      },
+      {
+        "id": "para-numbering",
+        "label": {
+          "en": "Paragraphs are serially numbered",
+          "hi": "पैराग्राफ क्रमानुसार संख्यांकित हैं"
+        },
+        "why": {
+          "en": "The specimens leave the first paragraph unnumbered and number the rest from 2.",
+          "hi": "नमूनों में पहला पैराग्राफ बिना संख्या के रहता है और शेष 2 से क्रमांकित होते हैं।"
+        },
+        "severity": "must",
+        "rule": {
+          "kind": "paraNumbering"
+        },
+        "csmopRef": "Appendix 8.1"
+      },
+      {
+        "id": "enclosures",
+        "label": {
+          "en": "Enclosures mentioned in the text are listed",
+          "hi": "पाठ में उल्लिखित संलग्नक सूचीबद्ध हैं"
+        },
+        "why": {
+          "en": "A draft should clearly specify the enclosures which are to accompany the fair copy, and the number goes at the bottom left.",
+          "hi": "मसौदे में स्पष्ट रूप से बताया जाना चाहिए कि स्वच्छ प्रति के साथ कौन-से संलग्नक जाएँगे, और संख्या नीचे बाईं ओर दी जाती है।"
+        },
+        "severity": "must",
+        "rule": {
+          "kind": "enclosuresConsistent"
+        },
+        "csmopRef": "9.2(vii)"
+      },
+      {
+        "id": "copy-to",
+        "label": {
+          "en": "Copies are endorsed to everyone concerned",
+          "hi": "प्रतिलिपियाँ सभी संबंधितों को पृष्ठांकित हैं"
+        },
+        "why": {
+          "en": "Copies are endorsed to all the persons and authorities concerned; the guard file is one of them.",
+          "hi": "प्रतिलिपियाँ सभी संबंधित व्यक्तियों/प्राधिकारियों को पृष्ठांकित की जाती हैं; गार्ड फाइल उनमें एक है।"
+        },
+        "severity": "should",
+        "rule": {
+          "kind": "listNonEmpty",
+          "field": "copyTo"
+        },
+        "csmopRef": "8.4(4)"
+      },
+      {
+        "id": "signature-block",
+        "label": {
+          "en": "Signature block carries designation, telephone and email",
+          "hi": "हस्ताक्षर खंड में पदनाम, दूरभाष और ई-मेल हैं"
+        },
+        "why": {
+          "en": "The name, designation, telephone number, fax number and e-mail address of the signing officer must invariably be on the draft.",
+          "hi": "हस्ताक्षर करने वाले अधिकारी का नाम, पदनाम, दूरभाष संख्या, फैक्स संख्या और ई-मेल पता मसौदे पर अनिवार्यतः होना चाहिए।"
+        },
+        "severity": "must",
+        "rule": {
+          "kind": "allRequired",
+          "fields": [
+            "signatoryName",
+            "signatoryDesignation",
+            "phone",
+            "email"
+          ]
+        },
+        "csmopRef": "9.2(xii)"
+      },
+      {
+        "id": "reply-date",
+        "label": {
+          "en": "A date is named where information is called for",
+          "hi": "जहाँ सूचना माँगी गई है वहाँ तारीख दी गई है"
+        },
+        "why": {
+          "en": "Instead of 'may be sent immediately', state 'may be sent by 28.02.2026'.",
+          "hi": "'तुरंत भेजी जाए' के स्थान पर 'दिनांक 28.02.2026 तक भेजी जाए' लिखें।"
+        },
+        "severity": "should",
+        "rule": {
+          "kind": "replyDate"
+        },
+        "csmopRef": "9.2(v)"
+      },
+      {
+        "id": "no-placeholders",
+        "label": {
+          "en": "No placeholder is left unfilled",
+          "hi": "कोई प्लेसहोल्डर अधूरा नहीं छूटा"
+        },
+        "why": {
+          "en": "A draft that goes out with {{…}} still in it has not been read.",
+          "hi": "जिस मसौदे में {{…}} रह जाए, उसे पढ़ा ही नहीं गया।"
+        },
+        "severity": "must",
+        "rule": {
+          "kind": "noPlaceholders"
+        }
+      }
+    ],
+    "notes": [
+      {
+        "key": "not-to-authorities",
+        "title": {
+          "en": "Never to a constitutional or statutory authority",
+          "hi": "संवैधानिक या वैधानिक प्राधिकरण को कभी नहीं"
+        },
+        "body": {
+          "en": "Communications to the Election Commission, TRAI, SEBI and the like are made in the letter form, addressed to the Principal Secretary or Secretary. In no case is an Office Memorandum sent to such an authority.",
+          "hi": "निर्वाचन आयोग, ट्राई, सेबी आदि को पत्र के रूप में, प्रधान सचिव या सचिव को संबोधित करके लिखा जाता है। ऐसे प्राधिकरण को किसी भी स्थिति में कार्यालय ज्ञापन नहीं भेजा जाता।"
+        },
+        "csmopRef": "8.8 Table 8.1(5)"
+      }
+    ],
+    "source": {
+      "name": "Central Secretariat Manual of Office Procedure, 2022 (16th edition), DARPG",
+      "url": "https://www.darpg.gov.in/static/uploads/2025/10/774e0b8f427b7875158363d842fa431f.pdf",
+      "reference": "CSMOP 2022, sixteenth edition",
+      "dated": "2022-08-05"
+    },
+    "fetchedAt": "2026-08-28T00:00:00Z",
+    "verify": false
+  }
+}

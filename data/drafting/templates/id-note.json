@@ -1,0 +1,607 @@
+{
+  "version": "1.0.0",
+  "generatedAt": "2026-08-28T00:00:00Z",
+  "disclaimer": {
+    "en": "Reference only; verify with the official gazette/order or your DDO.",
+    "hi": "केवल संदर्भ के लिए; सरकारी राजपत्र/आदेश या अपने डीडीओ से सत्यापित करें।"
+  },
+  "template": {
+    "id": "id-note",
+    "name": {
+      "en": "Inter-Departmental note (U.O. note)",
+      "hi": "अंतर-विभागीय टिप्पणी (यू.ओ. टिप्पणी)"
+    },
+    "shortName": {
+      "en": "I.D. note",
+      "hi": "अं.वि. टिप्पणी"
+    },
+    "person": "third",
+    "usedBy": {
+      "en": "One Ministry or Department consulting another — for advice, views, comments or concurrence on a proposal, or for a clarification of existing rules from the nodal Department. Also between a Department and its attached and subordinate offices.",
+      "hi": "एक मंत्रालय या विभाग द्वारा दूसरे से परामर्श — किसी प्रस्ताव पर सलाह, विचार, टिप्पणी या सहमति के लिए, या नोडल विभाग से वर्तमान नियमों के स्पष्टीकरण के लिए। विभाग और उसके संबद्ध तथा अधीनस्थ कार्यालयों के बीच भी।"
+    },
+    "whenToUse": {
+      "en": "Either recorded on the file being referred, or sent as an independent self-contained note. It is made with the approval of an officer not below Joint Secretary and issued under the signature of an officer not below Under Secretary. State the points on which advice is sought in the concluding paragraph, and prescribe a time limit.",
+      "hi": "या तो संदर्भित की जा रही फाइल पर दर्ज, या स्वतंत्र स्वतःपूर्ण टिप्पणी के रूप में भेजी जाती है। यह संयुक्त सचिव से अनिम्न अधिकारी के अनुमोदन से की जाती है और अवर सचिव से अनिम्न अधिकारी के हस्ताक्षर से जारी होती है। जिन बिंदुओं पर सलाह चाहिए उन्हें अंतिम पैराग्राफ में लिखें, और समय-सीमा निर्धारित करें।"
+    },
+    "salutation": null,
+    "subscription": null,
+    "urgencyAllowed": true,
+    "csmopRef": {
+      "edition": "CSMOP 2022, sixteenth edition",
+      "paras": [
+        "8.1",
+        "8.1.2(v)",
+        "8.1.2(vi)",
+        "9.6(iv)",
+        "Appendix 8.1"
+      ],
+      "pages": [
+        75,
+        76,
+        92,
+        106
+      ]
+    },
+    "fields": [
+      {
+        "id": "urgency",
+        "label": {
+          "en": "Urgency grading",
+          "hi": "तात्कालिकता ग्रेडिंग"
+        },
+        "type": "select",
+        "required": false,
+        "sample": {
+          "en": "none",
+          "hi": "none"
+        },
+        "hint": {
+          "en": "Marked by or under the orders of an officer not lower than a Section Officer (9.2(xi)).",
+          "hi": "अनुभाग अधिकारी से अनिम्न अधिकारी द्वारा या उनके आदेश से अंकित (9.2(xi))।"
+        },
+        "options": [
+          {
+            "value": "none",
+            "label": {
+              "en": "None",
+              "hi": "कोई नहीं"
+            }
+          },
+          {
+            "value": "immediate",
+            "label": {
+              "en": "IMMEDIATE",
+              "hi": "तत्काल"
+            }
+          },
+          {
+            "value": "priority",
+            "label": {
+              "en": "PRIORITY",
+              "hi": "अग्रता"
+            }
+          },
+          {
+            "value": "top-priority",
+            "label": {
+              "en": "TOP PRIORITY",
+              "hi": "परम अग्रता"
+            }
+          }
+        ]
+      },
+      {
+        "id": "ministry",
+        "label": {
+          "en": "Ministry",
+          "hi": "मंत्रालय"
+        },
+        "type": "text",
+        "required": true,
+        "sample": {
+          "en": "Ministry of Personnel, Public Grievances and Pensions",
+          "hi": "कार्मिक, लोक शिकायत तथा पेंशन मंत्रालय"
+        }
+      },
+      {
+        "id": "department",
+        "label": {
+          "en": "Department",
+          "hi": "विभाग"
+        },
+        "type": "text",
+        "required": true,
+        "sample": {
+          "en": "Department of Personnel and Training",
+          "hi": "कार्मिक और प्रशिक्षण विभाग"
+        }
+      },
+      {
+        "id": "subject",
+        "label": {
+          "en": "Subject",
+          "hi": "विषय"
+        },
+        "type": "text",
+        "required": true,
+        "sample": {
+          "en": "Grant of Children Education Allowance — clarification regarding.",
+          "hi": "बाल शिक्षा भत्ते की स्वीकृति — स्पष्टीकरण के संबंध में।"
+        }
+      },
+      {
+        "id": "paras",
+        "label": {
+          "en": "Body paragraphs",
+          "hi": "मुख्य पैराग्राफ"
+        },
+        "type": "paras",
+        "required": true,
+        "sample": {
+          "en": [
+            "The present rules regulating the issue of identity cards provide, inter alia, that a card is to be surrendered on the date of superannuation.",
+            "A question has now arisen whether an officer re-employed immediately on superannuation may retain the card issued to him before retirement.",
+            "The matter has been examined in this Department. The rules are silent on re-employment, and no precedent is available on the file.",
+            "It is felt that a card carrying the pre-retirement designation would be misleading and that a fresh card should be issued.",
+            "This Department will be grateful for the advice of the Department of Legal Affairs on the issue raised in para 4 above. Comments are requested by 30.09.2026, please."
+          ],
+          "hi": [
+            "पहचान पत्र जारी करने को विनियमित करने वाले वर्तमान नियमों में अन्य बातों के साथ-साथ यह है कि पत्र अधिवर्षिता की तारीख को अभ्यर्पित कर दिया जाएगा।",
+            "अब प्रश्न यह उठता है कि क्या अधिवर्षिता पर तत्काल पुनर्नियोजित अधिकारी सेवानिवृत्ति से पूर्व जारी पहचान पत्र अपने पास रख सकता है।",
+            "इस विभाग में मामले की जाँच की गई है। नियम पुनर्नियोजन पर मौन हैं और फाइल पर कोई मिसाल उपलब्ध नहीं है।",
+            "ऐसा प्रतीत होता है कि सेवानिवृत्ति-पूर्व पदनाम वाला पहचान पत्र भ्रामक होगा और नया पत्र जारी किया जाना चाहिए।",
+            "यह विभाग उपर्युक्त पैरा 4 में उठाए गए मुद्दे पर विधि कार्य विभाग की सलाह के लिए आभारी रहेगा। टिप्पणियाँ दिनांक 30.09.2026 तक अपेक्षित हैं।"
+          ]
+        },
+        "hint": {
+          "en": "Number every paragraph, including the first: the specimen in Appendix 8.1 starts at 1.",
+          "hi": "पहले सहित प्रत्येक पैराग्राफ को संख्या दें: परिशिष्ट 8.1 का नमूना 1 से आरंभ होता है।"
+        }
+      },
+      {
+        "id": "signatoryName",
+        "label": {
+          "en": "Name of the signatory",
+          "hi": "हस्ताक्षरकर्ता का नाम"
+        },
+        "type": "text",
+        "required": true,
+        "sample": {
+          "en": "A.B.C.",
+          "hi": "ए.बी.सी."
+        }
+      },
+      {
+        "id": "signatoryDesignation",
+        "label": {
+          "en": "Designation",
+          "hi": "पदनाम"
+        },
+        "type": "text",
+        "required": true,
+        "sample": {
+          "en": "Deputy Secretary",
+          "hi": "उप सचिव"
+        }
+      },
+      {
+        "id": "phone",
+        "label": {
+          "en": "Telephone number",
+          "hi": "दूरभाष संख्या"
+        },
+        "type": "text",
+        "required": true,
+        "sample": {
+          "en": "011-2309 2590",
+          "hi": "011-2309 2590"
+        }
+      },
+      {
+        "id": "email",
+        "label": {
+          "en": "Email",
+          "hi": "ई-मेल"
+        },
+        "type": "text",
+        "required": true,
+        "sample": {
+          "en": "us-estt@nic.in",
+          "hi": "us-estt@nic.in"
+        }
+      },
+      {
+        "id": "addressee",
+        "label": {
+          "en": "Department consulted",
+          "hi": "जिस विभाग से परामर्श किया जा रहा है"
+        },
+        "type": "textarea",
+        "required": true,
+        "sample": {
+          "en": "Department of Legal Affairs (Vidhi Karya Vibhag), Shri A. K. Menon, Shastri Bhawan, New Delhi",
+          "hi": "विधि कार्य विभाग, श्री ए. के. मेनन, शास्त्री भवन, नई दिल्ली"
+        }
+      },
+      {
+        "id": "idNumber",
+        "label": {
+          "en": "I.D. number",
+          "hi": "आई.डी. संख्या"
+        },
+        "type": "text",
+        "required": true,
+        "sample": {
+          "en": "A-11011/2/2026-Estt.",
+          "hi": "ए-11011/2/2026-स्थापना"
+        }
+      },
+      {
+        "id": "date",
+        "label": {
+          "en": "Date",
+          "hi": "दिनांक"
+        },
+        "type": "date",
+        "required": true,
+        "sample": {
+          "en": "2026-08-28",
+          "hi": "2026-08-28"
+        },
+        "hint": {
+          "en": "dd.mm.yyyy in English; दिनांक dd.mm.yyyy in Hindi.",
+          "hi": "अंग्रेज़ी में dd.mm.yyyy; हिंदी में दिनांक dd.mm.yyyy।"
+        }
+      },
+      {
+        "id": "enclosures",
+        "label": {
+          "en": "Enclosures",
+          "hi": "संलग्नक"
+        },
+        "type": "list",
+        "required": false,
+        "sample": {
+          "en": [
+            "Draft instructions proposed to be issued (1 page)"
+          ],
+          "hi": [
+            "जारी किए जाने के लिए प्रस्तावित अनुदेशों का मसौदा (1 पृष्ठ)"
+          ]
+        },
+        "hint": {
+          "en": "The count goes at the bottom left of the draft — 'Encl. 3' (9.2(vii)).",
+          "hi": "मसौदे के नीचे बाईं ओर संख्या दी जाती है — 'Encl. 3' (9.2(vii))।"
+        }
+      }
+    ],
+    "layout": {
+      "en": [
+        {
+          "role": "urgency",
+          "align": "right",
+          "emphasis": "bold",
+          "lines": [
+            "{{urgency}}"
+          ],
+          "omitWhenEmpty": true
+        },
+        {
+          "role": "header",
+          "align": "center",
+          "lines": [
+            "Government of India",
+            "{{ministry}}",
+            "{{department}}"
+          ]
+        },
+        {
+          "role": "title",
+          "align": "center",
+          "emphasis": "title",
+          "lines": [
+            "INTER-DEPARTMENTAL NOTE"
+          ]
+        },
+        {
+          "role": "subject",
+          "align": "left",
+          "lines": [
+            "Subject: {{subject}}"
+          ]
+        },
+        {
+          "role": "body",
+          "align": "left",
+          "source": "paras",
+          "numbered": true,
+          "numberFrom": 1
+        },
+        {
+          "role": "signature",
+          "align": "right",
+          "lines": [
+            "({{signatoryName}})",
+            "{{signatoryDesignation}}",
+            "Tele. No. / Email: {{phone}} / {{email}}"
+          ]
+        },
+        {
+          "role": "addressee",
+          "align": "left",
+          "lines": [
+            "{{addressee}}"
+          ]
+        },
+        {
+          "role": "enclosures",
+          "align": "left",
+          "lead": "List of enclosures:",
+          "source": "enclosures",
+          "itemPrefix": "ordinal",
+          "omitWhenEmpty": true
+        },
+        {
+          "role": "footer",
+          "align": "left",
+          "lines": [
+            "_______________________________________________",
+            "{{department}} I.D. No. {{idNumber}} dated {{date}}"
+          ]
+        }
+      ],
+      "hi": [
+        {
+          "role": "urgency",
+          "align": "right",
+          "emphasis": "bold",
+          "lines": [
+            "{{urgency}}"
+          ],
+          "omitWhenEmpty": true
+        },
+        {
+          "role": "header",
+          "align": "center",
+          "lines": [
+            "भारत सरकार",
+            "{{ministry}}",
+            "{{department}}"
+          ]
+        },
+        {
+          "role": "title",
+          "align": "center",
+          "emphasis": "title",
+          "lines": [
+            "अंतर-विभागीय टिप्पणी"
+          ]
+        },
+        {
+          "role": "subject",
+          "align": "left",
+          "lines": [
+            "विषय : {{subject}}"
+          ]
+        },
+        {
+          "role": "body",
+          "align": "left",
+          "source": "paras",
+          "numbered": true,
+          "numberFrom": 1
+        },
+        {
+          "role": "signature",
+          "align": "right",
+          "lines": [
+            "({{signatoryName}})",
+            "{{signatoryDesignation}}",
+            "दूरभाष संख्या / ई-मेल : {{phone}} / {{email}}"
+          ]
+        },
+        {
+          "role": "addressee",
+          "align": "left",
+          "lines": [
+            "{{addressee}}"
+          ]
+        },
+        {
+          "role": "enclosures",
+          "align": "left",
+          "lead": "संलग्नकों की सूची :",
+          "source": "enclosures",
+          "itemPrefix": "ordinal",
+          "omitWhenEmpty": true
+        },
+        {
+          "role": "footer",
+          "align": "left",
+          "lines": [
+            "_______________________________________________",
+            "{{department}} आई.डी. सं. {{idNumber}} दिनांक {{date}}"
+          ]
+        }
+      ]
+    },
+    "checklist": [
+      {
+        "id": "numbered-from-one",
+        "label": {
+          "en": "Every paragraph is numbered, from 1",
+          "hi": "प्रत्येक पैराग्राफ 1 से संख्यांकित है"
+        },
+        "why": {
+          "en": "The Appendix 8.1 specimen of an I.D. note numbers its first paragraph 1, unlike a letter or an O.M.",
+          "hi": "परिशिष्ट 8.1 के अंतर-विभागीय टिप्पणी नमूने में पहला पैराग्राफ 1 से संख्यांकित है, पत्र या कार्यालय ज्ञापन के विपरीत।"
+        },
+        "severity": "must",
+        "rule": {
+          "kind": "paraNumbering"
+        },
+        "csmopRef": "Appendix 8.1"
+      },
+      {
+        "id": "points-stated",
+        "label": {
+          "en": "The point on which advice is sought is in the last paragraph",
+          "hi": "जिस बिंदु पर सलाह चाहिए वह अंतिम पैराग्राफ में है"
+        },
+        "why": {
+          "en": "Clearly state the points on which the advice or concurrence of the other Department is sought, preferably in the concluding paragraph.",
+          "hi": "जिन बिंदुओं पर दूसरे विभाग की सलाह या सहमति चाहिए उन्हें स्पष्ट रूप से, अधिमानतः समापन पैराग्राफ में लिखें।"
+        },
+        "severity": "must",
+        "rule": {
+          "kind": "contains",
+          "role": "body",
+          "text": {
+            "en": "advice",
+            "hi": "सलाह"
+          }
+        },
+        "csmopRef": "8.1.2(vi)"
+      },
+      {
+        "id": "time-limit",
+        "label": {
+          "en": "A time limit is prescribed",
+          "hi": "समय-सीमा निर्धारित है"
+        },
+        "why": {
+          "en": "Prescribe a time limit when calling for advice or concurrence; without one the originating Ministry has nothing to wait until.",
+          "hi": "सलाह या सहमति माँगते समय समय-सीमा निर्धारित करें; इसके बिना आरंभकर्ता मंत्रालय के पास प्रतीक्षा की कोई सीमा नहीं होती।"
+        },
+        "severity": "must",
+        "rule": {
+          "kind": "replyDate"
+        },
+        "csmopRef": "8.1.2(i)"
+      },
+      {
+        "id": "id-number-date",
+        "label": {
+          "en": "I.D. number and date are at the foot",
+          "hi": "आई.डी. संख्या और दिनांक नीचे हैं"
+        },
+        "why": {
+          "en": "The specimen closes with 'Department of … I.D. No. … dated …' below a rule.",
+          "hi": "नमूना एक रेखा के नीचे '… विभाग आई.डी. सं. … दिनांक …' से समाप्त होता है।"
+        },
+        "severity": "must",
+        "rule": {
+          "kind": "allRequired",
+          "fields": [
+            "idNumber",
+            "date"
+          ]
+        },
+        "csmopRef": "Appendix 8.1"
+      },
+      {
+        "id": "signed-at-level",
+        "label": {
+          "en": "Signed at Under Secretary level or above",
+          "hi": "अवर सचिव या उससे ऊपर के स्तर पर हस्ताक्षरित"
+        },
+        "why": {
+          "en": "Inter-Departmental references are made with the approval of an officer not below Joint Secretary, under the signature of an officer not below Under Secretary.",
+          "hi": "अंतर-विभागीय संदर्भ संयुक्त सचिव से अनिम्न अधिकारी के अनुमोदन से, अवर सचिव से अनिम्न अधिकारी के हस्ताक्षर से किए जाते हैं।"
+        },
+        "severity": "must",
+        "rule": {
+          "kind": "allRequired",
+          "fields": [
+            "signatoryName",
+            "signatoryDesignation"
+          ]
+        },
+        "csmopRef": "8.1.2(v)"
+      },
+      {
+        "id": "subject",
+        "label": {
+          "en": "The subject is stated",
+          "hi": "विषय लिखा गया है"
+        },
+        "why": {
+          "en": "The specimens in Appendix 8.1 carry a subject line above the body on every form that is addressed to anyone.",
+          "hi": "परिशिष्ट 8.1 के नमूनों में हर संबोधित प्रपत्र पर मुख्य भाग के ऊपर विषय पंक्ति होती है।"
+        },
+        "severity": "must",
+        "rule": {
+          "kind": "blockPresent",
+          "role": "subject"
+        },
+        "csmopRef": "Appendix 8.1"
+      },
+      {
+        "id": "enclosures",
+        "label": {
+          "en": "Enclosures mentioned in the text are listed",
+          "hi": "पाठ में उल्लिखित संलग्नक सूचीबद्ध हैं"
+        },
+        "why": {
+          "en": "A draft should clearly specify the enclosures which are to accompany the fair copy, and the number goes at the bottom left.",
+          "hi": "मसौदे में स्पष्ट रूप से बताया जाना चाहिए कि स्वच्छ प्रति के साथ कौन-से संलग्नक जाएँगे, और संख्या नीचे बाईं ओर दी जाती है।"
+        },
+        "severity": "must",
+        "rule": {
+          "kind": "enclosuresConsistent"
+        },
+        "csmopRef": "9.2(vii)"
+      },
+      {
+        "id": "no-placeholders",
+        "label": {
+          "en": "No placeholder is left unfilled",
+          "hi": "कोई प्लेसहोल्डर अधूरा नहीं छूटा"
+        },
+        "why": {
+          "en": "A draft that goes out with {{…}} still in it has not been read.",
+          "hi": "जिस मसौदे में {{…}} रह जाए, उसे पढ़ा ही नहीं गया।"
+        },
+        "severity": "must",
+        "rule": {
+          "kind": "noPlaceholders"
+        }
+      }
+    ],
+    "notes": [
+      {
+        "key": "self-contained",
+        "title": {
+          "en": "Self-contained, or on the file",
+          "hi": "स्वतःपूर्ण, या फाइल पर"
+        },
+        "body": {
+          "en": "An I.D. note is either recorded on the file being referred or sent as an independent self-contained note. Where more than one Department is to be consulted, consult them simultaneously by self-contained notes — unless the second consultation only makes sense after the first Department has replied.",
+          "hi": "अंतर-विभागीय टिप्पणी या तो संदर्भित की जा रही फाइल पर दर्ज की जाती है या स्वतंत्र स्वतःपूर्ण टिप्पणी के रूप में भेजी जाती है। यदि एक से अधिक विभागों से परामर्श करना हो तो स्वतःपूर्ण टिप्पणियों द्वारा एक साथ परामर्श करें — जब तक कि दूसरा परामर्श पहले विभाग के उत्तर के बाद ही सार्थक न हो।"
+        },
+        "csmopRef": "8.1.1(ii), 8.1.2(viii)"
+      },
+      {
+        "key": "drafts-with-it",
+        "title": {
+          "en": "Put the draft orders with it",
+          "hi": "प्रस्तावित आदेशों का मसौदा साथ रखें"
+        },
+        "body": {
+          "en": "Place the drafts of the orders proposed to be issued along with the I.D. note to the Department being consulted.",
+          "hi": "जारी किए जाने के लिए प्रस्तावित आदेशों के मसौदे परामर्श किए जा रहे विभाग को भेजी जा रही अंतर-विभागीय टिप्पणी के साथ रखें।"
+        },
+        "csmopRef": "8.1.2(vii)"
+      }
+    ],
+    "source": {
+      "name": "Central Secretariat Manual of Office Procedure, 2022 (16th edition), DARPG",
+      "url": "https://www.darpg.gov.in/static/uploads/2025/10/774e0b8f427b7875158363d842fa431f.pdf",
+      "reference": "CSMOP 2022, sixteenth edition",
+      "dated": "2022-08-05"
+    },
+    "fetchedAt": "2026-08-28T00:00:00Z",
+    "verify": false
+  }
+}

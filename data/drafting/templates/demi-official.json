@@ -1,0 +1,589 @@
+{
+  "version": "1.0.0",
+  "generatedAt": "2026-08-28T00:00:00Z",
+  "disclaimer": {
+    "en": "Reference only; verify with the official gazette/order or your DDO.",
+    "hi": "केवल संदर्भ के लिए; सरकारी राजपत्र/आदेश या अपने डीडीओ से सत्यापित करें।"
+  },
+  "template": {
+    "id": "demi-official",
+    "name": {
+      "en": "Demi-official letter (D.O.)",
+      "hi": "अर्ध-सरकारी पत्र (डी.ओ.)"
+    },
+    "shortName": {
+      "en": "D.O. letter",
+      "hi": "अ.स. पत्र"
+    },
+    "person": "first",
+    "usedBy": {
+      "en": "One Government officer writing to another to draw their personal attention to an official matter of importance or urgency; also to a non-official, and by a Minister to another Minister or a Member of Parliament.",
+      "hi": "एक सरकारी अधिकारी द्वारा दूसरे को महत्वपूर्ण या अत्यावश्यक सरकारी मामले में व्यक्तिगत ध्यानाकर्षण हेतु; अशासकीय व्यक्तियों को भी, तथा मंत्री द्वारा अन्य मंत्री या संसद सदस्य को।"
+    },
+    "whenToUse": {
+      "en": "Written in the first person in a personal and friendly tone, and addressed to an officer of the same level as far as possible — or at most one or two levels below. It should not exceed one page; put the argument in appendices instead.",
+      "hi": "प्रथम पुरुष में, व्यक्तिगत और मैत्रीपूर्ण लहजे में लिखा जाता है, और यथासंभव समान स्तर के अधिकारी को संबोधित — अधिक से अधिक एक या दो स्तर नीचे तक। यह एक पृष्ठ से अधिक न हो; विस्तृत तर्क परिशिष्ट में रखें।"
+    },
+    "salutation": {
+      "en": "My dear Shri / Dear Shri",
+      "hi": "प्रिय श्री"
+    },
+    "subscription": {
+      "en": "Yours sincerely,",
+      "hi": "भवदीय,"
+    },
+    "urgencyAllowed": false,
+    "csmopRef": {
+      "edition": "CSMOP 2022, sixteenth edition",
+      "paras": [
+        "8.4(2)",
+        "9.5",
+        "Appendix 8.1"
+      ],
+      "pages": [
+        79,
+        88,
+        104
+      ]
+    },
+    "fields": [
+      {
+        "id": "fileNumber",
+        "label": {
+          "en": "File / communication number",
+          "hi": "फाइल / पत्र संख्या"
+        },
+        "type": "text",
+        "required": true,
+        "sample": {
+          "en": "A-11011/2/2026-Estt.",
+          "hi": "ए-11011/2/2026-स्थापना"
+        },
+        "hint": {
+          "en": "Every draft put up on a file bears the file number (9.2(vi)).",
+          "hi": "फाइल पर प्रस्तुत प्रत्येक मसौदे पर फाइल संख्या होती है (9.2(vi))।"
+        }
+      },
+      {
+        "id": "ministry",
+        "label": {
+          "en": "Ministry",
+          "hi": "मंत्रालय"
+        },
+        "type": "text",
+        "required": true,
+        "sample": {
+          "en": "Ministry of Personnel, Public Grievances and Pensions",
+          "hi": "कार्मिक, लोक शिकायत तथा पेंशन मंत्रालय"
+        }
+      },
+      {
+        "id": "department",
+        "label": {
+          "en": "Department",
+          "hi": "विभाग"
+        },
+        "type": "text",
+        "required": true,
+        "sample": {
+          "en": "Department of Personnel and Training",
+          "hi": "कार्मिक और प्रशिक्षण विभाग"
+        }
+      },
+      {
+        "id": "place",
+        "label": {
+          "en": "Place",
+          "hi": "स्थान"
+        },
+        "type": "text",
+        "required": true,
+        "sample": {
+          "en": "New Delhi",
+          "hi": "नई दिल्ली"
+        }
+      },
+      {
+        "id": "date",
+        "label": {
+          "en": "Date",
+          "hi": "दिनांक"
+        },
+        "type": "date",
+        "required": true,
+        "sample": {
+          "en": "2026-08-28",
+          "hi": "2026-08-28"
+        },
+        "hint": {
+          "en": "dd.mm.yyyy in English; दिनांक dd.mm.yyyy in Hindi.",
+          "hi": "अंग्रेज़ी में dd.mm.yyyy; हिंदी में दिनांक dd.mm.yyyy।"
+        }
+      },
+      {
+        "id": "addresseeName",
+        "label": {
+          "en": "Addressee (name in the salutation)",
+          "hi": "संबोधित (अभिवादन में नाम)"
+        },
+        "type": "text",
+        "required": true,
+        "sample": {
+          "en": "Shri R. K. Sharma",
+          "hi": "श्री आर. के. शर्मा"
+        }
+      },
+      {
+        "id": "addressee",
+        "label": {
+          "en": "Addressee block (foot of the letter)",
+          "hi": "संबोधित खंड (पत्र के नीचे)"
+        },
+        "type": "textarea",
+        "required": true,
+        "sample": {
+          "en": "Shri R. K. Sharma\nJoint Secretary\nMinistry of Finance\nDepartment of Expenditure\nNorth Block, New Delhi - 110001",
+          "hi": "श्री आर. के. शर्मा\nसंयुक्त सचिव\nवित्त मंत्रालय\nव्यय विभाग\nनॉर्थ ब्लॉक, नई दिल्ली - 110001"
+        }
+      },
+      {
+        "id": "subject",
+        "label": {
+          "en": "Subject (optional in a D.O.)",
+          "hi": "विषय (अर्ध-सरकारी पत्र में वैकल्पिक)"
+        },
+        "type": "text",
+        "required": false,
+        "sample": {
+          "en": "",
+          "hi": ""
+        },
+        "hint": {
+          "en": "The specimen in Appendix 8.1 carries no subject line; add one only if the matter needs it.",
+          "hi": "परिशिष्ट 8.1 के नमूने में विषय पंक्ति नहीं है; आवश्यक होने पर ही जोड़ें।"
+        }
+      },
+      {
+        "id": "paras",
+        "label": {
+          "en": "Body paragraphs",
+          "hi": "मुख्य पैराग्राफ"
+        },
+        "type": "paras",
+        "required": true,
+        "sample": {
+          "en": [
+            "We propose to draw up a model scheme for the training of newly recruited Assistant Section Officers; a copy of the outline prepared in this connection is enclosed.",
+            "I shall be grateful if you would let me have your comments as soon as possible. I may add that we intend circulating the draft scheme formally to all Departments in due course for their comments."
+          ],
+          "hi": [
+            "हम नवनियुक्त सहायक अनुभाग अधिकारियों के प्रशिक्षण के लिए एक मॉडल योजना तैयार करने का प्रस्ताव करते हैं, इस संबंध में तैयार की गई रूपरेखा की प्रति संलग्न है।",
+            "यदि आप मुझे यथाशीघ्र अपनी टिप्पणी दें तो मैं आपका आभारी रहूँगा। मैं यह भी कहना चाहूँगा कि हम मसौदा योजना को टिप्पणियों के लिए सभी विभागों को यथासमय औपचारिक रूप से परिचालित करने का प्रयोजन रखते हैं।"
+          ]
+        },
+        "hint": {
+          "en": "One page at most. Use the active voice — 'I notice', not 'It is noticed'.",
+          "hi": "अधिकतम एक पृष्ठ। कर्तृवाच्य का प्रयोग करें — 'मैं देख रहा हूँ', न कि 'यह देखा गया है'।"
+        }
+      },
+      {
+        "id": "signatoryName",
+        "label": {
+          "en": "Name of the signatory",
+          "hi": "हस्ताक्षरकर्ता का नाम"
+        },
+        "type": "text",
+        "required": true,
+        "sample": {
+          "en": "A.B.C.",
+          "hi": "ए.बी.सी."
+        }
+      },
+      {
+        "id": "signatoryDesignation",
+        "label": {
+          "en": "Designation",
+          "hi": "पदनाम"
+        },
+        "type": "text",
+        "required": true,
+        "sample": {
+          "en": "Deputy Secretary to the Govt. of India",
+          "hi": "उप सचिव, भारत सरकार"
+        }
+      },
+      {
+        "id": "phone",
+        "label": {
+          "en": "Telephone number",
+          "hi": "दूरभाष संख्या"
+        },
+        "type": "text",
+        "required": true,
+        "sample": {
+          "en": "011-2309 2590",
+          "hi": "011-2309 2590"
+        }
+      },
+      {
+        "id": "email",
+        "label": {
+          "en": "Email",
+          "hi": "ई-मेल"
+        },
+        "type": "text",
+        "required": true,
+        "sample": {
+          "en": "us-estt@nic.in",
+          "hi": "us-estt@nic.in"
+        }
+      },
+      {
+        "id": "enclosures",
+        "label": {
+          "en": "Enclosures",
+          "hi": "संलग्नक"
+        },
+        "type": "list",
+        "required": false,
+        "sample": {
+          "en": [
+            "Outline of the proposed model training scheme (4 pages)"
+          ],
+          "hi": [
+            "प्रस्तावित मॉडल प्रशिक्षण योजना की रूपरेखा (4 पृष्ठ)"
+          ]
+        },
+        "hint": {
+          "en": "The count goes at the bottom left of the draft — 'Encl. 3' (9.2(vii)).",
+          "hi": "मसौदे के नीचे बाईं ओर संख्या दी जाती है — 'Encl. 3' (9.2(vii))।"
+        }
+      }
+    ],
+    "layout": {
+      "en": [
+        {
+          "role": "header",
+          "align": "left",
+          "lines": [
+            "{{signatoryName}}",
+            "{{signatoryDesignation}}",
+            "Tele.: {{phone}}"
+          ]
+        },
+        {
+          "role": "fileNumber",
+          "align": "right",
+          "lines": [
+            "D.O. No. {{fileNumber}}"
+          ]
+        },
+        {
+          "role": "header",
+          "align": "right",
+          "lines": [
+            "Government of India",
+            "{{ministry}}",
+            "{{department}}"
+          ]
+        },
+        {
+          "role": "dateLine",
+          "align": "right",
+          "lines": [
+            "{{place}}, the {{date}}"
+          ]
+        },
+        {
+          "role": "subject",
+          "align": "left",
+          "lines": [
+            "Subject: {{subject}}"
+          ],
+          "omitWhenEmpty": true
+        },
+        {
+          "role": "salutation",
+          "align": "left",
+          "lines": [
+            "My dear {{addresseeName}},"
+          ]
+        },
+        {
+          "role": "body",
+          "align": "left",
+          "source": "paras",
+          "numbered": true
+        },
+        {
+          "role": "closing",
+          "align": "left",
+          "lines": [
+            "With regards,"
+          ]
+        },
+        {
+          "role": "closing",
+          "align": "right",
+          "lines": [
+            "Yours sincerely,"
+          ]
+        },
+        {
+          "role": "signature",
+          "align": "right",
+          "lines": [
+            "({{signatoryName}})"
+          ]
+        },
+        {
+          "role": "addressee",
+          "align": "left",
+          "lines": [
+            "{{addressee}}"
+          ]
+        },
+        {
+          "role": "enclosures",
+          "align": "left",
+          "lead": "List of enclosures:",
+          "source": "enclosures",
+          "itemPrefix": "ordinal",
+          "omitWhenEmpty": true
+        }
+      ],
+      "hi": [
+        {
+          "role": "header",
+          "align": "left",
+          "lines": [
+            "{{signatoryName}}",
+            "{{signatoryDesignation}}",
+            "दूरभाष : {{phone}}"
+          ]
+        },
+        {
+          "role": "fileNumber",
+          "align": "right",
+          "lines": [
+            "अर्ध-सरकारी पत्र संख्या {{fileNumber}}"
+          ]
+        },
+        {
+          "role": "header",
+          "align": "right",
+          "lines": [
+            "भारत सरकार",
+            "{{ministry}}",
+            "{{department}}"
+          ]
+        },
+        {
+          "role": "dateLine",
+          "align": "right",
+          "lines": [
+            "{{place}}, दिनांक {{date}}"
+          ]
+        },
+        {
+          "role": "subject",
+          "align": "left",
+          "lines": [
+            "विषय : {{subject}}"
+          ],
+          "omitWhenEmpty": true
+        },
+        {
+          "role": "salutation",
+          "align": "left",
+          "lines": [
+            "प्रिय {{addresseeName}},"
+          ]
+        },
+        {
+          "role": "body",
+          "align": "left",
+          "source": "paras",
+          "numbered": true
+        },
+        {
+          "role": "closing",
+          "align": "left",
+          "lines": [
+            "शुभकामनाओं सहित,"
+          ]
+        },
+        {
+          "role": "closing",
+          "align": "right",
+          "lines": [
+            "भवदीय,"
+          ]
+        },
+        {
+          "role": "signature",
+          "align": "right",
+          "lines": [
+            "({{signatoryName}})"
+          ]
+        },
+        {
+          "role": "addressee",
+          "align": "left",
+          "lines": [
+            "{{addressee}}"
+          ]
+        },
+        {
+          "role": "enclosures",
+          "align": "left",
+          "lead": "संलग्नकों की सूची :",
+          "source": "enclosures",
+          "itemPrefix": "ordinal",
+          "omitWhenEmpty": true
+        }
+      ]
+    },
+    "checklist": [
+      {
+        "id": "first-person",
+        "label": {
+          "en": "Written in the first person",
+          "hi": "प्रथम पुरुष में लिखा गया"
+        },
+        "why": {
+          "en": "The object of a D.O. is to invite the addressee's personal attention, so the style is direct, personal and friendly.",
+          "hi": "अर्ध-सरकारी पत्र का उद्देश्य संबोधित व्यक्ति का व्यक्तिगत ध्यानाकर्षण है, इसलिए शैली सीधी, व्यक्तिगत और मैत्रीपूर्ण होती है।"
+        },
+        "severity": "must",
+        "rule": {
+          "kind": "person",
+          "value": "first"
+        },
+        "csmopRef": "9.5(i)"
+      },
+      {
+        "id": "active-voice",
+        "label": {
+          "en": "Active voice, not 'It is noticed'",
+          "hi": "कर्तृवाच्य, 'यह देखा गया है' नहीं"
+        },
+        "why": {
+          "en": "CSMOP asks for 'I notice' rather than 'It is noticed' in a demi-official letter.",
+          "hi": "सीएसएमओपी अर्ध-सरकारी पत्र में 'यह देखा गया है' के स्थान पर 'मैं देख रहा हूँ' चाहता है।"
+        },
+        "severity": "should",
+        "rule": {
+          "kind": "regexAbsent",
+          "role": "body",
+          "pattern": "(?:it is (?:noticed|observed|felt|seen))|(?:यह (?:देखा|पाया|महसूस किया) गया है)"
+        },
+        "csmopRef": "9.5(i)"
+      },
+      {
+        "id": "one-page",
+        "label": {
+          "en": "One page at most",
+          "hi": "अधिकतम एक पृष्ठ"
+        },
+        "why": {
+          "en": "A D.O. letter should preferably not exceed one page; a longer message is condensed and the argument moved to appendices.",
+          "hi": "अर्ध-सरकारी पत्र अधिमानतः एक पृष्ठ से अधिक न हो; लंबे संदेश को संक्षिप्त करके तर्क परिशिष्टों में रखें।"
+        },
+        "severity": "should",
+        "rule": {
+          "kind": "maxWords",
+          "role": "body",
+          "count": 300
+        },
+        "csmopRef": "9.5(ii)"
+      },
+      {
+        "id": "signature-name",
+        "label": {
+          "en": "Signed by name, with the sender's designation at the head",
+          "hi": "नाम सहित हस्ताक्षरित, प्रेषक का पदनाम शीर्ष पर"
+        },
+        "why": {
+          "en": "A D.O. carries the writer's name and designation at the top left and is signed by name — it is a personal communication.",
+          "hi": "अर्ध-सरकारी पत्र में लेखक का नाम और पदनाम ऊपर बाईं ओर होता है और वह नाम से हस्ताक्षरित होता है — यह व्यक्तिगत पत्र है।"
+        },
+        "severity": "must",
+        "rule": {
+          "kind": "allRequired",
+          "fields": [
+            "signatoryName",
+            "signatoryDesignation",
+            "phone"
+          ]
+        },
+        "csmopRef": "Appendix 8.1"
+      },
+      {
+        "id": "enclosures",
+        "label": {
+          "en": "Enclosures mentioned in the text are listed",
+          "hi": "पाठ में उल्लिखित संलग्नक सूचीबद्ध हैं"
+        },
+        "why": {
+          "en": "A draft should clearly specify the enclosures which are to accompany the fair copy, and the number goes at the bottom left.",
+          "hi": "मसौदे में स्पष्ट रूप से बताया जाना चाहिए कि स्वच्छ प्रति के साथ कौन-से संलग्नक जाएँगे, और संख्या नीचे बाईं ओर दी जाती है।"
+        },
+        "severity": "must",
+        "rule": {
+          "kind": "enclosuresConsistent"
+        },
+        "csmopRef": "9.2(vii)"
+      },
+      {
+        "id": "no-placeholders",
+        "label": {
+          "en": "No placeholder is left unfilled",
+          "hi": "कोई प्लेसहोल्डर अधूरा नहीं छूटा"
+        },
+        "why": {
+          "en": "A draft that goes out with {{…}} still in it has not been read.",
+          "hi": "जिस मसौदे में {{…}} रह जाए, उसे पढ़ा ही नहीं गया।"
+        },
+        "severity": "must",
+        "rule": {
+          "kind": "noPlaceholders"
+        }
+      }
+    ],
+    "notes": [
+      {
+        "key": "who-fairs-it",
+        "title": {
+          "en": "Who fairs and issues it",
+          "hi": "कौन स्वच्छ प्रति बनाकर जारी करता है"
+        },
+        "body": {
+          "en": "A draft D.O. letter is faired by the personal staff of the officer who signs it, and issued by them — unless enclosures have still to be attached, in which case the Section issues it.",
+          "hi": "अर्ध-सरकारी पत्र के मसौदे की स्वच्छ प्रति हस्ताक्षर करने वाले अधिकारी का निजी स्टाफ बनाता और जारी करता है — यदि संलग्नक लगाए जाने शेष हों तो अनुभाग जारी करता है।"
+        },
+        "csmopRef": "9.5(ii), Table 9.1"
+      },
+      {
+        "key": "emblem",
+        "title": {
+          "en": "Colour code and emblem",
+          "hi": "रंग संहिता और राजचिह्न"
+        },
+        "body": {
+          "en": "The colour code and the use of the National Emblem on D.O. stationery follow the instructions issued by the Ministry of Home Affairs from time to time.",
+          "hi": "अर्ध-सरकारी पत्र की स्टेशनरी पर रंग संहिता और राष्ट्रीय प्रतीक का प्रयोग गृह मंत्रालय द्वारा समय-समय पर जारी अनुदेशों के अनुसार होगा।"
+        },
+        "csmopRef": "9.5(iii)"
+      }
+    ],
+    "source": {
+      "name": "Central Secretariat Manual of Office Procedure, 2022 (16th edition), DARPG",
+      "url": "https://www.darpg.gov.in/static/uploads/2025/10/774e0b8f427b7875158363d842fa431f.pdf",
+      "reference": "CSMOP 2022, sixteenth edition",
+      "dated": "2022-08-05"
+    },
+    "fetchedAt": "2026-08-28T00:00:00Z",
+    "verify": false
+  }
+}

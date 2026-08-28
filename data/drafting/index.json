@@ -1,0 +1,281 @@
+{
+  "version": "1.0.0",
+  "generatedAt": "2026-08-28T00:00:00Z",
+  "disclaimer": {
+    "en": "Reference only; verify with the official gazette/order or your DDO.",
+    "hi": "केवल संदर्भ के लिए; सरकारी राजपत्र/आदेश या अपने डीडीओ से सत्यापित करें।"
+  },
+  "templates": [
+    {
+      "id": "circular",
+      "name": {
+        "en": "Circular",
+        "hi": "परिपत्र"
+      },
+      "shortName": {
+        "en": "Circular",
+        "hi": "परिपत्र"
+      },
+      "group": "communication",
+      "person": "third",
+      "csmopParas": [
+        "8.4(3)",
+        "Appendix 8.1"
+      ],
+      "verify": true
+    },
+    {
+      "id": "demi-official",
+      "name": {
+        "en": "Demi-official letter (D.O.)",
+        "hi": "अर्ध-सरकारी पत्र (डी.ओ.)"
+      },
+      "shortName": {
+        "en": "D.O. letter",
+        "hi": "अ.स. पत्र"
+      },
+      "group": "communication",
+      "person": "first",
+      "csmopParas": [
+        "8.4(2)",
+        "9.5",
+        "Appendix 8.1"
+      ],
+      "verify": false
+    },
+    {
+      "id": "endorsement",
+      "name": {
+        "en": "Endorsement",
+        "hi": "पृष्ठांकन"
+      },
+      "shortName": {
+        "en": "Endorsement",
+        "hi": "पृष्ठांकन"
+      },
+      "group": "communication",
+      "person": "third",
+      "csmopParas": [
+        "8.4(9)",
+        "Appendix 8.1"
+      ],
+      "verify": false
+    },
+    {
+      "id": "letter",
+      "name": {
+        "en": "Letter",
+        "hi": "पत्र"
+      },
+      "shortName": {
+        "en": "Letter",
+        "hi": "पत्र"
+      },
+      "group": "communication",
+      "person": "first",
+      "csmopParas": [
+        "8.4(1)",
+        "8.8 Table 8.1",
+        "Appendix 8.1"
+      ],
+      "verify": false
+    },
+    {
+      "id": "office-memorandum",
+      "name": {
+        "en": "Office Memorandum (O.M.)",
+        "hi": "कार्यालय ज्ञापन"
+      },
+      "shortName": {
+        "en": "O.M.",
+        "hi": "का.ज्ञा."
+      },
+      "group": "communication",
+      "person": "third",
+      "csmopParas": [
+        "8.4(3)",
+        "8.8 Table 8.1",
+        "Appendix 8.1"
+      ],
+      "verify": false
+    },
+    {
+      "id": "id-note",
+      "name": {
+        "en": "Inter-Departmental note (U.O. note)",
+        "hi": "अंतर-विभागीय टिप्पणी (यू.ओ. टिप्पणी)"
+      },
+      "shortName": {
+        "en": "I.D. note",
+        "hi": "अं.वि. टिप्पणी"
+      },
+      "group": "internal",
+      "person": "third",
+      "csmopParas": [
+        "8.1",
+        "8.1.2(v)",
+        "8.1.2(vi)",
+        "9.6(iv)",
+        "Appendix 8.1"
+      ],
+      "verify": false
+    },
+    {
+      "id": "noting",
+      "name": {
+        "en": "Note on a file (noting)",
+        "hi": "फाइल पर टिप्पणी"
+      },
+      "shortName": {
+        "en": "Noting",
+        "hi": "टिप्पणी"
+      },
+      "group": "internal",
+      "person": "third",
+      "csmopParas": [
+        "7.1",
+        "7.2",
+        "7.3",
+        "7.6",
+        "7.14",
+        "6.7",
+        "6.8"
+      ],
+      "verify": false
+    },
+    {
+      "id": "leave-application",
+      "name": {
+        "en": "Leave application",
+        "hi": "अवकाश आवेदन"
+      },
+      "shortName": {
+        "en": "Leave",
+        "hi": "अवकाश"
+      },
+      "group": "personal",
+      "person": "first",
+      "csmopParas": [
+        "8.4(4)",
+        "Appendix 8.1"
+      ],
+      "verify": true
+    },
+    {
+      "id": "representation",
+      "name": {
+        "en": "Representation",
+        "hi": "अभ्यावेदन"
+      },
+      "shortName": {
+        "en": "Representation",
+        "hi": "अभ्यावेदन"
+      },
+      "group": "personal",
+      "person": "first",
+      "csmopParas": [
+        "8.4(1)",
+        "8.9",
+        "Appendix 8.1"
+      ],
+      "verify": true
+    },
+    {
+      "id": "show-cause-reply",
+      "name": {
+        "en": "Reply to a show-cause notice",
+        "hi": "कारण बताओ नोटिस का उत्तर"
+      },
+      "shortName": {
+        "en": "Show-cause reply",
+        "hi": "कारण बताओ उत्तर"
+      },
+      "group": "personal",
+      "person": "first",
+      "csmopParas": [
+        "8.4(1)",
+        "7.2(xi)",
+        "Appendix 8.1"
+      ],
+      "verify": true
+    },
+    {
+      "id": "ta-bill-cover",
+      "name": {
+        "en": "Covering letter for a travelling allowance bill",
+        "hi": "यात्रा भत्ता बिल का अग्रेषण पत्र"
+      },
+      "shortName": {
+        "en": "T.A. bill cover",
+        "hi": "या.भ. बिल अग्रेषण"
+      },
+      "group": "personal",
+      "person": "first",
+      "csmopParas": [
+        "8.4(1)",
+        "8.4(9)",
+        "9.2(vii)",
+        "Appendix 8.1"
+      ],
+      "verify": true
+    },
+    {
+      "id": "tour-programme",
+      "name": {
+        "en": "Tour programme",
+        "hi": "दौरा कार्यक्रम"
+      },
+      "shortName": {
+        "en": "Tour",
+        "hi": "दौरा"
+      },
+      "group": "personal",
+      "person": "third",
+      "csmopParas": [
+        "8.4(4)",
+        "Appendix 8.1"
+      ],
+      "verify": true
+    },
+    {
+      "id": "notification",
+      "name": {
+        "en": "Notification",
+        "hi": "अधिसूचना"
+      },
+      "shortName": {
+        "en": "Notification",
+        "hi": "अधिसूचना"
+      },
+      "group": "statutory",
+      "person": "third",
+      "csmopParas": [
+        "8.4(6)",
+        "9.3",
+        "Appendix 8.1",
+        "Appendix 8.2"
+      ],
+      "verify": false
+    },
+    {
+      "id": "rti-reply",
+      "name": {
+        "en": "Reply to an RTI application",
+        "hi": "सूचना का अधिकार आवेदन का उत्तर"
+      },
+      "shortName": {
+        "en": "RTI reply",
+        "hi": "सू.अ. उत्तर"
+      },
+      "group": "statutory",
+      "person": "first",
+      "csmopParas": [
+        "8.4(1)",
+        "8.9",
+        "12.5",
+        "Appendix 8.1"
+      ],
+      "verify": true
+    }
+  ]
+}

@@ -1,0 +1,501 @@
+{
+  "version": "1.0.0",
+  "generatedAt": "2026-08-28T00:00:00Z",
+  "disclaimer": {
+    "en": "Reference only; verify with the official gazette/order or your DDO.",
+    "hi": "केवल संदर्भ के लिए; सरकारी राजपत्र/आदेश या अपने डीडीओ से सत्यापित करें।"
+  },
+  "template": {
+    "id": "representation",
+    "name": {
+      "en": "Representation",
+      "hi": "अभ्यावेदन"
+    },
+    "shortName": {
+      "en": "Representation",
+      "hi": "अभ्यावेदन"
+    },
+    "person": "first",
+    "usedBy": {
+      "en": "A Government servant representing to the competent authority on a matter of personal grievance — seniority, pay fixation, transfer, a denied claim — through proper channel.",
+      "hi": "व्यक्तिगत शिकायत के मामले में — वरिष्ठता, वेतन निर्धारण, स्थानांतरण, अस्वीकृत दावा — सक्षम प्राधिकारी को उचित माध्यम से अभ्यावेदन देने वाला सरकारी सेवक।"
+    },
+    "whenToUse": {
+      "en": "CSMOP prescribes no format for a representation; it is written on the letter chassis. One representation, one grievance, addressed to the authority competent to redress it, through the proper channel — the head of office forwards it with the Department's comments.",
+      "hi": "सीएसएमओपी अभ्यावेदन का कोई प्रारूप निर्धारित नहीं करता; यह पत्र के ढाँचे पर लिखा जाता है। एक अभ्यावेदन, एक शिकायत, उसी प्राधिकारी को संबोधित जो उसका निवारण करने में सक्षम है, उचित माध्यम से — कार्यालय प्रमुख इसे विभाग की टिप्पणी सहित अग्रेषित करता है।"
+    },
+    "salutation": {
+      "en": "Sir / Madam,",
+      "hi": "महोदय / महोदया,"
+    },
+    "subscription": {
+      "en": "Yours faithfully,",
+      "hi": "भवदीय,"
+    },
+    "urgencyAllowed": false,
+    "csmopRef": {
+      "edition": "CSMOP 2022, sixteenth edition",
+      "paras": [
+        "8.4(1)",
+        "8.9",
+        "Appendix 8.1"
+      ],
+      "pages": [
+        79,
+        86,
+        87
+      ],
+      "chassis": "letter",
+      "note": {
+        "en": "The manual's contribution here is 8.9: a communication from a Government servant, like one from a member of the public, is acknowledged within 15 days and replied to within the next 15.",
+        "hi": "यहाँ नियमावली का योगदान 8.9 है: सरकारी सेवक का पत्र भी, जनसाधारण के पत्र की भाँति, 15 दिन में स्वीकार किया जाता है और अगले 15 दिन में उसका उत्तर दिया जाता है।"
+      }
+    },
+    "fields": [
+      {
+        "id": "place",
+        "label": {
+          "en": "Place",
+          "hi": "स्थान"
+        },
+        "type": "text",
+        "required": true,
+        "sample": {
+          "en": "New Delhi",
+          "hi": "नई दिल्ली"
+        }
+      },
+      {
+        "id": "date",
+        "label": {
+          "en": "Date",
+          "hi": "दिनांक"
+        },
+        "type": "date",
+        "required": true,
+        "sample": {
+          "en": "2026-08-28",
+          "hi": "2026-08-28"
+        },
+        "hint": {
+          "en": "dd.mm.yyyy in English; दिनांक dd.mm.yyyy in Hindi.",
+          "hi": "अंग्रेज़ी में dd.mm.yyyy; हिंदी में दिनांक dd.mm.yyyy।"
+        }
+      },
+      {
+        "id": "addressee",
+        "label": {
+          "en": "To (competent authority)",
+          "hi": "सेवा में (सक्षम प्राधिकारी)"
+        },
+        "type": "textarea",
+        "required": true,
+        "sample": {
+          "en": "The Joint Secretary (Administration)\nDepartment of Personnel and Training\nNorth Block, New Delhi - 110001\n(Through proper channel)",
+          "hi": "संयुक्त सचिव (प्रशासन)\nकार्मिक और प्रशिक्षण विभाग\nनॉर्थ ब्लॉक, नई दिल्ली - 110001\n(उचित माध्यम से)"
+        }
+      },
+      {
+        "id": "subject",
+        "label": {
+          "en": "Subject",
+          "hi": "विषय"
+        },
+        "type": "text",
+        "required": true,
+        "sample": {
+          "en": "Representation against fixation of pay on promotion to the post of Section Officer — regarding.",
+          "hi": "अनुभाग अधिकारी के पद पर पदोन्नति पर वेतन निर्धारण के विरुद्ध अभ्यावेदन — के संबंध में।"
+        }
+      },
+      {
+        "id": "reference",
+        "label": {
+          "en": "Order or communication being represented against",
+          "hi": "जिस आदेश या पत्र के विरुद्ध अभ्यावेदन है"
+        },
+        "type": "text",
+        "required": true,
+        "sample": {
+          "en": "Office Order No. A-11011/4/2026-Estt. dated 12.06.2026",
+          "hi": "कार्यालय आदेश संख्या ए-11011/4/2026-स्थापना दिनांक 12.06.2026"
+        }
+      },
+      {
+        "id": "paras",
+        "label": {
+          "en": "Body paragraphs",
+          "hi": "मुख्य पैराग्राफ"
+        },
+        "type": "paras",
+        "required": true,
+        "sample": {
+          "en": [
+            "I respectfully submit the following representation for kind consideration against the fixation of my pay on promotion to the post of Section Officer, communicated vide the Office Order cited above.",
+            "I was promoted to the post of Section Officer with effect from 01.05.2026 and my pay was fixed at Level 8, Cell 1 of the Pay Matrix. I had exercised the option under FR 22(I)(a)(1) to have my pay fixed from the date of my next increment, which option is on record at page 11 of my service book.",
+            "The option appears not to have been given effect to. Had it been applied, my pay would have been fixed at Level 8, Cell 2 with effect from 01.07.2026, and the difference works out to Rs. 2,400 per month.",
+            "In similar circumstances, the pay of Shri A.B.C., Section Officer, was re-fixed by this Department vide Office Order No. A-11011/7/2025-Estt. dated 09.09.2025, a copy of which is enclosed.",
+            "I therefore request that my pay may kindly be re-fixed in terms of the option exercised, and the arrears released. I shall be grateful for a decision at an early date."
+          ],
+          "hi": [
+            "उपर्युक्त कार्यालय आदेश द्वारा संप्रेषित अनुभाग अधिकारी के पद पर पदोन्नति पर मेरे वेतन निर्धारण के विरुद्ध मैं सादर निम्नलिखित अभ्यावेदन कृपया विचारार्थ प्रस्तुत करता हूँ।",
+            "मुझे दिनांक 01.05.2026 से अनुभाग अधिकारी के पद पर पदोन्नत किया गया और मेरा वेतन वेतन मैट्रिक्स के स्तर 8, कोष्ठ 1 में निर्धारित किया गया। मैंने मूल नियम 22(I)(क)(1) के अधीन अपनी अगली वेतनवृद्धि की तारीख से वेतन निर्धारण का विकल्प दिया था, जो मेरी सेवा पुस्तिका के पृष्ठ 11 पर अभिलिखित है।",
+            "प्रतीत होता है कि उस विकल्प को कार्यान्वित नहीं किया गया। यदि उसे लागू किया जाता तो मेरा वेतन दिनांक 01.07.2026 से स्तर 8, कोष्ठ 2 में निर्धारित होता, और अंतर 2,400 रुपये प्रति माह बनता है।",
+            "इसी प्रकार की परिस्थितियों में इस विभाग द्वारा कार्यालय आदेश संख्या ए-11011/7/2025-स्थापना दिनांक 09.09.2025 से श्री ए.बी.सी., अनुभाग अधिकारी का वेतन पुनर्निर्धारित किया गया था, जिसकी प्रति संलग्न है।",
+            "अतः अनुरोध है कि दिए गए विकल्प के अनुसार मेरा वेतन पुनर्निर्धारित कर बकाया जारी करने की कृपा की जाए। शीघ्र निर्णय के लिए मैं आभारी रहूँगा।"
+          ]
+        },
+        "hint": {
+          "en": "One paragraph per line. The first is left unnumbered and the rest are numbered from 2.",
+          "hi": "प्रति पंक्ति एक पैराग्राफ। पहला बिना संख्या के रहता है और शेष 2 से क्रमांकित होते हैं।"
+        }
+      },
+      {
+        "id": "signatoryName",
+        "label": {
+          "en": "Your name",
+          "hi": "आपका नाम"
+        },
+        "type": "text",
+        "required": true,
+        "sample": {
+          "en": "X. Y. Zachariah",
+          "hi": "एक्स. वाई. ज़करिया"
+        }
+      },
+      {
+        "id": "signatoryDesignation",
+        "label": {
+          "en": "Your designation and Section",
+          "hi": "आपका पदनाम और अनुभाग"
+        },
+        "type": "text",
+        "required": true,
+        "sample": {
+          "en": "Section Officer, Establishment Section",
+          "hi": "अनुभाग अधिकारी, स्थापना अनुभाग"
+        }
+      },
+      {
+        "id": "phone",
+        "label": {
+          "en": "Telephone / mobile",
+          "hi": "दूरभाष / मोबाइल"
+        },
+        "type": "text",
+        "required": true,
+        "sample": {
+          "en": "011-2309 2591",
+          "hi": "011-2309 2591"
+        }
+      },
+      {
+        "id": "enclosures",
+        "label": {
+          "en": "Enclosures",
+          "hi": "संलग्नक"
+        },
+        "type": "list",
+        "required": false,
+        "sample": {
+          "en": [
+            "Copy of Office Order No. A-11011/7/2025-Estt. dated 09.09.2025",
+            "Copy of the option exercised under FR 22(I)(a)(1)"
+          ],
+          "hi": [
+            "कार्यालय आदेश संख्या ए-11011/7/2025-स्थापना दिनांक 09.09.2025 की प्रति",
+            "मूल नियम 22(I)(क)(1) के अधीन दिए गए विकल्प की प्रति"
+          ]
+        },
+        "hint": {
+          "en": "The count goes at the bottom left of the draft — 'Encl. 3' (9.2(vii)).",
+          "hi": "मसौदे के नीचे बाईं ओर संख्या दी जाती है — 'Encl. 3' (9.2(vii))।"
+        }
+      }
+    ],
+    "layout": {
+      "en": [
+        {
+          "role": "dateLine",
+          "align": "right",
+          "lines": [
+            "{{place}}, the {{date}}"
+          ]
+        },
+        {
+          "role": "addressee",
+          "align": "left",
+          "lines": [
+            "To,",
+            "{{addressee}}"
+          ]
+        },
+        {
+          "role": "subject",
+          "align": "left",
+          "lines": [
+            "Subject: {{subject}}"
+          ]
+        },
+        {
+          "role": "refLine",
+          "align": "left",
+          "lines": [
+            "Reference: {{reference}}"
+          ]
+        },
+        {
+          "role": "salutation",
+          "align": "left",
+          "lines": [
+            "Sir / Madam,"
+          ]
+        },
+        {
+          "role": "body",
+          "align": "left",
+          "source": "paras",
+          "numbered": true
+        },
+        {
+          "role": "closing",
+          "align": "right",
+          "lines": [
+            "Yours faithfully,"
+          ]
+        },
+        {
+          "role": "signature",
+          "align": "right",
+          "lines": [
+            "({{signatoryName}})",
+            "{{signatoryDesignation}}",
+            "Tele.: {{phone}}"
+          ]
+        },
+        {
+          "role": "enclosures",
+          "align": "left",
+          "lead": "List of enclosures:",
+          "source": "enclosures",
+          "itemPrefix": "ordinal",
+          "omitWhenEmpty": true
+        }
+      ],
+      "hi": [
+        {
+          "role": "dateLine",
+          "align": "right",
+          "lines": [
+            "{{place}}, दिनांक {{date}}"
+          ]
+        },
+        {
+          "role": "addressee",
+          "align": "left",
+          "lines": [
+            "सेवा में,",
+            "{{addressee}}"
+          ]
+        },
+        {
+          "role": "subject",
+          "align": "left",
+          "lines": [
+            "विषय : {{subject}}"
+          ]
+        },
+        {
+          "role": "refLine",
+          "align": "left",
+          "lines": [
+            "संदर्भ : {{reference}}"
+          ]
+        },
+        {
+          "role": "salutation",
+          "align": "left",
+          "lines": [
+            "महोदय / महोदया,"
+          ]
+        },
+        {
+          "role": "body",
+          "align": "left",
+          "source": "paras",
+          "numbered": true
+        },
+        {
+          "role": "closing",
+          "align": "right",
+          "lines": [
+            "भवदीय,"
+          ]
+        },
+        {
+          "role": "signature",
+          "align": "right",
+          "lines": [
+            "({{signatoryName}})",
+            "{{signatoryDesignation}}",
+            "दूरभाष : {{phone}}"
+          ]
+        },
+        {
+          "role": "enclosures",
+          "align": "left",
+          "lead": "संलग्नकों की सूची :",
+          "source": "enclosures",
+          "itemPrefix": "ordinal",
+          "omitWhenEmpty": true
+        }
+      ]
+    },
+    "checklist": [
+      {
+        "id": "order-referenced",
+        "label": {
+          "en": "The order represented against is identified",
+          "hi": "जिस आदेश के विरुद्ध अभ्यावेदन है वह पहचाना गया है"
+        },
+        "why": {
+          "en": "The number and date of the last communication in the series must always be referred to; a representation against an unidentified order cannot be examined.",
+          "hi": "शृंखला के अंतिम पत्र की संख्या और तारीख सदैव उद्धृत की जानी चाहिए; अपहचाने आदेश के विरुद्ध अभ्यावेदन की जाँच नहीं की जा सकती।"
+        },
+        "severity": "must",
+        "rule": {
+          "kind": "required",
+          "field": "reference"
+        },
+        "csmopRef": "9.2(iv)"
+      },
+      {
+        "id": "through-channel",
+        "label": {
+          "en": "Routed through the proper channel",
+          "hi": "उचित माध्यम से भेजा गया"
+        },
+        "why": {
+          "en": "A representation goes to the competent authority through the head of office, who forwards it with the Department's comments.",
+          "hi": "अभ्यावेदन कार्यालय प्रमुख के माध्यम से सक्षम प्राधिकारी को जाता है, जो उसे विभाग की टिप्पणी सहित अग्रेषित करता है।"
+        },
+        "severity": "must",
+        "rule": {
+          "kind": "regex",
+          "role": "addressee",
+          "pattern": "(?:through|माध्यम से)"
+        }
+      },
+      {
+        "id": "relief-sought",
+        "label": {
+          "en": "The relief sought is stated",
+          "hi": "माँगी गई राहत स्पष्ट है"
+        },
+        "why": {
+          "en": "Say what you are asking for. A representation that describes a grievance without naming the relief leaves the deciding officer nothing to order.",
+          "hi": "जो माँग रहे हैं वह लिखें। जिस अभ्यावेदन में शिकायत तो हो पर माँगी गई राहत का उल्लेख न हो, उसमें निर्णय करने वाले अधिकारी के आदेश देने के लिए कुछ नहीं बचता।"
+        },
+        "severity": "must",
+        "rule": {
+          "kind": "contains",
+          "role": "body",
+          "text": {
+            "en": "request",
+            "hi": "अनुरोध"
+          }
+        }
+      },
+      {
+        "id": "temperate-language",
+        "label": {
+          "en": "Courteous and temperate language",
+          "hi": "शिष्ट और संयमित भाषा"
+        },
+        "why": {
+          "en": "Where an error or an opinion has to be countered, observations are made in courteous and temperate language, free from personal remarks.",
+          "hi": "जहाँ किसी त्रुटि या मत का प्रतिवाद करना हो, वहाँ टिप्पणियाँ शिष्ट और संयमित भाषा में, व्यक्तिगत टीका-टिप्पणी से मुक्त होकर की जाती हैं।"
+        },
+        "severity": "should",
+        "rule": {
+          "kind": "regexAbsent",
+          "role": "body",
+          "pattern": "(?:deliberately|malafide|mala fide|negligence of the|jaan-boojhkar|जान-बूझकर|दुर्भावना)"
+        },
+        "csmopRef": "7.2(xi)"
+      },
+      {
+        "id": "subject",
+        "label": {
+          "en": "The subject is stated",
+          "hi": "विषय लिखा गया है"
+        },
+        "why": {
+          "en": "The specimens in Appendix 8.1 carry a subject line above the body on every form that is addressed to anyone.",
+          "hi": "परिशिष्ट 8.1 के नमूनों में हर संबोधित प्रपत्र पर मुख्य भाग के ऊपर विषय पंक्ति होती है।"
+        },
+        "severity": "must",
+        "rule": {
+          "kind": "blockPresent",
+          "role": "subject"
+        },
+        "csmopRef": "Appendix 8.1"
+      },
+      {
+        "id": "para-numbering",
+        "label": {
+          "en": "Paragraphs are serially numbered",
+          "hi": "पैराग्राफ क्रमानुसार संख्यांकित हैं"
+        },
+        "why": {
+          "en": "The specimens leave the first paragraph unnumbered and number the rest from 2.",
+          "hi": "नमूनों में पहला पैराग्राफ बिना संख्या के रहता है और शेष 2 से क्रमांकित होते हैं।"
+        },
+        "severity": "must",
+        "rule": {
+          "kind": "paraNumbering"
+        },
+        "csmopRef": "Appendix 8.1"
+      },
+      {
+        "id": "enclosures",
+        "label": {
+          "en": "Enclosures mentioned in the text are listed",
+          "hi": "पाठ में उल्लिखित संलग्नक सूचीबद्ध हैं"
+        },
+        "why": {
+          "en": "A draft should clearly specify the enclosures which are to accompany the fair copy, and the number goes at the bottom left.",
+          "hi": "मसौदे में स्पष्ट रूप से बताया जाना चाहिए कि स्वच्छ प्रति के साथ कौन-से संलग्नक जाएँगे, और संख्या नीचे बाईं ओर दी जाती है।"
+        },
+        "severity": "must",
+        "rule": {
+          "kind": "enclosuresConsistent"
+        },
+        "csmopRef": "9.2(vii)"
+      },
+      {
+        "id": "no-placeholders",
+        "label": {
+          "en": "No placeholder is left unfilled",
+          "hi": "कोई प्लेसहोल्डर अधूरा नहीं छूटा"
+        },
+        "why": {
+          "en": "A draft that goes out with {{…}} still in it has not been read.",
+          "hi": "जिस मसौदे में {{…}} रह जाए, उसे पढ़ा ही नहीं गया।"
+        },
+        "severity": "must",
+        "rule": {
+          "kind": "noPlaceholders"
+        }
+      }
+    ],
+    "source": {
+      "name": "Central Secretariat Manual of Office Procedure, 2022 (16th edition), DARPG",
+      "url": "https://www.darpg.gov.in/static/uploads/2025/10/774e0b8f427b7875158363d842fa431f.pdf",
+      "reference": "CSMOP 2022, sixteenth edition",
+      "dated": "2022-08-05"
+    },
+    "fetchedAt": "2026-08-28T00:00:00Z",
+    "verify": true
+  }
+}

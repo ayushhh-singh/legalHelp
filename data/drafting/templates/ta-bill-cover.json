@@ -1,0 +1,535 @@
+{
+  "version": "1.0.0",
+  "generatedAt": "2026-08-28T00:00:00Z",
+  "disclaimer": {
+    "en": "Reference only; verify with the official gazette/order or your DDO.",
+    "hi": "केवल संदर्भ के लिए; सरकारी राजपत्र/आदेश या अपने डीडीओ से सत्यापित करें।"
+  },
+  "template": {
+    "id": "ta-bill-cover",
+    "name": {
+      "en": "Covering letter for a travelling allowance bill",
+      "hi": "यात्रा भत्ता बिल का अग्रेषण पत्र"
+    },
+    "shortName": {
+      "en": "T.A. bill cover",
+      "hi": "या.भ. बिल अग्रेषण"
+    },
+    "person": "first",
+    "usedBy": {
+      "en": "An officer forwarding a completed travelling allowance bill to the Drawing and Disbursing Officer after a tour.",
+      "hi": "दौरे के पश्चात पूर्ण यात्रा भत्ता बिल आहरण एवं संवितरण अधिकारी को अग्रेषित करने वाला अधिकारी।"
+    },
+    "whenToUse": {
+      "en": "The covering letter is what makes the bill checkable: it names the tour and its approval, lists what is enclosed — tickets, boarding passes, hotel receipts — and carries the certificates the DDO needs before passing the claim.",
+      "hi": "अग्रेषण पत्र ही बिल को जाँच-योग्य बनाता है: उसमें दौरे और उसके अनुमोदन का उल्लेख होता है, संलग्न सामग्री — टिकट, बोर्डिंग पास, होटल रसीदें — सूचीबद्ध होती है, और वे प्रमाणन होते हैं जिनकी आहरण एवं संवितरण अधिकारी को दावा पारित करने से पूर्व आवश्यकता होती है।"
+    },
+    "salutation": {
+      "en": "Sir / Madam,",
+      "hi": "महोदय / महोदया,"
+    },
+    "subscription": {
+      "en": "Yours faithfully,",
+      "hi": "भवदीय,"
+    },
+    "urgencyAllowed": false,
+    "csmopRef": {
+      "edition": "CSMOP 2022, sixteenth edition",
+      "paras": [
+        "8.4(1)",
+        "8.4(9)",
+        "9.2(vii)",
+        "Appendix 8.1"
+      ],
+      "pages": [
+        79,
+        80,
+        87,
+        103
+      ],
+      "chassis": "letter",
+      "note": {
+        "en": "The manual prescribes no form for a T.A. bill. This is the letter chassis with the enclosure discipline of 9.2(vii) — which is the whole point of the document.",
+        "hi": "नियमावली यात्रा भत्ता बिल के लिए कोई प्रपत्र निर्धारित नहीं करती। यह 9.2(vii) के संलग्नक अनुशासन सहित पत्र का ढाँचा है — यही इस दस्तावेज़ का पूरा प्रयोजन है।"
+      }
+    },
+    "fields": [
+      {
+        "id": "fileNumber",
+        "label": {
+          "en": "File / communication number",
+          "hi": "फाइल / पत्र संख्या"
+        },
+        "type": "text",
+        "required": true,
+        "sample": {
+          "en": "A-11011/2/2026-Estt.",
+          "hi": "ए-11011/2/2026-स्थापना"
+        },
+        "hint": {
+          "en": "Every draft put up on a file bears the file number (9.2(vi)).",
+          "hi": "फाइल पर प्रस्तुत प्रत्येक मसौदे पर फाइल संख्या होती है (9.2(vi))।"
+        }
+      },
+      {
+        "id": "place",
+        "label": {
+          "en": "Place",
+          "hi": "स्थान"
+        },
+        "type": "text",
+        "required": true,
+        "sample": {
+          "en": "New Delhi",
+          "hi": "नई दिल्ली"
+        }
+      },
+      {
+        "id": "date",
+        "label": {
+          "en": "Date",
+          "hi": "दिनांक"
+        },
+        "type": "date",
+        "required": true,
+        "sample": {
+          "en": "2026-08-28",
+          "hi": "2026-08-28"
+        },
+        "hint": {
+          "en": "dd.mm.yyyy in English; दिनांक dd.mm.yyyy in Hindi.",
+          "hi": "अंग्रेज़ी में dd.mm.yyyy; हिंदी में दिनांक dd.mm.yyyy।"
+        }
+      },
+      {
+        "id": "addressee",
+        "label": {
+          "en": "To (Drawing and Disbursing Officer)",
+          "hi": "सेवा में (आहरण एवं संवितरण अधिकारी)"
+        },
+        "type": "textarea",
+        "required": true,
+        "sample": {
+          "en": "The Drawing and Disbursing Officer\nDepartment of Personnel and Training\nNorth Block, New Delhi - 110001",
+          "hi": "आहरण एवं संवितरण अधिकारी\nकार्मिक और प्रशिक्षण विभाग\nनॉर्थ ब्लॉक, नई दिल्ली - 110001"
+        }
+      },
+      {
+        "id": "subject",
+        "label": {
+          "en": "Subject",
+          "hi": "विषय"
+        },
+        "type": "text",
+        "required": true,
+        "sample": {
+          "en": "Travelling allowance bill in respect of the tour to Mumbai from 15.09.2026 to 18.09.2026 — forwarding regarding.",
+          "hi": "दिनांक 15.09.2026 से 18.09.2026 तक मुंबई दौरे का यात्रा भत्ता बिल — अग्रेषण के संबंध में।"
+        }
+      },
+      {
+        "id": "reference",
+        "label": {
+          "en": "Tour approval",
+          "hi": "दौरा अनुमोदन"
+        },
+        "type": "text",
+        "required": true,
+        "sample": {
+          "en": "Tour programme approved vide Office Order No. A-24011/6/2026-Admn. dated 08.09.2026",
+          "hi": "कार्यालय आदेश संख्या ए-24011/6/2026-प्रशासन दिनांक 08.09.2026 द्वारा अनुमोदित दौरा कार्यक्रम"
+        }
+      },
+      {
+        "id": "amount",
+        "label": {
+          "en": "Amount claimed (Rs.)",
+          "hi": "दावा की गई राशि (रुपये)"
+        },
+        "type": "text",
+        "required": true,
+        "sample": {
+          "en": "18,640",
+          "hi": "18,640"
+        }
+      },
+      {
+        "id": "paras",
+        "label": {
+          "en": "Body paragraphs",
+          "hi": "मुख्य पैराग्राफ"
+        },
+        "type": "paras",
+        "required": true,
+        "sample": {
+          "en": [
+            "The travelling allowance bill in respect of the tour undertaken to Mumbai from 15.09.2026 to 18.09.2026, approved vide the Office Order cited above, is forwarded herewith for arranging payment. The amount claimed is Rs. 18,640.",
+            "It is certified that the journeys were performed by the class of accommodation for which the claim is made, that no free transport or hospitality was availed of, and that the daily allowance claimed is for the halts actually made.",
+            "No advance was drawn against this tour."
+          ],
+          "hi": [
+            "उपर्युक्त कार्यालय आदेश द्वारा अनुमोदित, दिनांक 15.09.2026 से 18.09.2026 तक मुंबई के दौरे का यात्रा भत्ता बिल भुगतान की व्यवस्था हेतु इसके साथ अग्रेषित है। दावा की गई राशि 18,640 रुपये है।",
+            "यह प्रमाणित किया जाता है कि यात्राएँ उसी श्रेणी में की गईं जिसके लिए दावा किया गया है, कोई नि:शुल्क परिवहन या आतिथ्य नहीं लिया गया, और दावा किया गया दैनिक भत्ता वास्तव में किए गए विश्रामों के लिए है।",
+            "इस दौरे के विरुद्ध कोई अग्रिम नहीं लिया गया था।"
+          ]
+        },
+        "hint": {
+          "en": "One paragraph per line. The first is left unnumbered and the rest are numbered from 2.",
+          "hi": "प्रति पंक्ति एक पैराग्राफ। पहला बिना संख्या के रहता है और शेष 2 से क्रमांकित होते हैं।"
+        }
+      },
+      {
+        "id": "signatoryName",
+        "label": {
+          "en": "Your name",
+          "hi": "आपका नाम"
+        },
+        "type": "text",
+        "required": true,
+        "sample": {
+          "en": "X. Y. Zachariah",
+          "hi": "एक्स. वाई. ज़करिया"
+        }
+      },
+      {
+        "id": "signatoryDesignation",
+        "label": {
+          "en": "Your designation and Level",
+          "hi": "आपका पदनाम और स्तर"
+        },
+        "type": "text",
+        "required": true,
+        "sample": {
+          "en": "Section Officer, Level 8",
+          "hi": "अनुभाग अधिकारी, स्तर 8"
+        }
+      },
+      {
+        "id": "phone",
+        "label": {
+          "en": "Telephone / mobile",
+          "hi": "दूरभाष / मोबाइल"
+        },
+        "type": "text",
+        "required": true,
+        "sample": {
+          "en": "011-2309 2591",
+          "hi": "011-2309 2591"
+        }
+      },
+      {
+        "id": "enclosures",
+        "label": {
+          "en": "Enclosures",
+          "hi": "संलग्नक"
+        },
+        "type": "list",
+        "required": false,
+        "sample": {
+          "en": [
+            "Travelling allowance bill in the prescribed form (2 pages)",
+            "Copy of the approved tour programme",
+            "Rail tickets and reservation slips, onward and return",
+            "Hotel receipt for three nights at Mumbai"
+          ],
+          "hi": [
+            "निर्धारित प्रपत्र में यात्रा भत्ता बिल (2 पृष्ठ)",
+            "अनुमोदित दौरा कार्यक्रम की प्रति",
+            "जाने और लौटने के रेल टिकट तथा आरक्षण पर्चियाँ",
+            "मुंबई में तीन रात्रि की होटल रसीद"
+          ]
+        },
+        "hint": {
+          "en": "The count goes at the bottom left of the draft — 'Encl. 3' (9.2(vii)).",
+          "hi": "मसौदे के नीचे बाईं ओर संख्या दी जाती है — 'Encl. 3' (9.2(vii))।"
+        }
+      }
+    ],
+    "layout": {
+      "en": [
+        {
+          "role": "fileNumber",
+          "align": "left",
+          "lines": [
+            "No. {{fileNumber}}"
+          ]
+        },
+        {
+          "role": "dateLine",
+          "align": "right",
+          "lines": [
+            "{{place}}, the {{date}}"
+          ]
+        },
+        {
+          "role": "addressee",
+          "align": "left",
+          "lines": [
+            "To,",
+            "{{addressee}}"
+          ]
+        },
+        {
+          "role": "subject",
+          "align": "left",
+          "lines": [
+            "Subject: {{subject}}"
+          ]
+        },
+        {
+          "role": "refLine",
+          "align": "left",
+          "lines": [
+            "Reference: {{reference}}",
+            "Amount claimed: Rs. {{amount}}"
+          ]
+        },
+        {
+          "role": "salutation",
+          "align": "left",
+          "lines": [
+            "Sir / Madam,"
+          ]
+        },
+        {
+          "role": "body",
+          "align": "left",
+          "source": "paras",
+          "numbered": true
+        },
+        {
+          "role": "closing",
+          "align": "right",
+          "lines": [
+            "Yours faithfully,"
+          ]
+        },
+        {
+          "role": "signature",
+          "align": "right",
+          "lines": [
+            "({{signatoryName}})",
+            "{{signatoryDesignation}}",
+            "Tele.: {{phone}}"
+          ]
+        },
+        {
+          "role": "enclosures",
+          "align": "left",
+          "lead": "List of enclosures:",
+          "source": "enclosures",
+          "itemPrefix": "ordinal",
+          "omitWhenEmpty": true
+        }
+      ],
+      "hi": [
+        {
+          "role": "fileNumber",
+          "align": "left",
+          "lines": [
+            "संख्या {{fileNumber}}"
+          ]
+        },
+        {
+          "role": "dateLine",
+          "align": "right",
+          "lines": [
+            "{{place}}, दिनांक {{date}}"
+          ]
+        },
+        {
+          "role": "addressee",
+          "align": "left",
+          "lines": [
+            "सेवा में,",
+            "{{addressee}}"
+          ]
+        },
+        {
+          "role": "subject",
+          "align": "left",
+          "lines": [
+            "विषय : {{subject}}"
+          ]
+        },
+        {
+          "role": "refLine",
+          "align": "left",
+          "lines": [
+            "संदर्भ : {{reference}}",
+            "दावा की गई राशि : {{amount}} रुपये"
+          ]
+        },
+        {
+          "role": "salutation",
+          "align": "left",
+          "lines": [
+            "महोदय / महोदया,"
+          ]
+        },
+        {
+          "role": "body",
+          "align": "left",
+          "source": "paras",
+          "numbered": true
+        },
+        {
+          "role": "closing",
+          "align": "right",
+          "lines": [
+            "भवदीय,"
+          ]
+        },
+        {
+          "role": "signature",
+          "align": "right",
+          "lines": [
+            "({{signatoryName}})",
+            "{{signatoryDesignation}}",
+            "दूरभाष : {{phone}}"
+          ]
+        },
+        {
+          "role": "enclosures",
+          "align": "left",
+          "lead": "संलग्नकों की सूची :",
+          "source": "enclosures",
+          "itemPrefix": "ordinal",
+          "omitWhenEmpty": true
+        }
+      ]
+    },
+    "checklist": [
+      {
+        "id": "enclosures-listed",
+        "label": {
+          "en": "Every voucher is listed",
+          "hi": "प्रत्येक वाउचर सूचीबद्ध है"
+        },
+        "why": {
+          "en": "A draft should clearly specify the enclosures which are to accompany the fair copy, and the number goes at the bottom left. A T.A. bill without its tickets comes back.",
+          "hi": "मसौदे में स्पष्ट रूप से बताया जाना चाहिए कि स्वच्छ प्रति के साथ कौन-से संलग्नक जाएँगे, और संख्या नीचे बाईं ओर दी जाती है। बिना टिकटों के यात्रा भत्ता बिल लौट आता है।"
+        },
+        "severity": "must",
+        "rule": {
+          "kind": "listNonEmpty",
+          "field": "enclosures"
+        },
+        "csmopRef": "9.2(vii)"
+      },
+      {
+        "id": "tour-approval",
+        "label": {
+          "en": "The tour approval is cited",
+          "hi": "दौरा अनुमोदन उद्धृत है"
+        },
+        "why": {
+          "en": "The bill is settled against the approved tour programme; cite the order that approved it by number and date.",
+          "hi": "बिल का निपटान अनुमोदित दौरा कार्यक्रम के विरुद्ध होता है; अनुमोदन करने वाले आदेश को संख्या और तारीख सहित उद्धृत करें।"
+        },
+        "severity": "must",
+        "rule": {
+          "kind": "required",
+          "field": "reference"
+        },
+        "csmopRef": "9.2(iv)"
+      },
+      {
+        "id": "certificates",
+        "label": {
+          "en": "The certificates the DDO needs are included",
+          "hi": "आहरण एवं संवितरण अधिकारी के लिए अपेक्षित प्रमाणन शामिल हैं"
+        },
+        "why": {
+          "en": "Class of travel actually used, no free transport or hospitality availed, daily allowance only for halts actually made, and whether an advance was drawn.",
+          "hi": "वास्तव में प्रयुक्त यात्रा श्रेणी, कोई नि:शुल्क परिवहन या आतिथ्य नहीं लिया गया, दैनिक भत्ता केवल वास्तविक विश्रामों के लिए, और क्या अग्रिम लिया गया था।"
+        },
+        "severity": "must",
+        "rule": {
+          "kind": "contains",
+          "role": "body",
+          "text": {
+            "en": "certified",
+            "hi": "प्रमाणित"
+          }
+        }
+      },
+      {
+        "id": "amount",
+        "label": {
+          "en": "The amount claimed is stated",
+          "hi": "दावा की गई राशि लिखी गई है"
+        },
+        "why": {
+          "en": "The covering letter states the amount so the bill can be checked against it.",
+          "hi": "अग्रेषण पत्र में राशि लिखी जाती है ताकि बिल की उससे जाँच हो सके।"
+        },
+        "severity": "must",
+        "rule": {
+          "kind": "required",
+          "field": "amount"
+        }
+      },
+      {
+        "id": "subject",
+        "label": {
+          "en": "The subject is stated",
+          "hi": "विषय लिखा गया है"
+        },
+        "why": {
+          "en": "The specimens in Appendix 8.1 carry a subject line above the body on every form that is addressed to anyone.",
+          "hi": "परिशिष्ट 8.1 के नमूनों में हर संबोधित प्रपत्र पर मुख्य भाग के ऊपर विषय पंक्ति होती है।"
+        },
+        "severity": "must",
+        "rule": {
+          "kind": "blockPresent",
+          "role": "subject"
+        },
+        "csmopRef": "Appendix 8.1"
+      },
+      {
+        "id": "number-and-date",
+        "label": {
+          "en": "Number and date are on the draft",
+          "hi": "मसौदे पर संख्या और दिनांक हैं"
+        },
+        "why": {
+          "en": "Every draft put up on a file bears the file number, and the number and date of the last communication in the series must be quoted.",
+          "hi": "फाइल पर प्रस्तुत प्रत्येक मसौदे पर फाइल संख्या होती है, और शृंखला के अंतिम पत्र की संख्या तथा दिनांक उद्धृत की जानी चाहिए।"
+        },
+        "severity": "must",
+        "rule": {
+          "kind": "allRequired",
+          "fields": [
+            "fileNumber",
+            "date"
+          ]
+        },
+        "csmopRef": "9.2(iv), 9.2(vi)"
+      },
+      {
+        "id": "no-placeholders",
+        "label": {
+          "en": "No placeholder is left unfilled",
+          "hi": "कोई प्लेसहोल्डर अधूरा नहीं छूटा"
+        },
+        "why": {
+          "en": "A draft that goes out with {{…}} still in it has not been read.",
+          "hi": "जिस मसौदे में {{…}} रह जाए, उसे पढ़ा ही नहीं गया।"
+        },
+        "severity": "must",
+        "rule": {
+          "kind": "noPlaceholders"
+        }
+      }
+    ],
+    "source": {
+      "name": "Central Secretariat Manual of Office Procedure, 2022 (16th edition), DARPG",
+      "url": "https://www.darpg.gov.in/static/uploads/2025/10/774e0b8f427b7875158363d842fa431f.pdf",
+      "reference": "CSMOP 2022, sixteenth edition",
+      "dated": "2022-08-05"
+    },
+    "fetchedAt": "2026-08-28T00:00:00Z",
+    "verify": true
+  }
+}

@@ -1,0 +1,468 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://sahayak.local/schemas/drafting-template.schema.json",
+  "title": "A DocTemplate — one Central Secretariat document type",
+  "description": "Everything needed to render, check and cite one kind of official communication: the fields an officer fills, a bilingual layout of blocks that produces a correctly formatted document when rendered with those values, a bilingual checklist whose items are machine-evaluable against the rendered model, and the CSMOP 2022 paragraph the form comes from. The layout is data, not code: src/lib/drafting/engine.ts knows about block roles, never about a particular document type.",
+  "type": "object",
+  "required": ["version", "generatedAt", "disclaimer", "template"],
+  "additionalProperties": false,
+  "properties": {
+    "$schema": {
+      "type": "string"
+    },
+    "version": {
+      "type": "string",
+      "pattern": "^\\d+\\.\\d+\\.\\d+$"
+    },
+    "generatedAt": {
+      "type": "string"
+    },
+    "disclaimer": {
+      "$ref": "#/$defs/bilingual"
+    },
+    "template": {
+      "$ref": "#/$defs/template"
+    }
+  },
+  "$defs": {
+    "bilingual": {
+      "type": "object",
+      "required": ["en", "hi"],
+      "additionalProperties": false,
+      "properties": {
+        "en": {
+          "type": "string",
+          "minLength": 1
+        },
+        "hi": {
+          "type": "string",
+          "minLength": 1
+        }
+      }
+    },
+    "source": {
+      "type": "object",
+      "required": ["name", "url"],
+      "additionalProperties": false,
+      "properties": {
+        "name": {
+          "type": "string",
+          "minLength": 1
+        },
+        "url": {
+          "type": "string",
+          "pattern": "^https?://"
+        },
+        "reference": {
+          "type": "string"
+        },
+        "dated": {
+          "type": "string",
+          "pattern": "^\\d{4}-\\d{2}-\\d{2}$"
+        },
+        "note": {
+          "$ref": "#/$defs/bilingual"
+        }
+      }
+    },
+    "csmopRef": {
+      "type": "object",
+      "description": "Where in the manual this form is described. `paras` are CSMOP 2022 paragraph numbers or appendix names; `pages` are printed page numbers in the sixteenth edition; `chassis` names the template whose format this one borrows when the manual prescribes no format of its own.",
+      "required": ["edition", "paras"],
+      "additionalProperties": false,
+      "properties": {
+        "edition": {
+          "type": "string",
+          "minLength": 1
+        },
+        "paras": {
+          "type": "array",
+          "minItems": 1,
+          "items": {
+            "type": "string",
+            "minLength": 1
+          }
+        },
+        "pages": {
+          "type": "array",
+          "items": {
+            "type": "integer",
+            "minimum": 1
+          }
+        },
+        "chassis": {
+          "type": "string",
+          "pattern": "^[a-z0-9-]+$"
+        },
+        "note": {
+          "$ref": "#/$defs/bilingual"
+        }
+      }
+    },
+    "field": {
+      "type": "object",
+      "required": ["id", "label", "type", "required", "sample"],
+      "additionalProperties": false,
+      "properties": {
+        "id": {
+          "type": "string",
+          "pattern": "^[a-zA-Z][a-zA-Z0-9]*$"
+        },
+        "label": {
+          "$ref": "#/$defs/bilingual"
+        },
+        "hint": {
+          "$ref": "#/$defs/bilingual"
+        },
+        "type": {
+          "type": "string",
+          "enum": ["text", "textarea", "date", "paras", "list", "select"]
+        },
+        "required": {
+          "type": "boolean"
+        },
+        "sample": {
+          "description": "A worked example, bilingual. Every template must render from its samples alone with no placeholder left unresolved; tests/drafting-data.test.ts asserts exactly that.",
+          "oneOf": [
+            {
+              "$comment": "An optional field may legitimately have an empty sample; drafting_seed.py asserts that a required one does not.",
+              "type": "object",
+              "required": ["en", "hi"],
+              "additionalProperties": false,
+              "properties": {
+                "en": {
+                  "type": "string"
+                },
+                "hi": {
+                  "type": "string"
+                }
+              }
+            },
+            {
+              "type": "object",
+              "required": ["en", "hi"],
+              "additionalProperties": false,
+              "properties": {
+                "en": {
+                  "type": "array",
+                  "items": {
+                    "type": "string"
+                  }
+                },
+                "hi": {
+                  "type": "array",
+                  "items": {
+                    "type": "string"
+                  }
+                }
+              }
+            }
+          ]
+        },
+        "options": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "required": ["value", "label"],
+            "additionalProperties": false,
+            "properties": {
+              "value": {
+                "type": "string",
+                "minLength": 1
+              },
+              "label": {
+                "$ref": "#/$defs/bilingual"
+              }
+            }
+          }
+        },
+        "maxWords": {
+          "type": "integer",
+          "minimum": 1
+        }
+      }
+    },
+    "block": {
+      "type": "object",
+      "description": "One structural element of the document. `role` is what the engine and the checklist reason about; `lines` are templates containing {{fieldId}} placeholders; `source` names a list or paras field whose items become the lines.",
+      "required": ["role"],
+      "additionalProperties": false,
+      "properties": {
+        "role": {
+          "type": "string",
+          "enum": [
+            "fileNumber",
+            "urgency",
+            "gazetteLine",
+            "header",
+            "title",
+            "dateLine",
+            "addressee",
+            "attention",
+            "subject",
+            "refLine",
+            "salutation",
+            "body",
+            "closing",
+            "signature",
+            "enclosures",
+            "copyTo",
+            "endorsement",
+            "footer"
+          ]
+        },
+        "align": {
+          "type": "string",
+          "enum": ["left", "center", "right"]
+        },
+        "emphasis": {
+          "type": "string",
+          "enum": ["normal", "bold", "title"]
+        },
+        "lines": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        },
+        "lead": {
+          "type": "string"
+        },
+        "source": {
+          "type": "string",
+          "pattern": "^[a-zA-Z][a-zA-Z0-9]*$"
+        },
+        "numbered": {
+          "type": "boolean",
+          "description": "Serial paragraph numbering. CSMOP prints the first paragraph unnumbered and numbers from 2 (Appendix 8.1, every specimen); para 7.2(xiv) requires notes to be divided into serially numbered paragraphs, which the noting template sets with `numberFrom` 1."
+        },
+        "numberFrom": {
+          "type": "integer",
+          "minimum": 1
+        },
+        "itemPrefix": {
+          "type": "string",
+          "enum": ["none", "ordinal", "roman", "bullet"]
+        },
+        "omitWhenEmpty": {
+          "type": "boolean"
+        }
+      }
+    },
+    "rule": {
+      "type": "object",
+      "description": "A predicate the checklist evaluator runs against the rendered document model. Every kind is implemented in src/lib/drafting/checklist.ts; an unknown kind is an error there, not a silent pass.",
+      "required": ["kind"],
+      "additionalProperties": false,
+      "properties": {
+        "kind": {
+          "type": "string",
+          "enum": [
+            "required",
+            "allRequired",
+            "blockPresent",
+            "contains",
+            "regex",
+            "regexAbsent",
+            "paraNumbering",
+            "noPlaceholders",
+            "person",
+            "enclosuresConsistent",
+            "listNonEmpty",
+            "maxWords",
+            "replyDate"
+          ]
+        },
+        "field": {
+          "type": "string",
+          "pattern": "^[a-zA-Z][a-zA-Z0-9]*$"
+        },
+        "fields": {
+          "type": "array",
+          "items": {
+            "type": "string",
+            "pattern": "^[a-zA-Z][a-zA-Z0-9]*$"
+          }
+        },
+        "role": {
+          "type": "string"
+        },
+        "text": {
+          "$ref": "#/$defs/bilingual"
+        },
+        "pattern": {
+          "type": "string"
+        },
+        "value": {
+          "type": "string"
+        },
+        "count": {
+          "type": "integer",
+          "minimum": 1
+        }
+      }
+    },
+    "checklistItem": {
+      "type": "object",
+      "required": ["id", "label", "why", "severity", "rule"],
+      "additionalProperties": false,
+      "properties": {
+        "id": {
+          "type": "string",
+          "pattern": "^[a-z0-9-]+$"
+        },
+        "label": {
+          "$ref": "#/$defs/bilingual"
+        },
+        "why": {
+          "$ref": "#/$defs/bilingual"
+        },
+        "severity": {
+          "type": "string",
+          "enum": ["must", "should"]
+        },
+        "csmopRef": {
+          "type": "string"
+        },
+        "rule": {
+          "$ref": "#/$defs/rule"
+        }
+      }
+    },
+    "template": {
+      "type": "object",
+      "required": [
+        "id",
+        "name",
+        "shortName",
+        "person",
+        "usedBy",
+        "whenToUse",
+        "csmopRef",
+        "fields",
+        "layout",
+        "checklist",
+        "source",
+        "fetchedAt",
+        "verify"
+      ],
+      "additionalProperties": false,
+      "properties": {
+        "id": {
+          "type": "string",
+          "pattern": "^[a-z0-9-]+$"
+        },
+        "name": {
+          "$ref": "#/$defs/bilingual"
+        },
+        "shortName": {
+          "$ref": "#/$defs/bilingual"
+        },
+        "person": {
+          "type": "string",
+          "enum": ["first", "third"],
+          "description": "CSMOP 8.4: a letter and a demi-official letter are written in the first person; an Office Memorandum is written in the third person and bears no salutation or subscription."
+        },
+        "usedBy": {
+          "$ref": "#/$defs/bilingual"
+        },
+        "whenToUse": {
+          "$ref": "#/$defs/bilingual"
+        },
+        "salutation": {
+          "oneOf": [
+            {
+              "type": "null"
+            },
+            {
+              "$ref": "#/$defs/bilingual"
+            }
+          ]
+        },
+        "subscription": {
+          "oneOf": [
+            {
+              "type": "null"
+            },
+            {
+              "$ref": "#/$defs/bilingual"
+            }
+          ]
+        },
+        "urgencyAllowed": {
+          "type": "boolean"
+        },
+        "csmopRef": {
+          "$ref": "#/$defs/csmopRef"
+        },
+        "fields": {
+          "type": "array",
+          "minItems": 1,
+          "items": {
+            "$ref": "#/$defs/field"
+          }
+        },
+        "layout": {
+          "type": "object",
+          "required": ["en", "hi"],
+          "additionalProperties": false,
+          "properties": {
+            "en": {
+              "type": "array",
+              "minItems": 1,
+              "items": {
+                "$ref": "#/$defs/block"
+              }
+            },
+            "hi": {
+              "type": "array",
+              "minItems": 1,
+              "items": {
+                "$ref": "#/$defs/block"
+              }
+            }
+          }
+        },
+        "checklist": {
+          "type": "array",
+          "minItems": 1,
+          "items": {
+            "$ref": "#/$defs/checklistItem"
+          }
+        },
+        "notes": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "required": ["key", "title", "body"],
+            "additionalProperties": false,
+            "properties": {
+              "key": {
+                "type": "string",
+                "pattern": "^[a-z0-9-]+$"
+              },
+              "title": {
+                "$ref": "#/$defs/bilingual"
+              },
+              "body": {
+                "$ref": "#/$defs/bilingual"
+              },
+              "csmopRef": {
+                "type": "string"
+              }
+            }
+          }
+        },
+        "source": {
+          "$ref": "#/$defs/source"
+        },
+        "fetchedAt": {
+          "type": "string"
+        },
+        "verify": {
+          "type": "boolean"
+        }
+      }
+    }
+  }
+}

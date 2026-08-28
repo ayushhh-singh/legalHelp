@@ -95,61 +95,85 @@ describe('browsing an Act', () => {
     expect(rows()).toHaveLength(0)
   })
 
-  it('a code chip with an empty box reads that Act end to end', async () => {
-    const user = userEvent.setup()
-    renderAt()
-    await user.click(screen.getByRole('radio', { name: 'BNS · IPC' }))
+  it(
+    'a code chip with an empty box reads that Act end to end',
+    async () => {
+      const user = userEvent.setup()
+      renderAt()
+      await user.click(screen.getByRole('radio', { name: 'BNS · IPC' }))
 
-    await list()
-    await waitFor(() => expect(rows()).toHaveLength(BNS), { timeout: SLOW })
-    expect(screen.getByText(/Browsing the .*— 358 sections/)).toBeInTheDocument()
-  }, SLOW)
+      await list()
+      await waitFor(() => expect(rows()).toHaveLength(BNS), { timeout: SLOW })
+      expect(screen.getByText(/Browsing the .*— 358 sections/)).toBeInTheDocument()
+    },
+    SLOW,
+  )
 
-  it('renders every row, not a window of them', async () => {
-    const user = userEvent.setup()
-    renderAt()
-    await user.click(screen.getByRole('button', { name: 'Browse all sections' }))
+  it(
+    'renders every row, not a window of them',
+    async () => {
+      const user = userEvent.setup()
+      renderAt()
+      await user.click(screen.getByRole('button', { name: 'Browse all sections' }))
 
-    await list()
-    await waitFor(() => expect(rows()).toHaveLength(TOTAL), { timeout: SLOW })
-    // The regression that produced three separate bug reports: a list capped
-    // at 20, then 30, then blank. The last row of the last Act must be there.
-    expect(screen.getByText('BSA 170')).toBeInTheDocument()
-  }, SLOW)
+      await list()
+      await waitFor(() => expect(rows()).toHaveLength(TOTAL), { timeout: SLOW })
+      // The regression that produced three separate bug reports: a list capped
+      // at 20, then 30, then blank. The last row of the last Act must be there.
+      expect(screen.getByText('BSA 170')).toBeInTheDocument()
+    },
+    SLOW,
+  )
 
-  it('the All chip returns to all three codes from a single Act', async () => {
-    const user = userEvent.setup()
-    renderAt('/law?browse=1&code=bns')
-    await waitFor(() => expect(rows()).toHaveLength(BNS), { timeout: SLOW })
+  it(
+    'the All chip returns to all three codes from a single Act',
+    async () => {
+      const user = userEvent.setup()
+      renderAt('/law?browse=1&code=bns')
+      await waitFor(() => expect(rows()).toHaveLength(BNS), { timeout: SLOW })
 
-    await user.click(screen.getByRole('radio', { name: 'All' }))
-    await waitFor(() => expect(rows()).toHaveLength(TOTAL), { timeout: SLOW })
-  }, SLOW)
+      await user.click(screen.getByRole('radio', { name: 'All' }))
+      await waitFor(() => expect(rows()).toHaveLength(TOTAL), { timeout: SLOW })
+    },
+    SLOW,
+  )
 
-  it('opening a row keeps the list on screen', async () => {
-    const user = userEvent.setup()
-    renderAt('/law?browse=1&code=bns')
-    await waitFor(() => expect(rows()).toHaveLength(BNS), { timeout: SLOW })
+  it(
+    'opening a row keeps the list on screen',
+    async () => {
+      const user = userEvent.setup()
+      renderAt('/law?browse=1&code=bns')
+      await waitFor(() => expect(rows()).toHaveLength(BNS), { timeout: SLOW })
 
-    await user.click(screen.getByText('BNS 103'))
+      await user.click(screen.getByText('BNS 103'))
 
-    // The "list goes empty when I click something" report.
-    expect(rows()).toHaveLength(BNS)
-    expect(await screen.findByRole('button', { name: 'Close this section' })).toBeInTheDocument()
-  }, SLOW)
+      // The "list goes empty when I click something" report.
+      expect(rows()).toHaveLength(BNS)
+      expect(await screen.findByRole('button', { name: 'Close this section' })).toBeInTheDocument()
+    },
+    SLOW,
+  )
 
-  it('opens nothing on its own while browsing', async () => {
-    renderAt('/law?browse=1&code=bns')
-    await waitFor(() => expect(rows()).toHaveLength(BNS), { timeout: SLOW })
-    expect(screen.queryByRole('button', { name: 'Close this section' })).not.toBeInTheDocument()
-  }, SLOW)
+  it(
+    'opens nothing on its own while browsing',
+    async () => {
+      renderAt('/law?browse=1&code=bns')
+      await waitFor(() => expect(rows()).toHaveLength(BNS), { timeout: SLOW })
+      expect(screen.queryByRole('button', { name: 'Close this section' })).not.toBeInTheDocument()
+    },
+    SLOW,
+  )
 
-  it('says why the direction toggle is inert while browsing', async () => {
-    renderAt('/law?browse=1&code=bns')
-    await waitFor(() => expect(rows()).toHaveLength(BNS), { timeout: SLOW })
-    expect(screen.getByRole('radio', { name: 'Old → New' })).toBeDisabled()
-    expect(screen.getByText('Applies to a search. You are reading the Act in order.')).toBeInTheDocument()
-  }, SLOW)
+  it(
+    'says why the direction toggle is inert while browsing',
+    async () => {
+      renderAt('/law?browse=1&code=bns')
+      await waitFor(() => expect(rows()).toHaveLength(BNS), { timeout: SLOW })
+      expect(screen.getByRole('radio', { name: 'Old → New' })).toBeDisabled()
+      expect(screen.getByText('Applies to a search. You are reading the Act in order.')).toBeInTheDocument()
+    },
+    SLOW,
+  )
 })
 
 describe('searching', () => {
@@ -180,15 +204,19 @@ describe('searching', () => {
     expect(searchBox()).toHaveValue('420')
   })
 
-  it('re-enables the direction toggle once there is a query', async () => {
-    const user = userEvent.setup()
-    renderAt('/law?browse=1&code=bns')
-    await waitFor(() => expect(rows()).toHaveLength(BNS), { timeout: SLOW })
-    expect(screen.getByRole('radio', { name: 'New → Old' })).toBeDisabled()
+  it(
+    're-enables the direction toggle once there is a query',
+    async () => {
+      const user = userEvent.setup()
+      renderAt('/law?browse=1&code=bns')
+      await waitFor(() => expect(rows()).toHaveLength(BNS), { timeout: SLOW })
+      expect(screen.getByRole('radio', { name: 'New → Old' })).toBeDisabled()
 
-    await user.type(searchBox(), '302')
-    await waitFor(() => expect(screen.getByRole('radio', { name: 'New → Old' })).toBeEnabled())
-  }, SLOW)
+      await user.type(searchBox(), '302')
+      await waitFor(() => expect(screen.getByRole('radio', { name: 'New → Old' })).toBeEnabled())
+    },
+    SLOW,
+  )
 
   it('says so when nothing matches', async () => {
     const user = userEvent.setup()
@@ -205,11 +233,15 @@ describe('deep links', () => {
     expect(await screen.findByRole('button', { name: 'Close this section' })).toBeInTheDocument()
   })
 
-  it('restores a browsing session from the URL', async () => {
-    renderAt('/law?browse=1&code=bnss')
-    await waitFor(() => expect(rows()).toHaveLength(531), { timeout: SLOW })
-    expect(screen.getByRole('radio', { name: 'BNSS · CrPC' })).toBeChecked()
-  }, SLOW)
+  it(
+    'restores a browsing session from the URL',
+    async () => {
+      renderAt('/law?browse=1&code=bnss')
+      await waitFor(() => expect(rows()).toHaveLength(531), { timeout: SLOW })
+      expect(screen.getByRole('radio', { name: 'BNSS · CrPC' })).toBeChecked()
+    },
+    SLOW,
+  )
 
   it('a query beside browse=1 is a search, not a browse', async () => {
     renderAt('/law?browse=1&q=302')
@@ -219,10 +251,14 @@ describe('deep links', () => {
     expect(rows().length).toBeLessThan(TOTAL)
   })
 
-  it('an unknown code falls back to all three rather than an empty list', async () => {
-    renderAt('/law?browse=1&code=nonsense')
-    await waitFor(() => expect(rows()).toHaveLength(TOTAL), { timeout: SLOW })
-  }, SLOW)
+  it(
+    'an unknown code falls back to all three rather than an empty list',
+    async () => {
+      renderAt('/law?browse=1&code=nonsense')
+      await waitFor(() => expect(rows()).toHaveLength(TOTAL), { timeout: SLOW })
+    },
+    SLOW,
+  )
 
   it('carries the offence date into the field', async () => {
     renderAt('/law?q=302&date=2024-06-30')
