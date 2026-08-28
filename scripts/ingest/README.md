@@ -5,12 +5,12 @@ this directory ships to a reader; it produces the JSON under `/data` that does.
 
 Four scripts, and the differences between them are the point:
 
-| Script              | Source                       | Runs                          | Writes                                                |
-| ------------------- | ---------------------------- | ----------------------------- | ----------------------------------------------------- |
-| `ncrb_sankalan.py`  | NCRB Sankalan portal         | Weekly cron + by hand         | `data/law/{bns,bnss,bsa}.json`, `data/law/index.json` |
-| `indiacode_seed.py` | India Code                   | **By hand only, one-off**     | `data/law/overlays/indiacode-seed.json`               |
-| `pay_matrix.py`     | Nothing — it reaches no host | By hand; `--check` in CI      | `data/pay/matrix.json`                                |
-| `validate_data.py`  | Nothing — reads `/data`      | CI, and before every commit   | Nothing                                               |
+| Script              | Source                       | Runs                        | Writes                                                |
+| ------------------- | ---------------------------- | --------------------------- | ----------------------------------------------------- |
+| `ncrb_sankalan.py`  | NCRB Sankalan portal         | Weekly cron + by hand       | `data/law/{bns,bnss,bsa}.json`, `data/law/index.json` |
+| `indiacode_seed.py` | India Code                   | **By hand only, one-off**   | `data/law/overlays/indiacode-seed.json`               |
+| `pay_matrix.py`     | Nothing — it reaches no host | By hand; `--check` in CI    | `data/pay/matrix.json`                                |
+| `validate_data.py`  | Nothing — reads `/data`      | CI, and before every commit | Nothing                                               |
 
 `indiacode_seed.py` is not in `.github/workflows/ingest-law.yml` and must not be
 added to it. India Code's `robots.txt` restricts crawling and CLAUDE.md says to

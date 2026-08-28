@@ -353,3 +353,89 @@ class RawArchive(unittest.TestCase):
                 self.assertEqual(len(list(common.RAW_DIR.glob("*.meta.json"))), 2)
             finally:
                 common.RAW_DIR = original
+
+
+class PayMatrix(unittest.TestCase):
+    """The generator is the only thing standing between 38 anchors and 540 cells."""
+
+    def setUp(self):
+        import pay_matrix
+
+        self.pay_matrix = pay_matrix
+
+    def test_the_three_per_cent_rule_reproduces_the_first_row_of_the_gazette(self):
+        # Level 1, cells 1-9, read off the scanned Schedule.
+        self.assertEqual(
+            self.pay_matrix.cells_for(18000, 9),
+            [18000, 18500, 19100, 19700, 20300, 20900, 21500, 22100, 22800],
+        )
+
+    def test_rounding_is_to_the_nearest_hundred_not_down(self):
+        # 21500 x 1.03 is 22145, which floors to 22100 and rounds to 22100; but
+        # 18000 x 1.03 is 18540, which floors to 18500 and rounds to 18500. The
+        # case that separates the two rules is a .5 boundary, and the gazette
+        # rounds it up.
+        self.assertEqual(self.pay_matrix.cells_for(10000, 2), [10000, 10300])
+        self.assertEqual(self.pay_matrix.cells_for(15000, 2), [15000, 15500])
+
+    def test_the_generated_matrix_agrees_with_every_figure_read_off_the_gazette(self):
+        problems = self.pay_matrix.verify_against_gazette(self.pay_matrix.build())
+        self.assertEqual(problems, [])
+
+    def test_a_wrong_entry_pay_is_caught_rather_than_written(self):
+        payload = self.pay_matrix.build()
+        for level in payload["levels"]:
+            if level["level"] == "7":
+                level["entryPay"] = 44800
+                level["cells"] = self.pay_matrix.cells_for(44800, len(level["cells"]))
+        problems = self.pay_matrix.verify_against_gazette(payload)
+        self.assertTrue(any("L7" in problem for problem in problems), problems)
+
+    def test_a_wrong_cell_count_is_caught_rather_than_written(self):
+        payload = self.pay_matrix.build()
+        for level in payload["levels"]:
+            if level["level"] == "12":
+                level["cells"] = level["cells"][:-1]
+        problems = self.pay_matrix.verify_against_gazette(payload)
+        self.assertTrue(any("L12 last cell" in problem for problem in problems), problems)
+
+    def test_level_13_is_the_one_the_2017_amendment_substituted(self):
+        payload = self.pay_matrix.build()
+        level13 = next(l for l in payload["levels"] if l["level"] == "13")
+        self.assertEqual(level13["entryPay"], 123100)
+        self.assertEqual(len(level13["cells"]), 20)
+        self.assertEqual(level13["cells"][-1], 215900)
+        self.assertEqual(level13["indexOfRationalisation"], 2.67)
+
+    def test_a_run_that_changes_nothing_writes_nothing(self):
+        # The same invariant the weekly law cron depends on: an unchanged run
+        # must leave the file alone, or every run produces a diff nobody reads.
+        # `build()` stamps a fresh fetchedAt, so this is only true because
+        # write_if_content_changed masks the run stamps before comparing.
+        with tempfile.TemporaryDirectory() as tmp:
+            path = Path(tmp) / "matrix.json"
+            first_changed, _ = common.write_if_content_changed(path, self.pay_matrix.build())
+            self.assertTrue(first_changed)
+            before = path.read_bytes()
+            second_changed, _ = common.write_if_content_changed(path, self.pay_matrix.build())
+            self.assertFalse(second_changed)
+            self.assertEqual(path.read_bytes(), before)
+
+
+class DataValidation(unittest.TestCase):
+    def test_every_dataset_on_disk_is_accounted_for(self):
+        # A dataset in neither the manifest nor the no-schema list is validated
+        # by nothing, and the run would still report success.
+        import validate_data
+
+        self.assertEqual(validate_data.unlisted(), [])
+
+    def test_every_manifest_entry_names_a_schema_that_exists(self):
+        import validate_data
+
+        missing = [
+            name
+            for name in set(validate_data.MANIFEST.values())
+            if not (common.SCHEMA_DIR / name).exists()
+        ]
+        self.assertEqual(missing, [])

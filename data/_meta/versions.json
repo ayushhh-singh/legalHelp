@@ -83,12 +83,11 @@
         "hi": "7वाँ केंद्रीय वेतन आयोग वेतन मैट्रिक्स"
       },
       "rows": 19,
+      "cells": 540,
       "sha256": "80123abaf086ca64c5eb68940f2db874fc53c296ca653b9c26c86147ceaf3ef5",
-      "fetchedAt": "2026-08-28T00:00:00Z",
       "source": {
-        "name": "Department of Expenditure, Ministry of Finance, and the other orders each record cites"
-      },
-      "cells": 540
+        "name": "CCS (Revised Pay) Rules, 2016 — Schedule, Part A (Pay Matrix)"
+      }
     },
     "pay-da-history": {
       "version": "1.0.0",
@@ -98,10 +97,9 @@
         "hi": "महँगाई भत्ता इतिहास"
       },
       "rows": 22,
-      "sha256": "aed017a1d28a0bc426465863ab1410c1783b6ef939c890c89c2b754aff4b4f57",
-      "fetchedAt": "2026-08-28T00:00:00Z",
+      "sha256": "ec94f686c0c029f28c5769fd9bbef0c3e7f205ea71985c265893c0cb44568b74",
       "source": {
-        "name": "Department of Expenditure, Ministry of Finance, and the other orders each record cites"
+        "name": "Department of Expenditure — Dearness Allowance orders, 7th CPC series"
       }
     },
     "pay-cities": {
@@ -112,10 +110,9 @@
         "hi": "मकान किराया भत्ता शहर वर्गीकरण"
       },
       "rows": 102,
-      "sha256": "108dbcb3ff37918895d25823e80eb8823cf18d8ec0c13ee80308f837573b0c79",
-      "fetchedAt": "2026-08-28T00:00:00Z",
+      "sha256": "352a82831471d36690c22c220fa31a5997374407760741ab99072d38427d430e",
       "source": {
-        "name": "Department of Expenditure, Ministry of Finance, and the other orders each record cites"
+        "name": "Annexure to DoE O.M. No. 2/5/2017-E.II(B) — classification of cities for House Rent Allowance"
       }
     },
     "pay-allowances": {
@@ -126,10 +123,9 @@
         "hi": "भत्ते"
       },
       "rows": 32,
-      "sha256": "9725c64156380f7fd79b48ba4751f0904488e4fd2f4383d6149bbda252439b67",
-      "fetchedAt": "2026-08-28T00:00:00Z",
+      "sha256": "6382c5b88502f9c8af30f1e05412f14b20b863eca0877ed1c9fda57464c24270",
       "source": {
-        "name": "Department of Expenditure, Ministry of Finance, and the other orders each record cites"
+        "name": "Department of Expenditure allowance orders of July 2017, and the Report of the Seventh Central Pay Commission"
       }
     },
     "pay-jobs": {
@@ -141,9 +137,8 @@
       },
       "rows": 67,
       "sha256": "62801c61ca2964ba4176eabcebcab00d0e0f48788f5993cfe736727dc1e2688a",
-      "fetchedAt": "2026-08-28T00:00:00Z",
       "source": {
-        "name": "Department of Expenditure, Ministry of Finance, and the other orders each record cites"
+        "name": "Recruitment notices of the Staff Selection Commission, the Union Public Service Commission and the recruiting ministries"
       }
     },
     "pay-cghs": {
@@ -154,10 +149,9 @@
         "hi": "सीजीएचएस अंशदान"
       },
       "rows": 4,
-      "sha256": "ed70d01b7b99f9e9655fd69600a7672e57460d542a0bd4c0df3cd753f9f3071f",
-      "fetchedAt": "2026-08-28T00:00:00Z",
+      "sha256": "1572b55a3b021a20692c012a0f8e6bc5c2419f7fab3fa7ec3884bef7601667a1",
       "source": {
-        "name": "Department of Expenditure, Ministry of Finance, and the other orders each record cites"
+        "name": "Ministry of Health and Family Welfare — CGHS subscription rates under the 7th CPC"
       }
     },
     "pay-cgegis": {
@@ -168,10 +162,9 @@
         "hi": "सीजीईजीआईएस अंशदान"
       },
       "rows": 3,
-      "sha256": "5b7342394d6c939da840ec4a27475c61058457dddcd2ebf0ced05c3184e37694",
-      "fetchedAt": "2026-08-28T00:00:00Z",
+      "sha256": "1a0178b4c4f488e50bc78d5e31ed1df99a0b97b4d48cf691c5cf6a0e1ae3a9cf",
       "source": {
-        "name": "Department of Expenditure, Ministry of Finance, and the other orders each record cites"
+        "name": "Central Government Employees Group Insurance Scheme, 1980, and the quarterly Tables of Benefits"
       }
     },
     "pay-nps": {
@@ -182,10 +175,9 @@
         "hi": "राष्ट्रीय पेंशन प्रणाली"
       },
       "rows": 2,
-      "sha256": "bcb1d3fd4e8b81ec87462a5fb0ac7c5ff950468c22458091113fa7d608bd3391",
-      "fetchedAt": "2026-08-28T00:00:00Z",
+      "sha256": "3ee270d85491e4ae7cd8d9611546ce8d373eccb391d1fa7fdc5241ac4a46f18a",
       "source": {
-        "name": "Department of Expenditure, Ministry of Finance, and the other orders each record cites"
+        "name": "Pension Fund Regulatory and Development Authority — National Pension System"
       }
     },
     "pay-ups": {
@@ -196,10 +188,9 @@
         "hi": "एकीकृत पेंशन योजना"
       },
       "rows": 5,
-      "sha256": "8d5b6db3a781ce7c3a0c47e3a1f5057279af157332b7c282e86b467277cd0b81",
-      "fetchedAt": "2026-08-28T00:00:00Z",
+      "sha256": "e458d80298c176a32155332dacbf1b35394869bf31eded0fe4211866883bf737",
       "source": {
-        "name": "Department of Expenditure, Ministry of Finance, and the other orders each record cites"
+        "name": "Pension Fund Regulatory and Development Authority — Unified Pension Scheme"
       }
     },
     "pay-tax": {
@@ -211,9 +202,8 @@
       },
       "rows": 19,
       "sha256": "d08f33208034abb124ae31e2c0a9bfe9c0578eec7fe602eb40bc0d9938c240b3",
-      "fetchedAt": "2026-08-28T00:00:00Z",
       "source": {
-        "name": "Department of Expenditure, Ministry of Finance, and the other orders each record cites"
+        "name": "Income Tax Department — slabs and deductions for the 2026-27 tax year"
       }
     },
     "pay-cpc8": {
@@ -224,10 +214,9 @@
         "hi": "8वें केंद्रीय वेतन आयोग की स्थिति"
       },
       "rows": 3,
-      "sha256": "7e2b5b8383391b64464322893c96f7d5bb414a119a57f4cc2b016811fdfb9991",
-      "fetchedAt": "2026-08-28T00:00:00Z",
+      "sha256": "6a3a1b746ea5049a2abe310746c701b8267615568fe193ae5ba3c8c9ffd0ea60",
       "source": {
-        "name": "Department of Expenditure, Ministry of Finance, and the other orders each record cites"
+        "name": "Ministry of Finance Resolution constituting the Eighth Central Pay Commission"
       }
     }
   },

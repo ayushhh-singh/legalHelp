@@ -16,19 +16,40 @@
     "resolutionNumber": "F. No. 01-01/2025-E.III(A), Ministry of Finance (Department of Expenditure), published in the Gazette of India Extraordinary, Part I, Section 1",
     "members": [
       {
-        "role": { "en": "Chairperson", "hi": "अध्यक्ष" },
-        "name": { "en": "Justice Ranjana Prakash Desai", "hi": "न्यायमूर्ति रंजना प्रकाश देसाई" }
+        "role": {
+          "en": "Chairperson",
+          "hi": "अध्यक्ष"
+        },
+        "name": {
+          "en": "Justice Ranjana Prakash Desai",
+          "hi": "न्यायमूर्ति रंजना प्रकाश देसाई"
+        }
       },
       {
-        "role": { "en": "Member (Part-Time)", "hi": "सदस्य (अंशकालिक)" },
-        "name": { "en": "Prof. Pulak Ghosh", "hi": "प्रो. पुलक घोष" }
+        "role": {
+          "en": "Member (Part-Time)",
+          "hi": "सदस्य (अंशकालिक)"
+        },
+        "name": {
+          "en": "Prof. Pulak Ghosh",
+          "hi": "प्रो. पुलक घोष"
+        }
       },
       {
-        "role": { "en": "Member-Secretary", "hi": "सदस्य-सचिव" },
-        "name": { "en": "Shri Pankaj Jain", "hi": "श्री पंकज जैन" }
+        "role": {
+          "en": "Member-Secretary",
+          "hi": "सदस्य-सचिव"
+        },
+        "name": {
+          "en": "Shri Pankaj Jain",
+          "hi": "श्री पंकज जैन"
+        }
       }
     ],
-    "headquarters": { "en": "Delhi", "hi": "दिल्ली" },
+    "headquarters": {
+      "en": "Delhi",
+      "hi": "दिल्ली"
+    },
     "reportDue": {
       "withinMonths": 18,
       "notBefore": "2027-05-03",

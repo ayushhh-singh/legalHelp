@@ -4,7 +4,18 @@
   "title": "Income tax on salary",
   "description": "The slabs, deductions and exemptions a Central Government employee needs to compare the old and the new regime for one financial year. Section labels are given under the Income-tax Act, 1961, which every officer knows, with the Income-tax Act, 2025 number alongside where it has been confirmed — the 2025 Act commences on 1 April 2026 and renumbers everything.",
   "type": "object",
-  "required": ["version", "generatedAt", "financialYear", "taxYear", "disclaimer", "regimes", "deductions", "exemptions", "surcharge", "cess"],
+  "required": [
+    "version",
+    "generatedAt",
+    "financialYear",
+    "taxYear",
+    "disclaimer",
+    "regimes",
+    "deductions",
+    "exemptions",
+    "surcharge",
+    "cess"
+  ],
   "additionalProperties": false,
   "properties": {
     "$schema": { "type": "string" },
@@ -77,7 +88,17 @@
     },
     "regime": {
       "type": "object",
-      "required": ["id", "name", "isDefault", "standardDeduction", "slabs", "rebate", "source", "fetchedAt", "verify"],
+      "required": [
+        "id",
+        "name",
+        "isDefault",
+        "standardDeduction",
+        "slabs",
+        "rebate",
+        "source",
+        "fetchedAt",
+        "verify"
+      ],
       "additionalProperties": false,
       "properties": {
         "id": { "enum": ["old", "new"] },

@@ -8,9 +8,15 @@ same treatment. Run it before every commit that touches ``data/pay``:
 
     scripts/ingest/.venv/bin/python scripts/ingest/validate_data.py
 
-It reaches the network for nothing and writes nothing. A file listed in
-``MANIFEST`` that does not exist is a failure, not a skip: a dataset that
-silently stops being validated is worse than one that was never validated.
+It reaches the network for nothing and writes nothing.
+
+Two failures, both deliberate, both about datasets going unwatched:
+
+* A file listed in ``MANIFEST`` that does not exist is a failure, not a skip.
+* A JSON file under ``data/`` that is in neither ``MANIFEST`` nor ``NO_SCHEMA``
+  is a failure too. Adding a dataset and forgetting to add it here would
+  otherwise leave it validated by nothing at all, and the run would still say
+  everything is fine.
 """
 
 from __future__ import annotations
@@ -40,9 +46,29 @@ MANIFEST: dict[str, str] = {
     "pay/cpc8.json": "pay-cpc8.schema.json",
 }
 
+# Files under data/ that legitimately have no schema, each with the reason.
+# A file that is in neither this set nor MANIFEST fails the run.
+NO_SCHEMA: dict[str, str] = {
+    "_meta/versions.json": "dataset metadata, not a dataset; its shape is asserted in tests/pay-data.test.ts and tests/law-data.test.ts",
+    "law/overlays/bns-hindi-curated.json": "hand-curated overlay merged by ncrb_sankalan.py, which validates the merged result against law-mapping.schema.json",
+    "law/overlays/traps-and-transitional.json": "hand-curated overlay merged by ncrb_sankalan.py, which validates the merged result",
+}
+
+
+def unlisted() -> list[str]:
+    """Every JSON under data/ that nothing in this file accounts for."""
+    known = set(MANIFEST) | set(NO_SCHEMA)
+    found = {str(path.relative_to(DATA_DIR)) for path in DATA_DIR.rglob("*.json")}
+    return sorted(found - known)
+
 
 def main() -> int:
     failures = 0
+
+    for relative in unlisted():
+        log(f"  ! data/{relative}: not in MANIFEST and not in NO_SCHEMA — add it to one")
+        failures += 1
+
     for relative, schema_name in MANIFEST.items():
         path = DATA_DIR / relative
         if not path.exists():
@@ -57,8 +83,11 @@ def main() -> int:
         else:
             log(f"  ok data/{relative} ({schema_name})")
 
+    for relative, why in NO_SCHEMA.items():
+        log(f"  -- data/{relative}: no schema ({why})")
+
     log(
-        f"{len(MANIFEST) - failures}/{len(MANIFEST)} datasets valid"
+        f"{len(MANIFEST)} datasets checked, {len(NO_SCHEMA)} deliberately unschemaed"
         + ("" if failures == 0 else f" — {failures} failed")
     )
     return 1 if failures else 0

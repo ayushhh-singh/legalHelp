@@ -108,7 +108,9 @@
           "properties": {
             "kind": { "enum": ["fully-indexed", "quarter-per-fifty", "none", "not-applicable"] },
             "timesApplied": { "type": "integer", "minimum": 0 },
-            "since": { "oneOf": [{ "type": "null" }, { "type": "string", "pattern": "^\\d{4}-\\d{2}-\\d{2}$" }] },
+            "since": {
+              "oneOf": [{ "type": "null" }, { "type": "string", "pattern": "^\\d{4}-\\d{2}-\\d{2}$" }]
+            },
             "note": { "oneOf": [{ "type": "null" }, { "$ref": "#/$defs/bilingual" }] }
           }
         },

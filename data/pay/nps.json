@@ -8,8 +8,14 @@
   },
   "scheme": {
     "id": "nps",
-    "name": { "en": "National Pension System", "hi": "राष्ट्रीय पेंशन प्रणाली" },
-    "shortName": { "en": "NPS", "hi": "एनपीएस" },
+    "name": {
+      "en": "National Pension System",
+      "hi": "राष्ट्रीय पेंशन प्रणाली"
+    },
+    "shortName": {
+      "en": "NPS",
+      "hi": "एनपीएस"
+    },
     "administeredBy": {
       "en": "Pension Fund Regulatory and Development Authority; Department of Financial Services, Ministry of Finance",
       "hi": "पेंशन निधि विनियामक एवं विकास प्राधिकरण; वित्तीय सेवाएँ विभाग, वित्त मंत्रालय"
@@ -48,7 +54,10 @@
     "rules": [
       {
         "key": "who",
-        "title": { "en": "Who is covered", "hi": "कौन आच्छादित है" },
+        "title": {
+          "en": "Who is covered",
+          "hi": "कौन आच्छादित है"
+        },
         "body": {
           "en": "Every Central Government employee (other than Armed Forces personnel) appointed on or after 1 January 2004. Employees appointed against a post advertised or notified before that date, in certain cases, have been allowed the old pension scheme instead.",
           "hi": "1 जनवरी 2004 को या उसके बाद नियुक्त प्रत्येक केंद्रीय सरकारी कर्मचारी (सशस्त्र बल कर्मियों को छोड़कर)। उस तिथि से पूर्व विज्ञापित अथवा अधिसूचित पद पर नियुक्त कर्मचारियों को, कुछ मामलों में, इसके स्थान पर पुरानी पेंशन योजना की अनुमति दी गई है।"
@@ -56,7 +65,10 @@
       },
       {
         "key": "exit",
-        "title": { "en": "On superannuation", "hi": "अधिवर्षिता पर" },
+        "title": {
+          "en": "On superannuation",
+          "hi": "अधिवर्षिता पर"
+        },
         "body": {
           "en": "At least 40 per cent of the accumulated corpus must be used to buy an annuity; up to 60 per cent may be withdrawn as a lump sum. Where the corpus is ₹5,00,000 or less, the whole of it may be withdrawn.",
           "hi": "संचित निधि का कम से कम 40 प्रतिशत वार्षिकी खरीदने में लगाना अनिवार्य है; 60 प्रतिशत तक एकमुश्त निकाला जा सकता है। जहाँ निधि ₹5,00,000 अथवा उससे कम हो, वहाँ पूरी राशि निकाली जा सकती है।"
@@ -64,7 +76,10 @@
       },
       {
         "key": "tax",
-        "title": { "en": "Income tax", "hi": "आयकर" },
+        "title": {
+          "en": "Income tax",
+          "hi": "आयकर"
+        },
         "body": {
           "en": "The employee's own contribution is deductible within the ₹1,50,000 ceiling (section 80CCD(1)), an additional ₹50,000 is deductible over and above that ceiling (section 80CCD(1B)), and the employer's contribution up to 14 per cent of salary is deductible separately (section 80CCD(2)). Only the employer-contribution deduction survives in the new regime; the other two are old-regime only. In the Income-tax Act, 2025, which applies from the 2026-27 tax year, these fall under section 124.",
           "hi": "कर्मचारी का अपना अंशदान ₹1,50,000 की सीमा के भीतर कटौती योग्य है (धारा 80CCD(1)), उस सीमा से ऊपर अतिरिक्त ₹50,000 कटौती योग्य है (धारा 80CCD(1B)), तथा नियोक्ता का अंशदान वेतन के 14 प्रतिशत तक अलग से कटौती योग्य है (धारा 80CCD(2))। नई कर व्यवस्था में केवल नियोक्ता-अंशदान की कटौती बनी रहती है; अन्य दो केवल पुरानी व्यवस्था में हैं। आयकर अधिनियम, 2025 में, जो कर वर्ष 2026-27 से लागू है, ये धारा 124 के अंतर्गत आती हैं।"
@@ -72,7 +87,10 @@
       },
       {
         "key": "ups-option",
-        "title": { "en": "The Unified Pension Scheme option", "hi": "एकीकृत पेंशन योजना का विकल्प" },
+        "title": {
+          "en": "The Unified Pension Scheme option",
+          "hi": "एकीकृत पेंशन योजना का विकल्प"
+        },
         "body": {
           "en": "From 1 April 2025 an employee covered by the National Pension System may instead opt for the Unified Pension Scheme, under which the Government contributes 18.5 per cent and the payout is assured. The option is exercised once. See data/pay/ups.json.",
           "hi": "1 अप्रैल 2025 से राष्ट्रीय पेंशन प्रणाली से आच्छादित कर्मचारी इसके स्थान पर एकीकृत पेंशन योजना का विकल्प चुन सकता है, जिसके अंतर्गत सरकार 18.5 प्रतिशत अंशदान करती है और भुगतान सुनिश्चित होता है। यह विकल्प एक बार लिया जाता है। देखें data/pay/ups.json।"

@@ -8,3 +8,10 @@ src/components/ui/
 # reformatting here would produce a diff on every cron run and nothing else
 data/law/
 scripts/ingest/reports/
+
+# same reason: everything under data/ is written by ingest_common.write_json,
+# which is the one formatter for the datasets. data/pay/matrix.json is generated
+# outright, and prettier reformatting it would just be undone by the next run of
+# pay_matrix.py — the two would take turns rewriting the file forever.
+data/pay/
+data/_meta/

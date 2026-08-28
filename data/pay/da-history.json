@@ -436,7 +436,10 @@
       "effectiveFrom": "2026-07-01",
       "rate": 63,
       "status": "projected",
-      "range": { "low": 62, "high": 64 },
+      "range": {
+        "low": 62,
+        "high": 64
+      },
       "note": {
         "en": "Projection, not a rate. No order has been issued for 01.07.2026. The AICPI-IW readings published by the Labour Bureau for the window July 2025 to June 2026 put the formula's output in the low 60s, and the Government notifies whole per cent. Treat any figure here as an estimate until the Department of Expenditure order appears, and never use it for arrears or a pay slip.",
         "hi": "यह प्रक्षेपण है, दर नहीं। 01.07.2026 के लिए कोई आदेश जारी नहीं हुआ है। श्रम ब्यूरो द्वारा जुलाई 2025 से जून 2026 की अवधि के लिए प्रकाशित उपभोक्ता मूल्य सूचकांक (औद्योगिक श्रमिक) के आँकड़े सूत्र का परिणाम 60 के आरंभिक दशक में रखते हैं, और सरकार पूर्ण प्रतिशत में अधिसूचित करती है। व्यय विभाग का आदेश आने तक यहाँ दिए किसी भी अंक को अनुमान ही मानें, और बकाया अथवा वेतन पर्ची के लिए इसका कभी प्रयोग न करें।"

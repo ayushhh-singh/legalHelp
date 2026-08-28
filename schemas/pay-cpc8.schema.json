@@ -4,7 +4,16 @@
   "title": "Eighth Central Pay Commission — status",
   "description": "Status facts only. There is no 8th CPC pay matrix, no notified fitment factor and no notified date of effect, so this dataset carries none. `fitmentFactorsDiscussed` records figures that have been floated in public discussion, each with the source that floated it and `status: projected` — the UI must never show one of these as a rate.",
   "type": "object",
-  "required": ["version", "generatedAt", "disclaimer", "status", "commission", "termsOfReference", "fitmentFactorsDiscussed", "whatIsNotKnown"],
+  "required": [
+    "version",
+    "generatedAt",
+    "disclaimer",
+    "status",
+    "commission",
+    "termsOfReference",
+    "fitmentFactorsDiscussed",
+    "whatIsNotKnown"
+  ],
   "additionalProperties": false,
   "properties": {
     "$schema": { "type": "string" },
@@ -14,7 +23,17 @@
     "status": { "const": "constituted" },
     "commission": {
       "type": "object",
-      "required": ["name", "constitutedOn", "resolutionNumber", "members", "headquarters", "reportDue", "source", "fetchedAt", "verify"],
+      "required": [
+        "name",
+        "constitutedOn",
+        "resolutionNumber",
+        "members",
+        "headquarters",
+        "reportDue",
+        "source",
+        "fetchedAt",
+        "verify"
+      ],
       "additionalProperties": false,
       "properties": {
         "name": { "$ref": "#/$defs/bilingual" },

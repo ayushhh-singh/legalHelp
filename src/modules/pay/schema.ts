@@ -11,11 +11,18 @@ import { z } from 'zod'
  * buys the thing that matters: neither the producer nor the consumer can drift
  * alone.
  *
+ * Every object here is a `strictObject`, deliberately. `z.object` *strips* keys
+ * it does not know about, so a dataset with `gradePayy` or `taxabl` in it would
+ * parse clean, lose the field, and tell nobody — while the JSON Schemas, which
+ * all set `additionalProperties: false`, would reject it. That asymmetry made
+ * the "both must pass" claim above false for every optional field. Strict is
+ * what makes the two halves actually describe the same shape.
+ *
  * Nothing here imports the JSON. `data/pay` is 1.2 MB and belongs behind a lazy
  * import on the Pay route, not in the initial bundle.
  */
 
-const bilingual = z.object({ en: z.string().min(1), hi: z.string().min(1) })
+const bilingual = z.strictObject({ en: z.string().min(1), hi: z.string().min(1) })
 const url = z.string().regex(/^https?:\/\//)
 const isoDate = z.string().regex(/^\d{4}-\d{2}-\d{2}$/)
 const semver = z.string().regex(/^\d+\.\d+\.\d+$/)
@@ -29,7 +36,7 @@ const slug = z.string().regex(/^[a-z0-9-]+$/)
  * read for this figure, and the UI owes the reader a "verify with your DDO"
  * banner.
  */
-export const paySourceSchema = z.object({
+export const paySourceSchema = z.strictObject({
   name: z.string().min(1),
   url,
   reference: z.string().optional(),
@@ -52,11 +59,11 @@ const envelope = {
 
 // ---------------------------------------------------------------- pay matrix
 
-export const payLevelSchema = z.object({
+export const payLevelSchema = z.strictObject({
   level: payLevel,
   order: z.number().int().min(1).max(19).optional(),
   gradePay: z.number().int().nullable().optional(),
-  payBand: z.object({
+  payBand: z.strictObject({
     name: z.string().min(1),
     range: z.string().min(1),
     preRevisedEntryPay: z.number().int().nullable().optional(),
@@ -68,10 +75,10 @@ export const payLevelSchema = z.object({
   ...sourced,
 })
 
-export const payMatrixSchema = z.object({
+export const payMatrixSchema = z.strictObject({
   ...envelope,
   cpc: z.literal(7),
-  rule: z.object({
+  rule: z.strictObject({
     multiplier: z.literal(1.03),
     rounding: z.literal('nearest-100'),
     description: bilingual,
@@ -82,26 +89,26 @@ export const payMatrixSchema = z.object({
 
 // ---------------------------------------------------------------- DA history
 
-export const daRateSchema = z.object({
+export const daRateSchema = z.strictObject({
   effectiveFrom: isoDate,
   rate: z.number().min(0),
   status: z.enum(['notified', 'frozen', 'projected']),
   supersededBy: z.string().nullable().optional(),
-  range: z.object({ low: z.number(), high: z.number() }).optional(),
+  range: z.strictObject({ low: z.number(), high: z.number() }).optional(),
   note: bilingual.nullable().optional(),
   ...sourced,
 })
 
-export const daHistorySchema = z.object({
+export const daHistorySchema = z.strictObject({
   ...envelope,
-  base: z.object({
+  base: z.strictObject({
     cpc: z.literal(7),
     from: isoDate,
     index: z.number(),
     linkingFactor: z.number(),
     note: bilingual.optional(),
   }),
-  formula: z.object({
+  formula: z.strictObject({
     expression: z.string().min(1),
     description: bilingual,
     source: paySourceSchema,
@@ -111,7 +118,7 @@ export const daHistorySchema = z.object({
 
 // -------------------------------------------------------------------- cities
 
-export const citySchema = z.object({
+export const citySchema = z.strictObject({
   id: slug,
   name: bilingual,
   aliases: z.array(z.string().min(1)).optional(),
@@ -123,20 +130,20 @@ export const citySchema = z.object({
   ...sourced,
 })
 
-export const citiesSchema = z.object({
+export const citiesSchema = z.strictObject({
   ...envelope,
   /** Z is not a list. Anything the annexure does not name is Z. */
   fallbackClass: z.literal('Z'),
   source: paySourceSchema,
   classes: z
-    .array(z.object({ id: z.enum(['X', 'Y', 'Z']), name: bilingual, description: bilingual }))
+    .array(z.strictObject({ id: z.enum(['X', 'Y', 'Z']), name: bilingual, description: bilingual }))
     .min(3),
   cities: z.array(citySchema).min(90),
 })
 
 // ---------------------------------------------------------------- allowances
 
-export const allowanceRateSchema = z.object({
+export const allowanceRateSchema = z.strictObject({
   key: z.string().nullable().optional(),
   when: bilingual,
   measure: z.enum([
@@ -155,7 +162,7 @@ export const allowanceRateSchema = z.object({
   expression: z.string().nullable().optional(),
 })
 
-export const allowanceSchema = z.object({
+export const allowanceSchema = z.strictObject({
   id: slug,
   name: bilingual,
   shortName: bilingual.optional(),
@@ -179,7 +186,7 @@ export const allowanceSchema = z.object({
    * crosses 50%, and DA crossed 50% on 01.01.2024. A calculator that shows the
    * stated figure without applying `timesApplied` is short by a quarter.
    */
-  daLinked: z.object({
+  daLinked: z.strictObject({
     kind: z.enum(['fully-indexed', 'quarter-per-fifty', 'none', 'not-applicable']),
     timesApplied: z.number().int().min(0),
     since: isoDate.nullable().optional(),
@@ -193,14 +200,14 @@ export const allowanceSchema = z.object({
   ...sourced,
 })
 
-export const allowancesSchema = z.object({
+export const allowancesSchema = z.strictObject({
   ...envelope,
   allowances: z.array(allowanceSchema).min(25),
 })
 
 // ---------------------------------------------------------------------- jobs
 
-export const jobSchema = z.object({
+export const jobSchema = z.strictObject({
   id: slug,
   title: bilingual,
   organisation: slug,
@@ -209,14 +216,14 @@ export const jobSchema = z.object({
   gazetted: z.boolean().optional(),
   entryLevel: payLevel,
   gradePay: z.number().int().nullable(),
-  recruitment: z.object({
+  recruitment: z.strictObject({
     mode: z.enum(['direct', 'promotion', 'both']),
     exam: slug.nullable(),
     note: bilingual.nullable().optional(),
   }),
   allowances: z
     .array(
-      z.object({
+      z.strictObject({
         id: slug,
         /** True only where the allowance is automatic for the post. */
         enabledByDefault: z.boolean(),
@@ -224,21 +231,21 @@ export const jobSchema = z.object({
       }),
     )
     .min(1),
-  promotionPath: z.array(z.object({ title: bilingual, level: payLevel })),
+  promotionPath: z.array(z.strictObject({ title: bilingual, level: payLevel })),
   note: bilingual.nullable().optional(),
   ...sourced,
 })
 
-export const jobsSchema = z.object({
+export const jobsSchema = z.strictObject({
   ...envelope,
-  organisations: z.record(slug, z.object({ name: bilingual, ministry: bilingual })),
-  exams: z.record(slug, z.object({ name: bilingual, authority: bilingual, url })),
+  organisations: z.record(slug, z.strictObject({ name: bilingual, ministry: bilingual })),
+  exams: z.record(slug, z.strictObject({ name: bilingual, authority: bilingual, url })),
   jobs: z.array(jobSchema).min(55),
 })
 
 // ------------------------------------------------------ schemes: CGHS/GIS/NPS/UPS
 
-const schemeEntrySchema = z.object({
+const schemeEntrySchema = z.strictObject({
   key: z.string().min(1),
   label: bilingual,
   measure: z.enum([
@@ -256,9 +263,9 @@ const schemeEntrySchema = z.object({
   note: bilingual.nullable().optional(),
 })
 
-export const schemeSchema = z.object({
+export const schemeSchema = z.strictObject({
   ...envelope,
-  scheme: z.object({
+  scheme: z.strictObject({
     id: slug,
     name: bilingual,
     shortName: bilingual.optional(),
@@ -267,7 +274,7 @@ export const schemeSchema = z.object({
     summary: bilingual,
     contributions: z.array(schemeEntrySchema),
     slabs: z.array(schemeEntrySchema),
-    rules: z.array(z.object({ key: slug, title: bilingual, body: bilingual })),
+    rules: z.array(z.strictObject({ key: slug, title: bilingual, body: bilingual })),
     note: bilingual.nullable().optional(),
     ...sourced,
   }),
@@ -275,7 +282,7 @@ export const schemeSchema = z.object({
 
 // ----------------------------------------------------------------------- tax
 
-const provisionSchema = z.object({
+const provisionSchema = z.strictObject({
   id: slug,
   name: bilingual,
   /** The number every officer already knows. */
@@ -289,21 +296,21 @@ const provisionSchema = z.object({
   ...sourced,
 })
 
-export const taxSchema = z.object({
+export const taxSchema = z.strictObject({
   ...envelope,
   financialYear: z.string().regex(/^\d{4}-\d{2}$/),
   taxYear: z.string().regex(/^\d{4}-\d{2}$/),
   note: bilingual.nullable().optional(),
   regimes: z
     .array(
-      z.object({
+      z.strictObject({
         id: z.enum(['old', 'new']),
         name: bilingual,
         isDefault: z.boolean(),
         standardDeduction: z.number().int().min(0),
         slabs: z
           .array(
-            z.object({
+            z.strictObject({
               from: z.number().int().min(0),
               to: z.number().int().nullable(),
               rate: z.number().min(0).max(100),
@@ -311,7 +318,7 @@ export const taxSchema = z.object({
             }),
           )
           .min(3),
-        rebate: z.object({
+        rebate: z.strictObject({
           section: z.string().min(1),
           incomeCeiling: z.number().int().min(0),
           maxRebate: z.number().int().min(0),
@@ -324,10 +331,10 @@ export const taxSchema = z.object({
     .min(2),
   deductions: z.array(provisionSchema).min(1),
   exemptions: z.array(provisionSchema).min(1),
-  surcharge: z.object({
+  surcharge: z.strictObject({
     note: bilingual,
     bands: z.array(
-      z.object({
+      z.strictObject({
         from: z.number().min(0),
         to: z.number().nullable(),
         rate: z.number().min(0),
@@ -335,32 +342,32 @@ export const taxSchema = z.object({
       }),
     ),
   }),
-  cess: z.object({ name: bilingual, rate: z.number().min(0) }),
+  cess: z.strictObject({ name: bilingual, rate: z.number().min(0) }),
 })
 
 // ------------------------------------------------------------------- 8th CPC
 
-export const cpc8Schema = z.object({
+export const cpc8Schema = z.strictObject({
   ...envelope,
   status: z.literal('constituted'),
-  commission: z.object({
+  commission: z.strictObject({
     name: bilingual,
     constitutedOn: isoDate,
     resolutionNumber: z.string().min(1),
-    members: z.array(z.object({ role: bilingual, name: bilingual })).min(3),
+    members: z.array(z.strictObject({ role: bilingual, name: bilingual })).min(3),
     headquarters: bilingual,
-    reportDue: z.object({
+    reportDue: z.strictObject({
       withinMonths: z.number().int().min(1),
       notBefore: isoDate,
       note: bilingual,
     }),
     ...sourced,
   }),
-  termsOfReference: z.array(z.object({ key: slug, text: bilingual })).min(1),
+  termsOfReference: z.array(z.strictObject({ key: slug, text: bilingual })).min(1),
   /** Every one of these is somebody's estimate. None is a rate. */
   fitmentFactorsDiscussed: z
     .array(
-      z.object({
+      z.strictObject({
         value: z.number(),
         status: z.literal('projected'),
         attributedTo: bilingual,

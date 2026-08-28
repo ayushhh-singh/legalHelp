@@ -96,8 +96,25 @@ describe('pay matrix', () => {
 
   it('carries all 19 levels, 1 to 18 including 13A', () => {
     const expected = [
-      '1', '2', '3', '4', '5', '6', '7', '8', '9', '10',
-      '11', '12', '13', '13A', '14', '15', '16', '17', '18',
+      '1',
+      '2',
+      '3',
+      '4',
+      '5',
+      '6',
+      '7',
+      '8',
+      '9',
+      '10',
+      '11',
+      '12',
+      '13',
+      '13A',
+      '14',
+      '15',
+      '16',
+      '17',
+      '18',
     ]
     expect(matrix.levels.map((level) => level.level)).toEqual(expected)
   })
@@ -106,10 +123,25 @@ describe('pay matrix', () => {
     // The one table an officer checks a calculator against. Levels 15-18 have
     // no grade pay: they are the HAG, HAG+, Apex and Cabinet Secretary scales.
     const expected: Record<string, number | null> = {
-      '1': 1800, '2': 1900, '3': 2000, '4': 2400, '5': 2800,
-      '6': 4200, '7': 4600, '8': 4800, '9': 5400, '10': 5400,
-      '11': 6600, '12': 7600, '13': 8700, '13A': 8900, '14': 10000,
-      '15': null, '16': null, '17': null, '18': null,
+      '1': 1800,
+      '2': 1900,
+      '3': 2000,
+      '4': 2400,
+      '5': 2800,
+      '6': 4200,
+      '7': 4600,
+      '8': 4800,
+      '9': 5400,
+      '10': 5400,
+      '11': 6600,
+      '12': 7600,
+      '13': 8700,
+      '13A': 8900,
+      '14': 10000,
+      '15': null,
+      '16': null,
+      '17': null,
+      '18': null,
     }
     const actual = Object.fromEntries(matrix.levels.map((l) => [l.level, l.gradePay ?? null]))
     expect(actual).toEqual(expected)
@@ -145,7 +177,10 @@ describe('pay matrix', () => {
   it('starts every level at its entry pay and never leaves a rupee off a hundred', () => {
     for (const level of matrix.levels) {
       expect(level.cells[0], `L${level.level} cell 1`).toBe(level.entryPay)
-      expect(level.cells.every((cell) => cell % 100 === 0), `L${level.level}`).toBe(true)
+      expect(
+        level.cells.every((cell) => cell % 100 === 0),
+        `L${level.level}`,
+      ).toBe(true)
       const ascending = level.cells.every(
         (cell, index) => index === 0 || cell > (level.cells[index - 1] as number),
       )
@@ -157,10 +192,25 @@ describe('pay matrix', () => {
     // Read off the scanned Schedule to the CCS (Revised Pay) Rules, 2016, and
     // for Level 13 off the 2017 amendment OM, which states it in words.
     const terminal: Record<string, number> = {
-      '1': 56900, '2': 63200, '3': 69100, '4': 81100, '5': 92300,
-      '6': 112400, '7': 142400, '8': 151100, '9': 167800, '10': 177500,
-      '11': 208700, '12': 209200, '13': 215900, '13A': 216600, '14': 218200,
-      '15': 224100, '16': 224400, '17': 225000, '18': 250000,
+      '1': 56900,
+      '2': 63200,
+      '3': 69100,
+      '4': 81100,
+      '5': 92300,
+      '6': 112400,
+      '7': 142400,
+      '8': 151100,
+      '9': 167800,
+      '10': 177500,
+      '11': 208700,
+      '12': 209200,
+      '13': 215900,
+      '13A': 216600,
+      '14': 218200,
+      '15': 224100,
+      '16': 224400,
+      '17': 225000,
+      '18': 250000,
     }
     const actual = Object.fromEntries(matrix.levels.map((l) => [l.level, l.cells.at(-1)]))
     expect(actual).toEqual(terminal)
@@ -181,6 +231,23 @@ describe('pay matrix', () => {
   it('never exceeds the Cabinet Secretary’s pay', () => {
     const highest = Math.max(...matrix.levels.flatMap((level) => level.cells))
     expect(highest).toBe(250000)
+  })
+
+  it('numbers the levels so they can be sorted', () => {
+    // '10' sorts before '2' and '13A' is not a number at all, so `order` is the
+    // only safe key for putting the matrix on screen in the right sequence or
+    // for asking whether one level is above another.
+    expect(matrix.levels.map((level) => level.order)).toEqual(
+      Array.from({ length: matrix.levels.length }, (_, index) => index + 1),
+    )
+    const byOrder = [...matrix.levels].sort((a, b) => (a.order as number) - (b.order as number))
+    // Entry pay rises monotonically with order — that is what makes it a rank.
+    for (let index = 1; index < byOrder.length; index += 1) {
+      expect(
+        (byOrder[index]?.entryPay as number) > (byOrder[index - 1]?.entryPay as number),
+        `L${byOrder[index]?.level} entry pay is not above L${byOrder[index - 1]?.level}`,
+      ).toBe(true)
+    }
   })
 
   it('records where each level came from and whether it needs checking', () => {
@@ -252,7 +319,14 @@ describe('HRA city classification', () => {
   it('classifies exactly the eight X cities the annexure names', () => {
     const x = cities.cities.filter((city) => city.class === 'X').map((city) => city.id)
     expect(x.sort()).toEqual([
-      'ahmedabad', 'bengaluru', 'chennai', 'delhi', 'greater-mumbai', 'hyderabad', 'kolkata', 'pune',
+      'ahmedabad',
+      'bengaluru',
+      'chennai',
+      'delhi',
+      'greater-mumbai',
+      'hyderabad',
+      'kolkata',
+      'pune',
     ])
   })
 
@@ -279,6 +353,32 @@ describe('HRA city classification', () => {
     expect(aliasOf('gurugram')).toContain('Gurgaon')
     expect(aliasOf('greater-mumbai')).toContain('Mumbai')
     expect(aliasOf('chhatrapati-sambhajinagar')).toContain('Aurangabad')
+  })
+
+  it('never lets one spelling resolve to two cities', () => {
+    // A city lookup folds case and searches names and aliases together. If
+    // 'Delhi' were an alias of anything else the reader would get the wrong
+    // class, and House Rent Allowance is 30 per cent against 20 or 10.
+    const owners = new Map<string, string[]>()
+    for (const city of cities.cities) {
+      for (const spelling of [city.name.en, city.name.hi, ...(city.aliases ?? [])]) {
+        const key = spelling.toLowerCase()
+        owners.set(key, [...(owners.get(key) ?? []), city.id])
+      }
+    }
+    const ambiguous = [...owners.entries()]
+      .filter(([, ids]) => new Set(ids).size > 1)
+      .map(([key, ids]) => `${key} -> ${[...new Set(ids)].join(', ')}`)
+    expect(ambiguous).toEqual([])
+
+    // And no alias that only differs from its own city's name by case — it
+    // would look like a second spelling and match nothing new.
+    const redundant = cities.cities
+      .filter((city) =>
+        (city.aliases ?? []).some((alias) => alias.toLowerCase() === city.name.en.toLowerCase()),
+      )
+      .map((city) => city.id)
+    expect(redundant).toEqual([])
   })
 
   it('gives every city a distinct id and both names', () => {
@@ -348,7 +448,11 @@ describe('allowances', () => {
     expect(rate('r3h3:level-8-and-below')).toBe(1000)
     // The Commission gave risk and hardship equal weight, so the matrix is
     // symmetrical about the diagonal. A transcription error breaks that first.
-    for (const [a, b] of [['r1h2', 'r2h1'], ['r1h3', 'r3h1'], ['r2h3', 'r3h2']]) {
+    for (const [a, b] of [
+      ['r1h2', 'r2h1'],
+      ['r1h3', 'r3h1'],
+      ['r2h3', 'r3h2'],
+    ]) {
       for (const band of ['level-9-and-above', 'level-8-and-below']) {
         expect(rate(`${a}:${band}`), `${a} vs ${b} at ${band}`).toBe(rate(`${b}:${band}`))
       }
@@ -386,6 +490,40 @@ describe('allowances', () => {
       [5, 4500],
       [10, 9000],
     ])
+  })
+
+  it('never shows a money row with no money in it', () => {
+    // A rate whose measure promises rupees or a percentage but whose value is
+    // null renders as an empty amount. That is allowed — Ration Money Allowance
+    // genuinely has no published rate here — but only when something on the
+    // record says why, or the measure says it is not a money value at all.
+    const unexplained: string[] = []
+    for (const allowance of allowances.allowances) {
+      for (const rate of allowance.rates) {
+        const isMoney = rate.measure.startsWith('rupees') || rate.measure.startsWith('percent')
+        const hasAmount = rate.value != null || rate.floor != null || rate.ceiling != null
+        if (isMoney && !hasAmount && !rate.expression && !allowance.note) {
+          unexplained.push(`${allowance.id}/${rate.key ?? '-'}`)
+        }
+      }
+    }
+    expect(unexplained).toEqual([])
+  })
+
+  it('gives every formula rate an expression to evaluate', () => {
+    // measure: 'formula' with no expression renders as nothing at all.
+    const empty: string[] = []
+    for (const allowance of allowances.allowances) {
+      for (const rate of allowance.rates) {
+        if (rate.measure === 'formula' && !rate.expression) {
+          empty.push(`${allowance.id}/${rate.key ?? '-'}`)
+        }
+        if (rate.measure !== 'formula' && rate.expression) {
+          empty.push(`${allowance.id}/${rate.key ?? '-'} carries an expression but is not a formula`)
+        }
+      }
+    }
+    expect(empty).toEqual([])
   })
 
   it('points every subsumed allowance at the one that replaced it', () => {
@@ -461,14 +599,62 @@ describe('jobs', () => {
     expect(ssa, 'IB ACIO-II carries the Special Security Allowance').toBeDefined()
     expect(ssa?.enabledByDefault, 'and it is automatic for the post').toBe(true)
 
-    const rate = allowances.allowances.find(
-      (allowance) => allowance.id === 'special-security-allowance-ib',
-    )
+    const rate = allowances.allowances.find((allowance) => allowance.id === 'special-security-allowance-ib')
     expect(rate?.rates[0]?.measure).toBe('percent-of-basic-pay')
     expect(rate?.rates[0]?.value).toBe(20)
 
     const level7 = matrix.levels.find((level) => level.level === '7')
     expect(level7?.entryPay).toBe(44900)
+  })
+
+  it('never promotes an officer downwards', () => {
+    // Levels do not sort lexically — '10' comes before '2' — so this walks the
+    // matrix's own `order` rather than the level string. A promotion step below
+    // the entry level, or a path that dips, is a career going backwards.
+    const order = new Map(matrix.levels.map((level) => [level.level, level.order as number]))
+    const offenders: string[] = []
+    for (const job of jobs.jobs) {
+      let previous = order.get(job.entryLevel) as number
+      for (const step of job.promotionPath) {
+        const here = order.get(step.level) as number
+        if (here < previous) {
+          offenders.push(`${job.id}: ${step.title.en} is L${step.level}, below L${job.entryLevel}`)
+        }
+        previous = Math.max(previous, here)
+      }
+    }
+    expect(offenders).toEqual([])
+  })
+
+  it('gives every post the allowances its own organisation implies', () => {
+    // The inverse of the default-state test below: that one catches an
+    // allowance switched on where it should not be, this one catches one
+    // missing altogether. An Intelligence Bureau post without the Special
+    // Security Allowance is a fifth of the pay packet gone.
+    const missing: string[] = []
+    const impliedBy: Record<string, string> = {
+      ib: 'special-security-allowance-ib',
+      cbi: 'special-incentive-allowance-cbi',
+    }
+    for (const job of jobs.jobs) {
+      const ids = new Set(job.allowances.map((allowance) => allowance.id))
+      const implied = impliedBy[job.organisation]
+      if (implied && !ids.has(implied)) missing.push(`${job.id} -> ${implied}`)
+      // House Rent Allowance, Transport Allowance and Leave Travel Concession
+      // follow every civil post, wherever it is.
+      for (const universal of ['house-rent-allowance', 'transport-allowance', 'leave-travel-concession']) {
+        if (!ids.has(universal)) missing.push(`${job.id} -> ${universal}`)
+      }
+      // An allowance that was subsumed is only meaningful next to the one that
+      // replaced it — otherwise the card says "not payable" and stops there.
+      for (const entry of job.allowances) {
+        const allowance = allowances.allowances.find((item) => item.id === entry.id)
+        if (allowance?.status === 'subsumed' && !ids.has(allowance.subsumedInto as string)) {
+          missing.push(`${job.id} -> ${entry.id} without ${allowance.subsumedInto}`)
+        }
+      }
+    }
+    expect(missing).toEqual([])
   })
 
   it('switches on by default only what is automatic for the post', () => {
@@ -535,21 +721,17 @@ describe('schemes', () => {
   })
 
   it('has NPS at 10 and 14 per cent', () => {
-    const share = (key: string) =>
-      nps.scheme.contributions.find((entry) => entry.key === key)?.value
+    const share = (key: string) => nps.scheme.contributions.find((entry) => entry.key === key)?.value
     expect(share('employee')).toBe(10)
     expect(share('government')).toBe(14)
   })
 
   it('has UPS at 10 and 18.5 per cent, with the assured payout rules', () => {
-    const share = (key: string) =>
-      ups.scheme.contributions.find((entry) => entry.key === key)?.value
+    const share = (key: string) => ups.scheme.contributions.find((entry) => entry.key === key)?.value
     expect(share('employee')).toBe(10)
     expect(share('government-total')).toBe(18.5)
     // The pool contribution is what the 18.5 buys that NPS's 14 does not.
-    expect(
-      (share('government-individual-corpus') ?? 0) + (share('government-pool-corpus') ?? 0),
-    ).toBe(18.5)
+    expect((share('government-individual-corpus') ?? 0) + (share('government-pool-corpus') ?? 0)).toBe(18.5)
 
     expect(ups.scheme.effectiveFrom).toBe('2025-04-01')
     const slab = (key: string) => ups.scheme.slabs.find((entry) => entry.key === key)
@@ -676,8 +858,17 @@ describe('dataset versions', () => {
   }
 
   const PAY_DATASETS = [
-    'pay-matrix', 'pay-da-history', 'pay-cities', 'pay-allowances', 'pay-jobs',
-    'pay-cghs', 'pay-cgegis', 'pay-nps', 'pay-ups', 'pay-tax', 'pay-cpc8',
+    'pay-matrix',
+    'pay-da-history',
+    'pay-cities',
+    'pay-allowances',
+    'pay-jobs',
+    'pay-cghs',
+    'pay-cgegis',
+    'pay-nps',
+    'pay-ups',
+    'pay-tax',
+    'pay-cpc8',
   ]
 
   it.each(PAY_DATASETS)('records %s', (key) => {
