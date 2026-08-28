@@ -1,0 +1,123 @@
+{
+  "_note": "STAGE B · CRITIC. A separate pass over scripts/authoring/authored/ccs-leave.json, judging each question on its own terms: is there exactly one correct answer, are the distractors plausible without being trivially wrong, is it inside the public rule text, is there a factual red flag, is the tone right for a serving officer. Rejections stay in data/rules/cards/ with reviewState \"rejected\" and are never served.",
+  "ccs-leave-q-001": {
+    "verdict": "approve",
+    "reason": "One correct answer, grounded in Rule 7, CCS (Leave) Rules, 1972; distractors are real rules or real figures from neighbouring provisions."
+  },
+  "ccs-leave-q-002": {
+    "verdict": "approve",
+    "reason": "One correct answer, grounded in Rule 26, CCS (Leave) Rules, 1972; distractors are real rules or real figures from neighbouring provisions."
+  },
+  "ccs-leave-q-003": {
+    "verdict": "approve",
+    "reason": "One correct answer, grounded in Rule 27, CCS (Leave) Rules, 1972; distractors are real rules or real figures from neighbouring provisions."
+  },
+  "ccs-leave-q-004": {
+    "verdict": "approve",
+    "reason": "One correct answer, grounded in Rule 43, CCS (Leave) Rules, 1972; distractors are real rules or real figures from neighbouring provisions."
+  },
+  "ccs-leave-q-005": {
+    "verdict": "approve",
+    "reason": "One correct answer, grounded in Rule 43A, CCS (Leave) Rules, 1972; distractors are real rules or real figures from neighbouring provisions."
+  },
+  "ccs-leave-q-006": {
+    "verdict": "approve",
+    "reason": "One correct answer, grounded in Rule 43C, CCS (Leave) Rules, 1972; distractors are real rules or real figures from neighbouring provisions."
+  },
+  "ccs-leave-q-007": {
+    "verdict": "approve",
+    "reason": "One correct answer, grounded in Rule 30, CCS (Leave) Rules, 1972; distractors are real rules or real figures from neighbouring provisions."
+  },
+  "ccs-leave-q-008": {
+    "verdict": "approve",
+    "reason": "One correct answer, grounded in Rule 31, CCS (Leave) Rules, 1972; distractors are real rules or real figures from neighbouring provisions."
+  },
+  "ccs-leave-q-009": {
+    "verdict": "approve",
+    "reason": "One correct answer, grounded in Rule 38, CCS (Leave) Rules, 1972; distractors are real rules or real figures from neighbouring provisions."
+  },
+  "ccs-leave-q-010": {
+    "verdict": "approve",
+    "reason": "One correct answer, grounded in Rule 38A, CCS (Leave) Rules, 1972; distractors are real rules or real figures from neighbouring provisions."
+  },
+  "ccs-leave-q-011": {
+    "verdict": "approve",
+    "reason": "One correct answer, grounded in Rule 12, CCS (Leave) Rules, 1972; distractors are real rules or real figures from neighbouring provisions."
+  },
+  "ccs-leave-q-012": {
+    "verdict": "approve",
+    "reason": "One correct answer, grounded in Rule 25, CCS (Leave) Rules, 1972; distractors are real rules or real figures from neighbouring provisions."
+  },
+  "ccs-leave-q-013": {
+    "verdict": "approve",
+    "reason": "One correct answer, grounded in Rule 11, CCS (Leave) Rules, 1972; distractors are real rules or real figures from neighbouring provisions."
+  },
+  "ccs-leave-q-014": {
+    "verdict": "approve",
+    "reason": "One correct answer, grounded in Rule 48, CCS (Leave) Rules, 1972; distractors are real rules or real figures from neighbouring provisions."
+  },
+  "ccs-leave-q-015": {
+    "verdict": "approve",
+    "reason": "One correct answer, grounded in Rule 50, CCS (Leave) Rules, 1972; distractors are real rules or real figures from neighbouring provisions."
+  },
+  "ccs-leave-q-016": {
+    "verdict": "reject",
+    "reason": "The source line for the career maximum is truncated in the PDF ('twenty-____ in all') and the figure was supplied by inference during the cloze review. A question should not rest on a repaired reading of its own grounding."
+  },
+  "ccs-leave-q-017": {
+    "verdict": "approve",
+    "reason": "One correct answer, grounded in Rule 63, CCS (Leave) Rules, 1972; distractors are real rules or real figures from neighbouring provisions."
+  },
+  "ccs-leave-q-018": {
+    "verdict": "approve",
+    "reason": "One correct answer, grounded in Rule 32, CCS (Leave) Rules, 1972; distractors are real rules or real figures from neighbouring provisions."
+  },
+  "ccs-leave-q-019": {
+    "verdict": "approve",
+    "reason": "One correct answer, grounded in Rule 19, CCS (Leave) Rules, 1972; distractors are real rules or real figures from neighbouring provisions."
+  },
+  "ccs-leave-q-020": {
+    "verdict": "approve",
+    "reason": "One correct answer, grounded in Rule 16, CCS (Leave) Rules, 1972; distractors are real rules or real figures from neighbouring provisions."
+  },
+  "ccs-leave-q-021": {
+    "verdict": "approve",
+    "reason": "One correct answer, grounded in Rule 21, CCS (Leave) Rules, 1972; distractors are real rules or real figures from neighbouring provisions."
+  },
+  "ccs-leave-q-022": {
+    "verdict": "approve",
+    "reason": "One correct answer, grounded in Rule 13, CCS (Leave) Rules, 1972; distractors are real rules or real figures from neighbouring provisions."
+  },
+  "ccs-leave-q-023": {
+    "verdict": "approve",
+    "reason": "One correct answer, grounded in Rule 24, CCS (Leave) Rules, 1972; distractors are real rules or real figures from neighbouring provisions."
+  },
+  "ccs-leave-q-024": {
+    "verdict": "approve",
+    "reason": "One correct answer, grounded in Rule 42, CCS (Leave) Rules, 1972; distractors are real rules or real figures from neighbouring provisions."
+  },
+  "ccs-leave-q-025": {
+    "verdict": "approve",
+    "reason": "One correct answer, grounded in Rule 47, CCS (Leave) Rules, 1972; distractors are real rules or real figures from neighbouring provisions."
+  },
+  "ccs-leave-q-026": {
+    "verdict": "approve",
+    "reason": "One correct answer, grounded in Rule 9, CCS (Leave) Rules, 1972; distractors are real rules or real figures from neighbouring provisions."
+  },
+  "ccs-leave-q-027": {
+    "verdict": "approve",
+    "reason": "One correct answer, grounded in Rule 33, CCS (Leave) Rules, 1972; distractors are real rules or real figures from neighbouring provisions."
+  },
+  "ccs-leave-q-028": {
+    "verdict": "approve",
+    "reason": "One correct answer, grounded in Rule 43B, CCS (Leave) Rules, 1972; distractors are real rules or real figures from neighbouring provisions."
+  },
+  "ccs-leave-q-029": {
+    "verdict": "approve",
+    "reason": "One correct answer, grounded in Rule 23, CCS (Leave) Rules, 1972; distractors are real rules or real figures from neighbouring provisions."
+  },
+  "ccs-leave-q-030": {
+    "verdict": "approve",
+    "reason": "One correct answer, grounded in Rule 28, CCS (Leave) Rules, 1972; distractors are real rules or real figures from neighbouring provisions."
+  }
+}

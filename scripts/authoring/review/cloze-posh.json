@@ -1,0 +1,356 @@
+{
+  "_note": "Hand review of the generated cloze cards for the PoSH Act, 2013. Two cards are rejected because the blank fell inside the 2016 amendment footnote that renamed the Internal Complaints Committee to the Internal Committee; the stem there is 'for \"____\" (w.e.f.', which is a footnote, not a section.",
+
+  "posh-cloze-1-1": {
+    "verdict": "reject",
+    "reason": "The stem is the short title and the blank is the name of the Act the reader is studying."
+  },
+  "posh-cloze-2-1": {
+    "verdict": "approve",
+    "reason": "Section 2(c) — the Chairperson is of the Local Committee and is nominated under section 7(1). The Internal Committee has a Presiding Officer instead, and the two are routinely swapped.",
+    "hi": {
+      "text": "धारा 2(ग) — \"अध्यक्ष\" से स्थानीय परिवाद समिति का ऐसा अध्यक्ष अभिप्रेत है जो ____ की उपधारा (1) के अधीन नामनिर्दिष्ट किया गया हो।",
+      "answer": "धारा 7"
+    }
+  },
+  "posh-cloze-2-2": {
+    "verdict": "approve",
+    "reason": "Section 2(a) — an aggrieved woman need not be employed at the workplace, which is what the definition is for.",
+    "hi": {
+      "text": "धारा 2(क) — \"____\" से, किसी कार्यस्थल के संबंध में, किसी भी आयु की ऐसी महिला अभिप्रेत है, चाहे वह नियोजित हो या न हो, जो यह अभिकथन करती है कि उसे लैंगिक उत्पीड़न का शिकार बनाया गया है।",
+      "answer": "व्यथित महिला"
+    }
+  },
+  "posh-cloze-3-1": {
+    "verdict": "reject",
+    "reason": "Section 3(1) is one sentence and the blank is the subject of the Act."
+  },
+  "posh-cloze-4-1": {
+    "verdict": "approve",
+    "reason": "Section 4(3) — the three-year cap on the Internal Committee's tenure.",
+    "hi": {
+      "text": "धारा 4(3) — आंतरिक समिति का पीठासीन अधिकारी और प्रत्येक सदस्य नामनिर्देशन की तारीख से नियोजक द्वारा विनिर्दिष्ट ऐसी अवधि तक पद धारण करेगा जो ____ से अधिक न हो।",
+      "answer": "तीन वर्ष"
+    }
+  },
+  "posh-cloze-4-2": {
+    "verdict": "approve",
+    "reason": "Section 4(5)(a) — contravening the confidentiality section is itself a ground for removal from the Committee.",
+    "hi": {
+      "text": "धारा 4(5)(क) — जहाँ आंतरिक समिति का पीठासीन अधिकारी या कोई सदस्य ____ के उपबंधों का उल्लंघन करता है, वहाँ उसे समिति से हटा दिया जाएगा।",
+      "answer": "धारा 16"
+    }
+  },
+  "posh-cloze-4-3": {
+    "verdict": "approve",
+    "reason": "Section 4(2)(b) — not less than two Members from amongst employees. The composition is examinable in detail.",
+    "hi": {
+      "text": "धारा 4(2)(ख) — आंतरिक समिति में कर्मचारियों में से ____ से अन्यून सदस्य होंगे, जो अधिमानतः महिलाओं के हित के प्रति समर्पित हों या जिन्हें सामाजिक कार्य का अनुभव हो या विधिक ज्ञान हो।",
+      "answer": "दो"
+    }
+  },
+  "posh-cloze-5-1": {
+    "verdict": "approve",
+    "reason": "Section 5 — the District Officer is notified by the appropriate Government, not appointed by the employer.",
+    "hi": {
+      "text": "धारा 5 — ____ प्रत्येक जिले के लिए किसी जिला मजिस्ट्रेट, अपर जिला मजिस्ट्रेट, कलक्टर या उप-कलक्टर को जिला अधिकारी के रूप में अधिसूचित कर सकेगी।",
+      "answer": "समुचित सरकार"
+    }
+  },
+  "posh-cloze-6-1": {
+    "verdict": "approve",
+    "reason": "Section 6(2) — the nodal officer forwards a complaint within seven days.",
+    "hi": {
+      "text": "धारा 6(2) — जिला अधिकारी ग्रामीण या जनजातीय क्षेत्र के प्रत्येक खंड, तालुका और तहसील में तथा शहरी क्षेत्र के वार्ड या नगरपालिका में एक नोडल अधिकारी पदाभिहित करेगा, जो परिवाद प्राप्त कर उसे ____ के भीतर संबंधित स्थानीय समिति को अग्रेषित करेगा।",
+      "answer": "सात दिन"
+    }
+  },
+  "posh-cloze-6-2": {
+    "verdict": "approve",
+    "reason": "Section 6(1) — the ten-worker threshold below which there is no Internal Committee and the Local Committee takes over.",
+    "hi": {
+      "text": "धारा 6(1) — स्थानीय समिति ऐसे स्थापनों से लैंगिक उत्पीड़न के परिवाद प्राप्त करेगी जहाँ ____ से कम कर्मकार होने के कारण आंतरिक समिति गठित नहीं की गई है, अथवा जहाँ परिवाद स्वयं नियोजक के विरुद्ध है।",
+      "answer": "दस"
+    }
+  },
+  "posh-cloze-6-3": {
+    "verdict": "approve",
+    "reason": "Section 6(1) — the Local Committee is constituted by the District Officer, not by the employer.",
+    "hi": {
+      "text": "धारा 6(1) — प्रत्येक ____ संबंधित जिले में \"स्थानीय समिति\" नाम से एक समिति गठित करेगा।",
+      "answer": "जिला अधिकारी"
+    }
+  },
+  "posh-cloze-7-1": {
+    "verdict": "approve",
+    "reason": "Section 7(2) — the Local Committee's tenure matches the Internal Committee's three years.",
+    "hi": {
+      "text": "धारा 7(2) — स्थानीय समिति का अध्यक्ष और प्रत्येक सदस्य नियुक्ति की तारीख से जिला अधिकारी द्वारा विनिर्दिष्ट ऐसी अवधि तक पद धारण करेगा जो ____ से अधिक न हो।",
+      "answer": "तीन वर्ष"
+    }
+  },
+  "posh-cloze-7-2": {
+    "verdict": "reject",
+    "reason": "Duplicate of posh-cloze-4-2 — the same section 16 contravention ground, for the Local Committee."
+  },
+  "posh-cloze-7-3": {
+    "verdict": "approve",
+    "reason": "Section 7(1)(b) — one Member from amongst women working in the block, taluka or tehsil.",
+    "hi": {
+      "text": "धारा 7(1)(ख) — स्थानीय समिति में खंड, तालुका, तहसील, वार्ड या नगरपालिका में काम करने वाली महिलाओं में से ____ सदस्य नामनिर्दिष्ट किया जाएगा।",
+      "answer": "एक"
+    }
+  },
+  "posh-cloze-8-1": {
+    "verdict": "approve",
+    "reason": "Section 8 — the grant pays the fees and allowances under section 7(4), which is what makes a Local Committee workable.",
+    "hi": {
+      "text": "धारा 8(1) — समुचित सरकार स्थानीय समिति को ____ की उपधारा (4) में निर्दिष्ट फीस या भत्तों के संदाय के लिए उपयोग हेतु ऐसी धनराशि उपलब्ध कराएगी जो वह ठीक समझे।",
+      "answer": "धारा 7"
+    }
+  },
+  "posh-cloze-8-2": {
+    "verdict": "reject",
+    "reason": "The stem is the 2016 amendment footnote — 'for \"____\" (w.e.f.' — not section 8."
+  },
+  "posh-cloze-9-1": {
+    "verdict": "approve",
+    "reason": "Section 9(1) — the three-month limitation, which the Committee may extend by a further three months.",
+    "hi": {
+      "text": "धारा 9(1) — कोई व्यथित महिला घटना की तारीख से ____ की अवधि के भीतर आंतरिक समिति को, या जहाँ वह गठित न हो वहाँ स्थानीय समिति को, लिखित रूप में लैंगिक उत्पीड़न का परिवाद कर सकेगी।",
+      "answer": "तीन मास"
+    }
+  },
+  "posh-cloze-9-2": {
+    "verdict": "reject",
+    "reason": "Duplicate of posh-cloze-2-2's term in a stem that also carries the section 9 limitation already covered."
+  },
+  "posh-cloze-10-1": {
+    "verdict": "approve",
+    "reason": "Section 10 — conciliation happens *before* an inquiry under section 11 and only at the woman's request.",
+    "hi": {
+      "text": "धारा 10(1) — आंतरिक समिति या स्थानीय समिति ____ के अधीन जाँच आरंभ करने से पूर्व और व्यथित महिला के अनुरोध पर, उसके और प्रत्यर्थी के बीच मामला सुलझाने के लिए कदम उठा सकेगी।",
+      "answer": "धारा 11"
+    }
+  },
+  "posh-cloze-10-2": {
+    "verdict": "reject",
+    "reason": "The stem names the Local Committee in the same clause."
+  },
+  "posh-cloze-11-1": {
+    "verdict": "approve",
+    "reason": "Section 11(1) proviso — a domestic worker's complaint goes to the police within seven days for section 509 IPC.",
+    "hi": {
+      "text": "धारा 11(1) का परंतुक — घरेलू कामगार के मामले में स्थानीय समिति, प्रथम दृष्टया मामला बनने पर, ____ की अवधि के भीतर परिवाद को पुलिस को अग्रेषित करेगी।",
+      "answer": "सात दिन"
+    }
+  },
+  "posh-cloze-11-2": {
+    "verdict": "approve",
+    "reason": "Section 11(1) is subject to section 10 — an inquiry begins only where conciliation has not settled the matter.",
+    "hi": {
+      "text": "धारा 11(1) — ____ के उपबंधों के अधीन रहते हुए, आंतरिक समिति या स्थानीय समिति, जहाँ प्रत्यर्थी कर्मचारी है, सेवा नियमों के अनुसार परिवाद की जाँच करेगी।",
+      "answer": "धारा 10"
+    }
+  },
+  "posh-cloze-11-3": {
+    "verdict": "reject",
+    "reason": "The stem names the Local Committee immediately after the blank."
+  },
+  "posh-cloze-12-1": {
+    "verdict": "approve",
+    "reason": "Section 12(1)(b) — leave of up to three months during the pendency of an inquiry, in addition to her entitlement.",
+    "hi": {
+      "text": "धारा 12(1)(ख) — जाँच के लंबित रहने के दौरान समिति नियोजक से यह सिफ़ारिश कर सकेगी कि व्यथित महिला को ____ तक की छुट्टी दी जाए।",
+      "answer": "तीन मास"
+    }
+  },
+  "posh-cloze-12-2": {
+    "verdict": "reject",
+    "reason": "Answer is 'inquiry', which the same sentence uses twice more."
+  },
+  "posh-cloze-13-1": {
+    "verdict": "approve",
+    "reason": "Section 13(1) — the report goes to the employer within ten days of completing the inquiry.",
+    "hi": {
+      "text": "धारा 13(1) — जाँच पूरी होने पर आंतरिक समिति या स्थानीय समिति जाँच पूरी होने की तारीख से ____ की अवधि के भीतर अपने निष्कर्षों की रिपोर्ट नियोजक या जिला अधिकारी को देगी।",
+      "answer": "दस दिन"
+    }
+  },
+  "posh-cloze-13-2": {
+    "verdict": "approve",
+    "reason": "Section 13(3)(ii) — compensation is determined under section 15, which lists the factors.",
+    "hi": {
+      "text": "धारा 13(3)(ii) — समिति नियोजक से यह सिफ़ारिश कर सकेगी कि ____ के उपबंधों के अनुसार अवधारित ऐसी राशि व्यथित महिला या उसके विधिक उत्तराधिकारियों को दी जाए।",
+      "answer": "धारा 15"
+    }
+  },
+  "posh-cloze-13-3": {
+    "verdict": "reject",
+    "reason": "Duplicate of posh-cloze-12-2's weakness — 'inquiry' appears twice in the stem."
+  },
+  "posh-cloze-14-1": {
+    "verdict": "approve",
+    "reason": "Section 14(1) — action for a malicious complaint is taken against the person who complained under section 9.",
+    "hi": {
+      "text": "धारा 14(1) — जहाँ समिति इस निष्कर्ष पर पहुँचती है कि अभिकथन विद्वेषपूर्ण है, वहाँ वह नियोजक या जिला अधिकारी से उस व्यक्ति के विरुद्ध कार्रवाई की सिफ़ारिश कर सकेगी जिसने ____ के अधीन परिवाद किया है।",
+      "answer": "धारा 9"
+    }
+  },
+  "posh-cloze-14-2": {
+    "verdict": "reject",
+    "reason": "The stem names the Internal Committee immediately before the blank."
+  },
+  "posh-cloze-15-1": {
+    "verdict": "approve",
+    "reason": "Section 15 sets the factors for the sum payable under section 13(3)(ii) — the link between the two sections is what a Committee must get right.",
+    "hi": {
+      "text": "धारा 15 — ____ की उपधारा (3) के खंड (ii) के अधीन व्यथित महिला को देय राशि अवधारित करने के प्रयोजन के लिए समिति मानसिक आघात, पीड़ा और कैरियर के अवसर की हानि का ध्यान रखेगी।",
+      "answer": "धारा 13"
+    }
+  },
+  "posh-cloze-15-2": {
+    "verdict": "reject",
+    "reason": "The stem names the Internal Committee immediately before the blank."
+  },
+  "posh-cloze-16-1": {
+    "verdict": "approve",
+    "reason": "Section 16 overrides the RTI Act for the contents of a complaint made under section 9 — the one place these two Acts collide.",
+    "hi": {
+      "text": "धारा 16 — सूचना का अधिकार अधिनियम, 2005 में किसी बात के होते हुए भी, ____ के अधीन किए गए परिवाद की अंतर्वस्तु तथा व्यथित महिला, प्रत्यर्थी और साक्षियों की पहचान और पते प्रकाशित नहीं किए जाएँगे।",
+      "answer": "धारा 9"
+    }
+  },
+  "posh-cloze-16-2": {
+    "verdict": "approve",
+    "reason": "Section 16 protects the respondent's identity as well as the woman's — the half readers forget.",
+    "hi": {
+      "text": "धारा 16 — परिवाद की अंतर्वस्तु तथा व्यथित महिला, ____ और साक्षियों की पहचान और पते किसी भी रीति से प्रकाशित या जनता को नहीं बताए जाएँगे।",
+      "answer": "प्रत्यर्थी"
+    }
+  },
+  "posh-cloze-17-1": {
+    "verdict": "approve",
+    "reason": "Section 17 — the penalty for breaching confidentiality is imposed under the service rules, not by the Committee.",
+    "hi": {
+      "text": "धारा 17 — जो व्यक्ति परिवाद या जाँच से संबंधित कर्तव्य सौंपे जाने पर धारा 16 का उल्लंघन करता है, वह उस पर लागू ____ के उपबंधों के अनुसार शास्ति का भागी होगा।",
+      "answer": "सेवा नियमों"
+    }
+  },
+  "posh-cloze-18-1": {
+    "verdict": "approve",
+    "reason": "Section 18(2) — ninety days to appeal, against thirty days for a first appeal under the RTI Act. The two are often confused.",
+    "hi": {
+      "text": "धारा 18(2) — उपधारा (1) के अधीन अपील सिफ़ारिशों से ____ की अवधि के भीतर की जाएगी।",
+      "answer": "नब्बे दिन"
+    }
+  },
+  "posh-cloze-18-2": {
+    "verdict": "approve",
+    "reason": "Section 18(1) — the recommendations that are appealable are those under section 13(2) and (3), 14 and 17.",
+    "hi": {
+      "text": "धारा 18(1) — ____ की उपधारा (2) के अधीन अथवा उपधारा (3) के खंड (i) या (ii) के अधीन की गई सिफ़ारिशों से व्यथित कोई व्यक्ति न्यायालय या अधिकरण को अपील कर सकेगा।",
+      "answer": "धारा 13"
+    }
+  },
+  "posh-cloze-18-3": {
+    "verdict": "reject",
+    "reason": "Duplicate of posh-cloze-17-1 — the same 'service rules applicable to the said person' formula."
+  },
+  "posh-cloze-19-1": {
+    "verdict": "approve",
+    "reason": "Section 19(b) — the employer must display the order constituting the Internal Committee under section 4(1).",
+    "hi": {
+      "text": "धारा 19(ख) — प्रत्येक नियोजक कार्यस्थल पर सहज दृश्य स्थान पर लैंगिक उत्पीड़न के दंडात्मक परिणाम तथा ____ की उपधारा (1) के अधीन आंतरिक समिति के गठन का आदेश प्रदर्शित करेगा।",
+      "answer": "धारा 4"
+    }
+  },
+  "posh-cloze-19-2": {
+    "verdict": "approve",
+    "reason": "Section 19 — the duties are the employer's, and the safe-working-environment duty is the first of them.",
+    "hi": {
+      "text": "धारा 19(क) — प्रत्येक ____ कार्यस्थल पर सुरक्षित कार्य वातावरण उपलब्ध कराएगा, जिसमें कार्यस्थल पर संपर्क में आने वाले व्यक्तियों से सुरक्षा सम्मिलित है।",
+      "answer": "नियोजक"
+    }
+  },
+  "posh-cloze-20-1": {
+    "verdict": "approve",
+    "reason": "Section 20 — monitoring the Local Committee's reports is the District Officer's duty, not the employer's.",
+    "hi": {
+      "text": "धारा 20(क) — ____ स्थानीय समिति द्वारा प्रस्तुत रिपोर्ट के समय पर प्रस्तुतीकरण की मॉनिटरी करेगा।",
+      "answer": "जिला अधिकारी"
+    }
+  },
+  "posh-cloze-21-1": {
+    "verdict": "approve",
+    "reason": "Section 21(1) — a calendar-year annual report to the employer and the District Officer.",
+    "hi": {
+      "text": "धारा 21(1) — आंतरिक समिति या स्थानीय समिति प्रत्येक कैलेंडर वर्ष में विहित प्ररूप और समय पर एक ____ तैयार करेगी और उसे नियोजक तथा जिला अधिकारी को प्रस्तुत करेगी।",
+      "answer": "वार्षिक रिपोर्ट"
+    }
+  },
+  "posh-cloze-22-1": {
+    "verdict": "approve",
+    "reason": "Section 22 — the number of cases goes into the organisation's own annual report.",
+    "hi": {
+      "text": "धारा 22 — ____ अपने संगठन की वार्षिक रिपोर्ट में इस अधिनियम के अधीन दाखिल मामलों की संख्या और उनके निपटान की जानकारी सम्मिलित करेगा।",
+      "answer": "नियोजक"
+    }
+  },
+  "posh-cloze-23-1": {
+    "verdict": "approve",
+    "reason": "Section 23 — implementation is monitored by the appropriate Government.",
+    "hi": {
+      "text": "धारा 23 — ____ इस अधिनियम के कार्यान्वयन की मॉनिटरी करेगी और कार्यस्थल पर लैंगिक उत्पीड़न के दाखिल तथा निपटाए गए मामलों की संख्या के आँकड़े रखेगी।",
+      "answer": "समुचित सरकार"
+    }
+  },
+  "posh-cloze-24-1": {
+    "verdict": "reject",
+    "reason": "Answer is 'workplace', which appears three more times in the same sentence."
+  },
+  "posh-cloze-25-1": {
+    "verdict": "reject",
+    "reason": "Same weakness as posh-cloze-24-1."
+  },
+  "posh-cloze-26-1": {
+    "verdict": "approve",
+    "reason": "Section 26(1)(a) — failing to constitute the Internal Committee under section 4(1) is the first punishable default.",
+    "hi": {
+      "text": "धारा 26(1)(क) — जहाँ नियोजक ____ की उपधारा (1) के अधीन आंतरिक समिति गठित करने में असफल रहता है, वहाँ वह जुर्माने से दंडनीय होगा।",
+      "answer": "धारा 4"
+    }
+  },
+  "posh-cloze-26-2": {
+    "verdict": "reject",
+    "reason": "The blank falls on 'fifty' inside 'fifty thousand rupees' and the stem is truncated before the figure, so the card asks for half a number."
+  },
+  "posh-cloze-26-3": {
+    "verdict": "reject",
+    "reason": "The stem is the 2016 amendment footnote, not section 26."
+  },
+  "posh-cloze-29-1": {
+    "verdict": "approve",
+    "reason": "Section 29(3) — the thirty-day laying period.",
+    "hi": {
+      "text": "धारा 29(3) — इस अधिनियम के अधीन बनाया गया प्रत्येक नियम संसद के प्रत्येक सदन के समक्ष कुल ____ की अवधि के लिए रखा जाएगा।",
+      "answer": "तीस दिन"
+    }
+  },
+  "posh-cloze-29-2": {
+    "verdict": "reject",
+    "reason": "A cross-reference inside the rule-making list; the sentence gives no way to recover which section is meant."
+  },
+  "posh-cloze-29-3": {
+    "verdict": "reject",
+    "reason": "Answer is 'one', blanked out of 'comprised in one session'."
+  },
+  "posh-cloze-30-1": {
+    "verdict": "approve",
+    "reason": "Section 30(1) proviso — the removal-of-difficulties power lapsed two years after commencement.",
+    "hi": {
+      "text": "धारा 30(1) का परंतुक — इस धारा के अधीन कोई आदेश इस अधिनियम के प्रारंभ से ____ की अवधि बीत जाने के पश्चात् नहीं किया जाएगा।",
+      "answer": "दो वर्ष"
+    }
+  }
+}

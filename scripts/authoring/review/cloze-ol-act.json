@@ -1,0 +1,108 @@
+{
+  "_note": "Hand review of the generated cloze cards for the Official Languages Act, 1963.",
+
+  "ol-act-cloze-1-1": {
+    "verdict": "approve",
+    "reason": "Section 1(2) — section 3 alone commenced on 26 January 1965; the rest was notified. Officers routinely date the whole Act from 1963.",
+    "hi": {
+      "text": "धारा 1(2) — ____ 26 जनवरी, 1965 को प्रवृत्त होगी और इस अधिनियम के शेष उपबंध ऐसी तारीख को प्रवृत्त होंगे जो केंद्रीय सरकार राजपत्र में अधिसूचना द्वारा नियत करे।",
+      "answer": "धारा 3"
+    }
+  },
+  "ol-act-cloze-1-2": {
+    "verdict": "reject",
+    "reason": "Answer is 'notification'. The set phrase 'by ____ in the Official Gazette' gives it away, and ol-act-cloze-8-3 already covers it once."
+  },
+  "ol-act-cloze-2-1": {
+    "verdict": "approve",
+    "reason": "Section 3(1) — the fifteen-year period in Article 343(2) of the Constitution is what section 3 works around.",
+    "hi": {
+      "text": "धारा 3(1) — संविधान के प्रारंभ से ____ की अवधि समाप्त हो जाने पर भी, नियत दिन से अंग्रेज़ी भाषा का प्रयोग हिंदी के अतिरिक्त संघ के सभी शासकीय प्रयोजनों के लिए जारी रह सकेगा।",
+      "answer": "पंद्रह वर्ष"
+    }
+  },
+  "ol-act-cloze-2-2": {
+    "verdict": "approve",
+    "reason": "Section 2(a) — 'appointed day' means one date for section 3 and a different one for every other provision.",
+    "hi": {
+      "text": "धारा 2(क) — \"नियत दिन\" से, ____ के संबंध में, 26 जनवरी, 1965 अभिप्रेत है; और इस अधिनियम के किसी अन्य उपबंध के संबंध में वह दिन जिसको वह उपबंध प्रवृत्त होता है।",
+      "answer": "धारा 3"
+    }
+  },
+  "ol-act-cloze-2-3": {
+    "verdict": "reject",
+    "reason": "Answer is 'one', blanked out of 'between one State which has adopted Hindi and another'. The card tests counting, not the Act."
+  },
+  "ol-act-cloze-4-1": {
+    "verdict": "approve",
+    "reason": "Section 4(1) — the Committee on Official Language could only be constituted ten years after section 3 commenced.",
+    "hi": {
+      "text": "धारा 4(1) — धारा 3 के प्रवृत्त होने की तारीख से ____ बीत जाने के पश्चात्, संसद के किसी सदन में राष्ट्रपति की पूर्व मंजूरी से प्रस्ताव पारित होने पर राजभाषा संबंधी समिति गठित की जाएगी।",
+      "answer": "दस वर्ष"
+    }
+  },
+  "ol-act-cloze-4-2": {
+    "verdict": "approve",
+    "reason": "Section 4(2) — thirty members, twenty from the Lok Sabha and ten from the Rajya Sabha. The split is the examinable fact.",
+    "hi": {
+      "text": "धारा 4(2) — समिति ____ सदस्यों से मिलकर बनेगी, जिनमें से बीस लोक सभा के और दस राज्य सभा के सदस्य होंगे।",
+      "answer": "तीस"
+    }
+  },
+  "ol-act-cloze-4-3": {
+    "verdict": "approve",
+    "reason": "The body section 4 creates, by its statutory name.",
+    "hi": {
+      "text": "धारा 4(1) — धारा 3 के प्रवृत्त होने से दस वर्ष बीतने के पश्चात् संसद के प्रस्ताव द्वारा एक ____ गठित की जाएगी।",
+      "answer": "राजभाषा संबंधी समिति"
+    }
+  },
+  "ol-act-cloze-5-1": {
+    "verdict": "approve",
+    "reason": "Section 5 — only a Hindi translation published under the authority of the President is the authoritative text.",
+    "hi": {
+      "text": "धारा 5(1) — नियत दिन को और उसके पश्चात् राष्ट्रपति के प्राधिकार से राजपत्र में प्रकाशित किसी केंद्रीय अधिनियम या अध्यादेश का ____ में अनुवाद उसका प्राधिकृत पाठ समझा जाएगा।",
+      "answer": "हिंदी"
+    }
+  },
+  "ol-act-cloze-6-1": {
+    "verdict": "approve",
+    "reason": "Section 6 is anchored to Article 348(3) of the Constitution — a link officers are asked to state.",
+    "hi": {
+      "text": "धारा 6 — राज्य विधानमंडल द्वारा हिंदी से भिन्न भाषा विहित किए जाने पर, संविधान के ____ के खंड (3) द्वारा अपेक्षित अंग्रेज़ी अनुवाद के अतिरिक्त हिंदी में अनुवाद भी प्रकाशित किया जा सकेगा।",
+      "answer": "अनुच्छेद 348"
+    }
+  },
+  "ol-act-cloze-6-2": {
+    "verdict": "reject",
+    "reason": "The stem says 'a translation of the same in Hindi' two clauses later, so the blank answers itself."
+  },
+  "ol-act-cloze-7-1": {
+    "verdict": "approve",
+    "reason": "Section 7 — the Governor's power runs from the appointed day, a defined term.",
+    "hi": {
+      "text": "धारा 7 — ____ से या उसके पश्चात् किसी दिन से, राज्य का राज्यपाल राष्ट्रपति की पूर्व सहमति से उच्च न्यायालय के निर्णयों में हिंदी या राज्य की राजभाषा के प्रयोग को प्राधिकृत कर सकेगा।",
+      "answer": "नियत दिन"
+    }
+  },
+  "ol-act-cloze-8-1": {
+    "verdict": "approve",
+    "reason": "Section 8(2) — the laying period, which is thirty days and not a session.",
+    "hi": {
+      "text": "धारा 8(2) — इस धारा के अधीन बनाया गया प्रत्येक नियम संसद के प्रत्येक सदन के समक्ष कुल ____ की अवधि के लिए रखा जाएगा, जो एक सत्र में या दो या अधिक क्रमवर्ती सत्रों में पूरी हो सकेगी।",
+      "answer": "तीस दिन"
+    }
+  },
+  "ol-act-cloze-8-2": {
+    "verdict": "reject",
+    "reason": "Answer is 'one', blanked out of 'comprised in one session'. Tests counting, not the Act."
+  },
+  "ol-act-cloze-8-3": {
+    "verdict": "approve",
+    "reason": "Section 8(1) — the rule-making power is exercised by notification in the Official Gazette.",
+    "hi": {
+      "text": "धारा 8(1) — केंद्रीय सरकार, राजपत्र में ____ द्वारा, इस अधिनियम के प्रयोजनों को कार्यान्वित करने के लिए नियम बना सकेगी।",
+      "answer": "अधिसूचना"
+    }
+  }
+}

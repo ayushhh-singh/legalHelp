@@ -1,0 +1,1036 @@
+{
+  "$schema": "../../../schemas/rules-cards.schema.json",
+  "version": "1.0.0",
+  "generatedAt": "2026-08-28",
+  "act": {
+    "id": "ol-rules",
+    "name": {
+      "en": "Official Languages (Use for Official Purposes of the Union) Rules, 1976",
+      "hi": "राजभाषा (संघ के शासकीय प्रयोजनों के लिए प्रयोग) नियम, 1976"
+    },
+    "short": {
+      "en": "OL Rules 1976",
+      "hi": "राजभाषा नियम 1976"
+    },
+    "unit": {
+      "en": "Rule",
+      "hi": "नियम"
+    }
+  },
+  "disclaimer": {
+    "en": "Reference only; verify with the official gazette/order or your DDO.",
+    "hi": "केवल संदर्भ के लिए; आधिकारिक राजपत्र/आदेश अथवा अपने डीडीओ से सत्यापित करें।"
+  },
+  "source": {
+    "name": "Department of Official Language, Ministry of Home Affairs — Official Languages Rules, 1976 (as amended 1987, 2007, 2011)",
+    "url": "https://rajbhasha.gov.in/en/official-language-rules-1976"
+  },
+  "cards": [
+    {
+      "id": "ol-rules-rule-1",
+      "act": "ol-rules",
+      "rule": "1",
+      "kind": "rule",
+      "front": {
+        "en": "Short title, extent and commencement — which rule of the OL Rules 1976?",
+        "hi": "संक्षिप्त नाम, विस्तार और प्रारंभ — राजभाषा नियम 1976 का कौन-सा नियम?"
+      },
+      "back": {
+        "en": "Rule 1, Official Languages (Use for Official Purposes of the Union) Rules, 1976",
+        "hi": "नियम 1, राजभाषा (संघ के शासकीय प्रयोजनों के लिए प्रयोग) नियम, 1976"
+      },
+      "ruleRef": {
+        "textId": "ol-rules-1",
+        "citation": {
+          "en": "Rule 1, Official Languages (Use for Official Purposes of the Union) Rules, 1976",
+          "hi": "नियम 1, राजभाषा (संघ के शासकीय प्रयोजनों के लिए प्रयोग) नियम, 1976"
+        }
+      },
+      "difficulty": "easy",
+      "reviewed": true,
+      "reviewState": "approved",
+      "tags": [
+        "generated",
+        "rule"
+      ],
+      "verify": true,
+      "version": "1.0.0",
+      "source": {
+        "name": "Department of Official Language, Ministry of Home Affairs — Official Languages Rules, 1976 (as amended 1987, 2007, 2011)",
+        "url": "https://rajbhasha.gov.in/en/official-language-rules-1976"
+      }
+    },
+    {
+      "id": "ol-rules-rule-2",
+      "act": "ol-rules",
+      "rule": "2",
+      "kind": "rule",
+      "front": {
+        "en": "Definitions — which rule of the OL Rules 1976?",
+        "hi": "परिभाषाएँ — राजभाषा नियम 1976 का कौन-सा नियम?"
+      },
+      "back": {
+        "en": "Rule 2, Official Languages (Use for Official Purposes of the Union) Rules, 1976",
+        "hi": "नियम 2, राजभाषा (संघ के शासकीय प्रयोजनों के लिए प्रयोग) नियम, 1976"
+      },
+      "ruleRef": {
+        "textId": "ol-rules-2",
+        "citation": {
+          "en": "Rule 2, Official Languages (Use for Official Purposes of the Union) Rules, 1976",
+          "hi": "नियम 2, राजभाषा (संघ के शासकीय प्रयोजनों के लिए प्रयोग) नियम, 1976"
+        }
+      },
+      "difficulty": "easy",
+      "reviewed": true,
+      "reviewState": "approved",
+      "tags": [
+        "generated",
+        "rule"
+      ],
+      "verify": true,
+      "version": "1.0.0",
+      "source": {
+        "name": "Department of Official Language, Ministry of Home Affairs — Official Languages Rules, 1976 (as amended 1987, 2007, 2011)",
+        "url": "https://rajbhasha.gov.in/en/official-language-rules-1976"
+      }
+    },
+    {
+      "id": "ol-rules-rule-3",
+      "act": "ol-rules",
+      "rule": "3",
+      "kind": "rule",
+      "front": {
+        "en": "Communications to States etc. other than to Central Government offices, — which rule of the OL Rules 1976?",
+        "hi": "राज्यों आदि को, केंद्रीय सरकार के कार्यालयों से भिन्न, पत्रादि — राजभाषा नियम 1976 का कौन-सा नियम?"
+      },
+      "back": {
+        "en": "Rule 3, Official Languages (Use for Official Purposes of the Union) Rules, 1976",
+        "hi": "नियम 3, राजभाषा (संघ के शासकीय प्रयोजनों के लिए प्रयोग) नियम, 1976"
+      },
+      "ruleRef": {
+        "textId": "ol-rules-3",
+        "citation": {
+          "en": "Rule 3, Official Languages (Use for Official Purposes of the Union) Rules, 1976",
+          "hi": "नियम 3, राजभाषा (संघ के शासकीय प्रयोजनों के लिए प्रयोग) नियम, 1976"
+        }
+      },
+      "difficulty": "easy",
+      "reviewed": true,
+      "reviewState": "approved",
+      "tags": [
+        "generated",
+        "rule"
+      ],
+      "verify": true,
+      "version": "1.0.0",
+      "source": {
+        "name": "Department of Official Language, Ministry of Home Affairs — Official Languages Rules, 1976 (as amended 1987, 2007, 2011)",
+        "url": "https://rajbhasha.gov.in/en/official-language-rules-1976"
+      }
+    },
+    {
+      "id": "ol-rules-rule-4",
+      "act": "ol-rules",
+      "rule": "4",
+      "kind": "rule",
+      "front": {
+        "en": "Notwithstanding anything contained in sub-rules (1) and (2), communications from a Central Government office in Region \"C\" to a State or Union Territory of … — which rule of the OL Rules 1976?",
+        "hi": "केंद्रीय सरकार के कार्यालयों के बीच पत्रादि — राजभाषा नियम 1976 का कौन-सा नियम?"
+      },
+      "back": {
+        "en": "Rule 4, Official Languages (Use for Official Purposes of the Union) Rules, 1976",
+        "hi": "नियम 4, राजभाषा (संघ के शासकीय प्रयोजनों के लिए प्रयोग) नियम, 1976"
+      },
+      "ruleRef": {
+        "textId": "ol-rules-4",
+        "citation": {
+          "en": "Rule 4, Official Languages (Use for Official Purposes of the Union) Rules, 1976",
+          "hi": "नियम 4, राजभाषा (संघ के शासकीय प्रयोजनों के लिए प्रयोग) नियम, 1976"
+        }
+      },
+      "difficulty": "medium",
+      "reviewed": true,
+      "reviewState": "approved",
+      "tags": [
+        "generated",
+        "rule"
+      ],
+      "verify": true,
+      "version": "1.0.0",
+      "source": {
+        "name": "Department of Official Language, Ministry of Home Affairs — Official Languages Rules, 1976 (as amended 1987, 2007, 2011)",
+        "url": "https://rajbhasha.gov.in/en/official-language-rules-1976"
+      }
+    },
+    {
+      "id": "ol-rules-rule-5",
+      "act": "ol-rules",
+      "rule": "5",
+      "kind": "rule",
+      "front": {
+        "en": "Replies to communications received in Hindi — which rule of the OL Rules 1976?",
+        "hi": "हिंदी में प्राप्त पत्रादि के उत्तर — राजभाषा नियम 1976 का कौन-सा नियम?"
+      },
+      "back": {
+        "en": "Rule 5, Official Languages (Use for Official Purposes of the Union) Rules, 1976",
+        "hi": "नियम 5, राजभाषा (संघ के शासकीय प्रयोजनों के लिए प्रयोग) नियम, 1976"
+      },
+      "ruleRef": {
+        "textId": "ol-rules-5",
+        "citation": {
+          "en": "Rule 5, Official Languages (Use for Official Purposes of the Union) Rules, 1976",
+          "hi": "नियम 5, राजभाषा (संघ के शासकीय प्रयोजनों के लिए प्रयोग) नियम, 1976"
+        }
+      },
+      "difficulty": "easy",
+      "reviewed": true,
+      "reviewState": "approved",
+      "tags": [
+        "generated",
+        "rule"
+      ],
+      "verify": true,
+      "version": "1.0.0",
+      "source": {
+        "name": "Department of Official Language, Ministry of Home Affairs — Official Languages Rules, 1976 (as amended 1987, 2007, 2011)",
+        "url": "https://rajbhasha.gov.in/en/official-language-rules-1976"
+      }
+    },
+    {
+      "id": "ol-rules-rule-6",
+      "act": "ol-rules",
+      "rule": "6",
+      "kind": "rule",
+      "front": {
+        "en": "Use of both Hindi and English — which rule of the OL Rules 1976?",
+        "hi": "हिंदी और अंग्रेज़ी दोनों का प्रयोग — राजभाषा नियम 1976 का कौन-सा नियम?"
+      },
+      "back": {
+        "en": "Rule 6, Official Languages (Use for Official Purposes of the Union) Rules, 1976",
+        "hi": "नियम 6, राजभाषा (संघ के शासकीय प्रयोजनों के लिए प्रयोग) नियम, 1976"
+      },
+      "ruleRef": {
+        "textId": "ol-rules-6",
+        "citation": {
+          "en": "Rule 6, Official Languages (Use for Official Purposes of the Union) Rules, 1976",
+          "hi": "नियम 6, राजभाषा (संघ के शासकीय प्रयोजनों के लिए प्रयोग) नियम, 1976"
+        }
+      },
+      "difficulty": "easy",
+      "reviewed": true,
+      "reviewState": "approved",
+      "tags": [
+        "generated",
+        "rule"
+      ],
+      "verify": true,
+      "version": "1.0.0",
+      "source": {
+        "name": "Department of Official Language, Ministry of Home Affairs — Official Languages Rules, 1976 (as amended 1987, 2007, 2011)",
+        "url": "https://rajbhasha.gov.in/en/official-language-rules-1976"
+      }
+    },
+    {
+      "id": "ol-rules-rule-7",
+      "act": "ol-rules",
+      "rule": "7",
+      "kind": "rule",
+      "front": {
+        "en": "Application, representations etc — which rule of the OL Rules 1976?",
+        "hi": "आवेदन, अभ्यावेदन आदि — राजभाषा नियम 1976 का कौन-सा नियम?"
+      },
+      "back": {
+        "en": "Rule 7, Official Languages (Use for Official Purposes of the Union) Rules, 1976",
+        "hi": "नियम 7, राजभाषा (संघ के शासकीय प्रयोजनों के लिए प्रयोग) नियम, 1976"
+      },
+      "ruleRef": {
+        "textId": "ol-rules-7",
+        "citation": {
+          "en": "Rule 7, Official Languages (Use for Official Purposes of the Union) Rules, 1976",
+          "hi": "नियम 7, राजभाषा (संघ के शासकीय प्रयोजनों के लिए प्रयोग) नियम, 1976"
+        }
+      },
+      "difficulty": "easy",
+      "reviewed": true,
+      "reviewState": "approved",
+      "tags": [
+        "generated",
+        "rule"
+      ],
+      "verify": true,
+      "version": "1.0.0",
+      "source": {
+        "name": "Department of Official Language, Ministry of Home Affairs — Official Languages Rules, 1976 (as amended 1987, 2007, 2011)",
+        "url": "https://rajbhasha.gov.in/en/official-language-rules-1976"
+      }
+    },
+    {
+      "id": "ol-rules-rule-8",
+      "act": "ol-rules",
+      "rule": "8",
+      "kind": "rule",
+      "front": {
+        "en": "Noting in Central Government offices — which rule of the OL Rules 1976?",
+        "hi": "केंद्रीय सरकार के कार्यालयों में टिप्पण — राजभाषा नियम 1976 का कौन-सा नियम?"
+      },
+      "back": {
+        "en": "Rule 8, Official Languages (Use for Official Purposes of the Union) Rules, 1976",
+        "hi": "नियम 8, राजभाषा (संघ के शासकीय प्रयोजनों के लिए प्रयोग) नियम, 1976"
+      },
+      "ruleRef": {
+        "textId": "ol-rules-8",
+        "citation": {
+          "en": "Rule 8, Official Languages (Use for Official Purposes of the Union) Rules, 1976",
+          "hi": "नियम 8, राजभाषा (संघ के शासकीय प्रयोजनों के लिए प्रयोग) नियम, 1976"
+        }
+      },
+      "difficulty": "easy",
+      "reviewed": true,
+      "reviewState": "approved",
+      "tags": [
+        "generated",
+        "rule"
+      ],
+      "verify": true,
+      "version": "1.0.0",
+      "source": {
+        "name": "Department of Official Language, Ministry of Home Affairs — Official Languages Rules, 1976 (as amended 1987, 2007, 2011)",
+        "url": "https://rajbhasha.gov.in/en/official-language-rules-1976"
+      }
+    },
+    {
+      "id": "ol-rules-rule-9",
+      "act": "ol-rules",
+      "rule": "9",
+      "kind": "rule",
+      "front": {
+        "en": "Proficiency in Hindi — which rule of the OL Rules 1976?",
+        "hi": "हिंदी में प्रवीणता — राजभाषा नियम 1976 का कौन-सा नियम?"
+      },
+      "back": {
+        "en": "Rule 9, Official Languages (Use for Official Purposes of the Union) Rules, 1976",
+        "hi": "नियम 9, राजभाषा (संघ के शासकीय प्रयोजनों के लिए प्रयोग) नियम, 1976"
+      },
+      "ruleRef": {
+        "textId": "ol-rules-9",
+        "citation": {
+          "en": "Rule 9, Official Languages (Use for Official Purposes of the Union) Rules, 1976",
+          "hi": "नियम 9, राजभाषा (संघ के शासकीय प्रयोजनों के लिए प्रयोग) नियम, 1976"
+        }
+      },
+      "difficulty": "easy",
+      "reviewed": true,
+      "reviewState": "approved",
+      "tags": [
+        "generated",
+        "rule"
+      ],
+      "verify": true,
+      "version": "1.0.0",
+      "source": {
+        "name": "Department of Official Language, Ministry of Home Affairs — Official Languages Rules, 1976 (as amended 1987, 2007, 2011)",
+        "url": "https://rajbhasha.gov.in/en/official-language-rules-1976"
+      }
+    },
+    {
+      "id": "ol-rules-rule-10",
+      "act": "ol-rules",
+      "rule": "10",
+      "kind": "rule",
+      "front": {
+        "en": "Working knowledge of Hindi — which rule of the OL Rules 1976?",
+        "hi": "हिंदी का कार्यसाधक ज्ञान — राजभाषा नियम 1976 का कौन-सा नियम?"
+      },
+      "back": {
+        "en": "Rule 10, Official Languages (Use for Official Purposes of the Union) Rules, 1976",
+        "hi": "नियम 10, राजभाषा (संघ के शासकीय प्रयोजनों के लिए प्रयोग) नियम, 1976"
+      },
+      "ruleRef": {
+        "textId": "ol-rules-10",
+        "citation": {
+          "en": "Rule 10, Official Languages (Use for Official Purposes of the Union) Rules, 1976",
+          "hi": "नियम 10, राजभाषा (संघ के शासकीय प्रयोजनों के लिए प्रयोग) नियम, 1976"
+        }
+      },
+      "difficulty": "easy",
+      "reviewed": true,
+      "reviewState": "approved",
+      "tags": [
+        "generated",
+        "rule"
+      ],
+      "verify": true,
+      "version": "1.0.0",
+      "source": {
+        "name": "Department of Official Language, Ministry of Home Affairs — Official Languages Rules, 1976 (as amended 1987, 2007, 2011)",
+        "url": "https://rajbhasha.gov.in/en/official-language-rules-1976"
+      }
+    },
+    {
+      "id": "ol-rules-rule-11",
+      "act": "ol-rules",
+      "rule": "11",
+      "kind": "rule",
+      "front": {
+        "en": "Manuals, Codes, other procedural literature, articles of Stationery, etc — which rule of the OL Rules 1976?",
+        "hi": "मैनुअल, संहिताएँ, अन्य प्रक्रिया साहित्य, लेखन-सामग्री आदि — राजभाषा नियम 1976 का कौन-सा नियम?"
+      },
+      "back": {
+        "en": "Rule 11, Official Languages (Use for Official Purposes of the Union) Rules, 1976",
+        "hi": "नियम 11, राजभाषा (संघ के शासकीय प्रयोजनों के लिए प्रयोग) नियम, 1976"
+      },
+      "ruleRef": {
+        "textId": "ol-rules-11",
+        "citation": {
+          "en": "Rule 11, Official Languages (Use for Official Purposes of the Union) Rules, 1976",
+          "hi": "नियम 11, राजभाषा (संघ के शासकीय प्रयोजनों के लिए प्रयोग) नियम, 1976"
+        }
+      },
+      "difficulty": "easy",
+      "reviewed": true,
+      "reviewState": "approved",
+      "tags": [
+        "generated",
+        "rule"
+      ],
+      "verify": true,
+      "version": "1.0.0",
+      "source": {
+        "name": "Department of Official Language, Ministry of Home Affairs — Official Languages Rules, 1976 (as amended 1987, 2007, 2011)",
+        "url": "https://rajbhasha.gov.in/en/official-language-rules-1976"
+      }
+    },
+    {
+      "id": "ol-rules-rule-12",
+      "act": "ol-rules",
+      "rule": "12",
+      "kind": "rule",
+      "front": {
+        "en": "Responsibility for compliance — which rule of the OL Rules 1976?",
+        "hi": "अनुपालन का उत्तरदायित्व — राजभाषा नियम 1976 का कौन-सा नियम?"
+      },
+      "back": {
+        "en": "Rule 12, Official Languages (Use for Official Purposes of the Union) Rules, 1976",
+        "hi": "नियम 12, राजभाषा (संघ के शासकीय प्रयोजनों के लिए प्रयोग) नियम, 1976"
+      },
+      "ruleRef": {
+        "textId": "ol-rules-12",
+        "citation": {
+          "en": "Rule 12, Official Languages (Use for Official Purposes of the Union) Rules, 1976",
+          "hi": "नियम 12, राजभाषा (संघ के शासकीय प्रयोजनों के लिए प्रयोग) नियम, 1976"
+        }
+      },
+      "difficulty": "easy",
+      "reviewed": true,
+      "reviewState": "approved",
+      "tags": [
+        "generated",
+        "rule"
+      ],
+      "verify": true,
+      "version": "1.0.0",
+      "source": {
+        "name": "Department of Official Language, Ministry of Home Affairs — Official Languages Rules, 1976 (as amended 1987, 2007, 2011)",
+        "url": "https://rajbhasha.gov.in/en/official-language-rules-1976"
+      }
+    },
+    {
+      "id": "ol-rules-cloze-2-1",
+      "act": "ol-rules",
+      "rule": "2",
+      "kind": "cloze",
+      "front": {
+        "en": "Government ; (c) \"Employee\" means any person employed in a Central Government office; (d) \"Notified Office\" means an office notified under sub-rule (4) of ____ ; (e) \"Proficiency in Hindi \" means proficiency in Hindi as described in rule 9 ; (f) \"Region A\" means the States of Bihar, Haryana, Himachal Pradesh, Madhya P",
+        "hi": "नियम 2(घ) — \"अधिसूचित कार्यालय\" से ऐसा कार्यालय अभिप्रेत है जो ____ के उपनियम (4) के अधीन अधिसूचित किया गया हो।"
+      },
+      "back": {
+        "en": "rule 10",
+        "hi": "नियम 10"
+      },
+      "cloze": {
+        "text": {
+          "en": "Government ; (c) \"Employee\" means any person employed in a Central Government office; (d) \"Notified Office\" means an office notified under sub-rule (4) of ____ ; (e) \"Proficiency in Hindi \" means proficiency in Hindi as described in rule 9 ; (f) \"Region A\" means the States of Bihar, Haryana, Himachal Pradesh, Madhya P",
+          "hi": "नियम 2(घ) — \"अधिसूचित कार्यालय\" से ऐसा कार्यालय अभिप्रेत है जो ____ के उपनियम (4) के अधीन अधिसूचित किया गया हो।"
+        },
+        "answer": {
+          "en": "rule 10",
+          "hi": "नियम 10"
+        }
+      },
+      "ruleRef": {
+        "textId": "ol-rules-2",
+        "citation": {
+          "en": "Rule 2, Official Languages (Use for Official Purposes of the Union) Rules, 1976",
+          "hi": "नियम 2, राजभाषा (संघ के शासकीय प्रयोजनों के लिए प्रयोग) नियम, 1976"
+        }
+      },
+      "difficulty": "hard",
+      "reviewed": true,
+      "reviewState": "approved",
+      "tags": [
+        "generated",
+        "cloze",
+        "crossreference"
+      ],
+      "verify": true,
+      "version": "1.0.0",
+      "source": {
+        "name": "Department of Official Language, Ministry of Home Affairs — Official Languages Rules, 1976 (as amended 1987, 2007, 2011)",
+        "url": "https://rajbhasha.gov.in/en/official-language-rules-1976"
+      },
+      "reviewNote": "Rule 2(d) — a 'notified office' is one notified under sub-rule (4) of rule 10, which is the link between the definition and the Hindi-proficiency scheme."
+    },
+    {
+      "id": "ol-rules-cloze-2-2",
+      "act": "ol-rules",
+      "rule": "2",
+      "kind": "cloze",
+      "front": {
+        "en": "In these rules, unless the context otherwise requires : - (a) \"Act\" means theOfficial Languages Act, 1963 (19 of 1963): (b) \"____\" includes :- (i) any Ministry, Department or office of the Central Government, (ii) any office of a Commission, Committee or Tribunal appointed by the Central",
+        "hi": "नियम 2(ख) — \"____\" के अंतर्गत केंद्रीय सरकार का कोई मंत्रालय, विभाग या कार्यालय, केंद्रीय सरकार द्वारा नियुक्त किसी आयोग, समिति या अधिकरण का कोई कार्यालय, तथा केंद्रीय सरकार के स्वामित्व या नियंत्रण वाले किसी निगम या कंपनी का कोई कार्यालय आता है।"
+      },
+      "back": {
+        "en": "Central Government Office",
+        "hi": "केंद्रीय सरकार कार्यालय"
+      },
+      "cloze": {
+        "text": {
+          "en": "In these rules, unless the context otherwise requires : - (a) \"Act\" means theOfficial Languages Act, 1963 (19 of 1963): (b) \"____\" includes :- (i) any Ministry, Department or office of the Central Government, (ii) any office of a Commission, Committee or Tribunal appointed by the Central",
+          "hi": "नियम 2(ख) — \"____\" के अंतर्गत केंद्रीय सरकार का कोई मंत्रालय, विभाग या कार्यालय, केंद्रीय सरकार द्वारा नियुक्त किसी आयोग, समिति या अधिकरण का कोई कार्यालय, तथा केंद्रीय सरकार के स्वामित्व या नियंत्रण वाले किसी निगम या कंपनी का कोई कार्यालय आता है।"
+        },
+        "answer": {
+          "en": "Central Government Office",
+          "hi": "केंद्रीय सरकार कार्यालय"
+        }
+      },
+      "ruleRef": {
+        "textId": "ol-rules-2",
+        "citation": {
+          "en": "Rule 2, Official Languages (Use for Official Purposes of the Union) Rules, 1976",
+          "hi": "नियम 2, राजभाषा (संघ के शासकीय प्रयोजनों के लिए प्रयोग) नियम, 1976"
+        }
+      },
+      "difficulty": "easy",
+      "reviewed": true,
+      "reviewState": "approved",
+      "tags": [
+        "generated",
+        "cloze",
+        "definedterm"
+      ],
+      "verify": true,
+      "version": "1.0.0",
+      "source": {
+        "name": "Department of Official Language, Ministry of Home Affairs — Official Languages Rules, 1976 (as amended 1987, 2007, 2011)",
+        "url": "https://rajbhasha.gov.in/en/official-language-rules-1976"
+      },
+      "reviewNote": "Rule 2(b) — the defined term that decides which offices the Rules bind at all."
+    },
+    {
+      "id": "ol-rules-cloze-3-1",
+      "act": "ol-rules",
+      "rule": "3",
+      "kind": "cloze",
+      "front": {
+        "en": "Communications from a ____ to a State or a Union Territory in Region \"A\" or to any office (not being a Central Government office) or person in such State or Union Territory shall, save i",
+        "hi": "नियम 3(1) — ____ से \"क\" क्षेत्र के किसी राज्य या संघ राज्यक्षेत्र को, या वहाँ के किसी कार्यालय या व्यक्ति को पत्रादि, अपवादिक दशाओं को छोड़कर, हिंदी में होंगे।"
+      },
+      "back": {
+        "en": "Central Government office",
+        "hi": "केंद्रीय सरकार कार्यालय"
+      },
+      "cloze": {
+        "text": {
+          "en": "Communications from a ____ to a State or a Union Territory in Region \"A\" or to any office (not being a Central Government office) or person in such State or Union Territory shall, save i",
+          "hi": "नियम 3(1) — ____ से \"क\" क्षेत्र के किसी राज्य या संघ राज्यक्षेत्र को, या वहाँ के किसी कार्यालय या व्यक्ति को पत्रादि, अपवादिक दशाओं को छोड़कर, हिंदी में होंगे।"
+        },
+        "answer": {
+          "en": "Central Government office",
+          "hi": "केंद्रीय सरकार कार्यालय"
+        }
+      },
+      "ruleRef": {
+        "textId": "ol-rules-3",
+        "citation": {
+          "en": "Rule 3, Official Languages (Use for Official Purposes of the Union) Rules, 1976",
+          "hi": "नियम 3, राजभाषा (संघ के शासकीय प्रयोजनों के लिए प्रयोग) नियम, 1976"
+        }
+      },
+      "difficulty": "easy",
+      "reviewed": true,
+      "reviewState": "approved",
+      "tags": [
+        "generated",
+        "cloze",
+        "definedterm"
+      ],
+      "verify": true,
+      "version": "1.0.0",
+      "source": {
+        "name": "Department of Official Language, Ministry of Home Affairs — Official Languages Rules, 1976 (as amended 1987, 2007, 2011)",
+        "url": "https://rajbhasha.gov.in/en/official-language-rules-1976"
+      },
+      "reviewNote": "Rule 3(1) — the Region A obligation runs from a Central Government office."
+    },
+    {
+      "id": "ol-rules-cloze-4-1",
+      "act": "ol-rules",
+      "rule": "4",
+      "kind": "cloze",
+      "front": {
+        "en": "(a) Between ____ Ministry or Department of the Central Government and another may be in Hindi or in English ; (b) Between one Ministry or Department of the Central Government a",
+        "hi": ""
+      },
+      "back": {
+        "en": "one",
+        "hi": ""
+      },
+      "cloze": {
+        "text": {
+          "en": "(a) Between ____ Ministry or Department of the Central Government and another may be in Hindi or in English ; (b) Between one Ministry or Department of the Central Government a",
+          "hi": ""
+        },
+        "answer": {
+          "en": "one",
+          "hi": ""
+        }
+      },
+      "ruleRef": {
+        "textId": "ol-rules-4",
+        "citation": {
+          "en": "Rule 4, Official Languages (Use for Official Purposes of the Union) Rules, 1976",
+          "hi": "नियम 4, राजभाषा (संघ के शासकीय प्रयोजनों के लिए प्रयोग) नियम, 1976"
+        }
+      },
+      "difficulty": "easy",
+      "reviewed": true,
+      "reviewState": "rejected",
+      "tags": [
+        "generated",
+        "cloze",
+        "count"
+      ],
+      "verify": true,
+      "version": "1.0.0",
+      "source": {
+        "name": "Department of Official Language, Ministry of Home Affairs — Official Languages Rules, 1976 (as amended 1987, 2007, 2011)",
+        "url": "https://rajbhasha.gov.in/en/official-language-rules-1976"
+      },
+      "reviewNote": "Answer is 'one', blanked out of 'Between one Ministry or Department and another'. Tests counting."
+    },
+    {
+      "id": "ol-rules-cloze-4-2",
+      "act": "ol-rules",
+      "rule": "4",
+      "kind": "cloze",
+      "front": {
+        "en": "Provided that communications in Hindi shall be in such proportion as the Central Government may, having regard to the number of persons having ____ in such offices, the facilities for sending communications in Hindi and matters incidental thereto determine from time to time.",
+        "hi": "नियम 4 का परंतुक — हिंदी में पत्रादि उस अनुपात में होंगे जो केंद्रीय सरकार ऐसे कार्यालयों में ____ रखने वाले व्यक्तियों की संख्या और हिंदी में पत्रादि भेजने की सुविधाओं को ध्यान में रखते हुए नियत करे।"
+      },
+      "back": {
+        "en": "working knowledge of Hindi",
+        "hi": "हिंदी का कार्यसाधक ज्ञान"
+      },
+      "cloze": {
+        "text": {
+          "en": "Provided that communications in Hindi shall be in such proportion as the Central Government may, having regard to the number of persons having ____ in such offices, the facilities for sending communications in Hindi and matters incidental thereto determine from time to time.",
+          "hi": "नियम 4 का परंतुक — हिंदी में पत्रादि उस अनुपात में होंगे जो केंद्रीय सरकार ऐसे कार्यालयों में ____ रखने वाले व्यक्तियों की संख्या और हिंदी में पत्रादि भेजने की सुविधाओं को ध्यान में रखते हुए नियत करे।"
+        },
+        "answer": {
+          "en": "working knowledge of Hindi",
+          "hi": "हिंदी का कार्यसाधक ज्ञान"
+        }
+      },
+      "ruleRef": {
+        "textId": "ol-rules-4",
+        "citation": {
+          "en": "Rule 4, Official Languages (Use for Official Purposes of the Union) Rules, 1976",
+          "hi": "नियम 4, राजभाषा (संघ के शासकीय प्रयोजनों के लिए प्रयोग) नियम, 1976"
+        }
+      },
+      "difficulty": "easy",
+      "reviewed": true,
+      "reviewState": "approved",
+      "tags": [
+        "generated",
+        "cloze",
+        "definedterm"
+      ],
+      "verify": true,
+      "version": "1.0.0",
+      "source": {
+        "name": "Department of Official Language, Ministry of Home Affairs — Official Languages Rules, 1976 (as amended 1987, 2007, 2011)",
+        "url": "https://rajbhasha.gov.in/en/official-language-rules-1976"
+      },
+      "reviewNote": "Rule 4's proviso ties the proportion of Hindi correspondence to the number of staff with a working knowledge of Hindi — a defined term with its own rule."
+    },
+    {
+      "id": "ol-rules-cloze-5-1",
+      "act": "ol-rules",
+      "rule": "5",
+      "kind": "cloze",
+      "front": {
+        "en": "Notwithstanding anything contained ____ and 4, communications from a Central Government office in reply to communications in Hindi shall be in Hindi.",
+        "hi": "नियम 5 — ____ और 4 में किसी बात के होते हुए भी, केंद्रीय सरकार कार्यालय से हिंदी में प्राप्त पत्रादि के उत्तर हिंदी में ही होंगे।"
+      },
+      "back": {
+        "en": "rules 3",
+        "hi": "नियम 3"
+      },
+      "cloze": {
+        "text": {
+          "en": "Notwithstanding anything contained ____ and 4, communications from a Central Government office in reply to communications in Hindi shall be in Hindi.",
+          "hi": "नियम 5 — ____ और 4 में किसी बात के होते हुए भी, केंद्रीय सरकार कार्यालय से हिंदी में प्राप्त पत्रादि के उत्तर हिंदी में ही होंगे।"
+        },
+        "answer": {
+          "en": "rules 3",
+          "hi": "नियम 3"
+        }
+      },
+      "ruleRef": {
+        "textId": "ol-rules-5",
+        "citation": {
+          "en": "Rule 5, Official Languages (Use for Official Purposes of the Union) Rules, 1976",
+          "hi": "नियम 5, राजभाषा (संघ के शासकीय प्रयोजनों के लिए प्रयोग) नियम, 1976"
+        }
+      },
+      "difficulty": "hard",
+      "reviewed": true,
+      "reviewState": "approved",
+      "tags": [
+        "generated",
+        "cloze",
+        "crossreference"
+      ],
+      "verify": true,
+      "version": "1.0.0",
+      "source": {
+        "name": "Department of Official Language, Ministry of Home Affairs — Official Languages Rules, 1976 (as amended 1987, 2007, 2011)",
+        "url": "https://rajbhasha.gov.in/en/official-language-rules-1976"
+      },
+      "reviewNote": "Rule 5 overrides rules 3 and 4 — the reply-in-Hindi obligation is unconditional, and knowing which rules it displaces is the point."
+    },
+    {
+      "id": "ol-rules-cloze-6-1",
+      "act": "ol-rules",
+      "rule": "6",
+      "kind": "cloze",
+      "front": {
+        "en": "Both Hindi and English shall be used for all documents referred to in sub-section (3) of ____ of the Act and it shall be the responsibility of the persons signing such documents to ensure that such documents are made, executed or issued both in Hindi and in English.",
+        "hi": "नियम 6 — अधिनियम की ____ की उपधारा (3) में निर्दिष्ट सभी दस्तावेज़ों के लिए हिंदी और अंग्रेज़ी दोनों का प्रयोग किया जाएगा।"
+      },
+      "back": {
+        "en": "section 3",
+        "hi": "धारा 3"
+      },
+      "cloze": {
+        "text": {
+          "en": "Both Hindi and English shall be used for all documents referred to in sub-section (3) of ____ of the Act and it shall be the responsibility of the persons signing such documents to ensure that such documents are made, executed or issued both in Hindi and in English.",
+          "hi": "नियम 6 — अधिनियम की ____ की उपधारा (3) में निर्दिष्ट सभी दस्तावेज़ों के लिए हिंदी और अंग्रेज़ी दोनों का प्रयोग किया जाएगा।"
+        },
+        "answer": {
+          "en": "section 3",
+          "hi": "धारा 3"
+        }
+      },
+      "ruleRef": {
+        "textId": "ol-rules-6",
+        "citation": {
+          "en": "Rule 6, Official Languages (Use for Official Purposes of the Union) Rules, 1976",
+          "hi": "नियम 6, राजभाषा (संघ के शासकीय प्रयोजनों के लिए प्रयोग) नियम, 1976"
+        }
+      },
+      "difficulty": "hard",
+      "reviewed": true,
+      "reviewState": "approved",
+      "tags": [
+        "generated",
+        "cloze",
+        "crossreference"
+      ],
+      "verify": true,
+      "version": "1.0.0",
+      "source": {
+        "name": "Department of Official Language, Ministry of Home Affairs — Official Languages Rules, 1976 (as amended 1987, 2007, 2011)",
+        "url": "https://rajbhasha.gov.in/en/official-language-rules-1976"
+      },
+      "reviewNote": "Rule 6 points back to section 3(3) of the Act — the list of documents that must be bilingual."
+    },
+    {
+      "id": "ol-rules-cloze-7-1",
+      "act": "ol-rules",
+      "rule": "7",
+      "kind": "cloze",
+      "front": {
+        "en": "An ____ may submit an application, appeal or representation in Hindi or in English.",
+        "hi": "नियम 7(1) — कोई ____ आवेदन, अपील या अभ्यावेदन हिंदी में या अंग्रेज़ी में प्रस्तुत कर सकेगा।"
+      },
+      "back": {
+        "en": "employee",
+        "hi": "कर्मचारी"
+      },
+      "cloze": {
+        "text": {
+          "en": "An ____ may submit an application, appeal or representation in Hindi or in English.",
+          "hi": "नियम 7(1) — कोई ____ आवेदन, अपील या अभ्यावेदन हिंदी में या अंग्रेज़ी में प्रस्तुत कर सकेगा।"
+        },
+        "answer": {
+          "en": "employee",
+          "hi": "कर्मचारी"
+        }
+      },
+      "ruleRef": {
+        "textId": "ol-rules-7",
+        "citation": {
+          "en": "Rule 7, Official Languages (Use for Official Purposes of the Union) Rules, 1976",
+          "hi": "नियम 7, राजभाषा (संघ के शासकीय प्रयोजनों के लिए प्रयोग) नियम, 1976"
+        }
+      },
+      "difficulty": "easy",
+      "reviewed": true,
+      "reviewState": "approved",
+      "tags": [
+        "generated",
+        "cloze",
+        "definedterm"
+      ],
+      "verify": true,
+      "version": "1.0.0",
+      "source": {
+        "name": "Department of Official Language, Ministry of Home Affairs — Official Languages Rules, 1976 (as amended 1987, 2007, 2011)",
+        "url": "https://rajbhasha.gov.in/en/official-language-rules-1976"
+      },
+      "reviewNote": "Rule 7(1) — the right belongs to an 'employee', a defined term narrower than 'person'."
+    },
+    {
+      "id": "ol-rules-cloze-8-1",
+      "act": "ol-rules",
+      "rule": "8",
+      "kind": "cloze",
+      "front": {
+        "en": "an ____ may record a note or minute on a file in Hindi or in English without being himself required to furnish a translation thereof in the other language.",
+        "hi": "नियम 8(4) — कोई ____ किसी फ़ाइल पर टिप्पण या कार्यवृत्त हिंदी में या अंग्रेज़ी में लिख सकेगा और उससे उसका दूसरी भाषा में अनुवाद देने की अपेक्षा नहीं की जाएगी।"
+      },
+      "back": {
+        "en": "employee",
+        "hi": "कर्मचारी"
+      },
+      "cloze": {
+        "text": {
+          "en": "an ____ may record a note or minute on a file in Hindi or in English without being himself required to furnish a translation thereof in the other language.",
+          "hi": "नियम 8(4) — कोई ____ किसी फ़ाइल पर टिप्पण या कार्यवृत्त हिंदी में या अंग्रेज़ी में लिख सकेगा और उससे उसका दूसरी भाषा में अनुवाद देने की अपेक्षा नहीं की जाएगी।"
+        },
+        "answer": {
+          "en": "employee",
+          "hi": "कर्मचारी"
+        }
+      },
+      "ruleRef": {
+        "textId": "ol-rules-8",
+        "citation": {
+          "en": "Rule 8, Official Languages (Use for Official Purposes of the Union) Rules, 1976",
+          "hi": "नियम 8, राजभाषा (संघ के शासकीय प्रयोजनों के लिए प्रयोग) नियम, 1976"
+        }
+      },
+      "difficulty": "easy",
+      "reviewed": true,
+      "reviewState": "approved",
+      "tags": [
+        "generated",
+        "cloze",
+        "definedterm"
+      ],
+      "verify": true,
+      "version": "1.0.0",
+      "source": {
+        "name": "Department of Official Language, Ministry of Home Affairs — Official Languages Rules, 1976 (as amended 1987, 2007, 2011)",
+        "url": "https://rajbhasha.gov.in/en/official-language-rules-1976"
+      },
+      "reviewNote": "Rule 8(4) — noting in either language without having to supply a translation is the rule officers most often doubt."
+    },
+    {
+      "id": "ol-rules-cloze-9-1",
+      "act": "ol-rules",
+      "rule": "9",
+      "kind": "cloze",
+      "front": {
+        "en": "An employee shall be deemed to possess ____ if:- (a) he has passed the Matriculation or any equivalent or higher examination with Hindi as the medium of examination ; or (b) he has taken Hindi as an elec",
+        "hi": "नियम 9 — किसी कर्मचारी के बारे में यह समझा जाएगा कि उसे ____ प्राप्त है यदि उसने हिंदी माध्यम से मैट्रिक या समकक्ष अथवा उच्चतर परीक्षा उत्तीर्ण की हो।"
+      },
+      "back": {
+        "en": "proficiency in Hindi",
+        "hi": "हिंदी में प्रवीणता"
+      },
+      "cloze": {
+        "text": {
+          "en": "An employee shall be deemed to possess ____ if:- (a) he has passed the Matriculation or any equivalent or higher examination with Hindi as the medium of examination ; or (b) he has taken Hindi as an elec",
+          "hi": "नियम 9 — किसी कर्मचारी के बारे में यह समझा जाएगा कि उसे ____ प्राप्त है यदि उसने हिंदी माध्यम से मैट्रिक या समकक्ष अथवा उच्चतर परीक्षा उत्तीर्ण की हो।"
+        },
+        "answer": {
+          "en": "proficiency in Hindi",
+          "hi": "हिंदी में प्रवीणता"
+        }
+      },
+      "ruleRef": {
+        "textId": "ol-rules-9",
+        "citation": {
+          "en": "Rule 9, Official Languages (Use for Official Purposes of the Union) Rules, 1976",
+          "hi": "नियम 9, राजभाषा (संघ के शासकीय प्रयोजनों के लिए प्रयोग) नियम, 1976"
+        }
+      },
+      "difficulty": "easy",
+      "reviewed": true,
+      "reviewState": "approved",
+      "tags": [
+        "generated",
+        "cloze",
+        "definedterm"
+      ],
+      "verify": true,
+      "version": "1.0.0",
+      "source": {
+        "name": "Department of Official Language, Ministry of Home Affairs — Official Languages Rules, 1976 (as amended 1987, 2007, 2011)",
+        "url": "https://rajbhasha.gov.in/en/official-language-rules-1976"
+      },
+      "reviewNote": "Rule 9 defines proficiency; rule 10 defines working knowledge. The pair is the commonest confusion in this rule book."
+    },
+    {
+      "id": "ol-rules-cloze-10-1",
+      "act": "ol-rules",
+      "rule": "10",
+      "kind": "cloze",
+      "front": {
+        "en": "An employee shall be deemed to have acquired a ____ - (a) If he has passed - (i) the Matriculation or an equivalent or higher examination with Hindi as one of the subjects ; or (ii) the Pragya examination conduc",
+        "hi": "नियम 10 — किसी कर्मचारी के बारे में यह समझा जाएगा कि उसने ____ प्राप्त कर लिया है यदि उसने हिंदी विषय के साथ मैट्रिक या समकक्ष परीक्षा अथवा प्रज्ञा परीक्षा उत्तीर्ण की हो।"
+      },
+      "back": {
+        "en": "working knowledge of Hindi",
+        "hi": "हिंदी का कार्यसाधक ज्ञान"
+      },
+      "cloze": {
+        "text": {
+          "en": "An employee shall be deemed to have acquired a ____ - (a) If he has passed - (i) the Matriculation or an equivalent or higher examination with Hindi as one of the subjects ; or (ii) the Pragya examination conduc",
+          "hi": "नियम 10 — किसी कर्मचारी के बारे में यह समझा जाएगा कि उसने ____ प्राप्त कर लिया है यदि उसने हिंदी विषय के साथ मैट्रिक या समकक्ष परीक्षा अथवा प्रज्ञा परीक्षा उत्तीर्ण की हो।"
+        },
+        "answer": {
+          "en": "working knowledge of Hindi",
+          "hi": "हिंदी का कार्यसाधक ज्ञान"
+        }
+      },
+      "ruleRef": {
+        "textId": "ol-rules-10",
+        "citation": {
+          "en": "Rule 10, Official Languages (Use for Official Purposes of the Union) Rules, 1976",
+          "hi": "नियम 10, राजभाषा (संघ के शासकीय प्रयोजनों के लिए प्रयोग) नियम, 1976"
+        }
+      },
+      "difficulty": "easy",
+      "reviewed": true,
+      "reviewState": "approved",
+      "tags": [
+        "generated",
+        "cloze",
+        "definedterm"
+      ],
+      "verify": true,
+      "version": "1.0.0",
+      "source": {
+        "name": "Department of Official Language, Ministry of Home Affairs — Official Languages Rules, 1976 (as amended 1987, 2007, 2011)",
+        "url": "https://rajbhasha.gov.in/en/official-language-rules-1976"
+      },
+      "reviewNote": "The other half of the pair — rule 10's test is Hindi as a subject, or the Pragya examination."
+    },
+    {
+      "id": "ol-rules-cloze-12-1",
+      "act": "ol-rules",
+      "rule": "12",
+      "kind": "cloze",
+      "front": {
+        "en": "In exercise of the powers conferred by ____, read with sub-section (4) of section 3 of the Official Languages Act, 1963 (19 of 1963) , the Central Government hereby make the following rules further to amend the Official Languages (Use for Official Purposes of the Union) Rules, 1976, namely:- 1.",
+        "hi": ""
+      },
+      "back": {
+        "en": "section 8",
+        "hi": ""
+      },
+      "cloze": {
+        "text": {
+          "en": "In exercise of the powers conferred by ____, read with sub-section (4) of section 3 of the Official Languages Act, 1963 (19 of 1963) , the Central Government hereby make the following rules further to amend the Official Languages (Use for Official Purposes of the Union) Rules, 1976, namely:- 1.",
+          "hi": ""
+        },
+        "answer": {
+          "en": "section 8",
+          "hi": ""
+        }
+      },
+      "ruleRef": {
+        "textId": "ol-rules-12",
+        "citation": {
+          "en": "Rule 12, Official Languages (Use for Official Purposes of the Union) Rules, 1976",
+          "hi": "नियम 12, राजभाषा (संघ के शासकीय प्रयोजनों के लिए प्रयोग) नियम, 1976"
+        }
+      },
+      "difficulty": "hard",
+      "reviewed": true,
+      "reviewState": "rejected",
+      "tags": [
+        "generated",
+        "cloze",
+        "crossreference"
+      ],
+      "verify": true,
+      "version": "1.0.0",
+      "source": {
+        "name": "Department of Official Language, Ministry of Home Affairs — Official Languages Rules, 1976 (as amended 1987, 2007, 2011)",
+        "url": "https://rajbhasha.gov.in/en/official-language-rules-1976"
+      },
+      "reviewNote": "The stem is the preamble of the 2007 amending notification, which the Department appends to the same web page. It is not rule 12."
+    },
+    {
+      "id": "ol-rules-cloze-12-2",
+      "act": "ol-rules",
+      "rule": "12",
+      "kind": "cloze",
+      "front": {
+        "en": "the Official Languages (Use for Official Purposes of the Union) Rules 1976, for clause (f) of rule 2, the following clause shall be substituted, namely:- (a) \"____\" means the States of Bihar, Chhattisgarh, Haryana, Himachal Pradesh, Jharkhand, Madhya Pradesh, Rajasthan, Uttar Pradesh, Uttrakhand and National Capital Terri",
+        "hi": ""
+      },
+      "back": {
+        "en": "Region A",
+        "hi": ""
+      },
+      "cloze": {
+        "text": {
+          "en": "the Official Languages (Use for Official Purposes of the Union) Rules 1976, for clause (f) of rule 2, the following clause shall be substituted, namely:- (a) \"____\" means the States of Bihar, Chhattisgarh, Haryana, Himachal Pradesh, Jharkhand, Madhya Pradesh, Rajasthan, Uttar Pradesh, Uttrakhand and National Capital Terri",
+          "hi": ""
+        },
+        "answer": {
+          "en": "Region A",
+          "hi": ""
+        }
+      },
+      "ruleRef": {
+        "textId": "ol-rules-12",
+        "citation": {
+          "en": "Rule 12, Official Languages (Use for Official Purposes of the Union) Rules, 1976",
+          "hi": "नियम 12, राजभाषा (संघ के शासकीय प्रयोजनों के लिए प्रयोग) नियम, 1976"
+        }
+      },
+      "difficulty": "easy",
+      "reviewed": true,
+      "reviewState": "rejected",
+      "tags": [
+        "generated",
+        "cloze",
+        "definedterm"
+      ],
+      "verify": true,
+      "version": "1.0.0",
+      "source": {
+        "name": "Department of Official Language, Ministry of Home Affairs — Official Languages Rules, 1976 (as amended 1987, 2007, 2011)",
+        "url": "https://rajbhasha.gov.in/en/official-language-rules-1976"
+      },
+      "reviewNote": "Same amending notification — the substituted definition of Region A, not rule 12."
+    }
+  ]
+}

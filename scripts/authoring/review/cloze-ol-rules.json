@@ -1,0 +1,96 @@
+{
+  "_note": "Hand review of the generated cloze cards for the Official Languages (Use for Official Purposes of the Union) Rules, 1976. Two cards are rejected because the Department's web page appends the 2007 amending notification to the same document, and the parser reads it as part of Rule 12.",
+
+  "ol-rules-cloze-2-1": {
+    "verdict": "approve",
+    "reason": "Rule 2(d) — a 'notified office' is one notified under sub-rule (4) of rule 10, which is the link between the definition and the Hindi-proficiency scheme.",
+    "hi": {
+      "text": "नियम 2(घ) — \"अधिसूचित कार्यालय\" से ऐसा कार्यालय अभिप्रेत है जो ____ के उपनियम (4) के अधीन अधिसूचित किया गया हो।",
+      "answer": "नियम 10"
+    }
+  },
+  "ol-rules-cloze-2-2": {
+    "verdict": "approve",
+    "reason": "Rule 2(b) — the defined term that decides which offices the Rules bind at all.",
+    "hi": {
+      "text": "नियम 2(ख) — \"____\" के अंतर्गत केंद्रीय सरकार का कोई मंत्रालय, विभाग या कार्यालय, केंद्रीय सरकार द्वारा नियुक्त किसी आयोग, समिति या अधिकरण का कोई कार्यालय, तथा केंद्रीय सरकार के स्वामित्व या नियंत्रण वाले किसी निगम या कंपनी का कोई कार्यालय आता है।",
+      "answer": "केंद्रीय सरकार कार्यालय"
+    }
+  },
+  "ol-rules-cloze-3-1": {
+    "verdict": "approve",
+    "reason": "Rule 3(1) — the Region A obligation runs from a Central Government office.",
+    "hi": {
+      "text": "नियम 3(1) — ____ से \"क\" क्षेत्र के किसी राज्य या संघ राज्यक्षेत्र को, या वहाँ के किसी कार्यालय या व्यक्ति को पत्रादि, अपवादिक दशाओं को छोड़कर, हिंदी में होंगे।",
+      "answer": "केंद्रीय सरकार कार्यालय"
+    }
+  },
+  "ol-rules-cloze-4-1": {
+    "verdict": "reject",
+    "reason": "Answer is 'one', blanked out of 'Between one Ministry or Department and another'. Tests counting."
+  },
+  "ol-rules-cloze-4-2": {
+    "verdict": "approve",
+    "reason": "Rule 4's proviso ties the proportion of Hindi correspondence to the number of staff with a working knowledge of Hindi — a defined term with its own rule.",
+    "hi": {
+      "text": "नियम 4 का परंतुक — हिंदी में पत्रादि उस अनुपात में होंगे जो केंद्रीय सरकार ऐसे कार्यालयों में ____ रखने वाले व्यक्तियों की संख्या और हिंदी में पत्रादि भेजने की सुविधाओं को ध्यान में रखते हुए नियत करे।",
+      "answer": "हिंदी का कार्यसाधक ज्ञान"
+    }
+  },
+  "ol-rules-cloze-5-1": {
+    "verdict": "approve",
+    "reason": "Rule 5 overrides rules 3 and 4 — the reply-in-Hindi obligation is unconditional, and knowing which rules it displaces is the point.",
+    "hi": {
+      "text": "नियम 5 — ____ और 4 में किसी बात के होते हुए भी, केंद्रीय सरकार कार्यालय से हिंदी में प्राप्त पत्रादि के उत्तर हिंदी में ही होंगे।",
+      "answer": "नियम 3"
+    }
+  },
+  "ol-rules-cloze-6-1": {
+    "verdict": "approve",
+    "reason": "Rule 6 points back to section 3(3) of the Act — the list of documents that must be bilingual.",
+    "hi": {
+      "text": "नियम 6 — अधिनियम की ____ की उपधारा (3) में निर्दिष्ट सभी दस्तावेज़ों के लिए हिंदी और अंग्रेज़ी दोनों का प्रयोग किया जाएगा।",
+      "answer": "धारा 3"
+    }
+  },
+  "ol-rules-cloze-7-1": {
+    "verdict": "approve",
+    "reason": "Rule 7(1) — the right belongs to an 'employee', a defined term narrower than 'person'.",
+    "hi": {
+      "text": "नियम 7(1) — कोई ____ आवेदन, अपील या अभ्यावेदन हिंदी में या अंग्रेज़ी में प्रस्तुत कर सकेगा।",
+      "answer": "कर्मचारी"
+    }
+  },
+  "ol-rules-cloze-8-1": {
+    "verdict": "approve",
+    "reason": "Rule 8(4) — noting in either language without having to supply a translation is the rule officers most often doubt.",
+    "hi": {
+      "text": "नियम 8(4) — कोई ____ किसी फ़ाइल पर टिप्पण या कार्यवृत्त हिंदी में या अंग्रेज़ी में लिख सकेगा और उससे उसका दूसरी भाषा में अनुवाद देने की अपेक्षा नहीं की जाएगी।",
+      "answer": "कर्मचारी"
+    }
+  },
+  "ol-rules-cloze-9-1": {
+    "verdict": "approve",
+    "reason": "Rule 9 defines proficiency; rule 10 defines working knowledge. The pair is the commonest confusion in this rule book.",
+    "hi": {
+      "text": "नियम 9 — किसी कर्मचारी के बारे में यह समझा जाएगा कि उसे ____ प्राप्त है यदि उसने हिंदी माध्यम से मैट्रिक या समकक्ष अथवा उच्चतर परीक्षा उत्तीर्ण की हो।",
+      "answer": "हिंदी में प्रवीणता"
+    }
+  },
+  "ol-rules-cloze-10-1": {
+    "verdict": "approve",
+    "reason": "The other half of the pair — rule 10's test is Hindi as a subject, or the Pragya examination.",
+    "hi": {
+      "text": "नियम 10 — किसी कर्मचारी के बारे में यह समझा जाएगा कि उसने ____ प्राप्त कर लिया है यदि उसने हिंदी विषय के साथ मैट्रिक या समकक्ष परीक्षा अथवा प्रज्ञा परीक्षा उत्तीर्ण की हो।",
+      "answer": "हिंदी का कार्यसाधक ज्ञान"
+    }
+  },
+  "ol-rules-cloze-12-1": {
+    "verdict": "reject",
+    "reason": "The stem is the preamble of the 2007 amending notification, which the Department appends to the same web page. It is not rule 12."
+  },
+  "ol-rules-cloze-12-2": {
+    "verdict": "reject",
+    "reason": "Same amending notification — the substituted definition of Region A, not rule 12."
+  }
+}

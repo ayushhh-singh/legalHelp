@@ -1,0 +1,156 @@
+{
+  "_note": "Stage D, written by scripts/authoring/qa_pipeline.py dedup posh. rapidfuzz token_set_ratio over every pair of English fronts in this act, including the generated rule and cloze cards. At 90 or above the later question is the duplicate and make_cards.py rejects it.",
+  "threshold": 90.0,
+  "scores": {
+    "posh-q-001": {
+      "maxScore": 65.7,
+      "against": "posh-rule-10-1",
+      "verdict": "keep"
+    },
+    "posh-q-002": {
+      "maxScore": 73.7,
+      "against": "posh-q-001",
+      "verdict": "keep"
+    },
+    "posh-q-003": {
+      "maxScore": 68.4,
+      "against": "posh-q-002",
+      "verdict": "keep"
+    },
+    "posh-q-004": {
+      "maxScore": 76.3,
+      "against": "posh-q-002",
+      "verdict": "keep"
+    },
+    "posh-q-005": {
+      "maxScore": 62.2,
+      "against": "posh-q-001",
+      "verdict": "keep"
+    },
+    "posh-q-006": {
+      "maxScore": 50.0,
+      "against": "posh-q-003",
+      "verdict": "keep"
+    },
+    "posh-q-007": {
+      "maxScore": 82.0,
+      "against": "posh-q-005",
+      "verdict": "keep"
+    },
+    "posh-q-008": {
+      "maxScore": 81.8,
+      "against": "posh-q-007",
+      "verdict": "keep"
+    },
+    "posh-q-009": {
+      "maxScore": 73.8,
+      "against": "posh-q-002",
+      "verdict": "keep"
+    },
+    "posh-q-010": {
+      "maxScore": 63.5,
+      "against": "posh-cloze-15-2",
+      "verdict": "keep"
+    },
+    "posh-q-011": {
+      "maxScore": 64.2,
+      "against": "posh-q-007",
+      "verdict": "keep"
+    },
+    "posh-q-012": {
+      "maxScore": 58.0,
+      "against": "posh-q-001",
+      "verdict": "keep"
+    },
+    "posh-q-013": {
+      "maxScore": 76.1,
+      "against": "posh-q-007",
+      "verdict": "keep"
+    },
+    "posh-q-014": {
+      "maxScore": 81.6,
+      "against": "posh-q-010",
+      "verdict": "keep"
+    },
+    "posh-q-015": {
+      "maxScore": 78.1,
+      "against": "posh-q-001",
+      "verdict": "keep"
+    },
+    "posh-q-016": {
+      "maxScore": 66.7,
+      "against": "posh-q-007",
+      "verdict": "keep"
+    },
+    "posh-q-017": {
+      "maxScore": 69.1,
+      "against": "posh-rule-3-2",
+      "verdict": "keep"
+    },
+    "posh-q-018": {
+      "maxScore": 71.1,
+      "against": "posh-q-008",
+      "verdict": "keep"
+    },
+    "posh-q-019": {
+      "maxScore": 64.8,
+      "against": "posh-q-003",
+      "verdict": "keep"
+    },
+    "posh-q-020": {
+      "maxScore": 70.3,
+      "against": "posh-q-002",
+      "verdict": "keep"
+    },
+    "posh-q-021": {
+      "maxScore": 77.6,
+      "against": "posh-q-001",
+      "verdict": "keep"
+    },
+    "posh-q-022": {
+      "maxScore": 81.5,
+      "against": "posh-q-004",
+      "verdict": "keep"
+    },
+    "posh-q-023": {
+      "maxScore": 68.4,
+      "against": "posh-q-022",
+      "verdict": "keep"
+    },
+    "posh-q-024": {
+      "maxScore": 70.6,
+      "against": "posh-q-022",
+      "verdict": "keep"
+    },
+    "posh-q-025": {
+      "maxScore": 76.4,
+      "against": "posh-rule-28",
+      "verdict": "keep"
+    },
+    "posh-q-026": {
+      "maxScore": 72.3,
+      "against": "posh-q-001",
+      "verdict": "keep"
+    },
+    "posh-q-027": {
+      "maxScore": 84.0,
+      "against": "posh-q-002",
+      "verdict": "keep"
+    },
+    "posh-q-028": {
+      "maxScore": 79.2,
+      "against": "posh-rule-25-1",
+      "verdict": "keep"
+    },
+    "posh-q-029": {
+      "maxScore": 63.7,
+      "against": "posh-q-022",
+      "verdict": "keep"
+    },
+    "posh-q-030": {
+      "maxScore": 78.2,
+      "against": "posh-q-013",
+      "verdict": "keep"
+    }
+  }
+}

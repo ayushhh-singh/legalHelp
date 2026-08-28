@@ -1,0 +1,156 @@
+{
+  "_note": "Stage D, written by scripts/authoring/qa_pipeline.py dedup ccs-cca. rapidfuzz token_set_ratio over every pair of English fronts in this act, including the generated rule and cloze cards. At 90 or above the later question is the duplicate and make_cards.py rejects it.",
+  "threshold": 90.0,
+  "scores": {
+    "ccs-cca-q-001": {
+      "maxScore": 48.1,
+      "against": "ccs-cca-rule-12-4",
+      "verdict": "keep"
+    },
+    "ccs-cca-q-002": {
+      "maxScore": 72.6,
+      "against": "ccs-cca-q-001",
+      "verdict": "keep"
+    },
+    "ccs-cca-q-003": {
+      "maxScore": 69.4,
+      "against": "ccs-cca-q-001",
+      "verdict": "keep"
+    },
+    "ccs-cca-q-004": {
+      "maxScore": 70.1,
+      "against": "ccs-cca-q-002",
+      "verdict": "keep"
+    },
+    "ccs-cca-q-005": {
+      "maxScore": 74.9,
+      "against": "ccs-cca-cloze-14-3",
+      "verdict": "keep"
+    },
+    "ccs-cca-q-006": {
+      "maxScore": 86.5,
+      "against": "ccs-cca-q-004",
+      "verdict": "keep"
+    },
+    "ccs-cca-q-007": {
+      "maxScore": 61.4,
+      "against": "ccs-cca-q-005",
+      "verdict": "keep"
+    },
+    "ccs-cca-q-008": {
+      "maxScore": 82.6,
+      "against": "ccs-cca-q-004",
+      "verdict": "keep"
+    },
+    "ccs-cca-q-009": {
+      "maxScore": 69.4,
+      "against": "ccs-cca-q-001",
+      "verdict": "keep"
+    },
+    "ccs-cca-q-010": {
+      "maxScore": 68.3,
+      "against": "ccs-cca-q-001",
+      "verdict": "keep"
+    },
+    "ccs-cca-q-011": {
+      "maxScore": 72.6,
+      "against": "ccs-cca-q-001",
+      "verdict": "keep"
+    },
+    "ccs-cca-q-012": {
+      "maxScore": 92.2,
+      "against": "ccs-cca-cloze-12-1",
+      "verdict": "duplicate"
+    },
+    "ccs-cca-q-013": {
+      "maxScore": 73.3,
+      "against": "ccs-cca-q-006",
+      "verdict": "keep"
+    },
+    "ccs-cca-q-014": {
+      "maxScore": 76.1,
+      "against": "ccs-cca-q-011",
+      "verdict": "keep"
+    },
+    "ccs-cca-q-015": {
+      "maxScore": 78.1,
+      "against": "ccs-cca-cloze-7-1",
+      "verdict": "keep"
+    },
+    "ccs-cca-q-016": {
+      "maxScore": 76.1,
+      "against": "ccs-cca-q-014",
+      "verdict": "keep"
+    },
+    "ccs-cca-q-017": {
+      "maxScore": 84.3,
+      "against": "ccs-cca-q-001",
+      "verdict": "keep"
+    },
+    "ccs-cca-q-018": {
+      "maxScore": 83.3,
+      "against": "ccs-cca-q-008",
+      "verdict": "keep"
+    },
+    "ccs-cca-q-019": {
+      "maxScore": 69.2,
+      "against": "ccs-cca-q-014",
+      "verdict": "keep"
+    },
+    "ccs-cca-q-020": {
+      "maxScore": 77.4,
+      "against": "ccs-cca-q-006",
+      "verdict": "keep"
+    },
+    "ccs-cca-q-021": {
+      "maxScore": 72.7,
+      "against": "ccs-cca-q-014",
+      "verdict": "keep"
+    },
+    "ccs-cca-q-022": {
+      "maxScore": 94.0,
+      "against": "ccs-cca-q-001",
+      "verdict": "duplicate"
+    },
+    "ccs-cca-q-023": {
+      "maxScore": 77.0,
+      "against": "ccs-cca-cloze-13-1",
+      "verdict": "keep"
+    },
+    "ccs-cca-q-024": {
+      "maxScore": 82.8,
+      "against": "ccs-cca-q-005",
+      "verdict": "keep"
+    },
+    "ccs-cca-q-025": {
+      "maxScore": 76.1,
+      "against": "ccs-cca-q-024",
+      "verdict": "keep"
+    },
+    "ccs-cca-q-026": {
+      "maxScore": 95.9,
+      "against": "ccs-cca-q-008",
+      "verdict": "duplicate"
+    },
+    "ccs-cca-q-027": {
+      "maxScore": 88.5,
+      "against": "ccs-cca-q-026",
+      "verdict": "keep"
+    },
+    "ccs-cca-q-028": {
+      "maxScore": 78.7,
+      "against": "ccs-cca-rule-31",
+      "verdict": "keep"
+    },
+    "ccs-cca-q-029": {
+      "maxScore": 79.3,
+      "against": "ccs-cca-q-014",
+      "verdict": "keep"
+    },
+    "ccs-cca-q-030": {
+      "maxScore": 77.7,
+      "against": "ccs-cca-q-026",
+      "verdict": "keep"
+    }
+  }
+}

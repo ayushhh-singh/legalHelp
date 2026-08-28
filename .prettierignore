@@ -16,3 +16,8 @@ scripts/ingest/reports/
 data/pay/
 data/_meta/
 data/drafting/
+
+# data/rules is written by scripts/authoring/*.py through ingest-style write_json,
+# for the same reason data/law and data/pay are: prettier and the generator would
+# otherwise take turns rewriting the same 4 MB.
+data/rules/

@@ -161,6 +161,10 @@ const CITATION_HOSTS: readonly string[] = [
   'www.mha.gov.in',
   'www.ncrb.gov.in',
   'www.pfrda.org.in',
+  // Session 9, data/rules — where each rule book is published.
+  'documents.doptcirculars.nic.in',
+  'pensionersportal.gov.in',
+  'www.indiacode.nic.in',
 ]
 
 /** The host of a URL as the sweep's own regex captured it, or '' if unparseable. */
@@ -183,6 +187,44 @@ function datasetUrls(): Set<string> {
     for (const url of readFromRoot(relative(projectRoot, file)).match(URL_PATTERN) ?? []) {
       urls.add(url)
     }
+  }
+  return urls
+}
+
+/**
+ * Only the URLs a dataset offers as a **source** — a string value under a `url`
+ * key — not every URL that happens to appear in one.
+ *
+ * The distinction arrived with `data/rules`. CSMOP 2022 lists government
+ * portals inside its own paragraphs, so `data/rules/text/csmop.json` quotes
+ * about twenty hosts in the manual's prose. Those are quotations, not
+ * citations: nothing in the app presents them as where a record came from, and
+ * putting them on the reviewed host list would turn a list of twenty-four
+ * deliberate exceptions into a list of forty accidental ones — the failure
+ * ADR-016 already declined for the pay datasets.
+ *
+ * The dist sweep is unaffected: `isAllowed` still lets through any URL that
+ * appears anywhere in a dataset, because a quoted URL does ship.
+ */
+function citationUrls(): Set<string> {
+  const urls = new Set<string>()
+
+  const visit = (node: unknown, key: string | null): void => {
+    if (typeof node === 'string') {
+      if (key === 'url' && /^https?:\/\//.test(node)) urls.add(node)
+      return
+    }
+    if (Array.isArray(node)) {
+      for (const item of node) visit(item, key)
+      return
+    }
+    if (node && typeof node === 'object') {
+      for (const [childKey, value] of Object.entries(node)) visit(value, childKey)
+    }
+  }
+
+  for (const file of walk(fromRoot('data'), new Set(['.json']))) {
+    visit(JSON.parse(readFromRoot(relative(projectRoot, file))), null)
   }
   return urls
 }
@@ -282,7 +324,7 @@ describe('no external URLs', () => {
     // Both directions. A dataset that starts citing a new host fails here until
     // someone writes it down; a host left on the list after the last citation
     // using it was removed fails too, so the list cannot silently widen.
-    const hosts = [...new Set([...datasetUrls()].map(hostOf))].filter(Boolean).sort()
+    const hosts = [...new Set([...citationUrls()].map(hostOf))].filter(Boolean).sort()
     expect(hosts).toEqual([...CITATION_HOSTS].sort())
   })
 

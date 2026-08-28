@@ -2417,3 +2417,135 @@ mounted, and once when the rebuttal added a navigation loop.
 - `docs/DATA-GAPS.md` #42 is closed by this.
 - The e2e suite cannot see the StrictMode half at all — it builds for production, where StrictMode is
   inert. Both halves are unit-tested for that reason, and any new effect of this shape needs the same.
+
+---
+
+## ADR-023 — The Rules Trainer's content pipeline: extract the rule, generate the card, author the Hindi
+
+**Status:** accepted, Session 9.
+
+### Context
+
+The Rules Trainer needs cards over eleven rule books and one manual. The brief asks for rule text
+extracted from the published PDFs, rule and cloze cards generated from that text, and 150+ questions
+authored in session through a four-stage pipeline — all bilingual, and all with zero paid services.
+
+Two facts about the sources decided most of the design.
+
+**The English text layers are good; the Hindi ones are byte soup.** Twenty-one documents were
+fetched. Every English PDF but one has a real text layer. Every _Hindi_ PDF that has a text layer at
+all is typeset from a legacy font, and what comes out looks like Devanagari and is not:
+
+| Document                          | Extracted                     | Should read   |
+| --------------------------------- | ----------------------------- | ------------- |
+| DoPT, CCS (Conduct) Rules — Hindi | `ूशासन`                       | `प्रशासन`     |
+| DoPT, CCS (CCA) Rules — Hindi     | `शािःत`                       | `शास्ति`      |
+| DoPT, RTI Act — Hindi             | `ᳰकसी` (U+1CF0, a Vedic sign) | `किसी`        |
+| rajbhasha, OL Act — Hindi         | `कायाषिय`                     | `कार्यालय`    |
+| DARPG, CSMOP — Hindi              | `भनम्नानुसाय`                 | `निम्नानुसार` |
+
+CLAUDE.md already recorded this for CSMOP (DATA-GAPS #36). Measuring the other four found the same
+thing, and `extract_rules.py --audit-hindi` is the measurement. None of them is reversible by a
+substitution table — the ambiguity is real, which is exactly what DATA-GAPS #36 says.
+
+**The 296-page Hindi FR/SR compilation extracts zero characters.** It is a scan.
+
+### Decision
+
+**Rule text is extracted; Hindi is authored.** `data/rules/text/<act>.json` carries `text.hi: ""` on
+every record and a bilingual `hindiNote` saying why, and `hindiTextExtractable: false` on the
+envelope. The alternative to authoring is machine-translating statutory text, which this project
+will not ship.
+
+**A rule card runs heading → citation, and names its act.** "Communication of Official Information —
+which rule of the CCS (Conduct) Rules?" → "Rule 11, CCS (Conduct) Rules, 1964". That is the direction
+an officer is examined in, and it makes a card bilingual for the price of **one authored heading**
+rather than a translated rule book. 236 headings were authored, covering eight of the twelve acts.
+
+Naming the act is not decoration. The first version asked "Definitions — which rule?", and twelve of
+these rule books head a rule "Definitions": the duplicate-front test found **forty-two** collisions
+across acts. Two more classes of rule get a card that is deliberately **not served**: a rule the book
+has emptied ("Deleted", "Omitted" — the Leave rules have six), and a heading the same act uses twice
+(the RTI Act heads both s.13 and s.16 "Term of office and conditions of service"). Both are
+unanswerable from the card, both keep their card so rule coverage stays 100%, and both carry the
+reason in `reviewNote`.
+
+**`reviewState` has four values, and only one is served.** `approved` is served; `needs-hindi` means
+the English is right and the Hindi is not written; `unreviewed` means generated and not yet
+hand-reviewed; `rejected` means reviewed and refused, with the reason. A rejected card stays in the
+file — that is the audit trail the brief asks for — and `isServed` is the one predicate that decides
+what a reader sees.
+
+**The four stages are four files.** Stage A in `authored/`, stages B, C and D in `review/`, merged by
+`make_cards.py` into each card's `generationMeta`. Four fields of one file would be indistinguishable
+from four fields written at once; four files show that the critic did not have the generation notes
+and the blind verify did not have the key.
+
+### The sequence walk, and why the parser is shaped the way it is
+
+Twelve documents, twelve layouts, one parser. `^12. Something` matches the start of Rule 12 and it
+also matches the twelfth item of a list, a paragraph of a Government of India decision, and a page
+number that ran into a sentence. So candidates are collected and then filtered by walking the
+sequence. Five refinements, each of which was a wrong parse first:
+
+1. **The chain is scored by substantive members, not by length.** The Conduct rules end with
+   twenty-five numbered amendment entries ("S.O. 2859, dated the 30th September, 1978"), which is a
+   longer increasing sequence than the twenty-four rules the parser first managed to chain through
+   the body. A member counts only if it is followed by 120 characters of text. An amendment table
+   scores zero; a rule book scores its rule count.
+2. **A footnote marker fuses onto the rule number it precedes.** Rule 11 of the Conduct rules is
+   printed `3911.` — footnote 39, then the rule. Every candidate offers its number _and_ its trims,
+   and the walk takes the reading that continues the sequence. Only three digits or more are trimmed:
+   trimming two turned the RTI arrangement-of-sections entry "31. Repeal." into a Section 1 headed
+   "Repeal" whose text was the table of contents.
+3. **Nothing is trimmed from a number alone on its line.** The Leave rules end a sentence with the
+   bare line `1972.`, which trimmed to "2" and became Rule 2, carrying Rule 1's second sub-rule.
+4. **A line beginning `(2)` is not a rule start.** A rule's own sub-rules begin at `(1)`. Without
+   this, `…(Pension) Rules, 2021` wrapping onto `(2) They shall come into force` read as Rule 21 and
+   cut the Pension rules from 86 records to 18.
+5. **Repetition alone does not make a line furniture.** The DoPT books print a rule's number on a
+   line of its own, and every book repeats `(i)` and `(ii)` on dozens of pages. A plain frequency
+   filter deleted the rule markers and the clause markers; a running head has to be prose.
+
+### Consequences
+
+- **818 rules across twelve acts**, no duplicate numbers, headings where the document has them.
+- **2,607 cards; 584 served** — 222 rule, 220 cloze, 142 authored questions.
+- **340 cloze cards reviewed** by hand (220 approved, 120 rejected with a reason).
+- **151 questions authored, 142 approved** through A→D. Six were rejected by the critic, three by
+  rapidfuzz at the specified threshold, none by blind verify.
+- The blind pass paid for itself on its first run: stage A had put the correct answer at **index 0 in
+  91%** of its questions. Every key was right and the card set was still gameable.
+  `make_cards.py` now rotates options by `sha256` of the card id — deterministic, because this file is
+  regenerated on every run and a shuffle would make every run a diff — and a test asserts no position
+  holds more than half.
+- `data/rules` joins `data/law`, `data/pay` and `data/drafting` in `.prettierignore`: it is written
+  by `ingest_common`-style `write_json`, and prettier and the generator would take turns rewriting
+  4 MB.
+- `scripts/ingest/validate_data.py` now covers 58 datasets. `src/modules/trainer/schema.ts` is the
+  zod half, `strictObject` throughout, with `Question` exported as an alias of `Card`.
+- Certificate verification is never disabled. Several Government of India hosts serve an incomplete
+  Let's Encrypt chain — `documents.doptcirculars.nic.in` omits its intermediate and `www.istm.gov.in`
+  chains to _ISRG Root YR_, newer than our pinned `certifi` — so `build_ca_bundle()` supplies the
+  missing links, fetched from `letsencrypt.org` over a connection that verifies against the roots we
+  already trust, with the new root taken **cross-signed by X1** so no anchor is trusted that does not
+  chain to an existing one. `test_authoring.py` parses every module with `ast` and fails on any call
+  passing `verify=False`.
+
+### What was rejected
+
+**Machine-translating the rule text.** It would have made every card bilingual immediately and it
+would have put machine Hindi of statutory text in front of officers who are examined on it.
+
+**Repairing the legacy-font Hindi with a substitution table.** DATA-GAPS #36 already settled this for
+CSMOP and the other four are no better: `भनम्नानुसाय` → `निम्नानुसार` needs two substitutions that
+are not one-to-one, and a table that is right 95% of the time produces Hindi nobody can trust and
+nobody can spot.
+
+**Serving a card whose Hindi is missing, with English as a fallback.** The hard rule in CLAUDE.md is
+that a missing `hi` is a CI failure, not a fallback. `needs-hindi` is how a card waits without being
+shown, and the test asserts no approved card is missing Hindi.
+
+**Shuffling options randomly.** Deterministic rotation, for the reason above; and rotation rather
+than a shuffle, because several questions end their option list with a deliberate catch-all that a
+shuffle would strand in the middle.

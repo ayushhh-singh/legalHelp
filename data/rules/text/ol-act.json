@@ -1,0 +1,247 @@
+{
+  "$schema": "../../../schemas/rules-text.schema.json",
+  "version": "1.0.0",
+  "generatedAt": "2026-08-28",
+  "act": {
+    "id": "ol-act",
+    "name": {
+      "en": "Official Languages Act, 1963",
+      "hi": "राजभाषा अधिनियम, 1963"
+    },
+    "short": {
+      "en": "OL Act 1963",
+      "hi": "राजभाषा अधिनियम"
+    },
+    "unit": {
+      "en": "Section",
+      "hi": "धारा"
+    },
+    "publisher": "Department of Official Language, Ministry of Home Affairs"
+  },
+  "hindiTextExtractable": false,
+  "hindiNote": {
+    "en": "The Ministry's Hindi issue of this rule book is typeset from a legacy font, so its text layer cannot be read. Hindi in this app is authored, not extracted, and is marked for verification.",
+    "hi": "इस नियम पुस्तिका का मंत्रालय द्वारा प्रकाशित हिंदी संस्करण पुरानी फ़ॉन्ट प्रणाली में टंकित है, अतः उसका पाठ-स्तर पढ़ा नहीं जा सकता। इस ऐप की हिंदी लिखी गई है, निकाली नहीं गई, और सत्यापन हेतु चिह्नित है।"
+  },
+  "disclaimer": {
+    "en": "Reference only; verify with the official gazette/order or your DDO.",
+    "hi": "केवल संदर्भ के लिए; आधिकारिक राजपत्र/आदेश अथवा अपने डीडीओ से सत्यापित करें।"
+  },
+  "source": {
+    "name": "Department of Official Language, Ministry of Home Affairs — The Official Languages Act, 1963 (as amended, 1967)",
+    "url": "https://rajbhasha.gov.in/sites/default/files/rajbhasha_act_1963e.pdf"
+  },
+  "rules": [
+    {
+      "id": "ol-act-1",
+      "number": "1",
+      "heading": {
+        "en": "Short title and Commencement",
+        "hi": ""
+      },
+      "text": {
+        "en": "(1) This Act may be called the Official Languages Act, 1963. (2) Section 3 shall come into force on the 26th day of January, 1965 and the remaining provisions of this Act shall come into force on such date1 as the Central Government may, by notification in the Official Gazette, appoint and different dates may be appointed for different provisions of this Act.",
+        "hi": ""
+      },
+      "subRules": [
+        {
+          "number": "1(1)",
+          "text": {
+            "en": "This Act may be called the Official Languages Act, 1963.",
+            "hi": ""
+          }
+        },
+        {
+          "number": "1(2)",
+          "text": {
+            "en": "Section 3 shall come into force on the 26th day of January, 1965 and the remaining provisions of this Act shall come into force on such date1 as the Central Government may, by notification in the Official Gazette, appoint and different dates may be appointed for different provisions of this Act.",
+            "hi": ""
+          }
+        }
+      ]
+    },
+    {
+      "id": "ol-act-2",
+      "number": "2",
+      "heading": {
+        "en": "Definitions",
+        "hi": ""
+      },
+      "text": {
+        "en": "In this Act, unless the context otherwise requires,- (a) \"appointed day\", in relation to section 3, means the 26th day of January, 1965 and in relation to any other provision of this Act, means the day on which that provision comes into force; (b) \"Hindi\" means Hindi in Devanagari Script. 2[3. Continuance of English Language for official purposes of the Union and for use in Parliament.- (1) Notwithstanding the expiration of the period of fifteen years from the commencement of the Constitution, the English language may, as from the appointed day, continue to be used in addition to Hindi,- (a) for all the official purposes of the Union for which it was being used immediately before that day; and (b) for the transaction of business in Parliament: Provided that the English language shall be used for purposes of communication between the Union and a State which has not adopted Hindi as its Official Language: Provided further that where Hindi is used for purposes of communication between one State which has adopted Hindi as its official language and another State which has not adopted Hindi as its Official Language, such communication in Hindi shall be accompanied by a translation of the same in the English language: Provided also that nothing in this sub-section shall be construed as preventing a State which has not adopted Hindi as its official language from using Hindi for purposes of communication with the Union or with a State which has adopted Hindi as its official language, or by agreement with any other State, and in such a case, it shall not be obligatory to use the English language for purposes of communication with that State. (2) Notwithstanding anything contained in sub-section (1) where Hindi or the English Language is used for purposes of communication- (i) between one Ministry or Department or office of the Central Government and another; ____________________ 1. 10th January, 1965, vide notification No. S.O. 94, dated 4th January, 1965, in respect of section 5(1), see Gazette of India, Extraordinary, Part II, sec. 3(ii). 19th May, 1969, vide notification No. S.O. 1945, dated the 14th May, 1969, in respect of section 6, see Gazette of India, Extraordinary, Part II, sec. 3(ii). 7th March, 1970, vide notification No. S.O. 841, dated the 26th February, 1970, in respect of section 7, see Gazette of India, Extraordinary, Part II, sec. 3(ii). 1st October, 1976, vide notification No. S.O. 655(E), dated the 5th October, 1976, in respect of section 5(2), see Gazette of India, Extraordinary, Part II, sec. 3(ii). 2. Subs. by Act 1 of 1968, s. 2, for section 3 (w.e.f. 8-1-1968). (ii) between one Ministry or Department or office of the Central Government and any corporation or company owned or controlled by the Central Government or any office thereof; (iii) between any corporation or company owned or controlled by the Central Government or any office thereof and another, a translation of such communication in the English language or, as the case may be, in Hindi shall also be provided till such date as the staff of the concerned Ministry, Department, office or the corporation or company aforesaid have acquired a working knowledge of Hindi. (3) Notwithstanding anything contained in sub-section (1), both Hindi and the English language shall be used for- (i) resolutions, general orders, rules, notifications, administrative or other reports or press communiques issued or made by the Central Government or by a Ministry, Department or office thereof or by a corporation or company owned or controlled by the Central Government or by any office of such corporation or company; (ii) administrative and other reports and official papers laid before a House or the Houses of Parliament; (iii) contracts and agreements executed, and licenses, permits, notices and forms of tender issued, by or on behalf of the Central Government or any Ministry, Department or office thereof or by a corporation or company owned or controlled by the Central Government or by any office of such corporation or company. (4) Without prejudice to the provisions of sub-section (1) or sub-section (2) or sub-section (3), the Central Government may, by rules made under section 8, provide for the language or languages to be used for the official purpose of the Union, including the working of any Ministry, Department, Section or Office and in making such rules, due consideration shall be given to the quick and efficient disposal of the official business and the interests of the general public and in particular, the rules so made shall ensure that persons serving in connection with the affairs of the Union and having proficiency either in Hindi or in the English language may function effectively and that they are not placed at a disadvantage on the ground that they do not have proficiency in both the languages. (5) The provisions of clause (a) of sub-section (1), and the provisions of sub-section (2), sub-section (3) and sub-section (4) shall remain in force until resolutions for the discontinuance of the use of the English language for the purposes mentioned therein have been passed by the legislatures of all the States which have not adopted Hindi as their Official Language and until after considering the resolutions aforesaid, a resolution for such discontinuance has been passed by each House of Parliament.]",
+        "hi": ""
+      },
+      "subRules": [
+        {
+          "number": "2(1)",
+          "text": {
+            "en": "Notwithstanding the expiration of the period of fifteen years from the commencement of the Constitution, the English language may, as from the appointed day, continue to be used in addition to Hindi,- (a) for all the official purposes of the Union for which it was being used immediately before that day; and (b) for the transaction of business in Parliament: Provided that the English language shall be used for purposes of communication between the Union and a State which has not adopted Hindi as its Official Language: Provided further that where Hindi is used for purposes of communication between one State which has adopted Hindi as its official language and another State which has not adopted Hindi as its Official Language, such communication in Hindi shall be accompanied by a translation of the same in the English language: Provided also that nothing in this sub-section shall be construed as preventing a State which has not adopted Hindi as its official language from using Hindi for purposes of communication with the Union or with a State which has adopted Hindi as its official language, or by agreement with any other State, and in such a case, it shall not be obligatory to use the English language for purposes of communication with that State.",
+            "hi": ""
+          }
+        },
+        {
+          "number": "2(2)",
+          "text": {
+            "en": "Notwithstanding anything contained in sub-section (1) where Hindi or the English Language is used for purposes of communication- (i) between one Ministry or Department or office of the Central Government and another; ____________________ 1. 10th January, 1965, vide notification No. S.O. 94, dated 4th January, 1965, in respect of section 5(1), see Gazette of India, Extraordinary, Part II, sec. 3(ii). 19th May, 1969, vide notification No. S.O. 1945, dated the 14th May, 1969, in respect of section 6, see Gazette of India, Extraordinary, Part II, sec. 3(ii). 7th March, 1970, vide notification No. S.O. 841, dated the 26th February, 1970, in respect of section 7, see Gazette of India, Extraordinary, Part II, sec. 3(ii). 1st October, 1976, vide notification No. S.O. 655(E), dated the 5th October, 1976, in respect of section 5(2), see Gazette of India, Extraordinary, Part II, sec. 3(ii). 2. Subs. by Act 1 of 1968, s. 2, for section 3 (w.e.f. 8-1-1968). (ii) between one Ministry or Department or office of the Central Government and any corporation or company owned or controlled by the Central Government or any office thereof; (iii) between any corporation or company owned or controlled by the Central Government or any office thereof and another, a translation of such communication in the English language or, as the case may be, in Hindi shall also be provided till such date as the staff of the concerned Ministry, Department, office or the corporation or company aforesaid have acquired a working knowledge of Hindi.",
+            "hi": ""
+          }
+        },
+        {
+          "number": "2(3)",
+          "text": {
+            "en": "Notwithstanding anything contained in sub-section (1), both Hindi and the English language shall be used for- (i) resolutions, general orders, rules, notifications, administrative or other reports or press communiques issued or made by the Central Government or by a Ministry, Department or office thereof or by a corporation or company owned or controlled by the Central Government or by any office of such corporation or company; (ii) administrative and other reports and official papers laid before a House or the Houses of Parliament; (iii) contracts and agreements executed, and licenses, permits, notices and forms of tender issued, by or on behalf of the Central Government or any Ministry, Department or office thereof or by a corporation or company owned or controlled by the Central Government or by any office of such corporation or company.",
+            "hi": ""
+          }
+        },
+        {
+          "number": "2(4)",
+          "text": {
+            "en": "Without prejudice to the provisions of sub-section (1) or sub-section (2) or sub-section (3), the Central Government may, by rules made under section 8, provide for the language or languages to be used for the official purpose of the Union, including the working of any Ministry, Department, Section or Office and in making such rules, due consideration shall be given to the quick and efficient disposal of the official business and the interests of the general public and in particular, the rules so made shall ensure that persons serving in connection with the affairs of the Union and having proficiency either in Hindi or in the English language may function effectively and that they are not placed at a disadvantage on the ground that they do not have proficiency in both the languages.",
+            "hi": ""
+          }
+        },
+        {
+          "number": "2(5)",
+          "text": {
+            "en": "The provisions of clause (a) of sub-section (1), and the provisions of sub-section (2), sub-section (3) and sub-section (4) shall remain in force until resolutions for the discontinuance of the use of the English language for the purposes mentioned therein have been passed by the legislatures of all the States which have not adopted Hindi as their Official Language and until after considering the resolutions aforesaid, a resolution for such discontinuance has been passed by each House of Parliament.]",
+            "hi": ""
+          }
+        }
+      ]
+    },
+    {
+      "id": "ol-act-4",
+      "number": "4",
+      "heading": {
+        "en": "Committee on Official Language",
+        "hi": ""
+      },
+      "text": {
+        "en": "(1) After the expiration of ten years from the date on which section 3 comes into force, there shall be constituted a Committee on Official language, on a resolution to that effect being moved in either House of Parliament with the previous sanction of the President and passed by both Houses. (2) The Committee shall consist of thirty members, of whom twenty shall be members of the House of the people and ten shall be members of the Council of States, to be elected respectively the members of the House of the People and the members of the Council of States in accordance with the system of proportional representation by means of the single transferable vote. (3) It shall be the duty of the Committee to review the progress made in the use of Hindi for the official purposes of the Union and submit a report to the President making recommendations thereon and the President shall cause the report to be laid before each House of Parliament, and sent to all the State Governments. (4) The President may, after consideration of the report referred to in sub-section (3), and the views, if any, expressed by the State Government thereon, issue directions in accordance with the whole or any part of that report: 1[Provided that the direction so issued shall not be inconsistent with the provisions of section 3.]",
+        "hi": ""
+      },
+      "subRules": [
+        {
+          "number": "4(1)",
+          "text": {
+            "en": "After the expiration of ten years from the date on which section 3 comes into force, there shall be constituted a Committee on Official language, on a resolution to that effect being moved in either House of Parliament with the previous sanction of the President and passed by both Houses.",
+            "hi": ""
+          }
+        },
+        {
+          "number": "4(2)",
+          "text": {
+            "en": "The Committee shall consist of thirty members, of whom twenty shall be members of the House of the people and ten shall be members of the Council of States, to be elected respectively the members of the House of the People and the members of the Council of States in accordance with the system of proportional representation by means of the single transferable vote.",
+            "hi": ""
+          }
+        },
+        {
+          "number": "4(3)",
+          "text": {
+            "en": "It shall be the duty of the Committee to review the progress made in the use of Hindi for the official purposes of the Union and submit a report to the President making recommendations thereon and the President shall cause the report to be laid before each House of Parliament, and sent to all the State Governments.",
+            "hi": ""
+          }
+        },
+        {
+          "number": "4(4)",
+          "text": {
+            "en": "The President may, after consideration of the report referred to in sub-section (3), and the views, if any, expressed by the State Government thereon, issue directions in accordance with the whole or any part of that report: 1[Provided that the direction so issued shall not be inconsistent with the provisions of section 3.]",
+            "hi": ""
+          }
+        }
+      ]
+    },
+    {
+      "id": "ol-act-5",
+      "number": "5",
+      "heading": {
+        "en": "Authorised Hindi translation of Central Acts, etc",
+        "hi": ""
+      },
+      "text": {
+        "en": "(1) A translation in Hindi published under the authority of the President in the Official Gazette on and after the appointed day,- (a) of any Central Act or of any Ordinance promulgated by the President, or (b) of any order, rule, regulation or by-law issued under the Constitution or under any central Act, shall be deemed to be the authoritative text thereof in Hindi. (2) As from the appointed day, the authoritative text in the English language of all Bills to be introduced or amendments thereto to be moved in either House of Parliament shall be accompanied by a translation of the same in Hindi authorised in such manner as may be prescribed by rules made under this Act.",
+        "hi": ""
+      },
+      "subRules": [
+        {
+          "number": "5(1)",
+          "text": {
+            "en": "A translation in Hindi published under the authority of the President in the Official Gazette on and after the appointed day,- (a) of any Central Act or of any Ordinance promulgated by the President, or (b) of any order, rule, regulation or by-law issued under the Constitution or under any central Act, shall be deemed to be the authoritative text thereof in Hindi.",
+            "hi": ""
+          }
+        },
+        {
+          "number": "5(2)",
+          "text": {
+            "en": "As from the appointed day, the authoritative text in the English language of all Bills to be introduced or amendments thereto to be moved in either House of Parliament shall be accompanied by a translation of the same in Hindi authorised in such manner as may be prescribed by rules made under this Act.",
+            "hi": ""
+          }
+        }
+      ]
+    },
+    {
+      "id": "ol-act-6",
+      "number": "6",
+      "heading": {
+        "en": "Authorised Hindi translation of State Acts in certain cases",
+        "hi": ""
+      },
+      "text": {
+        "en": "Where the Legislature of a State has prescribed any language other than Hindi for use in Acts passed by the Legislature of the State or in Ordinances promulgated by the Governor of the State, a translation of the same in Hindi, in addition to a translation thereof in the English language as required by clause (3) of article 348 of the Constitution, may be published on or after the appointed day under the authority of the Governor of the State in the Official Gazette of the State and in such a case, the translation in Hindi or any such Act or Ordinance shall be deemed to be the authoritative text thereof in the Hindi language.",
+        "hi": ""
+      }
+    },
+    {
+      "id": "ol-act-7",
+      "number": "7",
+      "heading": {
+        "en": "Optional use of Hindi or other Official language in judgements, etc., of High Courts",
+        "hi": ""
+      },
+      "text": {
+        "en": "As from the appointed day or any day thereafter the Governor of a State may, with the previous consent of the President, authorise the use of Hindi or the official language of the State, in addition to the English language, for the purposes of any judgement, decree or order passed or made by the High Court for that State and where any judgement, decree or order is passed or made in any such language (other than the English language), it shall be accompanied by a translation of the same in the English language issued under the authority of the High Court.",
+        "hi": ""
+      }
+    },
+    {
+      "id": "ol-act-8",
+      "number": "8",
+      "heading": {
+        "en": "Power to make rules",
+        "hi": ""
+      },
+      "text": {
+        "en": "(1) The Central Government may, by notification in the Official Gazette, make rules for carrying out the purposes of this Act. (2) Every rule made under this section shall be laid, as soon as may be after it is made, before each House of Parliament while it is in session for a total period of thirty days which may be comprised in one session or 2[in two or more successive sessions, and if, before the expiry of the session immediately following the session or the successive sessions aforesaid], both Houses agree in making any modification in the rule or both Houses agree that the rule should not be made, the rule shall thereafter have effect only in such modified form or be of no effect, as the case may be so, however, that any such modification or annulment shall be without prejudice to the validity of anything previously done under that rule.",
+        "hi": ""
+      },
+      "subRules": [
+        {
+          "number": "8(1)",
+          "text": {
+            "en": "The Central Government may, by notification in the Official Gazette, make rules for carrying out the purposes of this Act.",
+            "hi": ""
+          }
+        },
+        {
+          "number": "8(2)",
+          "text": {
+            "en": "Every rule made under this section shall be laid, as soon as may be after it is made, before each House of Parliament while it is in session for a total period of thirty days which may be comprised in one session or 2[in two or more successive sessions, and if, before the expiry of the session immediately following the session or the successive sessions aforesaid], both Houses agree in making any modification in the rule or both Houses agree that the rule should not be made, the rule shall thereafter have effect only in such modified form or be of no effect, as the case may be so, however, that any such modification or annulment shall be without prejudice to the validity of anything previously done under that rule.",
+            "hi": ""
+          }
+        }
+      ]
+    },
+    {
+      "id": "ol-act-9",
+      "number": "9",
+      "heading": {
+        "en": "[Certain provisions not to apply to Jammu and Kashmir.]",
+        "hi": ""
+      },
+      "text": {
+        "en": "Omitted by the Jammu and Kashmir Reorganization (Adaptation of Central Laws) Order, 2020, vide notification No. S.O. 1123(E) dated (18- 3-2020) and vide Union Territory of Ladakh Reorganisation (Adaptation of Central Laws) Order, 2020, notification No. S.O. 3774(E), dated (23-10-2020). ____________________ 1. The proviso added by Act 1 of 1968, s. 3 (w.e.f. 8-1-1968). 2. Subs. by Act 4 of 1986, s. 2 and the Schedule, for certain words (w.e.f. 15-5-1986).",
+        "hi": ""
+      }
+    }
+  ]
+}

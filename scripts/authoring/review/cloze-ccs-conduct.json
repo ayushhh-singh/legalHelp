@@ -1,0 +1,264 @@
+{
+  "_note": "Hand review of the generated cloze cards for the CCS (Conduct) Rules, 1964. `verdict` is approve, edit or reject; a rejected card stays in data/rules/cards/ with reviewState \"rejected\" and is never served. `hi` is the Hindi stem and answer, authored here — it is a Hindi cloze on the same rule, not a translation of the English excerpt, because a 300-character excerpt of statutory English makes a Hindi card nobody reads. The blank marker ____ must appear in both stems.",
+
+  "ccs-conduct-cloze-1-1": {
+    "verdict": "approve",
+    "reason": "The pay ceiling in the second proviso to Rule 1(3) — a figure the rule turns on.",
+    "hi": {
+      "text": "नियम 15, 16, 18(1)-(3), 19, 20 और 21 ऐसे सरकारी सेवक पर लागू नहीं होंगे जो ____ प्रति मास से अधिक वेतन नहीं पाता और सरकार के स्वामित्व या प्रबंध वाले पत्तनों, गोदियों आदि में अराजपत्रित पद धारण करता है।",
+      "answer": "500 रुपये"
+    }
+  },
+  "ccs-conduct-cloze-1-2": {
+    "verdict": "approve",
+    "reason": "The definition of 'railway servant' is borrowed from a named section of another Act.",
+    "hi": {
+      "text": "ये नियम ऐसे सरकारी सेवक पर लागू नहीं होंगे जो भारतीय रेल अधिनियम, 1890 की ____ में यथापरिभाषित रेल सेवक है।",
+      "answer": "धारा 3"
+    }
+  },
+  "ccs-conduct-cloze-1-3": {
+    "verdict": "reject",
+    "reason": "Answer is 'Government servant', which opens twenty-three rules of this book. The card teaches the phrase, not the rule."
+  },
+  "ccs-conduct-cloze-2-1": {
+    "verdict": "approve",
+    "reason": "Rule 2(a) — 'the Government' means the Central Government, which is the whole point of the definition.",
+    "hi": {
+      "text": "नियम 2 — इन नियमों में \"सरकार\" से ____ अभिप्रेत है।",
+      "answer": "केंद्रीय सरकार"
+    }
+  },
+  "ccs-conduct-cloze-3-1": {
+    "verdict": "reject",
+    "reason": "Same trivial answer as cloze-1-3."
+  },
+  "ccs-conduct-cloze-3a-1": {
+    "verdict": "approve",
+    "reason": "Rule 3A(b) turns on 'official dealings with the public'.",
+    "hi": {
+      "text": "नियम 3क — कोई सरकारी सेवक जनता के साथ अपने ____ में विलंबकारी युक्तियाँ नहीं अपनाएगा और न ही सौंपे गए कार्य के निपटान में जानबूझकर विलंब करेगा।",
+      "answer": "शासकीय व्यवहार"
+    }
+  },
+  "ccs-conduct-cloze-3c-1": {
+    "verdict": "approve",
+    "reason": "Rule 3C is the sexual-harassment prohibition; the term is the rule.",
+    "hi": {
+      "text": "नियम 3ग — कोई सरकारी सेवक किसी कार्यस्थल पर किसी महिला के ____ का कोई कृत्य नहीं करेगा।",
+      "answer": "लैंगिक उत्पीड़न"
+    }
+  },
+  "ccs-conduct-cloze-4-1": {
+    "verdict": "approve",
+    "reason": "Rule 4(1) — securing employment for a family member is the prohibited act.",
+    "hi": {
+      "text": "नियम 4(1) — कोई सरकारी सेवक अपने पद या प्रभाव का प्रत्यक्ष या अप्रत्यक्ष रूप से प्रयोग अपने कुटुंब के किसी सदस्य के लिए किसी कंपनी या फर्म में ____ प्राप्त कराने के लिए नहीं करेगा।",
+      "answer": "नियोजन"
+    }
+  },
+  "ccs-conduct-cloze-5-1": {
+    "verdict": "approve",
+    "reason": "Rule 5(1) — membership of a political party.",
+    "hi": {
+      "text": "नियम 5(1) — कोई सरकारी सेवक किसी ____ का सदस्य नहीं होगा और न ही राजनीति में भाग लेने वाले किसी संगठन से अन्यथा संबद्ध होगा।",
+      "answer": "राजनीतिक दल"
+    }
+  },
+  "ccs-conduct-cloze-6-1": {
+    "verdict": "reject",
+    "reason": "The blank falls on 'integrity' inside the set phrase 'sovereignty and integrity of India'. The answer is guessable from the phrase, not from Rule 6."
+  },
+  "ccs-conduct-cloze-7-1": {
+    "verdict": "reject",
+    "reason": "Same set phrase as cloze-6-1."
+  },
+  "ccs-conduct-cloze-8-1": {
+    "verdict": "approve",
+    "reason": "Rule 8 turns on previous sanction; that is what an officer must remember before writing for a newspaper.",
+    "hi": {
+      "text": "नियम 8(1) — कोई सरकारी सेवक ____ के बिना किसी समाचारपत्र या अन्य आवधिक प्रकाशन अथवा इलेक्ट्रॉनिक मीडिया का पूर्णतः या अंशतः स्वामी नहीं होगा, न उसका संपादन या प्रबंधन करेगा।",
+      "answer": "सरकार की पूर्व मंजूरी"
+    }
+  },
+  "ccs-conduct-cloze-9-1": {
+    "verdict": "reject",
+    "reason": "The blank is a self-reference inside a proviso ('the second proviso to sub-rule (3) of rule 1'). Nothing in the sentence lets a reader recover which rule is meant."
+  },
+  "ccs-conduct-cloze-9-2": {
+    "verdict": "approve",
+    "reason": "Rule 9 — adverse criticism of the policy of the Central Government or a State Government.",
+    "hi": {
+      "text": "नियम 9 — कोई सरकारी सेवक किसी ऐसे कथन का प्रकाशन नहीं करेगा जिसका प्रभाव ____ या किसी राज्य सरकार की किसी वर्तमान या हाल की नीति या कार्रवाई की प्रतिकूल आलोचना का हो।",
+      "answer": "केंद्रीय सरकार"
+    }
+  },
+  "ccs-conduct-cloze-10-1": {
+    "verdict": "approve",
+    "reason": "Rule 10 — evidence before a committee needs previous sanction.",
+    "hi": {
+      "text": "नियम 10(1) — उपनियम (3) में यथाउपबंधित के सिवाय, कोई सरकारी सेवक ____ के बिना किसी व्यक्ति, समिति या प्राधिकारी द्वारा की जा रही जाँच के संबंध में साक्ष्य नहीं देगा।",
+      "answer": "सरकार की पूर्व मंजूरी"
+    }
+  },
+  "ccs-conduct-cloze-12-1": {
+    "verdict": "approve",
+    "reason": "Rule 12 — subscriptions need the sanction of the Government or of the prescribed authority.",
+    "hi": {
+      "text": "नियम 12 — कोई सरकारी सेवक सरकार या ____ की पूर्व मंजूरी के बिना किसी निधि या संग्रह के लिए अभिदाय नहीं माँगेगा और न स्वीकार करेगा।",
+      "answer": "विहित प्राधिकारी"
+    }
+  },
+  "ccs-conduct-cloze-13-1": {
+    "verdict": "approve",
+    "reason": "Rule 13(4) — the ceiling on a gift from a foreign dignitary that may be retained.",
+    "hi": {
+      "text": "नियम 13(4) — भारतीय शिष्टमंडल का सदस्य होने के नाते सरकारी सेवक विदेशी गणमान्य व्यक्तियों से प्राप्त उपहार तब रख सकेगा जब एक अवसर पर प्राप्त उपहारों का बाज़ार मूल्य ____ से अधिक न हो।",
+      "answer": "एक हज़ार रुपये"
+    }
+  },
+  "ccs-conduct-cloze-13-2": {
+    "verdict": "reject",
+    "reason": "The source line reads '42rupees twenty five thousand' — footnote 42 has fused onto the figure, and the blank fell on 'twenty' inside 'twenty five thousand'. The card's answer is wrong."
+  },
+  "ccs-conduct-cloze-13-3": {
+    "verdict": "approve",
+    "reason": "The Explanation to Rule 13 turns on whether the giver has official dealings.",
+    "hi": {
+      "text": "नियम 13 का स्पष्टीकरण — \"उपहार\" के अंतर्गत निःशुल्क परिवहन, भोजन, आवास या अन्य सेवा तब आती है जब वह ऐसे व्यक्ति द्वारा दी जाए जो निकट संबंधी न हो और जिसका सरकारी सेवक से कोई ____ न हो।",
+      "answer": "शासकीय व्यवहार"
+    }
+  },
+  "ccs-conduct-cloze-13a-1": {
+    "verdict": "approve",
+    "reason": "Rule 13A is the dowry rule.",
+    "hi": {
+      "text": "नियम 13क — कोई सरकारी सेवक ____ न देगा, न लेगा, न देने या लेने का दुष्प्रेरण करेगा।",
+      "answer": "दहेज"
+    }
+  },
+  "ccs-conduct-cloze-15-1": {
+    "verdict": "approve",
+    "reason": "Rule 15(2) — the reporting period after taking part in a permitted activity.",
+    "hi": {
+      "text": "नियम 15(2) — इस उपनियम के खंड (घ) या (ङ) के अधीन आने वाले मामले में सरकारी सेवक ऐसी गतिविधि में भाग लेने के ____ के भीतर सरकार को ब्यौरा देते हुए रिपोर्ट करेगा।",
+      "answer": "एक मास"
+    }
+  },
+  "ccs-conduct-cloze-15-2": {
+    "verdict": "reject",
+    "reason": "The reference is to Fundamental Rule 9(6-A); the stem splits it as 'Fundamental ____ (6-A)' and the answer reads 'Rule 9'. The card asks for half a citation."
+  },
+  "ccs-conduct-cloze-15-3": {
+    "verdict": "reject",
+    "reason": "The blank cut into a word — the stem reads 'any other e____ or'."
+  },
+  "ccs-conduct-cloze-15a-1": {
+    "verdict": "approve",
+    "reason": "Rule 15A is the sub-letting rule and the term is what it protects.",
+    "hi": {
+      "text": "नियम 15क(1) — कोई सरकारी सेवक अपने को आवंटित ____ को उप-किराए पर, पट्टे पर या अन्यथा किसी अन्य व्यक्ति के अधिभोग में नहीं देगा।",
+      "answer": "सरकारी आवास"
+    }
+  },
+  "ccs-conduct-cloze-16-1": {
+    "verdict": "approve",
+    "reason": "Rule 16(5) — the officer reports to the prescribed authority, not to the Government.",
+    "hi": {
+      "text": "नियम 16 — यदि कोई लेन-देन ऐसी प्रकृति का हो कि उससे उपनियम (2) या (4) का उल्लंघन हो, तो सरकारी सेवक तुरंत ____ को परिस्थितियों की रिपोर्ट करेगा।",
+      "answer": "विहित प्राधिकारी"
+    }
+  },
+  "ccs-conduct-cloze-17-1": {
+    "verdict": "approve",
+    "reason": "Rule 17 — habitual indebtedness is the defined mischief.",
+    "hi": {
+      "text": "नियम 17 — सरकारी सेवक अपने निजी मामलों का प्रबंध इस प्रकार करेगा कि ____ या दिवालियापन से बचा जा सके।",
+      "answer": "आदतन ऋणग्रस्तता"
+    }
+  },
+  "ccs-conduct-cloze-18-1": {
+    "verdict": "approve",
+    "reason": "Rule 18(3) — the reporting period for a movable-property transaction.",
+    "hi": {
+      "text": "नियम 18(3) — जंगम संपत्ति के संबंध में लेन-देन करने पर सरकारी सेवक उस लेन-देन की तारीख से ____ के भीतर विहित प्राधिकारी को रिपोर्ट करेगा, यदि संपत्ति का मूल्य उसके दो मास के मूल वेतन से अधिक हो।",
+      "answer": "एक मास"
+    }
+  },
+  "ccs-conduct-cloze-18-2": {
+    "verdict": "reject",
+    "reason": "The source reads 'Rs.3310,000' — footnote 33 has fused onto the figure, so the card's answer is not a number."
+  },
+  "ccs-conduct-cloze-18-3": {
+    "verdict": "approve",
+    "reason": "Rule 18(1)(i) — the first return covers immovable property.",
+    "hi": {
+      "text": "नियम 18(1) — प्रत्येक सरकारी सेवक पहली नियुक्ति पर अपनी आस्तियों और दायित्वों का विवरण देगा, जिसमें उसे उत्तराधिकार में मिली, उसके स्वामित्व की, अर्जित या पट्टे पर धारित ____ के पूरे ब्यौरे होंगे।",
+      "answer": "स्थावर संपत्ति"
+    }
+  },
+  "ccs-conduct-cloze-18a-1": {
+    "verdict": "approve",
+    "reason": "Rule 18A opens by displacing Rule 18(2); the cross-reference is the link between the two rules.",
+    "hi": {
+      "text": "नियम 18क — ____ के उपनियम (2) में किसी बात के होते हुए भी, कोई सरकारी सेवक विहित प्राधिकारी की पूर्व मंजूरी के बिना भारत से बाहर स्थावर संपत्ति अर्जित नहीं करेगा।",
+      "answer": "नियम 18"
+    }
+  },
+  "ccs-conduct-cloze-18a-2": {
+    "verdict": "approve",
+    "reason": "Rule 18A turns on previous sanction of the prescribed authority.",
+    "hi": {
+      "text": "नियम 18क — कोई सरकारी सेवक विहित प्राधिकारी की ____ के बिना भारत से बाहर स्थावर संपत्ति क्रय, बंधक, पट्टे या दान द्वारा अर्जित नहीं करेगा।",
+      "answer": "पूर्व मंजूरी"
+    }
+  },
+  "ccs-conduct-cloze-19-1": {
+    "verdict": "approve",
+    "reason": "Rule 19 — the deemed-permission period, which is the part officers get wrong.",
+    "hi": {
+      "text": "नियम 19 का परंतुक — यदि सरकार को अनुरोध प्राप्त होने की तारीख से ____ के भीतर सरकारी सेवक को कोई मंजूरी प्राप्त नहीं होती, तो वह यह मान सकेगा कि माँगी गई अनुमति दे दी गई है।",
+      "answer": "तीन मास"
+    }
+  },
+  "ccs-conduct-cloze-19-2": {
+    "verdict": "approve",
+    "reason": "Rule 19 is the vindication rule and the term is its subject.",
+    "hi": {
+      "text": "नियम 19(1) — कोई सरकारी सेवक सरकार की पूर्व मंजूरी के बिना किसी शासकीय कार्य के ____ के लिए न्यायालय या प्रेस की शरण नहीं लेगा।",
+      "answer": "समर्थन"
+    }
+  },
+  "ccs-conduct-cloze-22-1": {
+    "verdict": "approve",
+    "reason": "Rule 22(a).",
+    "hi": {
+      "text": "नियम 22(क) — सरकारी सेवक उस क्षेत्र में प्रवृत्त ____ या मादक द्रव्यों से संबंधित किसी विधि का कठोरता से पालन करेगा जहाँ वह तत्समय हो।",
+      "answer": "मादक पेयों"
+    }
+  },
+  "ccs-conduct-cloze-22a-1": {
+    "verdict": "approve",
+    "reason": "Rule 22A — the age below which a child may not be employed.",
+    "hi": {
+      "text": "नियम 22क — कोई सरकारी सेवक ____ से कम आयु के किसी बालक को काम पर नहीं लगाएगा।",
+      "answer": "14 वर्ष"
+    }
+  },
+  "ccs-conduct-cloze-24-1": {
+    "verdict": "approve",
+    "reason": "Rule 24 excepts the interpretation power in Rule 23 from delegation — an exception worth knowing.",
+    "hi": {
+      "text": "नियम 24 — सरकार यह निदेश दे सकेगी कि इन नियमों के अधीन उसके या किसी विभागाध्यक्ष के प्रयोक्तव्य अधिकार (____ और इस नियम के अधीन अधिकारों को छोड़कर) ऐसे अन्य अधिकारी द्वारा भी प्रयोक्तव्य होंगे।",
+      "answer": "नियम 23"
+    }
+  },
+  "ccs-conduct-cloze-24-2": {
+    "verdict": "approve",
+    "reason": "Rule 24 — the two authorities whose powers may be delegated.",
+    "hi": {
+      "text": "नियम 24 — सरकार यह निदेश दे सकेगी कि इन नियमों के अधीन उसके या किसी ____ के प्रयोक्तव्य अधिकार ऐसे अन्य अधिकारी या प्राधिकारी द्वारा भी प्रयोक्तव्य होंगे।",
+      "answer": "विभागाध्यक्ष"
+    }
+  }
+}

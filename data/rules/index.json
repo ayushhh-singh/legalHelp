@@ -1,0 +1,449 @@
+{
+  "$schema": "../../schemas/rules-index.schema.json",
+  "version": "1.0.0",
+  "generatedAt": "2026-08-28",
+  "disclaimer": {
+    "en": "Reference only; verify with the official gazette/order or your DDO.",
+    "hi": "केवल संदर्भ के लिए; आधिकारिक राजपत्र/आदेश अथवा अपने डीडीओ से सत्यापित करें।"
+  },
+  "totals": {
+    "rules": 818,
+    "subRules": 831,
+    "cards": 2607,
+    "served": 584,
+    "needsHindi": 1335,
+    "rejected": 159,
+    "byKind": {
+      "cloze": 220,
+      "mcq": 93,
+      "rule": 222,
+      "scenario": 16,
+      "trueFalse": 33
+    }
+  },
+  "acts": [
+    {
+      "id": "ccs-conduct",
+      "name": {
+        "en": "Central Civil Services (Conduct) Rules, 1964",
+        "hi": "केंद्रीय सिविल सेवा (आचरण) नियम, 1964"
+      },
+      "short": {
+        "en": "CCS (Conduct) Rules",
+        "hi": "सीसीएस (आचरण) नियम"
+      },
+      "unit": {
+        "en": "Rule",
+        "hi": "नियम"
+      },
+      "publisher": "Department of Personnel and Training",
+      "text": "text/ccs-conduct.json",
+      "cards": "cards/ccs-conduct.json",
+      "counts": {
+        "rules": 32,
+        "subRules": 39,
+        "cards": 134,
+        "served": 89,
+        "needsHindi": 34,
+        "rejected": 11,
+        "byKind": {
+          "cloze": 28,
+          "mcq": 17,
+          "rule": 32,
+          "scenario": 5,
+          "trueFalse": 7
+        }
+      },
+      "hindiTextExtractable": false,
+      "source": {
+        "name": "Department of Personnel and Training — CCS (Conduct) Rules, 1964 — updated as on 27 February 2015",
+        "url": "https://dopt.gov.in/sites/default/files/CCS_Conduct_Rules_1964_Updated_27Feb15_0.pdf"
+      }
+    },
+    {
+      "id": "ccs-cca",
+      "name": {
+        "en": "Central Civil Services (Classification, Control and Appeal) Rules, 1965",
+        "hi": "केंद्रीय सिविल सेवा (वर्गीकरण, नियंत्रण और अपील) नियम, 1965"
+      },
+      "short": {
+        "en": "CCS (CCA) Rules",
+        "hi": "सीसीएस (सीसीए) नियम"
+      },
+      "unit": {
+        "en": "Rule",
+        "hi": "नियम"
+      },
+      "publisher": "Department of Personnel and Training",
+      "text": "text/ccs-cca.json",
+      "cards": "cards/ccs-cca.json",
+      "counts": {
+        "rules": 34,
+        "subRules": 64,
+        "cards": 172,
+        "served": 95,
+        "needsHindi": 60,
+        "rejected": 17,
+        "byKind": {
+          "cloze": 36,
+          "mcq": 17,
+          "rule": 33,
+          "scenario": 3,
+          "trueFalse": 6
+        }
+      },
+      "hindiTextExtractable": false,
+      "source": {
+        "name": "Department of Personnel and Training — CCS (CCA) Rules, 1965 — consolidated",
+        "url": "https://dopt.gov.in/sites/default/files/CCS-CCA-Rules-FINAL.pdf"
+      }
+    },
+    {
+      "id": "ccs-leave",
+      "name": {
+        "en": "Central Civil Services (Leave) Rules, 1972",
+        "hi": "केंद्रीय सिविल सेवा (छुट्टी) नियम, 1972"
+      },
+      "short": {
+        "en": "CCS (Leave) Rules",
+        "hi": "सीसीएस (छुट्टी) नियम"
+      },
+      "unit": {
+        "en": "Rule",
+        "hi": "नियम"
+      },
+      "publisher": "Department of Personnel and Training",
+      "text": "text/ccs-leave.json",
+      "cards": "cards/ccs-leave.json",
+      "counts": {
+        "rules": 75,
+        "subRules": 128,
+        "cards": 328,
+        "served": 151,
+        "needsHindi": 122,
+        "rejected": 55,
+        "byKind": {
+          "cloze": 58,
+          "mcq": 21,
+          "rule": 64,
+          "scenario": 2,
+          "trueFalse": 6
+        }
+      },
+      "hindiTextExtractable": false,
+      "source": {
+        "name": "Department of Personnel and Training — CCS (Leave) Rules, 1972 — updated as on 24 September 2024",
+        "url": "https://documents.doptcirculars.nic.in/D2/D02est/updatedccsleaverulesN9ExV.pdf"
+      }
+    },
+    {
+      "id": "ccs-pension",
+      "name": {
+        "en": "Central Civil Services (Pension) Rules, 2021",
+        "hi": "केंद्रीय सिविल सेवा (पेंशन) नियम, 2021"
+      },
+      "short": {
+        "en": "CCS (Pension) Rules",
+        "hi": "सीसीएस (पेंशन) नियम"
+      },
+      "unit": {
+        "en": "Rule",
+        "hi": "नियम"
+      },
+      "publisher": "Department of Pension and Pensioners' Welfare",
+      "text": "text/ccs-pension.json",
+      "cards": "cards/ccs-pension.json",
+      "counts": {
+        "rules": 86,
+        "subRules": 299,
+        "cards": 507,
+        "served": 0,
+        "needsHindi": 367,
+        "rejected": 2,
+        "byKind": {}
+      },
+      "hindiTextExtractable": false,
+      "source": {
+        "name": "Department of Pension and Pensioners' Welfare — CCS (Pension) Rules, 2021 — gazette notification, English",
+        "url": "https://pensionersportal.gov.in/Document/CCS-Pension-Rules%202021-English.pdf"
+      }
+    },
+    {
+      "id": "gfr",
+      "name": {
+        "en": "General Financial Rules, 2017",
+        "hi": "सामान्य वित्तीय नियम, 2017"
+      },
+      "short": {
+        "en": "GFR 2017",
+        "hi": "जीएफआर 2017"
+      },
+      "unit": {
+        "en": "Rule",
+        "hi": "नियम"
+      },
+      "publisher": "Department of Expenditure, Ministry of Finance",
+      "text": "text/gfr.json",
+      "cards": "cards/gfr.json",
+      "counts": {
+        "rules": 307,
+        "subRules": 36,
+        "cards": 583,
+        "served": 0,
+        "needsHindi": 327,
+        "rejected": 16,
+        "byKind": {}
+      },
+      "hindiTextExtractable": false,
+      "source": {
+        "name": "Department of Expenditure, Ministry of Finance — General Financial Rules 2017 — updated up to 31 January 2026",
+        "url": "https://doe.gov.in/files/circulars_document/GFRupdatedupto31012026.pdf"
+      }
+    },
+    {
+      "id": "rti",
+      "name": {
+        "en": "Right to Information Act, 2005",
+        "hi": "सूचना का अधिकार अधिनियम, 2005"
+      },
+      "short": {
+        "en": "RTI Act",
+        "hi": "आरटीआई अधिनियम"
+      },
+      "unit": {
+        "en": "Section",
+        "hi": "धारा"
+      },
+      "publisher": "Department of Personnel and Training",
+      "text": "text/rti.json",
+      "cards": "cards/rti.json",
+      "counts": {
+        "rules": 31,
+        "subRules": 108,
+        "cards": 215,
+        "served": 89,
+        "needsHindi": 101,
+        "rejected": 25,
+        "byKind": {
+          "cloze": 31,
+          "mcq": 17,
+          "rule": 29,
+          "scenario": 4,
+          "trueFalse": 8
+        }
+      },
+      "hindiTextExtractable": false,
+      "source": {
+        "name": "Department of Personnel and Training — Right to Information Act, 2005 — updated as on 18 November 2025",
+        "url": "https://dopt.gov.in/sites/default/files/RTI%20Act%202005%20%28updated%20as%20on%2018-11-2025%29.pdf"
+      }
+    },
+    {
+      "id": "osa",
+      "name": {
+        "en": "Official Secrets Act, 1923",
+        "hi": "शासकीय गुप्त बात अधिनियम, 1923"
+      },
+      "short": {
+        "en": "OSA 1923",
+        "hi": "ओएसए 1923"
+      },
+      "unit": {
+        "en": "Section",
+        "hi": "धारा"
+      },
+      "publisher": "Ministry of Home Affairs",
+      "text": "text/osa.json",
+      "cards": "cards/osa.json",
+      "counts": {
+        "rules": 14,
+        "subRules": 34,
+        "cards": 62,
+        "served": 25,
+        "needsHindi": 30,
+        "rejected": 7,
+        "byKind": {
+          "cloze": 11,
+          "rule": 14
+        }
+      },
+      "hindiTextExtractable": false,
+      "source": {
+        "name": "Ministry of Home Affairs — The Official Secrets Act, 1923",
+        "url": "https://www.mha.gov.in/sites/default/files/Official_Secret_Act1923_2.pdf"
+      }
+    },
+    {
+      "id": "posh",
+      "name": {
+        "en": "Sexual Harassment of Women at Workplace (Prevention, Prohibition and Redressal) Act, 2013",
+        "hi": "कार्यस्थल पर महिलाओं का लैंगिक उत्पीड़न (निवारण, प्रतिषेध और प्रतितोष) अधिनियम, 2013"
+      },
+      "short": {
+        "en": "PoSH Act 2013",
+        "hi": "पॉश अधिनियम 2013"
+      },
+      "unit": {
+        "en": "Section",
+        "hi": "धारा"
+      },
+      "publisher": "Ministry of Women and Child Development",
+      "text": "text/posh.json",
+      "cards": "cards/posh.json",
+      "counts": {
+        "rules": 30,
+        "subRules": 60,
+        "cards": 163,
+        "served": 94,
+        "needsHindi": 50,
+        "rejected": 19,
+        "byKind": {
+          "cloze": 35,
+          "mcq": 21,
+          "rule": 30,
+          "scenario": 2,
+          "trueFalse": 6
+        }
+      },
+      "hindiTextExtractable": false,
+      "source": {
+        "name": "Ministry of Women and Child Development — The Sexual Harassment of Women at Workplace Act, 2013",
+        "url": "https://www.indiacode.nic.in/bitstream/123456789/2104/1/A2013-14.pdf"
+      }
+    },
+    {
+      "id": "ol-act",
+      "name": {
+        "en": "Official Languages Act, 1963",
+        "hi": "राजभाषा अधिनियम, 1963"
+      },
+      "short": {
+        "en": "OL Act 1963",
+        "hi": "राजभाषा अधिनियम"
+      },
+      "unit": {
+        "en": "Section",
+        "hi": "धारा"
+      },
+      "publisher": "Department of Official Language, Ministry of Home Affairs",
+      "text": "text/ol-act.json",
+      "cards": "cards/ol-act.json",
+      "counts": {
+        "rules": 8,
+        "subRules": 15,
+        "cards": 34,
+        "served": 19,
+        "needsHindi": 11,
+        "rejected": 4,
+        "byKind": {
+          "cloze": 11,
+          "rule": 8
+        }
+      },
+      "hindiTextExtractable": false,
+      "source": {
+        "name": "Department of Official Language, Ministry of Home Affairs — The Official Languages Act, 1963 (as amended, 1967)",
+        "url": "https://rajbhasha.gov.in/sites/default/files/rajbhasha_act_1963e.pdf"
+      }
+    },
+    {
+      "id": "ol-rules",
+      "name": {
+        "en": "Official Languages (Use for Official Purposes of the Union) Rules, 1976",
+        "hi": "राजभाषा (संघ के शासकीय प्रयोजनों के लिए प्रयोग) नियम, 1976"
+      },
+      "short": {
+        "en": "OL Rules 1976",
+        "hi": "राजभाषा नियम 1976"
+      },
+      "unit": {
+        "en": "Rule",
+        "hi": "नियम"
+      },
+      "publisher": "Department of Official Language, Ministry of Home Affairs",
+      "text": "text/ol-rules.json",
+      "cards": "cards/ol-rules.json",
+      "counts": {
+        "rules": 12,
+        "subRules": 0,
+        "cards": 25,
+        "served": 22,
+        "needsHindi": 0,
+        "rejected": 3,
+        "byKind": {
+          "cloze": 10,
+          "rule": 12
+        }
+      },
+      "hindiTextExtractable": false,
+      "source": {
+        "name": "Department of Official Language, Ministry of Home Affairs — Official Languages Rules, 1976 (as amended 1987, 2007, 2011)",
+        "url": "https://rajbhasha.gov.in/en/official-language-rules-1976"
+      }
+    },
+    {
+      "id": "fr-sr",
+      "name": {
+        "en": "Fundamental Rules and Supplementary Rules",
+        "hi": "मूल नियम और अनुपूरक नियम"
+      },
+      "short": {
+        "en": "FR & SR",
+        "hi": "एफआर एवं एसआर"
+      },
+      "unit": {
+        "en": "Rule",
+        "hi": "नियम"
+      },
+      "publisher": "Department of Personnel and Training",
+      "text": "text/fr-sr.json",
+      "cards": "cards/fr-sr.json",
+      "counts": {
+        "rules": 77,
+        "subRules": 35,
+        "cards": 179,
+        "served": 0,
+        "needsHindi": 110,
+        "rejected": 0,
+        "byKind": {}
+      },
+      "hindiTextExtractable": false,
+      "source": {
+        "name": "Department of Personnel and Training — Compilation of Fundamental Rules and Supplementary Rules — English",
+        "url": "https://dopt.gov.in/sites/default/files/Compilation_FR_SR_English_2.pdf"
+      }
+    },
+    {
+      "id": "csmop",
+      "name": {
+        "en": "Central Secretariat Manual of Office Procedure, 2022",
+        "hi": "केंद्रीय सचिवालय कार्यालय प्रक्रिया नियमावली, 2022"
+      },
+      "short": {
+        "en": "CSMOP 2022",
+        "hi": "सीएसएमओपी 2022"
+      },
+      "unit": {
+        "en": "Paragraph",
+        "hi": "पैरा"
+      },
+      "publisher": "Department of Administrative Reforms and Public Grievances",
+      "text": "text/csmop.json",
+      "cards": "cards/csmop.json",
+      "counts": {
+        "rules": 112,
+        "subRules": 13,
+        "cards": 205,
+        "served": 0,
+        "needsHindi": 123,
+        "rejected": 0,
+        "byKind": {}
+      },
+      "hindiTextExtractable": false,
+      "source": {
+        "name": "Department of Administrative Reforms and Public Grievances — Central Secretariat Manual of Office Procedure, 2022 (16th edition) — English",
+        "url": "https://www.darpg.gov.in/static/uploads/2025/10/774e0b8f427b7875158363d842fa431f.pdf"
+      }
+    }
+  ]
+}

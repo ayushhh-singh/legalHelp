@@ -1,0 +1,156 @@
+{
+  "_note": "Stage D, written by scripts/authoring/qa_pipeline.py dedup rti. rapidfuzz token_set_ratio over every pair of English fronts in this act, including the generated rule and cloze cards. At 90 or above the later question is the duplicate and make_cards.py rejects it.",
+  "threshold": 90.0,
+  "scores": {
+    "rti-q-001": {
+      "maxScore": 64.5,
+      "against": "rti-cloze-19-3",
+      "verdict": "keep"
+    },
+    "rti-q-002": {
+      "maxScore": 70.2,
+      "against": "rti-rule-3",
+      "verdict": "keep"
+    },
+    "rti-q-003": {
+      "maxScore": 61.8,
+      "against": "rti-q-001",
+      "verdict": "keep"
+    },
+    "rti-q-004": {
+      "maxScore": 66.4,
+      "against": "rti-q-001",
+      "verdict": "keep"
+    },
+    "rti-q-005": {
+      "maxScore": 82.5,
+      "against": "rti-rule-3",
+      "verdict": "keep"
+    },
+    "rti-q-006": {
+      "maxScore": 70.2,
+      "against": "rti-rule-3",
+      "verdict": "keep"
+    },
+    "rti-q-007": {
+      "maxScore": 69.0,
+      "against": "rti-q-005",
+      "verdict": "keep"
+    },
+    "rti-q-008": {
+      "maxScore": 65.6,
+      "against": "rti-q-006",
+      "verdict": "keep"
+    },
+    "rti-q-009": {
+      "maxScore": 84.9,
+      "against": "rti-q-001",
+      "verdict": "keep"
+    },
+    "rti-q-010": {
+      "maxScore": 68.6,
+      "against": "rti-q-003",
+      "verdict": "keep"
+    },
+    "rti-q-011": {
+      "maxScore": 75.1,
+      "against": "rti-q-004",
+      "verdict": "keep"
+    },
+    "rti-q-012": {
+      "maxScore": 74.0,
+      "against": "rti-q-001",
+      "verdict": "keep"
+    },
+    "rti-q-013": {
+      "maxScore": 65.5,
+      "against": "rti-q-008",
+      "verdict": "keep"
+    },
+    "rti-q-014": {
+      "maxScore": 67.2,
+      "against": "rti-q-001",
+      "verdict": "keep"
+    },
+    "rti-q-015": {
+      "maxScore": 74.1,
+      "against": "rti-q-004",
+      "verdict": "keep"
+    },
+    "rti-q-016": {
+      "maxScore": 86.2,
+      "against": "rti-rule-3",
+      "verdict": "keep"
+    },
+    "rti-q-017": {
+      "maxScore": 76.9,
+      "against": "rti-q-016",
+      "verdict": "keep"
+    },
+    "rti-q-018": {
+      "maxScore": 70.2,
+      "against": "rti-rule-14",
+      "verdict": "keep"
+    },
+    "rti-q-019": {
+      "maxScore": 74.2,
+      "against": "rti-rule-14",
+      "verdict": "keep"
+    },
+    "rti-q-020": {
+      "maxScore": 69.9,
+      "against": "rti-rule-17",
+      "verdict": "keep"
+    },
+    "rti-q-021": {
+      "maxScore": 67.4,
+      "against": "rti-rule-15",
+      "verdict": "keep"
+    },
+    "rti-q-022": {
+      "maxScore": 61.4,
+      "against": "rti-q-007",
+      "verdict": "keep"
+    },
+    "rti-q-023": {
+      "maxScore": 60.7,
+      "against": "rti-q-009",
+      "verdict": "keep"
+    },
+    "rti-q-024": {
+      "maxScore": 72.0,
+      "against": "rti-q-011",
+      "verdict": "keep"
+    },
+    "rti-q-025": {
+      "maxScore": 72.5,
+      "against": "rti-q-006",
+      "verdict": "keep"
+    },
+    "rti-q-026": {
+      "maxScore": 78.1,
+      "against": "rti-q-012",
+      "verdict": "keep"
+    },
+    "rti-q-027": {
+      "maxScore": 64.6,
+      "against": "rti-q-009",
+      "verdict": "keep"
+    },
+    "rti-q-028": {
+      "maxScore": 69.9,
+      "against": "rti-q-021",
+      "verdict": "keep"
+    },
+    "rti-q-029": {
+      "maxScore": 64.2,
+      "against": "rti-q-026",
+      "verdict": "keep"
+    },
+    "rti-q-030": {
+      "maxScore": 72.0,
+      "against": "rti-q-007",
+      "verdict": "keep"
+    }
+  }
+}

@@ -1,0 +1,123 @@
+{
+  "_note": "STAGE B · CRITIC. A separate pass over scripts/authoring/authored/posh.json, judging each question on its own terms: is there exactly one correct answer, are the distractors plausible without being trivially wrong, is it inside the public rule text, is there a factual red flag, is the tone right for a serving officer. Rejections stay in data/rules/cards/ with reviewState \"rejected\" and are never served.",
+  "posh-q-001": {
+    "verdict": "approve",
+    "reason": "One correct answer, grounded in Section 4, PoSH Act, 2013; distractors are real rules or real figures from neighbouring provisions."
+  },
+  "posh-q-002": {
+    "verdict": "approve",
+    "reason": "One correct answer, grounded in Section 4, PoSH Act, 2013; distractors are real rules or real figures from neighbouring provisions."
+  },
+  "posh-q-003": {
+    "verdict": "approve",
+    "reason": "One correct answer, grounded in Section 4, PoSH Act, 2013; distractors are real rules or real figures from neighbouring provisions."
+  },
+  "posh-q-004": {
+    "verdict": "approve",
+    "reason": "One correct answer, grounded in Section 6, PoSH Act, 2013; distractors are real rules or real figures from neighbouring provisions."
+  },
+  "posh-q-005": {
+    "verdict": "approve",
+    "reason": "One correct answer, grounded in Section 9, PoSH Act, 2013; distractors are real rules or real figures from neighbouring provisions."
+  },
+  "posh-q-006": {
+    "verdict": "approve",
+    "reason": "One correct answer, grounded in Section 10, PoSH Act, 2013; distractors are real rules or real figures from neighbouring provisions."
+  },
+  "posh-q-007": {
+    "verdict": "approve",
+    "reason": "One correct answer, grounded in Section 11, PoSH Act, 2013; distractors are real rules or real figures from neighbouring provisions."
+  },
+  "posh-q-008": {
+    "verdict": "approve",
+    "reason": "One correct answer, grounded in Section 13, PoSH Act, 2013; distractors are real rules or real figures from neighbouring provisions."
+  },
+  "posh-q-009": {
+    "verdict": "approve",
+    "reason": "One correct answer, grounded in Section 13, PoSH Act, 2013; distractors are real rules or real figures from neighbouring provisions."
+  },
+  "posh-q-010": {
+    "verdict": "approve",
+    "reason": "One correct answer, grounded in Section 15, PoSH Act, 2013; distractors are real rules or real figures from neighbouring provisions."
+  },
+  "posh-q-011": {
+    "verdict": "approve",
+    "reason": "One correct answer, grounded in Section 14, PoSH Act, 2013; distractors are real rules or real figures from neighbouring provisions."
+  },
+  "posh-q-012": {
+    "verdict": "approve",
+    "reason": "One correct answer, grounded in Section 16, PoSH Act, 2013; distractors are real rules or real figures from neighbouring provisions."
+  },
+  "posh-q-013": {
+    "verdict": "approve",
+    "reason": "One correct answer, grounded in Section 18, PoSH Act, 2013; distractors are real rules or real figures from neighbouring provisions."
+  },
+  "posh-q-014": {
+    "verdict": "approve",
+    "reason": "One correct answer, grounded in Section 19, PoSH Act, 2013; distractors are real rules or real figures from neighbouring provisions."
+  },
+  "posh-q-015": {
+    "verdict": "approve",
+    "reason": "One correct answer, grounded in Section 26, PoSH Act, 2013; distractors are real rules or real figures from neighbouring provisions."
+  },
+  "posh-q-016": {
+    "verdict": "approve",
+    "reason": "One correct answer, grounded in Section 2, PoSH Act, 2013; distractors are real rules or real figures from neighbouring provisions."
+  },
+  "posh-q-017": {
+    "verdict": "approve",
+    "reason": "One correct answer, grounded in Section 3, PoSH Act, 2013; distractors are real rules or real figures from neighbouring provisions."
+  },
+  "posh-q-018": {
+    "verdict": "approve",
+    "reason": "One correct answer, grounded in Section 12, PoSH Act, 2013; distractors are real rules or real figures from neighbouring provisions."
+  },
+  "posh-q-019": {
+    "verdict": "approve",
+    "reason": "One correct answer, grounded in Section 11, PoSH Act, 2013; distractors are real rules or real figures from neighbouring provisions."
+  },
+  "posh-q-020": {
+    "verdict": "approve",
+    "reason": "One correct answer, grounded in Section 11, PoSH Act, 2013; distractors are real rules or real figures from neighbouring provisions."
+  },
+  "posh-q-021": {
+    "verdict": "approve",
+    "reason": "One correct answer, grounded in Section 21, PoSH Act, 2013; distractors are real rules or real figures from neighbouring provisions."
+  },
+  "posh-q-022": {
+    "verdict": "approve",
+    "reason": "One correct answer, grounded in Section 7, PoSH Act, 2013; distractors are real rules or real figures from neighbouring provisions."
+  },
+  "posh-q-023": {
+    "verdict": "approve",
+    "reason": "One correct answer, grounded in Section 17, PoSH Act, 2013; distractors are real rules or real figures from neighbouring provisions."
+  },
+  "posh-q-024": {
+    "verdict": "reject",
+    "reason": "Same weakness: the stem is section 20(a) restated, and the only distractor is 'False'."
+  },
+  "posh-q-025": {
+    "verdict": "approve",
+    "reason": "One correct answer, grounded in Section 28, PoSH Act, 2013; distractors are real rules or real figures from neighbouring provisions."
+  },
+  "posh-q-026": {
+    "verdict": "approve",
+    "reason": "One correct answer, grounded in Section 5, PoSH Act, 2013; distractors are real rules or real figures from neighbouring provisions."
+  },
+  "posh-q-027": {
+    "verdict": "approve",
+    "reason": "One correct answer, grounded in Section 4, PoSH Act, 2013; distractors are real rules or real figures from neighbouring provisions."
+  },
+  "posh-q-028": {
+    "verdict": "approve",
+    "reason": "One correct answer, grounded in Section 25, PoSH Act, 2013; distractors are real rules or real figures from neighbouring provisions."
+  },
+  "posh-q-029": {
+    "verdict": "approve",
+    "reason": "One correct answer, grounded in Section 2, PoSH Act, 2013; distractors are real rules or real figures from neighbouring provisions."
+  },
+  "posh-q-030": {
+    "verdict": "approve",
+    "reason": "One correct answer, grounded in Section 13, PoSH Act, 2013; distractors are real rules or real figures from neighbouring provisions."
+  }
+}

@@ -1,0 +1,348 @@
+{
+  "_note": "Hand review of the generated cloze cards for the CCS (CCA) Rules, 1965. Two of the rejections are for a blank that fell inside a compound number — 'forty-eight hours' cut as 'eight hours' and 'one hundred and eighty days' cut as 'one' — and both are fixed with an `edit` rather than dropped, because the deemed-suspension periods are exactly what this rule book is examined on.",
+
+  "ccs-cca-cloze-1-1": {
+    "verdict": "reject",
+    "reason": "The stem is the short title and the blank is the name of the rule book the reader is studying."
+  },
+  "ccs-cca-cloze-2-1": {
+    "verdict": "approve",
+    "reason": "Rule 2(g) — a disciplinary authority is defined by reference to the penalties in Rule 11. The link is the definition.",
+    "hi": {
+      "text": "नियम 2(छ) — \"अनुशासनिक प्राधिकारी\" से ऐसा प्राधिकारी अभिप्रेत है जो इन नियमों के अधीन किसी सरकारी सेवक पर ____ में विनिर्दिष्ट शास्तियों में से कोई शास्ति अधिरोपित करने के लिए सक्षम है।",
+      "answer": "नियम 11"
+    }
+  },
+  "ccs-cca-cloze-2-2": {
+    "verdict": "approve",
+    "reason": "Rule 2(a) — the appointing authority is one of four authorities the rules distinguish, and confusing it with the disciplinary authority voids a proceeding.",
+    "hi": {
+      "text": "नियम 2(क) — किसी सरकारी सेवक के संबंध में \"____\" से वह प्राधिकारी अभिप्रेत है जो उस सेवा में नियुक्तियाँ करने के लिए सशक्त है जिसका वह सरकारी सेवक तत्समय सदस्य है।",
+      "answer": "नियुक्ति प्राधिकारी"
+    }
+  },
+  "ccs-cca-cloze-3-1": {
+    "verdict": "approve",
+    "reason": "Rule 3(1)(d) — a person dischargeable on less than one month's notice is outside these rules altogether.",
+    "hi": {
+      "text": "नियम 3(1)(घ) — ये नियम ऐसे व्यक्ति को लागू नहीं होंगे जो ____ से कम की सूचना पर सेवा से उन्मोचन के अध्यधीन है।",
+      "answer": "एक मास"
+    }
+  },
+  "ccs-cca-cloze-3-2": {
+    "verdict": "approve",
+    "reason": "Rule 3(1)(a) — 'railway servant' is borrowed from the Indian Railway Establishment Code.",
+    "hi": {
+      "text": "नियम 3(1)(क) — ये नियम ऐसे रेल सेवक को लागू नहीं होंगे जो भारतीय रेल स्थापन संहिता, खंड I के ____ में यथापरिभाषित है।",
+      "answer": "नियम 102"
+    }
+  },
+  "ccs-cca-cloze-3-3": {
+    "verdict": "reject",
+    "reason": "Answer is 'Government servant', and the phrase appears twice more in the same sentence."
+  },
+  "ccs-cca-cloze-4-1": {
+    "verdict": "reject",
+    "reason": "Answer is 'one', blanked out of 'more than one grade'. Tests counting."
+  },
+  "ccs-cca-cloze-4-2": {
+    "verdict": "reject",
+    "reason": "The stem lists 'Central Civil Services, Group B, C and D' immediately after the blank, so the sentence answers itself."
+  },
+  "ccs-cca-cloze-7-1": {
+    "verdict": "approve",
+    "reason": "Rule 7 — a post in no other Central Civil Service falls into the General Central Service by default. Officers reach for 'Central Secretariat Service'.",
+    "hi": {
+      "text": "नियम 7 — किसी अन्य केंद्रीय सिविल सेवा में सम्मिलित न किए गए किसी समूह के केंद्रीय सिविल पद तत्संगत समूह की ____ में सम्मिलित समझे जाएँगे।",
+      "answer": "सामान्य केंद्रीय सेवा"
+    }
+  },
+  "ccs-cca-cloze-9-1": {
+    "verdict": "approve",
+    "reason": "Rule 9(1) — the General Central Service is carved out of the Schedule appointment scheme.",
+    "hi": {
+      "text": "नियम 9(1) — ____ से भिन्न केंद्रीय सिविल सेवाओं के समूह 'ख', 'ग' और 'घ' में सभी नियुक्तियाँ अनुसूची में इस निमित्त विनिर्दिष्ट प्राधिकारियों द्वारा की जाएँगी।",
+      "answer": "सामान्य केंद्रीय सेवा"
+    }
+  },
+  "ccs-cca-cloze-10-1": {
+    "verdict": "edit",
+    "reason": "The blank fell inside 'forty-eight hours', leaving 'exceeding forty-____'. Widened to the whole period, which is the deemed-suspension trigger officers are asked for.",
+    "en": {
+      "text": "A Government servant shall be deemed to have been placed under suspension by an order of the appointing authority with effect from the date of his detention, if he is detained in custody, whether on a criminal charge or otherwise, for a period exceeding ____.",
+      "answer": "forty-eight hours"
+    },
+    "hi": {
+      "text": "नियम 10(2)(क) — यदि कोई सरकारी सेवक आपराधिक आरोप में या अन्यथा ____ से अधिक अवधि के लिए अभिरक्षा में निरुद्ध रहता है, तो वह निरोध की तारीख से निलंबित किया गया समझा जाएगा।",
+      "answer": "अड़तालीस घंटे"
+    }
+  },
+  "ccs-cca-cloze-10-2": {
+    "verdict": "edit",
+    "reason": "The blank fell on 'one' inside 'one hundred and eighty days'. Widened; the 180-day review limit is the point of Rule 10(6).",
+    "en": {
+      "text": "An order of suspension shall be reviewed by the authority competent to modify or revoke it, and extension of suspension shall not be for a period exceeding ____ at a time.",
+      "answer": "one hundred and eighty days"
+    },
+    "hi": {
+      "text": "नियम 10(6)-(7) — निलंबन आदेश की समीक्षा सक्षम प्राधिकारी द्वारा की जाएगी और निलंबन का विस्तार एक बार में ____ से अधिक अवधि के लिए नहीं होगा।",
+      "answer": "एक सौ अस्सी दिन"
+    }
+  },
+  "ccs-cca-cloze-10-3": {
+    "verdict": "approve",
+    "reason": "Rule 10(1) — who may suspend. The list is the appointing authority, an authority above it, the disciplinary authority, or an authority the President empowers.",
+    "hi": {
+      "text": "नियम 10(1) — ____, अथवा वह प्राधिकारी जिसके वह अधीनस्थ है, अथवा अनुशासनिक प्राधिकारी, अथवा राष्ट्रपति द्वारा इस निमित्त सशक्त कोई अन्य प्राधिकारी किसी सरकारी सेवक को निलंबित कर सकेगा।",
+      "answer": "नियुक्ति प्राधिकारी"
+    }
+  },
+  "ccs-cca-cloze-11-1": {
+    "verdict": "approve",
+    "reason": "Rule 11(iii-a) — reduction by one stage for not more than three years, without cumulative effect, is a minor penalty; the same reduction beyond three years is a major one.",
+    "hi": {
+      "text": "नियम 11(iii-क) — वेतनमान में एक अवस्था तक ____ से अनधिक अवधि के लिए, संचयी प्रभाव के बिना और पेंशन पर प्रतिकूल प्रभाव डाले बिना, अवनयन एक छोटी शास्ति है।",
+      "answer": "तीन वर्ष"
+    }
+  },
+  "ccs-cca-cloze-11-2": {
+    "verdict": "approve",
+    "reason": "The Explanation to Rule 11 — termination of a temporary servant under the CCS (Temporary Service) Rules is not a penalty at all.",
+    "hi": {
+      "text": "नियम 11 का स्पष्टीकरण — केंद्रीय सिविल सेवा (अस्थायी सेवा) नियम के ____ के उपनियम (1) के उपबंधों के अनुसार किसी अस्थायी सरकारी सेवक की सेवा समाप्ति शास्ति नहीं है।",
+      "answer": "नियम 5"
+    }
+  },
+  "ccs-cca-cloze-11-3": {
+    "verdict": "reject",
+    "reason": "Answer is 'Government servant' — the commonest phrase in the book."
+  },
+  "ccs-cca-cloze-12-1": {
+    "verdict": "approve",
+    "reason": "Rule 12(1) — the President may impose any penalty on any Government servant, which is the ceiling the rest of Rule 12 works down from.",
+    "hi": {
+      "text": "नियम 12(1) — राष्ट्रपति किसी भी सरकारी सेवक पर ____ में विनिर्दिष्ट शास्तियों में से कोई भी शास्ति अधिरोपित कर सकेगा।",
+      "answer": "नियम 11"
+    }
+  },
+  "ccs-cca-cloze-13-1": {
+    "verdict": "approve",
+    "reason": "Rule 13 — the authority that institutes proceedings may direct a disciplinary authority to do so, which is how a proceeding is started from above.",
+    "hi": {
+      "text": "नियम 13 — राष्ट्रपति या उसके द्वारा सशक्त कोई अन्य प्राधिकारी किसी सरकारी सेवक के विरुद्ध अनुशासनिक कार्यवाही संस्थित कर सकेगा, अथवा किसी ____ को ऐसी कार्यवाही संस्थित करने का निदेश दे सकेगा।",
+      "answer": "अनुशासनिक प्राधिकारी"
+    }
+  },
+  "ccs-cca-cloze-14-1": {
+    "verdict": "approve",
+    "reason": "Rule 14(4) — fifteen days to file a written statement of defence, extendable by another fifteen.",
+    "hi": {
+      "text": "नियम 14(4) — सरकारी सेवक से अपेक्षा की जाएगी कि वह ____ की अवधि के भीतर, यदि वह चाहे तो, अपना लिखित प्रतिरक्षा कथन प्रस्तुत करे और यह भी बताए कि वह व्यक्तिगत रूप से सुना जाना चाहता है या नहीं।",
+      "answer": "पंद्रह दिन"
+    }
+  },
+  "ccs-cca-cloze-14-2": {
+    "verdict": "approve",
+    "reason": "Rule 14(1) — a major penalty needs an inquiry under Rules 14 and 15 together; naming only Rule 14 is the standard error.",
+    "hi": {
+      "text": "नियम 14(1) — नियम 11 के खंड (v) से (ix) में विनिर्दिष्ट शास्तियों में से कोई शास्ति इस नियम और ____ में यथाउपबंधित रीति से जाँच किए बिना अधिरोपित नहीं की जाएगी।",
+      "answer": "नियम 15"
+    }
+  },
+  "ccs-cca-cloze-14-3": {
+    "verdict": "approve",
+    "reason": "The Note to Rule 14(8) — the three-case bar on an assisting Government servant, a limit defence assistants regularly breach.",
+    "hi": {
+      "text": "नियम 14(8) की टिप्पणी — सरकारी सेवक ऐसे अन्य सरकारी सेवक की सहायता नहीं लेगा जिसके पास ऐसे ____ अनुशासनिक मामले लंबित हों जिनमें उसे सहायता देनी है।",
+      "answer": "तीन"
+    }
+  },
+  "ccs-cca-cloze-15-1": {
+    "verdict": "approve",
+    "reason": "Rule 15(2) — fifteen days to represent on the inquiry report, whether or not the report is favourable.",
+    "hi": {
+      "text": "नियम 15(2) — अनुशासनिक प्राधिकारी जाँच रिपोर्ट की प्रति सरकारी सेवक को देगा, जो ____ के भीतर अपना लिखित अभ्यावेदन प्रस्तुत कर सकेगा, चाहे रिपोर्ट उसके पक्ष में हो या न हो।",
+      "answer": "पंद्रह दिन"
+    }
+  },
+  "ccs-cca-cloze-15-2": {
+    "verdict": "approve",
+    "reason": "Rule 15(1) — a remitted further inquiry runs under Rule 14 again.",
+    "hi": {
+      "text": "नियम 15(1) — मामला अग्रेतर जाँच के लिए प्रतिप्रेषित किए जाने पर जाँच प्राधिकारी ____ के उपबंधों के अनुसार, जहाँ तक हो सके, अग्रेतर जाँच करेगा।",
+      "answer": "नियम 14"
+    }
+  },
+  "ccs-cca-cloze-15-3": {
+    "verdict": "reject",
+    "reason": "The stem names the inquiring authority twice in the same sentence, and the blank is recoverable from either."
+  },
+  "ccs-cca-cloze-16-1": {
+    "verdict": "approve",
+    "reason": "Rule 16(1-A) — withholding increments beyond three years, or with cumulative effect, or affecting pension, forces the major-penalty procedure.",
+    "hi": {
+      "text": "नियम 16(1-क) — जहाँ वेतनवृद्धि रोकने से पेंशन पर प्रतिकूल प्रभाव पड़ने की संभावना हो, अथवा वेतनवृद्धि ____ से अधिक अवधि के लिए या संचयी प्रभाव से रोकी जानी हो, वहाँ नियम 14 की प्रक्रिया अपनाई जाएगी।",
+      "answer": "तीन वर्ष"
+    }
+  },
+  "ccs-cca-cloze-16-2": {
+    "verdict": "approve",
+    "reason": "Rule 16(1) is subject to Rule 15(5) — the minor-penalty route is not open where a full inquiry has already produced findings.",
+    "hi": {
+      "text": "नियम 16(1) — ____ के उपनियम (5) के उपबंधों के अधीन रहते हुए, नियम 11 के खंड (i) से (iv) में विनिर्दिष्ट शास्तियों में से कोई शास्ति सरकारी सेवक को सूचित किए बिना अधिरोपित नहीं की जाएगी।",
+      "answer": "नियम 15"
+    }
+  },
+  "ccs-cca-cloze-16-3": {
+    "verdict": "approve",
+    "reason": "Rule 16(1)(b) — even a minor penalty needs a reasonable opportunity of representation. The phrase is the constitutional floor under Article 311(2).",
+    "hi": {
+      "text": "नियम 16(1)(ख) — सरकारी सेवक को प्रस्तावित कार्रवाई और कदाचार के आरोपों की लिखित सूचना देकर उसे अभ्यावेदन करने का ____ दिया जाएगा।",
+      "answer": "युक्तियुक्त अवसर"
+    }
+  },
+  "ccs-cca-cloze-17-1": {
+    "verdict": "approve",
+    "reason": "Rule 17 — where the disciplinary authority is not the inquiring authority, it must supply its own statement of findings as well.",
+    "hi": {
+      "text": "नियम 17 — सरकारी सेवक को प्रत्येक आरोप पर निष्कर्ष की प्रति दी जाएगी; और जहाँ अनुशासनिक प्राधिकारी स्वयं ____ नहीं है, वहाँ अनुशासनिक प्राधिकारी के निष्कर्षों का कथन भी दिया जाएगा।",
+      "answer": "जाँच प्राधिकारी"
+    }
+  },
+  "ccs-cca-cloze-18-1": {
+    "verdict": "approve",
+    "reason": "Rule 18(2) is subject to Rule 12(4) — a common proceeding cannot give a lower authority a penalty power it does not have.",
+    "hi": {
+      "text": "नियम 18(2) — ____ के उपनियम (4) के उपबंधों के अधीन रहते हुए, ऐसा कोई आदेश यह विनिर्दिष्ट करेगा कि कौन-सा प्राधिकारी उस सम्मिलित कार्यवाही के लिए अनुशासनिक प्राधिकारी के रूप में कार्य करेगा।",
+      "answer": "नियम 12"
+    }
+  },
+  "ccs-cca-cloze-18-2": {
+    "verdict": "approve",
+    "reason": "Rule 18(1) — a common proceeding may be ordered only by an authority competent to dismiss all of the servants concerned.",
+    "hi": {
+      "text": "नियम 18(1) — जहाँ दो या अधिक सरकारी सेवक किसी मामले में संबद्ध हों, वहाँ राष्ट्रपति या ऐसा अन्य प्राधिकारी जो उन सभी पर ____ की शास्ति अधिरोपित करने के लिए सक्षम है, सम्मिलित कार्यवाही का आदेश दे सकेगा।",
+      "answer": "सेवा से पदच्युति"
+    }
+  },
+  "ccs-cca-cloze-19-1": {
+    "verdict": "approve",
+    "reason": "Rule 19 displaces Rules 14 to 18 — the special procedure where there is a conviction or where an inquiry is not reasonably practicable.",
+    "hi": {
+      "text": "नियम 19 — ____ से नियम 18 में किसी बात के होते हुए भी, जहाँ किसी सरकारी सेवक पर आपराधिक आरोप में दोषसिद्धि के आधार पर शास्ति अधिरोपित की जाती है, वहाँ जाँच अपेक्षित नहीं होगी।",
+      "answer": "नियम 14"
+    }
+  },
+  "ccs-cca-cloze-20-1": {
+    "verdict": "approve",
+    "reason": "Rule 20 — the borrowing authority may suspend but must refer the penalty question back to the lending authority.",
+    "hi": {
+      "text": "नियम 20(1) — जहाँ किसी सरकारी सेवक की सेवाएँ उधार ली गई हों, वहाँ उधार लेने वाले प्राधिकारी को उसे ____ के अधीन रखने के प्रयोजन के लिए नियुक्ति प्राधिकारी की शक्तियाँ प्राप्त होंगी।",
+      "answer": "निलंबन"
+    }
+  },
+  "ccs-cca-cloze-21-1": {
+    "verdict": "reject",
+    "reason": "Duplicate of ccs-cca-cloze-20-1 — the same borrowed-services scheme with the same answer."
+  },
+  "ccs-cca-cloze-22-1": {
+    "verdict": "reject",
+    "reason": "The blank is a self-reference: the stem is Rule 23 and the answer is 'rule 22', which the sentence gives no way to recover."
+  },
+  "ccs-cca-cloze-22-2": {
+    "verdict": "approve",
+    "reason": "Rule 22(iii) — an interlocutory order of the inquiring authority during a Rule 14 inquiry is not appealable.",
+    "hi": {
+      "text": "नियम 22(iii) — निलंबन के आदेश से भिन्न, नियम 14 के अधीन जाँच के दौरान किसी ____ द्वारा पारित कोई आदेश अपीलनीय नहीं है।",
+      "answer": "जाँच प्राधिकारी"
+    }
+  },
+  "ccs-cca-cloze-24-1": {
+    "verdict": "approve",
+    "reason": "Rule 24(1) — the appealable orders are those listed in Rule 23, and a person who has ceased to be in service may still appeal.",
+    "hi": {
+      "text": "नियम 24(1) — कोई सरकारी सेवक, जिसके अंतर्गत ऐसा व्यक्ति भी है जो सरकारी सेवा में नहीं रह गया है, ____ में विनिर्दिष्ट आदेशों में से किसी के विरुद्ध अपील कर सकेगा।",
+      "answer": "नियम 23"
+    }
+  },
+  "ccs-cca-cloze-24-2": {
+    "verdict": "reject",
+    "reason": "The stem is a proviso about subordination and the term 'appellate authority' is recoverable from the rule's own heading, not from the sentence."
+  },
+  "ccs-cca-cloze-25-1": {
+    "verdict": "approve",
+    "reason": "Rule 25 — forty-five days from delivery of the order, which readers confuse with the ninety days under other service rules.",
+    "hi": {
+      "text": "नियम 25 — इस भाग के अधीन कोई अपील तब तक ग्रहण नहीं की जाएगी जब तक वह अपीलार्थी को आदेश की प्रति परिदत्त किए जाने की तारीख से ____ की अवधि के भीतर न की गई हो।",
+      "answer": "पैंतालीस दिन"
+    }
+  },
+  "ccs-cca-cloze-25-2": {
+    "verdict": "approve",
+    "reason": "Rule 25 proviso — the appellate authority may condone delay on sufficient cause.",
+    "hi": {
+      "text": "नियम 25 का परंतुक — ____ पैंतालीस दिन की अवधि बीत जाने के पश्चात् भी अपील ग्रहण कर सकेगा यदि उसका समाधान हो जाए कि अपीलार्थी के पास समय पर अपील न कर सकने का पर्याप्त कारण था।",
+      "answer": "अपील प्राधिकारी"
+    }
+  },
+  "ccs-cca-cloze-27-1": {
+    "verdict": "approve",
+    "reason": "Rule 27(1) — an appeal against suspension is tested against Rule 10, not against the merits of the charge.",
+    "hi": {
+      "text": "नियम 27(1) — निलंबन के आदेश के विरुद्ध अपील में, अपील प्राधिकारी ____ के उपबंधों के आलोक में और मामले की परिस्थितियों को ध्यान में रखते हुए विचार करेगा कि आदेश उचित है या नहीं।",
+      "answer": "नियम 10"
+    }
+  },
+  "ccs-cca-cloze-27-2": {
+    "verdict": "approve",
+    "reason": "Rule 27(2) — an appellate authority may not enhance a penalty without a fresh reasonable opportunity.",
+    "hi": {
+      "text": "नियम 27(2) — अपील प्राधिकारी ऐसे आदेश करेगा जो वह ठीक समझे, किंतु अपीलार्थी को प्रस्तावित शास्ति के विरुद्ध अभ्यावेदन करने का ____ दिए जाने के पश्चात् ही।",
+      "answer": "युक्तियुक्त अवसर"
+    }
+  },
+  "ccs-cca-cloze-29-1": {
+    "verdict": "approve",
+    "reason": "Rule 29(1)(v) — the appellate authority's revision power runs out at six months.",
+    "hi": {
+      "text": "नियम 29(1)(v) — अपील प्राधिकारी पुनरीक्षित किए जाने वाले प्रस्तावित आदेश की तारीख से ____ के भीतर ही किसी जाँच के अभिलेख मँगा सकेगा और आदेश का पुनरीक्षण कर सकेगा।",
+      "answer": "छह मास"
+    }
+  },
+  "ccs-cca-cloze-29-2": {
+    "verdict": "reject",
+    "reason": "The blank is 'rule 34' inside a clause about rules repealed by Rule 34. The sentence gives no way to recover the number."
+  },
+  "ccs-cca-cloze-29-3": {
+    "verdict": "approve",
+    "reason": "Rule 29 proviso — a revising authority may not enhance a penalty without hearing the Government servant.",
+    "hi": {
+      "text": "नियम 29 का परंतुक — कोई ____ शास्ति अधिरोपित करने या बढ़ाने का आदेश तब तक नहीं करेगा जब तक संबंधित सरकारी सेवक को अभ्यावेदन का युक्तियुक्त अवसर न दे दिया गया हो।",
+      "answer": "पुनरीक्षण प्राधिकारी"
+    }
+  },
+  "ccs-cca-cloze-29a-1": {
+    "verdict": "approve",
+    "reason": "Rule 29A — a review that enhances a penalty must follow Rule 14, subject to Rule 19's special procedure.",
+    "hi": {
+      "text": "नियम 29क — जहाँ पहले जाँच नहीं हुई है, वहाँ ऐसी कोई शास्ति नियम 14 में यथाविहित रीति से जाँच किए बिना, ____ के उपबंधों के अधीन रहते हुए, अधिरोपित नहीं की जाएगी।",
+      "answer": "नियम 19"
+    }
+  },
+  "ccs-cca-cloze-29a-2": {
+    "verdict": "approve",
+    "reason": "Rule 29A — enhancing a minor penalty to a major one is what triggers the fresh-inquiry requirement.",
+    "hi": {
+      "text": "नियम 29क — जहाँ नियम 11 में विनिर्दिष्ट कोई बड़ी शास्ति अधिरोपित की जानी हो, अथवा पुनर्विलोकित आदेश द्वारा अधिरोपित ____ को बढ़ाया जाना हो, वहाँ अभ्यावेदन का अवसर दिया जाएगा।",
+      "answer": "छोटी शास्ति"
+    }
+  },
+  "ccs-cca-cloze-34-1": {
+    "verdict": "reject",
+    "reason": "The blank is 'rule 33' inside Rule 34's own repeal clause — a self-reference with nothing in the sentence to recover it from."
+  },
+  "ccs-cca-cloze-34-2": {
+    "verdict": "reject",
+    "reason": "The stem is a fragment of the Schedule's column layout, not a rule."
+  }
+}

@@ -1,0 +1,2414 @@
+{
+  "$schema": "../../../schemas/rules-cards.schema.json",
+  "version": "1.0.0",
+  "generatedAt": "2026-08-28",
+  "act": {
+    "id": "osa",
+    "name": {
+      "en": "Official Secrets Act, 1923",
+      "hi": "शासकीय गुप्त बात अधिनियम, 1923"
+    },
+    "short": {
+      "en": "OSA 1923",
+      "hi": "ओएसए 1923"
+    },
+    "unit": {
+      "en": "Section",
+      "hi": "धारा"
+    }
+  },
+  "disclaimer": {
+    "en": "Reference only; verify with the official gazette/order or your DDO.",
+    "hi": "केवल संदर्भ के लिए; आधिकारिक राजपत्र/आदेश अथवा अपने डीडीओ से सत्यापित करें।"
+  },
+  "source": {
+    "name": "Ministry of Home Affairs — The Official Secrets Act, 1923",
+    "url": "https://www.mha.gov.in/sites/default/files/Official_Secret_Act1923_2.pdf"
+  },
+  "cards": [
+    {
+      "id": "osa-rule-1",
+      "act": "osa",
+      "rule": "1",
+      "kind": "rule",
+      "front": {
+        "en": "Short title, extent and application — which section of the OSA 1923?",
+        "hi": "संक्षिप्त नाम, विस्तार और लागू होना — ओएसए 1923 का कौन-सा धारा?"
+      },
+      "back": {
+        "en": "Section 1, Official Secrets Act, 1923",
+        "hi": "धारा 1, शासकीय गुप्त बात अधिनियम, 1923"
+      },
+      "ruleRef": {
+        "textId": "osa-1",
+        "citation": {
+          "en": "Section 1, Official Secrets Act, 1923",
+          "hi": "धारा 1, शासकीय गुप्त बात अधिनियम, 1923"
+        }
+      },
+      "difficulty": "easy",
+      "reviewed": true,
+      "reviewState": "approved",
+      "tags": [
+        "generated",
+        "rule"
+      ],
+      "verify": true,
+      "version": "1.0.0",
+      "source": {
+        "name": "Ministry of Home Affairs — The Official Secrets Act, 1923",
+        "url": "https://www.mha.gov.in/sites/default/files/Official_Secret_Act1923_2.pdf"
+      }
+    },
+    {
+      "id": "osa-rule-2",
+      "act": "osa",
+      "rule": "2",
+      "kind": "rule",
+      "front": {
+        "en": "Definitions — which section of the OSA 1923?",
+        "hi": "परिभाषाएँ — ओएसए 1923 का कौन-सा धारा?"
+      },
+      "back": {
+        "en": "Section 2, Official Secrets Act, 1923",
+        "hi": "धारा 2, शासकीय गुप्त बात अधिनियम, 1923"
+      },
+      "ruleRef": {
+        "textId": "osa-2",
+        "citation": {
+          "en": "Section 2, Official Secrets Act, 1923",
+          "hi": "धारा 2, शासकीय गुप्त बात अधिनियम, 1923"
+        }
+      },
+      "difficulty": "easy",
+      "reviewed": true,
+      "reviewState": "approved",
+      "tags": [
+        "generated",
+        "rule"
+      ],
+      "verify": true,
+      "version": "1.0.0",
+      "source": {
+        "name": "Ministry of Home Affairs — The Official Secrets Act, 1923",
+        "url": "https://www.mha.gov.in/sites/default/files/Official_Secret_Act1923_2.pdf"
+      }
+    },
+    {
+      "id": "osa-rule-2-1",
+      "act": "osa",
+      "rule": "2",
+      "subRule": "2(1)",
+      "kind": "rule",
+      "front": {
+        "en": "any references to a place belonging to Government includes a place occupied by any department of the Government, whether the place is or is not actually vested in Government 5* * * * * — which section?",
+        "hi": ""
+      },
+      "back": {
+        "en": "Section 2(1), Official Secrets Act, 1923",
+        "hi": "धारा 2(1), शासकीय गुप्त बात अधिनियम, 1923"
+      },
+      "ruleRef": {
+        "textId": "osa-2",
+        "citation": {
+          "en": "Section 2(1), Official Secrets Act, 1923",
+          "hi": "धारा 2(1), शासकीय गुप्त बात अधिनियम, 1923"
+        }
+      },
+      "difficulty": "medium",
+      "reviewed": false,
+      "reviewState": "needs-hindi",
+      "tags": [
+        "generated",
+        "rule",
+        "sub-rule"
+      ],
+      "verify": true,
+      "version": "1.0.0",
+      "source": {
+        "name": "Ministry of Home Affairs — The Official Secrets Act, 1923",
+        "url": "https://www.mha.gov.in/sites/default/files/Official_Secret_Act1923_2.pdf"
+      }
+    },
+    {
+      "id": "osa-rule-2-2",
+      "act": "osa",
+      "rule": "2",
+      "subRule": "2(2)",
+      "kind": "rule",
+      "front": {
+        "en": "expressions referring to communicating or receiving include any communicating or receiving, whether in whole or in part, and whether the sketch, plan, model, article, note, document, or information … — which section?",
+        "hi": ""
+      },
+      "back": {
+        "en": "Section 2(2), Official Secrets Act, 1923",
+        "hi": "धारा 2(2), शासकीय गुप्त बात अधिनियम, 1923"
+      },
+      "ruleRef": {
+        "textId": "osa-2",
+        "citation": {
+          "en": "Section 2(2), Official Secrets Act, 1923",
+          "hi": "धारा 2(2), शासकीय गुप्त बात अधिनियम, 1923"
+        }
+      },
+      "difficulty": "medium",
+      "reviewed": false,
+      "reviewState": "needs-hindi",
+      "tags": [
+        "generated",
+        "rule",
+        "sub-rule"
+      ],
+      "verify": true,
+      "version": "1.0.0",
+      "source": {
+        "name": "Ministry of Home Affairs — The Official Secrets Act, 1923",
+        "url": "https://www.mha.gov.in/sites/default/files/Official_Secret_Act1923_2.pdf"
+      }
+    },
+    {
+      "id": "osa-rule-2-3",
+      "act": "osa",
+      "rule": "2",
+      "subRule": "2(3)",
+      "kind": "rule",
+      "front": {
+        "en": "\"document\" includes part of a document; — which section?",
+        "hi": ""
+      },
+      "back": {
+        "en": "Section 2(3), Official Secrets Act, 1923",
+        "hi": "धारा 2(3), शासकीय गुप्त बात अधिनियम, 1923"
+      },
+      "ruleRef": {
+        "textId": "osa-2",
+        "citation": {
+          "en": "Section 2(3), Official Secrets Act, 1923",
+          "hi": "धारा 2(3), शासकीय गुप्त बात अधिनियम, 1923"
+        }
+      },
+      "difficulty": "medium",
+      "reviewed": false,
+      "reviewState": "needs-hindi",
+      "tags": [
+        "generated",
+        "rule",
+        "sub-rule"
+      ],
+      "verify": true,
+      "version": "1.0.0",
+      "source": {
+        "name": "Ministry of Home Affairs — The Official Secrets Act, 1923",
+        "url": "https://www.mha.gov.in/sites/default/files/Official_Secret_Act1923_2.pdf"
+      }
+    },
+    {
+      "id": "osa-rule-2-4",
+      "act": "osa",
+      "rule": "2",
+      "subRule": "2(4)",
+      "kind": "rule",
+      "front": {
+        "en": "\" model \" includes design, pattern and specimen; — which section?",
+        "hi": ""
+      },
+      "back": {
+        "en": "Section 2(4), Official Secrets Act, 1923",
+        "hi": "धारा 2(4), शासकीय गुप्त बात अधिनियम, 1923"
+      },
+      "ruleRef": {
+        "textId": "osa-2",
+        "citation": {
+          "en": "Section 2(4), Official Secrets Act, 1923",
+          "hi": "धारा 2(4), शासकीय गुप्त बात अधिनियम, 1923"
+        }
+      },
+      "difficulty": "medium",
+      "reviewed": false,
+      "reviewState": "needs-hindi",
+      "tags": [
+        "generated",
+        "rule",
+        "sub-rule"
+      ],
+      "verify": true,
+      "version": "1.0.0",
+      "source": {
+        "name": "Ministry of Home Affairs — The Official Secrets Act, 1923",
+        "url": "https://www.mha.gov.in/sites/default/files/Official_Secret_Act1923_2.pdf"
+      }
+    },
+    {
+      "id": "osa-rule-2-5",
+      "act": "osa",
+      "rule": "2",
+      "subRule": "2(5)",
+      "kind": "rule",
+      "front": {
+        "en": "\" munitions of war \" includes the whole or any part of any ship, submarine, aircraft, tank or similar engine, arms and ammunition, torpedo, or mine intended or adapted for use in war, and any other … — which section?",
+        "hi": ""
+      },
+      "back": {
+        "en": "Section 2(5), Official Secrets Act, 1923",
+        "hi": "धारा 2(5), शासकीय गुप्त बात अधिनियम, 1923"
+      },
+      "ruleRef": {
+        "textId": "osa-2",
+        "citation": {
+          "en": "Section 2(5), Official Secrets Act, 1923",
+          "hi": "धारा 2(5), शासकीय गुप्त बात अधिनियम, 1923"
+        }
+      },
+      "difficulty": "medium",
+      "reviewed": false,
+      "reviewState": "needs-hindi",
+      "tags": [
+        "generated",
+        "rule",
+        "sub-rule"
+      ],
+      "verify": true,
+      "version": "1.0.0",
+      "source": {
+        "name": "Ministry of Home Affairs — The Official Secrets Act, 1923",
+        "url": "https://www.mha.gov.in/sites/default/files/Official_Secret_Act1923_2.pdf"
+      }
+    },
+    {
+      "id": "osa-rule-2-6",
+      "act": "osa",
+      "rule": "2",
+      "subRule": "2(6)",
+      "kind": "rule",
+      "front": {
+        "en": "\"office under Government \" includes any office or employment in or under any department of the Government 1* * *; — which section?",
+        "hi": ""
+      },
+      "back": {
+        "en": "Section 2(6), Official Secrets Act, 1923",
+        "hi": "धारा 2(6), शासकीय गुप्त बात अधिनियम, 1923"
+      },
+      "ruleRef": {
+        "textId": "osa-2",
+        "citation": {
+          "en": "Section 2(6), Official Secrets Act, 1923",
+          "hi": "धारा 2(6), शासकीय गुप्त बात अधिनियम, 1923"
+        }
+      },
+      "difficulty": "medium",
+      "reviewed": false,
+      "reviewState": "needs-hindi",
+      "tags": [
+        "generated",
+        "rule",
+        "sub-rule"
+      ],
+      "verify": true,
+      "version": "1.0.0",
+      "source": {
+        "name": "Ministry of Home Affairs — The Official Secrets Act, 1923",
+        "url": "https://www.mha.gov.in/sites/default/files/Official_Secret_Act1923_2.pdf"
+      }
+    },
+    {
+      "id": "osa-rule-2-7",
+      "act": "osa",
+      "rule": "2",
+      "subRule": "2(7)",
+      "kind": "rule",
+      "front": {
+        "en": "\"photograph \" includes an undeveloped film or plate; — which section?",
+        "hi": ""
+      },
+      "back": {
+        "en": "Section 2(7), Official Secrets Act, 1923",
+        "hi": "धारा 2(7), शासकीय गुप्त बात अधिनियम, 1923"
+      },
+      "ruleRef": {
+        "textId": "osa-2",
+        "citation": {
+          "en": "Section 2(7), Official Secrets Act, 1923",
+          "hi": "धारा 2(7), शासकीय गुप्त बात अधिनियम, 1923"
+        }
+      },
+      "difficulty": "medium",
+      "reviewed": false,
+      "reviewState": "needs-hindi",
+      "tags": [
+        "generated",
+        "rule",
+        "sub-rule"
+      ],
+      "verify": true,
+      "version": "1.0.0",
+      "source": {
+        "name": "Ministry of Home Affairs — The Official Secrets Act, 1923",
+        "url": "https://www.mha.gov.in/sites/default/files/Official_Secret_Act1923_2.pdf"
+      }
+    },
+    {
+      "id": "osa-rule-2-8",
+      "act": "osa",
+      "rule": "2",
+      "subRule": "2(8)",
+      "kind": "rule",
+      "front": {
+        "en": "\"prohibited place \" means- (a)any work of defence, arsenal, naval, military or air force establishment or station, mine, minefield, camp, ship or aircraft belonging to, or occupied by or on behalf … — which section?",
+        "hi": ""
+      },
+      "back": {
+        "en": "Section 2(8), Official Secrets Act, 1923",
+        "hi": "धारा 2(8), शासकीय गुप्त बात अधिनियम, 1923"
+      },
+      "ruleRef": {
+        "textId": "osa-2",
+        "citation": {
+          "en": "Section 2(8), Official Secrets Act, 1923",
+          "hi": "धारा 2(8), शासकीय गुप्त बात अधिनियम, 1923"
+        }
+      },
+      "difficulty": "medium",
+      "reviewed": false,
+      "reviewState": "needs-hindi",
+      "tags": [
+        "generated",
+        "rule",
+        "sub-rule"
+      ],
+      "verify": true,
+      "version": "1.0.0",
+      "source": {
+        "name": "Ministry of Home Affairs — The Official Secrets Act, 1923",
+        "url": "https://www.mha.gov.in/sites/default/files/Official_Secret_Act1923_2.pdf"
+      }
+    },
+    {
+      "id": "osa-rule-2-9",
+      "act": "osa",
+      "rule": "2",
+      "subRule": "2(9)",
+      "kind": "rule",
+      "front": {
+        "en": "\"sketch \" includes any photograph or other mode of representing any place or thing; and 1* * * * * — which section?",
+        "hi": ""
+      },
+      "back": {
+        "en": "Section 2(9), Official Secrets Act, 1923",
+        "hi": "धारा 2(9), शासकीय गुप्त बात अधिनियम, 1923"
+      },
+      "ruleRef": {
+        "textId": "osa-2",
+        "citation": {
+          "en": "Section 2(9), Official Secrets Act, 1923",
+          "hi": "धारा 2(9), शासकीय गुप्त बात अधिनियम, 1923"
+        }
+      },
+      "difficulty": "medium",
+      "reviewed": false,
+      "reviewState": "needs-hindi",
+      "tags": [
+        "generated",
+        "rule",
+        "sub-rule"
+      ],
+      "verify": true,
+      "version": "1.0.0",
+      "source": {
+        "name": "Ministry of Home Affairs — The Official Secrets Act, 1923",
+        "url": "https://www.mha.gov.in/sites/default/files/Official_Secret_Act1923_2.pdf"
+      }
+    },
+    {
+      "id": "osa-rule-2-10",
+      "act": "osa",
+      "rule": "2",
+      "subRule": "2(10)",
+      "kind": "rule",
+      "front": {
+        "en": "\" Superintendent of Police \" includes any police- officer of a like or superior rank, and any person upon whom the powers of a Superintendent of Police are for the purposes of this Act conferred by … — which section?",
+        "hi": ""
+      },
+      "back": {
+        "en": "Section 2(10), Official Secrets Act, 1923",
+        "hi": "धारा 2(10), शासकीय गुप्त बात अधिनियम, 1923"
+      },
+      "ruleRef": {
+        "textId": "osa-2",
+        "citation": {
+          "en": "Section 2(10), Official Secrets Act, 1923",
+          "hi": "धारा 2(10), शासकीय गुप्त बात अधिनियम, 1923"
+        }
+      },
+      "difficulty": "medium",
+      "reviewed": false,
+      "reviewState": "needs-hindi",
+      "tags": [
+        "generated",
+        "rule",
+        "sub-rule"
+      ],
+      "verify": true,
+      "version": "1.0.0",
+      "source": {
+        "name": "Ministry of Home Affairs — The Official Secrets Act, 1923",
+        "url": "https://www.mha.gov.in/sites/default/files/Official_Secret_Act1923_2.pdf"
+      }
+    },
+    {
+      "id": "osa-rule-3",
+      "act": "osa",
+      "rule": "3",
+      "kind": "rule",
+      "front": {
+        "en": "Penalties for spying — which section of the OSA 1923?",
+        "hi": "जासूसी के लिए शास्तियाँ — ओएसए 1923 का कौन-सा धारा?"
+      },
+      "back": {
+        "en": "Section 3, Official Secrets Act, 1923",
+        "hi": "धारा 3, शासकीय गुप्त बात अधिनियम, 1923"
+      },
+      "ruleRef": {
+        "textId": "osa-3",
+        "citation": {
+          "en": "Section 3, Official Secrets Act, 1923",
+          "hi": "धारा 3, शासकीय गुप्त बात अधिनियम, 1923"
+        }
+      },
+      "difficulty": "easy",
+      "reviewed": true,
+      "reviewState": "approved",
+      "tags": [
+        "generated",
+        "rule"
+      ],
+      "verify": true,
+      "version": "1.0.0",
+      "source": {
+        "name": "Ministry of Home Affairs — The Official Secrets Act, 1923",
+        "url": "https://www.mha.gov.in/sites/default/files/Official_Secret_Act1923_2.pdf"
+      }
+    },
+    {
+      "id": "osa-rule-3-1",
+      "act": "osa",
+      "rule": "3",
+      "subRule": "3(1)",
+      "kind": "rule",
+      "front": {
+        "en": "If any person for any purpose prejudicial to the safety or interests of the State- (a) approaches, inspects, passes over or is in the vicinity of, or enters, any prohibited place; or (b) makes any … — which section?",
+        "hi": ""
+      },
+      "back": {
+        "en": "Section 3(1), Official Secrets Act, 1923",
+        "hi": "धारा 3(1), शासकीय गुप्त बात अधिनियम, 1923"
+      },
+      "ruleRef": {
+        "textId": "osa-3",
+        "citation": {
+          "en": "Section 3(1), Official Secrets Act, 1923",
+          "hi": "धारा 3(1), शासकीय गुप्त बात अधिनियम, 1923"
+        }
+      },
+      "difficulty": "medium",
+      "reviewed": false,
+      "reviewState": "needs-hindi",
+      "tags": [
+        "generated",
+        "rule",
+        "sub-rule"
+      ],
+      "verify": true,
+      "version": "1.0.0",
+      "source": {
+        "name": "Ministry of Home Affairs — The Official Secrets Act, 1923",
+        "url": "https://www.mha.gov.in/sites/default/files/Official_Secret_Act1923_2.pdf"
+      }
+    },
+    {
+      "id": "osa-rule-3-2",
+      "act": "osa",
+      "rule": "3",
+      "subRule": "3(2)",
+      "kind": "rule",
+      "front": {
+        "en": "On a prosecution for an offence punishable under this section [2* * *, it shall not be necessary to show that the accused person was guilty of any particular act tending to show a purpose prejudicial … — which section?",
+        "hi": ""
+      },
+      "back": {
+        "en": "Section 3(2), Official Secrets Act, 1923",
+        "hi": "धारा 3(2), शासकीय गुप्त बात अधिनियम, 1923"
+      },
+      "ruleRef": {
+        "textId": "osa-3",
+        "citation": {
+          "en": "Section 3(2), Official Secrets Act, 1923",
+          "hi": "धारा 3(2), शासकीय गुप्त बात अधिनियम, 1923"
+        }
+      },
+      "difficulty": "medium",
+      "reviewed": false,
+      "reviewState": "needs-hindi",
+      "tags": [
+        "generated",
+        "rule",
+        "sub-rule"
+      ],
+      "verify": true,
+      "version": "1.0.0",
+      "source": {
+        "name": "Ministry of Home Affairs — The Official Secrets Act, 1923",
+        "url": "https://www.mha.gov.in/sites/default/files/Official_Secret_Act1923_2.pdf"
+      }
+    },
+    {
+      "id": "osa-rule-4",
+      "act": "osa",
+      "rule": "4",
+      "kind": "rule",
+      "front": {
+        "en": "Communications with foreign agents to be evidence of commission of certain offences — which section of the OSA 1923?",
+        "hi": "विदेशी अभिकर्ताओं से संसूचना का कुछ अपराधों के किए जाने का साक्ष्य होना — ओएसए 1923 का कौन-सा धारा?"
+      },
+      "back": {
+        "en": "Section 4, Official Secrets Act, 1923",
+        "hi": "धारा 4, शासकीय गुप्त बात अधिनियम, 1923"
+      },
+      "ruleRef": {
+        "textId": "osa-4",
+        "citation": {
+          "en": "Section 4, Official Secrets Act, 1923",
+          "hi": "धारा 4, शासकीय गुप्त बात अधिनियम, 1923"
+        }
+      },
+      "difficulty": "easy",
+      "reviewed": true,
+      "reviewState": "approved",
+      "tags": [
+        "generated",
+        "rule"
+      ],
+      "verify": true,
+      "version": "1.0.0",
+      "source": {
+        "name": "Ministry of Home Affairs — The Official Secrets Act, 1923",
+        "url": "https://www.mha.gov.in/sites/default/files/Official_Secret_Act1923_2.pdf"
+      }
+    },
+    {
+      "id": "osa-rule-4-1",
+      "act": "osa",
+      "rule": "4",
+      "subRule": "4(1)",
+      "kind": "rule",
+      "front": {
+        "en": "In any proceedings against a person for an offence under section 3, the fact that he has been in communication with, or attempted to communicate with, a foreign agent, whether within or without … — which section?",
+        "hi": ""
+      },
+      "back": {
+        "en": "Section 4(1), Official Secrets Act, 1923",
+        "hi": "धारा 4(1), शासकीय गुप्त बात अधिनियम, 1923"
+      },
+      "ruleRef": {
+        "textId": "osa-4",
+        "citation": {
+          "en": "Section 4(1), Official Secrets Act, 1923",
+          "hi": "धारा 4(1), शासकीय गुप्त बात अधिनियम, 1923"
+        }
+      },
+      "difficulty": "medium",
+      "reviewed": false,
+      "reviewState": "needs-hindi",
+      "tags": [
+        "generated",
+        "rule",
+        "sub-rule"
+      ],
+      "verify": true,
+      "version": "1.0.0",
+      "source": {
+        "name": "Ministry of Home Affairs — The Official Secrets Act, 1923",
+        "url": "https://www.mha.gov.in/sites/default/files/Official_Secret_Act1923_2.pdf"
+      }
+    },
+    {
+      "id": "osa-rule-4-2",
+      "act": "osa",
+      "rule": "4",
+      "subRule": "4(2)",
+      "kind": "rule",
+      "front": {
+        "en": "For the purpose of this section, but without prejudice to the generality of the foregoing provisions,- (a) a person may be presumed to have been in communication with a foreign agent if- (i)he has, … — which section?",
+        "hi": ""
+      },
+      "back": {
+        "en": "Section 4(2), Official Secrets Act, 1923",
+        "hi": "धारा 4(2), शासकीय गुप्त बात अधिनियम, 1923"
+      },
+      "ruleRef": {
+        "textId": "osa-4",
+        "citation": {
+          "en": "Section 4(2), Official Secrets Act, 1923",
+          "hi": "धारा 4(2), शासकीय गुप्त बात अधिनियम, 1923"
+        }
+      },
+      "difficulty": "medium",
+      "reviewed": false,
+      "reviewState": "needs-hindi",
+      "tags": [
+        "generated",
+        "rule",
+        "sub-rule"
+      ],
+      "verify": true,
+      "version": "1.0.0",
+      "source": {
+        "name": "Ministry of Home Affairs — The Official Secrets Act, 1923",
+        "url": "https://www.mha.gov.in/sites/default/files/Official_Secret_Act1923_2.pdf"
+      }
+    },
+    {
+      "id": "osa-rule-5",
+      "act": "osa",
+      "rule": "5",
+      "kind": "rule",
+      "front": {
+        "en": "Wrongful communication. etc., of information — which section of the OSA 1923?",
+        "hi": "सूचना का दोषपूर्ण संसूचन आदि — ओएसए 1923 का कौन-सा धारा?"
+      },
+      "back": {
+        "en": "Section 5, Official Secrets Act, 1923",
+        "hi": "धारा 5, शासकीय गुप्त बात अधिनियम, 1923"
+      },
+      "ruleRef": {
+        "textId": "osa-5",
+        "citation": {
+          "en": "Section 5, Official Secrets Act, 1923",
+          "hi": "धारा 5, शासकीय गुप्त बात अधिनियम, 1923"
+        }
+      },
+      "difficulty": "easy",
+      "reviewed": true,
+      "reviewState": "approved",
+      "tags": [
+        "generated",
+        "rule"
+      ],
+      "verify": true,
+      "version": "1.0.0",
+      "source": {
+        "name": "Ministry of Home Affairs — The Official Secrets Act, 1923",
+        "url": "https://www.mha.gov.in/sites/default/files/Official_Secret_Act1923_2.pdf"
+      }
+    },
+    {
+      "id": "osa-rule-5-1",
+      "act": "osa",
+      "rule": "5",
+      "subRule": "5(1)",
+      "kind": "rule",
+      "front": {
+        "en": "If any person having in his possession or control any secret official code or pass word or any sketch, plan, model, article, note, document or information which relates to or is used in a prohibited … — which section?",
+        "hi": ""
+      },
+      "back": {
+        "en": "Section 5(1), Official Secrets Act, 1923",
+        "hi": "धारा 5(1), शासकीय गुप्त बात अधिनियम, 1923"
+      },
+      "ruleRef": {
+        "textId": "osa-5",
+        "citation": {
+          "en": "Section 5(1), Official Secrets Act, 1923",
+          "hi": "धारा 5(1), शासकीय गुप्त बात अधिनियम, 1923"
+        }
+      },
+      "difficulty": "medium",
+      "reviewed": false,
+      "reviewState": "needs-hindi",
+      "tags": [
+        "generated",
+        "rule",
+        "sub-rule"
+      ],
+      "verify": true,
+      "version": "1.0.0",
+      "source": {
+        "name": "Ministry of Home Affairs — The Official Secrets Act, 1923",
+        "url": "https://www.mha.gov.in/sites/default/files/Official_Secret_Act1923_2.pdf"
+      }
+    },
+    {
+      "id": "osa-rule-5-2",
+      "act": "osa",
+      "rule": "5",
+      "subRule": "5(2)",
+      "kind": "rule",
+      "front": {
+        "en": "If any person voluntarily receives any secret official code or pass word or any sketch, plan, model, article, note, document or information knowing or having reasonable ground to believe, at the time … — which section?",
+        "hi": ""
+      },
+      "back": {
+        "en": "Section 5(2), Official Secrets Act, 1923",
+        "hi": "धारा 5(2), शासकीय गुप्त बात अधिनियम, 1923"
+      },
+      "ruleRef": {
+        "textId": "osa-5",
+        "citation": {
+          "en": "Section 5(2), Official Secrets Act, 1923",
+          "hi": "धारा 5(2), शासकीय गुप्त बात अधिनियम, 1923"
+        }
+      },
+      "difficulty": "medium",
+      "reviewed": false,
+      "reviewState": "needs-hindi",
+      "tags": [
+        "generated",
+        "rule",
+        "sub-rule"
+      ],
+      "verify": true,
+      "version": "1.0.0",
+      "source": {
+        "name": "Ministry of Home Affairs — The Official Secrets Act, 1923",
+        "url": "https://www.mha.gov.in/sites/default/files/Official_Secret_Act1923_2.pdf"
+      }
+    },
+    {
+      "id": "osa-rule-5-3",
+      "act": "osa",
+      "rule": "5",
+      "subRule": "5(3)",
+      "kind": "rule",
+      "front": {
+        "en": "If any person having in his possession or control any sketch, plan, model, article, note, document or information, which relates to munitions of war, communicates it, directly or indirectly, to any … — which section?",
+        "hi": ""
+      },
+      "back": {
+        "en": "Section 5(3), Official Secrets Act, 1923",
+        "hi": "धारा 5(3), शासकीय गुप्त बात अधिनियम, 1923"
+      },
+      "ruleRef": {
+        "textId": "osa-5",
+        "citation": {
+          "en": "Section 5(3), Official Secrets Act, 1923",
+          "hi": "धारा 5(3), शासकीय गुप्त बात अधिनियम, 1923"
+        }
+      },
+      "difficulty": "medium",
+      "reviewed": false,
+      "reviewState": "needs-hindi",
+      "tags": [
+        "generated",
+        "rule",
+        "sub-rule"
+      ],
+      "verify": true,
+      "version": "1.0.0",
+      "source": {
+        "name": "Ministry of Home Affairs — The Official Secrets Act, 1923",
+        "url": "https://www.mha.gov.in/sites/default/files/Official_Secret_Act1923_2.pdf"
+      }
+    },
+    {
+      "id": "osa-rule-5-4",
+      "act": "osa",
+      "rule": "5",
+      "subRule": "5(4)",
+      "kind": "rule",
+      "front": {
+        "en": "A person guilty of an offence under this section shall be punishable with imprisonment for a term which may extend to five years, or if such offence is committed with intent to assist any country … — which section?",
+        "hi": ""
+      },
+      "back": {
+        "en": "Section 5(4), Official Secrets Act, 1923",
+        "hi": "धारा 5(4), शासकीय गुप्त बात अधिनियम, 1923"
+      },
+      "ruleRef": {
+        "textId": "osa-5",
+        "citation": {
+          "en": "Section 5(4), Official Secrets Act, 1923",
+          "hi": "धारा 5(4), शासकीय गुप्त बात अधिनियम, 1923"
+        }
+      },
+      "difficulty": "medium",
+      "reviewed": false,
+      "reviewState": "needs-hindi",
+      "tags": [
+        "generated",
+        "rule",
+        "sub-rule"
+      ],
+      "verify": true,
+      "version": "1.0.0",
+      "source": {
+        "name": "Ministry of Home Affairs — The Official Secrets Act, 1923",
+        "url": "https://www.mha.gov.in/sites/default/files/Official_Secret_Act1923_2.pdf"
+      }
+    },
+    {
+      "id": "osa-rule-6",
+      "act": "osa",
+      "rule": "6",
+      "kind": "rule",
+      "front": {
+        "en": "Unauthorised use of uniforms; falsification of reports, forgery, personation, and false — which section of the OSA 1923?",
+        "hi": "वर्दियों का अप्राधिकृत प्रयोग; रिपोर्टों का मिथ्याकरण, कूटरचना, प्रतिरूपण और मिथ्या दस्तावेज — ओएसए 1923 का कौन-सा धारा?"
+      },
+      "back": {
+        "en": "Section 6, Official Secrets Act, 1923",
+        "hi": "धारा 6, शासकीय गुप्त बात अधिनियम, 1923"
+      },
+      "ruleRef": {
+        "textId": "osa-6",
+        "citation": {
+          "en": "Section 6, Official Secrets Act, 1923",
+          "hi": "धारा 6, शासकीय गुप्त बात अधिनियम, 1923"
+        }
+      },
+      "difficulty": "easy",
+      "reviewed": true,
+      "reviewState": "approved",
+      "tags": [
+        "generated",
+        "rule"
+      ],
+      "verify": true,
+      "version": "1.0.0",
+      "source": {
+        "name": "Ministry of Home Affairs — The Official Secrets Act, 1923",
+        "url": "https://www.mha.gov.in/sites/default/files/Official_Secret_Act1923_2.pdf"
+      }
+    },
+    {
+      "id": "osa-rule-6-1",
+      "act": "osa",
+      "rule": "6",
+      "subRule": "6(1)",
+      "kind": "rule",
+      "front": {
+        "en": "If any person for the purpose of gaining admission or of assisting any other person to gain admission to a prohibited place or for any other purpose prejudicial to the safety to the State- (a) uses … — which section?",
+        "hi": ""
+      },
+      "back": {
+        "en": "Section 6(1), Official Secrets Act, 1923",
+        "hi": "धारा 6(1), शासकीय गुप्त बात अधिनियम, 1923"
+      },
+      "ruleRef": {
+        "textId": "osa-6",
+        "citation": {
+          "en": "Section 6(1), Official Secrets Act, 1923",
+          "hi": "धारा 6(1), शासकीय गुप्त बात अधिनियम, 1923"
+        }
+      },
+      "difficulty": "medium",
+      "reviewed": false,
+      "reviewState": "needs-hindi",
+      "tags": [
+        "generated",
+        "rule",
+        "sub-rule"
+      ],
+      "verify": true,
+      "version": "1.0.0",
+      "source": {
+        "name": "Ministry of Home Affairs — The Official Secrets Act, 1923",
+        "url": "https://www.mha.gov.in/sites/default/files/Official_Secret_Act1923_2.pdf"
+      }
+    },
+    {
+      "id": "osa-rule-6-2",
+      "act": "osa",
+      "rule": "6",
+      "subRule": "6(2)",
+      "kind": "rule",
+      "front": {
+        "en": "If any person for any purpose prejudicial to the safety of the State- (a) retains any official document, whether or not completed or issued for use, when he has no right to retain it, or when it is … — which section?",
+        "hi": ""
+      },
+      "back": {
+        "en": "Section 6(2), Official Secrets Act, 1923",
+        "hi": "धारा 6(2), शासकीय गुप्त बात अधिनियम, 1923"
+      },
+      "ruleRef": {
+        "textId": "osa-6",
+        "citation": {
+          "en": "Section 6(2), Official Secrets Act, 1923",
+          "hi": "धारा 6(2), शासकीय गुप्त बात अधिनियम, 1923"
+        }
+      },
+      "difficulty": "medium",
+      "reviewed": false,
+      "reviewState": "needs-hindi",
+      "tags": [
+        "generated",
+        "rule",
+        "sub-rule"
+      ],
+      "verify": true,
+      "version": "1.0.0",
+      "source": {
+        "name": "Ministry of Home Affairs — The Official Secrets Act, 1923",
+        "url": "https://www.mha.gov.in/sites/default/files/Official_Secret_Act1923_2.pdf"
+      }
+    },
+    {
+      "id": "osa-rule-6-3",
+      "act": "osa",
+      "rule": "6",
+      "subRule": "6(3)",
+      "kind": "rule",
+      "front": {
+        "en": "A person guilty of an offence under this section shall be punishable with imprisonment for a term which may extend to 1*[three years], or with fine, or with both. — which section?",
+        "hi": ""
+      },
+      "back": {
+        "en": "Section 6(3), Official Secrets Act, 1923",
+        "hi": "धारा 6(3), शासकीय गुप्त बात अधिनियम, 1923"
+      },
+      "ruleRef": {
+        "textId": "osa-6",
+        "citation": {
+          "en": "Section 6(3), Official Secrets Act, 1923",
+          "hi": "धारा 6(3), शासकीय गुप्त बात अधिनियम, 1923"
+        }
+      },
+      "difficulty": "medium",
+      "reviewed": false,
+      "reviewState": "needs-hindi",
+      "tags": [
+        "generated",
+        "rule",
+        "sub-rule"
+      ],
+      "verify": true,
+      "version": "1.0.0",
+      "source": {
+        "name": "Ministry of Home Affairs — The Official Secrets Act, 1923",
+        "url": "https://www.mha.gov.in/sites/default/files/Official_Secret_Act1923_2.pdf"
+      }
+    },
+    {
+      "id": "osa-rule-6-4",
+      "act": "osa",
+      "rule": "6",
+      "subRule": "6(4)",
+      "kind": "rule",
+      "front": {
+        "en": "The provisions of sub-section (2) of section 3 shall apply, for the purpose of proving a purpose prejudicial to the safety of the State, to any prosecution for an offence under this section relating … — which section?",
+        "hi": ""
+      },
+      "back": {
+        "en": "Section 6(4), Official Secrets Act, 1923",
+        "hi": "धारा 6(4), शासकीय गुप्त बात अधिनियम, 1923"
+      },
+      "ruleRef": {
+        "textId": "osa-6",
+        "citation": {
+          "en": "Section 6(4), Official Secrets Act, 1923",
+          "hi": "धारा 6(4), शासकीय गुप्त बात अधिनियम, 1923"
+        }
+      },
+      "difficulty": "medium",
+      "reviewed": false,
+      "reviewState": "needs-hindi",
+      "tags": [
+        "generated",
+        "rule",
+        "sub-rule"
+      ],
+      "verify": true,
+      "version": "1.0.0",
+      "source": {
+        "name": "Ministry of Home Affairs — The Official Secrets Act, 1923",
+        "url": "https://www.mha.gov.in/sites/default/files/Official_Secret_Act1923_2.pdf"
+      }
+    },
+    {
+      "id": "osa-rule-7",
+      "act": "osa",
+      "rule": "7",
+      "kind": "rule",
+      "front": {
+        "en": "Interfering with officers of the police or members of the Armed forces of the Union — which section of the OSA 1923?",
+        "hi": "पुलिस अधिकारियों या संघ के सशस्त्र बलों के सदस्यों के कार्य में बाधा डालना — ओएसए 1923 का कौन-सा धारा?"
+      },
+      "back": {
+        "en": "Section 7, Official Secrets Act, 1923",
+        "hi": "धारा 7, शासकीय गुप्त बात अधिनियम, 1923"
+      },
+      "ruleRef": {
+        "textId": "osa-7",
+        "citation": {
+          "en": "Section 7, Official Secrets Act, 1923",
+          "hi": "धारा 7, शासकीय गुप्त बात अधिनियम, 1923"
+        }
+      },
+      "difficulty": "easy",
+      "reviewed": true,
+      "reviewState": "approved",
+      "tags": [
+        "generated",
+        "rule"
+      ],
+      "verify": true,
+      "version": "1.0.0",
+      "source": {
+        "name": "Ministry of Home Affairs — The Official Secrets Act, 1923",
+        "url": "https://www.mha.gov.in/sites/default/files/Official_Secret_Act1923_2.pdf"
+      }
+    },
+    {
+      "id": "osa-rule-8",
+      "act": "osa",
+      "rule": "8",
+      "kind": "rule",
+      "front": {
+        "en": "Duty of giving information as to commission of offences — which section of the OSA 1923?",
+        "hi": "अपराधों के किए जाने के बारे में जानकारी देने का कर्तव्य — ओएसए 1923 का कौन-सा धारा?"
+      },
+      "back": {
+        "en": "Section 8, Official Secrets Act, 1923",
+        "hi": "धारा 8, शासकीय गुप्त बात अधिनियम, 1923"
+      },
+      "ruleRef": {
+        "textId": "osa-8",
+        "citation": {
+          "en": "Section 8, Official Secrets Act, 1923",
+          "hi": "धारा 8, शासकीय गुप्त बात अधिनियम, 1923"
+        }
+      },
+      "difficulty": "easy",
+      "reviewed": true,
+      "reviewState": "approved",
+      "tags": [
+        "generated",
+        "rule"
+      ],
+      "verify": true,
+      "version": "1.0.0",
+      "source": {
+        "name": "Ministry of Home Affairs — The Official Secrets Act, 1923",
+        "url": "https://www.mha.gov.in/sites/default/files/Official_Secret_Act1923_2.pdf"
+      }
+    },
+    {
+      "id": "osa-rule-8-1",
+      "act": "osa",
+      "rule": "8",
+      "subRule": "8(1)",
+      "kind": "rule",
+      "front": {
+        "en": "It shall be the duty of every person to give on demand to a Superintendent of Police, or other police-officer not below the rank of Inspector, empowered by an Inspector-General or Commissioner of … — which section?",
+        "hi": ""
+      },
+      "back": {
+        "en": "Section 8(1), Official Secrets Act, 1923",
+        "hi": "धारा 8(1), शासकीय गुप्त बात अधिनियम, 1923"
+      },
+      "ruleRef": {
+        "textId": "osa-8",
+        "citation": {
+          "en": "Section 8(1), Official Secrets Act, 1923",
+          "hi": "धारा 8(1), शासकीय गुप्त बात अधिनियम, 1923"
+        }
+      },
+      "difficulty": "medium",
+      "reviewed": false,
+      "reviewState": "needs-hindi",
+      "tags": [
+        "generated",
+        "rule",
+        "sub-rule"
+      ],
+      "verify": true,
+      "version": "1.0.0",
+      "source": {
+        "name": "Ministry of Home Affairs — The Official Secrets Act, 1923",
+        "url": "https://www.mha.gov.in/sites/default/files/Official_Secret_Act1923_2.pdf"
+      }
+    },
+    {
+      "id": "osa-rule-8-2",
+      "act": "osa",
+      "rule": "8",
+      "subRule": "8(2)",
+      "kind": "rule",
+      "front": {
+        "en": "If any person fails to give any such information or to attend as aforesaid, he shall be punishable with imprisonment which may extend to 3*[three years], or with fine, or with both. — which section?",
+        "hi": ""
+      },
+      "back": {
+        "en": "Section 8(2), Official Secrets Act, 1923",
+        "hi": "धारा 8(2), शासकीय गुप्त बात अधिनियम, 1923"
+      },
+      "ruleRef": {
+        "textId": "osa-8",
+        "citation": {
+          "en": "Section 8(2), Official Secrets Act, 1923",
+          "hi": "धारा 8(2), शासकीय गुप्त बात अधिनियम, 1923"
+        }
+      },
+      "difficulty": "medium",
+      "reviewed": false,
+      "reviewState": "needs-hindi",
+      "tags": [
+        "generated",
+        "rule",
+        "sub-rule"
+      ],
+      "verify": true,
+      "version": "1.0.0",
+      "source": {
+        "name": "Ministry of Home Affairs — The Official Secrets Act, 1923",
+        "url": "https://www.mha.gov.in/sites/default/files/Official_Secret_Act1923_2.pdf"
+      }
+    },
+    {
+      "id": "osa-rule-9",
+      "act": "osa",
+      "rule": "9",
+      "kind": "rule",
+      "front": {
+        "en": "Attempts, incitements, etc — which section of the OSA 1923?",
+        "hi": "प्रयत्न, दुष्प्रेरण आदि — ओएसए 1923 का कौन-सा धारा?"
+      },
+      "back": {
+        "en": "Section 9, Official Secrets Act, 1923",
+        "hi": "धारा 9, शासकीय गुप्त बात अधिनियम, 1923"
+      },
+      "ruleRef": {
+        "textId": "osa-9",
+        "citation": {
+          "en": "Section 9, Official Secrets Act, 1923",
+          "hi": "धारा 9, शासकीय गुप्त बात अधिनियम, 1923"
+        }
+      },
+      "difficulty": "easy",
+      "reviewed": true,
+      "reviewState": "approved",
+      "tags": [
+        "generated",
+        "rule"
+      ],
+      "verify": true,
+      "version": "1.0.0",
+      "source": {
+        "name": "Ministry of Home Affairs — The Official Secrets Act, 1923",
+        "url": "https://www.mha.gov.in/sites/default/files/Official_Secret_Act1923_2.pdf"
+      }
+    },
+    {
+      "id": "osa-rule-10",
+      "act": "osa",
+      "rule": "10",
+      "kind": "rule",
+      "front": {
+        "en": "Penalty for harbouring spies — which section of the OSA 1923?",
+        "hi": "जासूसों को संश्रय देने के लिए शास्ति — ओएसए 1923 का कौन-सा धारा?"
+      },
+      "back": {
+        "en": "Section 10, Official Secrets Act, 1923",
+        "hi": "धारा 10, शासकीय गुप्त बात अधिनियम, 1923"
+      },
+      "ruleRef": {
+        "textId": "osa-10",
+        "citation": {
+          "en": "Section 10, Official Secrets Act, 1923",
+          "hi": "धारा 10, शासकीय गुप्त बात अधिनियम, 1923"
+        }
+      },
+      "difficulty": "easy",
+      "reviewed": true,
+      "reviewState": "approved",
+      "tags": [
+        "generated",
+        "rule"
+      ],
+      "verify": true,
+      "version": "1.0.0",
+      "source": {
+        "name": "Ministry of Home Affairs — The Official Secrets Act, 1923",
+        "url": "https://www.mha.gov.in/sites/default/files/Official_Secret_Act1923_2.pdf"
+      }
+    },
+    {
+      "id": "osa-rule-10-1",
+      "act": "osa",
+      "rule": "10",
+      "subRule": "10(1)",
+      "kind": "rule",
+      "front": {
+        "en": "If any person knowingly harbours any person whom he knows or has reasonable grounds for supposing to be a person who is about to commit or who has committed an offence under section 3 or under … — which section?",
+        "hi": ""
+      },
+      "back": {
+        "en": "Section 10(1), Official Secrets Act, 1923",
+        "hi": "धारा 10(1), शासकीय गुप्त बात अधिनियम, 1923"
+      },
+      "ruleRef": {
+        "textId": "osa-10",
+        "citation": {
+          "en": "Section 10(1), Official Secrets Act, 1923",
+          "hi": "धारा 10(1), शासकीय गुप्त बात अधिनियम, 1923"
+        }
+      },
+      "difficulty": "medium",
+      "reviewed": false,
+      "reviewState": "needs-hindi",
+      "tags": [
+        "generated",
+        "rule",
+        "sub-rule"
+      ],
+      "verify": true,
+      "version": "1.0.0",
+      "source": {
+        "name": "Ministry of Home Affairs — The Official Secrets Act, 1923",
+        "url": "https://www.mha.gov.in/sites/default/files/Official_Secret_Act1923_2.pdf"
+      }
+    },
+    {
+      "id": "osa-rule-10-2",
+      "act": "osa",
+      "rule": "10",
+      "subRule": "10(2)",
+      "kind": "rule",
+      "front": {
+        "en": "It shall be the duty of every person having harboured any such person as aforesaid, or permitted to meet or assemble in any premises in his occupation or under his control any such persons as … — which section?",
+        "hi": ""
+      },
+      "back": {
+        "en": "Section 10(2), Official Secrets Act, 1923",
+        "hi": "धारा 10(2), शासकीय गुप्त बात अधिनियम, 1923"
+      },
+      "ruleRef": {
+        "textId": "osa-10",
+        "citation": {
+          "en": "Section 10(2), Official Secrets Act, 1923",
+          "hi": "धारा 10(2), शासकीय गुप्त बात अधिनियम, 1923"
+        }
+      },
+      "difficulty": "medium",
+      "reviewed": false,
+      "reviewState": "needs-hindi",
+      "tags": [
+        "generated",
+        "rule",
+        "sub-rule"
+      ],
+      "verify": true,
+      "version": "1.0.0",
+      "source": {
+        "name": "Ministry of Home Affairs — The Official Secrets Act, 1923",
+        "url": "https://www.mha.gov.in/sites/default/files/Official_Secret_Act1923_2.pdf"
+      }
+    },
+    {
+      "id": "osa-rule-11",
+      "act": "osa",
+      "rule": "11",
+      "kind": "rule",
+      "front": {
+        "en": "Search warrants — which section of the OSA 1923?",
+        "hi": "तलाशी वारंट — ओएसए 1923 का कौन-सा धारा?"
+      },
+      "back": {
+        "en": "Section 11, Official Secrets Act, 1923",
+        "hi": "धारा 11, शासकीय गुप्त बात अधिनियम, 1923"
+      },
+      "ruleRef": {
+        "textId": "osa-11",
+        "citation": {
+          "en": "Section 11, Official Secrets Act, 1923",
+          "hi": "धारा 11, शासकीय गुप्त बात अधिनियम, 1923"
+        }
+      },
+      "difficulty": "easy",
+      "reviewed": true,
+      "reviewState": "approved",
+      "tags": [
+        "generated",
+        "rule"
+      ],
+      "verify": true,
+      "version": "1.0.0",
+      "source": {
+        "name": "Ministry of Home Affairs — The Official Secrets Act, 1923",
+        "url": "https://www.mha.gov.in/sites/default/files/Official_Secret_Act1923_2.pdf"
+      }
+    },
+    {
+      "id": "osa-rule-11-1",
+      "act": "osa",
+      "rule": "11",
+      "subRule": "11(1)",
+      "kind": "rule",
+      "front": {
+        "en": "If a Presidency Magistrate, Magistrate of the first class or Sub- divisional Magistrate is satisfied by information on oath that there is reasonable ground for suspecting that an offence under this … — which section?",
+        "hi": ""
+      },
+      "back": {
+        "en": "Section 11(1), Official Secrets Act, 1923",
+        "hi": "धारा 11(1), शासकीय गुप्त बात अधिनियम, 1923"
+      },
+      "ruleRef": {
+        "textId": "osa-11",
+        "citation": {
+          "en": "Section 11(1), Official Secrets Act, 1923",
+          "hi": "धारा 11(1), शासकीय गुप्त बात अधिनियम, 1923"
+        }
+      },
+      "difficulty": "medium",
+      "reviewed": false,
+      "reviewState": "needs-hindi",
+      "tags": [
+        "generated",
+        "rule",
+        "sub-rule"
+      ],
+      "verify": true,
+      "version": "1.0.0",
+      "source": {
+        "name": "Ministry of Home Affairs — The Official Secrets Act, 1923",
+        "url": "https://www.mha.gov.in/sites/default/files/Official_Secret_Act1923_2.pdf"
+      }
+    },
+    {
+      "id": "osa-rule-11-2",
+      "act": "osa",
+      "rule": "11",
+      "subRule": "11(2)",
+      "kind": "rule",
+      "front": {
+        "en": "he shall, as soon as may be, report such action, in a presidency-town to the Chief Presidency Magistrate, and outside such town to the District or Sub-divisional Magistrate. 2 * [12. … — which section?",
+        "hi": ""
+      },
+      "back": {
+        "en": "Section 11(2), Official Secrets Act, 1923",
+        "hi": "धारा 11(2), शासकीय गुप्त बात अधिनियम, 1923"
+      },
+      "ruleRef": {
+        "textId": "osa-11",
+        "citation": {
+          "en": "Section 11(2), Official Secrets Act, 1923",
+          "hi": "धारा 11(2), शासकीय गुप्त बात अधिनियम, 1923"
+        }
+      },
+      "difficulty": "medium",
+      "reviewed": false,
+      "reviewState": "needs-hindi",
+      "tags": [
+        "generated",
+        "rule",
+        "sub-rule"
+      ],
+      "verify": true,
+      "version": "1.0.0",
+      "source": {
+        "name": "Ministry of Home Affairs — The Official Secrets Act, 1923",
+        "url": "https://www.mha.gov.in/sites/default/files/Official_Secret_Act1923_2.pdf"
+      }
+    },
+    {
+      "id": "osa-rule-13",
+      "act": "osa",
+      "rule": "13",
+      "kind": "rule",
+      "front": {
+        "en": "Restriction on trial of offences — which section of the OSA 1923?",
+        "hi": "अपराधों के विचारण पर निर्बंधन — ओएसए 1923 का कौन-सा धारा?"
+      },
+      "back": {
+        "en": "Section 13, Official Secrets Act, 1923",
+        "hi": "धारा 13, शासकीय गुप्त बात अधिनियम, 1923"
+      },
+      "ruleRef": {
+        "textId": "osa-13",
+        "citation": {
+          "en": "Section 13, Official Secrets Act, 1923",
+          "hi": "धारा 13, शासकीय गुप्त बात अधिनियम, 1923"
+        }
+      },
+      "difficulty": "easy",
+      "reviewed": true,
+      "reviewState": "approved",
+      "tags": [
+        "generated",
+        "rule"
+      ],
+      "verify": true,
+      "version": "1.0.0",
+      "source": {
+        "name": "Ministry of Home Affairs — The Official Secrets Act, 1923",
+        "url": "https://www.mha.gov.in/sites/default/files/Official_Secret_Act1923_2.pdf"
+      }
+    },
+    {
+      "id": "osa-rule-14",
+      "act": "osa",
+      "rule": "14",
+      "kind": "rule",
+      "front": {
+        "en": "Exclusion of public from proceedings — which section of the OSA 1923?",
+        "hi": "कार्यवाहियों से जनता का अपवर्जन — ओएसए 1923 का कौन-सा धारा?"
+      },
+      "back": {
+        "en": "Section 14, Official Secrets Act, 1923",
+        "hi": "धारा 14, शासकीय गुप्त बात अधिनियम, 1923"
+      },
+      "ruleRef": {
+        "textId": "osa-14",
+        "citation": {
+          "en": "Section 14, Official Secrets Act, 1923",
+          "hi": "धारा 14, शासकीय गुप्त बात अधिनियम, 1923"
+        }
+      },
+      "difficulty": "easy",
+      "reviewed": true,
+      "reviewState": "approved",
+      "tags": [
+        "generated",
+        "rule"
+      ],
+      "verify": true,
+      "version": "1.0.0",
+      "source": {
+        "name": "Ministry of Home Affairs — The Official Secrets Act, 1923",
+        "url": "https://www.mha.gov.in/sites/default/files/Official_Secret_Act1923_2.pdf"
+      }
+    },
+    {
+      "id": "osa-rule-14-1",
+      "act": "osa",
+      "rule": "14",
+      "subRule": "14(1)",
+      "kind": "rule",
+      "front": {
+        "en": "If the person committing an offence under this Act is a company, every person who, at the time the offence was committed, was in charge of, and was responsible to, the company for the conduct of … — which section?",
+        "hi": ""
+      },
+      "back": {
+        "en": "Section 14(1), Official Secrets Act, 1923",
+        "hi": "धारा 14(1), शासकीय गुप्त बात अधिनियम, 1923"
+      },
+      "ruleRef": {
+        "textId": "osa-14",
+        "citation": {
+          "en": "Section 14(1), Official Secrets Act, 1923",
+          "hi": "धारा 14(1), शासकीय गुप्त बात अधिनियम, 1923"
+        }
+      },
+      "difficulty": "medium",
+      "reviewed": false,
+      "reviewState": "needs-hindi",
+      "tags": [
+        "generated",
+        "rule",
+        "sub-rule"
+      ],
+      "verify": true,
+      "version": "1.0.0",
+      "source": {
+        "name": "Ministry of Home Affairs — The Official Secrets Act, 1923",
+        "url": "https://www.mha.gov.in/sites/default/files/Official_Secret_Act1923_2.pdf"
+      }
+    },
+    {
+      "id": "osa-rule-14-2",
+      "act": "osa",
+      "rule": "14",
+      "subRule": "14(2)",
+      "kind": "rule",
+      "front": {
+        "en": "Notwithstanding anything contained in sub- section (1), where an offence under this Act has been committed by a company and it is proved that the offence has been committed with the consent or con- … — which section?",
+        "hi": ""
+      },
+      "back": {
+        "en": "Section 14(2), Official Secrets Act, 1923",
+        "hi": "धारा 14(2), शासकीय गुप्त बात अधिनियम, 1923"
+      },
+      "ruleRef": {
+        "textId": "osa-14",
+        "citation": {
+          "en": "Section 14(2), Official Secrets Act, 1923",
+          "hi": "धारा 14(2), शासकीय गुप्त बात अधिनियम, 1923"
+        }
+      },
+      "difficulty": "medium",
+      "reviewed": false,
+      "reviewState": "needs-hindi",
+      "tags": [
+        "generated",
+        "rule",
+        "sub-rule"
+      ],
+      "verify": true,
+      "version": "1.0.0",
+      "source": {
+        "name": "Ministry of Home Affairs — The Official Secrets Act, 1923",
+        "url": "https://www.mha.gov.in/sites/default/files/Official_Secret_Act1923_2.pdf"
+      }
+    },
+    {
+      "id": "osa-rule-16",
+      "act": "osa",
+      "rule": "16",
+      "kind": "rule",
+      "front": {
+        "en": "[Repeals.] Rep. by the Repealing Act, 1927 (12 of 1927), s. 2 and Sch — which section of the OSA 1923?",
+        "hi": "निरसन — ओएसए 1923 का कौन-सा धारा?"
+      },
+      "back": {
+        "en": "Section 16, Official Secrets Act, 1923",
+        "hi": "धारा 16, शासकीय गुप्त बात अधिनियम, 1923"
+      },
+      "ruleRef": {
+        "textId": "osa-16",
+        "citation": {
+          "en": "Section 16, Official Secrets Act, 1923",
+          "hi": "धारा 16, शासकीय गुप्त बात अधिनियम, 1923"
+        }
+      },
+      "difficulty": "easy",
+      "reviewed": true,
+      "reviewState": "approved",
+      "tags": [
+        "generated",
+        "rule"
+      ],
+      "verify": true,
+      "version": "1.0.0",
+      "source": {
+        "name": "Ministry of Home Affairs — The Official Secrets Act, 1923",
+        "url": "https://www.mha.gov.in/sites/default/files/Official_Secret_Act1923_2.pdf"
+      }
+    },
+    {
+      "id": "osa-cloze-2-1",
+      "act": "osa",
+      "rule": "2",
+      "kind": "cloze",
+      "front": {
+        "en": "* * (2) expressions referring to communicating or receiving include any communicating or receiving, whether in whole or in part, and whether the sketch, plan, m____ article, note, document, or information itself or the substance, effect or description thereof only be communicated or received ; expressions referring to obt",
+        "hi": ""
+      },
+      "back": {
+        "en": "model",
+        "hi": ""
+      },
+      "cloze": {
+        "text": {
+          "en": "* * (2) expressions referring to communicating or receiving include any communicating or receiving, whether in whole or in part, and whether the sketch, plan, m____ article, note, document, or information itself or the substance, effect or description thereof only be communicated or received ; expressions referring to obt",
+          "hi": ""
+        },
+        "answer": {
+          "en": "model",
+          "hi": ""
+        }
+      },
+      "ruleRef": {
+        "textId": "osa-2",
+        "citation": {
+          "en": "Section 2, Official Secrets Act, 1923",
+          "hi": "धारा 2, शासकीय गुप्त बात अधिनियम, 1923"
+        }
+      },
+      "difficulty": "easy",
+      "reviewed": true,
+      "reviewState": "rejected",
+      "tags": [
+        "generated",
+        "cloze",
+        "definedterm"
+      ],
+      "verify": true,
+      "version": "1.0.0",
+      "source": {
+        "name": "Ministry of Home Affairs — The Official Secrets Act, 1923",
+        "url": "https://www.mha.gov.in/sites/default/files/Official_Secret_Act1923_2.pdf"
+      },
+      "reviewNote": "The blank cut into a word: the stem reads 'the sketch, plan, m____ article'."
+    },
+    {
+      "id": "osa-cloze-3-1",
+      "act": "osa",
+      "rule": "3",
+      "kind": "cloze",
+      "front": {
+        "en": "in relation to the naval, military or air force affairs of Government or in relation to any secret official code, to fourteen years and in other case to ____.",
+        "hi": "धारा 3(1) — जासूसी के लिए कारावास की अवधि नौसैनिक, सैन्य या वायुसेना संबंधी मामलों अथवा किसी गुप्त शासकीय कूट के मामले में चौदह वर्ष तक और अन्य मामलों में ____ तक हो सकेगी।"
+      },
+      "back": {
+        "en": "three years",
+        "hi": "तीन वर्ष"
+      },
+      "cloze": {
+        "text": {
+          "en": "in relation to the naval, military or air force affairs of Government or in relation to any secret official code, to fourteen years and in other case to ____.",
+          "hi": "धारा 3(1) — जासूसी के लिए कारावास की अवधि नौसैनिक, सैन्य या वायुसेना संबंधी मामलों अथवा किसी गुप्त शासकीय कूट के मामले में चौदह वर्ष तक और अन्य मामलों में ____ तक हो सकेगी।"
+        },
+        "answer": {
+          "en": "three years",
+          "hi": "तीन वर्ष"
+        }
+      },
+      "ruleRef": {
+        "textId": "osa-3",
+        "citation": {
+          "en": "Section 3, Official Secrets Act, 1923",
+          "hi": "धारा 3, शासकीय गुप्त बात अधिनियम, 1923"
+        }
+      },
+      "difficulty": "medium",
+      "reviewed": true,
+      "reviewState": "approved",
+      "tags": [
+        "generated",
+        "cloze",
+        "duration"
+      ],
+      "verify": true,
+      "version": "1.0.0",
+      "source": {
+        "name": "Ministry of Home Affairs — The Official Secrets Act, 1923",
+        "url": "https://www.mha.gov.in/sites/default/files/Official_Secret_Act1923_2.pdf"
+      },
+      "reviewNote": "Section 3(1) — the two terms of imprisonment for spying, fourteen years and three years, are the examinable fact."
+    },
+    {
+      "id": "osa-cloze-3-2",
+      "act": "osa",
+      "rule": "3",
+      "kind": "cloze",
+      "front": {
+        "en": "(1) If any person for any purpose prejudicial to the ____- (a) approaches, inspects, passes over or is in the vicinity of, or enters, any prohibited place; or (b) makes any sketch, plan, model, or note which is calcul",
+        "hi": "धारा 3(1) — यदि कोई व्यक्ति ____ के प्रतिकूल किसी प्रयोजन से किसी प्रतिषिद्ध स्थान के निकट जाता है, उसका निरीक्षण करता है या उसमें प्रवेश करता है, तो वह दंडनीय होगा।"
+      },
+      "back": {
+        "en": "safety or interests of the State",
+        "hi": "राज्य की सुरक्षा या हितों"
+      },
+      "cloze": {
+        "text": {
+          "en": "(1) If any person for any purpose prejudicial to the ____- (a) approaches, inspects, passes over or is in the vicinity of, or enters, any prohibited place; or (b) makes any sketch, plan, model, or note which is calcul",
+          "hi": "धारा 3(1) — यदि कोई व्यक्ति ____ के प्रतिकूल किसी प्रयोजन से किसी प्रतिषिद्ध स्थान के निकट जाता है, उसका निरीक्षण करता है या उसमें प्रवेश करता है, तो वह दंडनीय होगा।"
+        },
+        "answer": {
+          "en": "safety or interests of the State",
+          "hi": "राज्य की सुरक्षा या हितों"
+        }
+      },
+      "ruleRef": {
+        "textId": "osa-3",
+        "citation": {
+          "en": "Section 3, Official Secrets Act, 1923",
+          "hi": "धारा 3, शासकीय गुप्त बात अधिनियम, 1923"
+        }
+      },
+      "difficulty": "easy",
+      "reviewed": true,
+      "reviewState": "approved",
+      "tags": [
+        "generated",
+        "cloze",
+        "definedterm"
+      ],
+      "verify": true,
+      "version": "1.0.0",
+      "source": {
+        "name": "Ministry of Home Affairs — The Official Secrets Act, 1923",
+        "url": "https://www.mha.gov.in/sites/default/files/Official_Secret_Act1923_2.pdf"
+      },
+      "reviewNote": "Section 3 turns entirely on the purpose being prejudicial to the safety or interests of the State."
+    },
+    {
+      "id": "osa-cloze-4-1",
+      "act": "osa",
+      "rule": "4",
+      "kind": "cloze",
+      "front": {
+        "en": "(1) In any proceedings against a person for an offence under ____, the fact that he has been in communication with, or attempted to communicate with, a foreign agent, whether within or without 4*[India], shall be relevant for",
+        "hi": "धारा 4(1) — ____ के अधीन किसी अपराध के लिए किसी व्यक्ति के विरुद्ध कार्यवाहियों में यह तथ्य कि वह किसी विदेशी अभिकर्ता से संसूचना में रहा है, सुसंगत होगा।"
+      },
+      "back": {
+        "en": "section 3",
+        "hi": "धारा 3"
+      },
+      "cloze": {
+        "text": {
+          "en": "(1) In any proceedings against a person for an offence under ____, the fact that he has been in communication with, or attempted to communicate with, a foreign agent, whether within or without 4*[India], shall be relevant for",
+          "hi": "धारा 4(1) — ____ के अधीन किसी अपराध के लिए किसी व्यक्ति के विरुद्ध कार्यवाहियों में यह तथ्य कि वह किसी विदेशी अभिकर्ता से संसूचना में रहा है, सुसंगत होगा।"
+        },
+        "answer": {
+          "en": "section 3",
+          "hi": "धारा 3"
+        }
+      },
+      "ruleRef": {
+        "textId": "osa-4",
+        "citation": {
+          "en": "Section 4, Official Secrets Act, 1923",
+          "hi": "धारा 4, शासकीय गुप्त बात अधिनियम, 1923"
+        }
+      },
+      "difficulty": "hard",
+      "reviewed": true,
+      "reviewState": "approved",
+      "tags": [
+        "generated",
+        "cloze",
+        "crossreference"
+      ],
+      "verify": true,
+      "version": "1.0.0",
+      "source": {
+        "name": "Ministry of Home Affairs — The Official Secrets Act, 1923",
+        "url": "https://www.mha.gov.in/sites/default/files/Official_Secret_Act1923_2.pdf"
+      },
+      "reviewNote": "Section 4 is an evidentiary rule that operates only in a prosecution under section 3."
+    },
+    {
+      "id": "osa-cloze-4-2",
+      "act": "osa",
+      "rule": "4",
+      "kind": "cloze",
+      "front": {
+        "en": "(1) In any proceedings against a person for an offence under section 3, the fact that he has been in communication with, or attempted to ____ with, a foreign agent, whether within or without 4*[India], shall be relevant for the purpose of proving that he has, for a purpose prejudicial to the safety o",
+        "hi": ""
+      },
+      "back": {
+        "en": "communicate",
+        "hi": ""
+      },
+      "cloze": {
+        "text": {
+          "en": "(1) In any proceedings against a person for an offence under section 3, the fact that he has been in communication with, or attempted to ____ with, a foreign agent, whether within or without 4*[India], shall be relevant for the purpose of proving that he has, for a purpose prejudicial to the safety o",
+          "hi": ""
+        },
+        "answer": {
+          "en": "communicate",
+          "hi": ""
+        }
+      },
+      "ruleRef": {
+        "textId": "osa-4",
+        "citation": {
+          "en": "Section 4, Official Secrets Act, 1923",
+          "hi": "धारा 4, शासकीय गुप्त बात अधिनियम, 1923"
+        }
+      },
+      "difficulty": "easy",
+      "reviewed": true,
+      "reviewState": "rejected",
+      "tags": [
+        "generated",
+        "cloze",
+        "definedterm"
+      ],
+      "verify": true,
+      "version": "1.0.0",
+      "source": {
+        "name": "Ministry of Home Affairs — The Official Secrets Act, 1923",
+        "url": "https://www.mha.gov.in/sites/default/files/Official_Secret_Act1923_2.pdf"
+      },
+      "reviewNote": "The blank falls on 'communicate' inside 'in communication with, or attempted to communicate with' — the previous clause gives the answer away."
+    },
+    {
+      "id": "osa-cloze-5-1",
+      "act": "osa",
+      "rule": "5",
+      "kind": "cloze",
+      "front": {
+        "en": "645 (4) A person guilty of an offence under this section shall be punishable with imprisonment for a term which may extend to ____, or if such offence is committed with intent to assist any country committing external aggression against India or to wage war against India, with death or imp",
+        "hi": "धारा 5(4) — इस धारा के अधीन अपराध का दोषी व्यक्ति ____ तक के कारावास से दंडनीय होगा; और यदि अपराध भारत के विरुद्ध बाह्य आक्रमण में सहायता के आशय से किया गया हो तो मृत्युदंड तक से।"
+      },
+      "back": {
+        "en": "five years",
+        "hi": "पाँच वर्ष"
+      },
+      "cloze": {
+        "text": {
+          "en": "645 (4) A person guilty of an offence under this section shall be punishable with imprisonment for a term which may extend to ____, or if such offence is committed with intent to assist any country committing external aggression against India or to wage war against India, with death or imp",
+          "hi": "धारा 5(4) — इस धारा के अधीन अपराध का दोषी व्यक्ति ____ तक के कारावास से दंडनीय होगा; और यदि अपराध भारत के विरुद्ध बाह्य आक्रमण में सहायता के आशय से किया गया हो तो मृत्युदंड तक से।"
+        },
+        "answer": {
+          "en": "five years",
+          "hi": "पाँच वर्ष"
+        }
+      },
+      "ruleRef": {
+        "textId": "osa-5",
+        "citation": {
+          "en": "Section 5, Official Secrets Act, 1923",
+          "hi": "धारा 5, शासकीय गुप्त बात अधिनियम, 1923"
+        }
+      },
+      "difficulty": "medium",
+      "reviewed": true,
+      "reviewState": "approved",
+      "tags": [
+        "generated",
+        "cloze",
+        "duration"
+      ],
+      "verify": true,
+      "version": "1.0.0",
+      "source": {
+        "name": "Ministry of Home Affairs — The Official Secrets Act, 1923",
+        "url": "https://www.mha.gov.in/sites/default/files/Official_Secret_Act1923_2.pdf"
+      },
+      "reviewNote": "Section 5(4) — the ordinary term for wrongful communication, which officers confuse with section 3's fourteen years."
+    },
+    {
+      "id": "osa-cloze-5-2",
+      "act": "osa",
+      "rule": "5",
+      "kind": "cloze",
+      "front": {
+        "en": "(1) If any person having in his possession or control any ____ or pass word or any sketch, plan, model, article, note, document or information which relates to or is used in a prohibited place or relates to anything in suc",
+        "hi": "धारा 5(1) — यदि किसी व्यक्ति के कब्ज़े या नियंत्रण में कोई ____ या पासवर्ड अथवा कोई रेखांक, योजना, प्रतिरूप, लेख, टिप्पणी या दस्तावेज़ हो जो किसी प्रतिषिद्ध स्थान से संबंधित हो, तो यह धारा लागू होती है।"
+      },
+      "back": {
+        "en": "secret official code",
+        "hi": "गुप्त शासकीय कूट"
+      },
+      "cloze": {
+        "text": {
+          "en": "(1) If any person having in his possession or control any ____ or pass word or any sketch, plan, model, article, note, document or information which relates to or is used in a prohibited place or relates to anything in suc",
+          "hi": "धारा 5(1) — यदि किसी व्यक्ति के कब्ज़े या नियंत्रण में कोई ____ या पासवर्ड अथवा कोई रेखांक, योजना, प्रतिरूप, लेख, टिप्पणी या दस्तावेज़ हो जो किसी प्रतिषिद्ध स्थान से संबंधित हो, तो यह धारा लागू होती है।"
+        },
+        "answer": {
+          "en": "secret official code",
+          "hi": "गुप्त शासकीय कूट"
+        }
+      },
+      "ruleRef": {
+        "textId": "osa-5",
+        "citation": {
+          "en": "Section 5, Official Secrets Act, 1923",
+          "hi": "धारा 5, शासकीय गुप्त बात अधिनियम, 1923"
+        }
+      },
+      "difficulty": "easy",
+      "reviewed": true,
+      "reviewState": "approved",
+      "tags": [
+        "generated",
+        "cloze",
+        "definedterm"
+      ],
+      "verify": true,
+      "version": "1.0.0",
+      "source": {
+        "name": "Ministry of Home Affairs — The Official Secrets Act, 1923",
+        "url": "https://www.mha.gov.in/sites/default/files/Official_Secret_Act1923_2.pdf"
+      },
+      "reviewNote": "Section 5(1) — 'secret official code or pass word' is the category the section protects."
+    },
+    {
+      "id": "osa-cloze-6-1",
+      "act": "osa",
+      "rule": "6",
+      "kind": "cloze",
+      "front": {
+        "en": "(3) A person guilty of an offence under this section shall be punishable with imprisonment for a term which may extend to 1*[____], or with fine, or with both.",
+        "hi": ""
+      },
+      "back": {
+        "en": "three years",
+        "hi": ""
+      },
+      "cloze": {
+        "text": {
+          "en": "(3) A person guilty of an offence under this section shall be punishable with imprisonment for a term which may extend to 1*[____], or with fine, or with both.",
+          "hi": ""
+        },
+        "answer": {
+          "en": "three years",
+          "hi": ""
+        }
+      },
+      "ruleRef": {
+        "textId": "osa-6",
+        "citation": {
+          "en": "Section 6, Official Secrets Act, 1923",
+          "hi": "धारा 6, शासकीय गुप्त बात अधिनियम, 1923"
+        }
+      },
+      "difficulty": "medium",
+      "reviewed": true,
+      "reviewState": "rejected",
+      "tags": [
+        "generated",
+        "cloze",
+        "duration"
+      ],
+      "verify": true,
+      "version": "1.0.0",
+      "source": {
+        "name": "Ministry of Home Affairs — The Official Secrets Act, 1923",
+        "url": "https://www.mha.gov.in/sites/default/files/Official_Secret_Act1923_2.pdf"
+      },
+      "reviewNote": "The stem is 'may extend to 1*[____]' — the blank sits inside an amendment bracket."
+    },
+    {
+      "id": "osa-cloze-6-2",
+      "act": "osa",
+      "rule": "6",
+      "kind": "cloze",
+      "front": {
+        "en": "(4) The provisions of sub-section (2) of ____ shall apply, for the purpose of proving a purpose prejudicial to the safety of the State, to any prosecution for an offence under this section relating to the",
+        "hi": "धारा 6(4) — राज्य की सुरक्षा के प्रतिकूल प्रयोजन सिद्ध करने के लिए ____ की उपधारा (2) के उपबंध इस धारा के अधीन किसी अभियोजन को लागू होंगे।"
+      },
+      "back": {
+        "en": "section 3",
+        "hi": "धारा 3"
+      },
+      "cloze": {
+        "text": {
+          "en": "(4) The provisions of sub-section (2) of ____ shall apply, for the purpose of proving a purpose prejudicial to the safety of the State, to any prosecution for an offence under this section relating to the",
+          "hi": "धारा 6(4) — राज्य की सुरक्षा के प्रतिकूल प्रयोजन सिद्ध करने के लिए ____ की उपधारा (2) के उपबंध इस धारा के अधीन किसी अभियोजन को लागू होंगे।"
+        },
+        "answer": {
+          "en": "section 3",
+          "hi": "धारा 3"
+        }
+      },
+      "ruleRef": {
+        "textId": "osa-6",
+        "citation": {
+          "en": "Section 6, Official Secrets Act, 1923",
+          "hi": "धारा 6, शासकीय गुप्त बात अधिनियम, 1923"
+        }
+      },
+      "difficulty": "hard",
+      "reviewed": true,
+      "reviewState": "approved",
+      "tags": [
+        "generated",
+        "cloze",
+        "crossreference"
+      ],
+      "verify": true,
+      "version": "1.0.0",
+      "source": {
+        "name": "Ministry of Home Affairs — The Official Secrets Act, 1923",
+        "url": "https://www.mha.gov.in/sites/default/files/Official_Secret_Act1923_2.pdf"
+      },
+      "reviewNote": "Section 6(4) borrows the presumption in section 3(2); the cross-reference is the point."
+    },
+    {
+      "id": "osa-cloze-6-3",
+      "act": "osa",
+      "rule": "6",
+      "kind": "cloze",
+      "front": {
+        "en": "by Act 42 of 1971, S.6 ?(during emergency and ____ months thereafter.",
+        "hi": ""
+      },
+      "back": {
+        "en": "six",
+        "hi": ""
+      },
+      "cloze": {
+        "text": {
+          "en": "by Act 42 of 1971, S.6 ?(during emergency and ____ months thereafter.",
+          "hi": ""
+        },
+        "answer": {
+          "en": "six",
+          "hi": ""
+        }
+      },
+      "ruleRef": {
+        "textId": "osa-6",
+        "citation": {
+          "en": "Section 6, Official Secrets Act, 1923",
+          "hi": "धारा 6, शासकीय गुप्त बात अधिनियम, 1923"
+        }
+      },
+      "difficulty": "easy",
+      "reviewed": true,
+      "reviewState": "rejected",
+      "tags": [
+        "generated",
+        "cloze",
+        "count"
+      ],
+      "verify": true,
+      "version": "1.0.0",
+      "source": {
+        "name": "Ministry of Home Affairs — The Official Secrets Act, 1923",
+        "url": "https://www.mha.gov.in/sites/default/files/Official_Secret_Act1923_2.pdf"
+      },
+      "reviewNote": "The stem is an amendment note: 'by Act 42 of 1971, S.6 ?(during emergency and ____ months thereafter'."
+    },
+    {
+      "id": "osa-cloze-7-1",
+      "act": "osa",
+      "rule": "7",
+      "kind": "cloze",
+      "front": {
+        "en": "(1) No person in the vicinity of any ____ shall obstruct, knowingly mislead or otherwise interfere with or impede, --- 1 Subs.",
+        "hi": "धारा 7(1) — किसी ____ के निकट कोई व्यक्ति संतरी, गश्त या इसी प्रकार की ड्यूटी पर लगे पुलिस अधिकारियों या सशस्त्र बलों के सदस्यों के कार्य में बाधा नहीं डालेगा।"
+      },
+      "back": {
+        "en": "prohibited place",
+        "hi": "प्रतिषिद्ध स्थान"
+      },
+      "cloze": {
+        "text": {
+          "en": "(1) No person in the vicinity of any ____ shall obstruct, knowingly mislead or otherwise interfere with or impede, --- 1 Subs.",
+          "hi": "धारा 7(1) — किसी ____ के निकट कोई व्यक्ति संतरी, गश्त या इसी प्रकार की ड्यूटी पर लगे पुलिस अधिकारियों या सशस्त्र बलों के सदस्यों के कार्य में बाधा नहीं डालेगा।"
+        },
+        "answer": {
+          "en": "prohibited place",
+          "hi": "प्रतिषिद्ध स्थान"
+        }
+      },
+      "ruleRef": {
+        "textId": "osa-7",
+        "citation": {
+          "en": "Section 7, Official Secrets Act, 1923",
+          "hi": "धारा 7, शासकीय गुप्त बात अधिनियम, 1923"
+        }
+      },
+      "difficulty": "easy",
+      "reviewed": true,
+      "reviewState": "approved",
+      "tags": [
+        "generated",
+        "cloze",
+        "definedterm"
+      ],
+      "verify": true,
+      "version": "1.0.0",
+      "source": {
+        "name": "Ministry of Home Affairs — The Official Secrets Act, 1923",
+        "url": "https://www.mha.gov.in/sites/default/files/Official_Secret_Act1923_2.pdf"
+      },
+      "reviewNote": "Section 7 protects the vicinity of a prohibited place — a defined term."
+    },
+    {
+      "id": "osa-cloze-8-1",
+      "act": "osa",
+      "rule": "8",
+      "kind": "cloze",
+      "front": {
+        "en": "sentry, patrol or other similar duty, any information in his power relating to an offence or suspected offence under section 3 or under section 3 read with ____ and, if so required, and upon tender of his reasonable expenses, to attend at such reasonable time and place as may be specified for the purpose of furnishing",
+        "hi": "धारा 8(1) — प्रत्येक व्यक्ति का कर्तव्य है कि वह धारा 3 के अधीन अथवा धारा 3 को ____ के साथ पढ़ने पर होने वाले अपराध से संबंधित अपनी जानकारी दे।"
+      },
+      "back": {
+        "en": "section 9",
+        "hi": "धारा 9"
+      },
+      "cloze": {
+        "text": {
+          "en": "sentry, patrol or other similar duty, any information in his power relating to an offence or suspected offence under section 3 or under section 3 read with ____ and, if so required, and upon tender of his reasonable expenses, to attend at such reasonable time and place as may be specified for the purpose of furnishing",
+          "hi": "धारा 8(1) — प्रत्येक व्यक्ति का कर्तव्य है कि वह धारा 3 के अधीन अथवा धारा 3 को ____ के साथ पढ़ने पर होने वाले अपराध से संबंधित अपनी जानकारी दे।"
+        },
+        "answer": {
+          "en": "section 9",
+          "hi": "धारा 9"
+        }
+      },
+      "ruleRef": {
+        "textId": "osa-8",
+        "citation": {
+          "en": "Section 8, Official Secrets Act, 1923",
+          "hi": "धारा 8, शासकीय गुप्त बात अधिनियम, 1923"
+        }
+      },
+      "difficulty": "hard",
+      "reviewed": true,
+      "reviewState": "approved",
+      "tags": [
+        "generated",
+        "cloze",
+        "crossreference"
+      ],
+      "verify": true,
+      "version": "1.0.0",
+      "source": {
+        "name": "Ministry of Home Affairs — The Official Secrets Act, 1923",
+        "url": "https://www.mha.gov.in/sites/default/files/Official_Secret_Act1923_2.pdf"
+      },
+      "reviewNote": "Section 8 — the duty to give information covers section 3 read with section 9 (attempts and abetment)."
+    },
+    {
+      "id": "osa-cloze-10-1",
+      "act": "osa",
+      "rule": "10",
+      "kind": "cloze",
+      "front": {
+        "en": "or has reasonable grounds for supposing to be a person who is about to commit or who has committed an offence under section 3 or under section 3 read with ____ or knowingly permits to meet or assemble in any premises in his occupation or under his control any such persons, he shall be guilty of an offence under this s",
+        "hi": ""
+      },
+      "back": {
+        "en": "section 9",
+        "hi": ""
+      },
+      "cloze": {
+        "text": {
+          "en": "or has reasonable grounds for supposing to be a person who is about to commit or who has committed an offence under section 3 or under section 3 read with ____ or knowingly permits to meet or assemble in any premises in his occupation or under his control any such persons, he shall be guilty of an offence under this s",
+          "hi": ""
+        },
+        "answer": {
+          "en": "section 9",
+          "hi": ""
+        }
+      },
+      "ruleRef": {
+        "textId": "osa-10",
+        "citation": {
+          "en": "Section 10, Official Secrets Act, 1923",
+          "hi": "धारा 10, शासकीय गुप्त बात अधिनियम, 1923"
+        }
+      },
+      "difficulty": "hard",
+      "reviewed": true,
+      "reviewState": "rejected",
+      "tags": [
+        "generated",
+        "cloze",
+        "crossreference"
+      ],
+      "verify": true,
+      "version": "1.0.0",
+      "source": {
+        "name": "Ministry of Home Affairs — The Official Secrets Act, 1923",
+        "url": "https://www.mha.gov.in/sites/default/files/Official_Secret_Act1923_2.pdf"
+      },
+      "reviewNote": "Same answer and near-identical stem as osa-cloze-8-1; the pair would be scheduled as two cards and read as one."
+    },
+    {
+      "id": "osa-cloze-11-1",
+      "act": "osa",
+      "rule": "11",
+      "kind": "cloze",
+      "front": {
+        "en": "any of the said sections 3, 5 and 7 read with section 9, as they apply in relation to an offence punishable with imprisonment for a term which may extend to ____.]",
+        "hi": "धारा 11 — धारा 3, 5 और 7 के, तथा उन्हें धारा 9 के साथ पढ़े जाने पर होने वाले अपराधों के संबंध में वे उपबंध वैसे ही लागू होंगे जैसे ____ तक के कारावास से दंडनीय अपराध के संबंध में।"
+      },
+      "back": {
+        "en": "seven years",
+        "hi": "सात वर्ष"
+      },
+      "cloze": {
+        "text": {
+          "en": "any of the said sections 3, 5 and 7 read with section 9, as they apply in relation to an offence punishable with imprisonment for a term which may extend to ____.]",
+          "hi": "धारा 11 — धारा 3, 5 और 7 के, तथा उन्हें धारा 9 के साथ पढ़े जाने पर होने वाले अपराधों के संबंध में वे उपबंध वैसे ही लागू होंगे जैसे ____ तक के कारावास से दंडनीय अपराध के संबंध में।"
+        },
+        "answer": {
+          "en": "seven years",
+          "hi": "सात वर्ष"
+        }
+      },
+      "ruleRef": {
+        "textId": "osa-11",
+        "citation": {
+          "en": "Section 11, Official Secrets Act, 1923",
+          "hi": "धारा 11, शासकीय गुप्त बात अधिनियम, 1923"
+        }
+      },
+      "difficulty": "medium",
+      "reviewed": true,
+      "reviewState": "approved",
+      "tags": [
+        "generated",
+        "cloze",
+        "duration"
+      ],
+      "verify": true,
+      "version": "1.0.0",
+      "source": {
+        "name": "Ministry of Home Affairs — The Official Secrets Act, 1923",
+        "url": "https://www.mha.gov.in/sites/default/files/Official_Secret_Act1923_2.pdf"
+      },
+      "reviewNote": "Section 11's search-warrant machinery is keyed to offences punishable with seven years."
+    },
+    {
+      "id": "osa-cloze-11-2",
+      "act": "osa",
+      "rule": "11",
+      "kind": "cloze",
+      "front": {
+        "en": "Provisions of ____ of Act 5 of 1898 to apply to offences under sections 3, 5 and 7.The provisions of section 337 of the Code of Criminal Procedure, 1898 number shall apply in rel",
+        "hi": ""
+      },
+      "back": {
+        "en": "section 337",
+        "hi": ""
+      },
+      "cloze": {
+        "text": {
+          "en": "Provisions of ____ of Act 5 of 1898 to apply to offences under sections 3, 5 and 7.The provisions of section 337 of the Code of Criminal Procedure, 1898 number shall apply in rel",
+          "hi": ""
+        },
+        "answer": {
+          "en": "section 337",
+          "hi": ""
+        }
+      },
+      "ruleRef": {
+        "textId": "osa-11",
+        "citation": {
+          "en": "Section 11, Official Secrets Act, 1923",
+          "hi": "धारा 11, शासकीय गुप्त बात अधिनियम, 1923"
+        }
+      },
+      "difficulty": "hard",
+      "reviewed": true,
+      "reviewState": "rejected",
+      "tags": [
+        "generated",
+        "cloze",
+        "crossreference"
+      ],
+      "verify": true,
+      "version": "1.0.0",
+      "source": {
+        "name": "Ministry of Home Affairs — The Official Secrets Act, 1923",
+        "url": "https://www.mha.gov.in/sites/default/files/Official_Secret_Act1923_2.pdf"
+      },
+      "reviewNote": "The stem repeats the answer in the very next clause — 'The provisions of section 337 of the Code of Criminal Procedure'."
+    },
+    {
+      "id": "osa-cloze-11-3",
+      "act": "osa",
+      "rule": "11",
+      "kind": "cloze",
+      "front": {
+        "en": "by information on oath that there is reasonable ground for suspecting that an offence under this Act has been or is about to be committed, he may grant a ____ authorising any police-officer named therein, not being below the rank of an officer in charge of a police- station, to enter at any time any premises or place",
+        "hi": "धारा 11 — शपथ पर दी गई इत्तिला से यह विश्वास करने का उचित आधार होने पर कि इस अधिनियम के अधीन कोई अपराध किया गया है, मजिस्ट्रेट किसी नामित पुलिस अधिकारी को प्राधिकृत करते हुए ____ दे सकेगा।"
+      },
+      "back": {
+        "en": "search warrant",
+        "hi": "तलाशी वारंट"
+      },
+      "cloze": {
+        "text": {
+          "en": "by information on oath that there is reasonable ground for suspecting that an offence under this Act has been or is about to be committed, he may grant a ____ authorising any police-officer named therein, not being below the rank of an officer in charge of a police- station, to enter at any time any premises or place",
+          "hi": "धारा 11 — शपथ पर दी गई इत्तिला से यह विश्वास करने का उचित आधार होने पर कि इस अधिनियम के अधीन कोई अपराध किया गया है, मजिस्ट्रेट किसी नामित पुलिस अधिकारी को प्राधिकृत करते हुए ____ दे सकेगा।"
+        },
+        "answer": {
+          "en": "search warrant",
+          "hi": "तलाशी वारंट"
+        }
+      },
+      "ruleRef": {
+        "textId": "osa-11",
+        "citation": {
+          "en": "Section 11, Official Secrets Act, 1923",
+          "hi": "धारा 11, शासकीय गुप्त बात अधिनियम, 1923"
+        }
+      },
+      "difficulty": "easy",
+      "reviewed": true,
+      "reviewState": "approved",
+      "tags": [
+        "generated",
+        "cloze",
+        "definedterm"
+      ],
+      "verify": true,
+      "version": "1.0.0",
+      "source": {
+        "name": "Ministry of Home Affairs — The Official Secrets Act, 1923",
+        "url": "https://www.mha.gov.in/sites/default/files/Official_Secret_Act1923_2.pdf"
+      },
+      "reviewNote": "Section 11 is the search-warrant section and the term is what a Magistrate grants."
+    },
+    {
+      "id": "osa-cloze-13-1",
+      "act": "osa",
+      "rule": "13",
+      "kind": "cloze",
+      "front": {
+        "en": "6*(5) In this section, the appropriate Government means- (a) in relation to any offences under ____ not connected with a prohibited place or with a foreign power, the State Government; and (b) in relation to any other offence, the Central Government.]",
+        "hi": "धारा 13(5) — ____ के अधीन ऐसे अपराधों के संबंध में जो किसी प्रतिषिद्ध स्थान या किसी विदेशी शक्ति से संबद्ध नहीं हैं, \"समुचित सरकार\" से राज्य सरकार अभिप्रेत है।"
+      },
+      "back": {
+        "en": "section 5",
+        "hi": "धारा 5"
+      },
+      "cloze": {
+        "text": {
+          "en": "6*(5) In this section, the appropriate Government means- (a) in relation to any offences under ____ not connected with a prohibited place or with a foreign power, the State Government; and (b) in relation to any other offence, the Central Government.]",
+          "hi": "धारा 13(5) — ____ के अधीन ऐसे अपराधों के संबंध में जो किसी प्रतिषिद्ध स्थान या किसी विदेशी शक्ति से संबद्ध नहीं हैं, \"समुचित सरकार\" से राज्य सरकार अभिप्रेत है।"
+        },
+        "answer": {
+          "en": "section 5",
+          "hi": "धारा 5"
+        }
+      },
+      "ruleRef": {
+        "textId": "osa-13",
+        "citation": {
+          "en": "Section 13, Official Secrets Act, 1923",
+          "hi": "धारा 13, शासकीय गुप्त बात अधिनियम, 1923"
+        }
+      },
+      "difficulty": "hard",
+      "reviewed": true,
+      "reviewState": "approved",
+      "tags": [
+        "generated",
+        "cloze",
+        "crossreference"
+      ],
+      "verify": true,
+      "version": "1.0.0",
+      "source": {
+        "name": "Ministry of Home Affairs — The Official Secrets Act, 1923",
+        "url": "https://www.mha.gov.in/sites/default/files/Official_Secret_Act1923_2.pdf"
+      },
+      "reviewNote": "Section 13(5) — which Government may sanction depends on whether the offence is under section 5 and unconnected with a prohibited place."
+    },
+    {
+      "id": "osa-cloze-13-2",
+      "act": "osa",
+      "rule": "13",
+      "kind": "cloze",
+      "front": {
+        "en": "6*(5) In this section, the appropriate Government means- (a) in relation to any offences under section 5 not connected with a ____ or with a foreign power, the State Government; and (b) in relation to any other offence, the Central Government.]",
+        "hi": ""
+      },
+      "back": {
+        "en": "prohibited place",
+        "hi": ""
+      },
+      "cloze": {
+        "text": {
+          "en": "6*(5) In this section, the appropriate Government means- (a) in relation to any offences under section 5 not connected with a ____ or with a foreign power, the State Government; and (b) in relation to any other offence, the Central Government.]",
+          "hi": ""
+        },
+        "answer": {
+          "en": "prohibited place",
+          "hi": ""
+        }
+      },
+      "ruleRef": {
+        "textId": "osa-13",
+        "citation": {
+          "en": "Section 13, Official Secrets Act, 1923",
+          "hi": "धारा 13, शासकीय गुप्त बात अधिनियम, 1923"
+        }
+      },
+      "difficulty": "easy",
+      "reviewed": true,
+      "reviewState": "rejected",
+      "tags": [
+        "generated",
+        "cloze",
+        "definedterm"
+      ],
+      "verify": true,
+      "version": "1.0.0",
+      "source": {
+        "name": "Ministry of Home Affairs — The Official Secrets Act, 1923",
+        "url": "https://www.mha.gov.in/sites/default/files/Official_Secret_Act1923_2.pdf"
+      },
+      "reviewNote": "Same sentence as osa-cloze-13-1, blanked on the other half. Approving both looked like covering two halves of the test; the duplicate-front check in tests/rules-data.test.ts scored the pair at 93.1 and it is right — a reader meeting them in one session reads them as one card asked twice."
+    }
+  ]
+}

@@ -1,0 +1,647 @@
+{
+  "_note": "Hand review of the generated cloze cards for the CCS (Leave) Rules, 1972. This is the rule book with the densest numbers in the corpus and the highest yield: the durations and the credit rates ARE the rules. Two blanks that fell inside a compound number ('twenty-four months' cut to 'four months', 'twenty-eight months' cut to 'eight months') are repaired with an `edit` rather than dropped. Every card citing a maternity-leave figure of 135 days is rejected: that is the pre-2017 position appearing in an amendment note, and the current entitlement is 180 days.",
+
+  "ccs-leave-cloze-3-1": {
+    "verdict": "reject",
+    "reason": "The stem is a fragment of the First Schedule's column layout."
+  },
+  "ccs-leave-cloze-3-2": { "verdict": "reject", "reason": "Same Schedule fragment." },
+  "ccs-leave-cloze-4-1": {
+    "verdict": "approve",
+    "reason": "Rule 4 — these rules keep applying on temporary transfer and on foreign service.",
+    "hi": {
+      "text": "नियम 4(1) — जिन सरकारी सेवकों को ये नियम लागू होते हैं, वे भारतीय रेल या किसी राज्य सरकार में अस्थायी स्थानांतरण के दौरान तथा ____ पर रहते हुए भी इन्हीं नियमों से शासित होते रहेंगे।",
+      "answer": "विदेश सेवा"
+    }
+  },
+  "ccs-leave-cloze-5-1": {
+    "verdict": "approve",
+    "reason": "Rule 5 — leave carried forward on transfer is capped by the accumulation limits in Rule 26.",
+    "hi": {
+      "text": "नियम 5 — पूर्ववर्ती नियमों के अधीन जमा छुट्टी आगे ले जाई जाएगी, किंतु ____ में यथाविहित संचयन की अधिकतम सीमाओं के अधीन रहते हुए।",
+      "answer": "नियम 26"
+    }
+  },
+  "ccs-leave-cloze-5-2": {
+    "verdict": "reject",
+    "reason": "The stem trails into a DoPT notification number; the sentence is a citation, not a rule."
+  },
+  "ccs-leave-cloze-6-1": {
+    "verdict": "approve",
+    "reason": "Rule 6 — the 300-day ceiling on cash equivalent, the single most-cited number in this rule book.",
+    "hi": {
+      "text": "नियम 6 — छुट्टी मंजूर करने के लिए सक्षम प्राधिकारी स्वप्रेरणा से जमा अर्जित छुट्टी और अर्ध वेतन छुट्टी के लिए छुट्टी वेतन के समतुल्य नकद मंजूर करने का आदेश जारी करेगा, जो अधिकतम ____ के अध्यधीन होगा।",
+      "answer": "300 दिन"
+    }
+  },
+  "ccs-leave-cloze-6-2": {
+    "verdict": "reject",
+    "reason": "A self-reference to Rule 39 inside a proviso about modification; the sentence gives no way to recover the number."
+  },
+  "ccs-leave-cloze-6-3": {
+    "verdict": "reject",
+    "reason": "The stem repeats 'cash equivalent of leave salary' in the clause that follows the blank."
+  },
+  "ccs-leave-cloze-7-1": {
+    "verdict": "approve",
+    "reason": "Rule 7 proviso — leave applied for under Rule 20 (unlikely to be fit to return) cannot be refused without the Medical Authority.",
+    "hi": {
+      "text": "नियम 7 का परंतुक — ____ के अधीन आवेदित छुट्टी चिकित्सा प्राधिकारी को निर्देश किए बिना न तो अस्वीकार की जाएगी और न प्रतिसंहृत, और उसकी सलाह बंधनकारी होगी।",
+      "answer": "नियम 20"
+    }
+  },
+  "ccs-leave-cloze-7-2": {
+    "verdict": "approve",
+    "reason": "The same proviso, blanked on the body whose advice binds — the point officers miss is that it binds.",
+    "hi": {
+      "text": "नियम 7 का परंतुक — नियम 20 के अधीन आवेदित छुट्टी ____ को निर्देश किए बिना अस्वीकार या प्रतिसंहृत नहीं की जाएगी, और उसकी सलाह बंधनकारी होगी।",
+      "answer": "चिकित्सा प्राधिकारी"
+    }
+  },
+  "ccs-leave-cloze-9-1": {
+    "verdict": "approve",
+    "reason": "Rule 9 — leave at credit lapses on dismissal, removal or resignation, except as Rule 39 provides.",
+    "hi": {
+      "text": "नियम 9(1) — ____ और इस नियम में यथाउपबंधित के सिवाय, ऐसे सरकारी सेवक की जमा छुट्टी का दावा समाप्त हो जाता है जो पदच्युत या हटाया जाता है अथवा सेवा से त्यागपत्र देता है।",
+      "answer": "नियम 39"
+    }
+  },
+  "ccs-leave-cloze-10-1": {
+    "verdict": "reject",
+    "reason": "The stem is truncated before the request it describes, so the thirty-day period has nothing to attach to."
+  },
+  "ccs-leave-cloze-10-2": {
+    "verdict": "approve",
+    "reason": "The Note to Rule 10 — extraordinary leave may be retrospectively commuted into leave not due, subject to Rule 31's limits.",
+    "hi": {
+      "text": "नियम 10 की टिप्पणी — चिकित्सा प्रमाणपत्र पर या अन्यथा मंजूर असाधारण छुट्टी ____ के उपबंधों के अधीन रहते हुए भूतलक्षी प्रभाव से अदेय छुट्टी में संपरिवर्तित की जा सकेगी।",
+      "answer": "नियम 31"
+    }
+  },
+  "ccs-leave-cloze-10-3": {
+    "verdict": "reject",
+    "reason": "Answer is 'one', blanked out of 'one kind of leave into another'."
+  },
+  "ccs-leave-cloze-11-1": {
+    "verdict": "approve",
+    "reason": "The Explanation to Rule 11 — casual leave is not leave under these rules and cannot be combined with any leave that is.",
+    "hi": {
+      "text": "नियम 11 का स्पष्टीकरण — ____, जो इन नियमों के अधीन छुट्टी के रूप में मान्य नहीं है, इन नियमों के अधीन अनुज्ञेय किसी अन्य प्रकार की छुट्टी के साथ संयोजित नहीं की जाएगी।",
+      "answer": "आकस्मिक छुट्टी"
+    }
+  },
+  "ccs-leave-cloze-12-1": {
+    "verdict": "approve",
+    "reason": "Rule 12(1) — the five-year cap on continuous leave of any kind.",
+    "hi": {
+      "text": "नियम 12(1) — किसी सरकारी सेवक को ____ से अधिक की लगातार अवधि के लिए किसी भी प्रकार की छुट्टी मंजूर नहीं की जाएगी।",
+      "answer": "पाँच वर्ष"
+    }
+  },
+  "ccs-leave-cloze-12-2": {
+    "verdict": "reject",
+    "reason": "Answer is 'duty', which the surrounding sentence uses twice."
+  },
+  "ccs-leave-cloze-13-1": {
+    "verdict": "approve",
+    "reason": "Rule 13 — employment with a PSU during leave is governed by Rule 38(2)(a).",
+    "hi": {
+      "text": "नियम 13 — सरकारी सेवक को किसी लोक क्षेत्र उपक्रम या ____ के उपनियम (2) के खंड (क) में निर्दिष्ट निकाय में नियोजन लेने की अनुमति दी जा सकेगी।",
+      "answer": "नियम 38"
+    }
+  },
+  "ccs-leave-cloze-13-2": {
+    "verdict": "reject",
+    "reason": "The stem names 'leave preparatory to retirement' in a parenthesis of its own sentence."
+  },
+  "ccs-leave-cloze-14-1": {
+    "verdict": "reject",
+    "reason": "A cross-reference to another Act's section inside a list of guardians; the sentence gives no way to recover it."
+  },
+  "ccs-leave-cloze-14-2": {
+    "verdict": "reject",
+    "reason": "The stem repeats 'medical certificate' immediately after the blank."
+  },
+  "ccs-leave-cloze-15-1": {
+    "verdict": "reject",
+    "reason": "The stem names the leave account in Rule 15's own heading; nothing is recalled."
+  },
+  "ccs-leave-cloze-16-1": {
+    "verdict": "approve",
+    "reason": "Rule 16 — a provisional sanction pending verification may not exceed sixty days.",
+    "hi": {
+      "text": "नियम 16 — उपलब्ध जानकारी के आधार पर छुट्टी मंजूर करने वाला प्राधिकारी ____ से अनधिक अवधि के लिए छुट्टी की अनंतिम मंजूरी जारी कर सकेगा।",
+      "answer": "साठ दिन"
+    }
+  },
+  "ccs-leave-cloze-16-2": {
+    "verdict": "reject",
+    "reason": "Duplicate of ccs-leave-cloze-15-1's weakness — the leave account is the rule's own subject."
+  },
+  "ccs-leave-cloze-19-1": {
+    "verdict": "approve",
+    "reason": "Rule 19(6) — the medical certificate may be waived for leave of not more than three days.",
+    "hi": {
+      "text": "नियम 19(6) — छुट्टी मंजूर करने के लिए सक्षम प्राधिकारी स्वविवेक से ____ से अनधिक अवधि की छुट्टी के आवेदन में चिकित्सा प्रमाणपत्र प्रस्तुत करने की अपेक्षा से छूट दे सकेगा।",
+      "answer": "तीन दिन"
+    }
+  },
+  "ccs-leave-cloze-19-2": {
+    "verdict": "approve",
+    "reason": "Rule 19 — a Registered Medical Practitioner will do only where no Authorised Medical Attendant is within eight kilometres.",
+    "hi": {
+      "text": "नियम 19 — चिकित्सा प्रमाणपत्र रजिस्ट्रीकृत चिकित्सा व्यवसायी द्वारा तब दिया जा सकेगा जब सरकारी सेवक के निवास से ____ किलोमीटर की परिधि में कोई प्राधिकृत चिकित्सा परिचारक उपलब्ध न हो।",
+      "answer": "आठ"
+    }
+  },
+  "ccs-leave-cloze-19-3": {
+    "verdict": "reject",
+    "reason": "The stem trails into a DoPT notification number and the blank sits in the rule's own heading."
+  },
+  "ccs-leave-cloze-20-1": {
+    "verdict": "approve",
+    "reason": "Rule 20 — where the Medical Authority cannot say the servant will never be fit, leave is granted twelve months at a time.",
+    "hi": {
+      "text": "नियम 20 — जहाँ चिकित्सा प्राधिकारी निश्चयपूर्वक यह नहीं कह सकता कि नि:शक्तता प्राप्त सरकारी सेवक फिर कभी सेवा योग्य नहीं होगा, वहाँ एक बार में ____ से अनधिक छुट्टी मंजूर की जा सकेगी।",
+      "answer": "बारह मास"
+    }
+  },
+  "ccs-leave-cloze-20-2": {
+    "verdict": "approve",
+    "reason": "Rule 20 — the Medical Authority is the one specified in Rule 19, not any doctor.",
+    "hi": {
+      "text": "नियम 20 — यदि सरकारी सेवक को ____ में यथाविनिर्दिष्ट चिकित्सा प्राधिकारी द्वारा नि:शक्तता प्राप्त घोषित किया जाता है, तो यह उपबंध लागू होगा।",
+      "answer": "नियम 19"
+    }
+  },
+  "ccs-leave-cloze-20-3": {
+    "verdict": "reject",
+    "reason": "The stem names the Medical Authority in Rule 20's own heading."
+  },
+  "ccs-leave-cloze-21-1": {
+    "verdict": "approve",
+    "reason": "Rule 21 — leave begins on the day charge is handed over, except where Rule 22 lets a holiday be prefixed.",
+    "hi": {
+      "text": "नियम 21 — ____ में यथाउपबंधित के सिवाय, छुट्टी साधारणतया उस दिन आरंभ होती है जिस दिन कार्यभार का अंतरण किया जाता है और उस दिन से ठीक पहले समाप्त होती है जिस दिन कार्यभार पुनः ग्रहण किया जाता है।",
+      "answer": "नियम 22"
+    }
+  },
+  "ccs-leave-cloze-22-1": { "verdict": "reject", "reason": "Answer is 'duty', used twice more in the stem." },
+  "ccs-leave-cloze-23-1": {
+    "verdict": "reject",
+    "reason": "The stem is a fragment of a list about passage refunds; the three-month period has nothing to attach to."
+  },
+  "ccs-leave-cloze-23-2": {
+    "verdict": "reject",
+    "reason": "Answer is 'leave salary', the rule book's most repeated phrase, in a sentence about travelling allowance."
+  },
+  "ccs-leave-cloze-24-1": {
+    "verdict": "reject",
+    "reason": "The stem is a fragment of a list of exceptions to the Medical Board requirement."
+  },
+  "ccs-leave-cloze-24-2": {
+    "verdict": "approve",
+    "reason": "Rule 24(2) — a servant on leave preparatory to retirement cannot return to duty without consent. Officers assume they can.",
+    "hi": {
+      "text": "नियम 24(2) — उपनियम (1) में किसी बात के होते हुए भी, ____ पर गया सरकारी सेवक छुट्टी मंजूर करने के लिए सक्षम प्राधिकारी की सहमति के बिना ड्यूटी पर नहीं लौट सकेगा।",
+      "answer": "सेवानिवृत्ति पूर्व छुट्टी"
+    }
+  },
+  "ccs-leave-cloze-25-1": {
+    "verdict": "approve",
+    "reason": "Rule 25 — overstayal is debited as half pay leave, which is the consequence officers do not expect.",
+    "hi": {
+      "text": "नियम 25 — छुट्टी की समाप्ति के पश्चात् अनुपस्थित रहने वाला सरकारी सेवक उस अवधि के लिए किसी छुट्टी वेतन का हकदार नहीं होगा और वह अवधि उसके छुट्टी लेखे में ____ के रूप में नामे डाली जाएगी।",
+      "answer": "अर्ध वेतन छुट्टी"
+    }
+  },
+  "ccs-leave-cloze-26-1": {
+    "verdict": "approve",
+    "reason": "Rule 26(1) — earned leave is credited in advance in two instalments of 15 days each.",
+    "hi": {
+      "text": "नियम 26(1) — अवकाश विभाग से भिन्न विभाग में सेवारत सरकारी सेवक के छुट्टी लेखे में अर्जित छुट्टी अग्रिम रूप से ____ की दो किश्तों में जमा की जाएगी।",
+      "answer": "15 दिन"
+    }
+  },
+  "ccs-leave-cloze-26-2": {
+    "verdict": "reject",
+    "reason": "The blank cites Rule 5 of a different rule book (the CCS Joining Time Rules); the stem does not say so."
+  },
+  "ccs-leave-cloze-26-3": {
+    "verdict": "approve",
+    "reason": "The other half of Rule 26(1) — two instalments, on 1 January and 1 July.",
+    "hi": {
+      "text": "नियम 26(1) — अर्जित छुट्टी 15-15 दिन की ____ किश्तों में, प्रत्येक कैलेंडर वर्ष की 1 जनवरी और 1 जुलाई को, अग्रिम रूप से जमा की जाएगी।",
+      "answer": "दो"
+    }
+  },
+  "ccs-leave-cloze-27-1": {
+    "verdict": "approve",
+    "reason": "Rule 27 — the credit is reduced by one-tenth of the extraordinary leave or dies non, subject to a 15-day maximum.",
+    "hi": {
+      "text": "नियम 27 — अगले अर्धवर्ष के आरंभ में जमा की जाने वाली अर्जित छुट्टी ऐसी छुट्टी या दिवसों की अवधि के 1/10 से कम की जाएगी, जो अधिकतम ____ के अध्यधीन होगी।",
+      "answer": "15 दिन"
+    }
+  },
+  "ccs-leave-cloze-27-2": {
+    "verdict": "approve",
+    "reason": "Rule 27(1) — 2½ days for each completed calendar month is the accrual rate.",
+    "hi": {
+      "text": "नियम 27(1) — ____ सरकारी सेवक के छुट्टी लेखे में उस सेवा के प्रत्येक पूर्ण कैलेंडर मास के लिए 2½ दिन की दर से जमा की जाएगी जो वह अर्धवर्ष में देने की संभावना रखता है।",
+      "answer": "अर्जित छुट्टी"
+    }
+  },
+  "ccs-leave-cloze-28-1": {
+    "verdict": "approve",
+    "reason": "Rule 28 — a Vacation Department servant gets 5 days per instalment, not 15. The contrast with Rule 26 is the examinable point.",
+    "hi": {
+      "text": "नियम 28(1) — अवकाश विभाग में सेवारत सरकारी सेवक के छुट्टी लेखे में अर्जित छुट्टी ____ की दो किश्तों में जमा की जाएगी।",
+      "answer": "पाँच दिन"
+    }
+  },
+  "ccs-leave-cloze-28-2": {
+    "verdict": "approve",
+    "reason": "Rule 28(1)(c) — a Vacation Department servant who takes no vacation in a year is credited under Rule 26 instead.",
+    "hi": {
+      "text": "नियम 28(1)(ग) — यदि किसी वर्ष में सरकारी सेवक कोई अवकाश नहीं लेता, तो अर्जित छुट्टी खंड (क) और (ख) के स्थान पर ____ के अनुसार होगी।",
+      "answer": "नियम 26"
+    }
+  },
+  "ccs-leave-cloze-28-3": {
+    "verdict": "reject",
+    "reason": "Duplicate of ccs-leave-cloze-26-3 — the same 'two instalments' answer."
+  },
+  "ccs-leave-cloze-29-1": {
+    "verdict": "approve",
+    "reason": "Rule 29 — half pay leave is credited in two instalments of ten days each.",
+    "hi": {
+      "text": "नियम 29(1) — सरकारी सेवक के छुट्टी लेखे में अर्ध वेतन छुट्टी अग्रिम रूप से ____ की दो किश्तों में जमा की जाएगी।",
+      "answer": "दस दिन"
+    }
+  },
+  "ccs-leave-cloze-29-2": {
+    "verdict": "approve",
+    "reason": "Rule 29(3) — a servant eligible for Departmental Leave under Rule 49 gets twenty days of half pay leave instead.",
+    "hi": {
+      "text": "नियम 29(3) — ऐसा सरकारी सेवक जो ____ के अधीन विभागीय छुट्टी के लिए पात्र है, एक वर्ष की सेवा पूरी करने पर बीस दिन की अर्ध वेतन छुट्टी का हकदार होगा।",
+      "answer": "नियम 49"
+    }
+  },
+  "ccs-leave-cloze-29-3": {
+    "verdict": "reject",
+    "reason": "The stem names half pay leave in Rule 29's own heading."
+  },
+  "ccs-leave-cloze-30-1": {
+    "verdict": "approve",
+    "reason": "Rule 30(1-A) — up to 180 days of commuted leave in the whole career without a medical certificate.",
+    "hi": {
+      "text": "नियम 30(1-क) — संपूर्ण सेवा के दौरान अधिकतम ____ तक की अर्ध वेतन छुट्टी को चिकित्सा प्रमाणपत्र प्रस्तुत किए बिना संपरिवर्तित करने की अनुमति दी जा सकेगी।",
+      "answer": "180 दिन"
+    }
+  },
+  "ccs-leave-cloze-30-2": {
+    "verdict": "approve",
+    "reason": "Rule 30(1) — commuted leave is capped at half the half pay leave due and costs twice as much of it.",
+    "hi": {
+      "text": "नियम 30(1) — देय अर्ध वेतन छुट्टी की आधी मात्रा से अनधिक ____ चिकित्सा प्रमाणपत्र पर मंजूर की जा सकेगी।",
+      "answer": "संपरिवर्तित छुट्टी"
+    }
+  },
+  "ccs-leave-cloze-31-1": {
+    "verdict": "approve",
+    "reason": "Rule 31 — leave not due is limited to 360 days in the entire service.",
+    "hi": {
+      "text": "नियम 31 — स्थायी या अर्ध-स्थायी नियोजन वाले सरकारी सेवक को संपूर्ण सेवा के दौरान अधिकतम ____ तक अदेय छुट्टी मंजूर की जा सकेगी।",
+      "answer": "360 दिन"
+    }
+  },
+  "ccs-leave-cloze-31-2": {
+    "verdict": "approve",
+    "reason": "Rule 31 — the medical certificate for leave not due is the one described in Rule 32(2)(c) and (d).",
+    "hi": {
+      "text": "नियम 31 — अदेय छुट्टी के अनुरोध का समर्थन ____ के उपनियम (2) के खंड (ग) और (घ) में यथापरिकल्पित चिकित्सा प्रमाणपत्र से होना चाहिए।",
+      "answer": "नियम 32"
+    }
+  },
+  "ccs-leave-cloze-31-3": {
+    "verdict": "approve",
+    "reason": "Rule 31 — leave not due is not available as leave preparatory to retirement.",
+    "hi": {
+      "text": "नियम 31(1) — सेवानिवृत्ति पूर्व छुट्टी की दशा को छोड़कर, स्थायी या अर्ध-स्थायी नियोजन वाले सरकारी सेवक को ____ मंजूर की जा सकेगी।",
+      "answer": "अदेय छुट्टी"
+    }
+  },
+  "ccs-leave-cloze-32-1": {
+    "verdict": "approve",
+    "reason": "Rule 32(2) — the six-month limit for a servant not in permanent employ where the leave is on medical certificate.",
+    "hi": {
+      "text": "नियम 32(2) — स्थायी नियोजन में न रहने वाले सरकारी सेवक को एक अवसर पर तीन मास से अधिक असाधारण छुट्टी नहीं दी जाएगी; चिकित्सा प्रमाणपत्र पर यह सीमा ____ है।",
+      "answer": "छह मास"
+    }
+  },
+  "ccs-leave-cloze-32-2": {
+    "verdict": "reject",
+    "reason": "Answer is 'one', blanked out of 'on any one occasion'."
+  },
+  "ccs-leave-cloze-32-3": {
+    "verdict": "approve",
+    "reason": "Rule 32(1) — the three circumstances in which extraordinary leave may be granted.",
+    "hi": {
+      "text": "नियम 32(1) — सरकारी सेवक को ____ विशेष परिस्थितियों में मंजूर की जा सकेगी — जब कोई अन्य छुट्टी अनुज्ञेय न हो, अथवा जब अन्य छुट्टी अनुज्ञेय हो किंतु सरकारी सेवक लिखित रूप में यही माँगे।",
+      "answer": "असाधारण छुट्टी"
+    }
+  },
+  "ccs-leave-cloze-33-1": {
+    "verdict": "approve",
+    "reason": "Rule 33(3)(a) — an apprentice gets one month of medical leave in a year of apprenticeship, at half pay.",
+    "hi": {
+      "text": "नियम 33(3)(क) — शिक्षु किसी शिक्षुता वर्ष में ____ से अनधिक अवधि के लिए अर्ध वेतन के समतुल्य छुट्टी वेतन पर चिकित्सा प्रमाणपत्र पर छुट्टी का हकदार होगा।",
+      "answer": "एक मास"
+    }
+  },
+  "ccs-leave-cloze-33-2": {
+    "verdict": "reject",
+    "reason": "Duplicate of ccs-leave-cloze-33-1's sentence, blanked on the cross-reference instead."
+  },
+  "ccs-leave-cloze-33-3": {
+    "verdict": "reject",
+    "reason": "Same sentence again, blanked on 'extraordinary leave'."
+  },
+  "ccs-leave-cloze-38-1": {
+    "verdict": "approve",
+    "reason": "Rule 38 — leave preparatory to retirement is capped at 300 days of earned leave.",
+    "hi": {
+      "text": "नियम 38(1) — सरकारी सेवक को देय अर्जित छुट्टी की सीमा तक सेवानिवृत्ति पूर्व छुट्टी लेने की अनुमति दी जा सकेगी, जो ____ से अधिक नहीं होगी।",
+      "answer": "300 दिन"
+    }
+  },
+  "ccs-leave-cloze-38-2": {
+    "verdict": "reject",
+    "reason": "Duplicate of ccs-leave-cloze-38-1's sentence, blanked on 'earned leave'."
+  },
+  "ccs-leave-cloze-38a-1": {
+    "verdict": "approve",
+    "reason": "Rule 38A — ten days of earned leave may be encashed with LTC, subject to sixty days in the whole career.",
+    "hi": {
+      "text": "नियम 38क(1) — सेवाकाल में छुट्टी यात्रा रियायत लेते समय सरकारी सेवक को ____ तक की अर्जित छुट्टी का नकदीकरण करने की अनुमति दी जा सकेगी।",
+      "answer": "दस दिन"
+    }
+  },
+  "ccs-leave-cloze-38a-2": {
+    "verdict": "reject",
+    "reason": "The stem names encashment in the rule's own heading."
+  },
+  "ccs-leave-cloze-39-1": {
+    "verdict": "reject",
+    "reason": "The stem reads 'a maximum of ____ / 300 days as the case may be'; the blank has two possible answers and the sentence does not say which."
+  },
+  "ccs-leave-cloze-39-2": {
+    "verdict": "reject",
+    "reason": "The stem names the cash equivalent in Rule 39's own heading."
+  },
+  "ccs-leave-cloze-40-1": {
+    "verdict": "approve",
+    "reason": "Rule 40 — excess earned leave availed is recovered by reference to the Rule 27 credit rate.",
+    "hi": {
+      "text": "नियम 40(ख) — जहाँ पदच्युत या हटाए गए, अथवा सेवाकाल में मृत, सरकारी सेवक द्वारा ली गई अर्जित छुट्टी ____ के अधीन जमा छुट्टी से अधिक हो, वहाँ अधिक्य की वसूली की जाएगी।",
+      "answer": "नियम 27"
+    }
+  },
+  "ccs-leave-cloze-40-2": {
+    "verdict": "reject",
+    "reason": "The stem trails into a DoPT letter number; the sentence is a Note, not a rule."
+  },
+  "ccs-leave-cloze-41-1": {
+    "verdict": "reject",
+    "reason": "The blank swallowed 'in India' as part of the answer — 'rupees in India' is not a term."
+  },
+  "ccs-leave-cloze-42-1": {
+    "verdict": "approve",
+    "reason": "Rule 42 — an advance of leave salary is available only for leave of not less than thirty days.",
+    "hi": {
+      "text": "नियम 42 — ____ से अन्यून अवधि की छुट्टी पर जाने वाले सरकारी सेवक को, जिसके अंतर्गत विदेश सेवा पर गया सरकारी सेवक भी है, छुट्टी वेतन के बदले अग्रिम अनुज्ञात किया जा सकेगा।",
+      "answer": "तीस दिन"
+    }
+  },
+  "ccs-leave-cloze-42-2": { "verdict": "reject", "reason": "The stem is a chapter heading, not a rule." },
+  "ccs-leave-cloze-43-1": {
+    "verdict": "reject",
+    "reason": "The stem is the amendment note '\"135 days\" substituted by 180 days'. A card answering 135 days would teach the pre-2017 position as current law."
+  },
+  "ccs-leave-cloze-43-2": {
+    "verdict": "reject",
+    "reason": "The stem trails into a DoPT notification number and the cross-reference is to a medical-certificate rule the sentence does not identify."
+  },
+  "ccs-leave-cloze-43-3": {
+    "verdict": "approve",
+    "reason": "Rule 43 — maternity leave is for a female Government servant with fewer than two surviving children, and the current period is 180 days.",
+    "hi": {
+      "text": "नियम 43(1) — दो से कम जीवित संतान वाली महिला सरकारी सेवक (जिसके अंतर्गत शिक्षु भी है) को 180 दिन की अवधि के लिए ____ मंजूर की जा सकेगी।",
+      "answer": "मातृत्व छुट्टी"
+    }
+  },
+  "ccs-leave-cloze-43a-1": {
+    "verdict": "approve",
+    "reason": "Rule 43A — paternity leave may be taken up to fifteen days before or within six months of the date of delivery.",
+    "hi": {
+      "text": "नियम 43क — पितृत्व छुट्टी 15 दिन की होती है और प्रसव की तारीख से 15 दिन पूर्व तक अथवा उस तारीख से ____ के भीतर ली जा सकती है।",
+      "answer": "छह मास"
+    }
+  },
+  "ccs-leave-cloze-43a-2": {
+    "verdict": "approve",
+    "reason": "Rule 43A — paternity leave is for a male Government servant with fewer than two surviving children.",
+    "hi": {
+      "text": "नियम 43क(1) — दो से कम जीवित संतान वाले पुरुष सरकारी सेवक (जिसके अंतर्गत शिक्षु भी है) को 15 दिन की ____ मंजूर की जा सकेगी।",
+      "answer": "पितृत्व छुट्टी"
+    }
+  },
+  "ccs-leave-cloze-43aa-1": {
+    "verdict": "approve",
+    "reason": "Rule 43AA — paternity leave on adoption is available only where the child is below one year.",
+    "hi": {
+      "text": "नियम 43कक — दो से कम जीवित संतान वाले पुरुष सरकारी सेवक को ____ से कम आयु के बालक को गोद लेने या पूर्व-दत्तक पालन-पोषण में स्वीकार करने पर पितृत्व छुट्टी मंजूर की जा सकेगी।",
+      "answer": "एक वर्ष"
+    }
+  },
+  "ccs-leave-cloze-43aa-2": {
+    "verdict": "reject",
+    "reason": "Duplicate of ccs-leave-cloze-43aa-1's sentence, blanked on the leave's name."
+  },
+  "ccs-leave-cloze-43b-1": {
+    "verdict": "approve",
+    "reason": "Rule 43B — commuted leave up to 60 days without a medical certificate may be combined with child adoption leave.",
+    "hi": {
+      "text": "नियम 43ख — बालक गोद लेने पर देय और अनुज्ञेय प्रकार की छुट्टी भी मंजूर की जा सकेगी, जिसके अंतर्गत चिकित्सा प्रमाणपत्र प्रस्तुत किए बिना ____ से अनधिक संपरिवर्तित छुट्टी आती है।",
+      "answer": "60 दिन"
+    }
+  },
+  "ccs-leave-cloze-43b-2": {
+    "verdict": "approve",
+    "reason": "Rule 43B — child adoption leave, like paternity leave on adoption, turns on the child being below one year.",
+    "hi": {
+      "text": "नियम 43ख — दो से कम जीवित संतान वाली महिला सरकारी सेवक को एक वर्ष से कम आयु के बालक को गोद लेने पर ____ मंजूर की जा सकेगी।",
+      "answer": "बालक गोद लेने संबंधी छुट्टी"
+    }
+  },
+  "ccs-leave-cloze-43c-1": {
+    "verdict": "approve",
+    "reason": "Rule 43C — 730 days of child care leave in the entire service.",
+    "hi": {
+      "text": "नियम 43ग(1) — महिला सरकारी सेवक और एकल पुरुष सरकारी सेवक को संपूर्ण सेवा के दौरान अधिकतम ____ की अवधि के लिए बाल देखभाल छुट्टी मंजूर की जा सकेगी।",
+      "answer": "सात सौ तीस दिन"
+    }
+  },
+  "ccs-leave-cloze-43c-2": {
+    "verdict": "reject",
+    "reason": "The stem is an administrative instruction about relaxing spells, and the cross-reference is written '43-C(3)(i)', which the blank splits."
+  },
+  "ccs-leave-cloze-43c-3": {
+    "verdict": "approve",
+    "reason": "Rule 43C(2)(b) — child care leave for an offspring of any age requires a minimum disability of forty per cent.",
+    "hi": {
+      "text": "नियम 43ग(2)(ख) — इस नियम के प्रयोजन के लिए \"बालक\" के अंतर्गत किसी भी आयु की ऐसी संतान आती है जिसमें न्यूनतम ____ प्रतिशत नि:शक्तता हो।",
+      "answer": "चालीस"
+    }
+  },
+  "ccs-leave-cloze-44-1": {
+    "verdict": "reject",
+    "reason": "The stem is truncated in the middle of the WRIIL pay scale, so the twelve-month figure has nothing to attach to."
+  },
+  "ccs-leave-cloze-47-1": {
+    "verdict": "approve",
+    "reason": "Rule 47 — seamen's sick leave on full pay is capped at six weeks.",
+    "hi": {
+      "text": "नियम 47 — नाविक को, चाहे वह अपने पोत पर हो या अस्पताल में, पूर्ण वेतन के समतुल्य छुट्टी वेतन पर ____ से अनधिक अवधि की छुट्टी मंजूर की जा सकेगी।",
+      "answer": "छह सप्ताह"
+    }
+  },
+  "ccs-leave-cloze-47-2": {
+    "verdict": "reject",
+    "reason": "A cross-reference to a section of the Workmen's Compensation Act that the stem does not identify."
+  },
+  "ccs-leave-cloze-48-1": {
+    "verdict": "approve",
+    "reason": "Rule 48 — up to 90 days of special leave for an aggrieved woman on the Internal Committee's recommendation, which is section 12(1) of the PoSH Act made operational.",
+    "hi": {
+      "text": "नियम 48 — आंतरिक समिति या स्थानीय समिति की सिफ़ारिश पर व्यथित महिला सरकारी सेवक को ____ तक की छुट्टी मंजूर की जा सकेगी।",
+      "answer": "90 दिन"
+    }
+  },
+  "ccs-leave-cloze-49-1": {
+    "verdict": "approve",
+    "reason": "Rule 49(6)(a) — departmental leave salary is a percentage of what earned leave under Rule 40 would pay.",
+    "hi": {
+      "text": "नियम 49(6)(क) — छुट्टी वेतन सहित विभागीय छुट्टी पर गए सरकारी सेवक को ____ के उपनियम (1) के अधीन अर्जित छुट्टी के दौरान अनुज्ञेय वेतन का 25 प्रतिशत छुट्टी वेतन दिया जाएगा।",
+      "answer": "नियम 40"
+    }
+  },
+  "ccs-leave-cloze-49-2": {
+    "verdict": "approve",
+    "reason": "The same sub-rule, blanked on the percentage.",
+    "hi": {
+      "text": "नियम 49(6)(क) — छुट्टी वेतन सहित विभागीय छुट्टी पर गए सरकारी सेवक को अर्जित छुट्टी के दौरान अनुज्ञेय वेतन का ____ छुट्टी वेतन दिया जाएगा।",
+      "answer": "25 प्रतिशत"
+    }
+  },
+  "ccs-leave-cloze-49-3": {
+    "verdict": "reject",
+    "reason": "The stem names departmental leave in Rule 49's own heading."
+  },
+  "ccs-leave-cloze-50-1": {
+    "verdict": "approve",
+    "reason": "Rule 50(5)(i) — five years of regular continuous service is the eligibility floor for study leave.",
+    "hi": {
+      "text": "नियम 50(5)(i) — अध्ययन छुट्टी ऐसे सरकारी सेवक को मंजूर की जा सकेगी जिसने परिवीक्षा अवधि संतोषजनक रूप से पूरी कर ली हो और जिसने ____ से अन्यून नियमित निरंतर सेवा की हो।",
+      "answer": "पाँच वर्ष"
+    }
+  },
+  "ccs-leave-cloze-50-2": {
+    "verdict": "approve",
+    "reason": "Rule 50 — the thirty-six-month study leave for a Central Health Service Officer comes from Rule 51(2), and the retirement bar shifts with it.",
+    "hi": {
+      "text": "नियम 50 — केंद्रीय स्वास्थ्य सेवा अधिकारी, जिसे ____ के उपनियम (2) के अधीन छत्तीस मास की अध्ययन छुट्टी मंजूर की गई है, के मामले में यह अवधि पाँच वर्ष होगी।",
+      "answer": "नियम 51"
+    }
+  },
+  "ccs-leave-cloze-50-3": {
+    "verdict": "reject",
+    "reason": "The blank fell on 'thirty' inside 'thirty six months'."
+  },
+  "ccs-leave-cloze-51-1": {
+    "verdict": "edit",
+    "reason": "The blank fell inside 'twenty-four months', leaving 'twenty-____'. Widened to the whole career limit.",
+    "en": {
+      "text": "(1) The maximum amount of study leave which may be granted to a Government servant, other than Central Health Service Officers, shall be- (a) ordinarily twelve months at any one time, and (b) during his entire service, ____ in all (inclusive of similar kind of leave for study or training granted under any other rules).",
+      "answer": "twenty-four months"
+    },
+    "hi": {
+      "text": "नियम 51(1) — केंद्रीय स्वास्थ्य सेवा अधिकारियों से भिन्न सरकारी सेवक को मंजूर की जा सकने वाली अध्ययन छुट्टी साधारणतया एक बार में बारह मास और संपूर्ण सेवा में कुल ____ होगी।",
+      "answer": "चौबीस मास"
+    }
+  },
+  "ccs-leave-cloze-51-2": {
+    "verdict": "approve",
+    "reason": "Rule 51(2) — the extended study leave for a Central Health Service Officer is conditional on the bond under Rule 53(4).",
+    "hi": {
+      "text": "नियम 51(2) — ऐसी अध्ययन छुट्टी पाने वाला केंद्रीय स्वास्थ्य सेवा अधिकारी ____ के उपनियम (4) के अधीन सरकार की सेवा करने का बंधपत्र निष्पादित करेगा।",
+      "answer": "नियम 53"
+    }
+  },
+  "ccs-leave-cloze-51-3": {
+    "verdict": "reject",
+    "reason": "The stem names study leave in Rule 51's own heading and trails into a notification number."
+  },
+  "ccs-leave-cloze-54-1": {
+    "verdict": "edit",
+    "reason": "The blank fell inside 'twenty-eight months', leaving 'twenty-____'. Widened.",
+    "en": {
+      "text": "(2) Study leave may be combined with other kinds of leave, but in no case shall the grant of this leave in combination with leave, other than extraordinary leave, involve a total absence of more than ____ from the regular duties of the Government servant.",
+      "answer": "twenty-eight months"
+    },
+    "hi": {
+      "text": "नियम 54(2) — अध्ययन छुट्टी अन्य प्रकार की छुट्टियों के साथ संयोजित की जा सकेगी, किंतु असाधारण छुट्टी से भिन्न छुट्टी के साथ संयोजन में कुल अनुपस्थिति ____ से अधिक नहीं होगी।",
+      "answer": "अट्ठाईस मास"
+    }
+  },
+  "ccs-leave-cloze-54-2": {
+    "verdict": "reject",
+    "reason": "Duplicate of the compound number repaired in ccs-leave-cloze-54-1."
+  },
+  "ccs-leave-cloze-56-1": {
+    "verdict": "approve",
+    "reason": "Rule 56 — dearness and house rent allowance during study leave are governed by Rule 60.",
+    "hi": {
+      "text": "नियम 56 — अध्ययन छुट्टी पर जाने से ठीक पहले लिए जा रहे वेतन के अतिरिक्त, ____ के उपबंधों के अनुसार अनुज्ञेय महँगाई भत्ता और मकान किराया भत्ता भी देय होगा।",
+      "answer": "नियम 60"
+    }
+  },
+  "ccs-leave-cloze-63-1": {
+    "verdict": "approve",
+    "reason": "Rule 63 — resigning within three years of returning from study leave triggers the bond.",
+    "hi": {
+      "text": "नियम 63 — यदि सरकारी सेवक अध्ययन छुट्टी के पश्चात् ड्यूटी पर लौटे बिना, अथवा लौटने के ____ के भीतर, त्यागपत्र देता है या सेवानिवृत्त होता है, तो बंधपत्र की राशि वसूल की जाएगी।",
+      "answer": "तीन वर्ष"
+    }
+  },
+  "ccs-leave-cloze-63-2": {
+    "verdict": "reject",
+    "reason": "Duplicate of ccs-leave-cloze-50-2 — the same Rule 51(2) cross-reference."
+  },
+  "ccs-leave-cloze-66-1": {
+    "verdict": "approve",
+    "reason": "The First Schedule — a foreign employer's leave-sanctioning power stops at 120 days of earned leave.",
+    "hi": {
+      "text": "पहली अनुसूची — विदेशी नियोजक की शक्ति केवल ____ से अनधिक अर्जित छुट्टी के संबंध में प्रयोक्तव्य होगी, और सेवानिवृत्ति पूर्व छुट्टी देने या अस्वीकार करने का विनिश्चय पूर्व अनुमोदन से होगा।",
+      "answer": "120 दिन"
+    }
+  },
+  "ccs-leave-cloze-66-2": {
+    "verdict": "reject",
+    "reason": "The stem is the Schedule's own '[See Rule 3(c)]' reference line."
+  },
+  "ccs-leave-cloze-66-3": {
+    "verdict": "reject",
+    "reason": "The stem is a list of leave kinds in a Schedule column; the blank is one item of the list it prints."
+  }
+}

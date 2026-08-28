@@ -1,0 +1,87 @@
+{
+  "_note": "STAGE C · BLIND VERIFY. Answers produced from the worksheet printed by `qa_pipeline.py blind ccs-leave`, which shows each question, its options and the rule text it is grounded in, and hides the stored key. `answered` is the option index chosen; make_cards.py compares it with the stored key and a mismatch rejects the question outright, because a mismatch means either the stem is ambiguous or the key is wrong. Indices here are the AUTHORED order, before make_cards.py rotates the options.",
+  "ccs-leave-q-001": {
+    "answered": 1
+  },
+  "ccs-leave-q-002": {
+    "answered": 0
+  },
+  "ccs-leave-q-003": {
+    "answered": 0
+  },
+  "ccs-leave-q-004": {
+    "answered": 0
+  },
+  "ccs-leave-q-005": {
+    "answered": 0
+  },
+  "ccs-leave-q-006": {
+    "answered": 0
+  },
+  "ccs-leave-q-007": {
+    "answered": 0
+  },
+  "ccs-leave-q-008": {
+    "answered": 0
+  },
+  "ccs-leave-q-009": {
+    "answered": 0
+  },
+  "ccs-leave-q-010": {
+    "answered": 0
+  },
+  "ccs-leave-q-011": {
+    "answered": 0
+  },
+  "ccs-leave-q-013": {
+    "answered": 1
+  },
+  "ccs-leave-q-014": {
+    "answered": 0
+  },
+  "ccs-leave-q-015": {
+    "answered": 0
+  },
+  "ccs-leave-q-016": {
+    "answered": 0
+  },
+  "ccs-leave-q-017": {
+    "answered": 0
+  },
+  "ccs-leave-q-018": {
+    "answered": 0
+  },
+  "ccs-leave-q-019": {
+    "answered": 0
+  },
+  "ccs-leave-q-020": {
+    "answered": 0
+  },
+  "ccs-leave-q-021": {
+    "answered": 0
+  },
+  "ccs-leave-q-022": {
+    "answered": 1
+  },
+  "ccs-leave-q-023": {
+    "answered": 1
+  },
+  "ccs-leave-q-024": {
+    "answered": 0
+  },
+  "ccs-leave-q-025": {
+    "answered": 0
+  },
+  "ccs-leave-q-026": {
+    "answered": 0
+  },
+  "ccs-leave-q-027": {
+    "answered": 0
+  },
+  "ccs-leave-q-028": {
+    "answered": 0
+  },
+  "ccs-leave-q-029": {
+    "answered": 0
+  }
+}

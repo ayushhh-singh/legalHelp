@@ -1,0 +1,348 @@
+{
+  "_note": "Hand review of the generated cloze cards for the Right to Information Act, 2005. Two cards about the Commissioners' term of office are rejected outright: the RTI (Amendment) Act, 2019 replaced the fixed five-year term with 'such term as may be prescribed by the Central Government', and a card whose answer is 'five years' would teach the pre-2019 position as law. `edit` fixes a blank that fell inside a compound number.",
+
+  "rti-cloze-1-1": {
+    "verdict": "approve",
+    "reason": "Section 1(3) — the sections that commenced at once, as against the 120-day tranche. A standing examination question.",
+    "hi": {
+      "text": "धारा 1(3) — ____ की उपधारा (1), धारा 5 की उपधाराएँ (1) और (2), तथा धाराएँ 12, 13, 15, 16, 24, 27 और 28 तुरंत प्रवृत्त हुईं; शेष उपबंध एक सौ बीसवें दिन प्रवृत्त हुए।",
+      "answer": "धारा 4"
+    }
+  },
+  "rti-cloze-1-2": {
+    "verdict": "reject",
+    "reason": "Answer is the bare word 'one'. Tests counting, not the Act."
+  },
+  "rti-cloze-1-3": {
+    "verdict": "reject",
+    "reason": "The stem is the short title and the blank is the name of the Act the reader is studying."
+  },
+  "rti-cloze-2-1": {
+    "verdict": "approve",
+    "reason": "Section 2(b) — the Commission is constituted under section 12(1), which is the link between the definition and the machinery.",
+    "hi": {
+      "text": "धारा 2(ख) — \"केंद्रीय सूचना आयोग\" से ____ की उपधारा (1) के अधीन गठित केंद्रीय सूचना आयोग अभिप्रेत है।",
+      "answer": "धारा 12"
+    }
+  },
+  "rti-cloze-2-2": {
+    "verdict": "approve",
+    "reason": "Section 2(a) — whether the Centre or a State is the 'appropriate Government' decides which Commission hears the appeal.",
+    "hi": {
+      "text": "धारा 2(क) — \"____\" से, ऐसे लोक प्राधिकारी के संबंध में जो केंद्रीय सरकार द्वारा उपलब्ध कराई गई निधियों से स्थापित, गठित, स्वामित्वाधीन, नियंत्रित या पर्याप्त रूप से वित्तपोषित है, केंद्रीय सरकार अभिप्रेत है।",
+      "answer": "समुचित सरकार"
+    }
+  },
+  "rti-cloze-3-1": {
+    "verdict": "reject",
+    "reason": "Section 3 is one sentence long and the blank is its subject. Nothing is recalled."
+  },
+  "rti-cloze-4-1": {
+    "verdict": "approve",
+    "reason": "Section 4(1)(b) — the 120-day deadline for the first suo motu publication.",
+    "hi": {
+      "text": "धारा 4(1)(ख) — प्रत्येक लोक प्राधिकारी इस अधिनियम के अधिनियमन से ____ के भीतर अपने संगठन, कृत्यों और कर्तव्यों के ब्यौरे प्रकाशित करेगा।",
+      "answer": "एक सौ बीस दिन"
+    }
+  },
+  "rti-cloze-4-2": {
+    "verdict": "approve",
+    "reason": "Section 4(1)(a) — the record-keeping duty is on the public authority, not on the Information Officer.",
+    "hi": {
+      "text": "धारा 4(1)(क) — प्रत्येक ____ अपने सभी अभिलेखों को इस प्रकार सूचीबद्ध और अनुक्रमित रखेगा जिससे इस अधिनियम के अधीन सूचना का अधिकार सुकर हो।",
+      "answer": "लोक प्राधिकारी"
+    }
+  },
+  "rti-cloze-5-1": {
+    "verdict": "edit",
+    "reason": "The blank fell inside the compound number, leaving 'within one ____'. Widened to the whole period.",
+    "en": {
+      "text": "(1) Every public authority shall, within ____ of the enactment of this Act, designate as many officers as the Central Public Information Officers or State Public Information Officers, as the case may be, in all administrative units or offices under it as may be necessary.",
+      "answer": "one hundred days"
+    },
+    "hi": {
+      "text": "धारा 5(1) — प्रत्येक लोक प्राधिकारी इस अधिनियम के अधिनियमन से ____ के भीतर अपने अधीन सभी प्रशासनिक एककों या कार्यालयों में यथावश्यक केंद्रीय या राज्य लोक सूचना अधिकारी पदाभिहित करेगा।",
+      "answer": "एक सौ दिन"
+    }
+  },
+  "rti-cloze-5-2": {
+    "verdict": "approve",
+    "reason": "Section 5(4)/(5) route an application to the senior officer specified under section 19(1) — the first-appeal authority.",
+    "hi": {
+      "text": "धारा 5 — सहायक लोक सूचना अधिकारी आवेदन या अपील तुरंत केंद्रीय या राज्य लोक सूचना अधिकारी को, अथवा ____ की उपधारा (1) के अधीन विनिर्दिष्ट वरिष्ठ अधिकारी को, अग्रेषित करेगा।",
+      "answer": "धारा 19"
+    }
+  },
+  "rti-cloze-5-3": {
+    "verdict": "reject",
+    "reason": "Duplicate of the blank fixed in rti-cloze-5-1, and its answer is the bare word 'one'."
+  },
+  "rti-cloze-6-1": {
+    "verdict": "approve",
+    "reason": "Section 6(3) proviso — an application transferred to another public authority must move within five days.",
+    "hi": {
+      "text": "धारा 6(3) का परंतुक — इस उपधारा के अनुसरण में आवेदन का अंतरण यथासाध्य शीघ्र किया जाएगा, किंतु किसी भी दशा में आवेदन प्राप्ति की तारीख से ____ के पश्चात् नहीं।",
+      "answer": "पाँच दिन"
+    }
+  },
+  "rti-cloze-6-2": {
+    "verdict": "approve",
+    "reason": "Section 6(1) — the request is for 'information', the Act's central defined term.",
+    "hi": {
+      "text": "धारा 6(1) — इस अधिनियम के अधीन कोई ____ अभिप्राप्त करने का इच्छुक व्यक्ति अंग्रेज़ी, हिंदी या उस क्षेत्र की राजभाषा में, जहाँ आवेदन किया जा रहा है, लिखित रूप में या इलेक्ट्रॉनिक माध्यम से अनुरोध करेगा।",
+      "answer": "सूचना"
+    }
+  },
+  "rti-cloze-7-1": {
+    "verdict": "approve",
+    "reason": "Section 7(1) — the thirty-day period is the single most-cited number in the Act.",
+    "hi": {
+      "text": "धारा 7(1) — केंद्रीय या राज्य लोक सूचना अधिकारी, धारा 6 के अधीन अनुरोध प्राप्त होने पर, यथासंभव शीघ्रता से और किसी भी दशा में अनुरोध प्राप्ति से ____ के भीतर, या तो सूचना देगा या अनुरोध अस्वीकार करेगा।",
+      "answer": "तीस दिन"
+    }
+  },
+  "rti-cloze-7-2": {
+    "verdict": "approve",
+    "reason": "Section 7(1) opens 'subject to the proviso to sub-section (2) of section 5' — the Assistant PIO's five extra days.",
+    "hi": {
+      "text": "धारा 7(1) — ____ की उपधारा (2) के परंतुक या धारा 6 की उपधारा (3) के परंतुक के अधीन रहते हुए, लोक सूचना अधिकारी अनुरोध पर कार्रवाई करेगा।",
+      "answer": "धारा 5"
+    }
+  },
+  "rti-cloze-7-3": {
+    "verdict": "reject",
+    "reason": "The stem names the State Public Information Officer in the same breath, so the blank is filled by its own sentence."
+  },
+  "rti-cloze-8-1": {
+    "verdict": "approve",
+    "reason": "Section 8(3) — the twenty-year cut-off after which most exemptions fall away.",
+    "hi": {
+      "text": "धारा 8(3) — उपधारा (1) के खंड (क), (ग) और (झ) के अधीन रहते हुए, ऐसी किसी घटना या विषय से संबंधित सूचना जो अनुरोध की तारीख से ____ पूर्व घटित हुई हो, अनुरोध करने वाले किसी व्यक्ति को दी जाएगी।",
+      "answer": "बीस वर्ष"
+    }
+  },
+  "rti-cloze-8-2": {
+    "verdict": "reject",
+    "reason": "Near-duplicate of rti-cloze-8-1's sentence, blanked on the cross-reference instead. One card from this sub-section is enough."
+  },
+  "rti-cloze-8-3": {
+    "verdict": "approve",
+    "reason": "Section 8(1)(a) — the first exemption, and the one every applicant meets.",
+    "hi": {
+      "text": "धारा 8(1)(क) — इस अधिनियम में किसी बात के होते हुए भी, किसी नागरिक को ऐसी ____ देने की कोई बाध्यता नहीं होगी जिसके प्रकटन से भारत की संप्रभुता और अखंडता, राज्य की सुरक्षा अथवा विदेशी राज्यों से मैत्रीपूर्ण संबंध प्रतिकूल रूप से प्रभावित हों।",
+      "answer": "सूचना"
+    }
+  },
+  "rti-cloze-9-1": {
+    "verdict": "approve",
+    "reason": "Section 9 is the copyright ground and operates 'without prejudice to section 8' — the two are separate grounds and are often conflated.",
+    "hi": {
+      "text": "धारा 9 — ____ के उपबंधों पर प्रतिकूल प्रभाव डाले बिना, लोक सूचना अधिकारी सूचना का अनुरोध तब अस्वीकार कर सकेगा जब उस तक पहुँच देने में राज्य से भिन्न किसी व्यक्ति के विद्यमान कॉपीराइट का उल्लंघन हो।",
+      "answer": "धारा 8"
+    }
+  },
+  "rti-cloze-9-2": {
+    "verdict": "reject",
+    "reason": "The stem names the State Public Information Officer immediately after the blank."
+  },
+  "rti-cloze-10-1": {
+    "verdict": "reject",
+    "reason": "Duplicate of rti-cloze-5-2 — the same 'senior officer specified under sub-section (1) of section 19' formula."
+  },
+  "rti-cloze-10-2": {
+    "verdict": "approve",
+    "reason": "Section 10(1) is the severability rule and turns on access to part of the record.",
+    "hi": {
+      "text": "धारा 10(1) — जहाँ किसी अनुरोध का कोई भाग ऐसी सूचना से संबंधित है जो प्रकटन से छूट प्राप्त है, वहाँ ____ के उस भाग तक पहुँच दी जा सकेगी जिसमें छूट प्राप्त कोई सूचना अंतर्विष्ट नहीं है।",
+      "answer": "अभिलेख"
+    }
+  },
+  "rti-cloze-11-1": {
+    "verdict": "approve",
+    "reason": "Section 11(1) — the third party gets notice within five days.",
+    "hi": {
+      "text": "धारा 11(1) — लोक सूचना अधिकारी अनुरोध प्राप्ति से ____ के भीतर पर-पक्षकार को अनुरोध की और सूचना प्रकट करने के आशय की लिखित सूचना देगा।",
+      "answer": "पाँच दिन"
+    }
+  },
+  "rti-cloze-11-2": {
+    "verdict": "approve",
+    "reason": "Section 11(3) overrides section 7 and gives forty days where a third party is involved.",
+    "hi": {
+      "text": "धारा 11(3) — ____ में किसी बात के होते हुए भी, लोक सूचना अधिकारी अनुरोध प्राप्ति के पश्चात् चालीस दिन के भीतर विनिश्चय करेगा कि सूचना प्रकट की जाए या नहीं।",
+      "answer": "धारा 7"
+    }
+  },
+  "rti-cloze-11-3": {
+    "verdict": "reject",
+    "reason": "The stem names the Central Public Information Officer in the same clause."
+  },
+  "rti-cloze-12-1": {
+    "verdict": "approve",
+    "reason": "Section 12(1) — the body's statutory name and the instrument that constitutes it.",
+    "hi": {
+      "text": "धारा 12(1) — केंद्रीय सरकार, राजपत्र में अधिसूचना द्वारा, ____ नाम से एक निकाय गठित करेगी जो इस अधिनियम के अधीन प्रदत्त शक्तियों का प्रयोग और सौंपे गए कृत्यों का पालन करेगा।",
+      "answer": "केंद्रीय सूचना आयोग"
+    }
+  },
+  "rti-cloze-13-1": {
+    "verdict": "reject",
+    "reason": "The RTI (Amendment) Act, 2019 replaced the fixed five-year term with 'such term as may be prescribed by the Central Government'. A card answering 'five years' would teach the repealed position."
+  },
+  "rti-cloze-13-2": {
+    "verdict": "approve",
+    "reason": "Section 13(2) proviso — an Information Commissioner elevated to Chief is appointed in the manner in section 12(3).",
+    "hi": {
+      "text": "धारा 13(2) का परंतुक — इस उपधारा के अधीन पद छोड़ने पर सूचना आयुक्त ____ की उपधारा (3) में विनिर्दिष्ट रीति से मुख्य सूचना आयुक्त के रूप में नियुक्ति के लिए पात्र होगा।",
+      "answer": "धारा 12"
+    }
+  },
+  "rti-cloze-13-3": {
+    "verdict": "reject",
+    "reason": "Same sentence as rti-cloze-13-1, and the office is named again two clauses later."
+  },
+  "rti-cloze-14-1": {
+    "verdict": "approve",
+    "reason": "Section 14(1) — only the President may remove, and only on proved misbehaviour or incapacity after a Supreme Court reference.",
+    "hi": {
+      "text": "धारा 14(1) — उपधारा (3) के उपबंधों के अधीन रहते हुए, ____ या कोई सूचना आयुक्त सिद्ध कदाचार या असमर्थता के आधार पर उच्चतम न्यायालय के निर्देश पर ही राष्ट्रपति के आदेश द्वारा पद से हटाया जाएगा।",
+      "answer": "मुख्य सूचना आयुक्त"
+    }
+  },
+  "rti-cloze-15-1": {
+    "verdict": "approve",
+    "reason": "Section 15(2) — the State Commission's composition, with the ten-Commissioner ceiling.",
+    "hi": {
+      "text": "धारा 15(2) — ____ में राज्य मुख्य सूचना आयुक्त और यथावश्यक समझी जाने वाली इतनी संख्या में राज्य सूचना आयुक्त होंगे, जो दस से अधिक नहीं होंगे।",
+      "answer": "राज्य सूचना आयोग"
+    }
+  },
+  "rti-cloze-16-1": {
+    "verdict": "reject",
+    "reason": "Same 2019 amendment problem as rti-cloze-13-1, for the State Chief Information Commissioner."
+  },
+  "rti-cloze-16-2": {
+    "verdict": "approve",
+    "reason": "Section 16(2) proviso — the State equivalent of the section 12(3) route, pointing at section 15(3).",
+    "hi": {
+      "text": "धारा 16(2) का परंतुक — इस उपधारा के अधीन पद छोड़ने पर राज्य सूचना आयुक्त ____ की उपधारा (3) में विनिर्दिष्ट रीति से राज्य मुख्य सूचना आयुक्त के रूप में नियुक्ति के लिए पात्र होगा।",
+      "answer": "धारा 15"
+    }
+  },
+  "rti-cloze-16-3": {
+    "verdict": "reject",
+    "reason": "Answer is 'prescribed', a drafting word rather than a rule."
+  },
+  "rti-cloze-17-1": {
+    "verdict": "approve",
+    "reason": "Section 17 — a State Commissioner is removed by the Governor, not the President. The contrast with section 14 is the examinable point.",
+    "hi": {
+      "text": "धारा 17(1) — राज्य मुख्य सूचना आयुक्त या कोई राज्य ____ सिद्ध कदाचार या असमर्थता के आधार पर राज्यपाल के आदेश द्वारा ही पद से हटाया जाएगा।",
+      "answer": "सूचना आयुक्त"
+    }
+  },
+  "rti-cloze-18-1": {
+    "verdict": "approve",
+    "reason": "Section 18 is the complaint jurisdiction, as against the appeal jurisdiction in section 19.",
+    "hi": {
+      "text": "धारा 18(1) — इस अधिनियम के उपबंधों के अधीन रहते हुए, ____ या राज्य सूचना आयोग का यह कर्तव्य होगा कि वह किसी व्यक्ति से परिवाद प्राप्त करे और उसकी जाँच करे।",
+      "answer": "केंद्रीय सूचना आयोग"
+    }
+  },
+  "rti-cloze-19-1": {
+    "verdict": "approve",
+    "reason": "Section 19(1) — thirty days for the first appeal, which readers confuse with the ninety days for the second.",
+    "hi": {
+      "text": "धारा 19(1) — जिस व्यक्ति को धारा 7 में विनिर्दिष्ट समय के भीतर विनिश्चय प्राप्त नहीं होता या जो लोक सूचना अधिकारी के विनिश्चय से व्यथित है, वह उस अवधि की समाप्ति से ____ के भीतर अपील कर सकेगा।",
+      "answer": "तीस दिन"
+    }
+  },
+  "rti-cloze-19-2": {
+    "verdict": "reject",
+    "reason": "Duplicate of rti-cloze-19-1's sentence, blanked on the cross-reference."
+  },
+  "rti-cloze-19-3": {
+    "verdict": "reject",
+    "reason": "The stem names the Central Public Information Officer immediately before the blank."
+  },
+  "rti-cloze-20-1": {
+    "verdict": "edit",
+    "reason": "The blank fell inside the compound number, leaving '____ hundred and fifty rupees'. Widened to the whole penalty.",
+    "en": {
+      "text": "Where the Central Information Commission or the State Information Commission is of the opinion that the Central Public Information Officer or the State Public Information Officer has, without any reasonable cause, refused to receive an application or has not furnished information within the time specified, it shall impose a penalty of ____ each day till application is received or information is furnished.",
+      "answer": "two hundred and fifty rupees"
+    },
+    "hi": {
+      "text": "धारा 20(1) — जहाँ आयोग की राय है कि लोक सूचना अधिकारी ने बिना उचित कारण के आवेदन लेने से इनकार किया है या नियत समय में सूचना नहीं दी है, वहाँ वह आवेदन प्राप्त होने या सूचना दिए जाने तक ____ प्रतिदिन की शास्ति अधिरोपित करेगा।",
+      "answer": "दो सौ पचास रुपये"
+    }
+  },
+  "rti-cloze-20-2": {
+    "verdict": "reject",
+    "reason": "The stem names the Central Information Commission immediately before the blank."
+  },
+  "rti-cloze-24-1": {
+    "verdict": "approve",
+    "reason": "Section 24 proviso — information about corruption or human rights violation from an exempt organisation comes in forty-five days, not thirty.",
+    "hi": {
+      "text": "धारा 24 का परंतुक — केंद्रीय सूचना आयोग के अनुमोदन के पश्चात्, और धारा 7 में किसी बात के होते हुए भी, ऐसी सूचना अनुरोध प्राप्ति की तारीख से ____ के भीतर दी जाएगी।",
+      "answer": "पैंतालीस दिन"
+    }
+  },
+  "rti-cloze-24-2": {
+    "verdict": "approve",
+    "reason": "Section 24(1) — the Second Schedule bodies, and the two exceptions that survive.",
+    "hi": {
+      "text": "धारा 24(1) — इस अधिनियम की कोई बात दूसरी अनुसूची में विनिर्दिष्ट ऐसे ____ को लागू नहीं होगी जो केंद्रीय सरकार द्वारा स्थापित किए गए हैं।",
+      "answer": "आसूचना और सुरक्षा संगठनों"
+    }
+  },
+  "rti-cloze-25-1": {
+    "verdict": "reject",
+    "reason": "Answer is 'two', blanked out of 'where there are two Houses'."
+  },
+  "rti-cloze-25-2": {
+    "verdict": "approve",
+    "reason": "Section 25(1) — the annual report goes to the appropriate Government, which lays it before the legislature.",
+    "hi": {
+      "text": "धारा 25(1) — केंद्रीय या राज्य सूचना आयोग प्रत्येक वर्ष की समाप्ति के पश्चात् यथासाध्य शीघ्र इस अधिनियम के कार्यान्वयन पर रिपोर्ट तैयार करेगा और उसकी प्रति ____ को भेजेगा।",
+      "answer": "समुचित सरकार"
+    }
+  },
+  "rti-cloze-26-1": {
+    "verdict": "reject",
+    "reason": "A cross-reference inside the rule-making list. The sentence gives no way to recover which section is meant."
+  },
+  "rti-cloze-26-2": {
+    "verdict": "reject",
+    "reason": "Same list; the blank falls on a term the sentence repeats."
+  },
+  "rti-cloze-27-1": {
+    "verdict": "reject",
+    "reason": "Same rule-making list as rti-cloze-26-1."
+  },
+  "rti-cloze-27-2": {
+    "verdict": "reject",
+    "reason": "Answer is 'fee' and the word appears twice more in the same sentence."
+  },
+  "rti-cloze-28-1": {
+    "verdict": "reject",
+    "reason": "Same rule-making list."
+  },
+  "rti-cloze-28-2": {
+    "verdict": "approve",
+    "reason": "Section 28 — the competent authority makes rules for its own institution, as against the appropriate Government under section 27. The contrast is the point.",
+    "hi": {
+      "text": "धारा 28(1) — ____ राजपत्र में अधिसूचना द्वारा इस अधिनियम के उपबंधों को कार्यान्वित करने के लिए नियम बना सकेगा।",
+      "answer": "सक्षम प्राधिकारी"
+    }
+  },
+  "rti-cloze-30-1": {
+    "verdict": "approve",
+    "reason": "Section 30(1) proviso — the removal-of-difficulties power lapsed two years after commencement.",
+    "hi": {
+      "text": "धारा 30(1) का परंतुक — कठिनाइयाँ दूर करने का कोई आदेश इस अधिनियम के प्रारंभ की तारीख से ____ की अवधि बीत जाने के पश्चात् नहीं किया जाएगा।",
+      "answer": "दो वर्ष"
+    }
+  }
+}

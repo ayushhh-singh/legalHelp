@@ -1,0 +1,123 @@
+{
+  "_note": "STAGE B · CRITIC. A separate pass over scripts/authoring/authored/ccs-cca.json, judging each question on its own terms: is there exactly one correct answer, are the distractors plausible without being trivially wrong, is it inside the public rule text, is there a factual red flag, is the tone right for a serving officer. Rejections stay in data/rules/cards/ with reviewState \"rejected\" and are never served.",
+  "ccs-cca-q-001": {
+    "verdict": "approve",
+    "reason": "One correct answer, grounded in Rule 11, CCS (CCA) Rules, 1965; distractors are real rules or real figures from neighbouring provisions."
+  },
+  "ccs-cca-q-002": {
+    "verdict": "approve",
+    "reason": "One correct answer, grounded in Rule 10, CCS (CCA) Rules, 1965; distractors are real rules or real figures from neighbouring provisions."
+  },
+  "ccs-cca-q-003": {
+    "verdict": "approve",
+    "reason": "One correct answer, grounded in Rule 10, CCS (CCA) Rules, 1965; distractors are real rules or real figures from neighbouring provisions."
+  },
+  "ccs-cca-q-004": {
+    "verdict": "approve",
+    "reason": "One correct answer, grounded in Rule 14, CCS (CCA) Rules, 1965; distractors are real rules or real figures from neighbouring provisions."
+  },
+  "ccs-cca-q-005": {
+    "verdict": "approve",
+    "reason": "One correct answer, grounded in Rule 14, CCS (CCA) Rules, 1965; distractors are real rules or real figures from neighbouring provisions."
+  },
+  "ccs-cca-q-006": {
+    "verdict": "approve",
+    "reason": "One correct answer, grounded in Rule 15, CCS (CCA) Rules, 1965; distractors are real rules or real figures from neighbouring provisions."
+  },
+  "ccs-cca-q-007": {
+    "verdict": "approve",
+    "reason": "One correct answer, grounded in Rule 16, CCS (CCA) Rules, 1965; distractors are real rules or real figures from neighbouring provisions."
+  },
+  "ccs-cca-q-008": {
+    "verdict": "approve",
+    "reason": "One correct answer, grounded in Rule 25, CCS (CCA) Rules, 1965; distractors are real rules or real figures from neighbouring provisions."
+  },
+  "ccs-cca-q-009": {
+    "verdict": "approve",
+    "reason": "One correct answer, grounded in Rule 27, CCS (CCA) Rules, 1965; distractors are real rules or real figures from neighbouring provisions."
+  },
+  "ccs-cca-q-010": {
+    "verdict": "approve",
+    "reason": "One correct answer, grounded in Rule 19, CCS (CCA) Rules, 1965; distractors are real rules or real figures from neighbouring provisions."
+  },
+  "ccs-cca-q-011": {
+    "verdict": "approve",
+    "reason": "One correct answer, grounded in Rule 2, CCS (CCA) Rules, 1965; distractors are real rules or real figures from neighbouring provisions."
+  },
+  "ccs-cca-q-012": {
+    "verdict": "approve",
+    "reason": "One correct answer, grounded in Rule 12, CCS (CCA) Rules, 1965; distractors are real rules or real figures from neighbouring provisions."
+  },
+  "ccs-cca-q-013": {
+    "verdict": "approve",
+    "reason": "One correct answer, grounded in Rule 18, CCS (CCA) Rules, 1965; distractors are real rules or real figures from neighbouring provisions."
+  },
+  "ccs-cca-q-014": {
+    "verdict": "approve",
+    "reason": "One correct answer, grounded in Rule 3, CCS (CCA) Rules, 1965; distractors are real rules or real figures from neighbouring provisions."
+  },
+  "ccs-cca-q-015": {
+    "verdict": "approve",
+    "reason": "One correct answer, grounded in Rule 7, CCS (CCA) Rules, 1965; distractors are real rules or real figures from neighbouring provisions."
+  },
+  "ccs-cca-q-016": {
+    "verdict": "approve",
+    "reason": "One correct answer, grounded in Rule 20, CCS (CCA) Rules, 1965; distractors are real rules or real figures from neighbouring provisions."
+  },
+  "ccs-cca-q-017": {
+    "verdict": "approve",
+    "reason": "One correct answer, grounded in Rule 22, CCS (CCA) Rules, 1965; distractors are real rules or real figures from neighbouring provisions."
+  },
+  "ccs-cca-q-018": {
+    "verdict": "approve",
+    "reason": "One correct answer, grounded in Rule 29, CCS (CCA) Rules, 1965; distractors are real rules or real figures from neighbouring provisions."
+  },
+  "ccs-cca-q-019": {
+    "verdict": "approve",
+    "reason": "One correct answer, grounded in Rule 29A, CCS (CCA) Rules, 1965; distractors are real rules or real figures from neighbouring provisions."
+  },
+  "ccs-cca-q-020": {
+    "verdict": "approve",
+    "reason": "One correct answer, grounded in Rule 17, CCS (CCA) Rules, 1965; distractors are real rules or real figures from neighbouring provisions."
+  },
+  "ccs-cca-q-021": {
+    "verdict": "reject",
+    "reason": "Group 'D' posts have been abolished across the Central Government, so an officer answering from practice reads the stem as out of date even though Rule 6 still prints four groups. The question tests the printed rule against the reader's own service, which is not a fair contest."
+  },
+  "ccs-cca-q-022": {
+    "verdict": "approve",
+    "reason": "One correct answer, grounded in Rule 11, CCS (CCA) Rules, 1965; distractors are real rules or real figures from neighbouring provisions."
+  },
+  "ccs-cca-q-023": {
+    "verdict": "approve",
+    "reason": "One correct answer, grounded in Rule 13, CCS (CCA) Rules, 1965; distractors are real rules or real figures from neighbouring provisions."
+  },
+  "ccs-cca-q-024": {
+    "verdict": "approve",
+    "reason": "One correct answer, grounded in Rule 14, CCS (CCA) Rules, 1965; distractors are real rules or real figures from neighbouring provisions."
+  },
+  "ccs-cca-q-025": {
+    "verdict": "approve",
+    "reason": "One correct answer, grounded in Rule 24, CCS (CCA) Rules, 1965; distractors are real rules or real figures from neighbouring provisions."
+  },
+  "ccs-cca-q-026": {
+    "verdict": "approve",
+    "reason": "One correct answer, grounded in Rule 26, CCS (CCA) Rules, 1965; distractors are real rules or real figures from neighbouring provisions."
+  },
+  "ccs-cca-q-027": {
+    "verdict": "approve",
+    "reason": "One correct answer, grounded in Rule 27, CCS (CCA) Rules, 1965; distractors are real rules or real figures from neighbouring provisions."
+  },
+  "ccs-cca-q-028": {
+    "verdict": "approve",
+    "reason": "One correct answer, grounded in Rule 31, CCS (CCA) Rules, 1965; distractors are real rules or real figures from neighbouring provisions."
+  },
+  "ccs-cca-q-029": {
+    "verdict": "approve",
+    "reason": "One correct answer, grounded in Rule 30, CCS (CCA) Rules, 1965; distractors are real rules or real figures from neighbouring provisions."
+  },
+  "ccs-cca-q-030": {
+    "verdict": "approve",
+    "reason": "One correct answer, grounded in Rule 10, CCS (CCA) Rules, 1965; distractors are real rules or real figures from neighbouring provisions."
+  }
+}

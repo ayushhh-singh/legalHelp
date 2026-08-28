@@ -1,0 +1,1388 @@
+{
+  "$schema": "../../../schemas/rules-cards.schema.json",
+  "version": "1.0.0",
+  "generatedAt": "2026-08-28",
+  "act": {
+    "id": "ol-act",
+    "name": {
+      "en": "Official Languages Act, 1963",
+      "hi": "राजभाषा अधिनियम, 1963"
+    },
+    "short": {
+      "en": "OL Act 1963",
+      "hi": "राजभाषा अधिनियम"
+    },
+    "unit": {
+      "en": "Section",
+      "hi": "धारा"
+    }
+  },
+  "disclaimer": {
+    "en": "Reference only; verify with the official gazette/order or your DDO.",
+    "hi": "केवल संदर्भ के लिए; आधिकारिक राजपत्र/आदेश अथवा अपने डीडीओ से सत्यापित करें।"
+  },
+  "source": {
+    "name": "Department of Official Language, Ministry of Home Affairs — The Official Languages Act, 1963 (as amended, 1967)",
+    "url": "https://rajbhasha.gov.in/sites/default/files/rajbhasha_act_1963e.pdf"
+  },
+  "cards": [
+    {
+      "id": "ol-act-rule-1",
+      "act": "ol-act",
+      "rule": "1",
+      "kind": "rule",
+      "front": {
+        "en": "Short title and Commencement — which section of the OL Act 1963?",
+        "hi": "संक्षिप्त नाम और प्रारंभ — राजभाषा अधिनियम का कौन-सा धारा?"
+      },
+      "back": {
+        "en": "Section 1, Official Languages Act, 1963",
+        "hi": "धारा 1, राजभाषा अधिनियम, 1963"
+      },
+      "ruleRef": {
+        "textId": "ol-act-1",
+        "citation": {
+          "en": "Section 1, Official Languages Act, 1963",
+          "hi": "धारा 1, राजभाषा अधिनियम, 1963"
+        }
+      },
+      "difficulty": "easy",
+      "reviewed": true,
+      "reviewState": "approved",
+      "tags": [
+        "generated",
+        "rule"
+      ],
+      "verify": true,
+      "version": "1.0.0",
+      "source": {
+        "name": "Department of Official Language, Ministry of Home Affairs — The Official Languages Act, 1963 (as amended, 1967)",
+        "url": "https://rajbhasha.gov.in/sites/default/files/rajbhasha_act_1963e.pdf"
+      }
+    },
+    {
+      "id": "ol-act-rule-2",
+      "act": "ol-act",
+      "rule": "2",
+      "kind": "rule",
+      "front": {
+        "en": "Definitions — which section of the OL Act 1963?",
+        "hi": "परिभाषाएँ — राजभाषा अधिनियम का कौन-सा धारा?"
+      },
+      "back": {
+        "en": "Section 2, Official Languages Act, 1963",
+        "hi": "धारा 2, राजभाषा अधिनियम, 1963"
+      },
+      "ruleRef": {
+        "textId": "ol-act-2",
+        "citation": {
+          "en": "Section 2, Official Languages Act, 1963",
+          "hi": "धारा 2, राजभाषा अधिनियम, 1963"
+        }
+      },
+      "difficulty": "easy",
+      "reviewed": true,
+      "reviewState": "approved",
+      "tags": [
+        "generated",
+        "rule"
+      ],
+      "verify": true,
+      "version": "1.0.0",
+      "source": {
+        "name": "Department of Official Language, Ministry of Home Affairs — The Official Languages Act, 1963 (as amended, 1967)",
+        "url": "https://rajbhasha.gov.in/sites/default/files/rajbhasha_act_1963e.pdf"
+      }
+    },
+    {
+      "id": "ol-act-rule-2-1",
+      "act": "ol-act",
+      "rule": "2",
+      "subRule": "2(1)",
+      "kind": "rule",
+      "front": {
+        "en": "Notwithstanding the expiration of the period of fifteen years from the commencement of the Constitution, the English language may, as from the appointed day, continue to be used in addition to … — which section?",
+        "hi": ""
+      },
+      "back": {
+        "en": "Section 2(1), Official Languages Act, 1963",
+        "hi": "धारा 2(1), राजभाषा अधिनियम, 1963"
+      },
+      "ruleRef": {
+        "textId": "ol-act-2",
+        "citation": {
+          "en": "Section 2(1), Official Languages Act, 1963",
+          "hi": "धारा 2(1), राजभाषा अधिनियम, 1963"
+        }
+      },
+      "difficulty": "medium",
+      "reviewed": false,
+      "reviewState": "needs-hindi",
+      "tags": [
+        "generated",
+        "rule",
+        "sub-rule"
+      ],
+      "verify": true,
+      "version": "1.0.0",
+      "source": {
+        "name": "Department of Official Language, Ministry of Home Affairs — The Official Languages Act, 1963 (as amended, 1967)",
+        "url": "https://rajbhasha.gov.in/sites/default/files/rajbhasha_act_1963e.pdf"
+      }
+    },
+    {
+      "id": "ol-act-rule-2-2",
+      "act": "ol-act",
+      "rule": "2",
+      "subRule": "2(2)",
+      "kind": "rule",
+      "front": {
+        "en": "Notwithstanding anything contained in sub-section (1) where Hindi or the English Language is used for purposes of communication- (i) between one Ministry or Department or office of the Central … — which section?",
+        "hi": ""
+      },
+      "back": {
+        "en": "Section 2(2), Official Languages Act, 1963",
+        "hi": "धारा 2(2), राजभाषा अधिनियम, 1963"
+      },
+      "ruleRef": {
+        "textId": "ol-act-2",
+        "citation": {
+          "en": "Section 2(2), Official Languages Act, 1963",
+          "hi": "धारा 2(2), राजभाषा अधिनियम, 1963"
+        }
+      },
+      "difficulty": "medium",
+      "reviewed": false,
+      "reviewState": "needs-hindi",
+      "tags": [
+        "generated",
+        "rule",
+        "sub-rule"
+      ],
+      "verify": true,
+      "version": "1.0.0",
+      "source": {
+        "name": "Department of Official Language, Ministry of Home Affairs — The Official Languages Act, 1963 (as amended, 1967)",
+        "url": "https://rajbhasha.gov.in/sites/default/files/rajbhasha_act_1963e.pdf"
+      }
+    },
+    {
+      "id": "ol-act-rule-2-3",
+      "act": "ol-act",
+      "rule": "2",
+      "subRule": "2(3)",
+      "kind": "rule",
+      "front": {
+        "en": "Notwithstanding anything contained in sub-section (1), both Hindi and the English language shall be used for- (i) resolutions, general orders, rules, notifications, administrative or other reports or … — which section?",
+        "hi": ""
+      },
+      "back": {
+        "en": "Section 2(3), Official Languages Act, 1963",
+        "hi": "धारा 2(3), राजभाषा अधिनियम, 1963"
+      },
+      "ruleRef": {
+        "textId": "ol-act-2",
+        "citation": {
+          "en": "Section 2(3), Official Languages Act, 1963",
+          "hi": "धारा 2(3), राजभाषा अधिनियम, 1963"
+        }
+      },
+      "difficulty": "medium",
+      "reviewed": false,
+      "reviewState": "needs-hindi",
+      "tags": [
+        "generated",
+        "rule",
+        "sub-rule"
+      ],
+      "verify": true,
+      "version": "1.0.0",
+      "source": {
+        "name": "Department of Official Language, Ministry of Home Affairs — The Official Languages Act, 1963 (as amended, 1967)",
+        "url": "https://rajbhasha.gov.in/sites/default/files/rajbhasha_act_1963e.pdf"
+      }
+    },
+    {
+      "id": "ol-act-rule-2-4",
+      "act": "ol-act",
+      "rule": "2",
+      "subRule": "2(4)",
+      "kind": "rule",
+      "front": {
+        "en": "Without prejudice to the provisions of sub-section (1) or sub-section (2) or sub-section (3), the Central Government may, by rules made under section 8, provide for the language or languages to be … — which section?",
+        "hi": ""
+      },
+      "back": {
+        "en": "Section 2(4), Official Languages Act, 1963",
+        "hi": "धारा 2(4), राजभाषा अधिनियम, 1963"
+      },
+      "ruleRef": {
+        "textId": "ol-act-2",
+        "citation": {
+          "en": "Section 2(4), Official Languages Act, 1963",
+          "hi": "धारा 2(4), राजभाषा अधिनियम, 1963"
+        }
+      },
+      "difficulty": "medium",
+      "reviewed": false,
+      "reviewState": "needs-hindi",
+      "tags": [
+        "generated",
+        "rule",
+        "sub-rule"
+      ],
+      "verify": true,
+      "version": "1.0.0",
+      "source": {
+        "name": "Department of Official Language, Ministry of Home Affairs — The Official Languages Act, 1963 (as amended, 1967)",
+        "url": "https://rajbhasha.gov.in/sites/default/files/rajbhasha_act_1963e.pdf"
+      }
+    },
+    {
+      "id": "ol-act-rule-2-5",
+      "act": "ol-act",
+      "rule": "2",
+      "subRule": "2(5)",
+      "kind": "rule",
+      "front": {
+        "en": "The provisions of clause (a) of sub-section (1), and the provisions of sub-section (2), sub-section (3) and sub-section (4) shall remain in force until resolutions for the discontinuance of the use … — which section?",
+        "hi": ""
+      },
+      "back": {
+        "en": "Section 2(5), Official Languages Act, 1963",
+        "hi": "धारा 2(5), राजभाषा अधिनियम, 1963"
+      },
+      "ruleRef": {
+        "textId": "ol-act-2",
+        "citation": {
+          "en": "Section 2(5), Official Languages Act, 1963",
+          "hi": "धारा 2(5), राजभाषा अधिनियम, 1963"
+        }
+      },
+      "difficulty": "medium",
+      "reviewed": false,
+      "reviewState": "needs-hindi",
+      "tags": [
+        "generated",
+        "rule",
+        "sub-rule"
+      ],
+      "verify": true,
+      "version": "1.0.0",
+      "source": {
+        "name": "Department of Official Language, Ministry of Home Affairs — The Official Languages Act, 1963 (as amended, 1967)",
+        "url": "https://rajbhasha.gov.in/sites/default/files/rajbhasha_act_1963e.pdf"
+      }
+    },
+    {
+      "id": "ol-act-rule-4",
+      "act": "ol-act",
+      "rule": "4",
+      "kind": "rule",
+      "front": {
+        "en": "Committee on Official Language — which section of the OL Act 1963?",
+        "hi": "राजभाषा संबंधी समिति — राजभाषा अधिनियम का कौन-सा धारा?"
+      },
+      "back": {
+        "en": "Section 4, Official Languages Act, 1963",
+        "hi": "धारा 4, राजभाषा अधिनियम, 1963"
+      },
+      "ruleRef": {
+        "textId": "ol-act-4",
+        "citation": {
+          "en": "Section 4, Official Languages Act, 1963",
+          "hi": "धारा 4, राजभाषा अधिनियम, 1963"
+        }
+      },
+      "difficulty": "easy",
+      "reviewed": true,
+      "reviewState": "approved",
+      "tags": [
+        "generated",
+        "rule"
+      ],
+      "verify": true,
+      "version": "1.0.0",
+      "source": {
+        "name": "Department of Official Language, Ministry of Home Affairs — The Official Languages Act, 1963 (as amended, 1967)",
+        "url": "https://rajbhasha.gov.in/sites/default/files/rajbhasha_act_1963e.pdf"
+      }
+    },
+    {
+      "id": "ol-act-rule-4-1",
+      "act": "ol-act",
+      "rule": "4",
+      "subRule": "4(1)",
+      "kind": "rule",
+      "front": {
+        "en": "After the expiration of ten years from the date on which section 3 comes into force, there shall be constituted a Committee on Official language, on a resolution to that effect being moved in either … — which section?",
+        "hi": ""
+      },
+      "back": {
+        "en": "Section 4(1), Official Languages Act, 1963",
+        "hi": "धारा 4(1), राजभाषा अधिनियम, 1963"
+      },
+      "ruleRef": {
+        "textId": "ol-act-4",
+        "citation": {
+          "en": "Section 4(1), Official Languages Act, 1963",
+          "hi": "धारा 4(1), राजभाषा अधिनियम, 1963"
+        }
+      },
+      "difficulty": "medium",
+      "reviewed": false,
+      "reviewState": "needs-hindi",
+      "tags": [
+        "generated",
+        "rule",
+        "sub-rule"
+      ],
+      "verify": true,
+      "version": "1.0.0",
+      "source": {
+        "name": "Department of Official Language, Ministry of Home Affairs — The Official Languages Act, 1963 (as amended, 1967)",
+        "url": "https://rajbhasha.gov.in/sites/default/files/rajbhasha_act_1963e.pdf"
+      }
+    },
+    {
+      "id": "ol-act-rule-4-2",
+      "act": "ol-act",
+      "rule": "4",
+      "subRule": "4(2)",
+      "kind": "rule",
+      "front": {
+        "en": "The Committee shall consist of thirty members, of whom twenty shall be members of the House of the people and ten shall be members of the Council of States, to be elected respectively the members of … — which section?",
+        "hi": ""
+      },
+      "back": {
+        "en": "Section 4(2), Official Languages Act, 1963",
+        "hi": "धारा 4(2), राजभाषा अधिनियम, 1963"
+      },
+      "ruleRef": {
+        "textId": "ol-act-4",
+        "citation": {
+          "en": "Section 4(2), Official Languages Act, 1963",
+          "hi": "धारा 4(2), राजभाषा अधिनियम, 1963"
+        }
+      },
+      "difficulty": "medium",
+      "reviewed": false,
+      "reviewState": "needs-hindi",
+      "tags": [
+        "generated",
+        "rule",
+        "sub-rule"
+      ],
+      "verify": true,
+      "version": "1.0.0",
+      "source": {
+        "name": "Department of Official Language, Ministry of Home Affairs — The Official Languages Act, 1963 (as amended, 1967)",
+        "url": "https://rajbhasha.gov.in/sites/default/files/rajbhasha_act_1963e.pdf"
+      }
+    },
+    {
+      "id": "ol-act-rule-4-3",
+      "act": "ol-act",
+      "rule": "4",
+      "subRule": "4(3)",
+      "kind": "rule",
+      "front": {
+        "en": "It shall be the duty of the Committee to review the progress made in the use of Hindi for the official purposes of the Union and submit a report to the President making recommendations thereon and … — which section?",
+        "hi": ""
+      },
+      "back": {
+        "en": "Section 4(3), Official Languages Act, 1963",
+        "hi": "धारा 4(3), राजभाषा अधिनियम, 1963"
+      },
+      "ruleRef": {
+        "textId": "ol-act-4",
+        "citation": {
+          "en": "Section 4(3), Official Languages Act, 1963",
+          "hi": "धारा 4(3), राजभाषा अधिनियम, 1963"
+        }
+      },
+      "difficulty": "medium",
+      "reviewed": false,
+      "reviewState": "needs-hindi",
+      "tags": [
+        "generated",
+        "rule",
+        "sub-rule"
+      ],
+      "verify": true,
+      "version": "1.0.0",
+      "source": {
+        "name": "Department of Official Language, Ministry of Home Affairs — The Official Languages Act, 1963 (as amended, 1967)",
+        "url": "https://rajbhasha.gov.in/sites/default/files/rajbhasha_act_1963e.pdf"
+      }
+    },
+    {
+      "id": "ol-act-rule-4-4",
+      "act": "ol-act",
+      "rule": "4",
+      "subRule": "4(4)",
+      "kind": "rule",
+      "front": {
+        "en": "The President may, after consideration of the report referred to in sub-section (3), and the views, if any, expressed by the State Government thereon, issue directions in accordance with the whole or … — which section?",
+        "hi": ""
+      },
+      "back": {
+        "en": "Section 4(4), Official Languages Act, 1963",
+        "hi": "धारा 4(4), राजभाषा अधिनियम, 1963"
+      },
+      "ruleRef": {
+        "textId": "ol-act-4",
+        "citation": {
+          "en": "Section 4(4), Official Languages Act, 1963",
+          "hi": "धारा 4(4), राजभाषा अधिनियम, 1963"
+        }
+      },
+      "difficulty": "medium",
+      "reviewed": false,
+      "reviewState": "needs-hindi",
+      "tags": [
+        "generated",
+        "rule",
+        "sub-rule"
+      ],
+      "verify": true,
+      "version": "1.0.0",
+      "source": {
+        "name": "Department of Official Language, Ministry of Home Affairs — The Official Languages Act, 1963 (as amended, 1967)",
+        "url": "https://rajbhasha.gov.in/sites/default/files/rajbhasha_act_1963e.pdf"
+      }
+    },
+    {
+      "id": "ol-act-rule-5",
+      "act": "ol-act",
+      "rule": "5",
+      "kind": "rule",
+      "front": {
+        "en": "Authorised Hindi translation of Central Acts, etc — which section of the OL Act 1963?",
+        "hi": "केंद्रीय अधिनियमों आदि का प्राधिकृत हिंदी अनुवाद — राजभाषा अधिनियम का कौन-सा धारा?"
+      },
+      "back": {
+        "en": "Section 5, Official Languages Act, 1963",
+        "hi": "धारा 5, राजभाषा अधिनियम, 1963"
+      },
+      "ruleRef": {
+        "textId": "ol-act-5",
+        "citation": {
+          "en": "Section 5, Official Languages Act, 1963",
+          "hi": "धारा 5, राजभाषा अधिनियम, 1963"
+        }
+      },
+      "difficulty": "easy",
+      "reviewed": true,
+      "reviewState": "approved",
+      "tags": [
+        "generated",
+        "rule"
+      ],
+      "verify": true,
+      "version": "1.0.0",
+      "source": {
+        "name": "Department of Official Language, Ministry of Home Affairs — The Official Languages Act, 1963 (as amended, 1967)",
+        "url": "https://rajbhasha.gov.in/sites/default/files/rajbhasha_act_1963e.pdf"
+      }
+    },
+    {
+      "id": "ol-act-rule-6",
+      "act": "ol-act",
+      "rule": "6",
+      "kind": "rule",
+      "front": {
+        "en": "Authorised Hindi translation of State Acts in certain cases — which section of the OL Act 1963?",
+        "hi": "कुछ दशाओं में राज्य अधिनियमों का प्राधिकृत हिंदी अनुवाद — राजभाषा अधिनियम का कौन-सा धारा?"
+      },
+      "back": {
+        "en": "Section 6, Official Languages Act, 1963",
+        "hi": "धारा 6, राजभाषा अधिनियम, 1963"
+      },
+      "ruleRef": {
+        "textId": "ol-act-6",
+        "citation": {
+          "en": "Section 6, Official Languages Act, 1963",
+          "hi": "धारा 6, राजभाषा अधिनियम, 1963"
+        }
+      },
+      "difficulty": "easy",
+      "reviewed": true,
+      "reviewState": "approved",
+      "tags": [
+        "generated",
+        "rule"
+      ],
+      "verify": true,
+      "version": "1.0.0",
+      "source": {
+        "name": "Department of Official Language, Ministry of Home Affairs — The Official Languages Act, 1963 (as amended, 1967)",
+        "url": "https://rajbhasha.gov.in/sites/default/files/rajbhasha_act_1963e.pdf"
+      }
+    },
+    {
+      "id": "ol-act-rule-7",
+      "act": "ol-act",
+      "rule": "7",
+      "kind": "rule",
+      "front": {
+        "en": "Optional use of Hindi or other Official language in judgements, etc., of High Courts — which section of the OL Act 1963?",
+        "hi": "उच्च न्यायालयों के निर्णयों आदि में हिंदी या अन्य राजभाषा का वैकल्पिक प्रयोग — राजभाषा अधिनियम का कौन-सा धारा?"
+      },
+      "back": {
+        "en": "Section 7, Official Languages Act, 1963",
+        "hi": "धारा 7, राजभाषा अधिनियम, 1963"
+      },
+      "ruleRef": {
+        "textId": "ol-act-7",
+        "citation": {
+          "en": "Section 7, Official Languages Act, 1963",
+          "hi": "धारा 7, राजभाषा अधिनियम, 1963"
+        }
+      },
+      "difficulty": "easy",
+      "reviewed": true,
+      "reviewState": "approved",
+      "tags": [
+        "generated",
+        "rule"
+      ],
+      "verify": true,
+      "version": "1.0.0",
+      "source": {
+        "name": "Department of Official Language, Ministry of Home Affairs — The Official Languages Act, 1963 (as amended, 1967)",
+        "url": "https://rajbhasha.gov.in/sites/default/files/rajbhasha_act_1963e.pdf"
+      }
+    },
+    {
+      "id": "ol-act-rule-8",
+      "act": "ol-act",
+      "rule": "8",
+      "kind": "rule",
+      "front": {
+        "en": "Power to make rules — which section of the OL Act 1963?",
+        "hi": "नियम बनाने की शक्ति — राजभाषा अधिनियम का कौन-सा धारा?"
+      },
+      "back": {
+        "en": "Section 8, Official Languages Act, 1963",
+        "hi": "धारा 8, राजभाषा अधिनियम, 1963"
+      },
+      "ruleRef": {
+        "textId": "ol-act-8",
+        "citation": {
+          "en": "Section 8, Official Languages Act, 1963",
+          "hi": "धारा 8, राजभाषा अधिनियम, 1963"
+        }
+      },
+      "difficulty": "easy",
+      "reviewed": true,
+      "reviewState": "approved",
+      "tags": [
+        "generated",
+        "rule"
+      ],
+      "verify": true,
+      "version": "1.0.0",
+      "source": {
+        "name": "Department of Official Language, Ministry of Home Affairs — The Official Languages Act, 1963 (as amended, 1967)",
+        "url": "https://rajbhasha.gov.in/sites/default/files/rajbhasha_act_1963e.pdf"
+      }
+    },
+    {
+      "id": "ol-act-rule-8-1",
+      "act": "ol-act",
+      "rule": "8",
+      "subRule": "8(1)",
+      "kind": "rule",
+      "front": {
+        "en": "The Central Government may, by notification in the Official Gazette, make rules for carrying out the purposes of this Act. — which section?",
+        "hi": ""
+      },
+      "back": {
+        "en": "Section 8(1), Official Languages Act, 1963",
+        "hi": "धारा 8(1), राजभाषा अधिनियम, 1963"
+      },
+      "ruleRef": {
+        "textId": "ol-act-8",
+        "citation": {
+          "en": "Section 8(1), Official Languages Act, 1963",
+          "hi": "धारा 8(1), राजभाषा अधिनियम, 1963"
+        }
+      },
+      "difficulty": "medium",
+      "reviewed": false,
+      "reviewState": "needs-hindi",
+      "tags": [
+        "generated",
+        "rule",
+        "sub-rule"
+      ],
+      "verify": true,
+      "version": "1.0.0",
+      "source": {
+        "name": "Department of Official Language, Ministry of Home Affairs — The Official Languages Act, 1963 (as amended, 1967)",
+        "url": "https://rajbhasha.gov.in/sites/default/files/rajbhasha_act_1963e.pdf"
+      }
+    },
+    {
+      "id": "ol-act-rule-8-2",
+      "act": "ol-act",
+      "rule": "8",
+      "subRule": "8(2)",
+      "kind": "rule",
+      "front": {
+        "en": "Every rule made under this section shall be laid, as soon as may be after it is made, before each House of Parliament while it is in session for a total period of thirty days which may be comprised … — which section?",
+        "hi": ""
+      },
+      "back": {
+        "en": "Section 8(2), Official Languages Act, 1963",
+        "hi": "धारा 8(2), राजभाषा अधिनियम, 1963"
+      },
+      "ruleRef": {
+        "textId": "ol-act-8",
+        "citation": {
+          "en": "Section 8(2), Official Languages Act, 1963",
+          "hi": "धारा 8(2), राजभाषा अधिनियम, 1963"
+        }
+      },
+      "difficulty": "medium",
+      "reviewed": false,
+      "reviewState": "needs-hindi",
+      "tags": [
+        "generated",
+        "rule",
+        "sub-rule"
+      ],
+      "verify": true,
+      "version": "1.0.0",
+      "source": {
+        "name": "Department of Official Language, Ministry of Home Affairs — The Official Languages Act, 1963 (as amended, 1967)",
+        "url": "https://rajbhasha.gov.in/sites/default/files/rajbhasha_act_1963e.pdf"
+      }
+    },
+    {
+      "id": "ol-act-rule-9",
+      "act": "ol-act",
+      "rule": "9",
+      "kind": "rule",
+      "front": {
+        "en": "[Certain provisions not to apply to Jammu and Kashmir.] — which section of the OL Act 1963?",
+        "hi": "जम्मू-कश्मीर पर कुछ उपबंधों का लागू न होना — राजभाषा अधिनियम का कौन-सा धारा?"
+      },
+      "back": {
+        "en": "Section 9, Official Languages Act, 1963",
+        "hi": "धारा 9, राजभाषा अधिनियम, 1963"
+      },
+      "ruleRef": {
+        "textId": "ol-act-9",
+        "citation": {
+          "en": "Section 9, Official Languages Act, 1963",
+          "hi": "धारा 9, राजभाषा अधिनियम, 1963"
+        }
+      },
+      "difficulty": "easy",
+      "reviewed": true,
+      "reviewState": "approved",
+      "tags": [
+        "generated",
+        "rule"
+      ],
+      "verify": true,
+      "version": "1.0.0",
+      "source": {
+        "name": "Department of Official Language, Ministry of Home Affairs — The Official Languages Act, 1963 (as amended, 1967)",
+        "url": "https://rajbhasha.gov.in/sites/default/files/rajbhasha_act_1963e.pdf"
+      }
+    },
+    {
+      "id": "ol-act-cloze-1-1",
+      "act": "ol-act",
+      "rule": "1",
+      "kind": "cloze",
+      "front": {
+        "en": "(2) ____ shall come into force on the 26th day of January, 1965 and the remaining provisions of this Act shall come into force on such date1 as the Central Government may, by notification in the Official Gazette, appoint and different dates may be appointed for different provisions of this Act.",
+        "hi": "धारा 1(2) — ____ 26 जनवरी, 1965 को प्रवृत्त होगी और इस अधिनियम के शेष उपबंध ऐसी तारीख को प्रवृत्त होंगे जो केंद्रीय सरकार राजपत्र में अधिसूचना द्वारा नियत करे।"
+      },
+      "back": {
+        "en": "Section 3",
+        "hi": "धारा 3"
+      },
+      "cloze": {
+        "text": {
+          "en": "(2) ____ shall come into force on the 26th day of January, 1965 and the remaining provisions of this Act shall come into force on such date1 as the Central Government may, by notification in the Official Gazette, appoint and different dates may be appointed for different provisions of this Act.",
+          "hi": "धारा 1(2) — ____ 26 जनवरी, 1965 को प्रवृत्त होगी और इस अधिनियम के शेष उपबंध ऐसी तारीख को प्रवृत्त होंगे जो केंद्रीय सरकार राजपत्र में अधिसूचना द्वारा नियत करे।"
+        },
+        "answer": {
+          "en": "Section 3",
+          "hi": "धारा 3"
+        }
+      },
+      "ruleRef": {
+        "textId": "ol-act-1",
+        "citation": {
+          "en": "Section 1, Official Languages Act, 1963",
+          "hi": "धारा 1, राजभाषा अधिनियम, 1963"
+        }
+      },
+      "difficulty": "hard",
+      "reviewed": true,
+      "reviewState": "approved",
+      "tags": [
+        "generated",
+        "cloze",
+        "crossreference"
+      ],
+      "verify": true,
+      "version": "1.0.0",
+      "source": {
+        "name": "Department of Official Language, Ministry of Home Affairs — The Official Languages Act, 1963 (as amended, 1967)",
+        "url": "https://rajbhasha.gov.in/sites/default/files/rajbhasha_act_1963e.pdf"
+      },
+      "reviewNote": "Section 1(2) — section 3 alone commenced on 26 January 1965; the rest was notified. Officers routinely date the whole Act from 1963."
+    },
+    {
+      "id": "ol-act-cloze-1-2",
+      "act": "ol-act",
+      "rule": "1",
+      "kind": "cloze",
+      "front": {
+        "en": "(2) Section 3 shall come into force on the 26th day of January, 1965 and the remaining provisions of this Act shall come into force on such date1 as the Central Government may, by ____ in the Official Gazette, appoint and different dates may be appointed for different provisions of this Act.",
+        "hi": ""
+      },
+      "back": {
+        "en": "notification",
+        "hi": ""
+      },
+      "cloze": {
+        "text": {
+          "en": "(2) Section 3 shall come into force on the 26th day of January, 1965 and the remaining provisions of this Act shall come into force on such date1 as the Central Government may, by ____ in the Official Gazette, appoint and different dates may be appointed for different provisions of this Act.",
+          "hi": ""
+        },
+        "answer": {
+          "en": "notification",
+          "hi": ""
+        }
+      },
+      "ruleRef": {
+        "textId": "ol-act-1",
+        "citation": {
+          "en": "Section 1, Official Languages Act, 1963",
+          "hi": "धारा 1, राजभाषा अधिनियम, 1963"
+        }
+      },
+      "difficulty": "easy",
+      "reviewed": true,
+      "reviewState": "rejected",
+      "tags": [
+        "generated",
+        "cloze",
+        "definedterm"
+      ],
+      "verify": true,
+      "version": "1.0.0",
+      "source": {
+        "name": "Department of Official Language, Ministry of Home Affairs — The Official Languages Act, 1963 (as amended, 1967)",
+        "url": "https://rajbhasha.gov.in/sites/default/files/rajbhasha_act_1963e.pdf"
+      },
+      "reviewNote": "Answer is 'notification'. The set phrase 'by ____ in the Official Gazette' gives it away, and ol-act-cloze-8-3 already covers it once."
+    },
+    {
+      "id": "ol-act-cloze-2-1",
+      "act": "ol-act",
+      "rule": "2",
+      "kind": "cloze",
+      "front": {
+        "en": "Continuance of English Language for official purposes of the Union and for use in Parliament.- (1) Notwithstanding the expiration of the period of ____ from the commencement of the Constitution, the English language may, as from the appointed day, continue to be used in addition to Hindi,- (a) for all the offi",
+        "hi": "धारा 3(1) — संविधान के प्रारंभ से ____ की अवधि समाप्त हो जाने पर भी, नियत दिन से अंग्रेज़ी भाषा का प्रयोग हिंदी के अतिरिक्त संघ के सभी शासकीय प्रयोजनों के लिए जारी रह सकेगा।"
+      },
+      "back": {
+        "en": "fifteen years",
+        "hi": "पंद्रह वर्ष"
+      },
+      "cloze": {
+        "text": {
+          "en": "Continuance of English Language for official purposes of the Union and for use in Parliament.- (1) Notwithstanding the expiration of the period of ____ from the commencement of the Constitution, the English language may, as from the appointed day, continue to be used in addition to Hindi,- (a) for all the offi",
+          "hi": "धारा 3(1) — संविधान के प्रारंभ से ____ की अवधि समाप्त हो जाने पर भी, नियत दिन से अंग्रेज़ी भाषा का प्रयोग हिंदी के अतिरिक्त संघ के सभी शासकीय प्रयोजनों के लिए जारी रह सकेगा।"
+        },
+        "answer": {
+          "en": "fifteen years",
+          "hi": "पंद्रह वर्ष"
+        }
+      },
+      "ruleRef": {
+        "textId": "ol-act-2",
+        "citation": {
+          "en": "Section 2, Official Languages Act, 1963",
+          "hi": "धारा 2, राजभाषा अधिनियम, 1963"
+        }
+      },
+      "difficulty": "medium",
+      "reviewed": true,
+      "reviewState": "approved",
+      "tags": [
+        "generated",
+        "cloze",
+        "duration"
+      ],
+      "verify": true,
+      "version": "1.0.0",
+      "source": {
+        "name": "Department of Official Language, Ministry of Home Affairs — The Official Languages Act, 1963 (as amended, 1967)",
+        "url": "https://rajbhasha.gov.in/sites/default/files/rajbhasha_act_1963e.pdf"
+      },
+      "reviewNote": "Section 3(1) — the fifteen-year period in Article 343(2) of the Constitution is what section 3 works around."
+    },
+    {
+      "id": "ol-act-cloze-2-2",
+      "act": "ol-act",
+      "rule": "2",
+      "kind": "cloze",
+      "front": {
+        "en": "In this Act, unless the context otherwise requires,- (a) \"appointed day\", in relation to ____, means the 26th day of January, 1965 and in relation to any other provision of this Act, means the day on which that provision comes into force; (b) \"Hindi\" means Hindi in Devanagari Script.",
+        "hi": "धारा 2(क) — \"नियत दिन\" से, ____ के संबंध में, 26 जनवरी, 1965 अभिप्रेत है; और इस अधिनियम के किसी अन्य उपबंध के संबंध में वह दिन जिसको वह उपबंध प्रवृत्त होता है।"
+      },
+      "back": {
+        "en": "section 3",
+        "hi": "धारा 3"
+      },
+      "cloze": {
+        "text": {
+          "en": "In this Act, unless the context otherwise requires,- (a) \"appointed day\", in relation to ____, means the 26th day of January, 1965 and in relation to any other provision of this Act, means the day on which that provision comes into force; (b) \"Hindi\" means Hindi in Devanagari Script.",
+          "hi": "धारा 2(क) — \"नियत दिन\" से, ____ के संबंध में, 26 जनवरी, 1965 अभिप्रेत है; और इस अधिनियम के किसी अन्य उपबंध के संबंध में वह दिन जिसको वह उपबंध प्रवृत्त होता है।"
+        },
+        "answer": {
+          "en": "section 3",
+          "hi": "धारा 3"
+        }
+      },
+      "ruleRef": {
+        "textId": "ol-act-2",
+        "citation": {
+          "en": "Section 2, Official Languages Act, 1963",
+          "hi": "धारा 2, राजभाषा अधिनियम, 1963"
+        }
+      },
+      "difficulty": "hard",
+      "reviewed": true,
+      "reviewState": "approved",
+      "tags": [
+        "generated",
+        "cloze",
+        "crossreference"
+      ],
+      "verify": true,
+      "version": "1.0.0",
+      "source": {
+        "name": "Department of Official Language, Ministry of Home Affairs — The Official Languages Act, 1963 (as amended, 1967)",
+        "url": "https://rajbhasha.gov.in/sites/default/files/rajbhasha_act_1963e.pdf"
+      },
+      "reviewNote": "Section 2(a) — 'appointed day' means one date for section 3 and a different one for every other provision."
+    },
+    {
+      "id": "ol-act-cloze-2-3",
+      "act": "ol-act",
+      "rule": "2",
+      "kind": "cloze",
+      "front": {
+        "en": "the Union and a State which has not adopted Hindi as its Official Language: Provided further that where Hindi is used for purposes of communication between ____ State which has adopted Hindi as its official language and another State which has not adopted Hindi as its Official Language, such communication in Hindi shal",
+        "hi": ""
+      },
+      "back": {
+        "en": "one",
+        "hi": ""
+      },
+      "cloze": {
+        "text": {
+          "en": "the Union and a State which has not adopted Hindi as its Official Language: Provided further that where Hindi is used for purposes of communication between ____ State which has adopted Hindi as its official language and another State which has not adopted Hindi as its Official Language, such communication in Hindi shal",
+          "hi": ""
+        },
+        "answer": {
+          "en": "one",
+          "hi": ""
+        }
+      },
+      "ruleRef": {
+        "textId": "ol-act-2",
+        "citation": {
+          "en": "Section 2, Official Languages Act, 1963",
+          "hi": "धारा 2, राजभाषा अधिनियम, 1963"
+        }
+      },
+      "difficulty": "easy",
+      "reviewed": true,
+      "reviewState": "rejected",
+      "tags": [
+        "generated",
+        "cloze",
+        "count"
+      ],
+      "verify": true,
+      "version": "1.0.0",
+      "source": {
+        "name": "Department of Official Language, Ministry of Home Affairs — The Official Languages Act, 1963 (as amended, 1967)",
+        "url": "https://rajbhasha.gov.in/sites/default/files/rajbhasha_act_1963e.pdf"
+      },
+      "reviewNote": "Answer is 'one', blanked out of 'between one State which has adopted Hindi and another'. The card tests counting, not the Act."
+    },
+    {
+      "id": "ol-act-cloze-4-1",
+      "act": "ol-act",
+      "rule": "4",
+      "kind": "cloze",
+      "front": {
+        "en": "(1) After the expiration of ____ from the date on which section 3 comes into force, there shall be constituted a Committee on Official language, on a resolution to that effect being moved in either House of Parliament with the previous sanction of the President and passed by both Houses.",
+        "hi": "धारा 4(1) — धारा 3 के प्रवृत्त होने की तारीख से ____ बीत जाने के पश्चात्, संसद के किसी सदन में राष्ट्रपति की पूर्व मंजूरी से प्रस्ताव पारित होने पर राजभाषा संबंधी समिति गठित की जाएगी।"
+      },
+      "back": {
+        "en": "ten years",
+        "hi": "दस वर्ष"
+      },
+      "cloze": {
+        "text": {
+          "en": "(1) After the expiration of ____ from the date on which section 3 comes into force, there shall be constituted a Committee on Official language, on a resolution to that effect being moved in either House of Parliament with the previous sanction of the President and passed by both Houses.",
+          "hi": "धारा 4(1) — धारा 3 के प्रवृत्त होने की तारीख से ____ बीत जाने के पश्चात्, संसद के किसी सदन में राष्ट्रपति की पूर्व मंजूरी से प्रस्ताव पारित होने पर राजभाषा संबंधी समिति गठित की जाएगी।"
+        },
+        "answer": {
+          "en": "ten years",
+          "hi": "दस वर्ष"
+        }
+      },
+      "ruleRef": {
+        "textId": "ol-act-4",
+        "citation": {
+          "en": "Section 4, Official Languages Act, 1963",
+          "hi": "धारा 4, राजभाषा अधिनियम, 1963"
+        }
+      },
+      "difficulty": "medium",
+      "reviewed": true,
+      "reviewState": "approved",
+      "tags": [
+        "generated",
+        "cloze",
+        "duration"
+      ],
+      "verify": true,
+      "version": "1.0.0",
+      "source": {
+        "name": "Department of Official Language, Ministry of Home Affairs — The Official Languages Act, 1963 (as amended, 1967)",
+        "url": "https://rajbhasha.gov.in/sites/default/files/rajbhasha_act_1963e.pdf"
+      },
+      "reviewNote": "Section 4(1) — the Committee on Official Language could only be constituted ten years after section 3 commenced."
+    },
+    {
+      "id": "ol-act-cloze-4-2",
+      "act": "ol-act",
+      "rule": "4",
+      "kind": "cloze",
+      "front": {
+        "en": "(2) The Committee shall consist of ____ members, of whom twenty shall be members of the House of the people and ten shall be members of the Council of States, to be elected respectively the members o",
+        "hi": "धारा 4(2) — समिति ____ सदस्यों से मिलकर बनेगी, जिनमें से बीस लोक सभा के और दस राज्य सभा के सदस्य होंगे।"
+      },
+      "back": {
+        "en": "thirty",
+        "hi": "तीस"
+      },
+      "cloze": {
+        "text": {
+          "en": "(2) The Committee shall consist of ____ members, of whom twenty shall be members of the House of the people and ten shall be members of the Council of States, to be elected respectively the members o",
+          "hi": "धारा 4(2) — समिति ____ सदस्यों से मिलकर बनेगी, जिनमें से बीस लोक सभा के और दस राज्य सभा के सदस्य होंगे।"
+        },
+        "answer": {
+          "en": "thirty",
+          "hi": "तीस"
+        }
+      },
+      "ruleRef": {
+        "textId": "ol-act-4",
+        "citation": {
+          "en": "Section 4, Official Languages Act, 1963",
+          "hi": "धारा 4, राजभाषा अधिनियम, 1963"
+        }
+      },
+      "difficulty": "easy",
+      "reviewed": true,
+      "reviewState": "approved",
+      "tags": [
+        "generated",
+        "cloze",
+        "count"
+      ],
+      "verify": true,
+      "version": "1.0.0",
+      "source": {
+        "name": "Department of Official Language, Ministry of Home Affairs — The Official Languages Act, 1963 (as amended, 1967)",
+        "url": "https://rajbhasha.gov.in/sites/default/files/rajbhasha_act_1963e.pdf"
+      },
+      "reviewNote": "Section 4(2) — thirty members, twenty from the Lok Sabha and ten from the Rajya Sabha. The split is the examinable fact."
+    },
+    {
+      "id": "ol-act-cloze-4-3",
+      "act": "ol-act",
+      "rule": "4",
+      "kind": "cloze",
+      "front": {
+        "en": "(1) After the expiration of ten years from the date on which section 3 comes into force, there shall be constituted a ____, on a resolution to that effect being moved in either House of Parliament with the previous sanction of the President and passed by both Houses.",
+        "hi": "धारा 4(1) — धारा 3 के प्रवृत्त होने से दस वर्ष बीतने के पश्चात् संसद के प्रस्ताव द्वारा एक ____ गठित की जाएगी।"
+      },
+      "back": {
+        "en": "Committee on Official language",
+        "hi": "राजभाषा संबंधी समिति"
+      },
+      "cloze": {
+        "text": {
+          "en": "(1) After the expiration of ten years from the date on which section 3 comes into force, there shall be constituted a ____, on a resolution to that effect being moved in either House of Parliament with the previous sanction of the President and passed by both Houses.",
+          "hi": "धारा 4(1) — धारा 3 के प्रवृत्त होने से दस वर्ष बीतने के पश्चात् संसद के प्रस्ताव द्वारा एक ____ गठित की जाएगी।"
+        },
+        "answer": {
+          "en": "Committee on Official language",
+          "hi": "राजभाषा संबंधी समिति"
+        }
+      },
+      "ruleRef": {
+        "textId": "ol-act-4",
+        "citation": {
+          "en": "Section 4, Official Languages Act, 1963",
+          "hi": "धारा 4, राजभाषा अधिनियम, 1963"
+        }
+      },
+      "difficulty": "easy",
+      "reviewed": true,
+      "reviewState": "approved",
+      "tags": [
+        "generated",
+        "cloze",
+        "definedterm"
+      ],
+      "verify": true,
+      "version": "1.0.0",
+      "source": {
+        "name": "Department of Official Language, Ministry of Home Affairs — The Official Languages Act, 1963 (as amended, 1967)",
+        "url": "https://rajbhasha.gov.in/sites/default/files/rajbhasha_act_1963e.pdf"
+      },
+      "reviewNote": "The body section 4 creates, by its statutory name."
+    },
+    {
+      "id": "ol-act-cloze-5-1",
+      "act": "ol-act",
+      "rule": "5",
+      "kind": "cloze",
+      "front": {
+        "en": "(1) A translation in ____ published under the authority of the President in the Official Gazette on and after the appointed day,- (a) of any Central Act or of any Ordinance promulgated",
+        "hi": "धारा 5(1) — नियत दिन को और उसके पश्चात् राष्ट्रपति के प्राधिकार से राजपत्र में प्रकाशित किसी केंद्रीय अधिनियम या अध्यादेश का ____ में अनुवाद उसका प्राधिकृत पाठ समझा जाएगा।"
+      },
+      "back": {
+        "en": "Hindi",
+        "hi": "हिंदी"
+      },
+      "cloze": {
+        "text": {
+          "en": "(1) A translation in ____ published under the authority of the President in the Official Gazette on and after the appointed day,- (a) of any Central Act or of any Ordinance promulgated",
+          "hi": "धारा 5(1) — नियत दिन को और उसके पश्चात् राष्ट्रपति के प्राधिकार से राजपत्र में प्रकाशित किसी केंद्रीय अधिनियम या अध्यादेश का ____ में अनुवाद उसका प्राधिकृत पाठ समझा जाएगा।"
+        },
+        "answer": {
+          "en": "Hindi",
+          "hi": "हिंदी"
+        }
+      },
+      "ruleRef": {
+        "textId": "ol-act-5",
+        "citation": {
+          "en": "Section 5, Official Languages Act, 1963",
+          "hi": "धारा 5, राजभाषा अधिनियम, 1963"
+        }
+      },
+      "difficulty": "easy",
+      "reviewed": true,
+      "reviewState": "approved",
+      "tags": [
+        "generated",
+        "cloze",
+        "definedterm"
+      ],
+      "verify": true,
+      "version": "1.0.0",
+      "source": {
+        "name": "Department of Official Language, Ministry of Home Affairs — The Official Languages Act, 1963 (as amended, 1967)",
+        "url": "https://rajbhasha.gov.in/sites/default/files/rajbhasha_act_1963e.pdf"
+      },
+      "reviewNote": "Section 5 — only a Hindi translation published under the authority of the President is the authoritative text."
+    },
+    {
+      "id": "ol-act-cloze-6-1",
+      "act": "ol-act",
+      "rule": "6",
+      "kind": "cloze",
+      "front": {
+        "en": "by the Governor of the State, a translation of the same in Hindi, in addition to a translation thereof in the English language as required by clause (3) of ____ of the Constitution, may be published on or after the appointed day under the authority of the Governor of the State in the Official Gazette of the State and i",
+        "hi": "धारा 6 — राज्य विधानमंडल द्वारा हिंदी से भिन्न भाषा विहित किए जाने पर, संविधान के ____ के खंड (3) द्वारा अपेक्षित अंग्रेज़ी अनुवाद के अतिरिक्त हिंदी में अनुवाद भी प्रकाशित किया जा सकेगा।"
+      },
+      "back": {
+        "en": "article 348",
+        "hi": "अनुच्छेद 348"
+      },
+      "cloze": {
+        "text": {
+          "en": "by the Governor of the State, a translation of the same in Hindi, in addition to a translation thereof in the English language as required by clause (3) of ____ of the Constitution, may be published on or after the appointed day under the authority of the Governor of the State in the Official Gazette of the State and i",
+          "hi": "धारा 6 — राज्य विधानमंडल द्वारा हिंदी से भिन्न भाषा विहित किए जाने पर, संविधान के ____ के खंड (3) द्वारा अपेक्षित अंग्रेज़ी अनुवाद के अतिरिक्त हिंदी में अनुवाद भी प्रकाशित किया जा सकेगा।"
+        },
+        "answer": {
+          "en": "article 348",
+          "hi": "अनुच्छेद 348"
+        }
+      },
+      "ruleRef": {
+        "textId": "ol-act-6",
+        "citation": {
+          "en": "Section 6, Official Languages Act, 1963",
+          "hi": "धारा 6, राजभाषा अधिनियम, 1963"
+        }
+      },
+      "difficulty": "hard",
+      "reviewed": true,
+      "reviewState": "approved",
+      "tags": [
+        "generated",
+        "cloze",
+        "crossreference"
+      ],
+      "verify": true,
+      "version": "1.0.0",
+      "source": {
+        "name": "Department of Official Language, Ministry of Home Affairs — The Official Languages Act, 1963 (as amended, 1967)",
+        "url": "https://rajbhasha.gov.in/sites/default/files/rajbhasha_act_1963e.pdf"
+      },
+      "reviewNote": "Section 6 is anchored to Article 348(3) of the Constitution — a link officers are asked to state."
+    },
+    {
+      "id": "ol-act-cloze-6-2",
+      "act": "ol-act",
+      "rule": "6",
+      "kind": "cloze",
+      "front": {
+        "en": "Where the Legislature of a State has prescribed any language other than ____ for use in Acts passed by the Legislature of the State or in Ordinances promulgated by the Governor of the State, a translation of the same in Hindi, in additi",
+        "hi": ""
+      },
+      "back": {
+        "en": "Hindi",
+        "hi": ""
+      },
+      "cloze": {
+        "text": {
+          "en": "Where the Legislature of a State has prescribed any language other than ____ for use in Acts passed by the Legislature of the State or in Ordinances promulgated by the Governor of the State, a translation of the same in Hindi, in additi",
+          "hi": ""
+        },
+        "answer": {
+          "en": "Hindi",
+          "hi": ""
+        }
+      },
+      "ruleRef": {
+        "textId": "ol-act-6",
+        "citation": {
+          "en": "Section 6, Official Languages Act, 1963",
+          "hi": "धारा 6, राजभाषा अधिनियम, 1963"
+        }
+      },
+      "difficulty": "easy",
+      "reviewed": true,
+      "reviewState": "rejected",
+      "tags": [
+        "generated",
+        "cloze",
+        "definedterm"
+      ],
+      "verify": true,
+      "version": "1.0.0",
+      "source": {
+        "name": "Department of Official Language, Ministry of Home Affairs — The Official Languages Act, 1963 (as amended, 1967)",
+        "url": "https://rajbhasha.gov.in/sites/default/files/rajbhasha_act_1963e.pdf"
+      },
+      "reviewNote": "The stem says 'a translation of the same in Hindi' two clauses later, so the blank answers itself."
+    },
+    {
+      "id": "ol-act-cloze-7-1",
+      "act": "ol-act",
+      "rule": "7",
+      "kind": "cloze",
+      "front": {
+        "en": "As from the ____ or any day thereafter the Governor of a State may, with the previous consent of the President, authorise the use of Hindi or the official language of the State",
+        "hi": "धारा 7 — ____ से या उसके पश्चात् किसी दिन से, राज्य का राज्यपाल राष्ट्रपति की पूर्व सहमति से उच्च न्यायालय के निर्णयों में हिंदी या राज्य की राजभाषा के प्रयोग को प्राधिकृत कर सकेगा।"
+      },
+      "back": {
+        "en": "appointed day",
+        "hi": "नियत दिन"
+      },
+      "cloze": {
+        "text": {
+          "en": "As from the ____ or any day thereafter the Governor of a State may, with the previous consent of the President, authorise the use of Hindi or the official language of the State",
+          "hi": "धारा 7 — ____ से या उसके पश्चात् किसी दिन से, राज्य का राज्यपाल राष्ट्रपति की पूर्व सहमति से उच्च न्यायालय के निर्णयों में हिंदी या राज्य की राजभाषा के प्रयोग को प्राधिकृत कर सकेगा।"
+        },
+        "answer": {
+          "en": "appointed day",
+          "hi": "नियत दिन"
+        }
+      },
+      "ruleRef": {
+        "textId": "ol-act-7",
+        "citation": {
+          "en": "Section 7, Official Languages Act, 1963",
+          "hi": "धारा 7, राजभाषा अधिनियम, 1963"
+        }
+      },
+      "difficulty": "easy",
+      "reviewed": true,
+      "reviewState": "approved",
+      "tags": [
+        "generated",
+        "cloze",
+        "definedterm"
+      ],
+      "verify": true,
+      "version": "1.0.0",
+      "source": {
+        "name": "Department of Official Language, Ministry of Home Affairs — The Official Languages Act, 1963 (as amended, 1967)",
+        "url": "https://rajbhasha.gov.in/sites/default/files/rajbhasha_act_1963e.pdf"
+      },
+      "reviewNote": "Section 7 — the Governor's power runs from the appointed day, a defined term."
+    },
+    {
+      "id": "ol-act-cloze-8-1",
+      "act": "ol-act",
+      "rule": "8",
+      "kind": "cloze",
+      "front": {
+        "en": "rule made under this section shall be laid, as soon as may be after it is made, before each House of Parliament while it is in session for a total period of ____ which may be comprised in one session or 2[in two or more successive sessions, and if, before the expiry of the session immediately following the session or th",
+        "hi": "धारा 8(2) — इस धारा के अधीन बनाया गया प्रत्येक नियम संसद के प्रत्येक सदन के समक्ष कुल ____ की अवधि के लिए रखा जाएगा, जो एक सत्र में या दो या अधिक क्रमवर्ती सत्रों में पूरी हो सकेगी।"
+      },
+      "back": {
+        "en": "thirty days",
+        "hi": "तीस दिन"
+      },
+      "cloze": {
+        "text": {
+          "en": "rule made under this section shall be laid, as soon as may be after it is made, before each House of Parliament while it is in session for a total period of ____ which may be comprised in one session or 2[in two or more successive sessions, and if, before the expiry of the session immediately following the session or th",
+          "hi": "धारा 8(2) — इस धारा के अधीन बनाया गया प्रत्येक नियम संसद के प्रत्येक सदन के समक्ष कुल ____ की अवधि के लिए रखा जाएगा, जो एक सत्र में या दो या अधिक क्रमवर्ती सत्रों में पूरी हो सकेगी।"
+        },
+        "answer": {
+          "en": "thirty days",
+          "hi": "तीस दिन"
+        }
+      },
+      "ruleRef": {
+        "textId": "ol-act-8",
+        "citation": {
+          "en": "Section 8, Official Languages Act, 1963",
+          "hi": "धारा 8, राजभाषा अधिनियम, 1963"
+        }
+      },
+      "difficulty": "medium",
+      "reviewed": true,
+      "reviewState": "approved",
+      "tags": [
+        "generated",
+        "cloze",
+        "duration"
+      ],
+      "verify": true,
+      "version": "1.0.0",
+      "source": {
+        "name": "Department of Official Language, Ministry of Home Affairs — The Official Languages Act, 1963 (as amended, 1967)",
+        "url": "https://rajbhasha.gov.in/sites/default/files/rajbhasha_act_1963e.pdf"
+      },
+      "reviewNote": "Section 8(2) — the laying period, which is thirty days and not a session."
+    },
+    {
+      "id": "ol-act-cloze-8-2",
+      "act": "ol-act",
+      "rule": "8",
+      "kind": "cloze",
+      "front": {
+        "en": "be laid, as soon as may be after it is made, before each House of Parliament while it is in session for a total period of thirty days which may be comprised in ____ session or 2[in two or more successive sessions, and if, before the expiry of the session immediately following the session or the successive sessions aforesai",
+        "hi": ""
+      },
+      "back": {
+        "en": "one",
+        "hi": ""
+      },
+      "cloze": {
+        "text": {
+          "en": "be laid, as soon as may be after it is made, before each House of Parliament while it is in session for a total period of thirty days which may be comprised in ____ session or 2[in two or more successive sessions, and if, before the expiry of the session immediately following the session or the successive sessions aforesai",
+          "hi": ""
+        },
+        "answer": {
+          "en": "one",
+          "hi": ""
+        }
+      },
+      "ruleRef": {
+        "textId": "ol-act-8",
+        "citation": {
+          "en": "Section 8, Official Languages Act, 1963",
+          "hi": "धारा 8, राजभाषा अधिनियम, 1963"
+        }
+      },
+      "difficulty": "easy",
+      "reviewed": true,
+      "reviewState": "rejected",
+      "tags": [
+        "generated",
+        "cloze",
+        "count"
+      ],
+      "verify": true,
+      "version": "1.0.0",
+      "source": {
+        "name": "Department of Official Language, Ministry of Home Affairs — The Official Languages Act, 1963 (as amended, 1967)",
+        "url": "https://rajbhasha.gov.in/sites/default/files/rajbhasha_act_1963e.pdf"
+      },
+      "reviewNote": "Answer is 'one', blanked out of 'comprised in one session'. Tests counting, not the Act."
+    },
+    {
+      "id": "ol-act-cloze-8-3",
+      "act": "ol-act",
+      "rule": "8",
+      "kind": "cloze",
+      "front": {
+        "en": "(1) The Central Government may, by ____ in the Official Gazette, make rules for carrying out the purposes of this Act.",
+        "hi": "धारा 8(1) — केंद्रीय सरकार, राजपत्र में ____ द्वारा, इस अधिनियम के प्रयोजनों को कार्यान्वित करने के लिए नियम बना सकेगी।"
+      },
+      "back": {
+        "en": "notification",
+        "hi": "अधिसूचना"
+      },
+      "cloze": {
+        "text": {
+          "en": "(1) The Central Government may, by ____ in the Official Gazette, make rules for carrying out the purposes of this Act.",
+          "hi": "धारा 8(1) — केंद्रीय सरकार, राजपत्र में ____ द्वारा, इस अधिनियम के प्रयोजनों को कार्यान्वित करने के लिए नियम बना सकेगी।"
+        },
+        "answer": {
+          "en": "notification",
+          "hi": "अधिसूचना"
+        }
+      },
+      "ruleRef": {
+        "textId": "ol-act-8",
+        "citation": {
+          "en": "Section 8, Official Languages Act, 1963",
+          "hi": "धारा 8, राजभाषा अधिनियम, 1963"
+        }
+      },
+      "difficulty": "easy",
+      "reviewed": true,
+      "reviewState": "approved",
+      "tags": [
+        "generated",
+        "cloze",
+        "definedterm"
+      ],
+      "verify": true,
+      "version": "1.0.0",
+      "source": {
+        "name": "Department of Official Language, Ministry of Home Affairs — The Official Languages Act, 1963 (as amended, 1967)",
+        "url": "https://rajbhasha.gov.in/sites/default/files/rajbhasha_act_1963e.pdf"
+      },
+      "reviewNote": "Section 8(1) — the rule-making power is exercised by notification in the Official Gazette."
+    }
+  ]
+}

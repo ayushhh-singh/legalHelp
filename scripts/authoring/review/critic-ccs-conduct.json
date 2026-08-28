@@ -1,0 +1,127 @@
+{
+  "_note": "STAGE B · CRITIC. A separate pass over scripts/authoring/authored/ccs-conduct.json, judging each question on its own terms: is there exactly one correct answer, are the distractors plausible without being trivially wrong, is it inside the public rule text, is there a factual red flag, is the tone right for a serving officer. Rejections stay in data/rules/cards/ with reviewState \"rejected\" and are never served.",
+  "ccs-conduct-q-001": {
+    "verdict": "approve",
+    "reason": "One correct answer, grounded in Rule 3, CCS (Conduct) Rules, 1964; distractors are real rules or real figures from neighbouring provisions."
+  },
+  "ccs-conduct-q-002": {
+    "verdict": "approve",
+    "reason": "One correct answer, grounded in Rule 3A, CCS (Conduct) Rules, 1964; distractors are real rules or real figures from neighbouring provisions."
+  },
+  "ccs-conduct-q-003": {
+    "verdict": "approve",
+    "reason": "One correct answer, grounded in Rule 3C, CCS (Conduct) Rules, 1964; distractors are real rules or real figures from neighbouring provisions."
+  },
+  "ccs-conduct-q-004": {
+    "verdict": "approve",
+    "reason": "One correct answer, grounded in Rule 4, CCS (Conduct) Rules, 1964; distractors are real rules or real figures from neighbouring provisions."
+  },
+  "ccs-conduct-q-005": {
+    "verdict": "approve",
+    "reason": "One correct answer, grounded in Rule 5, CCS (Conduct) Rules, 1964; distractors are real rules or real figures from neighbouring provisions."
+  },
+  "ccs-conduct-q-006": {
+    "verdict": "reject",
+    "reason": "Option (a) reads 'Only those prejudicial to the sovereignty and integrity of India, the security of the State, public order, decency or morality...' and drops 'friendly relations with foreign States', which the model answer includes. The option and the key state different rules."
+  },
+  "ccs-conduct-q-007": {
+    "verdict": "approve",
+    "reason": "One correct answer, grounded in Rule 8, CCS (Conduct) Rules, 1964; distractors are real rules or real figures from neighbouring provisions."
+  },
+  "ccs-conduct-q-008": {
+    "verdict": "approve",
+    "reason": "One correct answer, grounded in Rule 9, CCS (Conduct) Rules, 1964; distractors are real rules or real figures from neighbouring provisions."
+  },
+  "ccs-conduct-q-009": {
+    "verdict": "approve",
+    "reason": "One correct answer, grounded in Rule 11, CCS (Conduct) Rules, 1964; distractors are real rules or real figures from neighbouring provisions."
+  },
+  "ccs-conduct-q-010": {
+    "verdict": "approve",
+    "reason": "One correct answer, grounded in Rule 13, CCS (Conduct) Rules, 1964; distractors are real rules or real figures from neighbouring provisions."
+  },
+  "ccs-conduct-q-011": {
+    "verdict": "approve",
+    "reason": "One correct answer, grounded in Rule 13A, CCS (Conduct) Rules, 1964; distractors are real rules or real figures from neighbouring provisions."
+  },
+  "ccs-conduct-q-012": {
+    "verdict": "approve",
+    "reason": "One correct answer, grounded in Rule 15, CCS (Conduct) Rules, 1964; distractors are real rules or real figures from neighbouring provisions."
+  },
+  "ccs-conduct-q-013": {
+    "verdict": "approve",
+    "reason": "One correct answer, grounded in Rule 15, CCS (Conduct) Rules, 1964; distractors are real rules or real figures from neighbouring provisions."
+  },
+  "ccs-conduct-q-014": {
+    "verdict": "approve",
+    "reason": "One correct answer, grounded in Rule 15A, CCS (Conduct) Rules, 1964; distractors are real rules or real figures from neighbouring provisions."
+  },
+  "ccs-conduct-q-015": {
+    "verdict": "approve",
+    "reason": "One correct answer, grounded in Rule 16, CCS (Conduct) Rules, 1964; distractors are real rules or real figures from neighbouring provisions."
+  },
+  "ccs-conduct-q-016": {
+    "verdict": "approve",
+    "reason": "One correct answer, grounded in Rule 18, CCS (Conduct) Rules, 1964; distractors are real rules or real figures from neighbouring provisions."
+  },
+  "ccs-conduct-q-017": {
+    "verdict": "approve",
+    "reason": "One correct answer, grounded in Rule 18A, CCS (Conduct) Rules, 1964; distractors are real rules or real figures from neighbouring provisions."
+  },
+  "ccs-conduct-q-018": {
+    "verdict": "approve",
+    "reason": "One correct answer, grounded in Rule 19, CCS (Conduct) Rules, 1964; distractors are real rules or real figures from neighbouring provisions."
+  },
+  "ccs-conduct-q-019": {
+    "verdict": "reject",
+    "reason": "Same weakness — Rule 20 restated as a true/false with no second reading available."
+  },
+  "ccs-conduct-q-020": {
+    "verdict": "approve",
+    "reason": "One correct answer, grounded in Rule 21, CCS (Conduct) Rules, 1964; distractors are real rules or real figures from neighbouring provisions."
+  },
+  "ccs-conduct-q-021": {
+    "verdict": "approve",
+    "reason": "One correct answer, grounded in Rule 22A, CCS (Conduct) Rules, 1964; distractors are real rules or real figures from neighbouring provisions."
+  },
+  "ccs-conduct-q-022": {
+    "verdict": "approve",
+    "reason": "One correct answer, grounded in Rule 24, CCS (Conduct) Rules, 1964; distractors are real rules or real figures from neighbouring provisions."
+  },
+  "ccs-conduct-q-023": {
+    "verdict": "approve",
+    "reason": "One correct answer, grounded in Rule 2, CCS (Conduct) Rules, 1964; distractors are real rules or real figures from neighbouring provisions."
+  },
+  "ccs-conduct-q-024": {
+    "verdict": "approve",
+    "reason": "One correct answer, grounded in Rule 10, CCS (Conduct) Rules, 1964; distractors are real rules or real figures from neighbouring provisions."
+  },
+  "ccs-conduct-q-025": {
+    "verdict": "approve",
+    "reason": "One correct answer, grounded in Rule 12, CCS (Conduct) Rules, 1964; distractors are real rules or real figures from neighbouring provisions."
+  },
+  "ccs-conduct-q-026": {
+    "verdict": "approve",
+    "reason": "One correct answer, grounded in Rule 17, CCS (Conduct) Rules, 1964; distractors are real rules or real figures from neighbouring provisions."
+  },
+  "ccs-conduct-q-027": {
+    "verdict": "approve",
+    "reason": "One correct answer, grounded in Rule 6, CCS (Conduct) Rules, 1964; distractors are real rules or real figures from neighbouring provisions."
+  },
+  "ccs-conduct-q-028": {
+    "verdict": "approve",
+    "reason": "One correct answer, grounded in Rule 14, CCS (Conduct) Rules, 1964; distractors are real rules or real figures from neighbouring provisions."
+  },
+  "ccs-conduct-q-029": {
+    "verdict": "approve",
+    "reason": "One correct answer, grounded in Rule 22, CCS (Conduct) Rules, 1964; distractors are real rules or real figures from neighbouring provisions."
+  },
+  "ccs-conduct-q-030": {
+    "verdict": "approve",
+    "reason": "One correct answer, grounded in Rule 1, CCS (Conduct) Rules, 1964; distractors are real rules or real figures from neighbouring provisions."
+  },
+  "ccs-conduct-q-031": {
+    "verdict": "approve",
+    "reason": "One correct answer, grounded in Rule 18, CCS (Conduct) Rules, 1964; distractors are real rules or real figures from neighbouring provisions."
+  }
+}

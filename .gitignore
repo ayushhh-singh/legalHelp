@@ -49,3 +49,7 @@ scripts/ingest/raw/*
 scripts/ingest/raw-pay/*
 !scripts/ingest/raw-pay/.gitkeep
 
+
+# authoring: fetched rule books (large published documents, cited in SOURCES.md)
+scripts/authoring/sources/*
+!scripts/authoring/sources/.gitkeep

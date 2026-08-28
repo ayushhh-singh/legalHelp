@@ -1,0 +1,119 @@
+{
+  "_note": "Hand review of the generated cloze cards for the Official Secrets Act, 1923. This Act's PDF interleaves its amendment footnotes with the section text more aggressively than any other book in the corpus, so a higher share of cards is rejected here than elsewhere — the apparatus filter in make_cards.py catches the obvious ones and these are what it did not.",
+  "osa-cloze-2-1": {
+    "verdict": "reject",
+    "reason": "The blank cut into a word: the stem reads 'the sketch, plan, m____ article'."
+  },
+  "osa-cloze-3-1": {
+    "verdict": "approve",
+    "reason": "Section 3(1) — the two terms of imprisonment for spying, fourteen years and three years, are the examinable fact.",
+    "hi": {
+      "text": "धारा 3(1) — जासूसी के लिए कारावास की अवधि नौसैनिक, सैन्य या वायुसेना संबंधी मामलों अथवा किसी गुप्त शासकीय कूट के मामले में चौदह वर्ष तक और अन्य मामलों में ____ तक हो सकेगी।",
+      "answer": "तीन वर्ष"
+    }
+  },
+  "osa-cloze-3-2": {
+    "verdict": "approve",
+    "reason": "Section 3 turns entirely on the purpose being prejudicial to the safety or interests of the State.",
+    "hi": {
+      "text": "धारा 3(1) — यदि कोई व्यक्ति ____ के प्रतिकूल किसी प्रयोजन से किसी प्रतिषिद्ध स्थान के निकट जाता है, उसका निरीक्षण करता है या उसमें प्रवेश करता है, तो वह दंडनीय होगा।",
+      "answer": "राज्य की सुरक्षा या हितों"
+    }
+  },
+  "osa-cloze-4-1": {
+    "verdict": "approve",
+    "reason": "Section 4 is an evidentiary rule that operates only in a prosecution under section 3.",
+    "hi": {
+      "text": "धारा 4(1) — ____ के अधीन किसी अपराध के लिए किसी व्यक्ति के विरुद्ध कार्यवाहियों में यह तथ्य कि वह किसी विदेशी अभिकर्ता से संसूचना में रहा है, सुसंगत होगा।",
+      "answer": "धारा 3"
+    }
+  },
+  "osa-cloze-4-2": {
+    "verdict": "reject",
+    "reason": "The blank falls on 'communicate' inside 'in communication with, or attempted to communicate with' — the previous clause gives the answer away."
+  },
+  "osa-cloze-5-1": {
+    "verdict": "approve",
+    "reason": "Section 5(4) — the ordinary term for wrongful communication, which officers confuse with section 3's fourteen years.",
+    "hi": {
+      "text": "धारा 5(4) — इस धारा के अधीन अपराध का दोषी व्यक्ति ____ तक के कारावास से दंडनीय होगा; और यदि अपराध भारत के विरुद्ध बाह्य आक्रमण में सहायता के आशय से किया गया हो तो मृत्युदंड तक से।",
+      "answer": "पाँच वर्ष"
+    }
+  },
+  "osa-cloze-5-2": {
+    "verdict": "approve",
+    "reason": "Section 5(1) — 'secret official code or pass word' is the category the section protects.",
+    "hi": {
+      "text": "धारा 5(1) — यदि किसी व्यक्ति के कब्ज़े या नियंत्रण में कोई ____ या पासवर्ड अथवा कोई रेखांक, योजना, प्रतिरूप, लेख, टिप्पणी या दस्तावेज़ हो जो किसी प्रतिषिद्ध स्थान से संबंधित हो, तो यह धारा लागू होती है।",
+      "answer": "गुप्त शासकीय कूट"
+    }
+  },
+  "osa-cloze-6-1": {
+    "verdict": "reject",
+    "reason": "The stem is 'may extend to 1*[____]' — the blank sits inside an amendment bracket."
+  },
+  "osa-cloze-6-2": {
+    "verdict": "approve",
+    "reason": "Section 6(4) borrows the presumption in section 3(2); the cross-reference is the point.",
+    "hi": {
+      "text": "धारा 6(4) — राज्य की सुरक्षा के प्रतिकूल प्रयोजन सिद्ध करने के लिए ____ की उपधारा (2) के उपबंध इस धारा के अधीन किसी अभियोजन को लागू होंगे।",
+      "answer": "धारा 3"
+    }
+  },
+  "osa-cloze-6-3": {
+    "verdict": "reject",
+    "reason": "The stem is an amendment note: 'by Act 42 of 1971, S.6 ?(during emergency and ____ months thereafter'."
+  },
+  "osa-cloze-7-1": {
+    "verdict": "approve",
+    "reason": "Section 7 protects the vicinity of a prohibited place — a defined term.",
+    "hi": {
+      "text": "धारा 7(1) — किसी ____ के निकट कोई व्यक्ति संतरी, गश्त या इसी प्रकार की ड्यूटी पर लगे पुलिस अधिकारियों या सशस्त्र बलों के सदस्यों के कार्य में बाधा नहीं डालेगा।",
+      "answer": "प्रतिषिद्ध स्थान"
+    }
+  },
+  "osa-cloze-8-1": {
+    "verdict": "approve",
+    "reason": "Section 8 — the duty to give information covers section 3 read with section 9 (attempts and abetment).",
+    "hi": {
+      "text": "धारा 8(1) — प्रत्येक व्यक्ति का कर्तव्य है कि वह धारा 3 के अधीन अथवा धारा 3 को ____ के साथ पढ़ने पर होने वाले अपराध से संबंधित अपनी जानकारी दे।",
+      "answer": "धारा 9"
+    }
+  },
+  "osa-cloze-10-1": {
+    "verdict": "reject",
+    "reason": "Same answer and near-identical stem as osa-cloze-8-1; the pair would be scheduled as two cards and read as one."
+  },
+  "osa-cloze-11-1": {
+    "verdict": "approve",
+    "reason": "Section 11's search-warrant machinery is keyed to offences punishable with seven years.",
+    "hi": {
+      "text": "धारा 11 — धारा 3, 5 और 7 के, तथा उन्हें धारा 9 के साथ पढ़े जाने पर होने वाले अपराधों के संबंध में वे उपबंध वैसे ही लागू होंगे जैसे ____ तक के कारावास से दंडनीय अपराध के संबंध में।",
+      "answer": "सात वर्ष"
+    }
+  },
+  "osa-cloze-11-2": {
+    "verdict": "reject",
+    "reason": "The stem repeats the answer in the very next clause — 'The provisions of section 337 of the Code of Criminal Procedure'."
+  },
+  "osa-cloze-11-3": {
+    "verdict": "approve",
+    "reason": "Section 11 is the search-warrant section and the term is what a Magistrate grants.",
+    "hi": {
+      "text": "धारा 11 — शपथ पर दी गई इत्तिला से यह विश्वास करने का उचित आधार होने पर कि इस अधिनियम के अधीन कोई अपराध किया गया है, मजिस्ट्रेट किसी नामित पुलिस अधिकारी को प्राधिकृत करते हुए ____ दे सकेगा।",
+      "answer": "तलाशी वारंट"
+    }
+  },
+  "osa-cloze-13-1": {
+    "verdict": "approve",
+    "reason": "Section 13(5) — which Government may sanction depends on whether the offence is under section 5 and unconnected with a prohibited place.",
+    "hi": {
+      "text": "धारा 13(5) — ____ के अधीन ऐसे अपराधों के संबंध में जो किसी प्रतिषिद्ध स्थान या किसी विदेशी शक्ति से संबद्ध नहीं हैं, \"समुचित सरकार\" से राज्य सरकार अभिप्रेत है।",
+      "answer": "धारा 5"
+    }
+  },
+  "osa-cloze-13-2": {
+    "verdict": "reject",
+    "reason": "Same sentence as osa-cloze-13-1, blanked on the other half. Approving both looked like covering two halves of the test; the duplicate-front check in tests/rules-data.test.ts scored the pair at 93.1 and it is right — a reader meeting them in one session reads them as one card asked twice."
+  }
+}

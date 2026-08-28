@@ -1,0 +1,1040 @@
+{
+  "_note": "STAGE A · GENERATE. Thirty bilingual questions on the Sexual Harassment of Women at Workplace (Prevention, Prohibition and Redressal) Act, 2013, written in session by Claude Code with data/rules/text/posh.json open. No API was called. The Act is about a real and serious subject; the questions stay on the statutory machinery — periods, committees, duties, appeals — and none invents facts about any incident.",
+  "batchId": "2026-08-28-posh-A",
+  "promptVersion": "rules-qa/1",
+  "cards": [
+    {
+      "id": "posh-q-001",
+      "rule": "4",
+      "kind": "mcq",
+      "front": {
+        "en": "Under section 4 of the PoSH Act, 2013, who constitutes the Internal Committee, and at which offices?",
+        "hi": "पॉश अधिनियम, 2013 की धारा 4 के अधीन, आंतरिक समिति का गठन कौन करता है, और किन कार्यालयों में?"
+      },
+      "back": {
+        "en": "The employer, by an order in writing, at every office or administrative unit of the workplace.",
+        "hi": "नियोजक, लिखित आदेश द्वारा, कार्यस्थल के प्रत्येक कार्यालय या प्रशासनिक एकक में।"
+      },
+      "options": [
+        {
+          "en": "The employer, by an order in writing, at every office or administrative unit of the workplace",
+          "hi": "नियोजक, लिखित आदेश द्वारा, कार्यस्थल के प्रत्येक कार्यालय या प्रशासनिक एकक में"
+        },
+        {
+          "en": "The District Officer, at the headquarters of the organisation only",
+          "hi": "जिला अधिकारी, केवल संगठन के मुख्यालय में"
+        },
+        { "en": "The appropriate Government, by notification", "hi": "समुचित सरकार, अधिसूचना द्वारा" },
+        {
+          "en": "The Internal Committee constitutes itself by election among employees",
+          "hi": "आंतरिक समिति कर्मचारियों में निर्वाचन द्वारा स्वयं गठित होती है"
+        }
+      ],
+      "answerIndex": 0,
+      "explanation": {
+        "en": "Section 4(1) puts the duty on the employer and requires an order in writing. Where the offices or units are at different places or divisional level, an Internal Committee is constituted at all administrative units or offices.",
+        "hi": "धारा 4(1) यह कर्तव्य नियोजक पर डालती है और लिखित आदेश अपेक्षित करती है। जहाँ कार्यालय या एकक भिन्न स्थानों या संभागीय स्तर पर हैं, वहाँ सभी प्रशासनिक एककों या कार्यालयों में आंतरिक समिति गठित की जाती है।"
+      },
+      "ruleRef": {
+        "textId": "posh-4",
+        "citation": { "en": "Section 4, PoSH Act, 2013", "hi": "धारा 4, पॉश अधिनियम, 2013" }
+      },
+      "difficulty": "easy",
+      "stageA": { "index": 1, "angle": "Section 4(1) — employer, written order, every unit" },
+      "groundingRuleIds": ["posh-4"]
+    },
+    {
+      "id": "posh-q-002",
+      "rule": "4",
+      "kind": "mcq",
+      "front": {
+        "en": "Under section 4(2) of the PoSH Act, 2013, who must the Presiding Officer of an Internal Committee be?",
+        "hi": "पॉश अधिनियम, 2013 की धारा 4(2) के अधीन, आंतरिक समिति का पीठासीन अधिकारी कौन होना चाहिए?"
+      },
+      "back": {
+        "en": "A woman employed at a senior level at the workplace from amongst the employees.",
+        "hi": "कार्यस्थल पर वरिष्ठ स्तर पर नियोजित कोई महिला, कर्मचारियों में से।"
+      },
+      "options": [
+        {
+          "en": "A woman employed at a senior level at the workplace, from amongst the employees",
+          "hi": "कार्यस्थल पर वरिष्ठ स्तर पर नियोजित कोई महिला, कर्मचारियों में से"
+        },
+        {
+          "en": "The head of the office, whether a man or a woman",
+          "hi": "कार्यालय प्रमुख, चाहे पुरुष हो या महिला"
+        },
+        {
+          "en": "An external member from a non-governmental organisation",
+          "hi": "किसी गैर-सरकारी संगठन से कोई बाहरी सदस्य"
+        },
+        {
+          "en": "The senior-most legal officer of the organisation",
+          "hi": "संगठन का सर्वाधिक वरिष्ठ विधि अधिकारी"
+        }
+      ],
+      "answerIndex": 0,
+      "explanation": {
+        "en": "Section 4(2)(a) requires a woman at a senior level. Where no such woman is available at that workplace, she is nominated from another office or unit of the same employer or from another department or organisation.",
+        "hi": "धारा 4(2)(क) वरिष्ठ स्तर की महिला अपेक्षित करती है। जहाँ उस कार्यस्थल पर ऐसी महिला उपलब्ध न हो, वहाँ वह उसी नियोजक के किसी अन्य कार्यालय या एकक से, अथवा किसी अन्य विभाग या संगठन से नामनिर्दिष्ट की जाती है।"
+      },
+      "ruleRef": {
+        "textId": "posh-4",
+        "citation": { "en": "Section 4, PoSH Act, 2013", "hi": "धारा 4, पॉश अधिनियम, 2013" }
+      },
+      "difficulty": "medium",
+      "stageA": {
+        "index": 2,
+        "angle": "Section 4(2)(a) and the fallback where no senior woman is available"
+      },
+      "groundingRuleIds": ["posh-4"]
+    },
+    {
+      "id": "posh-q-003",
+      "rule": "4",
+      "kind": "trueFalse",
+      "front": {
+        "en": "At least one half of the total Members of an Internal Committee under the PoSH Act, 2013 must be women.",
+        "hi": "पॉश अधिनियम, 2013 के अधीन आंतरिक समिति के कुल सदस्यों में से कम से कम आधे महिलाएँ होनी चाहिए।"
+      },
+      "back": { "en": "True.", "hi": "सत्य।" },
+      "options": [
+        { "en": "True", "hi": "सत्य" },
+        { "en": "False", "hi": "असत्य" }
+      ],
+      "answerIndex": 0,
+      "explanation": {
+        "en": "Section 4(4) requires at least one half of the total Members nominated to be women. Section 4(2) separately requires the Presiding Officer to be a woman and one member to be from a non-governmental organisation or association committed to the cause of women.",
+        "hi": "धारा 4(4) नामनिर्दिष्ट कुल सदस्यों में से कम से कम आधे का महिला होना अपेक्षित करती है। धारा 4(2) अलग से पीठासीन अधिकारी के महिला होने तथा एक सदस्य के महिलाओं के हित के प्रति समर्पित किसी गैर-सरकारी संगठन या संगम से होने की अपेक्षा करती है।"
+      },
+      "ruleRef": {
+        "textId": "posh-4",
+        "citation": { "en": "Section 4, PoSH Act, 2013", "hi": "धारा 4, पॉश अधिनियम, 2013" }
+      },
+      "difficulty": "medium",
+      "stageA": { "index": 3, "angle": "Section 4(4) — the one-half requirement" },
+      "groundingRuleIds": ["posh-4"]
+    },
+    {
+      "id": "posh-q-004",
+      "rule": "6",
+      "kind": "mcq",
+      "front": {
+        "en": "Under section 6 of the PoSH Act, 2013, in which situations does the Local Committee receive complaints instead of an Internal Committee?",
+        "hi": "पॉश अधिनियम, 2013 की धारा 6 के अधीन, किन स्थितियों में आंतरिक समिति के स्थान पर स्थानीय समिति परिवाद प्राप्त करती है?"
+      },
+      "back": {
+        "en": "Where the establishment has fewer than ten workers and so has no Internal Committee, and where the complaint is against the employer himself.",
+        "hi": "जहाँ स्थापन में दस से कम कर्मकार हैं और इसलिए कोई आंतरिक समिति नहीं है, तथा जहाँ परिवाद स्वयं नियोजक के विरुद्ध है।"
+      },
+      "options": [
+        {
+          "en": "Where the establishment has fewer than ten workers, and where the complaint is against the employer himself",
+          "hi": "जहाँ स्थापन में दस से कम कर्मकार हैं, तथा जहाँ परिवाद स्वयं नियोजक के विरुद्ध है"
+        },
+        {
+          "en": "Only where the establishment has fewer than ten workers",
+          "hi": "केवल जहाँ स्थापन में दस से कम कर्मकार हैं"
+        },
+        { "en": "Only where the aggrieved woman asks for it", "hi": "केवल जहाँ व्यथित महिला ऐसा चाहे" },
+        {
+          "en": "Wherever the respondent is more senior than the Presiding Officer",
+          "hi": "जहाँ भी प्रत्यर्थी पीठासीन अधिकारी से वरिष्ठ हो"
+        }
+      ],
+      "answerIndex": 0,
+      "explanation": {
+        "en": "Section 6(1) names both situations. The second matters most: an Internal Committee constituted by the employer cannot inquire into a complaint against the employer, so the Act moves it out of the workplace entirely.",
+        "hi": "धारा 6(1) दोनों स्थितियाँ बताती है। दूसरी अधिक महत्वपूर्ण है: नियोजक द्वारा गठित आंतरिक समिति स्वयं नियोजक के विरुद्ध परिवाद की जाँच नहीं कर सकती, अतः अधिनियम उसे कार्यस्थल से पूरी तरह बाहर ले जाता है।"
+      },
+      "ruleRef": {
+        "textId": "posh-6",
+        "citation": { "en": "Section 6, PoSH Act, 2013", "hi": "धारा 6, पॉश अधिनियम, 2013" }
+      },
+      "difficulty": "medium",
+      "stageA": { "index": 4, "angle": "The two limbs of section 6(1)" },
+      "groundingRuleIds": ["posh-6"]
+    },
+    {
+      "id": "posh-q-005",
+      "rule": "9",
+      "kind": "mcq",
+      "front": {
+        "en": "Under section 9(1) of the PoSH Act, 2013, within what period of the incident must a written complaint be made, and may that period be extended?",
+        "hi": "पॉश अधिनियम, 2013 की धारा 9(1) के अधीन, घटना की किस अवधि के भीतर लिखित परिवाद किया जाना चाहिए, और क्या वह अवधि बढ़ाई जा सकती है?"
+      },
+      "back": {
+        "en": "Three months from the date of the incident, extendable by a further three months for reasons recorded in writing.",
+        "hi": "घटना की तारीख से तीन मास, जो लिखित रूप में अभिलिखित कारणों से तीन मास और बढ़ाई जा सकती है।"
+      },
+      "options": [
+        {
+          "en": "Three months, extendable by a further three months for reasons recorded in writing",
+          "hi": "तीन मास, जो लिखित रूप में अभिलिखित कारणों से तीन मास और बढ़ाई जा सकती है"
+        },
+        { "en": "Six months, not extendable", "hi": "छह मास, बढ़ाई नहीं जा सकती" },
+        { "en": "One month, extendable by two months", "hi": "एक मास, दो मास बढ़ाई जा सकती है" },
+        {
+          "en": "There is no limitation period for such a complaint",
+          "hi": "ऐसे परिवाद के लिए कोई परिसीमा-अवधि नहीं है"
+        }
+      ],
+      "answerIndex": 0,
+      "explanation": {
+        "en": "Where there is a series of incidents, the three months runs from the last of them. The extension requires the Committee to be satisfied that circumstances prevented the woman filing in time, and the reasons must be recorded in writing.",
+        "hi": "जहाँ घटनाओं की शृंखला हो, वहाँ तीन मास उनमें से अंतिम से चलते हैं। विस्तार के लिए समिति का यह समाधान होना चाहिए कि परिस्थितियों ने महिला को समय पर परिवाद करने से रोका, और कारण लिखित रूप में अभिलिखित किए जाने चाहिए।"
+      },
+      "ruleRef": {
+        "textId": "posh-9",
+        "citation": { "en": "Section 9, PoSH Act, 2013", "hi": "धारा 9, पॉश अधिनियम, 2013" }
+      },
+      "difficulty": "medium",
+      "stageA": { "index": 5, "angle": "Section 9(1) limitation and its proviso" },
+      "groundingRuleIds": ["posh-9"]
+    },
+    {
+      "id": "posh-q-006",
+      "rule": "10",
+      "kind": "mcq",
+      "front": {
+        "en": "Section 10 of the PoSH Act, 2013 allows conciliation. Which of the following is expressly barred as a basis for settlement?",
+        "hi": "पॉश अधिनियम, 2013 की धारा 10 सुलह की अनुमति देती है। निम्नलिखित में से किसे समझौते के आधार के रूप में स्पष्टतः वर्जित किया गया है?"
+      },
+      "back": { "en": "A monetary settlement.", "hi": "कोई धनीय समझौता।" },
+      "options": [
+        { "en": "A monetary settlement", "hi": "कोई धनीय समझौता" },
+        { "en": "A written apology by the respondent", "hi": "प्रत्यर्थी द्वारा लिखित क्षमायाचना" },
+        {
+          "en": "A transfer of the respondent to another unit",
+          "hi": "प्रत्यर्थी का किसी अन्य एकक में स्थानांतरण"
+        },
+        { "en": "An undertaking as to future conduct", "hi": "भावी आचरण के बारे में वचनबंध" }
+      ],
+      "answerIndex": 0,
+      "explanation": {
+        "en": "The proviso to section 10(1) says no monetary settlement shall be made as a basis of conciliation. Conciliation may be attempted only at the aggrieved woman's request, and only before an inquiry under section 11 is initiated.",
+        "hi": "धारा 10(1) का परंतुक कहता है कि सुलह के आधार के रूप में कोई धनीय समझौता नहीं किया जाएगा। सुलह का प्रयास केवल व्यथित महिला के अनुरोध पर, और केवल धारा 11 के अधीन जाँच आरंभ होने से पूर्व किया जा सकता है।"
+      },
+      "ruleRef": {
+        "textId": "posh-10",
+        "citation": { "en": "Section 10, PoSH Act, 2013", "hi": "धारा 10, पॉश अधिनियम, 2013" }
+      },
+      "difficulty": "medium",
+      "stageA": { "index": 6, "angle": "The no-monetary-settlement proviso to section 10(1)" },
+      "groundingRuleIds": ["posh-10"]
+    },
+    {
+      "id": "posh-q-007",
+      "rule": "11",
+      "kind": "mcq",
+      "front": {
+        "en": "Under section 11(4) of the PoSH Act, 2013, within what period must an inquiry into a complaint be completed?",
+        "hi": "पॉश अधिनियम, 2013 की धारा 11(4) के अधीन, परिवाद की जाँच किस अवधि के भीतर पूरी की जानी चाहिए?"
+      },
+      "back": { "en": "Ninety days.", "hi": "नब्बे दिन।" },
+      "options": [
+        { "en": "Ninety days", "hi": "नब्बे दिन" },
+        { "en": "Sixty days", "hi": "साठ दिन" },
+        { "en": "One hundred and twenty days", "hi": "एक सौ बीस दिन" },
+        { "en": "Thirty days", "hi": "तीस दिन" }
+      ],
+      "answerIndex": 0,
+      "explanation": {
+        "en": "Ninety days for the inquiry under section 11(4), then ten days for the report under section 13(1), then sixty days for the employer to act on the recommendation under section 13(4). The three periods are separate and are often run together in error.",
+        "hi": "धारा 11(4) के अधीन जाँच के लिए नब्बे दिन, फिर धारा 13(1) के अधीन रिपोर्ट के लिए दस दिन, फिर धारा 13(4) के अधीन सिफ़ारिश पर नियोजक की कार्रवाई के लिए साठ दिन। तीनों अवधियाँ अलग हैं और प्रायः भूल से एक कर दी जाती हैं।"
+      },
+      "ruleRef": {
+        "textId": "posh-11",
+        "citation": { "en": "Section 11, PoSH Act, 2013", "hi": "धारा 11, पॉश अधिनियम, 2013" }
+      },
+      "difficulty": "medium",
+      "stageA": { "index": 7, "angle": "The ninety-day inquiry period in the chain 90 / 10 / 60" },
+      "groundingRuleIds": ["posh-11", "posh-13"]
+    },
+    {
+      "id": "posh-q-008",
+      "rule": "13",
+      "kind": "mcq",
+      "front": {
+        "en": "Under section 13(1) of the PoSH Act, 2013, within what period of completing the inquiry must the Committee give its report?",
+        "hi": "पॉश अधिनियम, 2013 की धारा 13(1) के अधीन, जाँच पूरी होने की किस अवधि के भीतर समिति को अपनी रिपोर्ट देनी होगी?"
+      },
+      "back": { "en": "Ten days.", "hi": "दस दिन।" },
+      "options": [
+        { "en": "Ten days", "hi": "दस दिन" },
+        { "en": "Seven days", "hi": "सात दिन" },
+        { "en": "Fifteen days", "hi": "पंद्रह दिन" },
+        { "en": "Thirty days", "hi": "तीस दिन" }
+      ],
+      "answerIndex": 0,
+      "explanation": {
+        "en": "Section 13(1) gives ten days from completion of the inquiry, and the report is also made available to the parties concerned.",
+        "hi": "धारा 13(1) जाँच पूरी होने से दस दिन देती है, और रिपोर्ट संबंधित पक्षकारों को भी उपलब्ध कराई जाती है।"
+      },
+      "ruleRef": {
+        "textId": "posh-13",
+        "citation": { "en": "Section 13, PoSH Act, 2013", "hi": "धारा 13, पॉश अधिनियम, 2013" }
+      },
+      "difficulty": "easy",
+      "stageA": { "index": 8, "angle": "The ten-day report period" },
+      "groundingRuleIds": ["posh-13"]
+    },
+    {
+      "id": "posh-q-009",
+      "rule": "13",
+      "kind": "scenario",
+      "front": {
+        "en": "An Internal Committee finds the allegation proved and recommends that a sum be deducted from the respondent's salary and paid to the aggrieved woman. The respondent then resigns before any deduction is made. Under section 13 of the PoSH Act, 2013, what happens?",
+        "hi": "एक आंतरिक समिति अभिकथन को सिद्ध पाती है और सिफ़ारिश करती है कि प्रत्यर्थी के वेतन से एक राशि काटकर व्यथित महिला को दी जाए। इसके बाद कोई कटौती होने से पूर्व प्रत्यर्थी त्यागपत्र दे देता है। पॉश अधिनियम, 2013 की धारा 13 के अधीन क्या होगा?"
+      },
+      "back": {
+        "en": "The employer may direct the respondent to pay the sum, and if he does not, the Committee may forward the order to the District Officer for recovery as an arrear of land revenue.",
+        "hi": "नियोजक प्रत्यर्थी को वह राशि देने का निदेश दे सकेगा, और यदि वह नहीं देता, तो समिति आदेश को भू-राजस्व की बकाया के रूप में वसूली हेतु जिला अधिकारी को अग्रेषित कर सकेगी।"
+      },
+      "options": [
+        {
+          "en": "The employer may direct him to pay, and on default the order goes to the District Officer for recovery as an arrear of land revenue",
+          "hi": "नियोजक उसे भुगतान का निदेश दे सकेगा, और व्यतिक्रम पर आदेश भू-राजस्व की बकाया के रूप में वसूली हेतु जिला अधिकारी को जाएगा"
+        },
+        {
+          "en": "The recommendation lapses; there is no machinery once he has resigned",
+          "hi": "सिफ़ारिश समाप्त हो जाती है; त्यागपत्र के बाद कोई तंत्र नहीं है"
+        },
+        {
+          "en": "The aggrieved woman must file a civil suit for recovery",
+          "hi": "व्यथित महिला को वसूली के लिए सिविल वाद दायर करना होगा"
+        },
+        {
+          "en": "The employer must pay the sum himself and recover it later",
+          "hi": "नियोजक को स्वयं वह राशि देनी होगी और बाद में वसूलनी होगी"
+        }
+      ],
+      "answerIndex": 0,
+      "explanation": {
+        "en": "Section 13(3)(ii) provides for deduction from salary or wages. The proviso covers the case where the employer is unable to make the deduction because of the respondent's cessation of service: the employer may direct payment, and the Committee may forward the order to the District Officer for recovery as an arrear of land revenue.",
+        "hi": "धारा 13(3)(ii) वेतन या मज़दूरी से कटौती का उपबंध करती है। परंतुक उस दशा को कवर करता है जहाँ प्रत्यर्थी की सेवा समाप्ति के कारण नियोजक कटौती नहीं कर सकता: नियोजक भुगतान का निदेश दे सकेगा, और समिति आदेश को भू-राजस्व की बकाया के रूप में वसूली हेतु जिला अधिकारी को अग्रेषित कर सकेगी।"
+      },
+      "ruleRef": {
+        "textId": "posh-13",
+        "citation": { "en": "Section 13, PoSH Act, 2013", "hi": "धारा 13, पॉश अधिनियम, 2013" }
+      },
+      "difficulty": "hard",
+      "stageA": { "index": 9, "angle": "The recovery proviso to section 13(3)(ii)" },
+      "groundingRuleIds": ["posh-13"]
+    },
+    {
+      "id": "posh-q-010",
+      "rule": "15",
+      "kind": "mcq",
+      "front": {
+        "en": "Which of the following is NOT a factor the Committee must have regard to under section 15 of the PoSH Act, 2013 in determining compensation?",
+        "hi": "पॉश अधिनियम, 2013 की धारा 15 के अधीन प्रतिकर अवधारित करते समय समिति को निम्नलिखित में से किसका ध्यान नहीं रखना है?"
+      },
+      "back": {
+        "en": "The length of the respondent's service.",
+        "hi": "प्रत्यर्थी की सेवा की अवधि।"
+      },
+      "options": [
+        { "en": "The length of the respondent's service", "hi": "प्रत्यर्थी की सेवा की अवधि" },
+        {
+          "en": "The mental trauma, pain, suffering and emotional distress caused to the aggrieved woman",
+          "hi": "व्यथित महिला को हुआ मानसिक आघात, पीड़ा, कष्ट और भावनात्मक व्यथा"
+        },
+        {
+          "en": "The loss in the career opportunity due to the incident",
+          "hi": "घटना के कारण कैरियर के अवसर की हानि"
+        },
+        {
+          "en": "The income and financial status of the respondent",
+          "hi": "प्रत्यर्थी की आय और वित्तीय स्थिति"
+        }
+      ],
+      "answerIndex": 0,
+      "explanation": {
+        "en": "Section 15 lists mental trauma and emotional distress, loss of career opportunity, medical expenses for physical or psychiatric treatment, the respondent's income and financial status, and the feasibility of payment in a lump sum or in instalments. Length of service is not among them.",
+        "hi": "धारा 15 मानसिक आघात और भावनात्मक व्यथा, कैरियर के अवसर की हानि, शारीरिक या मनोरोग उपचार का चिकित्सा व्यय, प्रत्यर्थी की आय और वित्तीय स्थिति, तथा एकमुश्त या किश्तों में भुगतान की व्यवहार्यता गिनाती है। सेवा की अवधि उनमें नहीं है।"
+      },
+      "ruleRef": {
+        "textId": "posh-15",
+        "citation": { "en": "Section 15, PoSH Act, 2013", "hi": "धारा 15, पॉश अधिनियम, 2013" }
+      },
+      "difficulty": "hard",
+      "stageA": { "index": 10, "angle": "The closed list of compensation factors in section 15" },
+      "groundingRuleIds": ["posh-15"]
+    },
+    {
+      "id": "posh-q-011",
+      "rule": "14",
+      "kind": "trueFalse",
+      "front": {
+        "en": "Under section 14 of the PoSH Act, 2013, a complaint that cannot be substantiated is by that fact a malicious complaint attracting action against the complainant.",
+        "hi": "पॉश अधिनियम, 2013 की धारा 14 के अधीन, जो परिवाद सिद्ध नहीं हो पाता वह इसी कारण विद्वेषपूर्ण परिवाद है और परिवादी के विरुद्ध कार्रवाई आमंत्रित करता है।"
+      },
+      "back": { "en": "False.", "hi": "असत्य।" },
+      "options": [
+        { "en": "True", "hi": "सत्य" },
+        { "en": "False", "hi": "असत्य" }
+      ],
+      "answerIndex": 1,
+      "explanation": {
+        "en": "The proviso to section 14(1) is explicit: a mere inability to substantiate a complaint or provide adequate proof need not attract action against the complainant. Malice must be established after an inquiry, and the woman must be given a hearing before any finding of malice.",
+        "hi": "धारा 14(1) का परंतुक स्पष्ट है: परिवाद को सिद्ध कर पाने या पर्याप्त प्रमाण दे पाने में असमर्थता मात्र से परिवादी के विरुद्ध कार्रवाई आवश्यक नहीं है। विद्वेष जाँच के पश्चात् स्थापित होना चाहिए, और विद्वेष का कोई निष्कर्ष देने से पूर्व महिला को सुनवाई का अवसर देना होगा।"
+      },
+      "ruleRef": {
+        "textId": "posh-14",
+        "citation": { "en": "Section 14, PoSH Act, 2013", "hi": "धारा 14, पॉश अधिनियम, 2013" }
+      },
+      "difficulty": "hard",
+      "stageA": {
+        "index": 11,
+        "angle": "The proviso to section 14(1) — failure to substantiate is not malice"
+      },
+      "groundingRuleIds": ["posh-14"]
+    },
+    {
+      "id": "posh-q-012",
+      "rule": "16",
+      "kind": "mcq",
+      "front": {
+        "en": "Section 16 of the PoSH Act, 2013 bars publication of certain matter notwithstanding which other Act?",
+        "hi": "पॉश अधिनियम, 2013 की धारा 16 किस अन्य अधिनियम में किसी बात के होते हुए भी कुछ विषयों के प्रकाशन का प्रतिषेध करती है?"
+      },
+      "back": { "en": "The Right to Information Act, 2005.", "hi": "सूचना का अधिकार अधिनियम, 2005।" },
+      "options": [
+        { "en": "The Right to Information Act, 2005", "hi": "सूचना का अधिकार अधिनियम, 2005" },
+        { "en": "The Official Secrets Act, 1923", "hi": "शासकीय गुप्त बात अधिनियम, 1923" },
+        { "en": "The Indian Evidence Act, 1872", "hi": "भारतीय साक्ष्य अधिनियम, 1872" },
+        { "en": "The Press Council Act, 1978", "hi": "प्रेस परिषद् अधिनियम, 1978" }
+      ],
+      "answerIndex": 0,
+      "explanation": {
+        "en": "Section 16 protects the contents of the complaint, the identity and addresses of the aggrieved woman, the respondent and the witnesses, the conciliation and inquiry proceedings and the recommendations — notwithstanding the RTI Act. Information may be disseminated regarding the justice secured, without naming anyone.",
+        "hi": "धारा 16 परिवाद की अंतर्वस्तु, व्यथित महिला, प्रत्यर्थी और साक्षियों की पहचान और पते, सुलह तथा जाँच कार्यवाहियों और सिफ़ारिशों की रक्षा करती है — आरटीआई अधिनियम के होते हुए भी। किसी का नाम लिए बिना, प्राप्त न्याय के बारे में सूचना का प्रसार किया जा सकता है।"
+      },
+      "ruleRef": {
+        "textId": "posh-16",
+        "citation": { "en": "Section 16, PoSH Act, 2013", "hi": "धारा 16, पॉश अधिनियम, 2013" }
+      },
+      "difficulty": "medium",
+      "stageA": { "index": 12, "angle": "Section 16 overrides the RTI Act" },
+      "groundingRuleIds": ["posh-16"]
+    },
+    {
+      "id": "posh-q-013",
+      "rule": "18",
+      "kind": "mcq",
+      "front": {
+        "en": "Under section 18(2) of the PoSH Act, 2013, within what period must an appeal against the Committee's recommendations be preferred?",
+        "hi": "पॉश अधिनियम, 2013 की धारा 18(2) के अधीन, समिति की सिफ़ारिशों के विरुद्ध अपील किस अवधि के भीतर की जानी चाहिए?"
+      },
+      "back": { "en": "Ninety days of the recommendations.", "hi": "सिफ़ारिशों से नब्बे दिन।" },
+      "options": [
+        { "en": "Ninety days", "hi": "नब्बे दिन" },
+        { "en": "Thirty days", "hi": "तीस दिन" },
+        { "en": "Forty-five days", "hi": "पैंतालीस दिन" },
+        { "en": "Sixty days", "hi": "साठ दिन" }
+      ],
+      "answerIndex": 0,
+      "explanation": {
+        "en": "Section 18(2) gives ninety days. The appeal lies to the court or tribunal in accordance with the service rules applicable to the person, or where no such rules apply, as prescribed.",
+        "hi": "धारा 18(2) नब्बे दिन देती है। अपील उस व्यक्ति पर लागू सेवा नियमों के अनुसार न्यायालय या अधिकरण को होती है, अथवा जहाँ ऐसे नियम लागू न हों, वहाँ यथाविहित।"
+      },
+      "ruleRef": {
+        "textId": "posh-18",
+        "citation": { "en": "Section 18, PoSH Act, 2013", "hi": "धारा 18, पॉश अधिनियम, 2013" }
+      },
+      "difficulty": "easy",
+      "stageA": { "index": 13, "angle": "The ninety-day appeal period" },
+      "groundingRuleIds": ["posh-18"]
+    },
+    {
+      "id": "posh-q-014",
+      "rule": "19",
+      "kind": "mcq",
+      "front": {
+        "en": "Which of the following is a duty of the employer under section 19 of the PoSH Act, 2013?",
+        "hi": "निम्नलिखित में से कौन पॉश अधिनियम, 2013 की धारा 19 के अधीन नियोजक का कर्तव्य है?"
+      },
+      "back": {
+        "en": "To treat sexual harassment as misconduct under the service rules and initiate action for such misconduct.",
+        "hi": "लैंगिक उत्पीड़न को सेवा नियमों के अधीन कदाचार मानना और ऐसे कदाचार के लिए कार्रवाई आरंभ करना।"
+      },
+      "options": [
+        {
+          "en": "To treat sexual harassment as misconduct under the service rules and initiate action accordingly",
+          "hi": "लैंगिक उत्पीड़न को सेवा नियमों के अधीन कदाचार मानना और तदनुसार कार्रवाई आरंभ करना"
+        },
+        {
+          "en": "To decide the complaint himself where the Internal Committee is divided",
+          "hi": "जहाँ आंतरिक समिति में मतभेद हो वहाँ स्वयं परिवाद का विनिश्चय करना"
+        },
+        {
+          "en": "To pay compensation before the inquiry concludes",
+          "hi": "जाँच समाप्त होने से पूर्व प्रतिकर देना"
+        },
+        {
+          "en": "To publish the names of respondents found guilty",
+          "hi": "दोषी पाए गए प्रत्यर्थियों के नाम प्रकाशित करना"
+        }
+      ],
+      "answerIndex": 0,
+      "explanation": {
+        "en": "Section 19(i) requires the employer to treat sexual harassment as misconduct under the service rules. Section 19 also requires a safe working environment, display of the penal consequences and the constitution order, workshops, facilities for the Committee, and assistance to the woman in filing a police complaint.",
+        "hi": "धारा 19(i) नियोजक से लैंगिक उत्पीड़न को सेवा नियमों के अधीन कदाचार मानने की अपेक्षा करती है। धारा 19 सुरक्षित कार्य वातावरण, दंडात्मक परिणामों और गठन आदेश के प्रदर्शन, कार्यशालाओं, समिति के लिए सुविधाओं, तथा पुलिस परिवाद दर्ज कराने में महिला की सहायता की भी अपेक्षा करती है।"
+      },
+      "ruleRef": {
+        "textId": "posh-19",
+        "citation": { "en": "Section 19, PoSH Act, 2013", "hi": "धारा 19, पॉश अधिनियम, 2013" }
+      },
+      "difficulty": "medium",
+      "stageA": { "index": 14, "angle": "Section 19(i) — sexual harassment as service-rule misconduct" },
+      "groundingRuleIds": ["posh-19"]
+    },
+    {
+      "id": "posh-q-015",
+      "rule": "26",
+      "kind": "mcq",
+      "front": {
+        "en": "Under section 26 of the PoSH Act, 2013, what is the consequence for an employer who fails to constitute an Internal Committee?",
+        "hi": "पॉश अधिनियम, 2013 की धारा 26 के अधीन, आंतरिक समिति गठित करने में असफल रहने वाले नियोजक का क्या परिणाम है?"
+      },
+      "back": {
+        "en": "A fine which may extend to fifty thousand rupees; on a second or subsequent contravention, twice the punishment, and cancellation or non-renewal of licence or registration.",
+        "hi": "पचास हज़ार रुपये तक का जुर्माना; दूसरे या पश्चात्वर्ती उल्लंघन पर दुगुना दंड, तथा अनुज्ञप्ति या रजिस्ट्रीकरण का रद्दकरण या नवीकरण न होना।"
+      },
+      "options": [
+        {
+          "en": "Fine up to ₹50,000; on repetition, twice the punishment and cancellation or non-renewal of licence or registration",
+          "hi": "₹50,000 तक जुर्माना; पुनरावृत्ति पर दुगुना दंड तथा अनुज्ञप्ति या रजिस्ट्रीकरण का रद्दकरण या नवीकरण न होना"
+        },
+        { "en": "Imprisonment up to one year", "hi": "एक वर्ष तक का कारावास" },
+        {
+          "en": "Fine up to ₹10,000, with no consequence for repetition",
+          "hi": "₹10,000 तक जुर्माना, पुनरावृत्ति का कोई परिणाम नहीं"
+        },
+        {
+          "en": "No penalty; section 26 applies only to publication offences",
+          "hi": "कोई शास्ति नहीं; धारा 26 केवल प्रकाशन अपराधों पर लागू होती है"
+        }
+      ],
+      "answerIndex": 0,
+      "explanation": {
+        "en": "The offence under section 26 is non-cognizable (section 27(3)). Section 27(1) requires a complaint by the aggrieved woman or a person authorised by the Internal or Local Committee before a court takes cognizance, and no court below a Metropolitan Magistrate or Judicial Magistrate of the first class may try it.",
+        "hi": "धारा 26 का अपराध असंज्ञेय है (धारा 27(3))। धारा 27(1) न्यायालय द्वारा संज्ञान लेने से पूर्व व्यथित महिला या आंतरिक अथवा स्थानीय समिति द्वारा प्राधिकृत व्यक्ति के परिवाद की अपेक्षा करती है, और महानगर मजिस्ट्रेट या प्रथम वर्ग न्यायिक मजिस्ट्रेट से नीचे का कोई न्यायालय उसका विचारण नहीं कर सकता।"
+      },
+      "ruleRef": {
+        "textId": "posh-26",
+        "citation": { "en": "Section 26, PoSH Act, 2013", "hi": "धारा 26, पॉश अधिनियम, 2013" }
+      },
+      "difficulty": "medium",
+      "stageA": { "index": 15, "angle": "Section 26 penalty read with the section 27 cognizance bar" },
+      "groundingRuleIds": ["posh-26", "posh-27"]
+    },
+    {
+      "id": "posh-q-016",
+      "rule": "2",
+      "kind": "mcq",
+      "front": {
+        "en": "Under section 2(a) of the PoSH Act, 2013, an 'aggrieved woman' in relation to a workplace must be —",
+        "hi": "पॉश अधिनियम, 2013 की धारा 2(क) के अधीन, किसी कार्यस्थल के संबंध में \"व्यथित महिला\" होनी चाहिए —"
+      },
+      "back": {
+        "en": "A woman of any age, whether employed or not, who alleges to have been subjected to any act of sexual harassment by the respondent.",
+        "hi": "किसी भी आयु की महिला, चाहे नियोजित हो या न हो, जो यह अभिकथन करती है कि प्रत्यर्थी ने उसे लैंगिक उत्पीड़न के किसी कृत्य का शिकार बनाया।"
+      },
+      "options": [
+        {
+          "en": "A woman of any age, whether employed or not",
+          "hi": "किसी भी आयु की महिला, चाहे नियोजित हो या न हो"
+        },
+        {
+          "en": "A woman employed at that workplace on a regular basis",
+          "hi": "उस कार्यस्थल पर नियमित आधार पर नियोजित महिला"
+        },
+        {
+          "en": "A woman over eighteen years of age employed at that workplace",
+          "hi": "उस कार्यस्थल पर नियोजित अठारह वर्ष से अधिक आयु की महिला"
+        },
+        {
+          "en": "Any person, of any gender, subjected to sexual harassment",
+          "hi": "लैंगिक उत्पीड़न का शिकार कोई भी व्यक्ति, किसी भी लिंग का"
+        }
+      ],
+      "answerIndex": 0,
+      "explanation": {
+        "en": "The definition deliberately does not require employment: a visitor, a contractor's worker or a client is an aggrieved woman if the incident happened at that workplace. In relation to a dwelling place, section 2(a)(ii) covers a woman of any age employed in such a house.",
+        "hi": "परिभाषा जानबूझकर नियोजन अपेक्षित नहीं करती: यदि घटना उस कार्यस्थल पर हुई तो कोई आगंतुक, ठेकेदार का कर्मकार या ग्राहक व्यथित महिला है। किसी निवास स्थान के संबंध में धारा 2(क)(ii) ऐसे घर में नियोजित किसी भी आयु की महिला को कवर करती है।"
+      },
+      "ruleRef": {
+        "textId": "posh-2",
+        "citation": { "en": "Section 2, PoSH Act, 2013", "hi": "धारा 2, पॉश अधिनियम, 2013" }
+      },
+      "difficulty": "medium",
+      "stageA": { "index": 16, "angle": "Section 2(a) — employment is not a precondition" },
+      "groundingRuleIds": ["posh-2"]
+    },
+    {
+      "id": "posh-q-017",
+      "rule": "3",
+      "kind": "mcq",
+      "front": {
+        "en": "Section 3(2) of the PoSH Act, 2013 lists circumstances which, if connected with an act of sexual harassment, may amount to sexual harassment. Which is one of them?",
+        "hi": "पॉश अधिनियम, 2013 की धारा 3(2) ऐसी परिस्थितियाँ गिनाती है जो लैंगिक उत्पीड़न के किसी कृत्य से संबद्ध होने पर लैंगिक उत्पीड़न की कोटि में आ सकती हैं। उनमें से एक कौन-सी है?"
+      },
+      "back": {
+        "en": "An implied or explicit promise of preferential treatment in her employment.",
+        "hi": "उसके नियोजन में अधिमानी व्यवहार का विवक्षित या अभिव्यक्त वचन।"
+      },
+      "options": [
+        {
+          "en": "An implied or explicit promise of preferential treatment in her employment",
+          "hi": "उसके नियोजन में अधिमानी व्यवहार का विवक्षित या अभिव्यक्त वचन"
+        },
+        {
+          "en": "A transfer to another office at her own request",
+          "hi": "उसके अपने अनुरोध पर किसी अन्य कार्यालय में स्थानांतरण"
+        },
+        { "en": "A written warning for unsatisfactory work", "hi": "असंतोषजनक कार्य के लिए लिखित चेतावनी" },
+        {
+          "en": "A refusal of leave on administrative grounds",
+          "hi": "प्रशासनिक आधार पर छुट्टी की अस्वीकृति"
+        }
+      ],
+      "answerIndex": 0,
+      "explanation": {
+        "en": "Section 3(2) lists five: a promise of preferential treatment, a threat of detrimental treatment, a threat about her present or future employment status, interference with her work or an intimidating, offensive or hostile work environment, and humiliating treatment likely to affect her health or safety.",
+        "hi": "धारा 3(2) पाँच गिनाती है: अधिमानी व्यवहार का वचन, हानिकर व्यवहार की धमकी, उसकी वर्तमान या भावी नियोजन स्थिति के बारे में धमकी, उसके कार्य में हस्तक्षेप या भयोत्पादक, आपत्तिजनक अथवा शत्रुतापूर्ण कार्य वातावरण, तथा ऐसा अपमानजनक व्यवहार जो उसके स्वास्थ्य या सुरक्षा को प्रभावित कर सकता हो।"
+      },
+      "ruleRef": {
+        "textId": "posh-3",
+        "citation": { "en": "Section 3, PoSH Act, 2013", "hi": "धारा 3, पॉश अधिनियम, 2013" }
+      },
+      "difficulty": "medium",
+      "stageA": { "index": 17, "angle": "The five circumstances in section 3(2)" },
+      "groundingRuleIds": ["posh-3"]
+    },
+    {
+      "id": "posh-q-018",
+      "rule": "12",
+      "kind": "mcq",
+      "front": {
+        "en": "Under section 12 of the PoSH Act, 2013, what interim relief may a Committee recommend during the pendency of an inquiry?",
+        "hi": "पॉश अधिनियम, 2013 की धारा 12 के अधीन, जाँच के लंबित रहने के दौरान समिति कौन-सा अंतरिम अनुतोष सिफ़ारिश कर सकती है?"
+      },
+      "back": {
+        "en": "Transfer of the aggrieved woman or the respondent, leave to the woman of up to three months, or such other relief as may be prescribed.",
+        "hi": "व्यथित महिला या प्रत्यर्थी का स्थानांतरण, महिला को तीन मास तक की छुट्टी, अथवा यथाविहित अन्य अनुतोष।"
+      },
+      "options": [
+        {
+          "en": "Transfer of the woman or the respondent, leave to the woman of up to three months, or other prescribed relief",
+          "hi": "महिला या प्रत्यर्थी का स्थानांतरण, महिला को तीन मास तक की छुट्टी, अथवा अन्य विहित अनुतोष"
+        },
+        { "en": "Suspension of the respondent, in every case", "hi": "हर मामले में प्रत्यर्थी का निलंबन" },
+        {
+          "en": "Payment of compensation before the inquiry concludes",
+          "hi": "जाँच समाप्त होने से पूर्व प्रतिकर का भुगतान"
+        },
+        {
+          "en": "No interim relief is available under the Act",
+          "hi": "अधिनियम के अधीन कोई अंतरिम अनुतोष उपलब्ध नहीं है"
+        }
+      ],
+      "answerIndex": 0,
+      "explanation": {
+        "en": "Section 12(1) needs a written request from the aggrieved woman. Section 12(2) makes the leave under this section additional to the leave she would otherwise be entitled to — it does not come out of her leave account.",
+        "hi": "धारा 12(1) के लिए व्यथित महिला का लिखित अनुरोध आवश्यक है। धारा 12(2) इस धारा के अधीन छुट्टी को उस छुट्टी के अतिरिक्त बनाती है जिसकी वह अन्यथा हकदार होती — यह उसके छुट्टी लेखे से नहीं जाती।"
+      },
+      "ruleRef": {
+        "textId": "posh-12",
+        "citation": { "en": "Section 12, PoSH Act, 2013", "hi": "धारा 12, पॉश अधिनियम, 2013" }
+      },
+      "difficulty": "medium",
+      "stageA": { "index": 18, "angle": "Section 12 interim relief and that the leave is additional" },
+      "groundingRuleIds": ["posh-12"]
+    },
+    {
+      "id": "posh-q-019",
+      "rule": "11",
+      "kind": "trueFalse",
+      "front": {
+        "en": "An Internal Committee under the PoSH Act, 2013 has the powers of a civil court for summoning witnesses and requiring the discovery of documents.",
+        "hi": "पॉश अधिनियम, 2013 के अधीन आंतरिक समिति को साक्षियों को समन करने और दस्तावेज़ों का प्रकटीकरण अपेक्षित करने के लिए सिविल न्यायालय की शक्तियाँ प्राप्त हैं।"
+      },
+      "back": { "en": "True.", "hi": "सत्य।" },
+      "options": [
+        { "en": "True", "hi": "सत्य" },
+        { "en": "False", "hi": "असत्य" }
+      ],
+      "answerIndex": 0,
+      "explanation": {
+        "en": "Section 11(3) gives the Internal Committee and the Local Committee the powers of a civil court under the Code of Civil Procedure, 1908 for summoning and enforcing attendance and examining witnesses on oath, and for requiring the discovery and production of documents.",
+        "hi": "धारा 11(3) आंतरिक समिति और स्थानीय समिति को सिविल प्रक्रिया संहिता, 1908 के अधीन सिविल न्यायालय की वे शक्तियाँ देती है जो समन करने, उपस्थिति प्रवर्तित कराने और शपथ पर साक्षियों की परीक्षा करने, तथा दस्तावेज़ों का प्रकटीकरण और पेशी अपेक्षित करने के लिए हैं।"
+      },
+      "ruleRef": {
+        "textId": "posh-11",
+        "citation": { "en": "Section 11, PoSH Act, 2013", "hi": "धारा 11, पॉश अधिनियम, 2013" }
+      },
+      "difficulty": "medium",
+      "stageA": { "index": 19, "angle": "Section 11(3) civil-court powers" },
+      "groundingRuleIds": ["posh-11"]
+    },
+    {
+      "id": "posh-q-020",
+      "rule": "11",
+      "kind": "scenario",
+      "front": {
+        "en": "A domestic worker complains to the Local Committee that her employer sexually harassed her. The Committee finds a prima facie case. Under section 11(1) of the PoSH Act, 2013, what must it do, and by when?",
+        "hi": "एक घरेलू कामगार स्थानीय समिति से परिवाद करती है कि उसके नियोजक ने उसका लैंगिक उत्पीड़न किया। समिति प्रथम दृष्टया मामला पाती है। पॉश अधिनियम, 2013 की धारा 11(1) के अधीन उसे क्या करना होगा, और कब तक?"
+      },
+      "back": {
+        "en": "Forward the complaint to the police within seven days for registering the case under section 509 of the Indian Penal Code and any other relevant provision.",
+        "hi": "भारतीय दंड संहिता की धारा 509 तथा किसी अन्य सुसंगत उपबंध के अधीन मामला दर्ज कराने हेतु सात दिन के भीतर परिवाद पुलिस को अग्रेषित करना।"
+      },
+      "options": [
+        {
+          "en": "Forward the complaint to the police within seven days for registering the case",
+          "hi": "मामला दर्ज कराने हेतु सात दिन के भीतर परिवाद पुलिस को अग्रेषित करना"
+        },
+        {
+          "en": "Conduct its own inquiry under the service rules, as for an employee",
+          "hi": "कर्मचारी की भाँति सेवा नियमों के अधीन स्वयं जाँच करना"
+        },
+        {
+          "en": "Refer the matter to the District Officer for conciliation",
+          "hi": "सुलह के लिए मामला जिला अधिकारी को निर्दिष्ट करना"
+        },
+        {
+          "en": "Dismiss it — a domestic worker's workplace is a dwelling place, outside the Act",
+          "hi": "उसे खारिज करना — घरेलू कामगार का कार्यस्थल निवास स्थान है, जो अधिनियम से बाहर है"
+        }
+      ],
+      "answerIndex": 0,
+      "explanation": {
+        "en": "The first proviso to section 11(1) deals with the domestic worker specifically: the Local Committee forwards a prima facie case to the police within seven days. A dwelling place or house is expressly within the definition of 'workplace' in section 2(o)(vi).",
+        "hi": "धारा 11(1) का पहला परंतुक विशेष रूप से घरेलू कामगार से संबंधित है: स्थानीय समिति प्रथम दृष्टया मामला सात दिन के भीतर पुलिस को अग्रेषित करती है। निवास स्थान या घर धारा 2(ठ)(vi) में \"कार्यस्थल\" की परिभाषा में स्पष्टतः सम्मिलित है।"
+      },
+      "ruleRef": {
+        "textId": "posh-11",
+        "citation": { "en": "Section 11, PoSH Act, 2013", "hi": "धारा 11, पॉश अधिनियम, 2013" }
+      },
+      "difficulty": "hard",
+      "stageA": { "index": 20, "angle": "The domestic-worker proviso to section 11(1)" },
+      "groundingRuleIds": ["posh-11", "posh-2"]
+    },
+    {
+      "id": "posh-q-021",
+      "rule": "21",
+      "kind": "mcq",
+      "front": {
+        "en": "Under section 21 of the PoSH Act, 2013, to whom does an Internal Committee submit its annual report?",
+        "hi": "पॉश अधिनियम, 2013 की धारा 21 के अधीन, आंतरिक समिति अपनी वार्षिक रिपोर्ट किसे प्रस्तुत करती है?"
+      },
+      "back": {
+        "en": "The employer and the District Officer.",
+        "hi": "नियोजक और जिला अधिकारी को।"
+      },
+      "options": [
+        { "en": "The employer and the District Officer", "hi": "नियोजक और जिला अधिकारी को" },
+        { "en": "The employer alone", "hi": "केवल नियोजक को" },
+        { "en": "The appropriate Government alone", "hi": "केवल समुचित सरकार को" },
+        { "en": "The National Commission for Women", "hi": "राष्ट्रीय महिला आयोग को" }
+      ],
+      "answerIndex": 0,
+      "explanation": {
+        "en": "Section 21(1) requires the report to go to both. Section 21(2) then makes the District Officer forward a brief report to the State Government, and section 22 makes the employer include the number of cases in his organisation's own annual report.",
+        "hi": "धारा 21(1) रिपोर्ट दोनों को जाने की अपेक्षा करती है। धारा 21(2) फिर जिला अधिकारी से संक्षिप्त रिपोर्ट राज्य सरकार को अग्रेषित कराती है, और धारा 22 नियोजक से मामलों की संख्या अपने संगठन की वार्षिक रिपोर्ट में सम्मिलित कराती है।"
+      },
+      "ruleRef": {
+        "textId": "posh-21",
+        "citation": { "en": "Section 21, PoSH Act, 2013", "hi": "धारा 21, पॉश अधिनियम, 2013" }
+      },
+      "difficulty": "easy",
+      "stageA": { "index": 21, "angle": "The section 21 to 22 reporting chain" },
+      "groundingRuleIds": ["posh-21", "posh-22"]
+    },
+    {
+      "id": "posh-q-022",
+      "rule": "7",
+      "kind": "mcq",
+      "front": {
+        "en": "Under section 7 of the PoSH Act, 2013, who nominates the members of the Local Committee?",
+        "hi": "पॉश अधिनियम, 2013 की धारा 7 के अधीन, स्थानीय समिति के सदस्यों को कौन नामनिर्दिष्ट करता है?"
+      },
+      "back": { "en": "The District Officer.", "hi": "जिला अधिकारी।" },
+      "options": [
+        { "en": "The District Officer", "hi": "जिला अधिकारी" },
+        {
+          "en": "The employer of the largest establishment in the district",
+          "hi": "जिले के सबसे बड़े स्थापन का नियोजक"
+        },
+        { "en": "The State Government, by notification", "hi": "राज्य सरकार, अधिसूचना द्वारा" },
+        { "en": "The Internal Committee of the nearest establishment", "hi": "निकटतम स्थापन की आंतरिक समिति" }
+      ],
+      "answerIndex": 0,
+      "explanation": {
+        "en": "Section 7(1) puts nomination with the District Officer. The Chairperson is an eminent woman in the field of social work, one Member is from amongst women working in the block, taluka or tehsil, and two Members are from non-governmental organisations, of whom at least one must be a woman.",
+        "hi": "धारा 7(1) नामनिर्देशन जिला अधिकारी को देती है। अध्यक्ष सामाजिक कार्य के क्षेत्र की कोई प्रख्यात महिला होती है, एक सदस्य खंड, तालुका या तहसील में काम करने वाली महिलाओं में से, तथा दो सदस्य गैर-सरकारी संगठनों से, जिनमें कम से कम एक महिला होनी चाहिए।"
+      },
+      "ruleRef": {
+        "textId": "posh-7",
+        "citation": { "en": "Section 7, PoSH Act, 2013", "hi": "धारा 7, पॉश अधिनियम, 2013" }
+      },
+      "difficulty": "medium",
+      "stageA": { "index": 22, "angle": "Section 7(1) — the District Officer nominates" },
+      "groundingRuleIds": ["posh-7"]
+    },
+    {
+      "id": "posh-q-023",
+      "rule": "17",
+      "kind": "mcq",
+      "front": {
+        "en": "Under section 17 of the PoSH Act, 2013, how is a person who breaches the confidentiality in section 16 penalised?",
+        "hi": "पॉश अधिनियम, 2013 की धारा 17 के अधीन, धारा 16 की गोपनीयता का उल्लंघन करने वाले व्यक्ति को किस प्रकार दंडित किया जाता है?"
+      },
+      "back": {
+        "en": "In accordance with the service rules applicable to him, or where no service rules apply, as may be prescribed.",
+        "hi": "उस पर लागू सेवा नियमों के अनुसार, अथवा जहाँ कोई सेवा नियम लागू न हों, वहाँ यथाविहित।"
+      },
+      "options": [
+        {
+          "en": "Under the service rules applicable to him, or where none apply, as may be prescribed",
+          "hi": "उस पर लागू सेवा नियमों के अधीन, अथवा जहाँ कोई लागू न हों, वहाँ यथाविहित"
+        },
+        {
+          "en": "By the Internal Committee, which may impose a fine directly",
+          "hi": "आंतरिक समिति द्वारा, जो सीधे जुर्माना अधिरोपित कर सकती है"
+        },
+        { "en": "By imprisonment of up to six months", "hi": "छह मास तक के कारावास द्वारा" },
+        { "en": "There is no penalty; section 16 is advisory", "hi": "कोई शास्ति नहीं; धारा 16 सलाहकारी है" }
+      ],
+      "answerIndex": 0,
+      "explanation": {
+        "en": "Section 17 routes the penalty through the service rules rather than creating a separate offence. This is the same drafting choice as section 18, which routes the appeal through the service rules.",
+        "hi": "धारा 17 अलग अपराध सृजित करने के बजाय शास्ति को सेवा नियमों के माध्यम से भेजती है। यही प्रारूपण-निर्णय धारा 18 में भी है, जो अपील को सेवा नियमों के माध्यम से भेजती है।"
+      },
+      "ruleRef": {
+        "textId": "posh-17",
+        "citation": { "en": "Section 17, PoSH Act, 2013", "hi": "धारा 17, पॉश अधिनियम, 2013" }
+      },
+      "difficulty": "medium",
+      "stageA": { "index": 23, "angle": "Section 17 routes through the service rules, as section 18 does" },
+      "groundingRuleIds": ["posh-17", "posh-18"]
+    },
+    {
+      "id": "posh-q-024",
+      "rule": "20",
+      "kind": "trueFalse",
+      "front": {
+        "en": "Under section 20 of the PoSH Act, 2013, monitoring the timely submission of reports by the Local Committee is a duty of the District Officer.",
+        "hi": "पॉश अधिनियम, 2013 की धारा 20 के अधीन, स्थानीय समिति द्वारा रिपोर्टों के समय पर प्रस्तुतीकरण की मॉनिटरी करना जिला अधिकारी का कर्तव्य है।"
+      },
+      "back": { "en": "True.", "hi": "सत्य।" },
+      "options": [
+        { "en": "True", "hi": "सत्य" },
+        { "en": "False", "hi": "असत्य" }
+      ],
+      "answerIndex": 0,
+      "explanation": {
+        "en": "Section 20(a) is that duty. Section 20(b) adds engaging non-governmental organisations for creating awareness and for the rights of women.",
+        "hi": "धारा 20(क) यही कर्तव्य है। धारा 20(ख) जागरूकता सृजन और महिलाओं के अधिकारों के लिए गैर-सरकारी संगठनों को जोड़ने की बात करती है।"
+      },
+      "ruleRef": {
+        "textId": "posh-20",
+        "citation": { "en": "Section 20, PoSH Act, 2013", "hi": "धारा 20, पॉश अधिनियम, 2013" }
+      },
+      "difficulty": "easy",
+      "stageA": { "index": 24, "angle": "Section 20(a) — the District Officer's monitoring duty" },
+      "groundingRuleIds": ["posh-20"]
+    },
+    {
+      "id": "posh-q-025",
+      "rule": "28",
+      "kind": "trueFalse",
+      "front": {
+        "en": "Section 28 of the PoSH Act, 2013 provides that the Act is in derogation of any other law for the time being in force.",
+        "hi": "पॉश अधिनियम, 2013 की धारा 28 यह उपबंध करती है कि यह अधिनियम तत्समय प्रवृत्त किसी अन्य विधि का अल्पीकरण करता है।"
+      },
+      "back": { "en": "False.", "hi": "असत्य।" },
+      "options": [
+        { "en": "True", "hi": "सत्य" },
+        { "en": "False", "hi": "असत्य" }
+      ],
+      "answerIndex": 1,
+      "explanation": {
+        "en": "Section 28 says the opposite: the provisions of this Act are in addition to and not in derogation of any other law. A woman may pursue a criminal complaint and the Committee's inquiry at the same time.",
+        "hi": "धारा 28 उल्टा कहती है: इस अधिनियम के उपबंध किसी अन्य विधि के अतिरिक्त हैं, उसका अल्पीकरण नहीं करते। कोई महिला दांडिक परिवाद और समिति की जाँच एक साथ चला सकती है।"
+      },
+      "ruleRef": {
+        "textId": "posh-28",
+        "citation": { "en": "Section 28, PoSH Act, 2013", "hi": "धारा 28, पॉश अधिनियम, 2013" }
+      },
+      "difficulty": "easy",
+      "stageA": { "index": 25, "angle": "Section 28 — in addition to, not in derogation of" },
+      "groundingRuleIds": ["posh-28"]
+    },
+    {
+      "id": "posh-q-026",
+      "rule": "5",
+      "kind": "mcq",
+      "front": {
+        "en": "Under section 5 of the PoSH Act, 2013, which officers may be notified as a District Officer?",
+        "hi": "पॉश अधिनियम, 2013 की धारा 5 के अधीन, किन अधिकारियों को जिला अधिकारी के रूप में अधिसूचित किया जा सकता है?"
+      },
+      "back": {
+        "en": "A District Magistrate, an Additional District Magistrate, the Collector or a Deputy Collector.",
+        "hi": "जिला मजिस्ट्रेट, अपर जिला मजिस्ट्रेट, कलक्टर अथवा उप-कलक्टर।"
+      },
+      "options": [
+        {
+          "en": "A District Magistrate, an Additional District Magistrate, the Collector or a Deputy Collector",
+          "hi": "जिला मजिस्ट्रेट, अपर जिला मजिस्ट्रेट, कलक्टर अथवा उप-कलक्टर"
+        },
+        {
+          "en": "Any officer of the rank of Joint Secretary or above",
+          "hi": "संयुक्त सचिव या उससे ऊपर के रैंक का कोई अधिकारी"
+        },
+        { "en": "The Superintendent of Police of the district", "hi": "जिले का पुलिस अधीक्षक" },
+        { "en": "Only the District Magistrate", "hi": "केवल जिला मजिस्ट्रेट" }
+      ],
+      "answerIndex": 0,
+      "explanation": {
+        "en": "Section 5 names the four offices and requires a District Officer for every district. It is the appropriate Government that notifies, not the employer.",
+        "hi": "धारा 5 चार पदों का नाम लेती है और प्रत्येक जिले के लिए जिला अधिकारी अपेक्षित करती है। अधिसूचना समुचित सरकार करती है, नियोजक नहीं।"
+      },
+      "ruleRef": {
+        "textId": "posh-5",
+        "citation": { "en": "Section 5, PoSH Act, 2013", "hi": "धारा 5, पॉश अधिनियम, 2013" }
+      },
+      "difficulty": "easy",
+      "stageA": { "index": 26, "angle": "The four offices in section 5" },
+      "groundingRuleIds": ["posh-5"]
+    },
+    {
+      "id": "posh-q-027",
+      "rule": "4",
+      "kind": "trueFalse",
+      "front": {
+        "en": "The Presiding Officer or a Member of an Internal Committee who contravenes section 16 of the PoSH Act, 2013 is liable to be removed from the Committee.",
+        "hi": "आंतरिक समिति का ऐसा पीठासीन अधिकारी या सदस्य जो पॉश अधिनियम, 2013 की धारा 16 का उल्लंघन करता है, समिति से हटाए जाने का भागी है।"
+      },
+      "back": { "en": "True.", "hi": "सत्य।" },
+      "options": [
+        { "en": "True", "hi": "सत्य" },
+        { "en": "False", "hi": "असत्य" }
+      ],
+      "answerIndex": 0,
+      "explanation": {
+        "en": "Section 4(5)(a) makes contravention of section 16 a ground for removal. The other grounds are conviction or a pending inquiry for an offence under any law, a finding in a disciplinary proceeding, and abuse of position rendering continuance prejudicial to the public interest.",
+        "hi": "धारा 4(5)(क) धारा 16 के उल्लंघन को हटाए जाने का आधार बनाती है। अन्य आधार हैं किसी विधि के अधीन अपराध की दोषसिद्धि या लंबित जाँच, किसी अनुशासनिक कार्यवाही में निष्कर्ष, तथा पद का ऐसा दुरुपयोग जिससे बने रहना लोकहित के प्रतिकूल हो।"
+      },
+      "ruleRef": {
+        "textId": "posh-4",
+        "citation": { "en": "Section 4, PoSH Act, 2013", "hi": "धारा 4, पॉश अधिनियम, 2013" }
+      },
+      "difficulty": "medium",
+      "stageA": { "index": 27, "angle": "Section 4(5) removal grounds, keyed to section 16" },
+      "groundingRuleIds": ["posh-4", "posh-16"]
+    },
+    {
+      "id": "posh-q-028",
+      "rule": "25",
+      "kind": "mcq",
+      "front": {
+        "en": "Under section 25 of the PoSH Act, 2013, what may the appropriate Government do on being satisfied that it is necessary in the public interest or in the interest of women employees at a workplace?",
+        "hi": "पॉश अधिनियम, 2013 की धारा 25 के अधीन, यह समाधान होने पर कि लोकहित में या किसी कार्यस्थल पर महिला कर्मचारियों के हित में आवश्यक है, समुचित सरकार क्या कर सकती है?"
+      },
+      "back": {
+        "en": "Call upon any employer or District Officer to furnish information, and authorise an officer to inspect the records and the workplace.",
+        "hi": "किसी नियोजक या जिला अधिकारी से जानकारी माँगना, तथा किसी अधिकारी को अभिलेखों और कार्यस्थल के निरीक्षण के लिए प्राधिकृत करना।"
+      },
+      "options": [
+        {
+          "en": "Call for information from any employer or District Officer, and authorise an officer to inspect the records and the workplace",
+          "hi": "किसी नियोजक या जिला अधिकारी से जानकारी माँगना, तथा किसी अधिकारी को अभिलेखों और कार्यस्थल के निरीक्षण के लिए प्राधिकृत करना"
+        },
+        {
+          "en": "Dissolve the Internal Committee and constitute a fresh one",
+          "hi": "आंतरिक समिति को भंग कर नई समिति गठित करना"
+        },
+        {
+          "en": "Take over the inquiry from the Internal Committee",
+          "hi": "आंतरिक समिति से जाँच अपने हाथ में लेना"
+        },
+        {
+          "en": "Impose the section 26 penalty without a court",
+          "hi": "बिना न्यायालय के धारा 26 की शास्ति अधिरोपित करना"
+        }
+      ],
+      "answerIndex": 0,
+      "explanation": {
+        "en": "Section 25(1) gives the information and inspection powers, and section 25(2) makes every employer and District Officer bound to produce records and give reasonable assistance. It is an oversight power, not a power to decide a case.",
+        "hi": "धारा 25(1) जानकारी और निरीक्षण की शक्तियाँ देती है, और धारा 25(2) प्रत्येक नियोजक और जिला अधिकारी को अभिलेख पेश करने तथा युक्तियुक्त सहायता देने के लिए बाध्य करती है। यह पर्यवेक्षण की शक्ति है, किसी मामले का विनिश्चय करने की नहीं।"
+      },
+      "ruleRef": {
+        "textId": "posh-25",
+        "citation": { "en": "Section 25, PoSH Act, 2013", "hi": "धारा 25, पॉश अधिनियम, 2013" }
+      },
+      "difficulty": "medium",
+      "stageA": { "index": 28, "angle": "Section 25 — oversight, not adjudication" },
+      "groundingRuleIds": ["posh-25"]
+    },
+    {
+      "id": "posh-q-029",
+      "rule": "2",
+      "kind": "mcq",
+      "front": {
+        "en": "Under section 2 of the PoSH Act, 2013, an 'unorganised sector' enterprise is one owned by individuals or self-employed workers which, where it employs workers, employs fewer than —",
+        "hi": "पॉश अधिनियम, 2013 की धारा 2 के अधीन, \"असंगठित क्षेत्र\" का उद्यम वह है जो व्यष्टियों या स्वनियोजित कर्मकारों के स्वामित्व में हो और, जहाँ वह कर्मकार नियोजित करता है, इससे कम नियोजित करे —"
+      },
+      "back": { "en": "Ten workers.", "hi": "दस कर्मकार।" },
+      "options": [
+        { "en": "Ten workers", "hi": "दस कर्मकार" },
+        { "en": "Twenty workers", "hi": "बीस कर्मकार" },
+        { "en": "Five workers", "hi": "पाँच कर्मकार" },
+        { "en": "Fifty workers", "hi": "पचास कर्मकार" }
+      ],
+      "answerIndex": 0,
+      "explanation": {
+        "en": "Ten is the number that runs through the Act: it defines the unorganised sector in section 2(p) and it is the threshold in section 6(1) below which the Local Committee takes complaints because there is no Internal Committee.",
+        "hi": "दस वह संख्या है जो पूरे अधिनियम में चलती है: यह धारा 2(फ) में असंगठित क्षेत्र को परिभाषित करती है और धारा 6(1) की वह सीमा है जिससे नीचे स्थानीय समिति परिवाद लेती है क्योंकि आंतरिक समिति होती ही नहीं।"
+      },
+      "ruleRef": {
+        "textId": "posh-2",
+        "citation": { "en": "Section 2, PoSH Act, 2013", "hi": "धारा 2, पॉश अधिनियम, 2013" }
+      },
+      "difficulty": "medium",
+      "stageA": { "index": 29, "angle": "The number ten in section 2(p) and section 6(1)" },
+      "groundingRuleIds": ["posh-2", "posh-6"]
+    },
+    {
+      "id": "posh-q-030",
+      "rule": "13",
+      "kind": "trueFalse",
+      "front": {
+        "en": "Under section 13(4) of the PoSH Act, 2013, the employer must act on the Committee's recommendation within sixty days of receiving it.",
+        "hi": "पॉश अधिनियम, 2013 की धारा 13(4) के अधीन, नियोजक को समिति की सिफ़ारिश प्राप्त होने के साठ दिन के भीतर उस पर कार्रवाई करनी होगी।"
+      },
+      "back": { "en": "True.", "hi": "सत्य।" },
+      "options": [
+        { "en": "True", "hi": "सत्य" },
+        { "en": "False", "hi": "असत्य" }
+      ],
+      "answerIndex": 0,
+      "explanation": {
+        "en": "Section 13(4) gives the employer or the District Officer sixty days from receipt of the recommendation. Non-implementation is itself appealable under section 18(1).",
+        "hi": "धारा 13(4) नियोजक या जिला अधिकारी को सिफ़ारिश प्राप्ति से साठ दिन देती है। कार्यान्वयन न होना स्वयं धारा 18(1) के अधीन अपीलनीय है।"
+      },
+      "ruleRef": {
+        "textId": "posh-13",
+        "citation": { "en": "Section 13, PoSH Act, 2013", "hi": "धारा 13, पॉश अधिनियम, 2013" }
+      },
+      "difficulty": "medium",
+      "stageA": {
+        "index": 30,
+        "angle": "The sixty-day implementation period and the section 18 appeal for non-implementation"
+      },
+      "groundingRuleIds": ["posh-13", "posh-18"]
+    }
+  ]
+}
