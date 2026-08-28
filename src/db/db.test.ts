@@ -108,10 +108,10 @@ describe('the version 2 upgrade', () => {
     try {
       await v2.open()
 
-      // The class declares up to version 6 now (the Hindi glossary's
-      // favourites and recents, Session 10), so opening it upgrades a v1
-      // database straight to the current version rather than stopping at 2.
-      expect(v2.verno).toBe(6)
+      // The class declares up to version 7 now (the Rules Trainer's spaced
+      // repetition, Session 11), so opening it upgrades a v1 database straight
+      // to the current version rather than stopping at 2.
+      expect(v2.verno).toBe(7)
       expect(await v2.settings.get(SETTING_KEYS.theme)).toEqual({
         key: SETTING_KEYS.theme,
         value: 'dark',
@@ -125,6 +125,10 @@ describe('the version 2 upgrade', () => {
       expect(await v2.draftDefaults.count()).toBe(0)
       expect(await v2.glossaryFavourites.count()).toBe(0)
       expect(await v2.glossaryRecents.count()).toBe(0)
+      expect(await v2.srsCards.count()).toBe(0)
+      expect(await v2.reviewLog.count()).toBe(0)
+      expect(await v2.streaks.count()).toBe(0)
+      expect(await v2.trainerSettings.count()).toBe(0)
     } finally {
       v2.close()
       await Dexie.delete(name)
@@ -144,8 +148,12 @@ describe('the version 2 upgrade', () => {
       'lawFavourites',
       'lawRecents',
       'payScenarios',
+      'reviewLog',
       'secrets',
       'settings',
+      'srsCards',
+      'streaks',
+      'trainerSettings',
     ])
   })
 })

@@ -1,5 +1,7 @@
 import Dexie, { type Table } from 'dexie'
 
+import type { ReviewLogRow, SrsCardRow, StreakRow, TrainerSettingsRow } from '@/lib/srs/types'
+
 /**
  * All user state lives here, on the device (master context, hard rule).
  * There is no account, no server and no sync. Every table added in future
@@ -194,6 +196,24 @@ export interface GlossaryRecentRow {
   viewedAt: string
 }
 
+/**
+ * The Rules Trainer's four tables (Session 11).
+ *
+ * Their row shapes are declared in `src/lib/srs/types.ts` rather than here, and
+ * the import above is the only place `src/db` reaches into a module directory.
+ * The direction is deliberate: the scheduler owns what a schedule *is* — the
+ * meaning of `stability`, of `learningSteps`, of an IST `date` — and this file
+ * owns where it is kept. `import type` means no runtime edge in either
+ * direction, so nothing in `src/lib/srs` is downloaded by a reader who never
+ * opens the Trainer.
+ *
+ * `srsCards` carries no card text and no act id. The act, the rule, the
+ * question and the answer are in `data/rules`, which is versioned and shipped
+ * with the build; a copy here would be a second copy that a dataset refresh
+ * could not correct.
+ */
+export type { ReviewLogRow, SrsCardRow, StreakRow, TrainerSettingsRow }
+
 export type SettingKey = (typeof SETTING_KEYS)[keyof typeof SETTING_KEYS]
 
 export class SahayakDB extends Dexie {
@@ -208,6 +228,10 @@ export class SahayakDB extends Dexie {
   draftDefaults!: Table<DraftDefaultsRow, string>
   glossaryFavourites!: Table<GlossaryFavouriteRow, string>
   glossaryRecents!: Table<GlossaryRecentRow, string>
+  srsCards!: Table<SrsCardRow, string>
+  reviewLog!: Table<ReviewLogRow, string>
+  streaks!: Table<StreakRow, string>
+  trainerSettings!: Table<TrainerSettingsRow, string>
 
   constructor(name = 'sahayak') {
     super(name)
@@ -276,6 +300,32 @@ export class SahayakDB extends Dexie {
       draftDefaults: '&id, templateId, updatedAt',
       glossaryFavourites: '&id, createdAt',
       glossaryRecents: '&id, viewedAt',
+    })
+    // Version 7 — the Rules Trainer's spaced repetition (Session 11).
+    //
+    // `srsCards` is indexed on `due` because "what is due now" is the query the
+    // trainer asks on every card, and an ISO-8601 UTC string sorts in
+    // chronological order, so it answers as a range query rather than a scan.
+    // `reviewLog` is indexed on `qId` (one card's history) and on `at` (one
+    // day's work); it is append-only. `streaks` and `trainerSettings` are keyed
+    // on the only thing that identifies them — an IST date, and the constant
+    // `"trainer"`.
+    this.version(7).stores({
+      settings: '&key',
+      secrets: '&id',
+      aiAnswers: '&id, agentId, dataVersion, createdAt',
+      aiUsage: '&month',
+      lawFavourites: '&id, createdAt',
+      lawRecents: '&id, viewedAt',
+      payScenarios: '&id, name, updatedAt',
+      drafts: '&id, templateId, updatedAt',
+      draftDefaults: '&id, templateId, updatedAt',
+      glossaryFavourites: '&id, createdAt',
+      glossaryRecents: '&id, viewedAt',
+      srsCards: '&qId, due, state',
+      reviewLog: '&id, qId, at',
+      streaks: '&date',
+      trainerSettings: '&id',
     })
   }
 }

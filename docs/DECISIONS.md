@@ -2734,3 +2734,120 @@ exercises the dist-dependent checks; `pnpm check` does not build):
   additively, with no conflict; this session's changes to those two files are scoped to the glossary line
   in the manifest and the three `ALLOWED_INERT` entries above. Nothing in `data/rules/`, `scripts/
 authoring/`, or the Rules Trainer's own `CITATION_HOSTS` additions was touched or reviewed by this session.
+
+---
+
+## ADR-025 — The FSRS scheduler: a pure library, a plain-JSON row, and an IST day
+
+**Date:** 2026-08-28 · **Status:** Accepted · **Implements:** the `ts-fsrs` line of the pinned stack
+
+### Context
+
+The Rules Trainer's content pipeline (ADR-023) produced 818 rules and 2,607 cards, 571 of them served.
+What it did not have was a scheduler. `ts-fsrs` has been in the master context's stack list from the
+start and on the "Deferred" row of CLAUDE.md since Session 1; this session adds it and builds
+`src/lib/srs` over it, with the schedule kept in IndexedDB.
+
+Five questions had to be settled before any of it could be written.
+
+### Decision
+
+**1. `src/lib/srs` is pure, and takes the catalogue as an argument.**
+
+Six of the seven files touch nothing but their arguments; `store.ts` is the only one that opens Dexie.
+Nothing in the directory imports React, and nothing imports `data/rules`. The second half matters as
+much as the first: `data/rules` is ~4 MB, it belongs behind the Trainer route's lazy import exactly as
+the statute and the pay tables are (ADR-013, ADR-018), and importing it here would put it into whatever
+chunk imports the scheduler. So every function that needs to know which act a card belongs to, or
+whether it is approved, is handed the cards it is to work over — the caller has them already.
+
+This is the arrangement `src/lib/pay` already keeps (ADR-018) and for the same reason. It is asserted
+rather than agreed: `src/lib/srs/purity.test.ts` reads every source file in the directory and fails on
+a React import, on JSX, on a hook name, on a dataset specifier, on `fetch`, on a `Date.now()`, and on
+any file other than `store.ts` importing the database.
+
+**2. The stored row is plain JSON, not a `ts-fsrs` `Card`.**
+
+`SrsCardRow` holds strings, numbers, booleans and nulls; `due` and `lastReview` are ISO-8601 UTC
+strings, not `Date`s. Three reasons: a round trip through `JSON.stringify` has to come back **equal**
+for export/import to be testable, and a `Date` survives IndexedDB's structured clone but not JSON; the
+library's own `Card` carries two fields it has already marked for removal in 6.0.0, and persisting it
+would put `ts-fsrs`'s release schedule inside the reader's device; and an ISO-8601 string sorts
+lexicographically in the order it sorts chronologically, so Dexie indexes `due` and answers "what is
+due" as a range query.
+
+The row carries three fields the session brief did not list, each because leaving it out is a defect
+rather than a simplification:
+
+- `learningSteps` on the card. FSRS's default steps are `1m, 10m`; a card halfway through them that
+  comes back from storage as step 0 is sent round the first minute again instead of graduating. It is
+  the one field that cannot be re-derived from the others.
+- `stateBefore` and `retrievability` on the log. **Retention cannot be measured from the card rows.**
+  A card row says where the schedule is now, and grading a card overwrites where it was; "of the cards
+  you had actually learnt, what share did you recall?" is a question about the state a card was in when
+  it was asked. If it is not written down at the moment of the review, it is gone.
+
+**3. Fuzz is off.**
+
+`ts-fsrs` can scatter each interval by a few per cent so a large collection's daily load flattens out.
+The cost of leaving it on is that the same card, graded the same way at the same instant, gets a
+different due date on each run — which makes the export/import round trip untestable, makes a golden
+schedule impossible to assert, and makes two devices holding the same review history disagree about
+the schedule. The benefit it buys is load balancing across tens of thousands of cards; the whole served
+corpus is 571. Determinism is worth more than that.
+
+**4. The day boundary is midnight IST, implemented as a fixed +05:30 offset.**
+
+A streak has to break at a boundary the reader recognises, and for an app written for officers of the
+Government of India that is midnight IST — not midnight wherever the device thinks it is. An officer on
+a course abroad, or one whose laptop is set to UTC, must not lose a streak for reviewing at nine in the
+evening.
+
+The fixed offset is exact rather than an approximation: India has observed no daylight saving since
+1945 and IST is a single statutory offset for the whole country, so there is no rule a timezone
+database could carry that the constant does not already state. It is also what keeps `day.ts` pure and
+testable against a frozen clock, which `Intl.DateTimeFormat` would not be. Every window is
+`[start, end)`, so no review can land in two days or in neither.
+
+**5. `goalMet` is "the day's work is finished", not a card count.**
+
+There is no arbitrary daily target in `TrainerSettings` and there should not be: the day's work is what
+the schedule asked for, which is a different number every day. A day is met when nothing is due **and**
+nothing more falls due before IST midnight. The second clause is load-bearing — `Again` on the last
+card leaves the queue momentarily empty and the card back in a minute, and without it a failed card
+would count as a finished day. A reader who has spent `dailyReviewCap` has finished too, learning steps
+pending or not: the cap is their own instruction about what a day means, and a goal the reader has
+forbidden themselves to reach is not a goal. Once met, a day stays met, so carrying on afterwards
+cannot lose it.
+
+### Two further choices worth recording
+
+**New cards are introduced round-robin across the enabled acts, in index order within each.** Index
+order is the order `make_cards.py` wrote them, which is rule order, so a reader meets Rule 3 before
+Rule 11. Round-robin across acts is what makes `actsEnabled` mean anything: a flat concatenation with
+`dailyNew` at 10 would spend six months inside the CCS (Conduct) Rules before the CCA Rules were ever
+offered a card. `tests/srs-corpus.test.ts` asserts it over the real eight served acts.
+
+**Import merges; it never replaces.** ADR-001 accepted that "clearing browser data destroys user state"
+and recorded that a backup feature was owed. This is it for the Trainer, and it is also the only sync
+two devices will ever have — so the merge is symmetric in effect and idempotent. Cards merge by `qId`
+keeping the **later review**, not the later file: a device that exported yesterday can still hold the
+newer review of a particular card. The log takes the union by id (`<qId>#<reps>#<at>`, the same id on
+both devices, so nothing is counted twice). Streaks take the higher count and `goalMet` if either met
+it. Settings are the one field with a stated precedence — the incoming file wins, because a settings
+row has nothing in it to merge.
+
+### Consequences
+
+- `data/rules` is unchanged; this session added no data and fetched nothing.
+- Dexie goes to **version 7**, adding `srsCards`, `reviewLog`, `streaks` and `trainerSettings`. The row
+  interfaces are declared in `src/lib/srs/types.ts` and `src/db/index.ts` imports them as types — the
+  one place `src/db` reaches into a library directory. `import type` means no runtime edge, so nothing
+  in `src/lib/srs` is downloaded by a reader who never opens the Trainer.
+- `ts-fsrs` 5.4.0 is a dependency and is **in no chunk yet**: nothing under `src/app` or
+  `src/modules/trainer` imports `src/lib/srs`, so `dist/` after this session contains none of it. The
+  Trainer UI is what will pull it in, and it must do so behind the route's lazy import.
+- 147 new unit tests across eight files, all against a frozen clock. `tests/srs-corpus.test.ts` drives
+  the queue and the engine over the committed `data/rules/cards/*.json` rather than a fixture.
+- What is still owed: the Trainer UI, and a place in Settings for export/import. `store.ts` has the
+  functions; nothing calls them yet.
