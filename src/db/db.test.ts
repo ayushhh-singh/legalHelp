@@ -108,10 +108,10 @@ describe('the version 2 upgrade', () => {
     try {
       await v2.open()
 
-      // The class declares up to version 5 now (the Drafting Studio's drafts
-      // and saved letterheads, Session 8), so opening it upgrades a v1
+      // The class declares up to version 6 now (the Hindi glossary's
+      // favourites and recents, Session 10), so opening it upgrades a v1
       // database straight to the current version rather than stopping at 2.
-      expect(v2.verno).toBe(5)
+      expect(v2.verno).toBe(6)
       expect(await v2.settings.get(SETTING_KEYS.theme)).toEqual({
         key: SETTING_KEYS.theme,
         value: 'dark',
@@ -123,6 +123,8 @@ describe('the version 2 upgrade', () => {
       expect(await v2.payScenarios.count()).toBe(0)
       expect(await v2.drafts.count()).toBe(0)
       expect(await v2.draftDefaults.count()).toBe(0)
+      expect(await v2.glossaryFavourites.count()).toBe(0)
+      expect(await v2.glossaryRecents.count()).toBe(0)
     } finally {
       v2.close()
       await Dexie.delete(name)
@@ -137,6 +139,8 @@ describe('the version 2 upgrade', () => {
       'aiUsage',
       'draftDefaults',
       'drafts',
+      'glossaryFavourites',
+      'glossaryRecents',
       'lawFavourites',
       'lawRecents',
       'payScenarios',

@@ -171,6 +171,29 @@ export interface DraftDefaultsRow {
   updatedAt: string
 }
 
+/**
+ * A saved glossary term, and a term that was looked at — the same shape law's
+ * `LawSavedRow`/`LawRecentRow` use, and for the same reason: `termId` is the
+ * primary key so re-saving or re-viewing a term overwrites rather than
+ * accumulating, and `en`/`hi` are a snapshot that lets the list render before
+ * `data/glossary.json` has finished loading.
+ */
+export interface GlossaryFavouriteRow {
+  id: string
+  termId: string
+  en: string
+  hi: string
+  createdAt: string
+}
+
+export interface GlossaryRecentRow {
+  id: string
+  termId: string
+  en: string
+  hi: string
+  viewedAt: string
+}
+
 export type SettingKey = (typeof SETTING_KEYS)[keyof typeof SETTING_KEYS]
 
 export class SahayakDB extends Dexie {
@@ -183,6 +206,8 @@ export class SahayakDB extends Dexie {
   payScenarios!: Table<PayScenarioRow, string>
   drafts!: Table<DraftRow, string>
   draftDefaults!: Table<DraftDefaultsRow, string>
+  glossaryFavourites!: Table<GlossaryFavouriteRow, string>
+  glossaryRecents!: Table<GlossaryRecentRow, string>
 
   constructor(name = 'sahayak') {
     super(name)
@@ -236,6 +261,21 @@ export class SahayakDB extends Dexie {
       payScenarios: '&id, name, updatedAt',
       drafts: '&id, templateId, updatedAt',
       draftDefaults: '&id, templateId, updatedAt',
+    })
+    // Version 6 — the Hindi administrative glossary's favourites and recent
+    // lookups (Session 10), the same shape law's own two tables use.
+    this.version(6).stores({
+      settings: '&key',
+      secrets: '&id',
+      aiAnswers: '&id, agentId, dataVersion, createdAt',
+      aiUsage: '&month',
+      lawFavourites: '&id, createdAt',
+      lawRecents: '&id, viewedAt',
+      payScenarios: '&id, name, updatedAt',
+      drafts: '&id, templateId, updatedAt',
+      draftDefaults: '&id, templateId, updatedAt',
+      glossaryFavourites: '&id, createdAt',
+      glossaryRecents: '&id, viewedAt',
     })
   }
 }

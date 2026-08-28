@@ -61,6 +61,7 @@ MANIFEST: dict[str, str] = {
     "drafting/templates/show-cause-reply.json": "drafting-template.schema.json",
     "drafting/templates/ta-bill-cover.json": "drafting-template.schema.json",
     "drafting/templates/tour-programme.json": "drafting-template.schema.json",
+    "glossary.json": "glossary.schema.json",
     "rules/index.json": "rules-index.schema.json",
     "rules/text/ccs-cca.json": "rules-text.schema.json",
     "rules/text/ccs-conduct.json": "rules-text.schema.json",

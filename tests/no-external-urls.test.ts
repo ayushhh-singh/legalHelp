@@ -74,6 +74,23 @@ const ALLOWED_INERT: ReadonlyArray<{ pattern: RegExp; why: string }> = [
     why: 'JSON Schema dialect identifier emitted by zod 4 — an identifier, never dereferenced',
   },
   {
+    pattern: /^http:\/\/json-schema\.org\/draft-0[47]\/schema#$/,
+    why:
+      "the OTHER two dialect identifiers zod 4's toJsonSchema() can emit, alongside the draft-2020-12 one " +
+      'above. `src/ai/tools/registry.ts` only ever asks for `target: draft-2020-12`, so these two are a dead ' +
+      'branch of the same function — but a bundler tree-shakes by MODULE, not by branch, so the whole ' +
+      'to-json-schema.js ships wherever the chunker places zod’s core, which chunk that is has moved before ' +
+      'and will again. Neither is ever dereferenced.',
+  },
+  {
+    pattern: /^http:\/\/\[\$\{[\w.]+\}\]$/,
+    why:
+      "zod 4's IPv6/CIDR format validator: `new URL(\\`http://[${address}]\\`)` is how it asks the " +
+      'platform to parse-validate an address literal. It is a template literal captured post-minification, so ' +
+      'the variable name inside the braces is whatever that build’s minifier chose and is matched generically ' +
+      'rather than pinned. `new URL()` only parses; nothing here is ever fetched.',
+  },
+  {
     pattern: OPT_IN_ENDPOINT.pattern,
     why: 'Tier 1 BYOK endpoint; reached only after explicit consent, from one lazy-loaded module',
   },

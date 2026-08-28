@@ -56,3 +56,23 @@ test('answers a section lookup with no network at all', async ({ page, context }
   await expect(page.getByRole('heading', { name: 'Punishment for murder.' })).toBeVisible()
   await expect(page.getByText(/"302" is now BNS 103/)).toBeVisible()
 })
+
+/**
+ * The same guarantee for the glossary: `data/glossary.json` reaches the
+ * browser as a `?raw` dynamic import (`src/modules/utils/glossary/data.ts`),
+ * precached through the ordinary JavaScript glob exactly like the statute —
+ * an officer who has never opened `/utils/glossary` online must still be able
+ * to look a term up on a train with no signal.
+ */
+test('answers a glossary lookup with no network at all', async ({ page, context }) => {
+  await page.goto('/settings')
+  await expect(page.getByRole('main')).toBeVisible()
+  await page.waitForFunction(() => navigator.serviceWorker.controller !== null)
+
+  await context.setOffline(true)
+  await page.goto('/utils/glossary')
+
+  await expect(page.getByRole('heading', { level: 1, name: 'Hindi administrative glossary' })).toBeVisible()
+  await page.getByLabel('Search the glossary').fill('Cabinet Secretary')
+  await expect(page.getByText('मंत्रिमंडल सचिव')).toBeVisible()
+})

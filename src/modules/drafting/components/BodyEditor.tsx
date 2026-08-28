@@ -1,4 +1,4 @@
-import { BookMarked, Paperclip, Quote, Send } from 'lucide-react'
+import { ArrowLeftRight, BookMarked, Paperclip, Quote, Send } from 'lucide-react'
 import { useRef, useState } from 'react'
 
 import { GlossarySheet } from './GlossarySheet'
@@ -9,6 +9,8 @@ import { asText, fromText, insertAt, isSplit, mergeField, readValue, setValue, s
 import { useT } from '@/i18n/useT'
 import type { DraftValues, Lang } from '@/lib/drafting/types'
 import { cn } from '@/lib/utils'
+import { useGlossary } from '@/modules/utils/glossary/useGlossaryData'
+import { useGlossarySuggest, type GlossaryMatch } from '@/modules/utils/glossary/useGlossarySuggest'
 import type { DocTemplate, TemplateField } from '../schema'
 
 /**
@@ -63,6 +65,15 @@ export function BodyEditor({
   const text = asText(readValue(values, field, target))
   const paragraphs = text.split('\n').filter((line) => line.trim())
 
+  /**
+   * English terms with a known Hindi equivalent, found in whichever box the
+   * officer is actually writing Hindi in. Gated on `target === 'hi'`: the
+   * glossary is ~700 KB, and loading it for an English-only field would hand
+   * every reader a download for a suggestion nobody in that field can use.
+   */
+  const glossary = useGlossary(target === 'hi')
+  const suggestions = useGlossarySuggest(text, glossary.status === 'ready' ? glossary.data : null)
+
   const errorId = `${controlId(field.id)}-error`
   const hintId = `${controlId(field.id)}-hint`
 
@@ -106,6 +117,12 @@ export function BodyEditor({
         box.setSelectionRange(end, end)
       }
     })
+  }
+
+  /** Swap one found English term for its Hindi equivalent, in place. */
+  const replaceSuggestion = (match: GlossaryMatch) => {
+    const next = `${text.slice(0, match.start)}${match.term.hi}${text.slice(match.end)}`
+    onChange(setValue(values, field, target, fromText(next, field)))
   }
 
   const urgency = template.fields.find((candidate) => candidate.id === 'urgency')
@@ -230,6 +247,29 @@ export function BodyEditor({
         <p id={errorId} className="mt-1 text-xs font-medium text-destructive">
           {issue}
         </p>
+      ) : null}
+
+      {target === 'hi' && suggestions.length > 0 ? (
+        <div
+          role="group"
+          aria-label={t('draft.body.glossarySuggestions')}
+          className="mt-2 flex flex-wrap items-center gap-1.5"
+        >
+          {suggestions.map((match, index) => (
+            <button
+              key={`${match.start}-${index}`}
+              type="button"
+              title={t('draft.body.replaceWith', { english: match.matchedText, hindi: match.term.hi })}
+              onClick={() => replaceSuggestion(match)}
+              className="inline-flex min-h-9 items-center gap-1.5 rounded-full border border-marigold/40 bg-marigold/15 px-2.5 py-1 text-xs text-marigold-foreground transition-colors hover:bg-marigold/25"
+            >
+              <ArrowLeftRight aria-hidden="true" className="h-3 w-3 shrink-0" />
+              <span className="line-through decoration-marigold-foreground/50">{match.matchedText}</span>
+              <span aria-hidden="true">→</span>
+              <span className="font-medium">{match.term.hi}</span>
+            </button>
+          ))}
+        </div>
       ) : null}
 
       {sheet === 'phrase' ? (

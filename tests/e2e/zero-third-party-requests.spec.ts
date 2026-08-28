@@ -1,6 +1,15 @@
 import { expect, test } from '@playwright/test'
 
-const ROUTES = ['/law', '/pay', '/draft', '/draft/office-memorandum', '/learn', '/utils', '/settings']
+const ROUTES = [
+  '/law',
+  '/pay',
+  '/draft',
+  '/draft/office-memorandum',
+  '/learn',
+  '/utils',
+  '/utils/glossary',
+  '/settings',
+]
 
 /**
  * The runtime half of the master context's hard rule ("Zero network requests
@@ -81,6 +90,36 @@ test('sends nothing while a query, an offence date and a citation are typed, ope
   // Saving writes to IndexedDB on this device and nowhere else.
   await page.getByRole('button', { name: 'Save this section' }).click()
   await expect(page.getByText('Saved on this device.')).toBeVisible()
+
+  expect(crossOrigin).toEqual([])
+})
+
+/**
+ * The glossary's own capture surface (Session 10): a search box, a copy
+ * button that writes to the clipboard, and a favourite toggle that writes to
+ * IndexedDB — none of which may leave the device.
+ */
+test('sends nothing while the glossary is searched, copied and saved', async ({ page, context, baseURL }) => {
+  const origin = new URL(baseURL ?? 'http://localhost:4173').origin
+  const crossOrigin: string[] = []
+
+  page.on('request', (request) => {
+    const url = new URL(request.url())
+    if (url.origin !== origin) crossOrigin.push(`${request.method()} ${request.url()}`)
+  })
+
+  await context.grantPermissions(['clipboard-read', 'clipboard-write'])
+  await page.goto('/utils/glossary')
+  await expect(page.getByRole('heading', { level: 1 })).toBeVisible()
+
+  await page.getByLabel('Search the glossary').fill('Cabinet Secretary')
+  await expect(page.getByText('मंत्रिमंडल सचिव')).toBeVisible()
+
+  await page.getByRole('button', { name: 'Copy Hindi' }).first().click()
+  await expect(page.getByText('Copied to the clipboard.')).toBeVisible()
+
+  await page.getByRole('button', { name: 'Save this term' }).first().click()
+  await expect(page.getByRole('button', { name: 'Remove from saved' }).first()).toBeVisible()
 
   expect(crossOrigin).toEqual([])
 })

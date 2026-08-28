@@ -7,6 +7,10 @@ import { SourceChip } from '@/components/common/SourceChip'
 import { Badge, Chip, QueryErrorState, Skeleton } from '@/components/ui-x'
 import { Button } from '@/components/ui/button'
 import { useT } from '@/i18n/useT'
+import { cn } from '@/lib/utils'
+import { buildGlossaryIndex, searchGlossary } from '@/modules/utils/glossary/search'
+import { useGlossary } from '@/modules/utils/glossary/useGlossaryData'
+import type { GlossaryTerm } from '@/modules/utils/glossary/schema'
 import type { StructureTerm } from '../schema'
 
 /**
@@ -36,6 +40,8 @@ import type { StructureTerm } from '../schema'
 
 const CATEGORIES = ['form', 'part', 'urgency', 'designation', 'process', 'phraseElement'] as const
 
+type Mode = 'structural' | 'full'
+
 export function GlossarySheet({
   onInsert,
   onClose,
@@ -43,6 +49,60 @@ export function GlossarySheet({
   onInsert: (text: string) => void
   onClose: () => void
 }) {
+  const { t } = useT()
+  const [mode, setMode] = useState<Mode>('structural')
+
+  return (
+    <Sheet title={t('draft.glossary.title')} subtitle={t('draft.glossary.subtitle')} onClose={onClose}>
+      <div
+        role="tablist"
+        aria-label={t('draft.glossary.title')}
+        className="flex gap-1 border-b border-border p-2"
+      >
+        <ModeTab active={mode === 'structural'} onClick={() => setMode('structural')}>
+          {t('draft.glossary.modeStructural')}
+        </ModeTab>
+        <ModeTab active={mode === 'full'} onClick={() => setMode('full')}>
+          {t('draft.glossary.modeFull')}
+        </ModeTab>
+      </div>
+
+      {mode === 'structural' ? (
+        <StructuralPanel onInsert={onInsert} />
+      ) : (
+        <FullGlossaryPanel onInsert={onInsert} />
+      )}
+    </Sheet>
+  )
+}
+
+function ModeTab({
+  active,
+  onClick,
+  children,
+}: {
+  active: boolean
+  onClick: () => void
+  children: React.ReactNode
+}) {
+  return (
+    <button
+      type="button"
+      role="tab"
+      aria-selected={active}
+      onClick={onClick}
+      className={cn(
+        'min-h-9 rounded-md px-3 text-xs font-medium transition-colors',
+        active ? 'bg-accent text-accent-foreground' : 'text-muted-foreground hover:bg-muted',
+      )}
+    >
+      {children}
+    </button>
+  )
+}
+
+/** The 78-term CSMOP structural glossary — unchanged from before Session 10. */
+function StructuralPanel({ onInsert }: { onInsert: (text: string) => void }) {
   const { t, language } = useT()
   const [query, setQuery] = useState('')
   const terms = useStructureTerms(true)
@@ -67,7 +127,7 @@ export function GlossarySheet({
   )
 
   return (
-    <Sheet title={t('draft.glossary.title')} subtitle={t('draft.glossary.subtitle')} onClose={onClose}>
+    <>
       <div className="border-b border-border p-4">
         <label className="sr-only" htmlFor="draft-glossary-search">
           {t('draft.glossary.search')}
@@ -118,7 +178,109 @@ export function GlossarySheet({
           ))}
         </div>
       </div>
-    </Sheet>
+    </>
+  )
+}
+
+/**
+ * The wider Rajbhasha glossary — `data/glossary.json`, ~1,500 terms, loaded
+ * only once this tab is opened (`useGlossary(true)` here, never at the sheet
+ * level). Session 10 built this dataset as `/utils/glossary`'s own module; this
+ * panel is what wires that same `onInsert` callback to it, so the toolbar
+ * button an officer already knows reaches both glossaries.
+ */
+function FullGlossaryPanel({ onInsert }: { onInsert: (text: string) => void }) {
+  const { t, language } = useT()
+  const [query, setQuery] = useState('')
+  const glossary = useGlossary(true)
+  const index = useMemo(
+    () => (glossary.status === 'ready' ? buildGlossaryIndex(glossary.data) : null),
+    [glossary],
+  )
+  const results = useMemo(() => (index ? searchGlossary(index, query) : []), [index, query])
+
+  return (
+    <>
+      <div className="border-b border-border p-4">
+        <label className="sr-only" htmlFor="draft-full-glossary-search">
+          {t('utils.glossary.searchLabel')}
+        </label>
+        <input
+          id="draft-full-glossary-search"
+          type="search"
+          value={query}
+          placeholder={t('utils.glossary.searchPlaceholder')}
+          onChange={(event) => setQuery(event.target.value)}
+          className="h-11 w-full rounded-lg border border-input bg-card px-3 text-sm focus-visible:ring-2 focus-visible:ring-ring focus-visible:outline-none"
+        />
+        <p className="mt-2 text-xs text-muted-foreground">{t('draft.glossary.fullSubtitle')}</p>
+      </div>
+
+      <div className="min-h-0 flex-1 overflow-y-auto p-4">
+        {glossary.status === 'error' ? (
+          <QueryErrorState body={t('draft.editor.loadFailed')} onRetry={glossary.retry} />
+        ) : null}
+
+        {glossary.status === 'loading' ? (
+          <div className="space-y-3" aria-live="polite" aria-label={t('common.loading')}>
+            {Array.from({ length: 5 }, (_, index) => (
+              <Skeleton key={index} className="h-12 w-full" />
+            ))}
+          </div>
+        ) : null}
+
+        {glossary.status === 'ready' && results.length === 0 ? (
+          <p className="py-8 text-center text-sm text-muted-foreground">{t('utils.glossary.empty')}</p>
+        ) : null}
+
+        <ul className="space-y-2">
+          {results.slice(0, 60).map((term) => (
+            <FullTermRow key={term.id} term={term} onInsert={onInsert} language={language} />
+          ))}
+        </ul>
+      </div>
+    </>
+  )
+}
+
+function FullTermRow({
+  term,
+  onInsert,
+  language,
+}: {
+  term: GlossaryTerm
+  onInsert: (text: string) => void
+  language: 'en' | 'hi'
+}) {
+  const { t } = useT()
+
+  return (
+    <li className="rounded-lg border border-border p-3 transition-colors hover:border-input">
+      <div className="flex flex-wrap items-baseline justify-between gap-x-3 gap-y-1">
+        <p className="text-sm font-medium">{term.en}</p>
+        <p className="text-sm font-medium">{term.hi}</p>
+      </div>
+
+      {term.alsoHi && term.alsoHi.length > 0 ? (
+        <p className="mt-1 text-xs text-muted-foreground">
+          {t('draft.glossary.alsoKnown')}: {term.alsoHi.join(', ')}
+        </p>
+      ) : null}
+
+      {term.note ? <p className="mt-1 text-xs text-muted-foreground">{term.note[language]}</p> : null}
+
+      <div className="mt-2 flex flex-wrap items-center gap-2">
+        <Button type="button" size="sm" onClick={() => onInsert(term.hi)}>
+          {t('draft.glossary.insert')}
+        </Button>
+        <Button type="button" size="sm" variant="outline" onClick={() => onInsert(term.en)}>
+          {t('draft.glossary.insertEnglish')}
+        </Button>
+        <Chip tone="neutral">{t(`utils.glossary.category.${term.category}`)}</Chip>
+        {term.verify ? <Badge tone="warning">{t('common.verifyWithDdo')}</Badge> : null}
+        <SourceChip name={term.source.name} url={term.source.url} />
+      </div>
+    </li>
   )
 }
 

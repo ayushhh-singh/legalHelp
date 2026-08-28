@@ -65,7 +65,8 @@ export function App() {
                 {/* The Drafting Studio owns /draft and /draft/:type the same way. */}
                 <Route path="/draft/*" element={<DraftPage />} />
                 <Route path="/learn" element={<LearnPage />} />
-                <Route path="/utils" element={<UtilsPage />} />
+                {/* Utilities owns its own sub-routes (/utils/glossary) the same way. */}
+                <Route path="/utils/*" element={<UtilsPage />} />
                 <Route path="/settings" element={<SettingsPage />} />
                 <Route path="*" element={<Navigate to={HOME_PATH} replace />} />
               </Routes>

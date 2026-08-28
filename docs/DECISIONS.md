@@ -2605,3 +2605,132 @@ vocabulary score above 90 even when they ask different things. The threshold is 
 rejections are recorded with their scores, and the questions stay in the file. Lowering the
 threshold would let real duplicates through; raising it is a judgement call for whoever next reads
 `review/dedup-*.json`.
+
+## ADR-024 — The Hindi administrative glossary: one compiled dataset, capped on screen, wired into the existing toolbar hook rather than a new one
+
+**Date:** 2026-08-28 · **Status:** Accepted · **Session:** 10
+
+### Context
+
+The brief asked for `data/glossary.json` and `src/modules/utils/glossary`: ≥1,500 designation, office,
+file, finance, establishment, legal and IT terms, sourced from the Department of Official Language's
+Prashasanik Shabdavali where reachable and compiled from other official glossaries otherwise, with
+search, a category filter, copy, favourites, recents, "insert into draft", and a `useGlossarySuggest`
+hook for the Drafting Studio's editor.
+
+Three things were already on disk before this session touched anything. `data/drafting/structure-terms.json`
+(78 terms, ADR-020) is a **different** dataset for a different question — the Hindi CSMOP 2022 prints for
+the *parts of a document itself* — and its own `GlossarySheet.tsx` carries a comment written in
+anticipation of this exact session, naming `structure-terms.json` as unchanged and this session's job as
+"the glossary as its OWN destination under Utilities, with the full Rajbhasha Shabdavali behind it".
+`src/lib/transliterate.ts` already had `romanKey()` — Devanagari⇄Latin folding built for the law search —
+and `rajbhasha.gov.in` was already a reviewed host in `tests/no-external-urls.test.ts`'s `CITATION_HOSTS`.
+
+### The source: fetched once, compiled after that
+
+`WebFetch` on the 651-page Shabdavali PDF hit the tool's 10 MB response ceiling; the glossary page on
+`rajbhasha.gov.in` answers "Request Rejected". This matches what row 39 already recorded about the same
+PDF — even the Python ingest's own fetch of it could only be read fifty terms at a time, by rendering
+pages and reading them by eye, which is not a technique that reaches 1,500 terms in one session. So this
+dataset takes the brief's stated fallback: seven parallel authoring passes, one per category, each
+compiling standard, well-established Rajbhasha administrative vocabulary from general knowledge — the
+vocabulary a CSTT _Shabdavali_ or an ISTM training module would also print — rather than reading it off
+one cited page. Every entry carries `verify: true` unconditionally (`docs/DATA-GAPS.md` #48); there is no
+`verify: false` tier the way `structure-terms.json` has one for its fifty CSMOP-sourced terms, because
+nothing here was read off a specific page of a specific fetched document.
+
+### Decisions
+
+- **One file, `data/glossary.json`,** not a per-category split like `data/drafting/templates/`. The
+  templates split because the picker needs an index and nothing else; here the whole point is one instant
+  search across every category, so splitting would only mean re-assembling the index client-side. It
+  reaches the browser exactly like every other large dataset — a single `?raw` dynamic import, gated
+  behind `enabled` in `useGlossary(enabled)`, loaded only once `/utils/glossary` opens or a toolbar sheet
+  does (ADR-013).
+- **Seven categories — designation, office, file, finance, establishment, legal, it** — matching the
+  brief's own list exactly, so a term's category is never a judgement call the schema has to arbitrate.
+  `scripts/ingest/glossary_seed.py` cross-deduplicates by English term across categories (a "Purchase
+  committee" a finance pass and an office-procedure pass both wrote keeps the first category in a fixed
+  priority order) and drops the seven terms that collide with `structure-terms.json` by exact English
+  string, so the two datasets never answer the same query with two different ids.
+- **The raw category pairs live in `scripts/ingest/glossary_sources/*.json`, not as Python literals** in
+  `glossary_seed.py` itself. `drafting_seed.py` inlines its content as Python because it is transcribing a
+  specific fetched document page by page; this content has no page to anchor a literal to, so it is
+  authored JSON the seed script reads, slugifies into ids, envelopes and validates — closer to how
+  `scripts/authoring/hindi/<act>.json` feeds `make_cards.py` than to how `drafting_seed.py`'s `TERMS`
+  list is written.
+- **No new lexicon file.** The task asked for roman-Hindi search ("avar sachiv" finding अवर सचिव); rather
+  than fork `src/lib/lexicon.ts` (law-specific synonym vocabulary) into a second copy, `src/modules/utils/
+glossary/search.ts` calls `romanKey()` directly on each term's `en`/`hi`/`alsoHi` at index time and folds
+  the query the same way at search time. `search.test.ts` asserts the roman-Hindi case works before
+  anything downstream depends on it.
+- **The Drafting Studio's glossary sheet gained a tab, not a replacement.** `GlossarySheet.tsx` now has
+  "Structural terms" (the original 78, unchanged, still the default) and "Full glossary" (this dataset,
+  loaded only once that tab opens), both inserting through the SAME `onInsert: (text: string) => void`
+  callback `BodyEditor.tsx` already wired up. This is literally "wiring the Session 9 toolbar hook" —
+  there is no second insertion mechanism to maintain, and `tests/e2e/draft.spec.ts`'s existing structural-
+  glossary test needed no change because the default tab's behaviour is unchanged.
+- **`useGlossarySuggest` finds matches; the editor decides what to do with them.** The hook
+  (`src/modules/utils/glossary/useGlossarySuggest.ts`) is a pure function of text and glossary — one
+  alternation regex over every English term, longest-first so "Under Secretary" wins over "Secretary" at
+  the same position, offsets returned rather than a rendered fragment. `BodyEditor.tsx` renders the matches
+  as a row of replace buttons below the box, gated on `target === 'hi'` (the language the officer is
+  ACTUALLY typing into, split-aware, not the app's UI language) — not as an inline underline drawn over the
+  `<textarea>`. A real underline needs a mirror-div overlay kept in exact sync with the textarea's font,
+  line-height and scroll position on every keystroke across two boxes (`BodyEditor.tsx` already tracks
+  `en`/`hi` refs separately); CLAUDE.md's own catalogue of StrictMode-era defects in this exact file is
+  what a fragile addition to it would risk repeating. A row of chips is real, keyboard-reachable, and
+  costs one `<div>`.
+- **The render is capped; the search is not.** `GlossaryPage.tsx`'s "All terms" view with an empty query
+  and no category picked is 1,891 rows — nearly double the 1,059-section corpus ADR-016 measured before
+  deciding NOT to virtualise the Law Converter's list, and each row here is heavier (two copy buttons, a
+  favourite toggle, a category chip, a verify badge, a source link, a live-region status paragraph, versus
+  six plain nodes). Rendering all 1,891 ran `tests/e2e/a11y.spec.ts`'s `axe.run()` past its 30 s timeout in
+  a real browser — ADR-016's own instruction, "measure before reintroducing virtualisation", measured this
+  and the corpus size DID change the answer. `MAX_RENDERED = 100` caps what is drawn, not what the fuzzy
+  search covers; `GlossarySheet`'s own full-glossary tab already did this (`results.slice(0, 60)`) for the
+  same reason, independently, before this was written down.
+- **Dexie moves to version 6** — `glossaryFavourites`/`glossaryRecents`, the same `{id, createdAt}` /
+  `{id, viewedAt}` shape `lawFavourites`/`lawRecents` already use, with `src/modules/utils/glossary/
+favourites.ts` a near-identical copy of `src/modules/law/saved.ts`'s CRUD for the reason the rest of this
+  app repeats a shape rather than abstracting it early: three call sites are not yet a pattern.
+- **`/utils` becomes a router** (`src/app/App.tsx`'s route changes from `/utils` to `/utils/*`), mounted the
+  same way `/law/*` and `/draft/*` already are. `UtilsHubPage.tsx` is the new index route — one linked card
+  for the glossary, four inert "coming later" cards for the tools this session did not build — and
+  `/utils/glossary` is the module's own destination. `src/lib/nav.ts` is untouched: a tool inside Utilities
+  is a screen inside the module, not a place in the nav, exactly as ADR-020's templates are not routes.
+
+### What real testing found, twice
+
+Both were caught by actually loading the built app, not by the unit suite (`pnpm build && pnpm test`
+exercises the dist-dependent checks; `pnpm check` does not build):
+
+- The "coming later" cards used `opacity-70` on the whole card to read as disabled. That fades the text
+  along with everything else, and the card's own `Badge` was already at the tokens' contrast floor — the
+  uniform fade took it below WCAG AA, caught by `tests/e2e/a11y.spec.ts` in a real browser and invisible to
+  `src/styles/tokens.test.ts`, which never renders a `Badge` inside a faded ancestor. Fixed with a dashed
+  border instead of an opacity trick, which reads as "not here yet" without touching any text colour.
+- Zod 4's `toJSONSchema()` — already used by `src/ai/tools/registry.ts` for the AI layer's tool manifests,
+  entirely unrelated to this session — has dead branches for the `draft-07`/`draft-04` JSON Schema dialects
+  and an IPv6-literal validation trick (`new URL(\`http://[${address}]\`)`), neither ever exercised. A
+  bundler tree-shakes by module, not by branch, so once `to-json-schema.js` is reachable from ANYWHERE in
+  the app it ships wherever the chunker places zod's core — which chunk that is moved on this build and
+  landed inside `GlossaryPage`'s own chunk, tripping `tests/no-external-urls.test.ts`'s dist sweep on four
+  string literals that had never shipped in one physical chunk before. Three new `ALLOWED_INERT` entries,
+  matched by pattern rather than by the minified variable name inside the IPv6 template (which is not
+  stable across builds), record why: none of the four is ever dereferenced.
+
+### Consequences
+
+- `pnpm typecheck`, `pnpm lint`, `pnpm i18n:check` and `pnpm test` (1,474 tests, 63 files) are green; the
+  full Playwright suite (88 tests, `--workers=1`) is green including four new specs
+  (`tests/e2e/glossary.spec.ts`) and two additions to `tests/e2e/offline.spec.ts` and
+  `tests/e2e/zero-third-party-requests.spec.ts`.
+- `docs/DATA-GAPS.md` #48 records the compiled-not-fetched provenance and names the next step: checking
+  entries against the Department of Official Language's own term list, the same source row 39 already
+  points at.
+- **This session ran concurrently with another one building the Rules Trainer's `data/rules/` content
+  (ADR-023).** Both sessions touched `scripts/ingest/validate_data.py` and `tests/no-external-urls.test.ts`
+  additively, with no conflict; this session's changes to those two files are scoped to the glossary line
+  in the manifest and the three `ALLOWED_INERT` entries above. Nothing in `data/rules/`, `scripts/
+authoring/`, or the Rules Trainer's own `CITATION_HOSTS` additions was touched or reviewed by this session.

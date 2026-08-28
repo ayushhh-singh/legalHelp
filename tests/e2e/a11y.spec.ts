@@ -29,6 +29,9 @@ const ROUTES = [
   '/draft/office-memorandum',
   '/learn',
   '/utils',
+  // 1,891 terms is as much markup as the picker sweep would never see —
+  // /utils alone never renders a single row of it.
+  '/utils/glossary',
   '/settings',
 ]
 
@@ -51,6 +54,15 @@ const READY: Readonly<Record<string, RegExp>> = {
  */
 const READY_BUTTON: Readonly<Record<string, RegExp>> = {
   '/draft/office-memorandum': /Fill with the worked example|नमूने से भरें/,
+}
+
+/**
+ * Routes whose data lands after the `<h1>` and whose ready signal is plain
+ * text rather than a named control — the glossary's result count, which
+ * `GlossaryPage.tsx` renders only once `data/glossary.json` has settled.
+ */
+const READY_TEXT: Readonly<Record<string, RegExp>> = {
+  '/utils/glossary': /\d+ terms?|\d+ शब्द/,
 }
 
 interface AxeViolation {
@@ -177,6 +189,10 @@ for (const language of ['en', 'hi'] as const) {
           await expect(page.getByRole('button', { name: readyButton }).first()).toBeVisible({
             timeout: 30_000,
           })
+        }
+        const readyText = READY_TEXT[route]
+        if (readyText) {
+          await expect(page.getByText(readyText).first()).toBeVisible({ timeout: 30_000 })
         }
         // The preference is read back out of IndexedDB after a navigation;
         // audit the page the reader actually sees, not the pre-hydration one.

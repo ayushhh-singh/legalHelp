@@ -654,7 +654,9 @@
       "copyToText": "Copy forwarded for information and necessary action to the Section concerned.",
       "paraHint": "One paragraph per line. Blank lines are ignored.",
       "paraCount_one": "{{count}} paragraph",
-      "paraCount_other": "{{count}} paragraphs"
+      "paraCount_other": "{{count}} paragraphs",
+      "glossarySuggestions": "English terms with a known Hindi equivalent",
+      "replaceWith": "Replace \"{{english}}\" with \"{{hindi}}\""
     },
     "phrases": {
       "title": "Phrase library",
@@ -681,6 +683,9 @@
       "insert": "Insert the Hindi",
       "insertEnglish": "Insert the English",
       "alsoKnown": "Also written",
+      "modeStructural": "Structural terms",
+      "modeFull": "Full glossary",
+      "fullSubtitle": "The wider Rajbhasha glossary under Utilities — designations, office, file, finance, establishment, legal and IT vocabulary",
       "category": {
         "form": "Form of communication",
         "part": "Part of a document",
@@ -753,6 +758,54 @@
       "changeCount_other": "{{count}} changes",
       "accepted": "{{count}} of {{total}} accepted",
       "result": "Result"
+    }
+  },
+  "utils": {
+    "hub": {
+      "glossaryTitle": "Hindi administrative glossary",
+      "glossarySubtitle": "Search over 1,500 designations, office, file, finance, establishment, legal and IT terms",
+      "comingSoon": "Coming later",
+      "holidayCalendar": "Holiday calendar",
+      "leaveCalculator": "Leave calculator",
+      "pensionCalculator": "Pension, GPF and NPS",
+      "portalsDirectory": "Portals and helplines"
+    },
+    "glossary": {
+      "title": "Hindi administrative glossary",
+      "subtitle": "Designations, office and file terms, finance, establishment, legal and IT vocabulary in standard Rajbhasha Hindi",
+      "searchLabel": "Search the glossary",
+      "searchPlaceholder": "Search in English, Hindi or roman Hindi — e.g. \"avar sachiv\"",
+      "categoryAll": "All categories",
+      "category": {
+        "designation": "Designation",
+        "office": "Office terms",
+        "file": "File terms",
+        "finance": "Finance and accounts",
+        "establishment": "Establishment and leave",
+        "legal": "Legal and procedural",
+        "it": "Information technology"
+      },
+      "empty": "No term matches that.",
+      "resultCount_one": "{{count}} term",
+      "resultCount_other": "{{count}} terms",
+      "truncated": "showing the first {{shown}}, narrow the search or pick a category to see the rest",
+      "alsoKnown": "Also written",
+      "copyEnglish": "Copy English",
+      "copyHindi": "Copy Hindi",
+      "copied": "Copied to the clipboard.",
+      "copyFailed": "The browser would not let this app use the clipboard.",
+      "favourite": "Save this term",
+      "unfavourite": "Remove from saved",
+      "favourited": "Saved on this device.",
+      "unfavourited": "Removed from saved.",
+      "view": {
+        "all": "All terms",
+        "favourites": "Favourites",
+        "recents": "Recently used"
+      },
+      "favouritesEmpty": "No terms saved yet. Save one from the list to find it here.",
+      "recentsEmpty": "No terms copied or inserted yet.",
+      "clearRecents": "Clear recent list"
     }
   }
 }
