@@ -81,6 +81,15 @@ export function useDraft({
   const timer = useRef<ReturnType<typeof setTimeout> | null>(null)
   /** Edits typed but not yet written, so leaving the page can flush them. */
   const pending = useRef<DraftValues | null>(null)
+  /**
+   * The row THIS hook created, as opposed to one it was asked to resume.
+   *
+   * Only a row in the first category may be skipped when it reappears as
+   * `?d=` — see the effect below. `rowId` cannot answer that question: it is
+   * seeded from the `draftId` prop, so on a resumed draft it already equals it
+   * before anything has been read.
+   */
+  const createdHere = useRef<string | null>(null)
   /** Always the CURRENT save, for a cleanup that must not close over render 1. */
   const latestSave = useRef<(values: DraftValues) => void>(() => undefined)
   /**
@@ -101,7 +110,24 @@ export function useDraft({
 
   useEffect(() => {
     if (!template || !templateId) return
+
     const key = `${templateId}:${draftId ?? 'new'}`
+
+    /*
+      Our own `?d=` write coming back is not a reason to reload.
+
+      The first save creates the row and puts its id in the URL, which changes
+      `draftId` from null to that id and re-runs this effect. Re-reading the row
+      we just wrote would clobber anything typed since with a snapshot of the
+      document one debounce older. A draft the reader asked to RESUME is a
+      different case and must still be read, which is why this asks
+      `createdHere` and not `rowId`.
+    */
+    if (draftId !== null && draftId === createdHere.current) {
+      loadedFor.current = key
+      return
+    }
+
     if (loadedFor.current === key) return
     loadedFor.current = key
     rowId.current = draftId
@@ -135,6 +161,21 @@ export function useDraft({
 
     return () => {
       cancelled = true
+      /*
+        A CANCELLED attempt must not leave the guard armed.
+
+        `src/main.tsx` renders under `<StrictMode>`, which in development mounts
+        an effect, cleans it up, and mounts it again. The first mount armed
+        `loadedFor` and started the read; the cleanup set `cancelled`, so its
+        result was thrown away; and the second mount then found the guard
+        already set for its own key and returned without loading anything. The
+        form sat on its three skeletons forever, with no field to type into and
+        a checklist that could never pass.
+
+        It never appeared in `pnpm test:e2e` because StrictMode double-invokes
+        in development only, and Playwright runs against a production build.
+      */
+      if (loadedFor.current === key) loadedFor.current = null
     }
   }, [template, templateId, draftId])
 
@@ -146,6 +187,7 @@ export function useDraft({
       const id = rowId.current ?? newDraftId()
       const created = rowId.current === null
       rowId.current = id
+      if (created) createdHere.current = id
 
       void putDraft({
         id,
@@ -188,14 +230,23 @@ export function useDraft({
    * the FIRST render's `save`. `latestSave` is what makes it call the current
    * one, with the current template and the current language.
    */
-  useEffect(
-    () => () => {
+  useEffect(() => {
+    /*
+      Re-armed on every mount, not just assumed true from the initial ref.
+
+      StrictMode mounts, cleans up, and mounts again in development. The cleanup
+      sets `alive` to false, and without this line nothing ever set it back — so
+      `onCreated` never fired, the new draft's id never reached the URL, and a
+      reload in `pnpm dev` opened an empty form instead of the draft that was
+      just written.
+    */
+    alive.current = true
+    return () => {
       alive.current = false
       if (timer.current) clearTimeout(timer.current)
       if (pending.current) latestSave.current(pending.current)
-    },
-    [],
-  )
+    }
+  }, [])
 
   const setValues = useCallback(
     (next: DraftValues) => {
