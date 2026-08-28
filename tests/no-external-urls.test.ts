@@ -50,6 +50,10 @@ const ALLOWED_INERT: ReadonlyArray<{ pattern: RegExp; why: string }> = [
     why: 'react-i18next warning message text',
   },
   {
+    pattern: /^https:\/\/github\.com\/ungap\/url-search-params\.?$/,
+    why: "React Router's useSearchParams polyfill suggestion, thrown as an error message on a browser with no URLSearchParams; read in context in the built bundle",
+  },
+  {
     pattern: /^http:\/\/localhost$/,
     why: "React Router's fallback base for new URL() when window.location is absent — parsed, never fetched",
   },

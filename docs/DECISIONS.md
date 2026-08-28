@@ -1005,3 +1005,167 @@ because a dataset is only as trustworthy as the parser that produced it.
 sentence case now. `has_hindi` was a single-character test, so one Devanagari glyph in India Code's
 bilingual chrome would have filed an English provision as the Hindi text; it needs 15% of letters.
 `raw/` grew ~5 MB a run with no bound and had reached 30 MB; three generations per document are kept.
+
+---
+
+## ADR-013 — The Law Converter: how 3.9 MB of statute reaches the device, and how a query finds it
+
+**Date:** 2026-08-28 · **Status:** Accepted · **Session:** 4 (Law Converter UI) ·
+**Supersedes:** the "fetch per code on the route" assumption in `docs/DATA-GAPS.md` #21
+
+### Context
+
+Session 2 produced `data/law/*.json` — 1,059 sections across three codes, 3.9 MB — and deliberately left
+it unimported (ADR-012). This session had to put a screen over it. Four questions had no obvious answer.
+
+**1. How does the data reach the browser?** `docs/DATA-GAPS.md` #21 assumed a `fetch` of `/data/*.json`.
+
+**2. What does "search" mean here?** The reader types `302`, `hatya`, `हत्या`, `sec 438 crpc` or
+`anticipatory bail`, and all five have to reach the same records.
+
+**3. Where does the offence date live?** The brief says "session state only", and the hard rule says all
+user state lives in IndexedDB.
+
+**4. What is "works fully offline" worth if the answer is not in the cache?**
+
+### Decision
+
+**1. The datasets are `?raw` dynamic imports, not fetches.**
+
+```ts
+const raw = (await import('../../../data/law/bns.json?raw')).default
+return JSON.parse(raw) as LawDataset
+```
+
+Three reasons, in order of weight:
+
+- `eslint.config.js` grants `fetch` to exactly one file, `src/ai/providers/wire.ts` (ADR-011), so
+  "what in this app can talk to the network?" is answerable from one file. A loader here would have
+  needed a second exception — for data that is not on the network at all.
+- A dynamic import becomes a content-hashed chunk, so `globPatterns` in `vite.config.ts` precaches it
+  through the existing JavaScript glob, and an unchanged dataset keeps its hash across a release. The
+  `/data/*.json` `runtimeCaching` rule would only have populated the cache for a reader who had already
+  opened this route **online**, which is not what "offline-first" promises.
+- `?raw` yields a string, so this is one `JSON.parse` of a compact string rather than a megabyte-scale
+  object literal for the engine to build field by field — and TypeScript types it `string` instead of
+  inferring a type over 1,059 sections on every `pnpm typecheck`.
+
+The precache grew from 838 KiB to 4.9 MiB (≈490 KB over the wire, gzipped). That is the price of the
+promise, and `tests/e2e/offline.spec.ts` now installs the worker from `/settings`, goes offline, and
+answers a section lookup on `/law` — a page that has never been loaded with a network available.
+
+**2. The section tables are not loaded until there is a query.** `useLawEngine(enabled)` is passed
+`false` while the search box is empty, so opening `/law` and reading it downloads nothing. Lighthouse
+mobile on `/law` went 62 → 84 for that change alone; the service worker still warms the cache in the
+background, so a reader who does search pays once.
+
+**3. Ranking is a documented score table, not a fuzzy-search library's defaults.**
+
+`src/lib/search.ts` computes three bands — an exact section match, the same number read the other way,
+then everything else — and within the last band a score from `SCORE`, every entry of which is a claim
+about the law rather than about search:
+
+| Signal                                    | Score           |
+| ----------------------------------------- | --------------- |
+| the heading, whole, is the query          | 0               |
+| a word of the heading is the query        | 0.05 + 0.001/wd |
+| a repealed heading is the query           | 0.02            |
+| a word of a repealed heading is the query | 0.15            |
+| a curated keyword is the query            | 0.25            |
+| a prefix of either                        | 0.30            |
+| Fuse's own score                          | 0.35 + 0.4·s    |
+| the query appears in the section text     | 0.85            |
+
+**A heading is worth more than a keyword** is the load-bearing line. `scripts/ingest/lexicon.json`
+attaches a term to a section whenever it appears in the heading _or the text_, so 26 sections carry the
+keyword "theft" — every one correctly, and only one of them is the offence of theft. Scoring a keyword
+as highly as a heading put BNS 42 (abetment) above BNS 303 (theft) for the query "theft": not a near
+miss, the wrong answer at the top of the page.
+
+**4. The lexicon is a translation table, and that is what makes bilingual search work.**
+`src/lib/lexicon.ts` reads the same hand-authored file the Python ingest uses and turns each entry's
+`en`/`hi`/`roman` lists into one equivalence class. A reader types "jamanat"; not one BNSS bail heading
+contains that string in any script, because "bail" and "jamanat" are not the same word and no
+transliteration can bridge them. A translation can. The expansion is scored 0.02 worse than a direct
+hit, so a section literally headed with the word typed still comes first.
+
+`src/lib/transliterate.ts` does the other half — Devanagari ⇄ Latin plus a `foldRoman` that collapses
+what roman Hindi spells inconsistently (vowel length, `v`/`w`, `z`/`j`, a trailing schwa), so "hatya",
+"hatyaa" and the transcription of "हत्या" become one key. Neither direction is a transliteration
+standard and neither is ever shown to a reader.
+
+**5. The offence date is written nowhere.** Not IndexedDB, not `sessionStorage`. It lives in a
+module-scoped variable in `src/modules/law/url.ts` for the life of the tab, and in the URL when the
+reader shares a link. It is the most identifying thing anyone types into this module, and there is no
+version of "remember it" worth writing to disk for. Everything else about the view — query, code,
+direction, date — is in the URL, and `parseLawParams` validates every parameter because a deep link is
+untrusted input.
+
+**6. `/law/whats-new` is a list of pointers, not a page of summaries.** Each bullet in
+`src/modules/law/whatsNew.ts` names a provision and one bilingual sentence saying why it matters;
+the heading, status and source are read from the datasets at render time. `tests/law-whats-new.test.ts`
+resolves all 28 against the committed data and checks the claims as well as the references — that a
+bullet marked "new" points at a section the dataset records as new, and that one marked "dropped"
+points at a provision with no counterpart.
+
+### Consequences
+
+- **Lighthouse.** `/law?q=302` with the section tables loaded scores **96 on the desktop preset**
+  (FCP 0.6 s, LCP 1.4 s, TBT 70 ms, CLS 0) — the acceptance target. On the **default mobile preset it
+  scores 67**, and it cannot reach 90 there: `/settings`, which loads no module data at all, scores 90,
+  so the application shell is the ceiling and 490 KB of statute sits under it. Recorded as
+  `docs/DATA-GAPS.md` #22 with the measured split that would fix most of it.
+- **`fuse.js` moves out of the AI chunk** and into the Law Converter's. It is no longer only the answer
+  cache's similarity search.
+- **Dexie schema version 3** adds `lawFavourites` and `lawRecents`. Recent lookups are capped at 20 and
+  written only after a section has been on screen for 1.5 s — without the dwell, typing "302" wrote
+  three rows (the first hit for "3", "30" and "302") and the list was mostly sections nobody had read.
+- **268 i18n keys, up from 153.** The `law.*` block is the module's whole vocabulary in both languages.
+- `data/law/overlays/traps-and-transitional.json` earns its keep: the trap banners for "302", "420",
+  "376" and the 438/482 swap are the highest-value thing on a result card and no source states them.
+
+### Six defects this work surfaced, each now covered by a test
+
+- **The section-prefix regex ate the first letter of any word beginning with `s`.** `(?:^|\s)(?:…|ss?\.?|…)`
+  turned "suicide" into "uicide" and "sedition" into "edition" — and the fuzzy matcher covered for it by
+  returning plausible results anyway, which is why it survived a first pass. These prefixes only ever
+  mean "section" when a number follows; the regex now requires one (`(?=\d)`).
+- **The search field lost keystrokes.** Driving the input straight from `useSearchParams` looked cleaner
+  and re-rendered it with a stale value: typing "420" quickly left "2" in the box. Anyone typing at speed
+  hits this, and a Devanagari IME — which commits several characters at once — hits it harder. The field
+  is now locally stateful with the URL as an output, reconciled by comparing against the value the draft
+  was started from rather than by an effect.
+- **`useLawEngine` could report "loading" forever with the data in memory.** Clearing the query and
+  typing again cancelled the first run before it reported, and the second run saw a populated cache,
+  returned early, and never set state.
+- **The windowed result list never scrolled.** The window was clamped to `activeIndex - OVERSCAN`
+  unconditionally, and `activeIndex` is -1 whenever the reader has not used the keyboard — so the first
+  row index was always 0 and scrolling a long list revealed blank space.
+- **The selected result row failed contrast.** `--muted-foreground` on `--accent` measures below 4.5:1.
+  The supporting line now uses `--accent-foreground` and the hierarchy is carried by size and weight —
+  the same fix `OptionRow` needed in ADR-011.
+- **`aria-controls` pointed at nothing.** The search field named the result list even when there were no
+  results and the list was not in the document (axe `aria-valid-attr-value`) — the same class of defect
+  as the More sheet's in ADR-010.
+
+Also: a rejected corpus load is no longer cached, in either `src/modules/law/data.ts` or the AI tools'
+engine — one interrupted download would otherwise have poisoned every later attempt in the tab.
+
+Two more found by reading rendered screenshots rather than by a test, and fixed:
+
+- **The curated-Hindi warning fired in English**, where the card shows nothing curated (the English text
+  is the Act's own words; only the Hindi is hand-authored). A banner that cries wolf on every English
+  card is how readers learn to stop reading banners. It is now scoped to the Hindi view, which is the
+  view `docs/DATA-GAPS.md` #18 is actually about.
+- **"New sub-sections: 103" on BNS 103.** The dataset uses the section number as the clause when a
+  section has only one, so the whole section was being listed as a sub-section of itself. Clauses equal
+  to the section number are filtered out; the status pill above already says the section changed.
+
+### Looked at, deliberately not done
+
+- **Splitting the section text out of the search payload.** Measured: dropping `text` takes the
+  searchable payload from 391 KB gzip to 139 KB. It would need a build-time transformation emitting two
+  modules per code, and it still could not lift the mobile score past the shell's own 90. Recorded as
+  `docs/DATA-GAPS.md` #22 rather than built at the end of this session.
+- **Showing results as each code arrives.** It would cut the wait for the first answer, and a partial
+  result list that looks complete is exactly the failure this module exists to prevent.

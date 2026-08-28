@@ -28,3 +28,31 @@ test('shows the offline chip when the network drops, and the shell survives a re
   await page.reload()
   await expect(page.getByRole('main')).toBeVisible()
 })
+
+/**
+ * "Works fully offline" means the law lookup works offline, not merely that the
+ * shell paints.
+ *
+ * The section tables are ordinary content-hashed chunks (src/modules/law/data.ts
+ * imports them with `?raw`), so `globPatterns` in vite.config.ts precaches them
+ * on install like any other JavaScript. That is the whole reason for that
+ * decision, and this is the test that holds it: the lookup below runs on a page
+ * that has never loaded /law while online.
+ */
+test('answers a section lookup with no network at all', async ({ page, context }) => {
+  // Install the service worker from a route that does NOT load the section
+  // tables, so nothing is warmed by having visited /law first.
+  await page.goto('/settings')
+  await expect(page.getByRole('main')).toBeVisible()
+  await page.waitForFunction(() => navigator.serviceWorker.controller !== null)
+
+  await context.setOffline(true)
+  await page.goto('/law')
+
+  await expect(page.getByRole('heading', { level: 1, name: 'Law Converter' })).toBeVisible()
+  await page.getByLabel(/Search a section/).fill('302')
+
+  // The answer, from 3.9 MB of section text served entirely out of the cache.
+  await expect(page.getByRole('heading', { name: 'Punishment for murder.' })).toBeVisible()
+  await expect(page.getByText(/"302" is now BNS 103/)).toBeVisible()
+})

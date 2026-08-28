@@ -74,6 +74,37 @@ export interface AiUsageRow {
   runs: number
 }
 
+/**
+ * A saved section, and a section that was looked at. Both are keyed
+ * `"<code>:<section>"` so a second save of the same section overwrites rather
+ * than accumulating.
+ *
+ * `heading` is a snapshot, not a source of truth: it lets the saved list and
+ * the recent list render immediately, before the 3.9 MB of section text this
+ * module fetches has finished parsing. Every card rendered from one of these
+ * rows re-reads the live record from `data/law/*.json` once it is loaded, so a
+ * heading corrected by the weekly ingest shows through.
+ */
+export interface LawSavedRow {
+  id: string
+  code: string
+  section: string
+  act: string
+  heading: { en: string; hi: string }
+  createdAt: string
+}
+
+export interface LawRecentRow {
+  id: string
+  code: string
+  section: string
+  act: string
+  heading: { en: string; hi: string }
+  /** What the reader typed to get here — the recent list replays the search. */
+  query: string
+  viewedAt: string
+}
+
 export type SettingKey = (typeof SETTING_KEYS)[keyof typeof SETTING_KEYS]
 
 export class SahayakDB extends Dexie {
@@ -81,6 +112,8 @@ export class SahayakDB extends Dexie {
   secrets!: Table<SecretsRow, string>
   aiAnswers!: Table<AiAnswerRow, string>
   aiUsage!: Table<AiUsageRow, string>
+  lawFavourites!: Table<LawSavedRow, string>
+  lawRecents!: Table<LawRecentRow, string>
 
   constructor(name = 'sahayak') {
     super(name)
@@ -97,6 +130,17 @@ export class SahayakDB extends Dexie {
       secrets: '&id',
       aiAnswers: '&id, agentId, dataVersion, createdAt',
       aiUsage: '&month',
+    })
+    // Version 3 — the Law Converter's saved sections and recent lookups
+    // (Session 4). Both are indexed on their timestamp because both are only
+    // ever read newest-first.
+    this.version(3).stores({
+      settings: '&key',
+      secrets: '&id',
+      aiAnswers: '&id, agentId, dataVersion, createdAt',
+      aiUsage: '&month',
+      lawFavourites: '&id, createdAt',
+      lawRecents: '&id, viewedAt',
     })
   }
 }

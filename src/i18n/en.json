@@ -209,5 +209,148 @@
       "invalid_args": "The assistant could not call a lookup correctly.",
       "unknown_tool": "The assistant asked for a lookup that does not exist."
     }
+  },
+  "law": {
+    "nav": {
+      "converter": "Converter",
+      "whatsNew": "What's new",
+      "saved": "Saved"
+    },
+    "search": {
+      "label": "Search a section, an offence or a phrase",
+      "placeholder": "302 · sec 438 crpc · hatya · धारा 173",
+      "hint": "Section numbers, English, Hindi or roman-Hindi. Press / to search from anywhere.",
+      "clear": "Clear the search",
+      "resultsLabel": "Search results"
+    },
+    "code": {
+      "label": "Code",
+      "all": "All",
+      "bns": "BNS · IPC",
+      "bnss": "BNSS · CrPC",
+      "bsa": "BSA · IEA"
+    },
+    "direction": {
+      "label": "Direction",
+      "oldNew": "Old → New",
+      "newOld": "New → Old",
+      "followed": "Read as {{act}}, because the search names it."
+    },
+    "date": {
+      "label": "Date of offence",
+      "hint": "Which code applies is decided by this date, not by today's.",
+      "clear": "Clear the date",
+      "none": "No offence date given, so this page does not say which code applies.",
+      "oldTitle": "Old law applies — IPC, CrPC and the Indian Evidence Act, 1872.",
+      "oldBody": "The offence predates 1 July 2024, so it is investigated, tried and punished under the repealed Acts. See BNSS section 531(2) — the saving provision.",
+      "newTitle": "New law applies — BNS, BNSS and BSA.",
+      "newBody": "The offence is on or after 1 July 2024, the date all three Sanhitas came into force.",
+      "invalid": "That is not a date this app can read. Use the date picker."
+    },
+    "results": {
+      "count_one": "{{count}} result",
+      "count_other": "{{count}} results",
+      "reasonSection": "Matches the section number",
+      "reasonOther": "The same number, read the other way",
+      "reasonText": "Matches the wording",
+      "startTitle": "Type a section number or a word",
+      "startBody": "\"302\" for the number you already know, \"sec 438 crpc\", \"hatya\", \"anticipatory bail\" — all of them work.",
+      "emptyTitle": "Nothing matched that",
+      "emptyBody": "Check the number, or try a word from the offence instead. Every section of all three Sanhitas is on this device.",
+      "errorTitle": "The section tables could not be loaded",
+      "errorBody": "They are bundled with the app, so this usually means the download was interrupted. Try again.",
+      "loading": "Loading the section tables…",
+      "truncated": "Showing the first {{count}} matches. Narrow the search to see fewer."
+    },
+    "status": {
+      "label": "Status",
+      "unchanged": "Unchanged",
+      "changed": "Changed",
+      "renumbered": "Renumbered",
+      "new": "New provision",
+      "dropped": "No counterpart"
+    },
+    "card": {
+      "old": "Repealed Act",
+      "new": "In force from 1 July 2024",
+      "noCounterpart": "No provision in the repealed Act",
+      "chapter": "Chapter {{number}}",
+      "text": "Section text",
+      "noText": "The source publishes no text for this section.",
+      "whatChanged": "What changed",
+      "numberOnly": "Only the number changed. The wording of the heading is the same.",
+      "absorbed": "Replaces",
+      "newClauses": "New sub-sections",
+      "changedClauses": "Sub-sections NCRB marks as changed",
+      "diffTitle": "Heading, word by word",
+      "diffBody": "The repealed heading compared with the one in force. The section text of the repealed Acts is not published by the source, so only the headings can be compared.",
+      "diffNone": "The heading is word for word the same.",
+      "diffCounts": "{{added}} added · {{removed}} removed",
+      "added": "added",
+      "removed": "removed",
+      "classification": "Classification",
+      "classificationNone": "The BNSS First Schedule lists no entry for this section.",
+      "classificationProcedural": "This Act is procedural. Cognizable, bailable and compoundable are properties of offences under the BNS.",
+      "clause": "Sub-section",
+      "offence": "Offence",
+      "punishment": "Punishment",
+      "cognizable": "Cognizable",
+      "bailable": "Bailable",
+      "compoundable": "Compoundable",
+      "compoundableBy": "Compoundable by",
+      "triableBy": "Triable by",
+      "related": "Related sections",
+      "curatedHindi": "The Hindi on this card is a Sahayak translation, not the statutory Hindi. Verify against the official gazette.",
+      "deletedTitle": "{{act}} section {{section}} has no counterpart",
+      "verify": "Verify"
+    },
+    "value": {
+      "cognizable": "Cognizable",
+      "non-cognizable": "Non-cognizable",
+      "bailable": "Bailable",
+      "non-bailable": "Non-bailable",
+      "depends": "Depends on the case",
+      "unspecified": "Not stated",
+      "compoundable": "Compoundable",
+      "compoundable-with-court-permission": "Compoundable with the court's permission",
+      "non-compoundable": "Non-compoundable"
+    },
+    "actions": {
+      "copy": "Copy citation",
+      "copied": "Citation copied.",
+      "copyFailed": "The browser would not let this app use the clipboard.",
+      "share": "Share as text",
+      "shared": "Text copied, ready to paste.",
+      "favourite": "Save this section",
+      "unfavourite": "Remove from saved",
+      "favourited": "Saved on this device.",
+      "unfavourited": "Removed from saved.",
+      "print": "Print view",
+      "openLabel": "Open {{act}} section {{section}}"
+    },
+    "whatsNew": {
+      "title": "What changed on 1 July 2024",
+      "subtitle": "The additions, the renumberings and the provisions that went, each pointing at the section itself",
+      "intro": "Every bullet below names a provision and links to it. The heading and the text come from the section record on this device, not from a summary written here.",
+      "groups": {
+        "new-offences": "Offences the BNS added",
+        "renumbering": "Numbers that moved",
+        "dropped": "Provisions that went",
+        "procedure": "BNSS: duties with a clock on them",
+        "evidence": "BSA: electronic records"
+      },
+      "open": "Open this section"
+    },
+    "saved": {
+      "title": "Saved sections",
+      "subtitle": "Kept on this device, with your recent lookups",
+      "favourites": "Saved",
+      "favouritesEmptyTitle": "Nothing saved yet",
+      "favouritesEmptyBody": "The bookmark button on any section card keeps it here. Saved sections never leave this device.",
+      "recents": "Recent lookups",
+      "recentsEmpty": "Sections you open appear here — the last 20.",
+      "clearRecents": "Clear recent lookups",
+      "remove": "Remove {{act}} section {{section}} from saved"
+    }
   }
 }

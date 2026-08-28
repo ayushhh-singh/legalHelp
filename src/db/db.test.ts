@@ -108,7 +108,10 @@ describe('the version 2 upgrade', () => {
     try {
       await v2.open()
 
-      expect(v2.verno).toBe(2)
+      // The class declares up to version 3 now (the Law Converter's saved
+      // sections, Session 4), so opening it upgrades a v1 database straight to
+      // the current version rather than stopping at 2.
+      expect(v2.verno).toBe(3)
       expect(await v2.settings.get(SETTING_KEYS.theme)).toEqual({
         key: SETTING_KEYS.theme,
         value: 'dark',
@@ -129,6 +132,8 @@ describe('the version 2 upgrade', () => {
     expect(db.tables.map((table) => table.name).sort()).toEqual([
       'aiAnswers',
       'aiUsage',
+      'lawFavourites',
+      'lawRecents',
       'secrets',
       'settings',
     ])

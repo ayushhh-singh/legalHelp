@@ -146,3 +146,12 @@ export interface LawIndex {
     }
   >
 }
+
+/** The three code pairs, as they appear in the URL and in `data/law/*.json`. */
+export type LawCode = 'bns' | 'bnss' | 'bsa'
+
+/** Everything the Law Converter loads: the reverse index plus all three codes. */
+export interface LawCorpus {
+  index: LawIndex
+  datasets: Record<LawCode, LawDataset>
+}

@@ -58,7 +58,9 @@ export function App() {
             <Suspense fallback={<RouteFallback />}>
               <Routes>
                 <Route path="/" element={<Navigate to={HOME_PATH} replace />} />
-                <Route path="/law" element={<LawPage />} />
+                {/* The Law Converter owns its own sub-routes (/law/whats-new, /law/saved);
+                    src/lib/nav.ts stays the one list of navigation destinations. */}
+                <Route path="/law/*" element={<LawPage />} />
                 <Route path="/pay" element={<PayPage />} />
                 <Route path="/draft" element={<DraftPage />} />
                 <Route path="/learn" element={<LearnPage />} />

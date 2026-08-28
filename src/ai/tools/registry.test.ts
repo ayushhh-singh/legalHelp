@@ -67,8 +67,17 @@ describe('listTools and toolSpecs', () => {
   })
 
   it('scopes a surface to its own tools plus the common ones', () => {
+    // The five real law tools (src/ai/tools/law.ts) register alongside the
+    // fixture one, because registerBuiltinTools() now brings the module tools
+    // in with it. What this asserts is the SCOPING rule, not the census: every
+    // law-scoped tool plus the two common ones, sorted.
     expect(listTools('law').map((tool) => tool.def.name)).toEqual([
+      'compare_old_new',
       'dataset_versions',
+      'format_citation',
+      'get_classification',
+      'get_section',
+      'search_sections',
       'section_lookup',
       'today_in_india',
     ])
@@ -129,7 +138,18 @@ describe('the built-in tools', () => {
   it('registers idempotently', () => {
     registerBuiltinTools()
     registerBuiltinTools()
-    expect(registeredToolNames()).toEqual(['dataset_versions', 'today_in_india'])
+    // Both the common tools and the module tools, once each — the duplicate
+    // guard in registerTool throws, so a second pass that registered anything
+    // twice would fail here rather than silently.
+    expect(registeredToolNames()).toEqual([
+      'compare_old_new',
+      'dataset_versions',
+      'format_citation',
+      'get_classification',
+      'get_section',
+      'search_sections',
+      'today_in_india',
+    ])
   })
 
   it('reports the bundled dataset versions', async () => {

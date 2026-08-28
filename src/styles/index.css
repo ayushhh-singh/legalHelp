@@ -110,3 +110,55 @@
     @apply not-sr-only fixed top-4 left-4 z-50;
   }
 }
+
+/*
+ * PRINT — the "Print view" action on a section card.
+ *
+ * The card the reader is looking at is the whole document; the shell, the
+ * search box, the filters and the result list are navigation and do not belong
+ * on paper. Everything that is not part of the record carries `data-print-hide`
+ * (or is the app chrome, matched by element), so this is one rule rather than a
+ * `print:` variant scattered across a dozen components — and a component added
+ * later prints by default rather than being silently omitted.
+ *
+ * Colours are forced back to ink on white: the tinted status pills and diff
+ * highlights are legible on a screen and turn into grey blocks on a mono laser.
+ * The diff still reads, because `<ins>` keeps its underline and `<del>` its
+ * strike-through — which is the reason those elements carry the meaning rather
+ * than the colour (see DiffView.tsx).
+ */
+@media print {
+  body {
+    background: #fff;
+    color: #000;
+  }
+
+  [data-print-hide],
+  header,
+  nav,
+  .skip-link {
+    display: none !important;
+  }
+
+  main {
+    padding: 0 !important;
+  }
+
+  [data-print-root] {
+    border: 0 !important;
+    box-shadow: none !important;
+  }
+
+  /* Keep a source link readable once the page is on paper. */
+  a[href^='http']::after {
+    content: ' (' attr(href) ')';
+    font-size: 0.75em;
+    word-break: break-all;
+  }
+
+  table,
+  tr,
+  section {
+    break-inside: avoid;
+  }
+}

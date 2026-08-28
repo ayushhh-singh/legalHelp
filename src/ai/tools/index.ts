@@ -1,5 +1,6 @@
 import { z } from 'zod'
 
+import { registerLawTools } from './law'
 import { registerTool, registeredToolNames } from './registry'
 
 import { DATASETS, DATA_GENERATED_AT, DATA_VERSION } from '@/lib/dataVersion'
@@ -19,6 +20,10 @@ import { DATASETS, DATA_GENERATED_AT, DATA_VERSION } from '@/lib/dataVersion'
 const NO_INPUT = z.object({}).strict()
 
 export function registerBuiltinTools(): void {
+  // The module tools register themselves. Each one is idempotent, so this is
+  // safe on a hot reload and in a test that imports this module twice.
+  registerLawTools()
+
   if (registeredToolNames().includes('dataset_versions')) return
 
   registerTool({

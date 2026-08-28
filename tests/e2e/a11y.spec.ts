@@ -17,7 +17,7 @@ import { expect, test, type Page } from '@playwright/test'
 const require = createRequire(import.meta.url)
 const AXE_SOURCE = readFileSync(require.resolve('axe-core/axe.min.js'), 'utf8')
 
-const ROUTES = ['/law', '/pay', '/draft', '/learn', '/utils', '/settings']
+const ROUTES = ['/law', '/law/whats-new', '/law/saved', '/pay', '/draft', '/learn', '/utils', '/settings']
 
 interface AxeViolation {
   id: string
@@ -124,6 +124,29 @@ test('the audit still finishes when an infinite animation is on the page', async
 
   expect(format(await audit(page))).toEqual([])
 })
+
+/**
+ * The Law Converter with a result open — the densest surface in the app, and
+ * the one the default sweep above never reaches, because it needs a query.
+ *
+ * A section card carries a status pill, a coral trap banner, a marigold
+ * curated-Hindi notice, a word-level diff in tulsi and coral, and a seven-column
+ * classification table. Every one of those is a tinted background with a paired
+ * -foreground on it, which is exactly where a contrast failure hides.
+ */
+for (const language of ['en', 'hi'] as const) {
+  for (const theme of ['light', 'dark'] as const) {
+    test(`no axe violations on an open section card in ${language} / ${theme}`, async ({ page }) => {
+      await setChrome(page, language, theme)
+      // BNS 103: a trap banner, curated Hindi, a two-row classification table
+      // and a heading diff, all on one card.
+      await page.goto('/law?q=302&date=2024-06-30')
+      await expect(page.getByRole('heading', { name: /Punishment for murder|हत्या/ })).toBeVisible()
+
+      expect(format(await audit(page)), `law card (${language}/${theme})`).toEqual([])
+    })
+  }
+}
 
 test('no axe violations with the More sheet open', async ({ page }) => {
   // The one piece of chrome that is not on screen by default. 390px so the

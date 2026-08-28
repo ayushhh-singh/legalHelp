@@ -57,22 +57,34 @@ test('a Devanagari heading renders in Noto Sans Devanagari, not a system fallbac
   expect(await dominantFont(page, 'main h1')).toMatch(/^Noto Sans Devanagari/)
 })
 
+/**
+ * The Law Converter's search hint: body copy, always on screen, and — the part
+ * that matters here — SINGLE-SCRIPT in each language.
+ *
+ * It replaced `main p.max-w-prose`, which was the empty state's body, for two
+ * reasons. That paragraph is not rendered until the section tables have parsed,
+ * so `CSS.getPlatformFontsForNode` was handed a node id of 0; and its Hindi
+ * copy quotes Latin search examples ("sec 438 crpc", "hatya"), which is right
+ * for a reader and wrong for a test that asks which face dominates.
+ */
+const BODY_COPY = '#law-search-hint'
+
 test('body copy renders in Inter', async ({ page }) => {
   await page.goto('/law')
-  await expect(page.getByRole('heading', { level: 1 })).toBeVisible()
+  await expect(page.locator(BODY_COPY)).toBeVisible()
   await page.evaluate(() => document.fonts.ready)
 
-  // The EmptyState body is long-form Latin prose in the body face.
-  expect(await dominantFont(page, 'main p.max-w-prose')).toMatch(/^Inter/)
+  expect(await dominantFont(page, BODY_COPY)).toMatch(/^Inter/)
 })
 
 test('Hindi body copy renders in Noto Sans Devanagari', async ({ page }) => {
   await page.goto('/law')
   await page.getByRole('button', { name: 'Switch to Hindi' }).click()
   await expect(page.getByRole('heading', { level: 1 })).toHaveText('विधि परिवर्तक')
+  await expect(page.locator(BODY_COPY)).toBeVisible()
   await page.evaluate(() => document.fonts.ready)
 
-  expect(await dominantFont(page, 'main p.max-w-prose')).toMatch(/^Noto Sans Devanagari/)
+  expect(await dominantFont(page, BODY_COPY)).toMatch(/^Noto Sans Devanagari/)
 })
 
 test('loads every font from its own origin', async ({ page, baseURL }) => {

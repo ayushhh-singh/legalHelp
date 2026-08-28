@@ -40,6 +40,52 @@ test('makes no cross-origin request while browsing every route or switching lang
 })
 
 /**
+ * The first fields in this app that capture something a reader typed: the Law
+ * Converter's search box and its offence-date picker (Session 4).
+ *
+ * `docs/DATA-GAPS.md` #4 recorded that "no user-entered value leaves the page"
+ * was only ever checked against synthetic input, because until now there was no
+ * field to type into. A search query and an offence date are the most
+ * identifying things this module can receive — an offence date in particular —
+ * so this types real values, opens a section, copies a citation and shares it,
+ * and asserts that nothing crossed the origin.
+ */
+test('sends nothing while a query, an offence date and a citation are typed, opened and shared', async ({
+  page,
+  context,
+  baseURL,
+}) => {
+  const origin = new URL(baseURL ?? 'http://localhost:4173').origin
+  const crossOrigin: string[] = []
+
+  page.on('request', (request) => {
+    const url = new URL(request.url())
+    if (url.origin !== origin) crossOrigin.push(`${request.method()} ${request.url()}`)
+  })
+
+  await context.grantPermissions(['clipboard-read', 'clipboard-write'])
+  await page.goto('/law')
+  await expect(page.getByRole('heading', { level: 1 })).toBeVisible()
+
+  await page.getByLabel('Date of offence').fill('2023-11-14')
+  await expect(page.getByText(/Old law applies/)).toBeVisible()
+
+  await page.getByLabel(/Search a section/).fill('sec 420 ipc')
+  await expect(page.getByRole('heading', { name: 'Cheating.' })).toBeVisible()
+
+  // Copy and share both hand text to the platform, never to a server.
+  await page.getByRole('button', { name: 'Copy citation' }).click()
+  await expect(page.getByText('Citation copied.')).toBeVisible()
+  await page.getByRole('button', { name: 'Share as text' }).click()
+
+  // Saving writes to IndexedDB on this device and nowhere else.
+  await page.getByRole('button', { name: 'Save this section' }).click()
+  await expect(page.getByText('Saved on this device.')).toBeVisible()
+
+  expect(crossOrigin).toEqual([])
+})
+
+/**
  * The AI layer's half of the same rule (Session 3A). It is dormant by default,
  * and "dormant" has to mean more than "the button is grey": reading the consent
  * notice, accepting it and choosing a tier must all still send nothing.
