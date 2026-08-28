@@ -24,11 +24,31 @@
  * Devanagari, for both body and headings — ONE variable file covering weights
  * 100-900, not four static ones (ADR-030).
  *
- * The four static weights were 4 x ~52 KB and the browser fetched every weight
- * a page actually used: three of them (400, 500, 600) on an English /law, all
- * four on a Hindi one. The variable Devanagari subset is 121 KB and covers
- * every weight in one request. That is a saving on every route this app has,
- * and the widest margin is on the Hindi pages the four-file set cost the most.
+ * This is a TRADE, not a pure saving, and it is worth stating honestly because
+ * the numbers do not all point one way. Measured transfer, all fonts, per route:
+ *
+ *                        four static weights   one variable file
+ *   English /draft, /learn, /utils    111 KB       180 KB   <- worse
+ *   English /, /pay                   162 KB       180 KB   <- slightly worse
+ *   English /law                      216 KB       180 KB   <- better
+ *   Hindi, heading-rich page          270 KB       180 KB   <- much better
+ *
+ * The static set charges by how many weights a page happens to use, so it is
+ * cheapest for an English page showing two Devanagari characters in the
+ * language toggle and most expensive for a Hindi page, which needs all four.
+ * The variable file charges the same 121 KB either way.
+ *
+ * Chosen because equal bilingual footing is a hard rule of this project: a
+ * font strategy whose cost is lowest for English readers and highest for Hindi
+ * ones is the wrong shape here, and capping the worst case matters more than
+ * shaving the best one. It also makes .font-display's weight 800 an actual 800
+ * rather than the 700 the static set had to round it down to, and it is one
+ * request instead of up to four.
+ *
+ * Dropping two static weights (400 + 600 only) measures better than both and
+ * was rejected for the same reason: it would render Hindi bold text at 600
+ * while English bold stays at 700 — a visible asymmetry between the two
+ * languages, which is exactly what equal footing forbids.
  *
  * It also makes `.font-display`'s weight 800 an actual 800 rather than the
  * 700 face the static set had to round it down to.

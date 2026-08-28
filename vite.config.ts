@@ -273,13 +273,24 @@ function socialTags(): Plugin {
     transformIndexHtml: {
       order: 'pre',
       handler(html) {
-        const description = `${en.app.shortDescription} · ${hi.app.shortDescription}`
-        const title = `${en.app.name} · ${hi.app.tagline}`
+        // These values come from the i18n catalogues and land inside double-
+        // quoted HTML attributes. Today none of them contains a quote or an
+        // ampersand; the day one does, an unescaped value would end the
+        // attribute early and produce silently malformed <head> markup that
+        // still renders. Escaping here is cheaper than a rule saying "never
+        // put an apostrophe in app.tagline".
+        const attr = (value: string) =>
+          value.replace(/&/g, '&amp;').replace(/"/g, '&quot;').replace(/</g, '&lt;').replace(/>/g, '&gt;')
+
+        const description = attr(`${en.app.shortDescription} · ${hi.app.shortDescription}`)
+        const title = attr(`${en.app.name} · ${hi.app.tagline}`)
+        const siteName = attr(`${en.app.name} · ${hi.app.name}`)
+        const imageAlt = attr(`${en.app.name} — ${hi.app.tagline}`)
 
         const tags = [
           `<link rel="canonical" href="${SITE_URL}/" />`,
           `<meta property="og:type" content="website" />`,
-          `<meta property="og:site_name" content="${en.app.name} · ${hi.app.name}" />`,
+          `<meta property="og:site_name" content="${siteName}" />`,
           `<meta property="og:title" content="${title}" />`,
           `<meta property="og:description" content="${description}" />`,
           `<meta property="og:url" content="${SITE_URL}/" />`,
@@ -287,7 +298,7 @@ function socialTags(): Plugin {
           `<meta property="og:image:type" content="image/png" />`,
           `<meta property="og:image:width" content="1200" />`,
           `<meta property="og:image:height" content="630" />`,
-          `<meta property="og:image:alt" content="${en.app.name} — ${hi.app.tagline}" />`,
+          `<meta property="og:image:alt" content="${imageAlt}" />`,
           `<meta property="og:locale" content="en_IN" />`,
           `<meta property="og:locale:alternate" content="hi_IN" />`,
           `<meta name="twitter:card" content="summary_large_image" />`,
@@ -386,6 +397,12 @@ export default defineConfig({
           // reach a reader's precache on a build that happened to have
           // ANALYZE set.
           '**/stats.html',
+          // The Open Graph card. 47 KB downloaded onto every device that
+          // installs the app, for an image only a social-media crawler ever
+          // requests — it is referenced from a <meta> tag, never rendered by
+          // the app. The icons stay precached; those are the installed app's
+          // own launcher artwork.
+          'og.png',
           '**/inter-cyrillic-*',
           '**/inter-cyrillic-ext-*',
           '**/inter-greek-*',
@@ -459,8 +476,13 @@ export default defineConfig({
       // search ranking — and it is the only part of the app a number can be
       // wrong in without anyone noticing. Components are covered by the axe,
       // shell and e2e suites instead, where rendering is the thing under test.
-      include: ['src/lib/**/*.ts'],
-      exclude: ['src/lib/**/*.test.ts', 'src/lib/**/types.ts', 'src/lib/srs/index.ts'],
+      // `.tsx` is included even though src/lib holds no component today: with a
+      // `.ts`-only glob, the first `.tsx` file added here would drop out of the
+      // report AND out of the threshold, silently — a gate with a hole is worse
+      // than no gate. The test files are excluded by the same pair of extensions
+      // for the same reason.
+      include: ['src/lib/**/*.{ts,tsx}'],
+      exclude: ['src/lib/**/*.test.{ts,tsx}', 'src/lib/**/types.ts', 'src/lib/srs/index.ts'],
       reporter: ['text-summary', 'json-summary', 'lcov'],
       // Without this the report is thrown away whenever a single test fails,
       // which is exactly the run where the numbers are most worth reading.

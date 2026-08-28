@@ -97,10 +97,12 @@ const server = createServer((request, response) => {
   // public/_redirects: /*  /index.html  200 — a client route must serve the
   // shell, not a 404, or every deep link and every hard refresh breaks.
   const file = resolveFile(pathname) ?? join(DIST, 'index.html')
-  const servedPath = file === join(DIST, 'index.html') ? pathname : pathname
 
+  // Header rules match the REQUEST path, not the file that answered it —
+  // which is what makes the /* block reach a client route like /pay, where
+  // the file served is index.html.
   for (const rule of RULES) {
-    if (!matches(rule.pattern, servedPath)) continue
+    if (!matches(rule.pattern, pathname)) continue
     for (const [name, value] of rule.headers) {
       // --no-link drops the generated per-route preload hints, so their effect
       // can be measured against the same server rather than against a

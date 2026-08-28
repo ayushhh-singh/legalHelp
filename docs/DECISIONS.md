@@ -3663,11 +3663,28 @@ measured font findings, both invisible without a real waterfall:
 
 - The four static Noto Sans Devanagari weights were ~52 KB each, and the browser fetched every weight a page
   used — three of them (400, 500, 600) on an English `/law`, all four on a Hindi one. The variable
-  `devanagari` subset is 121 KB and covers 100–900 in one request. That is a saving on every route, widest
-  on the Hindi pages the four-file set cost the most, and it makes `.font-display`'s weight 800 an actual
-  800 rather than the 700 the static set rounded down to. Dropping two static weights instead was measured
-  first and rejected: it saved less and it made Hindi bold text a different weight from English bold text,
-  which equal bilingual footing does not survive.
+  `devanagari` subset is 121 KB and covers 100–900 in one request.
+
+  **This is a trade, not a pure saving, and an edge-case pass after the fact is what established that** —
+  the first version of this ADR claimed "a saving on every route", which the per-route measurement
+  disproves. Total font transfer, measured:
+
+  | Route | four static weights | one variable file |
+  | --- | ---: | ---: |
+  | English `/draft`, `/learn`, `/utils` | 111 KB | 180 KB |
+  | English `/`, `/pay` | 162 KB | 180 KB |
+  | English `/law` | 216 KB | 180 KB |
+  | Hindi, heading-rich page | 270 KB | 180 KB |
+
+  The static set charges by how many weights a page happens to use: cheapest for an English page showing
+  two Devanagari characters in the language toggle, dearest for a Hindi page, which needs all four. The
+  variable file charges 121 KB either way. It is kept because equal bilingual footing is a hard rule here —
+  a font strategy whose cost is lowest for English readers and highest for Hindi ones is the wrong shape
+  for this project, and capping the worst case is worth more than shaving the best one. It is also one
+  request rather than up to four, and it makes `.font-display`'s weight 800 an actual 800 rather than the
+  700 the static set rounded down to. Dropping two static weights (400 + 600 only) measures better than
+  both and was rejected for the same reason: Hindi bold would render at 600 while English bold stays at
+  700, a visible asymmetry between the two languages.
 - U+20B9 (₹) sits in **Inter's `latin-ext` subset, which is 85 KB** — the largest font file this app can
   request, downloaded in full so `/pay` can draw one glyph. Noto Sans Devanagari's own `devanagari` subset
   covers U+20B9 and U+20A8, and on those pages it is already being fetched for the bilingual chrome. A
@@ -3761,6 +3778,56 @@ which decides production from preview.
   the treemap to every reader.
 - New scripts, all hand-run except `pnpm size`: `pnpm size`, `pnpm analyze`, `pnpm serve:dist`,
   `pnpm lighthouse`.
+
+### Addendum — the edge-case pass
+
+Run over this session's own changes after the fact. Six defects, one of them in this ADR's own text, and
+two things confirmed rather than assumed.
+
+**1. The claim in point 8 was wrong, and the measurement is above.** "A saving on every route" was written
+from the routes that improved. Per-route measurement shows the variable Devanagari face is a 69 KB
+*regression* on an English `/draft`, `/learn` and `/utils`, and an 18 KB one on `/` and `/pay`. It is kept —
+the reasoning in point 8 stands on the Hindi case and on equal footing — but as a trade with a table, not
+as a win. **The rupee `@font-face` is the part of that change that was an unambiguous saving**, and the two
+were landed together, which is how one carried the other past review.
+
+**2. `og.png` was being precached onto every device that installs the app.** 47 KB of social card, in
+`globPatterns`' `png` glob, for an image referenced only from a `<meta>` tag and never rendered by the
+app — a crawler fetches it, a reader never does. Now in `globIgnores` beside `stats.html`. The launcher
+icons stay precached; those are the installed app's own artwork.
+
+**3. The app shell made a JavaScript-off browser look like a loading app rather than a broken one.** With
+`#root` empty the page stayed blank, which is at least unambiguous. Painting a header and then nothing,
+forever, reads as "still loading". A bilingual `<noscript>` now says so. Hardcoded for the same reason the
+wordmark is: the i18n catalogues are not available without the scripting it is apologising for.
+
+**4. The shell's hardcoded `सरकारी सहायक` sat in a `lang="en"` document with no `lang="hi"`**, so a screen
+reader would read Devanagari with English pronunciation rules for the second before `src/main.tsx` sets the
+detected language. The real `TopBar` needs no such attribute — its tagline comes from the catalogue for
+whichever language is active, so it always matches the document. Only hardcoded markup has this problem.
+
+**5. `tests/e2e/csp.spec.ts` was silently checking only the last page of any multi-navigation test.** The
+init script set `window.__csp = []` at the top, and an init script re-runs on every navigation — so a test
+that visited `/law` and then `/draft` before asserting had already thrown away `/law`'s violations. Not a
+failure; a coverage hole, which is the kind that survives. Violations accumulate in `sessionStorage` now,
+which crosses same-origin navigations.
+
+**6. The values injected into the Open Graph meta tags were not HTML-escaped.** They come from the i18n
+catalogues and land inside double-quoted attributes; none contains a quote today, and the day one does an
+unescaped value would end the attribute early and produce malformed `<head>` markup that still renders.
+Escaped at the point of injection, which is cheaper than a rule saying "never put an apostrophe in
+`app.tagline`".
+
+**Confirmed rather than assumed, both in a real browser under the real policy:**
+
+- **All four blob downloads work under the CSP** — the holidays `.ics`, the drafting `.docx` (which is also
+  a 340 KB dynamic import), the Settings backup `.json` and the Trainer's reports `.csv`. `default-src
+  'self'` lists no `blob:`, so this was worth checking rather than reasoning about; a policy that silently
+  broke every export in the app would have been the worst outcome of this session.
+- **`form-action 'none'` is safe because the app contains no `<form>` element at all.** Every input is a
+  controlled component. Had one existed, an implicit submission — Enter in a single-field form — would have
+  been blocked, and blocked navigations are quiet.
+
 
 ---
 

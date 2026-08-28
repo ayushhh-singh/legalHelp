@@ -468,9 +468,15 @@ are load-bearing, and each is enforced by a test rather than by convention:
   (`unicode-range: U+20A8, U+20B9`) named ahead of Inter in `--font-sans`, pointing at the Devanagari file
   the bilingual chrome already fetches — font matching is per-character, and the first family whose
   `unicode-range` covers the character wins. `/pay` stopped requesting `inter-latin-ext` entirely. The same
-  file now imports ONE variable Devanagari face instead of four static weights (121 KB covering 100-900,
-  against ~52 KB per weight of which a page used two to four), which also makes `.font-display`'s weight 800
-  an actual 800. Exactly two faces are preloaded and neither is Devanagari — this build cannot know the
+  file now imports ONE variable Devanagari face instead of four static weights, which also makes
+  `.font-display`'s weight 800 an actual 800 — **but that one is a TRADE, not a saving, and an edge-case
+  pass after the fact is what established it.** Measured total font transfer per route: the static set
+  costs 111 KB on an English `/draft` and 270 KB on a heading-rich Hindi page, because it charges by how
+  many weights a page happens to use; the variable file costs 180 KB either way. It is kept because a font
+  strategy that is cheapest for English readers and dearest for Hindi ones is the wrong shape for a project
+  whose hard rule is equal bilingual footing, and because capping the worst case beats shaving the best
+  one. ADR-030 point 8 has the table. Do not "optimise" it to two static weights: 400 + 600 measures better
+  than both and renders Hindi bold at 600 while English bold stays at 700. Exactly two faces are preloaded and neither is Devanagari — this build cannot know the
   reader's language, and preloading nothing was measured too and was worse.
 
 - **Lighthouse mobile Performance is 85-93 and the brief asked for 95; the gap is LCP and tuning cannot
@@ -481,6 +487,18 @@ are load-bearing, and each is enforced by a test rather than by convention:
   larger element appears later. `docs/DATA-GAPS.md` #58 has the numbers and the two real options
   (prerender the six routes, or fold each module's default view into its module chunk). Re-measure with
   `pnpm build && pnpm lighthouse` before attempting either — the committed reports are the baseline.
+
+- **An init script re-runs on every navigation, so anything it collects must survive one.**
+  `tests/e2e/csp.spec.ts` set `window.__csp = []` at the top of its `addInitScript`, which meant a test
+  that visited two routes before asserting had already discarded the first one's violations — not a
+  failure, a silent coverage hole. It accumulates in `sessionStorage` now. The same trap applies to any
+  future `addInitScript` that gathers evidence across a multi-page flow.
+
+- **`og.png` must stay OUT of the service worker's precache**, and anything else that exists only for a
+  crawler. It is 47 KB referenced from a `<meta>` tag and never rendered by the app, so precaching it
+  charged every installed device for an image only a social-media scraper ever fetches. It is in
+  `globIgnores` beside `stats.html`; the launcher icons stay precached, because those are the installed
+  app's own artwork.
 
 - **`robots.txt` and `sitemap.xml` are generated, not committed, and the sitemap is checked against
   `src/lib/nav.ts`.** Both carry an absolute origin (`VITE_SITE_URL`, defaulting to the Pages domain), so a

@@ -91,19 +91,29 @@ type Violation = {
 }
 
 async function armCsp(page: Page, origin: string) {
-  // Runs before any page script, and is injected by the browser rather than
-  // as a <script> tag, so the policy under test cannot block the listener
-  // that reports on it.
+  /*
+    Runs before any page script, and is injected by the browser rather than as
+    a <script> tag, so the policy under test cannot block the listener that
+    reports on it.
+
+    Violations accumulate in sessionStorage rather than on `window`, because
+    an init script re-runs on every navigation: a `window.__csp = []` at the
+    top would wipe the record of the page just left, and a test that navigates
+    twice before asserting would silently only ever check the last page. That
+    is a coverage hole rather than a failure, which is the kind that survives.
+  */
   await page.addInitScript(() => {
-    ;(window as unknown as { __csp: unknown[] }).__csp = []
+    const KEY = '__csp_violations'
     document.addEventListener('securitypolicyviolation', (event) => {
-      ;(window as unknown as { __csp: unknown[] }).__csp.push({
+      const seen = JSON.parse(sessionStorage.getItem(KEY) ?? '[]') as unknown[]
+      seen.push({
         directive: event.effectiveDirective || event.violatedDirective,
         blocked: event.blockedURI,
         sample: event.sample ?? '',
         source: event.sourceFile ?? '',
         line: event.lineNumber ?? 0,
       })
+      sessionStorage.setItem(KEY, JSON.stringify(seen))
     })
   })
 
@@ -119,7 +129,7 @@ async function armCsp(page: Page, origin: string) {
 }
 
 const violations = (page: Page) =>
-  page.evaluate(() => (window as unknown as { __csp: Violation[] }).__csp ?? [])
+  page.evaluate(() => JSON.parse(sessionStorage.getItem('__csp_violations') ?? '[]') as Violation[])
 
 test.describe('under the production Content-Security-Policy', () => {
   test('public/_headers declares every header the brief asks for', () => {
@@ -236,14 +246,13 @@ test.describe('under the production Content-Security-Policy', () => {
     const origin = new URL(baseURL ?? 'http://localhost:4173').origin
     await armCsp(page, origin)
 
-    const seen: Violation[] = []
     for (const route of ROUTES) {
       await page.goto(route)
       await expect(page.getByRole('heading', { level: 1 })).toBeVisible()
-      seen.push(...(await violations(page)))
     }
 
-    expect(unexpected(seen)).toEqual([])
+    // One read, after seven navigations — sessionStorage carried them all.
+    expect(unexpected(await violations(page))).toEqual([])
     // ...and inline style ATTRIBUTES stay refused, which is what
     // style-src-attr 'none' buys over a blanket 'unsafe-inline'.
     expect(HEADERS['Content-Security-Policy']).toContain("style-src-attr 'none'")

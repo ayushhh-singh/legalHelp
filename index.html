@@ -54,13 +54,36 @@
       this markup is built once and cannot know the reader's language, and
       "Sahayak · सरकारी सहायक" is correct in both.
     -->
+    <!--
+      The shell below is markup, so a browser with JavaScript switched off now
+      paints a header and then nothing else, forever — which reads as "still
+      loading" rather than "this will never work". It did not need saying when
+      #root was empty and the page stayed blank. Bilingual and hardcoded, for
+      the same reason the wordmark is: this markup is built once and the i18n
+      catalogues are not available without the scripting it is apologising for.
+    -->
+    <noscript>
+      <div class="border-b border-border bg-marigold/15 px-4 py-3 text-sm text-marigold-foreground">
+        <p><strong>Sahayak needs JavaScript.</strong> Please enable it and reload this page.</p>
+        <p lang="hi" class="mt-1">
+          सहायक के लिए जावास्क्रिप्ट आवश्यक है। कृपया इसे सक्षम करें और यह पृष्ठ पुनः लोड करें।
+        </p>
+      </div>
+    </noscript>
+
     <div id="root">
       <div class="flex min-h-dvh flex-col bg-background text-foreground">
         <div class="sticky top-0 z-40 border-b border-border bg-card">
           <div class="flex h-14 items-center gap-3 px-3 sm:px-4">
             <span class="h-6 w-[3px] shrink-0 self-center rounded-sm bg-marigold"></span>
             <span class="truncate font-heading text-lg leading-none font-semibold">Sahayak</span>
-            <span class="hidden truncate font-sans text-xs text-muted-foreground sm:inline">
+            <!-- lang="hi" because this string is hardcoded: the document is
+                 lang="en" until src/main.tsx sets the detected language, and a
+                 screen reader would otherwise read Devanagari with English
+                 pronunciation rules. The real TopBar needs no such attribute —
+                 its tagline comes from the catalogue for whichever language is
+                 active, so it always matches the document. -->
+            <span lang="hi" class="hidden truncate font-sans text-xs text-muted-foreground sm:inline">
               सरकारी सहायक
             </span>
           </div>
