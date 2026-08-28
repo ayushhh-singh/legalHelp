@@ -1,0 +1,42 @@
+# Cloudflare Pages response headers.
+#
+# Read this alongside tests/e2e/csp.spec.ts — that spec parses THIS file,
+# replays every header onto the document response in a real browser, and
+# fails on any console error or securitypolicyviolation event. There is no
+# second copy of the policy in a <meta> tag: this file is the only source.
+#
+# See docs/DECISIONS.md ADR-030 for three things this policy decides:
+#   * connect-src is 'self' with no api.anthropic.com entry, and what has to
+#     change the day the AI layer's Tier 1 BYOK provider is actually shipped;
+#   * style-src carries 'unsafe-inline' because Radix Dialog's scroll lock
+#     injects a <style> element whose content varies with the scrollbar
+#     width, so no hash can cover it — but style-src-attr is 'none', which
+#     keeps every inline style= ATTRIBUTE blocked. React writes styles
+#     through CSSOM, so nothing in the app needs the attribute form;
+#   * script-src has no 'unsafe-eval': zod probes for it in a try/catch at
+#     import time and falls back to its interpreted validator, so the one
+#     violation the browser reports is a capability check that already
+#     handled being refused (tests/e2e/csp.spec.ts allowlists exactly it).
+
+/*
+  Content-Security-Policy: default-src 'self'; script-src 'self'; style-src 'self' 'unsafe-inline'; style-src-attr 'none'; font-src 'self'; img-src 'self' data:; connect-src 'self'; worker-src 'self'; manifest-src 'self'; media-src 'none'; object-src 'none'; frame-src 'none'; frame-ancestors 'none'; base-uri 'self'; form-action 'none'
+  Strict-Transport-Security: max-age=63072000; includeSubDomains; preload
+  X-Content-Type-Options: nosniff
+  Referrer-Policy: no-referrer
+  Permissions-Policy: accelerometer=(), camera=(), display-capture=(), geolocation=(), gyroscope=(), magnetometer=(), microphone=(), midi=(), payment=(), usb=(), interest-cohort=()
+  Cross-Origin-Opener-Policy: same-origin
+  Cross-Origin-Resource-Policy: same-origin
+  X-Frame-Options: DENY
+
+# The service worker must never be served from a stale edge cache, or a
+# reader stays on an old shell after a deploy. vite-plugin-pwa fingerprints
+# every other asset, so only this one file needs the exemption.
+/sw.js
+  Cache-Control: no-cache
+
+/manifest.webmanifest
+  Cache-Control: no-cache
+
+# Fingerprinted by Vite — the filename changes when the bytes do.
+/assets/*
+  Cache-Control: public, max-age=31536000, immutable

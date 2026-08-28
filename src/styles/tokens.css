@@ -245,8 +245,10 @@
  * tabular figures, so digits set in the heading face jitter as they count.
  */
 @theme {
-  --font-sans: 'Inter Variable', 'Inter', 'Noto Sans Devanagari', system-ui, sans-serif;
-  --font-heading: 'Poppins', 'Noto Sans Devanagari', system-ui, sans-serif;
+  --font-sans:
+    'Rupee Devanagari', 'Inter Variable', 'Inter', 'Noto Sans Devanagari Variable', 'Noto Sans Devanagari',
+    system-ui, sans-serif;
+  --font-heading: 'Poppins', 'Noto Sans Devanagari Variable', 'Noto Sans Devanagari', system-ui, sans-serif;
 
   /*
    * The A4 document preview in the Drafting Studio, and NOTHING else.
@@ -268,5 +270,7 @@
    * it is absent, the BUNDLED Noto Sans Devanagari catches the fall, so the
    * Hindi preview never lands on a platform default.
    */
-  --font-document: 'Times New Roman', 'Tiro Devanagari Hindi', 'Noto Sans Devanagari', Georgia, serif;
+  --font-document:
+    'Times New Roman', 'Tiro Devanagari Hindi', 'Noto Sans Devanagari Variable', 'Noto Sans Devanagari',
+    Georgia, serif;
 }

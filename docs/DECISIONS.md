@@ -3557,3 +3557,356 @@ interactions best proven in a real browser and were, but are not (yet) captured 
 specs — `tests/e2e/palette.spec.ts` is a different session's surface as of this session's own commit
 (ADR-031/032-adjacent test-hardening work), and duplicating a spec file mid-restructure would have collided
 with it rather than helped.
+
+---
+
+## ADR-030 — Shipping it: a Content-Security-Policy the app is tested under, a size budget with one number and two enforcers, an app shell in the HTML, and a Lighthouse target that measurement did not reach
+
+**Date:** 2026-08-29 · **Status:** Accepted
+
+### Context
+
+The session brief: route-level code splitting with an initial-JS budget of 250 KB gzip enforced in CI;
+a Cloudflare Pages `_headers` file with a strict CSP and the usual security headers, verified in a real
+browser; an SPA `_redirects` fallback; a dependency audit and a Dependabot config; a deploy workflow;
+bilingual SEO and social tags with a self-hosted `og.png`; a README; and Lighthouse mobile ≥ 95 on
+Performance, Accessibility, Best Practices and SEO across `/`, `/law`, `/pay`, `/draft`, `/learn` and
+`/utils`.
+
+It ran concurrently with two other sessions in the same working tree — legalhelp-52 (test hardening; it
+owns `.github/workflows/ci.yml` and `playwright.config.ts` from partway through this session, and it
+authored ADR-031's i18n split) and legalhelp-78 (an edge-case pass over the command palette). All three
+coordinated by direct message rather than by reading each other's diffs, the arrangement Sessions 12/13
+and 14 established.
+
+Eleven things needed a decision rather than a routine build. Nine of them were settled by measurement, and
+two of those measurements said "no".
+
+### Decision
+
+**1. The app was not renamed, because no name was given.** The brief opens "The final app name is
+`<APP_NAME>`" — the literal placeholder from the master context — and then makes the rename conditional:
+"if I gave a new name now". None was given, so `<APP_NAME>` still resolves to what it has always resolved
+to, and Sahayak / सरकारी सहायक stands as the final name across `package.json`, `index.html`, the web
+manifest, the i18n catalogues, the README and this file. Nothing was renamed. The rename is a mechanical
+change whenever a name arrives — the string appears in seven files and the icons carry no text, exactly as
+the brief anticipated — and it is not a change worth guessing at, because a half-applied product name is
+worse than an unapplied one.
+
+**2. The size budget is one number in one file, enforced twice.** `scripts/size-budget.json` holds it;
+`scripts/size-check.mjs` gates CI on it and prints a per-asset table so a failing pull request says *which*
+asset grew; `tests/bundle-budget.test.ts` reads the same file. That replaces the fixed `BASELINE_GZIP =
+146_038` + 30 KB rule from ADR-011, which had been red for three sessions (`docs/DATA-GAPS.md` #55) with no
+route back to green: every session's i18n keys landed in one eagerly-loaded bundle, so the budget moved
+further out of reach with each one, and CLAUDE.md's own note forbade silencing it without an ADR. This is
+that ADR. Two things had to be true before re-baselining was honest rather than convenient: the underlying
+mechanism had to be fixed, which ADR-031 did by splitting the catalogues per language so i18n growth no
+longer touches the initial route at all; and the new number had to come from outside this session's own
+judgement, which it does — 250 KB gzip is the brief's figure. The build measures **137.7 KB**, 55% of it.
+The AI-layer assertions in that test file are untouched: they are a privacy property, not a size one, and
+no budget re-baselining may weaken them.
+
+**3. `style-src` keeps `'unsafe-inline'`, and `style-src-attr` is `'none'`.** The brief asked for
+`'unsafe-inline'` to be dropped "only if shadcn needs it; try to remove". It was tried, and it breaks the
+command palette: Radix Dialog's scroll lock (`react-remove-scroll`'s style singleton) injects a `<style>`
+element whose content embeds the measured scrollbar width, so its hash differs per device and no
+`'sha256-…'` can cover it. Rather than accept a blanket relaxation, the policy splits the directive: style
+*elements* may be inline, style *attributes* may not (`style-src-attr 'none'`). Nothing in the app needs
+the attribute form — React writes styles through CSSOM, which CSP does not govern — so this keeps the half
+of `'unsafe-inline'` that actually matters for injected markup. Both halves are asserted in
+`tests/e2e/csp.spec.ts`.
+
+**4. `script-src` has no `'unsafe-eval'`, and the one violation the browser reports is allowlisted rather
+than accommodated.** zod 4 decides at import time whether it may JIT-compile validators by evaluating
+`Function("")` inside a try/catch. Under `script-src 'self'` the browser refuses, zod catches it and takes
+its interpreted path, and every schema in the app keeps working — but the refusal is still *reported*,
+because a capability probe cannot ask the question without asking it. Adding `'unsafe-eval'` to silence one
+caught feature detect would hand real script injection a way in for nothing. `tests/e2e/csp.spec.ts`
+allowlists exactly that shape (script-src, blocked `eval`, from a built chunk) and has a separate case
+asserting nothing else is ever refused across every route. It costs 4 points of Lighthouse Best Practices
+on the two routes that load zod's schemas chunk (96 rather than 100), which is above the 95 floor.
+
+**5. `connect-src` is `'self'`, which will block Tier 1 BYOK the day it ships.** The brief specifies it and
+it is right for what is deployed: the AI layer is dormant, nothing in the app may reach a network, and a
+CSP that says so is defence in depth behind the consent gate rather than a duplicate of it. But it is a
+real, deliberate incompatibility with a feature that is already built: `src/ai/providers/wire.ts` calls
+`api.anthropic.com` directly from the browser, and under this policy that call is refused. The day Tier 0/1/2
+actually ship (Session 24), `connect-src` needs `https://api.anthropic.com` — a one-line change in
+`public/_headers`, recorded in `docs/DATA-GAPS.md` #57 so it is found by the person who needs it rather than
+debugged. It is not added pre-emptively: a policy that permits a connection the app never makes is a policy
+that has stopped describing the app.
+
+**6. `tests/e2e/csp.spec.ts` parses `public/_headers` rather than restating it.** `vite preview` does not
+read Cloudflare's `_headers` format, so the spec reads that file itself and replays the `/*` block onto the
+document response through `page.route`. There is no `<meta http-equiv>` copy of the policy to drift from the
+header, and a policy edit is exercised on the next run. It fails on two independent signals, because CSP is
+quiet by default: the `securitypolicyviolation` event (what the browser refused) and console errors (what
+broke as a result) — the brief's own "console errors = failure".
+
+That second signal immediately found a real, pre-existing defect that had nothing to do with CSP: the
+command palette's `Command.Dialog` had no `Dialog.Title`, so Radix logged an error in **every** build, not
+just development, and a screen reader got the dialog's label with no heading to navigate to. Fixed with a
+visually-hidden `Dialog.Title` (coordinated with legalhelp-78, who owns that file).
+
+**7. `index.html` ships the app shell as markup, and it is worth ~2 seconds.** `#root` was empty, so nothing
+at all was painted until the entry chunk had downloaded, parsed, executed and resolved the active language's
+i18n chunk: First Contentful Paint measured **2.6 s** on Lighthouse's mobile profile, for a header that is a
+coloured bar and eleven characters. The shell is now static markup inside `#root` — the same classes
+`src/app/TopBar.tsx` uses, at the same `h-14` height, the same border and the same background — which paints
+from the document and the stylesheet alone. It is replaced, not hydrated: `createRoot().render()` clears
+`#root`'s children. Measured after: **FCP 0.9–1.3 s, Speed Index ~1.2 s, CLS still 0** on every route. The
+wordmark is the bilingual one from `<title>` rather than a translated string, because this markup is built
+once and cannot know the reader's language, and "Sahayak · सरकारी सहायक" is correct in both.
+
+**8. One variable Devanagari face instead of four static ones, and the rupee sign comes from it.** Two
+measured font findings, both invisible without a real waterfall:
+
+- The four static Noto Sans Devanagari weights were ~52 KB each, and the browser fetched every weight a page
+  used — three of them (400, 500, 600) on an English `/law`, all four on a Hindi one. The variable
+  `devanagari` subset is 121 KB and covers 100–900 in one request. That is a saving on every route, widest
+  on the Hindi pages the four-file set cost the most, and it makes `.font-display`'s weight 800 an actual
+  800 rather than the 700 the static set rounded down to. Dropping two static weights instead was measured
+  first and rejected: it saved less and it made Hindi bold text a different weight from English bold text,
+  which equal bilingual footing does not survive.
+- U+20B9 (₹) sits in **Inter's `latin-ext` subset, which is 85 KB** — the largest font file this app can
+  request, downloaded in full so `/pay` can draw one glyph. Noto Sans Devanagari's own `devanagari` subset
+  covers U+20B9 and U+20A8, and on those pages it is already being fetched for the bilingual chrome. A
+  one-glyph `@font-face` (`'Rupee Devanagari'`, `unicode-range: U+20A8, U+20B9`) named ahead of Inter in
+  `--font-sans` is what makes the browser pick it — font matching is per-character, and the first family
+  whose `unicode-range` covers the character wins. Same file as the `@import`, so it dedupes to one request.
+  `/pay` stopped requesting `inter-latin-ext` entirely: 85 KB off the critical path, LCP 4.6 s → 4.1 s.
+
+Exactly two faces are preloaded — Inter's Latin variable and Poppins 600 — and no Devanagari one, because
+this build cannot know the reader's language and preloading 121 KB of Devanagari for an English reader
+would cost more than the round trip it saves. Preloading nothing was measured too, and was worse
+(`/law` 86 → 84).
+
+**9. Per-route preload hints are page chunks only, and the full graph was measured and rejected — twice.**
+Every module is lazy twice (`/law` loads LawPage, which loads ConverterPage), which on a throttled
+connection is three sequential round trips before anything meaningful renders. Cloudflare Pages honours a
+per-path `Link:` response header, so `vite.config.ts`'s `routePreloadHeaders()` emits one block per route
+with the chunks that route is certain to need. Preloading each page chunk's full transitive static import
+graph — two dozen hints for `/law` — was measured **twice**, once before the app shell landed and once
+after, and was worse both times (`/law` 90 → 87, `/pay` 86 → 83): the small preloads compete with the
+stylesheet and the entry chunk for the same throttled bandwidth and buy about 0.1 s of LCP for 0.7 s of
+FCP. Two hints per route is the whole win, and `tests/seo.test.ts` asserts every emitted hint points at a
+chunk that actually exists — a hint naming a previous build's hash would be a silent pessimisation, since
+the app still works.
+
+**10. Lighthouse is measured against `scripts/serve-dist.mjs`, not `vite preview`.** `vite preview` applies
+neither `_headers` nor `_redirects`, so a run against it measures a site with no CSP, no cache policy and
+none of the preload hints. The new server applies both, and compresses — which is not a detail: Cloudflare
+gzips and brotlis every text response, and a first run of this server without compression scored FCP 4.9 s
+against `vite preview`'s 2.1 s, which was **entirely** the missing `Content-Encoding` and would have sent
+this session chasing a regression that did not exist. `scripts/lighthouse.mjs` serves a *copy* of `dist/`
+for the same class of reason: a full run is seven routes and several minutes, and a concurrent session's
+`pnpm build` replaced `dist/` mid-run, which first showed up as `/law` scoring SEO 92 because `index.html`
+did not exist for a moment.
+
+**11. `cloudflare/wrangler-action`, not `cloudflare/pages-action`.** The brief named the latter; it is
+archived and still declares the `node16` runtime, which GitHub Actions no longer provides, so it fails on
+current runners. `wrangler pages deploy` is Cloudflare's supported replacement and takes the same three
+secrets. The workflow triggers on `workflow_run` rather than `push`, because "after CI passes" is not
+expressible from a push trigger — and it gates on three things, not one: that CI's conclusion was
+`success`, that the head repository is this repository (a `workflow_run` job has secrets, so deploying a
+fork's code from it would hand the Pages token to anyone who can open a pull request), and the branch,
+which decides production from preview.
+
+### Consequences
+
+- **The Lighthouse mobile Performance target was not met, and no amount of tuning available to this session
+  reaches it.** Measured on the seven routes, mobile: Performance **85–93**, Accessibility **100**, Best
+  Practices **96–100**, SEO **100**. Desktop: Performance **98–100**, the rest the same. Every report is
+  committed under `docs/lighthouse/`. Performance rose from a starting 72–92 through this session's work,
+  and the remaining gap is one metric: Largest Contentful Paint, 3.2–4.1 s where ≥ 95 needs about 2.5 s.
+  It is **89% "render delay"** rather than network — the LCP element is text that does not exist until the
+  entry chunk, the module chunk, the view chunk and that view's data have each been fetched and executed in
+  sequence. The app shell fixed First Contentful Paint because a paint can come from HTML; it cannot fix LCP,
+  because LCP updates to whatever larger element appears later. Closing it needs the route's *content* in the
+  served HTML — prerendering or server rendering — which is an architectural change, needs its own ADR, and
+  interacts with the offline-first, data-in-lazy-chunks design that ADR-013 and ADR-018 chose deliberately.
+  `docs/DATA-GAPS.md` #58 records the measurement, the reason and the two real options. The three targets
+  that were reachable are met with room to spare.
+- `public/_headers` is new and is the one copy of the security policy. `dist/_headers` is that file plus a
+  generated per-route preload block; `routePreloadHeaders()` appends and never replaces, and
+  `tests/seo.test.ts` asserts the security block survived.
+- `robots.txt` and `sitemap.xml` are **emitted at build time**, not committed, because both must carry the
+  absolute origin and a committed copy goes stale the day the site moves. The sitemap is checked against
+  `src/lib/nav.ts` by `tests/seo.test.ts` — `vite.config.ts` cannot import that file (it pulls
+  `lucide-react`, and the config runs in Node), so the route list exists twice, and that test is what stops
+  the two drifting in either direction.
+- `tests/no-external-urls.test.ts` gained the site's own origin, read out of `vite.config.ts` rather than
+  written down again, paired — as the file's convention requires — with an assertion that no module under
+  `src/` names that host. An absolute URL on the build's own origin is also now treated as same-origin by
+  `isSameOrigin`, because that is what the word means: `<link rel="canonical">` has to be absolute and no
+  browser fetches it.
+- `og.png` is generated from the app icon by `pnpm icons:generate` and committed, like the icons and the
+  font licences. It is hand-run and on no CI step for a reason worth stating: the Devanagari line is real
+  text rendered by librsvg, so a CI box with no Devanagari font would regenerate the card silently full of
+  tofu boxes.
+- The web manifest's `theme_color` and `background_color` were `#F7F1E3` — a cream taken from the icon
+  artwork, not from the palette — while `index.html` said `#F7F9FC`. An installed app painted its splash
+  screen in one colour and its first frame in another, a visible flash on every cold start. Both are now
+  `--background`, and `tests/seo.test.ts` asserts the three agree.
+- `date-fns` is removed. It was in `package.json`, in the master context's stack list and imported by
+  nothing: every date calculation in this app goes through `src/lib/istDay.ts` or `src/lib/srs/day.ts`,
+  whose fixed +05:30 reasoning ADR-026 chose deliberately over a library. `pnpm audit` reports no known
+  vulnerability in either the production or the full tree, and `pnpm dedupe --check` is clean.
+- Dependabot is grouped, weekly, over npm, GitHub Actions and pip. Grouped deliberately: every dependency
+  here is pinned to an exact version, so an ungrouped config opens one pull request per package and buries
+  the two that matter under thirty that do not. The framework trio is its own group because a major there
+  is an ADR, not a merge.
+- `rollup-plugin-visualizer` is behind `ANALYZE=1` (`pnpm analyze`) and its ~1.2 MB report is excluded from
+  the service worker's precache, because a build that happened to have the flag set would otherwise ship
+  the treemap to every reader.
+- New scripts, all hand-run except `pnpm size`: `pnpm size`, `pnpm analyze`, `pnpm serve:dist`,
+  `pnpm lighthouse`.
+
+---
+
+## ADR-031 — Testing as a set of gates: one language per boot, a privacy fixture nobody can forget, a phone in the matrix, and coverage only where a number can be wrong silently
+
+**Status:** accepted · **Date:** 2026-08-29
+
+### Context
+
+The suite this session inherited was large and good — 1,795 unit tests and 82 Playwright specs — but
+it had four holes that were structural rather than a matter of writing more tests.
+
+1. **The privacy guarantee was opt-in.** The master context's hard rule is "zero network requests
+   carrying user-entered data (enforced by a Playwright test)". Two specs enforced it, each by
+   hand-rolling its own `page.on('request')` counter and its own `crossOrigin` array. Every other
+   spec — including the ones that type the most identifying things this app receives — enforced
+   nothing, and a new spec inherited nothing. A guarantee that each author has to remember to switch
+   on is a guarantee that holds for exactly as long as everyone remembers.
+
+2. **Everything ran at one viewport, in one language.** The shell swaps its entire navigation below
+   1024px, the Drafting Studio becomes two tabs rather than two columns, and half the app's readers
+   read Hindi. None of that was exercised.
+
+3. **`tests/bundle-budget.test.ts` was red, and the mechanism kept it red.** `en.json` and `hi.json`
+   were both static imports, so every reader downloaded ~40 KB gzip of translations of which they
+   could read half — and every session that added an i18n key made it worse. `docs/DATA-GAPS.md` #55
+   recorded this with two proposed fixes, neither of which any one session could take alone.
+
+4. **Four unit files failed intermittently and passed in isolation**, which is the signature of a
+   budget rather than a defect, and which nobody had named as such.
+
+### Decision
+
+**1. The privacy gate is an automatic fixture, and forgetting it is a red build.**
+`tests/e2e/fixtures.ts` exports `test` and `expect`; every spec imports them from there instead of
+from `@playwright/test`. The `network` fixture is declared `{ auto: true }`, so a spec is covered
+without mentioning it, and at teardown it fails the test if any request crossed the origin **or** if
+any request URL, query string or **body** contained a value the test typed.
+
+Typed values are minted by `network.sentinel('label')` → `SNTNL-<label>-<n>`, rather than being
+realistic input. That is deliberate: `"302"` and `"Delhi"` appear in chunk filenames and cached
+dataset URLs by coincidence, and a privacy assertion that produces false positives gets weakened
+until it produces false negatives instead. The listener sits on the browser **context**, not the
+page, because a request made by the service worker or by a second page is exactly the one most
+likely to escape a page-scoped listener.
+
+The exception mechanism is a declaration rather than an omission: `tests/e2e/ai-byok.spec.ts` calls
+`network.allowCrossOrigin(/api\.anthropic\.com/)` because Tier 1 *is* that request. And
+`tests/e2e-harness.test.ts` — a **unit** test, so it runs on every commit rather than only when a
+browser is available — fails if any spec imports a value from `@playwright/test`, with exemptions
+in an `UNGATED` map that must each carry a reason. `csp.spec.ts` is the only one, because it
+manufactures request-level behaviour through `page.route` that the gate is written to treat as a
+defect.
+
+**2. One language reaches the browser at boot, not two — and that is what actually closed
+DATA-GAPS #55.** `src/i18n/index.ts`'s two static imports became dynamic ones behind an i18next
+`backend` plugin. Registering it as a backend rather than hand-rolling a
+`load-then-changeLanguage` wrapper is what keeps the module's public surface identical for the 29
+files that import it: `changeLanguage` still just works and awaits the chunk itself. Two callers
+did change — `src/main.tsx` awaits a new exported `i18nReady` before `createRoot`, because with
+`useSuspense: false` nothing holds the tree back and the shell would otherwise paint one frame of
+raw translation keys; and `store.ts`'s `applyLanguage` now returns i18next's promise so
+`setLanguage` resolves only once the language has actually been applied. `<html lang>` is still set
+synchronously, because that is what assistive tech reads and it needs no strings.
+
+Worth ~18 KB gzip for an English reader and ~22 KB for a Hindi one on every cold load, and — the
+part that matters more — **adding an i18n key no longer grows the initial route at all**, which was
+the mechanism behind the gap rather than a symptom of it. Both chunks are still precached by the
+service worker, so toggling language offline is unchanged. Neither language is privileged: whichever
+one is active is the one that loads.
+
+**3. A phone is a project, not a `setViewportSize` call.** `playwright.config.ts` grew a
+`mobile-chromium` project (Pixel 7, 412×915, touch) beside `desktop-chromium`, so the whole suite
+runs twice. Three specs are in its `testIgnore` — `csp`, `pwa-install` and `typography` — each
+device-independent and each waiting on the service worker with a 30-second ceiling, so a second run
+doubles a long wait for no signal.
+
+This is not a duplicate run for its own sake, and the first execution proved it: it found that the
+Rules Trainer's mock test could not be completed on a phone at all, because the service worker's
+"Ready to work offline." toast is a full-width bar at `bottom-[4.5rem]` that waits for an
+acknowledgement and sits exactly on the "Next question" button, intercepting every click on it
+(`docs/DATA-GAPS.md` #59). No desktop run could see it — `sm:right-4 sm:w-80` makes the same toast a
+corner card.
+
+**4. Coverage is thresholded on `src/lib/**` and nowhere else.** 90% of lines, functions and
+statements, enforced in `vite.config.ts` rather than reported. `src/lib` is the pure layer and the
+only part of this app where a number can be wrong without anyone noticing; everything else has a
+suite that catches its own kind of defect. A global line-coverage target would push effort towards
+rendering components in jsdom to raise a percentage rather than towards the browser runs that find
+real problems. Branch coverage is reported and not thresholded, because what remains uncovered is
+defensive — an unreachable `return null` after a Myers diff that always terminates earlier, a
+`typeof caches === 'undefined'` arm only one environment can take, and the `never` arms of
+exhaustive switches whose whole purpose is to fail a build rather than run.
+
+The measured figure is 99.73% of lines. `docs/COVERAGE.md` is generated by
+`scripts/coverage-summary.mjs`, committed, and diffed by CI — so the numbers in the repository are
+always the ones the last green run measured. The badge is text: a shields.io image would be the one
+outbound request this app does not make.
+
+**5. Property-based tests where a range of inputs is the claim.** `fast-check`, two files. The
+pay one asserts that rounding is monotonic, idempotent and half-up, and that over ~120 random
+scenarios `computePay` never produces a negative, non-finite or fractional figure, its lines add up
+to its own gross and net, more DA is never less pay, and `regime: 'auto'` never picks the dearer of
+the two. The FSRS one asserts **grade monotonicity** — `Again ≤ Hard ≤ Good ≤ Easy` in interval and
+stability, and the reverse in difficulty — over cards put through arbitrary review histories at any
+retention setting. That last one is the reason this file exists: `src/lib/srs/engine.ts` is a
+translation layer over `ts-fsrs`, and a swapped entry in `RATING`, a crossed field in
+`toRow`/`toFsrsCard` or a lost `learningSteps` would break the ordering without breaking any single
+golden interval. It found no defects, which is the honest outcome to report.
+
+**6. Intermittent failures are budgets, and they are named as such.** Four unit files failed under
+a full parallel run and passed every time in isolation. `waitFor`'s 1-second default and Vitest's
+5-second default are races against CPU contention, not against the code under test, so
+`asyncUtilTimeout` is 8s in `src/test/setup.ts` and `testTimeout`/`hookTimeout` are 30s in
+`vite.config.ts`, each with the reasoning written in place. `tests/e2e/a11y.spec.ts`'s route sweep
+gets an explicit 240s: it is ONE test that navigates 21 routes and runs a full axe pass on each,
+~21s quiet, which is already at the default ceiling before any contention. Splitting it per route
+would multiply `setChrome()`'s IndexedDB round trip by 21 to make one number smaller. Every
+assertion is unchanged; only the patience is.
+
+**7. CI is four jobs, so a failure names its own cause.** `unit` (lint, types, i18n parity, Vitest
+with coverage thresholds, ~2 minutes), `data` (the Python parsers and every dataset schema, so a
+parser regression is not hidden behind a TypeScript error), `build` (the three dist-only suites and
+`pnpm size`, uploading `dist/` as an artefact), and `e2e` (a matrix over the two projects,
+`fail-fast: false`, downloading that same `dist/`). Downloading rather than rebuilding is the point:
+testing a separately-built artefact would be testing something other than what the previous job
+verified. The browser binary is cached on the resolved `@playwright/test` version rather than on a
+lockfile hash, so a lockfile change that does not move Playwright still hits the cache. Traces,
+screenshots, video and the HTML report are uploaded on failure.
+
+### Consequences
+
+- `pnpm check` is clean. 1,925 unit tests across 97 files. `pnpm test:e2e` is 285 passed, 1 skipped
+  across both projects — the skip is `law.spec.ts`'s scroll test, which drives both viewports itself
+  and therefore runs once, on desktop, by an explicit `test.skip(onPhone(page))`.
+- Three real defects were found and fixed, each by the layer added to find it: the "Upcoming"
+  holiday strip was a sideways-scrolling region with nothing focusable in it, so a keyboard-only
+  reader could never see past the viewport edge (WCAG 2.1.1, axe `scrollable-region-focusable`,
+  invisible to jsdom because it has no layout); `/utils/portals` copied a URL and announced nothing,
+  while every other copy affordance in the app writes into a live region; and the PWA toast defect
+  above.
+- `src/modules/utils/holidays/HolidaysPage.tsx` gained a local `ScrollStrip`. The
+  `jsx-a11y/no-noninteractive-tabindex` disable lives there once, with the reason: the rule's
+  premise — a tabindex on a non-interactive element is a mistake — is exactly what a scroll
+  container has to do. Putting the `role` on the `<ul>` instead was tried and is worse; it takes the
+  list's semantics away, orphans every `<li>`, and trades one serious violation for five.
+- `utils.portals.copied` / `.copyFailed` are two new bilingual keys.
+- `docs/TESTING.md` is the reference: how to run everything, what each suite guarantees, and the
+  rules for adding a test here.

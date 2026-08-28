@@ -8,24 +8,35 @@ import { fromRoot, readFromRoot } from '@/test/paths'
 /**
  * The initial route's weight, and the proof that the AI layer is not in it.
  *
- * Session 3A's acceptance condition was "no bundle-size regression greater than
- * 30 KB gzip on the initial route (AI code lazy-loaded)". BASELINE_GZIP is the
- * measured figure from the build immediately before the AI layer landed; the
- * assertion is against that fixed number rather than a re-measured one, so the
- * budget cannot drift upwards one commit at a time.
+ * The number comes from scripts/size-budget.json — the SAME file
+ * scripts/size-check.mjs gates CI on, so the test and the gate cannot
+ * disagree. It is 250 KB gzip of JavaScript, set by this session's brief;
+ * ADR-030 records why that replaced Session 3A's "pre-AI baseline + 30 KB"
+ * rule, which three sessions of eagerly-loaded i18n growth had put out of
+ * reach with no route back (docs/DATA-GAPS.md #55).
+ *
+ * The budget is the floor, not the goal. What this file adds on top of the
+ * script is the part that is about privacy rather than speed: the AI layer's
+ * network-capable code must not be in the initial route at all, at any size
+ * (ADR-011).
  *
  * `pnpm check` does not build. Run `pnpm build && pnpm test` for these; CI does.
  */
 
-/** Entry JS + stylesheet, gzip -9, measured on the pre-AI build of 2026-08-28. */
-const BASELINE_GZIP = 146_038
-const BUDGET_GZIP = 30 * 1024
+const BUDGET = JSON.parse(readFromRoot('scripts/size-budget.json')) as {
+  initialJs: number
+  initialCss: number
+}
 
-/** Everything index.html itself pulls in — the true initial route. */
+/**
+ * Everything index.html itself pulls in — the true initial route. Scoped to
+ * .js and .css to match scripts/size-check.mjs exactly: the preloaded font
+ * files are also referenced from the head, and a font is not script.
+ */
 function initialRouteAssets(): string[] {
   const html = readFromRoot('dist/index.html')
   const refs = [...html.matchAll(/(?:src|href)="\/(assets\/[^"]+)"/g)].map((match) => match[1] ?? '')
-  return [...new Set(refs)].filter(Boolean)
+  return [...new Set(refs)].filter((asset) => asset.endsWith('.js') || asset.endsWith('.css'))
 }
 
 const gzipBytes = (asset: string) => gzipSync(readFileSync(fromRoot('dist', asset)), { level: 9 }).length
@@ -33,13 +44,18 @@ const gzipBytes = (asset: string) => gzipSync(readFileSync(fromRoot('dist', asse
 describe('bundle budget', () => {
   const built = existsSync(fromRoot('dist', 'index.html')) ? it : it.skip
 
-  built('keeps the initial route within 30 KB gzip of the pre-AI baseline', () => {
+  built('keeps the initial route inside the shared size budget', () => {
     const assets = initialRouteAssets()
     expect(assets.length).toBeGreaterThan(0)
 
-    const total = assets.reduce((sum, asset) => sum + gzipBytes(asset), 0)
-    expect(total, `initial route is ${total} bytes gzip; baseline ${BASELINE_GZIP}`).toBeLessThanOrEqual(
-      BASELINE_GZIP + BUDGET_GZIP,
+    const js = assets.filter((asset) => asset.endsWith('.js')).reduce((sum, a) => sum + gzipBytes(a), 0)
+    const css = assets.filter((asset) => asset.endsWith('.css')).reduce((sum, a) => sum + gzipBytes(a), 0)
+
+    expect(js, `initial JS is ${js} bytes gzip; budget ${BUDGET.initialJs}`).toBeLessThanOrEqual(
+      BUDGET.initialJs,
+    )
+    expect(css, `initial CSS is ${css} bytes gzip; budget ${BUDGET.initialCss}`).toBeLessThanOrEqual(
+      BUDGET.initialCss,
     )
   })
 

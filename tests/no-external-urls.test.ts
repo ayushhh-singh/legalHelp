@@ -37,7 +37,50 @@ const OPT_IN_ENDPOINT = {
  * URLs that may appear as inert strings. None is ever requested: they are XML
  * namespaces, exception-message documentation links, or licence attribution.
  */
+/**
+ * The origin the built site will be served from, read out of vite.config.ts
+ * rather than written down a second time.
+ *
+ * Three things in a build cannot be relative and so must carry it: the
+ * canonical link and the og:/twitter: image and url tags (a social-card
+ * scraper never runs the app's JavaScript, so it resolves nothing), and the
+ * `Sitemap:` line in robots.txt plus every `<loc>` in sitemap.xml (the
+ * sitemaps protocol requires absolute URLs). All four are read by crawlers
+ * and none is ever fetched BY the app — which is the same distinction every
+ * other entry in ALLOWED_INERT rests on.
+ *
+ * Matched as a pattern over whatever origin the build used, not as the
+ * literal default, so this keeps working the day the site gets a real domain
+ * through VITE_SITE_URL.
+ */
+const SITE_ORIGIN = (() => {
+  const configured = process.env.VITE_SITE_URL
+  if (configured) return configured.replace(/\/+$/, '')
+
+  const config = readFromRoot('vite.config.ts')
+  const fallback = config.match(/VITE_SITE_URL \?\?\s*'([^']+)'/)?.[1]
+  if (!fallback) {
+    throw new Error(
+      'no-external-urls: could not read the default VITE_SITE_URL out of vite.config.ts. ' +
+        'If SITE_URL moved, move this reader with it (ADR-030).',
+    )
+  }
+  return fallback.replace(/\/+$/, '')
+})()
+
+const escapeForRegExp = (value: string) => value.replace(/[.*+?^${}()|[\]\\]/g, '\\$&')
+
 const ALLOWED_INERT: ReadonlyArray<{ pattern: RegExp; why: string }> = [
+  {
+    pattern: new RegExp(`^${escapeForRegExp(SITE_ORIGIN)}(/|$)`),
+    why:
+      "the site's own origin (vite.config.ts SITE_URL). It appears in exactly four places, all of them " +
+      'read by a crawler and none of them fetched by the app: the canonical link, the og:url/og:image and ' +
+      'twitter:image tags in dist/index.html, the `Sitemap:` line in dist/robots.txt and every <loc> in ' +
+      'dist/sitemap.xml. None can be relative — a social scraper runs no JavaScript and resolves nothing, ' +
+      'and the sitemaps protocol requires absolute locs. Paired below with an assertion that no module ' +
+      'under src/ names it, the same way CITATION_HOSTS is (ADR-030).',
+  },
   { pattern: /^https?:\/\/(www\.)?w3\.org\//, why: 'XML/SVG namespace identifiers, never fetched' },
   { pattern: /^https?:\/\/ui\.shadcn\.com\/schema\.json$/, why: 'components.json $schema, tooling only' },
   { pattern: /^https?:\/\/react\.dev\/errors\//, why: 'React 19 minified-error message text' },
@@ -97,12 +140,12 @@ const ALLOWED_INERT: ReadonlyArray<{ pattern: RegExp; why: string }> = [
   {
     pattern: /^https:\/\/radix-ui\.com\/primitives\/docs\/components\/\$\{[^}]*\}$/,
     why:
-      "@radix-ui/react-dialog's own dev-mode warning — \"DialogContent requires a DialogTitle\"/" +
+      '@radix-ui/react-dialog\'s own dev-mode warning — "DialogContent requires a DialogTitle"/' +
       '"...a DialogDescription..." — builds a documentation link from a template literal ' +
       '(`https://radix-ui.com/primitives/docs/components/${slug}`), the same "captured post-minification, ' +
-      'variable name generic" shape as zod\'s IPv6 validator above. cmdk\'s `Command.Dialog` ' +
+      "variable name generic\" shape as zod's IPv6 validator above. cmdk's `Command.Dialog` " +
       '(src/components/palette/CommandPalette.tsx) wraps this same Radix Dialog, which is what pulls it into ' +
-      'the palette\'s own lazy chunk. Never fetched; it is `console.warn` text for a developer, and only in ' +
+      "the palette's own lazy chunk. Never fetched; it is `console.warn` text for a developer, and only in " +
       'development builds at that.',
   },
   /*
@@ -375,6 +418,12 @@ const isSameOrigin = (ref: string) =>
   ref.startsWith('../') ||
   ref.startsWith('#') ||
   ref.startsWith('data:') ||
+  // An absolute URL on this build's OWN origin is same-origin — that is what
+  // the word means. `<link rel="canonical">` is the only reference that has
+  // to be written this way (a canonical URL is by definition absolute), and
+  // it is declarative: no browser fetches it. ADR-030.
+  ref === SITE_ORIGIN ||
+  ref.startsWith(`${SITE_ORIGIN}/`) ||
   !/^[a-z][a-z0-9+.-]*:|^\/\//i.test(ref)
 
 describe('no external URLs', () => {
@@ -457,6 +506,22 @@ describe('no external URLs', () => {
       if (found.length > 0) offenders[name] = found
     }
     expect(offenders).toEqual({})
+  })
+
+  it('keeps the site origin in the build config, out of the source tree', () => {
+    // The paired half of the SITE_ORIGIN entry in ALLOWED_INERT, in the same
+    // shape the CITATION_HOSTS pair above uses. The origin belongs to the
+    // BUILD — vite.config.ts injects it into meta tags and emits it into
+    // robots.txt and sitemap.xml. A module under src/ that names it would be
+    // a component constructing an absolute URL to this app's own origin,
+    // which is what `location` is for, and which would then be allowed
+    // through the dist sweep by an exemption written for something else.
+    const host = new URL(SITE_ORIGIN).host
+    const offenders = walk(fromRoot('src'), SOURCE_EXTENSIONS)
+      .map((file) => relative(projectRoot, file))
+      .filter((file) => readFromRoot(file).includes(host))
+
+    expect(offenders).toEqual([])
   })
 
   it('imports every webfont from a bundled package, never from a CDN', () => {

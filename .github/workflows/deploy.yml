@@ -1,0 +1,109 @@
+name: Deploy
+
+# Runs only after the CI workflow has finished, and only if it SUCCEEDED —
+# `workflow_run` fires on completion regardless of outcome, so the conclusion
+# check below is what actually implements "after CI passes". Using
+# `workflow_run` rather than a `push` trigger is what makes that possible: a
+# push-triggered deploy has no way to wait for a separate workflow.
+#
+# The same trigger covers pull requests, because CI runs on those too. The
+# head branch decides which kind of deploy this is: `main` goes to production,
+# anything else to a Cloudflare Pages preview URL.
+#
+# NOTE ON THE ACTION: the brief named `cloudflare/pages-action`. That action is
+# archived and still declares the node16 runtime, which GitHub Actions no
+# longer provides — it fails on current runners. `cloudflare/wrangler-action`
+# running `wrangler pages deploy` is Cloudflare's supported replacement and
+# takes the same three secrets. See docs/DECISIONS.md ADR-030.
+
+on:
+  workflow_run:
+    workflows: [CI]
+    types: [completed]
+
+# A deploy needs nothing from the repository beyond reading it; the Pages
+# credentials are secrets, not the GITHUB_TOKEN.
+permissions:
+  contents: read
+  deployments: write
+
+concurrency:
+  group: deploy-${{ github.event.workflow_run.head_branch }}
+  cancel-in-progress: true
+
+jobs:
+  deploy:
+    # Three gates, all required:
+    #  1. CI actually passed (workflow_run fires on failure too);
+    #  2. the commit is from this repository, not a fork — a workflow_run job
+    #     has access to secrets, so deploying a fork's code from it would hand
+    #     the Pages token to anyone who can open a pull request;
+    #  3. the Pages project is configured (the secret is present).
+    if: >-
+      github.event.workflow_run.conclusion == 'success' &&
+      github.event.workflow_run.head_repository.full_name == github.repository
+    runs-on: ubuntu-latest
+    environment:
+      name: ${{ github.event.workflow_run.head_branch == 'main' && 'production' || 'preview' }}
+      url: ${{ steps.publish.outputs.deployment-url }}
+
+    steps:
+      # The exact commit CI verified, not whatever main points at now.
+      - uses: actions/checkout@v4
+        with:
+          ref: ${{ github.event.workflow_run.head_sha }}
+
+      - uses: pnpm/action-setup@v4
+        with:
+          version: 9.15.9
+
+      - uses: actions/setup-node@v4
+        with:
+          node-version-file: .nvmrc
+          cache: pnpm
+
+      - name: Install
+        run: pnpm install --frozen-lockfile
+
+      # VITE_SITE_URL reaches the Open Graph tags, the canonical link and
+      # sitemap.xml (vite.config.ts). A preview build gets the same value on
+      # purpose: a preview's own ephemeral hostname is not the canonical one,
+      # and a crawler that reached it should be told so.
+      - name: Build
+        env:
+          VITE_SITE_URL: ${{ vars.SITE_URL || 'https://sahayak.pages.dev' }}
+        run: pnpm build
+
+      # The size budget is re-checked here rather than trusted from CI: this
+      # job builds again, with a different VITE_SITE_URL, and a build that is
+      # over budget must not reach a reader.
+      - name: Re-check the size budget on the artefact being deployed
+        run: pnpm size
+
+      - name: Publish to Cloudflare Pages
+        id: publish
+        uses: cloudflare/wrangler-action@v3
+        with:
+          apiToken: ${{ secrets.CLOUDFLARE_API_TOKEN }}
+          accountId: ${{ secrets.CLOUDFLARE_ACCOUNT_ID }}
+          # `--branch` is what Pages uses to decide production vs preview: the
+          # project's production branch (main) publishes to the live domain,
+          # every other branch gets its own <branch>.<project>.pages.dev.
+          command: >-
+            pages deploy dist
+            --project-name=${{ secrets.CLOUDFLARE_PROJECT_NAME }}
+            --branch=${{ github.event.workflow_run.head_branch }}
+            --commit-dirty=true
+
+      - name: Summarise
+        run: |
+          {
+            echo "### Deployed"
+            echo
+            echo "| | |"
+            echo "|---|---|"
+            echo "| Branch | \`${{ github.event.workflow_run.head_branch }}\` |"
+            echo "| Commit | \`${{ github.event.workflow_run.head_sha }}\` |"
+            echo "| Kind | ${{ github.event.workflow_run.head_branch == 'main' && 'production' || 'preview' }} |"
+            echo "| URL | ${{ steps.publish.outputs.deployment-url }} |"
+          } >> "$GITHUB_STEP_SUMMARY"

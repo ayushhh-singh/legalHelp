@@ -53,16 +53,26 @@ describe('font stacks', () => {
     expect(stack('heading')).toMatch(/^'Poppins'/)
   })
 
-  it('leads the body stack with Inter', () => {
-    expect(stack('sans')).toMatch(/^'Inter Variable'/)
+  it('leads the body stack with Inter, behind the one-glyph rupee face', () => {
+    // 'Rupee Devanagari' declares `unicode-range: U+20A8, U+20B9` and nothing
+    // else, so it claims the rupee sign and no other character — which is the
+    // point: U+20B9 lives in Inter's 85 KB latin-ext subset, and resolving it
+    // to the Devanagari face the bilingual chrome already fetches takes that
+    // file off /pay's critical path entirely (ADR-030). Every other character
+    // still falls to Inter, which is what the second assertion holds.
+    expect(stack('sans')).toMatch(/^'Rupee Devanagari',\s*'Inter Variable'/)
+    expect(stack('sans')).toMatch(/'Inter Variable',\s*'Inter'/)
   })
 
   it('puts Noto Sans Devanagari behind both, so Hindi never hits a system face', () => {
     // Poppins carries no Devanagari; Noto sitting directly behind it is what
     // makes a Hindi heading fall through glyph-by-glyph rather than to whatever
     // the platform would otherwise choose.
-    expect(stack('heading')).toMatch(/'Poppins',\s*'Noto Sans Devanagari'/)
-    expect(stack('sans')).toMatch(/'Noto Sans Devanagari'/)
+    // 'Noto Sans Devanagari Variable' is the one variable file that replaced
+    // four static weights (ADR-030); the static family stays behind it as the
+    // fallback for a browser that cannot use a variable font.
+    expect(stack('heading')).toMatch(/'Poppins',\s*'Noto Sans Devanagari Variable',\s*'Noto Sans Devanagari'/)
+    expect(stack('sans')).toMatch(/'Noto Sans Devanagari Variable',\s*'Noto Sans Devanagari'/)
   })
 
   it('keeps `.font-display` on the body face and unlayered', () => {
@@ -97,7 +107,15 @@ describe('PageHeader', () => {
     const cleanup = installFonts()
     try {
       render(<PageHeader title="Law Converter" subtitle="IPC ⇄ BNS" />)
-      expect(firstFamily(screen.getByText('IPC ⇄ BNS'))).toBe('Inter Variable')
+      // The first family in --font-sans is the one-glyph rupee face, which
+      // covers U+20B9 and nothing else, so the face that actually renders
+      // this subtitle is the next one along.
+      const families = getComputedStyle(screen.getByText('IPC ⇄ BNS'))
+        .fontFamily.replace(/["']/g, '')
+        .split(',')
+        .map((family) => family.trim())
+      expect(families[0]).toBe('Rupee Devanagari')
+      expect(families[1]).toBe('Inter Variable')
     } finally {
       cleanup()
     }

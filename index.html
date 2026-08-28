@@ -12,7 +12,7 @@
     <meta name="theme-color" content="#F7F9FC" />
     <meta
       name="description"
-      content="Sahayak — offline-first bilingual reference and productivity tool for Indian central government officers. Public data only."
+      content="Sahayak · सरकारी सहायक — offline-first bilingual reference and productivity tool for Indian central government officers. Law, rules, drafting, pay and utilities. Public data only, no account, works offline. केंद्रीय सरकारी अधिकारियों के लिए द्विभाषी, ऑफ़लाइन-प्रथम संदर्भ एवं कार्य-सहायक उपकरण।"
     />
     <link rel="icon" href="/favicon.svg" type="image/svg+xml" />
     <link rel="apple-touch-icon" href="/icons/apple-touch-icon.png" />
@@ -20,10 +20,53 @@
     <!-- Fonts are self-hosted from @fontsource and bundled by Vite
          (src/styles/fonts.css). No third-party request is made at runtime. -->
 
+    <!--
+      Open Graph, Twitter and canonical tags are injected at build time by
+      vite.config.ts's socialTags() plugin, so the one absolute origin in the
+      build lives in that file (VITE_SITE_URL) and the bilingual description
+      comes from the same i18n catalogues the app renders. Nothing replaces
+      this marker in dev, which is why the tags are absent from `pnpm dev`.
+    -->
+    <!--%SOCIAL_TAGS%-->
+
     <title>Sahayak · सरकारी सहायक</title>
   </head>
   <body>
-    <div id="root"></div>
+    <!--
+      The app shell, in HTML.
+
+      #root used to be empty, so nothing at all was painted until the entry
+      chunk had downloaded, parsed, run, and resolved the active language's
+      i18n chunk: First Contentful Paint measured 2.6s on Lighthouse's mobile
+      profile, on a page whose header is a coloured bar and eleven characters.
+      This markup paints from the document and the stylesheet alone, with no
+      JavaScript, which is what an officer on a slow connection actually
+      experiences (ADR-030).
+
+      It is REPLACED, not hydrated: createRoot().render() clears #root's
+      children on first render (src/main.tsx). So it has exactly one job —
+      look like the real header while the real header is still downloading —
+      and every class here is one src/app/TopBar.tsx already uses, at the same
+      h-14 height and the same border and background, so the swap moves
+      nothing and Cumulative Layout Shift stays at 0.
+
+      The wordmark is the bilingual one from <title>, not a translated string:
+      this markup is built once and cannot know the reader's language, and
+      "Sahayak · सरकारी सहायक" is correct in both.
+    -->
+    <div id="root">
+      <div class="flex min-h-dvh flex-col bg-background text-foreground">
+        <div class="sticky top-0 z-40 border-b border-border bg-card">
+          <div class="flex h-14 items-center gap-3 px-3 sm:px-4">
+            <span class="h-6 w-[3px] shrink-0 self-center rounded-sm bg-marigold"></span>
+            <span class="truncate font-heading text-lg leading-none font-semibold">Sahayak</span>
+            <span class="hidden truncate font-sans text-xs text-muted-foreground sm:inline">
+              सरकारी सहायक
+            </span>
+          </div>
+        </div>
+      </div>
+    </div>
     <script type="module" src="/src/main.tsx"></script>
   </body>
 </html>

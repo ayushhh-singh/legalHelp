@@ -20,8 +20,42 @@
 @import '@fontsource/poppins/latin-600.css';
 @import '@fontsource/poppins/latin-700.css';
 
-/* Devanagari, for both body and headings. */
-@import '@fontsource/noto-sans-devanagari/devanagari-400.css';
-@import '@fontsource/noto-sans-devanagari/devanagari-500.css';
-@import '@fontsource/noto-sans-devanagari/devanagari-600.css';
-@import '@fontsource/noto-sans-devanagari/devanagari-700.css';
+/*
+ * Devanagari, for both body and headings — ONE variable file covering weights
+ * 100-900, not four static ones (ADR-030).
+ *
+ * The four static weights were 4 x ~52 KB and the browser fetched every weight
+ * a page actually used: three of them (400, 500, 600) on an English /law, all
+ * four on a Hindi one. The variable Devanagari subset is 121 KB and covers
+ * every weight in one request. That is a saving on every route this app has,
+ * and the widest margin is on the Hindi pages the four-file set cost the most.
+ *
+ * It also makes `.font-display`'s weight 800 an actual 800 rather than the
+ * 700 face the static set had to round it down to.
+ */
+@import '@fontsource-variable/noto-sans-devanagari/wght.css';
+
+/*
+ * The rupee sign, resolved to the Devanagari face rather than to Inter.
+ *
+ * U+20B9 sits in Inter's `latin-ext` subset, which is 85 KB — the single
+ * largest font file this app can request, downloaded in full so that /pay,
+ * /utils/leave and /utils/pension can draw one glyph. Noto Sans Devanagari's
+ * own `devanagari` subset covers U+20B9 and U+20A8 too, and on those pages it
+ * is already being fetched for the bilingual chrome, so this costs nothing and
+ * removes 85 KB from the critical path.
+ *
+ * A one-glyph family named ahead of Inter in --font-sans is what makes the
+ * browser pick it: font matching is per-character and the first family whose
+ * unicode-range covers the character wins. Same file as the @import above, so
+ * the browser dedupes it to one request.
+ */
+@font-face {
+  font-family: 'Rupee Devanagari';
+  src: url('@fontsource-variable/noto-sans-devanagari/files/noto-sans-devanagari-devanagari-wght-normal.woff2')
+    format('woff2-variations');
+  font-weight: 100 900;
+  font-style: normal;
+  font-display: swap;
+  unicode-range: U+20A8, U+20B9;
+}
