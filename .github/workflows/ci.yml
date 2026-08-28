@@ -8,8 +8,21 @@ on:
 permissions:
   contents: read
 
+# A second push to the same branch supersedes the first. The e2e job runs a
+# browser suite twice over (desktop and phone) and there is no value in two of
+# them racing for the same runners.
+concurrency:
+  group: ci-${{ github.ref }}
+  cancel-in-progress: true
+
 jobs:
-  check:
+  # ------------------------------------------------------------------ #
+  # 1. The fast one. Everything that needs no browser and no Python.
+  #    Fails in ~2 minutes on a typo, so it is what a pull request waits
+  #    on first.
+  # ------------------------------------------------------------------ #
+  unit:
+    name: Unit — lint, types, i18n, 1,900 tests, coverage
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
@@ -31,6 +44,46 @@ jobs:
       - name: Verify the bundled font licences are current
         run: pnpm fonts:licenses && git diff --exit-code public/OFL.txt
 
+      - name: Lint, typecheck, i18n parity
+        run: pnpm lint && pnpm typecheck && pnpm i18n:check
+
+      # `pnpm check` runs `pnpm test`; this runs it with coverage instead, so
+      # the thresholds in vite.config.ts (90% of lines, functions and statements
+      # over src/lib/**) are a gate rather than a report nobody reads. The two
+      # dist-only suites skip here and run in the `build` job, which has one.
+      - name: Unit tests with coverage
+        run: pnpm test:coverage
+
+      # The committed docs/COVERAGE.md is the human-readable summary. Failing on
+      # a diff is what stops it going stale: the numbers in the repository are
+      # then always the numbers the last green run measured.
+      - name: The committed coverage summary is current
+        run: |
+          node scripts/coverage-summary.mjs
+          git diff --exit-code docs/COVERAGE.md \
+            || { echo "::error::docs/COVERAGE.md is out of date — run 'pnpm test:coverage && node scripts/coverage-summary.mjs' and commit it"; exit 1; }
+
+      - name: Coverage summary
+        if: always()
+        run: cat docs/COVERAGE.md >> "$GITHUB_STEP_SUMMARY"
+
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: coverage
+          path: coverage/
+          retention-days: 14
+
+  # ------------------------------------------------------------------ #
+  # 2. The data pipeline. Python, and independent of the app — a parser
+  #    regression should not be hidden behind a TypeScript error.
+  # ------------------------------------------------------------------ #
+  data:
+    name: Data — ingest parsers and every dataset schema
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
       - uses: actions/setup-python@v5
         with:
           python-version: '3.12'
@@ -48,7 +101,7 @@ jobs:
       # The generated datasets validate themselves as they are written; the
       # hand-authored pay tables have no writer to do it for them. This is the
       # JSON Schema half of the contract — src/modules/pay/schema.ts is the zod
-      # half, and pnpm check runs that (ADR-016).
+      # half, and the unit job runs that (ADR-016).
       - name: Validate every dataset against its JSON Schema
         run: python scripts/ingest/validate_data.py
 
@@ -58,23 +111,129 @@ jobs:
       - name: Re-derive the pay matrix and check it against the gazette
         run: python scripts/ingest/pay_matrix.py --check
 
-      - name: Lint, typecheck, i18n parity, unit tests
-        run: pnpm check
+  # ------------------------------------------------------------------ #
+  # 3. The build, and the assertions that can only be made against one.
+  #    Uploads dist/ so the e2e job does not build it a second time —
+  #    testing a separately-built dist/ would be testing a different
+  #    artefact from the one these steps just verified.
+  # ------------------------------------------------------------------ #
+  build:
+    name: Build — bundle budget, no third-party URLs, SEO files
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: pnpm/action-setup@v4
+        with:
+          version: 9.15.9
+
+      - uses: actions/setup-node@v4
+        with:
+          node-version-file: .nvmrc
+          cache: pnpm
+
+      - name: Install
+        run: pnpm install --frozen-lockfile
 
       - name: Build
         run: pnpm build
 
-      # Re-run after the build so the dist-only assertions actually execute.
-      # bundle-budget also proves the AI layer is not in the initial route,
-      # which is a privacy property here, not a performance one (ADR-011).
+      # These three read dist/ off disk and SKIP silently without one, which is
+      # why they are here rather than in the unit job. bundle-budget also proves
+      # the AI layer is not in the initial route — a privacy property, not a
+      # performance one (ADR-011); seo reads the emitted sitemap and social tags
+      # back off disk (ADR-030).
       - name: Verify the build makes no third-party requests and stays in budget
-        run: pnpm exec vitest run tests/no-external-urls.test.ts tests/bundle-budget.test.ts
+        run: >-
+          pnpm exec vitest run
+          tests/no-external-urls.test.ts
+          tests/bundle-budget.test.ts
+          tests/seo.test.ts
+
+      # The same budget the vitest run above asserts, printed as a table so a
+      # failing pull request shows WHICH asset grew (scripts/size-budget.json
+      # is the one copy of the numbers — ADR-030).
+      - name: Size budget
+        run: pnpm size
+
+      - uses: actions/upload-artifact@v4
+        with:
+          name: dist
+          path: dist/
+          retention-days: 1
+
+  # ------------------------------------------------------------------ #
+  # 4. The browser suite. Two projects — desktop and a phone — over the
+  #    dist/ the build job produced.
+  # ------------------------------------------------------------------ #
+  e2e:
+    name: End-to-end — ${{ matrix.project }}
+    runs-on: ubuntu-latest
+    needs: build
+    strategy:
+      # One project failing should not hide the other's result: a defect that
+      # only appears at a phone viewport is exactly what this matrix is for.
+      fail-fast: false
+      matrix:
+        project: [desktop-chromium, mobile-chromium]
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: pnpm/action-setup@v4
+        with:
+          version: 9.15.9
+
+      - uses: actions/setup-node@v4
+        with:
+          node-version-file: .nvmrc
+          cache: pnpm
+
+      - name: Install
+        run: pnpm install --frozen-lockfile
+
+      # The browser binary is ~150 MB and changes only when @playwright/test
+      # does, so the key is the resolved version rather than the lockfile hash:
+      # a lockfile change that does not move Playwright still hits the cache.
+      - name: Resolve the Playwright version
+        id: playwright
+        run: echo "version=$(node -p "require('@playwright/test/package.json').version")" >> "$GITHUB_OUTPUT"
+
+      - uses: actions/cache@v4
+        id: playwright-cache
+        with:
+          path: ~/.cache/ms-playwright
+          key: playwright-${{ runner.os }}-${{ steps.playwright.outputs.version }}
 
       - name: Install Playwright browsers
+        if: steps.playwright-cache.outputs.cache-hit != 'true'
         run: pnpm exec playwright install --with-deps chromium
 
-      # Builds and serves dist/ itself (playwright.config.ts webServer) — the
-      # service worker, the real fonts and axe's colour-contrast rule all need
-      # a production build in a real browser.
-      - name: End-to-end (offline shell, axe, theme, typography)
-        run: pnpm test:e2e
+      # The system libraries live outside ~/.cache/ms-playwright, so a cache hit
+      # on the binary still needs them. `install-deps` alone is quick.
+      - name: Install Playwright system dependencies
+        if: steps.playwright-cache.outputs.cache-hit == 'true'
+        run: pnpm exec playwright install-deps chromium
+
+      # The exact dist/ the build job verified. playwright.config.ts's webServer
+      # runs `pnpm preview` rather than rebuilding when CI is set, so without
+      # this download there would be nothing to serve.
+      - uses: actions/download-artifact@v4
+        with:
+          name: dist
+          path: dist/
+
+      - name: End-to-end (${{ matrix.project }})
+        run: pnpm exec playwright test --project=${{ matrix.project }}
+
+      # Traces are recorded on the first retry (playwright.config.ts), so a test
+      # that fails twice always leaves one behind — and a flake that passes on
+      # retry leaves one too, which is what makes it diagnosable rather than
+      # merely annoying. Open with `pnpm exec playwright show-trace <file>`.
+      - uses: actions/upload-artifact@v4
+        if: failure()
+        with:
+          name: playwright-traces-${{ matrix.project }}
+          path: |
+            test-results/
+            playwright-report/
+          retention-days: 14

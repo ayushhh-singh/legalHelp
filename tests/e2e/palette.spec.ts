@@ -1,4 +1,4 @@
-import { expect, test } from '@playwright/test'
+import { expect, test } from './fixtures'
 
 /**
  * The global command palette (Ctrl/⌘-K) and the shortcut chords that reach

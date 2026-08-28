@@ -1,5 +1,5 @@
 import { CalendarDays, Download } from 'lucide-react'
-import { useMemo } from 'react'
+import { useMemo, type ReactNode } from 'react'
 
 import { AVAILABLE_YEARS } from './data'
 import { toIcs } from '@/lib/holidays/ics'
@@ -21,13 +21,66 @@ import type { Language } from '@/i18n'
 
 const MONTH_NAMES: Record<Language, string[]> = {
   en: [
-    'January', 'February', 'March', 'April', 'May', 'June',
-    'July', 'August', 'September', 'October', 'November', 'December',
+    'January',
+    'February',
+    'March',
+    'April',
+    'May',
+    'June',
+    'July',
+    'August',
+    'September',
+    'October',
+    'November',
+    'December',
   ], // fmt: skip
   hi: [
-    'जनवरी', 'फ़रवरी', 'मार्च', 'अप्रैल', 'मई', 'जून',
-    'जुलाई', 'अगस्त', 'सितंबर', 'अक्तूबर', 'नवंबर', 'दिसंबर',
+    'जनवरी',
+    'फ़रवरी',
+    'मार्च',
+    'अप्रैल',
+    'मई',
+    'जून',
+    'जुलाई',
+    'अगस्त',
+    'सितंबर',
+    'अक्तूबर',
+    'नवंबर',
+    'दिसंबर',
   ], // fmt: skip
+}
+
+/**
+ * A labelled, keyboard-reachable focus stop around something that scrolls
+ * sideways.
+ *
+ * Two requirements pull opposite ways here. A sideways-scrolling region whose
+ * contents are all plain text has to be focusable, or a keyboard-only reader
+ * can never reach the scrollbar and simply never sees what is past the viewport
+ * edge — WCAG 2.1.1, which axe reports as `scrollable-region-focusable` and
+ * which only a real browser can see, since jsdom has no layout and nothing
+ * overflows there. But putting a `role` on the `<ul>` to satisfy the lint rule
+ * takes the list's own semantics away, which orphans every `<li>` and trades
+ * one serious violation for five. So the scroll container is a wrapper, and the
+ * list inside it is untouched.
+ *
+ * The rule's premise — a tabindex on a non-interactive element is a mistake —
+ * is exactly what a scroll container has to do, so the exception is written
+ * here once rather than at each call site.
+ */
+const STRIP_CLASS =
+  'overflow-x-auto pb-1 focus-visible:ring-2 focus-visible:ring-ring focus-visible:outline-none'
+
+function ScrollStrip({ label, children }: { label: string; children: ReactNode }) {
+  return (
+    // The class list is a const so this stays ONE line: an
+    // `eslint-disable-next-line` covers the next LINE, and with the attributes
+    // wrapped the rule reports against `tabIndex` two lines down instead.
+    // eslint-disable-next-line jsx-a11y/no-noninteractive-tabindex
+    <div tabIndex={0} aria-label={label} className={STRIP_CLASS}>
+      {children}
+    </div>
+  )
 }
 
 function monthOf(date: string): number {
@@ -80,7 +133,9 @@ export default function HolidaysPage() {
     <div className="mx-auto flex max-w-4xl flex-col gap-6">
       <PageHeader title={t('utils.holidays.title')} subtitle={t('utils.holidays.subtitle')} />
 
-      {calendar.status === 'error' ? <QueryErrorState body={t('errors.body')} onRetry={calendar.retry} /> : null}
+      {calendar.status === 'error' ? (
+        <QueryErrorState body={t('errors.body')} onRetry={calendar.retry} />
+      ) : null}
 
       {calendar.status === 'loading' ? (
         <div className="space-y-3" aria-live="polite" aria-label={t('common.loading')}>
@@ -107,32 +162,38 @@ export default function HolidaysPage() {
             {upcomingHolidays.length === 0 ? (
               <p className="text-sm text-muted-foreground">{t('utils.holidays.noneUpcoming')}</p>
             ) : (
-              <ul className="flex gap-3 overflow-x-auto pb-1">
-                {upcomingHolidays.map((h) => (
-                  <li
-                    key={h.id}
-                    className="flex min-w-40 shrink-0 flex-col gap-1 rounded-lg border border-border bg-muted/40 p-3"
-                  >
-                    <span
-                      className={cn(
-                        'w-fit rounded-full px-2 py-0.5 text-[10px] font-semibold tabular-nums',
-                        h.kind === 'gazetted'
-                          ? 'bg-marigold/15 text-marigold-foreground'
-                          : 'bg-accent text-accent-foreground',
-                      )}
+              <ScrollStrip label={t('utils.holidays.upcoming')}>
+                <ul className="flex gap-3">
+                  {upcomingHolidays.map((h) => (
+                    <li
+                      key={h.id}
+                      className="flex min-w-40 shrink-0 flex-col gap-1 rounded-lg border border-border bg-muted/40 p-3"
                     >
-                      {h.kind === 'gazetted' ? t('utils.holidays.gazetted') : t('utils.holidays.restricted')}
-                    </span>
-                    <span className="text-sm font-medium">{h.name[language]}</span>
-                    <span className="text-xs text-muted-foreground tabular-nums">{h.date}</span>
-                  </li>
-                ))}
-              </ul>
+                      <span
+                        className={cn(
+                          'w-fit rounded-full px-2 py-0.5 text-[10px] font-semibold tabular-nums',
+                          h.kind === 'gazetted'
+                            ? 'bg-marigold/15 text-marigold-foreground'
+                            : 'bg-accent text-accent-foreground',
+                        )}
+                      >
+                        {h.kind === 'gazetted'
+                          ? t('utils.holidays.gazetted')
+                          : t('utils.holidays.restricted')}
+                      </span>
+                      <span className="text-sm font-medium">{h.name[language]}</span>
+                      <span className="text-xs text-muted-foreground tabular-nums">{h.date}</span>
+                    </li>
+                  ))}
+                </ul>
+              </ScrollStrip>
             )}
           </SectionCard>
 
           <SectionCard className="p-4">
-            <h2 className="mb-3 text-sm font-semibold">{t('utils.holidays.yearAtAGlance', { year: dataset.year })}</h2>
+            <h2 className="mb-3 text-sm font-semibold">
+              {t('utils.holidays.yearAtAGlance', { year: dataset.year })}
+            </h2>
             <div className="grid grid-cols-2 gap-2 sm:grid-cols-3 md:grid-cols-4">
               {byMonth?.map((month, index) => {
                 const total = month.gazetted.length + month.restricted.length
@@ -140,7 +201,9 @@ export default function HolidaysPage() {
                   <div key={index} className="rounded-lg border border-border p-2.5">
                     <p className="text-xs font-semibold">{MONTH_NAMES[language][index]}</p>
                     {total === 0 ? (
-                      <p className="mt-1 text-[11px] text-muted-foreground">{t('utils.holidays.noneThisMonth')}</p>
+                      <p className="mt-1 text-[11px] text-muted-foreground">
+                        {t('utils.holidays.noneThisMonth')}
+                      </p>
                     ) : (
                       <div className="mt-1 flex flex-wrap gap-1">
                         {[...month.gazetted, ...month.restricted]

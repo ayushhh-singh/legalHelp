@@ -42,6 +42,15 @@ export default function PortalsPage() {
   }, [searchParams])
   const [category, setCategory] = useState<PortalCategory | 'all'>('all')
   const [copiedId, setCopiedId] = useState<string | null>(null)
+  /*
+    What the copy button did, announced rather than only drawn.
+
+    The button's only feedback was swapping its Copy icon for a Check, and both
+    are `aria-hidden` — so to a screen reader nothing happened at all. Every
+    other copy affordance in this app already says so out loud
+    (`SectionActions.tsx`, `TermRow.tsx`); this one was the odd one out.
+  */
+  const [message, setMessage] = useState('')
 
   const filtered = useMemo(() => {
     const portals = state.status === 'ready' ? state.data.portals : []
@@ -62,8 +71,10 @@ export default function PortalsPage() {
     try {
       await navigator.clipboard.writeText(portal.url)
       setCopiedId(portal.id)
+      setMessage(t('utils.portals.copied'))
     } catch {
       setCopiedId(null)
+      setMessage(t('utils.portals.copyFailed'))
     }
   }
 
@@ -87,7 +98,11 @@ export default function PortalsPage() {
 
         <fieldset className="mt-3 min-w-0">
           <legend className="sr-only">{t('utils.portals.categoryAll')}</legend>
-          <div role="radiogroup" aria-label={t('utils.portals.categoryAll')} className="flex flex-wrap gap-1.5">
+          <div
+            role="radiogroup"
+            aria-label={t('utils.portals.categoryAll')}
+            className="flex flex-wrap gap-1.5"
+          >
             <CategoryChip checked={category === 'all'} onSelect={() => setCategory('all')}>
               {t('utils.portals.categoryAll')}
             </CategoryChip>
@@ -117,7 +132,10 @@ export default function PortalsPage() {
           </p>
           <ul className="space-y-2">
             {filtered.map((portal) => (
-              <li key={portal.id} className="rounded-lg border border-border p-3 transition-colors hover:border-input">
+              <li
+                key={portal.id}
+                className="rounded-lg border border-border p-3 transition-colors hover:border-input"
+              >
                 <div className="flex flex-wrap items-start justify-between gap-x-3 gap-y-1">
                   <div>
                     <p className="text-sm font-semibold">{portal.name[language]}</p>
@@ -157,6 +175,10 @@ export default function PortalsPage() {
         </>
       ) : null}
 
+      <p role="status" aria-live="polite" className="min-h-4 text-xs text-muted-foreground">
+        {message}
+      </p>
+
       <Disclaimer />
       <DataVersion dataset="portals" />
     </div>
@@ -177,7 +199,7 @@ function CategoryChip({
       className={cn(
         'inline-flex min-h-9 cursor-pointer items-center justify-center rounded-full border px-3 text-xs font-medium transition-colors',
         checked
-          ? 'border-action bg-action text-action-foreground font-semibold'
+          ? 'border-action bg-action font-semibold text-action-foreground'
           : 'border-border bg-card text-muted-foreground hover:border-input hover:text-foreground',
         'has-[:focus-visible]:ring-2 has-[:focus-visible]:ring-ring has-[:focus-visible]:ring-offset-2 has-[:focus-visible]:ring-offset-background',
       )}

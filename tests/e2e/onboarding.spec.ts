@@ -1,4 +1,4 @@
-import { expect, test } from '@playwright/test'
+import { expect, test } from './fixtures'
 
 /**
  * First-run onboarding, in a real browser.
@@ -29,7 +29,10 @@ test('walks language, post/city and the privacy step, then lands on the law page
 
   const cityPicker = page.getByRole('combobox', { name: 'तैनाती का स्थान', exact: true })
   await cityPicker.fill('Delhi')
-  await page.getByRole('option', { name: /^दिल्ली/ }).first().click()
+  await page
+    .getByRole('option', { name: /^दिल्ली/ })
+    .first()
+    .click()
 
   // The RTI s.24 note names the brief's own worked example.
   await expect(page.getByText(/शासकीय गुप्त बात अधिनियम/)).toBeVisible()

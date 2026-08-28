@@ -1,4 +1,4 @@
-import { expect, test } from '@playwright/test'
+import { expect, test } from './fixtures'
 
 /**
  * ADR-010 reverses ADR-006: light is the default and dark applies only from the

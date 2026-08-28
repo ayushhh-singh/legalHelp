@@ -1,4 +1,6 @@
-import { expect, test, type Page } from '@playwright/test'
+import type { Page } from '@playwright/test'
+
+import { dismissPwaToasts, expect, test } from './fixtures'
 
 /**
  * The Rules Trainer, in a real browser, against the committed `data/rules`.
@@ -77,6 +79,12 @@ test('a mock test can be completed start to finish', async ({ page }) => {
   // 10 questions, no timer — the defaults — over every rule book.
   await page.getByRole('button', { name: 'Start test' }).click()
 
+  // On a phone the service worker's "Ready to work offline." toast is a
+  // full-width bar just above the tab bar, waiting for an acknowledgement —
+  // exactly where "Next question" is, and it intercepts every click on it.
+  // docs/DATA-GAPS.md #59; a real reader dismisses it, which is what this does.
+  await dismissPwaToasts(page)
+
   for (let i = 0; i < 10; i += 1) {
     await expect(page.getByRole('radiogroup', { name: 'Answer options' })).toBeVisible()
     await page.getByRole('radiogroup', { name: 'Answer options' }).getByRole('radio').first().click()
@@ -115,9 +123,9 @@ test('a topic’s Copy link on Browse produces the same URL a review-scope link 
   await context.grantPermissions(['clipboard-read', 'clipboard-write'])
   await page.goto('/learn/browse')
   await expect(page.getByRole('heading', { level: 1 })).toBeVisible()
-  await expect(
-    page.getByText('Central Civil Services (Conduct) Rules, 1964', { exact: false }),
-  ).toBeVisible({ timeout: 30_000 })
+  await expect(page.getByText('Central Civil Services (Conduct) Rules, 1964', { exact: false })).toBeVisible({
+    timeout: 30_000,
+  })
 
   await page.getByRole('button', { name: 'Copy link to this rule book' }).first().click()
   await expect(page.getByText('Link copied to the clipboard.')).toBeVisible()

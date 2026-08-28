@@ -1,4 +1,4 @@
-import { expect, test } from '@playwright/test'
+import { expect, test } from './fixtures'
 
 const ROUTES = [
   '/law',
@@ -42,8 +42,11 @@ test('makes no cross-origin request while browsing every route or switching lang
   }
 
   // The language toggle is a different code path (i18next resource lookup, a
-  // full re-render) — worth the same guarantee.
-  await page.locator('header button').first().click()
+  // full re-render, and since ADR-031 a chunk fetch for the other catalogue) —
+  // worth the same guarantee. Located by its accessible name rather than by
+  // position: the first button in the header is the command palette's, which
+  // is `hidden sm:flex` and so is not there at all on a phone.
+  await page.getByRole('button', { name: 'Switch to Hindi' }).click()
   await expect(page.getByRole('heading', { level: 1 })).toBeVisible()
 
   expect(crossOrigin).toEqual([])
@@ -271,7 +274,10 @@ test('sends nothing while onboarding is walked through, post and city included',
 
   const cityPicker = page.getByRole('combobox', { name: 'Place of posting', exact: true })
   await cityPicker.fill('Delhi')
-  await page.getByRole('option', { name: /^Delhi/ }).first().click()
+  await page
+    .getByRole('option', { name: /^Delhi/ })
+    .first()
+    .click()
   await page.getByRole('button', { name: 'Continue' }).click()
 
   await expect(page.getByRole('heading', { name: 'Before you begin' })).toBeVisible()

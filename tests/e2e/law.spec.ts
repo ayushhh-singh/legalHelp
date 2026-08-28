@@ -1,4 +1,6 @@
-import { expect, test, type Page } from '@playwright/test'
+import type { Page } from '@playwright/test'
+
+import { expect, onPhone, test } from './fixtures'
 
 /**
  * The Law Converter, in a real browser.
@@ -148,13 +150,25 @@ test('the browse list holds every row of the Act, end to end', async ({ page }) 
 })
 
 test('opening a section keeps the search box on a desktop and reveals it on a phone', async ({ page }) => {
+  // This one drives BOTH viewports itself, by setting them, so running it a
+  // second time under the mobile project would only repeat it with a different
+  // starting size. The desktop project is where it belongs.
+  test.skip(onPhone(page), 'sets its own viewports; runs once, on desktop-chromium')
+
   // Two panes on a wide screen: the card is already beside the list, so
   // nothing should move and the search box must stay where it is.
   await page.setViewportSize({ width: 1440, height: 900 })
   await page.goto('/law?browse=1&code=bns')
   const wide = page.getByRole('list', { name: 'Search results' })
   await expect(wide.getByRole('button').first()).toContainText('BNS 1')
-  await wide.getByRole('button').nth(3).click()
+  // Wait for the row to be ON SCREEN before clicking it. Without this the
+  // click can land while the 358-row list is still laying out, Chromium
+  // scrolls the focused row into view, and the assertion below reads a
+  // scroll the APP never asked for — which shows up as a flake under load
+  // rather than as a real regression in the two-pane layout.
+  const row = wide.getByRole('button').nth(3)
+  await expect(row).toBeInViewport()
+  await row.click()
   await expect(page.getByRole('heading', { name: 'Punishments.' })).toBeVisible()
   // Not exactly zero: focusing the clicked row nudges the page a pixel or two.
   // What matters is that the search box is still on screen, not that nothing
@@ -342,11 +356,17 @@ test("what's new cites a real section for every bullet", async ({ page }) => {
 })
 
 test('the Law Converter stays the active navigation item on its sub-routes', async ({ page }) => {
+  // ONE nav config array drives both chromes (src/lib/nav.ts), and each labels
+  // its own landmark: the sidebar is "Main navigation" from 1024px, the bottom
+  // tab bar is "Main tabs" below it. Asserting the sidebar's name on a phone
+  // would be asserting against a landmark that is not rendered at all.
+  const navName = onPhone(page) ? 'Main tabs' : 'Main navigation'
+
   for (const route of ['/law', '/law/whats-new', '/law/saved']) {
     await page.goto(route)
-    // The sidebar marks the current page for screen readers as well as visually.
+    // The chrome marks the current page for screen readers as well as visually.
     await expect(
-      page.getByRole('navigation', { name: 'Main navigation' }).getByRole('link', { name: /Law Converter/ }),
+      page.getByRole('navigation', { name: navName }).getByRole('link', { name: /Law Converter/ }),
     ).toHaveAttribute('aria-current', 'page')
   }
 })

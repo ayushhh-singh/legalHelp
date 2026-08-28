@@ -1,7 +1,6 @@
-import { readFileSync } from 'node:fs'
-import { createRequire } from 'node:module'
+import type { Page } from '@playwright/test'
 
-import { expect, test, type Page } from '@playwright/test'
+import { audit, expect, formatViolations as format, storedSetting, test } from './fixtures'
 
 /**
  * axe over the built shell, in a real browser, across every route x both
@@ -11,11 +10,13 @@ import { expect, test, type Page } from '@playwright/test'
  * layout or paint, so src/app/App.a11y.test.tsx has to disable that rule and it
  * reports as *incomplete* there, not *pass*. Closes docs/DATA-GAPS.md #2.
  *
- * axe-core is injected from node_modules rather than fetched — the hard rule is
- * that this app makes no third-party request, and that includes its own tests.
+ * `audit`, `settle` and the axe source itself live in `./fixtures` rather than
+ * here, because `tests/e2e/keyboard.spec.ts` audits too and two copies of an
+ * axe harness would drift. axe-core is injected from node_modules rather than
+ * fetched — the hard rule is that this app makes no third-party request, and
+ * that includes its own tests; the network gate in that same fixture would fail
+ * this spec if it ever were.
  */
-const require = createRequire(import.meta.url)
-const AXE_SOURCE = readFileSync(require.resolve('axe-core/axe.min.js'), 'utf8')
 
 const ROUTES = [
   '/law',
@@ -31,10 +32,21 @@ const ROUTES = [
   '/learn/browse',
   '/learn/mock',
   '/learn/settings',
+  '/learn/bookmarks',
+  '/learn/reports',
+  '/learn/review-queue',
   '/utils',
   // 1,891 terms is as much markup as the picker sweep would never see —
   // /utils alone never renders a single row of it.
   '/utils/glossary',
+  // Utilities' other four tools, each of which is a form and a results panel
+  // the hub route never renders: a month grid and a restricted-holiday picker,
+  // six number inputs, a scheme radio group, and a searchable directory. The
+  // sweep covered none of them until this session.
+  '/utils/holidays',
+  '/utils/leave',
+  '/utils/pension',
+  '/utils/portals',
   '/settings',
   '/onboarding',
 ]
@@ -79,56 +91,6 @@ const READY_TEXT: Readonly<Record<string, RegExp>> = {
   '/learn': /Start review|पुनरीक्षण आरंभ करें/,
 }
 
-interface AxeViolation {
-  id: string
-  impact: string | null
-  help: string
-  nodes: { target: string[]; failureSummary?: string }[]
-}
-
-/**
- * Wait for every FINITE running animation to finish.
- *
- * The nav items carry `transition-colors`, so switching theme animates their
- * text and background through intermediate colours for ~150ms. axe sampling
- * inside that window reported a real-looking `color-contrast` violation on a
- * pair that measures 8.1:1 once settled. Transient states are not what WCAG
- * 1.4.3 is about, and an arbitrary sleep would only hide the race — this waits
- * on the actual animations.
- *
- * Infinite ones are filtered out, and that is not a detail: `Skeleton` renders
- * `animate-pulse`, whose `finished` promise never resolves. Awaiting it would
- * hang this spec until Playwright's 30s timeout the first time any page renders
- * a skeleton — a failure that would look like a flake and arrive in whichever
- * session happens to add one.
- */
-async function settle(page: Page) {
-  await page.evaluate(() =>
-    Promise.all(
-      document
-        .getAnimations()
-        .filter((animation) => animation.effect?.getComputedTiming().iterations !== Infinity)
-        .map((animation) => animation.finished.catch(() => undefined)),
-    ),
-  )
-}
-
-async function audit(page: Page): Promise<AxeViolation[]> {
-  await settle(page)
-  await page.evaluate(AXE_SOURCE)
-  return page.evaluate(async () => {
-    const results = await (
-      window as unknown as {
-        axe: { run: (ctx: Document, opts: unknown) => Promise<{ violations: AxeViolation[] }> }
-      }
-    ).axe.run(document, { resultTypes: ['violations'] })
-    return results.violations
-  })
-}
-
-const format = (violations: AxeViolation[]) =>
-  violations.map((v) => `${v.impact ?? '?'} ${v.id} @ ${v.nodes.map((n) => n.target.join(' ')).join(' | ')}`)
-
 /**
  * Set language and theme ONCE, from the real controls. Both are persisted in
  * IndexedDB and survive navigation, so toggling per route would flip them back
@@ -139,13 +101,17 @@ async function setChrome(page: Page, language: 'en' | 'hi', theme: 'light' | 'da
   await page.goto(ROUTES[0] ?? '/law')
   await expect(page.getByRole('heading', { level: 1 })).toBeVisible()
 
+  // The generous timeouts are the same budget question as the test timeout
+  // below: this is the first thing each of the four sweeps does, four workers
+  // start it at once, and a toggle that has been clicked and not yet re-rendered
+  // is contention rather than a defect.
   if (language === 'hi') {
     await page.getByRole('button', { name: 'Switch to Hindi' }).click()
-    await expect(page.locator('html')).toHaveAttribute('lang', 'hi')
+    await expect(page.locator('html')).toHaveAttribute('lang', 'hi', { timeout: 30_000 })
   }
   if (theme === 'dark') {
     await page.getByRole('button', { name: /dark theme|गहरे रंग/i }).click()
-    await expect(page.locator('html')).toHaveClass(/dark/)
+    await expect(page.locator('html')).toHaveClass(/dark/, { timeout: 30_000 })
   }
 
   /*
@@ -164,38 +130,36 @@ async function setChrome(page: Page, language: 'en' | 'hi', theme: 'light' | 'da
     ['theme', theme === 'dark' ? 'dark' : null],
   ] as const) {
     if (!value) continue
-    await expect.poll(() => storedSetting(page, key)).toBe(value)
+    await expect.poll(() => storedSetting(page, key), { timeout: 30_000 }).toBe(value)
   }
-}
-
-/** One row out of the `settings` store, or null while it is not there yet. */
-function storedSetting(page: Page, key: string): Promise<string | null> {
-  return page.evaluate(
-    (name) =>
-      new Promise<string | null>((resolve) => {
-        const open = indexedDB.open('sahayak')
-        open.onerror = () => resolve(null)
-        open.onsuccess = () => {
-          const request = open.result.transaction('settings').objectStore('settings').get(name)
-          request.onerror = () => resolve(null)
-          request.onsuccess = () => {
-            const row = request.result as { value?: unknown } | undefined
-            resolve(row === undefined ? null : String(row.value))
-          }
-        }
-      }),
-    key,
-  )
 }
 
 for (const language of ['en', 'hi'] as const) {
   for (const theme of ['light', 'dark'] as const) {
     test(`no axe violations in ${language} / ${theme}`, async ({ page }) => {
+      /*
+        Four minutes, not the default thirty seconds.
+
+        This is one test that navigates 21 routes and runs a full axe pass on
+        each; a quiet run takes about 21 seconds, which is already at the
+        default ceiling before any contention. Under `pnpm test:e2e`'s four
+        workers across two projects it went over — as a 30s test timeout, and
+        as a 5s `expect` timeout on the `<h1>` of whichever route happened to
+        be loading when another worker took the CPU. Both are budgets rather
+        than defects: every case passes at `--workers=1`, and splitting the
+        sweep per route would multiply the setChrome() cost by 21.
+
+        Raised deliberately and stated here, rather than left to be
+        rediscovered as a flake in CI — the same conclusion CLAUDE.md records
+        for tests/rules-data.test.ts.
+      */
+      test.setTimeout(240_000)
+
       await setChrome(page, language, theme)
 
       for (const route of ROUTES) {
         await page.goto(route)
-        await expect(page.getByRole('heading', { level: 1 })).toBeVisible()
+        await expect(page.getByRole('heading', { level: 1 })).toBeVisible({ timeout: 30_000 })
         const ready = READY[route]
         if (ready) await expect(page.getByRole('combobox', { name: ready }).first()).toBeVisible()
         const readyButton = READY_BUTTON[route]
@@ -210,8 +174,10 @@ for (const language of ['en', 'hi'] as const) {
         }
         // The preference is read back out of IndexedDB after a navigation;
         // audit the page the reader actually sees, not the pre-hydration one.
-        await expect(page.locator('html')).toHaveAttribute('lang', language)
-        if (theme === 'dark') await expect(page.locator('html')).toHaveClass(/dark/)
+        await expect(page.locator('html')).toHaveAttribute('lang', language, { timeout: 30_000 })
+        if (theme === 'dark') {
+          await expect(page.locator('html')).toHaveClass(/dark/, { timeout: 30_000 })
+        }
 
         expect(format(await audit(page)), `${route} (${language}/${theme})`).toEqual([])
       }

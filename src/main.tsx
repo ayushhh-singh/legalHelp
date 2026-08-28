@@ -3,7 +3,7 @@ import { createRoot } from 'react-dom/client'
 import { BrowserRouter } from 'react-router-dom'
 
 import { App } from './app/App'
-import i18n from './i18n'
+import i18n, { i18nReady } from './i18n'
 import './styles/fonts.css'
 import './styles/index.css'
 
@@ -22,10 +22,18 @@ if (import.meta.env.DEV) {
   })
 }
 
-createRoot(container).render(
-  <StrictMode>
-    <BrowserRouter>
-      <App />
-    </BrowserRouter>
-  </StrictMode>,
-)
+// The active language's strings are their own chunk now (ADR-031), so the
+// first render waits for it. Without this await the shell paints one frame of
+// bare translation keys — i18next returns the key when a namespace has not
+// loaded, and `useSuspense: false` means nothing holds the tree back. The
+// chunk is same-origin, precached and already in flight by the time this line
+// runs, so the wait is a microtask on a warm load.
+void i18nReady.finally(() => {
+  createRoot(container).render(
+    <StrictMode>
+      <BrowserRouter>
+        <App />
+      </BrowserRouter>
+    </StrictMode>,
+  )
+})

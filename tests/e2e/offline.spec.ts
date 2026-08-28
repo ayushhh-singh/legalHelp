@@ -1,4 +1,4 @@
-import { expect, test } from '@playwright/test'
+import { expect, serviceWorkerReady, test } from './fixtures'
 
 /**
  * The master context's zero-network-requests-for-user-data rule needs a real
@@ -75,4 +75,62 @@ test('answers a glossary lookup with no network at all', async ({ page, context 
   await expect(page.getByRole('heading', { level: 1, name: 'Hindi administrative glossary' })).toBeVisible()
   await page.getByLabel('Search the glossary').fill('Cabinet Secretary')
   await expect(page.getByText('मंत्रिमंडल सचिव')).toBeVisible()
+})
+
+/**
+ * Every route, reloaded with the network switched off.
+ *
+ * The two lookups above prove the datasets are reachable offline. This proves
+ * the shell is: `navigateFallback: '/index.html'` (vite.config.ts) means a
+ * client-routed path like `/utils/pension` is never precached under its own
+ * name, so a hard reload there has to be answered by the cached shell and then
+ * re-routed by React Router. That is a different mechanism from a client-side
+ * navigation, and it is the one an officer actually hits — a PWA is reopened,
+ * not navigated to.
+ *
+ * `page.reload()` rather than `page.goto()`, deliberately: goto from an
+ * already-loaded page can be served by the router without a document request
+ * at all, which would pass this test without ever exercising the fallback.
+ */
+const EVERY_ROUTE = [
+  '/law',
+  '/law/whats-new',
+  '/law/saved',
+  '/pay',
+  '/draft',
+  '/draft/office-memorandum',
+  '/learn',
+  '/learn/browse',
+  '/learn/bookmarks',
+  '/learn/reports',
+  '/learn/settings',
+  '/utils',
+  '/utils/glossary',
+  '/utils/holidays',
+  '/utils/leave',
+  '/utils/pension',
+  '/utils/portals',
+  '/settings',
+]
+
+test('reloads every route with no network and still renders its own page', async ({ page, context }) => {
+  await page.goto('/settings')
+  await expect(page.getByRole('main')).toBeVisible()
+  await serviceWorkerReady(page)
+
+  await context.setOffline(true)
+
+  for (const route of EVERY_ROUTE) {
+    await page.goto(route)
+    await page.reload()
+
+    // A heading, not merely `main`: the fallback shell renders `main` for a
+    // route it failed to resolve too, so asserting on `main` alone would pass
+    // for a blank page. An <h1> means the route's own module chunk was in the
+    // cache and ran.
+    await expect(page.getByRole('heading', { level: 1 }), `${route} offline`).toBeVisible({
+      timeout: 30_000,
+    })
+    await expect(page, `${route} offline`).toHaveURL(new RegExp(`${route}$`))
+  }
 })

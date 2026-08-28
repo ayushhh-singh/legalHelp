@@ -159,3 +159,25 @@ describe('script detection', () => {
     expect(hasLatin('IPC 302')).toBe(true)
   })
 })
+
+describe('malformed input', () => {
+  it('transcribes a stray matra rather than dropping the syllable', () => {
+    // A vowel sign with no consonant before it is malformed Devanagari — a
+    // reader mid-keystroke, or a byte-soup Hindi PDF (DATA-GAPS #42). Search
+    // has to keep working through it, so the sign is transcribed on its own
+    // rather than silently swallowed.
+    expect(romanKey('\u093e')).not.toBe('')
+    expect(romanKey('\u093fजमानत')).toContain(romanKey('जमानत'))
+  })
+
+  it('reads Devanagari digits as their Latin equivalents', () => {
+    expect(romanKey('३०२')).toBe('302')
+    expect(romanKey('धारा १०३')).toContain('103')
+  })
+
+  it('returns an empty key for an empty string rather than throwing', () => {
+    expect(romanKey('')).toBe('')
+    expect(hasDevanagari('')).toBe(false)
+    expect(hasLatin('')).toBe(false)
+  })
+})

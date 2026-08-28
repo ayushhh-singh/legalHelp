@@ -47,12 +47,22 @@ interface AppState {
   hydrate: () => Promise<void>
 }
 
-/** Side effects that must track state, kept out of the reducer bodies. */
-function applyLanguage(language: Language) {
-  void i18n.changeLanguage(language)
+/**
+ * Side effects that must track state, kept out of the reducer bodies.
+ *
+ * Returns i18next's own promise. Each language is its own chunk (ADR-031), so
+ * `changeLanguage` resolves only once that chunk has loaded and `i18n.language`
+ * has actually moved — a caller that awaits `setLanguage` is entitled to a
+ * fully applied language, not one that is still in flight. `<html lang>` is set
+ * synchronously either way, because that is what assistive tech reads and it
+ * needs no strings to be correct.
+ */
+function applyLanguage(language: Language): Promise<unknown> {
+  const applied = i18n.changeLanguage(language)
   if (typeof document !== 'undefined') {
     document.documentElement.lang = language
   }
+  return applied
 }
 
 function applyTheme(theme: Theme) {
@@ -105,7 +115,7 @@ export const useAppStore = create<AppState>((set, get) => ({
   setLanguage: async (language) => {
     changedDuringHydrate.language = true
     set({ language })
-    applyLanguage(language)
+    await applyLanguage(language)
     await persist(SETTING_KEYS.language, language, set)
   },
 
@@ -197,7 +207,10 @@ export const useAppStore = create<AppState>((set, get) => ({
 
     if (!changedDuringHydrate.language) {
       next.language = language
-      applyLanguage(language)
+      // Not awaited: hydrate() must not hold the first paint behind a resource
+      // chunk. The shell is already rendering in the browser-detected language
+      // and re-renders when i18next emits `loaded`.
+      void applyLanguage(language)
     }
     if (!changedDuringHydrate.theme) {
       next.theme = theme

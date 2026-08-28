@@ -928,6 +928,8 @@
       "resultCount": "{{count}} portal(s)",
       "open": "Open",
       "copyUrl": "Copy URL",
+      "copied": "Copied to the clipboard.",
+      "copyFailed": "Could not copy — copy the URL from the address bar instead.",
       "empty": "No portal matches this search."
     },
     "leave": {

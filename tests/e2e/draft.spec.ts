@@ -1,7 +1,9 @@
 import { readFileSync } from 'node:fs'
 import { inflateRawSync } from 'node:zlib'
 
-import { expect, test, type Page } from '@playwright/test'
+import type { Page } from '@playwright/test'
+
+import { expect, showFormPane, showPreviewPane, test } from './fixtures'
 
 /**
  * The Drafting Studio, in a real browser.
@@ -113,6 +115,9 @@ test('writes an O.M., clears the checklist, exports a real .docx, and survives a
   await page.keyboard.press('Escape')
 
   // ---- export -------------------------------------------------------------
+  // Below 1024px the editor is two TABS, not two columns, and the export bar
+  // lives in the preview one. On a desktop this is a no-op.
+  await showPreviewPane(page)
   const downloadPromise = page.waitForEvent('download')
   await page.getByRole('button', { name: 'Word (.docx)' }).click()
   const download = await downloadPromise
@@ -138,16 +143,26 @@ test('writes an O.M., clears the checklist, exports a real .docx, and survives a
     .getByRole('radiogroup', { name: 'Preview language' })
     .getByRole('radio', { name: 'हिंदी' })
     .click()
-  await expect(page.getByText('कार्यालय ज्ञापन').first()).toBeVisible()
-  await expect(page.getByText('भारत सरकार').first()).toBeVisible()
+  // Scoped to the preview region, not the whole page: the body textarea holds
+  // the same words, and on a phone it is the hidden half of a two-tab layout —
+  // so an unscoped `.first()` resolves to a control that is not on screen.
+  const preview = page.getByRole('region', { name: 'Live preview' })
+  await expect(preview.getByText('कार्यालय ज्ञापन').first()).toBeVisible()
+  await expect(preview.getByText('भारत सरकार').first()).toBeVisible()
 
   // ---- reload restores it from Dexie -------------------------------------
   await expect(page).toHaveURL(/[?&]d=[0-9a-f]{18}/)
   const before = page.url()
   await page.reload()
   await expect(page.getByRole('heading', { level: 1, name: 'Office Memorandum (O.M.)' })).toBeVisible()
-  await expect(splitField(page, 'subject', 'en')).toHaveValue(SUBJECT, { timeout: 30_000 })
+  // Asserted BEFORE the pane is switched: the pane is itself part of the URL,
+  // so reading it afterwards would be reading a URL this test had just changed.
   expect(page.url()).toBe(before)
+
+  // A phone reloads back into whichever tab the URL names, and the form's
+  // fields are genuinely not rendered until that tab is asked for.
+  await showFormPane(page)
+  await expect(splitField(page, 'subject', 'en')).toHaveValue(SUBJECT, { timeout: 30_000 })
 
   // ---- and the whole of that touched nothing off-origin -------------------
   expect(crossOrigin).toEqual([])
@@ -157,7 +172,8 @@ test('a required item still failing holds the export back, and a recommended one
   page,
 }) => {
   await page.goto('/draft/office-memorandum')
-  await expect(page.getByRole('button', { name: /^Checklist/ })).toBeVisible({ timeout: 30_000 })
+  await expect(page.getByRole('button', { name: /^Checklist/ }).first()).toBeVisible({ timeout: 30_000 })
+  await showPreviewPane(page)
 
   // An empty form: required items failing, so the export is blocked outright.
   await expect(page.getByText('A required item is still failing')).toBeVisible()
@@ -169,14 +185,18 @@ test('a required item still failing holds the export back, and a recommended one
   await expect(page.getByRole('button', { name: 'Copy as text' })).toBeEnabled()
 
   // The worked example passes everything, so nothing is held back.
+  await showFormPane(page)
   await page.getByRole('button', { name: 'Fill with the worked example' }).click()
+  await showPreviewPane(page)
   await expect(page.getByText('A required item is still failing')).toHaveCount(0)
   await expect(page.getByRole('button', { name: 'Word (.docx)' })).toBeEnabled()
 
   // Emptying the copy-to list fails a RECOMMENDED item only: the export is
   // offered behind one press rather than refused.
+  await showFormPane(page)
   await splitField(page, 'copyTo', 'en').fill('')
   await splitField(page, 'copyTo', 'hi').fill('')
+  await showPreviewPane(page)
   await expect(page.getByText('Only recommended items are failing')).toBeVisible()
   await expect(page.getByRole('button', { name: 'Word (.docx)' })).toBeDisabled()
   await page.getByRole('button', { name: 'Export anyway' }).click()
@@ -193,6 +213,7 @@ test('one text serves both issues until the officer separates them', async ({ pa
 
   // Typed once, it appears in BOTH issues — which is what makes equal
   // bilingual footing bearable to type for a file number or a telephone number.
+  await showPreviewPane(page)
   await page
     .getByRole('radiogroup', { name: 'Preview language' })
     .getByRole('radio', { name: 'Side by side' })
@@ -201,8 +222,10 @@ test('one text serves both issues until the officer separates them', async ({ pa
 
   // Separated, the Hindi is the officer's own. The control names its own
   // field — there are fifteen of them on this form.
+  await showFormPane(page)
   await page.getByRole('button', { name: 'Write Hindi separately — Subject' }).click()
   await splitField(page, 'subject', 'hi').fill('अवकाश नियम')
+  await showPreviewPane(page)
   await expect(page.getByText('Leave rules')).toHaveCount(1)
   await expect(page.getByText('अवकाश नियम')).toHaveCount(1)
 })

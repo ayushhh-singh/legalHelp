@@ -175,4 +175,28 @@ describe('eraseAllLocalData', () => {
     expect(typeof caches).toBe('undefined')
     await expect(eraseAllLocalData()).resolves.toBeUndefined()
   })
+
+  it('also empties the service worker’s caches where the API does exist', async () => {
+    // "Erase everything" that leaves the precached shell and the `data-v1` /
+    // `runtime-v1` runtime caches behind has not erased everything. jsdom has
+    // no Cache Storage, so the branch is exercised against a stub of exactly
+    // the two methods the function calls.
+    const deleted: string[] = []
+    const stub = {
+      keys: () => Promise.resolve(['workbox-precache-v2', 'data-v1', 'runtime-v1']),
+      delete: (key: string) => {
+        deleted.push(key)
+        return Promise.resolve(true)
+      },
+    }
+    Object.defineProperty(globalThis, 'caches', { value: stub, configurable: true })
+    try {
+      await eraseAllLocalData()
+    } finally {
+      Reflect.deleteProperty(globalThis, 'caches')
+    }
+
+    expect(deleted.sort()).toEqual(['data-v1', 'runtime-v1', 'workbox-precache-v2'])
+    expect(typeof caches).toBe('undefined')
+  })
 })

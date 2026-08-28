@@ -1,8 +1,5 @@
-import i18next from 'i18next'
+import i18next, { type BackendModule, type ReadCallback } from 'i18next'
 import { initReactI18next } from 'react-i18next'
-
-import en from './en.json'
-import hi from './hi.json'
 
 export const LANGUAGES = ['en', 'hi'] as const
 export type Language = (typeof LANGUAGES)[number]
@@ -38,10 +35,50 @@ export function detectBrowserLanguage(
   return primarySubtag === 'hi' ? 'hi' : DEFAULT_LANGUAGE
 }
 
-export const resources = {
-  en: { translation: en },
-  hi: { translation: hi },
-} as const
+/**
+ * One language reaches the browser at boot, not two.
+ *
+ * Both resource files used to be static imports, so every reader downloaded
+ * ~40 KB gzip of translations of which they could read half. These loaders are
+ * dynamic imports, which means Vite emits `en` and `hi` as their own chunks and
+ * i18next fetches exactly the one being rendered — an ~18 KB gzip saving for an
+ * English reader and ~22 KB for a Hindi one, on every cold load. Both chunks are
+ * still precached by the service worker (vite.config.ts globPatterns covers
+ * every emitted .js), so toggling language offline works exactly as before.
+ *
+ * This is not a fallback: neither language is privileged, whichever one is
+ * active is the one that loads. docs/DATA-GAPS.md #55, ADR-031.
+ */
+const loaders: Record<Language, () => Promise<{ default: object }>> = {
+  en: () => import('./en.json'),
+  hi: () => import('./hi.json'),
+}
+
+/**
+ * i18next's own lazy-loading seam. Registering it as a backend rather than
+ * hand-rolling a `load-then-changeLanguage` wrapper is what keeps this module's
+ * public surface identical for the 29 files that import it: `changeLanguage`
+ * still just works, and it awaits the chunk itself.
+ */
+const chunkBackend: BackendModule = {
+  type: 'backend',
+  init: () => {},
+  read(language: string, _namespace: string, callback: ReadCallback) {
+    const load = isLanguage(language) ? loaders[language] : undefined
+    if (!load) {
+      callback(new Error(`Unsupported language: ${language}`), false)
+      return
+    }
+    void load().then(
+      (module) => {
+        callback(null, module.default)
+      },
+      (error: unknown) => {
+        callback(error instanceof Error ? error : new Error(String(error)), false)
+      },
+    )
+  },
+}
 
 /**
  * `fallbackLng` is deliberately false. Hindi and English are on equal footing,
@@ -49,17 +86,22 @@ export const resources = {
  * (scripts/i18n-check.mjs + src/i18n/i18n.test.ts) rather than quietly
  * rendering English.
  */
-void i18next.use(initReactI18next).init({
-  resources,
-  // Follow the browser on first load. A stored preference overrides this as
-  // soon as hydrate() resolves; starting at DEFAULT_LANGUAGE instead would
-  // show a Hindi reader English until that async read landed.
-  lng: detectBrowserLanguage(),
-  supportedLngs: LANGUAGES,
-  fallbackLng: false,
-  returnNull: false,
-  interpolation: { escapeValue: false },
-  react: { useSuspense: false },
-})
+export const i18nReady: Promise<unknown> = i18next
+  .use(chunkBackend)
+  .use(initReactI18next)
+  .init({
+    // Follow the browser on first load. A stored preference overrides this as
+    // soon as hydrate() resolves; starting at DEFAULT_LANGUAGE instead would
+    // show a Hindi reader English until that async read landed.
+    lng: detectBrowserLanguage(),
+    supportedLngs: LANGUAGES,
+    fallbackLng: false,
+    returnNull: false,
+    interpolation: { escapeValue: false },
+    react: { useSuspense: false },
+    // Only the active language is ever read; `all`/`languageOnly` would ask
+    // the backend for regional variants that have no chunk.
+    load: 'currentOnly',
+  })
 
 export default i18next

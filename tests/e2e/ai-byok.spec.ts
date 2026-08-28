@@ -1,4 +1,4 @@
-import { expect, test } from '@playwright/test'
+import { expect, test } from './fixtures'
 
 /**
  * Tier 1, with api.anthropic.com intercepted.
@@ -17,7 +17,16 @@ import { expect, test } from '@playwright/test'
 
 const FAKE_KEY = 'sk-ant-api03-playwright-not-a-real-key'
 
-test('sends exactly one request, with the expected headers, only on the button press', async ({ page }) => {
+test('sends exactly one request, with the expected headers, only on the button press', async ({
+  page,
+  network,
+}) => {
+  // The one deliberate exception to the suite-wide same-origin gate, declared
+  // rather than assumed: Tier 1 IS a call to api.anthropic.com, made only after
+  // the reader has consented and pressed the button. `page.route` below never
+  // lets it leave the browser; without this line the gate in `fixtures.ts`
+  // would fail the very test that proves the request is correct.
+  network.allowCrossOrigin(/^https:\/\/api\.anthropic\.com\//)
   const requests: { headers: Record<string, string>; body: string }[] = []
 
   await page.route('https://api.anthropic.com/**', async (route) => {
@@ -85,7 +94,8 @@ test('sends exactly one request, with the expected headers, only on the button p
   expect(stored).not.toContain(FAKE_KEY)
 })
 
-test('a rejected key is reported, and the failure is not silent', async ({ page }) => {
+test('a rejected key is reported, and the failure is not silent', async ({ page, network }) => {
+  network.allowCrossOrigin(/^https:\/\/api\.anthropic\.com\//)
   await page.route('https://api.anthropic.com/**', (route) =>
     route.fulfill({
       status: 401,
