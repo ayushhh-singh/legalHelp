@@ -27,7 +27,7 @@ interface AxeViolation {
 }
 
 /**
- * Wait for every running CSS transition to finish.
+ * Wait for every FINITE running animation to finish.
  *
  * The nav items carry `transition-colors`, so switching theme animates their
  * text and background through intermediate colours for ~150ms. axe sampling
@@ -35,10 +35,21 @@ interface AxeViolation {
  * pair that measures 8.1:1 once settled. Transient states are not what WCAG
  * 1.4.3 is about, and an arbitrary sleep would only hide the race — this waits
  * on the actual animations.
+ *
+ * Infinite ones are filtered out, and that is not a detail: `Skeleton` renders
+ * `animate-pulse`, whose `finished` promise never resolves. Awaiting it would
+ * hang this spec until Playwright's 30s timeout the first time any page renders
+ * a skeleton — a failure that would look like a flake and arrive in whichever
+ * session happens to add one.
  */
 async function settle(page: Page) {
   await page.evaluate(() =>
-    Promise.all(document.getAnimations().map((animation) => animation.finished.catch(() => undefined))),
+    Promise.all(
+      document
+        .getAnimations()
+        .filter((animation) => animation.effect?.getComputedTiming().iterations !== Infinity)
+        .map((animation) => animation.finished.catch(() => undefined)),
+    ),
   )
 }
 
@@ -96,6 +107,23 @@ for (const language of ['en', 'hi'] as const) {
     })
   }
 }
+
+test('the audit still finishes when an infinite animation is on the page', async ({ page }) => {
+  // Regression guard for settle(). <Skeleton/> renders `animate-pulse`, whose
+  // `finished` promise never resolves; awaiting it hung this spec until
+  // Playwright's timeout. No page renders one yet, so inject exactly what it
+  // renders — otherwise the guard only starts working after the bug reappears.
+  await page.goto('/law')
+  await expect(page.getByRole('heading', { level: 1 })).toBeVisible()
+  await page.evaluate(() => {
+    const skeleton = document.createElement('div')
+    skeleton.className = 'animate-pulse bg-muted h-4 w-20 rounded-md'
+    document.querySelector('main')?.appendChild(skeleton)
+  })
+  await expect.poll(() => page.evaluate(() => document.getAnimations().length)).toBeGreaterThan(0)
+
+  expect(format(await audit(page))).toEqual([])
+})
 
 test('no axe violations with the More sheet open', async ({ page }) => {
   // The one piece of chrome that is not on screen by default. 390px so the

@@ -625,3 +625,54 @@ with the `SectionNumber` chip (tabular numerals on `--muted`) as its partner. No
   a test that greps every shipped component for `text-<accent>` without `-foreground`, so a new component
   cannot quietly opt out.
 - `.claude/skills/frontend-design/SKILL.md` is the working reference for all of the above.
+
+### Addendum — edge-case pass (same session)
+
+A deliberate probing pass over everything Phase B touched, run against the built app in a real browser
+rather than reasoned about. Eight issues, each fixed and each now covered:
+
+- **`tests/e2e/a11y.spec.ts` would have hung, not failed.** `settle()` awaited `animation.finished` for
+  every running animation. `Skeleton` renders `animate-pulse`, which is infinite, so its promise never
+  resolves — the spec would have stalled until Playwright's 30s timeout the first time any page rendered a
+  skeleton, in whichever session happened to add one, looking like a flake. Infinite animations are now
+  filtered out. The regression test injects exactly what `Skeleton` renders, and was confirmed to hang
+  without the filter and pass with it.
+- **The More sheet was unreachable by forward Tab.** It was rendered _before_ the bar in the DOM, so
+  pressing Tab from the open trigger skipped the sheet entirely and landed in the page header — the sheet
+  was only reachable by Shift-Tabbing back through all four tabs. The sheet now follows the bar in the DOM
+  (so it immediately follows its own trigger, as the ARIA disclosure pattern requires) and
+  `flex-col-reverse` puts it back above the bar visually.
+- **`aria-controls` pointed at nothing while the sheet was shut.** The sheet is now always rendered and
+  carries the `hidden` attribute when closed, so the IDREF always resolves and the content stays out of
+  both the tab order and the accessibility tree.
+- **Tapping the destination you were already on left the sheet open**, because `openedAt === pathname`
+  never goes stale when the route does not change. The sheet's links now clear the state on click.
+- **`overflowIsActive` used `startsWith`**, so `/utils` would have claimed `/utilsomething`. Replaced with a
+  segment-boundary match that still claims `/utils/leave` once the module has child routes.
+- **`ProgressBar` rendered `aria-valuenow="NaN"`** for a non-finite value, and React dropped the width
+  declaration entirely — a bar that looks empty and announces garbage. `NaN` now reads 0; `Infinity` is
+  left to the clamp, because an overflow really is "full".
+- **`tokens.test.ts` looked blocks up by prefix.** `.dark { … }` and `:root, .dark { … }` both start a line
+  with `.dark {`, so the lookup returned whichever came first in the file. It worked only by source order:
+  moving the brand block above the palette would have silently swapped the dark theme's tokens for the
+  three brand colours, and every dark-theme assertion would then have been measuring the light palette and
+  passing. Blocks are now matched on their full, whitespace-normalised selector, with a test for it.
+- **`Chip` / `Badge` rendered no colour at all** for a tone arriving from untyped JavaScript. They fall back
+  to `neutral`.
+
+Two more were found and deliberately left as they are:
+
+- **`tests/e2e/theme.spec.ts` was racing IndexedDB.** The toggle applies in memory synchronously and
+  persists asynchronously, so polling the rendered colour and reloading immediately reloaded into light
+  perhaps one run in three. The test now waits for the value to actually be _in_ IndexedDB before
+  reloading, which is also the stronger assertion — it is the persistence that has to survive a reload,
+  not the paint. The underlying product behaviour (toggle, then reload within the write window, loses the
+  preference) is inherent to async storage and is not worth engineering around.
+- **`shell.edge.test.tsx` asserted `min-h-14` literally.** Once the sheet moved inside the nav landmark,
+  its 44px rows failed a test that was checking a class name rather than the 44px rule. Now it parses the
+  `min-h-*` value and asserts ≥ 44px, so it cannot fail on a legal size or pass on an illegal one.
+
+Verified clean at 320 / 390 / 767 / 768 / 1023 / 1024 / 1280px: all six destinations reachable at every
+one, with no gap at either breakpoint boundary. Every Devanagari node measured at exactly line-height 1.75,
+headings included. `tailwind-merge` 3 was checked directly against the custom token names — `text-sm` beside
+`text-marigold-foreground`, `bg-card` beside `bg-marigold/15` and so on — and drops nothing.

@@ -10,8 +10,32 @@ import { expect, test } from '@playwright/test'
 const LIGHT_BACKGROUND = 'rgb(247, 249, 252)' // --background, :root
 const DARK_BACKGROUND = 'rgb(6, 18, 37)' // --background, .dark
 
-const bodyBackground = (page: import('@playwright/test').Page) =>
-  page.evaluate(() => getComputedStyle(document.body).backgroundColor)
+type Page = import('@playwright/test').Page
+
+const bodyBackground = (page: Page) => page.evaluate(() => getComputedStyle(document.body).backgroundColor)
+
+/**
+ * The theme as IndexedDB actually holds it.
+ *
+ * Reading it is not pedantry: the toggle applies in memory synchronously and
+ * persists asynchronously, so polling the rendered colour and reloading
+ * immediately races the write and intermittently reloads into light. Waiting on
+ * the stored value is also the stronger assertion — it is the persistence that
+ * has to survive the reload, not the paint.
+ */
+const storedTheme = (page: Page) =>
+  page.evaluate(
+    () =>
+      new Promise<string | null>((resolve) => {
+        const open = indexedDB.open('sahayak')
+        open.onerror = () => resolve(null)
+        open.onsuccess = () => {
+          const request = open.result.transaction('settings').objectStore('settings').get('theme')
+          request.onerror = () => resolve(null)
+          request.onsuccess = () => resolve((request.result as { value?: string } | undefined)?.value ?? null)
+        }
+      }),
+  )
 
 test.describe('dark is an explicit choice, never the OS setting', () => {
   test.use({ colorScheme: 'dark' })
@@ -30,6 +54,7 @@ test.describe('dark is an explicit choice, never the OS setting', () => {
     await expect.poll(() => bodyBackground(page)).toBe(DARK_BACKGROUND)
 
     // ...and it survives a reload, because it is stored in IndexedDB.
+    await expect.poll(() => storedTheme(page)).toBe('dark')
     await page.reload()
     await expect(page.getByRole('main')).toBeVisible()
     await expect.poll(() => bodyBackground(page)).toBe(DARK_BACKGROUND)
@@ -37,5 +62,6 @@ test.describe('dark is an explicit choice, never the OS setting', () => {
     // Toggling back gives light again, on a system that still prefers dark.
     await page.getByRole('button', { name: /light theme|हल्के रंग/i }).click()
     await expect.poll(() => bodyBackground(page)).toBe(LIGHT_BACKGROUND)
+    await expect.poll(() => storedTheme(page)).toBe('light')
   })
 })

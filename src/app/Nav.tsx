@@ -17,6 +17,13 @@ import { NAV_ITEMS, OVERFLOW_NAV_ITEMS, PRIMARY_NAV_ITEMS, type NavItem } from '
 
 const GOLD_RULE = 'bg-marigold absolute'
 
+/**
+ * Segment-boundary match, not `startsWith`. `/utils` must not claim
+ * `/utilsomething`, and it must still claim `/utils/leave` once the module has
+ * child routes.
+ */
+const isOnPath = (pathname: string, path: string) => pathname === path || pathname.startsWith(`${path}/`)
+
 /** Desktop (>=1024px) left sidebar. */
 export function Sidebar() {
   const { t, language } = useT()
@@ -129,7 +136,7 @@ export function BottomTabs() {
     }
   }, [moreOpen])
 
-  const overflowIsActive = OVERFLOW_NAV_ITEMS.some((item) => pathname.startsWith(item.path))
+  const overflowIsActive = OVERFLOW_NAV_ITEMS.some((item) => isOnPath(pathname, item.path))
 
   return (
     <div
@@ -137,45 +144,18 @@ export function BottomTabs() {
       className="fixed inset-x-0 bottom-0 z-40 lg:hidden"
       style={{ paddingBottom: 'env(safe-area-inset-bottom)' }}
     >
-      {/* The sheet lives INSIDE the nav landmark, not beside it: content outside
-          every landmark is an axe `region` violation, and these are navigation
-          links either way. Distinct label from the sidebar's, since both are in
-          the DOM at once (only one is visible per breakpoint). */}
-      <nav aria-label={t('a11y.tabNavigation')}>
-        {moreOpen ? (
-          <div
-            id="nav-more-sheet"
-            className="mx-2 mb-2 rounded-lg border border-border bg-card p-2 shadow-lg md:hidden"
-          >
-            <ul className="flex flex-col gap-1">
-              {OVERFLOW_NAV_ITEMS.map((item) => (
-                <li key={item.id}>
-                  <NavLink
-                    to={item.path}
-                    className={({ isActive }) =>
-                      cn(
-                        'relative flex min-h-11 items-center gap-3 rounded-md py-2 pr-3 pl-4 text-sm',
-                        isActive ? 'bg-accent font-semibold text-accent-foreground' : 'text-muted-foreground',
-                      )
-                    }
-                  >
-                    {({ isActive }) => (
-                      <>
-                        {isActive ? (
-                          <span aria-hidden="true" className={cn(GOLD_RULE, 'inset-y-1 left-0 w-[3px]')} />
-                        ) : null}
-                        <item.icon aria-hidden="true" className="h-4 w-4 shrink-0" />
-                        <span>{item.label[language]}</span>
-                        {isActive ? <span className="sr-only"> ({t('a11y.currentPage')})</span> : null}
-                      </>
-                    )}
-                  </NavLink>
-                </li>
-              ))}
-            </ul>
-          </div>
-        ) : null}
+      {/*
+        The sheet lives INSIDE the nav landmark (content outside every landmark
+        is an axe `region` violation) and AFTER the bar in the DOM, so it
+        immediately follows its own trigger — the last item in the list — for
+        keyboard users. `flex-col-reverse` puts it back above the bar visually.
+        With the sheet before the bar, Tab from the open More button skipped
+        straight past the sheet into the page header.
 
+        Distinct label from the sidebar's, since both are in the DOM at once
+        (only one is visible per breakpoint).
+      */}
+      <nav aria-label={t('a11y.tabNavigation')} className="flex flex-col-reverse">
         <ul className="grid grid-cols-5 border-t border-border bg-card md:grid-cols-6">
           {PRIMARY_NAV_ITEMS.map((item) => (
             <li key={item.id}>
@@ -214,6 +194,46 @@ export function BottomTabs() {
             </button>
           </li>
         </ul>
+
+        {/* Always rendered, hidden when closed: `aria-controls` above must
+            resolve to a real element, and `hidden` keeps it out of both the tab
+            order and the accessibility tree while it is shut. */}
+        <div
+          id="nav-more-sheet"
+          hidden={!moreOpen}
+          className="mx-2 mb-2 rounded-lg border border-border bg-card p-2 shadow-lg md:hidden"
+        >
+          <ul className="flex flex-col gap-1">
+            {OVERFLOW_NAV_ITEMS.map((item) => (
+              <li key={item.id}>
+                <NavLink
+                  to={item.path}
+                  // Closes even when the target is the route already showing,
+                  // where `pathname` never changes and the derived state would
+                  // otherwise leave the sheet open under the reader's thumb.
+                  onClick={() => setOpenedAt(null)}
+                  className={({ isActive }) =>
+                    cn(
+                      'relative flex min-h-11 items-center gap-3 rounded-md py-2 pr-3 pl-4 text-sm',
+                      isActive ? 'bg-accent font-semibold text-accent-foreground' : 'text-muted-foreground',
+                    )
+                  }
+                >
+                  {({ isActive }) => (
+                    <>
+                      {isActive ? (
+                        <span aria-hidden="true" className={cn(GOLD_RULE, 'inset-y-1 left-0 w-[3px]')} />
+                      ) : null}
+                      <item.icon aria-hidden="true" className="h-4 w-4 shrink-0" />
+                      <span>{item.label[language]}</span>
+                      {isActive ? <span className="sr-only"> ({t('a11y.currentPage')})</span> : null}
+                    </>
+                  )}
+                </NavLink>
+              </li>
+            ))}
+          </ul>
+        </div>
       </nav>
     </div>
   )

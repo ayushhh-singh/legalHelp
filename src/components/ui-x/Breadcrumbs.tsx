@@ -17,6 +17,10 @@ export interface Crumb {
 export function Breadcrumbs({ items, className }: { items: readonly Crumb[]; className?: string }) {
   const { t } = useT()
 
+  // An empty trail would leave a labelled but empty navigation landmark, which
+  // is noise for anyone listing landmarks.
+  if (items.length === 0) return null
+
   return (
     <nav aria-label={t('a11y.breadcrumbs')} className={cn('text-sm', className)}>
       <ol className="flex flex-wrap items-center gap-1 text-muted-foreground">

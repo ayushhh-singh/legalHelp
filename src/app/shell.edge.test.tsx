@@ -197,14 +197,23 @@ describe('bottom tab bar', () => {
     expect(tabList?.querySelectorAll('a')).toHaveLength(NAV_ITEMS.length)
   })
 
-  it('gives every tab and the More trigger a target of at least 44px', async () => {
+  it('gives every target in the bar at least the 44px WCAG 2.5.8 minimum', async () => {
     await renderShell()
 
+    // The whole landmark, which now includes the More sheet's own links: the
+    // sheet sits inside <nav> so its content is not outside every landmark, and
+    // after the trigger so Tab reaches it.
     const bar = screen.getByRole('navigation', { name: i18n.t('a11y.tabNavigation') })
+    const targets = bar.querySelectorAll('a, button')
+    expect(targets.length).toBe(NAV_ITEMS.length + 1 + OVERFLOW_NAV_ITEMS.length)
 
-    for (const target of bar.querySelectorAll('a, button')) {
-      // min-h-14 = 56px, comfortably over the 44px WCAG 2.5.8 minimum.
-      expect(target.className).toContain('min-h-14')
+    for (const target of targets) {
+      // The rule is 44px, not one particular class. min-h-11 is exactly 44px
+      // (sheet rows), min-h-14 is 56px (tab bar); asserting the literal class
+      // would fail on a legal size and pass on an illegal one.
+      const size = /\bmin-h-(\d+)\b/.exec(target.className)?.[1]
+      expect(size, `no min-h-* on ${target.textContent}`).toBeDefined()
+      expect(Number(size) * 4, target.textContent ?? '').toBeGreaterThanOrEqual(44)
     }
   })
 

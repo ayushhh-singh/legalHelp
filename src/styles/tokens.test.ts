@@ -30,23 +30,38 @@ const NON_TEXT = 3
 
 /* ------------------------------------------------------------------ parsing */
 
-/** Every custom property declared in one CSS block, in source order. */
+/**
+ * Every custom property declared in the block whose selector list is exactly
+ * `selector`, whitespace-normalised.
+ *
+ * Matching the FULL selector list matters. `.dark { … }` and `:root, .dark { … }`
+ * both begin a line with `.dark {` once the second is wrapped, so a
+ * "first block that starts with this selector" lookup returns whichever comes
+ * first in the file. Today that happens to be the right one; a future edit that
+ * moved the brand block above the palette would have silently swapped the dark
+ * theme's tokens for the three brand colours, and every dark-theme contrast
+ * assertion below would then have been measuring the light palette and passing.
+ */
 function readDeclarations(selector: string): Record<string, string> {
-  const escaped = selector.replace(/[.*+?^${}()|[\]\\]/g, '\\$&')
-  const body = new RegExp(`(^|\\n)${escaped}\\s*\\{([^}]*)\\}`).exec(tokensCss)?.[2]
-  if (!body) throw new Error(`No "${selector}" block found in tokens.css`)
+  const want = selector.replace(/\s+/g, ' ').trim()
 
-  const out: Record<string, string> = {}
-  for (const line of body.split('\n')) {
-    const match = /^\s*--([a-z0-9-]+):\s*([^;]+);/i.exec(line)
-    if (match?.[1] && match[2]) out[match[1]] = match[2].trim()
+  for (const match of tokensRules.matchAll(/([^{}@;]+)\{([^{}]*)\}/g)) {
+    if ((match[1] ?? '').replace(/\s+/g, ' ').trim() !== want) continue
+
+    const out: Record<string, string> = {}
+    for (const line of (match[2] ?? '').split('\n')) {
+      const declaration = /^\s*--([a-z0-9-]+):\s*([^;]+);/i.exec(line)
+      if (declaration?.[1] && declaration[2]) out[declaration[1]] = declaration[2].trim()
+    }
+    return out
   }
-  return out
+
+  throw new Error(`No block with the exact selector "${selector}" found in tokens.css`)
 }
 
 const lightTokens = readDeclarations(':root')
 const darkOverrides = readDeclarations('.dark')
-const brandTokens = readDeclarations(':root,\n.dark')
+const brandTokens = readDeclarations(':root, .dark')
 
 type Rgb = readonly [number, number, number]
 
@@ -139,6 +154,17 @@ describe('design tokens', () => {
     // reader on a dark system gets dark before ever touching the toggle.
     expect(tokensRules).not.toMatch(/prefers-color-scheme/)
     expect(tokensRules).toMatch(/@custom-variant dark \(&:is\(\.dark \*\)\);/)
+  })
+
+  it('reads each block by its exact selector, not by whichever matches first', () => {
+    // Regression guard for the parser itself. `.dark { … }` and
+    // `:root, .dark { … }` are different blocks with different jobs; a
+    // prefix-matching lookup would return whichever came first in the file and
+    // then measure the wrong palette while still passing.
+    expect(Object.keys(brandTokens).sort()).toEqual(['brand-blue', 'brand-gold', 'brand-navy'])
+    expect(Object.keys(darkOverrides)).toContain('background')
+    expect(Object.keys(darkOverrides).length).toBeGreaterThan(20)
+    expect(() => readDeclarations('.does-not-exist')).toThrow()
   })
 
   it('gives every light token a dark counterpart, and vice versa', () => {

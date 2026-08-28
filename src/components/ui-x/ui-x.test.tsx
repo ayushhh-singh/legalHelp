@@ -73,6 +73,13 @@ describe('Chip and Badge', () => {
     expect(screen.getByText('On').className).toContain('text-action-foreground')
   })
 
+  it('falls back to the neutral tone rather than rendering colourless', () => {
+    // Unreachable from TypeScript; reachable from an untyped caller, where the
+    // chip would otherwise have no background and no text colour at all.
+    render(<Chip tone={'not-a-tone' as never}>x</Chip>)
+    expect(screen.getByText('x').className).toContain('bg-muted')
+  })
+
   it('gives every Badge tone a foreground', () => {
     for (const tone of ['neutral', 'info', 'success', 'warning', 'danger'] as const) {
       const { unmount } = render(<Badge tone={tone}>{tone}</Badge>)
@@ -96,6 +103,12 @@ describe('ProgressBar', () => {
     [0, '0'],
     [140, '100'],
     [66.6, '67'],
+    // A division by zero upstream. Without the guard this rendered
+    // aria-valuenow="NaN" and React dropped the width declaration entirely,
+    // leaving a bar that looked empty but announced garbage.
+    [Number.NaN, '0'],
+    [Number.POSITIVE_INFINITY, '100'],
+    [Number.NEGATIVE_INFINITY, '0'],
   ])('clamps %s to %s, so a bad computation cannot overflow the track', (input, expected) => {
     const { container } = render(<ProgressBar value={input} label="p" />)
     expect(screen.getByRole('progressbar')).toHaveAttribute('aria-valuenow', expected)
@@ -164,6 +177,17 @@ describe('Breadcrumbs', () => {
     expect(screen.getByRole('link', { name: 'Law' })).toHaveAttribute('href', '/law')
     expect(screen.queryByRole('link', { name: 'Section 103' })).not.toBeInTheDocument()
     expect(screen.getByText('Section 103')).toHaveAttribute('aria-current', 'page')
+  })
+
+  it('renders nothing at all for an empty trail', () => {
+    // An empty <nav aria-label="Breadcrumbs"> is noise for anyone listing
+    // landmarks.
+    const { container } = render(
+      <MemoryRouter>
+        <Breadcrumbs items={[]} />
+      </MemoryRouter>,
+    )
+    expect(container).toBeEmptyDOMElement()
   })
 
   it('does not link a crumb that is last even when given a target', () => {
