@@ -1,7 +1,8 @@
-import { Bookmark, BookmarkCheck, Check, Copy } from 'lucide-react'
+import { Bookmark, BookmarkCheck, Check, Copy, Share2 } from 'lucide-react'
 import { useState } from 'react'
 
 import type { GlossaryTerm } from './schema'
+import { toGlossaryHref } from './url'
 
 import { SourceChip } from '@/components/common/SourceChip'
 import { Badge, Chip } from '@/components/ui-x'
@@ -31,7 +32,7 @@ export function TermRow({
   language: 'en' | 'hi'
 }) {
   const { t } = useT()
-  const [copied, setCopied] = useState<'en' | 'hi' | null>(null)
+  const [copied, setCopied] = useState<'en' | 'hi' | 'link' | null>(null)
   const [message, setMessage] = useState('')
 
   const copy = async (which: 'en' | 'hi') => {
@@ -41,6 +42,32 @@ export function TermRow({
       setCopied(which)
       setMessage(t('utils.glossary.copied'))
       onCopy(term, text)
+    } catch {
+      setCopied(null)
+      setMessage(t('utils.glossary.copyFailed'))
+    }
+  }
+
+  /**
+   * `navigator.share` first, the clipboard otherwise — the same shape
+   * `SectionActions.tsx` gives a law citation. A share sheet dismissed by the
+   * reader is not a failure and must not fall through to the clipboard.
+   */
+  const share = async () => {
+    const url = `${window.location.origin}${toGlossaryHref(term.id)}`
+    if (typeof navigator.share === 'function') {
+      try {
+        await navigator.share({ title: `${term.en} · ${term.hi}`, url })
+        return
+      } catch (error) {
+        if (error instanceof DOMException && error.name === 'AbortError') return
+      }
+    }
+    try {
+      await navigator.clipboard.writeText(url)
+      setCopied('link')
+      setMessage(t('utils.glossary.linkCopied'))
+      onCopy(term, url)
     } catch {
       setCopied(null)
       setMessage(t('utils.glossary.copyFailed'))
@@ -87,6 +114,10 @@ export function TermRow({
         <Button type="button" variant="outline" size="sm" onClick={() => void copy('hi')}>
           {copied === 'hi' ? <Check aria-hidden="true" /> : <Copy aria-hidden="true" />}
           {t('utils.glossary.copyHindi')}
+        </Button>
+        <Button type="button" variant="outline" size="sm" onClick={() => void share()}>
+          {copied === 'link' ? <Check aria-hidden="true" /> : <Share2 aria-hidden="true" />}
+          {t('utils.glossary.share')}
         </Button>
         <Chip tone="neutral">{t(`utils.glossary.category.${term.category}`)}</Chip>
         {term.verify ? <Badge tone="warning">{t('common.verifyWithDdo')}</Badge> : null}

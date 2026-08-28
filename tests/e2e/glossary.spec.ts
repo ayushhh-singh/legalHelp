@@ -59,6 +59,21 @@ test.describe('/utils/glossary', () => {
     await page.getByLabel('Search the glossary').fill('Cabinet Secretary')
     await expect(page.getByText('मंत्रिमंडल सचिव')).toBeVisible()
   })
+
+  test('a share link restores the term, and Copy link copies that same link', async ({ page, context }) => {
+    await context.grantPermissions(['clipboard-read', 'clipboard-write'])
+
+    // The link itself, round-tripped: a fresh visit to a term's own URL
+    // surfaces it without the reader typing anything.
+    await page.goto('/utils/glossary?term=cabinet-secretary')
+    await expect(page.getByText('मंत्रिमंडल सचिव')).toBeVisible()
+
+    // Copy link, on that same row, produces the identical URL.
+    await page.getByRole('button', { name: 'Copy link' }).first().click()
+    await expect(page.getByText('Link copied to the clipboard.')).toBeVisible()
+    const copied = await page.evaluate(() => navigator.clipboard.readText())
+    expect(copied).toContain('/utils/glossary?term=cabinet-secretary')
+  })
 })
 
 test.describe('the Drafting Studio’s glossary sheet', () => {

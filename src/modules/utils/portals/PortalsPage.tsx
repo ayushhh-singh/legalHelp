@@ -1,5 +1,6 @@
 import { Check, Copy, ExternalLink, Phone } from 'lucide-react'
 import { useMemo, useState } from 'react'
+import { useSearchParams } from 'react-router-dom'
 
 import { loadPortals } from './data'
 import { PORTAL_CATEGORIES } from './schema'
@@ -20,7 +21,11 @@ import type { Portal, PortalCategory } from './schema'
 export default function PortalsPage() {
   const { t, language } = useT()
   const state = useAsync(loadPortals, 'portals', true)
-  const [query, setQuery] = useState('')
+  const [searchParams] = useSearchParams()
+  // A command palette result (`?q=<name>`) prefills the search box once, on
+  // the first render — `useState`'s lazy initialiser, not an effect, because
+  // the value is available synchronously from the URL and needs no dataset.
+  const [query, setQuery] = useState(() => searchParams.get('q') ?? '')
   const [category, setCategory] = useState<PortalCategory | 'all'>('all')
   const [copiedId, setCopiedId] = useState<string | null>(null)
 
@@ -58,6 +63,7 @@ export default function PortalsPage() {
         </label>
         <input
           id="portals-search"
+          data-module-search
           type="search"
           value={query}
           placeholder={t('utils.portals.searchPlaceholder')}

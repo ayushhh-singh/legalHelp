@@ -1,8 +1,10 @@
 import { BookMarked } from 'lucide-react'
-import { useMemo, useState } from 'react'
+import { useEffect, useMemo, useRef, useState } from 'react'
+import { useSearchParams } from 'react-router-dom'
 
 import { buildGlossaryIndex, searchGlossary } from './search'
 import { GLOSSARY_CATEGORIES, type GlossaryCategory, type GlossaryTerm } from './schema'
+import { parseGlossaryTermParam } from './url'
 import { useGlossary } from './useGlossaryData'
 import { useGlossaryFavourites } from './useGlossaryFavourites'
 import { TermRow } from './TermRow'
@@ -48,10 +50,35 @@ export default function GlossaryPage() {
   const { t, language } = useT()
   const glossary = useGlossary(true)
   const { favourites, recents, favouriteIds, toggle, recordUsed } = useGlossaryFavourites()
+  const [searchParams] = useSearchParams()
 
   const [query, setQuery] = useState('')
   const [category, setCategory] = useState<GlossaryCategory | 'all'>('all')
   const [view, setView] = useState<View>('all')
+
+  /**
+   * A share link (`?term=<id>`) puts the term's own English text into the
+   * search box, once — the same one-shot-guard shape `useDraft.ts` uses for a
+   * restore that must not re-fire under React 19's StrictMode double-mount.
+   * There is no separate "focused term" state: putting it into the search box
+   * is what actually surfaces the row, and it stays the ordinary search state
+   * the reader can keep typing over.
+   */
+  const appliedTermParam = useRef(false)
+  useEffect(() => {
+    if (appliedTermParam.current || glossary.status !== 'ready') return
+    appliedTermParam.current = true
+    // Deferred a tick rather than set directly in the effect body: the value
+    // comes from data this effect is only reacting to (the dataset settling),
+    // not something it owns, which is the same "external callback" shape
+    // `SectionActions.tsx`'s own effect gets from `isFavourite(...).then(...)`.
+    queueMicrotask(() => {
+      const termId = parseGlossaryTermParam(searchParams)
+      if (!termId) return
+      const term = glossary.status === 'ready' ? glossary.data.terms.find((candidate) => candidate.id === termId) : undefined
+      if (term) setQuery(term.en)
+    })
+  }, [glossary, searchParams])
 
   /**
    * The settled dataset, or `null` — a STABLE reference once loaded, unlike
@@ -134,6 +161,7 @@ export default function GlossaryPage() {
             </label>
             <input
               id="glossary-search"
+              data-module-search
               type="search"
               value={query}
               placeholder={t('utils.glossary.searchPlaceholder')}

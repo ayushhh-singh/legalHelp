@@ -1,5 +1,6 @@
 import { render, screen } from '@testing-library/react'
 import userEvent from '@testing-library/user-event'
+import { MemoryRouter } from 'react-router-dom'
 import { afterEach, beforeEach, describe, expect, it, vi } from 'vitest'
 
 import type { Glossary } from './schema'
@@ -72,7 +73,11 @@ describe('GlossaryPage — favourites/recents before the dataset has loaded', ()
     const { default: GlossaryPage } = await import('./GlossaryPage')
     const user = userEvent.setup()
 
-    render(<GlossaryPage />)
+    render(
+      <MemoryRouter>
+        <GlossaryPage />
+      </MemoryRouter>,
+    )
 
     // The favourites tab's own count settles from IndexedDB, independently
     // of the dataset — this is what makes the bug possible: the tab itself

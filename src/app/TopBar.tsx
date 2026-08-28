@@ -1,6 +1,7 @@
-import { Languages, Moon, Sun } from 'lucide-react'
+import { Languages, Moon, Search, Sun } from 'lucide-react'
 import { Link } from 'react-router-dom'
 
+import { usePaletteStore } from './paletteStore'
 import { useAppStore } from './store'
 
 import { OfflineBadge } from '@/components/common/OfflineBadge'
@@ -13,6 +14,7 @@ export function TopBar() {
   const theme = useAppStore((s) => s.theme)
   const toggleLanguage = useAppStore((s) => s.toggleLanguage)
   const toggleTheme = useAppStore((s) => s.toggleTheme)
+  const openPalette = usePaletteStore((s) => s.openPalette)
 
   const otherLanguage = language === 'en' ? 'hi' : 'en'
 
@@ -31,6 +33,26 @@ export function TopBar() {
 
         <div className="ml-auto flex items-center gap-1.5">
           <OfflineBadge />
+
+          <button
+            type="button"
+            onClick={openPalette}
+            aria-label={t('a11y.openCommandPalette')}
+            className="hidden h-9 items-center gap-1.5 rounded-md border border-input px-2.5 text-sm text-muted-foreground transition-colors hover:bg-accent hover:text-accent-foreground sm:flex"
+          >
+            <Search aria-hidden="true" className="h-4 w-4" />
+            <span aria-hidden="true">{t('palette.searchLabel')}</span>
+            <kbd className="ml-1 rounded border border-border px-1 py-0.5 text-[10px]">Ctrl K</kbd>
+          </button>
+
+          <button
+            type="button"
+            onClick={openPalette}
+            aria-label={t('a11y.openCommandPalette')}
+            className="flex h-9 w-9 items-center justify-center rounded-md text-muted-foreground transition-colors hover:bg-accent hover:text-accent-foreground sm:hidden"
+          >
+            <Search aria-hidden="true" className="h-4 w-4" />
+          </button>
 
           <button
             type="button"

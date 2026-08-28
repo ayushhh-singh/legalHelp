@@ -6,6 +6,7 @@ import { Link } from 'react-router-dom'
 import { useEffectiveCatalogue, useRulesIndex } from '../useCatalogue'
 import { useNow } from '../useNow'
 import { useTrainerSettings } from '../useTrainerSettings'
+import { toTrainerTopicHref } from '../url'
 
 import { EmptyState } from '@/components/common/EmptyState'
 import { PageHeader } from '@/components/common/PageHeader'
@@ -145,7 +146,7 @@ export default function HomePage() {
                 <p className="mt-1 text-xs text-muted-foreground">{t('trainer.home.weakAreasHint')}</p>
                 <div className="mt-3 flex flex-wrap gap-2">
                   {weakAreas.slice(0, 8).map((area) => (
-                    <Link key={area.key} to={`/learn/review?act=${encodeURIComponent(area.act)}`}>
+                    <Link key={area.key} to={toTrainerTopicHref(area.act)}>
                       <Chip tone="coral">
                         {(area.citation?.[language] || area.citation?.en || area.key)} · {Math.round(area.rate * 100)}%
                       </Chip>

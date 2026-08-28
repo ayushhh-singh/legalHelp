@@ -3313,3 +3313,141 @@ needed.
   and `aiUsage` (a cache and a billing ledger, neither saved on purpose) by NAME rather than including the
   rest by name, so a table a later session adds is backed up by default — the same convention
   `clearAllData` already uses for erase.
+
+---
+
+## ADR-029 — The command palette: cmdk's own Radix Dialog for the a11y contract, every section reusing its module's own search, and a "latest ref" listener for the global shortcuts
+
+**Date:** 2026-08-29 · **Status:** Accepted
+
+### Context
+
+This session's brief: a global Ctrl/⌘-K command palette searching Law sections, Job posts, Glossary,
+Document types, Trainer topics, Portals and Settings actions; global keyboard shortcuts (`g` + a letter to
+jump modules, `?` for help, `/` to focus a page's own search); and "Copy link" for glossary entries and
+Trainer topics alongside the Law Converter's and Pay calculator's existing share buttons. It ran
+concurrently with Session 14 (onboarding + Settings) in the same working tree — read that session's own
+CLAUDE.md paragraph and ADR-028 for how the two coordinated; this ADR is this session's half.
+
+Four things needed a real decision rather than a routine build.
+
+### Decision
+
+**1. `cmdk`'s `Command.Dialog` is the whole accessibility contract, not something built beside it.**
+`Command.Dialog` (`src/components/palette/CommandPalette.tsx`) wraps `@radix-ui/react-dialog` — now a
+direct dependency alongside `cmdk`, rather than only reachable as `cmdk`'s own transitive one, the same
+reasoning that pins every other shadcn-adjacent Radix package this app already carries. That buys, for
+free, exactly what `AiConsentModal.tsx` had to hand-write before Radix was available for this: a real
+focus trap, Escape-to-close, `role="dialog"` with `aria-modal`, and background scroll lock. `Command.Input`
+supplies the other half — `role="combobox"`, `aria-expanded`, `aria-controls`, `aria-activedescendant` —
+so nothing in this module hand-rolls ARIA 1.2 combobox wiring the way `Combobox.tsx` in the Pay module
+deliberately does for its own, much narrower two-picker case (that file's own comment explains why fuzzy
+matching over 67 posts doesn't want `cmdk`; this module is the one place in the app `cmdk` was always
+pinned for, per the master context's stack list).
+
+**2. Every section reuses its module's own search — `shouldFilter={false}` makes `cmdk` a list renderer,
+not a second search engine.** `src/components/palette/sections.ts` calls `searchLaw` (the Law Converter's
+own banded ranking and bilingual offence lexicon), `searchJobs` (the Pay module's own acronym-aware
+`pick.ts`) and `searchGlossary` (the glossary's own Fuse index) directly, and hands `cmdk` an
+already-ordered list per section. Document types and Trainer topics have no reusable search of their own
+— fourteen templates and twelve rule books are small enough that a plain `romanKey`-folded match is the
+whole job, including an acronym check (`acronymOf(shortName.en)`) for the case CLAUDE.md's own acceptance
+line calls out: "OM" finding "Office Memorandum (O.M.)" without the reader typing the sentence out.
+Reusing rather than reimplementing is what makes "hatya" reach BNS 103 and "ACIO" reach a post whose title
+never spells it — those are the SAME bilingual lexicon and the SAME id-segment acronym index `/law` and
+`/pay` already ship, not a parallel index that could quietly disagree with them.
+
+**3. Laziness, twice over — the whole overlay, and each dataset inside it.** `App.tsx` mounts
+`<PaletteRoot/>` (one lazy `import()` covering both `CommandPalette` and `ShortcutsHelp`) only once
+`usePaletteStore`'s `open || helpOpen` is true — a reader who never presses Ctrl-K, the search button or
+`?` downloads none of `cmdk`, Radix Dialog, or the six section modules' search machinery, the same
+"laziness as a privacy/perf property" line ADR-011 draws for the AI layer. Inside that, `usePaletteData`
+gates every dataset loader behind `open && query.trim().length > 0` — opening the palette and closing it
+again without typing costs nothing, matching `useLawEngine(enabled)`'s own rule for `/law` itself. Every
+loader is the module's OWN loader (`loadCorpus`, `loadPayTables`, `loadGlossary`, …), each already
+memoised at module scope; the three that need an INDEX built over them (the law Fuse index, the job-post
+index, the glossary Fuse index) cache that build a second time at `usePaletteData`'s own module scope,
+because the palette mounts and unmounts on every open/close and rebuilding a Fuse index over 1,891
+glossary terms on every keystroke-triggered mount would be real, measurable cost.
+
+**4. A law hit's share link names the Act, not just the number — bare section-number reuse is real and
+ambiguous.** The first cut built `toLawHref({ query: doc.section, code })` — `/law?q=101&code=bns` for
+BNS 101, "Murder". That looks right and is wrong: BNS 101 shares its bare number with IPC 101 ("When such
+right extends to causing any harm other than death"), and the Law Converter's own default search
+direction (old→new) re-parses a bare `"101"` as "the OLD Act's section 101" first, landing the reader on
+an unrelated repealed-Act provision instead of the BNS section they picked. Caught only by driving the
+built app end to end (`searchLaw(engine, {query:'hatya', ...})`, clicking the actual top hit, reading what
+`/law?q=101&code=bns` rendered) — no unit test exercises this because none combines "a real ambiguous
+number" with "a hand-built href" the way this module's hits do a hundred times over. The fix is the query
+itself: `toLawHref({ query: \`${actOf(code)} ${section}\`, code })` — `"BNS 101"` — because naming the Act
+is the one signal `directionContradicted()` in `src/modules/law/search.ts` already treats as strong enough
+to rule out the old-Act reading entirely. `src/components/palette/sections.ts#lawItems` carries the note
+in place so the next person does not "simplify" it back to the bare number.
+
+**5. The global shortcuts' listener is attached once, for the component's whole lifetime, reading
+everything through a ref — not re-subscribed on every `navigate` identity change.** The first cut's
+`useGlobalShortcuts` effect depended on `[navigate, openPalette, closePalette, openHelp]`, the ordinary
+`react-hooks/exhaustive-deps` shape. In a real browser it dropped roughly one chord in five, always the
+SECOND half of a `g` + letter pair pressed right after a route change: React Router hands out a fresh
+`navigate` identity on some transitions, the effect re-ran (tearing down and rebuilding the `keydown`
+listener) BETWEEN the `g` press and the letter that completes the chord, and the freshly re-created
+closure's `pendingG` started back at `false` — so the letter landed as an ordinary keypress. `pendingG` and
+its timeout live in a closure that has to survive for exactly as long as `App` does, which is the
+component's whole lifetime, not one render's worth. The fix: a `useRef` holding `{ navigate, open,
+openPalette, closePalette, openHelp }`, updated by its own separate effect; the listener-attaching effect
+runs with an EMPTY dependency array and reads everything through the ref inside the handler. Confirmed
+against the failure first — six back-to-back Playwright runs of the five-chord sequence, ~1-in-5 failure
+rate before the fix, 0-in-16 after (single runs and `--repeat-each` both).
+
+**6. `Command.Loading`'s `role="progressbar"` lives outside `Command.List`'s `role="listbox"`, not inside
+it.** The first cut put the "still searching" indicator as the last child of `<Command.List>`, alongside
+the result groups — a reasonable-looking layout choice that intermittently failed axe's
+`aria-required-children` in a real browser (roughly 4 runs in 5, only ever on the "with results" half of
+the check, never the empty one), because a `role="listbox"` briefly carrying only the progressbar as its
+sole real child — the state every non-empty query passes through before ANY of the six datasets has
+settled — has no valid owned element for the check to find. Manually replaying the exact same steps
+outside the Playwright test runner never reproduced it, even with matched timing and parallelism; only
+`pnpm exec playwright test ... --repeat-each=10` against the real suite did, consistently, at the same
+element id. Moved `Command.Loading` to a sibling of `<Command.List>` instead — cmdk's `useCommandState`
+reads from `Command`'s own context regardless of where in the tree a consumer sits, so nothing about its
+behaviour changed, only its ARIA neighbourhood. 10/10 clean afterward, at the same `--repeat-each=10`.
+
+**7. Two existing informal deep-link shapes are formalised rather than duplicated.** `/utils/glossary?term=
+<id>` (`src/modules/utils/glossary/url.ts`) and `/learn/review?act=<id>` (`src/modules/trainer/url.ts`,
+already read by `ReviewPage.tsx`'s `useSearchParams` and linked by `HomePage.tsx`'s weak-area chips before
+this session, just never through a shared helper) are what the palette's own results and each module's new
+"Copy link"/"Share" button both build through — one function per shape, so the reader-facing route and the
+one the palette navigates to cannot drift apart. Both follow `SectionActions.tsx`'s established share
+pattern: `navigator.share` first, the clipboard otherwise, an `AbortError` from a dismissed OS share sheet
+swallowed rather than falling through.
+
+**8. `commandRecents` is Dexie version 10, the same shape every other module's recents table already
+uses.** Keyed on the item's own id (`put` overwrites rather than accumulates), capped at 8, and populated
+only for items that actually navigate — a settings action like "toggle theme" is never recorded, the same
+line `LawRecentRow`/`GlossaryRecentRow` draw between "a place to jump back to" and "a log of every
+keystroke".
+
+### Consequences
+
+- `pnpm typecheck`, `pnpm lint` and `pnpm i18n:check` are clean. `pnpm test` is clean except the two
+  pre-existing, unrelated items already on `main` before this session started: `tests/bundle-budget.test.ts`
+  (`docs/DATA-GAPS.md` #55, now measuring a larger figure again because Session 14's onboarding/Settings
+  content landed in the same eagerly-loaded bundle) and `tests/rules-data.test.ts`'s near-identical-fronts
+  check, which times out only under the CPU contention of a full concurrent-session run and passes clean in
+  isolation every time it was tried.
+- `tests/e2e/palette.spec.ts` (ten specs: five search queries across all four acceptance-test terms —
+  "hatya", "ACIO", "avar sachiv", "OM" — plus every shortcut) and `tests/e2e/a11y.spec.ts`'s two new runs
+  (the palette empty and with results, the shortcuts sheet) are the browser-level proof; `src/components/
+  palette/{sections,recents}.test.ts` cover the hand-rolled Document-type/Trainer-topic/Portal matchers and
+  the recents table's own trim-to-8 behaviour at the unit level, since Law/Pay/Glossary already have that
+  coverage through the engines they reuse.
+- `PaletteRoot` is its own ~18 KB gzip chunk (confirmed via `dist/assets/PaletteRoot-*.js` and absent from
+  `index.html`'s own script/preload tags), so none of this session's own code contributes to the initial
+  route's bundle-budget overage — the whole regression is Session 14's, and it is Session 14's ADR-028 that
+  says so.
+- `cmdk` embeds no fetchable URL of its own, but the `@radix-ui/react-dialog` it wraps carries a dev-mode
+  warning link (`https://radix-ui.com/primitives/docs/components/${slug}`) into the bundle regardless of
+  build mode — a new `ALLOWED_INERT` entry in `tests/no-external-urls.test.ts`, the same "template literal
+  captured post-minification" shape the file's existing zod-IPv6-validator entry already documents.
+- "Deferred: cmdk" in CLAUDE.md's stack table is gone — it is finally in a chunk, the one this session
+  built.

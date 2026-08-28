@@ -107,3 +107,27 @@ test('the whole review loop works with no network at all', async ({ page, contex
 
   await context.setOffline(false)
 })
+
+test('a topic’s Copy link on Browse produces the same URL a review-scope link uses', async ({
+  page,
+  context,
+}) => {
+  await context.grantPermissions(['clipboard-read', 'clipboard-write'])
+  await page.goto('/learn/browse')
+  await expect(page.getByRole('heading', { level: 1 })).toBeVisible()
+  await expect(
+    page.getByText('Central Civil Services (Conduct) Rules, 1964', { exact: false }),
+  ).toBeVisible({ timeout: 30_000 })
+
+  await page.getByRole('button', { name: 'Copy link to this rule book' }).first().click()
+  await expect(page.getByText('Link copied to the clipboard.')).toBeVisible()
+  const copied = await page.evaluate(() => navigator.clipboard.readText())
+  expect(copied).toContain('/learn/review?act=ccs-conduct')
+
+  // The link itself restores the same scoped review the weak-area chips on
+  // Home already use `?act=` for.
+  await page.goto('/learn/review?act=ccs-conduct')
+  await expect(page.getByText('Rule 1, Central Civil Services (Conduct) Rules, 1964')).toBeVisible({
+    timeout: 30_000,
+  })
+})

@@ -74,6 +74,7 @@ export function SearchBar({
         <input
           ref={inputRef}
           id="law-search"
+          data-module-search
           type="search"
           value={value}
           onChange={(event) => onChange(event.target.value)}

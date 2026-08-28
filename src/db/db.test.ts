@@ -108,10 +108,10 @@ describe('the version 2 upgrade', () => {
     try {
       await v2.open()
 
-      // The class declares up to version 9 now (the Utilities module's
-      // holiday calendar, Session 13), so opening it upgrades a v1 database
+      // The class declares up to version 10 now (the command palette's
+      // recent-jumps list, Session 14), so opening it upgrades a v1 database
       // straight to the current version rather than stopping at 2.
-      expect(v2.verno).toBe(9)
+      expect(v2.verno).toBe(10)
       expect(await v2.settings.get(SETTING_KEYS.theme)).toEqual({
         key: SETTING_KEYS.theme,
         value: 'dark',
@@ -134,6 +134,7 @@ describe('the version 2 upgrade', () => {
       expect(await v2.proposedCards.count()).toBe(0)
       expect(await v2.cardOverrides.count()).toBe(0)
       expect(await v2.holidayPicks.count()).toBe(0)
+      expect(await v2.commandRecents.count()).toBe(0)
     } finally {
       v2.close()
       await Dexie.delete(name)
@@ -147,6 +148,7 @@ describe('the version 2 upgrade', () => {
       'aiAnswers',
       'aiUsage',
       'cardOverrides',
+      'commandRecents',
       'draftDefaults',
       'drafts',
       'glossaryFavourites',

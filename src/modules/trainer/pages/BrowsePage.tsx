@@ -1,9 +1,10 @@
 import { useLiveQuery } from 'dexie-react-hooks'
-import { ArrowLeft, ChevronDown, ChevronRight } from 'lucide-react'
+import { ArrowLeft, Check, ChevronDown, ChevronRight, Share2 } from 'lucide-react'
 import { useMemo, useState } from 'react'
 import { Link } from 'react-router-dom'
 
 import { useEffectiveCatalogue, useRulesIndex } from '../useCatalogue'
+import { toTrainerTopicHref } from '../url'
 
 import { PageHeader } from '@/components/common/PageHeader'
 import { ProgressBar, SectionCard, Skeleton } from '@/components/ui-x'
@@ -26,6 +27,26 @@ export default function BrowsePage() {
   const index = useRulesIndex()
   const catalogue = useEffectiveCatalogue()
   const [openAct, setOpenAct] = useState<string | null>(null)
+  /** Tagged with the act it belongs to, the same shape `SectionActions.tsx` uses. */
+  const [notice, setNotice] = useState<{ actId: string; text: string } | null>(null)
+
+  const share = async (actId: string, name: string) => {
+    const url = `${window.location.origin}${toTrainerTopicHref(actId)}`
+    if (typeof navigator.share === 'function') {
+      try {
+        await navigator.share({ title: name, url })
+        return
+      } catch (error) {
+        if (error instanceof DOMException && error.name === 'AbortError') return
+      }
+    }
+    try {
+      await navigator.clipboard.writeText(url)
+      setNotice({ actId, text: t('trainer.browse.linkCopied') })
+    } catch {
+      setNotice({ actId, text: t('trainer.browse.linkCopyFailed') })
+    }
+  }
 
   const cardsByAct = useMemo(() => {
     const map = new Map<string, Card[]>()
@@ -85,20 +106,39 @@ export default function BrowsePage() {
 
           return (
             <SectionCard key={act.id} className="overflow-hidden">
-              <button
-                type="button"
-                onClick={() => setOpenAct(isOpen ? null : act.id)}
-                aria-expanded={isOpen}
-                className="flex min-h-14 w-full items-center justify-between gap-3 px-4 py-3 text-left"
-              >
-                <span>
-                  <span className="block text-sm font-semibold">{act.name[language] || act.name.en}</span>
-                  <span className="mt-0.5 block text-xs text-muted-foreground">
-                    {t('trainer.browse.rulesCount', { count: rules.size })} · {t('trainer.browse.cardsCount', { count: cards.length })}
+              <div className="flex items-center gap-1 pr-2">
+                <button
+                  type="button"
+                  onClick={() => setOpenAct(isOpen ? null : act.id)}
+                  aria-expanded={isOpen}
+                  className="flex min-h-14 flex-1 items-center justify-between gap-3 px-4 py-3 text-left"
+                >
+                  <span>
+                    <span className="block text-sm font-semibold">{act.name[language] || act.name.en}</span>
+                    <span className="mt-0.5 block text-xs text-muted-foreground">
+                      {t('trainer.browse.rulesCount', { count: rules.size })} · {t('trainer.browse.cardsCount', { count: cards.length })}
+                    </span>
                   </span>
-                </span>
-                {isOpen ? <ChevronDown aria-hidden="true" className="h-4 w-4 shrink-0" /> : <ChevronRight aria-hidden="true" className="h-4 w-4 shrink-0" />}
-              </button>
+                  {isOpen ? <ChevronDown aria-hidden="true" className="h-4 w-4 shrink-0" /> : <ChevronRight aria-hidden="true" className="h-4 w-4 shrink-0" />}
+                </button>
+                <Button
+                  type="button"
+                  variant="ghost"
+                  size="icon"
+                  className="h-9 w-9 shrink-0"
+                  aria-label={t('trainer.browse.copyLink')}
+                  onClick={() => void share(act.id, act.name[language] || act.name.en)}
+                >
+                  {notice?.actId === act.id ? (
+                    <Check aria-hidden="true" className="h-4 w-4" />
+                  ) : (
+                    <Share2 aria-hidden="true" className="h-4 w-4" />
+                  )}
+                </Button>
+              </div>
+              <p role="status" aria-live="polite" className="min-h-4 px-4 text-xs text-muted-foreground">
+                {notice?.actId === act.id ? notice.text : ''}
+              </p>
 
               {isOpen ? (
                 <ul className="divide-y divide-border border-t border-border">
