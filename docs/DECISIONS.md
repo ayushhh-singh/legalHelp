@@ -2038,6 +2038,59 @@ have to guess which figures the Government has actually written down.
 - `data/drafting` is ~476 KB, and the picker loads `index.json` alone — one template is fetched only
   once a form has been chosen, the way `useLawEngine(enabled)` stays lazy.
 
+### Addendum (edge-case pass, same session) — three of these decisions were wrong
+
+Going back over the module for edge cases found seven defects. Four were ordinary bugs and are in
+the commit message; three were **decisions above that did not survive contact**, and the record
+should say so.
+
+**1. The engine filled values in for the caller, and that was dangerous.** `renderDocument` fell back
+to each field's `sample`, per field, so that a template could always be rendered. What it actually
+meant was that a form with one field edited produced a _complete_ document — signed by the specimen's
+"(A.B.C.), Under Secretary", carrying the specimen's telephone number and file number — and reported
+**no issue at all**. Every guard in this module points at the reader sending out a document that is
+wrong in a way they cannot see, and the default did precisely that. The fallback is gone. An absent
+field renders as nothing and is reported when the template requires it; `sampleValues(template)`
+builds the worked example, and a caller has to ask for it. The Session 8 form initialises from it.
+
+**2. Bilingual pairing on `role` was wrong because roles repeat.** A demi-official letter has two
+`header` blocks — the writer's letterhead and the Government of India block, with the D.O. number
+between them — and two `closing` blocks. Pairing by role grouped both headers at the position of the
+first, so the side-by-side view showed `D.O. No.` _below_ the letterhead. Every `RenderedBlock` now
+carries the `layoutIndex` it came from and pairing is on that, which is safe precisely because
+`self_check` already refused a template whose two layouts place different blocks in a different
+order. It is also the correct React key, which pairing by role never was.
+
+**3. A `role` on a checklist rule was typed as a free string.** A typo then matches no block —
+`blockPresent` fails, which someone notices, but `regexAbsent` **passes**, which is a checklist item
+that silently checks nothing. It is now the block-role enum in both schemas, and `self_check`
+additionally requires that the template actually places the role.
+
+### What the pass taught, which is more useful than the fixes
+
+**A defect that renders as nothing is invisible to a snapshot.** The urgency grading — CSMOP 6.13,
+a whole section of `docs/CSMOP-FORMATS.md`, three bilingual labels, three Rajbhasha terms with their
+paragraph references — was missing from the layouts of the letter, the Office Memorandum, the
+circular and the endorsement for an entire commit. The field was there, the options were there, the
+terms were there; only the block was gone, so choosing IMMEDIATE printed nothing anywhere. Not one
+of 1,200 tests failed, because the sample value is `none`, which renders as nothing, so every `.txt`
+snapshot was byte-identical. The lesson is narrow and worth keeping: **when a field's sample is the
+empty case, the suite must also render the non-empty one.**
+
+The same shape appeared again at the boundary with the UI. An emptied text box arrives as `['']`,
+which renders as nothing but read as non-empty, so a required list reported no issue and
+`listNonEmpty` passed over an empty list. The fix is that `resolveValues` normalises a list to
+exactly what will render — the invariant being that **what the checklist reads and what the page
+shows cannot disagree**, since the checklist reads `resolved` and the reader reads the page.
+
+**And a JSON Schema cannot check a template against itself.** `self_check` gained five rules, each
+of which had a defect waiting behind it: an unknown or unplaced rule role; a block with both `lines`
+and a `source` (one silently wins); `numberFrom` without `numbered`; `urgencyAllowed` disagreeing
+with whether the field exists; and **any field appearing in no layout and no rule** — which found a
+demi-official letter that required an e-mail address and printed it nowhere. A field that renders
+nowhere on purpose goes in `GUIDANCE_ONLY` with its reason, the way `validate_data.py` makes an
+unschemaed dataset say why.
+
 ---
 
 ## ADR-019 — Dataset citations in the build: a reviewed host list, not a per-URL allowlist
@@ -2284,3 +2337,12 @@ one would silently convert every agent in the app into one that reads unfinished
   box as filled and an emptied body reported no required issue; the sheet's initial focus landed on
   its close button, which is first in DOM order, rather than its search box; and fifteen
   identically-named "Write Hindi separately" controls left a screen-reader user counting rows.
+- **Two more were found only in `pnpm dev`, and they are the ones worth remembering.** `main.tsx`
+  renders under `<StrictMode>`, which double-invokes effects — mount, clean up, mount again — in
+  DEVELOPMENT ONLY; Playwright runs a production build, where it is inert. So both passed all 82 e2e
+  specs while the module was unusable in the dev server. The first: `useDraft`'s load guard was armed
+  before its own `await`, so the second mount skipped the read the first mount had discarded, and the
+  form sat on three skeletons forever — no field to type into, and a checklist that could never pass.
+  The second: the flush effect's cleanup cleared an `alive` flag that nothing re-armed, so the new
+  draft's id never reached the URL and a reload opened an empty form. `useDraft.test.tsx` renders the
+  hook inside `<StrictMode>` deliberately, and is where any future effect of this shape belongs.
