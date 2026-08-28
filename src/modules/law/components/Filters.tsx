@@ -28,24 +28,38 @@ interface ChipRadioProps {
   value: string
   checked: boolean
   onChange: () => void
+  disabled?: boolean
   children: React.ReactNode
 }
 
-function ChipRadio({ name, value, checked, onChange, children }: ChipRadioProps) {
+function ChipRadio({ name, value, checked, onChange, disabled, children }: ChipRadioProps) {
   return (
     <label
       className={cn(
         CHIP_BASE,
         checked ? CHIP_ON : CHIP_OFF,
+        disabled && 'cursor-not-allowed opacity-50',
         'has-[:focus-visible]:ring-2 has-[:focus-visible]:ring-ring has-[:focus-visible]:ring-offset-2 has-[:focus-visible]:ring-offset-background',
       )}
     >
+      {/*
+        `onClick` as well as `onChange`, deliberately.
+
+        A radio that is ALREADY checked fires no change event, so clicking the
+        pre-selected "All" chip did nothing at all — and "All" is the default,
+        which made the most obvious chip on the page the one that appeared
+        broken. `onChange` is still needed for the keyboard: arrow keys move
+        between radios and fire change without a click. The handler is
+        idempotent, so an unchecked radio calling it twice is harmless.
+      */}
       <input
         type="radio"
         name={name}
         value={value}
         checked={checked}
         onChange={onChange}
+        onClick={onChange}
+        disabled={disabled}
         className="sr-only"
       />
       {children}
@@ -90,10 +104,19 @@ export function DirectionToggle({
   onChange,
   /** Set when an Act named in the query has overridden the toggle. */
   overriddenBy,
+  /**
+   * True while the reader is reading an Act in order rather than searching.
+   *
+   * Direction decides what a bare NUMBER means, so with nothing typed it has
+   * nothing to decide. Leaving it live was worse than useless: pressing it
+   * changed the URL and reordered nothing, which reads as a broken control.
+   */
+  disabled = false,
 }: {
   value: Direction
   onChange: (direction: Direction) => void
   overriddenBy?: string | null
+  disabled?: boolean
 }) {
   const { t } = useT()
 
@@ -108,6 +131,7 @@ export function DirectionToggle({
           name="law-direction"
           value="old-new"
           checked={value === 'old-new'}
+          disabled={disabled}
           onChange={() => onChange('old-new')}
         >
           {t('law.direction.oldNew')}
@@ -116,11 +140,15 @@ export function DirectionToggle({
           name="law-direction"
           value="new-old"
           checked={value === 'new-old'}
+          disabled={disabled}
           onChange={() => onChange('new-old')}
         >
           {t('law.direction.newOld')}
         </ChipRadio>
       </div>
+      {disabled ? (
+        <p className="mt-1.5 text-xs text-muted-foreground">{t('law.direction.disabledWhileBrowsing')}</p>
+      ) : null}
       {/*
         Naming an Act in the query beats the toggle — "crpc 438" is not a
         mistake to be honoured literally. Saying so out loud is the difference

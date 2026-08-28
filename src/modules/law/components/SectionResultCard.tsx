@@ -1,4 +1,4 @@
-import { ArrowRight, FileWarning } from 'lucide-react'
+import { ArrowRight, FileWarning, X } from 'lucide-react'
 
 import { summariseChanges, STATUS_TONE } from '../changes'
 import { ClassificationTable } from './ClassificationTable'
@@ -37,9 +37,11 @@ interface SectionResultCardProps {
   corpus: LawCorpus
   /** Opens another section from a related-sections chip. */
   onOpenSection: (code: LawCode, section: string) => void
+  /** Closes the section. Absent when there is nothing to go back to. */
+  onClose?: () => void
 }
 
-export function SectionResultCard({ code, record, corpus, onOpenSection }: SectionResultCardProps) {
+export function SectionResultCard({ code, record, corpus, onOpenSection, onClose }: SectionResultCardProps) {
   const { t, language } = useT()
   const dataset = corpus.datasets[code]
   const change = summariseChanges(record, corpus.index)
@@ -65,6 +67,20 @@ export function SectionResultCard({ code, record, corpus, onOpenSection }: Secti
           <span className="text-xs text-muted-foreground">
             {t('law.card.chapter', { number: record.chapter.number })}
           </span>
+        ) : null}
+
+        {/* Beside the list, this card is a pane — and a pane a reader cannot
+            shut is a pane that has taken over the screen. */}
+        {onClose ? (
+          <button
+            type="button"
+            onClick={onClose}
+            aria-label={t('law.card.close')}
+            data-print-hide
+            className="ml-auto flex h-11 w-11 shrink-0 items-center justify-center rounded-md text-muted-foreground transition-colors hover:bg-accent hover:text-accent-foreground focus-visible:ring-2 focus-visible:ring-ring focus-visible:outline-none"
+          >
+            <X aria-hidden="true" className="h-4 w-4" />
+          </button>
         ) : null}
       </div>
 

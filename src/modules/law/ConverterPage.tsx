@@ -1,5 +1,5 @@
-import { Bookmark, Scale, Sparkles } from 'lucide-react'
-import { useDeferredValue, useEffect, useMemo, useState } from 'react'
+import { BookOpen, Bookmark, Scale, Sparkles } from 'lucide-react'
+import { useDeferredValue, useEffect, useMemo, useRef, useState } from 'react'
 import { Link, useSearchParams } from 'react-router-dom'
 
 import { CodeChips, DirectionToggle } from './components/Filters'
@@ -21,6 +21,7 @@ import { Badge, QueryErrorState, SectionCard, SectionNumber, Skeleton } from '@/
 import { Button } from '@/components/ui/button'
 import type { Language } from '@/i18n'
 import { useT } from '@/i18n/useT'
+import { cn } from '@/lib/utils'
 
 /**
  * The Law Converter.
@@ -77,7 +78,7 @@ export default function ConverterPage() {
    * browse. Both are explicit actions by the reader, which is what keeps a bare
    * `/law` free of the 3.9 MB download (ADR-013).
    */
-  const browsing = !query.trim() && view.code !== null
+  const browsing = !query.trim() && view.browse
   const engine = useLawEngine(Boolean(query.trim()) || browsing)
 
   const update = (patch: Partial<typeof view>) => {
@@ -115,7 +116,7 @@ export default function ConverterPage() {
    * — 358 to 531 rows, which is exactly what `ResultList`'s windowing is for.
    */
   const browseHits = useMemo(
-    () => (browsing && engine.engine && view.code ? browseCode(engine.engine, view.code) : []),
+    () => (browsing && engine.engine ? browseCode(engine.engine, view.code) : []),
     [browsing, engine.engine, view.code],
   )
 
@@ -133,8 +134,16 @@ export default function ConverterPage() {
    * nothing in it has been asked for yet, so opening section 1 (and recording
    * it as a lookup) would be the app answering a question nobody put.
    */
+  /**
+   * Closing the card needs its own state, because "nothing chosen" already
+   * means "show the best hit". `dismissedFor` records the query the reader
+   * closed the card ON, so a NEW query opens its best result again rather than
+   * staying shut — the derived-stale shape the More sheet uses.
+   */
+  const [dismissedFor, setDismissedFor] = useState<string | null>(null)
   const chosen = hits.find((hit) => hit.doc.id === chosenId)
-  const selected: LawHit | undefined = chosen ?? (browsing ? undefined : hits[0])
+  const selected: LawHit | undefined =
+    chosen ?? (browsing || dismissedFor === deferredQuery ? undefined : hits[0])
   const [activeIndex, setActiveIndex] = useState(-1)
 
   /**
@@ -159,13 +168,37 @@ export default function ConverterPage() {
     return () => clearTimeout(timer)
   }, [selected, deferredQuery])
 
+  /**
+   * Bring the opened section into view — but only when it is not already there.
+   *
+   * The test is the card's own top edge, not a breakpoint. Beside the list on a
+   * wide screen the top is already on screen and nothing moves; stacked under a
+   * long result list on a phone it is far below the fold, and that is the case
+   * where a reader taps a row and cannot tell that anything happened.
+   *
+   * `block: 'nearest'` alone was not enough: the card is taller than the
+   * viewport, so "nearest" aligns its top and scrolled the search box away on a
+   * desktop where the card was perfectly visible already.
+   */
+  const cardRef = useRef<HTMLDivElement>(null)
+  useEffect(() => {
+    if (!chosenId) return
+    const card = cardRef.current
+    if (!card) return
+
+    const { top } = card.getBoundingClientRect()
+    const alreadyInView = top >= 0 && top < window.innerHeight * 0.6
+    if (!alreadyInView) card.scrollIntoView({ block: 'start', behavior: 'smooth' })
+  }, [chosenId])
+
   const openSection = (code: LawCode, section: string) => {
     setChosenId(`${code}:${section}`)
+    setDismissedFor(null)
     setActiveIndex(-1)
   }
 
   return (
-    <div className="mx-auto flex max-w-4xl flex-col gap-6">
+    <div className={cn('mx-auto flex flex-col gap-6', selected ? 'max-w-6xl' : 'max-w-4xl')}>
       <div data-print-hide>
         <PageHeader
           title={t('pages.law.title')}
@@ -210,11 +243,14 @@ export default function ConverterPage() {
         />
 
         <div className="flex flex-wrap gap-x-8 gap-y-4">
-          <CodeChips value={view.code} onChange={(code) => update({ code })} />
+          {/* Pressing a chip with an empty box is a request to read that Act,
+              not merely to filter nothing — see LawViewState.browse. */}
+          <CodeChips value={view.code} onChange={(code) => update({ code, browse: true })} />
           <DirectionToggle
             value={result?.direction ?? view.direction}
             onChange={(direction) => update({ direction })}
             overriddenBy={result && result.direction !== view.direction ? result.parsed.act : null}
+            disabled={browsing}
           />
         </div>
       </div>
@@ -243,6 +279,12 @@ export default function ConverterPage() {
             title={t('law.results.startTitle')}
             body={t('law.results.startBody')}
             className="border-0 bg-transparent"
+            action={
+              <Button type="button" variant="outline" onClick={() => update({ browse: true })}>
+                <BookOpen aria-hidden="true" />
+                {t('law.results.browseAll')}
+              </Button>
+            }
           />
         </SectionCard>
       ) : null}
@@ -287,49 +329,112 @@ export default function ConverterPage() {
         </SectionCard>
       ))}
 
-      {hits.length > 0 && engine.engine ? (
-        <div data-print-hide className="space-y-2">
-          <p className="text-sm text-muted-foreground tabular-nums">
-            {browsing
-              ? t('law.results.browsing', {
-                  count: hits.length,
-                  act: actNameFor(engine.engine, view.code, language),
-                })
-              : t('law.results.count', { count: hits.length })}
-          </p>
-          {/* The search caps its result list; say so rather than presenting a
-              truncated list as if it were everything. */}
-          {!browsing && hits.length >= SEARCH_RESULT_LIMIT ? (
-            <p className="text-xs text-muted-foreground">
-              {t('law.results.truncated', { count: hits.length })}
-            </p>
-          ) : null}
-          <ResultList
-            id="law-results"
-            hits={hits}
-            corpus={engine.engine.corpus}
-            selectedId={selected?.doc.id ?? null}
-            onSelect={(hit) => setChosenId(hit.doc.id)}
-            activeIndex={activeIndex}
-            onActiveIndexChange={setActiveIndex}
-            browsing={browsing}
-            onLeaveTop={() => {
-              setActiveIndex(-1)
-              document.getElementById('law-search')?.focus()
-            }}
-          />
-        </div>
-      ) : null}
+      {/*
+        List and section side by side from 1024px, stacked below it.
 
-      {selected && engine.engine ? (
-        <SectionResultCard
-          key={selected.doc.id}
-          code={selected.doc.ref.code}
-          record={selected.doc.ref.record}
-          corpus={engine.engine.corpus}
-          onOpenSection={openSection}
-        />
-      ) : null}
+        Stacked, opening a result put the card BELOW the fold and the reader
+        had no idea anything had happened — the complaint that produced this
+        layout. Two panes fix it outright on a desktop, where a law reference
+        is mostly read; on a phone the card is scrolled into view instead (see
+        the effect above) and announced, which is the same fix by other means.
+
+        `lg:items-start` is what lets the list stick while the card scrolls.
+      */}
+      <div
+        className={cn(
+          'grid gap-6',
+          // Two panes ONLY once a section is open. While browsing with nothing
+          // selected, a 24rem column of sections beside an empty half-page
+          // reads as a broken layout — until something is opened the list has
+          // the width to itself.
+          selected && 'lg:grid-cols-[24rem_minmax(0,1fr)] lg:items-start',
+        )}
+      >
+        {hits.length > 0 && engine.engine ? (
+          <div data-print-hide className="min-w-0 space-y-2 lg:sticky lg:top-20">
+            <p className="text-sm text-muted-foreground tabular-nums">
+              {browsing
+                ? view.code
+                  ? t('law.results.browsing', {
+                      count: hits.length,
+                      act: actNameFor(engine.engine, view.code, language),
+                    })
+                  : t('law.results.browsingAll', { count: hits.length })
+                : t('law.results.count', { count: hits.length })}
+            </p>
+            {/* The search caps its result list; say so rather than presenting a
+              truncated list as if it were everything. */}
+            {!browsing && hits.length >= SEARCH_RESULT_LIMIT ? (
+              <p className="text-xs text-muted-foreground">
+                {t('law.results.truncated', { count: hits.length })}
+              </p>
+            ) : null}
+            <ResultList
+              id="law-results"
+              hits={hits}
+              corpus={engine.engine.corpus}
+              selectedId={selected?.doc.id ?? null}
+              onSelect={(hit) => {
+                setChosenId(hit.doc.id)
+                setDismissedFor(null)
+              }}
+              activeIndex={activeIndex}
+              onActiveIndexChange={setActiveIndex}
+              browsing={browsing}
+              // Below `lg` the pane is a short box inside a scrolling page; from
+              // `lg` it is a column of its own and fills the screen.
+              className={cn(
+                'max-h-[26rem]',
+                // Beside an open section the pane follows that column; on its
+                // own it has the page to itself and is worth more of the screen.
+                selected ? 'lg:max-h-[calc(100dvh-11rem)]' : 'lg:max-h-[calc(100dvh-19rem)]',
+              )}
+              onLeaveTop={() => {
+                setActiveIndex(-1)
+                document.getElementById('law-search')?.focus()
+              }}
+            />
+          </div>
+        ) : null}
+
+        {/*
+          `min-w-0` on both grid children is load-bearing, not tidiness. A grid
+          item defaults to `min-width: auto`, which is its MIN-CONTENT width —
+          and the card contains a 36rem-wide classification table. Without it
+          the card was 576px wide inside a 390px phone and the whole page
+          scrolled sideways, which the design system forbids outright.
+        */}
+        {selected && engine.engine ? (
+          <div ref={cardRef} className="min-w-0">
+            <SectionResultCard
+              key={selected.doc.id}
+              code={selected.doc.ref.code}
+              record={selected.doc.ref.record}
+              corpus={engine.engine.corpus}
+              onOpenSection={openSection}
+              onClose={() => {
+                setChosenId(null)
+                setDismissedFor(deferredQuery)
+              }}
+            />
+          </div>
+        ) : null}
+      </div>
+
+      {/*
+        Where the section went, for a reader who cannot see it scroll. Focus is
+        deliberately NOT moved: it would strand anyone arrowing through the
+        list, and the announcement carries the same information without it.
+      */}
+      <p role="status" aria-live="polite" className="sr-only">
+        {selected
+          ? t('law.results.opened', {
+              act: selected.doc.ref.record.act,
+              section: selected.doc.ref.record.section,
+              heading: selected.doc.ref.record.heading[language] || selected.doc.ref.record.heading.en,
+            })
+          : ''}
+      </p>
     </div>
   )
 }

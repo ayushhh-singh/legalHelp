@@ -22,7 +22,19 @@ export function ClassificationTable({ rows }: { rows: readonly Classification[] 
   const pick = (value: { en: string; hi: string } | undefined) => value?.[language] || value?.en || '—'
 
   return (
-    <div className="overflow-x-auto">
+    /*
+      A horizontally scrollable region has to be reachable by keyboard, or the
+      only way to see the columns past the edge is a mouse (axe
+      `scrollable-region-focusable`). It became scrollable when the card moved
+      into a narrower pane beside the result list — the table is seven columns
+      wide and does not fold.
+    */
+    <div
+      tabIndex={0}
+      role="region"
+      aria-label={t('law.card.classification')}
+      className="overflow-x-auto focus-visible:ring-2 focus-visible:ring-ring focus-visible:outline-none"
+    >
       <table className="w-full min-w-[36rem] border-collapse text-sm">
         <caption className="sr-only">{t('law.card.classification')}</caption>
         <thead>

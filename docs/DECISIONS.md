@@ -1321,3 +1321,81 @@ On-device recognition would remove the need for any of this — no notice, no se
 is shipping an on-device mode for the Web Speech API and Safari does some recognition locally. When it
 can be feature-detected and _required_, the honest move is to require it and drop the consent gate.
 Until then the notice is the only truthful thing to show.
+
+---
+
+## ADR-015 — Browsing an Act: the list is the screen until a section is opened
+
+**Date:** 2026-08-28 · **Status:** Accepted · **Session:** 4 (follow-up) ·
+**Amends:** ADR-013's result-list design
+
+### Context
+
+Browsing (ADR-013 addendum) put a code chip to work when the search box is empty. Using it turned up
+five problems in a row, every one of them found by looking at the screen rather than at the tests:
+
+1. Picking **"All"** did nothing — it is the DEFAULT chip, and a radio that is already checked fires no
+   change event. The most obvious control on the page was the one that appeared broken.
+2. The list **ended in blank space** after twenty rows.
+3. Opening a section put the card **below the fold**, and a reader had no way to tell that anything had
+   happened.
+4. An opened section **could not be closed**.
+5. The **direction toggle did nothing** while browsing.
+
+### Decision
+
+**1. Browse intent is its own URL parameter.** `browse=1`, separate from `code`, because "All" is the
+default code and a click on it is otherwise indistinguishable from a page load. Without it the choice
+was between a bare `/law` downloading 3.9 MB nobody asked for and the All chip doing nothing. It also
+makes a browse shareable and reload-safe. The chips carry `onClick` as well as `onChange`, so an
+already-checked radio still registers the press; `onChange` stays for the keyboard, where arrow keys
+move between radios without a click.
+
+**2. The list has the page until a section is opened.** A 24rem column of sections beside an empty
+half-page reads as a broken layout. Full width while browsing; two panes — sticky list, section beside
+it — once something is open, from 1024px. Below that they stack and the card is scrolled into view.
+
+**3. The card scrolls into view only when it is not already in it.** The test is the card's own top
+edge, not a breakpoint: beside the list on a wide screen nothing moves, stacked on a phone it moves.
+`block: 'nearest'` alone was not enough — the card is taller than the viewport, so "nearest" aligned
+its top and scrolled the search box away on a desktop where the card was perfectly visible. Focus is
+deliberately NOT moved; it would strand a reader arrowing through the list, and a live region carries
+the same information without it.
+
+**4. The card can be closed**, and closing is remembered against the QUERY it was closed on — so a new
+search opens its best result again rather than leaving the reader in a mode they cannot get out of.
+
+**5. The direction toggle is disabled while browsing, with the reason written next to it.** Direction
+decides what a bare number means; with nothing typed it has nothing to decide. It works correctly for
+a search — "302" gives BNS 103 one way and BNS 302 the other — so the fix was to stop showing a live
+control that could not do anything, not to change the ranking.
+
+### Two defects in the list itself, both from the same instinct
+
+- **Absolute positioning was the wrong way to virtualise here.** Opening a section reflows the list
+  from full width into a column, and the browser clamps the pane's scroll position when it does — so
+  the remembered offset pointed at rows the reader was no longer looking at, and every row was rendered
+  at a coordinate off screen. **The list went blank on a click.** It is now two spacer rows in normal
+  flow: the same scrollbar, but a stale offset shows the WRONG rows for a frame instead of NO rows at
+  all. A list that silently goes blank is not a recoverable failure.
+- **The window size is measured, not assumed** — from a `ResizeObserver` and again on every scroll,
+  because the scroll is the interaction whose correctness depends on it. There is also a floor of 30
+  rows, so a pane measured at zero still renders enough to scroll rather than appearing to stop.
+
+### And two the screenshots caught
+
+- **The page scrolled sideways on a phone.** A grid item's default `min-width: auto` is its min-content
+  width, and the card carries a 36rem classification table — so the card was 576px wide inside a 390px
+  viewport. `min-w-0` on both grid children. The design system forbids horizontal body scroll outright,
+  and it is now asserted at 390 / 768 / 1024 / 1440.
+- **That table also became a scrollable region with no way in from the keyboard** once the card moved
+  into a narrower pane (axe `scrollable-region-focusable`). It takes `role="region"` and `tabIndex={0}`
+  — and `eslint.config.js` had to be told, because `jsx-a11y/no-noninteractive-tabindex` allows that
+  only on `tabpanel` by default and the two rules otherwise contradict each other on the very markup
+  that satisfies WCAG.
+
+### Consequences
+
+- Every one of these was invisible to the unit suite, because jsdom has no layout. The regression tests
+  are Playwright, run at four viewports — phone, tablet portrait, tablet landscape, desktop.
+- `pnpm check` green (831 unit), 59 Playwright e2e green.

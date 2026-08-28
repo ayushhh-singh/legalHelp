@@ -34,6 +34,20 @@ export default tseslint.config(
       // own `files` scope.
       ...reactHooks.configs.recommended.rules,
       ...jsxA11y.flatConfigs.recommended.rules,
+      /*
+        A scrollable region must be keyboard-operable, or the only way to reach
+        the columns past its edge is a mouse — axe reports it as
+        `scrollable-region-focusable`, and the fix is `role="region"` with
+        `tabIndex={0}`. The default configuration of this rule allows that only
+        on `tabpanel`, so the lint rule and the axe rule contradict each other
+        on the very markup that satisfies WCAG. `region` is added rather than
+        the rule being disabled at the one call site, so the next scrollable
+        table gets the same treatment without a fresh argument.
+      */
+      'jsx-a11y/no-noninteractive-tabindex': [
+        'error',
+        { tags: [], roles: ['tabpanel', 'region'], allowExpressionValues: true },
+      ],
       'react-refresh/only-export-components': ['warn', { allowConstantExport: true }],
       '@typescript-eslint/no-unused-vars': ['error', { argsIgnorePattern: '^_' }],
       // Hard rule: no user data leaves the device. Flag the usual suspects.

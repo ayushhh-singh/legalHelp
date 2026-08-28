@@ -234,7 +234,8 @@
       "label": "Direction",
       "oldNew": "Old → New",
       "newOld": "New → Old",
-      "followed": "Read as {{act}}, because the search names it."
+      "followed": "Read as {{act}}, because the search names it.",
+      "disabledWhileBrowsing": "Applies to a search. You are reading the Act in order."
     },
     "date": {
       "label": "Date of offence",
@@ -262,7 +263,11 @@
       "loading": "Loading the section tables…",
       "truncated": "Showing the first {{count}} matches. Narrow the search to see fewer.",
       "browsing_one": "Browsing the {{act}} — {{count}} section",
-      "browsing_other": "Browsing the {{act}} — {{count}} sections"
+      "browsing_other": "Browsing the {{act}} — {{count}} sections",
+      "browseAll": "Browse all sections",
+      "opened": "Opened {{act}} section {{section}} — {{heading}}",
+      "browsingAll_one": "Browsing all three codes — {{count}} section",
+      "browsingAll_other": "Browsing all three codes — {{count}} sections"
     },
     "status": {
       "label": "Status",
@@ -304,7 +309,8 @@
       "related": "Related sections",
       "curatedHindi": "The Hindi on this card is a Sahayak translation, not the statutory Hindi. Verify against the official gazette.",
       "deletedTitle": "{{act}} section {{section}} has no counterpart",
-      "verify": "Verify"
+      "verify": "Verify",
+      "close": "Close this section"
     },
     "value": {
       "cognizable": "Cognizable",

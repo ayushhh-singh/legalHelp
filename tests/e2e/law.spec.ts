@@ -101,6 +101,160 @@ test('picking a code with an empty search box browses that Act', async ({ page }
   await expect(page.getByText(/Browsing the/)).toHaveCount(0)
 })
 
+test('the All chip browses all three codes, even though it is already selected', async ({ page }) => {
+  // A radio that is already checked fires no change event, so the most obvious
+  // chip on the page was the one that appeared broken.
+  await page.goto('/law')
+  await expect(page.getByRole('radio', { name: 'All' })).toBeChecked()
+
+  await page.getByText('All', { exact: true }).click()
+  await expect(page.getByText(/Browsing all three codes — 1059 sections/)).toBeVisible({ timeout: 20_000 })
+
+  const results = page.getByRole('list', { name: 'Search results' })
+  await expect(results.getByRole('button').first()).toContainText('BNS 1')
+  // Still windowed: 1,059 rows are not in the DOM at once.
+  expect(await results.getByRole('button').count()).toBeLessThan(60)
+})
+
+test('browsing survives a reload, because the intent is in the URL', async ({ page }) => {
+  await page.goto('/law?browse=1&code=bsa')
+  await expect(page.getByText(/Browsing the Bharatiya Sakshya Adhiniyam, 2023/)).toBeVisible()
+  await page.reload()
+  await expect(page.getByText(/Browsing the Bharatiya Sakshya Adhiniyam, 2023/)).toBeVisible()
+})
+
+test('the browse list scrolls its own rows rather than ending in blank space', async ({ page }) => {
+  await page.setViewportSize({ width: 1440, height: 900 })
+  await page.goto('/law?browse=1&code=bns')
+  const results = page.getByRole('list', { name: 'Search results' })
+  await expect(results.getByRole('button').first()).toContainText('BNS 1')
+
+  // Scroll the pane a long way down and assert rows are actually there. The
+  // window used to be pinned to row 0, so everything past row 20 was blank.
+  await page.evaluate(() => {
+    const pane = document.getElementById('law-results')?.parentElement
+    if (pane) pane.scrollTop = 200 * 76
+  })
+  await expect(results.getByRole('button').first()).toContainText('BNS 19', { timeout: 5000 })
+  expect(await results.getByRole('button').count()).toBeGreaterThan(5)
+})
+
+test('opening a section keeps the search box on a desktop and reveals it on a phone', async ({ page }) => {
+  // Two panes on a wide screen: the card is already beside the list, so
+  // nothing should move and the search box must stay where it is.
+  await page.setViewportSize({ width: 1440, height: 900 })
+  await page.goto('/law?browse=1&code=bns')
+  const wide = page.getByRole('list', { name: 'Search results' })
+  await expect(wide.getByRole('button').first()).toContainText('BNS 1')
+  await wide.getByRole('button').nth(3).click()
+  await expect(page.getByRole('heading', { name: 'Punishments.' })).toBeVisible()
+  // Not exactly zero: focusing the clicked row nudges the page a pixel or two.
+  // What matters is that the search box is still on screen, not that nothing
+  // moved at all.
+  expect(await page.evaluate(() => window.scrollY)).toBeLessThan(40)
+  await expect(page.getByLabel(/Search a section/)).toBeInViewport()
+
+  // Stacked on a phone the card is far below the fold, which is the case where
+  // a reader taps a row and cannot tell that anything happened.
+  await page.setViewportSize({ width: 390, height: 780 })
+  await page.goto('/law?browse=1&code=bns')
+  const narrow = page.getByRole('list', { name: 'Search results' })
+  await expect(narrow.getByRole('button').first()).toContainText('BNS 1')
+  await narrow.getByRole('button').nth(3).click()
+  await expect.poll(() => page.evaluate(() => window.scrollY), { timeout: 5000 }).toBeGreaterThan(200)
+  await expect(page.getByRole('heading', { name: 'Punishments.' })).toBeInViewport()
+})
+
+test('an open section can be closed again', async ({ page }) => {
+  // Beside the list it is a pane, and a pane a reader cannot shut has taken
+  // over the screen.
+  await search(page, '302')
+  await expect(page.getByRole('heading', { name: 'Punishment for murder.' })).toBeVisible()
+
+  await page.getByRole('button', { name: 'Close this section' }).click()
+  await expect(page.getByRole('button', { name: 'Copy citation' })).toHaveCount(0)
+  // The results are still there to pick from.
+  await expect(page.getByRole('list', { name: 'Search results' })).toBeVisible()
+
+  // Re-opening one works, and so does a new query — closing is about THIS
+  // search, not a mode the reader is now stuck in.
+  await page.getByRole('list', { name: 'Search results' }).getByRole('button').first().click()
+  await expect(page.getByRole('heading', { name: 'Punishment for murder.' })).toBeVisible()
+  await page.getByRole('button', { name: 'Close this section' }).click()
+  await page.getByLabel(/Search a section/).fill('420')
+  await expect(page.getByRole('heading', { name: 'Cheating.' })).toBeVisible()
+})
+
+test('the direction toggle is inert while browsing, and says so', async ({ page }) => {
+  // Direction decides what a bare NUMBER means, so with nothing typed it has
+  // nothing to decide. Leaving it live changed the URL and reordered nothing,
+  // which reads as a broken control.
+  await page.goto('/law?browse=1&code=bns')
+  await expect(page.getByRole('list', { name: 'Search results' })).toBeVisible()
+  await expect(page.getByRole('radio', { name: 'New → Old' })).toBeDisabled()
+  await expect(page.getByText('Applies to a search. You are reading the Act in order.')).toBeVisible()
+
+  // With a query it is live again, and it really does reorder.
+  await page.getByLabel(/Search a section/).fill('302')
+  const rows = page.getByRole('list', { name: 'Search results' }).getByRole('button')
+  await expect(rows.first()).toContainText('BNS 103')
+  await page.getByText('New → Old', { exact: true }).click()
+  await expect(rows.first()).toContainText('BNS 302')
+})
+
+/**
+ * The two failures a screenshot caught and a unit test could not.
+ *
+ * Both are about layout under real constraints, which is why they live here:
+ * jsdom has no layout, so neither could have been seen in the unit suite.
+ */
+for (const [name, width, height] of [
+  ['phone', 390, 780],
+  ['tablet', 768, 1024],
+  ['tablet landscape', 1024, 768],
+  ['desktop', 1440, 900],
+] as const) {
+  test(`on ${name}, opening a deep row keeps the list populated`, async ({ page }) => {
+    // Opening a section reflows the list from full width into a column, and
+    // the browser clamps its scroll position when it does. With the window
+    // computed from the remembered offset, every row was rendered at a
+    // coordinate the reader was not looking at and the list went BLANK.
+    await page.setViewportSize({ width, height })
+    await page.goto('/law?browse=1&code=bns')
+    const list = page.getByRole('list', { name: 'Search results' })
+    await expect(list.getByRole('button').first()).toContainText('BNS 1')
+
+    await page.evaluate(() => {
+      const pane = document.getElementById('law-results')?.parentElement
+      if (pane) pane.scrollTop = 150 * 76
+    })
+    // By index, not by label: "BNS 145" contains the substring "BNS 1".
+    await expect.poll(() => list.getByRole('button').first().getAttribute('data-index')).not.toBe('0')
+
+    await list.getByRole('button').nth(2).click()
+    await expect(page.getByRole('button', { name: 'Close this section' })).toBeVisible()
+    expect(await list.getByRole('button').count(), 'the list emptied on click').toBeGreaterThan(0)
+  })
+
+  test(`on ${name}, the page never scrolls sideways`, async ({ page }) => {
+    // The design system forbids it outright. The card carries a 36rem
+    // classification table, and a grid item's default `min-width: auto` is its
+    // min-content width — so without `min-w-0` the card was 576px wide inside a
+    // 390px phone.
+    await page.setViewportSize({ width, height })
+    await page.goto('/law?q=302')
+    await expect(page.getByRole('heading', { name: 'Punishment for murder.' })).toBeVisible()
+
+    const { scrollWidth, innerWidth } = await page.evaluate(() => ({
+      scrollWidth: document.documentElement.scrollWidth,
+      innerWidth: window.innerWidth,
+    }))
+    expect(scrollWidth, `${name}: the page overflows by ${scrollWidth - innerWidth}px`).toBeLessThanOrEqual(
+      innerWidth,
+    )
+  })
+}
+
 test('the offence date decides which code applies', async ({ page }) => {
   await page.goto('/law')
   const date = page.getByLabel('Date of offence')

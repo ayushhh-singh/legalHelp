@@ -28,6 +28,7 @@ describe('parseLawParams', () => {
       code: 'bns',
       direction: 'old-new',
       date: '2024-08-01',
+      browse: false,
     })
   })
 
@@ -72,7 +73,13 @@ describe('toLawParams', () => {
   })
 
   it('round-trips every field', () => {
-    const view = { query: '302', code: 'bns' as const, direction: 'new-old' as const, date: '2024-08-01' }
+    const view = {
+      query: '302',
+      code: 'bns' as const,
+      direction: 'new-old' as const,
+      date: '2024-08-01',
+      browse: false,
+    }
     expect(parseLawParams(toLawParams(view))).toEqual(view)
   })
 
@@ -89,6 +96,32 @@ describe('toLawParams', () => {
   it('builds an href against a given path', () => {
     expect(toLawHref({ ...DEFAULT_VIEW, query: '302' })).toBe('/law?q=302')
     expect(toLawHref({ ...DEFAULT_VIEW, query: '302' }, '/law/saved')).toBe('/law/saved?q=302')
+  })
+})
+
+describe('browse intent', () => {
+  it('is remembered in the URL, so a browse can be shared or reloaded', () => {
+    expect(params('browse=1&code=bnss').browse).toBe(true)
+    expect(toLawParams({ ...DEFAULT_VIEW, browse: true }).get('browse')).toBe('1')
+  })
+
+  it('is separate from the code, because "All" IS the default code', () => {
+    // Without its own flag there is no way to tell a click on the pre-selected
+    // All chip from a fresh page load — so either a bare /law downloads 3.9 MB
+    // nobody asked for, or the All chip does nothing at all.
+    expect(params('browse=1').code).toBeNull()
+    expect(params('browse=1').browse).toBe(true)
+    expect(params('code=bns').browse).toBe(false)
+  })
+
+  it('is not written beside a query, where it means nothing', () => {
+    expect(toLawParams({ ...DEFAULT_VIEW, browse: true, query: '302' }).has('browse')).toBe(false)
+  })
+
+  it('accepts only the exact flag', () => {
+    expect(params('browse=true').browse).toBe(false)
+    expect(params('browse=yes').browse).toBe(false)
+    expect(params('browse=1').browse).toBe(true)
   })
 })
 

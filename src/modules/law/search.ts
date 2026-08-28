@@ -426,7 +426,8 @@ export function searchLaw(engine: LawSearchEngine, request: LawSearchRequest): L
  *
  * This is what a code chip does when the search box is empty: browsing an Act
  * is a real way to use a law reference, and the chips previously selected a
- * filter over nothing. It is deliberately NOT what happens on a bare `/law` —
+ * filter over nothing. `null` browses all three, in code order, which is what
+ * the "All" chip means. It is deliberately NOT what happens on a bare `/law` —
  * the reader has to pick a code, because that keeps the 3.9 MB behind an
  * explicit action (ADR-013) rather than downloading it for anyone who opens
  * the page.
@@ -434,11 +435,14 @@ export function searchLaw(engine: LawSearchEngine, request: LawSearchRequest): L
  * The reason is `'text'` with the worst possible score so that these never
  * outrank a real match: the list is re-derived the moment anything is typed.
  */
-export function browseCode(engine: LawSearchEngine, code: LawCode): LawHit[] {
-  return engine.docs
-    .filter((doc) => doc.code === code)
-    .sort((a, b) => a.sortKey - b.sortKey)
-    .map((doc) => ({ doc, reason: 'text' as const, score: 1 }))
+export function browseCode(engine: LawSearchEngine, code: LawCode | null): LawHit[] {
+  const codes = code ? [code] : LAW_CODES
+  return codes.flatMap((one) =>
+    engine.docs
+      .filter((doc) => doc.code === one)
+      .sort((a, b) => a.sortKey - b.sortKey)
+      .map((doc) => ({ doc, reason: 'text' as const, score: 1 })),
+  )
 }
 
 /** The dataset a hit belongs to — for its Act names, sources and disclaimer. */

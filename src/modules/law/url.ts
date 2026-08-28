@@ -24,6 +24,15 @@ export interface LawViewState {
   direction: Direction
   /** `YYYY-MM-DD`, or null when the reader has not given an offence date. */
   date: string | null
+  /**
+   * The reader asked to read an Act rather than search it.
+   *
+   * It is in the URL, and it is separate from `code`, for one reason: "All" is
+   * the DEFAULT code, so a click on the All chip is indistinguishable from a
+   * fresh page load unless the intent is recorded. Without it, either a bare
+   * `/law` downloads 3.9 MB nobody asked for, or the All chip does nothing.
+   */
+  browse: boolean
 }
 
 export const DEFAULT_VIEW: LawViewState = {
@@ -31,6 +40,7 @@ export const DEFAULT_VIEW: LawViewState = {
   code: null,
   direction: 'old-new',
   date: null,
+  browse: false,
 }
 
 const isDirection = (value: unknown): value is Direction => value === 'old-new' || value === 'new-old'
@@ -45,6 +55,7 @@ export function parseLawParams(params: URLSearchParams): LawViewState {
     code: isLawCode(code) ? code : null,
     direction: isDirection(direction) ? direction : DEFAULT_VIEW.direction,
     date: date && isValidDate(date) ? date : null,
+    browse: params.get('browse') === '1',
   }
 }
 
@@ -52,17 +63,23 @@ export function parseLawParams(params: URLSearchParams): LawViewState {
  * Only what differs from the default is written, so the common case stays
  * `/law` and a shared link carries no noise for the recipient to read past.
  */
-export function toLawParams(state: LawViewState): URLSearchParams {
+export function toLawParams(partial: Partial<LawViewState>): URLSearchParams {
+  // Merged with the defaults so a caller that only cares about the query — a
+  // link from "What's new", a saved section — does not have to restate the
+  // whole view just to satisfy the type.
+  const state: LawViewState = { ...DEFAULT_VIEW, ...partial }
   const params = new URLSearchParams()
   if (state.query.trim()) params.set('q', state.query.trim())
   if (state.code) params.set('code', state.code)
   if (state.direction !== DEFAULT_VIEW.direction) params.set('dir', state.direction)
   if (state.date) params.set('date', state.date)
+  // Only meaningful with an empty query, so it is not written beside one.
+  if (state.browse && !state.query.trim()) params.set('browse', '1')
   return params
 }
 
 /** `"/law?q=302"`. Used for share links and for the recent-lookup list. */
-export function toLawHref(state: LawViewState, pathname = '/law'): string {
+export function toLawHref(state: Partial<LawViewState>, pathname = '/law'): string {
   const params = toLawParams(state).toString()
   return params ? `${pathname}?${params}` : pathname
 }

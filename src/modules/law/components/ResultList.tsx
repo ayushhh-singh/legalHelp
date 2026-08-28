@@ -24,10 +24,15 @@ const ROW_HEIGHT = 76
 const OVERSCAN = 6
 /** Below this many results, windowing costs more than it saves. */
 export const VIRTUALISE_ABOVE = 50
-/** The height of the scroll container once windowing is on. */
-const VIEWPORT_ROWS = 8
-/** Rows in the DOM at any moment: what fits, plus overscan above and below. */
-const PAGE = VIEWPORT_ROWS + OVERSCAN * 2
+/**
+ * The pane's height before it has been measured — one render's worth, and only
+ * on the very first frame. Everything after that uses the MEASURED height, so
+ * the window cannot be too small for a tall screen or wastefully large for a
+ * short one. Guessing here was how the list ended in blank space.
+ */
+const ASSUMED_VIEWPORT_PX = 8 * ROW_HEIGHT
+/** Never fewer rows in the DOM than this, whatever the measurement says. */
+const MIN_PAGE = 30
 
 interface ResultListProps {
   id: string
@@ -40,6 +45,8 @@ interface ResultListProps {
   onActiveIndexChange: (index: number) => void
   /** ArrowUp from the first row goes back to the search field. */
   onLeaveTop: () => void
+  /** Height of the scrolling pane, so the page can size it per breakpoint. */
+  className?: string
   /**
    * True when the list is the whole Act rather than a set of matches. The
    * per-row "why" badge is about ranking, and there is no ranking to explain
@@ -58,12 +65,46 @@ export function ResultList({
   onActiveIndexChange,
   onLeaveTop,
   browsing = false,
+  className,
 }: ResultListProps) {
   const { t, language } = useT()
   const containerRef = useRef<HTMLDivElement>(null)
   const [scrollTop, setScrollTop] = useState(0)
+  const [viewport, setViewport] = useState(ASSUMED_VIEWPORT_PX)
 
   const virtualised = hits.length > VIRTUALISE_ABOVE
+
+  /**
+   * How many rows to keep in the DOM is derived from how tall the pane
+   * actually is, because the page sizes it per breakpoint — a narrow phone and
+   * a 1440px desktop column are not the same number of rows. A fixed guess is
+   * either short (blank space at the bottom of a tall pane) or wasteful.
+   */
+  useEffect(() => {
+    const element = containerRef.current
+    if (!element || !virtualised || typeof ResizeObserver === 'undefined') return
+
+    const observer = new ResizeObserver((entries) => {
+      const height = entries[0]?.contentRect.height ?? 0
+      if (height > 0) setViewport(height)
+      // And re-read where the pane ACTUALLY is. Opening a section reflows this
+      // list from full width to a column, and the browser clamps or resets its
+      // scroll position when it does — leaving the remembered `scrollTop`
+      // pointing at rows that are no longer where the reader is looking. That
+      // is what made the list go blank on a click.
+      setScrollTop(element.scrollTop)
+    })
+    observer.observe(element)
+    return () => observer.disconnect()
+  }, [virtualised])
+
+  /**
+   * A floor as well as a measurement. Thirty rows is nothing for React to hold,
+   * and it means that even if the pane were measured at zero — a display:none
+   * ancestor, a browser without ResizeObserver — the list still renders enough
+   * to scroll through rather than appearing to stop after a screenful.
+   */
+  const page = Math.max(MIN_PAGE, Math.ceil(viewport / ROW_HEIGHT) + OVERSCAN * 2)
 
   /**
    * `activeIndex` is owned by the page, and the page can hand over one that no
@@ -83,17 +124,17 @@ export function ResultList({
    * focused row. With a row near the end focused that rendered every row and
    * turned virtualisation off entirely, and with nothing focused (`active` of
    * -1, the usual state) it pinned `first` to 0 so scrolling showed blank
-   * space. Both are gone: the slice is `PAGE` rows wide, always.
+   * space. Both are gone: the slice is `page` rows wide, always.
    */
   let first = 0
   let last = hits.length
   if (virtualised) {
     first = Math.max(0, Math.floor(scrollTop / ROW_HEIGHT) - OVERSCAN)
-    last = Math.min(hits.length, first + PAGE)
+    last = Math.min(hits.length, first + page)
 
     if (active >= 0 && (active < first || active >= last)) {
       first = Math.max(0, active - OVERSCAN)
-      last = Math.min(hits.length, first + PAGE)
+      last = Math.min(hits.length, first + page)
     }
   }
 
@@ -137,10 +178,7 @@ export function ResultList({
     const selected = hit.doc.id === selectedId
 
     return (
-      <li
-        key={hit.doc.id}
-        style={virtualised ? { position: 'absolute', top: index * ROW_HEIGHT, left: 0, right: 0 } : undefined}
-      >
+      <li key={hit.doc.id}>
         <button
           type="button"
           data-index={index}
@@ -204,21 +242,44 @@ export function ResultList({
   return (
     <div
       ref={containerRef}
-      onScroll={virtualised ? (event) => setScrollTop(event.currentTarget.scrollTop) : undefined}
+      onScroll={
+        virtualised
+          ? (event) => {
+              setScrollTop(event.currentTarget.scrollTop)
+              // Re-measure here as well as in the ResizeObserver. The observer
+              // is the fast path; this is the one that cannot fail to run,
+              // because it fires on the very interaction whose correctness
+              // depends on the measurement. A pane measured too short renders
+              // too few rows and the list appears to stop.
+              const height = event.currentTarget.clientHeight
+              if (height > 0) setViewport(height)
+            }
+          : undefined
+      }
       className={cn(
         'overflow-hidden rounded-lg border border-border bg-card',
+        // The pane scrolls only when there is more than a pane's worth. A short
+        // list is just a card, with no nested scrollbar to trap a phone.
         virtualised && 'overflow-y-auto',
+        className,
       )}
-      style={virtualised ? { maxHeight: VIEWPORT_ROWS * ROW_HEIGHT } : undefined}
     >
-      <ul
-        id={id}
-        aria-label={t('law.search.resultsLabel')}
-        // The spacer height is what gives the scrollbar the right size when
-        // only a window of the rows is in the DOM.
-        style={virtualised ? { position: 'relative', height: hits.length * ROW_HEIGHT } : undefined}
-      >
+      <ul id={id} aria-label={t('law.search.resultsLabel')}>
+        {/*
+          Two spacers rather than absolutely-positioned rows.
+
+          Both give the scrollbar the right size. The difference is the failure
+          mode: with absolute positioning, a window computed from a stale scroll
+          offset puts every row at a coordinate the reader is not looking at,
+          and the list appears EMPTY. In normal flow the same mistake shows the
+          wrong rows for one frame, which is recoverable and obvious. A list
+          that silently goes blank is neither.
+        */}
+        {first > 0 ? <li aria-hidden="true" style={{ height: first * ROW_HEIGHT }} /> : null}
         {rows}
+        {last < hits.length ? (
+          <li aria-hidden="true" style={{ height: (hits.length - last) * ROW_HEIGHT }} />
+        ) : null}
       </ul>
     </div>
   )

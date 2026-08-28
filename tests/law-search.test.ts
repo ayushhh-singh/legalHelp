@@ -151,6 +151,16 @@ describe('browsing a code', () => {
     expect(bnss.indexOf('BNSS 2')).toBe(bnss.indexOf('BNSS 1') + 1)
   })
 
+  it('browses all three codes when no code is chosen — what "All" means', () => {
+    const all = browseCode(engine, null)
+    expect(all).toHaveLength(1059)
+    // In code order, and in section order within each.
+    expect(label(all[0]!)).toBe('BNS 1')
+    expect(label(all[357]!)).toBe('BNS 358')
+    expect(label(all[358]!)).toBe('BNSS 1')
+    expect(label(all[1058]!)).toBe('BSA 170')
+  })
+
   it('never mixes codes', () => {
     for (const code of ['bns', 'bnss', 'bsa'] as const) {
       expect(browseCode(engine, code).every((hit) => hit.doc.code === code)).toBe(true)
