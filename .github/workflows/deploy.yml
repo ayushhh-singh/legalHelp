@@ -71,7 +71,7 @@ jobs:
       # and a crawler that reached it should be told so.
       - name: Build
         env:
-          VITE_SITE_URL: ${{ vars.SITE_URL || 'https://sahayak.pages.dev' }}
+          VITE_SITE_URL: ${{ vars.SITE_URL || 'https://legalhelp.pages.dev' }}
         run: pnpm build
 
       # The size budget is re-checked here rather than trusted from CI: this

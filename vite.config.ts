@@ -34,11 +34,15 @@ const BUILD_SHA = (() => {
  * places that cannot use a relative URL: the Open Graph tags a social-card
  * scraper reads without executing JavaScript, the canonical link, and
  * sitemap.xml. Override per environment with VITE_SITE_URL (the deploy
- * workflow sets it); the default is the Cloudflare Pages project domain.
+ * workflow sets it, from the SITE_URL repository variable); the default is
+ * the Cloudflare Pages project's own domain, so a build with no variable set
+ * still produces correct absolute URLs. Change it here if the site moves to a
+ * custom domain — tests/no-external-urls.test.ts reads this literal rather
+ * than restating it, so the allowlist follows automatically.
  */
 const __publicDir = fileURLToPath(new URL('./public', import.meta.url))
 
-const SITE_URL = (process.env.VITE_SITE_URL ?? 'https://sahayak.pages.dev').replace(/\/+$/, '')
+const SITE_URL = (process.env.VITE_SITE_URL ?? 'https://legalhelp.pages.dev').replace(/\/+$/, '')
 
 /**
  * Every route worth handing a crawler: the entry point plus the six
