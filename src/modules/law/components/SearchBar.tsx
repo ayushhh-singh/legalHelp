@@ -151,8 +151,18 @@ export function SearchBar({
         ) : null}
       </div>
 
-      <p id="law-search-hint" className="mt-1.5 text-xs text-muted-foreground">
+      <p id="law-search-hint" className="mt-1.5 max-w-prose text-xs text-muted-foreground">
         {t('law.search.hint')}
+        {/*
+          Where this app cannot offer a microphone — every browser but Chrome,
+          because speech is recognised on the device or not at all (ADR-017) —
+          the DEVICE still can. The keyboard's own dictation types into this
+          field like any other text, uses the operating system's recogniser
+          (which handles Hindi far better than a 40 MB in-page model does), and
+          involves this app in nothing at all. Saying so costs one clause and
+          turns a missing feature into a usable one.
+        */}
+        {voice.supported ? null : <> {t('voice.keyboardDictation')}</>}
       </p>
 
       {/* The microphone is open. Say so in text, not only with an icon. */}

@@ -26,28 +26,49 @@
  * least the plain build and its `.mjs` loader beside it. True footprint: about
  * **54 MB**, not the 41.6 MB of model below.
  *
- * ## Why the feature is not built yet — an upstream incompatibility
+ * ## Why the feature is not built — measured, twice
  *
- * Verified as far as it goes, in a production build with everything served from
- * our own origin and zero cross-origin requests: the model resolves, the runtime
- * loads, and inference reaches session creation. It then fails inside ONNX
- * runtime, every time:
+ * **The build problem is solved.** `@huggingface/transformers@4.2.0` bundles
+ * `onnxruntime-web@1.26.0-dev`, which fails at session creation for every
+ * Whisper graph (`qdq_actions.cc:137 TransposeDQWeightsForMatMulNBits, Missing
+ * required scale`) across five dtypes and both published exports. Forcing the
+ * stable runtime through a pnpm override FIXES it:
  *
- *     Can't create a session. ERROR_CODE: 1
- *     qdq_actions.cc:137 TransposeDQWeightsForMatMulNBits
- *     Missing required scale: model.decoder.embed_tokens.weight_merged_0_scale
+ *     "pnpm": { "overrides": { "onnxruntime-web": "1.29.0" } }
  *
- * Reproduced with FIVE dtype configurations — `int8`, `uint8`, `quantized`,
- * `fp16`, and mixed encoder/decoder pairs — and with both the `Xenova` and the
- * `onnx-community` exports. The error is identical each time and mentions
- * `MatMulNBits`, a 4-bit operator, for a graph that is not 4-bit: it is a bug in
- * the pairing of `@huggingface/transformers@4.2.0` with the
- * `onnxruntime-web@1.26.0-dev` it bundles, not a choice this script can make
- * differently.
+ * With that, whisper-tiny loads in ~1.6 s and transcribes, entirely from our own
+ * origin, with zero cross-origin requests.
  *
- * So `@huggingface/transformers` is deliberately NOT a dependency. Retry with a
- * later transformers.js; the plumbing this script represents is sound and the
- * privacy properties held throughout.
+ * **The quality problem is not solved, and it is the one that matters.**
+ * Measured on macOS `say` clips in Indian-accent English (Rishi, Tara, Aman) and
+ * Hindi (Lekha), int8, WASM backend:
+ *
+ *     said                          tiny (42 MB)        base (77 MB)
+ *     "section three hundred two"   "Section 302."      "Section 300-2"
+ *     "anticipatory bail"           "dissipate rebuild" "anticipatory bill"
+ *     "section four thirty eight"   "Section 438"       "Section 438"
+ *     हत्या                          "Hadi.."            "حدя"
+ *     धारा तीन सौ दो                  "Thara 10."         "182"
+ *     अग्रिम जमानत                    "Agrim Jamanat"     "Agrim Jamanat"
+ *
+ * Hindi never comes back in Devanagari at all, from either model. Base is not
+ * reliably better than tiny — it is worse on "302" and worse on Hindi — while
+ * being twice the size and twice as slow (3.2 s against 1.6 s per clip).
+ *
+ * For an app whose premise is that Hindi is not a second-class way in, shipping
+ * 42 MB of English-only-and-unreliable is worse than shipping nothing. So what
+ * ships instead is a sentence pointing the reader at their KEYBOARD's own
+ * dictation, which uses the operating system's recogniser — good at Hindi on
+ * every platform this app targets — costs no bytes, and involves this app in
+ * nothing at all.
+ *
+ * Caveat on the numbers: these are synthetic TTS clips, and Whisper is known to
+ * do worse on those than on real voices. The English figures may understate it.
+ * The Hindi failure is too complete to be a TTS artefact — the output is not
+ * even in the right script.
+ *
+ * Retry when a multilingual on-device model handles Devanagari. The plumbing is
+ * proven and this script still fetches the model.
  *
  * Idempotent and offline-safe: a file whose size already matches the manifest is
  * left alone, so re-running costs one HEAD request per file.

@@ -41,7 +41,12 @@ test('no microphone is offered, and Settings says why', async ({ page }) => {
   // what you say is worse than no button.
   await expect(page.getByRole('button', { name: 'Search by voice' })).toHaveCount(0)
 
-  // But the reason is findable rather than something to read the source for.
+  // And the reader is pointed at the thing that DOES work everywhere: the
+  // device's own keyboard dictation, which uses the operating system's
+  // recogniser and involves this app in nothing.
+  await expect(page.getByText(/use your keyboard's own dictation/)).toBeVisible()
+
+  // The reason is findable rather than something to read the source for.
   await page.goto('/settings')
   await expect(page.getByRole('heading', { name: 'Voice search' })).toBeVisible()
   await expect(page.getByText(/Not available in this browser/)).toBeVisible()
