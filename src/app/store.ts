@@ -1,7 +1,6 @@
 import { create } from 'zustand'
 
 import { DEFAULT_AI_SETTINGS, parseAiSettings, type AiSettings } from '@/ai/flags'
-import { DEFAULT_VOICE_SETTINGS, parseVoiceSettings, type VoiceSettings } from '@/lib/voiceSettings'
 import { db, getSetting, setSetting, SETTING_KEYS } from '@/db'
 import i18n, { detectBrowserLanguage, isLanguage, type Language } from '@/i18n'
 
@@ -19,12 +18,6 @@ interface AppState {
    * behind a dynamic import.
    */
   ai: AiSettings
-  /**
-   * Voice-search flags. Here rather than in a store of its own for the same
-   * reason `ai` is: `enabled` has to be readable from any module without
-   * importing the recogniser, which stays behind a dynamic import.
-   */
-  voice: VoiceSettings
   /** False until the first read from IndexedDB settles. */
   hydrated: boolean
   /** True when a preference could not be written to IndexedDB (see persist). */
@@ -32,7 +25,6 @@ interface AppState {
   setLanguage: (language: Language) => Promise<void>
   setTheme: (theme: Theme) => Promise<void>
   setAi: (patch: Partial<AiSettings>) => Promise<void>
-  setVoice: (patch: Partial<VoiceSettings>) => Promise<void>
   toggleLanguage: () => Promise<void>
   toggleTheme: () => Promise<void>
   hydrate: () => Promise<void>
@@ -67,7 +59,7 @@ const DEFAULT_THEME: Theme = 'light'
  * flight. Without this, a toggle pressed on a slow device is silently reverted
  * when the IndexedDB read lands a moment later.
  */
-const changedDuringHydrate = { language: false, theme: false, ai: false, voice: false }
+const changedDuringHydrate = { language: false, theme: false, ai: false }
 
 /** Newest hydrate wins, so an earlier slow read cannot overwrite a later one. */
 let hydrateGeneration = 0
@@ -76,7 +68,6 @@ export const useAppStore = create<AppState>((set, get) => ({
   language: detectBrowserLanguage(),
   theme: 'light',
   ai: DEFAULT_AI_SETTINGS,
-  voice: DEFAULT_VOICE_SETTINGS,
   hydrated: false,
   storageBlocked: false,
 
@@ -112,13 +103,6 @@ export const useAppStore = create<AppState>((set, get) => ({
     await persist(SETTING_KEYS.ai, next, set)
   },
 
-  setVoice: async (patch) => {
-    changedDuringHydrate.voice = true
-    const next = parseVoiceSettings({ ...get().voice, ...patch })
-    set({ voice: next })
-    await persist(SETTING_KEYS.voice, next, set)
-  },
-
   toggleLanguage: async () => {
     await get().setLanguage(get().language === 'en' ? 'hi' : 'en')
   },
@@ -137,20 +121,17 @@ export const useAppStore = create<AppState>((set, get) => ({
     changedDuringHydrate.language = false
     changedDuringHydrate.theme = false
     changedDuringHydrate.ai = false
-    changedDuringHydrate.voice = false
 
     let language = detectBrowserLanguage()
     let theme: Theme = DEFAULT_THEME
     let ai: AiSettings = DEFAULT_AI_SETTINGS
-    let voice: VoiceSettings = DEFAULT_VOICE_SETTINGS
     let blocked = false
 
     try {
-      const [storedLanguage, storedTheme, storedAi, storedVoice] = await Promise.all([
+      const [storedLanguage, storedTheme, storedAi] = await Promise.all([
         getSetting<unknown>(SETTING_KEYS.language),
         getSetting<unknown>(SETTING_KEYS.theme),
         getSetting<unknown>(SETTING_KEYS.ai),
-        getSetting<unknown>(SETTING_KEYS.voice),
       ])
       // Anything unrecognised (a hand-edited row, a value from a future
       // version) is discarded rather than trusted. For AI that rule is what
@@ -159,7 +140,6 @@ export const useAppStore = create<AppState>((set, get) => ({
       if (isLanguage(storedLanguage)) language = storedLanguage
       if (isTheme(storedTheme)) theme = storedTheme
       if (storedAi !== undefined) ai = parseAiSettings(storedAi)
-      if (storedVoice !== undefined) voice = parseVoiceSettings(storedVoice)
     } catch (error) {
       blocked = true
       console.warn('[sahayak] could not read settings from IndexedDB', error)
@@ -180,9 +160,6 @@ export const useAppStore = create<AppState>((set, get) => ({
     }
     if (!changedDuringHydrate.ai) {
       next.ai = ai
-    }
-    if (!changedDuringHydrate.voice) {
-      next.voice = voice
     }
 
     set(next)

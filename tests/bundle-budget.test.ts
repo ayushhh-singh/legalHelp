@@ -62,22 +62,6 @@ describe('bundle budget', () => {
     }
   })
 
-  built('keeps the speech recogniser out of it too', () => {
-    const initial = initialRouteAssets()
-      .filter((asset) => asset.endsWith('.js'))
-      .map((asset) => readFromRoot('dist', asset))
-      .join('\n')
-
-    // The presence CHECK ships — `isVoiceSupported` decides whether to draw the
-    // button, and it is a string comparison against `window` that constructs
-    // nothing (src/lib/voiceConsent.ts). The recogniser must not: these are
-    // strings that exist only inside `listen()`, which is dynamically imported
-    // on the first press of the microphone.
-    for (const marker of ['maxAlternatives', 'interimResults', 'audio-capture', 'service-not-allowed']) {
-      expect(initial, `"${marker}" reached the initial route`).not.toContain(marker)
-    }
-  })
-
   built('loads the AI settings and the Tier 1 provider as separate chunks', () => {
     // index.html preloads the entry graph. Neither of these may be in it.
     const html = readFromRoot('dist/index.html')

@@ -3,7 +3,7 @@
   "private": true,
   "version": "0.1.0",
   "type": "module",
-  "description": "Sahayak — सरकारी सहायक. Offline-first bilingual reference and productivity PWA for Indian central government officers.",
+  "description": "Sahayak \u2014 \u0938\u0930\u0915\u093e\u0930\u0940 \u0938\u0939\u093e\u092f\u0915. Offline-first bilingual reference and productivity PWA for Indian central government officers.",
   "license": "MIT",
   "packageManager": "pnpm@9.15.9",
   "engines": {
@@ -22,8 +22,7 @@
     "icons:generate": "node scripts/generate-icons.mjs",
     "test:e2e": "playwright test",
     "format": "prettier --write .",
-    "check": "pnpm lint && pnpm typecheck && pnpm i18n:check && pnpm test",
-    "voice:model": "node scripts/fetch-voice-model.mjs"
+    "check": "pnpm lint && pnpm typecheck && pnpm i18n:check && pnpm test"
   },
   "dependencies": {
     "@fontsource-variable/inter": "5.3.0",
@@ -81,7 +80,7 @@
   },
   "pnpm": {
     "peerDependencyRules": {
-      "_comment": "eslint-plugin-jsx-a11y 6.10.2 declares eslint <=9 but runs correctly on 10 — verified with a deliberate jsx-a11y/alt-text violation. See ADR-009.",
+      "_comment": "eslint-plugin-jsx-a11y 6.10.2 declares eslint <=9 but runs correctly on 10 \u2014 verified with a deliberate jsx-a11y/alt-text violation. See ADR-009.",
       "allowedVersions": {
         "eslint-plugin-jsx-a11y>eslint": "10"
       }

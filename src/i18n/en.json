@@ -359,31 +359,6 @@
       "remove": "Remove {{act}} section {{section}} from saved"
     }
   },
-  "voice": {
-    "start": "Search by voice",
-    "stop": "Stop listening",
-    "listening": "Listening. Speak your search.",
-    "local": "Recognised on this device. Nothing you say is sent anywhere.",
-    "download": {
-      "needed": "Speaking needs a one-time voice model, downloaded by your browser. Nothing you say leaves this device either way.",
-      "action": "Get the voice model"
-    },
-    "errors": {
-      "denied": "The microphone was blocked. Allow it in your browser settings, or type instead.",
-      "no-microphone": "No microphone was available.",
-      "no-speech": "Nothing was heard. Try again, or type instead.",
-      "no-model": "This device has no on-device voice model for this language, and this app will not send your voice anywhere to make up for it. Type instead.",
-      "unknown": "Voice search stopped unexpectedly. Try again, or type instead."
-    },
-    "settings": {
-      "title": "Voice search",
-      "hint": "Speech is recognised on this device — nothing you say is sent anywhere. The button appears only where your browser can do that.",
-      "on": "Show the microphone",
-      "off": "Hide it",
-      "unsupported": "Not available in this browser. Speech is only offered where it can be recognised on the device itself — today that means Chrome 138 or later. Safari and Firefox can only send your voice to a server, and this app will not do that."
-    },
-    "keyboardDictation": "No mic button in this browser — use your keyboard's own dictation instead: the mic key on a phone keyboard, Fn Fn on a Mac, or Win+H on Windows. It types straight into this box, in Hindi or English."
-  },
   "pay": {
     "perMonth": "/month",
     "loadFailed": "The pay datasets could not be loaded. They are bundled with the app, so this is a storage or an update problem rather than a network one.",

@@ -1,7 +1,6 @@
 import { lazy, Suspense } from 'react'
 
 import { PageHeader } from '@/components/common/PageHeader'
-import { VoiceSettingsSection } from '@/components/common/VoiceSettingsSection'
 import { OptionRow } from '@/components/ui-x'
 import { useAppStore, type Theme } from '@/app/store'
 import { LANGUAGES, LANGUAGE_NAMES, type Language } from '@/i18n'
@@ -57,8 +56,6 @@ export default function SettingsPage() {
           ))}
         </div>
       </section>
-
-      <VoiceSettingsSection />
 
       <section className="flex flex-col gap-2">
         <h2 className="text-lg font-semibold">{t('pages.settings.privacyTitle')}</h2>
