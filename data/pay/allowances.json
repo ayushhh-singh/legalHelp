@@ -1,0 +1,2479 @@
+{
+  "$schema": "../../schemas/pay-allowances.schema.json",
+  "version": "1.0.0",
+  "generatedAt": "2026-08-28",
+  "disclaimer": {
+    "en": "Reference only; verify with the official gazette/order or your DDO.",
+    "hi": "केवल संदर्भ हेतु; आधिकारिक राजपत्र/आदेश अथवा अपने डीडीओ से पुष्टि करें।"
+  },
+  "allowances": [
+    {
+      "id": "dearness-allowance",
+      "name": {
+        "en": "Dearness Allowance",
+        "hi": "महँगाई भत्ता"
+      },
+      "shortName": {
+        "en": "DA",
+        "hi": "डीए"
+      },
+      "type": "percent-of-pay",
+      "status": "current",
+      "appliesTo": {
+        "en": "Every Central Government employee drawing pay in the Pay Matrix.",
+        "hi": "वेतन मैट्रिक्स में वेतन आहरित करने वाला प्रत्येक केंद्रीय सरकारी कर्मचारी।"
+      },
+      "rates": [
+        {
+          "key": "current",
+          "when": {
+            "en": "Rate in force from 01.01.2026",
+            "hi": "01.01.2026 से प्रवृत्त दर"
+          },
+          "measure": "percent-of-basic-pay",
+          "value": 60
+        }
+      ],
+      "daLinked": {
+        "kind": "not-applicable",
+        "timesApplied": 0,
+        "since": null,
+        "note": {
+          "en": "This is Dearness Allowance itself. data/pay/da-history.json carries every rate since 01.01.2016.",
+          "hi": "यह स्वयं महँगाई भत्ता है। data/pay/da-history.json में 01.01.2016 से प्रत्येक दर दी गई है।"
+        }
+      },
+      "taxable": true,
+      "taxSection": null,
+      "taxNote": {
+        "en": "Fully taxable as salary under both regimes.",
+        "hi": "दोनों कर व्यवस्थाओं में वेतन के रूप में पूर्णतः कर योग्य।"
+      },
+      "conditions": [
+        {
+          "en": "'Basic pay' means the pay drawn in the prescribed Level of the Pay Matrix and does not include Non-Practising Allowance, Military Service Pay or any other type of pay.",
+          "hi": "'मूल वेतन' से अभिप्राय वेतन मैट्रिक्स के निर्धारित लेवल में आहरित वेतन है; इसमें अव्यवसाय भत्ता, सैन्य सेवा वेतन अथवा किसी अन्य प्रकार का वेतन सम्मिलित नहीं है।"
+        },
+        {
+          "en": "Fractions of 50 paise and above are rounded to the next higher rupee; less than 50 paise is ignored.",
+          "hi": "50 पैसे और उससे अधिक के अंश को अगले पूर्ण रुपये तक पूर्णांकित किया जाता है; 50 पैसे से कम की उपेक्षा की जाती है।"
+        },
+        {
+          "en": "Dearness Allowance is not treated as pay within the meaning of FR 9(21).",
+          "hi": "महँगाई भत्ते को मूल नियम 9(21) के अर्थ में वेतन नहीं माना जाता।"
+        }
+      ],
+      "note": null,
+      "source": {
+        "name": "Revision of rates of Dearness Allowance to Central Government employees effective from 01.01.2026",
+        "url": "https://doe.gov.in/files/circulars_document/DAorder7cpc.pdf",
+        "reference": "O.M. No. 1/1(i)/2026-E.II(B)",
+        "dated": "2026-04-22"
+      },
+      "fetchedAt": "2026-08-28T00:00:00Z",
+      "verify": false
+    },
+    {
+      "id": "house-rent-allowance",
+      "name": {
+        "en": "House Rent Allowance",
+        "hi": "मकान किराया भत्ता"
+      },
+      "shortName": {
+        "en": "HRA",
+        "hi": "एचआरए"
+      },
+      "type": "slab",
+      "status": "current",
+      "appliesTo": {
+        "en": "Every Central Government employee not provided with Government accommodation, at the rate for the class of the city of posting.",
+        "hi": "प्रत्येक केंद्रीय सरकारी कर्मचारी जिसे सरकारी आवास नहीं दिया गया है, तैनाती के शहर की श्रेणी की दर पर।"
+      },
+      "rates": [
+        {
+          "key": "X",
+          "when": {
+            "en": "Posted in an 'X' class city",
+            "hi": "'X' श्रेणी के शहर में तैनात"
+          },
+          "measure": "percent-of-basic-pay",
+          "value": 30,
+          "floor": 5400
+        },
+        {
+          "key": "Y",
+          "when": {
+            "en": "Posted in a 'Y' class city",
+            "hi": "'Y' श्रेणी के शहर में तैनात"
+          },
+          "measure": "percent-of-basic-pay",
+          "value": 20,
+          "floor": 3600
+        },
+        {
+          "key": "Z",
+          "when": {
+            "en": "Posted anywhere else ('Z')",
+            "hi": "अन्य कहीं भी तैनात ('Z')"
+          },
+          "measure": "percent-of-basic-pay",
+          "value": 10,
+          "floor": 1800
+        }
+      ],
+      "daLinked": {
+        "kind": "none",
+        "timesApplied": 0,
+        "since": "2024-01-01",
+        "note": {
+          "en": "The 2017 order set 24/16/8 per cent and provided that the rates would be revised to 27/18/9 when Dearness Allowance crossed 25 per cent and to 30/20/10 when it crossed 50 per cent. Dearness Allowance crossed 50 per cent on 01.01.2024, so 30/20/10 is the rate in force and there is no further escalation clause.",
+          "hi": "2017 के आदेश में 24/16/8 प्रतिशत निर्धारित किया गया था तथा प्रावधान था कि महँगाई भत्ते के 25 प्रतिशत पार करने पर दरें 27/18/9 और 50 प्रतिशत पार करने पर 30/20/10 हो जाएँगी। महँगाई भत्ता 01.01.2024 को 50 प्रतिशत पार कर गया, अतः 30/20/10 ही प्रवृत्त दर है और इससे आगे कोई वृद्धि खंड नहीं है।"
+        }
+      },
+      "taxable": true,
+      "taxSection": "10(13A) read with Rule 2A",
+      "taxNote": {
+        "en": "Exempt to the least of: actual House Rent Allowance received; rent paid minus 10 per cent of salary; and 50 per cent of salary in Delhi, Mumbai, Kolkata or Chennai, 40 per cent elsewhere. The exemption is available under the old regime only.",
+        "hi": "निम्न में से न्यूनतम तक छूट प्राप्त: वास्तव में प्राप्त मकान किराया भत्ता; भुगतान किया गया किराया घटा वेतन का 10 प्रतिशत; तथा दिल्ली, मुंबई, कोलकाता या चेन्नई में वेतन का 50 प्रतिशत, अन्यत्र 40 प्रतिशत। यह छूट केवल पुरानी कर व्यवस्था में उपलब्ध है।"
+      },
+      "conditions": [
+        {
+          "en": "Not admissible to an employee provided with Government accommodation.",
+          "hi": "सरकारी आवास प्राप्त कर्मचारी को देय नहीं।"
+        },
+        {
+          "en": "Employees posted at Faridabad, Ghaziabad, NOIDA and Gurugram draw House Rent Allowance at Delhi ('X') rates on the basis of dependency; Jalandhar Cantt. draws Jalandhar rates; Shillong, Goa and Port Blair draw 'Y' rates; Panchkula and S.A.S. Nagar (Mohali) draw rates at par with Chandigarh.",
+          "hi": "फ़रीदाबाद, ग़ाज़ियाबाद, नोएडा तथा गुरुग्राम में तैनात कर्मचारी निर्भरता के आधार पर दिल्ली ('X') दरों पर मकान किराया भत्ता आहरित करते हैं; जालंधर छावनी जालंधर की दरें; शिलांग, गोवा तथा पोर्ट ब्लेयर 'Y' दरें; तथा पंचकूला और एस.ए.एस. नगर (मोहाली) चंडीगढ़ के समकक्ष दरें।"
+        },
+        {
+          "en": "'Basic pay' excludes Non-Practising Allowance, Military Service Pay and every other type of pay.",
+          "hi": "'मूल वेतन' में अव्यवसाय भत्ता, सैन्य सेवा वेतन तथा हर अन्य प्रकार का वेतन सम्मिलित नहीं है।"
+        }
+      ],
+      "note": null,
+      "source": {
+        "name": "Implementation of the recommendations of the Seventh Central Pay Commission relating to grant of House Rent Allowance",
+        "url": "https://doe.gov.in/files/cenetral-pay_document/HRA_Eng_1.pdf",
+        "reference": "O.M. No. 2/5/2017-E.II(B)",
+        "dated": "2017-07-07"
+      },
+      "fetchedAt": "2026-08-28T00:00:00Z",
+      "verify": false
+    },
+    {
+      "id": "transport-allowance",
+      "name": {
+        "en": "Transport Allowance",
+        "hi": "परिवहन भत्ता"
+      },
+      "shortName": {
+        "en": "TA",
+        "hi": "टीए"
+      },
+      "type": "slab",
+      "status": "current",
+      "appliesTo": {
+        "en": "Every Central Government employee not provided with the facility of Government transport, at the rate for their Level and place of posting.",
+        "hi": "प्रत्येक केंद्रीय सरकारी कर्मचारी जिसे सरकारी परिवहन की सुविधा नहीं दी गई है, अपने लेवल तथा तैनाती के स्थान की दर पर।"
+      },
+      "rates": [
+        {
+          "key": "level-9-and-above:annexure-cities",
+          "when": {
+            "en": "Levels 9 and above, posted in a city named in the annexure to the order",
+            "hi": "लेवल 9 और उससे ऊपर, आदेश के अनुबंध में नामित शहर में तैनात"
+          },
+          "measure": "rupees-per-month",
+          "value": 7200
+        },
+        {
+          "key": "level-9-and-above:other",
+          "when": {
+            "en": "Levels 9 and above, posted at all other places",
+            "hi": "लेवल 9 और उससे ऊपर, अन्य सभी स्थानों पर तैनात"
+          },
+          "measure": "rupees-per-month",
+          "value": 3600
+        },
+        {
+          "key": "level-3-to-8:annexure-cities",
+          "when": {
+            "en": "Levels 3 to 8, posted in a city named in the annexure",
+            "hi": "लेवल 3 से 8, अनुबंध में नामित शहर में तैनात"
+          },
+          "measure": "rupees-per-month",
+          "value": 3600
+        },
+        {
+          "key": "level-3-to-8:other",
+          "when": {
+            "en": "Levels 3 to 8, posted at all other places",
+            "hi": "लेवल 3 से 8, अन्य सभी स्थानों पर तैनात"
+          },
+          "measure": "rupees-per-month",
+          "value": 1800
+        },
+        {
+          "key": "level-1-to-2:annexure-cities",
+          "when": {
+            "en": "Levels 1 and 2, posted in a city named in the annexure",
+            "hi": "लेवल 1 तथा 2, अनुबंध में नामित शहर में तैनात"
+          },
+          "measure": "rupees-per-month",
+          "value": 1350
+        },
+        {
+          "key": "level-1-to-2:other",
+          "when": {
+            "en": "Levels 1 and 2, posted at all other places",
+            "hi": "लेवल 1 तथा 2, अन्य सभी स्थानों पर तैनात"
+          },
+          "measure": "rupees-per-month",
+          "value": 900
+        },
+        {
+          "key": "level-1-to-2-pay-24200:annexure-cities",
+          "when": {
+            "en": "Levels 1 and 2 drawing pay of ₹24,200 or more, posted in a city named in the annexure",
+            "hi": "लेवल 1 तथा 2 में ₹24,200 या अधिक वेतन आहरित करने वाले, अनुबंध में नामित शहर में तैनात"
+          },
+          "measure": "rupees-per-month",
+          "value": 3600
+        },
+        {
+          "key": "level-1-to-2-pay-24200:other",
+          "when": {
+            "en": "Levels 1 and 2 drawing pay of ₹24,200 or more, posted at all other places",
+            "hi": "लेवल 1 तथा 2 में ₹24,200 या अधिक वेतन आहरित करने वाले, अन्य सभी स्थानों पर तैनात"
+          },
+          "measure": "rupees-per-month",
+          "value": 1800
+        },
+        {
+          "key": "differently-abled",
+          "when": {
+            "en": "Differently abled employees of the specified categories — double the normal rate, and never less than this floor",
+            "hi": "विनिर्दिष्ट श्रेणियों के दिव्यांग कर्मचारी — सामान्य दर का दोगुना, तथा इस न्यूनतम से कभी कम नहीं"
+          },
+          "measure": "rupees-per-month",
+          "floor": 2250
+        },
+        {
+          "key": "level-14-and-above-in-lieu-of-car",
+          "when": {
+            "en": "Levels 14 and above entitled to an official car, opting to draw the allowance instead",
+            "hi": "लेवल 14 और उससे ऊपर, जो सरकारी कार के हकदार हैं और उसके स्थान पर भत्ता लेना चुनते हैं"
+          },
+          "measure": "rupees-per-month",
+          "value": 15750
+        }
+      ],
+      "daLinked": {
+        "kind": "fully-indexed",
+        "timesApplied": 0,
+        "since": null,
+        "note": {
+          "en": "Dearness Allowance is payable on Transport Allowance in addition to the amounts above — the order says 'plus D.A. thereon' at every rate. At 60 per cent Dearness Allowance, ₹7,200 is drawn as ₹11,520.",
+          "hi": "उपर्युक्त राशियों के अतिरिक्त परिवहन भत्ते पर महँगाई भत्ता भी देय है — आदेश प्रत्येक दर पर 'plus D.A. thereon' कहता है। 60 प्रतिशत महँगाई भत्ते पर ₹7,200 का आहरण ₹11,520 होता है।"
+        }
+      },
+      "taxable": true,
+      "taxSection": "10(14)",
+      "taxNote": {
+        "en": "Taxable for an ordinarily able employee under both regimes. For a blind, deaf and dumb, or orthopaedically handicapped employee it is exempt up to ₹3,200 per month under section 10(14) read with Rule 2BB, and that exemption survives in the new regime.",
+        "hi": "सामान्य कर्मचारी के लिए दोनों व्यवस्थाओं में कर योग्य। दृष्टिबाधित, मूक-बधिर अथवा अस्थि-विकलांग कर्मचारी के लिए धारा 10(14) सहपठित नियम 2BB के अंतर्गत ₹3,200 प्रति माह तक छूट प्राप्त है, और यह छूट नई व्यवस्था में भी बनी रहती है।"
+      },
+      "conditions": [
+        {
+          "en": "Not admissible to an employee provided with the facility of Government transport.",
+          "hi": "सरकारी परिवहन की सुविधा प्राप्त कर्मचारी को देय नहीं।"
+        },
+        {
+          "en": "Not admissible for a calendar month wholly covered by leave, deputation abroad or tour.",
+          "hi": "पूरे कैलेंडर माह के लिए, जो छुट्टी, विदेश प्रतिनियुक्ति अथवा दौरे से पूर्णतः आच्छादित हो, देय नहीं।"
+        },
+        {
+          "en": "The annexure of cities is the same annexure that classifies cities 'X' and 'Y' for House Rent Allowance.",
+          "hi": "शहरों का अनुबंध वही अनुबंध है जो मकान किराया भत्ते के लिए शहरों को 'X' तथा 'Y' श्रेणी में वर्गीकृत करता है।"
+        }
+      ],
+      "note": null,
+      "source": {
+        "name": "Implementation of the recommendations of the 7th Central Pay Commission relating to grant of Transport Allowance",
+        "url": "https://doe.gov.in/files/cenetral-pay_document/TPTA_Eng1.pdf",
+        "reference": "O.M. No. 21/5/2017-E.II(B), as partially modified on 02.08.2017",
+        "dated": "2017-07-07"
+      },
+      "fetchedAt": "2026-08-28T00:00:00Z",
+      "verify": false
+    },
+    {
+      "id": "children-education-allowance",
+      "name": {
+        "en": "Children Education Allowance",
+        "hi": "बाल शिक्षा भत्ता"
+      },
+      "shortName": {
+        "en": "CEA",
+        "hi": "सीईए"
+      },
+      "type": "fixed",
+      "status": "current",
+      "appliesTo": {
+        "en": "Every Central Government employee, for the two eldest surviving children, up to Class XII.",
+        "hi": "प्रत्येक केंद्रीय सरकारी कर्मचारी, दो ज्येष्ठ जीवित संतानों के लिए, कक्षा 12 तक।"
+      },
+      "rates": [
+        {
+          "key": "standard",
+          "when": {
+            "en": "Per child, per month — ₹27,000 a year for a full year of schooling",
+            "hi": "प्रति संतान, प्रति माह — पूरे शैक्षणिक वर्ष के लिए ₹27,000 वार्षिक"
+          },
+          "measure": "rupees-per-month",
+          "value": 2250
+        },
+        {
+          "key": "divyang",
+          "when": {
+            "en": "Per differently abled child, per month — double the normal rate",
+            "hi": "प्रति दिव्यांग संतान, प्रति माह — सामान्य दर का दोगुना"
+          },
+          "measure": "rupees-per-month",
+          "value": 4500
+        }
+      ],
+      "daLinked": {
+        "kind": "quarter-per-fifty",
+        "timesApplied": 1,
+        "since": "2024-01-01",
+        "note": {
+          "en": "The rate stated in the order rises by 25 per cent each time Dearness Allowance crosses 50 per cent. Dearness Allowance reached 50 per cent on 01.01.2024, so the figure payable today is the figure here multiplied by 1.25.",
+          "hi": "आदेश में उल्लिखित दर, महँगाई भत्ता जब-जब 50 प्रतिशत पार करता है, तब-तब 25 प्रतिशत बढ़ जाती है। महँगाई भत्ता 01.01.2024 को 50 प्रतिशत पर पहुँचा, अतः आज देय राशि यहाँ दी गई राशि का 1.25 गुना है।"
+        }
+      },
+      "taxable": true,
+      "taxSection": "10(14)",
+      "taxNote": {
+        "en": "Only ₹100 per child per month for up to two children is exempt under section 10(14) read with Rule 2BB, and only under the old regime. The reimbursement above that is taxable.",
+        "hi": "धारा 10(14) सहपठित नियम 2BB के अंतर्गत अधिकतम दो संतानों के लिए केवल ₹100 प्रति संतान प्रति माह की छूट है, और वह भी केवल पुरानी व्यवस्था में। उससे ऊपर की प्रतिपूर्ति कर योग्य है।"
+      },
+      "conditions": [
+        {
+          "en": "Admissible for the two eldest surviving children only. A third child is covered where the second birth resulted in twins or multiple births, and where the first child is differently abled.",
+          "hi": "केवल दो ज्येष्ठ जीवित संतानों के लिए देय। यदि दूसरे प्रसव में जुड़वाँ या अधिक संतानें हुई हों, तथा जहाँ पहली संतान दिव्यांग हो, वहाँ तीसरी संतान भी आच्छादित है।"
+        },
+        {
+          "en": "Reimbursed on a certificate from the head of the institution that the child studied there in the previous academic year; no receipts are required.",
+          "hi": "संस्था प्रमुख के इस प्रमाणपत्र पर प्रतिपूर्ति की जाती है कि संतान ने पिछले शैक्षणिक वर्ष में वहाँ अध्ययन किया; रसीदें आवश्यक नहीं।"
+        },
+        {
+          "en": "Not admissible beyond Class XII; graduate and postgraduate study is outside its scope.",
+          "hi": "कक्षा 12 से आगे देय नहीं; स्नातक तथा स्नातकोत्तर अध्ययन इसके दायरे से बाहर है।"
+        }
+      ],
+      "note": null,
+      "source": {
+        "name": "Report of the Seventh Central Pay Commission, para 8.17.17",
+        "url": "https://doe.gov.in/files/cenetral-pay_document/7cpc_report_eng.pdf",
+        "reference": "Children Education Allowance",
+        "dated": "2015-11-19"
+      },
+      "fetchedAt": "2026-08-28T00:00:00Z",
+      "verify": true
+    },
+    {
+      "id": "hostel-subsidy",
+      "name": {
+        "en": "Hostel Subsidy",
+        "hi": "छात्रावास सब्सिडी"
+      },
+      "type": "fixed",
+      "status": "current",
+      "appliesTo": {
+        "en": "A Central Government employee obliged to keep a child in a hostel away from the station of posting and residence on account of transfer.",
+        "hi": "वह केंद्रीय सरकारी कर्मचारी जो स्थानांतरण के कारण संतान को तैनाती एवं निवास के स्थान से दूर छात्रावास में रखने को बाध्य हो।"
+      },
+      "rates": [
+        {
+          "key": "standard",
+          "when": {
+            "en": "Per child, per month — a ceiling, not a flat rate",
+            "hi": "प्रति संतान, प्रति माह — यह उच्चतम सीमा है, एकसमान दर नहीं"
+          },
+          "measure": "rupees-per-month",
+          "value": 6750
+        },
+        {
+          "key": "divyang",
+          "when": {
+            "en": "Per differently abled child, per month — double the ceiling",
+            "hi": "प्रति दिव्यांग संतान, प्रति माह — उच्चतम सीमा का दोगुना"
+          },
+          "measure": "rupees-per-month",
+          "value": 13500
+        }
+      ],
+      "daLinked": {
+        "kind": "quarter-per-fifty",
+        "timesApplied": 1,
+        "since": "2024-01-01",
+        "note": {
+          "en": "The rate stated in the order rises by 25 per cent each time Dearness Allowance crosses 50 per cent. Dearness Allowance reached 50 per cent on 01.01.2024, so the figure payable today is the figure here multiplied by 1.25.",
+          "hi": "आदेश में उल्लिखित दर, महँगाई भत्ता जब-जब 50 प्रतिशत पार करता है, तब-तब 25 प्रतिशत बढ़ जाती है। महँगाई भत्ता 01.01.2024 को 50 प्रतिशत पर पहुँचा, अतः आज देय राशि यहाँ दी गई राशि का 1.25 गुना है।"
+        }
+      },
+      "taxable": true,
+      "taxSection": "10(14)",
+      "taxNote": {
+        "en": "Only ₹300 per child per month for up to two children is exempt under section 10(14) read with Rule 2BB, and only under the old regime.",
+        "hi": "धारा 10(14) सहपठित नियम 2BB के अंतर्गत अधिकतम दो संतानों के लिए केवल ₹300 प्रति संतान प्रति माह की छूट है, और वह भी केवल पुरानी व्यवस्था में।"
+      },
+      "conditions": [
+        {
+          "en": "Children Education Allowance and Hostel Subsidy are not drawn for the same child at the same time.",
+          "hi": "एक ही संतान के लिए एक साथ बाल शिक्षा भत्ता तथा छात्रावास सब्सिडी दोनों नहीं ली जा सकतीं।"
+        },
+        {
+          "en": "Subject to the same two-child limit as Children Education Allowance.",
+          "hi": "बाल शिक्षा भत्ते वाली दो-संतान सीमा यहाँ भी लागू है।"
+        }
+      ],
+      "note": null,
+      "source": {
+        "name": "Report of the Seventh Central Pay Commission, para 8.17.17",
+        "url": "https://doe.gov.in/files/cenetral-pay_document/7cpc_report_eng.pdf",
+        "reference": "Hostel Subsidy",
+        "dated": "2015-11-19"
+      },
+      "fetchedAt": "2026-08-28T00:00:00Z",
+      "verify": true
+    },
+    {
+      "id": "dress-allowance",
+      "name": {
+        "en": "Dress Allowance",
+        "hi": "वस्त्र भत्ता"
+      },
+      "type": "slab",
+      "status": "current",
+      "appliesTo": {
+        "en": "Employees who are supplied a uniform and are required to wear it regularly. It subsumes Uniform Allowance, Kit Maintenance Allowance, Washing Allowance, Robe Allowance, Robe Maintenance Allowance, Shoe Allowance and Clothing Allowance.",
+        "hi": "वे कर्मचारी जिन्हें वर्दी दी जाती है और जिनसे नियमित रूप से उसे पहनने की अपेक्षा है। इसमें वर्दी भत्ता, किट रखरखाव भत्ता, धुलाई भत्ता, चोगा भत्ता, चोगा रखरखाव भत्ता, जूता भत्ता तथा परिधान भत्ता समाहित हैं।"
+      },
+      "rates": [
+        {
+          "key": "officers-uniformed-forces",
+          "when": {
+            "en": "Officers of the Army, Air Force, Navy, Central Armed Police Forces, Central Police Organisations, RPF, RPSF, Indian Police Service and Coast Guard",
+            "hi": "थल सेना, वायु सेना, नौसेना, केंद्रीय सशस्त्र पुलिस बलों, केंद्रीय पुलिस संगठनों, रेल सुरक्षा बल, रेल सुरक्षा विशेष बल, भारतीय पुलिस सेवा तथा तटरक्षक बल के अधिकारी"
+          },
+          "measure": "rupees-per-year",
+          "value": 20000
+        },
+        {
+          "key": "nurses-danips",
+          "when": {
+            "en": "Military Nursing Service officers, civilian nurses, officers of DANIPS and Assistant Commissioners of Police of Delhi and other Union Territories",
+            "hi": "सैन्य नर्सिंग सेवा अधिकारी, असैनिक नर्स, दानिप्स अधिकारी तथा दिल्ली एवं अन्य संघ राज्य क्षेत्रों के सहायक पुलिस आयुक्त"
+          },
+          "measure": "rupees-per-year",
+          "value": 15000
+        },
+        {
+          "key": "executive-staff",
+          "when": {
+            "en": "Executive staff of Customs, Central Excise and the Narcotics Department, ICLS officers, legal officers in the NIA, Bureau of Immigration personnel at Mumbai, Chennai, Delhi, Amritsar and Kolkata, personnel below officer rank of the Defence services, Central Armed Police Forces, RPF and Union Territory police forces, Indian Coast Guard, Station Masters of Indian Railways and SPG personnel",
+            "hi": "सीमा शुल्क, केंद्रीय उत्पाद शुल्क तथा स्वापक विभाग के कार्यपालक कर्मचारी, भारतीय कॉर्पोरेट विधि सेवा अधिकारी, राष्ट्रीय अन्वेषण अभिकरण के विधि अधिकारी, मुंबई, चेन्नई, दिल्ली, अमृतसर एवं कोलकाता के आप्रवासन ब्यूरो कर्मी, रक्षा सेवाओं, केंद्रीय सशस्त्र पुलिस बलों, रेल सुरक्षा बल तथा संघ राज्य क्षेत्र पुलिस बलों के अधिकारी रैंक से नीचे के कर्मी, भारतीय तटरक्षक बल, भारतीय रेल के स्टेशन मास्टर तथा विशेष सुरक्षा दल कर्मी"
+          },
+          "measure": "rupees-per-year",
+          "value": 10000
+        },
+        {
+          "key": "other-staff",
+          "when": {
+            "en": "Other categories of staff who are supplied a uniform and required to wear it regularly — trackmen, running staff of Indian Railways, staff car drivers and the like",
+            "hi": "वर्दी पाने तथा नियमित रूप से पहनने वाले अन्य श्रेणियों के कर्मचारी — ट्रैकमैन, भारतीय रेल के रनिंग स्टाफ़, स्टाफ़ कार चालक आदि"
+          },
+          "measure": "rupees-per-year",
+          "value": 5000
+        }
+      ],
+      "daLinked": {
+        "kind": "quarter-per-fifty",
+        "timesApplied": 1,
+        "since": "2024-01-01",
+        "note": {
+          "en": "The rate stated in the order rises by 25 per cent each time Dearness Allowance crosses 50 per cent. Dearness Allowance reached 50 per cent on 01.01.2024, so the figure payable today is the figure here multiplied by 1.25.",
+          "hi": "आदेश में उल्लिखित दर, महँगाई भत्ता जब-जब 50 प्रतिशत पार करता है, तब-तब 25 प्रतिशत बढ़ जाती है। महँगाई भत्ता 01.01.2024 को 50 प्रतिशत पर पहुँचा, अतः आज देय राशि यहाँ दी गई राशि का 1.25 गुना है।"
+        }
+      },
+      "taxable": true,
+      "taxSection": "10(14)",
+      "taxNote": {
+        "en": "Exempt to the extent actually spent on the purchase and maintenance of the uniform, under section 10(14) read with Rule 2BB(1)(f). The exemption survives in the new regime.",
+        "hi": "धारा 10(14) सहपठित नियम 2BB(1)(f) के अंतर्गत वर्दी की खरीद एवं रखरखाव पर वास्तव में व्यय की गई सीमा तक छूट प्राप्त। यह छूट नई व्यवस्था में भी बनी रहती है।"
+      },
+      "conditions": [
+        {
+          "en": "Credited to the salary directly once a year, in July.",
+          "hi": "वर्ष में एक बार, जुलाई में, सीधे वेतन में जमा किया जाता है।"
+        },
+        {
+          "en": "Allowances for maintenance or washing of the uniform are subsumed here and are not payable separately.",
+          "hi": "वर्दी के रखरखाव अथवा धुलाई के भत्ते इसमें समाहित हैं और अलग से देय नहीं हैं।"
+        },
+        {
+          "en": "Covers only the basic uniform. Special clothing — Siachen, submarines, fluorescent clothing for trackmen, high-altitude clothing for Intelligence Bureau personnel — continues to be provided in kind by the ministry concerned.",
+          "hi": "इसमें केवल आधारभूत वर्दी सम्मिलित है। विशेष परिधान — सियाचिन, पनडुब्बी, ट्रैकमैन के प्रतिदीप्त वस्त्र, आसूचना ब्यूरो कर्मियों के उच्च तुंगता वस्त्र — संबंधित मंत्रालय द्वारा वस्तु-रूप में ही दिए जाते रहेंगे।"
+        }
+      ],
+      "note": null,
+      "source": {
+        "name": "Report of the Seventh Central Pay Commission, para 8.16.14",
+        "url": "https://doe.gov.in/files/cenetral-pay_document/7cpc_report_eng.pdf",
+        "reference": "Dress Allowance",
+        "dated": "2015-11-19"
+      },
+      "fetchedAt": "2026-08-28T00:00:00Z",
+      "verify": true
+    },
+    {
+      "id": "uniform-allowance-police",
+      "name": {
+        "en": "Uniform Allowance (police)",
+        "hi": "वर्दी भत्ता (पुलिस)"
+      },
+      "type": "subsumed",
+      "status": "subsumed",
+      "subsumedInto": "dress-allowance",
+      "appliesTo": {
+        "en": "Police and other uniformed personnel who drew a separate Uniform Allowance before 01.07.2017.",
+        "hi": "पुलिस तथा अन्य वर्दीधारी कर्मी जो 01.07.2017 से पूर्व अलग वर्दी भत्ता आहरित करते थे।"
+      },
+      "rates": [],
+      "daLinked": {
+        "kind": "not-applicable",
+        "timesApplied": 0,
+        "since": null,
+        "note": null
+      },
+      "taxable": true,
+      "taxSection": "10(14)",
+      "taxNote": null,
+      "conditions": [
+        {
+          "en": "Not payable separately. Every uniform-related allowance was subsumed into a single Dress Allowance (including shoes) with effect from 01.07.2017 — draw the Dress Allowance rate for the category instead.",
+          "hi": "अलग से देय नहीं। 01.07.2017 से वर्दी से संबंधित प्रत्येक भत्ता एकल वस्त्र भत्ते (जूतों सहित) में समाहित कर दिया गया — इसके स्थान पर उस श्रेणी की वस्त्र भत्ता दर लें।"
+        }
+      ],
+      "note": null,
+      "source": {
+        "name": "Report of the Seventh Central Pay Commission, para 8.16.14",
+        "url": "https://doe.gov.in/files/cenetral-pay_document/7cpc_report_eng.pdf",
+        "reference": "Dress Allowance",
+        "dated": "2015-11-19"
+      },
+      "fetchedAt": "2026-08-28T00:00:00Z",
+      "verify": true
+    },
+    {
+      "id": "kit-maintenance-allowance",
+      "name": {
+        "en": "Kit Maintenance Allowance",
+        "hi": "किट रखरखाव भत्ता"
+      },
+      "type": "subsumed",
+      "status": "subsumed",
+      "subsumedInto": "dress-allowance",
+      "appliesTo": {
+        "en": "Personnel who drew Kit Maintenance Allowance, Washing Allowance or Robe Maintenance Allowance before 01.07.2017, at rates from ₹100 to ₹600 a month.",
+        "hi": "वे कर्मी जो 01.07.2017 से पूर्व ₹100 से ₹600 प्रति माह की दरों पर किट रखरखाव भत्ता, धुलाई भत्ता अथवा चोगा रखरखाव भत्ता आहरित करते थे।"
+      },
+      "rates": [],
+      "daLinked": {
+        "kind": "not-applicable",
+        "timesApplied": 0,
+        "since": null,
+        "note": null
+      },
+      "taxable": true,
+      "taxSection": "10(14)",
+      "taxNote": null,
+      "conditions": [
+        {
+          "en": "Not payable separately. Subsumed into Dress Allowance with effect from 01.07.2017.",
+          "hi": "अलग से देय नहीं। 01.07.2017 से वस्त्र भत्ते में समाहित।"
+        }
+      ],
+      "note": null,
+      "source": {
+        "name": "Report of the Seventh Central Pay Commission, paras 8.16.7 and 8.16.14",
+        "url": "https://doe.gov.in/files/cenetral-pay_document/7cpc_report_eng.pdf",
+        "reference": "Kit Maintenance Allowance",
+        "dated": "2015-11-19"
+      },
+      "fetchedAt": "2026-08-28T00:00:00Z",
+      "verify": true
+    },
+    {
+      "id": "risk-and-hardship-allowance",
+      "name": {
+        "en": "Risk and Hardship Allowance",
+        "hi": "जोखिम एवं कठिनाई भत्ता"
+      },
+      "shortName": {
+        "en": "RHA",
+        "hi": "आरएचए"
+      },
+      "type": "matrix",
+      "status": "current",
+      "appliesTo": {
+        "en": "Personnel of the Central Armed Police Forces, the Defence services and other organisations whose named allowance has been placed in a cell of the Risk and Hardship Matrix. The allowance keeps its own name and conditions; only the rate comes from the cell.",
+        "hi": "केंद्रीय सशस्त्र पुलिस बलों, रक्षा सेवाओं तथा अन्य संगठनों के वे कर्मी जिनका नामित भत्ता जोखिम एवं कठिनाई मैट्रिक्स के किसी सेल में रखा गया है। भत्ता अपना नाम एवं शर्तें बनाए रखता है; केवल दर सेल से आती है।"
+      },
+      "rates": [
+        {
+          "key": "rh-max:level-9-and-above",
+          "when": {
+            "en": "Cell RH-Max (Siachen and Antarctica Allowance), Pay Matrix Level 9 and above",
+            "hi": "सेल RH-Max (सियाचिन तथा अंटार्कटिका भत्ता), वेतन मैट्रिक्स लेवल 9 और उससे ऊपर"
+          },
+          "measure": "rupees-per-month",
+          "value": 31500
+        },
+        {
+          "key": "rh-max:level-8-and-below",
+          "when": {
+            "en": "Cell RH-Max (Siachen and Antarctica Allowance), Pay Matrix Level 8 and below",
+            "hi": "सेल RH-Max (सियाचिन तथा अंटार्कटिका भत्ता), वेतन मैट्रिक्स लेवल 8 और उससे नीचे"
+          },
+          "measure": "rupees-per-month",
+          "value": 21000
+        },
+        {
+          "key": "r1h1:level-9-and-above",
+          "when": {
+            "en": "Cell R1H1 (Flying, MARCOS, Special Forces, Submarine, COBRA, High Altitude CAT-III), Pay Matrix Level 9 and above",
+            "hi": "सेल R1H1 (उड़ान, मार्कोस, विशेष बल, पनडुब्बी, कोबरा, उच्च तुंगता वर्ग-III), वेतन मैट्रिक्स लेवल 9 और उससे ऊपर"
+          },
+          "measure": "rupees-per-month",
+          "value": 25000
+        },
+        {
+          "key": "r1h1:level-8-and-below",
+          "when": {
+            "en": "Cell R1H1 (Flying, MARCOS, Special Forces, Submarine, COBRA, High Altitude CAT-III), Pay Matrix Level 8 and below",
+            "hi": "सेल R1H1 (उड़ान, मार्कोस, विशेष बल, पनडुब्बी, कोबरा, उच्च तुंगता वर्ग-III), वेतन मैट्रिक्स लेवल 8 और उससे नीचे"
+          },
+          "measure": "rupees-per-month",
+          "value": 17300
+        },
+        {
+          "key": "r1h2:level-9-and-above",
+          "when": {
+            "en": "Cell R1H2 (high risk, medium hardship), Pay Matrix Level 9 and above",
+            "hi": "सेल R1H2 (उच्च जोखिम, मध्यम कठिनाई), वेतन मैट्रिक्स लेवल 9 और उससे ऊपर"
+          },
+          "measure": "rupees-per-month",
+          "value": 16900
+        },
+        {
+          "key": "r1h2:level-8-and-below",
+          "when": {
+            "en": "Cell R1H2 (high risk, medium hardship), Pay Matrix Level 8 and below",
+            "hi": "सेल R1H2 (उच्च जोखिम, मध्यम कठिनाई), वेतन मैट्रिक्स लेवल 8 और उससे नीचे"
+          },
+          "measure": "rupees-per-month",
+          "value": 9700
+        },
+        {
+          "key": "r1h3:level-9-and-above",
+          "when": {
+            "en": "Cell R1H3 (high risk, low hardship), Pay Matrix Level 9 and above",
+            "hi": "सेल R1H3 (उच्च जोखिम, निम्न कठिनाई), वेतन मैट्रिक्स लेवल 9 और उससे ऊपर"
+          },
+          "measure": "rupees-per-month",
+          "value": 5300
+        },
+        {
+          "key": "r1h3:level-8-and-below",
+          "when": {
+            "en": "Cell R1H3 (high risk, low hardship), Pay Matrix Level 8 and below",
+            "hi": "सेल R1H3 (उच्च जोखिम, निम्न कठिनाई), वेतन मैट्रिक्स लेवल 8 और उससे नीचे"
+          },
+          "measure": "rupees-per-month",
+          "value": 4100
+        },
+        {
+          "key": "r2h1:level-9-and-above",
+          "when": {
+            "en": "Cell R2H1 (medium risk, high hardship), Pay Matrix Level 9 and above",
+            "hi": "सेल R2H1 (मध्यम जोखिम, उच्च कठिनाई), वेतन मैट्रिक्स लेवल 9 और उससे ऊपर"
+          },
+          "measure": "rupees-per-month",
+          "value": 16900
+        },
+        {
+          "key": "r2h1:level-8-and-below",
+          "when": {
+            "en": "Cell R2H1 (medium risk, high hardship), Pay Matrix Level 8 and below",
+            "hi": "सेल R2H1 (मध्यम जोखिम, उच्च कठिनाई), वेतन मैट्रिक्स लेवल 8 और उससे नीचे"
+          },
+          "measure": "rupees-per-month",
+          "value": 9700
+        },
+        {
+          "key": "r2h2:level-9-and-above",
+          "when": {
+            "en": "Cell R2H2 (medium risk, medium hardship), Pay Matrix Level 9 and above",
+            "hi": "सेल R2H2 (मध्यम जोखिम, मध्यम कठिनाई), वेतन मैट्रिक्स लेवल 9 और उससे ऊपर"
+          },
+          "measure": "rupees-per-month",
+          "value": 10500
+        },
+        {
+          "key": "r2h2:level-8-and-below",
+          "when": {
+            "en": "Cell R2H2 (medium risk, medium hardship), Pay Matrix Level 8 and below",
+            "hi": "सेल R2H2 (मध्यम जोखिम, मध्यम कठिनाई), वेतन मैट्रिक्स लेवल 8 और उससे नीचे"
+          },
+          "measure": "rupees-per-month",
+          "value": 6000
+        },
+        {
+          "key": "r2h3:level-9-and-above",
+          "when": {
+            "en": "Cell R2H3 (medium risk, low hardship), Pay Matrix Level 9 and above",
+            "hi": "सेल R2H3 (मध्यम जोखिम, निम्न कठिनाई), वेतन मैट्रिक्स लेवल 9 और उससे ऊपर"
+          },
+          "measure": "rupees-per-month",
+          "value": 3400
+        },
+        {
+          "key": "r2h3:level-8-and-below",
+          "when": {
+            "en": "Cell R2H3 (medium risk, low hardship), Pay Matrix Level 8 and below",
+            "hi": "सेल R2H3 (मध्यम जोखिम, निम्न कठिनाई), वेतन मैट्रिक्स लेवल 8 और उससे नीचे"
+          },
+          "measure": "rupees-per-month",
+          "value": 2700
+        },
+        {
+          "key": "r3h1:level-9-and-above",
+          "when": {
+            "en": "Cell R3H1 (low risk, high hardship — Tough Location Allowance-I), Pay Matrix Level 9 and above",
+            "hi": "सेल R3H1 (निम्न जोखिम, उच्च कठिनाई — कठिन स्थल भत्ता-I), वेतन मैट्रिक्स लेवल 9 और उससे ऊपर"
+          },
+          "measure": "rupees-per-month",
+          "value": 5300
+        },
+        {
+          "key": "r3h1:level-8-and-below",
+          "when": {
+            "en": "Cell R3H1 (low risk, high hardship — Tough Location Allowance-I), Pay Matrix Level 8 and below",
+            "hi": "सेल R3H1 (निम्न जोखिम, उच्च कठिनाई — कठिन स्थल भत्ता-I), वेतन मैट्रिक्स लेवल 8 और उससे नीचे"
+          },
+          "measure": "rupees-per-month",
+          "value": 4100
+        },
+        {
+          "key": "r3h2:level-9-and-above",
+          "when": {
+            "en": "Cell R3H2 (low risk, medium hardship — Tough Location Allowance-II), Pay Matrix Level 9 and above",
+            "hi": "सेल R3H2 (निम्न जोखिम, मध्यम कठिनाई — कठिन स्थल भत्ता-II), वेतन मैट्रिक्स लेवल 9 और उससे ऊपर"
+          },
+          "measure": "rupees-per-month",
+          "value": 3400
+        },
+        {
+          "key": "r3h2:level-8-and-below",
+          "when": {
+            "en": "Cell R3H2 (low risk, medium hardship — Tough Location Allowance-II), Pay Matrix Level 8 and below",
+            "hi": "सेल R3H2 (निम्न जोखिम, मध्यम कठिनाई — कठिन स्थल भत्ता-II), वेतन मैट्रिक्स लेवल 8 और उससे नीचे"
+          },
+          "measure": "rupees-per-month",
+          "value": 2700
+        },
+        {
+          "key": "r3h3:level-9-and-above",
+          "when": {
+            "en": "Cell R3H3 (low risk, low hardship — Tough Location Allowance-III, Bad Climate, Tribal Area, Sunderban), Pay Matrix Level 9 and above",
+            "hi": "सेल R3H3 (निम्न जोखिम, निम्न कठिनाई — कठिन स्थल भत्ता-III, खराब जलवायु, जनजातीय क्षेत्र, सुंदरबन), वेतन मैट्रिक्स लेवल 9 और उससे ऊपर"
+          },
+          "measure": "rupees-per-month",
+          "value": 1200
+        },
+        {
+          "key": "r3h3:level-8-and-below",
+          "when": {
+            "en": "Cell R3H3 (low risk, low hardship — Tough Location Allowance-III, Bad Climate, Tribal Area, Sunderban), Pay Matrix Level 8 and below",
+            "hi": "सेल R3H3 (निम्न जोखिम, निम्न कठिनाई — कठिन स्थल भत्ता-III, खराब जलवायु, जनजातीय क्षेत्र, सुंदरबन), वेतन मैट्रिक्स लेवल 8 और उससे नीचे"
+          },
+          "measure": "rupees-per-month",
+          "value": 1000
+        }
+      ],
+      "daLinked": {
+        "kind": "quarter-per-fifty",
+        "timesApplied": 1,
+        "since": "2024-01-01",
+        "note": {
+          "en": "The rate stated in the order rises by 25 per cent each time Dearness Allowance crosses 50 per cent. Dearness Allowance reached 50 per cent on 01.01.2024, so the figure payable today is the figure here multiplied by 1.25.",
+          "hi": "आदेश में उल्लिखित दर, महँगाई भत्ता जब-जब 50 प्रतिशत पार करता है, तब-तब 25 प्रतिशत बढ़ जाती है। महँगाई भत्ता 01.01.2024 को 50 प्रतिशत पर पहुँचा, अतः आज देय राशि यहाँ दी गई राशि का 1.25 गुना है।"
+        }
+      },
+      "taxable": false,
+      "taxSection": "10(14)",
+      "taxNote": {
+        "en": "Allowances in the nature of compensation for the arduous or hazardous nature of duty are exempt under section 10(14) read with Rule 2BB, to the limits prescribed there. The limits are per-allowance and the exemption is not automatic — check the specific allowance.",
+        "hi": "कर्तव्य की दुष्कर अथवा संकटपूर्ण प्रकृति के प्रतिकर स्वरूप भत्ते धारा 10(14) सहपठित नियम 2BB के अंतर्गत वहाँ निर्धारित सीमाओं तक छूट प्राप्त हैं। सीमाएँ प्रति-भत्ता हैं और छूट स्वतः नहीं मिलती — विशिष्ट भत्ता देखें।"
+      },
+      "conditions": [
+        {
+          "en": "The matrix is symmetrical: R1H2 equals R2H1, R1H3 equals R3H1, and R2H3 equals R3H2. Risk and hardship carry equal weight.",
+          "hi": "मैट्रिक्स सममित है: R1H2 बराबर R2H1, R1H3 बराबर R3H1, तथा R2H3 बराबर R3H2। जोखिम और कठिनाई को समान भार दिया गया है।"
+        },
+        {
+          "en": "RH-Max is the ceiling for the whole family of risk and hardship allowances — no such allowance may exceed it. It covers Siachen Allowance and Antarctica Allowance.",
+          "hi": "RH-Max जोखिम एवं कठिनाई भत्तों के पूरे समूह की उच्चतम सीमा है — ऐसा कोई भी भत्ता इससे अधिक नहीं हो सकता। इसमें सियाचिन भत्ता तथा अंटार्कटिका भत्ता आते हैं।"
+        },
+        {
+          "en": "For Central Armed Police Force personnel the Risk and Hardship Allowance is an alternative to Detachment Allowance, not an addition: the choice is between Detachment Allowance with Special Duty or Tough Location Allowance on one hand, and Risk and Hardship Allowance with Ration Money Allowance on the other.",
+          "hi": "केंद्रीय सशस्त्र पुलिस बल कर्मियों के लिए जोखिम एवं कठिनाई भत्ता, टुकड़ी भत्ते का विकल्प है, उसके अतिरिक्त नहीं: चयन एक ओर टुकड़ी भत्ता सहित विशेष ड्यूटी अथवा कठिन स्थल भत्ता तथा दूसरी ओर जोखिम एवं कठिनाई भत्ता सहित राशन मनी भत्ते के बीच है।"
+        }
+      ],
+      "note": null,
+      "source": {
+        "name": "Report of the Seventh Central Pay Commission, para 8.10.64 (Risk and Hardship Matrix)",
+        "url": "https://doe.gov.in/files/cenetral-pay_document/7cpc_report_eng.pdf",
+        "reference": "Risk and Hardship Matrix",
+        "dated": "2015-11-19"
+      },
+      "fetchedAt": "2026-08-28T00:00:00Z",
+      "verify": true
+    },
+    {
+      "id": "tough-location-allowance",
+      "name": {
+        "en": "Tough Location Allowance",
+        "hi": "कठिन स्थल भत्ता"
+      },
+      "type": "matrix",
+      "status": "current",
+      "appliesTo": {
+        "en": "Employees posted at places covered by the annexures to the order. It subsumes Special Compensatory (Remote Locality) Allowance, Bad Climate Allowance, Special Compensatory Scheduled/Tribal Area Allowance and Sunderban Allowance.",
+        "hi": "आदेश के अनुबंधों में आच्छादित स्थानों पर तैनात कर्मचारी। इसमें विशेष प्रतिकरात्मक (दूरस्थ स्थान) भत्ता, खराब जलवायु भत्ता, विशेष प्रतिकरात्मक अनुसूचित/जनजातीय क्षेत्र भत्ता तथा सुंदरबन भत्ता समाहित हैं।"
+      },
+      "rates": [
+        {
+          "key": "tla-1:level-9-and-above",
+          "when": {
+            "en": "Tough Location Allowance-I (cell R3H1), places under Parts A and B, Level 9 and above",
+            "hi": "कठिन स्थल भत्ता-I (सेल R3H1), भाग क तथा ख के स्थान, लेवल 9 और उससे ऊपर"
+          },
+          "measure": "rupees-per-month",
+          "value": 5300
+        },
+        {
+          "key": "tla-1:level-8-and-below",
+          "when": {
+            "en": "Tough Location Allowance-I (cell R3H1), places under Parts A and B, Level 8 and below",
+            "hi": "कठिन स्थल भत्ता-I (सेल R3H1), भाग क तथा ख के स्थान, लेवल 8 और उससे नीचे"
+          },
+          "measure": "rupees-per-month",
+          "value": 4100
+        },
+        {
+          "key": "tla-2:level-9-and-above",
+          "when": {
+            "en": "Tough Location Allowance-II (cell R3H2), places under Part C, Level 9 and above",
+            "hi": "कठिन स्थल भत्ता-II (सेल R3H2), भाग ग के स्थान, लेवल 9 और उससे ऊपर"
+          },
+          "measure": "rupees-per-month",
+          "value": 3400
+        },
+        {
+          "key": "tla-2:level-8-and-below",
+          "when": {
+            "en": "Tough Location Allowance-II (cell R3H2), places under Part C, Level 8 and below",
+            "hi": "कठिन स्थल भत्ता-II (सेल R3H2), भाग ग के स्थान, लेवल 8 और उससे नीचे"
+          },
+          "measure": "rupees-per-month",
+          "value": 2700
+        },
+        {
+          "key": "tla-3:level-9-and-above",
+          "when": {
+            "en": "Tough Location Allowance-III (cell R3H3), places under Part D and areas of bad climate, tribal areas and the Sunderbans, Level 9 and above",
+            "hi": "कठिन स्थल भत्ता-III (सेल R3H3), भाग घ के स्थान तथा खराब जलवायु, जनजातीय क्षेत्र एवं सुंदरबन, लेवल 9 और उससे ऊपर"
+          },
+          "measure": "rupees-per-month",
+          "value": 1200
+        },
+        {
+          "key": "tla-3:level-8-and-below",
+          "when": {
+            "en": "Tough Location Allowance-III (cell R3H3), places under Part D and areas of bad climate, tribal areas and the Sunderbans, Level 8 and below",
+            "hi": "कठिन स्थल भत्ता-III (सेल R3H3), भाग घ के स्थान तथा खराब जलवायु, जनजातीय क्षेत्र एवं सुंदरबन, लेवल 8 और उससे नीचे"
+          },
+          "measure": "rupees-per-month",
+          "value": 1000
+        }
+      ],
+      "daLinked": {
+        "kind": "quarter-per-fifty",
+        "timesApplied": 1,
+        "since": "2024-01-01",
+        "note": {
+          "en": "The rate stated in the order rises by 25 per cent each time Dearness Allowance crosses 50 per cent. Dearness Allowance reached 50 per cent on 01.01.2024, so the figure payable today is the figure here multiplied by 1.25.",
+          "hi": "आदेश में उल्लिखित दर, महँगाई भत्ता जब-जब 50 प्रतिशत पार करता है, तब-तब 25 प्रतिशत बढ़ जाती है। महँगाई भत्ता 01.01.2024 को 50 प्रतिशत पर पहुँचा, अतः आज देय राशि यहाँ दी गई राशि का 1.25 गुना है।"
+        }
+      },
+      "taxable": false,
+      "taxSection": "10(14)",
+      "taxNote": {
+        "en": "Compensatory allowances for remote, difficult or tribal areas are exempt under section 10(14) read with Rule 2BB to the amounts specified there for the place concerned.",
+        "hi": "दूरस्थ, कठिन अथवा जनजातीय क्षेत्रों के प्रतिकरात्मक भत्ते धारा 10(14) सहपठित नियम 2BB के अंतर्गत संबंधित स्थान के लिए वहाँ विनिर्दिष्ट राशियों तक छूट प्राप्त हैं।"
+      },
+      "conditions": [
+        {
+          "en": "Where a place falls in more than one category, the higher rate applies.",
+          "hi": "जहाँ कोई स्थान एक से अधिक श्रेणी में आता हो, वहाँ ऊँची दर लागू होगी।"
+        },
+        {
+          "en": "Not admissible along with Special Duty Allowance.",
+          "hi": "विशेष ड्यूटी भत्ते के साथ देय नहीं।"
+        },
+        {
+          "en": "Where more than one Special Compensatory Allowance is admissible, the employee chooses the one that benefits them most — Hard Area Allowance or one of Tough Location Allowance I, II and III.",
+          "hi": "जहाँ एक से अधिक विशेष प्रतिकरात्मक भत्ता देय हो, वहाँ कर्मचारी सर्वाधिक लाभप्रद विकल्प चुनता है — दुर्गम क्षेत्र भत्ता अथवा कठिन स्थल भत्ता I, II और III में से एक।"
+        }
+      ],
+      "note": null,
+      "source": {
+        "name": "Grant of Special Compensatory Allowances subsumed under Tough Location Allowance",
+        "url": "https://doe.gov.in/files/circulars_document/Tough_Location_SCRA.pdf",
+        "reference": "O.M. No. 3/1/2017-E.II(B)",
+        "dated": "2017-07-19"
+      },
+      "fetchedAt": "2026-08-28T00:00:00Z",
+      "verify": false
+    },
+    {
+      "id": "tribal-area-allowance",
+      "name": {
+        "en": "Tribal Area Allowance",
+        "hi": "जनजातीय क्षेत्र भत्ता"
+      },
+      "type": "slab",
+      "status": "current",
+      "appliesTo": {
+        "en": "Employees posted in scheduled or tribal areas notified for the purpose.",
+        "hi": "इस प्रयोजन के लिए अधिसूचित अनुसूचित अथवा जनजातीय क्षेत्रों में तैनात कर्मचारी।"
+      },
+      "rates": [
+        {
+          "key": "level-9-and-above",
+          "when": {
+            "en": "Level 9 and above — paid at cell R3H3, as Tough Location Allowance-III",
+            "hi": "लेवल 9 और उससे ऊपर — सेल R3H3 पर, कठिन स्थल भत्ता-III के रूप में देय"
+          },
+          "measure": "rupees-per-month",
+          "value": 1200
+        },
+        {
+          "key": "level-8-and-below",
+          "when": {
+            "en": "Level 8 and below — paid at cell R3H3, as Tough Location Allowance-III",
+            "hi": "लेवल 8 और उससे नीचे — सेल R3H3 पर, कठिन स्थल भत्ता-III के रूप में देय"
+          },
+          "measure": "rupees-per-month",
+          "value": 1000
+        }
+      ],
+      "daLinked": {
+        "kind": "quarter-per-fifty",
+        "timesApplied": 1,
+        "since": "2024-01-01",
+        "note": {
+          "en": "The rate stated in the order rises by 25 per cent each time Dearness Allowance crosses 50 per cent. Dearness Allowance reached 50 per cent on 01.01.2024, so the figure payable today is the figure here multiplied by 1.25.",
+          "hi": "आदेश में उल्लिखित दर, महँगाई भत्ता जब-जब 50 प्रतिशत पार करता है, तब-तब 25 प्रतिशत बढ़ जाती है। महँगाई भत्ता 01.01.2024 को 50 प्रतिशत पर पहुँचा, अतः आज देय राशि यहाँ दी गई राशि का 1.25 गुना है।"
+        }
+      },
+      "taxable": false,
+      "taxSection": "10(14)",
+      "taxNote": {
+        "en": "Exempt up to ₹200 per month under section 10(14) read with Rule 2BB(2) for the States listed there; the balance is taxable.",
+        "hi": "वहाँ सूचीबद्ध राज्यों के लिए धारा 10(14) सहपठित नियम 2BB(2) के अंतर्गत ₹200 प्रति माह तक छूट; शेष कर योग्य।"
+      },
+      "conditions": [
+        {
+          "en": "Retains its own name and conditions; only the rate comes from the Tough Location Allowance-III cell.",
+          "hi": "अपना नाम तथा शर्तें बनाए रखता है; केवल दर कठिन स्थल भत्ता-III सेल से आती है।"
+        }
+      ],
+      "note": null,
+      "source": {
+        "name": "Grant of Special Compensatory Allowances subsumed under Tough Location Allowance, item (III)",
+        "url": "https://doe.gov.in/files/circulars_document/Tough_Location_SCRA.pdf",
+        "reference": "O.M. No. 3/1/2017-E.II(B)",
+        "dated": "2017-07-19"
+      },
+      "fetchedAt": "2026-08-28T00:00:00Z",
+      "verify": false
+    },
+    {
+      "id": "hard-area-allowance",
+      "name": {
+        "en": "Hard Area Allowance",
+        "hi": "दुर्गम क्षेत्र भत्ता"
+      },
+      "type": "percent-of-pay",
+      "status": "current",
+      "appliesTo": {
+        "en": "Central Government employees posted in the Nicobar group of islands and in the islands of Lakshadweep other than Kavaratti and Agatti.",
+        "hi": "निकोबार द्वीप समूह तथा लक्षद्वीप के कवरत्ती एवं अगत्ती को छोड़कर शेष द्वीपों में तैनात केंद्रीय सरकारी कर्मचारी।"
+      },
+      "rates": [
+        {
+          "key": "nicobar-minicoy",
+          "when": {
+            "en": "Nicobar group of islands and Minicoy in Lakshadweep",
+            "hi": "निकोबार द्वीप समूह तथा लक्षद्वीप का मिनिकॉय"
+          },
+          "measure": "percent-of-basic-pay",
+          "value": 20
+        },
+        {
+          "key": "lakshadweep-other",
+          "when": {
+            "en": "Kiltan, Andrott, Kalpeni, Chetlat, Kadmat, Amini and Bithra islands of Lakshadweep",
+            "hi": "लक्षद्वीप के किल्तान, आंद्रोत, कल्पेनी, चेतलत, कदमत, अमिनी तथा बित्रा द्वीप"
+          },
+          "measure": "percent-of-basic-pay",
+          "value": 12
+        }
+      ],
+      "daLinked": {
+        "kind": "none",
+        "timesApplied": 0,
+        "since": null,
+        "note": {
+          "en": "Paid as a percentage of basic pay, so it moves with the pay matrix rather than with Dearness Allowance.",
+          "hi": "मूल वेतन के प्रतिशत के रूप में देय, अतः यह महँगाई भत्ते के साथ नहीं, वेतन मैट्रिक्स के साथ बदलता है।"
+        }
+      },
+      "taxable": false,
+      "taxSection": "10(14)",
+      "taxNote": {
+        "en": "Exempt under section 10(14) read with Rule 2BB to the amounts prescribed for the islands concerned.",
+        "hi": "धारा 10(14) सहपठित नियम 2BB के अंतर्गत संबंधित द्वीपों के लिए निर्धारित राशियों तक छूट प्राप्त।"
+      },
+      "conditions": [
+        {
+          "en": "Admissible in addition to Island Special Duty Allowance where that is admissible.",
+          "hi": "जहाँ द्वीप विशेष ड्यूटी भत्ता देय हो, वहाँ उसके अतिरिक्त देय।"
+        },
+        {
+          "en": "Where more than one Special Compensatory Allowance is admissible, the employee chooses the one that benefits them most — this or one of Tough Location Allowance I, II and III.",
+          "hi": "जहाँ एक से अधिक विशेष प्रतिकरात्मक भत्ता देय हो, वहाँ कर्मचारी सर्वाधिक लाभप्रद विकल्प चुनता है — यह अथवा कठिन स्थल भत्ता I, II और III में से एक।"
+        }
+      ],
+      "note": null,
+      "source": {
+        "name": "Grant of Hard Area Allowance to Central Government employees posted in the Nicobar group of islands and islands of Lakshadweep",
+        "url": "https://doe.gov.in/files/circulars_document/Hard_Area_Eng_0_0.pdf",
+        "reference": "O.M. No. 13/1/2017-E.II(B)",
+        "dated": "2017-07-14"
+      },
+      "fetchedAt": "2026-08-28T00:00:00Z",
+      "verify": false
+    },
+    {
+      "id": "island-special-duty-allowance",
+      "name": {
+        "en": "Island Special Duty Allowance",
+        "hi": "द्वीप विशेष ड्यूटी भत्ता"
+      },
+      "shortName": {
+        "en": "ISDA",
+        "hi": "आईएसडीए"
+      },
+      "type": "percent-of-pay",
+      "status": "current",
+      "appliesTo": {
+        "en": "Central Government employees posted in the Andaman & Nicobar group of islands and the islands of Lakshadweep.",
+        "hi": "अंडमान एवं निकोबार द्वीप समूह तथा लक्षद्वीप के द्वीपों में तैनात केंद्रीय सरकारी कर्मचारी।"
+      },
+      "rates": [
+        {
+          "key": "capital-towns",
+          "when": {
+            "en": "Areas within 8 km of the municipal limits of the capital towns — Port Blair, Kavaratti and Agatti",
+            "hi": "राजधानी नगरों — पोर्ट ब्लेयर, कवरत्ती तथा अगत्ती — की नगरपालिका सीमा से 8 किमी के भीतर के क्षेत्र"
+          },
+          "measure": "percent-of-basic-pay",
+          "value": 10
+        },
+        {
+          "key": "difficult",
+          "when": {
+            "en": "Difficult areas — North and Middle Andaman, South Andaman excluding Port Blair, and all islands of Lakshadweep except Kavaratti, Agatti and Minicoy",
+            "hi": "कठिन क्षेत्र — उत्तर तथा मध्य अंडमान, पोर्ट ब्लेयर को छोड़कर दक्षिण अंडमान, तथा कवरत्ती, अगत्ती एवं मिनिकॉय को छोड़कर लक्षद्वीप के सभी द्वीप"
+          },
+          "measure": "percent-of-basic-pay",
+          "value": 16
+        },
+        {
+          "key": "more-difficult",
+          "when": {
+            "en": "More difficult areas — Little Andaman, the Nicobar group, Narcondam Island, East Island and Minicoy",
+            "hi": "अधिक कठिन क्षेत्र — लिटिल अंडमान, निकोबार समूह, नारकोंडम द्वीप, ईस्ट द्वीप तथा मिनिकॉय"
+          },
+          "measure": "percent-of-basic-pay",
+          "value": 20
+        }
+      ],
+      "daLinked": {
+        "kind": "none",
+        "timesApplied": 0,
+        "since": null,
+        "note": {
+          "en": "Paid as a percentage of basic pay, so it moves with the pay matrix rather than with Dearness Allowance.",
+          "hi": "मूल वेतन के प्रतिशत के रूप में देय, अतः यह महँगाई भत्ते के साथ नहीं, वेतन मैट्रिक्स के साथ बदलता है।"
+        }
+      },
+      "taxable": false,
+      "taxSection": "10(14)",
+      "taxNote": {
+        "en": "Exempt under section 10(14) read with Rule 2BB to the amounts prescribed for the islands concerned.",
+        "hi": "धारा 10(14) सहपठित नियम 2BB के अंतर्गत संबंधित द्वीपों के लिए निर्धारित राशियों तक छूट प्राप्त।"
+      },
+      "conditions": [
+        {
+          "en": "Not admissible for periods of leave, training or tour beyond a full calendar month spent outside the islands, nor during suspension and joining time.",
+          "hi": "द्वीपों से बाहर बिताए पूरे कैलेंडर माह से अधिक की छुट्टी, प्रशिक्षण अथवा दौरे की अवधि के लिए देय नहीं, और न ही निलंबन तथा कार्यग्रहण काल में।"
+        },
+        {
+          "en": "Admissible in addition to Hard Area Allowance where that is admissible.",
+          "hi": "जहाँ दुर्गम क्षेत्र भत्ता देय हो, वहाँ उसके अतिरिक्त देय।"
+        }
+      ],
+      "note": null,
+      "source": {
+        "name": "Grant of Island Special Duty Allowance to Central Government employees posted in the Andaman & Nicobar group of islands and islands of Lakshadweep",
+        "url": "https://doe.gov.in/files/circulars_document/ISDA_Eng_0_0.pdf",
+        "reference": "O.M. No. 12/1/2017-E.II(B)",
+        "dated": "2017-07-18"
+      },
+      "fetchedAt": "2026-08-28T00:00:00Z",
+      "verify": false
+    },
+    {
+      "id": "special-duty-allowance-ne",
+      "name": {
+        "en": "Special Duty Allowance (North Eastern Region and Ladakh)",
+        "hi": "विशेष ड्यूटी भत्ता (पूर्वोत्तर क्षेत्र तथा लद्दाख)"
+      },
+      "shortName": {
+        "en": "SDA",
+        "hi": "एसडीए"
+      },
+      "type": "percent-of-pay",
+      "status": "current",
+      "appliesTo": {
+        "en": "Central Government employees serving in the North Eastern Region and Ladakh.",
+        "hi": "पूर्वोत्तर क्षेत्र तथा लद्दाख में सेवारत केंद्रीय सरकारी कर्मचारी।"
+      },
+      "rates": [
+        {
+          "key": "civilian",
+          "when": {
+            "en": "Civilian Central Government employees",
+            "hi": "असैनिक केंद्रीय सरकारी कर्मचारी"
+          },
+          "measure": "percent-of-basic-pay",
+          "value": 10
+        },
+        {
+          "key": "all-india-services",
+          "when": {
+            "en": "Officers of the All India Services",
+            "hi": "अखिल भारतीय सेवाओं के अधिकारी"
+          },
+          "measure": "percent-of-basic-pay",
+          "value": 30
+        }
+      ],
+      "daLinked": {
+        "kind": "none",
+        "timesApplied": 0,
+        "since": null,
+        "note": {
+          "en": "Paid as a percentage of basic pay, so it moves with the pay matrix rather than with Dearness Allowance.",
+          "hi": "मूल वेतन के प्रतिशत के रूप में देय, अतः यह महँगाई भत्ते के साथ नहीं, वेतन मैट्रिक्स के साथ बदलता है।"
+        }
+      },
+      "taxable": false,
+      "taxSection": "10(14)",
+      "taxNote": {
+        "en": "Special compensatory allowances for the North Eastern States and Ladakh are exempt under section 10(14) read with Rule 2BB to the amounts prescribed there.",
+        "hi": "पूर्वोत्तर राज्यों तथा लद्दाख के विशेष प्रतिकरात्मक भत्ते धारा 10(14) सहपठित नियम 2BB के अंतर्गत वहाँ निर्धारित राशियों तक छूट प्राप्त हैं।"
+      },
+      "conditions": [
+        {
+          "en": "Not admissible along with Tough Location Allowance. The employee may instead take Special Compensatory (Remote Locality) Allowance at 6th CPC rates along with Special Duty Allowance at the revised rate.",
+          "hi": "कठिन स्थल भत्ते के साथ देय नहीं। कर्मचारी इसके स्थान पर छठे केंद्रीय वेतन आयोग की दरों पर विशेष प्रतिकरात्मक (दूरस्थ स्थान) भत्ता, संशोधित दर के विशेष ड्यूटी भत्ते के साथ ले सकता है।"
+        },
+        {
+          "en": "Not admissible for periods of leave, training or tour beyond a full calendar month spent outside the region, nor during suspension and joining time.",
+          "hi": "क्षेत्र से बाहर बिताए पूरे कैलेंडर माह से अधिक की छुट्टी, प्रशिक्षण अथवा दौरे की अवधि के लिए देय नहीं, और न ही निलंबन तथा कार्यग्रहण काल में।"
+        }
+      ],
+      "note": null,
+      "source": {
+        "name": "Grant of Special Duty Allowance for Central Government employees serving in the North Eastern Region and Ladakh",
+        "url": "https://doe.gov.in/files/circulars_document/SDA_Eng_0_0.pdf",
+        "reference": "O.M. No. 11/1/2017-E.II(B)",
+        "dated": "2017-07-18"
+      },
+      "fetchedAt": "2026-08-28T00:00:00Z",
+      "verify": false
+    },
+    {
+      "id": "additional-house-rent-allowance",
+      "name": {
+        "en": "Additional House Rent Allowance",
+        "hi": "अतिरिक्त मकान किराया भत्ता"
+      },
+      "type": "slab",
+      "status": "current",
+      "appliesTo": {
+        "en": "Civilian Central Government employees posted to the North Eastern Region, the Andaman & Nicobar Islands, the Lakshadweep Islands or Ladakh who leave their families at the old duty station.",
+        "hi": "पूर्वोत्तर क्षेत्र, अंडमान एवं निकोबार द्वीपसमूह, लक्षद्वीप अथवा लद्दाख में तैनात वे असैनिक केंद्रीय सरकारी कर्मचारी जो अपने परिवार को पुराने कार्यस्थल पर छोड़ जाते हैं।"
+      },
+      "rates": [
+        {
+          "key": "old-station",
+          "when": {
+            "en": "At the House Rent Allowance rate for the class of the old duty station, in addition to the House Rent Allowance for the new station",
+            "hi": "पुराने कार्यस्थल की श्रेणी की मकान किराया भत्ता दर पर, नए स्थान के मकान किराया भत्ते के अतिरिक्त"
+          },
+          "measure": "not-a-money-value"
+        }
+      ],
+      "daLinked": {
+        "kind": "none",
+        "timesApplied": 0,
+        "since": null,
+        "note": {
+          "en": "Paid as a percentage of basic pay, so it moves with the pay matrix rather than with Dearness Allowance.",
+          "hi": "मूल वेतन के प्रतिशत के रूप में देय, अतः यह महँगाई भत्ते के साथ नहीं, वेतन मैट्रिक्स के साथ बदलता है।"
+        }
+      },
+      "taxable": true,
+      "taxSection": "10(13A) read with Rule 2A",
+      "taxNote": null,
+      "conditions": [
+        {
+          "en": "Not applicable to employees transferred out of the region before 01.07.2017.",
+          "hi": "01.07.2017 से पूर्व क्षेत्र से बाहर स्थानांतरित कर्मचारियों पर लागू नहीं।"
+        }
+      ],
+      "note": null,
+      "source": {
+        "name": "Additional HRA for civilian employees serving in the States of the North Eastern Region, Andaman & Nicobar Islands, Lakshadweep Islands and Ladakh",
+        "url": "https://doe.gov.in/files/circulars_document/Addl_HRA_Eng_0_0.pdf",
+        "reference": "O.M. No. 28/1/2017-E.II(B)",
+        "dated": "2017-07-19"
+      },
+      "fetchedAt": "2026-08-28T00:00:00Z",
+      "verify": false
+    },
+    {
+      "id": "ration-money-allowance",
+      "name": {
+        "en": "Ration Money Allowance",
+        "hi": "राशन मनी भत्ता"
+      },
+      "shortName": {
+        "en": "RMA",
+        "hi": "आरएमए"
+      },
+      "type": "fixed",
+      "status": "current",
+      "appliesTo": {
+        "en": "Personnel below officer rank of the Central Armed Police Forces and the Indian Coast Guard irrespective of the place of posting, all Defence forces personnel, and non-gazetted personnel of Delhi Police, the Intelligence Bureau, the Andaman & Nicobar police and Indian Reserve Battalions posted in the Andaman & Nicobar Islands who do not dine in the mess.",
+        "hi": "केंद्रीय सशस्त्र पुलिस बलों तथा भारतीय तटरक्षक बल के अधिकारी रैंक से नीचे के कर्मी, तैनाती के स्थान का विचार किए बिना; रक्षा बलों के सभी कर्मी; तथा दिल्ली पुलिस, आसूचना ब्यूरो, अंडमान एवं निकोबार पुलिस और अंडमान एवं निकोबार द्वीपसमूह में तैनात भारतीय आरक्षित वाहिनियों के वे अराजपत्रित कर्मी जो मेस में भोजन नहीं करते।"
+      },
+      "rates": [
+        {
+          "key": "as-notified",
+          "when": {
+            "en": "As notified from time to time by the Ministry of Home Affairs for the Central Armed Police Forces and by the Ministry of Defence for the Defence forces — the 7th CPC left the rate untouched",
+            "hi": "केंद्रीय सशस्त्र पुलिस बलों के लिए गृह मंत्रालय तथा रक्षा बलों के लिए रक्षा मंत्रालय द्वारा समय-समय पर अधिसूचित — सातवें केंद्रीय वेतन आयोग ने दर अपरिवर्तित रखी"
+          },
+          "measure": "rupees-per-day"
+        }
+      ],
+      "daLinked": {
+        "kind": "none",
+        "timesApplied": 0,
+        "since": null,
+        "note": {
+          "en": "Revised periodically by the Ministry of Home Affairs and the Ministry of Defence, not by a Dearness Allowance formula. The rate before the 7th CPC was ₹95.52 a day for non-gazetted and ₹79.93 a day for gazetted personnel, and status quo was recommended.",
+          "hi": "गृह मंत्रालय तथा रक्षा मंत्रालय द्वारा समय-समय पर पुनरीक्षित, न कि किसी महँगाई भत्ता सूत्र से। सातवें केंद्रीय वेतन आयोग से पूर्व दर अराजपत्रित कर्मियों के लिए ₹95.52 प्रतिदिन तथा राजपत्रित के लिए ₹79.93 प्रतिदिन थी, और यथास्थिति की संस्तुति की गई।"
+        }
+      },
+      "taxable": false,
+      "taxSection": "10(14)",
+      "taxNote": {
+        "en": "The 7th CPC recommended that Ration Money Allowance be exempt from income tax because it is granted in lieu of free rations. Confirm the exemption actually notified with your DDO.",
+        "hi": "सातवें केंद्रीय वेतन आयोग ने संस्तुति की थी कि राशन मनी भत्ता आयकर से मुक्त हो, क्योंकि यह निःशुल्क राशन के बदले दिया जाता है। वास्तव में अधिसूचित छूट अपने डीडीओ से सुनिश्चित करें।"
+      },
+      "conditions": [
+        {
+          "en": "Not payable along with Detachment Allowance — Detachment Allowance already provides for food.",
+          "hi": "टुकड़ी भत्ते के साथ देय नहीं — टुकड़ी भत्ते में भोजन का प्रावधान पहले से है।"
+        },
+        {
+          "en": "The restriction confining Sashastra Seema Bal officers in field areas below 7,000 feet has been removed.",
+          "hi": "7,000 फुट से नीचे क्षेत्रीय इलाकों में सशस्त्र सीमा बल के अधिकारियों पर लगा प्रतिबंध हटा दिया गया है।"
+        }
+      ],
+      "note": null,
+      "source": {
+        "name": "Report of the Seventh Central Pay Commission, paras 8.17.103 to 8.17.108",
+        "url": "https://doe.gov.in/files/cenetral-pay_document/7cpc_report_eng.pdf",
+        "reference": "Ration Money Allowance",
+        "dated": "2015-11-19"
+      },
+      "fetchedAt": "2026-08-28T00:00:00Z",
+      "verify": true
+    },
+    {
+      "id": "detachment-allowance",
+      "name": {
+        "en": "Detachment Allowance",
+        "hi": "टुकड़ी भत्ता"
+      },
+      "type": "slab",
+      "status": "current",
+      "appliesTo": {
+        "en": "Central Armed Police Force troops deployed continuously for operational reasons away from their permanent headquarters.",
+        "hi": "स्थायी मुख्यालय से दूर, प्रचालनात्मक कारणों से लगातार तैनात केंद्रीय सशस्त्र पुलिस बल की टुकड़ियाँ।"
+      },
+      "rates": [
+        {
+          "key": "above-12:a1",
+          "when": {
+            "en": "Level 12 and above, A-1 class cities",
+            "hi": "लेवल 12 और उससे ऊपर, ए-1 श्रेणी के शहर"
+          },
+          "measure": "rupees-per-day",
+          "value": 1170
+        },
+        {
+          "key": "above-12:a",
+          "when": {
+            "en": "Level 12 and above, A-class cities and specially expensive localities",
+            "hi": "लेवल 12 और उससे ऊपर, ए श्रेणी के शहर तथा विशेष रूप से महँगे क्षेत्र"
+          },
+          "measure": "rupees-per-day",
+          "value": 945
+        },
+        {
+          "key": "above-12:b",
+          "when": {
+            "en": "Level 12 and above, B-class cities and specially expensive localities",
+            "hi": "लेवल 12 और उससे ऊपर, बी श्रेणी के शहर तथा विशेष रूप से महँगे क्षेत्र"
+          },
+          "measure": "rupees-per-day",
+          "value": 765
+        },
+        {
+          "key": "above-12:other",
+          "when": {
+            "en": "Level 12 and above, all other localities",
+            "hi": "लेवल 12 और उससे ऊपर, अन्य सभी स्थान"
+          },
+          "measure": "rupees-per-day",
+          "value": 608
+        },
+        {
+          "key": "9-to-12:a1",
+          "when": {
+            "en": "Levels 9 to 12, A-1 class cities",
+            "hi": "लेवल 9 से 12, ए-1 श्रेणी के शहर"
+          },
+          "measure": "rupees-per-day",
+          "value": 1035
+        },
+        {
+          "key": "9-to-12:a",
+          "when": {
+            "en": "Levels 9 to 12, A-class cities and specially expensive localities",
+            "hi": "लेवल 9 से 12, ए श्रेणी के शहर तथा विशेष रूप से महँगे क्षेत्र"
+          },
+          "measure": "rupees-per-day",
+          "value": 833
+        },
+        {
+          "key": "9-to-12:b",
+          "when": {
+            "en": "Levels 9 to 12, B-class cities and specially expensive localities",
+            "hi": "लेवल 9 से 12, बी श्रेणी के शहर तथा विशेष रूप से महँगे क्षेत्र"
+          },
+          "measure": "rupees-per-day",
+          "value": 675
+        },
+        {
+          "key": "9-to-12:other",
+          "when": {
+            "en": "Levels 9 to 12, all other localities",
+            "hi": "लेवल 9 से 12, अन्य सभी स्थान"
+          },
+          "measure": "rupees-per-day",
+          "value": 540
+        },
+        {
+          "key": "6-to-8:a1",
+          "when": {
+            "en": "Levels 6 to 8, A-1 class cities",
+            "hi": "लेवल 6 से 8, ए-1 श्रेणी के शहर"
+          },
+          "measure": "rupees-per-day",
+          "value": 900
+        },
+        {
+          "key": "6-to-8:a",
+          "when": {
+            "en": "Levels 6 to 8, A-class cities and specially expensive localities",
+            "hi": "लेवल 6 से 8, ए श्रेणी के शहर तथा विशेष रूप से महँगे क्षेत्र"
+          },
+          "measure": "rupees-per-day",
+          "value": 720
+        },
+        {
+          "key": "6-to-8:b",
+          "when": {
+            "en": "Levels 6 to 8, B-class cities and specially expensive localities",
+            "hi": "लेवल 6 से 8, बी श्रेणी के शहर तथा विशेष रूप से महँगे क्षेत्र"
+          },
+          "measure": "rupees-per-day",
+          "value": 585
+        },
+        {
+          "key": "6-to-8:other",
+          "when": {
+            "en": "Levels 6 to 8, all other localities",
+            "hi": "लेवल 6 से 8, अन्य सभी स्थान"
+          },
+          "measure": "rupees-per-day",
+          "value": 473
+        },
+        {
+          "key": "3-to-5:a1",
+          "when": {
+            "en": "Levels 3 to 5, A-1 class cities",
+            "hi": "लेवल 3 से 5, ए-1 श्रेणी के शहर"
+          },
+          "measure": "rupees-per-day",
+          "value": 765
+        },
+        {
+          "key": "3-to-5:a",
+          "when": {
+            "en": "Levels 3 to 5, A-class cities and specially expensive localities",
+            "hi": "लेवल 3 से 5, ए श्रेणी के शहर तथा विशेष रूप से महँगे क्षेत्र"
+          },
+          "measure": "rupees-per-day",
+          "value": 608
+        },
+        {
+          "key": "3-to-5:b",
+          "when": {
+            "en": "Levels 3 to 5, B-class cities and specially expensive localities",
+            "hi": "लेवल 3 से 5, बी श्रेणी के शहर तथा विशेष रूप से महँगे क्षेत्र"
+          },
+          "measure": "rupees-per-day",
+          "value": 495
+        },
+        {
+          "key": "3-to-5:other",
+          "when": {
+            "en": "Levels 3 to 5, all other localities",
+            "hi": "लेवल 3 से 5, अन्य सभी स्थान"
+          },
+          "measure": "rupees-per-day",
+          "value": 405
+        }
+      ],
+      "daLinked": {
+        "kind": "quarter-per-fifty",
+        "timesApplied": 1,
+        "since": "2024-01-01",
+        "note": {
+          "en": "The rate stated in the order rises by 25 per cent each time Dearness Allowance crosses 50 per cent. Dearness Allowance reached 50 per cent on 01.01.2024, so the figure payable today is the figure here multiplied by 1.25.",
+          "hi": "आदेश में उल्लिखित दर, महँगाई भत्ता जब-जब 50 प्रतिशत पार करता है, तब-तब 25 प्रतिशत बढ़ जाती है। महँगाई भत्ता 01.01.2024 को 50 प्रतिशत पर पहुँचा, अतः आज देय राशि यहाँ दी गई राशि का 1.25 गुना है।"
+        }
+      },
+      "taxable": false,
+      "taxSection": "10(14)",
+      "taxNote": {
+        "en": "In the nature of a daily allowance for absence from the normal place of duty; exempt to the extent actually spent, under section 10(14) read with Rule 2BB(1).",
+        "hi": "सामान्य कार्यस्थल से अनुपस्थिति के लिए दैनिक भत्ते की प्रकृति का; धारा 10(14) सहपठित नियम 2BB(1) के अंतर्गत वास्तव में व्यय की गई सीमा तक छूट प्राप्त।"
+      },
+      "conditions": [
+        {
+          "en": "Full rate for the first 10 days, 75 per cent for the next 10 days and 50 per cent for the rest of the period.",
+          "hi": "पहले 10 दिन पूरी दर, अगले 10 दिन 75 प्रतिशत तथा शेष अवधि के लिए 50 प्रतिशत।"
+        },
+        {
+          "en": "Enhanced by 50 per cent in the Jammu & Kashmir and Left Wing Extremism theatres.",
+          "hi": "जम्मू-कश्मीर तथा वामपंथी उग्रवाद क्षेत्रों में 50 प्रतिशत अधिक।"
+        },
+        {
+          "en": "Where free rations are provided, only 50 per cent of the allowance is granted, and no Ration Money Allowance is payable with it.",
+          "hi": "जहाँ निःशुल्क राशन दिया जाता है, वहाँ भत्ते का केवल 50 प्रतिशत देय है, और उसके साथ कोई राशन मनी भत्ता देय नहीं।"
+        },
+        {
+          "en": "The requirement of returning to headquarters for the allowance to continue beyond 180 days has been removed for Central Armed Police Force personnel.",
+          "hi": "केंद्रीय सशस्त्र पुलिस बल कर्मियों के लिए 180 दिन से आगे भत्ता जारी रखने हेतु मुख्यालय लौटने की शर्त हटा दी गई है।"
+        }
+      ],
+      "note": null,
+      "source": {
+        "name": "Report of the Seventh Central Pay Commission, paras 8.15.19 to 8.15.26",
+        "url": "https://doe.gov.in/files/cenetral-pay_document/7cpc_report_eng.pdf",
+        "reference": "Detachment Allowance",
+        "dated": "2015-11-19"
+      },
+      "fetchedAt": "2026-08-28T00:00:00Z",
+      "verify": true
+    },
+    {
+      "id": "deputation-duty-allowance",
+      "name": {
+        "en": "Deputation (Duty) Allowance",
+        "hi": "प्रतिनियुक्ति (ड्यूटी) भत्ता"
+      },
+      "type": "percent-of-pay",
+      "status": "current",
+      "appliesTo": {
+        "en": "A Central Government employee on deputation to a borrowing organisation, and the corresponding Tenure Allowance for railway employees posted to RDSO or the Railway Board.",
+        "hi": "उधार लेने वाले संगठन में प्रतिनियुक्ति पर गया केंद्रीय सरकारी कर्मचारी, तथा आरडीएसओ अथवा रेलवे बोर्ड में तैनात रेल कर्मचारियों के लिए तत्संगत कार्यकाल भत्ता।"
+      },
+      "rates": [
+        {
+          "key": "same-station",
+          "when": {
+            "en": "Deputation within the same station as the last place of posting",
+            "hi": "अंतिम तैनाती के उसी स्टेशन के भीतर प्रतिनियुक्ति"
+          },
+          "measure": "percent-of-basic-pay",
+          "value": 5,
+          "ceiling": 4500
+        },
+        {
+          "key": "different-station",
+          "when": {
+            "en": "Deputation involving a change of station",
+            "hi": "स्टेशन परिवर्तन वाली प्रतिनियुक्ति"
+          },
+          "measure": "percent-of-basic-pay",
+          "value": 10,
+          "ceiling": 9000
+        }
+      ],
+      "daLinked": {
+        "kind": "quarter-per-fifty",
+        "timesApplied": 1,
+        "since": "2024-01-01",
+        "note": {
+          "en": "The percentages do not change; the monetary ceilings of ₹4,500 and ₹9,000 rise by 25 per cent each time Dearness Allowance crosses 50 per cent. Dearness Allowance reached 50 per cent on 01.01.2024, so the ceilings in force are 1.25 times these.",
+          "hi": "प्रतिशत नहीं बदलते; ₹4,500 तथा ₹9,000 की मौद्रिक उच्चतम सीमाएँ महँगाई भत्ते के 50 प्रतिशत पार करने पर हर बार 25 प्रतिशत बढ़ती हैं। महँगाई भत्ता 01.01.2024 को 50 प्रतिशत पर पहुँचा, अतः प्रवृत्त सीमाएँ इनकी 1.25 गुना हैं।"
+        }
+      },
+      "taxable": true,
+      "taxSection": null,
+      "taxNote": {
+        "en": "Fully taxable as salary.",
+        "hi": "वेतन के रूप में पूर्णतः कर योग्य।"
+      },
+      "conditions": [
+        {
+          "en": "Not payable along with a Special Security Allowance — the 7th CPC said so in terms.",
+          "hi": "विशेष सुरक्षा भत्ते के साथ देय नहीं — सातवें केंद्रीय वेतन आयोग ने यह स्पष्ट कहा है।"
+        },
+        {
+          "en": "Defence officers may either draw 50 per cent of the allowance and keep their service concessions, or draw the whole of it and forgo them.",
+          "hi": "रक्षा अधिकारी या तो भत्ते का 50 प्रतिशत लेकर अपनी सेवा रियायतें रख सकते हैं, अथवा पूरा भत्ता लेकर उन्हें छोड़ सकते हैं।"
+        }
+      ],
+      "note": null,
+      "source": {
+        "name": "Report of the Seventh Central Pay Commission, paras 8.5.4 and 8.5.7",
+        "url": "https://doe.gov.in/files/cenetral-pay_document/7cpc_report_eng.pdf",
+        "reference": "Deputation (Duty) Allowance for Civilians",
+        "dated": "2015-11-19"
+      },
+      "fetchedAt": "2026-08-28T00:00:00Z",
+      "verify": true
+    },
+    {
+      "id": "running-allowance-railways",
+      "name": {
+        "en": "Running Allowance (Indian Railways)",
+        "hi": "रनिंग भत्ता (भारतीय रेल)"
+      },
+      "type": "formula",
+      "status": "current",
+      "appliesTo": {
+        "en": "Running staff of Indian Railways — loco pilots, assistant loco pilots, shunters, guards and train managers — for being employed on running duties.",
+        "hi": "भारतीय रेल का रनिंग स्टाफ़ — लोको पायलट, सहायक लोको पायलट, शंटर, गार्ड तथा ट्रेन मैनेजर — रनिंग ड्यूटी पर नियोजित होने के लिए।"
+      },
+      "rates": [
+        {
+          "key": "pay-element",
+          "when": {
+            "en": "The pay element of Running Allowance — the part of it reckoned as pay for pension, Dearness Allowance, House Rent Allowance, leave and settlement dues",
+            "hi": "रनिंग भत्ते का वेतन अंश — वह भाग जो पेंशन, महँगाई भत्ता, मकान किराया भत्ता, छुट्टी तथा निपटान देयों के लिए वेतन माना जाता है"
+          },
+          "measure": "percent-of-basic-pay",
+          "value": 30
+        },
+        {
+          "key": "kilometreage",
+          "when": {
+            "en": "Kilometreage Allowance, at rates per 100 kilometres notified by the Railway Board for each category of running staff",
+            "hi": "किलोमीटरेज भत्ता, रनिंग स्टाफ़ की प्रत्येक श्रेणी के लिए रेलवे बोर्ड द्वारा अधिसूचित प्रति 100 किलोमीटर की दरों पर"
+          },
+          "measure": "formula",
+          "expression": "rate_per_100_km x kilometres_run / 100"
+        },
+        {
+          "key": "alk-headquarters",
+          "when": {
+            "en": "Allowance in Lieu of Kilometreage for non-running duty performed at headquarters — equal to the pay element",
+            "hi": "मुख्यालय पर की गई गैर-रनिंग ड्यूटी के लिए किलोमीटरेज के बदले भत्ता — वेतन अंश के बराबर"
+          },
+          "measure": "percent-of-basic-pay",
+          "value": 30
+        },
+        {
+          "key": "alk-outstation",
+          "when": {
+            "en": "Allowance in Lieu of Kilometreage for non-running duty performed at outstations — Kilometreage Allowance on notional kilometres",
+            "hi": "बाहरी स्टेशनों पर की गई गैर-रनिंग ड्यूटी के लिए किलोमीटरेज के बदले भत्ता — काल्पनिक किलोमीटर पर किलोमीटरेज भत्ता"
+          },
+          "measure": "formula",
+          "expression": "kilometreage_rate x 160 km per day"
+        },
+        {
+          "key": "accident",
+          "when": {
+            "en": "Accident Allowance, where running staff are held up away from headquarters by an accident for more than 8 hours",
+            "hi": "दुर्घटना भत्ता, जब रनिंग स्टाफ़ किसी दुर्घटना के कारण मुख्यालय से बाहर 8 घंटे से अधिक रुका रहे"
+          },
+          "measure": "formula",
+          "expression": "kilometreage_rate x 70 km per 24 hours or part"
+        }
+      ],
+      "daLinked": {
+        "kind": "none",
+        "timesApplied": 0,
+        "since": null,
+        "note": {
+          "en": "The pay element is a percentage of basic pay. The per-kilometre rates are notified by the Railway Board and are not tied to a Dearness Allowance formula.",
+          "hi": "वेतन अंश मूल वेतन का प्रतिशत है। प्रति-किलोमीटर दरें रेलवे बोर्ड द्वारा अधिसूचित होती हैं और किसी महँगाई भत्ता सूत्र से जुड़ी नहीं हैं।"
+        }
+      },
+      "taxable": true,
+      "taxSection": "10(14)",
+      "taxNote": {
+        "en": "Running Allowance is exempt to 70 per cent of the allowance, subject to ₹10,000 a month, under section 10(14) read with Rule 2BB(1)(h) — the old-regime exemption for transport-sector employees running a transport from one place to another.",
+        "hi": "धारा 10(14) सहपठित नियम 2BB(1)(h) के अंतर्गत रनिंग भत्ते का 70 प्रतिशत, अधिकतम ₹10,000 प्रति माह तक, छूट प्राप्त है — यह एक स्थान से दूसरे स्थान तक परिवहन चलाने वाले परिवहन-क्षेत्र कर्मचारियों के लिए पुरानी व्यवस्था की छूट है।"
+      },
+      "conditions": [
+        {
+          "en": "The per-100-kilometre rates differ by category — loco pilot (mail), loco pilot (passenger/motorman), loco pilot (goods), shunter grades, senior assistant loco pilot, assistant loco pilot and second fireman — and shunting attracts a lower rate. The Railway Board notifies them; this dataset does not carry them.",
+          "hi": "प्रति 100 किलोमीटर की दरें श्रेणी के अनुसार भिन्न हैं — लोको पायलट (मेल), लोको पायलट (यात्री/मोटरमैन), लोको पायलट (माल), शंटर श्रेणियाँ, वरिष्ठ सहायक लोको पायलट, सहायक लोको पायलट तथा द्वितीय फ़ायरमैन — और शंटिंग पर दर कम है। रेलवे बोर्ड इन्हें अधिसूचित करता है; यह डेटासेट उन्हें नहीं रखता।"
+        }
+      ],
+      "note": null,
+      "source": {
+        "name": "Report of the Seventh Central Pay Commission, Chapter 8.11 (Allowances for Running Staff of Indian Railways)",
+        "url": "https://doe.gov.in/files/cenetral-pay_document/7cpc_report_eng.pdf",
+        "reference": "Running Allowance",
+        "dated": "2015-11-19"
+      },
+      "fetchedAt": "2026-08-28T00:00:00Z",
+      "verify": true
+    },
+    {
+      "id": "night-duty-allowance",
+      "name": {
+        "en": "Night Duty Allowance",
+        "hi": "रात्रि ड्यूटी भत्ता"
+      },
+      "shortName": {
+        "en": "NDA",
+        "hi": "एनडीए"
+      },
+      "type": "formula",
+      "status": "current",
+      "appliesTo": {
+        "en": "Specified categories of employees who perform duty between 22:00 and 06:00 hours and were already in receipt of the allowance.",
+        "hi": "कर्मचारियों की वे विनिर्दिष्ट श्रेणियाँ जो 22:00 से 06:00 बजे के बीच ड्यूटी करती हैं और जिन्हें यह भत्ता पहले से मिल रहा था।"
+      },
+      "rates": [
+        {
+          "key": "hourly",
+          "when": {
+            "en": "Hourly rate, worked out separately for each employee from their own pay",
+            "hi": "प्रति घंटा दर, प्रत्येक कर्मचारी के अपने वेतन से अलग-अलग निकाली गई"
+          },
+          "measure": "formula",
+          "expression": "(basic_pay + dearness_allowance) / 200 per weighted hour"
+        },
+        {
+          "key": "weightage",
+          "when": {
+            "en": "Weightage — every hour of duty between 22:00 and 06:00 earns 10 minutes of day work",
+            "hi": "भारांक — 22:00 से 06:00 के बीच ड्यूटी का प्रत्येक घंटा दिन के कार्य के 10 मिनट अर्जित करता है"
+          },
+          "measure": "not-a-money-value"
+        }
+      ],
+      "daLinked": {
+        "kind": "fully-indexed",
+        "timesApplied": 0,
+        "since": null,
+        "note": {
+          "en": "Dearness Allowance is inside the formula: the hourly rate is (basic pay + Dearness Allowance) divided by 200, so it moves with every Dearness Allowance revision.",
+          "hi": "महँगाई भत्ता सूत्र के भीतर ही है: प्रति घंटा दर (मूल वेतन + महँगाई भत्ता) को 200 से भाग देकर निकलती है, अतः यह प्रत्येक महँगाई भत्ता पुनरीक्षण के साथ बदलती है।"
+        }
+      },
+      "taxable": true,
+      "taxSection": null,
+      "taxNote": {
+        "en": "Fully taxable as salary.",
+        "hi": "वेतन के रूप में पूर्णतः कर योग्य।"
+      },
+      "conditions": [
+        {
+          "en": "A certificate from the supervisor concerned that night duty was essential is required.",
+          "hi": "संबंधित पर्यवेक्षक से यह प्रमाणपत्र आवश्यक है कि रात्रि ड्यूटी अनिवार्य थी।"
+        },
+        {
+          "en": "The earlier practice of paying the same flat rate to everyone at a given Grade Pay was abolished; the amount is now computed from each employee's own pay.",
+          "hi": "किसी दिए गए ग्रेड पे पर सभी को एक ही एकसमान दर देने की पुरानी प्रथा समाप्त कर दी गई; अब राशि प्रत्येक कर्मचारी के अपने वेतन से निकाली जाती है।"
+        }
+      ],
+      "note": null,
+      "source": {
+        "name": "Report of the Seventh Central Pay Commission, paras 8.17.71 to 8.17.77",
+        "url": "https://doe.gov.in/files/cenetral-pay_document/7cpc_report_eng.pdf",
+        "reference": "Night Duty Allowance",
+        "dated": "2015-11-19"
+      },
+      "fetchedAt": "2026-08-28T00:00:00Z",
+      "verify": true
+    },
+    {
+      "id": "non-practising-allowance",
+      "name": {
+        "en": "Non-Practising Allowance",
+        "hi": "अव्यवसाय भत्ता"
+      },
+      "shortName": {
+        "en": "NPA",
+        "hi": "एनपीए"
+      },
+      "type": "percent-of-pay",
+      "status": "current",
+      "appliesTo": {
+        "en": "Medical doctors holding posts for which a medical degree is the prescribed minimum qualification.",
+        "hi": "वे चिकित्सक जो ऐसे पदों पर हैं जिनके लिए चिकित्सा उपाधि निर्धारित न्यूनतम अर्हता है।"
+      },
+      "rates": [
+        {
+          "key": "standard",
+          "when": {
+            "en": "On basic pay, subject to the ceiling below",
+            "hi": "मूल वेतन पर, नीचे दी गई उच्चतम सीमा के अधीन"
+          },
+          "measure": "percent-of-basic-pay",
+          "value": 20
+        }
+      ],
+      "daLinked": {
+        "kind": "none",
+        "timesApplied": 0,
+        "since": null,
+        "note": {
+          "en": "Paid as a percentage of basic pay, so it moves with the pay matrix rather than with Dearness Allowance.",
+          "hi": "मूल वेतन के प्रतिशत के रूप में देय, अतः यह महँगाई भत्ते के साथ नहीं, वेतन मैट्रिक्स के साथ बदलता है।"
+        }
+      },
+      "taxable": true,
+      "taxSection": null,
+      "taxNote": {
+        "en": "Fully taxable as salary.",
+        "hi": "वेतन के रूप में पूर्णतः कर योग्य।"
+      },
+      "conditions": [
+        {
+          "en": "Basic pay plus Non-Practising Allowance must not exceed the average of the Apex Level (₹2,25,000) and the Cabinet Secretary's pay (₹2,50,000) — that is, ₹2,37,500.",
+          "hi": "मूल वेतन तथा अव्यवसाय भत्ते का योग शीर्ष स्तर (₹2,25,000) और मंत्रिमंडल सचिव के वेतन (₹2,50,000) के औसत — अर्थात् ₹2,37,500 — से अधिक नहीं होना चाहिए।"
+        },
+        {
+          "en": "Counted as pay for Dearness Allowance, but not for House Rent Allowance, Transport Allowance or the percentage-based allowances that exclude it in terms.",
+          "hi": "महँगाई भत्ते के लिए वेतन में गिना जाता है, किंतु मकान किराया भत्ता, परिवहन भत्ता अथवा उन प्रतिशत-आधारित भत्तों के लिए नहीं जो इसे स्पष्ट रूप से छोड़ते हैं।"
+        }
+      ],
+      "note": null,
+      "source": {
+        "name": "Report of the Seventh Central Pay Commission, paras 8.17.78 and 8.17.79",
+        "url": "https://doe.gov.in/files/cenetral-pay_document/7cpc_report_eng.pdf",
+        "reference": "Non Practicing Allowance",
+        "dated": "2015-11-19"
+      },
+      "fetchedAt": "2026-08-28T00:00:00Z",
+      "verify": true
+    },
+    {
+      "id": "special-security-allowance-ib",
+      "name": {
+        "en": "Special Security Allowance (Intelligence Bureau)",
+        "hi": "विशेष सुरक्षा भत्ता (आसूचना ब्यूरो)"
+      },
+      "type": "percent-of-pay",
+      "status": "current",
+      "appliesTo": {
+        "en": "Personnel of the Intelligence Bureau.",
+        "hi": "आसूचना ब्यूरो के कर्मी।"
+      },
+      "rates": [
+        {
+          "key": "standard",
+          "when": {
+            "en": "On basic pay",
+            "hi": "मूल वेतन पर"
+          },
+          "measure": "percent-of-basic-pay",
+          "value": 20
+        }
+      ],
+      "daLinked": {
+        "kind": "none",
+        "timesApplied": 0,
+        "since": null,
+        "note": {
+          "en": "Paid as a percentage of basic pay, so it moves with the pay matrix rather than with Dearness Allowance.",
+          "hi": "मूल वेतन के प्रतिशत के रूप में देय, अतः यह महँगाई भत्ते के साथ नहीं, वेतन मैट्रिक्स के साथ बदलता है।"
+        }
+      },
+      "taxable": true,
+      "taxSection": null,
+      "taxNote": {
+        "en": "Fully taxable as salary.",
+        "hi": "वेतन के रूप में पूर्णतः कर योग्य।"
+      },
+      "conditions": [
+        {
+          "en": "No Deputation (Duty) Allowance is payable along with this allowance.",
+          "hi": "इस भत्ते के साथ कोई प्रतिनियुक्ति (ड्यूटी) भत्ता देय नहीं।"
+        },
+        {
+          "en": "Payable only to employees who were already in receipt of the allowance; the recommendation created no new eligible categories except the Parliament Duty Group.",
+          "hi": "केवल उन कर्मचारियों को देय जिन्हें यह भत्ता पहले से मिल रहा था; संसद ड्यूटी समूह को छोड़कर संस्तुति ने कोई नई पात्र श्रेणी नहीं बनाई।"
+        }
+      ],
+      "note": null,
+      "source": {
+        "name": "Report of the Seventh Central Pay Commission, para 8.17.121 (Special Incident/Investigation/Security Allowance)",
+        "url": "https://doe.gov.in/files/cenetral-pay_document/7cpc_report_eng.pdf",
+        "reference": "Special Security Allowance",
+        "dated": "2015-11-19"
+      },
+      "fetchedAt": "2026-08-28T00:00:00Z",
+      "verify": true
+    },
+    {
+      "id": "special-incentive-allowance-cbi",
+      "name": {
+        "en": "Special Incentive/Investigation Allowance (Central Bureau of Investigation)",
+        "hi": "विशेष प्रोत्साहन/अन्वेषण भत्ता (केंद्रीय अन्वेषण ब्यूरो)"
+      },
+      "type": "percent-of-pay",
+      "status": "current",
+      "appliesTo": {
+        "en": "Personnel of the Central Bureau of Investigation.",
+        "hi": "केंद्रीय अन्वेषण ब्यूरो के कर्मी।"
+      },
+      "rates": [
+        {
+          "key": "standard",
+          "when": {
+            "en": "On basic pay",
+            "hi": "मूल वेतन पर"
+          },
+          "measure": "percent-of-basic-pay",
+          "value": 20
+        }
+      ],
+      "daLinked": {
+        "kind": "none",
+        "timesApplied": 0,
+        "since": null,
+        "note": {
+          "en": "Paid as a percentage of basic pay, so it moves with the pay matrix rather than with Dearness Allowance.",
+          "hi": "मूल वेतन के प्रतिशत के रूप में देय, अतः यह महँगाई भत्ते के साथ नहीं, वेतन मैट्रिक्स के साथ बदलता है।"
+        }
+      },
+      "taxable": true,
+      "taxSection": null,
+      "taxNote": {
+        "en": "Fully taxable as salary.",
+        "hi": "वेतन के रूप में पूर्णतः कर योग्य।"
+      },
+      "conditions": [
+        {
+          "en": "No Deputation (Duty) Allowance is payable along with this allowance.",
+          "hi": "इस भत्ते के साथ कोई प्रतिनियुक्ति (ड्यूटी) भत्ता देय नहीं।"
+        },
+        {
+          "en": "Payable only to employees who were already in receipt of the allowance; the recommendation created no new eligible categories except the Parliament Duty Group.",
+          "hi": "केवल उन कर्मचारियों को देय जिन्हें यह भत्ता पहले से मिल रहा था; संसद ड्यूटी समूह को छोड़कर संस्तुति ने कोई नई पात्र श्रेणी नहीं बनाई।"
+        }
+      ],
+      "note": {
+        "en": "Before the 7th CPC the rate was 25 per cent of basic pay for officers up to the level of Superintendent of Police and 15 per cent for Deputy Inspector General and above and for non-executive cadres. The Commission recommended a single rationalised rate of 20 per cent of basic pay. The Department of Expenditure order that gave effect to this could not be fetched, so the figure of 20 per cent is the Commission's recommendation rather than a rate read from an order — confirm with your DDO before relying on it.",
+        "hi": "सातवें केंद्रीय वेतन आयोग से पूर्व दर पुलिस अधीक्षक स्तर तक के अधिकारियों के लिए मूल वेतन का 25 प्रतिशत तथा उप महानिरीक्षक और उससे ऊपर एवं गैर-कार्यपालक संवर्गों के लिए 15 प्रतिशत थी। आयोग ने मूल वेतन के 20 प्रतिशत की एकल युक्तियुक्त दर की संस्तुति की। इसे प्रभावी करने वाला व्यय विभाग का आदेश प्राप्त नहीं हो सका, अतः 20 प्रतिशत का अंक किसी आदेश से पढ़ी गई दर नहीं, बल्कि आयोग की संस्तुति है — इस पर निर्भर होने से पूर्व अपने डीडीओ से पुष्टि करें।"
+      },
+      "source": {
+        "name": "Report of the Seventh Central Pay Commission, para 8.17.121 (Special Incident/Investigation/Security Allowance)",
+        "url": "https://doe.gov.in/files/cenetral-pay_document/7cpc_report_eng.pdf",
+        "reference": "Special Security Allowance",
+        "dated": "2015-11-19"
+      },
+      "fetchedAt": "2026-08-28T00:00:00Z",
+      "verify": true
+    },
+    {
+      "id": "special-security-allowance-nia",
+      "name": {
+        "en": "Special Security Allowance (National Investigation Agency)",
+        "hi": "विशेष सुरक्षा भत्ता (राष्ट्रीय अन्वेषण अभिकरण)"
+      },
+      "type": "percent-of-pay",
+      "status": "current",
+      "appliesTo": {
+        "en": "Personnel of the National Investigation Agency.",
+        "hi": "राष्ट्रीय अन्वेषण अभिकरण के कर्मी।"
+      },
+      "rates": [
+        {
+          "key": "standard",
+          "when": {
+            "en": "On basic pay",
+            "hi": "मूल वेतन पर"
+          },
+          "measure": "percent-of-basic-pay",
+          "value": 20
+        }
+      ],
+      "daLinked": {
+        "kind": "none",
+        "timesApplied": 0,
+        "since": null,
+        "note": {
+          "en": "Paid as a percentage of basic pay, so it moves with the pay matrix rather than with Dearness Allowance.",
+          "hi": "मूल वेतन के प्रतिशत के रूप में देय, अतः यह महँगाई भत्ते के साथ नहीं, वेतन मैट्रिक्स के साथ बदलता है।"
+        }
+      },
+      "taxable": true,
+      "taxSection": null,
+      "taxNote": {
+        "en": "Fully taxable as salary.",
+        "hi": "वेतन के रूप में पूर्णतः कर योग्य।"
+      },
+      "conditions": [
+        {
+          "en": "No Deputation (Duty) Allowance is payable along with this allowance.",
+          "hi": "इस भत्ते के साथ कोई प्रतिनियुक्ति (ड्यूटी) भत्ता देय नहीं।"
+        },
+        {
+          "en": "Payable only to employees who were already in receipt of the allowance; the recommendation created no new eligible categories except the Parliament Duty Group.",
+          "hi": "केवल उन कर्मचारियों को देय जिन्हें यह भत्ता पहले से मिल रहा था; संसद ड्यूटी समूह को छोड़कर संस्तुति ने कोई नई पात्र श्रेणी नहीं बनाई।"
+        }
+      ],
+      "note": null,
+      "source": {
+        "name": "Report of the Seventh Central Pay Commission, para 8.17.121 (Special Incident/Investigation/Security Allowance)",
+        "url": "https://doe.gov.in/files/cenetral-pay_document/7cpc_report_eng.pdf",
+        "reference": "Special Security Allowance",
+        "dated": "2015-11-19"
+      },
+      "fetchedAt": "2026-08-28T00:00:00Z",
+      "verify": true
+    },
+    {
+      "id": "special-security-allowance-nsg",
+      "name": {
+        "en": "Special Security Allowance (National Security Guard)",
+        "hi": "विशेष सुरक्षा भत्ता (राष्ट्रीय सुरक्षा गार्ड)"
+      },
+      "type": "percent-of-pay",
+      "status": "current",
+      "appliesTo": {
+        "en": "Personnel of the National Security Guard, and operational staff of the Special Protection Group.",
+        "hi": "राष्ट्रीय सुरक्षा गार्ड के कर्मी, तथा विशेष सुरक्षा दल का प्रचालनात्मक स्टाफ़।"
+      },
+      "rates": [
+        {
+          "key": "standard",
+          "when": {
+            "en": "On basic pay",
+            "hi": "मूल वेतन पर"
+          },
+          "measure": "percent-of-basic-pay",
+          "value": 40
+        }
+      ],
+      "daLinked": {
+        "kind": "none",
+        "timesApplied": 0,
+        "since": null,
+        "note": {
+          "en": "Paid as a percentage of basic pay, so it moves with the pay matrix rather than with Dearness Allowance.",
+          "hi": "मूल वेतन के प्रतिशत के रूप में देय, अतः यह महँगाई भत्ते के साथ नहीं, वेतन मैट्रिक्स के साथ बदलता है।"
+        }
+      },
+      "taxable": true,
+      "taxSection": null,
+      "taxNote": {
+        "en": "Fully taxable as salary.",
+        "hi": "वेतन के रूप में पूर्णतः कर योग्य।"
+      },
+      "conditions": [
+        {
+          "en": "No Deputation (Duty) Allowance is payable along with this allowance.",
+          "hi": "इस भत्ते के साथ कोई प्रतिनियुक्ति (ड्यूटी) भत्ता देय नहीं।"
+        },
+        {
+          "en": "Payable only to employees who were already in receipt of the allowance; the recommendation created no new eligible categories except the Parliament Duty Group.",
+          "hi": "केवल उन कर्मचारियों को देय जिन्हें यह भत्ता पहले से मिल रहा था; संसद ड्यूटी समूह को छोड़कर संस्तुति ने कोई नई पात्र श्रेणी नहीं बनाई।"
+        }
+      ],
+      "note": null,
+      "source": {
+        "name": "Report of the Seventh Central Pay Commission, para 8.17.121 (Special Incident/Investigation/Security Allowance)",
+        "url": "https://doe.gov.in/files/cenetral-pay_document/7cpc_report_eng.pdf",
+        "reference": "Special Security Allowance",
+        "dated": "2015-11-19"
+      },
+      "fetchedAt": "2026-08-28T00:00:00Z",
+      "verify": true
+    },
+    {
+      "id": "special-security-allowance-spg",
+      "name": {
+        "en": "Special Security Allowance (Special Protection Group, non-operational)",
+        "hi": "विशेष सुरक्षा भत्ता (विशेष सुरक्षा दल, गैर-प्रचालनात्मक)"
+      },
+      "type": "percent-of-pay",
+      "status": "current",
+      "appliesTo": {
+        "en": "Non-operational staff of the Special Protection Group.",
+        "hi": "विशेष सुरक्षा दल का गैर-प्रचालनात्मक स्टाफ़।"
+      },
+      "rates": [
+        {
+          "key": "standard",
+          "when": {
+            "en": "On basic pay",
+            "hi": "मूल वेतन पर"
+          },
+          "measure": "percent-of-basic-pay",
+          "value": 20
+        }
+      ],
+      "daLinked": {
+        "kind": "none",
+        "timesApplied": 0,
+        "since": null,
+        "note": {
+          "en": "Paid as a percentage of basic pay, so it moves with the pay matrix rather than with Dearness Allowance.",
+          "hi": "मूल वेतन के प्रतिशत के रूप में देय, अतः यह महँगाई भत्ते के साथ नहीं, वेतन मैट्रिक्स के साथ बदलता है।"
+        }
+      },
+      "taxable": true,
+      "taxSection": null,
+      "taxNote": {
+        "en": "Fully taxable as salary.",
+        "hi": "वेतन के रूप में पूर्णतः कर योग्य।"
+      },
+      "conditions": [
+        {
+          "en": "No Deputation (Duty) Allowance is payable along with this allowance.",
+          "hi": "इस भत्ते के साथ कोई प्रतिनियुक्ति (ड्यूटी) भत्ता देय नहीं।"
+        },
+        {
+          "en": "Payable only to employees who were already in receipt of the allowance; the recommendation created no new eligible categories except the Parliament Duty Group.",
+          "hi": "केवल उन कर्मचारियों को देय जिन्हें यह भत्ता पहले से मिल रहा था; संसद ड्यूटी समूह को छोड़कर संस्तुति ने कोई नई पात्र श्रेणी नहीं बनाई।"
+        }
+      ],
+      "note": null,
+      "source": {
+        "name": "Report of the Seventh Central Pay Commission, para 8.17.121 (Special Incident/Investigation/Security Allowance)",
+        "url": "https://doe.gov.in/files/cenetral-pay_document/7cpc_report_eng.pdf",
+        "reference": "Special Security Allowance",
+        "dated": "2015-11-19"
+      },
+      "fetchedAt": "2026-08-28T00:00:00Z",
+      "verify": true
+    },
+    {
+      "id": "special-security-allowance-raf",
+      "name": {
+        "en": "Special Security Allowance (Rapid Action Force, CRPF)",
+        "hi": "विशेष सुरक्षा भत्ता (त्वरित कार्य बल, केंद्रीय रिज़र्व पुलिस बल)"
+      },
+      "type": "percent-of-pay",
+      "status": "current",
+      "appliesTo": {
+        "en": "Personnel of the Rapid Action Force of the Central Reserve Police Force.",
+        "hi": "केंद्रीय रिज़र्व पुलिस बल के त्वरित कार्य बल के कर्मी।"
+      },
+      "rates": [
+        {
+          "key": "standard",
+          "when": {
+            "en": "On basic pay",
+            "hi": "मूल वेतन पर"
+          },
+          "measure": "percent-of-basic-pay",
+          "value": 10
+        }
+      ],
+      "daLinked": {
+        "kind": "none",
+        "timesApplied": 0,
+        "since": null,
+        "note": {
+          "en": "Paid as a percentage of basic pay, so it moves with the pay matrix rather than with Dearness Allowance.",
+          "hi": "मूल वेतन के प्रतिशत के रूप में देय, अतः यह महँगाई भत्ते के साथ नहीं, वेतन मैट्रिक्स के साथ बदलता है।"
+        }
+      },
+      "taxable": true,
+      "taxSection": null,
+      "taxNote": {
+        "en": "Fully taxable as salary.",
+        "hi": "वेतन के रूप में पूर्णतः कर योग्य।"
+      },
+      "conditions": [
+        {
+          "en": "No Deputation (Duty) Allowance is payable along with this allowance.",
+          "hi": "इस भत्ते के साथ कोई प्रतिनियुक्ति (ड्यूटी) भत्ता देय नहीं।"
+        },
+        {
+          "en": "Payable only to employees who were already in receipt of the allowance; the recommendation created no new eligible categories except the Parliament Duty Group.",
+          "hi": "केवल उन कर्मचारियों को देय जिन्हें यह भत्ता पहले से मिल रहा था; संसद ड्यूटी समूह को छोड़कर संस्तुति ने कोई नई पात्र श्रेणी नहीं बनाई।"
+        }
+      ],
+      "note": null,
+      "source": {
+        "name": "Report of the Seventh Central Pay Commission, para 8.17.121 (Special Incident/Investigation/Security Allowance)",
+        "url": "https://doe.gov.in/files/cenetral-pay_document/7cpc_report_eng.pdf",
+        "reference": "Special Security Allowance",
+        "dated": "2015-11-19"
+      },
+      "fetchedAt": "2026-08-28T00:00:00Z",
+      "verify": true
+    },
+    {
+      "id": "performance-related-incentive-scheme",
+      "name": {
+        "en": "Performance Related Incentive Scheme",
+        "hi": "निष्पादन आधारित प्रोत्साहन योजना"
+      },
+      "shortName": {
+        "en": "PRIS",
+        "hi": "पीआरआईएस"
+      },
+      "type": "formula",
+      "status": "current",
+      "appliesTo": {
+        "en": "Scientists and engineers of the Department of Space (including ISRO), the Defence Research and Development Organisation and the Department of Atomic Energy, under schemes framed by each department.",
+        "hi": "अंतरिक्ष विभाग (इसरो सहित), रक्षा अनुसंधान एवं विकास संगठन तथा परमाणु ऊर्जा विभाग के वैज्ञानिक तथा अभियंता, प्रत्येक विभाग द्वारा बनाई गई योजनाओं के अंतर्गत।"
+      },
+      "rates": [
+        {
+          "key": "department-scheme",
+          "when": {
+            "en": "As determined by the department's own scheme, against assessed performance; there is no Government-wide rate",
+            "hi": "विभाग की अपनी योजना द्वारा, मूल्यांकित निष्पादन के विरुद्ध निर्धारित; कोई सरकार-व्यापी दर नहीं है"
+          },
+          "measure": "formula",
+          "expression": "per department scheme"
+        }
+      ],
+      "daLinked": {
+        "kind": "not-applicable",
+        "timesApplied": 0,
+        "since": null,
+        "note": null
+      },
+      "taxable": true,
+      "taxSection": null,
+      "taxNote": {
+        "en": "Fully taxable as salary in the year of receipt.",
+        "hi": "प्राप्ति के वर्ष में वेतन के रूप में पूर्णतः कर योग्य।"
+      },
+      "conditions": [
+        {
+          "en": "No rate is carried here. The Performance Related Incentive Scheme is not a Department of Expenditure allowance with a published rate table; each scientific department frames and notifies its own scheme, and the amount depends on an assessment. Ask the department, not a pay calculator.",
+          "hi": "यहाँ कोई दर नहीं दी गई है। निष्पादन आधारित प्रोत्साहन योजना प्रकाशित दर तालिका वाला व्यय विभाग का भत्ता नहीं है; प्रत्येक वैज्ञानिक विभाग अपनी योजना स्वयं बनाकर अधिसूचित करता है, और राशि मूल्यांकन पर निर्भर होती है। किसी वेतन कैलकुलेटर से नहीं, विभाग से पूछें।"
+        }
+      ],
+      "note": null,
+      "source": {
+        "name": "Report of the Seventh Central Pay Commission, Chapter 5.2 (Performance Related Pay)",
+        "url": "https://doe.gov.in/files/cenetral-pay_document/7cpc_report_eng.pdf",
+        "reference": "Performance Related Incentive Scheme",
+        "dated": "2015-11-19"
+      },
+      "fetchedAt": "2026-08-28T00:00:00Z",
+      "verify": true
+    },
+    {
+      "id": "leave-travel-concession",
+      "name": {
+        "en": "Leave Travel Concession",
+        "hi": "अवकाश यात्रा रियायत"
+      },
+      "shortName": {
+        "en": "LTC",
+        "hi": "एलटीसी"
+      },
+      "type": "concession",
+      "status": "current",
+      "appliesTo": {
+        "en": "Central Government employees governed by the Central Civil Services (Leave Travel Concession) Rules, 1988.",
+        "hi": "केंद्रीय सिविल सेवा (अवकाश यात्रा रियायत) नियम, 1988 से शासित केंद्रीय सरकारी कर्मचारी।"
+      },
+      "rates": [
+        {
+          "key": "rule-reference",
+          "when": {
+            "en": "Not a money allowance. Reimbursement of the fare for the entitled class of travel, for the employee and family, within a four-year block — one visit to any place in India and one to the home town, or two home-town visits, per block.",
+            "hi": "यह मौद्रिक भत्ता नहीं है। चार-वर्षीय ब्लॉक के भीतर कर्मचारी तथा परिवार के लिए हकदार यात्रा श्रेणी के किराए की प्रतिपूर्ति — प्रति ब्लॉक भारत में किसी भी स्थान की एक यात्रा तथा गृह नगर की एक यात्रा, अथवा गृह नगर की दो यात्राएँ।"
+          },
+          "measure": "not-a-money-value"
+        }
+      ],
+      "daLinked": {
+        "kind": "not-applicable",
+        "timesApplied": 0,
+        "since": null,
+        "note": null
+      },
+      "taxable": false,
+      "taxSection": "10(5) read with Rule 2B",
+      "taxNote": {
+        "en": "Exempt for two journeys in a block of four calendar years, limited to the actual fare for the shortest route and to the entitled class. The exemption is not available under the new regime.",
+        "hi": "चार कैलेंडर वर्षों के ब्लॉक में दो यात्राओं के लिए छूट, जो सबसे छोटे मार्ग के वास्तविक किराए तथा हकदार श्रेणी तक सीमित है। यह छूट नई कर व्यवस्था में उपलब्ध नहीं है।"
+      },
+      "conditions": [
+        {
+          "en": "Entitlement to class of travel follows the Level in the Pay Matrix, under the Travelling Allowance rules — this dataset carries the rule reference, not a rate.",
+          "hi": "यात्रा श्रेणी की पात्रता, यात्रा भत्ता नियमों के अंतर्गत, वेतन मैट्रिक्स के लेवल के अनुसार होती है — यह डेटासेट नियम संदर्भ रखता है, दर नहीं।"
+        },
+        {
+          "en": "Leave encashment of up to 10 days of earned leave is admissible alongside Leave Travel Concession, up to 60 days in the whole career.",
+          "hi": "अवकाश यात्रा रियायत के साथ 10 दिन तक के अर्जित अवकाश का नकदीकरण देय है, संपूर्ण सेवाकाल में अधिकतम 60 दिन।"
+        }
+      ],
+      "note": null,
+      "source": {
+        "name": "Central Civil Services (Leave Travel Concession) Rules, 1988 — Department of Personnel and Training",
+        "url": "https://dopt.gov.in/",
+        "reference": "CCS (LTC) Rules, 1988"
+      },
+      "fetchedAt": "2026-08-28T00:00:00Z",
+      "verify": true
+    },
+    {
+      "id": "split-duty-allowance",
+      "name": {
+        "en": "Split Duty Allowance",
+        "hi": "विभाजित ड्यूटी भत्ता"
+      },
+      "type": "fixed",
+      "status": "current",
+      "appliesTo": {
+        "en": "Sweepers and farashes in the Central Secretariat and allied offices who perform split duties.",
+        "hi": "केंद्रीय सचिवालय तथा संबद्ध कार्यालयों के वे सफ़ाई कर्मचारी तथा फ़र्राश जो विभाजित ड्यूटी करते हैं।"
+      },
+      "rates": [
+        {
+          "key": "standard",
+          "when": {
+            "en": "Per month",
+            "hi": "प्रति माह"
+          },
+          "measure": "rupees-per-month",
+          "value": 450
+        }
+      ],
+      "daLinked": {
+        "kind": "quarter-per-fifty",
+        "timesApplied": 1,
+        "since": "2024-01-01",
+        "note": {
+          "en": "The rate stated in the order rises by 25 per cent each time Dearness Allowance crosses 50 per cent. Dearness Allowance reached 50 per cent on 01.01.2024, so the figure payable today is the figure here multiplied by 1.25.",
+          "hi": "आदेश में उल्लिखित दर, महँगाई भत्ता जब-जब 50 प्रतिशत पार करता है, तब-तब 25 प्रतिशत बढ़ जाती है। महँगाई भत्ता 01.01.2024 को 50 प्रतिशत पर पहुँचा, अतः आज देय राशि यहाँ दी गई राशि का 1.25 गुना है।"
+        }
+      },
+      "taxable": true,
+      "taxSection": null,
+      "taxNote": {
+        "en": "Fully taxable as salary.",
+        "hi": "वेतन के रूप में पूर्णतः कर योग्य।"
+      },
+      "conditions": [
+        {
+          "en": "The break between the shifts must be of at least two hours.",
+          "hi": "पालियों के बीच का अंतराल कम से कम दो घंटे का होना चाहिए।"
+        },
+        {
+          "en": "Not admissible where residential accommodation has been provided within one kilometre of the office premises.",
+          "hi": "जहाँ कार्यालय परिसर से एक किलोमीटर के भीतर आवासीय सुविधा दी गई हो, वहाँ देय नहीं।"
+        }
+      ],
+      "note": null,
+      "source": {
+        "name": "Grant of Split Duty Allowance to Sweepers and Farashes in Central Secretariat and Allied Offices",
+        "url": "https://doe.gov.in/files/circulars_document/Split_Duty_English_0.pdf",
+        "reference": "O.M. No. 27/1/2017-E.II(B)",
+        "dated": "2017-07-14"
+      },
+      "fetchedAt": "2026-08-28T00:00:00Z",
+      "verify": false
+    },
+    {
+      "id": "special-allowance-child-care-women-with-disabilities",
+      "name": {
+        "en": "Special Allowance for Child Care for Women with Disabilities",
+        "hi": "दिव्यांग महिलाओं हेतु शिशु देखभाल विशेष भत्ता"
+      },
+      "type": "fixed",
+      "status": "current",
+      "appliesTo": {
+        "en": "Differently abled women employees, for the care of a newborn child.",
+        "hi": "दिव्यांग महिला कर्मचारी, नवजात शिशु की देखभाल के लिए।"
+      },
+      "rates": [
+        {
+          "key": "standard",
+          "when": {
+            "en": "Per month, for the two eldest surviving children, for two years from the date of birth of each",
+            "hi": "प्रति माह, दो ज्येष्ठ जीवित संतानों के लिए, प्रत्येक के जन्म की तिथि से दो वर्ष तक"
+          },
+          "measure": "rupees-per-month",
+          "value": 3000
+        }
+      ],
+      "daLinked": {
+        "kind": "quarter-per-fifty",
+        "timesApplied": 1,
+        "since": "2024-01-01",
+        "note": {
+          "en": "The rate stated in the order rises by 25 per cent each time Dearness Allowance crosses 50 per cent. Dearness Allowance reached 50 per cent on 01.01.2024, so the figure payable today is the figure here multiplied by 1.25.",
+          "hi": "आदेश में उल्लिखित दर, महँगाई भत्ता जब-जब 50 प्रतिशत पार करता है, तब-तब 25 प्रतिशत बढ़ जाती है। महँगाई भत्ता 01.01.2024 को 50 प्रतिशत पर पहुँचा, अतः आज देय राशि यहाँ दी गई राशि का 1.25 गुना है।"
+        }
+      },
+      "taxable": true,
+      "taxSection": null,
+      "taxNote": {
+        "en": "Fully taxable as salary.",
+        "hi": "वेतन के रूप में पूर्णतः कर योग्य।"
+      },
+      "conditions": [
+        {
+          "en": "Raised by a factor of 2 rather than the usual 1.5 the Commission applied to semi-indexed allowances, in recognition of the responsibility involved.",
+          "hi": "इसमें निहित उत्तरदायित्व को देखते हुए, अर्ध-अनुक्रमित भत्तों पर आयोग द्वारा लगाए गए सामान्य 1.5 के स्थान पर 2 का गुणक लगाया गया।"
+        }
+      ],
+      "note": null,
+      "source": {
+        "name": "Report of the Seventh Central Pay Commission, paras 8.17.111 and 8.17.112",
+        "url": "https://doe.gov.in/files/cenetral-pay_document/7cpc_report_eng.pdf",
+        "reference": "Special Allowance for Child Care for Women with Disabilities",
+        "dated": "2015-11-19"
+      },
+      "fetchedAt": "2026-08-28T00:00:00Z",
+      "verify": true
+    },
+    {
+      "id": "nursing-allowance",
+      "name": {
+        "en": "Nursing Allowance",
+        "hi": "नर्सिंग भत्ता"
+      },
+      "type": "fixed",
+      "status": "current",
+      "appliesTo": {
+        "en": "Nursing personnel of Central Government hospitals and institutions.",
+        "hi": "केंद्रीय सरकारी अस्पतालों तथा संस्थानों के नर्सिंग कर्मी।"
+      },
+      "rates": [
+        {
+          "key": "standard",
+          "when": {
+            "en": "Per month",
+            "hi": "प्रति माह"
+          },
+          "measure": "rupees-per-month",
+          "value": 7200
+        }
+      ],
+      "daLinked": {
+        "kind": "quarter-per-fifty",
+        "timesApplied": 1,
+        "since": "2024-01-01",
+        "note": {
+          "en": "The rate stated in the order rises by 25 per cent each time Dearness Allowance crosses 50 per cent. Dearness Allowance reached 50 per cent on 01.01.2024, so the figure payable today is the figure here multiplied by 1.25.",
+          "hi": "आदेश में उल्लिखित दर, महँगाई भत्ता जब-जब 50 प्रतिशत पार करता है, तब-तब 25 प्रतिशत बढ़ जाती है। महँगाई भत्ता 01.01.2024 को 50 प्रतिशत पर पहुँचा, अतः आज देय राशि यहाँ दी गई राशि का 1.25 गुना है।"
+        }
+      },
+      "taxable": true,
+      "taxSection": null,
+      "taxNote": {
+        "en": "Fully taxable as salary.",
+        "hi": "वेतन के रूप में पूर्णतः कर योग्य।"
+      },
+      "conditions": [
+        {
+          "en": "The Washing Allowance for nurses was subsumed into the Dress Allowance recommended for nurses and is not payable separately.",
+          "hi": "नर्सों का धुलाई भत्ता, नर्सों के लिए संस्तुत वस्त्र भत्ते में समाहित कर दिया गया और अलग से देय नहीं है।"
+        }
+      ],
+      "note": {
+        "en": "The figure here is the rate the Commission recommended (₹4,800 raised by a factor of 1.5). The Department of Expenditure order notifying it could not be fetched as a text-layer document — confirm the rate in force with your DDO.",
+        "hi": "यहाँ दिया गया अंक आयोग द्वारा संस्तुत दर है (₹4,800 को 1.5 के गुणक से बढ़ाकर)। इसे अधिसूचित करने वाला व्यय विभाग का आदेश पाठ-स्तर वाले दस्तावेज़ के रूप में प्राप्त नहीं हो सका — प्रवृत्त दर अपने डीडीओ से सुनिश्चित करें।"
+      },
+      "source": {
+        "name": "Grant of Nursing Allowance — Department of Expenditure",
+        "url": "https://doe.gov.in/files/circulars_document/Nursing_Allowance_English_0.pdf",
+        "reference": "Nursing Allowance"
+      },
+      "fetchedAt": "2026-08-28T00:00:00Z",
+      "verify": true
+    }
+  ]
+}

@@ -1,0 +1,2442 @@
+{
+  "$schema": "../../schemas/pay-cities.schema.json",
+  "version": "1.0.0",
+  "generatedAt": "2026-08-28",
+  "disclaimer": {
+    "en": "Reference only; verify with the official gazette/order or your DDO.",
+    "hi": "केवल संदर्भ हेतु; आधिकारिक राजपत्र/आदेश अथवा अपने डीडीओ से पुष्टि करें।"
+  },
+  "fallbackClass": "Z",
+  "source": {
+    "name": "Annexure to DoE O.M. — House Rent Allowance: classification of cities/towns",
+    "url": "https://doe.gov.in/files/cenetral-pay_document/HRA_Eng_1.pdf",
+    "reference": "No. 2/5/2017-E.II(B)",
+    "dated": "2017-07-07"
+  },
+  "classes": [
+    {
+      "id": "X",
+      "name": {
+        "en": "X (metropolitan)",
+        "hi": "X (महानगरीय)"
+      },
+      "description": {
+        "en": "The eight urban agglomerations named as 'X' in the annexure. House Rent Allowance is 30% of basic pay, with a floor of ₹5,400.",
+        "hi": "अनुबंध में 'X' के रूप में नामित आठ नगरीय समूह। मकान किराया भत्ता मूल वेतन का 30% है, न्यूनतम ₹5,400।"
+      }
+    },
+    {
+      "id": "Y",
+      "name": {
+        "en": "Y",
+        "hi": "Y"
+      },
+      "description": {
+        "en": "The cities and towns named as 'Y' in the annexure, plus the places carrying 'Y' rates by the special orders in para 6. House Rent Allowance is 20% of basic pay, with a floor of ₹3,600.",
+        "hi": "अनुबंध में 'Y' के रूप में नामित शहर और कस्बे, तथा पैरा 6 के विशेष आदेशों द्वारा 'Y' दरें पाने वाले स्थान। मकान किराया भत्ता मूल वेतन का 20% है, न्यूनतम ₹3,600।"
+      }
+    },
+    {
+      "id": "Z",
+      "name": {
+        "en": "Z",
+        "hi": "Z"
+      },
+      "description": {
+        "en": "Everything else. The annexure says so in terms: the remaining cities and towns in all States and Union Territories are classified 'Z'. House Rent Allowance is 10% of basic pay, with a floor of ₹1,800.",
+        "hi": "शेष सब कुछ। अनुबंध यही कहता है: सभी राज्यों और संघ राज्य क्षेत्रों के शेष शहर और कस्बे 'Z' श्रेणी में वर्गीकृत हैं। मकान किराया भत्ता मूल वेतन का 10% है, न्यूनतम ₹1,800।"
+      }
+    }
+  ],
+  "cities": [
+    {
+      "id": "hyderabad",
+      "name": {
+        "en": "Hyderabad",
+        "hi": "हैदराबाद"
+      },
+      "aliases": [
+        "Haiderabad",
+        "Secunderabad"
+      ],
+      "state": {
+        "en": "Andhra Pradesh / Telangana",
+        "hi": "आंध्र प्रदेश / तेलंगाना"
+      },
+      "class": "X",
+      "unit": "UA",
+      "source": {
+        "name": "Annexure to DoE O.M. — House Rent Allowance: classification of cities/towns",
+        "url": "https://doe.gov.in/files/cenetral-pay_document/HRA_Eng_1.pdf",
+        "reference": "No. 2/5/2017-E.II(B)",
+        "dated": "2017-07-07"
+      },
+      "fetchedAt": "2026-08-28T00:00:00Z",
+      "verify": false
+    },
+    {
+      "id": "delhi",
+      "name": {
+        "en": "Delhi",
+        "hi": "दिल्ली"
+      },
+      "aliases": [
+        "New Delhi",
+        "NCT of Delhi"
+      ],
+      "state": {
+        "en": "Delhi",
+        "hi": "दिल्ली"
+      },
+      "class": "X",
+      "unit": "UA",
+      "source": {
+        "name": "Annexure to DoE O.M. — House Rent Allowance: classification of cities/towns",
+        "url": "https://doe.gov.in/files/cenetral-pay_document/HRA_Eng_1.pdf",
+        "reference": "No. 2/5/2017-E.II(B)",
+        "dated": "2017-07-07"
+      },
+      "fetchedAt": "2026-08-28T00:00:00Z",
+      "verify": false
+    },
+    {
+      "id": "ahmedabad",
+      "name": {
+        "en": "Ahmedabad",
+        "hi": "अहमदाबाद"
+      },
+      "aliases": [
+        "Ahmadabad",
+        "Amdavad"
+      ],
+      "state": {
+        "en": "Gujarat",
+        "hi": "गुजरात"
+      },
+      "class": "X",
+      "unit": "UA",
+      "source": {
+        "name": "Annexure to DoE O.M. — House Rent Allowance: classification of cities/towns",
+        "url": "https://doe.gov.in/files/cenetral-pay_document/HRA_Eng_1.pdf",
+        "reference": "No. 2/5/2017-E.II(B)",
+        "dated": "2017-07-07"
+      },
+      "fetchedAt": "2026-08-28T00:00:00Z",
+      "verify": false
+    },
+    {
+      "id": "bengaluru",
+      "name": {
+        "en": "Bengaluru",
+        "hi": "बेंगलुरु"
+      },
+      "aliases": [
+        "Bangalore",
+        "Bengalore"
+      ],
+      "state": {
+        "en": "Karnataka",
+        "hi": "कर्नाटक"
+      },
+      "class": "X",
+      "unit": "UA",
+      "source": {
+        "name": "Annexure to DoE O.M. — House Rent Allowance: classification of cities/towns",
+        "url": "https://doe.gov.in/files/cenetral-pay_document/HRA_Eng_1.pdf",
+        "reference": "No. 2/5/2017-E.II(B)",
+        "dated": "2017-07-07"
+      },
+      "fetchedAt": "2026-08-28T00:00:00Z",
+      "verify": false
+    },
+    {
+      "id": "greater-mumbai",
+      "name": {
+        "en": "Greater Mumbai",
+        "hi": "बृहन्मुंबई"
+      },
+      "aliases": [
+        "Mumbai",
+        "Bombay"
+      ],
+      "state": {
+        "en": "Maharashtra",
+        "hi": "महाराष्ट्र"
+      },
+      "class": "X",
+      "unit": "UA",
+      "source": {
+        "name": "Annexure to DoE O.M. — House Rent Allowance: classification of cities/towns",
+        "url": "https://doe.gov.in/files/cenetral-pay_document/HRA_Eng_1.pdf",
+        "reference": "No. 2/5/2017-E.II(B)",
+        "dated": "2017-07-07"
+      },
+      "fetchedAt": "2026-08-28T00:00:00Z",
+      "verify": false
+    },
+    {
+      "id": "pune",
+      "name": {
+        "en": "Pune",
+        "hi": "पुणे"
+      },
+      "aliases": [
+        "Poona"
+      ],
+      "state": {
+        "en": "Maharashtra",
+        "hi": "महाराष्ट्र"
+      },
+      "class": "X",
+      "unit": "UA",
+      "source": {
+        "name": "Annexure to DoE O.M. — House Rent Allowance: classification of cities/towns",
+        "url": "https://doe.gov.in/files/cenetral-pay_document/HRA_Eng_1.pdf",
+        "reference": "No. 2/5/2017-E.II(B)",
+        "dated": "2017-07-07"
+      },
+      "fetchedAt": "2026-08-28T00:00:00Z",
+      "verify": false
+    },
+    {
+      "id": "chennai",
+      "name": {
+        "en": "Chennai",
+        "hi": "चेन्नई"
+      },
+      "aliases": [
+        "Madras"
+      ],
+      "state": {
+        "en": "Tamil Nadu",
+        "hi": "तमिल नाडु"
+      },
+      "class": "X",
+      "unit": "UA",
+      "source": {
+        "name": "Annexure to DoE O.M. — House Rent Allowance: classification of cities/towns",
+        "url": "https://doe.gov.in/files/cenetral-pay_document/HRA_Eng_1.pdf",
+        "reference": "No. 2/5/2017-E.II(B)",
+        "dated": "2017-07-07"
+      },
+      "fetchedAt": "2026-08-28T00:00:00Z",
+      "verify": false
+    },
+    {
+      "id": "kolkata",
+      "name": {
+        "en": "Kolkata",
+        "hi": "कोलकाता"
+      },
+      "aliases": [
+        "Calcutta"
+      ],
+      "state": {
+        "en": "West Bengal",
+        "hi": "पश्चिम बंगाल"
+      },
+      "class": "X",
+      "unit": "UA",
+      "source": {
+        "name": "Annexure to DoE O.M. — House Rent Allowance: classification of cities/towns",
+        "url": "https://doe.gov.in/files/cenetral-pay_document/HRA_Eng_1.pdf",
+        "reference": "No. 2/5/2017-E.II(B)",
+        "dated": "2017-07-07"
+      },
+      "fetchedAt": "2026-08-28T00:00:00Z",
+      "verify": false
+    },
+    {
+      "id": "vijayawada",
+      "name": {
+        "en": "Vijayawada",
+        "hi": "विजयवाड़ा"
+      },
+      "aliases": [
+        "Bezawada"
+      ],
+      "state": {
+        "en": "Andhra Pradesh / Telangana",
+        "hi": "आंध्र प्रदेश / तेलंगाना"
+      },
+      "class": "Y",
+      "unit": "UA",
+      "source": {
+        "name": "Annexure to DoE O.M. — House Rent Allowance: classification of cities/towns",
+        "url": "https://doe.gov.in/files/cenetral-pay_document/HRA_Eng_1.pdf",
+        "reference": "No. 2/5/2017-E.II(B)",
+        "dated": "2017-07-07"
+      },
+      "fetchedAt": "2026-08-28T00:00:00Z",
+      "verify": false
+    },
+    {
+      "id": "warangal",
+      "name": {
+        "en": "Warangal",
+        "hi": "वारंगल"
+      },
+      "aliases": [
+        "Hanamkonda",
+        "Warangal-Hanamkonda"
+      ],
+      "state": {
+        "en": "Andhra Pradesh / Telangana",
+        "hi": "आंध्र प्रदेश / तेलंगाना"
+      },
+      "class": "Y",
+      "unit": "UA",
+      "source": {
+        "name": "Annexure to DoE O.M. — House Rent Allowance: classification of cities/towns",
+        "url": "https://doe.gov.in/files/cenetral-pay_document/HRA_Eng_1.pdf",
+        "reference": "No. 2/5/2017-E.II(B)",
+        "dated": "2017-07-07"
+      },
+      "fetchedAt": "2026-08-28T00:00:00Z",
+      "verify": false
+    },
+    {
+      "id": "greater-visakhapatnam",
+      "name": {
+        "en": "Greater Visakhapatnam",
+        "hi": "बृहत् विशाखापत्तनम"
+      },
+      "aliases": [
+        "Visakhapatnam",
+        "Vizag",
+        "Vishakhapatnam"
+      ],
+      "state": {
+        "en": "Andhra Pradesh / Telangana",
+        "hi": "आंध्र प्रदेश / तेलंगाना"
+      },
+      "class": "Y",
+      "unit": "M.Corpn.",
+      "source": {
+        "name": "Annexure to DoE O.M. — House Rent Allowance: classification of cities/towns",
+        "url": "https://doe.gov.in/files/cenetral-pay_document/HRA_Eng_1.pdf",
+        "reference": "No. 2/5/2017-E.II(B)",
+        "dated": "2017-07-07"
+      },
+      "fetchedAt": "2026-08-28T00:00:00Z",
+      "verify": false
+    },
+    {
+      "id": "guntur",
+      "name": {
+        "en": "Guntur",
+        "hi": "गुंटूर"
+      },
+      "state": {
+        "en": "Andhra Pradesh / Telangana",
+        "hi": "आंध्र प्रदेश / तेलंगाना"
+      },
+      "class": "Y",
+      "unit": "UA",
+      "source": {
+        "name": "Annexure to DoE O.M. — House Rent Allowance: classification of cities/towns",
+        "url": "https://doe.gov.in/files/cenetral-pay_document/HRA_Eng_1.pdf",
+        "reference": "No. 2/5/2017-E.II(B)",
+        "dated": "2017-07-07"
+      },
+      "fetchedAt": "2026-08-28T00:00:00Z",
+      "verify": false
+    },
+    {
+      "id": "nellore",
+      "name": {
+        "en": "Nellore",
+        "hi": "नेल्लोर"
+      },
+      "aliases": [
+        "Sri Potti Sriramulu Nellore"
+      ],
+      "state": {
+        "en": "Andhra Pradesh / Telangana",
+        "hi": "आंध्र प्रदेश / तेलंगाना"
+      },
+      "class": "Y",
+      "unit": "UA",
+      "source": {
+        "name": "Annexure to DoE O.M. — House Rent Allowance: classification of cities/towns",
+        "url": "https://doe.gov.in/files/cenetral-pay_document/HRA_Eng_1.pdf",
+        "reference": "No. 2/5/2017-E.II(B)",
+        "dated": "2017-07-07"
+      },
+      "fetchedAt": "2026-08-28T00:00:00Z",
+      "verify": false
+    },
+    {
+      "id": "guwahati",
+      "name": {
+        "en": "Guwahati",
+        "hi": "गुवाहाटी"
+      },
+      "aliases": [
+        "Gauhati"
+      ],
+      "state": {
+        "en": "Assam",
+        "hi": "असम"
+      },
+      "class": "Y",
+      "unit": "UA",
+      "source": {
+        "name": "Annexure to DoE O.M. — House Rent Allowance: classification of cities/towns",
+        "url": "https://doe.gov.in/files/cenetral-pay_document/HRA_Eng_1.pdf",
+        "reference": "No. 2/5/2017-E.II(B)",
+        "dated": "2017-07-07"
+      },
+      "fetchedAt": "2026-08-28T00:00:00Z",
+      "verify": false
+    },
+    {
+      "id": "patna",
+      "name": {
+        "en": "Patna",
+        "hi": "पटना"
+      },
+      "state": {
+        "en": "Bihar",
+        "hi": "बिहार"
+      },
+      "class": "Y",
+      "unit": "UA",
+      "source": {
+        "name": "Annexure to DoE O.M. — House Rent Allowance: classification of cities/towns",
+        "url": "https://doe.gov.in/files/cenetral-pay_document/HRA_Eng_1.pdf",
+        "reference": "No. 2/5/2017-E.II(B)",
+        "dated": "2017-07-07"
+      },
+      "fetchedAt": "2026-08-28T00:00:00Z",
+      "verify": false
+    },
+    {
+      "id": "chandigarh",
+      "name": {
+        "en": "Chandigarh",
+        "hi": "चंडीगढ़"
+      },
+      "state": {
+        "en": "Chandigarh",
+        "hi": "चंडीगढ़"
+      },
+      "class": "Y",
+      "unit": "UA",
+      "source": {
+        "name": "Annexure to DoE O.M. — House Rent Allowance: classification of cities/towns",
+        "url": "https://doe.gov.in/files/cenetral-pay_document/HRA_Eng_1.pdf",
+        "reference": "No. 2/5/2017-E.II(B)",
+        "dated": "2017-07-07"
+      },
+      "fetchedAt": "2026-08-28T00:00:00Z",
+      "verify": false
+    },
+    {
+      "id": "durg-bhilai-nagar",
+      "name": {
+        "en": "Durg-Bhilai Nagar",
+        "hi": "दुर्ग-भिलाई नगर"
+      },
+      "aliases": [
+        "Bhilai",
+        "Durg"
+      ],
+      "state": {
+        "en": "Chhattisgarh",
+        "hi": "छत्तीसगढ़"
+      },
+      "class": "Y",
+      "unit": "UA",
+      "source": {
+        "name": "Annexure to DoE O.M. — House Rent Allowance: classification of cities/towns",
+        "url": "https://doe.gov.in/files/cenetral-pay_document/HRA_Eng_1.pdf",
+        "reference": "No. 2/5/2017-E.II(B)",
+        "dated": "2017-07-07"
+      },
+      "fetchedAt": "2026-08-28T00:00:00Z",
+      "verify": false
+    },
+    {
+      "id": "raipur",
+      "name": {
+        "en": "Raipur",
+        "hi": "रायपुर"
+      },
+      "state": {
+        "en": "Chhattisgarh",
+        "hi": "छत्तीसगढ़"
+      },
+      "class": "Y",
+      "unit": "UA",
+      "source": {
+        "name": "Annexure to DoE O.M. — House Rent Allowance: classification of cities/towns",
+        "url": "https://doe.gov.in/files/cenetral-pay_document/HRA_Eng_1.pdf",
+        "reference": "No. 2/5/2017-E.II(B)",
+        "dated": "2017-07-07"
+      },
+      "fetchedAt": "2026-08-28T00:00:00Z",
+      "verify": false
+    },
+    {
+      "id": "goa",
+      "name": {
+        "en": "Goa",
+        "hi": "गोवा"
+      },
+      "aliases": [
+        "Panaji",
+        "Panjim",
+        "Vasco da Gama",
+        "Margao"
+      ],
+      "state": {
+        "en": "Goa",
+        "hi": "गोवा"
+      },
+      "class": "Y",
+      "unit": "city",
+      "note": {
+        "en": "Classified 'Y' for House Rent Allowance by special order rather than by the annexure list, continued by para 6 of the 2017 order.",
+        "hi": "मकान किराया भत्ते के लिए अनुबंध सूची से नहीं, बल्कि विशेष आदेश द्वारा 'Y' श्रेणी में; 2017 के आदेश के पैरा 6 द्वारा जारी रखा गया।"
+      },
+      "source": {
+        "name": "DoE O.M. — House Rent Allowance, para 6 (special orders continued)",
+        "url": "https://doe.gov.in/files/cenetral-pay_document/HRA_Eng_1.pdf",
+        "reference": "No. 2/5/2017-E.II(B), read with No. 2/5/2014-E.II(B) of 21.07.2015 and No. 2/2/2016-E.II(B) of 03.02.2017",
+        "dated": "2017-07-07"
+      },
+      "fetchedAt": "2026-08-28T00:00:00Z",
+      "verify": false
+    },
+    {
+      "id": "rajkot",
+      "name": {
+        "en": "Rajkot",
+        "hi": "राजकोट"
+      },
+      "state": {
+        "en": "Gujarat",
+        "hi": "गुजरात"
+      },
+      "class": "Y",
+      "unit": "UA",
+      "source": {
+        "name": "Annexure to DoE O.M. — House Rent Allowance: classification of cities/towns",
+        "url": "https://doe.gov.in/files/cenetral-pay_document/HRA_Eng_1.pdf",
+        "reference": "No. 2/5/2017-E.II(B)",
+        "dated": "2017-07-07"
+      },
+      "fetchedAt": "2026-08-28T00:00:00Z",
+      "verify": false
+    },
+    {
+      "id": "jamnagar",
+      "name": {
+        "en": "Jamnagar",
+        "hi": "जामनगर"
+      },
+      "state": {
+        "en": "Gujarat",
+        "hi": "गुजरात"
+      },
+      "class": "Y",
+      "unit": "UA",
+      "source": {
+        "name": "Annexure to DoE O.M. — House Rent Allowance: classification of cities/towns",
+        "url": "https://doe.gov.in/files/cenetral-pay_document/HRA_Eng_1.pdf",
+        "reference": "No. 2/5/2017-E.II(B)",
+        "dated": "2017-07-07"
+      },
+      "fetchedAt": "2026-08-28T00:00:00Z",
+      "verify": false
+    },
+    {
+      "id": "bhavnagar",
+      "name": {
+        "en": "Bhavnagar",
+        "hi": "भावनगर"
+      },
+      "state": {
+        "en": "Gujarat",
+        "hi": "गुजरात"
+      },
+      "class": "Y",
+      "unit": "UA",
+      "source": {
+        "name": "Annexure to DoE O.M. — House Rent Allowance: classification of cities/towns",
+        "url": "https://doe.gov.in/files/cenetral-pay_document/HRA_Eng_1.pdf",
+        "reference": "No. 2/5/2017-E.II(B)",
+        "dated": "2017-07-07"
+      },
+      "fetchedAt": "2026-08-28T00:00:00Z",
+      "verify": false
+    },
+    {
+      "id": "vadodara",
+      "name": {
+        "en": "Vadodara",
+        "hi": "वडोदरा"
+      },
+      "aliases": [
+        "Baroda"
+      ],
+      "state": {
+        "en": "Gujarat",
+        "hi": "गुजरात"
+      },
+      "class": "Y",
+      "unit": "UA",
+      "source": {
+        "name": "Annexure to DoE O.M. — House Rent Allowance: classification of cities/towns",
+        "url": "https://doe.gov.in/files/cenetral-pay_document/HRA_Eng_1.pdf",
+        "reference": "No. 2/5/2017-E.II(B)",
+        "dated": "2017-07-07"
+      },
+      "fetchedAt": "2026-08-28T00:00:00Z",
+      "verify": false
+    },
+    {
+      "id": "surat",
+      "name": {
+        "en": "Surat",
+        "hi": "सूरत"
+      },
+      "state": {
+        "en": "Gujarat",
+        "hi": "गुजरात"
+      },
+      "class": "Y",
+      "unit": "UA",
+      "source": {
+        "name": "Annexure to DoE O.M. — House Rent Allowance: classification of cities/towns",
+        "url": "https://doe.gov.in/files/cenetral-pay_document/HRA_Eng_1.pdf",
+        "reference": "No. 2/5/2017-E.II(B)",
+        "dated": "2017-07-07"
+      },
+      "fetchedAt": "2026-08-28T00:00:00Z",
+      "verify": false
+    },
+    {
+      "id": "faridabad",
+      "name": {
+        "en": "Faridabad",
+        "hi": "फ़रीदाबाद"
+      },
+      "state": {
+        "en": "Haryana",
+        "hi": "हरियाणा"
+      },
+      "class": "Y",
+      "unit": "M.Corpn.",
+      "delhiRateProtected": true,
+      "note": {
+        "en": "Paid House Rent Allowance at Delhi ('X') rates on the basis of dependency, by the special orders continued in para 6 of the 2017 order — not classified 'X' itself.",
+        "hi": "2017 के आदेश के पैरा 6 में जारी रखे गए विशेष आदेशों द्वारा निर्भरता के आधार पर दिल्ली ('X') दरों पर मकान किराया भत्ता देय — स्वयं 'X' श्रेणी में वर्गीकृत नहीं।"
+      },
+      "source": {
+        "name": "Annexure to DoE O.M. — House Rent Allowance: classification of cities/towns",
+        "url": "https://doe.gov.in/files/cenetral-pay_document/HRA_Eng_1.pdf",
+        "reference": "No. 2/5/2017-E.II(B)",
+        "dated": "2017-07-07"
+      },
+      "fetchedAt": "2026-08-28T00:00:00Z",
+      "verify": false
+    },
+    {
+      "id": "gurugram",
+      "name": {
+        "en": "Gurugram",
+        "hi": "गुरुग्राम"
+      },
+      "aliases": [
+        "Gurgaon"
+      ],
+      "state": {
+        "en": "Haryana",
+        "hi": "हरियाणा"
+      },
+      "class": "Y",
+      "unit": "UA",
+      "delhiRateProtected": true,
+      "note": {
+        "en": "Paid House Rent Allowance at Delhi ('X') rates on the basis of dependency, by the special orders continued in para 6 of the 2017 order — not classified 'X' itself. Renamed after the 2017 order was issued; the annexure spells it Gurgaon.",
+        "hi": "2017 के आदेश के पैरा 6 में जारी रखे गए विशेष आदेशों द्वारा निर्भरता के आधार पर दिल्ली ('X') दरों पर मकान किराया भत्ता देय — स्वयं 'X' श्रेणी में वर्गीकृत नहीं। 2017 का आदेश जारी होने के बाद इसका नाम बदला गया; अनुबंध में इसकी वर्तनी Gurgaon है।"
+      },
+      "source": {
+        "name": "Annexure to DoE O.M. — House Rent Allowance: classification of cities/towns",
+        "url": "https://doe.gov.in/files/cenetral-pay_document/HRA_Eng_1.pdf",
+        "reference": "No. 2/5/2017-E.II(B)",
+        "dated": "2017-07-07"
+      },
+      "fetchedAt": "2026-08-28T00:00:00Z",
+      "verify": false
+    },
+    {
+      "id": "panchkula",
+      "name": {
+        "en": "Panchkula",
+        "hi": "पंचकूला"
+      },
+      "state": {
+        "en": "Haryana",
+        "hi": "हरियाणा"
+      },
+      "class": "Y",
+      "unit": "city",
+      "note": {
+        "en": "House Rent Allowance at par with Chandigarh ('Y') by special order, continued by para 6 of the 2017 order; not named in the annexure list.",
+        "hi": "विशेष आदेश द्वारा चंडीगढ़ ('Y') के समकक्ष मकान किराया भत्ता, जिसे 2017 के आदेश के पैरा 6 द्वारा जारी रखा गया; अनुबंध सूची में नामित नहीं।"
+      },
+      "source": {
+        "name": "DoE O.M. — House Rent Allowance, para 6 (special orders continued)",
+        "url": "https://doe.gov.in/files/cenetral-pay_document/HRA_Eng_1.pdf",
+        "reference": "No. 2/5/2017-E.II(B), read with No. 2/5/2014-E.II(B) of 21.07.2015 and No. 2/2/2016-E.II(B) of 03.02.2017",
+        "dated": "2017-07-07"
+      },
+      "fetchedAt": "2026-08-28T00:00:00Z",
+      "verify": false
+    },
+    {
+      "id": "srinagar",
+      "name": {
+        "en": "Srinagar",
+        "hi": "श्रीनगर"
+      },
+      "state": {
+        "en": "Jammu & Kashmir",
+        "hi": "जम्मू और कश्मीर"
+      },
+      "class": "Y",
+      "unit": "UA",
+      "source": {
+        "name": "Annexure to DoE O.M. — House Rent Allowance: classification of cities/towns",
+        "url": "https://doe.gov.in/files/cenetral-pay_document/HRA_Eng_1.pdf",
+        "reference": "No. 2/5/2017-E.II(B)",
+        "dated": "2017-07-07"
+      },
+      "fetchedAt": "2026-08-28T00:00:00Z",
+      "verify": false
+    },
+    {
+      "id": "jammu",
+      "name": {
+        "en": "Jammu",
+        "hi": "जम्मू"
+      },
+      "state": {
+        "en": "Jammu & Kashmir",
+        "hi": "जम्मू और कश्मीर"
+      },
+      "class": "Y",
+      "unit": "UA",
+      "source": {
+        "name": "Annexure to DoE O.M. — House Rent Allowance: classification of cities/towns",
+        "url": "https://doe.gov.in/files/cenetral-pay_document/HRA_Eng_1.pdf",
+        "reference": "No. 2/5/2017-E.II(B)",
+        "dated": "2017-07-07"
+      },
+      "fetchedAt": "2026-08-28T00:00:00Z",
+      "verify": false
+    },
+    {
+      "id": "jamshedpur",
+      "name": {
+        "en": "Jamshedpur",
+        "hi": "जमशेदपुर"
+      },
+      "aliases": [
+        "Tatanagar"
+      ],
+      "state": {
+        "en": "Jharkhand",
+        "hi": "झारखंड"
+      },
+      "class": "Y",
+      "unit": "UA",
+      "source": {
+        "name": "Annexure to DoE O.M. — House Rent Allowance: classification of cities/towns",
+        "url": "https://doe.gov.in/files/cenetral-pay_document/HRA_Eng_1.pdf",
+        "reference": "No. 2/5/2017-E.II(B)",
+        "dated": "2017-07-07"
+      },
+      "fetchedAt": "2026-08-28T00:00:00Z",
+      "verify": false
+    },
+    {
+      "id": "dhanbad",
+      "name": {
+        "en": "Dhanbad",
+        "hi": "धनबाद"
+      },
+      "state": {
+        "en": "Jharkhand",
+        "hi": "झारखंड"
+      },
+      "class": "Y",
+      "unit": "UA",
+      "source": {
+        "name": "Annexure to DoE O.M. — House Rent Allowance: classification of cities/towns",
+        "url": "https://doe.gov.in/files/cenetral-pay_document/HRA_Eng_1.pdf",
+        "reference": "No. 2/5/2017-E.II(B)",
+        "dated": "2017-07-07"
+      },
+      "fetchedAt": "2026-08-28T00:00:00Z",
+      "verify": false
+    },
+    {
+      "id": "ranchi",
+      "name": {
+        "en": "Ranchi",
+        "hi": "राँची"
+      },
+      "state": {
+        "en": "Jharkhand",
+        "hi": "झारखंड"
+      },
+      "class": "Y",
+      "unit": "UA",
+      "source": {
+        "name": "Annexure to DoE O.M. — House Rent Allowance: classification of cities/towns",
+        "url": "https://doe.gov.in/files/cenetral-pay_document/HRA_Eng_1.pdf",
+        "reference": "No. 2/5/2017-E.II(B)",
+        "dated": "2017-07-07"
+      },
+      "fetchedAt": "2026-08-28T00:00:00Z",
+      "verify": false
+    },
+    {
+      "id": "bokaro-steel-city",
+      "name": {
+        "en": "Bokaro Steel City",
+        "hi": "बोकारो स्टील सिटी"
+      },
+      "aliases": [
+        "Bokaro"
+      ],
+      "state": {
+        "en": "Jharkhand",
+        "hi": "झारखंड"
+      },
+      "class": "Y",
+      "unit": "UA",
+      "source": {
+        "name": "Annexure to DoE O.M. — House Rent Allowance: classification of cities/towns",
+        "url": "https://doe.gov.in/files/cenetral-pay_document/HRA_Eng_1.pdf",
+        "reference": "No. 2/5/2017-E.II(B)",
+        "dated": "2017-07-07"
+      },
+      "fetchedAt": "2026-08-28T00:00:00Z",
+      "verify": false
+    },
+    {
+      "id": "belagavi",
+      "name": {
+        "en": "Belagavi",
+        "hi": "बेलगावी"
+      },
+      "aliases": [
+        "Belgaum"
+      ],
+      "state": {
+        "en": "Karnataka",
+        "hi": "कर्नाटक"
+      },
+      "class": "Y",
+      "unit": "UA",
+      "note": {
+        "en": "Renamed after the 2017 order was issued; the annexure spells it Belgaum.",
+        "hi": "2017 का आदेश जारी होने के बाद इसका नाम बदला गया; अनुबंध में इसकी वर्तनी Belgaum है।"
+      },
+      "source": {
+        "name": "Annexure to DoE O.M. — House Rent Allowance: classification of cities/towns",
+        "url": "https://doe.gov.in/files/cenetral-pay_document/HRA_Eng_1.pdf",
+        "reference": "No. 2/5/2017-E.II(B)",
+        "dated": "2017-07-07"
+      },
+      "fetchedAt": "2026-08-28T00:00:00Z",
+      "verify": false
+    },
+    {
+      "id": "hubballi-dharwad",
+      "name": {
+        "en": "Hubballi-Dharwad",
+        "hi": "हुबली-धारवाड़"
+      },
+      "aliases": [
+        "Hubli-Dharwad",
+        "Hubli",
+        "Dharwad"
+      ],
+      "state": {
+        "en": "Karnataka",
+        "hi": "कर्नाटक"
+      },
+      "class": "Y",
+      "unit": "M.Corpn.",
+      "note": {
+        "en": "Renamed after the 2017 order was issued; the annexure spells it Hubli-Dharwad.",
+        "hi": "2017 का आदेश जारी होने के बाद इसका नाम बदला गया; अनुबंध में इसकी वर्तनी Hubli-Dharwad है।"
+      },
+      "source": {
+        "name": "Annexure to DoE O.M. — House Rent Allowance: classification of cities/towns",
+        "url": "https://doe.gov.in/files/cenetral-pay_document/HRA_Eng_1.pdf",
+        "reference": "No. 2/5/2017-E.II(B)",
+        "dated": "2017-07-07"
+      },
+      "fetchedAt": "2026-08-28T00:00:00Z",
+      "verify": false
+    },
+    {
+      "id": "mangaluru",
+      "name": {
+        "en": "Mangaluru",
+        "hi": "मंगलुरु"
+      },
+      "aliases": [
+        "Mangalore"
+      ],
+      "state": {
+        "en": "Karnataka",
+        "hi": "कर्नाटक"
+      },
+      "class": "Y",
+      "unit": "UA",
+      "note": {
+        "en": "Renamed after the 2017 order was issued; the annexure spells it Mangalore.",
+        "hi": "2017 का आदेश जारी होने के बाद इसका नाम बदला गया; अनुबंध में इसकी वर्तनी Mangalore है।"
+      },
+      "source": {
+        "name": "Annexure to DoE O.M. — House Rent Allowance: classification of cities/towns",
+        "url": "https://doe.gov.in/files/cenetral-pay_document/HRA_Eng_1.pdf",
+        "reference": "No. 2/5/2017-E.II(B)",
+        "dated": "2017-07-07"
+      },
+      "fetchedAt": "2026-08-28T00:00:00Z",
+      "verify": false
+    },
+    {
+      "id": "mysuru",
+      "name": {
+        "en": "Mysuru",
+        "hi": "मैसूरु"
+      },
+      "aliases": [
+        "Mysore"
+      ],
+      "state": {
+        "en": "Karnataka",
+        "hi": "कर्नाटक"
+      },
+      "class": "Y",
+      "unit": "UA",
+      "note": {
+        "en": "Renamed after the 2017 order was issued; the annexure spells it Mysore.",
+        "hi": "2017 का आदेश जारी होने के बाद इसका नाम बदला गया; अनुबंध में इसकी वर्तनी Mysore है।"
+      },
+      "source": {
+        "name": "Annexure to DoE O.M. — House Rent Allowance: classification of cities/towns",
+        "url": "https://doe.gov.in/files/cenetral-pay_document/HRA_Eng_1.pdf",
+        "reference": "No. 2/5/2017-E.II(B)",
+        "dated": "2017-07-07"
+      },
+      "fetchedAt": "2026-08-28T00:00:00Z",
+      "verify": false
+    },
+    {
+      "id": "kalaburagi",
+      "name": {
+        "en": "Kalaburagi",
+        "hi": "कलबुर्गी"
+      },
+      "aliases": [
+        "Gulbarga"
+      ],
+      "state": {
+        "en": "Karnataka",
+        "hi": "कर्नाटक"
+      },
+      "class": "Y",
+      "unit": "UA",
+      "note": {
+        "en": "Renamed after the 2017 order was issued; the annexure spells it Gulbarga.",
+        "hi": "2017 का आदेश जारी होने के बाद इसका नाम बदला गया; अनुबंध में इसकी वर्तनी Gulbarga है।"
+      },
+      "source": {
+        "name": "Annexure to DoE O.M. — House Rent Allowance: classification of cities/towns",
+        "url": "https://doe.gov.in/files/cenetral-pay_document/HRA_Eng_1.pdf",
+        "reference": "No. 2/5/2017-E.II(B)",
+        "dated": "2017-07-07"
+      },
+      "fetchedAt": "2026-08-28T00:00:00Z",
+      "verify": false
+    },
+    {
+      "id": "kozhikode",
+      "name": {
+        "en": "Kozhikode",
+        "hi": "कोझिकोड"
+      },
+      "aliases": [
+        "Calicut"
+      ],
+      "state": {
+        "en": "Kerala",
+        "hi": "केरल"
+      },
+      "class": "Y",
+      "unit": "UA",
+      "source": {
+        "name": "Annexure to DoE O.M. — House Rent Allowance: classification of cities/towns",
+        "url": "https://doe.gov.in/files/cenetral-pay_document/HRA_Eng_1.pdf",
+        "reference": "No. 2/5/2017-E.II(B)",
+        "dated": "2017-07-07"
+      },
+      "fetchedAt": "2026-08-28T00:00:00Z",
+      "verify": false
+    },
+    {
+      "id": "kochi",
+      "name": {
+        "en": "Kochi",
+        "hi": "कोच्चि"
+      },
+      "aliases": [
+        "Cochin",
+        "Ernakulam"
+      ],
+      "state": {
+        "en": "Kerala",
+        "hi": "केरल"
+      },
+      "class": "Y",
+      "unit": "UA",
+      "source": {
+        "name": "Annexure to DoE O.M. — House Rent Allowance: classification of cities/towns",
+        "url": "https://doe.gov.in/files/cenetral-pay_document/HRA_Eng_1.pdf",
+        "reference": "No. 2/5/2017-E.II(B)",
+        "dated": "2017-07-07"
+      },
+      "fetchedAt": "2026-08-28T00:00:00Z",
+      "verify": false
+    },
+    {
+      "id": "thiruvananthapuram",
+      "name": {
+        "en": "Thiruvananthapuram",
+        "hi": "तिरुवनंतपुरम"
+      },
+      "aliases": [
+        "Trivandrum",
+        "Thiruvanathapuram"
+      ],
+      "state": {
+        "en": "Kerala",
+        "hi": "केरल"
+      },
+      "class": "Y",
+      "unit": "UA",
+      "source": {
+        "name": "Annexure to DoE O.M. — House Rent Allowance: classification of cities/towns",
+        "url": "https://doe.gov.in/files/cenetral-pay_document/HRA_Eng_1.pdf",
+        "reference": "No. 2/5/2017-E.II(B)",
+        "dated": "2017-07-07"
+      },
+      "fetchedAt": "2026-08-28T00:00:00Z",
+      "verify": false
+    },
+    {
+      "id": "thrissur",
+      "name": {
+        "en": "Thrissur",
+        "hi": "त्रिशूर"
+      },
+      "aliases": [
+        "Trichur"
+      ],
+      "state": {
+        "en": "Kerala",
+        "hi": "केरल"
+      },
+      "class": "Y",
+      "unit": "UA",
+      "source": {
+        "name": "Annexure to DoE O.M. — House Rent Allowance: classification of cities/towns",
+        "url": "https://doe.gov.in/files/cenetral-pay_document/HRA_Eng_1.pdf",
+        "reference": "No. 2/5/2017-E.II(B)",
+        "dated": "2017-07-07"
+      },
+      "fetchedAt": "2026-08-28T00:00:00Z",
+      "verify": false
+    },
+    {
+      "id": "malappuram",
+      "name": {
+        "en": "Malappuram",
+        "hi": "मलप्पुरम"
+      },
+      "state": {
+        "en": "Kerala",
+        "hi": "केरल"
+      },
+      "class": "Y",
+      "unit": "UA",
+      "source": {
+        "name": "Annexure to DoE O.M. — House Rent Allowance: classification of cities/towns",
+        "url": "https://doe.gov.in/files/cenetral-pay_document/HRA_Eng_1.pdf",
+        "reference": "No. 2/5/2017-E.II(B)",
+        "dated": "2017-07-07"
+      },
+      "fetchedAt": "2026-08-28T00:00:00Z",
+      "verify": false
+    },
+    {
+      "id": "kannur",
+      "name": {
+        "en": "Kannur",
+        "hi": "कण्णूर"
+      },
+      "aliases": [
+        "Cannanore"
+      ],
+      "state": {
+        "en": "Kerala",
+        "hi": "केरल"
+      },
+      "class": "Y",
+      "unit": "UA",
+      "source": {
+        "name": "Annexure to DoE O.M. — House Rent Allowance: classification of cities/towns",
+        "url": "https://doe.gov.in/files/cenetral-pay_document/HRA_Eng_1.pdf",
+        "reference": "No. 2/5/2017-E.II(B)",
+        "dated": "2017-07-07"
+      },
+      "fetchedAt": "2026-08-28T00:00:00Z",
+      "verify": false
+    },
+    {
+      "id": "kollam",
+      "name": {
+        "en": "Kollam",
+        "hi": "कोल्लम"
+      },
+      "aliases": [
+        "Quilon"
+      ],
+      "state": {
+        "en": "Kerala",
+        "hi": "केरल"
+      },
+      "class": "Y",
+      "unit": "UA",
+      "source": {
+        "name": "Annexure to DoE O.M. — House Rent Allowance: classification of cities/towns",
+        "url": "https://doe.gov.in/files/cenetral-pay_document/HRA_Eng_1.pdf",
+        "reference": "No. 2/5/2017-E.II(B)",
+        "dated": "2017-07-07"
+      },
+      "fetchedAt": "2026-08-28T00:00:00Z",
+      "verify": false
+    },
+    {
+      "id": "gwalior",
+      "name": {
+        "en": "Gwalior",
+        "hi": "ग्वालियर"
+      },
+      "state": {
+        "en": "Madhya Pradesh",
+        "hi": "मध्य प्रदेश"
+      },
+      "class": "Y",
+      "unit": "UA",
+      "source": {
+        "name": "Annexure to DoE O.M. — House Rent Allowance: classification of cities/towns",
+        "url": "https://doe.gov.in/files/cenetral-pay_document/HRA_Eng_1.pdf",
+        "reference": "No. 2/5/2017-E.II(B)",
+        "dated": "2017-07-07"
+      },
+      "fetchedAt": "2026-08-28T00:00:00Z",
+      "verify": false
+    },
+    {
+      "id": "indore",
+      "name": {
+        "en": "Indore",
+        "hi": "इंदौर"
+      },
+      "state": {
+        "en": "Madhya Pradesh",
+        "hi": "मध्य प्रदेश"
+      },
+      "class": "Y",
+      "unit": "UA",
+      "source": {
+        "name": "Annexure to DoE O.M. — House Rent Allowance: classification of cities/towns",
+        "url": "https://doe.gov.in/files/cenetral-pay_document/HRA_Eng_1.pdf",
+        "reference": "No. 2/5/2017-E.II(B)",
+        "dated": "2017-07-07"
+      },
+      "fetchedAt": "2026-08-28T00:00:00Z",
+      "verify": false
+    },
+    {
+      "id": "bhopal",
+      "name": {
+        "en": "Bhopal",
+        "hi": "भोपाल"
+      },
+      "state": {
+        "en": "Madhya Pradesh",
+        "hi": "मध्य प्रदेश"
+      },
+      "class": "Y",
+      "unit": "UA",
+      "source": {
+        "name": "Annexure to DoE O.M. — House Rent Allowance: classification of cities/towns",
+        "url": "https://doe.gov.in/files/cenetral-pay_document/HRA_Eng_1.pdf",
+        "reference": "No. 2/5/2017-E.II(B)",
+        "dated": "2017-07-07"
+      },
+      "fetchedAt": "2026-08-28T00:00:00Z",
+      "verify": false
+    },
+    {
+      "id": "jabalpur",
+      "name": {
+        "en": "Jabalpur",
+        "hi": "जबलपुर"
+      },
+      "state": {
+        "en": "Madhya Pradesh",
+        "hi": "मध्य प्रदेश"
+      },
+      "class": "Y",
+      "unit": "UA",
+      "source": {
+        "name": "Annexure to DoE O.M. — House Rent Allowance: classification of cities/towns",
+        "url": "https://doe.gov.in/files/cenetral-pay_document/HRA_Eng_1.pdf",
+        "reference": "No. 2/5/2017-E.II(B)",
+        "dated": "2017-07-07"
+      },
+      "fetchedAt": "2026-08-28T00:00:00Z",
+      "verify": false
+    },
+    {
+      "id": "ujjain",
+      "name": {
+        "en": "Ujjain",
+        "hi": "उज्जैन"
+      },
+      "state": {
+        "en": "Madhya Pradesh",
+        "hi": "मध्य प्रदेश"
+      },
+      "class": "Y",
+      "unit": "M.Corpn.",
+      "source": {
+        "name": "Annexure to DoE O.M. — House Rent Allowance: classification of cities/towns",
+        "url": "https://doe.gov.in/files/cenetral-pay_document/HRA_Eng_1.pdf",
+        "reference": "No. 2/5/2017-E.II(B)",
+        "dated": "2017-07-07"
+      },
+      "fetchedAt": "2026-08-28T00:00:00Z",
+      "verify": false
+    },
+    {
+      "id": "amravati",
+      "name": {
+        "en": "Amravati",
+        "hi": "अमरावती"
+      },
+      "state": {
+        "en": "Maharashtra",
+        "hi": "महाराष्ट्र"
+      },
+      "class": "Y",
+      "unit": "M.Corpn.",
+      "source": {
+        "name": "Annexure to DoE O.M. — House Rent Allowance: classification of cities/towns",
+        "url": "https://doe.gov.in/files/cenetral-pay_document/HRA_Eng_1.pdf",
+        "reference": "No. 2/5/2017-E.II(B)",
+        "dated": "2017-07-07"
+      },
+      "fetchedAt": "2026-08-28T00:00:00Z",
+      "verify": false
+    },
+    {
+      "id": "nagpur",
+      "name": {
+        "en": "Nagpur",
+        "hi": "नागपुर"
+      },
+      "state": {
+        "en": "Maharashtra",
+        "hi": "महाराष्ट्र"
+      },
+      "class": "Y",
+      "unit": "UA",
+      "source": {
+        "name": "Annexure to DoE O.M. — House Rent Allowance: classification of cities/towns",
+        "url": "https://doe.gov.in/files/cenetral-pay_document/HRA_Eng_1.pdf",
+        "reference": "No. 2/5/2017-E.II(B)",
+        "dated": "2017-07-07"
+      },
+      "fetchedAt": "2026-08-28T00:00:00Z",
+      "verify": false
+    },
+    {
+      "id": "chhatrapati-sambhajinagar",
+      "name": {
+        "en": "Chhatrapati Sambhajinagar",
+        "hi": "छत्रपति संभाजीनगर"
+      },
+      "aliases": [
+        "Aurangabad"
+      ],
+      "state": {
+        "en": "Maharashtra",
+        "hi": "महाराष्ट्र"
+      },
+      "class": "Y",
+      "unit": "UA",
+      "note": {
+        "en": "Renamed after the 2017 order was issued; the annexure spells it Aurangabad.",
+        "hi": "2017 का आदेश जारी होने के बाद इसका नाम बदला गया; अनुबंध में इसकी वर्तनी Aurangabad है।"
+      },
+      "source": {
+        "name": "Annexure to DoE O.M. — House Rent Allowance: classification of cities/towns",
+        "url": "https://doe.gov.in/files/cenetral-pay_document/HRA_Eng_1.pdf",
+        "reference": "No. 2/5/2017-E.II(B)",
+        "dated": "2017-07-07"
+      },
+      "fetchedAt": "2026-08-28T00:00:00Z",
+      "verify": false
+    },
+    {
+      "id": "nashik",
+      "name": {
+        "en": "Nashik",
+        "hi": "नासिक"
+      },
+      "aliases": [
+        "Nasik"
+      ],
+      "state": {
+        "en": "Maharashtra",
+        "hi": "महाराष्ट्र"
+      },
+      "class": "Y",
+      "unit": "UA",
+      "source": {
+        "name": "Annexure to DoE O.M. — House Rent Allowance: classification of cities/towns",
+        "url": "https://doe.gov.in/files/cenetral-pay_document/HRA_Eng_1.pdf",
+        "reference": "No. 2/5/2017-E.II(B)",
+        "dated": "2017-07-07"
+      },
+      "fetchedAt": "2026-08-28T00:00:00Z",
+      "verify": false
+    },
+    {
+      "id": "bhiwandi",
+      "name": {
+        "en": "Bhiwandi",
+        "hi": "भिवंडी"
+      },
+      "state": {
+        "en": "Maharashtra",
+        "hi": "महाराष्ट्र"
+      },
+      "class": "Y",
+      "unit": "UA",
+      "source": {
+        "name": "Annexure to DoE O.M. — House Rent Allowance: classification of cities/towns",
+        "url": "https://doe.gov.in/files/cenetral-pay_document/HRA_Eng_1.pdf",
+        "reference": "No. 2/5/2017-E.II(B)",
+        "dated": "2017-07-07"
+      },
+      "fetchedAt": "2026-08-28T00:00:00Z",
+      "verify": false
+    },
+    {
+      "id": "solapur",
+      "name": {
+        "en": "Solapur",
+        "hi": "सोलापुर"
+      },
+      "aliases": [
+        "Sholapur"
+      ],
+      "state": {
+        "en": "Maharashtra",
+        "hi": "महाराष्ट्र"
+      },
+      "class": "Y",
+      "unit": "M.Corpn.",
+      "source": {
+        "name": "Annexure to DoE O.M. — House Rent Allowance: classification of cities/towns",
+        "url": "https://doe.gov.in/files/cenetral-pay_document/HRA_Eng_1.pdf",
+        "reference": "No. 2/5/2017-E.II(B)",
+        "dated": "2017-07-07"
+      },
+      "fetchedAt": "2026-08-28T00:00:00Z",
+      "verify": false
+    },
+    {
+      "id": "kolhapur",
+      "name": {
+        "en": "Kolhapur",
+        "hi": "कोल्हापुर"
+      },
+      "state": {
+        "en": "Maharashtra",
+        "hi": "महाराष्ट्र"
+      },
+      "class": "Y",
+      "unit": "UA",
+      "source": {
+        "name": "Annexure to DoE O.M. — House Rent Allowance: classification of cities/towns",
+        "url": "https://doe.gov.in/files/cenetral-pay_document/HRA_Eng_1.pdf",
+        "reference": "No. 2/5/2017-E.II(B)",
+        "dated": "2017-07-07"
+      },
+      "fetchedAt": "2026-08-28T00:00:00Z",
+      "verify": false
+    },
+    {
+      "id": "vasai-virar-city",
+      "name": {
+        "en": "Vasai-Virar City",
+        "hi": "वसई-विरार शहर"
+      },
+      "aliases": [
+        "Vasai",
+        "Virar"
+      ],
+      "state": {
+        "en": "Maharashtra",
+        "hi": "महाराष्ट्र"
+      },
+      "class": "Y",
+      "unit": "M.Corpn.",
+      "source": {
+        "name": "Annexure to DoE O.M. — House Rent Allowance: classification of cities/towns",
+        "url": "https://doe.gov.in/files/cenetral-pay_document/HRA_Eng_1.pdf",
+        "reference": "No. 2/5/2017-E.II(B)",
+        "dated": "2017-07-07"
+      },
+      "fetchedAt": "2026-08-28T00:00:00Z",
+      "verify": false
+    },
+    {
+      "id": "malegaon",
+      "name": {
+        "en": "Malegaon",
+        "hi": "मालेगाँव"
+      },
+      "state": {
+        "en": "Maharashtra",
+        "hi": "महाराष्ट्र"
+      },
+      "class": "Y",
+      "unit": "UA",
+      "source": {
+        "name": "Annexure to DoE O.M. — House Rent Allowance: classification of cities/towns",
+        "url": "https://doe.gov.in/files/cenetral-pay_document/HRA_Eng_1.pdf",
+        "reference": "No. 2/5/2017-E.II(B)",
+        "dated": "2017-07-07"
+      },
+      "fetchedAt": "2026-08-28T00:00:00Z",
+      "verify": false
+    },
+    {
+      "id": "nanded-waghala",
+      "name": {
+        "en": "Nanded-Waghala",
+        "hi": "नांदेड़-वाघाला"
+      },
+      "aliases": [
+        "Nanded"
+      ],
+      "state": {
+        "en": "Maharashtra",
+        "hi": "महाराष्ट्र"
+      },
+      "class": "Y",
+      "unit": "M.Corpn.",
+      "source": {
+        "name": "Annexure to DoE O.M. — House Rent Allowance: classification of cities/towns",
+        "url": "https://doe.gov.in/files/cenetral-pay_document/HRA_Eng_1.pdf",
+        "reference": "No. 2/5/2017-E.II(B)",
+        "dated": "2017-07-07"
+      },
+      "fetchedAt": "2026-08-28T00:00:00Z",
+      "verify": false
+    },
+    {
+      "id": "sangli",
+      "name": {
+        "en": "Sangli",
+        "hi": "सांगली"
+      },
+      "aliases": [
+        "Sangli-Miraj-Kupwad"
+      ],
+      "state": {
+        "en": "Maharashtra",
+        "hi": "महाराष्ट्र"
+      },
+      "class": "Y",
+      "unit": "UA",
+      "source": {
+        "name": "Annexure to DoE O.M. — House Rent Allowance: classification of cities/towns",
+        "url": "https://doe.gov.in/files/cenetral-pay_document/HRA_Eng_1.pdf",
+        "reference": "No. 2/5/2017-E.II(B)",
+        "dated": "2017-07-07"
+      },
+      "fetchedAt": "2026-08-28T00:00:00Z",
+      "verify": false
+    },
+    {
+      "id": "shillong",
+      "name": {
+        "en": "Shillong",
+        "hi": "शिलांग"
+      },
+      "state": {
+        "en": "Meghalaya",
+        "hi": "मेघालय"
+      },
+      "class": "Y",
+      "unit": "city",
+      "note": {
+        "en": "Classified 'Y' for House Rent Allowance by special order rather than by the annexure list, continued by para 6 of the 2017 order.",
+        "hi": "मकान किराया भत्ते के लिए अनुबंध सूची से नहीं, बल्कि विशेष आदेश द्वारा 'Y' श्रेणी में; 2017 के आदेश के पैरा 6 द्वारा जारी रखा गया।"
+      },
+      "source": {
+        "name": "DoE O.M. — House Rent Allowance, para 6 (special orders continued)",
+        "url": "https://doe.gov.in/files/cenetral-pay_document/HRA_Eng_1.pdf",
+        "reference": "No. 2/5/2017-E.II(B), read with No. 2/5/2014-E.II(B) of 21.07.2015 and No. 2/2/2016-E.II(B) of 03.02.2017",
+        "dated": "2017-07-07"
+      },
+      "fetchedAt": "2026-08-28T00:00:00Z",
+      "verify": false
+    },
+    {
+      "id": "cuttack",
+      "name": {
+        "en": "Cuttack",
+        "hi": "कटक"
+      },
+      "state": {
+        "en": "Odisha",
+        "hi": "ओडिशा"
+      },
+      "class": "Y",
+      "unit": "UA",
+      "source": {
+        "name": "Annexure to DoE O.M. — House Rent Allowance: classification of cities/towns",
+        "url": "https://doe.gov.in/files/cenetral-pay_document/HRA_Eng_1.pdf",
+        "reference": "No. 2/5/2017-E.II(B)",
+        "dated": "2017-07-07"
+      },
+      "fetchedAt": "2026-08-28T00:00:00Z",
+      "verify": false
+    },
+    {
+      "id": "bhubaneswar",
+      "name": {
+        "en": "Bhubaneswar",
+        "hi": "भुवनेश्वर"
+      },
+      "state": {
+        "en": "Odisha",
+        "hi": "ओडिशा"
+      },
+      "class": "Y",
+      "unit": "UA",
+      "source": {
+        "name": "Annexure to DoE O.M. — House Rent Allowance: classification of cities/towns",
+        "url": "https://doe.gov.in/files/cenetral-pay_document/HRA_Eng_1.pdf",
+        "reference": "No. 2/5/2017-E.II(B)",
+        "dated": "2017-07-07"
+      },
+      "fetchedAt": "2026-08-28T00:00:00Z",
+      "verify": false
+    },
+    {
+      "id": "rourkela",
+      "name": {
+        "en": "Rourkela",
+        "hi": "राउरकेला"
+      },
+      "aliases": [
+        "Raurkela"
+      ],
+      "state": {
+        "en": "Odisha",
+        "hi": "ओडिशा"
+      },
+      "class": "Y",
+      "unit": "UA",
+      "source": {
+        "name": "Annexure to DoE O.M. — House Rent Allowance: classification of cities/towns",
+        "url": "https://doe.gov.in/files/cenetral-pay_document/HRA_Eng_1.pdf",
+        "reference": "No. 2/5/2017-E.II(B)",
+        "dated": "2017-07-07"
+      },
+      "fetchedAt": "2026-08-28T00:00:00Z",
+      "verify": false
+    },
+    {
+      "id": "puducherry",
+      "name": {
+        "en": "Puducherry",
+        "hi": "पुदुच्चेरी"
+      },
+      "aliases": [
+        "Pondicherry",
+        "Pondy"
+      ],
+      "state": {
+        "en": "Puducherry",
+        "hi": "पुदुच्चेरी"
+      },
+      "class": "Y",
+      "unit": "UA",
+      "source": {
+        "name": "Annexure to DoE O.M. — House Rent Allowance: classification of cities/towns",
+        "url": "https://doe.gov.in/files/cenetral-pay_document/HRA_Eng_1.pdf",
+        "reference": "No. 2/5/2017-E.II(B)",
+        "dated": "2017-07-07"
+      },
+      "fetchedAt": "2026-08-28T00:00:00Z",
+      "verify": false
+    },
+    {
+      "id": "amritsar",
+      "name": {
+        "en": "Amritsar",
+        "hi": "अमृतसर"
+      },
+      "state": {
+        "en": "Punjab",
+        "hi": "पंजाब"
+      },
+      "class": "Y",
+      "unit": "UA",
+      "source": {
+        "name": "Annexure to DoE O.M. — House Rent Allowance: classification of cities/towns",
+        "url": "https://doe.gov.in/files/cenetral-pay_document/HRA_Eng_1.pdf",
+        "reference": "No. 2/5/2017-E.II(B)",
+        "dated": "2017-07-07"
+      },
+      "fetchedAt": "2026-08-28T00:00:00Z",
+      "verify": false
+    },
+    {
+      "id": "jalandhar",
+      "name": {
+        "en": "Jalandhar",
+        "hi": "जालंधर"
+      },
+      "aliases": [
+        "Jullundur"
+      ],
+      "state": {
+        "en": "Punjab",
+        "hi": "पंजाब"
+      },
+      "class": "Y",
+      "unit": "UA",
+      "source": {
+        "name": "Annexure to DoE O.M. — House Rent Allowance: classification of cities/towns",
+        "url": "https://doe.gov.in/files/cenetral-pay_document/HRA_Eng_1.pdf",
+        "reference": "No. 2/5/2017-E.II(B)",
+        "dated": "2017-07-07"
+      },
+      "fetchedAt": "2026-08-28T00:00:00Z",
+      "verify": false
+    },
+    {
+      "id": "ludhiana",
+      "name": {
+        "en": "Ludhiana",
+        "hi": "लुधियाना"
+      },
+      "state": {
+        "en": "Punjab",
+        "hi": "पंजाब"
+      },
+      "class": "Y",
+      "unit": "M.Corpn.",
+      "source": {
+        "name": "Annexure to DoE O.M. — House Rent Allowance: classification of cities/towns",
+        "url": "https://doe.gov.in/files/cenetral-pay_document/HRA_Eng_1.pdf",
+        "reference": "No. 2/5/2017-E.II(B)",
+        "dated": "2017-07-07"
+      },
+      "fetchedAt": "2026-08-28T00:00:00Z",
+      "verify": false
+    },
+    {
+      "id": "jalandhar-cantt",
+      "name": {
+        "en": "Jalandhar Cantt.",
+        "hi": "जालंधर छावनी"
+      },
+      "aliases": [
+        "Jalandhar Cantonment"
+      ],
+      "state": {
+        "en": "Punjab",
+        "hi": "पंजाब"
+      },
+      "class": "Y",
+      "unit": "city",
+      "note": {
+        "en": "House Rent Allowance at Jalandhar ('Y') rates by special order, continued by para 6 of the 2017 order; not named in the annexure list.",
+        "hi": "विशेष आदेश द्वारा जालंधर ('Y') दरों पर मकान किराया भत्ता, जिसे 2017 के आदेश के पैरा 6 द्वारा जारी रखा गया; अनुबंध सूची में नामित नहीं।"
+      },
+      "source": {
+        "name": "DoE O.M. — House Rent Allowance, para 6 (special orders continued)",
+        "url": "https://doe.gov.in/files/cenetral-pay_document/HRA_Eng_1.pdf",
+        "reference": "No. 2/5/2017-E.II(B), read with No. 2/5/2014-E.II(B) of 21.07.2015 and No. 2/2/2016-E.II(B) of 03.02.2017",
+        "dated": "2017-07-07"
+      },
+      "fetchedAt": "2026-08-28T00:00:00Z",
+      "verify": false
+    },
+    {
+      "id": "s-a-s-nagar-mohali",
+      "name": {
+        "en": "S.A.S. Nagar (Mohali)",
+        "hi": "एस.ए.एस. नगर (मोहाली)"
+      },
+      "aliases": [
+        "Mohali",
+        "SAS Nagar",
+        "Sahibzada Ajit Singh Nagar"
+      ],
+      "state": {
+        "en": "Punjab",
+        "hi": "पंजाब"
+      },
+      "class": "Y",
+      "unit": "city",
+      "note": {
+        "en": "House Rent Allowance at par with Chandigarh ('Y') by special order, continued by para 6 of the 2017 order; not named in the annexure list.",
+        "hi": "विशेष आदेश द्वारा चंडीगढ़ ('Y') के समकक्ष मकान किराया भत्ता, जिसे 2017 के आदेश के पैरा 6 द्वारा जारी रखा गया; अनुबंध सूची में नामित नहीं।"
+      },
+      "source": {
+        "name": "DoE O.M. — House Rent Allowance, para 6 (special orders continued)",
+        "url": "https://doe.gov.in/files/cenetral-pay_document/HRA_Eng_1.pdf",
+        "reference": "No. 2/5/2017-E.II(B), read with No. 2/5/2014-E.II(B) of 21.07.2015 and No. 2/2/2016-E.II(B) of 03.02.2017",
+        "dated": "2017-07-07"
+      },
+      "fetchedAt": "2026-08-28T00:00:00Z",
+      "verify": false
+    },
+    {
+      "id": "bikaner",
+      "name": {
+        "en": "Bikaner",
+        "hi": "बीकानेर"
+      },
+      "state": {
+        "en": "Rajasthan",
+        "hi": "राजस्थान"
+      },
+      "class": "Y",
+      "unit": "M.Corpn.",
+      "source": {
+        "name": "Annexure to DoE O.M. — House Rent Allowance: classification of cities/towns",
+        "url": "https://doe.gov.in/files/cenetral-pay_document/HRA_Eng_1.pdf",
+        "reference": "No. 2/5/2017-E.II(B)",
+        "dated": "2017-07-07"
+      },
+      "fetchedAt": "2026-08-28T00:00:00Z",
+      "verify": false
+    },
+    {
+      "id": "jaipur",
+      "name": {
+        "en": "Jaipur",
+        "hi": "जयपुर"
+      },
+      "state": {
+        "en": "Rajasthan",
+        "hi": "राजस्थान"
+      },
+      "class": "Y",
+      "unit": "M.Corpn.",
+      "source": {
+        "name": "Annexure to DoE O.M. — House Rent Allowance: classification of cities/towns",
+        "url": "https://doe.gov.in/files/cenetral-pay_document/HRA_Eng_1.pdf",
+        "reference": "No. 2/5/2017-E.II(B)",
+        "dated": "2017-07-07"
+      },
+      "fetchedAt": "2026-08-28T00:00:00Z",
+      "verify": false
+    },
+    {
+      "id": "jodhpur",
+      "name": {
+        "en": "Jodhpur",
+        "hi": "जोधपुर"
+      },
+      "state": {
+        "en": "Rajasthan",
+        "hi": "राजस्थान"
+      },
+      "class": "Y",
+      "unit": "UA",
+      "source": {
+        "name": "Annexure to DoE O.M. — House Rent Allowance: classification of cities/towns",
+        "url": "https://doe.gov.in/files/cenetral-pay_document/HRA_Eng_1.pdf",
+        "reference": "No. 2/5/2017-E.II(B)",
+        "dated": "2017-07-07"
+      },
+      "fetchedAt": "2026-08-28T00:00:00Z",
+      "verify": false
+    },
+    {
+      "id": "kota",
+      "name": {
+        "en": "Kota",
+        "hi": "कोटा"
+      },
+      "state": {
+        "en": "Rajasthan",
+        "hi": "राजस्थान"
+      },
+      "class": "Y",
+      "unit": "M.Corpn.",
+      "source": {
+        "name": "Annexure to DoE O.M. — House Rent Allowance: classification of cities/towns",
+        "url": "https://doe.gov.in/files/cenetral-pay_document/HRA_Eng_1.pdf",
+        "reference": "No. 2/5/2017-E.II(B)",
+        "dated": "2017-07-07"
+      },
+      "fetchedAt": "2026-08-28T00:00:00Z",
+      "verify": false
+    },
+    {
+      "id": "ajmer",
+      "name": {
+        "en": "Ajmer",
+        "hi": "अजमेर"
+      },
+      "state": {
+        "en": "Rajasthan",
+        "hi": "राजस्थान"
+      },
+      "class": "Y",
+      "unit": "UA",
+      "source": {
+        "name": "Annexure to DoE O.M. — House Rent Allowance: classification of cities/towns",
+        "url": "https://doe.gov.in/files/cenetral-pay_document/HRA_Eng_1.pdf",
+        "reference": "No. 2/5/2017-E.II(B)",
+        "dated": "2017-07-07"
+      },
+      "fetchedAt": "2026-08-28T00:00:00Z",
+      "verify": false
+    },
+    {
+      "id": "salem",
+      "name": {
+        "en": "Salem",
+        "hi": "सेलम"
+      },
+      "state": {
+        "en": "Tamil Nadu",
+        "hi": "तमिल नाडु"
+      },
+      "class": "Y",
+      "unit": "UA",
+      "source": {
+        "name": "Annexure to DoE O.M. — House Rent Allowance: classification of cities/towns",
+        "url": "https://doe.gov.in/files/cenetral-pay_document/HRA_Eng_1.pdf",
+        "reference": "No. 2/5/2017-E.II(B)",
+        "dated": "2017-07-07"
+      },
+      "fetchedAt": "2026-08-28T00:00:00Z",
+      "verify": false
+    },
+    {
+      "id": "tiruppur",
+      "name": {
+        "en": "Tiruppur",
+        "hi": "तिरुप्पुर"
+      },
+      "aliases": [
+        "Tirupur"
+      ],
+      "state": {
+        "en": "Tamil Nadu",
+        "hi": "तमिल नाडु"
+      },
+      "class": "Y",
+      "unit": "UA",
+      "source": {
+        "name": "Annexure to DoE O.M. — House Rent Allowance: classification of cities/towns",
+        "url": "https://doe.gov.in/files/cenetral-pay_document/HRA_Eng_1.pdf",
+        "reference": "No. 2/5/2017-E.II(B)",
+        "dated": "2017-07-07"
+      },
+      "fetchedAt": "2026-08-28T00:00:00Z",
+      "verify": false
+    },
+    {
+      "id": "coimbatore",
+      "name": {
+        "en": "Coimbatore",
+        "hi": "कोयंबटूर"
+      },
+      "aliases": [
+        "Kovai"
+      ],
+      "state": {
+        "en": "Tamil Nadu",
+        "hi": "तमिल नाडु"
+      },
+      "class": "Y",
+      "unit": "UA",
+      "source": {
+        "name": "Annexure to DoE O.M. — House Rent Allowance: classification of cities/towns",
+        "url": "https://doe.gov.in/files/cenetral-pay_document/HRA_Eng_1.pdf",
+        "reference": "No. 2/5/2017-E.II(B)",
+        "dated": "2017-07-07"
+      },
+      "fetchedAt": "2026-08-28T00:00:00Z",
+      "verify": false
+    },
+    {
+      "id": "tiruchirappalli",
+      "name": {
+        "en": "Tiruchirappalli",
+        "hi": "तिरुचिरापल्ली"
+      },
+      "aliases": [
+        "Trichy",
+        "Trichinopoly"
+      ],
+      "state": {
+        "en": "Tamil Nadu",
+        "hi": "तमिल नाडु"
+      },
+      "class": "Y",
+      "unit": "UA",
+      "source": {
+        "name": "Annexure to DoE O.M. — House Rent Allowance: classification of cities/towns",
+        "url": "https://doe.gov.in/files/cenetral-pay_document/HRA_Eng_1.pdf",
+        "reference": "No. 2/5/2017-E.II(B)",
+        "dated": "2017-07-07"
+      },
+      "fetchedAt": "2026-08-28T00:00:00Z",
+      "verify": false
+    },
+    {
+      "id": "madurai",
+      "name": {
+        "en": "Madurai",
+        "hi": "मदुरै"
+      },
+      "state": {
+        "en": "Tamil Nadu",
+        "hi": "तमिल नाडु"
+      },
+      "class": "Y",
+      "unit": "UA",
+      "source": {
+        "name": "Annexure to DoE O.M. — House Rent Allowance: classification of cities/towns",
+        "url": "https://doe.gov.in/files/cenetral-pay_document/HRA_Eng_1.pdf",
+        "reference": "No. 2/5/2017-E.II(B)",
+        "dated": "2017-07-07"
+      },
+      "fetchedAt": "2026-08-28T00:00:00Z",
+      "verify": false
+    },
+    {
+      "id": "erode",
+      "name": {
+        "en": "Erode",
+        "hi": "ईरोड"
+      },
+      "state": {
+        "en": "Tamil Nadu",
+        "hi": "तमिल नाडु"
+      },
+      "class": "Y",
+      "unit": "UA",
+      "source": {
+        "name": "Annexure to DoE O.M. — House Rent Allowance: classification of cities/towns",
+        "url": "https://doe.gov.in/files/cenetral-pay_document/HRA_Eng_1.pdf",
+        "reference": "No. 2/5/2017-E.II(B)",
+        "dated": "2017-07-07"
+      },
+      "fetchedAt": "2026-08-28T00:00:00Z",
+      "verify": false
+    },
+    {
+      "id": "moradabad",
+      "name": {
+        "en": "Moradabad",
+        "hi": "मुरादाबाद"
+      },
+      "state": {
+        "en": "Uttar Pradesh",
+        "hi": "उत्तर प्रदेश"
+      },
+      "class": "Y",
+      "unit": "M.Corpn.",
+      "source": {
+        "name": "Annexure to DoE O.M. — House Rent Allowance: classification of cities/towns",
+        "url": "https://doe.gov.in/files/cenetral-pay_document/HRA_Eng_1.pdf",
+        "reference": "No. 2/5/2017-E.II(B)",
+        "dated": "2017-07-07"
+      },
+      "fetchedAt": "2026-08-28T00:00:00Z",
+      "verify": false
+    },
+    {
+      "id": "meerut",
+      "name": {
+        "en": "Meerut",
+        "hi": "मेरठ"
+      },
+      "state": {
+        "en": "Uttar Pradesh",
+        "hi": "उत्तर प्रदेश"
+      },
+      "class": "Y",
+      "unit": "UA",
+      "source": {
+        "name": "Annexure to DoE O.M. — House Rent Allowance: classification of cities/towns",
+        "url": "https://doe.gov.in/files/cenetral-pay_document/HRA_Eng_1.pdf",
+        "reference": "No. 2/5/2017-E.II(B)",
+        "dated": "2017-07-07"
+      },
+      "fetchedAt": "2026-08-28T00:00:00Z",
+      "verify": false
+    },
+    {
+      "id": "ghaziabad",
+      "name": {
+        "en": "Ghaziabad",
+        "hi": "ग़ाज़ियाबाद"
+      },
+      "state": {
+        "en": "Uttar Pradesh",
+        "hi": "उत्तर प्रदेश"
+      },
+      "class": "Y",
+      "unit": "UA",
+      "delhiRateProtected": true,
+      "note": {
+        "en": "Paid House Rent Allowance at Delhi ('X') rates on the basis of dependency, by the special orders continued in para 6 of the 2017 order — not classified 'X' itself.",
+        "hi": "2017 के आदेश के पैरा 6 में जारी रखे गए विशेष आदेशों द्वारा निर्भरता के आधार पर दिल्ली ('X') दरों पर मकान किराया भत्ता देय — स्वयं 'X' श्रेणी में वर्गीकृत नहीं।"
+      },
+      "source": {
+        "name": "Annexure to DoE O.M. — House Rent Allowance: classification of cities/towns",
+        "url": "https://doe.gov.in/files/cenetral-pay_document/HRA_Eng_1.pdf",
+        "reference": "No. 2/5/2017-E.II(B)",
+        "dated": "2017-07-07"
+      },
+      "fetchedAt": "2026-08-28T00:00:00Z",
+      "verify": false
+    },
+    {
+      "id": "aligarh",
+      "name": {
+        "en": "Aligarh",
+        "hi": "अलीगढ़"
+      },
+      "state": {
+        "en": "Uttar Pradesh",
+        "hi": "उत्तर प्रदेश"
+      },
+      "class": "Y",
+      "unit": "UA",
+      "source": {
+        "name": "Annexure to DoE O.M. — House Rent Allowance: classification of cities/towns",
+        "url": "https://doe.gov.in/files/cenetral-pay_document/HRA_Eng_1.pdf",
+        "reference": "No. 2/5/2017-E.II(B)",
+        "dated": "2017-07-07"
+      },
+      "fetchedAt": "2026-08-28T00:00:00Z",
+      "verify": false
+    },
+    {
+      "id": "agra",
+      "name": {
+        "en": "Agra",
+        "hi": "आगरा"
+      },
+      "state": {
+        "en": "Uttar Pradesh",
+        "hi": "उत्तर प्रदेश"
+      },
+      "class": "Y",
+      "unit": "UA",
+      "source": {
+        "name": "Annexure to DoE O.M. — House Rent Allowance: classification of cities/towns",
+        "url": "https://doe.gov.in/files/cenetral-pay_document/HRA_Eng_1.pdf",
+        "reference": "No. 2/5/2017-E.II(B)",
+        "dated": "2017-07-07"
+      },
+      "fetchedAt": "2026-08-28T00:00:00Z",
+      "verify": false
+    },
+    {
+      "id": "bareilly",
+      "name": {
+        "en": "Bareilly",
+        "hi": "बरेली"
+      },
+      "state": {
+        "en": "Uttar Pradesh",
+        "hi": "उत्तर प्रदेश"
+      },
+      "class": "Y",
+      "unit": "UA",
+      "source": {
+        "name": "Annexure to DoE O.M. — House Rent Allowance: classification of cities/towns",
+        "url": "https://doe.gov.in/files/cenetral-pay_document/HRA_Eng_1.pdf",
+        "reference": "No. 2/5/2017-E.II(B)",
+        "dated": "2017-07-07"
+      },
+      "fetchedAt": "2026-08-28T00:00:00Z",
+      "verify": false
+    },
+    {
+      "id": "lucknow",
+      "name": {
+        "en": "Lucknow",
+        "hi": "लखनऊ"
+      },
+      "state": {
+        "en": "Uttar Pradesh",
+        "hi": "उत्तर प्रदेश"
+      },
+      "class": "Y",
+      "unit": "UA",
+      "source": {
+        "name": "Annexure to DoE O.M. — House Rent Allowance: classification of cities/towns",
+        "url": "https://doe.gov.in/files/cenetral-pay_document/HRA_Eng_1.pdf",
+        "reference": "No. 2/5/2017-E.II(B)",
+        "dated": "2017-07-07"
+      },
+      "fetchedAt": "2026-08-28T00:00:00Z",
+      "verify": false
+    },
+    {
+      "id": "kanpur",
+      "name": {
+        "en": "Kanpur",
+        "hi": "कानपुर"
+      },
+      "aliases": [
+        "Cawnpore",
+        "Kanpur Nagar"
+      ],
+      "state": {
+        "en": "Uttar Pradesh",
+        "hi": "उत्तर प्रदेश"
+      },
+      "class": "Y",
+      "unit": "UA",
+      "source": {
+        "name": "Annexure to DoE O.M. — House Rent Allowance: classification of cities/towns",
+        "url": "https://doe.gov.in/files/cenetral-pay_document/HRA_Eng_1.pdf",
+        "reference": "No. 2/5/2017-E.II(B)",
+        "dated": "2017-07-07"
+      },
+      "fetchedAt": "2026-08-28T00:00:00Z",
+      "verify": false
+    },
+    {
+      "id": "prayagraj",
+      "name": {
+        "en": "Prayagraj",
+        "hi": "प्रयागराज"
+      },
+      "aliases": [
+        "Allahabad"
+      ],
+      "state": {
+        "en": "Uttar Pradesh",
+        "hi": "उत्तर प्रदेश"
+      },
+      "class": "Y",
+      "unit": "UA",
+      "note": {
+        "en": "Renamed after the 2017 order was issued; the annexure spells it Allahabad.",
+        "hi": "2017 का आदेश जारी होने के बाद इसका नाम बदला गया; अनुबंध में इसकी वर्तनी Allahabad है।"
+      },
+      "source": {
+        "name": "Annexure to DoE O.M. — House Rent Allowance: classification of cities/towns",
+        "url": "https://doe.gov.in/files/cenetral-pay_document/HRA_Eng_1.pdf",
+        "reference": "No. 2/5/2017-E.II(B)",
+        "dated": "2017-07-07"
+      },
+      "fetchedAt": "2026-08-28T00:00:00Z",
+      "verify": false
+    },
+    {
+      "id": "gorakhpur",
+      "name": {
+        "en": "Gorakhpur",
+        "hi": "गोरखपुर"
+      },
+      "state": {
+        "en": "Uttar Pradesh",
+        "hi": "उत्तर प्रदेश"
+      },
+      "class": "Y",
+      "unit": "UA",
+      "source": {
+        "name": "Annexure to DoE O.M. — House Rent Allowance: classification of cities/towns",
+        "url": "https://doe.gov.in/files/cenetral-pay_document/HRA_Eng_1.pdf",
+        "reference": "No. 2/5/2017-E.II(B)",
+        "dated": "2017-07-07"
+      },
+      "fetchedAt": "2026-08-28T00:00:00Z",
+      "verify": false
+    },
+    {
+      "id": "varanasi",
+      "name": {
+        "en": "Varanasi",
+        "hi": "वाराणसी"
+      },
+      "aliases": [
+        "Banaras",
+        "Benares",
+        "Kashi"
+      ],
+      "state": {
+        "en": "Uttar Pradesh",
+        "hi": "उत्तर प्रदेश"
+      },
+      "class": "Y",
+      "unit": "UA",
+      "source": {
+        "name": "Annexure to DoE O.M. — House Rent Allowance: classification of cities/towns",
+        "url": "https://doe.gov.in/files/cenetral-pay_document/HRA_Eng_1.pdf",
+        "reference": "No. 2/5/2017-E.II(B)",
+        "dated": "2017-07-07"
+      },
+      "fetchedAt": "2026-08-28T00:00:00Z",
+      "verify": false
+    },
+    {
+      "id": "saharanpur",
+      "name": {
+        "en": "Saharanpur",
+        "hi": "सहारनपुर"
+      },
+      "state": {
+        "en": "Uttar Pradesh",
+        "hi": "उत्तर प्रदेश"
+      },
+      "class": "Y",
+      "unit": "M.Corpn.",
+      "source": {
+        "name": "Annexure to DoE O.M. — House Rent Allowance: classification of cities/towns",
+        "url": "https://doe.gov.in/files/cenetral-pay_document/HRA_Eng_1.pdf",
+        "reference": "No. 2/5/2017-E.II(B)",
+        "dated": "2017-07-07"
+      },
+      "fetchedAt": "2026-08-28T00:00:00Z",
+      "verify": false
+    },
+    {
+      "id": "noida",
+      "name": {
+        "en": "Noida",
+        "hi": "नोएडा"
+      },
+      "aliases": [
+        "NOIDA",
+        "Gautam Buddha Nagar"
+      ],
+      "state": {
+        "en": "Uttar Pradesh",
+        "hi": "उत्तर प्रदेश"
+      },
+      "class": "Y",
+      "unit": "CT",
+      "delhiRateProtected": true,
+      "note": {
+        "en": "Paid House Rent Allowance at Delhi ('X') rates on the basis of dependency, by the special orders continued in para 6 of the 2017 order — not classified 'X' itself.",
+        "hi": "2017 के आदेश के पैरा 6 में जारी रखे गए विशेष आदेशों द्वारा निर्भरता के आधार पर दिल्ली ('X') दरों पर मकान किराया भत्ता देय — स्वयं 'X' श्रेणी में वर्गीकृत नहीं।"
+      },
+      "source": {
+        "name": "Annexure to DoE O.M. — House Rent Allowance: classification of cities/towns",
+        "url": "https://doe.gov.in/files/cenetral-pay_document/HRA_Eng_1.pdf",
+        "reference": "No. 2/5/2017-E.II(B)",
+        "dated": "2017-07-07"
+      },
+      "fetchedAt": "2026-08-28T00:00:00Z",
+      "verify": false
+    },
+    {
+      "id": "firozabad",
+      "name": {
+        "en": "Firozabad",
+        "hi": "फ़िरोज़ाबाद"
+      },
+      "state": {
+        "en": "Uttar Pradesh",
+        "hi": "उत्तर प्रदेश"
+      },
+      "class": "Y",
+      "unit": "NPP",
+      "source": {
+        "name": "Annexure to DoE O.M. — House Rent Allowance: classification of cities/towns",
+        "url": "https://doe.gov.in/files/cenetral-pay_document/HRA_Eng_1.pdf",
+        "reference": "No. 2/5/2017-E.II(B)",
+        "dated": "2017-07-07"
+      },
+      "fetchedAt": "2026-08-28T00:00:00Z",
+      "verify": false
+    },
+    {
+      "id": "jhansi",
+      "name": {
+        "en": "Jhansi",
+        "hi": "झाँसी"
+      },
+      "state": {
+        "en": "Uttar Pradesh",
+        "hi": "उत्तर प्रदेश"
+      },
+      "class": "Y",
+      "unit": "UA",
+      "source": {
+        "name": "Annexure to DoE O.M. — House Rent Allowance: classification of cities/towns",
+        "url": "https://doe.gov.in/files/cenetral-pay_document/HRA_Eng_1.pdf",
+        "reference": "No. 2/5/2017-E.II(B)",
+        "dated": "2017-07-07"
+      },
+      "fetchedAt": "2026-08-28T00:00:00Z",
+      "verify": false
+    },
+    {
+      "id": "dehradun",
+      "name": {
+        "en": "Dehradun",
+        "hi": "देहरादून"
+      },
+      "aliases": [
+        "Dehra Dun"
+      ],
+      "state": {
+        "en": "Uttarakhand",
+        "hi": "उत्तराखंड"
+      },
+      "class": "Y",
+      "unit": "UA",
+      "source": {
+        "name": "Annexure to DoE O.M. — House Rent Allowance: classification of cities/towns",
+        "url": "https://doe.gov.in/files/cenetral-pay_document/HRA_Eng_1.pdf",
+        "reference": "No. 2/5/2017-E.II(B)",
+        "dated": "2017-07-07"
+      },
+      "fetchedAt": "2026-08-28T00:00:00Z",
+      "verify": false
+    },
+    {
+      "id": "asansol",
+      "name": {
+        "en": "Asansol",
+        "hi": "आसनसोल"
+      },
+      "state": {
+        "en": "West Bengal",
+        "hi": "पश्चिम बंगाल"
+      },
+      "class": "Y",
+      "unit": "UA",
+      "source": {
+        "name": "Annexure to DoE O.M. — House Rent Allowance: classification of cities/towns",
+        "url": "https://doe.gov.in/files/cenetral-pay_document/HRA_Eng_1.pdf",
+        "reference": "No. 2/5/2017-E.II(B)",
+        "dated": "2017-07-07"
+      },
+      "fetchedAt": "2026-08-28T00:00:00Z",
+      "verify": false
+    },
+    {
+      "id": "siliguri",
+      "name": {
+        "en": "Siliguri",
+        "hi": "सिलीगुड़ी"
+      },
+      "state": {
+        "en": "West Bengal",
+        "hi": "पश्चिम बंगाल"
+      },
+      "class": "Y",
+      "unit": "UA",
+      "source": {
+        "name": "Annexure to DoE O.M. — House Rent Allowance: classification of cities/towns",
+        "url": "https://doe.gov.in/files/cenetral-pay_document/HRA_Eng_1.pdf",
+        "reference": "No. 2/5/2017-E.II(B)",
+        "dated": "2017-07-07"
+      },
+      "fetchedAt": "2026-08-28T00:00:00Z",
+      "verify": false
+    },
+    {
+      "id": "durgapur",
+      "name": {
+        "en": "Durgapur",
+        "hi": "दुर्गापुर"
+      },
+      "state": {
+        "en": "West Bengal",
+        "hi": "पश्चिम बंगाल"
+      },
+      "class": "Y",
+      "unit": "UA",
+      "source": {
+        "name": "Annexure to DoE O.M. — House Rent Allowance: classification of cities/towns",
+        "url": "https://doe.gov.in/files/cenetral-pay_document/HRA_Eng_1.pdf",
+        "reference": "No. 2/5/2017-E.II(B)",
+        "dated": "2017-07-07"
+      },
+      "fetchedAt": "2026-08-28T00:00:00Z",
+      "verify": false
+    },
+    {
+      "id": "port-blair",
+      "name": {
+        "en": "Port Blair",
+        "hi": "पोर्ट ब्लेयर"
+      },
+      "aliases": [
+        "Sri Vijaya Puram"
+      ],
+      "state": {
+        "en": "Andaman & Nicobar Islands",
+        "hi": "अंडमान और निकोबार द्वीपसमूह"
+      },
+      "class": "Y",
+      "unit": "city",
+      "note": {
+        "en": "Classified 'Y' for House Rent Allowance by special order rather than by the annexure list, continued by para 6 of the 2017 order.",
+        "hi": "मकान किराया भत्ते के लिए अनुबंध सूची से नहीं, बल्कि विशेष आदेश द्वारा 'Y' श्रेणी में; 2017 के आदेश के पैरा 6 द्वारा जारी रखा गया।"
+      },
+      "source": {
+        "name": "DoE O.M. — House Rent Allowance, para 6 (special orders continued)",
+        "url": "https://doe.gov.in/files/cenetral-pay_document/HRA_Eng_1.pdf",
+        "reference": "No. 2/5/2017-E.II(B), read with No. 2/5/2014-E.II(B) of 21.07.2015 and No. 2/2/2016-E.II(B) of 03.02.2017",
+        "dated": "2017-07-07"
+      },
+      "fetchedAt": "2026-08-28T00:00:00Z",
+      "verify": false
+    }
+  ]
+}

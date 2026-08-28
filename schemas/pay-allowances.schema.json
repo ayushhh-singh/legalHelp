@@ -1,0 +1,126 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://sahayak.local/schemas/pay-allowances.schema.json",
+  "title": "Allowances payable to Central Government employees",
+  "description": "One record per allowance, each carrying the order it comes from. Every rate is expressed in the same shape — a keyed list of {when, measure, value} — so a calculator can walk any allowance without knowing which one it is. `daLinked` is load-bearing: most of these figures are the rate the order states, and the rate actually payable today is that figure raised by 25 per cent for each time Dearness Allowance has crossed 50 per cent.",
+  "type": "object",
+  "required": ["version", "generatedAt", "disclaimer", "allowances"],
+  "additionalProperties": false,
+  "properties": {
+    "$schema": { "type": "string" },
+    "version": { "type": "string", "pattern": "^\\d+\\.\\d+\\.\\d+$" },
+    "generatedAt": { "type": "string" },
+    "disclaimer": { "$ref": "#/$defs/bilingual" },
+    "allowances": {
+      "type": "array",
+      "minItems": 25,
+      "items": { "$ref": "#/$defs/allowance" }
+    }
+  },
+  "$defs": {
+    "bilingual": {
+      "type": "object",
+      "required": ["en", "hi"],
+      "additionalProperties": false,
+      "properties": {
+        "en": { "type": "string", "minLength": 1 },
+        "hi": { "type": "string", "minLength": 1 }
+      }
+    },
+    "source": {
+      "type": "object",
+      "required": ["name", "url"],
+      "additionalProperties": false,
+      "properties": {
+        "name": { "type": "string", "minLength": 1 },
+        "url": { "type": "string", "pattern": "^https?://" },
+        "reference": { "type": "string" },
+        "dated": { "type": "string", "pattern": "^\\d{4}-\\d{2}-\\d{2}$" },
+        "note": { "$ref": "#/$defs/bilingual" }
+      }
+    },
+    "rate": {
+      "type": "object",
+      "required": ["when", "measure"],
+      "additionalProperties": false,
+      "properties": {
+        "key": { "oneOf": [{ "type": "null" }, { "type": "string", "pattern": "^[a-zA-Z0-9:._-]+$" }] },
+        "when": { "$ref": "#/$defs/bilingual" },
+        "measure": {
+          "enum": [
+            "percent-of-basic-pay",
+            "percent-of-basic-pay-plus-da",
+            "rupees-per-month",
+            "rupees-per-year",
+            "rupees-per-day",
+            "rupees-per-hour",
+            "formula",
+            "not-a-money-value"
+          ]
+        },
+        "value": { "oneOf": [{ "type": "null" }, { "type": "number", "minimum": 0 }] },
+        "floor": { "oneOf": [{ "type": "null" }, { "type": "number", "minimum": 0 }] },
+        "ceiling": { "oneOf": [{ "type": "null" }, { "type": "number", "minimum": 0 }] },
+        "expression": { "oneOf": [{ "type": "null" }, { "type": "string", "minLength": 1 }] }
+      }
+    },
+    "allowance": {
+      "type": "object",
+      "required": [
+        "id",
+        "name",
+        "type",
+        "status",
+        "appliesTo",
+        "rates",
+        "daLinked",
+        "taxable",
+        "conditions",
+        "source",
+        "fetchedAt",
+        "verify"
+      ],
+      "additionalProperties": false,
+      "properties": {
+        "id": { "type": "string", "pattern": "^[a-z0-9-]+$" },
+        "name": { "$ref": "#/$defs/bilingual" },
+        "shortName": { "$ref": "#/$defs/bilingual" },
+        "type": {
+          "enum": [
+            "percent-of-pay",
+            "fixed",
+            "slab",
+            "matrix",
+            "formula",
+            "concession",
+            "subsumed",
+            "abolished"
+          ]
+        },
+        "status": { "enum": ["current", "subsumed", "abolished"] },
+        "subsumedInto": { "oneOf": [{ "type": "null" }, { "type": "string", "pattern": "^[a-z0-9-]+$" }] },
+        "appliesTo": { "$ref": "#/$defs/bilingual" },
+        "rates": { "type": "array", "items": { "$ref": "#/$defs/rate" } },
+        "daLinked": {
+          "type": "object",
+          "required": ["kind", "timesApplied"],
+          "additionalProperties": false,
+          "properties": {
+            "kind": { "enum": ["fully-indexed", "quarter-per-fifty", "none", "not-applicable"] },
+            "timesApplied": { "type": "integer", "minimum": 0 },
+            "since": { "oneOf": [{ "type": "null" }, { "type": "string", "pattern": "^\\d{4}-\\d{2}-\\d{2}$" }] },
+            "note": { "oneOf": [{ "type": "null" }, { "$ref": "#/$defs/bilingual" }] }
+          }
+        },
+        "taxable": { "type": "boolean" },
+        "taxSection": { "oneOf": [{ "type": "null" }, { "type": "string", "minLength": 1 }] },
+        "taxNote": { "oneOf": [{ "type": "null" }, { "$ref": "#/$defs/bilingual" }] },
+        "conditions": { "type": "array", "items": { "$ref": "#/$defs/bilingual" } },
+        "note": { "oneOf": [{ "type": "null" }, { "$ref": "#/$defs/bilingual" }] },
+        "source": { "$ref": "#/$defs/source" },
+        "fetchedAt": { "type": "string" },
+        "verify": { "type": "boolean" }
+      }
+    }
+  }
+}

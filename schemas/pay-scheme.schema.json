@@ -1,0 +1,94 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://sahayak.local/schemas/pay-scheme.schema.json",
+  "title": "A deduction or benefit scheme on the pay slip",
+  "description": "One shape for the schemes that sit beside pay rather than inside it — CGHS, CGEGIS, NPS and UPS. `contributions` is what leaves the pay slip each month, `slabs` is what varies by Level or Group, and `rules` is the prose an officer actually has to know. Everything is bilingual and every scheme carries the order it comes from.",
+  "type": "object",
+  "required": ["version", "generatedAt", "disclaimer", "scheme"],
+  "additionalProperties": false,
+  "properties": {
+    "$schema": { "type": "string" },
+    "version": { "type": "string", "pattern": "^\\d+\\.\\d+\\.\\d+$" },
+    "generatedAt": { "type": "string" },
+    "disclaimer": { "$ref": "#/$defs/bilingual" },
+    "scheme": {
+      "type": "object",
+      "required": ["id", "name", "administeredBy", "summary", "contributions", "slabs", "rules", "source", "fetchedAt", "verify"],
+      "additionalProperties": false,
+      "properties": {
+        "id": { "type": "string", "pattern": "^[a-z0-9-]+$" },
+        "name": { "$ref": "#/$defs/bilingual" },
+        "shortName": { "$ref": "#/$defs/bilingual" },
+        "administeredBy": { "$ref": "#/$defs/bilingual" },
+        "effectiveFrom": { "oneOf": [{ "type": "null" }, { "type": "string", "pattern": "^\\d{4}-\\d{2}-\\d{2}$" }] },
+        "summary": { "$ref": "#/$defs/bilingual" },
+        "contributions": { "type": "array", "items": { "$ref": "#/$defs/entry" } },
+        "slabs": { "type": "array", "items": { "$ref": "#/$defs/entry" } },
+        "rules": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "required": ["key", "title", "body"],
+            "additionalProperties": false,
+            "properties": {
+              "key": { "type": "string", "pattern": "^[a-z0-9-]+$" },
+              "title": { "$ref": "#/$defs/bilingual" },
+              "body": { "$ref": "#/$defs/bilingual" }
+            }
+          }
+        },
+        "note": { "oneOf": [{ "type": "null" }, { "$ref": "#/$defs/bilingual" }] },
+        "source": { "$ref": "#/$defs/source" },
+        "fetchedAt": { "type": "string" },
+        "verify": { "type": "boolean" }
+      }
+    }
+  },
+  "$defs": {
+    "bilingual": {
+      "type": "object",
+      "required": ["en", "hi"],
+      "additionalProperties": false,
+      "properties": {
+        "en": { "type": "string", "minLength": 1 },
+        "hi": { "type": "string", "minLength": 1 }
+      }
+    },
+    "source": {
+      "type": "object",
+      "required": ["name", "url"],
+      "additionalProperties": false,
+      "properties": {
+        "name": { "type": "string", "minLength": 1 },
+        "url": { "type": "string", "pattern": "^https?://" },
+        "reference": { "type": "string" },
+        "dated": { "type": "string", "pattern": "^\\d{4}-\\d{2}-\\d{2}$" },
+        "note": { "$ref": "#/$defs/bilingual" }
+      }
+    },
+    "entry": {
+      "type": "object",
+      "required": ["key", "label", "measure"],
+      "additionalProperties": false,
+      "properties": {
+        "key": { "type": "string", "pattern": "^[a-zA-Z0-9:._-]+$" },
+        "label": { "$ref": "#/$defs/bilingual" },
+        "measure": {
+          "enum": [
+            "percent-of-basic-pay",
+            "percent-of-basic-pay-plus-da",
+            "rupees-per-month",
+            "rupees-per-year",
+            "rupees",
+            "formula",
+            "not-a-money-value"
+          ]
+        },
+        "value": { "oneOf": [{ "type": "null" }, { "type": "number", "minimum": 0 }] },
+        "expression": { "oneOf": [{ "type": "null" }, { "type": "string", "minLength": 1 }] },
+        "appliesToLevels": { "type": "array", "items": { "type": "string", "pattern": "^(1[0-8]|[1-9]|13A)$" } },
+        "note": { "oneOf": [{ "type": "null" }, { "$ref": "#/$defs/bilingual" }] }
+      }
+    }
+  }
+}

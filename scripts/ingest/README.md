@@ -3,16 +3,27 @@
 Python, run in CI and on a developer machine. **Never in the browser.** Nothing in
 this directory ships to a reader; it produces the JSON under `/data` that does.
 
-Two scripts, and the difference between them is the point:
+Four scripts, and the differences between them are the point:
 
-| Script              | Source               | Runs                      | Writes                                                |
-| ------------------- | -------------------- | ------------------------- | ----------------------------------------------------- |
-| `ncrb_sankalan.py`  | NCRB Sankalan portal | Weekly cron + by hand     | `data/law/{bns,bnss,bsa}.json`, `data/law/index.json` |
-| `indiacode_seed.py` | India Code           | **By hand only, one-off** | `data/law/overlays/indiacode-seed.json`               |
+| Script              | Source                       | Runs                          | Writes                                                |
+| ------------------- | ---------------------------- | ----------------------------- | ----------------------------------------------------- |
+| `ncrb_sankalan.py`  | NCRB Sankalan portal         | Weekly cron + by hand         | `data/law/{bns,bnss,bsa}.json`, `data/law/index.json` |
+| `indiacode_seed.py` | India Code                   | **By hand only, one-off**     | `data/law/overlays/indiacode-seed.json`               |
+| `pay_matrix.py`     | Nothing — it reaches no host | By hand; `--check` in CI      | `data/pay/matrix.json`                                |
+| `validate_data.py`  | Nothing — reads `/data`      | CI, and before every commit   | Nothing                                               |
 
 `indiacode_seed.py` is not in `.github/workflows/ingest-law.yml` and must not be
 added to it. India Code's `robots.txt` restricts crawling and CLAUDE.md says to
 fetch it manually, cite it, and never put it on a cron.
+
+`pay_matrix.py` is not on any cron either, and for a different reason: the pay
+matrix changes when a Pay Commission is implemented, not when a portal is
+re-published. It also fetches nothing — every input it has is in `ANCHORS` at the
+top of the file, read off the scanned gazette by eye. See **The pay matrix** below.
+
+The rest of `data/pay` is hand-authored, like `data/law/overlays/`. No script
+writes it and no cron can overwrite it; `validate_data.py` is what keeps it
+honest.
 
 ## Setup
 
@@ -34,6 +45,11 @@ scripts/ingest/.venv/bin/python scripts/ingest/ncrb_sankalan.py --code bns   # o
 scripts/ingest/.venv/bin/python scripts/ingest/ncrb_sankalan.py --force-pdf  # exercise the PDF fallback
 
 scripts/ingest/.venv/bin/python scripts/ingest/indiacode_seed.py --urls scripts/ingest/indiacode_urls.json
+
+scripts/ingest/.venv/bin/python scripts/ingest/pay_matrix.py            # write data/pay/matrix.json
+scripts/ingest/.venv/bin/python scripts/ingest/pay_matrix.py --check    # verify only, write nothing
+
+scripts/ingest/.venv/bin/python scripts/ingest/validate_data.py         # every dataset vs its JSON Schema
 ```
 
 `--offline` is the one to use while changing the parser: it reparses the newest
@@ -147,6 +163,52 @@ Only the _opening_ of the section text joins the match window, on purpose:
 matching the whole thing turns a long section — BNS 2, "Definitions", or any
 section with illustrations — into a magnet for every term in the file, and a
 keyword list that matches everything ranks nothing.
+
+## The pay matrix
+
+`pay_matrix.py` generates `data/pay/matrix.json` — 19 levels, 540 cells — rather
+than transcribing it, because the only published form of the matrix is a scanned
+table in the CCS (Revised Pay) Rules, 2016 gazette. The Department of Expenditure
+hosts no text-layer copy and no mirror found has one. OCR of a 19-column numeric
+table is precisely the kind of transcription that gets one digit wrong in one cell
+and is never noticed.
+
+The Commission's own construction rule removes the need to transcribe. The first
+cell of a level is the pre-revised entry pay multiplied by that level's index of
+rationalisation (7th CPC report, Table 4, para 5.1.19); every later cell is the
+previous one raised by 3 per cent and rounded to the nearest hundred. Only 19
+entry pays and 19 cell counts have to be right, and all 38 are in `ANCHORS`,
+where a reviewer can see them all at once.
+
+`verify_against_gazette()` is the check that makes that safe. It asserts the last
+cell of every level against the figure printed in the Schedule, spot-checks
+interior cells spread across the width of the table, and re-derives every entry
+pay from its pre-revised pay and index. `--check` runs all of it and writes
+nothing; CI runs `--check` on every push. If the 3-per-cent rule ever failed to
+reproduce the notified table, this is where it would show.
+
+One substitution is deliberate. The 2016 gazette runs Level 13 from ₹1,18,500 to
+₹2,14,100 over 21 cells at an index of 2.57. The CCS (Revised Pay) (Amendment)
+Rules, 2017 replaced it, with effect from 01.01.2016, by a 20-cell level from
+₹1,23,100 to ₹2,15,900 at an index of 2.67, and DoE O.M. 4-6/2017-IC/E-III(A) of
+28.09.2017 records the earlier level as "non-existent ab-initio". The amended
+level is what ships; shipping the 2016 one would be shipping a level that legally
+never existed. Pay is still fixed with the fitment factor of 2.57, not 2.67, and
+the same OM says so in terms.
+
+## Validating the datasets
+
+`validate_data.py` walks a manifest of every file under `/data` and validates it
+against the schema named beside it. It fetches nothing, writes nothing, and
+treats a missing file as a failure rather than a skip — a dataset that silently
+stops being validated is worse than one that was never validated.
+
+It exists because the generated datasets validate themselves as they are written
+(`ingest_common.validate` is called before anything touches disk) and the
+hand-authored ones have no writer to do it for them. `data/pay` is hand-authored
+apart from the matrix, so this is where it gets the same treatment. The zod half
+of the same contract is `src/modules/pay/schema.ts`, run by `pnpm test`; both
+must pass for a dataset to ship (ADR-016).
 
 ## `raw/`
 

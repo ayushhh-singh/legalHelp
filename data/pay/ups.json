@@ -1,0 +1,176 @@
+{
+  "$schema": "../../schemas/pay-scheme.schema.json",
+  "version": "1.0.0",
+  "generatedAt": "2026-08-28",
+  "disclaimer": {
+    "en": "Reference only; verify with the official gazette/order or your DDO.",
+    "hi": "केवल संदर्भ हेतु; आधिकारिक राजपत्र/आदेश अथवा अपने डीडीओ से पुष्टि करें।"
+  },
+  "scheme": {
+    "id": "ups",
+    "name": { "en": "Unified Pension Scheme", "hi": "एकीकृत पेंशन योजना" },
+    "shortName": { "en": "UPS", "hi": "यूपीएस" },
+    "administeredBy": {
+      "en": "Pension Fund Regulatory and Development Authority; Department of Financial Services, Ministry of Finance",
+      "hi": "पेंशन निधि विनियामक एवं विकास प्राधिकरण; वित्तीय सेवाएँ विभाग, वित्त मंत्रालय"
+    },
+    "effectiveFrom": "2025-04-01",
+    "summary": {
+      "en": "An option within the National Pension System, notified on 24 January 2025 and open from 1 April 2025. The employee still contributes 10 per cent of basic pay plus Dearness Allowance; the Government contributes 18.5 per cent, of which 10 per cent matches the employee's individual corpus and about 8.5 per cent goes to a pool corpus that funds the assurance. Unlike the National Pension System, the payout is assured.",
+      "hi": "राष्ट्रीय पेंशन प्रणाली के भीतर एक विकल्प, जो 24 जनवरी 2025 को अधिसूचित हुआ और 1 अप्रैल 2025 से उपलब्ध है। कर्मचारी अब भी मूल वेतन तथा महँगाई भत्ते का 10 प्रतिशत अंशदान करता है; सरकार 18.5 प्रतिशत करती है, जिसमें 10 प्रतिशत कर्मचारी की व्यक्तिगत निधि के बराबर जाता है और लगभग 8.5 प्रतिशत उस सामूहिक निधि में जाता है जिससे यह आश्वासन वित्तपोषित होता है। राष्ट्रीय पेंशन प्रणाली के विपरीत, यहाँ भुगतान सुनिश्चित है।"
+    },
+    "contributions": [
+      {
+        "key": "employee",
+        "label": {
+          "en": "Employee's contribution, on basic pay plus Dearness Allowance",
+          "hi": "कर्मचारी का अंशदान, मूल वेतन तथा महँगाई भत्ते पर"
+        },
+        "measure": "percent-of-basic-pay-plus-da",
+        "value": 10,
+        "note": null
+      },
+      {
+        "key": "government-total",
+        "label": {
+          "en": "Government's total contribution, on basic pay plus Dearness Allowance",
+          "hi": "सरकार का कुल अंशदान, मूल वेतन तथा महँगाई भत्ते पर"
+        },
+        "measure": "percent-of-basic-pay-plus-da",
+        "value": 18.5,
+        "note": {
+          "en": "Made up of the 10 per cent matching contribution and the pool contribution below.",
+          "hi": "इसमें 10 प्रतिशत का समतुल्य अंशदान तथा नीचे दिया गया सामूहिक अंशदान सम्मिलित है।"
+        }
+      },
+      {
+        "key": "government-individual-corpus",
+        "label": {
+          "en": "Government's matching contribution to the employee's individual corpus",
+          "hi": "कर्मचारी की व्यक्तिगत निधि में सरकार का समतुल्य अंशदान"
+        },
+        "measure": "percent-of-basic-pay-plus-da",
+        "value": 10,
+        "note": null
+      },
+      {
+        "key": "government-pool-corpus",
+        "label": {
+          "en": "Government's contribution to the pool corpus that funds the assurance",
+          "hi": "आश्वासन को वित्तपोषित करने वाली सामूहिक निधि में सरकार का अंशदान"
+        },
+        "measure": "percent-of-basic-pay-plus-da",
+        "value": 8.5,
+        "note": {
+          "en": "An estimated 8.5 per cent — the pool contribution is actuarially determined, not fixed by the notification.",
+          "hi": "अनुमानित 8.5 प्रतिशत — सामूहिक अंशदान बीमांकिक रूप से निर्धारित होता है, अधिसूचना द्वारा नियत नहीं।"
+        }
+      }
+    ],
+    "slabs": [
+      {
+        "key": "full-payout",
+        "label": {
+          "en": "Assured payout after 25 years or more of qualifying service",
+          "hi": "25 वर्ष अथवा उससे अधिक अर्हक सेवा के बाद सुनिश्चित भुगतान"
+        },
+        "measure": "formula",
+        "value": 50,
+        "expression": "50% of the average basic pay of the last 12 months before superannuation",
+        "note": null
+      },
+      {
+        "key": "proportionate-payout",
+        "label": {
+          "en": "Proportionate payout for 10 to 25 years of qualifying service",
+          "hi": "10 से 25 वर्ष की अर्हक सेवा के लिए आनुपातिक भुगतान"
+        },
+        "measure": "formula",
+        "value": null,
+        "expression": "50% of the last 12 months' average basic pay x qualifying service / 25 years",
+        "note": null
+      },
+      {
+        "key": "minimum-payout",
+        "label": {
+          "en": "Minimum assured payout after at least 10 years of qualifying service",
+          "hi": "कम से कम 10 वर्ष की अर्हक सेवा के बाद न्यूनतम सुनिश्चित भुगतान"
+        },
+        "measure": "rupees-per-month",
+        "value": 10000,
+        "note": null
+      },
+      {
+        "key": "family-payout",
+        "label": {
+          "en": "Family payout on the death of the subscriber",
+          "hi": "अभिदाता की मृत्यु पर पारिवारिक भुगतान"
+        },
+        "measure": "formula",
+        "value": 60,
+        "expression": "60% of the payout the subscriber was drawing immediately before death",
+        "note": null
+      },
+      {
+        "key": "lump-sum",
+        "label": {
+          "en": "Lump sum on superannuation, over and above gratuity",
+          "hi": "अधिवर्षिता पर एकमुश्त राशि, उपदान के अतिरिक्त"
+        },
+        "measure": "formula",
+        "value": null,
+        "expression": "(1/10) x (last drawn basic pay + Dearness Allowance) for every completed six months of qualifying service",
+        "note": {
+          "en": "This lump sum does not reduce the assured payout.",
+          "hi": "यह एकमुश्त राशि सुनिश्चित भुगतान को कम नहीं करती।"
+        }
+      }
+    ],
+    "rules": [
+      {
+        "key": "who",
+        "title": { "en": "Who may opt", "hi": "कौन विकल्प चुन सकता है" },
+        "body": {
+          "en": "Central Government employees covered by the National Pension System. It is an option under the National Pension System, not a separate scheme outside it, and once exercised the option is final.",
+          "hi": "राष्ट्रीय पेंशन प्रणाली से आच्छादित केंद्रीय सरकारी कर्मचारी। यह राष्ट्रीय पेंशन प्रणाली के अंतर्गत एक विकल्प है, उससे बाहर की अलग योजना नहीं, और एक बार चुन लेने पर विकल्प अंतिम होता है।"
+        }
+      },
+      {
+        "key": "dearness-relief",
+        "title": { "en": "Dearness relief", "hi": "महँगाई राहत" },
+        "body": {
+          "en": "Dearness relief is payable on both the assured payout and the family payout, as notified by the Government — on the same basis as for pensioners under the old pension scheme.",
+          "hi": "सुनिश्चित भुगतान तथा पारिवारिक भुगतान दोनों पर महँगाई राहत देय है, जैसा सरकार द्वारा अधिसूचित हो — उसी आधार पर जैसा पुरानी पेंशन योजना के पेंशनभोगियों के लिए है।"
+        }
+      },
+      {
+        "key": "qualifying-service",
+        "title": { "en": "The 25-year and 10-year thresholds", "hi": "25 वर्ष तथा 10 वर्ष की सीमाएँ" },
+        "body": {
+          "en": "The full 50 per cent payout needs 25 years of qualifying service. Between 10 and 25 years the payout is proportionate, subject to the floor of ₹10,000 a month. Below 10 years there is no assured payout and the National Pension System rules apply to the corpus.",
+          "hi": "पूर्ण 50 प्रतिशत भुगतान के लिए 25 वर्ष की अर्हक सेवा आवश्यक है। 10 से 25 वर्ष के बीच भुगतान आनुपातिक होता है, ₹10,000 प्रति माह की न्यूनतम सीमा के अधीन। 10 वर्ष से कम पर कोई सुनिश्चित भुगतान नहीं है और निधि पर राष्ट्रीय पेंशन प्रणाली के नियम लागू होते हैं।"
+        }
+      },
+      {
+        "key": "tax",
+        "title": { "en": "Income tax", "hi": "आयकर" },
+        "body": {
+          "en": "The Government has said that employees under the Unified Pension Scheme get tax treatment on a par with the National Pension System. Confirm the position for your own case before relying on it.",
+          "hi": "सरकार ने कहा है कि एकीकृत पेंशन योजना के कर्मचारियों को राष्ट्रीय पेंशन प्रणाली के समकक्ष कर व्यवहार मिलेगा। अपने मामले के लिए इस पर निर्भर होने से पूर्व स्थिति की पुष्टि कर लें।"
+        }
+      }
+    ],
+    "note": {
+      "en": "The figures here were read from the Pension Fund Regulatory and Development Authority's own page for the scheme. The Ministry of Finance notification of 24 January 2025 was not fetched as a document, so the notification number is not recorded.",
+      "hi": "यहाँ दिए गए अंक पेंशन निधि विनियामक एवं विकास प्राधिकरण के इसी योजना संबंधी अपने पृष्ठ से पढ़े गए हैं। वित्त मंत्रालय की 24 जनवरी 2025 की अधिसूचना दस्तावेज़ के रूप में प्राप्त नहीं की जा सकी, अतः अधिसूचना संख्या अभिलिखित नहीं है।"
+    },
+    "source": {
+      "name": "Pension Fund Regulatory and Development Authority — Unified Pension Scheme",
+      "url": "https://www.pfrda.org.in/schemes/national-pension-system/unified-pension-scheme",
+      "reference": "Ministry of Finance notification of 24.01.2025, effective 01.04.2025",
+      "dated": "2025-01-24"
+    },
+    "fetchedAt": "2026-08-28T00:00:00Z",
+    "verify": true
+  }
+}

@@ -45,6 +45,19 @@ jobs:
       - name: Unit-test the ingest pipeline
         run: python -m unittest discover -s scripts/ingest -t scripts/ingest -v
 
+      # The generated datasets validate themselves as they are written; the
+      # hand-authored pay tables have no writer to do it for them. This is the
+      # JSON Schema half of the contract — src/modules/pay/schema.ts is the zod
+      # half, and pnpm check runs that (ADR-016).
+      - name: Validate every dataset against its JSON Schema
+        run: python scripts/ingest/validate_data.py
+
+      # The pay matrix is generated from 19 entry pays and 19 cell counts by the
+      # Commission's own 3-per-cent rule. --check re-derives all 540 cells and
+      # compares them against the values read off the gazette, writing nothing.
+      - name: Re-derive the pay matrix and check it against the gazette
+        run: python scripts/ingest/pay_matrix.py --check
+
       - name: Lint, typecheck, i18n parity, unit tests
         run: pnpm check
 

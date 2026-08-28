@@ -1,0 +1,122 @@
+{
+  "$schema": "../../schemas/pay-scheme.schema.json",
+  "version": "1.0.0",
+  "generatedAt": "2026-08-28",
+  "disclaimer": {
+    "en": "Reference only; verify with the official gazette/order or your DDO.",
+    "hi": "केवल संदर्भ हेतु; आधिकारिक राजपत्र/आदेश अथवा अपने डीडीओ से पुष्टि करें।"
+  },
+  "scheme": {
+    "id": "cghs",
+    "name": {
+      "en": "Central Government Health Scheme",
+      "hi": "केंद्रीय सरकार स्वास्थ्य योजना"
+    },
+    "shortName": { "en": "CGHS", "hi": "सीजीएचएस" },
+    "administeredBy": {
+      "en": "Directorate General of CGHS, Ministry of Health and Family Welfare",
+      "hi": "सीजीएचएस महानिदेशालय, स्वास्थ्य एवं परिवार कल्याण मंत्रालय"
+    },
+    "effectiveFrom": "2017-02-01",
+    "summary": {
+      "en": "A contributory health scheme for serving Central Government employees and pensioners in covered cities. The monthly contribution is fixed by the employee's Level in the Pay Matrix, not by their actual pay, and it also fixes the ward entitlement during hospitalisation.",
+      "hi": "आच्छादित शहरों में सेवारत केंद्रीय सरकारी कर्मचारियों तथा पेंशनभोगियों के लिए अंशदायी स्वास्थ्य योजना। मासिक अंशदान कर्मचारी के वास्तविक वेतन से नहीं, वेतन मैट्रिक्स के लेवल से निर्धारित होता है, और वही अस्पताल में भर्ती के समय वार्ड की पात्रता भी तय करता है।"
+    },
+    "contributions": [
+      {
+        "key": "employee",
+        "label": {
+          "en": "Employee's monthly contribution, recovered from the pay slip",
+          "hi": "कर्मचारी का मासिक अंशदान, वेतन पर्ची से वसूला जाता है"
+        },
+        "measure": "rupees-per-month",
+        "value": null,
+        "expression": "see slabs, by Level in the Pay Matrix",
+        "note": {
+          "en": "There is no employer contribution shown on the pay slip; the Government meets the balance of the cost of the scheme from the Health Ministry's budget.",
+          "hi": "वेतन पर्ची पर कोई नियोक्ता अंशदान नहीं दिखता; योजना की शेष लागत सरकार स्वास्थ्य मंत्रालय के बजट से वहन करती है।"
+        }
+      }
+    ],
+    "slabs": [
+      {
+        "key": "level-1-to-5",
+        "label": { "en": "Pay Matrix Levels 1 to 5", "hi": "वेतन मैट्रिक्स लेवल 1 से 5" },
+        "measure": "rupees-per-month",
+        "value": 250,
+        "appliesToLevels": ["1", "2", "3", "4", "5"],
+        "note": { "en": "Ward entitlement: general ward.", "hi": "वार्ड पात्रता: सामान्य वार्ड।" }
+      },
+      {
+        "key": "level-6",
+        "label": { "en": "Pay Matrix Level 6", "hi": "वेतन मैट्रिक्स लेवल 6" },
+        "measure": "rupees-per-month",
+        "value": 450,
+        "appliesToLevels": ["6"],
+        "note": { "en": "Ward entitlement: semi-private ward.", "hi": "वार्ड पात्रता: अर्ध-निजी वार्ड।" }
+      },
+      {
+        "key": "level-7-to-11",
+        "label": { "en": "Pay Matrix Levels 7 to 11", "hi": "वेतन मैट्रिक्स लेवल 7 से 11" },
+        "measure": "rupees-per-month",
+        "value": 650,
+        "appliesToLevels": ["7", "8", "9", "10", "11"],
+        "note": { "en": "Ward entitlement: semi-private ward.", "hi": "वार्ड पात्रता: अर्ध-निजी वार्ड।" }
+      },
+      {
+        "key": "level-12-and-above",
+        "label": { "en": "Pay Matrix Level 12 and above", "hi": "वेतन मैट्रिक्स लेवल 12 और उससे ऊपर" },
+        "measure": "rupees-per-month",
+        "value": 1000,
+        "appliesToLevels": ["12", "13", "13A", "14", "15", "16", "17", "18"],
+        "note": { "en": "Ward entitlement: private ward.", "hi": "वार्ड पात्रता: निजी वार्ड।" }
+      }
+    ],
+    "rules": [
+      {
+        "key": "membership",
+        "title": { "en": "Who is covered", "hi": "कौन आच्छादित है" },
+        "body": {
+          "en": "Serving Central Government employees drawing pay from the Central Civil Estimates and residing in a CGHS-covered city, along with their dependent family members. Membership is compulsory for employees in covered areas. Pensioners may join on a yearly contribution or by paying ten years' contribution at once for a card valid for life.",
+          "hi": "केंद्रीय सिविल अनुमानों से वेतन आहरित करने वाले तथा सीजीएचएस-आच्छादित शहर में रहने वाले सेवारत केंद्रीय सरकारी कर्मचारी, उनके आश्रित परिवारजनों सहित। आच्छादित क्षेत्रों में कर्मचारियों के लिए सदस्यता अनिवार्य है। पेंशनभोगी वार्षिक अंशदान पर, अथवा एक साथ दस वर्ष का अंशदान देकर आजीवन वैध कार्ड लेकर सम्मिलित हो सकते हैं।"
+        }
+      },
+      {
+        "key": "level-not-pay",
+        "title": { "en": "The contribution follows the Level, not the pay drawn", "hi": "अंशदान आहरित वेतन का नहीं, लेवल का अनुसरण करता है" },
+        "body": {
+          "en": "An employee at the top cell of Level 5 and one at the entry cell of Level 5 pay the same ₹250. Moving up within a Level never changes the contribution; promotion to a higher Level does.",
+          "hi": "लेवल 5 के अंतिम सेल का कर्मचारी और लेवल 5 के प्रवेश सेल का कर्मचारी, दोनों समान ₹250 देते हैं। किसी लेवल के भीतर ऊपर बढ़ने से अंशदान कभी नहीं बदलता; उच्चतर लेवल में पदोन्नति से बदलता है।"
+        }
+      },
+      {
+        "key": "tax",
+        "title": { "en": "Income tax", "hi": "आयकर" },
+        "body": {
+          "en": "The contribution qualifies as a health insurance premium for the deduction for medical insurance (section 80D of the Income-tax Act, 1961; the corresponding provision of the Income-tax Act, 2025 from the 2026-27 tax year), and the deduction is available only under the old regime.",
+          "hi": "यह अंशदान चिकित्सा बीमा कटौती (आयकर अधिनियम, 1961 की धारा 80D; कर वर्ष 2026-27 से आयकर अधिनियम, 2025 का तत्संगत प्रावधान) के लिए स्वास्थ्य बीमा प्रीमियम माना जाता है, और यह कटौती केवल पुरानी कर व्यवस्था में उपलब्ध है।"
+        }
+      },
+      {
+        "key": "not-covered",
+        "title": { "en": "Where CGHS does not reach", "hi": "जहाँ सीजीएचएस नहीं पहुँचता" },
+        "body": {
+          "en": "An employee posted outside a CGHS-covered city is governed by the Central Services (Medical Attendance) Rules, 1944 instead, and no CGHS contribution is recovered.",
+          "hi": "सीजीएचएस-आच्छादित शहर से बाहर तैनात कर्मचारी पर इसके स्थान पर केंद्रीय सेवा (चिकित्सा परिचर्या) नियम, 1944 लागू होते हैं, और कोई सीजीएचएस अंशदान नहीं काटा जाता।"
+        }
+      }
+    ],
+    "note": {
+      "en": "cghs.gov.in did not respond to a request while this dataset was built, so the rates here were not read from the Ministry of Health and Family Welfare Office Memorandum itself. They are the rates in force since 01.02.2017 and are unchanged; confirm with your DDO before relying on them.",
+      "hi": "इस डेटासेट के निर्माण के समय cghs.gov.in ने अनुरोध का उत्तर नहीं दिया, अतः यहाँ दी गई दरें स्वास्थ्य एवं परिवार कल्याण मंत्रालय के कार्यालय ज्ञापन से नहीं पढ़ी गई हैं। ये 01.02.2017 से प्रवृत्त तथा अपरिवर्तित दरें हैं; इन पर निर्भर होने से पूर्व अपने डीडीओ से पुष्टि करें।"
+    },
+    "source": {
+      "name": "Ministry of Health and Family Welfare — revision of rates of subscription under the Central Government Health Scheme consequent to implementation of the 7th CPC",
+      "url": "https://cghs.gov.in/",
+      "reference": "O.M. No. S-11011/11/2016-CGHS(P)/EHS",
+      "dated": "2017-01-09"
+    },
+    "fetchedAt": "2026-08-28T00:00:00Z",
+    "verify": true
+  }
+}

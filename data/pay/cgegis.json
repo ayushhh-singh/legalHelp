@@ -1,0 +1,139 @@
+{
+  "$schema": "../../schemas/pay-scheme.schema.json",
+  "version": "1.0.0",
+  "generatedAt": "2026-08-28",
+  "disclaimer": {
+    "en": "Reference only; verify with the official gazette/order or your DDO.",
+    "hi": "केवल संदर्भ हेतु; आधिकारिक राजपत्र/आदेश अथवा अपने डीडीओ से पुष्टि करें।"
+  },
+  "scheme": {
+    "id": "cgegis",
+    "name": {
+      "en": "Central Government Employees Group Insurance Scheme, 1980",
+      "hi": "केंद्रीय सरकार कर्मचारी सामूहिक बीमा योजना, 1980"
+    },
+    "shortName": { "en": "CGEGIS", "hi": "सीजीईजीआईएस" },
+    "administeredBy": {
+      "en": "E-V Branch, Department of Expenditure, Ministry of Finance",
+      "hi": "ई-V शाखा, व्यय विभाग, वित्त मंत्रालय"
+    },
+    "effectiveFrom": "1990-01-01",
+    "summary": {
+      "en": "A compulsory group insurance and savings scheme. The subscription is in units of ₹15 a month by Group of post; 30 per cent of it buys insurance cover of ₹15,000 per unit, and the remaining 70 per cent goes into a savings fund that is paid back with interest on retirement or death.",
+      "hi": "अनिवार्य सामूहिक बीमा एवं बचत योजना। अंशदान पद के समूह के अनुसार ₹15 प्रति माह की इकाइयों में होता है; उसका 30 प्रतिशत प्रति इकाई ₹15,000 का बीमा कवर देता है, और शेष 70 प्रतिशत बचत निधि में जाता है जो सेवानिवृत्ति अथवा मृत्यु पर ब्याज सहित लौटाया जाता है।"
+    },
+    "contributions": [
+      {
+        "key": "employee",
+        "label": {
+          "en": "Employee's monthly subscription, recovered from the pay slip",
+          "hi": "कर्मचारी का मासिक अंशदान, वेतन पर्ची से वसूला जाता है"
+        },
+        "measure": "rupees-per-month",
+        "value": null,
+        "expression": "units x 15, by Group of post — see slabs",
+        "note": {
+          "en": "There is no employer contribution. The Government's share of the risk is met from the insurance fund built out of the employees' own subscriptions.",
+          "hi": "कोई नियोक्ता अंशदान नहीं है। सरकार का जोखिम-भाग कर्मचारियों के अपने ही अंशदान से बनी बीमा निधि से पूरा होता है।"
+        }
+      },
+      {
+        "key": "insurance-fund-share",
+        "label": { "en": "Share of the subscription credited to the insurance fund", "hi": "बीमा निधि में जमा होने वाला अंशदान का भाग" },
+        "measure": "not-a-money-value",
+        "value": 30,
+        "note": {
+          "en": "30 per cent. The cost of insurance is worked out at a mortality rate of 3.60 per thousand per annum.",
+          "hi": "30 प्रतिशत। बीमा की लागत प्रति हज़ार प्रति वर्ष 3.60 की मृत्यु दर पर निकाली जाती है।"
+        }
+      },
+      {
+        "key": "savings-fund-share",
+        "label": { "en": "Share of the subscription credited to the savings fund", "hi": "बचत निधि में जमा होने वाला अंशदान का भाग" },
+        "measure": "not-a-money-value",
+        "value": 70,
+        "note": {
+          "en": "70 per cent, compounded quarterly at the rate the Department of Economic Affairs notifies — 7.1 per cent a year for the quarter beginning 01.01.2026.",
+          "hi": "70 प्रतिशत, आर्थिक कार्य विभाग द्वारा अधिसूचित दर पर त्रैमासिक चक्रवृद्धि — 01.01.2026 से आरंभ तिमाही के लिए 7.1 प्रतिशत वार्षिक।"
+        }
+      }
+    ],
+    "slabs": [
+      {
+        "key": "group-a",
+        "label": { "en": "Group 'A' — 8 units", "hi": "समूह 'क' — 8 इकाइयाँ" },
+        "measure": "rupees-per-month",
+        "value": 120,
+        "note": { "en": "Insurance cover ₹1,20,000.", "hi": "बीमा कवर ₹1,20,000।" }
+      },
+      {
+        "key": "group-b",
+        "label": { "en": "Group 'B' — 4 units", "hi": "समूह 'ख' — 4 इकाइयाँ" },
+        "measure": "rupees-per-month",
+        "value": 60,
+        "note": { "en": "Insurance cover ₹60,000.", "hi": "बीमा कवर ₹60,000।" }
+      },
+      {
+        "key": "group-c",
+        "label": { "en": "Group 'C' — 2 units", "hi": "समूह 'ग' — 2 इकाइयाँ" },
+        "measure": "rupees-per-month",
+        "value": 30,
+        "note": {
+          "en": "Insurance cover ₹30,000. Erstwhile Group 'D' employees placed in Grade Pay 1800 and reclassified as Group 'C' were moved to this rate from January 2011.",
+          "hi": "बीमा कवर ₹30,000। ग्रेड पे 1800 में रखे गए तथा समूह 'ग' के रूप में पुनर्वर्गीकृत तत्कालीन समूह 'घ' कर्मचारी जनवरी 2011 से इसी दर पर आ गए।"
+        }
+      }
+    ],
+    "rules": [
+      {
+        "key": "joining",
+        "title": { "en": "When membership begins", "hi": "सदस्यता कब आरंभ होती है" },
+        "body": {
+          "en": "An employee joins the scheme from the 1 January following the date of appointment. Between appointment and that date only the insurance cover applies, and the subscription for those months is a premium with no savings element.",
+          "hi": "कर्मचारी नियुक्ति की तिथि के बाद आने वाली 1 जनवरी से योजना का सदस्य बनता है। नियुक्ति और उस तिथि के बीच केवल बीमा कवर लागू होता है, और उन महीनों का अंशदान बिना बचत अंश वाला प्रीमियम मात्र होता है।"
+        }
+      },
+      {
+        "key": "promotion",
+        "title": { "en": "On promotion to a higher Group", "hi": "उच्चतर समूह में पदोन्नति पर" },
+        "body": {
+          "en": "The subscription rises to the higher Group's rate from the 1 January following the promotion, and it stays at that level even if the employee later reverts to a post in a lower Group.",
+          "hi": "अंशदान पदोन्नति के बाद आने वाली 1 जनवरी से उच्चतर समूह की दर पर बढ़ जाता है, और बाद में निम्नतर समूह के पद पर प्रत्यावर्तन होने पर भी उसी स्तर पर बना रहता है।"
+        }
+      },
+      {
+        "key": "payout",
+        "title": { "en": "What is paid out", "hi": "क्या भुगतान होता है" },
+        "body": {
+          "en": "On retirement or resignation, the accumulation in the savings fund. On death while in service, the insurance cover in addition to the accumulation in the savings fund. The Department of Expenditure issues a Table of Benefits every quarter, worked out by the IRDA on the interest rate notified for that quarter.",
+          "hi": "सेवानिवृत्ति अथवा त्यागपत्र पर बचत निधि की संचित राशि। सेवाकाल में मृत्यु पर, बचत निधि की संचित राशि के अतिरिक्त बीमा कवर भी। व्यय विभाग प्रत्येक तिमाही लाभ तालिका जारी करता है, जो उस तिमाही के लिए अधिसूचित ब्याज दर पर आईआरडीए द्वारा निकाली जाती है।"
+        }
+      },
+      {
+        "key": "seventh-cpc",
+        "title": { "en": "The 7th CPC recommendation was not implemented", "hi": "सातवें केंद्रीय वेतन आयोग की संस्तुति लागू नहीं हुई" },
+        "body": {
+          "en": "The 6th CPC recommended a six-fold increase in the subscription and cover, and the 7th CPC recommended a fresh structure. Neither was notified: the rates payable today are still the 1989 rates of ₹120, ₹60 and ₹30 a month against cover of ₹1,20,000, ₹60,000 and ₹30,000. A pay calculator that scales these with pay would be wrong.",
+          "hi": "छठे केंद्रीय वेतन आयोग ने अंशदान तथा कवर में छह गुना वृद्धि की संस्तुति की थी, और सातवें ने एक नई संरचना की। दोनों में से कोई अधिसूचित नहीं हुई: आज भी देय दरें 1989 की ही ₹120, ₹60 तथा ₹30 प्रति माह हैं, जिनके विरुद्ध कवर ₹1,20,000, ₹60,000 तथा ₹30,000 है। इन्हें वेतन के साथ बढ़ाने वाला कोई भी वेतन कैलकुलेटर ग़लत होगा।"
+        }
+      },
+      {
+        "key": "tax",
+        "title": { "en": "Income tax", "hi": "आयकर" },
+        "body": {
+          "en": "The subscription qualifies for the deduction for life insurance premia and specified savings (section 80C of the Income-tax Act, 1961; section 123 of the Income-tax Act, 2025 from the 2026-27 tax year), within the overall ₹1,50,000 limit and under the old regime only.",
+          "hi": "यह अंशदान जीवन बीमा प्रीमियम तथा विनिर्दिष्ट बचत की कटौती (आयकर अधिनियम, 1961 की धारा 80C; कर वर्ष 2026-27 से आयकर अधिनियम, 2025 की धारा 123) के लिए पात्र है, ₹1,50,000 की समग्र सीमा के भीतर तथा केवल पुरानी कर व्यवस्था में।"
+        }
+      }
+    ],
+    "note": null,
+    "source": {
+      "name": "Central Government Employees Group Insurance Scheme, 1980 — updated instructions, read with the quarterly Tables of Benefits",
+      "url": "https://doe.gov.in/files/circulars_document/CGEGIS1980updating06102016.pdf",
+      "reference": "O.M. No. F.7(5)-EV/89 of 15.05.1989, as updated; Tables of Benefits under O.M. No. 7(1)/EV/2023",
+      "dated": "2016-10-06"
+    },
+    "fetchedAt": "2026-08-28T00:00:00Z",
+    "verify": false
+  }
+}

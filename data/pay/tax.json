@@ -1,0 +1,806 @@
+{
+  "$schema": "../../schemas/pay-tax.schema.json",
+  "version": "1.0.0",
+  "generatedAt": "2026-08-28",
+  "financialYear": "2026-27",
+  "taxYear": "2026-27",
+  "disclaimer": {
+    "en": "Reference only; verify with the official gazette/order or your DDO.",
+    "hi": "केवल संदर्भ हेतु; आधिकारिक राजपत्र/आदेश अथवा अपने डीडीओ से पुष्टि करें।"
+  },
+  "note": {
+    "en": "The Income-tax Act, 2025 commences on 1 April 2026 and governs the 2026-27 tax year, replacing the Income-tax Act, 1961. It renumbers the provisions without, for salary income, changing what they do: section 80C becomes section 123 and section 80CCD becomes section 124. Both numbers are given for every provision here, and the 2025 numbers carry verify because they were not read from the Act itself.",
+    "hi": "आयकर अधिनियम, 2025 1 अप्रैल 2026 से प्रवृत्त होता है और कर वर्ष 2026-27 को शासित करता है, जो आयकर अधिनियम, 1961 का स्थान लेता है। यह प्रावधानों को पुनःक्रमांकित करता है, किंतु वेतन आय के संबंध में उनके प्रभाव को नहीं बदलता: धारा 80C धारा 123 बन जाती है और धारा 80CCD धारा 124। यहाँ प्रत्येक प्रावधान के लिए दोनों संख्याएँ दी गई हैं, और 2025 की संख्याएँ verify के साथ हैं क्योंकि वे स्वयं अधिनियम से नहीं पढ़ी गई हैं।"
+  },
+  "regimes": [
+    {
+      "id": "new",
+      "name": {
+        "en": "New regime (default)",
+        "hi": "नई कर व्यवस्था (डिफ़ॉल्ट)"
+      },
+      "isDefault": true,
+      "standardDeduction": 75000,
+      "slabs": [
+        {
+          "from": 0,
+          "to": 400000,
+          "rate": 0
+        },
+        {
+          "from": 400000,
+          "to": 800000,
+          "rate": 5
+        },
+        {
+          "from": 800000,
+          "to": 1200000,
+          "rate": 10
+        },
+        {
+          "from": 1200000,
+          "to": 1600000,
+          "rate": 15
+        },
+        {
+          "from": 1600000,
+          "to": 2000000,
+          "rate": 20
+        },
+        {
+          "from": 2000000,
+          "to": 2400000,
+          "rate": 25
+        },
+        {
+          "from": 2400000,
+          "to": null,
+          "rate": 30
+        }
+      ],
+      "rebate": {
+        "section": "87A (Income-tax Act, 1961)",
+        "incomeCeiling": 1200000,
+        "maxRebate": 60000,
+        "note": {
+          "en": "A resident individual with total income up to ₹12,00,000 pays no tax. With the ₹75,000 standard deduction, that is a salary of ₹12,75,000. The rebate does not apply to income taxed at special rates.",
+          "hi": "₹12,00,000 तक की कुल आय वाले निवासी व्यष्टि को कोई कर नहीं देना पड़ता। ₹75,000 की मानक कटौती के साथ यह ₹12,75,000 का वेतन बनता है। विशेष दरों पर कर योग्य आय पर यह छूट लागू नहीं होती।"
+        }
+      },
+      "note": {
+        "en": "The default regime. There are no age-based exemption limits: ₹4,00,000 is the threshold for everyone. Almost every deduction and exemption is unavailable here; the exceptions that matter to a salaried officer are the standard deduction, the employer's contribution to the National Pension System, and the transport allowance for a differently abled employee.",
+        "hi": "यही डिफ़ॉल्ट व्यवस्था है। यहाँ आयु-आधारित छूट सीमाएँ नहीं हैं: ₹4,00,000 सभी के लिए सीमा है। लगभग हर कटौती एवं छूट यहाँ उपलब्ध नहीं है; वेतनभोगी अधिकारी के लिए महत्वपूर्ण अपवाद हैं — मानक कटौती, राष्ट्रीय पेंशन प्रणाली में नियोक्ता का अंशदान, तथा दिव्यांग कर्मचारी का परिवहन भत्ता।"
+      },
+      "source": {
+        "name": "Income Tax Department, Government of India",
+        "url": "https://www.incometax.gov.in/",
+        "note": {
+          "en": "incometax.gov.in redirects and serves no fetchable document to a plain request, so the figures here were not read from a departmental page or from the Finance Act itself. Budget 2026 made no change to the slabs introduced by the Finance Act, 2025, and they continue for the 2026-27 tax year. Confirm before filing.",
+          "hi": "incometax.gov.in पुनर्निर्देशित होता है और सामान्य अनुरोध पर कोई प्राप्य दस्तावेज़ नहीं देता, अतः यहाँ दिए गए अंक न किसी विभागीय पृष्ठ से और न ही स्वयं वित्त अधिनियम से पढ़े गए हैं। बजट 2026 ने वित्त अधिनियम, 2025 द्वारा प्रस्तुत स्लैबों में कोई परिवर्तन नहीं किया, और वे कर वर्ष 2026-27 के लिए जारी हैं। दाख़िल करने से पूर्व पुष्टि करें।"
+        }
+      },
+      "fetchedAt": "2026-08-28T00:00:00Z",
+      "verify": true
+    },
+    {
+      "id": "old",
+      "name": {
+        "en": "Old regime (optional)",
+        "hi": "पुरानी कर व्यवस्था (वैकल्पिक)"
+      },
+      "isDefault": false,
+      "standardDeduction": 50000,
+      "slabs": [
+        {
+          "from": 0,
+          "to": 250000,
+          "rate": 0,
+          "ageBand": "below-60"
+        },
+        {
+          "from": 250000,
+          "to": 500000,
+          "rate": 5,
+          "ageBand": "below-60"
+        },
+        {
+          "from": 500000,
+          "to": 1000000,
+          "rate": 20,
+          "ageBand": "below-60"
+        },
+        {
+          "from": 1000000,
+          "to": null,
+          "rate": 30,
+          "ageBand": "below-60"
+        },
+        {
+          "from": 0,
+          "to": 300000,
+          "rate": 0,
+          "ageBand": "60-to-80"
+        },
+        {
+          "from": 300000,
+          "to": 500000,
+          "rate": 5,
+          "ageBand": "60-to-80"
+        },
+        {
+          "from": 500000,
+          "to": 1000000,
+          "rate": 20,
+          "ageBand": "60-to-80"
+        },
+        {
+          "from": 1000000,
+          "to": null,
+          "rate": 30,
+          "ageBand": "60-to-80"
+        },
+        {
+          "from": 0,
+          "to": 500000,
+          "rate": 0,
+          "ageBand": "80-and-above"
+        },
+        {
+          "from": 500000,
+          "to": 1000000,
+          "rate": 20,
+          "ageBand": "80-and-above"
+        },
+        {
+          "from": 1000000,
+          "to": null,
+          "rate": 30,
+          "ageBand": "80-and-above"
+        }
+      ],
+      "rebate": {
+        "section": "87A (Income-tax Act, 1961)",
+        "incomeCeiling": 500000,
+        "maxRebate": 12500,
+        "note": {
+          "en": "A resident individual with total income up to ₹5,00,000 pays no tax.",
+          "hi": "₹5,00,000 तक की कुल आय वाले निवासी व्यष्टि को कोई कर नहीं देना पड़ता।"
+        }
+      },
+      "note": {
+        "en": "Has to be opted into. Worth it only where the deductions and exemptions actually claimed — House Rent Allowance, section 80C, the home loan interest, section 80D — outweigh the higher rates and the smaller standard deduction. The exemption limit is ₹3,00,000 for a resident aged 60 to 80 and ₹5,00,000 for one aged 80 or above.",
+        "hi": "इसे चुनना पड़ता है। यह तभी लाभप्रद है जब वास्तव में दावा की गई कटौतियाँ एवं छूटें — मकान किराया भत्ता, धारा 80C, गृह ऋण ब्याज, धारा 80D — ऊँची दरों तथा छोटी मानक कटौती पर भारी पड़ें। 60 से 80 वर्ष के निवासी के लिए छूट सीमा ₹3,00,000 तथा 80 वर्ष या उससे अधिक के लिए ₹5,00,000 है।"
+      },
+      "source": {
+        "name": "Income Tax Department, Government of India",
+        "url": "https://www.incometax.gov.in/",
+        "note": {
+          "en": "incometax.gov.in redirects and serves no fetchable document to a plain request, so the figures here were not read from a departmental page or from the Finance Act itself. Budget 2026 made no change to the slabs introduced by the Finance Act, 2025, and they continue for the 2026-27 tax year. Confirm before filing.",
+          "hi": "incometax.gov.in पुनर्निर्देशित होता है और सामान्य अनुरोध पर कोई प्राप्य दस्तावेज़ नहीं देता, अतः यहाँ दिए गए अंक न किसी विभागीय पृष्ठ से और न ही स्वयं वित्त अधिनियम से पढ़े गए हैं। बजट 2026 ने वित्त अधिनियम, 2025 द्वारा प्रस्तुत स्लैबों में कोई परिवर्तन नहीं किया, और वे कर वर्ष 2026-27 के लिए जारी हैं। दाख़िल करने से पूर्व पुष्टि करें।"
+        }
+      },
+      "fetchedAt": "2026-08-28T00:00:00Z",
+      "verify": true
+    }
+  ],
+  "deductions": [
+    {
+      "id": "80c",
+      "name": {
+        "en": "Life insurance premia, provident fund, specified savings",
+        "hi": "जीवन बीमा प्रीमियम, भविष्य निधि, विनिर्दिष्ट बचत"
+      },
+      "section1961": "80C",
+      "section2025": "123",
+      "limit": 150000,
+      "limitNote": null,
+      "regimes": [
+        "old"
+      ],
+      "description": {
+        "en": "Covers General Provident Fund and Contributory Provident Fund subscriptions, the CGEGIS subscription, life insurance premia, tuition fees for up to two children, the principal on a housing loan, Public Provident Fund, National Savings Certificates, five-year tax-saving deposits and equity-linked savings schemes. The ceiling is shared with sections 80CCC and 80CCD(1).",
+        "hi": "इसमें सामान्य भविष्य निधि तथा अंशदायी भविष्य निधि के अंशदान, सीजीईजीआईएस अंशदान, जीवन बीमा प्रीमियम, दो संतानों तक की शिक्षण फ़ीस, आवास ऋण का मूलधन, लोक भविष्य निधि, राष्ट्रीय बचत पत्र, पाँच वर्षीय कर-बचत जमा तथा इक्विटी-संबद्ध बचत योजनाएँ आती हैं। यह सीमा धारा 80CCC तथा 80CCD(1) के साथ साझा है।"
+      },
+      "source": {
+        "name": "Income Tax Department, Government of India",
+        "url": "https://www.incometax.gov.in/",
+        "note": {
+          "en": "incometax.gov.in redirects and serves no fetchable document to a plain request, so the figures here were not read from a departmental page or from the Finance Act itself. Budget 2026 made no change to the slabs introduced by the Finance Act, 2025, and they continue for the 2026-27 tax year. Confirm before filing.",
+          "hi": "incometax.gov.in पुनर्निर्देशित होता है और सामान्य अनुरोध पर कोई प्राप्य दस्तावेज़ नहीं देता, अतः यहाँ दिए गए अंक न किसी विभागीय पृष्ठ से और न ही स्वयं वित्त अधिनियम से पढ़े गए हैं। बजट 2026 ने वित्त अधिनियम, 2025 द्वारा प्रस्तुत स्लैबों में कोई परिवर्तन नहीं किया, और वे कर वर्ष 2026-27 के लिए जारी हैं। दाख़िल करने से पूर्व पुष्टि करें।"
+        }
+      },
+      "fetchedAt": "2026-08-28T00:00:00Z",
+      "verify": true
+    },
+    {
+      "id": "80ccd1",
+      "name": {
+        "en": "Employee's own contribution to the National Pension System",
+        "hi": "राष्ट्रीय पेंशन प्रणाली में कर्मचारी का अपना अंशदान"
+      },
+      "section1961": "80CCD(1)",
+      "section2025": "124",
+      "limit": 150000,
+      "limitNote": null,
+      "regimes": [
+        "old"
+      ],
+      "description": {
+        "en": "Up to 10 per cent of salary, within the ₹1,50,000 ceiling shared with section 80C.",
+        "hi": "वेतन के 10 प्रतिशत तक, धारा 80C के साथ साझा ₹1,50,000 की सीमा के भीतर।"
+      },
+      "source": {
+        "name": "Income Tax Department, Government of India",
+        "url": "https://www.incometax.gov.in/",
+        "note": {
+          "en": "incometax.gov.in redirects and serves no fetchable document to a plain request, so the figures here were not read from a departmental page or from the Finance Act itself. Budget 2026 made no change to the slabs introduced by the Finance Act, 2025, and they continue for the 2026-27 tax year. Confirm before filing.",
+          "hi": "incometax.gov.in पुनर्निर्देशित होता है और सामान्य अनुरोध पर कोई प्राप्य दस्तावेज़ नहीं देता, अतः यहाँ दिए गए अंक न किसी विभागीय पृष्ठ से और न ही स्वयं वित्त अधिनियम से पढ़े गए हैं। बजट 2026 ने वित्त अधिनियम, 2025 द्वारा प्रस्तुत स्लैबों में कोई परिवर्तन नहीं किया, और वे कर वर्ष 2026-27 के लिए जारी हैं। दाख़िल करने से पूर्व पुष्टि करें।"
+        }
+      },
+      "fetchedAt": "2026-08-28T00:00:00Z",
+      "verify": true
+    },
+    {
+      "id": "80ccd1b",
+      "name": {
+        "en": "Additional contribution to the National Pension System",
+        "hi": "राष्ट्रीय पेंशन प्रणाली में अतिरिक्त अंशदान"
+      },
+      "section1961": "80CCD(1B)",
+      "section2025": "124",
+      "limit": 50000,
+      "limitNote": null,
+      "regimes": [
+        "old"
+      ],
+      "description": {
+        "en": "An additional ₹50,000, over and above the ₹1,50,000 ceiling.",
+        "hi": "₹1,50,000 की सीमा से ऊपर अतिरिक्त ₹50,000।"
+      },
+      "source": {
+        "name": "Income Tax Department, Government of India",
+        "url": "https://www.incometax.gov.in/",
+        "note": {
+          "en": "incometax.gov.in redirects and serves no fetchable document to a plain request, so the figures here were not read from a departmental page or from the Finance Act itself. Budget 2026 made no change to the slabs introduced by the Finance Act, 2025, and they continue for the 2026-27 tax year. Confirm before filing.",
+          "hi": "incometax.gov.in पुनर्निर्देशित होता है और सामान्य अनुरोध पर कोई प्राप्य दस्तावेज़ नहीं देता, अतः यहाँ दिए गए अंक न किसी विभागीय पृष्ठ से और न ही स्वयं वित्त अधिनियम से पढ़े गए हैं। बजट 2026 ने वित्त अधिनियम, 2025 द्वारा प्रस्तुत स्लैबों में कोई परिवर्तन नहीं किया, और वे कर वर्ष 2026-27 के लिए जारी हैं। दाख़िल करने से पूर्व पुष्टि करें।"
+        }
+      },
+      "fetchedAt": "2026-08-28T00:00:00Z",
+      "verify": true
+    },
+    {
+      "id": "80ccd2",
+      "name": {
+        "en": "Employer's contribution to the National Pension System",
+        "hi": "राष्ट्रीय पेंशन प्रणाली में नियोक्ता का अंशदान"
+      },
+      "section1961": "80CCD(2)",
+      "section2025": "124",
+      "limit": null,
+      "limitNote": {
+        "en": "No absolute ceiling; the limit is 14 per cent of salary.",
+        "hi": "कोई निरपेक्ष सीमा नहीं; सीमा वेतन का 14 प्रतिशत है।"
+      },
+      "regimes": [
+        "old",
+        "new"
+      ],
+      "description": {
+        "en": "Deductible up to 14 per cent of salary (basic pay plus Dearness Allowance) for a Central Government employee, over and above every other ceiling. This is the one substantial deduction that survives in the new regime, and it is why the Government's 14 per cent contribution is not simply taxable salary.",
+        "hi": "केंद्रीय सरकारी कर्मचारी के लिए वेतन (मूल वेतन तथा महँगाई भत्ता) के 14 प्रतिशत तक कटौती योग्य, हर अन्य सीमा से ऊपर। नई व्यवस्था में बची रहने वाली यही एक महत्वपूर्ण कटौती है, और इसीलिए सरकार का 14 प्रतिशत अंशदान केवल कर योग्य वेतन नहीं है।"
+      },
+      "source": {
+        "name": "Income Tax Department, Government of India",
+        "url": "https://www.incometax.gov.in/",
+        "note": {
+          "en": "incometax.gov.in redirects and serves no fetchable document to a plain request, so the figures here were not read from a departmental page or from the Finance Act itself. Budget 2026 made no change to the slabs introduced by the Finance Act, 2025, and they continue for the 2026-27 tax year. Confirm before filing.",
+          "hi": "incometax.gov.in पुनर्निर्देशित होता है और सामान्य अनुरोध पर कोई प्राप्य दस्तावेज़ नहीं देता, अतः यहाँ दिए गए अंक न किसी विभागीय पृष्ठ से और न ही स्वयं वित्त अधिनियम से पढ़े गए हैं। बजट 2026 ने वित्त अधिनियम, 2025 द्वारा प्रस्तुत स्लैबों में कोई परिवर्तन नहीं किया, और वे कर वर्ष 2026-27 के लिए जारी हैं। दाख़िल करने से पूर्व पुष्टि करें।"
+        }
+      },
+      "fetchedAt": "2026-08-28T00:00:00Z",
+      "verify": true
+    },
+    {
+      "id": "80d",
+      "name": {
+        "en": "Medical insurance premium",
+        "hi": "चिकित्सा बीमा प्रीमियम"
+      },
+      "section1961": "80D",
+      "section2025": null,
+      "limit": 25000,
+      "limitNote": {
+        "en": "₹25,000 self and family; ₹50,000 where a senior citizen; a separate limit again for parents.",
+        "hi": "स्वयं तथा परिवार ₹25,000; वरिष्ठ नागरिक होने पर ₹50,000; माता-पिता के लिए पुनः पृथक सीमा।"
+      },
+      "regimes": [
+        "old"
+      ],
+      "description": {
+        "en": "₹25,000 for self, spouse and dependent children, rising to ₹50,000 where the person insured is a senior citizen. A further ₹25,000, or ₹50,000 where they are senior citizens, is available for parents. The CGHS contribution qualifies.",
+        "hi": "स्वयं, पति/पत्नी तथा आश्रित संतानों के लिए ₹25,000, और बीमित व्यक्ति के वरिष्ठ नागरिक होने पर ₹50,000। माता-पिता के लिए अतिरिक्त ₹25,000, अथवा उनके वरिष्ठ नागरिक होने पर ₹50,000। सीजीएचएस अंशदान इसके लिए पात्र है।"
+      },
+      "source": {
+        "name": "Income Tax Department, Government of India",
+        "url": "https://www.incometax.gov.in/",
+        "note": {
+          "en": "incometax.gov.in redirects and serves no fetchable document to a plain request, so the figures here were not read from a departmental page or from the Finance Act itself. Budget 2026 made no change to the slabs introduced by the Finance Act, 2025, and they continue for the 2026-27 tax year. Confirm before filing.",
+          "hi": "incometax.gov.in पुनर्निर्देशित होता है और सामान्य अनुरोध पर कोई प्राप्य दस्तावेज़ नहीं देता, अतः यहाँ दिए गए अंक न किसी विभागीय पृष्ठ से और न ही स्वयं वित्त अधिनियम से पढ़े गए हैं। बजट 2026 ने वित्त अधिनियम, 2025 द्वारा प्रस्तुत स्लैबों में कोई परिवर्तन नहीं किया, और वे कर वर्ष 2026-27 के लिए जारी हैं। दाख़िल करने से पूर्व पुष्टि करें।"
+        }
+      },
+      "fetchedAt": "2026-08-28T00:00:00Z",
+      "verify": true
+    },
+    {
+      "id": "standard-deduction",
+      "name": {
+        "en": "Standard deduction from salary",
+        "hi": "वेतन से मानक कटौती"
+      },
+      "section1961": "16(ia)",
+      "section2025": "19",
+      "limit": 75000,
+      "limitNote": {
+        "en": "₹75,000 new regime, ₹50,000 old regime.",
+        "hi": "नई व्यवस्था ₹75,000, पुरानी व्यवस्था ₹50,000।"
+      },
+      "regimes": [
+        "old",
+        "new"
+      ],
+      "description": {
+        "en": "₹75,000 under the new regime and ₹50,000 under the old. Allowed without any proof of expenditure.",
+        "hi": "नई व्यवस्था में ₹75,000 तथा पुरानी में ₹50,000। व्यय के किसी प्रमाण के बिना अनुमत।"
+      },
+      "source": {
+        "name": "Income Tax Department, Government of India",
+        "url": "https://www.incometax.gov.in/",
+        "note": {
+          "en": "incometax.gov.in redirects and serves no fetchable document to a plain request, so the figures here were not read from a departmental page or from the Finance Act itself. Budget 2026 made no change to the slabs introduced by the Finance Act, 2025, and they continue for the 2026-27 tax year. Confirm before filing.",
+          "hi": "incometax.gov.in पुनर्निर्देशित होता है और सामान्य अनुरोध पर कोई प्राप्य दस्तावेज़ नहीं देता, अतः यहाँ दिए गए अंक न किसी विभागीय पृष्ठ से और न ही स्वयं वित्त अधिनियम से पढ़े गए हैं। बजट 2026 ने वित्त अधिनियम, 2025 द्वारा प्रस्तुत स्लैबों में कोई परिवर्तन नहीं किया, और वे कर वर्ष 2026-27 के लिए जारी हैं। दाख़िल करने से पूर्व पुष्टि करें।"
+        }
+      },
+      "fetchedAt": "2026-08-28T00:00:00Z",
+      "verify": true
+    },
+    {
+      "id": "professional-tax",
+      "name": {
+        "en": "Tax on employment (professional tax)",
+        "hi": "नियोजन पर कर (व्यवसाय कर)"
+      },
+      "section1961": "16(iii)",
+      "section2025": "19",
+      "limit": null,
+      "limitNote": null,
+      "regimes": [
+        "old"
+      ],
+      "description": {
+        "en": "Deductible to the extent actually paid to the State Government. Not available in the new regime.",
+        "hi": "राज्य सरकार को वास्तव में भुगतान की गई सीमा तक कटौती योग्य। नई व्यवस्था में उपलब्ध नहीं।"
+      },
+      "source": {
+        "name": "Income Tax Department, Government of India",
+        "url": "https://www.incometax.gov.in/",
+        "note": {
+          "en": "incometax.gov.in redirects and serves no fetchable document to a plain request, so the figures here were not read from a departmental page or from the Finance Act itself. Budget 2026 made no change to the slabs introduced by the Finance Act, 2025, and they continue for the 2026-27 tax year. Confirm before filing.",
+          "hi": "incometax.gov.in पुनर्निर्देशित होता है और सामान्य अनुरोध पर कोई प्राप्य दस्तावेज़ नहीं देता, अतः यहाँ दिए गए अंक न किसी विभागीय पृष्ठ से और न ही स्वयं वित्त अधिनियम से पढ़े गए हैं। बजट 2026 ने वित्त अधिनियम, 2025 द्वारा प्रस्तुत स्लैबों में कोई परिवर्तन नहीं किया, और वे कर वर्ष 2026-27 के लिए जारी हैं। दाख़िल करने से पूर्व पुष्टि करें।"
+        }
+      },
+      "fetchedAt": "2026-08-28T00:00:00Z",
+      "verify": true
+    },
+    {
+      "id": "24b-home-loan-interest",
+      "name": {
+        "en": "Interest on a housing loan for a self-occupied house",
+        "hi": "स्वयं अध्यासित गृह के आवास ऋण पर ब्याज"
+      },
+      "section1961": "24(b)",
+      "section2025": null,
+      "limit": 200000,
+      "limitNote": null,
+      "regimes": [
+        "old"
+      ],
+      "description": {
+        "en": "Up to ₹2,00,000 a year for a self-occupied property. Not available in the new regime for a self-occupied property.",
+        "hi": "स्वयं अध्यासित संपत्ति के लिए वर्ष में ₹2,00,000 तक। स्वयं अध्यासित संपत्ति के लिए नई व्यवस्था में उपलब्ध नहीं।"
+      },
+      "source": {
+        "name": "Income Tax Department, Government of India",
+        "url": "https://www.incometax.gov.in/",
+        "note": {
+          "en": "incometax.gov.in redirects and serves no fetchable document to a plain request, so the figures here were not read from a departmental page or from the Finance Act itself. Budget 2026 made no change to the slabs introduced by the Finance Act, 2025, and they continue for the 2026-27 tax year. Confirm before filing.",
+          "hi": "incometax.gov.in पुनर्निर्देशित होता है और सामान्य अनुरोध पर कोई प्राप्य दस्तावेज़ नहीं देता, अतः यहाँ दिए गए अंक न किसी विभागीय पृष्ठ से और न ही स्वयं वित्त अधिनियम से पढ़े गए हैं। बजट 2026 ने वित्त अधिनियम, 2025 द्वारा प्रस्तुत स्लैबों में कोई परिवर्तन नहीं किया, और वे कर वर्ष 2026-27 के लिए जारी हैं। दाख़िल करने से पूर्व पुष्टि करें।"
+        }
+      },
+      "fetchedAt": "2026-08-28T00:00:00Z",
+      "verify": true
+    }
+  ],
+  "exemptions": [
+    {
+      "id": "10-13a-hra",
+      "name": {
+        "en": "House Rent Allowance",
+        "hi": "मकान किराया भत्ता"
+      },
+      "section1961": "10(13A) read with Rule 2A",
+      "section2025": null,
+      "limit": null,
+      "limitNote": {
+        "en": "No fixed amount — the least of the three tests.",
+        "hi": "कोई नियत राशि नहीं — तीनों में से न्यूनतम।"
+      },
+      "regimes": [
+        "old"
+      ],
+      "description": {
+        "en": "Exempt to the least of three amounts: the House Rent Allowance actually received; the rent paid minus 10 per cent of salary; and 50 per cent of salary where the accommodation is in Delhi, Mumbai, Kolkata or Chennai, 40 per cent everywhere else. 'Salary' here means basic pay plus Dearness Allowance counting for retirement benefits. Nothing is exempt if no rent is paid.",
+        "hi": "तीन राशियों में से न्यूनतम तक छूट: वास्तव में प्राप्त मकान किराया भत्ता; भुगतान किया गया किराया घटा वेतन का 10 प्रतिशत; तथा आवास दिल्ली, मुंबई, कोलकाता या चेन्नई में होने पर वेतन का 50 प्रतिशत, अन्यत्र 40 प्रतिशत। यहाँ 'वेतन' से अभिप्राय मूल वेतन तथा सेवानिवृत्ति लाभों के लिए गिना जाने वाला महँगाई भत्ता है। यदि कोई किराया नहीं दिया गया तो कुछ भी छूट प्राप्त नहीं।"
+      },
+      "source": {
+        "name": "Income Tax Department, Government of India",
+        "url": "https://www.incometax.gov.in/",
+        "note": {
+          "en": "incometax.gov.in redirects and serves no fetchable document to a plain request, so the figures here were not read from a departmental page or from the Finance Act itself. Budget 2026 made no change to the slabs introduced by the Finance Act, 2025, and they continue for the 2026-27 tax year. Confirm before filing.",
+          "hi": "incometax.gov.in पुनर्निर्देशित होता है और सामान्य अनुरोध पर कोई प्राप्य दस्तावेज़ नहीं देता, अतः यहाँ दिए गए अंक न किसी विभागीय पृष्ठ से और न ही स्वयं वित्त अधिनियम से पढ़े गए हैं। बजट 2026 ने वित्त अधिनियम, 2025 द्वारा प्रस्तुत स्लैबों में कोई परिवर्तन नहीं किया, और वे कर वर्ष 2026-27 के लिए जारी हैं। दाख़िल करने से पूर्व पुष्टि करें।"
+        }
+      },
+      "fetchedAt": "2026-08-28T00:00:00Z",
+      "verify": true
+    },
+    {
+      "id": "10-5-ltc",
+      "name": {
+        "en": "Leave Travel Concession",
+        "hi": "अवकाश यात्रा रियायत"
+      },
+      "section1961": "10(5) read with Rule 2B",
+      "section2025": null,
+      "limit": null,
+      "limitNote": null,
+      "regimes": [
+        "old"
+      ],
+      "description": {
+        "en": "Exempt for two journeys in a block of four calendar years, limited to the actual fare by the shortest route in the entitled class. Only travel within India, and only the fare — not hotels or local transport.",
+        "hi": "चार कैलेंडर वर्षों के ब्लॉक में दो यात्राओं के लिए छूट, जो हकदार श्रेणी में सबसे छोटे मार्ग के वास्तविक किराए तक सीमित है। केवल भारत के भीतर यात्रा, और केवल किराया — होटल अथवा स्थानीय परिवहन नहीं।"
+      },
+      "source": {
+        "name": "Income Tax Department, Government of India",
+        "url": "https://www.incometax.gov.in/",
+        "note": {
+          "en": "incometax.gov.in redirects and serves no fetchable document to a plain request, so the figures here were not read from a departmental page or from the Finance Act itself. Budget 2026 made no change to the slabs introduced by the Finance Act, 2025, and they continue for the 2026-27 tax year. Confirm before filing.",
+          "hi": "incometax.gov.in पुनर्निर्देशित होता है और सामान्य अनुरोध पर कोई प्राप्य दस्तावेज़ नहीं देता, अतः यहाँ दिए गए अंक न किसी विभागीय पृष्ठ से और न ही स्वयं वित्त अधिनियम से पढ़े गए हैं। बजट 2026 ने वित्त अधिनियम, 2025 द्वारा प्रस्तुत स्लैबों में कोई परिवर्तन नहीं किया, और वे कर वर्ष 2026-27 के लिए जारी हैं। दाख़िल करने से पूर्व पुष्टि करें।"
+        }
+      },
+      "fetchedAt": "2026-08-28T00:00:00Z",
+      "verify": true
+    },
+    {
+      "id": "10-14-cea",
+      "name": {
+        "en": "Children Education Allowance and Hostel Subsidy",
+        "hi": "बाल शिक्षा भत्ता तथा छात्रावास सब्सिडी"
+      },
+      "section1961": "10(14) read with Rule 2BB(2)",
+      "section2025": null,
+      "limit": null,
+      "limitNote": null,
+      "regimes": [
+        "old"
+      ],
+      "description": {
+        "en": "₹100 per child per month for education and ₹300 per child per month for hostel expenditure, for up to two children. Far below what is actually reimbursed, so most of the allowance is taxable.",
+        "hi": "शिक्षा के लिए ₹100 प्रति संतान प्रति माह तथा छात्रावास व्यय के लिए ₹300 प्रति संतान प्रति माह, अधिकतम दो संतानों के लिए। यह वास्तव में प्रतिपूर्त राशि से बहुत कम है, अतः भत्ते का अधिकांश भाग कर योग्य है।"
+      },
+      "source": {
+        "name": "Income Tax Department, Government of India",
+        "url": "https://www.incometax.gov.in/",
+        "note": {
+          "en": "incometax.gov.in redirects and serves no fetchable document to a plain request, so the figures here were not read from a departmental page or from the Finance Act itself. Budget 2026 made no change to the slabs introduced by the Finance Act, 2025, and they continue for the 2026-27 tax year. Confirm before filing.",
+          "hi": "incometax.gov.in पुनर्निर्देशित होता है और सामान्य अनुरोध पर कोई प्राप्य दस्तावेज़ नहीं देता, अतः यहाँ दिए गए अंक न किसी विभागीय पृष्ठ से और न ही स्वयं वित्त अधिनियम से पढ़े गए हैं। बजट 2026 ने वित्त अधिनियम, 2025 द्वारा प्रस्तुत स्लैबों में कोई परिवर्तन नहीं किया, और वे कर वर्ष 2026-27 के लिए जारी हैं। दाख़िल करने से पूर्व पुष्टि करें।"
+        }
+      },
+      "fetchedAt": "2026-08-28T00:00:00Z",
+      "verify": true
+    },
+    {
+      "id": "10-14-transport-disabled",
+      "name": {
+        "en": "Transport Allowance for a differently abled employee",
+        "hi": "दिव्यांग कर्मचारी का परिवहन भत्ता"
+      },
+      "section1961": "10(14) read with Rule 2BB(2)",
+      "section2025": null,
+      "limit": 3200,
+      "limitNote": {
+        "en": "₹3,200 per month.",
+        "hi": "₹3,200 प्रति माह।"
+      },
+      "regimes": [
+        "old",
+        "new"
+      ],
+      "description": {
+        "en": "₹3,200 a month for a blind, deaf and dumb, or orthopaedically handicapped employee, to meet the cost of commuting between residence and place of duty. This exemption survives in the new regime; the ordinary transport allowance exemption does not.",
+        "hi": "दृष्टिबाधित, मूक-बधिर अथवा अस्थि-विकलांग कर्मचारी के लिए ₹3,200 प्रति माह, निवास तथा कार्यस्थल के बीच आवागमन की लागत के लिए। यह छूट नई व्यवस्था में बनी रहती है; सामान्य परिवहन भत्ते की छूट नहीं।"
+      },
+      "source": {
+        "name": "Income Tax Department, Government of India",
+        "url": "https://www.incometax.gov.in/",
+        "note": {
+          "en": "incometax.gov.in redirects and serves no fetchable document to a plain request, so the figures here were not read from a departmental page or from the Finance Act itself. Budget 2026 made no change to the slabs introduced by the Finance Act, 2025, and they continue for the 2026-27 tax year. Confirm before filing.",
+          "hi": "incometax.gov.in पुनर्निर्देशित होता है और सामान्य अनुरोध पर कोई प्राप्य दस्तावेज़ नहीं देता, अतः यहाँ दिए गए अंक न किसी विभागीय पृष्ठ से और न ही स्वयं वित्त अधिनियम से पढ़े गए हैं। बजट 2026 ने वित्त अधिनियम, 2025 द्वारा प्रस्तुत स्लैबों में कोई परिवर्तन नहीं किया, और वे कर वर्ष 2026-27 के लिए जारी हैं। दाख़िल करने से पूर्व पुष्टि करें।"
+        }
+      },
+      "fetchedAt": "2026-08-28T00:00:00Z",
+      "verify": true
+    },
+    {
+      "id": "10-14-uniform",
+      "name": {
+        "en": "Dress Allowance and uniform-related allowances",
+        "hi": "वस्त्र भत्ता तथा वर्दी संबंधी भत्ते"
+      },
+      "section1961": "10(14) read with Rule 2BB(1)(f)",
+      "section2025": null,
+      "limit": null,
+      "limitNote": null,
+      "regimes": [
+        "old",
+        "new"
+      ],
+      "description": {
+        "en": "Exempt to the extent actually spent on the purchase or maintenance of a uniform worn in the performance of duty.",
+        "hi": "कर्तव्य पालन में पहनी जाने वाली वर्दी की खरीद अथवा रखरखाव पर वास्तव में व्यय की गई सीमा तक छूट।"
+      },
+      "source": {
+        "name": "Income Tax Department, Government of India",
+        "url": "https://www.incometax.gov.in/",
+        "note": {
+          "en": "incometax.gov.in redirects and serves no fetchable document to a plain request, so the figures here were not read from a departmental page or from the Finance Act itself. Budget 2026 made no change to the slabs introduced by the Finance Act, 2025, and they continue for the 2026-27 tax year. Confirm before filing.",
+          "hi": "incometax.gov.in पुनर्निर्देशित होता है और सामान्य अनुरोध पर कोई प्राप्य दस्तावेज़ नहीं देता, अतः यहाँ दिए गए अंक न किसी विभागीय पृष्ठ से और न ही स्वयं वित्त अधिनियम से पढ़े गए हैं। बजट 2026 ने वित्त अधिनियम, 2025 द्वारा प्रस्तुत स्लैबों में कोई परिवर्तन नहीं किया, और वे कर वर्ष 2026-27 के लिए जारी हैं। दाख़िल करने से पूर्व पुष्टि करें।"
+        }
+      },
+      "fetchedAt": "2026-08-28T00:00:00Z",
+      "verify": true
+    },
+    {
+      "id": "10-14-tour-daily",
+      "name": {
+        "en": "Travelling Allowance, Daily Allowance and Detachment Allowance on tour",
+        "hi": "दौरे पर यात्रा भत्ता, दैनिक भत्ता तथा टुकड़ी भत्ता"
+      },
+      "section1961": "10(14) read with Rule 2BB(1)",
+      "section2025": null,
+      "limit": null,
+      "limitNote": null,
+      "regimes": [
+        "old",
+        "new"
+      ],
+      "description": {
+        "en": "Exempt to the extent actually spent on the tour or transfer for which it was granted. This covers Travelling Allowance, Daily Allowance and Detachment Allowance.",
+        "hi": "जिस दौरे अथवा स्थानांतरण के लिए दिया गया, उस पर वास्तव में व्यय की गई सीमा तक छूट। इसमें यात्रा भत्ता, दैनिक भत्ता तथा टुकड़ी भत्ता आते हैं।"
+      },
+      "source": {
+        "name": "Income Tax Department, Government of India",
+        "url": "https://www.incometax.gov.in/",
+        "note": {
+          "en": "incometax.gov.in redirects and serves no fetchable document to a plain request, so the figures here were not read from a departmental page or from the Finance Act itself. Budget 2026 made no change to the slabs introduced by the Finance Act, 2025, and they continue for the 2026-27 tax year. Confirm before filing.",
+          "hi": "incometax.gov.in पुनर्निर्देशित होता है और सामान्य अनुरोध पर कोई प्राप्य दस्तावेज़ नहीं देता, अतः यहाँ दिए गए अंक न किसी विभागीय पृष्ठ से और न ही स्वयं वित्त अधिनियम से पढ़े गए हैं। बजट 2026 ने वित्त अधिनियम, 2025 द्वारा प्रस्तुत स्लैबों में कोई परिवर्तन नहीं किया, और वे कर वर्ष 2026-27 के लिए जारी हैं। दाख़िल करने से पूर्व पुष्टि करें।"
+        }
+      },
+      "fetchedAt": "2026-08-28T00:00:00Z",
+      "verify": true
+    },
+    {
+      "id": "10-14-hill-remote",
+      "name": {
+        "en": "Compensatory allowances for hilly, remote, tribal and difficult areas",
+        "hi": "पहाड़ी, दूरस्थ, जनजातीय तथा कठिन क्षेत्रों के प्रतिकरात्मक भत्ते"
+      },
+      "section1961": "10(14) read with Rule 2BB(2)",
+      "section2025": null,
+      "limit": null,
+      "limitNote": null,
+      "regimes": [
+        "old"
+      ],
+      "description": {
+        "en": "Exempt to the amounts specified in Rule 2BB(2) for the place concerned — for example ₹200 a month for a scheduled or tribal area in the listed States, and place-specific amounts for the hilly and remote localities. The amounts are far below the Tough Location Allowance and Hard Area Allowance actually paid.",
+        "hi": "संबंधित स्थान के लिए नियम 2BB(2) में विनिर्दिष्ट राशियों तक छूट — उदाहरणार्थ सूचीबद्ध राज्यों के अनुसूचित अथवा जनजातीय क्षेत्र के लिए ₹200 प्रति माह, तथा पहाड़ी एवं दूरस्थ स्थानों के लिए स्थान-विशिष्ट राशियाँ। ये राशियाँ वास्तव में देय कठिन स्थल भत्ते तथा दुर्गम क्षेत्र भत्ते से बहुत कम हैं।"
+      },
+      "source": {
+        "name": "Income Tax Department, Government of India",
+        "url": "https://www.incometax.gov.in/",
+        "note": {
+          "en": "incometax.gov.in redirects and serves no fetchable document to a plain request, so the figures here were not read from a departmental page or from the Finance Act itself. Budget 2026 made no change to the slabs introduced by the Finance Act, 2025, and they continue for the 2026-27 tax year. Confirm before filing.",
+          "hi": "incometax.gov.in पुनर्निर्देशित होता है और सामान्य अनुरोध पर कोई प्राप्य दस्तावेज़ नहीं देता, अतः यहाँ दिए गए अंक न किसी विभागीय पृष्ठ से और न ही स्वयं वित्त अधिनियम से पढ़े गए हैं। बजट 2026 ने वित्त अधिनियम, 2025 द्वारा प्रस्तुत स्लैबों में कोई परिवर्तन नहीं किया, और वे कर वर्ष 2026-27 के लिए जारी हैं। दाख़िल करने से पूर्व पुष्टि करें।"
+        }
+      },
+      "fetchedAt": "2026-08-28T00:00:00Z",
+      "verify": true
+    },
+    {
+      "id": "10-14-running-allowance",
+      "name": {
+        "en": "Running Allowance of transport-sector employees",
+        "hi": "परिवहन क्षेत्र कर्मचारियों का रनिंग भत्ता"
+      },
+      "section1961": "10(14) read with Rule 2BB(1)(h)",
+      "section2025": null,
+      "limit": 10000,
+      "limitNote": {
+        "en": "70 per cent of the allowance, capped at ₹10,000 a month.",
+        "hi": "भत्ते का 70 प्रतिशत, अधिकतम ₹10,000 प्रति माह।"
+      },
+      "regimes": [
+        "old"
+      ],
+      "description": {
+        "en": "70 per cent of the allowance, subject to ₹10,000 a month, for an employee of a transport undertaking who works on a transport running from one place to another and gets no daily allowance.",
+        "hi": "किसी परिवहन उपक्रम के उस कर्मचारी के लिए, जो एक स्थान से दूसरे स्थान तक चलने वाले परिवहन पर कार्य करता है और जिसे दैनिक भत्ता नहीं मिलता, भत्ते का 70 प्रतिशत, अधिकतम ₹10,000 प्रति माह।"
+      },
+      "source": {
+        "name": "Income Tax Department, Government of India",
+        "url": "https://www.incometax.gov.in/",
+        "note": {
+          "en": "incometax.gov.in redirects and serves no fetchable document to a plain request, so the figures here were not read from a departmental page or from the Finance Act itself. Budget 2026 made no change to the slabs introduced by the Finance Act, 2025, and they continue for the 2026-27 tax year. Confirm before filing.",
+          "hi": "incometax.gov.in पुनर्निर्देशित होता है और सामान्य अनुरोध पर कोई प्राप्य दस्तावेज़ नहीं देता, अतः यहाँ दिए गए अंक न किसी विभागीय पृष्ठ से और न ही स्वयं वित्त अधिनियम से पढ़े गए हैं। बजट 2026 ने वित्त अधिनियम, 2025 द्वारा प्रस्तुत स्लैबों में कोई परिवर्तन नहीं किया, और वे कर वर्ष 2026-27 के लिए जारी हैं। दाख़िल करने से पूर्व पुष्टि करें।"
+        }
+      },
+      "fetchedAt": "2026-08-28T00:00:00Z",
+      "verify": true
+    },
+    {
+      "id": "10-10aa-leave-encashment",
+      "name": {
+        "en": "Leave encashment on retirement",
+        "hi": "सेवानिवृत्ति पर अवकाश नकदीकरण"
+      },
+      "section1961": "10(10AA)",
+      "section2025": null,
+      "limit": null,
+      "limitNote": null,
+      "regimes": [
+        "old",
+        "new"
+      ],
+      "description": {
+        "en": "Fully exempt for a Government employee, without any monetary ceiling. The ₹25,00,000 ceiling applies to non-Government employees.",
+        "hi": "सरकारी कर्मचारी के लिए बिना किसी मौद्रिक सीमा के पूर्णतः छूट प्राप्त। ₹25,00,000 की सीमा ग़ैर-सरकारी कर्मचारियों पर लागू होती है।"
+      },
+      "source": {
+        "name": "Income Tax Department, Government of India",
+        "url": "https://www.incometax.gov.in/",
+        "note": {
+          "en": "incometax.gov.in redirects and serves no fetchable document to a plain request, so the figures here were not read from a departmental page or from the Finance Act itself. Budget 2026 made no change to the slabs introduced by the Finance Act, 2025, and they continue for the 2026-27 tax year. Confirm before filing.",
+          "hi": "incometax.gov.in पुनर्निर्देशित होता है और सामान्य अनुरोध पर कोई प्राप्य दस्तावेज़ नहीं देता, अतः यहाँ दिए गए अंक न किसी विभागीय पृष्ठ से और न ही स्वयं वित्त अधिनियम से पढ़े गए हैं। बजट 2026 ने वित्त अधिनियम, 2025 द्वारा प्रस्तुत स्लैबों में कोई परिवर्तन नहीं किया, और वे कर वर्ष 2026-27 के लिए जारी हैं। दाख़िल करने से पूर्व पुष्टि करें।"
+        }
+      },
+      "fetchedAt": "2026-08-28T00:00:00Z",
+      "verify": true
+    },
+    {
+      "id": "10-10-gratuity",
+      "name": {
+        "en": "Death-cum-retirement gratuity",
+        "hi": "मृत्यु-सह-सेवानिवृत्ति उपदान"
+      },
+      "section1961": "10(10)",
+      "section2025": null,
+      "limit": null,
+      "limitNote": null,
+      "regimes": [
+        "old",
+        "new"
+      ],
+      "description": {
+        "en": "Fully exempt for a Government employee. The ₹20,00,000 ceiling applies to employees covered by the Payment of Gratuity Act, 1972.",
+        "hi": "सरकारी कर्मचारी के लिए पूर्णतः छूट प्राप्त। ₹20,00,000 की सीमा उपदान संदाय अधिनियम, 1972 से आच्छादित कर्मचारियों पर लागू होती है।"
+      },
+      "source": {
+        "name": "Income Tax Department, Government of India",
+        "url": "https://www.incometax.gov.in/",
+        "note": {
+          "en": "incometax.gov.in redirects and serves no fetchable document to a plain request, so the figures here were not read from a departmental page or from the Finance Act itself. Budget 2026 made no change to the slabs introduced by the Finance Act, 2025, and they continue for the 2026-27 tax year. Confirm before filing.",
+          "hi": "incometax.gov.in पुनर्निर्देशित होता है और सामान्य अनुरोध पर कोई प्राप्य दस्तावेज़ नहीं देता, अतः यहाँ दिए गए अंक न किसी विभागीय पृष्ठ से और न ही स्वयं वित्त अधिनियम से पढ़े गए हैं। बजट 2026 ने वित्त अधिनियम, 2025 द्वारा प्रस्तुत स्लैबों में कोई परिवर्तन नहीं किया, और वे कर वर्ष 2026-27 के लिए जारी हैं। दाख़िल करने से पूर्व पुष्टि करें।"
+        }
+      },
+      "fetchedAt": "2026-08-28T00:00:00Z",
+      "verify": true
+    },
+    {
+      "id": "10-10a-commuted-pension",
+      "name": {
+        "en": "Commuted pension",
+        "hi": "संराशीकृत पेंशन"
+      },
+      "section1961": "10(10A)",
+      "section2025": null,
+      "limit": null,
+      "limitNote": null,
+      "regimes": [
+        "old",
+        "new"
+      ],
+      "description": {
+        "en": "Fully exempt for a Government employee. The commuted portion of the pension is not taxed; the residual pension is.",
+        "hi": "सरकारी कर्मचारी के लिए पूर्णतः छूट प्राप्त। पेंशन का संराशीकृत भाग कर योग्य नहीं है; शेष पेंशन कर योग्य है।"
+      },
+      "source": {
+        "name": "Income Tax Department, Government of India",
+        "url": "https://www.incometax.gov.in/",
+        "note": {
+          "en": "incometax.gov.in redirects and serves no fetchable document to a plain request, so the figures here were not read from a departmental page or from the Finance Act itself. Budget 2026 made no change to the slabs introduced by the Finance Act, 2025, and they continue for the 2026-27 tax year. Confirm before filing.",
+          "hi": "incometax.gov.in पुनर्निर्देशित होता है और सामान्य अनुरोध पर कोई प्राप्य दस्तावेज़ नहीं देता, अतः यहाँ दिए गए अंक न किसी विभागीय पृष्ठ से और न ही स्वयं वित्त अधिनियम से पढ़े गए हैं। बजट 2026 ने वित्त अधिनियम, 2025 द्वारा प्रस्तुत स्लैबों में कोई परिवर्तन नहीं किया, और वे कर वर्ष 2026-27 के लिए जारी हैं। दाख़िल करने से पूर्व पुष्टि करें।"
+        }
+      },
+      "fetchedAt": "2026-08-28T00:00:00Z",
+      "verify": true
+    }
+  ],
+  "surcharge": {
+    "note": {
+      "en": "Surcharge is levied on the income tax, before the health and education cess, and is subject to marginal relief. The highest rate of 37 per cent was withdrawn under the new regime, where surcharge is capped at 25 per cent.",
+      "hi": "अधिभार आयकर पर, स्वास्थ्य एवं शिक्षा उपकर से पूर्व लगाया जाता है, और सीमांत राहत के अधीन है। नई व्यवस्था में 37 प्रतिशत की उच्चतम दर वापस ले ली गई, जहाँ अधिभार 25 प्रतिशत पर सीमित है।"
+    },
+    "bands": [
+      {
+        "from": 5000000,
+        "to": 10000000,
+        "rate": 10,
+        "regimes": [
+          "old",
+          "new"
+        ]
+      },
+      {
+        "from": 10000000,
+        "to": 20000000,
+        "rate": 15,
+        "regimes": [
+          "old",
+          "new"
+        ]
+      },
+      {
+        "from": 20000000,
+        "to": 50000000,
+        "rate": 25,
+        "regimes": [
+          "old",
+          "new"
+        ]
+      },
+      {
+        "from": 50000000,
+        "to": null,
+        "rate": 37,
+        "regimes": [
+          "old"
+        ]
+      },
+      {
+        "from": 50000000,
+        "to": null,
+        "rate": 25,
+        "regimes": [
+          "new"
+        ]
+      }
+    ]
+  },
+  "cess": {
+    "name": {
+      "en": "Health and Education Cess",
+      "hi": "स्वास्थ्य एवं शिक्षा उपकर"
+    },
+    "rate": 4
+  }
+}

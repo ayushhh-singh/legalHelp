@@ -1,0 +1,76 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://sahayak.local/schemas/pay-cities.schema.json",
+  "title": "HRA city classification",
+  "description": "Every city classified X or Y for House Rent Allowance by the Annexure to DoE O.M. No. 2/5/2017-E.II(B) of 07.07.2017, which carries forward the 2011-census-based list of O.M. No. 2/5/2014-E.II(B) of 21.07.2015. Z is not a list: it is everything the annexure does not name, so `fallbackClass` says so and the UI must not present an empty search as 'not found'.",
+  "type": "object",
+  "required": ["version", "generatedAt", "fallbackClass", "classes", "disclaimer", "source", "cities"],
+  "additionalProperties": false,
+  "properties": {
+    "$schema": { "type": "string" },
+    "version": { "type": "string", "pattern": "^\\d+\\.\\d+\\.\\d+$" },
+    "generatedAt": { "type": "string" },
+    "disclaimer": { "$ref": "#/$defs/bilingual" },
+    "fallbackClass": { "const": "Z" },
+    "source": { "$ref": "#/$defs/source" },
+    "classes": {
+      "type": "array",
+      "minItems": 3,
+      "items": {
+        "type": "object",
+        "required": ["id", "name", "description"],
+        "additionalProperties": false,
+        "properties": {
+          "id": { "enum": ["X", "Y", "Z"] },
+          "name": { "$ref": "#/$defs/bilingual" },
+          "description": { "$ref": "#/$defs/bilingual" }
+        }
+      }
+    },
+    "cities": {
+      "type": "array",
+      "minItems": 90,
+      "items": { "$ref": "#/$defs/city" }
+    }
+  },
+  "$defs": {
+    "bilingual": {
+      "type": "object",
+      "required": ["en", "hi"],
+      "additionalProperties": false,
+      "properties": {
+        "en": { "type": "string", "minLength": 1 },
+        "hi": { "type": "string", "minLength": 1 }
+      }
+    },
+    "source": {
+      "type": "object",
+      "required": ["name", "url"],
+      "additionalProperties": false,
+      "properties": {
+        "name": { "type": "string", "minLength": 1 },
+        "url": { "type": "string", "pattern": "^https?://" },
+        "reference": { "type": "string" },
+        "dated": { "type": "string", "pattern": "^\\d{4}-\\d{2}-\\d{2}$" }
+      }
+    },
+    "city": {
+      "type": "object",
+      "required": ["id", "name", "state", "class", "unit", "source", "fetchedAt", "verify"],
+      "additionalProperties": false,
+      "properties": {
+        "id": { "type": "string", "pattern": "^[a-z0-9-]+$" },
+        "name": { "$ref": "#/$defs/bilingual" },
+        "aliases": { "type": "array", "items": { "type": "string", "minLength": 1 } },
+        "state": { "$ref": "#/$defs/bilingual" },
+        "class": { "enum": ["X", "Y"] },
+        "unit": { "enum": ["UA", "M.Corpn.", "CT", "NPP", "city"] },
+        "delhiRateProtected": { "type": "boolean" },
+        "note": { "oneOf": [{ "type": "null" }, { "$ref": "#/$defs/bilingual" }] },
+        "source": { "$ref": "#/$defs/source" },
+        "fetchedAt": { "type": "string" },
+        "verify": { "type": "boolean" }
+      }
+    }
+  }
+}

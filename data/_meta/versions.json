@@ -74,6 +74,161 @@
         "name": "NCRB Sankalan",
         "url": "https://www.ncrb.gov.in/uploads/SankalanPortal/Index.html"
       }
+    },
+    "pay-matrix": {
+      "version": "1.0.0",
+      "updated": "2026-08-28",
+      "label": {
+        "en": "7th CPC pay matrix",
+        "hi": "7वाँ केंद्रीय वेतन आयोग वेतन मैट्रिक्स"
+      },
+      "rows": 19,
+      "sha256": "80123abaf086ca64c5eb68940f2db874fc53c296ca653b9c26c86147ceaf3ef5",
+      "fetchedAt": "2026-08-28T00:00:00Z",
+      "source": {
+        "name": "Department of Expenditure, Ministry of Finance, and the other orders each record cites"
+      },
+      "cells": 540
+    },
+    "pay-da-history": {
+      "version": "1.0.0",
+      "updated": "2026-08-28",
+      "label": {
+        "en": "Dearness Allowance history",
+        "hi": "महँगाई भत्ता इतिहास"
+      },
+      "rows": 22,
+      "sha256": "aed017a1d28a0bc426465863ab1410c1783b6ef939c890c89c2b754aff4b4f57",
+      "fetchedAt": "2026-08-28T00:00:00Z",
+      "source": {
+        "name": "Department of Expenditure, Ministry of Finance, and the other orders each record cites"
+      }
+    },
+    "pay-cities": {
+      "version": "1.0.0",
+      "updated": "2026-08-28",
+      "label": {
+        "en": "HRA city classification",
+        "hi": "मकान किराया भत्ता शहर वर्गीकरण"
+      },
+      "rows": 102,
+      "sha256": "108dbcb3ff37918895d25823e80eb8823cf18d8ec0c13ee80308f837573b0c79",
+      "fetchedAt": "2026-08-28T00:00:00Z",
+      "source": {
+        "name": "Department of Expenditure, Ministry of Finance, and the other orders each record cites"
+      }
+    },
+    "pay-allowances": {
+      "version": "1.0.0",
+      "updated": "2026-08-28",
+      "label": {
+        "en": "Allowances",
+        "hi": "भत्ते"
+      },
+      "rows": 32,
+      "sha256": "9725c64156380f7fd79b48ba4751f0904488e4fd2f4383d6149bbda252439b67",
+      "fetchedAt": "2026-08-28T00:00:00Z",
+      "source": {
+        "name": "Department of Expenditure, Ministry of Finance, and the other orders each record cites"
+      }
+    },
+    "pay-jobs": {
+      "version": "1.0.0",
+      "updated": "2026-08-28",
+      "label": {
+        "en": "Posts and entry pay",
+        "hi": "पद तथा प्रवेश वेतन"
+      },
+      "rows": 67,
+      "sha256": "62801c61ca2964ba4176eabcebcab00d0e0f48788f5993cfe736727dc1e2688a",
+      "fetchedAt": "2026-08-28T00:00:00Z",
+      "source": {
+        "name": "Department of Expenditure, Ministry of Finance, and the other orders each record cites"
+      }
+    },
+    "pay-cghs": {
+      "version": "1.0.0",
+      "updated": "2026-08-28",
+      "label": {
+        "en": "CGHS contribution",
+        "hi": "सीजीएचएस अंशदान"
+      },
+      "rows": 4,
+      "sha256": "ed70d01b7b99f9e9655fd69600a7672e57460d542a0bd4c0df3cd753f9f3071f",
+      "fetchedAt": "2026-08-28T00:00:00Z",
+      "source": {
+        "name": "Department of Expenditure, Ministry of Finance, and the other orders each record cites"
+      }
+    },
+    "pay-cgegis": {
+      "version": "1.0.0",
+      "updated": "2026-08-28",
+      "label": {
+        "en": "CGEGIS subscription",
+        "hi": "सीजीईजीआईएस अंशदान"
+      },
+      "rows": 3,
+      "sha256": "5b7342394d6c939da840ec4a27475c61058457dddcd2ebf0ced05c3184e37694",
+      "fetchedAt": "2026-08-28T00:00:00Z",
+      "source": {
+        "name": "Department of Expenditure, Ministry of Finance, and the other orders each record cites"
+      }
+    },
+    "pay-nps": {
+      "version": "1.0.0",
+      "updated": "2026-08-28",
+      "label": {
+        "en": "National Pension System",
+        "hi": "राष्ट्रीय पेंशन प्रणाली"
+      },
+      "rows": 2,
+      "sha256": "bcb1d3fd4e8b81ec87462a5fb0ac7c5ff950468c22458091113fa7d608bd3391",
+      "fetchedAt": "2026-08-28T00:00:00Z",
+      "source": {
+        "name": "Department of Expenditure, Ministry of Finance, and the other orders each record cites"
+      }
+    },
+    "pay-ups": {
+      "version": "1.0.0",
+      "updated": "2026-08-28",
+      "label": {
+        "en": "Unified Pension Scheme",
+        "hi": "एकीकृत पेंशन योजना"
+      },
+      "rows": 5,
+      "sha256": "8d5b6db3a781ce7c3a0c47e3a1f5057279af157332b7c282e86b467277cd0b81",
+      "fetchedAt": "2026-08-28T00:00:00Z",
+      "source": {
+        "name": "Department of Expenditure, Ministry of Finance, and the other orders each record cites"
+      }
+    },
+    "pay-tax": {
+      "version": "1.0.0",
+      "updated": "2026-08-28",
+      "label": {
+        "en": "Income tax on salary, FY 2026-27",
+        "hi": "वेतन पर आयकर, वित्त वर्ष 2026-27"
+      },
+      "rows": 19,
+      "sha256": "d08f33208034abb124ae31e2c0a9bfe9c0578eec7fe602eb40bc0d9938c240b3",
+      "fetchedAt": "2026-08-28T00:00:00Z",
+      "source": {
+        "name": "Department of Expenditure, Ministry of Finance, and the other orders each record cites"
+      }
+    },
+    "pay-cpc8": {
+      "version": "1.0.0",
+      "updated": "2026-08-28",
+      "label": {
+        "en": "8th CPC status",
+        "hi": "8वें केंद्रीय वेतन आयोग की स्थिति"
+      },
+      "rows": 3,
+      "sha256": "7e2b5b8383391b64464322893c96f7d5bb414a119a57f4cc2b016811fdfb9991",
+      "fetchedAt": "2026-08-28T00:00:00Z",
+      "source": {
+        "name": "Department of Expenditure, Ministry of Finance, and the other orders each record cites"
+      }
     }
   },
   "generatedAt": "2026-08-28"

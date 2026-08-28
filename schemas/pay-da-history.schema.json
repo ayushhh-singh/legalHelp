@@ -1,0 +1,86 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://sahayak.local/schemas/pay-da-history.schema.json",
+  "title": "Dearness Allowance rate history",
+  "description": "Every rate of Dearness Allowance notified for Central Government employees under the 7th CPC pay structure, from the 01.01.2016 base of nil, plus the instalments that were announced but frozen, plus at most one forward-looking projection. A projected entry is never a notified rate: `status` says which, and the calculator must show the difference.",
+  "type": "object",
+  "required": ["version", "generatedAt", "base", "formula", "disclaimer", "rates"],
+  "additionalProperties": false,
+  "properties": {
+    "$schema": { "type": "string" },
+    "version": { "type": "string", "pattern": "^\\d+\\.\\d+\\.\\d+$" },
+    "generatedAt": { "type": "string" },
+    "disclaimer": { "$ref": "#/$defs/bilingual" },
+    "base": {
+      "type": "object",
+      "required": ["cpc", "from", "index", "linkingFactor"],
+      "additionalProperties": false,
+      "properties": {
+        "cpc": { "const": 7 },
+        "from": { "type": "string", "pattern": "^\\d{4}-\\d{2}-\\d{2}$" },
+        "index": { "type": "number" },
+        "linkingFactor": { "type": "number" },
+        "note": { "$ref": "#/$defs/bilingual" }
+      }
+    },
+    "formula": {
+      "type": "object",
+      "required": ["expression", "description", "source"],
+      "additionalProperties": false,
+      "properties": {
+        "expression": { "type": "string", "minLength": 1 },
+        "description": { "$ref": "#/$defs/bilingual" },
+        "source": { "$ref": "#/$defs/source" }
+      }
+    },
+    "rates": {
+      "type": "array",
+      "minItems": 19,
+      "items": { "$ref": "#/$defs/rate" }
+    }
+  },
+  "$defs": {
+    "bilingual": {
+      "type": "object",
+      "required": ["en", "hi"],
+      "additionalProperties": false,
+      "properties": {
+        "en": { "type": "string", "minLength": 1 },
+        "hi": { "type": "string", "minLength": 1 }
+      }
+    },
+    "source": {
+      "type": "object",
+      "required": ["name", "url"],
+      "additionalProperties": false,
+      "properties": {
+        "name": { "type": "string", "minLength": 1 },
+        "url": { "type": "string", "pattern": "^https?://" },
+        "reference": { "type": "string" },
+        "dated": { "type": "string", "pattern": "^\\d{4}-\\d{2}-\\d{2}$" },
+        "note": { "$ref": "#/$defs/bilingual" }
+      }
+    },
+    "rate": {
+      "type": "object",
+      "required": ["effectiveFrom", "rate", "status", "source", "fetchedAt", "verify"],
+      "additionalProperties": false,
+      "properties": {
+        "effectiveFrom": { "type": "string", "pattern": "^\\d{4}-\\d{2}-\\d{2}$" },
+        "rate": { "type": "number", "minimum": 0, "maximum": 300 },
+        "status": { "enum": ["notified", "frozen", "projected"] },
+        "supersededBy": { "oneOf": [{ "type": "null" }, { "type": "string" }] },
+        "range": {
+          "type": "object",
+          "required": ["low", "high"],
+          "additionalProperties": false,
+          "properties": { "low": { "type": "number" }, "high": { "type": "number" } }
+        },
+        "note": { "oneOf": [{ "type": "null" }, { "$ref": "#/$defs/bilingual" }] },
+        "source": { "$ref": "#/$defs/source" },
+        "fetchedAt": { "type": "string" },
+        "verify": { "type": "boolean" }
+      }
+    }
+  }
+}

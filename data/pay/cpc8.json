@@ -1,0 +1,166 @@
+{
+  "$schema": "../../schemas/pay-cpc8.schema.json",
+  "version": "1.0.0",
+  "generatedAt": "2026-08-28",
+  "disclaimer": {
+    "en": "Reference only; verify with the official gazette/order or your DDO.",
+    "hi": "केवल संदर्भ हेतु; आधिकारिक राजपत्र/आदेश अथवा अपने डीडीओ से पुष्टि करें।"
+  },
+  "status": "constituted",
+  "commission": {
+    "name": {
+      "en": "Eighth Central Pay Commission",
+      "hi": "आठवाँ केंद्रीय वेतन आयोग"
+    },
+    "constitutedOn": "2025-11-03",
+    "resolutionNumber": "F. No. 01-01/2025-E.III(A), Ministry of Finance (Department of Expenditure), published in the Gazette of India Extraordinary, Part I, Section 1",
+    "members": [
+      {
+        "role": { "en": "Chairperson", "hi": "अध्यक्ष" },
+        "name": { "en": "Justice Ranjana Prakash Desai", "hi": "न्यायमूर्ति रंजना प्रकाश देसाई" }
+      },
+      {
+        "role": { "en": "Member (Part-Time)", "hi": "सदस्य (अंशकालिक)" },
+        "name": { "en": "Prof. Pulak Ghosh", "hi": "प्रो. पुलक घोष" }
+      },
+      {
+        "role": { "en": "Member-Secretary", "hi": "सदस्य-सचिव" },
+        "name": { "en": "Shri Pankaj Jain", "hi": "श्री पंकज जैन" }
+      }
+    ],
+    "headquarters": { "en": "Delhi", "hi": "दिल्ली" },
+    "reportDue": {
+      "withinMonths": 18,
+      "notBefore": "2027-05-03",
+      "note": {
+        "en": "The resolution says the Commission will make its recommendations within 18 months of the date of its constitution, and may send interim reports on any matter as recommendations are finalised. Eighteen months from 3 November 2025 is 3 May 2027. No date of effect for any revised pay structure has been notified, and past Commissions have both overrun and been extended.",
+        "hi": "संकल्प कहता है कि आयोग अपने गठन की तारीख से 18 माह के भीतर अपनी सिफ़ारिशें देगा, और सिफ़ारिशों को अंतिम रूप दिए जाने पर किसी भी मामले पर अंतरिम रिपोर्ट भेज सकता है। 3 नवंबर 2025 से अठारह माह 3 मई 2027 होते हैं। किसी संशोधित वेतन संरचना के लिए कोई प्रभावी तिथि अधिसूचित नहीं हुई है, और पूर्व आयोगों ने समय-सीमा पार भी की है तथा उन्हें विस्तार भी मिला है।"
+      }
+    },
+    "source": {
+      "name": "Ministry of Finance (Department of Expenditure) Resolution constituting the Eighth Central Pay Commission",
+      "url": "https://doe.gov.in/files/cenetral-pay_document/8thcpcnotification.pdf",
+      "reference": "F. No. 01-01/2025-E.III(A)",
+      "dated": "2025-11-03"
+    },
+    "fetchedAt": "2026-08-28T00:00:00Z",
+    "verify": false
+  },
+  "termsOfReference": [
+    {
+      "key": "emoluments",
+      "text": {
+        "en": "To examine and recommend changes that are desirable and feasible in the emoluments — including pay, allowances and other facilities or benefits, in cash or kind — having regard to rationalisation, contemporary functional requirements and the specialised needs of various departments, agencies and services.",
+        "hi": "परिलब्धियों — जिनमें वेतन, भत्ते तथा नकद अथवा वस्तु-रूप में अन्य सुविधाएँ या लाभ सम्मिलित हैं — में वांछनीय एवं व्यवहार्य परिवर्तनों की जाँच कर उनकी सिफ़ारिश करना, जिसमें युक्तिकरण, समसामयिक कार्यात्मक आवश्यकताओं तथा विभिन्न विभागों, अभिकरणों एवं सेवाओं की विशेष आवश्यकताओं का ध्यान रखा जाए।"
+      }
+    },
+    {
+      "key": "coverage",
+      "text": {
+        "en": "The categories covered are Central Government employees, industrial and non-industrial; personnel of the All India Services; personnel of the Defence Forces; personnel of the Union Territories; officers and employees of the Indian Audit and Accounts Department; members of regulatory bodies set up under Acts of Parliament, excluding the Reserve Bank of India; officers and employees of the Supreme Court; officers and employees of High Courts whose expenditure is borne by the Union Territories; and judicial officers of the subordinate courts in the Union Territories.",
+        "hi": "आच्छादित श्रेणियाँ हैं: केंद्रीय सरकारी कर्मचारी, औद्योगिक तथा ग़ैर-औद्योगिक; अखिल भारतीय सेवाओं के कर्मी; रक्षा बलों के कर्मी; संघ राज्य क्षेत्रों के कर्मी; भारतीय लेखापरीक्षा एवं लेखा विभाग के अधिकारी एवं कर्मचारी; संसद के अधिनियमों के अंतर्गत गठित विनियामक निकायों के सदस्य, भारतीय रिज़र्व बैंक को छोड़कर; उच्चतम न्यायालय के अधिकारी एवं कर्मचारी; उन उच्च न्यायालयों के अधिकारी एवं कर्मचारी जिनका व्यय संघ राज्य क्षेत्रों द्वारा वहन किया जाता है; तथा संघ राज्य क्षेत्रों के अधीनस्थ न्यायालयों के न्यायिक अधिकारी।"
+      }
+    },
+    {
+      "key": "fiscal-considerations",
+      "text": {
+        "en": "In framing its recommendations the Commission is to have regard to the economic conditions and fiscal prudence of the country; the need to ensure adequate resources remain available for developmental expenditure and welfare measures; the unfunded cost of non-contributory pension schemes; the likely impact on the finances of State Governments, which usually adopt the recommendations with some modifications; and the prevailing emolument structure, benefits and working conditions available in Central Public Sector Undertakings and the private sector.",
+        "hi": "अपनी सिफ़ारिशें बनाते समय आयोग को इनका ध्यान रखना है: देश की आर्थिक स्थिति एवं राजकोषीय विवेक; विकासात्मक व्यय तथा कल्याणकारी उपायों के लिए पर्याप्त संसाधन उपलब्ध रहने की आवश्यकता; ग़ैर-अंशदायी पेंशन योजनाओं की ग़ैर-वित्तपोषित लागत; उन राज्य सरकारों की वित्त व्यवस्था पर संभावित प्रभाव, जो साधारणतः कुछ संशोधनों के साथ इन सिफ़ारिशों को अंगीकार करती हैं; तथा केंद्रीय सार्वजनिक क्षेत्र के उपक्रमों एवं निजी क्षेत्र में उपलब्ध प्रचलित परिलब्धि संरचना, लाभ एवं कार्य परिस्थितियाँ।"
+      }
+    },
+    {
+      "key": "procedure",
+      "text": {
+        "en": "The Commission will devise its own procedure, may appoint advisers, institutional consultants and experts, and may call for such information and take such evidence as it considers necessary. Ministries and Departments are to furnish what it requires.",
+        "hi": "आयोग अपनी कार्यप्रणाली स्वयं विकसित करेगा, सलाहकारों, संस्थागत परामर्शदाताओं तथा विशेषज्ञों की नियुक्ति कर सकता है, और ऐसी सूचना माँग सकता है तथा ऐसे साक्ष्य ले सकता है जिन्हें वह आवश्यक समझे। मंत्रालय एवं विभाग अपेक्षित सामग्री उपलब्ध कराएँगे।"
+      }
+    }
+  ],
+  "fitmentFactorsDiscussed": [
+    {
+      "value": 1.92,
+      "status": "projected",
+      "attributedTo": {
+        "en": "The lower end of the range appearing in press and staff-federation commentary, arrived at by applying the Aykroyd formula to current consumer price levels.",
+        "hi": "प्रेस तथा कर्मचारी महासंघों की टिप्पणियों में आने वाली परास का निचला सिरा, जो वर्तमान उपभोक्ता मूल्य स्तरों पर एक्रॉयड सूत्र लगाकर निकाला गया है।"
+      },
+      "note": {
+        "en": "Not a Government figure. No fitment factor has been recommended, accepted or notified.",
+        "hi": "यह सरकारी अंक नहीं है। किसी फिटमेंट फैक्टर की न सिफ़ारिश हुई है, न स्वीकृति और न अधिसूचना।"
+      },
+      "source": {
+        "name": "Press and staff-federation commentary on the Eighth Central Pay Commission",
+        "url": "https://doe.gov.in/central-pay-commission",
+        "note": {
+          "en": "No official document states this figure. The Department of Expenditure page is cited because it is where an official figure would appear when there is one.",
+          "hi": "कोई आधिकारिक दस्तावेज़ यह अंक नहीं बताता। व्यय विभाग का पृष्ठ इसलिए उद्धृत है क्योंकि आधिकारिक अंक आने पर वहीं आएगा।"
+        }
+      },
+      "fetchedAt": "2026-08-28T00:00:00Z",
+      "verify": true
+    },
+    {
+      "value": 2.57,
+      "status": "projected",
+      "attributedTo": {
+        "en": "The factor the 7th CPC itself used, quoted in commentary as the natural point of comparison rather than as a prediction.",
+        "hi": "स्वयं सातवें केंद्रीय वेतन आयोग द्वारा प्रयुक्त गुणक, जिसे टिप्पणियों में भविष्यवाणी के रूप में नहीं, बल्कि तुलना के स्वाभाविक बिंदु के रूप में उद्धृत किया जाता है।"
+      },
+      "note": {
+        "en": "This is a historical fact about the 7th CPC, not a projection for the 8th. It is listed here only because it anchors most of the public discussion.",
+        "hi": "यह सातवें केंद्रीय वेतन आयोग के बारे में ऐतिहासिक तथ्य है, आठवें के लिए प्रक्षेपण नहीं। इसे यहाँ केवल इसलिए दिया गया है क्योंकि अधिकांश सार्वजनिक चर्चा इसी पर टिकी है।"
+      },
+      "source": {
+        "name": "Report of the Seventh Central Pay Commission — Rule 7(1)(A)(i), CCS (Revised Pay) Rules, 2016",
+        "url": "https://doe.gov.in/files/cenetral-pay_document/7cpc_report_eng.pdf",
+        "dated": "2015-11-19"
+      },
+      "fetchedAt": "2026-08-28T00:00:00Z",
+      "verify": false
+    },
+    {
+      "value": 2.86,
+      "status": "projected",
+      "attributedTo": {
+        "en": "The upper end of the range, the figure staff federations have demanded in their memoranda and the one most often repeated in press reports.",
+        "hi": "परास का ऊपरी सिरा, वह अंक जिसकी माँग कर्मचारी महासंघों ने अपने ज्ञापनों में की है और जो प्रेस रिपोर्टों में सबसे अधिक दोहराया जाता है।"
+      },
+      "note": {
+        "en": "A demand, not a decision. No fitment factor has been recommended, accepted or notified.",
+        "hi": "यह माँग है, निर्णय नहीं। किसी फिटमेंट फैक्टर की न सिफ़ारिश हुई है, न स्वीकृति और न अधिसूचना।"
+      },
+      "source": {
+        "name": "Staff-federation memoranda and press reporting on the Eighth Central Pay Commission",
+        "url": "https://doe.gov.in/central-pay-commission",
+        "note": {
+          "en": "No official document states this figure. The Department of Expenditure page is cited because it is where an official figure would appear when there is one.",
+          "hi": "कोई आधिकारिक दस्तावेज़ यह अंक नहीं बताता। व्यय विभाग का पृष्ठ इसलिए उद्धृत है क्योंकि आधिकारिक अंक आने पर वहीं आएगा।"
+        }
+      },
+      "fetchedAt": "2026-08-28T00:00:00Z",
+      "verify": true
+    }
+  ],
+  "whatIsNotKnown": [
+    {
+      "en": "There is no 8th CPC pay matrix. Nothing has been recommended, so there is nothing to tabulate, and this dataset deliberately carries no matrix at all.",
+      "hi": "आठवें केंद्रीय वेतन आयोग का कोई वेतन मैट्रिक्स नहीं है। कुछ भी संस्तुत नहीं हुआ है, अतः सारणीबद्ध करने को कुछ नहीं है, और यह डेटासेट जानबूझकर कोई मैट्रिक्स नहीं रखता।"
+    },
+    {
+      "en": "No fitment factor has been recommended, accepted or notified. Every figure in the list above is somebody's estimate or demand.",
+      "hi": "किसी फिटमेंट फैक्टर की न सिफ़ारिश हुई है, न स्वीकृति और न अधिसूचना। ऊपर की सूची का प्रत्येक अंक किसी का अनुमान अथवा माँग है।"
+    },
+    {
+      "en": "No date of effect has been notified. The 7th CPC was given effect from 01.01.2016 and the 6th from 01.01.2006, but that is a pattern, not a rule, and the resolution constituting this Commission fixes no such date.",
+      "hi": "कोई प्रभावी तिथि अधिसूचित नहीं है। सातवाँ केंद्रीय वेतन आयोग 01.01.2016 से तथा छठा 01.01.2006 से प्रभावी हुआ था, किंतु यह प्रवृत्ति है, नियम नहीं, और इस आयोग के गठन का संकल्प ऐसी कोई तिथि नियत नहीं करता।"
+    },
+    {
+      "en": "Nothing is known about what will happen to individual allowances, the Risk and Hardship Matrix, or the pension schemes. The terms of reference cover them; the recommendations do not exist yet.",
+      "hi": "अलग-अलग भत्तों, जोखिम एवं कठिनाई मैट्रिक्स अथवा पेंशन योजनाओं के साथ क्या होगा, इस बारे में कुछ ज्ञात नहीं है। विचारार्थ विषय उन्हें आच्छादित करते हैं; सिफ़ारिशें अभी अस्तित्व में नहीं हैं।"
+    },
+    {
+      "en": "Any calculator that produces an '8th CPC salary' is multiplying a guess by a pay matrix. Treat the output as arithmetic on an assumption, never as an entitlement.",
+      "hi": "जो भी कैलकुलेटर '8वें वेतन आयोग का वेतन' निकालता है, वह एक अनुमान को वेतन मैट्रिक्स से गुणा कर रहा है। परिणाम को किसी धारणा पर किया गया अंकगणित मानें, हक़ कभी नहीं।"
+    }
+  ]
+}

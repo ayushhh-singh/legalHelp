@@ -1,0 +1,456 @@
+{
+  "$schema": "../../schemas/pay-da-history.schema.json",
+  "version": "1.0.0",
+  "generatedAt": "2026-08-28",
+  "disclaimer": {
+    "en": "Reference only; verify with the official gazette/order or your DDO.",
+    "hi": "केवल संदर्भ हेतु; आधिकारिक राजपत्र/आदेश अथवा अपने डीडीओ से पुष्टि करें।"
+  },
+  "base": {
+    "cpc": 7,
+    "from": "2016-01-01",
+    "index": 261.4,
+    "linkingFactor": 2.88,
+    "note": {
+      "en": "The 7th CPC pay matrix subsumed the Dearness Allowance payable on 01.01.2016, so DA restarted at nil on that date. 261.4 is the 12-month average of the AICPI-IW (2001=100) ending December 2015; 2.88 is the factor that links the 2016=100 series the Labour Bureau now publishes back to that base.",
+      "hi": "7वें केंद्रीय वेतन आयोग के वेतन मैट्रिक्स में 01.01.2016 को देय महँगाई भत्ता समाहित कर लिया गया था, इसलिए उस तिथि से महँगाई भत्ता शून्य से पुनः आरंभ हुआ। 261.4 दिसंबर 2015 को समाप्त होने वाले 12 माह का अखिल भारतीय उपभोक्ता मूल्य सूचकांक (औद्योगिक श्रमिक, 2001=100) का औसत है; 2.88 वह गुणक है जो श्रम ब्यूरो द्वारा अब प्रकाशित 2016=100 श्रृंखला को उसी आधार से जोड़ता है।"
+    }
+  },
+  "formula": {
+    "expression": "DA% = ((12-month average of AICPI-IW(2016=100) x 2.88) - 261.4) / 261.4 x 100",
+    "description": {
+      "en": "Dearness Allowance is revised twice a year, from 1 January and 1 July, on the 12-month average of the All India Consumer Price Index for Industrial Workers ending the previous December and June respectively. The Government notifies the rate in whole per cent.",
+      "hi": "महँगाई भत्ते का पुनरीक्षण वर्ष में दो बार, 1 जनवरी और 1 जुलाई से, क्रमशः पिछले दिसंबर और जून को समाप्त होने वाले 12 माह के अखिल भारतीय उपभोक्ता मूल्य सूचकांक (औद्योगिक श्रमिक) के औसत पर किया जाता है। सरकार दर को पूर्ण प्रतिशत में अधिसूचित करती है।"
+    },
+    "source": {
+      "name": "Report of the Seventh Central Pay Commission, Chapter 8.17 (Dearness Allowance)",
+      "url": "https://doe.gov.in/files/cenetral-pay_document/7cpc_report_eng.pdf",
+      "dated": "2015-11-19"
+    }
+  },
+  "rates": [
+    {
+      "effectiveFrom": "2016-01-01",
+      "rate": 0,
+      "status": "notified",
+      "note": {
+        "en": "The base date of the 7th CPC pay structure. Dearness Allowance as on 01.01.2016 was merged into the revised pay, so no DA was payable on the revised basic pay from this date.",
+        "hi": "7वें केंद्रीय वेतन आयोग की वेतन संरचना की आधार तिथि। 01.01.2016 को देय महँगाई भत्ता संशोधित वेतन में मिला दिया गया, अतः इस तिथि से संशोधित मूल वेतन पर कोई महँगाई भत्ता देय नहीं था।"
+      },
+      "source": {
+        "name": "CCS (Revised Pay) Rules, 2016",
+        "url": "https://thc.nic.in/Central%20Governmental%20Rules/Central%20Civil%20Services%20(Revised%20Pay)%20Rules,%202016.pdf",
+        "reference": "G.S.R. 721(E)",
+        "dated": "2016-07-25"
+      },
+      "fetchedAt": "2026-08-28T00:00:00Z",
+      "verify": false
+    },
+    {
+      "effectiveFrom": "2016-07-01",
+      "rate": 2,
+      "status": "notified",
+      "note": null,
+      "source": {
+        "name": "Department of Expenditure, Ministry of Finance — Dearness Allowance orders (7th CPC)",
+        "url": "https://doe.gov.in/order-central-pay-commission/16",
+        "reference": "O.M. No. 1/3/2008-E.II(B)",
+        "dated": "2016-11-04",
+        "note": {
+          "en": "The Department of Expenditure keeps only the current Dearness Allowance order at a fixed path and does not archive superseded ones, so the order reference here has not been re-read from its own PDF.",
+          "hi": "व्यय विभाग एक निश्चित पथ पर केवल वर्तमान महँगाई भत्ता आदेश रखता है और अधिक्रमित आदेशों को संग्रहीत नहीं करता, अतः यहाँ दिया गया आदेश संदर्भ उसकी अपनी पीडीएफ़ से पुनः नहीं पढ़ा गया है।"
+        }
+      },
+      "fetchedAt": "2026-08-28T00:00:00Z",
+      "verify": true
+    },
+    {
+      "effectiveFrom": "2017-01-01",
+      "rate": 4,
+      "status": "notified",
+      "note": null,
+      "source": {
+        "name": "Department of Expenditure, Ministry of Finance — Dearness Allowance orders (7th CPC)",
+        "url": "https://doe.gov.in/order-central-pay-commission/16",
+        "reference": "O.M. No. 1/3/2017-E.II(B)",
+        "dated": "2017-03-30",
+        "note": {
+          "en": "Order reference not re-read from its own PDF; the Department of Expenditure does not archive superseded Dearness Allowance orders.",
+          "hi": "आदेश संदर्भ उसकी अपनी पीडीएफ़ से पुनः नहीं पढ़ा गया; व्यय विभाग अधिक्रमित महँगाई भत्ता आदेशों को संग्रहीत नहीं करता।"
+        }
+      },
+      "fetchedAt": "2026-08-28T00:00:00Z",
+      "verify": true
+    },
+    {
+      "effectiveFrom": "2017-07-01",
+      "rate": 5,
+      "status": "notified",
+      "note": null,
+      "source": {
+        "name": "Department of Expenditure, Ministry of Finance — Dearness Allowance orders (7th CPC)",
+        "url": "https://doe.gov.in/order-central-pay-commission/16",
+        "reference": "O.M. No. 1/9/2017-E.II(B)",
+        "dated": "2017-09-20",
+        "note": {
+          "en": "Order reference not re-read from its own PDF; the Department of Expenditure does not archive superseded Dearness Allowance orders.",
+          "hi": "आदेश संदर्भ उसकी अपनी पीडीएफ़ से पुनः नहीं पढ़ा गया; व्यय विभाग अधिक्रमित महँगाई भत्ता आदेशों को संग्रहीत नहीं करता।"
+        }
+      },
+      "fetchedAt": "2026-08-28T00:00:00Z",
+      "verify": true
+    },
+    {
+      "effectiveFrom": "2018-01-01",
+      "rate": 7,
+      "status": "notified",
+      "note": null,
+      "source": {
+        "name": "Department of Expenditure, Ministry of Finance — Dearness Allowance orders (7th CPC)",
+        "url": "https://doe.gov.in/order-central-pay-commission/16",
+        "reference": "O.M. No. 1/1/2018-E.II(B)",
+        "dated": "2018-03-15",
+        "note": {
+          "en": "Order reference not re-read from its own PDF; the Department of Expenditure does not archive superseded Dearness Allowance orders.",
+          "hi": "आदेश संदर्भ उसकी अपनी पीडीएफ़ से पुनः नहीं पढ़ा गया; व्यय विभाग अधिक्रमित महँगाई भत्ता आदेशों को संग्रहीत नहीं करता।"
+        }
+      },
+      "fetchedAt": "2026-08-28T00:00:00Z",
+      "verify": true
+    },
+    {
+      "effectiveFrom": "2018-07-01",
+      "rate": 9,
+      "status": "notified",
+      "note": null,
+      "source": {
+        "name": "Department of Expenditure, Ministry of Finance — Dearness Allowance orders (7th CPC)",
+        "url": "https://doe.gov.in/order-central-pay-commission/16",
+        "reference": "O.M. No. 1/2/2018-E.II(B)",
+        "dated": "2018-09-07",
+        "note": {
+          "en": "Order reference not re-read from its own PDF; the Department of Expenditure does not archive superseded Dearness Allowance orders.",
+          "hi": "आदेश संदर्भ उसकी अपनी पीडीएफ़ से पुनः नहीं पढ़ा गया; व्यय विभाग अधिक्रमित महँगाई भत्ता आदेशों को संग्रहीत नहीं करता।"
+        }
+      },
+      "fetchedAt": "2026-08-28T00:00:00Z",
+      "verify": true
+    },
+    {
+      "effectiveFrom": "2019-01-01",
+      "rate": 12,
+      "status": "notified",
+      "note": null,
+      "source": {
+        "name": "Department of Expenditure, Ministry of Finance — Dearness Allowance orders (7th CPC)",
+        "url": "https://doe.gov.in/order-central-pay-commission/16",
+        "reference": "O.M. No. 1/1/2019-E.II(B)",
+        "dated": "2019-03-01",
+        "note": {
+          "en": "Order reference not re-read from its own PDF; the Department of Expenditure does not archive superseded Dearness Allowance orders.",
+          "hi": "आदेश संदर्भ उसकी अपनी पीडीएफ़ से पुनः नहीं पढ़ा गया; व्यय विभाग अधिक्रमित महँगाई भत्ता आदेशों को संग्रहीत नहीं करता।"
+        }
+      },
+      "fetchedAt": "2026-08-28T00:00:00Z",
+      "verify": true
+    },
+    {
+      "effectiveFrom": "2019-07-01",
+      "rate": 17,
+      "status": "notified",
+      "note": {
+        "en": "The last rate paid before the freeze. It stayed in force until 30.06.2021.",
+        "hi": "रोक से पूर्व भुगतान की गई अंतिम दर। यह 30.06.2021 तक प्रभावी रही।"
+      },
+      "source": {
+        "name": "Department of Expenditure, Ministry of Finance — Dearness Allowance orders (7th CPC)",
+        "url": "https://doe.gov.in/order-central-pay-commission/16",
+        "reference": "O.M. No. 1/3/2019-E.II(B)",
+        "dated": "2019-10-14",
+        "note": {
+          "en": "Order reference not re-read from its own PDF; the Department of Expenditure does not archive superseded Dearness Allowance orders.",
+          "hi": "आदेश संदर्भ उसकी अपनी पीडीएफ़ से पुनः नहीं पढ़ा गया; व्यय विभाग अधिक्रमित महँगाई भत्ता आदेशों को संग्रहीत नहीं करता।"
+        }
+      },
+      "fetchedAt": "2026-08-28T00:00:00Z",
+      "verify": true
+    },
+    {
+      "effectiveFrom": "2020-01-01",
+      "rate": 21,
+      "status": "frozen",
+      "supersededBy": "2021-07-01",
+      "note": {
+        "en": "Announced but not paid. Three instalments — 01.01.2020, 01.07.2020 and 01.01.2021 — were frozen during the COVID-19 pandemic and no arrears were paid for the frozen period. Do not use this rate for any period.",
+        "hi": "घोषित किंतु भुगतान नहीं। कोविड-19 महामारी के दौरान तीन किस्तें — 01.01.2020, 01.07.2020 तथा 01.01.2021 — रोक दी गई थीं और रोक अवधि का कोई बकाया नहीं दिया गया। इस दर का किसी भी अवधि के लिए उपयोग न करें।"
+      },
+      "source": {
+        "name": "Department of Expenditure, Ministry of Finance — freezing of Dearness Allowance",
+        "url": "https://doe.gov.in/order-central-pay-commission/16",
+        "reference": "O.M. No. 1/1/2020-E.II(B)",
+        "dated": "2020-04-23",
+        "note": {
+          "en": "Order reference not re-read from its own PDF; the Department of Expenditure does not archive superseded Dearness Allowance orders.",
+          "hi": "आदेश संदर्भ उसकी अपनी पीडीएफ़ से पुनः नहीं पढ़ा गया; व्यय विभाग अधिक्रमित महँगाई भत्ता आदेशों को संग्रहीत नहीं करता।"
+        }
+      },
+      "fetchedAt": "2026-08-28T00:00:00Z",
+      "verify": true
+    },
+    {
+      "effectiveFrom": "2020-07-01",
+      "rate": 24,
+      "status": "frozen",
+      "supersededBy": "2021-07-01",
+      "note": {
+        "en": "Announced but not paid — the second of the three frozen instalments. Do not use this rate for any period.",
+        "hi": "घोषित किंतु भुगतान नहीं — तीन रोकी गई किस्तों में से दूसरी। इस दर का किसी भी अवधि के लिए उपयोग न करें।"
+      },
+      "source": {
+        "name": "Department of Expenditure, Ministry of Finance — freezing of Dearness Allowance",
+        "url": "https://doe.gov.in/order-central-pay-commission/16",
+        "reference": "O.M. No. 1/1/2020-E.II(B)",
+        "dated": "2020-04-23",
+        "note": {
+          "en": "Order reference not re-read from its own PDF; the Department of Expenditure does not archive superseded Dearness Allowance orders.",
+          "hi": "आदेश संदर्भ उसकी अपनी पीडीएफ़ से पुनः नहीं पढ़ा गया; व्यय विभाग अधिक्रमित महँगाई भत्ता आदेशों को संग्रहीत नहीं करता।"
+        }
+      },
+      "fetchedAt": "2026-08-28T00:00:00Z",
+      "verify": true
+    },
+    {
+      "effectiveFrom": "2021-07-01",
+      "rate": 28,
+      "status": "notified",
+      "supersededBy": "2021-07-01",
+      "note": {
+        "en": "Restoration. The three frozen instalments were subsumed into a single rate of 28% payable from 01.07.2021, with no arrears for the frozen period. Superseded three months later by 31% from the same date — use 31% for any month from July 2021.",
+        "hi": "पुनर्बहाली। तीनों रोकी गई किस्तों को 01.07.2021 से देय एकल 28% की दर में समाहित कर दिया गया, रोक अवधि का कोई बकाया नहीं। तीन माह बाद उसी तिथि से 31% द्वारा अधिक्रमित — जुलाई 2021 से किसी भी माह के लिए 31% का प्रयोग करें।"
+      },
+      "source": {
+        "name": "Department of Expenditure, Ministry of Finance — restoration of Dearness Allowance",
+        "url": "https://doe.gov.in/order-central-pay-commission/16",
+        "reference": "O.M. No. 1/1/2021-E.II(B)",
+        "dated": "2021-07-20",
+        "note": {
+          "en": "Order reference not re-read from its own PDF; the Department of Expenditure does not archive superseded Dearness Allowance orders.",
+          "hi": "आदेश संदर्भ उसकी अपनी पीडीएफ़ से पुनः नहीं पढ़ा गया; व्यय विभाग अधिक्रमित महँगाई भत्ता आदेशों को संग्रहीत नहीं करता।"
+        }
+      },
+      "fetchedAt": "2026-08-28T00:00:00Z",
+      "verify": true
+    },
+    {
+      "effectiveFrom": "2021-07-01",
+      "rate": 31,
+      "status": "notified",
+      "note": {
+        "en": "The July 2021 instalment, added to the restored 28% from the same date. This is the rate actually payable for every month from July 2021 to December 2021.",
+        "hi": "जुलाई 2021 की किस्त, उसी तिथि से पुनर्बहाल 28% में जोड़ी गई। जुलाई 2021 से दिसंबर 2021 तक प्रत्येक माह के लिए वास्तव में यही दर देय है।"
+      },
+      "source": {
+        "name": "Department of Expenditure, Ministry of Finance — Dearness Allowance orders (7th CPC)",
+        "url": "https://doe.gov.in/order-central-pay-commission/16",
+        "reference": "O.M. No. 1/2/2021-E.II(B)",
+        "dated": "2021-10-25",
+        "note": {
+          "en": "Order reference not re-read from its own PDF; the Department of Expenditure does not archive superseded Dearness Allowance orders.",
+          "hi": "आदेश संदर्भ उसकी अपनी पीडीएफ़ से पुनः नहीं पढ़ा गया; व्यय विभाग अधिक्रमित महँगाई भत्ता आदेशों को संग्रहीत नहीं करता।"
+        }
+      },
+      "fetchedAt": "2026-08-28T00:00:00Z",
+      "verify": true
+    },
+    {
+      "effectiveFrom": "2022-01-01",
+      "rate": 34,
+      "status": "notified",
+      "note": null,
+      "source": {
+        "name": "Department of Expenditure, Ministry of Finance — Dearness Allowance orders (7th CPC)",
+        "url": "https://doe.gov.in/order-central-pay-commission/16",
+        "reference": "O.M. No. 1/1/2022-E.II(B)",
+        "dated": "2022-03-31",
+        "note": {
+          "en": "Order reference not re-read from its own PDF; the Department of Expenditure does not archive superseded Dearness Allowance orders.",
+          "hi": "आदेश संदर्भ उसकी अपनी पीडीएफ़ से पुनः नहीं पढ़ा गया; व्यय विभाग अधिक्रमित महँगाई भत्ता आदेशों को संग्रहीत नहीं करता।"
+        }
+      },
+      "fetchedAt": "2026-08-28T00:00:00Z",
+      "verify": true
+    },
+    {
+      "effectiveFrom": "2022-07-01",
+      "rate": 38,
+      "status": "notified",
+      "note": null,
+      "source": {
+        "name": "Department of Expenditure, Ministry of Finance — Dearness Allowance orders (7th CPC)",
+        "url": "https://doe.gov.in/order-central-pay-commission/16",
+        "reference": "O.M. No. 1/3/2022-E.II(B)",
+        "dated": "2022-10-04",
+        "note": {
+          "en": "Order reference not re-read from its own PDF; the Department of Expenditure does not archive superseded Dearness Allowance orders.",
+          "hi": "आदेश संदर्भ उसकी अपनी पीडीएफ़ से पुनः नहीं पढ़ा गया; व्यय विभाग अधिक्रमित महँगाई भत्ता आदेशों को संग्रहीत नहीं करता।"
+        }
+      },
+      "fetchedAt": "2026-08-28T00:00:00Z",
+      "verify": true
+    },
+    {
+      "effectiveFrom": "2023-01-01",
+      "rate": 42,
+      "status": "notified",
+      "note": null,
+      "source": {
+        "name": "Department of Expenditure, Ministry of Finance — Dearness Allowance orders (7th CPC)",
+        "url": "https://doe.gov.in/order-central-pay-commission/16",
+        "reference": "O.M. No. 1/1/2023-E.II(B)",
+        "dated": "2023-04-03",
+        "note": {
+          "en": "Order reference not re-read from its own PDF; the Department of Expenditure does not archive superseded Dearness Allowance orders.",
+          "hi": "आदेश संदर्भ उसकी अपनी पीडीएफ़ से पुनः नहीं पढ़ा गया; व्यय विभाग अधिक्रमित महँगाई भत्ता आदेशों को संग्रहीत नहीं करता।"
+        }
+      },
+      "fetchedAt": "2026-08-28T00:00:00Z",
+      "verify": true
+    },
+    {
+      "effectiveFrom": "2023-07-01",
+      "rate": 46,
+      "status": "notified",
+      "note": null,
+      "source": {
+        "name": "Department of Expenditure, Ministry of Finance — Dearness Allowance orders (7th CPC)",
+        "url": "https://doe.gov.in/order-central-pay-commission/16",
+        "reference": "O.M. No. 1/2/2023-E.II(B)",
+        "dated": "2023-10-20",
+        "note": {
+          "en": "Order reference not re-read from its own PDF; the Department of Expenditure does not archive superseded Dearness Allowance orders.",
+          "hi": "आदेश संदर्भ उसकी अपनी पीडीएफ़ से पुनः नहीं पढ़ा गया; व्यय विभाग अधिक्रमित महँगाई भत्ता आदेशों को संग्रहीत नहीं करता।"
+        }
+      },
+      "fetchedAt": "2026-08-28T00:00:00Z",
+      "verify": true
+    },
+    {
+      "effectiveFrom": "2024-01-01",
+      "rate": 50,
+      "status": "notified",
+      "note": {
+        "en": "The threshold instalment. Every allowance that rises by 25% each time Dearness Allowance crosses 50% — Children Education Allowance, Hostel Subsidy, Dress Allowance, the Risk and Hardship cells, Deputation (Duty) Allowance ceilings, Tough Location Allowance and others — was enhanced from this date. House Rent Allowance moved to 30/20/10% from the same date.",
+        "hi": "सीमा-किस्त। जो भी भत्ता महँगाई भत्ते के 50% पार करने पर 25% बढ़ता है — बाल शिक्षा भत्ता, छात्रावास सब्सिडी, वस्त्र भत्ता, जोखिम एवं कठिनाई मैट्रिक्स की दरें, प्रतिनियुक्ति (ड्यूटी) भत्ते की उच्चतम सीमाएँ, कठिन स्थल भत्ता आदि — वह इस तिथि से बढ़ा दिया गया। मकान किराया भत्ता भी उसी तिथि से 30/20/10% हो गया।"
+      },
+      "source": {
+        "name": "Department of Expenditure, Ministry of Finance — Dearness Allowance orders (7th CPC)",
+        "url": "https://doe.gov.in/order-central-pay-commission/16",
+        "reference": "O.M. No. 1/1/2024-E.II(B)",
+        "dated": "2024-03-12",
+        "note": {
+          "en": "Order reference not re-read from its own PDF; the Department of Expenditure does not archive superseded Dearness Allowance orders.",
+          "hi": "आदेश संदर्भ उसकी अपनी पीडीएफ़ से पुनः नहीं पढ़ा गया; व्यय विभाग अधिक्रमित महँगाई भत्ता आदेशों को संग्रहीत नहीं करता।"
+        }
+      },
+      "fetchedAt": "2026-08-28T00:00:00Z",
+      "verify": true
+    },
+    {
+      "effectiveFrom": "2024-07-01",
+      "rate": 53,
+      "status": "notified",
+      "note": null,
+      "source": {
+        "name": "Department of Expenditure, Ministry of Finance — Dearness Allowance orders (7th CPC)",
+        "url": "https://doe.gov.in/order-central-pay-commission/16",
+        "reference": "O.M. No. 1/3/2024-E.II(B)",
+        "dated": "2024-10-22",
+        "note": {
+          "en": "Order reference not re-read from its own PDF; the Department of Expenditure does not archive superseded Dearness Allowance orders.",
+          "hi": "आदेश संदर्भ उसकी अपनी पीडीएफ़ से पुनः नहीं पढ़ा गया; व्यय विभाग अधिक्रमित महँगाई भत्ता आदेशों को संग्रहीत नहीं करता।"
+        }
+      },
+      "fetchedAt": "2026-08-28T00:00:00Z",
+      "verify": true
+    },
+    {
+      "effectiveFrom": "2025-01-01",
+      "rate": 55,
+      "status": "notified",
+      "note": {
+        "en": "Cited by number and date in the order of 06.10.2025, which was read in full.",
+        "hi": "06.10.2025 के आदेश में संख्या एवं तिथि सहित उद्धृत, जिसे पूर्ण रूप से पढ़ा गया है।"
+      },
+      "source": {
+        "name": "Department of Expenditure, Ministry of Finance — Dearness Allowance orders (7th CPC)",
+        "url": "https://doe.gov.in/order-central-pay-commission/16",
+        "reference": "O.M. No. 1/1(i)/2025-E.II(B)",
+        "dated": "2025-04-02"
+      },
+      "fetchedAt": "2026-08-28T00:00:00Z",
+      "verify": true
+    },
+    {
+      "effectiveFrom": "2025-07-01",
+      "rate": 58,
+      "status": "notified",
+      "note": {
+        "en": "Read from the order itself.",
+        "hi": "आदेश से ही पढ़ा गया।"
+      },
+      "source": {
+        "name": "Revision of rates of Dearness Allowance to Central Government employees effective from 01.07.2025",
+        "url": "https://doe.gov.in/files/circulars_document/DAeng7CPC.pdf",
+        "reference": "O.M. No. 1/4(i)/2025-E.II(B)",
+        "dated": "2025-10-06",
+        "note": {
+          "en": "The Department of Expenditure serves the previous Dearness Allowance order at this fixed path and replaces it on the next revision, so the file at this URL will change.",
+          "hi": "व्यय विभाग इस निश्चित पथ पर पिछला महँगाई भत्ता आदेश देता है और अगले पुनरीक्षण पर उसे बदल देता है, अतः इस यूआरएल की फ़ाइल बदल जाएगी।"
+        }
+      },
+      "fetchedAt": "2026-08-28T00:00:00Z",
+      "verify": false
+    },
+    {
+      "effectiveFrom": "2026-01-01",
+      "rate": 60,
+      "status": "notified",
+      "note": {
+        "en": "Read from the order itself. This is the rate in force.",
+        "hi": "आदेश से ही पढ़ा गया। यही प्रवृत्त दर है।"
+      },
+      "source": {
+        "name": "Revision of rates of Dearness Allowance to Central Government employees effective from 01.01.2026",
+        "url": "https://doe.gov.in/files/circulars_document/DAorder7cpc.pdf",
+        "reference": "O.M. No. 1/1(i)/2026-E.II(B)",
+        "dated": "2026-04-22",
+        "note": {
+          "en": "The Department of Expenditure serves the current Dearness Allowance order at this fixed path and replaces it on the next revision, so the file at this URL will change.",
+          "hi": "व्यय विभाग इस निश्चित पथ पर वर्तमान महँगाई भत्ता आदेश देता है और अगले पुनरीक्षण पर उसे बदल देता है, अतः इस यूआरएल की फ़ाइल बदल जाएगी।"
+        }
+      },
+      "fetchedAt": "2026-08-28T00:00:00Z",
+      "verify": false
+    },
+    {
+      "effectiveFrom": "2026-07-01",
+      "rate": 63,
+      "status": "projected",
+      "range": { "low": 62, "high": 64 },
+      "note": {
+        "en": "Projection, not a rate. No order has been issued for 01.07.2026. The AICPI-IW readings published by the Labour Bureau for the window July 2025 to June 2026 put the formula's output in the low 60s, and the Government notifies whole per cent. Treat any figure here as an estimate until the Department of Expenditure order appears, and never use it for arrears or a pay slip.",
+        "hi": "यह प्रक्षेपण है, दर नहीं। 01.07.2026 के लिए कोई आदेश जारी नहीं हुआ है। श्रम ब्यूरो द्वारा जुलाई 2025 से जून 2026 की अवधि के लिए प्रकाशित उपभोक्ता मूल्य सूचकांक (औद्योगिक श्रमिक) के आँकड़े सूत्र का परिणाम 60 के आरंभिक दशक में रखते हैं, और सरकार पूर्ण प्रतिशत में अधिसूचित करती है। व्यय विभाग का आदेश आने तक यहाँ दिए किसी भी अंक को अनुमान ही मानें, और बकाया अथवा वेतन पर्ची के लिए इसका कभी प्रयोग न करें।"
+      },
+      "source": {
+        "name": "Labour Bureau, Ministry of Labour and Employment — All India Consumer Price Index for Industrial Workers (2016=100)",
+        "url": "https://labourbureau.gov.in/",
+        "note": {
+          "en": "Derived by applying the published formula to the monthly AICPI-IW series; not an order, and not an official projection.",
+          "hi": "प्रकाशित सूत्र को मासिक उपभोक्ता मूल्य सूचकांक (औद्योगिक श्रमिक) श्रृंखला पर लागू करके व्युत्पन्न; यह न कोई आदेश है और न ही कोई आधिकारिक प्रक्षेपण।"
+        }
+      },
+      "fetchedAt": "2026-08-28T00:00:00Z",
+      "verify": true
+    }
+  ]
+}

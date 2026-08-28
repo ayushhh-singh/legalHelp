@@ -1,0 +1,138 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://sahayak.local/schemas/pay-tax.schema.json",
+  "title": "Income tax on salary",
+  "description": "The slabs, deductions and exemptions a Central Government employee needs to compare the old and the new regime for one financial year. Section labels are given under the Income-tax Act, 1961, which every officer knows, with the Income-tax Act, 2025 number alongside where it has been confirmed — the 2025 Act commences on 1 April 2026 and renumbers everything.",
+  "type": "object",
+  "required": ["version", "generatedAt", "financialYear", "taxYear", "disclaimer", "regimes", "deductions", "exemptions", "surcharge", "cess"],
+  "additionalProperties": false,
+  "properties": {
+    "$schema": { "type": "string" },
+    "version": { "type": "string", "pattern": "^\\d+\\.\\d+\\.\\d+$" },
+    "generatedAt": { "type": "string" },
+    "financialYear": { "type": "string", "pattern": "^\\d{4}-\\d{2}$" },
+    "taxYear": { "type": "string", "pattern": "^\\d{4}-\\d{2}$" },
+    "disclaimer": { "$ref": "#/$defs/bilingual" },
+    "note": { "oneOf": [{ "type": "null" }, { "$ref": "#/$defs/bilingual" }] },
+    "regimes": {
+      "type": "array",
+      "minItems": 2,
+      "items": { "$ref": "#/$defs/regime" }
+    },
+    "deductions": { "type": "array", "minItems": 1, "items": { "$ref": "#/$defs/provision" } },
+    "exemptions": { "type": "array", "minItems": 1, "items": { "$ref": "#/$defs/provision" } },
+    "surcharge": {
+      "type": "object",
+      "required": ["bands", "note"],
+      "additionalProperties": false,
+      "properties": {
+        "note": { "$ref": "#/$defs/bilingual" },
+        "bands": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "required": ["from", "to", "rate", "regimes"],
+            "additionalProperties": false,
+            "properties": {
+              "from": { "type": "number", "minimum": 0 },
+              "to": { "oneOf": [{ "type": "null" }, { "type": "number" }] },
+              "rate": { "type": "number", "minimum": 0 },
+              "regimes": { "type": "array", "items": { "enum": ["old", "new"] } }
+            }
+          }
+        }
+      }
+    },
+    "cess": {
+      "type": "object",
+      "required": ["name", "rate"],
+      "additionalProperties": false,
+      "properties": {
+        "name": { "$ref": "#/$defs/bilingual" },
+        "rate": { "type": "number", "minimum": 0 }
+      }
+    }
+  },
+  "$defs": {
+    "bilingual": {
+      "type": "object",
+      "required": ["en", "hi"],
+      "additionalProperties": false,
+      "properties": {
+        "en": { "type": "string", "minLength": 1 },
+        "hi": { "type": "string", "minLength": 1 }
+      }
+    },
+    "source": {
+      "type": "object",
+      "required": ["name", "url"],
+      "additionalProperties": false,
+      "properties": {
+        "name": { "type": "string", "minLength": 1 },
+        "url": { "type": "string", "pattern": "^https?://" },
+        "reference": { "type": "string" },
+        "dated": { "type": "string", "pattern": "^\\d{4}-\\d{2}-\\d{2}$" },
+        "note": { "$ref": "#/$defs/bilingual" }
+      }
+    },
+    "regime": {
+      "type": "object",
+      "required": ["id", "name", "isDefault", "standardDeduction", "slabs", "rebate", "source", "fetchedAt", "verify"],
+      "additionalProperties": false,
+      "properties": {
+        "id": { "enum": ["old", "new"] },
+        "name": { "$ref": "#/$defs/bilingual" },
+        "isDefault": { "type": "boolean" },
+        "standardDeduction": { "type": "integer", "minimum": 0 },
+        "slabs": {
+          "type": "array",
+          "minItems": 3,
+          "items": {
+            "type": "object",
+            "required": ["from", "to", "rate"],
+            "additionalProperties": false,
+            "properties": {
+              "from": { "type": "integer", "minimum": 0 },
+              "to": { "oneOf": [{ "type": "null" }, { "type": "integer" }] },
+              "rate": { "type": "number", "minimum": 0, "maximum": 100 },
+              "ageBand": { "enum": ["below-60", "60-to-80", "80-and-above"] }
+            }
+          }
+        },
+        "rebate": {
+          "type": "object",
+          "required": ["section", "incomeCeiling", "maxRebate"],
+          "additionalProperties": false,
+          "properties": {
+            "section": { "type": "string", "minLength": 1 },
+            "incomeCeiling": { "type": "integer", "minimum": 0 },
+            "maxRebate": { "type": "integer", "minimum": 0 },
+            "note": { "oneOf": [{ "type": "null" }, { "$ref": "#/$defs/bilingual" }] }
+          }
+        },
+        "note": { "oneOf": [{ "type": "null" }, { "$ref": "#/$defs/bilingual" }] },
+        "source": { "$ref": "#/$defs/source" },
+        "fetchedAt": { "type": "string" },
+        "verify": { "type": "boolean" }
+      }
+    },
+    "provision": {
+      "type": "object",
+      "required": ["id", "name", "section1961", "regimes", "description", "source", "fetchedAt", "verify"],
+      "additionalProperties": false,
+      "properties": {
+        "id": { "type": "string", "pattern": "^[a-z0-9-]+$" },
+        "name": { "$ref": "#/$defs/bilingual" },
+        "section1961": { "type": "string", "minLength": 1 },
+        "section2025": { "oneOf": [{ "type": "null" }, { "type": "string", "minLength": 1 }] },
+        "limit": { "oneOf": [{ "type": "null" }, { "type": "integer", "minimum": 0 }] },
+        "limitNote": { "oneOf": [{ "type": "null" }, { "$ref": "#/$defs/bilingual" }] },
+        "regimes": { "type": "array", "minItems": 1, "items": { "enum": ["old", "new"] } },
+        "description": { "$ref": "#/$defs/bilingual" },
+        "source": { "$ref": "#/$defs/source" },
+        "fetchedAt": { "type": "string" },
+        "verify": { "type": "boolean" }
+      }
+    }
+  }
+}

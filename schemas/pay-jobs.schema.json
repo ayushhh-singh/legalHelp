@@ -1,0 +1,140 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://sahayak.local/schemas/pay-jobs.schema.json",
+  "title": "Central Government posts and their entry pay",
+  "description": "One record per post an officer might actually hold or be preparing for: where it enters the Pay Matrix, which allowances come with it, and what it is promoted into. `allowances[].enabledByDefault` is the load-bearing field — it is true only where the allowance is automatic for the post, never where it depends on the place of posting or on an option the officer exercises. Every `allowances[].id` must resolve in data/pay/allowances.json.",
+  "type": "object",
+  "required": ["version", "generatedAt", "disclaimer", "organisations", "exams", "jobs"],
+  "additionalProperties": false,
+  "properties": {
+    "$schema": { "type": "string" },
+    "version": { "type": "string", "pattern": "^\\d+\\.\\d+\\.\\d+$" },
+    "generatedAt": { "type": "string" },
+    "disclaimer": { "$ref": "#/$defs/bilingual" },
+    "organisations": {
+      "type": "object",
+      "minProperties": 1,
+      "propertyNames": { "type": "string", "pattern": "^[a-z0-9-]+$" },
+      "additionalProperties": {
+        "type": "object",
+        "required": ["name", "ministry"],
+        "additionalProperties": false,
+        "properties": {
+          "name": { "$ref": "#/$defs/bilingual" },
+          "ministry": { "$ref": "#/$defs/bilingual" }
+        }
+      }
+    },
+    "exams": {
+      "type": "object",
+      "minProperties": 1,
+      "propertyNames": { "type": "string", "pattern": "^[a-z0-9-]+$" },
+      "additionalProperties": {
+        "type": "object",
+        "required": ["name", "authority", "url"],
+        "additionalProperties": false,
+        "properties": {
+          "name": { "$ref": "#/$defs/bilingual" },
+          "authority": { "$ref": "#/$defs/bilingual" },
+          "url": { "type": "string", "pattern": "^https?://" }
+        }
+      }
+    },
+    "jobs": {
+      "type": "array",
+      "minItems": 55,
+      "items": { "$ref": "#/$defs/job" }
+    }
+  },
+  "$defs": {
+    "bilingual": {
+      "type": "object",
+      "required": ["en", "hi"],
+      "additionalProperties": false,
+      "properties": {
+        "en": { "type": "string", "minLength": 1 },
+        "hi": { "type": "string", "minLength": 1 }
+      }
+    },
+    "source": {
+      "type": "object",
+      "required": ["name", "url"],
+      "additionalProperties": false,
+      "properties": {
+        "name": { "type": "string", "minLength": 1 },
+        "url": { "type": "string", "pattern": "^https?://" },
+        "reference": { "type": "string" },
+        "dated": { "type": "string", "pattern": "^\\d{4}-\\d{2}-\\d{2}$" },
+        "note": { "$ref": "#/$defs/bilingual" }
+      }
+    },
+    "job": {
+      "type": "object",
+      "required": [
+        "id",
+        "title",
+        "organisation",
+        "group",
+        "entryLevel",
+        "gradePay",
+        "recruitment",
+        "allowances",
+        "promotionPath",
+        "source",
+        "fetchedAt",
+        "verify"
+      ],
+      "additionalProperties": false,
+      "properties": {
+        "id": { "type": "string", "pattern": "^[a-z0-9-]+$" },
+        "title": { "$ref": "#/$defs/bilingual" },
+        "organisation": { "type": "string", "pattern": "^[a-z0-9-]+$" },
+        "cadre": { "oneOf": [{ "type": "null" }, { "$ref": "#/$defs/bilingual" }] },
+        "group": { "enum": ["A", "B", "C"] },
+        "gazetted": { "type": "boolean" },
+        "entryLevel": { "type": "string", "pattern": "^(1[0-8]|[1-9]|13A)$" },
+        "gradePay": { "oneOf": [{ "type": "null" }, { "type": "integer", "minimum": 1800 }] },
+        "recruitment": {
+          "type": "object",
+          "required": ["mode", "exam"],
+          "additionalProperties": false,
+          "properties": {
+            "mode": { "enum": ["direct", "promotion", "both"] },
+            "exam": { "oneOf": [{ "type": "null" }, { "type": "string", "pattern": "^[a-z0-9-]+$" }] },
+            "note": { "oneOf": [{ "type": "null" }, { "$ref": "#/$defs/bilingual" }] }
+          }
+        },
+        "allowances": {
+          "type": "array",
+          "minItems": 1,
+          "items": {
+            "type": "object",
+            "required": ["id", "enabledByDefault"],
+            "additionalProperties": false,
+            "properties": {
+              "id": { "type": "string", "pattern": "^[a-z0-9-]+$" },
+              "enabledByDefault": { "type": "boolean" },
+              "note": { "oneOf": [{ "type": "null" }, { "$ref": "#/$defs/bilingual" }] }
+            }
+          }
+        },
+        "promotionPath": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "required": ["title", "level"],
+            "additionalProperties": false,
+            "properties": {
+              "title": { "$ref": "#/$defs/bilingual" },
+              "level": { "type": "string", "pattern": "^(1[0-8]|[1-9]|13A)$" }
+            }
+          }
+        },
+        "note": { "oneOf": [{ "type": "null" }, { "$ref": "#/$defs/bilingual" }] },
+        "source": { "$ref": "#/$defs/source" },
+        "fetchedAt": { "type": "string" },
+        "verify": { "type": "boolean" }
+      }
+    }
+  }
+}

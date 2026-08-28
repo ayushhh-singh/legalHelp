@@ -1,0 +1,86 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://sahayak.local/schemas/pay-matrix.schema.json",
+  "title": "7th CPC Pay Matrix",
+  "description": "Every cell of the pay matrix at Part A of the Schedule to the CCS (Revised Pay) Rules, 2016, with Level 13 as substituted by the CCS (Revised Pay) (Amendment) Rules, 2017. Cells are generated from the entry pay by the Commission's own rule — previous cell x 1.03, rounded to the nearest 100 — which reproduces the notified table exactly; `rule` records it so the reader can check any cell by hand.",
+  "type": "object",
+  "required": ["version", "generatedAt", "cpc", "rule", "disclaimer", "levels"],
+  "additionalProperties": false,
+  "properties": {
+    "$schema": { "type": "string" },
+    "version": { "type": "string", "pattern": "^\\d+\\.\\d+\\.\\d+$" },
+    "generatedAt": { "type": "string" },
+    "cpc": { "const": 7 },
+    "disclaimer": { "$ref": "#/$defs/bilingual" },
+    "rule": {
+      "type": "object",
+      "required": ["multiplier", "rounding", "description"],
+      "additionalProperties": false,
+      "properties": {
+        "multiplier": { "const": 1.03 },
+        "rounding": { "const": "nearest-100" },
+        "description": { "$ref": "#/$defs/bilingual" },
+        "fitmentFactor": { "type": "number" }
+      }
+    },
+    "levels": {
+      "type": "array",
+      "minItems": 19,
+      "items": { "$ref": "#/$defs/level" }
+    }
+  },
+  "$defs": {
+    "bilingual": {
+      "type": "object",
+      "required": ["en", "hi"],
+      "additionalProperties": false,
+      "properties": {
+        "en": { "type": "string", "minLength": 1 },
+        "hi": { "type": "string", "minLength": 1 }
+      }
+    },
+    "source": {
+      "type": "object",
+      "required": ["name", "url"],
+      "additionalProperties": false,
+      "properties": {
+        "name": { "type": "string", "minLength": 1 },
+        "url": { "type": "string", "pattern": "^https?://" },
+        "reference": { "type": "string" },
+        "dated": { "type": "string", "pattern": "^\\d{4}-\\d{2}-\\d{2}$" }
+      }
+    },
+    "level": {
+      "type": "object",
+      "required": ["level", "entryPay", "cells", "payBand", "source", "fetchedAt", "verify"],
+      "additionalProperties": false,
+      "properties": {
+        "level": { "type": "string", "pattern": "^(1[0-8]|[1-9]|13A)$" },
+        "order": { "type": "integer", "minimum": 1, "maximum": 19 },
+        "gradePay": { "oneOf": [{ "type": "null" }, { "type": "integer", "minimum": 1800 }] },
+        "payBand": {
+          "type": "object",
+          "required": ["name", "range"],
+          "additionalProperties": false,
+          "properties": {
+            "name": { "type": "string", "minLength": 1 },
+            "range": { "type": "string", "minLength": 1 },
+            "preRevisedEntryPay": { "oneOf": [{ "type": "null" }, { "type": "integer" }] }
+          }
+        },
+        "indexOfRationalisation": { "type": "number", "minimum": 2.5, "maximum": 3 },
+        "entryPay": { "type": "integer", "minimum": 18000, "maximum": 250000 },
+        "cells": {
+          "type": "array",
+          "minItems": 1,
+          "maxItems": 40,
+          "items": { "type": "integer", "minimum": 18000, "maximum": 250000 }
+        },
+        "note": { "oneOf": [{ "type": "null" }, { "$ref": "#/$defs/bilingual" }] },
+        "source": { "$ref": "#/$defs/source" },
+        "fetchedAt": { "type": "string" },
+        "verify": { "type": "boolean" }
+      }
+    }
+  }
+}
