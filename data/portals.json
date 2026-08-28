@@ -1,0 +1,534 @@
+{
+  "version": "1.0.0",
+  "generatedAt": "2026-08-29T00:00:00Z",
+  "disclaimer": {
+    "en": "Reference only; verify with the official gazette/order or your DDO.",
+    "hi": "केवल संदर्भ हेतु; आधिकारिक राजपत्र/आदेश अथवा अपने डीडीओ से पुष्टि करें।"
+  },
+  "portals": [
+    {
+      "id": "ehrms",
+      "name": {
+        "en": "Employee Human Resource Management System",
+        "hi": "कर्मचारी मानव संसाधन प्रबंधन प्रणाली"
+      },
+      "shortName": {
+        "en": "e-HRMS",
+        "hi": "ई-एचआरएमएस"
+      },
+      "purpose": {
+        "en": "Service book, leave, transfer, APAR and the rest of an employee's HR record in one place.",
+        "hi": "सेवा पुस्तिका, अवकाश, स्थानांतरण, एपीएआर तथा कर्मचारी का शेष सेवा-अभिलेख एक ही स्थान पर।"
+      },
+      "url": "https://ehrms.gov.in",
+      "category": "hr-service",
+      "helpline": null,
+      "administeredBy": {
+        "en": "Department of Personnel & Training",
+        "hi": "कार्मिक एवं प्रशिक्षण विभाग"
+      },
+      "verify": true
+    },
+    {
+      "id": "sparrow",
+      "name": {
+        "en": "Smart Performance Appraisal Report Recording Online Window",
+        "hi": "स्मार्ट परफॉरमेंस एप्रेज़ल रिपोर्ट रिकॉर्डिंग ऑनलाइन विंडो"
+      },
+      "shortName": {
+        "en": "SPARROW",
+        "hi": "स्पैरो"
+      },
+      "purpose": {
+        "en": "Online Annual Performance Appraisal Report (APAR). Run per cadre (SPARROW-IAS, SPARROW-ACC and so on) rather than as one shared site — start from your cadre controlling authority's page.",
+        "hi": "ऑनलाइन वार्षिक कार्य निष्पादन मूल्यांकन रिपोर्ट (एपीएआर)। यह एक साझा साइट के बजाय प्रत्येक संवर्ग हेतु अलग से चलाई जाती है (स्पैरो-आईएएस, स्पैरो-एसीसी आदि) — अपने संवर्ग नियंत्रक प्राधिकारी के पृष्ठ से आरंभ करें।"
+      },
+      "url": "https://dopt.gov.in",
+      "category": "hr-service",
+      "helpline": null,
+      "administeredBy": {
+        "en": "Department of Personnel & Training",
+        "hi": "कार्मिक एवं प्रशिक्षण विभाग"
+      },
+      "verify": true
+    },
+    {
+      "id": "cghs",
+      "name": {
+        "en": "Central Government Health Scheme",
+        "hi": "केंद्रीय सरकार स्वास्थ्य योजना"
+      },
+      "shortName": {
+        "en": "CGHS",
+        "hi": "सीजीएचएस"
+      },
+      "purpose": {
+        "en": "Wellness centre locator, card status, empanelled hospital list and online claim tracking.",
+        "hi": "वेलनेस केंद्र खोजक, कार्ड स्थिति, सूचीबद्ध अस्पतालों की सूची तथा ऑनलाइन दावा अनुरेखण।"
+      },
+      "url": "https://cghs.gov.in",
+      "category": "health",
+      "helpline": {
+        "phone": "1800-11-4477",
+        "label": {
+          "en": "CGHS toll-free helpline",
+          "hi": "सीजीएचएस टोल-फ्री हेल्पलाइन"
+        }
+      },
+      "administeredBy": {
+        "en": "Ministry of Health and Family Welfare",
+        "hi": "स्वास्थ्य एवं परिवार कल्याण मंत्रालय"
+      },
+      "verify": true
+    },
+    {
+      "id": "dopt",
+      "name": {
+        "en": "Department of Personnel & Training",
+        "hi": "कार्मिक एवं प्रशिक्षण विभाग"
+      },
+      "shortName": {
+        "en": "DoPT",
+        "hi": "डीओपीटी"
+      },
+      "purpose": {
+        "en": "Conduct, CCA, Leave and recruitment rules; the annual holiday O.M.; establishment circulars.",
+        "hi": "आचरण, सीसीए, अवकाश तथा भर्ती नियम; वार्षिक अवकाश कार्यालय ज्ञापन; स्थापना परिपत्र।"
+      },
+      "url": "https://dopt.gov.in",
+      "category": "hr-service",
+      "helpline": null,
+      "administeredBy": {
+        "en": "Ministry of Personnel, Public Grievances and Pensions",
+        "hi": "कार्मिक, लोक शिकायत और पेंशन मंत्रालय"
+      },
+      "verify": true
+    },
+    {
+      "id": "bhavishya",
+      "name": {
+        "en": "Bhavishya — Pension Sanction and Payment Tracking System",
+        "hi": "भविष्य — पेंशन स्वीकृति एवं भुगतान अनुरेखण प्रणाली"
+      },
+      "shortName": {
+        "en": "Bhavishya",
+        "hi": "भविष्य"
+      },
+      "purpose": {
+        "en": "End-to-end online tracking of retirement dues, from the pre-retirement checklist to pension sanction, for every retiring Central Government employee.",
+        "hi": "सेवानिवृत्त होने वाले प्रत्येक केंद्रीय सरकारी कर्मचारी हेतु सेवानिवृत्ति-पूर्व जाँच-सूची से पेंशन स्वीकृति तक सेवानिवृत्ति देय राशियों का पूर्ण ऑनलाइन अनुरेखण।"
+      },
+      "url": "https://bhavishya.nic.in",
+      "category": "pay-pension",
+      "helpline": null,
+      "administeredBy": {
+        "en": "Department of Pension & Pensioners' Welfare",
+        "hi": "पेंशन एवं पेंशनभोगी कल्याण विभाग"
+      },
+      "verify": true
+    },
+    {
+      "id": "cpengrams",
+      "name": {
+        "en": "Centralised Pension Grievance Redress and Monitoring System",
+        "hi": "केंद्रीकृत पेंशन शिकायत निवारण एवं निगरानी प्रणाली"
+      },
+      "shortName": {
+        "en": "CPENGRAMS",
+        "hi": "सीपेनग्राम्स"
+      },
+      "purpose": {
+        "en": "Lodge and track a pension-specific grievance, separately from the general CPGRAMS portal.",
+        "hi": "सामान्य सीपीग्राम्स पोर्टल से अलग, पेंशन-विशिष्ट शिकायत दर्ज एवं अनुरेखित करें।"
+      },
+      "url": "https://cpengrams.nic.in",
+      "category": "grievance",
+      "helpline": null,
+      "administeredBy": {
+        "en": "Department of Pension & Pensioners' Welfare",
+        "hi": "पेंशन एवं पेंशनभोगी कल्याण विभाग"
+      },
+      "verify": true
+    },
+    {
+      "id": "cpgrams",
+      "name": {
+        "en": "Centralized Public Grievance Redress and Monitoring System",
+        "hi": "केंद्रीकृत लोक शिकायत निवारण एवं निगरानी प्रणाली"
+      },
+      "shortName": {
+        "en": "CPGRAMS",
+        "hi": "सीपीग्राम्स"
+      },
+      "purpose": {
+        "en": "The one portal to lodge a grievance against any Central Government Ministry, Department or office.",
+        "hi": "किसी भी केंद्रीय मंत्रालय, विभाग अथवा कार्यालय के विरुद्ध शिकायत दर्ज करने हेतु एकल पोर्टल।"
+      },
+      "url": "https://pgportal.gov.in",
+      "category": "grievance",
+      "helpline": null,
+      "administeredBy": {
+        "en": "Department of Administrative Reforms and Public Grievances",
+        "hi": "प्रशासनिक सुधार एवं लोक शिकायत विभाग"
+      },
+      "verify": true
+    },
+    {
+      "id": "igot-karmayogi",
+      "name": {
+        "en": "Integrated Government Online Training — Karmayogi",
+        "hi": "एकीकृत सरकारी ऑनलाइन प्रशिक्षण — कर्मयोगी"
+      },
+      "shortName": {
+        "en": "iGOT Karmayogi",
+        "hi": "आईगॉट कर्मयोगी"
+      },
+      "purpose": {
+        "en": "Anytime-anywhere online learning and course credits for every Central Government employee.",
+        "hi": "प्रत्येक केंद्रीय सरकारी कर्मचारी हेतु कभी-भी-कहीं-भी ऑनलाइन शिक्षण एवं पाठ्यक्रम क्रेडिट।"
+      },
+      "url": "https://igotkarmayogi.gov.in",
+      "category": "training",
+      "helpline": null,
+      "administeredBy": {
+        "en": "Capacity Building Commission",
+        "hi": "क्षमता निर्माण आयोग"
+      },
+      "verify": true
+    },
+    {
+      "id": "epfo",
+      "name": {
+        "en": "Employees' Provident Fund Organisation",
+        "hi": "कर्मचारी भविष्य निधि संगठन"
+      },
+      "shortName": {
+        "en": "EPFO",
+        "hi": "ईपीएफओ"
+      },
+      "purpose": {
+        "en": "Provident fund passbook, claims and transfer — relevant to a Central Government employee mainly for a spouse or family member covered under EPF rather than under GPF/NPS.",
+        "hi": "भविष्य निधि पासबुक, दावे एवं स्थानांतरण — केंद्रीय सरकारी कर्मचारी हेतु यह मुख्यतः जीपीएफ/एनपीएस के बजाय ईपीएफ से आच्छादित जीवनसाथी अथवा परिवार के सदस्य के संदर्भ में प्रासंगिक है।"
+      },
+      "url": "https://www.epfindia.gov.in",
+      "category": "provident-fund-nps",
+      "helpline": {
+        "phone": "1800-118-005",
+        "label": {
+          "en": "EPFO toll-free helpline",
+          "hi": "ईपीएफओ टोल-फ्री हेल्पलाइन"
+        }
+      },
+      "administeredBy": {
+        "en": "Ministry of Labour and Employment",
+        "hi": "श्रम एवं रोजगार मंत्रालय"
+      },
+      "verify": true
+    },
+    {
+      "id": "nps-cra",
+      "name": {
+        "en": "National Pension System — Central Recordkeeping Agency",
+        "hi": "राष्ट्रीय पेंशन प्रणाली — केंद्रीय अभिलेख रखरखाव एजेंसी"
+      },
+      "shortName": {
+        "en": "NPS / CRA",
+        "hi": "एनपीएस / सीआरए"
+      },
+      "purpose": {
+        "en": "PRAN account statement, scheme and fund manager choice, and NPS withdrawal.",
+        "hi": "पीआरएएन खाता विवरण, योजना एवं निधि प्रबंधक चयन, तथा एनपीएस आहरण।"
+      },
+      "url": "https://npscra.nsdl.co.in",
+      "category": "provident-fund-nps",
+      "helpline": null,
+      "administeredBy": {
+        "en": "Pension Fund Regulatory and Development Authority",
+        "hi": "पेंशन निधि विनियामक एवं विकास प्राधिकरण"
+      },
+      "verify": true
+    },
+    {
+      "id": "ups",
+      "name": {
+        "en": "Unified Pension Scheme",
+        "hi": "एकीकृत पेंशन योजना"
+      },
+      "shortName": {
+        "en": "UPS",
+        "hi": "यूपीएस"
+      },
+      "purpose": {
+        "en": "Information and the one-time option form for the assured-payout alternative within NPS. See data/pay/ups.json for the contribution and payout figures.",
+        "hi": "एनपीएस के भीतर सुनिश्चित-भुगतान विकल्प हेतु जानकारी तथा एक-बारगी विकल्प फॉर्म। अंशदान एवं भुगतान आँकड़ों हेतु data/pay/ups.json देखें।"
+      },
+      "url": "https://doppw.gov.in",
+      "category": "provident-fund-nps",
+      "helpline": null,
+      "administeredBy": {
+        "en": "Department of Pension & Pensioners' Welfare",
+        "hi": "पेंशन एवं पेंशनभोगी कल्याण विभाग"
+      },
+      "verify": true
+    },
+    {
+      "id": "gem",
+      "name": {
+        "en": "Government e-Marketplace",
+        "hi": "सरकारी ई-मार्केटप्लेस"
+      },
+      "shortName": {
+        "en": "GeM",
+        "hi": "जेम"
+      },
+      "purpose": {
+        "en": "The mandatory online marketplace for a government office's own procurement (GFR 2017).",
+        "hi": "सरकारी कार्यालय की स्वयं की खरीद हेतु अनिवार्य ऑनलाइन मार्केटप्लेस (सामान्य वित्तीय नियम 2017)।"
+      },
+      "url": "https://gem.gov.in",
+      "category": "procurement",
+      "helpline": {
+        "phone": "1800-419-3436",
+        "label": {
+          "en": "GeM helpdesk",
+          "hi": "जेम हेल्पडेस्क"
+        }
+      },
+      "administeredBy": {
+        "en": "Ministry of Commerce and Industry",
+        "hi": "वाणिज्य एवं उद्योग मंत्रालय"
+      },
+      "verify": true
+    },
+    {
+      "id": "pfms",
+      "name": {
+        "en": "Public Financial Management System",
+        "hi": "लोक वित्तीय प्रबंधन प्रणाली"
+      },
+      "shortName": {
+        "en": "PFMS",
+        "hi": "पीएफएमएस"
+      },
+      "purpose": {
+        "en": "Tracks government payments end to end; a DDO or a drawing office uses it for bill processing.",
+        "hi": "सरकारी भुगतानों का आद्योपांत अनुरेखण; एक आहरण एवं संवितरण अधिकारी अथवा आहरण कार्यालय इसका उपयोग बिल संसाधन हेतु करता है।"
+      },
+      "url": "https://pfms.nic.in",
+      "category": "e-office",
+      "helpline": null,
+      "administeredBy": {
+        "en": "Office of Controller General of Accounts",
+        "hi": "महालेखा नियंत्रक कार्यालय"
+      },
+      "verify": true
+    },
+    {
+      "id": "cgegis",
+      "name": {
+        "en": "Central Government Employees Group Insurance Scheme",
+        "hi": "केंद्रीय सरकारी कर्मचारी समूह बीमा योजना"
+      },
+      "shortName": {
+        "en": "CGEGIS",
+        "hi": "सीजीईजीआईएस"
+      },
+      "purpose": {
+        "en": "The group insurance-cum-savings scheme every Central Government employee is enrolled in; rates and the maturity table are in data/pay/cgegis.json.",
+        "hi": "समूह बीमा-सह-बचत योजना, जिसमें प्रत्येक केंद्रीय सरकारी कर्मचारी नामांकित है; दरें तथा परिपक्वता तालिका data/pay/cgegis.json में हैं।"
+      },
+      "url": "https://doe.gov.in",
+      "category": "provident-fund-nps",
+      "helpline": null,
+      "administeredBy": {
+        "en": "Department of Expenditure",
+        "hi": "व्यय विभाग"
+      },
+      "verify": true
+    },
+    {
+      "id": "kendriya-bhandar",
+      "name": {
+        "en": "Central Government Employees Consumer Cooperative Society (Kendriya Bhandar)",
+        "hi": "केंद्रीय सरकारी कर्मचारी उपभोक्ता सहकारी भंडार (केंद्रीय भंडार)"
+      },
+      "shortName": {
+        "en": "Kendriya Bhandar",
+        "hi": "केंद्रीय भंडार"
+      },
+      "purpose": {
+        "en": "The Central Government employees' own consumer cooperative — grocery outlets and, in some cities, a canteen.",
+        "hi": "केंद्रीय सरकारी कर्मचारियों की अपनी उपभोक्ता सहकारी समिति — किराना दुकानें तथा कुछ शहरों में कैंटीन।"
+      },
+      "url": "http://kendriyabhandar.com",
+      "category": "welfare",
+      "helpline": null,
+      "administeredBy": {
+        "en": "Ministry of Personnel, Public Grievances and Pensions",
+        "hi": "कार्मिक, लोक शिकायत और पेंशन मंत्रालय"
+      },
+      "verify": true
+    },
+    {
+      "id": "csss",
+      "name": {
+        "en": "Central Secretariat Stenographers Service",
+        "hi": "केंद्रीय सचिवालय आशुलिपिक सेवा"
+      },
+      "shortName": {
+        "en": "CSSS",
+        "hi": "सीएसएसएस"
+      },
+      "purpose": {
+        "en": "Cadre management information for the stenographic service in the Central Secretariat.",
+        "hi": "केंद्रीय सचिवालय की आशुलिपिक सेवा हेतु संवर्ग प्रबंधन जानकारी।"
+      },
+      "url": "https://dopt.gov.in",
+      "category": "hr-service",
+      "helpline": null,
+      "administeredBy": {
+        "en": "Department of Personnel & Training",
+        "hi": "कार्मिक एवं प्रशिक्षण विभाग"
+      },
+      "verify": true
+    },
+    {
+      "id": "kanthasth",
+      "name": {
+        "en": "Kanthasth — AI translation memory",
+        "hi": "कंठस्थ — एआई अनुवाद स्मृति"
+      },
+      "shortName": {
+        "en": "Kanthasth",
+        "hi": "कंठस्थ"
+      },
+      "purpose": {
+        "en": "A translation-memory tool for Hindi <-> English office text, built by C-DAC for the Department of Official Language.",
+        "hi": "हिंदी-अंग्रेज़ी कार्यालयीन पाठ हेतु अनुवाद-स्मृति उपकरण, जिसे सी-डैक ने राजभाषा विभाग हेतु बनाया है।"
+      },
+      "url": "https://kanthasth.rajbhasha.gov.in",
+      "category": "rajbhasha",
+      "helpline": null,
+      "administeredBy": {
+        "en": "Department of Official Language, with C-DAC",
+        "hi": "राजभाषा विभाग, सी-डैक के सहयोग से"
+      },
+      "verify": true
+    },
+    {
+      "id": "bharati",
+      "name": {
+        "en": "Bharati — Bahubhashi Anuvad Sarthi",
+        "hi": "भारती — बहुभाषी अनुवाद सारथी"
+      },
+      "shortName": {
+        "en": "Bharati",
+        "hi": "भारती"
+      },
+      "purpose": {
+        "en": "Document translation and management portal for the Department of Official Language.",
+        "hi": "राजभाषा विभाग हेतु दस्तावेज़ अनुवाद एवं प्रबंधन पोर्टल।"
+      },
+      "url": "https://bharati.rajbhasha.gov.in",
+      "category": "rajbhasha",
+      "helpline": null,
+      "administeredBy": {
+        "en": "Department of Official Language, with C-DAC",
+        "hi": "राजभाषा विभाग, सी-डैक के सहयोग से"
+      },
+      "verify": true
+    },
+    {
+      "id": "india-code",
+      "name": {
+        "en": "India Code",
+        "hi": "इंडिया कोड"
+      },
+      "shortName": {
+        "en": "India Code",
+        "hi": "इंडिया कोड"
+      },
+      "purpose": {
+        "en": "The Government of India's repository of Acts, rules and regulations.",
+        "hi": "अधिनियमों, नियमों तथा विनियमों का भारत सरकार का भंडार।"
+      },
+      "url": "https://www.indiacode.nic.in",
+      "category": "law-gazette",
+      "helpline": null,
+      "administeredBy": {
+        "en": "Legislative Department, Ministry of Law and Justice",
+        "hi": "विधायी विभाग, विधि एवं न्याय मंत्रालय"
+      },
+      "verify": true
+    },
+    {
+      "id": "egazette",
+      "name": {
+        "en": "e-Gazette",
+        "hi": "ई-राजपत्र"
+      },
+      "shortName": {
+        "en": "e-Gazette",
+        "hi": "ई-राजपत्र"
+      },
+      "purpose": {
+        "en": "The Gazette of India, published and searchable online; the authoritative text of a notified order.",
+        "hi": "भारत का राजपत्र, ऑनलाइन प्रकाशित एवं खोजयोग्य; अधिसूचित आदेश का प्रामाणिक पाठ।"
+      },
+      "url": "https://egazette.gov.in",
+      "category": "law-gazette",
+      "helpline": null,
+      "administeredBy": {
+        "en": "Department of Publication, Ministry of Housing and Urban Affairs",
+        "hi": "प्रकाशन विभाग, आवासन एवं शहरी कार्य मंत्रालय"
+      },
+      "verify": true
+    },
+    {
+      "id": "ncrb-sankalan",
+      "name": {
+        "en": "NCRB Sankalan",
+        "hi": "एनसीआरबी संकलन"
+      },
+      "shortName": {
+        "en": "Sankalan",
+        "hi": "संकलन"
+      },
+      "purpose": {
+        "en": "The National Crime Records Bureau's section-mapping portal for BNS/BNSS/BSA against IPC/CrPC/IEA — the source this app's Law Converter is built from.",
+        "hi": "आईपीसी/सीआरपीसी/आईईए के विरुद्ध बीएनएस/बीएनएसएस/बीएसए हेतु राष्ट्रीय अपराध रिकॉर्ड ब्यूरो का धारा-मानचित्रण पोर्टल — इसी से इस ऐप का विधि परिवर्तक निर्मित है।"
+      },
+      "url": "https://www.ncrb.gov.in",
+      "category": "law-gazette",
+      "helpline": null,
+      "administeredBy": {
+        "en": "National Crime Records Bureau",
+        "hi": "राष्ट्रीय अपराध रिकॉर्ड ब्यूरो"
+      },
+      "verify": true
+    },
+    {
+      "id": "doe",
+      "name": {
+        "en": "Department of Expenditure",
+        "hi": "व्यय विभाग"
+      },
+      "shortName": {
+        "en": "DoE",
+        "hi": "व्यय विभाग"
+      },
+      "purpose": {
+        "en": "Dearness Allowance, pay-matrix and allowance orders — the source most of data/pay/ is read from.",
+        "hi": "महँगाई भत्ता, वेतन-मैट्रिक्स तथा भत्ता आदेश — data/pay/ का अधिकांश भाग इसी से पढ़ा गया है।"
+      },
+      "url": "https://doe.gov.in",
+      "category": "pay-pension",
+      "helpline": null,
+      "administeredBy": {
+        "en": "Ministry of Finance",
+        "hi": "वित्त मंत्रालय"
+      },
+      "verify": true
+    }
+  ]
+}

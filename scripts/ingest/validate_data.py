@@ -87,6 +87,9 @@ MANIFEST: dict[str, str] = {
     "rules/cards/osa.json": "rules-cards.schema.json",
     "rules/cards/posh.json": "rules-cards.schema.json",
     "rules/cards/rti.json": "rules-cards.schema.json",
+    "holidays/holidays-2026.json": "holidays.schema.json",
+    "portals.json": "portals.schema.json",
+    "pension/pension-facts.json": "pension-facts.schema.json",
 }
 
 # Files under data/ that legitimately have no schema, each with the reason.

@@ -1,0 +1,488 @@
+{
+  "version": "1.0.0",
+  "generatedAt": "2026-08-29T00:00:00Z",
+  "disclaimer": {
+    "en": "Reference only; verify with the official gazette/order or your DDO.",
+    "hi": "केवल संदर्भ हेतु; आधिकारिक राजपत्र/आदेश अथवा अपने डीडीओ से पुष्टि करें।"
+  },
+  "year": 2026,
+  "source": {
+    "name": "Department of Personnel & Training — Holidays to be observed in Central Government Offices",
+    "url": "https://www.govtstaff.com/2025/07/list-of-holidays-to-be-observed-in-central-government-offices-during-the-year-2026-dopt-o-m-f-no-12-2-2023-jca-dated-03-07-2025.html",
+    "reference": "F.No. 12/2/2023-JCA",
+    "dated": "2025-07-03",
+    "note": {
+      "en": "dopt.gov.in itself answered 403 or failed certificate verification on every fetch attempted this session; the dated list was read from this secondary reproduction of the O.M.'s Annexure-I and Annexure-II, and every day-of-week was independently recomputed and checked, not trusted from the source (docs/DATA-GAPS.md #51).",
+      "hi": "इस सत्र में हर प्रयास में dopt.gov.in ने 403 दिया या प्रमाणपत्र सत्यापन विफल रहा; तिथि-सूची इस द्वितीयक स्रोत से ली गई, जिसमें कार्यालय ज्ञापन के अनुबंध-I और अनुबंध-II पुनः प्रस्तुत हैं, और प्रत्येक वार का स्वतंत्र रूप से पुनर्गणना कर सत्यापन किया गया, स्रोत पर भरोसा नहीं किया गया (docs/DATA-GAPS.md #51)।"
+    }
+  },
+  "fetchedAt": "2026-08-29T00:00:00Z",
+  "verify": true,
+  "delegationNote": {
+    "en": "This is the Delhi/New Delhi list from the DoPT O.M. Offices outside Delhi/New Delhi observe a different compulsory list plus three (not two) holidays chosen locally by the state-level Central Government Employees Welfare Coordination Committee from a further set of optional holidays, and the restricted-holiday choice available to an individual employee can also vary by department. Confirm your own office's list before relying on this one.",
+    "hi": "यह दिल्ली/नई दिल्ली हेतु डीओपीटी कार्यालय ज्ञापन की सूची है। दिल्ली/नई दिल्ली से बाहर के कार्यालयों में एक भिन्न अनिवार्य सूची तथा राज्य-स्तरीय केंद्रीय सरकारी कर्मचारी कल्याण समन्वय समिति द्वारा स्थानीय रूप से चुनी गई तीन (दो नहीं) छुट्टियाँ मनाई जाती हैं, तथा किसी कर्मचारी को उपलब्ध ऐच्छिक अवकाश का विकल्प विभाग के अनुसार भी भिन्न हो सकता है। इस पर निर्भर रहने से पहले अपने कार्यालय की सूची की पुष्टि करें।"
+  },
+  "gazetted": [
+    {
+      "id": "republic-day",
+      "name": {
+        "en": "Republic Day",
+        "hi": "गणतंत्र दिवस"
+      },
+      "date": "2026-01-26",
+      "day": "Monday"
+    },
+    {
+      "id": "holi",
+      "name": {
+        "en": "Holi",
+        "hi": "होली"
+      },
+      "date": "2026-03-04",
+      "day": "Wednesday"
+    },
+    {
+      "id": "id-ul-fitr",
+      "name": {
+        "en": "Id-ul-Fitr",
+        "hi": "ईद-उल-फ़ित्र"
+      },
+      "date": "2026-03-21",
+      "day": "Saturday"
+    },
+    {
+      "id": "ram-navami",
+      "name": {
+        "en": "Ram Navami",
+        "hi": "रामनवमी"
+      },
+      "date": "2026-03-26",
+      "day": "Thursday"
+    },
+    {
+      "id": "mahavir-jayanti",
+      "name": {
+        "en": "Mahavir Jayanti",
+        "hi": "महावीर जयंती"
+      },
+      "date": "2026-03-31",
+      "day": "Tuesday"
+    },
+    {
+      "id": "good-friday",
+      "name": {
+        "en": "Good Friday",
+        "hi": "गुड फ्राइडे"
+      },
+      "date": "2026-04-03",
+      "day": "Friday"
+    },
+    {
+      "id": "buddha-purnima",
+      "name": {
+        "en": "Buddha Purnima",
+        "hi": "बुद्ध पूर्णिमा"
+      },
+      "date": "2026-05-01",
+      "day": "Friday"
+    },
+    {
+      "id": "id-ul-zuha-bakrid",
+      "name": {
+        "en": "Id-ul-Zuha (Bakrid)",
+        "hi": "ईद-उल-ज़ुहा (बकरीद)"
+      },
+      "date": "2026-05-27",
+      "day": "Wednesday"
+    },
+    {
+      "id": "muharram",
+      "name": {
+        "en": "Muharram",
+        "hi": "मुहर्रम"
+      },
+      "date": "2026-06-26",
+      "day": "Friday"
+    },
+    {
+      "id": "independence-day",
+      "name": {
+        "en": "Independence Day",
+        "hi": "स्वतंत्रता दिवस"
+      },
+      "date": "2026-08-15",
+      "day": "Saturday"
+    },
+    {
+      "id": "milad-un-nabi-id-e-milad",
+      "name": {
+        "en": "Milad-un-Nabi (Id-e-Milad)",
+        "hi": "ईद-मिलाद-उन-नबी"
+      },
+      "date": "2026-08-26",
+      "day": "Wednesday"
+    },
+    {
+      "id": "janmashtami-vaishnava",
+      "name": {
+        "en": "Janmashtami (Vaishnava)",
+        "hi": "जन्माष्टमी (वैष्णव)"
+      },
+      "date": "2026-09-04",
+      "day": "Friday"
+    },
+    {
+      "id": "mahatma-gandhi-s-birthday",
+      "name": {
+        "en": "Mahatma Gandhi's Birthday",
+        "hi": "महात्मा गांधी जयंती"
+      },
+      "date": "2026-10-02",
+      "day": "Friday"
+    },
+    {
+      "id": "dussehra",
+      "name": {
+        "en": "Dussehra",
+        "hi": "दशहरा (विजयादशमी)"
+      },
+      "date": "2026-10-20",
+      "day": "Tuesday"
+    },
+    {
+      "id": "diwali-deepavali",
+      "name": {
+        "en": "Diwali (Deepavali)",
+        "hi": "दिवाली (दीपावली)"
+      },
+      "date": "2026-11-08",
+      "day": "Sunday"
+    },
+    {
+      "id": "guru-nanak-s-birthday",
+      "name": {
+        "en": "Guru Nanak's Birthday",
+        "hi": "गुरु नानक जयंती"
+      },
+      "date": "2026-11-24",
+      "day": "Tuesday"
+    },
+    {
+      "id": "christmas-day",
+      "name": {
+        "en": "Christmas Day",
+        "hi": "क्रिसमस"
+      },
+      "date": "2026-12-25",
+      "day": "Friday"
+    }
+  ],
+  "restricted": [
+    {
+      "id": "new-year-s-day",
+      "name": {
+        "en": "New Year's Day",
+        "hi": "नववर्ष दिवस"
+      },
+      "date": "2026-01-01",
+      "day": "Thursday"
+    },
+    {
+      "id": "hazrat-ali-s-birthday",
+      "name": {
+        "en": "Hazrat Ali's Birthday",
+        "hi": "हज़रत अली जन्मदिवस"
+      },
+      "date": "2026-01-03",
+      "day": "Saturday"
+    },
+    {
+      "id": "makar-sankranti",
+      "name": {
+        "en": "Makar Sankranti",
+        "hi": "मकर संक्रांति"
+      },
+      "date": "2026-01-14",
+      "day": "Wednesday"
+    },
+    {
+      "id": "magha-bihu-pongal",
+      "name": {
+        "en": "Magha Bihu / Pongal",
+        "hi": "माघ बिहू / पोंगल"
+      },
+      "date": "2026-01-14",
+      "day": "Wednesday"
+    },
+    {
+      "id": "sri-panchami-basant-panchami",
+      "name": {
+        "en": "Sri Panchami / Basant Panchami",
+        "hi": "श्री पंचमी / बसंत पंचमी"
+      },
+      "date": "2026-01-23",
+      "day": "Friday"
+    },
+    {
+      "id": "guru-ravi-dass-s-birthday",
+      "name": {
+        "en": "Guru Ravi Dass's Birthday",
+        "hi": "गुरु रविदास जयंती"
+      },
+      "date": "2026-02-01",
+      "day": "Sunday"
+    },
+    {
+      "id": "birthday-of-swami-dayananda-saraswati",
+      "name": {
+        "en": "Birthday of Swami Dayananda Saraswati",
+        "hi": "स्वामी दयानंद सरस्वती जयंती"
+      },
+      "date": "2026-02-12",
+      "day": "Thursday"
+    },
+    {
+      "id": "maha-shivratri",
+      "name": {
+        "en": "Maha Shivratri",
+        "hi": "महाशिवरात्रि"
+      },
+      "date": "2026-02-15",
+      "day": "Sunday"
+    },
+    {
+      "id": "shivaji-jayanti",
+      "name": {
+        "en": "Shivaji Jayanti",
+        "hi": "शिवाजी जयंती"
+      },
+      "date": "2026-02-19",
+      "day": "Thursday"
+    },
+    {
+      "id": "holika-dahan",
+      "name": {
+        "en": "Holika Dahan",
+        "hi": "होलिका दहन"
+      },
+      "date": "2026-03-03",
+      "day": "Tuesday"
+    },
+    {
+      "id": "dolyatra",
+      "name": {
+        "en": "Dolyatra",
+        "hi": "डोलयात्रा"
+      },
+      "date": "2026-03-03",
+      "day": "Tuesday"
+    },
+    {
+      "id": "chaitra-sukladi-gudi-padava-ugadi-cheti-chand",
+      "name": {
+        "en": "Chaitra Sukladi / Gudi Padava / Ugadi / Cheti Chand",
+        "hi": "चैत्र शुक्लादि / गुड़ी पड़वा / उगादी / चेटी चंड"
+      },
+      "date": "2026-03-19",
+      "day": "Thursday"
+    },
+    {
+      "id": "jamat-ul-vida",
+      "name": {
+        "en": "Jamat-Ul-Vida",
+        "hi": "जमात-उल-विदा"
+      },
+      "date": "2026-03-20",
+      "day": "Friday"
+    },
+    {
+      "id": "easter-sunday",
+      "name": {
+        "en": "Easter Sunday",
+        "hi": "ईस्टर संडे"
+      },
+      "date": "2026-04-05",
+      "day": "Sunday"
+    },
+    {
+      "id": "vaisakhi-vishu-meshadi-tamil-new-year-s-day",
+      "name": {
+        "en": "Vaisakhi / Vishu / Meshadi / Tamil New Year's Day",
+        "hi": "बैसाखी / विशु / मेषादि / तमिल नववर्ष"
+      },
+      "date": "2026-04-14",
+      "day": "Tuesday"
+    },
+    {
+      "id": "vaisakhadi",
+      "name": {
+        "en": "Vaisakhadi",
+        "hi": "बैसाखादी"
+      },
+      "date": "2026-04-15",
+      "day": "Wednesday"
+    },
+    {
+      "id": "birthday-of-guru-rabindranath-tagore",
+      "name": {
+        "en": "Birthday of Guru Rabindranath Tagore",
+        "hi": "गुरुदेव रवींद्रनाथ टैगोर जयंती"
+      },
+      "date": "2026-05-09",
+      "day": "Saturday"
+    },
+    {
+      "id": "rath-yatra",
+      "name": {
+        "en": "Rath Yatra",
+        "hi": "रथ यात्रा"
+      },
+      "date": "2026-07-16",
+      "day": "Thursday"
+    },
+    {
+      "id": "parsi-new-year-s-day-nauraz",
+      "name": {
+        "en": "Parsi New Year's Day / Nauraz",
+        "hi": "पारसी नववर्ष / नौरोज़"
+      },
+      "date": "2026-08-15",
+      "day": "Saturday"
+    },
+    {
+      "id": "onam-thiru-onam-day",
+      "name": {
+        "en": "Onam / Thiru Onam Day",
+        "hi": "ओणम / थिरु ओणम"
+      },
+      "date": "2026-08-26",
+      "day": "Wednesday"
+    },
+    {
+      "id": "raksha-bandhan",
+      "name": {
+        "en": "Raksha Bandhan",
+        "hi": "रक्षा बंधन"
+      },
+      "date": "2026-08-28",
+      "day": "Friday"
+    },
+    {
+      "id": "ganesh-chaturthi-vinayak-chaturthi",
+      "name": {
+        "en": "Ganesh Chaturthi / Vinayak Chaturthi",
+        "hi": "गणेश चतुर्थी / विनायक चतुर्थी"
+      },
+      "date": "2026-09-14",
+      "day": "Monday"
+    },
+    {
+      "id": "dussehra-saptami",
+      "name": {
+        "en": "Dussehra (Saptami)",
+        "hi": "दशहरा (सप्तमी)"
+      },
+      "date": "2026-10-18",
+      "day": "Sunday"
+    },
+    {
+      "id": "dussehra-maha-ashtami",
+      "name": {
+        "en": "Dussehra (Maha Ashtami)",
+        "hi": "दशहरा (महाअष्टमी)"
+      },
+      "date": "2026-10-19",
+      "day": "Monday"
+    },
+    {
+      "id": "dussehra-mahanavami",
+      "name": {
+        "en": "Dussehra (Mahanavami)",
+        "hi": "दशहरा (महानवमी)"
+      },
+      "date": "2026-10-20",
+      "day": "Tuesday"
+    },
+    {
+      "id": "maharishi-valmiki-s-birthday",
+      "name": {
+        "en": "Maharishi Valmiki's Birthday",
+        "hi": "महर्षि वाल्मीकि जयंती"
+      },
+      "date": "2026-10-26",
+      "day": "Monday"
+    },
+    {
+      "id": "karaka-chaturthi-karwa-chauth",
+      "name": {
+        "en": "Karaka Chaturthi (Karwa Chauth)",
+        "hi": "करक चतुर्थी (करवा चौथ)"
+      },
+      "date": "2026-10-29",
+      "day": "Thursday"
+    },
+    {
+      "id": "naraka-chaturdasi",
+      "name": {
+        "en": "Naraka Chaturdasi",
+        "hi": "नरक चतुर्दशी"
+      },
+      "date": "2026-11-08",
+      "day": "Sunday"
+    },
+    {
+      "id": "govardhan-puja",
+      "name": {
+        "en": "Govardhan Puja",
+        "hi": "गोवर्धन पूजा"
+      },
+      "date": "2026-11-09",
+      "day": "Monday"
+    },
+    {
+      "id": "bhai-dooj",
+      "name": {
+        "en": "Bhai Dooj",
+        "hi": "भाई दूज"
+      },
+      "date": "2026-11-11",
+      "day": "Wednesday"
+    },
+    {
+      "id": "pratihar-shashthi-surya-shashthi-chhath-puja",
+      "name": {
+        "en": "Pratihar Shashthi / Surya Shashthi (Chhath Puja)",
+        "hi": "प्रतिहार षष्ठी / सूर्य षष्ठी (छठ पूजा)"
+      },
+      "date": "2026-11-15",
+      "day": "Sunday"
+    },
+    {
+      "id": "guru-teg-bahadur-s-martyrdom-day",
+      "name": {
+        "en": "Guru Teg Bahadur's Martyrdom Day",
+        "hi": "गुरु तेग बहादुर शहीदी दिवस"
+      },
+      "date": "2026-11-24",
+      "day": "Tuesday"
+    },
+    {
+      "id": "hazrat-ali-s-birthday-2",
+      "name": {
+        "en": "Hazrat Ali's Birthday",
+        "hi": "हज़रत अली जन्मदिवस"
+      },
+      "date": "2026-12-23",
+      "day": "Wednesday"
+    },
+    {
+      "id": "christmas-eve",
+      "name": {
+        "en": "Christmas Eve",
+        "hi": "क्रिसमस की पूर्व संध्या"
+      },
+      "date": "2026-12-24",
+      "day": "Thursday"
+    }
+  ]
+}

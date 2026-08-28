@@ -21,3 +21,8 @@ data/drafting/
 # for the same reason data/law and data/pay are: prettier and the generator would
 # otherwise take turns rewriting the same 4 MB.
 data/rules/
+
+# same reason again: written by scripts/ingest/holidays.py and utils_seed.py.
+data/holidays/
+data/portals.json
+data/pension/

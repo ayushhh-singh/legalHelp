@@ -1,0 +1,380 @@
+{
+  "version": "1.0.0",
+  "generatedAt": "2026-08-29T00:00:00Z",
+  "disclaimer": {
+    "en": "Reference only; verify with the official gazette/order or your DDO.",
+    "hi": "केवल संदर्भ हेतु; आधिकारिक राजपत्र/आदेश अथवा अपने डीडीओ से पुष्टि करें।"
+  },
+  "superannuation": {
+    "ageYears": 60,
+    "rule": {
+      "en": "A Government servant retires from service on the afternoon of the last day of the month in which he attains the age of sixty years.",
+      "hi": "एक सरकारी सेवक उस माह के अंतिम दिन की अपराह्न को सेवानिवृत्त होता है जिसमें वह साठ वर्ष की आयु प्राप्त करता है।"
+    },
+    "source": {
+      "name": "Fundamental Rule 56(a)",
+      "url": "https://doe.gov.in",
+      "reference": "FR 56(a)"
+    },
+    "verify": false
+  },
+  "gratuity": {
+    "fractionPerSixMonths": 0.25,
+    "maxMultiplier": 16.5,
+    "baseCeiling": 2000000,
+    "daLinked": {
+      "kind": "quarter-per-fifty",
+      "timesApplied": 1,
+      "note": {
+        "en": "The Rs. 20 lakh ceiling Rule 45 states is raised by 25 per cent each time Dearness Allowance crosses 50 per cent, the same escalation data/pay/allowances.json applies to fixed allowances. DA crossed 50 per cent on 01.01.2024, so the ceiling actually payable today is Rs. 25 lakh.",
+        "hi": "नियम 45 में उल्लिखित 20 लाख रुपये की सीमा प्रत्येक बार महँगाई भत्ता 50 प्रतिशत पार करने पर 25 प्रतिशत बढ़ाई जाती है, यही वृद्धि data/pay/allowances.json में निश्चित भत्तों पर लागू होती है। महँगाई भत्ता 01.01.2024 को 50 प्रतिशत पार कर गया, अतः आज वास्तव में देय सीमा 25 लाख रुपये है।"
+      }
+    },
+    "deathGratuityTable": [
+      {
+        "minYears": 0,
+        "maxYears": 1,
+        "multiplier": 2,
+        "label": {
+          "en": "Less than 1 year",
+          "hi": "1 वर्ष से कम"
+        }
+      },
+      {
+        "minYears": 1,
+        "maxYears": 5,
+        "multiplier": 6,
+        "label": {
+          "en": "1 year or more but less than 5 years",
+          "hi": "1 वर्ष या अधिक किंतु 5 वर्ष से कम"
+        }
+      },
+      {
+        "minYears": 5,
+        "maxYears": 11,
+        "multiplier": 12,
+        "label": {
+          "en": "5 years or more but less than 11 years",
+          "hi": "5 वर्ष या अधिक किंतु 11 वर्ष से कम"
+        }
+      },
+      {
+        "minYears": 11,
+        "maxYears": 20,
+        "multiplier": 20,
+        "label": {
+          "en": "11 years or more but less than 20 years",
+          "hi": "11 वर्ष या अधिक किंतु 20 वर्ष से कम"
+        }
+      },
+      {
+        "minYears": 20,
+        "maxYears": null,
+        "multiplier": "half-per-six-months-max-33",
+        "label": {
+          "en": "20 years or more",
+          "hi": "20 वर्ष या अधिक"
+        }
+      }
+    ],
+    "rule": {
+      "en": "Retirement gratuity: one-fourth of emoluments for each completed six-monthly period of qualifying service, subject to a maximum of 16.5 times the emoluments.",
+      "hi": "सेवानिवृत्ति उपदान: अर्हकारी सेवा की प्रत्येक पूर्ण छमाही अवधि हेतु परिलब्धियों का एक-चौथाई, अधिकतम 16.5 गुना परिलब्धियों की सीमा तक।"
+    },
+    "source": {
+      "name": "Central Civil Services (Pension) Rules, 2021",
+      "url": "https://doppw.gov.in",
+      "reference": "Rule 45",
+      "dated": "2021-01-15"
+    },
+    "verify": false
+  },
+  "commutation": {
+    "maxFraction": 0.4,
+    "rule": {
+      "en": "A Government servant may commute for a lump sum payment up to 40 per cent of his pension.",
+      "hi": "एक सरकारी सेवक अपनी पेंशन के अधिकतम 40 प्रतिशत भाग को एकमुश्त भुगतान हेतु कम्यूट कर सकता है।"
+    },
+    "table": [
+      {
+        "ageNextBirthday": 20,
+        "factor": 9.188
+      },
+      {
+        "ageNextBirthday": 21,
+        "factor": 9.187
+      },
+      {
+        "ageNextBirthday": 22,
+        "factor": 9.186
+      },
+      {
+        "ageNextBirthday": 23,
+        "factor": 9.185
+      },
+      {
+        "ageNextBirthday": 24,
+        "factor": 9.184
+      },
+      {
+        "ageNextBirthday": 25,
+        "factor": 9.183
+      },
+      {
+        "ageNextBirthday": 26,
+        "factor": 9.182
+      },
+      {
+        "ageNextBirthday": 27,
+        "factor": 9.18
+      },
+      {
+        "ageNextBirthday": 28,
+        "factor": 9.178
+      },
+      {
+        "ageNextBirthday": 29,
+        "factor": 9.176
+      },
+      {
+        "ageNextBirthday": 30,
+        "factor": 9.173
+      },
+      {
+        "ageNextBirthday": 31,
+        "factor": 9.169
+      },
+      {
+        "ageNextBirthday": 32,
+        "factor": 9.164
+      },
+      {
+        "ageNextBirthday": 33,
+        "factor": 9.159
+      },
+      {
+        "ageNextBirthday": 34,
+        "factor": 9.152
+      },
+      {
+        "ageNextBirthday": 35,
+        "factor": 9.145
+      },
+      {
+        "ageNextBirthday": 36,
+        "factor": 9.136
+      },
+      {
+        "ageNextBirthday": 37,
+        "factor": 9.126
+      },
+      {
+        "ageNextBirthday": 38,
+        "factor": 9.116
+      },
+      {
+        "ageNextBirthday": 39,
+        "factor": 9.103
+      },
+      {
+        "ageNextBirthday": 40,
+        "factor": 9.09
+      },
+      {
+        "ageNextBirthday": 41,
+        "factor": 9.075
+      },
+      {
+        "ageNextBirthday": 42,
+        "factor": 9.059
+      },
+      {
+        "ageNextBirthday": 43,
+        "factor": 9.04
+      },
+      {
+        "ageNextBirthday": 44,
+        "factor": 9.019
+      },
+      {
+        "ageNextBirthday": 45,
+        "factor": 8.996
+      },
+      {
+        "ageNextBirthday": 46,
+        "factor": 8.971
+      },
+      {
+        "ageNextBirthday": 47,
+        "factor": 8.943
+      },
+      {
+        "ageNextBirthday": 48,
+        "factor": 8.913
+      },
+      {
+        "ageNextBirthday": 49,
+        "factor": 8.881
+      },
+      {
+        "ageNextBirthday": 50,
+        "factor": 8.846
+      },
+      {
+        "ageNextBirthday": 51,
+        "factor": 8.808
+      },
+      {
+        "ageNextBirthday": 52,
+        "factor": 8.768
+      },
+      {
+        "ageNextBirthday": 53,
+        "factor": 8.724
+      },
+      {
+        "ageNextBirthday": 54,
+        "factor": 8.678
+      },
+      {
+        "ageNextBirthday": 55,
+        "factor": 8.627
+      },
+      {
+        "ageNextBirthday": 56,
+        "factor": 8.572
+      },
+      {
+        "ageNextBirthday": 57,
+        "factor": 8.512
+      },
+      {
+        "ageNextBirthday": 58,
+        "factor": 8.446
+      },
+      {
+        "ageNextBirthday": 59,
+        "factor": 8.371
+      },
+      {
+        "ageNextBirthday": 60,
+        "factor": 8.287
+      },
+      {
+        "ageNextBirthday": 61,
+        "factor": 8.194
+      },
+      {
+        "ageNextBirthday": 62,
+        "factor": 8.093
+      },
+      {
+        "ageNextBirthday": 63,
+        "factor": 7.982
+      },
+      {
+        "ageNextBirthday": 64,
+        "factor": 7.862
+      },
+      {
+        "ageNextBirthday": 65,
+        "factor": 7.731
+      },
+      {
+        "ageNextBirthday": 66,
+        "factor": 7.591
+      },
+      {
+        "ageNextBirthday": 67,
+        "factor": 7.431
+      },
+      {
+        "ageNextBirthday": 68,
+        "factor": 7.262
+      },
+      {
+        "ageNextBirthday": 69,
+        "factor": 7.083
+      },
+      {
+        "ageNextBirthday": 70,
+        "factor": 6.897
+      },
+      {
+        "ageNextBirthday": 71,
+        "factor": 6.703
+      },
+      {
+        "ageNextBirthday": 72,
+        "factor": 6.502
+      },
+      {
+        "ageNextBirthday": 73,
+        "factor": 6.296
+      },
+      {
+        "ageNextBirthday": 74,
+        "factor": 6.085
+      },
+      {
+        "ageNextBirthday": 75,
+        "factor": 5.872
+      },
+      {
+        "ageNextBirthday": 76,
+        "factor": 5.657
+      },
+      {
+        "ageNextBirthday": 77,
+        "factor": 5.443
+      },
+      {
+        "ageNextBirthday": 78,
+        "factor": 5.229
+      },
+      {
+        "ageNextBirthday": 79,
+        "factor": 5.018
+      },
+      {
+        "ageNextBirthday": 80,
+        "factor": 4.812
+      },
+      {
+        "ageNextBirthday": 81,
+        "factor": 4.611
+      }
+    ],
+    "source": {
+      "name": "Central Civil Services (Commutation of Pension) Rules, 1981 — Table of commutation values",
+      "url": "https://persmin.gov.in/pension/rules_new/ccs_coprules_1981_060613.pdf",
+      "reference": "Schedule",
+      "note": {
+        "en": "The fetched PDF's content stream could not be parsed for the table this session; every value below was cross-checked against two independent secondary reproductions of the same official table, which agreed on every row compared (docs/DATA-GAPS.md #52).",
+        "hi": "इस सत्र में प्राप्त पीडीएफ की सामग्री धारा से तालिका पार्स नहीं की जा सकी; नीचे प्रत्येक मान की जाँच उसी आधिकारिक तालिका के दो स्वतंत्र द्वितीयक पुनरुत्पादनों से की गई, जो तुलना की गई प्रत्येक पंक्ति पर सहमत थे (docs/DATA-GAPS.md #52)।"
+      }
+    },
+    "verify": true
+  },
+  "gpf": {
+    "rateHistory": [
+      {
+        "effectiveFrom": "2020-07-01",
+        "rate": 7.1
+      },
+      {
+        "effectiveFrom": "2026-04-01",
+        "rate": 7.1
+      }
+    ],
+    "source": {
+      "name": "Department of Economic Affairs — Rate of interest on General Provident Fund and other similar funds",
+      "url": "https://dea.gov.in/budget-division/rate-interest-general-provident-fund-gpf-and-other-similar-funds-q-1-fy-2026-27",
+      "note": {
+        "en": "dea.gov.in failed certificate verification on every fetch attempted this session; the rate is corroborated across multiple independent financial-press reports of the same DEA resolution.",
+        "hi": "इस सत्र में हर प्रयास में dea.gov.in का प्रमाणपत्र सत्यापन विफल रहा; यह दर उसी डीईए संकल्प की कई स्वतंत्र वित्तीय-प्रेस रिपोर्टों से पुष्ट है।"
+      }
+    },
+    "verify": true
+  }
+}

@@ -270,7 +270,40 @@
       "source": {
         "name": "Department of Official Language (Rajbhasha Vibhag) — Saral Prashasanik Shabdavali"
       }
+    },
+    "holidays-2026": {
+      "version": "1.0.0",
+      "updated": "2026-08-29",
+      "label": {
+        "en": "Holiday calendar 2026",
+        "hi": "अवकाश तालिका 2026"
+      },
+      "rows": 51,
+      "sha256": "245275f91465952a68c374b3e7f019e258e2ae2fb21260c78db2f94498f71c8a",
+      "source": {
+        "name": "Department of Personnel & Training — Holidays to be observed in Central Government Offices"
+      }
+    },
+    "portals": {
+      "version": "1.0.0",
+      "updated": "2026-08-29",
+      "label": {
+        "en": "Portals & helplines directory",
+        "hi": "पोर्टल एवं हेल्पलाइन निर्देशिका"
+      },
+      "rows": 22,
+      "sha256": "6ceba2b961386d5edf8a5d36eefbfd4cef7011c01f6a11a009fa052fac4d3309"
+    },
+    "pension-facts": {
+      "version": "1.0.0",
+      "updated": "2026-08-29",
+      "label": {
+        "en": "Pension facts",
+        "hi": "पेंशन तथ्य"
+      },
+      "rows": 62,
+      "sha256": "3b63bb8f5dbdabcb6dfeb643591c8b41612fbc02d2965430c726a56b6de9efa9"
     }
   },
-  "generatedAt": "2026-08-28"
+  "generatedAt": "2026-08-29"
 }

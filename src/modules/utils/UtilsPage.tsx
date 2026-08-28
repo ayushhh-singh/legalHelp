@@ -11,6 +11,10 @@ import { useT } from '@/i18n/useT'
  */
 const UtilsHubPage = lazy(() => import('./UtilsHubPage'))
 const GlossaryPage = lazy(() => import('./glossary/GlossaryPage'))
+const HolidaysPage = lazy(() => import('./holidays/HolidaysPage'))
+const LeavePage = lazy(() => import('./leave/LeavePage'))
+const PensionPage = lazy(() => import('./pension/PensionPage'))
+const PortalsPage = lazy(() => import('./portals/PortalsPage'))
 
 function Fallback() {
   const { t } = useT()
@@ -27,6 +31,10 @@ export default function UtilsPage() {
       <Routes>
         <Route index element={<UtilsHubPage />} />
         <Route path="glossary" element={<GlossaryPage />} />
+        <Route path="holidays" element={<HolidaysPage />} />
+        <Route path="leave" element={<LeavePage />} />
+        <Route path="pension" element={<PensionPage />} />
+        <Route path="portals" element={<PortalsPage />} />
         <Route path="*" element={<Navigate to="/utils" replace />} />
       </Routes>
     </Suspense>
