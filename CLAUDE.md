@@ -471,6 +471,19 @@ are load-bearing, and each is enforced by a test rather than by convention:
   read it before debugging that, it is one line in `public/_headers` plus `'wasm-unsafe-eval'` if WebLLM
   lands too).
 
+- **`form-action 'none'` is safe only because this app contains no `<form>` element at all — read this
+  BEFORE adding one.** Every input in the app is a controlled component, so the policy costs nothing today.
+  The moment a real `<form>` appears, any submission that reaches a navigation is refused, and the case
+  that will catch someone is the one nobody writes on purpose: pressing Enter in a single-input form
+  triggers IMPLICIT submission, which navigates, which the policy blocks — silently, because a blocked
+  navigation looks like a control that did nothing. There is no test for this and there should not be: a
+  test asserting about an element that does not exist asserts nothing. If a form is genuinely wanted, either
+  call `preventDefault()` (CSP does not govern a submission that never navigates) or widen the directive to
+  `form-action 'self'` in `public/_headers` and say why. The related check that IS worth knowing: all four
+  blob downloads — the holidays `.ics`, the drafting `.docx`, the Settings backup and the Trainer's CSV —
+  were confirmed working in a real browser under this policy, because `default-src 'self'` lists no `blob:`
+  and reasoning about it was not good enough (ADR-030 addendum).
+
 - **Running the app under its own production CSP found a real accessibility defect no test had.**
   `Command.Dialog`'s `label` prop only sets `aria-label` on the content element; Radix still requires a
   `Dialog.Title` INSIDE it and logs a `console.error` in every build without one — not just development.
