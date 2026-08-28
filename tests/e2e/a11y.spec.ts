@@ -87,6 +87,45 @@ async function setChrome(page: Page, language: 'en' | 'hi', theme: 'light' | 'da
     await page.getByRole('button', { name: /dark theme|गहरे रंग/i }).click()
     await expect(page.locator('html')).toHaveClass(/dark/)
   }
+
+  /*
+    Wait for what was TOGGLED to be in IndexedDB, not merely applied to the DOM.
+
+    The toggles apply in memory synchronously and persist asynchronously, so the
+    first navigation below can outrun the write and land on a page that hydrates
+    back to the default — the same race `tests/e2e/theme.spec.ts` documents. It
+    became a real flake when this sweep grew from six routes to eight.
+
+    Only a toggled preference is waited for: a default is never written, so
+    waiting for `theme: light` would wait for a row that will never exist.
+  */
+  for (const [key, value] of [
+    ['language', language === 'hi' ? 'hi' : null],
+    ['theme', theme === 'dark' ? 'dark' : null],
+  ] as const) {
+    if (!value) continue
+    await expect.poll(() => storedSetting(page, key)).toBe(value)
+  }
+}
+
+/** One row out of the `settings` store, or null while it is not there yet. */
+function storedSetting(page: Page, key: string): Promise<string | null> {
+  return page.evaluate(
+    (name) =>
+      new Promise<string | null>((resolve) => {
+        const open = indexedDB.open('sahayak')
+        open.onerror = () => resolve(null)
+        open.onsuccess = () => {
+          const request = open.result.transaction('settings').objectStore('settings').get(name)
+          request.onerror = () => resolve(null)
+          request.onsuccess = () => {
+            const row = request.result as { value?: unknown } | undefined
+            resolve(row === undefined ? null : String(row.value))
+          }
+        }
+      }),
+    key,
+  )
 }
 
 for (const language of ['en', 'hi'] as const) {

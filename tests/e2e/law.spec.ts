@@ -84,8 +84,10 @@ test('picking a code with an empty search box browses that Act', async ({ page }
   const results = page.getByRole('list', { name: 'Search results' })
   await expect(results.getByRole('button').first()).toContainText('BSA 1')
 
-  // The list is windowed, so the whole Act is not in the DOM at once.
-  expect(await results.getByRole('button').count()).toBeLessThan(40)
+  // Every section of the Act is there — no window, no cap, nothing to scroll
+  // past into blank space (ADR-016).
+  expect(await results.getByRole('button').count()).toBe(170)
+  await expect(results.getByRole('button').last()).toContainText('BSA 170')
 
   // Browsing is a list, not an answer: nothing is opened until a row is
   // clicked, and no "why this matched" badge is shown, because nothing matched.
@@ -112,8 +114,8 @@ test('the All chip browses all three codes, even though it is already selected',
 
   const results = page.getByRole('list', { name: 'Search results' })
   await expect(results.getByRole('button').first()).toContainText('BNS 1')
-  // Still windowed: 1,059 rows are not in the DOM at once.
-  expect(await results.getByRole('button').count()).toBeLessThan(60)
+  expect(await results.getByRole('button').count()).toBe(1059)
+  await expect(results.getByRole('button').last()).toContainText('BSA 170')
 })
 
 test('browsing survives a reload, because the intent is in the URL', async ({ page }) => {
@@ -123,20 +125,26 @@ test('browsing survives a reload, because the intent is in the URL', async ({ pa
   await expect(page.getByText(/Browsing the Bharatiya Sakshya Adhiniyam, 2023/)).toBeVisible()
 })
 
-test('the browse list scrolls its own rows rather than ending in blank space', async ({ page }) => {
+test('the browse list holds every row of the Act, end to end', async ({ page }) => {
   await page.setViewportSize({ width: 1440, height: 900 })
   await page.goto('/law?browse=1&code=bns')
   const results = page.getByRole('list', { name: 'Search results' })
   await expect(results.getByRole('button').first()).toContainText('BNS 1')
 
-  // Scroll the pane a long way down and assert rows are actually there. The
-  // window used to be pinned to row 0, so everything past row 20 was blank.
-  await page.evaluate(() => {
+  // No window, so there is nothing to scroll past into blank space (ADR-016).
+  expect(await results.getByRole('button').count()).toBe(358)
+  await expect(results.getByRole('button').last()).toContainText('BNS 358')
+
+  // And the pane really scrolls to it: the last row sits at the very bottom of
+  // the scrollable content, which is only true if all 358 rows have height.
+  const atEnd = await page.evaluate(() => {
     const pane = document.getElementById('law-results')?.parentElement
-    if (pane) pane.scrollTop = 200 * 76
+    if (!pane) return null
+    pane.scrollTop = pane.scrollHeight
+    return { scrollTop: pane.scrollTop, scrollHeight: pane.scrollHeight, clientHeight: pane.clientHeight }
   })
-  await expect(results.getByRole('button').first()).toContainText('BNS 19', { timeout: 5000 })
-  expect(await results.getByRole('button').count()).toBeGreaterThan(5)
+  expect(atEnd?.scrollHeight).toBe(358 * 76)
+  expect(atEnd?.scrollTop).toBe((atEnd?.scrollHeight ?? 0) - (atEnd?.clientHeight ?? 0))
 })
 
 test('opening a section keeps the search box on a desktop and reveals it on a phone', async ({ page }) => {
@@ -216,9 +224,9 @@ for (const [name, width, height] of [
 ] as const) {
   test(`on ${name}, opening a deep row keeps the list populated`, async ({ page }) => {
     // Opening a section reflows the list from full width into a column, and
-    // the browser clamps its scroll position when it does. With the window
-    // computed from the remembered offset, every row was rendered at a
-    // coordinate the reader was not looking at and the list went BLANK.
+    // the browser clamps its scroll position when it does. The windowed version
+    // computed its rows from the remembered offset and rendered every one of
+    // them off screen, so the list went BLANK on a click.
     await page.setViewportSize({ width, height })
     await page.goto('/law?browse=1&code=bns')
     const list = page.getByRole('list', { name: 'Search results' })
@@ -228,12 +236,13 @@ for (const [name, width, height] of [
       const pane = document.getElementById('law-results')?.parentElement
       if (pane) pane.scrollTop = 150 * 76
     })
-    // By index, not by label: "BNS 145" contains the substring "BNS 1".
-    await expect.poll(() => list.getByRole('button').first().getAttribute('data-index')).not.toBe('0')
 
     await list.getByRole('button').nth(2).click()
     await expect(page.getByRole('button', { name: 'Close this section' })).toBeVisible()
-    expect(await list.getByRole('button').count(), 'the list emptied on click').toBeGreaterThan(0)
+    // Every row still there. The windowed version rendered them at coordinates
+    // the reader was no longer looking at, and the list appeared to be empty.
+    expect(await list.getByRole('button').count(), 'the list emptied on click').toBe(358)
+    await expect(list.getByRole('button').last()).toContainText('BNS 358')
   })
 
   test(`on ${name}, the page never scrolls sideways`, async ({ page }) => {

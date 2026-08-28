@@ -1399,3 +1399,256 @@ control that could not do anything, not to change the ranking.
 - Every one of these was invisible to the unit suite, because jsdom has no layout. The regression tests
   are Playwright, run at four viewports — phone, tablet portrait, tablet landscape, desktop.
 - `pnpm check` green (831 unit), 59 Playwright e2e green.
+
+---
+
+## ADR-016 — The pay datasets: generate the matrix, OCR the orders, and let `verify` carry the doubt
+
+**Date:** 2026-08-28 · **Status:** Accepted · **Session:** 5 (Pay & Allowances data)
+
+### Context
+
+The Pay & Allowances Calculator needs eleven datasets before it needs a single component: the
+7th CPC pay matrix, the Dearness Allowance series since 2016, the House Rent Allowance city
+classification, the allowances themselves, the posts an officer might hold, the four deduction
+schemes, the income tax position and the status of the 8th CPC. Four questions had no obvious
+answer, and the fourth is the one that shapes the module.
+
+**1. How do you get 540 numbers out of a scanned table without getting one of them wrong?**
+The pay matrix is published only as an image. `doe.gov.in` hosts no text-layer copy of the
+CCS (Revised Pay) Rules, 2016 and no mirror found has one.
+
+**2. How do you read a Department of Expenditure order at all?** Almost every one of them is a
+scan. The single exception turned out to be the most valuable document in the session.
+
+**3. What does the reader see when the number is right but unconfirmed?** The master context says
+to keep a figure and set `verify: true`. On a pay slip that is not a footnote — it is the
+difference between a figure to act on and a figure to check.
+
+**4. Where does "no matrix" belong for the 8th CPC?** Every pay calculator on the internet shows an
+"8th CPC salary". None of them can, because nothing has been recommended.
+
+### Decision
+
+**1. The pay matrix is generated from the Commission's own rule, and checked against the scan.**
+
+`scripts/ingest/pay_matrix.py` derives all 540 cells from 19 entry pays and 19 cell counts:
+cell _n_ is cell _n−1_ raised by 3 per cent and rounded to the nearest hundred, and cell 1 is the
+pre-revised entry pay times that level's index of rationalisation (7th CPC report, Table 4). Only
+38 numbers have to be right, and all 38 sit in one `ANCHORS` list a reviewer can read at once.
+
+`verify_against_gazette()` is what makes that defensible rather than merely convenient. It asserts
+the last cell of every level against the figure printed in the Schedule, spot-checks eleven interior
+cells spread across the width of the table, and re-derives every entry pay from its pre-revised pay
+and index. It passes on all 19 levels. `tests/pay-data.test.ts` then re-derives the rule
+independently, so the generator and the test would have to be wrong in the same way.
+
+The reason this is not a shortcut: transcribing a 19-column numeric table is exactly the operation
+that produces one wrong digit in one cell that nobody ever notices. Deriving it means a wrong digit
+is impossible unless an anchor is wrong, and every anchor is asserted against the printed page.
+
+The entry-pay check tolerates half a unit in the last published decimal of the index rather than
+demanding equality: the report prints `80000 × 2.81 = 225000`, and 80,000 × 2.81 is 2,24,800. The
+index is published to two decimals and cannot pin the entry pay more tightly than that. Asserting
+exact equality would have meant either deleting the check or writing a false one.
+
+**Level 13 ships as substituted.** The 2016 gazette runs it from ₹1,18,500 to ₹2,14,100 over 21
+cells at an index of 2.57; the CCS (Revised Pay) (Amendment) Rules, 2017 replaced it from
+01.01.2016 by a 20-cell level from ₹1,23,100 to ₹2,15,900 at 2.67, and DoE O.M. 4-6/2017-IC/E-III(A)
+of 28.09.2017 calls the earlier one "non-existent ab-initio". Shipping the 2016 level would be
+shipping a level that legally never existed. Pay in it is still fixed with the fitment factor of
+2.57 — the same OM says the 2.67 is an index of rationalisation, not a fitment factor, and that pay
+fixed at 2.67 "is liable to be rectified and excess amount recovered forthwith". Both facts are in
+the level's `note`.
+
+**2. The scanned orders were read by rendering and recognising, and then by eye.**
+
+No `tesseract` on the machine and none in the stack. Every page of every order was rendered to PNG
+with PyMuPDF and put through the macOS Vision text recogniser, and the figures were then checked
+against the rendered page visually before being written down. That is how the House Rent Allowance
+annexure — 102 cities across 35 States and Union Territories — reached `data/pay/cities.json`, and
+how the Tough Location Allowance rate table reached `allowances.json`. The recogniser reads a table
+column-first when the page is rotated, so every table was also read as an image before its numbers
+were trusted; that is what caught R3H2, which is ₹3,400 / ₹2,700 and not the ₹4,100 / ₹3,400 that a
+symmetry argument would suggest.
+
+None of this is in the repository. The renderer and the recogniser are a one-off, the raw PDFs are
+git-ignored like everything else in `raw/`, and what ships is the JSON with the order's number, date
+and URL beside each figure.
+
+**The 7th CPC report itself has a text layer.** 899 pages, fetched from `doe.gov.in`, searchable.
+It is the source for the Risk and Hardship Matrix, Dress Allowance, Children Education Allowance,
+Detachment, Deputation (Duty), Running Allowance, Night Duty, Non-Practising Allowance and the
+Special Security Allowances — every allowance whose notifying order could not be found. Those
+records say the Commission recommended the figure; they do not say the Government notified it, and
+they all carry `verify: true`.
+
+**3. `verify` is a claim about provenance, and the counts are the honest summary.**
+
+`verify: false` means a figure was read from the order that made it. Everything else is `true`.
+That yields, deliberately, an uncomfortable set of numbers: 0 of 19 matrix levels, 0 of 102 cities
+and 10 of 32 allowances are confirmed, but 66 of 67 posts and all 21 tax records are not. Nine rows
+in `docs/DATA-GAPS.md` (#23 to #32) say for each group which order would settle it.
+
+Two consequences follow for the UI, and they are the reason the flag is worth its cost. A record
+with `verify: true` owes the reader the marigold banner the Law Converter already uses for curated
+Hindi (ADR-013), and an AI tool that returns one owes the same sentence. Second, `data/pay/jobs.json`
+is almost entirely unconfirmed, so the Pay calculator must not present a job-title pick as an
+authority — it is a starting point for a form the officer then checks.
+
+**The one place the brief's number was not taken.** It named the Central Bureau of Investigation
+allowance at 25 per cent. The 7th CPC records 25 per cent as the rate _before_ rationalisation, for
+officers up to Superintendent of Police, and recommends a single rate of 20 per cent. The dataset
+carries 20 with `verify: true` and a note stating both figures and where each comes from, and
+`docs/DATA-GAPS.md` #26 asks a human which one the CBI actually pays. Recording the brief's figure
+without the recommendation, or the recommendation without the brief's figure, would each have hidden
+half of what is known.
+
+**4. `data/pay/cpc8.json` carries status facts and a list of things nobody knows.**
+
+Constituted 3 November 2025 by Resolution F. No. 01-01/2025-E.III(A); Justice Ranjana Prakash Desai
+as Chairperson, Prof. Pulak Ghosh as part-time Member, Shri Pankaj Jain as Member-Secretary;
+headquarters Delhi; recommendations within 18 months, which is 3 May 2027. All of that was read
+from the gazette PDF, which has a text layer, and carries `verify: false`.
+
+There is no matrix, and the schema has no place to put one. The three fitment factors in public
+circulation — 1.92, 2.57 and 2.86 — are recorded as `status: "projected"` with what each is
+attributed to, and `whatIsNotKnown` is a five-item list in both languages saying there is no matrix,
+no fitment factor, no date of effect, nothing about allowances, and that any calculator producing an
+"8th CPC salary" is multiplying a guess by a pay matrix. `tests/pay-data.test.ts` asserts the
+absence of a matrix, because that absence is the feature.
+
+**5. Two schemas per dataset, and neither producer nor consumer can drift alone.**
+
+`schemas/pay-*.schema.json` is validated by Python — `pay_matrix.py` before it writes, and the new
+`scripts/ingest/validate_data.py` over every file in a manifest. `src/modules/pay/schema.ts` is zod,
+run by `pnpm test`. This is the arrangement ADR-012 set up for the law datasets, extended rather than
+reinvented. CI now runs `validate_data.py` and `pay_matrix.py --check` alongside the ingest unit
+tests.
+
+`validate_data.py` treats a file in its manifest that does not exist as a failure rather than a skip.
+A dataset that silently stops being validated is worse than one that was never validated.
+
+**6. `data/_meta/versions.json` names the pay sources but carries no pay URL.**
+
+`versions.json` is bundled — `src/lib/dataVersion.ts` imports it — so any URL in it reaches `dist/`
+and has to be added to the allowlist in `tests/no-external-urls.test.ts`. The law entries each cite
+one source and earned one allowlist line (ADR-012). The pay datasets are compiled from dozens of
+orders across `doe.gov.in`, `pfrda.org.in`, `ssc.gov.in`, `upsc.gov.in` and more, and adding all of
+those to the allowlist would turn a deliberate, reviewed exception into a wide-open door.
+
+So the pay entries in `versions.json` carry `source.name` and no `source.url`. Nothing is lost: the
+UI reads label, version and date from `versions.json` and reads the citation it actually shows from
+the per-record `source` inside each dataset, where every URL is. The allowlist is unchanged and the
+audit question — what may this app request? — still has the same one-line answer.
+
+### Consequences
+
+- **1.2 MB of new data, none of it in the bundle.** `data/pay` is not imported by anything under
+  `src/`. When the Pay module is built it must reach the datasets the way the Law Converter reaches
+  the statute — a `?raw` dynamic import, not a `fetch` (ADR-013) — so `src/ai/providers/wire.ts`
+  stays the only module in the app that may call `fetch`.
+- **`tests/pay-data.test.ts`: 89 assertions over the committed bytes**, read off disk with
+  `readFromRoot` like the law suites. They check the 3-per-cent rule on every cell, the grade-pay to
+  level map including the two 5400s, that Level 13 is the amended one, that the Risk and Hardship
+  Matrix is symmetrical about its diagonal, that every `allowanceId` on every post resolves, that
+  every post's grade pay matches the level it claims, that IB ACIO-II lands on Level 7 / GP 4600 with
+  the Special Security Allowance switched on, and that the 8th CPC record has no matrix. Each was
+  confirmed to fail against a deliberately corrupted copy before being kept.
+- **A test for Hindi that is copied English.** The zod schemas require both members of every
+  bilingual object to be non-empty, which a copy-paste passes. The suite walks every dataset and
+  fails on any `{ en, hi }` where the two are identical and longer than four characters. It found
+  nothing, which is the point of running it now rather than after the first shortcut.
+- **`enabledByDefault` is a claim, and it is tested.** It is true only where an allowance follows the
+  post — the Intelligence Bureau's Special Security Allowance, a uniformed post's Dress Allowance,
+  Ration Money for personnel below officer rank. Anything that depends on where an officer is posted
+  or on an option they exercise is false, and the suite asserts that eleven named allowances are
+  never defaulted on.
+- **`daLinked` is load-bearing and easy to miss.** Most fixed allowances state the 2017 rate and rise
+  by 25 per cent each time Dearness Allowance crosses 50 per cent, which happened on 01.01.2024. A
+  calculator that renders `2250` for Children Education Allowance is a quarter short; the field says
+  `quarter-per-fifty`, `timesApplied: 1`, `since: 2024-01-01`, and the suite asserts all three on
+  every semi-indexed allowance.
+- **The Dearness Allowance series has two rows for 01.07.2021.** 28 per cent restored the three
+  frozen instalments; 31 per cent superseded it from the same date three months later. Both are
+  recorded because both were notified, and `supersededBy` is what tells a lookup which one to use.
+  Dropping the 28 would have lost the fact that the frozen instalments were never paid as arrears.
+- **One projection, and it is fenced.** 63 per cent from 01.07.2026 carries `status: "projected"`, a
+  range of 62 to 64, `verify: true` and a note saying no order exists. The suite asserts there is
+  exactly one and that it is the last row.
+
+### Rejected
+
+- **Committing the OCR text alongside the JSON.** It would look like provenance and be worse than
+  none: the recogniser mangles enough of every page that a reader comparing a figure against the
+  dump would find a discrepancy that is the recogniser's, not the data's. The order's number, date
+  and URL are the provenance; the PDF at that URL is the artefact.
+- **A `pnpm data:validate` script.** It would need either a new JSON Schema dependency for Node or a
+  Python interpreter inside `pnpm check`. The zod schemas already run in `pnpm test`, which
+  `pnpm check` runs, and the JSON Schema half runs in CI beside the ingest unit tests, which is where
+  the Python already is.
+- **Carrying the Railway Kilometreage rates.** They are per-category, per-100-kilometre, differ for
+  shunting, and are notified by the Railway Board rather than the Department of Expenditure. The pay
+  element of 30 per cent is what a pay calculator can actually use and is what ships; the rest is
+  `docs/DATA-GAPS.md` #32, and the card will have to say the kilometreage part is not included.
+- **Rounding the July 2026 Dearness Allowance projection to a single confident number.** The monthly
+  AICPI-IW figures reported by secondary sources for the first half of 2026 do not agree to the
+  decimal. A range and a flag is what the evidence supports.
+
+---
+
+## ADR-016 — The result list is not virtualised
+
+**Date:** 2026-08-28 · **Status:** Accepted · **Session:** 4 (follow-up) ·
+**Supersedes:** the "results virtualised if > 50" instruction in the Session 4 brief
+
+### Context
+
+The brief asked for the result list to be virtualised above fifty rows, and it was. Windowing then
+produced three separate user-visible defects, each found by a person looking at the screen rather than
+by a test:
+
+1. The window was clamped to the focused row's index, which is `-1` whenever the reader has not used
+   the keyboard — so the first rendered row was always 0 and **scrolling a browse list showed blank
+   space** after twenty rows.
+2. Opening a section reflows the list from full width into a column, and the browser clamps the pane's
+   scroll position when it does. The window was computed from the remembered offset, so every row was
+   rendered at a coordinate the reader was not looking at and **the list went blank on a click**.
+3. With both fixed, the list still _looked_ capped, because only thirty rows were ever in the DOM and
+   thirty is a number a reader can count.
+
+Each fix was correct and each was followed by another failure of the same kind. That is the signal.
+
+### Decision
+
+**Render every row.** The virtualisation is deleted, not repaired.
+
+The measurement that settles it, taken on a 4x-CPU-throttled phone at 390px:
+
+| List               | Rows  | Page DOM nodes | Ready  |
+| ------------------ | ----- | -------------- | ------ |
+| BNS, browsed       | 358   | 2,421          | 1.56 s |
+| All three, browsed | 1,059 | 6,627          | 2.14 s |
+
+A row is six DOM nodes. The longest list this module can produce is the whole corpus — 1,059 sections —
+and search results are capped at 200 by `SEARCH_RESULT_LIMIT` before they reach the list at all. Both
+figures include the 3.9 MB data load, which dominates them; the marginal cost of the extra 700 rows is
+about 570 ms throttled, so roughly 140 ms on the device itself.
+
+That is an ordinary amount of DOM for a bounded, known corpus. **The condition that makes virtualisation
+worth its complexity — a list of unknown or unbounded length — is not true here.**
+
+### Consequences
+
+- The class of defect is gone rather than fixed: there is no window to be stale, no offset to be reset,
+  no measurement to be wrong. A list either has its rows or it does not, and `ResultList` lost about
+  seventy lines.
+- The pane still scrolls (`max-height` per breakpoint); it is the rows inside it that are all present.
+  `scrollHeight` is asserted to be exactly `rows x 76px`, which is only true if every row has height.
+- Re-measure before reintroducing windowing. The number that would change the answer is the corpus
+  size: three Acts are 1,059 sections, and this decision does not survive a corpus ten times that.
+- `tests/e2e/a11y.spec.ts` gained an unrelated but necessary fix while this landed. Its `setChrome`
+  helper waited for the DOM to reflect a preference, not for the preference to be written to IndexedDB —
+  and the sweep growing from six routes to eight made that race fire. It now waits on the stored value,
+  and only for a preference that was actually toggled: a default is never written, so waiting for
+  `theme: light` would wait for a row that will never exist.

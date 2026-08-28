@@ -1,6 +1,5 @@
 import { render, screen, waitFor } from '@testing-library/react'
 import userEvent from '@testing-library/user-event'
-import { act } from 'react'
 import { beforeEach, describe, expect, it, vi } from 'vitest'
 
 import { OffenceDateField } from './components/OffenceDateField'
@@ -101,48 +100,21 @@ describe('ResultList', () => {
     expect(screen.getAllByRole('button')).toHaveLength(10)
   })
 
-  it('switches to windowing just above the threshold, not below it', () => {
-    const { unmount } = renderList(50)
-    expect(screen.getAllByRole('button')).toHaveLength(50)
-    unmount()
-    renderList(51)
-    expect(screen.getAllByRole('button').length).toBeLessThan(51)
-  })
-
-  it('windows a long list rather than rendering a thousand rows', () => {
+  it('renders every row, however long the list', () => {
+    // Virtualisation is gone (ADR-016): it produced three user-visible defects
+    // and the corpus it guards against is 1,059 rows of six DOM nodes each.
     renderList(400)
-    const rendered = screen.getAllByRole('button')
-    expect(rendered.length).toBeGreaterThan(0)
-    expect(rendered.length).toBeLessThan(40)
+    expect(screen.getAllByRole('button')).toHaveLength(400)
   })
 
-  it('advances the window on scroll when nothing is focused', async () => {
-    // The defect this covers: the window was clamped to `activeIndex - OVERSCAN`
-    // unconditionally, and activeIndex is -1 whenever the reader has not used
-    // the keyboard — so `first` was always 0 and scrolling revealed blank space.
-    const { container } = renderList(400)
-    const scroller = container.firstElementChild
-    expect(scroller).toBeTruthy()
-
+  it('has every row present at every scroll position, because nothing is windowed', () => {
+    // The class of bug this replaces: a window computed from a stale scroll
+    // offset rendered rows the reader was not looking at, and the list appeared
+    // to be empty or to stop after a screenful.
+    renderList(400)
     expect(screen.queryByText('Heading 1')).toBeInTheDocument()
-    expect(screen.queryByText('Heading 200')).not.toBeInTheDocument()
-
-    act(() => {
-      // jsdom has no layout, so the scroll position is set directly and the
-      // event fired by hand — the component reads `scrollTop` off the target.
-      Object.defineProperty(scroller, 'scrollTop', { value: 200 * 76, configurable: true })
-      scroller?.dispatchEvent(new Event('scroll', { bubbles: true }))
-    })
-
-    await waitFor(() => expect(screen.queryByText('Heading 200')).toBeInTheDocument())
-    expect(screen.queryByText('Heading 1')).not.toBeInTheDocument()
-  })
-
-  it('keeps the focused row rendered however far it is from the scroll position', () => {
-    // Arrowing past the bottom of the window has to render the row it is about
-    // to focus, or focus lands nowhere.
-    renderList(400, { activeIndex: 250 })
-    expect(screen.queryByText('Heading 251')).toBeInTheDocument()
+    expect(screen.queryByText('Heading 200')).toBeInTheDocument()
+    expect(screen.queryByText('Heading 400')).toBeInTheDocument()
   })
 
   it('stays reachable by Tab when the page hands over a stale active row', () => {
@@ -159,13 +131,6 @@ describe('ResultList', () => {
       expect(tabbable, `count=${count} active=${active}`).toHaveLength(1)
       unmount()
     }
-  })
-
-  it('keeps windowing a long list even with a stale active row', () => {
-    // Same cause: `last` was derived from `activeIndex + 1`, so an index past
-    // the end expanded the window to every row and switched virtualisation off.
-    renderList(400, { activeIndex: 500 })
-    expect(screen.getAllByRole('button').length).toBeLessThan(40)
   })
 
   it('puts only the active row in the tab order', () => {
