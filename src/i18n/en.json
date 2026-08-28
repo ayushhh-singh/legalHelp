@@ -30,7 +30,9 @@
     "verifyWithDdo": "Verify with your DDO",
     "disclaimer": "Reference only; verify with the official gazette/order or your DDO.",
     "comingSoon": "Coming soon",
-    "retry": "Try again"
+    "retry": "Try again",
+    "on": "On",
+    "off": "Off"
   },
   "errors": {
     "title": "Something went wrong",
@@ -399,8 +401,8 @@
       "levelWithGradePay": "Level {{level}} — grade pay {{gradePay}}",
       "levelNoGradePay": "Level {{level}} — {{band}}",
       "cell": "Cell",
-      "cellDisplay": "Cell {{cell}} of {{of}} · {{basic}}",
-      "cellHint": "Each cell is the previous one raised by 3 per cent, rounded to the nearest hundred rupees.",
+      "cellDisplay": "Cell {{cell}} of {{of}}",
+      "cellHint": "{{basic}} · each cell is the previous one raised by 3 per cent, rounded to the nearest hundred rupees.",
       "cellDown": "Previous cell",
       "cellUp": "Next cell",
       "basicOverride": "Basic pay",
@@ -513,6 +515,7 @@
       "cellMove": "Cell {{from}} → cell {{to}}",
       "stagnant": "Already in the last cell of the Level",
       "promotionTitle": "Fixation on promotion or an MACP upgrade",
+      "noHigherLevel": "Level {{level}} is the top of the Pay Matrix. There is nothing above it to be promoted into.",
       "targetLevel": "Level promoted to",
       "step1": "1. Basic pay in the present Level",
       "step2": "2. One increment in the present Level (FR 22(I)(a)(1))",

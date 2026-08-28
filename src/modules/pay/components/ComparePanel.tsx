@@ -169,13 +169,12 @@ function Side({
         value={scenario.cellIndex}
         max={cells - 1}
         onChange={(value) => onChange({ cellIndex: value, basic: null })}
-        display={t('pay.inputs.cellDisplay', {
-          cell: scenario.cellIndex + 1,
-          of: cells,
-          basic: formatRupees(cellPay(tables.matrix, scenario.level, scenario.cellIndex) ?? 0, language),
-        })}
+        display={t('pay.inputs.cellDisplay', { cell: scenario.cellIndex + 1, of: cells })}
         decreaseLabel={t('pay.inputs.cellDown')}
         increaseLabel={t('pay.inputs.cellUp')}
+        hint={t('pay.inputs.cellHint', {
+          basic: formatRupees(cellPay(tables.matrix, scenario.level, scenario.cellIndex) ?? 0, language),
+        })}
       />
       <CityPicker
         tables={tables}

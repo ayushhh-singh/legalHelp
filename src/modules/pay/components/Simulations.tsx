@@ -107,6 +107,20 @@ function PromotionPanel({ tables, scenario }: { tables: PayTables; scenario: Pay
   const level = higher.includes(target) ? target : (higher[0] ?? scenario.level)
   const result = fixOnPromotion(scenario.level, scenario.cellIndex, level, tables)
 
+  // Level 18 is the Cabinet Secretary. There is nothing above it, and a select
+  // with no options is a control that looks broken rather than one that has
+  // nothing to offer.
+  if (higher.length === 0) {
+    return (
+      <SectionCard className="space-y-3 p-5">
+        <h2 className="text-base font-semibold">{t('pay.sim.promotionTitle')}</h2>
+        <p className="text-sm text-muted-foreground">
+          {t('pay.sim.noHigherLevel', { level: scenario.level })}
+        </p>
+      </SectionCard>
+    )
+  }
+
   const before = computePay(toPayInput(scenario), tables)
   const after = computePay(
     toPayInput({ ...scenario, level, cellIndex: result.toCellIndex, basic: null }),
@@ -250,7 +264,10 @@ function EighthCpcPanel({ tables, scenario }: { tables: PayTables; scenario: Pay
 
 function DaPanel({ tables, scenario }: { tables: PayTables; scenario: PayScenario }) {
   const { t, language } = useT()
-  const rates = [...new Set([0, 50, 55, 58, 60, 63, 70])].sort((a, b) => a - b)
+  // The reader's own rate is always one of the rows, even when it is not one of
+  // the illustrations. Without it the "change in net" column compares every row
+  // against a rate that is nowhere on the table.
+  const rates = [...new Set([0, 50, 55, 58, 60, 63, 70, scenario.daRate])].sort((a, b) => a - b)
   const current = computePay(toPayInput(scenario), tables)
 
   return (

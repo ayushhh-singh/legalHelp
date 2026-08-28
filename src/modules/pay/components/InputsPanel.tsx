@@ -89,7 +89,13 @@ export function InputsPanel({ tables, scenario, onChange, onPickJob }: InputsPan
       <SectionCard className="space-y-4 p-5">
         <h2 className="text-base font-semibold">{t('pay.inputs.payTitle')}</h2>
 
-        <div className="grid gap-4 sm:grid-cols-2">
+        {/*
+          Level and Cell each take a full row rather than sharing one.
+          Side by side inside a 24rem column each control got 164px, which
+          leaves the stepper 60px between its two 44px buttons — and
+          "Cell 1 of 40" was clipped mid-word in it.
+        */}
+        <div className="space-y-4">
           <SelectField
             label={t('pay.inputs.level')}
             value={scenario.level}
@@ -110,14 +116,16 @@ export function InputsPanel({ tables, scenario, onChange, onPickJob }: InputsPan
             value={scenario.cellIndex}
             max={cells - 1}
             onChange={(value) => onChange({ cellIndex: value, basic: null })}
-            display={t('pay.inputs.cellDisplay', {
-              cell: scenario.cellIndex + 1,
-              of: cells,
-              basic: formatRupees(cellPay(tables.matrix, scenario.level, scenario.cellIndex) ?? 0, language),
-            })}
+            // The box holds the ordinal and nothing else. The basic pay is the
+            // figure that matters, so it goes in the hint under the control
+            // rather than into a 6rem box beside two 44px buttons, where it was
+            // clipped mid-word.
+            display={t('pay.inputs.cellDisplay', { cell: scenario.cellIndex + 1, of: cells })}
             decreaseLabel={t('pay.inputs.cellDown')}
             increaseLabel={t('pay.inputs.cellUp')}
-            hint={t('pay.inputs.cellHint')}
+            hint={t('pay.inputs.cellHint', {
+              basic: formatRupees(cellPay(tables.matrix, scenario.level, scenario.cellIndex) ?? 0, language),
+            })}
           />
         </div>
 

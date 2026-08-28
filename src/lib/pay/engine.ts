@@ -398,9 +398,27 @@ export function computePay(input: PayInput, tables: PayTables): PayResult {
   const cellBasic = cellPay(tables.matrix, level, cellIndex) ?? matrixLevel?.entryPay ?? 0
   const basic = rupees(input.basic && input.basic > 0 ? input.basic : cellBasic)
 
+  /**
+   * De-duplicated by id, LAST ONE WINS, and the deduplicated list is what the
+   * loop below walks.
+   *
+   * A duplicated id is not hypothetical: `PayScenario` is stored in IndexedDB
+   * and carried in a URL, and either can be written by an older release or by
+   * hand. Walking the raw array emitted two lines for the same allowance and
+   * added it to the gross twice — a Level 7 officer's Special Security
+   * Allowance counted at ₹17,960 rather than ₹8,980, with both lines showing
+   * the right figure and nothing on screen to say the total was wrong.
+   */
   const choices = new Map((input.allowances ?? []).map((choice) => [choice.id, choice]))
+  const selected = [...choices.values()]
   const isOn = (id: string) => choices.get(id)?.enabled === true
-  const daRate = Number.isFinite(input.daRate) ? input.daRate : 0
+  /**
+   * Clamped at nil. A negative rate produced a NEGATIVE Dearness Allowance that
+   * flowed into the gross, the pension base and the taxable salary — a pay slip
+   * that looked ordinary and was wrong in five places. There has never been a
+   * negative rate of DA and the field cannot produce one; a hand-edited URL can.
+   */
+  const daRate = Number.isFinite(input.daRate) ? Math.max(0, input.daRate) : 0
 
   const lines: PayLine[] = []
   const allowanceLines: PayLine[] = []
@@ -564,7 +582,7 @@ export function computePay(input: PayInput, tables: PayTables): PayResult {
    * Everything else the reader switched on
    * ---------------------------------------------------------------- */
 
-  for (const choice of input.allowances ?? []) {
+  for (const choice of selected) {
     if (!choice.enabled) continue
     if (HANDLED_SEPARATELY.has(choice.id)) continue
     const allowance = allowanceFor(tables.allowances, choice.id)

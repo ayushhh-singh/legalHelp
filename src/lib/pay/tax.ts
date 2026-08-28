@@ -129,8 +129,12 @@ function slabsFor(regime: TaxYear['regimes'][number], ageBand: AgeBand) {
   const banded = regime.slabs.filter((slab) => slab.ageBand === ageBand)
   // The new regime has no age bands at all, so an empty filter means "all of
   // them" rather than "no tax". A silent zero here would be the worst possible
-  // failure mode of this whole module.
-  const chosen = banded.length > 0 ? banded : regime.slabs.filter((slab) => !slab.ageBand)
+  // failure mode of this whole module, so it is guarded twice: fall back to the
+  // unbanded slabs, and if THOSE are empty too — which would mean the dataset
+  // had lost an age band — fall back to every slab the regime has rather than
+  // returning nothing and charging no tax.
+  const unbanded = regime.slabs.filter((slab) => !slab.ageBand)
+  const chosen = banded.length > 0 ? banded : unbanded.length > 0 ? unbanded : regime.slabs
   return [...chosen].sort((a, b) => a.from - b.from)
 }
 

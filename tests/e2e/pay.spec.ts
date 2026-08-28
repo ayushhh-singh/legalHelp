@@ -143,3 +143,76 @@ test('answers a pay calculation with no network at all', async ({ page, context 
   await expect(page.getByText('₹1,00,050').first()).toBeVisible()
   await expect(page.getByText('₹92,156').first()).toBeVisible()
 })
+
+test('the post list is not clipped by the card it opens inside', async ({ page }) => {
+  // The card carried `overflow-hidden` for the sake of its file tab, which made
+  // the card's own bounds the popup's: a list of sixty posts rendered two.
+  await openPay(page)
+  await jobPicker(page).click()
+
+  const listbox = page.getByRole('listbox')
+  await expect(listbox).toBeVisible()
+  const options = listbox.getByRole('option')
+  expect(await options.count()).toBeGreaterThan(10)
+
+  const card = page
+    .locator('section')
+    .filter({ has: jobPicker(page) })
+    .first()
+  const listBox = (await listbox.boundingBox())!
+  const cardBox = (await card.boundingBox())!
+
+  // Layout is not the test. `getBoundingClientRect` reports the same box
+  // whether or not an ancestor clips it, and Playwright's `toBeVisible` does
+  // not consider ancestor overflow either — both passed against the bug. What
+  // has to be asserted is what is PAINTED, so this hit-tests a point below the
+  // card's own bottom edge and requires the listbox to be what is there.
+  const probeY = cardBox.y + cardBox.height + 8
+  expect(probeY, 'the list is not tall enough to reach past the card').toBeLessThan(
+    listBox.y + Math.min(listBox.height, 280),
+  )
+  const paintsBelowTheCard = await page.evaluate(
+    // An object, not a tuple: `noUncheckedIndexedAccess` types a destructured
+    // array element as `number | undefined`.
+    ({ x, y }: { x: number; y: number }) =>
+      Boolean(document.elementFromPoint(x, y)?.closest('[role="listbox"]')),
+    { x: listBox.x + listBox.width / 2, y: probeY },
+  )
+  expect(paintsBelowTheCard).toBe(true)
+})
+
+test('a switch keeps its knob inside its track, on and off', async ({ page }) => {
+  // The knob had no `left` anchor, so it fell back to its static position —
+  // which inside a button is where centred text would start. Measured, the ON
+  // knob's box began exactly at the track's right edge, outside it.
+  await openPay(page, '?job=capf-constable-gd&da=60')
+
+  for (const [name, expected] of [
+    [/Children Education Allowance/, 'on'],
+    [/Hostel Subsidy/, 'off'],
+  ] as const) {
+    const control = page.getByRole('switch', { name })
+    await control.scrollIntoViewIfNeeded()
+    await expect(control).toHaveAttribute('aria-checked', expected === 'on' ? 'true' : 'false')
+
+    const inside = await control.evaluate((el) => {
+      const knob = el.firstElementChild!.getBoundingClientRect()
+      const track = el.getBoundingClientRect()
+      return {
+        left: +(knob.left - track.left).toFixed(1),
+        right: +(track.right - knob.right).toFixed(1),
+        top: +(knob.top - track.top).toFixed(1),
+      }
+    })
+    expect(inside.left, `${expected} knob is left of its track`).toBeGreaterThan(0)
+    expect(inside.right, `${expected} knob is right of its track`).toBeGreaterThan(0)
+    expect(inside.top).toBeGreaterThan(0)
+    // And it actually moves: the off knob sits at the left, the on knob right.
+    if (expected === 'on') expect(inside.left).toBeGreaterThan(inside.right)
+    else expect(inside.right).toBeGreaterThan(inside.left)
+  }
+
+  // The state is written out, not carried by the knob's position alone.
+  await expect(page.getByText('OFF').first()).toBeVisible()
+  await expect(page.getByText('ON').first()).toBeVisible()
+})

@@ -163,3 +163,53 @@ describe('toPayHref', () => {
     expect(href).toContain('job=ib-acio-ii-executive')
   })
 })
+
+describe('parsePayParams — links that were not built by this app', () => {
+  const at = (query: string) => scenarioFromParams(parsePayParams(new URLSearchParams(query)), tables)
+
+  it('reads an empty value as absent, not as zero', () => {
+    // `Number('')` is 0, so `?da=` used to produce a slip with no Dearness
+    // Allowance at all — ₹26,940 missing from a Level 7 month, from a link that
+    // had merely been truncated.
+    expect(parsePayParams(new URLSearchParams('da=')).daRate).toBeNull()
+    expect(at('job=ib-acio-ii-executive&da=').daRate).toBe(60)
+    expect(at('basic=').basic).toBeNull()
+    expect(at('cell=').cellIndex).toBe(0)
+  })
+
+  it('accepts the interpolated Level in either case', () => {
+    // The Level is the one URL value whose canonical form has a capital in it.
+    // Lower-cased, it used to fall back silently to Level 1 — a ₹1,31,100 basic
+    // pay reported as ₹18,000.
+    expect(at('level=13a').level).toBe('13A')
+    expect(at('level=13A').level).toBe('13A')
+    expect(at('level=13').level).toBe('13')
+    expect(at('level=19').level).toBe('1')
+  })
+
+  it('lets `off` beat the enable that `rk` implies', () => {
+    const scenario = at(
+      'job=ib-acio-ii-executive&off=children-education-allowance&rk=children-education-allowance:divyang',
+    )
+    expect(scenario.allowances.find((choice) => choice.id === 'children-education-allowance')).toEqual({
+      id: 'children-education-allowance',
+      enabled: false,
+      rateKey: 'divyang',
+    })
+  })
+
+  it('carries a repeated id once', () => {
+    const scenario = at('job=ib-acio-ii-executive&on=tough-location-allowance,tough-location-allowance')
+    expect(scenario.allowances.filter((choice) => choice.id === 'tough-location-allowance')).toHaveLength(1)
+  })
+
+  it('keeps the rest of a link whose post does not exist', () => {
+    // The post is dropped, not the posting or the rate: a link to a post that a
+    // later dataset renamed should still answer the question it was asked.
+    const scenario = at('job=not-a-post&level=9&city=delhi&da=60')
+    expect(scenario.jobId).toBeNull()
+    expect(scenario.level).toBe('9')
+    expect(scenario.cityId).toBe('delhi')
+    expect(scenario.daRate).toBe(60)
+  })
+})

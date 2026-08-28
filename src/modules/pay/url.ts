@@ -72,12 +72,28 @@ const PENSION_SCHEMES: readonly PensionScheme[] = ['nps', 'ups', 'gpf']
 const GROUPS: readonly Group[] = ['A', 'B', 'C']
 
 const slug = /^[a-z0-9-]+$/
-const levelPattern = /^(1[0-8]|[1-9]|13A)$/
+const levelPattern = /^(1[0-8]|[1-9]|13a)$/i
 
 const asSlug = (value: string | null): string | null => (value && slug.test(value) ? value : null)
 
+/**
+ * `13a` is `13A`.
+ *
+ * The Level is the one URL value whose canonical form has a capital in it, and
+ * a link written by hand — or lower-cased by a chat client — used to fall
+ * silently back to Level 1. That is a ₹1,31,100 basic pay reported as ₹18,000,
+ * which is not a near miss.
+ */
+function asLevel(value: string | null): string | null {
+  if (!value || !levelPattern.test(value)) return null
+  return value.toUpperCase()
+}
+
 function asNumber(value: string | null, { min = 0, max = Number.MAX_SAFE_INTEGER } = {}): number | null {
-  if (value === null) return null
+  // An EMPTY value is absent, not zero. `Number('')` is 0, so `?da=` used to
+  // produce a pay slip with no Dearness Allowance at all — ₹26,940 missing from
+  // a Level 7 officer's month, from a link that had merely been truncated.
+  if (value === null || value.trim() === '') return null
   const parsed = Number(value)
   if (!Number.isFinite(parsed)) return null
   return Math.min(Math.max(parsed, min), max)
@@ -108,7 +124,7 @@ function parseOne(params: URLSearchParams, prefix: string): PayParams {
 
   return {
     jobId: asSlug(params.get(P(prefix, 'job'))),
-    level: level && levelPattern.test(level) ? level : null,
+    level: asLevel(level),
     cell: asNumber(params.get(P(prefix, 'cell')), { min: 1, max: 40 }),
     basic: asNumber(params.get(P(prefix, 'basic')), { min: 0, max: 1_000_000 }),
     cityId: asSlug(params.get(P(prefix, 'city'))),

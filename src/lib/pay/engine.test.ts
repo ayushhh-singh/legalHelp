@@ -357,3 +357,109 @@ describe('computePay — Children Education Allowance', () => {
     expect(result.warnings.map((warning) => warning.en).join(' ')).toContain('two children')
   })
 })
+
+describe('computePay — input that did not come from the form', () => {
+  /**
+   * A scenario reaches the engine from three places a form does not control: a
+   * URL somebody edited, an IndexedDB row written by an older release, and an
+   * agent tool call. Each case below was probed against the engine and is
+   * recorded here with what it actually did.
+   */
+
+  it('never pays a negative Dearness Allowance', () => {
+    // A hand-edited `?da=-50` produced DA of −₹22,450, which flowed into the
+    // gross, the pension base and the taxable salary — a slip that looked
+    // ordinary and was wrong in five places.
+    const result = computePay({ ...base, level: '7', daRate: -50 }, tables)
+    expect(result.daRate).toBe(0)
+    expect(result.da).toBe(0)
+    expect(result.gross).toBeGreaterThan(0)
+    expect(result.deductions.pension).toBe(4490) // 10% of basic alone
+  })
+
+  it('reads a rate that is not a number as nil rather than as NaN', () => {
+    const result = computePay({ ...base, level: '7', daRate: Number.NaN }, tables)
+    expect(result.da).toBe(0)
+    expect(Number.isFinite(result.netMonthly)).toBe(true)
+  })
+
+  it('counts a duplicated allowance once', () => {
+    // `PayScenario` travels through a URL and IndexedDB, so a duplicated id is
+    // not hypothetical. Walking the raw list added the allowance to the gross
+    // twice while both lines showed the right figure.
+    const once = computePay(
+      { ...base, level: '7', allowances: [{ id: 'special-security-allowance-ib', enabled: true }] },
+      tables,
+    )
+    const twice = computePay(
+      {
+        ...base,
+        level: '7',
+        allowances: [
+          { id: 'special-security-allowance-ib', enabled: true },
+          { id: 'special-security-allowance-ib', enabled: true },
+        ],
+      },
+      tables,
+    )
+    expect(twice.gross).toBe(once.gross)
+    expect(twice.lines.filter((line) => line.id === 'special-security-allowance-ib')).toHaveLength(1)
+  })
+
+  it('lets the last entry for an allowance win, so a URL can override a default', () => {
+    const result = computePay(
+      {
+        ...base,
+        level: '7',
+        allowances: [
+          { id: 'special-security-allowance-ib', enabled: true },
+          { id: 'special-security-allowance-ib', enabled: false },
+        ],
+      },
+      tables,
+    )
+    expect(
+      result.allowancesBreakdown.find((line) => line.id === 'special-security-allowance-ib'),
+    ).toBeUndefined()
+  })
+
+  it('falls back to the cell rather than paying a negative basic', () => {
+    expect(computePay({ ...base, level: '7', basic: -5000 }, tables).basic).toBe(44_900)
+    expect(computePay({ ...base, level: '7', basic: 0 }, tables).basic).toBe(44_900)
+  })
+
+  it('names the Level it fell back to when the one asked for does not exist', () => {
+    const result = computePay({ ...base, level: '99' }, tables)
+    expect(result.level).toBe('1')
+    expect(result.warnings.map((warning) => warning.en).join(' ')).toContain('not in the pay matrix')
+  })
+
+  it('ignores a negative deduction, a negative child count and a negative GPF rate', () => {
+    const result = computePay(
+      {
+        ...base,
+        level: '7',
+        otherDeductions: -10_000,
+        pensionScheme: 'gpf',
+        gpfRate: -20,
+        dependents: { children: -3 },
+        allowances: [{ id: 'children-education-allowance', enabled: true }],
+      },
+      tables,
+    )
+    expect(result.deductions.other).toBe(0)
+    expect(result.deductions.pension).toBe(0)
+    expect(
+      result.allowancesBreakdown.find((line) => line.id === 'children-education-allowance')?.amount,
+    ).toBe(0)
+  })
+
+  it('charges tax on an income above every surcharge band without losing marginal relief', () => {
+    const result = computePay({ ...base, level: '18', basic: 10_000_000, group: 'A' }, tables)
+    expect(result.taxComputation.new.surchargeRate).toBe(25)
+    expect(result.taxComputation.old.surchargeRate).toBe(37)
+    // Tax cannot exceed the income it is charged on.
+    expect(result.taxComputation.old.total).toBeLessThan(result.taxComputation.old.taxableIncome)
+    expect(result.netMonthly).toBeLessThan(result.gross)
+  })
+})

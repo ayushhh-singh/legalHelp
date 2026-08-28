@@ -131,6 +131,18 @@ describe('the file tab', () => {
     // Decorative: it repeats what the surrounding content already says.
     expect(tab).toHaveAttribute('aria-hidden', 'true')
   })
+
+  it('clips its children only when there is a tab to clip', () => {
+    // `overflow-hidden` exists so the 3px tab sits flush inside the rounded
+    // corner. Applied unconditionally it also clipped every popup rendered
+    // inside a card: the Pay form's combobox is absolutely positioned within
+    // one, so a list of sixty posts showed two and looked broken.
+    const { container, rerender } = render(<SectionCard>body</SectionCard>)
+    expect(container.firstElementChild).not.toHaveClass('overflow-hidden')
+
+    rerender(<SectionCard active>body</SectionCard>)
+    expect(container.firstElementChild).toHaveClass('overflow-hidden')
+  })
 })
 
 describe('SectionNumber', () => {

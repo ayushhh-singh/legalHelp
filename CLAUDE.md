@@ -235,6 +235,15 @@ are load-bearing, and each is enforced by a test rather than by convention:
 ### Notes for the next session
 
 - **Read `.claude/skills/frontend-design/SKILL.md` before touching any component or colour.**
+- **`SectionCard` clips its children only when `active`.** `overflow-hidden` is there for the 3px
+  file tab; applied unconditionally it also clipped every popup rendered inside a card, which showed
+  two of sixty posts in the Pay form's combobox. Note that neither
+  `getBoundingClientRect` nor Playwright's `toBeVisible` sees ancestor clipping — the regression test
+  in `tests/e2e/pay.spec.ts` hit-tests `elementFromPoint` below the card's edge, because the two
+  obvious assertions both passed against the bug.
+- **An absolutely positioned child with no `left` falls back to its STATIC position**, which inside a
+  `<button>` is where centred text would start. The `ToggleRow` knob was translated from the middle
+  of its track and rendered flush outside the right edge. Anchor with `left-*` first, then translate.
 - **The pay engine is pure and takes its datasets as an argument** (`src/lib/pay/*`). Nothing under it
   imports a JSON file — the unit suite reads the committed bytes off disk, the UI hands it the lazily
   imported chunks, and `src/ai/tools/pay.ts` hands it the same ones. Do not add a dataset import

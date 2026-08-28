@@ -1,6 +1,7 @@
 import { Minus, Plus } from 'lucide-react'
 import { useId } from 'react'
 
+import { useT } from '@/i18n/useT'
 import { cn } from '@/lib/utils'
 
 /**
@@ -184,7 +185,7 @@ export function Stepper({
         </button>
         <output
           id={id}
-          className="flex h-11 min-w-0 flex-1 items-center justify-center rounded-lg border border-border bg-muted px-2 text-sm font-semibold tabular-nums"
+          className="flex h-11 min-w-0 flex-1 items-center justify-center rounded-lg border border-input bg-secondary px-2 text-sm font-semibold tabular-nums"
         >
           {display}
         </output>
@@ -207,8 +208,15 @@ export function Stepper({
  *
  * `role="switch"` with `aria-checked` rather than a styled checkbox: the state
  * is on/off rather than selected/unselected, and the two are announced
- * differently. State is carried by the knob's POSITION as well as the fill, so
- * it survives a monochrome print and colour-blindness alike.
+ * differently.
+ *
+ * State is carried by FOUR things at once — the word beside it, the knob's
+ * position, the track's fill and the knob's own colour. That is not belt and
+ * braces. The first version filled the off track with `--muted`, which is
+ * `#F2F5FA` on a `#FFFFFF` card: at a glance the control was an outline with
+ * something faint inside it, and readers could not tell an off switch from a
+ * disabled one, or tell that it was a switch at all. The written state is what
+ * makes it unambiguous, and it survives a monochrome print.
  */
 export function ToggleRow({
   label,
@@ -223,7 +231,10 @@ export function ToggleRow({
   onChange: (checked: boolean) => void
   disabled?: boolean
 }) {
+  const { t } = useT()
   const id = useId()
+  const stateLabel = checked ? t('common.on') : t('common.off')
+
   return (
     <div className="flex min-h-11 items-center justify-between gap-3 py-1">
       <span className="min-w-0">
@@ -232,26 +243,46 @@ export function ToggleRow({
         </label>
         {hint ? <span className="mt-0.5 block text-xs text-muted-foreground">{hint}</span> : null}
       </span>
-      <button
-        id={id}
-        type="button"
-        role="switch"
-        aria-checked={checked}
-        disabled={disabled}
-        onClick={() => onChange(!checked)}
-        className={cn(
-          'relative h-6 w-11 shrink-0 rounded-full border transition-colors focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 focus-visible:ring-offset-background focus-visible:outline-none disabled:opacity-50',
-          checked ? 'border-action bg-action' : 'border-input bg-muted',
-        )}
-      >
+
+      <span className="flex shrink-0 items-center gap-2">
         <span
           aria-hidden="true"
           className={cn(
-            'absolute top-0.5 h-4 w-4 rounded-full transition-transform',
-            checked ? 'translate-x-[22px] bg-action-foreground' : 'translate-x-0.5 bg-muted-foreground',
+            'w-8 text-right text-xs font-semibold tracking-wide uppercase',
+            checked ? 'text-foreground' : 'text-muted-foreground',
           )}
-        />
-      </button>
+        >
+          {stateLabel}
+        </span>
+        <button
+          id={id}
+          type="button"
+          role="switch"
+          aria-checked={checked}
+          disabled={disabled}
+          onClick={() => onChange(!checked)}
+          className={cn(
+            'relative h-6 w-11 shrink-0 rounded-full border-2 transition-colors focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 focus-visible:ring-offset-background focus-visible:outline-none disabled:opacity-50',
+            checked ? 'border-action bg-action' : 'border-input bg-secondary',
+          )}
+        >
+          {/*
+            `left-[2px]` is not decoration. An absolutely positioned child with
+            no `left` falls back to its STATIC position, which inside a button
+            is wherever the text would have started — and a button centres its
+            text, so the knob was being translated from the middle of the track
+            and rendered flush outside its right edge. Measured: the knob's box
+            began exactly at the track's right edge. Anchor first, then translate.
+          */}
+          <span
+            aria-hidden="true"
+            className={cn(
+              'absolute top-[2px] left-[2px] h-4 w-4 rounded-full transition-transform',
+              checked ? 'translate-x-[20px] bg-action-foreground' : 'border border-input bg-card',
+            )}
+          />
+        </button>
+      </span>
     </div>
   )
 }

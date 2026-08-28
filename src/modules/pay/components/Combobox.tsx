@@ -228,7 +228,10 @@ export function Combobox<T>({
           id={listId}
           role="listbox"
           aria-label={label}
-          className="absolute z-20 mt-1 max-h-72 w-full overflow-y-auto rounded-lg border border-border bg-card py-1 shadow-lg"
+          // `--input`, not `--border`: this is the boundary of a control, and
+          // --border measures 1.2:1 against the page — a white panel on a
+          // near-white background with no visible edge.
+          className="absolute z-30 mt-1 max-h-72 w-full overflow-y-auto rounded-lg border border-input bg-card py-1 shadow-lg"
         >
           {rows.length === 0 ? (
             <li className="px-3 py-2 text-sm text-muted-foreground" role="presentation">
