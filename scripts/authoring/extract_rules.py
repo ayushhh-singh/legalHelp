@@ -520,7 +520,12 @@ def readings(number: str, *, line_continues: bool = True) -> tuple[str, ...]:
     if not digits:
         return (number,)
     body, suffix = digits.group(1), digits.group(2)
-    return tuple(f"{body[i:]}{suffix}" for i in range(len(body)) if body[i] != "0" or i == len(body) - 1)
+    # The number as printed is ALWAYS offered, however it is spelled. Only the
+    # *trimmed* readings skip a leading zero — "1000" must not offer "000", and
+    # dropping the full reading too (which the leading-zero filter used to do
+    # for "007") would leave a candidate the walk could not read at all.
+    trimmed = [f"{body[i:]}{suffix}" for i in range(1, len(body)) if body[i] != "0"]
+    return (f"{body}{suffix}", *trimmed)
 
 
 def _walk_from(

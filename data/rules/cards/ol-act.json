@@ -695,7 +695,7 @@
       }
     },
     {
-      "id": "ol-act-cloze-1-1",
+      "id": "ol-act-cloze-1-crossreference",
       "act": "ol-act",
       "rule": "1",
       "kind": "cloze",
@@ -741,7 +741,7 @@
       "reviewNote": "Section 1(2) — section 3 alone commenced on 26 January 1965; the rest was notified. Officers routinely date the whole Act from 1963."
     },
     {
-      "id": "ol-act-cloze-1-2",
+      "id": "ol-act-cloze-1-definedterm",
       "act": "ol-act",
       "rule": "1",
       "kind": "cloze",
@@ -784,10 +784,10 @@
         "name": "Department of Official Language, Ministry of Home Affairs — The Official Languages Act, 1963 (as amended, 1967)",
         "url": "https://rajbhasha.gov.in/sites/default/files/rajbhasha_act_1963e.pdf"
       },
-      "reviewNote": "Answer is 'notification'. The set phrase 'by ____ in the Official Gazette' gives it away, and ol-act-cloze-8-3 already covers it once."
+      "reviewNote": "Answer is 'notification'. The set phrase 'by ____ in the Official Gazette' gives it away, and ol-act-cloze-8-definedterm already covers it once."
     },
     {
-      "id": "ol-act-cloze-2-1",
+      "id": "ol-act-cloze-2-duration",
       "act": "ol-act",
       "rule": "2",
       "kind": "cloze",
@@ -833,7 +833,7 @@
       "reviewNote": "Section 3(1) — the fifteen-year period in Article 343(2) of the Constitution is what section 3 works around."
     },
     {
-      "id": "ol-act-cloze-2-2",
+      "id": "ol-act-cloze-2-crossreference",
       "act": "ol-act",
       "rule": "2",
       "kind": "cloze",
@@ -879,7 +879,7 @@
       "reviewNote": "Section 2(a) — 'appointed day' means one date for section 3 and a different one for every other provision."
     },
     {
-      "id": "ol-act-cloze-2-3",
+      "id": "ol-act-cloze-2-count",
       "act": "ol-act",
       "rule": "2",
       "kind": "cloze",
@@ -925,7 +925,7 @@
       "reviewNote": "Answer is 'one', blanked out of 'between one State which has adopted Hindi and another'. The card tests counting, not the Act."
     },
     {
-      "id": "ol-act-cloze-4-1",
+      "id": "ol-act-cloze-4-duration",
       "act": "ol-act",
       "rule": "4",
       "kind": "cloze",
@@ -971,7 +971,7 @@
       "reviewNote": "Section 4(1) — the Committee on Official Language could only be constituted ten years after section 3 commenced."
     },
     {
-      "id": "ol-act-cloze-4-2",
+      "id": "ol-act-cloze-4-count",
       "act": "ol-act",
       "rule": "4",
       "kind": "cloze",
@@ -1017,7 +1017,7 @@
       "reviewNote": "Section 4(2) — thirty members, twenty from the Lok Sabha and ten from the Rajya Sabha. The split is the examinable fact."
     },
     {
-      "id": "ol-act-cloze-4-3",
+      "id": "ol-act-cloze-4-definedterm",
       "act": "ol-act",
       "rule": "4",
       "kind": "cloze",
@@ -1063,7 +1063,7 @@
       "reviewNote": "The body section 4 creates, by its statutory name."
     },
     {
-      "id": "ol-act-cloze-5-1",
+      "id": "ol-act-cloze-5-definedterm",
       "act": "ol-act",
       "rule": "5",
       "kind": "cloze",
@@ -1109,7 +1109,7 @@
       "reviewNote": "Section 5 — only a Hindi translation published under the authority of the President is the authoritative text."
     },
     {
-      "id": "ol-act-cloze-6-1",
+      "id": "ol-act-cloze-6-crossreference",
       "act": "ol-act",
       "rule": "6",
       "kind": "cloze",
@@ -1155,7 +1155,7 @@
       "reviewNote": "Section 6 is anchored to Article 348(3) of the Constitution — a link officers are asked to state."
     },
     {
-      "id": "ol-act-cloze-6-2",
+      "id": "ol-act-cloze-6-definedterm",
       "act": "ol-act",
       "rule": "6",
       "kind": "cloze",
@@ -1201,7 +1201,7 @@
       "reviewNote": "The stem says 'a translation of the same in Hindi' two clauses later, so the blank answers itself."
     },
     {
-      "id": "ol-act-cloze-7-1",
+      "id": "ol-act-cloze-7-definedterm",
       "act": "ol-act",
       "rule": "7",
       "kind": "cloze",
@@ -1247,7 +1247,7 @@
       "reviewNote": "Section 7 — the Governor's power runs from the appointed day, a defined term."
     },
     {
-      "id": "ol-act-cloze-8-1",
+      "id": "ol-act-cloze-8-duration",
       "act": "ol-act",
       "rule": "8",
       "kind": "cloze",
@@ -1293,7 +1293,7 @@
       "reviewNote": "Section 8(2) — the laying period, which is thirty days and not a session."
     },
     {
-      "id": "ol-act-cloze-8-2",
+      "id": "ol-act-cloze-8-count",
       "act": "ol-act",
       "rule": "8",
       "kind": "cloze",
@@ -1339,7 +1339,7 @@
       "reviewNote": "Answer is 'one', blanked out of 'comprised in one session'. Tests counting, not the Act."
     },
     {
-      "id": "ol-act-cloze-8-3",
+      "id": "ol-act-cloze-8-definedterm",
       "act": "ol-act",
       "rule": "8",
       "kind": "cloze",

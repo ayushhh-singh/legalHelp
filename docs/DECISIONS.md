@@ -2549,3 +2549,59 @@ shown, and the test asserts no approved card is missing Hindi.
 **Shuffling options randomly.** Deterministic rotation, for the reason above; and rotation rather
 than a shuffle, because several questions end their option list with a deliberate catch-all that a
 shuffle would strand in the middle.
+
+### ADR-023 addendum — what an edge-case pass over the finished dataset found
+
+Six defects, all in code that had passed its own tests, and each one now has a test that fails
+against the data as it was committed.
+
+**A cloze card's id must be stable, because every review file is keyed on it.** The id was
+`{act}-cloze-{rule}-{n}` where `n` counted the cards emitted for that rule. Add any filter — and the
+next item on this list is a filter — and every card after the first rejected span in a rule is
+renumbered, silently re-pointing 340 hand-written review entries at the wrong cards. The id is now
+`{act}-cloze-{rule}-{kind}`, which is unique because at most one card per (rule, kind) is emitted,
+and stable because rejecting one kind never renumbers another.
+
+**Twelve served cloze cards repeated their own answer.** Section 9(1) of the PoSH Act blanks "three
+months" and then says "within a period of three months from the date of the last incident"; Rule 14
+of the CCA rules blanks "fifteen days" and then offers an extension "not exceeding fifteen days".
+The hand review missed all twelve because a reviewer reads the sentence around the blank and not the
+one three clauses later. `leaks_answer` now runs as the last gate, on the **final** stem — after an
+`edit` has replaced it, because an edit can introduce the leak as easily as the generator can.
+
+**And the first version of that guard was itself wrong.** `\b` + answer + `\b` reads correctly and
+never matches an answer that starts or ends with punctuation, because there is no word boundary
+between a space and a bracket. That silently exempted every `(1)`-style cross-reference and every
+`₹250`-style amount — half of what the check exists to catch. The boundary is now asserted only on
+the ends of the answer that are alphanumeric. Devanagari needs no special case in Python, whose `\w`
+covers the block; the TypeScript half, where it does not, writes the class out.
+
+**"Repeal and Saving" is an operative rule.** Broadening the emptied-rule test from
+`deleted|omitted|repealed` to `...|repeal` — to catch the Official Secrets Act's "[Repeals.] Rep. by
+the Repealing Act, 1927" — took the closing rule away from five of these books. The two cases are
+now separate: a heading that _is_ "Deleted" or "Omitted", and a heading that says "Rep. by".
+
+**A rule number that carries its own unit must not get the act's.** The FR/SR compilation prints
+"F.R. 17", and `citation()` produced "Rule F.R. 17(1)" on 179 cards.
+
+**`readings()` dropped the number as printed.** The leading-zero filter that stops "1000" offering
+"000" also removed the untrimmed reading, so `readings("007")` returned `("7",)` — a candidate whose
+own number was not among its readings.
+
+**An authored key that matches nothing now fails the run.** A typo in `hindi/<act>.json` or
+`review/cloze-<act>.json` broke nothing: the entry was never looked up, the card stayed unserved, and
+the run reported success. `check_authored_keys` raises instead — the same reason `validate_data.py`
+fails on a dataset in neither manifest and `drafting_seed.py`'s `self_check` rejects a placeholder
+naming a field the template lacks.
+
+**Consequences for the numbers.** 584 served becomes 571: eleven leaking cloze cards and one
+repealed section rejected, and one authored question that crossed the dedup threshold only after the
+rule-card fronts grew the act's name. Every rejection carries its reason and stays in the file.
+`docs/authoring-reports/2026-08-28.md` is regenerated from the data.
+
+Three of the four dedup rejections in the CCA batch, and the RTI one, are `token_set_ratio` false
+positives — the measure ignores word order, so two questions about the same rule that share their
+vocabulary score above 90 even when they ask different things. The threshold is the brief's, the
+rejections are recorded with their scores, and the questions stay in the file. Lowering the
+threshold would let real duplicates through; raising it is a judgement call for whoever next reads
+`review/dedup-*.json`.

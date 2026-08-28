@@ -212,6 +212,107 @@ describe('data/rules — cloze answers come from the rule text', () => {
   })
 })
 
+describe('data/rules — a cloze never gives away its own answer', () => {
+  /**
+   * The boundary is asserted only on the ends of the answer that are
+   * alphanumeric. A plain `\\b...\\b` looks right and never matches an answer
+   * starting or ending with punctuation — `(1)`, `₹250` — which is half the
+   * cross-reference and amount answers in this corpus. Devanagari needs no
+   * special case: JS `\\w` does not cover it, so the lookarounds are written
+   * against an explicit class.
+   */
+  const leaks = (stem: string, answer: string): boolean => {
+    const trimmed = answer.trim()
+    if (!trimmed) return false
+    const body = stem.replaceAll('____', ' ')
+    const wordish = /[\p{L}\p{N}_]/u
+    const left = wordish.test(trimmed[0]!) ? '(?<![\\p{L}\\p{N}_])' : ''
+    const right = wordish.test(trimmed.at(-1)!) ? '(?![\\p{L}\\p{N}_])' : ''
+    const escaped = trimmed.replace(/[.*+?^${}()|[\]\\]/g, '\\$&')
+    return new RegExp(left + escaped + right, 'iu').test(body)
+  }
+
+  it('the sample cases behave', () => {
+    expect(leaks('see clause (1) and ____', '(1)')).toBe(true)
+    expect(leaks('see clause (2) and ____', '(1)')).toBe(false)
+    expect(leaks('a Member to be nominated ____ here', 'one')).toBe(false)
+    expect(leaks('नियम 18क — ____ के उपनियम', 'नियम 18')).toBe(false)
+    expect(leaks('नियम 18 और ____ दोनों', 'नियम 18')).toBe(true)
+  })
+
+  it('no served cloze repeats its answer outside the blank', () => {
+    const offenders: string[] = []
+    for (const card of servedCards) {
+      if (card.kind !== 'cloze') continue
+      for (const lang of ['en', 'hi'] as const) {
+        if (leaks(card.cloze!.text[lang], card.cloze!.answer[lang])) {
+          offenders.push(`${card.id} [${lang}] ${card.cloze!.answer[lang]}`)
+        }
+      }
+    }
+    expect(offenders).toEqual([])
+  })
+
+  it('a cloze cards back is exactly its answer', () => {
+    const mismatched = allCards
+      .filter((card) => card.kind === 'cloze')
+      .filter((card) => card.back.en !== card.cloze!.answer.en || card.back.hi !== card.cloze!.answer.hi)
+    expect(mismatched.map((card) => card.id)).toEqual([])
+  })
+})
+
+describe('data/rules — ids and citations', () => {
+  /**
+   * A cloze id is keyed on the rule and the span kind, never on a running
+   * counter. Every review file is keyed on the id, so a positional id renamed
+   * half the corpus the first time a span was filtered out.
+   */
+  it('every cloze id is <act>-cloze-<rule>-<kind>', () => {
+    const slug = (value: string) =>
+      value
+        .toLowerCase()
+        .replace(/[^a-z0-9]+/g, '-')
+        .replace(/^-|-$/g, '')
+    const wrong = allCards
+      .filter((card) => card.kind === 'cloze')
+      .filter((card) => {
+        const kind = card.tags?.[2]
+        return !kind || card.id !== `${card.act}-cloze-${slug(card.rule)}-${slug(kind)}`
+      })
+    expect(wrong.map((card) => card.id)).toEqual([])
+  })
+
+  /**
+   * The FR/SR compilation prints "F.R. 17", so prepending the act's unit gave
+   * thirty-three cards a citation reading "Rule F.R. 17(1)".
+   */
+  it('never doubles the unit word in a citation', () => {
+    const doubled = allCards.filter((card) =>
+      /\b(?:Rule|Section|Paragraph)\s+(?:F\.R\.|S\.R\.|Rule|Section)/i.test(card.ruleRef.citation.en),
+    )
+    expect(doubled.map((card) => card.id)).toEqual([])
+  })
+
+  it('pairs answerIndex with options, both ways', () => {
+    const wrong = allCards.filter((card) => (card.answerIndex === undefined) !== (card.options === undefined))
+    expect(wrong.map((card) => card.id)).toEqual([])
+  })
+
+  it('leaves no untrimmed whitespace on a served string', () => {
+    const untidy = servedCards.filter((card) =>
+      readerFacing(card).some((pair) => pair.en !== pair.en.trim() || pair.hi !== pair.hi.trim()),
+    )
+    expect(untidy.map((card) => card.id)).toEqual([])
+  })
+
+  it('keeps reviewed and reviewState in step', () => {
+    const wrong = allCards.filter(
+      (card) => card.reviewed !== (card.reviewState !== 'unreviewed' && card.reviewState !== 'needs-hindi'),
+    )
+    expect(wrong.map((card) => card.id)).toEqual([])
+  })
+})
+
 describe('data/rules — rule cards cover every rule', () => {
   it.each(actIds)('%s has a rule card for 100% of its rules', (id) => {
     const covered = new Set(

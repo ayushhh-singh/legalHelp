@@ -4,11 +4,11 @@
   "scores": {
     "rti-q-001": {
       "maxScore": 64.5,
-      "against": "rti-cloze-19-3",
+      "against": "rti-cloze-19-definedterm",
       "verdict": "keep"
     },
     "rti-q-002": {
-      "maxScore": 70.2,
+      "maxScore": 68.4,
       "against": "rti-rule-3",
       "verdict": "keep"
     },
@@ -23,12 +23,12 @@
       "verdict": "keep"
     },
     "rti-q-005": {
-      "maxScore": 82.5,
+      "maxScore": 77.6,
       "against": "rti-rule-3",
       "verdict": "keep"
     },
     "rti-q-006": {
-      "maxScore": 70.2,
+      "maxScore": 80.5,
       "against": "rti-rule-3",
       "verdict": "keep"
     },
@@ -73,14 +73,14 @@
       "verdict": "keep"
     },
     "rti-q-015": {
-      "maxScore": 74.1,
-      "against": "rti-q-004",
+      "maxScore": 80.5,
+      "against": "rti-rule-3",
       "verdict": "keep"
     },
     "rti-q-016": {
-      "maxScore": 86.2,
+      "maxScore": 90.5,
       "against": "rti-rule-3",
-      "verdict": "keep"
+      "verdict": "duplicate"
     },
     "rti-q-017": {
       "maxScore": 76.9,
@@ -88,22 +88,22 @@
       "verdict": "keep"
     },
     "rti-q-018": {
-      "maxScore": 70.2,
+      "maxScore": 76.3,
       "against": "rti-rule-14",
       "verdict": "keep"
     },
     "rti-q-019": {
-      "maxScore": 74.2,
+      "maxScore": 79.3,
       "against": "rti-rule-14",
       "verdict": "keep"
     },
     "rti-q-020": {
-      "maxScore": 69.9,
-      "against": "rti-rule-17",
+      "maxScore": 69.4,
+      "against": "rti-rule-17-1",
       "verdict": "keep"
     },
     "rti-q-021": {
-      "maxScore": 67.4,
+      "maxScore": 74.1,
       "against": "rti-rule-15",
       "verdict": "keep"
     },

@@ -144,6 +144,16 @@ class TestReadings(unittest.TestCase):
         # and became a Section 1 headed "Repeal" whose text was the contents.
         self.assertEqual(extract.readings("31"), ("31",))
 
+    def test_the_number_as_printed_is_always_offered(self) -> None:
+        """The leading-zero filter used to drop the untrimmed reading too.
+
+        ``readings("007")`` returned ``("7",)`` — the number as the document
+        printed it was not among its own readings.
+        """
+        self.assertEqual(extract.readings("007")[0], "007")
+        self.assertEqual(extract.readings("1000"), ("1000",))
+        self.assertIn("3911", extract.readings("3911"))
+
     def test_a_number_alone_on_its_line_is_never_trimmed(self) -> None:
         # The Leave rules end a sentence with the bare line "1972.", which
         # trimmed to "2" and swallowed Rule 1's second sub-rule.
@@ -272,6 +282,123 @@ class TestClozeSpans(unittest.TestCase):
         text = "the benefit payable under  Rule 39 shall be modified"
         span = next(s for s in cards.find_spans(text, []) if s.kind == "crossReference")
         self.assertEqual(text[span.start : span.end], span.text)
+
+
+class TestAnswerLeak(unittest.TestCase):
+    """A cloze whose stem repeats its own answer asks nothing.
+
+    Twelve got through the hand review, because a reviewer reads the sentence
+    around the blank and not the one three clauses later.
+    """
+
+    def test_a_stem_that_repeats_its_answer_leaks(self) -> None:
+        # PoSH s.9(1): "within a period of ____ from the date of incident and in
+        # case of a series of incidents, within a period of three months ..."
+        self.assertTrue(
+            cards.leaks_answer(
+                "within a period of ____ from the date of incident and in case of a series of "
+                "incidents, within a period of three months from the date of the last incident",
+                "three months",
+            )
+        )
+
+    def test_an_answer_that_appears_only_in_the_blank_does_not_leak(self) -> None:
+        self.assertFalse(cards.leaks_answer("the ____ applies to every case", "rule"))
+
+    def test_matching_is_on_a_word_boundary(self) -> None:
+        # "one" must not match inside "nominated".
+        self.assertFalse(cards.leaks_answer("a Member to be nominated ____ here", "one"))
+        self.assertTrue(cards.leaks_answer("only one thing, and ____ other", "one"))
+
+    def test_an_empty_answer_never_leaks(self) -> None:
+        self.assertFalse(cards.leaks_answer("a ____ b", ""))
+        self.assertFalse(cards.leaks_answer("a ____ b", "   "))
+
+    def test_regex_metacharacters_in_an_answer_are_literal(self) -> None:
+        # A cross-reference answer is full of brackets; an unescaped "(1)" would
+        # be a capture group and match nothing, or throw.
+        self.assertFalse(cards.leaks_answer("see clause (2) and ____", "(1)"))
+        self.assertTrue(cards.leaks_answer("see clause (1) and ____", "(1)"))
+
+    def test_an_amount_answer_is_checked_too(self) -> None:
+        # "₹250" starts with punctuation, so a plain \b...\b exempted every
+        # amount and cross-reference answer from the check meant to catch them.
+        self.assertTrue(cards.leaks_answer("a fee of ₹250 and ____ more", "₹250"))
+        self.assertFalse(cards.leaks_answer("a fee of ₹2500 and ____ more", "₹250"))
+        self.assertTrue(cards.leaks_answer("pay of Rs.500 and ____", "Rs.500"))
+
+    def test_devanagari_needs_no_special_case(self) -> None:
+        # Python's \w already covers the block, so "नियम 18" does not match
+        # inside "नियम 18क".
+        self.assertFalse(cards.leaks_answer("नियम 18क — ____ के उपनियम (2)", "नियम 18"))
+        self.assertTrue(cards.leaks_answer("नियम 18 और ____ दोनों", "नियम 18"))
+
+
+class TestEmptiedRules(unittest.TestCase):
+    def test_deleted_and_omitted_are_emptied(self) -> None:
+        for heading in ("Deleted", "Omitted", "Deleted3", "[Omitted]"):
+            with self.subTest(heading=heading):
+                self.assertIsNotNone(cards._EMPTIED_HEADING.match(heading))
+
+    def test_repeal_and_saving_is_an_operative_rule(self) -> None:
+        """Five of these books close with "Repeal and Saving", which is a rule.
+
+        Broadening the emptied-rule test to "repeal" took their cards away.
+        """
+        for heading in ("Repeal and Saving", "Repeal and saving", "Repeal"):
+            with self.subTest(heading=heading):
+                self.assertIsNone(cards._EMPTIED_HEADING.match(heading))
+                self.assertIsNone(cards._REPEALED_BY.search(heading))
+
+    def test_a_provision_repealed_by_a_later_act_is_emptied(self) -> None:
+        heading = "[Repeals.] Rep. by the Repealing Act, 1927 (12 of 1927), s. 2 and Sch"
+        self.assertIsNotNone(cards._REPEALED_BY.search(heading))
+
+
+class TestCitation(unittest.TestCase):
+    def test_a_numbered_rule_gets_the_act_unit(self) -> None:
+        act = common.ACTS_BY_ID["ccs-conduct"]
+        self.assertTrue(cards.citation(act, "11")["en"].startswith("Rule 11,"))
+
+    def test_a_number_that_carries_its_own_unit_is_not_doubled(self) -> None:
+        """The FR/SR compilation prints "F.R. 17", not "Rule F.R. 17"."""
+        act = common.ACTS_BY_ID["fr-sr"]
+        for number in ("F.R. 17", "S.R. 2", "F.R. 22(1)"):
+            with self.subTest(number=number):
+                cite = cards.citation(act, number)
+                self.assertTrue(cite["en"].startswith(number))
+                self.assertNotIn("Rule F.R.", cite["en"])
+                self.assertNotIn("Rule S.R.", cite["en"])
+
+
+class TestAuthoredKeyGuard(unittest.TestCase):
+    """A typo in an authored file must fail the run, not do nothing."""
+
+    def test_a_hindi_key_that_is_not_a_rule_number_raises(self) -> None:
+        act = common.ACTS_BY_ID["ol-act"]
+        with self.assertRaises(ValueError) as caught:
+            cards.check_authored_keys(
+                act, hindi={"99": "टाइपो"}, review={}, rule_numbers={"1", "2"}, cloze_ids=set()
+            )
+        self.assertIn("99", str(caught.exception))
+
+    def test_a_review_key_that_is_not_a_card_raises(self) -> None:
+        act = common.ACTS_BY_ID["ol-act"]
+        with self.assertRaises(ValueError) as caught:
+            cards.check_authored_keys(
+                act,
+                hindi={},
+                review={"ol-act-cloze-99-duration": {"verdict": "approve"}},
+                rule_numbers={"1"},
+                cloze_ids={"ol-act-cloze-1-duration"},
+            )
+        self.assertIn("ol-act-cloze-99-duration", str(caught.exception))
+
+    def test_underscore_keys_are_notes_and_are_ignored(self) -> None:
+        act = common.ACTS_BY_ID["ol-act"]
+        cards.check_authored_keys(
+            act, hindi={"_note": "x"}, review={"_note": "y"}, rule_numbers=set(), cloze_ids=set()
+        )
 
 
 class TestExcerpt(unittest.TestCase):

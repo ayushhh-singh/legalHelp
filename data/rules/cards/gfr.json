@@ -5466,8 +5466,8 @@
         }
       },
       "difficulty": "easy",
-      "reviewed": false,
-      "reviewState": "needs-hindi",
+      "reviewed": true,
+      "reviewState": "rejected",
       "tags": [
         "generated",
         "rule"
@@ -5477,7 +5477,8 @@
       "source": {
         "name": "Department of Expenditure, Ministry of Finance — General Financial Rules 2017 — updated up to 31 January 2026",
         "url": "https://doe.gov.in/files/circulars_document/GFRupdatedupto31012026.pdf"
-      }
+      },
+      "reviewNote": "the rule has been deleted or omitted; there is nothing to recall"
     },
     {
       "id": "gfr-rule-149",
@@ -5716,7 +5717,7 @@
         "name": "Department of Expenditure, Ministry of Finance — General Financial Rules 2017 — updated up to 31 January 2026",
         "url": "https://doe.gov.in/files/circulars_document/GFRupdatedupto31012026.pdf"
       },
-      "reviewNote": "the rule has been deleted.21; there is nothing to recall"
+      "reviewNote": "the rule has been deleted or omitted; there is nothing to recall"
     },
     {
       "id": "gfr-rule-157",
@@ -11777,7 +11778,7 @@
       }
     },
     {
-      "id": "gfr-cloze-1-1",
+      "id": "gfr-cloze-1-definedterm",
       "act": "gfr",
       "rule": "1",
       "kind": "cloze",
@@ -11822,7 +11823,7 @@
       }
     },
     {
-      "id": "gfr-cloze-2-1",
+      "id": "gfr-cloze-2-crossreference",
       "act": "gfr",
       "rule": "2",
       "kind": "cloze",
@@ -11867,7 +11868,7 @@
       }
     },
     {
-      "id": "gfr-cloze-2-2",
+      "id": "gfr-cloze-2-count",
       "act": "gfr",
       "rule": "2",
       "kind": "cloze",
@@ -11912,7 +11913,7 @@
       }
     },
     {
-      "id": "gfr-cloze-2-3",
+      "id": "gfr-cloze-2-definedterm",
       "act": "gfr",
       "rule": "2",
       "kind": "cloze",
@@ -11957,7 +11958,7 @@
       }
     },
     {
-      "id": "gfr-cloze-3-1",
+      "id": "gfr-cloze-3-count",
       "act": "gfr",
       "rule": "3",
       "kind": "cloze",
@@ -12002,7 +12003,7 @@
       }
     },
     {
-      "id": "gfr-cloze-7-1",
+      "id": "gfr-cloze-7-crossreference",
       "act": "gfr",
       "rule": "7",
       "kind": "cloze",
@@ -12047,7 +12048,7 @@
       }
     },
     {
-      "id": "gfr-cloze-8-1",
+      "id": "gfr-cloze-8-crossreference",
       "act": "gfr",
       "rule": "8",
       "kind": "cloze",
@@ -12092,7 +12093,7 @@
       }
     },
     {
-      "id": "gfr-cloze-8-2",
+      "id": "gfr-cloze-8-definedterm",
       "act": "gfr",
       "rule": "8",
       "kind": "cloze",
@@ -12137,7 +12138,7 @@
       }
     },
     {
-      "id": "gfr-cloze-9-1",
+      "id": "gfr-cloze-9-definedterm",
       "act": "gfr",
       "rule": "9",
       "kind": "cloze",
@@ -12182,7 +12183,7 @@
       }
     },
     {
-      "id": "gfr-cloze-10-1",
+      "id": "gfr-cloze-10-definedterm",
       "act": "gfr",
       "rule": "10",
       "kind": "cloze",
@@ -12227,7 +12228,7 @@
       }
     },
     {
-      "id": "gfr-cloze-11-1",
+      "id": "gfr-cloze-11-crossreference",
       "act": "gfr",
       "rule": "11",
       "kind": "cloze",
@@ -12272,7 +12273,7 @@
       }
     },
     {
-      "id": "gfr-cloze-15-1",
+      "id": "gfr-cloze-15-crossreference",
       "act": "gfr",
       "rule": "15",
       "kind": "cloze",
@@ -12317,7 +12318,7 @@
       }
     },
     {
-      "id": "gfr-cloze-16-1",
+      "id": "gfr-cloze-16-crossreference",
       "act": "gfr",
       "rule": "16",
       "kind": "cloze",
@@ -12362,7 +12363,7 @@
       }
     },
     {
-      "id": "gfr-cloze-19-1",
+      "id": "gfr-cloze-19-crossreference",
       "act": "gfr",
       "rule": "19",
       "kind": "cloze",
@@ -12407,7 +12408,7 @@
       }
     },
     {
-      "id": "gfr-cloze-21-1",
+      "id": "gfr-cloze-21-definedterm",
       "act": "gfr",
       "rule": "21",
       "kind": "cloze",
@@ -12452,7 +12453,7 @@
       }
     },
     {
-      "id": "gfr-cloze-23-1",
+      "id": "gfr-cloze-23-definedterm",
       "act": "gfr",
       "rule": "23",
       "kind": "cloze",
@@ -12497,7 +12498,7 @@
       }
     },
     {
-      "id": "gfr-cloze-24-1",
+      "id": "gfr-cloze-24-definedterm",
       "act": "gfr",
       "rule": "24",
       "kind": "cloze",
@@ -12542,7 +12543,7 @@
       }
     },
     {
-      "id": "gfr-cloze-25-1",
+      "id": "gfr-cloze-25-crossreference",
       "act": "gfr",
       "rule": "25",
       "kind": "cloze",
@@ -12587,7 +12588,7 @@
       }
     },
     {
-      "id": "gfr-cloze-25-2",
+      "id": "gfr-cloze-25-definedterm",
       "act": "gfr",
       "rule": "25",
       "kind": "cloze",
@@ -12632,7 +12633,7 @@
       }
     },
     {
-      "id": "gfr-cloze-26-1",
+      "id": "gfr-cloze-26-definedterm",
       "act": "gfr",
       "rule": "26",
       "kind": "cloze",
@@ -12677,7 +12678,7 @@
       }
     },
     {
-      "id": "gfr-cloze-27-1",
+      "id": "gfr-cloze-27-crossreference",
       "act": "gfr",
       "rule": "27",
       "kind": "cloze",
@@ -12722,7 +12723,7 @@
       }
     },
     {
-      "id": "gfr-cloze-27-2",
+      "id": "gfr-cloze-27-definedterm",
       "act": "gfr",
       "rule": "27",
       "kind": "cloze",
@@ -12767,7 +12768,7 @@
       }
     },
     {
-      "id": "gfr-cloze-29-1",
+      "id": "gfr-cloze-29-crossreference",
       "act": "gfr",
       "rule": "29",
       "kind": "cloze",
@@ -12812,7 +12813,7 @@
       }
     },
     {
-      "id": "gfr-cloze-29-2",
+      "id": "gfr-cloze-29-definedterm",
       "act": "gfr",
       "rule": "29",
       "kind": "cloze",
@@ -12857,7 +12858,7 @@
       }
     },
     {
-      "id": "gfr-cloze-30-1",
+      "id": "gfr-cloze-30-duration",
       "act": "gfr",
       "rule": "30",
       "kind": "cloze",
@@ -12902,7 +12903,7 @@
       }
     },
     {
-      "id": "gfr-cloze-33-1",
+      "id": "gfr-cloze-33-amount",
       "act": "gfr",
       "rule": "33",
       "kind": "cloze",
@@ -12947,7 +12948,7 @@
       }
     },
     {
-      "id": "gfr-cloze-33-2",
+      "id": "gfr-cloze-33-crossreference",
       "act": "gfr",
       "rule": "33",
       "kind": "cloze",
@@ -12992,7 +12993,7 @@
       }
     },
     {
-      "id": "gfr-cloze-33-3",
+      "id": "gfr-cloze-33-count",
       "act": "gfr",
       "rule": "33",
       "kind": "cloze",
@@ -13037,7 +13038,7 @@
       }
     },
     {
-      "id": "gfr-cloze-34-1",
+      "id": "gfr-cloze-34-amount",
       "act": "gfr",
       "rule": "34",
       "kind": "cloze",
@@ -13082,7 +13083,7 @@
       }
     },
     {
-      "id": "gfr-cloze-34-2",
+      "id": "gfr-cloze-34-crossreference",
       "act": "gfr",
       "rule": "34",
       "kind": "cloze",
@@ -13127,7 +13128,7 @@
       }
     },
     {
-      "id": "gfr-cloze-35-1",
+      "id": "gfr-cloze-35-amount",
       "act": "gfr",
       "rule": "35",
       "kind": "cloze",
@@ -13172,7 +13173,7 @@
       }
     },
     {
-      "id": "gfr-cloze-38-1",
+      "id": "gfr-cloze-38-definedterm",
       "act": "gfr",
       "rule": "38",
       "kind": "cloze",
@@ -13217,7 +13218,7 @@
       }
     },
     {
-      "id": "gfr-cloze-39-1",
+      "id": "gfr-cloze-39-definedterm",
       "act": "gfr",
       "rule": "39",
       "kind": "cloze",
@@ -13262,7 +13263,7 @@
       }
     },
     {
-      "id": "gfr-cloze-43-1",
+      "id": "gfr-cloze-43-crossreference",
       "act": "gfr",
       "rule": "43",
       "kind": "cloze",
@@ -13307,7 +13308,7 @@
       }
     },
     {
-      "id": "gfr-cloze-45-1",
+      "id": "gfr-cloze-45-duration",
       "act": "gfr",
       "rule": "45",
       "kind": "cloze",
@@ -13352,7 +13353,7 @@
       }
     },
     {
-      "id": "gfr-cloze-47-1",
+      "id": "gfr-cloze-47-duration",
       "act": "gfr",
       "rule": "47",
       "kind": "cloze",
@@ -13397,7 +13398,7 @@
       }
     },
     {
-      "id": "gfr-cloze-50-1",
+      "id": "gfr-cloze-50-crossreference",
       "act": "gfr",
       "rule": "50",
       "kind": "cloze",
@@ -13442,7 +13443,7 @@
       }
     },
     {
-      "id": "gfr-cloze-51-1",
+      "id": "gfr-cloze-51-crossreference",
       "act": "gfr",
       "rule": "51",
       "kind": "cloze",
@@ -13487,7 +13488,7 @@
       }
     },
     {
-      "id": "gfr-cloze-51-2",
+      "id": "gfr-cloze-51-count",
       "act": "gfr",
       "rule": "51",
       "kind": "cloze",
@@ -13532,7 +13533,7 @@
       }
     },
     {
-      "id": "gfr-cloze-52-1",
+      "id": "gfr-cloze-52-crossreference",
       "act": "gfr",
       "rule": "52",
       "kind": "cloze",
@@ -13577,7 +13578,7 @@
       }
     },
     {
-      "id": "gfr-cloze-53-1",
+      "id": "gfr-cloze-53-crossreference",
       "act": "gfr",
       "rule": "53",
       "kind": "cloze",
@@ -13622,7 +13623,7 @@
       }
     },
     {
-      "id": "gfr-cloze-53-2",
+      "id": "gfr-cloze-53-definedterm",
       "act": "gfr",
       "rule": "53",
       "kind": "cloze",
@@ -13667,7 +13668,7 @@
       }
     },
     {
-      "id": "gfr-cloze-55-1",
+      "id": "gfr-cloze-55-crossreference",
       "act": "gfr",
       "rule": "55",
       "kind": "cloze",
@@ -13712,7 +13713,7 @@
       }
     },
     {
-      "id": "gfr-cloze-57-1",
+      "id": "gfr-cloze-57-crossreference",
       "act": "gfr",
       "rule": "57",
       "kind": "cloze",
@@ -13757,7 +13758,7 @@
       }
     },
     {
-      "id": "gfr-cloze-57-2",
+      "id": "gfr-cloze-57-definedterm",
       "act": "gfr",
       "rule": "57",
       "kind": "cloze",
@@ -13802,7 +13803,7 @@
       }
     },
     {
-      "id": "gfr-cloze-59-1",
+      "id": "gfr-cloze-59-crossreference",
       "act": "gfr",
       "rule": "59",
       "kind": "cloze",
@@ -13847,7 +13848,7 @@
       }
     },
     {
-      "id": "gfr-cloze-59-2",
+      "id": "gfr-cloze-59-definedterm",
       "act": "gfr",
       "rule": "59",
       "kind": "cloze",
@@ -13892,7 +13893,7 @@
       }
     },
     {
-      "id": "gfr-cloze-61-1",
+      "id": "gfr-cloze-61-definedterm",
       "act": "gfr",
       "rule": "61",
       "kind": "cloze",
@@ -13937,7 +13938,7 @@
       }
     },
     {
-      "id": "gfr-cloze-62-1",
+      "id": "gfr-cloze-62-crossreference",
       "act": "gfr",
       "rule": "62",
       "kind": "cloze",
@@ -13982,7 +13983,7 @@
       }
     },
     {
-      "id": "gfr-cloze-62-2",
+      "id": "gfr-cloze-62-definedterm",
       "act": "gfr",
       "rule": "62",
       "kind": "cloze",
@@ -14027,7 +14028,7 @@
       }
     },
     {
-      "id": "gfr-cloze-63-1",
+      "id": "gfr-cloze-63-definedterm",
       "act": "gfr",
       "rule": "63",
       "kind": "cloze",
@@ -14072,7 +14073,7 @@
       }
     },
     {
-      "id": "gfr-cloze-64-1",
+      "id": "gfr-cloze-64-crossreference",
       "act": "gfr",
       "rule": "64",
       "kind": "cloze",
@@ -14117,7 +14118,7 @@
       }
     },
     {
-      "id": "gfr-cloze-65-1",
+      "id": "gfr-cloze-65-crossreference",
       "act": "gfr",
       "rule": "65",
       "kind": "cloze",
@@ -14162,7 +14163,7 @@
       }
     },
     {
-      "id": "gfr-cloze-65-2",
+      "id": "gfr-cloze-65-definedterm",
       "act": "gfr",
       "rule": "65",
       "kind": "cloze",
@@ -14207,7 +14208,7 @@
       }
     },
     {
-      "id": "gfr-cloze-66-1",
+      "id": "gfr-cloze-66-crossreference",
       "act": "gfr",
       "rule": "66",
       "kind": "cloze",
@@ -14252,7 +14253,7 @@
       }
     },
     {
-      "id": "gfr-cloze-67-1",
+      "id": "gfr-cloze-67-crossreference",
       "act": "gfr",
       "rule": "67",
       "kind": "cloze",
@@ -14297,7 +14298,7 @@
       }
     },
     {
-      "id": "gfr-cloze-67-2",
+      "id": "gfr-cloze-67-definedterm",
       "act": "gfr",
       "rule": "67",
       "kind": "cloze",
@@ -14342,7 +14343,7 @@
       }
     },
     {
-      "id": "gfr-cloze-68-1",
+      "id": "gfr-cloze-68-crossreference",
       "act": "gfr",
       "rule": "68",
       "kind": "cloze",
@@ -14387,7 +14388,7 @@
       }
     },
     {
-      "id": "gfr-cloze-70-1",
+      "id": "gfr-cloze-70-definedterm",
       "act": "gfr",
       "rule": "70",
       "kind": "cloze",
@@ -14432,7 +14433,7 @@
       }
     },
     {
-      "id": "gfr-cloze-71-1",
+      "id": "gfr-cloze-71-duration",
       "act": "gfr",
       "rule": "71",
       "kind": "cloze",
@@ -14477,7 +14478,7 @@
       }
     },
     {
-      "id": "gfr-cloze-72-1",
+      "id": "gfr-cloze-72-crossreference",
       "act": "gfr",
       "rule": "72",
       "kind": "cloze",
@@ -14522,7 +14523,7 @@
       }
     },
     {
-      "id": "gfr-cloze-77-1",
+      "id": "gfr-cloze-77-crossreference",
       "act": "gfr",
       "rule": "77",
       "kind": "cloze",
@@ -14567,7 +14568,7 @@
       }
     },
     {
-      "id": "gfr-cloze-77-2",
+      "id": "gfr-cloze-77-count",
       "act": "gfr",
       "rule": "77",
       "kind": "cloze",
@@ -14612,7 +14613,7 @@
       }
     },
     {
-      "id": "gfr-cloze-78-1",
+      "id": "gfr-cloze-78-count",
       "act": "gfr",
       "rule": "78",
       "kind": "cloze",
@@ -14657,7 +14658,7 @@
       }
     },
     {
-      "id": "gfr-cloze-79-1",
+      "id": "gfr-cloze-79-crossreference",
       "act": "gfr",
       "rule": "79",
       "kind": "cloze",
@@ -14702,7 +14703,7 @@
       }
     },
     {
-      "id": "gfr-cloze-83-1",
+      "id": "gfr-cloze-83-crossreference",
       "act": "gfr",
       "rule": "83",
       "kind": "cloze",
@@ -14747,7 +14748,7 @@
       }
     },
     {
-      "id": "gfr-cloze-83-2",
+      "id": "gfr-cloze-83-definedterm",
       "act": "gfr",
       "rule": "83",
       "kind": "cloze",
@@ -14792,7 +14793,7 @@
       }
     },
     {
-      "id": "gfr-cloze-85-1",
+      "id": "gfr-cloze-85-definedterm",
       "act": "gfr",
       "rule": "85",
       "kind": "cloze",
@@ -14837,7 +14838,7 @@
       }
     },
     {
-      "id": "gfr-cloze-86-1",
+      "id": "gfr-cloze-86-definedterm",
       "act": "gfr",
       "rule": "86",
       "kind": "cloze",
@@ -14882,7 +14883,7 @@
       }
     },
     {
-      "id": "gfr-cloze-87-1",
+      "id": "gfr-cloze-87-definedterm",
       "act": "gfr",
       "rule": "87",
       "kind": "cloze",
@@ -14927,7 +14928,7 @@
       }
     },
     {
-      "id": "gfr-cloze-89-1",
+      "id": "gfr-cloze-89-crossreference",
       "act": "gfr",
       "rule": "89",
       "kind": "cloze",
@@ -14972,7 +14973,7 @@
       }
     },
     {
-      "id": "gfr-cloze-97-1",
+      "id": "gfr-cloze-97-crossreference",
       "act": "gfr",
       "rule": "97",
       "kind": "cloze",
@@ -15017,7 +15018,7 @@
       }
     },
     {
-      "id": "gfr-cloze-98-1",
+      "id": "gfr-cloze-98-definedterm",
       "act": "gfr",
       "rule": "98",
       "kind": "cloze",
@@ -15062,7 +15063,7 @@
       }
     },
     {
-      "id": "gfr-cloze-103-1",
+      "id": "gfr-cloze-103-definedterm",
       "act": "gfr",
       "rule": "103",
       "kind": "cloze",
@@ -15107,7 +15108,7 @@
       }
     },
     {
-      "id": "gfr-cloze-105-1",
+      "id": "gfr-cloze-105-crossreference",
       "act": "gfr",
       "rule": "105",
       "kind": "cloze",
@@ -15152,7 +15153,7 @@
       }
     },
     {
-      "id": "gfr-cloze-111-1",
+      "id": "gfr-cloze-111-count",
       "act": "gfr",
       "rule": "111",
       "kind": "cloze",
@@ -15197,7 +15198,7 @@
       }
     },
     {
-      "id": "gfr-cloze-114-1",
+      "id": "gfr-cloze-114-crossreference",
       "act": "gfr",
       "rule": "114",
       "kind": "cloze",
@@ -15242,7 +15243,7 @@
       }
     },
     {
-      "id": "gfr-cloze-115-1",
+      "id": "gfr-cloze-115-duration",
       "act": "gfr",
       "rule": "115",
       "kind": "cloze",
@@ -15287,7 +15288,7 @@
       }
     },
     {
-      "id": "gfr-cloze-115-2",
+      "id": "gfr-cloze-115-amount",
       "act": "gfr",
       "rule": "115",
       "kind": "cloze",
@@ -15332,7 +15333,7 @@
       }
     },
     {
-      "id": "gfr-cloze-115-3",
+      "id": "gfr-cloze-115-crossreference",
       "act": "gfr",
       "rule": "115",
       "kind": "cloze",
@@ -15377,7 +15378,7 @@
       }
     },
     {
-      "id": "gfr-cloze-116-1",
+      "id": "gfr-cloze-116-crossreference",
       "act": "gfr",
       "rule": "116",
       "kind": "cloze",
@@ -15422,7 +15423,7 @@
       }
     },
     {
-      "id": "gfr-cloze-116-2",
+      "id": "gfr-cloze-116-definedterm",
       "act": "gfr",
       "rule": "116",
       "kind": "cloze",
@@ -15467,7 +15468,7 @@
       }
     },
     {
-      "id": "gfr-cloze-120-1",
+      "id": "gfr-cloze-120-definedterm",
       "act": "gfr",
       "rule": "120",
       "kind": "cloze",
@@ -15512,7 +15513,7 @@
       }
     },
     {
-      "id": "gfr-cloze-127-1",
+      "id": "gfr-cloze-127-definedterm",
       "act": "gfr",
       "rule": "127",
       "kind": "cloze",
@@ -15557,7 +15558,7 @@
       }
     },
     {
-      "id": "gfr-cloze-133-1",
+      "id": "gfr-cloze-133-amount",
       "act": "gfr",
       "rule": "133",
       "kind": "cloze",
@@ -15602,7 +15603,7 @@
       }
     },
     {
-      "id": "gfr-cloze-133-2",
+      "id": "gfr-cloze-133-crossreference",
       "act": "gfr",
       "rule": "133",
       "kind": "cloze",
@@ -15647,7 +15648,7 @@
       }
     },
     {
-      "id": "gfr-cloze-133-3",
+      "id": "gfr-cloze-133-count",
       "act": "gfr",
       "rule": "133",
       "kind": "cloze",
@@ -15692,7 +15693,7 @@
       }
     },
     {
-      "id": "gfr-cloze-135-1",
+      "id": "gfr-cloze-135-crossreference",
       "act": "gfr",
       "rule": "135",
       "kind": "cloze",
@@ -15737,7 +15738,7 @@
       }
     },
     {
-      "id": "gfr-cloze-136-1",
+      "id": "gfr-cloze-136-crossreference",
       "act": "gfr",
       "rule": "136",
       "kind": "cloze",
@@ -15782,7 +15783,7 @@
       }
     },
     {
-      "id": "gfr-cloze-139-1",
+      "id": "gfr-cloze-139-count",
       "act": "gfr",
       "rule": "139",
       "kind": "cloze",
@@ -15827,7 +15828,7 @@
       }
     },
     {
-      "id": "gfr-cloze-140-1",
+      "id": "gfr-cloze-140-crossreference",
       "act": "gfr",
       "rule": "140",
       "kind": "cloze",
@@ -15872,7 +15873,7 @@
       }
     },
     {
-      "id": "gfr-cloze-141-1",
+      "id": "gfr-cloze-141-amount",
       "act": "gfr",
       "rule": "141",
       "kind": "cloze",
@@ -15917,7 +15918,7 @@
       }
     },
     {
-      "id": "gfr-cloze-141-2",
+      "id": "gfr-cloze-141-percentage",
       "act": "gfr",
       "rule": "141",
       "kind": "cloze",
@@ -15962,7 +15963,7 @@
       }
     },
     {
-      "id": "gfr-cloze-144-1",
+      "id": "gfr-cloze-144-definedterm",
       "act": "gfr",
       "rule": "144",
       "kind": "cloze",
@@ -16007,7 +16008,7 @@
       }
     },
     {
-      "id": "gfr-cloze-146-1",
+      "id": "gfr-cloze-146-amount",
       "act": "gfr",
       "rule": "146",
       "kind": "cloze",
@@ -16052,7 +16053,7 @@
       }
     },
     {
-      "id": "gfr-cloze-147-1",
+      "id": "gfr-cloze-147-crossreference",
       "act": "gfr",
       "rule": "147",
       "kind": "cloze",
@@ -16097,7 +16098,7 @@
       }
     },
     {
-      "id": "gfr-cloze-149-1",
+      "id": "gfr-cloze-149-duration",
       "act": "gfr",
       "rule": "149",
       "kind": "cloze",
@@ -16142,7 +16143,7 @@
       }
     },
     {
-      "id": "gfr-cloze-149-2",
+      "id": "gfr-cloze-149-amount",
       "act": "gfr",
       "rule": "149",
       "kind": "cloze",
@@ -16187,7 +16188,7 @@
       }
     },
     {
-      "id": "gfr-cloze-149-3",
+      "id": "gfr-cloze-149-count",
       "act": "gfr",
       "rule": "149",
       "kind": "cloze",
@@ -16232,7 +16233,7 @@
       }
     },
     {
-      "id": "gfr-cloze-150-1",
+      "id": "gfr-cloze-150-duration",
       "act": "gfr",
       "rule": "150",
       "kind": "cloze",
@@ -16277,7 +16278,7 @@
       }
     },
     {
-      "id": "gfr-cloze-151-1",
+      "id": "gfr-cloze-151-duration",
       "act": "gfr",
       "rule": "151",
       "kind": "cloze",
@@ -16322,7 +16323,7 @@
       }
     },
     {
-      "id": "gfr-cloze-151-2",
+      "id": "gfr-cloze-151-definedterm",
       "act": "gfr",
       "rule": "151",
       "kind": "cloze",
@@ -16367,7 +16368,7 @@
       }
     },
     {
-      "id": "gfr-cloze-152-1",
+      "id": "gfr-cloze-152-amount",
       "act": "gfr",
       "rule": "152",
       "kind": "cloze",
@@ -16412,7 +16413,7 @@
       }
     },
     {
-      "id": "gfr-cloze-152-2",
+      "id": "gfr-cloze-152-crossreference",
       "act": "gfr",
       "rule": "152",
       "kind": "cloze",
@@ -16457,7 +16458,7 @@
       }
     },
     {
-      "id": "gfr-cloze-152-3",
+      "id": "gfr-cloze-152-percentage",
       "act": "gfr",
       "rule": "152",
       "kind": "cloze",
@@ -16502,7 +16503,7 @@
       }
     },
     {
-      "id": "gfr-cloze-154-1",
+      "id": "gfr-cloze-154-amount",
       "act": "gfr",
       "rule": "154",
       "kind": "cloze",
@@ -16547,7 +16548,7 @@
       }
     },
     {
-      "id": "gfr-cloze-155-1",
+      "id": "gfr-cloze-155-amount",
       "act": "gfr",
       "rule": "155",
       "kind": "cloze",
@@ -16592,7 +16593,7 @@
       }
     },
     {
-      "id": "gfr-cloze-155-2",
+      "id": "gfr-cloze-155-definedterm",
       "act": "gfr",
       "rule": "155",
       "kind": "cloze",
@@ -16637,7 +16638,7 @@
       }
     },
     {
-      "id": "gfr-cloze-158-1",
+      "id": "gfr-cloze-158-crossreference",
       "act": "gfr",
       "rule": "158",
       "kind": "cloze",
@@ -16682,7 +16683,7 @@
       }
     },
     {
-      "id": "gfr-cloze-158-2",
+      "id": "gfr-cloze-158-definedterm",
       "act": "gfr",
       "rule": "158",
       "kind": "cloze",
@@ -16727,7 +16728,7 @@
       }
     },
     {
-      "id": "gfr-cloze-159-1",
+      "id": "gfr-cloze-159-crossreference",
       "act": "gfr",
       "rule": "159",
       "kind": "cloze",
@@ -16772,7 +16773,7 @@
       }
     },
     {
-      "id": "gfr-cloze-159-2",
+      "id": "gfr-cloze-159-definedterm",
       "act": "gfr",
       "rule": "159",
       "kind": "cloze",
@@ -16817,7 +16818,7 @@
       }
     },
     {
-      "id": "gfr-cloze-161-1",
+      "id": "gfr-cloze-161-duration",
       "act": "gfr",
       "rule": "161",
       "kind": "cloze",
@@ -16862,7 +16863,7 @@
       }
     },
     {
-      "id": "gfr-cloze-161-2",
+      "id": "gfr-cloze-161-amount",
       "act": "gfr",
       "rule": "161",
       "kind": "cloze",
@@ -16907,7 +16908,7 @@
       }
     },
     {
-      "id": "gfr-cloze-161-3",
+      "id": "gfr-cloze-161-crossreference",
       "act": "gfr",
       "rule": "161",
       "kind": "cloze",
@@ -16952,7 +16953,7 @@
       }
     },
     {
-      "id": "gfr-cloze-162-1",
+      "id": "gfr-cloze-162-amount",
       "act": "gfr",
       "rule": "162",
       "kind": "cloze",
@@ -16997,7 +16998,7 @@
       }
     },
     {
-      "id": "gfr-cloze-162-2",
+      "id": "gfr-cloze-162-crossreference",
       "act": "gfr",
       "rule": "162",
       "kind": "cloze",
@@ -17042,7 +17043,7 @@
       }
     },
     {
-      "id": "gfr-cloze-162-3",
+      "id": "gfr-cloze-162-count",
       "act": "gfr",
       "rule": "162",
       "kind": "cloze",
@@ -17087,7 +17088,7 @@
       }
     },
     {
-      "id": "gfr-cloze-164-1",
+      "id": "gfr-cloze-164-definedterm",
       "act": "gfr",
       "rule": "164",
       "kind": "cloze",
@@ -17132,7 +17133,7 @@
       }
     },
     {
-      "id": "gfr-cloze-165-1",
+      "id": "gfr-cloze-165-definedterm",
       "act": "gfr",
       "rule": "165",
       "kind": "cloze",
@@ -17177,7 +17178,7 @@
       }
     },
     {
-      "id": "gfr-cloze-166-1",
+      "id": "gfr-cloze-166-crossreference",
       "act": "gfr",
       "rule": "166",
       "kind": "cloze",
@@ -17222,7 +17223,7 @@
       }
     },
     {
-      "id": "gfr-cloze-166-2",
+      "id": "gfr-cloze-166-definedterm",
       "act": "gfr",
       "rule": "166",
       "kind": "cloze",
@@ -17267,7 +17268,7 @@
       }
     },
     {
-      "id": "gfr-cloze-170-1",
+      "id": "gfr-cloze-170-duration",
       "act": "gfr",
       "rule": "170",
       "kind": "cloze",
@@ -17312,7 +17313,7 @@
       }
     },
     {
-      "id": "gfr-cloze-170-2",
+      "id": "gfr-cloze-170-count",
       "act": "gfr",
       "rule": "170",
       "kind": "cloze",
@@ -17357,7 +17358,7 @@
       }
     },
     {
-      "id": "gfr-cloze-170-3",
+      "id": "gfr-cloze-170-definedterm",
       "act": "gfr",
       "rule": "170",
       "kind": "cloze",
@@ -17402,7 +17403,7 @@
       }
     },
     {
-      "id": "gfr-cloze-171-1",
+      "id": "gfr-cloze-171-duration",
       "act": "gfr",
       "rule": "171",
       "kind": "cloze",
@@ -17447,7 +17448,7 @@
       }
     },
     {
-      "id": "gfr-cloze-171-2",
+      "id": "gfr-cloze-171-percentage",
       "act": "gfr",
       "rule": "171",
       "kind": "cloze",
@@ -17492,7 +17493,7 @@
       }
     },
     {
-      "id": "gfr-cloze-171-3",
+      "id": "gfr-cloze-171-count",
       "act": "gfr",
       "rule": "171",
       "kind": "cloze",
@@ -17537,7 +17538,7 @@
       }
     },
     {
-      "id": "gfr-cloze-172-1",
+      "id": "gfr-cloze-172-duration",
       "act": "gfr",
       "rule": "172",
       "kind": "cloze",
@@ -17582,7 +17583,7 @@
       }
     },
     {
-      "id": "gfr-cloze-172-2",
+      "id": "gfr-cloze-172-crossreference",
       "act": "gfr",
       "rule": "172",
       "kind": "cloze",
@@ -17627,7 +17628,7 @@
       }
     },
     {
-      "id": "gfr-cloze-172-3",
+      "id": "gfr-cloze-172-count",
       "act": "gfr",
       "rule": "172",
       "kind": "cloze",
@@ -17672,7 +17673,7 @@
       }
     },
     {
-      "id": "gfr-cloze-175-1",
+      "id": "gfr-cloze-175-crossreference",
       "act": "gfr",
       "rule": "175",
       "kind": "cloze",
@@ -17717,7 +17718,7 @@
       }
     },
     {
-      "id": "gfr-cloze-177-1",
+      "id": "gfr-cloze-177-definedterm",
       "act": "gfr",
       "rule": "177",
       "kind": "cloze",
@@ -17762,7 +17763,7 @@
       }
     },
     {
-      "id": "gfr-cloze-183-1",
+      "id": "gfr-cloze-183-count",
       "act": "gfr",
       "rule": "183",
       "kind": "cloze",
@@ -17807,7 +17808,7 @@
       }
     },
     {
-      "id": "gfr-cloze-183-2",
+      "id": "gfr-cloze-183-definedterm",
       "act": "gfr",
       "rule": "183",
       "kind": "cloze",
@@ -17852,7 +17853,7 @@
       }
     },
     {
-      "id": "gfr-cloze-184-1",
+      "id": "gfr-cloze-184-crossreference",
       "act": "gfr",
       "rule": "184",
       "kind": "cloze",
@@ -17897,7 +17898,7 @@
       }
     },
     {
-      "id": "gfr-cloze-186-1",
+      "id": "gfr-cloze-186-definedterm",
       "act": "gfr",
       "rule": "186",
       "kind": "cloze",
@@ -17942,7 +17943,7 @@
       }
     },
     {
-      "id": "gfr-cloze-190-1",
+      "id": "gfr-cloze-190-crossreference",
       "act": "gfr",
       "rule": "190",
       "kind": "cloze",
@@ -17987,7 +17988,7 @@
       }
     },
     {
-      "id": "gfr-cloze-191-1",
+      "id": "gfr-cloze-191-crossreference",
       "act": "gfr",
       "rule": "191",
       "kind": "cloze",
@@ -18032,7 +18033,7 @@
       }
     },
     {
-      "id": "gfr-cloze-192-1",
+      "id": "gfr-cloze-192-percentage",
       "act": "gfr",
       "rule": "192",
       "kind": "cloze",
@@ -18077,7 +18078,7 @@
       }
     },
     {
-      "id": "gfr-cloze-192-2",
+      "id": "gfr-cloze-192-definedterm",
       "act": "gfr",
       "rule": "192",
       "kind": "cloze",
@@ -18122,7 +18123,7 @@
       }
     },
     {
-      "id": "gfr-cloze-196-1",
+      "id": "gfr-cloze-196-definedterm",
       "act": "gfr",
       "rule": "196",
       "kind": "cloze",
@@ -18167,7 +18168,7 @@
       }
     },
     {
-      "id": "gfr-cloze-201-1",
+      "id": "gfr-cloze-201-crossreference",
       "act": "gfr",
       "rule": "201",
       "kind": "cloze",
@@ -18212,7 +18213,7 @@
       }
     },
     {
-      "id": "gfr-cloze-206-1",
+      "id": "gfr-cloze-206-crossreference",
       "act": "gfr",
       "rule": "206",
       "kind": "cloze",
@@ -18257,7 +18258,7 @@
       }
     },
     {
-      "id": "gfr-cloze-206-2",
+      "id": "gfr-cloze-206-definedterm",
       "act": "gfr",
       "rule": "206",
       "kind": "cloze",
@@ -18302,7 +18303,7 @@
       }
     },
     {
-      "id": "gfr-cloze-207-1",
+      "id": "gfr-cloze-207-definedterm",
       "act": "gfr",
       "rule": "207",
       "kind": "cloze",
@@ -18347,7 +18348,7 @@
       }
     },
     {
-      "id": "gfr-cloze-213-1",
+      "id": "gfr-cloze-213-crossreference",
       "act": "gfr",
       "rule": "213",
       "kind": "cloze",
@@ -18392,7 +18393,7 @@
       }
     },
     {
-      "id": "gfr-cloze-213-2",
+      "id": "gfr-cloze-213-definedterm",
       "act": "gfr",
       "rule": "213",
       "kind": "cloze",
@@ -18437,7 +18438,7 @@
       }
     },
     {
-      "id": "gfr-cloze-214-1",
+      "id": "gfr-cloze-214-crossreference",
       "act": "gfr",
       "rule": "214",
       "kind": "cloze",
@@ -18482,7 +18483,7 @@
       }
     },
     {
-      "id": "gfr-cloze-215-1",
+      "id": "gfr-cloze-215-amount",
       "act": "gfr",
       "rule": "215",
       "kind": "cloze",
@@ -18527,7 +18528,7 @@
       }
     },
     {
-      "id": "gfr-cloze-215-2",
+      "id": "gfr-cloze-215-count",
       "act": "gfr",
       "rule": "215",
       "kind": "cloze",
@@ -18572,7 +18573,7 @@
       }
     },
     {
-      "id": "gfr-cloze-215-3",
+      "id": "gfr-cloze-215-definedterm",
       "act": "gfr",
       "rule": "215",
       "kind": "cloze",
@@ -18617,7 +18618,7 @@
       }
     },
     {
-      "id": "gfr-cloze-217-1",
+      "id": "gfr-cloze-217-definedterm",
       "act": "gfr",
       "rule": "217",
       "kind": "cloze",
@@ -18662,7 +18663,7 @@
       }
     },
     {
-      "id": "gfr-cloze-218-1",
+      "id": "gfr-cloze-218-count",
       "act": "gfr",
       "rule": "218",
       "kind": "cloze",
@@ -18707,7 +18708,7 @@
       }
     },
     {
-      "id": "gfr-cloze-223-1",
+      "id": "gfr-cloze-223-crossreference",
       "act": "gfr",
       "rule": "223",
       "kind": "cloze",
@@ -18752,7 +18753,7 @@
       }
     },
     {
-      "id": "gfr-cloze-223-2",
+      "id": "gfr-cloze-223-definedterm",
       "act": "gfr",
       "rule": "223",
       "kind": "cloze",
@@ -18797,7 +18798,7 @@
       }
     },
     {
-      "id": "gfr-cloze-224-1",
+      "id": "gfr-cloze-224-crossreference",
       "act": "gfr",
       "rule": "224",
       "kind": "cloze",
@@ -18842,7 +18843,7 @@
       }
     },
     {
-      "id": "gfr-cloze-225-1",
+      "id": "gfr-cloze-225-duration",
       "act": "gfr",
       "rule": "225",
       "kind": "cloze",
@@ -18887,7 +18888,7 @@
       }
     },
     {
-      "id": "gfr-cloze-225-2",
+      "id": "gfr-cloze-225-amount",
       "act": "gfr",
       "rule": "225",
       "kind": "cloze",
@@ -18932,7 +18933,7 @@
       }
     },
     {
-      "id": "gfr-cloze-225-3",
+      "id": "gfr-cloze-225-definedterm",
       "act": "gfr",
       "rule": "225",
       "kind": "cloze",
@@ -18977,7 +18978,7 @@
       }
     },
     {
-      "id": "gfr-cloze-226-1",
+      "id": "gfr-cloze-226-duration",
       "act": "gfr",
       "rule": "226",
       "kind": "cloze",
@@ -19022,7 +19023,7 @@
       }
     },
     {
-      "id": "gfr-cloze-227-1",
+      "id": "gfr-cloze-227-crossreference",
       "act": "gfr",
       "rule": "227",
       "kind": "cloze",
@@ -19067,7 +19068,7 @@
       }
     },
     {
-      "id": "gfr-cloze-227-2",
+      "id": "gfr-cloze-227-percentage",
       "act": "gfr",
       "rule": "227",
       "kind": "cloze",
@@ -19112,7 +19113,7 @@
       }
     },
     {
-      "id": "gfr-cloze-229-1",
+      "id": "gfr-cloze-229-duration",
       "act": "gfr",
       "rule": "229",
       "kind": "cloze",
@@ -19157,7 +19158,7 @@
       }
     },
     {
-      "id": "gfr-cloze-229-2",
+      "id": "gfr-cloze-229-amount",
       "act": "gfr",
       "rule": "229",
       "kind": "cloze",
@@ -19202,7 +19203,7 @@
       }
     },
     {
-      "id": "gfr-cloze-229-3",
+      "id": "gfr-cloze-229-crossreference",
       "act": "gfr",
       "rule": "229",
       "kind": "cloze",
@@ -19247,7 +19248,7 @@
       }
     },
     {
-      "id": "gfr-cloze-230-1",
+      "id": "gfr-cloze-230-duration",
       "act": "gfr",
       "rule": "230",
       "kind": "cloze",
@@ -19292,7 +19293,7 @@
       }
     },
     {
-      "id": "gfr-cloze-230-2",
+      "id": "gfr-cloze-230-crossreference",
       "act": "gfr",
       "rule": "230",
       "kind": "cloze",
@@ -19337,7 +19338,7 @@
       }
     },
     {
-      "id": "gfr-cloze-230-3",
+      "id": "gfr-cloze-230-count",
       "act": "gfr",
       "rule": "230",
       "kind": "cloze",
@@ -19382,7 +19383,7 @@
       }
     },
     {
-      "id": "gfr-cloze-231-1",
+      "id": "gfr-cloze-231-crossreference",
       "act": "gfr",
       "rule": "231",
       "kind": "cloze",
@@ -19427,7 +19428,7 @@
       }
     },
     {
-      "id": "gfr-cloze-233-1",
+      "id": "gfr-cloze-233-crossreference",
       "act": "gfr",
       "rule": "233",
       "kind": "cloze",
@@ -19472,7 +19473,7 @@
       }
     },
     {
-      "id": "gfr-cloze-233-2",
+      "id": "gfr-cloze-233-definedterm",
       "act": "gfr",
       "rule": "233",
       "kind": "cloze",
@@ -19517,7 +19518,7 @@
       }
     },
     {
-      "id": "gfr-cloze-234-1",
+      "id": "gfr-cloze-234-definedterm",
       "act": "gfr",
       "rule": "234",
       "kind": "cloze",
@@ -19562,7 +19563,7 @@
       }
     },
     {
-      "id": "gfr-cloze-236-1",
+      "id": "gfr-cloze-236-duration",
       "act": "gfr",
       "rule": "236",
       "kind": "cloze",
@@ -19607,7 +19608,7 @@
       }
     },
     {
-      "id": "gfr-cloze-236-2",
+      "id": "gfr-cloze-236-amount",
       "act": "gfr",
       "rule": "236",
       "kind": "cloze",
@@ -19652,7 +19653,7 @@
       }
     },
     {
-      "id": "gfr-cloze-236-3",
+      "id": "gfr-cloze-236-crossreference",
       "act": "gfr",
       "rule": "236",
       "kind": "cloze",
@@ -19697,7 +19698,7 @@
       }
     },
     {
-      "id": "gfr-cloze-237-1",
+      "id": "gfr-cloze-237-definedterm",
       "act": "gfr",
       "rule": "237",
       "kind": "cloze",
@@ -19742,7 +19743,7 @@
       }
     },
     {
-      "id": "gfr-cloze-238-1",
+      "id": "gfr-cloze-238-duration",
       "act": "gfr",
       "rule": "238",
       "kind": "cloze",
@@ -19787,7 +19788,7 @@
       }
     },
     {
-      "id": "gfr-cloze-238-2",
+      "id": "gfr-cloze-238-amount",
       "act": "gfr",
       "rule": "238",
       "kind": "cloze",
@@ -19832,7 +19833,7 @@
       }
     },
     {
-      "id": "gfr-cloze-238-3",
+      "id": "gfr-cloze-238-crossreference",
       "act": "gfr",
       "rule": "238",
       "kind": "cloze",
@@ -19877,7 +19878,7 @@
       }
     },
     {
-      "id": "gfr-cloze-242-1",
+      "id": "gfr-cloze-242-amount",
       "act": "gfr",
       "rule": "242",
       "kind": "cloze",
@@ -19922,7 +19923,7 @@
       }
     },
     {
-      "id": "gfr-cloze-242-2",
+      "id": "gfr-cloze-242-crossreference",
       "act": "gfr",
       "rule": "242",
       "kind": "cloze",
@@ -19967,7 +19968,7 @@
       }
     },
     {
-      "id": "gfr-cloze-245-1",
+      "id": "gfr-cloze-245-amount",
       "act": "gfr",
       "rule": "245",
       "kind": "cloze",
@@ -20012,7 +20013,7 @@
       }
     },
     {
-      "id": "gfr-cloze-245-2",
+      "id": "gfr-cloze-245-definedterm",
       "act": "gfr",
       "rule": "245",
       "kind": "cloze",
@@ -20057,7 +20058,7 @@
       }
     },
     {
-      "id": "gfr-cloze-249-1",
+      "id": "gfr-cloze-249-crossreference",
       "act": "gfr",
       "rule": "249",
       "kind": "cloze",
@@ -20102,7 +20103,7 @@
       }
     },
     {
-      "id": "gfr-cloze-250-1",
+      "id": "gfr-cloze-250-duration",
       "act": "gfr",
       "rule": "250",
       "kind": "cloze",
@@ -20147,7 +20148,7 @@
       }
     },
     {
-      "id": "gfr-cloze-250-2",
+      "id": "gfr-cloze-250-crossreference",
       "act": "gfr",
       "rule": "250",
       "kind": "cloze",
@@ -20192,7 +20193,7 @@
       }
     },
     {
-      "id": "gfr-cloze-251-1",
+      "id": "gfr-cloze-251-crossreference",
       "act": "gfr",
       "rule": "251",
       "kind": "cloze",
@@ -20237,7 +20238,7 @@
       }
     },
     {
-      "id": "gfr-cloze-252-1",
+      "id": "gfr-cloze-252-crossreference",
       "act": "gfr",
       "rule": "252",
       "kind": "cloze",
@@ -20282,7 +20283,7 @@
       }
     },
     {
-      "id": "gfr-cloze-253-1",
+      "id": "gfr-cloze-253-crossreference",
       "act": "gfr",
       "rule": "253",
       "kind": "cloze",
@@ -20327,7 +20328,7 @@
       }
     },
     {
-      "id": "gfr-cloze-256-1",
+      "id": "gfr-cloze-256-duration",
       "act": "gfr",
       "rule": "256",
       "kind": "cloze",
@@ -20372,7 +20373,7 @@
       }
     },
     {
-      "id": "gfr-cloze-256-2",
+      "id": "gfr-cloze-256-crossreference",
       "act": "gfr",
       "rule": "256",
       "kind": "cloze",
@@ -20417,7 +20418,7 @@
       }
     },
     {
-      "id": "gfr-cloze-257-1",
+      "id": "gfr-cloze-257-definedterm",
       "act": "gfr",
       "rule": "257",
       "kind": "cloze",
@@ -20462,7 +20463,7 @@
       }
     },
     {
-      "id": "gfr-cloze-258-1",
+      "id": "gfr-cloze-258-crossreference",
       "act": "gfr",
       "rule": "258",
       "kind": "cloze",
@@ -20507,7 +20508,7 @@
       }
     },
     {
-      "id": "gfr-cloze-263-1",
+      "id": "gfr-cloze-263-crossreference",
       "act": "gfr",
       "rule": "263",
       "kind": "cloze",
@@ -20552,7 +20553,7 @@
       }
     },
     {
-      "id": "gfr-cloze-264-1",
+      "id": "gfr-cloze-264-crossreference",
       "act": "gfr",
       "rule": "264",
       "kind": "cloze",
@@ -20597,7 +20598,7 @@
       }
     },
     {
-      "id": "gfr-cloze-267-1",
+      "id": "gfr-cloze-267-duration",
       "act": "gfr",
       "rule": "267",
       "kind": "cloze",
@@ -20642,7 +20643,7 @@
       }
     },
     {
-      "id": "gfr-cloze-267-2",
+      "id": "gfr-cloze-267-crossreference",
       "act": "gfr",
       "rule": "267",
       "kind": "cloze",
@@ -20687,7 +20688,7 @@
       }
     },
     {
-      "id": "gfr-cloze-268-1",
+      "id": "gfr-cloze-268-crossreference",
       "act": "gfr",
       "rule": "268",
       "kind": "cloze",
@@ -20732,7 +20733,7 @@
       }
     },
     {
-      "id": "gfr-cloze-269-1",
+      "id": "gfr-cloze-269-duration",
       "act": "gfr",
       "rule": "269",
       "kind": "cloze",
@@ -20777,7 +20778,7 @@
       }
     },
     {
-      "id": "gfr-cloze-269-2",
+      "id": "gfr-cloze-269-crossreference",
       "act": "gfr",
       "rule": "269",
       "kind": "cloze",
@@ -20822,7 +20823,7 @@
       }
     },
     {
-      "id": "gfr-cloze-270-1",
+      "id": "gfr-cloze-270-crossreference",
       "act": "gfr",
       "rule": "270",
       "kind": "cloze",
@@ -20867,7 +20868,7 @@
       }
     },
     {
-      "id": "gfr-cloze-272-1",
+      "id": "gfr-cloze-272-crossreference",
       "act": "gfr",
       "rule": "272",
       "kind": "cloze",
@@ -20912,7 +20913,7 @@
       }
     },
     {
-      "id": "gfr-cloze-275-1",
+      "id": "gfr-cloze-275-crossreference",
       "act": "gfr",
       "rule": "275",
       "kind": "cloze",
@@ -20957,7 +20958,7 @@
       }
     },
     {
-      "id": "gfr-cloze-277-1",
+      "id": "gfr-cloze-277-definedterm",
       "act": "gfr",
       "rule": "277",
       "kind": "cloze",
@@ -21002,7 +21003,7 @@
       }
     },
     {
-      "id": "gfr-cloze-279-1",
+      "id": "gfr-cloze-279-crossreference",
       "act": "gfr",
       "rule": "279",
       "kind": "cloze",
@@ -21047,7 +21048,7 @@
       }
     },
     {
-      "id": "gfr-cloze-279-2",
+      "id": "gfr-cloze-279-percentage",
       "act": "gfr",
       "rule": "279",
       "kind": "cloze",
@@ -21092,7 +21093,7 @@
       }
     },
     {
-      "id": "gfr-cloze-281-1",
+      "id": "gfr-cloze-281-crossreference",
       "act": "gfr",
       "rule": "281",
       "kind": "cloze",
@@ -21137,7 +21138,7 @@
       }
     },
     {
-      "id": "gfr-cloze-282-1",
+      "id": "gfr-cloze-282-crossreference",
       "act": "gfr",
       "rule": "282",
       "kind": "cloze",
@@ -21182,7 +21183,7 @@
       }
     },
     {
-      "id": "gfr-cloze-284-1",
+      "id": "gfr-cloze-284-crossreference",
       "act": "gfr",
       "rule": "284",
       "kind": "cloze",
@@ -21227,7 +21228,7 @@
       }
     },
     {
-      "id": "gfr-cloze-286-1",
+      "id": "gfr-cloze-286-crossreference",
       "act": "gfr",
       "rule": "286",
       "kind": "cloze",
@@ -21272,7 +21273,7 @@
       }
     },
     {
-      "id": "gfr-cloze-286-2",
+      "id": "gfr-cloze-286-definedterm",
       "act": "gfr",
       "rule": "286",
       "kind": "cloze",
@@ -21317,7 +21318,7 @@
       }
     },
     {
-      "id": "gfr-cloze-288-1",
+      "id": "gfr-cloze-288-duration",
       "act": "gfr",
       "rule": "288",
       "kind": "cloze",
@@ -21362,7 +21363,7 @@
       }
     },
     {
-      "id": "gfr-cloze-288-2",
+      "id": "gfr-cloze-288-amount",
       "act": "gfr",
       "rule": "288",
       "kind": "cloze",
@@ -21407,7 +21408,7 @@
       }
     },
     {
-      "id": "gfr-cloze-288-3",
+      "id": "gfr-cloze-288-crossreference",
       "act": "gfr",
       "rule": "288",
       "kind": "cloze",
@@ -21452,7 +21453,7 @@
       }
     },
     {
-      "id": "gfr-cloze-290-1",
+      "id": "gfr-cloze-290-duration",
       "act": "gfr",
       "rule": "290",
       "kind": "cloze",
@@ -21497,7 +21498,7 @@
       }
     },
     {
-      "id": "gfr-cloze-292-1",
+      "id": "gfr-cloze-292-duration",
       "act": "gfr",
       "rule": "292",
       "kind": "cloze",
@@ -21542,7 +21543,7 @@
       }
     },
     {
-      "id": "gfr-cloze-293-1",
+      "id": "gfr-cloze-293-duration",
       "act": "gfr",
       "rule": "293",
       "kind": "cloze",
@@ -21587,7 +21588,7 @@
       }
     },
     {
-      "id": "gfr-cloze-294-1",
+      "id": "gfr-cloze-294-duration",
       "act": "gfr",
       "rule": "294",
       "kind": "cloze",
@@ -21632,7 +21633,7 @@
       }
     },
     {
-      "id": "gfr-cloze-295-1",
+      "id": "gfr-cloze-295-crossreference",
       "act": "gfr",
       "rule": "295",
       "kind": "cloze",
@@ -21677,7 +21678,7 @@
       }
     },
     {
-      "id": "gfr-cloze-296-1",
+      "id": "gfr-cloze-296-crossreference",
       "act": "gfr",
       "rule": "296",
       "kind": "cloze",
@@ -21722,7 +21723,7 @@
       }
     },
     {
-      "id": "gfr-cloze-297-1",
+      "id": "gfr-cloze-297-crossreference",
       "act": "gfr",
       "rule": "297",
       "kind": "cloze",
@@ -21767,7 +21768,7 @@
       }
     },
     {
-      "id": "gfr-cloze-299-1",
+      "id": "gfr-cloze-299-duration",
       "act": "gfr",
       "rule": "299",
       "kind": "cloze",
@@ -21812,7 +21813,7 @@
       }
     },
     {
-      "id": "gfr-cloze-301-1",
+      "id": "gfr-cloze-301-crossreference",
       "act": "gfr",
       "rule": "301",
       "kind": "cloze",
@@ -21857,7 +21858,7 @@
       }
     },
     {
-      "id": "gfr-cloze-301-2",
+      "id": "gfr-cloze-301-definedterm",
       "act": "gfr",
       "rule": "301",
       "kind": "cloze",
@@ -21902,7 +21903,7 @@
       }
     },
     {
-      "id": "gfr-cloze-304-1",
+      "id": "gfr-cloze-304-crossreference",
       "act": "gfr",
       "rule": "304",
       "kind": "cloze",
@@ -21947,7 +21948,7 @@
       }
     },
     {
-      "id": "gfr-cloze-305-1",
+      "id": "gfr-cloze-305-crossreference",
       "act": "gfr",
       "rule": "305",
       "kind": "cloze",
@@ -21992,7 +21993,7 @@
       }
     },
     {
-      "id": "gfr-cloze-306-1",
+      "id": "gfr-cloze-306-duration",
       "act": "gfr",
       "rule": "306",
       "kind": "cloze",
@@ -22037,7 +22038,7 @@
       }
     },
     {
-      "id": "gfr-cloze-306-2",
+      "id": "gfr-cloze-306-crossreference",
       "act": "gfr",
       "rule": "306",
       "kind": "cloze",
@@ -22082,7 +22083,7 @@
       }
     },
     {
-      "id": "gfr-cloze-307-1",
+      "id": "gfr-cloze-307-definedterm",
       "act": "gfr",
       "rule": "307",
       "kind": "cloze",
@@ -22127,7 +22128,7 @@
       }
     },
     {
-      "id": "gfr-cloze-310-1",
+      "id": "gfr-cloze-310-crossreference",
       "act": "gfr",
       "rule": "310",
       "kind": "cloze",
@@ -22172,7 +22173,7 @@
       }
     },
     {
-      "id": "gfr-cloze-312-1",
+      "id": "gfr-cloze-312-crossreference",
       "act": "gfr",
       "rule": "312",
       "kind": "cloze",
@@ -22217,7 +22218,7 @@
       }
     },
     {
-      "id": "gfr-cloze-316-1",
+      "id": "gfr-cloze-316-crossreference",
       "act": "gfr",
       "rule": "316",
       "kind": "cloze",
@@ -22262,7 +22263,7 @@
       }
     },
     {
-      "id": "gfr-cloze-318-1",
+      "id": "gfr-cloze-318-crossreference",
       "act": "gfr",
       "rule": "318",
       "kind": "cloze",
@@ -22307,7 +22308,7 @@
       }
     },
     {
-      "id": "gfr-cloze-322-1",
+      "id": "gfr-cloze-322-definedterm",
       "act": "gfr",
       "rule": "322",
       "kind": "cloze",
@@ -22352,7 +22353,7 @@
       }
     },
     {
-      "id": "gfr-cloze-323-1",
+      "id": "gfr-cloze-323-duration",
       "act": "gfr",
       "rule": "323",
       "kind": "cloze",
@@ -22397,7 +22398,7 @@
       }
     },
     {
-      "id": "gfr-cloze-323-2",
+      "id": "gfr-cloze-323-crossreference",
       "act": "gfr",
       "rule": "323",
       "kind": "cloze",
@@ -22442,7 +22443,7 @@
       }
     },
     {
-      "id": "gfr-cloze-324-1",
+      "id": "gfr-cloze-324-duration",
       "act": "gfr",
       "rule": "324",
       "kind": "cloze",
@@ -22487,7 +22488,7 @@
       }
     },
     {
-      "id": "gfr-cloze-324-2",
+      "id": "gfr-cloze-324-amount",
       "act": "gfr",
       "rule": "324",
       "kind": "cloze",
@@ -22532,7 +22533,7 @@
       }
     },
     {
-      "id": "gfr-cloze-324-3",
+      "id": "gfr-cloze-324-crossreference",
       "act": "gfr",
       "rule": "324",
       "kind": "cloze",

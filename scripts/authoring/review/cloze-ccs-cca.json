@@ -1,11 +1,10 @@
 {
   "_note": "Hand review of the generated cloze cards for the CCS (CCA) Rules, 1965. Two of the rejections are for a blank that fell inside a compound number — 'forty-eight hours' cut as 'eight hours' and 'one hundred and eighty days' cut as 'one' — and both are fixed with an `edit` rather than dropped, because the deemed-suspension periods are exactly what this rule book is examined on.",
-
-  "ccs-cca-cloze-1-1": {
+  "ccs-cca-cloze-1-definedterm": {
     "verdict": "reject",
     "reason": "The stem is the short title and the blank is the name of the rule book the reader is studying."
   },
-  "ccs-cca-cloze-2-1": {
+  "ccs-cca-cloze-2-crossreference": {
     "verdict": "approve",
     "reason": "Rule 2(g) — a disciplinary authority is defined by reference to the penalties in Rule 11. The link is the definition.",
     "hi": {
@@ -13,7 +12,7 @@
       "answer": "नियम 11"
     }
   },
-  "ccs-cca-cloze-2-2": {
+  "ccs-cca-cloze-2-definedterm": {
     "verdict": "approve",
     "reason": "Rule 2(a) — the appointing authority is one of four authorities the rules distinguish, and confusing it with the disciplinary authority voids a proceeding.",
     "hi": {
@@ -21,7 +20,7 @@
       "answer": "नियुक्ति प्राधिकारी"
     }
   },
-  "ccs-cca-cloze-3-1": {
+  "ccs-cca-cloze-3-duration": {
     "verdict": "approve",
     "reason": "Rule 3(1)(d) — a person dischargeable on less than one month's notice is outside these rules altogether.",
     "hi": {
@@ -29,7 +28,7 @@
       "answer": "एक मास"
     }
   },
-  "ccs-cca-cloze-3-2": {
+  "ccs-cca-cloze-3-crossreference": {
     "verdict": "approve",
     "reason": "Rule 3(1)(a) — 'railway servant' is borrowed from the Indian Railway Establishment Code.",
     "hi": {
@@ -37,19 +36,19 @@
       "answer": "नियम 102"
     }
   },
-  "ccs-cca-cloze-3-3": {
+  "ccs-cca-cloze-3-definedterm": {
     "verdict": "reject",
     "reason": "Answer is 'Government servant', and the phrase appears twice more in the same sentence."
   },
-  "ccs-cca-cloze-4-1": {
+  "ccs-cca-cloze-4-count": {
     "verdict": "reject",
     "reason": "Answer is 'one', blanked out of 'more than one grade'. Tests counting."
   },
-  "ccs-cca-cloze-4-2": {
+  "ccs-cca-cloze-4-definedterm": {
     "verdict": "reject",
     "reason": "The stem lists 'Central Civil Services, Group B, C and D' immediately after the blank, so the sentence answers itself."
   },
-  "ccs-cca-cloze-7-1": {
+  "ccs-cca-cloze-7-definedterm": {
     "verdict": "approve",
     "reason": "Rule 7 — a post in no other Central Civil Service falls into the General Central Service by default. Officers reach for 'Central Secretariat Service'.",
     "hi": {
@@ -57,7 +56,7 @@
       "answer": "सामान्य केंद्रीय सेवा"
     }
   },
-  "ccs-cca-cloze-9-1": {
+  "ccs-cca-cloze-9-definedterm": {
     "verdict": "approve",
     "reason": "Rule 9(1) — the General Central Service is carved out of the Schedule appointment scheme.",
     "hi": {
@@ -65,7 +64,7 @@
       "answer": "सामान्य केंद्रीय सेवा"
     }
   },
-  "ccs-cca-cloze-10-1": {
+  "ccs-cca-cloze-10-duration": {
     "verdict": "edit",
     "reason": "The blank fell inside 'forty-eight hours', leaving 'exceeding forty-____'. Widened to the whole period, which is the deemed-suspension trigger officers are asked for.",
     "en": {
@@ -77,7 +76,7 @@
       "answer": "अड़तालीस घंटे"
     }
   },
-  "ccs-cca-cloze-10-2": {
+  "ccs-cca-cloze-10-count": {
     "verdict": "edit",
     "reason": "The blank fell on 'one' inside 'one hundred and eighty days'. Widened; the 180-day review limit is the point of Rule 10(6).",
     "en": {
@@ -89,7 +88,7 @@
       "answer": "एक सौ अस्सी दिन"
     }
   },
-  "ccs-cca-cloze-10-3": {
+  "ccs-cca-cloze-10-definedterm": {
     "verdict": "approve",
     "reason": "Rule 10(1) — who may suspend. The list is the appointing authority, an authority above it, the disciplinary authority, or an authority the President empowers.",
     "hi": {
@@ -97,7 +96,7 @@
       "answer": "नियुक्ति प्राधिकारी"
     }
   },
-  "ccs-cca-cloze-11-1": {
+  "ccs-cca-cloze-11-duration": {
     "verdict": "approve",
     "reason": "Rule 11(iii-a) — reduction by one stage for not more than three years, without cumulative effect, is a minor penalty; the same reduction beyond three years is a major one.",
     "hi": {
@@ -105,7 +104,7 @@
       "answer": "तीन वर्ष"
     }
   },
-  "ccs-cca-cloze-11-2": {
+  "ccs-cca-cloze-11-crossreference": {
     "verdict": "approve",
     "reason": "The Explanation to Rule 11 — termination of a temporary servant under the CCS (Temporary Service) Rules is not a penalty at all.",
     "hi": {
@@ -113,11 +112,11 @@
       "answer": "नियम 5"
     }
   },
-  "ccs-cca-cloze-11-3": {
+  "ccs-cca-cloze-11-definedterm": {
     "verdict": "reject",
     "reason": "Answer is 'Government servant' — the commonest phrase in the book."
   },
-  "ccs-cca-cloze-12-1": {
+  "ccs-cca-cloze-12-crossreference": {
     "verdict": "approve",
     "reason": "Rule 12(1) — the President may impose any penalty on any Government servant, which is the ceiling the rest of Rule 12 works down from.",
     "hi": {
@@ -125,7 +124,7 @@
       "answer": "नियम 11"
     }
   },
-  "ccs-cca-cloze-13-1": {
+  "ccs-cca-cloze-13-definedterm": {
     "verdict": "approve",
     "reason": "Rule 13 — the authority that institutes proceedings may direct a disciplinary authority to do so, which is how a proceeding is started from above.",
     "hi": {
@@ -133,7 +132,7 @@
       "answer": "अनुशासनिक प्राधिकारी"
     }
   },
-  "ccs-cca-cloze-14-1": {
+  "ccs-cca-cloze-14-duration": {
     "verdict": "approve",
     "reason": "Rule 14(4) — fifteen days to file a written statement of defence, extendable by another fifteen.",
     "hi": {
@@ -141,7 +140,7 @@
       "answer": "पंद्रह दिन"
     }
   },
-  "ccs-cca-cloze-14-2": {
+  "ccs-cca-cloze-14-crossreference": {
     "verdict": "approve",
     "reason": "Rule 14(1) — a major penalty needs an inquiry under Rules 14 and 15 together; naming only Rule 14 is the standard error.",
     "hi": {
@@ -149,7 +148,7 @@
       "answer": "नियम 15"
     }
   },
-  "ccs-cca-cloze-14-3": {
+  "ccs-cca-cloze-14-count": {
     "verdict": "approve",
     "reason": "The Note to Rule 14(8) — the three-case bar on an assisting Government servant, a limit defence assistants regularly breach.",
     "hi": {
@@ -157,7 +156,7 @@
       "answer": "तीन"
     }
   },
-  "ccs-cca-cloze-15-1": {
+  "ccs-cca-cloze-15-duration": {
     "verdict": "approve",
     "reason": "Rule 15(2) — fifteen days to represent on the inquiry report, whether or not the report is favourable.",
     "hi": {
@@ -165,7 +164,7 @@
       "answer": "पंद्रह दिन"
     }
   },
-  "ccs-cca-cloze-15-2": {
+  "ccs-cca-cloze-15-crossreference": {
     "verdict": "approve",
     "reason": "Rule 15(1) — a remitted further inquiry runs under Rule 14 again.",
     "hi": {
@@ -173,11 +172,11 @@
       "answer": "नियम 14"
     }
   },
-  "ccs-cca-cloze-15-3": {
+  "ccs-cca-cloze-15-definedterm": {
     "verdict": "reject",
     "reason": "The stem names the inquiring authority twice in the same sentence, and the blank is recoverable from either."
   },
-  "ccs-cca-cloze-16-1": {
+  "ccs-cca-cloze-16-duration": {
     "verdict": "approve",
     "reason": "Rule 16(1-A) — withholding increments beyond three years, or with cumulative effect, or affecting pension, forces the major-penalty procedure.",
     "hi": {
@@ -185,7 +184,7 @@
       "answer": "तीन वर्ष"
     }
   },
-  "ccs-cca-cloze-16-2": {
+  "ccs-cca-cloze-16-crossreference": {
     "verdict": "approve",
     "reason": "Rule 16(1) is subject to Rule 15(5) — the minor-penalty route is not open where a full inquiry has already produced findings.",
     "hi": {
@@ -193,7 +192,7 @@
       "answer": "नियम 15"
     }
   },
-  "ccs-cca-cloze-16-3": {
+  "ccs-cca-cloze-16-definedterm": {
     "verdict": "approve",
     "reason": "Rule 16(1)(b) — even a minor penalty needs a reasonable opportunity of representation. The phrase is the constitutional floor under Article 311(2).",
     "hi": {
@@ -201,7 +200,7 @@
       "answer": "युक्तियुक्त अवसर"
     }
   },
-  "ccs-cca-cloze-17-1": {
+  "ccs-cca-cloze-17-definedterm": {
     "verdict": "approve",
     "reason": "Rule 17 — where the disciplinary authority is not the inquiring authority, it must supply its own statement of findings as well.",
     "hi": {
@@ -209,7 +208,7 @@
       "answer": "जाँच प्राधिकारी"
     }
   },
-  "ccs-cca-cloze-18-1": {
+  "ccs-cca-cloze-18-crossreference": {
     "verdict": "approve",
     "reason": "Rule 18(2) is subject to Rule 12(4) — a common proceeding cannot give a lower authority a penalty power it does not have.",
     "hi": {
@@ -217,7 +216,7 @@
       "answer": "नियम 12"
     }
   },
-  "ccs-cca-cloze-18-2": {
+  "ccs-cca-cloze-18-definedterm": {
     "verdict": "approve",
     "reason": "Rule 18(1) — a common proceeding may be ordered only by an authority competent to dismiss all of the servants concerned.",
     "hi": {
@@ -225,7 +224,7 @@
       "answer": "सेवा से पदच्युति"
     }
   },
-  "ccs-cca-cloze-19-1": {
+  "ccs-cca-cloze-19-crossreference": {
     "verdict": "approve",
     "reason": "Rule 19 displaces Rules 14 to 18 — the special procedure where there is a conviction or where an inquiry is not reasonably practicable.",
     "hi": {
@@ -233,7 +232,7 @@
       "answer": "नियम 14"
     }
   },
-  "ccs-cca-cloze-20-1": {
+  "ccs-cca-cloze-20-definedterm": {
     "verdict": "approve",
     "reason": "Rule 20 — the borrowing authority may suspend but must refer the penalty question back to the lending authority.",
     "hi": {
@@ -241,15 +240,15 @@
       "answer": "निलंबन"
     }
   },
-  "ccs-cca-cloze-21-1": {
+  "ccs-cca-cloze-21-definedterm": {
     "verdict": "reject",
-    "reason": "Duplicate of ccs-cca-cloze-20-1 — the same borrowed-services scheme with the same answer."
+    "reason": "Duplicate of ccs-cca-cloze-20-definedterm — the same borrowed-services scheme with the same answer."
   },
-  "ccs-cca-cloze-22-1": {
+  "ccs-cca-cloze-22-crossreference": {
     "verdict": "reject",
     "reason": "The blank is a self-reference: the stem is Rule 23 and the answer is 'rule 22', which the sentence gives no way to recover."
   },
-  "ccs-cca-cloze-22-2": {
+  "ccs-cca-cloze-22-definedterm": {
     "verdict": "approve",
     "reason": "Rule 22(iii) — an interlocutory order of the inquiring authority during a Rule 14 inquiry is not appealable.",
     "hi": {
@@ -257,7 +256,7 @@
       "answer": "जाँच प्राधिकारी"
     }
   },
-  "ccs-cca-cloze-24-1": {
+  "ccs-cca-cloze-24-crossreference": {
     "verdict": "approve",
     "reason": "Rule 24(1) — the appealable orders are those listed in Rule 23, and a person who has ceased to be in service may still appeal.",
     "hi": {
@@ -265,11 +264,11 @@
       "answer": "नियम 23"
     }
   },
-  "ccs-cca-cloze-24-2": {
+  "ccs-cca-cloze-24-definedterm": {
     "verdict": "reject",
     "reason": "The stem is a proviso about subordination and the term 'appellate authority' is recoverable from the rule's own heading, not from the sentence."
   },
-  "ccs-cca-cloze-25-1": {
+  "ccs-cca-cloze-25-duration": {
     "verdict": "approve",
     "reason": "Rule 25 — forty-five days from delivery of the order, which readers confuse with the ninety days under other service rules.",
     "hi": {
@@ -277,7 +276,7 @@
       "answer": "पैंतालीस दिन"
     }
   },
-  "ccs-cca-cloze-25-2": {
+  "ccs-cca-cloze-25-definedterm": {
     "verdict": "approve",
     "reason": "Rule 25 proviso — the appellate authority may condone delay on sufficient cause.",
     "hi": {
@@ -285,7 +284,7 @@
       "answer": "अपील प्राधिकारी"
     }
   },
-  "ccs-cca-cloze-27-1": {
+  "ccs-cca-cloze-27-crossreference": {
     "verdict": "approve",
     "reason": "Rule 27(1) — an appeal against suspension is tested against Rule 10, not against the merits of the charge.",
     "hi": {
@@ -293,7 +292,7 @@
       "answer": "नियम 10"
     }
   },
-  "ccs-cca-cloze-27-2": {
+  "ccs-cca-cloze-27-definedterm": {
     "verdict": "approve",
     "reason": "Rule 27(2) — an appellate authority may not enhance a penalty without a fresh reasonable opportunity.",
     "hi": {
@@ -301,7 +300,7 @@
       "answer": "युक्तियुक्त अवसर"
     }
   },
-  "ccs-cca-cloze-29-1": {
+  "ccs-cca-cloze-29-duration": {
     "verdict": "approve",
     "reason": "Rule 29(1)(v) — the appellate authority's revision power runs out at six months.",
     "hi": {
@@ -309,11 +308,11 @@
       "answer": "छह मास"
     }
   },
-  "ccs-cca-cloze-29-2": {
+  "ccs-cca-cloze-29-crossreference": {
     "verdict": "reject",
     "reason": "The blank is 'rule 34' inside a clause about rules repealed by Rule 34. The sentence gives no way to recover the number."
   },
-  "ccs-cca-cloze-29-3": {
+  "ccs-cca-cloze-29-definedterm": {
     "verdict": "approve",
     "reason": "Rule 29 proviso — a revising authority may not enhance a penalty without hearing the Government servant.",
     "hi": {
@@ -321,7 +320,7 @@
       "answer": "पुनरीक्षण प्राधिकारी"
     }
   },
-  "ccs-cca-cloze-29a-1": {
+  "ccs-cca-cloze-29a-crossreference": {
     "verdict": "approve",
     "reason": "Rule 29A — a review that enhances a penalty must follow Rule 14, subject to Rule 19's special procedure.",
     "hi": {
@@ -329,7 +328,7 @@
       "answer": "नियम 19"
     }
   },
-  "ccs-cca-cloze-29a-2": {
+  "ccs-cca-cloze-29a-definedterm": {
     "verdict": "approve",
     "reason": "Rule 29A — enhancing a minor penalty to a major one is what triggers the fresh-inquiry requirement.",
     "hi": {
@@ -337,11 +336,11 @@
       "answer": "छोटी शास्ति"
     }
   },
-  "ccs-cca-cloze-34-1": {
+  "ccs-cca-cloze-34-crossreference": {
     "verdict": "reject",
     "reason": "The blank is 'rule 33' inside Rule 34's own repeal clause — a self-reference with nothing in the sentence to recover it from."
   },
-  "ccs-cca-cloze-34-2": {
+  "ccs-cca-cloze-34-definedterm": {
     "verdict": "reject",
     "reason": "The stem is a fragment of the Schedule's column layout, not a rule."
   }

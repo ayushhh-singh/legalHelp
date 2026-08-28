@@ -3057,7 +3057,7 @@
         "name": "Department of Personnel and Training — CCS (CCA) Rules, 1965 — consolidated",
         "url": "https://dopt.gov.in/sites/default/files/CCS-CCA-Rules-FINAL.pdf"
       },
-      "reviewNote": "the rule has been omitted; there is nothing to recall"
+      "reviewNote": "the rule has been deleted or omitted; there is nothing to recall"
     },
     {
       "id": "ccs-cca-rule-33",
@@ -3344,7 +3344,7 @@
       }
     },
     {
-      "id": "ccs-cca-cloze-1-1",
+      "id": "ccs-cca-cloze-1-definedterm",
       "act": "ccs-cca",
       "rule": "1",
       "kind": "cloze",
@@ -3390,7 +3390,7 @@
       "reviewNote": "The stem is the short title and the blank is the name of the rule book the reader is studying."
     },
     {
-      "id": "ccs-cca-cloze-2-1",
+      "id": "ccs-cca-cloze-2-crossreference",
       "act": "ccs-cca",
       "rule": "2",
       "kind": "cloze",
@@ -3436,7 +3436,7 @@
       "reviewNote": "Rule 2(g) — a disciplinary authority is defined by reference to the penalties in Rule 11. The link is the definition."
     },
     {
-      "id": "ccs-cca-cloze-2-2",
+      "id": "ccs-cca-cloze-2-definedterm",
       "act": "ccs-cca",
       "rule": "2",
       "kind": "cloze",
@@ -3482,7 +3482,7 @@
       "reviewNote": "Rule 2(a) — the appointing authority is one of four authorities the rules distinguish, and confusing it with the disciplinary authority voids a proceeding."
     },
     {
-      "id": "ccs-cca-cloze-3-1",
+      "id": "ccs-cca-cloze-3-duration",
       "act": "ccs-cca",
       "rule": "3",
       "kind": "cloze",
@@ -3528,7 +3528,7 @@
       "reviewNote": "Rule 3(1)(d) — a person dischargeable on less than one month's notice is outside these rules altogether."
     },
     {
-      "id": "ccs-cca-cloze-3-2",
+      "id": "ccs-cca-cloze-3-crossreference",
       "act": "ccs-cca",
       "rule": "3",
       "kind": "cloze",
@@ -3574,7 +3574,7 @@
       "reviewNote": "Rule 3(1)(a) — 'railway servant' is borrowed from the Indian Railway Establishment Code."
     },
     {
-      "id": "ccs-cca-cloze-3-3",
+      "id": "ccs-cca-cloze-3-definedterm",
       "act": "ccs-cca",
       "rule": "3",
       "kind": "cloze",
@@ -3620,7 +3620,7 @@
       "reviewNote": "Answer is 'Government servant', and the phrase appears twice more in the same sentence."
     },
     {
-      "id": "ccs-cca-cloze-4-1",
+      "id": "ccs-cca-cloze-4-count",
       "act": "ccs-cca",
       "rule": "4",
       "kind": "cloze",
@@ -3666,7 +3666,7 @@
       "reviewNote": "Answer is 'one', blanked out of 'more than one grade'. Tests counting."
     },
     {
-      "id": "ccs-cca-cloze-4-2",
+      "id": "ccs-cca-cloze-4-definedterm",
       "act": "ccs-cca",
       "rule": "4",
       "kind": "cloze",
@@ -3712,7 +3712,7 @@
       "reviewNote": "The stem lists 'Central Civil Services, Group B, C and D' immediately after the blank, so the sentence answers itself."
     },
     {
-      "id": "ccs-cca-cloze-7-1",
+      "id": "ccs-cca-cloze-7-definedterm",
       "act": "ccs-cca",
       "rule": "7",
       "kind": "cloze",
@@ -3758,7 +3758,7 @@
       "reviewNote": "Rule 7 — a post in no other Central Civil Service falls into the General Central Service by default. Officers reach for 'Central Secretariat Service'."
     },
     {
-      "id": "ccs-cca-cloze-9-1",
+      "id": "ccs-cca-cloze-9-definedterm",
       "act": "ccs-cca",
       "rule": "9",
       "kind": "cloze",
@@ -3804,7 +3804,7 @@
       "reviewNote": "Rule 9(1) — the General Central Service is carved out of the Schedule appointment scheme."
     },
     {
-      "id": "ccs-cca-cloze-10-1",
+      "id": "ccs-cca-cloze-10-duration",
       "act": "ccs-cca",
       "rule": "10",
       "kind": "cloze",
@@ -3850,7 +3850,7 @@
       "reviewNote": "The blank fell inside 'forty-eight hours', leaving 'exceeding forty-____'. Widened to the whole period, which is the deemed-suspension trigger officers are asked for."
     },
     {
-      "id": "ccs-cca-cloze-10-2",
+      "id": "ccs-cca-cloze-10-count",
       "act": "ccs-cca",
       "rule": "10",
       "kind": "cloze",
@@ -3896,7 +3896,7 @@
       "reviewNote": "The blank fell on 'one' inside 'one hundred and eighty days'. Widened; the 180-day review limit is the point of Rule 10(6)."
     },
     {
-      "id": "ccs-cca-cloze-10-3",
+      "id": "ccs-cca-cloze-10-definedterm",
       "act": "ccs-cca",
       "rule": "10",
       "kind": "cloze",
@@ -3942,7 +3942,7 @@
       "reviewNote": "Rule 10(1) — who may suspend. The list is the appointing authority, an authority above it, the disciplinary authority, or an authority the President empowers."
     },
     {
-      "id": "ccs-cca-cloze-11-1",
+      "id": "ccs-cca-cloze-11-duration",
       "act": "ccs-cca",
       "rule": "11",
       "kind": "cloze",
@@ -3988,7 +3988,7 @@
       "reviewNote": "Rule 11(iii-a) — reduction by one stage for not more than three years, without cumulative effect, is a minor penalty; the same reduction beyond three years is a major one."
     },
     {
-      "id": "ccs-cca-cloze-11-2",
+      "id": "ccs-cca-cloze-11-crossreference",
       "act": "ccs-cca",
       "rule": "11",
       "kind": "cloze",
@@ -4034,7 +4034,7 @@
       "reviewNote": "The Explanation to Rule 11 — termination of a temporary servant under the CCS (Temporary Service) Rules is not a penalty at all."
     },
     {
-      "id": "ccs-cca-cloze-11-3",
+      "id": "ccs-cca-cloze-11-definedterm",
       "act": "ccs-cca",
       "rule": "11",
       "kind": "cloze",
@@ -4080,7 +4080,7 @@
       "reviewNote": "Answer is 'Government servant' — the commonest phrase in the book."
     },
     {
-      "id": "ccs-cca-cloze-12-1",
+      "id": "ccs-cca-cloze-12-crossreference",
       "act": "ccs-cca",
       "rule": "12",
       "kind": "cloze",
@@ -4126,7 +4126,7 @@
       "reviewNote": "Rule 12(1) — the President may impose any penalty on any Government servant, which is the ceiling the rest of Rule 12 works down from."
     },
     {
-      "id": "ccs-cca-cloze-13-1",
+      "id": "ccs-cca-cloze-13-definedterm",
       "act": "ccs-cca",
       "rule": "13",
       "kind": "cloze",
@@ -4157,7 +4157,7 @@
       },
       "difficulty": "easy",
       "reviewed": true,
-      "reviewState": "approved",
+      "reviewState": "rejected",
       "tags": [
         "generated",
         "cloze",
@@ -4169,10 +4169,10 @@
         "name": "Department of Personnel and Training — CCS (CCA) Rules, 1965 — consolidated",
         "url": "https://dopt.gov.in/sites/default/files/CCS-CCA-Rules-FINAL.pdf"
       },
-      "reviewNote": "Rule 13 — the authority that institutes proceedings may direct a disciplinary authority to do so, which is how a proceeding is started from above."
+      "reviewNote": "the en stem repeats its own answer ('disciplinary authority') outside the blank, so the card asks nothing"
     },
     {
-      "id": "ccs-cca-cloze-14-1",
+      "id": "ccs-cca-cloze-14-duration",
       "act": "ccs-cca",
       "rule": "14",
       "kind": "cloze",
@@ -4203,7 +4203,7 @@
       },
       "difficulty": "medium",
       "reviewed": true,
-      "reviewState": "approved",
+      "reviewState": "rejected",
       "tags": [
         "generated",
         "cloze",
@@ -4215,10 +4215,10 @@
         "name": "Department of Personnel and Training — CCS (CCA) Rules, 1965 — consolidated",
         "url": "https://dopt.gov.in/sites/default/files/CCS-CCA-Rules-FINAL.pdf"
       },
-      "reviewNote": "Rule 14(4) — fifteen days to file a written statement of defence, extendable by another fifteen."
+      "reviewNote": "the en stem repeats its own answer ('fifteen days') outside the blank, so the card asks nothing"
     },
     {
-      "id": "ccs-cca-cloze-14-2",
+      "id": "ccs-cca-cloze-14-crossreference",
       "act": "ccs-cca",
       "rule": "14",
       "kind": "cloze",
@@ -4264,7 +4264,7 @@
       "reviewNote": "Rule 14(1) — a major penalty needs an inquiry under Rules 14 and 15 together; naming only Rule 14 is the standard error."
     },
     {
-      "id": "ccs-cca-cloze-14-3",
+      "id": "ccs-cca-cloze-14-count",
       "act": "ccs-cca",
       "rule": "14",
       "kind": "cloze",
@@ -4310,7 +4310,7 @@
       "reviewNote": "The Note to Rule 14(8) — the three-case bar on an assisting Government servant, a limit defence assistants regularly breach."
     },
     {
-      "id": "ccs-cca-cloze-15-1",
+      "id": "ccs-cca-cloze-15-duration",
       "act": "ccs-cca",
       "rule": "15",
       "kind": "cloze",
@@ -4356,7 +4356,7 @@
       "reviewNote": "Rule 15(2) — fifteen days to represent on the inquiry report, whether or not the report is favourable."
     },
     {
-      "id": "ccs-cca-cloze-15-2",
+      "id": "ccs-cca-cloze-15-crossreference",
       "act": "ccs-cca",
       "rule": "15",
       "kind": "cloze",
@@ -4402,7 +4402,7 @@
       "reviewNote": "Rule 15(1) — a remitted further inquiry runs under Rule 14 again."
     },
     {
-      "id": "ccs-cca-cloze-15-3",
+      "id": "ccs-cca-cloze-15-definedterm",
       "act": "ccs-cca",
       "rule": "15",
       "kind": "cloze",
@@ -4448,7 +4448,7 @@
       "reviewNote": "The stem names the inquiring authority twice in the same sentence, and the blank is recoverable from either."
     },
     {
-      "id": "ccs-cca-cloze-16-1",
+      "id": "ccs-cca-cloze-16-duration",
       "act": "ccs-cca",
       "rule": "16",
       "kind": "cloze",
@@ -4494,7 +4494,7 @@
       "reviewNote": "Rule 16(1-A) — withholding increments beyond three years, or with cumulative effect, or affecting pension, forces the major-penalty procedure."
     },
     {
-      "id": "ccs-cca-cloze-16-2",
+      "id": "ccs-cca-cloze-16-crossreference",
       "act": "ccs-cca",
       "rule": "16",
       "kind": "cloze",
@@ -4540,7 +4540,7 @@
       "reviewNote": "Rule 16(1) is subject to Rule 15(5) — the minor-penalty route is not open where a full inquiry has already produced findings."
     },
     {
-      "id": "ccs-cca-cloze-16-3",
+      "id": "ccs-cca-cloze-16-definedterm",
       "act": "ccs-cca",
       "rule": "16",
       "kind": "cloze",
@@ -4586,7 +4586,7 @@
       "reviewNote": "Rule 16(1)(b) — even a minor penalty needs a reasonable opportunity of representation. The phrase is the constitutional floor under Article 311(2)."
     },
     {
-      "id": "ccs-cca-cloze-17-1",
+      "id": "ccs-cca-cloze-17-definedterm",
       "act": "ccs-cca",
       "rule": "17",
       "kind": "cloze",
@@ -4632,7 +4632,7 @@
       "reviewNote": "Rule 17 — where the disciplinary authority is not the inquiring authority, it must supply its own statement of findings as well."
     },
     {
-      "id": "ccs-cca-cloze-18-1",
+      "id": "ccs-cca-cloze-18-crossreference",
       "act": "ccs-cca",
       "rule": "18",
       "kind": "cloze",
@@ -4678,7 +4678,7 @@
       "reviewNote": "Rule 18(2) is subject to Rule 12(4) — a common proceeding cannot give a lower authority a penalty power it does not have."
     },
     {
-      "id": "ccs-cca-cloze-18-2",
+      "id": "ccs-cca-cloze-18-definedterm",
       "act": "ccs-cca",
       "rule": "18",
       "kind": "cloze",
@@ -4724,7 +4724,7 @@
       "reviewNote": "Rule 18(1) — a common proceeding may be ordered only by an authority competent to dismiss all of the servants concerned."
     },
     {
-      "id": "ccs-cca-cloze-19-1",
+      "id": "ccs-cca-cloze-19-crossreference",
       "act": "ccs-cca",
       "rule": "19",
       "kind": "cloze",
@@ -4770,7 +4770,7 @@
       "reviewNote": "Rule 19 displaces Rules 14 to 18 — the special procedure where there is a conviction or where an inquiry is not reasonably practicable."
     },
     {
-      "id": "ccs-cca-cloze-20-1",
+      "id": "ccs-cca-cloze-20-definedterm",
       "act": "ccs-cca",
       "rule": "20",
       "kind": "cloze",
@@ -4816,7 +4816,7 @@
       "reviewNote": "Rule 20 — the borrowing authority may suspend but must refer the penalty question back to the lending authority."
     },
     {
-      "id": "ccs-cca-cloze-21-1",
+      "id": "ccs-cca-cloze-21-definedterm",
       "act": "ccs-cca",
       "rule": "21",
       "kind": "cloze",
@@ -4859,10 +4859,10 @@
         "name": "Department of Personnel and Training — CCS (CCA) Rules, 1965 — consolidated",
         "url": "https://dopt.gov.in/sites/default/files/CCS-CCA-Rules-FINAL.pdf"
       },
-      "reviewNote": "Duplicate of ccs-cca-cloze-20-1 — the same borrowed-services scheme with the same answer."
+      "reviewNote": "Duplicate of ccs-cca-cloze-20-definedterm — the same borrowed-services scheme with the same answer."
     },
     {
-      "id": "ccs-cca-cloze-22-1",
+      "id": "ccs-cca-cloze-22-crossreference",
       "act": "ccs-cca",
       "rule": "22",
       "kind": "cloze",
@@ -4908,7 +4908,7 @@
       "reviewNote": "The blank is a self-reference: the stem is Rule 23 and the answer is 'rule 22', which the sentence gives no way to recover."
     },
     {
-      "id": "ccs-cca-cloze-22-2",
+      "id": "ccs-cca-cloze-22-definedterm",
       "act": "ccs-cca",
       "rule": "22",
       "kind": "cloze",
@@ -4954,7 +4954,7 @@
       "reviewNote": "Rule 22(iii) — an interlocutory order of the inquiring authority during a Rule 14 inquiry is not appealable."
     },
     {
-      "id": "ccs-cca-cloze-24-1",
+      "id": "ccs-cca-cloze-24-crossreference",
       "act": "ccs-cca",
       "rule": "24",
       "kind": "cloze",
@@ -5000,7 +5000,7 @@
       "reviewNote": "Rule 24(1) — the appealable orders are those listed in Rule 23, and a person who has ceased to be in service may still appeal."
     },
     {
-      "id": "ccs-cca-cloze-24-2",
+      "id": "ccs-cca-cloze-24-definedterm",
       "act": "ccs-cca",
       "rule": "24",
       "kind": "cloze",
@@ -5046,7 +5046,7 @@
       "reviewNote": "The stem is a proviso about subordination and the term 'appellate authority' is recoverable from the rule's own heading, not from the sentence."
     },
     {
-      "id": "ccs-cca-cloze-25-1",
+      "id": "ccs-cca-cloze-25-duration",
       "act": "ccs-cca",
       "rule": "25",
       "kind": "cloze",
@@ -5092,7 +5092,7 @@
       "reviewNote": "Rule 25 — forty-five days from delivery of the order, which readers confuse with the ninety days under other service rules."
     },
     {
-      "id": "ccs-cca-cloze-25-2",
+      "id": "ccs-cca-cloze-25-definedterm",
       "act": "ccs-cca",
       "rule": "25",
       "kind": "cloze",
@@ -5138,7 +5138,7 @@
       "reviewNote": "Rule 25 proviso — the appellate authority may condone delay on sufficient cause."
     },
     {
-      "id": "ccs-cca-cloze-27-1",
+      "id": "ccs-cca-cloze-27-crossreference",
       "act": "ccs-cca",
       "rule": "27",
       "kind": "cloze",
@@ -5184,7 +5184,7 @@
       "reviewNote": "Rule 27(1) — an appeal against suspension is tested against Rule 10, not against the merits of the charge."
     },
     {
-      "id": "ccs-cca-cloze-27-2",
+      "id": "ccs-cca-cloze-27-definedterm",
       "act": "ccs-cca",
       "rule": "27",
       "kind": "cloze",
@@ -5230,7 +5230,7 @@
       "reviewNote": "Rule 27(2) — an appellate authority may not enhance a penalty without a fresh reasonable opportunity."
     },
     {
-      "id": "ccs-cca-cloze-29-1",
+      "id": "ccs-cca-cloze-29-duration",
       "act": "ccs-cca",
       "rule": "29",
       "kind": "cloze",
@@ -5276,7 +5276,7 @@
       "reviewNote": "Rule 29(1)(v) — the appellate authority's revision power runs out at six months."
     },
     {
-      "id": "ccs-cca-cloze-29-2",
+      "id": "ccs-cca-cloze-29-crossreference",
       "act": "ccs-cca",
       "rule": "29",
       "kind": "cloze",
@@ -5322,7 +5322,7 @@
       "reviewNote": "The blank is 'rule 34' inside a clause about rules repealed by Rule 34. The sentence gives no way to recover the number."
     },
     {
-      "id": "ccs-cca-cloze-29-3",
+      "id": "ccs-cca-cloze-29-definedterm",
       "act": "ccs-cca",
       "rule": "29",
       "kind": "cloze",
@@ -5368,7 +5368,7 @@
       "reviewNote": "Rule 29 proviso — a revising authority may not enhance a penalty without hearing the Government servant."
     },
     {
-      "id": "ccs-cca-cloze-29a-1",
+      "id": "ccs-cca-cloze-29a-crossreference",
       "act": "ccs-cca",
       "rule": "29A",
       "kind": "cloze",
@@ -5414,7 +5414,7 @@
       "reviewNote": "Rule 29A — a review that enhances a penalty must follow Rule 14, subject to Rule 19's special procedure."
     },
     {
-      "id": "ccs-cca-cloze-29a-2",
+      "id": "ccs-cca-cloze-29a-definedterm",
       "act": "ccs-cca",
       "rule": "29A",
       "kind": "cloze",
@@ -5460,7 +5460,7 @@
       "reviewNote": "Rule 29A — enhancing a minor penalty to a major one is what triggers the fresh-inquiry requirement."
     },
     {
-      "id": "ccs-cca-cloze-34-1",
+      "id": "ccs-cca-cloze-34-crossreference",
       "act": "ccs-cca",
       "rule": "34",
       "kind": "cloze",
@@ -5506,7 +5506,7 @@
       "reviewNote": "The blank is 'rule 33' inside Rule 34's own repeal clause — a self-reference with nothing in the sentence to recover it from."
     },
     {
-      "id": "ccs-cca-cloze-34-2",
+      "id": "ccs-cca-cloze-34-definedterm",
       "act": "ccs-cca",
       "rule": "34",
       "kind": "cloze",
@@ -5623,8 +5623,8 @@
           "matched": true
         },
         "dedup": {
-          "maxScore": 48.1,
-          "against": "ccs-cca-rule-12-4",
+          "maxScore": 67.7,
+          "against": "ccs-cca-rule-29a",
           "verdict": "keep"
         },
         "groundingRuleIds": [
@@ -5948,7 +5948,7 @@
         },
         "dedup": {
           "maxScore": 74.9,
-          "against": "ccs-cca-cloze-14-3",
+          "against": "ccs-cca-cloze-14-count",
           "verdict": "keep"
         },
         "groundingRuleIds": [
@@ -6483,7 +6483,7 @@
       ],
       "reviewed": true,
       "reviewState": "rejected",
-      "reviewNote": "dedup: token_set_ratio 92.2 against ccs-cca-cloze-12-1, at or above the 90 threshold.",
+      "reviewNote": "dedup: token_set_ratio 92.2 against ccs-cca-cloze-12-crossreference, at or above the 90 threshold.",
       "generationMeta": {
         "promptVersion": "rules-qa/1",
         "batchId": "2026-08-28-ccs-cca-A",
@@ -6501,7 +6501,7 @@
         },
         "dedup": {
           "maxScore": 92.2,
-          "against": "ccs-cca-cloze-12-1",
+          "against": "ccs-cca-cloze-12-crossreference",
           "verdict": "duplicate"
         },
         "groundingRuleIds": [
@@ -6736,8 +6736,8 @@
           "matched": true
         },
         "dedup": {
-          "maxScore": 78.1,
-          "against": "ccs-cca-cloze-7-1",
+          "maxScore": 80.0,
+          "against": "ccs-cca-rule-7",
           "verdict": "keep"
         },
         "groundingRuleIds": [
@@ -7370,7 +7370,7 @@
         },
         "dedup": {
           "maxScore": 77.0,
-          "against": "ccs-cca-cloze-13-1",
+          "against": "ccs-cca-cloze-13-definedterm",
           "verdict": "keep"
         },
         "groundingRuleIds": [
@@ -7760,7 +7760,7 @@
           "matched": true
         },
         "dedup": {
-          "maxScore": 78.7,
+          "maxScore": 80.6,
           "against": "ccs-cca-rule-31",
           "verdict": "keep"
         },

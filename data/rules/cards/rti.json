@@ -4719,7 +4719,7 @@
       }
     },
     {
-      "id": "rti-cloze-1-1",
+      "id": "rti-cloze-1-crossreference",
       "act": "rti",
       "rule": "1",
       "kind": "cloze",
@@ -4765,7 +4765,7 @@
       "reviewNote": "Section 1(3) — the sections that commenced at once, as against the 120-day tranche. A standing examination question."
     },
     {
-      "id": "rti-cloze-1-2",
+      "id": "rti-cloze-1-count",
       "act": "rti",
       "rule": "1",
       "kind": "cloze",
@@ -4811,7 +4811,7 @@
       "reviewNote": "Answer is the bare word 'one'. Tests counting, not the Act."
     },
     {
-      "id": "rti-cloze-1-3",
+      "id": "rti-cloze-1-definedterm",
       "act": "rti",
       "rule": "1",
       "kind": "cloze",
@@ -4857,7 +4857,7 @@
       "reviewNote": "The stem is the short title and the blank is the name of the Act the reader is studying."
     },
     {
-      "id": "rti-cloze-2-1",
+      "id": "rti-cloze-2-crossreference",
       "act": "rti",
       "rule": "2",
       "kind": "cloze",
@@ -4903,7 +4903,7 @@
       "reviewNote": "Section 2(b) — the Commission is constituted under section 12(1), which is the link between the definition and the machinery."
     },
     {
-      "id": "rti-cloze-2-2",
+      "id": "rti-cloze-2-definedterm",
       "act": "rti",
       "rule": "2",
       "kind": "cloze",
@@ -4949,7 +4949,7 @@
       "reviewNote": "Section 2(a) — whether the Centre or a State is the 'appropriate Government' decides which Commission hears the appeal."
     },
     {
-      "id": "rti-cloze-3-1",
+      "id": "rti-cloze-3-definedterm",
       "act": "rti",
       "rule": "3",
       "kind": "cloze",
@@ -4995,7 +4995,7 @@
       "reviewNote": "Section 3 is one sentence long and the blank is its subject. Nothing is recalled."
     },
     {
-      "id": "rti-cloze-4-1",
+      "id": "rti-cloze-4-duration",
       "act": "rti",
       "rule": "4",
       "kind": "cloze",
@@ -5041,7 +5041,7 @@
       "reviewNote": "Section 4(1)(b) — the 120-day deadline for the first suo motu publication."
     },
     {
-      "id": "rti-cloze-4-2",
+      "id": "rti-cloze-4-definedterm",
       "act": "rti",
       "rule": "4",
       "kind": "cloze",
@@ -5087,7 +5087,7 @@
       "reviewNote": "Section 4(1)(a) — the record-keeping duty is on the public authority, not on the Information Officer."
     },
     {
-      "id": "rti-cloze-5-1",
+      "id": "rti-cloze-5-duration",
       "act": "rti",
       "rule": "5",
       "kind": "cloze",
@@ -5133,7 +5133,7 @@
       "reviewNote": "The blank fell inside the compound number, leaving 'within one ____'. Widened to the whole period."
     },
     {
-      "id": "rti-cloze-5-2",
+      "id": "rti-cloze-5-crossreference",
       "act": "rti",
       "rule": "5",
       "kind": "cloze",
@@ -5179,7 +5179,7 @@
       "reviewNote": "Section 5(4)/(5) route an application to the senior officer specified under section 19(1) — the first-appeal authority."
     },
     {
-      "id": "rti-cloze-5-3",
+      "id": "rti-cloze-5-count",
       "act": "rti",
       "rule": "5",
       "kind": "cloze",
@@ -5222,10 +5222,10 @@
         "name": "Department of Personnel and Training — Right to Information Act, 2005 — updated as on 18 November 2025",
         "url": "https://dopt.gov.in/sites/default/files/RTI%20Act%202005%20%28updated%20as%20on%2018-11-2025%29.pdf"
       },
-      "reviewNote": "Duplicate of the blank fixed in rti-cloze-5-1, and its answer is the bare word 'one'."
+      "reviewNote": "Duplicate of the blank fixed in rti-cloze-5-duration, and its answer is the bare word 'one'."
     },
     {
-      "id": "rti-cloze-6-1",
+      "id": "rti-cloze-6-duration",
       "act": "rti",
       "rule": "6",
       "kind": "cloze",
@@ -5271,7 +5271,7 @@
       "reviewNote": "Section 6(3) proviso — an application transferred to another public authority must move within five days."
     },
     {
-      "id": "rti-cloze-6-2",
+      "id": "rti-cloze-6-definedterm",
       "act": "rti",
       "rule": "6",
       "kind": "cloze",
@@ -5317,7 +5317,7 @@
       "reviewNote": "Section 6(1) — the request is for 'information', the Act's central defined term."
     },
     {
-      "id": "rti-cloze-7-1",
+      "id": "rti-cloze-7-duration",
       "act": "rti",
       "rule": "7",
       "kind": "cloze",
@@ -5363,7 +5363,7 @@
       "reviewNote": "Section 7(1) — the thirty-day period is the single most-cited number in the Act."
     },
     {
-      "id": "rti-cloze-7-2",
+      "id": "rti-cloze-7-crossreference",
       "act": "rti",
       "rule": "7",
       "kind": "cloze",
@@ -5409,7 +5409,7 @@
       "reviewNote": "Section 7(1) opens 'subject to the proviso to sub-section (2) of section 5' — the Assistant PIO's five extra days."
     },
     {
-      "id": "rti-cloze-7-3",
+      "id": "rti-cloze-7-definedterm",
       "act": "rti",
       "rule": "7",
       "kind": "cloze",
@@ -5455,7 +5455,7 @@
       "reviewNote": "The stem names the State Public Information Officer in the same breath, so the blank is filled by its own sentence."
     },
     {
-      "id": "rti-cloze-8-1",
+      "id": "rti-cloze-8-duration",
       "act": "rti",
       "rule": "8",
       "kind": "cloze",
@@ -5501,7 +5501,7 @@
       "reviewNote": "Section 8(3) — the twenty-year cut-off after which most exemptions fall away."
     },
     {
-      "id": "rti-cloze-8-2",
+      "id": "rti-cloze-8-crossreference",
       "act": "rti",
       "rule": "8",
       "kind": "cloze",
@@ -5544,10 +5544,10 @@
         "name": "Department of Personnel and Training — Right to Information Act, 2005 — updated as on 18 November 2025",
         "url": "https://dopt.gov.in/sites/default/files/RTI%20Act%202005%20%28updated%20as%20on%2018-11-2025%29.pdf"
       },
-      "reviewNote": "Near-duplicate of rti-cloze-8-1's sentence, blanked on the cross-reference instead. One card from this sub-section is enough."
+      "reviewNote": "Near-duplicate of rti-cloze-8-duration's sentence, blanked on the cross-reference instead. One card from this sub-section is enough."
     },
     {
-      "id": "rti-cloze-8-3",
+      "id": "rti-cloze-8-definedterm",
       "act": "rti",
       "rule": "8",
       "kind": "cloze",
@@ -5593,7 +5593,7 @@
       "reviewNote": "Section 8(1)(a) — the first exemption, and the one every applicant meets."
     },
     {
-      "id": "rti-cloze-9-1",
+      "id": "rti-cloze-9-crossreference",
       "act": "rti",
       "rule": "9",
       "kind": "cloze",
@@ -5639,7 +5639,7 @@
       "reviewNote": "Section 9 is the copyright ground and operates 'without prejudice to section 8' — the two are separate grounds and are often conflated."
     },
     {
-      "id": "rti-cloze-9-2",
+      "id": "rti-cloze-9-definedterm",
       "act": "rti",
       "rule": "9",
       "kind": "cloze",
@@ -5685,7 +5685,7 @@
       "reviewNote": "The stem names the State Public Information Officer immediately after the blank."
     },
     {
-      "id": "rti-cloze-10-1",
+      "id": "rti-cloze-10-crossreference",
       "act": "rti",
       "rule": "10",
       "kind": "cloze",
@@ -5728,10 +5728,10 @@
         "name": "Department of Personnel and Training — Right to Information Act, 2005 — updated as on 18 November 2025",
         "url": "https://dopt.gov.in/sites/default/files/RTI%20Act%202005%20%28updated%20as%20on%2018-11-2025%29.pdf"
       },
-      "reviewNote": "Duplicate of rti-cloze-5-2 — the same 'senior officer specified under sub-section (1) of section 19' formula."
+      "reviewNote": "Duplicate of rti-cloze-5-crossreference — the same 'senior officer specified under sub-section (1) of section 19' formula."
     },
     {
-      "id": "rti-cloze-10-2",
+      "id": "rti-cloze-10-definedterm",
       "act": "rti",
       "rule": "10",
       "kind": "cloze",
@@ -5777,7 +5777,7 @@
       "reviewNote": "Section 10(1) is the severability rule and turns on access to part of the record."
     },
     {
-      "id": "rti-cloze-11-1",
+      "id": "rti-cloze-11-duration",
       "act": "rti",
       "rule": "11",
       "kind": "cloze",
@@ -5823,7 +5823,7 @@
       "reviewNote": "Section 11(1) — the third party gets notice within five days."
     },
     {
-      "id": "rti-cloze-11-2",
+      "id": "rti-cloze-11-crossreference",
       "act": "rti",
       "rule": "11",
       "kind": "cloze",
@@ -5869,7 +5869,7 @@
       "reviewNote": "Section 11(3) overrides section 7 and gives forty days where a third party is involved."
     },
     {
-      "id": "rti-cloze-11-3",
+      "id": "rti-cloze-11-definedterm",
       "act": "rti",
       "rule": "11",
       "kind": "cloze",
@@ -5915,7 +5915,7 @@
       "reviewNote": "The stem names the Central Public Information Officer in the same clause."
     },
     {
-      "id": "rti-cloze-12-1",
+      "id": "rti-cloze-12-definedterm",
       "act": "rti",
       "rule": "12",
       "kind": "cloze",
@@ -5961,7 +5961,7 @@
       "reviewNote": "Section 12(1) — the body's statutory name and the instrument that constitutes it."
     },
     {
-      "id": "rti-cloze-13-1",
+      "id": "rti-cloze-13-duration",
       "act": "rti",
       "rule": "13",
       "kind": "cloze",
@@ -6007,7 +6007,7 @@
       "reviewNote": "The RTI (Amendment) Act, 2019 replaced the fixed five-year term with 'such term as may be prescribed by the Central Government'. A card answering 'five years' would teach the repealed position."
     },
     {
-      "id": "rti-cloze-13-2",
+      "id": "rti-cloze-13-crossreference",
       "act": "rti",
       "rule": "13",
       "kind": "cloze",
@@ -6053,7 +6053,7 @@
       "reviewNote": "Section 13(2) proviso — an Information Commissioner elevated to Chief is appointed in the manner in section 12(3)."
     },
     {
-      "id": "rti-cloze-13-3",
+      "id": "rti-cloze-13-definedterm",
       "act": "rti",
       "rule": "13",
       "kind": "cloze",
@@ -6096,10 +6096,10 @@
         "name": "Department of Personnel and Training — Right to Information Act, 2005 — updated as on 18 November 2025",
         "url": "https://dopt.gov.in/sites/default/files/RTI%20Act%202005%20%28updated%20as%20on%2018-11-2025%29.pdf"
       },
-      "reviewNote": "Same sentence as rti-cloze-13-1, and the office is named again two clauses later."
+      "reviewNote": "Same sentence as rti-cloze-13-duration, and the office is named again two clauses later."
     },
     {
-      "id": "rti-cloze-14-1",
+      "id": "rti-cloze-14-definedterm",
       "act": "rti",
       "rule": "14",
       "kind": "cloze",
@@ -6145,7 +6145,7 @@
       "reviewNote": "Section 14(1) — only the President may remove, and only on proved misbehaviour or incapacity after a Supreme Court reference."
     },
     {
-      "id": "rti-cloze-15-1",
+      "id": "rti-cloze-15-definedterm",
       "act": "rti",
       "rule": "15",
       "kind": "cloze",
@@ -6191,7 +6191,7 @@
       "reviewNote": "Section 15(2) — the State Commission's composition, with the ten-Commissioner ceiling."
     },
     {
-      "id": "rti-cloze-16-1",
+      "id": "rti-cloze-16-duration",
       "act": "rti",
       "rule": "16",
       "kind": "cloze",
@@ -6234,10 +6234,10 @@
         "name": "Department of Personnel and Training — Right to Information Act, 2005 — updated as on 18 November 2025",
         "url": "https://dopt.gov.in/sites/default/files/RTI%20Act%202005%20%28updated%20as%20on%2018-11-2025%29.pdf"
       },
-      "reviewNote": "Same 2019 amendment problem as rti-cloze-13-1, for the State Chief Information Commissioner."
+      "reviewNote": "Same 2019 amendment problem as rti-cloze-13-duration, for the State Chief Information Commissioner."
     },
     {
-      "id": "rti-cloze-16-2",
+      "id": "rti-cloze-16-crossreference",
       "act": "rti",
       "rule": "16",
       "kind": "cloze",
@@ -6283,7 +6283,7 @@
       "reviewNote": "Section 16(2) proviso — the State equivalent of the section 12(3) route, pointing at section 15(3)."
     },
     {
-      "id": "rti-cloze-16-3",
+      "id": "rti-cloze-16-definedterm",
       "act": "rti",
       "rule": "16",
       "kind": "cloze",
@@ -6329,7 +6329,7 @@
       "reviewNote": "Answer is 'prescribed', a drafting word rather than a rule."
     },
     {
-      "id": "rti-cloze-17-1",
+      "id": "rti-cloze-17-definedterm",
       "act": "rti",
       "rule": "17",
       "kind": "cloze",
@@ -6360,7 +6360,7 @@
       },
       "difficulty": "easy",
       "reviewed": true,
-      "reviewState": "approved",
+      "reviewState": "rejected",
       "tags": [
         "generated",
         "cloze",
@@ -6372,10 +6372,10 @@
         "name": "Department of Personnel and Training — Right to Information Act, 2005 — updated as on 18 November 2025",
         "url": "https://dopt.gov.in/sites/default/files/RTI%20Act%202005%20%28updated%20as%20on%2018-11-2025%29.pdf"
       },
-      "reviewNote": "Section 17 — a State Commissioner is removed by the Governor, not the President. The contrast with section 14 is the examinable point."
+      "reviewNote": "the en stem repeats its own answer ('Information Commissioner') outside the blank, so the card asks nothing"
     },
     {
-      "id": "rti-cloze-18-1",
+      "id": "rti-cloze-18-definedterm",
       "act": "rti",
       "rule": "18",
       "kind": "cloze",
@@ -6421,7 +6421,7 @@
       "reviewNote": "Section 18 is the complaint jurisdiction, as against the appeal jurisdiction in section 19."
     },
     {
-      "id": "rti-cloze-19-1",
+      "id": "rti-cloze-19-duration",
       "act": "rti",
       "rule": "19",
       "kind": "cloze",
@@ -6467,7 +6467,7 @@
       "reviewNote": "Section 19(1) — thirty days for the first appeal, which readers confuse with the ninety days for the second."
     },
     {
-      "id": "rti-cloze-19-2",
+      "id": "rti-cloze-19-crossreference",
       "act": "rti",
       "rule": "19",
       "kind": "cloze",
@@ -6510,10 +6510,10 @@
         "name": "Department of Personnel and Training — Right to Information Act, 2005 — updated as on 18 November 2025",
         "url": "https://dopt.gov.in/sites/default/files/RTI%20Act%202005%20%28updated%20as%20on%2018-11-2025%29.pdf"
       },
-      "reviewNote": "Duplicate of rti-cloze-19-1's sentence, blanked on the cross-reference."
+      "reviewNote": "Duplicate of rti-cloze-19-duration's sentence, blanked on the cross-reference."
     },
     {
-      "id": "rti-cloze-19-3",
+      "id": "rti-cloze-19-definedterm",
       "act": "rti",
       "rule": "19",
       "kind": "cloze",
@@ -6559,7 +6559,7 @@
       "reviewNote": "The stem names the Central Public Information Officer immediately before the blank."
     },
     {
-      "id": "rti-cloze-20-1",
+      "id": "rti-cloze-20-count",
       "act": "rti",
       "rule": "20",
       "kind": "cloze",
@@ -6605,7 +6605,7 @@
       "reviewNote": "The blank fell inside the compound number, leaving '____ hundred and fifty rupees'. Widened to the whole penalty."
     },
     {
-      "id": "rti-cloze-20-2",
+      "id": "rti-cloze-20-definedterm",
       "act": "rti",
       "rule": "20",
       "kind": "cloze",
@@ -6651,7 +6651,7 @@
       "reviewNote": "The stem names the Central Information Commission immediately before the blank."
     },
     {
-      "id": "rti-cloze-24-1",
+      "id": "rti-cloze-24-duration",
       "act": "rti",
       "rule": "24",
       "kind": "cloze",
@@ -6697,7 +6697,7 @@
       "reviewNote": "Section 24 proviso — information about corruption or human rights violation from an exempt organisation comes in forty-five days, not thirty."
     },
     {
-      "id": "rti-cloze-24-2",
+      "id": "rti-cloze-24-definedterm",
       "act": "rti",
       "rule": "24",
       "kind": "cloze",
@@ -6743,7 +6743,7 @@
       "reviewNote": "Section 24(1) — the Second Schedule bodies, and the two exceptions that survive."
     },
     {
-      "id": "rti-cloze-25-1",
+      "id": "rti-cloze-25-count",
       "act": "rti",
       "rule": "25",
       "kind": "cloze",
@@ -6789,7 +6789,7 @@
       "reviewNote": "Answer is 'two', blanked out of 'where there are two Houses'."
     },
     {
-      "id": "rti-cloze-25-2",
+      "id": "rti-cloze-25-definedterm",
       "act": "rti",
       "rule": "25",
       "kind": "cloze",
@@ -6835,7 +6835,7 @@
       "reviewNote": "Section 25(1) — the annual report goes to the appropriate Government, which lays it before the legislature."
     },
     {
-      "id": "rti-cloze-26-1",
+      "id": "rti-cloze-26-crossreference",
       "act": "rti",
       "rule": "26",
       "kind": "cloze",
@@ -6881,7 +6881,7 @@
       "reviewNote": "A cross-reference inside the rule-making list. The sentence gives no way to recover which section is meant."
     },
     {
-      "id": "rti-cloze-26-2",
+      "id": "rti-cloze-26-definedterm",
       "act": "rti",
       "rule": "26",
       "kind": "cloze",
@@ -6927,7 +6927,7 @@
       "reviewNote": "Same list; the blank falls on a term the sentence repeats."
     },
     {
-      "id": "rti-cloze-27-1",
+      "id": "rti-cloze-27-crossreference",
       "act": "rti",
       "rule": "27",
       "kind": "cloze",
@@ -6970,10 +6970,10 @@
         "name": "Department of Personnel and Training — Right to Information Act, 2005 — updated as on 18 November 2025",
         "url": "https://dopt.gov.in/sites/default/files/RTI%20Act%202005%20%28updated%20as%20on%2018-11-2025%29.pdf"
       },
-      "reviewNote": "Same rule-making list as rti-cloze-26-1."
+      "reviewNote": "Same rule-making list as rti-cloze-26-crossreference."
     },
     {
-      "id": "rti-cloze-27-2",
+      "id": "rti-cloze-27-definedterm",
       "act": "rti",
       "rule": "27",
       "kind": "cloze",
@@ -7019,7 +7019,7 @@
       "reviewNote": "Answer is 'fee' and the word appears twice more in the same sentence."
     },
     {
-      "id": "rti-cloze-28-1",
+      "id": "rti-cloze-28-crossreference",
       "act": "rti",
       "rule": "28",
       "kind": "cloze",
@@ -7065,7 +7065,7 @@
       "reviewNote": "Same rule-making list."
     },
     {
-      "id": "rti-cloze-28-2",
+      "id": "rti-cloze-28-definedterm",
       "act": "rti",
       "rule": "28",
       "kind": "cloze",
@@ -7111,7 +7111,7 @@
       "reviewNote": "Section 28 — the competent authority makes rules for its own institution, as against the appropriate Government under section 27. The contrast is the point."
     },
     {
-      "id": "rti-cloze-30-1",
+      "id": "rti-cloze-30-duration",
       "act": "rti",
       "rule": "30",
       "kind": "cloze",
@@ -7229,7 +7229,7 @@
         },
         "dedup": {
           "maxScore": 64.5,
-          "against": "rti-cloze-19-3",
+          "against": "rti-cloze-19-definedterm",
           "verdict": "keep"
         },
         "groundingRuleIds": [
@@ -7306,7 +7306,7 @@
         },
         "blindVerify": null,
         "dedup": {
-          "maxScore": 70.2,
+          "maxScore": 68.4,
           "against": "rti-rule-3",
           "verdict": "keep"
         },
@@ -7541,7 +7541,7 @@
           "matched": true
         },
         "dedup": {
-          "maxScore": 82.5,
+          "maxScore": 77.6,
           "against": "rti-rule-3",
           "verdict": "keep"
         },
@@ -7614,7 +7614,7 @@
           "matched": true
         },
         "dedup": {
-          "maxScore": 70.2,
+          "maxScore": 80.5,
           "against": "rti-rule-3",
           "verdict": "keep"
         },
@@ -8329,8 +8329,8 @@
         },
         "blindVerify": null,
         "dedup": {
-          "maxScore": 74.1,
-          "against": "rti-q-004",
+          "maxScore": 80.5,
+          "against": "rti-rule-3",
           "verdict": "keep"
         },
         "groundingRuleIds": [
@@ -8393,7 +8393,8 @@
         "mcq"
       ],
       "reviewed": true,
-      "reviewState": "approved",
+      "reviewState": "rejected",
+      "reviewNote": "dedup: token_set_ratio 90.5 against rti-rule-3, at or above the 90 threshold.",
       "generationMeta": {
         "promptVersion": "rules-qa/1",
         "batchId": "2026-08-28-rti-A",
@@ -8410,9 +8411,9 @@
           "matched": true
         },
         "dedup": {
-          "maxScore": 86.2,
+          "maxScore": 90.5,
           "against": "rti-rule-3",
-          "verdict": "keep"
+          "verdict": "duplicate"
         },
         "groundingRuleIds": [
           "rti-2"
@@ -8564,7 +8565,7 @@
           "matched": true
         },
         "dedup": {
-          "maxScore": 70.2,
+          "maxScore": 76.3,
           "against": "rti-rule-14",
           "verdict": "keep"
         },
@@ -8646,7 +8647,7 @@
           "matched": true
         },
         "dedup": {
-          "maxScore": 74.2,
+          "maxScore": 79.3,
           "against": "rti-rule-14",
           "verdict": "keep"
         },
@@ -8719,8 +8720,8 @@
           "matched": true
         },
         "dedup": {
-          "maxScore": 69.9,
-          "against": "rti-rule-17",
+          "maxScore": 69.4,
+          "against": "rti-rule-17-1",
           "verdict": "keep"
         },
         "groundingRuleIds": [
@@ -8801,7 +8802,7 @@
           "matched": true
         },
         "dedup": {
-          "maxScore": 67.4,
+          "maxScore": 74.1,
           "against": "rti-rule-15",
           "verdict": "keep"
         },

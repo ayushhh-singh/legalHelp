@@ -3,8 +3,8 @@
   "threshold": 90.0,
   "scores": {
     "ccs-cca-q-001": {
-      "maxScore": 48.1,
-      "against": "ccs-cca-rule-12-4",
+      "maxScore": 67.7,
+      "against": "ccs-cca-rule-29a",
       "verdict": "keep"
     },
     "ccs-cca-q-002": {
@@ -24,7 +24,7 @@
     },
     "ccs-cca-q-005": {
       "maxScore": 74.9,
-      "against": "ccs-cca-cloze-14-3",
+      "against": "ccs-cca-cloze-14-count",
       "verdict": "keep"
     },
     "ccs-cca-q-006": {
@@ -59,7 +59,7 @@
     },
     "ccs-cca-q-012": {
       "maxScore": 92.2,
-      "against": "ccs-cca-cloze-12-1",
+      "against": "ccs-cca-cloze-12-crossreference",
       "verdict": "duplicate"
     },
     "ccs-cca-q-013": {
@@ -73,8 +73,8 @@
       "verdict": "keep"
     },
     "ccs-cca-q-015": {
-      "maxScore": 78.1,
-      "against": "ccs-cca-cloze-7-1",
+      "maxScore": 80.0,
+      "against": "ccs-cca-rule-7",
       "verdict": "keep"
     },
     "ccs-cca-q-016": {
@@ -114,7 +114,7 @@
     },
     "ccs-cca-q-023": {
       "maxScore": 77.0,
-      "against": "ccs-cca-cloze-13-1",
+      "against": "ccs-cca-cloze-13-definedterm",
       "verdict": "keep"
     },
     "ccs-cca-q-024": {
@@ -138,7 +138,7 @@
       "verdict": "keep"
     },
     "ccs-cca-q-028": {
-      "maxScore": 78.7,
+      "maxScore": 80.6,
       "against": "ccs-cca-rule-31",
       "verdict": "keep"
     },

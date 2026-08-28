@@ -155,6 +155,35 @@ SPAN_PATTERNS: tuple[tuple[str, re.Pattern[str]], ...] = (
     ),
 )
 
+def leaks_answer(stem: str, answer: str) -> bool:
+    """Whether the stem still contains the answer outside the blank.
+
+    A cloze whose stem repeats its own answer asks nothing. Twelve got through
+    the hand review because a reviewer reads the sentence around the blank and
+    not the sentence three clauses later: section 9(1) of the PoSH Act blanks
+    "three months" and then says "within a period of three months from the date
+    of the last incident", and Rule 14 of the CCA rules blanks "fifteen days"
+    and then offers an extension "not exceeding fifteen days".
+
+    The boundary is asserted **only on the ends that are alphanumeric**, and
+    that is the whole difficulty. A plain ``\\b...\\b`` looks right and silently
+    never matches an answer that starts or ends with punctuation — "(1)", "₹250"
+    — because there is no word boundary between a space and a bracket. Half the
+    cross-reference and amount answers in this corpus would have been exempt
+    from the check that exists to catch them.
+
+    Devanagari needs no special case: Python's ``\\w`` already covers the block,
+    so "नियम 18" does not match inside "नियम 18क".
+    """
+    answer = answer.strip()
+    if not answer:
+        return False
+    body = stem.replace(BLANK, " ")
+    left = r"(?<!\w)" if answer[0].isalnum() else ""
+    right = r"(?!\w)" if answer[-1].isalnum() else ""
+    return re.search(left + re.escape(answer) + right, body, re.IGNORECASE) is not None
+
+
 # A stem drawn from the amendment apparatus rather than from the rule. Every one
 # of these books interleaves its footnotes with its text — "1 Subs. by Act 24 of
 # 1967, s. 6, for 'two years'" sits inside the section it amends — and a cloze
@@ -265,10 +294,18 @@ def excerpt_around(text: str, span: Span) -> tuple[str, int, int] | None:
 
 
 def citation(act: Act, number: str) -> dict[str, str]:
-    return {
-        "en": f"{act.unit_en} {number}, {act.name_en}",
-        "hi": f"{act.unit_hi} {number}, {act.name_hi}",
-    }
+    """"Rule 11, CCS (Conduct) Rules, 1964" — but "F.R. 17", not "Rule F.R. 17".
+
+    A rule number that opens with a letter already carries its own unit word:
+    the FR/SR compilation prints "F.R. 17" and "S.R. 2", and prepending the
+    act's unit produced "Rule F.R. 17(1)" on thirty-three cards.
+    """
+    if number[:1].isdigit():
+        return {
+            "en": f"{act.unit_en} {number}, {act.name_en}",
+            "hi": f"{act.unit_hi} {number}, {act.name_hi}",
+        }
+    return {"en": f"{number}, {act.name_en}", "hi": f"{number}, {act.name_hi}"}
 
 
 def trim_at_sentence(text: str, limit: int) -> str:
@@ -290,7 +327,16 @@ def state_for(hindi_present: bool, reviewed: bool) -> tuple[bool, str]:
 
 # A rule the book has emptied. Its card would ask "Deleted — which rule?", and
 # the Leave rules alone have six of them, which is six identical cards.
-_EMPTIED = re.compile(r"^\s*(?:deleted|omitted|repealed)\b", re.I)
+# A rule the book has emptied. Its card would ask "Deleted — which rule?", and
+# the Leave rules alone have six of them.
+#
+# Two shapes, and the difference matters: a heading that *is* "Deleted" or
+# "Omitted" means the rule is gone, and "Rep. by the Repealing Act, 1927" means
+# this provision was itself repealed by another Act. A heading that merely
+# *starts* with "Repeal" is neither — "Repeal and Saving" is the operative
+# closing rule of five of these books, and matching it cost them their cards.
+_EMPTIED_HEADING = re.compile(r"^\s*\[?(?:deleted|omitted)", re.I)
+_REPEALED_BY = re.compile(r"\bRep\. by\b", re.I)
 
 
 def _unanswerable(rules: list[dict[str, Any]]) -> dict[str, str]:
@@ -318,8 +364,12 @@ def _unanswerable(rules: list[dict[str, Any]]) -> dict[str, str]:
         heading = rule["heading"]["en"].strip()
         if not heading:
             continue
-        if _EMPTIED.match(heading):
-            out[rule["id"]] = f'the rule has been {heading.lower()}; there is nothing to recall'
+        if _EMPTIED_HEADING.match(heading):
+            out[rule["id"]] = "the rule has been deleted or omitted; there is nothing to recall"
+        elif _REPEALED_BY.search(heading):
+            out[rule["id"]] = (
+                "the provision was itself repealed by a later Act; there is nothing to recall"
+            )
         elif seen[heading.lower()] > 1:
             out[rule["id"]] = (
                 f'the heading "{heading}" is used by {seen[heading.lower()]} rules of this act, '
@@ -439,7 +489,13 @@ def cloze_cards(
             if BLANK not in blanked:
                 continue
 
-            card_id = f"{act.id}-cloze-{slug(rule['number'])}-{made + 1}"
+            # Keyed on the rule and the span kind, not on a running counter.
+            # At most one card per (rule, kind) is emitted — the per-kind cap
+            # below guarantees it — so this is unique, and it is *stable*: adding
+            # a filter changes which kinds survive and never renumbers the rest.
+            # A positional id would have renamed half the corpus the first time
+            # a span was rejected, and every review file is keyed on the id.
+            card_id = f"{act.id}-cloze-{slug(rule['number'])}-{slug(span.kind)}"
             decision = review.get(card_id, {})
             if decision.get("verdict") == "reject":
                 reviewed, state = True, "rejected"
@@ -483,6 +539,25 @@ def cloze_cards(
             }
             if decision.get("reason"):
                 card["reviewNote"] = decision["reason"]
+
+            # The last gate, and it runs on the FINAL stem — after an `edit` has
+            # replaced it — because an edit can introduce the leak as easily as
+            # the generator can. A leaking card is rejected with the reason
+            # rather than dropped: the id stays stable, the review entry that
+            # approved it stays meaningful, and an auditor can see what happened.
+            if state == "approved":
+                for lang in ("en", "hi"):
+                    stem = card["cloze"]["text"][lang]
+                    answer = card["cloze"]["answer"][lang]
+                    if leaks_answer(stem, answer):
+                        card["reviewed"] = True
+                        card["reviewState"] = "rejected"
+                        card["reviewNote"] = (
+                            f"the {lang} stem repeats its own answer ({answer!r}) outside the "
+                            "blank, so the card asks nothing"
+                        )
+                        break
+
             cards.append(card)
             seen_answers[span.text.lower()] += 1
             used_kinds[span.kind] += 1
@@ -612,6 +687,42 @@ def authored_cards(act: Act, src: dict[str, str], rule_ids: set[str]) -> list[di
     return cards
 
 
+def check_authored_keys(
+    act: Act,
+    *,
+    hindi: dict[str, str],
+    review: dict[str, Any],
+    rule_numbers: set[str],
+    cloze_ids: set[str],
+) -> None:
+    """Fail on an authored key that matches nothing.
+
+    A typo in ``hindi/ccs-leave.json`` or ``review/cloze-rti.json`` does not
+    break anything: the entry is simply never looked up, the card stays
+    unreviewed or unserved, and the run reports success. That is the failure
+    mode this project cares about most — it is why ``validate_data.py`` fails on
+    a dataset in neither manifest, and why ``drafting_seed.py``'s ``self_check``
+    rejects a placeholder naming a field the template lacks.
+
+    Both maps are keyed on something the generator produces, so a key that
+    matches nothing is a mistake every time.
+    """
+    problems: list[str] = []
+
+    for key in hindi:
+        if key.startswith("_") or key in rule_numbers:
+            continue
+        problems.append(f"hindi/{act.id}.json: '{key}' is not a rule number in this act")
+
+    for key in review:
+        if key.startswith("_") or key in cloze_ids:
+            continue
+        problems.append(f"review/cloze-{act.id}.json: '{key}' is not a cloze card in this act")
+
+    if problems:
+        raise ValueError(f"{act.id}: authored keys that match nothing:\n  " + "\n  ".join(problems))
+
+
 def build_act(act: Act) -> dict[str, Any] | None:
     text = read_json(RULES_TEXT_DIR / f"{act.id}.json")
     if text is None:
@@ -623,11 +734,18 @@ def build_act(act: Act) -> dict[str, Any] | None:
     terms = read_json(TERMS_DIR / f"{act.id}.json", default={"terms": []})["terms"]
     review = read_json(REVIEW_DIR / f"cloze-{act.id}.json", default={}) or {}
 
-    cards = (
-        rule_cards(act, rules, hindi, src)
-        + cloze_cards(act, rules, terms, review, src)
-        + authored_cards(act, src, rule_ids)
+    generated_rule_cards = rule_cards(act, rules, hindi, src)
+    generated_cloze_cards = cloze_cards(act, rules, terms, review, src)
+
+    check_authored_keys(
+        act,
+        hindi=hindi,
+        review=review,
+        rule_numbers={rule["number"] for rule in rules},
+        cloze_ids={card["id"] for card in generated_cloze_cards},
     )
+
+    cards = generated_rule_cards + generated_cloze_cards + authored_cards(act, src, rule_ids)
 
     return {
         "$schema": "../../../schemas/rules-cards.schema.json",

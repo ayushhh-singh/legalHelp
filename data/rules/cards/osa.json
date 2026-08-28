@@ -1570,7 +1570,7 @@
       },
       "difficulty": "easy",
       "reviewed": true,
-      "reviewState": "approved",
+      "reviewState": "rejected",
       "tags": [
         "generated",
         "rule"
@@ -1580,10 +1580,11 @@
       "source": {
         "name": "Ministry of Home Affairs — The Official Secrets Act, 1923",
         "url": "https://www.mha.gov.in/sites/default/files/Official_Secret_Act1923_2.pdf"
-      }
+      },
+      "reviewNote": "the provision was itself repealed by a later Act; there is nothing to recall"
     },
     {
-      "id": "osa-cloze-2-1",
+      "id": "osa-cloze-2-definedterm",
       "act": "osa",
       "rule": "2",
       "kind": "cloze",
@@ -1629,7 +1630,7 @@
       "reviewNote": "The blank cut into a word: the stem reads 'the sketch, plan, m____ article'."
     },
     {
-      "id": "osa-cloze-3-1",
+      "id": "osa-cloze-3-duration",
       "act": "osa",
       "rule": "3",
       "kind": "cloze",
@@ -1675,7 +1676,7 @@
       "reviewNote": "Section 3(1) — the two terms of imprisonment for spying, fourteen years and three years, are the examinable fact."
     },
     {
-      "id": "osa-cloze-3-2",
+      "id": "osa-cloze-3-definedterm",
       "act": "osa",
       "rule": "3",
       "kind": "cloze",
@@ -1721,7 +1722,7 @@
       "reviewNote": "Section 3 turns entirely on the purpose being prejudicial to the safety or interests of the State."
     },
     {
-      "id": "osa-cloze-4-1",
+      "id": "osa-cloze-4-crossreference",
       "act": "osa",
       "rule": "4",
       "kind": "cloze",
@@ -1767,7 +1768,7 @@
       "reviewNote": "Section 4 is an evidentiary rule that operates only in a prosecution under section 3."
     },
     {
-      "id": "osa-cloze-4-2",
+      "id": "osa-cloze-4-definedterm",
       "act": "osa",
       "rule": "4",
       "kind": "cloze",
@@ -1813,7 +1814,7 @@
       "reviewNote": "The blank falls on 'communicate' inside 'in communication with, or attempted to communicate with' — the previous clause gives the answer away."
     },
     {
-      "id": "osa-cloze-5-1",
+      "id": "osa-cloze-5-duration",
       "act": "osa",
       "rule": "5",
       "kind": "cloze",
@@ -1859,7 +1860,7 @@
       "reviewNote": "Section 5(4) — the ordinary term for wrongful communication, which officers confuse with section 3's fourteen years."
     },
     {
-      "id": "osa-cloze-5-2",
+      "id": "osa-cloze-5-definedterm",
       "act": "osa",
       "rule": "5",
       "kind": "cloze",
@@ -1905,7 +1906,7 @@
       "reviewNote": "Section 5(1) — 'secret official code or pass word' is the category the section protects."
     },
     {
-      "id": "osa-cloze-6-1",
+      "id": "osa-cloze-6-duration",
       "act": "osa",
       "rule": "6",
       "kind": "cloze",
@@ -1951,7 +1952,7 @@
       "reviewNote": "The stem is 'may extend to 1*[____]' — the blank sits inside an amendment bracket."
     },
     {
-      "id": "osa-cloze-6-2",
+      "id": "osa-cloze-6-crossreference",
       "act": "osa",
       "rule": "6",
       "kind": "cloze",
@@ -1997,7 +1998,7 @@
       "reviewNote": "Section 6(4) borrows the presumption in section 3(2); the cross-reference is the point."
     },
     {
-      "id": "osa-cloze-6-3",
+      "id": "osa-cloze-6-count",
       "act": "osa",
       "rule": "6",
       "kind": "cloze",
@@ -2043,7 +2044,7 @@
       "reviewNote": "The stem is an amendment note: 'by Act 42 of 1971, S.6 ?(during emergency and ____ months thereafter'."
     },
     {
-      "id": "osa-cloze-7-1",
+      "id": "osa-cloze-7-definedterm",
       "act": "osa",
       "rule": "7",
       "kind": "cloze",
@@ -2089,7 +2090,7 @@
       "reviewNote": "Section 7 protects the vicinity of a prohibited place — a defined term."
     },
     {
-      "id": "osa-cloze-8-1",
+      "id": "osa-cloze-8-crossreference",
       "act": "osa",
       "rule": "8",
       "kind": "cloze",
@@ -2135,7 +2136,7 @@
       "reviewNote": "Section 8 — the duty to give information covers section 3 read with section 9 (attempts and abetment)."
     },
     {
-      "id": "osa-cloze-10-1",
+      "id": "osa-cloze-10-crossreference",
       "act": "osa",
       "rule": "10",
       "kind": "cloze",
@@ -2178,10 +2179,10 @@
         "name": "Ministry of Home Affairs — The Official Secrets Act, 1923",
         "url": "https://www.mha.gov.in/sites/default/files/Official_Secret_Act1923_2.pdf"
       },
-      "reviewNote": "Same answer and near-identical stem as osa-cloze-8-1; the pair would be scheduled as two cards and read as one."
+      "reviewNote": "Same answer and near-identical stem as osa-cloze-8-crossreference; the pair would be scheduled as two cards and read as one."
     },
     {
-      "id": "osa-cloze-11-1",
+      "id": "osa-cloze-11-duration",
       "act": "osa",
       "rule": "11",
       "kind": "cloze",
@@ -2227,7 +2228,7 @@
       "reviewNote": "Section 11's search-warrant machinery is keyed to offences punishable with seven years."
     },
     {
-      "id": "osa-cloze-11-2",
+      "id": "osa-cloze-11-crossreference",
       "act": "osa",
       "rule": "11",
       "kind": "cloze",
@@ -2273,7 +2274,7 @@
       "reviewNote": "The stem repeats the answer in the very next clause — 'The provisions of section 337 of the Code of Criminal Procedure'."
     },
     {
-      "id": "osa-cloze-11-3",
+      "id": "osa-cloze-11-definedterm",
       "act": "osa",
       "rule": "11",
       "kind": "cloze",
@@ -2319,7 +2320,7 @@
       "reviewNote": "Section 11 is the search-warrant section and the term is what a Magistrate grants."
     },
     {
-      "id": "osa-cloze-13-1",
+      "id": "osa-cloze-13-crossreference",
       "act": "osa",
       "rule": "13",
       "kind": "cloze",
@@ -2365,7 +2366,7 @@
       "reviewNote": "Section 13(5) — which Government may sanction depends on whether the offence is under section 5 and unconnected with a prohibited place."
     },
     {
-      "id": "osa-cloze-13-2",
+      "id": "osa-cloze-13-definedterm",
       "act": "osa",
       "rule": "13",
       "kind": "cloze",
@@ -2408,7 +2409,7 @@
         "name": "Ministry of Home Affairs — The Official Secrets Act, 1923",
         "url": "https://www.mha.gov.in/sites/default/files/Official_Secret_Act1923_2.pdf"
       },
-      "reviewNote": "Same sentence as osa-cloze-13-1, blanked on the other half. Approving both looked like covering two halves of the test; the duplicate-front check in tests/rules-data.test.ts scored the pair at 93.1 and it is right — a reader meeting them in one session reads them as one card asked twice."
+      "reviewNote": "Same sentence as osa-cloze-13-crossreference, blanked on the other half. Approving both looked like covering two halves of the test; the duplicate-front check in tests/rules-data.test.ts scored the pair at 93.1 and it is right — a reader meeting them in one session reads them as one card asked twice."
     }
   ]
 }

@@ -2847,7 +2847,7 @@
       }
     },
     {
-      "id": "posh-cloze-1-1",
+      "id": "posh-cloze-1-definedterm",
       "act": "posh",
       "rule": "1",
       "kind": "cloze",
@@ -2893,7 +2893,7 @@
       "reviewNote": "The stem is the short title and the blank is the name of the Act the reader is studying."
     },
     {
-      "id": "posh-cloze-2-1",
+      "id": "posh-cloze-2-crossreference",
       "act": "posh",
       "rule": "2",
       "kind": "cloze",
@@ -2939,7 +2939,7 @@
       "reviewNote": "Section 2(c) — the Chairperson is of the Local Committee and is nominated under section 7(1). The Internal Committee has a Presiding Officer instead, and the two are routinely swapped."
     },
     {
-      "id": "posh-cloze-2-2",
+      "id": "posh-cloze-2-definedterm",
       "act": "posh",
       "rule": "2",
       "kind": "cloze",
@@ -2985,7 +2985,7 @@
       "reviewNote": "Section 2(a) — an aggrieved woman need not be employed at the workplace, which is what the definition is for."
     },
     {
-      "id": "posh-cloze-3-1",
+      "id": "posh-cloze-3-definedterm",
       "act": "posh",
       "rule": "3",
       "kind": "cloze",
@@ -3031,7 +3031,7 @@
       "reviewNote": "Section 3(1) is one sentence and the blank is the subject of the Act."
     },
     {
-      "id": "posh-cloze-4-1",
+      "id": "posh-cloze-4-duration",
       "act": "posh",
       "rule": "4",
       "kind": "cloze",
@@ -3077,7 +3077,7 @@
       "reviewNote": "Section 4(3) — the three-year cap on the Internal Committee's tenure."
     },
     {
-      "id": "posh-cloze-4-2",
+      "id": "posh-cloze-4-crossreference",
       "act": "posh",
       "rule": "4",
       "kind": "cloze",
@@ -3123,7 +3123,7 @@
       "reviewNote": "Section 4(5)(a) — contravening the confidentiality section is itself a ground for removal from the Committee."
     },
     {
-      "id": "posh-cloze-4-3",
+      "id": "posh-cloze-4-count",
       "act": "posh",
       "rule": "4",
       "kind": "cloze",
@@ -3169,7 +3169,7 @@
       "reviewNote": "Section 4(2)(b) — not less than two Members from amongst employees. The composition is examinable in detail."
     },
     {
-      "id": "posh-cloze-5-1",
+      "id": "posh-cloze-5-definedterm",
       "act": "posh",
       "rule": "5",
       "kind": "cloze",
@@ -3215,7 +3215,7 @@
       "reviewNote": "Section 5 — the District Officer is notified by the appropriate Government, not appointed by the employer."
     },
     {
-      "id": "posh-cloze-6-1",
+      "id": "posh-cloze-6-duration",
       "act": "posh",
       "rule": "6",
       "kind": "cloze",
@@ -3261,7 +3261,7 @@
       "reviewNote": "Section 6(2) — the nodal officer forwards a complaint within seven days."
     },
     {
-      "id": "posh-cloze-6-2",
+      "id": "posh-cloze-6-count",
       "act": "posh",
       "rule": "6",
       "kind": "cloze",
@@ -3307,7 +3307,7 @@
       "reviewNote": "Section 6(1) — the ten-worker threshold below which there is no Internal Committee and the Local Committee takes over."
     },
     {
-      "id": "posh-cloze-6-3",
+      "id": "posh-cloze-6-definedterm",
       "act": "posh",
       "rule": "6",
       "kind": "cloze",
@@ -3353,7 +3353,7 @@
       "reviewNote": "Section 6(1) — the Local Committee is constituted by the District Officer, not by the employer."
     },
     {
-      "id": "posh-cloze-7-1",
+      "id": "posh-cloze-7-duration",
       "act": "posh",
       "rule": "7",
       "kind": "cloze",
@@ -3399,7 +3399,7 @@
       "reviewNote": "Section 7(2) — the Local Committee's tenure matches the Internal Committee's three years."
     },
     {
-      "id": "posh-cloze-7-2",
+      "id": "posh-cloze-7-crossreference",
       "act": "posh",
       "rule": "7",
       "kind": "cloze",
@@ -3442,10 +3442,10 @@
         "name": "Ministry of Women and Child Development — The Sexual Harassment of Women at Workplace Act, 2013",
         "url": "https://www.indiacode.nic.in/bitstream/123456789/2104/1/A2013-14.pdf"
       },
-      "reviewNote": "Duplicate of posh-cloze-4-2 — the same section 16 contravention ground, for the Local Committee."
+      "reviewNote": "Duplicate of posh-cloze-4-crossreference — the same section 16 contravention ground, for the Local Committee."
     },
     {
-      "id": "posh-cloze-7-3",
+      "id": "posh-cloze-7-count",
       "act": "posh",
       "rule": "7",
       "kind": "cloze",
@@ -3476,7 +3476,7 @@
       },
       "difficulty": "easy",
       "reviewed": true,
-      "reviewState": "approved",
+      "reviewState": "rejected",
       "tags": [
         "generated",
         "cloze",
@@ -3488,10 +3488,10 @@
         "name": "Ministry of Women and Child Development — The Sexual Harassment of Women at Workplace Act, 2013",
         "url": "https://www.indiacode.nic.in/bitstream/123456789/2104/1/A2013-14.pdf"
       },
-      "reviewNote": "Section 7(1)(b) — one Member from amongst women working in the block, taluka or tehsil."
+      "reviewNote": "the en stem repeats its own answer ('one') outside the blank, so the card asks nothing"
     },
     {
-      "id": "posh-cloze-8-1",
+      "id": "posh-cloze-8-crossreference",
       "act": "posh",
       "rule": "8",
       "kind": "cloze",
@@ -3537,7 +3537,7 @@
       "reviewNote": "Section 8 — the grant pays the fees and allowances under section 7(4), which is what makes a Local Committee workable."
     },
     {
-      "id": "posh-cloze-8-2",
+      "id": "posh-cloze-8-definedterm",
       "act": "posh",
       "rule": "8",
       "kind": "cloze",
@@ -3583,7 +3583,7 @@
       "reviewNote": "The stem is the 2016 amendment footnote — 'for \"____\" (w.e.f.' — not section 8."
     },
     {
-      "id": "posh-cloze-9-1",
+      "id": "posh-cloze-9-duration",
       "act": "posh",
       "rule": "9",
       "kind": "cloze",
@@ -3614,7 +3614,7 @@
       },
       "difficulty": "medium",
       "reviewed": true,
-      "reviewState": "approved",
+      "reviewState": "rejected",
       "tags": [
         "generated",
         "cloze",
@@ -3626,10 +3626,10 @@
         "name": "Ministry of Women and Child Development — The Sexual Harassment of Women at Workplace Act, 2013",
         "url": "https://www.indiacode.nic.in/bitstream/123456789/2104/1/A2013-14.pdf"
       },
-      "reviewNote": "Section 9(1) — the three-month limitation, which the Committee may extend by a further three months."
+      "reviewNote": "the en stem repeats its own answer ('three months') outside the blank, so the card asks nothing"
     },
     {
-      "id": "posh-cloze-9-2",
+      "id": "posh-cloze-9-definedterm",
       "act": "posh",
       "rule": "9",
       "kind": "cloze",
@@ -3672,10 +3672,10 @@
         "name": "Ministry of Women and Child Development — The Sexual Harassment of Women at Workplace Act, 2013",
         "url": "https://www.indiacode.nic.in/bitstream/123456789/2104/1/A2013-14.pdf"
       },
-      "reviewNote": "Duplicate of posh-cloze-2-2's term in a stem that also carries the section 9 limitation already covered."
+      "reviewNote": "Duplicate of posh-cloze-2-definedterm's term in a stem that also carries the section 9 limitation already covered."
     },
     {
-      "id": "posh-cloze-10-1",
+      "id": "posh-cloze-10-crossreference",
       "act": "posh",
       "rule": "10",
       "kind": "cloze",
@@ -3721,7 +3721,7 @@
       "reviewNote": "Section 10 — conciliation happens *before* an inquiry under section 11 and only at the woman's request."
     },
     {
-      "id": "posh-cloze-10-2",
+      "id": "posh-cloze-10-definedterm",
       "act": "posh",
       "rule": "10",
       "kind": "cloze",
@@ -3767,7 +3767,7 @@
       "reviewNote": "The stem names the Local Committee in the same clause."
     },
     {
-      "id": "posh-cloze-11-1",
+      "id": "posh-cloze-11-duration",
       "act": "posh",
       "rule": "11",
       "kind": "cloze",
@@ -3813,7 +3813,7 @@
       "reviewNote": "Section 11(1) proviso — a domestic worker's complaint goes to the police within seven days for section 509 IPC."
     },
     {
-      "id": "posh-cloze-11-2",
+      "id": "posh-cloze-11-crossreference",
       "act": "posh",
       "rule": "11",
       "kind": "cloze",
@@ -3859,7 +3859,7 @@
       "reviewNote": "Section 11(1) is subject to section 10 — an inquiry begins only where conciliation has not settled the matter."
     },
     {
-      "id": "posh-cloze-11-3",
+      "id": "posh-cloze-11-definedterm",
       "act": "posh",
       "rule": "11",
       "kind": "cloze",
@@ -3905,7 +3905,7 @@
       "reviewNote": "The stem names the Local Committee immediately after the blank."
     },
     {
-      "id": "posh-cloze-12-1",
+      "id": "posh-cloze-12-duration",
       "act": "posh",
       "rule": "12",
       "kind": "cloze",
@@ -3951,7 +3951,7 @@
       "reviewNote": "Section 12(1)(b) — leave of up to three months during the pendency of an inquiry, in addition to her entitlement."
     },
     {
-      "id": "posh-cloze-12-2",
+      "id": "posh-cloze-12-definedterm",
       "act": "posh",
       "rule": "12",
       "kind": "cloze",
@@ -3997,7 +3997,7 @@
       "reviewNote": "Answer is 'inquiry', which the same sentence uses twice more."
     },
     {
-      "id": "posh-cloze-13-1",
+      "id": "posh-cloze-13-duration",
       "act": "posh",
       "rule": "13",
       "kind": "cloze",
@@ -4043,7 +4043,7 @@
       "reviewNote": "Section 13(1) — the report goes to the employer within ten days of completing the inquiry."
     },
     {
-      "id": "posh-cloze-13-2",
+      "id": "posh-cloze-13-crossreference",
       "act": "posh",
       "rule": "13",
       "kind": "cloze",
@@ -4089,7 +4089,7 @@
       "reviewNote": "Section 13(3)(ii) — compensation is determined under section 15, which lists the factors."
     },
     {
-      "id": "posh-cloze-13-3",
+      "id": "posh-cloze-13-definedterm",
       "act": "posh",
       "rule": "13",
       "kind": "cloze",
@@ -4132,10 +4132,10 @@
         "name": "Ministry of Women and Child Development — The Sexual Harassment of Women at Workplace Act, 2013",
         "url": "https://www.indiacode.nic.in/bitstream/123456789/2104/1/A2013-14.pdf"
       },
-      "reviewNote": "Duplicate of posh-cloze-12-2's weakness — 'inquiry' appears twice in the stem."
+      "reviewNote": "Duplicate of posh-cloze-12-definedterm's weakness — 'inquiry' appears twice in the stem."
     },
     {
-      "id": "posh-cloze-14-1",
+      "id": "posh-cloze-14-crossreference",
       "act": "posh",
       "rule": "14",
       "kind": "cloze",
@@ -4181,7 +4181,7 @@
       "reviewNote": "Section 14(1) — action for a malicious complaint is taken against the person who complained under section 9."
     },
     {
-      "id": "posh-cloze-14-2",
+      "id": "posh-cloze-14-definedterm",
       "act": "posh",
       "rule": "14",
       "kind": "cloze",
@@ -4227,7 +4227,7 @@
       "reviewNote": "The stem names the Internal Committee immediately before the blank."
     },
     {
-      "id": "posh-cloze-15-1",
+      "id": "posh-cloze-15-crossreference",
       "act": "posh",
       "rule": "15",
       "kind": "cloze",
@@ -4273,7 +4273,7 @@
       "reviewNote": "Section 15 sets the factors for the sum payable under section 13(3)(ii) — the link between the two sections is what a Committee must get right."
     },
     {
-      "id": "posh-cloze-15-2",
+      "id": "posh-cloze-15-definedterm",
       "act": "posh",
       "rule": "15",
       "kind": "cloze",
@@ -4319,7 +4319,7 @@
       "reviewNote": "The stem names the Internal Committee immediately before the blank."
     },
     {
-      "id": "posh-cloze-16-1",
+      "id": "posh-cloze-16-crossreference",
       "act": "posh",
       "rule": "16",
       "kind": "cloze",
@@ -4365,7 +4365,7 @@
       "reviewNote": "Section 16 overrides the RTI Act for the contents of a complaint made under section 9 — the one place these two Acts collide."
     },
     {
-      "id": "posh-cloze-16-2",
+      "id": "posh-cloze-16-definedterm",
       "act": "posh",
       "rule": "16",
       "kind": "cloze",
@@ -4411,7 +4411,7 @@
       "reviewNote": "Section 16 protects the respondent's identity as well as the woman's — the half readers forget."
     },
     {
-      "id": "posh-cloze-17-1",
+      "id": "posh-cloze-17-definedterm",
       "act": "posh",
       "rule": "17",
       "kind": "cloze",
@@ -4442,7 +4442,7 @@
       },
       "difficulty": "easy",
       "reviewed": true,
-      "reviewState": "approved",
+      "reviewState": "rejected",
       "tags": [
         "generated",
         "cloze",
@@ -4454,10 +4454,10 @@
         "name": "Ministry of Women and Child Development — The Sexual Harassment of Women at Workplace Act, 2013",
         "url": "https://www.indiacode.nic.in/bitstream/123456789/2104/1/A2013-14.pdf"
       },
-      "reviewNote": "Section 17 — the penalty for breaching confidentiality is imposed under the service rules, not by the Committee."
+      "reviewNote": "the en stem repeats its own answer ('service rules') outside the blank, so the card asks nothing"
     },
     {
-      "id": "posh-cloze-18-1",
+      "id": "posh-cloze-18-duration",
       "act": "posh",
       "rule": "18",
       "kind": "cloze",
@@ -4503,7 +4503,7 @@
       "reviewNote": "Section 18(2) — ninety days to appeal, against thirty days for a first appeal under the RTI Act. The two are often confused."
     },
     {
-      "id": "posh-cloze-18-2",
+      "id": "posh-cloze-18-crossreference",
       "act": "posh",
       "rule": "18",
       "kind": "cloze",
@@ -4534,7 +4534,7 @@
       },
       "difficulty": "hard",
       "reviewed": true,
-      "reviewState": "approved",
+      "reviewState": "rejected",
       "tags": [
         "generated",
         "cloze",
@@ -4546,10 +4546,10 @@
         "name": "Ministry of Women and Child Development — The Sexual Harassment of Women at Workplace Act, 2013",
         "url": "https://www.indiacode.nic.in/bitstream/123456789/2104/1/A2013-14.pdf"
       },
-      "reviewNote": "Section 18(1) — the recommendations that are appealable are those under section 13(2) and (3), 14 and 17."
+      "reviewNote": "the en stem repeats its own answer ('section 13') outside the blank, so the card asks nothing"
     },
     {
-      "id": "posh-cloze-18-3",
+      "id": "posh-cloze-18-definedterm",
       "act": "posh",
       "rule": "18",
       "kind": "cloze",
@@ -4592,10 +4592,10 @@
         "name": "Ministry of Women and Child Development — The Sexual Harassment of Women at Workplace Act, 2013",
         "url": "https://www.indiacode.nic.in/bitstream/123456789/2104/1/A2013-14.pdf"
       },
-      "reviewNote": "Duplicate of posh-cloze-17-1 — the same 'service rules applicable to the said person' formula."
+      "reviewNote": "Duplicate of posh-cloze-17-definedterm — the same 'service rules applicable to the said person' formula."
     },
     {
-      "id": "posh-cloze-19-1",
+      "id": "posh-cloze-19-crossreference",
       "act": "posh",
       "rule": "19",
       "kind": "cloze",
@@ -4641,7 +4641,7 @@
       "reviewNote": "Section 19(b) — the employer must display the order constituting the Internal Committee under section 4(1)."
     },
     {
-      "id": "posh-cloze-19-2",
+      "id": "posh-cloze-19-definedterm",
       "act": "posh",
       "rule": "19",
       "kind": "cloze",
@@ -4687,7 +4687,7 @@
       "reviewNote": "Section 19 — the duties are the employer's, and the safe-working-environment duty is the first of them."
     },
     {
-      "id": "posh-cloze-20-1",
+      "id": "posh-cloze-20-definedterm",
       "act": "posh",
       "rule": "20",
       "kind": "cloze",
@@ -4733,7 +4733,7 @@
       "reviewNote": "Section 20 — monitoring the Local Committee's reports is the District Officer's duty, not the employer's."
     },
     {
-      "id": "posh-cloze-21-1",
+      "id": "posh-cloze-21-definedterm",
       "act": "posh",
       "rule": "21",
       "kind": "cloze",
@@ -4779,7 +4779,7 @@
       "reviewNote": "Section 21(1) — a calendar-year annual report to the employer and the District Officer."
     },
     {
-      "id": "posh-cloze-22-1",
+      "id": "posh-cloze-22-definedterm",
       "act": "posh",
       "rule": "22",
       "kind": "cloze",
@@ -4825,7 +4825,7 @@
       "reviewNote": "Section 22 — the number of cases goes into the organisation's own annual report."
     },
     {
-      "id": "posh-cloze-23-1",
+      "id": "posh-cloze-23-definedterm",
       "act": "posh",
       "rule": "23",
       "kind": "cloze",
@@ -4871,7 +4871,7 @@
       "reviewNote": "Section 23 — implementation is monitored by the appropriate Government."
     },
     {
-      "id": "posh-cloze-24-1",
+      "id": "posh-cloze-24-definedterm",
       "act": "posh",
       "rule": "24",
       "kind": "cloze",
@@ -4917,7 +4917,7 @@
       "reviewNote": "Answer is 'workplace', which appears three more times in the same sentence."
     },
     {
-      "id": "posh-cloze-25-1",
+      "id": "posh-cloze-25-definedterm",
       "act": "posh",
       "rule": "25",
       "kind": "cloze",
@@ -4960,10 +4960,10 @@
         "name": "Ministry of Women and Child Development — The Sexual Harassment of Women at Workplace Act, 2013",
         "url": "https://www.indiacode.nic.in/bitstream/123456789/2104/1/A2013-14.pdf"
       },
-      "reviewNote": "Same weakness as posh-cloze-24-1."
+      "reviewNote": "Same weakness as posh-cloze-24-definedterm."
     },
     {
-      "id": "posh-cloze-26-1",
+      "id": "posh-cloze-26-crossreference",
       "act": "posh",
       "rule": "26",
       "kind": "cloze",
@@ -5009,7 +5009,7 @@
       "reviewNote": "Section 26(1)(a) — failing to constitute the Internal Committee under section 4(1) is the first punishable default."
     },
     {
-      "id": "posh-cloze-26-2",
+      "id": "posh-cloze-26-count",
       "act": "posh",
       "rule": "26",
       "kind": "cloze",
@@ -5055,7 +5055,7 @@
       "reviewNote": "The blank falls on 'fifty' inside 'fifty thousand rupees' and the stem is truncated before the figure, so the card asks for half a number."
     },
     {
-      "id": "posh-cloze-26-3",
+      "id": "posh-cloze-26-definedterm",
       "act": "posh",
       "rule": "26",
       "kind": "cloze",
@@ -5101,7 +5101,7 @@
       "reviewNote": "The stem is the 2016 amendment footnote, not section 26."
     },
     {
-      "id": "posh-cloze-29-1",
+      "id": "posh-cloze-29-duration",
       "act": "posh",
       "rule": "29",
       "kind": "cloze",
@@ -5147,7 +5147,7 @@
       "reviewNote": "Section 29(3) — the thirty-day laying period."
     },
     {
-      "id": "posh-cloze-29-2",
+      "id": "posh-cloze-29-crossreference",
       "act": "posh",
       "rule": "29",
       "kind": "cloze",
@@ -5193,7 +5193,7 @@
       "reviewNote": "A cross-reference inside the rule-making list; the sentence gives no way to recover which section is meant."
     },
     {
-      "id": "posh-cloze-29-3",
+      "id": "posh-cloze-29-count",
       "act": "posh",
       "rule": "29",
       "kind": "cloze",
@@ -5239,7 +5239,7 @@
       "reviewNote": "Answer is 'one', blanked out of 'comprised in one session'."
     },
     {
-      "id": "posh-cloze-30-1",
+      "id": "posh-cloze-30-duration",
       "act": "posh",
       "rule": "30",
       "kind": "cloze",
@@ -5356,8 +5356,8 @@
           "matched": true
         },
         "dedup": {
-          "maxScore": 65.7,
-          "against": "posh-rule-10-1",
+          "maxScore": 77.3,
+          "against": "posh-rule-4",
           "verdict": "keep"
         },
         "groundingRuleIds": [
@@ -5672,8 +5672,8 @@
           "matched": true
         },
         "dedup": {
-          "maxScore": 62.2,
-          "against": "posh-q-001",
+          "maxScore": 65.2,
+          "against": "posh-rule-11",
           "verdict": "keep"
         },
         "groundingRuleIds": [
@@ -5753,8 +5753,8 @@
           "matched": true
         },
         "dedup": {
-          "maxScore": 50.0,
-          "against": "posh-q-003",
+          "maxScore": 52.7,
+          "against": "posh-rule-3",
           "verdict": "keep"
         },
         "groundingRuleIds": [
@@ -6076,7 +6076,7 @@
         },
         "dedup": {
           "maxScore": 63.5,
-          "against": "posh-cloze-15-2",
+          "against": "posh-cloze-15-definedterm",
           "verdict": "keep"
         },
         "groundingRuleIds": [
@@ -6148,8 +6148,8 @@
           "matched": true
         },
         "dedup": {
-          "maxScore": 64.2,
-          "against": "posh-q-007",
+          "maxScore": 65.2,
+          "against": "posh-rule-11",
           "verdict": "keep"
         },
         "groundingRuleIds": [
@@ -6229,8 +6229,8 @@
           "matched": true
         },
         "dedup": {
-          "maxScore": 58.0,
-          "against": "posh-q-001",
+          "maxScore": 65.1,
+          "against": "posh-rule-28",
           "verdict": "keep"
         },
         "groundingRuleIds": [
@@ -6949,8 +6949,8 @@
           "matched": true
         },
         "dedup": {
-          "maxScore": 77.6,
-          "against": "posh-q-001",
+          "maxScore": 78.6,
+          "against": "posh-rule-21",
           "verdict": "keep"
         },
         "groundingRuleIds": [
@@ -7260,7 +7260,7 @@
           "matched": true
         },
         "dedup": {
-          "maxScore": 76.4,
+          "maxScore": 76.8,
           "against": "posh-rule-28",
           "verdict": "keep"
         },
@@ -7341,8 +7341,8 @@
           "matched": true
         },
         "dedup": {
-          "maxScore": 72.3,
-          "against": "posh-q-001",
+          "maxScore": 73.2,
+          "against": "posh-rule-20",
           "verdict": "keep"
         },
         "groundingRuleIds": [
@@ -7577,8 +7577,8 @@
           "matched": true
         },
         "dedup": {
-          "maxScore": 63.7,
-          "against": "posh-q-022",
+          "maxScore": 64.6,
+          "against": "posh-rule-18",
           "verdict": "keep"
         },
         "groundingRuleIds": [

@@ -1,12 +1,14 @@
 {
   "_note": "Hand review of the generated cloze cards for the CCS (Leave) Rules, 1972. This is the rule book with the densest numbers in the corpus and the highest yield: the durations and the credit rates ARE the rules. Two blanks that fell inside a compound number ('twenty-four months' cut to 'four months', 'twenty-eight months' cut to 'eight months') are repaired with an `edit` rather than dropped. Every card citing a maternity-leave figure of 135 days is rejected: that is the pre-2017 position appearing in an amendment note, and the current entitlement is 180 days.",
-
-  "ccs-leave-cloze-3-1": {
+  "ccs-leave-cloze-3-duration": {
     "verdict": "reject",
     "reason": "The stem is a fragment of the First Schedule's column layout."
   },
-  "ccs-leave-cloze-3-2": { "verdict": "reject", "reason": "Same Schedule fragment." },
-  "ccs-leave-cloze-4-1": {
+  "ccs-leave-cloze-3-definedterm": {
+    "verdict": "reject",
+    "reason": "Same Schedule fragment."
+  },
+  "ccs-leave-cloze-4-definedterm": {
     "verdict": "approve",
     "reason": "Rule 4 — these rules keep applying on temporary transfer and on foreign service.",
     "hi": {
@@ -14,7 +16,7 @@
       "answer": "विदेश सेवा"
     }
   },
-  "ccs-leave-cloze-5-1": {
+  "ccs-leave-cloze-5-crossreference": {
     "verdict": "approve",
     "reason": "Rule 5 — leave carried forward on transfer is capped by the accumulation limits in Rule 26.",
     "hi": {
@@ -22,11 +24,11 @@
       "answer": "नियम 26"
     }
   },
-  "ccs-leave-cloze-5-2": {
+  "ccs-leave-cloze-5-definedterm": {
     "verdict": "reject",
     "reason": "The stem trails into a DoPT notification number; the sentence is a citation, not a rule."
   },
-  "ccs-leave-cloze-6-1": {
+  "ccs-leave-cloze-6-duration": {
     "verdict": "approve",
     "reason": "Rule 6 — the 300-day ceiling on cash equivalent, the single most-cited number in this rule book.",
     "hi": {
@@ -34,15 +36,15 @@
       "answer": "300 दिन"
     }
   },
-  "ccs-leave-cloze-6-2": {
+  "ccs-leave-cloze-6-crossreference": {
     "verdict": "reject",
     "reason": "A self-reference to Rule 39 inside a proviso about modification; the sentence gives no way to recover the number."
   },
-  "ccs-leave-cloze-6-3": {
+  "ccs-leave-cloze-6-definedterm": {
     "verdict": "reject",
     "reason": "The stem repeats 'cash equivalent of leave salary' in the clause that follows the blank."
   },
-  "ccs-leave-cloze-7-1": {
+  "ccs-leave-cloze-7-crossreference": {
     "verdict": "approve",
     "reason": "Rule 7 proviso — leave applied for under Rule 20 (unlikely to be fit to return) cannot be refused without the Medical Authority.",
     "hi": {
@@ -50,7 +52,7 @@
       "answer": "नियम 20"
     }
   },
-  "ccs-leave-cloze-7-2": {
+  "ccs-leave-cloze-7-definedterm": {
     "verdict": "approve",
     "reason": "The same proviso, blanked on the body whose advice binds — the point officers miss is that it binds.",
     "hi": {
@@ -58,7 +60,7 @@
       "answer": "चिकित्सा प्राधिकारी"
     }
   },
-  "ccs-leave-cloze-9-1": {
+  "ccs-leave-cloze-9-crossreference": {
     "verdict": "approve",
     "reason": "Rule 9 — leave at credit lapses on dismissal, removal or resignation, except as Rule 39 provides.",
     "hi": {
@@ -66,11 +68,11 @@
       "answer": "नियम 39"
     }
   },
-  "ccs-leave-cloze-10-1": {
+  "ccs-leave-cloze-10-duration": {
     "verdict": "reject",
     "reason": "The stem is truncated before the request it describes, so the thirty-day period has nothing to attach to."
   },
-  "ccs-leave-cloze-10-2": {
+  "ccs-leave-cloze-10-crossreference": {
     "verdict": "approve",
     "reason": "The Note to Rule 10 — extraordinary leave may be retrospectively commuted into leave not due, subject to Rule 31's limits.",
     "hi": {
@@ -78,11 +80,11 @@
       "answer": "नियम 31"
     }
   },
-  "ccs-leave-cloze-10-3": {
+  "ccs-leave-cloze-10-count": {
     "verdict": "reject",
     "reason": "Answer is 'one', blanked out of 'one kind of leave into another'."
   },
-  "ccs-leave-cloze-11-1": {
+  "ccs-leave-cloze-11-definedterm": {
     "verdict": "approve",
     "reason": "The Explanation to Rule 11 — casual leave is not leave under these rules and cannot be combined with any leave that is.",
     "hi": {
@@ -90,7 +92,7 @@
       "answer": "आकस्मिक छुट्टी"
     }
   },
-  "ccs-leave-cloze-12-1": {
+  "ccs-leave-cloze-12-duration": {
     "verdict": "approve",
     "reason": "Rule 12(1) — the five-year cap on continuous leave of any kind.",
     "hi": {
@@ -98,11 +100,11 @@
       "answer": "पाँच वर्ष"
     }
   },
-  "ccs-leave-cloze-12-2": {
+  "ccs-leave-cloze-12-definedterm": {
     "verdict": "reject",
     "reason": "Answer is 'duty', which the surrounding sentence uses twice."
   },
-  "ccs-leave-cloze-13-1": {
+  "ccs-leave-cloze-13-crossreference": {
     "verdict": "approve",
     "reason": "Rule 13 — employment with a PSU during leave is governed by Rule 38(2)(a).",
     "hi": {
@@ -110,23 +112,23 @@
       "answer": "नियम 38"
     }
   },
-  "ccs-leave-cloze-13-2": {
+  "ccs-leave-cloze-13-definedterm": {
     "verdict": "reject",
     "reason": "The stem names 'leave preparatory to retirement' in a parenthesis of its own sentence."
   },
-  "ccs-leave-cloze-14-1": {
+  "ccs-leave-cloze-14-crossreference": {
     "verdict": "reject",
     "reason": "A cross-reference to another Act's section inside a list of guardians; the sentence gives no way to recover it."
   },
-  "ccs-leave-cloze-14-2": {
+  "ccs-leave-cloze-14-definedterm": {
     "verdict": "reject",
     "reason": "The stem repeats 'medical certificate' immediately after the blank."
   },
-  "ccs-leave-cloze-15-1": {
+  "ccs-leave-cloze-15-definedterm": {
     "verdict": "reject",
     "reason": "The stem names the leave account in Rule 15's own heading; nothing is recalled."
   },
-  "ccs-leave-cloze-16-1": {
+  "ccs-leave-cloze-16-duration": {
     "verdict": "approve",
     "reason": "Rule 16 — a provisional sanction pending verification may not exceed sixty days.",
     "hi": {
@@ -134,11 +136,11 @@
       "answer": "साठ दिन"
     }
   },
-  "ccs-leave-cloze-16-2": {
+  "ccs-leave-cloze-16-definedterm": {
     "verdict": "reject",
-    "reason": "Duplicate of ccs-leave-cloze-15-1's weakness — the leave account is the rule's own subject."
+    "reason": "Duplicate of ccs-leave-cloze-15-definedterm's weakness — the leave account is the rule's own subject."
   },
-  "ccs-leave-cloze-19-1": {
+  "ccs-leave-cloze-19-duration": {
     "verdict": "approve",
     "reason": "Rule 19(6) — the medical certificate may be waived for leave of not more than three days.",
     "hi": {
@@ -146,7 +148,7 @@
       "answer": "तीन दिन"
     }
   },
-  "ccs-leave-cloze-19-2": {
+  "ccs-leave-cloze-19-count": {
     "verdict": "approve",
     "reason": "Rule 19 — a Registered Medical Practitioner will do only where no Authorised Medical Attendant is within eight kilometres.",
     "hi": {
@@ -154,11 +156,11 @@
       "answer": "आठ"
     }
   },
-  "ccs-leave-cloze-19-3": {
+  "ccs-leave-cloze-19-definedterm": {
     "verdict": "reject",
     "reason": "The stem trails into a DoPT notification number and the blank sits in the rule's own heading."
   },
-  "ccs-leave-cloze-20-1": {
+  "ccs-leave-cloze-20-duration": {
     "verdict": "approve",
     "reason": "Rule 20 — where the Medical Authority cannot say the servant will never be fit, leave is granted twelve months at a time.",
     "hi": {
@@ -166,7 +168,7 @@
       "answer": "बारह मास"
     }
   },
-  "ccs-leave-cloze-20-2": {
+  "ccs-leave-cloze-20-crossreference": {
     "verdict": "approve",
     "reason": "Rule 20 — the Medical Authority is the one specified in Rule 19, not any doctor.",
     "hi": {
@@ -174,11 +176,11 @@
       "answer": "नियम 19"
     }
   },
-  "ccs-leave-cloze-20-3": {
+  "ccs-leave-cloze-20-definedterm": {
     "verdict": "reject",
     "reason": "The stem names the Medical Authority in Rule 20's own heading."
   },
-  "ccs-leave-cloze-21-1": {
+  "ccs-leave-cloze-21-crossreference": {
     "verdict": "approve",
     "reason": "Rule 21 — leave begins on the day charge is handed over, except where Rule 22 lets a holiday be prefixed.",
     "hi": {
@@ -186,20 +188,23 @@
       "answer": "नियम 22"
     }
   },
-  "ccs-leave-cloze-22-1": { "verdict": "reject", "reason": "Answer is 'duty', used twice more in the stem." },
-  "ccs-leave-cloze-23-1": {
+  "ccs-leave-cloze-22-definedterm": {
+    "verdict": "reject",
+    "reason": "Answer is 'duty', used twice more in the stem."
+  },
+  "ccs-leave-cloze-23-duration": {
     "verdict": "reject",
     "reason": "The stem is a fragment of a list about passage refunds; the three-month period has nothing to attach to."
   },
-  "ccs-leave-cloze-23-2": {
+  "ccs-leave-cloze-23-definedterm": {
     "verdict": "reject",
     "reason": "Answer is 'leave salary', the rule book's most repeated phrase, in a sentence about travelling allowance."
   },
-  "ccs-leave-cloze-24-1": {
+  "ccs-leave-cloze-24-duration": {
     "verdict": "reject",
     "reason": "The stem is a fragment of a list of exceptions to the Medical Board requirement."
   },
-  "ccs-leave-cloze-24-2": {
+  "ccs-leave-cloze-24-definedterm": {
     "verdict": "approve",
     "reason": "Rule 24(2) — a servant on leave preparatory to retirement cannot return to duty without consent. Officers assume they can.",
     "hi": {
@@ -207,7 +212,7 @@
       "answer": "सेवानिवृत्ति पूर्व छुट्टी"
     }
   },
-  "ccs-leave-cloze-25-1": {
+  "ccs-leave-cloze-25-definedterm": {
     "verdict": "approve",
     "reason": "Rule 25 — overstayal is debited as half pay leave, which is the consequence officers do not expect.",
     "hi": {
@@ -215,7 +220,7 @@
       "answer": "अर्ध वेतन छुट्टी"
     }
   },
-  "ccs-leave-cloze-26-1": {
+  "ccs-leave-cloze-26-duration": {
     "verdict": "approve",
     "reason": "Rule 26(1) — earned leave is credited in advance in two instalments of 15 days each.",
     "hi": {
@@ -223,11 +228,11 @@
       "answer": "15 दिन"
     }
   },
-  "ccs-leave-cloze-26-2": {
+  "ccs-leave-cloze-26-crossreference": {
     "verdict": "reject",
     "reason": "The blank cites Rule 5 of a different rule book (the CCS Joining Time Rules); the stem does not say so."
   },
-  "ccs-leave-cloze-26-3": {
+  "ccs-leave-cloze-26-count": {
     "verdict": "approve",
     "reason": "The other half of Rule 26(1) — two instalments, on 1 January and 1 July.",
     "hi": {
@@ -235,7 +240,7 @@
       "answer": "दो"
     }
   },
-  "ccs-leave-cloze-27-1": {
+  "ccs-leave-cloze-27-duration": {
     "verdict": "approve",
     "reason": "Rule 27 — the credit is reduced by one-tenth of the extraordinary leave or dies non, subject to a 15-day maximum.",
     "hi": {
@@ -243,7 +248,7 @@
       "answer": "15 दिन"
     }
   },
-  "ccs-leave-cloze-27-2": {
+  "ccs-leave-cloze-27-definedterm": {
     "verdict": "approve",
     "reason": "Rule 27(1) — 2½ days for each completed calendar month is the accrual rate.",
     "hi": {
@@ -251,7 +256,7 @@
       "answer": "अर्जित छुट्टी"
     }
   },
-  "ccs-leave-cloze-28-1": {
+  "ccs-leave-cloze-28-duration": {
     "verdict": "approve",
     "reason": "Rule 28 — a Vacation Department servant gets 5 days per instalment, not 15. The contrast with Rule 26 is the examinable point.",
     "hi": {
@@ -259,7 +264,7 @@
       "answer": "पाँच दिन"
     }
   },
-  "ccs-leave-cloze-28-2": {
+  "ccs-leave-cloze-28-crossreference": {
     "verdict": "approve",
     "reason": "Rule 28(1)(c) — a Vacation Department servant who takes no vacation in a year is credited under Rule 26 instead.",
     "hi": {
@@ -267,11 +272,11 @@
       "answer": "नियम 26"
     }
   },
-  "ccs-leave-cloze-28-3": {
+  "ccs-leave-cloze-28-count": {
     "verdict": "reject",
-    "reason": "Duplicate of ccs-leave-cloze-26-3 — the same 'two instalments' answer."
+    "reason": "Duplicate of ccs-leave-cloze-26-count — the same 'two instalments' answer."
   },
-  "ccs-leave-cloze-29-1": {
+  "ccs-leave-cloze-29-duration": {
     "verdict": "approve",
     "reason": "Rule 29 — half pay leave is credited in two instalments of ten days each.",
     "hi": {
@@ -279,7 +284,7 @@
       "answer": "दस दिन"
     }
   },
-  "ccs-leave-cloze-29-2": {
+  "ccs-leave-cloze-29-crossreference": {
     "verdict": "approve",
     "reason": "Rule 29(3) — a servant eligible for Departmental Leave under Rule 49 gets twenty days of half pay leave instead.",
     "hi": {
@@ -287,11 +292,11 @@
       "answer": "नियम 49"
     }
   },
-  "ccs-leave-cloze-29-3": {
+  "ccs-leave-cloze-29-definedterm": {
     "verdict": "reject",
     "reason": "The stem names half pay leave in Rule 29's own heading."
   },
-  "ccs-leave-cloze-30-1": {
+  "ccs-leave-cloze-30-duration": {
     "verdict": "approve",
     "reason": "Rule 30(1-A) — up to 180 days of commuted leave in the whole career without a medical certificate.",
     "hi": {
@@ -299,7 +304,7 @@
       "answer": "180 दिन"
     }
   },
-  "ccs-leave-cloze-30-2": {
+  "ccs-leave-cloze-30-definedterm": {
     "verdict": "approve",
     "reason": "Rule 30(1) — commuted leave is capped at half the half pay leave due and costs twice as much of it.",
     "hi": {
@@ -307,7 +312,7 @@
       "answer": "संपरिवर्तित छुट्टी"
     }
   },
-  "ccs-leave-cloze-31-1": {
+  "ccs-leave-cloze-31-duration": {
     "verdict": "approve",
     "reason": "Rule 31 — leave not due is limited to 360 days in the entire service.",
     "hi": {
@@ -315,7 +320,7 @@
       "answer": "360 दिन"
     }
   },
-  "ccs-leave-cloze-31-2": {
+  "ccs-leave-cloze-31-crossreference": {
     "verdict": "approve",
     "reason": "Rule 31 — the medical certificate for leave not due is the one described in Rule 32(2)(c) and (d).",
     "hi": {
@@ -323,7 +328,7 @@
       "answer": "नियम 32"
     }
   },
-  "ccs-leave-cloze-31-3": {
+  "ccs-leave-cloze-31-definedterm": {
     "verdict": "approve",
     "reason": "Rule 31 — leave not due is not available as leave preparatory to retirement.",
     "hi": {
@@ -331,7 +336,7 @@
       "answer": "अदेय छुट्टी"
     }
   },
-  "ccs-leave-cloze-32-1": {
+  "ccs-leave-cloze-32-duration": {
     "verdict": "approve",
     "reason": "Rule 32(2) — the six-month limit for a servant not in permanent employ where the leave is on medical certificate.",
     "hi": {
@@ -339,11 +344,11 @@
       "answer": "छह मास"
     }
   },
-  "ccs-leave-cloze-32-2": {
+  "ccs-leave-cloze-32-count": {
     "verdict": "reject",
     "reason": "Answer is 'one', blanked out of 'on any one occasion'."
   },
-  "ccs-leave-cloze-32-3": {
+  "ccs-leave-cloze-32-definedterm": {
     "verdict": "approve",
     "reason": "Rule 32(1) — the three circumstances in which extraordinary leave may be granted.",
     "hi": {
@@ -351,7 +356,7 @@
       "answer": "असाधारण छुट्टी"
     }
   },
-  "ccs-leave-cloze-33-1": {
+  "ccs-leave-cloze-33-duration": {
     "verdict": "approve",
     "reason": "Rule 33(3)(a) — an apprentice gets one month of medical leave in a year of apprenticeship, at half pay.",
     "hi": {
@@ -359,15 +364,15 @@
       "answer": "एक मास"
     }
   },
-  "ccs-leave-cloze-33-2": {
+  "ccs-leave-cloze-33-crossreference": {
     "verdict": "reject",
-    "reason": "Duplicate of ccs-leave-cloze-33-1's sentence, blanked on the cross-reference instead."
+    "reason": "Duplicate of ccs-leave-cloze-33-duration's sentence, blanked on the cross-reference instead."
   },
-  "ccs-leave-cloze-33-3": {
+  "ccs-leave-cloze-33-definedterm": {
     "verdict": "reject",
     "reason": "Same sentence again, blanked on 'extraordinary leave'."
   },
-  "ccs-leave-cloze-38-1": {
+  "ccs-leave-cloze-38-duration": {
     "verdict": "approve",
     "reason": "Rule 38 — leave preparatory to retirement is capped at 300 days of earned leave.",
     "hi": {
@@ -375,11 +380,11 @@
       "answer": "300 दिन"
     }
   },
-  "ccs-leave-cloze-38-2": {
+  "ccs-leave-cloze-38-definedterm": {
     "verdict": "reject",
-    "reason": "Duplicate of ccs-leave-cloze-38-1's sentence, blanked on 'earned leave'."
+    "reason": "Duplicate of ccs-leave-cloze-38-duration's sentence, blanked on 'earned leave'."
   },
-  "ccs-leave-cloze-38a-1": {
+  "ccs-leave-cloze-38a-duration": {
     "verdict": "approve",
     "reason": "Rule 38A — ten days of earned leave may be encashed with LTC, subject to sixty days in the whole career.",
     "hi": {
@@ -387,19 +392,19 @@
       "answer": "दस दिन"
     }
   },
-  "ccs-leave-cloze-38a-2": {
+  "ccs-leave-cloze-38a-definedterm": {
     "verdict": "reject",
     "reason": "The stem names encashment in the rule's own heading."
   },
-  "ccs-leave-cloze-39-1": {
+  "ccs-leave-cloze-39-duration": {
     "verdict": "reject",
     "reason": "The stem reads 'a maximum of ____ / 300 days as the case may be'; the blank has two possible answers and the sentence does not say which."
   },
-  "ccs-leave-cloze-39-2": {
+  "ccs-leave-cloze-39-definedterm": {
     "verdict": "reject",
     "reason": "The stem names the cash equivalent in Rule 39's own heading."
   },
-  "ccs-leave-cloze-40-1": {
+  "ccs-leave-cloze-40-crossreference": {
     "verdict": "approve",
     "reason": "Rule 40 — excess earned leave availed is recovered by reference to the Rule 27 credit rate.",
     "hi": {
@@ -407,15 +412,15 @@
       "answer": "नियम 27"
     }
   },
-  "ccs-leave-cloze-40-2": {
+  "ccs-leave-cloze-40-definedterm": {
     "verdict": "reject",
     "reason": "The stem trails into a DoPT letter number; the sentence is a Note, not a rule."
   },
-  "ccs-leave-cloze-41-1": {
+  "ccs-leave-cloze-41-amount": {
     "verdict": "reject",
     "reason": "The blank swallowed 'in India' as part of the answer — 'rupees in India' is not a term."
   },
-  "ccs-leave-cloze-42-1": {
+  "ccs-leave-cloze-42-duration": {
     "verdict": "approve",
     "reason": "Rule 42 — an advance of leave salary is available only for leave of not less than thirty days.",
     "hi": {
@@ -423,16 +428,19 @@
       "answer": "तीस दिन"
     }
   },
-  "ccs-leave-cloze-42-2": { "verdict": "reject", "reason": "The stem is a chapter heading, not a rule." },
-  "ccs-leave-cloze-43-1": {
+  "ccs-leave-cloze-42-definedterm": {
+    "verdict": "reject",
+    "reason": "The stem is a chapter heading, not a rule."
+  },
+  "ccs-leave-cloze-43-duration": {
     "verdict": "reject",
     "reason": "The stem is the amendment note '\"135 days\" substituted by 180 days'. A card answering 135 days would teach the pre-2017 position as current law."
   },
-  "ccs-leave-cloze-43-2": {
+  "ccs-leave-cloze-43-crossreference": {
     "verdict": "reject",
     "reason": "The stem trails into a DoPT notification number and the cross-reference is to a medical-certificate rule the sentence does not identify."
   },
-  "ccs-leave-cloze-43-3": {
+  "ccs-leave-cloze-43-definedterm": {
     "verdict": "approve",
     "reason": "Rule 43 — maternity leave is for a female Government servant with fewer than two surviving children, and the current period is 180 days.",
     "hi": {
@@ -440,7 +448,7 @@
       "answer": "मातृत्व छुट्टी"
     }
   },
-  "ccs-leave-cloze-43a-1": {
+  "ccs-leave-cloze-43a-duration": {
     "verdict": "approve",
     "reason": "Rule 43A — paternity leave may be taken up to fifteen days before or within six months of the date of delivery.",
     "hi": {
@@ -448,7 +456,7 @@
       "answer": "छह मास"
     }
   },
-  "ccs-leave-cloze-43a-2": {
+  "ccs-leave-cloze-43a-definedterm": {
     "verdict": "approve",
     "reason": "Rule 43A — paternity leave is for a male Government servant with fewer than two surviving children.",
     "hi": {
@@ -456,7 +464,7 @@
       "answer": "पितृत्व छुट्टी"
     }
   },
-  "ccs-leave-cloze-43aa-1": {
+  "ccs-leave-cloze-43aa-duration": {
     "verdict": "approve",
     "reason": "Rule 43AA — paternity leave on adoption is available only where the child is below one year.",
     "hi": {
@@ -464,11 +472,11 @@
       "answer": "एक वर्ष"
     }
   },
-  "ccs-leave-cloze-43aa-2": {
+  "ccs-leave-cloze-43aa-definedterm": {
     "verdict": "reject",
-    "reason": "Duplicate of ccs-leave-cloze-43aa-1's sentence, blanked on the leave's name."
+    "reason": "Duplicate of ccs-leave-cloze-43aa-duration's sentence, blanked on the leave's name."
   },
-  "ccs-leave-cloze-43b-1": {
+  "ccs-leave-cloze-43b-duration": {
     "verdict": "approve",
     "reason": "Rule 43B — commuted leave up to 60 days without a medical certificate may be combined with child adoption leave.",
     "hi": {
@@ -476,7 +484,7 @@
       "answer": "60 दिन"
     }
   },
-  "ccs-leave-cloze-43b-2": {
+  "ccs-leave-cloze-43b-definedterm": {
     "verdict": "approve",
     "reason": "Rule 43B — child adoption leave, like paternity leave on adoption, turns on the child being below one year.",
     "hi": {
@@ -484,7 +492,7 @@
       "answer": "बालक गोद लेने संबंधी छुट्टी"
     }
   },
-  "ccs-leave-cloze-43c-1": {
+  "ccs-leave-cloze-43c-duration": {
     "verdict": "approve",
     "reason": "Rule 43C — 730 days of child care leave in the entire service.",
     "hi": {
@@ -492,11 +500,11 @@
       "answer": "सात सौ तीस दिन"
     }
   },
-  "ccs-leave-cloze-43c-2": {
+  "ccs-leave-cloze-43c-crossreference": {
     "verdict": "reject",
     "reason": "The stem is an administrative instruction about relaxing spells, and the cross-reference is written '43-C(3)(i)', which the blank splits."
   },
-  "ccs-leave-cloze-43c-3": {
+  "ccs-leave-cloze-43c-count": {
     "verdict": "approve",
     "reason": "Rule 43C(2)(b) — child care leave for an offspring of any age requires a minimum disability of forty per cent.",
     "hi": {
@@ -504,11 +512,11 @@
       "answer": "चालीस"
     }
   },
-  "ccs-leave-cloze-44-1": {
+  "ccs-leave-cloze-44-duration": {
     "verdict": "reject",
     "reason": "The stem is truncated in the middle of the WRIIL pay scale, so the twelve-month figure has nothing to attach to."
   },
-  "ccs-leave-cloze-47-1": {
+  "ccs-leave-cloze-47-duration": {
     "verdict": "approve",
     "reason": "Rule 47 — seamen's sick leave on full pay is capped at six weeks.",
     "hi": {
@@ -516,11 +524,11 @@
       "answer": "छह सप्ताह"
     }
   },
-  "ccs-leave-cloze-47-2": {
+  "ccs-leave-cloze-47-crossreference": {
     "verdict": "reject",
     "reason": "A cross-reference to a section of the Workmen's Compensation Act that the stem does not identify."
   },
-  "ccs-leave-cloze-48-1": {
+  "ccs-leave-cloze-48-duration": {
     "verdict": "approve",
     "reason": "Rule 48 — up to 90 days of special leave for an aggrieved woman on the Internal Committee's recommendation, which is section 12(1) of the PoSH Act made operational.",
     "hi": {
@@ -528,7 +536,7 @@
       "answer": "90 दिन"
     }
   },
-  "ccs-leave-cloze-49-1": {
+  "ccs-leave-cloze-49-crossreference": {
     "verdict": "approve",
     "reason": "Rule 49(6)(a) — departmental leave salary is a percentage of what earned leave under Rule 40 would pay.",
     "hi": {
@@ -536,7 +544,7 @@
       "answer": "नियम 40"
     }
   },
-  "ccs-leave-cloze-49-2": {
+  "ccs-leave-cloze-49-percentage": {
     "verdict": "approve",
     "reason": "The same sub-rule, blanked on the percentage.",
     "hi": {
@@ -544,11 +552,11 @@
       "answer": "25 प्रतिशत"
     }
   },
-  "ccs-leave-cloze-49-3": {
+  "ccs-leave-cloze-49-definedterm": {
     "verdict": "reject",
     "reason": "The stem names departmental leave in Rule 49's own heading."
   },
-  "ccs-leave-cloze-50-1": {
+  "ccs-leave-cloze-50-duration": {
     "verdict": "approve",
     "reason": "Rule 50(5)(i) — five years of regular continuous service is the eligibility floor for study leave.",
     "hi": {
@@ -556,7 +564,7 @@
       "answer": "पाँच वर्ष"
     }
   },
-  "ccs-leave-cloze-50-2": {
+  "ccs-leave-cloze-50-crossreference": {
     "verdict": "approve",
     "reason": "Rule 50 — the thirty-six-month study leave for a Central Health Service Officer comes from Rule 51(2), and the retirement bar shifts with it.",
     "hi": {
@@ -564,11 +572,11 @@
       "answer": "नियम 51"
     }
   },
-  "ccs-leave-cloze-50-3": {
+  "ccs-leave-cloze-50-count": {
     "verdict": "reject",
     "reason": "The blank fell on 'thirty' inside 'thirty six months'."
   },
-  "ccs-leave-cloze-51-1": {
+  "ccs-leave-cloze-51-duration": {
     "verdict": "edit",
     "reason": "The blank fell inside 'twenty-four months', leaving 'twenty-____'. Widened to the whole career limit.",
     "en": {
@@ -580,7 +588,7 @@
       "answer": "चौबीस मास"
     }
   },
-  "ccs-leave-cloze-51-2": {
+  "ccs-leave-cloze-51-crossreference": {
     "verdict": "approve",
     "reason": "Rule 51(2) — the extended study leave for a Central Health Service Officer is conditional on the bond under Rule 53(4).",
     "hi": {
@@ -588,11 +596,11 @@
       "answer": "नियम 53"
     }
   },
-  "ccs-leave-cloze-51-3": {
+  "ccs-leave-cloze-51-definedterm": {
     "verdict": "reject",
     "reason": "The stem names study leave in Rule 51's own heading and trails into a notification number."
   },
-  "ccs-leave-cloze-54-1": {
+  "ccs-leave-cloze-54-duration": {
     "verdict": "edit",
     "reason": "The blank fell inside 'twenty-eight months', leaving 'twenty-____'. Widened.",
     "en": {
@@ -604,11 +612,11 @@
       "answer": "अट्ठाईस मास"
     }
   },
-  "ccs-leave-cloze-54-2": {
+  "ccs-leave-cloze-54-count": {
     "verdict": "reject",
-    "reason": "Duplicate of the compound number repaired in ccs-leave-cloze-54-1."
+    "reason": "Duplicate of the compound number repaired in ccs-leave-cloze-54-duration."
   },
-  "ccs-leave-cloze-56-1": {
+  "ccs-leave-cloze-56-crossreference": {
     "verdict": "approve",
     "reason": "Rule 56 — dearness and house rent allowance during study leave are governed by Rule 60.",
     "hi": {
@@ -616,7 +624,7 @@
       "answer": "नियम 60"
     }
   },
-  "ccs-leave-cloze-63-1": {
+  "ccs-leave-cloze-63-duration": {
     "verdict": "approve",
     "reason": "Rule 63 — resigning within three years of returning from study leave triggers the bond.",
     "hi": {
@@ -624,11 +632,11 @@
       "answer": "तीन वर्ष"
     }
   },
-  "ccs-leave-cloze-63-2": {
+  "ccs-leave-cloze-63-crossreference": {
     "verdict": "reject",
-    "reason": "Duplicate of ccs-leave-cloze-50-2 — the same Rule 51(2) cross-reference."
+    "reason": "Duplicate of ccs-leave-cloze-50-crossreference — the same Rule 51(2) cross-reference."
   },
-  "ccs-leave-cloze-66-1": {
+  "ccs-leave-cloze-66-duration": {
     "verdict": "approve",
     "reason": "The First Schedule — a foreign employer's leave-sanctioning power stops at 120 days of earned leave.",
     "hi": {
@@ -636,11 +644,11 @@
       "answer": "120 दिन"
     }
   },
-  "ccs-leave-cloze-66-2": {
+  "ccs-leave-cloze-66-crossreference": {
     "verdict": "reject",
     "reason": "The stem is the Schedule's own '[See Rule 3(c)]' reference line."
   },
-  "ccs-leave-cloze-66-3": {
+  "ccs-leave-cloze-66-definedterm": {
     "verdict": "reject",
     "reason": "The stem is a list of leave kinds in a Schedule column; the blank is one item of the list it prints."
   }

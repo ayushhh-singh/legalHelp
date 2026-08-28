@@ -3,8 +3,8 @@
   "threshold": 90.0,
   "scores": {
     "posh-q-001": {
-      "maxScore": 65.7,
-      "against": "posh-rule-10-1",
+      "maxScore": 77.3,
+      "against": "posh-rule-4",
       "verdict": "keep"
     },
     "posh-q-002": {
@@ -23,13 +23,13 @@
       "verdict": "keep"
     },
     "posh-q-005": {
-      "maxScore": 62.2,
-      "against": "posh-q-001",
+      "maxScore": 65.2,
+      "against": "posh-rule-11",
       "verdict": "keep"
     },
     "posh-q-006": {
-      "maxScore": 50.0,
-      "against": "posh-q-003",
+      "maxScore": 52.7,
+      "against": "posh-rule-3",
       "verdict": "keep"
     },
     "posh-q-007": {
@@ -49,17 +49,17 @@
     },
     "posh-q-010": {
       "maxScore": 63.5,
-      "against": "posh-cloze-15-2",
+      "against": "posh-cloze-15-definedterm",
       "verdict": "keep"
     },
     "posh-q-011": {
-      "maxScore": 64.2,
-      "against": "posh-q-007",
+      "maxScore": 65.2,
+      "against": "posh-rule-11",
       "verdict": "keep"
     },
     "posh-q-012": {
-      "maxScore": 58.0,
-      "against": "posh-q-001",
+      "maxScore": 65.1,
+      "against": "posh-rule-28",
       "verdict": "keep"
     },
     "posh-q-013": {
@@ -103,8 +103,8 @@
       "verdict": "keep"
     },
     "posh-q-021": {
-      "maxScore": 77.6,
-      "against": "posh-q-001",
+      "maxScore": 78.6,
+      "against": "posh-rule-21",
       "verdict": "keep"
     },
     "posh-q-022": {
@@ -123,13 +123,13 @@
       "verdict": "keep"
     },
     "posh-q-025": {
-      "maxScore": 76.4,
+      "maxScore": 76.8,
       "against": "posh-rule-28",
       "verdict": "keep"
     },
     "posh-q-026": {
-      "maxScore": 72.3,
-      "against": "posh-q-001",
+      "maxScore": 73.2,
+      "against": "posh-rule-20",
       "verdict": "keep"
     },
     "posh-q-027": {
@@ -143,8 +143,8 @@
       "verdict": "keep"
     },
     "posh-q-029": {
-      "maxScore": 63.7,
-      "against": "posh-q-022",
+      "maxScore": 64.6,
+      "against": "posh-rule-18",
       "verdict": "keep"
     },
     "posh-q-030": {

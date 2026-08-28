@@ -13141,7 +13141,7 @@
       }
     },
     {
-      "id": "ccs-pension-cloze-2-1",
+      "id": "ccs-pension-cloze-2-crossreference",
       "act": "ccs-pension",
       "rule": "2",
       "kind": "cloze",
@@ -13186,7 +13186,7 @@
       }
     },
     {
-      "id": "ccs-pension-cloze-2-2",
+      "id": "ccs-pension-cloze-2-definedterm",
       "act": "ccs-pension",
       "rule": "2",
       "kind": "cloze",
@@ -13231,7 +13231,7 @@
       }
     },
     {
-      "id": "ccs-pension-cloze-3-1",
+      "id": "ccs-pension-cloze-3-crossreference",
       "act": "ccs-pension",
       "rule": "3",
       "kind": "cloze",
@@ -13276,7 +13276,7 @@
       }
     },
     {
-      "id": "ccs-pension-cloze-3-2",
+      "id": "ccs-pension-cloze-3-definedterm",
       "act": "ccs-pension",
       "rule": "3",
       "kind": "cloze",
@@ -13321,7 +13321,7 @@
       }
     },
     {
-      "id": "ccs-pension-cloze-4-1",
+      "id": "ccs-pension-cloze-4-duration",
       "act": "ccs-pension",
       "rule": "4",
       "kind": "cloze",
@@ -13366,7 +13366,7 @@
       }
     },
     {
-      "id": "ccs-pension-cloze-5-1",
+      "id": "ccs-pension-cloze-5-definedterm",
       "act": "ccs-pension",
       "rule": "5",
       "kind": "cloze",
@@ -13411,7 +13411,7 @@
       }
     },
     {
-      "id": "ccs-pension-cloze-6-1",
+      "id": "ccs-pension-cloze-6-crossreference",
       "act": "ccs-pension",
       "rule": "6",
       "kind": "cloze",
@@ -13456,7 +13456,7 @@
       }
     },
     {
-      "id": "ccs-pension-cloze-6-2",
+      "id": "ccs-pension-cloze-6-count",
       "act": "ccs-pension",
       "rule": "6",
       "kind": "cloze",
@@ -13501,7 +13501,7 @@
       }
     },
     {
-      "id": "ccs-pension-cloze-6-3",
+      "id": "ccs-pension-cloze-6-definedterm",
       "act": "ccs-pension",
       "rule": "6",
       "kind": "cloze",
@@ -13546,7 +13546,7 @@
       }
     },
     {
-      "id": "ccs-pension-cloze-7-1",
+      "id": "ccs-pension-cloze-7-duration",
       "act": "ccs-pension",
       "rule": "7",
       "kind": "cloze",
@@ -13591,7 +13591,7 @@
       }
     },
     {
-      "id": "ccs-pension-cloze-7-2",
+      "id": "ccs-pension-cloze-7-crossreference",
       "act": "ccs-pension",
       "rule": "7",
       "kind": "cloze",
@@ -13636,7 +13636,7 @@
       }
     },
     {
-      "id": "ccs-pension-cloze-7-3",
+      "id": "ccs-pension-cloze-7-count",
       "act": "ccs-pension",
       "rule": "7",
       "kind": "cloze",
@@ -13681,7 +13681,7 @@
       }
     },
     {
-      "id": "ccs-pension-cloze-8-1",
+      "id": "ccs-pension-cloze-8-duration",
       "act": "ccs-pension",
       "rule": "8",
       "kind": "cloze",
@@ -13726,7 +13726,7 @@
       }
     },
     {
-      "id": "ccs-pension-cloze-8-2",
+      "id": "ccs-pension-cloze-8-crossreference",
       "act": "ccs-pension",
       "rule": "8",
       "kind": "cloze",
@@ -13771,7 +13771,7 @@
       }
     },
     {
-      "id": "ccs-pension-cloze-8-3",
+      "id": "ccs-pension-cloze-8-definedterm",
       "act": "ccs-pension",
       "rule": "8",
       "kind": "cloze",
@@ -13816,7 +13816,7 @@
       }
     },
     {
-      "id": "ccs-pension-cloze-9-1",
+      "id": "ccs-pension-cloze-9-duration",
       "act": "ccs-pension",
       "rule": "9",
       "kind": "cloze",
@@ -13861,7 +13861,7 @@
       }
     },
     {
-      "id": "ccs-pension-cloze-9-2",
+      "id": "ccs-pension-cloze-9-definedterm",
       "act": "ccs-pension",
       "rule": "9",
       "kind": "cloze",
@@ -13906,7 +13906,7 @@
       }
     },
     {
-      "id": "ccs-pension-cloze-10-1",
+      "id": "ccs-pension-cloze-10-definedterm",
       "act": "ccs-pension",
       "rule": "10",
       "kind": "cloze",
@@ -13951,7 +13951,7 @@
       }
     },
     {
-      "id": "ccs-pension-cloze-11-1",
+      "id": "ccs-pension-cloze-11-crossreference",
       "act": "ccs-pension",
       "rule": "11",
       "kind": "cloze",
@@ -13996,7 +13996,7 @@
       }
     },
     {
-      "id": "ccs-pension-cloze-13-1",
+      "id": "ccs-pension-cloze-13-definedterm",
       "act": "ccs-pension",
       "rule": "13",
       "kind": "cloze",
@@ -14041,7 +14041,7 @@
       }
     },
     {
-      "id": "ccs-pension-cloze-14-1",
+      "id": "ccs-pension-cloze-14-definedterm",
       "act": "ccs-pension",
       "rule": "14",
       "kind": "cloze",
@@ -14086,7 +14086,7 @@
       }
     },
     {
-      "id": "ccs-pension-cloze-15-1",
+      "id": "ccs-pension-cloze-15-count",
       "act": "ccs-pension",
       "rule": "15",
       "kind": "cloze",
@@ -14131,7 +14131,7 @@
       }
     },
     {
-      "id": "ccs-pension-cloze-19-1",
+      "id": "ccs-pension-cloze-19-count",
       "act": "ccs-pension",
       "rule": "19",
       "kind": "cloze",
@@ -14176,7 +14176,7 @@
       }
     },
     {
-      "id": "ccs-pension-cloze-19-2",
+      "id": "ccs-pension-cloze-19-definedterm",
       "act": "ccs-pension",
       "rule": "19",
       "kind": "cloze",
@@ -14221,7 +14221,7 @@
       }
     },
     {
-      "id": "ccs-pension-cloze-20-1",
+      "id": "ccs-pension-cloze-20-crossreference",
       "act": "ccs-pension",
       "rule": "20",
       "kind": "cloze",
@@ -14266,7 +14266,7 @@
       }
     },
     {
-      "id": "ccs-pension-cloze-20-2",
+      "id": "ccs-pension-cloze-20-definedterm",
       "act": "ccs-pension",
       "rule": "20",
       "kind": "cloze",
@@ -14311,7 +14311,7 @@
       }
     },
     {
-      "id": "ccs-pension-cloze-21-1",
+      "id": "ccs-pension-cloze-21-duration",
       "act": "ccs-pension",
       "rule": "21",
       "kind": "cloze",
@@ -14356,7 +14356,7 @@
       }
     },
     {
-      "id": "ccs-pension-cloze-21-2",
+      "id": "ccs-pension-cloze-21-definedterm",
       "act": "ccs-pension",
       "rule": "21",
       "kind": "cloze",
@@ -14401,7 +14401,7 @@
       }
     },
     {
-      "id": "ccs-pension-cloze-25-1",
+      "id": "ccs-pension-cloze-25-definedterm",
       "act": "ccs-pension",
       "rule": "25",
       "kind": "cloze",
@@ -14446,7 +14446,7 @@
       }
     },
     {
-      "id": "ccs-pension-cloze-26-1",
+      "id": "ccs-pension-cloze-26-duration",
       "act": "ccs-pension",
       "rule": "26",
       "kind": "cloze",
@@ -14491,7 +14491,7 @@
       }
     },
     {
-      "id": "ccs-pension-cloze-26-2",
+      "id": "ccs-pension-cloze-26-crossreference",
       "act": "ccs-pension",
       "rule": "26",
       "kind": "cloze",
@@ -14536,7 +14536,7 @@
       }
     },
     {
-      "id": "ccs-pension-cloze-26-3",
+      "id": "ccs-pension-cloze-26-definedterm",
       "act": "ccs-pension",
       "rule": "26",
       "kind": "cloze",
@@ -14581,7 +14581,7 @@
       }
     },
     {
-      "id": "ccs-pension-cloze-27-1",
+      "id": "ccs-pension-cloze-27-count",
       "act": "ccs-pension",
       "rule": "27",
       "kind": "cloze",
@@ -14626,7 +14626,7 @@
       }
     },
     {
-      "id": "ccs-pension-cloze-28-1",
+      "id": "ccs-pension-cloze-28-definedterm",
       "act": "ccs-pension",
       "rule": "28",
       "kind": "cloze",
@@ -14671,7 +14671,7 @@
       }
     },
     {
-      "id": "ccs-pension-cloze-30-1",
+      "id": "ccs-pension-cloze-30-duration",
       "act": "ccs-pension",
       "rule": "30",
       "kind": "cloze",
@@ -14716,7 +14716,7 @@
       }
     },
     {
-      "id": "ccs-pension-cloze-30-2",
+      "id": "ccs-pension-cloze-30-crossreference",
       "act": "ccs-pension",
       "rule": "30",
       "kind": "cloze",
@@ -14761,7 +14761,7 @@
       }
     },
     {
-      "id": "ccs-pension-cloze-30-3",
+      "id": "ccs-pension-cloze-30-definedterm",
       "act": "ccs-pension",
       "rule": "30",
       "kind": "cloze",
@@ -14806,7 +14806,7 @@
       }
     },
     {
-      "id": "ccs-pension-cloze-31-1",
+      "id": "ccs-pension-cloze-31-definedterm",
       "act": "ccs-pension",
       "rule": "31",
       "kind": "cloze",
@@ -14851,7 +14851,7 @@
       }
     },
     {
-      "id": "ccs-pension-cloze-32-1",
+      "id": "ccs-pension-cloze-32-duration",
       "act": "ccs-pension",
       "rule": "32",
       "kind": "cloze",
@@ -14896,7 +14896,7 @@
       }
     },
     {
-      "id": "ccs-pension-cloze-32-2",
+      "id": "ccs-pension-cloze-32-count",
       "act": "ccs-pension",
       "rule": "32",
       "kind": "cloze",
@@ -14941,7 +14941,7 @@
       }
     },
     {
-      "id": "ccs-pension-cloze-32-3",
+      "id": "ccs-pension-cloze-32-definedterm",
       "act": "ccs-pension",
       "rule": "32",
       "kind": "cloze",
@@ -14986,7 +14986,7 @@
       }
     },
     {
-      "id": "ccs-pension-cloze-33-1",
+      "id": "ccs-pension-cloze-33-definedterm",
       "act": "ccs-pension",
       "rule": "33",
       "kind": "cloze",
@@ -15031,7 +15031,7 @@
       }
     },
     {
-      "id": "ccs-pension-cloze-34-1",
+      "id": "ccs-pension-cloze-34-crossreference",
       "act": "ccs-pension",
       "rule": "34",
       "kind": "cloze",
@@ -15076,7 +15076,7 @@
       }
     },
     {
-      "id": "ccs-pension-cloze-34-2",
+      "id": "ccs-pension-cloze-34-definedterm",
       "act": "ccs-pension",
       "rule": "34",
       "kind": "cloze",
@@ -15121,7 +15121,7 @@
       }
     },
     {
-      "id": "ccs-pension-cloze-35-1",
+      "id": "ccs-pension-cloze-35-crossreference",
       "act": "ccs-pension",
       "rule": "35",
       "kind": "cloze",
@@ -15166,7 +15166,7 @@
       }
     },
     {
-      "id": "ccs-pension-cloze-35-2",
+      "id": "ccs-pension-cloze-35-definedterm",
       "act": "ccs-pension",
       "rule": "35",
       "kind": "cloze",
@@ -15211,7 +15211,7 @@
       }
     },
     {
-      "id": "ccs-pension-cloze-36-1",
+      "id": "ccs-pension-cloze-36-crossreference",
       "act": "ccs-pension",
       "rule": "36",
       "kind": "cloze",
@@ -15256,7 +15256,7 @@
       }
     },
     {
-      "id": "ccs-pension-cloze-36-2",
+      "id": "ccs-pension-cloze-36-definedterm",
       "act": "ccs-pension",
       "rule": "36",
       "kind": "cloze",
@@ -15301,7 +15301,7 @@
       }
     },
     {
-      "id": "ccs-pension-cloze-37-1",
+      "id": "ccs-pension-cloze-37-duration",
       "act": "ccs-pension",
       "rule": "37",
       "kind": "cloze",
@@ -15346,7 +15346,7 @@
       }
     },
     {
-      "id": "ccs-pension-cloze-37-2",
+      "id": "ccs-pension-cloze-37-definedterm",
       "act": "ccs-pension",
       "rule": "37",
       "kind": "cloze",
@@ -15391,7 +15391,7 @@
       }
     },
     {
-      "id": "ccs-pension-cloze-38-1",
+      "id": "ccs-pension-cloze-38-duration",
       "act": "ccs-pension",
       "rule": "38",
       "kind": "cloze",
@@ -15436,7 +15436,7 @@
       }
     },
     {
-      "id": "ccs-pension-cloze-38-2",
+      "id": "ccs-pension-cloze-38-definedterm",
       "act": "ccs-pension",
       "rule": "38",
       "kind": "cloze",
@@ -15481,7 +15481,7 @@
       }
     },
     {
-      "id": "ccs-pension-cloze-39-1",
+      "id": "ccs-pension-cloze-39-duration",
       "act": "ccs-pension",
       "rule": "39",
       "kind": "cloze",
@@ -15526,7 +15526,7 @@
       }
     },
     {
-      "id": "ccs-pension-cloze-39-2",
+      "id": "ccs-pension-cloze-39-amount",
       "act": "ccs-pension",
       "rule": "39",
       "kind": "cloze",
@@ -15571,7 +15571,7 @@
       }
     },
     {
-      "id": "ccs-pension-cloze-39-3",
+      "id": "ccs-pension-cloze-39-crossreference",
       "act": "ccs-pension",
       "rule": "39",
       "kind": "cloze",
@@ -15616,7 +15616,7 @@
       }
     },
     {
-      "id": "ccs-pension-cloze-40-1",
+      "id": "ccs-pension-cloze-40-duration",
       "act": "ccs-pension",
       "rule": "40",
       "kind": "cloze",
@@ -15661,7 +15661,7 @@
       }
     },
     {
-      "id": "ccs-pension-cloze-40-2",
+      "id": "ccs-pension-cloze-40-definedterm",
       "act": "ccs-pension",
       "rule": "40",
       "kind": "cloze",
@@ -15706,7 +15706,7 @@
       }
     },
     {
-      "id": "ccs-pension-cloze-41-1",
+      "id": "ccs-pension-cloze-41-definedterm",
       "act": "ccs-pension",
       "rule": "41",
       "kind": "cloze",
@@ -15751,7 +15751,7 @@
       }
     },
     {
-      "id": "ccs-pension-cloze-42-1",
+      "id": "ccs-pension-cloze-42-duration",
       "act": "ccs-pension",
       "rule": "42",
       "kind": "cloze",
@@ -15796,7 +15796,7 @@
       }
     },
     {
-      "id": "ccs-pension-cloze-42-2",
+      "id": "ccs-pension-cloze-42-crossreference",
       "act": "ccs-pension",
       "rule": "42",
       "kind": "cloze",
@@ -15841,7 +15841,7 @@
       }
     },
     {
-      "id": "ccs-pension-cloze-42-3",
+      "id": "ccs-pension-cloze-42-definedterm",
       "act": "ccs-pension",
       "rule": "42",
       "kind": "cloze",
@@ -15886,7 +15886,7 @@
       }
     },
     {
-      "id": "ccs-pension-cloze-43-1",
+      "id": "ccs-pension-cloze-43-duration",
       "act": "ccs-pension",
       "rule": "43",
       "kind": "cloze",
@@ -15931,7 +15931,7 @@
       }
     },
     {
-      "id": "ccs-pension-cloze-43-2",
+      "id": "ccs-pension-cloze-43-crossreference",
       "act": "ccs-pension",
       "rule": "43",
       "kind": "cloze",
@@ -15976,7 +15976,7 @@
       }
     },
     {
-      "id": "ccs-pension-cloze-43-3",
+      "id": "ccs-pension-cloze-43-count",
       "act": "ccs-pension",
       "rule": "43",
       "kind": "cloze",
@@ -16021,7 +16021,7 @@
       }
     },
     {
-      "id": "ccs-pension-cloze-44-1",
+      "id": "ccs-pension-cloze-44-duration",
       "act": "ccs-pension",
       "rule": "44",
       "kind": "cloze",
@@ -16066,7 +16066,7 @@
       }
     },
     {
-      "id": "ccs-pension-cloze-44-2",
+      "id": "ccs-pension-cloze-44-crossreference",
       "act": "ccs-pension",
       "rule": "44",
       "kind": "cloze",
@@ -16111,7 +16111,7 @@
       }
     },
     {
-      "id": "ccs-pension-cloze-44-3",
+      "id": "ccs-pension-cloze-44-percentage",
       "act": "ccs-pension",
       "rule": "44",
       "kind": "cloze",
@@ -16156,7 +16156,7 @@
       }
     },
     {
-      "id": "ccs-pension-cloze-45-1",
+      "id": "ccs-pension-cloze-45-duration",
       "act": "ccs-pension",
       "rule": "45",
       "kind": "cloze",
@@ -16201,7 +16201,7 @@
       }
     },
     {
-      "id": "ccs-pension-cloze-45-2",
+      "id": "ccs-pension-cloze-45-crossreference",
       "act": "ccs-pension",
       "rule": "45",
       "kind": "cloze",
@@ -16246,7 +16246,7 @@
       }
     },
     {
-      "id": "ccs-pension-cloze-45-3",
+      "id": "ccs-pension-cloze-45-count",
       "act": "ccs-pension",
       "rule": "45",
       "kind": "cloze",
@@ -16291,7 +16291,7 @@
       }
     },
     {
-      "id": "ccs-pension-cloze-46-1",
+      "id": "ccs-pension-cloze-46-definedterm",
       "act": "ccs-pension",
       "rule": "46",
       "kind": "cloze",
@@ -16336,7 +16336,7 @@
       }
     },
     {
-      "id": "ccs-pension-cloze-47-1",
+      "id": "ccs-pension-cloze-47-crossreference",
       "act": "ccs-pension",
       "rule": "47",
       "kind": "cloze",
@@ -16381,7 +16381,7 @@
       }
     },
     {
-      "id": "ccs-pension-cloze-47-2",
+      "id": "ccs-pension-cloze-47-definedterm",
       "act": "ccs-pension",
       "rule": "47",
       "kind": "cloze",
@@ -16426,7 +16426,7 @@
       }
     },
     {
-      "id": "ccs-pension-cloze-48-1",
+      "id": "ccs-pension-cloze-48-crossreference",
       "act": "ccs-pension",
       "rule": "48",
       "kind": "cloze",
@@ -16471,7 +16471,7 @@
       }
     },
     {
-      "id": "ccs-pension-cloze-48-2",
+      "id": "ccs-pension-cloze-48-definedterm",
       "act": "ccs-pension",
       "rule": "48",
       "kind": "cloze",
@@ -16516,7 +16516,7 @@
       }
     },
     {
-      "id": "ccs-pension-cloze-50-1",
+      "id": "ccs-pension-cloze-50-duration",
       "act": "ccs-pension",
       "rule": "50",
       "kind": "cloze",
@@ -16561,7 +16561,7 @@
       }
     },
     {
-      "id": "ccs-pension-cloze-50-2",
+      "id": "ccs-pension-cloze-50-amount",
       "act": "ccs-pension",
       "rule": "50",
       "kind": "cloze",
@@ -16606,7 +16606,7 @@
       }
     },
     {
-      "id": "ccs-pension-cloze-50-3",
+      "id": "ccs-pension-cloze-50-crossreference",
       "act": "ccs-pension",
       "rule": "50",
       "kind": "cloze",
@@ -16651,7 +16651,7 @@
       }
     },
     {
-      "id": "ccs-pension-cloze-51-1",
+      "id": "ccs-pension-cloze-51-duration",
       "act": "ccs-pension",
       "rule": "51",
       "kind": "cloze",
@@ -16696,7 +16696,7 @@
       }
     },
     {
-      "id": "ccs-pension-cloze-51-2",
+      "id": "ccs-pension-cloze-51-crossreference",
       "act": "ccs-pension",
       "rule": "51",
       "kind": "cloze",
@@ -16741,7 +16741,7 @@
       }
     },
     {
-      "id": "ccs-pension-cloze-51-3",
+      "id": "ccs-pension-cloze-51-definedterm",
       "act": "ccs-pension",
       "rule": "51",
       "kind": "cloze",
@@ -16786,7 +16786,7 @@
       }
     },
     {
-      "id": "ccs-pension-cloze-52-1",
+      "id": "ccs-pension-cloze-52-crossreference",
       "act": "ccs-pension",
       "rule": "52",
       "kind": "cloze",
@@ -16831,7 +16831,7 @@
       }
     },
     {
-      "id": "ccs-pension-cloze-52-2",
+      "id": "ccs-pension-cloze-52-definedterm",
       "act": "ccs-pension",
       "rule": "52",
       "kind": "cloze",
@@ -16876,7 +16876,7 @@
       }
     },
     {
-      "id": "ccs-pension-cloze-54-1",
+      "id": "ccs-pension-cloze-54-duration",
       "act": "ccs-pension",
       "rule": "54",
       "kind": "cloze",
@@ -16921,7 +16921,7 @@
       }
     },
     {
-      "id": "ccs-pension-cloze-54-2",
+      "id": "ccs-pension-cloze-54-definedterm",
       "act": "ccs-pension",
       "rule": "54",
       "kind": "cloze",
@@ -16966,7 +16966,7 @@
       }
     },
     {
-      "id": "ccs-pension-cloze-55-1",
+      "id": "ccs-pension-cloze-55-duration",
       "act": "ccs-pension",
       "rule": "55",
       "kind": "cloze",
@@ -17011,7 +17011,7 @@
       }
     },
     {
-      "id": "ccs-pension-cloze-55-2",
+      "id": "ccs-pension-cloze-55-crossreference",
       "act": "ccs-pension",
       "rule": "55",
       "kind": "cloze",
@@ -17056,7 +17056,7 @@
       }
     },
     {
-      "id": "ccs-pension-cloze-55-3",
+      "id": "ccs-pension-cloze-55-definedterm",
       "act": "ccs-pension",
       "rule": "55",
       "kind": "cloze",
@@ -17101,7 +17101,7 @@
       }
     },
     {
-      "id": "ccs-pension-cloze-57-1",
+      "id": "ccs-pension-cloze-57-duration",
       "act": "ccs-pension",
       "rule": "57",
       "kind": "cloze",
@@ -17146,7 +17146,7 @@
       }
     },
     {
-      "id": "ccs-pension-cloze-57-2",
+      "id": "ccs-pension-cloze-57-crossreference",
       "act": "ccs-pension",
       "rule": "57",
       "kind": "cloze",
@@ -17191,7 +17191,7 @@
       }
     },
     {
-      "id": "ccs-pension-cloze-57-3",
+      "id": "ccs-pension-cloze-57-count",
       "act": "ccs-pension",
       "rule": "57",
       "kind": "cloze",
@@ -17236,7 +17236,7 @@
       }
     },
     {
-      "id": "ccs-pension-cloze-58-1",
+      "id": "ccs-pension-cloze-58-definedterm",
       "act": "ccs-pension",
       "rule": "58",
       "kind": "cloze",
@@ -17281,7 +17281,7 @@
       }
     },
     {
-      "id": "ccs-pension-cloze-59-1",
+      "id": "ccs-pension-cloze-59-duration",
       "act": "ccs-pension",
       "rule": "59",
       "kind": "cloze",
@@ -17326,7 +17326,7 @@
       }
     },
     {
-      "id": "ccs-pension-cloze-59-2",
+      "id": "ccs-pension-cloze-59-crossreference",
       "act": "ccs-pension",
       "rule": "59",
       "kind": "cloze",
@@ -17371,7 +17371,7 @@
       }
     },
     {
-      "id": "ccs-pension-cloze-60-1",
+      "id": "ccs-pension-cloze-60-duration",
       "act": "ccs-pension",
       "rule": "60",
       "kind": "cloze",
@@ -17416,7 +17416,7 @@
       }
     },
     {
-      "id": "ccs-pension-cloze-60-2",
+      "id": "ccs-pension-cloze-60-crossreference",
       "act": "ccs-pension",
       "rule": "60",
       "kind": "cloze",
@@ -17461,7 +17461,7 @@
       }
     },
     {
-      "id": "ccs-pension-cloze-60-3",
+      "id": "ccs-pension-cloze-60-definedterm",
       "act": "ccs-pension",
       "rule": "60",
       "kind": "cloze",
@@ -17506,7 +17506,7 @@
       }
     },
     {
-      "id": "ccs-pension-cloze-61-1",
+      "id": "ccs-pension-cloze-61-crossreference",
       "act": "ccs-pension",
       "rule": "61",
       "kind": "cloze",
@@ -17551,7 +17551,7 @@
       }
     },
     {
-      "id": "ccs-pension-cloze-62-1",
+      "id": "ccs-pension-cloze-62-duration",
       "act": "ccs-pension",
       "rule": "62",
       "kind": "cloze",
@@ -17596,7 +17596,7 @@
       }
     },
     {
-      "id": "ccs-pension-cloze-62-2",
+      "id": "ccs-pension-cloze-62-crossreference",
       "act": "ccs-pension",
       "rule": "62",
       "kind": "cloze",
@@ -17641,7 +17641,7 @@
       }
     },
     {
-      "id": "ccs-pension-cloze-62-3",
+      "id": "ccs-pension-cloze-62-percentage",
       "act": "ccs-pension",
       "rule": "62",
       "kind": "cloze",
@@ -17686,7 +17686,7 @@
       }
     },
     {
-      "id": "ccs-pension-cloze-63-1",
+      "id": "ccs-pension-cloze-63-duration",
       "act": "ccs-pension",
       "rule": "63",
       "kind": "cloze",
@@ -17731,7 +17731,7 @@
       }
     },
     {
-      "id": "ccs-pension-cloze-63-2",
+      "id": "ccs-pension-cloze-63-crossreference",
       "act": "ccs-pension",
       "rule": "63",
       "kind": "cloze",
@@ -17776,7 +17776,7 @@
       }
     },
     {
-      "id": "ccs-pension-cloze-63-3",
+      "id": "ccs-pension-cloze-63-count",
       "act": "ccs-pension",
       "rule": "63",
       "kind": "cloze",
@@ -17821,7 +17821,7 @@
       }
     },
     {
-      "id": "ccs-pension-cloze-65-1",
+      "id": "ccs-pension-cloze-65-crossreference",
       "act": "ccs-pension",
       "rule": "65",
       "kind": "cloze",
@@ -17866,7 +17866,7 @@
       }
     },
     {
-      "id": "ccs-pension-cloze-65-2",
+      "id": "ccs-pension-cloze-65-definedterm",
       "act": "ccs-pension",
       "rule": "65",
       "kind": "cloze",
@@ -17911,7 +17911,7 @@
       }
     },
     {
-      "id": "ccs-pension-cloze-66-1",
+      "id": "ccs-pension-cloze-66-duration",
       "act": "ccs-pension",
       "rule": "66",
       "kind": "cloze",
@@ -17956,7 +17956,7 @@
       }
     },
     {
-      "id": "ccs-pension-cloze-66-2",
+      "id": "ccs-pension-cloze-66-crossreference",
       "act": "ccs-pension",
       "rule": "66",
       "kind": "cloze",
@@ -18001,7 +18001,7 @@
       }
     },
     {
-      "id": "ccs-pension-cloze-66-3",
+      "id": "ccs-pension-cloze-66-definedterm",
       "act": "ccs-pension",
       "rule": "66",
       "kind": "cloze",
@@ -18046,7 +18046,7 @@
       }
     },
     {
-      "id": "ccs-pension-cloze-68-1",
+      "id": "ccs-pension-cloze-68-duration",
       "act": "ccs-pension",
       "rule": "68",
       "kind": "cloze",
@@ -18091,7 +18091,7 @@
       }
     },
     {
-      "id": "ccs-pension-cloze-68-2",
+      "id": "ccs-pension-cloze-68-crossreference",
       "act": "ccs-pension",
       "rule": "68",
       "kind": "cloze",
@@ -18136,7 +18136,7 @@
       }
     },
     {
-      "id": "ccs-pension-cloze-68-3",
+      "id": "ccs-pension-cloze-68-count",
       "act": "ccs-pension",
       "rule": "68",
       "kind": "cloze",
@@ -18181,7 +18181,7 @@
       }
     },
     {
-      "id": "ccs-pension-cloze-69-1",
+      "id": "ccs-pension-cloze-69-duration",
       "act": "ccs-pension",
       "rule": "69",
       "kind": "cloze",
@@ -18226,7 +18226,7 @@
       }
     },
     {
-      "id": "ccs-pension-cloze-69-2",
+      "id": "ccs-pension-cloze-69-crossreference",
       "act": "ccs-pension",
       "rule": "69",
       "kind": "cloze",
@@ -18271,7 +18271,7 @@
       }
     },
     {
-      "id": "ccs-pension-cloze-71-1",
+      "id": "ccs-pension-cloze-71-duration",
       "act": "ccs-pension",
       "rule": "71",
       "kind": "cloze",
@@ -18316,7 +18316,7 @@
       }
     },
     {
-      "id": "ccs-pension-cloze-71-2",
+      "id": "ccs-pension-cloze-71-crossreference",
       "act": "ccs-pension",
       "rule": "71",
       "kind": "cloze",
@@ -18361,7 +18361,7 @@
       }
     },
     {
-      "id": "ccs-pension-cloze-71-3",
+      "id": "ccs-pension-cloze-71-definedterm",
       "act": "ccs-pension",
       "rule": "71",
       "kind": "cloze",
@@ -18406,7 +18406,7 @@
       }
     },
     {
-      "id": "ccs-pension-cloze-72-1",
+      "id": "ccs-pension-cloze-72-duration",
       "act": "ccs-pension",
       "rule": "72",
       "kind": "cloze",
@@ -18451,7 +18451,7 @@
       }
     },
     {
-      "id": "ccs-pension-cloze-73-1",
+      "id": "ccs-pension-cloze-73-duration",
       "act": "ccs-pension",
       "rule": "73",
       "kind": "cloze",
@@ -18496,7 +18496,7 @@
       }
     },
     {
-      "id": "ccs-pension-cloze-73-2",
+      "id": "ccs-pension-cloze-73-crossreference",
       "act": "ccs-pension",
       "rule": "73",
       "kind": "cloze",
@@ -18541,7 +18541,7 @@
       }
     },
     {
-      "id": "ccs-pension-cloze-74-1",
+      "id": "ccs-pension-cloze-74-crossreference",
       "act": "ccs-pension",
       "rule": "74",
       "kind": "cloze",
@@ -18586,7 +18586,7 @@
       }
     },
     {
-      "id": "ccs-pension-cloze-74-2",
+      "id": "ccs-pension-cloze-74-count",
       "act": "ccs-pension",
       "rule": "74",
       "kind": "cloze",
@@ -18631,7 +18631,7 @@
       }
     },
     {
-      "id": "ccs-pension-cloze-75-1",
+      "id": "ccs-pension-cloze-75-crossreference",
       "act": "ccs-pension",
       "rule": "75",
       "kind": "cloze",
@@ -18676,7 +18676,7 @@
       }
     },
     {
-      "id": "ccs-pension-cloze-75-2",
+      "id": "ccs-pension-cloze-75-count",
       "act": "ccs-pension",
       "rule": "75",
       "kind": "cloze",
@@ -18721,7 +18721,7 @@
       }
     },
     {
-      "id": "ccs-pension-cloze-76-1",
+      "id": "ccs-pension-cloze-76-duration",
       "act": "ccs-pension",
       "rule": "76",
       "kind": "cloze",
@@ -18766,7 +18766,7 @@
       }
     },
     {
-      "id": "ccs-pension-cloze-76-2",
+      "id": "ccs-pension-cloze-76-crossreference",
       "act": "ccs-pension",
       "rule": "76",
       "kind": "cloze",
@@ -18811,7 +18811,7 @@
       }
     },
     {
-      "id": "ccs-pension-cloze-76-3",
+      "id": "ccs-pension-cloze-76-definedterm",
       "act": "ccs-pension",
       "rule": "76",
       "kind": "cloze",
@@ -18856,7 +18856,7 @@
       }
     },
     {
-      "id": "ccs-pension-cloze-77-1",
+      "id": "ccs-pension-cloze-77-duration",
       "act": "ccs-pension",
       "rule": "77",
       "kind": "cloze",
@@ -18901,7 +18901,7 @@
       }
     },
     {
-      "id": "ccs-pension-cloze-77-2",
+      "id": "ccs-pension-cloze-77-definedterm",
       "act": "ccs-pension",
       "rule": "77",
       "kind": "cloze",
@@ -18946,7 +18946,7 @@
       }
     },
     {
-      "id": "ccs-pension-cloze-79-1",
+      "id": "ccs-pension-cloze-79-crossreference",
       "act": "ccs-pension",
       "rule": "79",
       "kind": "cloze",
@@ -18991,7 +18991,7 @@
       }
     },
     {
-      "id": "ccs-pension-cloze-79-2",
+      "id": "ccs-pension-cloze-79-definedterm",
       "act": "ccs-pension",
       "rule": "79",
       "kind": "cloze",
@@ -19036,7 +19036,7 @@
       }
     },
     {
-      "id": "ccs-pension-cloze-80-1",
+      "id": "ccs-pension-cloze-80-crossreference",
       "act": "ccs-pension",
       "rule": "80",
       "kind": "cloze",
@@ -19081,7 +19081,7 @@
       }
     },
     {
-      "id": "ccs-pension-cloze-81-1",
+      "id": "ccs-pension-cloze-81-crossreference",
       "act": "ccs-pension",
       "rule": "81",
       "kind": "cloze",
@@ -19126,7 +19126,7 @@
       }
     },
     {
-      "id": "ccs-pension-cloze-82-1",
+      "id": "ccs-pension-cloze-82-amount",
       "act": "ccs-pension",
       "rule": "82",
       "kind": "cloze",
@@ -19171,7 +19171,7 @@
       }
     },
     {
-      "id": "ccs-pension-cloze-84-1",
+      "id": "ccs-pension-cloze-84-definedterm",
       "act": "ccs-pension",
       "rule": "84",
       "kind": "cloze",
@@ -19216,7 +19216,7 @@
       }
     },
     {
-      "id": "ccs-pension-cloze-87-1",
+      "id": "ccs-pension-cloze-87-duration",
       "act": "ccs-pension",
       "rule": "87",
       "kind": "cloze",
@@ -19261,7 +19261,7 @@
       }
     },
     {
-      "id": "ccs-pension-cloze-87-2",
+      "id": "ccs-pension-cloze-87-crossreference",
       "act": "ccs-pension",
       "rule": "87",
       "kind": "cloze",
@@ -19306,7 +19306,7 @@
       }
     },
     {
-      "id": "ccs-pension-cloze-87-3",
+      "id": "ccs-pension-cloze-87-percentage",
       "act": "ccs-pension",
       "rule": "87",
       "kind": "cloze",

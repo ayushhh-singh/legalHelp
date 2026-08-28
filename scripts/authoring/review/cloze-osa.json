@@ -1,10 +1,10 @@
 {
   "_note": "Hand review of the generated cloze cards for the Official Secrets Act, 1923. This Act's PDF interleaves its amendment footnotes with the section text more aggressively than any other book in the corpus, so a higher share of cards is rejected here than elsewhere — the apparatus filter in make_cards.py catches the obvious ones and these are what it did not.",
-  "osa-cloze-2-1": {
+  "osa-cloze-2-definedterm": {
     "verdict": "reject",
     "reason": "The blank cut into a word: the stem reads 'the sketch, plan, m____ article'."
   },
-  "osa-cloze-3-1": {
+  "osa-cloze-3-duration": {
     "verdict": "approve",
     "reason": "Section 3(1) — the two terms of imprisonment for spying, fourteen years and three years, are the examinable fact.",
     "hi": {
@@ -12,7 +12,7 @@
       "answer": "तीन वर्ष"
     }
   },
-  "osa-cloze-3-2": {
+  "osa-cloze-3-definedterm": {
     "verdict": "approve",
     "reason": "Section 3 turns entirely on the purpose being prejudicial to the safety or interests of the State.",
     "hi": {
@@ -20,7 +20,7 @@
       "answer": "राज्य की सुरक्षा या हितों"
     }
   },
-  "osa-cloze-4-1": {
+  "osa-cloze-4-crossreference": {
     "verdict": "approve",
     "reason": "Section 4 is an evidentiary rule that operates only in a prosecution under section 3.",
     "hi": {
@@ -28,11 +28,11 @@
       "answer": "धारा 3"
     }
   },
-  "osa-cloze-4-2": {
+  "osa-cloze-4-definedterm": {
     "verdict": "reject",
     "reason": "The blank falls on 'communicate' inside 'in communication with, or attempted to communicate with' — the previous clause gives the answer away."
   },
-  "osa-cloze-5-1": {
+  "osa-cloze-5-duration": {
     "verdict": "approve",
     "reason": "Section 5(4) — the ordinary term for wrongful communication, which officers confuse with section 3's fourteen years.",
     "hi": {
@@ -40,7 +40,7 @@
       "answer": "पाँच वर्ष"
     }
   },
-  "osa-cloze-5-2": {
+  "osa-cloze-5-definedterm": {
     "verdict": "approve",
     "reason": "Section 5(1) — 'secret official code or pass word' is the category the section protects.",
     "hi": {
@@ -48,11 +48,11 @@
       "answer": "गुप्त शासकीय कूट"
     }
   },
-  "osa-cloze-6-1": {
+  "osa-cloze-6-duration": {
     "verdict": "reject",
     "reason": "The stem is 'may extend to 1*[____]' — the blank sits inside an amendment bracket."
   },
-  "osa-cloze-6-2": {
+  "osa-cloze-6-crossreference": {
     "verdict": "approve",
     "reason": "Section 6(4) borrows the presumption in section 3(2); the cross-reference is the point.",
     "hi": {
@@ -60,11 +60,11 @@
       "answer": "धारा 3"
     }
   },
-  "osa-cloze-6-3": {
+  "osa-cloze-6-count": {
     "verdict": "reject",
     "reason": "The stem is an amendment note: 'by Act 42 of 1971, S.6 ?(during emergency and ____ months thereafter'."
   },
-  "osa-cloze-7-1": {
+  "osa-cloze-7-definedterm": {
     "verdict": "approve",
     "reason": "Section 7 protects the vicinity of a prohibited place — a defined term.",
     "hi": {
@@ -72,7 +72,7 @@
       "answer": "प्रतिषिद्ध स्थान"
     }
   },
-  "osa-cloze-8-1": {
+  "osa-cloze-8-crossreference": {
     "verdict": "approve",
     "reason": "Section 8 — the duty to give information covers section 3 read with section 9 (attempts and abetment).",
     "hi": {
@@ -80,11 +80,11 @@
       "answer": "धारा 9"
     }
   },
-  "osa-cloze-10-1": {
+  "osa-cloze-10-crossreference": {
     "verdict": "reject",
-    "reason": "Same answer and near-identical stem as osa-cloze-8-1; the pair would be scheduled as two cards and read as one."
+    "reason": "Same answer and near-identical stem as osa-cloze-8-crossreference; the pair would be scheduled as two cards and read as one."
   },
-  "osa-cloze-11-1": {
+  "osa-cloze-11-duration": {
     "verdict": "approve",
     "reason": "Section 11's search-warrant machinery is keyed to offences punishable with seven years.",
     "hi": {
@@ -92,11 +92,11 @@
       "answer": "सात वर्ष"
     }
   },
-  "osa-cloze-11-2": {
+  "osa-cloze-11-crossreference": {
     "verdict": "reject",
     "reason": "The stem repeats the answer in the very next clause — 'The provisions of section 337 of the Code of Criminal Procedure'."
   },
-  "osa-cloze-11-3": {
+  "osa-cloze-11-definedterm": {
     "verdict": "approve",
     "reason": "Section 11 is the search-warrant section and the term is what a Magistrate grants.",
     "hi": {
@@ -104,7 +104,7 @@
       "answer": "तलाशी वारंट"
     }
   },
-  "osa-cloze-13-1": {
+  "osa-cloze-13-crossreference": {
     "verdict": "approve",
     "reason": "Section 13(5) — which Government may sanction depends on whether the offence is under section 5 and unconnected with a prohibited place.",
     "hi": {
@@ -112,8 +112,8 @@
       "answer": "धारा 5"
     }
   },
-  "osa-cloze-13-2": {
+  "osa-cloze-13-definedterm": {
     "verdict": "reject",
-    "reason": "Same sentence as osa-cloze-13-1, blanked on the other half. Approving both looked like covering two halves of the test; the duplicate-front check in tests/rules-data.test.ts scored the pair at 93.1 and it is right — a reader meeting them in one session reads them as one card asked twice."
+    "reason": "Same sentence as osa-cloze-13-crossreference, blanked on the other half. Approving both looked like covering two halves of the test; the duplicate-front check in tests/rules-data.test.ts scored the pair at 93.1 and it is right — a reader meeting them in one session reads them as one card asked twice."
   }
 }

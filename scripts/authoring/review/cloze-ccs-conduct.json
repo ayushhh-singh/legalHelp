@@ -1,7 +1,6 @@
 {
   "_note": "Hand review of the generated cloze cards for the CCS (Conduct) Rules, 1964. `verdict` is approve, edit or reject; a rejected card stays in data/rules/cards/ with reviewState \"rejected\" and is never served. `hi` is the Hindi stem and answer, authored here — it is a Hindi cloze on the same rule, not a translation of the English excerpt, because a 300-character excerpt of statutory English makes a Hindi card nobody reads. The blank marker ____ must appear in both stems.",
-
-  "ccs-conduct-cloze-1-1": {
+  "ccs-conduct-cloze-1-amount": {
     "verdict": "approve",
     "reason": "The pay ceiling in the second proviso to Rule 1(3) — a figure the rule turns on.",
     "hi": {
@@ -9,7 +8,7 @@
       "answer": "500 रुपये"
     }
   },
-  "ccs-conduct-cloze-1-2": {
+  "ccs-conduct-cloze-1-crossreference": {
     "verdict": "approve",
     "reason": "The definition of 'railway servant' is borrowed from a named section of another Act.",
     "hi": {
@@ -17,11 +16,11 @@
       "answer": "धारा 3"
     }
   },
-  "ccs-conduct-cloze-1-3": {
+  "ccs-conduct-cloze-1-definedterm": {
     "verdict": "reject",
     "reason": "Answer is 'Government servant', which opens twenty-three rules of this book. The card teaches the phrase, not the rule."
   },
-  "ccs-conduct-cloze-2-1": {
+  "ccs-conduct-cloze-2-definedterm": {
     "verdict": "approve",
     "reason": "Rule 2(a) — 'the Government' means the Central Government, which is the whole point of the definition.",
     "hi": {
@@ -29,11 +28,11 @@
       "answer": "केंद्रीय सरकार"
     }
   },
-  "ccs-conduct-cloze-3-1": {
+  "ccs-conduct-cloze-3-definedterm": {
     "verdict": "reject",
-    "reason": "Same trivial answer as cloze-1-3."
+    "reason": "Same trivial answer as ccs-conduct-cloze-1-definedterm."
   },
-  "ccs-conduct-cloze-3a-1": {
+  "ccs-conduct-cloze-3a-definedterm": {
     "verdict": "approve",
     "reason": "Rule 3A(b) turns on 'official dealings with the public'.",
     "hi": {
@@ -41,7 +40,7 @@
       "answer": "शासकीय व्यवहार"
     }
   },
-  "ccs-conduct-cloze-3c-1": {
+  "ccs-conduct-cloze-3c-definedterm": {
     "verdict": "approve",
     "reason": "Rule 3C is the sexual-harassment prohibition; the term is the rule.",
     "hi": {
@@ -49,7 +48,7 @@
       "answer": "लैंगिक उत्पीड़न"
     }
   },
-  "ccs-conduct-cloze-4-1": {
+  "ccs-conduct-cloze-4-definedterm": {
     "verdict": "approve",
     "reason": "Rule 4(1) — securing employment for a family member is the prohibited act.",
     "hi": {
@@ -57,7 +56,7 @@
       "answer": "नियोजन"
     }
   },
-  "ccs-conduct-cloze-5-1": {
+  "ccs-conduct-cloze-5-definedterm": {
     "verdict": "approve",
     "reason": "Rule 5(1) — membership of a political party.",
     "hi": {
@@ -65,15 +64,15 @@
       "answer": "राजनीतिक दल"
     }
   },
-  "ccs-conduct-cloze-6-1": {
+  "ccs-conduct-cloze-6-definedterm": {
     "verdict": "reject",
     "reason": "The blank falls on 'integrity' inside the set phrase 'sovereignty and integrity of India'. The answer is guessable from the phrase, not from Rule 6."
   },
-  "ccs-conduct-cloze-7-1": {
+  "ccs-conduct-cloze-7-definedterm": {
     "verdict": "reject",
-    "reason": "Same set phrase as cloze-6-1."
+    "reason": "Same set phrase as ccs-conduct-cloze-6-definedterm."
   },
-  "ccs-conduct-cloze-8-1": {
+  "ccs-conduct-cloze-8-definedterm": {
     "verdict": "approve",
     "reason": "Rule 8 turns on previous sanction; that is what an officer must remember before writing for a newspaper.",
     "hi": {
@@ -81,11 +80,11 @@
       "answer": "सरकार की पूर्व मंजूरी"
     }
   },
-  "ccs-conduct-cloze-9-1": {
+  "ccs-conduct-cloze-9-crossreference": {
     "verdict": "reject",
     "reason": "The blank is a self-reference inside a proviso ('the second proviso to sub-rule (3) of rule 1'). Nothing in the sentence lets a reader recover which rule is meant."
   },
-  "ccs-conduct-cloze-9-2": {
+  "ccs-conduct-cloze-9-definedterm": {
     "verdict": "approve",
     "reason": "Rule 9 — adverse criticism of the policy of the Central Government or a State Government.",
     "hi": {
@@ -93,7 +92,7 @@
       "answer": "केंद्रीय सरकार"
     }
   },
-  "ccs-conduct-cloze-10-1": {
+  "ccs-conduct-cloze-10-definedterm": {
     "verdict": "approve",
     "reason": "Rule 10 — evidence before a committee needs previous sanction.",
     "hi": {
@@ -101,7 +100,7 @@
       "answer": "सरकार की पूर्व मंजूरी"
     }
   },
-  "ccs-conduct-cloze-12-1": {
+  "ccs-conduct-cloze-12-definedterm": {
     "verdict": "approve",
     "reason": "Rule 12 — subscriptions need the sanction of the Government or of the prescribed authority.",
     "hi": {
@@ -109,7 +108,7 @@
       "answer": "विहित प्राधिकारी"
     }
   },
-  "ccs-conduct-cloze-13-1": {
+  "ccs-conduct-cloze-13-amount": {
     "verdict": "approve",
     "reason": "Rule 13(4) — the ceiling on a gift from a foreign dignitary that may be retained.",
     "hi": {
@@ -117,11 +116,11 @@
       "answer": "एक हज़ार रुपये"
     }
   },
-  "ccs-conduct-cloze-13-2": {
+  "ccs-conduct-cloze-13-count": {
     "verdict": "reject",
     "reason": "The source line reads '42rupees twenty five thousand' — footnote 42 has fused onto the figure, and the blank fell on 'twenty' inside 'twenty five thousand'. The card's answer is wrong."
   },
-  "ccs-conduct-cloze-13-3": {
+  "ccs-conduct-cloze-13-definedterm": {
     "verdict": "approve",
     "reason": "The Explanation to Rule 13 turns on whether the giver has official dealings.",
     "hi": {
@@ -129,7 +128,7 @@
       "answer": "शासकीय व्यवहार"
     }
   },
-  "ccs-conduct-cloze-13a-1": {
+  "ccs-conduct-cloze-13a-definedterm": {
     "verdict": "approve",
     "reason": "Rule 13A is the dowry rule.",
     "hi": {
@@ -137,7 +136,7 @@
       "answer": "दहेज"
     }
   },
-  "ccs-conduct-cloze-15-1": {
+  "ccs-conduct-cloze-15-duration": {
     "verdict": "approve",
     "reason": "Rule 15(2) — the reporting period after taking part in a permitted activity.",
     "hi": {
@@ -145,15 +144,15 @@
       "answer": "एक मास"
     }
   },
-  "ccs-conduct-cloze-15-2": {
+  "ccs-conduct-cloze-15-crossreference": {
     "verdict": "reject",
     "reason": "The reference is to Fundamental Rule 9(6-A); the stem splits it as 'Fundamental ____ (6-A)' and the answer reads 'Rule 9'. The card asks for half a citation."
   },
-  "ccs-conduct-cloze-15-3": {
+  "ccs-conduct-cloze-15-definedterm": {
     "verdict": "reject",
     "reason": "The blank cut into a word — the stem reads 'any other e____ or'."
   },
-  "ccs-conduct-cloze-15a-1": {
+  "ccs-conduct-cloze-15a-definedterm": {
     "verdict": "approve",
     "reason": "Rule 15A is the sub-letting rule and the term is what it protects.",
     "hi": {
@@ -161,7 +160,7 @@
       "answer": "सरकारी आवास"
     }
   },
-  "ccs-conduct-cloze-16-1": {
+  "ccs-conduct-cloze-16-definedterm": {
     "verdict": "approve",
     "reason": "Rule 16(5) — the officer reports to the prescribed authority, not to the Government.",
     "hi": {
@@ -169,7 +168,7 @@
       "answer": "विहित प्राधिकारी"
     }
   },
-  "ccs-conduct-cloze-17-1": {
+  "ccs-conduct-cloze-17-definedterm": {
     "verdict": "approve",
     "reason": "Rule 17 — habitual indebtedness is the defined mischief.",
     "hi": {
@@ -177,7 +176,7 @@
       "answer": "आदतन ऋणग्रस्तता"
     }
   },
-  "ccs-conduct-cloze-18-1": {
+  "ccs-conduct-cloze-18-duration": {
     "verdict": "approve",
     "reason": "Rule 18(3) — the reporting period for a movable-property transaction.",
     "hi": {
@@ -185,11 +184,11 @@
       "answer": "एक मास"
     }
   },
-  "ccs-conduct-cloze-18-2": {
+  "ccs-conduct-cloze-18-amount": {
     "verdict": "reject",
     "reason": "The source reads 'Rs.3310,000' — footnote 33 has fused onto the figure, so the card's answer is not a number."
   },
-  "ccs-conduct-cloze-18-3": {
+  "ccs-conduct-cloze-18-definedterm": {
     "verdict": "approve",
     "reason": "Rule 18(1)(i) — the first return covers immovable property.",
     "hi": {
@@ -197,7 +196,7 @@
       "answer": "स्थावर संपत्ति"
     }
   },
-  "ccs-conduct-cloze-18a-1": {
+  "ccs-conduct-cloze-18a-crossreference": {
     "verdict": "approve",
     "reason": "Rule 18A opens by displacing Rule 18(2); the cross-reference is the link between the two rules.",
     "hi": {
@@ -205,7 +204,7 @@
       "answer": "नियम 18"
     }
   },
-  "ccs-conduct-cloze-18a-2": {
+  "ccs-conduct-cloze-18a-definedterm": {
     "verdict": "approve",
     "reason": "Rule 18A turns on previous sanction of the prescribed authority.",
     "hi": {
@@ -213,7 +212,7 @@
       "answer": "पूर्व मंजूरी"
     }
   },
-  "ccs-conduct-cloze-19-1": {
+  "ccs-conduct-cloze-19-duration": {
     "verdict": "approve",
     "reason": "Rule 19 — the deemed-permission period, which is the part officers get wrong.",
     "hi": {
@@ -221,7 +220,7 @@
       "answer": "तीन मास"
     }
   },
-  "ccs-conduct-cloze-19-2": {
+  "ccs-conduct-cloze-19-definedterm": {
     "verdict": "approve",
     "reason": "Rule 19 is the vindication rule and the term is its subject.",
     "hi": {
@@ -229,7 +228,7 @@
       "answer": "समर्थन"
     }
   },
-  "ccs-conduct-cloze-22-1": {
+  "ccs-conduct-cloze-22-definedterm": {
     "verdict": "approve",
     "reason": "Rule 22(a).",
     "hi": {
@@ -237,7 +236,7 @@
       "answer": "मादक पेयों"
     }
   },
-  "ccs-conduct-cloze-22a-1": {
+  "ccs-conduct-cloze-22a-duration": {
     "verdict": "approve",
     "reason": "Rule 22A — the age below which a child may not be employed.",
     "hi": {
@@ -245,7 +244,7 @@
       "answer": "14 वर्ष"
     }
   },
-  "ccs-conduct-cloze-24-1": {
+  "ccs-conduct-cloze-24-crossreference": {
     "verdict": "approve",
     "reason": "Rule 24 excepts the interpretation power in Rule 23 from delegation — an exception worth knowing.",
     "hi": {
@@ -253,7 +252,7 @@
       "answer": "नियम 23"
     }
   },
-  "ccs-conduct-cloze-24-2": {
+  "ccs-conduct-cloze-24-definedterm": {
     "verdict": "approve",
     "reason": "Rule 24 — the two authorities whose powers may be delegated.",
     "hi": {

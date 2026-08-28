@@ -1,7 +1,6 @@
 {
   "_note": "Hand review of the generated cloze cards for the Official Languages (Use for Official Purposes of the Union) Rules, 1976. Two cards are rejected because the Department's web page appends the 2007 amending notification to the same document, and the parser reads it as part of Rule 12.",
-
-  "ol-rules-cloze-2-1": {
+  "ol-rules-cloze-2-crossreference": {
     "verdict": "approve",
     "reason": "Rule 2(d) — a 'notified office' is one notified under sub-rule (4) of rule 10, which is the link between the definition and the Hindi-proficiency scheme.",
     "hi": {
@@ -9,7 +8,7 @@
       "answer": "नियम 10"
     }
   },
-  "ol-rules-cloze-2-2": {
+  "ol-rules-cloze-2-definedterm": {
     "verdict": "approve",
     "reason": "Rule 2(b) — the defined term that decides which offices the Rules bind at all.",
     "hi": {
@@ -17,7 +16,7 @@
       "answer": "केंद्रीय सरकार कार्यालय"
     }
   },
-  "ol-rules-cloze-3-1": {
+  "ol-rules-cloze-3-definedterm": {
     "verdict": "approve",
     "reason": "Rule 3(1) — the Region A obligation runs from a Central Government office.",
     "hi": {
@@ -25,11 +24,11 @@
       "answer": "केंद्रीय सरकार कार्यालय"
     }
   },
-  "ol-rules-cloze-4-1": {
+  "ol-rules-cloze-4-count": {
     "verdict": "reject",
     "reason": "Answer is 'one', blanked out of 'Between one Ministry or Department and another'. Tests counting."
   },
-  "ol-rules-cloze-4-2": {
+  "ol-rules-cloze-4-definedterm": {
     "verdict": "approve",
     "reason": "Rule 4's proviso ties the proportion of Hindi correspondence to the number of staff with a working knowledge of Hindi — a defined term with its own rule.",
     "hi": {
@@ -37,7 +36,7 @@
       "answer": "हिंदी का कार्यसाधक ज्ञान"
     }
   },
-  "ol-rules-cloze-5-1": {
+  "ol-rules-cloze-5-crossreference": {
     "verdict": "approve",
     "reason": "Rule 5 overrides rules 3 and 4 — the reply-in-Hindi obligation is unconditional, and knowing which rules it displaces is the point.",
     "hi": {
@@ -45,7 +44,7 @@
       "answer": "नियम 3"
     }
   },
-  "ol-rules-cloze-6-1": {
+  "ol-rules-cloze-6-crossreference": {
     "verdict": "approve",
     "reason": "Rule 6 points back to section 3(3) of the Act — the list of documents that must be bilingual.",
     "hi": {
@@ -53,7 +52,7 @@
       "answer": "धारा 3"
     }
   },
-  "ol-rules-cloze-7-1": {
+  "ol-rules-cloze-7-definedterm": {
     "verdict": "approve",
     "reason": "Rule 7(1) — the right belongs to an 'employee', a defined term narrower than 'person'.",
     "hi": {
@@ -61,7 +60,7 @@
       "answer": "कर्मचारी"
     }
   },
-  "ol-rules-cloze-8-1": {
+  "ol-rules-cloze-8-definedterm": {
     "verdict": "approve",
     "reason": "Rule 8(4) — noting in either language without having to supply a translation is the rule officers most often doubt.",
     "hi": {
@@ -69,7 +68,7 @@
       "answer": "कर्मचारी"
     }
   },
-  "ol-rules-cloze-9-1": {
+  "ol-rules-cloze-9-definedterm": {
     "verdict": "approve",
     "reason": "Rule 9 defines proficiency; rule 10 defines working knowledge. The pair is the commonest confusion in this rule book.",
     "hi": {
@@ -77,7 +76,7 @@
       "answer": "हिंदी में प्रवीणता"
     }
   },
-  "ol-rules-cloze-10-1": {
+  "ol-rules-cloze-10-definedterm": {
     "verdict": "approve",
     "reason": "The other half of the pair — rule 10's test is Hindi as a subject, or the Pragya examination.",
     "hi": {
@@ -85,11 +84,11 @@
       "answer": "हिंदी का कार्यसाधक ज्ञान"
     }
   },
-  "ol-rules-cloze-12-1": {
+  "ol-rules-cloze-12-crossreference": {
     "verdict": "reject",
     "reason": "The stem is the preamble of the 2007 amending notification, which the Department appends to the same web page. It is not rule 12."
   },
-  "ol-rules-cloze-12-2": {
+  "ol-rules-cloze-12-definedterm": {
     "verdict": "reject",
     "reason": "Same amending notification — the substituted definition of Region A, not rule 12."
   }

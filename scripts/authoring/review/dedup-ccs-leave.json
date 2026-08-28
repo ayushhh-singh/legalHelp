@@ -3,8 +3,8 @@
   "threshold": 90.0,
   "scores": {
     "ccs-leave-q-001": {
-      "maxScore": 58.8,
-      "against": "ccs-leave-cloze-6-2",
+      "maxScore": 62.3,
+      "against": "ccs-leave-rule-30",
       "verdict": "keep"
     },
     "ccs-leave-q-002": {
@@ -43,8 +43,8 @@
       "verdict": "keep"
     },
     "ccs-leave-q-009": {
-      "maxScore": 79.1,
-      "against": "ccs-leave-q-001",
+      "maxScore": 79.3,
+      "against": "ccs-leave-rule-38",
       "verdict": "keep"
     },
     "ccs-leave-q-010": {
@@ -113,13 +113,13 @@
       "verdict": "keep"
     },
     "ccs-leave-q-023": {
-      "maxScore": 73.9,
-      "against": "ccs-leave-q-013",
+      "maxScore": 77.2,
+      "against": "ccs-leave-rule-38",
       "verdict": "keep"
     },
     "ccs-leave-q-024": {
       "maxScore": 77.0,
-      "against": "ccs-leave-cloze-42-1",
+      "against": "ccs-leave-cloze-42-duration",
       "verdict": "keep"
     },
     "ccs-leave-q-025": {
@@ -134,7 +134,7 @@
     },
     "ccs-leave-q-027": {
       "maxScore": 81.2,
-      "against": "ccs-leave-cloze-33-1",
+      "against": "ccs-leave-cloze-33-duration",
       "verdict": "keep"
     },
     "ccs-leave-q-028": {

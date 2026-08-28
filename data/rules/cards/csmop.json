@@ -4231,7 +4231,7 @@
       }
     },
     {
-      "id": "csmop-cloze-1-1-1",
+      "id": "csmop-cloze-1-1-definedterm",
       "act": "csmop",
       "rule": "1.1",
       "kind": "cloze",
@@ -4276,7 +4276,7 @@
       }
     },
     {
-      "id": "csmop-cloze-1-4-1",
+      "id": "csmop-cloze-1-4-definedterm",
       "act": "csmop",
       "rule": "1.4",
       "kind": "cloze",
@@ -4321,7 +4321,7 @@
       }
     },
     {
-      "id": "csmop-cloze-1-5-1",
+      "id": "csmop-cloze-1-5-definedterm",
       "act": "csmop",
       "rule": "1.5",
       "kind": "cloze",
@@ -4366,7 +4366,7 @@
       }
     },
     {
-      "id": "csmop-cloze-1-7-1",
+      "id": "csmop-cloze-1-7-definedterm",
       "act": "csmop",
       "rule": "1.7",
       "kind": "cloze",
@@ -4411,7 +4411,7 @@
       }
     },
     {
-      "id": "csmop-cloze-2-1-1",
+      "id": "csmop-cloze-2-1-count",
       "act": "csmop",
       "rule": "2.1",
       "kind": "cloze",
@@ -4456,7 +4456,7 @@
       }
     },
     {
-      "id": "csmop-cloze-2-3-1",
+      "id": "csmop-cloze-2-3-crossreference",
       "act": "csmop",
       "rule": "2.3",
       "kind": "cloze",
@@ -4501,7 +4501,7 @@
       }
     },
     {
-      "id": "csmop-cloze-2-4-1",
+      "id": "csmop-cloze-2-4-count",
       "act": "csmop",
       "rule": "2.4",
       "kind": "cloze",
@@ -4546,7 +4546,7 @@
       }
     },
     {
-      "id": "csmop-cloze-2-4-2",
+      "id": "csmop-cloze-2-4-definedterm",
       "act": "csmop",
       "rule": "2.4",
       "kind": "cloze",
@@ -4591,7 +4591,7 @@
       }
     },
     {
-      "id": "csmop-cloze-2-6-1",
+      "id": "csmop-cloze-2-6-definedterm",
       "act": "csmop",
       "rule": "2.6",
       "kind": "cloze",
@@ -4636,7 +4636,7 @@
       }
     },
     {
-      "id": "csmop-cloze-2-10-1",
+      "id": "csmop-cloze-2-10-percentage",
       "act": "csmop",
       "rule": "2.10",
       "kind": "cloze",
@@ -4681,7 +4681,7 @@
       }
     },
     {
-      "id": "csmop-cloze-2-11-1",
+      "id": "csmop-cloze-2-11-definedterm",
       "act": "csmop",
       "rule": "2.11",
       "kind": "cloze",
@@ -4726,7 +4726,7 @@
       }
     },
     {
-      "id": "csmop-cloze-3-1-1",
+      "id": "csmop-cloze-3-1-definedterm",
       "act": "csmop",
       "rule": "3.1",
       "kind": "cloze",
@@ -4771,7 +4771,7 @@
       }
     },
     {
-      "id": "csmop-cloze-4-2-1",
+      "id": "csmop-cloze-4-2-count",
       "act": "csmop",
       "rule": "4.2",
       "kind": "cloze",
@@ -4816,7 +4816,7 @@
       }
     },
     {
-      "id": "csmop-cloze-4-3-1",
+      "id": "csmop-cloze-4-3-definedterm",
       "act": "csmop",
       "rule": "4.3",
       "kind": "cloze",
@@ -4861,7 +4861,7 @@
       }
     },
     {
-      "id": "csmop-cloze-4-4-1",
+      "id": "csmop-cloze-4-4-definedterm",
       "act": "csmop",
       "rule": "4.4",
       "kind": "cloze",
@@ -4906,7 +4906,7 @@
       }
     },
     {
-      "id": "csmop-cloze-4-9-1",
+      "id": "csmop-cloze-4-9-duration",
       "act": "csmop",
       "rule": "4.9",
       "kind": "cloze",
@@ -4951,7 +4951,7 @@
       }
     },
     {
-      "id": "csmop-cloze-4-9-2",
+      "id": "csmop-cloze-4-9-definedterm",
       "act": "csmop",
       "rule": "4.9",
       "kind": "cloze",
@@ -4996,7 +4996,7 @@
       }
     },
     {
-      "id": "csmop-cloze-5-1-1",
+      "id": "csmop-cloze-5-1-definedterm",
       "act": "csmop",
       "rule": "5.1",
       "kind": "cloze",
@@ -5041,7 +5041,7 @@
       }
     },
     {
-      "id": "csmop-cloze-5-2-1",
+      "id": "csmop-cloze-5-2-definedterm",
       "act": "csmop",
       "rule": "5.2",
       "kind": "cloze",
@@ -5086,7 +5086,7 @@
       }
     },
     {
-      "id": "csmop-cloze-5-3-1",
+      "id": "csmop-cloze-5-3-count",
       "act": "csmop",
       "rule": "5.3",
       "kind": "cloze",
@@ -5131,7 +5131,7 @@
       }
     },
     {
-      "id": "csmop-cloze-5-3-2",
+      "id": "csmop-cloze-5-3-definedterm",
       "act": "csmop",
       "rule": "5.3",
       "kind": "cloze",
@@ -5176,7 +5176,7 @@
       }
     },
     {
-      "id": "csmop-cloze-5-4-1",
+      "id": "csmop-cloze-5-4-definedterm",
       "act": "csmop",
       "rule": "5.4",
       "kind": "cloze",
@@ -5221,7 +5221,7 @@
       }
     },
     {
-      "id": "csmop-cloze-5-5-1",
+      "id": "csmop-cloze-5-5-definedterm",
       "act": "csmop",
       "rule": "5.5",
       "kind": "cloze",
@@ -5266,7 +5266,7 @@
       }
     },
     {
-      "id": "csmop-cloze-5-6-1",
+      "id": "csmop-cloze-5-6-count",
       "act": "csmop",
       "rule": "5.6",
       "kind": "cloze",
@@ -5311,7 +5311,7 @@
       }
     },
     {
-      "id": "csmop-cloze-5-6-2",
+      "id": "csmop-cloze-5-6-definedterm",
       "act": "csmop",
       "rule": "5.6",
       "kind": "cloze",
@@ -5356,7 +5356,7 @@
       }
     },
     {
-      "id": "csmop-cloze-5-7-1",
+      "id": "csmop-cloze-5-7-duration",
       "act": "csmop",
       "rule": "5.7",
       "kind": "cloze",
@@ -5401,7 +5401,7 @@
       }
     },
     {
-      "id": "csmop-cloze-5-7-2",
+      "id": "csmop-cloze-5-7-definedterm",
       "act": "csmop",
       "rule": "5.7",
       "kind": "cloze",
@@ -5446,7 +5446,7 @@
       }
     },
     {
-      "id": "csmop-cloze-5-9-1",
+      "id": "csmop-cloze-5-9-duration",
       "act": "csmop",
       "rule": "5.9",
       "kind": "cloze",
@@ -5491,7 +5491,7 @@
       }
     },
     {
-      "id": "csmop-cloze-5-9-2",
+      "id": "csmop-cloze-5-9-definedterm",
       "act": "csmop",
       "rule": "5.9",
       "kind": "cloze",
@@ -5536,7 +5536,7 @@
       }
     },
     {
-      "id": "csmop-cloze-5-10-1",
+      "id": "csmop-cloze-5-10-definedterm",
       "act": "csmop",
       "rule": "5.10",
       "kind": "cloze",
@@ -5581,7 +5581,7 @@
       }
     },
     {
-      "id": "csmop-cloze-6-13-1",
+      "id": "csmop-cloze-6-13-count",
       "act": "csmop",
       "rule": "6.13",
       "kind": "cloze",
@@ -5626,7 +5626,7 @@
       }
     },
     {
-      "id": "csmop-cloze-6-13-2",
+      "id": "csmop-cloze-6-13-definedterm",
       "act": "csmop",
       "rule": "6.13",
       "kind": "cloze",
@@ -5671,7 +5671,7 @@
       }
     },
     {
-      "id": "csmop-cloze-7-2-1",
+      "id": "csmop-cloze-7-2-definedterm",
       "act": "csmop",
       "rule": "7.2",
       "kind": "cloze",
@@ -5716,7 +5716,7 @@
       }
     },
     {
-      "id": "csmop-cloze-7-6-1",
+      "id": "csmop-cloze-7-6-duration",
       "act": "csmop",
       "rule": "7.6",
       "kind": "cloze",
@@ -5761,7 +5761,7 @@
       }
     },
     {
-      "id": "csmop-cloze-7-6-2",
+      "id": "csmop-cloze-7-6-definedterm",
       "act": "csmop",
       "rule": "7.6",
       "kind": "cloze",
@@ -5806,7 +5806,7 @@
       }
     },
     {
-      "id": "csmop-cloze-7-10-1",
+      "id": "csmop-cloze-7-10-definedterm",
       "act": "csmop",
       "rule": "7.10",
       "kind": "cloze",
@@ -5851,7 +5851,7 @@
       }
     },
     {
-      "id": "csmop-cloze-7-14-1",
+      "id": "csmop-cloze-7-14-duration",
       "act": "csmop",
       "rule": "7.14",
       "kind": "cloze",
@@ -5896,7 +5896,7 @@
       }
     },
     {
-      "id": "csmop-cloze-7-14-2",
+      "id": "csmop-cloze-7-14-count",
       "act": "csmop",
       "rule": "7.14",
       "kind": "cloze",
@@ -5941,7 +5941,7 @@
       }
     },
     {
-      "id": "csmop-cloze-7-14-3",
+      "id": "csmop-cloze-7-14-definedterm",
       "act": "csmop",
       "rule": "7.14",
       "kind": "cloze",
@@ -5986,7 +5986,7 @@
       }
     },
     {
-      "id": "csmop-cloze-8-1-1",
+      "id": "csmop-cloze-8-1-definedterm",
       "act": "csmop",
       "rule": "8.1",
       "kind": "cloze",
@@ -6031,7 +6031,7 @@
       }
     },
     {
-      "id": "csmop-cloze-8-2-1",
+      "id": "csmop-cloze-8-2-definedterm",
       "act": "csmop",
       "rule": "8.2",
       "kind": "cloze",
@@ -6076,7 +6076,7 @@
       }
     },
     {
-      "id": "csmop-cloze-8-4-1",
+      "id": "csmop-cloze-8-4-definedterm",
       "act": "csmop",
       "rule": "8.4",
       "kind": "cloze",
@@ -6121,7 +6121,7 @@
       }
     },
     {
-      "id": "csmop-cloze-8-6-1",
+      "id": "csmop-cloze-8-6-definedterm",
       "act": "csmop",
       "rule": "8.6",
       "kind": "cloze",
@@ -6166,7 +6166,7 @@
       }
     },
     {
-      "id": "csmop-cloze-8-7-1",
+      "id": "csmop-cloze-8-7-definedterm",
       "act": "csmop",
       "rule": "8.7",
       "kind": "cloze",
@@ -6211,7 +6211,7 @@
       }
     },
     {
-      "id": "csmop-cloze-8-8-1",
+      "id": "csmop-cloze-8-8-definedterm",
       "act": "csmop",
       "rule": "8.8",
       "kind": "cloze",
@@ -6256,7 +6256,7 @@
       }
     },
     {
-      "id": "csmop-cloze-8-9-1",
+      "id": "csmop-cloze-8-9-duration",
       "act": "csmop",
       "rule": "8.9",
       "kind": "cloze",
@@ -6301,7 +6301,7 @@
       }
     },
     {
-      "id": "csmop-cloze-8-11-1",
+      "id": "csmop-cloze-8-11-amount",
       "act": "csmop",
       "rule": "8.11",
       "kind": "cloze",
@@ -6346,7 +6346,7 @@
       }
     },
     {
-      "id": "csmop-cloze-8-11-2",
+      "id": "csmop-cloze-8-11-crossreference",
       "act": "csmop",
       "rule": "8.11",
       "kind": "cloze",
@@ -6391,7 +6391,7 @@
       }
     },
     {
-      "id": "csmop-cloze-8-11-3",
+      "id": "csmop-cloze-8-11-definedterm",
       "act": "csmop",
       "rule": "8.11",
       "kind": "cloze",
@@ -6436,7 +6436,7 @@
       }
     },
     {
-      "id": "csmop-cloze-9-6-1",
+      "id": "csmop-cloze-9-6-definedterm",
       "act": "csmop",
       "rule": "9.6",
       "kind": "cloze",
@@ -6481,7 +6481,7 @@
       }
     },
     {
-      "id": "csmop-cloze-10-1-1",
+      "id": "csmop-cloze-10-1-definedterm",
       "act": "csmop",
       "rule": "10.1",
       "kind": "cloze",
@@ -6526,7 +6526,7 @@
       }
     },
     {
-      "id": "csmop-cloze-10-2-1",
+      "id": "csmop-cloze-10-2-duration",
       "act": "csmop",
       "rule": "10.2",
       "kind": "cloze",
@@ -6571,7 +6571,7 @@
       }
     },
     {
-      "id": "csmop-cloze-10-4-1",
+      "id": "csmop-cloze-10-4-duration",
       "act": "csmop",
       "rule": "10.4",
       "kind": "cloze",
@@ -6616,7 +6616,7 @@
       }
     },
     {
-      "id": "csmop-cloze-10-4-2",
+      "id": "csmop-cloze-10-4-definedterm",
       "act": "csmop",
       "rule": "10.4",
       "kind": "cloze",
@@ -6661,7 +6661,7 @@
       }
     },
     {
-      "id": "csmop-cloze-10-5-1",
+      "id": "csmop-cloze-10-5-duration",
       "act": "csmop",
       "rule": "10.5",
       "kind": "cloze",
@@ -6706,7 +6706,7 @@
       }
     },
     {
-      "id": "csmop-cloze-10-5-2",
+      "id": "csmop-cloze-10-5-definedterm",
       "act": "csmop",
       "rule": "10.5",
       "kind": "cloze",
@@ -6751,7 +6751,7 @@
       }
     },
     {
-      "id": "csmop-cloze-10-7-1",
+      "id": "csmop-cloze-10-7-definedterm",
       "act": "csmop",
       "rule": "10.7",
       "kind": "cloze",
@@ -6796,7 +6796,7 @@
       }
     },
     {
-      "id": "csmop-cloze-10-8-1",
+      "id": "csmop-cloze-10-8-duration",
       "act": "csmop",
       "rule": "10.8",
       "kind": "cloze",
@@ -6841,7 +6841,7 @@
       }
     },
     {
-      "id": "csmop-cloze-10-8-2",
+      "id": "csmop-cloze-10-8-definedterm",
       "act": "csmop",
       "rule": "10.8",
       "kind": "cloze",
@@ -6886,7 +6886,7 @@
       }
     },
     {
-      "id": "csmop-cloze-10-9-1",
+      "id": "csmop-cloze-10-9-duration",
       "act": "csmop",
       "rule": "10.9",
       "kind": "cloze",
@@ -6931,7 +6931,7 @@
       }
     },
     {
-      "id": "csmop-cloze-10-9-2",
+      "id": "csmop-cloze-10-9-count",
       "act": "csmop",
       "rule": "10.9",
       "kind": "cloze",
@@ -6976,7 +6976,7 @@
       }
     },
     {
-      "id": "csmop-cloze-10-9-3",
+      "id": "csmop-cloze-10-9-definedterm",
       "act": "csmop",
       "rule": "10.9",
       "kind": "cloze",
@@ -7021,7 +7021,7 @@
       }
     },
     {
-      "id": "csmop-cloze-10-11-1",
+      "id": "csmop-cloze-10-11-definedterm",
       "act": "csmop",
       "rule": "10.11",
       "kind": "cloze",
@@ -7066,7 +7066,7 @@
       }
     },
     {
-      "id": "csmop-cloze-10-13-1",
+      "id": "csmop-cloze-10-13-duration",
       "act": "csmop",
       "rule": "10.13",
       "kind": "cloze",
@@ -7111,7 +7111,7 @@
       }
     },
     {
-      "id": "csmop-cloze-10-13-2",
+      "id": "csmop-cloze-10-13-definedterm",
       "act": "csmop",
       "rule": "10.13",
       "kind": "cloze",
@@ -7156,7 +7156,7 @@
       }
     },
     {
-      "id": "csmop-cloze-11-4-1",
+      "id": "csmop-cloze-11-4-definedterm",
       "act": "csmop",
       "rule": "11.4",
       "kind": "cloze",
@@ -7201,7 +7201,7 @@
       }
     },
     {
-      "id": "csmop-cloze-12-7-1",
+      "id": "csmop-cloze-12-7-duration",
       "act": "csmop",
       "rule": "12.7",
       "kind": "cloze",
@@ -7246,7 +7246,7 @@
       }
     },
     {
-      "id": "csmop-cloze-12-7-2",
+      "id": "csmop-cloze-12-7-definedterm",
       "act": "csmop",
       "rule": "12.7",
       "kind": "cloze",
@@ -7291,7 +7291,7 @@
       }
     },
     {
-      "id": "csmop-cloze-12-10-1",
+      "id": "csmop-cloze-12-10-duration",
       "act": "csmop",
       "rule": "12.10",
       "kind": "cloze",
@@ -7336,7 +7336,7 @@
       }
     },
     {
-      "id": "csmop-cloze-12-10-2",
+      "id": "csmop-cloze-12-10-definedterm",
       "act": "csmop",
       "rule": "12.10",
       "kind": "cloze",
@@ -7381,7 +7381,7 @@
       }
     },
     {
-      "id": "csmop-cloze-13-2-1",
+      "id": "csmop-cloze-13-2-duration",
       "act": "csmop",
       "rule": "13.2",
       "kind": "cloze",
@@ -7426,7 +7426,7 @@
       }
     },
     {
-      "id": "csmop-cloze-13-2-2",
+      "id": "csmop-cloze-13-2-definedterm",
       "act": "csmop",
       "rule": "13.2",
       "kind": "cloze",
@@ -7471,7 +7471,7 @@
       }
     },
     {
-      "id": "csmop-cloze-13-3-1",
+      "id": "csmop-cloze-13-3-definedterm",
       "act": "csmop",
       "rule": "13.3",
       "kind": "cloze",
@@ -7516,7 +7516,7 @@
       }
     },
     {
-      "id": "csmop-cloze-13-5-1",
+      "id": "csmop-cloze-13-5-definedterm",
       "act": "csmop",
       "rule": "13.5",
       "kind": "cloze",
@@ -7561,7 +7561,7 @@
       }
     },
     {
-      "id": "csmop-cloze-14-4-1",
+      "id": "csmop-cloze-14-4-duration",
       "act": "csmop",
       "rule": "14.4",
       "kind": "cloze",
@@ -7606,7 +7606,7 @@
       }
     },
     {
-      "id": "csmop-cloze-14-5-1",
+      "id": "csmop-cloze-14-5-duration",
       "act": "csmop",
       "rule": "14.5",
       "kind": "cloze",
@@ -7651,7 +7651,7 @@
       }
     },
     {
-      "id": "csmop-cloze-14-5-2",
+      "id": "csmop-cloze-14-5-count",
       "act": "csmop",
       "rule": "14.5",
       "kind": "cloze",
@@ -7696,7 +7696,7 @@
       }
     },
     {
-      "id": "csmop-cloze-14-8-1",
+      "id": "csmop-cloze-14-8-duration",
       "act": "csmop",
       "rule": "14.8",
       "kind": "cloze",
@@ -7741,7 +7741,7 @@
       }
     },
     {
-      "id": "csmop-cloze-15-2-1",
+      "id": "csmop-cloze-15-2-duration",
       "act": "csmop",
       "rule": "15.2",
       "kind": "cloze",
@@ -7786,7 +7786,7 @@
       }
     },
     {
-      "id": "csmop-cloze-16-5-1",
+      "id": "csmop-cloze-16-5-duration",
       "act": "csmop",
       "rule": "16.5",
       "kind": "cloze",
@@ -7831,7 +7831,7 @@
       }
     },
     {
-      "id": "csmop-cloze-16-5-2",
+      "id": "csmop-cloze-16-5-definedterm",
       "act": "csmop",
       "rule": "16.5",
       "kind": "cloze",
@@ -7876,7 +7876,7 @@
       }
     },
     {
-      "id": "csmop-cloze-16-7-1",
+      "id": "csmop-cloze-16-7-definedterm",
       "act": "csmop",
       "rule": "16.7",
       "kind": "cloze",

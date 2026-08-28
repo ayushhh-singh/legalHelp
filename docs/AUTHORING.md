@@ -101,6 +101,14 @@ writes nothing, which is what CI runs.
 6. **Generate, review, regenerate.** `make_cards.py --act <id> --show`, then work
    through the cloze cards and write `review/cloze-<id>.json`.
 
+   Two things about the keys. A cloze card's id is
+   `<act>-cloze-<rule>-<span kind>` — keyed on the kind, never on a position,
+   because every review entry is keyed on the id and a positional id renames
+   half the corpus the first time a span is filtered out. And a key in
+   `hindi/<id>.json` or `review/cloze-<id>.json` that matches nothing **fails
+   the run**: a typo there would otherwise leave the card unserved and report
+   success.
+
 7. **Add the files to three places**, or they are validated by nothing:
    `MANIFEST` in `scripts/ingest/validate_data.py`, `schemas/rules-*.schema.json`
    (already generic), and nothing else — `tests/rules-data.test.ts` discovers
@@ -130,6 +138,12 @@ Before a card is served:
       the Python pipeline.
 - [ ] **Not positionally gameable.** `make_cards.py` rotates a question's options
       by a hash of its id; a test asserts no answer position holds more than half.
+- [ ] **The stem does not contain the answer.** A cloze that blanks "three
+      months" and then says "within a period of three months from the date of the
+      last incident" asks nothing. `leaks_answer` is the gate and it runs on the
+      final stem, after any `edit`.
+- [ ] **Its citation reads as the book prints it.** "F.R. 17", not
+      "Rule F.R. 17" — a number that opens with a letter carries its own unit.
 
 ---
 

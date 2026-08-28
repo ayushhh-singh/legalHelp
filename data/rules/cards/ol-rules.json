@@ -435,7 +435,7 @@
       }
     },
     {
-      "id": "ol-rules-cloze-2-1",
+      "id": "ol-rules-cloze-2-crossreference",
       "act": "ol-rules",
       "rule": "2",
       "kind": "cloze",
@@ -481,7 +481,7 @@
       "reviewNote": "Rule 2(d) — a 'notified office' is one notified under sub-rule (4) of rule 10, which is the link between the definition and the Hindi-proficiency scheme."
     },
     {
-      "id": "ol-rules-cloze-2-2",
+      "id": "ol-rules-cloze-2-definedterm",
       "act": "ol-rules",
       "rule": "2",
       "kind": "cloze",
@@ -527,7 +527,7 @@
       "reviewNote": "Rule 2(b) — the defined term that decides which offices the Rules bind at all."
     },
     {
-      "id": "ol-rules-cloze-3-1",
+      "id": "ol-rules-cloze-3-definedterm",
       "act": "ol-rules",
       "rule": "3",
       "kind": "cloze",
@@ -558,7 +558,7 @@
       },
       "difficulty": "easy",
       "reviewed": true,
-      "reviewState": "approved",
+      "reviewState": "rejected",
       "tags": [
         "generated",
         "cloze",
@@ -570,10 +570,10 @@
         "name": "Department of Official Language, Ministry of Home Affairs — Official Languages Rules, 1976 (as amended 1987, 2007, 2011)",
         "url": "https://rajbhasha.gov.in/en/official-language-rules-1976"
       },
-      "reviewNote": "Rule 3(1) — the Region A obligation runs from a Central Government office."
+      "reviewNote": "the en stem repeats its own answer ('Central Government office') outside the blank, so the card asks nothing"
     },
     {
-      "id": "ol-rules-cloze-4-1",
+      "id": "ol-rules-cloze-4-count",
       "act": "ol-rules",
       "rule": "4",
       "kind": "cloze",
@@ -619,7 +619,7 @@
       "reviewNote": "Answer is 'one', blanked out of 'Between one Ministry or Department and another'. Tests counting."
     },
     {
-      "id": "ol-rules-cloze-4-2",
+      "id": "ol-rules-cloze-4-definedterm",
       "act": "ol-rules",
       "rule": "4",
       "kind": "cloze",
@@ -665,7 +665,7 @@
       "reviewNote": "Rule 4's proviso ties the proportion of Hindi correspondence to the number of staff with a working knowledge of Hindi — a defined term with its own rule."
     },
     {
-      "id": "ol-rules-cloze-5-1",
+      "id": "ol-rules-cloze-5-crossreference",
       "act": "ol-rules",
       "rule": "5",
       "kind": "cloze",
@@ -711,7 +711,7 @@
       "reviewNote": "Rule 5 overrides rules 3 and 4 — the reply-in-Hindi obligation is unconditional, and knowing which rules it displaces is the point."
     },
     {
-      "id": "ol-rules-cloze-6-1",
+      "id": "ol-rules-cloze-6-crossreference",
       "act": "ol-rules",
       "rule": "6",
       "kind": "cloze",
@@ -757,7 +757,7 @@
       "reviewNote": "Rule 6 points back to section 3(3) of the Act — the list of documents that must be bilingual."
     },
     {
-      "id": "ol-rules-cloze-7-1",
+      "id": "ol-rules-cloze-7-definedterm",
       "act": "ol-rules",
       "rule": "7",
       "kind": "cloze",
@@ -803,7 +803,7 @@
       "reviewNote": "Rule 7(1) — the right belongs to an 'employee', a defined term narrower than 'person'."
     },
     {
-      "id": "ol-rules-cloze-8-1",
+      "id": "ol-rules-cloze-8-definedterm",
       "act": "ol-rules",
       "rule": "8",
       "kind": "cloze",
@@ -849,7 +849,7 @@
       "reviewNote": "Rule 8(4) — noting in either language without having to supply a translation is the rule officers most often doubt."
     },
     {
-      "id": "ol-rules-cloze-9-1",
+      "id": "ol-rules-cloze-9-definedterm",
       "act": "ol-rules",
       "rule": "9",
       "kind": "cloze",
@@ -895,7 +895,7 @@
       "reviewNote": "Rule 9 defines proficiency; rule 10 defines working knowledge. The pair is the commonest confusion in this rule book."
     },
     {
-      "id": "ol-rules-cloze-10-1",
+      "id": "ol-rules-cloze-10-definedterm",
       "act": "ol-rules",
       "rule": "10",
       "kind": "cloze",
@@ -941,7 +941,7 @@
       "reviewNote": "The other half of the pair — rule 10's test is Hindi as a subject, or the Pragya examination."
     },
     {
-      "id": "ol-rules-cloze-12-1",
+      "id": "ol-rules-cloze-12-crossreference",
       "act": "ol-rules",
       "rule": "12",
       "kind": "cloze",
@@ -987,7 +987,7 @@
       "reviewNote": "The stem is the preamble of the 2007 amending notification, which the Department appends to the same web page. It is not rule 12."
     },
     {
-      "id": "ol-rules-cloze-12-2",
+      "id": "ol-rules-cloze-12-definedterm",
       "act": "ol-rules",
       "rule": "12",
       "kind": "cloze",

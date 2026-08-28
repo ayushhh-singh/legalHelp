@@ -1,11 +1,10 @@
 {
   "_note": "Hand review of the generated cloze cards for the PoSH Act, 2013. Two cards are rejected because the blank fell inside the 2016 amendment footnote that renamed the Internal Complaints Committee to the Internal Committee; the stem there is 'for \"____\" (w.e.f.', which is a footnote, not a section.",
-
-  "posh-cloze-1-1": {
+  "posh-cloze-1-definedterm": {
     "verdict": "reject",
     "reason": "The stem is the short title and the blank is the name of the Act the reader is studying."
   },
-  "posh-cloze-2-1": {
+  "posh-cloze-2-crossreference": {
     "verdict": "approve",
     "reason": "Section 2(c) — the Chairperson is of the Local Committee and is nominated under section 7(1). The Internal Committee has a Presiding Officer instead, and the two are routinely swapped.",
     "hi": {
@@ -13,7 +12,7 @@
       "answer": "धारा 7"
     }
   },
-  "posh-cloze-2-2": {
+  "posh-cloze-2-definedterm": {
     "verdict": "approve",
     "reason": "Section 2(a) — an aggrieved woman need not be employed at the workplace, which is what the definition is for.",
     "hi": {
@@ -21,11 +20,11 @@
       "answer": "व्यथित महिला"
     }
   },
-  "posh-cloze-3-1": {
+  "posh-cloze-3-definedterm": {
     "verdict": "reject",
     "reason": "Section 3(1) is one sentence and the blank is the subject of the Act."
   },
-  "posh-cloze-4-1": {
+  "posh-cloze-4-duration": {
     "verdict": "approve",
     "reason": "Section 4(3) — the three-year cap on the Internal Committee's tenure.",
     "hi": {
@@ -33,7 +32,7 @@
       "answer": "तीन वर्ष"
     }
   },
-  "posh-cloze-4-2": {
+  "posh-cloze-4-crossreference": {
     "verdict": "approve",
     "reason": "Section 4(5)(a) — contravening the confidentiality section is itself a ground for removal from the Committee.",
     "hi": {
@@ -41,7 +40,7 @@
       "answer": "धारा 16"
     }
   },
-  "posh-cloze-4-3": {
+  "posh-cloze-4-count": {
     "verdict": "approve",
     "reason": "Section 4(2)(b) — not less than two Members from amongst employees. The composition is examinable in detail.",
     "hi": {
@@ -49,7 +48,7 @@
       "answer": "दो"
     }
   },
-  "posh-cloze-5-1": {
+  "posh-cloze-5-definedterm": {
     "verdict": "approve",
     "reason": "Section 5 — the District Officer is notified by the appropriate Government, not appointed by the employer.",
     "hi": {
@@ -57,7 +56,7 @@
       "answer": "समुचित सरकार"
     }
   },
-  "posh-cloze-6-1": {
+  "posh-cloze-6-duration": {
     "verdict": "approve",
     "reason": "Section 6(2) — the nodal officer forwards a complaint within seven days.",
     "hi": {
@@ -65,7 +64,7 @@
       "answer": "सात दिन"
     }
   },
-  "posh-cloze-6-2": {
+  "posh-cloze-6-count": {
     "verdict": "approve",
     "reason": "Section 6(1) — the ten-worker threshold below which there is no Internal Committee and the Local Committee takes over.",
     "hi": {
@@ -73,7 +72,7 @@
       "answer": "दस"
     }
   },
-  "posh-cloze-6-3": {
+  "posh-cloze-6-definedterm": {
     "verdict": "approve",
     "reason": "Section 6(1) — the Local Committee is constituted by the District Officer, not by the employer.",
     "hi": {
@@ -81,7 +80,7 @@
       "answer": "जिला अधिकारी"
     }
   },
-  "posh-cloze-7-1": {
+  "posh-cloze-7-duration": {
     "verdict": "approve",
     "reason": "Section 7(2) — the Local Committee's tenure matches the Internal Committee's three years.",
     "hi": {
@@ -89,11 +88,11 @@
       "answer": "तीन वर्ष"
     }
   },
-  "posh-cloze-7-2": {
+  "posh-cloze-7-crossreference": {
     "verdict": "reject",
-    "reason": "Duplicate of posh-cloze-4-2 — the same section 16 contravention ground, for the Local Committee."
+    "reason": "Duplicate of posh-cloze-4-crossreference — the same section 16 contravention ground, for the Local Committee."
   },
-  "posh-cloze-7-3": {
+  "posh-cloze-7-count": {
     "verdict": "approve",
     "reason": "Section 7(1)(b) — one Member from amongst women working in the block, taluka or tehsil.",
     "hi": {
@@ -101,7 +100,7 @@
       "answer": "एक"
     }
   },
-  "posh-cloze-8-1": {
+  "posh-cloze-8-crossreference": {
     "verdict": "approve",
     "reason": "Section 8 — the grant pays the fees and allowances under section 7(4), which is what makes a Local Committee workable.",
     "hi": {
@@ -109,11 +108,11 @@
       "answer": "धारा 7"
     }
   },
-  "posh-cloze-8-2": {
+  "posh-cloze-8-definedterm": {
     "verdict": "reject",
     "reason": "The stem is the 2016 amendment footnote — 'for \"____\" (w.e.f.' — not section 8."
   },
-  "posh-cloze-9-1": {
+  "posh-cloze-9-duration": {
     "verdict": "approve",
     "reason": "Section 9(1) — the three-month limitation, which the Committee may extend by a further three months.",
     "hi": {
@@ -121,11 +120,11 @@
       "answer": "तीन मास"
     }
   },
-  "posh-cloze-9-2": {
+  "posh-cloze-9-definedterm": {
     "verdict": "reject",
-    "reason": "Duplicate of posh-cloze-2-2's term in a stem that also carries the section 9 limitation already covered."
+    "reason": "Duplicate of posh-cloze-2-definedterm's term in a stem that also carries the section 9 limitation already covered."
   },
-  "posh-cloze-10-1": {
+  "posh-cloze-10-crossreference": {
     "verdict": "approve",
     "reason": "Section 10 — conciliation happens *before* an inquiry under section 11 and only at the woman's request.",
     "hi": {
@@ -133,11 +132,11 @@
       "answer": "धारा 11"
     }
   },
-  "posh-cloze-10-2": {
+  "posh-cloze-10-definedterm": {
     "verdict": "reject",
     "reason": "The stem names the Local Committee in the same clause."
   },
-  "posh-cloze-11-1": {
+  "posh-cloze-11-duration": {
     "verdict": "approve",
     "reason": "Section 11(1) proviso — a domestic worker's complaint goes to the police within seven days for section 509 IPC.",
     "hi": {
@@ -145,7 +144,7 @@
       "answer": "सात दिन"
     }
   },
-  "posh-cloze-11-2": {
+  "posh-cloze-11-crossreference": {
     "verdict": "approve",
     "reason": "Section 11(1) is subject to section 10 — an inquiry begins only where conciliation has not settled the matter.",
     "hi": {
@@ -153,11 +152,11 @@
       "answer": "धारा 10"
     }
   },
-  "posh-cloze-11-3": {
+  "posh-cloze-11-definedterm": {
     "verdict": "reject",
     "reason": "The stem names the Local Committee immediately after the blank."
   },
-  "posh-cloze-12-1": {
+  "posh-cloze-12-duration": {
     "verdict": "approve",
     "reason": "Section 12(1)(b) — leave of up to three months during the pendency of an inquiry, in addition to her entitlement.",
     "hi": {
@@ -165,11 +164,11 @@
       "answer": "तीन मास"
     }
   },
-  "posh-cloze-12-2": {
+  "posh-cloze-12-definedterm": {
     "verdict": "reject",
     "reason": "Answer is 'inquiry', which the same sentence uses twice more."
   },
-  "posh-cloze-13-1": {
+  "posh-cloze-13-duration": {
     "verdict": "approve",
     "reason": "Section 13(1) — the report goes to the employer within ten days of completing the inquiry.",
     "hi": {
@@ -177,7 +176,7 @@
       "answer": "दस दिन"
     }
   },
-  "posh-cloze-13-2": {
+  "posh-cloze-13-crossreference": {
     "verdict": "approve",
     "reason": "Section 13(3)(ii) — compensation is determined under section 15, which lists the factors.",
     "hi": {
@@ -185,11 +184,11 @@
       "answer": "धारा 15"
     }
   },
-  "posh-cloze-13-3": {
+  "posh-cloze-13-definedterm": {
     "verdict": "reject",
-    "reason": "Duplicate of posh-cloze-12-2's weakness — 'inquiry' appears twice in the stem."
+    "reason": "Duplicate of posh-cloze-12-definedterm's weakness — 'inquiry' appears twice in the stem."
   },
-  "posh-cloze-14-1": {
+  "posh-cloze-14-crossreference": {
     "verdict": "approve",
     "reason": "Section 14(1) — action for a malicious complaint is taken against the person who complained under section 9.",
     "hi": {
@@ -197,11 +196,11 @@
       "answer": "धारा 9"
     }
   },
-  "posh-cloze-14-2": {
+  "posh-cloze-14-definedterm": {
     "verdict": "reject",
     "reason": "The stem names the Internal Committee immediately before the blank."
   },
-  "posh-cloze-15-1": {
+  "posh-cloze-15-crossreference": {
     "verdict": "approve",
     "reason": "Section 15 sets the factors for the sum payable under section 13(3)(ii) — the link between the two sections is what a Committee must get right.",
     "hi": {
@@ -209,11 +208,11 @@
       "answer": "धारा 13"
     }
   },
-  "posh-cloze-15-2": {
+  "posh-cloze-15-definedterm": {
     "verdict": "reject",
     "reason": "The stem names the Internal Committee immediately before the blank."
   },
-  "posh-cloze-16-1": {
+  "posh-cloze-16-crossreference": {
     "verdict": "approve",
     "reason": "Section 16 overrides the RTI Act for the contents of a complaint made under section 9 — the one place these two Acts collide.",
     "hi": {
@@ -221,7 +220,7 @@
       "answer": "धारा 9"
     }
   },
-  "posh-cloze-16-2": {
+  "posh-cloze-16-definedterm": {
     "verdict": "approve",
     "reason": "Section 16 protects the respondent's identity as well as the woman's — the half readers forget.",
     "hi": {
@@ -229,7 +228,7 @@
       "answer": "प्रत्यर्थी"
     }
   },
-  "posh-cloze-17-1": {
+  "posh-cloze-17-definedterm": {
     "verdict": "approve",
     "reason": "Section 17 — the penalty for breaching confidentiality is imposed under the service rules, not by the Committee.",
     "hi": {
@@ -237,7 +236,7 @@
       "answer": "सेवा नियमों"
     }
   },
-  "posh-cloze-18-1": {
+  "posh-cloze-18-duration": {
     "verdict": "approve",
     "reason": "Section 18(2) — ninety days to appeal, against thirty days for a first appeal under the RTI Act. The two are often confused.",
     "hi": {
@@ -245,7 +244,7 @@
       "answer": "नब्बे दिन"
     }
   },
-  "posh-cloze-18-2": {
+  "posh-cloze-18-crossreference": {
     "verdict": "approve",
     "reason": "Section 18(1) — the recommendations that are appealable are those under section 13(2) and (3), 14 and 17.",
     "hi": {
@@ -253,11 +252,11 @@
       "answer": "धारा 13"
     }
   },
-  "posh-cloze-18-3": {
+  "posh-cloze-18-definedterm": {
     "verdict": "reject",
-    "reason": "Duplicate of posh-cloze-17-1 — the same 'service rules applicable to the said person' formula."
+    "reason": "Duplicate of posh-cloze-17-definedterm — the same 'service rules applicable to the said person' formula."
   },
-  "posh-cloze-19-1": {
+  "posh-cloze-19-crossreference": {
     "verdict": "approve",
     "reason": "Section 19(b) — the employer must display the order constituting the Internal Committee under section 4(1).",
     "hi": {
@@ -265,7 +264,7 @@
       "answer": "धारा 4"
     }
   },
-  "posh-cloze-19-2": {
+  "posh-cloze-19-definedterm": {
     "verdict": "approve",
     "reason": "Section 19 — the duties are the employer's, and the safe-working-environment duty is the first of them.",
     "hi": {
@@ -273,7 +272,7 @@
       "answer": "नियोजक"
     }
   },
-  "posh-cloze-20-1": {
+  "posh-cloze-20-definedterm": {
     "verdict": "approve",
     "reason": "Section 20 — monitoring the Local Committee's reports is the District Officer's duty, not the employer's.",
     "hi": {
@@ -281,7 +280,7 @@
       "answer": "जिला अधिकारी"
     }
   },
-  "posh-cloze-21-1": {
+  "posh-cloze-21-definedterm": {
     "verdict": "approve",
     "reason": "Section 21(1) — a calendar-year annual report to the employer and the District Officer.",
     "hi": {
@@ -289,7 +288,7 @@
       "answer": "वार्षिक रिपोर्ट"
     }
   },
-  "posh-cloze-22-1": {
+  "posh-cloze-22-definedterm": {
     "verdict": "approve",
     "reason": "Section 22 — the number of cases goes into the organisation's own annual report.",
     "hi": {
@@ -297,7 +296,7 @@
       "answer": "नियोजक"
     }
   },
-  "posh-cloze-23-1": {
+  "posh-cloze-23-definedterm": {
     "verdict": "approve",
     "reason": "Section 23 — implementation is monitored by the appropriate Government.",
     "hi": {
@@ -305,15 +304,15 @@
       "answer": "समुचित सरकार"
     }
   },
-  "posh-cloze-24-1": {
+  "posh-cloze-24-definedterm": {
     "verdict": "reject",
     "reason": "Answer is 'workplace', which appears three more times in the same sentence."
   },
-  "posh-cloze-25-1": {
+  "posh-cloze-25-definedterm": {
     "verdict": "reject",
-    "reason": "Same weakness as posh-cloze-24-1."
+    "reason": "Same weakness as posh-cloze-24-definedterm."
   },
-  "posh-cloze-26-1": {
+  "posh-cloze-26-crossreference": {
     "verdict": "approve",
     "reason": "Section 26(1)(a) — failing to constitute the Internal Committee under section 4(1) is the first punishable default.",
     "hi": {
@@ -321,15 +320,15 @@
       "answer": "धारा 4"
     }
   },
-  "posh-cloze-26-2": {
+  "posh-cloze-26-count": {
     "verdict": "reject",
     "reason": "The blank falls on 'fifty' inside 'fifty thousand rupees' and the stem is truncated before the figure, so the card asks for half a number."
   },
-  "posh-cloze-26-3": {
+  "posh-cloze-26-definedterm": {
     "verdict": "reject",
     "reason": "The stem is the 2016 amendment footnote, not section 26."
   },
-  "posh-cloze-29-1": {
+  "posh-cloze-29-duration": {
     "verdict": "approve",
     "reason": "Section 29(3) — the thirty-day laying period.",
     "hi": {
@@ -337,15 +336,15 @@
       "answer": "तीस दिन"
     }
   },
-  "posh-cloze-29-2": {
+  "posh-cloze-29-crossreference": {
     "verdict": "reject",
     "reason": "A cross-reference inside the rule-making list; the sentence gives no way to recover which section is meant."
   },
-  "posh-cloze-29-3": {
+  "posh-cloze-29-count": {
     "verdict": "reject",
     "reason": "Answer is 'one', blanked out of 'comprised in one session'."
   },
-  "posh-cloze-30-1": {
+  "posh-cloze-30-duration": {
     "verdict": "approve",
     "reason": "Section 30(1) proviso — the removal-of-difficulties power lapsed two years after commencement.",
     "hi": {

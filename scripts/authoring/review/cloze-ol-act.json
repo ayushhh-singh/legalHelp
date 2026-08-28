@@ -1,7 +1,6 @@
 {
   "_note": "Hand review of the generated cloze cards for the Official Languages Act, 1963.",
-
-  "ol-act-cloze-1-1": {
+  "ol-act-cloze-1-crossreference": {
     "verdict": "approve",
     "reason": "Section 1(2) — section 3 alone commenced on 26 January 1965; the rest was notified. Officers routinely date the whole Act from 1963.",
     "hi": {
@@ -9,11 +8,11 @@
       "answer": "धारा 3"
     }
   },
-  "ol-act-cloze-1-2": {
+  "ol-act-cloze-1-definedterm": {
     "verdict": "reject",
-    "reason": "Answer is 'notification'. The set phrase 'by ____ in the Official Gazette' gives it away, and ol-act-cloze-8-3 already covers it once."
+    "reason": "Answer is 'notification'. The set phrase 'by ____ in the Official Gazette' gives it away, and ol-act-cloze-8-definedterm already covers it once."
   },
-  "ol-act-cloze-2-1": {
+  "ol-act-cloze-2-duration": {
     "verdict": "approve",
     "reason": "Section 3(1) — the fifteen-year period in Article 343(2) of the Constitution is what section 3 works around.",
     "hi": {
@@ -21,7 +20,7 @@
       "answer": "पंद्रह वर्ष"
     }
   },
-  "ol-act-cloze-2-2": {
+  "ol-act-cloze-2-crossreference": {
     "verdict": "approve",
     "reason": "Section 2(a) — 'appointed day' means one date for section 3 and a different one for every other provision.",
     "hi": {
@@ -29,11 +28,11 @@
       "answer": "धारा 3"
     }
   },
-  "ol-act-cloze-2-3": {
+  "ol-act-cloze-2-count": {
     "verdict": "reject",
     "reason": "Answer is 'one', blanked out of 'between one State which has adopted Hindi and another'. The card tests counting, not the Act."
   },
-  "ol-act-cloze-4-1": {
+  "ol-act-cloze-4-duration": {
     "verdict": "approve",
     "reason": "Section 4(1) — the Committee on Official Language could only be constituted ten years after section 3 commenced.",
     "hi": {
@@ -41,7 +40,7 @@
       "answer": "दस वर्ष"
     }
   },
-  "ol-act-cloze-4-2": {
+  "ol-act-cloze-4-count": {
     "verdict": "approve",
     "reason": "Section 4(2) — thirty members, twenty from the Lok Sabha and ten from the Rajya Sabha. The split is the examinable fact.",
     "hi": {
@@ -49,7 +48,7 @@
       "answer": "तीस"
     }
   },
-  "ol-act-cloze-4-3": {
+  "ol-act-cloze-4-definedterm": {
     "verdict": "approve",
     "reason": "The body section 4 creates, by its statutory name.",
     "hi": {
@@ -57,7 +56,7 @@
       "answer": "राजभाषा संबंधी समिति"
     }
   },
-  "ol-act-cloze-5-1": {
+  "ol-act-cloze-5-definedterm": {
     "verdict": "approve",
     "reason": "Section 5 — only a Hindi translation published under the authority of the President is the authoritative text.",
     "hi": {
@@ -65,7 +64,7 @@
       "answer": "हिंदी"
     }
   },
-  "ol-act-cloze-6-1": {
+  "ol-act-cloze-6-crossreference": {
     "verdict": "approve",
     "reason": "Section 6 is anchored to Article 348(3) of the Constitution — a link officers are asked to state.",
     "hi": {
@@ -73,11 +72,11 @@
       "answer": "अनुच्छेद 348"
     }
   },
-  "ol-act-cloze-6-2": {
+  "ol-act-cloze-6-definedterm": {
     "verdict": "reject",
     "reason": "The stem says 'a translation of the same in Hindi' two clauses later, so the blank answers itself."
   },
-  "ol-act-cloze-7-1": {
+  "ol-act-cloze-7-definedterm": {
     "verdict": "approve",
     "reason": "Section 7 — the Governor's power runs from the appointed day, a defined term.",
     "hi": {
@@ -85,7 +84,7 @@
       "answer": "नियत दिन"
     }
   },
-  "ol-act-cloze-8-1": {
+  "ol-act-cloze-8-duration": {
     "verdict": "approve",
     "reason": "Section 8(2) — the laying period, which is thirty days and not a session.",
     "hi": {
@@ -93,11 +92,11 @@
       "answer": "तीस दिन"
     }
   },
-  "ol-act-cloze-8-2": {
+  "ol-act-cloze-8-count": {
     "verdict": "reject",
     "reason": "Answer is 'one', blanked out of 'comprised in one session'. Tests counting, not the Act."
   },
-  "ol-act-cloze-8-3": {
+  "ol-act-cloze-8-definedterm": {
     "verdict": "approve",
     "reason": "Section 8(1) — the rule-making power is exercised by notification in the Official Gazette.",
     "hi": {

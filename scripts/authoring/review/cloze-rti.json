@@ -1,7 +1,6 @@
 {
   "_note": "Hand review of the generated cloze cards for the Right to Information Act, 2005. Two cards about the Commissioners' term of office are rejected outright: the RTI (Amendment) Act, 2019 replaced the fixed five-year term with 'such term as may be prescribed by the Central Government', and a card whose answer is 'five years' would teach the pre-2019 position as law. `edit` fixes a blank that fell inside a compound number.",
-
-  "rti-cloze-1-1": {
+  "rti-cloze-1-crossreference": {
     "verdict": "approve",
     "reason": "Section 1(3) — the sections that commenced at once, as against the 120-day tranche. A standing examination question.",
     "hi": {
@@ -9,15 +8,15 @@
       "answer": "धारा 4"
     }
   },
-  "rti-cloze-1-2": {
+  "rti-cloze-1-count": {
     "verdict": "reject",
     "reason": "Answer is the bare word 'one'. Tests counting, not the Act."
   },
-  "rti-cloze-1-3": {
+  "rti-cloze-1-definedterm": {
     "verdict": "reject",
     "reason": "The stem is the short title and the blank is the name of the Act the reader is studying."
   },
-  "rti-cloze-2-1": {
+  "rti-cloze-2-crossreference": {
     "verdict": "approve",
     "reason": "Section 2(b) — the Commission is constituted under section 12(1), which is the link between the definition and the machinery.",
     "hi": {
@@ -25,7 +24,7 @@
       "answer": "धारा 12"
     }
   },
-  "rti-cloze-2-2": {
+  "rti-cloze-2-definedterm": {
     "verdict": "approve",
     "reason": "Section 2(a) — whether the Centre or a State is the 'appropriate Government' decides which Commission hears the appeal.",
     "hi": {
@@ -33,11 +32,11 @@
       "answer": "समुचित सरकार"
     }
   },
-  "rti-cloze-3-1": {
+  "rti-cloze-3-definedterm": {
     "verdict": "reject",
     "reason": "Section 3 is one sentence long and the blank is its subject. Nothing is recalled."
   },
-  "rti-cloze-4-1": {
+  "rti-cloze-4-duration": {
     "verdict": "approve",
     "reason": "Section 4(1)(b) — the 120-day deadline for the first suo motu publication.",
     "hi": {
@@ -45,7 +44,7 @@
       "answer": "एक सौ बीस दिन"
     }
   },
-  "rti-cloze-4-2": {
+  "rti-cloze-4-definedterm": {
     "verdict": "approve",
     "reason": "Section 4(1)(a) — the record-keeping duty is on the public authority, not on the Information Officer.",
     "hi": {
@@ -53,7 +52,7 @@
       "answer": "लोक प्राधिकारी"
     }
   },
-  "rti-cloze-5-1": {
+  "rti-cloze-5-duration": {
     "verdict": "edit",
     "reason": "The blank fell inside the compound number, leaving 'within one ____'. Widened to the whole period.",
     "en": {
@@ -65,7 +64,7 @@
       "answer": "एक सौ दिन"
     }
   },
-  "rti-cloze-5-2": {
+  "rti-cloze-5-crossreference": {
     "verdict": "approve",
     "reason": "Section 5(4)/(5) route an application to the senior officer specified under section 19(1) — the first-appeal authority.",
     "hi": {
@@ -73,11 +72,11 @@
       "answer": "धारा 19"
     }
   },
-  "rti-cloze-5-3": {
+  "rti-cloze-5-count": {
     "verdict": "reject",
-    "reason": "Duplicate of the blank fixed in rti-cloze-5-1, and its answer is the bare word 'one'."
+    "reason": "Duplicate of the blank fixed in rti-cloze-5-duration, and its answer is the bare word 'one'."
   },
-  "rti-cloze-6-1": {
+  "rti-cloze-6-duration": {
     "verdict": "approve",
     "reason": "Section 6(3) proviso — an application transferred to another public authority must move within five days.",
     "hi": {
@@ -85,7 +84,7 @@
       "answer": "पाँच दिन"
     }
   },
-  "rti-cloze-6-2": {
+  "rti-cloze-6-definedterm": {
     "verdict": "approve",
     "reason": "Section 6(1) — the request is for 'information', the Act's central defined term.",
     "hi": {
@@ -93,7 +92,7 @@
       "answer": "सूचना"
     }
   },
-  "rti-cloze-7-1": {
+  "rti-cloze-7-duration": {
     "verdict": "approve",
     "reason": "Section 7(1) — the thirty-day period is the single most-cited number in the Act.",
     "hi": {
@@ -101,7 +100,7 @@
       "answer": "तीस दिन"
     }
   },
-  "rti-cloze-7-2": {
+  "rti-cloze-7-crossreference": {
     "verdict": "approve",
     "reason": "Section 7(1) opens 'subject to the proviso to sub-section (2) of section 5' — the Assistant PIO's five extra days.",
     "hi": {
@@ -109,11 +108,11 @@
       "answer": "धारा 5"
     }
   },
-  "rti-cloze-7-3": {
+  "rti-cloze-7-definedterm": {
     "verdict": "reject",
     "reason": "The stem names the State Public Information Officer in the same breath, so the blank is filled by its own sentence."
   },
-  "rti-cloze-8-1": {
+  "rti-cloze-8-duration": {
     "verdict": "approve",
     "reason": "Section 8(3) — the twenty-year cut-off after which most exemptions fall away.",
     "hi": {
@@ -121,11 +120,11 @@
       "answer": "बीस वर्ष"
     }
   },
-  "rti-cloze-8-2": {
+  "rti-cloze-8-crossreference": {
     "verdict": "reject",
-    "reason": "Near-duplicate of rti-cloze-8-1's sentence, blanked on the cross-reference instead. One card from this sub-section is enough."
+    "reason": "Near-duplicate of rti-cloze-8-duration's sentence, blanked on the cross-reference instead. One card from this sub-section is enough."
   },
-  "rti-cloze-8-3": {
+  "rti-cloze-8-definedterm": {
     "verdict": "approve",
     "reason": "Section 8(1)(a) — the first exemption, and the one every applicant meets.",
     "hi": {
@@ -133,7 +132,7 @@
       "answer": "सूचना"
     }
   },
-  "rti-cloze-9-1": {
+  "rti-cloze-9-crossreference": {
     "verdict": "approve",
     "reason": "Section 9 is the copyright ground and operates 'without prejudice to section 8' — the two are separate grounds and are often conflated.",
     "hi": {
@@ -141,15 +140,15 @@
       "answer": "धारा 8"
     }
   },
-  "rti-cloze-9-2": {
+  "rti-cloze-9-definedterm": {
     "verdict": "reject",
     "reason": "The stem names the State Public Information Officer immediately after the blank."
   },
-  "rti-cloze-10-1": {
+  "rti-cloze-10-crossreference": {
     "verdict": "reject",
-    "reason": "Duplicate of rti-cloze-5-2 — the same 'senior officer specified under sub-section (1) of section 19' formula."
+    "reason": "Duplicate of rti-cloze-5-crossreference — the same 'senior officer specified under sub-section (1) of section 19' formula."
   },
-  "rti-cloze-10-2": {
+  "rti-cloze-10-definedterm": {
     "verdict": "approve",
     "reason": "Section 10(1) is the severability rule and turns on access to part of the record.",
     "hi": {
@@ -157,7 +156,7 @@
       "answer": "अभिलेख"
     }
   },
-  "rti-cloze-11-1": {
+  "rti-cloze-11-duration": {
     "verdict": "approve",
     "reason": "Section 11(1) — the third party gets notice within five days.",
     "hi": {
@@ -165,7 +164,7 @@
       "answer": "पाँच दिन"
     }
   },
-  "rti-cloze-11-2": {
+  "rti-cloze-11-crossreference": {
     "verdict": "approve",
     "reason": "Section 11(3) overrides section 7 and gives forty days where a third party is involved.",
     "hi": {
@@ -173,11 +172,11 @@
       "answer": "धारा 7"
     }
   },
-  "rti-cloze-11-3": {
+  "rti-cloze-11-definedterm": {
     "verdict": "reject",
     "reason": "The stem names the Central Public Information Officer in the same clause."
   },
-  "rti-cloze-12-1": {
+  "rti-cloze-12-definedterm": {
     "verdict": "approve",
     "reason": "Section 12(1) — the body's statutory name and the instrument that constitutes it.",
     "hi": {
@@ -185,11 +184,11 @@
       "answer": "केंद्रीय सूचना आयोग"
     }
   },
-  "rti-cloze-13-1": {
+  "rti-cloze-13-duration": {
     "verdict": "reject",
     "reason": "The RTI (Amendment) Act, 2019 replaced the fixed five-year term with 'such term as may be prescribed by the Central Government'. A card answering 'five years' would teach the repealed position."
   },
-  "rti-cloze-13-2": {
+  "rti-cloze-13-crossreference": {
     "verdict": "approve",
     "reason": "Section 13(2) proviso — an Information Commissioner elevated to Chief is appointed in the manner in section 12(3).",
     "hi": {
@@ -197,11 +196,11 @@
       "answer": "धारा 12"
     }
   },
-  "rti-cloze-13-3": {
+  "rti-cloze-13-definedterm": {
     "verdict": "reject",
-    "reason": "Same sentence as rti-cloze-13-1, and the office is named again two clauses later."
+    "reason": "Same sentence as rti-cloze-13-duration, and the office is named again two clauses later."
   },
-  "rti-cloze-14-1": {
+  "rti-cloze-14-definedterm": {
     "verdict": "approve",
     "reason": "Section 14(1) — only the President may remove, and only on proved misbehaviour or incapacity after a Supreme Court reference.",
     "hi": {
@@ -209,7 +208,7 @@
       "answer": "मुख्य सूचना आयुक्त"
     }
   },
-  "rti-cloze-15-1": {
+  "rti-cloze-15-definedterm": {
     "verdict": "approve",
     "reason": "Section 15(2) — the State Commission's composition, with the ten-Commissioner ceiling.",
     "hi": {
@@ -217,11 +216,11 @@
       "answer": "राज्य सूचना आयोग"
     }
   },
-  "rti-cloze-16-1": {
+  "rti-cloze-16-duration": {
     "verdict": "reject",
-    "reason": "Same 2019 amendment problem as rti-cloze-13-1, for the State Chief Information Commissioner."
+    "reason": "Same 2019 amendment problem as rti-cloze-13-duration, for the State Chief Information Commissioner."
   },
-  "rti-cloze-16-2": {
+  "rti-cloze-16-crossreference": {
     "verdict": "approve",
     "reason": "Section 16(2) proviso — the State equivalent of the section 12(3) route, pointing at section 15(3).",
     "hi": {
@@ -229,11 +228,11 @@
       "answer": "धारा 15"
     }
   },
-  "rti-cloze-16-3": {
+  "rti-cloze-16-definedterm": {
     "verdict": "reject",
     "reason": "Answer is 'prescribed', a drafting word rather than a rule."
   },
-  "rti-cloze-17-1": {
+  "rti-cloze-17-definedterm": {
     "verdict": "approve",
     "reason": "Section 17 — a State Commissioner is removed by the Governor, not the President. The contrast with section 14 is the examinable point.",
     "hi": {
@@ -241,7 +240,7 @@
       "answer": "सूचना आयुक्त"
     }
   },
-  "rti-cloze-18-1": {
+  "rti-cloze-18-definedterm": {
     "verdict": "approve",
     "reason": "Section 18 is the complaint jurisdiction, as against the appeal jurisdiction in section 19.",
     "hi": {
@@ -249,7 +248,7 @@
       "answer": "केंद्रीय सूचना आयोग"
     }
   },
-  "rti-cloze-19-1": {
+  "rti-cloze-19-duration": {
     "verdict": "approve",
     "reason": "Section 19(1) — thirty days for the first appeal, which readers confuse with the ninety days for the second.",
     "hi": {
@@ -257,15 +256,15 @@
       "answer": "तीस दिन"
     }
   },
-  "rti-cloze-19-2": {
+  "rti-cloze-19-crossreference": {
     "verdict": "reject",
-    "reason": "Duplicate of rti-cloze-19-1's sentence, blanked on the cross-reference."
+    "reason": "Duplicate of rti-cloze-19-duration's sentence, blanked on the cross-reference."
   },
-  "rti-cloze-19-3": {
+  "rti-cloze-19-definedterm": {
     "verdict": "reject",
     "reason": "The stem names the Central Public Information Officer immediately before the blank."
   },
-  "rti-cloze-20-1": {
+  "rti-cloze-20-count": {
     "verdict": "edit",
     "reason": "The blank fell inside the compound number, leaving '____ hundred and fifty rupees'. Widened to the whole penalty.",
     "en": {
@@ -277,11 +276,11 @@
       "answer": "दो सौ पचास रुपये"
     }
   },
-  "rti-cloze-20-2": {
+  "rti-cloze-20-definedterm": {
     "verdict": "reject",
     "reason": "The stem names the Central Information Commission immediately before the blank."
   },
-  "rti-cloze-24-1": {
+  "rti-cloze-24-duration": {
     "verdict": "approve",
     "reason": "Section 24 proviso — information about corruption or human rights violation from an exempt organisation comes in forty-five days, not thirty.",
     "hi": {
@@ -289,7 +288,7 @@
       "answer": "पैंतालीस दिन"
     }
   },
-  "rti-cloze-24-2": {
+  "rti-cloze-24-definedterm": {
     "verdict": "approve",
     "reason": "Section 24(1) — the Second Schedule bodies, and the two exceptions that survive.",
     "hi": {
@@ -297,11 +296,11 @@
       "answer": "आसूचना और सुरक्षा संगठनों"
     }
   },
-  "rti-cloze-25-1": {
+  "rti-cloze-25-count": {
     "verdict": "reject",
     "reason": "Answer is 'two', blanked out of 'where there are two Houses'."
   },
-  "rti-cloze-25-2": {
+  "rti-cloze-25-definedterm": {
     "verdict": "approve",
     "reason": "Section 25(1) — the annual report goes to the appropriate Government, which lays it before the legislature.",
     "hi": {
@@ -309,27 +308,27 @@
       "answer": "समुचित सरकार"
     }
   },
-  "rti-cloze-26-1": {
+  "rti-cloze-26-crossreference": {
     "verdict": "reject",
     "reason": "A cross-reference inside the rule-making list. The sentence gives no way to recover which section is meant."
   },
-  "rti-cloze-26-2": {
+  "rti-cloze-26-definedterm": {
     "verdict": "reject",
     "reason": "Same list; the blank falls on a term the sentence repeats."
   },
-  "rti-cloze-27-1": {
+  "rti-cloze-27-crossreference": {
     "verdict": "reject",
-    "reason": "Same rule-making list as rti-cloze-26-1."
+    "reason": "Same rule-making list as rti-cloze-26-crossreference."
   },
-  "rti-cloze-27-2": {
+  "rti-cloze-27-definedterm": {
     "verdict": "reject",
     "reason": "Answer is 'fee' and the word appears twice more in the same sentence."
   },
-  "rti-cloze-28-1": {
+  "rti-cloze-28-crossreference": {
     "verdict": "reject",
     "reason": "Same rule-making list."
   },
-  "rti-cloze-28-2": {
+  "rti-cloze-28-definedterm": {
     "verdict": "approve",
     "reason": "Section 28 — the competent authority makes rules for its own institution, as against the appropriate Government under section 27. The contrast is the point.",
     "hi": {
@@ -337,7 +336,7 @@
       "answer": "सक्षम प्राधिकारी"
     }
   },
-  "rti-cloze-30-1": {
+  "rti-cloze-30-duration": {
     "verdict": "approve",
     "reason": "Section 30(1) proviso — the removal-of-difficulties power lapsed two years after commencement.",
     "hi": {

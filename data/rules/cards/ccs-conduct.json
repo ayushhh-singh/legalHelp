@@ -2339,7 +2339,7 @@
       }
     },
     {
-      "id": "ccs-conduct-cloze-1-1",
+      "id": "ccs-conduct-cloze-1-amount",
       "act": "ccs-conduct",
       "rule": "1",
       "kind": "cloze",
@@ -2385,7 +2385,7 @@
       "reviewNote": "The pay ceiling in the second proviso to Rule 1(3) — a figure the rule turns on."
     },
     {
-      "id": "ccs-conduct-cloze-1-2",
+      "id": "ccs-conduct-cloze-1-crossreference",
       "act": "ccs-conduct",
       "rule": "1",
       "kind": "cloze",
@@ -2431,7 +2431,7 @@
       "reviewNote": "The definition of 'railway servant' is borrowed from a named section of another Act."
     },
     {
-      "id": "ccs-conduct-cloze-1-3",
+      "id": "ccs-conduct-cloze-1-definedterm",
       "act": "ccs-conduct",
       "rule": "1",
       "kind": "cloze",
@@ -2477,7 +2477,7 @@
       "reviewNote": "Answer is 'Government servant', which opens twenty-three rules of this book. The card teaches the phrase, not the rule."
     },
     {
-      "id": "ccs-conduct-cloze-2-1",
+      "id": "ccs-conduct-cloze-2-definedterm",
       "act": "ccs-conduct",
       "rule": "2",
       "kind": "cloze",
@@ -2523,7 +2523,7 @@
       "reviewNote": "Rule 2(a) — 'the Government' means the Central Government, which is the whole point of the definition."
     },
     {
-      "id": "ccs-conduct-cloze-3-1",
+      "id": "ccs-conduct-cloze-3-definedterm",
       "act": "ccs-conduct",
       "rule": "3",
       "kind": "cloze",
@@ -2566,10 +2566,10 @@
         "name": "Department of Personnel and Training — CCS (Conduct) Rules, 1964 — updated as on 27 February 2015",
         "url": "https://dopt.gov.in/sites/default/files/CCS_Conduct_Rules_1964_Updated_27Feb15_0.pdf"
       },
-      "reviewNote": "Same trivial answer as cloze-1-3."
+      "reviewNote": "Same trivial answer as ccs-conduct-cloze-1-definedterm."
     },
     {
-      "id": "ccs-conduct-cloze-3a-1",
+      "id": "ccs-conduct-cloze-3a-definedterm",
       "act": "ccs-conduct",
       "rule": "3A",
       "kind": "cloze",
@@ -2615,7 +2615,7 @@
       "reviewNote": "Rule 3A(b) turns on 'official dealings with the public'."
     },
     {
-      "id": "ccs-conduct-cloze-3c-1",
+      "id": "ccs-conduct-cloze-3c-definedterm",
       "act": "ccs-conduct",
       "rule": "3C",
       "kind": "cloze",
@@ -2661,7 +2661,7 @@
       "reviewNote": "Rule 3C is the sexual-harassment prohibition; the term is the rule."
     },
     {
-      "id": "ccs-conduct-cloze-4-1",
+      "id": "ccs-conduct-cloze-4-definedterm",
       "act": "ccs-conduct",
       "rule": "4",
       "kind": "cloze",
@@ -2707,7 +2707,7 @@
       "reviewNote": "Rule 4(1) — securing employment for a family member is the prohibited act."
     },
     {
-      "id": "ccs-conduct-cloze-5-1",
+      "id": "ccs-conduct-cloze-5-definedterm",
       "act": "ccs-conduct",
       "rule": "5",
       "kind": "cloze",
@@ -2753,7 +2753,7 @@
       "reviewNote": "Rule 5(1) — membership of a political party."
     },
     {
-      "id": "ccs-conduct-cloze-6-1",
+      "id": "ccs-conduct-cloze-6-definedterm",
       "act": "ccs-conduct",
       "rule": "6",
       "kind": "cloze",
@@ -2799,7 +2799,7 @@
       "reviewNote": "The blank falls on 'integrity' inside the set phrase 'sovereignty and integrity of India'. The answer is guessable from the phrase, not from Rule 6."
     },
     {
-      "id": "ccs-conduct-cloze-7-1",
+      "id": "ccs-conduct-cloze-7-definedterm",
       "act": "ccs-conduct",
       "rule": "7",
       "kind": "cloze",
@@ -2842,10 +2842,10 @@
         "name": "Department of Personnel and Training — CCS (Conduct) Rules, 1964 — updated as on 27 February 2015",
         "url": "https://dopt.gov.in/sites/default/files/CCS_Conduct_Rules_1964_Updated_27Feb15_0.pdf"
       },
-      "reviewNote": "Same set phrase as cloze-6-1."
+      "reviewNote": "Same set phrase as ccs-conduct-cloze-6-definedterm."
     },
     {
-      "id": "ccs-conduct-cloze-8-1",
+      "id": "ccs-conduct-cloze-8-definedterm",
       "act": "ccs-conduct",
       "rule": "8",
       "kind": "cloze",
@@ -2891,7 +2891,7 @@
       "reviewNote": "Rule 8 turns on previous sanction; that is what an officer must remember before writing for a newspaper."
     },
     {
-      "id": "ccs-conduct-cloze-9-1",
+      "id": "ccs-conduct-cloze-9-crossreference",
       "act": "ccs-conduct",
       "rule": "9",
       "kind": "cloze",
@@ -2937,7 +2937,7 @@
       "reviewNote": "The blank is a self-reference inside a proviso ('the second proviso to sub-rule (3) of rule 1'). Nothing in the sentence lets a reader recover which rule is meant."
     },
     {
-      "id": "ccs-conduct-cloze-9-2",
+      "id": "ccs-conduct-cloze-9-definedterm",
       "act": "ccs-conduct",
       "rule": "9",
       "kind": "cloze",
@@ -2983,7 +2983,7 @@
       "reviewNote": "Rule 9 — adverse criticism of the policy of the Central Government or a State Government."
     },
     {
-      "id": "ccs-conduct-cloze-10-1",
+      "id": "ccs-conduct-cloze-10-definedterm",
       "act": "ccs-conduct",
       "rule": "10",
       "kind": "cloze",
@@ -3029,7 +3029,7 @@
       "reviewNote": "Rule 10 — evidence before a committee needs previous sanction."
     },
     {
-      "id": "ccs-conduct-cloze-12-1",
+      "id": "ccs-conduct-cloze-12-definedterm",
       "act": "ccs-conduct",
       "rule": "12",
       "kind": "cloze",
@@ -3075,7 +3075,7 @@
       "reviewNote": "Rule 12 — subscriptions need the sanction of the Government or of the prescribed authority."
     },
     {
-      "id": "ccs-conduct-cloze-13-1",
+      "id": "ccs-conduct-cloze-13-amount",
       "act": "ccs-conduct",
       "rule": "13",
       "kind": "cloze",
@@ -3121,7 +3121,7 @@
       "reviewNote": "Rule 13(4) — the ceiling on a gift from a foreign dignitary that may be retained."
     },
     {
-      "id": "ccs-conduct-cloze-13-2",
+      "id": "ccs-conduct-cloze-13-count",
       "act": "ccs-conduct",
       "rule": "13",
       "kind": "cloze",
@@ -3167,7 +3167,7 @@
       "reviewNote": "The source line reads '42rupees twenty five thousand' — footnote 42 has fused onto the figure, and the blank fell on 'twenty' inside 'twenty five thousand'. The card's answer is wrong."
     },
     {
-      "id": "ccs-conduct-cloze-13-3",
+      "id": "ccs-conduct-cloze-13-definedterm",
       "act": "ccs-conduct",
       "rule": "13",
       "kind": "cloze",
@@ -3213,7 +3213,7 @@
       "reviewNote": "The Explanation to Rule 13 turns on whether the giver has official dealings."
     },
     {
-      "id": "ccs-conduct-cloze-13a-1",
+      "id": "ccs-conduct-cloze-13a-definedterm",
       "act": "ccs-conduct",
       "rule": "13A",
       "kind": "cloze",
@@ -3244,7 +3244,7 @@
       },
       "difficulty": "easy",
       "reviewed": true,
-      "reviewState": "approved",
+      "reviewState": "rejected",
       "tags": [
         "generated",
         "cloze",
@@ -3256,10 +3256,10 @@
         "name": "Department of Personnel and Training — CCS (Conduct) Rules, 1964 — updated as on 27 February 2015",
         "url": "https://dopt.gov.in/sites/default/files/CCS_Conduct_Rules_1964_Updated_27Feb15_0.pdf"
       },
-      "reviewNote": "Rule 13A is the dowry rule."
+      "reviewNote": "the en stem repeats its own answer ('dowry') outside the blank, so the card asks nothing"
     },
     {
-      "id": "ccs-conduct-cloze-15-1",
+      "id": "ccs-conduct-cloze-15-duration",
       "act": "ccs-conduct",
       "rule": "15",
       "kind": "cloze",
@@ -3305,7 +3305,7 @@
       "reviewNote": "Rule 15(2) — the reporting period after taking part in a permitted activity."
     },
     {
-      "id": "ccs-conduct-cloze-15-2",
+      "id": "ccs-conduct-cloze-15-crossreference",
       "act": "ccs-conduct",
       "rule": "15",
       "kind": "cloze",
@@ -3351,7 +3351,7 @@
       "reviewNote": "The reference is to Fundamental Rule 9(6-A); the stem splits it as 'Fundamental ____ (6-A)' and the answer reads 'Rule 9'. The card asks for half a citation."
     },
     {
-      "id": "ccs-conduct-cloze-15-3",
+      "id": "ccs-conduct-cloze-15-definedterm",
       "act": "ccs-conduct",
       "rule": "15",
       "kind": "cloze",
@@ -3397,7 +3397,7 @@
       "reviewNote": "The blank cut into a word — the stem reads 'any other e____ or'."
     },
     {
-      "id": "ccs-conduct-cloze-15a-1",
+      "id": "ccs-conduct-cloze-15a-definedterm",
       "act": "ccs-conduct",
       "rule": "15A",
       "kind": "cloze",
@@ -3443,7 +3443,7 @@
       "reviewNote": "Rule 15A is the sub-letting rule and the term is what it protects."
     },
     {
-      "id": "ccs-conduct-cloze-16-1",
+      "id": "ccs-conduct-cloze-16-definedterm",
       "act": "ccs-conduct",
       "rule": "16",
       "kind": "cloze",
@@ -3489,7 +3489,7 @@
       "reviewNote": "Rule 16(5) — the officer reports to the prescribed authority, not to the Government."
     },
     {
-      "id": "ccs-conduct-cloze-17-1",
+      "id": "ccs-conduct-cloze-17-definedterm",
       "act": "ccs-conduct",
       "rule": "17",
       "kind": "cloze",
@@ -3535,7 +3535,7 @@
       "reviewNote": "Rule 17 — habitual indebtedness is the defined mischief."
     },
     {
-      "id": "ccs-conduct-cloze-18-1",
+      "id": "ccs-conduct-cloze-18-duration",
       "act": "ccs-conduct",
       "rule": "18",
       "kind": "cloze",
@@ -3581,7 +3581,7 @@
       "reviewNote": "Rule 18(3) — the reporting period for a movable-property transaction."
     },
     {
-      "id": "ccs-conduct-cloze-18-2",
+      "id": "ccs-conduct-cloze-18-amount",
       "act": "ccs-conduct",
       "rule": "18",
       "kind": "cloze",
@@ -3627,7 +3627,7 @@
       "reviewNote": "The source reads 'Rs.3310,000' — footnote 33 has fused onto the figure, so the card's answer is not a number."
     },
     {
-      "id": "ccs-conduct-cloze-18-3",
+      "id": "ccs-conduct-cloze-18-definedterm",
       "act": "ccs-conduct",
       "rule": "18",
       "kind": "cloze",
@@ -3673,7 +3673,7 @@
       "reviewNote": "Rule 18(1)(i) — the first return covers immovable property."
     },
     {
-      "id": "ccs-conduct-cloze-18a-1",
+      "id": "ccs-conduct-cloze-18a-crossreference",
       "act": "ccs-conduct",
       "rule": "18A",
       "kind": "cloze",
@@ -3719,7 +3719,7 @@
       "reviewNote": "Rule 18A opens by displacing Rule 18(2); the cross-reference is the link between the two rules."
     },
     {
-      "id": "ccs-conduct-cloze-18a-2",
+      "id": "ccs-conduct-cloze-18a-definedterm",
       "act": "ccs-conduct",
       "rule": "18A",
       "kind": "cloze",
@@ -3765,7 +3765,7 @@
       "reviewNote": "Rule 18A turns on previous sanction of the prescribed authority."
     },
     {
-      "id": "ccs-conduct-cloze-19-1",
+      "id": "ccs-conduct-cloze-19-duration",
       "act": "ccs-conduct",
       "rule": "19",
       "kind": "cloze",
@@ -3811,7 +3811,7 @@
       "reviewNote": "Rule 19 — the deemed-permission period, which is the part officers get wrong."
     },
     {
-      "id": "ccs-conduct-cloze-19-2",
+      "id": "ccs-conduct-cloze-19-definedterm",
       "act": "ccs-conduct",
       "rule": "19",
       "kind": "cloze",
@@ -3857,7 +3857,7 @@
       "reviewNote": "Rule 19 is the vindication rule and the term is its subject."
     },
     {
-      "id": "ccs-conduct-cloze-22-1",
+      "id": "ccs-conduct-cloze-22-definedterm",
       "act": "ccs-conduct",
       "rule": "22",
       "kind": "cloze",
@@ -3903,7 +3903,7 @@
       "reviewNote": "Rule 22(a)."
     },
     {
-      "id": "ccs-conduct-cloze-22a-1",
+      "id": "ccs-conduct-cloze-22a-duration",
       "act": "ccs-conduct",
       "rule": "22A",
       "kind": "cloze",
@@ -3949,7 +3949,7 @@
       "reviewNote": "Rule 22A — the age below which a child may not be employed."
     },
     {
-      "id": "ccs-conduct-cloze-24-1",
+      "id": "ccs-conduct-cloze-24-crossreference",
       "act": "ccs-conduct",
       "rule": "24",
       "kind": "cloze",
@@ -3995,7 +3995,7 @@
       "reviewNote": "Rule 24 excepts the interpretation power in Rule 23 from delegation — an exception worth knowing."
     },
     {
-      "id": "ccs-conduct-cloze-24-2",
+      "id": "ccs-conduct-cloze-24-definedterm",
       "act": "ccs-conduct",
       "rule": "24",
       "kind": "cloze",
@@ -4112,7 +4112,7 @@
           "matched": true
         },
         "dedup": {
-          "maxScore": 67.9,
+          "maxScore": 75.5,
           "against": "ccs-conduct-rule-9",
           "verdict": "keep"
         },
@@ -4187,7 +4187,7 @@
         },
         "dedup": {
           "maxScore": 60.9,
-          "against": "ccs-conduct-cloze-3a-1",
+          "against": "ccs-conduct-cloze-3a-definedterm",
           "verdict": "keep"
         },
         "groundingRuleIds": [
@@ -4264,8 +4264,8 @@
         },
         "blindVerify": null,
         "dedup": {
-          "maxScore": 50.4,
-          "against": "ccs-conduct-rule-1-3",
+          "maxScore": 70.4,
+          "against": "ccs-conduct-rule-13a",
           "verdict": "keep"
         },
         "groundingRuleIds": [
@@ -4419,8 +4419,8 @@
           "matched": true
         },
         "dedup": {
-          "maxScore": 62.7,
-          "against": "ccs-conduct-q-004",
+          "maxScore": 67.4,
+          "against": "ccs-conduct-rule-9",
           "verdict": "keep"
         },
         "groundingRuleIds": [
@@ -4660,8 +4660,8 @@
         },
         "blindVerify": null,
         "dedup": {
-          "maxScore": 62.9,
-          "against": "ccs-conduct-q-005",
+          "maxScore": 67.4,
+          "against": "ccs-conduct-rule-9",
           "verdict": "keep"
         },
         "groundingRuleIds": [
@@ -4823,7 +4823,7 @@
         },
         "dedup": {
           "maxScore": 80.3,
-          "against": "ccs-conduct-cloze-13-1",
+          "against": "ccs-conduct-cloze-13-amount",
           "verdict": "keep"
         },
         "groundingRuleIds": [
@@ -5054,8 +5054,8 @@
         },
         "blindVerify": null,
         "dedup": {
-          "maxScore": 60.0,
-          "against": "ccs-conduct-q-009",
+          "maxScore": 60.6,
+          "against": "ccs-conduct-rule-13a",
           "verdict": "keep"
         },
         "groundingRuleIds": [
@@ -5289,8 +5289,8 @@
           "matched": true
         },
         "dedup": {
-          "maxScore": 67.3,
-          "against": "ccs-conduct-q-009",
+          "maxScore": 67.4,
+          "against": "ccs-conduct-rule-9",
           "verdict": "keep"
         },
         "groundingRuleIds": [
@@ -5362,8 +5362,8 @@
           "matched": true
         },
         "dedup": {
-          "maxScore": 66.7,
-          "against": "ccs-conduct-q-012",
+          "maxScore": 67.4,
+          "against": "ccs-conduct-rule-9",
           "verdict": "keep"
         },
         "groundingRuleIds": [
@@ -5441,8 +5441,8 @@
         },
         "blindVerify": null,
         "dedup": {
-          "maxScore": 62.0,
-          "against": "ccs-conduct-q-009",
+          "maxScore": 67.4,
+          "against": "ccs-conduct-rule-9",
           "verdict": "keep"
         },
         "groundingRuleIds": [
@@ -5596,8 +5596,8 @@
           "matched": true
         },
         "dedup": {
-          "maxScore": 69.5,
-          "against": "ccs-conduct-q-014",
+          "maxScore": 74.2,
+          "against": "ccs-conduct-rule-9",
           "verdict": "keep"
         },
         "groundingRuleIds": [
@@ -5678,7 +5678,7 @@
         },
         "dedup": {
           "maxScore": 82.8,
-          "against": "ccs-conduct-cloze-22a-1",
+          "against": "ccs-conduct-cloze-22a-duration",
           "verdict": "keep"
         },
         "groundingRuleIds": [
@@ -5758,8 +5758,8 @@
           "matched": true
         },
         "dedup": {
-          "maxScore": 65.9,
-          "against": "ccs-conduct-q-021",
+          "maxScore": 67.4,
+          "against": "ccs-conduct-rule-9",
           "verdict": "keep"
         },
         "groundingRuleIds": [
@@ -6076,7 +6076,7 @@
         },
         "dedup": {
           "maxScore": 81.1,
-          "against": "ccs-conduct-cloze-17-1",
+          "against": "ccs-conduct-cloze-17-definedterm",
           "verdict": "keep"
         },
         "groundingRuleIds": [
