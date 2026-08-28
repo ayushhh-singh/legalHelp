@@ -382,7 +382,7 @@
       "hint": "Speech is recognised on this device — nothing you say is sent anywhere. The button appears only where your browser can do that.",
       "on": "Show the microphone",
       "off": "Hide it",
-      "unsupported": "This browser cannot recognise speech on the device, so voice search is not offered here."
+      "unsupported": "Not available in this browser. Speech is only offered where it can be recognised on the device itself — today that means Chrome 138 or later. Safari and Firefox can only send your voice to a server, and this app will not do that."
     }
   }
 }

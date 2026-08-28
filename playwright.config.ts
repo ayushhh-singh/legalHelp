@@ -26,5 +26,26 @@ export default defineConfig({
     reuseExistingServer: !process.env.CI,
     timeout: 180_000,
   },
-  projects: [{ name: 'chromium', use: { ...devices['Desktop Chrome'] } }],
+  projects: [
+    {
+      name: 'chromium',
+      use: { ...devices['Desktop Chrome'] },
+      // The WebKit spec below is about a browser DIFFERENCE; running it here
+      // would assert Chromium's behaviour and prove nothing.
+      testIgnore: '**/voice-unsupported.spec.ts',
+    },
+    {
+      /*
+        One spec, in a real WebKit.
+
+        Voice search is offered only where speech can be recognised ON THE
+        DEVICE (ADR-017), which today means Chrome. That decision is invisible
+        in Chromium — the only place it can be checked is a browser that cannot
+        do it, so this project exists to check exactly that and nothing else.
+      */
+      name: 'webkit',
+      use: { ...devices['Desktop Safari'] },
+      testMatch: '**/voice-unsupported.spec.ts',
+    },
+  ],
 })
