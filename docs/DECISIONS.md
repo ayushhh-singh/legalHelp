@@ -5365,6 +5365,17 @@ without any of their tests noticing, because none of them runs on Tier 0. Any
 future per-tier prompt addition belongs beside the rule it is restating, or it
 should say nothing about citations at all.
 
+`src/ai/prompts/law.md`'s "The run has two halves and you are told which one you
+are in" is the worked example, and it was already in the repository when this
+was written: `[T1]` for the research pass, where tool results exist, and `[1]`
+for the answering pass, which is given "no tools at all". That agent was never
+affected — its answering pass passes a `jsonSchema`, so `LocalProvider` takes
+the `raw` path and appends no protocol block at all — and `prompts/drafting.md`
+names no citation format. Pay and tutor were the whole blast radius, precisely
+because their personas did not restate the rule and so had nothing to
+contradict the provider's copy of it. Read that section of `law.md` before
+adding a citation instruction anywhere.
+
 ### Consequences
 
 - Tiers 0 and 1 ship in every build; Tier 2 ships the moment somebody deploys
