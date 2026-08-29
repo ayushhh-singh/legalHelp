@@ -5330,6 +5330,41 @@ and failed with "the download reached no host at all", which is indistinguishabl
 from a real defect. It polls the list itself now. A test whose failure message
 describes something other than what went wrong is worse than no test.
 
+### Addendum — one defect, found after the commit, in somebody else's agents
+
+`toolProtocolInstruction`'s answer-only form ended with "cite the result you
+took it from by its handle, in square brackets, like `[T1]`", and it was used
+for **every** turn that could not call a tool — including a run that never had
+tools at all.
+
+`src/ai/agents/{pay,tutor}.ts` are exactly that shape (§7B of `docs/AI.md`):
+they fetch in code before the model runs and pass `tools: []`, so their model
+sees numbered PLATFORM CONTEXT cited as `[1]`, `[2]` and no tool results at
+all. `context.ts#CITATION_PATTERN` is `/\[(\d{1,3})\]/` and does not match
+`[T1]`. So a model that did as it was told cited nothing that
+`validateCitations` could see, every provision number in the answer landed in
+`unsupported` — and those problems are pushed **regardless of
+`requireCitation`**, which is the part that made it fatal rather than merely
+untidy. A tutor "Explain" correctly saying "Rule 3 of the CCS (Conduct) Rules"
+would have ended with `invalid_citation` on Tier 0 and on no other tier, and
+the cause would have been this instruction rather than anything wrong with the
+answer.
+
+The toolless form now describes only the JSON envelope — the one thing this
+block knows that the persona does not — and defers the citation rule to the
+persona and the context block, which are identical on every tier and were
+already right. Two regressions cover it, in `protocol.test.ts` and through the
+real `runAgent` in `local.test.ts`, and both were confirmed to fail against the
+committed code first.
+
+The general lesson is narrower than "test it": **a prompt fragment that names a
+citation format is making a claim about a validator it cannot see.** This one
+was appended by the provider, which is the layer furthest from the agent that
+decides what a citation means — so it could contradict four agents at once
+without any of their tests noticing, because none of them runs on Tier 0. Any
+future per-tier prompt addition belongs beside the rule it is restating, or it
+should say nothing about citations at all.
+
 ### Consequences
 
 - Tiers 0 and 1 ship in every build; Tier 2 ships the moment somebody deploys

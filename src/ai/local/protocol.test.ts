@@ -160,11 +160,38 @@ describe('the two-step cap', () => {
     expect(toolProtocolInstruction([], { stepsLeft: 2 })).not.toContain('"tool"')
   })
 
-  it('always demands a citation, in both forms of the instruction', () => {
+  it('demands a [T…] citation whenever tool results can exist', () => {
     // runAgent discards an answer that cites no tool result, so an instruction
-    // that forgot to ask for one would turn every Tier 0 run into a refusal.
+    // that forgot to ask for one would turn every tool-using Tier 0 run into a
+    // refusal.
     for (const stepsLeft of [0, 1, 2]) {
       expect(toolProtocolInstruction(TOOLS, { stepsLeft })).toContain('[T1]')
+    }
+  })
+
+  it('never names a [T…] handle when the run has no tools at all', () => {
+    /*
+      The regression that matters, and it is about somebody else's agents.
+
+      `src/ai/agents/{pay,tutor}.ts` fetch in code and pass `tools: []`, so
+      their model sees numbered PLATFORM CONTEXT (`[1]`, `[2]`) and no tool
+      results whatsoever. `context.ts#CITATION_PATTERN` does not match `[T1]`,
+      so an instruction demanding one produces an answer that cites NOTHING —
+      and `validateCitations` then reports every provision number in it as
+      unsupported, which it does regardless of `requireCitation`. A tutor
+      "Explain" saying "Rule 3 of the CCS (Conduct) Rules" died with
+      `invalid_citation` on Tier 0 and nowhere else.
+
+      This asserts the absence rather than the fix's wording, because what
+      broke those agents was the handle being NAMED at all.
+    */
+    for (const stepsLeft of [0, 1, 2]) {
+      const text = toolProtocolInstruction([], { stepsLeft })
+      expect(text, `stepsLeft ${stepsLeft}`).not.toMatch(/\[T\d/)
+      expect(text).not.toContain('lookup result')
+      // It still has to insist on the envelope — that is the one thing this
+      // block knows and the persona does not.
+      expect(text).toContain('{"answer"')
     }
   })
 })

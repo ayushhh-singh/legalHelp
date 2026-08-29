@@ -83,6 +83,37 @@ export interface ProtocolOptions {
  * by the persona's own language directive, which is unchanged.
  */
 export function toolProtocolInstruction(tools: readonly ToolSpec[], options: ProtocolOptions): string {
+  /*
+    A run with NO tools at all never mentions a `[T…]` handle, and that is not a
+    cosmetic distinction — it is the difference between an answer being shown
+    and an answer being discarded.
+
+    `src/ai/agents/{pay,tutor}.ts` call their tools in CODE before the model
+    runs and then pass `tools: []`, so there are no tool results and there never
+    will be; what the model is given is numbered PLATFORM CONTEXT, cited as
+    `[1]`, `[2]`. `context.ts#CITATION_PATTERN` is `/\[(\d{1,3})\]/` and does not
+    match `[T1]`, so a model that followed a `[T1]` instruction cites nothing as
+    far as `validateCitations` is concerned — every provision number in the
+    answer then lands in `unsupported`, and those problems are pushed REGARDLESS
+    of `requireCitation`. A tutor "Explain" correctly saying "Rule 3 of the CCS
+    (Conduct) Rules" would have ended the run with `invalid_citation` on every
+    device, and the cause would have been this instruction rather than anything
+    wrong with the answer.
+
+    So the toolless form says only what this block uniquely knows — the JSON
+    envelope — and leaves the citation rule to the persona and the context
+    block, which are identical on every tier and are already right.
+  */
+  const envelopeOnly = [
+    'REPLY FORMAT — this is not optional.',
+    'Reply with exactly ONE JSON object and nothing else. No text before it, no text after it, no markdown fence.',
+    '',
+    '{"answer": "<your answer here>"}',
+    '',
+    'Follow the citation rules in the instructions above exactly as they are written there.',
+    'Do not state a section number, rule number or figure that does not appear in the material you were given.',
+  ].join('\n')
+
   const answerOnly = [
     'REPLY FORMAT — this is not optional.',
     'Reply with exactly ONE JSON object and nothing else. No text before it, no text after it, no markdown fence.',
@@ -93,7 +124,8 @@ export function toolProtocolInstruction(tools: readonly ToolSpec[], options: Pro
     'Cite the result you took it from by its handle, in square brackets, like [T1]. An answer that cites nothing is discarded unread.',
   ].join('\n')
 
-  if (options.stepsLeft <= 0 || tools.length === 0) return answerOnly
+  if (tools.length === 0) return envelopeOnly
+  if (options.stepsLeft <= 0) return answerOnly
 
   return [
     'TOOL PROTOCOL — this is not optional.',

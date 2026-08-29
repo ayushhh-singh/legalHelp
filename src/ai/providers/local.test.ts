@@ -3,6 +3,7 @@ import { z } from 'zod'
 
 import { LOCAL_MAX_OUTPUT_TOKENS, LocalProvider } from './local'
 import { runAgent } from '../agent'
+import { buildContext } from '../context'
 import { DEFAULT_LOCAL_MODEL } from '../local/catalogue'
 import type { LocalGenerateRequest, LocalGenerateResult } from '../local/engine'
 import { LOCAL_MAX_TOOL_STEPS } from '../local/protocol'
@@ -115,6 +116,46 @@ describe('the prompt it builds', () => {
     expect(script.seen[1]?.jsonMode).toBe(false)
     expect(script.seen[1]?.jsonSchema).toBe('{"type":"object"}')
     expect(script.seen[1]?.messages[0]?.content).not.toContain('TOOL PROTOCOL')
+  })
+
+  it('never demands a [T…] handle from a toolless run, and a rule number survives the check', async () => {
+    /*
+      The end-to-end version of `protocol.test.ts`'s own regression, run through
+      the REAL agent loop and the REAL citation validator against a context
+      shaped like `src/ai/agents/tutor.ts`'s.
+
+      Those agents fetch in code and pass `tools: []`, so the model has
+      numbered PLATFORM CONTEXT and no tool results. Told to cite `[T1]` it
+      cites nothing that `context.ts#CITATION_PATTERN` recognises, "Rule 3"
+      lands in `unsupported`, and the run dies with `invalid_citation` — on
+      Tier 0 and on no other tier. Asserting `run.ok` here is what makes that a
+      test of the outcome rather than of the prompt's wording.
+    */
+    const context = buildContext([
+      {
+        type: 'rule',
+        source: 'CCS Conduct Rule 3',
+        text: 'Rule 3 — Every Government servant shall at all times maintain absolute integrity.',
+      },
+    ])
+    const script = scripted(['{"answer":"Rule 3 requires absolute integrity. [1]"}'])
+
+    const run = await runAgent({
+      agentId: 'trainer-coach',
+      provider: new LocalProvider({ generate: script.generate }),
+      tools: [],
+      system: [{ text: 'persona' }],
+      userMessage: 'Why was I wrong about Rule 3?',
+      tier: 'local',
+      context,
+      groundedRequired: false,
+      budgetLimit: null,
+      ledger: { state: () => Promise.resolve(budget()), record: () => Promise.resolve() },
+    })
+
+    expect(script.seen[0]?.messages[0]?.content).not.toMatch(/\[T\d/)
+    expect(run.ok, run.error?.message).toBe(true)
+    expect(run.grounding.citedContextIndices).toEqual([1])
   })
 
   it('clamps the output ceiling however much the caller asked for', async () => {

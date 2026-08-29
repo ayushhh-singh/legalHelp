@@ -507,6 +507,21 @@ are load-bearing, and each is enforced by a test rather than by convention:
   model is a minute of waiting per step on a device generating twenty tokens a second. This is now
   the last item on `docs/AI.md` §11's checklist.
 
+- **A prompt fragment that names a citation format is making a claim about a validator it cannot
+  see, and this session shipped one that contradicted four agents at once.** `toolProtocolInstruction`'s
+  answer-only form told the model to cite `[T1]`, and it was used for every turn that could not call
+  a tool — including `src/ai/agents/{pay,tutor}.ts`, which pass `tools: []` and whose model sees
+  numbered PLATFORM CONTEXT cited as `[1]`, `[2]`. `context.ts#CITATION_PATTERN` is `/\[(\d{1,3})\]/`
+  and does not match `[T1]`, so an obedient model cited nothing, every provision number landed in
+  `unsupported` — and those problems are pushed **regardless of `requireCitation`**, which is what
+  made it fatal. A tutor "Explain" saying "Rule 3 of the CCS (Conduct) Rules" would have died with
+  `invalid_citation` on Tier 0 and nowhere else. The toolless form now describes only the JSON
+  envelope and defers the citation rule to the persona. Note where this came from: the PROVIDER is
+  the layer furthest from the agent that decides what a citation means, so it could break four
+  agents without one of their tests noticing, because none of them runs on Tier 0. Found by reading
+  `validateCitations` after a peer session asked to be told about concrete Tier 0 misbehaviour —
+  not by any test that existed.
+
 - **A test that fails with a message describing something other than what went wrong is worse than
   no test, and this session shipped one for an hour.** `tests/e2e/ai-local.spec.ts` waited for a
   `role="status"` element before reading the list of hosts contacted — and the progress region says
