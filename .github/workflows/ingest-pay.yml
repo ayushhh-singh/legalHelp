@@ -134,6 +134,17 @@ jobs:
       - name: File a "Manual review" issue for anything the script could not resolve
         if: always()
         run: |
+          # `if: always()` means this step also runs when an earlier one
+          # failed — the unit tests, or the watch step itself despite its
+          # own defensive design. `/tmp/pay-orders-result.json` would then
+          # be missing or empty, and `jq` on it would fail the job a second,
+          # more confusing time for no benefit: there is nothing valid to
+          # file issues from either way, and the earlier failure is already
+          # what a maintainer needs to see.
+          if [ ! -s /tmp/pay-orders-result.json ]; then
+            echo "No result file from the watch step — nothing to file."
+            exit 0
+          fi
           count=$(jq '.manualReview | length' /tmp/pay-orders-result.json)
           echo "$count manual-review item(s)"
           for i in $(seq 0 $((count - 1))); do

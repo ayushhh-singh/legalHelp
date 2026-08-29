@@ -55,11 +55,28 @@ jobs:
       - name: Unit-test the parsers before trusting them with a refresh
         run: python -m unittest discover -s scripts/ingest -t scripts/ingest -v
 
+      # A dispatch `inputs.*` is a plain string with no format enforced by
+      # GitHub, and it is interpolated into a shell script here via `env:`
+      # rather than directly as `${{ inputs.year }}` — never substitute an
+      # expression straight into a `run:` block, even one gated behind write
+      # access to trigger, since it is then parsed as shell syntax rather
+      # than treated as an opaque value (GitHub's own "script injection"
+      # guidance). The regex check is the other half: a typo like "2027 "
+      # or "twenty27" would otherwise reach `holidays.py`'s own error path
+      # and produce an issue titled "Add the twenty27 holiday calendar",
+      # which is a worse failure mode than refusing early with a clear
+      # reason.
       - name: Pick the year
         id: year
+        env:
+          INPUT_YEAR: ${{ inputs.year }}
         run: |
-          if [ -n "${{ inputs.year }}" ]; then
-            echo "value=${{ inputs.year }}" >> "$GITHUB_OUTPUT"
+          if [ -n "$INPUT_YEAR" ]; then
+            if ! [[ "$INPUT_YEAR" =~ ^[0-9]{4}$ ]]; then
+              echo "::error::'$INPUT_YEAR' is not a 4-digit calendar year"
+              exit 1
+            fi
+            echo "value=$INPUT_YEAR" >> "$GITHUB_OUTPUT"
           else
             echo "value=$(($(date -u +%Y) + 1))" >> "$GITHUB_OUTPUT"
           fi
@@ -70,8 +87,10 @@ jobs:
       # workflow exists to surface as an issue instead.
       - name: Build the year, if it is on file
         id: build
+        env:
+          YEAR: ${{ steps.year.outputs.value }}
         run: |
-          if python scripts/ingest/holidays.py "${{ steps.year.outputs.value }}"; then
+          if python scripts/ingest/holidays.py "$YEAR"; then
             echo "built=true" >> "$GITHUB_OUTPUT"
           else
             echo "built=false" >> "$GITHUB_OUTPUT"
@@ -100,13 +119,15 @@ jobs:
       - name: Anything to propose?
         if: steps.build.outputs.built == 'true'
         id: changes
+        env:
+          YEAR: ${{ steps.year.outputs.value }}
         run: |
           if git status --porcelain -- data/holidays data/_meta/versions.json | grep -q .; then
             echo "changed=true" >> "$GITHUB_OUTPUT"
             git --no-pager diff --stat -- data/holidays data/_meta/versions.json
           else
             echo "changed=false" >> "$GITHUB_OUTPUT"
-            echo "data/holidays/holidays-${{ steps.year.outputs.value }}.json already matches what the script builds."
+            echo "data/holidays/holidays-$YEAR.json already matches what the script builds."
           fi
 
       - uses: pnpm/action-setup@v4

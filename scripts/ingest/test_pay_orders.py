@@ -90,6 +90,30 @@ class FindRateChange(unittest.TestCase):
         )
         self.assertIsNone(po.find_rate_change(text))
 
+    def test_an_implausible_rate_is_not_a_match(self):
+        # `\d{1,3}` accepts up to 999, and data/pay/da-history.json's own
+        # schema caps a rate at 300 — a schema-invalid rate reaching
+        # apply_da_rate_change() used to crash the whole script with an
+        # uncaught ValueError rather than degrade to manual review. This is
+        # the guard that stops the implausible parse before it gets there:
+        # OCR turning "60%" into "600%" or "960%" (a stray digit, or an
+        # adjacent number bleeding into the match) is exactly a 3-digit
+        # reading the regex alone would happily accept.
+        text = (
+            "Dearness Allowance shall be enhanced from the existing rate of 60% to 999% "
+            "of the Basic Pay with effect from 1st July, 2027."
+        )
+        self.assertIsNone(po.find_rate_change(text))
+
+    def test_a_rate_right_at_the_plausibility_ceiling_still_matches(self):
+        text = (
+            "Dearness Allowance shall be enhanced from the existing rate of 97% to 100% "
+            "of the Basic Pay with effect from 1st July, 2027."
+        )
+        change = po.find_rate_change(text)
+        self.assertIsNotNone(change)
+        self.assertEqual(change.new_rate, 100)
+
     def test_no_effective_date_at_all_is_not_a_match(self):
         text = "Dearness Allowance shall be enhanced from the existing rate of 53% to 55% of the Basic Pay."
         self.assertIsNone(po.find_rate_change(text))
@@ -179,11 +203,33 @@ class ApplyDaRateChange(unittest.TestCase):
     def test_refuses_to_overwrite_an_already_notified_rate(self):
         # The 19 base rates include one at 2025-01-01 (i=18).
         change = po.RateChange(old_rate=17, new_rate=99, effective_from="2025-01-01", snippet="...")
-        with self.assertRaises(po.AlreadyNotified):
+        with self.assertRaises(po.AlreadyRecorded):
             po.apply_da_rate_change(change, source_url="https://doe.gov.in/new.pdf", fetched_at="2027-04-01T00:00:00Z")
         # And it must not have touched the file.
         payload = json.loads(self.path.read_text(encoding="utf-8"))
         self.assertEqual(len(payload["rates"]), 19)
+
+    def test_refuses_to_overwrite_a_frozen_rate(self):
+        # Real data/pay/da-history.json has exactly this shape: the 2020
+        # COVID-era installments are `status: "frozen"`, not "notified" — an
+        # announced-but-withheld rate is still a recorded historical fact,
+        # not a placeholder the way a "projected" entry is. An earlier
+        # version of this guard checked only `== "notified"` and silently
+        # overwrote a frozen row with no warning at all — confirmed to
+        # happen before this test was written to catch it.
+        payload = json.loads(self.path.read_text(encoding="utf-8"))
+        frozen = next(r for r in payload["rates"] if r["effectiveFrom"] == "2020-01-01")
+        frozen["status"] = "frozen"
+        self.path.write_text(json.dumps(payload), encoding="utf-8")
+
+        change = po.RateChange(old_rate=17, new_rate=77, effective_from="2020-01-01", snippet="...")
+        with self.assertRaises(po.AlreadyRecorded):
+            po.apply_da_rate_change(change, source_url="https://doe.gov.in/new.pdf", fetched_at="2027-04-01T00:00:00Z")
+
+        after = json.loads(self.path.read_text(encoding="utf-8"))
+        still_frozen = next(r for r in after["rates"] if r["effectiveFrom"] == "2020-01-01")
+        self.assertEqual(still_frozen["status"], "frozen")
+        self.assertEqual(still_frozen["rate"], frozen["rate"], "the frozen row's own rate must survive untouched")
 
     def test_warns_when_the_orders_own_previous_rate_disagrees_with_the_dataset(self):
         # The dataset's latest notified rate before 2027-01-01 is 18 (i=17,
@@ -258,6 +304,26 @@ class CheckDaOrder(unittest.TestCase):
         session = FakeSession([requests.exceptions.ConnectionError("down")] * 3)
         result = po.check_da_order({}, force=False, session=session)
         self.assertIsNone(result)
+
+    def test_a_200_response_that_is_not_actually_a_pdf_is_manual_review_not_a_crash(self):
+        # The REAL `extract_text` runs here, deliberately not mocked: a 200
+        # response with an accurate Content-Length that simply is not a PDF
+        # — an HTML error page, a WAF challenge — passes `fetch()` (which
+        # only checks the HTTP status and the transfer's own byte count)
+        # and reaches `pdfplumber.open()`, which raises on it. Confirmed
+        # to crash the whole run before this test existed, by feeding
+        # `pdfplumber.open()` exactly this kind of body directly.
+        html_error_page = b"<html><body>503 Service Unavailable</body></html>"
+        session = FakeSession([FakeResponse(body=html_error_page)])
+        result = po.check_da_order({}, force=False, session=session)
+        self.assertEqual(result["kind"], "manual-review")
+        self.assertEqual(result["url"], po.DA_ORDER_URL)
+        self.assertIn("did not parse as a PDF", result["reason"])
+
+    def test_an_empty_body_is_manual_review_not_a_crash(self):
+        session = FakeSession([FakeResponse(body=b"")])
+        result = po.check_da_order({}, force=False, session=session)
+        self.assertEqual(result["kind"], "manual-review")
 
 
 class CheckAllowancesIndex(unittest.TestCase):

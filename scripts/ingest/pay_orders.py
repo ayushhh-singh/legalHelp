@@ -27,8 +27,8 @@ one sentence shape every notified order in this dataset's own citations uses
 Y%...with effect from <date>"), this script proposes the update by actually
 writing it into ``data/pay/da-history.json`` (schema-validated, versioned),
 the same way ``ncrb_sankalan.py`` writes a law refresh for a human to review
-in a pull request — never auto-merged, never applied on a mismatch with what
-the dataset already has notified for that date.
+in a pull request — never auto-merged, never applied on a date the dataset
+already has recorded as notified OR frozen.
 
 HRA, Transport and Children Education Allowance orders are watched too, on
 the one DoE page this session found actually links them
@@ -191,17 +191,37 @@ def _parse_effective_date(text: str, search_from: int) -> str | None:
         return None
 
 
+# Dearness Allowance has gone from 0% to 60% over ten years (2016-2026),
+# roughly 6 points a year. `\d{1,3}` in `_RATE_RE` accepts up to 999, but
+# `data/pay/da-history.json`'s own schema caps a rate at 300 — and an OCR
+# pass that turns "60%" into "600%" or "960%" (a stray digit inserted or an
+# adjacent number bleeding in) produces exactly a 3-digit reading that still
+# satisfies the regex. Left unchecked, that reaches `apply_da_rate_change`,
+# which validates against the schema and raises a plain `ValueError` that
+# nothing in `main()` catches — confirmed to crash the whole run rather than
+# degrade to a manual-review item, the one failure mode this script exists
+# to avoid (see `check_da_order`'s PDF-parse guard for the same principle
+# applied to a different cause). 100 is a conservative ceiling with a lot of
+# headroom over any real rate this dataset has ever recorded; it exists to
+# catch OCR noise, not to anticipate an actual DA rate anywhere near it.
+_MAX_PLAUSIBLE_RATE = 100
+
+
 def find_rate_change(text: str) -> RateChange | None:
     """The parsed rate change, or ``None`` if the text does not contain one.
 
-    ``None`` covers three real cases identically, on purpose: no text layer
+    ``None`` covers four real cases identically, on purpose: no text layer
     at all (a scan), a text layer that has nothing to do with Dearness
-    Allowance, and a Dearness Allowance sentence with no effective date this
-    function recognises. All three mean the same thing to a caller — read
+    Allowance, a Dearness Allowance sentence with no effective date this
+    function recognises, and a matched percentage too implausible to trust
+    (`_MAX_PLAUSIBLE_RATE`). All four mean the same thing to a caller — read
     this order by hand.
     """
     match = _RATE_RE.search(text)
     if not match:
+        return None
+    old_rate, new_rate = int(match.group("old")), int(match.group("new"))
+    if old_rate > _MAX_PLAUSIBLE_RATE or new_rate > _MAX_PLAUSIBLE_RATE:
         return None
     effective_from = _parse_effective_date(text, match.end())
     if effective_from is None:
@@ -209,8 +229,8 @@ def find_rate_change(text: str) -> RateChange | None:
     start = max(0, match.start() - 80)
     end = min(len(text), match.end() + 200)
     return RateChange(
-        old_rate=int(match.group("old")),
-        new_rate=int(match.group("new")),
+        old_rate=old_rate,
+        new_rate=new_rate,
         effective_from=effective_from,
         snippet=clean_text(text[start:end]),
     )
@@ -253,7 +273,32 @@ def check_da_order(seen: dict[str, Any], *, force: bool, session: Any = None) ->
         return None
 
     log(f"da-order: {'forced' if force else 'new content'} at {DA_ORDER_URL} ({digest[:12]}…)")
-    text = extract_text(fetched.content)
+    try:
+        text = extract_text(fetched.content)
+    except Exception as error:  # noqa: BLE001 - pdfplumber raises on anything that is not a real PDF
+        # A 200 response with accurate Content-Length that simply is not a
+        # PDF — an HTML error page, a WAF challenge, an empty body — sails
+        # straight through `fetch()`, which only checks the HTTP status and
+        # the transfer's own byte count, never the content's actual shape.
+        # `pdfplumber.open()` raises on it (confirmed against an empty body
+        # and against an HTML page during this session's edge-case pass).
+        # Without this, that single bad fetch would crash the whole run —
+        # no pull request, no issue, not even the resilient "read this by
+        # hand" this script exists to fall back to — which is the one
+        # failure mode a monthly, unattended cron cannot recover from on
+        # its own.
+        log(f"! {DA_ORDER_URL} did not parse as a PDF: {type(error).__name__}: {error}")
+        return {
+            "kind": "manual-review",
+            "title": DA_ORDER_LABEL,
+            "url": DA_ORDER_URL,
+            "reason": (
+                f"The fetched content did not parse as a PDF at all ({type(error).__name__}: {error}). "
+                "This may be a temporary server-side error page rather than a real order — check the "
+                "URL in a browser before assuming DoE published something malformed."
+            ),
+        }
+
     change = find_rate_change(text)
     if change is None:
         reason = (
@@ -333,20 +378,29 @@ def check_allowances_index(seen: dict[str, Any], *, force: bool, session: Any = 
 # --------------------------------------------------------------------------
 
 
-class AlreadyNotified(ValueError):
-    """The parsed date is already `status: "notified"` in the dataset."""
+class AlreadyRecorded(ValueError):
+    """The parsed date already has a `notified` or `frozen` entry in the dataset."""
 
 
 def apply_da_rate_change(change: RateChange, *, source_url: str, fetched_at: str) -> tuple[bool, list[str]]:
     """Write the notified rate into ``data/pay/da-history.json``.
 
-    Returns ``(changed, warnings)``. Raises :class:`AlreadyNotified` rather
-    than overwriting a rate this dataset already has `status: "notified"` for
-    the same date — a parsed order disagreeing with an already-notified
-    figure is a reason to read both by hand, not a reason to pick one.
+    Returns ``(changed, warnings)``. Raises :class:`AlreadyRecorded` rather
+    than overwriting a rate this dataset already has `status: "notified"` OR
+    `status: "frozen"` for the same date — a parsed order disagreeing with an
+    already-recorded figure is a reason to read both by hand, not a reason to
+    pick one. `"frozen"` matters here too, not only `"notified"`: the 2020
+    COVID-era rows in this dataset ARE `"frozen"`, a real historical fact
+    (an announced installment that was withheld, not merely projected), and
+    silently replacing one the way a projection gets replaced would destroy
+    that fact rather than update it — confirmed to actually happen before
+    this guard existed, by constructing a `"frozen"` row and applying a
+    change against its date (see `test_pay_orders.py`).
 
-    A standing ``projected`` entry for the same date is replaced, because a
-    notified order is exactly what a projection exists to be replaced by.
+    A standing ``projected`` entry for the same date IS silently replaced,
+    because a notified order is exactly what a projection exists to be
+    replaced by — `"projected"` is the only status this function treats that
+    way.
     """
     payload = read_json(DA_HISTORY_FILE)
     if payload is None:
@@ -354,9 +408,9 @@ def apply_da_rate_change(change: RateChange, *, source_url: str, fetched_at: str
 
     rates: list[dict[str, Any]] = payload["rates"]
     existing = next((r for r in rates if r["effectiveFrom"] == change.effective_from), None)
-    if existing is not None and existing["status"] == "notified":
-        raise AlreadyNotified(
-            f"{change.effective_from} is already notified at {existing['rate']}% "
+    if existing is not None and existing["status"] != "projected":
+        raise AlreadyRecorded(
+            f"{change.effective_from} is already recorded as {existing['status']} at {existing['rate']}% "
             f"(the order parsed as {change.new_rate}%)"
         )
 
@@ -470,9 +524,28 @@ def main() -> int:
                     "snippet": change.snippet,
                     "warnings": warnings,
                 }
-            except AlreadyNotified as error:
+            except AlreadyRecorded as error:
                 result["manualReview"].append(
                     {"title": da_action["title"], "url": da_action["url"], "reason": str(error)}
+                )
+            except Exception as error:  # noqa: BLE001 - a write must never crash the run; see the comment
+                # Defense in depth alongside `_MAX_PLAUSIBLE_RATE`: that
+                # guard is what SHOULD stop an implausible parse from
+                # reaching here, but this is the backstop for anything it
+                # does not anticipate — a future schema constraint, a
+                # corrupt da-history.json already on disk, anything. A
+                # write that fails must degrade to "read this by hand",
+                # never take the whole monthly run down with it.
+                log(f"! apply_da_rate_change raised {type(error).__name__}: {error}")
+                result["manualReview"].append(
+                    {
+                        "title": da_action["title"],
+                        "url": da_action["url"],
+                        "reason": (
+                            f"Parsed {change.new_rate}% effective {change.effective_from}, but writing it "
+                            f"failed: {type(error).__name__}: {error}. Read the order by hand."
+                        ),
+                    }
                 )
         else:
             result["manualReview"].append(
