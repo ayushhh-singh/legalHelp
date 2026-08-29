@@ -1,5 +1,5 @@
 {
-  "_note": "STAGE A · GENERATE. Thirty bilingual questions on the CCS (Classification, Control and Appeal) Rules, 1965, written in session by Claude Code with data/rules/text/ccs-cca.json open. No API was called. The questions concentrate on the four authorities the rules distinguish, the minor/major penalty divide, the procedural periods and the appeal and revision machinery — which is where a disciplinary proceeding is actually won or lost.",
+  "_note": "STAGE A · GENERATE. Forty bilingual questions on the CCS (Classification, Control and Appeal) Rules, 1965, written in session by Claude Code with data/rules/text/ccs-cca.json open. No API was called. The questions concentrate on the four authorities the rules distinguish, the minor/major penalty divide, the procedural periods and the appeal and revision machinery — which is where a disciplinary proceeding is actually won or lost. Cards q-031 to q-040 were appended in a second batch of ten scenario-kind questions ('what should the officer/disciplinary authority do?'), each posing a realistic disciplinary-procedure fact pattern with one action grounded in a specific rule and three plausible-but-wrong distractors, covering rules not yet tested as scenarios (16(1) vs 16(1-A), 10(6)-(7) suspension lapse, 24/25 appeal routing, 18(1) common proceedings across groups, 19(i)'s proviso, 15(2) disagreement with an inquiry finding, 20(2)(i)'s minor-penalty tie-break, 14(20) ex parte inquiry, 29A review on new material, and 3(3)'s temporary-transfer re-attraction).",
   "batchId": "2026-08-28-ccs-cca-A",
   "promptVersion": "rules-qa/1",
   "cards": [
@@ -1035,6 +1035,454 @@
       "difficulty": "hard",
       "stageA": { "index": 30, "angle": "Rule 10(2)(b) — deemed suspension on conviction" },
       "groundingRuleIds": ["ccs-cca-10"]
+    },
+    {
+      "id": "ccs-cca-q-031",
+      "rule": "16",
+      "kind": "scenario",
+      "front": {
+        "en": "A disciplinary authority proposes to withhold a Government servant's increment for six months, without cumulative effect and with no adverse effect on his pension. Must a full inquiry under Rule 14 be held before withholding it, under Rule 16 of the CCS (CCA) Rules, 1965?",
+        "hi": "एक अनुशासनिक प्राधिकारी किसी सरकारी सेवक की वेतनवृद्धि छह मास के लिए, बिना संचयी प्रभाव के तथा पेंशन पर कोई प्रतिकूल प्रभाव डाले बिना, रोकने का प्रस्ताव करता है। क्या सीसीएस (सीसीए) नियम, 1965 के नियम 16 के अधीन इसे रोकने से पूर्व नियम 14 की पूर्ण जाँच आवश्यक है?"
+      },
+      "back": {
+        "en": "No — Rule 16(1) is enough: inform him in writing, give an opportunity to represent, hold an inquiry only if the disciplinary authority considers it necessary, and record a finding.",
+        "hi": "नहीं — नियम 16(1) पर्याप्त है: लिखित सूचना देना, अभ्यावेदन का अवसर देना, केवल तभी जाँच करना जब अनुशासनिक प्राधिकारी उसे आवश्यक समझे, और निष्कर्ष अभिलिखित करना।"
+      },
+      "options": [
+        {
+          "en": "No — Rule 16(1) is enough: written notice, an opportunity to represent, an inquiry only if considered necessary, and a recorded finding",
+          "hi": "नहीं — नियम 16(1) पर्याप्त है: लिखित सूचना देना, अभ्यावेदन का अवसर देना, आवश्यक होने पर ही जाँच करना, और निष्कर्ष अभिलिखित करना"
+        },
+        {
+          "en": "Yes — Rule 16(1-A) always requires a full inquiry whenever increments are withheld",
+          "hi": "हाँ — नियम 16(1-क) वेतनवृद्धि रोकने पर सदैव पूर्ण जाँच अनिवार्य करता है"
+        },
+        {
+          "en": "No procedure at all is required, since censure and increment-withholding are minor penalties",
+          "hi": "निंदा और वेतनवृद्धि रोकना छोटी शास्तियाँ हैं, अतः कोई प्रक्रिया अपेक्षित नहीं"
+        },
+        {
+          "en": "Only the President may decide; no other disciplinary authority may act",
+          "hi": "केवल राष्ट्रपति ही निर्णय ले सकते हैं; कोई अन्य अनुशासनिक प्राधिकारी कार्रवाई नहीं कर सकता"
+        }
+      ],
+      "answerIndex": 0,
+      "explanation": {
+        "en": "Rule 16(1) is the ordinary minor-penalty route — notice, an opportunity to represent, an inquiry only if the disciplinary authority thinks one is needed, and a finding. Rule 16(1-A) escalates to the full Rule 14 procedure only for the three aggravating features named there; none of them is present in an ordinary six-month, non-cumulative, pension-neutral withholding.",
+        "hi": "नियम 16(1) साधारण छोटी शास्ति की प्रक्रिया है — सूचना, अभ्यावेदन का अवसर, केवल आवश्यक होने पर जाँच, और निष्कर्ष। नियम 16(1-क) पूर्ण नियम 14 प्रक्रिया की ओर केवल उन तीन गंभीर विशेषताओं पर बढ़ाता है जो वहाँ नामित हैं; साधारण छह-मास, गैर-संचयी, पेंशन-निरपेक्ष रोक में इनमें से कोई उपस्थित नहीं है।"
+      },
+      "ruleRef": {
+        "textId": "ccs-cca-16",
+        "citation": { "en": "Rule 16, CCS (CCA) Rules, 1965", "hi": "नियम 16, सीसीएस (सीसीए) नियम, 1965" }
+      },
+      "difficulty": "hard",
+      "stageA": { "index": 31, "angle": "Rule 16(1) vs 16(1-A) — the ordinary case needs no full inquiry" },
+      "groundingRuleIds": ["ccs-cca-16", "ccs-cca-11"]
+    },
+    {
+      "id": "ccs-cca-q-032",
+      "rule": "10",
+      "kind": "scenario",
+      "front": {
+        "en": "A Government servant has been under suspension for 100 days. No Review Committee has reviewed the suspension, and no order extending it has been passed. Under Rule 10 of the CCS (CCA) Rules, 1965, what is the position?",
+        "hi": "एक सरकारी सेवक 100 दिन से निलंबन में है। न तो किसी समीक्षा समिति ने निलंबन की समीक्षा की है और न ही उसे बढ़ाने का कोई आदेश हुआ है। सीसीएस (सीसीए) नियम, 1965 के नियम 10 के अधीन उसकी स्थिति क्या है?"
+      },
+      "back": {
+        "en": "The suspension has lapsed — Rule 10(7) makes it invalid past ninety days unless it is extended after review before that period expires, and here neither happened.",
+        "hi": "निलंबन समाप्त हो चुका है — नियम 10(7) उसे नब्बे दिन बीतने पर अमान्य बना देता है जब तक उस अवधि की समाप्ति से पूर्व समीक्षा के पश्चात् न बढ़ाया जाए, और यहाँ न समीक्षा हुई न विस्तार।"
+      },
+      "options": [
+        {
+          "en": "The suspension continues automatically until someone reviews it",
+          "hi": "निलंबन तब तक स्वतः चलता रहता है जब तक कोई उसकी समीक्षा न करे"
+        },
+        {
+          "en": "It has lapsed — Rule 10(7) makes a suspension invalid past ninety days unless extended after review before that period expires, and here neither a review nor an extension was made",
+          "hi": "यह समाप्त हो चुका है — नियम 10(7) निलंबन को नब्बे दिन बाद अमान्य बनाता है जब तक उस अवधि की समाप्ति से पूर्व समीक्षा के बाद न बढ़ाया जाए, और यहाँ न समीक्षा हुई न विस्तार"
+        },
+        {
+          "en": "It has automatically converted into the minor penalty of censure",
+          "hi": "यह स्वतः निंदा की छोटी शास्ति में परिवर्तित हो गया है"
+        },
+        {
+          "en": "It remains valid because only the President may revoke a suspension",
+          "hi": "यह वैध बना रहता है क्योंकि केवल राष्ट्रपति ही निलंबन रद्द कर सकते हैं"
+        }
+      ],
+      "answerIndex": 1,
+      "explanation": {
+        "en": "Rule 10(6) requires a review before ninety days and Rule 10(7) makes the suspension invalid past ninety days unless it is extended after that review, each extension capped at one hundred and eighty days. A suspension nobody reviewed simply lapses; it does not need anyone to revoke it.",
+        "hi": "नियम 10(6) नब्बे दिन से पूर्व समीक्षा अपेक्षित करता है और नियम 10(7) निलंबन को नब्बे दिन बीतने पर अमान्य बना देता है जब तक उस समीक्षा के पश्चात् न बढ़ाया जाए, प्रत्येक विस्तार एक सौ अस्सी दिन पर सीमित। जिस निलंबन की किसी ने समीक्षा नहीं की, वह स्वयं समाप्त हो जाता है; उसे रद्द करने के लिए किसी की आवश्यकता नहीं।"
+      },
+      "ruleRef": {
+        "textId": "ccs-cca-10",
+        "citation": { "en": "Rule 10, CCS (CCA) Rules, 1965", "hi": "नियम 10, सीसीएस (सीसीए) नियम, 1965" }
+      },
+      "difficulty": "hard",
+      "stageA": { "index": 32, "angle": "Rule 10(6)-(7) — an unreviewed suspension lapses on its own" },
+      "groundingRuleIds": ["ccs-cca-10"]
+    },
+    {
+      "id": "ccs-cca-q-033",
+      "rule": "24",
+      "kind": "scenario",
+      "front": {
+        "en": "A Group 'C' Government servant is imposed the penalty of withholding of increment by the Head of Office. He wishes to appeal. Under Rules 24 and 25 of the CCS (CCA) Rules, 1965, to whom does the appeal lie and within what time?",
+        "hi": "एक समूह 'ग' सरकारी सेवक को कार्यालयाध्यक्ष द्वारा वेतनवृद्धि रोकने की शास्ति दी जाती है। वह अपील करना चाहता है। सीसीएस (सीसीए) नियम, 1965 के नियम 24 और 25 के अधीन, अपील किसके समक्ष और किस अवधि के भीतर होगी?"
+      },
+      "back": {
+        "en": "To the authority to which the Head of Office is immediately subordinate, since he is a Group 'C' servant and no authority is specified in the Schedule — Rule 24(1)(ii); within forty-five days from delivery of a copy of the order — Rule 25.",
+        "hi": "उस प्राधिकारी के समक्ष जिसके अधीनस्थ कार्यालयाध्यक्ष है, क्योंकि वह समूह 'ग' का सेवक है और अनुसूची में कोई विशिष्ट प्राधिकारी नहीं बताया गया — नियम 24(1)(ii); आदेश की प्रति परिदत्त होने से पैंतालीस दिन के भीतर — नियम 25।"
+      },
+      "options": [
+        {
+          "en": "Directly to the President, within thirty days of the order",
+          "hi": "सीधे राष्ट्रपति के समक्ष, आदेश की तारीख से तीस दिन के भीतर"
+        },
+        {
+          "en": "To the Union Public Service Commission, within ninety days",
+          "hi": "संघ लोक सेवा आयोग के समक्ष, नब्बे दिन के भीतर"
+        },
+        {
+          "en": "To the authority to which the Head of Office is immediately subordinate, within forty-five days from delivery of a copy of the order",
+          "hi": "उस प्राधिकारी के समक्ष जिसके अधीनस्थ कार्यालयाध्यक्ष है, आदेश की प्रति परिदत्त होने से पैंतालीस दिन के भीतर"
+        },
+        {
+          "en": "Only to the appointing authority, within sixty days of the order",
+          "hi": "केवल नियुक्ति प्राधिकारी के समक्ष, आदेश की तारीख से साठ दिन के भीतर"
+        }
+      ],
+      "answerIndex": 2,
+      "explanation": {
+        "en": "Rule 24(1)(ii) sends a Group 'C' or 'D' servant's appeal, where no authority is specified in the Schedule, to whoever the order-making authority is itself subordinate to. Rule 25 then gives forty-five days running from delivery of the copy, condonable on sufficient cause.",
+        "hi": "नियम 24(1)(ii) समूह 'ग' या 'घ' सेवक की अपील को, जहाँ अनुसूची में कोई प्राधिकारी विनिर्दिष्ट नहीं है, उस प्राधिकारी के समक्ष भेजता है जिसके अधीनस्थ स्वयं आदेश करने वाला प्राधिकारी है। नियम 25 फिर प्रति परिदत्त होने से पैंतालीस दिन देता है, जो पर्याप्त कारण पर क्षम्य है।"
+      },
+      "ruleRef": {
+        "textId": "ccs-cca-24",
+        "citation": { "en": "Rule 24, CCS (CCA) Rules, 1965", "hi": "नियम 24, सीसीएस (सीसीए) नियम, 1965" }
+      },
+      "difficulty": "hard",
+      "stageA": {
+        "index": 33,
+        "angle": "Rule 24(1)(ii) appellate authority for Group C/D, plus the Rule 25 period"
+      },
+      "groundingRuleIds": ["ccs-cca-24", "ccs-cca-25"]
+    },
+    {
+      "id": "ccs-cca-q-034",
+      "rule": "18",
+      "kind": "scenario",
+      "front": {
+        "en": "A Head of Department wants to hold a common disciplinary proceeding under Rule 18 against a Group 'A' officer and a Group 'C' clerk arising out of the same incident. The Head of Department is competent to dismiss the clerk but not the Group 'A' officer. May he order the common proceeding himself?",
+        "hi": "एक विभागाध्यक्ष एक ही घटना से जुड़े समूह 'क' अधिकारी और समूह 'ग' लिपिक के विरुद्ध नियम 18 के अधीन सम्मिलित अनुशासनिक कार्यवाही करना चाहता है। विभागाध्यक्ष लिपिक को पदच्युत करने में सक्षम है किंतु समूह 'क' अधिकारी को नहीं। क्या वह स्वयं सम्मिलित कार्यवाही का आदेश दे सकता है?"
+      },
+      "back": {
+        "en": "No — Rule 18(1) requires the ordering authority to be competent to dismiss ALL the Government servants concerned; since the Head of Department cannot dismiss the Group 'A' officer, only the President or an authority competent to dismiss both may order it.",
+        "hi": "नहीं — नियम 18(1) अपेक्षित करता है कि सम्मिलित कार्यवाही का आदेश देने वाला प्राधिकारी उन सभी संबंधित सरकारी सेवकों को पदच्युत करने के लिए सक्षम हो; चूँकि विभागाध्यक्ष समूह 'क' अधिकारी को पदच्युत नहीं कर सकता, राष्ट्रपति अथवा दोनों को पदच्युत करने में सक्षम कोई प्राधिकारी ही यह आदेश दे सकता है।"
+      },
+      "options": [
+        {
+          "en": "Yes, a Head of Department may always order a common proceeding",
+          "hi": "हाँ, क्योंकि विभागाध्यक्ष सदैव सम्मिलित कार्यवाही का आदेश दे सकता है"
+        },
+        {
+          "en": "Yes, provided the Group 'A' officer consents in writing",
+          "hi": "हाँ, बशर्ते समूह 'क' अधिकारी लिखित सहमति दे"
+        },
+        {
+          "en": "No — a common proceeding can never span two different groups",
+          "hi": "नहीं — दो भिन्न समूहों में सम्मिलित कार्यवाही कभी नहीं हो सकती"
+        },
+        {
+          "en": "No — Rule 18(1) needs competence to dismiss both; only the President or an authority competent to dismiss both may order it",
+          "hi": "नहीं — नियम 18(1) को दोनों को पदच्युत करने की सक्षमता चाहिए; यहाँ राष्ट्रपति या दोनों को पदच्युत करने में सक्षम प्राधिकारी ही आदेश दे सकता है"
+        }
+      ],
+      "answerIndex": 3,
+      "explanation": {
+        "en": "Rule 18(1)'s Note lets the highest of several disciplinary authorities act with the others' consent when they differ, but the underlying test never changes: competence to dismiss every Government servant named in the common proceeding. A Head of Department who cannot dismiss a Group 'A' officer is not that authority.",
+        "hi": "नियम 18(1) की टिप्पणी कई अनुशासनिक प्राधिकारियों में सबसे उच्चतर को शेष की सहमति से कार्य करने देती है जब वे भिन्न हों, किंतु अंतर्निहित कसौटी कभी नहीं बदलती: सम्मिलित कार्यवाही में नामित प्रत्येक सरकारी सेवक को पदच्युत करने की सक्षमता। जो विभागाध्यक्ष समूह 'क' अधिकारी को पदच्युत नहीं कर सकता, वह वह प्राधिकारी नहीं है।"
+      },
+      "ruleRef": {
+        "textId": "ccs-cca-18",
+        "citation": { "en": "Rule 18, CCS (CCA) Rules, 1965", "hi": "नियम 18, सीसीएस (सीसीए) नियम, 1965" }
+      },
+      "difficulty": "hard",
+      "stageA": {
+        "index": 34,
+        "angle": "Rule 18(1) — competence to dismiss ALL, across two different groups"
+      },
+      "groundingRuleIds": ["ccs-cca-18", "ccs-cca-12"]
+    },
+    {
+      "id": "ccs-cca-q-035",
+      "rule": "19",
+      "kind": "scenario",
+      "front": {
+        "en": "A Government servant is convicted on a criminal charge and the disciplinary authority wishes to impose the penalty of removal from service under Rule 19 of the CCS (CCA) Rules, 1965, without holding an inquiry. Is this permissible, and what must the disciplinary authority still do?",
+        "hi": "एक सरकारी सेवक आपराधिक आरोप में दोषसिद्ध होता है और अनुशासनिक प्राधिकारी सीसीएस (सीसीए) नियम, 1965 के नियम 19 के अधीन बिना जाँच किए सेवा से हटाए जाने की शास्ति अधिरोपित करना चाहता है। क्या यह अनुज्ञेय है, और अनुशासनिक प्राधिकारी को अभी भी क्या करना होगा?"
+      },
+      "back": {
+        "en": "Yes — Rule 19(i) dispenses with an inquiry on the ground of conduct leading to a criminal conviction; but the first proviso still requires an opportunity of making a representation on the penalty proposed before any order is made.",
+        "hi": "हाँ, नियम 19(i) ऐसे मामले में जाँच की अपेक्षा नहीं करता जहाँ शास्ति आपराधिक दोषसिद्धि की ओर ले जाने वाले आचरण के आधार पर अधिरोपित की जाए; किंतु पहला परंतुक फिर भी अपेक्षित करता है कि आदेश किए जाने से पूर्व सरकारी सेवक को प्रस्तावित शास्ति पर अभ्यावेदन का अवसर दिया जाए।"
+      },
+      "options": [
+        {
+          "en": "Yes, no inquiry is needed, but he must still be given an opportunity to represent against the penalty proposed before the order is made",
+          "hi": "हाँ, जाँच अपेक्षित नहीं, किंतु आदेश से पूर्व उसे प्रस्तावित शास्ति पर अभ्यावेदन का अवसर अवश्य देना होगा"
+        },
+        {
+          "en": "No, an inquiry under Rule 14 is mandatory in every conviction case",
+          "hi": "नहीं, प्रत्येक दोषसिद्धि मामले में नियम 14 की जाँच अनिवार्य है"
+        },
+        {
+          "en": "Yes, and no further step of any kind is required",
+          "hi": "हाँ, और इसके अतिरिक्त कोई कदम अपेक्षित नहीं है"
+        },
+        {
+          "en": "Yes, but only the President — never any other disciplinary authority — may use Rule 19",
+          "hi": "हाँ, किंतु नियम 19 का प्रयोग केवल राष्ट्रपति ही कर सकते हैं, कोई अन्य अनुशासनिक प्राधिकारी नहीं"
+        }
+      ],
+      "answerIndex": 0,
+      "explanation": {
+        "en": "Rule 19 dispenses only with the inquiry, not with the whole of natural justice — its first proviso keeps the opportunity to represent on the penalty itself for a conviction case, which is why 19(i) and 19(iii) are not treated alike in practice.",
+        "hi": "नियम 19 केवल जाँच से छूट देता है, नैसर्गिक न्याय की समूची अपेक्षा से नहीं — इसका पहला परंतुक दोषसिद्धि के मामले में शास्ति पर अभ्यावेदन का अवसर बनाए रखता है, यही कारण है कि व्यवहार में 19(i) और 19(iii) को समान नहीं माना जाता।"
+      },
+      "ruleRef": {
+        "textId": "ccs-cca-19",
+        "citation": { "en": "Rule 19, CCS (CCA) Rules, 1965", "hi": "नियम 19, सीसीएस (सीसीए) नियम, 1965" }
+      },
+      "difficulty": "medium",
+      "stageA": { "index": 35, "angle": "Rule 19(i) proviso — no inquiry, but still an opportunity on the penalty" },
+      "groundingRuleIds": ["ccs-cca-19"]
+    },
+    {
+      "id": "ccs-cca-q-036",
+      "rule": "15",
+      "kind": "scenario",
+      "front": {
+        "en": "An inquiring authority has found a Government servant not guilty of all articles of charge, but the disciplinary authority disagrees and proposes to impose a major penalty. Under Rule 15 of the CCS (CCA) Rules, 1965, what must the disciplinary authority do before passing such an order?",
+        "hi": "जाँच प्राधिकारी ने सरकारी सेवक को सभी आरोपों में निर्दोष पाया है, किंतु अनुशासनिक प्राधिकारी असहमत है और बड़ी शास्ति अधिरोपित करने का प्रस्ताव करता है। सीसीएस (सीसीए) नियम, 1965 के नियम 15 के अधीन, ऐसा आदेश करने से पूर्व अनुशासनिक प्राधिकारी को क्या करना होगा?"
+      },
+      "back": {
+        "en": "It must forward a copy of the inquiry report together with its own tentative reasons for disagreement to the Government servant, who gets fifteen days to submit a representation, whether or not the report is in his favour — Rule 15(2).",
+        "hi": "उसे जाँच रिपोर्ट की प्रति अपने असहमति के अस्थायी कारणों सहित सरकारी सेवक को अग्रेषित करनी होगी, जिसे रिपोर्ट के पक्ष में होने या न होने के बावजूद अभ्यावेदन देने के लिए पंद्रह दिन मिलेंगे — नियम 15(2)।"
+      },
+      "options": [
+        {
+          "en": "Nothing further — since it disagrees, it may straightaway impose the major penalty",
+          "hi": "कुछ नहीं — चूँकि वह असहमत है, वह सीधे बड़ी शास्ति अधिरोपित कर सकता है"
+        },
+        {
+          "en": "Forward the report with its tentative reasons for disagreement, and allow fifteen days for the Government servant's representation",
+          "hi": "रिपोर्ट को अपने अस्थायी असहमति कारणों सहित अग्रेषित करना और सरकारी सेवक के अभ्यावेदन के लिए पंद्रह दिन देना"
+        },
+        {
+          "en": "Refer the matter to the appellate authority for a fresh decision",
+          "hi": "मामले को नए निर्णय के लिए अपील प्राधिकारी को भेजना"
+        },
+        {
+          "en": "Direct the inquiring authority to change its finding to match its own view",
+          "hi": "जाँच प्राधिकारी को अपना निष्कर्ष अपने अनुरूप बदलने का निदेश देना"
+        }
+      ],
+      "answerIndex": 1,
+      "explanation": {
+        "en": "Rule 15(2) turns disagreement into a documented step rather than a private decision — the Government servant sees the disciplinary authority's own tentative reasoning and gets fifteen days to answer it, whatever the report itself said.",
+        "hi": "नियम 15(2) असहमति को गुप्त निर्णय के बजाय एक अभिलिखित चरण बना देता है — सरकारी सेवक अनुशासनिक प्राधिकारी के अपने अस्थायी तर्क को देखता है और उसका उत्तर देने के लिए पंद्रह दिन पाता है, चाहे रिपोर्ट स्वयं जो भी कहती हो।"
+      },
+      "ruleRef": {
+        "textId": "ccs-cca-15",
+        "citation": { "en": "Rule 15, CCS (CCA) Rules, 1965", "hi": "नियम 15, सीसीएस (सीसीए) नियम, 1965" }
+      },
+      "difficulty": "hard",
+      "stageA": {
+        "index": 36,
+        "angle": "Rule 15(2) — disagreement must be disclosed and answered before a major penalty"
+      },
+      "groundingRuleIds": ["ccs-cca-15"]
+    },
+    {
+      "id": "ccs-cca-q-037",
+      "rule": "20",
+      "kind": "scenario",
+      "front": {
+        "en": "A borrowing department, after conducting a disciplinary proceeding against an officer lent to it, forms the opinion that a minor penalty should be imposed, but the lending authority disagrees on consultation. Under Rule 20 of the CCS (CCA) Rules, 1965, what happens?",
+        "hi": "एक उधार लेने वाला विभाग किसी उधार पर लिए गए अधिकारी के विरुद्ध अनुशासनिक कार्यवाही चलाने के पश्चात् यह मत बनाता है कि छोटी शास्ति अधिरोपित की जाए, किंतु परामर्श पर उधार देने वाला प्राधिकारी असहमत है। सीसीएस (सीसीए) नियम, 1965 के नियम 20 के अधीन क्या होगा?"
+      },
+      "back": {
+        "en": "The Government servant's services are replaced at the disposal of the lending authority — the proviso to Rule 20(2)(i) settles a disagreement over a minor penalty that way.",
+        "hi": "सरकारी सेवक की सेवाएँ उधार देने वाले प्राधिकारी के निपटान में वापस कर दी जाएँगी — नियम 20(2)(i) का परंतुक छोटी शास्ति के मामले में उधार लेने और उधार देने वाले प्राधिकारियों के बीच मतभेद को इसी प्रकार निपटाता है।"
+      },
+      "options": [
+        {
+          "en": "The borrowing authority's view prevails and it may impose the minor penalty regardless",
+          "hi": "उधार लेने वाले प्राधिकारी का मत प्रबल होगा और वह वैसे भी छोटी शास्ति अधिरोपित कर सकता है"
+        },
+        {
+          "en": "The matter is referred to the President for a casting decision",
+          "hi": "मामला निर्णायक निर्णय हेतु राष्ट्रपति को भेजा जाएगा"
+        },
+        {
+          "en": "The Government servant's services are replaced at the disposal of the lending authority",
+          "hi": "सरकारी सेवक की सेवाएँ उधार देने वाले प्राधिकारी के निपटान में वापस कर दी जाएँगी"
+        },
+        {
+          "en": "The proceeding automatically lapses and no penalty may be imposed by anyone",
+          "hi": "कार्यवाही स्वतः समाप्त हो जाएगी और कोई भी शास्ति अधिरोपित नहीं की जा सकेगी"
+        }
+      ],
+      "answerIndex": 2,
+      "explanation": {
+        "en": "Rule 20(2)(i)'s proviso is the tie-breaker for a minor penalty: a disagreement sends the officer back to the lending authority rather than letting the borrowing authority overrule it. For a major penalty, Rule 20(2)(ii) already sends the whole record back regardless of agreement.",
+        "hi": "नियम 20(2)(i) का परंतुक छोटी शास्ति में मतभेद का निपटारा करता है: असहमति होने पर अधिकारी उधार देने वाले प्राधिकारी के पास वापस जाता है, उधार लेने वाले प्राधिकारी को अधिक्रमण करने नहीं दिया जाता। बड़ी शास्ति में नियम 20(2)(ii) पहले से ही सहमति की परवाह किए बिना पूरा अभिलेख वापस भेज देता है।"
+      },
+      "ruleRef": {
+        "textId": "ccs-cca-20",
+        "citation": { "en": "Rule 20, CCS (CCA) Rules, 1965", "hi": "नियम 20, सीसीएस (सीसीए) नियम, 1965" }
+      },
+      "difficulty": "hard",
+      "stageA": {
+        "index": 37,
+        "angle": "Rule 20(2)(i) proviso — the minor-penalty tie-break, distinct from 20(2)(ii)'s major-penalty rule"
+      },
+      "groundingRuleIds": ["ccs-cca-20"]
+    },
+    {
+      "id": "ccs-cca-q-038",
+      "rule": "14",
+      "kind": "scenario",
+      "front": {
+        "en": "A Government servant, after receiving the articles of charge, neither submits a written statement of defence nor appears before the inquiring authority within the specified time. Under Rule 14 of the CCS (CCA) Rules, 1965, what may the inquiring authority do?",
+        "hi": "आरोप-पत्र प्राप्त करने के पश्चात् एक सरकारी सेवक न तो लिखित प्रतिरक्षा कथन प्रस्तुत करता है और न ही निर्दिष्ट समय के भीतर जाँच प्राधिकारी के समक्ष उपस्थित होता है। सीसीएस (सीसीए) नियम, 1965 के नियम 14 के अधीन, जाँच प्राधिकारी क्या कर सकता है?"
+      },
+      "back": {
+        "en": "It may hold the inquiry ex parte — Rule 14(20) permits proceeding without him where he fails to submit a defence, does not appear, or otherwise fails to comply with the rule.",
+        "hi": "वह जाँच को एकपक्षीय रूप से चला सकता है — नियम 14(20) उसे ऐसे सरकारी सेवक की अनुपस्थिति में आगे बढ़ने देता है जो प्रतिरक्षा कथन प्रस्तुत नहीं करता, उपस्थित नहीं होता, या अन्यथा नियम का पालन करने से इंकार या चूक करता है।"
+      },
+      "options": [
+        {
+          "en": "The inquiry must be dropped for want of a defence",
+          "hi": "प्रतिरक्षा के अभाव में जाँच समाप्त कर देनी होगी"
+        },
+        {
+          "en": "The disciplinary authority must switch to the minor-penalty procedure instead",
+          "hi": "अनुशासनिक प्राधिकारी को इसके बजाय छोटी शास्ति की प्रक्रिया अपनानी होगी"
+        },
+        {
+          "en": "The inquiring authority must wait indefinitely until he chooses to respond",
+          "hi": "जाँच प्राधिकारी को तब तक अनिश्चित काल प्रतीक्षा करनी होगी जब तक वह उत्तर न दे"
+        },
+        {
+          "en": "It may proceed to hold the inquiry ex parte",
+          "hi": "वह जाँच को एकपक्षीय रूप से चला सकता है"
+        }
+      ],
+      "answerIndex": 3,
+      "explanation": {
+        "en": "Rule 14(20) is what keeps a proceeding from being defeated by silence — non-cooperation does not stop the clock, it simply removes the Government servant's part in the record the inquiring authority builds.",
+        "hi": "नियम 14(20) ही वह प्रावधान है जो कार्यवाही को मौन से विफल होने से बचाता है — असहयोग समय-सीमा को नहीं रोकता, वह केवल जाँच प्राधिकारी द्वारा तैयार किए जा रहे अभिलेख में सरकारी सेवक के भाग को हटा देता है।"
+      },
+      "ruleRef": {
+        "textId": "ccs-cca-14",
+        "citation": { "en": "Rule 14, CCS (CCA) Rules, 1965", "hi": "नियम 14, सीसीएस (सीसीए) नियम, 1965" }
+      },
+      "difficulty": "medium",
+      "stageA": { "index": 38, "angle": "Rule 14(20) — an ex parte inquiry when the officer does not engage" },
+      "groundingRuleIds": ["ccs-cca-14"]
+    },
+    {
+      "id": "ccs-cca-q-039",
+      "rule": "29A",
+      "kind": "scenario",
+      "front": {
+        "en": "Two years after a Government servant was let off with a minor penalty, it comes to light that he had suppressed material evidence during the original inquiry — evidence that could not have been produced at the time. Can the President act under Rule 29A of the CCS (CCA) Rules, 1965?",
+        "hi": "किसी सरकारी सेवक को छोटी शास्ति देकर छोड़ दिए जाने के दो वर्ष पश्चात् यह प्रकट होता है कि उसने मूल जाँच के दौरान महत्वपूर्ण साक्ष्य छिपाया था — ऐसा साक्ष्य जो उस समय प्रस्तुत नहीं किया जा सकता था। क्या राष्ट्रपति सीसीएस (सीसीए) नियम, 1965 के नियम 29क के अधीन कार्रवाई कर सकते हैं?"
+      },
+      "back": {
+        "en": "Yes — Rule 29A lets the President review an order made under these rules on the ground that new material, which could not be produced earlier, has come to notice; if the review would impose a major penalty or enhance a minor one, an inquiry under Rule 14 must first be held, subject to Rule 19.",
+        "hi": "हाँ — नियम 29क राष्ट्रपति को इन नियमों के अधीन किए गए किसी आदेश का पुनर्विलोकन इस आधार पर करने देता है कि नई सामग्री, जो पहले प्रस्तुत नहीं की जा सकती थी, ध्यान में आई है; यदि पुनर्विलोकन से बड़ी शास्ति अधिरोपित हो या छोटी शास्ति बढ़े, तो नियम 19 के अधीन रहते हुए पहले नियम 14 के अधीन जाँच होनी चाहिए।"
+      },
+      "options": [
+        {
+          "en": "Yes — Rule 29A allows review on newly-surfaced material that could not earlier be produced, with a Rule 14 inquiry first if the review would impose or enhance a penalty into the categories requiring one",
+          "hi": "हाँ — नियम 29क नई प्रकट सामग्री पर पुनर्विलोकन की अनुमति देता है जो पहले प्रस्तुत नहीं की जा सकती थी, तथा शास्ति अधिरोपित या बढ़ाए जाने की दशा में पहले नियम 14 की जाँच अपेक्षित है"
+        },
+        {
+          "en": "No — an order once passed under these rules can never be reopened",
+          "hi": "नहीं — इन नियमों के अधीन किया गया कोई आदेश कभी पुनः नहीं खोला जा सकता"
+        },
+        {
+          "en": "Yes, but only within six months of the original order, the same limit as Rule 29 revision",
+          "hi": "हाँ, किंतु केवल मूल आदेश के छह मास के भीतर, नियम 29 की पुनरीक्षण सीमा के समान"
+        },
+        {
+          "en": "No — only an appellate authority, not the President, may reopen a concluded case",
+          "hi": "नहीं — केवल अपील प्राधिकारी, राष्ट्रपति नहीं, किसी समाप्त मामले को पुनः खोल सकता है"
+        }
+      ],
+      "answerIndex": 0,
+      "explanation": {
+        "en": "Rule 29A exists precisely for the case Rule 29's six-month revision window would already have closed — new material discovered late is a different ground from an ordinary revision, and it carries its own Rule 14 safeguard when it would make things worse for the officer.",
+        "hi": "नियम 29क ठीक उसी स्थिति के लिए है जिसमें नियम 29 की छह-मास की पुनरीक्षण अवधि पहले ही बंद हो चुकी होगी — देर से मिली नई सामग्री सामान्य पुनरीक्षण से भिन्न आधार है, और जब यह अधिकारी के लिए स्थिति बिगाड़े तो इसके साथ अपना नियम 14 का संरक्षण भी जुड़ा है।"
+      },
+      "ruleRef": {
+        "textId": "ccs-cca-29a",
+        "citation": { "en": "Rule 29A, CCS (CCA) Rules, 1965", "hi": "नियम 29क, सीसीएस (सीसीए) नियम, 1965" }
+      },
+      "difficulty": "hard",
+      "stageA": {
+        "index": 39,
+        "angle": "Rule 29A — review on new material outside the Rule 29 revision window"
+      },
+      "groundingRuleIds": ["ccs-cca-29a", "ccs-cca-29"]
+    },
+    {
+      "id": "ccs-cca-q-040",
+      "rule": "3",
+      "kind": "scenario",
+      "front": {
+        "en": "A railway servant, ordinarily excluded from the CCS (CCA) Rules, 1965 by Rule 3(1)(a), is temporarily transferred to a civil post to which these rules would otherwise apply. Do the CCS (CCA) Rules, 1965 apply to him during that transfer?",
+        "hi": "एक रेल सेवक, जो सामान्यतः नियम 3(1)(क) द्वारा सीसीएस (सीसीए) नियम, 1965 से अपवर्जित है, अस्थायी रूप से किसी ऐसे सिविल पद पर स्थानांतरित किया जाता है जिस पर ये नियम अन्यथा लागू होते। क्या इस स्थानांतरण के दौरान उस पर सीसीएस (सीसीए) नियम, 1965 लागू होंगे?"
+      },
+      "back": {
+        "en": "Yes — Rule 3(3) expressly applies these rules to a Government servant temporarily transferred to a post covered by Exception (a) or (e) of Rule 3(1), to whom, but for the transfer, the rules would apply.",
+        "hi": "हाँ — नियम 3(3) स्पष्ट रूप से इन नियमों को ऐसे सरकारी सेवक पर लागू करता है जो नियम 3(1) के अपवाद (क) या (ङ) में आने वाले पद पर अस्थायी रूप से स्थानांतरित किया गया हो, जिस पर, यदि यह स्थानांतरण न होता, तो ये नियम लागू होते।"
+      },
+      "options": [
+        {
+          "en": "No — a railway servant stays outside these rules under every circumstance",
+          "hi": "नहीं — रेल सेवक हर परिस्थिति में इन नियमों से बाहर रहता है"
+        },
+        {
+          "en": "Yes — Rule 3(3) applies these rules to a servant temporarily transferred into a post to which the rules would otherwise apply",
+          "hi": "हाँ — नियम 3(3) इन नियमों को ऐसे सेवक पर लागू करता है जो अस्थायी रूप से ऐसे पद पर स्थानांतरित हो जिस पर ये नियम अन्यथा लागू होते"
+        },
+        {
+          "en": "Only if the President issues a special notification for that individual",
+          "hi": "केवल तभी जब राष्ट्रपति उस व्यक्ति विशेष के लिए विशेष अधिसूचना जारी करें"
+        },
+        {
+          "en": "Only for the purpose of suspension, not for any other disciplinary action",
+          "hi": "केवल निलंबन के प्रयोजन के लिए, किसी अन्य अनुशासनिक कार्रवाई के लिए नहीं"
+        }
+      ],
+      "answerIndex": 1,
+      "explanation": {
+        "en": "Rule 3(3) closes a gap Rule 3(1) would otherwise leave open: an exclusion tied to a Service or a post should not follow a person into a post the exclusion was never about. The temporary transfer brings him back inside the rules for exactly as long as he holds that post.",
+        "hi": "नियम 3(3) उस अंतराल को बंद करता है जो नियम 3(1) अन्यथा खुला छोड़ देता: किसी सेवा या पद से जुड़ा अपवर्जन किसी व्यक्ति के साथ ऐसे पद तक नहीं जाना चाहिए जिसके लिए वह अपवर्जन कभी था ही नहीं। अस्थायी स्थानांतरण उसे उतने ही समय के लिए नियमों के भीतर वापस लाता है जितने समय वह उस पद पर रहता है।"
+      },
+      "ruleRef": {
+        "textId": "ccs-cca-3",
+        "citation": { "en": "Rule 3, CCS (CCA) Rules, 1965", "hi": "नियम 3, सीसीएस (सीसीए) नियम, 1965" }
+      },
+      "difficulty": "medium",
+      "stageA": {
+        "index": 40,
+        "angle": "Rule 3(3) — a temporary transfer re-attracts the rules despite Rule 3(1)'s exclusion"
+      },
+      "groundingRuleIds": ["ccs-cca-3"]
     }
   ]
 }

@@ -1,0 +1,103 @@
+{
+  "_note": "STAGE B · CRITIC. A separate pass over scripts/authoring/authored/csmop.json, judging each question on its own terms: is there exactly one correct answer, are the distractors plausible without being trivially wrong, is it inside the public rule text (data/rules/text/csmop.json), is there a factual red flag, is the Hindi accurate and consistent with data/drafting/structure-terms.json's established CSMOP vocabulary, is the tone right for a serving officer. Every citation was checked against data/rules/text/csmop.json's actual text, including csmop-6-13 (the merged Chapter 5/6 blob) — the urgency-grading passage q019 cites ('The urgency grading advised are Immediate, Priority and Top Priority') is present verbatim in that textId's text.en, so it is grounded despite the odd-looking id. Rejections stay in data/rules/cards/ with reviewState \"rejected\" and are never served. (Update: csmop-q-013 was corrected — संगम->संघ — and re-approved.)",
+  "csmop-q-001": {
+    "verdict": "approve",
+    "reason": "One correct answer, grounded verbatim in para 5.1 (special-messenger routing of urgency-graded dak addressed by name); distractors are plausible wrong procedures (registration, holding for collection, returning to sender) that para 5.1(ii)'s own text explicitly forbids."
+  },
+  "csmop-q-002": {
+    "verdict": "approve",
+    "reason": "One correct answer, grounded verbatim in para 5.2(ii) ('All covers, except those addressed to Ministers/Officers by name or those bearing a security grading, will be opened by the CRU/IFC'); distractors are plausible but each wrong on a checkable detail."
+  },
+  "csmop-q-003": {
+    "verdict": "approve",
+    "reason": "One correct answer, grounded verbatim in para 5.5(ii)'s own example ('11.00 A.M., 2.00 P.M. and 4.00 P.M.'); distractors are plausible alternative schedules."
+  },
+  "csmop-q-004": {
+    "verdict": "approve",
+    "reason": "One correct answer, grounded verbatim in para 5.9 (2 working days ordinarily, half a day for urgency-graded disputed receipts); distractors are plausible alternative timelines."
+  },
+  "csmop-q-005": {
+    "verdict": "approve",
+    "reason": "One correct answer, grounded in para 5.10(b)(i)-(ii) (segregate by urgency grading, deal with urgency-graded receipts first); distractors describe plausible but wrong first actions."
+  },
+  "csmop-q-006": {
+    "verdict": "approve",
+    "reason": "One correct answer, grounded verbatim in para 7.2(iii) ('Verbatim reproduction of extracts from or paraphrasing of the paper under consideration, fresh receipt, or any other part of correspondence or notes on the same file, should also be avoided'); distractors are plausible but unrelated noting conventions."
+  },
+  "csmop-q-007": {
+    "verdict": "approve",
+    "reason": "One correct answer, grounded verbatim in para 7.4(iv) (Section Officer and above simply sign on the right below the note with the dd/mm/yyyy date if in agreement); distractors describe plausible but wrong responses to an agreeing officer."
+  },
+  "csmop-q-008": {
+    "verdict": "approve",
+    "reason": "One correct answer, grounded in para 7.13(i)-(ii) — combines the 'note is never replaced or pasted over, a new note is recorded instead' rule with the 'approval of an officer higher than the one who took the original decision' rule from the same paragraph, both genuinely stated there. Distractors (deleting the note, pasting a correction slip, no revision possible) are plausible but each contradicted by the text."
+  },
+  "csmop-q-009": {
+    "verdict": "approve",
+    "reason": "One correct answer, grounded verbatim in Table 7.1's first row ('Ephemeral — No noting is needed'); distractors are the genuine quantum-of-noting descriptions from the table's other rows (repetitive case, problem-solving case), which is exactly the kind of plausible-from-a-neighbouring-provision distractor the checklist wants."
+  },
+  "csmop-q-010": {
+    "verdict": "approve",
+    "reason": "One correct answer, grounded verbatim in para 8.1's numbered point (v) ('approval of an officer not below the rank of the Joint Secretary under the signature of an officer not below the rank of Under Secretary'). The '8.1.2(v)' citation matches this project's own established numbering for this sub-point (docs/CSMOP-FORMATS.md line 176: 'From 8.1.2, the rules that make one valid'), so the citation is not invented. Distractors are plausible but wrong approval/signing chains."
+  },
+  "csmop-q-011": {
+    "verdict": "approve",
+    "reason": "One correct answer, grounded verbatim in para 8.4(3) ('written in the third person and bears no salutation or subscription'); distractors describe the genuine conventions of other forms (letter, D.O. letter) misapplied to the O.M., which is the intended trap."
+  },
+  "csmop-q-012": {
+    "verdict": "approve",
+    "reason": "One correct answer, grounded verbatim in Table 8.1 rows 2 and 4 (UPSC addressed by letter to its Secretary; Attorney General approached only through the Ministry of Law & Justice); distractors mix real channels used for other authorities in the same table, which is plausible confusion."
+  },
+  "csmop-q-013": {
+    "verdict": "approve",
+    "reason": "The front/back/options and citation are all correctly grounded in para 8.9(i)'s 15-plus-15-day rule and would need no change. But the Hindi explanation mistranslates 'a recognized association' as 'मान्यताप्राप्त संगम' — संगम means 'confluence' (as in a meeting of rivers), not 'association'; the correct word is संघ or संगठन. This is a genuine Hindi accuracy defect in reader-facing text, not present in data/drafting/structure-terms.json's vocabulary or anywhere else in this batch, and should not ship as if it were considered administrative Hindi. Fixable by correcting that one word in the explanation.hi field alone; nothing else about the card needs to change. Fixed: संगम (confluence) corrected to संघ (association) in explanation.hi; re-approved."
+  },
+  "csmop-q-014": {
+    "verdict": "approve",
+    "reason": "One correct answer, grounded verbatim in para 9.1(iii) ('writing \"Draft\" at top centre'), and the citation matches structure-terms.json's own csmopRef for the 'draft' term (9.1(iii), 9.2(xiii)); distractors are plausible but invented marking conventions."
+  },
+  "csmop-q-015": {
+    "verdict": "approve",
+    "reason": "One correct answer, grounded verbatim in para 9.5(ii) (D.O. letter preferably not more than one page, faired by the personal staff of the signing officer); distractors mix plausible page limits and wrong staff."
+  },
+  "csmop-q-016": {
+    "verdict": "approve",
+    "reason": "True/false grounded verbatim in para 5.3(ii)(d), which lists casual leave applications among receipts exempt from entry-level registration; the statement is unambiguous and answerable from the paragraph alone."
+  },
+  "csmop-q-017": {
+    "verdict": "approve",
+    "reason": "True/false correctly grounded across para 7.1 (a note is an internal record on the file) and para 8.4(3) (an O.M. is outward, third-person correspondence) — genuinely different documents, not a trivial restatement, and both textIds are cited."
+  },
+  "csmop-q-018": {
+    "verdict": "approve",
+    "reason": "True/false grounded verbatim in para 7.8 ('Previous version running summary shall not be destroyed'); Hindi ('तथ्यों का चालू सारांश') matches structure-terms.json's own 'running-summary' entry exactly."
+  },
+  "csmop-q-019": {
+    "verdict": "approve",
+    "reason": "True/false grounded verbatim in para 6.13(i), which the merged csmop-6-13 blob genuinely contains ('The urgency grading advised are Immediate, Priority and Top Priority'); the false claim of only two gradings is a real and checkable trap, and the explanation correctly names all three. Hindi for the three grades ('तत्काल', 'अग्रता', 'परम अग्रता') matches structure-terms.json exactly."
+  },
+  "csmop-q-020": {
+    "verdict": "approve",
+    "reason": "True/false grounded verbatim in para 13.1's RTI-recast duty to communicate official information in good faith; statement is a close paraphrase of the actual proviso wording, not an invented rule."
+  },
+  "csmop-q-021": {
+    "verdict": "approve",
+    "reason": "Scenario grounded verbatim in para 5.6(iv) (a Section Officer may retain a receipt of a difficult nature or with a special feature requiring her personal attention); distractors describe plausible but wrong restrictions on this discretion."
+  },
+  "csmop-q-022": {
+    "verdict": "approve",
+    "reason": "Scenario grounded verbatim in para 7.3's opening line (obvious/precedent-based cases go up as a draft without an elaborate note); distractors describe plausible but disproportionate responses (discussed note, mandatory inter-ministerial consultation, blocking on the Branch Officer)."
+  },
+  "csmop-q-023": {
+    "verdict": "approve",
+    "reason": "Scenario grounded verbatim in para 8.4(9) ('this form will not be used in communicating copies to state governments, statutory/constitutional bodies. The appropriate form for such communication is letter'); distractors are plausible overgeneralisations of the endorsement form's use."
+  },
+  "csmop-q-024": {
+    "verdict": "approve",
+    "reason": "Scenario grounded verbatim in para 9.2(v)'s own worked example ('Instead of stating \"...may be sent immediately\" state \"...may be sent by 28-02-2019\"'); the date in the correct option matches the manual's own example exactly, and distractors are plausible but wrong fixes."
+  },
+  "csmop-q-025": {
+    "verdict": "approve",
+    "reason": "Scenario grounded verbatim in para 9.4 (address the Head of the organisation, with 'Attention: [name], designation' written above Subject, when personal attention is needed for a non-classified, non-D.O. communication); Hindi 'कृपया ध्यान दें' matches structure-terms.json's 'attention' entry exactly, and distractors describe plausible but wrong addressing conventions."
+  }
+}

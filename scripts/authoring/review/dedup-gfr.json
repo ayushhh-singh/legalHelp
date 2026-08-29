@@ -1,0 +1,156 @@
+{
+  "_note": "Stage D, written by scripts/authoring/qa_pipeline.py dedup gfr. rapidfuzz token_set_ratio over every pair of English fronts in this act, including the generated rule and cloze cards. At 90 or above the later question is the duplicate and make_cards.py rejects it.",
+  "threshold": 90.0,
+  "scores": {
+    "gfr-q-001": {
+      "maxScore": 58.2,
+      "against": "gfr-rule-319",
+      "verdict": "keep"
+    },
+    "gfr-q-002": {
+      "maxScore": 64.0,
+      "against": "gfr-q-001",
+      "verdict": "keep"
+    },
+    "gfr-q-003": {
+      "maxScore": 70.5,
+      "against": "gfr-cloze-30-duration",
+      "verdict": "keep"
+    },
+    "gfr-q-004": {
+      "maxScore": 64.6,
+      "against": "gfr-rule-236",
+      "verdict": "keep"
+    },
+    "gfr-q-005": {
+      "maxScore": 66.9,
+      "against": "gfr-cloze-34-amount",
+      "verdict": "keep"
+    },
+    "gfr-q-006": {
+      "maxScore": 63.4,
+      "against": "gfr-q-001",
+      "verdict": "keep"
+    },
+    "gfr-q-007": {
+      "maxScore": 65.4,
+      "against": "gfr-cloze-63-definedterm",
+      "verdict": "keep"
+    },
+    "gfr-q-008": {
+      "maxScore": 64.4,
+      "against": "gfr-rule-225",
+      "verdict": "keep"
+    },
+    "gfr-q-009": {
+      "maxScore": 74.7,
+      "against": "gfr-rule-23",
+      "verdict": "keep"
+    },
+    "gfr-q-010": {
+      "maxScore": 68.9,
+      "against": "gfr-cloze-149-amount",
+      "verdict": "keep"
+    },
+    "gfr-q-011": {
+      "maxScore": 63.4,
+      "against": "gfr-q-003",
+      "verdict": "keep"
+    },
+    "gfr-q-012": {
+      "maxScore": 61.9,
+      "against": "gfr-q-011",
+      "verdict": "keep"
+    },
+    "gfr-q-013": {
+      "maxScore": 65.4,
+      "against": "gfr-q-005",
+      "verdict": "keep"
+    },
+    "gfr-q-014": {
+      "maxScore": 62.0,
+      "against": "gfr-q-011",
+      "verdict": "keep"
+    },
+    "gfr-q-015": {
+      "maxScore": 67.4,
+      "against": "gfr-q-005",
+      "verdict": "keep"
+    },
+    "gfr-q-016": {
+      "maxScore": 71.6,
+      "against": "gfr-rule-162",
+      "verdict": "keep"
+    },
+    "gfr-q-017": {
+      "maxScore": 62.6,
+      "against": "gfr-q-003",
+      "verdict": "keep"
+    },
+    "gfr-q-018": {
+      "maxScore": 62.7,
+      "against": "gfr-q-015",
+      "verdict": "keep"
+    },
+    "gfr-q-019": {
+      "maxScore": 62.7,
+      "against": "gfr-q-005",
+      "verdict": "keep"
+    },
+    "gfr-q-020": {
+      "maxScore": 70.6,
+      "against": "gfr-q-001",
+      "verdict": "keep"
+    },
+    "gfr-q-021": {
+      "maxScore": 73.9,
+      "against": "gfr-q-015",
+      "verdict": "keep"
+    },
+    "gfr-q-022": {
+      "maxScore": 70.1,
+      "against": "gfr-rule-171",
+      "verdict": "keep"
+    },
+    "gfr-q-023": {
+      "maxScore": 61.1,
+      "against": "gfr-q-018",
+      "verdict": "keep"
+    },
+    "gfr-q-024": {
+      "maxScore": 71.5,
+      "against": "gfr-q-011",
+      "verdict": "keep"
+    },
+    "gfr-q-025": {
+      "maxScore": 62.7,
+      "against": "gfr-q-005",
+      "verdict": "keep"
+    },
+    "gfr-q-026": {
+      "maxScore": 72.1,
+      "against": "gfr-rule-319",
+      "verdict": "keep"
+    },
+    "gfr-q-027": {
+      "maxScore": 70.3,
+      "against": "gfr-cloze-218-count",
+      "verdict": "keep"
+    },
+    "gfr-q-028": {
+      "maxScore": 77.8,
+      "against": "gfr-q-001",
+      "verdict": "keep"
+    },
+    "gfr-q-029": {
+      "maxScore": 73.2,
+      "against": "gfr-rule-228",
+      "verdict": "keep"
+    },
+    "gfr-q-030": {
+      "maxScore": 72.9,
+      "against": "gfr-rule-133",
+      "verdict": "keep"
+    }
+  }
+}

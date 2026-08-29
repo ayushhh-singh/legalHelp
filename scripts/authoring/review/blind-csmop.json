@@ -1,0 +1,78 @@
+{
+  "_note": "STAGE C · BLIND VERIFY. Answers produced from the worksheet printed by `qa_pipeline.py blind csmop`, which shows each question, its options and the rule text it is grounded in, and hides the stored key. Where the printed GROUNDING excerpt was truncated, the full paragraph text was read from `data/rules/text/csmop.json` (including the merged 6.13 blob) before answering. `answered` is the option index chosen; make_cards.py compares it with the stored key and a mismatch rejects the question outright, because a mismatch means either the stem is ambiguous or the key is wrong. Indices here are the AUTHORED order, before make_cards.py rotates the options.",
+  "csmop-q-001": {
+    "answered": 0
+  },
+  "csmop-q-002": {
+    "answered": 1
+  },
+  "csmop-q-003": {
+    "answered": 2
+  },
+  "csmop-q-004": {
+    "answered": 3
+  },
+  "csmop-q-005": {
+    "answered": 0
+  },
+  "csmop-q-006": {
+    "answered": 1
+  },
+  "csmop-q-007": {
+    "answered": 2
+  },
+  "csmop-q-008": {
+    "answered": 3
+  },
+  "csmop-q-009": {
+    "answered": 0
+  },
+  "csmop-q-010": {
+    "answered": 1
+  },
+  "csmop-q-011": {
+    "answered": 2
+  },
+  "csmop-q-012": {
+    "answered": 3
+  },
+  "csmop-q-013": {
+    "answered": 0
+  },
+  "csmop-q-014": {
+    "answered": 1
+  },
+  "csmop-q-015": {
+    "answered": 2
+  },
+  "csmop-q-016": {
+    "answered": 0
+  },
+  "csmop-q-017": {
+    "answered": 1
+  },
+  "csmop-q-018": {
+    "answered": 0
+  },
+  "csmop-q-019": {
+    "answered": 1
+  },
+  "csmop-q-020": {
+    "answered": 0
+  },
+  "csmop-q-021": {
+    "answered": 3
+  },
+  "csmop-q-022": {
+    "answered": 2
+  },
+  "csmop-q-023": {
+    "answered": 0
+  },
+  "csmop-q-024": {
+    "answered": 1
+  },
+  "csmop-q-025": {
+    "answered": 2
+  }
+}

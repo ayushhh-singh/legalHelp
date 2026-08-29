@@ -335,46 +335,91 @@ def state_for(hindi_present: bool, reviewed: bool) -> tuple[bool, str]:
 # this provision was itself repealed by another Act. A heading that merely
 # *starts* with "Repeal" is neither — "Repeal and Saving" is the operative
 # closing rule of five of these books, and matching it cost them their cards.
-_EMPTIED_HEADING = re.compile(r"^\s*\[?(?:deleted|omitted)", re.I)
+#
+# The pattern tolerates a leading "-" or "[" — FR/SR's own OCR'd text prints
+# "- Cancelled." and "[Deleted]" both — and now also matches "cancelled" and
+# "not printed", which FR/SR uses for the same "nothing to recall" case
+# "deleted"/"omitted" cover in the other rule books.
+_EMPTIED_HEADING = re.compile(r"^\s*[-\[]?\s*(?:deleted|omitted|cancelled|not printed)", re.I)
 _REPEALED_BY = re.compile(r"\bRep\. by\b", re.I)
+
+# Below this, two prompts are different questions; at or above it they read as
+# the same question to a reader, which is exactly what the duplicate-front
+# test in tests/rules-data.test.ts checks with the same library and the same
+# number. Keeping both at 92 is what makes this function converge with that
+# test instead of passing here and failing there.
+_DUPLICATE_THRESHOLD = 92.0
+
+
+def _effective_prompt(rule: dict[str, Any]) -> str:
+    """What `rule_cards()` actually shows as the front — never the raw heading.
+
+    FR/SR and CSMOP print no heading at all (`heading.en` is `""` for every
+    one of FR/SR's 77 rules), so `rule_cards()` falls back to the rule's own
+    opening sentence. A heading-only check on those two books would silently
+    never mark ANY rule unanswerable — the empty string test on line ~365
+    always short-circuits — which is how six "Deleted"/"Cancelled" cards read
+    as six identical questions with no case ever catching it, since the
+    duplicate-front test at the top-level only started exercising FR/SR at all
+    once this session authored `hindi/fr-sr.json` and unlocked its rule cards.
+    """
+    heading = rule["heading"]["en"].strip()
+    return heading or trim_at_sentence(rule["text"]["en"], 160)
 
 
 def _unanswerable(rules: list[dict[str, Any]]) -> dict[str, str]:
-    """Rules whose heading cannot identify them, with the reason for each.
+    """Rules whose effective prompt cannot identify them, with the reason.
 
-    Two cases, both found by the duplicate-front test rather than by reading:
+    Three cases, all found by the duplicate-front test rather than by reading:
 
-    * the heading is "Deleted" or "Omitted" — the rule has no content left;
-    * the heading repeats inside the same act. The RTI Act heads both section 13
-      and section 16 "Term of office and conditions of service", one for the
-      Central Commission and one for the State; a card showing that heading has
-      two right answers and the reader cannot tell which is wanted.
+    * the prompt is "Deleted", "Omitted", "Cancelled" or "Not Printed" — the
+      rule has no content left;
+    * the prompt is a "Rep. by ..." note — the provision was itself repealed;
+    * the prompt is fuzzy-near-identical (rapidfuzz `token_set_ratio` >= 92,
+      the duplicate-front test's own threshold) to another rule's prompt in
+      the same act. The RTI Act heads both section 13 and section 16 "Term of
+      office and conditions of service", one for the Central Commission and
+      one for the State; GFR and CCS (Pension) both print several rules whose
+      stored English is a fragment or a shared boilerplate opening ("Subject
+      to any general or special orders ...") that reads the same on two
+      different rules. A card showing either kind of prompt has more than one
+      right answer and the reader cannot tell which is wanted.
 
-    Both still get a card, so rule coverage stays complete, and both are marked
-    ``rejected`` with the reason rather than served.
+    All three still get a card, so rule coverage stays complete, and all three
+    are marked ``rejected`` with the reason rather than served.
     """
-    seen: Counter[str] = Counter()
-    for rule in rules:
-        heading = rule["heading"]["en"].strip().lower()
-        if heading:
-            seen[heading] += 1
+    from rapidfuzz import fuzz
+
+    prompts = [(rule, _effective_prompt(rule)) for rule in rules]
 
     out: dict[str, str] = {}
-    for rule in rules:
-        heading = rule["heading"]["en"].strip()
-        if not heading:
+    for rule, prompt in prompts:
+        if not prompt:
             continue
-        if _EMPTIED_HEADING.match(heading):
-            out[rule["id"]] = "the rule has been deleted or omitted; there is nothing to recall"
-        elif _REPEALED_BY.search(heading):
+        if _EMPTIED_HEADING.match(prompt):
+            out[rule["id"]] = "the rule has been deleted, omitted or cancelled; there is nothing to recall"
+        elif _REPEALED_BY.search(prompt):
             out[rule["id"]] = (
                 "the provision was itself repealed by a later Act; there is nothing to recall"
             )
-        elif seen[heading.lower()] > 1:
-            out[rule["id"]] = (
-                f'the heading "{heading}" is used by {seen[heading.lower()]} rules of this act, '
-                "so it does not identify one of them"
-            )
+
+    for i in range(len(prompts)):
+        rule_i, prompt_i = prompts[i]
+        if not prompt_i or rule_i["id"] in out:
+            continue
+        for j in range(i + 1, len(prompts)):
+            rule_j, prompt_j = prompts[j]
+            if not prompt_j or rule_j["id"] in out:
+                continue
+            if fuzz.token_set_ratio(prompt_i, prompt_j) >= _DUPLICATE_THRESHOLD:
+                out[rule_i["id"]] = (
+                    f"its prompt reads the same as rule {rule_j['number']}'s, "
+                    "so it does not identify one of them"
+                )
+                out[rule_j["id"]] = (
+                    f"its prompt reads the same as rule {rule_i['number']}'s, "
+                    "so it does not identify one of them"
+                )
     return out
 
 

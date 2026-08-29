@@ -1,0 +1,589 @@
+{
+  "_note": "STAGE A · GENERATE. Fifteen bilingual questions on the Official Languages Act, 1963, written in session by Claude Code with data/rules/text/ol-act.json open. No API was called. `stageA.angle` records what each question is testing so the batch can be checked for spread. Section 3 (continuance of English) has no separate record in data/rules/text/ol-act.json: the extractor folded its amendment-inserted text into the sequence for the ol-act-2 record, so every card grounded in Section 3 cites ruleRef.textId \"ol-act-2\" (the id that actually resolves and whose text.en literally contains the quoted material), while its `rule` field and citation correctly name Section 3, since that is what the Act itself calls this text. Section 9 (omitted by the Jammu & Kashmir Reorganisation orders) carries no operative text and is not the basis of any card, the same convention the other rule books use for a deleted or omitted provision. The critic pass is review/critic-ol-act.json, the blind verify is review/blind-ol-act.json, and the dedup is written by qa_pipeline.py.",
+  "batchId": "2026-08-29-ol-act-A",
+  "promptVersion": "rules-qa/1",
+  "cards": [
+    {
+      "id": "ol-act-q-001",
+      "rule": "1",
+      "kind": "mcq",
+      "front": {
+        "en": "Under Section 1(2) of the Official Languages Act, 1963, which provision came into force on 26 January 1965 itself, without waiting for a separate Central Government notification?",
+        "hi": "राजभाषा अधिनियम, 1963 की धारा 1(2) के अधीन, कौन-सा उपबंध किसी पृथक केंद्र सरकार अधिसूचना की प्रतीक्षा किए बिना 26 जनवरी, 1965 को ही प्रवृत्त हुआ?"
+      },
+      "back": {
+        "en": "Section 3, dealing with the continuance of the English language; every other provision of the Act commenced only on a date the Central Government notified.",
+        "hi": "अंग्रेजी भाषा के निरंतर प्रयोग से संबंधित धारा 3; अधिनियम का प्रत्येक अन्य उपबंध केवल उस तारीख को प्रवृत्त हुआ जो केंद्र सरकार ने अधिसूचित की।"
+      },
+      "options": [
+        { "en": "Section 8, the power to make rules", "hi": "धारा 8, नियम बनाने की शक्ति" },
+        {
+          "en": "Section 3, continuance of the English language",
+          "hi": "धारा 3, अंग्रेजी भाषा का निरंतर प्रयोग"
+        },
+        { "en": "Section 4, the Committee on Official Language", "hi": "धारा 4, राजभाषा संबंधी समिति" },
+        {
+          "en": "Section 5, authorised Hindi translation of Central Acts",
+          "hi": "धारा 5, केंद्रीय अधिनियमों का प्राधिकृत हिंदी अनुवाद"
+        }
+      ],
+      "answerIndex": 1,
+      "explanation": {
+        "en": "Section 1(2) singles out Section 3 for commencement on 26 January 1965; the remaining provisions of the Act commence on such date, possibly different for different provisions, as the Central Government may notify in the Official Gazette.",
+        "hi": "धारा 1(2) 26 जनवरी, 1965 को प्रवृत्त होने के लिए विशेष रूप से धारा 3 को चुनती है; अधिनियम के शेष उपबंध उस तारीख को प्रवृत्त होंगे, जो केंद्र सरकार राजपत्र में अधिसूचना द्वारा नियत करे, और विभिन्न उपबंधों के लिए भिन्न-भिन्न तारीखें नियत की जा सकती हैं।"
+      },
+      "ruleRef": {
+        "textId": "ol-act-1",
+        "citation": { "en": "Section 1, Official Languages Act, 1963", "hi": "धारा 1, राजभाषा अधिनियम, 1963" }
+      },
+      "difficulty": "easy",
+      "stageA": { "index": 1, "angle": "Section 1(2) — which provision commenced by the Act itself vs by notification" },
+      "groundingRuleIds": ["ol-act-1"]
+    },
+    {
+      "id": "ol-act-q-002",
+      "rule": "2",
+      "kind": "mcq",
+      "front": {
+        "en": "Section 2(b) of the Official Languages Act, 1963 defines 'Hindi' to mean Hindi written in which script?",
+        "hi": "राजभाषा अधिनियम, 1963 की धारा 2(ख) 'हिंदी' को किस लिपि में लिखी गई हिंदी के रूप में परिभाषित करती है?"
+      },
+      "back": { "en": "The Devanagari script.", "hi": "देवनागरी लिपि।" },
+      "options": [
+        { "en": "Devanagari script", "hi": "देवनागरी लिपि" },
+        { "en": "Kaithi script", "hi": "कैथी लिपि" },
+        { "en": "Perso-Arabic (Urdu) script", "hi": "फारसी-अरबी (उर्दू) लिपि" },
+        { "en": "Whichever script the concerned State Government notifies", "hi": "जो लिपि संबंधित राज्य सरकार अधिसूचित करे" }
+      ],
+      "answerIndex": 0,
+      "explanation": {
+        "en": "Section 2(b) is a short, closed definition: 'Hindi' means Hindi in Devanagari Script. No State notification can substitute a different script for the purposes of this Act.",
+        "hi": "धारा 2(ख) एक संक्षिप्त, पूर्ण परिभाषा है: 'हिंदी' से अभिप्रेत है देवनागरी लिपि में हिंदी। इस अधिनियम के प्रयोजनों के लिए कोई राज्य अधिसूचना किसी अन्य लिपि को प्रतिस्थापित नहीं कर सकती।"
+      },
+      "ruleRef": {
+        "textId": "ol-act-2",
+        "citation": { "en": "Section 2, Official Languages Act, 1963", "hi": "धारा 2, राजभाषा अधिनियम, 1963" }
+      },
+      "difficulty": "easy",
+      "stageA": { "index": 2, "angle": "Section 2(b) — the definition of 'Hindi'" },
+      "groundingRuleIds": ["ol-act-2"]
+    },
+    {
+      "id": "ol-act-q-003",
+      "rule": "3",
+      "kind": "mcq",
+      "front": {
+        "en": "Section 3(1) of the Official Languages Act, 1963 permits the English language to continue to be used, in addition to Hindi, from the appointed day. For which purposes?",
+        "hi": "राजभाषा अधिनियम, 1963 की धारा 3(1) नियत दिन से हिंदी के अतिरिक्त अंग्रेजी भाषा के निरंतर प्रयोग की अनुमति देती है। किन प्रयोजनों के लिए?"
+      },
+      "back": {
+        "en": "For all the official purposes of the Union for which it was being used immediately before the appointed day, and for the transaction of business in Parliament.",
+        "hi": "संघ के उन सभी शासकीय प्रयोजनों के लिए जिनके लिए वह नियत दिन से ठीक पहले प्रयोग की जा रही थी, तथा संसद में कार्य-संचालन के लिए।"
+      },
+      "options": [
+        { "en": "Only for correspondence with foreign embassies", "hi": "केवल विदेशी दूतावासों के साथ पत्राचार के लिए" },
+        { "en": "Only for the internal record-keeping of the judiciary", "hi": "केवल न्यायपालिका के आंतरिक अभिलेखों के लिए" },
+        {
+          "en": "All official purposes of the Union for which it was already in use, and for the transaction of business in Parliament",
+          "hi": "संघ के उन सभी शासकीय प्रयोजनों के लिए जिनके लिए वह पहले से प्रयोग में थी, तथा संसद में कार्य-संचालन के लिए"
+        },
+        {
+          "en": "Only for examinations conducted by the Union Public Service Commission",
+          "hi": "केवल संघ लोक सेवा आयोग द्वारा आयोजित परीक्षाओं के लिए"
+        }
+      ],
+      "answerIndex": 2,
+      "explanation": {
+        "en": "Section 3(1) names exactly two purposes for the continuance of English — the Union's existing official purposes, and Parliamentary business — subject to the provisos that follow it.",
+        "hi": "धारा 3(1) अंग्रेजी के निरंतर प्रयोग के लिए ठीक दो प्रयोजन गिनाती है — संघ के विद्यमान शासकीय प्रयोजन, और संसदीय कार्य — जो आगे दिए गए परन्तुकों के अधीन है।"
+      },
+      "ruleRef": {
+        "textId": "ol-act-2",
+        "citation": { "en": "Section 3, Official Languages Act, 1963", "hi": "धारा 3, राजभाषा अधिनियम, 1963" }
+      },
+      "difficulty": "medium",
+      "stageA": {
+        "index": 3,
+        "angle": "Section 3(1) main clause — the two purposes English may continue for (text carried inside the ol-act-2 record, see file _note)"
+      },
+      "groundingRuleIds": ["ol-act-2"]
+    },
+    {
+      "id": "ol-act-q-004",
+      "rule": "3",
+      "kind": "trueFalse",
+      "front": {
+        "en": "The first proviso to Section 3(1) of the Official Languages Act, 1963 requires that the English language be used for purposes of communication between the Union and a State which has not adopted Hindi as its Official Language.",
+        "hi": "राजभाषा अधिनियम, 1963 की धारा 3(1) का प्रथम परन्तुक यह अपेक्षा करता है कि संघ और उस राज्य के बीच संसूचन के प्रयोजनों के लिए अंग्रेजी भाषा का प्रयोग किया जाए, जिस राज्य ने हिंदी को अपनी राजभाषा के रूप में नहीं अपनाया है।"
+      },
+      "back": { "en": "True.", "hi": "सत्य।" },
+      "options": [
+        { "en": "True", "hi": "सत्य" },
+        { "en": "False", "hi": "असत्य" }
+      ],
+      "answerIndex": 0,
+      "explanation": {
+        "en": "The first proviso to Section 3(1) makes English mandatory for Union–State communication precisely where the State has not adopted Hindi as its official language.",
+        "hi": "धारा 3(1) का प्रथम परन्तुक ठीक उस दशा में संघ-राज्य संसूचन के लिए अंग्रेजी को अनिवार्य बनाता है जहाँ राज्य ने हिंदी को अपनी राजभाषा के रूप में नहीं अपनाया है।"
+      },
+      "ruleRef": {
+        "textId": "ol-act-2",
+        "citation": { "en": "Section 3, Official Languages Act, 1963", "hi": "धारा 3, राजभाषा अधिनियम, 1963" }
+      },
+      "difficulty": "medium",
+      "stageA": { "index": 4, "angle": "Section 3(1) first proviso — mandatory English for a non-Hindi State" },
+      "groundingRuleIds": ["ol-act-2"]
+    },
+    {
+      "id": "ol-act-q-005",
+      "rule": "3",
+      "kind": "trueFalse",
+      "front": {
+        "en": "Under the second proviso to Section 3(1), when Hindi is used for communication between a State that has adopted Hindi as its official language and one that has not, that communication must be accompanied by a translation of the same in Sanskrit.",
+        "hi": "धारा 3(1) के द्वितीय परन्तुक के अधीन, जब हिंदी को अपनी राजभाषा के रूप में अपनाने वाले राज्य और न अपनाने वाले राज्य के बीच संसूचन के लिए हिंदी का प्रयोग किया जाता है, तो उस संसूचन के साथ संस्कृत में उसका अनुवाद संलग्न होना चाहिए।"
+      },
+      "back": {
+        "en": "False — the accompanying translation required by the second proviso is in the English language, not Sanskrit.",
+        "hi": "असत्य — द्वितीय परन्तुक द्वारा अपेक्षित संलग्न अनुवाद अंग्रेजी भाषा में होता है, संस्कृत में नहीं।"
+      },
+      "options": [
+        { "en": "True", "hi": "सत्य" },
+        { "en": "False", "hi": "असत्य" }
+      ],
+      "answerIndex": 1,
+      "explanation": {
+        "en": "The Act names the English language specifically for this accompanying translation; Sanskrit plays no role in Section 3.",
+        "hi": "अधिनियम इस संलग्न अनुवाद के लिए विशेष रूप से अंग्रेजी भाषा का ही उल्लेख करता है; धारा 3 में संस्कृत की कोई भूमिका नहीं है।"
+      },
+      "ruleRef": {
+        "textId": "ol-act-2",
+        "citation": { "en": "Section 3, Official Languages Act, 1963", "hi": "धारा 3, राजभाषा अधिनियम, 1963" }
+      },
+      "difficulty": "hard",
+      "stageA": {
+        "index": 5,
+        "angle": "Section 3(1) second proviso — the accompanying translation is into English; a plausible-but-wrong 'Sanskrit' distractor"
+      },
+      "groundingRuleIds": ["ol-act-2"]
+    },
+    {
+      "id": "ol-act-q-006",
+      "rule": "3",
+      "kind": "mcq",
+      "front": {
+        "en": "Under Section 3(2) of the Official Languages Act, 1963, when Hindi or English is used for communication between one Ministry, Department or office of the Central Government and another, what additional requirement applies?",
+        "hi": "राजभाषा अधिनियम, 1963 की धारा 3(2) के अधीन, जब केंद्र सरकार के एक मंत्रालय, विभाग या कार्यालय और दूसरे के बीच संसूचन के लिए हिंदी या अंग्रेजी का प्रयोग किया जाता है, तो कौन-सी अतिरिक्त अपेक्षा लागू होती है?"
+      },
+      "back": {
+        "en": "A translation of the communication in the other language must also be provided, until the staff concerned have acquired a working knowledge of Hindi.",
+        "hi": "जब तक संबंधित कर्मचारीवृंद हिंदी का कार्यसाधक ज्ञान अर्जित नहीं कर लेते, तब तक उस संसूचन का दूसरी भाषा में अनुवाद भी उपलब्ध कराया जाना चाहिए।"
+      },
+      "options": [
+        {
+          "en": "A translation in the other language (English or Hindi, as the case may be) must also be provided, until the staff concerned have acquired a working knowledge of Hindi",
+          "hi": "दूसरी भाषा (यथास्थिति अंग्रेजी या हिंदी) में अनुवाद भी उपलब्ध कराया जाना चाहिए, जब तक संबंधित कर्मचारीवृंद हिंदी का कार्यसाधक ज्ञान अर्जित न कर लें"
+        },
+        {
+          "en": "The communication must permanently be issued in both languages, with no exception ever",
+          "hi": "संसूचन सदैव दोनों भाषाओं में ही जारी किया जाना चाहिए, बिना किसी अपवाद के"
+        },
+        {
+          "en": "No translation is ever required between two Central Government offices",
+          "hi": "केंद्र सरकार के दो कार्यालयों के बीच अनुवाद की कभी आवश्यकता नहीं है"
+        },
+        {
+          "en": "The translation requirement under sub-section (2) applies only to communication with State Governments",
+          "hi": "उपधारा (2) के अधीन अनुवाद की अपेक्षा केवल राज्य सरकारों के साथ संसूचन पर लागू होती है"
+        }
+      ],
+      "answerIndex": 0,
+      "explanation": {
+        "en": "Section 3(2) ties the translation duty to the staff's Hindi proficiency, not to a permanent bilingual mandate — that stronger requirement is Section 3(3)'s, for a different, listed set of documents.",
+        "hi": "धारा 3(2) अनुवाद के कर्तव्य को कर्मचारियों की हिंदी दक्षता से जोड़ती है, न कि किसी स्थायी द्विभाषी अनिवार्यता से — वह अधिक कठोर अपेक्षा धारा 3(3) की है, जो दस्तावेज़ों के एक भिन्न, सूचीबद्ध वर्ग के लिए है।"
+      },
+      "ruleRef": {
+        "textId": "ol-act-2",
+        "citation": { "en": "Section 3, Official Languages Act, 1963", "hi": "धारा 3, राजभाषा अधिनियम, 1963" }
+      },
+      "difficulty": "medium",
+      "stageA": {
+        "index": 6,
+        "angle": "Section 3(2) — inter-Ministry/Department communication, translation tied to staff's working knowledge of Hindi"
+      },
+      "groundingRuleIds": ["ol-act-2"]
+    },
+    {
+      "id": "ol-act-q-007",
+      "rule": "3",
+      "kind": "scenario",
+      "front": {
+        "en": "A Ministry is about to issue a notification under a Central Act and a form of tender for a public work. Under Section 3(3) of the Official Languages Act, 1963, in which language(s) must these be issued?",
+        "hi": "एक मंत्रालय किसी केंद्रीय अधिनियम के अधीन एक अधिसूचना और किसी सार्वजनिक कार्य के लिए निविदा-प्रपत्र जारी करने वाला है। राजभाषा अधिनियम, 1963 की धारा 3(3) के अधीन, इन्हें किस भाषा या भाषाओं में जारी किया जाना चाहिए?"
+      },
+      "back": {
+        "en": "Both Hindi and English — Section 3(3) lists notifications and forms of tender, along with resolutions, general orders, rules, administrative reports, contracts and licences, among the categories for which both languages are mandatorily used.",
+        "hi": "हिंदी और अंग्रेजी दोनों में — धारा 3(3) अधिसूचनाओं और निविदा-प्रपत्रों को, संकल्पों, सामान्य आदेशों, नियमों, प्रशासनिक प्रतिवेदनों, संविदाओं और अनुज्ञप्तियों के साथ, उन वर्गों में गिनाती है जिनके लिए दोनों भाषाओं का प्रयोग अनिवार्य है।"
+      },
+      "options": [
+        {
+          "en": "Hindi only, since a notification is treated as an 'official purpose' of the Union under Section 3(1)",
+          "hi": "केवल हिंदी में, क्योंकि अधिसूचना को धारा 3(1) के अधीन संघ का 'शासकीय प्रयोजन' माना जाता है"
+        },
+        {
+          "en": "English only, unless a particular bidder specifically asks for Hindi",
+          "hi": "केवल अंग्रेजी में, जब तक कोई विशेष निविदाकार हिंदी की विशेष रूप से माँग न करे"
+        },
+        {
+          "en": "Whichever language the State where the work is located has adopted as its official language",
+          "hi": "जिस राज्य में कार्य स्थित है, उसने जो भाषा अपनी राजभाषा के रूप में अपनाई है, वही भाषा"
+        },
+        {
+          "en": "Both Hindi and English, since Section 3(3) mandates both for notifications and forms of tender",
+          "hi": "हिंदी और अंग्रेजी दोनों में, क्योंकि धारा 3(3) अधिसूचनाओं और निविदा-प्रपत्रों दोनों के लिए दोनों भाषाओं को अनिवार्य करती है"
+        }
+      ],
+      "answerIndex": 3,
+      "explanation": {
+        "en": "Section 3(3)(i) and (iii) place notifications and tender forms — along with several other categories of document — outside the discretion Section 3(1) otherwise gives; both languages are compulsory regardless of what was used before.",
+        "hi": "धारा 3(3)(i) और (iii) अधिसूचनाओं और निविदा-प्रपत्रों को — कई अन्य वर्ग के दस्तावेज़ों के साथ — उस विवेकाधिकार से बाहर रखती हैं जो धारा 3(1) अन्यथा देती है; पहले जो भी प्रयोग होता रहा हो, दोनों भाषाएँ अनिवार्य हैं।"
+      },
+      "ruleRef": {
+        "textId": "ol-act-2",
+        "citation": { "en": "Section 3, Official Languages Act, 1963", "hi": "धारा 3, राजभाषा अधिनियम, 1963" }
+      },
+      "difficulty": "medium",
+      "stageA": {
+        "index": 7,
+        "angle": "Section 3(3) — the compulsory-bilingual category of documents, applied to a concrete drafting scenario"
+      },
+      "groundingRuleIds": ["ol-act-2"]
+    },
+    {
+      "id": "ol-act-q-008",
+      "rule": "3",
+      "kind": "mcq",
+      "front": {
+        "en": "Section 3(4) of the Official Languages Act, 1963 empowers the Central Government to make rules under Section 8 determining the language(s) to be used for the official purposes of the Union. In making such rules, what must the Central Government ensure about officers proficient in only one of the two languages?",
+        "hi": "राजभाषा अधिनियम, 1963 की धारा 3(4) केंद्र सरकार को धारा 8 के अधीन नियम बनाने की शक्ति देती है, जो संघ के शासकीय प्रयोजनों के लिए प्रयोग की जाने वाली भाषा या भाषाओं का निर्धारण करते हैं। ऐसे नियम बनाते समय, केवल एक ही भाषा में दक्ष अधिकारियों के बारे में केंद्र सरकार को क्या सुनिश्चित करना होगा?"
+      },
+      "back": {
+        "en": "That persons proficient in either Hindi or English alone can still function effectively, and are not placed at a disadvantage merely for lacking proficiency in both languages.",
+        "hi": "कि केवल हिंदी या केवल अंग्रेजी में दक्ष व्यक्ति भी प्रभावी ढंग से कार्य कर सकें, और केवल दोनों भाषाओं में दक्षता न होने के कारण उन्हें किसी असुविधा में न डाला जाए।"
+      },
+      "options": [
+        {
+          "en": "That only officers proficient in both languages are considered for promotion",
+          "hi": "कि पदोन्नति के लिए केवल दोनों भाषाओं में दक्ष अधिकारियों पर ही विचार किया जाए"
+        },
+        {
+          "en": "That Hindi proficiency becomes a compulsory recruitment qualification from the date of the rules",
+          "hi": "कि नियमों की तारीख से हिंदी दक्षता एक अनिवार्य भर्ती अर्हता बन जाए"
+        },
+        {
+          "en": "Nothing regarding individual officers — sub-section (4) is silent on this point",
+          "hi": "व्यक्तिगत अधिकारियों के बारे में कुछ नहीं — उपधारा (4) इस बिंदु पर मौन है"
+        },
+        {
+          "en": "That persons proficient in either Hindi or English alone can function effectively, and are not placed at a disadvantage for lacking proficiency in both languages",
+          "hi": "कि केवल हिंदी या केवल अंग्रेजी में दक्ष व्यक्ति भी प्रभावी ढंग से कार्य कर सकें, और दोनों भाषाओं में दक्षता न होने मात्र से उन्हें असुविधा में न डाला जाए"
+        }
+      ],
+      "answerIndex": 3,
+      "explanation": {
+        "en": "Section 3(4) makes this an express constraint on the rule-making power, alongside the quick and efficient disposal of official business and the interests of the general public.",
+        "hi": "धारा 3(4) इसे नियम बनाने की शक्ति पर एक स्पष्ट निर्बंधन बनाती है, साथ ही शासकीय कार्य के शीघ्र एवं कुशल निपटान तथा आम जनता के हितों के भी।"
+      },
+      "ruleRef": {
+        "textId": "ol-act-2",
+        "citation": { "en": "Section 3, Official Languages Act, 1963", "hi": "धारा 3, राजभाषा अधिनियम, 1963" }
+      },
+      "difficulty": "hard",
+      "stageA": {
+        "index": 8,
+        "angle": "Section 3(4) — the non-disadvantage safeguard for single-language-proficient staff, in the rule-making power"
+      },
+      "groundingRuleIds": ["ol-act-2"]
+    },
+    {
+      "id": "ol-act-q-009",
+      "rule": "4",
+      "kind": "mcq",
+      "front": {
+        "en": "Under Section 4(2) of the Official Languages Act, 1963, the Committee on Official Language consists of thirty members. How are they apportioned between the two Houses of Parliament?",
+        "hi": "राजभाषा अधिनियम, 1963 की धारा 4(2) के अधीन, राजभाषा संबंधी समिति में तीस सदस्य होते हैं। संसद के दोनों सदनों के बीच उनका बँटवारा कैसे होता है?"
+      },
+      "back": {
+        "en": "Twenty members from the House of the People and ten from the Council of States, elected by proportional representation with a single transferable vote.",
+        "hi": "बीस सदस्य लोक सभा से और दस सदस्य राज्य सभा से, आनुपातिक प्रतिनिधित्व पद्धति द्वारा एकल संक्रमणीय मत के माध्यम से निर्वाचित।"
+      },
+      "options": [
+        {
+          "en": "Fifteen members each from the House of the People and the Council of States",
+          "hi": "लोक सभा और राज्य सभा में से प्रत्येक से पंद्रह-पंद्रह सदस्य"
+        },
+        {
+          "en": "Twenty members from the House of the People and ten from the Council of States",
+          "hi": "लोक सभा से बीस सदस्य और राज्य सभा से दस सदस्य"
+        },
+        {
+          "en": "Ten members from the House of the People and twenty from the Council of States",
+          "hi": "लोक सभा से दस सदस्य और राज्य सभा से बीस सदस्य"
+        },
+        {
+          "en": "All thirty members nominated by the President, none elected by either House",
+          "hi": "सभी तीस सदस्य राष्ट्रपति द्वारा नामनिर्दिष्ट, किसी सदन द्वारा निर्वाचित नहीं"
+        }
+      ],
+      "answerIndex": 1,
+      "explanation": {
+        "en": "Section 4(2) fixes both the total (thirty) and the House-wise split (twenty and ten), and specifies the method of election as proportional representation by single transferable vote.",
+        "hi": "धारा 4(2) कुल संख्या (तीस) और सदनवार बँटवारा (बीस और दस) दोनों नियत करती है, तथा निर्वाचन की पद्धति के रूप में एकल संक्रमणीय मत द्वारा आनुपातिक प्रतिनिधित्व को विनिर्दिष्ट करती है।"
+      },
+      "ruleRef": {
+        "textId": "ol-act-4",
+        "citation": { "en": "Section 4, Official Languages Act, 1963", "hi": "धारा 4, राजभाषा अधिनियम, 1963" }
+      },
+      "difficulty": "easy",
+      "stageA": { "index": 9, "angle": "Section 4(2) — Committee composition, 20 Lok Sabha + 10 Rajya Sabha" },
+      "groundingRuleIds": ["ol-act-4"]
+    },
+    {
+      "id": "ol-act-q-010",
+      "rule": "4",
+      "kind": "scenario",
+      "front": {
+        "en": "The Committee on Official Language has reviewed progress and submitted its report to the President, recommending wider use of Hindi in a particular Ministry. Under Section 4(4), after considering the report and the States' views, what may the President do, and what is the one constraint on that power?",
+        "hi": "राजभाषा संबंधी समिति ने प्रगति की समीक्षा कर राष्ट्रपति को अपना प्रतिवेदन प्रस्तुत किया है, जिसमें किसी विशेष मंत्रालय में हिंदी के व्यापक प्रयोग की संस्तुति की गई है। धारा 4(4) के अधीन, प्रतिवेदन और राज्यों के विचारों पर विचार करने के पश्चात राष्ट्रपति क्या कर सकते हैं, और इस शक्ति पर एकमात्र निर्बंधन क्या है?"
+      },
+      "back": {
+        "en": "The President may issue directions in accordance with the whole or any part of the report, provided such directions are not inconsistent with the provisions of Section 3.",
+        "hi": "राष्ट्रपति प्रतिवेदन के पूर्ण या किसी भाग के अनुसार निदेश जारी कर सकते हैं, परंतु ऐसे निदेश धारा 3 के उपबंधों के प्रतिकूल नहीं होने चाहिए।"
+      },
+      "options": [
+        {
+          "en": "Issue directions only if every State Legislature unanimously agrees first",
+          "hi": "निदेश केवल तभी जारी करें जब प्रत्येक राज्य विधानमंडल पहले सर्वसम्मति से सहमत हो"
+        },
+        {
+          "en": "Refer the report back to Parliament for a fresh Act before taking any action",
+          "hi": "किसी भी कार्रवाई से पहले प्रतिवेदन को एक नए अधिनियम हेतु संसद को वापस भेजें"
+        },
+        {
+          "en": "Issue directions in accordance with the whole or any part of the report, provided the directions are not inconsistent with Section 3",
+          "hi": "प्रतिवेदन के पूर्ण या किसी भाग के अनुसार निदेश जारी करें, बशर्ते वे निदेश धारा 3 के प्रतिकूल न हों"
+        },
+        {
+          "en": "Issue directions with no constraint whatsoever, since the Committee's report is binding on its own",
+          "hi": "बिना किसी निर्बंधन के निदेश जारी करें, क्योंकि समिति का प्रतिवेदन स्वयं में बाध्यकारी है"
+        }
+      ],
+      "answerIndex": 2,
+      "explanation": {
+        "en": "The proviso added to Section 4(4) ties the President's directive power to Section 3 specifically — a direction cannot, for instance, withdraw English from a purpose Section 3 continues to protect.",
+        "hi": "धारा 4(4) में जोड़ा गया परन्तुक राष्ट्रपति की निदेशन-शक्ति को विशेष रूप से धारा 3 से जोड़ता है — उदाहरणार्थ, कोई निदेश उस प्रयोजन से अंग्रेजी को नहीं हटा सकता जिसकी धारा 3 सुरक्षा करती है।"
+      },
+      "ruleRef": {
+        "textId": "ol-act-4",
+        "citation": { "en": "Section 4, Official Languages Act, 1963", "hi": "धारा 4, राजभाषा अधिनियम, 1963" }
+      },
+      "difficulty": "hard",
+      "stageA": { "index": 10, "angle": "Section 4(3)-(4) — the President's directive power and its Section-3 constraint" },
+      "groundingRuleIds": ["ol-act-4"]
+    },
+    {
+      "id": "ol-act-q-011",
+      "rule": "5",
+      "kind": "mcq",
+      "front": {
+        "en": "Under Section 5(1) of the Official Languages Act, 1963, a Hindi translation of a Central Act or Ordinance, published under the authority of the President in the Official Gazette on or after the appointed day, is deemed to be what?",
+        "hi": "राजभाषा अधिनियम, 1963 की धारा 5(1) के अधीन, किसी केंद्रीय अधिनियम या अध्यादेश का हिंदी अनुवाद, जो नियत दिन को या उसके पश्चात राष्ट्रपति के प्राधिकार के अधीन राजपत्र में प्रकाशित किया गया हो, किस रूप में माना जाता है?"
+      },
+      "back": { "en": "The authoritative text thereof in Hindi.", "hi": "उसका हिंदी में प्राधिकृत पाठ।" },
+      "options": [
+        { "en": "The authoritative text thereof in Hindi", "hi": "उसका हिंदी में प्राधिकृत पाठ" },
+        {
+          "en": "A mere unofficial guide, with no legal status of its own",
+          "hi": "केवल एक अनौपचारिक मार्गदर्शिका, जिसकी अपनी कोई कानूनी स्थिति नहीं"
+        },
+        {
+          "en": "Valid only until the English text is next reprinted",
+          "hi": "केवल तब तक वैध जब तक अंग्रेजी पाठ अगली बार पुनर्मुद्रित न हो जाए"
+        },
+        {
+          "en": "Binding on courts, but not on the executive Government",
+          "hi": "न्यायालयों पर बाध्यकारी, किंतु कार्यपालिका सरकार पर नहीं"
+        }
+      ],
+      "answerIndex": 0,
+      "explanation": {
+        "en": "Section 5(1) gives the Presidentially-published Hindi translation the status of the authoritative text itself — not a guide to it, and not conditional on the English text's continuance.",
+        "hi": "धारा 5(1) राष्ट्रपति द्वारा प्रकाशित हिंदी अनुवाद को स्वयं प्राधिकृत पाठ की स्थिति देती है — यह उसकी कोई मार्गदर्शिका मात्र नहीं है, और न ही यह अंग्रेजी पाठ के बने रहने पर निर्भर है।"
+      },
+      "ruleRef": {
+        "textId": "ol-act-5",
+        "citation": { "en": "Section 5, Official Languages Act, 1963", "hi": "धारा 5, राजभाषा अधिनियम, 1963" }
+      },
+      "difficulty": "medium",
+      "stageA": { "index": 11, "angle": "Section 5(1) — the Hindi translation's status as the authoritative text" },
+      "groundingRuleIds": ["ol-act-5"]
+    },
+    {
+      "id": "ol-act-q-012",
+      "rule": "5",
+      "kind": "trueFalse",
+      "front": {
+        "en": "Under Section 5(2) of the Official Languages Act, 1963, the authoritative English text of a Bill to be introduced in either House of Parliament, or of an amendment to be moved to it, must be accompanied by an authorised Hindi translation.",
+        "hi": "राजभाषा अधिनियम, 1963 की धारा 5(2) के अधीन, संसद के किसी सदन में पुर:स्थापित किए जाने वाले किसी विधेयक, या उसमें प्रस्तावित किसी संशोधन के प्राधिकृत अंग्रेजी पाठ के साथ, प्राधिकृत हिंदी अनुवाद संलग्न होना चाहिए।"
+      },
+      "back": { "en": "True.", "hi": "सत्य।" },
+      "options": [
+        { "en": "True", "hi": "सत्य" },
+        { "en": "False", "hi": "असत्य" }
+      ],
+      "answerIndex": 0,
+      "explanation": {
+        "en": "Section 5(2) requires this accompanying authorised Hindi translation for every Bill and every amendment moved to it, as from the appointed day.",
+        "hi": "धारा 5(2) नियत दिन से प्रत्येक विधेयक और उसमें प्रस्तावित प्रत्येक संशोधन के लिए इस संलग्न प्राधिकृत हिंदी अनुवाद की अपेक्षा करती है।"
+      },
+      "ruleRef": {
+        "textId": "ol-act-5",
+        "citation": { "en": "Section 5, Official Languages Act, 1963", "hi": "धारा 5, राजभाषा अधिनियम, 1963" }
+      },
+      "difficulty": "easy",
+      "stageA": { "index": 12, "angle": "Section 5(2) — Bills and amendments need an authorised Hindi translation" },
+      "groundingRuleIds": ["ol-act-5"]
+    },
+    {
+      "id": "ol-act-q-013",
+      "rule": "6",
+      "kind": "scenario",
+      "front": {
+        "en": "A State Legislature has prescribed Marathi (not Hindi) for the Acts it passes and the Ordinances its Governor promulgates. Article 348(3) of the Constitution already requires an English translation of these. Under Section 6 of the Official Languages Act, 1963, what may the Governor additionally authorise, and what is its legal effect?",
+        "hi": "एक राज्य विधानमंडल ने अपने द्वारा पारित अधिनियमों और अपने राज्यपाल द्वारा प्रख्यापित अध्यादेशों के लिए मराठी (हिंदी नहीं) विहित की है। संविधान का अनुच्छेद 348(3) पहले से ही इनके अंग्रेजी अनुवाद की अपेक्षा करता है। राजभाषा अधिनियम, 1963 की धारा 6 के अधीन, राज्यपाल अतिरिक्त रूप से क्या प्राधिकृत कर सकते हैं, और उसका विधिक प्रभाव क्या है?"
+      },
+      "back": {
+        "en": "Publication of a Hindi translation, in addition to the English one, in the State's Official Gazette under the Governor's authority — such a translation is then deemed to be the authoritative text of that Act or Ordinance in the Hindi language.",
+        "hi": "राज्यपाल के प्राधिकार के अधीन, अंग्रेजी के अतिरिक्त, राज्य के राजपत्र में हिंदी अनुवाद का प्रकाशन — ऐसा अनुवाद तत्पश्चात उस अधिनियम या अध्यादेश का हिंदी भाषा में प्राधिकृत पाठ माना जाता है।"
+      },
+      "options": [
+        {
+          "en": "Nothing — Section 6 gives the Governor no power once a State has prescribed a language other than Hindi",
+          "hi": "कुछ नहीं — धारा 6 राज्यपाल को कोई शक्ति नहीं देती, एक बार जब राज्य ने हिंदी से भिन्न कोई भाषा विहित कर दी हो"
+        },
+        {
+          "en": "Publication of a Hindi translation in the State's Official Gazette, which is then deemed the authoritative text of that Act or Ordinance in Hindi",
+          "hi": "राज्य के राजपत्र में हिंदी अनुवाद का प्रकाशन, जो तत्पश्चात उस अधिनियम या अध्यादेश का हिंदी में प्राधिकृत पाठ माना जाता है"
+        },
+        {
+          "en": "Complete replacement of the Marathi text by the Hindi translation, from the date of publication",
+          "hi": "प्रकाशन की तारीख से मराठी पाठ का हिंदी अनुवाद द्वारा पूर्ण प्रतिस्थापन"
+        },
+        {
+          "en": "A translation into Sanskrit, since it is listed as a classical language in the Eighth Schedule",
+          "hi": "संस्कृत में अनुवाद, क्योंकि वह आठवीं अनुसूची में एक शास्त्रीय भाषा के रूप में सूचीबद्ध है"
+        }
+      ],
+      "answerIndex": 1,
+      "explanation": {
+        "en": "Section 6 lets the Governor add a Hindi translation, published in the Official Gazette, alongside the Article 348(3) English one, and gives that Hindi translation the same authoritative status Section 5(1) gives a Central Act's Hindi translation. It does not touch the State's own chosen language, which remains the operative text alongside both translations.",
+        "hi": "धारा 6 राज्यपाल को अनुच्छेद 348(3) वाले अंग्रेजी अनुवाद के साथ-साथ, राजपत्र में प्रकाशित एक हिंदी अनुवाद जोड़ने की अनुमति देती है, और उस हिंदी अनुवाद को वही प्राधिकृत स्थिति देती है जो धारा 5(1) किसी केंद्रीय अधिनियम के हिंदी अनुवाद को देती है। यह राज्य की अपनी चुनी हुई भाषा को प्रभावित नहीं करती, जो दोनों अनुवादों के साथ-साथ प्रवर्तक पाठ बनी रहती है।"
+      },
+      "ruleRef": {
+        "textId": "ol-act-6",
+        "citation": { "en": "Section 6, Official Languages Act, 1963", "hi": "धारा 6, राजभाषा अधिनियम, 1963" }
+      },
+      "difficulty": "medium",
+      "stageA": {
+        "index": 13,
+        "angle": "Section 6 — a State's own Hindi translation of its Acts, alongside the Constitution's English requirement"
+      },
+      "groundingRuleIds": ["ol-act-6"]
+    },
+    {
+      "id": "ol-act-q-014",
+      "rule": "7",
+      "kind": "mcq",
+      "front": {
+        "en": "Under Section 7 of the Official Languages Act, 1963, a Governor may authorise the use of Hindi (or the State's own official language) for a High Court's judgments, decrees or orders, in addition to English. Whose previous consent is required, and what must accompany a judgment passed in that other language?",
+        "hi": "राजभाषा अधिनियम, 1963 की धारा 7 के अधीन, राज्यपाल अंग्रेजी के अतिरिक्त, किसी उच्च न्यायालय के निर्णयों, डिक्रियों या आदेशों के लिए हिंदी (या राज्य की अपनी राजभाषा) के प्रयोग को प्राधिकृत कर सकते हैं। इसके लिए किसकी पूर्व सम्मति अपेक्षित है, और उस अन्य भाषा में पारित निर्णय के साथ क्या संलग्न होना चाहिए?"
+      },
+      "back": {
+        "en": "The previous consent of the President; and a judgment passed in that other language must be accompanied by a translation of the same in English, issued under the authority of the High Court.",
+        "hi": "राष्ट्रपति की पूर्व सम्मति; तथा उस अन्य भाषा में पारित निर्णय के साथ उच्च न्यायालय के प्राधिकार के अधीन जारी अंग्रेजी में उसका अनुवाद संलग्न होना चाहिए।"
+      },
+      "options": [
+        {
+          "en": "The previous consent of the Chief Justice of India; no translation is thereafter required",
+          "hi": "भारत के मुख्य न्यायमूर्ति की पूर्व सम्मति; तत्पश्चात किसी अनुवाद की आवश्यकता नहीं"
+        },
+        {
+          "en": "The previous consent of the Union Law Ministry; the English version thereafter ceases to be authoritative",
+          "hi": "केंद्रीय विधि मंत्रालय की पूर्व सम्मति; तत्पश्चात अंग्रेजी पाठ प्राधिकृत नहीं रह जाता"
+        },
+        {
+          "en": "The previous consent of the President; the judgment must be accompanied by an English translation issued under the High Court's authority",
+          "hi": "राष्ट्रपति की पूर्व सम्मति; निर्णय के साथ उच्च न्यायालय के प्राधिकार के अधीन जारी अंग्रेजी अनुवाद संलग्न होना चाहिए"
+        },
+        {
+          "en": "No prior consent is needed at all; only a copy need be sent to the Union Law Ministry",
+          "hi": "किसी पूर्व सम्मति की आवश्यकता ही नहीं; केवल केंद्रीय विधि मंत्रालय को एक प्रति भेजनी होगी"
+        }
+      ],
+      "answerIndex": 2,
+      "explanation": {
+        "en": "Section 7 keeps the President's previous consent as the gate for a Governor's authorisation, and keeps English's authoritative role alive by requiring the High Court itself to issue the English translation of a judgment given in Hindi or the State language.",
+        "hi": "धारा 7 राज्यपाल के प्राधिकरण हेतु राष्ट्रपति की पूर्व सम्मति को द्वार के रूप में बनाए रखती है, और यह अपेक्षा करके कि हिंदी या राज्य भाषा में दिए गए निर्णय का अंग्रेजी अनुवाद स्वयं उच्च न्यायालय द्वारा जारी किया जाए, अंग्रेजी की प्राधिकृत भूमिका को भी जीवित रखती है।"
+      },
+      "ruleRef": {
+        "textId": "ol-act-7",
+        "citation": { "en": "Section 7, Official Languages Act, 1963", "hi": "धारा 7, राजभाषा अधिनियम, 1963" }
+      },
+      "difficulty": "medium",
+      "stageA": { "index": 14, "angle": "Section 7 — President's consent and the High-Court-issued English translation" },
+      "groundingRuleIds": ["ol-act-7"]
+    },
+    {
+      "id": "ol-act-q-015",
+      "rule": "8",
+      "kind": "mcq",
+      "front": {
+        "en": "Under Section 8(2) of the Official Languages Act, 1963, a rule made under the Act must be laid before each House of Parliament for a total period of how many days, and what protects action already taken under the rule if Parliament later modifies or annuls it?",
+        "hi": "राजभाषा अधिनियम, 1963 की धारा 8(2) के अधीन, इस अधिनियम के अधीन बनाया गया कोई नियम संसद के प्रत्येक सदन के समक्ष कुल कितने दिनों की अवधि के लिए रखा जाना चाहिए, और यदि संसद बाद में उस नियम को उपांतरित या अकारक कर दे, तो नियम के अधीन पहले से की गई कार्रवाई की सुरक्षा किस बात से होती है?"
+      },
+      "back": {
+        "en": "Thirty days, which may fall in one session or across successive sessions; any subsequent modification or annulment is without prejudice to the validity of anything previously done under that rule.",
+        "hi": "तीस दिन, जो एक सत्र में या क्रमागत सत्रों में हो सकते हैं; कोई भी पश्चातवर्ती उपांतरण या अकारण, उस नियम के अधीन पूर्व में की गई किसी बात की विधिमान्यता पर प्रतिकूल प्रभाव डाले बिना होगा।"
+      },
+      "options": [
+        {
+          "en": "Sixty days; the rule and everything done under it becomes void with retrospective effect",
+          "hi": "साठ दिन; नियम और उसके अधीन की गई प्रत्येक बात भूतलक्षी प्रभाव से शून्य हो जाती है"
+        },
+        {
+          "en": "Fourteen days; only Parliament's approval is needed, not the President's assent",
+          "hi": "चौदह दिन; केवल संसद के अनुमोदन की आवश्यकता है, राष्ट्रपति की अनुमति की नहीं"
+        },
+        {
+          "en": "Ninety days; every State Government must also separately ratify the rule",
+          "hi": "नब्बे दिन; प्रत्येक राज्य सरकार को भी नियम का पृथक रूप से अनुसमर्थन करना होगा"
+        },
+        {
+          "en": "Thirty days; any subsequent modification or annulment is without prejudice to the validity of anything previously done under the rule",
+          "hi": "तीस दिन; कोई भी पश्चातवर्ती उपांतरण या अकारण, नियम के अधीन पूर्व में की गई किसी बात की विधिमान्यता पर प्रतिकूल प्रभाव डाले बिना होगा"
+        }
+      ],
+      "answerIndex": 3,
+      "explanation": {
+        "en": "Section 8(2) is the Act's standard 'laying' clause: thirty days total before either House, and a savings clause that protects whatever was validly done under the rule before any later modification or annulment.",
+        "hi": "धारा 8(2) अधिनियम का मानक 'सदन के समक्ष रखे जाने' संबंधी उपबंध है: प्रत्येक सदन के समक्ष कुल तीस दिन, और एक बचाव उपबंध जो नियम के अधीन किसी बाद के उपांतरण या अकारण से पहले वैध रूप से की गई किसी भी बात की रक्षा करता है।"
+      },
+      "ruleRef": {
+        "textId": "ol-act-8",
+        "citation": { "en": "Section 8, Official Languages Act, 1963", "hi": "धारा 8, राजभाषा अधिनियम, 1963" }
+      },
+      "difficulty": "hard",
+      "stageA": { "index": 15, "angle": "Section 8(2) — the thirty-day laying requirement and the savings clause" },
+      "groundingRuleIds": ["ol-act-8"]
+    }
+  ]
+}

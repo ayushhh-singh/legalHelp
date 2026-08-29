@@ -1,0 +1,975 @@
+{
+  "_note": "Hand review of the EVEN-indexed half (0,2,4,... by string-sorted id) of the generated cloze cards for the CCS (Pension) Rules, 2021 that were reviewState \"unreviewed\". The odd half is reviewed independently in cloze-ccs-pension-part2.json by a second agent; a separate merge step combines both into cloze-ccs-pension.json. `verdict` is approve or reject; a rejected card stays in data/rules/cards/ with reviewState \"rejected\" and is never served. `hi` is a FRESH Hindi cloze on the same rule and the same fact, authored here — not a translation of the (often garbled) English excerpt — using established CCS (Pension) terminology (पेंशन, पारिवारिक पेंशन, उपदान, अर्हकारी सेवा, अधिवर्षिता, परिलब्धियाँ, महँगाई राहत, कम्यूटेशन). The blank marker ____ appears in both stems. Every approved card carries verify: true already at the dataset level (the Hindi headings this session wrote are unverified against the gazette). (Merged from two independent halves reviewed in parallel.) (Update: the two -crossreference cards that share a sentence with a same-numbered -definedterm card were rejected as near-duplicate fronts; the -definedterm variants were kept.)",
+  "ccs-pension-cloze-10-definedterm": {
+    "verdict": "reject",
+    "reason": "The blank is the CHAPTER III heading itself ('...time to time. CHAPTER III ____'), not a fact stated by any rule — apparatus, not the rule."
+  },
+  "ccs-pension-cloze-13-definedterm": {
+    "verdict": "reject",
+    "reason": "'Pension and gratuity' is a stock phrase pairing throughout this Act; the blank is guessable from the collocation alone, not from any fact specific to Rule 13."
+  },
+  "ccs-pension-cloze-15-count": {
+    "verdict": "reject",
+    "reason": "Garbled extraction — '31st' has been dropped, leaving 'in st December, 2003', and the excerpt cuts mid-phrase into '(Grant of'. Does not read as a sentence."
+  },
+  "ccs-pension-cloze-3-definedterm": {
+    "verdict": "reject",
+    "reason": "Excerpt splices fragments of several unrelated Rule 3 definitions together with a word cut mid-way ('ns a____as determined'). Unreadable as a sentence."
+  },
+  "ccs-pension-cloze-31-definedterm": {
+    "verdict": "reject",
+    "reason": "The extracted rule text itself is missing the clause between 'emoluments' and 'Fundamental Rules, 1922' (should read '...means pay as defined in Rule 9(21)(a)(i) of the Fundamental Rules...'), so the stem does not parse."
+  },
+  "ccs-pension-cloze-4-duration": {
+    "verdict": "reject",
+    "reason": "Answer leak — 'six months' recurs unblanked later in the same sentence ('...or, if he is on leave on that day, then, within six months of his return from leave, whichever is later')."
+  },
+  "ccs-pension-cloze-44-percentage": {
+    "verdict": "reject",
+    "reason": "A schedule's column-numbered table ('(1) (2) (3)' age bands) reproduced as running prose — apparatus, not the rule text."
+  },
+  "ccs-pension-cloze-48-definedterm": {
+    "verdict": "reject",
+    "reason": "Mis-grounded: the quoted text and the stray '49' fragment ('49 Lapse of retirement gratuity and ____.-') belong to Rule 49, which the extractor fused onto Rule 48's text; Rule 49 has no separate entry in data/rules/text, so ruleRef: ccs-pension-48 cannot be verified against what is actually being quoted."
+  },
+  "ccs-pension-cloze-50-amount": {
+    "verdict": "reject",
+    "reason": "Trivial leak — the blank is only the repeated unit 'rupees per month', already given earlier in the same sentence ('a minimum of nine thousand rupees per month'); the actual informative figure (seventy-five thousand) is left unblanked, so the card tests grammar, not the rule."
+  },
+  "ccs-pension-cloze-50-duration": {
+    "verdict": "reject",
+    "reason": "Answer leak — 'one year' recurs unblanked in clause (ii) immediately after the blank ('...or (ii) before completion of one year of continuous service')."
+  },
+  "ccs-pension-cloze-62-percentage": {
+    "verdict": "reject",
+    "reason": "Answer leak — '100 per cent.' recurs unblanked in clause (ii), two lines after the blank."
+  },
+  "ccs-pension-cloze-66-duration": {
+    "verdict": "reject",
+    "reason": "The extracted proviso is missing its main verb (reads '...no revision...detected after a period of two years...' with no 'shall be made'), so the sentence does not parse as a rule of law."
+  },
+  "ccs-pension-cloze-7-duration": {
+    "verdict": "reject",
+    "reason": "Answer leak — 'fifteen days' recurs unblanked later in the same sentence ('...or such further time not exceeding fifteen days, as may be allowed...')."
+  },
+  "ccs-pension-cloze-72-duration": {
+    "verdict": "reject",
+    "reason": "Answer leak — 'one month' recurs unblanked later in the same sentence ('...or within one month of the receipt of intimation regarding disappearance...')."
+  },
+  "ccs-pension-cloze-77-definedterm": {
+    "verdict": "reject",
+    "reason": "Answer leak — 'dearness relief' recurs unblanked later in the same sentence ('...and in such cases no dearness relief shall be disbursed...')."
+  },
+  "ccs-pension-cloze-84-definedterm": {
+    "verdict": "reject",
+    "reason": "Answer leak — 'commutation of pension' recurs unblanked immediately after the blank ('...shall apply in regard to commutation of pension authorised under these rules...')."
+  },
+  "ccs-pension-cloze-87-duration": {
+    "verdict": "reject",
+    "reason": "The excerpt is from the post-retirement commercial-employment APPLICATION FORM annexed to Rule 87 (a column-format questionnaire — 'Whether the officer had during the last three years...any dealings with the firm'), not the operative rule text — apparatus."
+  },
+  "ccs-pension-cloze-19-definedterm": {
+    "verdict": "approve",
+    "reason": "Rule 19(1) — a re-employed Government servant's earlier retirement benefit named first in a four-item list; a real fact about which benefit is listed first, not guessable from grammar.",
+    "hi": {
+      "text": "नियम 19(1) — जो सरकारी सेवक ____, अशक्तता पेंशन, प्रतिकर उपदान या अशक्तता उपदान पर सेवानिवृत्त होकर 31 दिसंबर, 2003 को या उससे पहले पुनर्नियोजित हुआ था, वह भूतपूर्व सेवा को अर्हकारी सेवा के रूप में गिन सकता है।",
+      "answer": "प्रतिकर पेंशन"
+    }
+  },
+  "ccs-pension-cloze-2-definedterm": {
+    "verdict": "approve",
+    "reason": "Rule 2's Explanation (1) — a pre-2004 induction-training period counts as qualifying service under the 1972 Rules if a salary or stipend was payable during it.",
+    "hi": {
+      "text": "नियम 2 का स्पष्टीकरण — प्रेरण प्रशिक्षण की वह अवधि, जिसमें सरकारी सेवक वेतन या वृत्तिका पाने का पात्र था, केंद्रीय सिविल सेवा (पेंशन) नियम, 1972 के उपबंधों के अनुसार ____ के रूप में गिनी जा सकती थी।",
+      "answer": "अर्हकारी सेवा"
+    }
+  },
+  "ccs-pension-cloze-20-definedterm": {
+    "verdict": "approve",
+    "reason": "Rule 20 — the refund of retirement gratuity (including service gratuity) is one of three conditions for counting prior military service as qualifying service.",
+    "hi": {
+      "text": "नियम 20 — पूर्व सैनिक सेवा को अर्हकारी सेवा के रूप में गिनने के लिए सरकारी सेवक को पहले प्राप्त पेंशन, सैनिक पेंशन के कम्यूटेशन का मूल्य और सेवा उपदान सहित ____ की राशि वापस करनी होगी या वापस करने पर सहमत होना होगा।",
+      "answer": "सेवानिवृत्ति उपदान"
+    }
+  },
+  "ccs-pension-cloze-21-duration": {
+    "verdict": "approve",
+    "reason": "Rule 21's Explanation — the deadline for entering an EOL-not-qualifying note in the service book, which an officer needs to remember before superannuation.",
+    "hi": {
+      "text": "नियम 21 का स्पष्टीकरण — असाधारण छुट्टी को अर्हकारी सेवा में न गिनने की प्रविष्टि सेवा-पुस्तिका में बाद में भी की जा सकती है, परंतु सरकारी सेवक की अधिवर्षिता पर सेवानिवृत्ति की तारीख से ____ पहले तक ही।",
+      "answer": "छह मास"
+    }
+  },
+  "ccs-pension-cloze-26-crossreference": {
+    "verdict": "approve",
+    "reason": "Rule 26(8) — a resignation for absorption under Rule 35 or Rule 36 does not forfeit past service; a real cross-reference, not self-referential.",
+    "hi": {
+      "text": "नियम 26(8) — ____ या नियम 36 के प्रयोजन के लिए दिया गया त्यागपत्र सरकार के अधीन भूतपूर्व सेवा का समपहरण नहीं करेगा।",
+      "answer": "नियम 35"
+    }
+  },
+  "ccs-pension-cloze-26-duration": {
+    "verdict": "approve",
+    "reason": "Rule 26(5)(iii) — the 90-day ceiling on the gap between resignation and applying to withdraw it, one of the conditions for permitting withdrawal.",
+    "hi": {
+      "text": "नियम 26(5)(iii) — त्यागपत्र के प्रभावी होने की तारीख और उसे वापस लेने की अनुमति हेतु आवेदन करने की तारीख के बीच की अवधि ____ से अधिक नहीं होनी चाहिए।",
+      "answer": "नब्बे दिन"
+    }
+  },
+  "ccs-pension-cloze-28-definedterm": {
+    "verdict": "approve",
+    "reason": "Rule 28(4) — the appointing authority's power to condone an interruption in service, the rule's own heading and subject.",
+    "hi": {
+      "text": "नियम 28(4) — नियुक्ति प्राधिकारी सेवा में व्यवधान को ____ करने और व्यवधान-पूर्व सेवा को अर्हकारी सेवा मानने पर विचार कर सकता है।",
+      "answer": "माफ"
+    }
+  },
+  "ccs-pension-cloze-30-definedterm": {
+    "verdict": "approve",
+    "reason": "Rule 30(1) — periodic verification of qualifying service is done by the Head of Office in consultation with the Accounts Officer.",
+    "hi": {
+      "text": "नियम 30(1) — सरकारी सेवक की अठारह वर्ष की सेवा पूर्ण होने और अधिवर्षिता से पांच वर्ष पूर्व शेष रहने पर, ____ लेखा अधिकारी के परामर्श से उसकी अर्हकारी सेवा का सत्यापन करेगा।",
+      "answer": "कार्यालयाध्यक्ष"
+    }
+  },
+  "ccs-pension-cloze-32-definedterm": {
+    "verdict": "approve",
+    "reason": "Rule 32(1) — the operative definition of average emoluments (last ten months' emoluments), the rule's whole subject.",
+    "hi": {
+      "text": "नियम 32(1) — ____ का निर्धारण सरकारी सेवक द्वारा अपनी सेवा के अंतिम दस मासों में आहरित परिलब्धियों के संदर्भ में किया जाएगा।",
+      "answer": "औसत परिलब्धियाँ"
+    }
+  },
+  "ccs-pension-cloze-33-definedterm": {
+    "verdict": "approve",
+    "reason": "Rule 33 — superannuation pension (or gratuity) granted under Rule 44 on attaining the age of superannuation; matches the rule's own heading.",
+    "hi": {
+      "text": "नियम 33 — अधिवर्षिता आयु प्राप्त करने पर सेवानिवृत्त होने वाले सरकारी सेवक को नियम 44 के अनुसार ____ या अधिवर्षिता सेवा उपदान मंजूर किया जाएगा।",
+      "answer": "अधिवर्षिता पेंशन"
+    }
+  },
+  "ccs-pension-cloze-34-definedterm": {
+    "verdict": "approve",
+    "reason": "Rule 34(1)(a) — retiring pension for voluntary retirement before superannuation, matching the rule's heading.",
+    "hi": {
+      "text": "नियम 34(1)(क) — अधिवर्षिता आयु से पूर्व अपनी इच्छा से सेवानिवृत्त होने वाले सरकारी सेवक को नियम 44 के अनुसार ____ या सेवानिवृत्ति सेवा उपदान मंजूर किया जाएगा।",
+      "answer": "सेवानिवृत्ति पेंशन"
+    }
+  },
+  "ccs-pension-cloze-35-definedterm": {
+    "verdict": "approve",
+    "reason": "Rule 35(1) — on absorption in a State Government, the alternative to pension is service gratuity, plus retirement gratuity; a specific three-part structure, not a guess.",
+    "hi": {
+      "text": "नियम 35(1) — राज्य सरकार में अवशोषित सरकारी सेवक अवशोषण की तारीख को अर्हकारी सेवा और परिलब्धियों के आधार पर पेंशन या ____, जैसी भी स्थिति हो, और सेवानिवृत्ति उपदान पाने का पात्र होगा।",
+      "answer": "सेवा उपदान"
+    }
+  },
+  "ccs-pension-cloze-36-definedterm": {
+    "verdict": "approve",
+    "reason": "Rule 36(1) — the parallel provision for absorption in a corporation/company/body, ending in retirement gratuity in addition to pension or service gratuity.",
+    "hi": {
+      "text": "नियम 36(1) — निगम, कंपनी या निकाय में अवशोषित सरकारी सेवक अवशोषण की तारीख को अर्हकारी सेवा और परिलब्धियों के आधार पर पेंशन या सेवा उपदान, जैसी भी स्थिति हो, और ____ पाने का पात्र होगा।",
+      "answer": "सेवानिवृत्ति उपदान"
+    }
+  },
+  "ccs-pension-cloze-37-duration": {
+    "verdict": "approve",
+    "reason": "Rule 37(2) — the five-year ceiling for a public sector undertaking to frame its own service rules after absorption.",
+    "hi": {
+      "text": "नियम 37(2) — लोक उपक्रम को अपने नियम और विनियम ____ से अनधिक समय-सीमा के भीतर बनाने होंगे।",
+      "answer": "पांच वर्ष"
+    }
+  },
+  "ccs-pension-cloze-38-duration": {
+    "verdict": "approve",
+    "reason": "Rule 38 — the three-month window for employees on deemed deputation to opt to revert to Government or seek absorption.",
+    "hi": {
+      "text": "नियम 38 — स्वायत्त निकाय द्वारा नियम और विनियम बनाए जाने के पश्चात, आभासी प्रतिनियुक्ति पर सभी कर्मचारियों से नियम-विनियम की अधिसूचना की तारीख से ____ से अनधिक अवधि के भीतर सरकार में वापस लौटने या स्थायी रूप से समाहित होने का विकल्प मांगा जाएगा।",
+      "answer": "तीन मास"
+    }
+  },
+  "ccs-pension-cloze-39-crossreference": {
+    "verdict": "approve",
+    "reason": "Rule 39(1) — the acquired-disability case is governed by Section 20 of the Rights of Persons with Disabilities Act, 2016, a real cross-Act reference.",
+    "hi": {
+      "text": "नियम 39(1) — जिस सरकारी सेवक का मामला दिव्यांगजन अधिकार अधिनियम, 2016 की ____ के उपबंधों के अंतर्गत आता है, वह उसी धारा के उपबंधों द्वारा शासित होगा।",
+      "answer": "धारा 20"
+    }
+  },
+  "ccs-pension-cloze-40-duration": {
+    "verdict": "approve",
+    "reason": "Rule 40(4) — the three-month deadline, after UPSC consultation where necessary, for the final order following a provisional pension on compulsory retirement.",
+    "hi": {
+      "text": "नियम 40(4) — जहां अनंतिम पेंशन और अनंतिम उपदान मंजूर की गई हो, वहां अंतिम पेंशन और उपदान मंजूर करने का आदेश, आवश्यक होने पर संघ लोक सेवा आयोग के परामर्श से, अनिवार्य सेवानिवृत्ति के शास्ति-आदेश जारी होने की तारीख से ____ पश्चात तक जारी किया जाएगा।",
+      "answer": "तीन मास"
+    }
+  },
+  "ccs-pension-cloze-42-crossreference": {
+    "verdict": "approve",
+    "reason": "Rule 42(3) — retirement under this rule follows the same procedure as Rule 56 of the Fundamental Rules, 1922, a real cross-Act procedural link.",
+    "hi": {
+      "text": "नियम 42(3) — इस नियम के अधीन सरकारी सेवक की सेवानिवृत्ति के लिए वही प्रक्रिया लागू होगी जो कार्मिक एवं प्रशिक्षण विभाग द्वारा मूल नियम, 1922 के ____ के अधीन सेवानिवृत्ति के लिए निर्धारित है।",
+      "answer": "नियम 56"
+    }
+  },
+  "ccs-pension-cloze-42-duration": {
+    "verdict": "approve",
+    "reason": "Rule 42(1) — thirty years' qualifying service is the threshold at which an officer may be required to retire in the public interest; matches the rule's own heading.",
+    "hi": {
+      "text": "नियम 42(1) — ____ की अर्हकारी सेवा पूर्ण करने के पश्चात किसी भी समय सरकारी सेवक को नियुक्ति प्राधिकारी द्वारा लोकहित में सेवानिवृत्त होने के लिए कहा जा सकता है।",
+      "answer": "तीस वर्ष"
+    }
+  },
+  "ccs-pension-cloze-43-crossreference": {
+    "verdict": "approve",
+    "reason": "Rule 43(5) — the same disability-Act cross-reference (Section 20) applies to a notice of voluntary retirement under this rule.",
+    "hi": {
+      "text": "नियम 43(5) — यदि दिव्यांगजन अधिकार अधिनियम, 2016 की ____ के उपबंध लागू होने वाला कोई सरकारी सेवक इस नियम के अधीन स्वैच्छिक सेवानिवृत्ति की सूचना देता है, तो उसे सेवा में बने रहने का विकल्प भी बताया जाएगा।",
+      "answer": "धारा 20"
+    }
+  },
+  "ccs-pension-cloze-44-crossreference": {
+    "verdict": "approve",
+    "reason": "Rule 44(1) — Rule 33 heads the list of retirement rules whose ten-year-plus qualifying service earns a pension under this rule.",
+    "hi": {
+      "text": "नियम 44(1) — जो सरकारी सेवक ____, नियम 34, नियम 35, नियम 36, नियम 37, नियम 38 या नियम 39 के अधीन दस वर्ष से कम नहीं की अर्हकारी सेवा पूर्ण करके सेवानिवृत्त होता है, वह पेंशन पाने का पात्र होगा।",
+      "answer": "नियम 33"
+    }
+  },
+  "ccs-pension-cloze-45-crossreference": {
+    "verdict": "approve",
+    "reason": "Rule 45(1)(b) — death gratuity on death in service is paid per the family list in Rule 47(1), a real cross-reference.",
+    "hi": {
+      "text": "नियम 45(1)(ख) — यदि सरकारी सेवक की सेवाकाल में मृत्यु हो जाती है, तो मृत्यु उपदान उसके परिवार को ____ की उपधारा (1) में बताई गई रीति से नीचे दी गई तालिका में उल्लिखित दरों पर संदाय किया जाएगा।",
+      "answer": "नियम 47"
+    }
+  },
+  "ccs-pension-cloze-46-definedterm": {
+    "verdict": "approve",
+    "reason": "Rule 46(1) — the nomination in Form 3 made on initial appointment, conferring the right to receive gratuity.",
+    "hi": {
+      "text": "नियम 46(1) — सरकारी सेवक अपनी प्रारंभिक नियुक्ति पर प्रपत्र 3 में ____ करेगा, जिसमें नियम 45 के अधीन संदेय सेवानिवृत्ति उपदान और मृत्यु उपदान पाने का अधिकार एक या अधिक व्यक्तियों को दिया जाए।",
+      "answer": "नामांकन"
+    }
+  },
+  "ccs-pension-cloze-47-definedterm": {
+    "verdict": "approve",
+    "reason": "Rule 47(1)(a) — gratuity is paid per the Rule 46 nomination; the operative link between the two rules.",
+    "hi": {
+      "text": "नियम 47(1)(क) — नियम 45 के अधीन संदेय उपदान उस व्यक्ति या व्यक्तियों को दिया जाएगा जिन्हें नियम 46 के अधीन किए गए ____ द्वारा उपदान पाने का अधिकार दिया गया है।",
+      "answer": "नामांकन"
+    }
+  },
+  "ccs-pension-cloze-51-definedterm": {
+    "verdict": "approve",
+    "reason": "Rule 51(1)(a) — a missing Government servant's family is entitled to family pension, on the terms applicable to a death in service.",
+    "hi": {
+      "text": "नियम 51(1)(क) — लापता सरकारी सेवक के मामले में, नियम 50 की उपधारा (2) में विनिर्दिष्ट दर पर परिवार के किसी सदस्य या सदस्यों को ____ संदेय होगी, उसी रीति और उन्हीं पात्रता शर्तों के अधीन जो सेवाकाल में मृत्यु के मामले में लागू होती हैं।",
+      "answer": "पारिवारिक पेंशन"
+    }
+  },
+  "ccs-pension-cloze-52-crossreference": {
+    "verdict": "approve",
+    "reason": "Rule 52(1) — dearness relief extends to compassionate-allowance holders under Rule 41 as well as pensioners and family pensioners.",
+    "hi": {
+      "text": "नियम 52(1) — मूल्यवृद्धि के विरुद्ध राहत, ____ के अधीन अनुकंपा भत्ता पाने वाले व्यक्तियों सहित पेंशनभोगियों और पारिवारिक पेंशनभोगियों को, केंद्र सरकार द्वारा समय-समय पर विनिर्दिष्ट दरों और शर्तों पर महँगाई राहत के रूप में दी जा सकती है।",
+      "answer": "नियम 41"
+    }
+  },
+  "ccs-pension-cloze-54-definedterm": {
+    "verdict": "approve",
+    "reason": "Rule 54(2) — the monthly retirement list goes to the Accounts Officer, a specific administrative fact.",
+    "hi": {
+      "text": "नियम 54(2) — ऐसी प्रत्येक सूची की एक प्रति प्रत्येक मास के अंतिम दिन से पहले संबंधित ____ को दी जाएगी।",
+      "answer": "लेखा अधिकारी"
+    }
+  },
+  "ccs-pension-cloze-55-crossreference": {
+    "verdict": "approve",
+    "reason": "Rule 55(3) — details are sent to the Directorate of Estates with the Rule 54(3) intimation copy, a real cross-reference.",
+    "hi": {
+      "text": "नियम 55(3) — कार्यालयाध्यक्ष सरकारी सेवक से प्राप्त ब्यौरे, ____ की उपधारा (3) के अधीन लेखा अधिकारी को भेजी गई सूचना की एक प्रति के साथ, 'अदेय प्रमाणपत्र' जारी करने के लिए संपदा निदेशालय को भेजेगा, यदि सरकारी सेवक सरकारी आवास का आबंटी था या है।",
+      "answer": "नियम 54"
+    }
+  },
+  "ccs-pension-cloze-55-duration": {
+    "verdict": "approve",
+    "reason": "Rule 55(1) — the fifteen-month look-ahead window that triggers preparing the retiring-officers' accommodation list.",
+    "hi": {
+      "text": "नियम 55(1) — अगले ____ के भीतर सेवानिवृत्त होने वाले सरकारी सेवकों की सूची तैयार करते ही, कार्यालयाध्यक्ष प्रत्येक ऐसे सरकारी सेवक से, जो सरकारी आवास का आबंटी रहा है या है, आवास से संबंधित पूरा ब्यौरा प्राप्त करेगा।",
+      "answer": "पंद्रह मास"
+    }
+  },
+  "ccs-pension-cloze-57-crossreference": {
+    "verdict": "approve",
+    "reason": "Rule 57(1) — the one-year preparatory period is the one fixed by Rule 56, divided here into three stages.",
+    "hi": {
+      "text": "नियम 57(1) — कार्यालयाध्यक्ष ____ में निर्दिष्ट एक वर्ष की तैयारी अवधि को निम्नलिखित तीन चरणों में विभाजित करेगा।",
+      "answer": "नियम 56"
+    }
+  },
+  "ccs-pension-cloze-58-definedterm": {
+    "verdict": "approve",
+    "reason": "Rule 58 — commutation is governed by a separate 1981 rule book, a fact worth knowing distinctly from the CCS (Pension) Rules themselves.",
+    "hi": {
+      "text": "नियम 58 — पेंशन के एक भाग के कम्यूटेशन का लाभ तब तक स्थगित रहता है जब तक सरकारी सेवक स्वयं केंद्रीय सिविल सेवा (____) नियम, 1981 के अनुसार ऐसे कम्यूटेशन के लिए आवेदन नहीं करता।",
+      "answer": "पेंशन का कम्यूटेशन"
+    }
+  },
+  "ccs-pension-cloze-59-duration": {
+    "verdict": "approve",
+    "reason": "Rule 59(1) — the four-month deadline before retirement for completing Form 7 Part I, the check list and the pension calculation sheet.",
+    "hi": {
+      "text": "नियम 59(1) — नियम 57 के अंतर्गत मामलों में, कार्यालयाध्यक्ष सरकारी सेवक की सेवानिवृत्ति की तारीख से ____ पूर्व तक प्रपत्र 7 का भाग I, जांच सूची और पेंशन गणना पत्रक सहित पूरा करेगा।",
+      "answer": "चार मास"
+    }
+  },
+  "ccs-pension-cloze-6-crossreference": {
+    "verdict": "approve",
+    "reason": "Rule 6(2) — the bar on a separate pension for re-employment does not apply to the Rule 19/20 counting-of-service cases, a real cross-reference.",
+    "hi": {
+      "text": "नियम 6(2) — ____ या नियम 20 में उपबंधित के सिवाय, अधिवर्षिता पेंशन, सेवानिवृत्ति पेंशन या अनिवार्य सेवानिवृत्ति पेंशन पर सेवानिवृत्त सरकारी सेवक जिसे पुनर्नियोजित किया गया है, वह पुनर्नियोजन की अवधि के लिए अलग पेंशन या उपदान का पात्र नहीं होगा।",
+      "answer": "नियम 19"
+    }
+  },
+  "ccs-pension-cloze-60-crossreference": {
+    "verdict": "approve",
+    "reason": "Rule 60(2) — Government dues under Rule 67 are furnished to the Accounts Officer along with the pension papers, a real cross-reference.",
+    "hi": {
+      "text": "नियम 60(2) — ____ में निर्दिष्ट सरकारी बकायों का ब्यौरा, जिसे कार्यालयाध्यक्ष द्वारा अभिनिश्चित और आकलित किया गया है, तथा संपदा निदेशालय की सूचना के अनुसार रोकी जाने वाली राशि, लेखा अधिकारी को दी जाएगी।",
+      "answer": "नियम 67"
+    }
+  },
+  "ccs-pension-cloze-60-duration": {
+    "verdict": "approve",
+    "reason": "Rule 60(4) — the four-month deadline (superannuation case) for forwarding the pension case to the Accounts Officer, distinct from the two-month figure for other retirements in the same sub-rule.",
+    "hi": {
+      "text": "नियम 60(4) — पेंशन मामला और संबंधित प्रपत्र सरकारी सेवक की अधिवर्षिता की तारीख से ____ पूर्व तक लेखा अधिकारी को अग्रेषित किए जाएंगे, तथा अन्य सेवानिवृत्तियों में इस तारीख के दो मास पश्चात तक।",
+      "answer": "चार मास"
+    }
+  },
+  "ccs-pension-cloze-62-crossreference": {
+    "verdict": "approve",
+    "reason": "Rule 62(1)(i) — provisional pension arises when the Head of Office cannot forward the Rule 60 pension papers in time, a real cross-reference.",
+    "hi": {
+      "text": "नियम 62(1)(i) — नियम 57 में निर्धारित प्रक्रिया अपनाने के बावजूद यदि कार्यालयाध्यक्ष के लिए ____ में निर्दिष्ट पेंशन मामला और प्रपत्र निर्धारित अवधि के भीतर लेखा अधिकारी को अग्रेषित करना संभव न हो, तो अनंतिम पेंशन निर्धारित की जाएगी।",
+      "answer": "नियम 60"
+    }
+  },
+  "ccs-pension-cloze-63-crossreference": {
+    "verdict": "approve",
+    "reason": "Rule 63(d) — each family member's share of family pension is fixed per Rule 50, a real cross-reference.",
+    "hi": {
+      "text": "नियम 63(घ) — लेखा अधिकारी पेंशन संदाय आदेश में पेंशनभोगी की मृत्यु की तारीख को पारिवारिक पेंशन के लिए पात्र परिवार के सभी सदस्यों के नाम, ____ के अनुसार उनके-उनके हिस्से सहित, अंकित करेगा।",
+      "answer": "नियम 50"
+    }
+  },
+  "ccs-pension-cloze-65-crossreference": {
+    "verdict": "approve",
+    "reason": "Rule 65(2)(c) — interest on delayed gratuity applies to the specific Rule 8(4)(c) withholding-pending-proceedings case, a real cross-reference.",
+    "hi": {
+      "text": "नियम 65(2)(ग) — जिस सरकारी सेवक को अनंतिम पेंशन दी गई थी और सेवानिवृत्ति पर विभागीय या न्यायिक कार्यवाही लंबित होने के कारण ____ की उपधारा (4) के खंड (ग) के अनुसार सेवानिवृत्ति उपदान नहीं दिया गया था, तथा जो ऐसी कार्यवाही की समाप्ति पर सभी आरोपों से दोषमुक्त हुआ, उसके मामले में ब्याज संदेय होगा।",
+      "answer": "नियम 8"
+    }
+  },
+  "ccs-pension-cloze-66-crossreference": {
+    "verdict": "approve",
+    "reason": "Rule 66 — revision of pension can also be for granting dearness relief under Rule 52, a real cross-reference alongside Rules 44(5) and 50(3).",
+    "hi": {
+      "text": "नियम 66 — नियम 44 की उपधारा (5) के अधीन अतिरिक्त पेंशन या नियम 50 की उपधारा (3) के अधीन अतिरिक्त पारिवारिक पेंशन अथवा ____ के अधीन महँगाई राहत मंजूर करने के लिए पेंशन का पुनरीक्षण किया जा सकता है।",
+      "answer": "नियम 52"
+    }
+  },
+  "ccs-pension-cloze-68-crossreference": {
+    "verdict": "approve",
+    "reason": "Rule 68(1)(a) — the Directorate of Estates acts on the Rule 55(1) intimation to check for outstanding licence fee, a real cross-reference.",
+    "hi": {
+      "text": "नियम 68(1)(क) — अधिवर्षिता पर सेवानिवृत्त होने वाले सरकारी सेवक के मामले में, संपदा निदेशालय 'अदेय प्रमाणपत्र' जारी करने हेतु ____ की उपधारा (1) के अंतर्गत कार्यालयाध्यक्ष से प्राप्त सूचना पर अपने अभिलेखों की जांच कर दो मास के भीतर कार्यालयाध्यक्ष को सूचित करेगा।",
+      "answer": "नियम 55"
+    }
+  },
+  "ccs-pension-cloze-69-crossreference": {
+    "verdict": "approve",
+    "reason": "Rule 69(1) — non-accommodation Government dues are the ones defined in Rule 67(2)(b), a real cross-reference.",
+    "hi": {
+      "text": "नियम 69(1) — सरकारी आवास पर अधिभोग से संबंधित बकायों के अतिरिक्त अन्य बकायों के लिए, जिनका उल्लेख ____ की उपधारा (2) के खंड (ख) में है, कार्यालयाध्यक्ष सरकारी सेवक की अधिवर्षिता पर सेवानिवृत्ति की तारीख से एक वर्ष पूर्व बकायों के आकलन के कदम उठाएगा।",
+      "answer": "नियम 67"
+    }
+  },
+  "ccs-pension-cloze-7-count": {
+    "verdict": "approve",
+    "reason": "Rule 7(4)(c) — the duplicate undertaking from an intelligence/security-organisation transferee has one copy kept in the service book and the other with the organisation.",
+    "hi": {
+      "text": "नियम 7(4)(ग) — किसी आसूचना या सुरक्षा-संबंधी संगठन से प्रतिनियुक्ति की समाप्ति पर या अन्यथा स्थानांतरित सरकारी सेवक से स्थानांतरण के समय द्विप्रति में अपेक्षित वचनबंध प्राप्त किया जाएगा; वचनबंध की ____ प्रति सरकारी सेवक की सेवा-पुस्तिका में रखी जाएगी और दूसरी प्रति संबंधित संगठन में अभिलेख के लिए रखी जाएगी।",
+      "answer": "एक"
+    }
+  },
+  "ccs-pension-cloze-71-definedterm": {
+    "verdict": "approve",
+    "reason": "Rule 71(1) — on learning of a death in service, the Head of Office must check whether death gratuity or family pension (or both) is payable.",
+    "hi": {
+      "text": "नियम 71(1) — सेवाकाल में सरकारी सेवक की मृत्यु की सूचना या जानकारी प्राप्त होने पर, कार्यालयाध्यक्ष यह पता लगाएगा कि मृत सरकारी सेवक के संबंध में कोई ____ या पारिवारिक पेंशन अथवा दोनों संदेय हैं या नहीं।",
+      "answer": "मृत्यु उपदान"
+    }
+  },
+  "ccs-pension-cloze-73-duration": {
+    "verdict": "approve",
+    "reason": "Rule 73(2)(a) — the one-month deadline for determining the family pension amount when service records are incomplete.",
+    "hi": {
+      "text": "नियम 73(2)(क) — यदि मृत या लापता सरकारी सेवक का परिवार नियम 50 की उपधारा (1) या नियम 51 की उपधारा (1) के अनुसार पारिवारिक पेंशन का पात्र हो गया है, तो नियम 50 की उपधारा (2) के अनुसार पारिवारिक पेंशन की राशि और उसकी संदाय अवधि, मृत्यु या लापता होने की सूचना प्राप्ति की तारीख से ____ के भीतर निर्धारित की जाएगी।",
+      "answer": "एक मास"
+    }
+  },
+  "ccs-pension-cloze-74-crossreference": {
+    "verdict": "approve",
+    "reason": "Rule 74(4)(a) — Government dues recoverable out of gratuity are those assessed under Rule 77, a real cross-reference.",
+    "hi": {
+      "text": "नियम 74(4)(क) — कार्यालयाध्यक्ष लेखा अधिकारी का ध्यान मृत या लापता सरकारी सेवक के विरुद्ध बकाया सरकारी देयों की ओर आकर्षित करेगा, जिनमें ____ के अनुसार अभिनिश्चित और आकलित तथा उपदान में से भुगतान से पहले वसूली योग्य सरकारी देय सम्मिलित हैं।",
+      "answer": "नियम 77"
+    }
+  },
+  "ccs-pension-cloze-75-crossreference": {
+    "verdict": "approve",
+    "reason": "Rule 75(1) — provisional family pension is drawn once a claim under Rule 71 is received and eligibility is satisfied, a real cross-reference.",
+    "hi": {
+      "text": "नियम 75(1) — सरकारी सेवक की मृत्यु की दशा में, ____ के अनुसार कार्यालयाध्यक्ष को पारिवारिक पेंशन का दावा प्राप्त होने और दावेदार की पात्रता से संतुष्ट होने पर, वह अधिकतम पारिवारिक पेंशन से अनधिक अनंतिम पारिवारिक पेंशन आहरित करेगा।",
+      "answer": "नियम 71"
+    }
+  },
+  "ccs-pension-cloze-76-definedterm": {
+    "verdict": "approve",
+    "reason": "Rule 76 — the Pension Disbursing Authority is who actually disburses family pension, distinct from the Accounts Officer who authorises it.",
+    "hi": {
+      "text": "नियम 76 — केंद्रीय पेंशन लेखा कार्यालय द्वारा विशेष सील प्राधिकार जारी करने और ____ द्वारा पारिवारिक पेंशन के संवितरण में लगने वाले संभावित समय को ध्यान में रखते हुए, पेंशन संदाय आदेश में वह तारीख अंकित की जाएगी जब तक अनंतिम पारिवारिक पेंशन दी जाती रहेगी।",
+      "answer": "पेंशन संवितरण प्राधिकारी"
+    }
+  },
+  "ccs-pension-cloze-79-crossreference": {
+    "verdict": "approve",
+    "reason": "Rule 79 — dependent parents/disabled siblings named as family pensioners under Rule 63(1)(e), a real cross-reference.",
+    "hi": {
+      "text": "नियम 79 — जिन आश्रित माता-पिता या दिव्यांग भाई-बहनों के नाम ____ की उपधारा (1) के खंड (ङ) के अधीन पारिवारिक पेंशनभोगी के रूप में पेंशन संदाय आदेश में सम्मिलित किए गए हैं, उनके संबंध में पेंशन संवितरण प्राधिकारी मृत्यु प्रमाणपत्र की प्रति सहित प्रपत्र 12 में दावा प्राप्त होने पर कार्रवाई करेगा।",
+      "answer": "नियम 63"
+    }
+  },
+  "ccs-pension-cloze-8-crossreference": {
+    "verdict": "approve",
+    "reason": "Rule 8(1)'s second proviso — a withheld/withdrawn pension can never fall below the Rule 44 minimum pension, a real safeguard cross-reference.",
+    "hi": {
+      "text": "नियम 8(1) का परंतुक — जहां पेंशन का कोई भाग रोका या वापस लिया जाता है, वहां ऐसी पेंशन की राशि ____ के अधीन न्यूनतम पेंशन की राशि से कम नहीं की जाएगी।",
+      "answer": "नियम 44"
+    }
+  },
+  "ccs-pension-cloze-8-duration": {
+    "verdict": "approve",
+    "reason": "Rule 8(2)(c)(ii) — departmental proceedings instituted after retirement cannot concern an event more than four years old.",
+    "hi": {
+      "text": "नियम 8(2)(ग)(ii) — विभागीय कार्यवाही ऐसी किसी घटना के संबंध में संस्थित नहीं की जाएगी जो कार्यवाही के संस्थित होने से ____ पहले घटित हुई हो।",
+      "answer": "चार वर्ष"
+    }
+  },
+  "ccs-pension-cloze-81-crossreference": {
+    "verdict": "approve",
+    "reason": "Rule 81(1) — pension other than family pension becomes payable subject to Rule 8 (the power to withhold), a real cross-reference.",
+    "hi": {
+      "text": "नियम 81(1) — ____ के उपबंधों के अधीन रहते हुए, पारिवारिक पेंशन से भिन्न पेंशन उस तारीख से संदेय होगी जिस दिन सरकारी सेवक स्थापन पर बना रहना बंद कर देता है।",
+      "answer": "नियम 8"
+    }
+  },
+  "ccs-pension-cloze-9-definedterm": {
+    "verdict": "approve",
+    "reason": "Rule 9 — whether the proposed emoluments are far in excess of industry norms is one of the factors weighed before permitting post-retirement commercial employment.",
+    "hi": {
+      "text": "नियम 9 — सेवानिवृत्ति के पश्चात वाणिज्यिक नियोजन की अनुमति पर विचार करते समय यह भी देखा जाएगा कि प्रस्तावित ____ और आर्थिक लाभ उद्योग में उस समय प्रचलित लाभों की तुलना में कहीं अधिक तो नहीं हैं।",
+      "answer": "परिलब्धियाँ"
+    }
+  },
+  "ccs-pension-cloze-11-crossreference": {
+    "verdict": "approve",
+    "reason": "Rule 11 excepts military-service counting from the eighteen-years-of-age bar, and names the rule that governs it.",
+    "hi": {
+      "text": "नियम 11 — अठारह वर्ष की आयु प्राप्त करने से पूर्व की गई सेवा अर्हकारी सेवा में नहीं गिनी जाएगी, सिवाय उन मामलों के जहाँ सिविल पेंशन के लिए सैनिक सेवा की गणना ____ के अधीन की जाती है।",
+      "answer": "नियम 20"
+    }
+  },
+  "ccs-pension-cloze-14-definedterm": {
+    "verdict": "approve",
+    "reason": "Rule 14(1)(c) — an autonomous body discharging pension liability for an absorbed officer pays a lump sum of pension or the short-service alternative, plus retirement gratuity.",
+    "hi": {
+      "text": "नियम 14(1)(ग) — स्वायत्त निकाय, त्यागपत्र स्वीकार किए जाने से पूर्व की गई सेवा के लिए, पेंशन या ____ और सेवानिवृत्ति उपदान की राशि एकमुश्त संदाय करके पेंशन दायित्व का निर्वहन करेगा।",
+      "answer": "सेवा उपदान"
+    }
+  },
+  "ccs-pension-cloze-2-crossreference": {
+    "verdict": "approve",
+    "reason": "Rule 2(4) — the temporary-status proviso is itself subject to another rule's provisions, worth an officer knowing which one.",
+    "hi": {
+      "text": "नियम 2(4) — ____ के उपबंधों के अधीन रहते हुए, वे व्यक्ति जो 31 दिसंबर, 2003 के पश्चात् नियमित रूप से नियुक्त हुए किंतु 31 दिसंबर, 2003 को या उससे पूर्व अस्थायी हैसियत प्रदान की गई थी, इन नियमों के अधीन आएंगे।",
+      "answer": "नियम 15"
+    }
+  },
+  "ccs-pension-cloze-21-definedterm": {
+    "verdict": "approve",
+    "reason": "Rule 21 — the deadline for a late service-book entry on extraordinary leave, fixed against the officer's own retirement date.",
+    "hi": {
+      "text": "नियम 21 — असाधारण छुट्टी स्वीकृत किए जाने के समय सेवा-पुस्तिका में प्रविष्टि न की गई हो तो वह बाद में भी की जा सकती है, परंतु सरकारी सेवक की अधिवर्षिता पर ____ से छह मास पूर्व नहीं।",
+      "answer": "सेवानिवृत्ति की तिथि"
+    }
+  },
+  "ccs-pension-cloze-25-definedterm": {
+    "verdict": "approve",
+    "reason": "Rule 25(2) — the defined term for the gap between dismissal/removal/compulsory retirement and reinstatement.",
+    "hi": {
+      "text": "नियम 25(2) — पदच्युति, हटाए जाने या अनिवार्य सेवानिवृत्ति की तारीख और पुनर्स्थापन की तारीख के बीच की अवधि को ____ कहा जाएगा।",
+      "answer": "सेवा में व्यवधान"
+    }
+  },
+  "ccs-pension-cloze-26-definedterm": {
+    "verdict": "approve",
+    "reason": "Rule 26(3) — who must record the resignation-to-join-elsewhere entry in the service book.",
+    "hi": {
+      "text": "नियम 26(3) — त्यागपत्र स्वीकार करने के आदेश में यह स्पष्ट उल्लेख होना चाहिए कि सरकारी सेवक ने उचित अनुमति से अन्य नियुक्ति हेतु त्यागपत्र दिया है, और इस आशय की एक विशिष्ट प्रविष्टि ____ द्वारा सेवा-पुस्तिका में की जाएगी।",
+      "answer": "कार्यालयाध्यक्ष"
+    }
+  },
+  "ccs-pension-cloze-30-crossreference": {
+    "verdict": "approve",
+    "reason": "Rule 30(2) — service verification for the periodic check follows a procedure laid down in a named rule.",
+    "hi": {
+      "text": "नियम 30(2) — सेवा के सत्यापन के प्रयोजनों के लिए, कार्यालयाध्यक्ष ____ की उपधारा (1) के खंड (क) में उपबंधित प्रक्रिया का पालन करेगा।",
+      "answer": "नियम 57"
+    }
+  },
+  "ccs-pension-cloze-30-duration": {
+    "verdict": "approve",
+    "reason": "Rule 30(1) — the trigger point for periodic verification: eighteen years completed, and this much service left before superannuation.",
+    "hi": {
+      "text": "नियम 30(1) — सरकारी सेवक द्वारा अठारह वर्ष की सेवा पूर्ण कर लेने और अधिवर्षिता की तारीख से पूर्व ____ की सेवा शेष रह जाने पर, कार्यालयाध्यक्ष लेखा अधिकारी के परामर्श से अर्हकारी सेवा का सत्यापन करेगा।",
+      "answer": "पाँच वर्ष"
+    }
+  },
+  "ccs-pension-cloze-32-duration": {
+    "verdict": "approve",
+    "reason": "Rule 32(1) — the reference period for computing average emoluments, the basis the terms list itself names.",
+    "hi": {
+      "text": "नियम 32(1) — औसत परिलब्धियाँ, सरकारी सेवक की सेवा के अंतिम ____ के दौरान आहरित परिलब्धियों के आधार पर अवधारित की जाएँगी।",
+      "answer": "दस मास"
+    }
+  },
+  "ccs-pension-cloze-34-crossreference": {
+    "verdict": "approve",
+    "reason": "Rule 34 — retiring pension is granted to an officer who retires voluntarily under the rule that fixes the twenty-year window.",
+    "hi": {
+      "text": "नियम 34(1)(क) — जो सरकारी सेवक अधिवर्षिता आयु प्राप्त करने से पूर्व अपनी स्वेच्छा से, ____ के उपबंधों के अनुसार, सेवानिवृत्त होता है, उसे सेवानिवृत्ति पेंशन नियम 44 के अनुसार दी जाएगी।",
+      "answer": "नियम 43"
+    }
+  },
+  "ccs-pension-cloze-35-crossreference": {
+    "verdict": "approve",
+    "reason": "Rule 35(1) — absorption in a State Government: pension is on rule 44's basis, gratuity on the rule this cloze asks for. Kept over the near-identical rule 36 cloze on the same pairing (see ccs-pension-cloze-36-crossreference's rejection) to avoid serving two clozes on the same 'rule 44 and rule 45' fact.",
+    "hi": {
+      "text": "नियम 35(1) — राज्य सरकार में या उसके अधीन अवशोषित सरकारी सेवक को अवशोषण की तारीख की अर्हकारी सेवा और परिलब्धियों के आधार पर नियम 44 और ____ के अनुसार पेंशन या सेवा उपदान, तथा सेवानिवृत्ति उपदान अनुज्ञेय होगा।",
+      "answer": "नियम 45"
+    }
+  },
+  "ccs-pension-cloze-36-crossreference": {
+    "verdict": "reject",
+    "reason": "Rule 36's 'rule 44 and rule 45' sentence is, apart from naming a corporation/company/body instead of a State Government, word-for-word rule 35's sentence (rapidfuzz token_set_ratio 95 against ccs-pension-cloze-35-crossreference) — serving both would be a duplicate on the same fact. Kept rule 35's cloze instead."
+  },
+  "ccs-pension-cloze-37-definedterm": {
+    "verdict": "approve",
+    "reason": "Rule 37(14) — on PSU conversion, an officer who opts to revert and his family both remain covered by combined-service pensionary benefits.",
+    "hi": {
+      "text": "नियम 37(14) — जिस सरकारी सेवक ने उपनियम (12) के खंड (ख) के अधीन विकल्प का प्रयोग किया है, वह और उसका ____ संयुक्त सेवा के आधार पर पेंशनरी लाभों (उपदान, पारिवारिक पेंशन सहित) का पात्र होगा।",
+      "answer": "परिवार"
+    }
+  },
+  "ccs-pension-cloze-38-definedterm": {
+    "verdict": "reject",
+    "reason": "Rule 38(14) is rule 37(14) verbatim, down to the punctuation, with only the sub-rule cross-reference number changed — 99.6 rapidfuzz token_set_ratio against ccs-pension-cloze-37-definedterm. Serving both tests the identical sentence twice; kept rule 37's cloze."
+  },
+  "ccs-pension-cloze-39-duration": {
+    "verdict": "approve",
+    "reason": "Rule 39(3) — how quickly the Head of Office/Department must act on an invalidment application once received.",
+    "hi": {
+      "text": "नियम 39(3) — उपनियम (2) के अधीन आवेदन प्राप्त होने पर, कार्यालयाध्यक्ष या विभागाध्यक्ष उसकी प्राप्ति के ____ के भीतर संबंधित प्राधिकारी से सरकारी सेवक की चिकित्सा जाँच के लिए अनुरोध करेगा।",
+      "answer": "पंद्रह दिन"
+    }
+  },
+  "ccs-pension-cloze-40-definedterm": {
+    "verdict": "approve",
+    "reason": "Rule 40(3) — the stop-gap benefit paid when the compulsory-retirement penalty order does not simultaneously fix the final pension.",
+    "hi": {
+      "text": "नियम 40(3) — यदि अनिवार्य सेवानिवृत्ति के दंडादेश के साथ ही पेंशन और उपदान की मात्रा का आदेश जारी नहीं किया जाता, तो सरकारी सेवक को तत्काल ____ और पूर्ण अधिवर्षिता पेंशन तथा उपदान की दो-तिहाई दर से अनंतिम उपदान मंजूर किया जाएगा।",
+      "answer": "अनंतिम पेंशन"
+    }
+  },
+  "ccs-pension-cloze-41-definedterm": {
+    "verdict": "approve",
+    "reason": "Rule 41(1) proviso — the discretionary benefit that survives dismissal or removal in a deserving case, capped at two-thirds.",
+    "hi": {
+      "text": "नियम 41(1) का परंतुक — पदच्युत या हटाए गए सरकारी सेवक को, यदि मामला विशेष विचार योग्य हो, सक्षम प्राधिकारी उस पेंशन या उपदान के दो-तिहाई से अनधिक ____ मंजूर कर सकेगा जो अधिवर्षिता पर सेवानिवृत्त होने पर देय होता।",
+      "answer": "अनुकंपा भत्ता"
+    }
+  },
+  "ccs-pension-cloze-42-definedterm": {
+    "verdict": "approve",
+    "reason": "Rule 42(1) — retirement in the public interest after thirty years' qualifying service carries this named pension.",
+    "hi": {
+      "text": "नियम 42(1) — तीस वर्ष की अर्हकारी सेवा पूर्ण कर चुके सरकारी सेवक को नियुक्ति प्राधिकारी लोकहित में सेवानिवृत्त कर सकता है, और ऐसी दशा में वह नियम 44 के अनुसार परिकलित ____ का पात्र होगा।",
+      "answer": "सेवानिवृत्ति पेंशन"
+    }
+  },
+  "ccs-pension-cloze-43-count": {
+    "verdict": "approve",
+    "reason": "Rule 43 — the standard six-monthly rounding rule of rule 44(7) is expressly excluded when fixing qualifying service for a voluntary retirement under this rule.",
+    "hi": {
+      "text": "नियम 43 — सेवानिवृत्ति की आशयित तारीख पर तीन मास या उससे अधिक के भिन्न वर्ष को पूर्ण ____ मासिक अवधि मानने का नियम 44(7) का उपबंध, इस नियम के अधीन अर्हकारी सेवा अवधारित करने के प्रयोजन के लिए लागू नहीं होगा।",
+      "answer": "छह"
+    }
+  },
+  "ccs-pension-cloze-43-duration": {
+    "verdict": "approve",
+    "reason": "Rule 43(1) — the twenty-year voluntary-retirement window, with three months' notice.",
+    "hi": {
+      "text": "नियम 43(1) — ____ की अर्हकारी सेवा पूर्ण कर चुका सरकारी सेवक, नियुक्ति प्राधिकारी को कम से कम तीन मास का लिखित नोटिस देकर, सेवा से स्वेच्छा से सेवानिवृत्त हो सकता है।",
+      "answer": "बीस वर्ष"
+    }
+  },
+  "ccs-pension-cloze-44-duration": {
+    "verdict": "approve",
+    "reason": "Rule 44(1) — the minimum qualifying service for full-rate pension under any of the retirement rules it lists.",
+    "hi": {
+      "text": "नियम 44(1) — नियम 33 से 39 तक के अधीन सेवानिवृत्त होने वाला सरकारी सेवक, ____ से कम की अर्हकारी सेवा पूर्ण न करने पर, परिलब्धियों या औसत परिलब्धियों के पचास प्रतिशत की दर से पेंशन का पात्र होगा।",
+      "answer": "दस वर्ष"
+    }
+  },
+  "ccs-pension-cloze-45-count": {
+    "verdict": "approve",
+    "reason": "Rule 45 — the retirement-gratuity formula: one-fourth of emoluments per completed six-monthly period, capped at 16½ times.",
+    "hi": {
+      "text": "नियम 45 — नियम 44 के अधीन सेवा उपदान या पेंशन का पात्र सरकारी सेवक अपनी सेवानिवृत्ति पर, अर्हकारी सेवा के प्रत्येक पूर्ण ____ मासिक अवधि के लिए अपनी परिलब्धियों के एक-चौथाई के बराबर सेवानिवृत्ति उपदान का, अधिकतम साढ़े सोलह गुना परिलब्धियों तक, पात्र होगा।",
+      "answer": "छह"
+    }
+  },
+  "ccs-pension-cloze-47-crossreference": {
+    "verdict": "reject",
+    "reason": "Near-duplicate front (same sentence as ccs-pension-cloze-47-definedterm, different blank position — rapidfuzz score above the duplicate-front threshold). Kept the definedterm variant as the more substantive card."
+  },
+  "ccs-pension-cloze-48-crossreference": {
+    "verdict": "approve",
+    "reason": "Rule 48(1) — the forfeiture-for-murder bar applies to a person eligible under the rule that lists who may receive the gratuity.",
+    "hi": {
+      "text": "नियम 48(1) — यदि ____ के अनुसार उपदान प्राप्त करने का पात्र कोई व्यक्ति सरकारी सेवक की हत्या करने या उसमें दुष्प्रेरण करने के अपराध में अभियुक्त है, तो उसका उपदान में हिस्सा पाने का दावा आपराधिक कार्यवाही की समाप्ति तक निलंबित रहेगा।",
+      "answer": "नियम 47"
+    }
+  },
+  "ccs-pension-cloze-5-definedterm": {
+    "verdict": "approve",
+    "reason": "Rule 5(1) — pension and this other benefit are both governed by the rules in force on the date of the triggering event, not on any earlier or later date.",
+    "hi": {
+      "text": "नियम 5(1) — पेंशन या ____ का कोई भी दावा उन नियमों द्वारा विनियमित होगा जो सरकारी सेवक के सेवानिवृत्त होने, सेवामुक्त किए जाने, त्यागपत्र देने की अनुज्ञा मिलने या मृत्यु होने के समय प्रवृत्त हों।",
+      "answer": "पारिवारिक पेंशन"
+    }
+  },
+  "ccs-pension-cloze-50-crossreference": {
+    "verdict": "approve",
+    "reason": "Rule 50 — family pension is worked out on whichever pay figure is higher, cross-referring to the emoluments rule.",
+    "hi": {
+      "text": "नियम 50 — उपखंड (i) और (ii) के प्रयोजन के लिए वेतन से अभिप्रेत है (i) ____ में यथानिर्दिष्ट परिलब्धियाँ, या (ii) नियम 32 में यथानिर्दिष्ट औसत परिलब्धियाँ, जो भी अधिक हो।",
+      "answer": "नियम 31"
+    }
+  },
+  "ccs-pension-cloze-51-crossreference": {
+    "verdict": "reject",
+    "reason": "Near-duplicate front (same sentence as ccs-pension-cloze-51-definedterm, different blank position — rapidfuzz score above the duplicate-front threshold). Kept the definedterm variant as the more substantive card."
+  },
+  "ccs-pension-cloze-51-duration": {
+    "verdict": "approve",
+    "reason": "Rule 51(1)(b) — the outer time limit for death gratuity in a missing-servant case, whichever event comes earlier.",
+    "hi": {
+      "text": "नियम 51(1)(ख) — लापता सरकारी सेवक के मामले में, मृत्यु उपदान उसकी मृत्यु निश्चित रूप से स्थापित होने पर, या पुलिस में रिपोर्ट दर्ज कराने की तारीख से ____ की समाप्ति पर, जो भी पहले हो, देय हो जाएगा।",
+      "answer": "सात वर्ष"
+    }
+  },
+  "ccs-pension-cloze-52-definedterm": {
+    "verdict": "approve",
+    "reason": "Rule 52(1) — dearness relief extends to compassionate-allowance holders under the named rule, not just ordinary pensioners.",
+    "hi": {
+      "text": "नियम 52(1) — मूल्यवृद्धि के विरुद्ध राहत, नियम 41 के अधीन ____ पाने वाले व्यक्तियों और पारिवारिक पेंशनभोगियों सहित पेंशनभोगियों को महँगाई राहत के रूप में दी जा सकेगी।",
+      "answer": "अनुकंपा भत्ता"
+    }
+  },
+  "ccs-pension-cloze-54-duration": {
+    "verdict": "approve",
+    "reason": "Rule 54(1) — the monthly retirement-list exercise looks this far ahead.",
+    "hi": {
+      "text": "नियम 54(1) — प्रत्येक विभागाध्यक्ष प्रत्येक मास की 15 तारीख तक ऐसी सूची तैयार करेगा जिसमें उस तारीख से अगले ____ के भीतर सेवानिवृत्त होने वाले सभी सरकारी सेवक सम्मिलित हों।",
+      "answer": "पंद्रह मास"
+    }
+  },
+  "ccs-pension-cloze-55-definedterm": {
+    "verdict": "approve",
+    "reason": "Rule 55 — accommodation details go to the Directorate of Estates a year ahead of this date, so a No Demand Certificate can issue in time.",
+    "hi": {
+      "text": "नियम 55 — कार्यालयाध्यक्ष, सरकारी आवास के आबंटी सरकारी सेवक की प्रत्याशित ____ से कम से कम एक वर्ष पूर्व 'अदेय प्रमाणपत्र' जारी करने हेतु संपदा निदेशालय को ब्योरे भेजेगा।",
+      "answer": "सेवानिवृत्ति की तिथि"
+    }
+  },
+  "ccs-pension-cloze-57-count": {
+    "verdict": "approve",
+    "reason": "Rule 57(1) — the one-year preparatory-work period of rule 56 is broken into this many stages.",
+    "hi": {
+      "text": "नियम 57(1) — कार्यालयाध्यक्ष नियम 56 में निर्दिष्ट एक वर्ष की पूर्व-तैयारी अवधि को निम्नलिखित ____ चरणों में विभाजित करेगा, अर्थात प्रथम चरण।",
+      "answer": "तीन"
+    }
+  },
+  "ccs-pension-cloze-59-crossreference": {
+    "verdict": "approve",
+    "reason": "Rule 59(1) — Form 7 Part I is completed four months ahead for retirements falling under the named rule.",
+    "hi": {
+      "text": "नियम 59(1) — ____ के अधीन आने वाले मामलों में, कार्यालयाध्यक्ष सरकारी सेवक की सेवानिवृत्ति की तारीख से चार मास पूर्व तक प्रपत्र 7 का भाग I, चेक-लिस्ट और पेंशन परिकलन पत्रक सहित, पूर्ण करेगा।",
+      "answer": "नियम 57"
+    }
+  },
+  "ccs-pension-cloze-6-count": {
+    "verdict": "approve",
+    "reason": "Rule 6(1) — the same service or post cannot earn this many pensions at once.",
+    "hi": {
+      "text": "नियम 6(1) — कोई सरकारी सेवक एक ही सेवा या पद में, एक ही समय पर या समान सतत सेवा द्वारा, ____ पेंशन अर्जित नहीं करेगा।",
+      "answer": "दो"
+    }
+  },
+  "ccs-pension-cloze-6-definedterm": {
+    "verdict": "approve",
+    "reason": "Rule 6(2) — the enumeration of pension kinds a re-employed pensioner may already be drawing.",
+    "hi": {
+      "text": "नियम 6(2) — नियम 19 या नियम 20 में उपबंधित के सिवाय, जो सरकारी सेवक ____ या सेवानिवृत्ति पेंशन या अनिवार्य सेवानिवृत्ति पेंशन लेकर सेवानिवृत्त हुआ हो, या सेवा से पदच्युत या हटाए जाने पर अनुकंपा भत्ता पा रहा हो, और पुनर्नियोजित हो...",
+      "answer": "अधिवर्षिता पेंशन"
+    }
+  },
+  "ccs-pension-cloze-60-definedterm": {
+    "verdict": "approve",
+    "reason": "Rule 60(1) — after completing rules 57-59, the pension case goes to this office, named in the terms list.",
+    "hi": {
+      "text": "नियम 60(1) — नियम 57, 58 और 59 की अपेक्षाओं का पालन करने के पश्चात्, कार्यालयाध्यक्ष पेंशन मामला ____ को अग्रेषित करेगा और उसे प्रपत्र 4, प्रपत्र 6 आदि की प्रतियाँ भी भेजेगा।",
+      "answer": "लेखा अधिकारी"
+    }
+  },
+  "ccs-pension-cloze-61-crossreference": {
+    "verdict": "approve",
+    "reason": "Rule 61(1) — an event bearing on pension amount, arising after the case has already gone forward under the named rule, must be reported promptly.",
+    "hi": {
+      "text": "नियम 61(1) — यदि ____ के अधीन पेंशन मामला और पेंशन पत्रक लेखा अधिकारी को अग्रेषित किए जाने के पश्चात् कोई ऐसी घटना घटित हो जिसका पेंशन की देय राशि पर प्रभाव पड़े, तो कार्यालयाध्यक्ष तुरंत लेखा अधिकारी को सूचित करेगा।",
+      "answer": "नियम 60"
+    }
+  },
+  "ccs-pension-cloze-62-duration": {
+    "verdict": "approve",
+    "reason": "Rule 62(4) — how quickly a provisional-pension sanction must issue after retirement, in the ordinary case.",
+    "hi": {
+      "text": "नियम 62(4) — उपनियम (3) के अधीन अनंतिम पेंशन की मंजूरी, उपनियम (1) के अधीन आने वाले मामलों में सरकारी सेवक की सेवानिवृत्ति की तारीख से ____ के पश्चात् जारी नहीं की जाएगी।",
+      "answer": "दस दिन"
+    }
+  },
+  "ccs-pension-cloze-63-duration": {
+    "verdict": "approve",
+    "reason": "Rule 63(a) — on ordinary superannuation, the pension payment order must be ready this far in advance.",
+    "hi": {
+      "text": "नियम 63(क) — अधिवर्षिता पर सेवानिवृत्ति की दशा में, लेखा अधिकारी परिलब्धियों की शुद्धता की जाँच कर, सरकारी सेवक की सेवानिवृत्ति की तारीख से ____ पूर्व पेंशन संदाय आदेश जारी करेगा।",
+      "answer": "दो मास"
+    }
+  },
+  "ccs-pension-cloze-65-definedterm": {
+    "verdict": "approve",
+    "reason": "Rule 65(1) — interest on delayed pension arrears is payable when this benefit (or family pension/gratuity) was not sanctioned in time due to administrative lapse.",
+    "hi": {
+      "text": "नियम 65(1) — जिन सभी मामलों में इन नियमों के अनुसार ____ या अनंतिम पारिवारिक पेंशन या अनंतिम उपदान मंजूर नहीं किया गया हो, और विलंब प्रशासनिक कारणों से हुआ हो, वहाँ बकाया राशि पर ब्याज संदेय होगा।",
+      "answer": "अनंतिम पेंशन"
+    }
+  },
+  "ccs-pension-cloze-66-definedterm": {
+    "verdict": "approve",
+    "reason": "Rule 66(1) — a Pay Commission revision becomes the new basic pension for computing this rule-44(5) benefit, additional family pension and dearness relief alike.",
+    "hi": {
+      "text": "नियम 66(1) — वेतन आयोग की सिफारिशों के कार्यान्वयन में पुनरीक्षित पेंशन या पारिवारिक पेंशन ही आगे नियम 44 की उपधारा (5) के अधीन ____ या नियम 50 की उपधारा (3) के अधीन अतिरिक्त पारिवारिक पेंशन या नियम 52 के अधीन महँगाई राहत की मंजूरी हेतु मूल पेंशन मानी जाएगी।",
+      "answer": "अतिरिक्त पेंशन"
+    }
+  },
+  "ccs-pension-cloze-68-count": {
+    "verdict": "approve",
+    "reason": "Rule 68(5) — the percentage of gratuity the Directorate of Estates may ask to be withheld when the licence-fee dues cannot yet be worked out.",
+    "hi": {
+      "text": "नियम 68(5) — यदि संपदा निदेशालय किसी विशेष मामले में बकाया लाइसेंस फीस अवधारित करने में असमर्थ हो, तो वह कार्यालयाध्यक्ष को सूचित करेगा कि आगे की सूचना प्राप्त होने तक उपदान का ____ प्रतिशत रोका जा सकता है।",
+      "answer": "दस"
+    }
+  },
+  "ccs-pension-cloze-68-duration": {
+    "verdict": "approve",
+    "reason": "Rule 68(1)(a) — the cut-off before retirement up to which the Directorate of Estates must check for recoverable licence fee.",
+    "hi": {
+      "text": "नियम 68(1)(क) — संपदा निदेशालय अपने अभिलेखों की जाँच कर, कार्यालयाध्यक्ष को दो मास के भीतर यह सूचित करेगा कि क्या सरकारी सेवक की सेवानिवृत्ति से ____ पूर्व की अवधि के लिए कोई लाइसेंस फीस वसूली योग्य थी।",
+      "answer": "आठ मास"
+    }
+  },
+  "ccs-pension-cloze-69-duration": {
+    "verdict": "approve",
+    "reason": "Rule 69(2) — the deadline before superannuation by which Government dues (other than accommodation dues) must be fully assessed.",
+    "hi": {
+      "text": "नियम 69(2) — उपनियम (1) में निर्दिष्ट सरकारी बकायों का निर्धारण, अधिवर्षिता पर सेवानिवृत्ति की दशा में सरकारी सेवक की सेवानिवृत्ति की तारीख से ____ पूर्व कार्यालयाध्यक्ष द्वारा पूरा किया जाएगा।",
+      "answer": "आठ मास"
+    }
+  },
+  "ccs-pension-cloze-7-crossreference": {
+    "verdict": "approve",
+    "reason": "Rule 7(1)(b) proviso — a disciplinary reduction of pension can never go below the minimum the named rule fixes.",
+    "hi": {
+      "text": "नियम 7(1)(ख) का परंतुक — जहाँ पेंशन का कोई भाग रोका या वापस लिया जाए, वहाँ ऐसी पेंशन ____ के अधीन न्यूनतम पेंशन की राशि से कम नहीं की जाएगी।",
+      "answer": "नियम 44"
+    }
+  },
+  "ccs-pension-cloze-71-crossreference": {
+    "verdict": "approve",
+    "reason": "Rule 71(1)(c) — the No Demand Certificate request to the Directorate of Estates on an officer's death is tied to a specific sub-rule of a named rule. Kept over the near-identical ccs-pension-cloze-71-duration, which blanks a different span of the same sentence (rapidfuzz 97) — approving both would serve the identical sentence twice.",
+    "hi": {
+      "text": "नियम 71(1)(ग) — सरकारी सेवक की मृत्यु की सूचना प्राप्त होने के सात दिन के भीतर, कार्यालयाध्यक्ष 'अदेय प्रमाणपत्र' जारी कराने हेतु ____ की उपधारा (1) के उपबंधों के अनुसार संपदा निदेशालय को पत्र लिखेगा।",
+      "answer": "नियम 77"
+    }
+  },
+  "ccs-pension-cloze-73-crossreference": {
+    "verdict": "approve",
+    "reason": "Rule 73(1) — the service-book-not-properly-maintained bar is itself subject to a named sub-rule of a different rule.",
+    "hi": {
+      "text": "नियम 73(1) — उपनियम (2) और (3) के उपबंधों के अधीन रहते हुए, और ____ के अधीन रहते हुए, ऐसा कोई मामला नहीं होगा जिसमें सेवा-पुस्तिका ठीक से न रखी गई हो।",
+      "answer": "नियम 75 की उपधारा (7)"
+    }
+  },
+  "ccs-pension-cloze-74-count": {
+    "verdict": "approve",
+    "reason": "Rule 74(4)(c) — the ceiling on how much gratuity may be held back pending final dues assessment.",
+    "hi": {
+      "text": "नियम 74(4)(ग) — खंड (ख) के प्रयोजन के लिए रोकी जाने वाली उपदान की अधिकतम राशि, उपदान की राशि के ____ प्रतिशत तक सीमित होगी।",
+      "answer": "दस"
+    }
+  },
+  "ccs-pension-cloze-75-count": {
+    "verdict": "approve",
+    "reason": "Rule 75(5) — unlike provisional family pension, death gratuity on a serving officer's death is drawn in full at this stage.",
+    "hi": {
+      "text": "नियम 75(5) — नियम 74 के अनुसार पारिवारिक पेंशन और उपदान मामला लेखा अधिकारी को अग्रेषित किए जाने के पश्चात्, कार्यालयाध्यक्ष इन नियमों के अनुसार अवधारित उपदान का ____ प्रतिशत आहरित करेगा।",
+      "answer": "सौ"
+    }
+  },
+  "ccs-pension-cloze-76-crossreference": {
+    "verdict": "approve",
+    "reason": "Rule 76(1) — the one-month check on a family pension case begins on receipt of the documents named in a specific sub-rule of another rule.",
+    "hi": {
+      "text": "नियम 76(1) — ____ की उपधारा (1) में निर्दिष्ट दस्तावेजों सहित पारिवारिक पेंशन मामला प्राप्त होने पर, लेखा अधिकारी उसकी प्राप्ति की तारीख से एक मास के भीतर अपेक्षित जाँच करेगा।",
+      "answer": "नियम 74"
+    }
+  },
+  "ccs-pension-cloze-76-duration": {
+    "verdict": "approve",
+    "reason": "Rule 76 — how quickly the pension payment order must reach the Pension Disbursing Authority once the Accounts Officer issues it.",
+    "hi": {
+      "text": "नियम 76 — लेखा अधिकारी से पेंशन संदाय आदेश की प्राप्ति की तारीख से ____ के भीतर, उसकी प्रति और फार्मेट 9 का वचनबंध पेंशन संवितरण प्राधिकारी को अग्रेषित किया जाएगा।",
+      "answer": "दस दिन"
+    }
+  },
+  "ccs-pension-cloze-77-duration": {
+    "verdict": "approve",
+    "reason": "Rule 77 — how quickly the Head of Office must forward accommodation details to the Directorate of Estates on a Government servant's death or disappearance.",
+    "hi": {
+      "text": "नियम 77 — सरकारी सेवक की मृत्यु या लापता होने की सूचना प्राप्त होने पर, कार्यालयाध्यक्ष उसकी प्राप्ति के ____ के भीतर सरकारी आवास संबंधी उपलब्ध ब्योरे संपदा निदेशालय को अग्रेषित करेगा।",
+      "answer": "सात दिन"
+    }
+  },
+  "ccs-pension-cloze-79-definedterm": {
+    "verdict": "approve",
+    "reason": "Rule 79(2)(a)(ii) — which authority begins disbursing family pension to the surviving spouse under the Pension Payment Order.",
+    "hi": {
+      "text": "नियम 79(2)(क)(ii) — ____ पेंशन संदाय आदेश में प्राधिकृत पारिवारिक पेंशन का संवितरण उस विधवा या विधुर को आरंभ करेगा जिसका नाम पेंशन संदाय आदेश में सम्मिलित किया गया है।",
+      "answer": "पेंशन संवितरण प्राधिकारी"
+    }
+  },
+  "ccs-pension-cloze-8-definedterm": {
+    "verdict": "approve",
+    "reason": "Rule 8(1) — the President's own reserved power to withhold or withdraw pension or this other benefit for grave misconduct or negligence.",
+    "hi": {
+      "text": "नियम 8(1) — राष्ट्रपति अपने पास पेंशन या ____, या दोनों को, पूर्णतः या भागतः, स्थायी रूप से या किसी निर्दिष्ट अवधि के लिए रोकने या वापस लेने का अधिकार सुरक्षित रखते हैं।",
+      "answer": "उपदान"
+    }
+  },
+  "ccs-pension-cloze-80-crossreference": {
+    "verdict": "approve",
+    "reason": "Rule 80(1) — the one-month payment window starts running from the sanction issued under a named rule.",
+    "hi": {
+      "text": "नियम 80(1) — ____ के अधीन पारिवारिक पेंशन या अवशिष्ट उपदान या दोनों के संदाय की मंजूरी प्राप्त होने पर, लेखा अधिकारी उसकी प्राप्ति की तारीख से एक मास के भीतर संदाय प्राधिकृत करेगा।",
+      "answer": "नियम 79"
+    }
+  },
+  "ccs-pension-cloze-82-amount": {
+    "verdict": "approve",
+    "reason": "Rule 82 — the currency and place of payment for every pension and gratuity under these rules, stated in one line.",
+    "hi": {
+      "text": "नियम 82 — इन नियमों के अधीन देय सभी पेंशन, उपदान सहित, केवल ____ में संदेय होंगी।",
+      "answer": "भारत में रुपयों"
+    }
+  },
+  "ccs-pension-cloze-9-duration": {
+    "verdict": "approve",
+    "reason": "Rule 9(1) — a Group 'A' pensioner needs the Government's prior sanction to take commercial employment within this window of retiring.",
+    "hi": {
+      "text": "नियम 9(1) — केंद्रीय सेवा समूह 'क' का सदस्य रहा पेंशनभोगी, अपनी सेवानिवृत्ति की तारीख से ____ की समाप्ति से पूर्व कोई वाणिज्यिक नियोजन स्वीकार करना चाहे, तो उसे प्रपत्र 1 में आवेदन देकर सरकार की पूर्व मंजूरी लेनी होगी।",
+      "answer": "एक वर्ष"
+    }
+  },
+  "ccs-pension-cloze-19-count": {
+    "verdict": "reject",
+    "reason": "Stem opens mid-sentence at 'between the value...' — the governing clause 'shall not be greater than the difference' is dropped, leaving a dangling fragment. The blank is also nearly self-answering: 'if the ____ periods of service were combined' all but requires 'two' from grammar alone, not from Rule 19's substance."
+  },
+  "ccs-pension-cloze-20-crossreference": {
+    "verdict": "reject",
+    "reason": "The cross-reference is to Rule 19 of the *repealed* 1972 Rules, cited in Rule 20's historical-continuity explanation for pre-2003 military re-employment options — testing which numbered rule of a superseded instrument was invoked is apparatus, not law a serving officer needs today."
+  },
+  "ccs-pension-cloze-27-count": {
+    "verdict": "reject",
+    "reason": "The blank falls in the stock phrase 'joining time while on transfer from ____ post to another' — 'one' is recoverable from the English idiom 'from one X to another' alone, not from Rule 27."
+  },
+  "ccs-pension-cloze-3-crossreference": {
+    "verdict": "reject",
+    "reason": "Rule 3 (Definitions) extracted badly — the stem strings together fragments of unrelated definition entries with semicolons ('licence fee or otherwise; ns average emoluments as determined in accordance with ____; system for sanction...') with no coherent sentence to read, let alone translate."
+  },
+  "ccs-pension-cloze-32-count": {
+    "verdict": "reject",
+    "reason": "This is a worked numeric illustration appended to Rule 32 ('The last ten months comprise ____ full months and fractions of fourteen days of September, 2018 and sixteen days of July, 2019') — a dated example, not the operative rule text; testing memorisation of an illustration's arithmetic rather than the rule."
+  },
+  "ccs-pension-cloze-39-amount": {
+    "verdict": "reject",
+    "reason": "The blank is the unit phrase 'rupees per month', not the substantive figure ('fifty-four thousand') that precedes it — tests a grammatical unit rather than a fact about the rule."
+  },
+  "ccs-pension-cloze-45-duration": {
+    "verdict": "reject",
+    "reason": "This is a row of the death-gratuity schedule table ('Length of qualifying service / Rate of death gratuity (1) (2) (3)') — a schedule's column layout, which the checklist excludes as apparatus, not readable prose."
+  },
+  "ccs-pension-cloze-57-duration": {
+    "verdict": "reject",
+    "reason": "Stem opens mid-clause (iv) with its subject dropped ('the Head of Office in that office or Department shall verify' is missing) and leans on 'sub-clause (ii)', which is never quoted in the card — not self-contained or grammatically complete as given."
+  },
+  "ccs-pension-cloze-63-count": {
+    "verdict": "reject",
+    "reason": "The span blanks only 'forty' out of the compound number 'forty five days', leaving 'five days' sitting in the visible stem right after the blank — a malformed span, not a clean fact to recall."
+  },
+  "ccs-pension-cloze-71-duration": {
+    "verdict": "reject",
+    "reason": "Same sentence as ccs-pension-cloze-71-crossreference with a different span blanked (rapidfuzz token_set_ratio 97) — serving both duplicates one fact. Kept the crossreference cloze, which tests the more substantive fact (which rule the No Demand Certificate procedure sits under)."
+  },
+  "ccs-pension-cloze-87-crossreference": {
+    "verdict": "reject",
+    "reason": "This is a Form caption ('FORM 1 (See Rule 9(1)) Application for permission...') — Rule 87's text extraction accidentally swallowed the entire Schedule of Forms that follows the rules, and a form's own cross-reference caption is apparatus, not rule prose."
+  },
+  "ccs-pension-cloze-87-percentage": {
+    "verdict": "reject",
+    "reason": "Same mis-parse as ccs-pension-cloze-87-crossreference: this is a calculation line from a pension-computation Form ('Pay x ____ (subject to prescribed minimum and maximum)') that landed inside Rule 87's extracted text, not operative rule text."
+  }
+}

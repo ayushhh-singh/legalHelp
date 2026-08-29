@@ -1,7 +1,7 @@
 {
   "$schema": "../../schemas/rules-index.schema.json",
   "version": "1.0.0",
-  "generatedAt": "2026-08-28",
+  "generatedAt": "2026-08-29",
   "disclaimer": {
     "en": "Reference only; verify with the official gazette/order or your DDO.",
     "hi": "केवल संदर्भ के लिए; आधिकारिक राजपत्र/आदेश अथवा अपने डीडीओ से सत्यापित करें।"
@@ -9,16 +9,16 @@
   "totals": {
     "rules": 818,
     "subRules": 831,
-    "cards": 2607,
-    "served": 571,
-    "needsHindi": 1334,
-    "rejected": 173,
+    "cards": 2807,
+    "served": 1595,
+    "needsHindi": 771,
+    "rejected": 441,
     "byKind": {
-      "cloze": 209,
-      "mcq": 92,
-      "rule": 221,
-      "scenario": 16,
-      "trueFalse": 33
+      "cloze": 563,
+      "mcq": 195,
+      "rule": 693,
+      "scenario": 78,
+      "trueFalse": 66
     }
   },
   "acts": [
@@ -42,15 +42,15 @@
       "counts": {
         "rules": 32,
         "subRules": 39,
-        "cards": 134,
-        "served": 88,
+        "cards": 144,
+        "served": 98,
         "needsHindi": 34,
         "rejected": 12,
         "byKind": {
           "cloze": 27,
           "mcq": 17,
           "rule": 32,
-          "scenario": 5,
+          "scenario": 15,
           "trueFalse": 7
         }
       },
@@ -80,15 +80,15 @@
       "counts": {
         "rules": 34,
         "subRules": 64,
-        "cards": 172,
-        "served": 93,
+        "cards": 182,
+        "served": 98,
         "needsHindi": 60,
-        "rejected": 19,
+        "rejected": 24,
         "byKind": {
           "cloze": 34,
           "mcq": 17,
-          "rule": 33,
-          "scenario": 3,
+          "rule": 29,
+          "scenario": 12,
           "trueFalse": 6
         }
       },
@@ -118,15 +118,15 @@
       "counts": {
         "rules": 75,
         "subRules": 128,
-        "cards": 328,
-        "served": 149,
+        "cards": 338,
+        "served": 153,
         "needsHindi": 122,
-        "rejected": 57,
+        "rejected": 63,
         "byKind": {
           "cloze": 56,
           "mcq": 21,
-          "rule": 64,
-          "scenario": 2,
+          "rule": 58,
+          "scenario": 12,
           "trueFalse": 6
         }
       },
@@ -156,11 +156,17 @@
       "counts": {
         "rules": 86,
         "subRules": 299,
-        "cards": 507,
-        "served": 0,
-        "needsHindi": 367,
-        "rejected": 2,
-        "byKind": {}
+        "cards": 537,
+        "served": 202,
+        "needsHindi": 283,
+        "rejected": 52,
+        "byKind": {
+          "cloze": 103,
+          "mcq": 18,
+          "rule": 69,
+          "scenario": 6,
+          "trueFalse": 6
+        }
       },
       "hindiTextExtractable": false,
       "source": {
@@ -188,11 +194,17 @@
       "counts": {
         "rules": 307,
         "subRules": 36,
-        "cards": 583,
-        "served": 0,
-        "needsHindi": 326,
-        "rejected": 17,
-        "byKind": {}
+        "cards": 613,
+        "served": 413,
+        "needsHindi": 36,
+        "rejected": 164,
+        "byKind": {
+          "cloze": 141,
+          "mcq": 20,
+          "rule": 242,
+          "scenario": 5,
+          "trueFalse": 5
+        }
       },
       "hindiTextExtractable": false,
       "source": {
@@ -221,13 +233,13 @@
         "rules": 31,
         "subRules": 108,
         "cards": 215,
-        "served": 87,
+        "served": 83,
         "needsHindi": 101,
-        "rejected": 27,
+        "rejected": 31,
         "byKind": {
           "cloze": 30,
           "mcq": 16,
-          "rule": 29,
+          "rule": 25,
           "scenario": 4,
           "trueFalse": 8
         }
@@ -258,13 +270,16 @@
       "counts": {
         "rules": 14,
         "subRules": 34,
-        "cards": 62,
-        "served": 24,
+        "cards": 87,
+        "served": 49,
         "needsHindi": 30,
         "rejected": 8,
         "byKind": {
           "cloze": 11,
-          "rule": 13
+          "mcq": 15,
+          "rule": 13,
+          "scenario": 5,
+          "trueFalse": 5
         }
       },
       "hindiTextExtractable": false,
@@ -331,13 +346,16 @@
       "counts": {
         "rules": 8,
         "subRules": 15,
-        "cards": 34,
-        "served": 19,
+        "cards": 49,
+        "served": 34,
         "needsHindi": 11,
         "rejected": 4,
         "byKind": {
           "cloze": 11,
-          "rule": 8
+          "mcq": 9,
+          "rule": 8,
+          "scenario": 3,
+          "trueFalse": 3
         }
       },
       "hindiTextExtractable": false,
@@ -366,13 +384,16 @@
       "counts": {
         "rules": 12,
         "subRules": 0,
-        "cards": 25,
-        "served": 21,
+        "cards": 40,
+        "served": 36,
         "needsHindi": 0,
         "rejected": 4,
         "byKind": {
           "cloze": 9,
-          "rule": 12
+          "mcq": 9,
+          "rule": 12,
+          "scenario": 3,
+          "trueFalse": 3
         }
       },
       "hindiTextExtractable": false,
@@ -401,11 +422,17 @@
       "counts": {
         "rules": 77,
         "subRules": 35,
-        "cards": 179,
-        "served": 0,
-        "needsHindi": 110,
-        "rejected": 0,
-        "byKind": {}
+        "cards": 209,
+        "served": 140,
+        "needsHindi": 33,
+        "rejected": 36,
+        "byKind": {
+          "cloze": 48,
+          "mcq": 17,
+          "rule": 63,
+          "scenario": 6,
+          "trueFalse": 6
+        }
       },
       "hindiTextExtractable": false,
       "source": {
@@ -433,11 +460,17 @@
       "counts": {
         "rules": 112,
         "subRules": 13,
-        "cards": 205,
-        "served": 0,
-        "needsHindi": 123,
-        "rejected": 0,
-        "byKind": {}
+        "cards": 230,
+        "served": 199,
+        "needsHindi": 11,
+        "rejected": 20,
+        "byKind": {
+          "cloze": 62,
+          "mcq": 15,
+          "rule": 112,
+          "scenario": 5,
+          "trueFalse": 5
+        }
       },
       "hindiTextExtractable": false,
       "source": {

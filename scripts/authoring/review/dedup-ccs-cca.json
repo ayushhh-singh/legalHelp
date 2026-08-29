@@ -151,6 +151,56 @@
       "maxScore": 77.7,
       "against": "ccs-cca-q-026",
       "verdict": "keep"
+    },
+    "ccs-cca-q-031": {
+      "maxScore": 78.5,
+      "against": "ccs-cca-q-007",
+      "verdict": "keep"
+    },
+    "ccs-cca-q-032": {
+      "maxScore": 77.7,
+      "against": "ccs-cca-q-026",
+      "verdict": "keep"
+    },
+    "ccs-cca-q-033": {
+      "maxScore": 80.0,
+      "against": "ccs-cca-q-026",
+      "verdict": "keep"
+    },
+    "ccs-cca-q-034": {
+      "maxScore": 57.8,
+      "against": "ccs-cca-q-013",
+      "verdict": "keep"
+    },
+    "ccs-cca-q-035": {
+      "maxScore": 80.0,
+      "against": "ccs-cca-q-026",
+      "verdict": "keep"
+    },
+    "ccs-cca-q-036": {
+      "maxScore": 86.5,
+      "against": "ccs-cca-q-026",
+      "verdict": "keep"
+    },
+    "ccs-cca-q-037": {
+      "maxScore": 84.4,
+      "against": "ccs-cca-q-026",
+      "verdict": "keep"
+    },
+    "ccs-cca-q-038": {
+      "maxScore": 81.1,
+      "against": "ccs-cca-q-004",
+      "verdict": "keep"
+    },
+    "ccs-cca-q-039": {
+      "maxScore": 64.5,
+      "against": "ccs-cca-q-026",
+      "verdict": "keep"
+    },
+    "ccs-cca-q-040": {
+      "maxScore": 65.4,
+      "against": "ccs-cca-q-014",
+      "verdict": "keep"
     }
   }
 }

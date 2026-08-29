@@ -1,0 +1,81 @@
+{
+  "_note": "Stage D, written by scripts/authoring/qa_pipeline.py dedup ol-act. rapidfuzz token_set_ratio over every pair of English fronts in this act, including the generated rule and cloze cards. At 90 or above the later question is the duplicate and make_cards.py rejects it.",
+  "threshold": 90.0,
+  "scores": {
+    "ol-act-q-001": {
+      "maxScore": 68.0,
+      "against": "ol-act-cloze-1-crossreference",
+      "verdict": "keep"
+    },
+    "ol-act-q-002": {
+      "maxScore": 60.4,
+      "against": "ol-act-rule-4",
+      "verdict": "keep"
+    },
+    "ol-act-q-003": {
+      "maxScore": 69.6,
+      "against": "ol-act-q-002",
+      "verdict": "keep"
+    },
+    "ol-act-q-004": {
+      "maxScore": 77.3,
+      "against": "ol-act-cloze-2-count",
+      "verdict": "keep"
+    },
+    "ol-act-q-005": {
+      "maxScore": 72.5,
+      "against": "ol-act-q-004",
+      "verdict": "keep"
+    },
+    "ol-act-q-006": {
+      "maxScore": 69.9,
+      "against": "ol-act-q-004",
+      "verdict": "keep"
+    },
+    "ol-act-q-007": {
+      "maxScore": 66.3,
+      "against": "ol-act-q-001",
+      "verdict": "keep"
+    },
+    "ol-act-q-008": {
+      "maxScore": 69.7,
+      "against": "ol-act-cloze-8-definedterm",
+      "verdict": "keep"
+    },
+    "ol-act-q-009": {
+      "maxScore": 71.8,
+      "against": "ol-act-rule-4",
+      "verdict": "keep"
+    },
+    "ol-act-q-010": {
+      "maxScore": 71.8,
+      "against": "ol-act-rule-4",
+      "verdict": "keep"
+    },
+    "ol-act-q-011": {
+      "maxScore": 80.9,
+      "against": "ol-act-cloze-5-definedterm",
+      "verdict": "keep"
+    },
+    "ol-act-q-012": {
+      "maxScore": 67.8,
+      "against": "ol-act-q-011",
+      "verdict": "keep"
+    },
+    "ol-act-q-013": {
+      "maxScore": 62.7,
+      "against": "ol-act-cloze-6-definedterm",
+      "verdict": "keep"
+    },
+    "ol-act-q-014": {
+      "maxScore": 66.0,
+      "against": "ol-act-cloze-7-definedterm",
+      "verdict": "keep"
+    },
+    "ol-act-q-015": {
+      "maxScore": 64.6,
+      "against": "ol-act-q-007",
+      "verdict": "keep"
+    }
+  }
+}

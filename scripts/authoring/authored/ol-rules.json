@@ -1,0 +1,589 @@
+{
+  "_note": "STAGE A · GENERATE. Fifteen bilingual questions on the Official Languages (Use for Official Purposes of the Union) Rules, 1976, written in session by Claude Code with data/rules/text/ol-rules.json open, cross-checked against the established Hindi headings in scripts/authoring/hindi/ol-rules.json for terminology consistency. No API was called. `stageA.angle` records what each question is testing so the batch can be checked for spread. The critic pass is review/critic-ol-rules.json, the blind verify is review/blind-ol-rules.json, and the dedup is written by qa_pipeline.py.",
+  "batchId": "2026-08-29-ol-rules-A",
+  "promptVersion": "rules-qa/1",
+  "cards": [
+    {
+      "id": "ol-rules-q-001",
+      "rule": "1",
+      "kind": "mcq",
+      "front": {
+        "en": "Rule 1 of the Official Languages (Use for Official Purposes of the Union) Rules, 1976 states that the rules extend to the whole of India except which State?",
+        "hi": "राजभाषा (संघ के शासकीय प्रयोजनों के लिए प्रयोग) नियम, 1976 का नियम 1 यह उपबंधित करता है कि ये नियम किस राज्य को छोड़कर संपूर्ण भारत तक विस्तृत हैं?"
+      },
+      "back": {
+        "en": "The State of Tamil Nadu.",
+        "hi": "तमिलनाडु राज्य।"
+      },
+      "options": [
+        { "en": "Jammu and Kashmir", "hi": "जम्मू और कश्मीर" },
+        { "en": "Kerala", "hi": "केरल" },
+        { "en": "Tamil Nadu", "hi": "तमिलनाडु" },
+        { "en": "West Bengal", "hi": "पश्चिम बंगाल" }
+      ],
+      "answerIndex": 2,
+      "explanation": {
+        "en": "Rule 1(ii) extends these rules to the whole of India except the State of Tamil Nadu. They come into force, under Rule 1(iii), on the date of their publication in the Official Gazette.",
+        "hi": "नियम 1(ii) इन नियमों को तमिलनाडु राज्य को छोड़कर संपूर्ण भारत तक विस्तृत करता है। नियम 1(iii) के अधीन ये नियम शासकीय राजपत्र में प्रकाशन की तारीख से प्रवृत्त होते हैं।"
+      },
+      "ruleRef": {
+        "textId": "ol-rules-1",
+        "citation": {
+          "en": "Rule 1, Official Languages (Use for Official Purposes of the Union) Rules, 1976",
+          "hi": "नियम 1, राजभाषा (संघ के शासकीय प्रयोजनों के लिए प्रयोग) नियम, 1976"
+        }
+      },
+      "difficulty": "easy",
+      "stageA": { "index": 1, "angle": "Rule 1(ii) — territorial extent excludes Tamil Nadu" },
+      "groundingRuleIds": ["ol-rules-1"]
+    },
+    {
+      "id": "ol-rules-q-002",
+      "rule": "2",
+      "kind": "mcq",
+      "front": {
+        "en": "Under Rule 2(f), as amended in 2007, which States and Union Territories fall within 'Region A'?",
+        "hi": "2007 में यथासंशोधित नियम 2(च) के अधीन, कौन-से राज्य और संघ राज्यक्षेत्र 'क्षेत्र क' के अंतर्गत आते हैं?"
+      },
+      "back": {
+        "en": "Bihar, Chhattisgarh, Haryana, Himachal Pradesh, Jharkhand, Madhya Pradesh, Rajasthan, Uttar Pradesh, Uttarakhand and the National Capital Territory of Delhi, and the Union Territory of Andaman and Nicobar Islands.",
+        "hi": "बिहार, छत्तीसगढ़, हरियाणा, हिमाचल प्रदेश, झारखंड, मध्य प्रदेश, राजस्थान, उत्तर प्रदेश, उत्तराखंड और राष्ट्रीय राजधानी राज्यक्षेत्र दिल्ली, तथा संघ राज्यक्षेत्र अंडमान और निकोबार द्वीपसमूह।"
+      },
+      "options": [
+        { "en": "Gujarat, Maharashtra and Punjab", "hi": "गुजरात, महाराष्ट्र और पंजाब" },
+        {
+          "en": "Bihar, Uttar Pradesh, Rajasthan and Delhi",
+          "hi": "बिहार, उत्तर प्रदेश, राजस्थान और दिल्ली"
+        },
+        { "en": "Tamil Nadu, Kerala and Karnataka", "hi": "तमिलनाडु, केरल और कर्नाटक" },
+        { "en": "West Bengal, Odisha and Assam", "hi": "पश्चिम बंगाल, ओडिशा और असम" }
+      ],
+      "answerIndex": 1,
+      "explanation": {
+        "en": "The 2007 amendment substituted clause (f) of Rule 2 to list Bihar, Chhattisgarh, Haryana, Himachal Pradesh, Jharkhand, Madhya Pradesh, Rajasthan, Uttar Pradesh, Uttarakhand, the NCT of Delhi and the UT of Andaman and Nicobar Islands as Region A. Gujarat, Maharashtra and Punjab are Region B (Rule 2(g), as amended in 2011); every other State or Union Territory is Region C.",
+        "hi": "2007 के संशोधन ने नियम 2 के खंड (च) को प्रतिस्थापित कर बिहार, छत्तीसगढ़, हरियाणा, हिमाचल प्रदेश, झारखंड, मध्य प्रदेश, राजस्थान, उत्तर प्रदेश, उत्तराखंड, राष्ट्रीय राजधानी राज्यक्षेत्र दिल्ली और संघ राज्यक्षेत्र अंडमान और निकोबार द्वीपसमूह को क्षेत्र क के रूप में सूचीबद्ध किया। गुजरात, महाराष्ट्र और पंजाब क्षेत्र ख (2011 में यथासंशोधित नियम 2(छ)) हैं; शेष सभी राज्य और संघ राज्यक्षेत्र क्षेत्र ग हैं।"
+      },
+      "ruleRef": {
+        "textId": "ol-rules-2",
+        "citation": {
+          "en": "Rule 2, Official Languages (Use for Official Purposes of the Union) Rules, 1976",
+          "hi": "नियम 2, राजभाषा (संघ के शासकीय प्रयोजनों के लिए प्रयोग) नियम, 1976"
+        }
+      },
+      "difficulty": "medium",
+      "stageA": { "index": 2, "angle": "Rule 2(f) as amended 2007 — Region A membership" },
+      "groundingRuleIds": ["ol-rules-2"]
+    },
+    {
+      "id": "ol-rules-q-003",
+      "rule": "2",
+      "kind": "trueFalse",
+      "front": {
+        "en": "Under Rule 2 of the OL Rules, 1976, 'proficiency in Hindi' (clause (e)) is defined by reference to Rule 10.",
+        "hi": "राजभाषा नियम, 1976 के नियम 2 के अधीन, 'हिंदी में प्रवीणता' (खंड (ङ)) को नियम 10 के संदर्भ से परिभाषित किया गया है।"
+      },
+      "back": { "en": "False.", "hi": "असत्य।" },
+      "options": [
+        { "en": "True", "hi": "सत्य" },
+        { "en": "False", "hi": "असत्य" }
+      ],
+      "answerIndex": 1,
+      "explanation": {
+        "en": "Rule 2(e) defines 'proficiency in Hindi' by reference to Rule 9, not Rule 10. Rule 2(i) is the one that defines 'working knowledge of Hindi' by reference to Rule 10 — the two definitions are easy to swap.",
+        "hi": "नियम 2(ङ) 'हिंदी में प्रवीणता' को नियम 9 के संदर्भ से परिभाषित करता है, नियम 10 के नहीं। नियम 2(i) 'हिंदी का कार्यसाधक ज्ञान' को नियम 10 के संदर्भ से परिभाषित करता है — इन दोनों परिभाषाओं को परस्पर बदल देना सरल भूल है।"
+      },
+      "ruleRef": {
+        "textId": "ol-rules-2",
+        "citation": {
+          "en": "Rule 2, Official Languages (Use for Official Purposes of the Union) Rules, 1976",
+          "hi": "नियम 2, राजभाषा (संघ के शासकीय प्रयोजनों के लिए प्रयोग) नियम, 1976"
+        }
+      },
+      "difficulty": "hard",
+      "stageA": {
+        "index": 3,
+        "angle": "Rule 2(e)/(i) — proficiency (Rule 9) versus working knowledge (Rule 10), easily swapped"
+      },
+      "groundingRuleIds": ["ol-rules-2", "ol-rules-9", "ol-rules-10"]
+    },
+    {
+      "id": "ol-rules-q-004",
+      "rule": "3",
+      "kind": "mcq",
+      "front": {
+        "en": "Under Rule 3(1), a communication from a Central Government office to a State or Union Territory in Region A (or to a non-Central-Government office or person there) shall, save in exceptional cases, be in which language?",
+        "hi": "नियम 3(1) के अधीन, केंद्रीय सरकार के किसी कार्यालय से क्षेत्र क के किसी राज्य या संघ राज्यक्षेत्र को (अथवा वहाँ किसी गैर-केंद्रीय-सरकारी कार्यालय या व्यक्ति को) भेजा गया पत्र, अपवादात्मक मामलों को छोड़कर, किस भाषा में होना चाहिए?"
+      },
+      "back": {
+        "en": "In Hindi — and if issued in English, it must be accompanied by a Hindi translation.",
+        "hi": "हिंदी में — और यदि अंग्रेज़ी में जारी किया जाए तो उसके साथ हिंदी अनुवाद संलग्न होना चाहिए।"
+      },
+      "options": [
+        {
+          "en": "In Hindi, with a Hindi translation attached if it is issued in English",
+          "hi": "हिंदी में, और अंग्रेज़ी में जारी करने पर हिंदी अनुवाद संलग्न कर"
+        },
+        { "en": "In English only, with no translation required", "hi": "केवल अंग्रेज़ी में, बिना किसी अनुवाद के" },
+        {
+          "en": "In whichever language the sending officer prefers, with no exceptions",
+          "hi": "भेजने वाले अधिकारी की इच्छानुसार किसी भी भाषा में, बिना किसी अपवाद के"
+        },
+        {
+          "en": "In Hindi and English side by side in every case, without exception",
+          "hi": "हर मामले में हिंदी और अंग्रेज़ी दोनों साथ-साथ, बिना किसी अपवाद के"
+        }
+      ],
+      "answerIndex": 0,
+      "explanation": {
+        "en": "Rule 3(1) makes Hindi the rule for Region A, subject to exceptional cases, and requires a Hindi translation to accompany any communication that is nonetheless issued in English. This is stricter than the Region B rule in Rule 3(2), which only says 'ordinarily' in Hindi.",
+        "hi": "नियम 3(1) क्षेत्र क के लिए हिंदी को नियम बनाता है, अपवादात्मक मामलों के अध्यधीन, और यह अपेक्षा करता है कि यदि पत्र फिर भी अंग्रेज़ी में जारी हो तो उसके साथ हिंदी अनुवाद हो। यह नियम 3(2) के क्षेत्र ख नियम से अधिक कठोर है, जो केवल 'साधारणतया' हिंदी कहता है।"
+      },
+      "ruleRef": {
+        "textId": "ol-rules-3",
+        "citation": {
+          "en": "Rule 3, Official Languages (Use for Official Purposes of the Union) Rules, 1976",
+          "hi": "नियम 3, राजभाषा (संघ के शासकीय प्रयोजनों के लिए प्रयोग) नियम, 1976"
+        }
+      },
+      "difficulty": "medium",
+      "stageA": { "index": 4, "angle": "Rule 3(1) — Region A is mandatory Hindi, not merely 'ordinarily'" },
+      "groundingRuleIds": ["ol-rules-3"]
+    },
+    {
+      "id": "ol-rules-q-005",
+      "rule": "3",
+      "kind": "scenario",
+      "front": {
+        "en": "A Central Government office wishes to write directly to an individual (not to an office) who resides in a State of Region B. Under Rule 3(2)(b), in which language may this communication be sent?",
+        "hi": "केंद्रीय सरकार का कोई कार्यालय क्षेत्र ख के किसी राज्य में रहने वाले किसी व्यक्ति को (किसी कार्यालय को नहीं) सीधे पत्र लिखना चाहता है। नियम 3(2)(ख) के अधीन, यह पत्र किस भाषा में भेजा जा सकता है?"
+      },
+      "back": {
+        "en": "Either in Hindi or in English, at the sending office's choice.",
+        "hi": "भेजने वाले कार्यालय की इच्छानुसार हिंदी या अंग्रेज़ी, दोनों में से किसी में।"
+      },
+      "options": [
+        {
+          "en": "Either Hindi or English, at the sending office's choice",
+          "hi": "भेजने वाले कार्यालय की इच्छानुसार हिंदी या अंग्रेज़ी में से किसी में"
+        },
+        { "en": "Only in Hindi, with no exception", "hi": "केवल हिंदी में, बिना किसी अपवाद के" },
+        {
+          "en": "Only in English, with a Hindi translation compulsorily attached",
+          "hi": "केवल अंग्रेज़ी में, हिंदी अनुवाद अनिवार्यतः संलग्न कर"
+        },
+        {
+          "en": "Only in the language the addressed individual is officially recorded as knowing",
+          "hi": "केवल उस भाषा में जो अभिभाषित व्यक्ति की शासकीय अभिलेख में ज्ञात भाषा हो"
+        }
+      ],
+      "answerIndex": 0,
+      "explanation": {
+        "en": "Rule 3(2)(b) draws a distinct rule for a person, as against Rule 3(2)(a)'s rule for a State, Union Territory or non-Central-Government office in Region B: a communication to a person there may simply be in Hindi or English, with none of the 'ordinarily' or translation conditions that apply to an office.",
+        "hi": "नियम 3(2)(ख) क्षेत्र ख में किसी व्यक्ति के लिए एक अलग नियम बनाता है, जबकि नियम 3(2)(क) वहाँ के किसी राज्य, संघ राज्यक्षेत्र या गैर-केंद्रीय-सरकारी कार्यालय के लिए है: किसी व्यक्ति को भेजा गया पत्र सीधे हिंदी या अंग्रेज़ी में हो सकता है, बिना उन 'साधारणतया' या अनुवाद संबंधी शर्तों के जो किसी कार्यालय पर लागू होती हैं।"
+      },
+      "ruleRef": {
+        "textId": "ol-rules-3",
+        "citation": {
+          "en": "Rule 3, Official Languages (Use for Official Purposes of the Union) Rules, 1976",
+          "hi": "नियम 3, राजभाषा (संघ के शासकीय प्रयोजनों के लिए प्रयोग) नियम, 1976"
+        }
+      },
+      "difficulty": "hard",
+      "stageA": { "index": 5, "angle": "Rule 3(2)(b) — a person in Region B is treated differently from an office there" },
+      "groundingRuleIds": ["ol-rules-3"]
+    },
+    {
+      "id": "ol-rules-q-006",
+      "rule": "4",
+      "kind": "mcq",
+      "front": {
+        "en": "Under the rule governing communications between Central Government offices, a communication between one Ministry or Department and another may be in which language?",
+        "hi": "केंद्रीय सरकार के कार्यालयों के बीच पत्रादि संबंधी नियम के अधीन, एक मंत्रालय या विभाग और दूसरे के बीच पत्र किस भाषा में हो सकता है?"
+      },
+      "back": {
+        "en": "Either in Hindi or in English.",
+        "hi": "हिंदी या अंग्रेज़ी, दोनों में से किसी में।"
+      },
+      "options": [
+        { "en": "Only in Hindi", "hi": "केवल हिंदी में" },
+        { "en": "Either Hindi or English", "hi": "हिंदी या अंग्रेज़ी में से किसी में" },
+        { "en": "Only in English", "hi": "केवल अंग्रेज़ी में" },
+        {
+          "en": "Only bilingually, in Hindi and English together",
+          "hi": "केवल हिंदी और अंग्रेज़ी दोनों में एक साथ"
+        }
+      ],
+      "answerIndex": 1,
+      "explanation": {
+        "en": "Communications between one Ministry or Department of the Central Government and another may be in Hindi or English, at choice. This is the loosest of the inter-office rules; a stricter, Hindi-only rule applies where a Region A office writes to another office within Region A.",
+        "hi": "केंद्रीय सरकार के एक मंत्रालय या विभाग और दूसरे के बीच पत्र इच्छानुसार हिंदी या अंग्रेज़ी में हो सकता है। यह अंतर-कार्यालय नियमों में सबसे शिथिल है; क्षेत्र क के किसी कार्यालय द्वारा क्षेत्र क के ही किसी अन्य कार्यालय को पत्र लिखने पर अधिक कठोर, केवल-हिंदी नियम लागू होता है।"
+      },
+      "ruleRef": {
+        "textId": "ol-rules-4",
+        "citation": {
+          "en": "Rule 4, Official Languages (Use for Official Purposes of the Union) Rules, 1976",
+          "hi": "नियम 4, राजभाषा (संघ के शासकीय प्रयोजनों के लिए प्रयोग) नियम, 1976"
+        }
+      },
+      "difficulty": "easy",
+      "stageA": { "index": 6, "angle": "Ministry-to-Ministry communication — Hindi or English, unconditionally" },
+      "groundingRuleIds": ["ol-rules-4"]
+    },
+    {
+      "id": "ol-rules-q-007",
+      "rule": "4",
+      "kind": "scenario",
+      "front": {
+        "en": "A Central Government office situated in Region A sends a communication in Hindi to another Central Government office situated in Region C. Is a translation of that communication into English required, and if so, when must it be provided?",
+        "hi": "क्षेत्र क में स्थित केंद्रीय सरकार का कोई कार्यालय क्षेत्र ग में स्थित किसी अन्य केंद्रीय सरकार कार्यालय को हिंदी में पत्र भेजता है। क्या इस पत्र का अंग्रेज़ी अनुवाद अपेक्षित है, और यदि हाँ तो वह कब उपलब्ध कराया जाना चाहिए?"
+      },
+      "back": {
+        "en": "Yes — where the communication is addressed to an office in Region C, a translation in the other language must be provided along with the communication itself, unless the receiving office is a notified office.",
+        "hi": "हाँ — जहाँ पत्र क्षेत्र ग के किसी कार्यालय को संबोधित हो, वहाँ दूसरी भाषा में अनुवाद पत्र के साथ ही उपलब्ध कराया जाना चाहिए, जब तक प्राप्तकर्ता कार्यालय अधिसूचित कार्यालय न हो।"
+      },
+      "options": [
+        {
+          "en": "Yes, and it must accompany the communication itself — unless the receiving office is a notified office",
+          "hi": "हाँ, और वह पत्र के साथ ही होना चाहिए — जब तक प्राप्तकर्ता कार्यालय अधिसूचित कार्यालय न हो"
+        },
+        {
+          "en": "Yes, but it may be provided at the receiving office's end whenever convenient",
+          "hi": "हाँ, किंतु वह प्राप्तकर्ता कार्यालय के छोर पर, जब सुविधाजनक हो, उपलब्ध कराया जा सकता है"
+        },
+        {
+          "en": "No translation is ever required between two Central Government offices",
+          "hi": "दो केंद्रीय सरकार कार्यालयों के बीच कभी भी अनुवाद अपेक्षित नहीं है"
+        },
+        {
+          "en": "A translation is required only if the receiving office specifically demands one in writing",
+          "hi": "अनुवाद केवल तभी अपेक्षित है जब प्राप्तकर्ता कार्यालय लिखित रूप से विशेष रूप से माँगे"
+        }
+      ],
+      "answerIndex": 0,
+      "explanation": {
+        "en": "The proviso distinguishes where the translation is supplied: for a communication addressed to an office in Region A or Region B, the translation may be provided at the receiving end, if necessary; for one addressed to an office in Region C, it must be provided along with the communication. Either way, no translation at all is required if the communication is addressed to a notified office.",
+        "hi": "परंतुक यह भेद करता है कि अनुवाद कहाँ उपलब्ध कराया जाए: क्षेत्र क या क्षेत्र ख के किसी कार्यालय को संबोधित पत्र के लिए अनुवाद, आवश्यक होने पर, प्राप्ति छोर पर उपलब्ध कराया जा सकता है; क्षेत्र ग के किसी कार्यालय को संबोधित पत्र के लिए वह पत्र के साथ ही उपलब्ध कराना होगा। दोनों ही स्थितियों में, यदि पत्र किसी अधिसूचित कार्यालय को संबोधित हो तो कोई अनुवाद अपेक्षित नहीं है।"
+      },
+      "ruleRef": {
+        "textId": "ol-rules-4",
+        "citation": {
+          "en": "Rule 4, Official Languages (Use for Official Purposes of the Union) Rules, 1976",
+          "hi": "नियम 4, राजभाषा (संघ के शासकीय प्रयोजनों के लिए प्रयोग) नियम, 1976"
+        }
+      },
+      "difficulty": "hard",
+      "stageA": {
+        "index": 7,
+        "angle": "The translation proviso — receiving-end for A/B, accompanying for C, none for a notified office"
+      },
+      "groundingRuleIds": ["ol-rules-4"]
+    },
+    {
+      "id": "ol-rules-q-008",
+      "rule": "5",
+      "kind": "scenario",
+      "front": {
+        "en": "A Central Government office receives a letter written in Hindi from a State Government office in Region C, where correspondence would otherwise ordinarily be in English. Under Rule 5, in what language must the reply be sent?",
+        "hi": "केंद्रीय सरकार का कोई कार्यालय क्षेत्र ग के किसी राज्य सरकार कार्यालय से हिंदी में लिखा पत्र प्राप्त करता है, जबकि अन्यथा वहाँ पत्राचार साधारणतया अंग्रेज़ी में होता। नियम 5 के अधीन, उत्तर किस भाषा में भेजा जाना चाहिए?"
+      },
+      "back": {
+        "en": "In Hindi — Rule 5 overrides Rules 3 and 4 whenever the received communication is in Hindi.",
+        "hi": "हिंदी में — जब भी प्राप्त पत्र हिंदी में हो, नियम 5, नियम 3 और नियम 4 पर अध्यारोही होता है।"
+      },
+      "options": [
+        {
+          "en": "In Hindi, because Rule 5 requires a reply to a Hindi communication to be in Hindi regardless of Rules 3 and 4",
+          "hi": "हिंदी में, क्योंकि नियम 5 नियम 3 और 4 के होते हुए भी हिंदी में प्राप्त पत्र के उत्तर को हिंदी में अपेक्षित करता है"
+        },
+        {
+          "en": "In English, because Region C correspondence is ordinarily in English",
+          "hi": "अंग्रेज़ी में, क्योंकि क्षेत्र ग का पत्राचार साधारणतया अंग्रेज़ी में होता है"
+        },
+        {
+          "en": "In whichever language the replying office normally uses for that State",
+          "hi": "जिस भाषा का प्रयोग उत्तर देने वाला कार्यालय उस राज्य के लिए सामान्यतः करता है, उसी में"
+        },
+        {
+          "en": "In English, with a Hindi translation attached",
+          "hi": "अंग्रेज़ी में, हिंदी अनुवाद संलग्न कर"
+        }
+      ],
+      "answerIndex": 0,
+      "explanation": {
+        "en": "Rule 5 opens 'Notwithstanding anything contained in rules 3 and 4' — it is a deliberate override. Once a communication reaches a Central Government office in Hindi, the reply must be in Hindi, whatever language Rules 3 and 4 would otherwise have prescribed for that region or that pair of offices.",
+        "hi": "नियम 5 'नियम 3 और 4 में किसी बात के होते हुए भी' से आरंभ होता है — यह एक जानबूझकर किया गया अध्यारोहण है। जैसे ही कोई पत्र केंद्रीय सरकार के कार्यालय को हिंदी में प्राप्त होता है, उत्तर हिंदी में ही होना चाहिए, चाहे उस क्षेत्र या उस कार्यालय-युग्म के लिए नियम 3 और 4 अन्यथा जो भी भाषा विहित करते हों।"
+      },
+      "ruleRef": {
+        "textId": "ol-rules-5",
+        "citation": {
+          "en": "Rule 5, Official Languages (Use for Official Purposes of the Union) Rules, 1976",
+          "hi": "नियम 5, राजभाषा (संघ के शासकीय प्रयोजनों के लिए प्रयोग) नियम, 1976"
+        }
+      },
+      "difficulty": "medium",
+      "stageA": { "index": 8, "angle": "Rule 5's override of Rules 3 and 4 whenever the received letter is in Hindi" },
+      "groundingRuleIds": ["ol-rules-5", "ol-rules-3", "ol-rules-4"]
+    },
+    {
+      "id": "ol-rules-q-009",
+      "rule": "6",
+      "kind": "trueFalse",
+      "front": {
+        "en": "Under Rule 6, a document referred to in sub-section (3) of section 3 of the Official Languages Act, 1963 may be made, executed or issued in only one of Hindi or English, at the signing officer's discretion.",
+        "hi": "नियम 6 के अधीन, राजभाषा अधिनियम, 1963 की धारा 3 की उपधारा (3) में निर्दिष्ट कोई दस्तावेज़ हस्ताक्षरकर्ता अधिकारी के विवेकानुसार हिंदी या अंग्रेज़ी में से केवल एक में बनाया, निष्पादित या जारी किया जा सकता है।"
+      },
+      "back": { "en": "False.", "hi": "असत्य।" },
+      "options": [
+        { "en": "True", "hi": "सत्य" },
+        { "en": "False", "hi": "असत्य" }
+      ],
+      "answerIndex": 1,
+      "explanation": {
+        "en": "Rule 6 requires both Hindi and English to be used for every such document, with no discretion to choose one — it makes it the responsibility of the person signing the document to ensure both language versions are made, executed or issued.",
+        "hi": "नियम 6 ऐसे प्रत्येक दस्तावेज़ के लिए हिंदी और अंग्रेज़ी दोनों के प्रयोग की अपेक्षा करता है, एक चुनने का कोई विवेकाधिकार नहीं है — यह दस्तावेज़ पर हस्ताक्षर करने वाले व्यक्ति का उत्तरदायित्व बनाता है कि दोनों भाषा-संस्करण बनाए, निष्पादित या जारी किए जाएँ।"
+      },
+      "ruleRef": {
+        "textId": "ol-rules-6",
+        "citation": {
+          "en": "Rule 6, Official Languages (Use for Official Purposes of the Union) Rules, 1976",
+          "hi": "नियम 6, राजभाषा (संघ के शासकीय प्रयोजनों के लिए प्रयोग) नियम, 1976"
+        }
+      },
+      "difficulty": "medium",
+      "stageA": {
+        "index": 9,
+        "angle": "Rule 6 — both languages mandatory, not a choice, and the signer's responsibility"
+      },
+      "groundingRuleIds": ["ol-rules-6"]
+    },
+    {
+      "id": "ol-rules-q-010",
+      "rule": "7",
+      "kind": "mcq",
+      "front": {
+        "en": "Under Rule 7(1) and (2), an employee submits an application in Hindi. In what language must the reply be given?",
+        "hi": "नियम 7(1) और (2) के अधीन, कोई कर्मचारी हिंदी में आवेदन प्रस्तुत करता है। उत्तर किस भाषा में दिया जाना चाहिए?"
+      },
+      "back": {
+        "en": "In Hindi.",
+        "hi": "हिंदी में।"
+      },
+      "options": [
+        { "en": "In Hindi", "hi": "हिंदी में" },
+        {
+          "en": "In English, since official replies are drafted centrally",
+          "hi": "अंग्रेज़ी में, क्योंकि शासकीय उत्तर केंद्रीय रूप से प्रारूपित होते हैं"
+        },
+        {
+          "en": "In whichever language the sanctioning authority prefers",
+          "hi": "मंजूरी देने वाले प्राधिकारी की इच्छानुसार भाषा में"
+        },
+        { "en": "In English, with a Hindi summary attached", "hi": "अंग्रेज़ी में, हिंदी सारांश संलग्न कर" }
+      ],
+      "answerIndex": 0,
+      "explanation": {
+        "en": "Rule 7(1) lets an employee apply, appeal or represent in Hindi or English. Rule 7(2) then requires that when the application is made or signed in Hindi, the reply must be in Hindi. Rule 7(3) further entitles an employee to receive a service-matter order or notice in whichever of the two languages he desires.",
+        "hi": "नियम 7(1) कर्मचारी को हिंदी या अंग्रेज़ी में आवेदन, अपील या अभ्यावेदन करने देता है। नियम 7(2) फिर यह अपेक्षा करता है कि जब आवेदन हिंदी में किया या हस्ताक्षरित हो, तो उत्तर हिंदी में ही हो। नियम 7(3) आगे कर्मचारी को यह हक देता है कि सेवा-मामले संबंधी आदेश या सूचना उसकी इच्छित भाषा में ही उसे दी जाए।"
+      },
+      "ruleRef": {
+        "textId": "ol-rules-7",
+        "citation": {
+          "en": "Rule 7, Official Languages (Use for Official Purposes of the Union) Rules, 1976",
+          "hi": "नियम 7, राजभाषा (संघ के शासकीय प्रयोजनों के लिए प्रयोग) नियम, 1976"
+        }
+      },
+      "difficulty": "easy",
+      "stageA": { "index": 10, "angle": "Rule 7(2) — a Hindi application gets a Hindi reply" },
+      "groundingRuleIds": ["ol-rules-7"]
+    },
+    {
+      "id": "ol-rules-q-011",
+      "rule": "8",
+      "kind": "mcq",
+      "front": {
+        "en": "Rule 8(2) bars a Central Government employee possessing a working knowledge of Hindi from asking for an English translation of a Hindi document, except in which case?",
+        "hi": "नियम 8(2) हिंदी का कार्यसाधक ज्ञान रखने वाले केंद्रीय सरकार कर्मचारी को हिंदी दस्तावेज़ के अंग्रेज़ी अनुवाद की माँग करने से रोकता है, सिवाय किस स्थिति में?"
+      },
+      "back": {
+        "en": "Where the document is of a legal or technical nature.",
+        "hi": "जहाँ दस्तावेज़ विधिक या तकनीकी प्रकृति का हो।"
+      },
+      "options": [
+        {
+          "en": "Where the document is of a legal or technical nature",
+          "hi": "जहाँ दस्तावेज़ विधिक या तकनीकी प्रकृति का हो"
+        },
+        { "en": "Where the document exceeds five pages in length", "hi": "जहाँ दस्तावेज़ पाँच पृष्ठों से अधिक लंबा हो" },
+        {
+          "en": "Where the document is addressed to a person outside the office",
+          "hi": "जहाँ दस्तावेज़ कार्यालय के बाहर के किसी व्यक्ति को संबोधित हो"
+        },
+        {
+          "en": "Where the employee has been in service for less than one year",
+          "hi": "जहाँ कर्मचारी की सेवा एक वर्ष से कम हो"
+        }
+      ],
+      "answerIndex": 0,
+      "explanation": {
+        "en": "Rule 8(2)'s exception is about the nature of the document, not its length, addressee or the employee's seniority. Rule 8(3) adds that if a dispute arises over whether a document is legal or technical, the Head of the Department or office decides.",
+        "hi": "नियम 8(2) का अपवाद दस्तावेज़ की प्रकृति से संबंधित है, न कि उसकी लंबाई, अभिग्राहक या कर्मचारी की वरिष्ठता से। नियम 8(3) आगे यह जोड़ता है कि यदि इस बारे में विवाद उठे कि कोई दस्तावेज़ विधिक या तकनीकी है या नहीं, तो विभाग या कार्यालय का प्रधान इसका विनिश्चय करेगा।"
+      },
+      "ruleRef": {
+        "textId": "ol-rules-8",
+        "citation": {
+          "en": "Rule 8, Official Languages (Use for Official Purposes of the Union) Rules, 1976",
+          "hi": "नियम 8, राजभाषा (संघ के शासकीय प्रयोजनों के लिए प्रयोग) नियम, 1976"
+        }
+      },
+      "difficulty": "medium",
+      "stageA": { "index": 11, "angle": "Rule 8(2) — the legal/technical exception to the no-translation-demand rule" },
+      "groundingRuleIds": ["ol-rules-8"]
+    },
+    {
+      "id": "ol-rules-q-012",
+      "rule": "9",
+      "kind": "mcq",
+      "front": {
+        "en": "Under Rule 9, an employee is deemed to possess 'proficiency in Hindi' if which of the following is true?",
+        "hi": "नियम 9 के अधीन, कोई कर्मचारी 'हिंदी में प्रवीण' तब माना जाता है जब निम्नलिखित में से क्या सत्य हो?"
+      },
+      "back": {
+        "en": "He has passed Matriculation or an equivalent/higher examination with Hindi as the medium of examination, or taken Hindi as an elective subject at degree level or higher, or self-declared proficiency in the prescribed form.",
+        "hi": "उसने हिंदी माध्यम से मैट्रिकुलेशन या समकक्ष/उच्चतर परीक्षा उत्तीर्ण की हो, अथवा स्नातक स्तर या उससे उच्चतर परीक्षा में हिंदी को ऐच्छिक विषय के रूप में लिया हो, अथवा विहित प्रपत्र में प्रवीणता की स्वयं घोषणा की हो।"
+      },
+      "options": [
+        {
+          "en": "He has passed Matriculation with Hindi as the medium of examination, or taken Hindi as an elective at degree level, or self-declared proficiency in the prescribed form",
+          "hi": "उसने हिंदी माध्यम से मैट्रिकुलेशन उत्तीर्ण की हो, अथवा स्नातक स्तर पर हिंदी को ऐच्छिक विषय लिया हो, अथवा विहित प्रपत्र में स्वयं प्रवीणता घोषित की हो"
+        },
+        {
+          "en": "He has merely worked for five years in a Region A office",
+          "hi": "उसने केवल क्षेत्र क के किसी कार्यालय में पाँच वर्ष कार्य किया हो"
+        },
+        { "en": "He has passed the Pragya examination alone", "hi": "उसने केवल प्रज्ञा परीक्षा उत्तीर्ण की हो" },
+        {
+          "en": "His superior officer certifies that he speaks Hindi fluently",
+          "hi": "उसका वरिष्ठ अधिकारी प्रमाणित करे कि वह हिंदी धाराप्रवाह बोलता है"
+        }
+      ],
+      "answerIndex": 0,
+      "explanation": {
+        "en": "Rule 9 lists three independent routes to 'proficiency': a Hindi-medium Matriculation or higher examination, a Hindi elective at degree level or higher, or self-declaration in the annexed form. The Pragya examination and years of service in a particular region are routes to 'working knowledge' under Rule 10, a lower and different standard.",
+        "hi": "नियम 9 'प्रवीणता' के लिए तीन स्वतंत्र मार्ग गिनाता है: हिंदी माध्यम से मैट्रिकुलेशन या उच्चतर परीक्षा, स्नातक स्तर या उससे उच्चतर पर हिंदी ऐच्छिक विषय, अथवा संलग्न प्रपत्र में स्वयं घोषणा। प्रज्ञा परीक्षा और किसी विशेष क्षेत्र में सेवा के वर्ष नियम 10 के अधीन 'कार्यसाधक ज्ञान' — एक निम्नतर और भिन्न मानक — के मार्ग हैं।"
+      },
+      "ruleRef": {
+        "textId": "ol-rules-9",
+        "citation": {
+          "en": "Rule 9, Official Languages (Use for Official Purposes of the Union) Rules, 1976",
+          "hi": "नियम 9, राजभाषा (संघ के शासकीय प्रयोजनों के लिए प्रयोग) नियम, 1976"
+        }
+      },
+      "difficulty": "medium",
+      "stageA": { "index": 12, "angle": "Rule 9's three routes to proficiency, distinguished from Rule 10's working knowledge" },
+      "groundingRuleIds": ["ol-rules-9", "ol-rules-10"]
+    },
+    {
+      "id": "ol-rules-q-013",
+      "rule": "10",
+      "kind": "mcq",
+      "front": {
+        "en": "Under Rule 10(2), the staff of a Central Government office are ordinarily deemed to have acquired a working knowledge of Hindi if what percentage of the staff working there have acquired such knowledge?",
+        "hi": "नियम 10(2) के अधीन, किसी केंद्रीय सरकार कार्यालय के कर्मचारीवृंद को साधारणतया हिंदी का कार्यसाधक ज्ञान अर्जित किया हुआ तब माना जाता है जब वहाँ कार्यरत कर्मचारीवृंद का कितना प्रतिशत ऐसा ज्ञान अर्जित कर चुका हो?"
+      },
+      "back": {
+        "en": "Eighty per cent.",
+        "hi": "अस्सी प्रतिशत।"
+      },
+      "options": [
+        { "en": "Fifty per cent", "hi": "पचास प्रतिशत" },
+        { "en": "Sixty per cent", "hi": "साठ प्रतिशत" },
+        { "en": "Eighty per cent", "hi": "अस्सी प्रतिशत" },
+        { "en": "One hundred per cent", "hi": "सौ प्रतिशत" }
+      ],
+      "answerIndex": 2,
+      "explanation": {
+        "en": "Rule 10(2) sets the office-level threshold at 80 per cent. Rule 10(4) then requires such offices to be notified in the Official Gazette, and allows the Central Government to denotify an office if its percentage later falls below 80.",
+        "hi": "नियम 10(2) कार्यालय-स्तरीय सीमा 80 प्रतिशत रखता है। नियम 10(4) फिर ऐसे कार्यालयों को शासकीय राजपत्र में अधिसूचित करने की अपेक्षा करता है, और केंद्रीय सरकार को यह अधिकार देता है कि यदि किसी कार्यालय का प्रतिशत बाद में 80 से नीचे चला जाए तो वह उसे अधिसूचित कार्यालय की श्रेणी से हटा दे।"
+      },
+      "ruleRef": {
+        "textId": "ol-rules-10",
+        "citation": {
+          "en": "Rule 10, Official Languages (Use for Official Purposes of the Union) Rules, 1976",
+          "hi": "नियम 10, राजभाषा (संघ के शासकीय प्रयोजनों के लिए प्रयोग) नियम, 1976"
+        }
+      },
+      "difficulty": "medium",
+      "stageA": { "index": 13, "angle": "Rule 10(2) — the 80% office-level threshold and Rule 10(4)'s denotification" },
+      "groundingRuleIds": ["ol-rules-10"]
+    },
+    {
+      "id": "ol-rules-q-014",
+      "rule": "11",
+      "kind": "trueFalse",
+      "front": {
+        "en": "Under Rule 11, name-plates, sign-boards, letter-heads and inscriptions on envelopes and other items of stationery for use in a Central Government office must be in both Hindi and English, unless the office has been specifically exempted.",
+        "hi": "नियम 11 के अधीन, केंद्रीय सरकार कार्यालय में प्रयोग के लिए नाम-पट्ट, सूचना-पट्ट, पत्र-शीर्ष तथा लिफाफों एवं अन्य लेखन-सामग्री की वस्तुओं पर उत्कीर्णन हिंदी और अंग्रेज़ी दोनों में होना चाहिए, जब तक कि कार्यालय को विशेष रूप से छूट न दी गई हो।"
+      },
+      "back": { "en": "True.", "hi": "सत्य।" },
+      "options": [
+        { "en": "True", "hi": "सत्य" },
+        { "en": "False", "hi": "असत्य" }
+      ],
+      "answerIndex": 0,
+      "explanation": {
+        "en": "Rule 11(3) requires this bilingual treatment for name-plates, sign-boards, letter-heads and stationery, with a proviso allowing the Central Government to exempt any office from all or any of the rule's provisions by general or special order. Rule 11(1) similarly requires manuals, codes and procedural literature to be published in Hindi and English in diglot form, and Rule 11(2) requires the forms and headings of registers to be bilingual.",
+        "hi": "नियम 11(3) नाम-पट्ट, सूचना-पट्ट, पत्र-शीर्ष और लेखन-सामग्री के लिए इस द्विभाषिक व्यवहार की अपेक्षा करता है, साथ ही एक परंतुक केंद्रीय सरकार को सामान्य या विशेष आदेश द्वारा किसी कार्यालय को इस नियम के सभी या किसी उपबंध से छूट देने की शक्ति देता है। नियम 11(1) इसी प्रकार सभी मैनुअल, संहिताओं और प्रक्रिया साहित्य को हिंदी और अंग्रेज़ी में द्विभाषी रूप में प्रकाशित करने की अपेक्षा करता है, और नियम 11(2) रजिस्टरों के प्रपत्रों और शीर्षकों को द्विभाषी बनाने की अपेक्षा करता है।"
+      },
+      "ruleRef": {
+        "textId": "ol-rules-11",
+        "citation": {
+          "en": "Rule 11, Official Languages (Use for Official Purposes of the Union) Rules, 1976",
+          "hi": "नियम 11, राजभाषा (संघ के शासकीय प्रयोजनों के लिए प्रयोग) नियम, 1976"
+        }
+      },
+      "difficulty": "easy",
+      "stageA": { "index": 14, "angle": "Rule 11(3) — bilingual stationery, with the exemption proviso" },
+      "groundingRuleIds": ["ol-rules-11"]
+    },
+    {
+      "id": "ol-rules-q-015",
+      "rule": "12",
+      "kind": "mcq",
+      "front": {
+        "en": "Under Rule 12(1), whose responsibility is it to ensure that the provisions of the Official Languages Act, 1963 and these rules are properly complied with in a Central Government office?",
+        "hi": "नियम 12(1) के अधीन, यह सुनिश्चित करने का उत्तरदायित्व किसका है कि केंद्रीय सरकार कार्यालय में राजभाषा अधिनियम, 1963 और इन नियमों के उपबंधों का समुचित अनुपालन हो?"
+      },
+      "back": {
+        "en": "The administrative head of that Central Government office.",
+        "hi": "उस केंद्रीय सरकार कार्यालय के प्रशासनिक प्रधान का।"
+      },
+      "options": [
+        { "en": "The Department of Official Language alone", "hi": "केवल राजभाषा विभाग का" },
+        {
+          "en": "The administrative head of that Central Government office",
+          "hi": "उस केंद्रीय सरकार कार्यालय के प्रशासनिक प्रधान का"
+        },
+        {
+          "en": "Every individual employee, equally and independently",
+          "hi": "प्रत्येक कर्मचारी का, समान और स्वतंत्र रूप से"
+        },
+        { "en": "The Central Information Commission", "hi": "केंद्रीय सूचना आयोग का" }
+      ],
+      "answerIndex": 1,
+      "explanation": {
+        "en": "Rule 12(1) places the responsibility on the administrative head of each Central Government office — both to ensure compliance with the Act, these rules and directions issued, and to devise suitable and effective checkpoints for that purpose. Rule 12(2) separately empowers the Central Government to issue further directions as necessary.",
+        "hi": "नियम 12(1) प्रत्येक केंद्रीय सरकार कार्यालय के प्रशासनिक प्रधान पर यह उत्तरदायित्व डालता है — अधिनियम, इन नियमों और जारी निदेशों के अनुपालन को सुनिश्चित करना, तथा इस प्रयोजन के लिए समुचित और प्रभावी नियंत्रण-बिंदु तैयार करना दोनों। नियम 12(2) अलग से केंद्रीय सरकार को आवश्यकतानुसार आगे निदेश जारी करने की शक्ति देता है।"
+      },
+      "ruleRef": {
+        "textId": "ol-rules-12",
+        "citation": {
+          "en": "Rule 12, Official Languages (Use for Official Purposes of the Union) Rules, 1976",
+          "hi": "नियम 12, राजभाषा (संघ के शासकीय प्रयोजनों के लिए प्रयोग) नियम, 1976"
+        }
+      },
+      "difficulty": "easy",
+      "stageA": { "index": 15, "angle": "Rule 12(1) — the administrative head's compliance responsibility" },
+      "groundingRuleIds": ["ol-rules-12"]
+    }
+  ]
+}

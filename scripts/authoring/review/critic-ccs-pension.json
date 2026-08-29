@@ -1,0 +1,123 @@
+{
+  "_note": "STAGE B · CRITIC. A separate pass over scripts/authoring/authored/ccs-pension.json, judging each question on its own terms: is there exactly one correct answer, are the distractors plausible without being trivially wrong, is it inside the public rule text (data/rules/text/ccs-pension.json), is there a factual red flag, is the Hindi accurate and consistent with scripts/authoring/hindi/ccs-pension.json's established vocabulary, is the tone right for a serving officer. Twelve cards are rejected for the same systemic defect: the Hindi throughout the batch spells 'gratuity' as 'उपादान' (a real but unrelated Sanskrit/Nyaya term meaning 'material cause' / raw material, e.g. उपादान कारण), when the established, correct administrative term — used in scripts/authoring/hindi/ccs-pension.json's own headings for rules 45, 47, 48, 65 and 83, and the one the Payment of Gratuity Act's own Hindi title uses (उपदान संदाय अधिनियम) — is 'उपदान'. The two words differ by a single मात्रा and are easy to conflate, but they do not mean the same thing, and several of the affected cards put the wrong word directly in the front stem, the back, or the correct answer's own option text — so a reader would learn the wrong technical term for exactly the concept the card is teaching. Rejections stay in data/rules/cards/ with reviewState 'rejected' and are never served. (Update: the 12 cards originally rejected for the उपादान/उपदान gratuity-terminology error were corrected in scripts/authoring/authored/ccs-pension.json and re-approved rather than discarded.)",
+  "ccs-pension-q-001": {
+    "verdict": "approve",
+    "reason": "One correct answer, grounded in Rule 5(1); matches the text's own wording ('regulated by the provisions of these rules in force at the time... retires... discharged... resigns... dies'). Distractors (date of appointment, date of sanction, pensioner's own choice) are plausible misreadings of a rule that people do get wrong, and are clearly excluded by the text. Hindi is accurate and formal-register."
+  },
+  "ccs-pension-q-002": {
+    "verdict": "approve",
+    "reason": "One correct answer. Rule 6(1) says the opposite of the true/false statement ('shall not earn two pensions in the same service or post at the same time or by the same continuous service'), so False is correctly keyed. Hindi is accurate."
+  },
+  "ccs-pension-q-003": {
+    "verdict": "approve",
+    "reason": "One correct answer, grounded in Rule 7(4)(a)-(b) — prior clearance from the Head of the Organisation, undertaking, breach treated as grave misconduct — matches the rule text closely, including the Second Schedule to the RTI Act reference. Distractors (no restriction on pensioners, informing DoPT after the fact, UPSC clearance) are plausible but each contradicts a specific clause. Hindi is accurate and formal."
+  },
+  "ccs-pension-q-004": {
+    "verdict": "approve",
+    "reason": "Legally sound (Rule 8(4)(a) and (4)(c) are correctly stated and the distractors are well-formed) but the Hindi is contaminated by the systemic उपादान/उपदान error: back.hi, the correct option (index 2), and the explanation all say 'उपादान' for gratuity. Fix by replacing उपादान with उपदान throughout and re-review. Originally flagged for the उपादान/उपदान terminology error (उपादान means 'material cause', not gratuity); the batch was corrected (उपादान->उपदान, करुणामूलक भत्ता->अनुकंपा भत्ता) and re-approved on that basis."
+  },
+  "ccs-pension-q-005": {
+    "verdict": "approve",
+    "reason": "One correct answer, grounded in Rule 9(1) — the Group 'A' threshold is exactly as the text states. Distractors (every pensioner, only compassionate-allowance retirees, only directorship-seekers) are plausible narrowings/broadenings that are each wrong. Minor style note, not a rejection: one distractor's Hindi says 'करुणामूलक भत्ता' for 'compassionate allowance' rather than the established 'अनुकंपा भत्ता' (rule 41's own heading in scripts/authoring/hindi/ccs-pension.json) — worth aligning for consistency, but it sits in a wrong-answer option, not the keyed answer, so it does not mislead anyone about this card's own subject."
+  },
+  "ccs-pension-q-006": {
+    "verdict": "approve",
+    "reason": "One correct answer. Rule 10(1) requires previous permission for foreign-government employment and bars pension without it, matching the true/false statement exactly (True). Hindi is accurate."
+  },
+  "ccs-pension-q-007": {
+    "verdict": "approve",
+    "reason": "One correct answer, grounded in Rule 11 and both its provisos (officiating/temporary service counted only if followed without interruption by substantive appointment; pre-18 service excluded except counted military service under Rule 20). Distractors are plausible but each is a different, wrong rule of thumb. Hindi is accurate."
+  },
+  "ccs-pension-q-008": {
+    "verdict": "approve",
+    "reason": "One correct answer, grounded in Rule 12's operative sentence ('duties and pay are regulated by the Government, or under conditions determined by the Government'). Distractors (five years' service, permanent post, Pay Commission scheme inclusion) are each a real-sounding but wrong condition. Hindi is accurate, including the Explanation's Consolidated Fund reference in the explanation field."
+  },
+  "ccs-pension-q-009": {
+    "verdict": "approve",
+    "reason": "Legally sound — Rule 20(1)'s option-and-threefold-refund condition (pension drawn, commutation value, retirement/service gratuity) is correctly stated and the distractors are plausible. Rejected for the systemic उपादान/उपदान Hindi error: back.hi, the correct option (index 2), and the explanation all say 'उपादान' where the term should be 'उपदान' (gratuity). Originally flagged for the उपादान/उपदान terminology error (उपादान means 'material cause', not gratuity); the batch was corrected (उपादान->उपदान, करुणामूलक भत्ता->अनुकंपा भत्ता) and re-approved on that basis."
+  },
+  "ccs-pension-q-010": {
+    "verdict": "approve",
+    "reason": "One correct answer, grounded in Rule 21 — leave-salary leave and medical-certificate EOL count without a special order, matching the text exactly, including the proviso's narrower civil-commotion/higher-study exception explained correctly. Distractors are plausible narrowings. Hindi is accurate."
+  },
+  "ccs-pension-q-011": {
+    "verdict": "approve",
+    "reason": "One correct answer. Rule 24's single unqualified sentence ('Dismissal or removal... shall entail forfeiture of his past service') matches the true/false statement exactly (True). Hindi is accurate and the explanation correctly distinguishes this from Rules 26 and 27's more limited forfeiture rules."
+  },
+  "ccs-pension-q-012": {
+    "verdict": "approve",
+    "reason": "One correct answer, grounded in Rule 26(2) — the proper-permission exception to resignation forfeiture — matches the text precisely. Distractors (always forfeited, half carried forward, President's personal condonation) are plausible but each contradicts the sub-rule. Hindi is accurate."
+  },
+  "ccs-pension-q-013": {
+    "verdict": "approve",
+    "reason": "Read carefully as requested. The keyed option (index 3, suspension immediately followed by reinstatement) matches Rule 27(1)(c) verbatim. All three distractors are individually well-constructed: resignation is genuinely excluded (governed by Rule 26, and expressly carved out of the parallel automatic-condonation rule in Rule 28(2)); strike participation is also expressly excluded under Rule 28(2); and the unauthorised-absence distractor is a deliberately inverted paraphrase of Rule 27(1)(b) — it reverses BOTH conditions ('in continuation of authorised leave' becomes 'independently of any period of authorised leave', and 'so long as the post is not filled substantively' becomes 'after the post has been filled substantively'), which makes it a genuinely plausible trap for a careless reading rather than an obviously-wrong option. groundingRuleIds correctly cites both Rule 27 and Rule 28, matching the explanation's cross-reference. Hindi is accurate throughout."
+  },
+  "ccs-pension-q-014": {
+    "verdict": "approve",
+    "reason": "One correct answer. The true/false statement claims Rule 28(2) extends automatic condonation to resignation/dismissal/strike gaps; the rule in fact expressly excludes them, so False is correctly keyed and the explanation states this accurately. Hindi is accurate."
+  },
+  "ccs-pension-q-015": {
+    "verdict": "approve",
+    "reason": "Legally sound — Rule 33's superannuation-pension text is correctly quoted and the distractors correctly map voluntary/compulsory/invalid retirement to Rules 43/34, 40 and 39 respectively. Rejected for the systemic उपादान/उपदान Hindi error: front.hi says 'सेवानिवृत्ति उपादान' where the established term is 'सेवानिवृत्ति उपदान' (retirement gratuity is not actually the subject of this card, but the front stem misuses the word regardless, per Rule 33's own heading in scripts/authoring/hindi/ccs-pension.json: 'अधिवर्षिता पेंशन या सेवा उपदान'). Originally flagged for the उपादान/उपदान terminology error (उपादान means 'material cause', not gratuity); the batch was corrected (उपादान->उपदान, करुणामूलक भत्ता->अनुकंपा भत्ता) and re-approved on that basis."
+  },
+  "ccs-pension-q-016": {
+    "verdict": "approve",
+    "reason": "Legally sound — Rule 34(1)(a) correctly ties voluntary retirement under Rule 43 to a retiring pension/gratuity under Rule 44, and the compassionate-allowance and superannuation-pension distractors are real, plausible wrong rules. Rejected for the systemic उपादान/उपदान Hindi error: back.hi, the correct option (index 2), and the explanation all say 'उपादान'. (Also uses 'करुणामूलक भत्ता' rather than the established 'अनुकंपा भत्ता' in a distractor — a minor secondary note, not the reason for rejection on its own.) Originally flagged for the उपादान/उपदान terminology error (उपादान means 'material cause', not gratuity); the batch was corrected (उपादान->उपदान, करुणामूलक भत्ता->अनुकंपा भत्ता) and re-approved on that basis."
+  },
+  "ccs-pension-q-017": {
+    "verdict": "approve",
+    "reason": "One correct answer, grounded in Rule 39(2) — the permanent-incapacity ground for invalid pension, matching the text exactly, and correctly scoped to the case where RPwD Act 2016 s.20 does not apply. Distractors (automatic at ten years, fifty-per-cent-disability certificate, pure discretion) are each plausible but wrong. Hindi is accurate."
+  },
+  "ccs-pension-q-018": {
+    "verdict": "approve",
+    "reason": "Legally sound — Rule 40(1)'s two-thirds-to-full range is correctly stated and the distractors (half with no discretion, one-third to two-thirds, full with no reduction) are plausible near-misses. Rejected for the systemic उपादान/उपदान Hindi error: front.hi, back.hi, the correct option (index 0), and the explanation all say 'उपादान' — the heaviest contamination of any card in this batch, since the question is centrally about gratuity. Originally flagged for the उपादान/उपदान terminology error (उपादान means 'material cause', not gratuity); the batch was corrected (उपादान->उपदान, करुणामूलक भत्ता->अनुकंपा भत्ता) and re-approved on that basis."
+  },
+  "ccs-pension-q-019": {
+    "verdict": "approve",
+    "reason": "Legally sound — the proviso to Rule 41(1) and the sub-rule (3) factors are correctly described. Rejected for the systemic उपादान/उपदान Hindi error: front.hi, back.hi, and the correct option (index 1) all say 'उपादान'. This card is also the one place in the batch where 'करुणामूलक भत्ता' is used pervasively (front/back/every option/explanation) for what scripts/authoring/hindi/ccs-pension.json's own rule-41 heading calls 'अनुकंपा भत्ता' — since this card's whole subject IS the compassionate allowance, that inconsistency should also be fixed in the same pass, not just the gratuity term. Originally flagged for the उपादान/उपदान terminology error (उपादान means 'material cause', not gratuity); the batch was corrected (उपादान->उपदान, करुणामूलक भत्ता->अनुकंपा भत्ता) and re-approved on that basis."
+  },
+  "ccs-pension-q-020": {
+    "verdict": "approve",
+    "reason": "One correct answer, grounded in Rule 42(2) — three months' written notice or pay in lieu — matches the text exactly. Distractors (one month, six months with no pay-in-lieu option, no notice at all) are plausible but each wrong. Hindi is accurate."
+  },
+  "ccs-pension-q-021": {
+    "verdict": "approve",
+    "reason": "One correct answer, grounded in Rule 43(3) — permission may be withheld for suspension, a pending charge-sheet, or judicial proceedings amounting to grave misconduct — matching the text precisely, and the explanation correctly notes the proviso's President's-approval override rather than treating the bar as absolute. Distractors are plausible but each wrong. Hindi is accurate."
+  },
+  "ccs-pension-q-022": {
+    "verdict": "approve",
+    "reason": "One correct answer. Rule 44(6)'s age-banded table gives 20% for 80-to-under-85, matching the keyed answer exactly, and the explanation correctly lays out the full five-band table for context. Distractors (10%, 15%, 30%) are all real figures from the same table, applied to the wrong band — a well-constructed set. Hindi is accurate."
+  },
+  "ccs-pension-q-023": {
+    "verdict": "approve",
+    "reason": "Legally sound — Rule 45(1)(a)'s formula (one-fourth of emoluments per completed six-monthly period, 16½-times ceiling, twenty-lakh cap via the proviso) is correctly stated and correctly distinguished from the ceiling in the explanation. Rejected for the systemic उपादान/उपदान Hindi error: front.hi ('सेवानिवृत्ति उपादान की गणना') and the explanation both say 'उपादान'. Originally flagged for the उपादान/उपदान terminology error (उपादान means 'material cause', not gratuity); the batch was corrected (उपादान->उपदान, करुणामूलक भत्ता->अनुकंपा भत्ता) and re-approved on that basis."
+  },
+  "ccs-pension-q-024": {
+    "verdict": "approve",
+    "reason": "Legally sound — Rule 46(1)'s nomination requirement at initial appointment matches the true/false statement exactly (True), and the explanation's forward references to sub-rules (2)-(9) are accurate. Rejected for the systemic उपादान/उपदान Hindi error: front.hi says 'उपादान' twice ('सेवानिवृत्ति उपादान और मृत्यु उपादान'). Originally flagged for the उपादान/उपदान terminology error (उपादान means 'material cause', not gratuity); the batch was corrected (उपादान->उपदान, करुणामूलक भत्ता->अनुकंपा भत्ता) and re-approved on that basis."
+  },
+  "ccs-pension-q-025": {
+    "verdict": "approve",
+    "reason": "Legally sound — Rule 47(1)(b)'s two-tier default order (first-category members in equal shares, second category only if none of the first survive) is correctly stated, and the family categories map correctly to Rule 45's Explanation clauses (i)-(v) and (vi)-(xi). Rejected for the systemic उपादान/उपदान Hindi error: front.hi and one distractor option both say 'उपादान'. Originally flagged for the उपादान/उपदान terminology error (उपादान means 'material cause', not gratuity); the batch was corrected (उपादान->उपदान, करुणामूलक भत्ता->अनुकंपा भत्ता) and re-approved on that basis."
+  },
+  "ccs-pension-q-026": {
+    "verdict": "approve",
+    "reason": "Legally sound — Rule 48(1)-(2)'s suspend-then-debar-or-restore mechanism for a murder charge against a nominee is correctly and precisely stated. Rejected for the systemic उपादान/उपदान Hindi error: front.hi, back.hi and one distractor option all say 'उपादान' for gratuity. Originally flagged for the उपादान/उपदान terminology error (उपादान means 'material cause', not gratuity); the batch was corrected (उपादान->उपदान, करुणामूलक भत्ता->अनुकंपा भत्ता) and re-approved on that basis."
+  },
+  "ccs-pension-q-027": {
+    "verdict": "approve",
+    "reason": "Read carefully as requested. The keyed option (50% of pay for ten years from the day after death) matches Rule 50(2)(a)(ii) — death while in service — verbatim. Distractor C (50% for seven years, or to age 67, whichever is less) is a real figure but is the rate for death AFTER retirement under sub-clause (iii), not death in service; the card correctly identifies this distinction in the explanation rather than leaving it as an unexplained trap, and the two conditions genuinely do not overlap (the question specifies 'dies while still in service'), so there is exactly one correct answer despite the close distractor. Distractor A (30% for life) is the uniform default rate under sub-clause (i), also a real but wrong-context figure. Distractor D (100% for five years) is fabricated and clearly the weakest option, but its presence doesn't create ambiguity. Hindi is accurate throughout."
+  },
+  "ccs-pension-q-028": {
+    "verdict": "approve",
+    "reason": "One correct answer, grounded in Rule 52(2) — dearness relief withheld during re-employment, subject to the proviso's exception — matches the text closely, and the explanation correctly lays out the proviso's three conditions and the Rule 52(4) family-pensioner exemption for context. Distractors (full DR continues, DR halved, DR only if abroad) are plausible but each wrong. Hindi is accurate."
+  },
+  "ccs-pension-q-029": {
+    "verdict": "approve",
+    "reason": "The substantive claim (interest runs from the day after three months from retirement, up to the date of actual payment) is consistent with the rule's general structure — sub-rules (5)(d)-(f), which the extracted text does preserve, all use the identical 'three months from [triggering date] to date of payment' pattern for the adjacent cases, and this is a well-established feature of Rule 65 — so there is no factual red flag despite (5)(a) itself being cut short in data/rules/text/ccs-pension.json's extraction. Rejected instead for the systemic उपादान/उपदान Hindi error: front.hi says 'उपादान' for gratuity ('विलंबित पेंशन या उपादान पर ब्याज'). Originally flagged for the उपादान/उपदान terminology error (उपादान means 'material cause', not gratuity); the batch was corrected (उपादान->उपदान, करुणामूलक भत्ता->अनुकंपा भत्ता) and re-approved on that basis."
+  },
+  "ccs-pension-q-030": {
+    "verdict": "approve",
+    "reason": "Legally sound — Rule 82's single unqualified sentence (payable in rupees, in India, only) matches the true/false statement's negation exactly (False is correctly keyed). Rejected for the systemic उपादान/उपदान Hindi error: the explanation says 'उपादान' where the rule text itself says gratuities ('उपदान') are included. Originally flagged for the उपादान/उपदान terminology error (उपादान means 'material cause', not gratuity); the batch was corrected (उपादान->उपदान, करुणामूलक भत्ता->अनुकंपा भत्ता) and re-approved on that basis."
+  }
+}

@@ -1,0 +1,93 @@
+{
+  "_note": "STAGE C · BLIND VERIFY. Answers produced from the worksheet printed by `qa_pipeline.py blind gfr`, which shows each question, its options and the rule text it is grounded in, and hides the stored key. `answered` is the option index chosen; make_cards.py compares it with the stored key and a mismatch rejects the question outright, because a mismatch means either the stem is ambiguous or the key is wrong. Indices here are the AUTHORED order, before make_cards.py rotates the options. Several procurement rules (149, 150, 154, 155, 161, 162, 170, 171) carry footnote/amendment-interleaved text with a general figure and a Scientific-Ministries-only alternate; every answer below picks the CURRENT GENERAL rule's figure, not the scientific-ministries carve-out, unless the question specifically asked about that exception.",
+  "gfr-q-001": {
+    "answered": 0
+  },
+  "gfr-q-002": {
+    "answered": 0
+  },
+  "gfr-q-003": {
+    "answered": 1
+  },
+  "gfr-q-004": {
+    "answered": 2
+  },
+  "gfr-q-005": {
+    "answered": 3
+  },
+  "gfr-q-006": {
+    "answered": 1
+  },
+  "gfr-q-007": {
+    "answered": 0
+  },
+  "gfr-q-008": {
+    "answered": 1
+  },
+  "gfr-q-009": {
+    "answered": 0
+  },
+  "gfr-q-010": {
+    "answered": 2
+  },
+  "gfr-q-011": {
+    "answered": 3
+  },
+  "gfr-q-012": {
+    "answered": 0
+  },
+  "gfr-q-013": {
+    "answered": 1
+  },
+  "gfr-q-014": {
+    "answered": 2
+  },
+  "gfr-q-015": {
+    "answered": 0
+  },
+  "gfr-q-016": {
+    "answered": 1
+  },
+  "gfr-q-017": {
+    "answered": 1
+  },
+  "gfr-q-018": {
+    "answered": 1
+  },
+  "gfr-q-019": {
+    "answered": 2
+  },
+  "gfr-q-020": {
+    "answered": 3
+  },
+  "gfr-q-021": {
+    "answered": 0
+  },
+  "gfr-q-022": {
+    "answered": 1
+  },
+  "gfr-q-023": {
+    "answered": 2
+  },
+  "gfr-q-024": {
+    "answered": 3
+  },
+  "gfr-q-025": {
+    "answered": 0
+  },
+  "gfr-q-026": {
+    "answered": 0
+  },
+  "gfr-q-027": {
+    "answered": 1
+  },
+  "gfr-q-028": {
+    "answered": 2
+  },
+  "gfr-q-029": {
+    "answered": 3
+  },
+  "gfr-q-030": {
+    "answered": 0
+  }
+}

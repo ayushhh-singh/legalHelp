@@ -1,0 +1,1490 @@
+{
+  "_note": "STAGE A · GENERATE. Thirty bilingual questions on the Fundamental Rules and Supplementary Rules, written in session by Claude Code with data/rules/text/fr-sr.json open. No API was called. `stageA.angle` records what each question is testing so the batch can be checked for spread rather than repeating a handful of rules. This session's dataset (data/rules/text/fr-sr.json) carries only Fundamental Rules content — F.R. 1-56 and F.R. 108-127 (the Foreign Service chapter) — because F.Rs. 58-104 (Leave) and F.Rs. 105-107 (Joining Time) are printed in the source compilation as 'Not Printed; refer to the CCS (Leave) Rules, 1972 / CCS (Joining Time) Rules, 1979' respectively, and no Supplementary Rules text is present at all; every question here is grounded in the Fundamental Rules text that is actually in data/rules/text/fr-sr.json; no Supplementary Rule and no F.R. 58-107 provision is cited. Hindi terminology reuses scripts/authoring/hindi/fr-sr.json's own choices for this act (अधिहक़ for lien, वैयक्तिक वेतन for personal pay, प्रतिपूरक भत्ता for compensatory allowance, निर्वाह भत्ता for subsistence allowance, अधिवर्षिता for superannuation, पुनर्स्थापन for reinstatement, प्रतिनियुक्ति for deputation) and data/pay/*.json's pay-fixation vocabulary (वेतन निर्धारण, वेतनवृद्धि, कोष्ठ, स्तर) rather than inventing new terms. The critic pass is review/critic-fr-sr.json, the blind verify is review/blind-fr-sr.json, and the dedup is written by qa_pipeline.py.",
+  "batchId": "2026-08-29-fr-sr-A",
+  "promptVersion": "rules-qa/1",
+  "cards": [
+    {
+      "id": "fr-sr-q-001",
+      "rule": "1",
+      "kind": "trueFalse",
+      "front": {
+        "en": "F.R. 1 records that the Fundamental Rules came into force with effect from 1 January 1947, the year of India's independence.",
+        "hi": "एफ.आर. 1 के अनुसार मूल नियम भारत की स्वतंत्रता के वर्ष, अर्थात् 1 जनवरी 1947 से प्रवृत्त हुए।"
+      },
+      "back": {
+        "en": "False.",
+        "hi": "असत्य।"
+      },
+      "options": [
+        {
+          "en": "True",
+          "hi": "सत्य"
+        },
+        {
+          "en": "False",
+          "hi": "असत्य"
+        }
+      ],
+      "answerIndex": 1,
+      "explanation": {
+        "en": "F.R. 1 states that these rules may be called the Fundamental Rules and that they came into force with effect from 1 January 1922 — a quarter-century before independence, not on it.",
+        "hi": "एफ.आर. 1 के अनुसार इन नियमों को मूल नियम कहा जा सकता है और ये 1 जनवरी 1922 से प्रवृत्त हुए — जो स्वतंत्रता से पूर्ण पच्चीस वर्ष पहले की तिथि है, न कि स्वतंत्रता की तिथि।"
+      },
+      "ruleRef": {
+        "textId": "fr-sr-f-r-1",
+        "citation": {
+          "en": "F.R. 1, Fundamental Rules and Supplementary Rules",
+          "hi": "F.R. 1, मूल नियम और अनुपूरक नियम"
+        }
+      },
+      "difficulty": "easy",
+      "stageA": {
+        "index": 1,
+        "angle": "F.R. 1 — the actual commencement date against a plausible but wrong one"
+      },
+      "groundingRuleIds": [
+        "fr-sr-f-r-1"
+      ]
+    },
+    {
+      "id": "fr-sr-q-002",
+      "rule": "3",
+      "kind": "mcq",
+      "front": {
+        "en": "F.R. 3 provides that, unless otherwise distinctly provided, the Fundamental Rules do not apply to Government servants whose conditions of service are governed by which regulations?",
+        "hi": "एफ.आर. 3 के अनुसार, जब तक अन्यथा स्पष्टतः उपबंधित न हो, मूल नियम ऐसे सरकारी सेवकों पर लागू नहीं होते जिनकी सेवा शर्तें किन विनियमों से शासित हैं?"
+      },
+      "back": {
+        "en": "Army or Marine Regulations.",
+        "hi": "सेना अथवा नौसेना विनियम।"
+      },
+      "options": [
+        {
+          "en": "Army or Marine Regulations",
+          "hi": "सेना अथवा नौसेना विनियम"
+        },
+        {
+          "en": "The Railway Establishment Code",
+          "hi": "रेलवे स्थापना संहिता"
+        },
+        {
+          "en": "State Government service rules",
+          "hi": "राज्य सरकार के सेवा नियम"
+        },
+        {
+          "en": "The CCS (Conduct) Rules, 1964",
+          "hi": "सीसीएस (आचरण) नियम, 1964"
+        }
+      ],
+      "answerIndex": 0,
+      "explanation": {
+        "en": "F.R. 3 carves out Government servants governed by Army or Marine Regulations, since their conditions of service are separately provided for. The exclusion operates only where the Fundamental Rules themselves do not distinctly provide otherwise.",
+        "hi": "एफ.आर. 3 सेना अथवा नौसेना विनियमों से शासित सरकारी सेवकों को अपवर्जित करता है, क्योंकि उनकी सेवा शर्तें पृथक रूप से उपबंधित हैं। यह अपवर्जन केवल तभी प्रभावी होता है जब मूल नियम स्वयं अन्यथा स्पष्टतः उपबंध न करें।"
+      },
+      "ruleRef": {
+        "textId": "fr-sr-f-r-3",
+        "citation": {
+          "en": "F.R. 3, Fundamental Rules and Supplementary Rules",
+          "hi": "F.R. 3, मूल नियम और अनुपूरक नियम"
+        }
+      },
+      "difficulty": "medium",
+      "stageA": {
+        "index": 2,
+        "angle": "F.R. 3 — the Army/Marine Regulations exclusion"
+      },
+      "groundingRuleIds": [
+        "fr-sr-f-r-3"
+      ]
+    },
+    {
+      "id": "fr-sr-q-003",
+      "rule": "9(12)",
+      "kind": "trueFalse",
+      "front": {
+        "en": "Under Rule 9(12) of the Fundamental Rules, 'leave salary' means the monthly amount paid by Government to a Government servant while he is on duty.",
+        "hi": "मूल नियम के नियम 9(12) के अधीन, \"छुट्टी वेतन\" का अर्थ है वह मासिक राशि जो सरकार किसी सरकारी सेवक को ड्यूटी पर रहते समय भुगतान करती है।"
+      },
+      "back": {
+        "en": "False.",
+        "hi": "असत्य।"
+      },
+      "options": [
+        {
+          "en": "True",
+          "hi": "सत्य"
+        },
+        {
+          "en": "False",
+          "hi": "असत्य"
+        }
+      ],
+      "answerIndex": 1,
+      "explanation": {
+        "en": "Rule 9(12) defines leave salary as the monthly amount paid to a Government servant while he is ON LEAVE, not while on duty. Pay while on duty is simply 'pay', a separately defined term under Rule 9(21).",
+        "hi": "नियम 9(12) छुट्टी वेतन को उस मासिक राशि के रूप में परिभाषित करता है जो सरकारी सेवक को छुट्टी पर रहते समय भुगतान की जाती है, ड्यूटी पर रहते समय नहीं। ड्यूटी पर रहते समय की राशि केवल \"वेतन\" है, जो नियम 9(21) के अधीन अलग से परिभाषित पद है।"
+      },
+      "ruleRef": {
+        "textId": "fr-sr-f-r-9",
+        "citation": {
+          "en": "F.R. 9(12), Fundamental Rules and Supplementary Rules",
+          "hi": "F.R. 9(12), मूल नियम और अनुपूरक नियम"
+        }
+      },
+      "difficulty": "easy",
+      "stageA": {
+        "index": 3,
+        "angle": "F.R. 9(12) — leave salary is paid on leave, not on duty"
+      },
+      "groundingRuleIds": [
+        "fr-sr-f-r-9"
+      ]
+    },
+    {
+      "id": "fr-sr-q-004",
+      "rule": "9(21)",
+      "kind": "mcq",
+      "front": {
+        "en": "Rule 9(21)(a) of the Fundamental Rules defines 'pay' as the amount drawn monthly by a Government servant. Which of the following is included within that definition?",
+        "hi": "मूल नियम के नियम 9(21)(क) \"वेतन\" को सरकारी सेवक द्वारा मासिक आहरित राशि के रूप में परिभाषित करता है। निम्नलिखित में से क्या इस परिभाषा के अंतर्गत आता है?"
+      },
+      "back": {
+        "en": "The pay sanctioned for the post held, overseas pay, special pay, personal pay, and any other emoluments classed as pay by the President.",
+        "hi": "पद के लिए स्वीकृत वेतन, विदेश वेतन, विशेष वेतन, वैयक्तिक वेतन, तथा राष्ट्रपति द्वारा वेतन के रूप में वर्गीकृत कोई अन्य उपलब्धियाँ।"
+      },
+      "options": [
+        {
+          "en": "Only the pay sanctioned for the post, excluding every other emolument",
+          "hi": "केवल पद के लिए स्वीकृत वेतन, अन्य सभी उपलब्धियों को अपवर्जित करते हुए"
+        },
+        {
+          "en": "The pay sanctioned for the post, overseas pay, special pay, personal pay, and emoluments classed as pay by the President",
+          "hi": "पद के लिए स्वीकृत वेतन, विदेश वेतन, विशेष वेतन, वैयक्तिक वेतन, तथा राष्ट्रपति द्वारा वेतन के रूप में वर्गीकृत उपलब्धियाँ"
+        },
+        {
+          "en": "Dearness allowance and House Rent Allowance, since these too are paid monthly",
+          "hi": "महँगाई भत्ता और मकान किराया भत्ता, क्योंकि ये भी मासिक रूप से भुगतान किए जाते हैं"
+        },
+        {
+          "en": "The presumptive pay of a higher post to which he may later be promoted",
+          "hi": "उच्चतर पद का उपधारित वेतन जिस पर वह बाद में पदोन्नत हो सकता है"
+        }
+      ],
+      "answerIndex": 1,
+      "explanation": {
+        "en": "Rule 9(21)(a) lists three limbs together: the pay sanctioned for the post (other than special pay or pay for personal qualifications), overseas pay/special pay/personal pay, and any other emoluments the President specially classes as pay. Compensatory allowances such as dearness allowance are defined separately and are not 'pay'.",
+        "hi": "नियम 9(21)(क) तीन अंगों को साथ गिनाता है: पद के लिए स्वीकृत वेतन (विशेष वेतन या वैयक्तिक अर्हताओं के लिए दिए गए वेतन को छोड़कर), विदेश वेतन/विशेष वेतन/वैयक्तिक वेतन, तथा राष्ट्रपति द्वारा विशेष रूप से वेतन के रूप में वर्गीकृत कोई अन्य उपलब्धियाँ। महँगाई भत्ता जैसे प्रतिपूरक भत्ते अलग से परिभाषित हैं और \"वेतन\" नहीं हैं।"
+      },
+      "ruleRef": {
+        "textId": "fr-sr-f-r-9",
+        "citation": {
+          "en": "F.R. 9(21), Fundamental Rules and Supplementary Rules",
+          "hi": "F.R. 9(21), मूल नियम और अनुपूरक नियम"
+        }
+      },
+      "difficulty": "medium",
+      "stageA": {
+        "index": 4,
+        "angle": "F.R. 9(21)(a) — what 'pay' includes, against compensatory allowances"
+      },
+      "groundingRuleIds": [
+        "fr-sr-f-r-9"
+      ]
+    },
+    {
+      "id": "fr-sr-q-005",
+      "rule": "9(7)",
+      "kind": "mcq",
+      "front": {
+        "en": "Rule 9(7) of the Fundamental Rules defines 'Foreign Service' as service in which a Government servant receives his pay, with the sanction of Government, from what source?",
+        "hi": "मूल नियम के नियम 9(7) \"विदेशी सेवा\" को ऐसी सेवा के रूप में परिभाषित करता है जिसमें सरकारी सेवक सरकार की मंजूरी से अपना वेतन किस स्रोत से प्राप्त करता है?"
+      },
+      "back": {
+        "en": "Any source other than the Consolidated Fund of India, of a State, or of a Union Territory.",
+        "hi": "भारत की संचित निधि, किसी राज्य की संचित निधि, अथवा किसी संघ राज्यक्षेत्र की संचित निधि से भिन्न कोई भी स्रोत।"
+      },
+      "options": [
+        {
+          "en": "Only a foreign government situated outside India",
+          "hi": "केवल भारत से बाहर स्थित किसी विदेशी सरकार से"
+        },
+        {
+          "en": "Only a body incorporated outside India",
+          "hi": "केवल भारत से बाहर निगमित किसी निकाय से"
+        },
+        {
+          "en": "Any source other than the Consolidated Fund of India, of a State, or of a Union Territory",
+          "hi": "भारत, किसी राज्य अथवा किसी संघ राज्यक्षेत्र की संचित निधि से भिन्न कोई भी स्रोत"
+        },
+        {
+          "en": "Any private employer, whether or not the Government has sanctioned the arrangement",
+          "hi": "कोई भी निजी नियोजक, चाहे सरकार ने व्यवस्था को मंजूर किया हो या नहीं"
+        }
+      ],
+      "answerIndex": 2,
+      "explanation": {
+        "en": "Foreign Service under Rule 9(7) is defined by the SOURCE of pay, not by geography — it covers service under a body wholly or substantially owned by Government within India just as much as service abroad, so long as pay comes from outside the three Consolidated Funds named and Government has sanctioned it.",
+        "hi": "नियम 9(7) के अधीन विदेशी सेवा वेतन के स्रोत से परिभाषित होती है, भूगोल से नहीं — यह भारत के भीतर सरकार के पूर्ण अथवा सारवान् स्वामित्व वाले किसी निकाय के अधीन सेवा को भी उतना ही कवर करती है जितना विदेश की सेवा को, बशर्ते वेतन गिनाई गई तीनों संचित निधियों से बाहर से आए और सरकार ने उसे मंजूर किया हो।"
+      },
+      "ruleRef": {
+        "textId": "fr-sr-f-r-9",
+        "citation": {
+          "en": "F.R. 9(7), Fundamental Rules and Supplementary Rules",
+          "hi": "F.R. 9(7), मूल नियम और अनुपूरक नियम"
+        }
+      },
+      "difficulty": "medium",
+      "stageA": {
+        "index": 5,
+        "angle": "F.R. 9(7) — Foreign Service is defined by source of pay, not geography"
+      },
+      "groundingRuleIds": [
+        "fr-sr-f-r-9"
+      ]
+    },
+    {
+      "id": "fr-sr-q-006",
+      "rule": "9(32)",
+      "kind": "mcq",
+      "front": {
+        "en": "Rule 9(32) of the Fundamental Rules defines 'Travelling Allowance'. Besides expenses incurred in travelling in the interest of public service, what else does it include?",
+        "hi": "मूल नियम के नियम 9(32) \"यात्रा भत्ता\" को परिभाषित करता है। लोक सेवा के हित में यात्रा में हुए व्यय के अतिरिक्त, इसमें और क्या सम्मिलित है?"
+      },
+      "back": {
+        "en": "Allowances granted for the maintenance of conveyances, horses and tents.",
+        "hi": "सवारियों, घोड़ों और तंबुओं के रख-रखाव के लिए दिए गए भत्ते।"
+      },
+      "options": [
+        {
+          "en": "A sumptuary allowance for entertaining official guests",
+          "hi": "शासकीय अतिथियों के आतिथ्य के लिए भोजन-व्यय भत्ता"
+        },
+        {
+          "en": "The cost of a free passage by sea to or from any place outside India",
+          "hi": "भारत से बाहर किसी स्थान से या वहाँ तक समुद्र-मार्ग से नि:शुल्क यात्रा का व्यय"
+        },
+        {
+          "en": "Compensation for the loss of personal effects during a transfer",
+          "hi": "स्थानांतरण के दौरान व्यक्तिगत सामान की हानि के लिए प्रतिकर"
+        },
+        {
+          "en": "Allowances granted for the maintenance of conveyances, horses and tents",
+          "hi": "सवारियों, घोड़ों और तंबुओं के रख-रखाव के लिए भत्ते"
+        }
+      ],
+      "answerIndex": 3,
+      "explanation": {
+        "en": "Rule 9(32) extends Travelling Allowance to the maintenance of conveyances, horses and tents. By contrast, Rule 9(5)'s definition of 'compensatory allowance' — of which travelling allowance is one kind — expressly EXCLUDES a sumptuary allowance and a free sea passage, which is the trap in this question.",
+        "hi": "नियम 9(32) यात्रा भत्ते का विस्तार सवारियों, घोड़ों और तंबुओं के रख-रखाव तक करता है। इसके विपरीत, नियम 9(5) की \"प्रतिपूरक भत्ता\" की परिभाषा — जिसका एक प्रकार यात्रा भत्ता है — भोजन-व्यय भत्ते और समुद्र-मार्ग से नि:शुल्क यात्रा को स्पष्टतः अपवर्जित करती है, और यही इस प्रश्न का जाल है।"
+      },
+      "ruleRef": {
+        "textId": "fr-sr-f-r-9",
+        "citation": {
+          "en": "F.R. 9(32), Fundamental Rules and Supplementary Rules",
+          "hi": "F.R. 9(32), मूल नियम और अनुपूरक नियम"
+        }
+      },
+      "difficulty": "hard",
+      "stageA": {
+        "index": 6,
+        "angle": "F.R. 9(32) travelling allowance against F.R. 9(5)'s exclusions"
+      },
+      "groundingRuleIds": [
+        "fr-sr-f-r-9"
+      ]
+    },
+    {
+      "id": "fr-sr-q-007",
+      "rule": "11",
+      "kind": "trueFalse",
+      "front": {
+        "en": "Rule 11 of the Fundamental Rules entitles a Government servant to claim additional remuneration whenever he is required to perform duties beyond those ordinarily attached to his post.",
+        "hi": "मूल नियम का नियम 11 सरकारी सेवक को यह हक़ देता है कि जब भी उससे अपने पद से सामान्यतः जुड़े कर्तव्यों से परे कार्य कराया जाए, वह अतिरिक्त पारिश्रमिक का दावा करे।"
+      },
+      "back": {
+        "en": "False.",
+        "hi": "असत्य।"
+      },
+      "options": [
+        {
+          "en": "True",
+          "hi": "सत्य"
+        },
+        {
+          "en": "False",
+          "hi": "असत्य"
+        }
+      ],
+      "answerIndex": 1,
+      "explanation": {
+        "en": "Rule 11 provides the opposite: the whole time of a Government servant is at the disposal of the Government paying him, and he may be employed in any manner required by proper authority WITHOUT any claim for additional remuneration.",
+        "hi": "नियम 11 इसके विपरीत उपबंध करता है: सरकारी सेवक का पूरा समय उसे वेतन देने वाली सरकार के अधीन होता है, और उचित प्राधिकारी द्वारा अपेक्षित किसी भी रीति से उसे नियोजित किया जा सकता है, बिना किसी अतिरिक्त पारिश्रमिक के दावे के।"
+      },
+      "ruleRef": {
+        "textId": "fr-sr-f-r-11",
+        "citation": {
+          "en": "F.R. 11, Fundamental Rules and Supplementary Rules",
+          "hi": "F.R. 11, मूल नियम और अनुपूरक नियम"
+        }
+      },
+      "difficulty": "easy",
+      "stageA": {
+        "index": 7,
+        "angle": "F.R. 11 — no claim to additional remuneration"
+      },
+      "groundingRuleIds": [
+        "fr-sr-f-r-11"
+      ]
+    },
+    {
+      "id": "fr-sr-q-008",
+      "rule": "13",
+      "kind": "scenario",
+      "front": {
+        "en": "A Section Officer proceeds on four months' earned leave. Under Rule 13 of the Fundamental Rules, what happens to the lien (अधिहक़) she holds on her post while she is away?",
+        "hi": "एक अनुभाग अधिकारी चार मास के अर्जित अवकाश पर जाती है। मूल नियम के नियम 13 के अधीन, उसकी अनुपस्थिति के दौरान उसके पद पर उसके अधिहक़ का क्या होता है?"
+      },
+      "back": {
+        "en": "She retains the lien on her post — Rule 13(d) expressly preserves a Government servant's lien while he or she is on leave.",
+        "hi": "वह अपने पद पर अधिहक़ बनाए रखती है — नियम 13(घ) स्पष्टतः सरकारी सेवक के अधिहक़ को छुट्टी पर रहते समय भी सुरक्षित रखता है।"
+      },
+      "options": [
+        {
+          "en": "She retains her lien — Rule 13(d) preserves it while a Government servant is on leave",
+          "hi": "वह अपना अधिहक़ बनाए रखती है — नियम 13(घ) छुट्टी पर रहते समय भी इसे सुरक्षित रखता है"
+        },
+        {
+          "en": "Her lien lapses the day her leave begins and revives only when she resumes duty",
+          "hi": "उसका अधिहक़ छुट्टी आरंभ होते ही समाप्त हो जाता है और ड्यूटी पर लौटने पर ही पुनः प्रवृत्त होता है"
+        },
+        {
+          "en": "Her lien is suspended and transferred to whoever officiates in her absence",
+          "hi": "उसका अधिहक़ निलंबित होकर उसकी अनुपस्थिति में स्थानापन्न होने वाले को अंतरित हो जाता है"
+        },
+        {
+          "en": "Her lien lapses only if the leave exceeds sixty days",
+          "hi": "उसका अधिहक़ केवल तभी समाप्त होता है जब छुट्टी साठ दिन से अधिक हो"
+        }
+      ],
+      "answerIndex": 0,
+      "explanation": {
+        "en": "Rule 13 lists five situations in which a lien already acquired is retained — performing the post's own duties, foreign service or officiating elsewhere, joining time on transfer, leave, and suspension. Leave, at clause (d), is one of them; no distinction is drawn by the length of the leave.",
+        "hi": "नियम 13 पाँच ऐसी स्थितियाँ गिनाता है जिनमें पहले से अर्जित अधिहक़ बना रहता है — स्वयं पद के कर्तव्यों का निर्वहन, विदेशी सेवा अथवा अन्यत्र स्थानापन्न होना, स्थानांतरण पर कार्यग्रहण काल, छुट्टी, तथा निलंबन। छुट्टी, खंड (घ) में, इन्हीं में से एक है; छुट्टी की अवधि के आधार पर कोई भेद नहीं किया गया है।"
+      },
+      "ruleRef": {
+        "textId": "fr-sr-f-r-13",
+        "citation": {
+          "en": "F.R. 13, Fundamental Rules and Supplementary Rules",
+          "hi": "F.R. 13, मूल नियम और अनुपूरक नियम"
+        }
+      },
+      "difficulty": "medium",
+      "stageA": {
+        "index": 8,
+        "angle": "F.R. 13(d) — lien retained while on leave, whatever its length"
+      },
+      "groundingRuleIds": [
+        "fr-sr-f-r-13"
+      ]
+    },
+    {
+      "id": "fr-sr-q-009",
+      "rule": "14-A",
+      "kind": "mcq",
+      "front": {
+        "en": "F.R. 14-A(a) provides that, except as provided in Rule 13 and clause (d) of Rule 14-A itself, a Government servant's lien on a post may in no circumstances be terminated if doing so would have what result?",
+        "hi": "एफ.आर. 14क(क) उपबंध करता है कि, नियम 13 और स्वयं नियम 14क के खंड (घ) में उपबंधित स्थितियों को छोड़कर, सरकारी सेवक के पद पर अधिहक़ की समाप्ति किसी भी दशा में नहीं की जाएगी यदि इसका परिणाम क्या हो?"
+      },
+      "back": {
+        "en": "Leaving him without a lien upon a regular post.",
+        "hi": "उसे किसी नियमित पद पर अधिहक़ के बिना छोड़ देना।"
+      },
+      "options": [
+        {
+          "en": "Reducing his seniority in the cadre",
+          "hi": "संवर्ग में उसकी वरिष्ठता को कम करना"
+        },
+        {
+          "en": "Leaving him without a lien upon a regular post",
+          "hi": "उसे किसी नियमित पद पर अधिहक़ के बिना छोड़ देना"
+        },
+        {
+          "en": "Postponing his next increment",
+          "hi": "उसकी अगली वेतनवृद्धि को स्थगित करना"
+        },
+        {
+          "en": "Requiring him to refund pay already drawn",
+          "hi": "उससे पहले से आहरित वेतन की वापसी अपेक्षित करना"
+        }
+      ],
+      "answerIndex": 1,
+      "explanation": {
+        "en": "F.R. 14-A(a) protects a Government servant from being left with no lien anywhere on a regular post — a lien can be terminated under it only if he simultaneously has, or acquires, a lien on another regular post, which is what clause (d) and Rule 13 separately address.",
+        "hi": "एफ.आर. 14क(क) सरकारी सेवक को कहीं भी किसी नियमित पद पर अधिहक़ के बिना रह जाने से बचाता है — इसके अधीन अधिहक़ की समाप्ति केवल तभी हो सकती है जब उसे साथ ही किसी अन्य नियमित पद पर अधिहक़ प्राप्त हो अथवा प्राप्त हो जाए, जिसे खंड (घ) और नियम 13 अलग से संबोधित करते हैं।"
+      },
+      "ruleRef": {
+        "textId": "fr-sr-f-r-14",
+        "citation": {
+          "en": "F.R. 14-A, Fundamental Rules and Supplementary Rules",
+          "hi": "F.R. 14-A, मूल नियम और अनुपूरक नियम"
+        }
+      },
+      "difficulty": "hard",
+      "stageA": {
+        "index": 9,
+        "angle": "F.R. 14-A(a) — the protection against being left with no lien anywhere"
+      },
+      "groundingRuleIds": [
+        "fr-sr-f-r-14"
+      ]
+    },
+    {
+      "id": "fr-sr-q-010",
+      "rule": "15",
+      "kind": "mcq",
+      "front": {
+        "en": "Rule 15(a) of the Fundamental Rules bars transferring, or appointing to officiate, a Government servant to a post carrying less pay than the post on which he holds a lien, except in which two situations?",
+        "hi": "मूल नियम का नियम 15(क) सरकारी सेवक को उस पद से कम वेतन वाले पद पर स्थानांतरित करने अथवा स्थानापन्न नियुक्त करने का निषेध करता है जिस पद पर उसका अधिहक़ है, सिवाय किन दो स्थितियों के?"
+      },
+      "back": {
+        "en": "On account of inefficiency or misbehaviour, or on his own written request.",
+        "hi": "अक्षमता या दुर्व्यवहार के कारण, अथवा उसके अपने लिखित अनुरोध पर।"
+      },
+      "options": [
+        {
+          "en": "With the concurrence of the Ministry of Finance, or after a departmental inquiry",
+          "hi": "वित्त मंत्रालय की सहमति से, अथवा विभागीय जाँच के पश्चात्"
+        },
+        {
+          "en": "On promotion to a post in a different cadre, or after three years in the same post",
+          "hi": "किसी भिन्न संवर्ग के पद पर पदोन्नति पर, अथवा उसी पद पर तीन वर्ष के पश्चात्"
+        },
+        {
+          "en": "On account of inefficiency or misbehaviour, or on his own written request",
+          "hi": "अक्षमता या दुर्व्यवहार के कारण, अथवा उसके अपने लिखित अनुरोध पर"
+        },
+        {
+          "en": "Only with the President's personal sanction in every case",
+          "hi": "प्रत्येक दशा में केवल राष्ट्रपति की वैयक्तिक मंजूरी से"
+        }
+      ],
+      "answerIndex": 2,
+      "explanation": {
+        "en": "Rule 15(a) is a protective rule against a disguised pay-cut: a transfer to lower-paid work is barred unless the Government servant himself has asked for it in writing, or the move is on account of his own inefficiency or misbehaviour.",
+        "hi": "नियम 15(क) छिपे हुए वेतन-कटौती के विरुद्ध एक रक्षात्मक नियम है: निम्नतर वेतन वाले कार्य पर स्थानांतरण तब तक निषिद्ध है जब तक सरकारी सेवक स्वयं लिखित रूप में इसका अनुरोध न करे, अथवा यह कदम उसकी अपनी अक्षमता या दुर्व्यवहार के कारण न हो।"
+      },
+      "ruleRef": {
+        "textId": "fr-sr-f-r-15",
+        "citation": {
+          "en": "F.R. 15, Fundamental Rules and Supplementary Rules",
+          "hi": "F.R. 15, मूल नियम और अनुपूरक नियम"
+        }
+      },
+      "difficulty": "medium",
+      "stageA": {
+        "index": 10,
+        "angle": "F.R. 15(a) — the two exceptions to the lower-pay transfer bar"
+      },
+      "groundingRuleIds": [
+        "fr-sr-f-r-15"
+      ]
+    },
+    {
+      "id": "fr-sr-q-011",
+      "rule": "17(1)",
+      "kind": "mcq",
+      "front": {
+        "en": "Under Rule 17(1) of the Fundamental Rules, from what date does an officer begin to draw the pay and allowances attached to a post?",
+        "hi": "मूल नियम के नियम 17(1) के अधीन, अधिकारी किस तिथि से किसी पद से जुड़े वेतन और भत्तों का आहरण आरंभ करता है?"
+      },
+      "back": {
+        "en": "The date when he assumes the duties of that post.",
+        "hi": "जिस तिथि से वह उस पद के कर्तव्यों को ग्रहण करता है।"
+      },
+      "options": [
+        {
+          "en": "The date of the order appointing him to the post",
+          "hi": "उसे उस पद पर नियुक्त करने वाले आदेश की तिथि"
+        },
+        {
+          "en": "The first day of the following calendar month",
+          "hi": "अगले कैलेंडर माह का पहला दिन"
+        },
+        {
+          "en": "The date his predecessor is relieved, even if that is earlier",
+          "hi": "उसके पूर्ववर्ती की कार्यमुक्ति की तिथि, भले ही वह पहले की हो"
+        },
+        {
+          "en": "The date when he assumes the duties of that post",
+          "hi": "जिस तिथि से वह उस पद के कर्तव्यों को ग्रहण करता है"
+        }
+      ],
+      "answerIndex": 3,
+      "explanation": {
+        "en": "Rule 17(1) ties pay strictly to actual assumption of duty: an officer begins to draw pay and allowances from the date he assumes the duties of a post and ceases to draw them the moment he ceases to discharge them — the order of appointment is not, by itself, the trigger.",
+        "hi": "नियम 17(1) वेतन को वास्तविक कर्तव्य-ग्रहण से कठोरता से जोड़ता है: अधिकारी किसी पद के वेतन और भत्तों का आहरण उस तिथि से आरंभ करता है जिस दिन वह उसके कर्तव्य ग्रहण करता है, और जैसे ही वह उन कर्तव्यों का निर्वहन करना बंद करता है, आहरण रुक जाता है — नियुक्ति का आदेश स्वयं में इसका ट्रिगर नहीं है।"
+      },
+      "ruleRef": {
+        "textId": "fr-sr-f-r-17",
+        "citation": {
+          "en": "F.R. 17(1), Fundamental Rules and Supplementary Rules",
+          "hi": "F.R. 17(1), मूल नियम और अनुपूरक नियम"
+        }
+      },
+      "difficulty": "easy",
+      "stageA": {
+        "index": 11,
+        "angle": "F.R. 17(1) — pay follows actual assumption of duty, not the order"
+      },
+      "groundingRuleIds": [
+        "fr-sr-f-r-17"
+      ]
+    },
+    {
+      "id": "fr-sr-q-012",
+      "rule": "17-A",
+      "kind": "scenario",
+      "front": {
+        "en": "A group of employees in an industrial establishment take part in a strike that has been declared illegal under the Industrial Disputes Act, 1947, and remain absent without authority. Under Rule 17-A of the Fundamental Rules, what is the effect of this absence on their service?",
+        "hi": "किसी औद्योगिक स्थापन के कर्मचारियों का एक समूह औद्योगिक विवाद अधिनियम, 1947 के अधीन अवैध घोषित हड़ताल में भाग लेता है और अप्राधिकृत रूप से अनुपस्थित रहता है। मूल नियम के नियम 17क के अधीन, इस अनुपस्थिति का उनकी सेवा पर क्या प्रभाव पड़ता है?"
+      },
+      "back": {
+        "en": "It is deemed to cause an interruption or break in their service, unless the competent authority decides otherwise for purposes such as leave travel concession, quasi-permanency or eligibility for departmental examinations requiring a minimum period of continuous service.",
+        "hi": "यह उनकी सेवा में व्यवधान या विच्छेद उत्पन्न करने वाला उपधारित होता है, जब तक कि सक्षम प्राधिकारी अवकाश यात्रा रियायत, अर्ध-स्थायीकरण अथवा न्यूनतम सतत सेवा अपेक्षित करने वाली विभागीय परीक्षाओं में बैठने की पात्रता जैसे प्रयोजनों के लिए अन्यथा विनिश्चय न करे।"
+      },
+      "options": [
+        {
+          "en": "It is deemed a break in their service, unless the competent authority decides otherwise for LTC, quasi-permanency or departmental-exam eligibility",
+          "hi": "यह उनकी सेवा में विच्छेद उपधारित होता है, जब तक सक्षम प्राधिकारी एलटीसी, अर्ध-स्थायीकरण अथवा विभागीय परीक्षा-पात्रता के लिए अन्यथा विनिश्चय न करे"
+        },
+        {
+          "en": "It has no effect on service at all, so long as the strike itself remained peaceful",
+          "hi": "यदि हड़ताल स्वयं शांतिपूर्ण रही हो तो सेवा पर इसका कोई प्रभाव नहीं पड़ता"
+        },
+        {
+          "en": "It automatically counts as extraordinary leave, without any order being passed",
+          "hi": "बिना किसी आदेश के यह स्वतः असाधारण अवकाश के रूप में गिनी जाती है"
+        },
+        {
+          "en": "It is treated as duty, because a strike is a collective act and not an individual one",
+          "hi": "इसे ड्यूटी माना जाता है, क्योंकि हड़ताल सामूहिक कृत्य है, वैयक्तिक नहीं"
+        }
+      ],
+      "answerIndex": 0,
+      "explanation": {
+        "en": "Rule 17-A deems unauthorised absence during an illegal strike — like unauthorised absence generally, in combination or individually — to interrupt or break service, but only 'unless otherwise decided by the competent authority' for the specific purposes it names: leave travel concession, quasi-permanency, and eligibility for departmental examinations needing a minimum period of continuous service.",
+        "hi": "नियम 17क अवैध हड़ताल के दौरान अप्राधिकृत अनुपस्थिति को — सामूहिक कार्रवाई में हो या वैयक्तिक रूप से — सेवा में व्यवधान या विच्छेद उत्पन्न करने वाला उपधारित करता है, किंतु केवल तभी जब सक्षम प्राधिकारी उसके द्वारा नामित विशिष्ट प्रयोजनों के लिए \"अन्यथा विनिश्चय\" न करे: अवकाश यात्रा रियायत, अर्ध-स्थायीकरण, तथा न्यूनतम सतत सेवा अपेक्षित करने वाली विभागीय परीक्षाओं की पात्रता।"
+      },
+      "ruleRef": {
+        "textId": "fr-sr-f-r-17",
+        "citation": {
+          "en": "F.R. 17-A, Fundamental Rules and Supplementary Rules",
+          "hi": "F.R. 17-A, मूल नियम और अनुपूरक नियम"
+        }
+      },
+      "difficulty": "hard",
+      "stageA": {
+        "index": 12,
+        "angle": "F.R. 17-A — the deemed break in service, and its named exceptions"
+      },
+      "groundingRuleIds": [
+        "fr-sr-f-r-17"
+      ]
+    },
+    {
+      "id": "fr-sr-q-013",
+      "rule": "18",
+      "kind": "trueFalse",
+      "front": {
+        "en": "Rule 18 of the Fundamental Rules bars the grant of leave of any kind for a continuous period exceeding five years, unless the President otherwise determines in view of the exceptional circumstances of the case.",
+        "hi": "मूल नियम का नियम 18 पाँच वर्ष से अधिक की सतत अवधि के लिए किसी भी प्रकार की छुट्टी मंजूर करने का निषेध करता है, जब तक कि राष्ट्रपति मामले की असाधारण परिस्थितियों को देखते हुए अन्यथा विनिश्चय न करे।"
+      },
+      "back": {
+        "en": "True.",
+        "hi": "सत्य।"
+      },
+      "options": [
+        {
+          "en": "True",
+          "hi": "सत्य"
+        },
+        {
+          "en": "False",
+          "hi": "असत्य"
+        }
+      ],
+      "answerIndex": 0,
+      "explanation": {
+        "en": "Rule 18 sits at the head of the Pay chapter as a ceiling on continuous leave of every kind, with the President's exceptional power as its only escape valve.",
+        "hi": "नियम 18 वेतन अध्याय के आरंभ में हर प्रकार की सतत छुट्टी पर एक अधिकतम सीमा के रूप में खड़ा है, जिसका एकमात्र अपवाद राष्ट्रपति की असाधारण शक्ति है।"
+      },
+      "ruleRef": {
+        "textId": "fr-sr-f-r-18",
+        "citation": {
+          "en": "F.R. 18, Fundamental Rules and Supplementary Rules",
+          "hi": "F.R. 18, मूल नियम और अनुपूरक नियम"
+        }
+      },
+      "difficulty": "easy",
+      "stageA": {
+        "index": 13,
+        "angle": "F.R. 18 — the five-year ceiling on continuous leave"
+      },
+      "groundingRuleIds": [
+        "fr-sr-f-r-18"
+      ]
+    },
+    {
+      "id": "fr-sr-q-014",
+      "rule": "19",
+      "kind": "mcq",
+      "front": {
+        "en": "Except for personal pay granted in the circumstances of Rule 9(23)(a), Rule 19 of the Fundamental Rules requires what before a Government servant's pay may be increased beyond the pay sanctioned for his post?",
+        "hi": "नियम 9(23)(क) की परिस्थितियों में दिए गए वैयक्तिक वेतन को छोड़कर, मूल नियम का नियम 19 सरकारी सेवक के वेतन को उसके पद के लिए स्वीकृत वेतन से अधिक बढ़ाए जाने से पहले किसकी अपेक्षा करता है?"
+      },
+      "back": {
+        "en": "The sanction of an authority competent to create a post in the same cadre at a rate of pay equal to his increased pay.",
+        "hi": "उसी संवर्ग में बढ़े हुए वेतन के बराबर दर पर पद सृजित करने में सक्षम प्राधिकारी की मंजूरी।"
+      },
+      "options": [
+        {
+          "en": "A written request from the Government servant himself",
+          "hi": "स्वयं सरकारी सेवक का लिखित अनुरोध"
+        },
+        {
+          "en": "The sanction of an authority competent to create a post in the same cadre at a rate of pay equal to his increased pay",
+          "hi": "उसी संवर्ग में बढ़े हुए वेतन के बराबर दर पर पद सृजित करने में सक्षम प्राधिकारी की मंजूरी"
+        },
+        {
+          "en": "The concurrence of the Union Public Service Commission",
+          "hi": "संघ लोक सेवा आयोग की सहमति"
+        },
+        {
+          "en": "Nothing; pay may be increased at the discretion of the Head of Office",
+          "hi": "कुछ नहीं; कार्यालयाध्यक्ष के विवेक पर वेतन बढ़ाया जा सकता है"
+        }
+      ],
+      "answerIndex": 1,
+      "explanation": {
+        "en": "Rule 19 stops a Government servant's pay from creeping past his post's sanctioned pay through informal means, by tying any such increase to the sanction of an authority that could itself have created an equivalent higher-paid post in the cadre.",
+        "hi": "नियम 19 सरकारी सेवक के वेतन को अनौपचारिक साधनों से उसके पद के स्वीकृत वेतन से आगे बढ़ने से रोकता है, ऐसी किसी भी वृद्धि को उस प्राधिकारी की मंजूरी से जोड़कर जो स्वयं संवर्ग में उतने ही उच्चतर वेतन का पद सृजित कर सकता हो।"
+      },
+      "ruleRef": {
+        "textId": "fr-sr-f-r-19",
+        "citation": {
+          "en": "F.R. 19, Fundamental Rules and Supplementary Rules",
+          "hi": "F.R. 19, मूल नियम और अनुपूरक नियम"
+        }
+      },
+      "difficulty": "hard",
+      "stageA": {
+        "index": 14,
+        "angle": "F.R. 19 — pay cannot informally exceed the post's sanctioned pay"
+      },
+      "groundingRuleIds": [
+        "fr-sr-f-r-19"
+      ]
+    },
+    {
+      "id": "fr-sr-q-015",
+      "rule": "22",
+      "kind": "scenario",
+      "front": {
+        "en": "A Section Officer, at the top of his level's time-scale, is promoted with effect from 15 June to Under Secretary — a post carrying duties and responsibilities of greater importance. Under Rule 22(I)(a)(1) of the Fundamental Rules, how is his initial pay in the new level fixed?",
+        "hi": "एक अनुभाग अधिकारी, जो अपने स्तर के समय-मान के शीर्ष पर है, को 15 जून से प्रभावी रूप से उप सचिव — अधिक महत्त्व के कर्तव्यों और उत्तरदायित्वों वाले पद — पर पदोन्नत किया जाता है। मूल नियम के नियम 22(I)(क)(1) के अधीन, नए स्तर में उसका प्रारंभिक वेतन कैसे नियत होता है?"
+      },
+      "back": {
+        "en": "By giving one notional increment in the level from which he is promoted and placing him at the cell in the new level equal to the figure so arrived at (or the next higher cell if none is equal); he also has an option, exercisable within one month, to have this done from the date of promotion or to be fixed initially at the next cell and re-fixed on his old level's next increment date.",
+        "hi": "जिस स्तर से वह पदोन्नत हुआ है उसमें एक काल्पनिक वेतनवृद्धि देकर और इस प्रकार प्राप्त आँकड़े के बराबर कोष्ठ पर (अथवा ऐसा कोई कोष्ठ न होने पर अगले उच्चतर कोष्ठ पर) उसे नए स्तर में रखकर; उसे एक मास के भीतर प्रयोग करने योग्य यह विकल्प भी है कि यह पदोन्नति की तिथि से हो अथवा पहले अगले कोष्ठ पर प्रारंभिक नियतन हो और पुराने स्तर की अगली वेतनवृद्धि की तिथि पर पुनर्नियतन हो।"
+      },
+      "options": [
+        {
+          "en": "He is placed at the minimum of the new level's time-scale regardless of his pay in the old post",
+          "hi": "पुराने पद के वेतन की परवाह किए बिना उसे नए स्तर के समय-मान के न्यूनतम पर रखा जाता है"
+        },
+        {
+          "en": "His pay in the new level is fixed by adding a flat ten per cent to his last drawn pay",
+          "hi": "उसके अंतिम आहरित वेतन में एक समान दस प्रतिशत जोड़कर नए स्तर में उसका वेतन नियत किया जाता है"
+        },
+        {
+          "en": "One increment is given in the old level and he is placed at the equal (or next higher) cell in the new level, with an option to fix from the date of promotion or defer to his old level's next increment date",
+          "hi": "पुराने स्तर में एक वेतनवृद्धि दी जाती है और उसे नए स्तर में बराबर (अथवा अगले उच्चतर) कोष्ठ पर रखा जाता है, साथ ही पदोन्नति की तिथि से नियतन अथवा पुराने स्तर की अगली वेतनवृद्धि की तिथि तक स्थगन का विकल्प होता है"
+        },
+        {
+          "en": "He continues to draw his old pay unchanged until his next annual increment falls due",
+          "hi": "वह अपनी अगली वार्षिक वेतनवृद्धि की तिथि तक पुराना वेतन अपरिवर्तित आहरित करता रहता है"
+        }
+      ],
+      "answerIndex": 2,
+      "explanation": {
+        "en": "Rule 22(I)(a)(1) is the standard promotion pay-fixation formula: one notional increment in the level promoted FROM, mapped onto the equal or next-higher cell of the level promoted TO — plus the officer's own one-month option over when that fixation takes effect. It is this rule the Drafting Studio's representation template and the Pay module's promotion simulation both cite.",
+        "hi": "नियम 22(I)(क)(1) पदोन्नति पर वेतन नियतन का मानक सूत्र है: जिस स्तर से पदोन्नति हुई है उसमें एक काल्पनिक वेतनवृद्धि, जिसे पदोन्नत स्तर के बराबर या अगले उच्चतर कोष्ठ पर मानचित्रित किया जाता है — साथ ही यह नियतन कब प्रभावी हो, इस पर अधिकारी का अपना एक-मास का विकल्प। यही वह नियम है जिसे ड्राफ्टिंग स्टूडियो का अभ्यावेदन टेम्पलेट और पे मॉड्यूल का पदोन्नति सिमुलेशन दोनों उद्धृत करते हैं।"
+      },
+      "ruleRef": {
+        "textId": "fr-sr-f-r-22",
+        "citation": {
+          "en": "F.R. 22, Fundamental Rules and Supplementary Rules",
+          "hi": "F.R. 22, मूल नियम और अनुपूरक नियम"
+        }
+      },
+      "difficulty": "hard",
+      "stageA": {
+        "index": 15,
+        "angle": "F.R. 22(I)(a)(1) — the promotion pay-fixation formula and the officer's option"
+      },
+      "groundingRuleIds": [
+        "fr-sr-f-r-22"
+      ]
+    },
+    {
+      "id": "fr-sr-q-016",
+      "rule": "22",
+      "kind": "mcq",
+      "front": {
+        "en": "Rule 22(I)(a)(2) of the Fundamental Rules governs an appointment to a new post that does NOT involve the assumption of duties of greater importance. What initial pay does the Government servant draw?",
+        "hi": "मूल नियम का नियम 22(I)(क)(2) ऐसी नई नियुक्ति को शासित करता है जिसमें अधिक महत्त्व के कर्तव्यों का ग्रहण सम्मिलित नहीं है। सरकारी सेवक कौन-सा प्रारंभिक वेतन आहरित करता है?"
+      },
+      "back": {
+        "en": "The stage of the new time-scale equal to his pay in the old post, or, if there is no such stage, the stage next above it.",
+        "hi": "नए समय-मान का वह स्तर जो पुराने पद में उसके वेतन के बराबर हो, अथवा ऐसा कोई स्तर न होने पर उससे ठीक ऊपर का स्तर।"
+      },
+      "options": [
+        {
+          "en": "One increment above his pay in the old post, exactly as on a promotion",
+          "hi": "पुराने पद में उसके वेतन से एक वेतनवृद्धि अधिक, ठीक जैसे पदोन्नति पर"
+        },
+        {
+          "en": "The maximum of the new time-scale, since no increase in responsibility has occurred",
+          "hi": "नए समय-मान का अधिकतम, क्योंकि उत्तरदायित्व में कोई वृद्धि नहीं हुई है"
+        },
+        {
+          "en": "Whichever of the two time-scales' minimums is lower",
+          "hi": "दोनों समय-मानों के न्यूनतम में से जो भी कम हो"
+        },
+        {
+          "en": "The stage of the new time-scale equal to his pay in the old post, or the stage next above it if none is equal",
+          "hi": "नए समय-मान का वह स्तर जो पुराने पद में उसके वेतन के बराबर हो, अथवा बराबर स्तर न होने पर उससे ठीक ऊपर का स्तर"
+        }
+      ],
+      "answerIndex": 3,
+      "explanation": {
+        "en": "Where the new post is not one of greater importance, Rule 22(I)(a)(2) simply carries the officer's existing pay across to the equivalent (or next-above) stage of the new time-scale — no promotion-style extra increment is given, and the new scale's minimum applies only if it is itself higher than that carried-over figure.",
+        "hi": "जहाँ नया पद अधिक महत्त्व का नहीं है, वहाँ नियम 22(I)(क)(2) अधिकारी के विद्यमान वेतन को नए समय-मान के समतुल्य (अथवा ठीक ऊपर के) स्तर पर सीधे ले जाता है — पदोन्नति जैसी कोई अतिरिक्त वेतनवृद्धि नहीं दी जाती, और नए समय-मान का न्यूनतम केवल तभी लागू होता है जब वह स्वयं इस स्थानांतरित आँकड़े से अधिक हो।"
+      },
+      "ruleRef": {
+        "textId": "fr-sr-f-r-22",
+        "citation": {
+          "en": "F.R. 22, Fundamental Rules and Supplementary Rules",
+          "hi": "F.R. 22, मूल नियम और अनुपूरक नियम"
+        }
+      },
+      "difficulty": "medium",
+      "stageA": {
+        "index": 16,
+        "angle": "F.R. 22(I)(a)(2) — pay fixation without an increase in responsibility"
+      },
+      "groundingRuleIds": [
+        "fr-sr-f-r-22"
+      ]
+    },
+    {
+      "id": "fr-sr-q-017",
+      "rule": "24",
+      "kind": "mcq",
+      "front": {
+        "en": "Rule 24 of the Fundamental Rules provides that an increment shall ordinarily be drawn as a matter of course unless it is withheld. On what ground may an increment be withheld?",
+        "hi": "मूल नियम का नियम 24 उपबंध करता है कि वेतनवृद्धि सामान्यतः स्वतः क्रम में आहरित की जाएगी जब तक कि उसे रोका न जाए। किस आधार पर वेतनवृद्धि रोकी जा सकती है?"
+      },
+      "back": {
+        "en": "If the Government servant's conduct has not been good or his work has not been satisfactory.",
+        "hi": "यदि सरकारी सेवक का आचरण अच्छा नहीं रहा हो अथवा उसका कार्य संतोषजनक नहीं रहा हो।"
+      },
+      "options": [
+        {
+          "en": "If the Government servant's conduct has not been good or his work has not been satisfactory",
+          "hi": "यदि सरकारी सेवक का आचरण अच्छा नहीं रहा हो अथवा उसका कार्य संतोषजनक नहीं रहा हो"
+        },
+        {
+          "en": "Only if he has been convicted of a criminal offence",
+          "hi": "केवल यदि वह किसी आपराधिक अपराध में दोषसिद्ध हुआ हो"
+        },
+        {
+          "en": "Only if the cadre strength of his post has been reduced that year",
+          "hi": "केवल यदि उस वर्ष उसके पद की संवर्ग संख्या घटाई गई हो"
+        },
+        {
+          "en": "An increment may never be withheld once sanctioned in the budget",
+          "hi": "बजट में स्वीकृत हो जाने पर वेतनवृद्धि कभी नहीं रोकी जा सकती"
+        }
+      ],
+      "answerIndex": 0,
+      "explanation": {
+        "en": "Rule 24 makes an increment the default, but lets the Central Government or a delegated authority withhold it for poor conduct or unsatisfactory work — and requires the withholding order to state both the period of withholding and whether it postpones future increments.",
+        "hi": "नियम 24 वेतनवृद्धि को डिफ़ॉल्ट रूप में रखता है, किंतु केंद्र सरकार अथवा प्रत्यायोजित प्राधिकारी को खराब आचरण या असंतोषजनक कार्य के लिए इसे रोकने देता है — और रोकने के आदेश में रोक की अवधि और यह भी बताना अपेक्षित करता है कि क्या इससे भावी वेतनवृद्धियाँ स्थगित होंगी।"
+      },
+      "ruleRef": {
+        "textId": "fr-sr-f-r-24",
+        "citation": {
+          "en": "F.R. 24, Fundamental Rules and Supplementary Rules",
+          "hi": "F.R. 24, मूल नियम और अनुपूरक नियम"
+        }
+      },
+      "difficulty": "easy",
+      "stageA": {
+        "index": 17,
+        "angle": "F.R. 24 — the increment default and its conduct/work exception"
+      },
+      "groundingRuleIds": [
+        "fr-sr-f-r-24"
+      ]
+    },
+    {
+      "id": "fr-sr-q-018",
+      "rule": "26",
+      "kind": "trueFalse",
+      "front": {
+        "en": "Rule 26(a) of the Fundamental Rules provides that all duty in a post on a time-scale counts for increments in that time-scale.",
+        "hi": "मूल नियम का नियम 26(क) उपबंध करता है कि किसी समय-मान वाले पद में की गई सभी ड्यूटी उस समय-मान में वेतनवृद्धि के लिए गणनीय होती है।"
+      },
+      "back": {
+        "en": "True.",
+        "hi": "सत्य।"
+      },
+      "options": [
+        {
+          "en": "True",
+          "hi": "सत्य"
+        },
+        {
+          "en": "False",
+          "hi": "असत्य"
+        }
+      ],
+      "answerIndex": 0,
+      "explanation": {
+        "en": "Rule 26(a) states this as the general rule, with a proviso that periods NOT counting for increment in that time-scale are added on to push back the normal increment date rather than being simply ignored.",
+        "hi": "नियम 26(क) इसे सामान्य नियम के रूप में बताता है, साथ ही एक परंतुक के साथ कि उस समय-मान में वेतनवृद्धि के लिए गणनीय न होने वाली अवधियाँ केवल अनदेखी नहीं की जातीं, बल्कि उन्हें जोड़कर सामान्य वेतनवृद्धि तिथि को आगे बढ़ा दिया जाता है।"
+      },
+      "ruleRef": {
+        "textId": "fr-sr-f-r-26",
+        "citation": {
+          "en": "F.R. 26, Fundamental Rules and Supplementary Rules",
+          "hi": "F.R. 26, मूल नियम और अनुपूरक नियम"
+        }
+      },
+      "difficulty": "medium",
+      "stageA": {
+        "index": 18,
+        "angle": "F.R. 26(a) — all duty on the time-scale counts for increment"
+      },
+      "groundingRuleIds": [
+        "fr-sr-f-r-26"
+      ]
+    },
+    {
+      "id": "fr-sr-q-019",
+      "rule": "27",
+      "kind": "mcq",
+      "front": {
+        "en": "Rule 27 of the Fundamental Rules allows an authority to grant a premature increment (समय-पूर्व वेतनवृद्धि) to a Government servant on a time-scale of pay, subject to what condition?",
+        "hi": "मूल नियम का नियम 27 किसी प्राधिकारी को समय-मान पर सरकारी सेवक को समय-पूर्व वेतनवृद्धि देने की अनुमति देता है, किस शर्त के अध्यधीन?"
+      },
+      "back": {
+        "en": "That the authority has power to create a post in the same cadre on the same scale of pay.",
+        "hi": "कि उस प्राधिकारी को उसी संवर्ग में उसी वेतनमान पर पद सृजित करने की शक्ति प्राप्त हो।"
+      },
+      "options": [
+        {
+          "en": "That the Government servant has completed at least ten years of service",
+          "hi": "कि सरकारी सेवक ने कम से कम दस वर्ष की सेवा पूरी कर ली हो"
+        },
+        {
+          "en": "That the authority has power to create a post in the same cadre on the same scale of pay",
+          "hi": "कि उस प्राधिकारी को उसी संवर्ग में उसी वेतनमान पर पद सृजित करने की शक्ति प्राप्त हो"
+        },
+        {
+          "en": "That the Ministry of Finance has separately sanctioned that individual increment",
+          "hi": "कि वित्त मंत्रालय ने उस व्यक्तिगत वेतनवृद्धि को अलग से मंजूर किया हो"
+        },
+        {
+          "en": "That no Government servant senior to him is awaiting an increment",
+          "hi": "कि उससे वरिष्ठ कोई सरकारी सेवक वेतनवृद्धि की प्रतीक्षा में न हो"
+        }
+      ],
+      "answerIndex": 1,
+      "explanation": {
+        "en": "Rule 27 ties the power to grant a premature increment to the granting authority's own post-creation power in the same cadre and scale — the same competence test F.R. 19 uses for a different pay question, rather than to the individual's length of service.",
+        "hi": "नियम 27 समय-पूर्व वेतनवृद्धि देने की शक्ति को अनुदान देने वाले प्राधिकारी की स्वयं की, उसी संवर्ग और वेतनमान में पद सृजित करने की शक्ति से जोड़ता है — यही सक्षमता-कसौटी एफ.आर. 19 भी एक अलग वेतन प्रश्न के लिए प्रयोग करता है — न कि व्यक्ति की सेवा-अवधि से।"
+      },
+      "ruleRef": {
+        "textId": "fr-sr-f-r-27",
+        "citation": {
+          "en": "F.R. 27, Fundamental Rules and Supplementary Rules",
+          "hi": "F.R. 27, मूल नियम और अनुपूरक नियम"
+        }
+      },
+      "difficulty": "medium",
+      "stageA": {
+        "index": 19,
+        "angle": "F.R. 27 — premature increment tied to the authority's post-creation power"
+      },
+      "groundingRuleIds": [
+        "fr-sr-f-r-27",
+        "fr-sr-f-r-19"
+      ]
+    },
+    {
+      "id": "fr-sr-q-020",
+      "rule": "29",
+      "kind": "mcq",
+      "front": {
+        "en": "Rule 29(1) of the Fundamental Rules concerns a Government servant reduced, as a measure of penalty, to a lower stage in his time-scale. What must the authority ordering the reduction state?",
+        "hi": "मूल नियम का नियम 29(1) उस सरकारी सेवक से संबंधित है जिसे शास्ति के रूप में उसके समय-मान के किसी निम्नतर स्तर पर घटाया जाता है। न्यूनीकरण का आदेश देने वाले प्राधिकारी को क्या बताना होगा?"
+      },
+      "back": {
+        "en": "The period for which the reduction is to be effective, and whether, on restoration, that period shall postpone future increments and, if so, to what extent.",
+        "hi": "वह अवधि जिसके लिए न्यूनीकरण प्रभावी रहेगा, तथा पुनःस्थापन पर क्या वह अवधि भावी वेतनवृद्धियों को स्थगित करेगी और यदि हाँ, तो किस सीमा तक।"
+      },
+      "options": [
+        {
+          "en": "Only the date on which the disciplinary proceedings concluded",
+          "hi": "केवल वह तिथि जिस दिन अनुशासनिक कार्यवाही समाप्त हुई"
+        },
+        {
+          "en": "Only the amount of pay recoverable from the Government servant",
+          "hi": "केवल सरकारी सेवक से वसूली योग्य वेतन की राशि"
+        },
+        {
+          "en": "The period for which the reduction is effective, and whether it will postpone future increments on restoration",
+          "hi": "वह अवधि जिसके लिए न्यूनीकरण प्रभावी है, तथा पुनःस्थापन पर क्या इससे भावी वेतनवृद्धियाँ स्थगित होंगी"
+        },
+        {
+          "en": "Nothing further; the reduction takes automatic effect for the rest of his service",
+          "hi": "और कुछ नहीं; न्यूनीकरण उसकी शेष सेवा के लिए स्वतः प्रभावी हो जाता है"
+        }
+      ],
+      "answerIndex": 2,
+      "explanation": {
+        "en": "Rule 29(1) requires the penalty order itself to be self-contained on both points — its duration, and its knock-on effect on future increments — so that restoration at the end of the period is not left to later interpretation.",
+        "hi": "नियम 29(1) शास्ति के आदेश को स्वयं दोनों बिंदुओं पर स्वतः पूर्ण होना अपेक्षित करता है — उसकी अवधि, और भावी वेतनवृद्धियों पर उसका प्रभाव — ताकि अवधि समाप्ति पर पुनःस्थापन बाद की व्याख्या पर न छोड़ा जाए।"
+      },
+      "ruleRef": {
+        "textId": "fr-sr-f-r-29",
+        "citation": {
+          "en": "F.R. 29, Fundamental Rules and Supplementary Rules",
+          "hi": "F.R. 29, मूल नियम और अनुपूरक नियम"
+        }
+      },
+      "difficulty": "medium",
+      "stageA": {
+        "index": 20,
+        "angle": "F.R. 29(1) — what a penalty-reduction order must itself state"
+      },
+      "groundingRuleIds": [
+        "fr-sr-f-r-29"
+      ]
+    },
+    {
+      "id": "fr-sr-q-021",
+      "rule": "37",
+      "kind": "mcq",
+      "front": {
+        "en": "Rule 37 of the Fundamental Rules deals with personal pay (वैयक्तिक वेतन). Unless the sanctioning authority orders otherwise, when does personal pay cease?",
+        "hi": "मूल नियम का नियम 37 वैयक्तिक वेतन से संबंधित है। जब तक मंजूरी देने वाला प्राधिकारी अन्यथा आदेश न दे, वैयक्तिक वेतन कब समाप्त होता है?"
+      },
+      "back": {
+        "en": "As soon as the recipient's pay is increased by an amount equal to his personal pay.",
+        "hi": "जैसे ही प्राप्तकर्ता का वेतन उसके वैयक्तिक वेतन के बराबर राशि से बढ़ जाए।"
+      },
+      "options": [
+        {
+          "en": "Only when the Government servant retires or resigns",
+          "hi": "केवल जब सरकारी सेवक सेवानिवृत्त हो अथवा त्यागपत्र दे"
+        },
+        {
+          "en": "At the end of the financial year in which it was sanctioned, however small the increase",
+          "hi": "जिस वित्तीय वर्ष में यह मंजूर हुआ उसके अंत में, चाहे वृद्धि कितनी भी छोटी हो"
+        },
+        {
+          "en": "Personal pay, once granted, never reduces or ceases",
+          "hi": "एक बार मंजूर होने पर वैयक्तिक वेतन कभी घटता या समाप्त नहीं होता"
+        },
+        {
+          "en": "As soon as the recipient's pay is increased by an amount equal to his personal pay",
+          "hi": "जैसे ही प्राप्तकर्ता का वेतन उसके वैयक्तिक वेतन के बराबर राशि से बढ़ जाए"
+        }
+      ],
+      "answerIndex": 3,
+      "explanation": {
+        "en": "Rule 37 treats personal pay as a shrinking top-up: it is reduced by any amount by which the recipient's ordinary pay rises, and disappears entirely once that rise equals the personal pay itself — the whole point being to protect him from loss, not to add a permanent extra.",
+        "hi": "नियम 37 वैयक्तिक वेतन को एक घटती हुई अतिरिक्त राशि के रूप में देखता है: यह प्राप्तकर्ता के सामान्य वेतन में किसी भी वृद्धि से उतना ही घट जाता है, और जब यह वृद्धि स्वयं वैयक्तिक वेतन के बराबर हो जाए तो यह पूर्णतः समाप्त हो जाता है — इसका पूरा उद्देश्य उसे हानि से बचाना है, स्थायी अतिरिक्त राशि जोड़ना नहीं।"
+      },
+      "ruleRef": {
+        "textId": "fr-sr-f-r-37",
+        "citation": {
+          "en": "F.R. 37, Fundamental Rules and Supplementary Rules",
+          "hi": "F.R. 37, मूल नियम और अनुपूरक नियम"
+        }
+      },
+      "difficulty": "medium",
+      "stageA": {
+        "index": 21,
+        "angle": "F.R. 37 — personal pay shrinks and ceases as ordinary pay rises"
+      },
+      "groundingRuleIds": [
+        "fr-sr-f-r-37"
+      ]
+    },
+    {
+      "id": "fr-sr-q-022",
+      "rule": "44",
+      "kind": "trueFalse",
+      "front": {
+        "en": "Rule 44 of the Fundamental Rules requires that a compensatory allowance (प्रतिपूरक भत्ता) be so regulated that it is not, on the whole, a source of profit to the recipient.",
+        "hi": "मूल नियम का नियम 44 अपेक्षा करता है कि प्रतिपूरक भत्ते को इस प्रकार विनियमित किया जाए कि वह प्राप्तकर्ता के लिए समग्रतः लाभ का स्रोत न बने।"
+      },
+      "back": {
+        "en": "True.",
+        "hi": "सत्य।"
+      },
+      "options": [
+        {
+          "en": "True",
+          "hi": "सत्य"
+        },
+        {
+          "en": "False",
+          "hi": "असत्य"
+        }
+      ],
+      "answerIndex": 0,
+      "explanation": {
+        "en": "Rule 44 states this as the general rule governing every compensatory allowance the Central Government may grant, before going on to let it prescribe amounts and conditions for drawing them.",
+        "hi": "नियम 44 इसे केंद्र सरकार द्वारा दिए जा सकने वाले प्रत्येक प्रतिपूरक भत्ते को शासित करने वाले सामान्य नियम के रूप में बताता है, इसके पश्चात् ही यह उनकी राशियाँ और आहरण की शर्तें विहित करने की शक्ति देता है।"
+      },
+      "ruleRef": {
+        "textId": "fr-sr-f-r-44",
+        "citation": {
+          "en": "F.R. 44, Fundamental Rules and Supplementary Rules",
+          "hi": "F.R. 44, मूल नियम और अनुपूरक नियम"
+        }
+      },
+      "difficulty": "easy",
+      "stageA": {
+        "index": 22,
+        "angle": "F.R. 44 — compensatory allowance must not be a source of profit"
+      },
+      "groundingRuleIds": [
+        "fr-sr-f-r-44"
+      ]
+    },
+    {
+      "id": "fr-sr-q-023",
+      "rule": "46",
+      "kind": "mcq",
+      "front": {
+        "en": "Rule 46(b) of the Fundamental Rules permits an honorarium (मानदेय) as remuneration for what kind of work?",
+        "hi": "मूल नियम का नियम 46(ख) मानदेय को किस प्रकार के कार्य के पारिश्रमिक के रूप में अनुज्ञात करता है?"
+      },
+      "back": {
+        "en": "Work that is occasional or intermittent in character and either so laborious or of such special merit as to justify a special reward.",
+        "hi": "ऐसा कार्य जो प्रकृति में यदा-कदा अथवा सविराम हो और या तो इतना श्रमसाध्य हो अथवा ऐसी विशेष योग्यता का हो कि विशेष पुरस्कार को न्यायोचित ठहराए।"
+      },
+      "options": [
+        {
+          "en": "Work that is occasional or intermittent in character and either laborious or of special merit",
+          "hi": "ऐसा कार्य जो प्रकृति में यदा-कदा अथवा सविराम हो और या तो श्रमसाध्य हो अथवा विशेष योग्यता का हो"
+        },
+        {
+          "en": "Any additional work performed regularly outside office hours",
+          "hi": "कार्यालय समय के बाहर नियमित रूप से किया गया कोई भी अतिरिक्त कार्य"
+        },
+        {
+          "en": "Work performed exclusively during a period of deputation",
+          "hi": "केवल प्रतिनियुक्ति की अवधि के दौरान किया गया कार्य"
+        },
+        {
+          "en": "Routine work performed diligently over a full financial year",
+          "hi": "पूरे वित्तीय वर्ष में तत्परतापूर्वक किया गया नियमित कार्य"
+        }
+      ],
+      "answerIndex": 0,
+      "explanation": {
+        "en": "Rule 46(b) reserves honoraria for work that is occasional or intermittent — not a regular part of the post's duties — and either especially laborious or of special merit. It also requires, except for recorded special reasons, that the work be undertaken with the Central Government's prior consent and the amount settled in advance.",
+        "hi": "नियम 46(ख) मानदेय को ऐसे कार्य के लिए सुरक्षित रखता है जो यदा-कदा अथवा सविराम हो — पद के कर्तव्यों का नियमित भाग न हो — और या तो विशेष रूप से श्रमसाध्य हो अथवा विशेष योग्यता का हो। यह यह भी अपेक्षा करता है कि, अभिलिखित विशेष कारणों को छोड़कर, कार्य केंद्र सरकार की पूर्व सहमति से किया जाए और राशि पहले ही तय कर ली जाए।"
+      },
+      "ruleRef": {
+        "textId": "fr-sr-f-r-46",
+        "citation": {
+          "en": "F.R. 46, Fundamental Rules and Supplementary Rules",
+          "hi": "F.R. 46, मूल नियम और अनुपूरक नियम"
+        }
+      },
+      "difficulty": "medium",
+      "stageA": {
+        "index": 23,
+        "angle": "F.R. 46(b) — honorarium is for occasional, special work"
+      },
+      "groundingRuleIds": [
+        "fr-sr-f-r-46"
+      ]
+    },
+    {
+      "id": "fr-sr-q-024",
+      "rule": "49",
+      "kind": "scenario",
+      "front": {
+        "en": "A Section Officer is formally appointed to hold full additional charge (पूर्ण अतिरिक्त प्रभार) of an Under Secretary's post in a different section, one that is not in the same cadre or line of promotion, for a period of two months. Under Rule 49 of the Fundamental Rules, what pay is he allowed for the additional post?",
+        "hi": "एक अनुभाग अधिकारी को दो मास की अवधि के लिए किसी भिन्न अनुभाग में उप सचिव के पद का पूर्ण अतिरिक्त प्रभार औपचारिक रूप से सौंपा जाता है, जो न उसी संवर्ग में है और न ही पदोन्नति की उसी शृंखला में। मूल नियम के नियम 49 के अधीन, अतिरिक्त पद के लिए उसे कौन-सा वेतन अनुज्ञात है?"
+      },
+      "back": {
+        "en": "The pay of the higher post, plus ten per cent of the presumptive pay of the additional post, since the additional charge is held for a period exceeding forty-five days but not exceeding three months.",
+        "hi": "उच्चतर पद का वेतन, साथ ही अतिरिक्त पद के उपधारित वेतन का दस प्रतिशत, क्योंकि अतिरिक्त प्रभार पैंतालीस दिन से अधिक किंतु तीन मास से अनधिक अवधि के लिए धारण किया गया है।"
+      },
+      "options": [
+        {
+          "en": "No additional pay at all, since dual charge within the same office is never paid",
+          "hi": "कोई अतिरिक्त वेतन नहीं, क्योंकि एक ही कार्यालय में दोहरा प्रभार कभी वेतनयुक्त नहीं होता"
+        },
+        {
+          "en": "The pay of the higher post, plus ten per cent of the presumptive pay of the additional post",
+          "hi": "उच्चतर पद का वेतन, साथ ही अतिरिक्त पद के उपधारित वेतन का दस प्रतिशत"
+        },
+        {
+          "en": "The full pay of both posts, drawn simultaneously and in full",
+          "hi": "दोनों पदों का पूर्ण वेतन, एक साथ और पूर्ण रूप से आहरित"
+        },
+        {
+          "en": "Only the difference between the two posts' minimum pay",
+          "hi": "केवल दोनों पदों के न्यूनतम वेतन का अंतर"
+        }
+      ],
+      "answerIndex": 1,
+      "explanation": {
+        "en": "Rule 49(iii) applies because the additional post is not in the same office and cadre/line of promotion: it gives the pay of the higher post plus ten per cent of the presumptive pay of the additional post, for a charge held beyond 45 days but not beyond 3 months — a different figure applies within the same cadre under Rule 49(i), and the aggregate under Rule 49(iv) is capped at Rs. 2,25,000.",
+        "hi": "नियम 49(iii) यहाँ लागू होता है क्योंकि अतिरिक्त पद न तो उसी कार्यालय में है और न उसी संवर्ग/पदोन्नति शृंखला में: यह 45 दिन से अधिक किंतु 3 मास से अनधिक धारित प्रभार के लिए उच्चतर पद का वेतन तथा अतिरिक्त पद के उपधारित वेतन का दस प्रतिशत देता है — उसी संवर्ग के भीतर नियम 49(i) के अधीन एक भिन्न आँकड़ा लागू होता है, और नियम 49(iv) के अधीन कुल योग ₹2,25,000 पर सीमित है।"
+      },
+      "ruleRef": {
+        "textId": "fr-sr-f-r-49",
+        "citation": {
+          "en": "F.R. 49, Fundamental Rules and Supplementary Rules",
+          "hi": "F.R. 49, मूल नियम और अनुपूरक नियम"
+        }
+      },
+      "difficulty": "hard",
+      "stageA": {
+        "index": 24,
+        "angle": "F.R. 49(iii) — additional charge across a different cadre/office"
+      },
+      "groundingRuleIds": [
+        "fr-sr-f-r-49"
+      ]
+    },
+    {
+      "id": "fr-sr-q-025",
+      "rule": "50",
+      "kind": "mcq",
+      "front": {
+        "en": "Rule 50 of the Fundamental Rules provides that deputation (प्रतिनियुक्ति) of a Government servant out of India shall not be sanctioned without what?",
+        "hi": "मूल नियम का नियम 50 उपबंध करता है कि भारत से बाहर किसी सरकारी सेवक की प्रतिनियुक्ति के बिना किस के मंजूर नहीं की जाएगी?"
+      },
+      "back": {
+        "en": "The previous approval of the Central Government.",
+        "hi": "केंद्र सरकार की पूर्वानुमोदन के बिना।"
+      },
+      "options": [
+        {
+          "en": "The concurrence of the receiving foreign government alone",
+          "hi": "केवल प्राप्तकर्ता विदेशी सरकार की सहमति"
+        },
+        {
+          "en": "A no-objection certificate from the Ministry of External Affairs alone",
+          "hi": "केवल विदेश मंत्रालय से अनापत्ति प्रमाणपत्र"
+        },
+        {
+          "en": "The previous approval of the Central Government",
+          "hi": "केंद्र सरकार की पूर्वानुमोदन"
+        },
+        {
+          "en": "Nothing; a Head of Department may sanction it directly",
+          "hi": "कुछ नहीं; विभागाध्यक्ष सीधे इसे मंजूर कर सकता है"
+        }
+      ],
+      "answerIndex": 2,
+      "explanation": {
+        "en": "Rule 50 is a short, absolute rule: whatever the destination or purpose, deputation out of India needs the Central Government's own previous approval before it can be sanctioned at all.",
+        "hi": "नियम 50 एक संक्षिप्त, निरपेक्ष नियम है: गंतव्य या प्रयोजन चाहे जो भी हो, भारत से बाहर प्रतिनियुक्ति को मंजूर करने से पहले केंद्र सरकार की स्वयं की पूर्वानुमोदन आवश्यक है।"
+      },
+      "ruleRef": {
+        "textId": "fr-sr-f-r-50",
+        "citation": {
+          "en": "F.R. 50, Fundamental Rules and Supplementary Rules",
+          "hi": "F.R. 50, मूल नियम और अनुपूरक नियम"
+        }
+      },
+      "difficulty": "easy",
+      "stageA": {
+        "index": 25,
+        "angle": "F.R. 50 — previous approval of the Central Government for deputation abroad"
+      },
+      "groundingRuleIds": [
+        "fr-sr-f-r-50"
+      ]
+    },
+    {
+      "id": "fr-sr-q-026",
+      "rule": "51(1)",
+      "kind": "scenario",
+      "front": {
+        "en": "An officer is deputed abroad, with proper sanction, in connection with the post she holds in India. Under Rule 51(1) of the Fundamental Rules, what pay may the President allow her to draw during the period of deputation?",
+        "hi": "एक अधिकारी को, समुचित मंजूरी से, भारत में धारित अपने पद के संबंध में विदेश प्रतिनियुक्त किया जाता है। मूल नियम के नियम 51(1) के अधीन, प्रतिनियुक्ति की अवधि के दौरान राष्ट्रपति उसे कौन-सा वेतन आहरित करने दे सकता है?"
+      },
+      "back": {
+        "en": "The same pay which she would have drawn had she remained on duty in India.",
+        "hi": "वही वेतन जो वह भारत में ड्यूटी पर बने रहने पर आहरित करती।"
+      },
+      "options": [
+        {
+          "en": "Only the pay fixed by the foreign employer for the assignment",
+          "hi": "केवल असाइनमेंट के लिए विदेशी नियोजक द्वारा नियत वेतन"
+        },
+        {
+          "en": "The minimum of her level's time-scale, since a foreign posting is treated as a fresh appointment",
+          "hi": "उसके स्तर के समय-मान का न्यूनतम, क्योंकि विदेश पदस्थापन को नई नियुक्ति माना जाता है"
+        },
+        {
+          "en": "No pay at all; only a compensatory allowance in foreign currency",
+          "hi": "कोई वेतन नहीं; केवल विदेशी मुद्रा में प्रतिपूरक भत्ता"
+        },
+        {
+          "en": "The same pay which she would have drawn had she remained on duty in India",
+          "hi": "वही वेतन जो वह भारत में ड्यूटी पर बने रहने पर आहरित करती"
+        }
+      ],
+      "answerIndex": 3,
+      "explanation": {
+        "en": "Rule 51(1) lets a Government servant temporarily deputed abroad on duty connected with his or her Indian post draw the same pay as if still on duty in India — a compensatory allowance in the foreign country under Rule 51(2) is a separate, additional benefit the President may also grant.",
+        "hi": "नियम 51(1) उस सरकारी सेवक को, जो अपने भारतीय पद से संबंधित ड्यूटी पर अस्थायी रूप से विदेश प्रतिनियुक्त किया गया है, वही वेतन आहरित करने देता है जो वह भारत में ड्यूटी पर बने रहने पर आहरित करता — विदेश में प्रतिपूरक भत्ता नियम 51(2) के अधीन एक पृथक्, अतिरिक्त सुविधा है जिसे राष्ट्रपति साथ ही मंजूर कर सकता है।"
+      },
+      "ruleRef": {
+        "textId": "fr-sr-f-r-51",
+        "citation": {
+          "en": "F.R. 51(1), Fundamental Rules and Supplementary Rules",
+          "hi": "F.R. 51(1), मूल नियम और अनुपूरक नियम"
+        }
+      },
+      "difficulty": "medium",
+      "stageA": {
+        "index": 26,
+        "angle": "F.R. 51(1) — pay during deputation abroad tracks the pay of duty in India"
+      },
+      "groundingRuleIds": [
+        "fr-sr-f-r-51"
+      ]
+    },
+    {
+      "id": "fr-sr-q-027",
+      "rule": "52",
+      "kind": "mcq",
+      "front": {
+        "en": "Rule 52 of the Fundamental Rules states that the pay and allowances of a Government servant who is dismissed or removed from service cease from what point?",
+        "hi": "मूल नियम का नियम 52 बताता है कि सेवा से पदच्युत अथवा हटाए गए सरकारी सेवक के वेतन और भत्ते किस बिंदु से समाप्त हो जाते हैं?"
+      },
+      "back": {
+        "en": "The date of such dismissal or removal.",
+        "hi": "ऐसी पदच्युति अथवा हटाए जाने की तिथि से।"
+      },
+      "options": [
+        {
+          "en": "The date of such dismissal or removal",
+          "hi": "ऐसी पदच्युति अथवा हटाए जाने की तिथि से"
+        },
+        {
+          "en": "The date the disciplinary inquiry commenced",
+          "hi": "जिस तिथि से अनुशासनिक जाँच आरंभ हुई"
+        },
+        {
+          "en": "The last day of the calendar month in which the order is passed",
+          "hi": "जिस माह में आदेश पारित हो, उसका अंतिम दिन"
+        },
+        {
+          "en": "They continue for three months as a notice-period payment",
+          "hi": "वे नोटिस-अवधि के भुगतान के रूप में तीन मास तक जारी रहते हैं"
+        }
+      ],
+      "answerIndex": 0,
+      "explanation": {
+        "en": "Rule 52 is a plain, one-line rule: pay and allowances stop on the date of dismissal or removal itself, with no notice period. What happens if the dismissal or removal is later reversed on appeal is dealt with separately, under Rule 54.",
+        "hi": "नियम 52 एक सीधी, एक-पंक्ति की व्यवस्था है: वेतन और भत्ते पदच्युति या हटाए जाने की तिथि से ही रुक जाते हैं, बिना किसी नोटिस-अवधि के। यदि पदच्युति या हटाया जाना बाद में अपील पर उलट दिया जाए तो उसका निपटान अलग से, नियम 54 के अधीन होता है।"
+      },
+      "ruleRef": {
+        "textId": "fr-sr-f-r-52",
+        "citation": {
+          "en": "F.R. 52, Fundamental Rules and Supplementary Rules",
+          "hi": "F.R. 52, मूल नियम और अनुपूरक नियम"
+        }
+      },
+      "difficulty": "easy",
+      "stageA": {
+        "index": 27,
+        "angle": "F.R. 52 — pay stops on the date of dismissal or removal itself"
+      },
+      "groundingRuleIds": [
+        "fr-sr-f-r-52"
+      ]
+    },
+    {
+      "id": "fr-sr-q-028",
+      "rule": "53(1)",
+      "kind": "mcq",
+      "front": {
+        "en": "Rule 53(1) of the Fundamental Rules provides that the subsistence allowance (निर्वाह भत्ता) payable to a suspended Government servant is an amount equal to what, plus dearness allowance if admissible on that basis?",
+        "hi": "मूल नियम का नियम 53(1) उपबंध करता है कि निलंबित सरकारी सेवक को देय निर्वाह भत्ता किसके बराबर राशि है, साथ ही उस आधार पर देय महँगाई भत्ता?"
+      },
+      "back": {
+        "en": "The leave salary he would have drawn had he been on leave on half average pay or on half pay.",
+        "hi": "वह छुट्टी वेतन जो वह अर्ध-औसत वेतन या अर्ध-वेतन पर छुट्टी पर रहने पर आहरित करता।"
+      },
+      "options": [
+        {
+          "en": "His full pay and allowances immediately before suspension",
+          "hi": "निलंबन से ठीक पहले का उसका पूर्ण वेतन और भत्ते"
+        },
+        {
+          "en": "The leave salary he would have drawn on leave on half average pay or half pay",
+          "hi": "अर्ध-औसत वेतन या अर्ध-वेतन पर छुट्टी पर रहने पर आहरित होने वाला छुट्टी वेतन"
+        },
+        {
+          "en": "The minimum of the time-scale of the post he was suspended from",
+          "hi": "जिस पद से वह निलंबित हुआ, उसके समय-मान का न्यूनतम"
+        },
+        {
+          "en": "A flat amount fixed annually by the Department of Expenditure",
+          "hi": "व्यय विभाग द्वारा प्रतिवर्ष नियत की गई एक समान राशि"
+        }
+      ],
+      "answerIndex": 1,
+      "explanation": {
+        "en": "Rule 53(1)(ii)(a) pegs the subsistence allowance to leave-salary rates on half average pay or half pay, plus dearness allowance where admissible on that basis. Where suspension exceeds three months, a proviso lets the ordering authority vary the later period's allowance by up to 50 per cent either way, depending on whose fault prolonged it.",
+        "hi": "नियम 53(1)(ii)(क) निर्वाह भत्ते को अर्ध-औसत वेतन या अर्ध-वेतन पर छुट्टी वेतन की दरों से, साथ ही जहाँ उस आधार पर देय हो वहाँ महँगाई भत्ते से जोड़ता है। जहाँ निलंबन तीन मास से अधिक हो, एक परंतुक आदेश देने वाले प्राधिकारी को बाद की अवधि के भत्ते को, यह किसकी गलती से लंबा हुआ इसके आधार पर, 50 प्रतिशत तक किसी भी दिशा में परिवर्तित करने देता है।"
+      },
+      "ruleRef": {
+        "textId": "fr-sr-f-r-53",
+        "citation": {
+          "en": "F.R. 53(1), Fundamental Rules and Supplementary Rules",
+          "hi": "F.R. 53(1), मूल नियम और अनुपूरक नियम"
+        }
+      },
+      "difficulty": "hard",
+      "stageA": {
+        "index": 28,
+        "angle": "F.R. 53(1) — subsistence allowance pegged to half-rate leave salary"
+      },
+      "groundingRuleIds": [
+        "fr-sr-f-r-53"
+      ]
+    },
+    {
+      "id": "fr-sr-q-029",
+      "rule": "54(2)-(3)",
+      "kind": "scenario",
+      "front": {
+        "en": "An officer who was dismissed is reinstated on appeal, and the authority competent to order reinstatement (पुनर्स्थापन) holds that he has been fully exonerated. Under Rule 54(2) and (3) of the Fundamental Rules, what follows for his pay and for the period of his absence?",
+        "hi": "पदच्युत किया गया एक अधिकारी अपील पर पुनर्स्थापित किया जाता है, और पुनर्स्थापन का आदेश देने में सक्षम प्राधिकारी यह अभिनिर्धारित करता है कि वह पूर्णतः दोषमुक्त है। मूल नियम के नियम 54(2) और (3) के अधीन, उसके वेतन और उसकी अनुपस्थिति की अवधि का क्या परिणाम होता है?"
+      },
+      "back": {
+        "en": "He is paid the full pay and allowances he would have drawn had he not been dismissed or suspended, and the period of absence is treated as a period spent on duty for all purposes.",
+        "hi": "उसे वह पूर्ण वेतन और भत्ते दिए जाते हैं जो वह पदच्युत अथवा निलंबित न होने पर आहरित करता, और उसकी अनुपस्थिति की अवधि को सभी प्रयोजनों के लिए ड्यूटी पर बिताई गई अवधि माना जाता है।"
+      },
+      "options": [
+        {
+          "en": "Only the subsistence allowance already paid during suspension, with no further amount due",
+          "hi": "निलंबन के दौरान पहले से भुगतान किया गया निर्वाह भत्ता ही, और कुछ शेष देय नहीं"
+        },
+        {
+          "en": "Half his pay and allowances, since reinstatement is always discretionary",
+          "hi": "उसके वेतन और भत्तों का आधा, क्योंकि पुनर्स्थापन सदैव विवेकाधीन है"
+        },
+        {
+          "en": "Full pay and allowances as if he had not been dismissed, and the absence treated as duty for all purposes",
+          "hi": "पदच्युत न होने की स्थिति जैसे पूर्ण वेतन और भत्ते, तथा अनुपस्थिति को सभी प्रयोजनों के लिए ड्यूटी माना जाना"
+        },
+        {
+          "en": "Full pay only, but the period is never treated as duty for pension or increment purposes",
+          "hi": "केवल पूर्ण वेतन, किंतु उस अवधि को पेंशन या वेतनवृद्धि के प्रयोजनों के लिए कभी ड्यूटी नहीं माना जाता"
+        }
+      ],
+      "answerIndex": 2,
+      "explanation": {
+        "en": "Rule 54(2) gives full exoneration its full consequence: full pay and allowances (subject to sub-rule (6)'s other conditions), and Rule 54(3) then treats the whole period of absence, including any suspension before the dismissal, as duty for ALL purposes — not merely for pay. A part-payment regime under the proviso applies only where the delay in concluding proceedings is attributable to the Government servant himself.",
+        "hi": "नियम 54(2) पूर्ण दोषमुक्ति को उसका पूरा परिणाम देता है: पूर्ण वेतन और भत्ते (उपनियम (6) की अन्य शर्तों के अध्यधीन), और नियम 54(3) फिर अनुपस्थिति की पूरी अवधि को, पदच्युति से पूर्व के किसी निलंबन सहित, केवल वेतन के लिए नहीं बल्कि सभी प्रयोजनों के लिए ड्यूटी मानता है। परंतुक के अधीन आंशिक-भुगतान की व्यवस्था केवल तभी लागू होती है जब कार्यवाही समाप्त होने में विलंब स्वयं सरकारी सेवक के कारण हुआ हो।"
+      },
+      "ruleRef": {
+        "textId": "fr-sr-f-r-54",
+        "citation": {
+          "en": "F.R. 54(2)-(3), Fundamental Rules and Supplementary Rules",
+          "hi": "F.R. 54(2)-(3), मूल नियम और अनुपूरक नियम"
+        }
+      },
+      "difficulty": "hard",
+      "stageA": {
+        "index": 29,
+        "angle": "F.R. 54(2)-(3) — full exoneration means full pay and the period counted as duty"
+      },
+      "groundingRuleIds": [
+        "fr-sr-f-r-54"
+      ]
+    },
+    {
+      "id": "fr-sr-q-030",
+      "rule": "56(a)",
+      "kind": "mcq",
+      "front": {
+        "en": "Rule 56(a) of the Fundamental Rules fixes the ordinary age of superannuation (अधिवर्षिता) for a Government servant, and provides a special rule for one whose date of birth is the first of a month. What is that special rule?",
+        "hi": "मूल नियम का नियम 56(क) सरकारी सेवक की अधिवर्षिता की सामान्य आयु नियत करता है, तथा ऐसे व्यक्ति के लिए विशेष नियम उपबंधित करता है जिसकी जन्मतिथि किसी माह की पहली तारीख हो। वह विशेष नियम क्या है?"
+      },
+      "back": {
+        "en": "He retires from service on the afternoon of the last day of the PRECEDING month on attaining the age of sixty years.",
+        "hi": "वह साठ वर्ष की आयु प्राप्त करने पर उससे ठीक पहले वाले माह के अंतिम दिन के अपराह्न में सेवा से सेवानिवृत्त हो जाता है।"
+      },
+      "options": [
+        {
+          "en": "He retires on his sixtieth birthday itself, like every other Government servant",
+          "hi": "वह प्रत्येक अन्य सरकारी सेवक की भाँति अपने साठवें जन्मदिन पर ही सेवानिवृत्त होता है"
+        },
+        {
+          "en": "He retires on the last day of the month in which he turns sixty, one month later than usual",
+          "hi": "वह उस माह के अंतिम दिन सेवानिवृत्त होता है जिसमें वह साठ वर्ष का होता है, सामान्य से एक माह बाद"
+        },
+        {
+          "en": "The first-of-the-month rule applies only to Group 'A' officers",
+          "hi": "यह पहली-तारीख वाला नियम केवल समूह 'क' अधिकारियों पर लागू होता है"
+        },
+        {
+          "en": "He retires on the afternoon of the last day of the preceding month on attaining sixty",
+          "hi": "वह साठ वर्ष की आयु प्राप्त करने पर ठीक पहले वाले माह के अंतिम दिन के अपराह्न में सेवानिवृत्त होता है"
+        }
+      ],
+      "answerIndex": 3,
+      "explanation": {
+        "en": "The ordinary rule under F.R. 56(a) is retirement on the afternoon of the last day of the month in which sixty is attained; its proviso moves that one month earlier for a Government servant born on the first of a month, because age in law is completed the day before the birth anniversary. The rule draws no distinction by group or service.",
+        "hi": "एफ.आर. 56(क) का सामान्य नियम साठ वर्ष पूरे होने वाले माह के अंतिम दिन के अपराह्न में सेवानिवृत्ति है; इसका परंतुक ऐसे सरकारी सेवक के लिए, जिसकी जन्मतिथि किसी माह की पहली तारीख हो, इसे एक माह पहले कर देता है, क्योंकि विधि में आयु जन्मदिन से एक दिन पहले पूर्ण मानी जाती है। यह नियम समूह या सेवा के आधार पर कोई भेद नहीं करता।"
+      },
+      "ruleRef": {
+        "textId": "fr-sr-f-r-56",
+        "citation": {
+          "en": "F.R. 56(a), Fundamental Rules and Supplementary Rules",
+          "hi": "F.R. 56(a), मूल नियम और अनुपूरक नियम"
+        }
+      },
+      "difficulty": "medium",
+      "stageA": {
+        "index": 30,
+        "angle": "F.R. 56(a) — the birthday-on-the-first proviso to the retirement age"
+      },
+      "groundingRuleIds": [
+        "fr-sr-f-r-56"
+      ]
+    }
+  ]
+}

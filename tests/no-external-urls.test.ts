@@ -211,6 +211,40 @@ const ALLOWED_INERT: ReadonlyArray<{ pattern: RegExp; why: string }> = [
       '"unreviewed"` — unservable — until a human reviews it in `/learn/review-queue`.',
   },
   {
+    // CSMOP 2022's own Table 4.2 ("Useful websites/documents") lists roughly
+    // twenty government portals in a two-column reference list, the same
+    // paragraph `cabsec.nic.in/showpdf.php` (below) is quoted from. The PDF
+    // extraction wraps that table's rows, and several of these URLs happen to
+    // break mid-word across the wrap with a space inserted where the line
+    // broke — data/rules/text/csmop.json's stored text genuinely contains
+    // "rulescon tent.asp", not a typo introduced here — so the pattern is a
+    // host-prefix match rather than a full-URL one, tolerant of wherever the
+    // extracted text happens to end before the next space. Session 20
+    // authored this act's Hindi headings and MCQs; these are pre-existing
+    // extracted English text, unrelated to that authoring, first bundled once
+    // `hindi/csmop.json` unlocked the act's rule/cloze cards this session.
+    pattern:
+      /^https?:\/\/(www\.)?(rajyasabha\.nic\.in|mpa\.(nic|gov)\.in|cabsec\.gov\.in|mha\.nic\.in|pppinindia\.com|darpg\.(nic|gov)\.in|meity\.gov\.in|oams\.nic\.in|apms\.nic\.in|supremo\.nic\.in|egazette\.nic\.in|eoffice\.gov\.in|docs\.eoffice\.gov\.in)(\/|$)/,
+    why:
+      'quoted verbatim from CSMOP 2022\'s Table 4.2 reference list in data/rules/text/csmop.json — a ' +
+      'reader sees these as plain text inside the rule body, never as a link the app renders or fetches, ' +
+      'the same way `citationUrls()` below already documents for this file. Not added to CITATION_HOSTS ' +
+      'for the reason recorded there: about twenty quoted hosts would turn a reviewed-citation allowlist ' +
+      'into a list mostly made of accidents.',
+  },
+  {
+    pattern: /^https?:\/\/(www\.)?164\.100\.47\.192\//,
+    why: "CSMOP 2022's Table 4.2 again — the Lok Sabha Secretariat's rules/directions pages, cited by IP " +
+      'address in the manual itself rather than by a hostname.',
+  },
+  {
+    pattern: /^https?:\/\/doptcirculars\.nic\.in\/Default\.aspx\?URL=/,
+    why:
+      'data/rules/text/ccs-leave.json rule 66 — the compiled CCS (Leave) Rules, 1972 itself directs the ' +
+      'reader to specific DoPT circular-viewer URLs for the original Office Memorandums; quoted prose, ' +
+      'never fetched, the same class as the CSMOP portal list above.',
+  },
+  {
     // The trailing `type=____` is not a typo in this pattern: the source card
     // itself is malformed, see the note below.
     pattern: /^http:\/\/cabsec\.nic\.in\/showpdf\.php\?type=/,

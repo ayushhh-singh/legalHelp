@@ -1,0 +1,63 @@
+{
+  "_note": "STAGE B · CRITIC. A separate pass over scripts/authoring/authored/ol-act.json, judging each question on its own terms: is there exactly one correct answer, are the distractors plausible without being trivially wrong or secretly also correct, is it inside the public rule text, is there a factual red flag, is the Hindi accurate and formal-register, is the tone right for a serving officer. The file's own _note about Section 3 content being grounded under ruleRef.textId \"ol-act-2\" (because the extractor folded the amendment-inserted Section 3 text into that record) was treated as a deliberate, correct choice, not a defect — cards ol-act-q-003 through ol-act-q-008 were judged on their substance, not on that grounding id. Every option marked correct was checked against its card's own \"back\"/explanation for a scope-narrowing discrepancy of the kind that sank ccs-conduct-q-006 (an option quietly dropping a criterion the model answer includes) — none was found. Every true/false card was checked against the specific weakness that sank ccs-conduct-q-019 (a rule restated as a true/false with a legally significant qualifier, there 'or attempt to bring', silently dropped) — none of ol-act-q-004, -005 or -012 drops a comparable qualifier from its source proviso/sub-section, so none carries that defect. Rejections stay in data/rules/cards/ with reviewState \"rejected\" and are never served.",
+  "ol-act-q-001": {
+    "verdict": "approve",
+    "reason": "One correct answer, grounded in Section 1(2); the three wrong options are real sections of the Act (8, 4, 5) that in fact commence only by notification, not trivially wrong or secretly also right."
+  },
+  "ol-act-q-002": {
+    "verdict": "approve",
+    "reason": "Section 2(b) is a closed definition ('Hindi' = Hindi in Devanagari script) with exactly one correct reading; the script distractors (Kaithi, Perso-Arabic, a State-notified script) are plausible wrong scripts and none is secretly permitted by the text."
+  },
+  "ol-act-q-003": {
+    "verdict": "approve",
+    "reason": "Section 3(1)'s main clause names exactly two purposes (pre-existing official use; Parliamentary business); the correct option matches the text without narrowing it, and the three distractors (embassies, judiciary records, UPSC exams) appear nowhere in the sub-section."
+  },
+  "ol-act-q-004": {
+    "verdict": "approve",
+    "reason": "The statement is a faithful, complete restatement of the first proviso to Section 3(1), with no legally significant qualifier dropped the way ccs-conduct-q-019 dropped 'or attempt to bring' from Rule 20 — the proviso itself has no such second clause to lose. True is correct."
+  },
+  "ol-act-q-005": {
+    "verdict": "approve",
+    "reason": "A well-built false statement: it substitutes 'Sanskrit' for the second proviso's actual required language, English. Sanskrit appears nowhere in the Act, so the distractor is plausible-sounding (a classical language) without being an invented rule the reader could mistake for real."
+  },
+  "ol-act-q-006": {
+    "verdict": "approve",
+    "reason": "Correctly ties the sub-section (2) translation duty to the staff's working knowledge of Hindi, not a permanent bilingual mandate; the 'no exception ever' and 'only State Governments' distractors both misstate what sub-section (2) actually covers and are clearly wrong on the text."
+  },
+  "ol-act-q-007": {
+    "verdict": "approve",
+    "reason": "Section 3(3)(i) and (iii) do mandate both languages for notifications and tender forms; the correct option doesn't claim this is the sub-section's complete list (unlike the ccs-conduct-q-006 defect, where a truncated option was presented as the full scope of a prohibition), so nothing is misstated. Distractors are concrete and wrong."
+  },
+  "ol-act-q-008": {
+    "verdict": "approve",
+    "reason": "Matches Section 3(4)'s non-disadvantage safeguard for staff proficient in only one language; the other three options (promotion bar, compulsory recruitment qualification, 'silent on this point') are not supported by the text and are not close calls."
+  },
+  "ol-act-q-009": {
+    "verdict": "approve",
+    "reason": "Section 4(2) fixes the Committee at 30 members, 20 from the House of the People and 10 from the Council of States; the distractors are the other plausible splits (15/15, 10/20) and an incorrect 'all nominated' claim, none secretly right."
+  },
+  "ol-act-q-010": {
+    "verdict": "approve",
+    "reason": "Correctly states the President's Section 4(4) power to direct per the Committee's report, gated by the 1968 proviso that the direction not be inconsistent with Section 3; distractors invent constraints (unanimous State agreement, a fresh Act, no constraint at all) that are not in the text."
+  },
+  "ol-act-q-011": {
+    "verdict": "approve",
+    "reason": "Section 5(1) plainly deems a Presidentially-published Hindi translation the authoritative text; the distractors (mere guide, conditional on the English text, binding only on courts) all misstate the unconditional status the section actually confers."
+  },
+  "ol-act-q-012": {
+    "verdict": "approve",
+    "reason": "A complete, accurate restatement of Section 5(2)'s Bill/amendment translation requirement with no significant qualifier dropped; True is correct."
+  },
+  "ol-act-q-013": {
+    "verdict": "approve",
+    "reason": "The Marathi scenario is a fair illustration of Section 6, and the correct option (a Gazette-published Hindi translation deemed authoritative in Hindi) matches the text; 'no power at all', 'complete replacement' and the Sanskrit/Eighth Schedule option are all wrong on the text, not close calls."
+  },
+  "ol-act-q-014": {
+    "verdict": "approve",
+    "reason": "Correctly identifies the President's previous consent and the High-Court-issued English translation requirement under Section 7; the Chief Justice / Union Law Ministry distractors substitute the wrong authority and the wrong consequence, and are clearly wrong on the text."
+  },
+  "ol-act-q-015": {
+    "verdict": "approve",
+    "reason": "Section 8(2)'s thirty-day laying period and its savings clause (no prejudice to anything previously done under the rule) are both stated accurately; the other day-counts and the fabricated State-ratification and CJI-consent conditions do not appear in the text."
+  }
+}

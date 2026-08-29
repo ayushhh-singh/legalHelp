@@ -119,5 +119,45 @@
   "ccs-leave-q-030": {
     "verdict": "approve",
     "reason": "One correct answer, grounded in Rule 28, CCS (Leave) Rules, 1972; distractors are real rules or real figures from neighbouring provisions."
+  },
+  "ccs-leave-q-031": {
+    "verdict": "approve",
+    "reason": "One correct answer, grounded in Rule 31, CCS (Leave) Rules, 1972 (a permanent employee with nothing at credit — Leave Not Due, capped at 360 days, debited against future half pay leave). Distractors correctly cross-reference commuted leave (Rule 30, which needs half pay leave already due — none is, so it cannot apply) and extraordinary leave (wrongly claimed to be debited against future HPL, which it is not). Officer-appropriate tone, formal छुट्टी throughout."
+  },
+  "ccs-leave-q-032": {
+    "verdict": "approve",
+    "reason": "One correct answer, grounded in Rule 43(3), CCS (Leave) Rules, 1972 — miscarriage leave up to 45 days on a Rule 19 medical certificate, with no two-child limit, correctly distinguished from the two-child-limited 180-day leave under Rule 43(1). Distractors are plausible traps built on conflating sub-rules (1) and (3)."
+  },
+  "ccs-leave-q-033": {
+    "verdict": "approve",
+    "reason": "One correct answer, grounded in Rule 39C's eleven-category order of payment; the scenario (no widow/spouse/children, father predeceased) correctly resolves to the mother, who precedes an unmarried sister in the list. Distractors (sister, equal split, lapse to Government) are all plausible misreadings of the order rather than arbitrary wrong answers."
+  },
+  "ccs-leave-q-034": {
+    "verdict": "approve",
+    "reason": "One correct answer, grounded in Rule 17, CCS (Leave) Rules, 1972 — leave is barred the moment a competent punishing authority decides to dismiss/remove/compulsorily retire, not from the date of the formal order. Distractors plausibly confuse this with Rule 7(2)'s discretionary refuse-or-revoke power, which is the intended pedagogical contrast."
+  },
+  "ccs-leave-q-035": {
+    "verdict": "approve",
+    "reason": "One correct answer, grounded in Rule 6, CCS (Leave) Rules, 1972 — suo motu cash equivalent of both earned leave and half pay leave at credit, capped at 300 days, on transfer to Factories Act leave terms. Matches the rule text verbatim in substance; distractors (lapse, wait for application, transfer the account) are realistic misconceptions about how encashment ordinarily works."
+  },
+  "ccs-leave-q-036": {
+    "verdict": "approve",
+    "reason": "One correct answer, grounded in Rule 39B, CCS (Leave) Rules, 1972 — sub-rule (2) withholds the half pay leave component from a Government servant not in permanent or quasi-permanent employ, so a temporary servant invalidated from service is paid earned leave only, capped at 300 days. Distractors test exactly this EL/HPL distinction and the unrelated 360-day Leave Not Due figure."
+  },
+  "ccs-leave-q-037": {
+    "verdict": "approve",
+    "reason": "One correct answer, grounded in the 2018 proviso to Rule 14, CCS (Leave) Rules, 1972, naming spouse, parents (if unmarried), adult child/sibling, or a person with limited guardianship under s.14 of the RPwD Act 2016 — matches the rule text's list. Distractors (RMP only, no one, Head of Office) are plausible but each defeats the proviso's actual purpose."
+  },
+  "ccs-leave-q-038": {
+    "verdict": "approve",
+    "reason": "One correct answer, grounded in Rule 10, CCS (Leave) Rules, 1972 — retrospective commutation is discretionary (not a right), and the request must reach the sanctioning authority within 30 days of joining duty on expiry of the original leave. Distractors each get one element wrong (absolute bar, false claim of right with a one-year window, wrongly limiting it to before proceeding on leave, which contradicts the rule's retrospective nature)."
+  },
+  "ccs-leave-q-039": {
+    "verdict": "approve",
+    "reason": "One correct answer, grounded in Rule 54(2), CCS (Leave) Rules, 1972 — study leave combined with any leave other than extraordinary leave is capped at 28 months generally (36 for a PhD course), so 30 months for a general course cannot be sanctioned. One distractor plausibly inverts which leave type the cap applies to (claims the 28-month cap is for combination WITH extraordinary leave, when it is the opposite), which is a sharp, well-targeted trap."
+  },
+  "ccs-leave-q-040": {
+    "verdict": "approve",
+    "reason": "One correct answer, grounded in Rule 44 (WRIIL), CCS (Leave) Rules, 1972 — full pay and allowances for the entire period of hospitalization regardless of duration, with the six-months-full/twelve-months-half-pay structure applying only after hospitalization ends. Distractors are realistic misreadings (treating it as ordinary sick leave, or wrongly starting the six/twelve-month clock from admission itself)."
   }
 }

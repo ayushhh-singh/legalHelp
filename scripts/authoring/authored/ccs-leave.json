@@ -1,5 +1,5 @@
 {
-  "_note": "STAGE A · GENERATE. Thirty bilingual questions on the CCS (Leave) Rules, 1972, written in session by Claude Code with data/rules/text/ccs-leave.json open. No API was called. Every maternity-leave figure here is 180 days, the position since the 2017 amendment; the '135 days' that appears in the source PDF is an amendment note recording the earlier entitlement.",
+  "_note": "STAGE A · GENERATE. Forty bilingual questions on the CCS (Leave) Rules, 1972, written in session by Claude Code with data/rules/text/ccs-leave.json open. No API was called. Every maternity-leave figure here is 180 days, the position since the 2017 amendment; the '135 days' that appears in the source PDF is an amendment note recording the earlier entitlement. Questions 031-040 are a targeted addition of ten scenario-kind ('what should the officer/DDO do?') cards over leave-administration decisions not covered by the first thirty: leave not due when both EL and HPL are exhausted (Rule 31 vs Rule 30), miscarriage leave's absence of the two-child limit (Rule 43(3)), the Rule 39C order of payment on death in service, the Rule 17 bar on leave once dismissal is decided, suo motu encashment on transfer to Factories Act leave terms (Rule 6) and on invalidation (Rule 39B), the Rule 14 disability proviso on who may sign an application, retrospective commutation under Rule 10, the Rule 54 study-leave combination ceiling, and Work Related Illness and Injury Leave during hospitalization (Rule 44).",
   "batchId": "2026-08-28-ccs-leave-A",
   "promptVersion": "rules-qa/1",
   "cards": [
@@ -986,6 +986,436 @@
       "difficulty": "hard",
       "stageA": { "index": 30, "angle": "Rule 28(1)(c) — the no-vacation switch back to Rule 26" },
       "groundingRuleIds": ["ccs-leave-28", "ccs-leave-26"]
+    },
+    {
+      "id": "ccs-leave-q-031",
+      "rule": "31",
+      "kind": "scenario",
+      "front": {
+        "en": "A Government servant in permanent employment has exhausted both his earned leave and his half pay leave, and needs ten more days off for a medical emergency. He satisfies the sanctioning authority that there is a reasonable prospect of his returning to duty. Under Rule 31 of the CCS (Leave) Rules, 1972, what leave can be sanctioned?",
+        "hi": "स्थायी नियोजन वाला एक सरकारी सेवक अपनी अर्जित छुट्टी और अर्ध वेतन छुट्टी दोनों समाप्त कर चुका है, और चिकित्सा आपात स्थिति के लिए दस दिन और चाहता है। वह मंजूरी प्राधिकारी को समाधानित करता है कि उसके ड्यूटी पर लौटने की युक्तियुक्त संभावना है। सीसीएस (छुट्टी) नियम, 1972 के नियम 31 के अधीन, कौन-सी छुट्टी मंजूर की जा सकती है?"
+      },
+      "back": {
+        "en": "Leave Not Due, on medical certificate, debited against the half pay leave he will earn later, subject to the 360-day career limit.",
+        "hi": "अदेय छुट्टी, चिकित्सा प्रमाणपत्र पर, बाद में अर्जित होने वाली अर्ध वेतन छुट्टी के विरुद्ध नामे, 360 दिन की कैरियर सीमा के अध्यधीन।"
+      },
+      "options": [
+        {
+          "en": "No further leave can be sanctioned once both accounts are exhausted",
+          "hi": "दोनों खाते समाप्त हो जाने पर आगे कोई छुट्टी मंजूर नहीं की जा सकती"
+        },
+        {
+          "en": "Extraordinary leave, which is also debited against future half pay leave",
+          "hi": "असाधारण छुट्टी, जो भविष्य की अर्ध वेतन छुट्टी के विरुद्ध भी नामे डाली जाती है"
+        },
+        {
+          "en": "Leave Not Due, debited against half pay leave he will earn later, up to 360 days in the career",
+          "hi": "अदेय छुट्टी, बाद में अर्जित होने वाली अर्ध वेतन छुट्टी के विरुद्ध नामे, कैरियर में 360 दिन तक"
+        },
+        {
+          "en": "Commuted leave, since it does not require any half pay leave to be at credit",
+          "hi": "संपरिवर्तित छुट्टी, क्योंकि उसके लिए कोई अर्ध वेतन छुट्टी जमा होना आवश्यक नहीं है"
+        }
+      ],
+      "answerIndex": 2,
+      "explanation": {
+        "en": "Leave Not Due (Rule 31) is the leave built for exactly this situation — a permanent employee with no leave at credit at all. It is capped at 360 days over the entire career and is debited against half pay leave he earns in future half-years. Commuted leave (Rule 30), by contrast, is capped at half the half pay leave already due — with none due, none can be granted.",
+        "hi": "अदेय छुट्टी (नियम 31) ठीक इसी स्थिति के लिए बनाई गई छुट्टी है — ऐसा स्थायी सेवक जिसके खाते में कोई छुट्टी जमा ही नहीं है। यह संपूर्ण कैरियर में 360 दिन पर सीमित है और भविष्य के अर्धवर्षों में अर्जित होने वाली अर्ध वेतन छुट्टी के विरुद्ध नामे डाली जाती है। इसके विपरीत, संपरिवर्तित छुट्टी (नियम 30) देय अर्ध वेतन छुट्टी के आधे पर सीमित है — जब कोई देय ही न हो, तो कोई मंजूर नहीं की जा सकती।"
+      },
+      "ruleRef": {
+        "textId": "ccs-leave-31",
+        "citation": { "en": "Rule 31, CCS (Leave) Rules, 1972", "hi": "नियम 31, सीसीएस (छुट्टी) नियम, 1972" }
+      },
+      "difficulty": "hard",
+      "stageA": { "index": 31, "angle": "Rule 31 vs Rule 30 — leave not due when nothing is at credit at all" },
+      "groundingRuleIds": ["ccs-leave-31", "ccs-leave-30"]
+    },
+    {
+      "id": "ccs-leave-q-032",
+      "rule": "43",
+      "kind": "scenario",
+      "front": {
+        "en": "A female Government servant, who already has two surviving children, suffers a miscarriage and needs leave, supported by a medical certificate under Rule 19. Under Rule 43 of the CCS (Leave) Rules, 1972, what leave can be sanctioned?",
+        "hi": "एक महिला सरकारी सेवक, जिसकी पहले से दो जीवित संतानें हैं, गर्भपात का शिकार होती है और नियम 19 के अधीन चिकित्सा प्रमाणपत्र के साथ छुट्टी चाहती है। सीसीएस (छुट्टी) नियम, 1972 के नियम 43 के अधीन, कौन-सी छुट्टी मंजूर की जा सकती है?"
+      },
+      "back": {
+        "en": "Maternity leave not exceeding 45 days, since sub-rule (3)'s miscarriage leave is available irrespective of the number of surviving children.",
+        "hi": "45 दिन से अनधिक मातृत्व छुट्टी, क्योंकि उपनियम (3) की गर्भपात छुट्टी जीवित संतानों की संख्या पर ध्यान दिए बिना उपलब्ध है।"
+      },
+      "options": [
+        {
+          "en": "None, since she already has two surviving children",
+          "hi": "कोई नहीं, क्योंकि उसकी पहले से दो जीवित संतानें हैं"
+        },
+        {
+          "en": "45 days of maternity leave, since sub-rule (3) applies irrespective of the number of surviving children",
+          "hi": "45 दिन की मातृत्व छुट्टी, क्योंकि उपनियम (3) जीवित संतानों की संख्या पर ध्यान दिए बिना लागू होता है"
+        },
+        {
+          "en": "180 days of maternity leave, the same as for a normal delivery",
+          "hi": "180 दिन की मातृत्व छुट्टी, सामान्य प्रसव के समान"
+        },
+        {
+          "en": "Only extraordinary leave, since this is not covered by maternity leave at all",
+          "hi": "केवल असाधारण छुट्टी, क्योंकि यह मातृत्व छुट्टी के अंतर्गत आती ही नहीं"
+        }
+      ],
+      "answerIndex": 1,
+      "explanation": {
+        "en": "Rule 43(1)'s 180-day maternity leave is limited to a female Government servant with fewer than two surviving children. Rule 43(3)'s miscarriage leave — up to 45 days on a Rule 19 medical certificate — carries no such limit; it exists precisely so the two-child condition does not also bar a woman from leave after a pregnancy loss.",
+        "hi": "नियम 43(1) की 180 दिन की मातृत्व छुट्टी दो से कम जीवित संतान वाली महिला सरकारी सेवक तक सीमित है। नियम 43(3) की गर्भपात छुट्टी — नियम 19 के चिकित्सा प्रमाणपत्र पर 45 दिन तक — पर ऐसी कोई सीमा नहीं है; यह ठीक इसीलिए है ताकि दो-संतान की शर्त किसी महिला को गर्भावस्था के नुकसान के बाद छुट्टी से वंचित न कर दे।"
+      },
+      "ruleRef": {
+        "textId": "ccs-leave-43",
+        "citation": { "en": "Rule 43, CCS (Leave) Rules, 1972", "hi": "नियम 43, सीसीएस (छुट्टी) नियम, 1972" }
+      },
+      "difficulty": "hard",
+      "stageA": { "index": 32, "angle": "Rule 43(3) miscarriage leave has no two-child limit, unlike Rule 43(1)" },
+      "groundingRuleIds": ["ccs-leave-43", "ccs-leave-19"]
+    },
+    {
+      "id": "ccs-leave-q-033",
+      "rule": "39C",
+      "kind": "scenario",
+      "front": {
+        "en": "An unmarried Government servant dies while in service. His father predeceased him; he is survived by his mother and an unmarried elder sister, and has no children. Under Rule 39C of the CCS (Leave) Rules, 1972, to whom is the cash equivalent of leave salary payable?",
+        "hi": "एक अविवाहित सरकारी सेवक की सेवाकाल में मृत्यु हो जाती है। उसके पिता पहले ही स्वर्गवासी हो चुके हैं; उसके पीछे उसकी माता और एक अविवाहित बड़ी बहन जीवित हैं, और उसकी कोई संतान नहीं है। सीसीएस (छुट्टी) नियम, 1972 के नियम 39ग के अधीन, छुट्टी वेतन का नकद समतुल्य किसे संदेय है?"
+      },
+      "back": {
+        "en": "To his mother — she precedes an unmarried sister in Rule 39C's order of payment.",
+        "hi": "उसकी माता को — नियम 39ग के संदाय क्रम में वह अविवाहित बहन से पहले आती है।"
+      },
+      "options": [
+        {
+          "en": "His unmarried elder sister",
+          "hi": "उसकी अविवाहित बड़ी बहन"
+        },
+        {
+          "en": "Equally between his mother and his sister",
+          "hi": "उसकी माता और बहन के बीच बराबर-बराबर"
+        },
+        {
+          "en": "It lapses to the Government since he left no widow, spouse or children",
+          "hi": "यह सरकार को समाप्त हो जाता है क्योंकि उसने कोई विधवा, जीवनसाथी या संतान नहीं छोड़ी"
+        },
+        {
+          "en": "His mother",
+          "hi": "उसकी माता"
+        }
+      ],
+      "answerIndex": 3,
+      "explanation": {
+        "en": "Rule 39C lists eleven categories in order — widow/husband, then eldest surviving son, then eldest surviving unmarried daughter, then eldest surviving widowed daughter, then father, then mother, and only then an eldest surviving unmarried sister. With no widow, child or father alive, the payment goes to the mother, who ranks ahead of a sister at every point in this list.",
+        "hi": "नियम 39ग ग्यारह श्रेणियाँ क्रम में सूचीबद्ध करता है — पति/पत्नी, फिर सबसे बड़ा जीवित पुत्र, फिर सबसे बड़ी जीवित अविवाहित पुत्री, फिर सबसे बड़ी जीवित विधवा पुत्री, फिर पिता, फिर माता, और उसके बाद ही सबसे बड़ी जीवित अविवाहित बहन। जब कोई पति/पत्नी, संतान या जीवित पिता न हो, तो संदाय माता को होता है, जो इस सूची में हर बिंदु पर बहन से आगे है।"
+      },
+      "ruleRef": {
+        "textId": "ccs-leave-39c",
+        "citation": { "en": "Rule 39C, CCS (Leave) Rules, 1972", "hi": "नियम 39ग, सीसीएस (छुट्टी) नियम, 1972" }
+      },
+      "difficulty": "hard",
+      "stageA": { "index": 33, "angle": "Rule 39C's order of payment — mother precedes sister" },
+      "groundingRuleIds": ["ccs-leave-39c", "ccs-leave-39a"]
+    },
+    {
+      "id": "ccs-leave-q-034",
+      "rule": "17",
+      "kind": "scenario",
+      "front": {
+        "en": "The competent punishing authority has decided, as a penalty, to dismiss a Government servant from service. Before the dismissal order is issued, he submits an application for ten days of earned leave. Under Rule 17 of the CCS (Leave) Rules, 1972, what should the leave sanctioning authority do?",
+        "hi": "सक्षम शास्ति प्राधिकारी ने शास्ति के रूप में एक सरकारी सेवक को सेवा से पदच्युत करने का विनिश्चय कर लिया है। पदच्युति आदेश जारी होने से पहले, वह दस दिन की अर्जित छुट्टी के लिए आवेदन करता है। सीसीएस (छुट्टी) नियम, 1972 के नियम 17 के अधीन, छुट्टी मंजूर करने वाले प्राधिकारी को क्या करना चाहिए?"
+      },
+      "back": {
+        "en": "Refuse the leave — Rule 17 bars granting leave to a Government servant whom a competent punishing authority has decided to dismiss, remove or compulsorily retire.",
+        "hi": "छुट्टी अस्वीकार करनी चाहिए — नियम 17 ऐसे सरकारी सेवक को छुट्टी देने से रोकता है जिसे सक्षम शास्ति प्राधिकारी ने पदच्युत, हटाने या अनिवार्य सेवानिवृत्त करने का विनिश्चय कर लिया हो।"
+      },
+      "options": [
+        {
+          "en": "Refuse the leave, since Rule 17 bars leave once that decision is made",
+          "hi": "छुट्टी अस्वीकार करनी चाहिए, क्योंकि यह विनिश्चय हो जाने पर नियम 17 छुट्टी को रोकता है"
+        },
+        {
+          "en": "Grant the leave, since the dismissal order has not yet been issued",
+          "hi": "छुट्टी मंजूर करनी चाहिए, क्योंकि पदच्युति आदेश अभी जारी नहीं हुआ है"
+        },
+        {
+          "en": "Grant the leave, but revoke it once the order is issued",
+          "hi": "छुट्टी मंजूर करनी चाहिए, किंतु आदेश जारी होने पर उसे प्रतिसंहृत कर देना चाहिए"
+        },
+        {
+          "en": "Refer the matter to the Medical Authority before deciding",
+          "hi": "निर्णय लेने से पहले मामला चिकित्सा प्राधिकारी को निर्दिष्ट करना चाहिए"
+        }
+      ],
+      "answerIndex": 0,
+      "explanation": {
+        "en": "Rule 17 turns on the punishing authority's decision, not on the formal order being issued — the moment that decision to dismiss, remove or compulsorily retire is taken, no leave may be granted at all. This is different from Rule 7(2), which lets a sanctioning authority merely refuse or revoke leave where the exigencies of the public service so require.",
+        "hi": "नियम 17 शास्ति प्राधिकारी के विनिश्चय पर निर्भर करता है, न कि औपचारिक आदेश जारी होने पर — पदच्युति, हटाने या अनिवार्य सेवानिवृत्ति का विनिश्चय होते ही, कोई छुट्टी बिल्कुल नहीं दी जा सकती। यह नियम 7(2) से भिन्न है, जो मंजूरी प्राधिकारी को केवल लोक सेवा की अपेक्षाओं के कारण छुट्टी अस्वीकार या प्रतिसंहृत करने देता है।"
+      },
+      "ruleRef": {
+        "textId": "ccs-leave-17",
+        "citation": { "en": "Rule 17, CCS (Leave) Rules, 1972", "hi": "नियम 17, सीसीएस (छुट्टी) नियम, 1972" }
+      },
+      "difficulty": "medium",
+      "stageA": { "index": 34, "angle": "Rule 17 — leave barred the moment dismissal is decided, not when ordered" },
+      "groundingRuleIds": ["ccs-leave-17", "ccs-leave-7"]
+    },
+    {
+      "id": "ccs-leave-q-035",
+      "rule": "6",
+      "kind": "scenario",
+      "front": {
+        "en": "A Government servant governed by these rules is appointed to an industrial establishment where his leave will now be governed by the Factories Act, 1948. Under Rule 6 of the CCS (Leave) Rules, 1972, what must the authority competent to grant leave do about the earned leave and half pay leave already at his credit?",
+        "hi": "इन नियमों से शासित एक सरकारी सेवक ऐसे औद्योगिक स्थापन में नियुक्त होता है जहाँ उसकी छुट्टी अब कारखाना अधिनियम, 1948 से शासित होगी। सीसीएस (छुट्टी) नियम, 1972 के नियम 6 के अधीन, छुट्टी मंजूर करने के लिए सक्षम प्राधिकारी को उसके जमा अर्जित छुट्टी और अर्ध वेतन छुट्टी के बारे में क्या करना चाहिए?"
+      },
+      "back": {
+        "en": "Issue, suo motu, an order granting the cash equivalent of leave salary for both, subject to a maximum of 300 days.",
+        "hi": "स्वतः ही, दोनों के लिए छुट्टी वेतन के नकद समतुल्य को मंजूर करने वाला आदेश जारी करना चाहिए, जो अधिकतम 300 दिन के अध्यधीन हो।"
+      },
+      "options": [
+        {
+          "en": "Do nothing — the leave at credit simply lapses on the transfer",
+          "hi": "कुछ नहीं करना चाहिए — स्थानांतरण पर जमा छुट्टी स्वतः समाप्त हो जाती है"
+        },
+        {
+          "en": "Wait for the Government servant to apply for encashment",
+          "hi": "सरकारी सेवक द्वारा नकदीकरण के लिए आवेदन किए जाने की प्रतीक्षा करनी चाहिए"
+        },
+        {
+          "en": "Issue, suo motu, an order granting cash equivalent of leave salary for both, up to 300 days",
+          "hi": "स्वतः ही, दोनों के लिए छुट्टी वेतन के नकद समतुल्य को मंजूर करने वाला आदेश जारी करना चाहिए, 300 दिन तक"
+        },
+        {
+          "en": "Transfer the leave account to the industrial establishment for future use",
+          "hi": "भविष्य में उपयोग के लिए छुट्टी लेखा उस औद्योगिक स्थापन को अंतरित कर देना चाहिए"
+        }
+      ],
+      "answerIndex": 2,
+      "explanation": {
+        "en": "Rule 6 treats the move to Factories Act leave terms the way Rule 39 treats retirement — the authority acts suo motu, without waiting for a request, and pays cash equivalent for both earned leave and half pay leave at credit, capped at 300 days. If he later returns to service under these rules, Rule 6's own proviso adjusts how much further encashment he can draw on superannuation.",
+        "hi": "नियम 6 कारखाना अधिनियम की छुट्टी शर्तों में जाने को उसी प्रकार मानता है जैसे नियम 39 सेवानिवृत्ति को मानता है — प्राधिकारी बिना किसी अनुरोध की प्रतीक्षा किए स्वतः कार्य करता है, और जमा अर्जित छुट्टी तथा अर्ध वेतन छुट्टी दोनों के लिए नकद समतुल्य का संदाय करता है, जो 300 दिन पर सीमित है। यदि वह बाद में इन नियमों के अधीन सेवा में लौटता है, तो नियम 6 का अपना परंतुक यह समायोजित करता है कि अधिवर्षिता पर वह आगे कितना और नकदीकरण ले सकता है।"
+      },
+      "ruleRef": {
+        "textId": "ccs-leave-6",
+        "citation": { "en": "Rule 6, CCS (Leave) Rules, 1972", "hi": "नियम 6, सीसीएस (छुट्टी) नियम, 1972" }
+      },
+      "difficulty": "hard",
+      "stageA": { "index": 35, "angle": "Rule 6 — suo motu encashment on transfer to Factories Act leave terms" },
+      "groundingRuleIds": ["ccs-leave-6", "ccs-leave-39"]
+    },
+    {
+      "id": "ccs-leave-q-036",
+      "rule": "39B",
+      "kind": "scenario",
+      "front": {
+        "en": "A Medical Authority declares a temporary Government servant to be completely and permanently incapacitated for further service. Under Rule 39B of the CCS (Leave) Rules, 1972, what cash equivalent of leave salary may the leave sanctioning authority grant him, suo motu?",
+        "hi": "चिकित्सा प्राधिकारी एक अस्थायी सरकारी सेवक को आगे की सेवा के लिए पूर्णतः और स्थायी रूप से अशक्त घोषित करता है। सीसीएस (छुट्टी) नियम, 1972 के नियम 39ख के अधीन, छुट्टी मंजूर करने वाला प्राधिकारी उसे स्वतः कितना छुट्टी वेतन का नकद समतुल्य मंजूर कर सकता है?"
+      },
+      "back": {
+        "en": "Only for the earned leave at his credit, up to 300 days — not for half pay leave, since he is not in permanent or quasi-permanent employ.",
+        "hi": "केवल उसकी जमा अर्जित छुट्टी के लिए, 300 दिन तक — अर्ध वेतन छुट्टी के लिए नहीं, क्योंकि वह स्थायी या अर्ध-स्थायी नियोजन में नहीं है।"
+      },
+      "options": [
+        {
+          "en": "For both earned leave and half pay leave at his credit, up to 300 days",
+          "hi": "उसकी जमा अर्जित छुट्टी और अर्ध वेतन छुट्टी दोनों के लिए, 300 दिन तक"
+        },
+        {
+          "en": "Only for the earned leave at his credit, up to 300 days — not for half pay leave, since he is not in permanent or quasi-permanent employ",
+          "hi": "केवल उसकी जमा अर्जित छुट्टी के लिए, 300 दिन तक — अर्ध वेतन छुट्टी के लिए नहीं, क्योंकि वह स्थायी या अर्ध-स्थायी नियोजन में नहीं है"
+        },
+        {
+          "en": "Nothing — invalidation carries no encashment under these rules",
+          "hi": "कुछ नहीं — इन नियमों के अधीन अशक्तता पर कोई नकदीकरण नहीं होता"
+        },
+        {
+          "en": "The full 360-day leave-not-due limit, converted to cash",
+          "hi": "360 दिन की पूरी अदेय-छुट्टी सीमा, नकद में परिवर्तित"
+        }
+      ],
+      "answerIndex": 1,
+      "explanation": {
+        "en": "Rule 39B(1) gives cash equivalent for both earned leave and half pay leave, capped at 300 days — but sub-rule (2) withholds the half pay leave component from a Government servant who is not in permanent or quasi-permanent employ. A temporary servant invalidated from service is paid for earned leave only.",
+        "hi": "नियम 39ख(1) अर्जित छुट्टी और अर्ध वेतन छुट्टी दोनों के लिए नकद समतुल्य देता है, जो 300 दिन पर सीमित है — किंतु उपनियम (2) उस सरकारी सेवक से अर्ध वेतन छुट्टी वाला भाग रोक लेता है जो स्थायी या अर्ध-स्थायी नियोजन में नहीं है। सेवा से अशक्त हुए अस्थायी सेवक को केवल अर्जित छुट्टी का संदाय होता है।"
+      },
+      "ruleRef": {
+        "textId": "ccs-leave-39b",
+        "citation": { "en": "Rule 39B, CCS (Leave) Rules, 1972", "hi": "नियम 39ख, सीसीएस (छुट्टी) नियम, 1972" }
+      },
+      "difficulty": "hard",
+      "stageA": { "index": 36, "angle": "Rule 39B(2) — temporary employee gets EL only, not HPL" },
+      "groundingRuleIds": ["ccs-leave-39b"]
+    },
+    {
+      "id": "ccs-leave-q-037",
+      "rule": "14",
+      "kind": "scenario",
+      "front": {
+        "en": "A Government servant, because of a disability, is unable to sign his own application for leave and the accompanying medical certificate. Under Rule 14 of the CCS (Leave) Rules, 1972, who may sign and submit it on his behalf?",
+        "hi": "एक सरकारी सेवक निःशक्तता के कारण अपने स्वयं के छुट्टी आवेदन और साथ लगे चिकित्सा प्रमाणपत्र पर हस्ताक्षर करने में असमर्थ है। सीसीएस (छुट्टी) नियम, 1972 के नियम 14 के अधीन, उसकी ओर से कौन हस्ताक्षर करके उसे प्रस्तुत कर सकता है?"
+      },
+      "back": {
+        "en": "His spouse, or (if unmarried) his parents, or his adult child/sibling, or a person assigned limited guardianship under the Rights of Persons with Disabilities Act, 2016 — and it is deemed made by him.",
+        "hi": "उसका जीवनसाथी, या (यदि अविवाहित है तो) उसके माता-पिता, या उसका वयस्क बालक/भाई-बहन, या निःशक्तजन अधिकार अधिनियम, 2016 के अधीन सीमित संरक्षकता सौंपा गया व्यक्ति — और यह ऐसा माना जाएगा मानो उसने स्वयं ही किया हो।"
+      },
+      "options": [
+        {
+          "en": "Only a Registered Medical Practitioner may sign on his behalf",
+          "hi": "केवल रजिस्ट्रीकृत चिकित्सा व्यवसायी ही उसकी ओर से हस्ताक्षर कर सकता है"
+        },
+        {
+          "en": "No one — the Government servant must sign in person or the application is invalid",
+          "hi": "कोई नहीं — सरकारी सेवक को स्वयं हस्ताक्षर करना होगा अन्यथा आवेदन अमान्य होगा"
+        },
+        {
+          "en": "Only the Head of Office, acting as his agent",
+          "hi": "केवल कार्यालयाध्यक्ष, उसके अभिकर्ता के रूप में"
+        },
+        {
+          "en": "His spouse, or (if unmarried) his parents, or his adult child/sibling, or a person with limited guardianship under the 2016 Act — deemed made by him",
+          "hi": "उसका जीवनसाथी, या (यदि अविवाहित है तो) उसके माता-पिता, या उसका वयस्क बालक/भाई-बहन, या 2016 के अधिनियम के अधीन सीमित संरक्षकता वाला व्यक्ति — यह उसके द्वारा किया गया माना जाएगा"
+        }
+      ],
+      "answerIndex": 3,
+      "explanation": {
+        "en": "The proviso to Rule 14, added in 2018, names the spouse, the parents of an unmarried Government servant, an adult child (including adopted) or sibling, and a person with limited guardianship under Section 14 of the 2016 Act — in each case the application is deemed made and submitted by the Government servant himself.",
+        "hi": "नियम 14 के परंतुक में, जो 2018 में जोड़ा गया, जीवनसाथी, अविवाहित सरकारी सेवक के माता-पिता, वयस्क बालक (गोद लिए बालक सहित) या भाई-बहन, और 2016 के अधिनियम की धारा 14 के अधीन सीमित संरक्षकता वाले व्यक्ति का नाम है — प्रत्येक दशा में आवेदन ऐसा माना जाएगा मानो सरकारी सेवक ने स्वयं किया और प्रस्तुत किया हो।"
+      },
+      "ruleRef": {
+        "textId": "ccs-leave-14",
+        "citation": { "en": "Rule 14, CCS (Leave) Rules, 1972", "hi": "नियम 14, सीसीएस (छुट्टी) नियम, 1972" }
+      },
+      "difficulty": "medium",
+      "stageA": { "index": 37, "angle": "Rule 14's disability proviso — who may sign on the officer's behalf" },
+      "groundingRuleIds": ["ccs-leave-14"]
+    },
+    {
+      "id": "ccs-leave-q-038",
+      "rule": "10",
+      "kind": "scenario",
+      "front": {
+        "en": "A Government servant returns from a spell of earned leave and, within a week of resuming duty, asks that it be retrospectively commuted into leave not due instead. Under Rule 10 of the CCS (Leave) Rules, 1972, can this be done, and by when must he ask?",
+        "hi": "एक सरकारी सेवक अर्जित छुट्टी की अवधि से लौटता है और ड्यूटी पुनः ग्रहण करने के एक सप्ताह के भीतर यह अनुरोध करता है कि उसे इसके बजाय पूर्वप्रभावी रूप से अदेय छुट्टी में संपरिवर्तित किया जाए। सीसीएस (छुट्टी) नियम, 1972 के नियम 10 के अधीन, क्या यह किया जा सकता है, और उसे कब तक अनुरोध करना होगा?"
+      },
+      "back": {
+        "en": "The sanctioning authority may allow it, though he cannot claim it as a right, provided the request reaches that authority within 30 days of his joining duty.",
+        "hi": "मंजूरी प्राधिकारी इसे अनुज्ञात कर सकता है, यद्यपि वह इसे अधिकार के रूप में नहीं माँग सकता, बशर्ते अनुरोध उसके ड्यूटी पर कार्यग्रहण करने के 30 दिन के भीतर उस प्राधिकारी तक पहुँच जाए।"
+      },
+      "options": [
+        {
+          "en": "The sanctioning authority may allow it, not as a right, provided the request reaches it within 30 days of his joining duty",
+          "hi": "मंजूरी प्राधिकारी इसे अनुज्ञात कर सकता है, अधिकार के रूप में नहीं, बशर्ते अनुरोध ड्यूटी पर कार्यग्रहण के 30 दिन के भीतर उस तक पहुँचे"
+        },
+        {
+          "en": "No — once leave of one kind is granted, it can never be commuted into another",
+          "hi": "नहीं — एक प्रकार की छुट्टी मंजूर हो जाने पर, उसे कभी दूसरे प्रकार में संपरिवर्तित नहीं किया जा सकता"
+        },
+        {
+          "en": "Yes, as a matter of right, at any time within one year of resuming duty",
+          "hi": "हाँ, अधिकार के रूप में, ड्यूटी पुनः ग्रहण करने के एक वर्ष के भीतर किसी भी समय"
+        },
+        {
+          "en": "Yes, but only before he proceeds on the leave, never after returning",
+          "hi": "हाँ, किंतु केवल छुट्टी पर जाने से पहले, लौटने के बाद कभी नहीं"
+        }
+      ],
+      "answerIndex": 0,
+      "explanation": {
+        "en": "Rule 10(1) is a retrospective commutation into a kind of leave that was due and admissible at the time it was granted — the request has to reach the authority within 30 days of the Government servant joining duty on expiry of that leave, and it remains a discretion, not a right. Sub-rule (2) then adjusts the leave salary already paid against what the newly commuted leave actually carries.",
+        "hi": "नियम 10(1) पूर्वप्रभावी संपरिवर्तन है, ऐसी छुट्टी में जो मंजूर किए जाने के समय देय और अनुज्ञेय थी — अनुरोध सरकारी सेवक के उस छुट्टी की समाप्ति पर ड्यूटी पर कार्यग्रहण करने के 30 दिन के भीतर प्राधिकारी तक पहुँचना चाहिए, और यह विवेकाधिकार है, अधिकार नहीं। उपनियम (2) फिर पहले से भुगतान किए गए छुट्टी वेतन को नए संपरिवर्तित छुट्टी के वास्तविक हकदार वेतन के अनुसार समायोजित करता है।"
+      },
+      "ruleRef": {
+        "textId": "ccs-leave-10",
+        "citation": { "en": "Rule 10, CCS (Leave) Rules, 1972", "hi": "नियम 10, सीसीएस (छुट्टी) नियम, 1972" }
+      },
+      "difficulty": "hard",
+      "stageA": { "index": 38, "angle": "Rule 10 — retrospective commutation, the 30-day window and no right to it" },
+      "groundingRuleIds": ["ccs-leave-10", "ccs-leave-31"]
+    },
+    {
+      "id": "ccs-leave-q-039",
+      "rule": "54",
+      "kind": "scenario",
+      "front": {
+        "en": "An officer wants to combine study leave with earned leave for a general (non-Ph.D.) course, taking his total absence from duty to 30 months. Under Rule 54 of the CCS (Leave) Rules, 1972, can the competent authority sanction this?",
+        "hi": "एक अधिकारी सामान्य (गैर-पीएच.डी.) पाठ्यक्रम के लिए अध्ययन छुट्टी को अर्जित छुट्टी के साथ संयोजित करना चाहता है, जिससे ड्यूटी से उसकी कुल अनुपस्थिति 30 मास हो जाएगी। सीसीएस (छुट्टी) नियम, 1972 के नियम 54 के अधीन, क्या सक्षम प्राधिकारी इसे मंजूर कर सकता है?"
+      },
+      "back": {
+        "en": "No — combined with a kind of leave other than extraordinary leave, total absence generally may not exceed 28 months; only a PhD course allows 36.",
+        "hi": "नहीं — असाधारण छुट्टी से भिन्न किसी प्रकार की छुट्टी के साथ संयोजित होने पर, कुल अनुपस्थिति साधारणतया 28 मास से अधिक नहीं हो सकती; केवल पीएच.डी. पाठ्यक्रम को 36 मास की अनुमति है।"
+      },
+      "options": [
+        {
+          "en": "Yes, since there is no ceiling on combining study leave with earned leave",
+          "hi": "हाँ, क्योंकि अध्ययन छुट्टी को अर्जित छुट्टी के साथ संयोजित करने पर कोई सीमा नहीं है"
+        },
+        {
+          "en": "Yes, because the 28-month ceiling applies only to combination with extraordinary leave",
+          "hi": "हाँ, क्योंकि 28 मास की सीमा केवल असाधारण छुट्टी के साथ संयोजन पर लागू होती है"
+        },
+        {
+          "en": "No — combined with a kind of leave other than extraordinary leave, total absence generally may not exceed 28 months; only a PhD course allows 36",
+          "hi": "नहीं — असाधारण छुट्टी से भिन्न किसी प्रकार की छुट्टी के साथ संयोजित होने पर, कुल अनुपस्थिति साधारणतया 28 मास से अधिक नहीं हो सकती; केवल पीएच.डी. पाठ्यक्रम को 36 मास की अनुमति है"
+        },
+        {
+          "en": "No — study leave can never be combined with any other kind of leave",
+          "hi": "नहीं — अध्ययन छुट्टी को किसी भी अन्य प्रकार की छुट्टी के साथ कभी संयोजित नहीं किया जा सकता"
+        }
+      ],
+      "answerIndex": 2,
+      "explanation": {
+        "en": "Rule 54(2) caps the combination at 28 months generally, and 36 months for a course leading to a PhD — vacation counts within that ceiling too. The one leave that does not count towards this cap is extraordinary leave; combining study leave with earned leave is exactly the case the cap governs, so 30 months cannot be sanctioned for a non-PhD course.",
+        "hi": "नियम 54(2) संयोजन को साधारणतया 28 मास और पीएच.डी. की ओर ले जाने वाले पाठ्यक्रम के लिए 36 मास पर सीमित करता है — इस सीमा में अवकाश भी गिना जाता है। एकमात्र छुट्टी जो इस सीमा में नहीं गिनी जाती वह असाधारण छुट्टी है; अध्ययन छुट्टी को अर्जित छुट्टी के साथ संयोजित करना ठीक वही मामला है जिसे यह सीमा शासित करती है, अतः गैर-पीएच.डी. पाठ्यक्रम के लिए 30 मास मंजूर नहीं किए जा सकते।"
+      },
+      "ruleRef": {
+        "textId": "ccs-leave-54",
+        "citation": { "en": "Rule 54, CCS (Leave) Rules, 1972", "hi": "नियम 54, सीसीएस (छुट्टी) नियम, 1972" }
+      },
+      "difficulty": "hard",
+      "stageA": { "index": 39, "angle": "Rule 54(2) — the 28/36-month ceiling and the extraordinary-leave exception" },
+      "groundingRuleIds": ["ccs-leave-54"]
+    },
+    {
+      "id": "ccs-leave-q-040",
+      "rule": "44",
+      "kind": "scenario",
+      "front": {
+        "en": "A Government servant suffers an injury attributable to the performance of his official duties and is hospitalized. Under Rule 44 of the CCS (Leave) Rules, 1972, at what rate is he paid during the entire period of hospitalization?",
+        "hi": "एक सरकारी सेवक को अपने शासकीय कर्तव्यों के निर्वहन के कारणीय चोट लगती है और वह अस्पताल में भर्ती होता है। सीसीएस (छुट्टी) नियम, 1972 के नियम 44 के अधीन, अस्पताल में भर्ती रहने की संपूर्ण अवधि के दौरान उसे किस दर से वेतन दिया जाता है?"
+      },
+      "back": {
+        "en": "Full pay and allowances, for the entire period of hospitalization, regardless of how long it lasts.",
+        "hi": "पूर्ण वेतन और भत्ते, अस्पताल में भर्ती रहने की संपूर्ण अवधि के लिए, चाहे वह कितनी भी लंबी क्यों न हो।"
+      },
+      "options": [
+        {
+          "en": "Half pay, since it is treated the same as ordinary sick leave",
+          "hi": "अर्ध वेतन, क्योंकि इसे साधारण रुग्णता छुट्टी के समान माना जाता है"
+        },
+        {
+          "en": "Full pay and allowances, for the entire period of hospitalization, regardless of how long it lasts",
+          "hi": "पूर्ण वेतन और भत्ते, अस्पताल में भर्ती रहने की संपूर्ण अवधि के लिए, चाहे वह कितनी भी लंबी हो"
+        },
+        {
+          "en": "Full pay for six months and half pay thereafter, from the start of hospitalization itself",
+          "hi": "अस्पताल में भर्ती होने के आरंभ से ही छह मास पूर्ण वेतन और उसके बाद अर्ध वेतन"
+        },
+        {
+          "en": "No pay, since medical treatment is not counted as leave",
+          "hi": "कोई वेतन नहीं, क्योंकि चिकित्सा उपचार को छुट्टी नहीं माना जाता"
+        }
+      ],
+      "answerIndex": 1,
+      "explanation": {
+        "en": "Rule 44's Work Related Illness and Injury Leave pays full pay and allowances for the whole of the hospitalization, however long it runs. The full-pay-for-six-months/half-pay-for-twelve-months structure only starts once hospitalization ends, for an ordinary Government servant; Central Armed Police Forces officers and other ranks have their own, more generous, figures beyond that point.",
+        "hi": "नियम 44 की कार्य संबंधी बीमारी और चोट छुट्टी अस्पताल में भर्ती रहने की पूरी अवधि के लिए, चाहे वह कितनी भी लंबी हो, पूर्ण वेतन और भत्ते देती है। छह मास पूर्ण वेतन/बारह मास अर्ध वेतन की संरचना सामान्य सरकारी सेवक के लिए अस्पताल में भर्ती समाप्त होने के बाद ही आरंभ होती है; केंद्रीय सशस्त्र पुलिस बल के अधिकारियों और अन्य रैंकों के अपने ही, इससे अधिक उदार, आँकड़े हैं।"
+      },
+      "ruleRef": {
+        "textId": "ccs-leave-44",
+        "citation": { "en": "Rule 44, CCS (Leave) Rules, 1972", "hi": "नियम 44, सीसीएस (छुट्टी) नियम, 1972" }
+      },
+      "difficulty": "medium",
+      "stageA": { "index": 40, "angle": "Rule 44 — full pay throughout hospitalization, before the six/twelve-month structure begins" },
+      "groundingRuleIds": ["ccs-leave-44"]
     }
   ]
 }

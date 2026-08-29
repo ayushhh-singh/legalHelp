@@ -1,0 +1,156 @@
+{
+  "_note": "Stage D, written by scripts/authoring/qa_pipeline.py dedup fr-sr. rapidfuzz token_set_ratio over every pair of English fronts in this act, including the generated rule and cloze cards. At 90 or above the later question is the duplicate and make_cards.py rejects it.",
+  "threshold": 90.0,
+  "scores": {
+    "fr-sr-q-001": {
+      "maxScore": 65.6,
+      "against": "fr-sr-rule-f-r-1",
+      "verdict": "keep"
+    },
+    "fr-sr-q-002": {
+      "maxScore": 77.6,
+      "against": "fr-sr-rule-f-r-3",
+      "verdict": "keep"
+    },
+    "fr-sr-q-003": {
+      "maxScore": 59.4,
+      "against": "fr-sr-cloze-f-r-48-crossreference",
+      "verdict": "keep"
+    },
+    "fr-sr-q-004": {
+      "maxScore": 70.4,
+      "against": "fr-sr-q-003",
+      "verdict": "keep"
+    },
+    "fr-sr-q-005": {
+      "maxScore": 66.5,
+      "against": "fr-sr-rule-f-r-121",
+      "verdict": "keep"
+    },
+    "fr-sr-q-006": {
+      "maxScore": 58.4,
+      "against": "fr-sr-q-005",
+      "verdict": "keep"
+    },
+    "fr-sr-q-007": {
+      "maxScore": 61.7,
+      "against": "fr-sr-q-003",
+      "verdict": "keep"
+    },
+    "fr-sr-q-008": {
+      "maxScore": 61.2,
+      "against": "fr-sr-q-003",
+      "verdict": "keep"
+    },
+    "fr-sr-q-009": {
+      "maxScore": 77.5,
+      "against": "fr-sr-rule-f-r-14",
+      "verdict": "keep"
+    },
+    "fr-sr-q-010": {
+      "maxScore": 69.7,
+      "against": "fr-sr-cloze-f-r-15-crossreference",
+      "verdict": "keep"
+    },
+    "fr-sr-q-011": {
+      "maxScore": 70.5,
+      "against": "fr-sr-cloze-f-r-17-definedterm",
+      "verdict": "keep"
+    },
+    "fr-sr-q-012": {
+      "maxScore": 57.8,
+      "against": "fr-sr-q-011",
+      "verdict": "keep"
+    },
+    "fr-sr-q-013": {
+      "maxScore": 82.5,
+      "against": "fr-sr-cloze-f-r-18-duration",
+      "verdict": "keep"
+    },
+    "fr-sr-q-014": {
+      "maxScore": 76.8,
+      "against": "fr-sr-cloze-f-r-19-definedterm",
+      "verdict": "keep"
+    },
+    "fr-sr-q-015": {
+      "maxScore": 65.0,
+      "against": "fr-sr-cloze-f-r-22-count",
+      "verdict": "keep"
+    },
+    "fr-sr-q-016": {
+      "maxScore": 63.0,
+      "against": "fr-sr-rule-f-r-22-2",
+      "verdict": "keep"
+    },
+    "fr-sr-q-017": {
+      "maxScore": 94.6,
+      "against": "fr-sr-cloze-f-r-24-definedterm",
+      "verdict": "duplicate"
+    },
+    "fr-sr-q-018": {
+      "maxScore": 66.9,
+      "against": "fr-sr-rule-f-r-26",
+      "verdict": "keep"
+    },
+    "fr-sr-q-019": {
+      "maxScore": 62.0,
+      "against": "fr-sr-rule-f-r-27",
+      "verdict": "keep"
+    },
+    "fr-sr-q-020": {
+      "maxScore": 76.2,
+      "against": "fr-sr-rule-f-r-29",
+      "verdict": "keep"
+    },
+    "fr-sr-q-021": {
+      "maxScore": 64.4,
+      "against": "fr-sr-rule-f-r-37",
+      "verdict": "keep"
+    },
+    "fr-sr-q-022": {
+      "maxScore": 74.6,
+      "against": "fr-sr-cloze-f-r-44-definedterm",
+      "verdict": "keep"
+    },
+    "fr-sr-q-023": {
+      "maxScore": 58.3,
+      "against": "fr-sr-q-007",
+      "verdict": "keep"
+    },
+    "fr-sr-q-024": {
+      "maxScore": 64.8,
+      "against": "fr-sr-q-011",
+      "verdict": "keep"
+    },
+    "fr-sr-q-025": {
+      "maxScore": 72.8,
+      "against": "fr-sr-cloze-f-r-50-definedterm",
+      "verdict": "keep"
+    },
+    "fr-sr-q-026": {
+      "maxScore": 66.3,
+      "against": "fr-sr-q-011",
+      "verdict": "keep"
+    },
+    "fr-sr-q-027": {
+      "maxScore": 78.8,
+      "against": "fr-sr-rule-f-r-52",
+      "verdict": "keep"
+    },
+    "fr-sr-q-028": {
+      "maxScore": 65.7,
+      "against": "fr-sr-q-027",
+      "verdict": "keep"
+    },
+    "fr-sr-q-029": {
+      "maxScore": 65.6,
+      "against": "fr-sr-q-011",
+      "verdict": "keep"
+    },
+    "fr-sr-q-030": {
+      "maxScore": 64.4,
+      "against": "fr-sr-q-028",
+      "verdict": "keep"
+    }
+  }
+}

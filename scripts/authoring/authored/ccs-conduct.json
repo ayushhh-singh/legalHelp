@@ -1,5 +1,5 @@
 {
-  "_note": "STAGE A · GENERATE. Thirty-one bilingual questions on the CCS (Conduct) Rules, 1964, written in session by Claude Code with data/rules/text/ccs-conduct.json open. No API was called. `stageA.angle` records what each question is testing so the batch can be checked for spread rather than fifteen questions about Rule 13. The critic pass is review/critic-ccs-conduct.json, the blind verify is review/blind-ccs-conduct.json, and the dedup is written by qa_pipeline.py.",
+  "_note": "STAGE A · GENERATE. Thirty-one bilingual questions on the CCS (Conduct) Rules, 1964, written in session by Claude Code with data/rules/text/ccs-conduct.json open. No API was called. `stageA.angle` records what each question is testing so the batch can be checked for spread rather than fifteen questions about Rule 13. The critic pass is review/critic-ccs-conduct.json, the blind verify is review/blind-ccs-conduct.json, and the dedup is written by qa_pipeline.py. Plus 10 scenario questions added in a later batch (q-032 to q-041), focused on realistic workplace situations — a wedding gift over the Group 'C' reporting threshold, a subordinate's private coaching business, a spouse's employment with a firm the officer is deciding a contract for, a personal electronic-media channel, a staff medical-collection subscription, a debt-recovery suit, a Member of Parliament's recommendation letter, a second marriage, engaging a child as domestic help, and joining an association with secessionist objects — each grounded in a distinct rule (4, 6, 8, 12, 13, 15, 17, 20, 21, 22A) so the scenario coverage spreads beyond the five already in the original batch.",
   "batchId": "2026-08-28-ccs-conduct-A",
   "promptVersion": "rules-qa/1",
   "cards": [
@@ -1160,6 +1160,436 @@
       "difficulty": "medium",
       "stageA": { "index": 31, "angle": "Rule 18 read with Rule 2(c) — the name-lending device" },
       "groundingRuleIds": ["ccs-conduct-18", "ccs-conduct-2"]
+    },
+    {
+      "id": "ccs-conduct-q-032",
+      "rule": "13",
+      "kind": "scenario",
+      "front": {
+        "en": "A Section Officer belonging to Group 'C' receives a gift worth ₹17,000 from a personal friend on the occasion of his son's wedding. The friend has no official dealings with him. Under Rule 13 of the CCS (Conduct) Rules, 1964, what must the officer do?",
+        "hi": "समूह 'ग' का एक अनुभाग अधिकारी अपने पुत्र के विवाह के अवसर पर एक निजी मित्र से ₹17,000 मूल्य का उपहार प्राप्त करता है। उस मित्र का उससे कोई शासकीय व्यवहार नहीं है। सीसीएस (आचरण) नियम, 1964 के नियम 13 के अधीन अधिकारी को क्या करना चाहिए?"
+      },
+      "back": {
+        "en": "He must report the gift to the Government, because for a Group 'C' officer the reporting threshold under Rule 13(2) for a wedding gift from a personal friend with no official dealings is ₹7,500, and this gift exceeds it.",
+        "hi": "उसे यह उपहार सरकार को रिपोर्ट करना होगा, क्योंकि समूह 'ग' अधिकारी के लिए शासकीय व्यवहार न रखने वाले निजी मित्र से विवाह उपहार की रिपोर्टिंग सीमा नियम 13(2) के अधीन ₹7,500 है, और यह उपहार उससे अधिक है।"
+      },
+      "options": [
+        {
+          "en": "Report the gift to the Government, since its value exceeds the ₹7,500 reporting threshold that applies to his Group 'C' post",
+          "hi": "उपहार सरकार को रिपोर्ट करे, क्योंकि इसका मूल्य उसके समूह 'ग' पद पर लागू ₹7,500 की रिपोर्टिंग सीमा से अधिक है"
+        },
+        {
+          "en": "Do nothing, since gifts on a wedding occasion from a personal friend need never be reported",
+          "hi": "कुछ न करे, क्योंकि विवाह के अवसर पर निजी मित्र से प्राप्त उपहार कभी रिपोर्ट करने की आवश्यकता नहीं होती"
+        },
+        {
+          "en": "Return the gift immediately, since accepting it without prior sanction is barred outright",
+          "hi": "उपहार तुरंत लौटा दे, क्योंकि पूर्व मंजूरी के बिना इसे स्वीकार करना पूर्णतः वर्जित है"
+        },
+        {
+          "en": "Report it to the Central Vigilance Commission rather than the Government",
+          "hi": "इसे सरकार के बजाय केंद्रीय सतर्कता आयोग को रिपोर्ट करे"
+        }
+      ],
+      "answerIndex": 0,
+      "explanation": {
+        "en": "Rule 13(2) permits a Government servant to accept a wedding gift from a personal friend having no official dealings with him, but requires a report to Government once its value crosses the Group-wise threshold — ₹25,000 for Group 'A', ₹15,000 for Group 'B' and ₹7,500 for Group 'C'. No prior sanction is needed here; only a report after acceptance.",
+        "hi": "नियम 13(2) सरकारी सेवक को शासकीय व्यवहार न रखने वाले निजी मित्र से विवाह के अवसर पर उपहार स्वीकार करने की अनुमति देता है, किंतु समूह-वार सीमा — समूह 'क' के लिए ₹25,000, समूह 'ख' के लिए ₹15,000 और समूह 'ग' के लिए ₹7,500 — पार होने पर सरकार को रिपोर्ट करना अपेक्षित है। यहाँ पूर्व मंजूरी नहीं, केवल स्वीकृति के पश्चात् रिपोर्ट चाहिए।"
+      },
+      "ruleRef": {
+        "textId": "ccs-conduct-13",
+        "citation": { "en": "Rule 13, CCS (Conduct) Rules, 1964", "hi": "नियम 13, सीसीएस (आचरण) नियम, 1964" }
+      },
+      "difficulty": "medium",
+      "stageA": { "index": 32, "angle": "Rule 13(2) — the Group-wise wedding-gift reporting threshold, as a workplace scenario" },
+      "groundingRuleIds": ["ccs-conduct-13"]
+    },
+    {
+      "id": "ccs-conduct-q-033",
+      "rule": "15",
+      "kind": "scenario",
+      "front": {
+        "en": "A subordinate Upper Division Clerk wants to start and run a private coaching institute for competitive exams entirely after office hours, on a commercial basis. Under Rule 15 of the CCS (Conduct) Rules, 1964, what must he do first?",
+        "hi": "एक अधीनस्थ उच्च श्रेणी लिपिक पूर्णतः कार्यालय समय के बाद व्यावसायिक आधार पर प्रतियोगी परीक्षाओं हेतु एक निजी कोचिंग संस्थान आरंभ करना और चलाना चाहता है। सीसीएस (आचरण) नियम, 1964 के नियम 15 के अधीन उसे सबसे पहले क्या करना चाहिए?"
+      },
+      "back": {
+        "en": "He must obtain the previous sanction of the Government before engaging in the coaching business, because Rule 15(1)(a) requires sanction for any trade or business, and running it only after office hours does not exempt it.",
+        "hi": "उसे कोचिंग कारबार में लगने से पूर्व सरकार की पूर्व मंजूरी लेनी होगी, क्योंकि नियम 15(1)(क) किसी भी व्यापार या कारबार के लिए मंजूरी की अपेक्षा करता है, और केवल कार्यालय समय के बाद संचालन इसे इस बाध्यता से छूट नहीं देता।"
+      },
+      "options": [
+        {
+          "en": "Nothing — since the classes are held only after office hours, no sanction is needed",
+          "hi": "कुछ नहीं — चूँकि कक्षाएँ केवल कार्यालय समय के बाद होती हैं, कोई मंजूरी आवश्यक नहीं"
+        },
+        {
+          "en": "Apply for and obtain the previous sanction of the Government before starting the coaching institute",
+          "hi": "कोचिंग संस्थान आरंभ करने से पूर्व सरकार की पूर्व मंजूरी के लिए आवेदन करे और उसे प्राप्त करे"
+        },
+        {
+          "en": "Merely inform the Head of Office in writing that he is starting the institute",
+          "hi": "केवल कार्यालय प्रमुख को लिखित रूप में सूचित करे कि वह संस्थान आरंभ कर रहा है"
+        },
+        {
+          "en": "Proceed without sanction, since Rule 15(2) allows occasional literary or scientific work without sanction",
+          "hi": "बिना मंजूरी के आगे बढ़े, क्योंकि नियम 15(2) यदा-कदा साहित्यिक या वैज्ञानिक कार्य को मंजूरी के बिना अनुमति देता है"
+        }
+      ],
+      "answerIndex": 1,
+      "explanation": {
+        "en": "Rule 15(1)(a) bars engaging directly or indirectly in any trade or business except with the previous sanction of the Government. The Rule 15(2) exceptions cover honorary social/charitable work, occasional literary, artistic or scientific work and amateur sport — not a commercial coaching business, and timing outside office hours is irrelevant to the bar.",
+        "hi": "नियम 15(1)(क) सरकार की पूर्व मंजूरी के बिना प्रत्यक्ष या अप्रत्यक्ष रूप से किसी व्यापार या कारबार में लगने का प्रतिषेध करता है। नियम 15(2) के अपवाद सामाजिक/पूर्तार्थ अवैतनिक कार्य, यदा-कदा साहित्यिक, कलात्मक या वैज्ञानिक कार्य तथा शौकिया खेल को कवर करते हैं — किसी वाणिज्यिक कोचिंग कारबार को नहीं, और कार्यालय समय के बाहर होना इस प्रतिषेध से अप्रासंगिक है।"
+      },
+      "ruleRef": {
+        "textId": "ccs-conduct-15",
+        "citation": { "en": "Rule 15, CCS (Conduct) Rules, 1964", "hi": "नियम 15, सीसीएस (आचरण) नियम, 1964" }
+      },
+      "difficulty": "medium",
+      "stageA": { "index": 33, "angle": "Rule 15(1)(a) — a commercial private business, distinguished from the Rule 15(2) exceptions" },
+      "groundingRuleIds": ["ccs-conduct-15"]
+    },
+    {
+      "id": "ccs-conduct-q-034",
+      "rule": "4",
+      "kind": "scenario",
+      "front": {
+        "en": "A Deputy Secretary is examining a file for the award of a Government contract to a private firm. He learns that his wife, wholly dependent on him, has just accepted employment with that very firm. What does Rule 4 of the CCS (Conduct) Rules, 1964 require him to do?",
+        "hi": "एक उप सचिव किसी निजी फर्म को शासकीय संविदा प्रदान करने संबंधी फाइल की जाँच कर रहा है। उसे पता चलता है कि उस पर पूर्णतः आश्रित उसकी पत्नी ने अभी-अभी उसी फर्म में नियोजन स्वीकार किया है। सीसीएस (आचरण) नियम, 1964 का नियम 4 उससे क्या अपेक्षा करता है?"
+      },
+      "back": {
+        "en": "He must not himself deal with the matter — he must refer it to his official superior, who will dispose of it according to the instructions given, because Rule 4(3) bars a Government servant from dealing with or sanctioning a contract to a firm in which a family member is employed.",
+        "hi": "उसे स्वयं इस मामले से नहीं निपटना चाहिए — उसे यह मामला अपने शासकीय वरिष्ठ को निर्दिष्ट करना होगा, जो दिए गए अनुदेशों के अनुसार इसका निपटान करेगा, क्योंकि नियम 4(3) सरकारी सेवक को ऐसी फर्म से, जिसमें कुटुंब का कोई सदस्य नियोजित हो, व्यवहार करने या संविदा देने से रोकता है।"
+      },
+      "options": [
+        {
+          "en": "Continue processing the file, but note his wife's employment in the file for transparency",
+          "hi": "फाइल पर कार्रवाई जारी रखे, किंतु पारदर्शिता हेतु फाइल में अपनी पत्नी के नियोजन का उल्लेख कर दे"
+        },
+        {
+          "en": "Proceed normally, since Rule 4 restricts only recruitment of family members, not contract decisions",
+          "hi": "सामान्य रूप से आगे बढ़े, क्योंकि नियम 4 केवल कुटुंब के सदस्यों की भर्ती को सीमित करता है, संविदा निर्णयों को नहीं"
+        },
+        {
+          "en": "Refer the matter to his official superior instead of dealing with it himself, as Rule 4(3) requires",
+          "hi": "फाइल पर स्वयं कार्रवाई करने के बजाय इसे अपने शासकीय वरिष्ठ को निर्दिष्ट करे, जैसा नियम 4(3) अपेक्षा करता है"
+        },
+        {
+          "en": "Ask his wife to resign so that he may continue handling the file",
+          "hi": "अपनी पत्नी से त्यागपत्र देने को कहे ताकि वह फाइल पर कार्रवाई जारी रख सके"
+        }
+      ],
+      "answerIndex": 2,
+      "explanation": {
+        "en": "Rule 4(3) bars a Government servant from dealing in his official duties with any matter or giving/sanctioning any contract to a firm in which a member of his family is employed or interested; he must instead refer every such matter to his official superior for disposal.",
+        "hi": "नियम 4(3) सरकारी सेवक को अपने शासकीय कर्तव्यों में ऐसे किसी मामले से निपटने या ऐसी फर्म को संविदा देने या मंजूर करने से रोकता है जिसमें उसके कुटुंब का कोई सदस्य नियोजित या हितबद्ध हो; इसके बजाय उसे हर ऐसा मामला अपने शासकीय वरिष्ठ को निर्दिष्ट करना होगा।"
+      },
+      "ruleRef": {
+        "textId": "ccs-conduct-4",
+        "citation": { "en": "Rule 4, CCS (Conduct) Rules, 1964", "hi": "नियम 4, सीसीएस (आचरण) नियम, 1964" }
+      },
+      "difficulty": "medium",
+      "stageA": { "index": 34, "angle": "Rule 4(3) — a family member's employment as a conflict-of-interest referral duty" },
+      "groundingRuleIds": ["ccs-conduct-4"]
+    },
+    {
+      "id": "ccs-conduct-q-035",
+      "rule": "8",
+      "kind": "scenario",
+      "front": {
+        "en": "An Assistant wants to start and run a personal YouTube channel discussing economic news for a paid subscription, entirely unrelated to his official duties. Under Rule 8 of the CCS (Conduct) Rules, 1964, what must he do before launching it?",
+        "hi": "एक सहायक पूर्णतः अपने शासकीय कर्तव्यों से असंबद्ध, सशुल्क सदस्यता वाला व्यक्तिगत यूट्यूब चैनल आरंभ करना और चलाना चाहता है जिसमें आर्थिक समाचारों पर चर्चा हो। सीसीएस (आचरण) नियम, 1964 के नियम 8 के अधीन उसे इसे आरंभ करने से पूर्व क्या करना चाहिए?"
+      },
+      "back": {
+        "en": "He must obtain the previous sanction of the Government, because Rule 8(1) requires sanction to own, conduct or participate in the management of electronic media, and the Rule 8(2) exception applies only to the bona fide discharge of official duties, not to an unrelated personal venture.",
+        "hi": "उसे सरकार की पूर्व मंजूरी लेनी होगी, क्योंकि नियम 8(1) इलेक्ट्रॉनिक मीडिया के स्वामित्व, संचालन या प्रबंधन में भागीदारी हेतु मंजूरी की अपेक्षा करता है, और नियम 8(2) का अपवाद केवल सद्भावपूर्वक शासकीय कर्तव्यों के निर्वहन पर लागू होता है, किसी असंबद्ध निजी उपक्रम पर नहीं।"
+      },
+      "options": [
+        {
+          "en": "Nothing — Rule 8 applies only to newspapers, not to electronic media such as a video channel",
+          "hi": "कुछ नहीं — नियम 8 केवल समाचारपत्रों पर लागू होता है, वीडियो चैनल जैसे इलेक्ट्रॉनिक मीडिया पर नहीं"
+        },
+        {
+          "en": "Simply add a disclaimer that the views expressed are his own",
+          "hi": "केवल यह अस्वीकरण जोड़ दे कि व्यक्त विचार उसके अपने हैं"
+        },
+        {
+          "en": "Nothing, since the content has no connection with his official duties",
+          "hi": "कुछ नहीं, क्योंकि विषय-वस्तु का उसके शासकीय कर्तव्यों से कोई संबंध नहीं है"
+        },
+        {
+          "en": "Obtain the previous sanction of the Government before launching the channel",
+          "hi": "चैनल आरंभ करने से पूर्व सरकार की पूर्व मंजूरी ले"
+        }
+      ],
+      "answerIndex": 3,
+      "explanation": {
+        "en": "Rule 8(1) covers 'newspaper or other periodical publication or electronic media' alike. The Rule 8(2) carve-out is for the bona fide discharge of official duties, and Rule 8(3)'s disclaimer requirement applies in addition to sanction, not instead of it.",
+        "hi": "नियम 8(1) \"समाचारपत्र या अन्य आवधिक प्रकाशन या इलेक्ट्रॉनिक मीडिया\" दोनों को समान रूप से कवर करता है। नियम 8(2) का अपवर्जन सद्भावपूर्वक शासकीय कर्तव्यों के निर्वहन के लिए है, और नियम 8(3) की अस्वीकरण अपेक्षा मंजूरी के अतिरिक्त है, उसके स्थान पर नहीं।"
+      },
+      "ruleRef": {
+        "textId": "ccs-conduct-8",
+        "citation": { "en": "Rule 8, CCS (Conduct) Rules, 1964", "hi": "नियम 8, सीसीएस (आचरण) नियम, 1964" }
+      },
+      "difficulty": "medium",
+      "stageA": { "index": 35, "angle": "Rule 8(1) sanction requirement extended to a personal electronic-media channel" },
+      "groundingRuleIds": ["ccs-conduct-8"]
+    },
+    {
+      "id": "ccs-conduct-q-036",
+      "rule": "12",
+      "kind": "scenario",
+      "front": {
+        "en": "An officer wants to organise a voluntary collection among colleagues in his office to help pay for a co-worker's urgent medical treatment. Under Rule 12 of the CCS (Conduct) Rules, 1964, what must he do before raising the collection?",
+        "hi": "एक अधिकारी अपने कार्यालय के सहकर्मियों में से एक सहकर्मी के आकस्मिक चिकित्सा उपचार में सहायता हेतु स्वैच्छिक चंदा एकत्र करना चाहता है। सीसीएस (आचरण) नियम, 1964 के नियम 12 के अधीन उसे चंदा एकत्र करने से पूर्व क्या करना चाहिए?"
+      },
+      "back": {
+        "en": "He must first obtain the previous sanction of the Government or of the prescribed authority, because Rule 12 requires sanction before raising any collection in pursuance of any object whatsoever, however worthy the cause.",
+        "hi": "उसे सबसे पहले सरकार या विहित प्राधिकारी की पूर्व मंजूरी लेनी होगी, क्योंकि नियम 12 किसी भी प्रयोजन हेतु चंदा एकत्र करने से पूर्व मंजूरी की अपेक्षा करता है, चाहे प्रयोजन कितना ही सराहनीय क्यों न हो।"
+      },
+      "options": [
+        {
+          "en": "Obtain the previous sanction of the Government or the prescribed authority before raising the collection",
+          "hi": "चंदा एकत्र करने से पूर्व सरकार या विहित प्राधिकारी की पूर्व मंजूरी ले"
+        },
+        {
+          "en": "Proceed directly, since a collection for a genuinely charitable purpose needs no sanction",
+          "hi": "सीधे आगे बढ़े, क्योंकि वास्तविक पूर्तार्थ प्रयोजन हेतु चंदे के लिए मंजूरी आवश्यक नहीं"
+        },
+        {
+          "en": "Merely announce the collection at a staff meeting, which itself counts as sufficient sanction",
+          "hi": "केवल स्टाफ बैठक में चंदे की घोषणा कर दे, जो स्वयं में पर्याप्त मंजूरी मानी जाएगी"
+        },
+        {
+          "en": "Proceed without sanction as long as the collection stays confined to his own office",
+          "hi": "बिना मंजूरी के आगे बढ़े, जब तक चंदा उसके अपने कार्यालय तक सीमित रहे"
+        }
+      ],
+      "answerIndex": 0,
+      "explanation": {
+        "en": "Rule 12 bars a Government servant from asking for or accepting contributions, or otherwise associating himself with raising any funds or collections, except with the previous sanction of the Government or the prescribed authority — the object of the collection, even a humane one, does not exempt it.",
+        "hi": "नियम 12 सरकारी सेवक को सरकार या विहित प्राधिकारी की पूर्व मंजूरी के बिना, किसी भी प्रयोजन हेतु चंदा माँगने, स्वीकार करने या धन एकत्र करने से जुड़ने से रोकता है — चंदे का प्रयोजन, चाहे कितना ही मानवीय हो, इसे छूट नहीं देता।"
+      },
+      "ruleRef": {
+        "textId": "ccs-conduct-12",
+        "citation": { "en": "Rule 12, CCS (Conduct) Rules, 1964", "hi": "नियम 12, सीसीएस (आचरण) नियम, 1964" }
+      },
+      "difficulty": "easy",
+      "stageA": { "index": 36, "angle": "Rule 12 — sanction required even for a humane, internal-office collection" },
+      "groundingRuleIds": ["ccs-conduct-12"]
+    },
+    {
+      "id": "ccs-conduct-q-037",
+      "rule": "17",
+      "kind": "scenario",
+      "front": {
+        "en": "A recovery suit is filed against a Government servant in a civil court for an unpaid personal loan. Under Rule 17 of the CCS (Conduct) Rules, 1964, what must he do?",
+        "hi": "एक सरकारी सेवक के विरुद्ध किसी अवैतनिक निजी ऋण की वसूली हेतु सिविल न्यायालय में वसूली वाद दायर किया जाता है। सीसीएस (आचरण) नियम, 1964 के नियम 17 के अधीन उसे क्या करना चाहिए?"
+      },
+      "back": {
+        "en": "He must forthwith report the full facts of the legal proceedings to the Government, as Rule 17 requires whenever any legal proceeding for recovery of a debt or for adjudging him insolvent is instituted against him.",
+        "hi": "उसे तत्काल विधिक कार्यवाही के पूर्ण तथ्य सरकार को रिपोर्ट करने होंगे, क्योंकि नियम 17 यह अपेक्षा करता है जब भी उसके विरुद्ध ऋण वसूली या उसे दिवालिया घोषित कराने हेतु कोई विधिक कार्यवाही संस्थित की जाए।"
+      },
+      "options": [
+        {
+          "en": "Say nothing, since it is a private civil matter with no bearing on his service",
+          "hi": "कुछ न कहे, क्योंकि यह निजी सिविल मामला है जिसका उसकी सेवा से कोई संबंध नहीं"
+        },
+        {
+          "en": "Forthwith report the full facts of the legal proceedings to the Government",
+          "hi": "विधिक कार्यवाही के पूर्ण तथ्य तत्काल सरकार को रिपोर्ट करे"
+        },
+        {
+          "en": "Report it only if the court eventually rules against him",
+          "hi": "केवल तब रिपोर्ट करे जब न्यायालय अंततः उसके विरुद्ध निर्णय दे"
+        },
+        {
+          "en": "Report it only if the amount claimed exceeds two months' basic pay",
+          "hi": "केवल तब रिपोर्ट करे जब दावा की गई राशि दो मास के मूल वेतन से अधिक हो"
+        }
+      ],
+      "answerIndex": 1,
+      "explanation": {
+        "en": "Rule 17 requires a Government servant against whom any legal proceeding is instituted for recovery of a debt, or for adjudging him insolvent, to report the full facts forthwith — the reporting duty arises the moment the proceeding is instituted, not on its outcome, and carries no monetary threshold (unlike the property-transaction reporting in Rule 18).",
+        "hi": "नियम 17 यह अपेक्षा करता है कि जिस सरकारी सेवक के विरुद्ध ऋण वसूली या उसे दिवालिया घोषित कराने हेतु कोई विधिक कार्यवाही संस्थित की जाए, वह पूर्ण तथ्य तत्काल रिपोर्ट करे — रिपोर्टिंग का कर्तव्य कार्यवाही संस्थित होते ही उत्पन्न हो जाता है, उसके परिणाम पर नहीं, और इसमें (नियम 18 की संपत्ति-लेन-देन रिपोर्टिंग के विपरीत) कोई धनराशि सीमा नहीं है।"
+      },
+      "ruleRef": {
+        "textId": "ccs-conduct-17",
+        "citation": { "en": "Rule 17, CCS (Conduct) Rules, 1964", "hi": "नियम 17, सीसीएस (आचरण) नियम, 1964" }
+      },
+      "difficulty": "medium",
+      "stageA": { "index": 37, "angle": "Rule 17 — the reporting duty on institution of a debt-recovery proceeding" },
+      "groundingRuleIds": ["ccs-conduct-17"]
+    },
+    {
+      "id": "ccs-conduct-q-038",
+      "rule": "20",
+      "kind": "scenario",
+      "front": {
+        "en": "An officer due for promotion asks a Member of Parliament, a family acquaintance, to write personally to the Department recommending his case. Under Rule 20 of the CCS (Conduct) Rules, 1964, is this permissible?",
+        "hi": "पदोन्नति की प्रतीक्षा कर रहा एक अधिकारी अपने पारिवारिक परिचित संसद सदस्य से विभाग को व्यक्तिगत रूप से पत्र लिखकर उसके मामले की अनुशंसा करने का अनुरोध करता है। सीसीएस (आचरण) नियम, 1964 के नियम 20 के अधीन क्या यह अनुज्ञेय है?"
+      },
+      "back": {
+        "en": "No — Rule 20 bars a Government servant from bringing or even attempting to bring political or other outside influence to bear upon a superior authority to further his own service interests, so merely asking for the letter is itself a breach, whether or not it is ultimately used.",
+        "hi": "नहीं — नियम 20 सरकारी सेवक को अपने सेवा हितों को आगे बढ़ाने हेतु किसी वरिष्ठ प्राधिकारी पर राजनीतिक या अन्य बाहरी प्रभाव डालने या डालने का प्रयत्न करने से भी रोकता है, अतः केवल पत्र माँगना ही उल्लंघन है, चाहे उसका उपयोग हो या न हो।"
+      },
+      "options": [
+        {
+          "en": "Yes, since the Member of Parliament is a family acquaintance rather than a stranger",
+          "hi": "हाँ, क्योंकि संसद सदस्य कोई अजनबी नहीं बल्कि पारिवारिक परिचित है"
+        },
+        {
+          "en": "Yes, provided the letter does not name the officer directly",
+          "hi": "हाँ, बशर्ते पत्र में अधिकारी का नाम सीधे न हो"
+        },
+        {
+          "en": "No — even attempting to bring such outside influence to bear breaches Rule 20, whether or not the letter is used",
+          "hi": "नहीं — ऐसा बाहरी प्रभाव डालने का प्रयत्न करना मात्र भी नियम 20 का उल्लंघन है, चाहे पत्र का उपयोग हो या न हो"
+        },
+        {
+          "en": "No, unless the officer actually submits the letter to the Department",
+          "hi": "नहीं, केवल तभी जब अधिकारी वह पत्र वास्तव में विभाग को प्रस्तुत करे"
+        }
+      ],
+      "answerIndex": 2,
+      "explanation": {
+        "en": "Rule 20's language reaches both bringing AND attempting to bring outside influence to bear, and 'political or other' covers a Member of Parliament's letter whatever the writer's personal connection to the officer. The breach is complete once the attempt is made.",
+        "hi": "नियम 20 की भाषा बाहरी प्रभाव डालने और डालने का प्रयत्न करने, दोनों तक पहुँचती है, और \"राजनीतिक या अन्य\" किसी संसद सदस्य के पत्र को भी कवर करता है, चाहे लेखक का अधिकारी से व्यक्तिगत संबंध कुछ भी हो। प्रयत्न किए जाते ही उल्लंघन पूर्ण हो जाता है।"
+      },
+      "ruleRef": {
+        "textId": "ccs-conduct-20",
+        "citation": { "en": "Rule 20, CCS (Conduct) Rules, 1964", "hi": "नियम 20, सीसीएस (आचरण) नियम, 1964" }
+      },
+      "difficulty": "medium",
+      "stageA": { "index": 38, "angle": "Rule 20 — the attempt itself, applied to an MP's recommendation letter" },
+      "groundingRuleIds": ["ccs-conduct-20"]
+    },
+    {
+      "id": "ccs-conduct-q-039",
+      "rule": "21",
+      "kind": "scenario",
+      "front": {
+        "en": "A Government servant, whose spouse is living, wishes to enter into a second marriage. His personal law permits more than one marriage. Under Rule 21 of the CCS (Conduct) Rules, 1964, what must he do?",
+        "hi": "एक सरकारी सेवक, जिसका पति या पत्नी जीवित है, दूसरा विवाह करना चाहता है। उसकी स्वीय विधि एक से अधिक विवाह की अनुमति देती है। सीसीएस (आचरण) नियम, 1964 के नियम 21 के अधीन उसे क्या करना चाहिए?"
+      },
+      "back": {
+        "en": "He must seek the Central Government's permission, which may be granted only if it is satisfied both that the marriage is permissible under the personal law applicable to him and the other party, and that other grounds exist for permitting it — his personal law's permission alone is not enough.",
+        "hi": "उसे केंद्रीय सरकार की अनुमति माँगनी होगी, जो केवल तभी दी जा सकती है जब सरकार का समाधान हो जाए कि विवाह उस पर और दूसरे पक्षकार पर लागू स्वीय विधि के अधीन अनुज्ञेय है, तथा ऐसा करने के अन्य आधार भी हैं — केवल स्वीय विधि की अनुज्ञा पर्याप्त नहीं है।"
+      },
+      "options": [
+        {
+          "en": "Proceed without seeking any permission, since his personal law itself permits more than one marriage",
+          "hi": "बिना कोई अनुमति माँगे आगे बढ़े, क्योंकि उसकी स्वीय विधि स्वयं एक से अधिक विवाह की अनुमति देती है"
+        },
+        {
+          "en": "Merely intimate the Government after the marriage, since intimation is all Rule 21 requires",
+          "hi": "केवल विवाह के पश्चात् सरकार को सूचित कर दे, क्योंकि नियम 21 केवल इतना ही अपेक्षित करता है"
+        },
+        {
+          "en": "He cannot marry again under any circumstances; Rule 21 admits of no exception",
+          "hi": "वह किसी भी परिस्थिति में पुनः विवाह नहीं कर सकता; नियम 21 में कोई अपवाद नहीं है"
+        },
+        {
+          "en": "Seek the Central Government's permission, which requires both personal-law permissibility AND other grounds — personal law alone is not enough",
+          "hi": "केंद्रीय सरकार की अनुमति माँगे, जिसके लिए स्वीय विधि की अनुज्ञेयता और अन्य आधार, दोनों आवश्यक हैं — केवल स्वीय विधि पर्याप्त नहीं"
+        }
+      ],
+      "answerIndex": 3,
+      "explanation": {
+        "en": "Rule 21(2)'s proviso lets the Central Government permit such a marriage only where BOTH conditions are met together — permissibility under personal law, and other grounds for doing so. Rule 21(3)'s intimation duty is for marrying a person of a different nationality, a separate situation.",
+        "hi": "नियम 21(2) का परंतुक केंद्रीय सरकार को ऐसा विवाह तभी अनुज्ञात करने देता है जब दोनों शर्तें एक साथ पूरी हों — स्वीय विधि के अधीन अनुज्ञेयता, और ऐसा करने के अन्य आधार। नियम 21(3) की सूचना-बाध्यता भिन्न राष्ट्रीयता के व्यक्ति से विवाह के लिए है, जो एक अलग स्थिति है।"
+      },
+      "ruleRef": {
+        "textId": "ccs-conduct-21",
+        "citation": { "en": "Rule 21, CCS (Conduct) Rules, 1964", "hi": "नियम 21, सीसीएस (आचरण) नियम, 1964" }
+      },
+      "difficulty": "hard",
+      "stageA": { "index": 39, "angle": "Rule 21(2) — the two cumulative conditions, applied where personal law alone would permit it" },
+      "groundingRuleIds": ["ccs-conduct-21"]
+    },
+    {
+      "id": "ccs-conduct-q-040",
+      "rule": "22A",
+      "kind": "scenario",
+      "front": {
+        "en": "An officer's mother wants to engage a 13-year-old as domestic help to assist with household chores at the officer's Government-allotted residence. Under Rule 22A of the CCS (Conduct) Rules, 1964, may the officer permit this?",
+        "hi": "एक अधिकारी की माता सरकारी आवंटित आवास पर घरेलू कार्यों में सहायता हेतु 13 वर्ष के बालक को घरेलू सहायक के रूप में नियोजित करना चाहती है। सीसीएस (आचरण) नियम, 1964 के नियम 22क के अधीन क्या अधिकारी इसकी अनुमति दे सकता है?"
+      },
+      "back": {
+        "en": "No — Rule 22A absolutely bars a Government servant from employing to work any child below the age of 14 years, and it carries no exception for light domestic chores or for a household member's request.",
+        "hi": "नहीं — नियम 22क सरकारी सेवक को 14 वर्ष से कम आयु के किसी भी बालक को काम पर लगाने से पूर्णतः प्रतिषिद्ध करता है, और इसमें हल्के घरेलू कार्यों या परिवार के किसी सदस्य के अनुरोध के लिए कोई अपवाद नहीं है।"
+      },
+      "options": [
+        {
+          "en": "No — Rule 22A bars employing any child below 14 years to work, with no exception for domestic chores",
+          "hi": "नहीं — नियम 22क 14 वर्ष से कम आयु के किसी भी बालक को काम पर लगाने से रोकता है, घरेलू कार्यों के लिए कोई अपवाद नहीं है"
+        },
+        {
+          "en": "Yes, since it is his mother's request and not the officer's own decision to employ the child",
+          "hi": "हाँ, क्योंकि यह उसकी माता का अनुरोध है, न कि बालक को नियोजित करने का अधिकारी का अपना निर्णय"
+        },
+        {
+          "en": "Yes, provided the work is limited to light household chores",
+          "hi": "हाँ, बशर्ते कार्य हल्के घरेलू कार्यों तक सीमित हो"
+        },
+        {
+          "en": "Yes, since Rule 22A applies only to work at the office, not at the residence",
+          "hi": "हाँ, क्योंकि नियम 22क केवल कार्यालय में कार्य पर लागू होता है, आवास पर नहीं"
+        }
+      ],
+      "answerIndex": 0,
+      "explanation": {
+        "en": "Rule 22A reads simply: 'No Government servant shall employ to work any child below the age of 14 years.' It draws no distinction between office and residence, and no distinction based on who within the household actually engages the child.",
+        "hi": "नियम 22क में केवल इतना लिखा है: \"कोई सरकारी सेवक 14 वर्ष से कम आयु के किसी बालक को काम पर नहीं लगाएगा।\" यह कार्यालय और आवास के बीच, या परिवार में वास्तव में किसने बालक को नियोजित किया, इसके बीच कोई अंतर नहीं करता।"
+      },
+      "ruleRef": {
+        "textId": "ccs-conduct-22a",
+        "citation": { "en": "Rule 22A, CCS (Conduct) Rules, 1964", "hi": "नियम 22क, सीसीएस (आचरण) नियम, 1964" }
+      },
+      "difficulty": "easy",
+      "stageA": { "index": 40, "angle": "Rule 22A — no domestic or 'not the officer's own act' exception" },
+      "groundingRuleIds": ["ccs-conduct-22a"]
+    },
+    {
+      "id": "ccs-conduct-q-041",
+      "rule": "6",
+      "kind": "scenario",
+      "front": {
+        "en": "An officer is invited to join a residents' welfare association whose stated objectives include organising public agitation for a region's secession from India. The association is not registered as a political party. Under Rule 6 of the CCS (Conduct) Rules, 1964, may he join it?",
+        "hi": "एक अधिकारी को एक निवासी कल्याण संगम में सम्मिलित होने हेतु आमंत्रित किया जाता है जिसके घोषित उद्देश्यों में भारत से किसी क्षेत्र के अलगाव हेतु सार्वजनिक आंदोलन आयोजित करना शामिल है। यह संगम किसी राजनीतिक दल के रूप में रजिस्टर्ड नहीं है। सीसीएस (आचरण) नियम, 1964 के नियम 6 के अधीन क्या वह इसमें सम्मिलित हो सकता है?"
+      },
+      "back": {
+        "en": "No — Rule 6 bars joining or continuing as a member of any association whose objects or activities are prejudicial to the sovereignty and integrity of India, or public order or morality, regardless of whether the association is a registered political party.",
+        "hi": "नहीं — नियम 6 ऐसे किसी भी संगम की सदस्यता से रोकता है जिसके उद्देश्य या गतिविधियाँ भारत की संप्रभुता और अखंडता, अथवा लोक व्यवस्था या नैतिकता के प्रतिकूल हों, चाहे वह संगम रजिस्टर्ड राजनीतिक दल हो या नहीं।"
+      },
+      "options": [
+        {
+          "en": "Yes, since Rule 5 alone deals with political association, and this body is not a political party",
+          "hi": "हाँ, क्योंकि केवल नियम 5 राजनीतिक संगति से संबंधित है, और यह निकाय राजनीतिक दल नहीं है"
+        },
+        {
+          "en": "No — Rule 6 bars membership of any association whose objects are prejudicial to India's sovereignty and integrity, whether or not it is a political party",
+          "hi": "नहीं — नियम 6 ऐसे किसी भी संगम की सदस्यता से रोकता है जिसके उद्देश्य भारत की संप्रभुता और अखंडता के प्रतिकूल हों, चाहे वह राजनीतिक दल हो या नहीं"
+        },
+        {
+          "en": "Yes, provided he himself never attends any agitation the association organises",
+          "hi": "हाँ, बशर्ते वह स्वयं संगम द्वारा आयोजित किसी आंदोलन में कभी उपस्थित न हो"
+        },
+        {
+          "en": "Yes, since a residents' welfare body is presumed to be apolitical",
+          "hi": "हाँ, क्योंकि निवासी कल्याण निकाय को अराजनीतिक माना जाता है"
+        }
+      ],
+      "answerIndex": 1,
+      "explanation": {
+        "en": "Rule 6 is not limited to political parties — it catches any association whose objects or activities are prejudicial to the sovereignty and integrity of India, public order or morality. An objective of secession falls squarely within that test, independent of the Rule 5 bar on political parties.",
+        "hi": "नियम 6 केवल राजनीतिक दलों तक सीमित नहीं है — यह ऐसे किसी भी संगम को पकड़ता है जिसके उद्देश्य या गतिविधियाँ भारत की संप्रभुता और अखंडता, लोक व्यवस्था या नैतिकता के प्रतिकूल हों। अलगाव का उद्देश्य नियम 5 के राजनीतिक दल संबंधी प्रतिषेध से स्वतंत्र रूप से, इस कसौटी में पूर्णतः आता है।"
+      },
+      "ruleRef": {
+        "textId": "ccs-conduct-6",
+        "citation": { "en": "Rule 6, CCS (Conduct) Rules, 1964", "hi": "नियम 6, सीसीएस (आचरण) नियम, 1964" }
+      },
+      "difficulty": "medium",
+      "stageA": { "index": 41, "angle": "Rule 6 is not confined to political parties — a secessionist residents' body still fails the test" },
+      "groundingRuleIds": ["ccs-conduct-6"]
     }
   ]
 }

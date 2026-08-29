@@ -1,0 +1,93 @@
+{
+  "_note": "STAGE C · BLIND VERIFY. Answers produced from the worksheet printed by `qa_pipeline.py blind fr-sr`, which shows each question, its options and the rule text it is grounded in, and hides the stored key. For questions where the GROUNDING excerpt alone was insufficient, the full rule text was read from `data/rules/text/fr-sr.json` (F.R. 9 sub-clauses (7)/(12)/(21)(a)/(32), F.R. 17-A, F.R. 22(I)(a)(1)/(2), F.R. 49, F.R. 54(2)/(3)). `answered` is the option index chosen; make_cards.py compares it with the stored key and a mismatch rejects the question outright, because a mismatch means either the stem is ambiguous or the key is wrong. Indices here are the AUTHORED order, before make_cards.py rotates the options.",
+  "fr-sr-q-001": {
+    "answered": 1
+  },
+  "fr-sr-q-002": {
+    "answered": 0
+  },
+  "fr-sr-q-003": {
+    "answered": 1
+  },
+  "fr-sr-q-004": {
+    "answered": 1
+  },
+  "fr-sr-q-005": {
+    "answered": 2
+  },
+  "fr-sr-q-006": {
+    "answered": 3
+  },
+  "fr-sr-q-007": {
+    "answered": 1
+  },
+  "fr-sr-q-008": {
+    "answered": 0
+  },
+  "fr-sr-q-009": {
+    "answered": 1
+  },
+  "fr-sr-q-010": {
+    "answered": 2
+  },
+  "fr-sr-q-011": {
+    "answered": 3
+  },
+  "fr-sr-q-012": {
+    "answered": 0
+  },
+  "fr-sr-q-013": {
+    "answered": 0
+  },
+  "fr-sr-q-014": {
+    "answered": 1
+  },
+  "fr-sr-q-015": {
+    "answered": 2
+  },
+  "fr-sr-q-016": {
+    "answered": 3
+  },
+  "fr-sr-q-017": {
+    "answered": 0
+  },
+  "fr-sr-q-018": {
+    "answered": 0
+  },
+  "fr-sr-q-019": {
+    "answered": 1
+  },
+  "fr-sr-q-020": {
+    "answered": 2
+  },
+  "fr-sr-q-021": {
+    "answered": 3
+  },
+  "fr-sr-q-022": {
+    "answered": 0
+  },
+  "fr-sr-q-023": {
+    "answered": 0
+  },
+  "fr-sr-q-024": {
+    "answered": 1
+  },
+  "fr-sr-q-025": {
+    "answered": 2
+  },
+  "fr-sr-q-026": {
+    "answered": 3
+  },
+  "fr-sr-q-027": {
+    "answered": 0
+  },
+  "fr-sr-q-028": {
+    "answered": 1
+  },
+  "fr-sr-q-029": {
+    "answered": 2
+  },
+  "fr-sr-q-030": {
+    "answered": 3
+  }
+}

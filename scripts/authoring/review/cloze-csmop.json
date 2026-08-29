@@ -1,0 +1,595 @@
+{
+  "_note": "Hand review of the generated cloze cards for the Central Secretariat Manual of Office Procedure, 2022. `verdict` is approve or reject; a rejected card stays in data/rules/cards/ with reviewState \"rejected\" and is never served. `hi` is a freshly authored Hindi cloze on the same paragraph, not a translation of the English excerpt, using structure-terms.json vocabulary (कार्यालय ज्ञापन, अर्ध-सरकारी पत्र, अंतर-विभागीय टिप्पणी, टिप्पणी, डॉकेटिंग, आदि) where the term already has an established rendering there. The blank marker ____ must appear in both stems.",
+  "csmop-cloze-1-1-definedterm": {
+    "verdict": "reject",
+    "reason": "The blank falls on 'case' used as an ordinary English connector ('in each case to keep appropriate record'), not the defined term 'Case' (that is paragraph 16.7, already carried by csmop-cloze-16-7-definedterm). Answerable from English fluency alone, not from the manual."
+  },
+  "csmop-cloze-2-6-definedterm": {
+    "verdict": "reject",
+    "reason": "Same trivial connector as csmop-cloze-1-1-definedterm — 'in the latter case, they assist...' teaches nothing about the manual."
+  },
+  "csmop-cloze-4-2-count": {
+    "verdict": "reject",
+    "reason": "The blank is 'The ____ key features of the...Rules are that: (i)...(ii)...' — a count of how many bullets follow, not a fact about the Rules themselves. Apparatus, not substance."
+  },
+  "csmop-cloze-4-3-definedterm": {
+    "verdict": "reject",
+    "reason": "The blank falls inside a URL fragment — 'http://cabsec.nic.in/showpdf.php?type=____s_highlevel_committee&special' — the same class of defect flagged in docs/DATA-GAPS.md #54 for another act."
+  },
+  "csmop-cloze-5-2-definedterm": {
+    "verdict": "reject",
+    "reason": "Answer 'dak' is repeated verbatim as the very next word — 'Scrutiny of ____: (i) Dak with urgency grading...' — trivially answerable without reading the paragraph."
+  },
+  "csmop-cloze-5-3-definedterm": {
+    "verdict": "reject",
+    "reason": "Same defect as csmop-cloze-5-2-definedterm — 'Registration of ____: (i) Dak should be registered...' repeats the answer immediately."
+  },
+  "csmop-cloze-7-14-duration": {
+    "verdict": "reject",
+    "reason": "The '5 years' service' line is a Yes/No field on the Appendix 7.1 'Standard Process Sheet to process Study Leave case' specimen form, not an operative CSMOP rule — the actual study-leave eligibility rule lives in FR/SR, not here."
+  },
+  "csmop-cloze-7-14-definedterm": {
+    "verdict": "reject",
+    "reason": "'(xi) Docketing & Referencing' is item xi of Box 7.1's 'Structure of a problem solving / policy note' — a document-structure checklist, the same kind of apparatus the authoring checklist excludes as 'a schedule's column layout'."
+  },
+  "csmop-cloze-8-11-amount": {
+    "verdict": "reject",
+    "reason": "'Rs. 5000' is a placeholder figure inside the specimen ORDER format in Appendix 8.1, illustrating how to fill the form — not a real, current financial-powers threshold worth memorising."
+  },
+  "csmop-cloze-8-11-crossreference": {
+    "verdict": "reject",
+    "reason": "'rule 10' is the same specimen ORDER's placeholder rule number (Appendix 8.1) as csmop-cloze-8-11-amount, not a real citation."
+  },
+  "csmop-cloze-8-11-definedterm": {
+    "verdict": "reject",
+    "reason": "Sourced from a garbled run of the specimen Letter/Order format in Appendix 8.1 ('email...@(Endorsement) No...') — apparatus, and not even a clean sentence."
+  },
+  "csmop-cloze-9-6-definedterm": {
+    "verdict": "reject",
+    "reason": "The blank is a cell of Table 9.1's responsibility-mapping table (row 2's Action column), not prose — a schedule's column layout."
+  },
+  "csmop-cloze-11-4-definedterm": {
+    "verdict": "reject",
+    "reason": "The blank is the last entry of a register-name-to-paragraph-reference table ('File movement Register 6.5...Register for watching...10.10(i)a ____') — a schedule's column layout."
+  },
+  "csmop-cloze-12-7-duration": {
+    "verdict": "reject",
+    "reason": "'the last 3 years' is inside an illustrative 'for instance' example of what a Reference Folder might contain, not a mandated retention or reporting period."
+  },
+  "csmop-cloze-12-7-definedterm": {
+    "verdict": "reject",
+    "reason": "The blank is position 3 of a six-item enumerated list of aid-to-processing names (Note for Successor / Standing Process Sheet / ____ / Standing Note / Precedent Book / Reference Folder) with no description of what the item is — apparatus, teaches list position not the manual."
+  },
+  "csmop-cloze-12-10-definedterm": {
+    "verdict": "reject",
+    "reason": "The blank is a Yes/No field on an inspection questionnaire ('Whether ____ is being maintained') from an Appendix table, not operative text."
+  },
+  "csmop-cloze-1-4-definedterm": {
+    "verdict": "approve",
+    "reason": "Para 1.4 — names what the First Edition (2012) of the manual was called, and why.",
+    "hi": {
+      "text": "पैरा 1.4 — केंद्रीय सचिवालय ____ प्रक्रिया नियमावली (सीएसएमईओपी) का प्रथम संस्करण वर्ष 2012 में जारी हुआ था, जो निर्णय-प्रक्रिया को कागज़-रहित बनाने की दिशा में एक कदम था।",
+      "answer": "ई-ऑफिस"
+    }
+  },
+  "csmop-cloze-1-5-definedterm": {
+    "verdict": "approve",
+    "reason": "Para 1.5 — the digitisation mandate every Department is expected to switch over to.",
+    "hi": {
+      "text": "पैरा 1.5 — विभागों से अपेक्षा की जाती है कि वे सक्रियता से अनुकूलन करें और यह सुनिश्चित करें कि उनकी टीमें भी ____ अपनाएँ।",
+      "answer": "ई-ऑफिस"
+    }
+  },
+  "csmop-cloze-1-7-definedterm": {
+    "verdict": "approve",
+    "reason": "Para 1.7 — the manual's second named area of essential procedure, alongside information handling.",
+    "hi": {
+      "text": "पैरा 1.7 — यह नियमावली सूचना और ____ प्रबंधन अर्थात् शासकीय सूचना के, कागज़ पर या डिजिटल रूप में, प्रक्रमण, हस्तन और नियंत्रण की आवश्यक प्रक्रियाएँ भी विहित करती है।",
+      "answer": "फाइल"
+    }
+  },
+  "csmop-cloze-2-1-count": {
+    "verdict": "approve",
+    "reason": "Para 2.1 — the three categories of Ministers in the Council of Ministers.",
+    "hi": {
+      "text": "पैरा 2.1 — मंत्रिपरिषद में मंत्रियों की ____ श्रेणियाँ होती हैं, अर्थात् कैबिनेट मंत्री, राज्य मंत्री और उपमंत्री।",
+      "answer": "तीन"
+    }
+  },
+  "csmop-cloze-2-3-crossreference": {
+    "verdict": "approve",
+    "reason": "Para 2.3 — the constitutional article under which the Allocation/Transaction of Business Rules are issued.",
+    "hi": {
+      "text": "पैरा 2.3 — सरकार के कामकाज के सुविधाजनक संचालन के लिए राष्ट्रपति द्वारा जारी नियम संविधान के ____ के अधीन बनाए जाते हैं।",
+      "answer": "अनुच्छेद 77(3)"
+    }
+  },
+  "csmop-cloze-2-4-count": {
+    "verdict": "approve",
+    "reason": "Para 2.4 — the Desk Officer system pairs each desk with two functionaries of appropriate rank.",
+    "hi": {
+      "text": "पैरा 2.4 — डेस्क अधिकारी प्रणाली में विभाग के निम्नतम स्तर के कार्य को अलग-अलग कार्यात्मक डेस्कों में बाँटा जाता है, जिनमें से प्रत्येक को उपयुक्त रैंक के ____ डेस्क कार्मिक, जैसे अवर सचिव या अनुभाग अधिकारी, संभालते हैं।",
+      "answer": "दो"
+    }
+  },
+  "csmop-cloze-2-4-definedterm": {
+    "verdict": "approve",
+    "reason": "Para 2.4 — initial processing and submission of cases is through noting and drafting.",
+    "hi": {
+      "text": "पैरा 2.4 — मामलों का प्रारंभिक प्रक्रमण और ____ तथा प्रारूपण के माध्यम से प्रस्तुतीकरण मुख्यतः सहायक अनुभाग अधिकारी/वरिष्ठ सचिवालय सहायक या कनिष्ठ सचिवालय सहायक स्तर के डीलिंग अधिकारियों द्वारा किया जाता है।",
+      "answer": "टिप्पणी"
+    }
+  },
+  "csmop-cloze-2-10-percentage": {
+    "verdict": "approve",
+    "reason": "Para 2.10 — the equity threshold that defines a Central Public Sector Enterprise.",
+    "hi": {
+      "text": "पैरा 2.10 — केंद्रीय लोक क्षेत्र उपक्रम (सीपीएसई) वह कंपनी है जो केंद्रीय मंत्रालय/विभाग के प्रशासनिक नियंत्रण में हो और जिसमें केंद्र सरकार की इक्विटी ____ से अधिक हो।",
+      "answer": "50 प्रतिशत"
+    }
+  },
+  "csmop-cloze-2-11-definedterm": {
+    "verdict": "approve",
+    "reason": "Para 2.11 — an O&M function: drawing up standardised file indices.",
+    "hi": {
+      "text": "पैरा 2.11 — कार्यात्मक अभिकल्प पर आधारित मानकीकृत ____ सूचकांक तैयार करना तथा उनकी आवधिक समीक्षा करना।",
+      "answer": "फाइल"
+    }
+  },
+  "csmop-cloze-3-1-definedterm": {
+    "verdict": "approve",
+    "reason": "Para 3.1 — one of the Private Secretary/PA functions: handling confidential and secret material.",
+    "hi": {
+      "text": "पैरा 3.1 — ____ और गुप्त पत्रों/डाक/फाइलों का प्रबंधन, संसदीय कार्य का निपटान, सूचना की सुरक्षा तथा बैठकों/सम्मेलनों की सुविधा प्रदान करना।",
+      "answer": "गोपनीय"
+    }
+  },
+  "csmop-cloze-4-4-definedterm": {
+    "verdict": "approve",
+    "reason": "Para 4.4 — decisions on delegated matters are arrived at through noting.",
+    "hi": {
+      "text": "पैरा 4.4 — मंत्रालय/विभाग के भीतर किसी प्राधिकारी को प्रत्यायोजित मामलों में, आरंभक अधिकारी की ____ (पैरा 7.2 और 7.3) के माध्यम से निर्णय लिए जाते हैं और फाइल प्रस्तुतीकरण के माध्यम से सक्षम प्राधिकारी को भेजी जाती है।",
+      "answer": "टिप्पणी"
+    }
+  },
+  "csmop-cloze-4-9-duration": {
+    "verdict": "approve",
+    "reason": "Para 4.9 — the periodic review of levels of disposal and channels of submission, restated here as an efficiency measure.",
+    "hi": {
+      "text": "पैरा 4.9 — निर्णय-प्रक्रिया में दक्षता बढ़ाने हेतु, निपटान के स्तर और प्रस्तुतीकरण के माध्यम की समीक्षा कम-से-कम ____ में एक बार की जाए।",
+      "answer": "तीन वर्ष"
+    }
+  },
+  "csmop-cloze-4-9-definedterm": {
+    "verdict": "approve",
+    "reason": "Para 4.9 — the CRU, spelled out from its own abbreviation.",
+    "hi": {
+      "text": "पैरा 4.9 — प्रत्येक मंत्रालय/विभाग तथा उनके संबद्ध और अधीनस्थ कार्यालय डिजिटल सचिवालय के कामकाज हेतु आवश्यक मानव संसाधन और अवसंरचना उपलब्ध कराकर ____ (सीआरयू) को सुदृढ़ करेंगे।",
+      "answer": "केंद्रीय पंजीकरण इकाई"
+    }
+  },
+  "csmop-cloze-5-1-definedterm": {
+    "verdict": "approve",
+    "reason": "Para 5.1 — dak addressed by name is received in the CRU/IFC during office hours; the stage is Receipt.",
+    "hi": {
+      "text": "पैरा 5.1 — डाक की ____: कार्यालय समय के दौरान, मंत्रियों/अधिकारियों को नाम से संबोधित डाक सहित सभी डाक सीआरयू/आईएफसी में प्राप्त की जाएगी।",
+      "answer": "प्राप्ति"
+    }
+  },
+  "csmop-cloze-5-3-count": {
+    "verdict": "approve",
+    "reason": "Para 5.3 — identical copies of a representation need not all be registered, only the first-received one.",
+    "hi": {
+      "text": "पैरा 5.3 — डाक के पंजीकरण में प्रतिवेदनों की समरूप प्रतियों को छोड़ा जा सकता है, सिवाय सबसे ____ प्राप्त प्रति के, जब तक किसी वरिष्ठ अधिकारी ने निर्देश या टिप्पणी अंकित न की हो।",
+      "answer": "पहले"
+    }
+  },
+  "csmop-cloze-5-4-definedterm": {
+    "verdict": "approve",
+    "reason": "Para 5.4 — how acknowledgement of dak is recorded, in the messenger book.",
+    "hi": {
+      "text": "पैरा 5.4 — डाक की पावती: अन्य विभागों से आई फाइलों सहित डाक की ____ प्राप्तकर्ता द्वारा व्यक्तिवाहक (चपरासी) पुस्तिका में नाम, तारीख और पदनाम सहित स्याही से पूर्ण हस्ताक्षर करके स्वीकार की जाएगी।",
+      "answer": "प्राप्ति"
+    }
+  },
+  "csmop-cloze-5-5-definedterm": {
+    "verdict": "approve",
+    "reason": "Para 5.5 — the hybrid mode where registration is electronic but processing is physical.",
+    "hi": {
+      "text": "पैरा 5.5 — ____ में जब डाक का पंजीकरण इलेक्ट्रॉनिक रूप से किया जाता है परंतु उस पर कार्रवाई भौतिक रूप से की जाती है, तब पावती उपरोक्तानुसार ही दी जाती है क्योंकि कागज़/प्राप्ति का संचलन मैन्युअल रूप से होता है।",
+      "answer": "ईफाइल"
+    }
+  },
+  "csmop-cloze-5-6-count": {
+    "verdict": "approve",
+    "reason": "Para 5.6 — a dept.-returned file goes back to whoever last noted on it.",
+    "hi": {
+      "text": "पैरा 5.6 — यदि फाइल किसी अन्य मंत्रालय/विभाग द्वारा लौटाई गई फाइल हो, तो उसे ____ अधिकारी को प्रस्तुत किया जाएगा।",
+      "answer": "उस पर अंतिम बार टिप्पणी करने वाले"
+    }
+  },
+  "csmop-cloze-5-6-definedterm": {
+    "verdict": "approve",
+    "reason": "Para 5.6 — the Section Officer's duty to indicate urgency grading when marking receipts.",
+    "hi": {
+      "text": "पैरा 5.6 — अन्य प्राप्तियाँ संबंधित डीलिंग अधिकारियों को अंकित करते समय, आवश्यकतानुसार ____, अंतिम तिथि और/अथवा कार्रवाई की दिशा में निर्देश दिए जाएँ।",
+      "answer": "अत्यावश्यकता श्रेणीकरण"
+    }
+  },
+  "csmop-cloze-5-7-duration": {
+    "verdict": "approve",
+    "reason": "Para 5.7 — the one-day watch on receipts not returned by officers.",
+    "hi": {
+      "text": "पैरा 5.7 — अनुभाग यह सुनिश्चित करेगा कि यदि कोई प्राप्ति ____ के भीतर अधिकारियों से वापस न मिले, तो इसे ध्यान में लाया जाए।",
+      "answer": "एक दिन"
+    }
+  },
+  "csmop-cloze-5-7-definedterm": {
+    "verdict": "approve",
+    "reason": "Para 5.7 — eFile's movement-tracking claim.",
+    "hi": {
+      "text": "पैरा 5.7 — ____ किसी प्राप्ति या फाइल के प्रत्येक संचलन का अनुरेखण करती है।",
+      "answer": "ईफाइल"
+    }
+  },
+  "csmop-cloze-5-9-duration": {
+    "verdict": "approve",
+    "reason": "Para 5.9 — the timeline for settling a disputed-receipt allocation.",
+    "hi": {
+      "text": "पैरा 5.9 — विवादित प्राप्ति के आबंटन का विवाद विभाग में प्राप्ति की तारीख से ____ के भीतर निपटाया जाएगा, सिवाय अत्यावश्यकता श्रेणीकरण वाली प्राप्तियों के, जिनका निर्णय आधे दिन में लिया जाएगा।",
+      "answer": "2 कार्य दिवस"
+    }
+  },
+  "csmop-cloze-5-9-definedterm": {
+    "verdict": "approve",
+    "reason": "Para 5.9 — the exception that halves the settlement time.",
+    "hi": {
+      "text": "पैरा 5.9 — विवादित प्राप्ति के आबंटन का विवाद सामान्यतः 2 कार्य दिवस में निपटाया जाएगा, सिवाय ____ वाली विवादित प्राप्तियों के, जिनका निर्णय आधे दिन में लिया जाएगा।",
+      "answer": "अत्यावश्यकता श्रेणीकरण"
+    }
+  },
+  "csmop-cloze-5-10-definedterm": {
+    "verdict": "approve",
+    "reason": "Para 5.10 — a Dealing Officer processes a receipt on a current file or opens a new one.",
+    "hi": {
+      "text": "पैरा 5.10 — डीलिंग अधिकारी प्राप्ति को किसी ____ पर प्रक्रमित करेगा अथवा नई फाइल खोलेगा (पैरा 6.6 और परिशिष्ट 6.3)।",
+      "answer": "चालू फाइल"
+    }
+  },
+  "csmop-cloze-6-13-count": {
+    "verdict": "approve",
+    "reason": "Para 6.13 — how a file number's elements are punctuated.",
+    "hi": {
+      "text": "पैरा 6.13 — फाइल संख्या के प्रथम ____ अवयव एक-दूसरे से तिरछी रेखा (/) द्वारा और अंतिम दो डैश (-) द्वारा पृथक किए जाएँगे।",
+      "answer": "तीन"
+    }
+  },
+  "csmop-cloze-6-13-definedterm": {
+    "verdict": "approve",
+    "reason": "Para 6.13 — a Dealing Officer's duty to mark security grading before submitting the file.",
+    "hi": {
+      "text": "पैरा 6.13 — डीलिंग अधिकारी मामले के अनुरूप ____ अंकित करेगा, टिप्पणी पर हस्ताक्षर करेगा (पैरा 7.3) और प्रस्तुतीकरण के माध्यम के अनुसार फाइल प्रस्तुत करेगा।",
+      "answer": "सुरक्षा श्रेणीकरण"
+    }
+  },
+  "csmop-cloze-7-2-definedterm": {
+    "verdict": "approve",
+    "reason": "Para 7.2 — the 'Add Green Note' option in an electronic file also does referencing and docketing.",
+    "hi": {
+      "text": "पैरा 7.2 — इलेक्ट्रॉनिक फाइल में टिप्पणी अंकित करना: फाइल के भीतरी पृष्ठ पर टिप्पणी अंकित करने तथा ____, डॉकेटिंग आदि करने के लिए 'ऐड ग्रीन नोट' विकल्प है।",
+      "answer": "संदर्भ देना"
+    }
+  },
+  "csmop-cloze-7-6-duration": {
+    "verdict": "approve",
+    "reason": "Para 7.6 — the same triennial review of disposal levels and submission channels, in its own chapter.",
+    "hi": {
+      "text": "पैरा 7.6 — प्रत्येक विभाग निपटान के स्तर और प्रस्तुतीकरण के माध्यम संबंधी अनुदेशों की समीक्षा कम-से-कम ____ में एक बार करेगा, ताकि निचले स्तरों को अधिकार प्रत्यायोजित कर स्तरों की संख्या न्यूनतम रखी जा सके।",
+      "answer": "तीन वर्ष"
+    }
+  },
+  "csmop-cloze-7-6-definedterm": {
+    "verdict": "approve",
+    "reason": "Para 7.6 — a level-jumped case passes back through every level it skipped on return.",
+    "hi": {
+      "text": "पैरा 7.6 — जहाँ भी किसी श्रेणी के मामलों में ____ किया जाता है, वहाँ ऐसा प्रत्येक मामला वापसी पर उन सभी लांघे गए स्तरों से होकर गुजरेगा, जो उपयुक्त मामलों में पुनर्विचार हेतु मामले को पुनः प्रस्तुत कर सकते हैं।",
+      "answer": "स्तर लांघन"
+    }
+  },
+  "csmop-cloze-7-10-definedterm": {
+    "verdict": "approve",
+    "reason": "Para 7.10 — an officer must report an out-of-hierarchy instruction to their immediate superior.",
+    "hi": {
+      "text": "पैरा 7.10 — यदि निर्देश देने वाला अधिकारी सरकारी सेवक का ____ वरिष्ठ नहीं, बल्कि पदानुक्रम में उससे एक स्तर ऊपर है, तो ऐसे निर्देशों की जानकारी वह अपने वरिष्ठ अधिकारी को यथाशीघ्र देगा।",
+      "answer": "तत्काल"
+    }
+  },
+  "csmop-cloze-7-14-count": {
+    "verdict": "approve",
+    "reason": "Para 7.14 — the Functional Approach to Noting's own size guidance for a short note.",
+    "hi": {
+      "text": "पैरा 7.14 — पत्राचार-निपटान जैसे मामलों में तीन से ____ वाक्यों के एक संक्षिप्त अनुच्छेद में विचाराधीन विषय और सुझाई गई कार्रवाई दर्शाने वाली टिप्पणी पर्याप्त होगी।",
+      "answer": "चार"
+    }
+  },
+  "csmop-cloze-8-1-definedterm": {
+    "verdict": "approve",
+    "reason": "Para 8.1 — the Inter-Departmental note, renamed from the U.O. note.",
+    "hi": {
+      "text": "पैरा 8.1 — सचिवालय (मंत्रालयों/विभागों) के भीतर कारोबार के संचालन हेतु लिखित संचार का सबसे सामान्य और बहुप्रयुक्त रूप ____ है (पहले यू.ओ. टिप्पणी कहलाती थी)।",
+      "answer": "अंतर-विभागीय टिप्पणी"
+    }
+  },
+  "csmop-cloze-8-2-definedterm": {
+    "verdict": "approve",
+    "reason": "Para 8.2 — where a nodal section's decision on another department's file is also recorded.",
+    "hi": {
+      "text": "पैरा 8.2 — जहाँ आवश्यक हो, प्रविष्टियाँ ____ में भी की जाएँगी।",
+      "answer": "पूर्ववृत्त पुस्तिका"
+    }
+  },
+  "csmop-cloze-8-4-definedterm": {
+    "verdict": "approve",
+    "reason": "Para 8.4 — the defining sentence for a demi-official letter.",
+    "hi": {
+      "text": "पैरा 8.4 — ____: इस प्रारूप का प्रयोग सामान्यतः एक सरकारी अधिकारी द्वारा किसी महत्वपूर्ण और/अथवा अत्यावश्यक शासकीय मामले में दूसरे अधिकारी का व्यक्तिगत ध्यान आकर्षित करने के प्रयोजन से किया जाता है।",
+      "answer": "अर्ध-सरकारी पत्र"
+    }
+  },
+  "csmop-cloze-8-6-definedterm": {
+    "verdict": "approve",
+    "reason": "Para 8.6 — which offices a department introduces the Single File System for.",
+    "hi": {
+      "text": "पैरा 8.6 — दिल्ली/नई दिल्ली में स्थित अपने संबद्ध और अधीनस्थ कार्यालयों के लिए, जो किसी संबद्ध कार्यालय के हस्तक्षेप के बिना सीधे विभाग के अधीन हों, विभाग पत्राचार की ____ लागू करेंगे।",
+      "answer": "एकल फाइल प्रणाली"
+    }
+  },
+  "csmop-cloze-8-7-definedterm": {
+    "verdict": "approve",
+    "reason": "Para 8.7 — what the Single File System applies to.",
+    "hi": {
+      "text": "पैरा 8.7 — ____ (एसएफएस): यह उन मामलों पर लागू होगी जो गैर-सचिवालय संगठन (एनएसओ) द्वारा विभाग को स्वीकृति/आदेश हेतु भेजे जाते हैं, अर्थात् जो निर्णय उसकी अपनी प्रत्यायोजित शक्तियों के भीतर नहीं है।",
+      "answer": "एकल फाइल प्रणाली"
+    }
+  },
+  "csmop-cloze-8-8-definedterm": {
+    "verdict": "approve",
+    "reason": "Para 8.8 — constitutional/statutory authorities are never addressed by office memorandum.",
+    "hi": {
+      "text": "पैरा 8.8 — संवैधानिक/सांविधिक प्राधिकरणों को मंत्रालयों/विभागों द्वारा किसी भी दशा में ____ नहीं भेजा जाएगा; पत्र के रूप में ही संचार किया जाएगा।",
+      "answer": "कार्यालय ज्ञापन"
+    }
+  },
+  "csmop-cloze-8-9-duration": {
+    "verdict": "approve",
+    "reason": "Para 8.9 — the 15-day acknowledgement window for public/MP correspondence.",
+    "hi": {
+      "text": "पैरा 8.9 — संसद सदस्य, आम नागरिक, मान्यताप्राप्त संगठन या लोक निकाय से प्राप्त प्रत्येक संचार की पावती ____ के भीतर दी जाएगी, तथा पावती भेजने के अगले 15 दिनों के भीतर उत्तर दिया जाएगा।",
+      "answer": "15 दिन"
+    }
+  },
+  "csmop-cloze-10-1-definedterm": {
+    "verdict": "approve",
+    "reason": "Para 10.1 — the fourth activity of records management, after recording, retention and retrieval.",
+    "hi": {
+      "text": "पैरा 10.1 — अभिलेख प्रबंधन की गतिविधियों में मुख्यतः रिकॉर्डिंग, प्रतिधारण, पुनर्प्राप्ति और ____ शामिल हैं।",
+      "answer": "छँटाई"
+    }
+  },
+  "csmop-cloze-10-2-duration": {
+    "verdict": "approve",
+    "reason": "Para 10.2 — the one-year rule for destroying purely ephemeral files without formal recording.",
+    "hi": {
+      "text": "पैरा 10.2 — विशुद्ध रूप से क्षणिक प्रकृति की फाइलें (जैसे आकस्मिक अवकाश अभिलेख) औपचारिक रूप से रिकॉर्ड किए बिना ____ बाद नष्ट की जा सकती हैं।",
+      "answer": "एक वर्ष"
+    }
+  },
+  "csmop-cloze-10-4-duration": {
+    "verdict": "approve",
+    "reason": "Para 10.4 — the ceiling on Category C's retention period.",
+    "hi": {
+      "text": "पैरा 10.4 — श्रेणी 'ग' की फाइलों का संदर्भ मूल्य ऐसी सीमित अवधि के लिए होगा जो ____ से अधिक न हो; अपवादस्वरूप इसे श्रेणी 'ख' में उन्नत किया जा सकता है।",
+      "answer": "10 वर्ष"
+    }
+  },
+  "csmop-cloze-10-4-definedterm": {
+    "verdict": "approve",
+    "reason": "Para 10.4 — why a Category A file with a precious original gets microfilmed.",
+    "hi": {
+      "text": "पैरा 10.4 — जिस मूल दस्तावेज़ का सुरक्षित रखा जाना अनिवार्य है, उसकी मूल रूप में पहुँच क्षति या हानि से बचने हेतु न्यूनतम तक ____ की जानी चाहिए।",
+      "answer": "सीमित"
+    }
+  },
+  "csmop-cloze-10-5-duration": {
+    "verdict": "approve",
+    "reason": "Para 10.5 — reading the manual's own worked example of a file-cover retention notation.",
+    "hi": {
+      "text": "पैरा 10.5 — उदाहरणार्थ, वर्ष 2018 में बंद फाइल के आवरण पर 'ग/5 - नष्ट करें (या समीक्षा करें) 2/2023' अंकित किया जाता है, जिसका अर्थ है कि फाइल बंद होने की तारीख से ____ तक रखी जानी है।",
+      "answer": "5 वर्ष"
+    }
+  },
+  "csmop-cloze-10-5-definedterm": {
+    "verdict": "approve",
+    "reason": "Para 10.5 — what else, besides the retention period, is marked on a Category C file's cover.",
+    "hi": {
+      "text": "पैरा 10.5 — श्रेणी 'ग' की फाइल के मामले में, फाइल आवरण पर प्रतिधारण अवधि तथा समीक्षा/____/विनष्टीकरण का वर्ष भी अंकित किया जाएगा।",
+      "answer": "छँटाई"
+    }
+  },
+  "csmop-cloze-10-7-definedterm": {
+    "verdict": "approve",
+    "reason": "Para 10.7 — the heading that names the discipline of not destroying files too early or keeping them too long.",
+    "hi": {
+      "text": "पैरा 10.7 — ____: यह सुनिश्चित करने के लिए कि फाइलें न तो समय से पहले नष्ट की जाएँ और न ही आवश्यकता से अधिक अवधि तक रखी जाएँ, प्रत्येक विभाग निर्धारित प्रतिधारण अवधियों का पालन करेगा।",
+      "answer": "अभिलेख प्रतिधारण अनुसूची"
+    }
+  },
+  "csmop-cloze-10-8-duration": {
+    "verdict": "approve",
+    "reason": "Para 10.8 — the one-year ceiling before a recorded file must leave the section.",
+    "hi": {
+      "text": "पैरा 10.8 — अभिलेखों की अभिरक्षा: रिकॉर्ड की गई फाइलें संबंधित अनुभागों/डेस्कों में ____ से अधिक नहीं रखी जाएँगी, तत्पश्चात वे विभागीय अभिलेख कक्ष को स्थानांतरित कर दी जाएँगी।",
+      "answer": "एक वर्ष"
+    }
+  },
+  "csmop-cloze-10-8-definedterm": {
+    "verdict": "approve",
+    "reason": "Para 10.8 — where a recorded file goes after that year.",
+    "hi": {
+      "text": "पैरा 10.8 — अभिलेखों की अभिरक्षा: रिकॉर्ड की गई फाइलें अनुभागों/डेस्कों में एक वर्ष से अधिक न रखी जाकर, तत्पश्चात ____ को स्थानांतरित कर दी जाएँगी।",
+      "answer": "विभागीय अभिलेख कक्ष"
+    }
+  },
+  "csmop-cloze-10-9-duration": {
+    "verdict": "approve",
+    "reason": "Para 10.9 — the ceiling on retention after a Category C review, inclusive of prior retention.",
+    "hi": {
+      "text": "पैरा 10.9 — समीक्षा के पश्चात प्रतिधारण की अवधि, अब तक की प्रतिधारण अवधि सहित, ____ से अधिक नहीं होगी।",
+      "answer": "10 वर्ष"
+    }
+  },
+  "csmop-cloze-10-9-count": {
+    "verdict": "approve",
+    "reason": "Para 10.9 — the four lots (Jan/Apr/Jul/Sep) in which review-due files are sent out.",
+    "hi": {
+      "text": "पैरा 10.9 — विभागीय अभिलेख कक्ष प्रत्येक वर्ष जनवरी से आरंभ करके समीक्षा हेतु देय फाइलों की सूची संबंधित अनुभागों/डेस्कों को ____ खेपों में — जनवरी, अप्रैल, जुलाई और सितंबर में — भेजेगा।",
+      "answer": "चार"
+    }
+  },
+  "csmop-cloze-10-9-definedterm": {
+    "verdict": "approve",
+    "reason": "Para 10.9 — Category A & B files are reviewed at year 25 in consultation with the National Archives.",
+    "hi": {
+      "text": "पैरा 10.9 — श्रेणी 'क' और 'ख' की फाइलों की समीक्षा उनके जीवनकाल के 25वें वर्ष में ____ के परामर्श से की जाएगी।",
+      "answer": "राष्ट्रीय अभिलेखागार"
+    }
+  },
+  "csmop-cloze-10-11-definedterm": {
+    "verdict": "approve",
+    "reason": "Para 10.11 — a Minister's office keeps extra files for Cabinet-related secret papers.",
+    "hi": {
+      "text": "पैरा 10.11 — मंत्रियों के निजी कार्यालयों में उपर्युक्त अभिलेखों के अतिरिक्त, मंत्रिमंडल की बैठकों से संबंधित ____ प्रकृति के कागज़ात हेतु फाइलें और फोल्डर भी रखे जाएँगे।",
+      "answer": "गुप्त"
+    }
+  },
+  "csmop-cloze-10-13-duration": {
+    "verdict": "approve",
+    "reason": "Para 10.13 — the six-month window for a section to return a requisitioned file.",
+    "hi": {
+      "text": "पैरा 10.13 — किसी अनुभाग द्वारा विभागीय अभिलेख कक्ष से प्राप्त फाइलें सामान्यतः ____ के भीतर लौटा दी जाएँगी।",
+      "answer": "6 माह"
+    }
+  },
+  "csmop-cloze-10-13-definedterm": {
+    "verdict": "approve",
+    "reason": "Para 10.13 — a recorded file needs a signed requisition even to leave the record room.",
+    "hi": {
+      "text": "पैरा 10.13 — किसी भी रिकॉर्ड की गई फाइल को अनुभागों, ____ या अभिलेखीय अभिलेखों से हस्ताक्षरित अधियाचना के बिना जारी नहीं किया जाएगा।",
+      "answer": "विभागीय अभिलेख कक्ष"
+    }
+  },
+  "csmop-cloze-12-10-duration": {
+    "verdict": "approve",
+    "reason": "Para 12.10 — the weekly time block dedicated to the pending-matters campaign.",
+    "hi": {
+      "text": "पैरा 12.10 — विशेष अभियान के लिए प्रत्येक सप्ताह ____ समर्पित किए जाएँ।",
+      "answer": "तीन घंटे"
+    }
+  },
+  "csmop-cloze-13-2-duration": {
+    "verdict": "approve",
+    "reason": "Para 13.2 — the five-yearly declassification review of a classified file.",
+    "hi": {
+      "text": "पैरा 13.2 — प्रत्येक वर्गीकृत फाइल की अवर्गीकरण हेतु समीक्षा ____ में एक बार की जाएगी।",
+      "answer": "पाँच वर्ष"
+    }
+  },
+  "csmop-cloze-13-2-definedterm": {
+    "verdict": "approve",
+    "reason": "Para 13.2 — confidential papers are the one classified category exempted from the 'secret'/'top secret' section rule.",
+    "hi": {
+      "text": "पैरा 13.2 — ____ के अतिरिक्त अन्य वर्गीकृत कागज़ात या तो अधिकारियों द्वारा स्वयं अथवा 'गुप्त' या 'परम गुप्त' के रूप में नामित अनुभागों में ही संभाले जाने की अपेक्षा है।",
+      "answer": "गोपनीय"
+    }
+  },
+  "csmop-cloze-13-3-definedterm": {
+    "verdict": "approve",
+    "reason": "Para 13.3 — carrying Secret papers outside the office needs a rank floor and a Joint Secretary's written authorisation.",
+    "hi": {
+      "text": "पैरा 13.3 — अवर सचिव के स्तर से नीचे का कोई अधिकारी गोपनीय कागज़ात/फाइलें ले जा सकता है, परंतु ____ कागज़ात/फाइलें केवल अवर सचिव से नीचे न होने वाला अधिकारी ही, संबंधित संयुक्त सचिव के लिखित प्राधिकार से, विशेष परिस्थिति में ले जा सकेगा।",
+      "answer": "गुप्त"
+    }
+  },
+  "csmop-cloze-13-5-definedterm": {
+    "verdict": "approve",
+    "reason": "Para 13.5 — eFile lets security-graded items move among any user in the department.",
+    "hi": {
+      "text": "पैरा 13.5 — ईफाइल में, प्रणाली विभाग के किसी भी/सभी उपयोगकर्ताओं के बीच ____ वाले लिफाफों, प्राप्तियों और फाइलों के संचलन की अनुमति देती है।",
+      "answer": "सुरक्षा श्रेणीकरण"
+    }
+  },
+  "csmop-cloze-14-4-duration": {
+    "verdict": "approve",
+    "reason": "Para 14.4 — the 45-day grievance disposal guideline.",
+    "hi": {
+      "text": "पैरा 14.4 — किसी शिकायत का निपटान ____ की अवधि के भीतर किया जाना चाहिए; विलंब होने पर कारण सहित अंतरिम उत्तर दिया जाए।",
+      "answer": "45 दिन"
+    }
+  },
+  "csmop-cloze-14-5-duration": {
+    "verdict": "approve",
+    "reason": "Para 14.5 — CPGRAMS archives a grievance record after five years.",
+    "hi": {
+      "text": "पैरा 14.5 — सीपीग्राम्स पर लोक शिकायत अभिलेख ____ की अवधि के बाद अभिलेखागारित कर दिए जाते हैं।",
+      "answer": "पाँच वर्ष"
+    }
+  },
+  "csmop-cloze-14-5-count": {
+    "verdict": "approve",
+    "reason": "Para 14.5 — the first five letters of a CPGRAMS registration number identify the Ministry/Department.",
+    "hi": {
+      "text": "पैरा 14.5 — पंजीकरण संख्या के प्रथम ____ अक्षर उस मंत्रालय/विभाग को दर्शाते हैं जिसमें शिकायत दर्ज कराई गई थी।",
+      "answer": "पाँच"
+    }
+  },
+  "csmop-cloze-14-8-duration": {
+    "verdict": "approve",
+    "reason": "Para 14.8 — the 30-day stipulated time for disposal of a CPGRAMS appeal.",
+    "hi": {
+      "text": "पैरा 14.8 — सीपीग्राम्स में अपील के निपटान हेतु निर्धारित समय ____ है।",
+      "answer": "30 दिन"
+    }
+  },
+  "csmop-cloze-15-2-duration": {
+    "verdict": "approve",
+    "reason": "Para 15.2 — the six-month threshold used to select files for digitisation.",
+    "hi": {
+      "text": "पैरा 15.2 — डिजिटीकरण हेतु वे सभी फाइलें चुनी जानी चाहिए जिनके ____ से आगे भी खुली स्थिति में बने रहने की संभावना है; जो फाइलें इस अवधि के भीतर बंद हो सकती हैं, उनका चयन अलग मानदंडों पर किया जाएगा।",
+      "answer": "छह माह"
+    }
+  },
+  "csmop-cloze-16-5-duration": {
+    "verdict": "approve",
+    "reason": "Para 16.5 — the 15-day compliance-report deadline after an inspection.",
+    "hi": {
+      "text": "पैरा 16.5 — अनुभाग अधिकारी/डेस्क कार्मिक निरीक्षण रिपोर्ट में इंगित त्रुटियों को दूर करने हेतु आवश्यक कार्रवाई करेंगे और ____ के भीतर अपने वरिष्ठ अधिकारी को अनुपालन रिपोर्ट प्रस्तुत करेंगे।",
+      "answer": "15 दिन"
+    }
+  },
+  "csmop-cloze-16-5-definedterm": {
+    "verdict": "approve",
+    "reason": "Para 16.5 — the annual joint inspection of the record room with the National Archives.",
+    "hi": {
+      "text": "पैरा 16.5 — विभाग का अभिलेख कक्ष वर्ष में एक बार ____ के प्रतिनिधियों के साथ मिलकर निरीक्षित किया जाएगा, जब तक विभागीय अनुदेश जारी नहीं किए जाते।",
+      "answer": "राष्ट्रीय अभिलेखागार"
+    }
+  },
+  "csmop-cloze-16-7-definedterm": {
+    "verdict": "approve",
+    "reason": "Para 16.7 — the glossary's own definition of 'Case'.",
+    "hi": {
+      "text": "पैरा 16.7 — 'मामला' (Case) से अभिप्रेत है कोई ____ या कोई प्राप्ति, साथ में अन्य संबंधित कागज़ात, यदि कोई हों।",
+      "answer": "चालू फाइल"
+    }
+  }
+}

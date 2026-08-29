@@ -119,5 +119,45 @@
   "ccs-cca-q-030": {
     "verdict": "approve",
     "reason": "One correct answer, grounded in Rule 10, CCS (CCA) Rules, 1965; distractors are real rules or real figures from neighbouring provisions."
+  },
+  "ccs-cca-q-031": {
+    "verdict": "approve",
+    "reason": "One correct answer, grounded in Rule 16(1) vs 16(1-A), CCS (CCA) Rules, 1965 — the scenario (six months, non-cumulative, pension-neutral) matches none of Rule 16(1-A)'s three trigger conditions, so the ordinary Rule 16(1) minor-penalty procedure applies without a full Rule 14 inquiry. Distractors are plausible, including one grounded in Rule 12(1)'s 'the President may impose any of the penalties.'"
+  },
+  "ccs-cca-q-032": {
+    "verdict": "approve",
+    "reason": "One correct answer, grounded in Rule 10(6)-(7), CCS (CCA) Rules, 1965; the ninety-day review/extension mechanism, the automatic lapse it produces when neither happens, and the explanation's one-hundred-and-eighty-day extension cap are all stated accurately."
+  },
+  "ccs-cca-q-033": {
+    "verdict": "approve",
+    "reason": "One correct answer, grounded in Rules 24(1)(ii) and 25, CCS (CCA) Rules, 1965; the Group 'C'/'D' default appellate authority (where none is specified in the Schedule) and the forty-five-day, condonable limitation period running from delivery of the copy are both stated accurately."
+  },
+  "ccs-cca-q-034": {
+    "verdict": "approve",
+    "reason": "One correct answer, grounded in Rule 18(1) and its Note, CCS (CCA) Rules, 1965; correctly tests that the ordering authority — or the highest of several such authorities, with the others' consent, per the Note — must be competent to dismiss every Government servant named, across two different groups. The explanation states the Note's mechanism accurately rather than overstating it."
+  },
+  "ccs-cca-q-035": {
+    "verdict": "reject",
+    "reason": "Rule 19's first proviso reads 'the Government servant MAY be given an opportunity of making representation on the penalty proposed to be imposed... in a case under clause (i)' — permissive language, unlike the mandatory 'shall' this same Act uses elsewhere for a representation right (e.g. Rule 15(2)'s 'shall be required to submit', Rule 29A's proviso 'unless... has been given a reasonable opportunity'). The card's back and explanation restate this as something the disciplinary authority 'must still do' and that the proviso 'still requires', converting a discretionary courtesy into an enforceable procedural requirement. This is consistent with Union of India v. Tulsiram Patel, which held this opportunity is not a mandatory safeguard in a conviction case, and misstates the rule text the card itself cites."
+  },
+  "ccs-cca-q-036": {
+    "verdict": "approve",
+    "reason": "One correct answer, grounded in Rule 15(2), CCS (CCA) Rules, 1965; the fifteen-day representation right against the disciplinary authority's own tentative reasons for disagreement, running irrespective of whether the inquiry report itself favoured the Government servant, is stated accurately."
+  },
+  "ccs-cca-q-037": {
+    "verdict": "approve",
+    "reason": "One correct answer, grounded in the proviso to Rule 20(2)(i), CCS (CCA) Rules, 1965; correctly distinguishes the minor-penalty tie-break (services replaced at the lending authority's disposal on disagreement) from Rule 20(2)(ii)'s separate major-penalty rule, which the explanation also states accurately."
+  },
+  "ccs-cca-q-038": {
+    "verdict": "approve",
+    "reason": "One correct answer, grounded in Rule 14(20), CCS (CCA) Rules, 1965; the ex parte power on failure to submit a defence statement, appear, or otherwise comply is stated accurately, and correctly kept discretionary ('may') rather than mandatory."
+  },
+  "ccs-cca-q-039": {
+    "verdict": "approve",
+    "reason": "One correct answer, grounded in Rule 29A, CCS (CCA) Rules, 1965; correctly distinguishes it from Rule 29's six-month revision window (a real, well-grounded distractor) and accurately states the mandatory Rule 14 inquiry (subject to Rule 19) that the rule's own proviso requires before a review may impose or enhance a penalty."
+  },
+  "ccs-cca-q-040": {
+    "verdict": "approve",
+    "reason": "One correct answer, grounded in Rule 3(3), CCS (CCA) Rules, 1965; correctly names Exceptions (a) and (e) of Rule 3(1) and states the temporary-transfer re-attraction rule accurately, matching the rule's mandatory 'shall apply'."
   }
 }

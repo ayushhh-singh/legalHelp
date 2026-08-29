@@ -1,0 +1,1531 @@
+{
+  "_note": "Hand review of the EVEN-indexed half (by sorted id) of the generated cloze cards for the General Financial Rules, 2017 (gfr). The odd half is reviewed independently in cloze-gfr-part2.json and both halves are merged into cloze-gfr.json by a separate process. verdict is approve or reject; a rejected card stays in data/rules/cards/gfr.json with reviewState \"rejected\" and is never served. hi is a freshly authored Hindi cloze on the SAME rule/fact as the (often garbled or fragmentary) English excerpt, not a translation of it — the blank marker ____ appears in both stems. Two reject categories dominate this act, beyond the usual garbled/apparatus/leak patterns: (1) a cross-reference card whose blank is merely the CURRENT rule's own sub-rule numbering label sitting ahead of its body text (e.g. \"____ In Departments in which...\" = \"Rule 11 (2)\") — this tests recall of the source PDF's own paragraph numbering, not a fact about GFR, and is rejected as apparatus even though the tag says crossreference; genuine cross-references to a DIFFERENT rule, article or Act are approved. (2) a bare list-column fragment with no header identifying which of several tiers/categories it belongs to (e.g. \"(a) ____ per cent.\" with three unlabelled tiers in the full rule) — rejected as unanswerable from the card alone. (Merged from two independent halves reviewed in parallel.)",
+  "gfr-cloze-1-definedterm": {
+    "verdict": "approve",
+    "reason": "Rule 1 — the applicability of GFRs to Autonomous Bodies unless their own bye-laws provide separate approved rules.",
+    "hi": {
+      "text": "नियम 1 — सामान्य वित्तीय नियमों की व्यवस्थाएँ ____ पर तब तक लागू मानी जाती हैं जब तक उसके उपविधान सरकार द्वारा अनुमोदित पृथक वित्तीय नियमों का उपबंध न करें।",
+      "answer": "स्वायत्त निकाय"
+    }
+  },
+  "gfr-cloze-103-definedterm": {
+    "verdict": "reject",
+    "reason": "The front is stitched across the rule's heading and the next sentence and ends mid-word ('to s') — an extraction artifact, not a readable stem."
+  },
+  "gfr-cloze-11-crossreference": {
+    "verdict": "reject",
+    "reason": "The blank is the sub-rule's own numbering label ('Rule 11 (2)') preceding its text, not a substantive cross-reference — apparatus about the document's own layout."
+  },
+  "gfr-cloze-114-crossreference": {
+    "verdict": "approve",
+    "reason": "Rule 114 — claims for the extra cost of agency functions entrusted to States are settled under Article 258 of the Constitution.",
+    "hi": {
+      "text": "नियम 114 — राज्य सरकारों को सौंपे गए अभिकरण कार्यों (agency functions) के अतिरिक्त व्यय के दावों का निपटान संविधान के ____ के अधीन राष्ट्रपति द्वारा समय-समय पर जारी निदेशों के अनुसार किया जाएगा।",
+      "answer": "अनुच्छेद 258"
+    }
+  },
+  "gfr-cloze-115-crossreference": {
+    "verdict": "approve",
+    "reason": "Rule 115 — Clause (3) of Article 258 governs how a State Commercial Department's agency-work costs are worked out, distinct from the general Rule 114 fact.",
+    "hi": {
+      "text": "नियम 115 — राज्य सरकारों द्वारा किए गए अभिकरण कार्य के संबंध में प्रस्तुत दावों के निपटान में संविधान के ____ के खंड (3) के अधीन यह देखा जाएगा कि यदि कार्य में किसी राज्य वाणिज्यिक विभाग को नियोजित किया गया है, तो वह विभाग अपनी सामान्य वाणिज्यिक लागत प्रभारित कर सकेगा।",
+      "answer": "अनुच्छेद 258"
+    }
+  },
+  "gfr-cloze-116-crossreference": {
+    "verdict": "approve",
+    "reason": "Rule 116 — Census Act-related state expenditure is reimbursable specifically under Article 258(3), a distinct fact from Rules 114/115.",
+    "hi": {
+      "text": "नियम 116 — जनगणना अधिनियम के प्रशासन के संबंध में राज्य सरकारों पर होने वाले कार्य की भाँति, अतिरिक्त स्टाफ या आकस्मिक तथा अन्य व्यय, संविधान के ____ के अधीन प्रतिपूर्ति योग्य है।",
+      "answer": "अनुच्छेद 258(3)"
+    }
+  },
+  "gfr-cloze-120-definedterm": {
+    "verdict": "reject",
+    "reason": "The example list reads 'fees for procurement of inspection of stores', which does not parse — an extraction artifact — and 'procurement' here is incidental to a list of agency-service recoveries, not the rule's own subject."
+  },
+  "gfr-cloze-133-amount": {
+    "verdict": "approve",
+    "reason": "Rule 133 note — the value ceiling up to which Scientific Ministries may assign repair works on nomination basis even in normal cases.",
+    "hi": {
+      "text": "नियम 133 का टिप्पण — वैज्ञानिक मंत्रालय/विभाग सामान्य मामलों में भी नामांकन आधार पर ____ करोड़ रुपये तक लागत के मरम्मत कार्य केवल इस उप-नियम में विनिर्दिष्ट संगठनों को सौंप सकते हैं।",
+      "answer": "5 करोड़ रुपये"
+    }
+  },
+  "gfr-cloze-133-crossreference": {
+    "verdict": "reject",
+    "reason": "The blank is this rule's own sub-rule numbering label ('Rule 133 (2)') preceding its text, not a substantive fact — apparatus."
+  },
+  "gfr-cloze-136-crossreference": {
+    "verdict": "reject",
+    "reason": "The blank is this rule's own sub-rule numbering label ('Rule 136 (2)') preceding its text, not a substantive fact — apparatus."
+  },
+  "gfr-cloze-140-crossreference": {
+    "verdict": "approve",
+    "reason": "Rule 140 refers out to Rule 133(2) for how works entrusted under it get Administrative Approval — a genuine cross-rule link, not self-reference.",
+    "hi": {
+      "text": "नियम 140 — ____ या नियम 133(3) के अधीन सौंपे गए कार्यों के लिए प्रशासनिक अनुमोदन और व्यय स्वीकृति संबंधित प्राधिकारी द्वारा इन नियमों और वित्तीय शक्तियों के प्रत्यायोजन नियमों के अनुसार दी जाएगी।",
+      "answer": "नियम 133(2)"
+    }
+  },
+  "gfr-cloze-141-percentage": {
+    "verdict": "approve",
+    "reason": "Rule 141 — the Review Committee's power to accept a cost variation, capped at 10% of the approved estimate.",
+    "hi": {
+      "text": "नियम 141 — समीक्षा समिति को स्वीकृत प्राक्कलनों में ____ तक के विचलन को स्वीकार करने की शक्ति होगी।",
+      "answer": "10 प्रतिशत"
+    }
+  },
+  "gfr-cloze-146-amount": {
+    "verdict": "reject",
+    "reason": "The stem is a footnote's own editorial instruction ('5 Replace with upto ___/- in case of...') rather than the rule's operative text — apparatus, not the rule."
+  },
+  "gfr-cloze-149-amount": {
+    "verdict": "approve",
+    "reason": "Rule 149 — the GeM direct-purchase ceiling of Rs. 50,000 through any available supplier without further process.",
+    "hi": {
+      "text": "नियम 149 — जीईएम पोर्टल के माध्यम से सरकारी क्रेता किसी भी उपलब्ध आपूर्तिकर्ता से अपेक्षित गुणवत्ता, विनिर्देश और आपूर्ति अवधि को पूरा करते हुए ____ तक की सीधी ऑनलाइन खरीद कर सकेंगे।",
+      "answer": "50,000 रुपये"
+    }
+  },
+  "gfr-cloze-149-duration": {
+    "verdict": "approve",
+    "reason": "Rule 149 — Ministries must project their Annual Procurement Plan on GeM within 30 days of Budget approval.",
+    "hi": {
+      "text": "नियम 149 — मंत्रालय/विभाग बजट अनुमानों की तैयारी के समय वस्तुओं और सेवाओं की अपनी वार्षिक खरीद योजना को बजट अनुमोदन के ____ के भीतर जीईएम पोर्टल पर प्रस्तुत करेंगे।",
+      "answer": "30 दिन"
+    }
+  },
+  "gfr-cloze-150-duration": {
+    "verdict": "approve",
+    "reason": "Rule 150 — the registration period range for a GeM/rate-contract supplier.",
+    "hi": {
+      "text": "नियम 150 — वस्तु की प्रकृति के अनुसार आपूर्तिकर्ता(ओं) का पंजीकरण 1 से ____ की निश्चित अवधि के लिए किया जाएगा।",
+      "answer": "3 वर्ष"
+    }
+  },
+  "gfr-cloze-151-duration": {
+    "verdict": "approve",
+    "reason": "Rule 151 — the maximum debarment period for a bidder found to have breached the code of integrity. A leading OM citation precedes the sentence but the operative clause is complete and self-contained.",
+    "hi": {
+      "text": "नियम 151 — यदि कोई खरीद संस्था यह पाती है कि किसी बोलीदाता ने सत्यनिष्ठा संहिता का उल्लंघन किया है, तो वह उसे और उसके किसी उत्तरवर्ती को ____ से अनधिक अवधि के लिए किसी भी खरीद प्रक्रिया में भाग लेने से प्रतिवारित कर सकती है।",
+      "answer": "दो वर्ष"
+    }
+  },
+  "gfr-cloze-152-crossreference": {
+    "verdict": "approve",
+    "reason": "Rule 152(ii) — a genuine cross-reference: MSME's procurement policy is notified under Section 11 of the MSMED Act, 2006. A dangling list fragment precedes it but clause (ii) itself is complete.",
+    "hi": {
+      "text": "नियम 152 — सूक्ष्म, लघु और मध्यम उद्यम मंत्रालय ने सूक्ष्म, लघु और मध्यम उद्यम विकास अधिनियम, 2006 की ____ के अधीन खरीद नीति अधिसूचित की है।",
+      "answer": "धारा 11"
+    }
+  },
+  "gfr-cloze-154-amount": {
+    "verdict": "approve",
+    "reason": "Rule 154 — the well-known Rs. 50,000 ceiling for purchase without inviting quotations, on a recorded certificate.",
+    "hi": {
+      "text": "नियम 154 — यदि कोई वस्तु जीईएम पोर्टल पर उपलब्ध न हो, तो प्रत्येक अवसर पर ____ तक मूल्य की वस्तुओं की खरीद बिना कोटेशन या बोली आमंत्रित किए, सक्षम प्राधिकारी द्वारा अभिलिखित एक प्रमाणपत्र के आधार पर की जा सकेगी।",
+      "answer": "50,000 रुपये"
+    }
+  },
+  "gfr-cloze-155-definedterm": {
+    "verdict": "reject",
+    "reason": "The stem is garbled — 'on each goods are not available on ____ (GeM)' does not parse; a mid-sentence extraction cut has spliced two different clauses together."
+  },
+  "gfr-cloze-158-definedterm": {
+    "verdict": "approve",
+    "reason": "Rule 158 — recalling one method of obtaining bids from the enumerated list of standard procurement methods.",
+    "hi": {
+      "text": "नियम 158 — मंत्रालय या विभाग नियम 140 में निर्दिष्ट शक्तियों के अधीन वस्तुओं की खरीद हेतु बोली प्राप्त करने की मानक विधियों का अनुसरण करेंगे: (i) विज्ञापित निविदा पूछताछ (ii) ____ (iii) द्वि-चरण बोली (iv) एकल निविदा पूछताछ (v) इलेक्ट्रॉनिक रिवर्स नीलामी।",
+      "answer": "सीमित निविदा पूछताछ"
+    }
+  },
+  "gfr-cloze-159-definedterm": {
+    "verdict": "approve",
+    "reason": "Rule 159(v) — the operative exemption clause distinguishing Rule 154's no-quotation purchase from Rule 155's purchase-committee route.",
+    "hi": {
+      "text": "नियम 159 — ये अनुदेश सामान्य वित्तीय नियमों के नियम 154 (बिना कोटेशन वस्तुओं की खरीद) या नियम 155 (____ द्वारा वस्तुओं की खरीद) के उपबंधों के अंतर्गत की गई खरीद पर लागू नहीं होंगे।",
+      "answer": "क्रय समिति"
+    }
+  },
+  "gfr-cloze-161-amount": {
+    "verdict": "approve",
+    "reason": "Rule 161 — the Rs. 50 lakh and above threshold that requires an advertised tender enquiry.",
+    "hi": {
+      "text": "नियम 161 — नियम 154, 155, 162 और 166 में निहित अपवादों के अधीन, ____ लाख रुपये और उससे अधिक अनुमानित मूल्य की वस्तुओं की खरीद के लिए विज्ञापन द्वारा निविदा आमंत्रित की जानी चाहिए।",
+      "answer": "50 लाख"
+    }
+  },
+  "gfr-cloze-161-duration": {
+    "verdict": "reject",
+    "reason": "Garbled — 'should be ____ from the date of publication of institutions and Universities, Department of Health Research...' splices an unrelated exemption clause into the timeline sentence, and the excerpt ends mid-word ('Educational a')."
+  },
+  "gfr-cloze-162-count": {
+    "verdict": "approve",
+    "reason": "Rule 162(iii) — the value threshold above which Limited Tender Enquiry may still be used in the listed circumstances.",
+    "hi": {
+      "text": "नियम 162 — निम्नलिखित परिस्थितियों में, प्रापण का अनुमानित मूल्य [रुपये ____ लाख] से अधिक होने पर भी सीमित निविदा पूछताछ के माध्यम से खरीद अपनाई जा सकती है।",
+      "answer": "पचास"
+    }
+  },
+  "gfr-cloze-164-definedterm": {
+    "verdict": "approve",
+    "reason": "Rule 164(f) — a bidder withdrawing due to a specification change does not forfeit the bid security; the tested clause is complete even though the excerpt trails off afterward.",
+    "hi": {
+      "text": "नियम 164 — विनिर्देशों या निबंधनों और शर्तों में उपांतरण के कारण खरीद की विषय-वस्तु की आपूर्ति करने में असमर्थ कोई बोलीदाता, बिना किसी ____ को समपहृत कराए, खरीद कार्यवाही से हट सकेगा जिसे उसे प्रदान करने की अपेक्षा की गई हो।",
+      "answer": "बोली प्रतिभूति"
+    }
+  },
+  "gfr-cloze-166-crossreference": {
+    "verdict": "reject",
+    "reason": "The blank only completes the current rule's own sub-clause numbering ('sub-Rule 166(i)' alongside the already-named '166(iii)') — self-referential enumeration, not a substantive fact."
+  },
+  "gfr-cloze-170-count": {
+    "verdict": "approve",
+    "reason": "Rule 170 — the standard bid-security range, 2% to 5% of estimated value.",
+    "hi": {
+      "text": "नियम 170 — बोली प्रतिभूति की राशि सामान्यतः खरीदी जाने वाली वस्तुओं के अनुमानित मूल्य के दो प्रतिशत से ____ प्रतिशत के बीच होनी चाहिए।",
+      "answer": "पाँच"
+    }
+  },
+  "gfr-cloze-170-duration": {
+    "verdict": "approve",
+    "reason": "Rule 170 — how long a bid security must remain valid beyond the final bid validity period.",
+    "hi": {
+      "text": "नियम 170 — बोली प्रतिभूति सामान्यतः अंतिम बोली वैधता अवधि के पश्चात ____ तक वैध रहनी चाहिए।",
+      "answer": "पैंतालीस दिन"
+    }
+  },
+  "gfr-cloze-171-duration": {
+    "verdict": "approve",
+    "reason": "Rule 171(ii) — how long the Performance Security must remain valid beyond completion of contractual obligations.",
+    "hi": {
+      "text": "नियम 171 — निष्पादन प्रतिभूति, आपूर्तिकर्ता के वारंटी दायित्वों सहित सभी संविदागत दायित्वों की पूर्ति की तारीख के पश्चात ____ तक वैध रहनी चाहिए।",
+      "answer": "साठ दिन"
+    }
+  },
+  "gfr-cloze-172-count": {
+    "verdict": "reject",
+    "reason": "The stem is a bare list-column fragment ('(a) ____ per cent.') with no indication of which category of advance payment it caps — the full rule shows three tiers (private firms/government agencies/maintenance contracts) and the card gives no way to tell which one is meant."
+  },
+  "gfr-cloze-172-duration": {
+    "verdict": "approve",
+    "reason": "Rule 172(c) — the advance-payment cap for a maintenance contract, expressed as an amount-of-months formula.",
+    "hi": {
+      "text": "नियम 172 — अनुरक्षण संविदा के मामले में, अग्रिम राशि संविदा के अधीन ____ के लिए देय राशि से अधिक नहीं होनी चाहिए।",
+      "answer": "छह मास"
+    }
+  },
+  "gfr-cloze-177-definedterm": {
+    "verdict": "reject",
+    "reason": "The excerpt is cut off mid-word at the very end of the defining clause ('vary from one consultant to anothe') — the sentence that distinguishes Consultancy from Non-Consultancy Services is not fully rendered."
+  },
+  "gfr-cloze-183-definedterm": {
+    "verdict": "approve",
+    "reason": "Rule 183(ii) — above Rs. 50 lakh, an Expression of Interest enquiry must additionally be published.",
+    "hi": {
+      "text": "नियम 183 — जहाँ परामर्श सेवाओं की अनुमानित लागत पचास लाख रुपये से अधिक हो, वहाँ उपर्युक्त (i) के अतिरिक्त, परामर्शदाताओं से '____' आमंत्रित करने की सूचना जीईएम तथा जीईएम-केंद्रीय लोक खरीद पोर्टल पर प्रकाशित की जानी चाहिए।",
+      "answer": "रुचि की अभिव्यक्ति"
+    }
+  },
+  "gfr-cloze-186-definedterm": {
+    "verdict": "approve",
+    "reason": "Rule 186(iv) — an RFP must state eligibility/pre-qualification criteria unless already settled through an Expression of Interest enquiry.",
+    "hi": {
+      "text": "नियम 186 — यदि पात्रता और पूर्व-अर्हता मानदंड '____' हेतु पृच्छा के माध्यम से पूर्व में सुनिश्चित नहीं किए गए हों, तो प्रस्ताव के लिए अनुरोध (आरएफपी) में उन्हें सम्मिलित किया जाएगा।",
+      "answer": "रुचि की अभिव्यक्ति"
+    }
+  },
+  "gfr-cloze-190-crossreference": {
+    "verdict": "approve",
+    "reason": "Rule 190 refers out to Rule 189 for technical qualification of bidders before financial bids are opened — a genuine cross-rule link.",
+    "hi": {
+      "text": "नियम 190 — मंत्रालय या विभाग केवल उन्हीं बोलीदाताओं की वित्तीय बोलियाँ खोलेगा जिन्हें ____ के अनुसार परामर्श मूल्यांकन समिति द्वारा तकनीकी रूप से अर्ह घोषित किया गया हो, ताकि आगे विश्लेषण, मूल्यांकन और रैंकिंग कर सफल बोलीदाता का चयन किया जा सके।",
+      "answer": "नियम 189"
+    }
+  },
+  "gfr-cloze-192-definedterm": {
+    "verdict": "approve",
+    "reason": "Rule 192 — QCBS is used specifically for consultancy services where quality is the prime concern.",
+    "hi": {
+      "text": "नियम 192 — गुणवत्ता एवं लागत आधारित चयन (क्यूसीबीएस) का उपयोग ____ के प्रापण के लिए किया जा सकता है, जहाँ परामर्श की गुणवत्ता प्रमुख सरोकार का विषय हो।",
+      "answer": "परामर्श सेवाएँ"
+    }
+  },
+  "gfr-cloze-196-definedterm": {
+    "verdict": "reject",
+    "reason": "The blank is a chapter/section heading label ('B. ____ ') with no surrounding content — apparatus, not a fact about the rule."
+  },
+  "gfr-cloze-2-crossreference": {
+    "verdict": "approve",
+    "reason": "Rule 2's definitions clause — 'Consolidated Fund' is the one referred to in Article 266(1) of the Constitution. The clause containing the blank is complete; only unrelated trailing definitions are cut off.",
+    "hi": {
+      "text": "नियम 2 — \"समेकित निधि\" से संविधान के ____ में निर्दिष्ट भारत की समेकित निधि अभिप्रेत है।",
+      "answer": "अनुच्छेद 266(1)"
+    }
+  },
+  "gfr-cloze-201-crossreference": {
+    "verdict": "approve",
+    "reason": "Rule 201 refers out to Rule 199 for how the preliminary contractor list was identified — a genuine cross-rule link; the essential clause is intact even though trailing 'etc' is cut off.",
+    "hi": {
+      "text": "नियम 201 — पचास लाख रुपये तक की सेवाओं के लिए, मंत्रालय या विभाग ____ के अनुसार पहचाने गए संभावित ठेकेदारों की प्रारंभिक सूची की संवीक्षा करेगा, प्रथमदृष्टया पात्र और सक्षम ठेकेदारों को अवधारित करेगा और उन्हें विनिर्दिष्ट तारीख और समय तक प्रस्ताव माँगते हुए सीमित निविदा पूछताछ जारी करेगा।",
+      "answer": "नियम 199"
+    }
+  },
+  "gfr-cloze-206-definedterm": {
+    "verdict": "reject",
+    "reason": "The blank is a chapter title ('Ch.7 - ____ MANAGEMENT') — apparatus, not a fact from the rule text."
+  },
+  "gfr-cloze-21-definedterm": {
+    "verdict": "approve",
+    "reason": "Rule 21 — the core canon of financial propriety that every spending officer must be guided by.",
+    "hi": {
+      "text": "नियम 21 — लोक धन में से व्यय करने या व्यय प्राधिकृत करने वाला प्रत्येक अधिकारी उच्च ____ द्वारा निर्देशित होगा।",
+      "answer": "वित्तीय औचित्य के मानकों"
+    }
+  },
+  "gfr-cloze-213-definedterm": {
+    "verdict": "approve",
+    "reason": "Rule 213(2) — the annual physical verification requirement for consumable goods, with its own inline heading providing full context.",
+    "hi": {
+      "text": "नियम 213(2) — उपभोज्य वस्तुओं का सत्यापन — सभी उपभोज्य वस्तुओं और सामग्री का ____ वर्ष में कम से कम एक बार किया जाना चाहिए और यदि कोई विसंगति हो तो उसे स्टॉक रजिस्टर में अभिलिखित किया जाना चाहिए।",
+      "answer": "भौतिक सत्यापन"
+    }
+  },
+  "gfr-cloze-215-amount": {
+    "verdict": "reject",
+    "reason": "Answer leak — the blank is immediately followed by its own value spelled out in parentheses ('(Rupees One thousand only)')."
+  },
+  "gfr-cloze-215-definedterm": {
+    "verdict": "approve",
+    "reason": "Rule 215(i) — the annual complete physical verification requirement for a library's books, distinct from Rule 213's consumables card.",
+    "hi": {
+      "text": "नियम 215 — बीस हज़ार से अधिक न रखने वाले पुस्तकालयों में पुस्तकों का पूर्ण ____ प्रतिवर्ष किया जाना चाहिए।",
+      "answer": "भौतिक सत्यापन"
+    }
+  },
+  "gfr-cloze-218-count": {
+    "verdict": "approve",
+    "reason": "Rule 218(i) — the residual-value threshold above which surplus/unserviceable goods must be disposed of by tender or auction.",
+    "hi": {
+      "text": "नियम 218 — [रुपये ____ लाख] से अधिक आकलित अवशिष्ट मूल्य की अधिशेष, अप्रचलित या अनुपयोगी वस्तुओं का व्ययन (क) विज्ञापित निविदा के माध्यम से बोलियाँ प्राप्त कर या (ख) सार्वजनिक नीलामी द्वारा किया जाना चाहिए।",
+      "answer": "चार"
+    }
+  },
+  "gfr-cloze-223-definedterm": {
+    "verdict": "approve",
+    "reason": "Rule 223 — write-off powers for losses sit under the Delegation of Financial Powers Rules.",
+    "hi": {
+      "text": "नियम 223 — हानियों को ____ करने की शक्तियाँ वित्तीय शक्तियों के प्रत्यायोजन नियमों के अधीन उपलब्ध हैं।",
+      "answer": "बट्टे खाते डालना"
+    }
+  },
+  "gfr-cloze-225-amount": {
+    "verdict": "approve",
+    "reason": "Rule 225(iv)(b) — the value range within which a Works Contract needs GCC/SCC tender documents before a letter of acceptance is issued; the essential clause is complete.",
+    "hi": {
+      "text": "नियम 225 — कार्य संविदाओं, या ____ के बीच मूल्य वाली खरीद हेतु संविदाओं के संबंध में, जहाँ निविदा दस्तावेज़ों में सामान्य संविदा शर्तें, विशेष संविदा शर्तें और कार्यक्षेत्र सम्मिलित हों, स्वीकृति पत्र जारी किया जाएगा।",
+      "answer": "एक लाख रुपये से दस लाख रुपये"
+    }
+  },
+  "gfr-cloze-225-duration": {
+    "verdict": "approve",
+    "reason": "Rule 225(vi) — a contract document must be executed within 21 days of the letter of acceptance.",
+    "hi": {
+      "text": "नियम 225 — संविदा दस्तावेज़, जहाँ आवश्यक हो, स्वीकृति पत्र जारी होने के ____ के भीतर निष्पादित किया जाना चाहिए।",
+      "answer": "21 दिन"
+    }
+  },
+  "gfr-cloze-227-crossreference": {
+    "verdict": "reject",
+    "reason": "The blank is the rule's own number, which happens to label the heading immediately following it ('____ Arbitration Awards') — apparatus, not a substantive fact."
+  },
+  "gfr-cloze-229-amount": {
+    "verdict": "approve",
+    "reason": "Rule 229(xi) — the budgetary-support threshold above which an Autonomous Body must enter a Memorandum of Understanding; the essential clause is complete despite a mid-word trailing cut.",
+    "hi": {
+      "text": "नियम 229 — जिन स्वायत्त संगठनों तथा अन्य निकायों को प्रतिवर्ष ____ से अधिक का बजटीय समर्थन प्राप्त होता है, उन्हें प्रशासनिक मंत्रालय या विभाग के साथ एक करार ज्ञापन करना अपेक्षित होगा, जिसमें निष्पादन प्राचल स्पष्ट रूप से उल्लिखित हों।",
+      "answer": "पाँच करोड़ रुपये"
+    }
+  },
+  "gfr-cloze-229-duration": {
+    "verdict": "approve",
+    "reason": "Rule 229(ix) — the peer-review cycle for autonomous organisations.",
+    "hi": {
+      "text": "नियम 229 — स्वायत्त संगठनों की सहकर्मी समीक्षा: मंत्रालय गतिविधि के आकार और प्रकृति के अनुसार प्रत्येक तीन या ____ में स्वायत्त संगठनों की बाह्य या आंतरिक सहकर्मी समीक्षा की एक प्रणाली स्थापित करेगा।",
+      "answer": "पाँच वर्ष"
+    }
+  },
+  "gfr-cloze-230-count": {
+    "verdict": "approve",
+    "reason": "Rule 230(17)(i) — the staff-strength precondition for grant-in-aid sanction to certain agencies; the essential clause runs complete to the semicolon.",
+    "hi": {
+      "text": "नियम 230(17) — अनुदान-सहायता की स्वीकृति की पूर्वशर्त के रूप में, जहाँ प्राप्तकर्ता निकाय नियमित आधार पर ____ से अधिक व्यक्तियों को नियोजित करता है और उसके आवर्ती व्यय का कम से कम पचास प्रतिशत केंद्र सरकार से अनुदान-सहायता से पूरा होता है।",
+      "answer": "बीस"
+    }
+  },
+  "gfr-cloze-230-duration": {
+    "verdict": "approve",
+    "reason": "Rule 230 — the cash-balance principle for a grantee, capped at 3 months of requirements.",
+    "hi": {
+      "text": "नियम 230 — अनुदान प्राप्तकर्ता के पास किसी भी समय नकद शेष सामान्यतः ____ की आवश्यकता से अधिक नहीं होना चाहिए।",
+      "answer": "3 मास"
+    }
+  },
+  "gfr-cloze-233-crossreference": {
+    "verdict": "reject",
+    "reason": "The stem is a bracketed footnote about extending the rule's OWN sub-clauses (233(i)&(ii)) to another class of body — self-referential numbering inside an amendment note, not a substantive fact."
+  },
+  "gfr-cloze-234-definedterm": {
+    "verdict": "approve",
+    "reason": "Rule 234 — the bill is submitted to the Gazetted Officer nominated to act as the Drawing and Disbursing Officer.",
+    "hi": {
+      "text": "नियम 234 — बिल को तत्पश्चात उस राजपत्रित अधिकारी को प्रस्तुत किया जाएगा जिसे ____ के रूप में कार्य करने हेतु नामनिर्दिष्ट किया गया है, ताकि वह रजिस्टर सहित बिल पर हस्ताक्षर कर सके और स्वीकृतिकर्ता प्राधिकारी रजिस्टर के स्तंभ (viii) में दिनांकित आद्याक्षर दे सके।",
+      "answer": "आहरण एवं संवितरण अधिकारी"
+    }
+  },
+  "gfr-cloze-236-crossreference": {
+    "verdict": "reject",
+    "reason": "The blank is the sub-rule's own numbering label preceding its text, and the excerpt itself is cut off mid-phrase ('under Section of the Comptroller and A') — doubly apparatus/garbled."
+  },
+  "gfr-cloze-237-definedterm": {
+    "verdict": "approve",
+    "reason": "Rule 237(i) — an Autonomous Body must make its approved annual accounts available to Audit by 30th June.",
+    "hi": {
+      "text": "नियम 237 — अनुमोदित और अधिप्रमाणित वार्षिक लेखे ____ द्वारा संबंधित लेखापरीक्षा कार्यालय को 30 जून तक उपलब्ध कराए जाने चाहिए, तथा वार्षिक लेखों की लेखापरीक्षा का आरंभ भी उसी तिथि तक होना चाहिए।",
+      "answer": "स्वायत्त निकाय"
+    }
+  },
+  "gfr-cloze-238-crossreference": {
+    "verdict": "reject",
+    "reason": "The blank is this rule's own sub-rule numbering label ('Rule 238 (2)') preceding its text, not a substantive cross-reference — apparatus."
+  },
+  "gfr-cloze-24-definedterm": {
+    "verdict": "approve",
+    "reason": "Rule 24 — draft memoranda for high-level committees are circulated only after consultation with the Financial Adviser.",
+    "hi": {
+      "text": "नियम 24 — व्यय वित्त समिति, लोक निवेश बोर्ड, स्थापना व्यय समिति और आर्थिक कार्य संबंधी मंत्रिमंडलीय समिति या मंत्रिमंडल के लिए सभी प्रारूप ज्ञापन संबंधित मंत्रालय या विभाग द्वारा उसके ____ के परामर्श के पश्चात परिचालित किए जाएँगे।",
+      "answer": "वित्तीय सलाहकार"
+    }
+  },
+  "gfr-cloze-242-crossreference": {
+    "verdict": "reject",
+    "reason": "The entire stem is a heading title ('____ Submission of Achievement-cum-Performance Reports.') with the blank as the rule's own numbering label — apparatus, and there is no other content to test."
+  },
+  "gfr-cloze-245-definedterm": {
+    "verdict": "approve",
+    "reason": "Rule 245 — the staff-welfare grant-in-aid basis, tied to bodies whose budget forms part of the Consolidated Fund of India.",
+    "hi": {
+      "text": "नियम 245 — किसी संगठन अर्थात मंत्रालय या विभाग आदि तथा उसके संबद्ध और अधीनस्थ कार्यालयों और ऐसे सांविधिक निकायों की, जिनका बजट ____ का भाग हो, नियमित स्वीकृत शक्ति के आधार पर, चाहे कोई व्यक्ति स्टाफ क्लब आदि का सदस्य हो या न हो।",
+      "answer": "भारत की संचित निधि"
+    }
+  },
+  "gfr-cloze-25-crossreference": {
+    "verdict": "reject",
+    "reason": "The blank is this rule's own sub-rule numbering label ('Rule 25 (2)') preceding its text, not a substantive cross-reference — apparatus."
+  },
+  "gfr-cloze-250-crossreference": {
+    "verdict": "reject",
+    "reason": "The blank is this rule's own sub-rule numbering label ('Rule 250 (2)') preceding its text, not a substantive cross-reference — apparatus."
+  },
+  "gfr-cloze-251-crossreference": {
+    "verdict": "reject",
+    "reason": "The blank is this rule's own sub-rule numbering label ('Rule 251 (2)') preceding its text, not a substantive cross-reference — apparatus."
+  },
+  "gfr-cloze-253-crossreference": {
+    "verdict": "reject",
+    "reason": "The blank is this rule's own sub-rule numbering label preceding a heading ('____ Agreements and other documentation'), and the excerpt trails off mid-sentence ('In the case of loan') — doubly apparatus."
+  },
+  "gfr-cloze-256-duration": {
+    "verdict": "approve",
+    "reason": "Rule 256(vi) — for departmentally-maintained loan accounts, the 18-month Utilization Certificate period is reckoned from the financial year of disbursement.",
+    "hi": {
+      "text": "नियम 256 — जिन ऋणों के विस्तृत लेखे विभागीय अधिकारियों द्वारा रखे जाते हैं और जहाँ समेकित उपयोगिता प्रमाणपत्र लेखा अधिकारी को प्रस्तुत किए जाने हों, वहाँ ____ की अवधि उस वित्तीय वर्ष की समाप्ति से गिनी जाएगी जिसमें ऋण संवितरित किए गए थे।",
+      "answer": "18 मास"
+    }
+  },
+  "gfr-cloze-258-crossreference": {
+    "verdict": "reject",
+    "reason": "The blank is this rule's own sub-rule numbering label ('Rule 258 (2)') preceding its text, not a substantive cross-reference — apparatus."
+  },
+  "gfr-cloze-263-crossreference": {
+    "verdict": "reject",
+    "reason": "The blank is this rule's own sub-rule numbering label preceding a heading ('____ Submission of Annual Assessment Report'), and the excerpt is cut off mid-word ('Annual As') — doubly apparatus."
+  },
+  "gfr-cloze-267-crossreference": {
+    "verdict": "reject",
+    "reason": "The blank is this rule's own sub-rule numbering label preceding a heading ('____ Reimbursement procedure') — apparatus, not a substantive fact."
+  },
+  "gfr-cloze-268-crossreference": {
+    "verdict": "approve",
+    "reason": "Rule 268 refers back to Rule 267(1) for where the two reimbursement procedures were defined — a genuine cross-rule link.",
+    "hi": {
+      "text": "नियम 268 — \"विशेष खाते के माध्यम से प्रतिपूर्ति\" और \"विशेष खाते के बाहर प्रतिपूर्ति\", जिनका उल्लेख ____ में किया गया है, को सहायता लेखा एवं लेखापरीक्षा नियंत्रक के कार्यालय द्वारा प्रत्येक ऋण या साख के अनुसार राज्यवार, आवधिक अंतरालों पर समेकित किया जाएगा।",
+      "answer": "नियम 267(1)"
+    }
+  },
+  "gfr-cloze-269-duration": {
+    "verdict": "approve",
+    "reason": "Rule 269 — funds must reach a Project Implementing Agency within six weeks with reference to its incurred expenditure.",
+    "hi": {
+      "text": "नियम 269 — निधियाँ, परियोजना कार्यान्वयन अभिकरण द्वारा किए गए व्यय के संदर्भ में, प्रशासनिक मंत्रालय या विभाग द्वारा ____ के भीतर परियोजना कार्यान्वयन अभिकरण को जारी की जाएँगी।",
+      "answer": "छह सप्ताह"
+    }
+  },
+  "gfr-cloze-27-definedterm": {
+    "verdict": "approve",
+    "reason": "Rule 27 — sanctions and orders take effect from issue, subject to the Delegation of Financial Powers Rules.",
+    "hi": {
+      "text": "नियम 27 — ____ नियमों में अंतर्विष्ट उपबंधों की पूर्ति के अधीन, सभी नियम, स्वीकृतियाँ या आदेश जारी होने की तारीख से प्रभावी होंगे, जब तक कि उनमें कोई अन्य तारीख विनिर्दिष्ट न हो।",
+      "answer": "वित्तीय शक्तियों के प्रत्यायोजन"
+    }
+  },
+  "gfr-cloze-272-crossreference": {
+    "verdict": "approve",
+    "reason": "Rule 272 refers out to Rule 271's repayment-of-loans procedure for how a transfer of amount is to be handled — a genuine cross-rule link.",
+    "hi": {
+      "text": "नियम 272 — राशि के अंतरण की प्रक्रिया वही होगी जो ऋणों की अदायगी के मामले में ऊपर ____ में निर्दिष्ट प्रक्रिया के अनुसार अपनाई जाती है।",
+      "answer": "नियम 271"
+    }
+  },
+  "gfr-cloze-277-definedterm": {
+    "verdict": "approve",
+    "reason": "Rule 277(xiv) — a government guarantee should not be extended to a Central PSU that can raise resources on its own credit standing.",
+    "hi": {
+      "text": "नियम 277 — जिन केंद्रीय लोक क्षेत्र उपक्रमों की सुदृढ़ वित्तीय साख और उच्च क्रेडिट रेटिंग यह दर्शाती हो कि वे बिना ____ के सहयोग के सीधे आवश्यक संसाधन जुटाने में सक्षम हैं, उनके संबंध में गारंटी प्रस्तावित नहीं की जानी चाहिए।",
+      "answer": "सरकारी गारंटी"
+    }
+  },
+  "gfr-cloze-279-percentage": {
+    "verdict": "approve",
+    "reason": "Rule 279(4) — the Government's guarantee cap on a project loan.",
+    "hi": {
+      "text": "नियम 279(4) — सरकार ऋणदाता द्वारा अधिरोपित शर्तों के अनुसार परियोजना ऋण के ____ से अधिक की गारंटी नहीं देगी।",
+      "answer": "80 प्रतिशत"
+    }
+  },
+  "gfr-cloze-282-crossreference": {
+    "verdict": "approve",
+    "reason": "A genuine cross-reference to a different rule set — Rule 6 of the FRBM Rules requires a disclosure statement on government guarantees.",
+    "hi": {
+      "text": "नियम 282 — लोकहित में अपने राजकोषीय परिचालनों में अधिक पारदर्शिता सुनिश्चित करने हेतु, राजकोषीय उत्तरदायित्व और बजट प्रबंधन नियमों का ____ सरकार को वार्षिक वित्तीय विवरण और अनुदान माँगों के प्रस्तुतीकरण के समय दी गई गारंटियों पर एक प्रकटीकरण विवरण प्रकाशित करने के लिए अपेक्षित करता है।",
+      "answer": "नियम 6"
+    }
+  },
+  "gfr-cloze-286-crossreference": {
+    "verdict": "reject",
+    "reason": "The blank is this rule's own sub-rule numbering label preceding its text, and the excerpt trails off mid-sentence ('(i) The') — doubly apparatus."
+  },
+  "gfr-cloze-288-amount": {
+    "verdict": "approve",
+    "reason": "Rule 288(4) — the replacement fee for a lost Service Book copy.",
+    "hi": {
+      "text": "नियम 288(4) — यदि सरकारी सेवक अपनी सेवा पुस्तिका की प्रति खो देता है, तो उसे ____ का भुगतान करके बदला जाएगा।",
+      "answer": "500 रुपये"
+    }
+  },
+  "gfr-cloze-288-duration": {
+    "verdict": "reject",
+    "reason": "The stem is a bare list-column fragment ('(ii) To new appointees - within ____ of the date of appointment.') that never states what is actually being given within that period (the Service Book copy) — apparatus, a table row without its header."
+  },
+  "gfr-cloze-29-definedterm": {
+    "verdict": "approve",
+    "reason": "Rule 29(vii) — how a Head of Department's sanctions may be communicated to the Accounts Officer.",
+    "hi": {
+      "text": "नियम 29 — ____ द्वारा दी गई स्वीकृतियाँ उसके कार्यालय के प्राधिकृत राजपत्रित अधिकारी द्वारा हस्ताक्षरित कर लेखा अधिकारी को विभागाध्यक्ष के नाम से सूचित की जा सकती हैं।",
+      "answer": "विभागाध्यक्ष"
+    }
+  },
+  "gfr-cloze-292-duration": {
+    "verdict": "approve",
+    "reason": "Rule 292 — the LTC claim submission window when an advance has been drawn.",
+    "hi": {
+      "text": "नियम 292 — दावों की प्रस्तुति के लिए समय-सीमा इस प्रकार होगी: यदि अग्रिम आहरित किया गया हो तो नियत तारीख के ____ के भीतर।",
+      "answer": "तीस दिन"
+    }
+  },
+  "gfr-cloze-294-duration": {
+    "verdict": "approve",
+    "reason": "Rule 294 — how the one-year increment-withholding period is counted when no specific withholding order exists.",
+    "hi": {
+      "text": "नियम 294 — यदि सामान्य वेतन वृद्धि को एफ.आर. 24 के अधीन देय तारीख से पूर्व किसी विशिष्ट आदेश द्वारा रोका न गया हो, तो ____ की अवधि उस तारीख से गिनी जाएगी जिस दिन वह देय होती है, न कि उस तारीख से जिस दिन सक्षम प्राधिकारी द्वारा वेतनवृद्धि प्रमाणपत्र पर हस्ताक्षर किए जाते हैं।",
+      "answer": "एक वर्ष"
+    }
+  },
+  "gfr-cloze-296-crossreference": {
+    "verdict": "reject",
+    "reason": "Self-referential sub-rule numbering label (this rule's own heading number) — the sentence already spells out 'Rule296 (1)' explicitly, and the blank is merely this same rule's own (2) label, not a substantive cross-reference."
+  },
+  "gfr-cloze-299-duration": {
+    "verdict": "approve",
+    "reason": "Rule 299 — a Provident Fund advance/withdrawal sanction lapses after three months unless renewed.",
+    "hi": {
+      "text": "नियम 299 — भविष्य निधि से अग्रिम या अप्रतिदेय भाग-आहरण की स्वीकृति, जब तक विशेष रूप से नवीकृत न की जाए, ____ की अवधि की समाप्ति पर व्यपगत हो जाएगी।",
+      "answer": "तीन मास"
+    }
+  },
+  "gfr-cloze-30-duration": {
+    "verdict": "approve",
+    "reason": "Rule 30 — a sanction for a fresh charge lapses after twelve months if no payment is made.",
+    "hi": {
+      "text": "नियम 30 — किसी नए प्रभार के लिए स्वीकृति, जब तक विशेष रूप से नवीकृत न की जाए, व्यपगत हो जाएगी यदि ऐसी स्वीकृति जारी होने की तारीख से ____ की अवधि के दौरान पूर्ण या आंशिक रूप से कोई भुगतान न किया गया हो।",
+      "answer": "बारह मास"
+    }
+  },
+  "gfr-cloze-301-definedterm": {
+    "verdict": "approve",
+    "reason": "Rule 301(2) — a refund must be noted in the original Cash Book entry and other documents.",
+    "hi": {
+      "text": "नियम 301(2) — प्रतिदाय का उपयुक्त उल्लेख मूल ____ प्रविष्टि और अन्य दस्तावेज़ों में किया जाना चाहिए।",
+      "answer": "रोकड़ बही"
+    }
+  },
+  "gfr-cloze-305-crossreference": {
+    "verdict": "reject",
+    "reason": "The blank is this rule's own sub-rule numbering label ('Rule 305 (2)') preceding its text, not a substantive cross-reference — apparatus."
+  },
+  "gfr-cloze-306-duration": {
+    "verdict": "approve",
+    "reason": "Rule 306(iii) — the maximum period of an officiating arrangement for which a security exemption may be granted.",
+    "hi": {
+      "text": "नियम 306 — किसी अस्थायी रिक्ति में स्थानापन्न व्यवस्था से प्रतिभूति देने की छूट केवल तभी दी जाएगी जब यह स्थायी सरकारी सेवक के मामले में हो, और स्थानापन्न व्यवस्था की अवधि ____ से अधिक न हो।",
+      "answer": "चार मास"
+    }
+  },
+  "gfr-cloze-310-crossreference": {
+    "verdict": "reject",
+    "reason": "The blank is this rule's own sub-rule numbering label ('Rule 310 (2)') preceding its text, not a substantive cross-reference — apparatus."
+  },
+  "gfr-cloze-316-crossreference": {
+    "verdict": "approve",
+    "reason": "Rule 316 — a genuine constitutional cross-reference: local-body audit by the Indian Audit and Accounts Department is subject to a law made under Article 149.",
+    "hi": {
+      "text": "नियम 316 — संविधान के ____ के अधीन बनाई गई किसी विधि के उपबंधों के अधीन रहते हुए, स्थानीय निकायों, अन्य गैर-सरकारी निकायों या संस्थाओं के लेखाओं की लेखापरीक्षा भारतीय लेखापरीक्षा और लेखा विभाग द्वारा की जाएगी।",
+      "answer": "अनुच्छेद 149"
+    }
+  },
+  "gfr-cloze-322-definedterm": {
+    "verdict": "reject",
+    "reason": "The blank completes the rule's own two-word heading ('Advance or ____') and the excerpt is cut off mid-word ('day contin') — a heading fragment, not the rule's substantive content."
+  },
+  "gfr-cloze-323-duration": {
+    "verdict": "approve",
+    "reason": "Rule 323(2) — the window within which an unspent advance balance must be submitted, or it is recovered from salary.",
+    "hi": {
+      "text": "नियम 323(2) — समायोजन बिल, यदि कोई शेष राशि हो तो उसके साथ, सरकारी सेवक द्वारा अग्रिम के आहरण की तारीख से ____ के भीतर प्रस्तुत किया जाएगा, अन्यथा अग्रिम या शेष राशि उसके अगले वेतन से वसूल की जाएगी।",
+      "answer": "पंद्रह दिन"
+    }
+  },
+  "gfr-cloze-324-crossreference": {
+    "verdict": "reject",
+    "reason": "The stem is an appendix's own cross-reference marker ('APPENDIX-1 [See ____]') — a bibliographic pointer between a schedule and its parent rule, not a substantive fact from the rule text."
+  },
+  "gfr-cloze-33-amount": {
+    "verdict": "approve",
+    "reason": "Rule 33(1)(ii) — the value ceiling under which a loss is treated as a 'petty loss'.",
+    "hi": {
+      "text": "नियम 33(1)(ii) — ____ से अधिक मूल्य की न होने वाली हानियाँ 'तुच्छ हानि' मानी जाती हैं।",
+      "answer": "दस हज़ार रुपये"
+    }
+  },
+  "gfr-cloze-33-crossreference": {
+    "verdict": "reject",
+    "reason": "The blank is this rule's own sub-rule numbering label ('Rule 33 (2)') preceding its text, not a substantive cross-reference — apparatus."
+  },
+  "gfr-cloze-34-crossreference": {
+    "verdict": "approve",
+    "reason": "Rule 34 refers out to Rule 33 for the baseline action Departmental Officers must additionally take in cases of material loss — a genuine cross-rule link.",
+    "hi": {
+      "text": "नियम 34 — विभागीय अधिकारी, आग, चोरी, कपट आदि के परिणामस्वरूप सरकारी संपत्ति की भौतिक हानि या विनाश से जुड़े मामलों में, ____ में विनिर्दिष्ट कार्रवाई के अतिरिक्त, नीचे दिए गए उपबंधों का पालन करेंगे।",
+      "answer": "नियम 33"
+    }
+  },
+  "gfr-cloze-38-definedterm": {
+    "verdict": "approve",
+    "reason": "Rule 38 — the sequence of stages (detection, reporting, write off, final disposal) for handling a loss case.",
+    "hi": {
+      "text": "नियम 38 — हानि के मामलों में पता लगाने, प्रतिवेदन, ____ और अंतिम निपटान की प्रत्येक अवस्था में की जाने वाली कार्रवाई तत्परता से पूरी की जानी चाहिए।",
+      "answer": "बट्टे खाते डालना"
+    }
+  },
+  "gfr-cloze-43-crossreference": {
+    "verdict": "reject",
+    "reason": "The blank is this rule's own sub-rule numbering label ('Rule 43 (3)') preceding its text, not a substantive cross-reference — apparatus."
+  },
+  "gfr-cloze-47-duration": {
+    "verdict": "approve",
+    "reason": "Rule 47(iii) — user charges must be reviewed at least every three years.",
+    "hi": {
+      "text": "नियम 47 — उपयोगकर्ता प्रभारों की दरें समुचित मूल्य सूचकांकों से संबद्ध की जानी चाहिए और कम से कम प्रत्येक ____ में उनकी समीक्षा की जानी चाहिए।",
+      "answer": "तीन वर्ष"
+    }
+  },
+  "gfr-cloze-51-count": {
+    "verdict": "approve",
+    "reason": "Rule 51(3) — the Demand for Grants is presented to Parliament at two levels (the main Demand, and the Detailed Demands).",
+    "hi": {
+      "text": "नियम 51(3) — अनुदान माँग संसद में ____ स्तरों पर प्रस्तुत की जाएगी।",
+      "answer": "दो"
+    }
+  },
+  "gfr-cloze-52-crossreference": {
+    "verdict": "reject",
+    "reason": "The blank is this rule's own sub-rule numbering label ('Rule 52 (2)') preceding its text, not a substantive cross-reference — apparatus."
+  },
+  "gfr-cloze-53-definedterm": {
+    "verdict": "approve",
+    "reason": "Rule 53(2) — the pre-budget meetings involve the Secretary (Expenditure) and the Secretary or Financial Adviser of the Department concerned.",
+    "hi": {
+      "text": "नियम 53(2) — विभागों द्वारा प्रारंभ में प्रस्तुत प्राक्कलनों में बजट प्रभाग, वित्त मंत्रालय की संवीक्षा और व्यय सचिव तथा संबंधित विभाग के सचिव या ____ के बीच पूर्व-बजट बैठकों में विचार-विमर्श के परिणामस्वरूप कुछ परिवर्तन हो सकते हैं।",
+      "answer": "वित्तीय सलाहकार"
+    }
+  },
+  "gfr-cloze-57-crossreference": {
+    "verdict": "reject",
+    "reason": "The blank is this rule's own sub-rule numbering label ('Rule 57 (2)') preceding its text, not a substantive cross-reference — apparatus."
+  },
+  "gfr-cloze-59-crossreference": {
+    "verdict": "approve",
+    "reason": "Rule 59 refers out to Rule 62 for how savings/excesses are regularised — a genuine cross-rule link.",
+    "hi": {
+      "text": "नियम 59 — विभागाध्यक्ष या नियंत्रक अधिकारी प्रत्येक मास बचत या अधिकता की संभावना का आकलन करने की स्थिति में होगा और उन्हें ____ में दिए गए अनुदेशों के अनुसार नियमित करेगा।",
+      "answer": "नियम 62"
+    }
+  },
+  "gfr-cloze-61-definedterm": {
+    "verdict": "approve",
+    "reason": "Rule 61 — payment beyond budget provisions needs the Chief Accounting Authority's specific approval.",
+    "hi": {
+      "text": "नियम 61 — लेखा अधिकारी बजट प्रावधानों से अधिक स्वीकृतियों के विरुद्ध कोई भुगतान तब तक अनुज्ञात नहीं करेगा जब तक कि ____ का विशिष्ट अनुमोदन न हो।",
+      "answer": "प्रमुख लेखा प्राधिकारी"
+    }
+  },
+  "gfr-cloze-62-definedterm": {
+    "verdict": "approve",
+    "reason": "Rule 62(3) — a rush of expenditure in the closing months of the year is a breach of financial propriety.",
+    "hi": {
+      "text": "नियम 62(3) — विशेष रूप से वित्तीय वर्ष के अंतिम महीनों में व्यय की हड़बड़ी को ____ का उल्लंघन माना जाएगा और इससे बचा जाना चाहिए।",
+      "answer": "वित्तीय औचित्य"
+    }
+  },
+  "gfr-cloze-64-crossreference": {
+    "verdict": "reject",
+    "reason": "The blank is this rule's own sub-rule numbering label ('Rule 64 (2)') preceding its text, not a substantive cross-reference — apparatus."
+  },
+  "gfr-cloze-65-definedterm": {
+    "verdict": "approve",
+    "reason": "Rule 65(2) — re-appropriation is made only when a unit's appropriation is known/anticipated to be under-utilised.",
+    "hi": {
+      "text": "नियम 65(2) — निधियों का ____ तभी किया जाएगा जब यह ज्ञात हो या प्रत्याशित हो कि जिस मद से निधियाँ अंतरित की जानी हैं उसका विनियोग पूर्णतः उपयोग में नहीं आएगा या उस मद के विनियोग में बचत हो सकती है।",
+      "answer": "पुनर्विनियोजन"
+    }
+  },
+  "gfr-cloze-67-crossreference": {
+    "verdict": "approve",
+    "reason": "Rule 67 — a genuine constitutional cross-reference: an advance from the Contingency Fund under Article 267(1) covers urgent unbudgeted expenditure before Parliament votes a Supplementary Demand.",
+    "hi": {
+      "text": "नियम 67 — जहाँ वित्तीय वर्ष की समाप्ति से पूर्व अनुपूरक माँग पर मतदान और संबंधित विनियोग विधेयक पारित करने के लिए पर्याप्त समय न हो, वहाँ व्यय करने से पूर्व संविधान के ____ के अधीन स्थापित आकस्मिकता निधि से अग्रिम प्राप्त किया जाएगा।",
+      "answer": "अनुच्छेद 267(1)"
+    }
+  },
+  "gfr-cloze-68-crossreference": {
+    "verdict": "approve",
+    "reason": "Rule 68(i) — a genuine constitutional cross-reference: money indisputably payable should not ordinarily be left unpaid, subject to Article 114(3).",
+    "hi": {
+      "text": "नियम 68 — संविधान के ____ के उपबंधों के अधीन रहते हुए, सरकार द्वारा निर्विवाद रूप से देय धनराशि को सामान्यतः अवैतनिक नहीं छोड़ा जाएगा।",
+      "answer": "अनुच्छेद 114(3)"
+    }
+  },
+  "gfr-cloze-70-definedterm": {
+    "verdict": "approve",
+    "reason": "Rule 70 — the Secretary of a Ministry/Department is its Chief Accounting Authority.",
+    "hi": {
+      "text": "नियम 70 — किसी मंत्रालय या विभाग का सचिव, जो उस मंत्रालय/विभाग का ____ होता है: (i) अपने मंत्रालय या विभाग के वित्तीय प्रबंधन के लिए उत्तरदायी और जवाबदेह होगा।",
+      "answer": "प्रमुख लेखा प्राधिकारी"
+    }
+  },
+  "gfr-cloze-72-crossreference": {
+    "verdict": "approve",
+    "reason": "Rule 72 — a genuine constitutional cross-reference: the form of Union/State accounts is prescribed under Article 150.",
+    "hi": {
+      "text": "नियम 72 — वित्त मंत्रालय में महालेखा नियंत्रक, भारत के नियंत्रक-महालेखापरीक्षक की सलाह पर, संविधान के ____ के अनुसार राष्ट्रपति की ओर से संघ और राज्यों के लेखाओं के प्ररूप को विहित करने तथा संबंधित नियमों और नियमपुस्तिकाओं को बनाने या पुनरीक्षित करने के लिए उत्तरदायी है।",
+      "answer": "अनुच्छेद 150"
+    }
+  },
+  "gfr-cloze-77-crossreference": {
+    "verdict": "approve",
+    "reason": "Rule 77 — a genuine constitutional cross-reference: the Contingency Fund of India was set up under Article 267.",
+    "hi": {
+      "text": "नियम 77 — भाग-II 'आकस्मिकता निधि' में भारत सरकार द्वारा संविधान के ____ या संघ राज्यक्षेत्र सरकार अधिनियम, 1963 की धारा 48 के अधीन स्थापित आकस्मिकता निधि से संबंधित संव्यवहार अभिलिखित किए जाते हैं।",
+      "answer": "अनुच्छेद 267"
+    }
+  },
+  "gfr-cloze-79-crossreference": {
+    "verdict": "approve",
+    "reason": "Rule 79 — a genuine constitutional cross-reference: the power to open a new head of account flows from Article 150, distinct in grounding from Rule 72's card.",
+    "hi": {
+      "text": "नियम 79 — महालेखा नियंत्रक (लेखा) को भारत के नियंत्रक-महालेखापरीक्षक की सलाह पर संविधान के ____ से प्राप्त शक्तियों के अधीन लेखे का कोई नया शीर्ष खोलने के लिए प्राधिकृत किया गया है।",
+      "answer": "अनुच्छेद 150"
+    }
+  },
+  "gfr-cloze-8-definedterm": {
+    "verdict": "approve",
+    "reason": "Rule 8(i) — moneys received by a Union officer other than public revenue are paid into the Public Account.",
+    "hi": {
+      "text": "नियम 8 — संविधान के अनुच्छेद 283 के अधीन, संघ के कार्यों के संबंध में नियोजित किसी अधिकारी द्वारा या उसके पास जमा की गई सभी धनराशियाँ, जो सरकार द्वारा उठाए गए या प्राप्त राजस्व या लोक धन के अतिरिक्त हों, ____ में जमा की जाएँगी।",
+      "answer": "लोक लेखा"
+    }
+  },
+  "gfr-cloze-83-definedterm": {
+    "verdict": "approve",
+    "reason": "Rule 83 — expenditure under Article 112(3) is charged on the Consolidated Fund of India and not voted.",
+    "hi": {
+      "text": "नियम 83 — संविधान के अनुच्छेद 112(3) के अंतर्गत आने वाला व्यय ____ पर भारित होता है और यह विधानमंडल के मतदान के अधीन नहीं होता।",
+      "answer": "भारत की संचित निधि"
+    }
+  },
+  "gfr-cloze-86-definedterm": {
+    "verdict": "approve",
+    "reason": "Rule 86(5) — re-appropriation and surrender orders are generated through PFMS.",
+    "hi": {
+      "text": "नियम 86 — सभी ____ आदेश तथा समर्पण आदेश पीएफएमएस प्रणाली के माध्यम से सृजित किए जाएँगे।",
+      "answer": "पुनर्विनियोजन"
+    }
+  },
+  "gfr-cloze-89-crossreference": {
+    "verdict": "approve",
+    "reason": "Rule 89 — a genuine cross-reference to another Act: the CAG submits accounts reports under Section 11 of the CAG (DPC) Act, 1971.",
+    "hi": {
+      "text": "नियम 89 — लेखाओं से संबंधित प्रतिवेदन नियंत्रक-महालेखापरीक्षक (कर्तव्य, शक्तियाँ और सेवा शर्तें) अधिनियम, 1971 की ____ तथा संविधान के अनुच्छेद 151 के खंड (1) के उपबंधों के अनुसार नियंत्रक-महालेखापरीक्षक द्वारा राष्ट्रपति को प्रस्तुत किए जाएँगे।",
+      "answer": "धारा 11"
+    }
+  },
+  "gfr-cloze-97-crossreference": {
+    "verdict": "approve",
+    "reason": "Rule 97 — a genuine cross-reference: Personal Deposit Account provisions sit in Rules 191-194 of the Central Government Account (Receipts and Payments) Rules.",
+    "hi": {
+      "text": "नियम 97 — \"व्यक्तिगत जमा खाता\" से संबंधित उपबंध सिविल लेखा नियमपुस्तिका के परिच्छेद 16.7 तथा केंद्र सरकार लेखा (प्राप्तियाँ और भुगतान) नियमों के ____ से 194 में अंतर्विष्ट हैं।",
+      "answer": "नियम 191"
+    }
+  },
+  "gfr-cloze-10-definedterm": {
+    "verdict": "approve",
+    "reason": "Rule 10 — each Accounts Officer sends a monthly extract to the Controlling Officer concerned; a legitimate defined term.",
+    "hi": {
+      "text": "नियम 10 — तदनुसार, प्रत्येक लेखा अधिकारी अपने लेखों से प्रत्येक मास कोषागार या बैंक में जमा राशियों का उद्धरण संबंधित ____ को भेजेगा।",
+      "answer": "नियंत्रक अधिकारी"
+    }
+  },
+  "gfr-cloze-105-crossreference": {
+    "verdict": "reject",
+    "reason": "Self-reference — the blank is Rule 105's own sub-rule numbering label re-inserted into running text, not a cross-reference to another provision."
+  },
+  "gfr-cloze-111-count": {
+    "verdict": "approve",
+    "reason": "Rule 111 — the reciprocal Centre-State threshold for not pressing petty/isolated claims.",
+    "hi": {
+      "text": "नियम 111 — केंद्र सरकार और राज्य सरकारों के बीच पारस्परिक व्यवस्था के अंतर्गत यह सहमति है कि एक-दूसरे के विरुद्ध ____ रुपये से अधिक की न होने वाली छोटी और पृथक माँगें प्रस्तुत नहीं की जाएँगी।",
+      "answer": "दस हज़ार"
+    }
+  },
+  "gfr-cloze-115-amount": {
+    "verdict": "approve",
+    "reason": "Rule 115(d) — the threshold above which an annual statement of proposed charges is needed from the State Government.",
+    "hi": {
+      "text": "नियम 115 — यदि सहमत राशि ____ से अधिक हो, तो बजट तैयार करते समय राज्य सरकार से प्रस्तावित प्रभारों का वार्षिक विवरण प्राप्त करना आवश्यक होगा।",
+      "answer": "पचास हज़ार रुपये"
+    }
+  },
+  "gfr-cloze-115-duration": {
+    "verdict": "approve",
+    "reason": "Rule 115(c) — the five-year contract offered to a State Government when agency charges are reasonable.",
+    "hi": {
+      "text": "नियम 115 — यदि प्रभार युक्तियुक्त पाए जाएँ और किसी मद के लिए प्रतिवर्ष पचास हज़ार रुपये से अधिक न हों, तो राज्य सरकार को ____ का संविदा प्रस्तावित किया जाएगा, जिसके दौरान केंद्र सरकार निश्चित वार्षिक राशि का भुगतान करेगी।",
+      "answer": "पाँच वर्ष"
+    }
+  },
+  "gfr-cloze-116-definedterm": {
+    "verdict": "approve",
+    "reason": "Rule 116's Note on Article 258-A — the converse case's extra staff cost is budgeted as contingent expenditure and recovered from the State.",
+    "hi": {
+      "text": "नियम 116 का टिप्पण — अनुच्छेद 258-क के अधीन किसी राज्य के कार्य को केंद्र को सौंपे जाने की स्थिति में, स्टाफ और अन्य ____ की अतिरिक्त लागत केंद्र सरकार के बजट में सामान्य रीति से उपबंधित की जाएगी और संबंधित राज्य सरकार से एकमुश्त वसूल की जाएगी।",
+      "answer": "आकस्मिक व्यय"
+    }
+  },
+  "gfr-cloze-127-definedterm": {
+    "verdict": "reject",
+    "reason": "Apparatus — this is an explanatory NOTE illustrating what counts as a 'recovery' with generic examples; the blank tests vocabulary from an illustrative list, not a rule."
+  },
+  "gfr-cloze-133-count": {
+    "verdict": "approve",
+    "reason": "Rule 133(1) — the value up to which a Ministry/Department may directly execute repair works.",
+    "hi": {
+      "text": "नियम 133(1) — कोई मंत्रालय या विभाग अपने विवेक से नियम 139, 159 और 160 में यथानिर्दिष्ट सम्यक् प्रक्रिया का पालन करते हुए ____ रुपये तक लागत वाले मरम्मत कार्य स्वयं निष्पादित कर सकता है।",
+      "answer": "साठ लाख"
+    }
+  },
+  "gfr-cloze-135-crossreference": {
+    "verdict": "approve",
+    "reason": "Rule 135(1) — a genuine cross-reference to Rule 144 (empowered project teams), not self-referential.",
+    "hi": {
+      "text": "नियम 135(1) — इन सामान्य नियमों (जिनमें ____ भी सम्मिलित है) के अनुपालन के अधीन, किसी विशेष मंत्रालय या विभाग को आबंटित कार्यों का प्रारंभ, प्राधिकरण और निष्पादन उस विभाग के विनियमों तथा उस पर लागू अन्य विशेष आदेशों द्वारा विनियमित होगा।",
+      "answer": "नियम 144"
+    }
+  },
+  "gfr-cloze-139-count": {
+    "verdict": "reject",
+    "reason": "Garbled — the stem is truncated mid-word ('...limited tenders will be calle') by the extraction window."
+  },
+  "gfr-cloze-141-amount": {
+    "verdict": "approve",
+    "reason": "Rule 141 — the project-cost threshold that triggers setting up a Review Committee.",
+    "hi": {
+      "text": "नियम 141 — ____ लागत वाली किसी परियोजना के अनुमोदन के पश्चात्, प्रशासनिक मंत्रालय या विभाग कार्य की प्रगति की समीक्षा हेतु एक समीक्षा समिति गठित करेगा, जिसमें प्रशासनिक मंत्रालय, वित्त (आंतरिक वित्त प्रभाग) और कार्यान्वयक अभिकरण का एक-एक प्रतिनिधि होगा।",
+      "answer": "100 करोड़ रुपये"
+    }
+  },
+  "gfr-cloze-144-definedterm": {
+    "verdict": "reject",
+    "reason": "Leak — the answer 'public procurement' recurs later in the very same sentence ('promotion of competition in public procurement')."
+  },
+  "gfr-cloze-147-crossreference": {
+    "verdict": "approve",
+    "reason": "A genuine cross-reference — common-use goods/services on GeM must be bought through GeM per Rule 149.",
+    "hi": {
+      "text": "नियम 147 — जीईएम पर उपलब्ध सामान्य उपयोग की वस्तुएँ और सेवाएँ ____ के अनुसार अनिवार्य रूप से जीईएम के माध्यम से ही खरीदी जाएँगी।",
+      "answer": "नियम 149"
+    }
+  },
+  "gfr-cloze-149-count": {
+    "verdict": "approve",
+    "reason": "Rule 149(ii) — the minimum number of different manufacturers required for a GeM comparison above Rs 50,000.",
+    "hi": {
+      "text": "नियम 149(ii) — पचास हज़ार रुपये से अधिक और दस लाख रुपये तक की खरीद के लिए, अपेक्षित गुणवत्ता, विशिष्टि और आपूर्ति अवधि को पूरा करने वाले कम-से-कम ____ भिन्न विनिर्माताओं में से न्यूनतम मूल्य वाले जीईएम विक्रेता के माध्यम से खरीद की जाएगी।",
+      "answer": "तीन"
+    }
+  },
+  "gfr-cloze-15-crossreference": {
+    "verdict": "reject",
+    "reason": "Self-reference — the blank is Rule 15's own sub-rule numbering label, not a cross-reference to another provision."
+  },
+  "gfr-cloze-151-definedterm": {
+    "verdict": "approve",
+    "reason": "Rule 151 — debarment for a conviction causing loss of life/property or a health threat during a public procurement contract.",
+    "hi": {
+      "text": "नियम 151 — कोई बोलीदाता तब प्रतिविशिष्ट (debar) किया जाएगा जब उसे भारतीय न्याय संहिता या तत्समय प्रवृत्त किसी अन्य विधि के अधीन किसी ____ संविदा के निष्पादन के भाग के रूप में जीवन या संपत्ति की हानि अथवा सार्वजनिक स्वास्थ्य को खतरा कारित करने के अपराध में दोषसिद्ध पाया जाए।",
+      "answer": "सार्वजनिक खरीद"
+    }
+  },
+  "gfr-cloze-152-amount": {
+    "verdict": "reject",
+    "reason": "Apparatus and garbled — this is footnote 16's substitution text for Scientific Ministries, and it is truncated mid-word ('Department of Science an')."
+  },
+  "gfr-cloze-152-percentage": {
+    "verdict": "reject",
+    "reason": "Garbled — the stem is truncated mid-word ('...Self Help Group (SHG) Federa') by the extraction window."
+  },
+  "gfr-cloze-155-amount": {
+    "verdict": "reject",
+    "reason": "Garbled — a footnote insertion breaks the sentence's grammar ('...on each goods are not available...') and the stem is cut off before completing the OM reference it promises."
+  },
+  "gfr-cloze-158-crossreference": {
+    "verdict": "reject",
+    "reason": "Garbled — the stem is cut off mid-enumeration ('...obtaining bids in: (i' with no items listed)."
+  },
+  "gfr-cloze-159-crossreference": {
+    "verdict": "reject",
+    "reason": "Apparatus — an unrelated deleted sub-clause marker ('(iv) Deleted.22') is stitched onto the front of the real content."
+  },
+  "gfr-cloze-16-crossreference": {
+    "verdict": "reject",
+    "reason": "Self-reference — the blank is Rule 16's own sub-rule numbering label, not a cross-reference to another provision."
+  },
+  "gfr-cloze-161-crossreference": {
+    "verdict": "reject",
+    "reason": "Not answerable alone — 'In such cases' has no antecedent in the card; the reader cannot tell what triggers the Rule 160 e-procurement exemption without the surrounding Global Tender Enquiry context."
+  },
+  "gfr-cloze-162-amount": {
+    "verdict": "approve",
+    "reason": "Rule 162(i) — the value ceiling for adopting Limited Tender Enquiry.",
+    "hi": {
+      "text": "नियम 162(i) — सीमित निविदा पूछताछ की पद्धति तब अपनाई जा सकती है जब खरीदी जाने वाली वस्तुओं का आकलित मूल्य ____ रुपये तक हो।",
+      "answer": "पचास लाख"
+    }
+  },
+  "gfr-cloze-162-crossreference": {
+    "verdict": "approve",
+    "reason": "Rule 162(i) — a genuine cross-reference to Rule 150's registered-supplier list.",
+    "hi": {
+      "text": "नियम 162(i) — निविदा दस्तावेज़ की प्रतियाँ संबंधित वस्तु के लिए ____ के अधीन निर्दिष्ट पंजीकृत आपूर्तिकर्ताओं की सूची में सम्मिलित फर्मों को स्पीड पोस्ट/रजिस्टर्ड पोस्ट/कूरियर/ई-मेल द्वारा सीधे भेजी जाएँगी।",
+      "answer": "नियम 150"
+    }
+  },
+  "gfr-cloze-165-definedterm": {
+    "verdict": "reject",
+    "reason": "Garbled — the stem is cut off mid-parenthetical ('late bids (i.e.' with the explanatory clause never closed)."
+  },
+  "gfr-cloze-166-definedterm": {
+    "verdict": "reject",
+    "reason": "Garbled — the stem is truncated at both ends (opens mid-parenthetical with no subject, ends mid-word 'and') by the extraction window, even though the underlying Proprietary Article Certificate concept is sound."
+  },
+  "gfr-cloze-170-definedterm": {
+    "verdict": "reject",
+    "reason": "Garbled — the stem is truncated mid-word ('...issued by Depar') by the extraction window."
+  },
+  "gfr-cloze-171-count": {
+    "verdict": "approve",
+    "reason": "Rule 171(i) — the Performance Security band for goods/consultancy/non-consultancy services.",
+    "hi": {
+      "text": "नियम 171(i) — वस्तुओं, परामर्श सेवाओं अथवा गैर-परामर्श सेवाओं की खरीद के संबंध में निष्पादन प्रतिभूति (Performance Security) तीन से ____ प्रतिशत (3-5%) की राशि की होनी चाहिए।",
+      "answer": "पाँच"
+    }
+  },
+  "gfr-cloze-171-percentage": {
+    "verdict": "reject",
+    "reason": "Leak — the answer '5%' is already spelled out in words earlier in the very same clause ('three to five per cent')."
+  },
+  "gfr-cloze-172-crossreference": {
+    "verdict": "reject",
+    "reason": "Self-reference — the blank is Rule 172's own sub-rule numbering label, not a cross-reference to another provision."
+  },
+  "gfr-cloze-175-crossreference": {
+    "verdict": "reject",
+    "reason": "Self-reference — the blank is Rule 175's own sub-rule numbering label, not a cross-reference to another provision."
+  },
+  "gfr-cloze-183-count": {
+    "verdict": "reject",
+    "reason": "Garbled — the stem trails off unfinished ('...Ministries or Departments or' — a dangling conjunction with no completion)."
+  },
+  "gfr-cloze-184-crossreference": {
+    "verdict": "approve",
+    "reason": "Rule 184 — a genuine cross-reference to Rule 183's long-listing step.",
+    "hi": {
+      "text": "नियम 184 — ____ के अनुसार प्राप्त इच्छुक पक्षों की प्रतिक्रियाओं के आधार पर, अपेक्षाओं को पूरा करने वाले परामर्शदाताओं को आगे विचार हेतु लघु-सूचीबद्ध किया जाएगा।",
+      "answer": "नियम 183"
+    }
+  },
+  "gfr-cloze-19-crossreference": {
+    "verdict": "reject",
+    "reason": "Self-reference — the blank is Rule 19's own sub-rule numbering label, not a cross-reference to another provision."
+  },
+  "gfr-cloze-191-crossreference": {
+    "verdict": "approve",
+    "reason": "Rule 191 — a genuine cross-reference range to Rules 192-194 for consultant selection methods.",
+    "hi": {
+      "text": "नियम 191 — परामर्शदाता के चयन का आधार, प्रत्येक मामले की परिस्थितियों के अनुरूप, ____ से 194 तक दी गई पद्धतियों में से किसी का पालन करेगा।",
+      "answer": "नियम 192"
+    }
+  },
+  "gfr-cloze-192-percentage": {
+    "verdict": "reject",
+    "reason": "Garbled — the stem drops its subject ('The weight age of the technical parameters i.e.') and opens mid-clause with no antecedent for 'non-financial parameters'."
+  },
+  "gfr-cloze-2-count": {
+    "verdict": "reject",
+    "reason": "Garbled and trivial — the stem splices three unrelated definitions together and truncates mid-word ('...for the sam'); the tested answer 'one' is also guessable from ordinary English ('from one unit... to another') without any GFR knowledge."
+  },
+  "gfr-cloze-2-definedterm": {
+    "verdict": "reject",
+    "reason": "Garbled — the stem splices three unrelated definitions ('Public Works' tail, 'Administrator', 'Appropriation', 'Audit Officer' tail) into one incoherent block."
+  },
+  "gfr-cloze-206-crossreference": {
+    "verdict": "reject",
+    "reason": "Garbled — the stem drops its opening clause ('Any circumstances which are not') so it begins mid-sentence with no subject."
+  },
+  "gfr-cloze-207-definedterm": {
+    "verdict": "approve",
+    "reason": "Rule 207 — the chapter's basic rules cover inventory management; a legitimate defined term.",
+    "hi": {
+      "text": "नियम 207 — यह अध्याय समस्त मंत्रालयों या विभागों पर लागू ____ प्रबंधन संबंधी आधारभूत नियमों को अंतर्विष्ट करता है।",
+      "answer": "माल-सूची"
+    }
+  },
+  "gfr-cloze-213-crossreference": {
+    "verdict": "reject",
+    "reason": "Self-reference — the blank is Rule 213's own sub-rule numbering label, not a cross-reference to another provision."
+  },
+  "gfr-cloze-214-crossreference": {
+    "verdict": "approve",
+    "reason": "Rule 214 — a genuine cross-reference to Rule 217's disposal procedure for surplus items.",
+    "hi": {
+      "text": "नियम 214 — इस प्रकार अधिशेष घोषित की गई मदों का निपटान ____ में उल्लिखित प्रक्रिया के अनुसार किया जा सकता है।",
+      "answer": "नियम 217"
+    }
+  },
+  "gfr-cloze-215-count": {
+    "verdict": "approve",
+    "reason": "Rule 215(i) — the library-size threshold for annual complete physical verification of books.",
+    "hi": {
+      "text": "नियम 215(i) — जिन पुस्तकालयों में ____ हज़ार से अधिक पुस्तकें नहीं हैं, वहाँ पुस्तकों का पूर्ण भौतिक सत्यापन प्रतिवर्ष किया जाना चाहिए।",
+      "answer": "बीस"
+    }
+  },
+  "gfr-cloze-217-definedterm": {
+    "verdict": "approve",
+    "reason": "Rule 217(iii) — book value must be worked out before disposing of surplus goods; a legitimate defined term.",
+    "hi": {
+      "text": "नियम 217(iii) — अधिशेष वस्तुओं के निपटान के समय आवश्यक होने वाले ____, मार्गदर्शी मूल्य और आरक्षित मूल्य का भी निर्धारण किया जाना चाहिए।",
+      "answer": "बही मूल्य"
+    }
+  },
+  "gfr-cloze-223-crossreference": {
+    "verdict": "reject",
+    "reason": "Self-reference — the blank is Rule 223's own sub-rule numbering label, not a cross-reference to another provision."
+  },
+  "gfr-cloze-224-crossreference": {
+    "verdict": "approve",
+    "reason": "Rule 224(1) — the well-known constitutional basis for contracts made in the President's name.",
+    "hi": {
+      "text": "नियम 224(1) — सभी संविदाएँ भारत के संविधान के ____ के अधीन राष्ट्रपति द्वारा अथवा उनके आदेशों से इस प्रयोजन हेतु सशक्त प्राधिकारी द्वारा की जाएँगी।",
+      "answer": "अनुच्छेद 299(1)"
+    }
+  },
+  "gfr-cloze-225-definedterm": {
+    "verdict": "approve",
+    "reason": "Rule 225(vi) — failure to execute a contract within 21 days grounds annulment and forfeiture of the Earnest Money Deposit.",
+    "hi": {
+      "text": "नियम 225(vi) — संविदाकार या आपूर्तिकर्ता द्वारा संविदा निष्पादित करने की इस शर्त का पालन न करना अधिनिर्णय (award) को रद्द करने और ____ को समपहृत करने के लिए पर्याप्त आधार होगा।",
+      "answer": "बयाना जमा राशि"
+    }
+  },
+  "gfr-cloze-226-duration": {
+    "verdict": "approve",
+    "reason": "Rule 226(ii) — the expiry window that triggers monthly Bank Guarantee monitoring.",
+    "hi": {
+      "text": "नियम 226(ii) — अनुश्रवण में उन सभी बैंक गारंटियों या अन्य लिखतों की मासिक समीक्षा सम्मिलित होनी चाहिए जिनकी वैधता ____ के भीतर समाप्त हो रही हो, साथ ही आपूर्ति या कार्य की प्रगति की समीक्षा भी।",
+      "answer": "तीन मास"
+    }
+  },
+  "gfr-cloze-227-percentage": {
+    "verdict": "reject",
+    "reason": "Garbled — the stem opens with a broken heading fragment ('Awards (i)') and cuts off mid-sentence at the end ('...against' with no object)."
+  },
+  "gfr-cloze-229-crossreference": {
+    "verdict": "reject",
+    "reason": "Garbled — the stem drops its subject ('General Principles for setting up of Autonomous Organisations referred to') so it opens with a bare 'under ____:' and no antecedent."
+  },
+  "gfr-cloze-23-definedterm": {
+    "verdict": "approve",
+    "reason": "Rule 23 — financial powers are delegated to subordinate authorities via the Delegation of Financial Powers Rules; a legitimate defined term.",
+    "hi": {
+      "text": "नियम 23 — सरकार की वित्तीय शक्तियाँ विभिन्न अधीनस्थ प्राधिकारियों को समय-समय पर यथासंशोधित ____ नियमों के माध्यम से प्रत्यायोजित की गई हैं।",
+      "answer": "वित्तीय शक्तियों के प्रत्यायोजन"
+    }
+  },
+  "gfr-cloze-230-crossreference": {
+    "verdict": "reject",
+    "reason": "Self-reference — the blank is Rule 230's own sub-rule numbering label, not a cross-reference to another provision."
+  },
+  "gfr-cloze-231-crossreference": {
+    "verdict": "reject",
+    "reason": "Self-reference and garbled — the blank is Rule 231's own sub-rule numbering label, and the stem is also truncated mid-word ('binding themselves jo')."
+  },
+  "gfr-cloze-233-definedterm": {
+    "verdict": "approve",
+    "reason": "Rule 233(ii) — book value at which retained sponsored-project assets are included in the implementing agency's own accounts.",
+    "hi": {
+      "text": "नियम 233(ii) — यदि परिसंपत्तियों को संस्था/संगठन द्वारा प्रतिधारित करने की अनुमति दी जाती है, तो कार्यान्वयक अभिकरण उन परिसंपत्तियों को अपने ही लेखों में ____ पर सम्मिलित करेगा।",
+      "answer": "बही मूल्य"
+    }
+  },
+  "gfr-cloze-236-amount": {
+    "verdict": "approve",
+    "reason": "Rule 236(2) — the threshold above which the CAG may also audit a grantee institution's accounts.",
+    "hi": {
+      "text": "नियम 236(2) — यदि किसी वित्तीय वर्ष में अनुदान या ऋण ____ से कम न हों, तो लेखों का संपरीक्षा भारत के नियंत्रक एवं महालेखा परीक्षक द्वारा भी की जा सकती है।",
+      "answer": "एक करोड़ रुपये"
+    }
+  },
+  "gfr-cloze-236-duration": {
+    "verdict": "reject",
+    "reason": "Garbled — the stem drops its subject ('Where the') and its tail has unrelated Scientific-Ministries footnote text spliced in where the sentence should conclude ('...not fulfilled'), cut off mid-word ('Defence Research and D')."
+  },
+  "gfr-cloze-238-amount": {
+    "verdict": "reject",
+    "reason": "Garbled — the stem is truncated mid-word ('...to each of th') by the extraction window."
+  },
+  "gfr-cloze-238-duration": {
+    "verdict": "approve",
+    "reason": "Rule 238(1) — the well-known twelve-month deadline for submitting a Utilization Certificate.",
+    "hi": {
+      "text": "नियम 238(1) — उपयोगिता प्रमाणपत्र संबंधित संस्था या संगठन द्वारा वित्तीय वर्ष की समाप्ति के ____ के भीतर प्रस्तुत किया जाना चाहिए।",
+      "answer": "बारह मास"
+    }
+  },
+  "gfr-cloze-242-amount": {
+    "verdict": "reject",
+    "reason": "Garbled — the stem is truncated mid-word ('...Utilization Certif') by the extraction window."
+  },
+  "gfr-cloze-245-amount": {
+    "verdict": "approve",
+    "reason": "Rule 245(ii)(a) — the per-head annual rate for staff-welfare recreation-club Grants-in-aid.",
+    "hi": {
+      "text": "नियम 245 — कर्मचारी कल्याण हेतु सहायता अनुदान की दर ____ होगी।",
+      "answer": "पचास रुपये प्रति व्यक्ति प्रतिवर्ष"
+    }
+  },
+  "gfr-cloze-249-crossreference": {
+    "verdict": "reject",
+    "reason": "Self-reference — the blank is Rule 249's own sub-rule numbering label, not a cross-reference to another provision."
+  },
+  "gfr-cloze-25-definedterm": {
+    "verdict": "approve",
+    "reason": "Rule 25(1) — sanctions to expenditure must indicate the grant or appropriation from which it is met; a legitimate defined term.",
+    "hi": {
+      "text": "नियम 25(1) — व्यय की सभी मंजूरियों में संबंधित अनुदान या ____ के उपबंधों का ब्यौरा दर्शाया जाएगा जहाँ से ऐसा व्यय पूरा किया जाना है।",
+      "answer": "विनियोग"
+    }
+  },
+  "gfr-cloze-250-duration": {
+    "verdict": "approve",
+    "reason": "Rule 250(i) — the outer limit (thirty years) to which a loan's repayment term may extend in very special cases.",
+    "hi": {
+      "text": "नियम 250(i) — ऋण चुकौती की अवधि यथासंभव न्यूनतम रखी जाएगी; अत्यंत विशेष मामलों में यह ____ तक बढ़ाई जा सकती है।",
+      "answer": "तीस वर्ष"
+    }
+  },
+  "gfr-cloze-252-crossreference": {
+    "verdict": "reject",
+    "reason": "Self-reference — the blank is Rule 252's own sub-rule numbering label, not a cross-reference to another provision."
+  },
+  "gfr-cloze-256-crossreference": {
+    "verdict": "reject",
+    "reason": "Self-reference — the blank is Rule 256's own sub-rule numbering label, and the sentence even cites Rule 256 'above' to itself."
+  },
+  "gfr-cloze-257-definedterm": {
+    "verdict": "reject",
+    "reason": "Garbled — the stem is truncated mid-word ('...payment of i') by the extraction window."
+  },
+  "gfr-cloze-26-definedterm": {
+    "verdict": "approve",
+    "reason": "Rule 26 — a Controlling Officer's duty to ensure expenditure does not exceed the budget allocation; a legitimate defined term.",
+    "hi": {
+      "text": "नियम 26 — अपने व्ययाधीन निधियों के संबंध में ____ का यह दायित्व है कि व्यय बजट आबंटन से अधिक न हो।",
+      "answer": "नियंत्रक अधिकारी"
+    }
+  },
+  "gfr-cloze-264-crossreference": {
+    "verdict": "reject",
+    "reason": "Self-reference and garbled — the blank is Rule 264's own sub-rule numbering label, and the stem is also truncated mid-word ('...unde')."
+  },
+  "gfr-cloze-267-duration": {
+    "verdict": "approve",
+    "reason": "Rule 267(1)(i) — the four-month estimated expenditure the Funding Agency disburses as an initial Revolving Fund advance.",
+    "hi": {
+      "text": "नियम 267(1)(i) — रिवॉल्विंग फंड स्कीम के अंतर्गत, निधीयक अभिकरण संबंधित ऋण या साख या अनुदान करार के तहत भारत सरकार को प्रारंभिक अग्रिम के रूप में ____ के आकलित व्यय की राशि संवितरित करता है।",
+      "answer": "चार मास"
+    }
+  },
+  "gfr-cloze-269-crossreference": {
+    "verdict": "approve",
+    "reason": "Rule 269 — a genuine cross-reference to Rule 267's disbursement procedure for externally-aided Central/Centrally-sponsored projects.",
+    "hi": {
+      "text": "नियम 269 — बाह्य सहायता (चाहे ऋण हो या अनुदान) से वित्तपोषित केंद्रीय अथवा केंद्र प्रायोजित परियोजना के अंतर्गत, निधीयक अभिकरण द्वारा ऐसे दावों के संवितरण की प्रक्रिया वही होगी जो ____ में स्पष्ट की गई है।",
+      "answer": "नियम 267"
+    }
+  },
+  "gfr-cloze-27-crossreference": {
+    "verdict": "reject",
+    "reason": "Self-reference — the blank is Rule 27's own sub-rule numbering label, not a cross-reference to another provision."
+  },
+  "gfr-cloze-270-crossreference": {
+    "verdict": "approve",
+    "reason": "Rule 270 — a genuine cross-reference to Rule 267's disbursement procedure, this time for Public Sector/Financial Institution implementing agencies.",
+    "hi": {
+      "text": "नियम 270 — जब परियोजना कार्यान्वयक अभिकरण कोई सार्वजनिक क्षेत्र या वित्तीय संस्था हो, तो निधीयक अभिकरण द्वारा दावों का संवितरण उसी प्रकार होगा जैसा ____ में बताया गया है।",
+      "answer": "नियम 267"
+    }
+  },
+  "gfr-cloze-275-crossreference": {
+    "verdict": "approve",
+    "reason": "Rule 275(1) — the constitutional basis (Article 292) and limit on the Union's power to give guarantees.",
+    "hi": {
+      "text": "नियम 275(1) — संघ सरकार की गारंटी देने की शक्ति भारत के संविधान के ____, राजकोषीय उत्तरदायित्व और बजट प्रबंधन अधिनियम तथा उसके अधीन बनाए गए नियमों से उद्भूत होती है और उन्हीं में यथानिर्धारित सीमाओं के अधीन है।",
+      "answer": "अनुच्छेद 292"
+    }
+  },
+  "gfr-cloze-279-crossreference": {
+    "verdict": "reject",
+    "reason": "Self-reference — the blank is Rule 279's own sub-rule numbering label, not a cross-reference to another provision."
+  },
+  "gfr-cloze-281-crossreference": {
+    "verdict": "reject",
+    "reason": "Self-reference — the blank is Rule 281's own sub-rule numbering label, not a cross-reference to another provision."
+  },
+  "gfr-cloze-284-crossreference": {
+    "verdict": "reject",
+    "reason": "Self-reference and garbled — the blank is Rule 284's own sub-rule numbering label, the stem opens with a footnote-fused fragment, and it is truncated mid-word ('...in e')."
+  },
+  "gfr-cloze-286-definedterm": {
+    "verdict": "reject",
+    "reason": "Garbled — the stem is truncated mid-word ('...relieving Government ser') by the extraction window."
+  },
+  "gfr-cloze-288-crossreference": {
+    "verdict": "reject",
+    "reason": "Self-reference and apparatus — the blank is Rule 288's own sub-rule numbering label, and the stem opens with a blank certificate template rather than the rule itself."
+  },
+  "gfr-cloze-29-crossreference": {
+    "verdict": "approve",
+    "reason": "Rule 29(ix) — a genuine external cross-reference to Section 46 of the Government of Union Territories Act, 1963.",
+    "hi": {
+      "text": "नियम 29(ix) — जहाँ किसी मामले में संघ राज्यक्षेत्र सरकार अधिनियम, 1963 की ____ के अधीन बने कार्य-संचालन नियमों (Rules of Business) के तहत केंद्र सरकार को संदर्भ भेजा गया हो, वहाँ लेखापरीक्षा को अग्रेषित मंजूरी में एक विशेष उपबंध जोड़ा जाएगा।",
+      "answer": "धारा 46"
+    }
+  },
+  "gfr-cloze-290-duration": {
+    "verdict": "approve",
+    "reason": "Rule 290 — the sixty-day deadline for submitting a Travelling Allowance claim before it stands forfeited.",
+    "hi": {
+      "text": "नियम 290 — यात्रा भत्ते का दावा देय होने की तारीख से ____ के भीतर प्रस्तुत किया जाएगा, अन्यथा वह व्यपगत हो जाएगा।",
+      "answer": "साठ दिन"
+    }
+  },
+  "gfr-cloze-293-duration": {
+    "verdict": "approve",
+    "reason": "Rule 293 — the sixty-day deadline for submitting an Overtime Allowance claim before it stands forfeited.",
+    "hi": {
+      "text": "नियम 293 — अधिसमय भत्ते (Overtime Allowance) का दावा यदि नियत तारीख से ____ के भीतर प्रस्तुत नहीं किया जाता, तो वह व्यपगत हो जाएगा।",
+      "answer": "60 दिन"
+    }
+  },
+  "gfr-cloze-295-crossreference": {
+    "verdict": "reject",
+    "reason": "Self-reference — the blank is Rule 295's own sub-rule numbering label, not a cross-reference to another provision."
+  },
+  "gfr-cloze-297-crossreference": {
+    "verdict": "approve",
+    "reason": "Rule 297 — a genuine cross-reference range to Rules 289-296 for time-barred claims by persons outside Government service.",
+    "hi": {
+      "text": "नियम 297 — ____ से नियम 296 तक के उपबंध, शासकीय सेवा में न रहने वाले व्यक्तियों द्वारा सरकार के विरुद्ध प्रस्तुत बकाया दावों पर आवश्यक परिवर्तनों सहित लागू होंगे।",
+      "answer": "नियम 289"
+    }
+  },
+  "gfr-cloze-3-count": {
+    "verdict": "reject",
+    "reason": "Trivial — 'more than ____ Department' is answerable as 'one' from ordinary English alone, without any knowledge of inter-departmental consultation rules."
+  },
+  "gfr-cloze-301-crossreference": {
+    "verdict": "reject",
+    "reason": "Self-reference — the blank is Rule 301's own sub-rule numbering label, not a cross-reference to another provision."
+  },
+  "gfr-cloze-304-crossreference": {
+    "verdict": "reject",
+    "reason": "Self-reference and garbled — the blank is Rule 304's own sub-rule numbering label, and the stem splices an unrelated NPS sentence-ending with a new heading and a dangling fragment."
+  },
+  "gfr-cloze-306-crossreference": {
+    "verdict": "reject",
+    "reason": "Self-reference — the blank is Rule 306's own sub-rule numbering label, not a cross-reference to another provision."
+  },
+  "gfr-cloze-307-definedterm": {
+    "verdict": "approve",
+    "reason": "Rule 307(b) — security is waived for office-furniture/stationery custody once the Head of Office is satisfied about pilferage safeguards.",
+    "hi": {
+      "text": "नियम 307(b) — कार्यालय के फर्नीचर, स्टेशनरी और कार्यालय-प्रबंधन हेतु अपेक्षित अन्य सामग्री की अभिरक्षा सौंपे गए सरकारी सेवकों के मामले में प्रतिभूति आवश्यक नहीं होगी, यदि चोरी द्वारा हानि से बचाव के उपायों से ____ संतुष्ट हो।",
+      "answer": "कार्यालयाध्यक्ष"
+    }
+  },
+  "gfr-cloze-312-crossreference": {
+    "verdict": "reject",
+    "reason": "Self-reference — the blank is Rule 312's own sub-rule numbering label, not a cross-reference to another provision."
+  },
+  "gfr-cloze-318-crossreference": {
+    "verdict": "reject",
+    "reason": "Garbled — the stem trails off unfinished ('...through his' with no noun following)."
+  },
+  "gfr-cloze-323-crossreference": {
+    "verdict": "reject",
+    "reason": "Self-reference and apparatus — the blank is Rule 323's own sub-rule numbering label, and a footnote ('2 Amended vide DoE OM No.') is stitched into the middle of the sentence and cut off there."
+  },
+  "gfr-cloze-324-amount": {
+    "verdict": "approve",
+    "reason": "Rule 324 — the ceiling on an advance to a Government Pleader in a suit to which Government is a party.",
+    "hi": {
+      "text": "नियम 324 — किसी मंत्रालय या विभाग द्वारा, ऐसे वाद जिनमें सरकार पक्षकार हो, उनसे संबंधित किसी सरकारी वकील (Government Pleader) को एक बार में अधिकतम ____ तक का अग्रिम स्वीकृत किया जा सकता है।",
+      "answer": "पच्चीस हज़ार रुपये"
+    }
+  },
+  "gfr-cloze-324-duration": {
+    "verdict": "reject",
+    "reason": "Ungrounded — the extracted text.rules[324] has an unrelated Appendix-1 (endowment/administrator acknowledgements) spliced onto the real Rule 324 text; this card's fact is not actually Rule 324 and citing it as such would misattribute it."
+  },
+  "gfr-cloze-33-count": {
+    "verdict": "approve",
+    "reason": "Rule 33(3) — a loss report is made at two stages, initial then final.",
+    "hi": {
+      "text": "नियम 33(3) — उपनियम (1) और (2) में यथासंकल्पित हानि की रिपोर्ट ____ चरणों में दी जाएगी: (i) हानि होने की आशंका होते ही तुरंत एक प्रारंभिक रिपोर्ट दी जाएगी।",
+      "answer": "दो"
+    }
+  },
+  "gfr-cloze-34-amount": {
+    "verdict": "reject",
+    "reason": "Malformed span — the blanked answer awkwardly conflates the monetary threshold with the first item of a causation list ('Rupees Fifty thousand due to suspected fire') instead of one clean fact, so a matching Hindi answer would not track the English answer."
+  },
+  "gfr-cloze-35-amount": {
+    "verdict": "approve",
+    "reason": "Rule 35 — the threshold above which loss of immovable property by fire/flood/etc. must be reported to Government at once.",
+    "hi": {
+      "text": "नियम 35 — भवनों, संचार साधनों या अन्य कार्यों जैसी किसी अचल संपत्ति की अग्नि, बाढ़, चक्रवात, भूकंप या अन्य प्राकृतिक कारण से हुई ____ से अधिक की हानि की सूचना संबंधित अधीनस्थ प्राधिकारी द्वारा सामान्य माध्यम से तुरंत सरकार को दी जाएगी।",
+      "answer": "पचास हज़ार रुपये"
+    }
+  },
+  "gfr-cloze-39-definedterm": {
+    "verdict": "approve",
+    "reason": "Rule 39 — a subordinate authority must furnish information for accounts, reports, payments and internal audit; a legitimate defined term.",
+    "hi": {
+      "text": "नियम 39 — कोई अधीनस्थ प्राधिकारी लेखापरीक्षा अधिकारी और वेतन एवं लेखा अधिकारी को अपने कृत्यों के निर्वहन में सभी युक्तियुक्त सुविधाएँ प्रदान करेगा और किसी शासकीय लेखे या रिपोर्ट, भुगतानों तथा ____ की तैयारी हेतु अपेक्षित समस्त सूचना उपलब्ध कराएगा।",
+      "answer": "आंतरिक लेखापरीक्षा"
+    }
+  },
+  "gfr-cloze-45-duration": {
+    "verdict": "approve",
+    "reason": "Rule 45 — receipt estimates must include actuals of the past three years for each Major Head.",
+    "hi": {
+      "text": "नियम 45 — प्रत्येक प्रमुख शीर्ष (Major Head) के लिए, प्राक्कलन प्राधिकारी विगत ____ के वास्तविक आँकड़ों सहित लघु/उप-शीर्ष/विस्तृत शीर्षवार प्राक्कलन का ब्यौरा देगा।",
+      "answer": "तीन वर्षों"
+    }
+  },
+  "gfr-cloze-50-crossreference": {
+    "verdict": "approve",
+    "reason": "Rule 50(1) — the constitutional split between Charged expenditure (Article 112(3)) and Voted expenditure (Article 113(2)); the blanked term does not recur elsewhere in the sentence.",
+    "hi": {
+      "text": "नियम 50(1) — व्यय प्राक्कलनों में संविधान के ____ के अधीन संचित निधि पर भारित (Charged) व्यय हेतु अपेक्षित राशियाँ, तथा अनुच्छेद 113(2) के अधीन लोकसभा के मतदान की आवश्यकता वाले अन्य व्यय हेतु अपेक्षित राशियाँ पृथक-पृथक दर्शाई जाएँगी।",
+      "answer": "अनुच्छेद 112(3)"
+    }
+  },
+  "gfr-cloze-51-crossreference": {
+    "verdict": "reject",
+    "reason": "Self-reference — the blank is Rule 51's own sub-rule numbering label, not a cross-reference to another provision."
+  },
+  "gfr-cloze-53-crossreference": {
+    "verdict": "reject",
+    "reason": "Self-reference — the blank is Rule 53's own sub-rule numbering label, not a cross-reference to another provision."
+  },
+  "gfr-cloze-55-crossreference": {
+    "verdict": "reject",
+    "reason": "Garbled — the stem drops its subject ('If the Appropriation Bill seeking authorization...') and is also cut off mid-word at the end ('...in accor')."
+  },
+  "gfr-cloze-57-definedterm": {
+    "verdict": "approve",
+    "reason": "Rule 57(3) — expenditure exceeding the authorised grant/appropriation needs a supplementary grant, appropriation, or Contingency Fund advance; a legitimate defined term.",
+    "hi": {
+      "text": "नियम 57(3) — संसद द्वारा किसी वित्तीय वर्ष के लिए विधि द्वारा प्राधिकृत कुल अनुदान या विनियोग से अधिक होने वाला कोई व्यय तब तक नहीं किया जाएगा जब तक ____ या विनियोग अथवा आकस्मिकता निधि से अग्रिम प्राप्त न कर लिया जाए।",
+      "answer": "अनुपूरक अनुदान"
+    }
+  },
+  "gfr-cloze-59-definedterm": {
+    "verdict": "approve",
+    "reason": "Rule 59 — a Head of Department or Controlling Officer must estimate monthly savings/excesses and regularize them per Rule 62.",
+    "hi": {
+      "text": "नियम 59 — किसी ____ या नियंत्रक अधिकारी को प्रतिमास बचतों या अधिकताओं की संभावना का आकलन करने और नियम 62 में यथानिर्दिष्ट अनुदेशों के अनुसार उन्हें विनियमित करने में समर्थ होना चाहिए।",
+      "answer": "विभागाध्यक्ष"
+    }
+  },
+  "gfr-cloze-62-crossreference": {
+    "verdict": "reject",
+    "reason": "Self-reference — the blank is Rule 62's own sub-rule numbering label, not a cross-reference to another provision."
+  },
+  "gfr-cloze-63-definedterm": {
+    "verdict": "approve",
+    "reason": "Rule 63 — expenditure on a 'New Service' not in the Annual Budget needs a supplementary grant, appropriation, or Contingency Fund advance; a legitimate defined term.",
+    "hi": {
+      "text": "नियम 63 — किसी वित्तीय वर्ष में बजट में अप्रत्याशित 'नई सेवा' पर तब तक कोई व्यय नहीं किया जाएगा जब तक उस वर्ष के दौरान ____ या विनियोग अथवा आकस्मिकता निधि से अग्रिम प्राप्त न कर लिया जाए।",
+      "answer": "अनुपूरक अनुदान"
+    }
+  },
+  "gfr-cloze-65-crossreference": {
+    "verdict": "reject",
+    "reason": "Garbled — the stem trails off unfinished ('...in this' with no noun following, should read 'in this behalf')."
+  },
+  "gfr-cloze-66-crossreference": {
+    "verdict": "approve",
+    "reason": "Rule 66 — the constitutional basis (Article 115(1)) for a Supplementary Grant when expenditure is on a 'New Service'.",
+    "hi": {
+      "text": "नियम 66 — यदि व्यय किसी ऐसी 'नई सेवा' या 'सेवा के नए लिखत' पर हो जो बजट में उपबंधित नहीं है, तो भुगतान प्राधिकृत करने से पहले संविधान के ____ के अनुसार आवश्यक अनुपूरक अनुदान या विनियोग प्राप्त किया जाएगा।",
+      "answer": "अनुच्छेद 115(1)"
+    }
+  },
+  "gfr-cloze-67-definedterm": {
+    "verdict": "approve",
+    "reason": "Rule 67(4) — the specific rules that govern obtaining and recouping a Contingency Fund advance; a legitimate defined term.",
+    "hi": {
+      "text": "नियम 67(4) — आकस्मिकता निधि से अग्रिम प्राप्त करने और निधि की पुनःपूर्ति की प्रक्रिया समय-समय पर यथासंशोधित ____ (संशोधन) नियम, 2021 में यथाविहित होगी।",
+      "answer": "भारत की आकस्मिकता निधि"
+    }
+  },
+  "gfr-cloze-7-crossreference": {
+    "verdict": "approve",
+    "reason": "Rule 7 — the constitutional basis (Articles 150 and 283(1)) for bringing Government moneys into account without delay.",
+    "hi": {
+      "text": "नियम 7 — सरकार की ओर से या उसके द्वारा प्राप्त सभी धनराशियाँ, चाहे वे सरकार की देय राशियाँ हों या जमा, प्रेषण अथवा अन्य प्रकार की हों, संविधान के ____ और 283(1) के अधीन जारी सामान्य या विशेष नियमों के अनुसार बिना विलंब सरकारी लेखे में लाई जाएँगी।",
+      "answer": "अनुच्छेद 150"
+    }
+  },
+  "gfr-cloze-71-duration": {
+    "verdict": "approve",
+    "reason": "Rule 71 — the six-month target for submitting Union Government accounts, with the CAG's report, to the President.",
+    "hi": {
+      "text": "नियम 71 — संघ सरकार के लेखे, भारत के नियंत्रक एवं महालेखा परीक्षक के प्रतिवेदन सहित, वित्तीय वर्ष की समाप्ति के ____ के भीतर, यथासंभव, राष्ट्रपति को प्रस्तुत किए जाएँगे, जो उन्हें संसद के प्रत्येक सदन के समक्ष रखवाएँगे।",
+      "answer": "छह मास"
+    }
+  },
+  "gfr-cloze-77-count": {
+    "verdict": "approve",
+    "reason": "Rule 77 — the three-part structure of Government accounts (Consolidated Fund, Contingency Fund, Public Account).",
+    "hi": {
+      "text": "नियम 77 — सरकार के लेखे ____ भागों में रखे जाएँगे: संचित निधि (भाग-I), आकस्मिकता निधि (भाग-II) और लोक लेखा (भाग-III)।",
+      "answer": "तीन"
+    }
+  },
+  "gfr-cloze-78-count": {
+    "verdict": "approve",
+    "reason": "Rule 78 — the six-tier account classification represented by the 15-digit code.",
+    "hi": {
+      "text": "नियम 78 — प्रमुख शीर्ष, उप-प्रमुख शीर्ष, लघु शीर्ष, उप-शीर्ष, विस्तृत शीर्ष और वस्तु शीर्ष — इन ____ स्तरों को एक अद्वितीय 15-अंकीय संख्यात्मक कोड द्वारा निरूपित किया जाता है।",
+      "answer": "छह"
+    }
+  },
+  "gfr-cloze-8-crossreference": {
+    "verdict": "reject",
+    "reason": "Self-reference and garbled — the blank is Rule 8's own sub-rule numbering label, and the stem is also cut off mid-word ('Government Ac')."
+  },
+  "gfr-cloze-83-crossreference": {
+    "verdict": "approve",
+    "reason": "Rule 83 — expenditure under Article 112(3) is Charged on the Consolidated Fund and not subject to legislative vote.",
+    "hi": {
+      "text": "नियम 83 — भारत के संविधान के ____ के अधीन आने वाला व्यय भारत की संचित निधि पर भारित (charged) होता है और विधानमंडल के मतदान के अधीन नहीं होता।",
+      "answer": "अनुच्छेद 112(3)"
+    }
+  },
+  "gfr-cloze-85-definedterm": {
+    "verdict": "approve",
+    "reason": "Rule 85 — Pay & Accounts Offices and Cheque Drawing and Disbursing Officers hold assignment accounts with the Accredited Bank.",
+    "hi": {
+      "text": "नियम 85 — भुगतान एवं लेखा कार्यालयों और चेक ____ के मंत्रालय के मान्यताप्राप्त बैंक की चिह्नित शाखाओं में समनुदेशन लेखे होंगे।",
+      "answer": "आहरण एवं संवितरण अधिकारी"
+    }
+  },
+  "gfr-cloze-87-definedterm": {
+    "verdict": "approve",
+    "reason": "Rule 87(6) — Implementing Agencies must generate Electronic Utilisation Certificates on the PFMS portal.",
+    "hi": {
+      "text": "नियम 87(6) — कार्यान्वयक अभिकरण पीएफएमएस पोर्टल पर इलेक्ट्रॉनिक ____ (E-UCs) सृजित करेंगे और उन्हें ऑनलाइन प्रस्तुत करेंगे।",
+      "answer": "उपयोगिता प्रमाणपत्र"
+    }
+  },
+  "gfr-cloze-9-definedterm": {
+    "verdict": "approve",
+    "reason": "Rule 9 — a Department's duty to ensure receipts/dues are credited to the Consolidated Fund or Public Account as the case may be.",
+    "hi": {
+      "text": "नियम 9 — संबंधित केंद्रीय सरकार विभाग का यह दायित्व है कि सरकार की प्राप्तियाँ और देय राशियाँ सही ढंग से और शीघ्रता से निर्धारित, संगृहीत और यथास्थिति संचित निधि या ____ में जमा की जाएँ।",
+      "answer": "लोक लेखा"
+    }
+  },
+  "gfr-cloze-98-definedterm": {
+    "verdict": "approve",
+    "reason": "Rule 98 — expenditure on a temporary asset or grants-in-aid cannot ordinarily be treated as capital expenditure.",
+    "hi": {
+      "text": "नियम 98 — किसी अस्थायी आस्ति या ____ पर होने वाला व्यय सामान्यतः पूँजीगत व्यय नहीं माना जा सकता और, भारत के नियंत्रक एवं महालेखा परीक्षक की सलाह पर राष्ट्रपति द्वारा विशेष रूप से प्राधिकृत मामलों को छोड़कर, इसे पूँजीगत शीर्ष में नामे नहीं किया जाएगा।",
+      "answer": "अनुदान-सहायता"
+    }
+  }
+}

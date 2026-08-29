@@ -1,0 +1,131 @@
+{
+  "_note": "Stage D, written by scripts/authoring/qa_pipeline.py dedup csmop. rapidfuzz token_set_ratio over every pair of English fronts in this act, including the generated rule and cloze cards. At 90 or above the later question is the duplicate and make_cards.py rejects it.",
+  "threshold": 90.0,
+  "scores": {
+    "csmop-q-001": {
+      "maxScore": 59.6,
+      "against": "csmop-rule-5-1",
+      "verdict": "keep"
+    },
+    "csmop-q-002": {
+      "maxScore": 54.7,
+      "against": "csmop-q-001",
+      "verdict": "keep"
+    },
+    "csmop-q-003": {
+      "maxScore": 59.2,
+      "against": "csmop-q-002",
+      "verdict": "keep"
+    },
+    "csmop-q-004": {
+      "maxScore": 57.7,
+      "against": "csmop-q-002",
+      "verdict": "keep"
+    },
+    "csmop-q-005": {
+      "maxScore": 57.7,
+      "against": "csmop-q-002",
+      "verdict": "keep"
+    },
+    "csmop-q-006": {
+      "maxScore": 50.9,
+      "against": "csmop-q-005",
+      "verdict": "keep"
+    },
+    "csmop-q-007": {
+      "maxScore": 64.8,
+      "against": "csmop-q-005",
+      "verdict": "keep"
+    },
+    "csmop-q-008": {
+      "maxScore": 58.0,
+      "against": "csmop-q-004",
+      "verdict": "keep"
+    },
+    "csmop-q-009": {
+      "maxScore": 51.4,
+      "against": "csmop-rule-7-14",
+      "verdict": "keep"
+    },
+    "csmop-q-010": {
+      "maxScore": 59.4,
+      "against": "csmop-rule-13-3",
+      "verdict": "keep"
+    },
+    "csmop-q-011": {
+      "maxScore": 61.9,
+      "against": "csmop-q-007",
+      "verdict": "keep"
+    },
+    "csmop-q-012": {
+      "maxScore": 57.7,
+      "against": "csmop-q-002",
+      "verdict": "keep"
+    },
+    "csmop-q-013": {
+      "maxScore": 62.3,
+      "against": "csmop-cloze-8-9-duration",
+      "verdict": "keep"
+    },
+    "csmop-q-014": {
+      "maxScore": 61.7,
+      "against": "csmop-q-013",
+      "verdict": "keep"
+    },
+    "csmop-q-015": {
+      "maxScore": 59.8,
+      "against": "csmop-q-013",
+      "verdict": "keep"
+    },
+    "csmop-q-016": {
+      "maxScore": 58.4,
+      "against": "csmop-rule-5-3",
+      "verdict": "keep"
+    },
+    "csmop-q-017": {
+      "maxScore": 54.5,
+      "against": "csmop-q-009",
+      "verdict": "keep"
+    },
+    "csmop-q-018": {
+      "maxScore": 59.9,
+      "against": "csmop-rule-7-8",
+      "verdict": "keep"
+    },
+    "csmop-q-019": {
+      "maxScore": 54.4,
+      "against": "csmop-q-017",
+      "verdict": "keep"
+    },
+    "csmop-q-020": {
+      "maxScore": 69.4,
+      "against": "csmop-rule-13-1",
+      "verdict": "keep"
+    },
+    "csmop-q-021": {
+      "maxScore": 63.2,
+      "against": "csmop-q-007",
+      "verdict": "keep"
+    },
+    "csmop-q-022": {
+      "maxScore": 63.7,
+      "against": "csmop-rule-7-3",
+      "verdict": "keep"
+    },
+    "csmop-q-023": {
+      "maxScore": 62.4,
+      "against": "csmop-q-020",
+      "verdict": "keep"
+    },
+    "csmop-q-024": {
+      "maxScore": 58.4,
+      "against": "csmop-q-023",
+      "verdict": "keep"
+    },
+    "csmop-q-025": {
+      "maxScore": 58.5,
+      "against": "csmop-q-024",
+      "verdict": "keep"
+    }
+  }
+}

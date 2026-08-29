@@ -54,14 +54,15 @@ describe('the scheduler over the committed card set', () => {
       settings: { ...DEFAULT_TRAINER_SETTINGS, dailyNew: 10 },
     })
 
-    // Eight of the twelve books have served cards; four are still all
-    // `needs-hindi`. Ten new cards over eight acts is one each and a second for
-    // the first two — never ten from whichever act happens to sort first.
+    // All twelve books have served cards as of Session 20's Hindi-headings and
+    // cloze/MCQ authoring pass, and ten of them have a card due on day one.
+    // Ten new cards over ten acts is one each — never ten from whichever act
+    // happens to sort first.
     const acts = new Set(queue.map((item) => item.card.act))
     const perAct = [...acts].map((act) => queue.filter((item) => item.card.act === act).length)
 
-    expect(acts.size).toBe(8)
-    expect(Math.max(...perAct)).toBe(2)
+    expect(acts.size).toBe(10)
+    expect(Math.max(...perAct)).toBe(1)
   })
 
   it('honours a single act when the reader picks one', () => {

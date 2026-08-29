@@ -1,0 +1,123 @@
+{
+  "_note": "STAGE B · CRITIC. A separate pass over scripts/authoring/authored/fr-sr.json, judging each question on its own terms against data/rules/text/fr-sr.json: is there exactly one correct answer, are the distractors plausible without being trivially wrong, is it inside the public rule text, is there a factual red flag, is the tone right for a serving officer. Q6 (F.R. 9(32)) and Q28 (F.R. 53(1)) were flagged by Stage A as grounded in dense, multi-proviso OCR'd text and were re-read against the full rule text word for word; both check out. Rejections stay in data/rules/cards/ with reviewState \"rejected\" and are never served.",
+  "fr-sr-q-001": {
+    "verdict": "approve",
+    "reason": "F.R. 1's text reads '...come into force with effect from the 1stJanuary, 1922' — the card's false claim of 1 January 1947 and its explanation are both accurate; one correct answer, no ambiguity in a true/false card grounded in a single plain sentence."
+  },
+  "fr-sr-q-002": {
+    "verdict": "approve",
+    "reason": "Matches F.R. 3 verbatim ('these rules do not apply to Government servants whose conditions of service are governed by Army or Marine Regulations'). Distractors (Railway Establishment Code, State rules, CCS Conduct Rules) are real, plausible-sounding regimes that are not the one F.R. 3 actually excludes."
+  },
+  "fr-sr-q-003": {
+    "verdict": "approve",
+    "reason": "F.R. 9(12) defines leave salary as paid 'to a Government servant on leave'; the card's false claim ('while on duty') and its explanation pointing to the separately defined 'pay' at 9(21) are both correct."
+  },
+  "fr-sr-q-004": {
+    "verdict": "approve",
+    "reason": "F.R. 9(21)(a)'s three limbs (pay sanctioned for the post, overseas/special/personal pay, President-classed emoluments) are reproduced accurately as the correct option; DA/HRA and presumptive pay of a future post are correctly excluded, since those are separately defined terms (compensatory allowance, F.R. 9(24))."
+  },
+  "fr-sr-q-005": {
+    "verdict": "approve",
+    "reason": "F.R. 9(7) defines Foreign Service by source of pay ('any source other than the Consolidated Fund of India ... of a State ... or of a Union Territory'), not by geography. The explanation's point that this covers a Government-controlled body inside India is a fair reading and not overreach; the other three options are real but narrower/wrong framings."
+  },
+  "fr-sr-q-006": {
+    "verdict": "approve",
+    "reason": "Re-read in full against the dense text as requested. F.R. 9(32) reads 'Travelling Allowance means an allowance ... to cover the expenses which he incurs in travelling in the interests of the public service. It includes allowances granted for the maintenance of conveyances, horses and tents' — the card's stem and correct option quote this exactly. The two trap distractors (sumptuary allowance; free sea passage) are drawn accurately from the neighbouring F.R. 9(5) definition of 'compensatory allowance', which explicitly excludes them — the explanation states this distinction correctly rather than conflating the two definitions. No factual error."
+  },
+  "fr-sr-q-007": {
+    "verdict": "approve",
+    "reason": "F.R. 11 states the opposite of the card's false claim: a Government servant may be employed in any manner required 'without claim for additional remuneration'. Correct back and explanation."
+  },
+  "fr-sr-q-008": {
+    "verdict": "approve",
+    "reason": "F.R. 13(d) preserves the lien 'while on leave' with no length qualifier, and the rule draws no distinction by duration — the card's correct answer and its rejection of the 'lapses over sixty days' distractor are both accurate to the text."
+  },
+  "fr-sr-q-009": {
+    "verdict": "approve",
+    "reason": "F.R. 14-A(a) is quoted almost verbatim: a lien 'may in no circumstances be terminated, if the result will be to leave him without a lien upon a regular post.' Correct answer and explanation match; distractors (seniority, increment, refund) are unrelated but plausible pay/service consequences a reader might guess at."
+  },
+  "fr-sr-q-010": {
+    "verdict": "approve",
+    "reason": "F.R. 15(a)'s two exceptions ('on account of inefficiency or misbehaviour, or on his written request') are reproduced exactly as the correct option, against three fabricated-but-plausible alternative regimes."
+  },
+  "fr-sr-q-011": {
+    "verdict": "approve",
+    "reason": "F.R. 17(1) ties pay strictly to 'the date when he assumes the duties of that post', not the appointment order, a relieving date, or a calendar boundary — matches the card exactly."
+  },
+  "fr-sr-q-012": {
+    "verdict": "approve",
+    "reason": "F.R. 17-A's operative clause and its three named exceptions (leave travel concession, quasi-permanency, departmental-exam eligibility requiring continuous service) are reproduced accurately; the scenario (illegal strike under the Industrial Disputes Act) is drawn directly from clause (i) of the rule."
+  },
+  "fr-sr-q-013": {
+    "verdict": "approve",
+    "reason": "F.R. 18 reads 'no Government servant shall be granted leave of any kind for a continuous period exceeding five years' unless the President otherwise determines — the card's true/false claim restates this precisely."
+  },
+  "fr-sr-q-014": {
+    "verdict": "approve",
+    "reason": "F.R. 19 requires 'the sanction of an authority competent to create a post in the same cadre on a rate of pay equal to his pay when increased', with the Rule 9(23)(a) personal-pay carve-out named correctly in the stem — matches the card's correct option and explanation."
+  },
+  "fr-sr-q-015": {
+    "verdict": "approve",
+    "reason": "F.R. 22(I)(a)(1)'s promotion pay-fixation formula (one notional increment in the level promoted from, mapped to the equal-or-next-higher cell in the new level, plus a one-month option over the effective date) is a faithful, if necessarily compressed, restatement of a genuinely dense provision. The other three options are clearly distinguishable wrong mechanisms (flat 10%, minimum of scale, frozen pay)."
+  },
+  "fr-sr-q-016": {
+    "verdict": "approve",
+    "reason": "F.R. 22(I)(a)(2) is quoted accurately: 'the stage of the time-scale which is equal to his pay in respect of the old post ... or, if there is no such stage, the stage next above' — correctly distinguished from the promotion case in (1), which the wrong option about 'one increment above, exactly as on a promotion' plausibly conflates with."
+  },
+  "fr-sr-q-017": {
+    "verdict": "approve",
+    "reason": "F.R. 24's withholding ground ('conduct has not been good or ... work has not been satisfactory') is quoted correctly, against three fabricated but plausible-sounding alternative grounds."
+  },
+  "fr-sr-q-018": {
+    "verdict": "approve",
+    "reason": "F.R. 26(a) states 'All duty in a post on a time-scale counts for increments in that time-scale' as the general rule, with the proviso about non-counting periods pushing back the increment date rather than being ignored — both halves of the card's true/false and explanation match."
+  },
+  "fr-sr-q-019": {
+    "verdict": "approve",
+    "reason": "F.R. 27 ties the grant of a premature increment to the authority's 'power to create a post in the same cadre on the same scale of pay' — an exact match, and the cross-reference to F.R. 19's similar competence test in the explanation is accurate (F.R. 19 also turns on the power to create an equivalent post)."
+  },
+  "fr-sr-q-020": {
+    "verdict": "approve",
+    "reason": "F.R. 29(1) requires the reducing authority to 'state the period for which it shall be effective and whether, on restoration, the period of reduction shall operate to postpone future increments and, if so, to what extent' — matches the card's correct option word for word."
+  },
+  "fr-sr-q-021": {
+    "verdict": "approve",
+    "reason": "F.R. 37 states personal pay 'shall be reduced by any amounts by which the recipient's pay may be increased, and shall cease as soon as his pay is increased by an amount equal to his personal pay' — matches exactly, and the 'never reduces' / 'ceases only on retirement' distractors are correctly identified as wrong."
+  },
+  "fr-sr-q-022": {
+    "verdict": "approve",
+    "reason": "F.R. 44's general rule — that compensatory allowance should be 'so regulated that the allowance is not on the whole a source of profit to the recipient' — is stated verbatim in the card. True/false with one clearly correct answer."
+  },
+  "fr-sr-q-023": {
+    "verdict": "approve",
+    "reason": "F.R. 46(b) defines an honorarium as remuneration for work 'occasional or intermittent in character and either so laborious or of such special merit as to justify a special reward' — matches the card's correct option exactly, against three plausible but wrong characterisations of the underlying work."
+  },
+  "fr-sr-q-024": {
+    "verdict": "approve",
+    "reason": "F.R. 49(iii) — for a post neither in the same office nor the same cadre/line of promotion, held between 45 days and 3 months — gives 'the pay of the higher post ... in addition to ten per cent of the presumptive pay of the additional post'. The scenario's facts (different section, different cadre, two months) map cleanly onto this clause rather than clause (i) (same office/cadre) or (ii) (identical scale, dual charge), and the explanation's mention of the Rs. 2,25,000 aggregate cap under clause (iv) is accurate."
+  },
+  "fr-sr-q-025": {
+    "verdict": "approve",
+    "reason": "F.R. 50 reads 'No deputation of Government servant out of India shall be sanctioned without the previous approval of the Central Government' — matches the card's correct option exactly; the MEA-NOC and foreign-government-concurrence distractors are plausible administrative-sounding but wrong substitutes."
+  },
+  "fr-sr-q-026": {
+    "verdict": "approve",
+    "reason": "F.R. 51(1) allows the President to let an officer on sanctioned deputation abroad draw 'the same pay which he would have drawn had he remained on duty in India' — matches the card exactly, and the explanation correctly separates this from the additional compensatory allowance under sub-rule (2)."
+  },
+  "fr-sr-q-027": {
+    "verdict": "approve",
+    "reason": "F.R. 52 is a one-line rule stating pay and allowances 'cease from the date of such dismissal or removal' — matches the card verbatim, with no notice-period nuance to misstate."
+  },
+  "fr-sr-q-028": {
+    "verdict": "approve",
+    "reason": "Re-read in full against the dense multi-proviso text as requested. F.R. 53(1)(ii)(a) reads 'a subsistence allowance at an amount equal to the leave salary which the Government servant would have drawn, if he had been on leave on half average pay or on half-pay and in addition, dearness allowance, if admissible on the basis of such leave salary' — the card's stem, correct option and explanation all track this precisely, including the further proviso allowing the ordering authority to vary the allowance by up to 50% after three months depending on whose fault prolonged the suspension. No invented figures; the 'full pay before suspension' and 'time-scale minimum' distractors are correctly identified as wrong bases."
+  },
+  "fr-sr-q-029": {
+    "verdict": "approve",
+    "reason": "F.R. 54(2) and (3) are reproduced accurately: full exoneration means 'full pay and allowances ... had he not been dismissed', and the whole period of absence (including any preceding suspension) is treated 'as a period spent on duty for all purposes' — not merely for pay, which is exactly what makes the 'full pay but never counted for pension/increment' distractor a good, plausible-but-wrong option rather than a second correct answer."
+  },
+  "fr-sr-q-030": {
+    "verdict": "approve",
+    "reason": "F.R. 56(a)'s proviso for a Government servant born on the first of a month — retirement 'on the afternoon of the last day of the preceding month on attaining the age of sixty years' — is quoted exactly, and the rule indeed draws no distinction by group or service, correctly ruling out that distractor."
+  }
+}

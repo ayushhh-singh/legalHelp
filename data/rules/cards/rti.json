@@ -1,7 +1,7 @@
 {
   "$schema": "../../../schemas/rules-cards.schema.json",
   "version": "1.0.0",
-  "generatedAt": "2026-08-28",
+  "generatedAt": "2026-08-29",
   "act": {
     "id": "rti",
     "name": {
@@ -1610,7 +1610,7 @@
       },
       "difficulty": "easy",
       "reviewed": true,
-      "reviewState": "approved",
+      "reviewState": "rejected",
       "tags": [
         "generated",
         "rule"
@@ -1620,7 +1620,8 @@
       "source": {
         "name": "Department of Personnel and Training — Right to Information Act, 2005 — updated as on 18 November 2025",
         "url": "https://dopt.gov.in/sites/default/files/RTI%20Act%202005%20%28updated%20as%20on%2018-11-2025%29.pdf"
-      }
+      },
+      "reviewNote": "its prompt reads the same as rule 15's, so it does not identify one of them"
     },
     {
       "id": "rti-rule-12-1",
@@ -1907,7 +1908,7 @@
         "name": "Department of Personnel and Training — Right to Information Act, 2005 — updated as on 18 November 2025",
         "url": "https://dopt.gov.in/sites/default/files/RTI%20Act%202005%20%28updated%20as%20on%2018-11-2025%29.pdf"
       },
-      "reviewNote": "the heading \"Term of office and conditions of service\" is used by 2 rules of this act, so it does not identify one of them"
+      "reviewNote": "its prompt reads the same as rule 16's, so it does not identify one of them"
     },
     {
       "id": "rti-rule-13-1",
@@ -2147,7 +2148,7 @@
       },
       "difficulty": "easy",
       "reviewed": true,
-      "reviewState": "approved",
+      "reviewState": "rejected",
       "tags": [
         "generated",
         "rule"
@@ -2157,7 +2158,8 @@
       "source": {
         "name": "Department of Personnel and Training — Right to Information Act, 2005 — updated as on 18 November 2025",
         "url": "https://dopt.gov.in/sites/default/files/RTI%20Act%202005%20%28updated%20as%20on%2018-11-2025%29.pdf"
-      }
+      },
+      "reviewNote": "its prompt reads the same as rule 17's, so it does not identify one of them"
     },
     {
       "id": "rti-rule-14-1",
@@ -2325,7 +2327,7 @@
       },
       "difficulty": "easy",
       "reviewed": true,
-      "reviewState": "approved",
+      "reviewState": "rejected",
       "tags": [
         "generated",
         "rule"
@@ -2335,7 +2337,8 @@
       "source": {
         "name": "Department of Personnel and Training — Right to Information Act, 2005 — updated as on 18 November 2025",
         "url": "https://dopt.gov.in/sites/default/files/RTI%20Act%202005%20%28updated%20as%20on%2018-11-2025%29.pdf"
-      }
+      },
+      "reviewNote": "its prompt reads the same as rule 12's, so it does not identify one of them"
     },
     {
       "id": "rti-rule-15-1",
@@ -2622,7 +2625,7 @@
         "name": "Department of Personnel and Training — Right to Information Act, 2005 — updated as on 18 November 2025",
         "url": "https://dopt.gov.in/sites/default/files/RTI%20Act%202005%20%28updated%20as%20on%2018-11-2025%29.pdf"
       },
-      "reviewNote": "the heading \"Term of office and conditions of service\" is used by 2 rules of this act, so it does not identify one of them"
+      "reviewNote": "its prompt reads the same as rule 13's, so it does not identify one of them"
     },
     {
       "id": "rti-rule-16-1",
@@ -2862,7 +2865,7 @@
       },
       "difficulty": "easy",
       "reviewed": true,
-      "reviewState": "approved",
+      "reviewState": "rejected",
       "tags": [
         "generated",
         "rule"
@@ -2872,7 +2875,8 @@
       "source": {
         "name": "Department of Personnel and Training — Right to Information Act, 2005 — updated as on 18 November 2025",
         "url": "https://dopt.gov.in/sites/default/files/RTI%20Act%202005%20%28updated%20as%20on%2018-11-2025%29.pdf"
-      }
+      },
+      "reviewNote": "its prompt reads the same as rule 14's, so it does not identify one of them"
     },
     {
       "id": "rti-rule-17-1",

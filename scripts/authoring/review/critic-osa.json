@@ -1,0 +1,103 @@
+{
+  "_note": "STAGE B · CRITIC. A separate pass over scripts/authoring/authored/osa.json, judging each question on its own terms against data/rules/text/osa.json: is there exactly one correct answer, are the distractors plausible without being trivially wrong, is it inside the public rule text, is there a factual red flag, is the tone right for a serving officer. Rejections stay in data/rules/cards/ with reviewState \"rejected\" and are never served. Special note on osa-q-024: independently verified against data/rules/text/osa.json that the 'offences by companies' text (originally Section 15 of the Act) is genuinely present, verbatim, inside the osa-14 record's text.en field (both as the tail of the main text string and duplicated across subRules '14(1)'/'14(2)') — the merge described in authored/osa.json's own note is real, not an assumed excuse. The card's citation names the provision descriptively ('Offences-by-companies provision, recorded within the Section 14 text entry') rather than asserting a section number ruleRef.textId does not carry, and its front/back/options never claim a false 'Section 14' or 'Section 15' label either — this is the correct, honest way to ground a card on merged text and is approved on that basis.",
+  "osa-q-001": {
+    "verdict": "approve",
+    "reason": "One correct answer (True), grounded in Section 1(2); the extraterritorial/servants-and-citizens-abroad scope is a genuine, non-obvious fact about the Act's reach, not an invented one."
+  },
+  "osa-q-002": {
+    "verdict": "approve",
+    "reason": "One correct answer, grounded in Section 2(8)(a); distractors (private residence, unrestricted public place, unconnected commercial office) are plausible everyday readings of 'prohibited place' that the definition specifically excludes."
+  },
+  "osa-q-003": {
+    "verdict": "approve",
+    "reason": "One correct answer, grounded in Sections 2(3) and 2(9); each distractor is a real neighbouring definition (2(3), 2(4), 2(7)) with its inclusive sense flipped to an exclusive one, which is a plausible-but-wrong trap rather than a fabricated option."
+  },
+  "osa-q-004": {
+    "verdict": "approve",
+    "reason": "One correct answer (three years), grounded in Section 3(1); fourteen years is the real figure for the other limb of the same sub-section, five years is Section 5's figure borrowed as a plausible distractor, and life imprisonment is a real (but inapplicable) band elsewhere in the Act."
+  },
+  "osa-q-005": {
+    "verdict": "approve",
+    "reason": "One correct answer, correctly grounded in Section 3(1)(a) read with the 2(8)(a) 'prohibited place' definition (a naval munitions store qualifies); the mere-vicinity offence and the fourteen-year band for naval-related places both match the text, and the option ruling out a Government-servant restriction correctly reflects that Section 3 binds 'any person'."
+  },
+  "osa-q-006": {
+    "verdict": "approve",
+    "reason": "One correct answer, grounded in Section 3(2)'s relaxed-proof/presumption mechanism; 'absolute liability with no proof required' and 'only serving-Government-servant status' are plausible overreaches of the real relaxed-burden rule, not accurate restatements."
+  },
+  "osa-q-007": {
+    "verdict": "approve",
+    "reason": "One correct answer, grounded in Section 4(2)(a)'s two named presumption grounds; the distractors (passport ownership, foreign-language fluency, corresponding with a relative abroad) are the kind of everyday circumstance an officer might wrongly assume triggers a presumption, and the text confirms none of them do."
+  },
+  "osa-q-008": {
+    "verdict": "approve",
+    "reason": "One correct answer, grounded in Section 5(1)(a)'s three exceptions to the communication bar (authorised recipient, a Court, or a person to whom communication is a State-interest duty); family, unauthorised seniority and an off-the-record journalist are all plausible but real exceptions the sub-section does not recognise."
+  },
+  "osa-q-009": {
+    "verdict": "approve",
+    "reason": "One correct answer, grounded in Section 5(1)(c); the option correctly extends the Act beyond Government servants to a contractor's employee (per Section 5(1)'s own preamble) and the wrong options (Government-servants-only, a one-year grace period, a third-party-communication requirement) are all real-sounding limitations the text does not impose."
+  },
+  "osa-q-010": {
+    "verdict": "approve",
+    "reason": "One correct answer (True), grounded in Section 5(4)'s two-tier punishment; the statement is a true, non-exhaustive description of the aggravated band (it does not deny the ten-year alternative also present in that band) and tests a genuine escalation an officer should know."
+  },
+  "osa-q-011": {
+    "verdict": "approve",
+    "reason": "One correct answer, grounded in Section 6(1)'s opening qualifying clause, which correctly governs clause (a); 'absolute prohibition', 'only for theft' and 'only during an emergency' are plausible but unsupported narrowings/broadenings of the real qualifying-purpose requirement."
+  },
+  "osa-q-012": {
+    "verdict": "approve",
+    "reason": "One correct answer, grounded in Section 6(1)(c)/(3); correctly distinguishes the forgery/false-document offence (three years, fine, or both) from Section 3 spying (fourteen years) and Section 7 (interference with on-duty personnel), both of which are real but inapplicable provisions used as plausible distractors."
+  },
+  "osa-q-013": {
+    "verdict": "approve",
+    "reason": "One correct answer, grounded in Section 7(1); correctly scopes the protection to on-duty police/armed-forces personnel and rules out any bystander, an off-duty employee, or a named rank alone, none of which the text supports."
+  },
+  "osa-q-014": {
+    "verdict": "approve",
+    "reason": "One correct answer (True), grounded in Section 7(2)'s punishment figure, and unlike a self-referential or ambiguous restatement it names a specific, current, section-tied numeric fact (three years/fine/both, post-1967-amendment) an officer needs to know rather than merely echoing prose with no factual content."
+  },
+  "osa-q-015": {
+    "verdict": "approve",
+    "reason": "One correct answer, grounded in Section 8(1)'s three named recipients; CIC, an MP, and a newspaper editor are plausible-sounding but real-world figures the sub-section does not name, which correctly tests that the duty runs to police/armed-forces personnel specifically, not to any public authority."
+  },
+  "osa-q-016": {
+    "verdict": "approve",
+    "reason": "One correct answer (False), grounded in Section 9; the false premise (attempt/abetment draws a LESSER punishment) is exactly the intuitive-but-wrong assumption the section exists to correct, which is a genuinely useful trap rather than a trivial restatement."
+  },
+  "osa-q-017": {
+    "verdict": "approve",
+    "reason": "One correct answer, grounded in Section 10(1)'s tie to Section 3 (directly or read with Section 9); the IPC-generally and Section-8/6-only distractors are plausible misreadings that the text's specific cross-reference rules out."
+  },
+  "osa-q-018": {
+    "verdict": "approve",
+    "reason": "One correct answer, correctly grounded in BOTH Section 10(1) (permitting suspected offenders to meet) and Section 10(2) (the separate duty to inform on demand), each independently satisfied by the scenario facts and both punished under Section 10(3); the 'no offence since he did not personally spy' and 'co-principal under Section 3' options are real but wrong characterisations of a harbouring-adjacent offence."
+  },
+  "osa-q-019": {
+    "verdict": "approve",
+    "reason": "One correct answer, grounded in Section 11(1)'s named Magistrate classes and minimum executing rank; 'High Court only', 'any Magistrate/any constable' and 'Central Government directly' are plausible but incorrect readings of a fairly technical procedural provision."
+  },
+  "osa-q-020": {
+    "verdict": "approve",
+    "reason": "One correct answer, grounded in Section 11(2)-(3)'s emergency written-order route and its mandatory follow-up report; the 'no report required' distractor is the natural (and wrong) assumption that an emergency power is unsupervised, which the text explicitly forecloses."
+  },
+  "osa-q-021": {
+    "verdict": "approve",
+    "reason": "One correct answer, grounded in Section 13(1)'s floor on trying courts, including the first-class-Magistrate carve-out; the NCT-only, Court-of-Session-only and no-restriction options are plausible but do not match the actual text."
+  },
+  "osa-q-022": {
+    "verdict": "approve",
+    "reason": "One correct answer, grounded in Section 13(3)'s sanction requirement for cognizance; the explanation additionally and correctly cross-references Section 13(5)'s State/Central Government split, which is present in the text and adds real value rather than reaching outside it."
+  },
+  "osa-q-023": {
+    "verdict": "approve",
+    "reason": "One correct answer, grounded in Section 14's public-exclusion ground and its public-sentencing proviso; the accused's-own-request, seating-capacity and trial-length distractors are plausible but unsupported grounds the text does not recognise."
+  },
+  "osa-q-024": {
+    "verdict": "approve",
+    "reason": "One correct answer, and independently re-verified against data/rules/text/osa.json that the 'offences by companies' text (the Act's original Section 15) is genuinely embedded in the osa-14 record. The card is honestly framed throughout — front, back, options and citation all avoid asserting a false section number for text the dataset cannot cite by number — and the vicarious-liability rule plus its due-diligence proviso are stated accurately. The 'auditor', 'shareholders with no defence' and 'company only, no individual liable' options are plausible-sounding but wrong readings of a fairly standard companies-offences clause."
+  },
+  "osa-q-025": {
+    "verdict": "approve",
+    "reason": "One correct answer (False), grounded in the Section 16 record, whose heading '[Repeals.]' and empty text field confirm it is a genuinely emptied provision (repealed by the Repealing Act, 1927) rather than an operative 'repeal and saving' clause — the card correctly distinguishes the two rather than conflating them."
+  }
+}

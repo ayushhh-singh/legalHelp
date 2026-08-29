@@ -1,0 +1,81 @@
+{
+  "_note": "Stage D, written by scripts/authoring/qa_pipeline.py dedup ol-rules. rapidfuzz token_set_ratio over every pair of English fronts in this act, including the generated rule and cloze cards. At 90 or above the later question is the duplicate and make_cards.py rejects it.",
+  "threshold": 90.0,
+  "scores": {
+    "ol-rules-q-001": {
+      "maxScore": 67.7,
+      "against": "ol-rules-cloze-12-crossreference",
+      "verdict": "keep"
+    },
+    "ol-rules-q-002": {
+      "maxScore": 45.2,
+      "against": "ol-rules-rule-4",
+      "verdict": "keep"
+    },
+    "ol-rules-q-003": {
+      "maxScore": 53.3,
+      "against": "ol-rules-rule-5",
+      "verdict": "keep"
+    },
+    "ol-rules-q-004": {
+      "maxScore": 76.7,
+      "against": "ol-rules-cloze-3-definedterm",
+      "verdict": "keep"
+    },
+    "ol-rules-q-005": {
+      "maxScore": 68.6,
+      "against": "ol-rules-q-004",
+      "verdict": "keep"
+    },
+    "ol-rules-q-006": {
+      "maxScore": 78.5,
+      "against": "ol-rules-cloze-4-count",
+      "verdict": "keep"
+    },
+    "ol-rules-q-007": {
+      "maxScore": 65.5,
+      "against": "ol-rules-cloze-4-count",
+      "verdict": "keep"
+    },
+    "ol-rules-q-008": {
+      "maxScore": 65.8,
+      "against": "ol-rules-q-005",
+      "verdict": "keep"
+    },
+    "ol-rules-q-009": {
+      "maxScore": 69.6,
+      "against": "ol-rules-cloze-6-crossreference",
+      "verdict": "keep"
+    },
+    "ol-rules-q-010": {
+      "maxScore": 58.8,
+      "against": "ol-rules-q-008",
+      "verdict": "keep"
+    },
+    "ol-rules-q-011": {
+      "maxScore": 59.4,
+      "against": "ol-rules-rule-8",
+      "verdict": "keep"
+    },
+    "ol-rules-q-012": {
+      "maxScore": 63.1,
+      "against": "ol-rules-q-003",
+      "verdict": "keep"
+    },
+    "ol-rules-q-013": {
+      "maxScore": 62.1,
+      "against": "ol-rules-q-008",
+      "verdict": "keep"
+    },
+    "ol-rules-q-014": {
+      "maxScore": 60.3,
+      "against": "ol-rules-q-008",
+      "verdict": "keep"
+    },
+    "ol-rules-q-015": {
+      "maxScore": 59.6,
+      "against": "ol-rules-cloze-12-crossreference",
+      "verdict": "keep"
+    }
+  }
+}

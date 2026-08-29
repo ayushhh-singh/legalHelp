@@ -4324,3 +4324,124 @@ regenerated with the change.
 - `docs/DATA-GAPS.md` #60 records the one thing this session could not settle:
   the `validateCitations` interaction that can fail a run whose document text
   legitimately names a rule the brief did not.
+
+## ADR-033 — Rules bank expansion: curated Hindi law headings at full coverage, a real fix to an unreachable duplicate check, and genuinely blind verification via fresh subagents
+
+**Status:** accepted (Session 20)
+
+### Context
+
+Session 20's brief was content, not code: author Hindi headings for the four
+rule books still missing them (`ccs-pension`, `gfr`, `fr-sr`, `csmop`), review
+the 529 cloze cards that unlocks, run ~150-180 questions through the four-stage
+pipeline for six more acts plus a scenario batch for three already-served ones,
+extend the Law Converter's curated Hindi from 94 BNS sections to full coverage
+of BNS/BNSS/BSA, confirm BNS classification coverage, and pass a Hindi-quality
+review over the app's existing i18n and data. Four things happened along the
+way that were not anticipated in the brief and are worth recording.
+
+### 1. Content authoring at this scale is an orchestration problem, not a writing one
+
+Translating 582 rule headings, hand-reviewing 529 generated cloze cards against
+their full rule text, and running ~275 new questions through generate → critic
+→ blind-verify → dedup is not one long session of typing — it is dozens of
+independent, well-scoped units of work with clear inputs and outputs. Each was
+delegated to a fresh subagent with only the files it needed (the act's rule
+text, its terms file, one worked example for format/register, and — critically,
+for Stage C — *never* the file holding the answer key). Large single acts
+(GFR's 240 cloze cards, its 307 rule headings) were partitioned by a
+deterministic, collision-free split (even/odd list position after a stable
+sort) into independent halves reviewed in parallel and merged by script
+afterward, the same shape `ccs-conduct`'s original authoring already used for
+its single-agent batches. This is what made the scope tractable in one
+session; it is also why Stage C's blind verification is, for the first time,
+genuinely blind rather than merely separate-in-time — docs/AUTHORING.md's own
+"What the blind pass does and does not guarantee" section says the same
+session writing and verifying a question is one of the two gaps compensating
+mechanisms exist for. A subagent with a fresh context and no access to
+`authored/<act>.json` closes exactly that gap, and Session 20's blind-verify
+agents were instructed accordingly and never opened the file holding the key.
+
+### 2. `make_cards.py`'s duplicate/emptied-rule check had a blind spot for two whole rule books
+
+`_unanswerable()` decided whether a rule card was answerable by reading only
+`rule["heading"]["en"]`. FR/SR prints no heading at all for any of its 77
+rules (`heading.en` is `""` throughout — confirmed against the source), and
+CSMOP is the same. An empty-string check on an always-empty field can never
+fire, so neither book's rule cards were ever screened for "Deleted"/"Cancelled"
+emptied rules or for a prompt that reads the same as another rule's — the
+defect was invisible for as long as those two books had `needs-hindi` on every
+rule card and were never actually served. It surfaced the moment this
+session's Hindi headings unlocked them: eight FR/SR rules headed "Deleted" or
+"- Cancelled." in the source all rendered as byte-identical served cards
+("Deleted — which rule of the FR & SR?"), caught by `tests/rules-data.test.ts`'s
+duplicate-front check (found via a peer session's report, not by this session
+reading the data first).
+
+The fix (`scripts/authoring/make_cards.py`) reads the same *effective prompt*
+`rule_cards()` actually renders — heading, or the rule's own opening sentence
+where there is no heading — rather than the raw heading field alone, widens
+the emptied-heading pattern to catch "cancelled" and "not printed" (both used
+in FR/SR) and a leading `-`/`[`, and replaces the old exact-string duplicate
+check with the same `rapidfuzz token_set_ratio >= 92` the test itself uses, so
+the two converge by construction instead of by coincidence. Running the fixed
+check over the whole corpus found more genuinely ambiguous rules than the old
+one ever could — not a regression, the check working for the first time on
+data it had never been able to see. `docs/DATA-GAPS.md` #62 records which acts
+this leaves short of literal 100% rule-card coverage and why closing the rest
+is deliberately not attempted in one more pass.
+
+### 3. BNS classification coverage is already complete — for every section that can carry one
+
+The session brief described this as extending "from 80 to all BNS sections."
+Measuring first: of the 70 BNS sections with no First Schedule classification,
+all 70 have an empty `punishment` field — they are definitional or general
+provisions (Chapter I-III's `1`-`48`, definition sections like `63` "Rape" and
+`100`/`101` "Culpable homicide"/"Murder" whose punishment lives in a separate
+numbered section, and the closing `358` "Repeal and savings") that the First
+Schedule correctly does not classify, because cognizable/bailable/compoundable
+are properties of a punishment, and these sections impose none. All 288
+sections that DO carry a punishment are classified. Nothing was added here;
+`docs/DATA-GAPS.md` does not carry a new row for it because there is no gap to
+carry a row.
+
+### 4. Extending curated Hindi past BNS was a bounded choice, not a full-text one
+
+`data/law/overlays/bns-hindi-curated.json` covered 94 BNS sections; BNSS and
+BSA had none. This session re-attempted every previously-recorded avenue for
+an official Hindi Sanhita (`docs/DATA-GAPS.md` #16) and confirmed the gap
+again rather than assuming it — `indiacode.nic.in/handle/...` still 403s,
+`egazette.gov.in`'s own PDF fails certificate verification the way several
+Government of India hosts already do for the Python pipeline, and
+`mha.gov.in`'s own `..._english_.../..._hindi_...` filename pair for the BNS
+gazette 403s on the Hindi half too. With no official source, the fix was
+**headings only, not statutory text**: all 1,059 BNS/BNSS/BSA section headings
+now have a curated Hindi rendering (`verify: true`, the existing marigold
+"Verify" banner and `hindiIsCurated` flag apply unchanged — the mechanism
+needed no code change, only more data), plus Hindi punishment text for the 201
+BNS sections that had a heading and a classification but no punishment
+translation, closing a gap `tests/law-data.test.ts` was already positioned to
+catch once headings existed to expose it. Full section TEXT in Hindi remains
+untranslated and is not proposed here — translating a short heading and
+translating ~1,059 full statutory sections carry different orders of risk for
+a legal reference tool, and the brief's own instruction was explicit that
+translation is the fallback only "if official Hindi is unavailable," scoped to
+headings.
+
+### Consequences
+
+- Rule cards served: 571 → 1,595 (rule 693, cloze 563, mcq 195, trueFalse 66,
+  scenario 78). Reviewed cloze cards: 340 → 869. Reviewed authored questions:
+  141 → 351. All twelve rule books now have served rule/cloze/question content
+  where the source material allows it.
+- Every BNS/BNSS/BSA section has a Hindi heading; BNS additionally has Hindi
+  punishment text everywhere it has a classification. `tests/law-search.test.ts`'s
+  `जमानत`/`jamanat` fixture was updated from `BNSS 492` to `BNSS 478` — the
+  latter's new curated heading contains the query term directly, and a heading
+  match correctly outranks the lexicon match that used to carry 492 to the top
+  when no bail heading contained the word at all.
+- `docs/DATA-GAPS.md` #62-#64 record what this session did not finish: full
+  literal rule-card coverage for seven acts (a data-quality fix surfaced this,
+  closing it is real work, not a quick pass), and a Hindi-quality review of
+  `src/i18n/hi.json` and the rest of `data/` that a session rate limit cut off
+  before it could report a single finding.

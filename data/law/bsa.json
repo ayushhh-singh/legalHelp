@@ -2,7 +2,7 @@
   "$schema": "../../schemas/law-mapping.schema.json",
   "id": "bsa",
   "version": "1.0.0",
-  "fetchedAt": "2026-08-28T06:09:46Z",
+  "fetchedAt": "2026-08-29T05:56:16Z",
   "newAct": {
     "id": "BSA",
     "year": 2023,
@@ -45,7 +45,7 @@
         "hi": "एनसीआरबी संकलन — BSA/IEA तत्संगत धारा तालिका"
       },
       "url": "https://www.ncrb.gov.in/uploads/SankalanPortal/SectionTableBSA.html",
-      "fetchedAt": "2026-08-28T06:03:37Z",
+      "fetchedAt": "2026-08-28T06:15:17Z",
       "sha256": "245aa9bdeb3031c47a88bc7c64e859217cc3c1da5599f418debf7122b055729d"
     },
     {
@@ -55,15 +55,24 @@
         "hi": "एनसीआरबी संकलन — भारतीय साक्ष्य अधिनियम, 2023, अध्याय एवं धाराएँ"
       },
       "url": "https://www.ncrb.gov.in/uploads/SankalanPortal/ChaptersBSA.html",
-      "fetchedAt": "2026-08-28T05:58:38Z",
+      "fetchedAt": "2026-08-28T06:15:17Z",
       "sha256": "2b791914882dbc4740c38e8ecb71d199bd5375f10e05ee91739611d429c6f5ed"
+    },
+    {
+      "id": "curated-hindi",
+      "name": {
+        "en": "Sahayak curated Hindi (unofficial), from the official English text on NCRB Sankalan",
+        "hi": "सहायक द्वारा तैयार हिंदी (अनधिकृत), एनसीआरबी संकलन के आधिकारिक अंग्रेजी पाठ से"
+      },
+      "url": "https://www.ncrb.gov.in/uploads/SankalanPortal/SectionTableBSA.html",
+      "fetchedAt": "2026-08-29"
     }
   ],
   "counts": {
     "sections": 170,
     "mappings": 180,
     "withEnglishHeading": 170,
-    "withHindiHeading": 0,
+    "withHindiHeading": 170,
     "withEnglishText": 170,
     "withHindiText": 0,
     "withClassification": 0,
@@ -75,7 +84,7 @@
       "act": "BSA",
       "heading": {
         "en": "Short title, application and commencement.",
-        "hi": ""
+        "hi": "संक्षिप्त नाम, प्रयोग और प्रारंभ।"
       },
       "status": "unchanged",
       "chapter": {
@@ -157,16 +166,29 @@
       ],
       "sources": [
         "ncrb-sankalan-table",
-        "ncrb-sankalan-chapters"
+        "ncrb-sankalan-chapters",
+        "curated-hindi"
       ],
-      "verify": false
+      "verify": true,
+      "provenance": {
+        "heading": {
+          "kind": "curated-translation",
+          "authoredBy": "Sahayak maintainers",
+          "authoredOn": "2026-08-29",
+          "official": false,
+          "note": {
+            "en": "Hindi rendered by the Sahayak maintainers from the official English text. Not the statutory Hindi.",
+            "hi": "हिंदी पाठ सहायक के अनुरक्षकों द्वारा आधिकारिक अंग्रेजी पाठ से तैयार। यह वैधानिक हिंदी पाठ नहीं है।"
+          }
+        }
+      }
     },
     "2": {
       "section": "2",
       "act": "BSA",
       "heading": {
         "en": "Definitions.",
-        "hi": ""
+        "hi": "परिभाषाएँ।"
       },
       "status": "changed",
       "chapter": {
@@ -243,16 +265,29 @@
       "notes": [],
       "sources": [
         "ncrb-sankalan-table",
-        "ncrb-sankalan-chapters"
+        "ncrb-sankalan-chapters",
+        "curated-hindi"
       ],
-      "verify": false
+      "verify": true,
+      "provenance": {
+        "heading": {
+          "kind": "curated-translation",
+          "authoredBy": "Sahayak maintainers",
+          "authoredOn": "2026-08-29",
+          "official": false,
+          "note": {
+            "en": "Hindi rendered by the Sahayak maintainers from the official English text. Not the statutory Hindi.",
+            "hi": "हिंदी पाठ सहायक के अनुरक्षकों द्वारा आधिकारिक अंग्रेजी पाठ से तैयार। यह वैधानिक हिंदी पाठ नहीं है।"
+          }
+        }
+      }
     },
     "3": {
       "section": "3",
       "act": "BSA",
       "heading": {
         "en": "Evidence may be given of facts in issue and relevant facts.",
-        "hi": ""
+        "hi": "विवाद्यक तथ्यों और सुसंगत तथ्यों के साक्ष्य दिए जा सकेंगे।"
       },
       "status": "renumbered",
       "chapter": {
@@ -316,16 +351,29 @@
       "notes": [],
       "sources": [
         "ncrb-sankalan-table",
-        "ncrb-sankalan-chapters"
+        "ncrb-sankalan-chapters",
+        "curated-hindi"
       ],
-      "verify": false
+      "verify": true,
+      "provenance": {
+        "heading": {
+          "kind": "curated-translation",
+          "authoredBy": "Sahayak maintainers",
+          "authoredOn": "2026-08-29",
+          "official": false,
+          "note": {
+            "en": "Hindi rendered by the Sahayak maintainers from the official English text. Not the statutory Hindi.",
+            "hi": "हिंदी पाठ सहायक के अनुरक्षकों द्वारा आधिकारिक अंग्रेजी पाठ से तैयार। यह वैधानिक हिंदी पाठ नहीं है।"
+          }
+        }
+      }
     },
     "4": {
       "section": "4",
       "act": "BSA",
       "heading": {
         "en": "Relevancy of facts forming part of same transaction.",
-        "hi": ""
+        "hi": "उसी संव्यवहार के भाग रूप तथ्यों की सुसंगतता।"
       },
       "status": "changed",
       "chapter": {
@@ -397,16 +445,29 @@
       "notes": [],
       "sources": [
         "ncrb-sankalan-table",
-        "ncrb-sankalan-chapters"
+        "ncrb-sankalan-chapters",
+        "curated-hindi"
       ],
-      "verify": false
+      "verify": true,
+      "provenance": {
+        "heading": {
+          "kind": "curated-translation",
+          "authoredBy": "Sahayak maintainers",
+          "authoredOn": "2026-08-29",
+          "official": false,
+          "note": {
+            "en": "Hindi rendered by the Sahayak maintainers from the official English text. Not the statutory Hindi.",
+            "hi": "हिंदी पाठ सहायक के अनुरक्षकों द्वारा आधिकारिक अंग्रेजी पाठ से तैयार। यह वैधानिक हिंदी पाठ नहीं है।"
+          }
+        }
+      }
     },
     "5": {
       "section": "5",
       "act": "BSA",
       "heading": {
         "en": "Facts which are occasion, cause or effect of facts in issue or relevant facts .",
-        "hi": ""
+        "hi": "तथ्य जो विवाद्यक तथ्यों या सुसंगत तथ्यों के अवसर, कारण या प्रभाव हैं।"
       },
       "status": "renumbered",
       "chapter": {
@@ -472,16 +533,29 @@
       "notes": [],
       "sources": [
         "ncrb-sankalan-table",
-        "ncrb-sankalan-chapters"
+        "ncrb-sankalan-chapters",
+        "curated-hindi"
       ],
-      "verify": false
+      "verify": true,
+      "provenance": {
+        "heading": {
+          "kind": "curated-translation",
+          "authoredBy": "Sahayak maintainers",
+          "authoredOn": "2026-08-29",
+          "official": false,
+          "note": {
+            "en": "Hindi rendered by the Sahayak maintainers from the official English text. Not the statutory Hindi.",
+            "hi": "हिंदी पाठ सहायक के अनुरक्षकों द्वारा आधिकारिक अंग्रेजी पाठ से तैयार। यह वैधानिक हिंदी पाठ नहीं है।"
+          }
+        }
+      }
     },
     "6": {
       "section": "6",
       "act": "BSA",
       "heading": {
         "en": "Motive, preparation and previous or subsequent conduct.",
-        "hi": ""
+        "hi": "हेतुक, तैयारी तथा पूर्ववर्ती या पश्चात्वर्ती आचरण।"
       },
       "status": "renumbered",
       "chapter": {
@@ -554,16 +628,29 @@
       "notes": [],
       "sources": [
         "ncrb-sankalan-table",
-        "ncrb-sankalan-chapters"
+        "ncrb-sankalan-chapters",
+        "curated-hindi"
       ],
-      "verify": false
+      "verify": true,
+      "provenance": {
+        "heading": {
+          "kind": "curated-translation",
+          "authoredBy": "Sahayak maintainers",
+          "authoredOn": "2026-08-29",
+          "official": false,
+          "note": {
+            "en": "Hindi rendered by the Sahayak maintainers from the official English text. Not the statutory Hindi.",
+            "hi": "हिंदी पाठ सहायक के अनुरक्षकों द्वारा आधिकारिक अंग्रेजी पाठ से तैयार। यह वैधानिक हिंदी पाठ नहीं है।"
+          }
+        }
+      }
     },
     "7": {
       "section": "7",
       "act": "BSA",
       "heading": {
         "en": "Facts necessary to explain or introduce fact in issue or relevant facts.",
-        "hi": ""
+        "hi": "विवाद्यक तथ्य या सुसंगत तथ्यों को स्पष्ट करने या प्रस्तुत करने के लिए आवश्यक तथ्य।"
       },
       "status": "renumbered",
       "chapter": {
@@ -636,16 +723,29 @@
       "notes": [],
       "sources": [
         "ncrb-sankalan-table",
-        "ncrb-sankalan-chapters"
+        "ncrb-sankalan-chapters",
+        "curated-hindi"
       ],
-      "verify": false
+      "verify": true,
+      "provenance": {
+        "heading": {
+          "kind": "curated-translation",
+          "authoredBy": "Sahayak maintainers",
+          "authoredOn": "2026-08-29",
+          "official": false,
+          "note": {
+            "en": "Hindi rendered by the Sahayak maintainers from the official English text. Not the statutory Hindi.",
+            "hi": "हिंदी पाठ सहायक के अनुरक्षकों द्वारा आधिकारिक अंग्रेजी पाठ से तैयार। यह वैधानिक हिंदी पाठ नहीं है।"
+          }
+        }
+      }
     },
     "8": {
       "section": "8",
       "act": "BSA",
       "heading": {
         "en": "Things said or done by conspirator in reference to common design.",
-        "hi": ""
+        "hi": "सामान्य युक्ति के संबंध में षड्यंत्रकारी द्वारा कही या की गई बातें।"
       },
       "status": "renumbered",
       "chapter": {
@@ -711,16 +811,29 @@
       "notes": [],
       "sources": [
         "ncrb-sankalan-table",
-        "ncrb-sankalan-chapters"
+        "ncrb-sankalan-chapters",
+        "curated-hindi"
       ],
-      "verify": false
+      "verify": true,
+      "provenance": {
+        "heading": {
+          "kind": "curated-translation",
+          "authoredBy": "Sahayak maintainers",
+          "authoredOn": "2026-08-29",
+          "official": false,
+          "note": {
+            "en": "Hindi rendered by the Sahayak maintainers from the official English text. Not the statutory Hindi.",
+            "hi": "हिंदी पाठ सहायक के अनुरक्षकों द्वारा आधिकारिक अंग्रेजी पाठ से तैयार। यह वैधानिक हिंदी पाठ नहीं है।"
+          }
+        }
+      }
     },
     "9": {
       "section": "9",
       "act": "BSA",
       "heading": {
         "en": "When facts not otherwise relevant become relevant.",
-        "hi": ""
+        "hi": "अन्यथा असुसंगत तथ्य कब सुसंगत हो जाते हैं।"
       },
       "status": "renumbered",
       "chapter": {
@@ -783,16 +896,29 @@
       "notes": [],
       "sources": [
         "ncrb-sankalan-table",
-        "ncrb-sankalan-chapters"
+        "ncrb-sankalan-chapters",
+        "curated-hindi"
       ],
-      "verify": false
+      "verify": true,
+      "provenance": {
+        "heading": {
+          "kind": "curated-translation",
+          "authoredBy": "Sahayak maintainers",
+          "authoredOn": "2026-08-29",
+          "official": false,
+          "note": {
+            "en": "Hindi rendered by the Sahayak maintainers from the official English text. Not the statutory Hindi.",
+            "hi": "हिंदी पाठ सहायक के अनुरक्षकों द्वारा आधिकारिक अंग्रेजी पाठ से तैयार। यह वैधानिक हिंदी पाठ नहीं है।"
+          }
+        }
+      }
     },
     "10": {
       "section": "10",
       "act": "BSA",
       "heading": {
         "en": "Facts tending to enable Court to determine amount are relevant in suits for damages.",
-        "hi": ""
+        "hi": "नुकसानी के वादों में रकम अवधारित करने में न्यायालय की सहायता करने वाले तथ्यों की सुसंगतता।"
       },
       "status": "renumbered",
       "chapter": {
@@ -861,16 +987,29 @@
       "notes": [],
       "sources": [
         "ncrb-sankalan-table",
-        "ncrb-sankalan-chapters"
+        "ncrb-sankalan-chapters",
+        "curated-hindi"
       ],
-      "verify": false
+      "verify": true,
+      "provenance": {
+        "heading": {
+          "kind": "curated-translation",
+          "authoredBy": "Sahayak maintainers",
+          "authoredOn": "2026-08-29",
+          "official": false,
+          "note": {
+            "en": "Hindi rendered by the Sahayak maintainers from the official English text. Not the statutory Hindi.",
+            "hi": "हिंदी पाठ सहायक के अनुरक्षकों द्वारा आधिकारिक अंग्रेजी पाठ से तैयार। यह वैधानिक हिंदी पाठ नहीं है।"
+          }
+        }
+      }
     },
     "11": {
       "section": "11",
       "act": "BSA",
       "heading": {
         "en": "Facts relevant when right or custom is in question .",
-        "hi": ""
+        "hi": "जब अधिकार या रूढ़ि प्रश्नगत हो तब सुसंगत तथ्य।"
       },
       "status": "renumbered",
       "chapter": {
@@ -934,16 +1073,29 @@
       "notes": [],
       "sources": [
         "ncrb-sankalan-table",
-        "ncrb-sankalan-chapters"
+        "ncrb-sankalan-chapters",
+        "curated-hindi"
       ],
-      "verify": false
+      "verify": true,
+      "provenance": {
+        "heading": {
+          "kind": "curated-translation",
+          "authoredBy": "Sahayak maintainers",
+          "authoredOn": "2026-08-29",
+          "official": false,
+          "note": {
+            "en": "Hindi rendered by the Sahayak maintainers from the official English text. Not the statutory Hindi.",
+            "hi": "हिंदी पाठ सहायक के अनुरक्षकों द्वारा आधिकारिक अंग्रेजी पाठ से तैयार। यह वैधानिक हिंदी पाठ नहीं है।"
+          }
+        }
+      }
     },
     "12": {
       "section": "12",
       "act": "BSA",
       "heading": {
         "en": "Facts showing existence of state of mind, or of body or bodily feeling .",
-        "hi": ""
+        "hi": "मन:स्थिति या शरीर या शारीरिक संवेदना के अस्तित्व को दर्शाने वाले तथ्य।"
       },
       "status": "renumbered",
       "chapter": {
@@ -1010,16 +1162,29 @@
       "notes": [],
       "sources": [
         "ncrb-sankalan-table",
-        "ncrb-sankalan-chapters"
+        "ncrb-sankalan-chapters",
+        "curated-hindi"
       ],
-      "verify": false
+      "verify": true,
+      "provenance": {
+        "heading": {
+          "kind": "curated-translation",
+          "authoredBy": "Sahayak maintainers",
+          "authoredOn": "2026-08-29",
+          "official": false,
+          "note": {
+            "en": "Hindi rendered by the Sahayak maintainers from the official English text. Not the statutory Hindi.",
+            "hi": "हिंदी पाठ सहायक के अनुरक्षकों द्वारा आधिकारिक अंग्रेजी पाठ से तैयार। यह वैधानिक हिंदी पाठ नहीं है।"
+          }
+        }
+      }
     },
     "13": {
       "section": "13",
       "act": "BSA",
       "heading": {
         "en": "Facts bearing on question whether act was accidental or intentional.",
-        "hi": ""
+        "hi": "यह प्रश्न कि कार्य आकस्मिक था या आशयपूर्ण, इस पर प्रभाव डालने वाले तथ्य।"
       },
       "status": "renumbered",
       "chapter": {
@@ -1086,16 +1251,29 @@
       "notes": [],
       "sources": [
         "ncrb-sankalan-table",
-        "ncrb-sankalan-chapters"
+        "ncrb-sankalan-chapters",
+        "curated-hindi"
       ],
-      "verify": false
+      "verify": true,
+      "provenance": {
+        "heading": {
+          "kind": "curated-translation",
+          "authoredBy": "Sahayak maintainers",
+          "authoredOn": "2026-08-29",
+          "official": false,
+          "note": {
+            "en": "Hindi rendered by the Sahayak maintainers from the official English text. Not the statutory Hindi.",
+            "hi": "हिंदी पाठ सहायक के अनुरक्षकों द्वारा आधिकारिक अंग्रेजी पाठ से तैयार। यह वैधानिक हिंदी पाठ नहीं है।"
+          }
+        }
+      }
     },
     "14": {
       "section": "14",
       "act": "BSA",
       "heading": {
         "en": "Existence of course of business when relevant .",
-        "hi": ""
+        "hi": "कारबार के अनुक्रम का अस्तित्व, जब सुसंगत हो।"
       },
       "status": "renumbered",
       "chapter": {
@@ -1158,16 +1336,29 @@
       "notes": [],
       "sources": [
         "ncrb-sankalan-table",
-        "ncrb-sankalan-chapters"
+        "ncrb-sankalan-chapters",
+        "curated-hindi"
       ],
-      "verify": false
+      "verify": true,
+      "provenance": {
+        "heading": {
+          "kind": "curated-translation",
+          "authoredBy": "Sahayak maintainers",
+          "authoredOn": "2026-08-29",
+          "official": false,
+          "note": {
+            "en": "Hindi rendered by the Sahayak maintainers from the official English text. Not the statutory Hindi.",
+            "hi": "हिंदी पाठ सहायक के अनुरक्षकों द्वारा आधिकारिक अंग्रेजी पाठ से तैयार। यह वैधानिक हिंदी पाठ नहीं है।"
+          }
+        }
+      }
     },
     "15": {
       "section": "15",
       "act": "BSA",
       "heading": {
         "en": "Admission defined .",
-        "hi": ""
+        "hi": "अभिस्वीकृति की परिभाषा।"
       },
       "status": "renumbered",
       "chapter": {
@@ -1258,16 +1449,29 @@
       "notes": [],
       "sources": [
         "ncrb-sankalan-table",
-        "ncrb-sankalan-chapters"
+        "ncrb-sankalan-chapters",
+        "curated-hindi"
       ],
-      "verify": false
+      "verify": true,
+      "provenance": {
+        "heading": {
+          "kind": "curated-translation",
+          "authoredBy": "Sahayak maintainers",
+          "authoredOn": "2026-08-29",
+          "official": false,
+          "note": {
+            "en": "Hindi rendered by the Sahayak maintainers from the official English text. Not the statutory Hindi.",
+            "hi": "हिंदी पाठ सहायक के अनुरक्षकों द्वारा आधिकारिक अंग्रेजी पाठ से तैयार। यह वैधानिक हिंदी पाठ नहीं है।"
+          }
+        }
+      }
     },
     "16": {
       "section": "16",
       "act": "BSA",
       "heading": {
         "en": "Admission by party to proceeding or his agent.",
-        "hi": ""
+        "hi": "कार्यवाही के पक्षकार या उसके अभिकर्ता द्वारा अभिस्वीकृति।"
       },
       "status": "renumbered",
       "chapter": {
@@ -1320,16 +1524,29 @@
       "notes": [],
       "sources": [
         "ncrb-sankalan-table",
-        "ncrb-sankalan-chapters"
+        "ncrb-sankalan-chapters",
+        "curated-hindi"
       ],
-      "verify": false
+      "verify": true,
+      "provenance": {
+        "heading": {
+          "kind": "curated-translation",
+          "authoredBy": "Sahayak maintainers",
+          "authoredOn": "2026-08-29",
+          "official": false,
+          "note": {
+            "en": "Hindi rendered by the Sahayak maintainers from the official English text. Not the statutory Hindi.",
+            "hi": "हिंदी पाठ सहायक के अनुरक्षकों द्वारा आधिकारिक अंग्रेजी पाठ से तैयार। यह वैधानिक हिंदी पाठ नहीं है।"
+          }
+        }
+      }
     },
     "17": {
       "section": "17",
       "act": "BSA",
       "heading": {
         "en": "Admissions by persons whose position must be proved as against party to suit.",
-        "hi": ""
+        "hi": "उन व्यक्तियों द्वारा अभिस्वीकृतियाँ जिनकी हैसियत वाद के पक्षकार के विरुद्ध साबित की जानी आवश्यक है।"
       },
       "status": "renumbered",
       "chapter": {
@@ -1397,16 +1614,29 @@
       "notes": [],
       "sources": [
         "ncrb-sankalan-table",
-        "ncrb-sankalan-chapters"
+        "ncrb-sankalan-chapters",
+        "curated-hindi"
       ],
-      "verify": false
+      "verify": true,
+      "provenance": {
+        "heading": {
+          "kind": "curated-translation",
+          "authoredBy": "Sahayak maintainers",
+          "authoredOn": "2026-08-29",
+          "official": false,
+          "note": {
+            "en": "Hindi rendered by the Sahayak maintainers from the official English text. Not the statutory Hindi.",
+            "hi": "हिंदी पाठ सहायक के अनुरक्षकों द्वारा आधिकारिक अंग्रेजी पाठ से तैयार। यह वैधानिक हिंदी पाठ नहीं है।"
+          }
+        }
+      }
     },
     "18": {
       "section": "18",
       "act": "BSA",
       "heading": {
         "en": "Admissions by persons expressly referred to by party to suit .",
-        "hi": ""
+        "hi": "वाद के पक्षकार द्वारा अभिव्यक्त रूप से निर्दिष्ट व्यक्तियों द्वारा अभिस्वीकृतियाँ।"
       },
       "status": "renumbered",
       "chapter": {
@@ -1472,16 +1702,29 @@
       "notes": [],
       "sources": [
         "ncrb-sankalan-table",
-        "ncrb-sankalan-chapters"
+        "ncrb-sankalan-chapters",
+        "curated-hindi"
       ],
-      "verify": false
+      "verify": true,
+      "provenance": {
+        "heading": {
+          "kind": "curated-translation",
+          "authoredBy": "Sahayak maintainers",
+          "authoredOn": "2026-08-29",
+          "official": false,
+          "note": {
+            "en": "Hindi rendered by the Sahayak maintainers from the official English text. Not the statutory Hindi.",
+            "hi": "हिंदी पाठ सहायक के अनुरक्षकों द्वारा आधिकारिक अंग्रेजी पाठ से तैयार। यह वैधानिक हिंदी पाठ नहीं है।"
+          }
+        }
+      }
     },
     "19": {
       "section": "19",
       "act": "BSA",
       "heading": {
         "en": "Proof of admissions against persons making them, and by or on their behalf .",
-        "hi": ""
+        "hi": "अभिस्वीकृति करने वाले व्यक्तियों के विरुद्ध, तथा उनके द्वारा या उनकी ओर से अभिस्वीकृतियों का साबित किया जाना।"
       },
       "status": "renumbered",
       "chapter": {
@@ -1547,16 +1790,29 @@
       "notes": [],
       "sources": [
         "ncrb-sankalan-table",
-        "ncrb-sankalan-chapters"
+        "ncrb-sankalan-chapters",
+        "curated-hindi"
       ],
-      "verify": false
+      "verify": true,
+      "provenance": {
+        "heading": {
+          "kind": "curated-translation",
+          "authoredBy": "Sahayak maintainers",
+          "authoredOn": "2026-08-29",
+          "official": false,
+          "note": {
+            "en": "Hindi rendered by the Sahayak maintainers from the official English text. Not the statutory Hindi.",
+            "hi": "हिंदी पाठ सहायक के अनुरक्षकों द्वारा आधिकारिक अंग्रेजी पाठ से तैयार। यह वैधानिक हिंदी पाठ नहीं है।"
+          }
+        }
+      }
     },
     "20": {
       "section": "20",
       "act": "BSA",
       "heading": {
         "en": "When oral admissions as to contents of documents are relevant.",
-        "hi": ""
+        "hi": "दस्तावेजों की अंतर्वस्तु के बारे में मौखिक अभिस्वीकृतियाँ कब सुसंगत हैं।"
       },
       "status": "renumbered",
       "chapter": {
@@ -1628,16 +1884,29 @@
       "notes": [],
       "sources": [
         "ncrb-sankalan-table",
-        "ncrb-sankalan-chapters"
+        "ncrb-sankalan-chapters",
+        "curated-hindi"
       ],
-      "verify": false
+      "verify": true,
+      "provenance": {
+        "heading": {
+          "kind": "curated-translation",
+          "authoredBy": "Sahayak maintainers",
+          "authoredOn": "2026-08-29",
+          "official": false,
+          "note": {
+            "en": "Hindi rendered by the Sahayak maintainers from the official English text. Not the statutory Hindi.",
+            "hi": "हिंदी पाठ सहायक के अनुरक्षकों द्वारा आधिकारिक अंग्रेजी पाठ से तैयार। यह वैधानिक हिंदी पाठ नहीं है।"
+          }
+        }
+      }
     },
     "21": {
       "section": "21",
       "act": "BSA",
       "heading": {
         "en": "Admissions in civil cases when relevant .",
-        "hi": ""
+        "hi": "सिविल मामलों में अभिस्वीकृतियाँ कब सुसंगत हैं।"
       },
       "status": "renumbered",
       "chapter": {
@@ -1699,16 +1968,29 @@
       "notes": [],
       "sources": [
         "ncrb-sankalan-table",
-        "ncrb-sankalan-chapters"
+        "ncrb-sankalan-chapters",
+        "curated-hindi"
       ],
-      "verify": false
+      "verify": true,
+      "provenance": {
+        "heading": {
+          "kind": "curated-translation",
+          "authoredBy": "Sahayak maintainers",
+          "authoredOn": "2026-08-29",
+          "official": false,
+          "note": {
+            "en": "Hindi rendered by the Sahayak maintainers from the official English text. Not the statutory Hindi.",
+            "hi": "हिंदी पाठ सहायक के अनुरक्षकों द्वारा आधिकारिक अंग्रेजी पाठ से तैयार। यह वैधानिक हिंदी पाठ नहीं है।"
+          }
+        }
+      }
     },
     "22": {
       "section": "22",
       "act": "BSA",
       "heading": {
         "en": "Confession caused by inducement, threat, coercion or promise, when irrelevant in criminal proceeding.",
-        "hi": ""
+        "hi": "प्रलोभन, धमकी, बाध्यकरण या वचन से प्राप्त संस्वीकृति, दांडिक कार्यवाही में कब असुसंगत है।"
       },
       "status": "changed",
       "chapter": {
@@ -1834,16 +2116,29 @@
       "notes": [],
       "sources": [
         "ncrb-sankalan-table",
-        "ncrb-sankalan-chapters"
+        "ncrb-sankalan-chapters",
+        "curated-hindi"
       ],
-      "verify": false
+      "verify": true,
+      "provenance": {
+        "heading": {
+          "kind": "curated-translation",
+          "authoredBy": "Sahayak maintainers",
+          "authoredOn": "2026-08-29",
+          "official": false,
+          "note": {
+            "en": "Hindi rendered by the Sahayak maintainers from the official English text. Not the statutory Hindi.",
+            "hi": "हिंदी पाठ सहायक के अनुरक्षकों द्वारा आधिकारिक अंग्रेजी पाठ से तैयार। यह वैधानिक हिंदी पाठ नहीं है।"
+          }
+        }
+      }
     },
     "23": {
       "section": "23",
       "act": "BSA",
       "heading": {
         "en": "Confession to police officer.",
-        "hi": ""
+        "hi": "पुलिस अधिकारी के समक्ष संस्वीकृति।"
       },
       "status": "renumbered",
       "chapter": {
@@ -1947,16 +2242,29 @@
       "notes": [],
       "sources": [
         "ncrb-sankalan-table",
-        "ncrb-sankalan-chapters"
+        "ncrb-sankalan-chapters",
+        "curated-hindi"
       ],
-      "verify": false
+      "verify": true,
+      "provenance": {
+        "heading": {
+          "kind": "curated-translation",
+          "authoredBy": "Sahayak maintainers",
+          "authoredOn": "2026-08-29",
+          "official": false,
+          "note": {
+            "en": "Hindi rendered by the Sahayak maintainers from the official English text. Not the statutory Hindi.",
+            "hi": "हिंदी पाठ सहायक के अनुरक्षकों द्वारा आधिकारिक अंग्रेजी पाठ से तैयार। यह वैधानिक हिंदी पाठ नहीं है।"
+          }
+        }
+      }
     },
     "24": {
       "section": "24",
       "act": "BSA",
       "heading": {
         "en": "Consideration of proved confession affecting person making it and others jointly under trial for same offence.  .",
-        "hi": ""
+        "hi": "साबित संस्वीकृति पर विचार, जो उसे करने वाले व्यक्ति तथा उसी अपराध के लिए संयुक्त रूप से विचारण किए जा रहे अन्य व्यक्तियों को प्रभावित करती है।"
       },
       "status": "changed",
       "chapter": {
@@ -2033,16 +2341,29 @@
       "notes": [],
       "sources": [
         "ncrb-sankalan-table",
-        "ncrb-sankalan-chapters"
+        "ncrb-sankalan-chapters",
+        "curated-hindi"
       ],
-      "verify": false
+      "verify": true,
+      "provenance": {
+        "heading": {
+          "kind": "curated-translation",
+          "authoredBy": "Sahayak maintainers",
+          "authoredOn": "2026-08-29",
+          "official": false,
+          "note": {
+            "en": "Hindi rendered by the Sahayak maintainers from the official English text. Not the statutory Hindi.",
+            "hi": "हिंदी पाठ सहायक के अनुरक्षकों द्वारा आधिकारिक अंग्रेजी पाठ से तैयार। यह वैधानिक हिंदी पाठ नहीं है।"
+          }
+        }
+      }
     },
     "25": {
       "section": "25",
       "act": "BSA",
       "heading": {
         "en": "Admissions not conclusive proof, but may estop.",
-        "hi": ""
+        "hi": "अभिस्वीकृतियाँ निर्णायक सबूत नहीं हैं, किंतु विबंधित कर सकती हैं।"
       },
       "status": "renumbered",
       "chapter": {
@@ -2100,16 +2421,29 @@
       "notes": [],
       "sources": [
         "ncrb-sankalan-table",
-        "ncrb-sankalan-chapters"
+        "ncrb-sankalan-chapters",
+        "curated-hindi"
       ],
-      "verify": false
+      "verify": true,
+      "provenance": {
+        "heading": {
+          "kind": "curated-translation",
+          "authoredBy": "Sahayak maintainers",
+          "authoredOn": "2026-08-29",
+          "official": false,
+          "note": {
+            "en": "Hindi rendered by the Sahayak maintainers from the official English text. Not the statutory Hindi.",
+            "hi": "हिंदी पाठ सहायक के अनुरक्षकों द्वारा आधिकारिक अंग्रेजी पाठ से तैयार। यह वैधानिक हिंदी पाठ नहीं है।"
+          }
+        }
+      }
     },
     "26": {
       "section": "26",
       "act": "BSA",
       "heading": {
         "en": "Cases in which statement of relevant fact by person who is dead or cannot be found, etc., is relevant.",
-        "hi": ""
+        "hi": "वे मामले जिनमें मृत या न मिल सकने वाले आदि व्यक्ति द्वारा सुसंगत तथ्य का कथन सुसंगत है।"
       },
       "status": "changed",
       "chapter": {
@@ -2175,16 +2509,29 @@
       "notes": [],
       "sources": [
         "ncrb-sankalan-table",
-        "ncrb-sankalan-chapters"
+        "ncrb-sankalan-chapters",
+        "curated-hindi"
       ],
-      "verify": false
+      "verify": true,
+      "provenance": {
+        "heading": {
+          "kind": "curated-translation",
+          "authoredBy": "Sahayak maintainers",
+          "authoredOn": "2026-08-29",
+          "official": false,
+          "note": {
+            "en": "Hindi rendered by the Sahayak maintainers from the official English text. Not the statutory Hindi.",
+            "hi": "हिंदी पाठ सहायक के अनुरक्षकों द्वारा आधिकारिक अंग्रेजी पाठ से तैयार। यह वैधानिक हिंदी पाठ नहीं है।"
+          }
+        }
+      }
     },
     "27": {
       "section": "27",
       "act": "BSA",
       "heading": {
         "en": "Relevancy of certain evidence for proving, in subsequent proceeding, truth of facts therein stated.",
-        "hi": ""
+        "hi": "पश्चात्वर्ती कार्यवाही में उसमें कथित तथ्यों की सत्यता साबित करने हेतु कतिपय साक्ष्य की सुसंगतता।"
       },
       "status": "renumbered",
       "chapter": {
@@ -2261,16 +2608,29 @@
       "notes": [],
       "sources": [
         "ncrb-sankalan-table",
-        "ncrb-sankalan-chapters"
+        "ncrb-sankalan-chapters",
+        "curated-hindi"
       ],
-      "verify": false
+      "verify": true,
+      "provenance": {
+        "heading": {
+          "kind": "curated-translation",
+          "authoredBy": "Sahayak maintainers",
+          "authoredOn": "2026-08-29",
+          "official": false,
+          "note": {
+            "en": "Hindi rendered by the Sahayak maintainers from the official English text. Not the statutory Hindi.",
+            "hi": "हिंदी पाठ सहायक के अनुरक्षकों द्वारा आधिकारिक अंग्रेजी पाठ से तैयार। यह वैधानिक हिंदी पाठ नहीं है।"
+          }
+        }
+      }
     },
     "28": {
       "section": "28",
       "act": "BSA",
       "heading": {
         "en": "Entries in books of account when relevant .",
-        "hi": ""
+        "hi": "लेखा-बहियों में प्रविष्टियाँ कब सुसंगत हैं।"
       },
       "status": "renumbered",
       "chapter": {
@@ -2353,16 +2713,29 @@
       "notes": [],
       "sources": [
         "ncrb-sankalan-table",
-        "ncrb-sankalan-chapters"
+        "ncrb-sankalan-chapters",
+        "curated-hindi"
       ],
-      "verify": false
+      "verify": true,
+      "provenance": {
+        "heading": {
+          "kind": "curated-translation",
+          "authoredBy": "Sahayak maintainers",
+          "authoredOn": "2026-08-29",
+          "official": false,
+          "note": {
+            "en": "Hindi rendered by the Sahayak maintainers from the official English text. Not the statutory Hindi.",
+            "hi": "हिंदी पाठ सहायक के अनुरक्षकों द्वारा आधिकारिक अंग्रेजी पाठ से तैयार। यह वैधानिक हिंदी पाठ नहीं है।"
+          }
+        }
+      }
     },
     "29": {
       "section": "29",
       "act": "BSA",
       "heading": {
         "en": "Relevancy of entry in public record or an electronic record made in performance of duty .",
-        "hi": ""
+        "hi": "कर्तव्य पालन में की गई लोक अभिलेख या इलेक्ट्रॉनिक अभिलेख की प्रविष्टि की सुसंगतता।"
       },
       "status": "renumbered",
       "chapter": {
@@ -2461,16 +2834,29 @@
       "notes": [],
       "sources": [
         "ncrb-sankalan-table",
-        "ncrb-sankalan-chapters"
+        "ncrb-sankalan-chapters",
+        "curated-hindi"
       ],
-      "verify": false
+      "verify": true,
+      "provenance": {
+        "heading": {
+          "kind": "curated-translation",
+          "authoredBy": "Sahayak maintainers",
+          "authoredOn": "2026-08-29",
+          "official": false,
+          "note": {
+            "en": "Hindi rendered by the Sahayak maintainers from the official English text. Not the statutory Hindi.",
+            "hi": "हिंदी पाठ सहायक के अनुरक्षकों द्वारा आधिकारिक अंग्रेजी पाठ से तैयार। यह वैधानिक हिंदी पाठ नहीं है।"
+          }
+        }
+      }
     },
     "30": {
       "section": "30",
       "act": "BSA",
       "heading": {
         "en": "Relevancy of statements in maps, charts and plans .",
-        "hi": ""
+        "hi": "मानचित्रों, चार्टों और योजनाओं में कथनों की सुसंगतता।"
       },
       "status": "renumbered",
       "chapter": {
@@ -2533,16 +2919,29 @@
       "notes": [],
       "sources": [
         "ncrb-sankalan-table",
-        "ncrb-sankalan-chapters"
+        "ncrb-sankalan-chapters",
+        "curated-hindi"
       ],
-      "verify": false
+      "verify": true,
+      "provenance": {
+        "heading": {
+          "kind": "curated-translation",
+          "authoredBy": "Sahayak maintainers",
+          "authoredOn": "2026-08-29",
+          "official": false,
+          "note": {
+            "en": "Hindi rendered by the Sahayak maintainers from the official English text. Not the statutory Hindi.",
+            "hi": "हिंदी पाठ सहायक के अनुरक्षकों द्वारा आधिकारिक अंग्रेजी पाठ से तैयार। यह वैधानिक हिंदी पाठ नहीं है।"
+          }
+        }
+      }
     },
     "31": {
       "section": "31",
       "act": "BSA",
       "heading": {
         "en": "Relevancy of statement as to fact of public nature contained in certain Acts or notifications.",
-        "hi": ""
+        "hi": "कतिपय अधिनियमों या अधिसूचनाओं में अंतर्विष्ट लोक प्रकृति के तथ्य के बारे में कथन की सुसंगतता।"
       },
       "status": "changed",
       "chapter": {
@@ -2629,16 +3028,29 @@
       "notes": [],
       "sources": [
         "ncrb-sankalan-table",
-        "ncrb-sankalan-chapters"
+        "ncrb-sankalan-chapters",
+        "curated-hindi"
       ],
-      "verify": false
+      "verify": true,
+      "provenance": {
+        "heading": {
+          "kind": "curated-translation",
+          "authoredBy": "Sahayak maintainers",
+          "authoredOn": "2026-08-29",
+          "official": false,
+          "note": {
+            "en": "Hindi rendered by the Sahayak maintainers from the official English text. Not the statutory Hindi.",
+            "hi": "हिंदी पाठ सहायक के अनुरक्षकों द्वारा आधिकारिक अंग्रेजी पाठ से तैयार। यह वैधानिक हिंदी पाठ नहीं है।"
+          }
+        }
+      }
     },
     "32": {
       "section": "32",
       "act": "BSA",
       "heading": {
         "en": "Relevancy of statements as to any law contained in law books including electronic or digital form.",
-        "hi": ""
+        "hi": "इलेक्ट्रॉनिक या डिजिटल रूप सहित विधि-पुस्तकों में अंतर्विष्ट किसी विधि के बारे में कथनों की सुसंगतता।"
       },
       "status": "changed",
       "chapter": {
@@ -2726,16 +3138,29 @@
       "notes": [],
       "sources": [
         "ncrb-sankalan-table",
-        "ncrb-sankalan-chapters"
+        "ncrb-sankalan-chapters",
+        "curated-hindi"
       ],
-      "verify": false
+      "verify": true,
+      "provenance": {
+        "heading": {
+          "kind": "curated-translation",
+          "authoredBy": "Sahayak maintainers",
+          "authoredOn": "2026-08-29",
+          "official": false,
+          "note": {
+            "en": "Hindi rendered by the Sahayak maintainers from the official English text. Not the statutory Hindi.",
+            "hi": "हिंदी पाठ सहायक के अनुरक्षकों द्वारा आधिकारिक अंग्रेजी पाठ से तैयार। यह वैधानिक हिंदी पाठ नहीं है।"
+          }
+        }
+      }
     },
     "33": {
       "section": "33",
       "act": "BSA",
       "heading": {
         "en": "What evidence to be given when statement forms part of a conversation, document, electronic record, book or series of letters or papers .",
-        "hi": ""
+        "hi": "जब कथन किसी बातचीत, दस्तावेज, इलेक्ट्रॉनिक अभिलेख, पुस्तक या पत्रों या कागजों की शृंखला का भाग हो तब क्या साक्ष्य दिया जाए।"
       },
       "status": "renumbered",
       "chapter": {
@@ -2816,16 +3241,29 @@
       "notes": [],
       "sources": [
         "ncrb-sankalan-table",
-        "ncrb-sankalan-chapters"
+        "ncrb-sankalan-chapters",
+        "curated-hindi"
       ],
-      "verify": false
+      "verify": true,
+      "provenance": {
+        "heading": {
+          "kind": "curated-translation",
+          "authoredBy": "Sahayak maintainers",
+          "authoredOn": "2026-08-29",
+          "official": false,
+          "note": {
+            "en": "Hindi rendered by the Sahayak maintainers from the official English text. Not the statutory Hindi.",
+            "hi": "हिंदी पाठ सहायक के अनुरक्षकों द्वारा आधिकारिक अंग्रेजी पाठ से तैयार। यह वैधानिक हिंदी पाठ नहीं है।"
+          }
+        }
+      }
     },
     "34": {
       "section": "34",
       "act": "BSA",
       "heading": {
         "en": "Previous judgments relevant to bar a second suit or trial .",
-        "hi": ""
+        "hi": "द्वितीय वाद या विचारण को वर्जित करने के लिए पूर्व निर्णयों की सुसंगतता।"
       },
       "status": "renumbered",
       "chapter": {
@@ -2900,16 +3338,29 @@
       "notes": [],
       "sources": [
         "ncrb-sankalan-table",
-        "ncrb-sankalan-chapters"
+        "ncrb-sankalan-chapters",
+        "curated-hindi"
       ],
-      "verify": false
+      "verify": true,
+      "provenance": {
+        "heading": {
+          "kind": "curated-translation",
+          "authoredBy": "Sahayak maintainers",
+          "authoredOn": "2026-08-29",
+          "official": false,
+          "note": {
+            "en": "Hindi rendered by the Sahayak maintainers from the official English text. Not the statutory Hindi.",
+            "hi": "हिंदी पाठ सहायक के अनुरक्षकों द्वारा आधिकारिक अंग्रेजी पाठ से तैयार। यह वैधानिक हिंदी पाठ नहीं है।"
+          }
+        }
+      }
     },
     "35": {
       "section": "35",
       "act": "BSA",
       "heading": {
         "en": "Relevancy of certain judgments in probate, etc., jurisdiction.  .",
-        "hi": ""
+        "hi": "प्रोबेट आदि अधिकारिता में कतिपय निर्णयों की सुसंगतता।"
       },
       "status": "changed",
       "chapter": {
@@ -2971,16 +3422,29 @@
       "notes": [],
       "sources": [
         "ncrb-sankalan-table",
-        "ncrb-sankalan-chapters"
+        "ncrb-sankalan-chapters",
+        "curated-hindi"
       ],
-      "verify": false
+      "verify": true,
+      "provenance": {
+        "heading": {
+          "kind": "curated-translation",
+          "authoredBy": "Sahayak maintainers",
+          "authoredOn": "2026-08-29",
+          "official": false,
+          "note": {
+            "en": "Hindi rendered by the Sahayak maintainers from the official English text. Not the statutory Hindi.",
+            "hi": "हिंदी पाठ सहायक के अनुरक्षकों द्वारा आधिकारिक अंग्रेजी पाठ से तैयार। यह वैधानिक हिंदी पाठ नहीं है।"
+          }
+        }
+      }
     },
     "36": {
       "section": "36",
       "act": "BSA",
       "heading": {
         "en": "Relevancy and effect of judgments, orders or decrees, other than those mentioned in section 35 .",
-        "hi": ""
+        "hi": "धारा 35 में वर्णित से भिन्न निर्णयों, आदेशों या डिक्रियों की सुसंगतता और प्रभाव।"
       },
       "status": "renumbered",
       "chapter": {
@@ -3052,16 +3516,29 @@
       "notes": [],
       "sources": [
         "ncrb-sankalan-table",
-        "ncrb-sankalan-chapters"
+        "ncrb-sankalan-chapters",
+        "curated-hindi"
       ],
-      "verify": false
+      "verify": true,
+      "provenance": {
+        "heading": {
+          "kind": "curated-translation",
+          "authoredBy": "Sahayak maintainers",
+          "authoredOn": "2026-08-29",
+          "official": false,
+          "note": {
+            "en": "Hindi rendered by the Sahayak maintainers from the official English text. Not the statutory Hindi.",
+            "hi": "हिंदी पाठ सहायक के अनुरक्षकों द्वारा आधिकारिक अंग्रेजी पाठ से तैयार। यह वैधानिक हिंदी पाठ नहीं है।"
+          }
+        }
+      }
     },
     "37": {
       "section": "37",
       "act": "BSA",
       "heading": {
         "en": "Judgments, etc., other than those mentioned in sections 34, 35 and 36 when relevant.",
-        "hi": ""
+        "hi": "धारा 34, 35 और 36 में वर्णित से भिन्न निर्णय आदि कब सुसंगत हैं।"
       },
       "status": "renumbered",
       "chapter": {
@@ -3124,16 +3601,29 @@
       "notes": [],
       "sources": [
         "ncrb-sankalan-table",
-        "ncrb-sankalan-chapters"
+        "ncrb-sankalan-chapters",
+        "curated-hindi"
       ],
-      "verify": false
+      "verify": true,
+      "provenance": {
+        "heading": {
+          "kind": "curated-translation",
+          "authoredBy": "Sahayak maintainers",
+          "authoredOn": "2026-08-29",
+          "official": false,
+          "note": {
+            "en": "Hindi rendered by the Sahayak maintainers from the official English text. Not the statutory Hindi.",
+            "hi": "हिंदी पाठ सहायक के अनुरक्षकों द्वारा आधिकारिक अंग्रेजी पाठ से तैयार। यह वैधानिक हिंदी पाठ नहीं है।"
+          }
+        }
+      }
     },
     "38": {
       "section": "38",
       "act": "BSA",
       "heading": {
         "en": "Fraud or collusion in obtaining judgment, or incompetency of Court, may be proved.",
-        "hi": ""
+        "hi": "निर्णय अभिप्राप्त करने में कपट या दुस्संधि, या न्यायालय की असक्षमता, साबित की जा सकेगी।"
       },
       "status": "renumbered",
       "chapter": {
@@ -3199,16 +3689,29 @@
       "notes": [],
       "sources": [
         "ncrb-sankalan-table",
-        "ncrb-sankalan-chapters"
+        "ncrb-sankalan-chapters",
+        "curated-hindi"
       ],
-      "verify": false
+      "verify": true,
+      "provenance": {
+        "heading": {
+          "kind": "curated-translation",
+          "authoredBy": "Sahayak maintainers",
+          "authoredOn": "2026-08-29",
+          "official": false,
+          "note": {
+            "en": "Hindi rendered by the Sahayak maintainers from the official English text. Not the statutory Hindi.",
+            "hi": "हिंदी पाठ सहायक के अनुरक्षकों द्वारा आधिकारिक अंग्रेजी पाठ से तैयार। यह वैधानिक हिंदी पाठ नहीं है।"
+          }
+        }
+      }
     },
     "39": {
       "section": "39",
       "act": "BSA",
       "heading": {
         "en": "Opinions of experts.  .",
-        "hi": ""
+        "hi": "विशेषज्ञों की राय।"
       },
       "status": "changed",
       "chapter": {
@@ -3295,16 +3798,29 @@
       "notes": [],
       "sources": [
         "ncrb-sankalan-table",
-        "ncrb-sankalan-chapters"
+        "ncrb-sankalan-chapters",
+        "curated-hindi"
       ],
-      "verify": false
+      "verify": true,
+      "provenance": {
+        "heading": {
+          "kind": "curated-translation",
+          "authoredBy": "Sahayak maintainers",
+          "authoredOn": "2026-08-29",
+          "official": false,
+          "note": {
+            "en": "Hindi rendered by the Sahayak maintainers from the official English text. Not the statutory Hindi.",
+            "hi": "हिंदी पाठ सहायक के अनुरक्षकों द्वारा आधिकारिक अंग्रेजी पाठ से तैयार। यह वैधानिक हिंदी पाठ नहीं है।"
+          }
+        }
+      }
     },
     "40": {
       "section": "40",
       "act": "BSA",
       "heading": {
         "en": "Facts bearing upon opinions of experts .",
-        "hi": ""
+        "hi": "विशेषज्ञों की राय पर प्रभाव डालने वाले तथ्य।"
       },
       "status": "renumbered",
       "chapter": {
@@ -3378,16 +3894,29 @@
       "notes": [],
       "sources": [
         "ncrb-sankalan-table",
-        "ncrb-sankalan-chapters"
+        "ncrb-sankalan-chapters",
+        "curated-hindi"
       ],
-      "verify": false
+      "verify": true,
+      "provenance": {
+        "heading": {
+          "kind": "curated-translation",
+          "authoredBy": "Sahayak maintainers",
+          "authoredOn": "2026-08-29",
+          "official": false,
+          "note": {
+            "en": "Hindi rendered by the Sahayak maintainers from the official English text. Not the statutory Hindi.",
+            "hi": "हिंदी पाठ सहायक के अनुरक्षकों द्वारा आधिकारिक अंग्रेजी पाठ से तैयार। यह वैधानिक हिंदी पाठ नहीं है।"
+          }
+        }
+      }
     },
     "41": {
       "section": "41",
       "act": "BSA",
       "heading": {
         "en": "Opinion as to handwriting and signature, when relevant .",
-        "hi": ""
+        "hi": "हस्तलेख और हस्ताक्षर के बारे में राय, कब सुसंगत है।"
       },
       "status": "renumbered",
       "chapter": {
@@ -3483,16 +4012,29 @@
       "notes": [],
       "sources": [
         "ncrb-sankalan-table",
-        "ncrb-sankalan-chapters"
+        "ncrb-sankalan-chapters",
+        "curated-hindi"
       ],
-      "verify": false
+      "verify": true,
+      "provenance": {
+        "heading": {
+          "kind": "curated-translation",
+          "authoredBy": "Sahayak maintainers",
+          "authoredOn": "2026-08-29",
+          "official": false,
+          "note": {
+            "en": "Hindi rendered by the Sahayak maintainers from the official English text. Not the statutory Hindi.",
+            "hi": "हिंदी पाठ सहायक के अनुरक्षकों द्वारा आधिकारिक अंग्रेजी पाठ से तैयार। यह वैधानिक हिंदी पाठ नहीं है।"
+          }
+        }
+      }
     },
     "42": {
       "section": "42",
       "act": "BSA",
       "heading": {
         "en": "Opinion as to existence of general custom or right, when relevant .",
-        "hi": ""
+        "hi": "सामान्य रूढ़ि या अधिकार के अस्तित्व के बारे में राय, कब सुसंगत है।"
       },
       "status": "renumbered",
       "chapter": {
@@ -3567,16 +4109,29 @@
       "notes": [],
       "sources": [
         "ncrb-sankalan-table",
-        "ncrb-sankalan-chapters"
+        "ncrb-sankalan-chapters",
+        "curated-hindi"
       ],
-      "verify": false
+      "verify": true,
+      "provenance": {
+        "heading": {
+          "kind": "curated-translation",
+          "authoredBy": "Sahayak maintainers",
+          "authoredOn": "2026-08-29",
+          "official": false,
+          "note": {
+            "en": "Hindi rendered by the Sahayak maintainers from the official English text. Not the statutory Hindi.",
+            "hi": "हिंदी पाठ सहायक के अनुरक्षकों द्वारा आधिकारिक अंग्रेजी पाठ से तैयार। यह वैधानिक हिंदी पाठ नहीं है।"
+          }
+        }
+      }
     },
     "43": {
       "section": "43",
       "act": "BSA",
       "heading": {
         "en": "Opinion as to usages, tenets, etc., when relevant .",
-        "hi": ""
+        "hi": "रूढ़ियों, सिद्धांतों आदि के बारे में राय, कब सुसंगत है।"
       },
       "status": "renumbered",
       "chapter": {
@@ -3649,16 +4204,29 @@
       "notes": [],
       "sources": [
         "ncrb-sankalan-table",
-        "ncrb-sankalan-chapters"
+        "ncrb-sankalan-chapters",
+        "curated-hindi"
       ],
-      "verify": false
+      "verify": true,
+      "provenance": {
+        "heading": {
+          "kind": "curated-translation",
+          "authoredBy": "Sahayak maintainers",
+          "authoredOn": "2026-08-29",
+          "official": false,
+          "note": {
+            "en": "Hindi rendered by the Sahayak maintainers from the official English text. Not the statutory Hindi.",
+            "hi": "हिंदी पाठ सहायक के अनुरक्षकों द्वारा आधिकारिक अंग्रेजी पाठ से तैयार। यह वैधानिक हिंदी पाठ नहीं है।"
+          }
+        }
+      }
     },
     "44": {
       "section": "44",
       "act": "BSA",
       "heading": {
         "en": "Opinion on relationship, when relevant .",
-        "hi": ""
+        "hi": "नातेदारी के बारे में राय, कब सुसंगत है।"
       },
       "status": "renumbered",
       "chapter": {
@@ -3730,16 +4298,29 @@
       "notes": [],
       "sources": [
         "ncrb-sankalan-table",
-        "ncrb-sankalan-chapters"
+        "ncrb-sankalan-chapters",
+        "curated-hindi"
       ],
-      "verify": false
+      "verify": true,
+      "provenance": {
+        "heading": {
+          "kind": "curated-translation",
+          "authoredBy": "Sahayak maintainers",
+          "authoredOn": "2026-08-29",
+          "official": false,
+          "note": {
+            "en": "Hindi rendered by the Sahayak maintainers from the official English text. Not the statutory Hindi.",
+            "hi": "हिंदी पाठ सहायक के अनुरक्षकों द्वारा आधिकारिक अंग्रेजी पाठ से तैयार। यह वैधानिक हिंदी पाठ नहीं है।"
+          }
+        }
+      }
     },
     "45": {
       "section": "45",
       "act": "BSA",
       "heading": {
         "en": "Grounds of opinion, when relevant.",
-        "hi": ""
+        "hi": "राय के आधार, कब सुसंगत हैं।"
       },
       "status": "renumbered",
       "chapter": {
@@ -3811,16 +4392,29 @@
       "notes": [],
       "sources": [
         "ncrb-sankalan-table",
-        "ncrb-sankalan-chapters"
+        "ncrb-sankalan-chapters",
+        "curated-hindi"
       ],
-      "verify": false
+      "verify": true,
+      "provenance": {
+        "heading": {
+          "kind": "curated-translation",
+          "authoredBy": "Sahayak maintainers",
+          "authoredOn": "2026-08-29",
+          "official": false,
+          "note": {
+            "en": "Hindi rendered by the Sahayak maintainers from the official English text. Not the statutory Hindi.",
+            "hi": "हिंदी पाठ सहायक के अनुरक्षकों द्वारा आधिकारिक अंग्रेजी पाठ से तैयार। यह वैधानिक हिंदी पाठ नहीं है।"
+          }
+        }
+      }
     },
     "46": {
       "section": "46",
       "act": "BSA",
       "heading": {
         "en": "In civil cases character to prove conduct imputed, irrelevant.",
-        "hi": ""
+        "hi": "सिविल मामलों में अभिकथित आचरण साबित करने के लिए चरित्र असुसंगत है।"
       },
       "status": "renumbered",
       "chapter": {
@@ -3885,16 +4479,29 @@
       "notes": [],
       "sources": [
         "ncrb-sankalan-table",
-        "ncrb-sankalan-chapters"
+        "ncrb-sankalan-chapters",
+        "curated-hindi"
       ],
-      "verify": false
+      "verify": true,
+      "provenance": {
+        "heading": {
+          "kind": "curated-translation",
+          "authoredBy": "Sahayak maintainers",
+          "authoredOn": "2026-08-29",
+          "official": false,
+          "note": {
+            "en": "Hindi rendered by the Sahayak maintainers from the official English text. Not the statutory Hindi.",
+            "hi": "हिंदी पाठ सहायक के अनुरक्षकों द्वारा आधिकारिक अंग्रेजी पाठ से तैयार। यह वैधानिक हिंदी पाठ नहीं है।"
+          }
+        }
+      }
     },
     "47": {
       "section": "47",
       "act": "BSA",
       "heading": {
         "en": "In criminal cases previous good character relevant .",
-        "hi": ""
+        "hi": "दांडिक मामलों में पूर्व सच्चरित्रता सुसंगत है।"
       },
       "status": "renumbered",
       "chapter": {
@@ -3958,16 +4565,29 @@
       "notes": [],
       "sources": [
         "ncrb-sankalan-table",
-        "ncrb-sankalan-chapters"
+        "ncrb-sankalan-chapters",
+        "curated-hindi"
       ],
-      "verify": false
+      "verify": true,
+      "provenance": {
+        "heading": {
+          "kind": "curated-translation",
+          "authoredBy": "Sahayak maintainers",
+          "authoredOn": "2026-08-29",
+          "official": false,
+          "note": {
+            "en": "Hindi rendered by the Sahayak maintainers from the official English text. Not the statutory Hindi.",
+            "hi": "हिंदी पाठ सहायक के अनुरक्षकों द्वारा आधिकारिक अंग्रेजी पाठ से तैयार। यह वैधानिक हिंदी पाठ नहीं है।"
+          }
+        }
+      }
     },
     "48": {
       "section": "48",
       "act": "BSA",
       "heading": {
         "en": "Evidence of character or previous sexual experience not relevant in certain cases .",
-        "hi": ""
+        "hi": "कतिपय मामलों में चरित्र या पूर्व लैंगिक अनुभव का साक्ष्य सुसंगत नहीं है।"
       },
       "status": "renumbered",
       "chapter": {
@@ -4036,16 +4656,29 @@
       "notes": [],
       "sources": [
         "ncrb-sankalan-table",
-        "ncrb-sankalan-chapters"
+        "ncrb-sankalan-chapters",
+        "curated-hindi"
       ],
-      "verify": false
+      "verify": true,
+      "provenance": {
+        "heading": {
+          "kind": "curated-translation",
+          "authoredBy": "Sahayak maintainers",
+          "authoredOn": "2026-08-29",
+          "official": false,
+          "note": {
+            "en": "Hindi rendered by the Sahayak maintainers from the official English text. Not the statutory Hindi.",
+            "hi": "हिंदी पाठ सहायक के अनुरक्षकों द्वारा आधिकारिक अंग्रेजी पाठ से तैयार। यह वैधानिक हिंदी पाठ नहीं है।"
+          }
+        }
+      }
     },
     "49": {
       "section": "49",
       "act": "BSA",
       "heading": {
         "en": "Previous bad character not relevant, except in reply .",
-        "hi": ""
+        "hi": "पूर्व दुश्चरित्रता सुसंगत नहीं है, सिवाय प्रत्युत्तर में।"
       },
       "status": "renumbered",
       "chapter": {
@@ -4110,16 +4743,29 @@
       "notes": [],
       "sources": [
         "ncrb-sankalan-table",
-        "ncrb-sankalan-chapters"
+        "ncrb-sankalan-chapters",
+        "curated-hindi"
       ],
-      "verify": false
+      "verify": true,
+      "provenance": {
+        "heading": {
+          "kind": "curated-translation",
+          "authoredBy": "Sahayak maintainers",
+          "authoredOn": "2026-08-29",
+          "official": false,
+          "note": {
+            "en": "Hindi rendered by the Sahayak maintainers from the official English text. Not the statutory Hindi.",
+            "hi": "हिंदी पाठ सहायक के अनुरक्षकों द्वारा आधिकारिक अंग्रेजी पाठ से तैयार। यह वैधानिक हिंदी पाठ नहीं है।"
+          }
+        }
+      }
     },
     "50": {
       "section": "50",
       "act": "BSA",
       "heading": {
         "en": "Character as affecting damages .",
-        "hi": ""
+        "hi": "नुकसानी को प्रभावित करने वाला चरित्र।"
       },
       "status": "renumbered",
       "chapter": {
@@ -4181,16 +4827,29 @@
       "notes": [],
       "sources": [
         "ncrb-sankalan-table",
-        "ncrb-sankalan-chapters"
+        "ncrb-sankalan-chapters",
+        "curated-hindi"
       ],
-      "verify": false
+      "verify": true,
+      "provenance": {
+        "heading": {
+          "kind": "curated-translation",
+          "authoredBy": "Sahayak maintainers",
+          "authoredOn": "2026-08-29",
+          "official": false,
+          "note": {
+            "en": "Hindi rendered by the Sahayak maintainers from the official English text. Not the statutory Hindi.",
+            "hi": "हिंदी पाठ सहायक के अनुरक्षकों द्वारा आधिकारिक अंग्रेजी पाठ से तैयार। यह वैधानिक हिंदी पाठ नहीं है।"
+          }
+        }
+      }
     },
     "51": {
       "section": "51",
       "act": "BSA",
       "heading": {
         "en": "Fact judicially noticeable need not be proved .",
-        "hi": ""
+        "hi": "न्यायिक रूप से अवगृहीत तथ्य साबित करने की आवश्यकता नहीं है।"
       },
       "status": "renumbered",
       "chapter": {
@@ -4244,16 +4903,29 @@
       "notes": [],
       "sources": [
         "ncrb-sankalan-table",
-        "ncrb-sankalan-chapters"
+        "ncrb-sankalan-chapters",
+        "curated-hindi"
       ],
-      "verify": false
+      "verify": true,
+      "provenance": {
+        "heading": {
+          "kind": "curated-translation",
+          "authoredBy": "Sahayak maintainers",
+          "authoredOn": "2026-08-29",
+          "official": false,
+          "note": {
+            "en": "Hindi rendered by the Sahayak maintainers from the official English text. Not the statutory Hindi.",
+            "hi": "हिंदी पाठ सहायक के अनुरक्षकों द्वारा आधिकारिक अंग्रेजी पाठ से तैयार। यह वैधानिक हिंदी पाठ नहीं है।"
+          }
+        }
+      }
     },
     "52": {
       "section": "52",
       "act": "BSA",
       "heading": {
         "en": "Facts of which Court shall take judicial notice.  .",
-        "hi": ""
+        "hi": "वे तथ्य जिनका न्यायालय न्यायिक अवगहन करेगा।"
       },
       "status": "changed",
       "chapter": {
@@ -4307,16 +4979,29 @@
       "notes": [],
       "sources": [
         "ncrb-sankalan-table",
-        "ncrb-sankalan-chapters"
+        "ncrb-sankalan-chapters",
+        "curated-hindi"
       ],
-      "verify": false
+      "verify": true,
+      "provenance": {
+        "heading": {
+          "kind": "curated-translation",
+          "authoredBy": "Sahayak maintainers",
+          "authoredOn": "2026-08-29",
+          "official": false,
+          "note": {
+            "en": "Hindi rendered by the Sahayak maintainers from the official English text. Not the statutory Hindi.",
+            "hi": "हिंदी पाठ सहायक के अनुरक्षकों द्वारा आधिकारिक अंग्रेजी पाठ से तैयार। यह वैधानिक हिंदी पाठ नहीं है।"
+          }
+        }
+      }
     },
     "53": {
       "section": "53",
       "act": "BSA",
       "heading": {
         "en": "Facts admitted need not be proved.",
-        "hi": ""
+        "hi": "स्वीकृत तथ्यों को साबित करने की आवश्यकता नहीं है।"
       },
       "status": "renumbered",
       "chapter": {
@@ -4369,16 +5054,29 @@
       "notes": [],
       "sources": [
         "ncrb-sankalan-table",
-        "ncrb-sankalan-chapters"
+        "ncrb-sankalan-chapters",
+        "curated-hindi"
       ],
-      "verify": false
+      "verify": true,
+      "provenance": {
+        "heading": {
+          "kind": "curated-translation",
+          "authoredBy": "Sahayak maintainers",
+          "authoredOn": "2026-08-29",
+          "official": false,
+          "note": {
+            "en": "Hindi rendered by the Sahayak maintainers from the official English text. Not the statutory Hindi.",
+            "hi": "हिंदी पाठ सहायक के अनुरक्षकों द्वारा आधिकारिक अंग्रेजी पाठ से तैयार। यह वैधानिक हिंदी पाठ नहीं है।"
+          }
+        }
+      }
     },
     "54": {
       "section": "54",
       "act": "BSA",
       "heading": {
         "en": "Proof of facts by oral evidence.",
-        "hi": ""
+        "hi": "मौखिक साक्ष्य द्वारा तथ्यों का साबित किया जाना।"
       },
       "status": "changed",
       "chapter": {
@@ -4440,16 +5138,29 @@
       "notes": [],
       "sources": [
         "ncrb-sankalan-table",
-        "ncrb-sankalan-chapters"
+        "ncrb-sankalan-chapters",
+        "curated-hindi"
       ],
-      "verify": false
+      "verify": true,
+      "provenance": {
+        "heading": {
+          "kind": "curated-translation",
+          "authoredBy": "Sahayak maintainers",
+          "authoredOn": "2026-08-29",
+          "official": false,
+          "note": {
+            "en": "Hindi rendered by the Sahayak maintainers from the official English text. Not the statutory Hindi.",
+            "hi": "हिंदी पाठ सहायक के अनुरक्षकों द्वारा आधिकारिक अंग्रेजी पाठ से तैयार। यह वैधानिक हिंदी पाठ नहीं है।"
+          }
+        }
+      }
     },
     "55": {
       "section": "55",
       "act": "BSA",
       "heading": {
         "en": "Oral evidence to be direct.",
-        "hi": ""
+        "hi": "मौखिक साक्ष्य प्रत्यक्ष होना चाहिए।"
       },
       "status": "renumbered",
       "chapter": {
@@ -4513,16 +5224,29 @@
       "notes": [],
       "sources": [
         "ncrb-sankalan-table",
-        "ncrb-sankalan-chapters"
+        "ncrb-sankalan-chapters",
+        "curated-hindi"
       ],
-      "verify": false
+      "verify": true,
+      "provenance": {
+        "heading": {
+          "kind": "curated-translation",
+          "authoredBy": "Sahayak maintainers",
+          "authoredOn": "2026-08-29",
+          "official": false,
+          "note": {
+            "en": "Hindi rendered by the Sahayak maintainers from the official English text. Not the statutory Hindi.",
+            "hi": "हिंदी पाठ सहायक के अनुरक्षकों द्वारा आधिकारिक अंग्रेजी पाठ से तैयार। यह वैधानिक हिंदी पाठ नहीं है।"
+          }
+        }
+      }
     },
     "56": {
       "section": "56",
       "act": "BSA",
       "heading": {
         "en": "Proof of contents of documents.",
-        "hi": ""
+        "hi": "दस्तावेजों की अंतर्वस्तु का साबित किया जाना।"
       },
       "status": "renumbered",
       "chapter": {
@@ -4583,16 +5307,29 @@
       "notes": [],
       "sources": [
         "ncrb-sankalan-table",
-        "ncrb-sankalan-chapters"
+        "ncrb-sankalan-chapters",
+        "curated-hindi"
       ],
-      "verify": false
+      "verify": true,
+      "provenance": {
+        "heading": {
+          "kind": "curated-translation",
+          "authoredBy": "Sahayak maintainers",
+          "authoredOn": "2026-08-29",
+          "official": false,
+          "note": {
+            "en": "Hindi rendered by the Sahayak maintainers from the official English text. Not the statutory Hindi.",
+            "hi": "हिंदी पाठ सहायक के अनुरक्षकों द्वारा आधिकारिक अंग्रेजी पाठ से तैयार। यह वैधानिक हिंदी पाठ नहीं है।"
+          }
+        }
+      }
     },
     "57": {
       "section": "57",
       "act": "BSA",
       "heading": {
         "en": "Primary evidence.",
-        "hi": ""
+        "hi": "प्राथमिक साक्ष्य।"
       },
       "status": "changed",
       "chapter": {
@@ -4652,16 +5389,29 @@
       "notes": [],
       "sources": [
         "ncrb-sankalan-table",
-        "ncrb-sankalan-chapters"
+        "ncrb-sankalan-chapters",
+        "curated-hindi"
       ],
-      "verify": false
+      "verify": true,
+      "provenance": {
+        "heading": {
+          "kind": "curated-translation",
+          "authoredBy": "Sahayak maintainers",
+          "authoredOn": "2026-08-29",
+          "official": false,
+          "note": {
+            "en": "Hindi rendered by the Sahayak maintainers from the official English text. Not the statutory Hindi.",
+            "hi": "हिंदी पाठ सहायक के अनुरक्षकों द्वारा आधिकारिक अंग्रेजी पाठ से तैयार। यह वैधानिक हिंदी पाठ नहीं है।"
+          }
+        }
+      }
     },
     "58": {
       "section": "58",
       "act": "BSA",
       "heading": {
         "en": "Secondary evidence.",
-        "hi": ""
+        "hi": "द्वितीयक साक्ष्य।"
       },
       "status": "changed",
       "chapter": {
@@ -4712,16 +5462,29 @@
       "notes": [],
       "sources": [
         "ncrb-sankalan-table",
-        "ncrb-sankalan-chapters"
+        "ncrb-sankalan-chapters",
+        "curated-hindi"
       ],
-      "verify": false
+      "verify": true,
+      "provenance": {
+        "heading": {
+          "kind": "curated-translation",
+          "authoredBy": "Sahayak maintainers",
+          "authoredOn": "2026-08-29",
+          "official": false,
+          "note": {
+            "en": "Hindi rendered by the Sahayak maintainers from the official English text. Not the statutory Hindi.",
+            "hi": "हिंदी पाठ सहायक के अनुरक्षकों द्वारा आधिकारिक अंग्रेजी पाठ से तैयार। यह वैधानिक हिंदी पाठ नहीं है।"
+          }
+        }
+      }
     },
     "59": {
       "section": "59",
       "act": "BSA",
       "heading": {
         "en": "Proof of documents by primary evidence.",
-        "hi": ""
+        "hi": "प्राथमिक साक्ष्य द्वारा दस्तावेजों का साबित किया जाना।"
       },
       "status": "renumbered",
       "chapter": {
@@ -4783,16 +5546,29 @@
       "notes": [],
       "sources": [
         "ncrb-sankalan-table",
-        "ncrb-sankalan-chapters"
+        "ncrb-sankalan-chapters",
+        "curated-hindi"
       ],
-      "verify": false
+      "verify": true,
+      "provenance": {
+        "heading": {
+          "kind": "curated-translation",
+          "authoredBy": "Sahayak maintainers",
+          "authoredOn": "2026-08-29",
+          "official": false,
+          "note": {
+            "en": "Hindi rendered by the Sahayak maintainers from the official English text. Not the statutory Hindi.",
+            "hi": "हिंदी पाठ सहायक के अनुरक्षकों द्वारा आधिकारिक अंग्रेजी पाठ से तैयार। यह वैधानिक हिंदी पाठ नहीं है।"
+          }
+        }
+      }
     },
     "60": {
       "section": "60",
       "act": "BSA",
       "heading": {
         "en": "Cases in which secondary evidence relating to documents may be given.",
-        "hi": ""
+        "hi": "वे मामले जिनमें दस्तावेजों से संबंधित द्वितीयक साक्ष्य दिया जा सकेगा।"
       },
       "status": "renumbered",
       "chapter": {
@@ -4855,16 +5631,29 @@
       "notes": [],
       "sources": [
         "ncrb-sankalan-table",
-        "ncrb-sankalan-chapters"
+        "ncrb-sankalan-chapters",
+        "curated-hindi"
       ],
-      "verify": false
+      "verify": true,
+      "provenance": {
+        "heading": {
+          "kind": "curated-translation",
+          "authoredBy": "Sahayak maintainers",
+          "authoredOn": "2026-08-29",
+          "official": false,
+          "note": {
+            "en": "Hindi rendered by the Sahayak maintainers from the official English text. Not the statutory Hindi.",
+            "hi": "हिंदी पाठ सहायक के अनुरक्षकों द्वारा आधिकारिक अंग्रेजी पाठ से तैयार। यह वैधानिक हिंदी पाठ नहीं है।"
+          }
+        }
+      }
     },
     "61": {
       "section": "61",
       "act": "BSA",
       "heading": {
         "en": "Electronic or digital record.",
-        "hi": ""
+        "hi": "इलेक्ट्रॉनिक या डिजिटल अभिलेख।"
       },
       "status": "new",
       "chapter": {
@@ -4923,16 +5712,29 @@
       "notes": [],
       "sources": [
         "ncrb-sankalan-table",
-        "ncrb-sankalan-chapters"
+        "ncrb-sankalan-chapters",
+        "curated-hindi"
       ],
-      "verify": false
+      "verify": true,
+      "provenance": {
+        "heading": {
+          "kind": "curated-translation",
+          "authoredBy": "Sahayak maintainers",
+          "authoredOn": "2026-08-29",
+          "official": false,
+          "note": {
+            "en": "Hindi rendered by the Sahayak maintainers from the official English text. Not the statutory Hindi.",
+            "hi": "हिंदी पाठ सहायक के अनुरक्षकों द्वारा आधिकारिक अंग्रेजी पाठ से तैयार। यह वैधानिक हिंदी पाठ नहीं है।"
+          }
+        }
+      }
     },
     "62": {
       "section": "62",
       "act": "BSA",
       "heading": {
         "en": "Special provisions as to evidence relating to electronic record.",
-        "hi": ""
+        "hi": "इलेक्ट्रॉनिक अभिलेख से संबंधित साक्ष्य के बारे में विशेष उपबंध।"
       },
       "status": "renumbered",
       "chapter": {
@@ -5006,16 +5808,29 @@
       "notes": [],
       "sources": [
         "ncrb-sankalan-table",
-        "ncrb-sankalan-chapters"
+        "ncrb-sankalan-chapters",
+        "curated-hindi"
       ],
-      "verify": false
+      "verify": true,
+      "provenance": {
+        "heading": {
+          "kind": "curated-translation",
+          "authoredBy": "Sahayak maintainers",
+          "authoredOn": "2026-08-29",
+          "official": false,
+          "note": {
+            "en": "Hindi rendered by the Sahayak maintainers from the official English text. Not the statutory Hindi.",
+            "hi": "हिंदी पाठ सहायक के अनुरक्षकों द्वारा आधिकारिक अंग्रेजी पाठ से तैयार। यह वैधानिक हिंदी पाठ नहीं है।"
+          }
+        }
+      }
     },
     "63": {
       "section": "63",
       "act": "BSA",
       "heading": {
         "en": "Admissibility of electronic records.",
-        "hi": ""
+        "hi": "इलेक्ट्रॉनिक अभिलेखों की ग्राह्यता।"
       },
       "status": "changed",
       "chapter": {
@@ -5087,16 +5902,29 @@
       "notes": [],
       "sources": [
         "ncrb-sankalan-table",
-        "ncrb-sankalan-chapters"
+        "ncrb-sankalan-chapters",
+        "curated-hindi"
       ],
-      "verify": false
+      "verify": true,
+      "provenance": {
+        "heading": {
+          "kind": "curated-translation",
+          "authoredBy": "Sahayak maintainers",
+          "authoredOn": "2026-08-29",
+          "official": false,
+          "note": {
+            "en": "Hindi rendered by the Sahayak maintainers from the official English text. Not the statutory Hindi.",
+            "hi": "हिंदी पाठ सहायक के अनुरक्षकों द्वारा आधिकारिक अंग्रेजी पाठ से तैयार। यह वैधानिक हिंदी पाठ नहीं है।"
+          }
+        }
+      }
     },
     "64": {
       "section": "64",
       "act": "BSA",
       "heading": {
         "en": "Rules as to notice to produce.",
-        "hi": ""
+        "hi": "पेश करने की सूचना के बारे में नियम।"
       },
       "status": "changed",
       "chapter": {
@@ -5157,16 +5985,29 @@
       "notes": [],
       "sources": [
         "ncrb-sankalan-table",
-        "ncrb-sankalan-chapters"
+        "ncrb-sankalan-chapters",
+        "curated-hindi"
       ],
-      "verify": false
+      "verify": true,
+      "provenance": {
+        "heading": {
+          "kind": "curated-translation",
+          "authoredBy": "Sahayak maintainers",
+          "authoredOn": "2026-08-29",
+          "official": false,
+          "note": {
+            "en": "Hindi rendered by the Sahayak maintainers from the official English text. Not the statutory Hindi.",
+            "hi": "हिंदी पाठ सहायक के अनुरक्षकों द्वारा आधिकारिक अंग्रेजी पाठ से तैयार। यह वैधानिक हिंदी पाठ नहीं है।"
+          }
+        }
+      }
     },
     "65": {
       "section": "65",
       "act": "BSA",
       "heading": {
         "en": "Proof of signature and handwriting of person alleged to have signed or written document Produced.",
-        "hi": ""
+        "hi": "पेश किए गए दस्तावेज पर हस्ताक्षर करने या लिखने वाले अभिकथित व्यक्ति के हस्ताक्षर और हस्तलेख का साबित किया जाना।"
       },
       "status": "renumbered",
       "chapter": {
@@ -5242,16 +6083,29 @@
       "notes": [],
       "sources": [
         "ncrb-sankalan-table",
-        "ncrb-sankalan-chapters"
+        "ncrb-sankalan-chapters",
+        "curated-hindi"
       ],
-      "verify": false
+      "verify": true,
+      "provenance": {
+        "heading": {
+          "kind": "curated-translation",
+          "authoredBy": "Sahayak maintainers",
+          "authoredOn": "2026-08-29",
+          "official": false,
+          "note": {
+            "en": "Hindi rendered by the Sahayak maintainers from the official English text. Not the statutory Hindi.",
+            "hi": "हिंदी पाठ सहायक के अनुरक्षकों द्वारा आधिकारिक अंग्रेजी पाठ से तैयार। यह वैधानिक हिंदी पाठ नहीं है।"
+          }
+        }
+      }
     },
     "66": {
       "section": "66",
       "act": "BSA",
       "heading": {
         "en": "Proof as to electronic signature.",
-        "hi": ""
+        "hi": "इलेक्ट्रॉनिक हस्ताक्षर के बारे में साबित किया जाना।"
       },
       "status": "renumbered",
       "chapter": {
@@ -5323,16 +6177,29 @@
       "notes": [],
       "sources": [
         "ncrb-sankalan-table",
-        "ncrb-sankalan-chapters"
+        "ncrb-sankalan-chapters",
+        "curated-hindi"
       ],
-      "verify": false
+      "verify": true,
+      "provenance": {
+        "heading": {
+          "kind": "curated-translation",
+          "authoredBy": "Sahayak maintainers",
+          "authoredOn": "2026-08-29",
+          "official": false,
+          "note": {
+            "en": "Hindi rendered by the Sahayak maintainers from the official English text. Not the statutory Hindi.",
+            "hi": "हिंदी पाठ सहायक के अनुरक्षकों द्वारा आधिकारिक अंग्रेजी पाठ से तैयार। यह वैधानिक हिंदी पाठ नहीं है।"
+          }
+        }
+      }
     },
     "67": {
       "section": "67",
       "act": "BSA",
       "heading": {
         "en": "Proof of execution of document required by law to be attested.",
-        "hi": ""
+        "hi": "विधि द्वारा अनुप्रमाणित किए जाने के लिए अपेक्षित दस्तावेज के निष्पादन का साबित किया जाना।"
       },
       "status": "renumbered",
       "chapter": {
@@ -5405,16 +6272,29 @@
       "notes": [],
       "sources": [
         "ncrb-sankalan-table",
-        "ncrb-sankalan-chapters"
+        "ncrb-sankalan-chapters",
+        "curated-hindi"
       ],
-      "verify": false
+      "verify": true,
+      "provenance": {
+        "heading": {
+          "kind": "curated-translation",
+          "authoredBy": "Sahayak maintainers",
+          "authoredOn": "2026-08-29",
+          "official": false,
+          "note": {
+            "en": "Hindi rendered by the Sahayak maintainers from the official English text. Not the statutory Hindi.",
+            "hi": "हिंदी पाठ सहायक के अनुरक्षकों द्वारा आधिकारिक अंग्रेजी पाठ से तैयार। यह वैधानिक हिंदी पाठ नहीं है।"
+          }
+        }
+      }
     },
     "68": {
       "section": "68",
       "act": "BSA",
       "heading": {
         "en": "Proof where no attesting witness found.",
-        "hi": ""
+        "hi": "जहाँ कोई अनुप्रमाणक साक्षी न मिले वहाँ साबित किया जाना।"
       },
       "status": "renumbered",
       "chapter": {
@@ -5496,16 +6376,29 @@
       "notes": [],
       "sources": [
         "ncrb-sankalan-table",
-        "ncrb-sankalan-chapters"
+        "ncrb-sankalan-chapters",
+        "curated-hindi"
       ],
-      "verify": false
+      "verify": true,
+      "provenance": {
+        "heading": {
+          "kind": "curated-translation",
+          "authoredBy": "Sahayak maintainers",
+          "authoredOn": "2026-08-29",
+          "official": false,
+          "note": {
+            "en": "Hindi rendered by the Sahayak maintainers from the official English text. Not the statutory Hindi.",
+            "hi": "हिंदी पाठ सहायक के अनुरक्षकों द्वारा आधिकारिक अंग्रेजी पाठ से तैयार। यह वैधानिक हिंदी पाठ नहीं है।"
+          }
+        }
+      }
     },
     "69": {
       "section": "69",
       "act": "BSA",
       "heading": {
         "en": "Admission of execution by party to attested document.",
-        "hi": ""
+        "hi": "अनुप्रमाणित दस्तावेज के पक्षकार द्वारा निष्पादन की अभिस्वीकृति।"
       },
       "status": "renumbered",
       "chapter": {
@@ -5567,16 +6460,29 @@
       "notes": [],
       "sources": [
         "ncrb-sankalan-table",
-        "ncrb-sankalan-chapters"
+        "ncrb-sankalan-chapters",
+        "curated-hindi"
       ],
-      "verify": false
+      "verify": true,
+      "provenance": {
+        "heading": {
+          "kind": "curated-translation",
+          "authoredBy": "Sahayak maintainers",
+          "authoredOn": "2026-08-29",
+          "official": false,
+          "note": {
+            "en": "Hindi rendered by the Sahayak maintainers from the official English text. Not the statutory Hindi.",
+            "hi": "हिंदी पाठ सहायक के अनुरक्षकों द्वारा आधिकारिक अंग्रेजी पाठ से तैयार। यह वैधानिक हिंदी पाठ नहीं है।"
+          }
+        }
+      }
     },
     "70": {
       "section": "70",
       "act": "BSA",
       "heading": {
         "en": "Proof when attesting witness denies execution.",
-        "hi": ""
+        "hi": "जब अनुप्रमाणक साक्षी निष्पादन से इनकार करे तब साबित किया जाना।"
       },
       "status": "renumbered",
       "chapter": {
@@ -5648,16 +6554,29 @@
       "notes": [],
       "sources": [
         "ncrb-sankalan-table",
-        "ncrb-sankalan-chapters"
+        "ncrb-sankalan-chapters",
+        "curated-hindi"
       ],
-      "verify": false
+      "verify": true,
+      "provenance": {
+        "heading": {
+          "kind": "curated-translation",
+          "authoredBy": "Sahayak maintainers",
+          "authoredOn": "2026-08-29",
+          "official": false,
+          "note": {
+            "en": "Hindi rendered by the Sahayak maintainers from the official English text. Not the statutory Hindi.",
+            "hi": "हिंदी पाठ सहायक के अनुरक्षकों द्वारा आधिकारिक अंग्रेजी पाठ से तैयार। यह वैधानिक हिंदी पाठ नहीं है।"
+          }
+        }
+      }
     },
     "71": {
       "section": "71",
       "act": "BSA",
       "heading": {
         "en": "Proof of document not required by law to be attested.",
-        "hi": ""
+        "hi": "विधि द्वारा अनुप्रमाणित किए जाने के लिए अपेक्षित न होने वाले दस्तावेज का साबित किया जाना।"
       },
       "status": "renumbered",
       "chapter": {
@@ -5719,16 +6638,29 @@
       "notes": [],
       "sources": [
         "ncrb-sankalan-table",
-        "ncrb-sankalan-chapters"
+        "ncrb-sankalan-chapters",
+        "curated-hindi"
       ],
-      "verify": false
+      "verify": true,
+      "provenance": {
+        "heading": {
+          "kind": "curated-translation",
+          "authoredBy": "Sahayak maintainers",
+          "authoredOn": "2026-08-29",
+          "official": false,
+          "note": {
+            "en": "Hindi rendered by the Sahayak maintainers from the official English text. Not the statutory Hindi.",
+            "hi": "हिंदी पाठ सहायक के अनुरक्षकों द्वारा आधिकारिक अंग्रेजी पाठ से तैयार। यह वैधानिक हिंदी पाठ नहीं है।"
+          }
+        }
+      }
     },
     "72": {
       "section": "72",
       "act": "BSA",
       "heading": {
         "en": "Comparison of signature, writing or seal with others admitted or proved.",
-        "hi": ""
+        "hi": "स्वीकृत या साबित अन्य हस्ताक्षरों, लेखों या मुद्राओं के साथ तुलना।"
       },
       "status": "renumbered",
       "chapter": {
@@ -5784,16 +6716,29 @@
       "notes": [],
       "sources": [
         "ncrb-sankalan-table",
-        "ncrb-sankalan-chapters"
+        "ncrb-sankalan-chapters",
+        "curated-hindi"
       ],
-      "verify": false
+      "verify": true,
+      "provenance": {
+        "heading": {
+          "kind": "curated-translation",
+          "authoredBy": "Sahayak maintainers",
+          "authoredOn": "2026-08-29",
+          "official": false,
+          "note": {
+            "en": "Hindi rendered by the Sahayak maintainers from the official English text. Not the statutory Hindi.",
+            "hi": "हिंदी पाठ सहायक के अनुरक्षकों द्वारा आधिकारिक अंग्रेजी पाठ से तैयार। यह वैधानिक हिंदी पाठ नहीं है।"
+          }
+        }
+      }
     },
     "73": {
       "section": "73",
       "act": "BSA",
       "heading": {
         "en": "Proof as to verification of digital signature.",
-        "hi": ""
+        "hi": "डिजिटल हस्ताक्षर के सत्यापन के बारे में साबित किया जाना।"
       },
       "status": "renumbered",
       "chapter": {
@@ -5859,16 +6804,29 @@
       "notes": [],
       "sources": [
         "ncrb-sankalan-table",
-        "ncrb-sankalan-chapters"
+        "ncrb-sankalan-chapters",
+        "curated-hindi"
       ],
-      "verify": false
+      "verify": true,
+      "provenance": {
+        "heading": {
+          "kind": "curated-translation",
+          "authoredBy": "Sahayak maintainers",
+          "authoredOn": "2026-08-29",
+          "official": false,
+          "note": {
+            "en": "Hindi rendered by the Sahayak maintainers from the official English text. Not the statutory Hindi.",
+            "hi": "हिंदी पाठ सहायक के अनुरक्षकों द्वारा आधिकारिक अंग्रेजी पाठ से तैयार। यह वैधानिक हिंदी पाठ नहीं है।"
+          }
+        }
+      }
     },
     "74": {
       "section": "74",
       "act": "BSA",
       "heading": {
         "en": "Public and private documents.",
-        "hi": ""
+        "hi": "लोक और प्राइवेट दस्तावेज।"
       },
       "status": "changed",
       "chapter": {
@@ -5946,16 +6904,29 @@
       "notes": [],
       "sources": [
         "ncrb-sankalan-table",
-        "ncrb-sankalan-chapters"
+        "ncrb-sankalan-chapters",
+        "curated-hindi"
       ],
-      "verify": false
+      "verify": true,
+      "provenance": {
+        "heading": {
+          "kind": "curated-translation",
+          "authoredBy": "Sahayak maintainers",
+          "authoredOn": "2026-08-29",
+          "official": false,
+          "note": {
+            "en": "Hindi rendered by the Sahayak maintainers from the official English text. Not the statutory Hindi.",
+            "hi": "हिंदी पाठ सहायक के अनुरक्षकों द्वारा आधिकारिक अंग्रेजी पाठ से तैयार। यह वैधानिक हिंदी पाठ नहीं है।"
+          }
+        }
+      }
     },
     "75": {
       "section": "75",
       "act": "BSA",
       "heading": {
         "en": "Certified copies of public documents.",
-        "hi": ""
+        "hi": "लोक दस्तावेजों की प्रमाणित प्रतियाँ।"
       },
       "status": "renumbered",
       "chapter": {
@@ -6017,16 +6988,29 @@
       "notes": [],
       "sources": [
         "ncrb-sankalan-table",
-        "ncrb-sankalan-chapters"
+        "ncrb-sankalan-chapters",
+        "curated-hindi"
       ],
-      "verify": false
+      "verify": true,
+      "provenance": {
+        "heading": {
+          "kind": "curated-translation",
+          "authoredBy": "Sahayak maintainers",
+          "authoredOn": "2026-08-29",
+          "official": false,
+          "note": {
+            "en": "Hindi rendered by the Sahayak maintainers from the official English text. Not the statutory Hindi.",
+            "hi": "हिंदी पाठ सहायक के अनुरक्षकों द्वारा आधिकारिक अंग्रेजी पाठ से तैयार। यह वैधानिक हिंदी पाठ नहीं है।"
+          }
+        }
+      }
     },
     "76": {
       "section": "76",
       "act": "BSA",
       "heading": {
         "en": "Proof of documents by production of certified copies.",
-        "hi": ""
+        "hi": "प्रमाणित प्रतियों के पेश किए जाने द्वारा दस्तावेजों का साबित किया जाना।"
       },
       "status": "renumbered",
       "chapter": {
@@ -6089,16 +7073,29 @@
       "notes": [],
       "sources": [
         "ncrb-sankalan-table",
-        "ncrb-sankalan-chapters"
+        "ncrb-sankalan-chapters",
+        "curated-hindi"
       ],
-      "verify": false
+      "verify": true,
+      "provenance": {
+        "heading": {
+          "kind": "curated-translation",
+          "authoredBy": "Sahayak maintainers",
+          "authoredOn": "2026-08-29",
+          "official": false,
+          "note": {
+            "en": "Hindi rendered by the Sahayak maintainers from the official English text. Not the statutory Hindi.",
+            "hi": "हिंदी पाठ सहायक के अनुरक्षकों द्वारा आधिकारिक अंग्रेजी पाठ से तैयार। यह वैधानिक हिंदी पाठ नहीं है।"
+          }
+        }
+      }
     },
     "77": {
       "section": "77",
       "act": "BSA",
       "heading": {
         "en": "Proof of other official documents.",
-        "hi": ""
+        "hi": "अन्य शासकीय दस्तावेजों का साबित किया जाना।"
       },
       "status": "changed",
       "chapter": {
@@ -6159,16 +7156,29 @@
       "notes": [],
       "sources": [
         "ncrb-sankalan-table",
-        "ncrb-sankalan-chapters"
+        "ncrb-sankalan-chapters",
+        "curated-hindi"
       ],
-      "verify": false
+      "verify": true,
+      "provenance": {
+        "heading": {
+          "kind": "curated-translation",
+          "authoredBy": "Sahayak maintainers",
+          "authoredOn": "2026-08-29",
+          "official": false,
+          "note": {
+            "en": "Hindi rendered by the Sahayak maintainers from the official English text. Not the statutory Hindi.",
+            "hi": "हिंदी पाठ सहायक के अनुरक्षकों द्वारा आधिकारिक अंग्रेजी पाठ से तैयार। यह वैधानिक हिंदी पाठ नहीं है।"
+          }
+        }
+      }
     },
     "78": {
       "section": "78",
       "act": "BSA",
       "heading": {
         "en": "Presumption as to genuineness of certified copies.",
-        "hi": ""
+        "hi": "प्रमाणित प्रतियों की असलियत के बारे में उपधारणा।"
       },
       "status": "renumbered",
       "chapter": {
@@ -6237,16 +7247,29 @@
       "notes": [],
       "sources": [
         "ncrb-sankalan-table",
-        "ncrb-sankalan-chapters"
+        "ncrb-sankalan-chapters",
+        "curated-hindi"
       ],
-      "verify": false
+      "verify": true,
+      "provenance": {
+        "heading": {
+          "kind": "curated-translation",
+          "authoredBy": "Sahayak maintainers",
+          "authoredOn": "2026-08-29",
+          "official": false,
+          "note": {
+            "en": "Hindi rendered by the Sahayak maintainers from the official English text. Not the statutory Hindi.",
+            "hi": "हिंदी पाठ सहायक के अनुरक्षकों द्वारा आधिकारिक अंग्रेजी पाठ से तैयार। यह वैधानिक हिंदी पाठ नहीं है।"
+          }
+        }
+      }
     },
     "79": {
       "section": "79",
       "act": "BSA",
       "heading": {
         "en": "Presumption as to documents produced as record of evidence, etc.",
-        "hi": ""
+        "hi": "साक्ष्य के अभिलेख आदि के रूप में पेश दस्तावेजों के बारे में उपधारणा।"
       },
       "status": "renumbered",
       "chapter": {
@@ -6332,16 +7355,29 @@
       "notes": [],
       "sources": [
         "ncrb-sankalan-table",
-        "ncrb-sankalan-chapters"
+        "ncrb-sankalan-chapters",
+        "curated-hindi"
       ],
-      "verify": false
+      "verify": true,
+      "provenance": {
+        "heading": {
+          "kind": "curated-translation",
+          "authoredBy": "Sahayak maintainers",
+          "authoredOn": "2026-08-29",
+          "official": false,
+          "note": {
+            "en": "Hindi rendered by the Sahayak maintainers from the official English text. Not the statutory Hindi.",
+            "hi": "हिंदी पाठ सहायक के अनुरक्षकों द्वारा आधिकारिक अंग्रेजी पाठ से तैयार। यह वैधानिक हिंदी पाठ नहीं है।"
+          }
+        }
+      }
     },
     "80": {
       "section": "80",
       "act": "BSA",
       "heading": {
         "en": "Presumption as to Gazettes, newspapers, and other documents.",
-        "hi": ""
+        "hi": "राजपत्रों, समाचार-पत्रों और अन्य दस्तावेजों के बारे में उपधारणा।"
       },
       "status": "renumbered",
       "chapter": {
@@ -6410,16 +7446,29 @@
       "notes": [],
       "sources": [
         "ncrb-sankalan-table",
-        "ncrb-sankalan-chapters"
+        "ncrb-sankalan-chapters",
+        "curated-hindi"
       ],
-      "verify": false
+      "verify": true,
+      "provenance": {
+        "heading": {
+          "kind": "curated-translation",
+          "authoredBy": "Sahayak maintainers",
+          "authoredOn": "2026-08-29",
+          "official": false,
+          "note": {
+            "en": "Hindi rendered by the Sahayak maintainers from the official English text. Not the statutory Hindi.",
+            "hi": "हिंदी पाठ सहायक के अनुरक्षकों द्वारा आधिकारिक अंग्रेजी पाठ से तैयार। यह वैधानिक हिंदी पाठ नहीं है।"
+          }
+        }
+      }
     },
     "81": {
       "section": "81",
       "act": "BSA",
       "heading": {
         "en": "Presumption as to Gazettes in electronic or digital record.",
-        "hi": ""
+        "hi": "इलेक्ट्रॉनिक या डिजिटल अभिलेख में राजपत्रों के बारे में उपधारणा।"
       },
       "status": "changed",
       "chapter": {
@@ -6499,16 +7548,29 @@
       "notes": [],
       "sources": [
         "ncrb-sankalan-table",
-        "ncrb-sankalan-chapters"
+        "ncrb-sankalan-chapters",
+        "curated-hindi"
       ],
-      "verify": false
+      "verify": true,
+      "provenance": {
+        "heading": {
+          "kind": "curated-translation",
+          "authoredBy": "Sahayak maintainers",
+          "authoredOn": "2026-08-29",
+          "official": false,
+          "note": {
+            "en": "Hindi rendered by the Sahayak maintainers from the official English text. Not the statutory Hindi.",
+            "hi": "हिंदी पाठ सहायक के अनुरक्षकों द्वारा आधिकारिक अंग्रेजी पाठ से तैयार। यह वैधानिक हिंदी पाठ नहीं है।"
+          }
+        }
+      }
     },
     "82": {
       "section": "82",
       "act": "BSA",
       "heading": {
         "en": "Presumption as to maps or plans made by authority of Government.",
-        "hi": ""
+        "hi": "सरकार के प्राधिकार से बनाए गए मानचित्रों या योजनाओं के बारे में उपधारणा।"
       },
       "status": "renumbered",
       "chapter": {
@@ -6572,16 +7634,29 @@
       "notes": [],
       "sources": [
         "ncrb-sankalan-table",
-        "ncrb-sankalan-chapters"
+        "ncrb-sankalan-chapters",
+        "curated-hindi"
       ],
-      "verify": false
+      "verify": true,
+      "provenance": {
+        "heading": {
+          "kind": "curated-translation",
+          "authoredBy": "Sahayak maintainers",
+          "authoredOn": "2026-08-29",
+          "official": false,
+          "note": {
+            "en": "Hindi rendered by the Sahayak maintainers from the official English text. Not the statutory Hindi.",
+            "hi": "हिंदी पाठ सहायक के अनुरक्षकों द्वारा आधिकारिक अंग्रेजी पाठ से तैयार। यह वैधानिक हिंदी पाठ नहीं है।"
+          }
+        }
+      }
     },
     "83": {
       "section": "83",
       "act": "BSA",
       "heading": {
         "en": "Presumption as to collections of laws and reports of decisions.",
-        "hi": ""
+        "hi": "विधियों के संग्रहों और निर्णयों की रिपोर्टों के बारे में उपधारणा।"
       },
       "status": "renumbered",
       "chapter": {
@@ -6644,16 +7719,29 @@
       "notes": [],
       "sources": [
         "ncrb-sankalan-table",
-        "ncrb-sankalan-chapters"
+        "ncrb-sankalan-chapters",
+        "curated-hindi"
       ],
-      "verify": false
+      "verify": true,
+      "provenance": {
+        "heading": {
+          "kind": "curated-translation",
+          "authoredBy": "Sahayak maintainers",
+          "authoredOn": "2026-08-29",
+          "official": false,
+          "note": {
+            "en": "Hindi rendered by the Sahayak maintainers from the official English text. Not the statutory Hindi.",
+            "hi": "हिंदी पाठ सहायक के अनुरक्षकों द्वारा आधिकारिक अंग्रेजी पाठ से तैयार। यह वैधानिक हिंदी पाठ नहीं है।"
+          }
+        }
+      }
     },
     "84": {
       "section": "84",
       "act": "BSA",
       "heading": {
         "en": "Presumption as to powers-of-attorney.",
-        "hi": ""
+        "hi": "मुख्तारनामों के बारे में उपधारणा।"
       },
       "status": "renumbered",
       "chapter": {
@@ -6730,16 +7818,29 @@
       "notes": [],
       "sources": [
         "ncrb-sankalan-table",
-        "ncrb-sankalan-chapters"
+        "ncrb-sankalan-chapters",
+        "curated-hindi"
       ],
-      "verify": false
+      "verify": true,
+      "provenance": {
+        "heading": {
+          "kind": "curated-translation",
+          "authoredBy": "Sahayak maintainers",
+          "authoredOn": "2026-08-29",
+          "official": false,
+          "note": {
+            "en": "Hindi rendered by the Sahayak maintainers from the official English text. Not the statutory Hindi.",
+            "hi": "हिंदी पाठ सहायक के अनुरक्षकों द्वारा आधिकारिक अंग्रेजी पाठ से तैयार। यह वैधानिक हिंदी पाठ नहीं है।"
+          }
+        }
+      }
     },
     "85": {
       "section": "85",
       "act": "BSA",
       "heading": {
         "en": "Presumption as to electronic agreements.",
-        "hi": ""
+        "hi": "इलेक्ट्रॉनिक करारों के बारे में उपधारणा।"
       },
       "status": "changed",
       "chapter": {
@@ -6818,16 +7919,29 @@
       "notes": [],
       "sources": [
         "ncrb-sankalan-table",
-        "ncrb-sankalan-chapters"
+        "ncrb-sankalan-chapters",
+        "curated-hindi"
       ],
-      "verify": false
+      "verify": true,
+      "provenance": {
+        "heading": {
+          "kind": "curated-translation",
+          "authoredBy": "Sahayak maintainers",
+          "authoredOn": "2026-08-29",
+          "official": false,
+          "note": {
+            "en": "Hindi rendered by the Sahayak maintainers from the official English text. Not the statutory Hindi.",
+            "hi": "हिंदी पाठ सहायक के अनुरक्षकों द्वारा आधिकारिक अंग्रेजी पाठ से तैयार। यह वैधानिक हिंदी पाठ नहीं है।"
+          }
+        }
+      }
     },
     "86": {
       "section": "86",
       "act": "BSA",
       "heading": {
         "en": "Presumption as to electronic records and electronic signatures.",
-        "hi": ""
+        "hi": "इलेक्ट्रॉनिक अभिलेखों और इलेक्ट्रॉनिक हस्ताक्षरों के बारे में उपधारणा।"
       },
       "status": "renumbered",
       "chapter": {
@@ -6907,16 +8021,29 @@
       "notes": [],
       "sources": [
         "ncrb-sankalan-table",
-        "ncrb-sankalan-chapters"
+        "ncrb-sankalan-chapters",
+        "curated-hindi"
       ],
-      "verify": false
+      "verify": true,
+      "provenance": {
+        "heading": {
+          "kind": "curated-translation",
+          "authoredBy": "Sahayak maintainers",
+          "authoredOn": "2026-08-29",
+          "official": false,
+          "note": {
+            "en": "Hindi rendered by the Sahayak maintainers from the official English text. Not the statutory Hindi.",
+            "hi": "हिंदी पाठ सहायक के अनुरक्षकों द्वारा आधिकारिक अंग्रेजी पाठ से तैयार। यह वैधानिक हिंदी पाठ नहीं है।"
+          }
+        }
+      }
     },
     "87": {
       "section": "87",
       "act": "BSA",
       "heading": {
         "en": "Presumption as to Electronic Signature Certificates.",
-        "hi": ""
+        "hi": "इलेक्ट्रॉनिक हस्ताक्षर प्रमाणपत्रों के बारे में उपधारणा।"
       },
       "status": "renumbered",
       "chapter": {
@@ -6989,16 +8116,29 @@
       "notes": [],
       "sources": [
         "ncrb-sankalan-table",
-        "ncrb-sankalan-chapters"
+        "ncrb-sankalan-chapters",
+        "curated-hindi"
       ],
-      "verify": false
+      "verify": true,
+      "provenance": {
+        "heading": {
+          "kind": "curated-translation",
+          "authoredBy": "Sahayak maintainers",
+          "authoredOn": "2026-08-29",
+          "official": false,
+          "note": {
+            "en": "Hindi rendered by the Sahayak maintainers from the official English text. Not the statutory Hindi.",
+            "hi": "हिंदी पाठ सहायक के अनुरक्षकों द्वारा आधिकारिक अंग्रेजी पाठ से तैयार। यह वैधानिक हिंदी पाठ नहीं है।"
+          }
+        }
+      }
     },
     "88": {
       "section": "88",
       "act": "BSA",
       "heading": {
         "en": "Presumption as to certified copies of foreign judicial records.",
-        "hi": ""
+        "hi": "विदेशी न्यायिक अभिलेखों की प्रमाणित प्रतियों के बारे में उपधारणा।"
       },
       "status": "renumbered",
       "chapter": {
@@ -7069,16 +8209,29 @@
       "notes": [],
       "sources": [
         "ncrb-sankalan-table",
-        "ncrb-sankalan-chapters"
+        "ncrb-sankalan-chapters",
+        "curated-hindi"
       ],
-      "verify": false
+      "verify": true,
+      "provenance": {
+        "heading": {
+          "kind": "curated-translation",
+          "authoredBy": "Sahayak maintainers",
+          "authoredOn": "2026-08-29",
+          "official": false,
+          "note": {
+            "en": "Hindi rendered by the Sahayak maintainers from the official English text. Not the statutory Hindi.",
+            "hi": "हिंदी पाठ सहायक के अनुरक्षकों द्वारा आधिकारिक अंग्रेजी पाठ से तैयार। यह वैधानिक हिंदी पाठ नहीं है।"
+          }
+        }
+      }
     },
     "89": {
       "section": "89",
       "act": "BSA",
       "heading": {
         "en": "Presumption as to books, maps and charts.",
-        "hi": ""
+        "hi": "पुस्तकों, मानचित्रों और चार्टों के बारे में उपधारणा।"
       },
       "status": "renumbered",
       "chapter": {
@@ -7148,16 +8301,29 @@
       "notes": [],
       "sources": [
         "ncrb-sankalan-table",
-        "ncrb-sankalan-chapters"
+        "ncrb-sankalan-chapters",
+        "curated-hindi"
       ],
-      "verify": false
+      "verify": true,
+      "provenance": {
+        "heading": {
+          "kind": "curated-translation",
+          "authoredBy": "Sahayak maintainers",
+          "authoredOn": "2026-08-29",
+          "official": false,
+          "note": {
+            "en": "Hindi rendered by the Sahayak maintainers from the official English text. Not the statutory Hindi.",
+            "hi": "हिंदी पाठ सहायक के अनुरक्षकों द्वारा आधिकारिक अंग्रेजी पाठ से तैयार। यह वैधानिक हिंदी पाठ नहीं है।"
+          }
+        }
+      }
     },
     "90": {
       "section": "90",
       "act": "BSA",
       "heading": {
         "en": "Presumption as to electronic messages.",
-        "hi": ""
+        "hi": "इलेक्ट्रॉनिक संदेशों के बारे में उपधारणा।"
       },
       "status": "renumbered",
       "chapter": {
@@ -7229,16 +8395,29 @@
       "notes": [],
       "sources": [
         "ncrb-sankalan-table",
-        "ncrb-sankalan-chapters"
+        "ncrb-sankalan-chapters",
+        "curated-hindi"
       ],
-      "verify": false
+      "verify": true,
+      "provenance": {
+        "heading": {
+          "kind": "curated-translation",
+          "authoredBy": "Sahayak maintainers",
+          "authoredOn": "2026-08-29",
+          "official": false,
+          "note": {
+            "en": "Hindi rendered by the Sahayak maintainers from the official English text. Not the statutory Hindi.",
+            "hi": "हिंदी पाठ सहायक के अनुरक्षकों द्वारा आधिकारिक अंग्रेजी पाठ से तैयार। यह वैधानिक हिंदी पाठ नहीं है।"
+          }
+        }
+      }
     },
     "91": {
       "section": "91",
       "act": "BSA",
       "heading": {
         "en": "Presumption as to due execution, etc., of documents not produced.",
-        "hi": ""
+        "hi": "पेश न किए गए दस्तावेजों के सम्यक् निष्पादन आदि के बारे में उपधारणा।"
       },
       "status": "renumbered",
       "chapter": {
@@ -7308,16 +8487,29 @@
       "notes": [],
       "sources": [
         "ncrb-sankalan-table",
-        "ncrb-sankalan-chapters"
+        "ncrb-sankalan-chapters",
+        "curated-hindi"
       ],
-      "verify": false
+      "verify": true,
+      "provenance": {
+        "heading": {
+          "kind": "curated-translation",
+          "authoredBy": "Sahayak maintainers",
+          "authoredOn": "2026-08-29",
+          "official": false,
+          "note": {
+            "en": "Hindi rendered by the Sahayak maintainers from the official English text. Not the statutory Hindi.",
+            "hi": "हिंदी पाठ सहायक के अनुरक्षकों द्वारा आधिकारिक अंग्रेजी पाठ से तैयार। यह वैधानिक हिंदी पाठ नहीं है।"
+          }
+        }
+      }
     },
     "92": {
       "section": "92",
       "act": "BSA",
       "heading": {
         "en": "Presumption as to documents thirty years old.",
-        "hi": ""
+        "hi": "तीस वर्ष पुराने दस्तावेजों के बारे में उपधारणा।"
       },
       "status": "renumbered",
       "chapter": {
@@ -7397,16 +8589,29 @@
       "notes": [],
       "sources": [
         "ncrb-sankalan-table",
-        "ncrb-sankalan-chapters"
+        "ncrb-sankalan-chapters",
+        "curated-hindi"
       ],
-      "verify": false
+      "verify": true,
+      "provenance": {
+        "heading": {
+          "kind": "curated-translation",
+          "authoredBy": "Sahayak maintainers",
+          "authoredOn": "2026-08-29",
+          "official": false,
+          "note": {
+            "en": "Hindi rendered by the Sahayak maintainers from the official English text. Not the statutory Hindi.",
+            "hi": "हिंदी पाठ सहायक के अनुरक्षकों द्वारा आधिकारिक अंग्रेजी पाठ से तैयार। यह वैधानिक हिंदी पाठ नहीं है।"
+          }
+        }
+      }
     },
     "93": {
       "section": "93",
       "act": "BSA",
       "heading": {
         "en": "Presumption as to electronic records five years old.",
-        "hi": ""
+        "hi": "पाँच वर्ष पुराने इलेक्ट्रॉनिक अभिलेखों के बारे में उपधारणा।"
       },
       "status": "renumbered",
       "chapter": {
@@ -7488,16 +8693,29 @@
       "notes": [],
       "sources": [
         "ncrb-sankalan-table",
-        "ncrb-sankalan-chapters"
+        "ncrb-sankalan-chapters",
+        "curated-hindi"
       ],
-      "verify": false
+      "verify": true,
+      "provenance": {
+        "heading": {
+          "kind": "curated-translation",
+          "authoredBy": "Sahayak maintainers",
+          "authoredOn": "2026-08-29",
+          "official": false,
+          "note": {
+            "en": "Hindi rendered by the Sahayak maintainers from the official English text. Not the statutory Hindi.",
+            "hi": "हिंदी पाठ सहायक के अनुरक्षकों द्वारा आधिकारिक अंग्रेजी पाठ से तैयार। यह वैधानिक हिंदी पाठ नहीं है।"
+          }
+        }
+      }
     },
     "94": {
       "section": "94",
       "act": "BSA",
       "heading": {
         "en": "Evidence of terms of contracts, grants and other dispositions of property reduced to form of document.",
-        "hi": ""
+        "hi": "दस्तावेज के रूप में लाए गए संविदाओं, अनुदानों और संपत्ति के अन्य व्ययनों के निबंधनों का साक्ष्य।"
       },
       "status": "renumbered",
       "chapter": {
@@ -7563,16 +8781,29 @@
       "notes": [],
       "sources": [
         "ncrb-sankalan-table",
-        "ncrb-sankalan-chapters"
+        "ncrb-sankalan-chapters",
+        "curated-hindi"
       ],
-      "verify": false
+      "verify": true,
+      "provenance": {
+        "heading": {
+          "kind": "curated-translation",
+          "authoredBy": "Sahayak maintainers",
+          "authoredOn": "2026-08-29",
+          "official": false,
+          "note": {
+            "en": "Hindi rendered by the Sahayak maintainers from the official English text. Not the statutory Hindi.",
+            "hi": "हिंदी पाठ सहायक के अनुरक्षकों द्वारा आधिकारिक अंग्रेजी पाठ से तैयार। यह वैधानिक हिंदी पाठ नहीं है।"
+          }
+        }
+      }
     },
     "95": {
       "section": "95",
       "act": "BSA",
       "heading": {
         "en": "Exclusion of evidence of oral agreement.",
-        "hi": ""
+        "hi": "मौखिक करार के साक्ष्य का अपवर्जन।"
       },
       "status": "renumbered",
       "chapter": {
@@ -7634,16 +8865,29 @@
       "notes": [],
       "sources": [
         "ncrb-sankalan-table",
-        "ncrb-sankalan-chapters"
+        "ncrb-sankalan-chapters",
+        "curated-hindi"
       ],
-      "verify": false
+      "verify": true,
+      "provenance": {
+        "heading": {
+          "kind": "curated-translation",
+          "authoredBy": "Sahayak maintainers",
+          "authoredOn": "2026-08-29",
+          "official": false,
+          "note": {
+            "en": "Hindi rendered by the Sahayak maintainers from the official English text. Not the statutory Hindi.",
+            "hi": "हिंदी पाठ सहायक के अनुरक्षकों द्वारा आधिकारिक अंग्रेजी पाठ से तैयार। यह वैधानिक हिंदी पाठ नहीं है।"
+          }
+        }
+      }
     },
     "96": {
       "section": "96",
       "act": "BSA",
       "heading": {
         "en": "Exclusion of evidence to explain or amend ambiguous document.",
-        "hi": ""
+        "hi": "द्वयर्थक दस्तावेज को स्पष्ट करने या संशोधित करने के लिए साक्ष्य का अपवर्जन।"
       },
       "status": "renumbered",
       "chapter": {
@@ -7706,16 +8950,29 @@
       "notes": [],
       "sources": [
         "ncrb-sankalan-table",
-        "ncrb-sankalan-chapters"
+        "ncrb-sankalan-chapters",
+        "curated-hindi"
       ],
-      "verify": false
+      "verify": true,
+      "provenance": {
+        "heading": {
+          "kind": "curated-translation",
+          "authoredBy": "Sahayak maintainers",
+          "authoredOn": "2026-08-29",
+          "official": false,
+          "note": {
+            "en": "Hindi rendered by the Sahayak maintainers from the official English text. Not the statutory Hindi.",
+            "hi": "हिंदी पाठ सहायक के अनुरक्षकों द्वारा आधिकारिक अंग्रेजी पाठ से तैयार। यह वैधानिक हिंदी पाठ नहीं है।"
+          }
+        }
+      }
     },
     "97": {
       "section": "97",
       "act": "BSA",
       "heading": {
         "en": "Exclusion of evidence against application of document to existing facts.",
-        "hi": ""
+        "hi": "विद्यमान तथ्यों पर दस्तावेज के प्रयोग के विरुद्ध साक्ष्य का अपवर्जन।"
       },
       "status": "renumbered",
       "chapter": {
@@ -7779,16 +9036,29 @@
       "notes": [],
       "sources": [
         "ncrb-sankalan-table",
-        "ncrb-sankalan-chapters"
+        "ncrb-sankalan-chapters",
+        "curated-hindi"
       ],
-      "verify": false
+      "verify": true,
+      "provenance": {
+        "heading": {
+          "kind": "curated-translation",
+          "authoredBy": "Sahayak maintainers",
+          "authoredOn": "2026-08-29",
+          "official": false,
+          "note": {
+            "en": "Hindi rendered by the Sahayak maintainers from the official English text. Not the statutory Hindi.",
+            "hi": "हिंदी पाठ सहायक के अनुरक्षकों द्वारा आधिकारिक अंग्रेजी पाठ से तैयार। यह वैधानिक हिंदी पाठ नहीं है।"
+          }
+        }
+      }
     },
     "98": {
       "section": "98",
       "act": "BSA",
       "heading": {
         "en": "Evidence as to document unmeaning in reference to existing facts .",
-        "hi": ""
+        "hi": "विद्यमान तथ्यों के संदर्भ में निरर्थक दस्तावेज के बारे में साक्ष्य।"
       },
       "status": "renumbered",
       "chapter": {
@@ -7859,16 +9129,29 @@
       "notes": [],
       "sources": [
         "ncrb-sankalan-table",
-        "ncrb-sankalan-chapters"
+        "ncrb-sankalan-chapters",
+        "curated-hindi"
       ],
-      "verify": false
+      "verify": true,
+      "provenance": {
+        "heading": {
+          "kind": "curated-translation",
+          "authoredBy": "Sahayak maintainers",
+          "authoredOn": "2026-08-29",
+          "official": false,
+          "note": {
+            "en": "Hindi rendered by the Sahayak maintainers from the official English text. Not the statutory Hindi.",
+            "hi": "हिंदी पाठ सहायक के अनुरक्षकों द्वारा आधिकारिक अंग्रेजी पाठ से तैयार। यह वैधानिक हिंदी पाठ नहीं है।"
+          }
+        }
+      }
     },
     "99": {
       "section": "99",
       "act": "BSA",
       "heading": {
         "en": "Evidence as to application of language which can apply to one only of several persons .",
-        "hi": ""
+        "hi": "ऐसी भाषा के प्रयोग के बारे में साक्ष्य जो अनेक व्यक्तियों में से केवल एक पर ही लागू हो सकती है।"
       },
       "status": "renumbered",
       "chapter": {
@@ -7926,16 +9209,29 @@
       "notes": [],
       "sources": [
         "ncrb-sankalan-table",
-        "ncrb-sankalan-chapters"
+        "ncrb-sankalan-chapters",
+        "curated-hindi"
       ],
-      "verify": false
+      "verify": true,
+      "provenance": {
+        "heading": {
+          "kind": "curated-translation",
+          "authoredBy": "Sahayak maintainers",
+          "authoredOn": "2026-08-29",
+          "official": false,
+          "note": {
+            "en": "Hindi rendered by the Sahayak maintainers from the official English text. Not the statutory Hindi.",
+            "hi": "हिंदी पाठ सहायक के अनुरक्षकों द्वारा आधिकारिक अंग्रेजी पाठ से तैयार। यह वैधानिक हिंदी पाठ नहीं है।"
+          }
+        }
+      }
     },
     "100": {
       "section": "100",
       "act": "BSA",
       "heading": {
         "en": "Evidence as to application of language to one of two sets of facts, to neither of which the whole correctly applies.",
-        "hi": ""
+        "hi": "ऐसी भाषा के प्रयोग के बारे में साक्ष्य जो तथ्यों के दो समुच्चयों में से एक पर लागू हो, जबकि पूरी भाषा किसी पर भी सही रूप से लागू नहीं होती।"
       },
       "status": "renumbered",
       "chapter": {
@@ -7995,16 +9291,29 @@
       "notes": [],
       "sources": [
         "ncrb-sankalan-table",
-        "ncrb-sankalan-chapters"
+        "ncrb-sankalan-chapters",
+        "curated-hindi"
       ],
-      "verify": false
+      "verify": true,
+      "provenance": {
+        "heading": {
+          "kind": "curated-translation",
+          "authoredBy": "Sahayak maintainers",
+          "authoredOn": "2026-08-29",
+          "official": false,
+          "note": {
+            "en": "Hindi rendered by the Sahayak maintainers from the official English text. Not the statutory Hindi.",
+            "hi": "हिंदी पाठ सहायक के अनुरक्षकों द्वारा आधिकारिक अंग्रेजी पाठ से तैयार। यह वैधानिक हिंदी पाठ नहीं है।"
+          }
+        }
+      }
     },
     "101": {
       "section": "101",
       "act": "BSA",
       "heading": {
         "en": "Evidence as to meaning of illegible characters, etc.  .",
-        "hi": ""
+        "hi": "अपाठ्य अक्षरों आदि के अर्थ के बारे में साक्ष्य।"
       },
       "status": "changed",
       "chapter": {
@@ -8057,16 +9366,29 @@
       "notes": [],
       "sources": [
         "ncrb-sankalan-table",
-        "ncrb-sankalan-chapters"
+        "ncrb-sankalan-chapters",
+        "curated-hindi"
       ],
-      "verify": false
+      "verify": true,
+      "provenance": {
+        "heading": {
+          "kind": "curated-translation",
+          "authoredBy": "Sahayak maintainers",
+          "authoredOn": "2026-08-29",
+          "official": false,
+          "note": {
+            "en": "Hindi rendered by the Sahayak maintainers from the official English text. Not the statutory Hindi.",
+            "hi": "हिंदी पाठ सहायक के अनुरक्षकों द्वारा आधिकारिक अंग्रेजी पाठ से तैयार। यह वैधानिक हिंदी पाठ नहीं है।"
+          }
+        }
+      }
     },
     "102": {
       "section": "102",
       "act": "BSA",
       "heading": {
         "en": "Who may give evidence of agreement varying terms of document.",
-        "hi": ""
+        "hi": "दस्तावेज के निबंधनों में परिवर्तन करने वाले करार का साक्ष्य कौन दे सकता है।"
       },
       "status": "renumbered",
       "chapter": {
@@ -8129,16 +9451,29 @@
       "notes": [],
       "sources": [
         "ncrb-sankalan-table",
-        "ncrb-sankalan-chapters"
+        "ncrb-sankalan-chapters",
+        "curated-hindi"
       ],
-      "verify": false
+      "verify": true,
+      "provenance": {
+        "heading": {
+          "kind": "curated-translation",
+          "authoredBy": "Sahayak maintainers",
+          "authoredOn": "2026-08-29",
+          "official": false,
+          "note": {
+            "en": "Hindi rendered by the Sahayak maintainers from the official English text. Not the statutory Hindi.",
+            "hi": "हिंदी पाठ सहायक के अनुरक्षकों द्वारा आधिकारिक अंग्रेजी पाठ से तैयार। यह वैधानिक हिंदी पाठ नहीं है।"
+          }
+        }
+      }
     },
     "103": {
       "section": "103",
       "act": "BSA",
       "heading": {
         "en": "Saving of provisions of Indian Succession Act relating to wills.",
-        "hi": ""
+        "hi": "वसीयतों से संबंधित भारतीय उत्तराधिकार अधिनियम के उपबंधों की व्यावृत्ति।"
       },
       "status": "renumbered",
       "chapter": {
@@ -8205,16 +9540,29 @@
       "notes": [],
       "sources": [
         "ncrb-sankalan-table",
-        "ncrb-sankalan-chapters"
+        "ncrb-sankalan-chapters",
+        "curated-hindi"
       ],
-      "verify": false
+      "verify": true,
+      "provenance": {
+        "heading": {
+          "kind": "curated-translation",
+          "authoredBy": "Sahayak maintainers",
+          "authoredOn": "2026-08-29",
+          "official": false,
+          "note": {
+            "en": "Hindi rendered by the Sahayak maintainers from the official English text. Not the statutory Hindi.",
+            "hi": "हिंदी पाठ सहायक के अनुरक्षकों द्वारा आधिकारिक अंग्रेजी पाठ से तैयार। यह वैधानिक हिंदी पाठ नहीं है।"
+          }
+        }
+      }
     },
     "104": {
       "section": "104",
       "act": "BSA",
       "heading": {
         "en": "Burden of proof.",
-        "hi": ""
+        "hi": "साबित करने का भार।"
       },
       "status": "renumbered",
       "chapter": {
@@ -8271,16 +9619,29 @@
       "notes": [],
       "sources": [
         "ncrb-sankalan-table",
-        "ncrb-sankalan-chapters"
+        "ncrb-sankalan-chapters",
+        "curated-hindi"
       ],
-      "verify": false
+      "verify": true,
+      "provenance": {
+        "heading": {
+          "kind": "curated-translation",
+          "authoredBy": "Sahayak maintainers",
+          "authoredOn": "2026-08-29",
+          "official": false,
+          "note": {
+            "en": "Hindi rendered by the Sahayak maintainers from the official English text. Not the statutory Hindi.",
+            "hi": "हिंदी पाठ सहायक के अनुरक्षकों द्वारा आधिकारिक अंग्रेजी पाठ से तैयार। यह वैधानिक हिंदी पाठ नहीं है।"
+          }
+        }
+      }
     },
     "105": {
       "section": "105",
       "act": "BSA",
       "heading": {
         "en": "On whom burden of proof lies.",
-        "hi": ""
+        "hi": "साबित करने का भार किस पर है।"
       },
       "status": "renumbered",
       "chapter": {
@@ -8339,16 +9700,29 @@
       "notes": [],
       "sources": [
         "ncrb-sankalan-table",
-        "ncrb-sankalan-chapters"
+        "ncrb-sankalan-chapters",
+        "curated-hindi"
       ],
-      "verify": false
+      "verify": true,
+      "provenance": {
+        "heading": {
+          "kind": "curated-translation",
+          "authoredBy": "Sahayak maintainers",
+          "authoredOn": "2026-08-29",
+          "official": false,
+          "note": {
+            "en": "Hindi rendered by the Sahayak maintainers from the official English text. Not the statutory Hindi.",
+            "hi": "हिंदी पाठ सहायक के अनुरक्षकों द्वारा आधिकारिक अंग्रेजी पाठ से तैयार। यह वैधानिक हिंदी पाठ नहीं है।"
+          }
+        }
+      }
     },
     "106": {
       "section": "106",
       "act": "BSA",
       "heading": {
         "en": "Burden of proof as to particular fact.",
-        "hi": ""
+        "hi": "किसी विशिष्ट तथ्य के बारे में साबित करने का भार।"
       },
       "status": "renumbered",
       "chapter": {
@@ -8413,16 +9787,29 @@
       "notes": [],
       "sources": [
         "ncrb-sankalan-table",
-        "ncrb-sankalan-chapters"
+        "ncrb-sankalan-chapters",
+        "curated-hindi"
       ],
-      "verify": false
+      "verify": true,
+      "provenance": {
+        "heading": {
+          "kind": "curated-translation",
+          "authoredBy": "Sahayak maintainers",
+          "authoredOn": "2026-08-29",
+          "official": false,
+          "note": {
+            "en": "Hindi rendered by the Sahayak maintainers from the official English text. Not the statutory Hindi.",
+            "hi": "हिंदी पाठ सहायक के अनुरक्षकों द्वारा आधिकारिक अंग्रेजी पाठ से तैयार। यह वैधानिक हिंदी पाठ नहीं है।"
+          }
+        }
+      }
     },
     "107": {
       "section": "107",
       "act": "BSA",
       "heading": {
         "en": "Burden of proving fact to be proved to make evidence admissible.",
-        "hi": ""
+        "hi": "साक्ष्य को ग्राह्य बनाने के लिए साबित किए जाने वाले तथ्य को साबित करने का भार।"
       },
       "status": "renumbered",
       "chapter": {
@@ -8484,16 +9871,29 @@
       "notes": [],
       "sources": [
         "ncrb-sankalan-table",
-        "ncrb-sankalan-chapters"
+        "ncrb-sankalan-chapters",
+        "curated-hindi"
       ],
-      "verify": false
+      "verify": true,
+      "provenance": {
+        "heading": {
+          "kind": "curated-translation",
+          "authoredBy": "Sahayak maintainers",
+          "authoredOn": "2026-08-29",
+          "official": false,
+          "note": {
+            "en": "Hindi rendered by the Sahayak maintainers from the official English text. Not the statutory Hindi.",
+            "hi": "हिंदी पाठ सहायक के अनुरक्षकों द्वारा आधिकारिक अंग्रेजी पाठ से तैयार। यह वैधानिक हिंदी पाठ नहीं है।"
+          }
+        }
+      }
     },
     "108": {
       "section": "108",
       "act": "BSA",
       "heading": {
         "en": "Burden of proving that case of accused comes within exceptions.",
-        "hi": ""
+        "hi": "यह साबित करने का भार कि अभियुक्त का मामला अपवादों के अंतर्गत आता है।"
       },
       "status": "renumbered",
       "chapter": {
@@ -8548,16 +9948,29 @@
       "notes": [],
       "sources": [
         "ncrb-sankalan-table",
-        "ncrb-sankalan-chapters"
+        "ncrb-sankalan-chapters",
+        "curated-hindi"
       ],
-      "verify": false
+      "verify": true,
+      "provenance": {
+        "heading": {
+          "kind": "curated-translation",
+          "authoredBy": "Sahayak maintainers",
+          "authoredOn": "2026-08-29",
+          "official": false,
+          "note": {
+            "en": "Hindi rendered by the Sahayak maintainers from the official English text. Not the statutory Hindi.",
+            "hi": "हिंदी पाठ सहायक के अनुरक्षकों द्वारा आधिकारिक अंग्रेजी पाठ से तैयार। यह वैधानिक हिंदी पाठ नहीं है।"
+          }
+        }
+      }
     },
     "109": {
       "section": "109",
       "act": "BSA",
       "heading": {
         "en": "Burden of proving fact especially within knowledge.",
-        "hi": ""
+        "hi": "विशेष रूप से ज्ञान के भीतर तथ्य को साबित करने का भार।"
       },
       "status": "renumbered",
       "chapter": {
@@ -8623,16 +10036,29 @@
       "notes": [],
       "sources": [
         "ncrb-sankalan-table",
-        "ncrb-sankalan-chapters"
+        "ncrb-sankalan-chapters",
+        "curated-hindi"
       ],
-      "verify": false
+      "verify": true,
+      "provenance": {
+        "heading": {
+          "kind": "curated-translation",
+          "authoredBy": "Sahayak maintainers",
+          "authoredOn": "2026-08-29",
+          "official": false,
+          "note": {
+            "en": "Hindi rendered by the Sahayak maintainers from the official English text. Not the statutory Hindi.",
+            "hi": "हिंदी पाठ सहायक के अनुरक्षकों द्वारा आधिकारिक अंग्रेजी पाठ से तैयार। यह वैधानिक हिंदी पाठ नहीं है।"
+          }
+        }
+      }
     },
     "110": {
       "section": "110",
       "act": "BSA",
       "heading": {
         "en": "Burden of proving death of person known to have been alive within thirty years.",
-        "hi": ""
+        "hi": "तीस वर्ष के भीतर जीवित ज्ञात व्यक्ति की मृत्यु साबित करने का भार।"
       },
       "status": "renumbered",
       "chapter": {
@@ -8692,16 +10118,29 @@
       "notes": [],
       "sources": [
         "ncrb-sankalan-table",
-        "ncrb-sankalan-chapters"
+        "ncrb-sankalan-chapters",
+        "curated-hindi"
       ],
-      "verify": false
+      "verify": true,
+      "provenance": {
+        "heading": {
+          "kind": "curated-translation",
+          "authoredBy": "Sahayak maintainers",
+          "authoredOn": "2026-08-29",
+          "official": false,
+          "note": {
+            "en": "Hindi rendered by the Sahayak maintainers from the official English text. Not the statutory Hindi.",
+            "hi": "हिंदी पाठ सहायक के अनुरक्षकों द्वारा आधिकारिक अंग्रेजी पाठ से तैयार। यह वैधानिक हिंदी पाठ नहीं है।"
+          }
+        }
+      }
     },
     "111": {
       "section": "111",
       "act": "BSA",
       "heading": {
         "en": "Burden of proving that person is alive who has not been heard of for seven years.",
-        "hi": ""
+        "hi": "यह साबित करने का भार कि सात वर्ष से जिसके बारे में कुछ सुना नहीं गया वह व्यक्ति जीवित है।"
       },
       "status": "renumbered",
       "chapter": {
@@ -8759,16 +10198,29 @@
       "notes": [],
       "sources": [
         "ncrb-sankalan-table",
-        "ncrb-sankalan-chapters"
+        "ncrb-sankalan-chapters",
+        "curated-hindi"
       ],
-      "verify": false
+      "verify": true,
+      "provenance": {
+        "heading": {
+          "kind": "curated-translation",
+          "authoredBy": "Sahayak maintainers",
+          "authoredOn": "2026-08-29",
+          "official": false,
+          "note": {
+            "en": "Hindi rendered by the Sahayak maintainers from the official English text. Not the statutory Hindi.",
+            "hi": "हिंदी पाठ सहायक के अनुरक्षकों द्वारा आधिकारिक अंग्रेजी पाठ से तैयार। यह वैधानिक हिंदी पाठ नहीं है।"
+          }
+        }
+      }
     },
     "112": {
       "section": "112",
       "act": "BSA",
       "heading": {
         "en": "Burden of proof as to relationship in the cases of partners, landlord and tenant, principal and agent.",
-        "hi": ""
+        "hi": "भागीदारों, मकान-मालिक और किरायेदार, तथा मालिक और अभिकर्ता के मामलों में नातेदारी के बारे में साबित करने का भार।"
       },
       "status": "renumbered",
       "chapter": {
@@ -8831,16 +10283,29 @@
       "notes": [],
       "sources": [
         "ncrb-sankalan-table",
-        "ncrb-sankalan-chapters"
+        "ncrb-sankalan-chapters",
+        "curated-hindi"
       ],
-      "verify": false
+      "verify": true,
+      "provenance": {
+        "heading": {
+          "kind": "curated-translation",
+          "authoredBy": "Sahayak maintainers",
+          "authoredOn": "2026-08-29",
+          "official": false,
+          "note": {
+            "en": "Hindi rendered by the Sahayak maintainers from the official English text. Not the statutory Hindi.",
+            "hi": "हिंदी पाठ सहायक के अनुरक्षकों द्वारा आधिकारिक अंग्रेजी पाठ से तैयार। यह वैधानिक हिंदी पाठ नहीं है।"
+          }
+        }
+      }
     },
     "113": {
       "section": "113",
       "act": "BSA",
       "heading": {
         "en": "Burden of proof as to ownership.",
-        "hi": ""
+        "hi": "स्वामित्व के बारे में साबित करने का भार।"
       },
       "status": "renumbered",
       "chapter": {
@@ -8898,16 +10363,29 @@
       "notes": [],
       "sources": [
         "ncrb-sankalan-table",
-        "ncrb-sankalan-chapters"
+        "ncrb-sankalan-chapters",
+        "curated-hindi"
       ],
-      "verify": false
+      "verify": true,
+      "provenance": {
+        "heading": {
+          "kind": "curated-translation",
+          "authoredBy": "Sahayak maintainers",
+          "authoredOn": "2026-08-29",
+          "official": false,
+          "note": {
+            "en": "Hindi rendered by the Sahayak maintainers from the official English text. Not the statutory Hindi.",
+            "hi": "हिंदी पाठ सहायक के अनुरक्षकों द्वारा आधिकारिक अंग्रेजी पाठ से तैयार। यह वैधानिक हिंदी पाठ नहीं है।"
+          }
+        }
+      }
     },
     "114": {
       "section": "114",
       "act": "BSA",
       "heading": {
         "en": "Proof of good faith in transactions where one party is in relation of active confidence.",
-        "hi": ""
+        "hi": "उन संव्यवहारों में सद्भावना का साबित किया जाना जहाँ एक पक्षकार सक्रिय विश्वास के संबंध में है।"
       },
       "status": "renumbered",
       "chapter": {
@@ -8966,16 +10444,29 @@
       "notes": [],
       "sources": [
         "ncrb-sankalan-table",
-        "ncrb-sankalan-chapters"
+        "ncrb-sankalan-chapters",
+        "curated-hindi"
       ],
-      "verify": false
+      "verify": true,
+      "provenance": {
+        "heading": {
+          "kind": "curated-translation",
+          "authoredBy": "Sahayak maintainers",
+          "authoredOn": "2026-08-29",
+          "official": false,
+          "note": {
+            "en": "Hindi rendered by the Sahayak maintainers from the official English text. Not the statutory Hindi.",
+            "hi": "हिंदी पाठ सहायक के अनुरक्षकों द्वारा आधिकारिक अंग्रेजी पाठ से तैयार। यह वैधानिक हिंदी पाठ नहीं है।"
+          }
+        }
+      }
     },
     "115": {
       "section": "115",
       "act": "BSA",
       "heading": {
         "en": "Presumption as to certain offences.",
-        "hi": ""
+        "hi": "कतिपय अपराधों के बारे में उपधारणा।"
       },
       "status": "renumbered",
       "chapter": {
@@ -9046,16 +10537,29 @@
       "notes": [],
       "sources": [
         "ncrb-sankalan-table",
-        "ncrb-sankalan-chapters"
+        "ncrb-sankalan-chapters",
+        "curated-hindi"
       ],
-      "verify": false
+      "verify": true,
+      "provenance": {
+        "heading": {
+          "kind": "curated-translation",
+          "authoredBy": "Sahayak maintainers",
+          "authoredOn": "2026-08-29",
+          "official": false,
+          "note": {
+            "en": "Hindi rendered by the Sahayak maintainers from the official English text. Not the statutory Hindi.",
+            "hi": "हिंदी पाठ सहायक के अनुरक्षकों द्वारा आधिकारिक अंग्रेजी पाठ से तैयार। यह वैधानिक हिंदी पाठ नहीं है।"
+          }
+        }
+      }
     },
     "116": {
       "section": "116",
       "act": "BSA",
       "heading": {
         "en": "Birth during marriage, conclusive proof of legitimacy.",
-        "hi": ""
+        "hi": "विवाह के दौरान जन्म, वैधता का निर्णायक सबूत।"
       },
       "status": "renumbered",
       "chapter": {
@@ -9129,16 +10633,29 @@
       "notes": [],
       "sources": [
         "ncrb-sankalan-table",
-        "ncrb-sankalan-chapters"
+        "ncrb-sankalan-chapters",
+        "curated-hindi"
       ],
-      "verify": false
+      "verify": true,
+      "provenance": {
+        "heading": {
+          "kind": "curated-translation",
+          "authoredBy": "Sahayak maintainers",
+          "authoredOn": "2026-08-29",
+          "official": false,
+          "note": {
+            "en": "Hindi rendered by the Sahayak maintainers from the official English text. Not the statutory Hindi.",
+            "hi": "हिंदी पाठ सहायक के अनुरक्षकों द्वारा आधिकारिक अंग्रेजी पाठ से तैयार। यह वैधानिक हिंदी पाठ नहीं है।"
+          }
+        }
+      }
     },
     "117": {
       "section": "117",
       "act": "BSA",
       "heading": {
         "en": "Presumption as to abetment of suicide by a married woman.",
-        "hi": ""
+        "hi": "विवाहित स्त्री की आत्महत्या के दुष्प्रेरण के बारे में उपधारणा।"
       },
       "status": "renumbered",
       "chapter": {
@@ -9234,16 +10751,29 @@
       "notes": [],
       "sources": [
         "ncrb-sankalan-table",
-        "ncrb-sankalan-chapters"
+        "ncrb-sankalan-chapters",
+        "curated-hindi"
       ],
-      "verify": false
+      "verify": true,
+      "provenance": {
+        "heading": {
+          "kind": "curated-translation",
+          "authoredBy": "Sahayak maintainers",
+          "authoredOn": "2026-08-29",
+          "official": false,
+          "note": {
+            "en": "Hindi rendered by the Sahayak maintainers from the official English text. Not the statutory Hindi.",
+            "hi": "हिंदी पाठ सहायक के अनुरक्षकों द्वारा आधिकारिक अंग्रेजी पाठ से तैयार। यह वैधानिक हिंदी पाठ नहीं है।"
+          }
+        }
+      }
     },
     "118": {
       "section": "118",
       "act": "BSA",
       "heading": {
         "en": "Presumption as to dowry death.",
-        "hi": ""
+        "hi": "दहेज मृत्यु के बारे में उपधारणा।"
       },
       "status": "renumbered",
       "chapter": {
@@ -9323,16 +10853,29 @@
       "notes": [],
       "sources": [
         "ncrb-sankalan-table",
-        "ncrb-sankalan-chapters"
+        "ncrb-sankalan-chapters",
+        "curated-hindi"
       ],
-      "verify": false
+      "verify": true,
+      "provenance": {
+        "heading": {
+          "kind": "curated-translation",
+          "authoredBy": "Sahayak maintainers",
+          "authoredOn": "2026-08-29",
+          "official": false,
+          "note": {
+            "en": "Hindi rendered by the Sahayak maintainers from the official English text. Not the statutory Hindi.",
+            "hi": "हिंदी पाठ सहायक के अनुरक्षकों द्वारा आधिकारिक अंग्रेजी पाठ से तैयार। यह वैधानिक हिंदी पाठ नहीं है।"
+          }
+        }
+      }
     },
     "119": {
       "section": "119",
       "act": "BSA",
       "heading": {
         "en": "Court may presume existence of certain facts.",
-        "hi": ""
+        "hi": "न्यायालय कतिपय तथ्यों का अस्तित्व उपधारित कर सकेगा।"
       },
       "status": "renumbered",
       "chapter": {
@@ -9395,16 +10938,29 @@
       "notes": [],
       "sources": [
         "ncrb-sankalan-table",
-        "ncrb-sankalan-chapters"
+        "ncrb-sankalan-chapters",
+        "curated-hindi"
       ],
-      "verify": false
+      "verify": true,
+      "provenance": {
+        "heading": {
+          "kind": "curated-translation",
+          "authoredBy": "Sahayak maintainers",
+          "authoredOn": "2026-08-29",
+          "official": false,
+          "note": {
+            "en": "Hindi rendered by the Sahayak maintainers from the official English text. Not the statutory Hindi.",
+            "hi": "हिंदी पाठ सहायक के अनुरक्षकों द्वारा आधिकारिक अंग्रेजी पाठ से तैयार। यह वैधानिक हिंदी पाठ नहीं है।"
+          }
+        }
+      }
     },
     "120": {
       "section": "120",
       "act": "BSA",
       "heading": {
         "en": "Presumption as to absence of consent in certain prosecution for rape.",
-        "hi": ""
+        "hi": "बलात्संग के लिए कतिपय अभियोजन में सम्मति के अभाव के बारे में उपधारणा।"
       },
       "status": "changed",
       "chapter": {
@@ -9480,16 +11036,29 @@
       "notes": [],
       "sources": [
         "ncrb-sankalan-table",
-        "ncrb-sankalan-chapters"
+        "ncrb-sankalan-chapters",
+        "curated-hindi"
       ],
-      "verify": false
+      "verify": true,
+      "provenance": {
+        "heading": {
+          "kind": "curated-translation",
+          "authoredBy": "Sahayak maintainers",
+          "authoredOn": "2026-08-29",
+          "official": false,
+          "note": {
+            "en": "Hindi rendered by the Sahayak maintainers from the official English text. Not the statutory Hindi.",
+            "hi": "हिंदी पाठ सहायक के अनुरक्षकों द्वारा आधिकारिक अंग्रेजी पाठ से तैयार। यह वैधानिक हिंदी पाठ नहीं है।"
+          }
+        }
+      }
     },
     "121": {
       "section": "121",
       "act": "BSA",
       "heading": {
         "en": "Estoppel.",
-        "hi": ""
+        "hi": "विबंधन।"
       },
       "status": "renumbered",
       "chapter": {
@@ -9543,16 +11112,29 @@
       "notes": [],
       "sources": [
         "ncrb-sankalan-table",
-        "ncrb-sankalan-chapters"
+        "ncrb-sankalan-chapters",
+        "curated-hindi"
       ],
-      "verify": false
+      "verify": true,
+      "provenance": {
+        "heading": {
+          "kind": "curated-translation",
+          "authoredBy": "Sahayak maintainers",
+          "authoredOn": "2026-08-29",
+          "official": false,
+          "note": {
+            "en": "Hindi rendered by the Sahayak maintainers from the official English text. Not the statutory Hindi.",
+            "hi": "हिंदी पाठ सहायक के अनुरक्षकों द्वारा आधिकारिक अंग्रेजी पाठ से तैयार। यह वैधानिक हिंदी पाठ नहीं है।"
+          }
+        }
+      }
     },
     "122": {
       "section": "122",
       "act": "BSA",
       "heading": {
         "en": "Estoppel of tenant and of licensee of person in possession.",
-        "hi": ""
+        "hi": "किरायेदार का और कब्जेवाले व्यक्ति के अनुज्ञप्ति-धारी का विबंधन।"
       },
       "status": "renumbered",
       "chapter": {
@@ -9610,16 +11192,29 @@
       "notes": [],
       "sources": [
         "ncrb-sankalan-table",
-        "ncrb-sankalan-chapters"
+        "ncrb-sankalan-chapters",
+        "curated-hindi"
       ],
-      "verify": false
+      "verify": true,
+      "provenance": {
+        "heading": {
+          "kind": "curated-translation",
+          "authoredBy": "Sahayak maintainers",
+          "authoredOn": "2026-08-29",
+          "official": false,
+          "note": {
+            "en": "Hindi rendered by the Sahayak maintainers from the official English text. Not the statutory Hindi.",
+            "hi": "हिंदी पाठ सहायक के अनुरक्षकों द्वारा आधिकारिक अंग्रेजी पाठ से तैयार। यह वैधानिक हिंदी पाठ नहीं है।"
+          }
+        }
+      }
     },
     "123": {
       "section": "123",
       "act": "BSA",
       "heading": {
         "en": "Estoppel of acceptor of bill of exchange, bailee or licensee.",
-        "hi": ""
+        "hi": "विनिमय-पत्र के स्वीकर्ता, धारक-न्यासी या अनुज्ञप्ति-धारी का विबंधन।"
       },
       "status": "renumbered",
       "chapter": {
@@ -9688,16 +11283,29 @@
       "notes": [],
       "sources": [
         "ncrb-sankalan-table",
-        "ncrb-sankalan-chapters"
+        "ncrb-sankalan-chapters",
+        "curated-hindi"
       ],
-      "verify": false
+      "verify": true,
+      "provenance": {
+        "heading": {
+          "kind": "curated-translation",
+          "authoredBy": "Sahayak maintainers",
+          "authoredOn": "2026-08-29",
+          "official": false,
+          "note": {
+            "en": "Hindi rendered by the Sahayak maintainers from the official English text. Not the statutory Hindi.",
+            "hi": "हिंदी पाठ सहायक के अनुरक्षकों द्वारा आधिकारिक अंग्रेजी पाठ से तैयार। यह वैधानिक हिंदी पाठ नहीं है।"
+          }
+        }
+      }
     },
     "124": {
       "section": "124",
       "act": "BSA",
       "heading": {
         "en": "Who may testify.",
-        "hi": ""
+        "hi": "कौन साक्ष्य दे सकता है।"
       },
       "status": "renumbered",
       "chapter": {
@@ -9747,16 +11355,29 @@
       "notes": [],
       "sources": [
         "ncrb-sankalan-table",
-        "ncrb-sankalan-chapters"
+        "ncrb-sankalan-chapters",
+        "curated-hindi"
       ],
-      "verify": false
+      "verify": true,
+      "provenance": {
+        "heading": {
+          "kind": "curated-translation",
+          "authoredBy": "Sahayak maintainers",
+          "authoredOn": "2026-08-29",
+          "official": false,
+          "note": {
+            "en": "Hindi rendered by the Sahayak maintainers from the official English text. Not the statutory Hindi.",
+            "hi": "हिंदी पाठ सहायक के अनुरक्षकों द्वारा आधिकारिक अंग्रेजी पाठ से तैयार। यह वैधानिक हिंदी पाठ नहीं है।"
+          }
+        }
+      }
     },
     "125": {
       "section": "125",
       "act": "BSA",
       "heading": {
         "en": "Witness unable to communicate verbally.",
-        "hi": ""
+        "hi": "मौखिक रूप से संसूचन करने में असमर्थ साक्षी।"
       },
       "status": "renumbered",
       "chapter": {
@@ -9820,16 +11441,29 @@
       "notes": [],
       "sources": [
         "ncrb-sankalan-table",
-        "ncrb-sankalan-chapters"
+        "ncrb-sankalan-chapters",
+        "curated-hindi"
       ],
-      "verify": false
+      "verify": true,
+      "provenance": {
+        "heading": {
+          "kind": "curated-translation",
+          "authoredBy": "Sahayak maintainers",
+          "authoredOn": "2026-08-29",
+          "official": false,
+          "note": {
+            "en": "Hindi rendered by the Sahayak maintainers from the official English text. Not the statutory Hindi.",
+            "hi": "हिंदी पाठ सहायक के अनुरक्षकों द्वारा आधिकारिक अंग्रेजी पाठ से तैयार। यह वैधानिक हिंदी पाठ नहीं है।"
+          }
+        }
+      }
     },
     "126": {
       "section": "126",
       "act": "BSA",
       "heading": {
         "en": "Competency of husband and wife as witnesses in certain cases.",
-        "hi": ""
+        "hi": "कतिपय मामलों में पति और पत्नी की साक्षी के रूप में सक्षमता।"
       },
       "status": "renumbered",
       "chapter": {
@@ -9903,16 +11537,29 @@
       "notes": [],
       "sources": [
         "ncrb-sankalan-table",
-        "ncrb-sankalan-chapters"
+        "ncrb-sankalan-chapters",
+        "curated-hindi"
       ],
-      "verify": false
+      "verify": true,
+      "provenance": {
+        "heading": {
+          "kind": "curated-translation",
+          "authoredBy": "Sahayak maintainers",
+          "authoredOn": "2026-08-29",
+          "official": false,
+          "note": {
+            "en": "Hindi rendered by the Sahayak maintainers from the official English text. Not the statutory Hindi.",
+            "hi": "हिंदी पाठ सहायक के अनुरक्षकों द्वारा आधिकारिक अंग्रेजी पाठ से तैयार। यह वैधानिक हिंदी पाठ नहीं है।"
+          }
+        }
+      }
     },
     "127": {
       "section": "127",
       "act": "BSA",
       "heading": {
         "en": "Judges and Magistrates.",
-        "hi": ""
+        "hi": "न्यायाधीश और मजिस्ट्रेट।"
       },
       "status": "renumbered",
       "chapter": {
@@ -9975,16 +11622,29 @@
       "notes": [],
       "sources": [
         "ncrb-sankalan-table",
-        "ncrb-sankalan-chapters"
+        "ncrb-sankalan-chapters",
+        "curated-hindi"
       ],
-      "verify": false
+      "verify": true,
+      "provenance": {
+        "heading": {
+          "kind": "curated-translation",
+          "authoredBy": "Sahayak maintainers",
+          "authoredOn": "2026-08-29",
+          "official": false,
+          "note": {
+            "en": "Hindi rendered by the Sahayak maintainers from the official English text. Not the statutory Hindi.",
+            "hi": "हिंदी पाठ सहायक के अनुरक्षकों द्वारा आधिकारिक अंग्रेजी पाठ से तैयार। यह वैधानिक हिंदी पाठ नहीं है।"
+          }
+        }
+      }
     },
     "128": {
       "section": "128",
       "act": "BSA",
       "heading": {
         "en": "Communications during marriage.",
-        "hi": ""
+        "hi": "विवाह के दौरान संचार।"
       },
       "status": "renumbered",
       "chapter": {
@@ -10046,16 +11706,29 @@
       "notes": [],
       "sources": [
         "ncrb-sankalan-table",
-        "ncrb-sankalan-chapters"
+        "ncrb-sankalan-chapters",
+        "curated-hindi"
       ],
-      "verify": false
+      "verify": true,
+      "provenance": {
+        "heading": {
+          "kind": "curated-translation",
+          "authoredBy": "Sahayak maintainers",
+          "authoredOn": "2026-08-29",
+          "official": false,
+          "note": {
+            "en": "Hindi rendered by the Sahayak maintainers from the official English text. Not the statutory Hindi.",
+            "hi": "हिंदी पाठ सहायक के अनुरक्षकों द्वारा आधिकारिक अंग्रेजी पाठ से तैयार। यह वैधानिक हिंदी पाठ नहीं है।"
+          }
+        }
+      }
     },
     "129": {
       "section": "129",
       "act": "BSA",
       "heading": {
         "en": "Evidence as to affairs of State.",
-        "hi": ""
+        "hi": "राज्य के कार्यों के बारे में साक्ष्य।"
       },
       "status": "renumbered",
       "chapter": {
@@ -10116,16 +11789,29 @@
       "notes": [],
       "sources": [
         "ncrb-sankalan-table",
-        "ncrb-sankalan-chapters"
+        "ncrb-sankalan-chapters",
+        "curated-hindi"
       ],
-      "verify": false
+      "verify": true,
+      "provenance": {
+        "heading": {
+          "kind": "curated-translation",
+          "authoredBy": "Sahayak maintainers",
+          "authoredOn": "2026-08-29",
+          "official": false,
+          "note": {
+            "en": "Hindi rendered by the Sahayak maintainers from the official English text. Not the statutory Hindi.",
+            "hi": "हिंदी पाठ सहायक के अनुरक्षकों द्वारा आधिकारिक अंग्रेजी पाठ से तैयार। यह वैधानिक हिंदी पाठ नहीं है।"
+          }
+        }
+      }
     },
     "130": {
       "section": "130",
       "act": "BSA",
       "heading": {
         "en": "Official communications.",
-        "hi": ""
+        "hi": "शासकीय संचार।"
       },
       "status": "renumbered",
       "chapter": {
@@ -10182,16 +11868,29 @@
       "notes": [],
       "sources": [
         "ncrb-sankalan-table",
-        "ncrb-sankalan-chapters"
+        "ncrb-sankalan-chapters",
+        "curated-hindi"
       ],
-      "verify": false
+      "verify": true,
+      "provenance": {
+        "heading": {
+          "kind": "curated-translation",
+          "authoredBy": "Sahayak maintainers",
+          "authoredOn": "2026-08-29",
+          "official": false,
+          "note": {
+            "en": "Hindi rendered by the Sahayak maintainers from the official English text. Not the statutory Hindi.",
+            "hi": "हिंदी पाठ सहायक के अनुरक्षकों द्वारा आधिकारिक अंग्रेजी पाठ से तैयार। यह वैधानिक हिंदी पाठ नहीं है।"
+          }
+        }
+      }
     },
     "131": {
       "section": "131",
       "act": "BSA",
       "heading": {
         "en": "Information as to commission of offences.",
-        "hi": ""
+        "hi": "अपराधों के किए जाने के बारे में इत्तिला।"
       },
       "status": "renumbered",
       "chapter": {
@@ -10255,16 +11954,29 @@
       "notes": [],
       "sources": [
         "ncrb-sankalan-table",
-        "ncrb-sankalan-chapters"
+        "ncrb-sankalan-chapters",
+        "curated-hindi"
       ],
-      "verify": false
+      "verify": true,
+      "provenance": {
+        "heading": {
+          "kind": "curated-translation",
+          "authoredBy": "Sahayak maintainers",
+          "authoredOn": "2026-08-29",
+          "official": false,
+          "note": {
+            "en": "Hindi rendered by the Sahayak maintainers from the official English text. Not the statutory Hindi.",
+            "hi": "हिंदी पाठ सहायक के अनुरक्षकों द्वारा आधिकारिक अंग्रेजी पाठ से तैयार। यह वैधानिक हिंदी पाठ नहीं है।"
+          }
+        }
+      }
     },
     "132": {
       "section": "132",
       "act": "BSA",
       "heading": {
         "en": "Professional communications.",
-        "hi": ""
+        "hi": "वृत्तिक संचार।"
       },
       "status": "renumbered",
       "chapter": {
@@ -10345,16 +12057,29 @@
       "notes": [],
       "sources": [
         "ncrb-sankalan-table",
-        "ncrb-sankalan-chapters"
+        "ncrb-sankalan-chapters",
+        "curated-hindi"
       ],
-      "verify": false
+      "verify": true,
+      "provenance": {
+        "heading": {
+          "kind": "curated-translation",
+          "authoredBy": "Sahayak maintainers",
+          "authoredOn": "2026-08-29",
+          "official": false,
+          "note": {
+            "en": "Hindi rendered by the Sahayak maintainers from the official English text. Not the statutory Hindi.",
+            "hi": "हिंदी पाठ सहायक के अनुरक्षकों द्वारा आधिकारिक अंग्रेजी पाठ से तैयार। यह वैधानिक हिंदी पाठ नहीं है।"
+          }
+        }
+      }
     },
     "133": {
       "section": "133",
       "act": "BSA",
       "heading": {
         "en": "Privilege not waived by volunteering evidence.",
-        "hi": ""
+        "hi": "स्वेच्छा से साक्ष्य देने से विशेषाधिकार का अधित्यजन नहीं होता।"
       },
       "status": "renumbered",
       "chapter": {
@@ -10419,16 +12144,29 @@
       "notes": [],
       "sources": [
         "ncrb-sankalan-table",
-        "ncrb-sankalan-chapters"
+        "ncrb-sankalan-chapters",
+        "curated-hindi"
       ],
-      "verify": false
+      "verify": true,
+      "provenance": {
+        "heading": {
+          "kind": "curated-translation",
+          "authoredBy": "Sahayak maintainers",
+          "authoredOn": "2026-08-29",
+          "official": false,
+          "note": {
+            "en": "Hindi rendered by the Sahayak maintainers from the official English text. Not the statutory Hindi.",
+            "hi": "हिंदी पाठ सहायक के अनुरक्षकों द्वारा आधिकारिक अंग्रेजी पाठ से तैयार। यह वैधानिक हिंदी पाठ नहीं है।"
+          }
+        }
+      }
     },
     "134": {
       "section": "134",
       "act": "BSA",
       "heading": {
         "en": "Confidential communication with legal advisers.",
-        "hi": ""
+        "hi": "विधि सलाहकारों के साथ गोपनीय संचार।"
       },
       "status": "renumbered",
       "chapter": {
@@ -10493,16 +12231,29 @@
       "notes": [],
       "sources": [
         "ncrb-sankalan-table",
-        "ncrb-sankalan-chapters"
+        "ncrb-sankalan-chapters",
+        "curated-hindi"
       ],
-      "verify": false
+      "verify": true,
+      "provenance": {
+        "heading": {
+          "kind": "curated-translation",
+          "authoredBy": "Sahayak maintainers",
+          "authoredOn": "2026-08-29",
+          "official": false,
+          "note": {
+            "en": "Hindi rendered by the Sahayak maintainers from the official English text. Not the statutory Hindi.",
+            "hi": "हिंदी पाठ सहायक के अनुरक्षकों द्वारा आधिकारिक अंग्रेजी पाठ से तैयार। यह वैधानिक हिंदी पाठ नहीं है।"
+          }
+        }
+      }
     },
     "135": {
       "section": "135",
       "act": "BSA",
       "heading": {
         "en": "Production of title-deeds of witness not a party .",
-        "hi": ""
+        "hi": "पक्षकार न होने वाले साक्षी के हक-पत्रों का पेश किया जाना।"
       },
       "status": "renumbered",
       "chapter": {
@@ -10573,16 +12324,29 @@
       "notes": [],
       "sources": [
         "ncrb-sankalan-table",
-        "ncrb-sankalan-chapters"
+        "ncrb-sankalan-chapters",
+        "curated-hindi"
       ],
-      "verify": false
+      "verify": true,
+      "provenance": {
+        "heading": {
+          "kind": "curated-translation",
+          "authoredBy": "Sahayak maintainers",
+          "authoredOn": "2026-08-29",
+          "official": false,
+          "note": {
+            "en": "Hindi rendered by the Sahayak maintainers from the official English text. Not the statutory Hindi.",
+            "hi": "हिंदी पाठ सहायक के अनुरक्षकों द्वारा आधिकारिक अंग्रेजी पाठ से तैयार। यह वैधानिक हिंदी पाठ नहीं है।"
+          }
+        }
+      }
     },
     "136": {
       "section": "136",
       "act": "BSA",
       "heading": {
         "en": "Production of documents or electronic records which another person, having possession, could refuse to produce.",
-        "hi": ""
+        "hi": "ऐसे दस्तावेजों या इलेक्ट्रॉनिक अभिलेखों का पेश किया जाना जिन्हें कब्जा रखने वाला अन्य व्यक्ति पेश करने से इनकार कर सकता था।"
       },
       "status": "renumbered",
       "chapter": {
@@ -10662,16 +12426,29 @@
       "notes": [],
       "sources": [
         "ncrb-sankalan-table",
-        "ncrb-sankalan-chapters"
+        "ncrb-sankalan-chapters",
+        "curated-hindi"
       ],
-      "verify": false
+      "verify": true,
+      "provenance": {
+        "heading": {
+          "kind": "curated-translation",
+          "authoredBy": "Sahayak maintainers",
+          "authoredOn": "2026-08-29",
+          "official": false,
+          "note": {
+            "en": "Hindi rendered by the Sahayak maintainers from the official English text. Not the statutory Hindi.",
+            "hi": "हिंदी पाठ सहायक के अनुरक्षकों द्वारा आधिकारिक अंग्रेजी पाठ से तैयार। यह वैधानिक हिंदी पाठ नहीं है।"
+          }
+        }
+      }
     },
     "137": {
       "section": "137",
       "act": "BSA",
       "heading": {
         "en": "Witness not excused from answering on ground that answer will criminate.",
-        "hi": ""
+        "hi": "साक्षी इस आधार पर उत्तर देने से उन्मोचित नहीं होगा कि उत्तर उसे अपराधी ठहराएगा।"
       },
       "status": "renumbered",
       "chapter": {
@@ -10746,16 +12523,29 @@
       "notes": [],
       "sources": [
         "ncrb-sankalan-table",
-        "ncrb-sankalan-chapters"
+        "ncrb-sankalan-chapters",
+        "curated-hindi"
       ],
-      "verify": false
+      "verify": true,
+      "provenance": {
+        "heading": {
+          "kind": "curated-translation",
+          "authoredBy": "Sahayak maintainers",
+          "authoredOn": "2026-08-29",
+          "official": false,
+          "note": {
+            "en": "Hindi rendered by the Sahayak maintainers from the official English text. Not the statutory Hindi.",
+            "hi": "हिंदी पाठ सहायक के अनुरक्षकों द्वारा आधिकारिक अंग्रेजी पाठ से तैयार। यह वैधानिक हिंदी पाठ नहीं है।"
+          }
+        }
+      }
     },
     "138": {
       "section": "138",
       "act": "BSA",
       "heading": {
         "en": "Accomplice.",
-        "hi": ""
+        "hi": "सहअपराधी।"
       },
       "status": "changed",
       "chapter": {
@@ -10822,16 +12612,29 @@
       "notes": [],
       "sources": [
         "ncrb-sankalan-table",
-        "ncrb-sankalan-chapters"
+        "ncrb-sankalan-chapters",
+        "curated-hindi"
       ],
-      "verify": false
+      "verify": true,
+      "provenance": {
+        "heading": {
+          "kind": "curated-translation",
+          "authoredBy": "Sahayak maintainers",
+          "authoredOn": "2026-08-29",
+          "official": false,
+          "note": {
+            "en": "Hindi rendered by the Sahayak maintainers from the official English text. Not the statutory Hindi.",
+            "hi": "हिंदी पाठ सहायक के अनुरक्षकों द्वारा आधिकारिक अंग्रेजी पाठ से तैयार। यह वैधानिक हिंदी पाठ नहीं है।"
+          }
+        }
+      }
     },
     "139": {
       "section": "139",
       "act": "BSA",
       "heading": {
         "en": "Number of witnesses .",
-        "hi": ""
+        "hi": "साक्षियों की संख्या।"
       },
       "status": "renumbered",
       "chapter": {
@@ -10894,16 +12697,29 @@
       "notes": [],
       "sources": [
         "ncrb-sankalan-table",
-        "ncrb-sankalan-chapters"
+        "ncrb-sankalan-chapters",
+        "curated-hindi"
       ],
-      "verify": false
+      "verify": true,
+      "provenance": {
+        "heading": {
+          "kind": "curated-translation",
+          "authoredBy": "Sahayak maintainers",
+          "authoredOn": "2026-08-29",
+          "official": false,
+          "note": {
+            "en": "Hindi rendered by the Sahayak maintainers from the official English text. Not the statutory Hindi.",
+            "hi": "हिंदी पाठ सहायक के अनुरक्षकों द्वारा आधिकारिक अंग्रेजी पाठ से तैयार। यह वैधानिक हिंदी पाठ नहीं है।"
+          }
+        }
+      }
     },
     "140": {
       "section": "140",
       "act": "BSA",
       "heading": {
         "en": "Order of production and examination of witnesses.",
-        "hi": ""
+        "hi": "साक्षियों के पेश किए जाने और परीक्षा का क्रम।"
       },
       "status": "renumbered",
       "chapter": {
@@ -10968,16 +12784,29 @@
       "notes": [],
       "sources": [
         "ncrb-sankalan-table",
-        "ncrb-sankalan-chapters"
+        "ncrb-sankalan-chapters",
+        "curated-hindi"
       ],
-      "verify": false
+      "verify": true,
+      "provenance": {
+        "heading": {
+          "kind": "curated-translation",
+          "authoredBy": "Sahayak maintainers",
+          "authoredOn": "2026-08-29",
+          "official": false,
+          "note": {
+            "en": "Hindi rendered by the Sahayak maintainers from the official English text. Not the statutory Hindi.",
+            "hi": "हिंदी पाठ सहायक के अनुरक्षकों द्वारा आधिकारिक अंग्रेजी पाठ से तैयार। यह वैधानिक हिंदी पाठ नहीं है।"
+          }
+        }
+      }
     },
     "141": {
       "section": "141",
       "act": "BSA",
       "heading": {
         "en": "Judge to decide as to admissibility of evidence.",
-        "hi": ""
+        "hi": "साक्ष्य की ग्राह्यता के बारे में न्यायाधीश विनिश्चय करेगा।"
       },
       "status": "renumbered",
       "chapter": {
@@ -11039,16 +12868,29 @@
       "notes": [],
       "sources": [
         "ncrb-sankalan-table",
-        "ncrb-sankalan-chapters"
+        "ncrb-sankalan-chapters",
+        "curated-hindi"
       ],
-      "verify": false
+      "verify": true,
+      "provenance": {
+        "heading": {
+          "kind": "curated-translation",
+          "authoredBy": "Sahayak maintainers",
+          "authoredOn": "2026-08-29",
+          "official": false,
+          "note": {
+            "en": "Hindi rendered by the Sahayak maintainers from the official English text. Not the statutory Hindi.",
+            "hi": "हिंदी पाठ सहायक के अनुरक्षकों द्वारा आधिकारिक अंग्रेजी पाठ से तैयार। यह वैधानिक हिंदी पाठ नहीं है।"
+          }
+        }
+      }
     },
     "142": {
       "section": "142",
       "act": "BSA",
       "heading": {
         "en": "Examination of witnesses.",
-        "hi": ""
+        "hi": "साक्षियों की परीक्षा।"
       },
       "status": "renumbered",
       "chapter": {
@@ -11111,16 +12953,29 @@
       "notes": [],
       "sources": [
         "ncrb-sankalan-table",
-        "ncrb-sankalan-chapters"
+        "ncrb-sankalan-chapters",
+        "curated-hindi"
       ],
-      "verify": false
+      "verify": true,
+      "provenance": {
+        "heading": {
+          "kind": "curated-translation",
+          "authoredBy": "Sahayak maintainers",
+          "authoredOn": "2026-08-29",
+          "official": false,
+          "note": {
+            "en": "Hindi rendered by the Sahayak maintainers from the official English text. Not the statutory Hindi.",
+            "hi": "हिंदी पाठ सहायक के अनुरक्षकों द्वारा आधिकारिक अंग्रेजी पाठ से तैयार। यह वैधानिक हिंदी पाठ नहीं है।"
+          }
+        }
+      }
     },
     "143": {
       "section": "143",
       "act": "BSA",
       "heading": {
         "en": "Order of examinations.",
-        "hi": ""
+        "hi": "परीक्षाओं का क्रम।"
       },
       "status": "renumbered",
       "chapter": {
@@ -11203,16 +13058,29 @@
       "notes": [],
       "sources": [
         "ncrb-sankalan-table",
-        "ncrb-sankalan-chapters"
+        "ncrb-sankalan-chapters",
+        "curated-hindi"
       ],
-      "verify": false
+      "verify": true,
+      "provenance": {
+        "heading": {
+          "kind": "curated-translation",
+          "authoredBy": "Sahayak maintainers",
+          "authoredOn": "2026-08-29",
+          "official": false,
+          "note": {
+            "en": "Hindi rendered by the Sahayak maintainers from the official English text. Not the statutory Hindi.",
+            "hi": "हिंदी पाठ सहायक के अनुरक्षकों द्वारा आधिकारिक अंग्रेजी पाठ से तैयार। यह वैधानिक हिंदी पाठ नहीं है।"
+          }
+        }
+      }
     },
     "144": {
       "section": "144",
       "act": "BSA",
       "heading": {
         "en": "Cross-examination of person called to produce a document.",
-        "hi": ""
+        "hi": "दस्तावेज पेश करने के लिए बुलाए गए व्यक्ति की जिरह।"
       },
       "status": "renumbered",
       "chapter": {
@@ -11283,16 +13151,29 @@
       "notes": [],
       "sources": [
         "ncrb-sankalan-table",
-        "ncrb-sankalan-chapters"
+        "ncrb-sankalan-chapters",
+        "curated-hindi"
       ],
-      "verify": false
+      "verify": true,
+      "provenance": {
+        "heading": {
+          "kind": "curated-translation",
+          "authoredBy": "Sahayak maintainers",
+          "authoredOn": "2026-08-29",
+          "official": false,
+          "note": {
+            "en": "Hindi rendered by the Sahayak maintainers from the official English text. Not the statutory Hindi.",
+            "hi": "हिंदी पाठ सहायक के अनुरक्षकों द्वारा आधिकारिक अंग्रेजी पाठ से तैयार। यह वैधानिक हिंदी पाठ नहीं है।"
+          }
+        }
+      }
     },
     "145": {
       "section": "145",
       "act": "BSA",
       "heading": {
         "en": "Witnesses to character.",
-        "hi": ""
+        "hi": "चरित्र के साक्षी।"
       },
       "status": "renumbered",
       "chapter": {
@@ -11355,16 +13236,29 @@
       "notes": [],
       "sources": [
         "ncrb-sankalan-table",
-        "ncrb-sankalan-chapters"
+        "ncrb-sankalan-chapters",
+        "curated-hindi"
       ],
-      "verify": false
+      "verify": true,
+      "provenance": {
+        "heading": {
+          "kind": "curated-translation",
+          "authoredBy": "Sahayak maintainers",
+          "authoredOn": "2026-08-29",
+          "official": false,
+          "note": {
+            "en": "Hindi rendered by the Sahayak maintainers from the official English text. Not the statutory Hindi.",
+            "hi": "हिंदी पाठ सहायक के अनुरक्षकों द्वारा आधिकारिक अंग्रेजी पाठ से तैयार। यह वैधानिक हिंदी पाठ नहीं है।"
+          }
+        }
+      }
     },
     "146": {
       "section": "146",
       "act": "BSA",
       "heading": {
         "en": "Leading questions.",
-        "hi": ""
+        "hi": "सूचक प्रश्न।"
       },
       "status": "renumbered",
       "chapter": {
@@ -11461,16 +13355,29 @@
       "notes": [],
       "sources": [
         "ncrb-sankalan-table",
-        "ncrb-sankalan-chapters"
+        "ncrb-sankalan-chapters",
+        "curated-hindi"
       ],
-      "verify": false
+      "verify": true,
+      "provenance": {
+        "heading": {
+          "kind": "curated-translation",
+          "authoredBy": "Sahayak maintainers",
+          "authoredOn": "2026-08-29",
+          "official": false,
+          "note": {
+            "en": "Hindi rendered by the Sahayak maintainers from the official English text. Not the statutory Hindi.",
+            "hi": "हिंदी पाठ सहायक के अनुरक्षकों द्वारा आधिकारिक अंग्रेजी पाठ से तैयार। यह वैधानिक हिंदी पाठ नहीं है।"
+          }
+        }
+      }
     },
     "147": {
       "section": "147",
       "act": "BSA",
       "heading": {
         "en": "Evidence as to matters in writing .",
-        "hi": ""
+        "hi": "लेख में अंतर्विष्ट विषयों के बारे में साक्ष्य।"
       },
       "status": "renumbered",
       "chapter": {
@@ -11551,16 +13458,29 @@
       "notes": [],
       "sources": [
         "ncrb-sankalan-table",
-        "ncrb-sankalan-chapters"
+        "ncrb-sankalan-chapters",
+        "curated-hindi"
       ],
-      "verify": false
+      "verify": true,
+      "provenance": {
+        "heading": {
+          "kind": "curated-translation",
+          "authoredBy": "Sahayak maintainers",
+          "authoredOn": "2026-08-29",
+          "official": false,
+          "note": {
+            "en": "Hindi rendered by the Sahayak maintainers from the official English text. Not the statutory Hindi.",
+            "hi": "हिंदी पाठ सहायक के अनुरक्षकों द्वारा आधिकारिक अंग्रेजी पाठ से तैयार। यह वैधानिक हिंदी पाठ नहीं है।"
+          }
+        }
+      }
     },
     "148": {
       "section": "148",
       "act": "BSA",
       "heading": {
         "en": "Cross- examination as to previous statements in writing.",
-        "hi": ""
+        "hi": "लेख में पूर्व कथनों के बारे में जिरह।"
       },
       "status": "renumbered",
       "chapter": {
@@ -11634,16 +13554,29 @@
       "notes": [],
       "sources": [
         "ncrb-sankalan-table",
-        "ncrb-sankalan-chapters"
+        "ncrb-sankalan-chapters",
+        "curated-hindi"
       ],
-      "verify": false
+      "verify": true,
+      "provenance": {
+        "heading": {
+          "kind": "curated-translation",
+          "authoredBy": "Sahayak maintainers",
+          "authoredOn": "2026-08-29",
+          "official": false,
+          "note": {
+            "en": "Hindi rendered by the Sahayak maintainers from the official English text. Not the statutory Hindi.",
+            "hi": "हिंदी पाठ सहायक के अनुरक्षकों द्वारा आधिकारिक अंग्रेजी पाठ से तैयार। यह वैधानिक हिंदी पाठ नहीं है।"
+          }
+        }
+      }
     },
     "149": {
       "section": "149",
       "act": "BSA",
       "heading": {
         "en": "Questions lawful in cross- examination.",
-        "hi": ""
+        "hi": "जिरह में विधिपूर्ण प्रश्न।"
       },
       "status": "renumbered",
       "chapter": {
@@ -11708,16 +13641,29 @@
       "notes": [],
       "sources": [
         "ncrb-sankalan-table",
-        "ncrb-sankalan-chapters"
+        "ncrb-sankalan-chapters",
+        "curated-hindi"
       ],
-      "verify": false
+      "verify": true,
+      "provenance": {
+        "heading": {
+          "kind": "curated-translation",
+          "authoredBy": "Sahayak maintainers",
+          "authoredOn": "2026-08-29",
+          "official": false,
+          "note": {
+            "en": "Hindi rendered by the Sahayak maintainers from the official English text. Not the statutory Hindi.",
+            "hi": "हिंदी पाठ सहायक के अनुरक्षकों द्वारा आधिकारिक अंग्रेजी पाठ से तैयार। यह वैधानिक हिंदी पाठ नहीं है।"
+          }
+        }
+      }
     },
     "150": {
       "section": "150",
       "act": "BSA",
       "heading": {
         "en": "When witness to be compelled to answer.",
-        "hi": ""
+        "hi": "साक्षी को उत्तर देने के लिए कब बाध्य किया जाए।"
       },
       "status": "renumbered",
       "chapter": {
@@ -11788,16 +13734,29 @@
       "notes": [],
       "sources": [
         "ncrb-sankalan-table",
-        "ncrb-sankalan-chapters"
+        "ncrb-sankalan-chapters",
+        "curated-hindi"
       ],
-      "verify": false
+      "verify": true,
+      "provenance": {
+        "heading": {
+          "kind": "curated-translation",
+          "authoredBy": "Sahayak maintainers",
+          "authoredOn": "2026-08-29",
+          "official": false,
+          "note": {
+            "en": "Hindi rendered by the Sahayak maintainers from the official English text. Not the statutory Hindi.",
+            "hi": "हिंदी पाठ सहायक के अनुरक्षकों द्वारा आधिकारिक अंग्रेजी पाठ से तैयार। यह वैधानिक हिंदी पाठ नहीं है।"
+          }
+        }
+      }
     },
     "151": {
       "section": "151",
       "act": "BSA",
       "heading": {
         "en": "Court to decide when question shall be asked and when witness compelled to answer.",
-        "hi": ""
+        "hi": "न्यायालय विनिश्चय करेगा कि प्रश्न कब पूछा जाए और साक्षी को उत्तर देने के लिए कब बाध्य किया जाए।"
       },
       "status": "renumbered",
       "chapter": {
@@ -11872,16 +13831,29 @@
       "notes": [],
       "sources": [
         "ncrb-sankalan-table",
-        "ncrb-sankalan-chapters"
+        "ncrb-sankalan-chapters",
+        "curated-hindi"
       ],
-      "verify": false
+      "verify": true,
+      "provenance": {
+        "heading": {
+          "kind": "curated-translation",
+          "authoredBy": "Sahayak maintainers",
+          "authoredOn": "2026-08-29",
+          "official": false,
+          "note": {
+            "en": "Hindi rendered by the Sahayak maintainers from the official English text. Not the statutory Hindi.",
+            "hi": "हिंदी पाठ सहायक के अनुरक्षकों द्वारा आधिकारिक अंग्रेजी पाठ से तैयार। यह वैधानिक हिंदी पाठ नहीं है।"
+          }
+        }
+      }
     },
     "152": {
       "section": "152",
       "act": "BSA",
       "heading": {
         "en": "Question not to be asked without reasonable grounds.",
-        "hi": ""
+        "hi": "युक्तियुक्त आधार के बिना प्रश्न नहीं पूछा जाएगा।"
       },
       "status": "renumbered",
       "chapter": {
@@ -11947,16 +13919,29 @@
       "notes": [],
       "sources": [
         "ncrb-sankalan-table",
-        "ncrb-sankalan-chapters"
+        "ncrb-sankalan-chapters",
+        "curated-hindi"
       ],
-      "verify": false
+      "verify": true,
+      "provenance": {
+        "heading": {
+          "kind": "curated-translation",
+          "authoredBy": "Sahayak maintainers",
+          "authoredOn": "2026-08-29",
+          "official": false,
+          "note": {
+            "en": "Hindi rendered by the Sahayak maintainers from the official English text. Not the statutory Hindi.",
+            "hi": "हिंदी पाठ सहायक के अनुरक्षकों द्वारा आधिकारिक अंग्रेजी पाठ से तैयार। यह वैधानिक हिंदी पाठ नहीं है।"
+          }
+        }
+      }
     },
     "153": {
       "section": "153",
       "act": "BSA",
       "heading": {
         "en": "Procedure of Court in case of question being asked without reasonable grounds.",
-        "hi": ""
+        "hi": "युक्तियुक्त आधार के बिना प्रश्न पूछे जाने की दशा में न्यायालय की प्रक्रिया।"
       },
       "status": "renumbered",
       "chapter": {
@@ -12025,16 +14010,29 @@
       "notes": [],
       "sources": [
         "ncrb-sankalan-table",
-        "ncrb-sankalan-chapters"
+        "ncrb-sankalan-chapters",
+        "curated-hindi"
       ],
-      "verify": false
+      "verify": true,
+      "provenance": {
+        "heading": {
+          "kind": "curated-translation",
+          "authoredBy": "Sahayak maintainers",
+          "authoredOn": "2026-08-29",
+          "official": false,
+          "note": {
+            "en": "Hindi rendered by the Sahayak maintainers from the official English text. Not the statutory Hindi.",
+            "hi": "हिंदी पाठ सहायक के अनुरक्षकों द्वारा आधिकारिक अंग्रेजी पाठ से तैयार। यह वैधानिक हिंदी पाठ नहीं है।"
+          }
+        }
+      }
     },
     "154": {
       "section": "154",
       "act": "BSA",
       "heading": {
         "en": "Indecent and scandalous questions.",
-        "hi": ""
+        "hi": "अशिष्ट और मानहानिकारक प्रश्न।"
       },
       "status": "renumbered",
       "chapter": {
@@ -12086,16 +14084,29 @@
       "notes": [],
       "sources": [
         "ncrb-sankalan-table",
-        "ncrb-sankalan-chapters"
+        "ncrb-sankalan-chapters",
+        "curated-hindi"
       ],
-      "verify": false
+      "verify": true,
+      "provenance": {
+        "heading": {
+          "kind": "curated-translation",
+          "authoredBy": "Sahayak maintainers",
+          "authoredOn": "2026-08-29",
+          "official": false,
+          "note": {
+            "en": "Hindi rendered by the Sahayak maintainers from the official English text. Not the statutory Hindi.",
+            "hi": "हिंदी पाठ सहायक के अनुरक्षकों द्वारा आधिकारिक अंग्रेजी पाठ से तैयार। यह वैधानिक हिंदी पाठ नहीं है।"
+          }
+        }
+      }
     },
     "155": {
       "section": "155",
       "act": "BSA",
       "heading": {
         "en": "Questions intended to insult or annoy.",
-        "hi": ""
+        "hi": "अपमानित या तंग करने के आशय से प्रश्न।"
       },
       "status": "renumbered",
       "chapter": {
@@ -12158,16 +14169,29 @@
       "notes": [],
       "sources": [
         "ncrb-sankalan-table",
-        "ncrb-sankalan-chapters"
+        "ncrb-sankalan-chapters",
+        "curated-hindi"
       ],
-      "verify": false
+      "verify": true,
+      "provenance": {
+        "heading": {
+          "kind": "curated-translation",
+          "authoredBy": "Sahayak maintainers",
+          "authoredOn": "2026-08-29",
+          "official": false,
+          "note": {
+            "en": "Hindi rendered by the Sahayak maintainers from the official English text. Not the statutory Hindi.",
+            "hi": "हिंदी पाठ सहायक के अनुरक्षकों द्वारा आधिकारिक अंग्रेजी पाठ से तैयार। यह वैधानिक हिंदी पाठ नहीं है।"
+          }
+        }
+      }
     },
     "156": {
       "section": "156",
       "act": "BSA",
       "heading": {
         "en": "Exclusion of evidence to contradict answers to questions testing veracity.",
-        "hi": ""
+        "hi": "सत्यनिष्ठा की परीक्षा करने वाले प्रश्नों के उत्तरों का खंडन करने के लिए साक्ष्य का अपवर्जन।"
       },
       "status": "renumbered",
       "chapter": {
@@ -12266,16 +14290,29 @@
       "notes": [],
       "sources": [
         "ncrb-sankalan-table",
-        "ncrb-sankalan-chapters"
+        "ncrb-sankalan-chapters",
+        "curated-hindi"
       ],
-      "verify": false
+      "verify": true,
+      "provenance": {
+        "heading": {
+          "kind": "curated-translation",
+          "authoredBy": "Sahayak maintainers",
+          "authoredOn": "2026-08-29",
+          "official": false,
+          "note": {
+            "en": "Hindi rendered by the Sahayak maintainers from the official English text. Not the statutory Hindi.",
+            "hi": "हिंदी पाठ सहायक के अनुरक्षकों द्वारा आधिकारिक अंग्रेजी पाठ से तैयार। यह वैधानिक हिंदी पाठ नहीं है।"
+          }
+        }
+      }
     },
     "157": {
       "section": "157",
       "act": "BSA",
       "heading": {
         "en": "Question by party to his own witness.",
-        "hi": ""
+        "hi": "पक्षकार द्वारा अपने ही साक्षी से प्रश्न।"
       },
       "status": "renumbered",
       "chapter": {
@@ -12339,16 +14376,29 @@
       "notes": [],
       "sources": [
         "ncrb-sankalan-table",
-        "ncrb-sankalan-chapters"
+        "ncrb-sankalan-chapters",
+        "curated-hindi"
       ],
-      "verify": false
+      "verify": true,
+      "provenance": {
+        "heading": {
+          "kind": "curated-translation",
+          "authoredBy": "Sahayak maintainers",
+          "authoredOn": "2026-08-29",
+          "official": false,
+          "note": {
+            "en": "Hindi rendered by the Sahayak maintainers from the official English text. Not the statutory Hindi.",
+            "hi": "हिंदी पाठ सहायक के अनुरक्षकों द्वारा आधिकारिक अंग्रेजी पाठ से तैयार। यह वैधानिक हिंदी पाठ नहीं है।"
+          }
+        }
+      }
     },
     "158": {
       "section": "158",
       "act": "BSA",
       "heading": {
         "en": "Impeaching credit of witness.",
-        "hi": ""
+        "hi": "साक्षी की विश्वसनीयता पर आक्षेप करना।"
       },
       "status": "renumbered",
       "chapter": {
@@ -12411,16 +14461,29 @@
       "notes": [],
       "sources": [
         "ncrb-sankalan-table",
-        "ncrb-sankalan-chapters"
+        "ncrb-sankalan-chapters",
+        "curated-hindi"
       ],
-      "verify": false
+      "verify": true,
+      "provenance": {
+        "heading": {
+          "kind": "curated-translation",
+          "authoredBy": "Sahayak maintainers",
+          "authoredOn": "2026-08-29",
+          "official": false,
+          "note": {
+            "en": "Hindi rendered by the Sahayak maintainers from the official English text. Not the statutory Hindi.",
+            "hi": "हिंदी पाठ सहायक के अनुरक्षकों द्वारा आधिकारिक अंग्रेजी पाठ से तैयार। यह वैधानिक हिंदी पाठ नहीं है।"
+          }
+        }
+      }
     },
     "159": {
       "section": "159",
       "act": "BSA",
       "heading": {
         "en": "Questions tending to corroborate evidence of relevant fact, admissible.",
-        "hi": ""
+        "hi": "सुसंगत तथ्य के साक्ष्य का समर्थन करने वाले प्रश्न, ग्राह्य हैं।"
       },
       "status": "renumbered",
       "chapter": {
@@ -12506,16 +14569,29 @@
       "notes": [],
       "sources": [
         "ncrb-sankalan-table",
-        "ncrb-sankalan-chapters"
+        "ncrb-sankalan-chapters",
+        "curated-hindi"
       ],
-      "verify": false
+      "verify": true,
+      "provenance": {
+        "heading": {
+          "kind": "curated-translation",
+          "authoredBy": "Sahayak maintainers",
+          "authoredOn": "2026-08-29",
+          "official": false,
+          "note": {
+            "en": "Hindi rendered by the Sahayak maintainers from the official English text. Not the statutory Hindi.",
+            "hi": "हिंदी पाठ सहायक के अनुरक्षकों द्वारा आधिकारिक अंग्रेजी पाठ से तैयार। यह वैधानिक हिंदी पाठ नहीं है।"
+          }
+        }
+      }
     },
     "160": {
       "section": "160",
       "act": "BSA",
       "heading": {
         "en": "Former statements of witness may be proved to corroborate later testimony as to same fact.",
-        "hi": ""
+        "hi": "साक्षी के पूर्व कथन उसी तथ्य के बारे में बाद की गवाही का समर्थन करने के लिए साबित किए जा सकेंगे।"
       },
       "status": "renumbered",
       "chapter": {
@@ -12583,16 +14659,29 @@
       "notes": [],
       "sources": [
         "ncrb-sankalan-table",
-        "ncrb-sankalan-chapters"
+        "ncrb-sankalan-chapters",
+        "curated-hindi"
       ],
-      "verify": false
+      "verify": true,
+      "provenance": {
+        "heading": {
+          "kind": "curated-translation",
+          "authoredBy": "Sahayak maintainers",
+          "authoredOn": "2026-08-29",
+          "official": false,
+          "note": {
+            "en": "Hindi rendered by the Sahayak maintainers from the official English text. Not the statutory Hindi.",
+            "hi": "हिंदी पाठ सहायक के अनुरक्षकों द्वारा आधिकारिक अंग्रेजी पाठ से तैयार। यह वैधानिक हिंदी पाठ नहीं है।"
+          }
+        }
+      }
     },
     "161": {
       "section": "161",
       "act": "BSA",
       "heading": {
         "en": "What matters may be proved in connection with proved statement relevant under section 26 or 27.",
-        "hi": ""
+        "hi": "धारा 26 या 27 के अधीन सुसंगत साबित कथन के संबंध में क्या विषय साबित किए जा सकते हैं।"
       },
       "status": "renumbered",
       "chapter": {
@@ -12668,16 +14757,29 @@
       "notes": [],
       "sources": [
         "ncrb-sankalan-table",
-        "ncrb-sankalan-chapters"
+        "ncrb-sankalan-chapters",
+        "curated-hindi"
       ],
-      "verify": false
+      "verify": true,
+      "provenance": {
+        "heading": {
+          "kind": "curated-translation",
+          "authoredBy": "Sahayak maintainers",
+          "authoredOn": "2026-08-29",
+          "official": false,
+          "note": {
+            "en": "Hindi rendered by the Sahayak maintainers from the official English text. Not the statutory Hindi.",
+            "hi": "हिंदी पाठ सहायक के अनुरक्षकों द्वारा आधिकारिक अंग्रेजी पाठ से तैयार। यह वैधानिक हिंदी पाठ नहीं है।"
+          }
+        }
+      }
     },
     "162": {
       "section": "162",
       "act": "BSA",
       "heading": {
         "en": "Refreshing memory.",
-        "hi": ""
+        "hi": "स्मृति ताजा करना।"
       },
       "status": "renumbered",
       "chapter": {
@@ -12740,16 +14842,29 @@
       "notes": [],
       "sources": [
         "ncrb-sankalan-table",
-        "ncrb-sankalan-chapters"
+        "ncrb-sankalan-chapters",
+        "curated-hindi"
       ],
-      "verify": false
+      "verify": true,
+      "provenance": {
+        "heading": {
+          "kind": "curated-translation",
+          "authoredBy": "Sahayak maintainers",
+          "authoredOn": "2026-08-29",
+          "official": false,
+          "note": {
+            "en": "Hindi rendered by the Sahayak maintainers from the official English text. Not the statutory Hindi.",
+            "hi": "हिंदी पाठ सहायक के अनुरक्षकों द्वारा आधिकारिक अंग्रेजी पाठ से तैयार। यह वैधानिक हिंदी पाठ नहीं है।"
+          }
+        }
+      }
     },
     "163": {
       "section": "163",
       "act": "BSA",
       "heading": {
         "en": "Testimony to facts stated in document mentioned in section 162.",
-        "hi": ""
+        "hi": "धारा 162 में वर्णित दस्तावेज में कथित तथ्यों के बारे में गवाही।"
       },
       "status": "renumbered",
       "chapter": {
@@ -12821,16 +14936,29 @@
       "notes": [],
       "sources": [
         "ncrb-sankalan-table",
-        "ncrb-sankalan-chapters"
+        "ncrb-sankalan-chapters",
+        "curated-hindi"
       ],
-      "verify": false
+      "verify": true,
+      "provenance": {
+        "heading": {
+          "kind": "curated-translation",
+          "authoredBy": "Sahayak maintainers",
+          "authoredOn": "2026-08-29",
+          "official": false,
+          "note": {
+            "en": "Hindi rendered by the Sahayak maintainers from the official English text. Not the statutory Hindi.",
+            "hi": "हिंदी पाठ सहायक के अनुरक्षकों द्वारा आधिकारिक अंग्रेजी पाठ से तैयार। यह वैधानिक हिंदी पाठ नहीं है।"
+          }
+        }
+      }
     },
     "164": {
       "section": "164",
       "act": "BSA",
       "heading": {
         "en": "Right of adverse party as to writing used to refresh memory.",
-        "hi": ""
+        "hi": "स्मृति ताजा करने के लिए प्रयुक्त लेख के बारे में विपक्षी पक्षकार का अधिकार।"
       },
       "status": "renumbered",
       "chapter": {
@@ -12898,16 +15026,29 @@
       "notes": [],
       "sources": [
         "ncrb-sankalan-table",
-        "ncrb-sankalan-chapters"
+        "ncrb-sankalan-chapters",
+        "curated-hindi"
       ],
-      "verify": false
+      "verify": true,
+      "provenance": {
+        "heading": {
+          "kind": "curated-translation",
+          "authoredBy": "Sahayak maintainers",
+          "authoredOn": "2026-08-29",
+          "official": false,
+          "note": {
+            "en": "Hindi rendered by the Sahayak maintainers from the official English text. Not the statutory Hindi.",
+            "hi": "हिंदी पाठ सहायक के अनुरक्षकों द्वारा आधिकारिक अंग्रेजी पाठ से तैयार। यह वैधानिक हिंदी पाठ नहीं है।"
+          }
+        }
+      }
     },
     "165": {
       "section": "165",
       "act": "BSA",
       "heading": {
         "en": "Production of documents.",
-        "hi": ""
+        "hi": "दस्तावेजों का पेश किया जाना।"
       },
       "status": "changed",
       "chapter": {
@@ -12977,16 +15118,29 @@
       "notes": [],
       "sources": [
         "ncrb-sankalan-table",
-        "ncrb-sankalan-chapters"
+        "ncrb-sankalan-chapters",
+        "curated-hindi"
       ],
-      "verify": false
+      "verify": true,
+      "provenance": {
+        "heading": {
+          "kind": "curated-translation",
+          "authoredBy": "Sahayak maintainers",
+          "authoredOn": "2026-08-29",
+          "official": false,
+          "note": {
+            "en": "Hindi rendered by the Sahayak maintainers from the official English text. Not the statutory Hindi.",
+            "hi": "हिंदी पाठ सहायक के अनुरक्षकों द्वारा आधिकारिक अंग्रेजी पाठ से तैयार। यह वैधानिक हिंदी पाठ नहीं है।"
+          }
+        }
+      }
     },
     "166": {
       "section": "166",
       "act": "BSA",
       "heading": {
         "en": "Giving, as evidence, of document called for and produced on notice.",
-        "hi": ""
+        "hi": "सूचना पर माँगे गए और पेश किए गए दस्तावेज का साक्ष्य के रूप में दिया जाना।"
       },
       "status": "renumbered",
       "chapter": {
@@ -13049,16 +15203,29 @@
       "notes": [],
       "sources": [
         "ncrb-sankalan-table",
-        "ncrb-sankalan-chapters"
+        "ncrb-sankalan-chapters",
+        "curated-hindi"
       ],
-      "verify": false
+      "verify": true,
+      "provenance": {
+        "heading": {
+          "kind": "curated-translation",
+          "authoredBy": "Sahayak maintainers",
+          "authoredOn": "2026-08-29",
+          "official": false,
+          "note": {
+            "en": "Hindi rendered by the Sahayak maintainers from the official English text. Not the statutory Hindi.",
+            "hi": "हिंदी पाठ सहायक के अनुरक्षकों द्वारा आधिकारिक अंग्रेजी पाठ से तैयार। यह वैधानिक हिंदी पाठ नहीं है।"
+          }
+        }
+      }
     },
     "167": {
       "section": "167",
       "act": "BSA",
       "heading": {
         "en": "Using, as evidence, of document production of which was refused on notice.",
-        "hi": ""
+        "hi": "ऐसे दस्तावेज का साक्ष्य के रूप में उपयोग जिसे पेश करने से सूचना पर इनकार किया गया था।"
       },
       "status": "renumbered",
       "chapter": {
@@ -13132,16 +15299,29 @@
       "notes": [],
       "sources": [
         "ncrb-sankalan-table",
-        "ncrb-sankalan-chapters"
+        "ncrb-sankalan-chapters",
+        "curated-hindi"
       ],
-      "verify": false
+      "verify": true,
+      "provenance": {
+        "heading": {
+          "kind": "curated-translation",
+          "authoredBy": "Sahayak maintainers",
+          "authoredOn": "2026-08-29",
+          "official": false,
+          "note": {
+            "en": "Hindi rendered by the Sahayak maintainers from the official English text. Not the statutory Hindi.",
+            "hi": "हिंदी पाठ सहायक के अनुरक्षकों द्वारा आधिकारिक अंग्रेजी पाठ से तैयार। यह वैधानिक हिंदी पाठ नहीं है।"
+          }
+        }
+      }
     },
     "168": {
       "section": "168",
       "act": "BSA",
       "heading": {
         "en": "Judge's power to put questions or order production.",
-        "hi": ""
+        "hi": "प्रश्न पूछने या पेश करने का आदेश देने की न्यायाधीश की शक्ति।"
       },
       "status": "changed",
       "chapter": {
@@ -13223,16 +15403,29 @@
       "notes": [],
       "sources": [
         "ncrb-sankalan-table",
-        "ncrb-sankalan-chapters"
+        "ncrb-sankalan-chapters",
+        "curated-hindi"
       ],
-      "verify": false
+      "verify": true,
+      "provenance": {
+        "heading": {
+          "kind": "curated-translation",
+          "authoredBy": "Sahayak maintainers",
+          "authoredOn": "2026-08-29",
+          "official": false,
+          "note": {
+            "en": "Hindi rendered by the Sahayak maintainers from the official English text. Not the statutory Hindi.",
+            "hi": "हिंदी पाठ सहायक के अनुरक्षकों द्वारा आधिकारिक अंग्रेजी पाठ से तैयार। यह वैधानिक हिंदी पाठ नहीं है।"
+          }
+        }
+      }
     },
     "169": {
       "section": "169",
       "act": "BSA",
       "heading": {
         "en": "No new trial for improper admission or rejection of evidence.",
-        "hi": ""
+        "hi": "साक्ष्य के अनुचित ग्रहण या नामंजूर किए जाने के लिए नया विचारण नहीं होगा।"
       },
       "status": "renumbered",
       "chapter": {
@@ -13298,16 +15491,29 @@
       "notes": [],
       "sources": [
         "ncrb-sankalan-table",
-        "ncrb-sankalan-chapters"
+        "ncrb-sankalan-chapters",
+        "curated-hindi"
       ],
-      "verify": false
+      "verify": true,
+      "provenance": {
+        "heading": {
+          "kind": "curated-translation",
+          "authoredBy": "Sahayak maintainers",
+          "authoredOn": "2026-08-29",
+          "official": false,
+          "note": {
+            "en": "Hindi rendered by the Sahayak maintainers from the official English text. Not the statutory Hindi.",
+            "hi": "हिंदी पाठ सहायक के अनुरक्षकों द्वारा आधिकारिक अंग्रेजी पाठ से तैयार। यह वैधानिक हिंदी पाठ नहीं है।"
+          }
+        }
+      }
     },
     "170": {
       "section": "170",
       "act": "BSA",
       "heading": {
         "en": "Repeal and savings.",
-        "hi": ""
+        "hi": "निरसन और व्यावृत्तियाँ।"
       },
       "status": "new",
       "chapter": {
@@ -13381,9 +15587,22 @@
       "notes": [],
       "sources": [
         "ncrb-sankalan-table",
-        "ncrb-sankalan-chapters"
+        "ncrb-sankalan-chapters",
+        "curated-hindi"
       ],
-      "verify": false
+      "verify": true,
+      "provenance": {
+        "heading": {
+          "kind": "curated-translation",
+          "authoredBy": "Sahayak maintainers",
+          "authoredOn": "2026-08-29",
+          "official": false,
+          "note": {
+            "en": "Hindi rendered by the Sahayak maintainers from the official English text. Not the statutory Hindi.",
+            "hi": "हिंदी पाठ सहायक के अनुरक्षकों द्वारा आधिकारिक अंग्रेजी पाठ से तैयार। यह वैधानिक हिंदी पाठ नहीं है।"
+          }
+        }
+      }
     }
   }
 }

@@ -1,0 +1,63 @@
+{
+  "_note": "STAGE B · CRITIC. A separate pass over scripts/authoring/authored/ol-rules.json, judging each question on its own terms: is there exactly one correct answer, are the distractors plausible without being trivially wrong, is it inside the public rule text, is there a factual red flag, is the tone right for a serving officer. Rejections stay in data/rules/cards/ with reviewState \"rejected\" and are never served. Note: ol-rules-4's text record legally bundles content belonging partly to what the gazette prints as Rule 3(3)/3(4) under the id ol-rules-4 — cards grounded there (ol-rules-q-006, ol-rules-q-007) were checked against that known, deliberate record-boundary choice, not treated as a defect.",
+  "ol-rules-q-001": {
+    "verdict": "approve",
+    "reason": "One correct answer (Tamil Nadu), grounded in Rule 1(ii); distractors are other real States, none of which is the actual exclusion. Explanation correctly adds Rule 1(iii)'s commencement clause without being asked."
+  },
+  "ol-rules-q-002": {
+    "verdict": "approve",
+    "reason": "Grounded in Rule 2(f) and the 2007 amendment notification bundled into ol-rules-12's text, which the app's own record confirms word for word. The correct option lists only a subset of Region A's members rather than the full list in \"back\", but it is the only option composed entirely of genuine Region A States, while the other three are Region B or Region C States wholesale — so exactly one option is correct and none of the wrong ones is a near-miss that could confuse a reader who knows the rule."
+  },
+  "ol-rules-q-003": {
+    "verdict": "approve",
+    "reason": "True/false grounded in Rule 2(e) (proficiency → Rule 9) versus Rule 2(i) (working knowledge → Rule 10); the statement is correctly false and the explanation names both real clauses accurately. Good distractor design — the swap is genuinely easy to make."
+  },
+  "ol-rules-q-004": {
+    "verdict": "approve",
+    "reason": "One correct answer, grounded in Rule 3(1) verbatim (Hindi save exceptional cases, translation if issued in English); distractors are plausible but each contradicts a specific clause of the rule (no exceptions ever, sender's free choice, bilingual always)."
+  },
+  "ol-rules-q-005": {
+    "verdict": "approve",
+    "reason": "One correct answer, grounded in Rule 3(2)(b) verbatim; correctly distinguishes the looser rule for a person in Region B from Rule 3(2)(a)'s conditions for an office there, which the explanation states accurately."
+  },
+  "ol-rules-q-006": {
+    "verdict": "approve",
+    "reason": "Grounded in the Ministry-to-Ministry clause bundled under ol-rules-4 (heading \"Communications between Central Government offices\" per hindi/ol-rules.json, matching the front's own phrasing). The front deliberately avoids asserting a specific rule/clause letter, sidestepping the record's own bundling ambiguity while the underlying fact (Hindi or English, unconditionally) is exactly what the text says."
+  },
+  "ol-rules-q-007": {
+    "verdict": "approve",
+    "reason": "The scenario (Region A office to Region C office) falls under the clause governing communications between a Region A office and Region B/C offices, bundled in ol-rules-4's text. The final proviso's own wording (\"addressed to an office in Region A or Region B\" / \"addressed to an office in Region C\") only makes sense as a general rule for the whole of that sub-rule, not just the immediately preceding clause about Region B/C offices communicating with each other — so applying it to this Region A→C scenario is the correct reading, and the answer (translation must accompany, unless a notified office) matches the text exactly. The front cites no rule number, avoiding overclaiming against the record's bundling."
+  },
+  "ol-rules-q-008": {
+    "verdict": "approve",
+    "reason": "The tested fact — Rule 5's override making any reply to a Hindi letter Hindi regardless of Rules 3/4 — is grounded verbatim and answerable from the card alone. One minor imprecision: the stem calls Region C correspondence \"ordinarily\" English as scene-setting, where Rule 3(3) actually makes it a firm \"shall be\" (unlike Region B's genuinely \"ordinarily\" Hindi rule that ol-rules-q-004's own explanation distinguishes) — this doesn't touch the tested answer or create a second plausible option, so it does not warrant rejection, but a future edit could tighten the wording."
+  },
+  "ol-rules-q-009": {
+    "verdict": "approve",
+    "reason": "True/false grounded in Rule 6; the statement (discretion to choose one language) is correctly false, since the rule mandates both and makes the signing officer responsible for both versions, exactly as the explanation states."
+  },
+  "ol-rules-q-010": {
+    "verdict": "approve",
+    "reason": "One correct answer, grounded in Rule 7(1)-(2) verbatim; distractors (centralised drafting, sanctioning authority's preference, English-plus-summary) are plausible bureaucratic-sounding wrong answers with no textual support."
+  },
+  "ol-rules-q-011": {
+    "verdict": "approve",
+    "reason": "One correct answer, grounded in Rule 8(2)'s legal-or-technical exception verbatim; distractors (page count, addressee, seniority) are plausible-sounding administrative criteria that the rule does not use."
+  },
+  "ol-rules-q-012": {
+    "verdict": "approve",
+    "reason": "Grounded in Rule 9(a)-(c); the correct option compresses the three routes accurately (dropping \"or higher\" after Matriculation is a simplification, not a misstatement) while the distractors correctly borrow Rule 10's working-knowledge routes (Pragya exam, years of service) to test the proficiency/working-knowledge distinction, which the explanation calls out explicitly."
+  },
+  "ol-rules-q-013": {
+    "verdict": "approve",
+    "reason": "One correct answer (eighty per cent), grounded in Rule 10(2) verbatim; the other three percentages are plausible round numbers with no textual support, and the explanation correctly adds Rule 10(4)'s denotification mechanism."
+  },
+  "ol-rules-q-014": {
+    "verdict": "approve",
+    "reason": "True/false grounded in Rule 11(3); correctly true, including the exemption proviso, and the explanation accurately adds Rule 11(1)-(2)'s parallel bilingual requirements for manuals and registers without conflating them with the tested clause."
+  },
+  "ol-rules-q-015": {
+    "verdict": "approve",
+    "reason": "One correct answer, grounded in Rule 12(1) verbatim; distractors (Department of Official Language alone, every employee equally, the CIC) are each a plausible-sounding but textually wrong locus of responsibility."
+  }
+}

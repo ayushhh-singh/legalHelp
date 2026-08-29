@@ -223,6 +223,14 @@ PARSERS: tuple[ParseConfig, ...] = (
         kind="html",
         start=re.compile(r"(?m)^[ \t]*(?P<num>\d{1,2})\s*\.\s*(?P<rest>.*)$"),
         body_from=re.compile(r"Short title, extent and commencement", re.I),
+        # Rule 12 is the last rule; everything after it in the raw page is
+        # template chrome (the "Content area" HTML comment, .body-wrapper /
+        # .carousel-wrapper / .footer-wrapper markers, and a <script src=...>
+        # tag for the site's own accessible-menu widget) that has no `body_to`
+        # to stop it — it was reaching data/rules/text/ol-rules.json's rule 12
+        # text verbatim, script tag included, and shipping to dist/ as rule
+        # content rather than page furniture.
+        body_to=re.compile(r"/#\s*Content area", re.I),
     ),
     ParseConfig(
         act_id="fr-sr",

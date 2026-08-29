@@ -1,0 +1,471 @@
+{
+  "_note": "Hand review of the generated cloze cards for the Compilation of Fundamental Rules and Supplementary Rules. `verdict` is approve, edit or reject; a rejected card stays in data/rules/cards/fr-sr.json with reviewState \"rejected\" and is never served. `hi` is a freshly authored Hindi cloze on the same rule, not a translation of the English excerpt — this source is a 296-page scan with no usable Hindi text layer (docs/DATA-GAPS.md #45), so every Hindi sentence here is written from scratch to test the same fact the English card tests. The blank marker ____ must appear in both stems. Terminology reuses scripts/authoring/hindi/fr-sr.json's established vocabulary (वेतन निर्धारण, वेतनवृद्धि, प्रतिनियुक्ति, अधिहक़, प्रतिपूरक भत्ता, मानदेय, विदेशी सेवा) and, for a rule number cited inline, 'नियम <n>' — mirroring cloze-ccs-conduct.json's own convention rather than restating 'F.R.' inline. This source has more OCR noise and a much longer average rule than the CCS Conduct Rules — many generated cards here are windowed excerpts of a long paragraph that end mid-clause or mid-word; a trailing cut is tolerated where the tested fact and its immediate context are already complete before the cut, and rejected where the cut falls inside the blank's own context or leaves the fact ambiguous.",
+  "fr-sr-cloze-f-r-2-crossreference": {
+    "verdict": "approve",
+    "reason": "F.R. 2's applicability is expressly made subject to Rule 3 — a genuine scope-defining cross-reference.",
+    "hi": {
+      "text": "मूल नियम 2 — ये नियम ____ के उपबंधों के अधीन रहते हुए ऐसे सभी सरकारी सेवकों पर लागू होते हैं जिनका वेतन सिविल आगणनों पर भारित होता है।",
+      "answer": "नियम 3"
+    }
+  },
+  "fr-sr-cloze-f-r-2-definedterm": {
+    "verdict": "approve",
+    "reason": "F.R. 2 turns on whose PAY is debited to Civil Estimates, not any other attribute of the post.",
+    "hi": {
+      "text": "मूल नियम 2 — नियम 3 के उपबंधों के अधीन रहते हुए, ये नियम ऐसे सभी सरकारी सेवकों पर लागू होते हैं जिनका ____ सिविल आगणनों पर भारित होता है।",
+      "answer": "वेतन"
+    }
+  },
+  "fr-sr-cloze-f-r-9-crossreference": {
+    "verdict": "approve",
+    "reason": "The definition of 'Administrator' borrows Article 239 of the Constitution by name.",
+    "hi": {
+      "text": "मूल नियम 9(1-क) — 'प्रशासक' से तात्पर्य संविधान के ____ के अधीन राष्ट्रपति द्वारा नियुक्त किसी संघ राज्यक्षेत्र के प्रशासक से है।",
+      "answer": "अनुच्छेद 239"
+    }
+  },
+  "fr-sr-cloze-f-r-9-count": {
+    "verdict": "reject",
+    "reason": "The blank sits inside NOTE 1 to the definition of 'substantive pay', about piece-workers in the Government of India Presses — apparatus attached to a definition, not the rule itself."
+  },
+  "fr-sr-cloze-f-r-9-definedterm": {
+    "verdict": "approve",
+    "reason": "F.R. 9(4) — the definition of 'Cadre', a term this whole compilation turns on.",
+    "hi": {
+      "text": "मूल नियम 9(4) — ____ से तात्पर्य किसी सेवा की समूची संख्या-शक्ति या एक पृथक इकाई के रूप में स्वीकृत उसके किसी भाग से है।",
+      "answer": "संवर्ग"
+    }
+  },
+  "fr-sr-cloze-f-r-10-crossreference": {
+    "verdict": "reject",
+    "reason": "The bracketed editorial note is self-referential — it names 'the Fundamental Rule' it is itself printed under, with nothing in the sentence letting a reader recover the number independently."
+  },
+  "fr-sr-cloze-f-r-11-definedterm": {
+    "verdict": "approve",
+    "reason": "F.R. 11's 'whole time at the Government's disposal' rule names 'local fund' as one of three sources a servant may be remunerated from.",
+    "hi": {
+      "text": "मूल नियम 11 — जब तक अन्यथा स्पष्ट रूप से उपबंधित न हो, सरकारी सेवक का पूरा समय उस सरकार के अधीन होता है जो उसे वेतन देती है, चाहे उसकी सेवाएँ सामान्य राजस्व से, ____ से अथवा सरकार के स्वामित्व या नियंत्रण वाली किसी निकाय के कोषों से पारिश्रमिक-योग्य हों।",
+      "answer": "स्थानीय निधि"
+    }
+  },
+  "fr-sr-cloze-f-r-12-definedterm": {
+    "verdict": "reject",
+    "reason": "'Lien' is repeated later in the very same sentence ('cease to hold the lien previously acquired on any other post') — answer leak."
+  },
+  "fr-sr-cloze-f-r-13-definedterm": {
+    "verdict": "reject",
+    "reason": "'Lien' repeats later in the same sentence ('retains the lien on that post'), and the excerpt also cuts off mid-word ('officiatin')."
+  },
+  "fr-sr-cloze-f-r-14-crossreference": {
+    "verdict": "approve",
+    "reason": "F.R. 14-A(a) names Rule 13 as the one exception to 'never terminate a lien leaving no lien at all' — a different numbered provision from the one this card is filed under.",
+    "hi": {
+      "text": "मूल नियम 14-क — ____ तथा इस नियम के खंड (घ) में उपबंधित दशाओं के सिवाय, किसी सरकारी सेवक का किसी पद पर अधिहक़ किसी भी दशा में समाप्त नहीं किया जाएगा, यदि इसका परिणाम यह हो कि वह किसी नियमित पद पर अधिहक़ से वंचित रह जाए।",
+      "answer": "नियम 13"
+    }
+  },
+  "fr-sr-cloze-f-r-14-definedterm": {
+    "verdict": "approve",
+    "reason": "A lien terminates on acquiring a lien outside the cadre — 'cadre' is not repeated elsewhere in the sentence.",
+    "hi": {
+      "text": "मूल नियम 14-क(घ) — किसी सरकारी सेवक का किसी पद पर अधिहक़ उस दशा में समाप्त हो जाएगा जब वह उस ____ से बाहर, जिस पर वह बना हुआ है, किसी अन्य पद पर अधिहक़ अर्जित कर लेता है।",
+      "answer": "संवर्ग"
+    }
+  },
+  "fr-sr-cloze-f-r-15-crossreference": {
+    "verdict": "approve",
+    "reason": "The one exception to 'no transfer to a lower-pay post' is Rule 49 (the additional-charge rule) — a genuine cross-reference.",
+    "hi": {
+      "text": "मूल नियम 15 — किसी सरकारी सेवक को, ____ के अंतर्गत आने वाले किसी मामले के सिवाय, ऐसे पद पर स्थानांतरित या स्थानापन्न नियुक्त नहीं किया जाएगा जिसका वेतन उस पद के वेतन से कम हो जिस पर उसका अधिहक़ है।",
+      "answer": "नियम 49"
+    }
+  },
+  "fr-sr-cloze-f-r-15-count": {
+    "verdict": "reject",
+    "reason": "'From ____ post to another' — the answer 'one' is recoverable from the English idiom alone, not from knowing F.R. 15."
+  },
+  "fr-sr-cloze-f-r-15-definedterm": {
+    "verdict": "approve",
+    "reason": "F.R. 15(a) is the President's power to transfer a Government servant from one post to another.",
+    "hi": {
+      "text": "मूल नियम 15(क) — राष्ट्रपति किसी सरकारी सेवक को एक पद से दूसरे पद पर ____ कर सकेंगे, बशर्ते कुछ अपवाद लागू हों।",
+      "answer": "स्थानांतरित"
+    }
+  },
+  "fr-sr-cloze-f-r-17-crossreference": {
+    "verdict": "approve",
+    "reason": "F.R. 17-A ties unauthorised absence to Rule 27 of the CCS (Pension) Rules, 1972 — a real cross-Act citation.",
+    "hi": {
+      "text": "मूल नियम 17-क — केंद्रीय सिविल सेवा (पेंशन) नियम, 1972 के ____ के उपबंधों पर प्रतिकूल प्रभाव डाले बिना, अनधिकृत अनुपस्थिति की अवधि को सेवा में विच्छेद माना जा सकेगा।",
+      "answer": "नियम 27"
+    }
+  },
+  "fr-sr-cloze-f-r-17-definedterm": {
+    "verdict": "reject",
+    "reason": "The excerpt is cut off mid-word ('...as soon as he c') — not a complete sentence."
+  },
+  "fr-sr-cloze-f-r-18-duration": {
+    "verdict": "approve",
+    "reason": "F.R. 18's five-year ceiling on continuous leave of any kind.",
+    "hi": {
+      "text": "मूल नियम 18 — जब तक राष्ट्रपति असाधारण परिस्थितियों को देखते हुए अन्यथा विनिश्चय न करें, किसी सरकारी सेवक को किसी भी प्रकार की छुट्टी लगातार ____ से अधिक की अवधि के लिए स्वीकृत नहीं की जाएगी।",
+      "answer": "पाँच वर्ष"
+    }
+  },
+  "fr-sr-cloze-f-r-19-crossreference": {
+    "verdict": "approve",
+    "reason": "The one exception to the pay ceiling in F.R. 19 is personal pay under Rule 9(23)(a), named precisely.",
+    "hi": {
+      "text": "मूल नियम 19 — ____ में यथापरिभाषित परिस्थितियों में स्वीकृत वैयक्तिक वेतन के मामले के सिवाय, किसी सरकारी सेवक का वेतन उसके पद के लिए स्वीकृत वेतन से अधिक नहीं बढ़ाया जाएगा।",
+      "answer": "नियम 9(23)(क)"
+    }
+  },
+  "fr-sr-cloze-f-r-19-definedterm": {
+    "verdict": "approve",
+    "reason": "F.R. 19's exception is personal pay by name, not any other kind of allowance.",
+    "hi": {
+      "text": "मूल नियम 19 — नियम 9(23)(क) में यथापरिभाषित परिस्थितियों में स्वीकृत ____ के मामले के सिवाय, किसी सरकारी सेवक का वेतन उसके पद के लिए स्वीकृत वेतन से अधिक नहीं बढ़ाया जाएगा।",
+      "answer": "वैयक्तिक वेतन"
+    }
+  },
+  "fr-sr-cloze-f-r-20-crossreference": {
+    "verdict": "reject",
+    "reason": "'Rule 9 (6) (b)' is repeated verbatim at the end of the same sentence — answer leak."
+  },
+  "fr-sr-cloze-f-r-20-definedterm": {
+    "verdict": "reject",
+    "reason": "'Duty' recurs twice more in the same sentence ('been on duty', 'duty under Rule 9(6)(b)') — answer leak."
+  },
+  "fr-sr-cloze-f-r-22-duration": {
+    "verdict": "approve",
+    "reason": "F.R. 22's one-month option window for pay fixation on promotion — the figure officers get wrong.",
+    "hi": {
+      "text": "मूल नियम 22 — पदोन्नति या नियुक्ति की तारीख से ____ के भीतर सरकारी सेवक को यह विकल्प प्रयोग करना होगा कि उसका वेतन इस नियम के अधीन उसी तारीख से नियत किया जाए अथवा अगली वेतनवृद्धि की तारीख से।",
+      "answer": "एक मास"
+    }
+  },
+  "fr-sr-cloze-f-r-22-crossreference": {
+    "verdict": "approve",
+    "reason": "F.R. 22(3) cross-refers to sub-rule (a) of Rule 15, a different numbered provision.",
+    "hi": {
+      "text": "मूल नियम 22(3) — जब नए पद पर नियुक्ति ____ के उपनियम (क) के अधीन सरकारी सेवक के अपने ही अनुरोध पर की जाती है और नए पद के समय-मान का अधिकतम वेतन उसके पुराने पद के वेतन से कम है, तो वह अधिकतम वेतन ही उसका प्रारंभिक वेतन होगा।",
+      "answer": "नियम 15"
+    }
+  },
+  "fr-sr-cloze-f-r-22-count": {
+    "verdict": "approve",
+    "reason": "F.R. 22's pay-fixation-on-promotion rule gives exactly one increment, not two (which the same rule prescribes for a different scenario) — a substantive fixation fact, not a grammatical fill-in.",
+    "hi": {
+      "text": "मूल नियम 22 — अधिक महत्त्व के कर्तव्यों और उत्तरदायित्वों वाले पद पर पदोन्नत सरकारी सेवक का प्रारंभिक वेतन, जिस स्तर से वह पदोन्नत हुआ है उसमें ____ वेतनवृद्धि देकर नियत किया जाएगा।",
+      "answer": "एक"
+    }
+  },
+  "fr-sr-cloze-f-r-23-definedterm": {
+    "verdict": "approve",
+    "reason": "F.R. 23 lets an officer retain old pay until the next increment on the old scale.",
+    "hi": {
+      "text": "मूल नियम 23 — जिस पद का वेतन परिवर्तित किया गया है उसका धारक यह विकल्प चुन सकेगा कि वह अपना पुराना वेतन तब तक बनाए रखे जब तक उसने पुराने वेतनमान में अपनी अगली या किसी उत्तरवर्ती ____ अर्जित न कर ली हो।",
+      "answer": "वेतनवृद्धि"
+    }
+  },
+  "fr-sr-cloze-f-r-24-crossreference": {
+    "verdict": "approve",
+    "reason": "An increment may be withheld only by an authority holding power delegated under Rule 6.",
+    "hi": {
+      "text": "मूल नियम 24 — केंद्रीय सरकार, या ____ के अधीन जिस प्राधिकारी को यह शक्ति प्रत्यायोजित की गई हो, किसी सरकारी सेवक का आचरण अच्छा न होने या कार्य संतोषजनक न होने पर उसकी वेतनवृद्धि रोक सकेगा।",
+      "answer": "नियम 6"
+    }
+  },
+  "fr-sr-cloze-f-r-24-definedterm": {
+    "verdict": "approve",
+    "reason": "F.R. 24's default position: an increment is drawn as a matter of course unless withheld.",
+    "hi": {
+      "text": "मूल नियम 24 — कोई ____ सामान्यतः स्वतः अनुक्रम में आहरित की जाएगी, जब तक उसे रोका न जाए।",
+      "answer": "वेतनवृद्धि"
+    }
+  },
+  "fr-sr-cloze-f-r-26-crossreference": {
+    "verdict": "approve",
+    "reason": "F.R. 26(b)(i) excludes the lower-pay post referred to in Rule 15's Clause (a) from counting for increments.",
+    "hi": {
+      "text": "मूल नियम 26(ख) — ____ के खंड (क) में निर्दिष्ट न्यून वेतन वाले पद से भिन्न किसी अन्य पद में सेवा, चाहे स्थानापन्न हो या स्थायी रूप में, समय-मान में वेतनवृद्धि के लिए गणनीय होगी।",
+      "answer": "नियम 15"
+    }
+  },
+  "fr-sr-cloze-f-r-26-definedterm": {
+    "verdict": "approve",
+    "reason": "F.R. 26(a) — all duty on a time-scale counts for increments in that time-scale.",
+    "hi": {
+      "text": "मूल नियम 26(क) — समय-मान वेतनमान वाले किसी पद पर की गई समस्त ____ उस समय-मान में वेतनवृद्धि के लिए गणनीय होगी।",
+      "answer": "ड्यूटी"
+    }
+  },
+  "fr-sr-cloze-f-r-28-crossreference": {
+    "verdict": "approve",
+    "reason": "The penal-transfer pay cap in F.R. 28 is tied back to Rule 22 read with Rule 26.",
+    "hi": {
+      "text": "मूल नियम 28 — इस नियम के अधीन किसी सरकारी सेवक को आहरण के लिए अनुज्ञात वेतन, ____ के, नियम 26 के खंड (ख) या (ग) के साथ पठित, प्रवर्तन से प्राप्त होने वाले वेतन से अधिक नहीं होगा।",
+      "answer": "नियम 22"
+    }
+  },
+  "fr-sr-cloze-f-r-28-definedterm": {
+    "verdict": "approve",
+    "reason": "F.R. 28 governs the pay drawn after a transfer ordered as a penalty from a higher to a lower grade.",
+    "hi": {
+      "text": "मूल नियम 28 — जो प्राधिकारी किसी सरकारी सेवक का शास्ति के रूप में उच्चतर से निम्नतर ग्रेड या पद पर ____ आदेशित करता है, वह उसे निम्नतर ग्रेड या पद के अधिकतम से अनधिक कोई वेतन आहरित करने की अनुज्ञा दे सकेगा।",
+      "answer": "स्थानांतरण"
+    }
+  },
+  "fr-sr-cloze-f-r-29-definedterm": {
+    "verdict": "approve",
+    "reason": "F.R. 29-A — a penalty set aside or modified on appeal or review is done by a Competent Authority.",
+    "hi": {
+      "text": "मूल नियम 29-क — जहाँ किसी सरकारी सेवक की वेतनवृद्धि रोकने या उसे निम्नतर सेवा, ग्रेड, पद अथवा समय-मान के किसी निम्नतर स्तर पर न्यूनीकृत करने का शास्ति-आदेश अपील या पुनर्विलोकन पर ____ द्वारा अपास्त या उपांतरित किया जाता है, वहाँ सरकारी सेवक का वेतन तदनुसार विनियमित किया जाएगा।",
+      "answer": "सक्षम प्राधिकारी"
+    }
+  },
+  "fr-sr-cloze-f-r-36-crossreference": {
+    "verdict": "approve",
+    "reason": "F.R. 36's acting promotions fill the place of servants treated as on duty under Rule 9(6)(b) specifically.",
+    "hi": {
+      "text": "मूल नियम 36 — केंद्रीय सरकार ऐसे सामान्य या विशेष आदेश जारी कर सकेगी जिनसे ____ के अधीन ड्यूटी पर माने गए सरकारी सेवकों के स्थान पर स्थानापन्न पदोन्नतियाँ की जा सकें।",
+      "answer": "नियम 9(6)(ख)"
+    }
+  },
+  "fr-sr-cloze-f-r-37-definedterm": {
+    "verdict": "reject",
+    "reason": "The rule's own heading is 'Personal Pay.-', printed immediately before the blank, and 'personal pay' recurs again at the sentence's end — both a heading leak and a repeat leak."
+  },
+  "fr-sr-cloze-f-r-39-definedterm": {
+    "verdict": "reject",
+    "reason": "The heading 'Pay of temporary posts.-' sits right before the blank and already names the answer."
+  },
+  "fr-sr-cloze-f-r-40-definedterm": {
+    "verdict": "approve",
+    "reason": "F.R. 40 fixes the pay of a temporary post likely to be filled by an existing Government servant — no heading precedes this excerpt and the term is not repeated.",
+    "hi": {
+      "text": "मूल नियम 40 — जब कोई ऐसा ____ सृजित किया जाता है जिसे किसी विद्यमान सरकारी सेवक द्वारा भरे जाने की संभावना हो, तो उसका वेतन केंद्रीय सरकार द्वारा समुचित ध्यान रखते हुए नियत किया जाएगा।",
+      "answer": "अस्थायी पद"
+    }
+  },
+  "fr-sr-cloze-f-r-44-definedterm": {
+    "verdict": "reject",
+    "reason": "The heading 'Compensatory allowance.-' precedes the blank and the term repeats again a few words later in the same sentence."
+  },
+  "fr-sr-cloze-f-r-45-duration": {
+    "verdict": "approve",
+    "reason": "The standard licence fee may cover more than one month but never more than a year.",
+    "hi": {
+      "text": "मूल नियम 45 — विशेष स्थानों या विशेष श्रेणी के आवासों के संबंध में, केंद्रीय सरकार मानक लाइसेंस फ़ीस ऐसी अवधि के लिए नियत कर सकेगी जो ____ से अधिक हो किंतु एक वर्ष से अधिक न हो।",
+      "answer": "एक मास"
+    }
+  },
+  "fr-sr-cloze-f-r-45-crossreference": {
+    "verdict": "reject",
+    "reason": "The card is filed under F.R. 45 and the blank answer is 'Rule 45' — a reader need only know which card they are looking at, not the rule."
+  },
+  "fr-sr-cloze-f-r-45-percentage": {
+    "verdict": "approve",
+    "reason": "The 6 per cent per annum alternative for calculating the standard licence fee on capital cost.",
+    "hi": {
+      "text": "मूल नियम 45-क — मानक लाइसेंस फ़ीस, भवन की पूँजीगत लागत के ब्याज-समतुल्य प्रतिशत पर या पूँजीगत लागत के ____ प्रति वर्ष पर, जो भी कम हो, संगणित की जाएगी।",
+      "answer": "6 प्रतिशत"
+    }
+  },
+  "fr-sr-cloze-f-r-46-crossreference": {
+    "verdict": "reject",
+    "reason": "The blank splits a single citation across the gap ('____-A'), the excerpt cuts off mid-word, and the card is filed under F.R. 46 with the blank naming F.R. 46 itself."
+  },
+  "fr-sr-cloze-f-r-46-definedterm": {
+    "verdict": "approve",
+    "reason": "F.R. 46(a) permits a fee for service to a public body, including one administering a local fund.",
+    "hi": {
+      "text": "मूल नियम 46(क) — किसी सरकारी सेवक को, यदि इससे उसके शासकीय कर्तव्यों को क्षति न पहुँचे, किसी निजी व्यक्ति या निकाय के लिए, अथवा ____ का प्रशासन करने वाले किसी लोक निकाय सहित किसी लोक निकाय के लिए, कोई विनिर्दिष्ट सेवा करने और उसके बदले फ़ीस प्राप्त करने की अनुज्ञा दी जा सकेगी।",
+      "answer": "स्थानीय निधि"
+    }
+  },
+  "fr-sr-cloze-f-r-47-crossreference": {
+    "verdict": "reject",
+    "reason": "Same citation-splitting defect as fr-sr-cloze-f-r-46-crossreference ('____-A' meant to read 'Rule 46-A'), plus the excerpt cuts off mid-word."
+  },
+  "fr-sr-cloze-f-r-48-crossreference": {
+    "verdict": "reject",
+    "reason": "The blank splits 'Rule 48-A' across the gap ('____-A') the same way, leaving a stand-alone answer that does not read as a real citation."
+  },
+  "fr-sr-cloze-f-r-49-duration": {
+    "verdict": "approve",
+    "reason": "F.R. 49's 45-day threshold before the ten-per-cent additional pay applies for holding an independent charge.",
+    "hi": {
+      "text": "मूल नियम 49 — यदि अतिरिक्त प्रभार ____ से अधिक किंतु 3 मास से अनधिक अवधि के लिए धारण किया जाता है, तो अतिरिक्त पद के प्रकल्पित वेतन के दस प्रतिशत के बराबर अतिरिक्त वेतन भी अनुज्ञात होगा।",
+      "answer": "45 दिन"
+    }
+  },
+  "fr-sr-cloze-f-r-49-amount": {
+    "verdict": "approve",
+    "reason": "F.R. 49(iv)'s ceiling on the aggregate of pay and additional pay for holding full additional charge.",
+    "hi": {
+      "text": "मूल नियम 49 — जहाँ किसी अधिकारी को किसी अन्य पद का पूर्ण अतिरिक्त प्रभार औपचारिक रूप से सौंपा गया है, वहाँ वेतन और अतिरिक्त वेतन का योग किसी भी दशा में ____ से अधिक नहीं होगा।",
+      "answer": "2,25,000 रुपये"
+    }
+  },
+  "fr-sr-cloze-f-r-49-crossreference": {
+    "verdict": "approve",
+    "reason": "F.R. 49(i)'s officiating pay is reduced only if the Competent Authority does so under Rule 35.",
+    "hi": {
+      "text": "मूल नियम 49 — जहाँ किसी सरकारी सेवक को उच्चतर पद पर स्थानापन्न नियुक्त किया गया है, वहाँ उसे वह वेतन अनुज्ञात होगा जब तक सक्षम प्राधिकारी ____ के अधीन उसका स्थानापन्न वेतन कम न कर दे।",
+      "answer": "नियम 35"
+    }
+  },
+  "fr-sr-cloze-f-r-50-definedterm": {
+    "verdict": "approve",
+    "reason": "F.R. 50 — no deputation of a Government servant out of India without the Central Government's prior approval.",
+    "hi": {
+      "text": "मूल नियम 50 — भारत से बाहर किसी सरकारी सेवक की कोई भी ____ केंद्रीय सरकार के पूर्वानुमोदन के बिना स्वीकृत नहीं की जाएगी।",
+      "answer": "प्रतिनियुक्ति"
+    }
+  },
+  "fr-sr-cloze-f-r-51-definedterm": {
+    "verdict": "reject",
+    "reason": "'Deputation' recurs one clause later in the same sentence ('who is placed on deputation while already on leave') — answer leak."
+  },
+  "fr-sr-cloze-f-r-53-duration": {
+    "verdict": "approve",
+    "reason": "F.R. 53's three-month mark is when the suspending authority may start varying the subsistence allowance.",
+    "hi": {
+      "text": "मूल नियम 53 — जहाँ निलंबन की अवधि ____ से अधिक हो जाती है, वहाँ निलंबन-आदेश करने वाला प्राधिकारी आगे की अवधि के लिए निर्वाह भत्ते की राशि में परिवर्तन करने के लिए सक्षम होगा।",
+      "answer": "तीन मास"
+    }
+  },
+  "fr-sr-cloze-f-r-53-crossreference": {
+    "verdict": "approve",
+    "reason": "F.R. 53(2)'s proviso names Rule 12 of the CCS (CCA) Rules, 1957 for a servant deemed to continue under suspension.",
+    "hi": {
+      "text": "मूल नियम 53 — केंद्रीय सिविल सेवा (वर्गीकरण, नियंत्रण और अपील) नियम, 1957 के ____ के उपनियम (3) या (4) के अधीन पदच्युत या हटाए गए सरकारी सेवक को निलंबित माना जाएगा।",
+      "answer": "नियम 12"
+    }
+  },
+  "fr-sr-cloze-f-r-53-percentage": {
+    "verdict": "approve",
+    "reason": "Past the first three months, subsistence allowance may be increased by up to 50 per cent.",
+    "hi": {
+      "text": "मूल नियम 53 — यदि निलंबन की अवधि लंबी खिंचने का कारण सरकारी सेवक को प्रत्यक्षतः अभिनिर्दिष्ट न हो, तो निर्वाह भत्ते की राशि प्रथम तीन मास में अनुज्ञेय राशि के ____ से अनधिक तक बढ़ाई जा सकेगी।",
+      "answer": "50 प्रतिशत"
+    }
+  },
+  "fr-sr-cloze-f-r-54-duration": {
+    "verdict": "approve",
+    "reason": "F.R. 54(2)'s proviso gives sixty days to make a representation before a delayed reinstatement's pay is cut.",
+    "hi": {
+      "text": "मूल नियम 54 — यदि कार्यवाही की समाप्ति में विलंब सरकारी सेवक को प्रत्यक्षतः अभिनिर्दिष्ट कारणों से हुआ हो, तो उसे संसूचना की तारीख से ____ के भीतर अभ्यावेदन प्रस्तुत करने का अवसर दिया जाएगा।",
+      "answer": "साठ दिन"
+    }
+  },
+  "fr-sr-cloze-f-r-54-crossreference": {
+    "verdict": "approve",
+    "reason": "F.R. 54(4) applies specifically when the order is set aside for non-compliance with Article 311's clauses (1) or (2).",
+    "hi": {
+      "text": "मूल नियम 54 — जहाँ पदच्युति, हटाए जाने या अनिवार्य सेवानिवृत्ति का आदेश केवल संविधान के ____ के खंड (1) या (2) की अपेक्षाओं के अननुपालन के आधार पर अपास्त किया जाता है और आगे कोई जाँच प्रस्तावित नहीं है, तो सरकारी सेवक को तदनुसार वेतन एवं भत्ते संदेय होंगे।",
+      "answer": "अनुच्छेद 311"
+    }
+  },
+  "fr-sr-cloze-f-r-54-definedterm": {
+    "verdict": "approve",
+    "reason": "The quantum of pay on a qualified reinstatement is for the Competent Authority to determine.",
+    "hi": {
+      "text": "मूल नियम 54 — पुनःस्थापित सरकारी सेवक को कितनी राशि के वेतन एवं भत्ते संदेय होंगे, यह ____ द्वारा, प्रस्तावित राशि की सूचना देकर तथा सेवक के अभ्यावेदन पर विचार करने के पश्चात्, विनिश्चित किया जाएगा।",
+      "answer": "सक्षम प्राधिकारी"
+    }
+  },
+  "fr-sr-cloze-f-r-56-duration": {
+    "verdict": "approve",
+    "reason": "F.R. 56(a) — superannuation at sixty years, the rule the pension calculator's own formula rests on.",
+    "hi": {
+      "text": "मूल नियम 56 — इस नियम में अन्यथा उपबंधित के सिवाय, प्रत्येक सरकारी सेवक उस मास के अंतिम दिन की अपराह्न को सेवानिवृत्त होगा जिसमें वह ____ की आयु प्राप्त करता है।",
+      "answer": "साठ वर्ष"
+    }
+  },
+  "fr-sr-cloze-f-r-56-amount": {
+    "verdict": "reject",
+    "reason": "This is 'F. Rs. 58 to 104' — Fundamental Rules 58 to 104 — misread by the generator as a rupee amount; the rules it names are themselves marked Not Printed, deferred to the CCS (Leave) Rules, 1972."
+  },
+  "fr-sr-cloze-f-r-56-definedterm": {
+    "verdict": "reject",
+    "reason": "The heading names a chapter whose rules (105-107) are explicitly Not Printed, deferred to the CCS (Joining Time) Rules, 1979 — apparatus over a chapter title, not a rule."
+  },
+  "fr-sr-cloze-f-r-108-definedterm": {
+    "verdict": "reject",
+    "reason": "'Joining time' repeats verbatim at the end of the same sentence — answer leak."
+  },
+  "fr-sr-cloze-f-r-109-definedterm": {
+    "verdict": "approve",
+    "reason": "F.R. 109 confines the Foreign Service chapter to servants transferred after these rules came into force.",
+    "hi": {
+      "text": "मूल नियम 109 — इस अध्याय के नियम केवल उन्हीं सरकारी सेवकों पर लागू होते हैं जो इन नियमों के प्रवृत्त होने के पश्चात् ____ में स्थानांतरित किए गए हैं।",
+      "answer": "विदेशी सेवा"
+    }
+  },
+  "fr-sr-cloze-f-r-110-definedterm": {
+    "verdict": "approve",
+    "reason": "F.R. 110(a) — no compulsory transfer to Foreign Service, with one named exception for a Government-controlled body.",
+    "hi": {
+      "text": "मूल नियम 110(क) — किसी सरकारी सेवक को उसकी इच्छा के विरुद्ध ____ में स्थानांतरित नहीं किया जाएगा, सिवाय सरकार के स्वामित्व या नियंत्रण वाली किसी निकाय की सेवा में स्थानांतरण के।",
+      "answer": "विदेशी सेवा"
+    }
+  },
+  "fr-sr-cloze-f-r-111-definedterm": {
+    "verdict": "approve",
+    "reason": "A transfer to Foreign Service needs a lien on a permanent post (or general-revenue pay) at the time of transfer.",
+    "hi": {
+      "text": "मूल नियम 111 — विदेशी सेवा में स्थानांतरण तभी अनुज्ञेय है जब स्थानांतरित सरकारी सेवक स्थानांतरण के समय सामान्य राजस्व से संदत्त किसी पद पर हो, या किसी ____ पर उसका अधिहक़ हो, अथवा अधिहक़ निलंबित न होता तो वह उस पर अधिहक़ रखता।",
+      "answer": "स्थायी पद"
+    }
+  },
+  "fr-sr-cloze-f-r-112-definedterm": {
+    "verdict": "approve",
+    "reason": "Transfer to Foreign Service while on leave ends the leave and the leave salary together.",
+    "hi": {
+      "text": "मूल नियम 112 — यदि किसी सरकारी सेवक को छुट्टी पर रहते हुए विदेशी सेवा में स्थानांतरित किया जाता है, तो वह उस स्थानांतरण की तारीख से छुट्टी पर रहना और ____ आहरित करना बंद कर देता है।",
+      "answer": "छुट्टी वेतन"
+    }
+  },
+  "fr-sr-cloze-f-r-113-crossreference": {
+    "verdict": "reject",
+    "reason": "The same sentence flags that 'Rule 30(1)' is 'now FR 22 (II)' — the card would test a citation the text itself says has been superseded."
+  },
+  "fr-sr-cloze-f-r-115-crossreference": {
+    "verdict": "approve",
+    "reason": "F.R. 115(d) ties a special arrangement for leave-salary contributions abroad to Rule 123(b) by name.",
+    "hi": {
+      "text": "मूल नियम 115(घ) — ____ के अधीन किए गए विशेष प्रबंध द्वारा, भारत से बाहर की विदेशी सेवा के मामले में भी छुट्टी वेतन की लागत के लिए अंशदान अपेक्षित किया जा सकेगा।",
+      "answer": "नियम 123(ख)"
+    }
+  },
+  "fr-sr-cloze-f-r-115-definedterm": {
+    "verdict": "approve",
+    "reason": "Foreign service within India requires a contribution for leave salary too, not pension alone.",
+    "hi": {
+      "text": "मूल नियम 115(ख) — यदि विदेशी सेवा भारत में है, तो ____ की लागत के लिए भी अंशदान संदेय होगा।",
+      "answer": "छुट्टी वेतन"
+    }
+  },
+  "fr-sr-cloze-f-r-117-crossreference": {
+    "verdict": "approve",
+    "reason": "F.R. 117(a) — the pension contribution rate is the one prescribed under Rule 116.",
+    "hi": {
+      "text": "मूल नियम 117(क) — ____ के अधीन विहित पेंशन-अंशदान की दरें इस प्रकार अभिकल्पित की जाएँगी कि सरकारी सेवक को वही पेंशन सुरक्षित रहे जो उसे विदेशी सेवा में स्थानांतरित न होने पर सरकार के अधीन सेवा से प्राप्त होती।",
+      "answer": "नियम 116"
+    }
+  },
+  "fr-sr-cloze-f-r-123-crossreference": {
+    "verdict": "approve",
+    "reason": "F.R. 123(b)'s special arrangement depends on the foreign employer paying leave contribution at the Rule 116 rate.",
+    "hi": {
+      "text": "मूल नियम 123(ख) — विशेष परिस्थितियों में, विदेशी सेवा हेतु स्थानांतरण स्वीकृत करने वाला प्राधिकारी विदेशी नियोक्ता के साथ ऐसी व्यवस्था कर सकेगा जिसके अधीन सरकारी सेवक को छुट्टी उन्हीं नियमों के अनुसार दी जाए जो उस पर सरकारी सेवक के रूप में लागू होते हैं, बशर्ते नियोक्ता ____ में विहित दर पर छुट्टी-अंशदान केंद्रीय सरकार को दे।",
+      "answer": "नियम 116"
+    }
+  },
+  "fr-sr-cloze-f-r-124-definedterm": {
+    "verdict": "reject",
+    "reason": "'Officiates' — the same root as the answer 'officiate' — appears later in the same sentence."
+  }
+}

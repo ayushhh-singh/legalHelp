@@ -1,0 +1,93 @@
+{
+  "_note": "STAGE C · BLIND VERIFY. Answers produced from the worksheet printed by `qa_pipeline.py blind ccs-pension`, which shows each question, its options and the rule text it is grounded in, and hides the stored key. `answered` is the option index chosen; make_cards.py compares it with the stored key and a mismatch rejects the question outright, because a mismatch means either the stem is ambiguous or the key is wrong. Indices here are the AUTHORED order, before make_cards.py rotates the options. Grounding excerpts truncated mid-rule (q-003/Rule 7, q-004/Rule 8) were checked against the full rule text in data/rules/text/ccs-pension.json before answering.",
+  "ccs-pension-q-001": {
+    "answered": 0
+  },
+  "ccs-pension-q-002": {
+    "answered": 1
+  },
+  "ccs-pension-q-003": {
+    "answered": 1
+  },
+  "ccs-pension-q-004": {
+    "answered": 2
+  },
+  "ccs-pension-q-005": {
+    "answered": 0
+  },
+  "ccs-pension-q-006": {
+    "answered": 0
+  },
+  "ccs-pension-q-007": {
+    "answered": 3
+  },
+  "ccs-pension-q-008": {
+    "answered": 1
+  },
+  "ccs-pension-q-009": {
+    "answered": 2
+  },
+  "ccs-pension-q-010": {
+    "answered": 0
+  },
+  "ccs-pension-q-011": {
+    "answered": 0
+  },
+  "ccs-pension-q-012": {
+    "answered": 1
+  },
+  "ccs-pension-q-013": {
+    "answered": 3
+  },
+  "ccs-pension-q-014": {
+    "answered": 1
+  },
+  "ccs-pension-q-015": {
+    "answered": 0
+  },
+  "ccs-pension-q-016": {
+    "answered": 2
+  },
+  "ccs-pension-q-017": {
+    "answered": 1
+  },
+  "ccs-pension-q-018": {
+    "answered": 0
+  },
+  "ccs-pension-q-019": {
+    "answered": 1
+  },
+  "ccs-pension-q-020": {
+    "answered": 3
+  },
+  "ccs-pension-q-021": {
+    "answered": 0
+  },
+  "ccs-pension-q-022": {
+    "answered": 2
+  },
+  "ccs-pension-q-023": {
+    "answered": 1
+  },
+  "ccs-pension-q-024": {
+    "answered": 0
+  },
+  "ccs-pension-q-025": {
+    "answered": 3
+  },
+  "ccs-pension-q-026": {
+    "answered": 0
+  },
+  "ccs-pension-q-027": {
+    "answered": 1
+  },
+  "ccs-pension-q-028": {
+    "answered": 2
+  },
+  "ccs-pension-q-029": {
+    "answered": 0
+  },
+  "ccs-pension-q-030": {
+    "answered": 1
+  }
+}

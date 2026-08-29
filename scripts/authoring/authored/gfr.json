@@ -1,0 +1,1026 @@
+{
+  "_note": "STAGE A · GENERATE. Thirty bilingual questions on the General Financial Rules, 2017, written in session by Claude Code with data/rules/text/gfr.json open. No API was called. `stageA.angle` records what each question is testing so the batch can be checked for spread. The critic pass is review/critic-gfr.json, the blind verify is review/blind-gfr.json, and the dedup is written by qa_pipeline.py.",
+  "batchId": "2026-08-29-gfr-A",
+  "promptVersion": "rules-qa/1",
+  "cards": [
+    {
+      "id": "gfr-q-001",
+      "rule": "21",
+      "kind": "mcq",
+      "front": {
+        "en": "Rule 21 of the General Financial Rules, 2017 lists the standards of financial propriety. Which of the following is one of them?",
+        "hi": "सामान्य वित्तीय नियम, 2017 का नियम 21 वित्तीय औचित्य के मानक सूचीबद्ध करता है। निम्नलिखित में से कौन-सा एक मानक है?"
+      },
+      "back": {
+        "en": "No authority should exercise its powers of sanctioning expenditure to pass an order that will be directly or indirectly to its own advantage.",
+        "hi": "किसी प्राधिकारी को अपनी व्यय स्वीकृति की शक्तियों का प्रयोग ऐसा आदेश पारित करने के लिए नहीं करना चाहिए जो प्रत्यक्ष या अप्रत्यक्ष रूप से उसके अपने लाभ के लिए हो।"
+      },
+      "options": [
+        {
+          "en": "No authority should exercise its powers of sanctioning expenditure to pass an order that will be directly or indirectly to its own advantage",
+          "hi": "किसी प्राधिकारी को अपनी व्यय स्वीकृति की शक्तियों का प्रयोग ऐसा आदेश पारित करने के लिए नहीं करना चाहिए जो प्रत्यक्ष या अप्रत्यक्ष रूप से उसके अपने लाभ के लिए हो"
+        },
+        {
+          "en": "Expenditure may be sanctioned freely so long as budget provision exists",
+          "hi": "जब तक बजट प्रावधान उपलब्ध हो, व्यय को स्वतंत्र रूप से स्वीकृत किया जा सकता है"
+        },
+        {
+          "en": "A claim need not be enforceable in a Court of Law if the expenditure serves a section of the people",
+          "hi": "यदि व्यय जनता के किसी वर्ग की सेवा करता है तो दावे का न्यायालय में प्रवर्तनीय होना आवश्यक नहीं"
+        },
+        {
+          "en": "An officer need only exercise the vigilance a subordinate would, not that of a person spending his own money",
+          "hi": "अधिकारी को केवल वही सतर्कता बरतनी चाहिए जो एक अधीनस्थ बरतता, न कि वह जो अपना धन खर्च करते समय बरतता"
+        }
+      ],
+      "answerIndex": 0,
+      "explanation": {
+        "en": "Rule 21 lists four standards of financial propriety. The one at (iii) forbids self-dealing: no authority may use its sanctioning power to its own advantage, directly or indirectly. The 'ordinary prudence' standard in (i) is the reverse of the last distractor — an officer must exercise the same vigilance over public money as over his own.",
+        "hi": "नियम 21 वित्तीय औचित्य के चार मानक सूचीबद्ध करता है। मद (iii) स्वहित-साधन का प्रतिषेध करता है: कोई प्राधिकारी अपनी स्वीकृति शक्ति का प्रयोग प्रत्यक्ष या अप्रत्यक्ष रूप से अपने ही लाभ के लिए नहीं करेगा। मद (i) की \"सामान्य सूझबूझ\" कसौटी अंतिम विकर्षक के विपरीत है — अधिकारी को सार्वजनिक धन पर वही सतर्कता बरतनी है जो वह अपने धन पर बरतता।"
+      },
+      "ruleRef": {
+        "textId": "gfr-21",
+        "citation": { "en": "Rule 21, General Financial Rules, 2017", "hi": "नियम 21, सामान्य वित्तीय नियम, 2017" }
+      },
+      "difficulty": "medium",
+      "stageA": { "index": 1, "angle": "Rule 21(iii) — the bar on self-dealing in sanctioning expenditure" },
+      "groundingRuleIds": ["gfr-21"]
+    },
+    {
+      "id": "gfr-q-002",
+      "rule": "23",
+      "kind": "trueFalse",
+      "front": {
+        "en": "Under Rule 23 of the General Financial Rules, 2017, financial powers not delegated to any subordinate authority vest in the Finance Ministry.",
+        "hi": "सामान्य वित्तीय नियम, 2017 के नियम 23 के अधीन, जो वित्तीय शक्तियाँ किसी अधीनस्थ प्राधिकारी को प्रत्यायोजित नहीं की गई हैं, वे वित्त मंत्रालय में निहित रहती हैं।"
+      },
+      "back": { "en": "True.", "hi": "सत्य।" },
+      "options": [
+        { "en": "True", "hi": "सत्य" },
+        { "en": "False", "hi": "असत्य" }
+      ],
+      "answerIndex": 0,
+      "explanation": {
+        "en": "Rule 23 records that financial powers are delegated to subordinate authorities under the Delegation of Financial Powers Rules, and whatever has not been so delegated remains with the Finance Ministry.",
+        "hi": "नियम 23 यह अभिलिखित करता है कि वित्तीय शक्तियाँ वित्तीय शक्तियों के प्रत्यायोजन नियमों के अधीन अधीनस्थ प्राधिकारियों को प्रत्यायोजित की गई हैं, और जो इस प्रकार प्रत्यायोजित नहीं की गई हैं, वे वित्त मंत्रालय में ही निहित रहती हैं।"
+      },
+      "ruleRef": {
+        "textId": "gfr-23",
+        "citation": { "en": "Rule 23, General Financial Rules, 2017", "hi": "नियम 23, सामान्य वित्तीय नियम, 2017" }
+      },
+      "difficulty": "easy",
+      "stageA": { "index": 2, "angle": "Rule 23 — undelegated financial power vests in the Finance Ministry" },
+      "groundingRuleIds": ["gfr-23"]
+    },
+    {
+      "id": "gfr-q-003",
+      "rule": "30",
+      "kind": "mcq",
+      "front": {
+        "en": "Under Rule 30 of the General Financial Rules, 2017, a sanction for a fresh charge lapses if no payment is made, in whole or in part, within what period from the date of issue?",
+        "hi": "सामान्य वित्तीय नियम, 2017 के नियम 30 के अधीन, किसी नए प्रभार की मंजूरी जारी होने की तारीख से कितनी अवधि के भीतर पूर्णतः या भागतः भुगतान न होने पर व्यपगत हो जाती है?"
+      },
+      "back": { "en": "Twelve months.", "hi": "बारह मास।" },
+      "options": [
+        { "en": "Six months", "hi": "छह मास" },
+        { "en": "Twelve months", "hi": "बारह मास" },
+        { "en": "Eighteen months", "hi": "अठारह मास" },
+        { "en": "Three years", "hi": "तीन वर्ष" }
+      ],
+      "answerIndex": 1,
+      "explanation": {
+        "en": "Rule 30 sets the default at twelve months from the date of issue of the sanction, unless the departmental regulations prescribe a different currency period, the sanction itself specifies one, or one of the rule's other provisos applies — as with stores purchase sanctions, which do not lapse once tenders are accepted or the indent is placed within that year.",
+        "hi": "नियम 30 सामान्यतः जारी होने की तारीख से बारह मास की अवधि नियत करता है, जब तक विभागीय विनियम कोई भिन्न वैधता अवधि विहित न करें, स्वयं मंजूरी में कोई अवधि विनिर्दिष्ट न हो, अथवा नियम के किसी अन्य परंतुक का प्रयोग न हो — जैसे भंडार क्रय की मंजूरियाँ, जो उस वर्ष के भीतर निविदाएँ स्वीकार हो जाने या केंद्रीय क्रय संगठन को मांगपत्र भेज दिए जाने पर व्यपगत नहीं होतीं।"
+      },
+      "ruleRef": {
+        "textId": "gfr-30",
+        "citation": { "en": "Rule 30, General Financial Rules, 2017", "hi": "नियम 30, सामान्य वित्तीय नियम, 2017" }
+      },
+      "difficulty": "medium",
+      "stageA": { "index": 3, "angle": "Rule 30 — the twelve-month default lapse period" },
+      "groundingRuleIds": ["gfr-30"]
+    },
+    {
+      "id": "gfr-q-004",
+      "rule": "33",
+      "kind": "mcq",
+      "front": {
+        "en": "Rule 33 of the General Financial Rules, 2017 requires every loss of public money or property to be reported to the next higher authority, the Statutory Audit Officer and the Principal Accounts Officer. Which petty losses are exempted from this reporting requirement?",
+        "hi": "सामान्य वित्तीय नियम, 2017 का नियम 33 सार्वजनिक धन या संपत्ति की प्रत्येक हानि की रिपोर्ट अगले उच्चतर प्राधिकारी, सांविधिक लेखापरीक्षा अधिकारी और प्रधान लेखा अधिकारी को किए जाने की अपेक्षा करता है। कौन-सी छोटी हानियाँ इस रिपोर्टिंग अपेक्षा से छूट प्राप्त हैं?"
+      },
+      "back": { "en": "Losses of value not exceeding rupees ten thousand.", "hi": "दस हज़ार रुपये से अनधिक मूल्य की हानियाँ।" },
+      "options": [
+        { "en": "Losses of value not exceeding rupees one thousand", "hi": "एक हज़ार रुपये से अनधिक मूल्य की हानियाँ" },
+        { "en": "Losses of value not exceeding rupees five thousand", "hi": "पाँच हज़ार रुपये से अनधिक मूल्य की हानियाँ" },
+        { "en": "Losses of value not exceeding rupees ten thousand", "hi": "दस हज़ार रुपये से अनधिक मूल्य की हानियाँ" },
+        {
+          "en": "No loss is exempted; every loss, however small, must be reported",
+          "hi": "कोई हानि छूट प्राप्त नहीं है; चाहे कितनी भी छोटी हो, प्रत्येक हानि की रिपोर्ट करनी होगी"
+        }
+      ],
+      "answerIndex": 2,
+      "explanation": {
+        "en": "Rule 33(1) exempts petty losses not exceeding rupees ten thousand, along with certain revenue losses arising from time-barred assessments and refunds. Serious irregularities, whatever the amount, must still be brought to the notice of the Financial Adviser and the Controller General of Accounts under sub-rule (2).",
+        "hi": "नियम 33(1) दस हज़ार रुपये से अनधिक मूल्य की छोटी हानियों को, कुछ समय-वर्जित निर्धारणों और वापसी से उत्पन्न राजस्व हानियों के साथ, छूट देता है। उपनियम (2) के अधीन गंभीर अनियमितताओं की सूचना, राशि चाहे जो हो, वित्तीय सलाहकार और महालेखा नियंत्रक को अब भी देनी होगी।"
+      },
+      "ruleRef": {
+        "textId": "gfr-33",
+        "citation": { "en": "Rule 33, General Financial Rules, 2017", "hi": "नियम 33, सामान्य वित्तीय नियम, 2017" }
+      },
+      "difficulty": "medium",
+      "stageA": { "index": 4, "angle": "Rule 33(1) — the ten-thousand-rupee petty-loss exemption" },
+      "groundingRuleIds": ["gfr-33"]
+    },
+    {
+      "id": "gfr-q-005",
+      "rule": "34",
+      "kind": "mcq",
+      "front": {
+        "en": "Under Rule 34 of the General Financial Rules, 2017, losses of Government property above what value, due to suspected fire, theft or fraud, must invariably be reported to the Police for investigation?",
+        "hi": "सामान्य वित्तीय नियम, 2017 के नियम 34 के अधीन, संदिग्ध आगजनी, चोरी या कपट के कारण किस मूल्य से अधिक की सरकारी संपत्ति की हानि की सूचना अनिवार्यतः जाँच हेतु पुलिस को दी जानी चाहिए?"
+      },
+      "back": { "en": "Rupees fifty thousand.", "hi": "पचास हज़ार रुपये।" },
+      "options": [
+        { "en": "Rupees ten thousand", "hi": "दस हज़ार रुपये" },
+        { "en": "Rupees twenty-five thousand", "hi": "पच्चीस हज़ार रुपये" },
+        { "en": "Rupees one lakh", "hi": "एक लाख रुपये" },
+        { "en": "Rupees fifty thousand", "hi": "पचास हज़ार रुपये" }
+      ],
+      "answerIndex": 3,
+      "explanation": {
+        "en": "Rule 34 sets a distinct threshold from Rule 33's petty-loss exemption: losses above rupees fifty thousand from suspected fire, theft or fraud must always go to the Police, and a formal investigation report is to be obtained wherever a matter is referred to them.",
+        "hi": "नियम 34, नियम 33 की छोटी-हानि छूट से भिन्न सीमा नियत करता है: संदिग्ध आगजनी, चोरी या कपट से पचास हज़ार रुपये से अधिक की हानियाँ सदैव पुलिस को दी जानी चाहिए, और जहाँ भी मामला उन्हें निर्दिष्ट किया जाए, औपचारिक जाँच रिपोर्ट प्राप्त की जानी चाहिए।"
+      },
+      "ruleRef": {
+        "textId": "gfr-34",
+        "citation": { "en": "Rule 34, General Financial Rules, 2017", "hi": "नियम 34, सामान्य वित्तीय नियम, 2017" }
+      },
+      "difficulty": "hard",
+      "stageA": { "index": 5, "angle": "Rule 34's fifty-thousand-rupee Police-reporting threshold, against Rule 33's own figure" },
+      "groundingRuleIds": ["gfr-34", "gfr-33"]
+    },
+    {
+      "id": "gfr-q-006",
+      "rule": "62",
+      "kind": "trueFalse",
+      "front": {
+        "en": "Rule 62 of the General Financial Rules, 2017 permits a Department to hold anticipated savings in reserve until the end of the financial year in case of possible future excesses.",
+        "hi": "सामान्य वित्तीय नियम, 2017 का नियम 62 किसी विभाग को संभावित भावी आधिक्य की स्थिति के लिए अनुमानित बचत को वित्तीय वर्ष के अंत तक आरक्षित रखने की अनुमति देता है।"
+      },
+      "back": { "en": "False.", "hi": "असत्य।" },
+      "options": [
+        { "en": "True", "hi": "सत्य" },
+        { "en": "False", "hi": "असत्य" }
+      ],
+      "answerIndex": 1,
+      "explanation": {
+        "en": "Rule 62(2) requires savings, and provisions that cannot be profitably utilised, to be surrendered to Government immediately they are foreseen, without waiting till the year-end — and no savings shall be held in reserve for possible future excesses.",
+        "hi": "नियम 62(2) यह अपेक्षा करता है कि बचत, तथा वे प्रावधान जिनका लाभप्रद उपयोग नहीं किया जा सकता, पूर्वानुमान होते ही तुरंत सरकार को समर्पित कर दिए जाएँ, वर्ष के अंत की प्रतीक्षा किए बिना — और संभावित भावी आधिक्य के लिए कोई बचत आरक्षित नहीं रखी जाएगी।"
+      },
+      "ruleRef": {
+        "textId": "gfr-62",
+        "citation": { "en": "Rule 62, General Financial Rules, 2017", "hi": "नियम 62, सामान्य वित्तीय नियम, 2017" }
+      },
+      "difficulty": "medium",
+      "stageA": { "index": 6, "angle": "Rule 62(2) — no saving held in reserve for future excesses" },
+      "groundingRuleIds": ["gfr-62"]
+    },
+    {
+      "id": "gfr-q-007",
+      "rule": "63",
+      "kind": "mcq",
+      "front": {
+        "en": "Rule 63 of the General Financial Rules, 2017 bars expenditure on a 'New Service' not contemplated in the Annual Budget, except after obtaining what?",
+        "hi": "सामान्य वित्तीय नियम, 2017 का नियम 63 वार्षिक बजट में अपरिकल्पित \"नई सेवा\" पर व्यय को तब तक रोकता है जब तक क्या प्राप्त न हो जाए?"
+      },
+      "back": {
+        "en": "A supplementary grant or appropriation, or an advance from the Contingency Fund, during that year.",
+        "hi": "उस वर्ष के दौरान अनुपूरक अनुदान या विनियोग, अथवा आकस्मिकता निधि से अग्रिम।"
+      },
+      "options": [
+        {
+          "en": "A supplementary grant or appropriation, or an advance from the Contingency Fund, during that year",
+          "hi": "उस वर्ष के दौरान अनुपूरक अनुदान या विनियोग, अथवा आकस्मिकता निधि से अग्रिम"
+        },
+        { "en": "The oral concurrence of the Financial Adviser alone", "hi": "केवल वित्तीय सलाहकार की मौखिक सहमति" },
+        {
+          "en": "A re-appropriation of savings from another head within the same Demand",
+          "hi": "उसी मांग के भीतर किसी अन्य शीर्ष से बचत का पुनर्विनियोजन"
+        },
+        {
+          "en": "Nothing further, provided the expenditure is reported to Audit after the fact",
+          "hi": "इससे अधिक कुछ नहीं, बशर्ते व्यय की सूचना बाद में लेखापरीक्षा को दे दी जाए"
+        }
+      ],
+      "answerIndex": 0,
+      "explanation": {
+        "en": "Rule 63 treats a New Service as needing fresh Parliamentary cover within the year, not merely a departmental adjustment — a re-appropriation or an after-the-fact report to Audit does not substitute for a supplementary grant, appropriation or a Contingency Fund advance.",
+        "hi": "नियम 63 \"नई सेवा\" के लिए उसी वर्ष के भीतर संसदीय आवरण को आवश्यक मानता है, केवल विभागीय समायोजन को नहीं — पुनर्विनियोजन या घटना के बाद लेखापरीक्षा को दी गई सूचना अनुपूरक अनुदान, विनियोग या आकस्मिकता निधि अग्रिम का स्थान नहीं ले सकती।"
+      },
+      "ruleRef": {
+        "textId": "gfr-63",
+        "citation": { "en": "Rule 63, General Financial Rules, 2017", "hi": "नियम 63, सामान्य वित्तीय नियम, 2017" }
+      },
+      "difficulty": "medium",
+      "stageA": { "index": 7, "angle": "Rule 63 — New Service needs a supplementary grant/appropriation or a Contingency Fund advance" },
+      "groundingRuleIds": ["gfr-63"]
+    },
+    {
+      "id": "gfr-q-008",
+      "rule": "144",
+      "kind": "mcq",
+      "front": {
+        "en": "Rule 144 of the General Financial Rules, 2017 sets fundamental principles for public buying. In describing the subject matter of procurement, what does it specifically forbid?",
+        "hi": "सामान्य वित्तीय नियम, 2017 का नियम 144 सार्वजनिक खरीद के मूल सिद्धांत नियत करता है। खरीद की विषय-वस्तु का वर्णन करते समय, यह विशेष रूप से किस बात का प्रतिषेध करता है?"
+      },
+      "back": {
+        "en": "Indicating a requirement for a particular trade mark, trade name or brand.",
+        "hi": "किसी विशेष व्यापार चिह्न, व्यापार नाम या ब्रांड की अपेक्षा दर्शाना।"
+      },
+      "options": [
+        { "en": "Specifying any technical or performance characteristics at all", "hi": "किसी भी तकनीकी या निष्पादन विशेषता को विनिर्दिष्ट करना" },
+        {
+          "en": "Indicating a requirement for a particular trade mark, trade name or brand",
+          "hi": "किसी विशेष व्यापार चिह्न, व्यापार नाम या ब्रांड की अपेक्षा दर्शाना"
+        },
+        { "en": "Referring to national or international technical standards", "hi": "राष्ट्रीय या अंतरराष्ट्रीय तकनीकी मानकों का उल्लेख करना" },
+        {
+          "en": "Publishing the procurement cycle's schedule before the tender is issued",
+          "hi": "निविदा जारी होने से पहले खरीद चक्र की समय-सारणी प्रकाशित करना"
+        }
+      ],
+      "answerIndex": 1,
+      "explanation": {
+        "en": "Rule 144(i) requires the description to be objective, functional, generic and measurable, and specifically bars a requirement pointing at a particular trade mark, trade name or brand — the opposite of what the other three options describe, each of which the rule instead requires or permits.",
+        "hi": "नियम 144(i) अपेक्षा करता है कि वर्णन वस्तुनिष्ठ, प्रकार्यात्मक, सामान्य और मापनीय हो, और विशेष रूप से किसी विशेष व्यापार चिह्न, व्यापार नाम या ब्रांड की ओर संकेत करने वाली अपेक्षा का प्रतिषेध करता है — यह अन्य तीन विकल्पों के विपरीत है, जिन्हें नियम वस्तुतः अपेक्षित या अनुज्ञात करता है।"
+      },
+      "ruleRef": {
+        "textId": "gfr-144",
+        "citation": { "en": "Rule 144, General Financial Rules, 2017", "hi": "नियम 144, सामान्य वित्तीय नियम, 2017" }
+      },
+      "difficulty": "medium",
+      "stageA": { "index": 8, "angle": "Rule 144(i) — no brand-name requirement in the specification" },
+      "groundingRuleIds": ["gfr-144"]
+    },
+    {
+      "id": "gfr-q-009",
+      "rule": "145",
+      "kind": "trueFalse",
+      "front": {
+        "en": "Under Rule 145 of the General Financial Rules, 2017, an authority competent to incur expenditure may sanction the purchase of goods required for public service, in accordance with the Delegation of Financial Powers Rules.",
+        "hi": "सामान्य वित्तीय नियम, 2017 के नियम 145 के अधीन, व्यय करने के लिए सक्षम कोई प्राधिकारी, वित्तीय शक्तियों के प्रत्यायोजन नियमों के अनुसार, लोक सेवा के लिए अपेक्षित वस्तुओं की खरीद को मंजूर कर सकता है।"
+      },
+      "back": { "en": "True.", "hi": "सत्य।" },
+      "options": [
+        { "en": "True", "hi": "सत्य" },
+        { "en": "False", "hi": "असत्य" }
+      ],
+      "answerIndex": 0,
+      "explanation": {
+        "en": "Rule 145 ties the power to purchase goods to the general power to incur expenditure, exercised in accordance with the Delegation of Financial Powers Rules and the procedure in the following procurement rules — it creates no separate purchasing authority.",
+        "hi": "नियम 145 वस्तुओं की खरीद की शक्ति को व्यय करने की सामान्य शक्ति से जोड़ता है, जिसका प्रयोग वित्तीय शक्तियों के प्रत्यायोजन नियमों तथा आगामी खरीद नियमों में दी गई प्रक्रिया के अनुसार किया जाता है — यह कोई पृथक क्रय प्राधिकार सृजित नहीं करता।"
+      },
+      "ruleRef": {
+        "textId": "gfr-145",
+        "citation": { "en": "Rule 145, General Financial Rules, 2017", "hi": "नियम 145, सामान्य वित्तीय नियम, 2017" }
+      },
+      "difficulty": "easy",
+      "stageA": { "index": 9, "angle": "Rule 145 — purchasing power flows from the general power to incur expenditure" },
+      "groundingRuleIds": ["gfr-145"]
+    },
+    {
+      "id": "gfr-q-010",
+      "rule": "149",
+      "kind": "mcq",
+      "front": {
+        "en": "Under Rule 149 of the General Financial Rules, 2017, on the Government e-Marketplace (GeM), up to what value may a Government buyer purchase directly from any available supplier meeting the requisite quality, specification and delivery period?",
+        "hi": "सामान्य वित्तीय नियम, 2017 के नियम 149 के अधीन, सरकारी ई-बाज़ार (जेम) पर, कोई सरकारी क्रेता आवश्यक गुणवत्ता, विशिष्टि और आपूर्ति अवधि पूरी करने वाले किसी भी उपलब्ध आपूर्तिकर्ता से कितने मूल्य तक सीधे खरीद कर सकता है?"
+      },
+      "back": { "en": "Up to rupees fifty thousand.", "hi": "पचास हज़ार रुपये तक।" },
+      "options": [
+        { "en": "Up to rupees ten thousand", "hi": "दस हज़ार रुपये तक" },
+        { "en": "Up to rupees twenty-five thousand", "hi": "पच्चीस हज़ार रुपये तक" },
+        { "en": "Up to rupees fifty thousand", "hi": "पचास हज़ार रुपये तक" },
+        { "en": "Up to rupees one lakh", "hi": "एक लाख रुपये तक" }
+      ],
+      "answerIndex": 2,
+      "explanation": {
+        "en": "Rule 149(i) fixes rupees fifty thousand as the direct-purchase ceiling on GeM (with automobiles exempted from any ceiling under this sub-rule). Above that and up to rupees ten lakh, the buyer must take the lowest price among at least three different manufacturers' sellers on GeM; above rupees ten lakh, a mandatory online bidding or reverse-auction process applies.",
+        "hi": "नियम 149(i) जेम पर सीधी खरीद की सीमा पचास हज़ार रुपये नियत करता है (इस उपनियम के अंतर्गत वाहनों को किसी सीमा से छूट है)। इससे अधिक और दस लाख रुपये तक, क्रेता को जेम पर कम-से-कम तीन भिन्न विनिर्माताओं के विक्रेताओं में से न्यूनतम मूल्य लेना होगा; दस लाख रुपये से अधिक पर, अनिवार्य ऑनलाइन बोली या रिवर्स नीलामी प्रक्रिया लागू होगी।"
+      },
+      "ruleRef": {
+        "textId": "gfr-149",
+        "citation": { "en": "Rule 149, General Financial Rules, 2017", "hi": "नियम 149, सामान्य वित्तीय नियम, 2017" }
+      },
+      "difficulty": "medium",
+      "stageA": { "index": 10, "angle": "Rule 149(i) — the GeM direct-purchase ceiling of rupees fifty thousand" },
+      "groundingRuleIds": ["gfr-149"]
+    },
+    {
+      "id": "gfr-q-011",
+      "rule": "150",
+      "kind": "mcq",
+      "front": {
+        "en": "Under Rule 150 of the General Financial Rules, 2017, for how long is a supplier ordinarily registered before having to apply afresh for renewal?",
+        "hi": "सामान्य वित्तीय नियम, 2017 के नियम 150 के अधीन, आपूर्तिकर्ता को नवीकरण हेतु पुनः आवेदन करने से पहले सामान्यतः कितनी अवधि के लिए पंजीकृत किया जाता है?"
+      },
+      "back": {
+        "en": "Between one and three years, depending on the nature of the goods.",
+        "hi": "वस्तु की प्रकृति के अनुसार एक से तीन वर्ष के बीच।"
+      },
+      "options": [
+        { "en": "A fixed five years for every category of goods", "hi": "वस्तुओं की प्रत्येक श्रेणी के लिए निश्चित पाँच वर्ष" },
+        {
+          "en": "Six months, renewable indefinitely without review",
+          "hi": "छह मास, बिना किसी पुनरीक्षण के अनिश्चित काल तक नवीकरणीय"
+        },
+        {
+          "en": "Permanently, once registered, unless removed for a breach",
+          "hi": "स्थायी रूप से, एक बार पंजीकृत होने पर, जब तक किसी उल्लंघन के लिए न हटाया जाए"
+        },
+        { "en": "Between one and three years, depending on the nature of the goods", "hi": "वस्तु की प्रकृति के अनुसार एक से तीन वर्ष के बीच" }
+      ],
+      "answerIndex": 3,
+      "explanation": {
+        "en": "Rule 150(iii) fixes registration for a period of one to three years depending on the nature of the goods, after which a willing supplier must apply afresh for renewal — registration is not a one-time or indefinite status.",
+        "hi": "नियम 150(iii) वस्तु की प्रकृति के अनुसार पंजीकरण की अवधि एक से तीन वर्ष नियत करता है, जिसके बाद इच्छुक आपूर्तिकर्ता को नवीकरण हेतु पुनः आवेदन करना होगा — पंजीकरण न तो एकबारगी है और न ही अनिश्चितकालीन स्थिति।"
+      },
+      "ruleRef": {
+        "textId": "gfr-150",
+        "citation": { "en": "Rule 150, General Financial Rules, 2017", "hi": "नियम 150, सामान्य वित्तीय नियम, 2017" }
+      },
+      "difficulty": "easy",
+      "stageA": { "index": 11, "angle": "Rule 150(iii) — registration period of one to three years" },
+      "groundingRuleIds": ["gfr-150"]
+    },
+    {
+      "id": "gfr-q-012",
+      "rule": "151",
+      "kind": "scenario",
+      "front": {
+        "en": "A firm bidding for a supply contract was convicted last year under the Prevention of Corruption Act, 1988. Under Rule 151 of the General Financial Rules, 2017, what follows, and for how long?",
+        "hi": "आपूर्ति संविदा हेतु बोली लगाने वाली एक फर्म को पिछले वर्ष भ्रष्टाचार निवारण अधिनियम, 1988 के अधीन दोषसिद्ध किया गया था। सामान्य वित्तीय नियम, 2017 के नियम 151 के अधीन, इसका क्या परिणाम है, और कितनी अवधि के लिए?"
+      },
+      "back": {
+        "en": "The firm shall be debarred, and it is ineligible to participate in any procuring entity's procurement process for a period not exceeding three years from the date of debarment.",
+        "hi": "फर्म को अवरोधित किया जाएगा, और वह अवरोधन की तारीख से तीन वर्ष से अनधिक अवधि के लिए किसी भी क्रय-संस्था की खरीद प्रक्रिया में भाग लेने के लिए अपात्र होगी।"
+      },
+      "options": [
+        {
+          "en": "The firm shall be debarred, ineligible to participate in any procuring entity's procurement for a period not exceeding three years from the date of debarment",
+          "hi": "फर्म को अवरोधित किया जाएगा, वह अवरोधन की तारीख से तीन वर्ष से अनधिक अवधि के लिए किसी भी क्रय-संस्था की खरीद प्रक्रिया में भाग लेने के लिए अपात्र होगी"
+        },
+        {
+          "en": "The firm may still bid, since a conviction only matters if it concerns the specific contract in question",
+          "hi": "फर्म फिर भी बोली लगा सकती है, क्योंकि दोषसिद्धि केवल तभी मायने रखती है जब वह संबंधित विशिष्ट संविदा से जुड़ी हो"
+        },
+        { "en": "The firm is debarred for life, with no maximum period", "hi": "फर्म आजीवन अवरोधित है, कोई अधिकतम अवधि नहीं है" },
+        {
+          "en": "The firm may bid again immediately once it pays the fine imposed by the court",
+          "hi": "न्यायालय द्वारा अधिरोपित जुर्माना चुका देने पर फर्म तुरंत पुनः बोली लगा सकती है"
+        }
+      ],
+      "answerIndex": 0,
+      "explanation": {
+        "en": "Rule 151(i) makes debarment automatic on such a conviction; Rule 151(ii) caps the debarment at three years and extends it to any successor of the bidder. A separate, shorter two-year debarment is available under Rule 151(iii) where a procuring entity itself determines a breach of the Code of Integrity, and Rule 151(iv) requires a reasonable opportunity to represent before any debarment.",
+        "hi": "नियम 151(i) ऐसी दोषसिद्धि पर अवरोधन को स्वतः प्रभावी बनाता है; नियम 151(ii) अवरोधन को तीन वर्ष पर सीमित करता है और इसे बोलीदाता के किसी उत्तरवर्ती पर भी विस्तारित करता है। जहाँ क्रय-संस्था स्वयं सत्यनिष्ठा संहिता के उल्लंघन का निर्धारण करती है, वहाँ नियम 151(iii) के अधीन एक पृथक्, दो वर्ष की छोटी अवरोधन अवधि उपलब्ध है, और नियम 151(iv) किसी भी अवरोधन से पहले प्रतिनिधित्व का उचित अवसर देना अपेक्षित करता है।"
+      },
+      "ruleRef": {
+        "textId": "gfr-151",
+        "citation": { "en": "Rule 151, General Financial Rules, 2017", "hi": "नियम 151, सामान्य वित्तीय नियम, 2017" }
+      },
+      "difficulty": "hard",
+      "stageA": { "index": 12, "angle": "Rule 151(i)-(ii) — automatic debarment on conviction, capped at three years" },
+      "groundingRuleIds": ["gfr-151"]
+    },
+    {
+      "id": "gfr-q-013",
+      "rule": "154",
+      "kind": "mcq",
+      "front": {
+        "en": "Under Rule 154 of the General Financial Rules, 2017, up to what value, on each occasion, may goods not available on GeM be purchased without inviting quotations or bids?",
+        "hi": "सामान्य वित्तीय नियम, 2017 के नियम 154 के अधीन, जेम पर अनुपलब्ध वस्तुओं को प्रति अवसर कितने मूल्य तक बिना उद्धरण या बोली आमंत्रित किए खरीदा जा सकता है?"
+      },
+      "back": { "en": "Rupees fifty thousand.", "hi": "पचास हज़ार रुपये।" },
+      "options": [
+        { "en": "Rupees twenty-five thousand", "hi": "पच्चीस हज़ार रुपये" },
+        { "en": "Rupees fifty thousand", "hi": "पचास हज़ार रुपये" },
+        { "en": "Rupees one lakh", "hi": "एक लाख रुपये" },
+        { "en": "Rupees two lakh", "hi": "दो लाख रुपये" }
+      ],
+      "answerIndex": 1,
+      "explanation": {
+        "en": "Rule 154 permits purchase up to rupees fifty thousand on each occasion without quotations, on the strength of a competent authority's certificate that the goods are of the requisite quality and specification and were bought from a reliable supplier at a reasonable price — a recorded finding, not a formality.",
+        "hi": "नियम 154 प्रति अवसर पचास हज़ार रुपये तक की खरीद बिना उद्धरण के अनुज्ञात करता है, सक्षम प्राधिकारी के इस प्रमाणपत्र के आधार पर कि वस्तुएँ अपेक्षित गुणवत्ता और विशिष्टि की हैं और विश्वसनीय आपूर्तिकर्ता से उचित मूल्य पर खरीदी गई हैं — यह एक अभिलिखित निष्कर्ष है, कोई औपचारिकता नहीं।"
+      },
+      "ruleRef": {
+        "textId": "gfr-154",
+        "citation": { "en": "Rule 154, General Financial Rules, 2017", "hi": "नियम 154, सामान्य वित्तीय नियम, 2017" }
+      },
+      "difficulty": "easy",
+      "stageA": { "index": 13, "angle": "Rule 154 — the rupees-fifty-thousand purchase-without-quotation ceiling" },
+      "groundingRuleIds": ["gfr-154"]
+    },
+    {
+      "id": "gfr-q-014",
+      "rule": "155",
+      "kind": "mcq",
+      "front": {
+        "en": "Rule 155 of the General Financial Rules, 2017 governs purchase by a Local Purchase Committee. Between what values does this route apply, and how many members must the Committee ordinarily have?",
+        "hi": "सामान्य वित्तीय नियम, 2017 का नियम 155 स्थानीय क्रय समिति द्वारा खरीद को विनियमित करता है। यह मार्ग किन मूल्यों के बीच लागू होता है, और समिति में सामान्यतः कितने सदस्य होने चाहिए?"
+      },
+      "back": {
+        "en": "Above rupees fifty thousand and up to rupees five lakh, with a Committee of three members of an appropriate level.",
+        "hi": "पचास हज़ार रुपये से अधिक और पाँच लाख रुपये तक, उपयुक्त स्तर के तीन सदस्यों वाली समिति के साथ।"
+      },
+      "options": [
+        {
+          "en": "Above rupees ten thousand and up to rupees one lakh, with a Committee of five members",
+          "hi": "दस हज़ार रुपये से अधिक और एक लाख रुपये तक, पाँच सदस्यों वाली समिति के साथ"
+        },
+        {
+          "en": "Above rupees twenty-five thousand and up to rupees two lakh, with a Committee of two members",
+          "hi": "पच्चीस हज़ार रुपये से अधिक और दो लाख रुपये तक, दो सदस्यों वाली समिति के साथ"
+        },
+        {
+          "en": "Above rupees fifty thousand and up to rupees five lakh, with a Committee of three members",
+          "hi": "पचास हज़ार रुपये से अधिक और पाँच लाख रुपये तक, उपयुक्त स्तर के तीन सदस्यों वाली समिति के साथ"
+        },
+        {
+          "en": "Above rupees five lakh and up to rupees fifty lakh, with a Committee of three members",
+          "hi": "पाँच लाख रुपये से अधिक और पचास लाख रुपये तक, तीन सदस्यों वाली समिति के साथ"
+        }
+      ],
+      "answerIndex": 2,
+      "explanation": {
+        "en": "Rule 155 picks up exactly where Rule 154's without-quotation ceiling ends — above rupees fifty thousand and up to rupees five lakh — and requires a three-member Local Purchase Committee to survey the market and jointly certify reasonableness of rate, quality and the supplier's reliability before the purchase order is placed.",
+        "hi": "नियम 155 ठीक वहीं से आरंभ होता है जहाँ नियम 154 की बिना-उद्धरण सीमा समाप्त होती है — पचास हज़ार रुपये से अधिक और पाँच लाख रुपये तक — और खरीद आदेश देने से पूर्व बाज़ार का सर्वेक्षण कर दर, गुणवत्ता और आपूर्तिकर्ता की विश्वसनीयता के औचित्य का संयुक्त प्रमाणीकरण करने हेतु तीन सदस्यों वाली स्थानीय क्रय समिति की अपेक्षा करता है।"
+      },
+      "ruleRef": {
+        "textId": "gfr-155",
+        "citation": { "en": "Rule 155, General Financial Rules, 2017", "hi": "नियम 155, सामान्य वित्तीय नियम, 2017" }
+      },
+      "difficulty": "medium",
+      "stageA": { "index": 14, "angle": "Rule 155 — the Local Purchase Committee band, continuing from Rule 154" },
+      "groundingRuleIds": ["gfr-155", "gfr-154"]
+    },
+    {
+      "id": "gfr-q-015",
+      "rule": "161",
+      "kind": "mcq",
+      "front": {
+        "en": "Under Rule 161 of the General Financial Rules, 2017, invitation to tender by advertisement is the required route for procurement of goods of what estimated value?",
+        "hi": "सामान्य वित्तीय नियम, 2017 के नियम 161 के अधीन, विज्ञापन द्वारा निविदा आमंत्रित करना किस अनुमानित मूल्य की वस्तुओं की खरीद के लिए अपेक्षित मार्ग है?"
+      },
+      "back": { "en": "Rupees fifty lakh and above.", "hi": "पचास लाख रुपये और उससे अधिक।" },
+      "options": [
+        { "en": "Rupees fifty lakh and above", "hi": "पचास लाख रुपये और उससे अधिक" },
+        { "en": "Rupees ten lakh and above", "hi": "दस लाख रुपये और उससे अधिक" },
+        {
+          "en": "Rupees one crore and above, in every Ministry without exception",
+          "hi": "हर मंत्रालय में बिना किसी अपवाद के एक करोड़ रुपये और उससे अधिक"
+        },
+        { "en": "There is no monetary threshold; it applies to every purchase of goods", "hi": "कोई मौद्रिक सीमा नहीं है; यह वस्तुओं की प्रत्येक खरीद पर लागू होता है" }
+      ],
+      "answerIndex": 0,
+      "explanation": {
+        "en": "Rule 161(i) sets rupees fifty lakh as the general threshold for an Advertised Tender Enquiry, subject to the exceptions in Rules 154, 155, 162 and 166. A higher threshold of rupees one crore applies only to the named Scientific Ministries and Departments, not across the board.",
+        "hi": "नियम 161(i) विज्ञापित निविदा पृच्छा के लिए सामान्य सीमा पचास लाख रुपये नियत करता है, नियम 154, 155, 162 और 166 के अपवादों के अध्यधीन। एक करोड़ रुपये की उच्चतर सीमा केवल नामित वैज्ञानिक मंत्रालयों और विभागों पर लागू होती है, सर्वत्र नहीं।"
+      },
+      "ruleRef": {
+        "textId": "gfr-161",
+        "citation": { "en": "Rule 161, General Financial Rules, 2017", "hi": "नियम 161, सामान्य वित्तीय नियम, 2017" }
+      },
+      "difficulty": "medium",
+      "stageA": { "index": 15, "angle": "Rule 161(i) — the fifty-lakh Advertised Tender Enquiry threshold" },
+      "groundingRuleIds": ["gfr-161"]
+    },
+    {
+      "id": "gfr-q-016",
+      "rule": "162",
+      "kind": "mcq",
+      "front": {
+        "en": "Rule 162 of the General Financial Rules, 2017 allows a Limited Tender Enquiry for goods estimated up to rupees fifty lakh. What does it say about the number of firms approached?",
+        "hi": "सामान्य वित्तीय नियम, 2017 का नियम 162 पचास लाख रुपये तक अनुमानित वस्तुओं के लिए सीमित निविदा पृच्छा की अनुमति देता है। यह संपर्क की जाने वाली फर्मों की संख्या के बारे में क्या कहता है?"
+      },
+      "back": {
+        "en": "The number of supplier firms approached should be more than three, drawn from the list of registered suppliers.",
+        "hi": "संपर्क की जाने वाली आपूर्तिकर्ता फर्मों की संख्या तीन से अधिक होनी चाहिए, जो पंजीकृत आपूर्तिकर्ताओं की सूची से ली जाएँ।"
+      },
+      "options": [
+        { "en": "Exactly three firms must be approached, no more and no fewer", "hi": "ठीक तीन फर्मों से संपर्क किया जाना चाहिए, न अधिक न कम" },
+        {
+          "en": "The number of firms should be more than three, drawn from the list of registered suppliers",
+          "hi": "फर्मों की संख्या तीन से अधिक होनी चाहिए, जो पंजीकृत आपूर्तिकर्ताओं की सूची से ली जाएँ"
+        },
+        { "en": "A single firm is sufficient, provided it is on the registered list", "hi": "एक ही फर्म पर्याप्त है, बशर्ते वह पंजीकृत सूची में हो" },
+        { "en": "There is no minimum; even one unsolicited bid may be accepted", "hi": "कोई न्यूनतम संख्या नहीं है; एक अयाचित बोली भी स्वीकार की जा सकती है" }
+      ],
+      "answerIndex": 1,
+      "explanation": {
+        "en": "Rule 162(i) requires more than three registered-supplier firms to be sent the bidding document, with an effort to identify even more to obtain responsive, competitive bids — and Rule 162(ii) separately bars accepting unsolicited bids.",
+        "hi": "नियम 162(i) पंजीकृत आपूर्तिकर्ता की तीन से अधिक फर्मों को बोली दस्तावेज़ भेजे जाने की अपेक्षा करता है, अधिक प्रतिस्पर्धी बोलियाँ पाने के लिए और अधिक फर्मों की पहचान के प्रयास सहित — और नियम 162(ii) पृथक् रूप से अयाचित बोलियों की स्वीकृति का प्रतिषेध करता है।"
+      },
+      "ruleRef": {
+        "textId": "gfr-162",
+        "citation": { "en": "Rule 162, General Financial Rules, 2017", "hi": "नियम 162, सामान्य वित्तीय नियम, 2017" }
+      },
+      "difficulty": "medium",
+      "stageA": { "index": 16, "angle": "Rule 162(i)-(ii) — more than three firms, and no unsolicited bids" },
+      "groundingRuleIds": ["gfr-162"]
+    },
+    {
+      "id": "gfr-q-017",
+      "rule": "163",
+      "kind": "trueFalse",
+      "front": {
+        "en": "Under Rule 163 of the General Financial Rules, 2017, in the two-bid system, the technical and financial bids are opened together at the same sitting so that price is known before technical evaluation begins.",
+        "hi": "सामान्य वित्तीय नियम, 2017 के नियम 163 के अधीन, द्वि-बोली प्रणाली में तकनीकी और वित्तीय बोलियाँ एक ही बैठक में साथ खोली जाती हैं ताकि तकनीकी मूल्यांकन आरंभ होने से पहले ही मूल्य ज्ञात हो जाए।"
+      },
+      "back": { "en": "False.", "hi": "असत्य।" },
+      "options": [
+        { "en": "True", "hi": "सत्य" },
+        { "en": "False", "hi": "असत्य" }
+      ],
+      "answerIndex": 1,
+      "explanation": {
+        "en": "Rule 163 requires the two bids to be sealed separately and opened in two stages: the technical bid first, evaluated by a competent committee, and only after that the financial bids of the technically acceptable offers — with the qualified bidders notified of the date and time before the financial bid is opened.",
+        "hi": "नियम 163 दोनों बोलियों को अलग-अलग सील किए जाने और दो चरणों में खोले जाने की अपेक्षा करता है: पहले तकनीकी बोली, जिसका मूल्यांकन सक्षम समिति करती है, और उसके बाद ही तकनीकी रूप से स्वीकार्य प्रस्तावों की वित्तीय बोलियाँ — योग्य बोलीदाताओं को वित्तीय बोली खोलने से पहले तारीख और समय की सूचना दी जाती है।"
+      },
+      "ruleRef": {
+        "textId": "gfr-163",
+        "citation": { "en": "Rule 163, General Financial Rules, 2017", "hi": "नियम 163, सामान्य वित्तीय नियम, 2017" }
+      },
+      "difficulty": "medium",
+      "stageA": { "index": 17, "angle": "Rule 163 — technical bids opened and evaluated before the financial bid stage" },
+      "groundingRuleIds": ["gfr-163"]
+    },
+    {
+      "id": "gfr-q-018",
+      "rule": "165",
+      "kind": "scenario",
+      "front": {
+        "en": "A limited tender enquiry closes for receipt of bids at 3:00 pm on the due date. A bidder's envelope reaches the tender box at 3:20 pm the same day. Under Rule 165 of the General Financial Rules, 2017, what should the purchasing officer do?",
+        "hi": "एक सीमित निविदा पृच्छा में बोली प्राप्ति नियत तारीख को अपराह्न 3:00 बजे बंद होती है। एक बोलीदाता का लिफाफा उसी दिन अपराह्न 3:20 बजे निविदा पेटी तक पहुँचता है। सामान्य वित्तीय नियम, 2017 के नियम 165 के अधीन, क्रय अधिकारी को क्या करना चाहिए?"
+      },
+      "back": {
+        "en": "The bid must not be considered — Rule 165 bars late bids in an advertised or limited tender enquiry, regardless of how short the delay.",
+        "hi": "बोली पर विचार नहीं किया जाना चाहिए — नियम 165 विज्ञापित या सीमित निविदा पृच्छा में विलंबित बोलियों का प्रतिषेध करता है, विलंब चाहे कितना भी कम क्यों न हो।"
+      },
+      "options": [
+        {
+          "en": "Accept it, since a twenty-minute delay is trivial and does not affect the outcome",
+          "hi": "इसे स्वीकार करें, क्योंकि बीस मिनट का विलंब मामूली है और परिणाम को प्रभावित नहीं करता"
+        },
+        {
+          "en": "Not consider it — Rule 165 bars late bids in an advertised or limited tender enquiry",
+          "hi": "इस पर विचार न करें — नियम 165 विज्ञापित या सीमित निविदा पृच्छा में विलंबित बोलियों का प्रतिषेध करता है"
+        },
+        {
+          "en": "Accept it only if the bidder pays a late fee fixed by the purchase committee",
+          "hi": "इसे केवल तभी स्वीकार करें जब बोलीदाता क्रय समिति द्वारा नियत विलंब शुल्क दे"
+        },
+        {
+          "en": "Forward it to the competent authority to decide case by case whether the delay is condonable",
+          "hi": "इसे सक्षम प्राधिकारी को भेजें ताकि वह मामले-दर-मामले तय करे कि विलंब क्षम्य है या नहीं"
+        }
+      ],
+      "answerIndex": 1,
+      "explanation": {
+        "en": "Rule 165 states the rule without a discretion or a fee-based cure: a bid received after the specified date and time should not be considered, whether the enquiry was advertised or limited. The rule protects every other bidder's reliance on the closing time.",
+        "hi": "नियम 165 बिना किसी विवेकाधिकार या शुल्क-आधारित उपचार के नियम बताता है: नियत तारीख और समय के बाद प्राप्त बोली पर विचार नहीं किया जाना चाहिए, चाहे पृच्छा विज्ञापित हो या सीमित। यह नियम प्रत्येक अन्य बोलीदाता के समापन समय पर विश्वास की रक्षा करता है।"
+      },
+      "ruleRef": {
+        "textId": "gfr-165",
+        "citation": { "en": "Rule 165, General Financial Rules, 2017", "hi": "नियम 165, सामान्य वित्तीय नियम, 2017" }
+      },
+      "difficulty": "easy",
+      "stageA": { "index": 18, "angle": "Rule 165 — late bids are never considered, whatever the delay" },
+      "groundingRuleIds": ["gfr-165"]
+    },
+    {
+      "id": "gfr-q-019",
+      "rule": "166",
+      "kind": "scenario",
+      "front": {
+        "en": "A Department needs a specialised spare part that, on the user department's own knowledge, only one manufacturer makes. Under Rule 166 of the General Financial Rules, 2017, what route may it use, and what must it obtain first?",
+        "hi": "एक विभाग को ऐसा विशिष्ट कल-पुर्जा चाहिए जिसे, उपयोगकर्ता विभाग की अपनी जानकारी के अनुसार, केवल एक ही विनिर्माता बनाता है। सामान्य वित्तीय नियम, 2017 के नियम 166 के अधीन, वह कौन-सा मार्ग अपना सकता है, और पहले उसे क्या प्राप्त करना होगा?"
+      },
+      "back": {
+        "en": "Single Tender Enquiry, supported by a Proprietary Article Certificate naming the sole manufacturer and confirming finance-wing concurrence and competent-authority approval.",
+        "hi": "एकल निविदा पृच्छा, जिसके साथ एकमात्र विनिर्माता का नाम लेने वाला तथा वित्त-प्रभाग की सहमति और सक्षम प्राधिकारी की मंजूरी की पुष्टि करने वाला स्वामित्व वस्तु प्रमाणपत्र संलग्न हो।"
+      },
+      "options": [
+        {
+          "en": "An Advertised Tender Enquiry, since sole-source procurement is otherwise not permitted",
+          "hi": "विज्ञापित निविदा पृच्छा, क्योंकि अन्यथा एकल-स्रोत खरीद अनुज्ञात नहीं है"
+        },
+        {
+          "en": "A Limited Tender Enquiry addressed to at least three registered suppliers",
+          "hi": "कम से कम तीन पंजीकृत आपूर्तिकर्ताओं को संबोधित सीमित निविदा पृच्छा"
+        },
+        {
+          "en": "A Single Tender Enquiry, supported by a Proprietary Article Certificate naming the sole manufacturer, finance-wing concurrence and competent-authority approval",
+          "hi": "एकल निविदा पृच्छा, जिसके साथ एकमात्र विनिर्माता का नाम लेने वाला, वित्त-प्रभाग की सहमति और सक्षम प्राधिकारी की मंजूरी वाला स्वामित्व वस्तु प्रमाणपत्र संलग्न हो"
+        },
+        {
+          "en": "An Electronic Reverse Auction restricted to the one known manufacturer",
+          "hi": "केवल उसी ज्ञात विनिर्माता तक सीमित इलेक्ट्रॉनिक रिवर्स नीलामी"
+        }
+      ],
+      "answerIndex": 2,
+      "explanation": {
+        "en": "Rule 166(i) permits Single Tender Enquiry where it is known that only a particular firm manufactures the required goods. The note to Rule 166 requires a Proprietary Article Certificate in a set form before such a purchase — naming the manufacturer, stating why no other make or model is acceptable, and recording finance concurrence and competent-authority approval.",
+        "hi": "नियम 166(i) एकल निविदा पृच्छा की अनुमति देता है जहाँ यह ज्ञात हो कि अपेक्षित वस्तुओं का विनिर्माण केवल एक विशेष फर्म करती है। नियम 166 का नोट ऐसी खरीद से पहले नियत प्रपत्र में स्वामित्व वस्तु प्रमाणपत्र अपेक्षित करता है — जिसमें विनिर्माता का नाम, अन्य कोई मेक या मॉडल स्वीकार्य न होने का कारण, तथा वित्त सहमति और सक्षम प्राधिकारी की मंजूरी अभिलिखित हो।"
+      },
+      "ruleRef": {
+        "textId": "gfr-166",
+        "citation": { "en": "Rule 166, General Financial Rules, 2017", "hi": "नियम 166, सामान्य वित्तीय नियम, 2017" }
+      },
+      "difficulty": "medium",
+      "stageA": { "index": 19, "angle": "Rule 166(i) and its Proprietary Article Certificate note" },
+      "groundingRuleIds": ["gfr-166"]
+    },
+    {
+      "id": "gfr-q-020",
+      "rule": "167",
+      "kind": "mcq",
+      "front": {
+        "en": "Rule 167 of the General Financial Rules, 2017 allows procurement by Electronic Reverse Auction. Which of the following is a precondition it names?",
+        "hi": "सामान्य वित्तीय नियम, 2017 का नियम 167 इलेक्ट्रॉनिक रिवर्स नीलामी द्वारा खरीद की अनुमति देता है। यह निम्नलिखित में से किस पूर्वापेक्षा का नाम लेता है?"
+      },
+      "back": {
+        "en": "A competitive market of bidders anticipated to be qualified to participate, so that effective competition is ensured.",
+        "hi": "बोलीदाताओं का ऐसा प्रतिस्पर्धी बाज़ार जिसके भाग लेने हेतु योग्य होने की प्रत्याशा हो, ताकि प्रभावी प्रतिस्पर्धा सुनिश्चित हो।"
+      },
+      "options": [
+        {
+          "en": "The subject matter must be too complex to describe in detail, so bidders can propose their own specification",
+          "hi": "विषय-वस्तु का विस्तार से वर्णन करना इतना जटिल होना चाहिए कि बोलीदाता अपनी स्वयं की विशिष्टि प्रस्तावित कर सकें"
+        },
+        {
+          "en": "The successful bid must be decided on criteria that cannot be reduced to a monetary value",
+          "hi": "सफल बोली ऐसे मानदंडों पर तय होनी चाहिए जिन्हें मौद्रिक रूप में व्यक्त नहीं किया जा सकता"
+        },
+        {
+          "en": "At least one bidder must have already been shortlisted through a Limited Tender Enquiry",
+          "hi": "कम से कम एक बोलीदाता को सीमित निविदा पृच्छा के माध्यम से पहले ही सूचीबद्ध किया जा चुका होना चाहिए"
+        },
+        {
+          "en": "There must be a competitive market of bidders anticipated to be qualified to participate, ensuring effective competition",
+          "hi": "बोलीदाताओं का ऐसा प्रतिस्पर्धी बाज़ार होना चाहिए जिसके भाग लेने हेतु योग्य होने की प्रत्याशा हो, ताकि प्रभावी प्रतिस्पर्धा सुनिश्चित हो"
+        }
+      ],
+      "answerIndex": 3,
+      "explanation": {
+        "en": "Rule 167(ii) names three conditions together: a detailed description of the subject matter must be feasible, a competitive market of qualified bidders must be anticipated, and the success criteria must be quantifiable and expressible in monetary terms — the opposite of the first two options.",
+        "hi": "नियम 167(ii) तीन शर्तें एक साथ नियत करता है: विषय-वस्तु का विस्तृत वर्णन करना संभव होना चाहिए, योग्य बोलीदाताओं का प्रतिस्पर्धी बाज़ार प्रत्याशित होना चाहिए, और सफलता के मानदंड परिमेय और मौद्रिक रूप में व्यक्त करने योग्य होने चाहिए — यह पहले दो विकल्पों के विपरीत है।"
+      },
+      "ruleRef": {
+        "textId": "gfr-167",
+        "citation": { "en": "Rule 167, General Financial Rules, 2017", "hi": "नियम 167, सामान्य वित्तीय नियम, 2017" }
+      },
+      "difficulty": "hard",
+      "stageA": { "index": 20, "angle": "Rule 167(ii) — the three preconditions for an electronic reverse auction" },
+      "groundingRuleIds": ["gfr-167"]
+    },
+    {
+      "id": "gfr-q-021",
+      "rule": "170",
+      "kind": "mcq",
+      "front": {
+        "en": "Under Rule 170 of the General Financial Rules, 2017, what is the ordinary range for Bid Security (Earnest Money) as a percentage of the estimated value of the goods to be procured?",
+        "hi": "सामान्य वित्तीय नियम, 2017 के नियम 170 के अधीन, खरीदी जाने वाली वस्तुओं के अनुमानित मूल्य के प्रतिशत के रूप में बोली प्रतिभूति (बयाना राशि) की सामान्य सीमा क्या है?"
+      },
+      "back": { "en": "Two percent to five percent.", "hi": "दो प्रतिशत से पाँच प्रतिशत।" },
+      "options": [
+        { "en": "Two percent to five percent", "hi": "दो प्रतिशत से पाँच प्रतिशत" },
+        { "en": "Five percent to ten percent", "hi": "पाँच प्रतिशत से दस प्रतिशत" },
+        { "en": "Ten percent to fifteen percent", "hi": "दस प्रतिशत से पंद्रह प्रतिशत" },
+        { "en": "A flat one percent in every case", "hi": "प्रत्येक मामले में एकसमान एक प्रतिशत" }
+      ],
+      "answerIndex": 0,
+      "explanation": {
+        "en": "Rule 170(i) sets bid security ordinarily between two and five percent of the estimated value, to be indicated in the bidding documents, and it should ordinarily remain valid for forty-five days beyond the final bid validity period. Micro and Small Enterprises, suppliers registered with the Central Purchase Organisation or the Ministry/Department, and recognised Startups are exempted from furnishing it.",
+        "hi": "नियम 170(i) बोली प्रतिभूति सामान्यतः अनुमानित मूल्य के दो से पाँच प्रतिशत के बीच नियत करता है, जो बोली दस्तावेज़ों में दर्शाई जाएगी, और यह अंतिम बोली वैधता अवधि से आगे सामान्यतः पैंतालीस दिनों के लिए वैध रहनी चाहिए। सूक्ष्म और लघु उद्यमों, केंद्रीय क्रय संगठन या संबंधित मंत्रालय/विभाग में पंजीकृत आपूर्तिकर्ताओं, तथा मान्यताप्राप्त स्टार्टअप को इसे प्रस्तुत करने से छूट है।"
+      },
+      "ruleRef": {
+        "textId": "gfr-170",
+        "citation": { "en": "Rule 170, General Financial Rules, 2017", "hi": "नियम 170, सामान्य वित्तीय नियम, 2017" }
+      },
+      "difficulty": "medium",
+      "stageA": { "index": 21, "angle": "Rule 170(i) — the two-to-five-percent bid security band" },
+      "groundingRuleIds": ["gfr-170"]
+    },
+    {
+      "id": "gfr-q-022",
+      "rule": "171",
+      "kind": "mcq",
+      "front": {
+        "en": "Under Rule 171 of the General Financial Rules, 2017, Performance Security for procurement of goods, consultancy or non-consultancy services should ordinarily be for what share of the contract value, and how long should it remain valid?",
+        "hi": "सामान्य वित्तीय नियम, 2017 के नियम 171 के अधीन, वस्तुओं, परामर्श सेवाओं या गैर-परामर्श सेवाओं की खरीद के लिए निष्पादन प्रतिभूति सामान्यतः संविदा मूल्य के किस भाग के लिए होनी चाहिए, और वह कितने समय तक वैध रहनी चाहिए?"
+      },
+      "back": {
+        "en": "Three to five percent of the contract value, valid for sixty days beyond completion of all contractual obligations including warranty.",
+        "hi": "संविदा मूल्य का तीन से पाँच प्रतिशत, जो वारंटी सहित सभी संविदात्मक बाध्यताओं की पूर्ति के पश्चात् साठ दिनों तक वैध रहे।"
+      },
+      "options": [
+        {
+          "en": "One to two percent, valid for thirty days beyond the contract's signing",
+          "hi": "एक से दो प्रतिशत, संविदा पर हस्ताक्षर के पश्चात् तीस दिनों तक वैध"
+        },
+        {
+          "en": "Three to five percent, valid for sixty days beyond completion of all contractual obligations including warranty",
+          "hi": "तीन से पाँच प्रतिशत, वारंटी सहित सभी संविदात्मक बाध्यताओं की पूर्ति के पश्चात् साठ दिनों तक वैध"
+        },
+        { "en": "Ten percent, valid for ninety days beyond delivery", "hi": "दस प्रतिशत, आपूर्ति के पश्चात् नब्बे दिनों तक वैध" },
+        {
+          "en": "Three to ten percent, the same figure that applies to Works contracts",
+          "hi": "तीन से दस प्रतिशत, वही आँकड़ा जो कार्य संविदाओं पर लागू होता है"
+        }
+      ],
+      "answerIndex": 1,
+      "explanation": {
+        "en": "Rule 171(i) sets three to five percent for goods, consultancy and non-consultancy services specifically — the three-to-ten percent figure in the last option is what continues to apply to Works contracts, which the footnote to this rule distinguishes. Rule 171(ii) fixes the sixty-day post-completion validity, and Rule 171(iii) ties refund of the bid security to receipt of the performance security.",
+        "hi": "नियम 171(i) विशेष रूप से वस्तुओं, परामर्श और गैर-परामर्श सेवाओं के लिए तीन से पाँच प्रतिशत नियत करता है — अंतिम विकल्प का तीन-से-दस प्रतिशत का आँकड़ा वह है जो कार्य संविदाओं पर लागू होता रहता है, जिसे इस नियम की टिप्पणी अलग करती है। नियम 171(ii) पूर्णता के पश्चात् साठ दिनों की वैधता नियत करता है, और नियम 171(iii) बोली प्रतिभूति की वापसी को निष्पादन प्रतिभूति प्राप्त होने से जोड़ता है।"
+      },
+      "ruleRef": {
+        "textId": "gfr-171",
+        "citation": { "en": "Rule 171, General Financial Rules, 2017", "hi": "नियम 171, सामान्य वित्तीय नियम, 2017" }
+      },
+      "difficulty": "hard",
+      "stageA": { "index": 22, "angle": "Rule 171(i)-(ii) — the goods/services performance-security band, against the Works figure" },
+      "groundingRuleIds": ["gfr-171"]
+    },
+    {
+      "id": "gfr-q-023",
+      "rule": "175",
+      "kind": "scenario",
+      "front": {
+        "en": "During evaluation of bids, an official of the procuring entity accepts a gift from one bidder in exchange for sharing another bidder's price ahead of the opening. Under Rule 175 of the General Financial Rules, 2017, what has occurred?",
+        "hi": "बोलियों के मूल्यांकन के दौरान, क्रय-संस्था का एक अधिकारी एक बोलीदाता से यह उपहार स्वीकार करता है कि वह खोलने से पहले किसी अन्य बोलीदाता का मूल्य साझा कर देगा। सामान्य वित्तीय नियम, 2017 के नियम 175 के अधीन, यह क्या है?"
+      },
+      "back": {
+        "en": "A breach of the Code of Integrity, covering both the acceptance of a gift for unfair advantage and the improper use of information to gain such advantage.",
+        "hi": "सत्यनिष्ठा संहिता का उल्लंघन, जिसमें अनुचित लाभ हेतु उपहार स्वीकार करना और अनुचित लाभ हेतु सूचना का दुरुपयोग करना, दोनों सम्मिलित हैं।"
+      },
+      "options": [
+        {
+          "en": "Nothing actionable under Rule 175, since the gift and the information-sharing are two separate matters",
+          "hi": "नियम 175 के अधीन कुछ भी कार्यवाही योग्य नहीं, क्योंकि उपहार और सूचना साझा करना दो अलग-अलग मामले हैं"
+        },
+        {
+          "en": "A breach only if the bidder who received the tip-off actually wins the contract",
+          "hi": "उल्लंघन तभी होगा जब सूचना पाने वाला बोलीदाता वास्तव में संविदा जीत जाए"
+        },
+        {
+          "en": "A breach of the Code of Integrity, covering both the gift for unfair advantage and the improper use of information",
+          "hi": "सत्यनिष्ठा संहिता का उल्लंघन, जिसमें अनुचित लाभ हेतु उपहार तथा सूचना का दुरुपयोग, दोनों सम्मिलित हैं"
+        },
+        {
+          "en": "A breach only of the general conduct rules, since Rule 175 governs bidders and not officials of the procuring entity",
+          "hi": "केवल सामान्य आचरण नियमों का उल्लंघन, क्योंकि नियम 175 बोलीदाताओं पर लागू होता है, क्रय-संस्था के अधिकारियों पर नहीं"
+        }
+      ],
+      "answerIndex": 2,
+      "explanation": {
+        "en": "Rule 175(1) binds an official of a procuring entity as much as a bidder. It separately prohibits accepting a gift, reward or material benefit in exchange for an unfair advantage in the procurement process, and prohibits improper use of information provided to a bidder — or, by the same logic, misused by an official — to gain such an advantage. Either limb standing alone is already a breach.",
+        "hi": "नियम 175(1) क्रय-संस्था के अधिकारी को उतना ही बाध्य करता है जितना बोलीदाता को। यह अलग-अलग रूप से खरीद प्रक्रिया में अनुचित लाभ के बदले उपहार, पुरस्कार या भौतिक लाभ स्वीकार करने का, तथा बोलीदाता को दी गई सूचना — या इसी तर्क से किसी अधिकारी द्वारा दुरुपयोग की गई सूचना — का अनुचित लाभ हेतु दुरुपयोग करने का प्रतिषेध करता है। इनमें से एक भी अंग अकेला उल्लंघन है।"
+      },
+      "ruleRef": {
+        "textId": "gfr-175",
+        "citation": { "en": "Rule 175, General Financial Rules, 2017", "hi": "नियम 175, सामान्य वित्तीय नियम, 2017" }
+      },
+      "difficulty": "hard",
+      "stageA": { "index": 23, "angle": "Rule 175(1) — the Code of Integrity binds a procuring-entity official too" },
+      "groundingRuleIds": ["gfr-175"]
+    },
+    {
+      "id": "gfr-q-024",
+      "rule": "208",
+      "kind": "mcq",
+      "front": {
+        "en": "Under Rule 208 of the General Financial Rules, 2017, what must be done to materials received from a supplier before they are entered in the stock register?",
+        "hi": "सामान्य वित्तीय नियम, 2017 के नियम 208 के अधीन, आपूर्तिकर्ता से प्राप्त सामग्री को स्टॉक रजिस्टर में दर्ज करने से पहले उसके साथ क्या किया जाना चाहिए?"
+      },
+      "back": {
+        "en": "They must be counted, measured or weighed and subjected to visual inspection, to confirm correct quantity, required specification and no damage or deficiency.",
+        "hi": "मात्रा की शुद्धता, अपेक्षित विशिष्टि और किसी क्षति या कमी के अभाव की पुष्टि हेतु उसे गिना, मापा या तौला जाना चाहिए तथा दृश्य निरीक्षण किया जाना चाहिए।"
+      },
+      "options": [
+        {
+          "en": "Nothing beyond confirming the invoice amount matches the purchase order",
+          "hi": "इससे अधिक कुछ नहीं, केवल यह पुष्टि करना कि चालान राशि क्रय आदेश से मेल खाती है"
+        },
+        {
+          "en": "Only a technical inspection, and only for items above a prescribed value",
+          "hi": "केवल तकनीकी निरीक्षण, और केवल विहित मूल्य से अधिक की वस्तुओं के लिए"
+        },
+        { "en": "Only a visual inspection; counting and weighing are optional courtesies", "hi": "केवल दृश्य निरीक्षण; गिनना और तौलना वैकल्पिक शिष्टाचार हैं" },
+        {
+          "en": "Counting, measuring or weighing, and a visual inspection, to confirm quantity, specification and the absence of damage or deficiency",
+          "hi": "गिनना, मापना या तौलना, तथा दृश्य निरीक्षण, ताकि मात्रा, विशिष्टि और क्षति या कमी के अभाव की पुष्टि हो सके"
+        }
+      ],
+      "answerIndex": 3,
+      "explanation": {
+        "en": "Rule 208(ii) requires all materials to be counted, measured or weighed and visually inspected at receipt, with technical inspection where required carried out at this stage by an approved technical inspector or agency — only after this does Rule 208(iii) call for entry in the stock register, certified by the officer-in-charge of stores.",
+        "hi": "नियम 208(ii) प्राप्ति के समय सभी सामग्री को गिने, मापे या तौले जाने तथा दृश्य निरीक्षण किए जाने की अपेक्षा करता है, और जहाँ आवश्यक हो वहाँ इसी चरण में अनुमोदित तकनीकी निरीक्षक या अभिकरण द्वारा तकनीकी निरीक्षण किया जाना चाहिए — इसके बाद ही नियम 208(iii) स्टॉक रजिस्टर में प्रविष्टि की अपेक्षा करता है, जिसे भंडार-प्रभारी अधिकारी प्रमाणित करता है।"
+      },
+      "ruleRef": {
+        "textId": "gfr-208",
+        "citation": { "en": "Rule 208, General Financial Rules, 2017", "hi": "नियम 208, सामान्य वित्तीय नियम, 2017" }
+      },
+      "difficulty": "easy",
+      "stageA": { "index": 24, "angle": "Rule 208(ii)-(iii) — inspection before stock-register entry" },
+      "groundingRuleIds": ["gfr-208"]
+    },
+    {
+      "id": "gfr-q-025",
+      "rule": "213",
+      "kind": "trueFalse",
+      "front": {
+        "en": "Under Rule 213 of the General Financial Rules, 2017, fixed assets must be physically verified at least once a year, and discrepancies found must be promptly investigated and brought to account.",
+        "hi": "सामान्य वित्तीय नियम, 2017 के नियम 213 के अधीन, स्थायी परिसंपत्तियों का भौतिक सत्यापन वर्ष में कम से कम एक बार किया जाना चाहिए, और पाई गई विसंगतियों की तुरंत जाँच कर उन्हें लेखे में लाया जाना चाहिए।"
+      },
+      "back": { "en": "True.", "hi": "सत्य।" },
+      "options": [
+        { "en": "True", "hi": "सत्य" },
+        { "en": "False", "hi": "असत्य" }
+      ],
+      "answerIndex": 0,
+      "explanation": {
+        "en": "Rule 213(1) requires annual verification of fixed assets with the outcome recorded in the corresponding register; Rule 213(2) extends the same annual requirement to consumables. Rule 213(3) further requires verification to be made in the presence of the officer responsible for custody, with any shortage or damage reported for action under Rules 33 to 38.",
+        "hi": "नियम 213(1) स्थायी परिसंपत्तियों के वार्षिक सत्यापन की अपेक्षा करता है, जिसका परिणाम संगत रजिस्टर में अभिलिखित किया जाए; नियम 213(2) यही वार्षिक अपेक्षा उपभोज्य वस्तुओं तक विस्तारित करता है। नियम 213(3) आगे यह अपेक्षा करता है कि सत्यापन अभिरक्षा के लिए उत्तरदायी अधिकारी की उपस्थिति में किया जाए, तथा किसी भी कमी या क्षति की सूचना नियम 33 से 38 के अधीन कार्रवाई हेतु दी जाए।"
+      },
+      "ruleRef": {
+        "textId": "gfr-213",
+        "citation": { "en": "Rule 213, General Financial Rules, 2017", "hi": "नियम 213, सामान्य वित्तीय नियम, 2017" }
+      },
+      "difficulty": "easy",
+      "stageA": { "index": 25, "angle": "Rule 213(1)-(3) — annual physical verification and its link to Rules 33-38" },
+      "groundingRuleIds": ["gfr-213", "gfr-33"]
+    },
+    {
+      "id": "gfr-q-026",
+      "rule": "217",
+      "kind": "mcq",
+      "front": {
+        "en": "Under Rule 217 of the General Financial Rules, 2017, once an item is declared surplus, obsolete or unserviceable, in which form is a report of stores for disposal prepared?",
+        "hi": "सामान्य वित्तीय नियम, 2017 के नियम 217 के अधीन, किसी वस्तु के अधिशेष, अप्रचलित या अनुपयोगी घोषित होने के बाद, निपटान हेतु भंडार की रिपोर्ट किस प्रपत्र में तैयार की जाती है?"
+      },
+      "back": { "en": "Form GFR-10.", "hi": "प्रपत्र जीएफआर-10।" },
+      "options": [
+        { "en": "Form GFR-10", "hi": "प्रपत्र जीएफआर-10" },
+        { "en": "Form GFR-11", "hi": "प्रपत्र जीएफआर-11" },
+        { "en": "Form GFR-12-A", "hi": "प्रपत्र जीएफआर-12क" },
+        { "en": "No prescribed form; a plain office note suffices", "hi": "कोई विहित प्रपत्र नहीं; एक साधारण कार्यालय टिप्पणी पर्याप्त है" }
+      ],
+      "answerIndex": 0,
+      "explanation": {
+        "en": "Rule 217(iii) prescribes Form GFR-10 for the report of stores for disposal, alongside working out the book value, guiding price and reserve price. Form GFR-11 is the sale account prepared once the goods are actually disposed of (Rule 222), and Form GFR-12-A is the Utilisation Certificate format used under Rule 238 — a different chapter altogether.",
+        "hi": "नियम 217(iii) निपटान हेतु भंडार की रिपोर्ट के लिए प्रपत्र जीएफआर-10 विहित करता है, साथ ही बही मूल्य, मार्गदर्शक मूल्य और आरक्षित मूल्य निकाले जाने की भी अपेक्षा करता है। प्रपत्र जीएफआर-11 वह विक्रय लेखा है जो वस्तुओं के वास्तव में निपटाए जाने पर तैयार किया जाता है (नियम 222), और प्रपत्र जीएफआर-12क वह उपयोगिता प्रमाणपत्र प्रारूप है जो नियम 238 के अधीन प्रयुक्त होता है — यह पूर्णतः भिन्न अध्याय है।"
+      },
+      "ruleRef": {
+        "textId": "gfr-217",
+        "citation": { "en": "Rule 217, General Financial Rules, 2017", "hi": "नियम 217, सामान्य वित्तीय नियम, 2017" }
+      },
+      "difficulty": "hard",
+      "stageA": { "index": 26, "angle": "Rule 217(iii) — Form GFR-10, distinguished from GFR-11 and GFR-12-A" },
+      "groundingRuleIds": ["gfr-217"]
+    },
+    {
+      "id": "gfr-q-027",
+      "rule": "218",
+      "kind": "mcq",
+      "front": {
+        "en": "Under Rule 218 of the General Financial Rules, 2017, surplus, obsolete or unserviceable goods with an assessed residual value above what figure must be disposed of by advertised tender or public auction?",
+        "hi": "सामान्य वित्तीय नियम, 2017 के नियम 218 के अधीन, आकलित अवशिष्ट मूल्य किस आँकड़े से अधिक होने पर अधिशेष, अप्रचलित या अनुपयोगी वस्तुओं का निपटान विज्ञापित निविदा या सार्वजनिक नीलामी द्वारा किया जाना चाहिए?"
+      },
+      "back": { "en": "Rupees four lakh.", "hi": "चार लाख रुपये।" },
+      "options": [
+        { "en": "Rupees one lakh", "hi": "एक लाख रुपये" },
+        { "en": "Rupees four lakh", "hi": "चार लाख रुपये" },
+        { "en": "Rupees ten lakh", "hi": "दस लाख रुपये" },
+        { "en": "Rupees twenty-five lakh", "hi": "पच्चीस लाख रुपये" }
+      ],
+      "answerIndex": 1,
+      "explanation": {
+        "en": "Rule 218(i) requires advertised tender or public auction above rupees four lakh residual value. Below that figure, Rule 218(ii) leaves the mode to the competent authority, guided by the need to avoid accumulation and value deterioration, while hazardous or security-sensitive items follow the separate destruction routes in clauses (iii) and (iv).",
+        "hi": "नियम 218(i) चार लाख रुपये से अधिक अवशिष्ट मूल्य पर विज्ञापित निविदा या सार्वजनिक नीलामी अपेक्षित करता है। इससे कम पर, नियम 218(ii) निपटान का तरीका सक्षम प्राधिकारी पर छोड़ता है, संचयन और मूल्य-ह्रास से बचने की आवश्यकता को ध्यान में रखते हुए, जबकि खतरनाक या सुरक्षा-संवेदनशील वस्तुएँ खंड (iii) और (iv) के पृथक् विनष्टीकरण मार्गों का अनुसरण करती हैं।"
+      },
+      "ruleRef": {
+        "textId": "gfr-218",
+        "citation": { "en": "Rule 218, General Financial Rules, 2017", "hi": "नियम 218, सामान्य वित्तीय नियम, 2017" }
+      },
+      "difficulty": "medium",
+      "stageA": { "index": 27, "angle": "Rule 218(i) — the rupees-four-lakh threshold for advertised tender or auction" },
+      "groundingRuleIds": ["gfr-218"]
+    },
+    {
+      "id": "gfr-q-028",
+      "rule": "223",
+      "kind": "mcq",
+      "front": {
+        "en": "Rule 223 of the General Financial Rules, 2017 groups losses not due to depreciation under several heads. Which of the following is one of them?",
+        "hi": "सामान्य वित्तीय नियम, 2017 का नियम 223 ह्रास के कारण न होने वाली हानियों को कई शीर्षों में समूहित करता है। निम्नलिखित में से कौन-सी एक है?"
+      },
+      "back": { "en": "Losses due to theft or fraud.", "hi": "चोरी या कपट के कारण हानियाँ।" },
+      "options": [
+        { "en": "Normal fluctuation of market prices", "hi": "बाज़ार मूल्यों का सामान्य उतार-चढ़ाव" },
+        { "en": "Normal wear and tear", "hi": "सामान्य टूट-फूट" },
+        { "en": "Losses due to theft or fraud", "hi": "चोरी या कपट के कारण हानियाँ" },
+        { "en": "Lack of foresight in regulating purchases", "hi": "खरीद के नियमन में दूरदर्शिता का अभाव" }
+      ],
+      "answerIndex": 2,
+      "explanation": {
+        "en": "Rule 223(2) groups depreciation losses under normal market fluctuation, normal wear and tear, lack of foresight in purchasing and negligence after purchase — the first, second and fourth options here. Rule 223(3) then groups losses NOT due to depreciation, which includes theft or fraud, neglect, anticipated obsolescence or over-purchase, damage, and force-majeure losses such as fire, flood or enemy action.",
+        "hi": "नियम 223(2) ह्रास संबंधी हानियों को बाज़ार मूल्यों के सामान्य उतार-चढ़ाव, सामान्य टूट-फूट, खरीद में दूरदर्शिता के अभाव और खरीद के पश्चात् उपेक्षा के अंतर्गत समूहित करता है — यहाँ पहला, दूसरा और चौथा विकल्प। नियम 223(3) फिर उन हानियों को समूहित करता है जो ह्रास के कारण नहीं होतीं, जिनमें चोरी या कपट, उपेक्षा, प्रत्याशित अप्रचलन या अतिक्रय, क्षति, तथा आगजनी, बाढ़ या शत्रु कार्रवाई जैसी अनिवार्य परिस्थिति की हानियाँ सम्मिलित हैं।"
+      },
+      "ruleRef": {
+        "textId": "gfr-223",
+        "citation": { "en": "Rule 223, General Financial Rules, 2017", "hi": "नियम 223, सामान्य वित्तीय नियम, 2017" }
+      },
+      "difficulty": "hard",
+      "stageA": { "index": 28, "angle": "Rule 223(2)-(3) — losses due to depreciation, against losses not due to it" },
+      "groundingRuleIds": ["gfr-223"]
+    },
+    {
+      "id": "gfr-q-029",
+      "rule": "228",
+      "kind": "mcq",
+      "front": {
+        "en": "Under Rule 228 of the General Financial Rules, 2017, to whom, as a general principle, may Grants-in-aid be given?",
+        "hi": "सामान्य वित्तीय नियम, 2017 के नियम 228 के अधीन, सामान्य सिद्धांत के रूप में, अनुदान-सहायता किसे दी जा सकती है?"
+      },
+      "back": {
+        "en": "A person, or a public body or institution having a distinct legal entity.",
+        "hi": "किसी व्यक्ति, या पृथक् विधिक अस्तित्व रखने वाली किसी लोक संस्था या संस्थान को।"
+      },
+      "options": [
+        { "en": "Only an autonomous organisation set up under a specific statute", "hi": "केवल किसी विशिष्ट कानून के अधीन स्थापित स्वायत्त संगठन को" },
+        { "en": "Only a co-operative society registered under the relevant law", "hi": "केवल संबंधित विधि के अधीन पंजीकृत सहकारी समिति को" },
+        { "en": "Only a Government servant, for a sanctioned personal purpose", "hi": "केवल किसी सरकारी सेवक को, किसी स्वीकृत निजी प्रयोजन हेतु" },
+        {
+          "en": "A person, or a public body or institution having a distinct legal entity",
+          "hi": "किसी व्यक्ति, या पृथक् विधिक अस्तित्व रखने वाली किसी लोक संस्था या संस्थान को"
+        }
+      ],
+      "answerIndex": 3,
+      "explanation": {
+        "en": "Rule 228's general principle is broad, and it goes on to list categories — autonomous organisations, voluntary organisations or NGOs, educational institutions by scholarship, local self-government bodies, co-operative societies, and Government servants' own recreational societies or clubs — each of which is an instance of the general rule, not the rule itself.",
+        "hi": "नियम 228 का सामान्य सिद्धांत व्यापक है, और यह आगे श्रेणियाँ गिनाता है — स्वायत्त संगठन, स्वैच्छिक संगठन या गैर-सरकारी संगठन, छात्रवृत्ति द्वारा शैक्षिक संस्थान, स्थानीय स्वशासन निकाय, सहकारी समितियाँ, तथा सरकारी सेवकों की अपनी मनोरंजक समितियाँ या क्लब — इनमें से प्रत्येक सामान्य नियम का एक उदाहरण है, स्वयं नियम नहीं।"
+      },
+      "ruleRef": {
+        "textId": "gfr-228",
+        "citation": { "en": "Rule 228, General Financial Rules, 2017", "hi": "नियम 228, सामान्य वित्तीय नियम, 2017" }
+      },
+      "difficulty": "medium",
+      "stageA": { "index": 29, "angle": "Rule 228 — the general principle, against the categories that follow it" },
+      "groundingRuleIds": ["gfr-228"]
+    },
+    {
+      "id": "gfr-q-030",
+      "rule": "238",
+      "kind": "scenario",
+      "front": {
+        "en": "A voluntary organisation received a non-recurring grant-in-aid last financial year and has still not submitted its Utilization Certificate fifteen months after the year closed. Under Rule 238 of the General Financial Rules, 2017, what may the Ministry or Department do?",
+        "hi": "एक स्वैच्छिक संगठन को पिछले वित्तीय वर्ष एकबारगी अनुदान-सहायता प्राप्त हुई थी और वर्ष समाप्त होने के पंद्रह मास बाद भी उसने अपना उपयोगिता प्रमाणपत्र प्रस्तुत नहीं किया है। सामान्य वित्तीय नियम, 2017 के नियम 238 के अधीन, मंत्रालय या विभाग क्या कर सकता है?"
+      },
+      "back": {
+        "en": "It may blacklist the organisation from any future grant, subsidy or other financial support from the Government — the Utilization Certificate was due within twelve months of the closure of the financial year.",
+        "hi": "वह संगठन को सरकार से किसी भी भावी अनुदान, सहायिकी या अन्य वित्तीय सहायता से काली सूची में डाल सकता है — उपयोगिता प्रमाणपत्र वित्तीय वर्ष की समाप्ति के बारह मास के भीतर देय था।"
+      },
+      "options": [
+        {
+          "en": "It may blacklist the organisation from any future grant, subsidy or other financial support from the Government",
+          "hi": "वह संगठन को सरकार से किसी भी भावी अनुदान, सहायिकी या अन्य वित्तीय सहायता से काली सूची में डाल सकता है"
+        },
+        {
+          "en": "Nothing — Rule 238 sets no deadline for submitting a Utilization Certificate",
+          "hi": "कुछ नहीं — नियम 238 उपयोगिता प्रमाणपत्र प्रस्तुत करने के लिए कोई समय-सीमा नियत नहीं करता"
+        },
+        {
+          "en": "It must first release the next grant and recover the earlier amount only if misuse is later proven",
+          "hi": "उसे पहले अगला अनुदान जारी करना होगा और दुरुपयोग सिद्ध होने पर ही पूर्व राशि वसूल करनी होगी"
+        },
+        {
+          "en": "It may only send a reminder; blacklisting requires a separate Cabinet-level order",
+          "hi": "वह केवल अनुस्मारक भेज सकता है; काली सूची में डालने हेतु पृथक् मंत्रिमंडल-स्तरीय आदेश आवश्यक है"
+        }
+      ],
+      "answerIndex": 0,
+      "explanation": {
+        "en": "Rule 238(1) fixes the Utilization Certificate deadline at twelve months after the closure of the financial year, and if it is not received within the prescribed time, the Ministry or Department is expressly at liberty to blacklist the institution from any future grant, subsidy or other financial support. There is no separate approval needed for this consequence.",
+        "hi": "नियम 238(1) उपयोगिता प्रमाणपत्र की समय-सीमा वित्तीय वर्ष की समाप्ति के बारह मास बाद नियत करता है, और यदि यह विहित समय के भीतर प्राप्त नहीं होता, तो मंत्रालय या विभाग को स्पष्टतः संस्था को किसी भी भावी अनुदान, सहायिकी या अन्य वित्तीय सहायता से काली सूची में डालने की स्वतंत्रता है। इस परिणाम के लिए किसी पृथक् अनुमोदन की आवश्यकता नहीं है।"
+      },
+      "ruleRef": {
+        "textId": "gfr-238",
+        "citation": { "en": "Rule 238, General Financial Rules, 2017", "hi": "नियम 238, सामान्य वित्तीय नियम, 2017" }
+      },
+      "difficulty": "medium",
+      "stageA": { "index": 30, "angle": "Rule 238(1) — the twelve-month Utilization Certificate deadline and blacklisting" },
+      "groundingRuleIds": ["gfr-238"]
+    }
+  ]
+}

@@ -93,10 +93,15 @@ export const SEARCH_CASES: readonly SearchCase[] = [
   { query: 'उद्दापन', top: 'BNS 308' },
   {
     query: 'जमानत',
-    top: 'BNSS 492',
-    within: ['BNSS 478'],
+    top: 'BNSS 478',
+    within: ['BNSS 492'],
     withinN: 5,
-    why: 'Reached through the lexicon: no bail heading contains this word.',
+    why:
+      'Session 20 authored a curated Hindi heading for BNSS 478 ("किन मामलों में जमानत ली ' +
+      'जाएगी" — "in what cases bail is to be taken"), which contains the query term directly. A ' +
+      'heading match outranks the lexicon match that used to carry BNSS 492 to the top when no ' +
+      'bail heading contained this word at all — and 478 (bail eligibility) is the more central ' +
+      'section for a bare "bail" query than 492 (cancellation of a bail bond) in any case.',
   },
   { query: 'गिरफ्तारी', top: 'BNSS 41' },
   { query: 'दहेज', top: 'BNS 80' },
@@ -113,7 +118,7 @@ export const SEARCH_CASES: readonly SearchCase[] = [
   },
   { query: 'loot', top: 'BNS 309', why: 'Folds to "lut", which is the lexicon spelling.' },
   { query: 'dakaiti', top: 'BNS 310' },
-  { query: 'jamanat', top: 'BNSS 492', within: ['BNSS 478'], withinN: 5 },
+  { query: 'jamanat', top: 'BNSS 478', within: ['BNSS 492'], withinN: 5 },
   { query: 'apharan', top: 'BNS 137' },
   { query: 'balatsang', top: 'BNS 63' },
 ]

@@ -1,0 +1,123 @@
+{
+  "_note": "STAGE B · CRITIC. A separate pass over scripts/authoring/authored/gfr.json, judging each question on its own terms: is there exactly one correct answer, are the distractors plausible without being trivially wrong, is it inside the public rule text, is there a factual red flag (with particular attention to the procurement rules — 149, 150, 154, 155, 161, 162, 170, 171 — where the source text carries inline amendment/footnote history and more than one monetary figure for the same clause, e.g. a Scientific-Ministries alternate or a since-amended figure), is the tone right for a serving officer. Rejections stay in data/rules/cards/ with reviewState \"rejected\" and are never served.",
+  "gfr-q-001": {
+    "verdict": "approve",
+    "reason": "One correct answer, grounded in Rule 21(iii), GFR 2017 (the self-dealing standard of financial propriety); the other three options are drawn from, or invert, neighbouring standards in the same rule (ordinary prudence, enforceability in court), so they are plausible without being right."
+  },
+  "gfr-q-002": {
+    "verdict": "approve",
+    "reason": "True/False grounded in Rule 23, GFR 2017; the rule text states exactly this — powers not delegated under the Delegation of Financial Powers Rules vest in the Finance Ministry."
+  },
+  "gfr-q-003": {
+    "verdict": "approve",
+    "reason": "One correct answer, grounded in Rule 30, GFR 2017; the twelve-month default lapse period is stated verbatim, and the distractor months (6/18/36) are plausible neighbouring figures with no textual support."
+  },
+  "gfr-q-004": {
+    "verdict": "approve",
+    "reason": "One correct answer, grounded in Rule 33(1)(ii), GFR 2017 — the ten-thousand-rupee petty-loss exemption is exact; distractors are plausible round figures (1,000 / 5,000) and the 'no loss is exempted' option is directly contradicted by the rule."
+  },
+  "gfr-q-005": {
+    "verdict": "approve",
+    "reason": "One correct answer, grounded in Rule 34, GFR 2017 — 'above Rupees Fifty thousand' is the exact, current figure (no scientific-ministry carve-out or superseded value competes with it in the source text); correctly distinguished in the explanation from Rule 33's separate ten-thousand-rupee figure rather than conflating the two thresholds."
+  },
+  "gfr-q-006": {
+    "verdict": "approve",
+    "reason": "True/False grounded in Rule 62(2), GFR 2017, which states the opposite of the front's claim almost verbatim ('No savings shall be held in reserve for possible future excesses') — an unambiguous False."
+  },
+  "gfr-q-007": {
+    "verdict": "approve",
+    "reason": "One correct answer, grounded in Rule 63, GFR 2017; the distractors (oral FA concurrence alone, re-appropriation, after-the-fact Audit report) are realistic departmental shortcuts the rule specifically does not accept as a substitute for fresh Parliamentary cover."
+  },
+  "gfr-q-008": {
+    "verdict": "approve",
+    "reason": "One correct answer, grounded in Rule 144(i)(b), GFR 2017 (no brand-name requirement); each distractor is the opposite of something the rule actually requires or permits (144(i)(a) requires technical/performance characteristics, 144(iii) directs use of national/international standards, 144(ix) requires publishing the procurement-cycle schedule), which is exactly the kind of plausible-but-wrong distractor the checklist wants, not an invented alternative."
+  },
+  "gfr-q-009": {
+    "verdict": "approve",
+    "reason": "True/False grounded in Rule 145, GFR 2017, restated near-verbatim; correct and unambiguous."
+  },
+  "gfr-q-010": {
+    "verdict": "approve",
+    "reason": "One correct answer on the GeM direct-purchase ceiling. Verified against Rule 149(i) in data/rules/text/gfr.json: the bracketed inline text and its footnotes confirm Rs. 50,000 is the CURRENT figure (amended vide DoE OM dated 10.07.2024), not a superseded one — the Rs. 1,00,000 figure appearing elsewhere in the same rule's text is the Scientific-Ministries alternate for the higher tier, which the card correctly does not conflate with the general threshold it asks about."
+  },
+  "gfr-q-011": {
+    "verdict": "approve",
+    "reason": "One correct answer, grounded in Rule 150(iii), GFR 2017 — 'one to three years depending on the nature of the goods' is stated exactly; no amendment overlay affects this figure, and the distractors (fixed five years, six months indefinite, permanent) each misstate the registration model in a plausible way."
+  },
+  "gfr-q-012": {
+    "verdict": "approve",
+    "reason": "Scenario grounded in Rule 151(i)(a) and (ii), GFR 2017 — conviction under the Prevention of Corruption Act triggers automatic debarment capped at three years; the card correctly keeps this distinct from Rule 151(iii)'s separate two-year Code-of-Integrity debarment, which only the explanation mentions for context. Back and answer option paraphrase identically in substance."
+  },
+  "gfr-q-013": {
+    "verdict": "approve",
+    "reason": "One correct answer on the without-quotation purchase ceiling. Verified against Rule 154 in data/rules/text/gfr.json: the footnote trail (footnote 15, 'Amended vide DoE OM ... 10.07.2024') confirms Rs. 50,000 is the current general figure, and footnote 16's Rs. 2,00,000 is explicitly the Scientific-Ministries replacement value, which the card correctly does not use as the general answer."
+  },
+  "gfr-q-014": {
+    "verdict": "approve",
+    "reason": "One correct answer on the Local Purchase Committee band. Verified against Rule 155: Rs. 50,000 to Rs. 5,00,000 with a three-member committee is the current general figure (footnote confirms amendment vide DoE OM dated 10.07.2024); the Rs. 2,00,000-25,00,000 Scientific-Ministries alternate is correctly not used as the general answer. Minor bilingual note: the correct option's Hindi text ('उपयुक्त स्तर के तीन सदस्यों वाली समिति') carries the qualifier 'of an appropriate level' that its own English option text drops (though the English 'back' field has it) — a cosmetic EN/HI asymmetry within one option, not a factual error or an ambiguity about which option is correct, so it does not warrant rejection."
+  },
+  "gfr-q-015": {
+    "verdict": "approve",
+    "reason": "One correct answer on the Advertised Tender Enquiry threshold. Verified against Rule 161(i): Rs. 50 lakh and above is the current general figure (footnote confirms amendment vide DoE OM dated 10.07.2024); the Rs. 1 crore distractor is correctly framed as the Scientific-Ministries-only figure in the explanation, not a universal one, so the card does not overgeneralise the exception."
+  },
+  "gfr-q-016": {
+    "verdict": "approve",
+    "reason": "One correct answer, grounded in Rule 162(i)-(ii), GFR 2017 — 'more than three' registered-supplier firms, with unsolicited bids barred. The card tests the firm-count and sourcing rule rather than the Rs. 50 lakh/Rs. 1 crore threshold in the same rule, so the Scientific-Ministries figure overlay in the source text is not in play here."
+  },
+  "gfr-q-017": {
+    "verdict": "approve",
+    "reason": "True/False grounded in Rule 163, GFR 2017 — the two-bid system requires sequential opening (technical first, then financial for technically qualified bidders only), directly contradicting the front's claim of simultaneous opening. Unambiguous False."
+  },
+  "gfr-q-018": {
+    "verdict": "approve",
+    "reason": "Scenario grounded in Rule 165, GFR 2017, which states the bar on late bids with no discretion or de minimis exception — the twenty-minute delay in the scenario is exactly the kind of edge case the blanket rule is meant to test, and none of the softer distractors (fee-based cure, case-by-case referral) has any support in the text."
+  },
+  "gfr-q-019": {
+    "verdict": "approve",
+    "reason": "Scenario grounded in Rule 166(i) and its Proprietary Article Certificate note, GFR 2017 — sole-manufacturer knowledge justifies Single Tender Enquiry with a PAC naming the manufacturer and recording finance concurrence and competent-authority approval, exactly as printed. Distractors (advertised tender, limited tender to three-plus suppliers, reverse auction restricted to one firm) each misapply a different, genuinely competitive procurement route to a sole-source fact pattern."
+  },
+  "gfr-q-020": {
+    "verdict": "approve",
+    "reason": "One correct answer, grounded in Rule 167(ii)(b), GFR 2017 — the competitive-market precondition for an electronic reverse auction. The other two 167(ii) preconditions (detailed description feasible; criteria quantifiable in money) are inverted into distractors (a) and (b), and distractor (c) (a bidder already shortlisted via Limited Tender) has no support anywhere in the rule — all plausible, all wrong."
+  },
+  "gfr-q-021": {
+    "verdict": "approve",
+    "reason": "One correct answer, grounded in Rule 170(i), GFR 2017 — the two-to-five-percent Bid Security band is stated exactly, with no amendment overlay competing with this figure in the source text."
+  },
+  "gfr-q-022": {
+    "verdict": "approve",
+    "reason": "One correct answer on Performance Security for goods/services. Verified against Rule 171(i)-(ii): three-to-five percent, sixty days beyond completion including warranty, is the current figure for goods/consultancy/non-consultancy services (footnote confirms amendment vide DoE OM dated 01.01.2024). The card correctly distinguishes this from the three-to-ten-percent figure the same footnote states STILL applies to Works contracts — using that Works figure as a distractor rather than mistaking it for a superseded goods figure is precisely the discipline this act's footnote-heavy rules require."
+  },
+  "gfr-q-023": {
+    "verdict": "approve",
+    "reason": "Scenario grounded in Rule 175(1), GFR 2017, whose Code of Integrity opens by binding 'No official of a procuring entity or a bidder' — so the distractor claiming Rule 175 governs only bidders is directly contradicted by the rule's own text. The gift-for-advantage and information-misuse limbs are both named in 175(1)(i)(a) and (d); the correct option's coupling of the two is a fair single-scenario synthesis, not an invented conjunctive test."
+  },
+  "gfr-q-024": {
+    "verdict": "approve",
+    "reason": "One correct answer, grounded in Rule 208(ii), GFR 2017 — counting/measuring/weighing plus visual inspection, to confirm quantity, specification and absence of damage, restated accurately; the distractors each omit part of the real requirement in a plausible way (invoice-matching only, technical-inspection-only above a value, visual-only)."
+  },
+  "gfr-q-025": {
+    "verdict": "approve",
+    "reason": "True/False grounded in Rule 213(1) and (3)(iii), GFR 2017 — annual physical verification and prompt investigation of discrepancies are both stated in the rule; the explanation's cross-reference to Rules 33-38 is supported by 213(3)(iii)'s own text."
+  },
+  "gfr-q-026": {
+    "verdict": "approve",
+    "reason": "One correct answer, grounded in Rule 217(iii), GFR 2017 — Form GFR-10 for the disposal report. Verified the two distractor forms independently: Form GFR-11 is the sale account under Rule 222, and Form GFR-12-A is the Utilization Certificate format under Rule 238 — both confirmed in the source text, so the explanation's cross-references are factually correct, not invented."
+  },
+  "gfr-q-027": {
+    "verdict": "approve",
+    "reason": "One correct answer, grounded in Rule 218(i), GFR 2017 — Rs. 4 lakh is the current, sole figure for the advertised-tender/public-auction disposal threshold (the source text's footnote confirms an amendment date but no competing superseded figure), and the distractors are plausible round numbers with no textual support."
+  },
+  "gfr-q-028": {
+    "verdict": "approve",
+    "reason": "One correct answer, grounded in Rule 223(3)(i), GFR 2017. The three wrong options are genuine items from Rule 223(2)'s separate 'losses due to depreciation' list, so the question correctly tests whether the reader can tell the two groupings apart rather than testing invented content."
+  },
+  "gfr-q-029": {
+    "verdict": "approve",
+    "reason": "One correct answer, grounded in Rule 228, GFR 2017 — the general principle is stated verbatim; the three wrong options are each one specific category the rule goes on to list (autonomous body, co-operative society, Government servant personally), correctly framed in the explanation as instances of the general rule rather than the rule itself."
+  },
+  "gfr-q-030": {
+    "verdict": "approve",
+    "reason": "Scenario grounded in Rule 238(1), GFR 2017 — the twelve-month Utilization Certificate deadline and the resulting liberty to blacklist a defaulting grantee are both stated exactly; the distractors (no deadline, must release next grant first, Cabinet-level order required) are each directly contradicted by the rule's own text."
+  }
+}

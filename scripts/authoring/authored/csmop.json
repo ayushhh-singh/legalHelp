@@ -1,0 +1,946 @@
+{
+  "_note": "STAGE A · GENERATE. Twenty-five bilingual questions on the Central Secretariat Manual of Office Procedure, 2022 (16th edition), written in session by Claude Code with data/rules/text/csmop.json, docs/CSMOP-FORMATS.md and data/drafting/structure-terms.json open. No API was called. Hindi terminology reuses the exact forms already established for CSMOP in data/drafting/structure-terms.json (कार्यालय ज्ञापन, अर्ध-सरकारी पत्र, अंतर-विभागीय टिप्पणी, पृष्ठांकन, परम अग्रता, टिप्पणी, अनुभाग अधिकारी, डीलिंग अधिकारी, मसौदा, आदि) rather than inventing alternates. `stageA.angle` records what each question is testing so the batch can be checked for spread. Note on textId csmop-6-13: extract_rules.py's sequence walk merged a long run of Chapter 5/6 material (Section Officer action, eFile boxes, Appendix 5.1 specimen) under the single number '6.13' before Chapter 7 begins; the urgency-grading text CSMOP itself prints at printed para 6.13 ('6.13. Urgency grading: (i) The urgency grading advised are...') is present verbatim inside that same textId's text.en, confirmed by direct inspection before grounding q019 and q020's sibling question on it — no other Chapter 6 textId (6.1-6.12) exists in the dataset to cite instead. The critic pass is review/critic-csmop.json, the blind verify is review/blind-csmop.json, and the dedup is written by qa_pipeline.py.",
+  "batchId": "2026-08-29-csmop-A",
+  "promptVersion": "rules-qa/1",
+  "cards": [
+    {
+      "id": "csmop-q-001",
+      "rule": "5.1",
+      "kind": "mcq",
+      "front": {
+        "en": "Under CSMOP 2022 (para 5.1), during office hours, dak addressed to a Minister or officer by name and carrying an urgency grading is —",
+        "hi": "सीएसएमओपी 2022 (पैरा 5.1) के अधीन, कार्यालय समय के दौरान, किसी मंत्री या अधिकारी को नाम से संबोधित और तात्कालिकता ग्रेडिंग वाली डाक —"
+      },
+      "back": {
+        "en": "Sent through a special messenger directly to the addressee, who receives it personally or through his personal staff.",
+        "hi": "विशेष संदेशवाहक के माध्यम से सीधे संबोधिती को भेजी जाती है, जिसे वह स्वयं या अपने निजी स्टाफ के माध्यम से प्राप्त करता है।"
+      },
+      "options": [
+        {
+          "en": "Sent through a special messenger directly to the addressee, who receives it personally or through his personal staff",
+          "hi": "विशेष संदेशवाहक के माध्यम से सीधे संबोधिती को भेजी जाती है, जिसे वह स्वयं या अपने निजी स्टाफ के माध्यम से प्राप्त करता है"
+        },
+        {
+          "en": "Registered by the CRU/IFC before being sent to the addressee, exactly like ordinary dak",
+          "hi": "सामान्य डाक की भाँति संबोधिती को भेजे जाने से पहले सीआरयू/आईएफसी द्वारा पंजीकृत की जाती है"
+        },
+        {
+          "en": "Held at the CRU until the addressee's personal staff collects it the next morning",
+          "hi": "सीआरयू में तब तक रोकी जाती है जब तक अगली सुबह संबोधिती का निजी स्टाफ उसे ले न जाए"
+        },
+        {
+          "en": "Returned to the sender if the addressee happens to be on leave that day",
+          "hi": "यदि संबोधिती उस दिन छुट्टी पर है तो प्रेषक को वापस कर दी जाती है"
+        }
+      ],
+      "answerIndex": 0,
+      "explanation": {
+        "en": "Para 5.1(i) routes urgency-graded dak addressed by name through a special messenger direct to the addressee or personal staff. Para 5.1(ii) is explicit that in no case should immediate and/or important letters be undelivered or returned by the Department, even if the addressee is away.",
+        "hi": "पैरा 5.1(i) नाम से संबोधित और तात्कालिकता ग्रेडिंग वाली डाक को विशेष संदेशवाहक के माध्यम से सीधे संबोधिती या उसके निजी स्टाफ तक पहुँचाता है। पैरा 5.1(ii) स्पष्ट करता है कि तत्काल और/या महत्वपूर्ण पत्र किसी भी स्थिति में विभाग द्वारा अवितरित या वापस नहीं किए जाने चाहिए, भले ही संबोधिती उपस्थित न हो।"
+      },
+      "ruleRef": {
+        "textId": "csmop-5-1",
+        "citation": { "en": "Para 5.1, CSMOP 2022", "hi": "पैरा 5.1, सीएसएमओपी 2022" }
+      },
+      "difficulty": "medium",
+      "stageA": { "index": 1, "angle": "Para 5.1 — routing of urgency-graded dak addressed by name" },
+      "groundingRuleIds": ["csmop-5-1"]
+    },
+    {
+      "id": "csmop-q-002",
+      "rule": "5.2",
+      "kind": "mcq",
+      "front": {
+        "en": "Under CSMOP 2022 para 5.2, which dak is opened by the CRU/IFC itself?",
+        "hi": "सीएसएमओपी 2022 के पैरा 5.2 के अधीन, कौन-सी डाक सीआरयू/आईएफसी द्वारा स्वयं खोली जाती है?"
+      },
+      "back": {
+        "en": "All covers except those addressed to Ministers/Officers by name or bearing a security grading.",
+        "hi": "मंत्रियों/अधिकारियों को नाम से संबोधित या सुरक्षा ग्रेडिंग वाले लिफाफों को छोड़कर सभी लिफाफे।"
+      },
+      "options": [
+        { "en": "Only dak bearing a security grading", "hi": "केवल सुरक्षा ग्रेडिंग वाली डाक" },
+        {
+          "en": "All covers except those addressed to Ministers/Officers by name or bearing a security grading",
+          "hi": "मंत्रियों/अधिकारियों को नाम से संबोधित या सुरक्षा ग्रेडिंग वाले लिफाफों को छोड़कर सभी लिफाफे"
+        },
+        { "en": "Only dak received after 4 p.m.", "hi": "केवल शाम 4 बजे के बाद प्राप्त डाक" },
+        {
+          "en": "Every cover without exception, including classified dak",
+          "hi": "बिना किसी अपवाद के प्रत्येक लिफाफा, वर्गीकृत डाक सहित"
+        }
+      ],
+      "answerIndex": 1,
+      "explanation": {
+        "en": "Para 5.2(ii) opens all covers except those addressed to Ministers/Officers by name or bearing a security grading. Even unopened classified covers are date-stamped, para 5.2(iv).",
+        "hi": "पैरा 5.2(ii) के अनुसार नाम से संबोधित या सुरक्षा ग्रेडिंग वाले लिफाफों को छोड़कर शेष सभी लिफाफे सीआरयू/आईएफसी द्वारा खोले जाते हैं। अनखोले वर्गीकृत लिफाफों पर भी दिनांक-मुहर लगाई जाती है, पैरा 5.2(iv)।"
+      },
+      "ruleRef": {
+        "textId": "csmop-5-2",
+        "citation": { "en": "Para 5.2, CSMOP 2022", "hi": "पैरा 5.2, सीएसएमओपी 2022" }
+      },
+      "difficulty": "easy",
+      "stageA": { "index": 2, "angle": "Para 5.2 — which covers the CRU/IFC opens" },
+      "groundingRuleIds": ["csmop-5-2"]
+    },
+    {
+      "id": "csmop-q-003",
+      "rule": "5.5",
+      "kind": "mcq",
+      "front": {
+        "en": "CSMOP 2022 para 5.5(ii) suggests distributing ordinary (non-urgency-graded) dak at which intervals during the day?",
+        "hi": "सीएसएमओपी 2022 का पैरा 5.5(ii) दिन में साधारण (बिना तात्कालिकता ग्रेडिंग वाली) डाक के वितरण के लिए किन अंतरालों का सुझाव देता है?"
+      },
+      "back": {
+        "en": "11.00 A.M., 2.00 P.M. and 4.00 P.M.",
+        "hi": "पूर्वाह्न 11.00 बजे, अपराह्न 2.00 बजे और अपराह्न 4.00 बजे।"
+      },
+      "options": [
+        { "en": "Once at 9.00 A.M. only", "hi": "केवल पूर्वाह्न 9.00 बजे एक बार" },
+        { "en": "Every hour on the hour", "hi": "प्रत्येक घंटे पर" },
+        {
+          "en": "11.00 A.M., 2.00 P.M. and 4.00 P.M.",
+          "hi": "पूर्वाह्न 11.00 बजे, अपराह्न 2.00 बजे और अपराह्न 4.00 बजे"
+        },
+        { "en": "Only at the close of office hours", "hi": "केवल कार्यालय समय की समाप्ति पर" }
+      ],
+      "answerIndex": 2,
+      "explanation": {
+        "en": "Urgency-graded dak is distributed as and when received; other dak is distributed at suitable intervals — the manual's own example is 11.00 A.M., 2.00 P.M. and 4.00 P.M.",
+        "hi": "तात्कालिकता ग्रेडिंग वाली डाक प्राप्त होते ही वितरित की जाती है; शेष डाक उपयुक्त अंतरालों पर वितरित की जाती है — नियमावली स्वयं पूर्वाह्न 11.00, अपराह्न 2.00 और अपराह्न 4.00 बजे का उदाहरण देती है।"
+      },
+      "ruleRef": {
+        "textId": "csmop-5-5",
+        "citation": { "en": "Para 5.5, CSMOP 2022", "hi": "पैरा 5.5, सीएसएमओपी 2022" }
+      },
+      "difficulty": "easy",
+      "stageA": { "index": 3, "angle": "Para 5.5 — distribution intervals for ordinary dak" },
+      "groundingRuleIds": ["csmop-5-5"]
+    },
+    {
+      "id": "csmop-q-004",
+      "rule": "5.9",
+      "kind": "mcq",
+      "front": {
+        "en": "Under CSMOP 2022 para 5.9, within how long must a disputed receipt (one a section feels does not concern it) ordinarily be settled by the designated Under Secretary?",
+        "hi": "सीएसएमओपी 2022 के पैरा 5.9 के अधीन, किसी विवादित प्राप्ति (जिसे कोई अनुभाग अपने से संबंधित नहीं मानता) का निपटान विहित अवर सचिव द्वारा सामान्यतः कितनी अवधि में किया जाना चाहिए?"
+      },
+      "back": {
+        "en": "2 working days from the date of receipt in the department; half a day if it carries an urgency grading.",
+        "hi": "विभाग में प्राप्ति की तारीख से 2 कार्य दिवसों में; यदि तात्कालिकता ग्रेडिंग हो तो आधे दिन में।"
+      },
+      "options": [
+        { "en": "7 working days in every case", "hi": "हर मामले में 7 कार्य दिवस" },
+        { "en": "1 month, extendable once", "hi": "1 मास, एक बार बढ़ाई जा सकने वाली" },
+        { "en": "There is no prescribed time limit", "hi": "कोई निर्धारित समय-सीमा नहीं है" },
+        {
+          "en": "2 working days from receipt in the department; half a day if urgency-graded",
+          "hi": "विभाग में प्राप्ति से 2 कार्य दिवसों में; तात्कालिकता ग्रेडिंग होने पर आधे दिन में"
+        }
+      ],
+      "answerIndex": 3,
+      "explanation": {
+        "en": "Para 5.9 makes the designated Under Secretary responsible for settling the dispute within 2 working days ordinarily, and within half a day where the disputed receipt carries an urgency grading.",
+        "hi": "पैरा 5.9 विहित अवर सचिव को साधारणतः 2 कार्य दिवसों के भीतर, और तात्कालिकता ग्रेडिंग वाली विवादित प्राप्तियों में आधे दिन के भीतर, विवाद के निपटान के लिए उत्तरदायी बनाता है।"
+      },
+      "ruleRef": {
+        "textId": "csmop-5-9",
+        "citation": { "en": "Para 5.9, CSMOP 2022", "hi": "पैरा 5.9, सीएसएमओपी 2022" }
+      },
+      "difficulty": "medium",
+      "stageA": { "index": 4, "angle": "Para 5.9 — the disputed-receipt settlement timeline" },
+      "groundingRuleIds": ["csmop-5-9"]
+    },
+    {
+      "id": "csmop-q-005",
+      "rule": "5.10",
+      "kind": "mcq",
+      "front": {
+        "en": "Under CSMOP 2022 para 5.10(b), what is the FIRST thing a Dealing Officer must do on going through the day's receipts?",
+        "hi": "सीएसएमओपी 2022 के पैरा 5.10(ख) के अधीन, प्राप्तियों को देखने पर डीलिंग अधिकारी को सबसे पहले क्या करना चाहिए?"
+      },
+      "back": {
+        "en": "Segregate the receipts as per urgency grading, and deal with the urgency-graded ones first.",
+        "hi": "प्राप्तियों को तात्कालिकता ग्रेडिंग के अनुसार अलग करना, और तात्कालिकता ग्रेडिंग वाली प्राप्तियों को पहले निपटाना।"
+      },
+      "options": [
+        {
+          "en": "Segregate the receipts as per urgency grading, and deal with the urgency-graded ones first",
+          "hi": "प्राप्तियों को तात्कालिकता ग्रेडिंग के अनुसार अलग करना और तात्कालिकता ग्रेडिंग वाली प्राप्तियों को पहले निपटाना"
+        },
+        {
+          "en": "File them in alphabetical order of the sender's name",
+          "hi": "उन्हें प्रेषक के नाम की वर्णानुक्रम में फाइल करना"
+        },
+        {
+          "en": "Forward every receipt to the Section Officer without examination",
+          "hi": "बिना जाँचे प्रत्येक प्राप्ति अनुभाग अधिकारी को अग्रेषित कर देना"
+        },
+        {
+          "en": "Open a new file for every receipt regardless of whether one already exists",
+          "hi": "प्रत्येक प्राप्ति के लिए नई फाइल खोलना, भले ही एक फाइल पहले से मौजूद हो"
+        }
+      ],
+      "answerIndex": 0,
+      "explanation": {
+        "en": "Para 5.10(b)(i)-(ii) requires the Dealing Officer to segregate receipts by urgency grading first, and deal with the urgency-graded ones before other receipts and cases.",
+        "hi": "पैरा 5.10(ख)(i)-(ii) डीलिंग अधिकारी से अपेक्षा करता है कि वह प्राप्तियों को शेष से तात्कालिकता ग्रेडिंग के अनुसार अलग करे और तात्कालिकता ग्रेडिंग वाली प्राप्तियों को अन्य प्राप्तियों और मामलों से पहले निपटाए।"
+      },
+      "ruleRef": {
+        "textId": "csmop-5-10",
+        "citation": { "en": "Para 5.10, CSMOP 2022", "hi": "पैरा 5.10, सीएसएमओपी 2022" }
+      },
+      "difficulty": "easy",
+      "stageA": { "index": 5, "angle": "Para 5.10(b) — the Dealing Officer's first action" },
+      "groundingRuleIds": ["csmop-5-10"]
+    },
+    {
+      "id": "csmop-q-006",
+      "rule": "7.2",
+      "kind": "mcq",
+      "front": {
+        "en": "CSMOP 2022 para 7.2(iii) says a note must be concise. What does it specifically say should be avoided?",
+        "hi": "सीएसएमओपी 2022 का पैरा 7.2(iii) कहता है कि टिप्पणी संक्षिप्त होनी चाहिए। यह विशेष रूप से किससे बचने को कहता है?"
+      },
+      "back": {
+        "en": "Verbatim reproduction of extracts from, or paraphrasing of, the paper under consideration, fresh receipt, or earlier notes on the same file.",
+        "hi": "विचाराधीन पत्र, नई प्राप्ति, अथवा उसी फाइल की पूर्व टिप्पणियों के अंशों की ज्यों-की-त्यों नकल या पैराफ्रेज़ करना।"
+      },
+      "options": [
+        {
+          "en": "Any mention of an Act or rule by its short title",
+          "hi": "किसी अधिनियम या नियम का संक्षिप्त शीर्षक से उल्लेख करना"
+        },
+        {
+          "en": "Verbatim reproduction of extracts from, or paraphrasing of, the paper under consideration, fresh receipt, or earlier notes on the file",
+          "hi": "विचाराधीन पत्र, नई प्राप्ति, अथवा उसी फाइल की पूर्व टिप्पणियों के अंशों की ज्यों-की-त्यों नकल या पैराफ्रेज़ करना"
+        },
+        { "en": "Signing a note in blue ink", "hi": "टिप्पणी नीली स्याही से हस्ताक्षरित करना" },
+        {
+          "en": "Recording more than one paragraph in a note",
+          "hi": "टिप्पणी में एक से अधिक अनुच्छेद दर्ज करना"
+        }
+      ],
+      "answerIndex": 1,
+      "explanation": {
+        "en": "Para 7.2(iii) says verbatim reproduction of, or paraphrasing extracts from, the paper under consideration, fresh receipt, or other notes on the file should be avoided; a summarised version of the issues should be brought on the note instead.",
+        "hi": "पैरा 7.2(iii) के अनुसार विचाराधीन पत्र, नई प्राप्ति या फाइल की अन्य टिप्पणियों के अंशों की ज्यों-की-त्यों नकल या पैराफ्रेज़ से बचा जाना चाहिए; इसके बजाय विचाराधीन पत्र/नई प्राप्ति में उठाए गए मुद्दों का सारांशित रूप टिप्पणी में लाया जाए।"
+      },
+      "ruleRef": {
+        "textId": "csmop-7-2",
+        "citation": { "en": "Para 7.2, CSMOP 2022", "hi": "पैरा 7.2, सीएसएमओपी 2022" }
+      },
+      "difficulty": "medium",
+      "stageA": { "index": 6, "angle": "Para 7.2(iii) — no verbatim reproduction in a note" },
+      "groundingRuleIds": ["csmop-7-2"]
+    },
+    {
+      "id": "csmop-q-007",
+      "rule": "7.4",
+      "kind": "mcq",
+      "front": {
+        "en": "Under CSMOP 2022 para 7.4(iv), if the Section Officer agrees with the Dealing Officer's note, what does he do?",
+        "hi": "सीएसएमओपी 2022 के पैरा 7.4(iv) के अधीन, यदि अनुभाग अधिकारी डीलिंग अधिकारी की टिप्पणी से सहमत है, तो वह क्या करता है?"
+      },
+      "back": {
+        "en": "He simply signs on the right side below the note, with the date in dd/mm/yyyy format.",
+        "hi": "टिप्पणी के नीचे दाईं ओर, dd/mm/yyyy प्रारूप में तारीख के साथ, केवल हस्ताक्षर करता है।"
+      },
+      "options": [
+        {
+          "en": "Records a fresh, independent note repeating the same analysis",
+          "hi": "वही विश्लेषण दोहराते हुए एक नई, स्वतंत्र टिप्पणी दर्ज करता है"
+        },
+        {
+          "en": "Returns the file to the Dealing Officer asking for a discussed note",
+          "hi": "फाइल को विचारित टिप्पणी हेतु डीलिंग अधिकारी को वापस भेजता है"
+        },
+        {
+          "en": "Simply signs on the right side below the note, with the date in dd/mm/yyyy format",
+          "hi": "टिप्पणी के नीचे दाईं ओर, dd/mm/yyyy प्रारूप में तारीख के साथ, केवल हस्ताक्षर करता है"
+        },
+        {
+          "en": "Refers the file to the Branch Officer without comment",
+          "hi": "बिना किसी टिप्पणी के फाइल शाखा अधिकारी को भेज देता है"
+        }
+      ],
+      "answerIndex": 2,
+      "explanation": {
+        "en": "Para 7.4(iv): the Section Officer and above simply sign on the right below the note with the date (dd/mm/yyyy) if they agree; if not, they record their own note instead.",
+        "hi": "पैरा 7.4(iv) के अनुसार सहमति होने पर अनुभाग अधिकारी और उससे ऊपर के अधिकारी टिप्पणी के नीचे दाईं ओर तारीख (dd/mm/yyyy) सहित केवल हस्ताक्षर करते हैं; असहमति होने पर वे अपनी स्वयं की टिप्पणी दर्ज करते हैं।"
+      },
+      "ruleRef": {
+        "textId": "csmop-7-4",
+        "citation": { "en": "Para 7.4, CSMOP 2022", "hi": "पैरा 7.4, सीएसएमओपी 2022" }
+      },
+      "difficulty": "easy",
+      "stageA": { "index": 7, "angle": "Para 7.4(iv) — the Section Officer's sign-on-agreement rule" },
+      "groundingRuleIds": ["csmop-7-4"]
+    },
+    {
+      "id": "csmop-q-008",
+      "rule": "7.13",
+      "kind": "mcq",
+      "front": {
+        "en": "A final decision already communicated to a party turns out to have rested on a mistaken fact. Under CSMOP 2022 para 7.13, what must happen on the file?",
+        "hi": "किसी पक्षकार को पहले ही संसूचित अंतिम निर्णय बाद में गलत तथ्य पर आधारित निकलता है। सीएसएमओपी 2022 के पैरा 7.13 के अधीन फाइल पर क्या होना चाहिए?"
+      },
+      "back": {
+        "en": "The earlier note stays exactly where it is; a fresh note records the revised decision, taken with the approval of an officer higher than the one who took the original decision.",
+        "hi": "पूर्व टिप्पणी जहाँ है वहीं रहती है; एक नई टिप्पणी में संशोधित निर्णय दर्ज किया जाता है, जो मूल निर्णय लेने वाले अधिकारी से उच्चतर अधिकारी की मंजूरी से लिया जाता है।"
+      },
+      "options": [
+        {
+          "en": "The earlier note is removed and replaced with the corrected one",
+          "hi": "पूर्व टिप्पणी हटाकर उसके स्थान पर सुधरी हुई टिप्पणी रख दी जाती है"
+        },
+        {
+          "en": "The earlier note is pasted over with a correction slip",
+          "hi": "पूर्व टिप्पणी पर सुधार पर्ची चिपका दी जाती है"
+        },
+        {
+          "en": "No revised decision is possible once a decision has been communicated",
+          "hi": "एक बार निर्णय संसूचित हो जाने पर कोई संशोधित निर्णय संभव नहीं है"
+        },
+        {
+          "en": "The earlier note stays; a fresh note records the revised decision, with the approval of an officer higher than the one who took the original decision",
+          "hi": "पूर्व टिप्पणी यथावत् रहती है; एक नई टिप्पणी में संशोधित निर्णय, मूल निर्णय लेने वाले अधिकारी से उच्चतर अधिकारी की मंजूरी से, दर्ज किया जाता है"
+        }
+      ],
+      "answerIndex": 3,
+      "explanation": {
+        "en": "Para 7.13(i) forbids replacing or modifying a note already noted upon by others. Where a communicated decision rested on a mistaken fact or wrong reading of the rules, the revised decision is taken — consulting the Ministry of Law where necessary — with the approval of an officer higher than the one who took the original decision.",
+        "hi": "पैरा 7.13(i) के अनुसार किसी फाइल पर पहले से दर्ज तथा अन्य द्वारा टिप्पणी की जा चुकी टिप्पणी को बदलना या संशोधित करना अनुज्ञेय नहीं है। आवश्यकता होने पर विधि मंत्रालय से परामर्श करते हुए, मूल निर्णय लेने वाले अधिकारी से उच्चतर अधिकारी की मंजूरी से संशोधित निर्णय लिया जाता है।"
+      },
+      "ruleRef": {
+        "textId": "csmop-7-13",
+        "citation": { "en": "Para 7.13, CSMOP 2022", "hi": "पैरा 7.13, सीएसएमओपी 2022" }
+      },
+      "difficulty": "hard",
+      "stageA": { "index": 8, "angle": "Para 7.13 — a note is never replaced, and who may approve a revised decision" },
+      "groundingRuleIds": ["csmop-7-13"]
+    },
+    {
+      "id": "csmop-q-009",
+      "rule": "7.14",
+      "kind": "mcq",
+      "front": {
+        "en": "Under CSMOP 2022's Functional Approach to Noting (para 7.14, Table 7.1), how much noting does an 'ephemeral' case require?",
+        "hi": "सीएसएमओपी 2022 के 'टिप्पणी के प्रकार्यात्मक उपागम' (पैरा 7.14, तालिका 7.1) के अधीन, एक 'क्षणभंगुर' मामले में कितनी टिप्पणी अपेक्षित है?"
+      },
+      "back": { "en": "No noting at all.", "hi": "कोई टिप्पणी अपेक्षित नहीं है।" },
+      "options": [
+        { "en": "No noting at all", "hi": "कोई टिप्पणी अपेक्षित नहीं है" },
+        { "en": "A short note of a few sentences", "hi": "कुछ वाक्यों की संक्षिप्त टिप्पणी" },
+        { "en": "A standard process sheet", "hi": "मानक प्रक्रिया पत्रक (स्टैंडर्ड प्रोसेस शीट)" },
+        {
+          "en": "A detailed, systematically built-up note",
+          "hi": "व्यवस्थित रूप से तैयार की गई विस्तृत टिप्पणी"
+        }
+      ],
+      "answerIndex": 0,
+      "explanation": {
+        "en": "Table 7.1's first row is 'Ephemeral' cases, for which no noting is needed at all — the Section Officer records briefly why no action is needed and files the case at the dak stage.",
+        "hi": "तालिका 7.1 की पंक्ति 1 'क्षणभंगुर' मामलों के लिए कोई टिप्पणी अपेक्षित नहीं बताती है — अनुभाग अधिकारी संक्षेप में कारण दर्ज कर डाक चरण पर ही मामला फाइल कर देता है।"
+      },
+      "ruleRef": {
+        "textId": "csmop-7-14",
+        "citation": { "en": "Para 7.14, CSMOP 2022", "hi": "पैरा 7.14, सीएसएमओपी 2022" }
+      },
+      "difficulty": "easy",
+      "stageA": { "index": 9, "angle": "Para 7.14, Table 7.1 — the ephemeral-case row of the functional approach" },
+      "groundingRuleIds": ["csmop-7-14"]
+    },
+    {
+      "id": "csmop-q-010",
+      "rule": "8.1",
+      "kind": "mcq",
+      "front": {
+        "en": "Under CSMOP 2022 para 8.1.2(v), an Inter-Departmental (I.D.) note referring a matter to another Ministry must be made with whose approval, and signed by an officer of what minimum rank?",
+        "hi": "सीएसएमओपी 2022 के पैरा 8.1.2(v) के अधीन, किसी मामले को दूसरे मंत्रालय को निर्दिष्ट करने वाली अंतर-विभागीय टिप्पणी किसकी मंजूरी से बनाई जानी चाहिए, और न्यूनतम किस पद के अधिकारी द्वारा हस्ताक्षरित होनी चाहिए?"
+      },
+      "back": {
+        "en": "Approval of an officer not below Joint Secretary; signed by an officer not below Under Secretary.",
+        "hi": "संयुक्त सचिव से अनिम्न पद के अधिकारी की मंजूरी से; अवर सचिव से अनिम्न पद के अधिकारी द्वारा हस्ताक्षरित।"
+      },
+      "options": [
+        {
+          "en": "Approval of the Minister; signed by a Joint Secretary",
+          "hi": "मंत्री की मंजूरी से; संयुक्त सचिव द्वारा हस्ताक्षरित"
+        },
+        {
+          "en": "Approval of an officer not below Joint Secretary; signed by an officer not below Under Secretary",
+          "hi": "संयुक्त सचिव से अनिम्न पद के अधिकारी की मंजूरी से; अवर सचिव से अनिम्न पद के अधिकारी द्वारा हस्ताक्षरित"
+        },
+        {
+          "en": "Approval of the Cabinet Secretariat; signed by a Deputy Secretary",
+          "hi": "मंत्रिमंडल सचिवालय की मंजूरी से; उप सचिव द्वारा हस्ताक्षरित"
+        },
+        {
+          "en": "No approval is required beyond the Dealing Officer's own note",
+          "hi": "डीलिंग अधिकारी की अपनी टिप्पणी से आगे किसी मंजूरी की आवश्यकता नहीं है"
+        }
+      ],
+      "answerIndex": 1,
+      "explanation": {
+        "en": "Para 8.1.2(v) requires Inter-Departmental references to be made with the approval of an officer not below the rank of Joint Secretary, under the signature of an officer not below the rank of Under Secretary.",
+        "hi": "पैरा 8.1.2(v) के अनुसार अंतर-विभागीय संदर्भ संयुक्त सचिव से अनिम्न पद के अधिकारी की मंजूरी से बनाए जाते हैं और अवर सचिव से अनिम्न पद के अधिकारी के हस्ताक्षर से भेजे जाते हैं।"
+      },
+      "ruleRef": {
+        "textId": "csmop-8-1",
+        "citation": { "en": "Para 8.1, CSMOP 2022", "hi": "पैरा 8.1, सीएसएमओपी 2022" }
+      },
+      "difficulty": "medium",
+      "stageA": { "index": 10, "angle": "Para 8.1.2(v) — approval and signing levels for an I.D. note" },
+      "groundingRuleIds": ["csmop-8-1"]
+    },
+    {
+      "id": "csmop-q-011",
+      "rule": "8.4",
+      "kind": "mcq",
+      "front": {
+        "en": "Under CSMOP 2022 para 8.4(3), an Office Memorandum is written in which person, and with what salutation and subscription?",
+        "hi": "सीएसएमओपी 2022 के पैरा 8.4(3) के अधीन, कार्यालय ज्ञापन किस पुरुष में लिखा जाता है, और उसमें कौन-सा संबोधन तथा मानार्थ संबोधन होता है?"
+      },
+      "back": {
+        "en": "Third person; no salutation and no subscription.",
+        "hi": "अन्य पुरुष में; बिना किसी संबोधन और बिना किसी मानार्थ संबोधन के।"
+      },
+      "options": [
+        {
+          "en": "First person; 'Sir/Madam' and 'Yours faithfully'",
+          "hi": "प्रथम पुरुष में; 'महोदय/महोदया' और 'भवदीय'"
+        },
+        {
+          "en": "First person, personal and friendly; 'My dear' and 'Yours sincerely'",
+          "hi": "प्रथम पुरुष, व्यक्तिगत और मैत्रीपूर्ण; 'प्रिय श्री' और 'भवदीय'"
+        },
+        {
+          "en": "Third person; no salutation and no subscription",
+          "hi": "अन्य पुरुष में; बिना किसी संबोधन और बिना किसी मानार्थ संबोधन के"
+        },
+        {
+          "en": "Third person; 'Sir/Madam' but no subscription",
+          "hi": "अन्य पुरुष में; 'महोदय/महोदया' किंतु बिना मानार्थ संबोधन के"
+        }
+      ],
+      "answerIndex": 2,
+      "explanation": {
+        "en": "Para 8.4(3) states an Office Memorandum is written in the third person and bears no salutation or subscription; the signing officer's name, designation, e-mail, telephone and fax number are given instead.",
+        "hi": "पैरा 8.4(3) के अनुसार कार्यालय ज्ञापन अन्य पुरुष में लिखा जाता है और इसमें न कोई संबोधन होता है न मानार्थ संबोधन; हस्ताक्षरकर्ता अधिकारी का नाम, पदनाम, ई-मेल, दूरभाष व फैक्स संख्या अवश्य दी जाती है।"
+      },
+      "ruleRef": {
+        "textId": "csmop-8-4",
+        "citation": { "en": "Para 8.4, CSMOP 2022", "hi": "पैरा 8.4, सीएसएमओपी 2022" }
+      },
+      "difficulty": "easy",
+      "stageA": { "index": 11, "angle": "Para 8.4(3) — the Office Memorandum's person, salutation and subscription" },
+      "groundingRuleIds": ["csmop-8-4"]
+    },
+    {
+      "id": "csmop-q-012",
+      "rule": "8.8",
+      "kind": "mcq",
+      "front": {
+        "en": "Under CSMOP 2022 para 8.8, Table 8.1, how is the Union Public Service Commission approached, and through whom is the Attorney General approached?",
+        "hi": "सीएसएमओपी 2022 के पैरा 8.8, तालिका 8.1 के अधीन, संघ लोक सेवा आयोग से किस प्रकार संपर्क किया जाता है, और भारत के महान्यायवादी से किसके माध्यम से संपर्क किया जाता है?"
+      },
+      "back": {
+        "en": "The UPSC by letter to its Secretary; the Attorney General only through the Ministry of Law and Justice.",
+        "hi": "संघ लोक सेवा आयोग से उसके सचिव को पत्र द्वारा; महान्यायवादी से केवल विधि और न्याय मंत्रालय के माध्यम से।"
+      },
+      "options": [
+        {
+          "en": "The UPSC by an Office Memorandum; the Attorney General directly by letter",
+          "hi": "संघ लोक सेवा आयोग से कार्यालय ज्ञापन द्वारा; महान्यायवादी से सीधे पत्र द्वारा"
+        },
+        {
+          "en": "The UPSC by endorsement; the Attorney General through the Cabinet Secretariat",
+          "hi": "संघ लोक सेवा आयोग से पृष्ठांकन द्वारा; महान्यायवादी से मंत्रिमंडल सचिवालय के माध्यम से"
+        },
+        {
+          "en": "Both are addressed directly, by letter to the Chairman/Attorney General personally",
+          "hi": "दोनों को सीधे, उनके अध्यक्ष/महान्यायवादी को व्यक्तिगत रूप से पत्र द्वारा संबोधित किया जाता है"
+        },
+        {
+          "en": "The UPSC by letter to its Secretary; the Attorney General only through the Ministry of Law and Justice",
+          "hi": "संघ लोक सेवा आयोग से उसके सचिव को पत्र द्वारा; महान्यायवादी से केवल विधि और न्याय मंत्रालय के माध्यम से"
+        }
+      ],
+      "answerIndex": 3,
+      "explanation": {
+        "en": "Table 8.1 directs that the UPSC is addressed by letter to its Secretary, and that the Attorney General is approached only through the Ministry of Law and Justice.",
+        "hi": "तालिका 8.1 संघ लोक सेवा आयोग को पत्र द्वारा उसके सचिव को संबोधित करने और महान्यायवादी से केवल विधि और न्याय मंत्रालय के माध्यम से संपर्क करने का निदेश देती है।"
+      },
+      "ruleRef": {
+        "textId": "csmop-8-8",
+        "citation": { "en": "Para 8.8, CSMOP 2022", "hi": "पैरा 8.8, सीएसएमओपी 2022" }
+      },
+      "difficulty": "medium",
+      "stageA": { "index": 12, "angle": "Para 8.8, Table 8.1 — the UPSC and Attorney General channels" },
+      "groundingRuleIds": ["csmop-8-8"]
+    },
+    {
+      "id": "csmop-q-013",
+      "rule": "8.9",
+      "kind": "mcq",
+      "front": {
+        "en": "Under CSMOP 2022 para 8.9(i), a communication from a member of the public is to be acknowledged within how many days, and replied to within what further period?",
+        "hi": "सीएसएमओपी 2022 के पैरा 8.9(i) के अधीन, किसी सदस्य-जनता के संचार की पावती कितने दिनों में दी जानी चाहिए, और उसके बाद कितनी और अवधि में उत्तर दिया जाना चाहिए?"
+      },
+      "back": {
+        "en": "Acknowledged within 15 days, and replied to within the next 15 days of that acknowledgement.",
+        "hi": "15 दिनों के भीतर पावती दी जानी चाहिए, और उस पावती के बाद अगले 15 दिनों में उत्तर दिया जाना चाहिए।"
+      },
+      "options": [
+        {
+          "en": "Acknowledged within 15 days, replied to within the next 15 days",
+          "hi": "15 दिनों के भीतर पावती, और उसके बाद अगले 15 दिनों में उत्तर"
+        },
+        {
+          "en": "Acknowledged within 30 days, with no separate reply deadline",
+          "hi": "30 दिनों के भीतर पावती, उत्तर की कोई अलग समय-सीमा नहीं"
+        },
+        {
+          "en": "Acknowledged within 7 days, replied to within 45 days",
+          "hi": "7 दिनों के भीतर पावती, 45 दिनों में उत्तर"
+        },
+        {
+          "en": "No acknowledgement is required, only a final reply within 60 days",
+          "hi": "किसी पावती की आवश्यकता नहीं, केवल 60 दिनों में अंतिम उत्तर"
+        }
+      ],
+      "answerIndex": 0,
+      "explanation": {
+        "en": "Para 8.9(i) requires every communication from a Member of Parliament, a member of the public, a recognised association or a public body to be acknowledged within 15 days, followed by a reply within the next 15 days of the acknowledgement.",
+        "hi": "पैरा 8.9(i) संसद सदस्य, आम जनता के सदस्य, मान्यताप्राप्त संघ या लोक निकाय से प्राप्त प्रत्येक संचार की 15 दिनों में पावती और पावती भेजे जाने के अगले 15 दिनों में उत्तर अपेक्षित करता है।"
+      },
+      "ruleRef": {
+        "textId": "csmop-8-9",
+        "citation": { "en": "Para 8.9, CSMOP 2022", "hi": "पैरा 8.9, सीएसएमओपी 2022" }
+      },
+      "difficulty": "easy",
+      "stageA": { "index": 13, "angle": "Para 8.9(i) — the 15-plus-15-day acknowledgement and reply rule" },
+      "groundingRuleIds": ["csmop-8-9"]
+    },
+    {
+      "id": "csmop-q-014",
+      "rule": "9.1",
+      "kind": "mcq",
+      "front": {
+        "en": "Under CSMOP 2022 para 9.1(iii), every draft communication put up for approval must be marked how, and where?",
+        "hi": "सीएसएमओपी 2022 के पैरा 9.1(iii) के अधीन, अनुमोदन हेतु प्रस्तुत प्रत्येक मसौदा संचार को किस प्रकार और कहाँ अंकित किया जाना चाहिए?"
+      },
+      "back": {
+        "en": "By writing 'Draft' at the top centre of the page.",
+        "hi": "पृष्ठ के शीर्ष मध्य में 'Draft' (मसौदा) लिखकर।"
+      },
+      "options": [
+        { "en": "By writing 'DFA' at the bottom right corner", "hi": "पृष्ठ के नीचे दाईं ओर 'DFA' लिखकर" },
+        {
+          "en": "By writing 'Draft' at the top centre of the page",
+          "hi": "पृष्ठ के शीर्ष मध्य में 'Draft' (मसौदा) लिखकर"
+        },
+        {
+          "en": "By underlining the subject line in red ink",
+          "hi": "विषय पंक्ति को लाल स्याही से रेखांकित करके"
+        },
+        { "en": "By stapling a green slip to the first page", "hi": "पहले पृष्ठ पर हरी पर्ची लगाकर" }
+      ],
+      "answerIndex": 1,
+      "explanation": {
+        "en": "Para 9.1(iii) requires all draft communications put up for approval to be specified accordingly by writing 'Draft' at top centre.",
+        "hi": "पैरा 9.1(iii) के अनुसार अनुमोदन हेतु प्रस्तुत सभी मसौदा संचारों को शीर्ष मध्य में 'Draft' लिखकर इस रूप में विनिर्दिष्ट किया जाना चाहिए।"
+      },
+      "ruleRef": {
+        "textId": "csmop-9-1",
+        "citation": { "en": "Para 9.1, CSMOP 2022", "hi": "पैरा 9.1, सीएसएमओपी 2022" }
+      },
+      "difficulty": "easy",
+      "stageA": { "index": 14, "angle": "Para 9.1(iii) — marking a draft 'Draft' at top centre" },
+      "groundingRuleIds": ["csmop-9-1"]
+    },
+    {
+      "id": "csmop-q-015",
+      "rule": "9.5",
+      "kind": "mcq",
+      "front": {
+        "en": "Under CSMOP 2022 para 9.5(ii), a demi-official letter should preferably not exceed how many pages, and who fairs the draft?",
+        "hi": "सीएसएमओपी 2022 के पैरा 9.5(ii) के अधीन, अर्ध-सरकारी पत्र सामान्यतः अधिकतम कितने पृष्ठ का होना चाहिए, और उसका मसौदा कौन साफ करता है?"
+      },
+      "back": {
+        "en": "Not more than one page; faired by the personal staff of the officer who signs it.",
+        "hi": "अधिकतम एक पृष्ठ का; इसे हस्ताक्षर करने वाले अधिकारी का निजी स्टाफ साफ करता है।"
+      },
+      "options": [
+        { "en": "Two pages; faired by the Dealing Officer", "hi": "दो पृष्ठ; डीलिंग अधिकारी साफ करता है" },
+        {
+          "en": "There is no page limit; faired by the Section Officer",
+          "hi": "कोई पृष्ठ सीमा नहीं; अनुभाग अधिकारी साफ करता है"
+        },
+        {
+          "en": "One page; faired by the personal staff of the officer who signs it",
+          "hi": "एक पृष्ठ; हस्ताक्षर करने वाले अधिकारी का निजी स्टाफ साफ करता है"
+        },
+        { "en": "Three pages; faired by the Branch Officer", "hi": "तीन पृष्ठ; शाखा अधिकारी साफ करता है" }
+      ],
+      "answerIndex": 2,
+      "explanation": {
+        "en": "Para 9.5(ii): a demi-official letter should preferably not exceed one page, with detailed arguments moved to appendices, and a draft D.O. letter is faired by the personal staff of the officer who signs it.",
+        "hi": "पैरा 9.5(ii) के अनुसार अर्ध-सरकारी पत्र सामान्यतः एक पृष्ठ से अधिक नहीं होना चाहिए और विस्तृत तर्क अनुलग्नकों में रखे जाते हैं; इसका मसौदा हस्ताक्षर करने वाले अधिकारी का निजी स्टाफ साफ करता है।"
+      },
+      "ruleRef": {
+        "textId": "csmop-9-5",
+        "citation": { "en": "Para 9.5, CSMOP 2022", "hi": "पैरा 9.5, सीएसएमओपी 2022" }
+      },
+      "difficulty": "medium",
+      "stageA": { "index": 15, "angle": "Para 9.5(ii) — the D.O. letter's one-page preference and who fairs it" },
+      "groundingRuleIds": ["csmop-9-5"]
+    },
+    {
+      "id": "csmop-q-016",
+      "rule": "5.3",
+      "kind": "trueFalse",
+      "front": {
+        "en": "Under CSMOP 2022 para 5.3(ii), casual leave applications are one of the categories of receipts that need not be registered at the entry level.",
+        "hi": "सीएसएमओपी 2022 के पैरा 5.3(ii) के अधीन, आकस्मिक अवकाश आवेदन उन प्राप्तियों की एक श्रेणी है जिन्हें प्रवेश स्तर पर पंजीकृत किए जाने की आवश्यकता नहीं है।"
+      },
+      "back": { "en": "True.", "hi": "सत्य।" },
+      "options": [
+        { "en": "True", "hi": "सत्य" },
+        { "en": "False", "hi": "असत्य" }
+      ],
+      "answerIndex": 0,
+      "explanation": {
+        "en": "Para 5.3(ii)(d) lists casual leave applications among the categories of receipts not required to be registered at the entry level, alongside things like telephone bills and MP communications watched through a separate register.",
+        "hi": "पैरा 5.3(ii)(घ) आकस्मिक अवकाश आवेदनों को उन श्रेणियों में गिनाता है जिन्हें प्रवेश स्तर पर पंजीकृत करना आवश्यक नहीं है।"
+      },
+      "ruleRef": {
+        "textId": "csmop-5-3",
+        "citation": { "en": "Para 5.3, CSMOP 2022", "hi": "पैरा 5.3, सीएसएमओपी 2022" }
+      },
+      "difficulty": "easy",
+      "stageA": { "index": 16, "angle": "Para 5.3(ii) — casual leave applications exempt from dak registration" },
+      "groundingRuleIds": ["csmop-5-3"]
+    },
+    {
+      "id": "csmop-q-017",
+      "rule": "7.1",
+      "kind": "trueFalse",
+      "front": {
+        "en": "Under CSMOP 2022, a 'note' recorded on a file (para 7.1) and an 'Office Memorandum' (para 8.4(3)) are the same form of document.",
+        "hi": "सीएसएमओपी 2022 के अधीन, फाइल पर दर्ज 'टिप्पणी' (पैरा 7.1) और 'कार्यालय ज्ञापन' (पैरा 8.4(3)) एक ही प्रकार का दस्तावेज़ है।"
+      },
+      "back": { "en": "False.", "hi": "असत्य।" },
+      "options": [
+        { "en": "True", "hi": "सत्य" },
+        { "en": "False", "hi": "असत्य" }
+      ],
+      "answerIndex": 1,
+      "explanation": {
+        "en": "Para 7.1 defines a note as remarks recorded on a case to facilitate its disposal — an internal record on the file. An Office Memorandum (para 8.4(3)) is a form of outward written communication in the third person, addressed to another office or to employees. The two serve different purposes and are not interchangeable.",
+        "hi": "पैरा 7.1 'टिप्पणी' को किसी मामले के निपटान की सुविधा हेतु फाइल पर दर्ज टीका के रूप में परिभाषित करता है — यह फाइल का आंतरिक अभिलेख है। कार्यालय ज्ञापन (पैरा 8.4(3)) अन्य पुरुष में लिखा गया, दूसरे कार्यालय या कर्मचारियों को संबोधित बाह्य लिखित संचार का एक प्रारूप है। दोनों के प्रयोजन भिन्न हैं और वे परस्पर विनिमेय नहीं हैं।"
+      },
+      "ruleRef": {
+        "textId": "csmop-7-1",
+        "citation": { "en": "Para 7.1, CSMOP 2022", "hi": "पैरा 7.1, सीएसएमओपी 2022" }
+      },
+      "difficulty": "medium",
+      "stageA": { "index": 17, "angle": "Para 7.1 vs para 8.4(3) — a note is not an Office Memorandum" },
+      "groundingRuleIds": ["csmop-7-1", "csmop-8-4"]
+    },
+    {
+      "id": "csmop-q-018",
+      "rule": "7.8",
+      "kind": "trueFalse",
+      "front": {
+        "en": "Under CSMOP 2022 para 7.8, when a running summary of facts is updated, the previous version is retained rather than destroyed.",
+        "hi": "सीएसएमओपी 2022 के पैरा 7.8 के अधीन, जब तथ्यों का चालू सारांश अद्यतन किया जाता है, तो पूर्व संस्करण नष्ट करने के बजाय सुरक्षित रखा जाता है।"
+      },
+      "back": { "en": "True.", "hi": "सत्य।" },
+      "options": [
+        { "en": "True", "hi": "सत्य" },
+        { "en": "False", "hi": "असत्य" }
+      ],
+      "answerIndex": 0,
+      "explanation": {
+        "en": "Para 7.8 states in terms that the previous version of a running summary of facts shall not be destroyed — it is useful when framing new policy, amendments, or in court cases.",
+        "hi": "पैरा 7.8 स्पष्ट कहता है कि तथ्यों के चालू सारांश का पूर्व संस्करण नष्ट नहीं किया जाएगा — यह नीति निर्माण, संशोधन या न्यायालयी मामलों में उपयोगी होता है।"
+      },
+      "ruleRef": {
+        "textId": "csmop-7-8",
+        "citation": { "en": "Para 7.8, CSMOP 2022", "hi": "पैरा 7.8, सीएसएमओपी 2022" }
+      },
+      "difficulty": "medium",
+      "stageA": { "index": 18, "angle": "Para 7.8 — the previous version of a running summary is kept, not destroyed" },
+      "groundingRuleIds": ["csmop-7-8"]
+    },
+    {
+      "id": "csmop-q-019",
+      "rule": "6.13",
+      "kind": "trueFalse",
+      "front": {
+        "en": "Under CSMOP 2022 para 6.13, only two urgency gradings are prescribed for a case: 'Immediate' and 'Priority'.",
+        "hi": "सीएसएमओपी 2022 के पैरा 6.13 के अधीन, किसी मामले के लिए केवल दो तात्कालिकता ग्रेडिंग निर्धारित हैं: 'तत्काल' और 'अग्रता'।"
+      },
+      "back": { "en": "False.", "hi": "असत्य।" },
+      "options": [
+        { "en": "True", "hi": "सत्य" },
+        { "en": "False", "hi": "असत्य" }
+      ],
+      "answerIndex": 1,
+      "explanation": {
+        "en": "Para 6.13(i) prescribes three urgency gradings: 'Immediate' (for cases requiring prompt attention), 'Priority' (cases meriting disposal ahead of ordinary ones), and 'Top Priority' (extremely urgent cases).",
+        "hi": "पैरा 6.13(i) तीन ग्रेडिंग निर्धारित करता है: तत्काल (जिनमें त्वरित ध्यान चाहिए), अग्रता (जो साधारण मामलों से पहले निपटाए जाने योग्य हैं), और परम अग्रता (अत्यंत तात्कालिक मामले)।"
+      },
+      "ruleRef": {
+        "textId": "csmop-6-13",
+        "citation": { "en": "Para 6.13, CSMOP 2022", "hi": "पैरा 6.13, सीएसएमओपी 2022" }
+      },
+      "difficulty": "easy",
+      "stageA": { "index": 19, "angle": "Para 6.13 — the three urgency gradings, not two" },
+      "groundingRuleIds": ["csmop-6-13"]
+    },
+    {
+      "id": "csmop-q-020",
+      "rule": "13.1",
+      "kind": "trueFalse",
+      "front": {
+        "en": "Under CSMOP 2022 para 13.1, a Government servant is to communicate official information to a person in good faith, in accordance with the Right to Information Act, 2005 and the rules made under it.",
+        "hi": "सीएसएमओपी 2022 के पैरा 13.1 के अधीन, सरकारी सेवक सद्भावपूर्वक सूचना का अधिकार अधिनियम, 2005 और उसके अधीन बनाए गए नियमों के अनुसार किसी व्यक्ति को शासकीय सूचना संसूचित करेगा।"
+      },
+      "back": { "en": "True.", "hi": "सत्य।" },
+      "options": [
+        { "en": "True", "hi": "सत्य" },
+        { "en": "False", "hi": "असत्य" }
+      ],
+      "answerIndex": 0,
+      "explanation": {
+        "en": "Para 13.1 states this in terms, with a proviso that no Government servant shall otherwise communicate an official document or classified information to anyone he is not authorised to communicate it to.",
+        "hi": "पैरा 13.1 इस बात की पुष्टि करता है, साथ ही यह भी कि जिस व्यक्ति को संसूचित करने के लिए वह प्राधिकृत नहीं है उसे प्रत्यक्ष या अप्रत्यक्ष रूप से शासकीय दस्तावेज़ या वर्गीकृत सूचना संसूचित नहीं करेगा।"
+      },
+      "ruleRef": {
+        "textId": "csmop-13-1",
+        "citation": { "en": "Para 13.1, CSMOP 2022", "hi": "पैरा 13.1, सीएसएमओपी 2022" }
+      },
+      "difficulty": "easy",
+      "stageA": { "index": 20, "angle": "Para 13.1 — the RTI-recast duty to communicate official information" },
+      "groundingRuleIds": ["csmop-13-1"]
+    },
+    {
+      "id": "csmop-q-021",
+      "rule": "5.6",
+      "kind": "scenario",
+      "front": {
+        "en": "A Section Officer receives the day's dak. One receipt looks routine, but its subject worries her, so she decides to look into it herself rather than mark it straight to a Dealing Officer. Under CSMOP 2022 para 5.6, is this within her role?",
+        "hi": "एक अनुभाग अधिकारी दिन की डाक प्राप्त करती है। एक प्राप्ति सामान्य प्रतीत होती है, किंतु उसकी विषय-वस्तु उसे चिंतित करती है, इसलिए वह उसे सीधे किसी डीलिंग अधिकारी को चिह्नित करने के बजाय स्वयं देखने का निर्णय लेती है। सीएसएमओपी 2022 के पैरा 5.6 के अधीन, क्या यह उसकी भूमिका के भीतर है?"
+      },
+      "back": {
+        "en": "Yes — para 5.6(iv) lets a Section Officer retain a receipt that is of a difficult nature or has a special feature requiring her personal attention, instead of marking it onward.",
+        "hi": "हाँ — पैरा 5.6(iv) अनुभाग अधिकारी को कठिन प्रकृति की या विशेष रूप से अपने व्यक्तिगत ध्यान की अपेक्षा करने वाली किसी प्राप्ति को आगे चिह्नित करने के बजाय स्वयं रखने की अनुमति देता है।"
+      },
+      "options": [
+        {
+          "en": "No — she must mark every receipt to a Dealing Officer without exception",
+          "hi": "नहीं — उसे बिना अपवाद प्रत्येक प्राप्ति किसी डीलिंग अधिकारी को चिह्नित करनी होगी"
+        },
+        {
+          "en": "No — only a Branch Officer may retain a receipt for personal attention",
+          "hi": "नहीं — केवल शाखा अधिकारी ही किसी प्राप्ति को व्यक्तिगत ध्यान हेतु रख सकता है"
+        },
+        {
+          "en": "Yes, but only if the receipt carries a 'Top Priority' grading",
+          "hi": "हाँ, किंतु केवल तभी जब प्राप्ति में 'परम अग्रता' ग्रेडिंग हो"
+        },
+        {
+          "en": "Yes — para 5.6(iv) lets a Section Officer retain a receipt of a difficult nature or with a special feature requiring her personal attention",
+          "hi": "हाँ — पैरा 5.6(iv) अनुभाग अधिकारी को कठिन प्रकृति की या विशेष रूप से व्यक्तिगत ध्यान अपेक्षित करने वाली प्राप्ति को स्वयं रखने की अनुमति देता है"
+        }
+      ],
+      "answerIndex": 3,
+      "explanation": {
+        "en": "Para 5.6(iv) lets the Section Officer retain, out of the receipts before her, such as are of a difficult nature or have a special feature requiring her personal attention, rather than marking every one onward to a Dealing Officer.",
+        "hi": "पैरा 5.6(iv) अनुभाग अधिकारी को शेष प्राप्तियों में से ऐसी प्राप्तियाँ, जो कठिन प्रकृति की हों या जिनमें उसके व्यक्तिगत ध्यान की अपेक्षा करने वाली कोई विशेष विशेषता हो, अपने पास रखने का अधिकार देता है।"
+      },
+      "ruleRef": {
+        "textId": "csmop-5-6",
+        "citation": { "en": "Para 5.6, CSMOP 2022", "hi": "पैरा 5.6, सीएसएमओपी 2022" }
+      },
+      "difficulty": "medium",
+      "stageA": { "index": 21, "angle": "Para 5.6(iv) — the Section Officer may retain a receipt needing her own attention" },
+      "groundingRuleIds": ["csmop-5-6"]
+    },
+    {
+      "id": "csmop-q-022",
+      "rule": "7.3",
+      "kind": "scenario",
+      "front": {
+        "en": "A Dealing Officer gets a routine receipt whose line of action is obvious and follows a clear, established precedent. Under CSMOP 2022 para 7.3, what should he do?",
+        "hi": "एक डीलिंग अधिकारी को एक नियमित प्राप्ति मिलती है जिसकी कार्रवाई की दिशा स्पष्ट है और जो किसी स्पष्ट, स्थापित पूर्व-निर्णय का अनुसरण करती है। सीएसएमओपी 2022 के पैरा 7.3 के अधीन उसे क्या करना चाहिए?"
+      },
+      "back": {
+        "en": "Put up a draft communication straightaway, without an elaborate note.",
+        "hi": "बिना किसी विस्तृत टिप्पणी के सीधे मसौदा संचार प्रस्तुत करना चाहिए।"
+      },
+      "options": [
+        {
+          "en": "Prepare a discussed note and circulate it to every Department concerned",
+          "hi": "एक विचारित टिप्पणी तैयार करके संबंधित सभी विभागों में परिचालित करनी चाहिए"
+        },
+        {
+          "en": "Refer the matter for Inter-Ministerial Consultation regardless of its nature",
+          "hi": "प्रकृति चाहे जो हो, मामले को अंतर-मंत्रालयी परामर्श हेतु निर्दिष्ट करना चाहिए"
+        },
+        {
+          "en": "Put up a draft communication straightaway, without an elaborate note",
+          "hi": "बिना किसी विस्तृत टिप्पणी के सीधे मसौदा संचार प्रस्तुत करना चाहिए"
+        },
+        {
+          "en": "Withhold action until the Branch Officer personally directs a course of action",
+          "hi": "जब तक शाखा अधिकारी स्वयं कार्रवाई की दिशा न बताए, तब तक कार्रवाई रोकनी चाहिए"
+        }
+      ],
+      "answerIndex": 2,
+      "explanation": {
+        "en": "Para 7.3's opening line says that when the line of action on a receipt is obvious, or based on a clear precedent or practice, or already indicated by a higher officer, and a communication has to issue, a draft is put up without an elaborate note.",
+        "hi": "पैरा 7.3 के आरंभिक वाक्य के अनुसार, जब किसी प्राप्ति पर कार्रवाई की दिशा स्पष्ट हो या किसी स्पष्ट पूर्व-निर्णय या व्यवहार पर आधारित हो, अथवा किसी वरिष्ठ अधिकारी द्वारा पहले ही इंगित की जा चुकी हो, और संचार जारी करना हो, तो बिना विस्तृत टिप्पणी के मसौदा प्रस्तुत किया जाएगा।"
+      },
+      "ruleRef": {
+        "textId": "csmop-7-3",
+        "citation": { "en": "Para 7.3, CSMOP 2022", "hi": "पैरा 7.3, सीएसएमओपी 2022" }
+      },
+      "difficulty": "medium",
+      "stageA": { "index": 22, "angle": "Para 7.3 — an obvious, precedent-based case goes up as a draft, not an elaborate note" },
+      "groundingRuleIds": ["csmop-7-3"]
+    },
+    {
+      "id": "csmop-q-023",
+      "rule": "8.4",
+      "kind": "scenario",
+      "front": {
+        "en": "A Section Officer needs to send a copy of a communication to a State Government for information. Under CSMOP 2022 para 8.4(9), can she use the Endorsement form for this?",
+        "hi": "एक अनुभाग अधिकारी को किसी राज्य सरकार को सूचनार्थ किसी संचार की प्रति भेजनी है। सीएसएमओपी 2022 के पैरा 8.4(9) के अधीन, क्या वह इसके लिए पृष्ठांकन प्रारूप का प्रयोग कर सकती है?"
+      },
+      "back": {
+        "en": "No — an endorsement is normally not used for communicating copies to State Governments or statutory/constitutional bodies; the appropriate form for that is a letter.",
+        "hi": "नहीं — पृष्ठांकन सामान्यतः राज्य सरकार या किसी सांविधिक/संवैधानिक निकाय को प्रतियाँ भेजने के लिए प्रयोग नहीं किया जाता; ऐसे संचार के लिए उपयुक्त प्रारूप पत्र है।"
+      },
+      "options": [
+        {
+          "en": "No — an endorsement is normally not used for a State Government or a statutory/constitutional body; a letter is the appropriate form",
+          "hi": "नहीं — पृष्ठांकन सामान्यतः राज्य सरकार या किसी सांविधिक/संवैधानिक निकाय के लिए प्रयोग नहीं होता; उपयुक्त प्रारूप पत्र है"
+        },
+        {
+          "en": "Yes — an endorsement is always the correct form for copying anything to anyone",
+          "hi": "हाँ — किसी को भी कुछ भी भेजने के लिए पृष्ठांकन सदैव सही प्रारूप है"
+        },
+        {
+          "en": "Yes, but only if the State Government has first requested it in writing",
+          "hi": "हाँ, किंतु केवल तभी जब राज्य सरकार ने पहले लिखित में अनुरोध किया हो"
+        },
+        {
+          "en": "No — nothing may ever be copied to a State Government under CSMOP",
+          "hi": "नहीं — सीएसएमओपी के अधीन राज्य सरकार को कभी कोई प्रति नहीं भेजी जा सकती"
+        }
+      ],
+      "answerIndex": 0,
+      "explanation": {
+        "en": "Para 8.4(9) says this form will normally not be used in communicating copies to State Governments or statutory/constitutional bodies — the appropriate form for such communication is a letter.",
+        "hi": "पैरा 8.4(9) स्पष्ट करता है कि पृष्ठांकन सामान्यतः राज्य सरकारों या सांविधिक/संवैधानिक निकायों को प्रतियाँ भेजने के लिए प्रयोग नहीं किया जाता; ऐसे संचार के लिए उपयुक्त प्रारूप पत्र है।"
+      },
+      "ruleRef": {
+        "textId": "csmop-8-4",
+        "citation": { "en": "Para 8.4, CSMOP 2022", "hi": "पैरा 8.4, सीएसएमओपी 2022" }
+      },
+      "difficulty": "medium",
+      "stageA": { "index": 23, "angle": "Para 8.4(9) — an endorsement is not used for a State Government; a letter is" },
+      "groundingRuleIds": ["csmop-8-4"]
+    },
+    {
+      "id": "csmop-q-024",
+      "rule": "9.2",
+      "kind": "scenario",
+      "front": {
+        "en": "A Dealing Officer is drafting a letter asking another Department to send comments and writes '...comments may be sent immediately.' Under CSMOP 2022 para 9.2(v), how should this be corrected?",
+        "hi": "एक डीलिंग अधिकारी दूसरे विभाग से टिप्पणियाँ माँगने वाला पत्र तैयार कर रही है और लिखती है '...टिप्पणियाँ तुरंत भेजी जाएँ।' सीएसएमओपी 2022 के पैरा 9.2(v) के अधीन इसे कैसे ठीक किया जाना चाहिए?"
+      },
+      "back": {
+        "en": "Replace 'immediately' with a specific date, e.g. '...comments may be sent by 28-02-2019.'",
+        "hi": "'तुरंत' के स्थान पर एक निश्चित तारीख लिखी जानी चाहिए, जैसे '...टिप्पणियाँ 28-02-2019 तक भेजी जाएँ।'"
+      },
+      "options": [
+        {
+          "en": "No correction is needed; 'immediately' is the manual's own preferred wording",
+          "hi": "कोई सुधार आवश्यक नहीं; 'तुरंत' नियमावली का स्वयं का पसंदीदा शब्द है"
+        },
+        {
+          "en": "Replace 'immediately' with a specific date, e.g. 'may be sent by 28-02-2019'",
+          "hi": "'तुरंत' के स्थान पर एक निश्चित तारीख लिखी जानी चाहिए, जैसे '28-02-2019 तक भेजी जाएँ'"
+        },
+        {
+          "en": "Delete the request for comments altogether and proceed without them",
+          "hi": "टिप्पणियों का अनुरोध ही हटा दिया जाना चाहिए और बिना उनके आगे बढ़ना चाहिए"
+        },
+        {
+          "en": "Mark the letter 'Top Priority' instead of specifying any date",
+          "hi": "किसी तारीख के बजाय पत्र को 'परम अग्रता' अंकित किया जाना चाहिए"
+        }
+      ],
+      "answerIndex": 1,
+      "explanation": {
+        "en": "Para 9.2(v) gives exactly this example: instead of 'may be sent immediately', state 'may be sent by 28-02-2019' — a request for information or comments should always name the date.",
+        "hi": "पैरा 9.2(v) उदाहरण देते हुए कहता है कि '...तुरंत भेजी जाए' कहने के बजाय '...28-02-2019 तक भेजी जाए' कहा जाना चाहिए, ताकि सूचना या टिप्पणी माँगते समय तारीख निर्दिष्ट हो।"
+      },
+      "ruleRef": {
+        "textId": "csmop-9-2",
+        "citation": { "en": "Para 9.2, CSMOP 2022", "hi": "पैरा 9.2, सीएसएमओपी 2022" }
+      },
+      "difficulty": "easy",
+      "stageA": { "index": 24, "angle": "Para 9.2(v) — name the date rather than saying 'immediately'" },
+      "groundingRuleIds": ["csmop-9-2"]
+    },
+    {
+      "id": "csmop-q-025",
+      "rule": "9.4",
+      "kind": "scenario",
+      "front": {
+        "en": "A matter needs the personal attention of a Deputy Secretary in another Department because of its urgency, though the communication is neither classified nor demi-official. Under CSMOP 2022 para 9.4, how should it be addressed?",
+        "hi": "किसी मामले को उसकी तात्कालिकता के कारण दूसरे विभाग के उप सचिव के व्यक्तिगत ध्यान की आवश्यकता है, यद्यपि संचार न तो वर्गीकृत है न अर्ध-सरकारी। सीएसएमओपी 2022 के पैरा 9.4 के अधीन इसे किस प्रकार संबोधित किया जाना चाहिए?"
+      },
+      "back": {
+        "en": "To the Head of the organisation, with 'Attention: [name], Deputy Secretary' written above the Subject line — not addressed or marked to the officer by name in the main address.",
+        "hi": "संगठन के प्रमुख को, और 'विषय' पंक्ति के ऊपर 'कृपया ध्यान दें: [नाम], उप सचिव' लिखकर — मुख्य संबोधन में अधिकारी को नाम से संबोधित या चिह्नित किए बिना।"
+      },
+      "options": [
+        {
+          "en": "Directly to the Deputy Secretary by name, with no reference to the Head of the organisation at all",
+          "hi": "सीधे उप सचिव को नाम से, संगठन के प्रमुख का कोई उल्लेख किए बिना"
+        },
+        {
+          "en": "As a demi-official letter, since that is the only form that may name an officer",
+          "hi": "अर्ध-सरकारी पत्र के रूप में, क्योंकि केवल यही प्रारूप किसी अधिकारी का नाम ले सकता है"
+        },
+        {
+          "en": "To the Head of the organisation, with 'Attention: [name], Deputy Secretary' written above the Subject line",
+          "hi": "संगठन के प्रमुख को, और 'विषय' पंक्ति के ऊपर 'कृपया ध्यान दें: [नाम], उप सचिव' लिखकर"
+        },
+        {
+          "en": "To the Cabinet Secretariat, which will forward it to the named officer",
+          "hi": "मंत्रिमंडल सचिवालय को, जो इसे नामित अधिकारी तक अग्रेषित करेगा"
+        }
+      ],
+      "answerIndex": 2,
+      "explanation": {
+        "en": "Para 9.4 says no communication other than a classified one or a demi-official letter should normally be addressed or marked to an officer by name, unless the matter needs his personal attention for its special nature, urgency or importance. In such a case the Head of the organisation is addressed, and 'Attention: [name], Deputy Secretary' is written above the Subject line.",
+        "hi": "पैरा 9.4 के अनुसार सामान्यतः किसी संचार को किसी अधिकारी के नाम से संबोधित या चिह्नित नहीं किया जाता, जब तक मामले की प्रकृति, तात्कालिकता या महत्व के कारण उसका व्यक्तिगत ध्यान अपेक्षित न हो; ऐसे मामलों में संगठन के प्रमुख को संबोधित करते हुए 'विषय' के ऊपर 'कृपया ध्यान दें: [नाम], उप सचिव' लिखा जाता है।"
+      },
+      "ruleRef": {
+        "textId": "csmop-9-4",
+        "citation": { "en": "Para 9.4, CSMOP 2022", "hi": "पैरा 9.4, सीएसएमओपी 2022" }
+      },
+      "difficulty": "medium",
+      "stageA": { "index": 25, "angle": "Para 9.4 — the Attention line, addressed to the Head of the organisation" },
+      "groundingRuleIds": ["csmop-9-4"]
+    }
+  ]
+}

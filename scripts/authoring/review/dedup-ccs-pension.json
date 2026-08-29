@@ -1,0 +1,156 @@
+{
+  "_note": "Stage D, written by scripts/authoring/qa_pipeline.py dedup ccs-pension. rapidfuzz token_set_ratio over every pair of English fronts in this act, including the generated rule and cloze cards. At 90 or above the later question is the duplicate and make_cards.py rejects it.",
+  "threshold": 90.0,
+  "scores": {
+    "ccs-pension-q-001": {
+      "maxScore": 81.7,
+      "against": "ccs-pension-rule-5",
+      "verdict": "keep"
+    },
+    "ccs-pension-q-002": {
+      "maxScore": 63.3,
+      "against": "ccs-pension-rule-77",
+      "verdict": "keep"
+    },
+    "ccs-pension-q-003": {
+      "maxScore": 61.2,
+      "against": "ccs-pension-q-001",
+      "verdict": "keep"
+    },
+    "ccs-pension-q-004": {
+      "maxScore": 63.3,
+      "against": "ccs-pension-rule-77",
+      "verdict": "keep"
+    },
+    "ccs-pension-q-005": {
+      "maxScore": 63.3,
+      "against": "ccs-pension-rule-77",
+      "verdict": "keep"
+    },
+    "ccs-pension-q-006": {
+      "maxScore": 80.3,
+      "against": "ccs-pension-q-005",
+      "verdict": "keep"
+    },
+    "ccs-pension-q-007": {
+      "maxScore": 70.3,
+      "against": "ccs-pension-rule-11",
+      "verdict": "keep"
+    },
+    "ccs-pension-q-008": {
+      "maxScore": 73.3,
+      "against": "ccs-pension-q-007",
+      "verdict": "keep"
+    },
+    "ccs-pension-q-009": {
+      "maxScore": 82.2,
+      "against": "ccs-pension-q-007",
+      "verdict": "keep"
+    },
+    "ccs-pension-q-010": {
+      "maxScore": 76.9,
+      "against": "ccs-pension-rule-11",
+      "verdict": "keep"
+    },
+    "ccs-pension-q-011": {
+      "maxScore": 74.2,
+      "against": "ccs-pension-rule-24",
+      "verdict": "keep"
+    },
+    "ccs-pension-q-012": {
+      "maxScore": 73.3,
+      "against": "ccs-pension-q-007",
+      "verdict": "keep"
+    },
+    "ccs-pension-q-013": {
+      "maxScore": 76.5,
+      "against": "ccs-pension-rule-27",
+      "verdict": "keep"
+    },
+    "ccs-pension-q-014": {
+      "maxScore": 76.5,
+      "against": "ccs-pension-rule-27",
+      "verdict": "keep"
+    },
+    "ccs-pension-q-015": {
+      "maxScore": 82.4,
+      "against": "ccs-pension-rule-34",
+      "verdict": "keep"
+    },
+    "ccs-pension-q-016": {
+      "maxScore": 67.1,
+      "against": "ccs-pension-q-007",
+      "verdict": "keep"
+    },
+    "ccs-pension-q-017": {
+      "maxScore": 72.5,
+      "against": "ccs-pension-rule-39-2",
+      "verdict": "keep"
+    },
+    "ccs-pension-q-018": {
+      "maxScore": 71.6,
+      "against": "ccs-pension-rule-40",
+      "verdict": "keep"
+    },
+    "ccs-pension-q-019": {
+      "maxScore": 76.8,
+      "against": "ccs-pension-rule-34",
+      "verdict": "keep"
+    },
+    "ccs-pension-q-020": {
+      "maxScore": 82.2,
+      "against": "ccs-pension-q-007",
+      "verdict": "keep"
+    },
+    "ccs-pension-q-021": {
+      "maxScore": 77.4,
+      "against": "ccs-pension-q-016",
+      "verdict": "keep"
+    },
+    "ccs-pension-q-022": {
+      "maxScore": 70.9,
+      "against": "ccs-pension-rule-82",
+      "verdict": "keep"
+    },
+    "ccs-pension-q-023": {
+      "maxScore": 71.6,
+      "against": "ccs-pension-rule-40",
+      "verdict": "keep"
+    },
+    "ccs-pension-q-024": {
+      "maxScore": 88.5,
+      "against": "ccs-pension-cloze-46-definedterm",
+      "verdict": "keep"
+    },
+    "ccs-pension-q-025": {
+      "maxScore": 74.7,
+      "against": "ccs-pension-q-007",
+      "verdict": "keep"
+    },
+    "ccs-pension-q-026": {
+      "maxScore": 76.1,
+      "against": "ccs-pension-q-007",
+      "verdict": "keep"
+    },
+    "ccs-pension-q-027": {
+      "maxScore": 74.5,
+      "against": "ccs-pension-q-025",
+      "verdict": "keep"
+    },
+    "ccs-pension-q-028": {
+      "maxScore": 65.8,
+      "against": "ccs-pension-rule-31",
+      "verdict": "keep"
+    },
+    "ccs-pension-q-029": {
+      "maxScore": 75.1,
+      "against": "ccs-pension-q-023",
+      "verdict": "keep"
+    },
+    "ccs-pension-q-030": {
+      "maxScore": 66.7,
+      "against": "ccs-pension-rule-39",
+      "verdict": "keep"
+    }
+  }
+}

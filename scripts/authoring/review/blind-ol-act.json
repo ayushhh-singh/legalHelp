@@ -1,0 +1,48 @@
+{
+  "_note": "STAGE C · BLIND VERIFY. Answers produced from the worksheet printed by `qa_pipeline.py blind ol-act`, which shows each question, its options and the rule text it is grounded in, and hides the stored key. `answered` is the option index chosen; make_cards.py compares it with the stored key and a mismatch rejects the question outright, because a mismatch means either the stem is ambiguous or the key is wrong. Indices here are the AUTHORED order, before make_cards.py rotates the options.",
+  "ol-act-q-001": {
+    "answered": 1
+  },
+  "ol-act-q-002": {
+    "answered": 0
+  },
+  "ol-act-q-003": {
+    "answered": 2
+  },
+  "ol-act-q-004": {
+    "answered": 0
+  },
+  "ol-act-q-005": {
+    "answered": 1
+  },
+  "ol-act-q-006": {
+    "answered": 0
+  },
+  "ol-act-q-007": {
+    "answered": 3
+  },
+  "ol-act-q-008": {
+    "answered": 3
+  },
+  "ol-act-q-009": {
+    "answered": 1
+  },
+  "ol-act-q-010": {
+    "answered": 2
+  },
+  "ol-act-q-011": {
+    "answered": 0
+  },
+  "ol-act-q-012": {
+    "answered": 0
+  },
+  "ol-act-q-013": {
+    "answered": 1
+  },
+  "ol-act-q-014": {
+    "answered": 2
+  },
+  "ol-act-q-015": {
+    "answered": 3
+  }
+}

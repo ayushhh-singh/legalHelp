@@ -11,15 +11,15 @@
     },
     "law-bns": {
       "version": "1.0.0",
-      "updated": "2026-08-28",
+      "updated": "2026-08-29",
       "label": {
         "en": "BNS ↔ IPC mapping",
         "hi": "BNS ↔ IPC तत्संगत तालिका"
       },
       "rows": 358,
       "mappings": 534,
-      "sha256": "13beb7288525cb87d9560b0f163ce62cf400f8f04de0ae805e8523741c9d5051",
-      "fetchedAt": "2026-08-28T06:09:46Z",
+      "sha256": "794b7f1a322f539c6cdc3d9ff9bfe284a3499356a417cdc5929561109b663c0c",
+      "fetchedAt": "2026-08-29T06:02:59Z",
       "parsePath": "inline-html",
       "source": {
         "name": "NCRB Sankalan",
@@ -28,15 +28,15 @@
     },
     "law-bnss": {
       "version": "1.0.0",
-      "updated": "2026-08-28",
+      "updated": "2026-08-29",
       "label": {
         "en": "BNSS ↔ CrPC mapping",
         "hi": "BNSS ↔ CrPC तत्संगत तालिका"
       },
       "rows": 531,
       "mappings": 568,
-      "sha256": "9cfed9a043ad80ac7eb96b41bc0b2fbebc70c101548ab9b32fa568ecc956904f",
-      "fetchedAt": "2026-08-28T06:09:46Z",
+      "sha256": "1937d966c458fc159bd1d9ab831829e722e4293f4fec4ae67659e5d5654c8e45",
+      "fetchedAt": "2026-08-29T05:56:16Z",
       "parsePath": "inline-html",
       "source": {
         "name": "NCRB Sankalan",
@@ -45,15 +45,15 @@
     },
     "law-bsa": {
       "version": "1.0.0",
-      "updated": "2026-08-28",
+      "updated": "2026-08-29",
       "label": {
         "en": "BSA ↔ IEA mapping",
         "hi": "BSA ↔ IEA तत्संगत तालिका"
       },
       "rows": 170,
       "mappings": 180,
-      "sha256": "6d2dbd42bbe25eef29bb2b0e4b8c29dc8924435f67ccde2cef1a27242c2d7445",
-      "fetchedAt": "2026-08-28T06:09:46Z",
+      "sha256": "559855728f6795ba7cf23f160a21e7ca539c634ad4334f5ac63979c2a77b92fa",
+      "fetchedAt": "2026-08-29T05:56:16Z",
       "parsePath": "inline-html",
       "source": {
         "name": "NCRB Sankalan",

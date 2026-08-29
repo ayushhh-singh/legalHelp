@@ -1,7 +1,7 @@
 {
   "$schema": "../../../schemas/rules-cards.schema.json",
   "version": "1.0.0",
-  "generatedAt": "2026-08-28",
+  "generatedAt": "2026-08-29",
   "act": {
     "id": "osa",
     "name": {
@@ -2410,6 +2410,1995 @@
         "url": "https://www.mha.gov.in/sites/default/files/Official_Secret_Act1923_2.pdf"
       },
       "reviewNote": "Same sentence as osa-cloze-13-crossreference, blanked on the other half. Approving both looked like covering two halves of the test; the duplicate-front check in tests/rules-data.test.ts scored the pair at 93.1 and it is right — a reader meeting them in one session reads them as one card asked twice."
+    },
+    {
+      "id": "osa-q-001",
+      "rule": "1",
+      "kind": "trueFalse",
+      "front": {
+        "en": "The Official Secrets Act, 1923 extends to the whole of India and applies also to servants of the Government and to citizens of India outside India.",
+        "hi": "शासकीय गुप्त बात अधिनियम, 1923 का विस्तार सम्पूर्ण भारत पर है और यह भारत से बाहर सरकार के सेवकों तथा भारत के नागरिकों पर भी लागू होता है।"
+      },
+      "back": {
+        "en": "True.",
+        "hi": "सत्य।"
+      },
+      "options": [
+        {
+          "en": "True",
+          "hi": "सत्य"
+        },
+        {
+          "en": "False",
+          "hi": "असत्य"
+        }
+      ],
+      "answerIndex": 0,
+      "explanation": {
+        "en": "Section 1(2) states the Act extends to the whole of India and applies also to servants of the Government and to citizens of India outside India — its reach is not confined to Indian territory.",
+        "hi": "धारा 1(2) के अनुसार इस अधिनियम का विस्तार सम्पूर्ण भारत पर है और यह भारत के बाहर सरकार के सेवकों तथा भारत के नागरिकों पर भी लागू होता है — इसकी पहुँच भारतीय राज्यक्षेत्र तक सीमित नहीं है।"
+      },
+      "ruleRef": {
+        "textId": "osa-1",
+        "citation": {
+          "en": "Section 1, Official Secrets Act, 1923",
+          "hi": "धारा 1, शासकीय गुप्त बात अधिनियम, 1923"
+        }
+      },
+      "difficulty": "easy",
+      "act": "osa",
+      "version": "1.0.0",
+      "source": {
+        "name": "Ministry of Home Affairs — The Official Secrets Act, 1923",
+        "url": "https://www.mha.gov.in/sites/default/files/Official_Secret_Act1923_2.pdf"
+      },
+      "verify": true,
+      "tags": [
+        "authored",
+        "truefalse"
+      ],
+      "reviewed": true,
+      "reviewState": "approved",
+      "generationMeta": {
+        "promptVersion": "rules-qa/1",
+        "batchId": "2026-08-29-osa-A",
+        "stageA": {
+          "index": 1,
+          "angle": "Section 1(2) — extraterritorial reach to Government servants and citizens"
+        },
+        "critic": {
+          "verdict": "approve",
+          "reason": "One correct answer (True), grounded in Section 1(2); the extraterritorial/servants-and-citizens-abroad scope is a genuine, non-obvious fact about the Act's reach, not an invented one."
+        },
+        "blindVerify": {
+          "answered": 0,
+          "matched": true
+        },
+        "dedup": {
+          "maxScore": 49.7,
+          "against": "osa-rule-1",
+          "verdict": "keep"
+        },
+        "groundingRuleIds": [
+          "osa-1"
+        ]
+      }
+    },
+    {
+      "id": "osa-q-002",
+      "rule": "2",
+      "kind": "mcq",
+      "front": {
+        "en": "Under Section 2(8) of the Official Secrets Act, 1923, which of the following is a 'prohibited place' for the purposes of the Act?",
+        "hi": "शासकीय गुप्त बात अधिनियम, 1923 की धारा 2(8) के अधीन, निम्नलिखित में से क्या इस अधिनियम के प्रयोजनों के लिए 'प्रतिषिद्ध स्थान' है?"
+      },
+      "back": {
+        "en": "Any work of defence, arsenal, or naval, military or air force establishment, or a place used for building, repairing, making or storing munitions of war.",
+        "hi": "कोई रक्षा-कार्य, शस्त्रागार, अथवा नौसेना, सेना या वायुसेना की स्थापना, अथवा युद्ध-सामग्री के निर्माण, मरम्मत, बनाने या भंडारण के लिए प्रयुक्त कोई स्थान।"
+      },
+      "options": [
+        {
+          "en": "Any work of defence, arsenal, or naval, military or air force establishment, or a place used for building, repairing, making or storing munitions of war",
+          "hi": "कोई रक्षा-कार्य, शस्त्रागार, अथवा नौसेना, सेना या वायुसेना की स्थापना, अथवा युद्ध-सामग्री के निर्माण, मरम्मत, बनाने या भंडारण के लिए प्रयुक्त कोई स्थान"
+        },
+        {
+          "en": "Any private residence, regardless of its use",
+          "hi": "कोई भी निजी आवास, चाहे उसका उपयोग कुछ भी हो"
+        },
+        {
+          "en": "Any place open to the public without restriction",
+          "hi": "कोई भी ऐसा स्थान जो बिना किसी निर्बंधन के जनता के लिए खुला हो"
+        },
+        {
+          "en": "Any commercial office not connected with Government",
+          "hi": "सरकार से असंबद्ध कोई भी वाणिज्यिक कार्यालय"
+        }
+      ],
+      "answerIndex": 0,
+      "explanation": {
+        "en": "Section 2(8)(a) defines 'prohibited place' to include defence works, arsenals and naval/military/air force establishments, and places used for building, repairing, making or storing munitions of war, among other categories in clauses (b) to (d).",
+        "hi": "धारा 2(8)(क) 'प्रतिषिद्ध स्थान' में रक्षा-कार्य, शस्त्रागार तथा नौसेना/सेना/वायुसेना की स्थापनाओं, और युद्ध-सामग्री के निर्माण, मरम्मत, बनाने या भंडारण हेतु प्रयुक्त स्थानों को सम्मिलित करता है, तथा खंड (ख) से (घ) में अन्य श्रेणियाँ भी हैं।"
+      },
+      "ruleRef": {
+        "textId": "osa-2",
+        "citation": {
+          "en": "Section 2, Official Secrets Act, 1923",
+          "hi": "धारा 2, शासकीय गुप्त बात अधिनियम, 1923"
+        }
+      },
+      "difficulty": "medium",
+      "act": "osa",
+      "version": "1.0.0",
+      "source": {
+        "name": "Ministry of Home Affairs — The Official Secrets Act, 1923",
+        "url": "https://www.mha.gov.in/sites/default/files/Official_Secret_Act1923_2.pdf"
+      },
+      "verify": true,
+      "tags": [
+        "authored",
+        "mcq"
+      ],
+      "reviewed": true,
+      "reviewState": "approved",
+      "generationMeta": {
+        "promptVersion": "rules-qa/1",
+        "batchId": "2026-08-29-osa-A",
+        "stageA": {
+          "index": 2,
+          "angle": "Section 2(8)(a) — the core definition of 'prohibited place'"
+        },
+        "critic": {
+          "verdict": "approve",
+          "reason": "One correct answer, grounded in Section 2(8)(a); distractors (private residence, unrestricted public place, unconnected commercial office) are plausible everyday readings of 'prohibited place' that the definition specifically excludes."
+        },
+        "blindVerify": {
+          "answered": 0,
+          "matched": true
+        },
+        "dedup": {
+          "maxScore": 51.7,
+          "against": "osa-q-001",
+          "verdict": "keep"
+        },
+        "groundingRuleIds": [
+          "osa-2"
+        ]
+      }
+    },
+    {
+      "id": "osa-q-003",
+      "rule": "2",
+      "kind": "mcq",
+      "front": {
+        "en": "Which of the following correctly states two of the definitions in Section 2 of the Official Secrets Act, 1923?",
+        "hi": "शासकीय गुप्त बात अधिनियम, 1923 की धारा 2 की दो परिभाषाओं में से कौन-सा कथन सही है?"
+      },
+      "back": {
+        "en": "'Document' includes part of a document, and 'sketch' includes any photograph or other mode of representing any place or thing.",
+        "hi": "'दस्तावेज़' में किसी दस्तावेज़ का भाग सम्मिलित है, तथा 'रेखाचित्र' में किसी स्थान या वस्तु को निरूपित करने की कोई फोटोग्राफ या अन्य रीति सम्मिलित है।"
+      },
+      "options": [
+        {
+          "en": "'Document' excludes part of a document, and 'sketch' excludes photographs",
+          "hi": "'दस्तावेज़' में दस्तावेज़ के भाग को अपवर्जित किया गया है, तथा 'रेखाचित्र' में फोटोग्राफ अपवर्जित है"
+        },
+        {
+          "en": "'Model' excludes design, pattern and specimen",
+          "hi": "'प्रतिरूप' में अभिकल्प, प्रतिमान और नमूना अपवर्जित है"
+        },
+        {
+          "en": "'Document' includes part of a document, and 'sketch' includes any photograph or other mode of representing any place or thing",
+          "hi": "'दस्तावेज़' में किसी दस्तावेज़ का भाग सम्मिलित है, तथा 'रेखाचित्र' में किसी स्थान या वस्तु को निरूपित करने की कोई फोटोग्राफ या अन्य रीति सम्मिलित है"
+        },
+        {
+          "en": "'Photograph' excludes an undeveloped film or plate",
+          "hi": "'फोटोग्राफ' में अविकसित फिल्म या प्लेट अपवर्जित है"
+        }
+      ],
+      "answerIndex": 2,
+      "explanation": {
+        "en": "Section 2(3) and 2(9) give both definitions their widest sense: 'document' includes part of a document, and 'sketch' includes any photograph or other mode of representing a place or thing. Section 2(4) and 2(7) are similarly inclusive for 'model' and 'photograph'.",
+        "hi": "धारा 2(3) और 2(9) दोनों परिभाषाओं को व्यापकतम अर्थ देती हैं: 'दस्तावेज़' में दस्तावेज़ का भाग सम्मिलित है, तथा 'रेखाचित्र' में किसी स्थान या वस्तु को निरूपित करने की कोई फोटोग्राफ या अन्य रीति सम्मिलित है। धारा 2(4) और 2(7) भी 'प्रतिरूप' और 'फोटोग्राफ' के लिए इसी प्रकार समावेशी हैं।"
+      },
+      "ruleRef": {
+        "textId": "osa-2",
+        "citation": {
+          "en": "Section 2, Official Secrets Act, 1923",
+          "hi": "धारा 2, शासकीय गुप्त बात अधिनियम, 1923"
+        }
+      },
+      "difficulty": "easy",
+      "act": "osa",
+      "version": "1.0.0",
+      "source": {
+        "name": "Ministry of Home Affairs — The Official Secrets Act, 1923",
+        "url": "https://www.mha.gov.in/sites/default/files/Official_Secret_Act1923_2.pdf"
+      },
+      "verify": true,
+      "tags": [
+        "authored",
+        "mcq"
+      ],
+      "reviewed": true,
+      "reviewState": "approved",
+      "generationMeta": {
+        "promptVersion": "rules-qa/1",
+        "batchId": "2026-08-29-osa-A",
+        "stageA": {
+          "index": 3,
+          "angle": "Sections 2(3)/2(9) — 'document' and 'sketch' defined inclusively"
+        },
+        "critic": {
+          "verdict": "approve",
+          "reason": "One correct answer, grounded in Sections 2(3) and 2(9); each distractor is a real neighbouring definition (2(3), 2(4), 2(7)) with its inclusive sense flipped to an exclusive one, which is a plausible-but-wrong trap rather than a fabricated option."
+        },
+        "blindVerify": {
+          "answered": 2,
+          "matched": true
+        },
+        "dedup": {
+          "maxScore": 66.7,
+          "against": "osa-q-002",
+          "verdict": "keep"
+        },
+        "groundingRuleIds": [
+          "osa-2"
+        ]
+      }
+    },
+    {
+      "id": "osa-q-004",
+      "rule": "3",
+      "kind": "mcq",
+      "front": {
+        "en": "Under Section 3(1) of the Official Secrets Act, 1923, what is the maximum term of imprisonment for a spying offence that is NOT connected with a work of defence, naval/military/air force affairs, or a secret official code?",
+        "hi": "शासकीय गुप्त बात अधिनियम, 1923 की धारा 3(1) के अधीन, ऐसे जासूसी अपराध के लिए, जो किसी रक्षा-कार्य, नौसेना/सेना/वायुसेना के मामलों अथवा किसी गुप्त शासकीय कूट से संबंधित नहीं है, कारावास की अधिकतम अवधि क्या है?"
+      },
+      "back": {
+        "en": "Three years.",
+        "hi": "तीन वर्ष।"
+      },
+      "options": [
+        {
+          "en": "Imprisonment for life",
+          "hi": "आजीवन कारावास"
+        },
+        {
+          "en": "Fourteen years",
+          "hi": "चौदह वर्ष"
+        },
+        {
+          "en": "Three years",
+          "hi": "तीन वर्ष"
+        },
+        {
+          "en": "Five years",
+          "hi": "पाँच वर्ष"
+        }
+      ],
+      "answerIndex": 2,
+      "explanation": {
+        "en": "Section 3(1) sets fourteen years where the offence is committed in relation to a work of defence, arsenal, naval/military/air force establishment or affairs, or a secret official code, and three years in any other case.",
+        "hi": "धारा 3(1) रक्षा-कार्य, शस्त्रागार, नौसेना/सेना/वायुसेना की स्थापना या मामलों, अथवा गुप्त शासकीय कूट से संबंधित अपराध के लिए चौदह वर्ष, तथा अन्य किसी मामले में तीन वर्ष की अवधि निर्धारित करती है।"
+      },
+      "ruleRef": {
+        "textId": "osa-3",
+        "citation": {
+          "en": "Section 3, Official Secrets Act, 1923",
+          "hi": "धारा 3, शासकीय गुप्त बात अधिनियम, 1923"
+        }
+      },
+      "difficulty": "medium",
+      "act": "osa",
+      "version": "1.0.0",
+      "source": {
+        "name": "Ministry of Home Affairs — The Official Secrets Act, 1923",
+        "url": "https://www.mha.gov.in/sites/default/files/Official_Secret_Act1923_2.pdf"
+      },
+      "verify": true,
+      "tags": [
+        "authored",
+        "mcq"
+      ],
+      "reviewed": true,
+      "reviewState": "approved",
+      "generationMeta": {
+        "promptVersion": "rules-qa/1",
+        "batchId": "2026-08-29-osa-A",
+        "stageA": {
+          "index": 4,
+          "angle": "Section 3(1) — the fourteen-year and three-year bands"
+        },
+        "critic": {
+          "verdict": "approve",
+          "reason": "One correct answer (three years), grounded in Section 3(1); fourteen years is the real figure for the other limb of the same sub-section, five years is Section 5's figure borrowed as a plausible distractor, and life imprisonment is a real (but inapplicable) band elsewhere in the Act."
+        },
+        "blindVerify": {
+          "answered": 1,
+          "matched": true
+        },
+        "dedup": {
+          "maxScore": 67.9,
+          "against": "osa-q-002",
+          "verdict": "keep"
+        },
+        "groundingRuleIds": [
+          "osa-3"
+        ]
+      }
+    },
+    {
+      "id": "osa-q-005",
+      "rule": "3",
+      "kind": "scenario",
+      "front": {
+        "en": "A person, for a purpose prejudicial to the safety of the State, is found loitering in the vicinity of a naval dockyard used for storing munitions of war — a 'prohibited place' under Section 2(8)(a). He has not yet made any sketch or obtained any document. Under Section 3(1)(a) of the Official Secrets Act, 1923, is he liable, and what is the maximum sentence?",
+        "hi": "कोई व्यक्ति, राज्य की सुरक्षा के प्रतिकूल किसी प्रयोजन से, युद्ध-सामग्री के भंडारण हेतु प्रयुक्त एक नौसेना गोदी के — जो धारा 2(8)(क) के अधीन 'प्रतिषिद्ध स्थान' है — निकटवर्ती क्षेत्र में मंडराता हुआ पाया जाता है। उसने अभी तक कोई रेखाचित्र नहीं बनाया है और न ही कोई दस्तावेज़ प्राप्त किया है। शासकीय गुप्त बात अधिनियम, 1923 की धारा 3(1)(क) के अधीन क्या वह दायी है, और अधिकतम दंड क्या है?"
+      },
+      "back": {
+        "en": "Yes — merely approaching, inspecting, passing over, being in the vicinity of, or entering a prohibited place for a prejudicial purpose is itself an offence under Section 3(1)(a); since it relates to a naval establishment, imprisonment may extend to fourteen years.",
+        "hi": "हाँ — किसी प्रतिषिद्ध स्थान के निकट होना, उसका निरीक्षण करना, उसके ऊपर से गुजरना अथवा उसमें प्रवेश करना, प्रतिकूल प्रयोजन से किया गया हो तो धारा 3(1)(क) के अधीन स्वयं में अपराध है; चूँकि यह नौसेना की स्थापना से संबंधित है, कारावास चौदह वर्ष तक बढ़ाया जा सकता है।"
+      },
+      "options": [
+        {
+          "en": "Yes, but since no sketch or document was made, the maximum sentence is only one year",
+          "hi": "हाँ, किंतु चूँकि कोई रेखाचित्र या दस्तावेज़ नहीं बनाया गया, अधिकतम दंड केवल एक वर्ष है"
+        },
+        {
+          "en": "No — the Act applies only to Government servants, and nothing suggests he holds Government office",
+          "hi": "नहीं — यह अधिनियम केवल सरकारी सेवकों पर लागू होता है, और कुछ भी यह संकेत नहीं करता कि वह सरकारी पद धारण करता है"
+        },
+        {
+          "en": "No — liability arises only once a sketch, plan or document is actually made or obtained",
+          "hi": "नहीं — दायित्व तभी उत्पन्न होता है जब वास्तव में कोई रेखाचित्र, योजना या दस्तावेज़ बनाया या प्राप्त किया जाए"
+        },
+        {
+          "en": "Yes — mere presence in the vicinity of a prohibited place for a prejudicial purpose is itself an offence, and since it relates to a naval establishment the sentence may extend to fourteen years",
+          "hi": "हाँ — किसी प्रतिषिद्ध स्थान के निकटवर्ती क्षेत्र में प्रतिकूल प्रयोजन से मात्र उपस्थित होना ही स्वयं में अपराध है, और चूँकि यह नौसेना की स्थापना से संबंधित है, दंड चौदह वर्ष तक बढ़ाया जा सकता है"
+        }
+      ],
+      "answerIndex": 3,
+      "explanation": {
+        "en": "Section 3(1)(a) makes approaching, inspecting, passing over, being in the vicinity of, or entering a prohibited place — for a purpose prejudicial to the safety or interests of the State — an offence on its own; no sketch or document need be made. Because the place is a naval establishment, the punishment band under Section 3(1) can extend to fourteen years. The Act binds 'any person', not only Government servants.",
+        "hi": "धारा 3(1)(क) किसी प्रतिषिद्ध स्थान के निकट होने, उसका निरीक्षण करने, उसके ऊपर से गुजरने अथवा उसमें प्रवेश करने को — यदि यह राज्य की सुरक्षा या हितों के प्रतिकूल प्रयोजन से किया गया हो — स्वयं में अपराध बनाती है; कोई रेखाचित्र या दस्तावेज़ बनाया जाना आवश्यक नहीं है। चूँकि स्थान नौसेना की स्थापना है, धारा 3(1) के अधीन दंड चौदह वर्ष तक बढ़ाया जा सकता है। यह अधिनियम 'किसी भी व्यक्ति' को बाध्य करता है, केवल सरकारी सेवकों को नहीं।"
+      },
+      "ruleRef": {
+        "textId": "osa-3",
+        "citation": {
+          "en": "Section 3, Official Secrets Act, 1923",
+          "hi": "धारा 3, शासकीय गुप्त बात अधिनियम, 1923"
+        }
+      },
+      "difficulty": "hard",
+      "act": "osa",
+      "version": "1.0.0",
+      "source": {
+        "name": "Ministry of Home Affairs — The Official Secrets Act, 1923",
+        "url": "https://www.mha.gov.in/sites/default/files/Official_Secret_Act1923_2.pdf"
+      },
+      "verify": true,
+      "tags": [
+        "authored",
+        "scenario"
+      ],
+      "reviewed": true,
+      "reviewState": "approved",
+      "generationMeta": {
+        "promptVersion": "rules-qa/1",
+        "batchId": "2026-08-29-osa-A",
+        "stageA": {
+          "index": 5,
+          "angle": "Section 3(1)(a) — mere approach/vicinity to a prohibited place suffices"
+        },
+        "critic": {
+          "verdict": "approve",
+          "reason": "One correct answer, correctly grounded in Section 3(1)(a) read with the 2(8)(a) 'prohibited place' definition (a naval munitions store qualifies); the mere-vicinity offence and the fourteen-year band for naval-related places both match the text, and the option ruling out a Government-servant restriction correctly reflects that Section 3 binds 'any person'."
+        },
+        "blindVerify": {
+          "answered": 1,
+          "matched": true
+        },
+        "dedup": {
+          "maxScore": 81.3,
+          "against": "osa-q-002",
+          "verdict": "keep"
+        },
+        "groundingRuleIds": [
+          "osa-3",
+          "osa-2"
+        ]
+      }
+    },
+    {
+      "id": "osa-q-006",
+      "rule": "3",
+      "kind": "mcq",
+      "front": {
+        "en": "Under Section 3(2) of the Official Secrets Act, 1923, what must the prosecution show to secure a conviction for spying?",
+        "hi": "शासकीय गुप्त बात अधिनियम, 1923 की धारा 3(2) के अधीन, जासूसी के लिए दोषसिद्धि हेतु अभियोजन को क्या दर्शाना आवश्यक है?"
+      },
+      "back": {
+        "en": "It need not show any particular prejudicial act; a prejudicial purpose may be inferred from the circumstances of the case, the accused's conduct, or his known character.",
+        "hi": "उसे किसी विशिष्ट प्रतिकूल कार्य को दर्शाना आवश्यक नहीं है; मामले की परिस्थितियों, अभियुक्त के आचरण अथवा उसके ज्ञात चरित्र से प्रतिकूल प्रयोजन का अनुमान लगाया जा सकता है।"
+      },
+      "options": [
+        {
+          "en": "Only that the accused was a serving Government servant at the relevant time",
+          "hi": "केवल यह कि अभियुक्त सुसंगत समय पर सेवारत सरकारी सेवक था"
+        },
+        {
+          "en": "That the accused committed a specific act tending to show a prejudicial purpose, proved beyond reasonable doubt",
+          "hi": "यह कि अभियुक्त ने प्रतिकूल प्रयोजन दर्शाने वाला कोई विशिष्ट कार्य किया, जो युक्तियुक्त संदेह से परे सिद्ध हो"
+        },
+        {
+          "en": "Nothing at all — Section 3(2) makes the offence one of absolute liability with no proof required",
+          "hi": "कुछ भी नहीं — धारा 3(2) अपराध को पूर्ण दायित्व का बना देती है जिसमें कोई प्रमाण आवश्यक नहीं"
+        },
+        {
+          "en": "That a prejudicial purpose may be inferred from the circumstances of the case, the accused's conduct, or his known character, without proving a particular act",
+          "hi": "यह कि मामले की परिस्थितियों, अभियुक्त के आचरण अथवा उसके ज्ञात चरित्र से, किसी विशिष्ट कार्य को सिद्ध किए बिना, प्रतिकूल प्रयोजन का अनुमान लगाया जा सकता है"
+        }
+      ],
+      "answerIndex": 3,
+      "explanation": {
+        "en": "Section 3(2) dispenses with the need to prove a particular act tending to show a prejudicial purpose; it may appear from the circumstances, conduct or known character of the accused, and a presumption of prejudicial purpose then attaches to any sketch, plan, document, information, code or password made, obtained or communicated in relation to a prohibited place.",
+        "hi": "धारा 3(2) प्रतिकूल प्रयोजन दर्शाने वाले किसी विशिष्ट कार्य को सिद्ध करने की आवश्यकता को समाप्त करती है; यह मामले की परिस्थितियों, आचरण अथवा अभियुक्त के ज्ञात चरित्र से प्रकट हो सकता है, और तब किसी प्रतिषिद्ध स्थान से संबंधित बनाए, प्राप्त या संसूचित किए गए रेखाचित्र, योजना, दस्तावेज़, सूचना, कूट या पहचान-शब्द पर प्रतिकूल प्रयोजन की उपधारणा लागू होती है।"
+      },
+      "ruleRef": {
+        "textId": "osa-3",
+        "citation": {
+          "en": "Section 3, Official Secrets Act, 1923",
+          "hi": "धारा 3, शासकीय गुप्त बात अधिनियम, 1923"
+        }
+      },
+      "difficulty": "hard",
+      "act": "osa",
+      "version": "1.0.0",
+      "source": {
+        "name": "Ministry of Home Affairs — The Official Secrets Act, 1923",
+        "url": "https://www.mha.gov.in/sites/default/files/Official_Secret_Act1923_2.pdf"
+      },
+      "verify": true,
+      "tags": [
+        "authored",
+        "mcq"
+      ],
+      "reviewed": true,
+      "reviewState": "approved",
+      "generationMeta": {
+        "promptVersion": "rules-qa/1",
+        "batchId": "2026-08-29-osa-A",
+        "stageA": {
+          "index": 6,
+          "angle": "Section 3(2) — the reversed/relaxed burden and the presumption"
+        },
+        "critic": {
+          "verdict": "approve",
+          "reason": "One correct answer, grounded in Section 3(2)'s relaxed-proof/presumption mechanism; 'absolute liability with no proof required' and 'only serving-Government-servant status' are plausible overreaches of the real relaxed-burden rule, not accurate restatements."
+        },
+        "blindVerify": {
+          "answered": 2,
+          "matched": true
+        },
+        "dedup": {
+          "maxScore": 70.1,
+          "against": "osa-q-005",
+          "verdict": "keep"
+        },
+        "groundingRuleIds": [
+          "osa-3"
+        ]
+      }
+    },
+    {
+      "id": "osa-q-007",
+      "rule": "4",
+      "kind": "mcq",
+      "front": {
+        "en": "Under Section 4(2)(a) of the Official Secrets Act, 1923, a person may be presumed to have been in communication with a foreign agent if which of the following is shown?",
+        "hi": "शासकीय गुप्त बात अधिनियम, 1923 की धारा 4(2)(क) के अधीन, यदि निम्नलिखित में से क्या दर्शाया जाए तो व्यक्ति को विदेशी अभिकर्ता से संसूचना में होने का उपधारित किया जा सकता है?"
+      },
+      "back": {
+        "en": "He has visited the address of, or consorted or associated with, a foreign agent, or the foreign agent's name, address or other information has been found in his possession or obtained by him from another person.",
+        "hi": "उसने किसी विदेशी अभिकर्ता के पते पर भ्रमण किया हो अथवा उससे संगति या साहचर्य किया हो, या विदेशी अभिकर्ता का नाम, पता अथवा अन्य सूचना उसके कब्जे में पाई गई हो या उसने किसी अन्य व्यक्ति से प्राप्त की हो।"
+      },
+      "options": [
+        {
+          "en": "He has, at any time, corresponded with a relative living abroad",
+          "hi": "उसने कभी भी विदेश में रहने वाले किसी संबंधी से पत्राचार किया हो"
+        },
+        {
+          "en": "He has visited the address of, or consorted or associated with, a foreign agent, or the agent's name, address or other information has been found in his possession or obtained from another person",
+          "hi": "उसने किसी विदेशी अभिकर्ता के पते पर भ्रमण किया हो अथवा उससे संगति या साहचर्य किया हो, या अभिकर्ता का नाम, पता अथवा अन्य सूचना उसके कब्जे में पाई गई हो या किसी अन्य व्यक्ति से प्राप्त की हो"
+        },
+        {
+          "en": "He holds a passport valid for travel to a country other than India",
+          "hi": "उसके पास भारत के अतिरिक्त किसी देश की यात्रा हेतु वैध पासपोर्ट हो"
+        },
+        {
+          "en": "He is fluent in a foreign language",
+          "hi": "वह किसी विदेशी भाषा में प्रवीण हो"
+        }
+      ],
+      "answerIndex": 1,
+      "explanation": {
+        "en": "Section 4(2)(a) lists two grounds for the presumption: visiting the address of, or consorting/associating with, a foreign agent; or having the agent's name, address or other information in one's possession or obtained from another person. Foreign travel documents or language skill are not, by themselves, a ground under this section.",
+        "hi": "धारा 4(2)(क) उपधारणा के दो आधार गिनाती है: किसी विदेशी अभिकर्ता के पते पर भ्रमण करना अथवा उससे संगति या साहचर्य करना; या अभिकर्ता का नाम, पता अथवा अन्य सूचना अपने कब्जे में रखना या किसी अन्य व्यक्ति से प्राप्त करना। विदेश-यात्रा दस्तावेज़ या भाषा-प्रवीणता, स्वयं में, इस धारा के अधीन आधार नहीं हैं।"
+      },
+      "ruleRef": {
+        "textId": "osa-4",
+        "citation": {
+          "en": "Section 4, Official Secrets Act, 1923",
+          "hi": "धारा 4, शासकीय गुप्त बात अधिनियम, 1923"
+        }
+      },
+      "difficulty": "medium",
+      "act": "osa",
+      "version": "1.0.0",
+      "source": {
+        "name": "Ministry of Home Affairs — The Official Secrets Act, 1923",
+        "url": "https://www.mha.gov.in/sites/default/files/Official_Secret_Act1923_2.pdf"
+      },
+      "verify": true,
+      "tags": [
+        "authored",
+        "mcq"
+      ],
+      "reviewed": true,
+      "reviewState": "approved",
+      "generationMeta": {
+        "promptVersion": "rules-qa/1",
+        "batchId": "2026-08-29-osa-A",
+        "stageA": {
+          "index": 7,
+          "angle": "Section 4(2)(a) — the two grounds for presuming contact with a foreign agent"
+        },
+        "critic": {
+          "verdict": "approve",
+          "reason": "One correct answer, grounded in Section 4(2)(a)'s two named presumption grounds; the distractors (passport ownership, foreign-language fluency, corresponding with a relative abroad) are the kind of everyday circumstance an officer might wrongly assume triggers a presumption, and the text confirms none of them do."
+        },
+        "blindVerify": {
+          "answered": 0,
+          "matched": true
+        },
+        "dedup": {
+          "maxScore": 76.7,
+          "against": "osa-q-002",
+          "verdict": "keep"
+        },
+        "groundingRuleIds": [
+          "osa-4"
+        ]
+      }
+    },
+    {
+      "id": "osa-q-008",
+      "rule": "5",
+      "kind": "mcq",
+      "front": {
+        "en": "Under Section 5(1)(a) of the Official Secrets Act, 1923, a person who holds secret official information owing to his office commits an offence if he wilfully communicates it to anyone EXCEPT —",
+        "hi": "शासकीय गुप्त बात अधिनियम, 1923 की धारा 5(1)(क) के अधीन, अपने पद के कारण गुप्त शासकीय सूचना रखने वाला व्यक्ति उसे किसी को भी जानबूझकर संसूचित करने पर अपराध करता है, सिवाय —"
+      },
+      "back": {
+        "en": "A person to whom he is authorised to communicate it, a Court of Justice, or a person to whom it is, in the interests of the State, his duty to communicate it.",
+        "hi": "उस व्यक्ति के जिसे संसूचित करने के लिए वह प्राधिकृत है, किसी न्यायालय के, अथवा उस व्यक्ति के जिसे राज्य के हित में उसका संसूचित करना उसका कर्तव्य है।"
+      },
+      "options": [
+        {
+          "en": "Any member of his own family",
+          "hi": "उसके अपने कुटुंब का कोई भी सदस्य"
+        },
+        {
+          "en": "A person to whom he is authorised to communicate it, a Court of Justice, or a person to whom it is his duty, in the interests of the State, to communicate it",
+          "hi": "उस व्यक्ति को जिसे संसूचित करने के लिए वह प्राधिकृत है, किसी न्यायालय को, अथवा उस व्यक्ति को जिसे राज्य के हित में संसूचित करना उसका कर्तव्य है"
+        },
+        {
+          "en": "Any officer senior to him in rank, regardless of authorisation",
+          "hi": "उससे वरिष्ठ श्रेणी का कोई भी अधिकारी, प्राधिकार के बिना भी"
+        },
+        {
+          "en": "A journalist, provided the communication is off the record",
+          "hi": "कोई पत्रकार, बशर्ते संसूचना अनौपचारिक हो"
+        }
+      ],
+      "answerIndex": 1,
+      "explanation": {
+        "en": "Section 5(1)(a) is not a blanket bar on all communication — it exempts a person the officer is authorised to communicate to, a Court of Justice, and a person to whom it is his duty in the interests of the State to communicate it. Seniority, family, or an off-the-record understanding with a journalist do not, by themselves, satisfy any of these.",
+        "hi": "धारा 5(1)(क) समस्त संसूचना पर सर्वथा प्रतिषेध नहीं है — यह उस व्यक्ति को अपवर्जित करती है जिसे अधिकारी संसूचित करने के लिए प्राधिकृत है, किसी न्यायालय को, तथा उस व्यक्ति को जिसे राज्य के हित में संसूचित करना उसका कर्तव्य है। वरिष्ठता, कुटुंब अथवा किसी पत्रकार से अनौपचारिक समझ, स्वयं में, इनमें से किसी को भी संतुष्ट नहीं करती।"
+      },
+      "ruleRef": {
+        "textId": "osa-5",
+        "citation": {
+          "en": "Section 5, Official Secrets Act, 1923",
+          "hi": "धारा 5, शासकीय गुप्त बात अधिनियम, 1923"
+        }
+      },
+      "difficulty": "medium",
+      "act": "osa",
+      "version": "1.0.0",
+      "source": {
+        "name": "Ministry of Home Affairs — The Official Secrets Act, 1923",
+        "url": "https://www.mha.gov.in/sites/default/files/Official_Secret_Act1923_2.pdf"
+      },
+      "verify": true,
+      "tags": [
+        "authored",
+        "mcq"
+      ],
+      "reviewed": true,
+      "reviewState": "approved",
+      "generationMeta": {
+        "promptVersion": "rules-qa/1",
+        "batchId": "2026-08-29-osa-A",
+        "stageA": {
+          "index": 8,
+          "angle": "Section 5(1)(a) — the three exceptions to the communication bar"
+        },
+        "critic": {
+          "verdict": "approve",
+          "reason": "One correct answer, grounded in Section 5(1)(a)'s three exceptions to the communication bar (authorised recipient, a Court, or a person to whom communication is a State-interest duty); family, unauthorised seniority and an off-the-record journalist are all plausible but real exceptions the sub-section does not recognise."
+        },
+        "blindVerify": {
+          "answered": 1,
+          "matched": true
+        },
+        "dedup": {
+          "maxScore": 65.5,
+          "against": "osa-q-007",
+          "verdict": "keep"
+        },
+        "groundingRuleIds": [
+          "osa-5"
+        ]
+      }
+    },
+    {
+      "id": "osa-q-009",
+      "rule": "5",
+      "kind": "scenario",
+      "front": {
+        "en": "A contractor's employee comes into possession of a secret official document owing to his employer's Government contract. He has no right to retain it and is directed by lawful authority to return it, but wilfully fails to do so. Under Section 5(1)(c) of the Official Secrets Act, 1923, has he committed an offence?",
+        "hi": "किसी ठेकेदार का कर्मचारी अपने नियोक्ता के सरकारी संविदा के कारण एक गुप्त शासकीय दस्तावेज़ के कब्जे में आ जाता है। उसे उसे रखने का कोई अधिकार नहीं है और विधिपूर्ण प्राधिकार द्वारा उसे लौटाने का निदेश दिया जाता है, किंतु वह जानबूझकर ऐसा नहीं करता। शासकीय गुप्त बात अधिनियम, 1923 की धारा 5(1)(ग) के अधीन क्या उसने अपराध किया है?"
+      },
+      "back": {
+        "en": "Yes — Section 5(1)(c) makes it an offence to retain such a document when one has no right to retain it, or to wilfully fail to comply with directions issued by lawful authority regarding its return.",
+        "hi": "हाँ — धारा 5(1)(ग) ऐसे दस्तावेज़ को, जब उसे रखने का कोई अधिकार न हो, रखे रखना, अथवा उसके प्रत्यर्पण के संबंध में विधिपूर्ण प्राधिकार द्वारा जारी निदेशों का जानबूझकर अनुपालन न करना, अपराध बनाती है।"
+      },
+      "options": [
+        {
+          "en": "No — Section 5 applies only to Government servants, not to a contractor's employee",
+          "hi": "नहीं — धारा 5 केवल सरकारी सेवकों पर लागू होती है, ठेकेदार के कर्मचारी पर नहीं"
+        },
+        {
+          "en": "Yes — retaining the document without a right to do so, or wilfully failing to comply with lawful directions for its return, is an offence under Section 5(1)(c)",
+          "hi": "हाँ — बिना अधिकार के दस्तावेज़ को रखे रखना, अथवा उसके प्रत्यर्पण संबंधी विधिपूर्ण निदेशों का जानबूझकर अनुपालन न करना, धारा 5(1)(ग) के अधीन अपराध है"
+        },
+        {
+          "en": "No, provided he eventually returns the document within one year",
+          "hi": "नहीं, बशर्ते वह एक वर्ष के भीतर दस्तावेज़ लौटा दे"
+        },
+        {
+          "en": "Yes, but only if he also communicates its contents to a third person",
+          "hi": "हाँ, किंतु केवल तभी जब वह उसकी विषय-वस्तु किसी तीसरे व्यक्ति को भी संसूचित करे"
+        }
+      ],
+      "answerIndex": 1,
+      "explanation": {
+        "en": "Section 5(1) applies to a person who obtained the document 'as a person who holds or has held a contract made on behalf of Government, or as a person who is or has been employed under' such a contractor — it is not limited to Government servants. Clause (c) is a standalone ground; communication to a third party is not required for it to bite.",
+        "hi": "धारा 5(1) उस व्यक्ति पर लागू होती है जिसने दस्तावेज़ 'सरकार की ओर से की गई संविदा के धारक या रह चुके व्यक्ति के रूप में, अथवा ऐसे संविदाकार के अधीन नियोजित व्यक्ति के रूप में' प्राप्त किया हो — यह केवल सरकारी सेवकों तक सीमित नहीं है। खंड (ग) एक स्वतंत्र आधार है; इसके लागू होने के लिए किसी तीसरे व्यक्ति को संसूचना आवश्यक नहीं है।"
+      },
+      "ruleRef": {
+        "textId": "osa-5",
+        "citation": {
+          "en": "Section 5, Official Secrets Act, 1923",
+          "hi": "धारा 5, शासकीय गुप्त बात अधिनियम, 1923"
+        }
+      },
+      "difficulty": "hard",
+      "act": "osa",
+      "version": "1.0.0",
+      "source": {
+        "name": "Ministry of Home Affairs — The Official Secrets Act, 1923",
+        "url": "https://www.mha.gov.in/sites/default/files/Official_Secret_Act1923_2.pdf"
+      },
+      "verify": true,
+      "tags": [
+        "authored",
+        "scenario"
+      ],
+      "reviewed": true,
+      "reviewState": "approved",
+      "generationMeta": {
+        "promptVersion": "rules-qa/1",
+        "batchId": "2026-08-29-osa-A",
+        "stageA": {
+          "index": 9,
+          "angle": "Section 5(1)(c) — wrongful retention, and the Act's reach beyond Government servants"
+        },
+        "critic": {
+          "verdict": "approve",
+          "reason": "One correct answer, grounded in Section 5(1)(c); the option correctly extends the Act beyond Government servants to a contractor's employee (per Section 5(1)'s own preamble) and the wrong options (Government-servants-only, a one-year grace period, a third-party-communication requirement) are all real-sounding limitations the text does not impose."
+        },
+        "blindVerify": {
+          "answered": 1,
+          "matched": true
+        },
+        "dedup": {
+          "maxScore": 67.8,
+          "against": "osa-q-008",
+          "verdict": "keep"
+        },
+        "groundingRuleIds": [
+          "osa-5"
+        ]
+      }
+    },
+    {
+      "id": "osa-q-010",
+      "rule": "5",
+      "kind": "trueFalse",
+      "front": {
+        "en": "Under Section 5(4) of the Official Secrets Act, 1923, if an offence under that section is committed with intent to assist a country committing external aggression against India, the maximum punishment can extend to death or imprisonment for life.",
+        "hi": "शासकीय गुप्त बात अधिनियम, 1923 की धारा 5(4) के अधीन, यदि उस धारा के अधीन अपराध भारत के विरुद्ध बाह्य आक्रमण करने वाले किसी देश की सहायता करने के आशय से किया जाए, तो अधिकतम दंड मृत्युदंड अथवा आजीवन कारावास तक बढ़ाया जा सकता है।"
+      },
+      "back": {
+        "en": "True.",
+        "hi": "सत्य।"
+      },
+      "options": [
+        {
+          "en": "True",
+          "hi": "सत्य"
+        },
+        {
+          "en": "False",
+          "hi": "असत्य"
+        }
+      ],
+      "answerIndex": 0,
+      "explanation": {
+        "en": "Section 5(4) sets the ordinary maximum at five years' imprisonment, but raises it to death, imprisonment for life, or imprisonment up to ten years — with fine in either case — where the offence is committed with intent to assist a country committing external aggression against India or to wage war against India.",
+        "hi": "धारा 5(4) साधारण अधिकतम दंड पाँच वर्ष का कारावास रखती है, किंतु जहाँ अपराध भारत के विरुद्ध बाह्य आक्रमण करने वाले किसी देश की सहायता करने अथवा भारत के विरुद्ध युद्ध छेड़ने के आशय से किया जाए, वहाँ इसे मृत्युदंड, आजीवन कारावास अथवा दस वर्ष तक के कारावास तक बढ़ा दिया जाता है — दोनों ही स्थितियों में जुर्माने के साथ।"
+      },
+      "ruleRef": {
+        "textId": "osa-5",
+        "citation": {
+          "en": "Section 5, Official Secrets Act, 1923",
+          "hi": "धारा 5, शासकीय गुप्त बात अधिनियम, 1923"
+        }
+      },
+      "difficulty": "medium",
+      "act": "osa",
+      "version": "1.0.0",
+      "source": {
+        "name": "Ministry of Home Affairs — The Official Secrets Act, 1923",
+        "url": "https://www.mha.gov.in/sites/default/files/Official_Secret_Act1923_2.pdf"
+      },
+      "verify": true,
+      "tags": [
+        "authored",
+        "truefalse"
+      ],
+      "reviewed": true,
+      "reviewState": "approved",
+      "generationMeta": {
+        "promptVersion": "rules-qa/1",
+        "batchId": "2026-08-29-osa-A",
+        "stageA": {
+          "index": 10,
+          "angle": "Section 5(4) — the aggravated punishment band"
+        },
+        "critic": {
+          "verdict": "approve",
+          "reason": "One correct answer (True), grounded in Section 5(4)'s two-tier punishment; the statement is a true, non-exhaustive description of the aggravated band (it does not deny the ten-year alternative also present in that band) and tests a genuine escalation an officer should know."
+        },
+        "blindVerify": {
+          "answered": 0,
+          "matched": true
+        },
+        "dedup": {
+          "maxScore": 78.4,
+          "against": "osa-cloze-5-duration",
+          "verdict": "keep"
+        },
+        "groundingRuleIds": [
+          "osa-5"
+        ]
+      }
+    },
+    {
+      "id": "osa-q-011",
+      "rule": "6",
+      "kind": "mcq",
+      "front": {
+        "en": "Under Section 6(1)(a) of the Official Secrets Act, 1923, using or wearing, without lawful authority, a naval, military, air force or police uniform (or one closely resembling it) is an offence only when done for what purpose?",
+        "hi": "शासकीय गुप्त बात अधिनियम, 1923 की धारा 6(1)(क) के अधीन, बिना विधिपूर्ण प्राधिकार के किसी नौसेना, सेना, वायुसेना या पुलिस वर्दी (अथवा उससे निकटतः मिलती-जुलती वर्दी) का उपयोग या पहनना केवल किस प्रयोजन से किए जाने पर अपराध है?"
+      },
+      "back": {
+        "en": "For the purpose of gaining admission, or assisting another person to gain admission, to a prohibited place, or for any other purpose prejudicial to the safety of the State.",
+        "hi": "किसी प्रतिषिद्ध स्थान में प्रवेश पाने अथवा किसी अन्य व्यक्ति को प्रवेश पाने में सहायता करने के प्रयोजन से, अथवा राज्य की सुरक्षा के प्रतिकूल किसी अन्य प्रयोजन से।"
+      },
+      "options": [
+        {
+          "en": "Only during a declared national emergency",
+          "hi": "केवल घोषित राष्ट्रीय आपात के दौरान"
+        },
+        {
+          "en": "For any purpose at all — Section 6(1) prohibits wearing such a uniform absolutely",
+          "hi": "किसी भी प्रयोजन से — धारा 6(1) ऐसी वर्दी पहनने को पूर्णतः प्रतिषिद्ध करती है"
+        },
+        {
+          "en": "Only for the purpose of committing theft",
+          "hi": "केवल चोरी करने के प्रयोजन से"
+        },
+        {
+          "en": "For the purpose of gaining, or assisting another to gain, admission to a prohibited place, or for any other purpose prejudicial to the safety of the State",
+          "hi": "किसी प्रतिषिद्ध स्थान में प्रवेश पाने अथवा किसी अन्य व्यक्ति को प्रवेश पाने में सहायता करने के प्रयोजन से, अथवा राज्य की सुरक्षा के प्रतिकूल किसी अन्य प्रयोजन से"
+        }
+      ],
+      "answerIndex": 3,
+      "explanation": {
+        "en": "Section 6(1) opens 'for the purpose of gaining admission ... or for any other purpose prejudicial to the safety of the State' — that qualifying purpose governs every limb of the sub-section, including clause (a) on unauthorised uniforms.",
+        "hi": "धारा 6(1) 'प्रवेश पाने ... अथवा राज्य की सुरक्षा के प्रतिकूल किसी अन्य प्रयोजन से' शब्दों से आरंभ होती है — यह अर्हक प्रयोजन उपधारा के प्रत्येक अंग को, जिसमें अप्राधिकृत वर्दी संबंधी खंड (क) भी सम्मिलित है, शासित करता है।"
+      },
+      "ruleRef": {
+        "textId": "osa-6",
+        "citation": {
+          "en": "Section 6, Official Secrets Act, 1923",
+          "hi": "धारा 6, शासकीय गुप्त बात अधिनियम, 1923"
+        }
+      },
+      "difficulty": "medium",
+      "act": "osa",
+      "version": "1.0.0",
+      "source": {
+        "name": "Ministry of Home Affairs — The Official Secrets Act, 1923",
+        "url": "https://www.mha.gov.in/sites/default/files/Official_Secret_Act1923_2.pdf"
+      },
+      "verify": true,
+      "tags": [
+        "authored",
+        "mcq"
+      ],
+      "reviewed": true,
+      "reviewState": "approved",
+      "generationMeta": {
+        "promptVersion": "rules-qa/1",
+        "batchId": "2026-08-29-osa-A",
+        "stageA": {
+          "index": 11,
+          "angle": "Section 6(1) — the qualifying prejudicial purpose governing clause (a)"
+        },
+        "critic": {
+          "verdict": "approve",
+          "reason": "One correct answer, grounded in Section 6(1)'s opening qualifying clause, which correctly governs clause (a); 'absolute prohibition', 'only for theft' and 'only during an emergency' are plausible but unsupported narrowings/broadenings of the real qualifying-purpose requirement."
+        },
+        "blindVerify": {
+          "answered": 2,
+          "matched": true
+        },
+        "dedup": {
+          "maxScore": 67.9,
+          "against": "osa-q-002",
+          "verdict": "keep"
+        },
+        "groundingRuleIds": [
+          "osa-6"
+        ]
+      }
+    },
+    {
+      "id": "osa-q-012",
+      "rule": "6",
+      "kind": "scenario",
+      "front": {
+        "en": "A person forges a military identity pass in order to gain admission to a defence establishment that is a prohibited place. He is caught using the forged pass at the gate. Under Section 6 of the Official Secrets Act, 1923, what offence has he committed and what is the maximum punishment under Section 6(3)?",
+        "hi": "कोई व्यक्ति किसी प्रतिषिद्ध स्थान रूपी रक्षा-स्थापना में प्रवेश पाने के लिए एक सैनिक पहचान-पत्र कूटरचित करता है। वह द्वार पर उस कूटरचित पहचान-पत्र का उपयोग करते हुए पकड़ा जाता है। शासकीय गुप्त बात अधिनियम, 1923 की धारा 6 के अधीन उसने कौन-सा अपराध किया है और धारा 6(3) के अधीन अधिकतम दंड क्या है?"
+      },
+      "back": {
+        "en": "Forging, or knowingly using, a forged official document under Section 6(1)(c) — punishable under Section 6(3) with imprisonment up to three years, or fine, or both.",
+        "hi": "धारा 6(1)(ग) के अधीन किसी शासकीय दस्तावेज़ का कूटरचन करना अथवा जानते हुए उसका उपयोग करना — जो धारा 6(3) के अधीन तीन वर्ष तक के कारावास, या जुर्माने, या दोनों से दंडनीय है।"
+      },
+      "options": [
+        {
+          "en": "Forging or knowingly using a forged official document under Section 6(1)(c), punishable under Section 6(3) with imprisonment up to three years, or fine, or both",
+          "hi": "धारा 6(1)(ग) के अधीन किसी शासकीय दस्तावेज़ का कूटरचन करना अथवा जानते हुए उसका उपयोग करना, जो धारा 6(3) के अधीन तीन वर्ष तक के कारावास, या जुर्माने, या दोनों से दंडनीय है"
+        },
+        {
+          "en": "Spying under Section 3(1), punishable with imprisonment up to fourteen years",
+          "hi": "धारा 3(1) के अधीन जासूसी, जो चौदह वर्ष तक के कारावास से दंडनीय है"
+        },
+        {
+          "en": "No offence, since the pass was never checked by an authorised officer",
+          "hi": "कोई अपराध नहीं, क्योंकि पहचान-पत्र की जाँच किसी प्राधिकृत अधिकारी द्वारा कभी नहीं की गई"
+        },
+        {
+          "en": "An offence under Section 7, for interfering with the Armed Forces of the Union",
+          "hi": "धारा 7 के अधीन अपराध, संघ के सशस्त्र बलों के कार्य में बाधा डालने का"
+        }
+      ],
+      "answerIndex": 0,
+      "explanation": {
+        "en": "Section 6(1)(c) covers forging, altering or tampering with an official document such as a military pass, or knowingly using or possessing such a forged, altered or irregular document, when done for the purpose of gaining admission to a prohibited place. Section 6(3) caps the punishment at three years' imprisonment, or fine, or both — a materially lighter band than Section 3's spying penalties, which do not apply here since no secret information was sought.",
+        "hi": "धारा 6(1)(ग) किसी शासकीय दस्तावेज़, जैसे सैनिक पहचान-पत्र, का कूटरचन, परिवर्तन अथवा उससे छेड़छाड़ करने को, अथवा ऐसे कूटरचित, परिवर्तित या अनियमित दस्तावेज़ का जानते हुए उपयोग या कब्जा रखने को, जब यह किसी प्रतिषिद्ध स्थान में प्रवेश पाने के प्रयोजन से किया जाए, आवृत्त करती है। धारा 6(3) दंड को तीन वर्ष तक के कारावास, या जुर्माने, या दोनों तक सीमित रखती है — जो धारा 3 के जासूसी दंडों से काफी हल्का बैंड है, और यहाँ लागू नहीं होता क्योंकि कोई गुप्त सूचना नहीं माँगी गई थी।"
+      },
+      "ruleRef": {
+        "textId": "osa-6",
+        "citation": {
+          "en": "Section 6, Official Secrets Act, 1923",
+          "hi": "धारा 6, शासकीय गुप्त बात अधिनियम, 1923"
+        }
+      },
+      "difficulty": "hard",
+      "act": "osa",
+      "version": "1.0.0",
+      "source": {
+        "name": "Ministry of Home Affairs — The Official Secrets Act, 1923",
+        "url": "https://www.mha.gov.in/sites/default/files/Official_Secret_Act1923_2.pdf"
+      },
+      "verify": true,
+      "tags": [
+        "authored",
+        "scenario"
+      ],
+      "reviewed": true,
+      "reviewState": "approved",
+      "generationMeta": {
+        "promptVersion": "rules-qa/1",
+        "batchId": "2026-08-29-osa-A",
+        "stageA": {
+          "index": 12,
+          "angle": "Section 6(1)(c)/(3) — forged documents distinguished from spying under Section 3"
+        },
+        "critic": {
+          "verdict": "approve",
+          "reason": "One correct answer, grounded in Section 6(1)(c)/(3); correctly distinguishes the forgery/false-document offence (three years, fine, or both) from Section 3 spying (fourteen years) and Section 7 (interference with on-duty personnel), both of which are real but inapplicable provisions used as plausible distractors."
+        },
+        "blindVerify": {
+          "answered": 3,
+          "matched": true
+        },
+        "dedup": {
+          "maxScore": 67.1,
+          "against": "osa-q-006",
+          "verdict": "keep"
+        },
+        "groundingRuleIds": [
+          "osa-6",
+          "osa-3"
+        ]
+      }
+    },
+    {
+      "id": "osa-q-013",
+      "rule": "7",
+      "kind": "mcq",
+      "front": {
+        "en": "Under Section 7(1) of the Official Secrets Act, 1923, obstructing, misleading or interfering with which persons, in the vicinity of a prohibited place, is prohibited?",
+        "hi": "शासकीय गुप्त बात अधिनियम, 1923 की धारा 7(1) के अधीन, किसी प्रतिषिद्ध स्थान के निकटवर्ती क्षेत्र में किन व्यक्तियों में बाधा डालना, उन्हें गुमराह करना अथवा उनके कार्य में हस्तक्षेप करना प्रतिषिद्ध है?"
+      },
+      "back": {
+        "en": "A police officer, or a member of the Armed Forces of the Union, engaged on guard, sentry, patrol or other similar duty in relation to that prohibited place.",
+        "hi": "कोई पुलिस अधिकारी, अथवा संघ के सशस्त्र बलों का ऐसा सदस्य, जो उस प्रतिषिद्ध स्थान के संबंध में रक्षक, संतरी, गश्त या अन्य समरूप कर्तव्य पर नियुक्त हो।"
+      },
+      "options": [
+        {
+          "en": "Only a Superintendent of Police personally",
+          "hi": "केवल स्वयं पुलिस अधीक्षक"
+        },
+        {
+          "en": "Employees of the establishment who are off duty",
+          "hi": "स्थापना के वे कर्मचारी जो कर्तव्य पर नहीं हैं"
+        },
+        {
+          "en": "Any member of the public present near the prohibited place",
+          "hi": "प्रतिषिद्ध स्थान के निकट उपस्थित जनता का कोई भी सदस्य"
+        },
+        {
+          "en": "A police officer, or a member of the Armed Forces of the Union, engaged on guard, sentry, patrol or similar duty in relation to that place",
+          "hi": "कोई पुलिस अधिकारी, अथवा संघ के सशस्त्र बलों का ऐसा सदस्य, जो उस स्थान के संबंध में रक्षक, संतरी, गश्त या समरूप कर्तव्य पर नियुक्त हो"
+        }
+      ],
+      "answerIndex": 3,
+      "explanation": {
+        "en": "Section 7(1) is narrowly drawn: it protects a police officer or a member of the Armed Forces of the Union who is on guard, sentry, patrol or similar duty in relation to the prohibited place — not any bystander or off-duty employee.",
+        "hi": "धारा 7(1) संकीर्ण रूप से प्रारूपित है: यह उस पुलिस अधिकारी या संघ के सशस्त्र बलों के सदस्य की रक्षा करती है जो उस प्रतिषिद्ध स्थान के संबंध में रक्षक, संतरी, गश्त या समरूप कर्तव्य पर हो — न कि किसी दर्शक अथवा अवकाशरत कर्मचारी की।"
+      },
+      "ruleRef": {
+        "textId": "osa-7",
+        "citation": {
+          "en": "Section 7, Official Secrets Act, 1923",
+          "hi": "धारा 7, शासकीय गुप्त बात अधिनियम, 1923"
+        }
+      },
+      "difficulty": "medium",
+      "act": "osa",
+      "version": "1.0.0",
+      "source": {
+        "name": "Ministry of Home Affairs — The Official Secrets Act, 1923",
+        "url": "https://www.mha.gov.in/sites/default/files/Official_Secret_Act1923_2.pdf"
+      },
+      "verify": true,
+      "tags": [
+        "authored",
+        "mcq"
+      ],
+      "reviewed": true,
+      "reviewState": "approved",
+      "generationMeta": {
+        "promptVersion": "rules-qa/1",
+        "batchId": "2026-08-29-osa-A",
+        "stageA": {
+          "index": 13,
+          "angle": "Section 7(1) — who is protected: on-duty police and armed forces"
+        },
+        "critic": {
+          "verdict": "approve",
+          "reason": "One correct answer, grounded in Section 7(1); correctly scopes the protection to on-duty police/armed-forces personnel and rules out any bystander, an off-duty employee, or a named rank alone, none of which the text supports."
+        },
+        "blindVerify": {
+          "answered": 1,
+          "matched": true
+        },
+        "dedup": {
+          "maxScore": 69.4,
+          "against": "osa-q-002",
+          "verdict": "keep"
+        },
+        "groundingRuleIds": [
+          "osa-7"
+        ]
+      }
+    },
+    {
+      "id": "osa-q-014",
+      "rule": "7",
+      "kind": "trueFalse",
+      "front": {
+        "en": "Under Section 7(2) of the Official Secrets Act, 1923, contravening Section 7 is punishable with imprisonment which may extend to three years, or with fine, or with both.",
+        "hi": "शासकीय गुप्त बात अधिनियम, 1923 की धारा 7(2) के अधीन, धारा 7 का उल्लंघन तीन वर्ष तक के कारावास, या जुर्माने, या दोनों से दंडनीय है।"
+      },
+      "back": {
+        "en": "True.",
+        "hi": "सत्य।"
+      },
+      "options": [
+        {
+          "en": "False",
+          "hi": "असत्य"
+        },
+        {
+          "en": "True",
+          "hi": "सत्य"
+        }
+      ],
+      "answerIndex": 1,
+      "explanation": {
+        "en": "Section 7(2) fixes the punishment at imprisonment up to three years, or fine, or both — the same band Section 6(3) sets for the unauthorised-uniform and forgery offences.",
+        "hi": "धारा 7(2) दंड को तीन वर्ष तक के कारावास, या जुर्माने, या दोनों पर नियत करती है — वही बैंड जो धारा 6(3) अप्राधिकृत वर्दी और कूटरचन के अपराधों के लिए रखती है।"
+      },
+      "ruleRef": {
+        "textId": "osa-7",
+        "citation": {
+          "en": "Section 7, Official Secrets Act, 1923",
+          "hi": "धारा 7, शासकीय गुप्त बात अधिनियम, 1923"
+        }
+      },
+      "difficulty": "easy",
+      "act": "osa",
+      "version": "1.0.0",
+      "source": {
+        "name": "Ministry of Home Affairs — The Official Secrets Act, 1923",
+        "url": "https://www.mha.gov.in/sites/default/files/Official_Secret_Act1923_2.pdf"
+      },
+      "verify": true,
+      "tags": [
+        "authored",
+        "truefalse"
+      ],
+      "reviewed": true,
+      "reviewState": "approved",
+      "generationMeta": {
+        "promptVersion": "rules-qa/1",
+        "batchId": "2026-08-29-osa-A",
+        "stageA": {
+          "index": 14,
+          "angle": "Section 7(2) — the punishment band"
+        },
+        "critic": {
+          "verdict": "approve",
+          "reason": "One correct answer (True), grounded in Section 7(2)'s punishment figure, and unlike a self-referential or ambiguous restatement it names a specific, current, section-tied numeric fact (three years/fine/both, post-1967-amendment) an officer needs to know rather than merely echoing prose with no factual content."
+        },
+        "blindVerify": {
+          "answered": 0,
+          "matched": true
+        },
+        "dedup": {
+          "maxScore": 71.3,
+          "against": "osa-q-010",
+          "verdict": "keep"
+        },
+        "groundingRuleIds": [
+          "osa-7"
+        ]
+      }
+    },
+    {
+      "id": "osa-q-015",
+      "rule": "8",
+      "kind": "mcq",
+      "front": {
+        "en": "Under Section 8(1) of the Official Secrets Act, 1923, every person has a duty, on demand, to give information relating to a suspected Section 3 offence to whom?",
+        "hi": "शासकीय गुप्त बात अधिनियम, 1923 की धारा 8(1) के अधीन, प्रत्येक व्यक्ति का यह कर्तव्य है कि वह माँगे जाने पर धारा 3 के संदिग्ध अपराध से संबंधित सूचना किसे दे?"
+      },
+      "back": {
+        "en": "A Superintendent of Police, or a police officer not below the rank of Inspector empowered by an Inspector-General or Commissioner of Police, or a member of the Armed Forces of the Union engaged on guard, sentry, patrol or similar duty.",
+        "hi": "किसी पुलिस अधीक्षक को, अथवा किसी महानिरीक्षक या पुलिस आयुक्त द्वारा इस निमित्त सशक्त निरीक्षक की श्रेणी से अन्यून पुलिस अधिकारी को, अथवा संघ के सशस्त्र बलों के ऐसे सदस्य को जो रक्षक, संतरी, गश्त या समरूप कर्तव्य पर नियुक्त हो।"
+      },
+      "options": [
+        {
+          "en": "A Superintendent of Police, an empowered Inspector-rank police officer, or a member of the Armed Forces of the Union on guard/sentry/patrol duty",
+          "hi": "किसी पुलिस अधीक्षक को, किसी सशक्त निरीक्षक-श्रेणी के पुलिस अधिकारी को, अथवा रक्षक/संतरी/गश्त कर्तव्य पर नियुक्त संघ के सशस्त्र बलों के सदस्य को"
+        },
+        {
+          "en": "Only the Central Information Commission",
+          "hi": "केवल केंद्रीय सूचना आयोग"
+        },
+        {
+          "en": "Any Member of Parliament representing the area",
+          "hi": "उस क्षेत्र का प्रतिनिधित्व करने वाला कोई भी संसद सदस्य"
+        },
+        {
+          "en": "The editor of a newspaper of the person's choice",
+          "hi": "व्यक्ति की पसंद के किसी समाचारपत्र का संपादक"
+        }
+      ],
+      "answerIndex": 0,
+      "explanation": {
+        "en": "Section 8(1) names three recipients precisely — a Superintendent of Police, an Inspector-rank (or above) officer empowered by an IG or Commissioner of Police, and a member of the Armed Forces of the Union on the duties named. Failure to give the information, or to attend when required, is punishable under Section 8(2) with imprisonment up to three years, or fine, or both.",
+        "hi": "धारा 8(1) तीन प्राप्तकर्ताओं को यथार्थतः नामित करती है — पुलिस अधीक्षक, किसी महानिरीक्षक या पुलिस आयुक्त द्वारा सशक्त निरीक्षक-श्रेणी (या उच्चतर) का अधिकारी, तथा संघ के सशस्त्र बलों का उक्त कर्तव्यों पर नियुक्त सदस्य। सूचना न देना, अथवा अपेक्षित होने पर उपस्थित न होना, धारा 8(2) के अधीन तीन वर्ष तक के कारावास, या जुर्माने, या दोनों से दंडनीय है।"
+      },
+      "ruleRef": {
+        "textId": "osa-8",
+        "citation": {
+          "en": "Section 8, Official Secrets Act, 1923",
+          "hi": "धारा 8, शासकीय गुप्त बात अधिनियम, 1923"
+        }
+      },
+      "difficulty": "medium",
+      "act": "osa",
+      "version": "1.0.0",
+      "source": {
+        "name": "Ministry of Home Affairs — The Official Secrets Act, 1923",
+        "url": "https://www.mha.gov.in/sites/default/files/Official_Secret_Act1923_2.pdf"
+      },
+      "verify": true,
+      "tags": [
+        "authored",
+        "mcq"
+      ],
+      "reviewed": true,
+      "reviewState": "approved",
+      "generationMeta": {
+        "promptVersion": "rules-qa/1",
+        "batchId": "2026-08-29-osa-A",
+        "stageA": {
+          "index": 15,
+          "angle": "Section 8(1) — the named recipients of the duty to inform"
+        },
+        "critic": {
+          "verdict": "approve",
+          "reason": "One correct answer, grounded in Section 8(1)'s three named recipients; CIC, an MP, and a newspaper editor are plausible-sounding but real-world figures the sub-section does not name, which correctly tests that the duty runs to police/armed-forces personnel specifically, not to any public authority."
+        },
+        "blindVerify": {
+          "answered": 0,
+          "matched": true
+        },
+        "dedup": {
+          "maxScore": 71.4,
+          "against": "osa-q-008",
+          "verdict": "keep"
+        },
+        "groundingRuleIds": [
+          "osa-8"
+        ]
+      }
+    },
+    {
+      "id": "osa-q-016",
+      "rule": "9",
+      "kind": "trueFalse",
+      "front": {
+        "en": "Under Section 9 of the Official Secrets Act, 1923, a person who merely attempts to commit, or abets, an offence under the Act is liable to a lesser punishment than one who actually commits it.",
+        "hi": "शासकीय गुप्त बात अधिनियम, 1923 की धारा 9 के अधीन, इस अधिनियम के अधीन किसी अपराध का केवल प्रयत्न करने वाला अथवा उसका दुष्प्रेरण करने वाला व्यक्ति, उसे वास्तव में करने वाले व्यक्ति की तुलना में कम दंड का भागी है।"
+      },
+      "back": {
+        "en": "False.",
+        "hi": "असत्य।"
+      },
+      "options": [
+        {
+          "en": "False",
+          "hi": "असत्य"
+        },
+        {
+          "en": "True",
+          "hi": "सत्य"
+        }
+      ],
+      "answerIndex": 0,
+      "explanation": {
+        "en": "Section 9 states that a person who attempts to commit, or abets the commission of, an offence under the Act shall be punishable with the same punishment, and proceeded against in the same manner, as if he had committed the offence itself.",
+        "hi": "धारा 9 के अनुसार, इस अधिनियम के अधीन किसी अपराध का प्रयत्न करने वाला अथवा उसका दुष्प्रेरण करने वाला व्यक्ति वही दंड पाएगा, और उसके विरुद्ध वैसे ही कार्यवाही की जाएगी, मानो उसने स्वयं वह अपराध किया हो।"
+      },
+      "ruleRef": {
+        "textId": "osa-9",
+        "citation": {
+          "en": "Section 9, Official Secrets Act, 1923",
+          "hi": "धारा 9, शासकीय गुप्त बात अधिनियम, 1923"
+        }
+      },
+      "difficulty": "easy",
+      "act": "osa",
+      "version": "1.0.0",
+      "source": {
+        "name": "Ministry of Home Affairs — The Official Secrets Act, 1923",
+        "url": "https://www.mha.gov.in/sites/default/files/Official_Secret_Act1923_2.pdf"
+      },
+      "verify": true,
+      "tags": [
+        "authored",
+        "truefalse"
+      ],
+      "reviewed": true,
+      "reviewState": "approved",
+      "generationMeta": {
+        "promptVersion": "rules-qa/1",
+        "batchId": "2026-08-29-osa-A",
+        "stageA": {
+          "index": 16,
+          "angle": "Section 9 — attempt and abetment carry the same punishment"
+        },
+        "critic": {
+          "verdict": "approve",
+          "reason": "One correct answer (False), grounded in Section 9; the false premise (attempt/abetment draws a LESSER punishment) is exactly the intuitive-but-wrong assumption the section exists to correct, which is a genuinely useful trap rather than a trivial restatement."
+        },
+        "blindVerify": {
+          "answered": 1,
+          "matched": true
+        },
+        "dedup": {
+          "maxScore": 67.0,
+          "against": "osa-q-010",
+          "verdict": "keep"
+        },
+        "groundingRuleIds": [
+          "osa-9"
+        ]
+      }
+    },
+    {
+      "id": "osa-q-017",
+      "rule": "10",
+      "kind": "mcq",
+      "front": {
+        "en": "Under Section 10(1) of the Official Secrets Act, 1923, a person is guilty of an offence if he knowingly harbours another person whom he knows, or has reasonable grounds for supposing, is about to commit or has committed an offence under which provision?",
+        "hi": "शासकीय गुप्त बात अधिनियम, 1923 की धारा 10(1) के अधीन, यदि कोई व्यक्ति ऐसे किसी अन्य व्यक्ति को, जिसके बारे में वह जानता है या जिसके संबंध में उसे युक्तियुक्त आधार है कि वह किस उपबंध के अधीन अपराध करने वाला है या कर चुका है, जानबूझकर संश्रय देता है, तो वह अपराध का दोषी है?"
+      },
+      "back": {
+        "en": "Section 3, or Section 3 read with Section 9.",
+        "hi": "धारा 3, अथवा धारा 9 के साथ पठित धारा 3।"
+      },
+      "options": [
+        {
+          "en": "Section 8 only",
+          "hi": "केवल धारा 8"
+        },
+        {
+          "en": "Any provision of the Indian Penal Code",
+          "hi": "भारतीय दंड संहिता का कोई भी उपबंध"
+        },
+        {
+          "en": "Section 3, or Section 3 read with Section 9",
+          "hi": "धारा 3, अथवा धारा 9 के साथ पठित धारा 3"
+        },
+        {
+          "en": "Section 6 only",
+          "hi": "केवल धारा 6"
+        }
+      ],
+      "answerIndex": 2,
+      "explanation": {
+        "en": "Section 10(1) is tied specifically to a Section 3 spying offence — either directly, or as an attempt/abetment of it read with Section 9. Harbouring in relation to some other offence under the Act is not what this sub-section addresses.",
+        "hi": "धारा 10(1) विशिष्ट रूप से धारा 3 के जासूसी अपराध से संबद्ध है — या तो सीधे, अथवा धारा 9 के साथ पठित उसके प्रयत्न या दुष्प्रेरण के रूप में। इस अधिनियम के अधीन किसी अन्य अपराध के संबंध में संश्रय देना इस उपधारा का विषय नहीं है।"
+      },
+      "ruleRef": {
+        "textId": "osa-10",
+        "citation": {
+          "en": "Section 10, Official Secrets Act, 1923",
+          "hi": "धारा 10, शासकीय गुप्त बात अधिनियम, 1923"
+        }
+      },
+      "difficulty": "medium",
+      "act": "osa",
+      "version": "1.0.0",
+      "source": {
+        "name": "Ministry of Home Affairs — The Official Secrets Act, 1923",
+        "url": "https://www.mha.gov.in/sites/default/files/Official_Secret_Act1923_2.pdf"
+      },
+      "verify": true,
+      "tags": [
+        "authored",
+        "mcq"
+      ],
+      "reviewed": true,
+      "reviewState": "approved",
+      "generationMeta": {
+        "promptVersion": "rules-qa/1",
+        "batchId": "2026-08-29-osa-A",
+        "stageA": {
+          "index": 17,
+          "angle": "Section 10(1) — harbouring tied specifically to Section 3, read with Section 9"
+        },
+        "critic": {
+          "verdict": "approve",
+          "reason": "One correct answer, grounded in Section 10(1)'s tie to Section 3 (directly or read with Section 9); the IPC-generally and Section-8/6-only distractors are plausible misreadings that the text's specific cross-reference rules out."
+        },
+        "blindVerify": {
+          "answered": 2,
+          "matched": true
+        },
+        "dedup": {
+          "maxScore": 81.5,
+          "against": "osa-rule-10-1",
+          "verdict": "keep"
+        },
+        "groundingRuleIds": [
+          "osa-10",
+          "osa-3",
+          "osa-9"
+        ]
+      }
+    },
+    {
+      "id": "osa-q-018",
+      "rule": "10",
+      "kind": "scenario",
+      "front": {
+        "en": "A landlord has reasonable grounds to suspect that two of his tenants are about to commit a spying offence under Section 3. He knowingly permits them to meet regularly in his premises. When a Superintendent of Police later demands information about them, the landlord refuses to answer. Under Section 10 of the Official Secrets Act, 1923, what has he done, and what is the maximum punishment under Section 10(3)?",
+        "hi": "एक मकान मालिक के पास यह मानने के युक्तियुक्त आधार हैं कि उसके दो किरायेदार धारा 3 के अधीन जासूसी अपराध करने वाले हैं। वह जानबूझकर उन्हें अपने परिसर में नियमित रूप से मिलने की अनुमति देता है। बाद में जब कोई पुलिस अधीक्षक उनके बारे में सूचना माँगता है, तो मकान मालिक उत्तर देने से इनकार कर देता है। शासकीय गुप्त बात अधिनियम, 1923 की धारा 10 के अधीन उसने क्या किया है, और धारा 10(3) के अधीन अधिकतम दंड क्या है?"
+      },
+      "back": {
+        "en": "He is guilty under Section 10(1) for knowingly permitting them to meet in his premises, and separately under Section 10(2) for failing to give the demanded information — both punishable under Section 10(3) with imprisonment up to three years, or fine, or both.",
+        "hi": "वह धारा 10(1) के अधीन उन्हें अपने परिसर में मिलने की जानबूझकर अनुमति देने के लिए, और अलग से धारा 10(2) के अधीन माँगी गई सूचना न देने के लिए, दोषी है — दोनों धारा 10(3) के अधीन तीन वर्ष तक के कारावास, या जुर्माने, या दोनों से दंडनीय हैं।"
+      },
+      "options": [
+        {
+          "en": "He is guilty under Section 10(1) for permitting the meetings and under Section 10(2) for refusing information, both punishable under Section 10(3) with imprisonment up to three years, or fine, or both",
+          "hi": "वह धारा 10(1) के अधीन मुलाकातों की अनुमति देने के लिए तथा धारा 10(2) के अधीन सूचना देने से इनकार करने के लिए दोषी है, दोनों धारा 10(3) के अधीन तीन वर्ष तक के कारावास, या जुर्माने, या दोनों से दंडनीय हैं"
+        },
+        {
+          "en": "He has committed no offence, since he did not personally commit any spying act",
+          "hi": "उसने कोई अपराध नहीं किया, क्योंकि उसने स्वयं कोई जासूसी कृत्य नहीं किया"
+        },
+        {
+          "en": "He is guilty only of contempt of the Superintendent of Police's demand, punishable with fine alone",
+          "hi": "वह केवल पुलिस अधीक्षक की माँग की अवमानना का दोषी है, जो केवल जुर्माने से दंडनीय है"
+        },
+        {
+          "en": "He is guilty under Section 3 itself, as a co-principal in the spying offence",
+          "hi": "वह स्वयं धारा 3 के अधीन जासूसी अपराध में सह-मुख्य अपराधी के रूप में दोषी है"
+        }
+      ],
+      "answerIndex": 0,
+      "explanation": {
+        "en": "Section 10(1) reaches a person who knowingly permits suspected offenders to meet or assemble in premises under his control, even without harbouring them personally. Section 10(2) separately obliges him to give information on demand to a Superintendent of Police or empowered Inspector-rank officer; failing that is itself an offence. Both are punished under Section 10(3).",
+        "hi": "धारा 10(1) उस व्यक्ति तक पहुँचती है जो संदिग्ध अपराधियों को अपने नियंत्रणाधीन परिसर में मिलने या एकत्र होने की जानबूझकर अनुमति देता है, भले ही वह उन्हें व्यक्तिगत रूप से संश्रय न दे। धारा 10(2) अलग से उसे पुलिस अधीक्षक या सशक्त निरीक्षक-श्रेणी के अधिकारी को माँगे जाने पर सूचना देने के लिए बाध्य करती है; ऐसा न करना स्वयं अपराध है। दोनों धारा 10(3) के अधीन दंडनीय हैं।"
+      },
+      "ruleRef": {
+        "textId": "osa-10",
+        "citation": {
+          "en": "Section 10, Official Secrets Act, 1923",
+          "hi": "धारा 10, शासकीय गुप्त बात अधिनियम, 1923"
+        }
+      },
+      "difficulty": "hard",
+      "act": "osa",
+      "version": "1.0.0",
+      "source": {
+        "name": "Ministry of Home Affairs — The Official Secrets Act, 1923",
+        "url": "https://www.mha.gov.in/sites/default/files/Official_Secret_Act1923_2.pdf"
+      },
+      "verify": true,
+      "tags": [
+        "authored",
+        "scenario"
+      ],
+      "reviewed": true,
+      "reviewState": "approved",
+      "generationMeta": {
+        "promptVersion": "rules-qa/1",
+        "batchId": "2026-08-29-osa-A",
+        "stageA": {
+          "index": 18,
+          "angle": "Section 10(1)-(2) — permitting a meeting AND the separate duty to inform"
+        },
+        "critic": {
+          "verdict": "approve",
+          "reason": "One correct answer, correctly grounded in BOTH Section 10(1) (permitting suspected offenders to meet) and Section 10(2) (the separate duty to inform on demand), each independently satisfied by the scenario facts and both punished under Section 10(3); the 'no offence since he did not personally spy' and 'co-principal under Section 3' options are real but wrong characterisations of a harbouring-adjacent offence."
+        },
+        "blindVerify": {
+          "answered": 3,
+          "matched": true
+        },
+        "dedup": {
+          "maxScore": 70.4,
+          "against": "osa-q-017",
+          "verdict": "keep"
+        },
+        "groundingRuleIds": [
+          "osa-10"
+        ]
+      }
+    },
+    {
+      "id": "osa-q-019",
+      "rule": "11",
+      "kind": "mcq",
+      "front": {
+        "en": "Under Section 11(1) of the Official Secrets Act, 1923, which Magistrate may grant a search warrant, and what is the minimum rank of the police officer who may execute it?",
+        "hi": "शासकीय गुप्त बात अधिनियम, 1923 की धारा 11(1) के अधीन, कौन-सा मजिस्ट्रेट तलाशी वारंट दे सकता है, और उसका निष्पादन करने वाले पुलिस अधिकारी की न्यूनतम श्रेणी क्या है?"
+      },
+      "back": {
+        "en": "A Presidency Magistrate, a Magistrate of the first class, or a Sub-divisional Magistrate; the warrant authorises a police officer not below the rank of an officer in charge of a police station.",
+        "hi": "एक प्रेसीडेंसी मजिस्ट्रेट, प्रथम श्रेणी का मजिस्ट्रेट, अथवा उप-मंडल मजिस्ट्रेट; वारंट किसी ऐसे पुलिस अधिकारी को प्राधिकृत करता है जो पुलिस थाने के भारसाधक अधिकारी की श्रेणी से अन्यून न हो।"
+      },
+      "options": [
+        {
+          "en": "A Presidency, first-class, or Sub-divisional Magistrate; executed by a police officer not below the rank of an officer in charge of a police station",
+          "hi": "एक प्रेसीडेंसी, प्रथम श्रेणी, अथवा उप-मंडल मजिस्ट्रेट; पुलिस थाने के भारसाधक अधिकारी की श्रेणी से अन्यून न होने वाले पुलिस अधिकारी द्वारा निष्पादित"
+        },
+        {
+          "en": "Only the High Court; executed by an officer of Superintendent rank",
+          "hi": "केवल उच्च न्यायालय; अधीक्षक श्रेणी के अधिकारी द्वारा निष्पादित"
+        },
+        {
+          "en": "Any Magistrate of any class; executed by any constable",
+          "hi": "किसी भी श्रेणी का कोई भी मजिस्ट्रेट; किसी भी कांस्टेबल द्वारा निष्पादित"
+        },
+        {
+          "en": "The Central Government directly, with no Magistrate involved",
+          "hi": "सीधे केंद्रीय सरकार, बिना किसी मजिस्ट्रेट की संलिप्तता के"
+        }
+      ],
+      "answerIndex": 0,
+      "explanation": {
+        "en": "Section 11(1) requires the Magistrate to be satisfied, by information on oath, that there is reasonable ground for suspecting an offence has been or is about to be committed, and names three classes of Magistrate; the officer executing the warrant must not be below the rank of an officer in charge of a police station.",
+        "hi": "धारा 11(1) अपेक्षा करती है कि मजिस्ट्रेट शपथ पर दी गई सूचना से इस बात का समाधान कर ले कि किसी अपराध के किए जाने या किए जाने वाले होने का युक्तियुक्त आधार है, तथा तीन श्रेणियों के मजिस्ट्रेट को नामित करती है; वारंट का निष्पादन करने वाला अधिकारी पुलिस थाने के भारसाधक अधिकारी की श्रेणी से अन्यून नहीं होना चाहिए।"
+      },
+      "ruleRef": {
+        "textId": "osa-11",
+        "citation": {
+          "en": "Section 11, Official Secrets Act, 1923",
+          "hi": "धारा 11, शासकीय गुप्त बात अधिनियम, 1923"
+        }
+      },
+      "difficulty": "medium",
+      "act": "osa",
+      "version": "1.0.0",
+      "source": {
+        "name": "Ministry of Home Affairs — The Official Secrets Act, 1923",
+        "url": "https://www.mha.gov.in/sites/default/files/Official_Secret_Act1923_2.pdf"
+      },
+      "verify": true,
+      "tags": [
+        "authored",
+        "mcq"
+      ],
+      "reviewed": true,
+      "reviewState": "approved",
+      "generationMeta": {
+        "promptVersion": "rules-qa/1",
+        "batchId": "2026-08-29-osa-A",
+        "stageA": {
+          "index": 19,
+          "angle": "Section 11(1) — which Magistrate, and minimum executing rank"
+        },
+        "critic": {
+          "verdict": "approve",
+          "reason": "One correct answer, grounded in Section 11(1)'s named Magistrate classes and minimum executing rank; 'High Court only', 'any Magistrate/any constable' and 'Central Government directly' are plausible but incorrect readings of a fairly technical procedural provision."
+        },
+        "blindVerify": {
+          "answered": 3,
+          "matched": true
+        },
+        "dedup": {
+          "maxScore": 69.4,
+          "against": "osa-q-002",
+          "verdict": "keep"
+        },
+        "groundingRuleIds": [
+          "osa-11"
+        ]
+      }
+    },
+    {
+      "id": "osa-q-020",
+      "rule": "11",
+      "kind": "scenario",
+      "front": {
+        "en": "A Superintendent of Police believes a case under the Official Secrets Act, 1923 is one of great emergency requiring immediate action in the interests of the State, and there is no time to obtain a Magistrate's warrant. Under Section 11(2) and (3), what may he do, and what must he do afterwards?",
+        "hi": "एक पुलिस अधीक्षक यह मानता है कि शासकीय गुप्त बात अधिनियम, 1923 के अधीन कोई मामला घोर आपात का है, जिसमें राज्य के हित में तत्काल कार्रवाई आवश्यक है, और मजिस्ट्रेट का वारंट प्राप्त करने का समय नहीं है। धारा 11(2) और (3) के अधीन वह क्या कर सकता है, और उसके पश्चात् उसे क्या करना होगा?"
+      },
+      "back": {
+        "en": "He may, by a written order under his own hand, give another police officer the same authority a Magistrate's warrant would give; he must then, as soon as may be, report that action to the Chief Presidency Magistrate (in a presidency town) or to the District or Sub-divisional Magistrate (elsewhere).",
+        "hi": "वह अपने हस्ताक्षर से लिखित आदेश द्वारा किसी अन्य पुलिस अधिकारी को वही प्राधिकार दे सकता है जो मजिस्ट्रेट का वारंट देता; उसके पश्चात् उसे यथाशीघ्र इस कार्रवाई की रिपोर्ट प्रेसीडेंसी नगर में मुख्य प्रेसीडेंसी मजिस्ट्रेट को, और अन्यत्र जिला या उप-मंडल मजिस्ट्रेट को, करनी होगी।"
+      },
+      "options": [
+        {
+          "en": "He may act, but is not required to report the action to anyone afterwards",
+          "hi": "वह कार्य कर सकता है, किंतु उसके पश्चात् उसे किसी को रिपोर्ट करने की आवश्यकता नहीं है"
+        },
+        {
+          "en": "He may authorise another officer by written order to act with a Magistrate's authority, and must then promptly report the action to the appropriate Magistrate",
+          "hi": "वह किसी अन्य अधिकारी को लिखित आदेश द्वारा मजिस्ट्रेट के प्राधिकार सहित कार्य करने के लिए प्राधिकृत कर सकता है, और उसके पश्चात् उसे यथाशीघ्र समुचित मजिस्ट्रेट को रिपोर्ट करनी होगी"
+        },
+        {
+          "en": "He must wait for the Magistrate regardless, since Section 11 provides no emergency route",
+          "hi": "उसे मजिस्ट्रेट की प्रतीक्षा करनी ही होगी, क्योंकि धारा 11 में कोई आपातकालीन मार्ग नहीं है"
+        },
+        {
+          "en": "He may act only with the prior telephonic permission of the Central Government",
+          "hi": "वह केवल केंद्रीय सरकार की पूर्व दूरभाष अनुमति से ही कार्य कर सकता है"
+        }
+      ],
+      "answerIndex": 1,
+      "explanation": {
+        "en": "Section 11(2) gives an officer not below the rank of Superintendent a written-order route in a genuine emergency, conferring the like authority a Magistrate's warrant would. Section 11(3) then requires him to report the action taken, as soon as may be, to the Chief Presidency Magistrate in a presidency town or the District/Sub-divisional Magistrate elsewhere — the emergency power is not unsupervised.",
+        "hi": "धारा 11(2) अधीक्षक-श्रेणी से अन्यून अधिकारी को वास्तविक आपात में लिखित आदेश का मार्ग देती है, जो मजिस्ट्रेट के वारंट के समान प्राधिकार प्रदान करता है। धारा 11(3) फिर उसे अपेक्षा करती है कि वह की गई कार्रवाई की रिपोर्ट यथाशीघ्र, प्रेसीडेंसी नगर में मुख्य प्रेसीडेंसी मजिस्ट्रेट को अथवा अन्यत्र जिला/उप-मंडल मजिस्ट्रेट को, करे — यह आपातकालीन शक्ति अनुवीक्षणरहित नहीं है।"
+      },
+      "ruleRef": {
+        "textId": "osa-11",
+        "citation": {
+          "en": "Section 11, Official Secrets Act, 1923",
+          "hi": "धारा 11, शासकीय गुप्त बात अधिनियम, 1923"
+        }
+      },
+      "difficulty": "hard",
+      "act": "osa",
+      "version": "1.0.0",
+      "source": {
+        "name": "Ministry of Home Affairs — The Official Secrets Act, 1923",
+        "url": "https://www.mha.gov.in/sites/default/files/Official_Secret_Act1923_2.pdf"
+      },
+      "verify": true,
+      "tags": [
+        "authored",
+        "scenario"
+      ],
+      "reviewed": true,
+      "reviewState": "approved",
+      "generationMeta": {
+        "promptVersion": "rules-qa/1",
+        "batchId": "2026-08-29-osa-A",
+        "stageA": {
+          "index": 20,
+          "angle": "Section 11(2)-(3) — the emergency route and the mandatory report"
+        },
+        "critic": {
+          "verdict": "approve",
+          "reason": "One correct answer, grounded in Section 11(2)-(3)'s emergency written-order route and its mandatory follow-up report; the 'no report required' distractor is the natural (and wrong) assumption that an emergency power is unsupervised, which the text explicitly forecloses."
+        },
+        "blindVerify": {
+          "answered": 3,
+          "matched": true
+        },
+        "dedup": {
+          "maxScore": 66.3,
+          "against": "osa-q-006",
+          "verdict": "keep"
+        },
+        "groundingRuleIds": [
+          "osa-11"
+        ]
+      }
+    },
+    {
+      "id": "osa-q-021",
+      "rule": "13",
+      "kind": "mcq",
+      "front": {
+        "en": "Under Section 13(1) of the Official Secrets Act, 1923, which courts are barred from trying an offence under the Act?",
+        "hi": "शासकीय गुप्त बात अधिनियम, 1923 की धारा 13(1) के अधीन, कौन-से न्यायालय इस अधिनियम के अधीन किसी अपराध का विचारण करने से वर्जित हैं?"
+      },
+      "back": {
+        "en": "Any court inferior to that of a District or Presidency Magistrate, other than a Magistrate of the first class specially empowered in this behalf by the appropriate Government.",
+        "hi": "जिला या प्रेसीडेंसी मजिस्ट्रेट के न्यायालय से निम्नतर कोई भी न्यायालय, सिवाय ऐसे प्रथम श्रेणी के मजिस्ट्रेट के जो समुचित सरकार द्वारा इस निमित्त विशेष रूप से सशक्त किया गया हो।"
+      },
+      "options": [
+        {
+          "en": "No court is barred; any Magistrate may try any offence under the Act",
+          "hi": "कोई भी न्यायालय वर्जित नहीं है; कोई भी मजिस्ट्रेट इस अधिनियम के अधीन किसी भी अपराध का विचारण कर सकता है"
+        },
+        {
+          "en": "Only Courts of Session",
+          "hi": "केवल सेशन न्यायालय"
+        },
+        {
+          "en": "Any court inferior to a District or Presidency Magistrate's court, unless it is a first-class Magistrate specially empowered by the appropriate Government",
+          "hi": "जिला या प्रेसीडेंसी मजिस्ट्रेट के न्यायालय से निम्नतर कोई भी न्यायालय, सिवाय समुचित सरकार द्वारा विशेष रूप से सशक्त प्रथम श्रेणी के मजिस्ट्रेट के"
+        },
+        {
+          "en": "Only courts located outside the National Capital Territory",
+          "hi": "केवल राष्ट्रीय राजधानी क्षेत्र से बाहर स्थित न्यायालय"
+        }
+      ],
+      "answerIndex": 2,
+      "explanation": {
+        "en": "Section 13(1) sets a floor: no court inferior to a District or Presidency Magistrate may try the offence, unless it is a specially empowered first-class Magistrate. Section 13(2) additionally lets an accused claim trial by the Court of Session before charges are framed.",
+        "hi": "धारा 13(1) एक निचली सीमा निर्धारित करती है: जिला या प्रेसीडेंसी मजिस्ट्रेट से निम्नतर कोई भी न्यायालय अपराध का विचारण नहीं कर सकता, सिवाय विशेष रूप से सशक्त प्रथम श्रेणी के मजिस्ट्रेट के। धारा 13(2) आरोप विरचित होने से पूर्व अभियुक्त को सेशन न्यायालय द्वारा विचारण का दावा करने की अतिरिक्त अनुमति देती है।"
+      },
+      "ruleRef": {
+        "textId": "osa-13",
+        "citation": {
+          "en": "Section 13, Official Secrets Act, 1923",
+          "hi": "धारा 13, शासकीय गुप्त बात अधिनियम, 1923"
+        }
+      },
+      "difficulty": "medium",
+      "act": "osa",
+      "version": "1.0.0",
+      "source": {
+        "name": "Ministry of Home Affairs — The Official Secrets Act, 1923",
+        "url": "https://www.mha.gov.in/sites/default/files/Official_Secret_Act1923_2.pdf"
+      },
+      "verify": true,
+      "tags": [
+        "authored",
+        "mcq"
+      ],
+      "reviewed": true,
+      "reviewState": "approved",
+      "generationMeta": {
+        "promptVersion": "rules-qa/1",
+        "batchId": "2026-08-29-osa-A",
+        "stageA": {
+          "index": 21,
+          "angle": "Section 13(1) — the floor on which courts may try the offence"
+        },
+        "critic": {
+          "verdict": "approve",
+          "reason": "One correct answer, grounded in Section 13(1)'s floor on trying courts, including the first-class-Magistrate carve-out; the NCT-only, Court-of-Session-only and no-restriction options are plausible but do not match the actual text."
+        },
+        "blindVerify": {
+          "answered": 0,
+          "matched": true
+        },
+        "dedup": {
+          "maxScore": 77.6,
+          "against": "osa-q-017",
+          "verdict": "keep"
+        },
+        "groundingRuleIds": [
+          "osa-13"
+        ]
+      }
+    },
+    {
+      "id": "osa-q-022",
+      "rule": "13",
+      "kind": "mcq",
+      "front": {
+        "en": "Under Section 13(3) of the Official Secrets Act, 1923, a Court may take cognizance of an offence under the Act only on a complaint made in what manner?",
+        "hi": "शासकीय गुप्त बात अधिनियम, 1923 की धारा 13(3) के अधीन, न्यायालय इस अधिनियम के अधीन किसी अपराध का संज्ञान किस रीति से की गई परिवाद पर ही ले सकता है?"
+      },
+      "back": {
+        "en": "By order of, or under authority from, the appropriate Government, or some officer empowered by the appropriate Government in this behalf.",
+        "hi": "समुचित सरकार के आदेश से, अथवा उसके प्राधिकार के अधीन, अथवा समुचित सरकार द्वारा इस निमित्त सशक्त किसी अधिकारी द्वारा।"
+      },
+      "options": [
+        {
+          "en": "By the complainant's employer alone, without Government involvement",
+          "hi": "केवल परिवादी के नियोक्ता द्वारा, सरकार की संलिप्तता के बिना"
+        },
+        {
+          "en": "By a resolution of the concerned State Legislative Assembly",
+          "hi": "संबंधित राज्य विधान सभा के संकल्प द्वारा"
+        },
+        {
+          "en": "By order of, or under authority from, the appropriate Government, or an officer it has empowered in this behalf",
+          "hi": "समुचित सरकार के आदेश से, अथवा उसके प्राधिकार के अधीन, अथवा उसके द्वारा इस निमित्त सशक्त किसी अधिकारी द्वारा"
+        },
+        {
+          "en": "By any citizen, on a plain written application",
+          "hi": "किसी भी नागरिक द्वारा, साधारण लिखित आवेदन पर"
+        }
+      ],
+      "answerIndex": 2,
+      "explanation": {
+        "en": "Section 13(3) restricts cognizance to a complaint made by order of, or under authority from, the appropriate Government, or an officer it has empowered — a private complaint, however genuine, is not enough on its own. Section 13(5) then defines 'appropriate Government' as the State Government for certain Section 5 offences unconnected with a prohibited place or a foreign power, and the Central Government otherwise.",
+        "hi": "धारा 13(3) संज्ञान को केवल ऐसी परिवाद तक सीमित करती है जो समुचित सरकार के आदेश से या उसके प्राधिकार के अधीन, अथवा उसके द्वारा सशक्त किसी अधिकारी द्वारा की गई हो — कोई निजी परिवाद, चाहे कितनी भी वास्तविक हो, स्वयं में पर्याप्त नहीं है। धारा 13(5) फिर 'समुचित सरकार' को किसी प्रतिषिद्ध स्थान या विदेशी शक्ति से असंबद्ध धारा 5 के कुछ अपराधों के लिए राज्य सरकार, और अन्य मामलों में केंद्रीय सरकार, के रूप में परिभाषित करती है।"
+      },
+      "ruleRef": {
+        "textId": "osa-13",
+        "citation": {
+          "en": "Section 13, Official Secrets Act, 1923",
+          "hi": "धारा 13, शासकीय गुप्त बात अधिनियम, 1923"
+        }
+      },
+      "difficulty": "hard",
+      "act": "osa",
+      "version": "1.0.0",
+      "source": {
+        "name": "Ministry of Home Affairs — The Official Secrets Act, 1923",
+        "url": "https://www.mha.gov.in/sites/default/files/Official_Secret_Act1923_2.pdf"
+      },
+      "verify": true,
+      "tags": [
+        "authored",
+        "mcq"
+      ],
+      "reviewed": true,
+      "reviewState": "approved",
+      "generationMeta": {
+        "promptVersion": "rules-qa/1",
+        "batchId": "2026-08-29-osa-A",
+        "stageA": {
+          "index": 22,
+          "angle": "Section 13(3) — the sanction gate on cognizance, and the 13(5) split"
+        },
+        "critic": {
+          "verdict": "approve",
+          "reason": "One correct answer, grounded in Section 13(3)'s sanction requirement for cognizance; the explanation additionally and correctly cross-references Section 13(5)'s State/Central Government split, which is present in the text and adds real value rather than reaching outside it."
+        },
+        "blindVerify": {
+          "answered": 0,
+          "matched": true
+        },
+        "dedup": {
+          "maxScore": 73.4,
+          "against": "osa-q-021",
+          "verdict": "keep"
+        },
+        "groundingRuleIds": [
+          "osa-13"
+        ]
+      }
+    },
+    {
+      "id": "osa-q-023",
+      "rule": "14",
+      "kind": "mcq",
+      "front": {
+        "en": "Under Section 14 of the Official Secrets Act, 1923, on what ground may a Court order that the public be excluded from all or part of a hearing in a prosecution under the Act?",
+        "hi": "शासकीय गुप्त बात अधिनियम, 1923 की धारा 14 के अधीन, न्यायालय किस आधार पर इस अधिनियम के अधीन किसी अभियोजन की सुनवाई के किसी भाग या पूरे भाग से जनता के अपवर्जन का आदेश दे सकता है?"
+      },
+      "back": {
+        "en": "That publication of the evidence or of a statement to be made in the proceedings would be prejudicial to the safety of the State — though the passing of sentence must always take place in public.",
+        "hi": "यह कि कार्यवाहियों में दिए जाने वाले साक्ष्य या किए जाने वाले कथन का प्रकाशन राज्य की सुरक्षा के प्रतिकूल होगा — किंतु दंडादेश की उद्घोषणा सदैव सार्वजनिक रूप से की जाएगी।"
+      },
+      "options": [
+        {
+          "en": "That publication of the evidence or statement would be prejudicial to the safety of the State, on an application by the prosecution — with sentence always passed in public",
+          "hi": "यह कि साक्ष्य या कथन का प्रकाशन राज्य की सुरक्षा के प्रतिकूल होगा, अभियोजन के आवेदन पर — दंडादेश सदैव सार्वजनिक रूप से पारित किया जाएगा"
+        },
+        {
+          "en": "That the trial is expected to last more than thirty days",
+          "hi": "विचारण के तीस दिन से अधिक चलने की संभावना है"
+        },
+        {
+          "en": "That the accused personally requests a closed hearing for privacy",
+          "hi": "अभियुक्त स्वयं गोपनीयता हेतु बंद सुनवाई का अनुरोध करता है"
+        },
+        {
+          "en": "That the courtroom lacks adequate seating for the public",
+          "hi": "न्यायालय-कक्ष में जनता के लिए पर्याप्त बैठने की व्यवस्था नहीं है"
+        }
+      ],
+      "answerIndex": 0,
+      "explanation": {
+        "en": "Section 14 lets the prosecution apply for exclusion of the public where publication of evidence or a statement made in the proceedings would be prejudicial to the safety of the State, without prejudice to any other power of exclusion the Court may already possess — but it expressly preserves public sentencing in every case.",
+        "hi": "धारा 14 अभियोजन को उन स्थितियों में जनता के अपवर्जन हेतु आवेदन करने देती है जहाँ कार्यवाहियों में दिए गए साक्ष्य या किए गए कथन का प्रकाशन राज्य की सुरक्षा के प्रतिकूल होगा, न्यायालय की किसी अन्य पूर्व-विद्यमान अपवर्जन-शक्ति पर प्रतिकूल प्रभाव डाले बिना — किंतु यह प्रत्येक दशा में दंडादेश की सार्वजनिक उद्घोषणा को स्पष्ट रूप से सुरक्षित रखती है।"
+      },
+      "ruleRef": {
+        "textId": "osa-14",
+        "citation": {
+          "en": "Section 14, Official Secrets Act, 1923",
+          "hi": "धारा 14, शासकीय गुप्त बात अधिनियम, 1923"
+        }
+      },
+      "difficulty": "medium",
+      "act": "osa",
+      "version": "1.0.0",
+      "source": {
+        "name": "Ministry of Home Affairs — The Official Secrets Act, 1923",
+        "url": "https://www.mha.gov.in/sites/default/files/Official_Secret_Act1923_2.pdf"
+      },
+      "verify": true,
+      "tags": [
+        "authored",
+        "mcq"
+      ],
+      "reviewed": true,
+      "reviewState": "approved",
+      "generationMeta": {
+        "promptVersion": "rules-qa/1",
+        "batchId": "2026-08-29-osa-A",
+        "stageA": {
+          "index": 23,
+          "angle": "Section 14 — the ground for excluding the public, and the public-sentencing proviso"
+        },
+        "critic": {
+          "verdict": "approve",
+          "reason": "One correct answer, grounded in Section 14's public-exclusion ground and its public-sentencing proviso; the accused's-own-request, seating-capacity and trial-length distractors are plausible but unsupported grounds the text does not recognise."
+        },
+        "blindVerify": {
+          "answered": 2,
+          "matched": true
+        },
+        "dedup": {
+          "maxScore": 73.6,
+          "against": "osa-q-006",
+          "verdict": "keep"
+        },
+        "groundingRuleIds": [
+          "osa-14"
+        ]
+      }
+    },
+    {
+      "id": "osa-q-024",
+      "rule": "14",
+      "kind": "mcq",
+      "front": {
+        "en": "The Official Secrets Act, 1923 also provides for offences committed by a company. When such an offence occurs, who besides the company is deemed guilty, and what defence is available to that person?",
+        "hi": "शासकीय गुप्त बात अधिनियम, 1923 कंपनी द्वारा किए गए अपराधों के लिए भी उपबंध करता है। ऐसे अपराध होने पर, कंपनी के अतिरिक्त और कौन दोषी उपधारित किया जाता है, और उस व्यक्ति को कौन-सी प्रतिरक्षा उपलब्ध है?"
+      },
+      "back": {
+        "en": "Every person who, at the time of the offence, was in charge of and responsible to the company for the conduct of its business is deemed guilty along with the company; he has a defence if he proves the offence was committed without his knowledge, or that he exercised all due diligence to prevent it.",
+        "hi": "जो व्यक्ति अपराध किए जाने के समय कंपनी के कारबार के संचालन का भारसाधक था और उसके लिए उत्तरदायी था, वह कंपनी के साथ दोषी उपधारित किया जाता है; उसे यह सिद्ध करने पर प्रतिरक्षा प्राप्त है कि अपराध उसकी जानकारी के बिना किया गया, अथवा उसने उसे रोकने के लिए सम्यक तत्परता बरती।"
+      },
+      "options": [
+        {
+          "en": "Every shareholder of the company, with no defence available",
+          "hi": "कंपनी का प्रत्येक अंशधारी, बिना किसी प्रतिरक्षा के"
+        },
+        {
+          "en": "Only the company's auditor",
+          "hi": "केवल कंपनी का लेखा-परीक्षक"
+        },
+        {
+          "en": "No individual — only the company itself can be prosecuted",
+          "hi": "कोई व्यक्ति नहीं — केवल कंपनी पर ही अभियोजन चलाया जा सकता है"
+        },
+        {
+          "en": "Every person in charge of, and responsible to the company for, the conduct of its business at the time — with a defence of lack of knowledge or due diligence",
+          "hi": "अपराध के समय कंपनी के कारबार के संचालन का भारसाधक और उसके लिए उत्तरदायी प्रत्येक व्यक्ति — जिसे जानकारी न होने या सम्यक तत्परता की प्रतिरक्षा उपलब्ध है"
+        }
+      ],
+      "answerIndex": 3,
+      "explanation": {
+        "en": "This provision — on offences by companies — deems every person in charge of and responsible to the company for its business at the relevant time guilty along with the company, subject to a proviso: no liability if he proves the offence was committed without his knowledge or that he exercised all due diligence to prevent it. A director, manager, secretary or other officer whose consent, connivance or negligence contributed is separately deemed guilty as well.",
+        "hi": "यह उपबंध — कंपनियों द्वारा अपराधों पर — सुसंगत समय पर कंपनी के कारबार के भारसाधक और उसके लिए उत्तरदायी प्रत्येक व्यक्ति को कंपनी के साथ दोषी उपधारित करता है, एक परंतुक के अध्यधीन: यदि वह सिद्ध कर दे कि अपराध उसकी जानकारी के बिना किया गया अथवा उसने उसे रोकने के लिए सम्यक तत्परता बरती, तो कोई दायित्व नहीं होगा। जिस निदेशक, प्रबंधक, सचिव या अन्य अधिकारी की सहमति, दुस्संगति अथवा उपेक्षा इसमें रही हो, वह भी अलग से दोषी उपधारित किया जाता है।"
+      },
+      "ruleRef": {
+        "textId": "osa-14",
+        "citation": {
+          "en": "Offences-by-companies provision, recorded within the Section 14 text entry, Official Secrets Act, 1923",
+          "hi": "कंपनियों द्वारा अपराध संबंधी उपबंध, धारा 14 की पाठ-प्रविष्टि में अंतर्विष्ट, शासकीय गुप्त बात अधिनियम, 1923"
+        }
+      },
+      "difficulty": "hard",
+      "act": "osa",
+      "version": "1.0.0",
+      "source": {
+        "name": "Ministry of Home Affairs — The Official Secrets Act, 1923",
+        "url": "https://www.mha.gov.in/sites/default/files/Official_Secret_Act1923_2.pdf"
+      },
+      "verify": true,
+      "tags": [
+        "authored",
+        "mcq"
+      ],
+      "reviewed": true,
+      "reviewState": "approved",
+      "generationMeta": {
+        "promptVersion": "rules-qa/1",
+        "batchId": "2026-08-29-osa-A",
+        "stageA": {
+          "index": 24,
+          "angle": "Offences-by-companies provision (embedded in the osa-14 text record) — vicarious liability and the due-diligence defence"
+        },
+        "critic": {
+          "verdict": "approve",
+          "reason": "One correct answer, and independently re-verified against data/rules/text/osa.json that the 'offences by companies' text (the Act's original Section 15) is genuinely embedded in the osa-14 record. The card is honestly framed throughout — front, back, options and citation all avoid asserting a false section number for text the dataset cannot cite by number — and the vicarious-liability rule plus its due-diligence proviso are stated accurately. The 'auditor', 'shareholders with no defence' and 'company only, no individual liable' options are plausible-sounding but wrong readings of a fairly standard companies-offences clause."
+        },
+        "blindVerify": {
+          "answered": 3,
+          "matched": true
+        },
+        "dedup": {
+          "maxScore": 60.7,
+          "against": "osa-q-012",
+          "verdict": "keep"
+        },
+        "groundingRuleIds": [
+          "osa-14"
+        ]
+      }
+    },
+    {
+      "id": "osa-q-025",
+      "rule": "16",
+      "kind": "trueFalse",
+      "front": {
+        "en": "Section 16 of the Official Secrets Act, 1923, as originally enacted, currently contains a substantive rule that is still in force today.",
+        "hi": "शासकीय गुप्त बात अधिनियम, 1923 की मूलतः अधिनियमित धारा 16 में आज भी प्रवृत्त कोई सारवान नियम विद्यमान है।"
+      },
+      "back": {
+        "en": "False.",
+        "hi": "असत्य।"
+      },
+      "options": [
+        {
+          "en": "False",
+          "hi": "असत्य"
+        },
+        {
+          "en": "True",
+          "hi": "सत्य"
+        }
+      ],
+      "answerIndex": 0,
+      "explanation": {
+        "en": "The record for Section 16 shows only that it was repealed by the Repealing Act, 1927 (12 of 1927), Section 2 and Schedule — it carries no operative text of its own today.",
+        "hi": "धारा 16 का अभिलेख केवल यह दर्शाता है कि इसे निरसन अधिनियम, 1927 (1927 का 12), धारा 2 और अनुसूची द्वारा निरस्त कर दिया गया था — आज इसमें अपना कोई प्रवर्तनीय पाठ विद्यमान नहीं है।"
+      },
+      "ruleRef": {
+        "textId": "osa-16",
+        "citation": {
+          "en": "Section 16, Official Secrets Act, 1923",
+          "hi": "धारा 16, शासकीय गुप्त बात अधिनियम, 1923"
+        }
+      },
+      "difficulty": "easy",
+      "act": "osa",
+      "version": "1.0.0",
+      "source": {
+        "name": "Ministry of Home Affairs — The Official Secrets Act, 1923",
+        "url": "https://www.mha.gov.in/sites/default/files/Official_Secret_Act1923_2.pdf"
+      },
+      "verify": true,
+      "tags": [
+        "authored",
+        "truefalse"
+      ],
+      "reviewed": true,
+      "reviewState": "approved",
+      "generationMeta": {
+        "promptVersion": "rules-qa/1",
+        "batchId": "2026-08-29-osa-A",
+        "stageA": {
+          "index": 25,
+          "angle": "Section 16 — repealed by the Repealing Act, 1927"
+        },
+        "critic": {
+          "verdict": "approve",
+          "reason": "One correct answer (False), grounded in the Section 16 record, whose heading '[Repeals.]' and empty text field confirm it is a genuinely emptied provision (repealed by the Repealing Act, 1927) rather than an operative 'repeal and saving' clause — the card correctly distinguishes the two rather than conflating them."
+        },
+        "blindVerify": {
+          "answered": 1,
+          "matched": true
+        },
+        "dedup": {
+          "maxScore": 64.7,
+          "against": "osa-q-003",
+          "verdict": "keep"
+        },
+        "groundingRuleIds": [
+          "osa-16"
+        ]
+      }
     }
   ]
 }

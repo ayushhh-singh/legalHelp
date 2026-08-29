@@ -1,0 +1,131 @@
+{
+  "_note": "Stage D, written by scripts/authoring/qa_pipeline.py dedup osa. rapidfuzz token_set_ratio over every pair of English fronts in this act, including the generated rule and cloze cards. At 90 or above the later question is the duplicate and make_cards.py rejects it.",
+  "threshold": 90.0,
+  "scores": {
+    "osa-q-001": {
+      "maxScore": 49.7,
+      "against": "osa-rule-1",
+      "verdict": "keep"
+    },
+    "osa-q-002": {
+      "maxScore": 51.7,
+      "against": "osa-q-001",
+      "verdict": "keep"
+    },
+    "osa-q-003": {
+      "maxScore": 66.7,
+      "against": "osa-q-002",
+      "verdict": "keep"
+    },
+    "osa-q-004": {
+      "maxScore": 67.9,
+      "against": "osa-q-002",
+      "verdict": "keep"
+    },
+    "osa-q-005": {
+      "maxScore": 81.3,
+      "against": "osa-q-002",
+      "verdict": "keep"
+    },
+    "osa-q-006": {
+      "maxScore": 70.1,
+      "against": "osa-q-005",
+      "verdict": "keep"
+    },
+    "osa-q-007": {
+      "maxScore": 76.7,
+      "against": "osa-q-002",
+      "verdict": "keep"
+    },
+    "osa-q-008": {
+      "maxScore": 65.5,
+      "against": "osa-q-007",
+      "verdict": "keep"
+    },
+    "osa-q-009": {
+      "maxScore": 67.8,
+      "against": "osa-q-008",
+      "verdict": "keep"
+    },
+    "osa-q-010": {
+      "maxScore": 78.4,
+      "against": "osa-cloze-5-duration",
+      "verdict": "keep"
+    },
+    "osa-q-011": {
+      "maxScore": 67.9,
+      "against": "osa-q-002",
+      "verdict": "keep"
+    },
+    "osa-q-012": {
+      "maxScore": 67.1,
+      "against": "osa-q-006",
+      "verdict": "keep"
+    },
+    "osa-q-013": {
+      "maxScore": 69.4,
+      "against": "osa-q-002",
+      "verdict": "keep"
+    },
+    "osa-q-014": {
+      "maxScore": 71.3,
+      "against": "osa-q-010",
+      "verdict": "keep"
+    },
+    "osa-q-015": {
+      "maxScore": 71.4,
+      "against": "osa-q-008",
+      "verdict": "keep"
+    },
+    "osa-q-016": {
+      "maxScore": 67.0,
+      "against": "osa-q-010",
+      "verdict": "keep"
+    },
+    "osa-q-017": {
+      "maxScore": 81.5,
+      "against": "osa-rule-10-1",
+      "verdict": "keep"
+    },
+    "osa-q-018": {
+      "maxScore": 70.4,
+      "against": "osa-q-017",
+      "verdict": "keep"
+    },
+    "osa-q-019": {
+      "maxScore": 69.4,
+      "against": "osa-q-002",
+      "verdict": "keep"
+    },
+    "osa-q-020": {
+      "maxScore": 66.3,
+      "against": "osa-q-006",
+      "verdict": "keep"
+    },
+    "osa-q-021": {
+      "maxScore": 77.6,
+      "against": "osa-q-017",
+      "verdict": "keep"
+    },
+    "osa-q-022": {
+      "maxScore": 73.4,
+      "against": "osa-q-021",
+      "verdict": "keep"
+    },
+    "osa-q-023": {
+      "maxScore": 73.6,
+      "against": "osa-q-006",
+      "verdict": "keep"
+    },
+    "osa-q-024": {
+      "maxScore": 60.7,
+      "against": "osa-q-012",
+      "verdict": "keep"
+    },
+    "osa-q-025": {
+      "maxScore": 64.7,
+      "against": "osa-q-003",
+      "verdict": "keep"
+    }
+  }
+}

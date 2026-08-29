@@ -1,0 +1,1144 @@
+{
+  "_note": "STAGE A · GENERATE. Thirty bilingual questions on the CCS (Pension) Rules, 2021, written in session by Claude Code with data/rules/text/ccs-pension.json open. No API was called. `stageA.angle` records what each question is testing so the batch can be checked for spread rather than clustering on a handful of rules — this batch touches thirty distinct rules, one per question. The critic pass is review/critic-ccs-pension.json, the blind verify is review/blind-ccs-pension.json, and the dedup is written by qa_pipeline.py.",
+  "batchId": "2026-08-29-ccs-pension-A",
+  "promptVersion": "rules-qa/1",
+  "cards": [
+    {
+      "id": "ccs-pension-q-001",
+      "rule": "5",
+      "kind": "mcq",
+      "front": {
+        "en": "Under Rule 5(1) of the CCS (Pension) Rules, 2021, a claim to pension or family pension is regulated by which set of rules?",
+        "hi": "सीसीएस (पेंशन) नियम, 2021 के नियम 5(1) के अधीन, पेंशन या पारिवारिक पेंशन का दावा किन नियमों द्वारा शासित होता है?"
+      },
+      "back": {
+        "en": "The rules in force at the time the Government servant retires, is retired, is discharged, resigns, or dies, as the case may be.",
+        "hi": "वे नियम जो सरकारी सेवक के सेवानिवृत्त होने, सेवानिवृत्त किए जाने, पदमुक्त किए जाने, त्यागपत्र देने की अनुज्ञा दिए जाने अथवा मृत्यु होने के समय, जैसी भी स्थिति हो, प्रवृत्त हों।"
+      },
+      "options": [
+        {
+          "en": "The rules in force at the time the Government servant retires, is retired, is discharged, resigns, or dies",
+          "hi": "वे नियम जो सरकारी सेवक के सेवानिवृत्त होने, सेवानिवृत्त किए जाने, पदमुक्त किए जाने, त्यागपत्र देने की अनुज्ञा दिए जाने अथवा मृत्यु होने के समय प्रवृत्त हों"
+        },
+        {
+          "en": "The rules in force on the date of his first appointment",
+          "hi": "वे नियम जो उसकी प्रथम नियुक्ति की तारीख को प्रवृत्त थे"
+        },
+        {
+          "en": "The rules in force on the date the pension case is finally sanctioned by the Accounts Officer",
+          "hi": "वे नियम जो लेखा अधिकारी द्वारा पेंशन मामले के अंतिम रूप से मंजूर किए जाने की तारीख को प्रवृत्त हों"
+        },
+        {
+          "en": "Whichever set of rules is more beneficial to the pensioner, at the pensioner's own option",
+          "hi": "पेंशनभोगी के अपने विकल्प पर, जो भी नियम उसके लिए अधिक लाभप्रद हों"
+        }
+      ],
+      "answerIndex": 0,
+      "explanation": {
+        "en": "Rule 5(1) fixes the governing rules to the date of the qualifying event itself — retirement, discharge, resignation or death — not the date of appointment or the date the case happens to be processed.",
+        "hi": "नियम 5(1) शासी नियमों को अर्हकारी घटना — सेवानिवृत्ति, पदमुक्ति, त्यागपत्र अथवा मृत्यु — की तारीख से बांधता है, न कि नियुक्ति की तारीख से और न ही मामले के निपटान की तारीख से।"
+      },
+      "ruleRef": {
+        "textId": "ccs-pension-5",
+        "citation": { "en": "Rule 5, CCS (Pension) Rules, 2021", "hi": "नियम 5, सीसीएस (पेंशन) नियम, 2021" }
+      },
+      "difficulty": "medium",
+      "stageA": { "index": 1, "angle": "Rule 5(1) — the governing rules are fixed to the date of the qualifying event" },
+      "groundingRuleIds": ["ccs-pension-5"]
+    },
+    {
+      "id": "ccs-pension-q-002",
+      "rule": "6",
+      "kind": "trueFalse",
+      "front": {
+        "en": "Rule 6(1) of the CCS (Pension) Rules, 2021 provides that a Government servant may earn two pensions at the same time if they arise from two different posts held simultaneously.",
+        "hi": "सीसीएस (पेंशन) नियम, 2021 का नियम 6(1) उपबंधित करता है कि यदि सरकारी सेवक एक साथ दो भिन्न पदों पर हो तो वह एक ही समय में दो पेंशन अर्जित कर सकता है।"
+      },
+      "back": { "en": "False.", "hi": "असत्य।" },
+      "options": [
+        { "en": "True", "hi": "सत्य" },
+        { "en": "False", "hi": "असत्य" }
+      ],
+      "answerIndex": 1,
+      "explanation": {
+        "en": "Rule 6(1) states the opposite: a Government servant shall not earn two pensions in the same service or post at the same time, or by the same continuous service.",
+        "hi": "नियम 6(1) इसके विपरीत कहता है: कोई सरकारी सेवक एक ही सेवा या पद में एक ही समय पर, अथवा एक ही सतत सेवा द्वारा, दो पेंशन अर्जित नहीं करेगा।"
+      },
+      "ruleRef": {
+        "textId": "ccs-pension-6",
+        "citation": { "en": "Rule 6, CCS (Pension) Rules, 2021", "hi": "नियम 6, सीसीएस (पेंशन) नियम, 2021" }
+      },
+      "difficulty": "easy",
+      "stageA": { "index": 2, "angle": "Rule 6(1) — the bar on earning two pensions at once" },
+      "groundingRuleIds": ["ccs-pension-6"]
+    },
+    {
+      "id": "ccs-pension-q-003",
+      "rule": "7",
+      "kind": "scenario",
+      "front": {
+        "en": "A retired officer who spent his last posting in an intelligence organisation listed in the Second Schedule to the Right to Information Act, 2005 wants to publish a memoir describing the organisation's internal workings. Under Rule 7(4) of the CCS (Pension) Rules, 2021, what must he do before publishing it?",
+        "hi": "एक सेवानिवृत्त अधिकारी, जिसकी अंतिम पदस्थापना सूचना का अधिकार अधिनियम, 2005 की द्वितीय अनुसूची में सूचीबद्ध किसी आसूचना संगठन में थी, उस संगठन की आंतरिक कार्यप्रणाली का वर्णन करते हुए संस्मरण प्रकाशित करना चाहता है। सीसीएस (पेंशन) नियम, 2021 के नियम 7(4) के अधीन, प्रकाशन से पूर्व उसे क्या करना होगा?"
+      },
+      "back": {
+        "en": "He must obtain prior clearance from the Head of the Organisation — publishing without it, in breach of his undertaking, is treated as grave misconduct under this rule.",
+        "hi": "उसे संगठन प्रमुख से पूर्व मंजूरी लेनी होगी — इसके बिना प्रकाशन करना, अपने वचनबंध का उल्लंघन होने के कारण, इस नियम के अधीन घोर कदाचार माना जाता है।"
+      },
+      "options": [
+        {
+          "en": "Nothing — Rule 7 applies only to serving Government servants, not to pensioners",
+          "hi": "कुछ नहीं — नियम 7 केवल सेवारत सरकारी सेवकों पर लागू होता है, पेंशनभोगियों पर नहीं"
+        },
+        {
+          "en": "He must obtain prior clearance from the Head of the Organisation, since publishing without it, in breach of his undertaking, is treated as grave misconduct under this rule",
+          "hi": "उसे संगठन प्रमुख से पूर्व मंजूरी लेनी होगी, क्योंकि इसके बिना प्रकाशन करना, अपने वचनबंध का उल्लंघन होने के कारण, इस नियम के अधीन घोर कदाचार माना जाता है"
+        },
+        {
+          "en": "He need only inform the Department of Personnel and Training after the book is published",
+          "hi": "उसे केवल पुस्तक प्रकाशित होने के बाद कार्मिक और प्रशिक्षण विभाग को सूचित करना होगा"
+        },
+        {
+          "en": "He must obtain clearance from the Union Public Service Commission",
+          "hi": "उसे संघ लोक सेवा आयोग से मंजूरी लेनी होगी"
+        }
+      ],
+      "answerIndex": 1,
+      "explanation": {
+        "en": "Rule 7(4)(a)-(b) requires prior clearance from the Head of the Organisation before any post-retirement publication touching the organisation's domain or sensitive information, and requires the retiree to give an undertaking to that effect; a failure to observe the undertaking is deemed grave misconduct under Rule 7.",
+        "hi": "नियम 7(4)(क)-(ख) संगठन के कार्यक्षेत्र या संवेदनशील सूचना से संबंधित किसी भी सेवानिवृत्ति-पश्चात प्रकाशन से पूर्व संगठन प्रमुख की पूर्व मंजूरी अपेक्षित करता है, तथा सेवानिवृत्त व्यक्ति से इस आशय का वचनबंध लिया जाता है; वचनबंध का पालन न करना नियम 7 के अधीन घोर कदाचार माना जाता है।"
+      },
+      "ruleRef": {
+        "textId": "ccs-pension-7",
+        "citation": { "en": "Rule 7, CCS (Pension) Rules, 2021", "hi": "नियम 7, सीसीएस (पेंशन) नियम, 2021" }
+      },
+      "difficulty": "hard",
+      "stageA": { "index": 3, "angle": "Rule 7(4) — the post-retirement publication clearance for intelligence/security organisations" },
+      "groundingRuleIds": ["ccs-pension-7"]
+    },
+    {
+      "id": "ccs-pension-q-004",
+      "rule": "8",
+      "kind": "mcq",
+      "front": {
+        "en": "A Government servant retires on superannuation while departmental proceedings against him, instituted under Rule 14 of the CCS (Classification, Control and Appeal) Rules, 1965, are still pending. Under Rule 8(3)-(4) of the CCS (Pension) Rules, 2021, what is authorised in the meantime?",
+        "hi": "एक सरकारी सेवक अधिवर्षिता पर सेवानिवृत्त होता है जबकि सीसीएस (वर्गीकरण, नियंत्रण और अपील) नियम, 1965 के नियम 14 के अधीन उसके विरुद्ध आरंभ की गई विभागीय कार्यवाही लंबित है। सीसीएस (पेंशन) नियम, 2021 के नियम 8(3)-(4) के अधीन, इस बीच क्या प्राधिकृत किया जाता है?"
+      },
+      "back": {
+        "en": "A provisional pension equal to the maximum pension that would have been admissible on the qualifying service up to the date of retirement (or, if he was under suspension, up to the date immediately before the suspension) — with no gratuity paid until the proceedings conclude.",
+        "hi": "एक अनंतिम पेंशन, जो सेवानिवृत्ति की तारीख तक की अर्हकारी सेवा (अथवा, यदि वह निलंबन के अधीन था, तो निलंबन से ठीक पहले की तारीख तक की अर्हकारी सेवा) के आधार पर अनुज्ञेय अधिकतम पेंशन के बराबर हो — तथा कार्यवाही समाप्त होने तक कोई उपदान नहीं दिया जाता।"
+      },
+      "options": [
+        {
+          "en": "His full pension and gratuity, to be recovered later if he is found guilty",
+          "hi": "उसकी पूर्ण पेंशन और उपदान, जिसे बाद में दोषी पाए जाने पर वसूल किया जाएगा"
+        },
+        { "en": "No pension at all until the proceedings conclude", "hi": "कार्यवाही समाप्त होने तक कोई पेंशन नहीं" },
+        {
+          "en": "A provisional pension equal to the maximum pension admissible on qualifying service up to the date of retirement (or up to the date before suspension began), with no gratuity paid until the proceedings conclude",
+          "hi": "सेवानिवृत्ति की तारीख तक (अथवा निलंबन आरंभ होने से पहले की तारीख तक) की अर्हकारी सेवा पर अनुज्ञेय अधिकतम पेंशन के बराबर अनंतिम पेंशन, तथा कार्यवाही समाप्त होने तक कोई उपदान नहीं"
+        },
+        {
+          "en": "Only the retirement gratuity, with the pension withheld entirely",
+          "hi": "केवल सेवानिवृत्ति उपदान, जबकि पेंशन पूर्णतः रोक दी जाती है"
+        }
+      ],
+      "answerIndex": 2,
+      "explanation": {
+        "en": "Rule 8(4)(a) authorises a provisional pension pegged to the maximum admissible on qualifying service up to retirement (or up to the day before suspension), and Rule 8(4)(c) withholds all gratuity until the departmental or judicial proceedings conclude and final orders are passed.",
+        "hi": "नियम 8(4)(क) सेवानिवृत्ति तक (अथवा निलंबन से एक दिन पहले तक) की अर्हकारी सेवा पर अनुज्ञेय अधिकतम पेंशन के बराबर अनंतिम पेंशन प्राधिकृत करता है, तथा नियम 8(4)(ग) विभागीय या न्यायिक कार्यवाही समाप्त होकर अंतिम आदेश पारित होने तक संपूर्ण उपदान रोक देता है।"
+      },
+      "ruleRef": {
+        "textId": "ccs-pension-8",
+        "citation": { "en": "Rule 8, CCS (Pension) Rules, 2021", "hi": "नियम 8, सीसीएस (पेंशन) नियम, 2021" }
+      },
+      "difficulty": "hard",
+      "stageA": { "index": 4, "angle": "Rule 8(3)-(4) — provisional pension pending proceedings, gratuity withheld entirely" },
+      "groundingRuleIds": ["ccs-pension-8"]
+    },
+    {
+      "id": "ccs-pension-q-005",
+      "rule": "9",
+      "kind": "mcq",
+      "front": {
+        "en": "Under Rule 9(1) of the CCS (Pension) Rules, 2021, who must obtain the previous sanction of the Government before accepting commercial employment within one year of retirement?",
+        "hi": "सीसीएस (पेंशन) नियम, 2021 के नियम 9(1) के अधीन, सेवानिवृत्ति के एक वर्ष के भीतर वाणिज्यिक नियोजन स्वीकार करने से पूर्व किसे सरकार की पूर्व मंजूरी लेनी होगी?"
+      },
+      "back": {
+        "en": "A pensioner who, immediately before his retirement, was a member of Central Service Group 'A'.",
+        "hi": "वह पेंशनभोगी जो अपनी सेवानिवृत्ति से ठीक पहले केंद्रीय सेवा समूह 'क' का सदस्य था।"
+      },
+      "options": [
+        {
+          "en": "A pensioner who, immediately before his retirement, was a member of Central Service Group 'A'",
+          "hi": "वह पेंशनभोगी जो अपनी सेवानिवृत्ति से ठीक पहले केंद्रीय सेवा समूह 'क' का सदस्य था"
+        },
+        {
+          "en": "Every pensioner, regardless of the Group or Service he belonged to",
+          "hi": "प्रत्येक पेंशनभोगी, चाहे वह किसी भी समूह या सेवा का रहा हो"
+        },
+        {
+          "en": "Only a pensioner who retired on a compassionate allowance",
+          "hi": "केवल वह पेंशनभोगी जो करुणामूलक भत्ते पर सेवानिवृत्त हुआ हो"
+        },
+        {
+          "en": "Only a pensioner who intends to take up the directorship of a company",
+          "hi": "केवल वह पेंशनभोगी जो किसी कंपनी का निदेशक बनना चाहता हो"
+        }
+      ],
+      "answerIndex": 0,
+      "explanation": {
+        "en": "Rule 9(1) applies specifically to a pensioner who, immediately before retirement, was a member of Central Service Group 'A'. A pensioner outside that description is not covered by this particular sanction requirement.",
+        "hi": "नियम 9(1) विशेष रूप से उस पेंशनभोगी पर लागू होता है जो सेवानिवृत्ति से ठीक पहले केंद्रीय सेवा समूह 'क' का सदस्य था। इस विवरण से बाहर का पेंशनभोगी इस विशेष मंजूरी अपेक्षा के अंतर्गत नहीं आता।"
+      },
+      "ruleRef": {
+        "textId": "ccs-pension-9",
+        "citation": { "en": "Rule 9, CCS (Pension) Rules, 2021", "hi": "नियम 9, सीसीएस (पेंशन) नियम, 2021" }
+      },
+      "difficulty": "medium",
+      "stageA": { "index": 5, "angle": "Rule 9(1) — the Group 'A' threshold for the commercial-employment sanction" },
+      "groundingRuleIds": ["ccs-pension-9"]
+    },
+    {
+      "id": "ccs-pension-q-006",
+      "rule": "10",
+      "kind": "trueFalse",
+      "front": {
+        "en": "Under Rule 10 of the CCS (Pension) Rules, 2021, a pensioner who was a member of Central Service Group 'A' must obtain the previous permission of the Central Government before accepting employment under a Government outside India.",
+        "hi": "सीसीएस (पेंशन) नियम, 2021 के नियम 10 के अधीन, केंद्रीय सेवा समूह 'क' के पूर्व सदस्य पेंशनभोगी को भारत से बाहर किसी सरकार के अधीन नियोजन स्वीकार करने से पूर्व केंद्रीय सरकार की पूर्व अनुमति लेनी होगी।"
+      },
+      "back": { "en": "True.", "hi": "सत्य।" },
+      "options": [
+        { "en": "True", "hi": "सत्य" },
+        { "en": "False", "hi": "असत्य" }
+      ],
+      "answerIndex": 0,
+      "explanation": {
+        "en": "Rule 10(1) requires previous permission for such employment, and no pension is payable to a pensioner who accepts it without proper permission, for the period of that employment or such longer period as the Government may direct.",
+        "hi": "नियम 10(1) ऐसे नियोजन के लिए पूर्व अनुमति अपेक्षित करता है, और यदि पेंशनभोगी उचित अनुमति के बिना ऐसा नियोजन स्वीकार करता है, तो उस अवधि के लिए, अथवा सरकार द्वारा निदेशित उससे अधिक अवधि के लिए, उसे कोई पेंशन देय नहीं होगी।"
+      },
+      "ruleRef": {
+        "textId": "ccs-pension-10",
+        "citation": { "en": "Rule 10, CCS (Pension) Rules, 2021", "hi": "नियम 10, सीसीएस (पेंशन) नियम, 2021" }
+      },
+      "difficulty": "medium",
+      "stageA": { "index": 6, "angle": "Rule 10(1) — previous permission for foreign-government employment" },
+      "groundingRuleIds": ["ccs-pension-10"]
+    },
+    {
+      "id": "ccs-pension-q-007",
+      "rule": "11",
+      "kind": "mcq",
+      "front": {
+        "en": "Under Rule 11 of the CCS (Pension) Rules, 2021, when does a Government servant's qualifying service commence?",
+        "hi": "सीसीएस (पेंशन) नियम, 2021 के नियम 11 के अधीन, सरकारी सेवक की अर्हकारी सेवा कब आरंभ होती है?"
+      },
+      "back": {
+        "en": "From the date he takes charge of the post to which he is first appointed, whether substantively or in an officiating or temporary capacity, provided the officiating or temporary service is followed without interruption by substantive appointment.",
+        "hi": "उस तारीख से जब वह उस पद का प्रभार ग्रहण करता है जिस पर वह प्रथम बार नियुक्त हुआ है, चाहे स्थायी रूप से हो अथवा स्थानापन्न या अस्थायी रूप से, बशर्ते स्थानापन्न या अस्थायी सेवा के बाद बिना व्यवधान के स्थायी नियुक्ति हो।"
+      },
+      "options": [
+        {
+          "en": "From the date he completes one year of continuous service",
+          "hi": "उस तारीख से जब वह एक वर्ष की सतत सेवा पूरी करता है"
+        },
+        {
+          "en": "From the date of his confirmation in a substantive post",
+          "hi": "किसी स्थायी पद पर उसकी पुष्टि की तारीख से"
+        },
+        {
+          "en": "From the date he attains the age of eighteen years, regardless of his date of appointment",
+          "hi": "उसकी नियुक्ति की तारीख से निरपेक्ष होकर, उसके अठारह वर्ष की आयु प्राप्त करने की तारीख से"
+        },
+        {
+          "en": "From the date he takes charge of the post to which he is first appointed, substantively or in an officiating or temporary capacity, provided it is followed without interruption by substantive appointment",
+          "hi": "उस तारीख से जब वह उस पद का प्रभार ग्रहण करता है जिस पर वह प्रथम बार नियुक्त हुआ है, चाहे स्थायी रूप से हो अथवा स्थानापन्न या अस्थायी रूप से, बशर्ते उसके बाद बिना व्यवधान के स्थायी नियुक्ति हो"
+        }
+      ],
+      "answerIndex": 3,
+      "explanation": {
+        "en": "Rule 11's first proviso ties officiating or temporary service back to the day charge was taken, but only if it runs into substantive appointment without a break; its second proviso excludes any service rendered before the age of eighteen (except military service counted under Rule 20).",
+        "hi": "नियम 11 का पहला परंतुक स्थानापन्न या अस्थायी सेवा को प्रभार ग्रहण करने के दिन से जोड़ता है, किंतु केवल तभी जब उसके बाद बिना व्यवधान के स्थायी नियुक्ति हो; इसका दूसरा परंतुक अठारह वर्ष की आयु से पूर्व की गई किसी सेवा को अपवर्जित करता है (सिवाय नियम 20 के अधीन गणनीय सैनिक सेवा के)।"
+      },
+      "ruleRef": {
+        "textId": "ccs-pension-11",
+        "citation": { "en": "Rule 11, CCS (Pension) Rules, 2021", "hi": "नियम 11, सीसीएस (पेंशन) नियम, 2021" }
+      },
+      "difficulty": "medium",
+      "stageA": { "index": 7, "angle": "Rule 11 — commencement of qualifying service, and its two provisos" },
+      "groundingRuleIds": ["ccs-pension-11"]
+    },
+    {
+      "id": "ccs-pension-q-008",
+      "rule": "12",
+      "kind": "mcq",
+      "front": {
+        "en": "Rule 12 of the CCS (Pension) Rules, 2021 lays down the basic condition for a Government servant's service to qualify for pension. What is that condition?",
+        "hi": "सीसीएस (पेंशन) नियम, 2021 का नियम 12 सरकारी सेवक की सेवा के पेंशन हेतु अर्हकारी होने की मूल शर्त निर्धारित करता है। वह शर्त क्या है?"
+      },
+      "back": {
+        "en": "That his duties and pay are regulated by the Government, or under conditions determined by the Government.",
+        "hi": "यह कि उसके कर्तव्य और वेतन सरकार द्वारा, अथवा सरकार द्वारा अवधारित शर्तों के अधीन, विनियमित हों।"
+      },
+      "options": [
+        {
+          "en": "That he has completed at least five years of continuous service",
+          "hi": "यह कि उसने कम से कम पांच वर्ष की सतत सेवा पूरी कर ली हो"
+        },
+        {
+          "en": "That his duties and pay are regulated by the Government, or under conditions determined by the Government",
+          "hi": "यह कि उसके कर्तव्य और वेतन सरकार द्वारा, अथवा सरकार द्वारा अवधारित शर्तों के अधीन, विनियमित हों"
+        },
+        {
+          "en": "That he holds a permanent, and not a temporary, post",
+          "hi": "यह कि वह किसी स्थायी पद पर हो, अस्थायी पद पर नहीं"
+        },
+        {
+          "en": "That his post is included in a scheme framed by a Central Pay Commission",
+          "hi": "यह कि उसका पद किसी केंद्रीय वेतन आयोग की किसी स्कीम में सम्मिलित हो"
+        }
+      ],
+      "answerIndex": 1,
+      "explanation": {
+        "en": "Rule 12's Explanation adds that 'service' means service under the Government paid from the Consolidated Fund of India or a Local Fund it administers — length of service, permanency of the post and inclusion in a Pay Commission scheme are separate questions.",
+        "hi": "नियम 12 का स्पष्टीकरण जोड़ता है कि \"सेवा\" से तात्पर्य सरकार के अधीन ऐसी सेवा से है जो भारत की संचित निधि या उसके द्वारा प्रशासित किसी स्थानीय निधि से संदत्त हो — सेवा की अवधि, पद की स्थायिता और वेतन आयोग की स्कीम में सम्मिलन अलग-अलग प्रश्न हैं।"
+      },
+      "ruleRef": {
+        "textId": "ccs-pension-12",
+        "citation": { "en": "Rule 12, CCS (Pension) Rules, 2021", "hi": "नियम 12, सीसीएस (पेंशन) नियम, 2021" }
+      },
+      "difficulty": "easy",
+      "stageA": { "index": 8, "angle": "Rule 12 — the basic condition for service to qualify" },
+      "groundingRuleIds": ["ccs-pension-12"]
+    },
+    {
+      "id": "ccs-pension-q-009",
+      "rule": "20",
+      "kind": "scenario",
+      "front": {
+        "en": "A Government servant who was re-employed in a civil post on or before 31 December 2003 after earlier military service wants that military service counted as qualifying service. Under Rule 20(1) of the CCS (Pension) Rules, 2021, what must he have done on re-employment?",
+        "hi": "एक सरकारी सेवक, जो पूर्व सैनिक सेवा के पश्चात 31 दिसंबर 2003 को या उससे पहले किसी सिविल पद पर पुनर्नियोजित हुआ था, चाहता है कि उसकी वह सैनिक सेवा अर्हकारी सेवा के रूप में गिनी जाए। सीसीएस (पेंशन) नियम, 2021 के नियम 20(1) के अधीन, पुनर्नियोजन पर उसे क्या करना अपेक्षित था?"
+      },
+      "back": {
+        "en": "He must have opted, on re-employment, to cease drawing his military pension, and refunded the pension already drawn, the value received for commutation, and the retirement or service gratuity.",
+        "hi": "पुनर्नियोजन पर उसे अपनी सैनिक पेंशन लेना बंद करने का विकल्प चुनना था, तथा पहले से प्राप्त पेंशन, संचयन के लिए प्राप्त मूल्य और सेवानिवृत्ति या सेवा उपदान को वापस करना था।"
+      },
+      "options": [
+        {
+          "en": "Nothing — Rule 20 counts military service automatically for every re-employed Government servant",
+          "hi": "कुछ नहीं — नियम 20 प्रत्येक पुनर्नियोजित सरकारी सेवक की सैनिक सेवा को स्वतः गिन लेता है"
+        },
+        {
+          "en": "He must complete a further twenty years of civil service before the military service is counted",
+          "hi": "सैनिक सेवा को गिने जाने से पहले उसे सिविल सेवा के बीस और वर्ष पूरे करने होंगे"
+        },
+        {
+          "en": "He must have opted, on re-employment, to cease drawing his military pension and refunded the pension already drawn, the commutation value received, and the retirement or service gratuity",
+          "hi": "पुनर्नियोजन पर उसे अपनी सैनिक पेंशन लेना बंद करने का विकल्प चुनना था, तथा पहले से प्राप्त पेंशन, संचयन का प्राप्त मूल्य और सेवानिवृत्ति या सेवा उपदान को वापस करना था"
+        },
+        {
+          "en": "He must obtain a No-Objection Certificate from the Ministry of Defence alone",
+          "hi": "उसे केवल रक्षा मंत्रालय से अनापत्ति प्रमाणपत्र प्राप्त करना होगा"
+        }
+      ],
+      "answerIndex": 2,
+      "explanation": {
+        "en": "Rule 20(1) makes the counting of past military service conditional on the Government servant having exercised the option to cease drawing his military pension and having refunded three things: the pension already drawn, the value received on commuting part of it, and the retirement/service gratuity.",
+        "hi": "नियम 20(1) पूर्व सैनिक सेवा के गणन को इस शर्त के अधीन रखता है कि सरकारी सेवक ने अपनी सैनिक पेंशन लेना बंद करने का विकल्प चुना हो और तीन वस्तुएं वापस की हों: पहले से प्राप्त पेंशन, उसके एक भाग के संचयन पर प्राप्त मूल्य, तथा सेवानिवृत्ति या सेवा उपदान।"
+      },
+      "ruleRef": {
+        "textId": "ccs-pension-20",
+        "citation": { "en": "Rule 20, CCS (Pension) Rules, 2021", "hi": "नियम 20, सीसीएस (पेंशन) नियम, 2021" }
+      },
+      "difficulty": "hard",
+      "stageA": { "index": 9, "angle": "Rule 20(1) — the option-and-refund condition for counting military service" },
+      "groundingRuleIds": ["ccs-pension-20"]
+    },
+    {
+      "id": "ccs-pension-q-010",
+      "rule": "21",
+      "kind": "mcq",
+      "front": {
+        "en": "Under Rule 21 of the CCS (Pension) Rules, 2021, which periods of leave count towards qualifying service without any special order being needed?",
+        "hi": "सीसीएस (पेंशन) नियम, 2021 के नियम 21 के अधीन, छुट्टी की कौन-सी अवधियां बिना किसी विशेष आदेश के अर्हकारी सेवा में गिनी जाती हैं?"
+      },
+      "back": {
+        "en": "All leave for which leave salary is payable, and all extraordinary leave granted on a medical certificate.",
+        "hi": "वह समस्त छुट्टी जिसके लिए छुट्टी वेतन देय हो, तथा चिकित्सा प्रमाणपत्र पर दी गई समस्त असाधारण छुट्टी।"
+      },
+      "options": [
+        {
+          "en": "All leave for which leave salary is payable, and all extraordinary leave granted on a medical certificate",
+          "hi": "वह समस्त छुट्टी जिसके लिए छुट्टी वेतन देय हो, तथा चिकित्सा प्रमाणपत्र पर दी गई समस्त असाधारण छुट्टी"
+        },
+        { "en": "Only casual leave and restricted holidays", "hi": "केवल आकस्मिक छुट्टी और प्रतिबंधित अवकाश" },
+        { "en": "Only leave preparatory to retirement", "hi": "केवल सेवानिवृत्ति-पूर्व छुट्टी" },
+        {
+          "en": "All extraordinary leave, whatever the reason it was granted",
+          "hi": "समस्त असाधारण छुट्टी, चाहे वह किसी भी कारण से दी गई हो"
+        }
+      ],
+      "answerIndex": 0,
+      "explanation": {
+        "en": "Rule 21's proviso then allows the appointing authority to count other extraordinary leave — not on medical certificate — only when granted for civil commotion or higher scientific/technical study, and even then a specific entry is needed or it counts by default.",
+        "hi": "नियम 21 का परंतुक फिर नियुक्ति प्राधिकारी को अन्य असाधारण छुट्टी — जो चिकित्सा प्रमाणपत्र पर न हो — को केवल तभी गिनने की अनुमति देता है जब वह सिविल उपद्रव या उच्चतर वैज्ञानिक-तकनीकी अध्ययन के लिए दी गई हो, और तब भी विशेष प्रविष्टि आवश्यक है, अन्यथा वह डिफ़ॉल्ट रूप से गिन ली जाती है।"
+      },
+      "ruleRef": {
+        "textId": "ccs-pension-21",
+        "citation": { "en": "Rule 21, CCS (Pension) Rules, 2021", "hi": "नियम 21, सीसीएस (पेंशन) नियम, 2021" }
+      },
+      "difficulty": "medium",
+      "stageA": { "index": 10, "angle": "Rule 21 — leave-salary leave and medical-certificate EOL count without a special order" },
+      "groundingRuleIds": ["ccs-pension-21"]
+    },
+    {
+      "id": "ccs-pension-q-011",
+      "rule": "24",
+      "kind": "trueFalse",
+      "front": {
+        "en": "Rule 24 of the CCS (Pension) Rules, 2021 provides that dismissal or removal of a Government servant from a service or post entails forfeiture of his past service.",
+        "hi": "सीसीएस (पेंशन) नियम, 2021 का नियम 24 उपबंधित करता है कि किसी सेवा या पद से सरकारी सेवक की पदच्युति या सेवा से हटाया जाना उसकी भूतकालिक सेवा के समपहरण का कारण बनता है।"
+      },
+      "back": { "en": "True.", "hi": "सत्य।" },
+      "options": [
+        { "en": "True", "hi": "सत्य" },
+        { "en": "False", "hi": "असत्य" }
+      ],
+      "answerIndex": 0,
+      "explanation": {
+        "en": "Rule 24 states this in a single unqualified sentence, distinct from resignation (Rule 26) and ordinary interruption (Rule 27), each of which has its own, more limited, forfeiture rule.",
+        "hi": "नियम 24 इसे एक ही निरपवाद वाक्य में कहता है, जो त्यागपत्र (नियम 26) और साधारण व्यवधान (नियम 27) से भिन्न है — इन दोनों का अपना, अधिक सीमित, समपहरण नियम है।"
+      },
+      "ruleRef": {
+        "textId": "ccs-pension-24",
+        "citation": { "en": "Rule 24, CCS (Pension) Rules, 2021", "hi": "नियम 24, सीसीएस (पेंशन) नियम, 2021" }
+      },
+      "difficulty": "easy",
+      "stageA": { "index": 11, "angle": "Rule 24 — dismissal/removal forfeits past service unconditionally" },
+      "groundingRuleIds": ["ccs-pension-24"]
+    },
+    {
+      "id": "ccs-pension-q-012",
+      "rule": "26",
+      "kind": "mcq",
+      "front": {
+        "en": "A Government servant resigns from his post specifically to take up, with proper permission, another appointment under the Government where the service qualifies. Under Rule 26(2) of the CCS (Pension) Rules, 2021, what is the effect on his past service?",
+        "hi": "एक सरकारी सेवक उचित अनुमति से सरकार के अधीन किसी अन्य ऐसी नियुक्ति को ग्रहण करने के लिए ही अपने पद से त्यागपत्र देता है जहां सेवा अर्हकारी होती है। सीसीएस (पेंशन) नियम, 2021 के नियम 26(2) के अधीन, उसकी भूतकालिक सेवा पर इसका क्या प्रभाव पड़ता है?"
+      },
+      "back": {
+        "en": "It does not entail forfeiture of his past service, unlike an ordinary resignation.",
+        "hi": "इससे उसकी भूतकालिक सेवा का समपहरण नहीं होता, जबकि साधारण त्यागपत्र से होता है।"
+      },
+      "options": [
+        {
+          "en": "It is always forfeited, since Rule 26(1) makes no exception for resignation",
+          "hi": "यह सदैव समपहृत हो जाती है, क्योंकि नियम 26(1) त्यागपत्र के लिए कोई अपवाद नहीं रखता"
+        },
+        {
+          "en": "It does not entail forfeiture of his past service, unlike an ordinary resignation",
+          "hi": "इससे उसकी भूतकालिक सेवा का समपहरण नहीं होता, जबकि साधारण त्यागपत्र से होता है"
+        },
+        { "en": "Only half of the past service is carried forward", "hi": "केवल आधी भूतकालिक सेवा ही आगे गिनी जाती है" },
+        {
+          "en": "The past service is forfeited unless the President personally condones it",
+          "hi": "जब तक राष्ट्रपति स्वयं क्षमा न करें, भूतकालिक सेवा समपहृत रहती है"
+        }
+      ],
+      "answerIndex": 1,
+      "explanation": {
+        "en": "Rule 26(1) makes an ordinary resignation forfeit past service; Rule 26(2) is the express exception for a resignation submitted to take up, with proper permission, another qualifying appointment under the Government.",
+        "hi": "नियम 26(1) साधारण त्यागपत्र को भूतकालिक सेवा के समपहरण का कारण बनाता है; नियम 26(2) उस त्यागपत्र के लिए स्पष्ट अपवाद है जो उचित अनुमति से सरकार के अधीन किसी अन्य अर्हकारी नियुक्ति को ग्रहण करने के लिए दिया गया हो।"
+      },
+      "ruleRef": {
+        "textId": "ccs-pension-26",
+        "citation": { "en": "Rule 26, CCS (Pension) Rules, 2021", "hi": "नियम 26, सीसीएस (पेंशन) नियम, 2021" }
+      },
+      "difficulty": "medium",
+      "stageA": { "index": 12, "angle": "Rule 26(2) — the proper-permission exception to resignation forfeiture" },
+      "groundingRuleIds": ["ccs-pension-26"]
+    },
+    {
+      "id": "ccs-pension-q-013",
+      "rule": "27",
+      "kind": "mcq",
+      "front": {
+        "en": "Rule 27(1) of the CCS (Pension) Rules, 2021 lists exceptions to forfeiture of past service on an interruption in service. Which of the following interruptions is protected under it?",
+        "hi": "सीसीएस (पेंशन) नियम, 2021 का नियम 27(1) सेवा में व्यवधान होने पर भूतकालिक सेवा के समपहरण के अपवादों को गिनाता है। इनमें से कौन-सा व्यवधान इसके अधीन संरक्षित है?"
+      },
+      "back": {
+        "en": "Suspension, where it is immediately followed by reinstatement, whether in the same or a different post.",
+        "hi": "निलंबन, जहां उसके बाद तत्काल पुनःस्थापन हो, चाहे उसी पद पर हो या किसी भिन्न पद पर।"
+      },
+      "options": [
+        { "en": "Resignation from a post, in every case", "hi": "प्रत्येक स्थिति में किसी पद से त्यागपत्र" },
+        {
+          "en": "Unauthorised absence taken independently of any period of authorised leave, after the post has been filled substantively",
+          "hi": "प्राधिकृत छुट्टी की किसी अवधि से स्वतंत्र रूप से ली गई अप्राधिकृत अनुपस्थिति, जबकि पद स्थायी रूप से भरा जा चुका हो"
+        },
+        { "en": "Participation in a strike", "hi": "हड़ताल में भाग लेना" },
+        {
+          "en": "Suspension, where it is immediately followed by reinstatement, whether in the same or a different post",
+          "hi": "निलंबन, जहां उसके बाद तत्काल पुनःस्थापन हो, चाहे उसी पद पर हो या किसी भिन्न पद पर"
+        }
+      ],
+      "answerIndex": 3,
+      "explanation": {
+        "en": "Rule 27(1)(c) protects suspension followed immediately by reinstatement (or by death, permitted retirement, or retirement on superannuation while still under suspension). Resignation and strike participation are expressly excluded from the parallel automatic-condonation rule in Rule 28(2), and unauthorised absence is protected only so long as the vacated post is not filled substantively — clause (b).",
+        "hi": "नियम 27(1)(ग) निलंबन को संरक्षित करता है जब उसके बाद तत्काल पुनःस्थापन हो (अथवा निलंबन के दौरान मृत्यु, अनुज्ञात सेवानिवृत्ति या अधिवर्षिता पर सेवानिवृत्ति हो)। त्यागपत्र और हड़ताल में भागीदारी को नियम 28(2) के समांतर स्वतः-क्षमा नियम से स्पष्टतः अपवर्जित किया गया है, और अप्राधिकृत अनुपस्थिति तभी तक संरक्षित है जब तक रिक्त हुआ पद स्थायी रूप से न भरा जाए — खंड (ख)।"
+      },
+      "ruleRef": {
+        "textId": "ccs-pension-27",
+        "citation": { "en": "Rule 27, CCS (Pension) Rules, 2021", "hi": "नियम 27, सीसीएस (पेंशन) नियम, 2021" }
+      },
+      "difficulty": "hard",
+      "stageA": { "index": 13, "angle": "Rule 27(1) — which interruptions are genuinely protected" },
+      "groundingRuleIds": ["ccs-pension-27", "ccs-pension-28"]
+    },
+    {
+      "id": "ccs-pension-q-014",
+      "rule": "28",
+      "kind": "trueFalse",
+      "front": {
+        "en": "Rule 28(2) of the CCS (Pension) Rules, 2021 extends the automatic condonation of an interruption in service to gaps caused by resignation, dismissal, or participation in a strike.",
+        "hi": "सीसीएस (पेंशन) नियम, 2021 का नियम 28(2) सेवा में व्यवधान के स्वतः क्षमादान को त्यागपत्र, पदच्युति अथवा हड़ताल में भागीदारी के कारण उत्पन्न व्यवधानों तक विस्तारित करता है।"
+      },
+      "back": { "en": "False.", "hi": "असत्य।" },
+      "options": [
+        { "en": "True", "hi": "सत्य" },
+        { "en": "False", "hi": "असत्य" }
+      ],
+      "answerIndex": 1,
+      "explanation": {
+        "en": "Rule 28(1) treats an interruption between two spells of civil service as automatically condoned in the absence of a contrary indication in the service book, but Rule 28(2) expressly excludes interruption caused by resignation, dismissal or removal from service, or participation in a strike.",
+        "hi": "नियम 28(1) सेवा-पुस्तिका में विपरीत संकेत के अभाव में दो सिविल सेवा-कालों के बीच के व्यवधान को स्वतः क्षमित मानता है, किंतु नियम 28(2) त्यागपत्र, पदच्युति या सेवा से हटाए जाने, अथवा हड़ताल में भागीदारी के कारण उत्पन्न व्यवधान को स्पष्टतः अपवर्जित करता है।"
+      },
+      "ruleRef": {
+        "textId": "ccs-pension-28",
+        "citation": { "en": "Rule 28, CCS (Pension) Rules, 2021", "hi": "नियम 28, सीसीएस (पेंशन) नियम, 2021" }
+      },
+      "difficulty": "medium",
+      "stageA": { "index": 14, "angle": "Rule 28(2) — what the automatic condonation excludes" },
+      "groundingRuleIds": ["ccs-pension-28"]
+    },
+    {
+      "id": "ccs-pension-q-015",
+      "rule": "33",
+      "kind": "mcq",
+      "front": {
+        "en": "Rule 33 of the CCS (Pension) Rules, 2021 grants a superannuation pension or superannuation service gratuity to which Government servant?",
+        "hi": "सीसीएस (पेंशन) नियम, 2021 का नियम 33 किस सरकारी सेवक को अधिवर्षिता पेंशन या अधिवर्षिता सेवा उपदान प्रदान करता है?"
+      },
+      "back": {
+        "en": "One who is retired on attaining the age of superannuation, or, if his service was extended beyond that age, on the expiry of the extension.",
+        "hi": "वह जो अधिवर्षिता आयु प्राप्त करने पर सेवानिवृत्त किया जाए, अथवा, यदि उसकी सेवा उस आयु से आगे बढ़ा दी गई हो, तो उस विस्तार की समाप्ति पर।"
+      },
+      "options": [
+        {
+          "en": "One who is retired on attaining the age of superannuation, or, if his service was extended, on the expiry of that extension",
+          "hi": "वह जो अधिवर्षिता आयु प्राप्त करने पर सेवानिवृत्त किया जाए, अथवा, यदि उसकी सेवा बढ़ाई गई हो, तो उस विस्तार की समाप्ति पर"
+        },
+        {
+          "en": "One who retires voluntarily after twenty years' qualifying service",
+          "hi": "वह जो बीस वर्ष की अर्हकारी सेवा के पश्चात स्वेच्छा से सेवानिवृत्त हो"
+        },
+        {
+          "en": "One who is compulsorily retired from service as a penalty",
+          "hi": "वह जो शास्ति के रूप में अनिवार्यतः सेवा से सेवानिवृत्त किया जाए"
+        },
+        {
+          "en": "One who is invalidated out of service on medical grounds",
+          "hi": "वह जो चिकित्सीय आधार पर अशक्तता के कारण सेवा से हटाया जाए"
+        }
+      ],
+      "answerIndex": 0,
+      "explanation": {
+        "en": "Voluntary retirement after twenty years falls under Rule 43 (a retiring pension under Rule 34), compulsory retirement as a penalty falls under Rule 40, and invalidation falls under Rule 39 — each is a distinct chapter of the same rules, not superannuation.",
+        "hi": "बीस वर्ष के बाद स्वैच्छिक सेवानिवृत्ति नियम 43 के अंतर्गत आती है (नियम 34 के अधीन सेवानिवृत्ति पेंशन), शास्ति के रूप में अनिवार्य सेवानिवृत्ति नियम 40 के अंतर्गत आती है, और अशक्तता नियम 39 के अंतर्गत आती है — ये सभी इन्हीं नियमों के अलग-अलग अध्याय हैं, अधिवर्षिता नहीं।"
+      },
+      "ruleRef": {
+        "textId": "ccs-pension-33",
+        "citation": { "en": "Rule 33, CCS (Pension) Rules, 2021", "hi": "नियम 33, सीसीएस (पेंशन) नियम, 2021" }
+      },
+      "difficulty": "easy",
+      "stageA": { "index": 15, "angle": "Rule 33 — superannuation pension, distinguished from voluntary/compulsory/invalid retirement" },
+      "groundingRuleIds": ["ccs-pension-33", "ccs-pension-34", "ccs-pension-39", "ccs-pension-40", "ccs-pension-43"]
+    },
+    {
+      "id": "ccs-pension-q-016",
+      "rule": "34",
+      "kind": "scenario",
+      "front": {
+        "en": "An officer voluntarily retires under Rule 43 after completing twenty years' qualifying service, well before attaining the age of superannuation. Under Rule 34 of the CCS (Pension) Rules, 2021, what is he entitled to?",
+        "hi": "एक अधिकारी अधिवर्षिता आयु प्राप्त करने से बहुत पहले, बीस वर्ष की अर्हकारी सेवा पूरी करने पर नियम 43 के अधीन स्वेच्छा से सेवानिवृत्त होता है। सीसीएस (पेंशन) नियम, 2021 के नियम 34 के अधीन वह किसका हकदार है?"
+      },
+      "back": {
+        "en": "A retiring pension or retiring service gratuity, calculated in accordance with Rule 44.",
+        "hi": "नियम 44 के अनुसार परिकलित सेवानिवृत्ति पेंशन अथवा सेवानिवृत्ति सेवा उपदान।"
+      },
+      "options": [
+        {
+          "en": "A superannuation pension under Rule 33, since Rule 34 does not apply to voluntary retirement",
+          "hi": "नियम 33 के अधीन अधिवर्षिता पेंशन, क्योंकि नियम 34 स्वैच्छिक सेवानिवृत्ति पर लागू नहीं होता"
+        },
+        {
+          "en": "No pension at all — only a service gratuity is payable on voluntary retirement, whatever the length of service",
+          "hi": "कोई पेंशन नहीं — स्वैच्छिक सेवानिवृत्ति पर सेवा की अवधि चाहे जो हो, केवल सेवा उपदान ही देय है"
+        },
+        {
+          "en": "A retiring pension or retiring service gratuity, calculated in accordance with Rule 44",
+          "hi": "नियम 44 के अनुसार परिकलित सेवानिवृत्ति पेंशन अथवा सेवानिवृत्ति सेवा उपदान"
+        },
+        { "en": "A compassionate allowance under Rule 41", "hi": "नियम 41 के अधीन अनुकंपा भत्ता" }
+      ],
+      "answerIndex": 2,
+      "explanation": {
+        "en": "Rule 34(1)(a) names voluntary retirement under Rule 43 (as well as under FR 56) as one of the three routes to a retiring pension or retiring service gratuity under Rule 44 — the same rule also covers the surplus-employee Special Voluntary Retirement Scheme and premature retirement by the Government under Rule 42.",
+        "hi": "नियम 34(1)(क) नियम 43 (साथ ही मूल नियम 56) के अधीन स्वैच्छिक सेवानिवृत्ति को नियम 44 के अधीन सेवानिवृत्ति पेंशन या सेवानिवृत्ति सेवा उपदान के तीन मार्गों में से एक के रूप में नामित करता है — यही नियम अधिशेष कर्मचारियों की विशेष स्वैच्छिक सेवानिवृत्ति स्कीम तथा नियम 42 के अधीन सरकार द्वारा समयपूर्व सेवानिवृत्ति को भी कवर करता है।"
+      },
+      "ruleRef": {
+        "textId": "ccs-pension-34",
+        "citation": { "en": "Rule 34, CCS (Pension) Rules, 2021", "hi": "नियम 34, सीसीएस (पेंशन) नियम, 2021" }
+      },
+      "difficulty": "medium",
+      "stageA": { "index": 16, "angle": "Rule 34(1)(a) — voluntary retirement under Rule 43 leads to a retiring pension, not superannuation pension" },
+      "groundingRuleIds": ["ccs-pension-34", "ccs-pension-43"]
+    },
+    {
+      "id": "ccs-pension-q-017",
+      "rule": "39",
+      "kind": "mcq",
+      "front": {
+        "en": "Under Rule 39(2) of the CCS (Pension) Rules, 2021 — in a case where section 20 of the Rights of Persons with Disabilities Act, 2016 does not apply — when may a Government servant apply to the Head of Department for retirement on invalid pension?",
+        "hi": "सीसीएस (पेंशन) नियम, 2021 के नियम 39(2) के अधीन — ऐसे मामले में जहां दिव्यांगजन अधिकार अधिनियम, 2016 की धारा 20 लागू नहीं होती — सरकारी सेवक अशक्तता पेंशन पर सेवानिवृत्ति के लिए विभागाध्यक्ष को कब आवेदन कर सकता है?"
+      },
+      "back": {
+        "en": "When he intends to retire on account of any bodily or mental infirmity that permanently incapacitates him for the service.",
+        "hi": "जब वह किसी ऐसी शारीरिक या मानसिक अशक्तता के कारण सेवानिवृत्त होना चाहता हो जो उसे सेवा के लिए स्थायी रूप से अक्षम बना देती हो।"
+      },
+      "options": [
+        {
+          "en": "As soon as he completes ten years of qualifying service, regardless of his health",
+          "hi": "जैसे ही वह दस वर्ष की अर्हकारी सेवा पूरी कर ले, चाहे उसका स्वास्थ्य कैसा भी हो"
+        },
+        {
+          "en": "When he intends to retire on account of any bodily or mental infirmity that permanently incapacitates him for the service",
+          "hi": "जब वह किसी ऐसी शारीरिक या मानसिक अशक्तता के कारण सेवानिवृत्त होना चाहता हो जो उसे सेवा के लिए स्थायी रूप से अक्षम बना देती हो"
+        },
+        {
+          "en": "Only after a Central Government Health Scheme specialist certifies fifty per cent disability",
+          "hi": "केवल तब जब केंद्र सरकार स्वास्थ्य योजना का कोई विशेषज्ञ पचास प्रतिशत अशक्तता प्रमाणित कर दे"
+        },
+        {
+          "en": "At any time, purely at his own discretion, with no medical examination required",
+          "hi": "किसी भी समय, पूर्णतः अपने विवेक पर, बिना किसी चिकित्सा परीक्षण के"
+        }
+      ],
+      "answerIndex": 1,
+      "explanation": {
+        "en": "Sub-rules (3)-(8) then set out the machinery — reference to a Medical Board or Civil Surgeon, examination, and a Format 6 certificate — none of which is a substitute for the underlying condition in sub-rule (2): permanent incapacity for the service.",
+        "hi": "उपनियम (3)-(8) फिर तंत्र निर्धारित करते हैं — मेडिकल बोर्ड या सिविल सर्जन को निर्देश, परीक्षण, तथा फॉर्मेट 6 का प्रमाणपत्र — इनमें से कोई भी उपनियम (2) की मूल शर्त, अर्थात सेवा के लिए स्थायी अक्षमता, का विकल्प नहीं है।"
+      },
+      "ruleRef": {
+        "textId": "ccs-pension-39",
+        "citation": { "en": "Rule 39, CCS (Pension) Rules, 2021", "hi": "नियम 39, सीसीएस (पेंशन) नियम, 2021" }
+      },
+      "difficulty": "medium",
+      "stageA": { "index": 17, "angle": "Rule 39(2) — the permanent-incapacity ground for invalid pension" },
+      "groundingRuleIds": ["ccs-pension-39"]
+    },
+    {
+      "id": "ccs-pension-q-018",
+      "rule": "40",
+      "kind": "mcq",
+      "front": {
+        "en": "Rule 40(1) of the CCS (Pension) Rules, 2021 lets the authority competent to impose the penalty of compulsory retirement grant pension or gratuity, or both, within what range?",
+        "hi": "सीसीएस (पेंशन) नियम, 2021 का नियम 40(1) अनिवार्य सेवानिवृत्ति की शास्ति अधिरोपित करने में सक्षम प्राधिकारी को पेंशन या उपदान, अथवा दोनों, किस सीमा के भीतर मंजूर करने देता है?"
+      },
+      "back": {
+        "en": "Not less than two-thirds and not more than the full superannuation pension or gratuity that would have been admissible.",
+        "hi": "अनुज्ञेय अधिवर्षिता पेंशन या उपदान के दो-तिहाई से कम नहीं और पूर्ण राशि से अधिक नहीं।"
+      },
+      "options": [
+        {
+          "en": "Not less than two-thirds and not more than the full superannuation pension or gratuity that would have been admissible",
+          "hi": "अनुज्ञेय अधिवर्षिता पेंशन या उपदान के दो-तिहाई से कम नहीं और पूर्ण राशि से अधिक नहीं"
+        },
+        {
+          "en": "Exactly half of the superannuation pension or gratuity, with no discretion",
+          "hi": "अधिवर्षिता पेंशन या उपदान का ठीक आधा, बिना किसी विवेकाधिकार के"
+        },
+        { "en": "Not less than one-third and not more than two-thirds", "hi": "एक-तिहाई से कम नहीं और दो-तिहाई से अधिक नहीं" },
+        {
+          "en": "The full superannuation pension or gratuity, with no reduction possible",
+          "hi": "पूर्ण अधिवर्षिता पेंशन या उपदान, जिसमें कोई कटौती संभव न हो"
+        }
+      ],
+      "answerIndex": 0,
+      "explanation": {
+        "en": "Rule 40(3)-(4) then requires that where the quantum is not fixed in the same order that imposes the penalty, a provisional pension and gratuity at two-thirds must be sanctioned immediately, pending the final order.",
+        "hi": "नियम 40(3)-(4) फिर अपेक्षा करता है कि जहां मात्रा को शास्ति अधिरोपित करने वाले उसी आदेश में निर्धारित नहीं किया गया हो, वहां अंतिम आदेश लंबित रहते हुए दो-तिहाई की दर से अनंतिम पेंशन और उपदान तत्काल मंजूर किया जाना चाहिए।"
+      },
+      "ruleRef": {
+        "textId": "ccs-pension-40",
+        "citation": { "en": "Rule 40, CCS (Pension) Rules, 2021", "hi": "नियम 40, सीसीएस (पेंशन) नियम, 2021" }
+      },
+      "difficulty": "medium",
+      "stageA": { "index": 18, "angle": "Rule 40(1) — the two-thirds-to-full range for compulsory retirement pension" },
+      "groundingRuleIds": ["ccs-pension-40"]
+    },
+    {
+      "id": "ccs-pension-q-019",
+      "rule": "41",
+      "kind": "scenario",
+      "front": {
+        "en": "A Group 'B' officer is dismissed from service following a departmental inquiry for misconduct. He has no automatic entitlement to pension or gratuity after dismissal. Under Rule 41 of the CCS (Pension) Rules, 2021, can the competent authority give him anything at all?",
+        "hi": "एक समूह 'ख' अधिकारी को कदाचार के लिए विभागीय जांच के बाद सेवा से पदच्युत कर दिया जाता है। पदच्युति के बाद उसे पेंशन या उपदान का कोई स्वतः हक नहीं रहता। सीसीएस (पेंशन) नियम, 2021 के नियम 41 के अधीन, क्या सक्षम प्राधिकारी उसे कुछ भी दे सकता है?"
+      },
+      "back": {
+        "en": "Yes — if it considers the case deserving of special consideration, it may sanction a compassionate allowance not exceeding two-thirds of the pension or gratuity, or both, that would have been admissible had he retired on superannuation pension.",
+        "hi": "हां — यदि वह मामले को विशेष विचार का पात्र समझे, तो वह उतनी अनुकंपा भत्ता राशि मंजूर कर सकता है जो अधिवर्षिता पेंशन पर सेवानिवृत्त होने पर अनुज्ञेय पेंशन या उपदान, अथवा दोनों, के दो-तिहाई से अधिक न हो।"
+      },
+      "options": [
+        {
+          "en": "No — Rule 41 bars any payment whatsoever after dismissal or removal",
+          "hi": "नहीं — नियम 41 पदच्युति या सेवा से हटाए जाने के बाद किसी भी भुगतान को पूर्णतः वर्जित करता है"
+        },
+        {
+          "en": "Yes — if it considers the case deserving of special consideration, it may sanction a compassionate allowance not exceeding two-thirds of the pension or gratuity, or both, that would have been admissible on superannuation",
+          "hi": "हां — यदि वह मामले को विशेष विचार का पात्र समझे, तो वह अधिवर्षिता पर अनुज्ञेय पेंशन या उपदान, अथवा दोनों, के दो-तिहाई से अधिक न होने वाला अनुकंपा भत्ता मंजूर कर सकता है"
+        },
+        {
+          "en": "Yes, but only the full amount of pension he would otherwise have received",
+          "hi": "हां, किंतु केवल उतनी ही पूर्ण पेंशन राशि जो उसे अन्यथा प्राप्त होती"
+        },
+        {
+          "en": "Yes, but only if the President personally directs it in every single case",
+          "hi": "हां, किंतु केवल तभी जब राष्ट्रपति स्वयं प्रत्येक मामले में इसका निदेश दें"
+        }
+      ],
+      "answerIndex": 1,
+      "explanation": {
+        "en": "The proviso to Rule 41(1) is the source of this discretion, and Rule 41(3) requires the competent authority to weigh the actual misconduct, the kind of service rendered, and, in exceptional circumstances, dependent family members, before deciding the quantum.",
+        "hi": "नियम 41(1) का परंतुक इस विवेकाधिकार का स्रोत है, और नियम 41(3) सक्षम प्राधिकारी से अपेक्षा करता है कि मात्रा तय करने से पहले वह वास्तविक कदाचार, प्रदत्त सेवा की प्रकृति, और असाधारण परिस्थितियों में आश्रित कुटुंब सदस्यों पर विचार करे।"
+      },
+      "ruleRef": {
+        "textId": "ccs-pension-41",
+        "citation": { "en": "Rule 41, CCS (Pension) Rules, 2021", "hi": "नियम 41, सीसीएस (पेंशन) नियम, 2021" }
+      },
+      "difficulty": "medium",
+      "stageA": { "index": 19, "angle": "Rule 41 — the compassionate-allowance discretion after dismissal or removal" },
+      "groundingRuleIds": ["ccs-pension-41"]
+    },
+    {
+      "id": "ccs-pension-q-020",
+      "rule": "42",
+      "kind": "mcq",
+      "front": {
+        "en": "Under Rule 42 of the CCS (Pension) Rules, 2021, if a Government servant with thirty years' qualifying service is required to retire in the public interest, what notice must the appointing authority give?",
+        "hi": "सीसीएस (पेंशन) नियम, 2021 के नियम 42 के अधीन, यदि तीस वर्ष की अर्हकारी सेवा वाले सरकारी सेवक को लोकहित में सेवानिवृत्त होने के लिए अपेक्षित किया जाए, तो नियुक्ति प्राधिकारी को कौन-सी सूचना देनी होगी?"
+      },
+      "back": {
+        "en": "At least three months' notice in writing, or three months' pay and allowances in lieu of such notice.",
+        "hi": "कम से कम तीन मास की लिखित सूचना, अथवा ऐसी सूचना के स्थान पर तीन मास का वेतन और भत्ते।"
+      },
+      "options": [
+        { "en": "One month's notice, or one month's pay in lieu", "hi": "एक मास की सूचना, अथवा उसके स्थान पर एक मास का वेतन" },
+        {
+          "en": "Six months' notice, with no option to pay in lieu",
+          "hi": "छह मास की सूचना, बिना उसके स्थान पर भुगतान के विकल्प के"
+        },
+        {
+          "en": "No notice is required for a public-interest retirement under this rule",
+          "hi": "इस नियम के अधीन लोकहित सेवानिवृत्ति के लिए किसी सूचना की आवश्यकता नहीं"
+        },
+        {
+          "en": "At least three months' notice in writing, or three months' pay and allowances in lieu of such notice",
+          "hi": "कम से कम तीन मास की लिखित सूचना, अथवा उसके स्थान पर तीन मास का वेतन और भत्ते"
+        }
+      ],
+      "answerIndex": 3,
+      "explanation": {
+        "en": "Rule 42(2) is explicit on both the three-month period and the pay-in-lieu alternative; Rule 42(3) then applies the same DoPT procedure used for retirement under Fundamental Rule 56.",
+        "hi": "नियम 42(2) तीन मास की अवधि और वेतन-प्रतिस्थानी विकल्प, दोनों पर स्पष्ट है; नियम 42(3) फिर मूल नियम 56 के अधीन सेवानिवृत्ति में प्रयुक्त वही कार्मिक और प्रशिक्षण विभाग की प्रक्रिया लागू करता है।"
+      },
+      "ruleRef": {
+        "textId": "ccs-pension-42",
+        "citation": { "en": "Rule 42, CCS (Pension) Rules, 2021", "hi": "नियम 42, सीसीएस (पेंशन) नियम, 2021" }
+      },
+      "difficulty": "medium",
+      "stageA": { "index": 20, "angle": "Rule 42(2) — the three-month notice, or pay in lieu" },
+      "groundingRuleIds": ["ccs-pension-42"]
+    },
+    {
+      "id": "ccs-pension-q-021",
+      "rule": "43",
+      "kind": "scenario",
+      "front": {
+        "en": "A Government servant under suspension wishes to give notice of voluntary retirement after completing twenty years' qualifying service, under Rule 43 of the CCS (Pension) Rules, 2021. What may the appointing authority do?",
+        "hi": "निलंबन के अधीन एक सरकारी सेवक बीस वर्ष की अर्हकारी सेवा पूरी करने पर सीसीएस (पेंशन) नियम, 2021 के नियम 43 के अधीन स्वैच्छिक सेवानिवृत्ति की सूचना देना चाहता है। नियुक्ति प्राधिकारी क्या कर सकता है?"
+      },
+      "back": {
+        "en": "It may withhold permission for the retirement, because Rule 43(3) allows this where the Government servant is under suspension, has been charge-sheeted with disciplinary proceedings pending, or faces judicial proceedings on charges amounting to grave misconduct.",
+        "hi": "वह सेवानिवृत्ति की अनुज्ञा रोक सकता है, क्योंकि नियम 43(3) इसकी अनुमति तब देता है जब सरकारी सेवक निलंबन के अधीन हो, उस पर आरोप-पत्र जारी होकर अनुशासनिक कार्यवाही लंबित हो, अथवा घोर कदाचार तुल्य आरोपों पर न्यायिक कार्यवाही चल रही हो।"
+      },
+      "options": [
+        {
+          "en": "It may withhold permission for the retirement, because Rule 43(3) allows this where the Government servant is under suspension, charge-sheeted with pending disciplinary proceedings, or facing judicial proceedings amounting to grave misconduct",
+          "hi": "वह सेवानिवृत्ति की अनुज्ञा रोक सकता है, क्योंकि नियम 43(3) इसकी अनुमति तब देता है जब सरकारी सेवक निलंबन के अधीन हो, उस पर आरोप-पत्र जारी होकर अनुशासनिक कार्यवाही लंबित हो, अथवा घोर कदाचार तुल्य आरोपों पर न्यायिक कार्यवाही चल रही हो"
+        },
+        {
+          "en": "It must automatically accept the notice — suspension is irrelevant under Rule 43",
+          "hi": "उसे सूचना स्वतः स्वीकार करनी होगी — नियम 43 के अधीन निलंबन अप्रासंगिक है"
+        },
+        {
+          "en": "It must refer the matter to the Union Public Service Commission before deciding",
+          "hi": "निर्णय लेने से पहले उसे मामला संघ लोक सेवा आयोग को निर्दिष्ट करना होगा"
+        },
+        {
+          "en": "It must convert the voluntary retirement into a compulsory retirement instead",
+          "hi": "उसे स्वैच्छिक सेवानिवृत्ति को अनिवार्य सेवानिवृत्ति में बदलना होगा"
+        }
+      ],
+      "answerIndex": 0,
+      "explanation": {
+        "en": "Rule 43(3)'s proviso adds that even in these circumstances the appointing authority may still accept the notice, but only with the President's approval — the bar is not absolute, but it is real.",
+        "hi": "नियम 43(3) का परंतुक जोड़ता है कि इन परिस्थितियों में भी नियुक्ति प्राधिकारी सूचना स्वीकार कर सकता है, किंतु केवल राष्ट्रपति के अनुमोदन से — यह रोक निरपेक्ष नहीं है, किंतु वास्तविक है।"
+      },
+      "ruleRef": {
+        "textId": "ccs-pension-43",
+        "citation": { "en": "Rule 43, CCS (Pension) Rules, 2021", "hi": "नियम 43, सीसीएस (पेंशन) नियम, 2021" }
+      },
+      "difficulty": "hard",
+      "stageA": { "index": 21, "angle": "Rule 43(3) — when permission for voluntary retirement can be withheld" },
+      "groundingRuleIds": ["ccs-pension-43"]
+    },
+    {
+      "id": "ccs-pension-q-022",
+      "rule": "44",
+      "kind": "mcq",
+      "front": {
+        "en": "Under Rule 44(6) of the CCS (Pension) Rules, 2021, what additional pension is payable to a pensioner aged 80 years but less than 85 years?",
+        "hi": "सीसीएस (पेंशन) नियम, 2021 के नियम 44(6) के अधीन, 80 वर्ष से 85 वर्ष से कम आयु के पेंशनभोगी को कितनी अतिरिक्त पेंशन देय है?"
+      },
+      "back": { "en": "20% of the basic pension.", "hi": "मूल पेंशन का 20 प्रतिशत।" },
+      "options": [
+        { "en": "10% of the basic pension", "hi": "मूल पेंशन का 10 प्रतिशत" },
+        { "en": "15% of the basic pension", "hi": "मूल पेंशन का 15 प्रतिशत" },
+        { "en": "20% of the basic pension", "hi": "मूल पेंशन का 20 प्रतिशत" },
+        { "en": "30% of the basic pension", "hi": "मूल पेंशन का 30 प्रतिशत" }
+      ],
+      "answerIndex": 2,
+      "explanation": {
+        "en": "Rule 44(6)'s table rises in five bands: 20% from 80 to less than 85, 30% from 85 to less than 90, 40% from 90 to less than 95, 50% from 95 to less than 100, and 100% at 100 years or more — payable from the first day of the calendar month in which it falls due.",
+        "hi": "नियम 44(6) की तालिका पांच स्तरों में बढ़ती है: 80 से 85 वर्ष से कम तक 20%, 85 से 90 वर्ष से कम तक 30%, 90 से 95 वर्ष से कम तक 40%, 95 से 100 वर्ष से कम तक 50%, तथा 100 वर्ष या अधिक पर 100% — जो उस कैलेंडर मास के पहले दिन से देय होती है जिसमें यह देय हो जाती है।"
+      },
+      "ruleRef": {
+        "textId": "ccs-pension-44",
+        "citation": { "en": "Rule 44, CCS (Pension) Rules, 2021", "hi": "नियम 44, सीसीएस (पेंशन) नियम, 2021" }
+      },
+      "difficulty": "easy",
+      "stageA": { "index": 22, "angle": "Rule 44(6) — the age-banded additional pension table" },
+      "groundingRuleIds": ["ccs-pension-44"]
+    },
+    {
+      "id": "ccs-pension-q-023",
+      "rule": "45",
+      "kind": "mcq",
+      "front": {
+        "en": "Under Rule 45(1)(a) of the CCS (Pension) Rules, 2021, how is retirement gratuity calculated for a Government servant who has become eligible for pension under Rule 44?",
+        "hi": "सीसीएस (पेंशन) नियम, 2021 के नियम 45(1)(क) के अधीन, नियम 44 के अधीन पेंशन का पात्र बन चुके सरकारी सेवक के लिए सेवानिवृत्ति उपदान की गणना कैसे की जाती है?"
+      },
+      "back": {
+        "en": "One-fourth of his emoluments for each completed six-monthly period of qualifying service, subject to a maximum of 16½ times the emoluments — and, in any case, capped at twenty lakh rupees.",
+        "hi": "अर्हकारी सेवा के प्रत्येक पूर्ण छह-मासिक काल के लिए उसकी उपलब्धियों का एक-चौथाई, जो अधिकतम उपलब्धियों के 16½ गुने के अध्यधीन हो — तथा किसी भी स्थिति में बीस लाख रुपये की सीमा के अंतर्गत।"
+      },
+      "options": [
+        {
+          "en": "Half a month's emoluments for every completed year of qualifying service, with no ceiling",
+          "hi": "अर्हकारी सेवा के प्रत्येक पूर्ण वर्ष के लिए आधे मास की उपलब्धियां, बिना किसी सीमा के"
+        },
+        {
+          "en": "One-fourth of his emoluments for each completed six-monthly period of qualifying service, subject to a maximum of 16½ times the emoluments, and capped at twenty lakh rupees",
+          "hi": "अर्हकारी सेवा के प्रत्येक पूर्ण छह-मासिक काल के लिए उपलब्धियों का एक-चौथाई, अधिकतम उपलब्धियों के 16½ गुने के अध्यधीन, तथा बीस लाख रुपये की सीमा के अंतर्गत"
+        },
+        {
+          "en": "A flat sum of twenty lakh rupees, regardless of the length of service",
+          "hi": "सेवा की अवधि चाहे जो हो, बीस लाख रुपये की एक निश्चित राशि"
+        },
+        {
+          "en": "One-fourth of his last drawn pay for every year of qualifying service, subject to a maximum of ten times the pay",
+          "hi": "अर्हकारी सेवा के प्रत्येक वर्ष के लिए उसके अंतिम आहरित वेतन का एक-चौथाई, वेतन के अधिकतम दस गुने के अध्यधीन"
+        }
+      ],
+      "answerIndex": 1,
+      "explanation": {
+        "en": "Rule 45(1)(a)'s formula and its 16½-times ceiling are separate from the proviso capping BOTH retirement and death gratuity at twenty lakh rupees in any case — the smaller of the two figures governs.",
+        "hi": "नियम 45(1)(क) का सूत्र और उसकी 16½ गुने की सीमा, उस परंतुक से अलग है जो सेवानिवृत्ति और मृत्यु — दोनों — उपदान को किसी भी स्थिति में बीस लाख रुपये पर सीमित करता है — इन दोनों आंकड़ों में जो छोटा हो, वही लागू होता है।"
+      },
+      "ruleRef": {
+        "textId": "ccs-pension-45",
+        "citation": { "en": "Rule 45, CCS (Pension) Rules, 2021", "hi": "नियम 45, सीसीएस (पेंशन) नियम, 2021" }
+      },
+      "difficulty": "medium",
+      "stageA": { "index": 23, "angle": "Rule 45(1)(a) — the quarter-emoluments formula, the 16½-times ceiling, and the twenty-lakh cap" },
+      "groundingRuleIds": ["ccs-pension-45"]
+    },
+    {
+      "id": "ccs-pension-q-024",
+      "rule": "46",
+      "kind": "trueFalse",
+      "front": {
+        "en": "Rule 46(1) of the CCS (Pension) Rules, 2021 requires a Government servant, on his initial appointment to a service or post, to make a nomination conferring on one or more persons the right to receive the retirement gratuity and death gratuity payable under Rule 45.",
+        "hi": "सीसीएस (पेंशन) नियम, 2021 का नियम 46(1) सरकारी सेवक से अपेक्षा करता है कि वह किसी सेवा या पद पर अपनी प्रारंभिक नियुक्ति पर एक या अधिक व्यक्तियों को नियम 45 के अधीन देय सेवानिवृत्ति उपदान और मृत्यु उपदान प्राप्त करने का अधिकार प्रदान करते हुए नामांकन करे।"
+      },
+      "back": { "en": "True.", "hi": "सत्य।" },
+      "options": [
+        { "en": "True", "hi": "सत्य" },
+        { "en": "False", "hi": "असत्य" }
+      ],
+      "answerIndex": 0,
+      "explanation": {
+        "en": "Rule 46(1) states this requirement at initial appointment; sub-rules (2) to (9) then govern who may be nominated, how the shares are divided, when a nomination becomes invalid and how it is cancelled or replaced.",
+        "hi": "नियम 46(1) प्रारंभिक नियुक्ति पर इस अपेक्षा को बताता है; उपनियम (2) से (9) फिर यह शासित करते हैं कि किसे नामांकित किया जा सकता है, हिस्से कैसे बांटे जाएं, नामांकन कब अमान्य होता है, तथा उसे कैसे रद्द या प्रतिस्थापित किया जाए।"
+      },
+      "ruleRef": {
+        "textId": "ccs-pension-46",
+        "citation": { "en": "Rule 46, CCS (Pension) Rules, 2021", "hi": "नियम 46, सीसीएस (पेंशन) नियम, 2021" }
+      },
+      "difficulty": "easy",
+      "stageA": { "index": 24, "angle": "Rule 46(1) — the nomination requirement at initial appointment" },
+      "groundingRuleIds": ["ccs-pension-46"]
+    },
+    {
+      "id": "ccs-pension-q-025",
+      "rule": "47",
+      "kind": "mcq",
+      "front": {
+        "en": "A Government servant dies while in service without a subsisting nomination for his gratuity. Under Rule 47(1)(b) of the CCS (Pension) Rules, 2021, who is paid first?",
+        "hi": "एक सरकारी सेवक सेवाकाल में ही मर जाता है और उसके उपदान के लिए कोई विद्यमान नामांकन नहीं है। सीसीएस (पेंशन) नियम, 2021 के नियम 47(1)(ख) के अधीन, सर्वप्रथम किसे भुगतान किया जाता है?"
+      },
+      "back": {
+        "en": "All surviving members among the first category of family defined under Rule 45 — spouse, sons, unmarried daughters, and widowed or divorced daughters — in equal shares.",
+        "hi": "नियम 45 के अंतर्गत परिभाषित कुटुंब की प्रथम श्रेणी के सभी जीवित सदस्य — पति या पत्नी, पुत्र, अविवाहित पुत्रियां, तथा विधवा या तलाकशुदा पुत्रियां — समान हिस्सों में।"
+      },
+      "options": [
+        {
+          "en": "The eldest son alone, to the exclusion of all other members",
+          "hi": "केवल सबसे बड़ा पुत्र, अन्य सभी सदस्यों को अपवर्जित करते हुए"
+        },
+        {
+          "en": "The Government, since gratuity always lapses in the absence of a nomination",
+          "hi": "सरकार, क्योंकि नामांकन के अभाव में उपदान सदैव व्यपगत हो जाता है"
+        },
+        {
+          "en": "Members of the second category — parents and dependent siblings — before any member of the first category",
+          "hi": "द्वितीय श्रेणी के सदस्य — माता-पिता और आश्रित भाई-बहन — प्रथम श्रेणी के किसी भी सदस्य से पहले"
+        },
+        {
+          "en": "All surviving members among the first category of family — spouse, sons, unmarried daughters, and widowed or divorced daughters — in equal shares",
+          "hi": "कुटुंब की प्रथम श्रेणी के सभी जीवित सदस्य — पति या पत्नी, पुत्र, अविवाहित पुत्रियां, तथा विधवा या तलाकशुदा पुत्रियां — समान हिस्सों में"
+        }
+      ],
+      "answerIndex": 3,
+      "explanation": {
+        "en": "Rule 47(1)(b)(i) pays the first category — the clauses (i) to (v) of Rule 45's family Explanation — in equal shares; clause (ii) reaches the second category — clauses (vi) to (xi) — only if no member of the first category survives.",
+        "hi": "नियम 47(1)(ख)(i) प्रथम श्रेणी को — नियम 45 के कुटुंब-संबंधी स्पष्टीकरण के खंड (i) से (v) — समान हिस्सों में भुगतान करता है; खंड (ii) द्वितीय श्रेणी — खंड (vi) से (xi) — तक तभी पहुंचता है जब प्रथम श्रेणी का कोई सदस्य जीवित न बचे।"
+      },
+      "ruleRef": {
+        "textId": "ccs-pension-47",
+        "citation": { "en": "Rule 47, CCS (Pension) Rules, 2021", "hi": "नियम 47, सीसीएस (पेंशन) नियम, 2021" }
+      },
+      "difficulty": "hard",
+      "stageA": { "index": 25, "angle": "Rule 47(1)(b) — the two-tier default order in the absence of a nomination" },
+      "groundingRuleIds": ["ccs-pension-47", "ccs-pension-45"]
+    },
+    {
+      "id": "ccs-pension-q-026",
+      "rule": "48",
+      "kind": "scenario",
+      "front": {
+        "en": "A member of a deceased Government servant's family who would otherwise receive a share of gratuity is charged with murdering the Government servant. Under Rule 48 of the CCS (Pension) Rules, 2021, what happens to his claim while the criminal case is pending?",
+        "hi": "मृत सरकारी सेवक के कुटुंब का एक सदस्य, जिसे अन्यथा उपदान का एक हिस्सा प्राप्त होता, उस सरकारी सेवक की हत्या के आरोप में अभियुक्त है। सीसीएस (पेंशन) नियम, 2021 के नियम 48 के अधीन, फौजदारी मामला लंबित रहते हुए उसके दावे का क्या होगा?"
+      },
+      "back": {
+        "en": "His claim to receive his share of the gratuity remains suspended until the criminal proceedings conclude; if he is convicted he is permanently debarred, and if acquitted his share becomes payable to him.",
+        "hi": "उपदान में अपने हिस्से को प्राप्त करने का उसका दावा फौजदारी कार्यवाही समाप्त होने तक निलंबित रहेगा; यदि वह दोषसिद्ध होता है तो उसे स्थायी रूप से वंचित किया जाएगा, और यदि वह दोषमुक्त होता है तो उसका हिस्सा उसे देय हो जाएगा।"
+      },
+      "options": [
+        {
+          "en": "His claim remains suspended until the criminal proceedings conclude; conviction debars him permanently, acquittal makes his share payable to him",
+          "hi": "उसका दावा फौजदारी कार्यवाही समाप्त होने तक निलंबित रहता है; दोषसिद्धि उसे स्थायी रूप से वंचित करती है, दोषमुक्ति पर उसका हिस्सा उसे देय हो जाता है"
+        },
+        {
+          "en": "His share is paid out immediately to the other family members and can never revert to him even if he is later acquitted",
+          "hi": "उसका हिस्सा तुरंत अन्य कुटुंब सदस्यों को दे दिया जाता है और बाद में दोषमुक्त होने पर भी वह उसे कभी वापस नहीं मिलता"
+        },
+        {
+          "en": "His share lapses to the Government regardless of the outcome of the trial",
+          "hi": "मुकदमे का परिणाम चाहे जो हो, उसका हिस्सा सरकार को व्यपगत हो जाता है"
+        },
+        {
+          "en": "The gratuity is paid to him at once, since a mere charge is not the same as a conviction",
+          "hi": "उपदान उसे तत्काल दे दिया जाता है, क्योंकि केवल आरोप दोषसिद्धि के समान नहीं है"
+        }
+      ],
+      "answerIndex": 0,
+      "explanation": {
+        "en": "Rule 48(1) suspends the claim pending trial; Rule 48(2)(a) debars a person convicted of murder or abetting the murder, paying his share to the other eligible members instead; Rule 48(2)(b) restores it to him on acquittal.",
+        "hi": "नियम 48(1) मुकदमे के लंबित रहते दावे को निलंबित करता है; नियम 48(2)(क) हत्या या हत्या के दुष्प्रेरण में दोषसिद्ध व्यक्ति को वंचित कर उसका हिस्सा अन्य पात्र सदस्यों को देता है; नियम 48(2)(ख) दोषमुक्ति पर उसे यह हिस्सा पुनः लौटा देता है।"
+      },
+      "ruleRef": {
+        "textId": "ccs-pension-48",
+        "citation": { "en": "Rule 48, CCS (Pension) Rules, 2021", "hi": "नियम 48, सीसीएस (पेंशन) नियम, 2021" }
+      },
+      "difficulty": "hard",
+      "stageA": { "index": 26, "angle": "Rule 48 — suspension of the murderer-nominee's claim, then debarment or restoration" },
+      "groundingRuleIds": ["ccs-pension-48"]
+    },
+    {
+      "id": "ccs-pension-q-027",
+      "rule": "50",
+      "kind": "mcq",
+      "front": {
+        "en": "Under Rule 50(2)(a)(ii) of the CCS (Pension) Rules, 2021, if a Government servant dies while still in service, at what rate — and for how long — is the higher family pension payable?",
+        "hi": "सीसीएस (पेंशन) नियम, 2021 के नियम 50(2)(क)(ii) के अधीन, यदि सरकारी सेवक सेवाकाल में ही मर जाए, तो उच्चतर पारिवारिक पेंशन किस दर पर — और कितनी अवधि के लिए — देय है?"
+      },
+      "back": {
+        "en": "50% of pay, payable for a period of ten years from the date following the date of death.",
+        "hi": "वेतन का 50 प्रतिशत, जो मृत्यु की तारीख के अगले दिन से दस वर्ष की अवधि के लिए देय है।"
+      },
+      "options": [
+        { "en": "30% of pay, payable for life", "hi": "वेतन का 30 प्रतिशत, जीवनभर देय" },
+        {
+          "en": "50% of pay, payable for a period of ten years from the date following the date of death",
+          "hi": "वेतन का 50 प्रतिशत, जो मृत्यु की तारीख के अगले दिन से दस वर्ष की अवधि के लिए देय है"
+        },
+        {
+          "en": "50% of pay, payable for seven years or until the deceased would have turned sixty-seven, whichever is less",
+          "hi": "वेतन का 50 प्रतिशत, जो सात वर्ष के लिए अथवा जब तक मृतक सड़सठ वर्ष का न हो जाता, जो भी कम हो, तक देय है"
+        },
+        { "en": "100% of pay, payable for five years", "hi": "वेतन का 100 प्रतिशत, जो पांच वर्ष के लिए देय है" }
+      ],
+      "answerIndex": 1,
+      "explanation": {
+        "en": "Option 3's figure is real — it is the rate for death AFTER retirement under sub-clause (iii), not death while in service. After either period expires, sub-clause (b) drops the family back to the uniform 30% rate in sub-clause (i).",
+        "hi": "विकल्प 3 का आंकड़ा वास्तविक है — यह उपखंड (iii) के अधीन सेवानिवृत्ति के बाद हुई मृत्यु की दर है, सेवाकाल में हुई मृत्यु की नहीं। इनमें से किसी भी अवधि के समाप्त होने पर, खंड (ख) कुटुंब को उपखंड (i) की एकसमान 30% दर पर वापस ले आता है।"
+      },
+      "ruleRef": {
+        "textId": "ccs-pension-50",
+        "citation": { "en": "Rule 50, CCS (Pension) Rules, 2021", "hi": "नियम 50, सीसीएस (पेंशन) नियम, 2021" }
+      },
+      "difficulty": "hard",
+      "stageA": { "index": 27, "angle": "Rule 50(2)(a) — the 50%-for-ten-years rate for death in service, against the death-after-retirement and uniform rates" },
+      "groundingRuleIds": ["ccs-pension-50"]
+    },
+    {
+      "id": "ccs-pension-q-028",
+      "rule": "52",
+      "kind": "mcq",
+      "front": {
+        "en": "Rule 52(2) of the CCS (Pension) Rules, 2021 addresses a pensioner who is re-employed under the Central or State Government, or a body under them. What is the general rule on dearness relief during such re-employment?",
+        "hi": "सीसीएस (पेंशन) नियम, 2021 का नियम 52(2) उस पेंशनभोगी से संबंधित है जो केंद्रीय या राज्य सरकार, अथवा उनके अधीन किसी निकाय में पुनर्नियोजित हो। ऐसे पुनर्नियोजन के दौरान महंगाई राहत पर साधारण नियम क्या है?"
+      },
+      "back": {
+        "en": "He shall not be eligible to draw dearness relief on his pension during the period of such re-employment, subject to the exceptions in the proviso.",
+        "hi": "वह ऐसे पुनर्नियोजन की अवधि के दौरान अपनी पेंशन पर महंगाई राहत प्राप्त करने का पात्र नहीं होगा, बशर्ते परंतुक में दिए गए अपवाद लागू न हों।"
+      },
+      "options": [
+        {
+          "en": "He continues to draw dearness relief in full, without exception",
+          "hi": "वह बिना किसी अपवाद के महंगाई राहत पूर्ण रूप से प्राप्त करता रहता है"
+        },
+        {
+          "en": "Dearness relief is halved during the period of re-employment",
+          "hi": "पुनर्नियोजन की अवधि के दौरान महंगाई राहत आधी कर दी जाती है"
+        },
+        {
+          "en": "He shall not be eligible to draw dearness relief on his pension during the period of such re-employment, subject to the exceptions in the proviso",
+          "hi": "वह ऐसे पुनर्नियोजन की अवधि के दौरान अपनी पेंशन पर महंगाई राहत प्राप्त करने का पात्र नहीं होगा, बशर्ते परंतुक में दिए गए अपवाद लागू न हों"
+        },
+        {
+          "en": "Dearness relief is payable only if the re-employment is outside India",
+          "hi": "महंगाई राहत केवल तभी देय है जब पुनर्नियोजन भारत से बाहर हो"
+        }
+      ],
+      "answerIndex": 2,
+      "explanation": {
+        "en": "The proviso to Rule 52(2) restores dearness relief where the re-employed pay was fixed at the minimum of the new post's scale, that minimum was below what the pensioner drew before, and his pension was ignored entirely in fixing it — Rule 52(3) requires a certificate to that effect, and Rule 52(4) exempts a family pensioner from all of this.",
+        "hi": "नियम 52(2) का परंतुक महंगाई राहत तब बहाल करता है जब पुनर्नियोजित वेतन नए पद के वेतनमान के न्यूनतम पर नियत किया गया हो, वह न्यूनतम पेंशनभोगी के पूर्व वेतन से कम हो, और उसकी पेंशन को उसके निर्धारण में पूर्णतः अनदेखा किया गया हो — नियम 52(3) इस आशय का प्रमाणपत्र अपेक्षित करता है, और नियम 52(4) पारिवारिक पेंशनभोगी को इस सबसे मुक्त रखता है।"
+      },
+      "ruleRef": {
+        "textId": "ccs-pension-52",
+        "citation": { "en": "Rule 52, CCS (Pension) Rules, 2021", "hi": "नियम 52, सीसीएस (पेंशन) नियम, 2021" }
+      },
+      "difficulty": "medium",
+      "stageA": { "index": 28, "angle": "Rule 52(2) — dearness relief withheld on re-employment, and the proviso's exception" },
+      "groundingRuleIds": ["ccs-pension-52"]
+    },
+    {
+      "id": "ccs-pension-q-029",
+      "rule": "65",
+      "kind": "mcq",
+      "front": {
+        "en": "Under Rule 65(5)(a) of the CCS (Pension) Rules, 2021, for a Government servant who retires on superannuation, from what date does interest on delayed pension or gratuity begin to run?",
+        "hi": "सीसीएस (पेंशन) नियम, 2021 के नियम 65(5)(क) के अधीन, अधिवर्षिता पर सेवानिवृत्त सरकारी सेवक के लिए, विलंबित पेंशन या उपदान पर ब्याज किस तारीख से चलना आरंभ होता है?"
+      },
+      "back": {
+        "en": "From the date following the expiry of three months from the date of retirement, up to the date the arrears are actually paid.",
+        "hi": "सेवानिवृत्ति की तारीख से तीन मास की समाप्ति के अगले दिन से, बकाया राशि के वास्तविक भुगतान की तारीख तक।"
+      },
+      "options": [
+        {
+          "en": "From the date following the expiry of three months from the date of retirement, up to the date the arrears are actually paid",
+          "hi": "सेवानिवृत्ति की तारीख से तीन मास की समाप्ति के अगले दिन से, बकाया राशि के वास्तविक भुगतान की तारीख तक"
+        },
+        { "en": "From the date of retirement itself, with no grace period", "hi": "बिना किसी छूट अवधि के, सेवानिवृत्ति की तारीख से ही" },
+        {
+          "en": "From the date the pension case is first submitted to the Head of Office",
+          "hi": "पेंशन मामले के कार्यालयाध्यक्ष को प्रथम बार प्रस्तुत किए जाने की तारीख से"
+        },
+        {
+          "en": "From the date the Accounts Officer receives the pension papers, regardless of when the Government servant retired",
+          "hi": "सरकारी सेवक कब सेवानिवृत्त हुआ इससे निरपेक्ष होकर, लेखा अधिकारी को पेंशन पत्रावली प्राप्त होने की तारीख से"
+        }
+      ],
+      "answerIndex": 0,
+      "explanation": {
+        "en": "Interest under Rule 65 is payable only where the delay is attributable to administrative reasons or lapses, and only after the Secretary of the Ministry or an officer not below Joint Secretary is satisfied of that and sanctions it — the proviso to sub-rule (1) refuses interest where the delay was the Government servant's own doing.",
+        "hi": "नियम 65 के अधीन ब्याज केवल तभी देय है जब विलंब प्रशासनिक कारणों या त्रुटियों के कारण हो, और केवल तभी जब मंत्रालय के सचिव अथवा संयुक्त सचिव से नीचे न हो ऐसा कोई अधिकारी इससे संतुष्ट होकर उसे मंजूर करे — उपनियम (1) का परंतुक उस स्थिति में ब्याज से इनकार करता है जब विलंब सरकारी सेवक की अपनी ओर से हुआ हो।"
+      },
+      "ruleRef": {
+        "textId": "ccs-pension-65",
+        "citation": { "en": "Rule 65, CCS (Pension) Rules, 2021", "hi": "नियम 65, सीसीएस (पेंशन) नियम, 2021" }
+      },
+      "difficulty": "hard",
+      "stageA": { "index": 29, "angle": "Rule 65(5)(a) — the three-month grace period before interest runs" },
+      "groundingRuleIds": ["ccs-pension-65"]
+    },
+    {
+      "id": "ccs-pension-q-030",
+      "rule": "82",
+      "kind": "trueFalse",
+      "front": {
+        "en": "Rule 82 of the CCS (Pension) Rules, 2021 permits a pensioner residing abroad to opt for payment of his pension in a foreign currency.",
+        "hi": "सीसीएस (पेंशन) नियम, 2021 का नियम 82 विदेश में निवास करने वाले पेंशनभोगी को अपनी पेंशन का भुगतान विदेशी मुद्रा में प्राप्त करने का विकल्प चुनने की अनुमति देता है।"
+      },
+      "back": { "en": "False.", "hi": "असत्य।" },
+      "options": [
+        { "en": "True", "hi": "सत्य" },
+        { "en": "False", "hi": "असत्य" }
+      ],
+      "answerIndex": 1,
+      "explanation": {
+        "en": "Rule 82 is a single unqualified sentence: all pensions, including gratuities admissible under these rules, shall be payable in rupees in India only.",
+        "hi": "नियम 82 एक ही निरपवाद वाक्य है: इन नियमों के अधीन अनुज्ञेय समस्त पेंशन, उपदान सहित, केवल भारत में रुपयों में ही देय होंगी।"
+      },
+      "ruleRef": {
+        "textId": "ccs-pension-82",
+        "citation": { "en": "Rule 82, CCS (Pension) Rules, 2021", "hi": "नियम 82, सीसीएस (पेंशन) नियम, 2021" }
+      },
+      "difficulty": "easy",
+      "stageA": { "index": 30, "angle": "Rule 82 — pension payable in rupees, in India, only" },
+      "groundingRuleIds": ["ccs-pension-82"]
+    }
+  ]
+}

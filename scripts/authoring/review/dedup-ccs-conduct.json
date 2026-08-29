@@ -156,6 +156,56 @@
       "maxScore": 61.1,
       "against": "ccs-conduct-q-016",
       "verdict": "keep"
+    },
+    "ccs-conduct-q-032": {
+      "maxScore": 67.5,
+      "against": "ccs-conduct-q-002",
+      "verdict": "keep"
+    },
+    "ccs-conduct-q-033": {
+      "maxScore": 60.6,
+      "against": "ccs-conduct-rule-13a",
+      "verdict": "keep"
+    },
+    "ccs-conduct-q-034": {
+      "maxScore": 72.6,
+      "against": "ccs-conduct-q-026",
+      "verdict": "keep"
+    },
+    "ccs-conduct-q-035": {
+      "maxScore": 67.8,
+      "against": "ccs-conduct-q-033",
+      "verdict": "keep"
+    },
+    "ccs-conduct-q-036": {
+      "maxScore": 64.2,
+      "against": "ccs-conduct-q-035",
+      "verdict": "keep"
+    },
+    "ccs-conduct-q-037": {
+      "maxScore": 70.1,
+      "against": "ccs-conduct-q-023",
+      "verdict": "keep"
+    },
+    "ccs-conduct-q-038": {
+      "maxScore": 61.7,
+      "against": "ccs-conduct-q-037",
+      "verdict": "keep"
+    },
+    "ccs-conduct-q-039": {
+      "maxScore": 73.5,
+      "against": "ccs-conduct-q-037",
+      "verdict": "keep"
+    },
+    "ccs-conduct-q-040": {
+      "maxScore": 61.3,
+      "against": "ccs-conduct-q-005",
+      "verdict": "keep"
+    },
+    "ccs-conduct-q-041": {
+      "maxScore": 62.9,
+      "against": "ccs-conduct-q-008",
+      "verdict": "keep"
     }
   }
 }
