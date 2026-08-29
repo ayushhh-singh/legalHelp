@@ -11,9 +11,8 @@ import {
 import LAW_INSTRUCTIONS from '../prompts/law.md?raw'
 import { buildSystem, PROMPT_VERSIONS } from '../prompts'
 import type { AiProvider } from '../provider'
-import { listTools, toJsonSchema, validateToolInput, type RegisteredTool } from '../tools/registry'
+import { callToolDirectly, listTools, toJsonSchema, type RegisteredTool } from '../tools/registry'
 import {
-  AiError,
   EMPTY_USAGE,
   isAiError,
   type AiErrorCode,
@@ -263,6 +262,29 @@ export function dateRuleCaveat(offenceDate: string | null | undefined): Bilingua
   }
 }
 
+/**
+ * The Hindi in `data/law` is hand-authored by this app, and it has to say so.
+ *
+ * Every one of the 1,059 records carries `verify: true` because the source
+ * publishes no Hindi (`docs/DATA-GAPS.md` #18), and
+ * `src/modules/law/components/SectionResultCard.tsx` marks that with a marigold
+ * "Verify" banner. CLAUDE.md states the rule: it is the one place a reader
+ * could mistake hand-authored text for the Act, so both halves are kept
+ * together. This is the Ask panel's half.
+ *
+ * Hindi only, exactly as the card does it. The English IS the official text, so
+ * an English reader shown this banner is being warned about nothing — which is
+ * how readers learn to stop reading banners.
+ */
+export const CURATED_HINDI_CAVEAT: Bilingual = {
+  en:
+    'The Hindi wording of these sections is hand-authored by Sahayak, not published by the source. ' +
+    'The English is the official text; check the Hindi against the gazette before quoting it.',
+  hi:
+    'इन धाराओं का हिंदी पाठ सहायक द्वारा स्वयं लिखा गया है, स्रोत द्वारा प्रकाशित नहीं। अंग्रेज़ी पाठ ' +
+    'ही आधिकारिक है; उद्धृत करने से पहले हिंदी को राजपत्र से मिला लें।',
+}
+
 /** The master context's own disclaimer, verbatim from `data/law/*.json`. */
 export const LAW_DISCLAIMER: Bilingual = {
   en: 'Reference only; verify with the official gazette/order or your DDO.',
@@ -291,10 +313,31 @@ const NEW_ACT_FOR_CODE: Readonly<Record<LawCode, NewActId>> = { bns: 'BNS', bnss
 const OLD_ACTS: readonly LawAct[] = ['IPC', 'CrPC', 'IEA']
 const isOldAct = (act: LawAct): act is OldActId => OLD_ACTS.includes(act)
 
-/** `"318(4)"` and `"318 (4)"` and `"३१८(४)"` all key the same provision. */
-function digitsOf(reference: string): string {
-  return reference.replace(/[०-९]/g, (d) => String('०१२३४५६७८९'.indexOf(d))).replace(/[^0-9]/g, '')
+/**
+ * A written reference, reduced to what identifies the provision.
+ *
+ * Devanagari digits fold to ASCII, punctuation and spacing go, and a letter
+ * suffix is KEPT and upper-cased — so `"318(4)"`, `"318 (4)"` and `"३१८(४)"`
+ * are one provision, and `"124"` and `"124A"` are two.
+ *
+ * The suffix is the part that was learned the hard way. Reducing to digits
+ * alone made IPC 124 (assaulting the President) and IPC 124A (sedition) the
+ * same key, so a citation of the former looked supported by a tool result that
+ * had only read the latter — and a repealed-Act citation never goes near the
+ * dataset, so nothing downstream could catch it. 65B/65 and 376AB/376 collide
+ * the same way. Note the app's own `validateCitations` still compares on digits
+ * alone; that is a different check, upstream of this one, and widening it is
+ * not this agent's to do.
+ */
+function refKey(reference: string): string {
+  return reference
+    .replace(/[०-९]/g, (d) => String('०१२३४५६७८९'.indexOf(d)))
+    .toUpperCase()
+    .replace(/[^0-9A-Z]/g, '')
 }
+
+/** How many digits a reference carries, ignoring any letter suffix. */
+const digitCount = (reference: string): number => refKey(reference).replace(/[^0-9]/g, '').length
 
 /**
  * The two keys one written reference answers to.
@@ -307,8 +350,8 @@ function digitsOf(reference: string): string {
  * tool result said 318.
  */
 function sectionKeys(act: LawAct, section: string): { full: string; base: string } {
-  const full = digitsOf(section)
-  const base = digitsOf(section.split('(')[0] ?? section) || full
+  const full = refKey(section)
+  const base = refKey(section.split('(')[0] ?? section) || full
   return { full: `${act}:${full}`, base: `${act}:${base}` }
 }
 
@@ -336,19 +379,34 @@ const SECTION_MENTION =
 export interface SectionMention {
   /** As it was written: `"318(4)"`. */
   written: string
-  /** Digits only: `"3184"`. */
+  /** Identity key: `"3184"`, `"124A"`. */
   full: string
-  /** Digits of the section alone: `"318"`. */
+  /** The section alone: `"318"`, `"124A"`. */
   base: string
 }
+
+/**
+ * The longest of the six Acts is the BNSS, at 531 sections. No section of any
+ * of them reaches four digits, so a four-digit reference is not a section and
+ * refusing to read one cannot lose a real citation.
+ *
+ * It is worth the guard because the alternative is a FALSE failure on a correct
+ * answer: "the BNS 2023 replaced the IPC 1860" put two numbers in front of an
+ * Act abbreviation, neither was in `citations`, and the whole answer was
+ * discarded. Checked on the section alone — `318(4)` has four digits once the
+ * brackets are stripped and is a real provision, and `124A` carries three.
+ */
+const MAX_SECTION_DIGITS = 3
 
 export function mentionedSections(text: string): SectionMention[] {
   const found = new Map<string, SectionMention>()
   for (const match of text.matchAll(SECTION_MENTION)) {
     const written = (match[1] ?? '').trim()
-    const full = digitsOf(written)
-    if (!full || found.has(full)) continue
-    found.set(full, { written, full, base: digitsOf(written.split('(')[0] ?? written) || full })
+    const full = refKey(written)
+    const base = refKey(written.split('(')[0] ?? written) || full
+    // Counted on the DIGITS, so `124A` is a section and `2023` is a year.
+    if (!full || digitCount(base) > MAX_SECTION_DIGITS || found.has(full)) continue
+    found.set(full, { written, full, base })
   }
   return [...found.values()].sort((a, b) => (a.full < b.full ? -1 : a.full > b.full ? 1 : 0))
 }
@@ -457,6 +515,27 @@ export interface LawAnswerResult {
   citations: LawCitation[]
   /** The date rule first, the disclaimer last; both always present. */
   caveats: Bilingual[]
+  /**
+   * Set when the HINDI of a cited section is hand-authored by this app rather
+   * than published by the source (`verify: true`, `docs/DATA-GAPS.md` #18);
+   * `null` when nothing cited is curated.
+   *
+   * It is carried here, as TEXT, rather than pushed into `caveats`, and both
+   * halves of that are deliberate:
+   *
+   *  - **Not in `caveats`**, because `caveats` is fixed when the run ends and
+   *    the language toggle is everywhere in this app. A reader who asks in
+   *    English and then switches to Hindi to read the Hindi phrasing must get
+   *    the mark too, and `SectionResultCard.tsx`'s banner is reactive for
+   *    exactly that reason. Show it when the reader is reading Hindi.
+   *  - **As text rather than a boolean**, because the panel must not import
+   *    this module for a string. `useLawAsk` dynamic-imports the agent when the
+   *    button is pressed, so that reading the panel downloads none of it; a
+   *    static `import { SOME_CONSTANT }` would pull the agent, `runAgent`, the
+   *    tool registry and this file's whole import graph into the panel's chunk
+   *    and quietly undo that.
+   */
+  curatedHindiNote: Bilingual | null
   snippets: AnswerSnippet[]
   /** Anything dropped or corrected on the way, in English, for the panel's log. */
   problems: string[]
@@ -538,6 +617,25 @@ export async function runLawAgent(params: LawAgentParams): Promise<LawAgentResul
   /* ---- 1. screen ------------------------------------------------- */
 
   step('screening')
+
+  /*
+    Nothing to answer. `runAgent` would not catch this: the user turn it is
+    handed is the surrounding instructions with an empty line where the
+    question goes, which is a perfectly non-empty message. The panel disables
+    its own button on a blank box, but this function is a module anything may
+    call, and it is this function that spends the reader's money.
+  */
+  if (!question.trim()) {
+    return {
+      status: 'error',
+      code: 'empty',
+      message: 'There is no question to answer.',
+      toolsCalled: [],
+      usage: { ...EMPTY_USAGE },
+      cost: 0,
+    }
+  }
+
   const refusal = screenLawQuestion(question)
   if (refusal) return { status: 'refused', refusal }
 
@@ -615,18 +713,18 @@ export async function runLawAgent(params: LawAgentParams): Promise<LawAgentResul
   // called nothing, and one that failed `ungrounded` for the same reason — and
   // both deserve the sentence that says what to do about it rather than
   // `runAgent`'s, which is written for a developer reading a log.
-  if (gathered.length === 0) {
-    return {
-      status: 'error',
-      code: 'ungrounded',
-      message:
-        'The assistant read nothing from the section tables, so there is nothing to answer from. ' +
-        'Ask about a section number, an offence or a phrase that appears in the BNS, BNSS or BSA.',
-      toolsCalled: researchRun.toolResults.map((result) => result.name),
-      usage,
-      cost: estimateCost(researchRun.meta.model, usage),
-    }
-  }
+  const nothingRead = (): LawFailedResult => ({
+    status: 'error',
+    code: 'ungrounded',
+    message:
+      'The assistant read nothing from the section tables, so there is nothing to answer from. ' +
+      'Ask about a section number, an offence or a phrase that appears in the BNS, BNSS or BSA.',
+    toolsCalled: researchRun.toolResults.map((result) => result.name),
+    usage,
+    cost: estimateCost(researchRun.meta.model, usage),
+  })
+
+  if (gathered.length === 0) return nothingRead()
 
   if (signal?.aborted) return cancelled(usage, researchRun.meta.model)
 
@@ -639,6 +737,21 @@ export async function runLawAgent(params: LawAgentParams): Promise<LawAgentResul
       `${read.dropped} tool result(s) beyond this tier’s limit of ${policy.maxToolResults} were not read.`,
     )
   }
+
+  /*
+    A tool that SUCCEEDED and found nothing is the case this missed.
+    `get_section` for a section that does not exist returns `{ found: false }`
+    rather than throwing, and a search that matches nothing returns an empty
+    list — both are successful tool results carrying no statute, so the run had
+    called something, read nothing, and went on to pay for an answer pass whose
+    entire context was the reader's own question.
+
+    The wasted tokens are the smaller half. The only numbers such a context can
+    support are the ones the reader typed, so the likeliest answer it can
+    produce is one built out of the question — which is the exact failure the
+    grounding rule exists to prevent.
+  */
+  if (read.snippets.length === 0) return nothingRead()
   const answerCtx = buildContext(
     [{ type: 'note', source: 'the reader’s question', id: 'question', text: question }, ...read.snippets],
     'en',
@@ -754,8 +867,8 @@ export async function runLawAgent(params: LawAgentParams): Promise<LawAgentResul
 
   const cited = new Set<string>()
   for (const citation of resolved) {
-    cited.add(digitsOf(citation.section))
-    cited.add(digitsOf(citation.section.split('(')[0] ?? citation.section))
+    cited.add(refKey(citation.section))
+    cited.add(refKey(citation.section.split('(')[0] ?? citation.section))
   }
   const uncited = mentionedSections(answerText).filter(
     (mention) => !cited.has(mention.full) && !cited.has(mention.base),
@@ -775,6 +888,27 @@ export async function runLawAgent(params: LawAgentParams): Promise<LawAgentResul
 
   /* ---- 6. the caveats this app owns ------------------------------- */
 
+  /*
+    Stage 5 awaits `format_citation` twice per citation, so it is the last
+    place a cancelled run can still be in flight — and `runAgent`'s own signal
+    checks are behind us. Without this, Cancel during verification returned a
+    complete answer. `useLawAsk` happens to drop it before it reaches the
+    screen, which is precisely why the check belongs here: the agent is what
+    the next caller will use, and the bug is invisible from the UI.
+  */
+  if (signal?.aborted) return cancelled(usage, answerRun.meta.model)
+
+  /*
+    Derived, not asked of the model, for the reason every other caveat here is:
+    the tools report `hindiIsCurated`, so this is a fact the agent HAS.
+    `prompts/law.md` also tells the model to repeat the mark, which makes the
+    answer read better when it obeys — but nothing depends on it having obeyed.
+  */
+  const curatedHindi = resolved.some((citation) => {
+    const { full, base } = sectionKeys(citation.act, citation.section)
+    return read.curatedHindi.has(full) || read.curatedHindi.has(base)
+  })
+
   const caveats: Bilingual[] = [
     dateRuleCaveat(offenceDate),
     ...(steer ? [steer.caveat] : []),
@@ -789,6 +923,7 @@ export async function runLawAgent(params: LawAgentParams): Promise<LawAgentResul
     answer: parsed.data.answer,
     citations: resolved,
     caveats,
+    curatedHindiNote: curatedHindi ? CURATED_HINDI_CAVEAT : null,
     snippets: read.snippets.map((snippet, index) => ({
       // +1 for the question, which is always snippet [1].
       index: index + 2,
@@ -871,6 +1006,8 @@ export function copyableAnswer(result: LawAnswerResult, language: Language): str
   }
 
   for (const caveat of result.caveats) lines.push(caveat[language])
+  // The same rule the panel renders: the mark belongs to the Hindi reading.
+  if (language === 'hi' && result.curatedHindiNote) lines.push(result.curatedHindiNote.hi)
   return lines.join('\n').trim()
 }
 
@@ -888,6 +1025,8 @@ interface ReadResult {
   support: Map<string, string[]>
   /** `"BNS:103"` → the heading the tool results carried for it. */
   headings: Map<string, Bilingual>
+  /** The keys whose HINDI is hand-authored rather than statutory. */
+  curatedHindi: Set<string>
   dropped: number
 }
 
@@ -944,8 +1083,15 @@ function readToolResults(results: readonly ToolResult[], policy: TierPolicy): Re
   const refs: (AnswerSnippet['ref'] | null)[] = []
   const support = new Map<string, string[]>()
   const headings = new Map<string, Bilingual>()
+  const curatedHindi = new Set<string>()
 
   const kept = results.slice(0, policy.maxToolResults)
+
+  const curated = (act: LawAct, section: string) => {
+    const { full, base } = sectionKeys(act, section)
+    curatedHindi.add(full)
+    curatedHindi.add(base)
+  }
 
   const note = (act: LawAct, section: string, id: string, heading?: Bilingual | null) => {
     const { full, base } = sectionKeys(act, section)
@@ -984,6 +1130,7 @@ function readToolResults(results: readonly ToolResult[], policy: TierPolicy): Re
           const heading = asBilingual(hit.heading)
           const corresponds = Array.isArray(hit.correspondsTo) ? hit.correspondsTo.map(asString) : []
           note(act, section, result.id, heading)
+          if (hit.hindiIsCurated === true) curated(act, section)
           for (const ref of corresponds) noteCorresponding(ref, result.id, note)
           push(
             'section',
@@ -1039,6 +1186,7 @@ function readToolResults(results: readonly ToolResult[], policy: TierPolicy): Re
         const heading = asBilingual(output.heading)
         const corresponds = Array.isArray(output.correspondsTo) ? output.correspondsTo.map(asString) : []
         note(act, section, result.id, heading)
+        if (output.hindiIsCurated === true) curated(act, section)
         for (const ref of corresponds) noteCorresponding(ref, result.id, note)
         const notes = Array.isArray(output.notes) ? output.notes : []
         push(
@@ -1081,6 +1229,10 @@ function readToolResults(results: readonly ToolResult[], policy: TierPolicy): Re
 
         const corresponds = Array.isArray(output.corresponds) ? output.corresponds : []
         const newAct = NEW_ACT_FOR_CODE[CODE_FOR_ACT[oldAct]] as LawAct
+        // The repealed Act's own Hindi heading comes from the index and may be
+        // absent entirely; what a reader is shown here is the NEW section's,
+        // and that is what carries the flag.
+        if (corresponds.some((raw) => asRecord(raw).hindiIsCurated === true)) curated(oldAct, oldSection)
         const lines: string[] = [`${asWritten(oldAct, oldSection)} — ${oldHeading?.en ?? ''}`]
 
         if (dropped) {
@@ -1093,6 +1245,7 @@ function readToolResults(results: readonly ToolResult[], policy: TierPolicy): Re
             const section = asString(entry.section)
             if (!section) continue
             note(newAct, section, result.id, asBilingual(entry.heading))
+            if (entry.hindiIsCurated === true) curated(newAct, section)
             lines.push(
               `Corresponds to ${asWritten(newAct, section)} — ${asBilingual(entry.heading)?.en ?? ''} ` +
                 `(${asString(entry.sectionStatus) || 'status unknown'}${entry.numberOnly === true ? ', only the number changed' : ''}).`,
@@ -1139,6 +1292,7 @@ function readToolResults(results: readonly ToolResult[], policy: TierPolicy): Re
         if (!section) break
         const heading = asBilingual(output.heading)
         note(act, section, result.id, heading)
+        if (output.hindiIsCurated === true) curated(act, section)
 
         if (output.classified !== true) {
           push(
@@ -1195,7 +1349,15 @@ function readToolResults(results: readonly ToolResult[], policy: TierPolicy): Re
     }
   }
 
-  return { snippets, labels, refs, support, headings, dropped: Math.max(0, results.length - kept.length) }
+  return {
+    snippets,
+    labels,
+    refs,
+    support,
+    headings,
+    curatedHindi,
+    dropped: Math.max(0, results.length - kept.length),
+  }
 }
 
 /** `"IPC 302"` from a `correspondsTo` list, rewritten as a citation. */
@@ -1344,23 +1506,18 @@ async function formatWithTool(
  * The model is not in this path, which is the point: the citation an officer
  * copies out of this app is produced by the same code the Law Converter's own
  * share button uses, not by a model reproducing a format from memory.
+ *
+ * `callToolDirectly` is the registry's own helper, shared with the pay and
+ * tutor agents. This file had a private copy of it first; two definitions of
+ * one thing is worse than either.
  */
-async function callTool(
+const callTool = (
   tools: readonly RegisteredTool[],
   name: string,
   input: unknown,
   signal: AbortSignal | undefined,
-): Promise<unknown> {
-  const tool = tools.find((entry) => entry.def.name === name)
-  if (!tool) throw new AiError('unknown_tool', `The law agent needs the "${name}" tool.`)
-  const validation = validateToolInput(tool, input)
-  if (!validation.ok) throw new AiError('invalid_args', validation.message)
-  const handler = tool.def.handler as (
-    value: unknown,
-    ctx: { language: Language; signal: AbortSignal },
-  ) => Promise<unknown>
-  return handler(validation.value, { language: 'en', signal: signal ?? new AbortController().signal })
-}
+): Promise<unknown> =>
+  callToolDirectly(tools, name, input, { callerLabel: 'law agent', ...(signal ? { signal } : {}) })
 
 /* ------------------------------------------------------------------ *
  * Plumbing

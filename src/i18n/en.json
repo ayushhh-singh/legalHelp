@@ -337,6 +337,7 @@
         "source": "source {{name}}",
         "copy": "Copy answer with citations",
         "copied": "Answer and citations copied.",
+        "copyFailed": "The browser would not let this app use the clipboard.",
         "problems": "What was corrected or dropped on the way"
       },
       "refused": {
@@ -717,7 +718,8 @@
       },
       "compare": {
         "title": "Compare these two posts",
-        "button": "Compare these two posts for me"
+        "button": "Compare these two posts for me",
+        "customisedNote": "This uses each post's standard entry Level and city, sharing only the Dearness Allowance rate shown above — not the Level, cell or city you have changed on this screen."
       }
     }
   },

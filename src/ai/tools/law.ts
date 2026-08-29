@@ -19,6 +19,13 @@ import { LANGUAGES } from '@/i18n'
  * lets an agent answer a question about the BNS while the app keeps its
  * promise that nothing a reader types goes anywhere.
  *
+ * Every result that carries a Hindi heading also carries `hindiIsCurated`.
+ * All 1,059 records in `data/law` have `verify: true` because the source
+ * publishes no Hindi (`docs/DATA-GAPS.md` #18), and an agent that repeats that
+ * Hindi to a reader owes them the same mark the Law Converter's own card shows.
+ * A result that reported the heading and not the flag was the gap that let the
+ * "Ask" panel present hand-authored Hindi as statutory.
+ *
  * Their second job is grounding. `runAgent` discards any answer that states a
  * section number no cited tool result contains (ADR-011), so these results are
  * written to carry the numbers, the headings and the source URL explicitly —
@@ -228,6 +235,8 @@ export function registerLawTools(): void {
             numberOnly: change.numberOnly,
             newSubSections: change.newClauses,
             changedSubSections: change.changedClauses,
+            /** True where the Hindi heading is hand-authored rather than statutory. */
+            hindiIsCurated: record.verify,
           }
         }),
         warnings: entry.warnings ?? [],
@@ -278,6 +287,8 @@ export function registerLawTools(): void {
         section: record.section,
         actName: dataset.newAct.name.en,
         heading: record.heading,
+        /** True where the Hindi heading is hand-authored rather than statutory. */
+        hindiIsCurated: record.verify,
         classification: record.classification.map((entry) => ({
           clause: entry.clause,
           offence: entry.offence,

@@ -104,10 +104,18 @@ export function AskPanel({ ai, offenceDate, onOpenCitation }: AskPanelProps) {
               {offenceDate ? t('law.ask.hintWithDate', { date: offenceDate }) : t('law.ask.hint')}
             </p>
             <div className="flex flex-wrap gap-2">
+              {/*
+                `ai.ready` is synchronous (it reads the settings row); `provider`
+                is a dynamic import that lands a tick later. Without the third
+                condition there is a window on first paint where Ask is enabled
+                and pressing it throws "The AI provider is not ready" into a red
+                alert — an error for a condition that resolves on its own, which
+                is how a working feature comes to look flaky.
+              */}
               <Button
                 type="button"
                 size="sm"
-                disabled={agent.busy || question.trim().length === 0}
+                disabled={agent.busy || !ai.provider || question.trim().length === 0}
                 onClick={() => agent.ask(question)}
               >
                 <Sparkles aria-hidden="true" className="h-4 w-4" />
@@ -253,14 +261,28 @@ function Answer({
   onDismiss: () => void
 }) {
   const { t, language } = useT()
+  // Keyed on a counter so an identical repeat message is a real DOM insertion
+  // and is announced again — the `/utils/portals` lesson.
   const [copied, setCopied] = useState(0)
+  const [copyFailed, setCopyFailed] = useState(false)
 
+  /**
+   * The clipboard is allowed to refuse, and this app already assumes it will:
+   * `SectionActions.tsx`, `TermRow.tsx` and `PortalsPage.tsx` all wrap it. An
+   * insecure origin, a denied permission or a locked-down managed device is not
+   * exotic on a government laptop, and without the catch the reader got an
+   * unhandled rejection and a button that did nothing visible — leaving them to
+   * paste whatever was on the clipboard before.
+   */
   const copy = async () => {
     const { copyableAnswer } = await import('@/ai/agents/law')
-    await navigator.clipboard.writeText(copyableAnswer(result, language))
-    // Keyed on a counter so an identical repeat message is a real DOM
-    // insertion and is announced again — the `/utils/portals` lesson.
-    setCopied((current) => current + 1)
+    try {
+      await navigator.clipboard.writeText(copyableAnswer(result, language))
+      setCopyFailed(false)
+      setCopied((current) => current + 1)
+    } catch {
+      setCopyFailed(true)
+    }
   }
 
   return (
@@ -305,6 +327,16 @@ function Answer({
         {result.caveats.map((caveat, index) => (
           <li key={`${index}-${caveat.en.slice(0, 24)}`}>{caveat[language]}</li>
         ))}
+        {/*
+          Rendered here rather than folded into `caveats` by the agent, so it
+          follows the language TOGGLE the way `SectionResultCard.tsx`'s banner
+          does. Hindi only: the English is the official text, and a warning
+          shown to a reader with nothing to be warned about is how readers
+          learn to stop reading warnings.
+        */}
+        {language === 'hi' && result.curatedHindiNote ? (
+          <li className="text-marigold-foreground">{result.curatedHindiNote.hi}</li>
+        ) : null}
       </ul>
 
       {result.problems.length > 0 ? (
@@ -338,6 +370,12 @@ function Answer({
           {t('law.ask.dismiss')}
         </Button>
       </div>
+
+      {copyFailed ? (
+        <p role="alert" className="text-xs text-coral-foreground">
+          {t('law.ask.answer.copyFailed')}
+        </p>
+      ) : null}
 
       <p role="status" aria-live="polite" className="sr-only">
         {copied > 0 ? <span key={copied}>{t('law.ask.answer.copied')}</span> : null}

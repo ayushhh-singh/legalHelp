@@ -4832,6 +4832,101 @@ agent reads at run time, not a branch somebody will have to add later.
   agent's requests exactly as #61 already says it will refuse the drafting agent's — one
   line in `public/_headers`, and #57 has the WebLLM half.
 
+### Addendum — the edge-case pass, and the eight defects it found
+
+Run after the commit, the way ADR-032's own addendum was, and it found the same
+SHAPE of defect that one did: **the model's half of the run was written
+defensively and the agent's own half was not.** The model is obviously
+untrusted, so every value it returns is validated, re-derived against the
+evidence, and dropped when unsupported — while the code around it quietly
+assumed that a tool which succeeded had found something, that a question had
+words in it, that a cancelled run had already stopped, and that the clipboard
+works. Every test in `src/ai/agents/law.edge.test.ts` (16) and
+`src/modules/law/askPanel.edge.test.tsx` (4) was confirmed to fail against the
+committed code before its fix was written.
+
+1. **A tool that succeeded and found nothing counted as having read something.**
+   `get_section` for a section that does not exist returns `{ found: false }`
+   rather than throwing, and a search that matches nothing returns an empty
+   list. Both are successful tool results carrying no statute, so a run that had
+   read NOTHING still paid for a second model pass — over a context whose only
+   content was the reader's own question. The wasted tokens are the smaller
+   half: the only numbers such a context can support are the ones the reader
+   typed, so the likeliest answer it can produce is one assembled out of the
+   question, which is precisely what grounding exists to prevent. The guard now
+   runs on snippets produced, not on tools that returned.
+
+2. **A blank question ran both passes.** The panel disables its own button, but
+   the agent is a module anything may call and the agent is what spends the
+   money. `improveWording` had this guard already; this did not.
+
+3. **A year after an Act abbreviation was read as a section number.** "The BNS
+   2023 replaced the IPC 1860" named two provisions that appeared in no
+   citation, and a completely correct answer was discarded. The guard is
+   data-backed rather than a heuristic: the longest of the six Acts is the BNSS
+   at 531 sections, so a four-digit section does not exist and refusing to read
+   one cannot lose a real citation. Counted on the digits, so `124A` is still a
+   section.
+
+4. **`124` and `124A` were the same key.** Both the support index and the
+   mention scan reduced a reference to its DIGITS. IPC 124A is sedition; IPC 124
+   is assaulting the President — so a citation of `124` looked supported by a
+   tool result that had only read `124A`, and a repealed-Act citation takes the
+   `oldActCitation` path, which does no dataset lookup, so nothing downstream
+   could catch it. The reader would have got a chip reading "Section 124 IPC"
+   under an answer about sedition, opening a real section about a different
+   crime — worse than an obviously broken link. `refKey()` keeps the letter
+   suffix now. 65B/65 and 376AB/376 collided the same way.
+
+5. **A run cancelled while verifying still returned a complete answer.** Stage 5
+   awaits `format_citation` twice per citation and sits after the last of
+   `runAgent`'s own signal checks. `useLawAsk` happens to drop the result of an
+   aborted run before it reaches the screen, which is exactly why this needed a
+   test at the agent: the defect is invisible from the UI, and the agent is what
+   the next caller will use. Identical to the one ADR-032's addendum records.
+
+6. **Hand-authored Hindi was presented as statutory.** All 1,059 records in
+   `data/law` carry `verify: true` because the source publishes no Hindi
+   (`docs/DATA-GAPS.md` #18); `SectionResultCard.tsx` marks that with a marigold
+   banner and CLAUDE.md states the rule — it is the one place a reader could
+   mistake hand-authored text for the Act, so both halves are kept together. The
+   Ask panel was the second half and had nothing. Two things had to change: the
+   tools now report `hindiIsCurated` on `compare_old_new` and
+   `get_classification` as well as on `describe()` (a result that carried the
+   heading but not the flag was the actual gap), and the agent derives the mark
+   in code rather than trusting the model to repeat it.
+
+   It is carried on the result as TEXT (`curatedHindiNote`) rather than pushed
+   into `caveats`, and both halves of that are deliberate. Not in `caveats`,
+   because `caveats` is fixed when the run ends while the language toggle is on
+   every screen — ask in English, switch to Hindi to read the Hindi phrasing,
+   and a frozen caveat leaves the hand-authored Hindi unmarked on the one
+   surface whose whole job is to say where a number came from. As text rather
+   than a boolean, because the panel must not `import` this module for a string:
+   `useLawAsk` dynamic-imports the agent on the button press so that reading the
+   panel downloads none of it, and a static constant import would have pulled
+   the agent, `runAgent` and the tool registry into the panel's chunk and
+   quietly undone that.
+
+7. **The copy button had no failure path.** Every other copy affordance in this
+   app — `SectionActions.tsx`, `TermRow.tsx`, `PortalsPage.tsx`, the pay slip,
+   the drafting export — wraps `navigator.clipboard.writeText` in a try/catch
+   and announces a failure. This one produced an unhandled promise rejection and
+   a button that silently did nothing, so a reader on an insecure origin or a
+   locked-down managed device would paste whatever was on the clipboard before.
+
+8. **Ask was pressable before the provider existed.** `useAi().ready` is
+   computed synchronously from the settings row; `provider` is a dynamic import
+   that lands a tick later. In that window, pressing Ask threw "The AI provider
+   is not ready" into a red alert — an error for a condition that resolves on
+   its own, which is how a working feature comes to look flaky.
+
+One test in that file found nothing and is kept anyway: `compare_old_new`'s
+`status: 'dropped'` branch — the answer to "what is the BNS equivalent of 377",
+where the correct answer is that there is none — was already right and had no
+coverage at all. An untested branch that happens to work is one edit away from
+not working.
+
 ## ADR-036 — The pay-explain and trainer-coach agents: reads happen in code before the model runs, and two figures the prompt alone cannot police
 
 **Date:** 2026-08-30 · **Status:** Accepted

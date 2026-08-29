@@ -121,7 +121,11 @@ describe('the panel and the consent gate', () => {
   })
 
   it('will not spend anything until there is a question', async () => {
-    setup()
+    // A resolved provider, so the only thing this test varies is the question —
+    // Ask is also gated on the provider having arrived (askPanel.edge.test.tsx).
+    const provider = new MockProvider(lawScript('idle', { calls: CHEATING_CALLS, answer: CHEATING_ANSWER }))
+    setup({ ai: { provider } })
+
     expect(screen.getByRole('button', { name: 'Ask' })).toBeDisabled()
     await userEvent.type(screen.getByLabelText('What do you want to know?'), 'x')
     expect(screen.getByRole('button', { name: 'Ask' })).toBeEnabled()
