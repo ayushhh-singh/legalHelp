@@ -10,7 +10,7 @@
       "version": "0.1.0"
     },
     "law-bns": {
-      "version": "1.0.0",
+      "version": "1.1.0",
       "updated": "2026-08-29",
       "label": {
         "en": "BNS ↔ IPC mapping",
@@ -18,8 +18,8 @@
       },
       "rows": 358,
       "mappings": 534,
-      "sha256": "794b7f1a322f539c6cdc3d9ff9bfe284a3499356a417cdc5929561109b663c0c",
-      "fetchedAt": "2026-08-29T06:02:59Z",
+      "sha256": "2adadb16dc15a13890e05b98ff593ea7dd1e3921fd627e1dc4b2f650ea43668b",
+      "fetchedAt": "2026-08-29T17:39:04Z",
       "parsePath": "inline-html",
       "source": {
         "name": "NCRB Sankalan",
@@ -27,7 +27,7 @@
       }
     },
     "law-bnss": {
-      "version": "1.0.0",
+      "version": "1.1.0",
       "updated": "2026-08-29",
       "label": {
         "en": "BNSS ↔ CrPC mapping",
@@ -35,8 +35,8 @@
       },
       "rows": 531,
       "mappings": 568,
-      "sha256": "1937d966c458fc159bd1d9ab831829e722e4293f4fec4ae67659e5d5654c8e45",
-      "fetchedAt": "2026-08-29T05:56:16Z",
+      "sha256": "0c290e1263e22ac7d7c34c3de07a664341e9deb769badbafd054b20256a6d5aa",
+      "fetchedAt": "2026-08-29T17:39:04Z",
       "parsePath": "inline-html",
       "source": {
         "name": "NCRB Sankalan",
@@ -44,7 +44,7 @@
       }
     },
     "law-bsa": {
-      "version": "1.0.0",
+      "version": "1.1.0",
       "updated": "2026-08-29",
       "label": {
         "en": "BSA ↔ IEA mapping",
@@ -52,8 +52,8 @@
       },
       "rows": 170,
       "mappings": 180,
-      "sha256": "559855728f6795ba7cf23f160a21e7ca539c634ad4334f5ac63979c2a77b92fa",
-      "fetchedAt": "2026-08-29T05:56:16Z",
+      "sha256": "1c57c3036e779cbdf7cc96c18780d03f4952e61da61762f939ae8130605758c1",
+      "fetchedAt": "2026-08-29T17:39:04Z",
       "parsePath": "inline-html",
       "source": {
         "name": "NCRB Sankalan",
@@ -61,15 +61,15 @@
       }
     },
     "law-index": {
-      "version": "1.0.0",
-      "updated": "2026-08-28",
+      "version": "1.1.0",
+      "updated": "2026-08-29",
       "label": {
         "en": "Repealed-Act reverse index",
         "hi": "निरसित अधिनियम व्युत्क्रम अनुक्रमणिका"
       },
       "rows": 1293,
-      "sha256": "1bd2ba830c8d39cdd164a89da048e082f3d1625c8f35738d4bbc597270156fcd",
-      "fetchedAt": "2026-08-28T06:08:57Z",
+      "sha256": "14f222881da9fd51675f65c0ffc0f12e30ae3a578d67e53778a0f3633cac36d3",
+      "fetchedAt": "2026-08-29T17:39:04Z",
       "source": {
         "name": "NCRB Sankalan",
         "url": "https://www.ncrb.gov.in/uploads/SankalanPortal/Index.html"

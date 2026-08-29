@@ -335,12 +335,17 @@ describe('data/rules — no duplicate fronts', () => {
   // O(n²) over every served card's English front, so its wall-clock tracks
   // the committed corpus size, not just this repo's complexity. Session 20's
   // Hindi-headings and cloze/MCQ authoring pass took the served count from
-  // 571 to 1,541 — roughly 2.7x — which is roughly 7x the comparisons, and
+  // 571 to 1,595 — roughly 2.8x — which is roughly 8x the comparisons, and
   // that alone pushed this test past Vitest's 30s default under any real CPU
-  // contention (it stays under 15s in isolation). An explicit timeout here is
-  // the fix, not a smaller corpus or a weaker check — see CLAUDE.md's own
-  // note on `tests/e2e/a11y.spec.ts`'s `setTimeout(240_000)` for the same
-  // reasoning applied to a route sweep instead of a card sweep.
+  // contention. Measured 12-13s in isolation on a quiet machine and 28-33s
+  // with several concurrent sessions' builds/tests running — several peer
+  // sessions in this same working tree is the normal state this repo runs
+  // under (see CLAUDE.md's multi-session notes), not a rare edge case, so the
+  // timeout carries real headroom above the worst measured run rather than
+  // just clearing the default. An explicit timeout here is the fix, not a
+  // smaller corpus or a weaker check — see CLAUDE.md's own note on
+  // `tests/e2e/a11y.spec.ts`'s `setTimeout(240_000)` for the same reasoning
+  // applied to a route sweep instead of a card sweep.
   it('no two served cards have near-identical English fronts', () => {
     const collisions: string[] = []
     for (let i = 0; i < servedCards.length; i += 1) {
@@ -352,7 +357,7 @@ describe('data/rules — no duplicate fronts', () => {
       }
     }
     expect(collisions).toEqual([])
-  }, 60_000)
+  }, 120_000)
 })
 
 describe('data/rules — the authored questions carry their four-stage record', () => {

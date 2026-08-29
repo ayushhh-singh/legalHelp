@@ -65,7 +65,17 @@ from ingest_common import (  # noqa: E402
     validate,
 )
 
-DATASET_VERSION = "1.0.0"
+# Bump this whenever a change to the DATA a reader could see moves — not just
+# whenever the scraper runs. `sha256`/`fetchedAt` change on every run and say
+# nothing about content; this is what src/lib/dataVersion.ts's `DATA_VERSION`
+# fingerprint actually keys off, and its own stated job is "an answer grounded
+# in one release must not be replayed after that release's data changes."
+# 1.0.0 -> 1.1.0: Session 20 extended data/law/overlays/ from 94 curated BNS
+# Hindi headings to full coverage of all 1,059 BNS/BNSS/BSA headings, plus
+# Hindi punishment text for every classified BNS section — a reader-visible
+# change this version number is the only thing that tells a cached AI answer
+# about.
+DATASET_VERSION = "1.1.0"
 
 PRIMARY = "https://www.ncrb.gov.in/uploads/SankalanPortal"
 # Documented mirror. It has answered 404 for these paths on every attempt so far
