@@ -1,0 +1,152 @@
+name: Holiday calendar refresh
+
+# holidays.py has no fetch in it at all (dopt.gov.in refused every attempt
+# this project made — docs/DATA-GAPS.md, and the script's own docstring): a
+# year's list is hand-authored into its `YEARS` dict from a DoPT Office
+# Memorandum read by a person, the same way pay_matrix.py's ANCHORS or
+# indiacode_seed.py's overlay are. So this workflow cannot itself produce a
+# new year's data — what it CAN do is notice, once a year, that next
+# calendar year has no entry yet and ask a human to add one, and otherwise
+# build whatever year IS on file and open a pull request if the committed
+# JSON does not already match it (the "did a hand-edit to YEARS forget to
+# regenerate the file" case, the same contract holidays.py --check gives a
+# developer locally).
+
+on:
+  schedule:
+    # 1 November, 03:00 UTC = 08:30 IST. DoPT's own circular for a year
+    # typically appears mid-year; by 1 November by not asking would leave a
+    # missing next year unnoticed until someone opens /utils/holidays in
+    # January.
+    - cron: '0 3 1 11 *'
+  workflow_dispatch:
+    inputs:
+      year:
+        description: 'Calendar year to build (defaults to next calendar year)'
+        type: string
+        default: ''
+
+permissions:
+  contents: read
+
+concurrency:
+  group: ingest-holidays
+  cancel-in-progress: false
+
+jobs:
+  refresh:
+    runs-on: ubuntu-latest
+    permissions:
+      contents: write
+      pull-requests: write
+      issues: write
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+          cache: pip
+          cache-dependency-path: scripts/ingest/requirements.txt
+
+      - name: Install the ingest dependencies
+        run: pip install -r scripts/ingest/requirements.txt
+
+      - name: Unit-test the parsers before trusting them with a refresh
+        run: python -m unittest discover -s scripts/ingest -t scripts/ingest -v
+
+      - name: Pick the year
+        id: year
+        run: |
+          if [ -n "${{ inputs.year }}" ]; then
+            echo "value=${{ inputs.year }}" >> "$GITHUB_OUTPUT"
+          else
+            echo "value=$(($(date -u +%Y) + 1))" >> "$GITHUB_OUTPUT"
+          fi
+
+      # holidays.py's build() raises KeyError for a year with no YEARS entry
+      # — the expected, common case for a year nobody has hand-authored yet.
+      # That is not a workflow failure; it is exactly the thing this
+      # workflow exists to surface as an issue instead.
+      - name: Build the year, if it is on file
+        id: build
+        run: |
+          if python scripts/ingest/holidays.py "${{ steps.year.outputs.value }}"; then
+            echo "built=true" >> "$GITHUB_OUTPUT"
+          else
+            echo "built=false" >> "$GITHUB_OUTPUT"
+          fi
+
+      # Built as a single `printf` rather than a shell heredoc: a heredoc body
+      # has to stay indented to match this `run:` block's own YAML indentation
+      # or the YAML parser stops treating it as part of the block scalar —
+      # `printf`'s `%s` placeholders sidestep that entirely.
+      - name: Ask a human to add the year, if it was not on file
+        if: steps.build.outputs.built == 'false'
+        env:
+          GH_TOKEN: ${{ github.token }}
+          YEAR: ${{ steps.year.outputs.value }}
+        run: |
+          body=$(printf '%s\n\n%s\n\n%s\n\n%s' \
+            "scripts/ingest/holidays.py has no \`YEARS[$YEAR]\` entry yet, so this workflow could not build \`data/holidays/holidays-$YEAR.json\`." \
+            "The script reaches no host — dopt.gov.in refused every fetch attempt in an earlier session (docs/DATA-GAPS.md), so a year's gazetted and restricted holiday list is read by hand off DoPT's \"Holidays to be observed in Central Government Offices during the year $YEAR\" Office Memorandum (Ministry of Personnel, Public Grievances and Pensions), then hand-added to the \`YEARS\` dict in that script, following the shape the previous year's entry already uses." \
+            "Run \`scripts/ingest/holidays.py $YEAR\` locally afterwards to write \`data/holidays/holidays-$YEAR.json\` and update \`data/_meta/versions.json\`." \
+            "Opened by \`.github/workflows/ingest-holidays.yml\`, run $GITHUB_RUN_ID.")
+          gh issue create \
+            --title "Add the $YEAR holiday calendar to scripts/ingest/holidays.py" \
+            --label data,automated \
+            --body "$body"
+
+      - name: Anything to propose?
+        if: steps.build.outputs.built == 'true'
+        id: changes
+        run: |
+          if git status --porcelain -- data/holidays data/_meta/versions.json | grep -q .; then
+            echo "changed=true" >> "$GITHUB_OUTPUT"
+            git --no-pager diff --stat -- data/holidays data/_meta/versions.json
+          else
+            echo "changed=false" >> "$GITHUB_OUTPUT"
+            echo "data/holidays/holidays-${{ steps.year.outputs.value }}.json already matches what the script builds."
+          fi
+
+      - uses: pnpm/action-setup@v4
+        if: steps.changes.outputs.changed == 'true'
+        with:
+          version: 9.15.9
+
+      - uses: actions/setup-node@v4
+        if: steps.changes.outputs.changed == 'true'
+        with:
+          node-version-file: .nvmrc
+          cache: pnpm
+
+      - name: Install
+        if: steps.changes.outputs.changed == 'true'
+        run: pnpm install --frozen-lockfile
+
+      - name: Validate the refreshed data
+        if: steps.changes.outputs.changed == 'true'
+        run: pnpm check
+
+      - name: Open a pull request
+        if: steps.changes.outputs.changed == 'true'
+        uses: peter-evans/create-pull-request@v7
+        with:
+          branch: data/holidays-refresh
+          delete-branch: true
+          commit-message: 'data(holidays): ${{ steps.year.outputs.value }} calendar'
+          title: 'data(holidays): ${{ steps.year.outputs.value }} calendar'
+          add-paths: |
+            data/holidays
+            data/_meta/versions.json
+          labels: data, automated
+          body: |
+            `scripts/ingest/holidays.py ${{ steps.year.outputs.value }}` produced a result that differs
+            from what is committed — most likely a hand-edit to `YEARS` in that script that had not yet
+            been run to regenerate `data/holidays/holidays-${{ steps.year.outputs.value }}.json`.
+
+            **Read the diff before merging.** `holidays.py` reaches no host, so this pull request is
+            reporting a change someone already made by hand to the script, not a change fetched from
+            anywhere.
+
+            Generated by `.github/workflows/ingest-holidays.yml`. Never auto-merged.

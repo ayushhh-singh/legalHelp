@@ -44,7 +44,9 @@
     "updateAvailable": "A new version is ready.",
     "reload": "Reload",
     "readyOffline": "Ready to work offline.",
-    "dismiss": "Dismiss"
+    "dismiss": "Dismiss",
+    "dataUpdateAvailable": "Newer reference data is available.",
+    "viewInSettings": "Review in Settings"
   },
   "pages": {
     "law": {
@@ -96,6 +98,8 @@
       "updates": {
         "title": "Check for data updates",
         "hint": "Compares the dataset versions this build shipped with against what is currently on the server.",
+        "autoCheck": "Check automatically",
+        "autoCheckHint": "Once a day, while online, ask whether newer reference data exists — no personal data is sent, only that a device opened the app that day. Turn this off to only check when you press the button below.",
         "check": "Check for updates",
         "checking": "Checking…",
         "error": "Could not reach the server to check. Try again once you have a connection.",
@@ -161,7 +165,7 @@
       "subtitle": "Three promises Sahayak keeps.",
       "onDevice": "Everything you enter — drafts, scenarios, saved sections — stays on this device, in your browser's own storage.",
       "noAccounts": "No account, no sign-in, no server. There is nothing to lose access to.",
-      "noAnalytics": "No analytics, by default and always — nothing about how you use this app is collected.",
+      "noAnalytics": "No analytics — nothing about how you use this app is collected. One exception: this app can run fully offline, so before now it made no request on its own; now, while online, at most once a day, it asks whether newer reference data exists, which lets the server see only that a device opened the app that day. Turn this off in Settings, beside the manual \"Check for data updates\" button.",
       "finishError": "Could not save your post and city — check your device's storage and try again, or use \"Skip setup\" above to continue without them."
     }
   },

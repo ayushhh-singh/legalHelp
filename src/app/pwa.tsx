@@ -1,5 +1,9 @@
 import { useEffect, useRef, useState } from 'react'
+import { useNavigate } from 'react-router-dom'
 import type { Workbox } from 'workbox-window'
+
+import { useAppStore } from './store'
+import { useAutoDataUpdateCheck } from './useAutoDataUpdateCheck'
 
 import { useT } from '@/i18n/useT'
 import { cn } from '@/lib/utils'
@@ -107,11 +111,14 @@ function usePwaLifecycle() {
 
 function PwaToast({
   message,
+  details,
   actionLabel,
   onAction,
   onDismiss,
 }: {
   message: string
+  /** A short "what changed" list under the message — the data-update notice's own reason for existing. */
+  details?: string[]
   actionLabel?: string
   onAction?: () => void
   onDismiss: () => void
@@ -121,37 +128,49 @@ function PwaToast({
   return (
     <div
       role="status"
-      className="pointer-events-auto flex items-center gap-3 rounded-lg border border-border bg-card px-4 py-3 text-sm text-foreground shadow-lg"
+      className="pointer-events-auto flex flex-col gap-2 rounded-lg border border-border bg-card px-4 py-3 text-sm text-foreground shadow-lg"
     >
-      <span className="flex-1">{message}</span>
-      {actionLabel && onAction ? (
+      <div className="flex items-center gap-3">
+        <span className="flex-1">{message}</span>
+        {actionLabel && onAction ? (
+          <button
+            type="button"
+            onClick={onAction}
+            className="shrink-0 rounded-md bg-action px-3 py-1.5 text-xs font-medium text-action-foreground transition-colors hover:bg-action/90"
+          >
+            {actionLabel}
+          </button>
+        ) : null}
         <button
           type="button"
-          onClick={onAction}
-          className="shrink-0 rounded-md bg-action px-3 py-1.5 text-xs font-medium text-action-foreground transition-colors hover:bg-action/90"
+          onClick={onDismiss}
+          aria-label={t('pwa.dismiss')}
+          className="shrink-0 text-muted-foreground transition-colors hover:text-foreground"
         >
-          {actionLabel}
+          ×
         </button>
+      </div>
+      {details && details.length > 0 ? (
+        <ul className="flex flex-col gap-0.5 pl-1 text-xs text-muted-foreground">
+          {details.map((detail) => (
+            <li key={detail}>{detail}</li>
+          ))}
+        </ul>
       ) : null}
-      <button
-        type="button"
-        onClick={onDismiss}
-        aria-label={t('pwa.dismiss')}
-        className="shrink-0 text-muted-foreground transition-colors hover:text-foreground"
-      >
-        ×
-      </button>
     </div>
   )
 }
 
 /** Mounted once, near the root of the shell. Renders nothing until there's something to say. */
 export function PwaNotices({ className }: { className?: string }) {
-  const { t } = useT()
+  const { t, language } = useT()
+  const navigate = useNavigate()
+  const hydrated = useAppStore((s) => s.hydrated)
   const { updateReady, updateDismissed, dismissUpdate, offlineReady, reload, dismissOfflineReady } =
     usePwaLifecycle()
+  const { result: dataUpdate, dismiss: dismissDataUpdate } = useAutoDataUpdateCheck(hydrated)
 
-  if ((!updateReady || updateDismissed) && !offlineReady) return null
+  if ((!updateReady || updateDismissed) && !offlineReady && !dataUpdate) return null
 
   return (
     <div
@@ -174,6 +193,21 @@ export function PwaNotices({ className }: { className?: string }) {
         />
       ) : null}
       {offlineReady ? <PwaToast message={t('pwa.readyOffline')} onDismiss={dismissOfflineReady} /> : null}
+      {dataUpdate ? (
+        <PwaToast
+          message={t('pwa.dataUpdateAvailable')}
+          details={[
+            ...dataUpdate.changed.map((change) => change.label[language] ?? change.label.en ?? change.id),
+            ...dataUpdate.added.map((id) => t('pages.settings.updates.added', { id })),
+          ]}
+          actionLabel={t('pwa.viewInSettings')}
+          onAction={() => {
+            dismissDataUpdate()
+            void navigate('/settings')
+          }}
+          onDismiss={dismissDataUpdate}
+        />
+      ) : null}
     </div>
   )
 }

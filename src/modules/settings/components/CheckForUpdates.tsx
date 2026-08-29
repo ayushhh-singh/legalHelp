@@ -1,5 +1,7 @@
+import { useLiveQuery } from 'dexie-react-hooks'
 import { useState } from 'react'
 
+import { getSetting, setSetting, SETTING_KEYS } from '@/db'
 import { diffVersions, fetchLatestVersions, hasUpdates, type UpdateCheckResult } from '@/lib/dataUpdates'
 import { Button } from '@/components/ui/button'
 import { useT } from '@/i18n/useT'
@@ -17,10 +19,20 @@ type CheckState =
  * The comparison itself (`diffVersions`) is pure and tested without a
  * network; this component is the thin, un-tested-by-design shell around the
  * one `fetch` call `src/lib/dataUpdates.ts` makes (ADR-028).
+ *
+ * The toggle below controls `useAutoDataUpdateCheck` (`src/app/`) — the
+ * automatic, on-by-default counterpart to the button (ADR-034). It is one
+ * setting read by both this component and that hook, the same "not
+ * duplicated" pattern the Trainer's daily-reminder toggle uses.
  */
 export function CheckForUpdates() {
   const { t, language } = useT()
   const [state, setState] = useState<CheckState>({ status: 'idle' })
+  const autoCheck = useLiveQuery(
+    async () => (await getSetting<boolean>(SETTING_KEYS.dataUpdateAutoCheck)) ?? true,
+    [],
+    undefined,
+  )
 
   const check = async () => {
     setState({ status: 'checking' })
@@ -34,6 +46,17 @@ export function CheckForUpdates() {
 
   return (
     <div className="flex flex-col gap-3">
+      <label className="flex items-center gap-2 text-sm">
+        <input
+          type="checkbox"
+          checked={autoCheck ?? true}
+          onChange={(event) => void setSetting(SETTING_KEYS.dataUpdateAutoCheck, event.target.checked)}
+          className="h-5 w-5 rounded-sm border-input accent-action"
+        />
+        {t('pages.settings.updates.autoCheck')}
+      </label>
+      <p className="text-xs text-muted-foreground">{t('pages.settings.updates.autoCheckHint')}</p>
+
       <div className="flex items-center gap-3">
         <Button
           type="button"

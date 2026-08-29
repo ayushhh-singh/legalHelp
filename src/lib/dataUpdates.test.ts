@@ -1,6 +1,6 @@
 import { afterEach, describe, expect, it, vi } from 'vitest'
 
-import { diffVersions, fetchLatestVersions, hasUpdates, type RemoteVersions } from './dataUpdates'
+import { diffVersions, fetchLatestVersions, hasUpdates, isCheckDue, type RemoteVersions } from './dataUpdates'
 
 import { DATASETS } from './dataVersion'
 
@@ -111,5 +111,27 @@ describe('fetchLatestVersions', () => {
     )
 
     await expect(fetchLatestVersions()).rejects.toThrow(/malformed/)
+  })
+})
+
+describe('isCheckDue', () => {
+  it('is due when nothing has ever been checked', () => {
+    expect(isCheckDue(null, new Date('2026-08-29T10:00:00Z'))).toBe(true)
+  })
+
+  it('is due when the stored timestamp does not parse', () => {
+    expect(isCheckDue('not a date', new Date('2026-08-29T10:00:00Z'))).toBe(true)
+  })
+
+  it('is not due again on the same calendar day', () => {
+    expect(isCheckDue('2026-08-29T00:05:00.000Z', new Date('2026-08-29T23:55:00.000Z'))).toBe(false)
+  })
+
+  it('is due once the calendar day has changed, even by a minute', () => {
+    expect(isCheckDue('2026-08-29T23:59:00.000Z', new Date('2026-08-30T00:01:00.000Z'))).toBe(true)
+  })
+
+  it('is due across a year boundary', () => {
+    expect(isCheckDue('2025-12-31T12:00:00.000Z', new Date('2026-01-01T01:00:00.000Z'))).toBe(true)
   })
 })

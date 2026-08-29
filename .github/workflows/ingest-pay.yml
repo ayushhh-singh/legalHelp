@@ -1,0 +1,150 @@
+name: Pay data refresh
+
+# Watches the Department of Expenditure for a new Dearness Allowance order,
+# and for HRA/Transport/Children Education Allowance orders worth a human's
+# attention. See scripts/ingest/README.md's "The Dearness Allowance watch"
+# for why this is the one ingest workflow that routinely files issues instead
+# of a pull request: most DoE orders are scanned images with no usable text
+# layer, and the honest outcome of a run is "read this by hand", not a guess.
+#
+# Like ingest-law.yml, nothing here is ever auto-merged, and nothing here
+# commits straight to `main` — `data/_meta/seen-orders.json`'s own
+# bookkeeping goes through the same pull request as everything else, because
+# a direct push to main triggers CI, and a successful CI run on main triggers
+# a production deploy (.github/workflows/deploy.yml). A quiet month opens
+# neither a pull request nor an issue: scripts/ingest/pay_orders.py writes
+# nothing at all when nothing changed.
+
+on:
+  schedule:
+    # 1st of the month, 03:00 UTC = 08:30 IST, same calendar day.
+    - cron: '0 3 1 * *'
+  workflow_dispatch:
+    inputs:
+      force:
+        description: >-
+          Treat the current DoE state as new for this run's report only (a
+          fresh seen-list is still written) — demonstrates the pipeline
+          end-to-end without waiting for DoE to publish something new.
+        type: boolean
+        default: false
+
+permissions:
+  contents: read
+
+concurrency:
+  group: ingest-pay
+  cancel-in-progress: false
+
+jobs:
+  watch:
+    runs-on: ubuntu-latest
+    permissions:
+      contents: write
+      pull-requests: write
+      issues: write
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+          cache: pip
+          cache-dependency-path: scripts/ingest/requirements.txt
+
+      - name: Install the ingest dependencies
+        run: pip install -r scripts/ingest/requirements.txt
+
+      - name: Unit-test the parsers before trusting them with a refresh
+        run: python -m unittest discover -s scripts/ingest -t scripts/ingest -v
+
+      - name: Watch the Department of Expenditure
+        id: watch
+        run: |
+          set -e
+          if [ "${{ inputs.force }}" = "true" ]; then
+            python scripts/ingest/pay_orders.py --force | tee /tmp/pay-orders-result.json
+          else
+            python scripts/ingest/pay_orders.py | tee /tmp/pay-orders-result.json
+          fi
+
+      # `pay_orders.py` writes nothing to disk when a run finds nothing new
+      # (ingest_common.write_json only touches a file whose content actually
+      # changed) — so an empty `git status` here means a genuinely quiet
+      # month, not a script that forgot to write.
+      - name: Anything on disk to propose?
+        id: changes
+        run: |
+          if git status --porcelain -- data/pay/da-history.json data/_meta/seen-orders.json data/_meta/versions.json | grep -q .; then
+            echo "changed=true" >> "$GITHUB_OUTPUT"
+            git --no-pager diff --stat -- data/pay/da-history.json data/_meta/seen-orders.json data/_meta/versions.json
+          else
+            echo "changed=false" >> "$GITHUB_OUTPUT"
+            echo "Nothing new from DoE this run."
+          fi
+
+      - uses: pnpm/action-setup@v4
+        if: steps.changes.outputs.changed == 'true'
+        with:
+          version: 9.15.9
+
+      - uses: actions/setup-node@v4
+        if: steps.changes.outputs.changed == 'true'
+        with:
+          node-version-file: .nvmrc
+          cache: pnpm
+
+      - name: Install
+        if: steps.changes.outputs.changed == 'true'
+        run: pnpm install --frozen-lockfile
+
+      # The consumer-side check on a proposed data/pay/da-history.json edit —
+      # scripts/ingest/pay_orders.py already validated it against
+      # pay-da-history.schema.json before writing, this is the zod half
+      # (ADR-016) plus everything else pnpm check runs.
+      - name: Validate the proposed change
+        if: steps.changes.outputs.changed == 'true'
+        run: pnpm check
+
+      - name: Write the pull request body
+        if: steps.changes.outputs.changed == 'true'
+        run: python scripts/ingest/pay_orders_pr_body.py /tmp/pay-orders-result.json /tmp/pay-orders-pr-body.md
+
+      - name: Open a pull request
+        if: steps.changes.outputs.changed == 'true'
+        uses: peter-evans/create-pull-request@v7
+        with:
+          branch: data/pay-refresh
+          delete-branch: true
+          commit-message: 'data(pay): Dearness Allowance watch, ${{ github.run_id }}'
+          title: 'data(pay): Dearness Allowance watch found something to review'
+          add-paths: |
+            data/pay/da-history.json
+            data/_meta/seen-orders.json
+            data/_meta/versions.json
+          labels: data, automated
+          body-path: /tmp/pay-orders-pr-body.md
+
+      # One issue per manual-review item — a scanned order this run could not
+      # parse, an order whose parsed date DoE's own dataset already has
+      # notified differently, or a new HRA/Transport/Children Education
+      # Allowance order. `pay_orders.py`'s own seen-list is what stops the
+      # same item being filed again next month; this loop does no deduping
+      # of its own.
+      - name: File a "Manual review" issue for anything the script could not resolve
+        if: always()
+        run: |
+          count=$(jq '.manualReview | length' /tmp/pay-orders-result.json)
+          echo "$count manual-review item(s)"
+          for i in $(seq 0 $((count - 1))); do
+            title=$(jq -r ".manualReview[$i].title" /tmp/pay-orders-result.json)
+            url=$(jq -r ".manualReview[$i].url" /tmp/pay-orders-result.json)
+            reason=$(jq -r ".manualReview[$i].reason" /tmp/pay-orders-result.json)
+            # shellcheck disable=SC2016 # the single-quoted string is a printf FORMAT, not literal text — %s is meant not to expand
+            gh issue create \
+              --title "Manual review: $title" \
+              --label data,automated \
+              --body "$(printf '%s\n\n**Link:** %s\n\nOpened by `.github/workflows/ingest-pay.yml`, run %s.' "$reason" "$url" "$GITHUB_RUN_ID")"
+          done
+        env:
+          GH_TOKEN: ${{ github.token }}

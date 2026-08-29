@@ -3,13 +3,14 @@
 Python, run in CI and on a developer machine. **Never in the browser.** Nothing in
 this directory ships to a reader; it produces the JSON under `/data` that does.
 
-Four scripts, and the differences between them are the point:
+Five scripts, and the differences between them are the point:
 
-| Script              | Source                       | Runs                        | Writes                                                |
-| ------------------- | ---------------------------- | --------------------------- | ----------------------------------------------------- |
+| Script              | Source                       | Runs                         | Writes                                                |
+| ------------------- | ----------------------------- | ----------------------------- | ------------------------------------------------------ |
 | `ncrb_sankalan.py`  | NCRB Sankalan portal         | Weekly cron + by hand       | `data/law/{bns,bnss,bsa}.json`, `data/law/index.json` |
 | `indiacode_seed.py` | India Code                   | **By hand only, one-off**   | `data/law/overlays/indiacode-seed.json`               |
 | `pay_matrix.py`     | Nothing — it reaches no host | By hand; `--check` in CI    | `data/pay/matrix.json`                                |
+| `pay_orders.py`     | Department of Expenditure    | Monthly cron + by hand      | `data/pay/da-history.json` (only when a parsed order proposes a change), `data/_meta/seen-orders.json` |
 | `validate_data.py`  | Nothing — reads `/data`      | CI, and before every commit | Nothing                                               |
 
 `indiacode_seed.py` is not in `.github/workflows/ingest-law.yml` and must not be
@@ -48,6 +49,10 @@ scripts/ingest/.venv/bin/python scripts/ingest/indiacode_seed.py --urls scripts/
 
 scripts/ingest/.venv/bin/python scripts/ingest/pay_matrix.py            # write data/pay/matrix.json
 scripts/ingest/.venv/bin/python scripts/ingest/pay_matrix.py --check    # verify only, write nothing
+
+scripts/ingest/.venv/bin/python scripts/ingest/pay_orders.py            # watch DoE; write only what parsed
+scripts/ingest/.venv/bin/python scripts/ingest/pay_orders.py --check    # fetch and report; write nothing
+scripts/ingest/.venv/bin/python scripts/ingest/pay_orders.py --force    # ignore the seen-list for this run's report
 
 scripts/ingest/.venv/bin/python scripts/ingest/drafting_seed.py         # write data/drafting/*
 scripts/ingest/.venv/bin/python scripts/ingest/drafting_seed.py --check # rebuild and compare, write nothing
@@ -198,6 +203,51 @@ Rules, 2017 replaced it, with effect from 01.01.2016, by a 20-cell level from
 level is what ships; shipping the 2016 one would be shipping a level that legally
 never existed. Pay is still fixed with the fitment factor of 2.57, not 2.67, and
 the same OM says so in terms.
+
+## The Dearness Allowance watch
+
+`pay_orders.py` is unlike every other script here: it does not trust its own
+parse. The Department of Expenditure keeps only the **current** Dearness
+Allowance order at one fixed path
+(`https://doe.gov.in/files/circulars_document/DAorder7cpc.pdf`) and overwrites
+it on every revision — there is no archive and no listing page, so the "new
+order" signal is that URL's **content hash changing**, tracked in
+`data/_meta/seen-orders.json`, not a new URL appearing.
+
+And most of what DoE actually serves there is a scan with no usable text
+layer at all. Two real DA orders fetched to build
+`fixtures/pay-orders/` — the ones cited in `data/pay/da-history.json` for
+01.07.2025 and 01.01.2026 — extract to **zero characters** through
+`pdfplumber`. CLAUDE.md already says this in terms: "every DoE order is a
+scan, read by rendering and recognising and then checking by eye." A CI run
+has no eye, so `find_rate_change` returning `None` on a fetched order is the
+expected common case, not a bug, and the script reports it precisely —
+"Manual review: `<order>`" — rather than guess. Only when a fetched order
+DOES carry parseable text, and it matches the one sentence shape every
+notified order this dataset cites uses ("...rate of Dearness
+Allowance...enhanced from the existing rate of X% to Y%...with effect from
+`<date>`"), does the script write the change into `data/pay/da-history.json`
+itself, schema-validated, for a human to review in the pull request the
+workflow opens — never auto-merged, the same as every other dataset here.
+
+HRA, Transport and Children Education Allowance orders are watched on the one
+DoE page this session found actually links them
+(`order-central-pay-commission/16` — the same page `da-history.json`'s
+pre-2025 citations already point at). These only ever produce a
+**manual-review** item, never a proposed edit to `data/pay/allowances.json`:
+that dataset has 32 allowances, each with its own rate structure and
+conditions, and no single predictable sentence the way a Dearness Allowance
+order has. `fixtures/pay-orders/doe-index.html` is a real, complete `<table>`
+fetched from that page — a first version of the parser matched the `<a>`
+tag's own text and silently found nothing, because DoE's own markup puts
+every download link's visible text as the single word "Download"; the real
+title lives in a sibling `<td class="views-field-title">` of the same
+`<tr>`. See `fixtures/pay-orders/SOURCES.md`.
+
+`--force` exists only for a manual `workflow_dispatch`: it treats the current
+state as new for that one run's report (a fresh seen-list is still written),
+so a human can prove the whole pipeline end-to-end without waiting for DoE to
+publish something new. It is never on the monthly cron.
 
 ## The drafting templates
 

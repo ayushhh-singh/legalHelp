@@ -28,6 +28,14 @@ export const SETTING_KEYS = {
   onboarded: 'onboarded',
   /** Devanagari digits (०-९) in place of Arabic ones, applied wherever numerals render. */
   devanagariDigits: 'devanagariDigits',
+  /**
+   * Whether `useAutoDataUpdateCheck` may run at all — default true (ADR-034).
+   * Independent of the manual "Check for data updates" button, which always
+   * works regardless of this setting.
+   */
+  dataUpdateAutoCheck: 'dataUpdateAutoCheck',
+  /** ISO instant of the last automatic check, so it runs at most once a day. Not user-facing. */
+  dataUpdateLastChecked: 'dataUpdateLastChecked',
 } as const
 
 /**

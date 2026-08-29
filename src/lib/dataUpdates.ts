@@ -1,14 +1,19 @@
 import { DATASETS, type Dataset } from './dataVersion'
 
 /**
- * "Check for data updates" (Settings): is a newer `data/_meta/versions.json`
- * sitting on the origin than the one bundled into this build?
+ * Is a newer `data/_meta/versions.json` sitting on the origin than the one
+ * bundled into this build? Two callers share this module: the "Check for
+ * data updates" button in Settings (`CheckForUpdates.tsx`, one-shot,
+ * user-initiated, ADR-028) and `useAutoDataUpdateCheck` (`src/app/`,
+ * automatic, at most once a day, on by default — ADR-034).
  *
  * This is the second of the two files this app is allowed to call `fetch`
  * from — `eslint.config.js` grants the exception by filename, exactly as it
  * does for `src/ai/providers/wire.ts` (ADR-011 point 3), and for the same
  * reason: the audit question "what in this app can talk to the network?"
- * has to stay answerable from the lint config alone. See ADR-028.
+ * has to stay answerable from the lint config alone. Both callers go through
+ * `fetchLatestVersions` here rather than calling `fetch` themselves, so the
+ * exemption never has to grow to a third file.
  *
  * The request is same-origin, carries no user data, and its path is a
  * literal string — never built from a parameter — so this module cannot
@@ -92,3 +97,27 @@ export function diffVersions(remote: RemoteVersions): UpdateCheckResult {
 
 export const hasUpdates = (result: UpdateCheckResult): boolean =>
   result.changed.length > 0 || result.added.length > 0 || result.removed.length > 0
+
+/**
+ * Whether `useAutoDataUpdateCheck` should run again: never twice on the same
+ * UTC calendar day. This is a network-call throttle, not a scheduling
+ * primitive — deliberately NOT `src/lib/srs/day.ts`'s or
+ * `src/lib/istDay.ts`'s fixed +05:30 IST boundary, which exist for
+ * spaced-repetition and streak correctness a reader actually sees. UTC
+ * rather than the device's local calendar day for the reason `day.ts`'s own
+ * fixed offset exists: a boundary that depends on `Date`'s LOCAL getters
+ * depends on the runtime's timezone, which makes the same input produce a
+ * different answer on a different machine. Being a few hours early or late
+ * relative to IST midnight costs nothing here; a test that only passes in
+ * one timezone would.
+ */
+export function isCheckDue(lastCheckedIso: string | null, now: Date): boolean {
+  if (!lastCheckedIso) return true
+  const last = new Date(lastCheckedIso)
+  if (Number.isNaN(last.getTime())) return true
+  return (
+    last.getUTCFullYear() !== now.getUTCFullYear() ||
+    last.getUTCMonth() !== now.getUTCMonth() ||
+    last.getUTCDate() !== now.getUTCDate()
+  )
+}

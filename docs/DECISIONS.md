@@ -4445,3 +4445,125 @@ headings.
   closing it is real work, not a quick pass), and a Hindi-quality review of
   `src/i18n/hi.json` and the rest of `data/` that a session rate limit cut off
   before it could report a single finding.
+
+## ADR-034 — Data maintenance goes hands-off: four ingest workflows, a watch-and-file-an-issue shape for sources with no fetchable text, and an automatic update check that changes what "no analytics" has to mean
+
+**Date:** 2026-08-29 · **Status:** Accepted
+
+### Context
+
+This session's brief: make data maintenance hands-off except for pull-request review. `ingest-law.yml`
+already existed (weekly NCRB refresh, ADR-012/013); the brief asked for three more workflows
+(`ingest-pay.yml` monthly, `ingest-holidays.yml` yearly, `ingest-glossary.yml` dispatch-only), a
+per-code diff summary added to `ingest-law.yml`'s pull request body, an in-app automatic "check for
+data updates" on startup, and `docs/MAINTENANCE.md`. Two decisions in it needed more than a routine
+build: what a Dearness Allowance watch can honestly promise when its own source is usually unreadable,
+and whether an automatic network call belongs on by default in an app whose master context states "no
+analytics, by default and always."
+
+### Decision
+
+**1. `pay_orders.py` does not trust its own parse, because the source mostly cannot be parsed.** The
+Department of Expenditure keeps only the CURRENT Dearness Allowance order at one fixed path and
+overwrites it on every revision — there is no archive, so "a new order" is that URL's content hash
+changing (`data/_meta/seen-orders.json`), not a new URL appearing. And most of what DoE actually serves
+there is a scanned image: two real orders fetched to build this session's test fixtures — the ones
+`data/pay/da-history.json` already cites for 01.07.2025 and 01.01.2026 — extract to **zero characters**
+through `pdfplumber`. CLAUDE.md already says this about DoE orders generally ("every DoE order is a
+scan, read by rendering and recognising and then checking by eye"); this session measured it directly
+for Dearness Allowance specifically rather than assuming it. So `find_rate_change` returning `None` is
+the expected common case, not a failure, and the script reports it as exactly that — a "Manual review:
+`<order>`" issue naming the order and why — rather than guess or stay silent. Only when an order DOES
+carry parseable text, and it matches the one sentence shape every notified order this dataset's own
+citations use ("...rate of Dearness Allowance...enhanced from the existing rate of X% to Y%...with
+effect from `<date>`"), does the script write the change into `data/pay/da-history.json` itself,
+schema-validated, for a human to review in a pull request — never auto-merged. HRA/Transport/Children
+Education Allowance orders are watched the same way on the one DoE page found to link them, and NEVER
+propose a data edit — only ever a manual-review issue — because that dataset has 32 allowances, each
+with its own rate structure and conditions, and no single predictable sentence a Dearness Allowance
+order has. `scripts/ingest/fixtures/pay-orders/` holds five REAL fixtures (extracted text only, never
+the PDF itself) proving no false positive on real, confusing government-document noise — one fetched
+document discusses "Daily Allowance (DA)" and a garbled percentage in a sentence with nothing to do
+with Dearness Allowance — plus one clearly-labelled SYNTHETIC fixture proving the regex can still find
+a true positive shaped like the real thing. Five real fixtures that never match would not distinguish a
+working regex from a dead one; the synthetic one is what does.
+
+**2. The holiday and glossary workflows are honest about having no fetch to run.** `holidays.py` reaches
+no host at all — a year's list is hand-typed from a DoPT circular, the same way `pay_matrix.py`'s
+`ANCHORS` are. So `ingest-holidays.yml` cannot itself produce a new year; what it does, once a year, is
+notice that next year has no `YEARS` entry yet and open an issue asking a human to add one, with the
+exact command to run afterwards — and only opens a pull request in the "a hand-edit was made but never
+run locally" case, the same `--check`-style contract every other script here already gives a developer.
+`ingest-glossary.yml` is dispatch-only, with no schedule at all: `glossary_seed.py` also reaches no
+host, so a weekly poll of nothing would rebuild identical output from identical input and — per
+`write_json` — write nothing, silently, forever. It exists so a reviewer who has hand-edited
+`scripts/ingest/glossary_sources/*.json` can get the same schema-validated rebuild and pull request
+`pnpm check` would give them locally, without a local Python environment.
+
+**3. Every ingest workflow routes through a pull request, even for pure bookkeeping, and never commits
+to `main` directly.** `data/_meta/seen-orders.json` changing on its own (nothing else found) is a
+one-line diff nobody strictly needs to review — but `.github/workflows/deploy.yml` triggers a
+production deploy on ANY successful CI run on `main`, so a direct commit would rebuild and redeploy the
+whole unchanged app as a side effect of updating a bookkeeping file no reader-facing code ever reads.
+`pay_orders.py` itself is also written so a genuinely quiet run writes NOTHING at all — the seen-entry
+for the Dearness Allowance watch is only rewritten on a real content change (or an explicit `--force`
+dispatch), never on every run just to refresh a timestamp — the same "a run that changes nothing must
+write nothing" rule `ingest_common.write_if_content_changed` already states for every other dataset
+here, extended to a file this session added.
+
+**4. `ingest-law.yml`'s pull request body now names which sections changed, not just how many bytes
+did.** `git diff --stat` cannot tell a reviewer whether a run touched one section fifty times (a
+heading reflow) or fifty sections once each — and CLAUDE.md is explicit that this is section-level
+criminal law, where a wrong mapping is worse than a stale one. `law_diff_summary.py` compares the
+working tree the ingest just wrote against `HEAD` (still the previous commit at that point in the
+workflow) and lists, per code, exactly which section numbers were added, changed or deleted — with a
+fresh `fetchedAt` alone not counting as a change, the same `strip_volatile` rule that already decides
+whether to write the file at all.
+
+**5. The automatic data-update check defaults ON, and that changes what the onboarding privacy promise
+has to say.** `useAutoDataUpdateCheck` runs `CheckForUpdates.tsx`'s own comparison automatically, at
+most once a UTC calendar day, only while online, through the SAME `fetchLatestVersions` in
+`src/lib/dataUpdates.ts` that already holds the app's second (of two) `fetch` exemption (ADR-028) — the
+hook itself never calls `fetch`, so the exemption stays at two files, not three. The real question was
+not whether this is CSP-safe or same-origin (it is; `connect-src 'self'` already covers it) but what it
+COSTS: this app precaches everything, so an installed device could until now be opened with **zero**
+network requests at all — `tests/e2e/offline.spec.ts` proves every route renders with the network fully
+cut. Turning a daily automatic check on means the origin's access log now learns, once a day, that a
+device opened the app, by IP — not analytics anyone built, but a side effect of the request's mere
+EXISTENCE that its same-origin, no-user-data CONTENTS do nothing to change. Weighed against that: this
+app shows Dearness Allowance and pay figures a reader may act on directly, a stale rate is a concrete
+harm, and the reader least likely to ever find the manual button in Settings is also the reader most
+likely to be hurt by staleness. The default is ON, with a Settings toggle beside the existing manual
+button (`pages.settings.updates.autoCheck`, itself on by default) for anyone who would rather opt out —
+and `onboarding.step3.noAnalytics`, in both languages, now says what actually happens: no analytics,
+full stop, and a named exception for what leaves the device, how often, and where to turn it off,
+rather than the flat "and always" the old wording could no longer support. The day boundary is UTC, not
+`Date`'s local getters and not `src/lib/srs/day.ts`'s or `src/lib/istDay.ts`'s fixed +05:30 IST offset
+— those exist for spaced-repetition and streak correctness a reader actually sees; this is a network-
+call throttle, and a boundary that depends on the test runner's own timezone is a boundary that makes
+the same input produce a different answer on a different machine, which is exactly the class of bug
+this project's own conventions (`compareStrings`, the fixed IST offset) already exist to rule out
+everywhere else.
+
+### Consequences
+
+- Four ingest workflows now exist (`ingest-law.yml` unchanged in shape, `ingest-pay.yml`,
+  `ingest-holidays.yml`, `ingest-glossary.yml` new) plus `lint-workflows.yml`, a small standalone
+  `actionlint` gate scoped to `.github/workflows/**` rather than folded into `ci.yml` — several
+  sessions can be editing workflow files concurrently, and it verifies the CI configuration itself, not
+  the app `ci.yml` verifies.
+- `scripts/ingest/pay_orders.py`, `scripts/ingest/pay_orders_pr_body.py`, `scripts/ingest/
+  law_diff_summary.py`, their tests (`test_pay_orders.py`, 24 cases; `test_law_diff_summary.py`, 8
+  cases) and `scripts/ingest/fixtures/pay-orders/` (five real fixtures, one synthetic, `SOURCES.md`
+  naming each) are new. `data/_meta/seen-orders.json` is a new, seeded, schema-exempt (`NO_SCHEMA` in
+  `validate_data.py`) bookkeeping file.
+- `src/lib/dataUpdates.ts` gains `isCheckDue` (pure, UTC-boundary, tested independently of the network
+  call around it); `src/app/useAutoDataUpdateCheck.ts` is new; `src/app/pwa.tsx`'s existing toast
+  container gains a third notice reusing `PwaToast` (extended with an optional `details` list) rather
+  than a second fixed-position container, which would have overlapped it — the exact defect
+  `docs/DATA-GAPS.md` #59 already named for the offline-ready toast on a phone. `src/db/index.ts` gains
+  two `SETTING_KEYS`: `dataUpdateAutoCheck` (the toggle) and `dataUpdateLastChecked` (not user-facing).
+- `onboarding.step3.noAnalytics` and `pages.settings.updates.autoCheck`/`.autoCheckHint` are reworded
+  or new in both `en.json` and `hi.json`.
+- `docs/MAINTENANCE.md` is new: the monthly review routine, what each cron does, how to add a dataset,
+  and how to hotfix a wrong number by hand without waiting for any of this.

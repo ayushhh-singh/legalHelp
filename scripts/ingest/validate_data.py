@@ -96,6 +96,7 @@ MANIFEST: dict[str, str] = {
 # A file that is in neither this set nor MANIFEST fails the run.
 NO_SCHEMA: dict[str, str] = {
     "_meta/versions.json": "dataset metadata, not a dataset; its shape is asserted in tests/pay-data.test.ts and tests/law-data.test.ts",
+    "_meta/seen-orders.json": "pay_orders.py's own bookkeeping (a content hash and a set of URLs already reported on) — not a dataset, and never read by the app",
     "law/overlays/bns-hindi-curated.json": "hand-curated overlay merged by ncrb_sankalan.py, which validates the merged result against law-mapping.schema.json",
     "law/overlays/traps-and-transitional.json": "hand-curated overlay merged by ncrb_sankalan.py, which validates the merged result",
 }
