@@ -109,6 +109,24 @@ function usePwaLifecycle() {
   }
 }
 
+/** One line of a toast's "what changed" list — `id` is the identity, `label` is only ever display text. */
+interface ToastDetail {
+  id: string
+  label: string
+}
+
+/**
+ * How many detail lines a toast will ever render directly. `data/_meta/
+ * versions.json` currently carries 35 datasets, and this toast is a
+ * `position: fixed` overlay with `pointer-events-auto` sitting above a
+ * phone's tab bar — an uncapped list is the exact shape of defect
+ * docs/DATA-GAPS.md #59 already named once (the offline-ready toast
+ * covering "Next question" on a real device). The rest is one tap away
+ * behind `actionLabel`, which is where the data-sources table already
+ * lives, so nothing here is actually hidden.
+ */
+const MAX_TOAST_DETAILS = 3
+
 function PwaToast({
   message,
   details,
@@ -118,12 +136,14 @@ function PwaToast({
 }: {
   message: string
   /** A short "what changed" list under the message — the data-update notice's own reason for existing. */
-  details?: string[]
+  details?: ToastDetail[]
   actionLabel?: string
   onAction?: () => void
   onDismiss: () => void
 }) {
   const { t } = useT()
+  const shown = details?.slice(0, MAX_TOAST_DETAILS) ?? []
+  const hiddenCount = (details?.length ?? 0) - shown.length
 
   return (
     <div
@@ -150,11 +170,12 @@ function PwaToast({
           ×
         </button>
       </div>
-      {details && details.length > 0 ? (
+      {shown.length > 0 ? (
         <ul className="flex flex-col gap-0.5 pl-1 text-xs text-muted-foreground">
-          {details.map((detail) => (
-            <li key={detail}>{detail}</li>
+          {shown.map((detail) => (
+            <li key={detail.id}>{detail.label}</li>
           ))}
+          {hiddenCount > 0 ? <li>{t('pwa.dataUpdateMore', { count: hiddenCount })}</li> : null}
         </ul>
       ) : null}
     </div>
@@ -197,8 +218,11 @@ export function PwaNotices({ className }: { className?: string }) {
         <PwaToast
           message={t('pwa.dataUpdateAvailable')}
           details={[
-            ...dataUpdate.changed.map((change) => change.label[language] ?? change.label.en ?? change.id),
-            ...dataUpdate.added.map((id) => t('pages.settings.updates.added', { id })),
+            ...dataUpdate.changed.map((change) => ({
+              id: change.id,
+              label: change.label[language] ?? change.label.en ?? change.id,
+            })),
+            ...dataUpdate.added.map((id) => ({ id, label: t('pages.settings.updates.added', { id }) })),
           ]}
           actionLabel={t('pwa.viewInSettings')}
           onAction={() => {
