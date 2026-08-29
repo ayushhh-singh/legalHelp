@@ -125,15 +125,23 @@ export class LocalProvider implements AiProvider {
       // JSON would be forcing the wrong shape.
       jsonMode: !schemaTurn,
       ...(params.jsonSchema ? { jsonSchema: JSON.stringify(params.jsonSchema.schema) } : {}),
-      // Tokens are streamed to the caller only when the turn is prose. A
-      // half-arrived JSON envelope rendered live would show the reader
-      // `{"answer": "Sec` — the agents that stream a structured answer do their
-      // own partial parsing (`partialAnswerText`), and they read the same
-      // events either way, so this only affects what an unstructured surface
-      // would paint.
-      ...(params.onEvent && !params.jsonSchema
-        ? { onToken: (text: string) => params.onEvent?.({ type: 'token', text }) }
-        : {}),
+      /*
+        Every text delta becomes a `token` event, on a structured turn as much
+        as on a prose one, because that is what `wire.ts` does for Tiers 1 and 2
+        and a provider that streams differently is a provider a caller has to
+        know about.
+
+        This once suppressed tokens whenever a `jsonSchema` was asked for, on
+        the reasoning that a half-arrived envelope would paint `{"answer": "Sec`
+        on screen. The reasoning was wrong in both directions: no surface in
+        this app renders raw token text, and the ONE consumer of these events —
+        `src/ai/agents/law.ts`'s answering pass — passes a jsonSchema and reads
+        the partial JSON with `partialAnswerText()`, a function that exists for
+        exactly this. So the suppression silenced the only surface that streams,
+        on the slowest tier, where a run is half a minute rather than three
+        seconds and progressive text is worth most.
+      */
+      ...(params.onEvent ? { onToken: (text: string) => params.onEvent?.({ type: 'token', text }) } : {}),
       ...(params.signal ? { signal: params.signal } : {}),
     })
 

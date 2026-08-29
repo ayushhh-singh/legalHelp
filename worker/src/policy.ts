@@ -65,10 +65,28 @@ function list(raw: string | undefined): string[] {
     .filter((entry) => entry.length > 0)
 }
 
+/**
+ * The same, with a trailing slash taken off each entry.
+ *
+ * An operator writes an origin the way they write a URL, and a browser's
+ * `Origin` header never carries a path or a trailing slash — so
+ * `ALLOWED_ORIGINS = "https://app.test/"` matched nothing and the Worker
+ * answered 403 to every request from the app it was deployed for, with no hint
+ * anywhere as to why. README.md documenting "no trailing slash" is a footgun
+ * described rather than removed.
+ *
+ * Only the CONFIGURED side is normalised: `originAllowed()` still refuses a
+ * REQUEST whose Origin carries one, because no browser sends that and a caller
+ * that does is not one of ours.
+ */
+function originList(raw: string | undefined): string[] {
+  return list(raw).map((origin) => origin.replace(/\/+$/, ''))
+}
+
 export function readConfig(env: Env): Config {
   const models = list(env.ALLOWED_MODELS)
   return {
-    allowedOrigins: list(env.ALLOWED_ORIGINS),
+    allowedOrigins: originList(env.ALLOWED_ORIGINS),
     allowedModels: models.length > 0 ? models : DEFAULT_ALLOWED_MODELS,
     rateLimitPerWindow: positiveInt(env.RATE_LIMIT_PER_WINDOW, DEFAULT_RATE_LIMIT_PER_WINDOW),
     rateLimitWindowSeconds: Math.max(
@@ -166,7 +184,16 @@ export function checkBody(raw: unknown, config: Config): BodyCheck {
     }
   }
 
-  const asked = typeof raw.max_tokens === 'number' ? raw.max_tokens : config.maxOutputTokens
+  // `Number.isFinite`, not `typeof === 'number'`: NaN is a number, and every one
+  // of Math.floor, Math.min and Math.max propagates it unchanged — so a NaN
+  // reached JSON.stringify, which writes it as `null`, and the operator's key
+  // was spent on a request Anthropic answers with a 400. A value that is not a
+  // finite quantity is treated as an absent one. Infinity IS finite-bounded by
+  // the Math.min below, so it needs no special case.
+  const asked =
+    typeof raw.max_tokens === 'number' && !Number.isNaN(raw.max_tokens)
+      ? raw.max_tokens
+      : config.maxOutputTokens
   const clamped = Math.max(1, Math.min(Math.floor(asked), config.maxOutputTokens))
 
   return { ok: true, body: { ...raw, max_tokens: clamped } }

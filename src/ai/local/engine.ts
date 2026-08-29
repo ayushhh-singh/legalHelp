@@ -36,8 +36,42 @@ export interface LoadOptions {
 
 let engine: MLCEngineInterface | null = null
 let loadedModelId: string | null = null
-/** In flight, so two callers share one load rather than starting two. */
-let loading: { modelId: string; promise: Promise<MLCEngineInterface> } | null = null
+/** In flight, keyed by model id, so two callers share one load. */
+const pending = new Map<string, Promise<MLCEngineInterface>>()
+/** Loads run one at a time; each new one chains behind this. */
+let queue: Promise<unknown> = Promise.resolve()
+/**
+ * Bumped by every unload. A load or a generation that started under an older
+ * epoch knows the engine it was working with is gone — which is the difference
+ * between reporting "the model was unloaded" and reporting an out-of-memory
+ * failure that never happened.
+ */
+let epoch = 0
+
+/**
+ * ONE dynamic import of the library, shared by every caller.
+ *
+ * Not merely tidier than an `import()` per function: the four call sites here
+ * can run concurrently, and a module resolved several times over is several
+ * megabytes of parsing the browser did not need to repeat. A failed import is
+ * deliberately NOT cached — a network blip on the first press would otherwise
+ * make every later press fail with the same stale rejection.
+ *
+ * That reset branch is the one thing in this file with no test behind it, said
+ * plainly rather than left to be discovered: exercising it means swapping the
+ * module mock mid-file, and `vi.doMock` reports its own wrapper error rather
+ * than the thrown one, so the only assertion available would have been about
+ * vitest. A test that cannot fail for the right reason is not evidence.
+ */
+let webllmModule: Promise<typeof import('@mlc-ai/web-llm')> | null = null
+
+function webllm(): Promise<typeof import('@mlc-ai/web-llm')> {
+  webllmModule ??= import('@mlc-ai/web-llm').catch((error: unknown) => {
+    webllmModule = null
+    throw error
+  })
+  return webllmModule
+}
 
 export function loadedLocalModelId(): string | null {
   return loadedModelId
@@ -53,7 +87,7 @@ export function loadedLocalModelId(): string | null {
  * the same split `parseAiSettings` uses for the tier.
  */
 async function appConfigFor(): Promise<AppConfig> {
-  const { prebuiltAppConfig } = await import('@mlc-ai/web-llm')
+  const { prebuiltAppConfig } = await webllm()
   const offered = new Set(LOCAL_MODELS.map((model) => model.id))
   const list = prebuiltAppConfig.model_list.filter((record: ModelRecord) => offered.has(record.model_id))
   return { ...prebuiltAppConfig, model_list: list }
@@ -70,7 +104,7 @@ async function appConfigFor(): Promise<AppConfig> {
 export async function isLocalModelCached(modelId: string): Promise<boolean> {
   if (!findLocalModel(modelId)) return false
   try {
-    const [{ hasModelInCache }, appConfig] = await Promise.all([import('@mlc-ai/web-llm'), appConfigFor()])
+    const [{ hasModelInCache }, appConfig] = await Promise.all([webllm(), appConfigFor()])
     return await hasModelInCache(modelId, appConfig)
   } catch {
     // A browser with no Cache API, or a storage bucket the user has cleared
@@ -82,10 +116,14 @@ export async function isLocalModelCached(modelId: string): Promise<boolean> {
 
 /** Frees the GPU device. The download stays; loading again is quick. */
 export async function unloadLocalEngine(): Promise<void> {
+  // Bumped BEFORE anything awaits, so a load or a generation already in flight
+  // sees it the moment it next looks. Without this an in-flight load simply
+  // reassigns `engine` when it finishes and the unload is silently undone.
+  epoch += 1
   const current = engine
   engine = null
   loadedModelId = null
-  loading = null
+  pending.clear()
   if (current) await current.unload()
 }
 
@@ -99,10 +137,7 @@ export async function unloadLocalEngine(): Promise<void> {
  */
 export async function deleteLocalModel(modelId: string): Promise<void> {
   if (loadedModelId === modelId) await unloadLocalEngine()
-  const [{ deleteModelAllInfoInCache }, appConfig] = await Promise.all([
-    import('@mlc-ai/web-llm'),
-    appConfigFor(),
-  ])
+  const [{ deleteModelAllInfoInCache }, appConfig] = await Promise.all([webllm(), appConfigFor()])
   await deleteModelAllInfoInCache(modelId, appConfig)
 }
 
@@ -129,17 +164,39 @@ export async function ensureLocalEngine(
 
   if (engine && loadedModelId === modelId) return engine
 
-  // A second caller asking for the SAME model joins the load in flight. A
-  // caller asking for a different one has to wait for it: two engines on one
-  // WebGPU device is how you lose the device.
-  if (loading && loading.modelId === modelId) return loading.promise
+  // A second caller asking for the SAME model joins the load in flight rather
+  // than starting a second one.
+  const inFlight = pending.get(modelId)
+  if (inFlight) return inFlight
 
-  const promise = load(modelId, options)
-  loading = { modelId, promise }
+  /*
+    A caller asking for a DIFFERENT model waits, and until this edge-case pass
+    it did not — the old code checked only whether the in-flight load was for
+    the same id and otherwise called `load()` immediately. `load()` unloads the
+    current engine first, but during another load there IS no current engine
+    yet, so nothing stopped two `CreateMLCEngine` calls initialising on one
+    WebGPU device at once. The comment there claimed the opposite, which is the
+    worst kind of wrong: it described an invariant nothing enforced.
+
+    Reachable from the app: a reader with a run streaming on `/law` walks to
+    Settings and presses Download on a different model. Serialising is the whole
+    fix — each load still unloads whatever came before it, in order.
+  */
+  const previous = queue
+  const promise = (async () => {
+    // A failed or cancelled predecessor must not take this load down with it.
+    await previous.catch(() => undefined)
+    // It may have loaded exactly what we came for while we waited.
+    if (engine && loadedModelId === modelId) return engine
+    return load(modelId, options)
+  })()
+
+  pending.set(modelId, promise)
+  queue = promise
   try {
     return await promise
   } finally {
-    if (loading?.promise === promise) loading = null
+    if (pending.get(modelId) === promise) pending.delete(modelId)
   }
 }
 
@@ -147,6 +204,7 @@ async function load(modelId: string, options: LoadOptions): Promise<MLCEngineInt
   // Switching models means the old one leaves the GPU first.
   if (engine) await unloadLocalEngine()
 
+  const startedAt = epoch
   let cancelled = false
   const onAbort = () => {
     cancelled = true
@@ -154,7 +212,7 @@ async function load(modelId: string, options: LoadOptions): Promise<MLCEngineInt
   options.signal?.addEventListener('abort', onAbort, { once: true })
 
   try {
-    const [{ CreateMLCEngine }, appConfig] = await Promise.all([import('@mlc-ai/web-llm'), appConfigFor()])
+    const [{ CreateMLCEngine }, appConfig] = await Promise.all([webllm(), appConfigFor()])
 
     const created = await CreateMLCEngine(modelId, {
       appConfig,
@@ -166,9 +224,16 @@ async function load(modelId: string, options: LoadOptions): Promise<MLCEngineInt
       },
     })
 
-    if (cancelled) {
+    // `epoch !== startedAt` means somebody unloaded while this was loading.
+    // Assigning `engine` here would resurrect a model the reader asked to be
+    // rid of, and the engine that just finished has to be released rather than
+    // left holding the GPU with nothing referencing it.
+    if (cancelled || epoch !== startedAt) {
       await created.unload()
-      throw new AiError('aborted', 'The download was cancelled.')
+      throw new AiError(
+        'aborted',
+        cancelled ? 'The download was cancelled.' : 'The model was unloaded while it was loading.',
+      )
     }
 
     engine = created
@@ -259,7 +324,30 @@ export function engineGenerate(modelId: string): LocalGenerate {
     }
 
     const active = await ensureLocalEngine(modelId, request.signal ? { signal: request.signal } : {})
-    return streamCompletion(active, request)
+
+    const startedAt = epoch
+    try {
+      return await streamCompletion(active, request)
+    } catch (error) {
+      /*
+        A generation running against an engine somebody else unloaded fails
+        with a lost/destroyed WebGPU device — which `loadFailureMessage` maps,
+        correctly for a LOAD, to "this device ran out of graphics memory,
+        choose a smaller model". Here that is a wrong diagnosis of a real
+        event, and acting on it means downloading a smaller model to fix
+        something that was never about memory.
+
+        The epoch is what tells the two apart, and it is checked only on the
+        failure path so a normal run pays nothing for it.
+      */
+      if (epoch !== startedAt) {
+        throw new AiError(
+          'provider',
+          'The on-device model was unloaded while this answer was being written. Load it again in Settings.',
+        )
+      }
+      throw error
+    }
   }
 }
 

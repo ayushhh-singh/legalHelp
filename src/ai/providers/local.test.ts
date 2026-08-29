@@ -271,14 +271,22 @@ describe('events and usage', () => {
     })
   })
 
-  it('does not stream a half-arrived JSON envelope to the caller', async () => {
-    // Rendering `{"answer": "Sec` live is worse than rendering nothing; the
-    // agents that stream structured answers do their own partial parsing.
+  it('streams tokens on a schema turn too, because every other provider does', async () => {
+    /*
+      This assertion used to say the opposite, and it was wrong — see
+      `src/ai/local/edge.test.ts`. `wire.ts` emits a token event for every text
+      delta on Tiers 1 and 2, structured turn included, and the one consumer of
+      those events (`src/ai/agents/law.ts`'s answering pass) passes a jsonSchema
+      and reads the partial JSON with `partialAnswerText()`. Suppressing them
+      here silenced the only streaming surface in the app, on the slowest tier.
+    */
     const events: AiEvent[] = []
     const script: Scripted = {
       seen: [],
       generate: (request) => {
         script.seen.push(request)
+        request.onToken?.('{"en":"a"')
+        request.onToken?.(',"hi":"आ"}')
         return Promise.resolve({
           text: '{"en":"a","hi":"आ"}',
           usage: { ...EMPTY_USAGE },
@@ -292,8 +300,8 @@ describe('events and usage', () => {
         onEvent: (event) => events.push(event),
       }),
     )
-    expect(script.seen[0]?.onToken).toBeUndefined()
-    expect(events.filter((event) => event.type === 'token')).toHaveLength(0)
+    expect(script.seen[0]?.onToken).toBeDefined()
+    expect(events.filter((event) => event.type === 'token')).toHaveLength(2)
   })
 
   it('passes the abort signal through to the generator', async () => {

@@ -507,6 +507,28 @@ are load-bearing, and each is enforced by a test rather than by convention:
   model is a minute of waiting per step on a device generating twenty tokens a second. This is now
   the last item on `docs/AI.md` §11's checklist.
 
+- **An edge-case pass over Tier 0 found five more defects, and four were the same mistake as the
+  citation one: the PROVIDER deciding something on behalf of callers it cannot see.** Read ADR-037's
+  second addendum. The two most transferable: `LocalProvider` suppressed `token` events on a
+  structured turn, which no other provider does — `wire.ts` emits one per text delta — and the only
+  consumer of those events is the law agent's answering pass, which passes a `jsonSchema` and has
+  `partialAnswerText()` built to read half-arrived JSON, so the suppression silenced the one
+  streaming surface on the slowest tier. **The original commit shipped a test asserting that
+  suppression**, so the defect had a test defending it; when an edge-case pass contradicts an
+  existing assertion, check which one is describing the app. And `ensureLocalEngine`'s comment said
+  a caller wanting a different model "has to wait", which nothing enforced — an invariant described
+  rather than implemented, and the kind of comment worth distrusting on sight.
+
+- **`vi.mock` is NOT stable under concurrent dynamic import of the same specifier.** A second
+  overlapping `import()` resolves to the real package — here `@mlc-ai/web-llm`, which fails with
+  `caches is not defined` under jsdom and looks exactly like an application defect. The first
+  concurrency probe this session ran was worthless for that reason and was thrown away rather than
+  acted on; verify a mock is actually in force (`'MARKER' in module`) before believing a concurrency
+  result. What made `src/ai/local/engine.ts` testable was hoisting the library behind ONE memoised
+  `webllm()` promise — which is also just better, four call sites and several megabytes of parsing.
+  If a future change reintroduces a second `import()` site there, `engine.edge.test.ts` starts lying
+  before it starts failing.
+
 - **A prompt fragment that names a citation format is making a claim about a validator it cannot
   see, and this session shipped one that contradicted four agents at once.** `toolProtocolInstruction`'s
   answer-only form told the model to cite `[T1]`, and it was used for every turn that could not call

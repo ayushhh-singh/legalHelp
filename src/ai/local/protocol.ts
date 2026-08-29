@@ -362,6 +362,23 @@ export function parseLocalTurn(raw: string, mode: ParseMode): LocalTurn {
     const answer = firstString(record, ['answer'])
     if (answer) return { kind: 'text', text: answer }
 
+    /*
+      An `answer` key that carries nothing usable — `""`, whitespace, null, a
+      number, an array — is a model that produced no answer, not a model that
+      wrote prose. Falling through to the prose branch handed the READER the
+      literal characters `{"answer": ""}` under a heading that says Answer,
+      which is machinery on screen and is the worst outcome this parser has.
+
+      A model constrained to emit `{"answer": …}` and having nothing to say
+      produces exactly this shape, and on a 1.5B model that is not rare.
+      `runAgent` reports `empty` — "The assistant returned no answer" — which is
+      what actually happened.
+
+      The key has to be checked for PRESENCE rather than for a usable value,
+      because `firstString` has already rejected every unusable one.
+    */
+    if ('answer' in record) return { kind: 'empty' }
+
     const name = firstString(record, NAME_KEYS)
     if (name) {
       if (mode === 'answer') {

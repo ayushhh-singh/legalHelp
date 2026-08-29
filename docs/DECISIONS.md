@@ -5376,6 +5376,72 @@ because their personas did not restate the rule and so had nothing to
 contradict the provider's copy of it. Read that section of `law.md` before
 adding a citation instruction anywhere.
 
+### Addendum 2 — an edge-case pass, five defects
+
+Each was confirmed to fail against the committed code before its fix, the rule
+`src/lib/srs/edge.test.ts` and `src/ai/agents/drafting.edge.test.ts` already
+follow. Four of the five are the same shape as the `[T1]` defect above: **the
+provider made a decision on behalf of callers it cannot see.**
+
+1. **An envelope whose answer is empty showed the reader the envelope.**
+   `firstString` demanded a non-empty trimmed string, so `{"answer": ""}` found
+   no answer, found no tool name, and fell through to the "this is prose"
+   branch — putting the literal characters `{"answer": ""}` on screen under a
+   heading that says Answer. `null`, a number and an array did the same. A model
+   constrained to emit that envelope and having nothing to say produces exactly
+   this shape, and on a 1.5B model it is not rare. The key is now checked for
+   PRESENCE, and `runAgent` reports `empty`, which is what happened.
+
+2. **Token events were suppressed on a structured turn, and no other provider
+   does that.** `wire.ts` emits one for every text delta, schema turn included.
+   The single consumer of those events is `src/ai/agents/law.ts`'s answering
+   pass — which passes a `jsonSchema` and reads the half-arrived JSON with
+   `partialAnswerText()`, a function that exists for precisely this. So the
+   suppression protected nobody and silenced the only streaming surface in the
+   app, on the slowest tier, where a run is half a minute rather than three
+   seconds. Worth noting how it survived review: the original commit shipped a
+   test asserting the suppression, so the defect had a test defending it.
+
+3. **Two engines could initialise on one WebGPU device.** `ensureLocalEngine`
+   returned the in-flight promise only when the model ids matched and otherwise
+   called `load()` immediately; `load()` unloads the current engine first, but
+   during another load there is no current engine yet. The comment there claimed
+   callers of a different model "have to wait", which nothing enforced —
+   an invariant described rather than implemented. Loads are serialised through
+   one queue now, and in-flight loads are joined by id. Reachable: a reader with
+   a run streaming on `/law` walks to Settings and presses Download.
+
+4. **An unload during a load was silently undone**, because the finishing load
+   just reassigned `engine`. A monotonic `epoch`, bumped before `unloadLocalEngine`
+   awaits anything, lets the load see that it is obsolete, release the engine it
+   just built, and fail as `aborted`. The same epoch fixes a wrong diagnosis:
+   a generation whose engine is unloaded mid-stream fails with a lost WebGPU
+   device, which `loadFailureMessage` maps — correctly for a load, wrongly here —
+   to "ran out of graphics memory, choose a smaller model". Acting on that means
+   downloading a smaller model to fix something that was never about memory.
+
+5. **The Worker forwarded `max_tokens: NaN`** — `typeof NaN === 'number'`, and
+   `Math.floor`/`Math.min`/`Math.max` all propagate it, so `JSON.stringify`
+   wrote `null` and the operator's key was spent on a request Anthropic answers
+   with a 400. And **a trailing slash in `ALLOWED_ORIGINS` 403'd everything**:
+   an operator writes an origin the way they write a URL, a browser never sends
+   one that way, and `README.md` documenting "no trailing slash" described the
+   footgun instead of removing it. Configured origins are normalised; a REQUEST
+   Origin carrying a slash is still refused, because no browser sends that.
+
+**One thing this pass could not test, and one it nearly got wrong.**
+`vi.mock` is not stable under **concurrent** dynamic import of the same
+specifier — a second overlapping `import()` resolves to the real package, which
+here failed with `caches is not defined` and looks exactly like an application
+defect. The first concurrency probe was therefore worthless, and was discarded
+rather than acted on. What made `engine.ts` testable at all was hoisting the
+library behind ONE memoised `webllm()` promise, which is a real improvement
+independently (four call sites, several megabytes of parsing). Its
+reset-on-failure branch remains uncovered and says so in the source: reaching it
+needs a mid-file mock swap, and `vi.doMock` reports its own wrapper error rather
+than the thrown one, so the only available assertion would have been about
+vitest.
+
 ### Consequences
 
 - Tiers 0 and 1 ship in every build; Tier 2 ships the moment somebody deploys
