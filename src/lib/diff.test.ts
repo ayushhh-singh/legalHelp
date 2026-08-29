@@ -108,3 +108,21 @@ describe('the real headings this runs on', () => {
     expect(counts.added).toBeGreaterThan(5)
   })
 })
+
+describe('diffWords — exact', () => {
+  it('folds case and punctuation by default, and does not with `exact`', () => {
+    expect(hasChanges(diffWords('education allowance', 'Education Allowance.'))).toBe(false)
+    expect(hasChanges(diffWords('education allowance', 'Education Allowance.', { exact: true }))).toBe(true)
+  })
+
+  it('an exact diff re-attaches the AFTER token, so applying it changes the text', () => {
+    // The default's `equal` run keeps the BEFORE token, which is why a
+    // suggestion whose only change was a capital used to apply as nothing.
+    const folded = diffWords('grant of allowance', 'Grant of Allowance')
+    expect(folded?.every((part) => part.op === 'equal')).toBe(true)
+
+    const exact = diffWords('grant of allowance', 'Grant of Allowance', { exact: true })
+    expect(exact?.some((part) => part.op === 'insert')).toBe(true)
+    expect(exact?.flatMap((part) => (part.op === 'insert' ? part.tokens : []))).toContain('Grant')
+  })
+})

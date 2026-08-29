@@ -25,7 +25,10 @@ import type { Language } from '@/i18n'
 export const PROMPT_VERSIONS: Record<AgentId, number> = {
   'law-explain': 1,
   'pay-explain': 1,
-  'draft-assist': 1,
+  // 2: Session 21 added src/ai/prompts/drafting.md as a cached instructions
+  // block. Bump this on any edit to that file — the answer cache then stops
+  // serving anything the previous wording produced.
+  'draft-assist': 2,
   'trainer-coach': 1,
 }
 
@@ -85,10 +88,30 @@ export interface BuildSystemParams {
   language: Language
   context: BuiltContext
   profile?: ProfileSegment
+  /**
+   * An agent's own standing instructions — the long-form rules that do not fit
+   * in a one-paragraph persona. `src/ai/agents/drafting.ts` passes
+   * `src/ai/prompts/drafting.md`.
+   *
+   * It sits AFTER the persona and BEFORE the profile, and it is cached, so it
+   * must be the same bytes on every request this agent makes: nothing per
+   * reader, per language or per question. Anything that varies belongs in the
+   * volatile block below, or the prompt cache is thrown away on every use of
+   * the language toggle.
+   */
+  instructions?: string
 }
 
-export function buildSystem({ agentId, language, context, profile }: BuildSystemParams): SystemBlock[] {
+export function buildSystem({
+  agentId,
+  language,
+  context,
+  profile,
+  instructions,
+}: BuildSystemParams): SystemBlock[] {
   const blocks: SystemBlock[] = [{ text: personaFor(agentId), cache: true }]
+
+  if (instructions?.trim()) blocks.push({ text: instructions.trim(), cache: true })
 
   if (profile?.summary) {
     blocks.push({ text: `Reader profile (stable across this session): ${profile.summary}`, cache: true })

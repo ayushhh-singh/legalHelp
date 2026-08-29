@@ -36,6 +36,15 @@ python -m unittest discover -s scripts/ingest -t scripts/ingest -v
 python scripts/ingest/validate_data.py
 ```
 
+One suite is opt-in and reaches the network — the only one in this repository that does:
+
+```bash
+AI_LIVE=1 ANTHROPIC_API_KEY=sk-ant-… pnpm exec vitest run src/ai/agents/drafting.live.test.ts
+```
+
+Without **both** of those it is skipped, so `pnpm check`, `pnpm test` and CI never make a request.
+See §8 below for what it is for and why its assertions are about shape rather than wording.
+
 First Playwright run on a machine needs the browser once:
 
 ```bash
@@ -193,7 +202,49 @@ Live regions: every copy confirmation is asserted to be inside `[aria-live]` or 
 not merely on the page. The icon swap alone is `aria-hidden`, so an un-announced copy is a button
 that, to a screen reader, did nothing.
 
-### 7. Data pipeline — Python
+### 7. The AI layer — `MockProvider` everywhere, and one opt-in live test
+
+Every AI test runs against `src/ai/providers/mock.ts`: a fixture lists the turns the provider will
+return, in order. That makes the tool loop, the step cap, argument recovery, cancellation, the
+grounding rule and the budget stop all deterministic — none of them depends on a model choosing to
+behave a particular way. `src/ai/fixtures/scripts.ts` holds the loop's fixtures as frozen literals;
+`src/ai/fixtures/drafting-scripts.ts` holds the drafting agent's as **builders**, because there the
+thing under test is a policy over values that must come from the real committed templates. A test
+asserting "the checklist passes" against values a test author invented is a test of the test author.
+
+Three properties the drafting agent's suite asserts that are worth copying into any agent written
+later (`src/ai/agents/drafting.test.ts`, ADR-032):
+
+- **The exact tool sequence**, collected from `onProgress`. It includes the calls the AGENT makes
+  itself (`render_draft`, `check_draft`) as well as the model's, because the point is that the
+  checklist the reader is shown is one the code evaluated rather than one the model claimed.
+- **That a refusal sends nothing**, by asserting `MockProvider.calls` is empty. "We told the model
+  to refuse" and "nothing was sent" are different claims and only the second is worth anything.
+- **That the revision cap holds**, by asserting `provider.turnsTaken`.
+
+The panel is tested the same way rather than by stubbing the hook:
+`src/modules/drafting/components/AiDraftPanel.test.tsx` hands a `MockProvider` in through
+`ai.provider`, so pressing "Draft it" runs the real agent, the real engine and the real diff. A test
+that stubbed `useDraftingAi` would assert that the component renders the props it was given, which is
+not the thing that can be wrong.
+
+**The live test** (`src/ai/agents/drafting.live.test.ts`) exists for the failures a mock cannot
+reach: a JSON schema the provider rejects, a rationale with no citation in it, a field id the model
+infers from a label rather than reading from `get_draft_template`. Its assertions are deliberately
+about shape, never wording — a test that asserted a model's prose would fail on the next model and
+everyone would learn to ignore it. The one assertion worth having is that a brief which withholds
+the file number comes back with a blank rather than a number.
+
+In the browser, `tests/e2e/ai-draft.spec.ts` turns AI on through Settings the way a reader does,
+opens the panel and runs axe over it both gated and open. It declares **no** `allowCrossOrigin`,
+unlike `ai-byok.spec.ts`, so the automatic gate proves that enabling AI and reading the whole panel
+sends nothing; pressing "Draft it" is what sends, and that spec never does. The counterpart is in
+`tests/e2e/draft.spec.ts`: with AI off, the panel, the ✨ controls and any chunk matching
+`AiDraftPanel|anthropic` are all absent.
+
+---
+
+### 8. Data pipeline — Python
 
 `scripts/ingest` and `scripts/authoring` are tested with stdlib `unittest`, not Vitest — 110 tests
 across the two. `validate_data.py` checks all 58 datasets against `schemas/`, and **fails on a file
@@ -237,6 +288,13 @@ Kept as a record of what each layer is actually for.
 
 - **The "Upcoming" holiday strip could not be scrolled with a keyboard** — a sideways-scrolling region whose contents are all plain text, so there was nothing to focus and everything past the viewport edge was unreachable (WCAG 2.1.1). Found by extending the axe sweep to Utilities' four tools; invisible to jsdom, which has no layout and so never overflows. Fixed with a labelled `ScrollStrip` wrapper.
 - **`/utils/portals` copied a URL and announced nothing** — the button swapped an `aria-hidden` icon and said nothing at all, while every other copy affordance in the app writes into a live region. Found by asking, for each confirmation, whether it was inside one.
+- **A suggestion diff silently discarded the model's capitalisation and punctuation** — `diffWords`
+  folds case and punctuation before comparing and re-attaches the BEFORE token on an `equal` run,
+  which is right for the Law Converter and wrong for a diff the reader ACCEPTS: a rewrite whose only
+  change to a word was a capital letter rendered as "No change is suggested", and applying one that
+  contained such a word produced neither text. Found by a unit test asserting the applied subject
+  line, not by looking at the screen — the diff LOOKED correct. `SuggestionDiff` now passes
+  `{ exact: true }` (ADR-032 §6).
 - **The PWA "Ready to work offline." toast blocked a primary action on a phone** — a full-width bar at `bottom-[4.5rem]` waiting for an acknowledgement, sitting exactly on the mock test's "Next question" button and intercepting every click on it. Found by the `mobile-chromium` project on its first run; `docs/DATA-GAPS.md` #59.
 - **A language chunk that failed to load left the app showing raw translation keys, permanently** — i18next resolves rather than rejecting on a backend failure, and the broken preference was then persisted. Found by asking what the ADR-031 split had made newly possible; fixed in `store.ts` and `src/i18n/index.ts`, with the library behaviour pinned in `src/i18n/chunk-failure.test.ts`.
 - **`/learn/review` was swept by neither axe nor the offline reload** — the Trainer's most-used screen, with every route around it covered. `tests/route-coverage.test.ts` now derives the route set from the routers and fails on any route in neither sweep.

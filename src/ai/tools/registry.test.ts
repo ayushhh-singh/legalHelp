@@ -167,6 +167,7 @@ describe('the built-in tools', () => {
       'list_draft_phrases',
       'list_draft_templates',
       'lookup_admin_term',
+      'lookup_glossary_term',
       'propose_card',
       'render_draft',
       'search_pay_jobs',

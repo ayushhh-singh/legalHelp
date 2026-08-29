@@ -1,5 +1,6 @@
 import { Languages, Link2 } from 'lucide-react'
 
+import { ImproveButton } from './ImproveButton'
 import { controlId } from '../fieldIds'
 import { asText, fromText, isSplit, mergeField, readValue, setValue, splitField } from '../values'
 
@@ -39,9 +40,14 @@ export interface FieldProps {
   /** The engine's message for this field, in `lang`, if it has one. */
   issue?: string
   onChange: (next: DraftValues) => void
+  /**
+   * Passed only when the AI layer is on. `EditorPage` owns the run: this hands
+   * the field up, the panel does the asking and shows the diff.
+   */
+  onImprove?: () => void
 }
 
-export function FieldRow({ field, values, lang, issue, onChange }: FieldProps) {
+export function FieldRow({ field, values, lang, issue, onChange, onImprove }: FieldProps) {
   const { t, language } = useT()
   const id = controlId(field.id)
   const errorId = `${id}-error`
@@ -66,27 +72,31 @@ export function FieldRow({ field, values, lang, issue, onChange }: FieldProps) {
           ) : null}
         </label>
 
-        {canLink ? (
-          <button
-            type="button"
-            /*
+        <span className="flex flex-wrap items-center gap-1">
+          {onImprove && canLink ? <ImproveButton label={field.label[language]} onClick={onImprove} /> : null}
+
+          {canLink ? (
+            <button
+              type="button"
+              /*
               The accessible name says WHICH field. Fifteen buttons all called
               "Write Hindi separately" leave a screen-reader user counting rows
               to know which one is in focus — the same defect the recent-drafts
               list had, and the same fix.
             */
-            aria-label={`${split ? t('draft.editor.mergeLanguages') : t('draft.editor.splitLanguages')} — ${field.label[language]}`}
-            onClick={() => onChange(split ? mergeField(values, field, lang) : splitField(values, field))}
-            className="inline-flex min-h-11 items-center gap-1.5 rounded-md px-1.5 text-xs text-muted-foreground transition-colors hover:text-foreground focus-visible:ring-2 focus-visible:ring-ring focus-visible:outline-none"
-          >
-            {split ? (
-              <Link2 aria-hidden="true" className="h-3.5 w-3.5" />
-            ) : (
-              <Languages aria-hidden="true" className="h-3.5 w-3.5" />
-            )}
-            {split ? t('draft.editor.mergeLanguages') : t('draft.editor.splitLanguages')}
-          </button>
-        ) : null}
+              aria-label={`${split ? t('draft.editor.mergeLanguages') : t('draft.editor.splitLanguages')} — ${field.label[language]}`}
+              onClick={() => onChange(split ? mergeField(values, field, lang) : splitField(values, field))}
+              className="inline-flex min-h-11 items-center gap-1.5 rounded-md px-1.5 text-xs text-muted-foreground transition-colors hover:text-foreground focus-visible:ring-2 focus-visible:ring-ring focus-visible:outline-none"
+            >
+              {split ? (
+                <Link2 aria-hidden="true" className="h-3.5 w-3.5" />
+              ) : (
+                <Languages aria-hidden="true" className="h-3.5 w-3.5" />
+              )}
+              {split ? t('draft.editor.mergeLanguages') : t('draft.editor.splitLanguages')}
+            </button>
+          ) : null}
+        </span>
       </div>
 
       {split ? (

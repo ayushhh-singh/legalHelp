@@ -80,12 +80,33 @@ describe('get_card_history', () => {
 
   it('reads back a seeded review log in order', async () => {
     await db.reviewLog.bulkPut([
-      { id: 'q1#1#a', qId: 'q1', grade: 'Good', at: '2026-08-01T00:00:00.000Z', durationMs: 1000, stateBefore: 'new', elapsed: 0, retrievability: null },
-      { id: 'q1#2#b', qId: 'q1', grade: 'Again', at: '2026-08-05T00:00:00.000Z', durationMs: 500, stateBefore: 'review', elapsed: 4, retrievability: 0.8 },
+      {
+        id: 'q1#1#a',
+        qId: 'q1',
+        grade: 'Good',
+        at: '2026-08-01T00:00:00.000Z',
+        durationMs: 1000,
+        stateBefore: 'new',
+        elapsed: 0,
+        retrievability: null,
+      },
+      {
+        id: 'q1#2#b',
+        qId: 'q1',
+        grade: 'Again',
+        at: '2026-08-05T00:00:00.000Z',
+        durationMs: 500,
+        stateBefore: 'review',
+        elapsed: 4,
+        retrievability: 0.8,
+      },
     ])
     const result = await call('get_card_history', { qId: 'q1' })
     expect(result.everSeen).toBe(false) // no srsCards row was written, only the log
-    expect((result.history as unknown[]).map((h) => (h as { grade: string }).grade)).toEqual(['Good', 'Again'])
+    expect((result.history as unknown[]).map((h) => (h as { grade: string }).grade)).toEqual([
+      'Good',
+      'Again',
+    ])
   })
 })
 
@@ -102,9 +123,15 @@ describe('propose_card', () => {
     rule: '1',
     kind: 'mcq' as const,
     front: { en: 'What does Rule 1 cover?', hi: 'नियम 1 किसका उल्लेख करता है?' },
-    back: { en: 'Its short title, commencement and application.', hi: 'इसका संक्षिप्त नाम, प्रारंभ और प्रयोज्यता।' },
+    back: {
+      en: 'Its short title, commencement and application.',
+      hi: 'इसका संक्षिप्त नाम, प्रारंभ और प्रयोज्यता।',
+    },
     options: [
-      { en: 'Its short title, commencement and application.', hi: 'इसका संक्षिप्त नाम, प्रारंभ और प्रयोज्यता।' },
+      {
+        en: 'Its short title, commencement and application.',
+        hi: 'इसका संक्षिप्त नाम, प्रारंभ और प्रयोज्यता।',
+      },
       { en: 'Leave encashment.', hi: 'अवकाश नकदीकरण।' },
     ],
     answerIndex: 0,

@@ -837,6 +837,88 @@
       "changeCount_other": "{{count}} changes",
       "accepted": "{{count}} of {{total}} accepted",
       "result": "Result"
+    },
+    "ai": {
+      "title": "Draft with AI",
+      "summary": "Describe the document in a sentence and the assistant fills the form. It checks its own draft against CSMOP's checklist before you see it, and nothing is applied until you accept it.",
+      "open": "Open",
+      "close": "Close",
+      "notReady": "Add your Anthropic key in Settings before using this.",
+      "run": "Draft it",
+      "cancel": "Cancel",
+      "dismiss": "Dismiss",
+      "spend": "{{tokens}} tokens · about ${{cost}}",
+      "gate": {
+        "title": "This draft leaves the device.",
+        "body": "Confirm that this document contains nothing official, sensitive or classified, no departmental file number, and nothing that identifies a person. You are asked once for each draft.",
+        "confirm": "It contains none of that — continue"
+      },
+      "brief": {
+        "label": "What is this document for?",
+        "placeholder": "Clarify to all Ministries that Children Education Allowance is admissible for a child at NIOS, on production of a certificate of enrolment.",
+        "hint": "One or two sentences. Anything you do not give — a file number, a date, a name — is left as a blank for you to fill, never invented."
+      },
+      "phase": {
+        "screening": "Checking the brief…",
+        "planning": "Choosing the form and drafting…",
+        "checking": "Checking the draft…",
+        "revising": "Fixing what the checklist found…",
+        "rechecking": "Checking the revision…",
+        "done": "Done."
+      },
+      "step": {
+        "list_draft_templates": "Reading the list of forms…",
+        "get_draft_template": "Reading this form's specification…",
+        "list_draft_phrases": "Looking up the manual's own phrases…",
+        "lookup_admin_term": "Looking up the manual's Hindi…",
+        "lookup_glossary_term": "Looking up administrative Hindi…",
+        "render_draft": "Laying the document out…",
+        "check_draft": "Running CSMOP's checklist…",
+        "dataset_versions": "Checking how current the data is…",
+        "today_in_india": "Checking today's date…",
+        "other": "Working…"
+      },
+      "questions": {
+        "title": "Two or three things it needs",
+        "hint": "Leave one blank and the draft will carry ____ there instead of a guess.",
+        "continue": "Draft it"
+      },
+      "result": {
+        "title": "The suggested draft",
+        "revised": "Revised once",
+        "checklistPassed": "Every checklist item passes",
+        "checklistFailing_one": "{{count}} checklist item still fails",
+        "checklistFailing_other": "{{count}} checklist items still fail",
+        "blanks_one": "{{count}} blank for you to fill",
+        "blanks_other": "{{count}} blanks for you to fill",
+        "blanksHint": "Left blank because the brief did not say: {{fields}}.",
+        "phrases": "Phrases the manual prints for this form",
+        "noChanges": "Nothing here differs from what you have already typed.",
+        "applied": "Applied",
+        "problems": "What was dropped on the way"
+      },
+      "refused": {
+        "title": "Not sent."
+      },
+      "error": {
+        "title": "That run did not finish."
+      },
+      "explain": {
+        "heading": "Checklist items still failing",
+        "button": "Explain",
+        "title": "Why this item is failing"
+      },
+      "improve": {
+        "button": "Improve wording",
+        "title": "Improve wording",
+        "heading": "Rewrite “{{field}}”",
+        "kind": {
+          "concise": "Tighten it",
+          "person": "Fix the person",
+          "translate": "Write the other language",
+          "replyDate": "Name a date"
+        }
+      }
     }
   },
   "utils": {

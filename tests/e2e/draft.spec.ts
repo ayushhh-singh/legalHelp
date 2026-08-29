@@ -335,3 +335,41 @@ test('the whole editor works with no network at all', async ({ page, context }) 
 
   await context.setOffline(false)
 })
+
+/**
+ * The AI surface with AI off, which is how every device starts.
+ *
+ * This is the master context's rule expressed at the one place Session 21 could
+ * have broken it: the panel, the ✨ buttons and everything they would import
+ * must not exist on a device that has not opted in. The automatic `network`
+ * fixture is doing the other half of the work — it fails this test at teardown
+ * if any request crossed the origin — so what is asserted here is the DOM, and
+ * what is asserted by the harness is the wire.
+ */
+test('the drafting AI panel is absent, and no AI chunk is fetched, while AI is off', async ({ page }) => {
+  const requested: string[] = []
+  page.on('request', (request) => requested.push(request.url()))
+
+  await page.goto('/draft/office-memorandum')
+  await expect(page.getByRole('heading', { level: 1, name: 'Office Memorandum (O.M.)' })).toBeVisible()
+  await showFormPane(page)
+  // The form is loaded — the privacy banner and the split-language control are
+  // both there — so an absent AI panel is an absence, not a page that has not
+  // finished painting.
+  await expect(page.getByText('Drafts stay on this device.')).toBeVisible()
+  await expect(page.getByRole('button', { name: /Write Hindi separately — Subject/ })).toBeVisible({
+    timeout: 30_000,
+  })
+
+  // The panel, its opener, and the per-field rewrite control.
+  await expect(page.getByRole('button', { name: /Draft with AI/i })).toHaveCount(0)
+  await expect(page.getByRole('heading', { name: /Draft with AI/i })).toHaveCount(0)
+  await expect(page.getByRole('button', { name: /Improve wording/i })).toHaveCount(0)
+
+  // And the code behind them. The panel is a lazy chunk mounted only when the
+  // consent gate is open, so its absence from the network log is the check that
+  // "renders nothing" has not quietly become "renders nothing, after
+  // downloading everything".
+  const suspicious = requested.filter((url) => /AiDraftPanel|drafting-agent|anthropic/i.test(url))
+  expect(suspicious, `an AI chunk was fetched with AI off: ${suspicious.join(', ')}`).toEqual([])
+})

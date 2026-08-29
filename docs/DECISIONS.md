@@ -4071,3 +4071,256 @@ the listener in `tests/e2e/fixtures.ts` rather than left to reasoning: a request
 in the same context is caught (which is what listening on the context rather than the page buys), and
 a leak on the **first** of five navigations is still caught after the other four — the record lives in
 a Node closure, so navigation cannot wipe it the way it wipes an `addInitScript` global.
+
+---
+
+## ADR-032 — The drafting agent: a policy with three code-owned stages, a refusal that runs before the provider exists, and a blank the checklist accepts
+
+**Status:** accepted (Session 21)
+**Supersedes:** ADR-021 point 3 (the AI seam's "Tier 0 first" condition), and amends its point 5.
+
+### Context
+
+The AI layer has been built and dormant since Session 3A: three tiers, a consent
+gate, an encrypted key vault, a kill switch, a hand-written agent loop with a
+step cap and a grounding rule, twenty-two registered tools — and no agent, and
+no surface. Session 21 builds the first of each, in the Drafting Studio, which
+is the module where a model has the most to offer and the most to break: a
+document produced here is signed, sent, and filed.
+
+Nothing about "call a model with the drafting tools" was in doubt. Six decisions
+were, and each is one that would have been improvised badly under time pressure
+in a session that treated this as plumbing.
+
+### 1. The agent produces field values, not a document — and three of its five stages are code
+
+A model asked to write an Office Memorandum writes something that looks like
+one. What makes a document the *right* document is not prose quality. It is that
+the third-person rule holds, that the first paragraph is unnumbered and the rest
+run 2, 3, 4 without a gap, that an enclosure mentioned in the body is listed at
+the foot, that the subject line exists, and that no blank was filled in with a
+plausible file number. Every one of those was already decided by
+`data/drafting/templates/*.json` in Session 8 and is already evaluable by
+`src/lib/drafting/checklist.ts` against the *rendered* document.
+
+So the agent's job is narrow. It returns **field values**; the engine lays them
+out and marks them. `runDraftingAgent` is five stages and the model owns two:
+
+| # | Stage | Whose | What |
+| - | ----- | ----- | ---- |
+| 1 | `screening` | code | `screenBrief()`, before any provider call |
+| 2 | `planning` | model | choose the form, explain it in a line, ask ≤3 questions, return values |
+| 3 | `checking` | code | `render_draft`, then `check_draft` over what came back |
+| 4 | `revising` | model | one pass, given the failures and their `why` |
+| 5 | `rechecking` | code | stage 3 again |
+
+**Stage 3 is the decision.** The brief said "call renderDraft then runChecklist;
+if any item fails, revise once", and the obvious reading is to instruct the
+model to do it — the tools are registered and it has them. That was rejected: a
+model that reports its own checklist as passing is reporting an *intention*.
+What the panel shows is an evaluation of the values actually being returned,
+performed by this file, through the same registry the model uses, with the same
+zod schemas applied. The model is still told to run `check_draft` (both the
+persona and the revise turn say so), because a model that has seen its own
+failures produces a better correction — but nothing it says about the result is
+believed.
+
+Two consequences worth stating because they were not free:
+
+- **A revision is kept only if `mustFailing` did not get worse.** A model asked
+  to fix three items and returning a draft that fails four has not improved
+  anything, and taking it silently would hand the officer a worse document than
+  the one it replaced with no way to tell. When a revision is refused, the
+  reason is in `problems[]` and on screen. There is a test for the refusal, and
+  it asserts that the returned checklist still reports the *first* draft's
+  failure honestly rather than the better one that never arrived.
+- **One revision, ever, and `provider.turnsTaken` is asserted at 6.** `runAgent`
+  has a step cap; this is the agent's own, and it exists because a loop that
+  keeps buying another attempt is a loop for which nobody set a budget.
+
+### 2. A blank is `____`, and it is `____` because of CSMOP's own checklist
+
+The rule "never invent a file number, a date or a name — leave a placeholder"
+collides with a rule this app already had. `checklist.ts`'s `noPlaceholders`
+kind matches `/\{\{[a-zA-Z]/` and is a `must` on ten of the fourteen forms: a
+`{{fileNumber}}` in the body **fails the document**. A model told to leave brace
+placeholders and then shown a failing checklist has one obvious way to make the
+checklist pass, and it is to invent a file number.
+
+So the blank is four underscores. `BLANK`, exported from the agent, matched by
+`/_{3,}/`, reported per field in `blanks[]`, and named in the panel with the
+field labels so the officer knows what to fill. It satisfies `allRequired` (the
+value is non-empty), it survives `noPlaceholders`, and it reads on paper as what
+it is. `prompts/drafting.md` says all of this to the model in both languages,
+including *why* — a rule with its reason attached is followed further from its
+examples than one without.
+
+### 3. The refusal screen is code, runs first, and is biased the opposite way to `heuristics.ts`
+
+`screenBrief()` is pure, unit-tested and called before the provider is touched.
+A brief naming a classification marking or departmental record material returns
+a refusal and **no request is made** — asserted by counting `MockProvider.calls`,
+in the agent test and again in the panel test, because "we told the model to
+refuse" and "nothing was sent" are different claims and only the second is worth
+anything.
+
+The bias is deliberately inverted relative to `src/ai/heuristics.ts`, and the
+inversion is the point. There, a false positive costs a cache hit, so
+`isPersonalQuery` is written loosely on purpose. Here a false negative sends an
+officer's classified brief to a model endpoint, so a brief that merely
+*mentions* a marking is refused — "draft a note about the confidential report
+procedure" is an innocent sentence and is refused anyway. What makes that
+tolerable rather than obstructive is that the refusal says which word matched
+and offers the same document from a brief without it.
+
+`\bsecret\b` is word-bounded, and that is not incidental: "Secretary" and
+"Secretariat" appear in almost every document this app drafts, and a screen that
+refused them would be a screen someone disabled within a week. There is a test
+for exactly that sentence.
+
+The model is told the same rule in the persona. The code is what makes it true.
+
+### 4. ADR-021's "Tier 0 first" is superseded, and what replaces it is narrower rather than weaker
+
+`src/modules/drafting/ai-seam.ts` was written in Session 8 with
+`DRAFTING_AI_ENABLED = false` and five conditions. Point 3 said a drafting
+suggestion would be **Tier 0 (on-device WebLLM) first**, because a draft is the
+most sensitive thing this app holds and the default assistant should be one that
+cannot make a request.
+
+Tier 0 does not exist in this build. `LocalProvider` is a stub that throws
+`not_installed`, and Session 24 owns it (`docs/DATA-GAPS.md` #13-#15). Honouring
+point 3 literally would have meant shipping no drafting assistant at all — which
+is a legitimate answer, and it is not the one this session's brief asked for. So
+the condition is superseded, explicitly, in an ADR, rather than quietly
+satisfied by a redefinition.
+
+What stands in its place is three controls that are each narrower than "use a
+local model", and together are what the reader is actually owed:
+
+1. **The deterministic refusal screen above**, which runs on the officer's own
+   words before anything is constructed.
+2. **A per-draft acknowledgement**, which is amended point 5 — see below.
+3. **No tool in this app can reach the `drafts` table**, unchanged since Session
+   8 and asserted by `src/ai/tools/drafting.test.ts`. The agent is handed the
+   values it works on as an argument from what is on screen, and
+   `improveWording` sends exactly one field's text — the text the diff will
+   show. Adding a `list_my_drafts` tool would convert every agent in the app
+   into one that reads an officer's unfinished work, and it still cannot be
+   done without a review noticing.
+
+The other four of Session 8's conditions hold unchanged, and the seam file now
+records where each one stands rather than describing a feature that no longer
+does not exist. `DRAFTING_AI_ENABLED` stays a literal wired to no flag and no
+setting, and `EditorPage` asks `draftingAiAvailable(ai.enabled)` — so the lever
+is real rather than decorative.
+
+### 5. The acknowledgement is an inline gate, not a modal (amending ADR-021 point 5)
+
+Point 5 called for a modal before the first use, per draft. It is an inline gate
+inside the panel instead, and the panel's `key` is the draft id so switching
+drafts asks again.
+
+A modal over the editor is dismissible with Escape, and a dialog an officer
+meets every time they open a panel is a dialog they learn to dismiss without
+reading — which is the failure mode the whole control exists to avoid. The gate
+as built cannot be dismissed at all: the brief textarea, the rewrite controls
+and the "Explain" buttons **do not exist in the DOM** until it is pressed, which
+is a stronger statement than "a dialog was shown". `AiDraftPanel.test.tsx`
+asserts the absence, including for the Explain button, whose run also sends the
+draft's values.
+
+`<AiBanner/>` is still permanent above it. The two say different things and both
+are needed: the banner says what leaves the device, always; the gate is an
+assertion the officer makes about *this document*.
+
+### 6. `SuggestionDiff` now diffs exactly, and that was a real defect
+
+`diffWords` folds case and punctuation before comparing, and re-attaches the
+**before** token on an `equal` run. That is right for the Law Converter — a
+danda is not what a Sanhita changed, and Session 4 added the fold precisely
+because every Hindi heading pair was otherwise reported as changed.
+
+It is wrong for a diff the reader *accepts*. A rewrite whose only change to a
+word was a capital letter, or the full stop the sentence was missing, rendered
+as "No change is suggested"; and where such a word sat inside a larger change,
+pressing Apply produced the officer's original casing while telling them they
+had taken the suggestion. Found by a test asserting the applied subject line and
+getting `Grant of Children Education allowance` back from a suggestion that said
+`Allowance`.
+
+`diffWords` takes `{ exact?: boolean }` now, defaulting to today's behaviour, and
+`SuggestionDiff` passes `exact: true` **unconditionally** rather than exposing a
+prop. Nothing else renders that component, and the invariant it needs — *what
+you accept is what you get* — is not something a caller should be able to switch
+off. `src/lib/diff.test.ts` pins both behaviours, and `docs/COVERAGE.md` was
+regenerated with the change.
+
+### 7. Smaller decisions, recorded because each was a fork
+
+- **The interview is one pass, not two.** The model returns questions and
+  partial values together; the agent returns `status: 'questions'` only when the
+  officer has not answered anything yet. A second round would be an
+  interrogation, and the brief's cap of three is a cap on the exchange rather
+  than on each turn of it. The cap is enforced in code (`MAX_QUESTIONS`), not
+  requested in the prompt, and the overflow is reported in `problems[]`.
+- **A bilingual draft is checked twice.** The rules are about text and the two
+  issues are different text: an English body that satisfies the third-person
+  rule says nothing about the Hindi one. Each item is reported once per
+  language, and a progress line is emitted per language too — a "checking" line
+  that appeared once while two ran would be a progress line that lies about how
+  long it takes.
+- **A new tool, `lookup_glossary_term`, scope `utils`.** `lookup_admin_term`
+  answers "what does CSMOP call this part of a document?" over 78 structural
+  terms; this answers "what is the standard Rajbhasha rendering of this ordinary
+  administrative word?" over 1,891. They are deliberately disjoint —
+  `glossary_seed.py` drops any term the two would both answer (ADR-024) — and
+  the consequence for an agent is that it needs BOTH: `Under Secretary` is a
+  structural term and is **not** in `data/glossary.json`, so a drafting run with
+  only the glossary would find no Hindi for the designation that signs almost
+  every document this app drafts. There is a test asserting that absence, for
+  exactly that reason. The 970 KB dataset is loaded only when the tool is called,
+  which for a drafting run means only when the draft has a Hindi issue.
+- **The system prompt is a `.md` file in the cached prefix.** `buildSystem` gains
+  an `instructions` block between the persona and the profile, `cache: true`. It
+  is a file rather than a string literal because it is prose an officer could be
+  asked to read, and it is bilingual because the reader is. `PROMPT_VERSIONS
+  ['draft-assist']` went to 2, which is what stops the answer cache serving
+  anything the old wording produced.
+- **Progress events carry the tool NAME, not a sentence.** `DraftingStep` is
+  `{ phase, tool? }`; the panel maps a tool to `draft.ai.step.<name>` through a
+  literal map, so a tool whose label nobody wrote is a compile error rather than
+  a raw key on screen. A sentence built in the agent would be a user-visible
+  string outside the i18n catalogues, existing in one language.
+- **The panel is `React.lazy`, and the agent is imported at RUN time.**
+  `useDraftingAi` dynamic-imports `agents/drafting`, `tools/registry` and
+  `tools/index` when the officer presses the button — not when the panel
+  appears. Opening the panel to read what it says therefore downloads nothing
+  that could reach a network. The initial route is unchanged at 138.6 KB gzip
+  against a 250 KB budget.
+- **No effect fires a paid request.** The ✨ button on a field hands the field up
+  to `EditorPage`, which opens the panel; the panel then *offers* the four
+  rewrites and waits. The first shape of this ran the rewrite from a
+  `useEffect` watching the prop — which `react-hooks/set-state-in-effect`
+  rejected, and rightly: a request that costs the reader money should be
+  attached to a press, not to a render.
+
+### Consequences
+
+- The Drafting Studio has an AI surface, and it is the only one in the app. The
+  other three modules' tools are registered and unused, as before.
+- With AI off — every device's default — `tests/e2e/draft.spec.ts` asserts the
+  panel, the ✨ controls and any chunk matching `AiDraftPanel|anthropic` are all
+  absent. `tests/e2e/ai-draft.spec.ts` turns AI on, opens the panel, runs axe
+  over it gated and open, and — declaring no `allowCrossOrigin`, unlike
+  `ai-byok.spec.ts` — proves that turning AI on and reading the panel sends
+  nothing. Both run on both Playwright projects.
+- A live smoke test exists and does not run: `src/ai/agents/drafting.live.test.ts`
+  is skipped unless `AI_LIVE=1` **and** `ANTHROPIC_API_KEY` are both set. Its
+  assertions are about shape, never wording — a test that asserted a model's
+  prose would fail on the next model and everyone would learn to ignore it. The
+  one assertion worth having is that a brief which withholds the file number
+  comes back with a blank rather than a number.
+- `docs/DATA-GAPS.md` #60 records the one thing this session could not settle:
+  the `validateCitations` interaction that can fail a run whose document text
+  legitimately names a rule the brief did not.

@@ -2,6 +2,7 @@ import { ArrowLeftRight, BookMarked, Paperclip, Quote, Send } from 'lucide-react
 import { useRef, useState } from 'react'
 
 import { GlossarySheet } from './GlossarySheet'
+import { ImproveButton } from './ImproveButton'
 import { PhraseSheet } from './PhraseSheet'
 import { controlId } from '../fieldIds'
 import { asText, fromText, insertAt, isSplit, mergeField, readValue, setValue, splitField } from '../values'
@@ -45,6 +46,7 @@ export function BodyEditor({
   lang,
   issue,
   onChange,
+  onImprove,
 }: {
   template: DocTemplate
   field: TemplateField
@@ -52,6 +54,8 @@ export function BodyEditor({
   lang: Lang
   issue?: string
   onChange: (next: DraftValues) => void
+  /** Passed only when the AI layer is on — see `FieldRow`'s own note. */
+  onImprove?: () => void
 }) {
   const { t, language } = useT()
   const [sheet, setSheet] = useState<'phrase' | 'glossary' | null>(null)
@@ -146,14 +150,17 @@ export function BodyEditor({
             </>
           ) : null}
         </label>
-        <button
-          type="button"
-          aria-label={`${split ? t('draft.editor.mergeLanguages') : t('draft.editor.splitLanguages')} — ${field.label[language]}`}
-          onClick={() => onChange(split ? mergeField(values, field, lang) : splitField(values, field))}
-          className="inline-flex min-h-11 items-center rounded-md px-1.5 text-xs text-muted-foreground transition-colors hover:text-foreground focus-visible:ring-2 focus-visible:ring-ring focus-visible:outline-none"
-        >
-          {split ? t('draft.editor.mergeLanguages') : t('draft.editor.splitLanguages')}
-        </button>
+        <span className="flex flex-wrap items-center gap-1">
+          {onImprove ? <ImproveButton label={field.label[language]} onClick={onImprove} /> : null}
+          <button
+            type="button"
+            aria-label={`${split ? t('draft.editor.mergeLanguages') : t('draft.editor.splitLanguages')} — ${field.label[language]}`}
+            onClick={() => onChange(split ? mergeField(values, field, lang) : splitField(values, field))}
+            className="inline-flex min-h-11 items-center rounded-md px-1.5 text-xs text-muted-foreground transition-colors hover:text-foreground focus-visible:ring-2 focus-visible:ring-ring focus-visible:outline-none"
+          >
+            {split ? t('draft.editor.mergeLanguages') : t('draft.editor.splitLanguages')}
+          </button>
+        </span>
       </div>
 
       <div

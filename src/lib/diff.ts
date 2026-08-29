@@ -38,6 +38,21 @@ export function tokenise(text: string): string[] {
  */
 const normalise = (token: string) => token.toLowerCase().replace(/[.,;:"'()‘’“”।॥]/g, '')
 
+export interface DiffOptions {
+  /**
+   * Compare tokens EXACTLY — case, punctuation and all.
+   *
+   * The default folding is right for the Law Converter, where the question is
+   * "what did the Sanhita change" and a danda or a capital is noise. It is
+   * wrong wherever the diff is a control the reader ACCEPTS, because an `equal`
+   * run re-attaches the BEFORE token: a rewrite whose only change to a word was
+   * a capital letter or a missing full stop would be shown as no change at all,
+   * and applying it would silently produce neither text. That is the whole
+   * reason `SuggestionDiff` passes this — see its own note.
+   */
+  exact?: boolean
+}
+
 /**
  * Above this many tokens on either side the algorithm's worst case (O(N·D))
  * stops being worth the wait on a phone. No section in the three Sanhitas comes
@@ -52,12 +67,13 @@ const MAX_TOKENS = 2500
  * Returns `null` when either side is too long to diff — a distinct answer from
  * "no differences", and the caller must show both texts plainly instead.
  */
-export function diffWords(before: string, after: string): DiffPart[] | null {
+export function diffWords(before: string, after: string, options: DiffOptions = {}): DiffPart[] | null {
   const a = tokenise(before)
   const b = tokenise(after)
   if (a.length > MAX_TOKENS || b.length > MAX_TOKENS) return null
 
-  const script = myers(a.map(normalise), b.map(normalise))
+  const fold = options.exact ? (token: string) => token : normalise
+  const script = myers(a.map(fold), b.map(fold))
   if (!script) return null
 
   // Re-attach the ORIGINAL tokens: the comparison runs on the normalised forms

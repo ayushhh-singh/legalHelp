@@ -1,104 +1,61 @@
-import type { DocTemplate } from './schema'
-import type { DraftValues, Lang } from '@/lib/drafting/types'
-
 /**
- * The seam an AI drafting assistant would arrive through — declared, disabled,
- * and rendering nothing.
+ * The one lever that turns the Drafting Studio's AI surface off in code.
  *
- * **Nothing in the Drafting Studio's UI reads this today.** It exists so that
- * the shape of the eventual feature is settled while the reasons are fresh,
- * rather than being improvised in the session that turns it on. The gating is
- * recorded in `docs/DECISIONS.md` (ADR-021); the short version:
+ * This file was written in Session 8 as a seam with nothing behind it —
+ * `DRAFTING_AI_ENABLED = false`, a `DraftingAssistant` interface, and an
+ * implementation that refused. Session 21 built the thing it described
+ * (`src/ai/agents/drafting.ts`, `components/AiDraftPanel.tsx`, ADR-032), so the
+ * interface and the refusing implementation are gone: two definitions of the
+ * same feature, one of them dead, is worse than none.
  *
- *  1. `DRAFTING_AI_ENABLED` is `false` and is not wired to a build flag, an
- *     environment variable or a setting. Turning it on is a code change that
- *     shows up in a diff and in a review.
- *  2. Even once it is true, the app-wide AI consent gate still governs. That
- *     gate IS the feature flag for the AI layer (ADR-011); this constant can
- *     only ever subtract.
- *  3. A drafting suggestion would be **Tier 0 (on-device WebLLM) first**. A
- *     draft is the most sensitive thing this app holds — it may name a case, a
- *     colleague or a grievance — so the default assistant must be one that
- *     cannot make a request. Tier 1 and Tier 2 send the draft's text to a model
- *     endpoint, and neither may be the default for this surface even when they
- *     are the reader's default elsewhere.
- *  4. A suggestion is never applied silently. It arrives as a word-level diff
- *     with accept and reject per change — `components/SuggestionDiff.tsx`,
- *     which is built and tested now precisely so that the day this turns on is
- *     not also the day someone writes the review UI in a hurry.
- *  5. The classified-content warning shown before the first use is a modal, not
- *     a banner: an officer must have said "this draft contains nothing
- *     official, sensitive or classified" for *this* draft before its text is
- *     handed to any model, including an on-device one.
+ * What survives is the flag, because the reasoning behind it survives.
  *
- * Keeping the types here, rather than in the session that implements them,
- * also keeps `src/ai/tools/drafting.ts` honest: those tools are registered and
- * working today, and they are deliberately about *templates and rules*, never
- * about the reader's draft. Nothing an agent can call today reads a `drafts`
- * row.
+ * ### The five conditions Session 8 set, and where each one stands
+ *
+ *  1. **A code change, visible in review.** Still true. `DRAFTING_AI_ENABLED`
+ *     is a literal here and is wired to no build flag, environment variable or
+ *     setting. Turning the surface off is a one-line diff someone can see.
+ *
+ *  2. **The app-wide consent gate still governs, and this can only subtract.**
+ *     Still true, and `draftingAiAvailable()` below is the `&&` that says so.
+ *     `EditorPage` asks it before mounting the panel at all.
+ *
+ *  3. **Tier 0 first.** NOT met, and it is the condition ADR-032 supersedes
+ *     rather than satisfies. Tier 0 does not exist in this build — `LocalProvider`
+ *     is a stub that throws `not_installed` — so "Tier 0 first" would have meant
+ *     "no drafting assistant at all". What replaces it is narrower rather than
+ *     weaker: a deterministic refusal screen that runs BEFORE any provider call
+ *     (`screenBrief`), a per-draft acknowledgement that the document contains
+ *     nothing official, sensitive or classified, and the standing rule that no
+ *     tool in this app can read the `drafts` table. Read ADR-032 before
+ *     relaxing any of the three.
+ *
+ *  4. **Never applied silently.** Still true, and now real:
+ *     `components/SuggestionDiff.tsx` is what a result arrives through, with
+ *     accept and reject per change and per field.
+ *
+ *  5. **A classified-content warning before the first use, per draft.** Still
+ *     true. It is an inline gate in the panel rather than the modal Session 8
+ *     imagined — ADR-032 has the reasoning, which is that a dialog an officer
+ *     meets every time they open a panel is a dialog they learn to dismiss.
+ *
+ * ### What is still deliberately impossible
+ *
+ * No tool registered in `src/ai/tools/drafting.ts` can reach the reader's
+ * `drafts` rows. The agent is handed the values it works on as an argument by
+ * the editor, from what is on screen. Adding a `list_my_drafts` tool would
+ * convert every agent in the app into one that reads an officer's unfinished
+ * work, and `src/ai/tools/drafting.test.ts` asserts it does not exist.
  */
 
-/** Hard off. See the note above before changing this. */
-export const DRAFTING_AI_ENABLED = false as boolean
-
-/** What the assistant would be asked to do. Deliberately a closed set. */
-export type SuggestionKind =
-  /** Tighten prose against CSMOP 9.2(i)-(ii) — no circumlocution, no superlatives. */
-  | 'concise'
-  /** Recast the body into the person the form requires (8.4(3), 9.5(i)). */
-  | 'person'
-  /** Produce the other language's version of a paragraph the officer has written. */
-  | 'translate'
-  /** Name a date where the draft asks for something by "immediately" (9.2(v)). */
-  | 'replyDate'
-
-export interface SuggestionRequest {
-  templateId: string
-  /** The field being rewritten. Never the whole draft. */
-  field: string
-  lang: Lang
-  kind: SuggestionKind
-  /** Exactly the text shown in the diff — nothing else may be sent. */
-  text: string
-}
-
-export interface Suggestion {
-  request: SuggestionRequest
-  /** The proposed replacement, to be diffed against `request.text`. */
-  text: string
-  /** Which CSMOP paragraph the change is justified by, for the reader to check. */
-  csmopRef?: string
-}
-
-export interface DraftingAssistant {
-  suggest: (request: SuggestionRequest) => Promise<Suggestion>
-}
+/** The lever. See the note above before changing it. */
+export const DRAFTING_AI_ENABLED = true as boolean
 
 /**
- * The only implementation there is: one that refuses.
- *
- * A stub that threw would be a stub someone silently caught. This resolves to
- * nothing and says why, so a caller written before the feature exists is
- * visibly a caller with no assistant rather than a caller with a broken one.
- */
-export const disabledAssistant: DraftingAssistant = {
-  suggest: () =>
-    Promise.reject(
-      new Error('The drafting assistant is not enabled. See src/modules/drafting/ai-seam.ts and ADR-021.'),
-    ),
-}
-
-/**
- * What the UI asks before rendering any AI affordance. Takes the app-wide
- * consent state so that the two conditions are read in one place and the
+ * What the editor asks before rendering any AI affordance. It takes the
+ * app-wide consent state so the two conditions are read in one place and the
  * narrower one cannot be forgotten.
  */
 export function draftingAiAvailable(consentGiven: boolean): boolean {
   return DRAFTING_AI_ENABLED && consentGiven
-}
-
-/** Unused today; typed so the eventual caller cannot invent a wider payload. */
-export type SuggestionContext = {
-  template: DocTemplate
-  values: DraftValues
 }

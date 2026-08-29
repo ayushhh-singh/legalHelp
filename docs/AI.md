@@ -122,8 +122,15 @@ src/ai/
   tools/
     registry.ts     registerTool / listTools / toolSpecs / exportToolManifest
     index.ts        the built-in tools; registers the module tools below
-    law.ts          five tools over data/law   (scope: law)
-    pay.ts          five tools over data/pay   (scope: pay)
+    law.ts          five tools over data/law        (scope: law)
+    pay.ts          five tools over data/pay        (scope: pay)
+    drafting.ts     six tools over data/drafting    (scope: draft)
+    rules.ts        four tools over data/rules      (scope: learn)
+    glossary.ts     one tool over data/glossary.json (scope: utils)
+  agents/
+    drafting.ts     THE DRAFTING AGENT — Session 21, ADR-032
+  prompts/
+    drafting.md     its standing instructions, bilingual, in the cached prefix
   agent.ts          the loop: step cap, validation, timeouts, budget, grounding
   context.ts        buildContext / validateCitations
   prompts.ts        persona, cache-ordered system blocks, PROMPT_VERSIONS
@@ -256,7 +263,104 @@ the cache then stops serving anything the previous wording produced.
 
 ---
 
-## 7. How to add a tool
+## 7. The drafting agent
+
+`src/ai/agents/drafting.ts` is the first agent this app runs, and it is the
+worked example for every one after it. Read it, and ADR-032, before writing a
+second.
+
+### It is a policy, not a prompt
+
+A model asked to "write an Office Memorandum" writes something that looks like
+one. What makes a document the right document here is not prose quality: it is
+the third-person rule, the first paragraph unnumbered and the rest running from
+2, an enclosure mentioned in the body being listed at the foot, and no blank
+quietly filled in with a plausible file number. All of that is already decided
+by `data/drafting` and already checkable by `src/lib/drafting/checklist.ts`.
+
+So the agent produces FIELD VALUES and lets the engine lay them out and mark
+them. Five stages, of which two are the model's and three are the agent's:
+
+| # | Stage      | Whose | What it does |
+| - | ---------- | ----- | ------------ |
+| 1 | `screening`  | code  | `screenBrief()` — pure, and BEFORE any provider call |
+| 2 | `planning`   | model | picks the form, explains it in a line, asks ≤3 bilingual questions, returns field values as structured output |
+| 3 | `checking`   | code  | calls `render_draft` then `check_draft` over the values that actually came back |
+| 4 | `revising`   | model | one further pass, given the failing items and their `why` |
+| 5 | `rechecking` | code  | stage 3 again, over the revision |
+
+Three rules follow from that shape and none of them is negotiable:
+
+- **The checklist the reader is shown is the engine's.** A model that reports
+  its own draft as passing is reporting an intention. `runDraftingAgent` never
+  returns a checklist it did not evaluate itself over the values it is
+  returning.
+- **A revision is kept only if it does not make `must` failures worse.** A
+  model asked to fix three items and returning a draft that fails four has not
+  improved anything, and taking it silently would hand the officer a worse
+  document with no way to tell. When it is refused, the reason is in
+  `problems[]` and on screen.
+- **One revision, ever.** The step cap is `runAgent`'s; this is the agent's,
+  and it exists because a loop that keeps paying for another attempt is a loop
+  nobody set a budget for.
+
+### What may not be invented, and what a blank looks like
+
+A file number, a date, a name, a designation, a telephone number, an e-mail
+address, an office, or the number and date of an earlier communication. If the
+brief does not give it, the value is `____` — `BLANK`, exported from the agent.
+
+Not `{{fileNumber}}`: CSMOP's own `no-placeholders` checklist item reads a brace
+as an unfilled draft and FAILS the document, which would push the model towards
+inventing a file number to make the checklist pass. Four underscores read as a
+blank an officer fills in with a pen, and `parseFieldValues` reports every field
+carrying one in `blanks[]` so the panel can say which.
+
+### The refusal screen
+
+`screenBrief()` is pure, unit-tested, and runs before the provider exists. It
+refuses a brief naming a classification marking or departmental record material
+and RETURNS — no request is made, which the tests assert by counting
+`MockProvider.calls`.
+
+The bias is deliberately the opposite of `heuristics.ts`'s: there a false
+positive costs a cache hit, so the rules are loose; here a false negative sends
+an officer's classified brief to a model endpoint, so a brief that merely
+mentions a marking is refused and told what to remove. `secret` is word-bounded
+so "Secretary" and "Secretariat" — in almost every document this app drafts —
+do not match. The model is told the same rule in `prompts/drafting.md`; the
+code is what makes it true.
+
+### Grounding bites harder here than elsewhere
+
+`groundedRequired` is on, so an answer citing no tool result is discarded. But
+`validateCitations()` also rejects a rule or paragraph number that appears in no
+CITED snippet — and this agent's answer carries the officer's document text, so
+a rule number invented inside a paragraph fails the whole run. That is the
+correct direction: an invented citation in a document somebody signs is the
+worst thing this feature could produce. It is also why the officer's own brief
+is context snippet `[1]`. A number the brief gave is a number the model may
+repeat.
+
+### The two smaller entry points
+
+`improveWording()` sends EXACTLY ONE field's text — the text the diff will show
+— and returns a rewrite plus a bilingual note. `explainChecklistFailure()`
+explains one failing item and is made to call `check_draft` itself, because an
+explanation of a failure that is no longer failing is worse than none.
+
+### The surface
+
+`src/modules/drafting/components/AiDraftPanel.tsx`, mounted by `EditorPage`
+behind `React.lazy` AND `draftingAiAvailable(useAi().enabled)`. Results arrive
+as a `SuggestionDiff` per changed field, accept and reject per change. A
+per-draft acknowledgement gates the brief box — see ADR-032 for why it is an
+inline gate rather than the modal ADR-021 imagined, and
+`src/modules/drafting/ai-seam.ts` for what remains of that seam.
+
+---
+
+## 8. How to add a tool
 
 A tool is a **pure function over local data**: bundled JSON in `/data`, or the
 reader's own IndexedDB rows. It never fetches the network.
@@ -283,22 +387,33 @@ plain JSON, so an MCP server can serve them later with no second definition.
 Checklist: both languages; `.strict()`; `scope` is the narrowest that works;
 returns data, not prose; no network; a test.
 
-## 8. How to add an agent
+## 9. How to add an agent
 
 1. Add its id to `AGENT_IDS` and a row to `TASK_DEFAULTS` in `models.ts` — model,
    effort, step cap, and whether grounding is required. There is deliberately no
    default row: a new agent must not inherit an effort nobody chose for it.
 2. Add a persona to `PERSONAS` in `prompts.ts` and a `PROMPT_VERSIONS` entry.
+   Long-form standing rules go in a `src/ai/prompts/<agent>.md` file passed as
+   `buildSystem({ instructions })` — it sits in the CACHED prefix, so nothing in
+   it may vary per reader, per language or per question, and editing it means
+   bumping that agent's `PROMPT_VERSIONS` entry in the same commit.
 3. Build the context with `buildContext()`; build the system with
    `buildSystem()`.
 4. Call `runAgent({ agentId, provider, tools: listTools(scope), … })`.
 5. Write the test against `MockProvider` with a fixture in
-   `src/ai/fixtures/scripts.ts`. Cover at least: the happy path, an ungrounded
-   final answer, and one failure mode specific to the agent.
+   `src/ai/fixtures/scripts.ts` (or a builder file beside it, as
+   `drafting-scripts.ts` is — see its own note on when a builder is right).
+   Cover at least: the happy path, an ungrounded final answer, and one failure
+   mode specific to the agent.
+6. **Whatever the agent claims about its own output, verify in code.** The
+   drafting agent evaluates the checklist itself rather than believing the
+   model's report of it; a `pay-explain` agent should re-run the figure. This is
+   the one thing a scripted test cannot make you do and a real model will make
+   you regret.
 
 ---
 
-## 9. Cost expectations
+## 10. Cost expectations
 
 Prices in `models.ts` are Anthropic's first-party rates and are used only to show
 the reader an estimate — this app never sees a bill.
@@ -316,7 +431,7 @@ prefix** (a cache read is ~10% of an input token), the **answer cache**, and the
 
 ---
 
-## 10. Correctness checklist
+## 11. Correctness checklist
 
 Before an AI surface ships:
 
@@ -331,6 +446,10 @@ Before an AI surface ships:
       bumped if the prompt changed.
 - [ ] A cached answer is visibly labelled as cached, with a way to ask again.
 - [ ] Tools are pure, bilingual, zod-validated and scoped.
+- [ ] Anything the agent asserts about its own work is re-derived in code
+      before the reader sees it.
+- [ ] The surface's own refusal screen (if it has one) runs BEFORE the provider
+      is constructed, and a test counts `MockProvider.calls` to prove it.
 - [ ] New model ids, prices and effort levels went into `models.ts`, not a call
       site.
 - [ ] `pnpm check` is green; `pnpm build && pnpm test` keeps the bundle budget;

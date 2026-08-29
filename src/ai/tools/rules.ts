@@ -50,7 +50,7 @@ export function registerRulesTools(): void {
       en:
         'The full text of one rule (or section, or paragraph) from one of the twelve rule books this ' +
         'app trains on — Rule number, heading and body, in both languages where the Hindi has been ' +
-        'authored. Call this before explaining what a rule requires; a card\'s citation names the rule, ' +
+        "authored. Call this before explaining what a rule requires; a card's citation names the rule, " +
         'it does not quote it.',
       hi:
         'इस ऐप द्वारा प्रशिक्षित बारह नियमावलियों में से किसी एक नियम (अथवा धारा, अथवा पैराग्राफ) का ' +
@@ -58,7 +58,10 @@ export function registerRulesTools(): void {
         'क्या अपेक्षित करता है यह बताने से पहले इसे चलाएँ; कार्ड की उद्धरण-पंक्ति नियम का नाम लेती है, ' +
         'उसे उद्धृत नहीं करती।',
     },
-    inputSchema: z.object({ act: actRef, rule: z.string().min(1).describe('The rule number, as printed — "11", "5.2".') }),
+    inputSchema: z.object({
+      act: actRef,
+      rule: z.string().min(1).describe('The rule number, as printed — "11", "5.2".'),
+    }),
     handler: async ({ act, rule }) => {
       const text = await once(`text:${act}`, () => loadActText(act))
       const found = text.rules.find((entry) => entry.number === rule)
@@ -74,7 +77,11 @@ export function registerRulesTools(): void {
         headingHi: found.heading.hi || null,
         text: found.text.en,
         textHi: found.text.hi || null,
-        subRules: (found.subRules ?? []).map((sub) => ({ number: sub.number, text: sub.text.en, textHi: sub.text.hi || null })),
+        subRules: (found.subRules ?? []).map((sub) => ({
+          number: sub.number,
+          text: sub.text.en,
+          textHi: sub.text.hi || null,
+        })),
         hindiTextExtractable: text.hindiTextExtractable,
         source: { name: text.source.name, url: text.source.url },
       }
@@ -100,7 +107,10 @@ export function registerRulesTools(): void {
     }),
     handler: async ({ act, limit }) => {
       const cards = await allCardsOnce()
-      const [overrides, proposed] = await Promise.all([db.cardOverrides.toArray(), db.proposedCards.toArray()])
+      const [overrides, proposed] = await Promise.all([
+        db.cardOverrides.toArray(),
+        db.proposedCards.toArray(),
+      ])
       const catalogue = effectiveCatalogue(cards, overrides, proposed)
       const areas = await weakAreasFor(catalogue, {
         by: 'rule',
@@ -128,7 +138,7 @@ export function registerRulesTools(): void {
     description: {
       en:
         'Every review this reader has given one card, oldest first: the grade pressed, when, and the ' +
-        'card\'s predicted recall chance at that moment. Use this to explain WHY a card is scheduled ' +
+        "card's predicted recall chance at that moment. Use this to explain WHY a card is scheduled " +
         'where it is, or to notice a reader who keeps failing the same card despite passing others near it.',
       hi:
         'इस उपयोगकर्ता ने एक कार्ड पर दिए गए सभी पुनरीक्षण, सबसे पुराने पहले — दबाया गया ग्रेड, कब, और ' +
@@ -181,7 +191,11 @@ export function registerRulesTools(): void {
       kind: z.enum(['rule', 'cloze', 'mcq', 'trueFalse', 'scenario']),
       front: z.object({ en: z.string().min(1), hi: z.string().default('') }),
       back: z.object({ en: z.string().min(1), hi: z.string().default('') }),
-      options: z.array(z.object({ en: z.string().min(1), hi: z.string().default('') })).min(2).max(5).optional(),
+      options: z
+        .array(z.object({ en: z.string().min(1), hi: z.string().default('') }))
+        .min(2)
+        .max(5)
+        .optional(),
       answerIndex: z.number().int().min(0).optional(),
       explanation: z.object({ en: z.string().min(1), hi: z.string().default('') }).optional(),
       citation: z.object({ en: z.string().min(1), hi: z.string().default('') }),
@@ -208,7 +222,11 @@ export function registerRulesTools(): void {
 
       const parsed = cardSchema.safeParse(draft)
       if (!parsed.success) {
-        return { stored: false, id: null, error: parsed.error.issues.map((issue) => issue.message).join('; ') }
+        return {
+          stored: false,
+          id: null,
+          error: parsed.error.issues.map((issue) => issue.message).join('; '),
+        }
       }
 
       await db.proposedCards.put({ id, card: parsed.data, createdAt: new Date().toISOString() })

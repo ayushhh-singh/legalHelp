@@ -1,5 +1,5 @@
 import { ArrowLeft, BookmarkPlus, Eraser, ShieldCheck, Sparkles, Trash2 } from 'lucide-react'
-import { useCallback, useMemo, useState } from 'react'
+import { Suspense, lazy, useCallback, useMemo, useState } from 'react'
 import { Link, useParams, useSearchParams } from 'react-router-dom'
 
 import { A4Preview } from './components/A4Preview'
@@ -7,12 +7,14 @@ import { BodyEditor } from './components/BodyEditor'
 import { ChecklistButton, ChecklistDrawer } from './components/ChecklistDrawer'
 import { EditingLanguage, FieldRow } from './components/FormFields'
 import { ExportBar } from './components/ExportBar'
+import { draftingAiAvailable } from './ai-seam'
 import { clearDefaults, saveDefaults } from './drafts'
 import { draftParamsToSearch, parseDraftParams, type Pane, type PreviewView } from './url'
 import { useDraft } from './useDraft'
 import { useTemplate } from './useDraftingData'
 import { asText, blankValues, collapseIdentical, documentFields, readValue } from './values'
 
+import { useAi } from '@/ai/useAi'
 import { useAppStore } from '@/app/store'
 import { DataVersion } from '@/components/common/DataVersion'
 import { PageHeader } from '@/components/common/PageHeader'
@@ -23,7 +25,19 @@ import { evaluateChecklist } from '@/lib/drafting/checklist'
 import { render, renderDocument, sampleValues } from '@/lib/drafting/engine'
 import type { DraftValues } from '@/lib/drafting/types'
 import { cn } from '@/lib/utils'
-import type { DocTemplate } from './schema'
+import type { DocTemplate, TemplateField } from './schema'
+
+/**
+ * The AI panel is `lazy` and is mounted only when `useAi().enabled`, so a
+ * reader with AI off never downloads it. That is the AI layer's standing rule
+ * and it is a privacy property rather than a performance one (`docs/AI.md`):
+ * the code that could reach the network must not be on a device that has not
+ * asked for it. `useAi` itself is safe to import eagerly — it reads
+ * `src/ai/flags.ts`, which has no runtime imports at all.
+ */
+const AiDraftPanel = lazy(() =>
+  import('./components/AiDraftPanel').then((module) => ({ default: module.AiDraftPanel })),
+)
 
 /**
  * The editor: guided form on the left, live A4 preview on the right.
@@ -113,6 +127,18 @@ function Editor({ template }: { template: DocTemplate }) {
     },
     [setParams],
   )
+
+  const ai = useAi()
+  /* Two conditions, read in one place: ADR-021 point 2, ADR-032. */
+  const aiAvailable = draftingAiAvailable(ai.enabled)
+  /**
+   * The field an officer pressed "Improve wording" on. It is state here rather
+   * than in the panel because the button is on the FORM: the panel does the
+   * asking and shows the diff, and this is the one value that has to cross
+   * between them.
+   */
+  const [improveField, setImproveField] = useState<TemplateField | null>(null)
+  const [aiOpen, setAiOpen] = useState(false)
 
   const draft = useDraft({ template, draftId: parsed.draftId, lang: editing, onCreated })
   /*
@@ -216,8 +242,34 @@ function Editor({ template }: { template: DocTemplate }) {
         <section
           aria-label={t('draft.editor.formHeading')}
           data-print-hide
-          className={cn('min-w-0', parsed.pane === 'preview' && 'hidden lg:block')}
+          className={cn('flex min-w-0 flex-col gap-4', parsed.pane === 'preview' && 'hidden lg:flex')}
         >
+          {aiAvailable ? (
+            <Suspense fallback={null}>
+              <AiDraftPanel
+                /*
+                  Remounts when the officer opens a different draft, which is
+                  what makes the panel's acknowledgement per DOCUMENT: the gate,
+                  and any suggestion still on screen, belong to the draft they
+                  were asked about.
+                */
+                key={parsed.draftId ?? 'new'}
+                template={template}
+                values={values}
+                lang={parsed.view === 'both' ? 'bilingual' : parsed.view}
+                editing={editing}
+                devanagariDigits={devanagariDigits}
+                ai={ai}
+                checklist={checklist}
+                onApplyValues={draft.setValues}
+                open={aiOpen}
+                onOpenChange={setAiOpen}
+                improveField={improveField}
+                onImproveHandled={() => setImproveField(null)}
+              />
+            </Suspense>
+          ) : null}
+
           <SectionCard active className="flex flex-col gap-4 p-5">
             <div className="flex flex-wrap items-center justify-between gap-3">
               <EditingLanguage lang={editing} onChange={setEditing} />
@@ -250,6 +302,14 @@ function Editor({ template }: { template: DocTemplate }) {
                     lang={editing}
                     issue={issues.get(bodyField.id)}
                     onChange={draft.setValues}
+                    {...(aiAvailable
+                      ? {
+                          onImprove: () => {
+                            setImproveField(bodyField)
+                            setAiOpen(true)
+                          },
+                        }
+                      : {})}
                   />
                 ) : null}
 
@@ -261,6 +321,14 @@ function Editor({ template }: { template: DocTemplate }) {
                     lang={editing}
                     issue={issues.get(field.id)}
                     onChange={draft.setValues}
+                    {...(aiAvailable
+                      ? {
+                          onImprove: () => {
+                            setImproveField(field)
+                            setAiOpen(true)
+                          },
+                        }
+                      : {})}
                   />
                 ))}
 

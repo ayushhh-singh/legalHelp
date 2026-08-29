@@ -12,12 +12,13 @@ import { cn } from '@/lib/utils'
  * A proposed rewrite, shown as a word-level diff with accept and reject on
  * each change.
  *
- * **Nothing renders this today.** It is built now, and tested now, because it
- * is the review surface an AI suggestion would arrive through (Session 21,
- * `src/modules/drafting/ai-seam.ts`, ADR-021), and the day a model starts
- * proposing edits to an officer's draft is the wrong day to be writing the UI
- * that lets them refuse one. A suggestion that could only be taken whole or
- * left whole is a suggestion officers will take whole.
+ * Built in Session 8 with nothing rendering it, for the day a model would start
+ * proposing edits to an officer's draft — and that day is Session 21, which
+ * uses it unchanged from `components/AiDraftPanel.tsx`: once for each field of
+ * a drafted document, and once for an "Improve wording" rewrite. A suggestion
+ * that could only be taken whole or left whole is a suggestion officers take
+ * whole, which is the reason it was worth building before there was anything to
+ * put in it.
  *
  * ### How a partial accept is computed
  *
@@ -38,6 +39,17 @@ import { cn } from '@/lib/utils'
  * change: offering "remove 'shall'" and "add 'may'" as two independent
  * decisions lets a reader produce a sentence with neither word in it, which is
  * a sentence neither side proposed.
+ *
+ * ### Why the diff here is `exact`
+ *
+ * `diffWords` folds case and punctuation by default, which is correct for the
+ * Law Converter — a danda is not what a Sanhita changed. It is wrong for a
+ * control the reader ACCEPTS. An `equal` run re-attaches the BEFORE token, so
+ * a rewrite that only capitalised a word or added the full stop the sentence
+ * was missing would render as "No change is suggested", and pressing Apply
+ * would produce the officer's original text while telling them they had taken
+ * the suggestion. `{ exact: true }` makes every such difference a real change
+ * with its own accept and reject.
  */
 
 export function SuggestionDiff({
@@ -54,7 +66,7 @@ export function SuggestionDiff({
   onCancel: () => void
 }) {
   const { t } = useT()
-  const parts = useMemo(() => diffWords(before, after), [before, after])
+  const parts = useMemo(() => diffWords(before, after, { exact: true }), [before, after])
   const changes = useMemo(() => (parts ? changesOf(parts) : []), [parts])
   // Every change starts accepted: a suggestion the reader asked for is a
   // suggestion they probably want, and rejecting three of twelve is less work
