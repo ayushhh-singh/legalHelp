@@ -360,6 +360,208 @@ inline gate rather than the modal ADR-021 imagined, and
 
 ---
 
+## 7A. The law research agent
+
+`src/ai/agents/law.ts`, and the second agent this app runs. Read it and ADR-035
+beside §7 — the drafting agent shows what an agent does when an ENGINE can mark
+its work, and this one shows what an agent does when nothing can, because the
+output is prose.
+
+(Numbered 7A rather than 8 so that the sections below keep the numbers other
+files already cite. Session 3A set the precedent.)
+
+### It is two model passes, and that is forced rather than chosen
+
+`validateCitations()` rejects any provision number in a final answer that does
+not appear in a **cited PLATFORM CONTEXT snippet**. Tool results are not context
+snippets — they arrive as `tool_result` blocks with the handles `T1`, `T2`,
+which that function does not read. So a single pass that calls `get_section` and
+then writes "Section 103 of the BNS" fails its own citation check every time.
+
+The fix is not to weaken the rule. It is to turn the tool results INTO snippets
+and ask again:
+
+| # | Stage | Whose | What |
+| - | ----- | ----- | ---- |
+| 1 | `screening` | code | `screenLawQuestion()`, before any provider call |
+| 2 | `researching` | model | calls the law tools; ends with `Gathered [T1] [T2]` and nothing else |
+| 3 | `reading` | code | each successful tool result becomes a numbered, type-labelled `Snippet` |
+| 4 | `answering` | model | **no tools**; writes the structured answer from those snippets alone |
+| 5 | `verifying` | code | `validateCitations`, then every citation re-derived from the evidence |
+
+**Anything a future prose agent does will hit this same wall.** If you are
+writing one, start from this shape rather than discovering it.
+
+### The answer pass is the one place `groundedRequired` is off
+
+§11 requires an ADR for that, and ADR-035 §1 is it. The pass has no tools, so
+"cite at least one tool result" is unsatisfiable by construction. Four checks
+replace the one:
+
+1. `validateCitations(answer.en + answer.hi, context, { requireCitation: true })`
+   — called by the agent itself, over the answer text rather than the JSON blob,
+   with the requirement `runAgent` would have skipped.
+2. Every provision number named in `answer` must appear in `citations[]`.
+3. Every citation must be backed by a tool result that actually contains it. A
+   wrong `toolResultId` is CORRECTED and reported; one nothing supports is
+   dropped and reported.
+4. `format_citation` must find the section, which catches a plausible-looking
+   sub-section the dataset does not have. It also writes the citation text, in
+   both languages — the model never composes one.
+
+### Labels are the substance of stage 3
+
+`SnippetType` has `classification` and `mapping` for this agent. A
+`get_classification` row is labelled `(classification, BNSS First Schedule: BNS
+318)` and a `compare_old_new` result `(old→new mapping: IPC 420, from NCRB
+table)`. Under a plain `section` label they read alike, and BNS 103's heading —
+"Punishment for murder" — reads like an answer about punishment while being
+unable to settle bail. Cognizability and bail are properties of a First Schedule
+entry and differ between sub-sections of one section.
+
+Stage 3 also writes each provision inside a snippet as `Section 318(4) of the
+BNS`, not `BNS 318(4)`. `validateCitations` extracts the full sub-section only
+after the word "section"; its bare-numeral fallback splits `318(4)` into `318`
+and `4`. Written the other way, a correct answer saying "Section 318(4)" is
+rejected as unsupported.
+
+### The date rule and the disclaimer are the app's, not the model's
+
+Which code applies turns on the date of the OFFENCE (BNSS s.531(2)). The
+converter already holds that date, so `dateRuleCaveat()` states it — pure,
+bilingual, always the first caveat, and honest that it does not know when no
+date was given. `LAW_DISCLAIMER` is always the last. `prompts/law.md` tells the
+model not to write either, so the reader never gets two versions of one rule.
+Same principle as §7's checklist, one step further out: **anything the app
+already knows, the app says.**
+
+### Screening here is narrower than screening there, on purpose
+
+`screenBrief()` refuses a drafting brief that mentions "classified" or "secret".
+That would be wrong here: "which BNS section covers communicating secret
+information" is a question about published statute. `screenLawQuestion()`
+refuses a departmental RECORD instead — an FIR, case, diary, charge-sheet or
+crime number, in both scripts, each pattern requiring a digit, so "an FIR was
+filed on 20 June 2024" stays answerable.
+
+Advice about a person's case is a **steer, not a refusal**: `caseAdviceSteer()`
+detects it, both turns are told to answer the general rule and nothing beyond
+it, and the caveat is added by code whether or not the model remembered.
+`heuristics.ts#isPersonalQuery` is deliberately not reused — it matches "can I"
+and "should I", which open a large share of general questions here.
+
+### The surface
+
+`src/modules/law/components/AskPanel.tsx`, mounted by `ConverterPage` behind
+`React.lazy` AND `lawAiAvailable(useAi().enabled)`. There is **no per-question
+acknowledgement gate** and ADR-035 §5 says why: the drafting gate asserts a fact
+about a document, which is stable; a question is typed fresh each time, so the
+same gate would be a dialog before every question. The `<AiBanner/>`, the
+record screen and the case-advice steer stand in its place and none of them
+depends on the reader having read anything.
+
+`partialAnswerText()` streams a structured answer by reading the first `"en"` /
+`"hi"` string out of the half-arrived JSON. Best-effort by construction — the
+rendered value always comes from `JSON.parse`.
+
+## 7B. The pay-explain and trainer-coach agents
+
+`src/ai/agents/pay.ts` ("Explain my payslip", "Compare these two posts for me")
+and `src/ai/agents/tutor.ts` ("Explain" after a wrong answer, "Give me a
+scenario on this rule", the weekly focus plan) are the third and fourth agents
+in this app, and both are narrower than the two before them: every entry point
+except one is a single `runAgent` pass with no tool loop for the model at all.
+
+### The model calls no tool for a read — this file already did
+
+`explainAnswer`, `weeklyFocusPlan`, `explainPayslip` and `compareJobsForReader`
+all call their tools directly, in code, BEFORE the model runs — `get_rule_text`
++ `get_card_history`, `get_user_weak_areas`, `compute_pay_for_job` +
+`explain_pay_line` + `get_allowance_source`, and `compare_jobs` respectively —
+and hand the real result back as numbered PLATFORM CONTEXT. The model is
+offered `tools: []` and run with `groundedRequired: false`: there is nothing
+for it to call, because the fetch already happened, deterministically, the
+same lesson `src/ai/agents/drafting.ts` teaches by calling
+`render_draft`/`check_draft` itself rather than trusting the model's report of
+them. A model that claims to have read Rule 3 is reporting an intention, and a
+rule's text — or a pay slip this app already computed — is cheap enough to read
+for real.
+
+This also sidesteps a real trap the law agent's own ADR-035 names: `runAgent`'s
+grounding check only requires that the answer cite AT LEAST ONE tool result;
+`validateCitations` separately rejects a rule/section number that appears in no
+CITED CONTEXT SNIPPET, and a tool result is not a context snippet. A single pass
+that calls a tool and then writes "Rule 18" in prose fails that second check on
+its own citation, not on anything wrong with the rule. Feeding the fetched data
+back as context — rather than leaving it as a tool result the model must
+somehow re-cite — is what makes "Rule 1 states…\[1\]" a supported claim instead
+of an invented one.
+
+`proposeScenario` is the one exception, and it runs a real tool loop, because it
+is the one WRITE: only the model can author a scenario's wording and options.
+The rule text is still fetched by this file first, both to ground the
+confirmation sentence and so the model cannot invent a rule number for a rule
+that does not exist.
+
+### Two things this file checks that the prompt alone does not
+
+**A rupee figure or a percentage the answer states must appear in what was
+actually computed.** `ungroundedFigures()` extracts every `₹1,23,456`-shaped or
+`NN%`-shaped token from the answer and every bare number from the JSON this
+file fetched, compares them digits-only (so `₹21,600` in prose and the `21600`
+a JSON number serialises as agree), and refuses the answer if one does not
+match — the code-side re-derivation `docs/AI.md`'s own "how to add an agent"
+checklist asks for, applied to a figure instead of a checklist item.
+
+**A comparison must stay neutral.** `containsRecommendation()` is a small
+bilingual pattern list ("you should", "better choice", `बेहतर विकल्प`, …) run
+over `compareJobsForReader`'s final answer; a match refuses the answer rather
+than trusting the persona's instruction not to advise. Both checks return a
+`PayRefused`/`status: 'refused'` result — the same vocabulary
+`src/ai/agents/drafting.ts#screenBrief` uses for a deterministic, code-side
+rejection, as opposed to `status: 'error'`, which is `runAgent` itself failing.
+
+### `propose_card`'s confirmation is read back, never trusted
+
+`proposeScenario` never reports "a card was added" because the model said so.
+It finds the model's OWN `propose_card` call in `run.toolResults`, parses its
+output, and only reports success if that tool itself returned `stored: true`
+and an id — a shape `cardSchema` rejected (the same case
+`src/ai/tools/rules.test.ts` covers) comes back `stored: false` from the tool,
+and that is the failure this function passes through. A proposed card is
+stored `reviewState: 'unreviewed'` in `proposedCards`, a table
+`get_user_weak_areas` (via `weakAreasFor`) never reads — that function
+aggregates `reviewLog`/`srsCards` only, which a freshly proposed card has none
+of until a human accepts it at `/learn/review-queue`. Nothing here needed a
+special case to keep an AI-authored card out of the reader's own analytics; it
+falls out of which tables each function already reads.
+
+### The surfaces
+
+`src/modules/trainer/components/CardAiActions.tsx` (mounted below `CardView` in
+`ReviewPage`, once it reveals — "Explain" only after a wrong answer, via
+`CardView`'s `onAnswered` callback; "Give me a scenario" always) and
+`src/modules/trainer/components/FocusPlanCard.tsx` (mounted in the weak-areas
+card on `/learn`). `src/modules/pay/components/PayExplainPanel.tsx` (beside the
+pay slip, hidden without a post picked) and `PayCompareAiPanel.tsx` (on the
+compare tab, hidden without a post on both sides). All four render nothing
+unless `useAi().enabled`, carry the permanent `<AiBanner/>`, and — like every
+surface before them — are reached through `useTutorAi`/`usePayAi`, which
+dynamic-import the agent, the registry and the built-in tools only once a
+button is pressed.
+
+`src/modules/pay/aiOverrides.ts#overridesFromScenario` reshapes the calculator's
+own `PayScenario` into the `overrides` object the pay tools accept, so
+"explain what I'm looking at" computes the EXACT scenario on screen rather than
+the post's bare defaults. One field does not round-trip — `overrides` has no
+`basic`, so a reader who typed a custom basic pay instead of picking a cell gets
+the cell-derived figure explained instead of their typed one — and
+`PayCompareAiPanel` deliberately forwards only `{ daRate }` as the shared
+override for a comparison, never a side's level/cell/city: `compare_jobs`
+applies its one `overrides` object to BOTH posts, and forwarding side A's level
+would silently force post B onto it, which is not what the table on screen
+shows.
+
 ## 8. How to add a tool
 
 A tool is a **pure function over local data**: bundled JSON in `/data`, or the

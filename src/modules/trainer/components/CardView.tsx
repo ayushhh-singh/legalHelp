@@ -33,6 +33,14 @@ interface CardViewProps {
   mode?: 'review' | 'mock'
   /** Mock test only — the reader's raw pick, reported without grading. */
   onAnswer?: (correct: boolean) => void
+  /**
+   * Review mode only — fired once, the moment the card reveals whether the
+   * reader was right or wrong. `picked`/`correctText` are the option (or
+   * typed cloze) text in the reader's own language, which is what "Explain"
+   * sends to the tutor agent — the agent is never asked to re-derive what was
+   * on screen.
+   */
+  onAnswered?: (result: { correct: boolean; picked: string; correctText: string }) => void
 }
 
 const bilingual = (value: { en: string; hi: string }, language: Language, otherShown: boolean) =>
@@ -61,6 +69,7 @@ export function CardView({
   onReport,
   mode = 'review',
   onAnswer,
+  onAnswered,
 }: CardViewProps) {
   const { t } = useT()
   const [revealed, setRevealed] = useState(false)
@@ -79,12 +88,30 @@ export function CardView({
     return previewGrades(row, now, desiredRetention)
   }, [srsRow, card.id, now, desiredRetention])
 
-  const reveal = () => setRevealed(true)
+  const reveal = () => {
+    setRevealed(true)
+    if (mode === 'review' && card.kind === 'cloze' && card.cloze) {
+      const normalise = (s: string) => s.trim().toLowerCase()
+      const answer = card.cloze.answer[language] || card.cloze.answer.en
+      onAnswered?.({ correct: normalise(clozeInput) === normalise(answer), picked: clozeInput, correctText: answer })
+    }
+  }
 
   const selectOption = (index: number) => {
     if (mode === 'review' && revealed) return
     setSelectedIndex(index)
-    if (mode === 'review') setRevealed(true)
+    if (mode === 'review') {
+      setRevealed(true)
+      if (card.options) {
+        const picked = card.options[index]
+        const correctOption = card.answerIndex !== undefined ? card.options[card.answerIndex] : undefined
+        onAnswered?.({
+          correct: index === card.answerIndex,
+          picked: picked ? picked[language] || picked.en : '',
+          correctText: correctOption ? correctOption[language] || correctOption.en : '',
+        })
+      }
+    }
     // Mock mode never sets `revealed` — the reader may change their pick until
     // the parent advances to the next question, and "no explanations until
     // the end" means the option list must never show which one was right.

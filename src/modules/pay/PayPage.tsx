@@ -5,6 +5,7 @@ import { AllowanceList } from './components/AllowanceList'
 import { ComparePanel } from './components/ComparePanel'
 import { ChipGroup } from './components/Fields'
 import { InputsPanel } from './components/InputsPanel'
+import { PayExplainPanel } from './components/PayExplainPanel'
 import { Payslip } from './components/Payslip'
 import { PrivatePanel } from './components/PrivatePanel'
 import { ScenarioBar } from './components/ScenarioBar'
@@ -13,6 +14,7 @@ import { readLastScenario, writeLastScenario } from './scenarios'
 import { paramsFromView, parsePayParams, scenarioFromParams, type PayTab } from './url'
 import { usePayTables } from './usePayTables'
 
+import { useAi } from '@/ai/useAi'
 import { PageHeader } from '@/components/common/PageHeader'
 import { QueryErrorState, SectionCard, Skeleton } from '@/components/ui-x'
 import { useT } from '@/i18n/useT'
@@ -111,6 +113,7 @@ function Calculator({
   hasQuery: boolean
 }) {
   const { t } = useT()
+  const ai = useAi()
 
   const scenario = useMemo(() => scenarioFromParams(parsed, tables), [parsed, tables])
   const compare = useMemo(
@@ -301,6 +304,7 @@ function Calculator({
                 write({ scenario: withAllowance(scenario, id, { enabled: true, rateKey }) })
               }
             />
+            {ai.enabled ? <PayExplainPanel key={scenario.jobId ?? 'none'} ai={ai} scenario={scenario} /> : null}
           </div>
         </div>
       ) : null}
@@ -310,6 +314,7 @@ function Calculator({
       {parsed.tab === 'compare' ? (
         <ComparePanel
           tables={tables}
+          ai={ai}
           a={scenario}
           b={compare}
           onChangeA={patch}

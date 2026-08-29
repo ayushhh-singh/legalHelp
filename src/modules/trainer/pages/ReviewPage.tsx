@@ -3,12 +3,14 @@ import { ArrowLeft, PartyPopper } from 'lucide-react'
 import { useState } from 'react'
 import { Link, useSearchParams } from 'react-router-dom'
 
+import { CardAiActions } from '../components/CardAiActions'
 import { CardView } from '../components/CardView'
 import { submitReport, toggleBookmark } from '../store'
 import { useEffectiveCatalogue } from '../useCatalogue'
 import { useNow } from '../useNow'
 import { useTrainerSettings } from '../useTrainerSettings'
 
+import { useAi } from '@/ai/useAi'
 import { EmptyState } from '@/components/common/EmptyState'
 import { PageHeader } from '@/components/common/PageHeader'
 import { SectionCard, Skeleton } from '@/components/ui-x'
@@ -30,6 +32,7 @@ const REPORT_REASONS = ['wrongAnswer', 'unclear', 'typo', 'duplicate', 'other'] 
  */
 export default function ReviewPage() {
   const { t, language } = useT()
+  const ai = useAi()
   const now = useNow(5_000)
   const [searchParams] = useSearchParams()
   const actFilter = searchParams.get('act')
@@ -54,6 +57,17 @@ export default function ReviewPage() {
   const [reportReason, setReportReason] = useState<(typeof REPORT_REASONS)[number]>('wrongAnswer')
   const [reportNote, setReportNote] = useState('')
   const [reportSaved, setReportSaved] = useState(false)
+  /**
+   * Keyed by the card it was recorded for, and filtered at read time below —
+   * not reset by an effect watching `current?.qId`, which
+   * `react-hooks/set-state-in-effect` is right to reject: a `setState` inside
+   * an effect body cascades a render for state that is trivially derivable
+   * from props already in hand.
+   */
+  const [wrongAnswer, setWrongAnswer] = useState<{ qId: string; picked: string; correctText: string } | null>(
+    null,
+  )
+  const activeWrongAnswer = wrongAnswer && current && wrongAnswer.qId === current.qId ? wrongAnswer : null
 
   if (!catalogue || !settings || queue == null) {
     return (
@@ -112,7 +126,14 @@ export default function ReviewPage() {
             onGrade={(grade, durationMs) => void handleGrade(grade, durationMs)}
             onToggleBookmark={() => void toggleBookmark(current.qId)}
             onReport={() => setReportOpen((open) => !open)}
+            onAnswered={(result) =>
+              setWrongAnswer(result.correct ? null : { qId: current.qId, ...result })
+            }
           />
+
+          {ai.enabled ? (
+            <CardAiActions key={current.qId} ai={ai} card={current.card} wrongAnswer={activeWrongAnswer} />
+          ) : null}
 
           {reportOpen ? (
             <SectionCard className="p-4">

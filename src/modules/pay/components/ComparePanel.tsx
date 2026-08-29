@@ -1,6 +1,8 @@
+import { PayCompareAiPanel } from './PayCompareAiPanel'
 import { CityPicker, JobPicker } from './Pickers'
 import { SelectField, Stepper } from './Fields'
 
+import type { UseAi } from '@/ai/useAi'
 import { SectionCard } from '@/components/ui-x'
 import { useT } from '@/i18n/useT'
 import { diffResults } from '@/lib/pay/compare'
@@ -21,6 +23,7 @@ import { cellPay, levelFor, LEVEL_IDS, type PayTables } from '@/lib/pay/tables'
 
 export function ComparePanel({
   tables,
+  ai,
   a,
   b,
   onChangeA,
@@ -29,6 +32,7 @@ export function ComparePanel({
   onPickB,
 }: {
   tables: PayTables
+  ai: UseAi
   a: PayScenario
   b: PayScenario
   onChangeA: (patch: Partial<PayScenario>) => void
@@ -121,6 +125,8 @@ export function ComparePanel({
           </table>
         </div>
       </SectionCard>
+
+      {ai.enabled ? <PayCompareAiPanel key={`${a.jobId ?? ''}:${b.jobId ?? ''}`} ai={ai} a={a} b={b} /> : null}
     </div>
   )
 }

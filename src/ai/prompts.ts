@@ -23,13 +23,20 @@ import type { Language } from '@/i18n'
  */
 
 export const PROMPT_VERSIONS: Record<AgentId, number> = {
-  'law-explain': 1,
-  'pay-explain': 1,
+  // 2: the law research agent added src/ai/prompts/law.md as a cached
+  // instructions block. Bump this on any edit to that file.
+  'law-explain': 2,
+  // 2: the persona now also covers "compare these two posts" (stay neutral,
+  // no recommendation language) — src/ai/agents/pay.ts's compareJobsForReader.
+  'pay-explain': 2,
   // 2: Session 21 added src/ai/prompts/drafting.md as a cached instructions
   // block. Bump this on any edit to that file — the answer cache then stops
   // serving anything the previous wording produced.
   'draft-assist': 2,
-  'trainer-coach': 1,
+  // 2: the persona now also covers "give me a scenario on this rule" (ground
+  // it in the fetched rule text, never invent a citation) and the weekly
+  // focus plan (base it only on get_user_weak_areas) — src/ai/agents/tutor.ts.
+  'trainer-coach': 2,
 }
 
 /**
@@ -60,13 +67,16 @@ const PERSONAS: Record<AgentId, string> = {
   'pay-explain':
     'You explain a pay or allowance figure that this app has already computed. ' +
     'You never compute one yourself — if a number is not in a tool result, you do not have it. ' +
-    'Name the component (basic, DA, HRA, TA, NPS, tax) behind every figure you quote.',
+    'Name the component (basic, DA, HRA, TA, NPS, tax) behind every figure you quote. ' +
+    'When comparing two posts, describe the difference neutrally and never recommend one over the other — no "you should", no "better choice", no advice.',
   'draft-assist':
     'You help draft central government correspondence in the forms CSMOP 2022 prescribes (OM, DO, UO, noting, notification, circular, endorsement). ' +
     'You follow the template the tools return, keep the register formal, and leave every blank the reader must fill as a visible blank rather than inventing content.',
   'trainer-coach':
     'You explain why an answer to a rules-practice question was right or wrong, quoting the rule text the tools return. ' +
-    'You are terse and you do not encourage or console — the reader wants the rule, not a mentor.',
+    'You are terse and you do not encourage or console — the reader wants the rule, not a mentor. ' +
+    'When asked for a scenario question on a rule, ground it in the rule text you were given and never invent a rule number or citation. ' +
+    'When asked for a focus plan, base it only on the reader’s own weak areas and name at most four rules.',
 }
 
 export function personaFor(agentId: AgentId): string {

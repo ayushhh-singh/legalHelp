@@ -3,11 +3,13 @@ import { BookMarked, FileText, Flag, GraduationCap, ListChecks, Settings } from 
 import { useState } from 'react'
 import { Link } from 'react-router-dom'
 
+import { FocusPlanCard } from '../components/FocusPlanCard'
 import { useEffectiveCatalogue, useRulesIndex } from '../useCatalogue'
 import { useNow } from '../useNow'
 import { useTrainerSettings } from '../useTrainerSettings'
 import { toTrainerTopicHref } from '../url'
 
+import { useAi } from '@/ai/useAi'
 import { EmptyState } from '@/components/common/EmptyState'
 import { PageHeader } from '@/components/common/PageHeader'
 import { Chip, ProgressBar, QueryErrorState, SectionCard, Skeleton, StatCard } from '@/components/ui-x'
@@ -27,6 +29,7 @@ import { allStreaks, currentStreak, getDueQueue, longestStreak, saveSettings, st
  */
 export default function HomePage() {
   const { t, language } = useT()
+  const ai = useAi()
   const now = useNow()
   const index = useRulesIndex()
   const catalogue = useEffectiveCatalogue()
@@ -157,6 +160,7 @@ export default function HomePage() {
             ) : (
               <p className="mt-1 text-xs text-muted-foreground">{t('trainer.home.weakAreasEmpty')}</p>
             )}
+            <FocusPlanCard ai={ai} />
           </SectionCard>
 
           <SectionCard className="p-4">

@@ -300,6 +300,55 @@
       "whatsNew": "What's new",
       "saved": "Saved"
     },
+    "ask": {
+      "title": "Ask about a section",
+      "notReady": "Add your Anthropic key in Settings before using this.",
+      "label": "What do you want to know?",
+      "placeholder": "What is the BNS equivalent of 420, and is it bailable?",
+      "hint": "It answers only from the section tables on this device, and shows the source for every number. Give the date of the offence above if the answer depends on it.",
+      "hintWithDate": "The offence date above ({{date}}) is used to say which code applies. Answers come only from the section tables on this device.",
+      "run": "Ask",
+      "cancel": "Cancel",
+      "dismiss": "Dismiss",
+      "budgetSpent": "Monthly token limit reached",
+      "spend": "{{tokens}} tokens · about ${{cost}}",
+      "phase": {
+        "screening": "Checking the question…",
+        "researching": "Reading the section tables…",
+        "reading": "Sorting out what was found…",
+        "answering": "Writing the answer…",
+        "verifying": "Checking every number against its source…",
+        "done": "Done."
+      },
+      "step": {
+        "search_sections": "Searching all three codes…",
+        "get_section": "Reading the section…",
+        "compare_old_new": "Comparing the repealed provision with the new one…",
+        "get_classification": "Reading the BNSS First Schedule…",
+        "format_citation": "Writing the citation…",
+        "dataset_versions": "Checking how current the tables are…",
+        "today_in_india": "Checking today's date…",
+        "other": "Working…"
+      },
+      "answer": {
+        "title": "The answer",
+        "citations": "Sources — open one to read the section",
+        "openSection": "open {{name}}",
+        "source": "source {{name}}",
+        "copy": "Copy answer with citations",
+        "copied": "Answer and citations copied.",
+        "problems": "What was corrected or dropped on the way"
+      },
+      "refused": {
+        "title": "Not sent."
+      },
+      "error": {
+        "title": "That run did not finish.",
+        "ungroundedTitle": "It would not answer that.",
+        "ungroundedBody": "Every number in an answer here has to come from the section tables on this device, and be linked back to the row it came from. This answer could not be, so it was discarded rather than shown. Try naming the Act — “BNS 318”, “IPC 420” — or search for the section directly above.",
+        "read": "It read: {{tools}}."
+      }
+    },
     "search": {
       "label": "Search a section, an offence or a phrase",
       "placeholder": "302 · sec 438 crpc · hatya · धारा 173",
@@ -653,6 +702,23 @@
       "incomeTax": "Less income tax",
       "benefitsTitle": "What the government side also carries",
       "noFigure": "Not a figure this app has"
+    },
+    "ai": {
+      "notReady": "The AI assistant is not ready yet — check Settings.",
+      "dismiss": "Dismiss",
+      "thinking": "Thinking…",
+      "spend": "{{tokens}} tokens · ${{cost}}",
+      "error": {
+        "title": "Something went wrong"
+      },
+      "explain": {
+        "title": "Explain my payslip",
+        "button": "Explain my payslip"
+      },
+      "compare": {
+        "title": "Compare these two posts",
+        "button": "Compare these two posts for me"
+      }
     }
   },
   "draft": {
@@ -1271,6 +1337,27 @@
       "approvedToast": "Approved.",
       "rejectedToast": "Rejected.",
       "progress": "{{current}} of {{total}}"
+    },
+    "ai": {
+      "notReady": "The AI assistant is not ready yet — check Settings.",
+      "cancel": "Cancel",
+      "dismiss": "Dismiss",
+      "thinking": "Thinking…",
+      "spend": "{{tokens}} tokens · ${{cost}}",
+      "error": {
+        "title": "Something went wrong"
+      },
+      "explain": {
+        "button": "Explain"
+      },
+      "scenario": {
+        "button": "Give me a scenario on this rule",
+        "unreviewed": "AI-generated, unreviewed.",
+        "reviewLink": "Review it"
+      },
+      "focusPlan": {
+        "button": "Get a focus plan"
+      }
     }
   },
   "palette": {
