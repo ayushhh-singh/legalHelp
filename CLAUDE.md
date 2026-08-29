@@ -462,8 +462,10 @@ are load-bearing, and each is enforced by a test rather than by convention:
   attaches to the first run's server — and when the first finishes, it tears that server down under
   the second. What the victim reports is `net::ERR_CONNECTION_REFUSED` followed by a string of
   "element(s) not found", which is indistinguishable from a genuinely broken page unless you read
-  far enough up to find the refused connection. One e2e run on this machine at a time; check
-  `ps aux | grep [p]laywright` before starting one. Three distinct ways this shared working tree
+  far enough up to find the refused connection. One e2e run on this machine at a time — INCLUDING
+  two of your own, which is how this was actually hit: a second run started while the first still
+  had a dozen processes live. Check `ps aux | grep [p]laywright` before starting one, and note that
+  a run whose reporter output has not flushed yet looks exactly like a run that has finished. Three distinct ways this shared working tree
   produced a MISLEADING test result in one session — a stale bundle passing an absence assertion, a
   lint crash with no lint error, and app failures that were really a dead server — and none of the
   three was a defect in any code under test.
