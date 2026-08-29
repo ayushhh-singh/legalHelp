@@ -1,6 +1,13 @@
 import { describe, expect, it } from 'vitest'
 
-import { ACTIVE_TIERS, TIER_DISCLOSURES, acceptConsentPatch, killSwitchPatch, tierAvailable } from './consent'
+import {
+  ACTIVE_TIERS,
+  TIER_DISCLOSURES,
+  acceptConsentPatch,
+  killSwitchPatch,
+  tierAvailable,
+  tierPickable,
+} from './consent'
 import { CONSENT_VERSION, DEFAULT_AI_SETTINGS, isAiEnabled, parseAiSettings } from './flags'
 import { AI_TIERS } from './types'
 
@@ -41,11 +48,31 @@ describe('the tier disclosures', () => {
 
 describe('tierAvailable', () => {
   it('offers only what this build can actually run', () => {
-    // Tier 0 needs the on-device model (Session 24); Tier 2 needs a proxy URL.
-    expect(tierAvailable('local', undefined)).toBe(false)
+    // Tier 0 and Tier 1 ship in every build. Whether THIS DEVICE can run Tier 0
+    // is a WebGPU question, answered inside the section with a reason rather
+    // than by disabling the row — src/ai/local/webgpu.ts. Tier 2 needs a proxy
+    // URL, which is a property of the build (ADR-037).
+    expect(tierAvailable('local', undefined)).toBe(true)
     expect(tierAvailable('byok', undefined)).toBe(true)
     expect(tierAvailable('proxy', undefined)).toBe(false)
     expect(tierAvailable('proxy', 'https://ai.example.test')).toBe(true)
+  })
+})
+
+describe('tierPickable', () => {
+  it('hides the shared service in a build that has no proxy, and shows it in one that has', () => {
+    // The distinction that survives ADR-030's "disabled, never hidden" rule is
+    // who can act. Tier 0's refusals name the reader's own device and they can
+    // act on them; "not configured in this build" is about somebody the reader
+    // has never met.
+    expect(tierPickable('proxy', undefined)).toBe(false)
+    expect(tierPickable('proxy', 'https://ai.example.test')).toBe(true)
+  })
+
+  it('always draws the other three', () => {
+    for (const tier of ['off', 'local', 'byok'] as const) {
+      expect(tierPickable(tier, undefined), tier).toBe(true)
+    }
   })
 })
 

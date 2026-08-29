@@ -89,18 +89,48 @@ export async function purgeAiData(): Promise<void> {
 }
 
 /**
- * True when this tier can be offered at all in this build. `local` needs the
- * on-device model (Session 24) and `proxy` needs a proxy URL, so both are shown
- * disabled with a reason rather than hidden — a hidden option looks like a
- * missing feature, a disabled one explains itself.
+ * True when this tier can be offered at all in this build.
+ *
+ * `local` and `byok` are unconditional: both ship in every build, and whether
+ * this particular DEVICE can run Tier 0 is a WebGPU question that
+ * `src/ai/local/webgpu.ts` answers inside the section, with the reason, rather
+ * than by making the option vanish.
+ *
+ * `proxy` needs `VITE_AI_PROXY_URL`, and a build without one genuinely has
+ * nowhere to send a request — so it is shown DISABLED with a reason rather
+ * than hidden. A hidden option looks like a missing feature; a disabled one
+ * explains itself. `tierPickable()` is the same question for the settings UI,
+ * which additionally hides the proxy row entirely when no build ever
+ * configured it (ADR-037).
  */
 export function tierAvailable(tier: ActiveTier, proxyUrl: string | undefined): boolean {
   switch (tier) {
     case 'local':
-      return false
+      return true
     case 'byok':
       return true
     case 'proxy':
       return Boolean(proxyUrl)
   }
+}
+
+/**
+ * Whether the settings screen draws the row AT ALL, as opposed to drawing it
+ * disabled.
+ *
+ * The two questions used to have one answer, and Session 3A's rule — "show a
+ * disabled option with a reason, never a hidden one" — was right when it was
+ * written, because both Tier 0 and Tier 2 were then unbuilt and the reader
+ * deserved to know they were coming.
+ *
+ * Tier 0 now ships, so a build with no proxy URL has two tiers that work. The
+ * "Shared service" row in such a build is not an option waiting on the reader;
+ * it is an option waiting on somebody the reader has never met, and a
+ * permanently disabled control they can do nothing about is noise. The
+ * distinction that survives is who can act: Tier 0's own refusals name THIS
+ * DEVICE ("your graphics card cannot run the 16-bit version"), and the reader
+ * can act on those, so those stay visible and disabled (ADR-037).
+ */
+export function tierPickable(tier: AiTier, proxyUrl: string | undefined): boolean {
+  return tier === 'proxy' ? Boolean(proxyUrl) : true
 }

@@ -5,9 +5,17 @@
 # fails on any console error or securitypolicyviolation event. There is no
 # second copy of the policy in a <meta> tag: this file is the only source.
 #
-# See docs/DECISIONS.md ADR-030 for three things this policy decides:
-#   * connect-src is 'self' with no api.anthropic.com entry, and what has to
-#     change the day the AI layer's Tier 1 BYOK provider is actually shipped;
+# See docs/DECISIONS.md ADR-030 for three things this policy decides, and
+# ADR-037 for what Tier 0 and Tier 2 changed about the first of them:
+#   * connect-src now names the AI layer's opt-in destinations. This is NOT
+#     the privacy control — the consent gate is, and with AI off the app makes
+#     no request to any of them. CSP is the backstop, and a backstop that
+#     refuses the feature the app ships is a broken app rather than a private
+#     one (docs/DATA-GAPS.md #57 and #61 were exactly that);
+#   * script-src carries 'wasm-unsafe-eval' because Tier 0 compiles the
+#     model's WebAssembly runtime. It does NOT carry 'unsafe-eval': WASM
+#     compilation and string evaluation are separate capabilities, and only
+#     the first one is wanted here;
 #   * style-src carries 'unsafe-inline' because Radix Dialog's scroll lock
 #     injects a <style> element whose content varies with the scrollbar
 #     width, so no hash can cover it — but style-src-attr is 'none', which
@@ -18,8 +26,21 @@
 #     violation the browser reports is a capability check that already
 #     handled being refused (tests/e2e/csp.spec.ts allowlists exactly it).
 
+# The four connect-src destinations, and who reaches each:
+#   api.anthropic.com  — Tier 1 (the reader's own key) and nothing else.
+#   huggingface.co and its LFS CDNs (*.hf.co, *.huggingface.co) — Tier 0's
+#     one-time model download, started by hand in Settings. The CDN hostname
+#     the redirect lands on is not fixed and is not published, which is why
+#     these two are wildcard subdomains rather than a list; docs/DATA-GAPS.md
+#     #69 has what that costs and what would tighten it.
+#   raw.githubusercontent.com — Tier 0's compiled model library (.wasm), which
+#     mlc-ai publishes from a GitHub repository rather than from Hugging Face.
+# Tier 2's own origin is NOT here: it is only known at build time, so
+# vite.config.ts appends VITE_AI_PROXY_URL's origin to this directive when a
+# build sets one. A build without one emits this line unchanged, which is what
+# tests/e2e/csp.spec.ts reads.
 /*
-  Content-Security-Policy: default-src 'self'; script-src 'self'; style-src 'self' 'unsafe-inline'; style-src-attr 'none'; font-src 'self'; img-src 'self' data:; connect-src 'self'; worker-src 'self'; manifest-src 'self'; media-src 'none'; object-src 'none'; frame-src 'none'; frame-ancestors 'none'; base-uri 'self'; form-action 'none'
+  Content-Security-Policy: default-src 'self'; script-src 'self' 'wasm-unsafe-eval'; style-src 'self' 'unsafe-inline'; style-src-attr 'none'; font-src 'self'; img-src 'self' data:; connect-src 'self' https://api.anthropic.com https://huggingface.co https://*.huggingface.co https://*.hf.co https://raw.githubusercontent.com; worker-src 'self' blob:; manifest-src 'self'; media-src 'none'; object-src 'none'; frame-src 'none'; frame-ancestors 'none'; base-uri 'self'; form-action 'none'
   Strict-Transport-Security: max-age=63072000; includeSubDomains; preload
   X-Content-Type-Options: nosniff
   Referrer-Policy: no-referrer

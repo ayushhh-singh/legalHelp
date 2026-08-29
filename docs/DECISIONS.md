@@ -2620,7 +2620,7 @@ hook for the Drafting Studio's editor.
 
 Three things were already on disk before this session touched anything. `data/drafting/structure-terms.json`
 (78 terms, ADR-020) is a **different** dataset for a different question — the Hindi CSMOP 2022 prints for
-the *parts of a document itself* — and its own `GlossarySheet.tsx` carries a comment written in
+the _parts of a document itself_ — and its own `GlossarySheet.tsx` carries a comment written in
 anticipation of this exact session, naming `structure-terms.json` as unchanged and this session's job as
 "the glossary as its OWN destination under Utilities, with the full Rajbhasha Shabdavali behind it".
 `src/lib/transliterate.ts` already had `romanKey()` — Devanagari⇄Latin folding built for the law search —
@@ -2713,10 +2713,10 @@ exercises the dist-dependent checks; `pnpm check` does not build):
 - Zod 4's `toJSONSchema()` — already used by `src/ai/tools/registry.ts` for the AI layer's tool manifests,
   entirely unrelated to this session — has dead branches for the `draft-07`/`draft-04` JSON Schema dialects
   and an IPv6-literal validation trick (`new URL(\`http://[${address}]\`)`), neither ever exercised. A
-  bundler tree-shakes by module, not by branch, so once `to-json-schema.js` is reachable from ANYWHERE in
-  the app it ships wherever the chunker places zod's core — which chunk that is moved on this build and
-  landed inside `GlossaryPage`'s own chunk, tripping `tests/no-external-urls.test.ts`'s dist sweep on four
-  string literals that had never shipped in one physical chunk before. Three new `ALLOWED_INERT` entries,
+bundler tree-shakes by module, not by branch, so once `to-json-schema.js`is reachable from ANYWHERE in
+the app it ships wherever the chunker places zod's core — which chunk that is moved on this build and
+landed inside`GlossaryPage`'s own chunk, tripping `tests/no-external-urls.test.ts`'s dist sweep on four
+string literals that had never shipped in one physical chunk before. Three new `ALLOWED_INERT` entries,
   matched by pattern rather than by the minified variable name inside the IPv6 template (which is not
   stable across builds), record why: none of the four is ever dereferenced.
 
@@ -2754,7 +2754,7 @@ hit; the rest are real but smaller.
   discipline ADR-022 already established for exactly this class of defect.
 - **The Fuse index rebuilt on every keystroke, not once per load.** `useGlossary`'s `useAsync` returns a
   fresh wrapper object — `{ ...settled, retry }` — on every call, so `useMemo(() => buildGlossaryIndex(...),
-  [glossary])` in both `GlossaryPage.tsx` and `GlossarySheet.tsx`'s `FullGlossaryPanel` never actually hit
+[glossary])` in both `GlossaryPage.tsx` and `GlossarySheet.tsx`'s `FullGlossaryPanel` never actually hit
   their cache: typing "avar sachiv" ran eleven full index rebuilds over ~1,891 terms instead of one.
   `BodyEditor.tsx`'s `useGlossarySuggest` call, written in the same commit, already did this correctly —
   memoising on `glossary.status === 'ready' ? glossary.data : null`, a reference that IS stable once
@@ -2935,7 +2935,7 @@ file boundary — which is why none showed up in the per-file suites — and eve
    depends on the runtime's locale and its ICU build; it sorts `A-1` after `a-1` where code-unit order
    does the opposite, and it treats a hyphen as a variable-weight character — the one punctuation mark
    every card id in `data/rules` is built from. The stated property is that two devices holding the same
-   history produce the same file, and a comparator that is a property of the *runtime* cannot deliver it.
+   history produce the same file, and a comparator that is a property of the _runtime_ cannot deliver it.
    `compareStrings` in `types.ts` is now the only one, and `purity.test.ts` fails on `.localeCompare(`
    anywhere in the directory.
 
@@ -2946,13 +2946,13 @@ file boundary — which is why none showed up in the per-file suites — and eve
    instead, which is exact.
 
 3. **A bad day in a backup could take the stats screen down.** `longestStreak` is the one function that
-   steps a stored date *forward*, and `addIstDays` throws `RangeError` on a day that cannot be parsed.
+   steps a stored date _forward_, and `addIstDays` throws `RangeError` on a day that cannot be parsed.
    Fixing (2) closes the import route; `longestStreak` now also filters, because a row could still arrive
    from a future release.
 
 4. **The tolerant layer and the crashing layer disagreed about the same row.** A corrupt `at` was
    silently skipped by `usageForDay` and `dayStats`, and threw `RangeError: Not an instant` — as an
-   *unhandled rejection* — out of `store.ts#logsForDay`, killing `getDueQueue`. One row, two behaviours.
+   _unhandled rejection_ — out of `store.ts#logsForDay`, killing `getDueQueue`. One row, two behaviours.
 
 5. **The queue was reading the whole review log on every card graded.** `logsForDay` did
    `toArray().filter(...)` over an append-only table that grows for as long as the app is used, to find
@@ -3060,7 +3060,7 @@ is short enough to re-type, unlike a full pay slip's worth of choices.
 - `pnpm test` (1,744 tests, 84 new: 25 in `src/lib/holidays`, 12 in `src/lib/leave`, 21 in
   `src/lib/pension`, plus data/i18n coverage), `pnpm build` and the Python ingest suite (67 tests) are
   green for everything this session touched. `scripts/ingest/holidays.py --check` and `scripts/ingest/
-  utils_seed.py --check` both confirm a re-run is byte-identical.
+utils_seed.py --check` both confirm a re-run is byte-identical.
 - `data/holidays`, `data/pension` and `data/portals.json` join `data/law`, `data/pay`, `data/drafting`
   and `data/rules` in `.prettierignore`, for the same reason: written by `ingest_common.write_json`,
   and prettier would fight the generator over formatting on every run.
@@ -3177,7 +3177,7 @@ there rather than hand-editing the generated file.
 ### Consequences
 
 - `pnpm test` (1,744 tests: 40 new across `src/modules/trainer/{reviewQueue,store,reminder,
-  intervalLabel}.test.ts` and `src/ai/tools/rules.test.ts`), `pnpm typecheck` and `pnpm lint` are clean.
+intervalLabel}.test.ts` and `src/ai/tools/rules.test.ts`), `pnpm typecheck` and `pnpm lint` are clean.
   `pnpm build` succeeds; `tests/e2e/learn.spec.ts` (three tests: the full start-review-to-home-counts
   loop with a language toggle mid-card, a completed mock test, and the whole review loop offline) and
   the extended `tests/e2e/a11y.spec.ts` / `tests/e2e/zero-third-party-requests.spec.ts` sweeps pass.
@@ -3419,9 +3419,9 @@ an unrelated repealed-Act provision instead of the BNS section they picked. Caug
 built app end to end (`searchLaw(engine, {query:'hatya', ...})`, clicking the actual top hit, reading what
 `/law?q=101&code=bns` rendered) — no unit test exercises this because none combines "a real ambiguous
 number" with "a hand-built href" the way this module's hits do a hundred times over. The fix is the query
-itself: `toLawHref({ query: \`${actOf(code)} ${section}\`, code })` — `"BNS 101"` — because naming the Act
-is the one signal `directionContradicted()` in `src/modules/law/search.ts` already treats as strong enough
-to rule out the old-Act reading entirely. `src/components/palette/sections.ts#lawItems` carries the note
+itself: `toLawHref({ query: \`${actOf(code)} ${section}\`, code })`—`"BNS 101"`— because naming the Act
+is the one signal`directionContradicted()`in`src/modules/law/search.ts`already treats as strong enough
+to rule out the old-Act reading entirely.`src/components/palette/sections.ts#lawItems` carries the note
 in place so the next person does not "simplify" it back to the bare number.
 
 **5. The global shortcuts' listener is attached once, for the component's whole lifetime, reading
@@ -3478,7 +3478,7 @@ keystroke".
 - `tests/e2e/palette.spec.ts` (ten specs: five search queries across all four acceptance-test terms —
   "hatya", "ACIO", "avar sachiv", "OM" — plus every shortcut) and `tests/e2e/a11y.spec.ts`'s two new runs
   (the palette empty and with results, the shortcuts sheet) are the browser-level proof; `src/components/
-  palette/{sections,recents}.test.ts` cover the hand-rolled Document-type/Trainer-topic/Portal matchers and
+palette/{sections,recents}.test.ts` cover the hand-rolled Document-type/Trainer-topic/Portal matchers and
   the recents table's own trim-to-8 behaviour at the unit level, since Law/Pay/Glossary already have that
   coverage through the engines they reuse.
 - `PaletteRoot` is its own ~18 KB gzip chunk (confirmed via `dist/assets/PaletteRoot-*.js` and absent from
@@ -3537,7 +3537,7 @@ actual failing sequence, not reasoning about it) and each now fixed:
   form of the bug: nothing in `useGlobalShortcuts` knew whether a dialog OTHER than the palette itself —
   the shortcuts sheet, the AI consent modal, a Drafting Studio `Sheet` — already had the reader's attention.
   Fixed with one check, `foreignDialogOpen = !latest.current.open && document.querySelector('[role="dialog"]')
-  !== null` (the palette's OWN open state is already known from the store and does not need a DOM query;
+!== null` (the palette's OWN open state is already known from the store and does not need a DOM query;
   anything the query still finds belongs to someone else) — gating every shortcut, Ctrl+K included.
 
 - **Ctrl+K, pressed while the AI consent modal was open, stacked the palette on top of it — and the
@@ -3594,7 +3594,7 @@ the brief anticipated — and it is not a change worth guessing at, because a ha
 worse than an unapplied one.
 
 **2. The size budget is one number in one file, enforced twice.** `scripts/size-budget.json` holds it;
-`scripts/size-check.mjs` gates CI on it and prints a per-asset table so a failing pull request says *which*
+`scripts/size-check.mjs` gates CI on it and prints a per-asset table so a failing pull request says _which_
 asset grew; `tests/bundle-budget.test.ts` reads the same file. That replaces the fixed `BASELINE_GZIP =
 146_038` + 30 KB rule from ADR-011, which had been red for three sessions (`docs/DATA-GAPS.md` #55) with no
 route back to green: every session's i18n keys landed in one eagerly-loaded bundle, so the budget moved
@@ -3611,7 +3611,7 @@ no budget re-baselining may weaken them.
 command palette: Radix Dialog's scroll lock (`react-remove-scroll`'s style singleton) injects a `<style>`
 element whose content embeds the measured scrollbar width, so its hash differs per device and no
 `'sha256-…'` can cover it. Rather than accept a blanket relaxation, the policy splits the directive: style
-*elements* may be inline, style *attributes* may not (`style-src-attr 'none'`). Nothing in the app needs
+_elements_ may be inline, style _attributes_ may not (`style-src-attr 'none'`). Nothing in the app needs
 the attribute form — React writes styles through CSSOM, which CSP does not govern — so this keeps the half
 of `'unsafe-inline'` that actually matters for injected markup. Both halves are asserted in
 `tests/e2e/csp.spec.ts`.
@@ -3619,7 +3619,7 @@ of `'unsafe-inline'` that actually matters for injected markup. Both halves are 
 **4. `script-src` has no `'unsafe-eval'`, and the one violation the browser reports is allowlisted rather
 than accommodated.** zod 4 decides at import time whether it may JIT-compile validators by evaluating
 `Function("")` inside a try/catch. Under `script-src 'self'` the browser refuses, zod catches it and takes
-its interpreted path, and every schema in the app keeps working — but the refusal is still *reported*,
+its interpreted path, and every schema in the app keeps working — but the refusal is still _reported_,
 because a capability probe cannot ask the question without asking it. Adding `'unsafe-eval'` to silence one
 caught feature detect would hand real script injection a way in for nothing. `tests/e2e/csp.spec.ts`
 allowlists exactly that shape (script-src, blocked `eval`, from a built chunk) and has a separate case
@@ -3669,12 +3669,12 @@ measured font findings, both invisible without a real waterfall:
   the first version of this ADR claimed "a saving on every route", which the per-route measurement
   disproves. Total font transfer, measured:
 
-  | Route | four static weights | one variable file |
-  | --- | ---: | ---: |
-  | English `/draft`, `/learn`, `/utils` | 111 KB | 180 KB |
-  | English `/`, `/pay` | 162 KB | 180 KB |
-  | English `/law` | 216 KB | 180 KB |
-  | Hindi, heading-rich page | 270 KB | 180 KB |
+  | Route                                | four static weights | one variable file |
+  | ------------------------------------ | ------------------: | ----------------: |
+  | English `/draft`, `/learn`, `/utils` |              111 KB |            180 KB |
+  | English `/`, `/pay`                  |              162 KB |            180 KB |
+  | English `/law`                       |              216 KB |            180 KB |
+  | Hindi, heading-rich page             |              270 KB |            180 KB |
 
   The static set charges by how many weights a page happens to use: cheapest for an English page showing
   two Devanagari characters in the language toggle, dearest for a Hindi page, which needs all four. The
@@ -3685,6 +3685,7 @@ measured font findings, both invisible without a real waterfall:
   700 the static set rounded down to. Dropping two static weights (400 + 600 only) measures better than
   both and was rejected for the same reason: Hindi bold would render at 600 while English bold stays at
   700, a visible asymmetry between the two languages.
+
 - U+20B9 (₹) sits in **Inter's `latin-ext` subset, which is 85 KB** — the largest font file this app can
   request, downloaded in full so `/pay` can draw one glyph. Noto Sans Devanagari's own `devanagari` subset
   covers U+20B9 and U+20A8, and on those pages it is already being fetched for the bilingual chrome. A
@@ -3715,7 +3716,7 @@ neither `_headers` nor `_redirects`, so a run against it measures a site with no
 none of the preload hints. The new server applies both, and compresses — which is not a detail: Cloudflare
 gzips and brotlis every text response, and a first run of this server without compression scored FCP 4.9 s
 against `vite preview`'s 2.1 s, which was **entirely** the missing `Content-Encoding` and would have sent
-this session chasing a regression that did not exist. `scripts/lighthouse.mjs` serves a *copy* of `dist/`
+this session chasing a regression that did not exist. `scripts/lighthouse.mjs` serves a _copy_ of `dist/`
 for the same class of reason: a full run is seven routes and several minutes, and a concurrent session's
 `pnpm build` replaced `dist/` mid-run, which first showed up as `/law` scoring SEO 92 because `index.html`
 did not exist for a moment.
@@ -3739,7 +3740,7 @@ which decides production from preview.
   It is **89% "render delay"** rather than network — the LCP element is text that does not exist until the
   entry chunk, the module chunk, the view chunk and that view's data have each been fetched and executed in
   sequence. The app shell fixed First Contentful Paint because a paint can come from HTML; it cannot fix LCP,
-  because LCP updates to whatever larger element appears later. Closing it needs the route's *content* in the
+  because LCP updates to whatever larger element appears later. Closing it needs the route's _content_ in the
   served HTML — prerendering or server rendering — which is an architectural change, needs its own ADR, and
   interacts with the offline-first, data-in-lazy-chunks design that ADR-013 and ADR-018 chose deliberately.
   `docs/DATA-GAPS.md` #58 records the measurement, the reason and the two real options. The three targets
@@ -3786,7 +3787,7 @@ two things confirmed rather than assumed.
 
 **1. The claim in point 8 was wrong, and the measurement is above.** "A saving on every route" was written
 from the routes that improved. Per-route measurement shows the variable Devanagari face is a 69 KB
-*regression* on an English `/draft`, `/learn` and `/utils`, and an 18 KB one on `/` and `/pay`. It is kept —
+_regression_ on an English `/draft`, `/learn` and `/utils`, and an 18 KB one on `/` and `/pay`. It is kept —
 the reasoning in point 8 stands on the Hindi case and on equal footing — but as a trade with a table, not
 as a win. **The rupee `@font-face` is the part of that change that was an unambiguous saving**, and the two
 were landed together, which is how one carried the other past review.
@@ -3822,12 +3823,11 @@ Escaped at the point of injection, which is cheaper than a rule saying "never pu
 
 - **All four blob downloads work under the CSP** — the holidays `.ics`, the drafting `.docx` (which is also
   a 340 KB dynamic import), the Settings backup `.json` and the Trainer's reports `.csv`. `default-src
-  'self'` lists no `blob:`, so this was worth checking rather than reasoning about; a policy that silently
+'self'` lists no `blob:`, so this was worth checking rather than reasoning about; a policy that silently
   broke every export in the app would have been the worst outcome of this session.
 - **`form-action 'none'` is safe because the app contains no `<form>` element at all.** Every input is a
   controlled component. Had one existed, an implicit submission — Enter in a single-field form — would have
   been blocked, and blocked navigations are quiet.
-
 
 ---
 
@@ -3875,7 +3875,7 @@ page, because a request made by the service worker or by a second page is exactl
 likely to escape a page-scoped listener.
 
 The exception mechanism is a declaration rather than an omission: `tests/e2e/ai-byok.spec.ts` calls
-`network.allowCrossOrigin(/api\.anthropic\.com/)` because Tier 1 *is* that request. And
+`network.allowCrossOrigin(/api\.anthropic\.com/)` because Tier 1 _is_ that request. And
 `tests/e2e-harness.test.ts` — a **unit** test, so it runs on every commit rather than only when a
 browser is available — fails if any spec imports a value from `@playwright/test`, with exemptions
 in an `UNGATED` map that must each carry a reason. `csp.spec.ts` is the only one, because it
@@ -4095,29 +4095,29 @@ in a session that treated this as plumbing.
 ### 1. The agent produces field values, not a document — and three of its five stages are code
 
 A model asked to write an Office Memorandum writes something that looks like
-one. What makes a document the *right* document is not prose quality. It is that
+one. What makes a document the _right_ document is not prose quality. It is that
 the third-person rule holds, that the first paragraph is unnumbered and the rest
 run 2, 3, 4 without a gap, that an enclosure mentioned in the body is listed at
 the foot, that the subject line exists, and that no blank was filled in with a
 plausible file number. Every one of those was already decided by
 `data/drafting/templates/*.json` in Session 8 and is already evaluable by
-`src/lib/drafting/checklist.ts` against the *rendered* document.
+`src/lib/drafting/checklist.ts` against the _rendered_ document.
 
 So the agent's job is narrow. It returns **field values**; the engine lays them
 out and marks them. `runDraftingAgent` is five stages and the model owns two:
 
-| # | Stage | Whose | What |
-| - | ----- | ----- | ---- |
-| 1 | `screening` | code | `screenBrief()`, before any provider call |
-| 2 | `planning` | model | choose the form, explain it in a line, ask ≤3 questions, return values |
-| 3 | `checking` | code | `render_draft`, then `check_draft` over what came back |
-| 4 | `revising` | model | one pass, given the failures and their `why` |
-| 5 | `rechecking` | code | stage 3 again |
+| #   | Stage        | Whose | What                                                                   |
+| --- | ------------ | ----- | ---------------------------------------------------------------------- |
+| 1   | `screening`  | code  | `screenBrief()`, before any provider call                              |
+| 2   | `planning`   | model | choose the form, explain it in a line, ask ≤3 questions, return values |
+| 3   | `checking`   | code  | `render_draft`, then `check_draft` over what came back                 |
+| 4   | `revising`   | model | one pass, given the failures and their `why`                           |
+| 5   | `rechecking` | code  | stage 3 again                                                          |
 
 **Stage 3 is the decision.** The brief said "call renderDraft then runChecklist;
 if any item fails, revise once", and the obvious reading is to instruct the
 model to do it — the tools are registered and it has them. That was rejected: a
-model that reports its own checklist as passing is reporting an *intention*.
+model that reports its own checklist as passing is reporting an _intention_.
 What the panel shows is an evaluation of the values actually being returned,
 performed by this file, through the same registry the model uses, with the same
 zod schemas applied. The model is still told to run `check_draft` (both the
@@ -4132,7 +4132,7 @@ Two consequences worth stating because they were not free:
   anything, and taking it silently would hand the officer a worse document than
   the one it replaced with no way to tell. When a revision is refused, the
   reason is in `problems[]` and on screen. There is a test for the refusal, and
-  it asserts that the returned checklist still reports the *first* draft's
+  it asserts that the returned checklist still reports the _first_ draft's
   failure honestly rather than the better one that never arrived.
 - **One revision, ever, and `provider.turnsTaken` is asserted at 6.** `runAgent`
   has a step cap; this is the agent's own, and it exists because a loop that
@@ -4152,7 +4152,7 @@ So the blank is four underscores. `BLANK`, exported from the agent, matched by
 field labels so the officer knows what to fill. It satisfies `allRequired` (the
 value is non-empty), it survives `noPlaceholders`, and it reads on paper as what
 it is. `prompts/drafting.md` says all of this to the model in both languages,
-including *why* — a rule with its reason attached is followed further from its
+including _why_ — a rule with its reason attached is followed further from its
 examples than one without.
 
 ### 3. The refusal screen is code, runs first, and is biased the opposite way to `heuristics.ts`
@@ -4168,7 +4168,7 @@ The bias is deliberately inverted relative to `src/ai/heuristics.ts`, and the
 inversion is the point. There, a false positive costs a cache hit, so
 `isPersonalQuery` is written loosely on purpose. Here a false negative sends an
 officer's classified brief to a model endpoint, so a brief that merely
-*mentions* a marking is refused — "draft a note about the confidential report
+_mentions_ a marking is refused — "draft a note about the confidential report
 procedure" is an innocent sentence and is refused anyway. What makes that
 tolerable rather than obstructive is that the refusal says which word matched
 and offers the same document from a brief without it.
@@ -4232,7 +4232,7 @@ draft's values.
 
 `<AiBanner/>` is still permanent above it. The two say different things and both
 are needed: the banner says what leaves the device, always; the gate is an
-assertion the officer makes about *this document*.
+assertion the officer makes about _this document_.
 
 ### 6. `SuggestionDiff` now diffs exactly, and that was a real defect
 
@@ -4241,7 +4241,7 @@ assertion the officer makes about *this document*.
 danda is not what a Sanhita changed, and Session 4 added the fold precisely
 because every Hindi heading pair was otherwise reported as changed.
 
-It is wrong for a diff the reader *accepts*. A rewrite whose only change to a
+It is wrong for a diff the reader _accepts_. A rewrite whose only change to a
 word was a capital letter, or the full stop the sentence was missing, rendered
 as "No change is suggested"; and where such a word sat inside a larger change,
 pressing Apply produced the officer's original casing while telling them they
@@ -4251,8 +4251,8 @@ getting `Grant of Children Education allowance` back from a suggestion that said
 
 `diffWords` takes `{ exact?: boolean }` now, defaulting to today's behaviour, and
 `SuggestionDiff` passes `exact: true` **unconditionally** rather than exposing a
-prop. Nothing else renders that component, and the invariant it needs — *what
-you accept is what you get* — is not something a caller should be able to switch
+prop. Nothing else renders that component, and the invariant it needs — _what
+you accept is what you get_ — is not something a caller should be able to switch
 off. `src/lib/diff.test.ts` pins both behaviours, and `docs/COVERAGE.md` was
 regenerated with the change.
 
@@ -4285,7 +4285,7 @@ regenerated with the change.
   an `instructions` block between the persona and the profile, `cache: true`. It
   is a file rather than a string literal because it is prose an officer could be
   asked to read, and it is bilingual because the reader is. `PROMPT_VERSIONS
-  ['draft-assist']` went to 2, which is what stops the answer cache serving
+['draft-assist']` went to 2, which is what stops the answer cache serving
   anything the old wording produced.
 - **Progress events carry the tool NAME, not a sentence.** `DraftingStep` is
   `{ phase, tool? }`; the panel maps a tool to `draft.ai.step.<name>` through a
@@ -4299,7 +4299,7 @@ regenerated with the change.
   that could reach a network. The initial route is unchanged at 138.6 KB gzip
   against a 250 KB budget.
 - **No effect fires a paid request.** The ✨ button on a field hands the field up
-  to `EditorPage`, which opens the panel; the panel then *offers* the four
+  to `EditorPage`, which opens the panel; the panel then _offers_ the four
   rewrites and waits. The first shape of this ran the rewrite from a
   `useEffect` watching the prop — which `react-hooks/set-state-in-effect`
   rejected, and rightly: a request that costs the reader money should be
@@ -4380,7 +4380,7 @@ The other two are UI, and both were invisible to Playwright for the same reason:
    `onSpent`, which fires in the `finally` of every run including an aborted
    one. This is the third StrictMode defect this project has shipped (ADR-021
    has the other two) and the second time the lesson has been that `pnpm
-   test:e2e` runs a production build where StrictMode is inert.
+test:e2e` runs a production build where StrictMode is inert.
 
 7. **Applying a field made its own row disappear.** `changed` was computed from
    the live `values`, so the moment a suggestion was applied its `after`
@@ -4402,7 +4402,6 @@ editor created is the same document it already had; a draft it was asked to
 resume is not. `createdHere` is STATE and not a ref, because it is read during
 render to compute a key, and a ref read during render can tear —
 `react-hooks/refs` caught that, correctly, on the first attempt.
-
 
 ## ADR-033 — Rules bank expansion: curated Hindi law headings at full coverage, a real fix to an unreachable duplicate check, and genuinely blind verification via fresh subagents
 
@@ -4427,7 +4426,7 @@ their full rule text, and running ~275 new questions through generate → critic
 independent, well-scoped units of work with clear inputs and outputs. Each was
 delegated to a fresh subagent with only the files it needed (the act's rule
 text, its terms file, one worked example for format/register, and — critically,
-for Stage C — *never* the file holding the answer key). Large single acts
+for Stage C — _never_ the file holding the answer key). Large single acts
 (GFR's 240 cloze cards, its 307 rule headings) were partitioned by a
 deterministic, collision-free split (even/odd list position after a stable
 sort) into independent halves reviewed in parallel and merged by script
@@ -4457,7 +4456,7 @@ session's Hindi headings unlocked them: eight FR/SR rules headed "Deleted" or
 duplicate-front check (found via a peer session's report, not by this session
 reading the data first).
 
-The fix (`scripts/authoring/make_cards.py`) reads the same *effective prompt*
+The fix (`scripts/authoring/make_cards.py`) reads the same _effective prompt_
 `rule_cards()` actually renders — heading, or the rule's own opening sentence
 where there is no heading — rather than the raw heading field alone, widens
 the emptied-heading pattern to catch "cancelled" and "not printed" (both used
@@ -4632,7 +4631,7 @@ everywhere else.
   sessions can be editing workflow files concurrently, and it verifies the CI configuration itself, not
   the app `ci.yml` verifies.
 - `scripts/ingest/pay_orders.py`, `scripts/ingest/pay_orders_pr_body.py`, `scripts/ingest/
-  law_diff_summary.py`, their tests (`test_pay_orders.py`, 24 cases; `test_law_diff_summary.py`, 8
+law_diff_summary.py`, their tests (`test_pay_orders.py`, 24 cases; `test_law_diff_summary.py`, 8
   cases) and `scripts/ingest/fixtures/pay-orders/` (five real fixtures, one synthetic, `SOURCES.md`
   naming each) are new. `data/_meta/seen-orders.json` is a new, seeded, schema-exempt (`NO_SCHEMA` in
   `validate_data.py`) bookkeeping file.
@@ -4670,7 +4669,7 @@ number in a final answer that does not appear in a **cited PLATFORM CONTEXT
 snippet**. Tool results are not context snippets — they come back on the wire as
 `tool_result` blocks and carry the handles `T1`, `T2`, which the function does not
 read. So a single `runAgent` pass that calls `get_section` and then writes
-"Section 103 of the BNS" fails its own citation check *every time*: the number is
+"Section 103 of the BNS" fails its own citation check _every time_: the number is
 in a tool result, and in no snippet.
 
 That is not a bug to route around and it is not a reason to weaken the rule. It is
@@ -4678,21 +4677,21 @@ the reason the brief's own description — "tool results are fed as numbered,
 type-labelled snippets" — is the only shape that works. `runLawAgent` is five
 stages and the model owns two:
 
-| # | Stage | Whose | What |
-| - | ----- | ----- | ---- |
-| 1 | `screening` | code | `screenLawQuestion()`, before any provider call |
-| 2 | `researching` | model | calls the law tools; finishes with the handles it used and nothing else |
-| 3 | `reading` | code | every successful tool result becomes a numbered, type-labelled `Snippet` |
-| 4 | `answering` | model | **no tools**; writes the structured answer from those snippets alone |
-| 5 | `verifying` | code | `validateCitations`, then every citation re-derived from the evidence |
+| #   | Stage         | Whose | What                                                                     |
+| --- | ------------- | ----- | ------------------------------------------------------------------------ |
+| 1   | `screening`   | code  | `screenLawQuestion()`, before any provider call                          |
+| 2   | `researching` | model | calls the law tools; finishes with the handles it used and nothing else  |
+| 3   | `reading`     | code  | every successful tool result becomes a numbered, type-labelled `Snippet` |
+| 4   | `answering`   | model | **no tools**; writes the structured answer from those snippets alone     |
+| 5   | `verifying`   | code  | `validateCitations`, then every citation re-derived from the evidence    |
 
 Two consequences that were not free, and both are asserted in both directions in
 `src/ai/agents/law.test.ts`:
 
 - **The research pass's closing sentence is discarded, so two of `runAgent`'s
   failures are not failures of this run.** `ungrounded` and `invalid_citation`
-  there are judgments about a sentence nobody will read, and the second one *can
-  never be satisfied* at that stage for the reason above. When either fires and
+  there are judgments about a sentence nobody will read, and the second one _can
+  never be satisfied_ at that stage for the reason above. When either fires and
   at least one tool result exists, the run continues and says so in `problems[]`.
   Every other failure — the provider, the budget, cancellation, the step cap —
   really did stop the run and is returned as one. The pass is asked to end with
@@ -4719,7 +4718,7 @@ Two consequences that were not free, and both are asserted in both directions in
 and a `compare_old_new` result is labelled `(old→new mapping: IPC 420, from NCRB
 table)`. Under the pre-existing `section` label they would have read alike, and
 the failure mode is specific rather than theoretical: BNS 103's heading is
-"Punishment for murder", which *reads like* an answer to a question about
+"Punishment for murder", which _reads like_ an answer to a question about
 punishment and cannot settle cognizability or bail. Those are properties of a
 First Schedule entry, they differ between sub-sections of one section, and the
 label is what tells a model which of the two snippets it is holding. The persona
@@ -4736,7 +4735,7 @@ correct answer saying "Section 318(4)" would have been rejected as unsupported.
 
 Which code applies is decided by the date of the **offence**, not by today's date
 (BNSS s.531(2)), and it is the most consequential rule in this module. The
-converter already has that date in a field, so the app *knows* it — and a fact the
+converter already has that date in a field, so the app _knows_ it — and a fact the
 app knows is worth more than an instruction the model was given. `dateRuleCaveat()`
 is pure, bilingual, and always the first caveat: it names the era for a date that
 was given, and says plainly that it does not know which code applies for one that
@@ -4794,7 +4793,7 @@ record rather than an inconsistency somebody later "fixes".
 ### 6. Tier 0 gets a smaller run rather than the same run on a smaller model
 
 `policyForTier('local')` is `{ researchSteps: 2, maxToolResults: 1, maxSearchHits: 2,
-answerSentences: 2 }`. `researchSteps: 2` is what *enforces* the single tool-calling
+answerSentences: 2 }`. `researchSteps: 2` is what _enforces_ the single tool-calling
 turn — one turn to call, one to finish — rather than an instruction a small model
 may ignore, and `maxToolResults: 1` is the second half of it, since a model can
 still emit three parallel calls inside its one turn. Both are asserted. Tier 0 does
@@ -4813,7 +4812,7 @@ agent reads at run time, not a branch somebody will have to add later.
   `askPanel.test.tsx` (11 tests) are new; `ConverterPage.tsx` mounts the panel behind
   `React.lazy` **and** `lawAiAvailable(useAi().enabled)`, and gains `openCitation`.
 - A citation chip that names a REPEALED provision sets no `chosenId`: there is no
-  document for "IPC 420" to open — the converter's answer to it *is* BNS 318 — so
+  document for "IPC 420" to open — the converter's answer to it _is_ BNS 318 — so
   the search opens its own best hit. A doc id built from the old number would have
   opened BNS 420, a different offence entirely. The query it writes names the Act,
   for the reason ADR-029 point 4 records.
@@ -5017,7 +5016,7 @@ former.
   between them (`pay.test.ts`, `tutor.test.ts`), run against the REAL committed
   `data/pay`/`data/rules` datasets and a real (fake-indexeddb) `db` — the same
   arrangement `src/ai/agents/drafting.test.ts` and `src/ai/tools/{pay,rules}
-  .test.ts` already use, so a mock figure never stands in for one this app
+.test.ts` already use, so a mock figure never stands in for one this app
   actually produced.
 - `PROMPT_VERSIONS['pay-explain']` and `['trainer-coach']` are both bumped to 2
   (from 1), each with a comment naming what changed in the persona — the
@@ -5059,3 +5058,289 @@ former.
   bundle that had no AI surface in it at all, which is the more dangerous of
   the two. `ls -la dist/index.html` and `lsof -nP -iTCP:4173` before trusting a
   local e2e result; CLAUDE.md's own notes carry the reminder forward.
+
+## ADR-037 — Tier 0 and Tier 2: an emulated tool protocol because a 1.5B model has no wire format, a memory guard that admits what it cannot know, and a proxy whose four guards are pure functions
+
+**Status:** accepted · Session 24 · supersedes part of ADR-011 point 3 and part of ADR-030 point 5
+
+**Context.** The AI layer has had four tiers since Session 3A and has run on one.
+`LocalProvider` threw `not_installed` and `ProxyProvider` had nothing to talk to.
+Both were built as interfaces on purpose — ADR-011's reasoning was that a seam
+with only one implementation behind it is not a seam — and this session puts
+implementations behind both. Nothing above the seam changed: the four agents,
+`runAgent`, the tool registry and every surface are untouched, which is the
+claim the seam existed to make and is now the claim it has to survive.
+
+### 1. Tier 0's tool calls are emulated in the prompt, and the parser is strict about exactly one thing
+
+A quantised 1.5B model has no tool-calling wire format. What it has is the
+ability to emit a JSON object when the decoder is constrained to JSON and the
+instruction is unambiguous. So `src/ai/local/protocol.ts` teaches the protocol
+in the system prompt — one object per turn, `{"tool": …, "input": …}` or
+`{"answer": …}` — and reads it back into the same `ContentPart[]` that
+`wire.ts` produces from Anthropic's SSE. `runAgent` cannot tell the difference,
+and `src/ai/providers/local.test.ts` proves it by running a complete grounded
+run through the real agent loop against a scripted generator.
+
+The interesting decision is where the strictness goes. **A turn is a tool call
+if and only if the object names a tool.** Everything else — whether the tool
+exists, whether the arguments satisfy its zod schema — is left to `runAgent`,
+which already validates both and already has a recovery path that feeds the
+model the available tool list or the zod error exactly once. Validating them
+here as well would mean two validators disagreeing, and the one further from
+the model would win silently. The test that pins this passes
+`{"tool":"get_section","input":"bns 103"}` — arguments that are not an object —
+straight through, so the officer's run recovers instead of the string being
+rendered as prose.
+
+Three parsing decisions that each came from a real shape rather than from
+imagination, and each has a named fixture in `src/ai/fixtures/local-turns.ts`:
+
+- **Aliases are accepted**: `tool_call` wrappers, `name`/`function`,
+  `arguments` as a JSON _string_. That is the OpenAI function-calling shape,
+  which is in the instruction-tuning data of every model on the list, and a
+  model half-remembering it is not a model making a mistake worth spending an
+  agent step to correct.
+- **`answer` is checked before `tool`**, because `{"answer": "I checked with
+get_section…", "tool": "get_section"}` occurs and a name-first parser reads it
+  as a call.
+- **The JSON scanner counts braces outside strings only.** A Devanagari query
+  containing `{धारा 303}` truncates to invalid JSON under a naive scan and
+  silently becomes prose.
+
+There is a third parse mode, `raw`, and it exists because
+`src/ai/agents/law.ts`'s own answer schema has a field called `answer`. On a
+schema-constrained turn nothing is unwrapped: the JSON _is_ the answer. Getting
+this wrong would hand `runAgent` a bilingual object where it expected a
+document, and `JSON.parse` would then fail on something perfectly valid.
+
+**Two tool steps, not the agent's six.** `LOCAL_MAX_TOOL_STEPS = 2`, counted
+from the transcript rather than from a field on the provider — the provider
+outlives a run, and a counter on the object would leak one run's budget into
+the next. Six steps on a device generating twenty tokens a second is six
+minutes of a model re-reading the section it just read.
+`src/ai/agents/law.ts#TIER_POLICIES.local` had already assumed this shape a
+week earlier, which is the nicest thing that happened this session.
+
+### 2. The memory guard says what it does not know
+
+WebGPU exposes no video-memory figure, by design — it is a fingerprinting
+surface. So `fitFor()` is a floor, not a prediction, and it is written as a
+pure function in `src/ai/local/webgpu.ts` so the judgement in it can be argued
+with in a test rather than buried in a component. It turns on three things a
+browser will actually answer: whether there is an adapter, whether it has
+`shader-f16`, and `navigator.deviceMemory`.
+
+That third one produced the one real defect this design had, and its own test
+caught it. `navigator.deviceMemory` is quantised **and capped at 8** in every
+browser that ships it, so `8` means "eight or more" and a 64 GB workstation
+reports exactly what an 8 GB laptop reports. The first version compared against
+it unconditionally and put a "may be tight on this device" warning on both 3B
+models for the large majority of readers who can run them comfortably. At the
+cap the figure carries no information and is now treated as absent — which is
+also what Firefox and Safari, who implement none of it, already got.
+
+What the guard genuinely prevents is a doomed download: a q4f16 model on an
+adapter without `shader-f16` is refused on the adapter's own word, not on a
+heuristic. What it cannot prevent is an out-of-memory failure, and the thing
+that makes that acceptable is `loadFailureMessage()`, which turns "Device lost"
+into a sentence naming a smaller model. A guard that pretended to more
+certainty than WebGPU offers would be the worse design.
+
+### 3. Five models, curated, and the picker's figures are read back out of the library
+
+`prebuiltAppConfig` lists ~165 records. Offering that list to an officer is
+offering them a way to start a seven-gigabyte download on a work laptop, so
+`src/ai/local/catalogue.ts` is a shortlist of five spanning 0.9–2.5 GB, with a
+q4f32 build included specifically so "your graphics card cannot run any of
+these" is not the answer an ordinary office machine gets.
+
+The curation is policy; the enforcement is elsewhere. `ensureLocalEngine`
+narrows the engine's own `model_list` to those five, so a settings row naming
+`Qwen3-8B` — hand-edited, or written by a build that offered more — cannot start
+a download, because the engine has never heard of the id. Same split
+`parseAiSettings` uses for the tier.
+
+`src/ai/local/catalogue.test.ts` reads every id, every `vramMB` and every
+context window back out of `prebuiltAppConfig` and fails if they disagree — the
+arrangement `tests/law-data.test.ts` has with `data/law`. A web-llm upgrade that
+renames a model or re-measures its memory cannot ship a picker quoting a number
+nobody can reproduce. It also asserts that all five resolve to the two hosts the
+CSP permits and no other.
+
+**The Hindi note is per model and it is honest.** `hindi: 'poor' | 'limited' |
+'usable'`. A tool whose hard rule is equal bilingual footing owes a reader
+choosing a 1B model the information that its Devanagari will be rough, before
+they spend a gigabyte finding out.
+
+### 4. `CONSENT_VERSION` 1 → 2, because "nothing leaves the device" acquired a footnote
+
+Nothing the reader **types** leaves the device on Tier 0 — there is no `fetch`
+in the provider, the engine or the protocol. But the model itself arrives over
+the network once, and version 1's notice described Tier 0 as an option that did
+not exist. `flags.ts`'s own rule is to bump when the substance of what leaves
+the device changes, and a device that makes no request at all and a device that
+fetches a gigabyte once are not the same device. Every device reads the notice
+again; the Tier 0 line now names the download.
+
+Three smaller consequences of the tier being real:
+
+- **`estimateCost()` returns 0 for any id in the catalogue.** `resolveModel()`
+  prices an unknown id at the DEFAULT model's rate, which is right for a
+  mistyped settings row and very wrong here: it would show a dollar figure for
+  tokens nobody was billed for, on the one tier whose entire promise is that
+  nothing was sent.
+- **`runAgent` skips the monthly ceiling when `tier === 'local'`.** That ceiling
+  is a _spending_ cap — it sits under "what this costs you" in Settings — and
+  refusing an on-device answer in the last week of the month because of a number
+  about somebody else's bill would be absurd. There is a test on the negative
+  side too: a paid tier at the same exhausted budget still stops. Without it,
+  "skipped for local" and "never enforced" are the same passing test.
+- **`tierReady('local')` is `settings.localModelInstalled`**, mirrored from the
+  Cache API and reconciled on every render of the section, exactly as `hasKey`
+  is reconciled against the vault. A surface must be able to decide whether to
+  render without awaiting a Cache API round trip, and a reader pressing "Ask"
+  must never be the thing that starts a gigabyte of download.
+
+### 5. Tier 2's row is hidden; Tier 0's refusals are not. ADR-030's rule is narrowed, not dropped
+
+ADR-011 and ADR-030 said: show a disabled option with a reason, never a hidden
+one — a hidden option reads as a missing feature. That was right when both
+unbuilt tiers were coming and the reader deserved to know.
+
+With Tier 0 shipped, a build with no `VITE_AI_PROXY_URL` has two tiers that
+work, and a permanently disabled third that says "not configured in this build".
+What survives the rule is **who can act**. Tier 0's refusals name the reader's
+own device — "this graphics card cannot run the 16-bit version, choose the
+32-bit one" — and they can act on every one of them, so those stay visible and
+disabled. "Not configured in this build" is about somebody the reader has never
+met. `tierPickable()` is that question, `tierAvailable()` is the other one, and
+they are separate functions because they are separate questions. The consent
+modal filters on the same predicate: a notice describing a tier the app will
+not offer is a notice about a different app.
+
+### 6. The Worker's four guards are pure functions, and miniflare proves the wiring
+
+`worker/` is a standalone package: its own `package.json`, its own tsconfig, its
+own lockfile, its own CI job, and deliberately not part of the app's install.
+Pulling workerd (~90 MB) into the app's dependency tree to test a Worker the app
+does not import would be the wrong trade; leaving it untested because
+`pnpm check` cannot reach it would be worse, which is why it has a job rather
+than a promise in a README.
+
+The split inside it is the same one `src/lib/**` has from the components.
+`policy.ts` holds every decision — CORS, model allowlist, fixed-window rate
+limit, daily token budget — as pure functions over plain values, and
+`test/policy.test.ts` proves them by calling them. A limit that is off by one is
+invisible to an integration test that sends one request. `test/worker.test.ts`
+then runs the same Worker in **miniflare**, with the upstream stubbed by
+`outboundService`, and proves the two things only a runtime can settle: that the
+outbound request carries the operator's key and **none** of the caller's headers
+(asserted with sentinels in a cookie, a referer, an `authorization` and a
+caller-supplied `x-api-key`), and that an SSE body is streamed through rather
+than buffered.
+
+Three decisions worth recording:
+
+- **A missing var falls back to the default; an explicit `0` does not.** Zero is
+  meaningful here — "refuse everything" — so `Number(undefined)` quietly
+  producing it would turn a typo in `wrangler.toml` into a Worker that looks
+  deployed and answers nothing.
+- **The rate-limit counter is written before the request is forwarded.** Counted
+  after, a caller who reliably triggers an upstream error is never counted at
+  all and can hold the limiter open indefinitely.
+- **The budget is checked before and written after**, so the ceiling is crossed
+  by at most one request rather than enforced to the token — the same shape
+  `runAgent`'s own monthly stop has, and `test/worker.test.ts` asserts exactly
+  that behaviour so it cannot drift into something looser without a failure.
+
+KV's eventual consistency and its one-write-per-second-per-key limit mean a
+burst inside one second can undercount. That is stated in the code, in the
+README and in `docs/DATA-GAPS.md` #14 rather than worked around: these limits
+exist to stop one caller draining an operator's credit over minutes, and a fixed
+window in KV does that on the free tier. A Durable Object would count exactly and
+is the named upgrade path.
+
+`.github/workflows/deploy-worker.yml` is `workflow_dispatch` only, with a typed
+confirmation input, and it never touches `ANTHROPIC_API_KEY` — a workflow that
+could write the key would be a workflow that could read it back out of a log.
+Publishing a static site is free and reversible, which is why `deploy.yml` is
+automatic; publishing a Worker that spends money on every request it forwards is
+neither.
+
+### 7. What the build had to learn about a 6 MB dependency
+
+`@mlc-ai/web-llm` is ~6 MB raw, 2.1 MB gzip — by a wide margin the largest thing
+in this build. Three mechanisms keep it from costing anyone who does not want it,
+and all three need to be able to **name the file**, which is why
+`vite.config.ts` gives it a fixed chunk name via `manualChunks`:
+
+1. **`globIgnores`** keeps it out of the service worker's precache. Precaching it
+   would charge every installed device — including every device that will never
+   turn AI on — 2.1 MB for a library only a Tier 0 reader loads. Same rule
+   `og.png` gets, at more than a hundred times the size. The `NetworkFirst`
+   runtime rule still caches it once fetched, so a reader who _has_ chosen
+   Tier 0 keeps working offline.
+2. **`scripts/size-budget.json#chunkExemptions`** records why it is past the
+   256 KB per-chunk budget, in the one file both the CI gate and the unit test
+   read.
+3. **`tests/no-external-urls.test.ts`** permits `huggingface.co`,
+   `raw.githubusercontent.com` and `webgpureport.org` — the first URLs on that
+   allowlist that the app really does fetch — and then confines all three to that
+   one chunk, exactly as the OOXML namespaces are confined to `docx`. An
+   application module that started naming `huggingface.co` fails there. A second
+   assertion proves the chunk is on neither `index.html` nor `sw.js`.
+
+The CSP moved too, and that closes `docs/DATA-GAPS.md` #57 and #61.
+`script-src` gains `'wasm-unsafe-eval'` — WebAssembly _compilation_, which Tier 0
+needs, is a different capability from string _evaluation_, which nothing here has
+ever needed. `connect-src` gains the Tier 1 endpoint and Tier 0's two model
+hosts. `tests/e2e/csp.spec.ts` now compares both directives as **token lists**
+rather than with `toContain`, because `toContain("script-src 'self'")` is
+satisfied by any wider value beginning that way — including one that had quietly
+grown `'unsafe-eval'`, which `toContain("'unsafe-eval'")` would then have matched
+as a substring of `'wasm-unsafe-eval'` and reported as present when it was not.
+Substring matching on a security policy is how a policy gets wider without
+anyone noticing.
+
+Tier 2's origin is not in `public/_headers` at all: it is known only at build
+time, so `vite.config.ts` appends `VITE_AI_PROXY_URL`'s origin to `connect-src`
+in `dist/_headers` when a build sets one, and fails the build loudly if the
+directive it is supposed to extend has moved. The policy and the feature ship
+together or not at all. `tests/no-external-urls.test.ts` reads the same variable
+so an operator's own build passes their own sweep.
+
+### 8. What the Playwright spec can and cannot prove, and what it does instead
+
+Headless Chromium has no WebGPU adapter, and a test that really downloaded a
+gigabyte of weights would be a test of Hugging Face's uptime. So
+`tests/e2e/ai-local.spec.ts` proves the things that are actually about this app:
+choosing the tier and reading the whole model list **contacts nothing** (no
+`allowCrossOrigin` is declared, so the automatic gate fails the test on any
+cross-origin request); a device that cannot run a model is told so, in its own
+words, and the Download button is disabled rather than offering a wasted
+gigabyte; the section passes axe; and with AI off none of it renders.
+
+The domain assertion is the one that needed care. With `navigator.gpu` stubbed
+and every cross-origin request answered `404`, the spec records where the
+download went and asserts every host is one of the two. Its first version waited
+for a `role="status"` element before reading the list — and the progress region
+says "0% downloaded" the instant the button is pressed, so it read an empty list
+and failed with "the download reached no host at all", which is indistinguishable
+from a real defect. It polls the list itself now. A test whose failure message
+describes something other than what went wrong is worse than no test.
+
+### Consequences
+
+- Tiers 0 and 1 ship in every build; Tier 2 ships the moment somebody deploys
+  `worker/` and rebuilds with `VITE_AI_PROXY_URL`. `docs/AI.md` §12 is the order.
+- `AiSettings` gains `localModel` and `localModelInstalled`. `flags.ts` gains one
+  runtime import — `src/ai/local/catalogue.ts`, five object literals and two
+  `Array.find` wrappers with no URL and no import of its own — because a parser
+  that cannot check a value is not a parser. Nothing else may be added there.
+- The initial route is unchanged at 144.2 KB gzip against a 250 KB budget.
+- Three unit files and one spec are new for Tier 0 (78 tests); `worker/` adds 42
+  of its own, in its own runner.
+- `docs/DATA-GAPS.md` #57, #61 and #67 close. #13 and #14 are rewritten to what
+  is actually left — the honest quality of a 1.5B model's Hindi, and the fact
+  that nobody has run the Worker against a real key. #68 and #69 are new.

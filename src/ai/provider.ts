@@ -44,7 +44,7 @@ export async function createProvider(
 
     case 'local': {
       const { LocalProvider } = await import('./providers/local')
-      return new LocalProvider()
+      return new LocalProvider({ modelId: settings.localModel })
     }
 
     case 'byok': {

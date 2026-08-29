@@ -154,6 +154,37 @@ test.describe('under the production Content-Security-Policy', () => {
     expect(csp).toContain("style-src 'self' 'unsafe-inline'")
     expect(csp).toContain("style-src-attr 'none'")
 
+    /*
+      The AI layer's own directives, asserted as TOKEN LISTS rather than with
+      `toContain`.
+
+      Since Tier 0 and Tier 1 shipped (ADR-037) the two directives above are no
+      longer exactly `'self'`, and `toContain("script-src 'self'")` is satisfied
+      by any wider value that begins that way — including one that had quietly
+      grown `'unsafe-eval'`. Substring matching on a policy is how a policy gets
+      wider without anyone noticing, so from here both are compared as sets.
+    */
+    const sourcesFor = (name: string) =>
+      (csp.split(';').find((part) => part.trim().startsWith(`${name} `)) ?? '').trim().split(/\s+/).slice(1)
+
+    // 'wasm-unsafe-eval' compiles WebAssembly. 'unsafe-eval' evaluates strings.
+    // Tier 0 needs the first and nothing in this app has ever needed the second
+    // — note that a `toContain("'unsafe-eval'")` check would match the FIRST as
+    // a substring and pass while the policy said the opposite.
+    expect(sourcesFor('script-src')).toEqual(["'self'", "'wasm-unsafe-eval'"])
+
+    // Exactly the opt-in AI destinations, and nothing else. A build with
+    // VITE_AI_PROXY_URL set appends its origin here (vite.config.ts) — this
+    // reads public/_headers, which no build has rewritten.
+    expect(sourcesFor('connect-src')).toEqual([
+      "'self'",
+      'https://api.anthropic.com',
+      'https://huggingface.co',
+      'https://*.huggingface.co',
+      'https://*.hf.co',
+      'https://raw.githubusercontent.com',
+    ])
+
     expect(HEADERS['Strict-Transport-Security']).toMatch(/max-age=\d{7,}/)
     expect(HEADERS['X-Content-Type-Options']).toBe('nosniff')
     expect(HEADERS['Referrer-Policy']).toBe('no-referrer')

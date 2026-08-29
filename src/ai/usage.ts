@@ -1,3 +1,4 @@
+import { isLocalModelId } from './local/catalogue'
 import { resolveModel } from './models'
 import { EMPTY_USAGE, type TokenUsage } from './types'
 
@@ -29,8 +30,15 @@ export function billableTokens(usage: TokenUsage): number {
 /**
  * USD, from the model's published per-million rates. An estimate shown to the
  * reader — the app never sees an invoice, and Anthropic's bill is the truth.
+ *
+ * A Tier 0 run is free, and free means zero rather than "priced at whatever
+ * the default model costs". `resolveModel()` falls back to DEFAULT_MODEL for
+ * an id it does not know, which is right for a mistyped settings row and very
+ * wrong here: it would put a dollar figure on tokens nobody was billed for, on
+ * the one tier whose entire promise is that nothing left the device.
  */
 export function estimateCost(modelId: string, usage: TokenUsage): number {
+  if (isLocalModelId(modelId)) return 0
   const { pricing } = resolveModel(modelId)
   const perMillion =
     usage.inputTokens * pricing.input +

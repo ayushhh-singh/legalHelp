@@ -1,0 +1,55 @@
+# Sahayak's Tier 2 proxy. See README.md for the five steps that deploy it.
+#
+# NOTHING SECRET GOES IN THIS FILE. It is in git. The Anthropic key is a
+# Wrangler secret (`wrangler secret put ANTHROPIC_API_KEY`); everything below
+# is a limit, and a limit is worth reading in the file that deployed it.
+
+name = "sahayak-ai-proxy"
+main = "src/index.ts"
+compatibility_date = "2026-08-01"
+
+# The Worker itself is free-tier: 100,000 requests a day, no bundled cost. What
+# is NOT free is what it forwards — every request spends the operator's own
+# Anthropic credit, which is what every limit below exists to bound.
+workers_dev = true
+
+[observability]
+enabled = true
+# Cloudflare's request logs record method, path, status and timing. They do not
+# record bodies, and src/index.ts writes no log line of its own — see the note
+# at the top of that file.
+
+# The counters. KV's free tier is 100,000 reads and 1,000 writes a day, which
+# is comfortably above what one rate-limit key per IP per minute and one budget
+# key per day consume.
+#
+#   wrangler kv namespace create RL
+#
+# then paste the id it prints here.
+[[kv_namespaces]]
+binding = "RL"
+id = "REPLACE_WITH_YOUR_KV_NAMESPACE_ID"
+
+[vars]
+# The app's origin, exactly as the browser sends it — scheme and host, no
+# trailing slash. An origin not on this list is refused with no CORS headers
+# AND refused server-side. Add the Pages preview origin only if you want
+# previews to spend the operator's credit.
+ALLOWED_ORIGINS = "https://legalhelp.pages.dev"
+
+# The models src/ai/models.ts offers. Claude Opus 5 is deliberately absent:
+# it is offered in the app's picker for a reader spending their OWN money
+# (Tier 1), and Tier 2 spends the operator's.
+ALLOWED_MODELS = "claude-sonnet-4-6,claude-haiku-4-5"
+
+# Per IP. A grounded run in this app is a handful of requests, so twenty a
+# minute is several complete answers and nowhere near a scrape.
+RATE_LIMIT_PER_WINDOW = "20"
+RATE_LIMIT_WINDOW_SECONDS = "60"
+
+# Across every caller, per UTC day. Sonnet at $3/$15 per million puts 500,000
+# mixed tokens at well under two US dollars a day.
+DAILY_TOKEN_BUDGET = "500000"
+
+# Whatever the caller asks for, clamped to this.
+MAX_OUTPUT_TOKENS = "4096"

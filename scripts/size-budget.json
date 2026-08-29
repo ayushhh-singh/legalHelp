@@ -49,6 +49,7 @@
     "ol-act": "data/rules/text/ol-act.json, ?raw",
     "ol-rules": "data/rules/text/ol-rules.json, ?raw",
     "docx": "the docx writer, imported inside the export handler only (ADR-020)",
+    "web-llm": "@mlc-ai/web-llm — Tier 0's on-device runtime, 2.1 MB gzip and by far the largest chunk in this build. It is exempt for the same reason `docx` is and then some: it is reached only through the dynamic imports inside src/ai/local/engine.ts, which run when the reader presses Download in Settings — not when Settings opens and not when Tier 0 is selected. It is also the one chunk excluded from the service worker's precache (globIgnores in vite.config.ts), so a device that never turns AI on never holds a byte of it. Its name is fixed by manualChunks precisely so this line, that globIgnore and the confinement assertion in tests/no-external-urls.test.ts can all refer to it. ADR-037.",
     "MockPage": "recharts, behind the Trainer's mock-test route"
   }
 }

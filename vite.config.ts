@@ -45,6 +45,44 @@ const __publicDir = fileURLToPath(new URL('./public', import.meta.url))
 const SITE_URL = (process.env.VITE_SITE_URL ?? 'https://legalhelp.pages.dev').replace(/\/+$/, '')
 
 /**
+ * Tier 2's origin, when this build was given one.
+ *
+ * `VITE_AI_PROXY_URL` reaches the app through `import.meta.env`, but it also
+ * has to reach the Content-Security-Policy — and `public/_headers` is a static
+ * file that cannot know it. So the policy ships with the two fixed AI
+ * destinations and this appends the third, at build time, only when there is
+ * one. A build with no proxy emits `public/_headers` byte-identical, which is
+ * what `tests/e2e/csp.spec.ts` parses.
+ *
+ * Only the ORIGIN goes into the directive: connect-src matches on scheme,
+ * host and port, and a path in it is silently ignored by some browsers and
+ * rejected by others. A malformed value fails the build rather than producing
+ * a policy that quietly refuses the tier it was set up for.
+ */
+const AI_PROXY_ORIGIN = (() => {
+  const raw = process.env.VITE_AI_PROXY_URL
+  if (!raw) return undefined
+  try {
+    return new URL(raw).origin
+  } catch {
+    throw new Error(`VITE_AI_PROXY_URL is not a URL: ${raw}`)
+  }
+})()
+
+/** Appends the proxy origin to the policy's connect-src, or returns it as-is. */
+function withProxyConnectSrc(headers: string): string {
+  if (!AI_PROXY_ORIGIN) return headers
+  const pattern = /(Content-Security-Policy:[^\n]*?connect-src[^;\n]*)/
+  if (!pattern.test(headers)) {
+    throw new Error(
+      'withProxyConnectSrc: public/_headers has no connect-src to extend. ' +
+        'The policy moved — see ADR-037 before shipping a build with VITE_AI_PROXY_URL set.',
+    )
+  }
+  return headers.replace(pattern, `$1 ${AI_PROXY_ORIGIN}`)
+}
+
+/**
  * Every route worth handing a crawler: the entry point plus the six
  * destinations in src/lib/nav.ts. That file is the one nav config and cannot
  * be imported here (it pulls lucide-react, and this config runs in Node), so
@@ -188,7 +226,7 @@ function routePreloadHeaders(): Plugin {
       }
 
       const base = existsSync(resolve(__publicDir, '_headers'))
-        ? readFileSync(resolve(__publicDir, '_headers'), 'utf8').trimEnd()
+        ? withProxyConnectSrc(readFileSync(resolve(__publicDir, '_headers'), 'utf8').trimEnd())
         : ''
 
       this.emitFile({
@@ -403,6 +441,15 @@ export default defineConfig({
           // the app. The icons stay precached; those are the installed app's
           // own launcher artwork.
           'og.png',
+          // @mlc-ai/web-llm, Tier 0's runtime — ~6 MB of JavaScript, given its
+          // own named chunk below precisely so it can be named here. Precaching
+          // it would charge every installed device, including every device that
+          // will never turn AI on, for a library only a Tier 0 reader loads.
+          // It is the same rule as og.png one line up, at more than a hundred
+          // times the size. The `NetworkFirst` runtime rule below still caches
+          // it once it has actually been fetched, so a reader who HAS chosen
+          // Tier 0 keeps working offline (ADR-037).
+          '**/web-llm-*.js',
           '**/inter-cyrillic-*',
           '**/inter-cyrillic-ext-*',
           '**/inter-greek-*',
@@ -453,6 +500,29 @@ export default defineConfig({
     // Keep asset URLs relative-free and predictable for the
     // "no external URL" acceptance test.
     assetsInlineLimit: 0,
+    rollupOptions: {
+      output: {
+        /**
+         * One named chunk, and only one.
+         *
+         * `@mlc-ai/web-llm` is ~6 MB and carries several hundred URLs of its
+         * own — the Hugging Face record for every one of its ~165 prebuilt
+         * models. Two checks need to be able to NAME the file that holds them:
+         * `globIgnores` above, so it never reaches a precache, and
+         * `tests/no-external-urls.test.ts`, which permits those hosts in this
+         * chunk and refuses them anywhere else in the build. A content-hashed
+         * name chosen by the chunker cannot be named by either.
+         *
+         * This is the same arrangement the `docx` exporter already relies on,
+         * one step more explicit. Everything else keeps the default chunking:
+         * returning undefined leaves the decision to Rollup.
+         */
+        manualChunks(id: string) {
+          if (id.includes('@mlc-ai/web-llm')) return 'web-llm'
+          return undefined
+        },
+      },
+    },
   },
   test: {
     globals: true,

@@ -1,0 +1,21 @@
+{
+  "name": "sahayak-ai-proxy",
+  "private": true,
+  "version": "0.1.0",
+  "type": "module",
+  "description": "Tier 2 for Sahayak: a Cloudflare Worker that forwards /v1/messages to Anthropic under the operator's key.",
+  "license": "MIT",
+  "scripts": {
+    "dev": "wrangler dev",
+    "deploy": "wrangler deploy",
+    "typecheck": "tsc -p tsconfig.json --noEmit",
+    "test": "vitest run"
+  },
+  "devDependencies": {
+    "esbuild": "0.28.1",
+    "miniflare": "4.20260730.0",
+    "typescript": "5.9.3",
+    "vitest": "4.1.11",
+    "wrangler": "4.127.1"
+  }
+}

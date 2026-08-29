@@ -178,7 +178,15 @@ export async function runAgent(params: RunAgentParams): Promise<AgentRun> {
   for (steps = 1; steps <= maxSteps; steps += 1) {
     if (signal?.aborted) return fail('aborted', 'The run was cancelled.')
 
-    if (budgetLimit !== null) {
+    // Tier 0 is exempt, and that is not a loophole. The monthly ceiling is a
+    // SPENDING cap — `AiSettings.monthlyTokenBudget` sits under "what this
+    // costs you" in Settings — and an on-device run spends nothing. Enforcing
+    // it here would mean a reader who downloaded 1.6 GB of weights precisely so
+    // that nothing leaves the device is refused an answer in the last week of
+    // the month because of a number about somebody else's bill. The cost of a
+    // Tier 0 run is the reader's own battery and their own wait, both of which
+    // they can see.
+    if (budgetLimit !== null && tier !== 'local') {
       const budget = await ledger.state(budgetLimit)
       if (budget.exhausted) {
         return fail(

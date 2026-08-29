@@ -70,6 +70,29 @@ const SITE_ORIGIN = (() => {
 
 const escapeForRegExp = (value: string) => value.replace(/[.*+?^${}()|[\]\\]/g, '\\$&')
 
+/**
+ * Tier 2's proxy origin, when the build being swept was given one.
+ *
+ * `VITE_AI_PROXY_URL` is inlined by Vite wherever `proxyUrlFromEnv()` reads
+ * `import.meta.env`, so an operator who deploys the Worker and rebuilds has a
+ * URL in `dist/` that this sweep has never seen. Read from the environment the
+ * same way SITE_ORIGIN is, rather than allowlisted as a literal — the value is
+ * different for every operator, and a hard-coded entry would be an entry for
+ * somebody else's deployment.
+ *
+ * A build with no proxy configured — which is every build CI makes, and the
+ * one this repository ships — adds nothing here at all.
+ */
+const PROXY_ORIGIN = (() => {
+  const raw = process.env.VITE_AI_PROXY_URL
+  if (!raw) return undefined
+  try {
+    return new URL(raw).origin
+  } catch {
+    throw new Error(`no-external-urls: VITE_AI_PROXY_URL is not a URL: ${raw}`)
+  }
+})()
+
 const ALLOWED_INERT: ReadonlyArray<{ pattern: RegExp; why: string }> = [
   {
     pattern: new RegExp(`^${escapeForRegExp(SITE_ORIGIN)}(/|$)`),
@@ -136,6 +159,62 @@ const ALLOWED_INERT: ReadonlyArray<{ pattern: RegExp; why: string }> = [
   {
     pattern: OPT_IN_ENDPOINT.pattern,
     why: 'Tier 1 BYOK endpoint; reached only after explicit consent, from one lazy-loaded module',
+  },
+  ...(PROXY_ORIGIN
+    ? [
+        {
+          pattern: new RegExp(`^${escapeForRegExp(PROXY_ORIGIN)}(/|$)`),
+          why:
+            'Tier 2 proxy origin, from this build\u2019s own VITE_AI_PROXY_URL. Reached only after explicit ' +
+            'consent and only when the reader has chosen the shared-service tier; the app ships with no ' +
+            'proxy configured, so this entry exists for an operator who deployed worker/ (ADR-037).',
+        },
+      ]
+    : []),
+  /*
+    @mlc-ai/web-llm 0.2.84 — Tier 0's runtime (ADR-037).
+
+    These are the ONLY entries in this list that name a host the app really
+    does fetch from, and they are here rather than being refused because Tier 0
+    is a download by definition: an on-device model has to arrive on the device
+    once. What makes that acceptable is the shape of the request, not its
+    absence — the reader chooses the tier, reads a consent notice that names
+    the download, and then presses a button in Settings; nothing the officer
+    types is anywhere near it; and with AI off, which is every device's
+    default, none of this code is even fetched.
+
+    `prebuiltAppConfig` carries a record for each of web-llm's ~165 prebuilt
+    models, so 163 distinct huggingface.co URLs ship whether or not this app
+    offers those models. `src/ai/local/catalogue.ts` is the shortlist of five
+    that can actually be selected, `src/ai/local/engine.ts` narrows the engine's
+    own `model_list` to those five so an id outside it cannot start a download,
+    and `src/ai/local/catalogue.test.ts` asserts each of the five resolves to
+    these two hosts and no other.
+
+    Matched by host, and narrowed the same way the OOXML namespaces are: the
+    `confines the on-device model hosts` assertion below permits them in the
+    `web-llm` chunk and nowhere else in the build, so this entry cannot be used
+    to smuggle a fetchable URL into application code.
+  */
+  {
+    pattern: /^https:\/\/huggingface\.co\/mlc-ai\//,
+    why:
+      "the model weights for every record in web-llm's prebuiltAppConfig. Fetched only for the five " +
+      'models src/ai/local/catalogue.ts offers, only on the reader\u2019s explicit Download press, and only ' +
+      'after the Tier 0 consent notice that names this download (public/_headers permits it in connect-src).',
+  },
+  {
+    pattern: /^https:\/\/raw\.githubusercontent\.com\/mlc-ai\/binary-mlc-llm-libs\//,
+    why:
+      'the compiled model library (.wasm) each record pairs with its weights; mlc-ai publishes these from a ' +
+      'GitHub repository rather than from Hugging Face. Same trigger, same consent, same one chunk.',
+  },
+  {
+    pattern: /^https:\/\/webgpureport\.org\/?$/,
+    why:
+      "web-llm's own \u201cyour browser has no WebGPU\u201d error message points the reader at this diagnostic " +
+      'page. Message text, never fetched \u2014 and Sahayak never shows it: src/ai/local/webgpu.ts probes first ' +
+      'and src/ai/local/engine.ts#loadFailureMessage rewrites what is left into a sentence naming a remedy.',
   },
   {
     pattern: /^https:\/\/radix-ui\.com\/primitives\/docs\/components\/\$\{[^}]*\}$/,
@@ -226,7 +305,7 @@ const ALLOWED_INERT: ReadonlyArray<{ pattern: RegExp; why: string }> = [
     pattern:
       /^https?:\/\/(www\.)?(rajyasabha\.nic\.in|mpa\.(nic|gov)\.in|cabsec\.gov\.in|mha\.nic\.in|pppinindia\.com|darpg\.(nic|gov)\.in|meity\.gov\.in|oams\.nic\.in|apms\.nic\.in|supremo\.nic\.in|egazette\.nic\.in|eoffice\.gov\.in|docs\.eoffice\.gov\.in)(\/|$)/,
     why:
-      'quoted verbatim from CSMOP 2022\'s Table 4.2 reference list in data/rules/text/csmop.json — a ' +
+      "quoted verbatim from CSMOP 2022's Table 4.2 reference list in data/rules/text/csmop.json — a " +
       'reader sees these as plain text inside the rule body, never as a link the app renders or fetches, ' +
       'the same way `citationUrls()` below already documents for this file. Not added to CITATION_HOSTS ' +
       'for the reason recorded there: about twenty quoted hosts would turn a reviewed-citation allowlist ' +
@@ -234,7 +313,8 @@ const ALLOWED_INERT: ReadonlyArray<{ pattern: RegExp; why: string }> = [
   },
   {
     pattern: /^https?:\/\/(www\.)?164\.100\.47\.192\//,
-    why: "CSMOP 2022's Table 4.2 again — the Lok Sabha Secretariat's rules/directions pages, cited by IP " +
+    why:
+      "CSMOP 2022's Table 4.2 again — the Lok Sabha Secretariat's rules/directions pages, cited by IP " +
       'address in the manual itself rather than by a hostname.',
   },
   {
@@ -641,6 +721,46 @@ describe('no external URLs', () => {
 
       expect(carriers).toHaveLength(1)
       expect(carriers[0]).toMatch(/^dist[\\/]assets[\\/]docx-[\w-]+\.js$/)
+    })
+
+    /**
+     * The on-device model hosts are allowed in ONE chunk, for the same reason
+     * and by the same mechanism as the OOXML namespaces above.
+     *
+     * This one matters more, because unlike the OOXML namespaces these hosts
+     * are genuinely fetched. Confining them to the `web-llm` chunk is what
+     * makes the entry in ALLOWED_INERT a review rather than a hole: an
+     * application module that started naming huggingface.co would fail here,
+     * and so would a build in which the chunker folded that library into
+     * something a reader loads without asking for it.
+     *
+     * `vite.config.ts` gives the chunk a fixed NAME (`manualChunks`) precisely
+     * so this assertion and the service worker's `globIgnores` can both refer
+     * to it. If that name changes, both break together, which is the point.
+     */
+    whenBuilt('confines the on-device model hosts to the web-llm chunk', () => {
+      const hosts = /https:\/\/(huggingface\.co|raw\.githubusercontent\.com|webgpureport\.org)/
+      const carriers = walk(dist, BUILD_EXTENSIONS)
+        .filter((file) => hosts.test(readFromRoot(relative(projectRoot, file))))
+        .map((file) => relative(projectRoot, file))
+
+      expect(carriers).toHaveLength(1)
+      expect(carriers[0]).toMatch(/^dist[\\/]assets[\\/]web-llm-[\w-]+\.js$/)
+    })
+
+    /**
+     * And that chunk is on no route at all until the reader asks for it.
+     *
+     * ~6 MB, 2.2 MB gzip. It is reached only through the dynamic imports
+     * inside `src/ai/local/engine.ts`, which run when the Download button in
+     * Settings is pressed — not when Settings opens, not when Tier 0 is
+     * selected. It is also kept out of the service worker's precache
+     * (`globIgnores` in vite.config.ts), so an installed device that never
+     * turns AI on never holds a byte of it.
+     */
+    whenBuilt('keeps the on-device runtime off the initial route and out of the precache', () => {
+      expect(readFromRoot('dist/index.html')).not.toMatch(/web-llm-[\w-]+\.js/)
+      expect(readFromRoot('dist/sw.js')).not.toMatch(/web-llm-[\w-]+\.js/)
     })
 
     /**

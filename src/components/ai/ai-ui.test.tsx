@@ -58,9 +58,16 @@ describe('the AI settings section', () => {
       within(dialog).getByText(/Never enter official, sensitive or classified content/),
     ).toBeInTheDocument()
     // Each tier states, in one line, what it sends.
-    expect(within(dialog).getByText(/Nothing leaves the device/)).toBeInTheDocument()
+    expect(within(dialog).getByText(/Nothing you type leaves the device/)).toBeInTheDocument()
     expect(within(dialog).getByText(/are sent to Anthropic/)).toBeInTheDocument()
     expect(within(dialog).getByText(/Anthropic bills your own account/)).toBeInTheDocument()
+    // Tier 0's line names the one thing that DOES cross the network on that
+    // tier, and it is why CONSENT_VERSION went to 2 (ADR-037). "Nothing leaves
+    // the device" full stop was true of a tier that did not exist yet.
+    expect(within(dialog).getByText(/downloaded once, from its public host/)).toBeInTheDocument()
+    // A build with no VITE_AI_PROXY_URL cannot offer the shared service, and
+    // must not describe it either — the notice has to be about this app.
+    expect(within(dialog).queryByText(/this app's operator/)).not.toBeInTheDocument()
   })
 
   it('records consent only when the reader accepts, not when they dismiss', async () => {
@@ -94,13 +101,17 @@ describe('the AI settings section', () => {
     useAppStore.setState({ ai: consented })
     render(<AiSettingsSection />)
 
-    const options = within(tierGroup()).getAllByRole('radio')
-    expect(options.map((option) => option.textContent?.split('No')[0]?.trim())).toBeTruthy()
-    // Tier 0 needs the on-device model and Tier 2 needs a proxy URL; neither
-    // ships here, so both are shown disabled with a reason rather than hidden.
-    expect(screen.getByRole('radio', { name: /On this device/ })).toBeDisabled()
-    expect(screen.getByRole('radio', { name: /Shared service/ })).toBeDisabled()
+    // Tier 0 and Tier 1 ship in every build, so both are selectable. Whether
+    // this particular device can RUN Tier 0 is a WebGPU question answered
+    // inside its own section, with the reason and with a smaller model to
+    // fall back to — not by disabling the row (ADR-037).
+    expect(screen.getByRole('radio', { name: /On this device/ })).toBeEnabled()
     expect(screen.getByRole('radio', { name: /Your own Anthropic key/ })).toBeEnabled()
+    // Tier 2 has nowhere to send a request in a build with no
+    // VITE_AI_PROXY_URL, and a permanently disabled control the reader can do
+    // nothing about is noise rather than disclosure.
+    expect(screen.queryByRole('radio', { name: /Shared service/ })).not.toBeInTheDocument()
+    expect(within(tierGroup()).getAllByRole('radio')).toHaveLength(3)
     await waitFor(() => expect(screen.getByLabelText('Model')).toBeEnabled())
   })
 

@@ -202,8 +202,8 @@
       "tiers": {
         "local": {
           "name": "On this device",
-          "leaves": "Nothing leaves the device. The model runs inside your browser.",
-          "cost": "Free, after a large one-time download."
+          "leaves": "Nothing you type leaves the device. The model itself is downloaded once, from its public host, before you first use it.",
+          "cost": "Free. The one-time download is 0.9–2.5 GB depending on the model you pick."
         },
         "byok": {
           "name": "Your own Anthropic key",
@@ -226,9 +226,9 @@
     },
     "tierHint": {
       "off": "No AI surface is shown and no request is made.",
-      "local": "Arrives in a later session, once the on-device model ships.",
+      "local": "Runs in this browser on your graphics card. Free, after a large one-time download.",
       "byok": "Paste a key from your Anthropic console. It stays in this browser.",
-      "proxy": "Not configured in this build."
+      "proxy": "Sent to this app's operator, who forwards it to Anthropic. Free to you."
     },
     "model": {
       "label": "Model",
@@ -267,6 +267,40 @@
       "fromCache": "From cache",
       "fresh": "Answer fresh"
     },
+    "local": {
+      "title": "On-device model",
+      "intro": "The model runs inside this browser, on your graphics card. Nothing you type leaves this device. The one-time download is large and is kept in this browser's storage.",
+      "sizeNote": "The size shown is the graphics memory each model needs; the download is a little smaller. On-device answers are shorter and less reliable than the paid options — every section and rule number is still checked against this app's own tables before you see it, and an answer that fails that check is discarded rather than shown.",
+      "installed": "Downloaded",
+      "notInstalled": "Not downloaded",
+      "download": "Download model",
+      "reload": "Load model",
+      "unload": "Unload from memory",
+      "delete": "Delete download",
+      "cancel": "Cancel download",
+      "cancelNote": "Cancelling stops the wait, not a transfer already in flight. Whatever has arrived is kept, and downloading again continues from there.",
+      "downloading": "Downloading {{model}}",
+      "progress": "{{percent}}% downloaded",
+      "loaded": "{{model}} is loaded and ready.",
+      "failed": "The model could not be loaded.",
+      "webgpu": {
+        "yes": "WebGPU available",
+        "no": "No WebGPU",
+        "absent": "This browser has no WebGPU support, so no model can run on this device. Chrome, Edge and recent Safari have it.",
+        "noAdapter": "This browser supports WebGPU but found no graphics adapter it can use. Hardware acceleration may be switched off."
+      },
+      "hindi": {
+        "poor": "Hindi: rough",
+        "limited": "Hindi: limited",
+        "usable": "Hindi: usable"
+      },
+      "fit": {
+        "tight": "may be tight on this device",
+        "tooLarge": "too large for this device",
+        "needsF16": "this graphics card cannot run it",
+        "noWebgpu": "needs WebGPU"
+      }
+    },
     "kill": {
       "title": "Turn everything off",
       "body": "Switches AI off, deletes the stored key and the key that encrypts it, and clears cached answers and the token count.",
@@ -284,7 +318,7 @@
       "empty": "The assistant returned no answer.",
       "aborted": "Cancelled.",
       "no_key": "No key is stored on this device.",
-      "not_installed": "The on-device model is not part of this build.",
+      "not_installed": "The on-device model has not been downloaded yet. Download it in Settings first.",
       "not_configured": "AI is not configured.",
       "auth": "The key was rejected.",
       "rate_limited": "Too many requests. Try again shortly.",

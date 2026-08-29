@@ -1,6 +1,6 @@
-import { useCallback, useEffect, useState } from 'react'
+import { Suspense, lazy, useCallback, useEffect, useState } from 'react'
 
-import { TIER_DISCLOSURES, acceptConsentPatch, tierAvailable } from '@/ai/consent'
+import { TIER_DISCLOSURES, acceptConsentPatch, tierAvailable, tierPickable } from '@/ai/consent'
 import { hasConsent, isAiEnabled, proxyUrlFromEnv, tierReady } from '@/ai/flags'
 import { AI_MODELS, findModel } from '@/ai/models'
 import { ANTHROPIC_KEY_ID, clearSecret, hasStoredKey, storeSecret } from '@/ai/secrets'
@@ -10,7 +10,7 @@ import { useAppStore } from '@/app/store'
 import { AiBanner } from '@/components/ai/AiBanner'
 import { AiConsentModal } from '@/components/ai/AiConsentModal'
 import { AiKillSwitch } from '@/components/ai/AiKillSwitch'
-import { Badge, OptionRow } from '@/components/ui-x'
+import { Badge, OptionRow, Skeleton } from '@/components/ui-x'
 import { Button } from '@/components/ui/button'
 import { useT } from '@/i18n/useT'
 
@@ -25,6 +25,16 @@ import { useT } from '@/i18n/useT'
  * The only thing on this screen that makes a network request is "Test
  * connection", and only on a click. Nothing here fires on mount.
  */
+
+/**
+ * Tier 0's own section, and the ~6 MB `@mlc-ai/web-llm` chunk it can reach.
+ *
+ * Lazy for the same reason every other AI import in this app is lazy, one
+ * level deeper: a reader who opens Settings on Tier 1 must not download the
+ * on-device machinery, and a reader on Tier 0 downloads the SECTION here while
+ * the library itself waits for the Download button inside it.
+ */
+const LocalModelSection = lazy(() => import('@/components/ai/LocalModelSection'))
 
 const TIER_LABEL = {
   off: 'ai.tier.off',
@@ -168,7 +178,7 @@ export default function AiSettingsSection() {
         <div className="flex flex-col gap-2">
           <h3 className="text-sm font-semibold">{t('ai.tier.label')}</h3>
           <div role="radiogroup" aria-label={t('ai.tier.label')} className="flex flex-col gap-2">
-            {AI_TIERS.map((tier: AiTier) => {
+            {AI_TIERS.filter((tier: AiTier) => tierPickable(tier, proxyUrl)).map((tier: AiTier) => {
               const selectable = tier === 'off' || tierAvailable(tier, proxyUrl)
               return (
                 <OptionRow
@@ -186,6 +196,12 @@ export default function AiSettingsSection() {
             })}
           </div>
         </div>
+
+        {settings.tier === 'local' ? (
+          <Suspense fallback={<Skeleton className="h-40 w-full" />}>
+            <LocalModelSection />
+          </Suspense>
+        ) : null}
 
         {settings.tier === 'byok' ? (
           <div className="flex flex-col gap-2">
@@ -239,33 +255,43 @@ export default function AiSettingsSection() {
           </div>
         ) : null}
 
-        <div className="flex flex-col gap-2">
-          <label htmlFor="ai-model" className="text-sm font-semibold">
-            {t('ai.model.label')}
-          </label>
-          <p className="text-xs text-muted-foreground">{t('ai.model.hint')}</p>
-          <select
-            id="ai-model"
-            value={settings.model}
-            onChange={(event) => {
-              // A result proved the key against the old model, not this one.
-              setTest({ status: 'idle' })
-              void setAi({ model: event.target.value })
-            }}
-            className="h-11 rounded-lg border border-input bg-background px-3 text-sm focus-visible:ring-2 focus-visible:ring-ring focus-visible:outline-none"
-          >
-            {AI_MODELS.map((model) => (
-              <option key={model.id} value={model.id}>
-                {model.label}
-              </option>
-            ))}
-            {/* A row written by a newer build names a model this one does not
-                know. Showing it keeps the control honest — silently rendering
-                the first option would tell the reader they had chosen
-                something they had not. */}
-            {findModel(settings.model) ? null : <option value={settings.model}>{settings.model}</option>}
-          </select>
-        </div>
+        {/* The API model picker names Anthropic models, none of which Tier 0
+            runs — the on-device model is chosen in the section above. Showing
+            both at once was two pickers for one word.
+
+            Not rendered rather than hidden with a class: `display: none` leaves
+            a labelled <select> in the DOM, which is a control that exists for
+            anything reading the document and does not exist for the reader.
+            The same rule the drafting panel's brief box follows (ADR-032 §5). */}
+        {settings.tier === 'local' ? null : (
+          <div className="flex flex-col gap-2">
+            <label htmlFor="ai-model" className="text-sm font-semibold">
+              {t('ai.model.label')}
+            </label>
+            <p className="text-xs text-muted-foreground">{t('ai.model.hint')}</p>
+            <select
+              id="ai-model"
+              value={settings.model}
+              onChange={(event) => {
+                // A result proved the key against the old model, not this one.
+                setTest({ status: 'idle' })
+                void setAi({ model: event.target.value })
+              }}
+              className="h-11 rounded-lg border border-input bg-background px-3 text-sm focus-visible:ring-2 focus-visible:ring-ring focus-visible:outline-none"
+            >
+              {AI_MODELS.map((model) => (
+                <option key={model.id} value={model.id}>
+                  {model.label}
+                </option>
+              ))}
+              {/* A row written by a newer build names a model this one does not
+                  know. Showing it keeps the control honest — silently rendering
+                  the first option would tell the reader they had chosen
+                  something they had not. */}
+              {findModel(settings.model) ? null : <option value={settings.model}>{settings.model}</option>}
+            </select>
+          </div>
+        )}
 
         <div className="flex flex-col gap-2">
           <label htmlFor="ai-budget" className="text-sm font-semibold">

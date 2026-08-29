@@ -1,3 +1,4 @@
+import { DEFAULT_LOCAL_MODEL, findLocalModel } from './local/catalogue'
 import { DEFAULT_MODEL } from './models'
 import { isAiTier, type AiTier } from './types'
 
@@ -7,16 +8,31 @@ import { isAiTier, type AiTier } from './types'
  * the tool registry — sits behind a dynamic import, so a reader who never turns
  * AI on never downloads it.
  *
- * This module therefore has no runtime imports beyond a single string constant
- * and a type guard. Keep it that way.
+ * This module therefore has almost no runtime imports: a default model id, a
+ * type guard, and — since Tier 0 shipped — `src/ai/local/catalogue.ts`, which
+ * is five object literals and two `Array.find` wrappers with no URL and no
+ * further import of its own. It is here because `parseAiSettings` has to be
+ * able to reject a `localModel` this build does not offer, and a parser that
+ * cannot check a value is not a parser. Nothing else may be added: no zod, no
+ * WebCrypto, no provider, no dataset. `tests/bundle-budget.test.ts` is what
+ * holds the line.
  */
 
 /**
  * Bumping this invalidates every stored consent: readers must read the notice
  * again before anything can leave the device. Bump it whenever the "what leaves
  * the device" text changes in substance, not for a typo.
+ *
+ * 1 → 2 (Tier 0). Tier 0 was described in version 1's notice as an option that
+ * did not exist yet; it now does, and choosing it downloads roughly a gigabyte
+ * of model weights from a public host. Nothing the reader TYPES leaves the
+ * device, which is what the tier promises and what it still delivers — but a
+ * device that makes no request at all and a device that fetches a gigabyte
+ * once are not the same device, and a reader who consented on the strength of
+ * the first sentence is owed the second one. That is a change of substance,
+ * so every device reads the notice again.
  */
-export const CONSENT_VERSION = 1
+export const CONSENT_VERSION = 2
 
 /** Tokens per calendar month, across input and output. Zero means "no calls". */
 export const DEFAULT_MONTHLY_TOKEN_BUDGET = 200_000
@@ -36,6 +52,18 @@ export interface AiSettings {
   hasKey: boolean
   /** Serve repeat non-personal questions from the local answer cache. */
   answerCache: boolean
+  /** Tier 0: which model from `src/ai/local/catalogue.ts` the reader chose. */
+  localModel: string
+  /**
+   * Mirrors "the weights are in this browser's Cache API".
+   *
+   * Like `hasKey`, it is a mirror and not the truth: the truth is what
+   * `hasModelInCache()` answers, and `LocalModelSection` reconciles the two
+   * whenever it renders. It is stored at all because `tierReady()` is
+   * synchronous — a surface has to decide whether to render itself without
+   * awaiting a Cache API round trip.
+   */
+  localModelInstalled: boolean
 }
 
 /**
@@ -50,6 +78,8 @@ export const DEFAULT_AI_SETTINGS: AiSettings = {
   monthlyTokenBudget: DEFAULT_MONTHLY_TOKEN_BUDGET,
   hasKey: false,
   answerCache: true,
+  localModel: DEFAULT_LOCAL_MODEL,
+  localModelInstalled: false,
 }
 
 const isRecord = (value: unknown): value is Record<string, unknown> =>
@@ -82,6 +112,15 @@ export function parseAiSettings(value: unknown): AiSettings {
     monthlyTokenBudget: budget,
     hasKey: value.hasKey === true,
     answerCache: value.answerCache !== false,
+    // An id this build does not offer falls back to the default rather than
+    // through: `ensureLocalEngine` would refuse it anyway, and a settings
+    // screen showing a model that cannot be selected is worse than one showing
+    // the model that will actually run.
+    localModel:
+      typeof value.localModel === 'string' && findLocalModel(value.localModel)
+        ? value.localModel
+        : DEFAULT_AI_SETTINGS.localModel,
+    localModelInstalled: value.localModelInstalled === true,
   }
 }
 
@@ -98,7 +137,7 @@ export function hasConsent(settings: AiSettings): boolean {
 /**
  * A tier is only usable once its prerequisite is met. `byok` needs a key;
  * `proxy` needs the build to have been given a proxy URL; `local` needs the
- * on-device model, which Session 24 installs.
+ * weights to be in this browser's Cache API already.
  */
 export function tierReady(settings: AiSettings, proxyUrl: string | undefined): boolean {
   switch (settings.tier) {
@@ -109,7 +148,10 @@ export function tierReady(settings: AiSettings, proxyUrl: string | undefined): b
     case 'proxy':
       return Boolean(proxyUrl)
     case 'local':
-      return false
+      // The weights have to be on the device. Anything else would mean a
+      // reader pressing "Ask" and triggering a gigabyte of download they never
+      // asked for — the download is a deliberate act in Settings.
+      return settings.localModelInstalled
   }
 }
 

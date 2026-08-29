@@ -7,7 +7,20 @@ import tseslint from 'typescript-eslint'
 
 export default tseslint.config(
   {
-    ignores: ['dist/**', 'coverage/**', 'node_modules/**', 'public/fonts/**', 'src/components/ui/**'],
+    ignores: [
+      'dist/**',
+      'coverage/**',
+      'node_modules/**',
+      'public/fonts/**',
+      'src/components/ui/**',
+      // worker/ is a separate package with its own tsconfig, its own
+      // dependency tree and its own CI job (ci.yml, job `worker`). Type-aware
+      // linting here would need it added to the app's tsconfig project, which
+      // is the opposite of what keeping it separate is for. Listed explicitly
+      // rather than left to fall through no `files` pattern by accident —
+      // ADR-037.
+      'worker/**',
+    ],
   },
 
   // Application source: type-aware linting.

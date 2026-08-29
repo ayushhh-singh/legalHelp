@@ -112,6 +112,46 @@ jobs:
         run: python scripts/ingest/pay_matrix.py --check
 
   # ------------------------------------------------------------------ #
+  # 2b. The Tier 2 proxy. A SEPARATE package with its own dependency
+  #     tree (miniflare pulls workerd, ~90 MB), so it is not part of the
+  #     app's install and `pnpm check` does not cover it — which is
+  #     precisely why it needs a job of its own rather than a promise in
+  #     a README. See worker/README.md and ADR-037.
+  #
+  #     It reaches no network: the upstream is stubbed with miniflare's
+  #     `outboundService`, and no Anthropic key is needed or provided.
+  # ------------------------------------------------------------------ #
+  worker:
+    name: Worker — the Tier 2 proxy's four guards
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: pnpm/action-setup@v4
+        with:
+          version: 9.15.9
+
+      - uses: actions/setup-node@v4
+        with:
+          node-version-file: .nvmrc
+          cache: pnpm
+          cache-dependency-path: worker/pnpm-lock.yaml
+
+      # --ignore-workspace: worker/ is deliberately not part of the app's
+      # install. Without it pnpm would walk up and resolve against the root.
+      - name: Install
+        working-directory: worker
+        run: pnpm install --frozen-lockfile --ignore-workspace
+
+      - name: Typecheck
+        working-directory: worker
+        run: pnpm typecheck
+
+      - name: Policy tests and the miniflare run
+        working-directory: worker
+        run: pnpm test
+
+  # ------------------------------------------------------------------ #
   # 3. The build, and the assertions that can only be made against one.
   #    Uploads dist/ so the e2e job does not build it a second time —
   #    testing a separately-built dist/ would be testing a different

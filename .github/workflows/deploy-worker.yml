@@ -1,0 +1,96 @@
+name: Deploy the AI proxy
+
+# MANUAL ONLY. There is no push trigger and there must not be one.
+#
+# This deploys `worker/` — the Tier 2 proxy — which spends the operator's own
+# Anthropic credit on every request it forwards. A push-triggered deploy would
+# mean any merge to main could change the limits protecting that credit, or
+# republish a Worker the operator had deliberately taken down. `deploy.yml`
+# (Cloudflare Pages) is automatic because publishing a static site costs
+# nothing and is trivially reversible; this is neither.
+#
+# It also never touches ANTHROPIC_API_KEY. That is put once, by hand, with
+# `wrangler secret put`, and a redeploy keeps it — see worker/README.md. A
+# workflow that could write the key would be a workflow that could read it back
+# out of a log.
+
+on:
+  workflow_dispatch:
+    inputs:
+      confirm:
+        description: 'Type "deploy" to confirm. This publishes a Worker that spends your Anthropic credit.'
+        required: true
+        default: ''
+
+permissions:
+  contents: read
+
+concurrency:
+  group: deploy-worker
+  cancel-in-progress: false
+
+jobs:
+  deploy:
+    # A second gate beyond the manual trigger, because "Run workflow" is one
+    # click from a list of workflows and this is the only one on that list that
+    # costs money.
+    if: inputs.confirm == 'deploy'
+    runs-on: ubuntu-latest
+    environment: ai-proxy
+
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: pnpm/action-setup@v4
+        with:
+          version: 9.15.9
+
+      - uses: actions/setup-node@v4
+        with:
+          node-version-file: .nvmrc
+          cache: pnpm
+          cache-dependency-path: worker/pnpm-lock.yaml
+
+      - name: Install
+        working-directory: worker
+        run: pnpm install --frozen-lockfile --ignore-workspace
+
+      # The same two gates CI runs, re-run here on the artefact actually being
+      # deployed. A Worker whose rate limiter is broken must not reach the
+      # internet with a real key behind it.
+      - name: Typecheck and test before publishing
+        working-directory: worker
+        run: pnpm typecheck && pnpm test
+
+      # A placeholder KV id means `wrangler kv namespace create RL` was never
+      # run, or its output was never pasted into wrangler.toml. Deploying with
+      # it fails at Cloudflare with a message about a namespace, which reads
+      # like an outage rather than an unfinished setup step.
+      - name: Refuse a wrangler.toml that was never finished
+        working-directory: worker
+        run: |
+          if grep -q 'REPLACE_WITH_YOUR_KV_NAMESPACE_ID' wrangler.toml; then
+            echo "::error file=worker/wrangler.toml::The RL namespace id is still the placeholder."
+            echo "Run 'wrangler kv namespace create RL' and paste the id — see worker/README.md."
+            exit 1
+          fi
+
+      - name: Publish
+        uses: cloudflare/wrangler-action@v3
+        with:
+          apiToken: ${{ secrets.CLOUDFLARE_API_TOKEN }}
+          accountId: ${{ secrets.CLOUDFLARE_ACCOUNT_ID }}
+          workingDirectory: worker
+          command: deploy
+
+      - name: Summarise
+        run: |
+          {
+            echo "### AI proxy deployed"
+            echo
+            echo "Set \`VITE_AI_PROXY_URL\` to the Worker's URL and rebuild the app —"
+            echo "the \"Shared service\" tier appears only in a build that had it."
+            echo
+            echo "The Anthropic key is NOT set by this workflow. If \`/healthz\` reports"
+            echo "\`keyConfigured: false\`, run \`wrangler secret put ANTHROPIC_API_KEY\`."
+          } >> "$GITHUB_STEP_SUMMARY"

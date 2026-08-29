@@ -39,11 +39,22 @@ Identical app code in all three. Only where the tokens are produced changes.
 | 2    | `proxy`  | `ProxyProvider`           | The same, to the app operator's Cloudflare Worker, which forwards to Anthropic | The operator                     |
 | —    | `off`    | none                      | Nothing. No provider module is even downloaded                                 | —                                |
 
-**This build ships Tier 1 only.** Tier 0 is an interface plus a stub that throws
-`not_installed`; Tier 2 needs `VITE_AI_PROXY_URL`, which this build does not set.
-Both are shown in Settings as **disabled options with a reason** rather than
-hidden — a hidden option reads as a missing feature, a disabled one explains
-itself.
+**This build ships Tiers 0 and 1.** Tier 2 needs `VITE_AI_PROXY_URL`, which this
+build does not set, so its row is not drawn at all — see §12 for why that one is
+hidden while Tier 0's own refusals stay visible, and for the three steps that
+turn it on.
+
+Tier 0 is the one place where the "zero outbound requests" rule has a footnote,
+and it is worth being exact about it. Nothing the reader TYPES ever leaves the
+device on that tier — there is no `fetch` in `src/ai/providers/local.ts`,
+`src/ai/local/engine.ts` or `src/ai/local/protocol.ts`, and the model runs in
+the browser's own GPU process. What does cross the network is the model itself,
+once: roughly a gigabyte of weights from `huggingface.co` plus a compiled
+runtime from `raw.githubusercontent.com`, fetched by `@mlc-ai/web-llm` when the
+reader presses **Download** in Settings. That is why `CONSENT_VERSION` went
+1 → 2 when the tier shipped: version 1's notice described Tier 0 as an option
+that did not exist, and "nothing leaves the device" full stop was true of a
+tier nobody could select.
 
 ### The consent gate
 
@@ -117,8 +128,13 @@ src/ai/
     wire.ts         THE ONLY MODULE THAT MAY CALL fetch
     anthropic-direct.ts   Tier 1
     proxy.ts              Tier 2
-    local.ts              Tier 0 (stub)
+    local.ts              Tier 0 — the emulated tool loop over the engine below
     mock.ts               used by every test
+  local/            Tier 0's own machinery. Nothing here imports a provider
+    catalogue.ts    the five models offered, with sizes and Hindi notes
+    webgpu.ts       the WebGPU probe and the memory guard, both pure
+    protocol.ts     the emulated tool protocol: prompt in, ContentPart[] out
+    engine.ts       the one engine singleton; the only module that loads web-llm
   tools/
     registry.ts     registerTool / listTools / toolSpecs / exportToolManifest
     index.ts        the built-in tools; registers the module tools below
@@ -281,13 +297,13 @@ by `data/drafting` and already checkable by `src/lib/drafting/checklist.ts`.
 So the agent produces FIELD VALUES and lets the engine lay them out and mark
 them. Five stages, of which two are the model's and three are the agent's:
 
-| # | Stage      | Whose | What it does |
-| - | ---------- | ----- | ------------ |
-| 1 | `screening`  | code  | `screenBrief()` — pure, and BEFORE any provider call |
-| 2 | `planning`   | model | picks the form, explains it in a line, asks ≤3 bilingual questions, returns field values as structured output |
-| 3 | `checking`   | code  | calls `render_draft` then `check_draft` over the values that actually came back |
-| 4 | `revising`   | model | one further pass, given the failing items and their `why` |
-| 5 | `rechecking` | code  | stage 3 again, over the revision |
+| #   | Stage        | Whose | What it does                                                                                                  |
+| --- | ------------ | ----- | ------------------------------------------------------------------------------------------------------------- |
+| 1   | `screening`  | code  | `screenBrief()` — pure, and BEFORE any provider call                                                          |
+| 2   | `planning`   | model | picks the form, explains it in a line, asks ≤3 bilingual questions, returns field values as structured output |
+| 3   | `checking`   | code  | calls `render_draft` then `check_draft` over the values that actually came back                               |
+| 4   | `revising`   | model | one further pass, given the failing items and their `why`                                                     |
+| 5   | `rechecking` | code  | stage 3 again, over the revision                                                                              |
 
 Three rules follow from that shape and none of them is negotiable:
 
@@ -381,13 +397,13 @@ then writes "Section 103 of the BNS" fails its own citation check every time.
 The fix is not to weaken the rule. It is to turn the tool results INTO snippets
 and ask again:
 
-| # | Stage | Whose | What |
-| - | ----- | ----- | ---- |
-| 1 | `screening` | code | `screenLawQuestion()`, before any provider call |
-| 2 | `researching` | model | calls the law tools; ends with `Gathered [T1] [T2]` and nothing else |
-| 3 | `reading` | code | each successful tool result becomes a numbered, type-labelled `Snippet` |
-| 4 | `answering` | model | **no tools**; writes the structured answer from those snippets alone |
-| 5 | `verifying` | code | `validateCitations`, then every citation re-derived from the evidence |
+| #   | Stage         | Whose | What                                                                    |
+| --- | ------------- | ----- | ----------------------------------------------------------------------- |
+| 1   | `screening`   | code  | `screenLawQuestion()`, before any provider call                         |
+| 2   | `researching` | model | calls the law tools; ends with `Gathered [T1] [T2]` and nothing else    |
+| 3   | `reading`     | code  | each successful tool result becomes a numbered, type-labelled `Snippet` |
+| 4   | `answering`   | model | **no tools**; writes the structured answer from those snippets alone    |
+| 5   | `verifying`   | code  | `validateCitations`, then every citation re-derived from the evidence   |
 
 **Anything a future prose agent does will hit this same wall.** If you are
 writing one, start from this shape rather than discovering it.
@@ -476,16 +492,17 @@ except one is a single `runAgent` pass with no tool loop for the model at all.
 
 `explainAnswer`, `weeklyFocusPlan`, `explainPayslip` and `compareJobsForReader`
 all call their tools directly, in code, BEFORE the model runs — `get_rule_text`
-+ `get_card_history`, `get_user_weak_areas`, `compute_pay_for_job` +
-`explain_pay_line` + `get_allowance_source`, and `compare_jobs` respectively —
-and hand the real result back as numbered PLATFORM CONTEXT. The model is
-offered `tools: []` and run with `groundedRequired: false`: there is nothing
-for it to call, because the fetch already happened, deterministically, the
-same lesson `src/ai/agents/drafting.ts` teaches by calling
-`render_draft`/`check_draft` itself rather than trusting the model's report of
-them. A model that claims to have read Rule 3 is reporting an intention, and a
-rule's text — or a pay slip this app already computed — is cheap enough to read
-for real.
+
+- `get_card_history`, `get_user_weak_areas`, `compute_pay_for_job` +
+  `explain_pay_line` + `get_allowance_source`, and `compare_jobs` respectively —
+  and hand the real result back as numbered PLATFORM CONTEXT. The model is
+  offered `tools: []` and run with `groundedRequired: false`: there is nothing
+  for it to call, because the fetch already happened, deterministically, the
+  same lesson `src/ai/agents/drafting.ts` teaches by calling
+  `render_draft`/`check_draft` itself rather than trusting the model's report of
+  them. A model that claims to have read Rule 3 is reporting an intention, and a
+  rule's text — or a pay slip this app already computed — is cheap enough to read
+  for real.
 
 This also sidesteps a real trap the law agent's own ADR-035 names: `runAgent`'s
 grounding check only requires that the answer cite AT LEAST ONE tool result;
@@ -622,10 +639,57 @@ the reader an estimate — this app never sees a bill.
 
 The default is **Claude Sonnet 4.6** ($3 / $15 per million in / out), not a
 larger model: these agents are grounded lookups over bundled tables, not open
-reasoning. A typical grounded run is roughly 1.5–4k input tokens (persona +
-tools + context, most of it served from the prompt cache after the first call)
-and a few hundred output tokens — a fraction of a rupee. Claude Opus 5 is
-offered in the picker for readers who want it.
+reasoning. Claude Opus 5 is offered in the picker for readers who want it, and
+is deliberately NOT on the Worker's default model allowlist — Tier 1 spends the
+reader's money and Tier 2 spends the operator's.
+
+### One run, in rupees
+
+A grounded run in this app is one to three provider calls. Sonnet's rate is
+**$0.003 per 1,000 input tokens**, **$0.015 per 1,000 output**, and — the number
+that actually decides the bill — **$0.0003 per 1,000 cached input tokens**, a
+tenth of the uncached rate. Writing to the cache costs $0.00375 per 1,000, a
+quarter more than reading fresh, and is paid once per prefix per five minutes.
+
+A law "Ask" run is the worked example. Its cached prefix — persona,
+`prompts/law.md`, the tool list — is about 2,400 tokens; the volatile part
+(language directive, the officer's question, the numbered snippets stage 3
+builds) is about 1,200; the two model passes produce perhaps 500 output tokens
+between them.
+
+|                                                      | tokens | rate / 1k |    cost |
+| ---------------------------------------------------- | -----: | --------: | ------: |
+| Cached prefix, **first** run in five minutes (write) |  2,400 |  $0.00375 | $0.0090 |
+| Cached prefix, **every later** run (read)            |  2,400 |   $0.0003 | $0.0007 |
+| Volatile input                                       |  1,200 |    $0.003 | $0.0036 |
+| Output                                               |    500 |    $0.015 | $0.0075 |
+
+So a **cold** run costs about **$0.020** and a **warm** one about **$0.012** —
+roughly ₹1.7 and ₹1.0. The monthly default ceiling of 200,000 tokens is on the
+order of forty to sixty runs, and about **$0.60**. An officer asking a dozen
+questions a day for a month lands near **$4**.
+
+Without the cached prefix the same warm run costs $0.0147 rather than $0.0119 —
+about 25% more, and the gap widens with every prompt file added, which is why
+`prompts/*.md` sits in the cached segment and the language directive does not.
+
+### The two tiers that are not billed this way
+
+**Tier 0 costs nothing per run**, and the layer says so rather than guessing:
+`estimateCost()` returns 0 for any id in `src/ai/local/catalogue.ts`, because
+`resolveModel()` would otherwise price an unknown id at the DEFAULT model's rate
+and show a dollar figure for tokens nobody was billed for. `runAgent` also skips
+the monthly ceiling entirely when `tier === 'local'` — that ceiling is a
+spending cap, and refusing an on-device answer because of a number about
+somebody else's bill would be absurd. What Tier 0 costs instead is a one-time
+download of 0.9–2.5 GB, the reader's battery, and a wait: a 1.5B model on
+integrated graphics produces on the order of twenty tokens a second, so the
+500-token run above takes half a minute rather than three seconds.
+
+**Tier 2 costs the operator** exactly what the table above says, for everybody.
+`worker/wrangler.toml`'s default `DAILY_TOKEN_BUDGET` of 500,000 is therefore
+under two US dollars a day even if it is reached every day, and the Worker
+refuses rather than warns when it is.
 
 Three things keep the bill down, in order of effect: the **cached prompt
 prefix** (a cache read is ~10% of an input token), the **answer cache**, and the
@@ -656,3 +720,127 @@ Before an AI surface ships:
       site.
 - [ ] `pnpm check` is green; `pnpm build && pnpm test` keeps the bundle budget;
       `pnpm test:e2e` keeps the privacy and a11y guarantees.
+- [ ] If the surface can run on Tier 0, its agent has a `TIER_POLICIES.local`
+      row — fewer research steps, fewer snippets, a shorter answer. A policy
+      sized for a frontier model is a minute of waiting per step on a device
+      generating twenty tokens a second.
+
+---
+
+## 12. Turning each tier on
+
+Nothing below changes a line of application code. All three tiers run the same
+agents through the same `runAgent`, and the only difference is where the tokens
+are produced — which is what the provider seam is for.
+
+### Tier 0 — on this device
+
+Nothing to configure and nothing to deploy. A reader opens **Settings → AI
+features**, reads the notice, chooses **On this device**, picks a model and
+presses **Download**.
+
+What decides whether it works is the device, and the section says so before
+anything is fetched:
+
+- **WebGPU.** `probeWebGpu()` asks for an adapter on mount. No adapter is a real
+  answer with two distinct causes — no WebGPU API at all (Firefox today), or an
+  API with no usable adapter (hardware acceleration switched off) — and each
+  gets its own sentence, because each has a different remedy.
+- **`shader-f16`.** Every q4f16 build needs it. The catalogue carries one q4f32
+  model precisely so "your graphics card cannot run any of these" is not the
+  answer an ordinary office machine gets.
+- **Memory.** `fitFor()` compares the model's declared requirement against
+  `navigator.deviceMemory`. That figure is quantised and capped at 8 in every
+  browser that reports it, so a value AT the cap is treated as absent — a 64 GB
+  workstation reports what an 8 GB laptop reports, and the first version of this
+  guard warned about the 3B models for the majority of readers who can run them
+  comfortably. Firefox and Safari report nothing at all, and nothing is refused
+  on a number this app made up.
+
+None of that predicts an out-of-memory failure, because WebGPU exposes no
+video-memory figure by design. What catches the real failure is
+`loadFailureMessage()`, which turns "Device lost" into a sentence naming a
+smaller model.
+
+The download is resumable and that resumability is web-llm's, not this app's:
+weights land in the **Cache API** shard by shard, so **Cancel** stops the wait
+rather than the transfer, and pressing Download again continues from what
+arrived. **Unload** frees the GPU and keeps the download; **Delete download**
+removes the weights, the tokenizer and the chat config.
+
+Two things about Tier 0 that are not obvious from the outside:
+
+1. **Tool calls are emulated**, in the prompt, by `src/ai/local/protocol.ts` —
+   a small quantised model has no tool-calling wire format. One JSON object per
+   turn, either `{"tool": …, "input": …}` or `{"answer": …}`, read back
+   strictly. The parser is strict about exactly one thing: a turn is a tool call
+   if and only if it names a tool. Everything else about the call is
+   `runAgent`'s to validate, which it already does with a recovery round — two
+   validators disagreeing would mean the one further from the model wins
+   silently.
+2. **Two tool steps, not the agent's six.** `LOCAL_MAX_TOOL_STEPS` is 2. A
+   1.5B model given six chances spends them re-reading the same section, and on
+   a device generating twenty tokens a second that is a minute per step.
+   `src/ai/agents/law.ts#TIER_POLICIES.local` already assumed this shape.
+
+The library is ~6 MB and is loaded by dynamic import inside
+`src/ai/local/engine.ts` — on the Download press, not when Settings opens and
+not when the tier is selected. It is the one chunk excluded from the service
+worker's precache (`globIgnores` in `vite.config.ts`), so a device that never
+turns AI on never holds a byte of it.
+
+### Tier 1 — the reader's own key
+
+**Settings → AI features → Your own Anthropic key**, paste a key from the
+Anthropic console, press **Test connection** (exactly one request, of one
+token). The key is encrypted at rest; §3 is honest about what that does and does
+not defend against.
+
+### Tier 2 — the shared service
+
+This one needs a deployment, and it is the only tier that does. `worker/` is a
+standalone package with its own `README.md`, its own dependency tree and its own
+CI job; the five steps are there. In short:
+
+```bash
+cd worker && pnpm install --ignore-workspace
+pnpm exec wrangler login
+pnpm exec wrangler kv namespace create RL     # paste the id into wrangler.toml
+pnpm exec wrangler secret put ANTHROPIC_API_KEY
+pnpm deploy
+```
+
+**The order matters, and it is the order to follow when credits arrive:**
+
+1. **Deploy the Worker** — `pnpm --dir worker deploy`, or the
+   `workflow_dispatch`-only `.github/workflows/deploy-worker.yml`. Confirm with
+   `curl .../healthz`, which spends nothing and reports `keyConfigured`.
+2. **Set `VITE_AI_PROXY_URL`** to the Worker's URL in the app's build
+   environment.
+3. **Rebuild and redeploy the app.** The tier appears only in a build that had
+   the variable — `proxyUrlFromEnv()` reads `import.meta.env`, which Vite inlines
+   at build time. `vite.config.ts` also appends the Worker's origin to
+   `connect-src` in `dist/_headers` in the same build, so the policy and the
+   feature ship together or not at all.
+
+Doing 2 before 1 produces an app offering a tier that 404s. Doing 3 before 2
+produces an app that silently does not offer it, which is the safe direction and
+is the state this repository ships in.
+
+**Why Tier 2's row is hidden and Tier 0's refusals are not.** ADR-030's rule was
+"show a disabled option with a reason, never a hidden one", and it was right
+when both unbuilt tiers were coming. What survives it is _who can act_: Tier 0
+tells the reader something about their own device, which they can do something
+about; "not configured in this build" is about somebody the reader has never
+met. `tierPickable()` is that question and `tierAvailable()` is the other one.
+
+**What the Worker can see, and what it keeps.** It can see every prompt that
+passes through it — that is the whole difference between Tier 1 and Tier 2, and
+the consent notice says so to the reader in both languages. It logs no body, no
+prompt text and no response; it reads exactly two fields of the request
+(`model`, `max_tokens`) and forwards the rest unread; it forwards none of the
+caller's headers, so a cookie or a referer cannot cross that boundary by
+accident; and it writes two integers to KV, both expiring. Four guards run
+before the key is attached — origin, per-IP rate limit, model allowlist, daily
+token budget — and `worker/test/policy.test.ts` proves each by calling it while
+`worker/test/worker.test.ts` proves the wiring in workerd.

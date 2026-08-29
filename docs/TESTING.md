@@ -242,6 +242,40 @@ sends nothing; pressing "Draft it" is what sends, and that spec never does. The 
 `tests/e2e/draft.spec.ts`: with AI off, the panel, the ✨ controls and any chunk matching
 `AiDraftPanel|anthropic` are all absent.
 
+### Tier 0, which is the one tier a test cannot run end to end
+
+`src/ai/providers/local.ts` takes its generator as an injected function, so
+`src/ai/providers/local.test.ts` exercises the whole provider — the prompt it builds, the emulated
+tool protocol, the two-step cap, cancellation, usage — against a scripted stub with no GPU and no
+download, and then runs a complete grounded run through the real `runAgent`.
+`src/ai/local/protocol.test.ts` drives that parser from named fixtures in
+`src/ai/fixtures/local-turns.ts`: every string there is a shape a small quantised model actually
+emits (a fence, a `<think>` block, the OpenAI function-calling shape with stringified arguments, a
+Devanagari argument containing a brace). `src/ai/local/catalogue.test.ts` reads every id, size and
+host back out of `@mlc-ai/web-llm`'s own `prebuiltAppConfig`, so a library upgrade cannot ship a
+picker quoting a number nobody can reproduce.
+
+`tests/e2e/ai-local.spec.ts` proves what a browser can prove and not more. Headless Chromium has no
+WebGPU adapter and a real download would be a test of Hugging Face's uptime, so it asserts that
+choosing the tier and reading the whole model list **contacts nothing** (no `allowCrossOrigin`
+declared), that a device which cannot run a model is told so and the Download button is disabled,
+that the section passes axe, and — with `navigator.gpu` stubbed and every cross-origin request
+answered `404` — that the download reaches **only** `huggingface.co` and
+`raw.githubusercontent.com`, asserted host by host from what the browser actually requested.
+
+### The Tier 2 proxy has its own runner
+
+`worker/` is a standalone package and **`pnpm check` does not cover it** — `ci.yml`'s `worker` job
+does, and `pnpm --dir worker test` is how to run it by hand. 42 tests in two files, and the split is
+the same one `src/lib/**` has from the components: `test/policy.test.ts` proves the four guards
+(origin, per-IP rate limit, model allowlist, daily token budget) by calling them with a Map-backed
+KV stub, because a limit that is off by one is invisible to an integration test that sends one
+request; `test/worker.test.ts` runs the same Worker in **miniflare** — real workerd, upstream stubbed
+with `outboundService` — for the two things only a runtime settles: that the outbound request carries
+the operator's key and none of the caller's headers (asserted with sentinels planted in a cookie, a
+referer, an `authorization` and a caller-supplied `x-api-key`), and that an SSE body streams through
+rather than buffering. Neither suite reaches the network.
+
 ---
 
 ### 8. Data pipeline — Python
@@ -255,14 +289,15 @@ unvalidated. Read `scripts/ingest/README.md` and `docs/AUTHORING.md` before touc
 
 ## CI
 
-Four jobs, so a failure names its own cause (`.github/workflows/ci.yml`):
+Five jobs, so a failure names its own cause (`.github/workflows/ci.yml`):
 
-| Job     | Runs                                                                  | Why separate                                                                              |
-| ------- | --------------------------------------------------------------------- | ----------------------------------------------------------------------------------------- |
-| `unit`  | lint, typecheck, i18n parity, Vitest with coverage thresholds         | Fails in ~2 minutes on a typo. Uploads `coverage/`; fails if `docs/COVERAGE.md` is stale. |
-| `data`  | the Python parsers and every dataset schema                           | A parser regression should not be hidden behind a TypeScript error.                       |
-| `build` | `pnpm build`, then the three dist-only suites and `pnpm size`         | Uploads `dist/` as an artefact.                                                           |
-| `e2e`   | Playwright, a matrix over the two projects, against that same `dist/` | `fail-fast: false` — a phone-only defect is the point of the matrix.                      |
+| Job      | Runs                                                                  | Why separate                                                                                                                                                                                                                                                          |
+| -------- | --------------------------------------------------------------------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| `unit`   | lint, typecheck, i18n parity, Vitest with coverage thresholds         | Fails in ~2 minutes on a typo. Uploads `coverage/`; fails if `docs/COVERAGE.md` is stale.                                                                                                                                                                             |
+| `data`   | the Python parsers and every dataset schema                           | A parser regression should not be hidden behind a TypeScript error.                                                                                                                                                                                                   |
+| `worker` | `worker/`'s own typecheck and its 42 tests, in its own install        | A separate package with a separate dependency tree (miniflare pulls workerd, ~90 MB). Pulling that into the app's install to test a Worker the app does not import would be the wrong trade; leaving it untested because `pnpm check` cannot reach it would be worse. |
+| `build`  | `pnpm build`, then the three dist-only suites and `pnpm size`         | Uploads `dist/` as an artefact.                                                                                                                                                                                                                                       |
+| `e2e`    | Playwright, a matrix over the two projects, against that same `dist/` | `fail-fast: false` — a phone-only defect is the point of the matrix.                                                                                                                                                                                                  |
 
 `e2e` downloads the `dist/` the `build` job produced rather than building its own: testing a
 separately-built artefact would be testing something other than what the previous job verified. The

@@ -130,6 +130,11 @@ Everything you enter stays in your browser, on your device, in IndexedDB.
 
 - **The AI layer is off, and off means not downloaded.** It is built in full and dormant. Turning it on is an
   explicit, revocable choice; until then the browser never downloads the code that could reach a network.
+  There are three ways to turn it on and you pick one: **on this device** (a model runs in your own browser
+  on your own graphics card — nothing you type ever leaves the machine, at the cost of a one-time 0.9–2.5 GB
+  download you start by hand), **your own Anthropic key** (stored encrypted here, billed to you), or a
+  **shared service** if whoever deployed this copy set one up. The notice you have to read before any of it
+  says, per option, exactly what leaves the device.
 
 Three tests hold this rather than a promise: `tests/no-external-urls.test.ts` sweeps the production build for
 any fetchable external reference, `tests/e2e/zero-third-party-requests.spec.ts` drives the real app through
@@ -138,9 +143,11 @@ network-capable code is absent from the initial download. The update check does 
 same-origin, so the cross-origin count stays at zero, and it is the second of exactly two modules in the whole
 app permitted to call `fetch` — a restriction enforced by lint and independently re-counted by that first test.
 
-The deployed site sends a strict Content-Security-Policy (`connect-src 'self'`, no `unsafe-eval`,
-`frame-ancestors 'none'`) from [`public/_headers`](public/_headers), and `tests/e2e/csp.spec.ts` replays that
-exact policy in a real browser on every route.
+The deployed site sends a strict Content-Security-Policy from [`public/_headers`](public/_headers) — no
+`unsafe-eval`, `frame-ancestors 'none'`, and a `connect-src` that names nothing but the app's own origin and
+the AI destinations you would have had to opt into. `tests/e2e/csp.spec.ts` replays that exact policy in a
+real browser on every route, and compares those two directives as token lists rather than by substring,
+because a substring check on a security policy is how a policy gets wider without anyone noticing.
 
 **Backups are your own.** Settings → Backup exports everything to a file and imports it back. Clearing your
 browser's site data erases your settings and progress, and nobody — including us — can restore them.

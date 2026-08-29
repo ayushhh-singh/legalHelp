@@ -1,5 +1,7 @@
 import { useCallback, useEffect, useRef } from 'react'
 
+import { tierPickable } from '@/ai/consent'
+import { proxyUrlFromEnv } from '@/ai/flags'
 import { AiBanner } from '@/components/ai/AiBanner'
 import { Button } from '@/components/ui/button'
 import { useT } from '@/i18n/useT'
@@ -18,16 +20,19 @@ interface AiConsentModalProps {
  */
 const TIER_COPY = [
   {
+    tier: 'local',
     name: 'ai.consent.tiers.local.name',
     leaves: 'ai.consent.tiers.local.leaves',
     cost: 'ai.consent.tiers.local.cost',
   },
   {
+    tier: 'byok',
     name: 'ai.consent.tiers.byok.name',
     leaves: 'ai.consent.tiers.byok.leaves',
     cost: 'ai.consent.tiers.byok.cost',
   },
   {
+    tier: 'proxy',
     name: 'ai.consent.tiers.proxy.name',
     leaves: 'ai.consent.tiers.proxy.leaves',
     cost: 'ai.consent.tiers.proxy.cost',
@@ -54,6 +59,7 @@ export function AiConsentModal({ open, onAccept, onCancel }: AiConsentModalProps
   const { t } = useT()
   const panel = useRef<HTMLDivElement>(null)
   const titleId = 'ai-consent-title'
+  const proxyUrl = proxyUrlFromEnv()
 
   const focusables = useCallback(
     () => [...(panel.current?.querySelectorAll<HTMLElement>(FOCUSABLE) ?? [])],
@@ -152,7 +158,11 @@ export function AiConsentModal({ open, onAccept, onCancel }: AiConsentModalProps
         <section className="mt-5">
           <h3 className="text-sm font-semibold">{t('ai.consent.tiersHeading')}</h3>
           <dl className="mt-2 space-y-3">
-            {TIER_COPY.map((copy) => (
+            {/* A build with no proxy URL cannot offer the shared service, and
+                the tier picker hides that row (ADR-037). Describing here what
+                a reader is about to consent to must match what they will
+                actually be offered, or the notice is about a different app. */}
+            {TIER_COPY.filter((copy) => tierPickable(copy.tier, proxyUrl)).map((copy) => (
               <div key={copy.name} className="rounded-lg border border-border p-3">
                 <dt className="text-sm font-semibold">{t(copy.name)}</dt>
                 <dd className="mt-1 text-sm text-muted-foreground">{t(copy.leaves)}</dd>
