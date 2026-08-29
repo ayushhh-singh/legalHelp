@@ -111,15 +111,32 @@ Everything you enter stays in your browser, on your device, in IndexedDB.
 
 - **No accounts.** There is nothing to sign up for.
 - **No backend for user data.** The app is a static bundle; there is no server to send anything to.
-- **No analytics, no ads, no trackers** — not even privacy-preserving ones.
-- **No third-party requests at runtime.** Fonts are self-hosted. Datasets are bundled, not fetched.
+- **No analytics, no ads, no trackers** — not even privacy-preserving ones. Nothing about what you read,
+  search for, calculate or draft ever leaves the device.
+- **No third-party requests, ever.** Fonts are self-hosted and every dataset ships inside the app.
+- **One request does leave this device, and here is exactly what it is.** At most once a day, the app asks
+  its own origin whether newer reference data has been published — a single request for one small file,
+  `data/_meta/versions.json`. It carries nothing about you: no identifier, no page, no query, no setting.
+  What the host can see is what any web server sees when a page is opened — your IP address and the time.
+
+  Being straight about the one thing that changes: this app precaches everything, so once installed it can
+  be opened with **no** network request at all. Turning this check on means the origin's access log learns
+  that a device opened the app that day, where before it learned nothing.
+
+  It is **on by default**, because the figures here go stale in ways that matter — a Dearness Allowance rate
+  that moved last month is a real problem for someone filing a claim — and the reader least likely to find
+  the setting is the one most likely to be caught by stale data. **You can turn it off** in Settings, beside
+  the manual "Check for data updates" button. With it off, an installed copy makes no network request at all.
+
 - **The AI layer is off, and off means not downloaded.** It is built in full and dormant. Turning it on is an
   explicit, revocable choice; until then the browser never downloads the code that could reach a network.
 
 Three tests hold this rather than a promise: `tests/no-external-urls.test.ts` sweeps the production build for
 any fetchable external reference, `tests/e2e/zero-third-party-requests.spec.ts` drives the real app through
 every route while counting cross-origin requests, and `tests/bundle-budget.test.ts` proves the AI layer's
-network-capable code is absent from the initial download.
+network-capable code is absent from the initial download. The update check does not weaken any of them: it is
+same-origin, so the cross-origin count stays at zero, and it is the second of exactly two modules in the whole
+app permitted to call `fetch` — a restriction enforced by lint and independently re-counted by that first test.
 
 The deployed site sends a strict Content-Security-Policy (`connect-src 'self'`, no `unsafe-eval`,
 `frame-ancestors 'none'`) from [`public/_headers`](public/_headers), and `tests/e2e/csp.spec.ts` replays that
