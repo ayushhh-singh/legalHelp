@@ -1,13 +1,15 @@
 import { BookOpen, Bookmark, Scale, Sparkles } from 'lucide-react'
-import { useDeferredValue, useEffect, useMemo, useRef, useState } from 'react'
+import { Suspense, lazy, useDeferredValue, useEffect, useMemo, useRef, useState } from 'react'
 import { Link, useSearchParams } from 'react-router-dom'
 
+import { lawAiAvailable } from './ai-seam'
 import { CodeChips, DirectionToggle } from './components/Filters'
 import { OffenceDateField } from './components/OffenceDateField'
 import { ResultList } from './components/ResultList'
 import { SectionResultCard } from './components/SectionResultCard'
 import { NoteBanner } from './components/NoteBanner'
 import { SearchBar } from './components/SearchBar'
+import { sectionBase } from './resolve'
 import { recordLookup } from './saved'
 import { browseCode, searchLaw, type LawHit, type LawSearchEngine } from './search'
 import { SEARCH_RESULT_LIMIT } from '@/lib/search'
@@ -15,6 +17,8 @@ import type { LawCode } from './types'
 import { useLawEngine } from './useLawEngine'
 import { parseLawParams, recallOffenceDate, rememberOffenceDate, toLawParams } from './url'
 
+import type { LawCitation } from '@/ai/agents/law'
+import { useAi } from '@/ai/useAi'
 import { EmptyState } from '@/components/common/EmptyState'
 import { PageHeader } from '@/components/common/PageHeader'
 import { Badge, QueryErrorState, SectionCard, SectionNumber, Skeleton } from '@/components/ui-x'
@@ -37,6 +41,15 @@ import { cn } from '@/lib/utils'
  * does not silently drop the fact that the offence was in 2023. It is never
  * written to storage.
  */
+/**
+ * The "Ask" panel is `lazy` and is mounted only when AI is on, so a reader with
+ * it off never downloads it. That is a privacy property rather than a
+ * performance one (`docs/AI.md`): the code that could reach the network is not
+ * on the device of anyone who has not asked for it. `useAi` itself is safe to
+ * import eagerly — it reads `src/ai/flags.ts` and nothing else.
+ */
+const AskPanel = lazy(() => import('./components/AskPanel').then((module) => ({ default: module.AskPanel })))
+
 /** How long a section must stay on screen before it counts as "looked at". */
 const LOOKUP_DWELL_MS = 1500
 
@@ -198,6 +211,37 @@ export default function ConverterPage() {
     setActiveIndex(-1)
   }
 
+  const ai = useAi()
+  const askAvailable = lawAiAvailable(ai.enabled)
+
+  /**
+   * Open the section an answer cited, in the card below.
+   *
+   * The query it writes NAMES THE ACT — `"BNS 318"`, never a bare `"318"` —
+   * for the reason ADR-029 records: each Act restarts its own numbering, and
+   * plenty of numbers also exist as a real section of the repealed Act the same
+   * digits happen to share, so a bare number re-parses as the wrong provision
+   * on a fresh visit.
+   *
+   * A citation of a REPEALED provision deliberately sets no `chosenId`. There
+   * is no document for "IPC 420" to open — the converter's answer to it is
+   * BNS 318 — so the search opens its own best hit, which is that section. A
+   * doc id built from the old number would have opened BNS 420, a different
+   * offence entirely.
+   */
+  const openCitation = (citation: LawCitation) => {
+    const base = sectionBase(citation.section)
+    const repealed = citation.act === 'IPC' || citation.act === 'CrPC' || citation.act === 'IEA'
+    update({ query: `${citation.act} ${base}`, code: citation.code, browse: false })
+    if (repealed) {
+      setChosenId(null)
+      setDismissedFor(null)
+      setActiveIndex(-1)
+    } else {
+      openSection(citation.code, base)
+    }
+  }
+
   return (
     <div className={cn('mx-auto flex flex-col gap-6', selected ? 'max-w-6xl' : 'max-w-4xl')}>
       <div data-print-hide>
@@ -255,6 +299,12 @@ export default function ConverterPage() {
           />
         </div>
       </div>
+
+      {askAvailable ? (
+        <Suspense fallback={null}>
+          <AskPanel ai={ai} offenceDate={date} onOpenCitation={openCitation} />
+        </Suspense>
+      ) : null}
 
       {engine.status === 'loading' ? (
         <div data-print-hide className="space-y-3" aria-busy="true">

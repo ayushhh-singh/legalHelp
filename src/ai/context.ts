@@ -23,7 +23,16 @@ import type { Language } from '@/i18n'
  * invented section number is the worst thing that can happen.
  */
 
-export type SnippetType = 'rule' | 'section' | 'computed' | 'progress' | 'glossary' | 'template' | 'note'
+export type SnippetType =
+  | 'rule'
+  | 'section'
+  | 'classification'
+  | 'mapping'
+  | 'computed'
+  | 'progress'
+  | 'glossary'
+  | 'template'
+  | 'note'
 
 /**
  * The label the model sees. Written as a noun phrase describing provenance,
@@ -34,6 +43,18 @@ export type SnippetType = 'rule' | 'section' | 'computed' | 'progress' | 'glossa
 const TYPE_LABELS: Record<SnippetType, (source?: string) => string> = {
   rule: (source) => (source ? `rule text: ${source}` : 'rule text'),
   section: (source) => (source ? `section ${source}, from NCRB table` : 'section, from NCRB table'),
+  /*
+    A First Schedule row is NOT a heading, and the whole reason this label
+    exists is that the two read alike in a prompt. "Punishable with imprisonment
+    for life" is what the Schedule says about BNS 103; the section's own heading
+    says "Punishment for murder". A model handed both under one `section` label
+    can answer "is it bailable" from the heading, which cannot answer it. See
+    ADR-035.
+  */
+  classification: (source) =>
+    source ? `classification, BNSS First Schedule: ${source}` : 'classification, BNSS First Schedule',
+  mapping: (source) =>
+    source ? `old→new mapping: ${source}, from NCRB table` : 'old→new mapping, from NCRB table',
   computed: (source) => (source ? `computed pay line: ${source}` : 'computed pay line'),
   progress: () => "user's own progress",
   glossary: (source) => (source ? `glossary entry: ${source}` : 'glossary entry'),

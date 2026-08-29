@@ -15,7 +15,7 @@ import {
   UNGROUNDED_FINAL,
 } from './fixtures/scripts'
 import { MockProvider, type MockScript } from './providers/mock'
-import { buildSystem } from './prompts'
+import { buildSystem, PROMPT_VERSIONS } from './prompts'
 import { clearRegistry, listTools, registerTool } from './tools/registry'
 import { registerBuiltinTools } from './tools/index'
 import type { UsageLedger } from './agent'
@@ -113,7 +113,10 @@ describe('runAgent — the tool loop', () => {
 
     expect(meta).toMatchObject({
       agentId: AGENT,
-      promptVersion: 1,
+      // Read from the record rather than restated. The claim here is that the
+      // run STAMPS its agent's prompt version, not that the number is 1 —
+      // restating it made every prompt edit fail a test about provenance.
+      promptVersion: PROMPT_VERSIONS[AGENT],
       tier: 'byok',
       contextIds: ['n1'],
       cached: false,

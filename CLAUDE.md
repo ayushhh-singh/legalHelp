@@ -437,6 +437,37 @@ are load-bearing, and each is enforced by a test rather than by convention:
 
 ### Notes for the next session
 
+- **The law agent, the pay explainer and the rules tutor were built CONCURRENTLY in one working
+  tree, by three sessions coordinating with direct messages** — the arrangement Sessions 12/13, 14,
+  15 and 21 established. Ownership was split by path: this one owned `src/ai/agents/law.ts`,
+  `src/ai/prompts/law.md`, `src/modules/law/**` and the `law.ask.*` i18n block; the other owned
+  `src/ai/agents/{pay,tutor}.ts`, `src/modules/{pay,trainer}/**` and the `pay.ai.*`/`trainer.ai.*`
+  blocks. Four files were edited across the line and each was announced first: `src/ai/context.ts`
+  (two additive `SnippetType` members), `src/ai/prompts.ts` (each session bumped only its own
+  agents' `PROMPT_VERSIONS` entries), `src/ai/agent.test.ts` (it asserted `promptVersion: 1` as a
+  LITERAL, which broke the moment either session bumped anything — it reads `PROMPT_VERSIONS[AGENT]`
+  now, because the claim there is that a run stamps its version, not that the number is 1), and
+  `docs/AI.md` (§7A and §7B were both inserted before `## 8`, deliberately, so no section already
+  cited by another file moved). Because both sessions had edited CLAUDE.md, `docs/AI.md`,
+  `docs/DECISIONS.md` and `src/i18n/*.json`, those shared files landed in whichever commit went
+  first rather than being split by hunk. Read ADR-035 and ADR-036 together.
+
+- **A `pnpm check` run while a Playwright run is in flight can fail for a reason that is not about
+  the code.** ESLint walks `test-results/`, which Playwright deletes and recreates at the start of
+  a run, and the scan dies with `ENOENT: scandir 'test-results'`. It is not a lint error and there
+  is nothing to fix in the config; wait for the tree to go quiet, or `rm -rf test-results` first.
+
+- **Two Playwright runs at once collide on port 4173, and the loser reports APP failures.** The
+  same `reuseExistingServer: !CI` that causes the stale-`dist/` trap also means the second run
+  attaches to the first run's server — and when the first finishes, it tears that server down under
+  the second. What the victim reports is `net::ERR_CONNECTION_REFUSED` followed by a string of
+  "element(s) not found", which is indistinguishable from a genuinely broken page unless you read
+  far enough up to find the refused connection. One e2e run on this machine at a time; check
+  `ps aux | grep [p]laywright` before starting one. Three distinct ways this shared working tree
+  produced a MISLEADING test result in one session — a stale bundle passing an absence assertion, a
+  lint crash with no lint error, and app failures that were really a dead server — and none of the
+  three was a defect in any code under test.
+
 - **`validateCitations()` makes a one-pass prose agent impossible, and that is the single most
   transferable thing this session learned.** The rule rejects a provision number that appears in no
   CITED CONTEXT SNIPPET. Tool results are not context snippets — they arrive as `tool_result` blocks
