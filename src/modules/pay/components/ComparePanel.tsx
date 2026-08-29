@@ -126,7 +126,9 @@ export function ComparePanel({
         </div>
       </SectionCard>
 
-      {ai.enabled ? <PayCompareAiPanel key={`${a.jobId ?? ''}:${b.jobId ?? ''}`} ai={ai} a={a} b={b} /> : null}
+      {ai.enabled ? (
+        <PayCompareAiPanel key={`${a.jobId ?? ''}:${b.jobId ?? ''}`} ai={ai} a={a} b={b} tables={tables} />
+      ) : null}
     </div>
   )
 }

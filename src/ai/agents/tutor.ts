@@ -4,9 +4,8 @@ import { runAgent, type UsageLedger } from '../agent'
 import { buildContext, type BuiltContext } from '../context'
 import { buildSystem, PROMPT_VERSIONS } from '../prompts'
 import type { AiProvider } from '../provider'
-import { listTools, validateToolInput, type RegisteredTool } from '../tools/registry'
+import { callToolDirectly, listTools, type RegisteredTool } from '../tools/registry'
 import {
-  AiError,
   EMPTY_USAGE,
   isAiError,
   type AiErrorCode,
@@ -17,7 +16,9 @@ import {
 } from '../types'
 import { estimateCost } from '../usage'
 
+import { db } from '@/db'
 import type { Language } from '@/i18n'
+import { cardSchema } from '@/modules/trainer/schema'
 
 /**
  * The Rules Trainer's coaching agent — "Explain", "Give me a scenario on this
@@ -56,26 +57,12 @@ function system(language: Language, context: BuiltContext) {
   return buildSystem({ agentId: AGENT_ID, language, context })
 }
 
-/* ------------------------------------------------------------------ *
- * Calling a registered tool directly, without the model in the loop
- * ------------------------------------------------------------------ */
-
-async function callTool(
+const callTool = (
   tools: readonly RegisteredTool[],
   name: string,
   input: unknown,
   signal: AbortSignal | undefined,
-): Promise<unknown> {
-  const tool = tools.find((entry) => entry.def.name === name)
-  if (!tool) throw new AiError('unknown_tool', `The tutor agent needs the "${name}" tool.`)
-  const validation = validateToolInput(tool, input)
-  if (!validation.ok) throw new AiError('invalid_args', validation.message)
-  const handler = tool.def.handler as (
-    value: unknown,
-    ctx: { language: Language; signal: AbortSignal },
-  ) => Promise<unknown>
-  return handler(validation.value, { language: 'en', signal: signal ?? new AbortController().signal })
-}
+): Promise<unknown> => callToolDirectly(tools, name, input, { signal, callerLabel: 'tutor agent' })
 
 /* ------------------------------------------------------------------ *
  * Progress, shared params, shared results
@@ -407,6 +394,27 @@ export async function proposeScenario(params: ProposeScenarioParams): Promise<Tu
       message: `The model did not actually store a scenario card${
         parsedOutput?.success && parsedOutput.data.error ? ` (${parsedOutput.data.error})` : ''
       }.`,
+      usage: run.usage,
+      cost: estimateCost(run.meta.model, run.usage),
+    }
+  }
+
+  // `stored: true` only says SOME card landed — not that it is a card ABOUT
+  // this rule. A model can call propose_card with a shape the tool accepts
+  // for a completely different act/rule than the one it was asked for and
+  // this branch alone would still call that success. The stored row itself,
+  // never the model's account of it, is what settles that — parsed through
+  // `cardSchema`, the same check `reviewQueue.ts` applies to this table's
+  // `unknown`-typed `card` column on its own way out.
+  const storedRow = await db.proposedCards.get(parsedOutput.data.id)
+  const storedCard = storedRow ? cardSchema.safeParse(storedRow.card) : null
+  if (!storedCard?.success || storedCard.data.act !== act || storedCard.data.rule !== rule) {
+    return {
+      status: 'error',
+      code: 'ungrounded',
+      message: `The model proposed a card for ${
+        storedCard?.success ? `${storedCard.data.act} Rule ${storedCard.data.rule}` : 'an unrecognisable rule'
+      }, not ${act} Rule ${rule}.`,
       usage: run.usage,
       cost: estimateCost(run.meta.model, run.usage),
     }

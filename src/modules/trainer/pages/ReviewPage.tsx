@@ -9,6 +9,7 @@ import { submitReport, toggleBookmark } from '../store'
 import { useEffectiveCatalogue } from '../useCatalogue'
 import { useNow } from '../useNow'
 import { useTrainerSettings } from '../useTrainerSettings'
+import { activeWrongAnswerFor, type WrongAnswerRecord } from '../wrongAnswer'
 
 import { useAi } from '@/ai/useAi'
 import { EmptyState } from '@/components/common/EmptyState'
@@ -58,16 +59,13 @@ export default function ReviewPage() {
   const [reportNote, setReportNote] = useState('')
   const [reportSaved, setReportSaved] = useState(false)
   /**
-   * Keyed by the card it was recorded for, and filtered at read time below —
-   * not reset by an effect watching `current?.qId`, which
-   * `react-hooks/set-state-in-effect` is right to reject: a `setState` inside
-   * an effect body cascades a render for state that is trivially derivable
-   * from props already in hand.
+   * Filtered at read time below via `activeWrongAnswerFor` — not reset by an
+   * effect watching `current?.qId`, which `react-hooks/set-state-in-effect`
+   * is right to reject: a `setState` inside an effect body cascades a render
+   * for state that is trivially derivable from props already in hand.
    */
-  const [wrongAnswer, setWrongAnswer] = useState<{ qId: string; picked: string; correctText: string } | null>(
-    null,
-  )
-  const activeWrongAnswer = wrongAnswer && current && wrongAnswer.qId === current.qId ? wrongAnswer : null
+  const [wrongAnswer, setWrongAnswer] = useState<WrongAnswerRecord | null>(null)
+  const activeWrongAnswer = activeWrongAnswerFor(wrongAnswer, current)
 
   if (!catalogue || !settings || queue == null) {
     return (
@@ -127,7 +125,7 @@ export default function ReviewPage() {
             onToggleBookmark={() => void toggleBookmark(current.qId)}
             onReport={() => setReportOpen((open) => !open)}
             onAnswered={(result) =>
-              setWrongAnswer(result.correct ? null : { qId: current.qId, ...result })
+              setWrongAnswer(result.correct ? null : { qId: current.qId, due: current.srs?.due ?? null, ...result })
             }
           />
 

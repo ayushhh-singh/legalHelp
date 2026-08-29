@@ -272,6 +272,62 @@ describe('proposeScenario', () => {
     expect(result.status).toBe('error')
     expect(provider.calls).toHaveLength(0)
   })
+
+  it('rejects a card that stored cleanly but for a different rule than the one asked about', async () => {
+    // A valid card by the tool's own lights — kind, options, citation all
+    // fine — just about Rule 2 ("Definitions") when Rule 1 was requested.
+    // `stored: true` alone would call this success; the row's own act/rule
+    // is what this function actually checks.
+    const provider = new MockProvider({
+      id: 'scenario-wrong-rule',
+      turns: [
+        {
+          stopReason: 'tool_use',
+          content: [
+            {
+              type: 'tool_use',
+              id: 'toolu_01',
+              name: 'propose_card',
+              input: {
+                act: REAL_ACT,
+                rule: '2',
+                kind: 'scenario',
+                front: { en: 'A scenario about definitions?', hi: 'परिभाषाओं पर एक परिदृश्य?' },
+                back: { en: 'See Rule 2.', hi: 'नियम 2 देखें।' },
+                options: [
+                  { en: 'A', hi: 'क' },
+                  { en: 'B', hi: 'ख' },
+                ],
+                answerIndex: 0,
+                citation: { en: 'CCS (Conduct) Rules, R. 2', hi: 'सीसीएस (आचरण) नियम, नियम 2' },
+              },
+            },
+          ],
+        },
+        {
+          stopReason: 'end_turn',
+          content: [{ type: 'text', text: 'I have added a scenario question for you [1][T1].' }],
+        },
+      ],
+    })
+
+    const result = await proposeScenario({
+      provider,
+      act: REAL_ACT,
+      rule: REAL_RULE, // '1' — not the '2' the model actually stored
+      language: 'en',
+      tools: tools(),
+    })
+
+    expect(result.status).toBe('error')
+    if (result.status !== 'error') return
+    expect(result.message).toContain('Rule 2')
+    expect(result.message).toContain('not ccs-conduct Rule 1')
+    // The card is still sitting in proposedCards — this function refuses to
+    // CONFIRM it to the reader as what they asked for, but it does not (and
+    // cannot, without a second write) undo the tool's own storage.
+    expect(await db.proposedCards.count()).toBe(1)
+  })
 })
 
 describe('weeklyFocusPlan', () => {

@@ -4,6 +4,7 @@ import {
   AiError,
   type AnyToolDef,
   type JsonSchema,
+  type ToolContext,
   type ToolDef,
   type ToolScope,
   type ToolSpec,
@@ -153,6 +154,33 @@ export function validateToolInput(tool: RegisteredTool, input: unknown): Validat
     .map((issue) => `${issue.path.join('.') || '(root)'}: ${issue.message}`)
     .join('; ')
   return { ok: false, message: `Invalid arguments for ${tool.def.name} — ${problems}` }
+}
+
+/**
+ * Calls one registered tool directly, without a model or a `runAgent` loop in
+ * the middle — the same validation a model-issued call gets, for an agent
+ * file that reads a tool itself before the model runs (`src/ai/agents/tutor.ts`,
+ * `pay.ts`; `drafting.ts` calls `render_draft`/`check_draft` the same way for
+ * a different reason — see ADR-032 point 1).
+ *
+ * `callerLabel` names the caller in the "needs this tool" message only; it
+ * changes no behaviour.
+ */
+export async function callToolDirectly(
+  tools: readonly RegisteredTool[],
+  name: string,
+  input: unknown,
+  options: { signal?: AbortSignal; callerLabel: string },
+): Promise<unknown> {
+  const tool = tools.find((entry) => entry.def.name === name)
+  if (!tool) throw new AiError('unknown_tool', `The ${options.callerLabel} needs the "${name}" tool.`)
+  const validation = validateToolInput(tool, input)
+  if (!validation.ok) throw new AiError('invalid_args', validation.message)
+  const handler = tool.def.handler as (value: unknown, ctx: ToolContext) => Promise<unknown>
+  return handler(validation.value, {
+    language: 'en',
+    signal: options.signal ?? new AbortController().signal,
+  })
 }
 
 /** Test seam. Production code registers once, at module load. */

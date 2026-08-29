@@ -197,9 +197,28 @@ describe('compareJobsForReader', () => {
 
 describe('ungroundedFigures', () => {
   it('matches a rupee figure and a percentage regardless of formatting', () => {
-    const grounded = JSON.stringify({ amount: 21600, daRate: 60 })
+    const grounded = [{ amount: 21600, daRate: 60 }]
     expect(ungroundedFigures('Basic is ₹21,600 and DA is 60%.', grounded)).toEqual([])
     expect(ungroundedFigures('A bonus of 35% was also paid.', grounded)).toEqual(['35%'])
+  })
+
+  it('never lets an invented rate hide behind a structural field with the same digits', () => {
+    // The exact shape compute_pay_for_job/compare_jobs return: small counts
+    // and indices sitting right beside the real rupee figures and rates.
+    const grounded = [{ level: '7', cell: 5, children: 2, daRate: 60, gross: 84200 }]
+    // A model that invented "5%" or "2%" must still be caught, even though 5
+    // and 2 both appear, unrelatedly, as the cell and children count.
+    expect(ungroundedFigures('A special adjustment of 5% was also applied.', grounded)).toEqual(['5%'])
+    expect(ungroundedFigures('There is also a 2% recovery this month.', grounded)).toEqual(['2%'])
+    // The real rate and the real gross are still recognised as grounded.
+    expect(ungroundedFigures('DA is 60% and gross pay is ₹84,200.', grounded)).toEqual([])
+  })
+
+  it('walks nested structures, so a compare_jobs result excludes both sides’ structural fields', () => {
+    const grounded = [{ a: { cellIndex: 3, gross: 50000 }, b: { cellIndex: 8, gross: 60000 } }]
+    expect(ungroundedFigures('A special rate of 3% applies to post A.', grounded)).toEqual(['3%'])
+    expect(ungroundedFigures('A special rate of 8% applies to post B.', grounded)).toEqual(['8%'])
+    expect(ungroundedFigures('Post A grosses ₹50,000 and post B grosses ₹60,000.', grounded)).toEqual([])
   })
 })
 

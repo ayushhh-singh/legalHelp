@@ -1,4 +1,5 @@
-import type { PayScenario } from '@/lib/pay/scenario'
+import { scenarioForJob, type PayScenario } from '@/lib/pay/scenario'
+import type { PayTables } from '@/lib/pay/tables'
 
 /**
  * A `PayScenario` reshaped into the `overrides` object
@@ -29,4 +30,19 @@ export function overridesFromScenario(scenario: PayScenario): Record<string, unk
       ...(choice.rateKey ? { rateKey: choice.rateKey } : {}),
     })),
   }
+}
+
+/**
+ * True when a scenario has moved off the post's own standard entry point —
+ * Level, cell and city — which is exactly what `compare_jobs` falls back to
+ * when only `{ daRate }` is forwarded (`PayCompareAiPanel`, since that tool
+ * applies its one `overrides` object to BOTH posts and a per-side level/cell
+ * cannot be forwarded through it without corrupting the other side). A
+ * scenario with no `jobId` is never "customised" in this sense — there is no
+ * post default for it to have moved away from.
+ */
+export function isCustomisedScenario(scenario: PayScenario, tables: PayTables): boolean {
+  if (!scenario.jobId) return false
+  const entryDefault = scenarioForJob(scenario.jobId, tables, { daRate: scenario.daRate })
+  return scenario.level !== entryDefault.level || scenario.cellIndex !== 0 || scenario.cityId !== null
 }

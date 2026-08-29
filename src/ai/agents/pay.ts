@@ -2,9 +2,8 @@ import { runAgent, type UsageLedger } from '../agent'
 import { buildContext, type BuiltContext } from '../context'
 import { buildSystem } from '../prompts'
 import type { AiProvider } from '../provider'
-import { listTools, validateToolInput, type RegisteredTool } from '../tools/registry'
+import { callToolDirectly, listTools, type RegisteredTool } from '../tools/registry'
 import {
-  AiError,
   EMPTY_USAGE,
   isAiError,
   type AiErrorCode,
@@ -40,26 +39,12 @@ function system(language: Language, context: BuiltContext) {
   return buildSystem({ agentId: AGENT_ID, language, context })
 }
 
-/* ------------------------------------------------------------------ *
- * Calling a registered tool directly, without the model in the loop
- * ------------------------------------------------------------------ */
-
-async function callTool(
+const callTool = (
   tools: readonly RegisteredTool[],
   name: string,
   input: unknown,
   signal: AbortSignal | undefined,
-): Promise<unknown> {
-  const tool = tools.find((entry) => entry.def.name === name)
-  if (!tool) throw new AiError('unknown_tool', `The pay agent needs the "${name}" tool.`)
-  const validation = validateToolInput(tool, input)
-  if (!validation.ok) throw new AiError('invalid_args', validation.message)
-  const handler = tool.def.handler as (
-    value: unknown,
-    ctx: { language: Language; signal: AbortSignal },
-  ) => Promise<unknown>
-  return handler(validation.value, { language: 'en', signal: signal ?? new AbortController().signal })
-}
+): Promise<unknown> => callToolDirectly(tools, name, input, { signal, callerLabel: 'pay agent' })
 
 /* ------------------------------------------------------------------ *
  * The two checks run on every answer, never trusted to the prompt alone
@@ -76,24 +61,64 @@ export function figuresInText(text: string): string[] {
 const digitsOnly = (value: string): string => value.replace(/\D/g, '')
 
 /**
- * Every figure in `text` that does not appear anywhere in `groundedText` —
- * the JSON of what was actually computed. Digits-only comparison, so
- * "₹21,600" in prose and the bare `21600` a JSON number serialises as compare
- * equal, and "60%" matches a `daRate` of `60` the same way.
+ * Object keys whose numeric value is a structural index or a count, never a
+ * rupee figure or a rate — excluded from the grounded set so an invented
+ * figure cannot pass as grounded by coincidentally matching one of these.
+ * Naming them costs nothing a real answer needs: none of `cell`, `cellIndex`,
+ * `children`, `hostellers` or `level` is ever legitimately written as "₹7" or
+ * "7%", so `figuresInText`'s own pattern would never have matched a genuine
+ * mention of one anyway. Named exactly as `src/ai/tools/pay.ts`'s
+ * `describeResult`/`describeLine` use them.
+ */
+const STRUCTURAL_KEYS = new Set(['cell', 'cellIndex', 'children', 'hostellers', 'level'])
+
+/**
+ * Every digit string in `value`, walked key-aware so `STRUCTURAL_KEYS` can be
+ * skipped regardless of nesting depth (a `compare_jobs` result nests two full
+ * `describeResult`s, each with its own `cell`/`children`).
+ */
+function collectGroundedDigits(value: unknown, acc: Set<string>, key?: string): void {
+  if (key && STRUCTURAL_KEYS.has(key)) return
+  if (typeof value === 'number' && Number.isFinite(value)) {
+    const digits = digitsOnly(String(value))
+    if (digits) acc.add(digits)
+    return
+  }
+  if (typeof value === 'string') {
+    for (const match of value.matchAll(/\d+(?:\.\d+)?/g)) {
+      const digits = digitsOnly(match[0])
+      if (digits) acc.add(digits)
+    }
+    return
+  }
+  if (Array.isArray(value)) {
+    for (const item of value) collectGroundedDigits(item, acc, key)
+    return
+  }
+  if (value && typeof value === 'object') {
+    for (const [k, v] of Object.entries(value)) collectGroundedDigits(v, acc, k)
+  }
+}
+
+/**
+ * Every figure in `text` that does not appear anywhere in `grounded` — the
+ * values this file actually fetched, walked directly rather than matched
+ * against a flattened blob of their `JSON.stringify`'d text (which cannot
+ * tell a structural index from a rate — see `STRUCTURAL_KEYS`). Digits-only
+ * comparison, so "₹21,600" in prose and the bare `21600` a JSON number
+ * serialises as compare equal, and "60%" matches a `daRate` of `60` the same
+ * way.
  *
  * This is what stops a model that was told "the DA rate is 60%" from also
  * volunteering "which works out to roughly 35% of your basic" — a rate this
  * app never computed and never showed it.
  */
-export function ungroundedFigures(text: string, groundedText: string): string[] {
-  const grounded = new Set<string>()
-  for (const match of groundedText.matchAll(/\d+(?:\.\d+)?/g)) {
-    const digits = digitsOnly(match[0])
-    if (digits) grounded.add(digits)
-  }
+export function ungroundedFigures(text: string, grounded: readonly unknown[]): string[] {
+  const digits = new Set<string>()
+  for (const value of grounded) collectGroundedDigits(value, digits)
   return figuresInText(text).filter((figure) => {
-    const digits = digitsOnly(figure)
-    return digits.length > 0 && !grounded.has(digits)
+    const core = digitsOnly(figure)
+    return core.length > 0 && !digits.has(core)
   })
 }
 
@@ -326,8 +351,6 @@ export async function explainPayslip(params: PayExplainParams): Promise<PayAgent
     language,
   )
 
-  const groundedText = context.entries.map((entry) => entry.text).join(' ')
-
   onProgress?.({ phase: 'thinking' })
   const run = await runAgent({
     agentId: AGENT_ID,
@@ -357,7 +380,7 @@ export async function explainPayslip(params: PayExplainParams): Promise<PayAgent
 
   if (!run.ok) return failed(run)
 
-  const invented = ungroundedFigures(run.text, groundedText)
+  const invented = ungroundedFigures(run.text, [computed, explained, sources])
   if (invented.length > 0) {
     return refused('invented_figure', run.usage, estimateCost(run.meta.model, run.usage), invented.join(', '))
   }
@@ -419,7 +442,6 @@ export async function compareJobsForReader(params: PayCompareParams): Promise<Pa
     [{ type: 'computed', source: `${jobA} vs ${jobB}`, id: 'compare', text: JSON.stringify(compared) }],
     language,
   )
-  const groundedText = context.entries.map((entry) => entry.text).join(' ')
 
   onProgress?.({ phase: 'thinking' })
   const run = await runAgent({
@@ -448,7 +470,7 @@ export async function compareJobsForReader(params: PayCompareParams): Promise<Pa
 
   if (!run.ok) return failed(run)
 
-  const invented = ungroundedFigures(run.text, groundedText)
+  const invented = ungroundedFigures(run.text, [compared])
   if (invented.length > 0) {
     return refused('invented_figure', run.usage, estimateCost(run.meta.model, run.usage), invented.join(', '))
   }
