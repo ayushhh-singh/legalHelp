@@ -16,7 +16,7 @@ import {
   valuesOf,
 } from './drafts'
 import { applyChanges, changesOf } from './suggestion'
-import { draftParamsToSearch, parseDraftParams } from './url'
+import { draftParamsToSearch, editorSessionKey, parseDraftParams } from './url'
 import {
   asText,
   blankValues,
@@ -480,5 +480,23 @@ describe('accepting and rejecting individual changes', () => {
 
   it('reports no changes when nothing changed', () => {
     expect(changesOf(parts('same text', 'same text'))).toEqual([])
+  })
+})
+
+describe('editorSessionKey', () => {
+  it('does not change when this editor creates the draft row it is already editing', () => {
+    // The sequence that used to remount the AI panel mid-review: a blank form
+    // (null), then the row this editor created appearing as `?d=`. The old
+    // expression was `draftId ?? 'new'`, which goes 'new' -> 'abc' here.
+    expect(editorSessionKey(null, null)).toBe(editorSessionKey('abc', 'abc'))
+  })
+
+  it('does change when the reader opens a different draft', () => {
+    expect(editorSessionKey('xyz', 'abc')).not.toBe(editorSessionKey(null, 'abc'))
+    expect(editorSessionKey('xyz', 'abc')).toBe('xyz')
+  })
+
+  it('treats a resumed draft the editor did not create as its own document', () => {
+    expect(editorSessionKey('xyz', null)).toBe('xyz')
   })
 })

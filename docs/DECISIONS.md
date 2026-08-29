@@ -4325,6 +4325,85 @@ regenerated with the change.
   the `validateCitations` interaction that can fail a run whose document text
   legitimately names a rule the brief did not.
 
+### Addendum — the edge-case pass (same session, after `1d066dc`)
+
+Seven defects, each confirmed to fail against the committed code before its fix.
+`src/ai/agents/drafting.edge.test.ts` and `src/modules/drafting/aiPanel.edge.test.tsx`
+are the regression files, in the shape `src/lib/srs/edge.test.ts` established.
+
+Four of the seven are one theme: **the screen, the abort and the error path each
+covered the model's half of the run and not this file's own half.** That is the
+predictable failure mode of an agent whose whole design is "three of five stages
+are code" — the stages the model owns were written defensively because a model
+is obviously untrusted, and the stages the code owns were written as if code
+cannot fail.
+
+1. **The refusal screen read the brief and not the draft.** `currentValues` is
+   sent — that is the point, so the agent completes the officer's work rather
+   than replacing it — and it is by far the likelier of the two to carry a
+   classification marking. A clean brief over a body naming a classified
+   annexure went to the model. `screenOutbound()` now screens everything a run
+   would put on the wire, as one string; `screenBrief()` remains the primitive.
+   The values are serialised rather than walked, because a marking can sit in
+   any field and a screen that has to be told which fields to read is a screen
+   that misses the fifteenth.
+
+2. **A failing tool rejected the promise instead of returning `status: 'error'`.**
+   Stages 3 and 5 call `render_draft` and `check_draft` outside `runAgent`'s own
+   try/catch, so a missing registration or a dataset chunk that would not load
+   escaped the documented union. The hook happened to catch it; a second agent,
+   a test, or any future surface would not have.
+
+3. **A run cancelled between stages still returned a complete draft.**
+   `runAgent` checks the signal at the top of each of its loops; the agent's own
+   stages sit between two of those. Cancel landed, the plan finished, and the
+   local render and check ran on regardless. The hook discarded the result
+   because it re-checks `signal.aborted`; nothing else would have.
+
+4. **`improveWording` on an empty field asked a model to rewrite nothing.**
+   Four provider calls to invent content for a field the officer had not filled
+   in — which is the one thing this agent exists not to do.
+
+5. **A phrase id the model named twice was rendered twice**, with the id as its
+   React key.
+
+The other two are UI, and both were invisible to Playwright for the same reason:
+
+6. **`answer()` started the run inside a `setState` updater**, purely to read the
+   pending brief out of the current state. React invokes an updater TWICE in
+   StrictMode and `src/main.tsx` renders the whole app inside one, so answering
+   the interview's questions started two runs against the reader's own key. Only
+   `start()`'s abort-the-previous behaviour kept the second off the wire — an
+   accident, not a design, and one that holds only while nothing synchronous
+   happens before `run`'s first `await`. **Counting provider calls could not see
+   it**: the aborted run makes none. The test counts runs STARTED, through
+   `onSpent`, which fires in the `finally` of every run including an aborted
+   one. This is the third StrictMode defect this project has shipped (ADR-021
+   has the other two) and the second time the lesson has been that `pnpm
+   test:e2e` runs a production build where StrictMode is inert.
+
+7. **Applying a field made its own row disappear.** `changed` was computed from
+   the live `values`, so the moment a suggestion was applied its `after`
+   equalled its `before` and the row was filtered out — taking the "Applied"
+   confirmation with it, which no reader could therefore ever see. The officer's
+   own action looked like the panel losing their place. The list is now a
+   snapshot: the hook carries `baseValues`, the values the run was GIVEN, and
+   the diff is computed against those. Applying no longer re-diffs every other
+   field either.
+
+**One further fix that is not a defect in the agent at all.** The panel's `key`
+was `parsed.draftId ?? 'new'`, and a draft row is created on the first change
+rather than on arrival — so applying the first field of a suggestion is itself
+what creates the row, writes `?d=` into the URL, changes the key and remounts
+the panel a debounce later. The rest of the suggestion, and the acknowledgement,
+went with it. `editorSessionKey(draftId, createdHere)` in
+`src/modules/drafting/url.ts` is the distinction that was missing: the row this
+editor created is the same document it already had; a draft it was asked to
+resume is not. `createdHere` is STATE and not a ref, because it is read during
+render to compute a key, and a ref read during render can tear —
+`react-hooks/refs` caught that, correctly, on the first attempt.
+
+
 ## ADR-033 — Rules bank expansion: curated Hindi law headings at full coverage, a real fix to an unreachable duplicate check, and genuinely blind verification via fresh subagents
 
 **Status:** accepted (Session 20)

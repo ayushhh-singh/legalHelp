@@ -67,3 +67,24 @@ export function draftParamsToSearch(next: DraftParams, defaultView: PreviewView)
   if (next.checklistOpen) params.set('check', '1')
   return params
 }
+
+/**
+ * Which DOCUMENT the editor is on, as a React key.
+ *
+ * Not the same question as "what is `?d=`". A draft row is created on the first
+ * change, not on arrival (`useDraft`), and its new id is then written into the
+ * URL — so `draftId` goes from `null` to a string partway through editing a
+ * document that never changed. Keying anything on `draftId ?? 'new'` therefore
+ * remounts it at that moment, and the moment is a bad one: applying the first
+ * field of an AI suggestion is itself what creates the row, so the officer
+ * pressed Apply and, a debounce later, the rest of the suggestion they were
+ * working down vanished along with the acknowledgement they had given.
+ *
+ * `createdHere` is the id this editor created, so the row it made is the same
+ * document it already had. Opening a genuinely different draft — the Recent
+ * list, a pasted `?d=` — does not go through `onCreated` and does change the
+ * key, which is what makes the AI panel's per-draft acknowledgement ask again.
+ */
+export function editorSessionKey(draftId: string | null, createdHere: string | null): string {
+  return draftId === null || draftId === createdHere ? 'current' : draftId
+}

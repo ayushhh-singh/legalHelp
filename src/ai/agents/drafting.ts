@@ -10,6 +10,7 @@ import { listTools, toJsonSchema, validateToolInput, type RegisteredTool } from 
 import {
   AiError,
   EMPTY_USAGE,
+  isAiError,
   type AiErrorCode,
   type AiEventHandler,
   type AiOutputMeta,
@@ -150,7 +151,13 @@ const REFUSAL_MESSAGES: Record<RefusalReason, Bilingual> = {
 
 /**
  * Pure, and called before the provider is touched. Returns `null` when the
- * brief may be sent.
+ * text may be sent.
+ *
+ * Call it on EVERYTHING a run would send, not on the brief alone. The officer's
+ * existing draft goes out as a PLATFORM CONTEXT snippet so the agent completes
+ * their work rather than replacing it, and the draft is the likelier of the two
+ * to carry a marking — `screenOutbound()` below is the one callers should
+ * reach for.
  */
 export function screenBrief(brief: string): BriefRefusal | null {
   for (const { reason, pattern } of SENSITIVE_PATTERNS) {
@@ -158,6 +165,18 @@ export function screenBrief(brief: string): BriefRefusal | null {
     if (match) return { reason, matched: match[0], message: REFUSAL_MESSAGES[reason] }
   }
   return null
+}
+
+/**
+ * Every piece of text a run would put on the wire, screened as one string.
+ *
+ * A clean brief over a draft whose body names a classified annexure used to
+ * pass, because only the brief was read. The values are serialised rather than
+ * walked: a marking can sit in any field, and a screen that had to be told
+ * which fields to look at is a screen that misses the fifteenth one.
+ */
+export function screenOutbound(parts: readonly (string | undefined)[]): BriefRefusal | null {
+  return screenBrief(parts.filter(Boolean).join('\n'))
 }
 
 /* ------------------------------------------------------------------ *
@@ -471,7 +490,10 @@ export async function runDraftingAgent(params: DraftingAgentParams): Promise<Dra
   const step = (phase: DraftingPhase, tool?: string) => onProgress?.(tool ? { phase, tool } : { phase })
 
   step('screening')
-  const refusal = screenBrief(briefWithAnswers(brief, answers))
+  const refusal = screenOutbound([
+    briefWithAnswers(brief, answers),
+    currentValues && Object.keys(currentValues).length > 0 ? JSON.stringify(currentValues) : undefined,
+  ])
   if (refusal) return { status: 'refused', refusal }
 
   let usage: TokenUsage = { ...EMPTY_USAGE }
@@ -562,13 +584,47 @@ export async function runDraftingAgent(params: DraftingAgentParams): Promise<Dra
 
   /* ---- 3. check -------------------------------------------------- */
 
-  const options = { devanagariDigits, signal }
-  step('checking', 'render_draft')
-  let rendered = await renderWith(tools, chosen.id, first.values, lang, options)
-  let checklist = await checkWith(tools, chosen.id, first.values, lang, {
-    ...options,
-    onCall: (tool) => step('checking', tool),
+  /*
+    The local stages are wrapped because they are OUTSIDE `runAgent`'s own
+    try/catch. A tool that threw — a missing registration, a dataset chunk that
+    would not load — rejected this promise instead of returning the `error`
+    member of the union this function documents, so a caller that had handled
+    every member still got an unhandled rejection.
+  */
+  const localFailure = (error: unknown): DraftingFailed => ({
+    status: 'error',
+    code: isAiError(error) ? error.code : 'provider',
+    message: error instanceof Error ? error.message : String(error),
+    usage,
+    cost: estimateCost(planRun.meta.model, usage),
   })
+
+  const cancelled = (): DraftingFailed => ({
+    status: 'error',
+    code: 'aborted',
+    message: 'The run was cancelled.',
+    usage,
+    cost: estimateCost(planRun.meta.model, usage),
+  })
+
+  // `runAgent` checks the signal at the top of each of ITS loops; these stages
+  // sit between two of those, so a run cancelled while the plan was resolving
+  // used to go on and return a complete draft.
+  if (signal?.aborted) return cancelled()
+
+  const options = { devanagariDigits, signal }
+  let rendered: string
+  let checklist: ChecklistOutcome
+  try {
+    step('checking', 'render_draft')
+    rendered = await renderWith(tools, chosen.id, first.values, lang, options)
+    checklist = await checkWith(tools, chosen.id, first.values, lang, {
+      ...options,
+      onCall: (tool) => step('checking', tool),
+    })
+  } catch (error) {
+    return localFailure(error)
+  }
 
   /* ---- 4. revise, at most once ----------------------------------- */
 
@@ -576,7 +632,7 @@ export async function runDraftingAgent(params: DraftingAgentParams): Promise<Dra
   let values = first.values
   let blanks = first.blanks
 
-  if (!checklist.passed) {
+  if (!checklist.passed && !signal?.aborted) {
     step('revising')
     const reviseCtx = await reviseContext({ brief, answers, template: chosen, checklist, lang, values })
     const reviseRun = await runAgent({
@@ -607,12 +663,18 @@ export async function runDraftingAgent(params: DraftingAgentParams): Promise<Dra
     if (revision?.success) {
       const second = parseFieldValues(chosen, revision.data.fieldValues ?? {})
       recordFieldProblems(problems, second)
-      step('rechecking', 'render_draft')
-      const nextRendered = await renderWith(tools, chosen.id, second.values, lang, options)
-      const nextChecklist = await checkWith(tools, chosen.id, second.values, lang, {
-        ...options,
-        onCall: (tool) => step('rechecking', tool),
-      })
+      let nextRendered: string
+      let nextChecklist: ChecklistOutcome
+      try {
+        step('rechecking', 'render_draft')
+        nextRendered = await renderWith(tools, chosen.id, second.values, lang, options)
+        nextChecklist = await checkWith(tools, chosen.id, second.values, lang, {
+          ...options,
+          onCall: (tool) => step('rechecking', tool),
+        })
+      } catch (error) {
+        return localFailure(error)
+      }
 
       /*
         A revision is kept only if it does not make the `must` failures worse.
@@ -638,6 +700,8 @@ export async function runDraftingAgent(params: DraftingAgentParams): Promise<Dra
       )
     }
   }
+
+  if (signal?.aborted) return cancelled()
 
   const suggestedPhrases = await resolvePhrases(plan.data.suggestedPhraseIds ?? [], problems)
 
@@ -746,6 +810,20 @@ export async function improveWording(params: ImproveWordingParams): Promise<Impr
 
   const tools = params.tools ?? listTools(['draft', 'utils'])
   onProgress?.({ phase: 'screening' })
+
+  // Nothing to rewrite. Asking a model to improve an empty string spends the
+  // reader's tokens on inventing content for a field they have not filled in,
+  // which is the one thing this whole agent is built not to do.
+  if (!text.trim()) {
+    return {
+      status: 'error',
+      code: 'empty',
+      message: `There is nothing in "${field.label.en}" to rewrite yet.`,
+      usage: { ...EMPTY_USAGE },
+      cost: 0,
+    }
+  }
+
   const refusal = screenBrief(text)
   if (refusal) return { status: 'refused', refusal }
 
@@ -1093,7 +1171,9 @@ async function resolvePhrases(ids: readonly string[], problems: string[]): Promi
 
   const found: SuggestedPhrase[] = []
   const missing: string[] = []
-  for (const id of ids) {
+  // De-duplicated: the list is rendered with the id as its React key, so a
+  // model naming its favourite opening twice would collide as well as repeat.
+  for (const id of [...new Set(ids)]) {
     const phrase = library.phrases.find((entry) => entry.id === id)
     // A phrase id that is not in the library is an invented phrase id, and a
     // suggested form of words nobody published is the one thing this feature

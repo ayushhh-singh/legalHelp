@@ -9,7 +9,7 @@ import { EditingLanguage, FieldRow } from './components/FormFields'
 import { ExportBar } from './components/ExportBar'
 import { draftingAiAvailable } from './ai-seam'
 import { clearDefaults, saveDefaults } from './drafts'
-import { draftParamsToSearch, parseDraftParams, type Pane, type PreviewView } from './url'
+import { draftParamsToSearch, editorSessionKey, parseDraftParams, type Pane, type PreviewView } from './url'
 import { useDraft } from './useDraft'
 import { useTemplate } from './useDraftingData'
 import { asText, blankValues, collapseIdentical, documentFields, readValue } from './values'
@@ -119,8 +119,22 @@ function Editor({ template }: { template: DocTemplate }) {
    * created a row, and a new identity on every render would make its `save`
    * closure churn.
    */
+  /**
+   * The row THIS editor created, as opposed to one it was asked to resume.
+   * `editorSessionKey` needs it to tell "the draft I have been editing all
+   * along just got an id" from "the reader opened a different draft".
+   *
+   * State rather than a ref, because it is READ DURING RENDER (it decides a
+   * key). A ref read during render can tear under a concurrent re-render, and
+   * `react-hooks/refs` says so. `setCreatedHere` is stable, so `onCreated`
+   * keeps the single identity `useDraft`'s debounce closure depends on, and the
+   * update batches with the `setParams` on the next line.
+   */
+  const [createdHere, setCreatedHere] = useState<string | null>(null)
+
   const onCreated = useCallback(
     (id: string) => {
+      setCreatedHere(id)
       const next = new URLSearchParams(window.location.search)
       next.set('d', id)
       setParams(next, { replace: true })
@@ -248,12 +262,14 @@ function Editor({ template }: { template: DocTemplate }) {
             <Suspense fallback={null}>
               <AiDraftPanel
                 /*
-                  Remounts when the officer opens a different draft, which is
-                  what makes the panel's acknowledgement per DOCUMENT: the gate,
+                  Remounts when the officer opens a DIFFERENT draft, which is
+                  what makes the panel's acknowledgement per document: the gate,
                   and any suggestion still on screen, belong to the draft they
-                  were asked about.
+                  were asked about. It deliberately does not remount when the
+                  draft this editor is already on acquires its row id — see
+                  `editorSessionKey`, which exists for that distinction.
                 */
-                key={parsed.draftId ?? 'new'}
+                key={editorSessionKey(parsed.draftId, createdHere)}
                 template={template}
                 values={values}
                 lang={parsed.view === 'both' ? 'bilingual' : parsed.view}

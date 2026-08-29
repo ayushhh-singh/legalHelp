@@ -436,6 +436,7 @@ function Result({
           result={state.result}
           template={template}
           values={values}
+          baseValues={state.baseValues}
           editing={editing}
           onApplyValues={onApplyValues}
           onDismiss={onDismiss}
@@ -516,13 +517,17 @@ function Draft({
   result,
   template,
   values,
+  baseValues,
   editing,
   onApplyValues,
   onDismiss,
 }: {
   result: Extract<DraftingAiState, { kind: 'draft' }>['result']
   template: DocTemplate
+  /** Live, so an applied value is written onto whatever is on screen now. */
   values: DraftValues
+  /** Frozen at the start of the run — the `before` side of every diff. */
+  baseValues: DraftValues
   editing: Lang
   onApplyValues: (next: DraftValues) => void
   onDismiss: () => void
@@ -531,23 +536,30 @@ function Draft({
   const [applied, setApplied] = useState<string[]>([])
 
   /**
-   * Only the fields that would actually change.
+   * Only the fields that would actually change — computed ONCE per result,
+   * against the values the run was given.
    *
    * A diff of a field against itself renders "No change is suggested" and asks
    * the officer to press Apply on it anyway, fifteen times. Comparing the TEXT
    * the editor shows — not the stored shape — is what makes a `paras` list and
    * the same list typed by hand compare equal.
+   *
+   * `baseValues` rather than the live `values` is what keeps the list still.
+   * Reading the live ones meant that applying a field made it equal to its own
+   * suggestion, dropped its row, and took the "Applied" confirmation with it —
+   * so the officer's own action looked like the panel losing their place. It
+   * also re-diffed every other field on each apply.
    */
   const changed = useMemo(
     () =>
       template.fields
         .map((field) => ({
           field,
-          before: asText(readValue(values, field, editing)),
+          before: asText(readValue(baseValues, field, editing)),
           after: asText(readValue(result.fieldValues, field, editing)),
         }))
         .filter((entry) => entry.after.trim().length > 0 && entry.after !== entry.before),
-    [template, values, result.fieldValues, editing],
+    [template, baseValues, result.fieldValues, editing],
   )
 
   const failing = result.checklist.items.filter((item) => !item.passed)

@@ -41,7 +41,20 @@ export type DraftingAiState =
   | { kind: 'idle' }
   | { kind: 'running'; steps: DraftingStep[] }
   | { kind: 'questions'; result: DraftingQuestions; brief: string }
-  | { kind: 'draft'; result: DraftingDraft }
+  | {
+      kind: 'draft'
+      result: DraftingDraft
+      /**
+       * The officer's values as they stood when the run STARTED — the baseline
+       * the model was completing, and the `before` side of every diff.
+       *
+       * Held here rather than read live from the form, because the list of
+       * changed fields must not rewrite itself while the officer works down it:
+       * applying one field would otherwise make that field equal to its own
+       * suggestion and drop its row — and the confirmation with it.
+       */
+      baseValues: DraftValues
+    }
   | {
       kind: 'suggestion'
       fieldId: string
@@ -90,6 +103,20 @@ export function useDraftingAi(params: UseDraftingAiParams): UseDraftingAi {
   const [state, setState] = useState<DraftingAiState>({ kind: 'idle' })
   const [busy, setBusy] = useState(false)
   const abort = useRef<AbortController | null>(null)
+  /**
+   * The brief behind the questions currently on screen, or `null` when there
+   * are none.
+   *
+   * `answer()` needs the brief the questions came from, and reading it out of
+   * a `setState` updater — which is where it used to come from — starts the
+   * run inside a function React invokes TWICE in StrictMode. `src/main.tsx`
+   * renders the whole app inside one, so answering three clarifying questions
+   * started two runs against the reader's own key. Only `start()`'s
+   * abort-the-previous behaviour kept the second from reaching the wire, and
+   * that is a coincidence to rely on rather than a design. Playwright cannot
+   * see it either: it runs a production build, where StrictMode is inert.
+   */
+  const pendingBrief = useRef<string | null>(null)
 
   /*
     The latest parameters, read through a ref by the callbacks below.
@@ -171,6 +198,9 @@ export function useDraftingAi(params: UseDraftingAiParams): UseDraftingAi {
         const { agent, tools } = await load()
         const p = latest.current
         const base = common()
+        // Captured before the run, not after: this is the baseline the model
+        // was given and the `before` side of every diff the officer reviews.
+        const baseValues = p.values
         const result = await agent.runDraftingAgent({
           provider: base.provider,
           brief,
@@ -188,10 +218,19 @@ export function useDraftingAi(params: UseDraftingAiParams): UseDraftingAi {
         })
         if (signal.aborted) return
 
-        if (result.status === 'refused') setState({ kind: 'refused', refusal: result.refusal })
-        else if (result.status === 'error') setState({ kind: 'error', message: result.message })
-        else if (result.status === 'questions') setState({ kind: 'questions', result, brief })
-        else setState({ kind: 'draft', result })
+        if (result.status === 'refused') {
+          pendingBrief.current = null
+          setState({ kind: 'refused', refusal: result.refusal })
+        } else if (result.status === 'error') {
+          pendingBrief.current = null
+          setState({ kind: 'error', message: result.message })
+        } else if (result.status === 'questions') {
+          pendingBrief.current = brief
+          setState({ kind: 'questions', result, brief })
+        } else {
+          pendingBrief.current = null
+          setState({ kind: 'draft', result, baseValues })
+        }
       })
     },
     [start],
@@ -201,10 +240,12 @@ export function useDraftingAi(params: UseDraftingAiParams): UseDraftingAi {
 
   const answer = useCallback(
     (answers: readonly InterviewAnswer[]) => {
-      setState((current) => {
-        if (current.kind === 'questions') runDraft(current.brief, answers)
-        return current
-      })
+      const brief = pendingBrief.current
+      // Only ever from the questions state. A second press while the first run
+      // is in flight would otherwise re-ask the same brief.
+      if (brief === null) return
+      pendingBrief.current = null
+      runDraft(brief, answers)
     },
     [runDraft],
   )
@@ -291,11 +332,15 @@ export function useDraftingAi(params: UseDraftingAiParams): UseDraftingAi {
   const cancel = useCallback(() => {
     abort.current?.abort()
     abort.current = null
+    pendingBrief.current = null
     setBusy(false)
     setState({ kind: 'idle' })
   }, [])
 
-  const reset = useCallback(() => setState({ kind: 'idle' }), [])
+  const reset = useCallback(() => {
+    pendingBrief.current = null
+    setState({ kind: 'idle' })
+  }, [])
 
   return { state, busy, draft, answer, improve, explain, cancel, reset }
 }
