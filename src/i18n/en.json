@@ -1398,6 +1398,112 @@
       }
     }
   },
+  "library": {
+    "title": "Library",
+    "subtitle": "Read the rule books and the codes, offline, in full.",
+    "shelfSummary": "{{works}} works · {{units}} units · about {{hours}} hours of reading",
+    "continueReading": "Continue reading",
+    "continueIn": "Continue in {{work}}",
+    "startReading": "Start reading",
+    "openWork": "Open {{work}}",
+    "unitsCount_one": "{{count}} unit",
+    "unitsCount_other": "{{count}} units",
+    "aboutMinutes": "about {{count}} min",
+    "aboutHours": "about {{count}} h",
+    "readCount": "{{read}} of {{total}} read",
+    "progressLabel": "Reading progress in {{work}}",
+    "lastOpened": "Last opened",
+    "publishedBy": "Published by {{publisher}}",
+    "officialText": "Official text",
+    "notStarted": "Not started",
+    "empty": "No work matches that.",
+    "back": "Back to the Library",
+    "backToWork": "Back to {{work}}",
+    "category": {
+      "criminal-law": "Criminal law",
+      "service-rules": "Service rules",
+      "office-procedure": "Office procedure",
+      "transparency": "Transparency",
+      "official-language": "Official language",
+      "security": "Security",
+      "workplace": "Workplace",
+      "finance": "Finance",
+      "other": "Other"
+    },
+    "toc": {
+      "title": "Contents",
+      "expand": "Expand {{name}}",
+      "collapse": "Collapse {{name}}",
+      "read": "Read",
+      "unread": "Not read yet",
+      "flatNotice": "This document publishes no chapter division that this app holds, so its contents are listed rule by rule. Nothing has been grouped that the source did not group.",
+      "numberingNotice": "Chapters are taken from the paragraph numbering the manual itself prints. The chapter titles are not in this dataset, so each is shown by its number alone."
+    },
+    "search": {
+      "within": "Search inside this work",
+      "placeholder": "Word or phrase…",
+      "resultsCount_one": "{{count}} result",
+      "resultsCount_other": "{{count}} results",
+      "none": "Nothing in this work matches that.",
+      "clear": "Clear search",
+      "capped": "Showing the first {{count}}. Narrow the search to reach the rest."
+    },
+    "reader": {
+      "of": "{{position}} of {{total}}",
+      "previous": "Previous",
+      "next": "Next",
+      "previousUnit": "Previous: {{name}}",
+      "nextUnit": "Next: {{name}}",
+      "first": "This is the first one.",
+      "last": "This is the last one.",
+      "notFound": "This work has no such unit.",
+      "bookmark": "Bookmark this",
+      "bookmarked": "Bookmarked",
+      "removeBookmark": "Remove bookmark",
+      "print": "Print",
+      "openInLaw": "Open in the Law Converter",
+      "noHindi": "Hindi text is not yet available for this unit. The English text below is what the source publishes; nothing here is machine-translated.",
+      "noHindiShort": "Hindi not available",
+      "curatedHindi": "The Hindi heading here is written by this app, not published by the Ministry. Verify against the official gazette or order.",
+      "readTime": "about {{count}} min to read",
+      "bookmarkFailed": "That could not be saved on this device."
+    },
+    "lang": {
+      "label": "Reading language",
+      "en": "English",
+      "hi": "हिंदी",
+      "both": "Both"
+    },
+    "type": {
+      "label": "Type",
+      "size": "Text size",
+      "smaller": "Smaller text",
+      "larger": "Larger text",
+      "sizeNow": "Size {{step}} of 4",
+      "family": "Typeface",
+      "sans": "Sans",
+      "serif": "Serif",
+      "lineHeight": "Line spacing",
+      "normal": "Normal",
+      "relaxed": "Relaxed",
+      "relaxedLocked": "Devanagari is always set at the relaxed spacing."
+    },
+    "rail": {
+      "title": "Around this",
+      "sameChapter": "Elsewhere in this chapter",
+      "nearby": "Nearby in this work",
+      "lawRefs": "Referred to in the criminal codes",
+      "repealed": "Replaced provisions",
+      "cards": "Practise this",
+      "cardsCount_one": "{{count}} question cites this rule",
+      "cardsCount_other": "{{count}} questions cite this rule",
+      "practise": "Practise this rule book",
+      "none": "Nothing else points here."
+    },
+    "tag": {
+      "label": "Useful for"
+    }
+  },
   "palette": {
     "label": "Global command menu",
     "searchLabel": "Search",

@@ -1,0 +1,4945 @@
+{
+  "$schema": "../../../schemas/library-work.schema.json",
+  "version": "1.0.0",
+  "generatedAt": "2026-09-02",
+  "id": "bns",
+  "title": {
+    "en": "Bharatiya Nyaya Sanhita, 2023",
+    "hi": "भारतीय न्याय संहिता, 2023"
+  },
+  "shortTitle": {
+    "en": "BNS",
+    "hi": "BNS"
+  },
+  "year": 2023,
+  "category": "criminal-law",
+  "description": {
+    "en": "The Bharatiya Nyaya Sanhita — the substantive criminal law that replaced the Indian Penal Code on 1 July 2024. Offences, general exceptions and punishments, chapter by chapter.",
+    "hi": "भारतीय न्याय संहिता — वह मूल दंड विधि जिसने 1 जुलाई 2024 को भारतीय दण्ड संहिता का स्थान लिया। अपराध, साधारण अपवाद तथा दंड, अध्यायवार।"
+  },
+  "corpus": {
+    "kind": "law",
+    "file": "law/bns.json"
+  },
+  "unitLabel": {
+    "en": "Section",
+    "hi": "धारा"
+  },
+  "publisher": "National Crime Records Bureau (Sankalan)",
+  "tocSource": "chapters",
+  "toc": [
+    {
+      "id": "ch-I-0",
+      "number": "I",
+      "heading": {
+        "en": "Preliminary",
+        "hi": ""
+      },
+      "children": [
+        {
+          "id": "n-1",
+          "number": "1",
+          "heading": {
+            "en": "Short title, commencement and application.",
+            "hi": "संक्षिप्त नाम, प्रारंभ और विस्तार।"
+          },
+          "unitIds": [
+            "1"
+          ]
+        },
+        {
+          "id": "n-2",
+          "number": "2",
+          "heading": {
+            "en": "Definitions.",
+            "hi": "परिभाषाएँ।"
+          },
+          "unitIds": [
+            "2"
+          ]
+        },
+        {
+          "id": "n-3",
+          "number": "3",
+          "heading": {
+            "en": "General explanations.",
+            "hi": "साधारण स्पष्टीकरण।"
+          },
+          "unitIds": [
+            "3"
+          ]
+        }
+      ],
+      "unitIds": [
+        "1",
+        "2",
+        "3"
+      ]
+    },
+    {
+      "id": "ch-II-1",
+      "number": "II",
+      "heading": {
+        "en": "Of punishments",
+        "hi": ""
+      },
+      "children": [
+        {
+          "id": "n-4",
+          "number": "4",
+          "heading": {
+            "en": "Punishments.",
+            "hi": "दण्ड।"
+          },
+          "unitIds": [
+            "4"
+          ]
+        },
+        {
+          "id": "n-5",
+          "number": "5",
+          "heading": {
+            "en": "Commutation of sentence.",
+            "hi": "दण्डादेश का लघुकरण।"
+          },
+          "unitIds": [
+            "5"
+          ]
+        },
+        {
+          "id": "n-6",
+          "number": "6",
+          "heading": {
+            "en": "Fractions of terms of punishment.",
+            "hi": "दण्ड की अवधि के भिन्न भाग।"
+          },
+          "unitIds": [
+            "6"
+          ]
+        },
+        {
+          "id": "n-7",
+          "number": "7",
+          "heading": {
+            "en": "Sentences may be (in certain cases of imprisonment) wholly or partly rigorous or simple.",
+            "hi": "दण्डादेश (कारावास के कुछ मामलों में) पूर्णतः या भागतः कठोर या सादा हो सकेंगे।"
+          },
+          "unitIds": [
+            "7"
+          ]
+        },
+        {
+          "id": "n-8",
+          "number": "8",
+          "heading": {
+            "en": "Amount of fine, liability in default of payment of fine, etc.",
+            "hi": "जुर्माने की रकम, जुर्माना न देने पर दायित्व, आदि।"
+          },
+          "unitIds": [
+            "8"
+          ]
+        },
+        {
+          "id": "n-9",
+          "number": "9",
+          "heading": {
+            "en": "Limit of punishment of offence made up of several offences.",
+            "hi": "कई अपराधों से मिलकर बने अपराध के दण्ड की सीमा।"
+          },
+          "unitIds": [
+            "9"
+          ]
+        },
+        {
+          "id": "n-10",
+          "number": "10",
+          "heading": {
+            "en": "Punishment of person guilty of one of several offences, judgment stating that it is doubtful of which.",
+            "hi": "कई अपराधों में से किसी एक के दोषी व्यक्ति का दण्ड, जब निर्णय में यह संदिग्ध बताया गया हो कि किस अपराध का।"
+          },
+          "unitIds": [
+            "10"
+          ]
+        },
+        {
+          "id": "n-11",
+          "number": "11",
+          "heading": {
+            "en": "Solitary confinement.",
+            "hi": "एकांत परिरोध।"
+          },
+          "unitIds": [
+            "11"
+          ]
+        },
+        {
+          "id": "n-12",
+          "number": "12",
+          "heading": {
+            "en": "Limit of solitary confinement.",
+            "hi": "एकांत परिरोध की सीमा।"
+          },
+          "unitIds": [
+            "12"
+          ]
+        },
+        {
+          "id": "n-13",
+          "number": "13",
+          "heading": {
+            "en": "Enhanced punishment for certain offences after previous conviction.",
+            "hi": "पूर्व दोषसिद्धि के पश्चात् कतिपय अपराधों के लिए वर्धित दण्ड।"
+          },
+          "unitIds": [
+            "13"
+          ]
+        }
+      ],
+      "unitIds": [
+        "4",
+        "5",
+        "6",
+        "7",
+        "8",
+        "9",
+        "10",
+        "11",
+        "12",
+        "13"
+      ]
+    },
+    {
+      "id": "ch-III-2",
+      "number": "III",
+      "heading": {
+        "en": "General exceptions",
+        "hi": ""
+      },
+      "children": [
+        {
+          "id": "n-14",
+          "number": "14",
+          "heading": {
+            "en": "Act done by a person bound, or by mistake of fact believing himself bound, by law.",
+            "hi": "विधि द्वारा आबद्ध व्यक्ति द्वारा, या तथ्य की भूल से स्वयं को आबद्ध समझकर किया गया कार्य।"
+          },
+          "unitIds": [
+            "14"
+          ]
+        },
+        {
+          "id": "n-15",
+          "number": "15",
+          "heading": {
+            "en": "Act of Judge when acting judicially.",
+            "hi": "न्यायाधीश का न्यायिक रूप से कार्य करते समय किया गया कार्य।"
+          },
+          "unitIds": [
+            "15"
+          ]
+        },
+        {
+          "id": "n-16",
+          "number": "16",
+          "heading": {
+            "en": "Act done pursuant to judgment or order of Court.",
+            "hi": "न्यायालय के निर्णय या आदेश के अनुसरण में किया गया कार्य।"
+          },
+          "unitIds": [
+            "16"
+          ]
+        },
+        {
+          "id": "n-17",
+          "number": "17",
+          "heading": {
+            "en": "Act done by a person justified, or by mistake of fact believing himself justified, by law.",
+            "hi": "विधि द्वारा न्यायोचित व्यक्ति द्वारा, या तथ्य की भूल से स्वयं को न्यायोचित समझकर किया गया कार्य।"
+          },
+          "unitIds": [
+            "17"
+          ]
+        },
+        {
+          "id": "n-18",
+          "number": "18",
+          "heading": {
+            "en": "Accident in doing a lawful act.",
+            "hi": "विधिपूर्ण कार्य करने में दुर्घटना।"
+          },
+          "unitIds": [
+            "18"
+          ]
+        },
+        {
+          "id": "n-19",
+          "number": "19",
+          "heading": {
+            "en": "Act likely to cause harm, but done without criminal intent, and to prevent other harm .",
+            "hi": "हानि कारित करने की संभावना वाला किन्तु आपराधिक आशय के बिना और अन्य हानि निवारण हेतु किया गया कार्य।"
+          },
+          "unitIds": [
+            "19"
+          ]
+        },
+        {
+          "id": "n-20",
+          "number": "20",
+          "heading": {
+            "en": "Act of a child under seven years of age.",
+            "hi": "सात वर्ष से कम आयु के बालक का कार्य।"
+          },
+          "unitIds": [
+            "20"
+          ]
+        },
+        {
+          "id": "n-21",
+          "number": "21",
+          "heading": {
+            "en": "Act of a child above seven and under twelve years of age of immature understanding.",
+            "hi": "सात वर्ष से अधिक और बारह वर्ष से कम आयु के अपरिपक्व समझ वाले बालक का कार्य।"
+          },
+          "unitIds": [
+            "21"
+          ]
+        },
+        {
+          "id": "n-22",
+          "number": "22",
+          "heading": {
+            "en": "Act of a person of unsound mind.",
+            "hi": "विकृतचित्त व्यक्ति का कार्य।"
+          },
+          "unitIds": [
+            "22"
+          ]
+        },
+        {
+          "id": "n-23",
+          "number": "23",
+          "heading": {
+            "en": "Act of a person incapable of judgment by reason of intoxication caused against his will.",
+            "hi": "अपनी इच्छा के विरुद्ध कारित मत्तता के कारण निर्णय करने में असमर्थ व्यक्ति का कार्य।"
+          },
+          "unitIds": [
+            "23"
+          ]
+        },
+        {
+          "id": "n-24",
+          "number": "24",
+          "heading": {
+            "en": "Offence requiring a particular intent or knowledge committed by one who is intoxicated.",
+            "hi": "मत्त व्यक्ति द्वारा किया गया, विशेष आशय या ज्ञान अपेक्षित अपराध।"
+          },
+          "unitIds": [
+            "24"
+          ]
+        },
+        {
+          "id": "n-25",
+          "number": "25",
+          "heading": {
+            "en": "Act not intended and not known to be likely to cause death or grievous hurt, done by consent.",
+            "hi": "सम्मति से किया गया ऐसा कार्य जिसका आशय मृत्यु या घोर उपहति कारित करना न हो और जिससे ऐसा होना संभाव्य ज्ञात न हो।"
+          },
+          "unitIds": [
+            "25"
+          ]
+        },
+        {
+          "id": "n-26",
+          "number": "26",
+          "heading": {
+            "en": "Act not intended to cause death, done by consent in good faith for person's benefit.",
+            "hi": "व्यक्ति के हित के लिए सद्भावपूर्वक सम्मति से किया गया ऐसा कार्य जिसका आशय मृत्यु कारित करना न हो।"
+          },
+          "unitIds": [
+            "26"
+          ]
+        },
+        {
+          "id": "n-27",
+          "number": "27",
+          "heading": {
+            "en": "Act done in good faith for benefit of child or person of unsound mind, by, or by consent of guardian.",
+            "hi": "संरक्षक द्वारा, या संरक्षक की सम्मति से, बालक या विकृतचित्त व्यक्ति के हित के लिए सद्भावपूर्वक किया गया कार्य।"
+          },
+          "unitIds": [
+            "27"
+          ]
+        },
+        {
+          "id": "n-28",
+          "number": "28",
+          "heading": {
+            "en": "Consent known to be given under fear or misconception.",
+            "hi": "भय या भ्रम के अधीन दी गई सम्मति, जिसका ज्ञान हो।"
+          },
+          "unitIds": [
+            "28"
+          ]
+        },
+        {
+          "id": "n-29",
+          "number": "29",
+          "heading": {
+            "en": "Exclusion of acts which are offences independently of harm caused.",
+            "hi": "उन कार्यों का अपवर्जन जो कारित हानि से स्वतंत्र रूप से अपराध हैं।"
+          },
+          "unitIds": [
+            "29"
+          ]
+        },
+        {
+          "id": "n-30",
+          "number": "30",
+          "heading": {
+            "en": "Act done in good faith for benefit of a person without consent.",
+            "hi": "सम्मति के बिना किसी व्यक्ति के हित के लिए सद्भावपूर्वक किया गया कार्य।"
+          },
+          "unitIds": [
+            "30"
+          ]
+        },
+        {
+          "id": "n-31",
+          "number": "31",
+          "heading": {
+            "en": "Communication made in good faith.",
+            "hi": "सद्भावपूर्वक की गई संसूचना।"
+          },
+          "unitIds": [
+            "31"
+          ]
+        },
+        {
+          "id": "n-32",
+          "number": "32",
+          "heading": {
+            "en": "Act to which a person is compelled by threats.",
+            "hi": "वह कार्य जिसके लिए कोई व्यक्ति धमकियों द्वारा विवश किया जाता है।"
+          },
+          "unitIds": [
+            "32"
+          ]
+        },
+        {
+          "id": "n-33",
+          "number": "33",
+          "heading": {
+            "en": "Act causing slight harm.",
+            "hi": "स्वल्प हानि कारित करने वाला कार्य।"
+          },
+          "unitIds": [
+            "33"
+          ]
+        },
+        {
+          "id": "n-34",
+          "number": "34",
+          "heading": {
+            "en": "Things done in private defence.",
+            "hi": "प्राइवेट प्रतिरक्षा में की गई बातें।"
+          },
+          "unitIds": [
+            "34"
+          ]
+        },
+        {
+          "id": "n-35",
+          "number": "35",
+          "heading": {
+            "en": "Right of private defence of body and of property.",
+            "hi": "शरीर और संपत्ति की प्राइवेट प्रतिरक्षा का अधिकार।"
+          },
+          "unitIds": [
+            "35"
+          ]
+        },
+        {
+          "id": "n-36",
+          "number": "36",
+          "heading": {
+            "en": "Right of private defence against act of a person of unsound mind, etc.",
+            "hi": "विकृतचित्त व्यक्ति आदि के कार्य के विरुद्ध प्राइवेट प्रतिरक्षा का अधिकार।"
+          },
+          "unitIds": [
+            "36"
+          ]
+        },
+        {
+          "id": "n-37",
+          "number": "37",
+          "heading": {
+            "en": "Acts against which there is no right of private defence.",
+            "hi": "वे कार्य जिनके विरुद्ध प्राइवेट प्रतिरक्षा का कोई अधिकार नहीं है।"
+          },
+          "unitIds": [
+            "37"
+          ]
+        },
+        {
+          "id": "n-38",
+          "number": "38",
+          "heading": {
+            "en": "When right of private defence of body extends to causing death.",
+            "hi": "कब शरीर की प्राइवेट प्रतिरक्षा का अधिकार मृत्यु कारित करने तक विस्तृत होता है।"
+          },
+          "unitIds": [
+            "38"
+          ]
+        },
+        {
+          "id": "n-39",
+          "number": "39",
+          "heading": {
+            "en": "When such right extends to causing any harm other than death.",
+            "hi": "कब ऐसा अधिकार मृत्यु से भिन्न कोई हानि कारित करने तक विस्तृत होता है।"
+          },
+          "unitIds": [
+            "39"
+          ]
+        },
+        {
+          "id": "n-40",
+          "number": "40",
+          "heading": {
+            "en": "Commencement and continuance of right of private defence of body.",
+            "hi": "शरीर की प्राइवेट प्रतिरक्षा के अधिकार का प्रारंभ और निरंतरता।"
+          },
+          "unitIds": [
+            "40"
+          ]
+        },
+        {
+          "id": "n-41",
+          "number": "41",
+          "heading": {
+            "en": "When right of private defence of property extends to causing death.",
+            "hi": "कब संपत्ति की प्राइवेट प्रतिरक्षा का अधिकार मृत्यु कारित करने तक विस्तृत होता है।"
+          },
+          "unitIds": [
+            "41"
+          ]
+        },
+        {
+          "id": "n-42",
+          "number": "42",
+          "heading": {
+            "en": "When such right extends to causing any harm other than death.",
+            "hi": "कब ऐसा अधिकार मृत्यु से भिन्न कोई हानि कारित करने तक विस्तृत होता है।"
+          },
+          "unitIds": [
+            "42"
+          ]
+        },
+        {
+          "id": "n-43",
+          "number": "43",
+          "heading": {
+            "en": "Commencement and continuance of right of private defence of property.",
+            "hi": "संपत्ति की प्राइवेट प्रतिरक्षा के अधिकार का प्रारंभ और निरंतरता।"
+          },
+          "unitIds": [
+            "43"
+          ]
+        },
+        {
+          "id": "n-44",
+          "number": "44",
+          "heading": {
+            "en": "Right of private defence against deadly assault when there is risk of harm to innocent person.",
+            "hi": "निर्दोष व्यक्ति को हानि का जोखिम होने पर घातक हमले के विरुद्ध प्राइवेट प्रतिरक्षा का अधिकार।"
+          },
+          "unitIds": [
+            "44"
+          ]
+        }
+      ],
+      "unitIds": [
+        "14",
+        "15",
+        "16",
+        "17",
+        "18",
+        "19",
+        "20",
+        "21",
+        "22",
+        "23",
+        "24",
+        "25",
+        "26",
+        "27",
+        "28",
+        "29",
+        "30",
+        "31",
+        "32",
+        "33",
+        "34",
+        "35",
+        "36",
+        "37",
+        "38",
+        "39",
+        "40",
+        "41",
+        "42",
+        "43",
+        "44"
+      ]
+    },
+    {
+      "id": "ch-IV-3",
+      "number": "IV",
+      "heading": {
+        "en": "Of abetment, criminal conspiracy and attempt",
+        "hi": ""
+      },
+      "children": [
+        {
+          "id": "n-45",
+          "number": "45",
+          "heading": {
+            "en": "Abetment of a thing.",
+            "hi": "किसी बात का दुष्प्रेरण।"
+          },
+          "unitIds": [
+            "45"
+          ]
+        },
+        {
+          "id": "n-46",
+          "number": "46",
+          "heading": {
+            "en": "Abettor.",
+            "hi": "दुष्प्रेरक।"
+          },
+          "unitIds": [
+            "46"
+          ]
+        },
+        {
+          "id": "n-47",
+          "number": "47",
+          "heading": {
+            "en": "Abetment in India of offences outside India.",
+            "hi": "भारत के बाहर के अपराधों का भारत में दुष्प्रेरण।"
+          },
+          "unitIds": [
+            "47"
+          ]
+        },
+        {
+          "id": "n-48",
+          "number": "48",
+          "heading": {
+            "en": "Abetment outside India for offence in India.",
+            "hi": "भारत में अपराध के लिए भारत के बाहर दुष्प्रेरण।"
+          },
+          "unitIds": [
+            "48"
+          ]
+        },
+        {
+          "id": "n-49",
+          "number": "49",
+          "heading": {
+            "en": "Punishment of abetment if act abetted is committed in consequence and where no express provision is made for its punishment.",
+            "hi": "दुष्प्रेरण का दण्ड, यदि दुष्प्रेरित कार्य उसके परिणामस्वरूप किया जाता है और जहाँ उसके दण्ड के लिए कोई अभिव्यक्त उपबंध नहीं है।"
+          },
+          "unitIds": [
+            "49"
+          ]
+        },
+        {
+          "id": "n-50",
+          "number": "50",
+          "heading": {
+            "en": "Punishment of abetment if person abetted does act with different intention from that of abettor.",
+            "hi": "यदि दुष्प्रेरित व्यक्ति दुष्प्रेरक के आशय से भिन्न आशय से कार्य करता है तो दुष्प्रेरण का दण्ड।"
+          },
+          "unitIds": [
+            "50"
+          ]
+        },
+        {
+          "id": "n-51",
+          "number": "51",
+          "heading": {
+            "en": "Liability of abettor when one act abetted and different act done.",
+            "hi": "जब एक कार्य का दुष्प्रेरण किया गया हो और भिन्न कार्य किया गया हो तब दुष्प्रेरक का दायित्व।"
+          },
+          "unitIds": [
+            "51"
+          ]
+        },
+        {
+          "id": "n-52",
+          "number": "52",
+          "heading": {
+            "en": "Abettor when liable to cumulative punishment for act abetted and for act done.",
+            "hi": "दुष्प्रेरक कब दुष्प्रेरित कार्य और किए गए कार्य दोनों के लिए संचयी दण्ड का भागी होगा।"
+          },
+          "unitIds": [
+            "52"
+          ]
+        },
+        {
+          "id": "n-53",
+          "number": "53",
+          "heading": {
+            "en": "Liability of abettor for an effect caused by act abetted different from that intended by abettor.",
+            "hi": "दुष्प्रेरक के आशयित प्रभाव से भिन्न, दुष्प्रेरित कार्य द्वारा कारित प्रभाव के लिए दुष्प्रेरक का दायित्व।"
+          },
+          "unitIds": [
+            "53"
+          ]
+        },
+        {
+          "id": "n-54",
+          "number": "54",
+          "heading": {
+            "en": "Abettor present when offence is committed.",
+            "hi": "दुष्प्रेरक, जब अपराध किए जाने के समय उपस्थित हो।"
+          },
+          "unitIds": [
+            "54"
+          ]
+        },
+        {
+          "id": "n-55",
+          "number": "55",
+          "heading": {
+            "en": "Abetment of offence punishable with death or imprisonment for life.",
+            "hi": "मृत्युदण्ड या आजीवन कारावास से दण्डनीय अपराध का दुष्प्रेरण।"
+          },
+          "unitIds": [
+            "55"
+          ]
+        },
+        {
+          "id": "n-56",
+          "number": "56",
+          "heading": {
+            "en": "Abetment of offence punishable with imprisonment.",
+            "hi": "कारावास से दण्डनीय अपराध का दुष्प्रेरण।"
+          },
+          "unitIds": [
+            "56"
+          ]
+        },
+        {
+          "id": "n-57",
+          "number": "57",
+          "heading": {
+            "en": "Abetting commission of offence by public or by more than ten persons.",
+            "hi": "जनता द्वारा या दस से अधिक व्यक्तियों द्वारा अपराध किए जाने का दुष्प्रेरण।"
+          },
+          "unitIds": [
+            "57"
+          ]
+        },
+        {
+          "id": "n-58",
+          "number": "58",
+          "heading": {
+            "en": "Concealing design to commit offence punishable with death or imprisonment for life.",
+            "hi": "मृत्युदण्ड या आजीवन कारावास से दण्डनीय अपराध करने की योजना को छिपाना।"
+          },
+          "unitIds": [
+            "58"
+          ]
+        },
+        {
+          "id": "n-59",
+          "number": "59",
+          "heading": {
+            "en": "Public servant concealing design to commit offence which it is his duty to prevent.",
+            "hi": "लोक सेवक द्वारा उस अपराध को करने की योजना छिपाना जिसे निवारित करना उसका कर्तव्य है।"
+          },
+          "unitIds": [
+            "59"
+          ]
+        },
+        {
+          "id": "n-60",
+          "number": "60",
+          "heading": {
+            "en": "Concealing design to commit offence punishable with imprisonment.",
+            "hi": "कारावास से दण्डनीय अपराध करने की योजना को छिपाना।"
+          },
+          "unitIds": [
+            "60"
+          ]
+        },
+        {
+          "id": "n-61",
+          "number": "61",
+          "heading": {
+            "en": "Criminal conspiracy.",
+            "hi": "आपराधिक षड्यंत्र।"
+          },
+          "unitIds": [
+            "61"
+          ]
+        },
+        {
+          "id": "n-62",
+          "number": "62",
+          "heading": {
+            "en": "Punishment for attempting to commit offences punishable with imprisonment for life or other imprisonment.",
+            "hi": "आजीवन कारावास या अन्य कारावास से दण्डनीय अपराध करने के प्रयत्न के लिए दण्ड।"
+          },
+          "unitIds": [
+            "62"
+          ]
+        }
+      ],
+      "unitIds": [
+        "45",
+        "46",
+        "47",
+        "48",
+        "49",
+        "50",
+        "51",
+        "52",
+        "53",
+        "54",
+        "55",
+        "56",
+        "57",
+        "58",
+        "59",
+        "60",
+        "61",
+        "62"
+      ]
+    },
+    {
+      "id": "ch-V-4",
+      "number": "V",
+      "heading": {
+        "en": "Of offences against woman and child",
+        "hi": ""
+      },
+      "children": [
+        {
+          "id": "n-63",
+          "number": "63",
+          "heading": {
+            "en": "Rape.",
+            "hi": "बलात्संग।"
+          },
+          "unitIds": [
+            "63"
+          ]
+        },
+        {
+          "id": "n-64",
+          "number": "64",
+          "heading": {
+            "en": "Punishment for rape.",
+            "hi": "बलात्संग के लिए दण्ड।"
+          },
+          "unitIds": [
+            "64"
+          ]
+        },
+        {
+          "id": "n-65",
+          "number": "65",
+          "heading": {
+            "en": "Punishment for rape in certain cases.",
+            "hi": "कतिपय मामलों में बलात्संग के लिए दण्ड।"
+          },
+          "unitIds": [
+            "65"
+          ]
+        },
+        {
+          "id": "n-66",
+          "number": "66",
+          "heading": {
+            "en": "Punishment for causing death or resulting in persistent vegetative state of victim.",
+            "hi": "पीड़िता की मृत्यु कारित करने या उसे लगातार विकृतशील दशा में पहुँचाने के लिए दण्ड।"
+          },
+          "unitIds": [
+            "66"
+          ]
+        },
+        {
+          "id": "n-67",
+          "number": "67",
+          "heading": {
+            "en": "Sexual intercourse by husband upon his wife during separation.",
+            "hi": "पति द्वारा अपनी पत्नी के साथ पृथक्करण के दौरान मैथुन।"
+          },
+          "unitIds": [
+            "67"
+          ]
+        },
+        {
+          "id": "n-68",
+          "number": "68",
+          "heading": {
+            "en": "Sexual intercourse by a person in authority.",
+            "hi": "प्राधिकार में स्थित व्यक्ति द्वारा मैथुन।"
+          },
+          "unitIds": [
+            "68"
+          ]
+        },
+        {
+          "id": "n-69",
+          "number": "69",
+          "heading": {
+            "en": "Sexual intercourse by employing deceitful means, etc.",
+            "hi": "छल-कपट के साधनों आदि का प्रयोग करके मैथुन।"
+          },
+          "unitIds": [
+            "69"
+          ]
+        },
+        {
+          "id": "n-70",
+          "number": "70",
+          "heading": {
+            "en": "Gang rape.",
+            "hi": "सामूहिक बलात्संग।"
+          },
+          "unitIds": [
+            "70"
+          ]
+        },
+        {
+          "id": "n-71",
+          "number": "71",
+          "heading": {
+            "en": "Punishment for repeat offenders.",
+            "hi": "पुनः अपराधियों के लिए दण्ड।"
+          },
+          "unitIds": [
+            "71"
+          ]
+        },
+        {
+          "id": "n-72",
+          "number": "72",
+          "heading": {
+            "en": "Disclosure of identity of victim of certain offences, etc.",
+            "hi": "कतिपय अपराधों के पीड़ित की पहचान का प्रकटन, आदि।"
+          },
+          "unitIds": [
+            "72"
+          ]
+        },
+        {
+          "id": "n-73",
+          "number": "73",
+          "heading": {
+            "en": "Printing or publishing any matter relating to Court proceedings without permission.",
+            "hi": "बिना अनुमति के न्यायालय की कार्यवाहियों से संबंधित किसी विषय का मुद्रण या प्रकाशन।"
+          },
+          "unitIds": [
+            "73"
+          ]
+        },
+        {
+          "id": "n-74",
+          "number": "74",
+          "heading": {
+            "en": "Assault or use of criminal force to woman with intent to outrage her modesty.",
+            "hi": "स्त्री की लज्जा भंग करने के आशय से उस पर हमला या आपराधिक बल का प्रयोग।"
+          },
+          "unitIds": [
+            "74"
+          ]
+        },
+        {
+          "id": "n-75",
+          "number": "75",
+          "heading": {
+            "en": "Sexual harassment.",
+            "hi": "लैंगिक उत्पीड़न।"
+          },
+          "unitIds": [
+            "75"
+          ]
+        },
+        {
+          "id": "n-76",
+          "number": "76",
+          "heading": {
+            "en": "Assault or use of criminal force to woman with intent to disrobe.",
+            "hi": "स्त्री को विवस्त्र करने के आशय से उस पर हमला या आपराधिक बल का प्रयोग।"
+          },
+          "unitIds": [
+            "76"
+          ]
+        },
+        {
+          "id": "n-77",
+          "number": "77",
+          "heading": {
+            "en": "Voyeurism.",
+            "hi": "दृश्यरतिकता।"
+          },
+          "unitIds": [
+            "77"
+          ]
+        },
+        {
+          "id": "n-78",
+          "number": "78",
+          "heading": {
+            "en": "Stalking.",
+            "hi": "पीछा करना।"
+          },
+          "unitIds": [
+            "78"
+          ]
+        },
+        {
+          "id": "n-79",
+          "number": "79",
+          "heading": {
+            "en": "Word, gesture or act intended to insult modesty of a woman.",
+            "hi": "स्त्री की लज्जा का अनादर करने के आशय से शब्द, अंगविक्षेप या कार्य।"
+          },
+          "unitIds": [
+            "79"
+          ]
+        },
+        {
+          "id": "n-80",
+          "number": "80",
+          "heading": {
+            "en": "Dowry death.",
+            "hi": "दहेज मृत्यु।"
+          },
+          "unitIds": [
+            "80"
+          ]
+        },
+        {
+          "id": "n-81",
+          "number": "81",
+          "heading": {
+            "en": "Cohabitation caused by man deceitfully inducing belief of lawful marriage.",
+            "hi": "पुरुष द्वारा वैध विवाह का विश्वास कपटपूर्वक उत्पन्न कराकर कारित सहवास।"
+          },
+          "unitIds": [
+            "81"
+          ]
+        },
+        {
+          "id": "n-82",
+          "number": "82",
+          "heading": {
+            "en": "Marrying again during lifetime of husband or wife.",
+            "hi": "पति या पत्नी के जीवनकाल में पुनः विवाह करना।"
+          },
+          "unitIds": [
+            "82"
+          ]
+        },
+        {
+          "id": "n-83",
+          "number": "83",
+          "heading": {
+            "en": "Marriage ceremony fraudulently gone through without lawful marriage.",
+            "hi": "वैध विवाह के बिना कपटपूर्वक विवाह की रीति सम्पन्न करना।"
+          },
+          "unitIds": [
+            "83"
+          ]
+        },
+        {
+          "id": "n-84",
+          "number": "84",
+          "heading": {
+            "en": "Enticing or taking away or detaining with criminal intent a married woman.",
+            "hi": "आपराधिक आशय से विवाहित स्त्री को फुसलाकर ले जाना, ले जाना या निरुद्ध रखना।"
+          },
+          "unitIds": [
+            "84"
+          ]
+        },
+        {
+          "id": "n-85",
+          "number": "85",
+          "heading": {
+            "en": "Husband or relative of husband of a woman subjecting her to cruelty.",
+            "hi": "किसी स्त्री का पति या पति का नातेदार द्वारा उसके प्रति क्रूरता।"
+          },
+          "unitIds": [
+            "85"
+          ]
+        },
+        {
+          "id": "n-86",
+          "number": "86",
+          "heading": {
+            "en": "Cruelty defined.",
+            "hi": "क्रूरता की परिभाषा।"
+          },
+          "unitIds": [
+            "86"
+          ]
+        },
+        {
+          "id": "n-87",
+          "number": "87",
+          "heading": {
+            "en": "Kidnapping, abducting or inducing woman to compel her marriage, etc.",
+            "hi": "विवाह के लिए विवश करने आदि के लिए स्त्री का अपहरण, व्यपहरण या उत्प्रेरण।"
+          },
+          "unitIds": [
+            "87"
+          ]
+        },
+        {
+          "id": "n-88",
+          "number": "88",
+          "heading": {
+            "en": "Causing miscarriage.",
+            "hi": "गर्भपात कारित करना।"
+          },
+          "unitIds": [
+            "88"
+          ]
+        },
+        {
+          "id": "n-89",
+          "number": "89",
+          "heading": {
+            "en": "Causing miscarriage without woman's consent.",
+            "hi": "स्त्री की सम्मति के बिना गर्भपात कारित करना।"
+          },
+          "unitIds": [
+            "89"
+          ]
+        },
+        {
+          "id": "n-90",
+          "number": "90",
+          "heading": {
+            "en": "Death caused by act done with intent to cause miscarriage.",
+            "hi": "गर्भपात कारित करने के आशय से किए गए कार्य द्वारा कारित मृत्यु।"
+          },
+          "unitIds": [
+            "90"
+          ]
+        },
+        {
+          "id": "n-91",
+          "number": "91",
+          "heading": {
+            "en": "Act done with intent to prevent child being born alive or to cause to die after birth.",
+            "hi": "बालक को सजीव उत्पन्न होने से रोकने या जन्म के पश्चात् उसकी मृत्यु कारित करने के आशय से किया गया कार्य।"
+          },
+          "unitIds": [
+            "91"
+          ]
+        },
+        {
+          "id": "n-92",
+          "number": "92",
+          "heading": {
+            "en": "Causing death of quick unborn child by act amounting to culpable homicide.",
+            "hi": "आपराधिक मानव वध की कोटि में आने वाले कार्य द्वारा जीवंत अजन्मे बालक की मृत्यु कारित करना।"
+          },
+          "unitIds": [
+            "92"
+          ]
+        },
+        {
+          "id": "n-93",
+          "number": "93",
+          "heading": {
+            "en": "Exposure and abandonment of child under twelve years of age, by parent or person having care of it.",
+            "hi": "माता-पिता या उसकी देखभाल करने वाले व्यक्ति द्वारा बारह वर्ष से कम आयु के बालक को उजागर करना और परित्यक्त करना।"
+          },
+          "unitIds": [
+            "93"
+          ]
+        },
+        {
+          "id": "n-94",
+          "number": "94",
+          "heading": {
+            "en": "Concealment of birth by secret disposal of dead body.",
+            "hi": "मृत शरीर के गुप्त निपटान द्वारा जन्म को छिपाना।"
+          },
+          "unitIds": [
+            "94"
+          ]
+        },
+        {
+          "id": "n-95",
+          "number": "95",
+          "heading": {
+            "en": "Hiring, employing or engaging a child to commit an offence.",
+            "hi": "अपराध करने के लिए बालक को भाड़े पर लेना, नियोजित करना या लगाना।"
+          },
+          "unitIds": [
+            "95"
+          ]
+        },
+        {
+          "id": "n-96",
+          "number": "96",
+          "heading": {
+            "en": "Procuration of child.",
+            "hi": "बालक का उपापन।"
+          },
+          "unitIds": [
+            "96"
+          ]
+        },
+        {
+          "id": "n-97",
+          "number": "97",
+          "heading": {
+            "en": "Kidnapping or abducting child under ten years of age with intent to steal from its person.",
+            "hi": "दस वर्ष से कम आयु के बालक के शरीर पर से चुराने के आशय से उसका अपहरण या व्यपहरण करना।"
+          },
+          "unitIds": [
+            "97"
+          ]
+        },
+        {
+          "id": "n-98",
+          "number": "98",
+          "heading": {
+            "en": "Selling child for purposes of prostitution, etc.",
+            "hi": "वेश्यावृत्ति आदि के प्रयोजन के लिए बालक का विक्रय।"
+          },
+          "unitIds": [
+            "98"
+          ]
+        },
+        {
+          "id": "n-99",
+          "number": "99",
+          "heading": {
+            "en": "Buying child for purposes of prostitution, etc.",
+            "hi": "वेश्यावृत्ति आदि के प्रयोजन के लिए बालक का क्रय।"
+          },
+          "unitIds": [
+            "99"
+          ]
+        }
+      ],
+      "unitIds": [
+        "63",
+        "64",
+        "65",
+        "66",
+        "67",
+        "68",
+        "69",
+        "70",
+        "71",
+        "72",
+        "73",
+        "74",
+        "75",
+        "76",
+        "77",
+        "78",
+        "79",
+        "80",
+        "81",
+        "82",
+        "83",
+        "84",
+        "85",
+        "86",
+        "87",
+        "88",
+        "89",
+        "90",
+        "91",
+        "92",
+        "93",
+        "94",
+        "95",
+        "96",
+        "97",
+        "98",
+        "99"
+      ]
+    },
+    {
+      "id": "ch-VI-5",
+      "number": "VI",
+      "heading": {
+        "en": "Of offences affecting the human body",
+        "hi": ""
+      },
+      "children": [
+        {
+          "id": "n-100",
+          "number": "100",
+          "heading": {
+            "en": "Culpable homicide.",
+            "hi": "आपराधिक मानव वध।"
+          },
+          "unitIds": [
+            "100"
+          ]
+        },
+        {
+          "id": "n-101",
+          "number": "101",
+          "heading": {
+            "en": "Murder.",
+            "hi": "हत्या।"
+          },
+          "unitIds": [
+            "101"
+          ]
+        },
+        {
+          "id": "n-102",
+          "number": "102",
+          "heading": {
+            "en": "Culpable homicide by causing death of person other than person whose death was intended.",
+            "hi": "जिस व्यक्ति की मृत्यु आशयित थी उससे भिन्न व्यक्ति की मृत्यु कारित करके आपराधिक मानव वध।"
+          },
+          "unitIds": [
+            "102"
+          ]
+        },
+        {
+          "id": "n-103",
+          "number": "103",
+          "heading": {
+            "en": "Punishment for murder.",
+            "hi": "हत्या के लिए दण्ड।"
+          },
+          "unitIds": [
+            "103"
+          ]
+        },
+        {
+          "id": "n-104",
+          "number": "104",
+          "heading": {
+            "en": "Punishment for murder by life-convict.",
+            "hi": "आजीवन कारावास से दण्डित व्यक्ति द्वारा हत्या के लिए दण्ड।"
+          },
+          "unitIds": [
+            "104"
+          ]
+        },
+        {
+          "id": "n-105",
+          "number": "105",
+          "heading": {
+            "en": "Punishment for culpable homicide not amounting to murder.",
+            "hi": "हत्या की कोटि में न आने वाले आपराधिक मानव वध के लिए दण्ड।"
+          },
+          "unitIds": [
+            "105"
+          ]
+        },
+        {
+          "id": "n-106",
+          "number": "106",
+          "heading": {
+            "en": "Causing death by negligence.",
+            "hi": "उपेक्षा द्वारा मृत्यु कारित करना।"
+          },
+          "unitIds": [
+            "106"
+          ]
+        },
+        {
+          "id": "n-107",
+          "number": "107",
+          "heading": {
+            "en": "Abetment of suicide of child or person of unsound mind.",
+            "hi": "बालक या विकृतचित्त व्यक्ति की आत्महत्या का दुष्प्रेरण।"
+          },
+          "unitIds": [
+            "107"
+          ]
+        },
+        {
+          "id": "n-108",
+          "number": "108",
+          "heading": {
+            "en": "Abetment of suicide.",
+            "hi": "आत्महत्या का दुष्प्रेरण।"
+          },
+          "unitIds": [
+            "108"
+          ]
+        },
+        {
+          "id": "n-109",
+          "number": "109",
+          "heading": {
+            "en": "Attempt to murder.",
+            "hi": "हत्या का प्रयत्न।"
+          },
+          "unitIds": [
+            "109"
+          ]
+        },
+        {
+          "id": "n-110",
+          "number": "110",
+          "heading": {
+            "en": "Attempt to commit culpable homicide.",
+            "hi": "आपराधिक मानव वध का प्रयत्न।"
+          },
+          "unitIds": [
+            "110"
+          ]
+        },
+        {
+          "id": "n-111",
+          "number": "111",
+          "heading": {
+            "en": "Organised crime.",
+            "hi": "संगठित अपराध।"
+          },
+          "unitIds": [
+            "111"
+          ]
+        },
+        {
+          "id": "n-112",
+          "number": "112",
+          "heading": {
+            "en": "Petty organised crime.",
+            "hi": "छोटा संगठित अपराध।"
+          },
+          "unitIds": [
+            "112"
+          ]
+        },
+        {
+          "id": "n-113",
+          "number": "113",
+          "heading": {
+            "en": "Terrorist act.",
+            "hi": "आतंकवादी कृत्य।"
+          },
+          "unitIds": [
+            "113"
+          ]
+        },
+        {
+          "id": "n-114",
+          "number": "114",
+          "heading": {
+            "en": "Hurt.",
+            "hi": "उपहति।"
+          },
+          "unitIds": [
+            "114"
+          ]
+        },
+        {
+          "id": "n-115",
+          "number": "115",
+          "heading": {
+            "en": "Voluntarily causing hurt.",
+            "hi": "स्वेच्छया उपहति कारित करना।"
+          },
+          "unitIds": [
+            "115"
+          ]
+        },
+        {
+          "id": "n-116",
+          "number": "116",
+          "heading": {
+            "en": "Grievous hurt.",
+            "hi": "घोर उपहति।"
+          },
+          "unitIds": [
+            "116"
+          ]
+        },
+        {
+          "id": "n-117",
+          "number": "117",
+          "heading": {
+            "en": "Voluntarily causing grievous hurt.",
+            "hi": "स्वेच्छया घोर उपहति कारित करना।"
+          },
+          "unitIds": [
+            "117"
+          ]
+        },
+        {
+          "id": "n-118",
+          "number": "118",
+          "heading": {
+            "en": "Voluntarily causing hurt or grievous hurt by dangerous weapons or means.",
+            "hi": "खतरनाक हथियारों या साधनों द्वारा स्वेच्छया उपहति या घोर उपहति कारित करना।"
+          },
+          "unitIds": [
+            "118"
+          ]
+        },
+        {
+          "id": "n-119",
+          "number": "119",
+          "heading": {
+            "en": "Voluntarily causing hurt or grievous hurt to extort property, or to constrain to an illegal act.",
+            "hi": "संपत्ति उद्दापित करने के लिए, या किसी विधिविरुद्ध कार्य के लिए विवश करने हेतु स्वेच्छया उपहति या घोर उपहति कारित करना।"
+          },
+          "unitIds": [
+            "119"
+          ]
+        },
+        {
+          "id": "n-120",
+          "number": "120",
+          "heading": {
+            "en": "Voluntarily causing hurt or grievous hurt to extort confession, or to compel restoration of property.",
+            "hi": "संस्वीकृति उद्दापित करने, या संपत्ति की वापसी के लिए विवश करने हेतु स्वेच्छया उपहति या घोर उपहति कारित करना।"
+          },
+          "unitIds": [
+            "120"
+          ]
+        },
+        {
+          "id": "n-121",
+          "number": "121",
+          "heading": {
+            "en": "Voluntarily causing hurt or grievous hurt to deter public servant from his duty.",
+            "hi": "लोक सेवक को उसके कर्तव्य से विरत करने के लिए स्वेच्छया उपहति या घोर उपहति कारित करना।"
+          },
+          "unitIds": [
+            "121"
+          ]
+        },
+        {
+          "id": "n-122",
+          "number": "122",
+          "heading": {
+            "en": "Voluntarily causing hurt or grievous hurt on provocation.",
+            "hi": "प्रकोपन पर स्वेच्छया उपहति या घोर उपहति कारित करना।"
+          },
+          "unitIds": [
+            "122"
+          ]
+        },
+        {
+          "id": "n-123",
+          "number": "123",
+          "heading": {
+            "en": "Causing hurt by means of poison, etc., with intent to commit an offence.",
+            "hi": "अपराध करने के आशय से विष आदि के माध्यम से उपहति कारित करना।"
+          },
+          "unitIds": [
+            "123"
+          ]
+        },
+        {
+          "id": "n-124",
+          "number": "124",
+          "heading": {
+            "en": "Voluntarily causing grievous hurt by use of acid, etc.",
+            "hi": "अम्ल आदि के प्रयोग द्वारा स्वेच्छया घोर उपहति कारित करना।"
+          },
+          "unitIds": [
+            "124"
+          ]
+        },
+        {
+          "id": "n-125",
+          "number": "125",
+          "heading": {
+            "en": "Act endangering life or personal safety of others.",
+            "hi": "दूसरों के जीवन या वैयक्तिक सुरक्षा को संकटापन्न करने वाला कार्य।"
+          },
+          "unitIds": [
+            "125"
+          ]
+        },
+        {
+          "id": "n-126",
+          "number": "126",
+          "heading": {
+            "en": "Wrongful restraint.",
+            "hi": "सदोष अवरोध।"
+          },
+          "unitIds": [
+            "126"
+          ]
+        },
+        {
+          "id": "n-127",
+          "number": "127",
+          "heading": {
+            "en": "Wrongful confinement.",
+            "hi": "सदोष परिरोध।"
+          },
+          "unitIds": [
+            "127"
+          ]
+        },
+        {
+          "id": "n-128",
+          "number": "128",
+          "heading": {
+            "en": "Force.",
+            "hi": "बल।"
+          },
+          "unitIds": [
+            "128"
+          ]
+        },
+        {
+          "id": "n-129",
+          "number": "129",
+          "heading": {
+            "en": "Criminal force.",
+            "hi": "आपराधिक बल।"
+          },
+          "unitIds": [
+            "129"
+          ]
+        },
+        {
+          "id": "n-130",
+          "number": "130",
+          "heading": {
+            "en": "Assault.",
+            "hi": "हमला।"
+          },
+          "unitIds": [
+            "130"
+          ]
+        },
+        {
+          "id": "n-131",
+          "number": "131",
+          "heading": {
+            "en": "Punishment for assault or criminal force otherwise than on grave provocation.",
+            "hi": "गंभीर प्रकोपन के बिना हमला या आपराधिक बल के प्रयोग के लिए दण्ड।"
+          },
+          "unitIds": [
+            "131"
+          ]
+        },
+        {
+          "id": "n-132",
+          "number": "132",
+          "heading": {
+            "en": "Assault or criminal force to deter public servant from discharge of his duty.",
+            "hi": "लोक सेवक को उसके कर्तव्य के निर्वहन से विरत करने के लिए हमला या आपराधिक बल।"
+          },
+          "unitIds": [
+            "132"
+          ]
+        },
+        {
+          "id": "n-133",
+          "number": "133",
+          "heading": {
+            "en": "Assault or criminal force with intent to dishonour person, otherwise than on grave provocation.",
+            "hi": "गंभीर प्रकोपन के बिना किसी व्यक्ति का अपमान करने के आशय से हमला या आपराधिक बल।"
+          },
+          "unitIds": [
+            "133"
+          ]
+        },
+        {
+          "id": "n-134",
+          "number": "134",
+          "heading": {
+            "en": "Assault or criminal force in attempt to commit theft of property carried by a person.",
+            "hi": "किसी व्यक्ति द्वारा ले जाई जा रही संपत्ति की चोरी करने के प्रयत्न में हमला या आपराधिक बल।"
+          },
+          "unitIds": [
+            "134"
+          ]
+        },
+        {
+          "id": "n-135",
+          "number": "135",
+          "heading": {
+            "en": "Assault or criminal force in attempt to wrongfully confine a person.",
+            "hi": "किसी व्यक्ति का सदोष परिरोध करने के प्रयत्न में हमला या आपराधिक बल।"
+          },
+          "unitIds": [
+            "135"
+          ]
+        },
+        {
+          "id": "n-136",
+          "number": "136",
+          "heading": {
+            "en": "Assault or criminal force on grave provocation.",
+            "hi": "गंभीर प्रकोपन पर हमला या आपराधिक बल।"
+          },
+          "unitIds": [
+            "136"
+          ]
+        },
+        {
+          "id": "n-137",
+          "number": "137",
+          "heading": {
+            "en": "Kidnapping.",
+            "hi": "अपहरण।"
+          },
+          "unitIds": [
+            "137"
+          ]
+        },
+        {
+          "id": "n-138",
+          "number": "138",
+          "heading": {
+            "en": "Abduction.",
+            "hi": "व्यपहरण।"
+          },
+          "unitIds": [
+            "138"
+          ]
+        },
+        {
+          "id": "n-139",
+          "number": "139",
+          "heading": {
+            "en": "Kidnapping or maiming a child for purposes of begging.",
+            "hi": "भिक्षावृत्ति के प्रयोजनों के लिए बालक का अपहरण या उसे विकलांग बनाना।"
+          },
+          "unitIds": [
+            "139"
+          ]
+        },
+        {
+          "id": "n-140",
+          "number": "140",
+          "heading": {
+            "en": "Kidnapping or abducting in order to murder or for ransom, etc.",
+            "hi": "हत्या करने के लिए या फिरौती आदि के लिए अपहरण या व्यपहरण।"
+          },
+          "unitIds": [
+            "140"
+          ]
+        },
+        {
+          "id": "n-141",
+          "number": "141",
+          "heading": {
+            "en": "Importation of girl or boy from foreign country.",
+            "hi": "विदेश से बालिका या बालक का आयात।"
+          },
+          "unitIds": [
+            "141"
+          ]
+        },
+        {
+          "id": "n-142",
+          "number": "142",
+          "heading": {
+            "en": "Wrongfully concealing or keeping in confinement, kidnapped or abducted person.",
+            "hi": "अपहृत या व्यपहृत व्यक्ति को सदोष रूप से छिपाना या परिरुद्ध रखना।"
+          },
+          "unitIds": [
+            "142"
+          ]
+        },
+        {
+          "id": "n-143",
+          "number": "143",
+          "heading": {
+            "en": "Trafficking of person.",
+            "hi": "व्यक्ति का दुर्व्यापार।"
+          },
+          "unitIds": [
+            "143"
+          ]
+        },
+        {
+          "id": "n-144",
+          "number": "144",
+          "heading": {
+            "en": "Exploitation of a trafficked person.",
+            "hi": "दुर्व्यापारित व्यक्ति का शोषण।"
+          },
+          "unitIds": [
+            "144"
+          ]
+        },
+        {
+          "id": "n-145",
+          "number": "145",
+          "heading": {
+            "en": "Habitual dealing in slaves.",
+            "hi": "दासों में आदतन व्यापार।"
+          },
+          "unitIds": [
+            "145"
+          ]
+        },
+        {
+          "id": "n-146",
+          "number": "146",
+          "heading": {
+            "en": "Unlawful compulsory labour.",
+            "hi": "विधिविरुद्ध अनिवार्य श्रम।"
+          },
+          "unitIds": [
+            "146"
+          ]
+        }
+      ],
+      "unitIds": [
+        "100",
+        "101",
+        "102",
+        "103",
+        "104",
+        "105",
+        "106",
+        "107",
+        "108",
+        "109",
+        "110",
+        "111",
+        "112",
+        "113",
+        "114",
+        "115",
+        "116",
+        "117",
+        "118",
+        "119",
+        "120",
+        "121",
+        "122",
+        "123",
+        "124",
+        "125",
+        "126",
+        "127",
+        "128",
+        "129",
+        "130",
+        "131",
+        "132",
+        "133",
+        "134",
+        "135",
+        "136",
+        "137",
+        "138",
+        "139",
+        "140",
+        "141",
+        "142",
+        "143",
+        "144",
+        "145",
+        "146"
+      ]
+    },
+    {
+      "id": "ch-VII-6",
+      "number": "VII",
+      "heading": {
+        "en": "Of offences against the state",
+        "hi": ""
+      },
+      "children": [
+        {
+          "id": "n-147",
+          "number": "147",
+          "heading": {
+            "en": "Waging, or attempting to wage war, or abetting waging of war, against Government of India.",
+            "hi": "भारत सरकार के विरुद्ध युद्ध करना, युद्ध करने का प्रयत्न करना या युद्ध करने का दुष्प्रेरण।"
+          },
+          "unitIds": [
+            "147"
+          ]
+        },
+        {
+          "id": "n-148",
+          "number": "148",
+          "heading": {
+            "en": "Conspiracy to commit offences punishable by section 147.",
+            "hi": "धारा 147 द्वारा दण्डनीय अपराध करने का षड्यंत्र।"
+          },
+          "unitIds": [
+            "148"
+          ]
+        },
+        {
+          "id": "n-149",
+          "number": "149",
+          "heading": {
+            "en": "Collecting arms, etc., with intention of waging war against Government of India.",
+            "hi": "भारत सरकार के विरुद्ध युद्ध करने के आशय से आयुध आदि एकत्र करना।"
+          },
+          "unitIds": [
+            "149"
+          ]
+        },
+        {
+          "id": "n-150",
+          "number": "150",
+          "heading": {
+            "en": "Concealing with intent to facilitate design to wage war.",
+            "hi": "युद्ध करने की योजना को सुकर बनाने के आशय से छिपाना।"
+          },
+          "unitIds": [
+            "150"
+          ]
+        },
+        {
+          "id": "n-151",
+          "number": "151",
+          "heading": {
+            "en": "Assaulting President, Governor, etc., with intent to compel or restrain exercise of any lawful power.",
+            "hi": "किसी विधिपूर्ण शक्ति के प्रयोग के लिए विवश करने या उसे रोकने के आशय से राष्ट्रपति, राज्यपाल आदि पर हमला करना।"
+          },
+          "unitIds": [
+            "151"
+          ]
+        },
+        {
+          "id": "n-152",
+          "number": "152",
+          "heading": {
+            "en": "Act endangering sovereignty, unity and integrity of India.",
+            "hi": "भारत की प्रभुता, एकता और अखंडता को संकटापन्न करने वाला कार्य।"
+          },
+          "unitIds": [
+            "152"
+          ]
+        },
+        {
+          "id": "n-153",
+          "number": "153",
+          "heading": {
+            "en": "Waging war against Government of any foreign State at peace with Government of India.",
+            "hi": "भारत सरकार से मैत्रीपूर्ण संबंध रखने वाले किसी विदेशी राज्य की सरकार के विरुद्ध युद्ध करना।"
+          },
+          "unitIds": [
+            "153"
+          ]
+        },
+        {
+          "id": "n-154",
+          "number": "154",
+          "heading": {
+            "en": "Committing depredation on territories of foreign State at peace with Government of India.",
+            "hi": "भारत सरकार से मैत्रीपूर्ण संबंध रखने वाले विदेशी राज्य के राज्यक्षेत्रों पर लूटपाट करना।"
+          },
+          "unitIds": [
+            "154"
+          ]
+        },
+        {
+          "id": "n-155",
+          "number": "155",
+          "heading": {
+            "en": "Receiving property taken by war or depredation mentioned in sections 153 and 154.",
+            "hi": "धारा 153 और 154 में वर्णित युद्ध या लूटपाट द्वारा प्राप्त संपत्ति प्राप्त करना।"
+          },
+          "unitIds": [
+            "155"
+          ]
+        },
+        {
+          "id": "n-156",
+          "number": "156",
+          "heading": {
+            "en": "Public servant voluntarily allowing prisoner of State or war to escape.",
+            "hi": "लोक सेवक द्वारा राज्य या युद्ध बंदी को स्वेच्छया निकल भागने देना।"
+          },
+          "unitIds": [
+            "156"
+          ]
+        },
+        {
+          "id": "n-157",
+          "number": "157",
+          "heading": {
+            "en": "Public servant negligently suffering such prisoner to escape.",
+            "hi": "लोक सेवक द्वारा उपेक्षापूर्वक ऐसे बंदी को निकल भागने देना।"
+          },
+          "unitIds": [
+            "157"
+          ]
+        },
+        {
+          "id": "n-158",
+          "number": "158",
+          "heading": {
+            "en": "Aiding escape of, rescuing or harbouring such prisoner.",
+            "hi": "ऐसे बंदी को निकल भागने में सहायता करना, छुड़ाना या शरण देना।"
+          },
+          "unitIds": [
+            "158"
+          ]
+        }
+      ],
+      "unitIds": [
+        "147",
+        "148",
+        "149",
+        "150",
+        "151",
+        "152",
+        "153",
+        "154",
+        "155",
+        "156",
+        "157",
+        "158"
+      ]
+    },
+    {
+      "id": "ch-VIII-7",
+      "number": "VIII",
+      "heading": {
+        "en": "Of offences relating to the army, navy and air force",
+        "hi": ""
+      },
+      "children": [
+        {
+          "id": "n-159",
+          "number": "159",
+          "heading": {
+            "en": "Abetting mutiny, or attempting to seduce a soldier, sailor or airman from his duty.",
+            "hi": "विद्रोह का दुष्प्रेरण करना, या सैनिक, नाविक या वायुसैनिक को उसके कर्तव्य से विचलित करने का प्रयत्न करना।"
+          },
+          "unitIds": [
+            "159"
+          ]
+        },
+        {
+          "id": "n-160",
+          "number": "160",
+          "heading": {
+            "en": "Abetment of mutiny, if mutiny is committed in consequence thereof.",
+            "hi": "विद्रोह का दुष्प्रेरण, यदि उसके परिणामस्वरूप विद्रोह किया जाता है।"
+          },
+          "unitIds": [
+            "160"
+          ]
+        },
+        {
+          "id": "n-161",
+          "number": "161",
+          "heading": {
+            "en": "Abetment of assault by soldier, sailor or airman on his superior officer, when in execution of his office.",
+            "hi": "सैनिक, नाविक या वायुसैनिक द्वारा अपने वरिष्ठ अधिकारी पर, जब वह अपने पद के कर्तव्य के निष्पादन में हो, हमले का दुष्प्रेरण।"
+          },
+          "unitIds": [
+            "161"
+          ]
+        },
+        {
+          "id": "n-162",
+          "number": "162",
+          "heading": {
+            "en": "Abetment of such assault, if assault committed.",
+            "hi": "ऐसे हमले का दुष्प्रेरण, यदि हमला किया जाता है।"
+          },
+          "unitIds": [
+            "162"
+          ]
+        },
+        {
+          "id": "n-163",
+          "number": "163",
+          "heading": {
+            "en": "Abetment of desertion of soldier, sailor or airman.",
+            "hi": "सैनिक, नाविक या वायुसैनिक के भगोड़ेपन का दुष्प्रेरण।"
+          },
+          "unitIds": [
+            "163"
+          ]
+        },
+        {
+          "id": "n-164",
+          "number": "164",
+          "heading": {
+            "en": "Harbouring deserter.",
+            "hi": "भगोड़े को शरण देना।"
+          },
+          "unitIds": [
+            "164"
+          ]
+        },
+        {
+          "id": "n-165",
+          "number": "165",
+          "heading": {
+            "en": "Deserter concealed on board merchant vessel through negligence of master.",
+            "hi": "स्वामी की उपेक्षा से व्यापारिक पोत पर भगोड़े को छिपाना।"
+          },
+          "unitIds": [
+            "165"
+          ]
+        },
+        {
+          "id": "n-166",
+          "number": "166",
+          "heading": {
+            "en": "Abetment of act of insubordination by soldier, sailor or airman.",
+            "hi": "सैनिक, नाविक या वायुसैनिक द्वारा अवज्ञा के कार्य का दुष्प्रेरण।"
+          },
+          "unitIds": [
+            "166"
+          ]
+        },
+        {
+          "id": "n-167",
+          "number": "167",
+          "heading": {
+            "en": "Persons subject to certain Acts.",
+            "hi": "कतिपय अधिनियमों के अधीन व्यक्ति।"
+          },
+          "unitIds": [
+            "167"
+          ]
+        },
+        {
+          "id": "n-168",
+          "number": "168",
+          "heading": {
+            "en": "Wearing garb or carrying token used by soldier, sailor or airman.",
+            "hi": "सैनिक, नाविक या वायुसैनिक द्वारा उपयोग की जाने वाली वेशभूषा पहनना या चिह्न धारण करना।"
+          },
+          "unitIds": [
+            "168"
+          ]
+        }
+      ],
+      "unitIds": [
+        "159",
+        "160",
+        "161",
+        "162",
+        "163",
+        "164",
+        "165",
+        "166",
+        "167",
+        "168"
+      ]
+    },
+    {
+      "id": "ch-IX-8",
+      "number": "IX",
+      "heading": {
+        "en": "Of offences relating to elections",
+        "hi": ""
+      },
+      "children": [
+        {
+          "id": "n-169",
+          "number": "169",
+          "heading": {
+            "en": "Candidate, electoral right defined.",
+            "hi": "उम्मीदवार, निर्वाचन अधिकार की परिभाषा।"
+          },
+          "unitIds": [
+            "169"
+          ]
+        },
+        {
+          "id": "n-170",
+          "number": "170",
+          "heading": {
+            "en": "Bribery.",
+            "hi": "रिश्वत।"
+          },
+          "unitIds": [
+            "170"
+          ]
+        },
+        {
+          "id": "n-171",
+          "number": "171",
+          "heading": {
+            "en": "Undue influence at elections.",
+            "hi": "निर्वाचनों में अनुचित प्रभाव।"
+          },
+          "unitIds": [
+            "171"
+          ]
+        },
+        {
+          "id": "n-172",
+          "number": "172",
+          "heading": {
+            "en": "Personation at elections.",
+            "hi": "निर्वाचनों में प्रतिरूपण।"
+          },
+          "unitIds": [
+            "172"
+          ]
+        },
+        {
+          "id": "n-173",
+          "number": "173",
+          "heading": {
+            "en": "Punishment for bribery.",
+            "hi": "रिश्वत के लिए दण्ड।"
+          },
+          "unitIds": [
+            "173"
+          ]
+        },
+        {
+          "id": "n-174",
+          "number": "174",
+          "heading": {
+            "en": "Punishment for undue influence or personation at an election.",
+            "hi": "निर्वाचन में अनुचित प्रभाव या प्रतिरूपण के लिए दण्ड।"
+          },
+          "unitIds": [
+            "174"
+          ]
+        },
+        {
+          "id": "n-175",
+          "number": "175",
+          "heading": {
+            "en": "False statement in connection with an election.",
+            "hi": "निर्वाचन के संबंध में मिथ्या कथन।"
+          },
+          "unitIds": [
+            "175"
+          ]
+        },
+        {
+          "id": "n-176",
+          "number": "176",
+          "heading": {
+            "en": "Illegal payments in connection with an election.",
+            "hi": "निर्वाचन के संबंध में विधिविरुद्ध संदाय।"
+          },
+          "unitIds": [
+            "176"
+          ]
+        },
+        {
+          "id": "n-177",
+          "number": "177",
+          "heading": {
+            "en": "Failure to keep election accounts.",
+            "hi": "निर्वाचन लेखे न रखना।"
+          },
+          "unitIds": [
+            "177"
+          ]
+        }
+      ],
+      "unitIds": [
+        "169",
+        "170",
+        "171",
+        "172",
+        "173",
+        "174",
+        "175",
+        "176",
+        "177"
+      ]
+    },
+    {
+      "id": "ch-X-9",
+      "number": "X",
+      "heading": {
+        "en": "Of offences relating to coin, currency-notes, bank-notes, and government stamps",
+        "hi": ""
+      },
+      "children": [
+        {
+          "id": "n-178",
+          "number": "178",
+          "heading": {
+            "en": "Counterfeiting coin, Government stamps, currency-notes or bank-notes.",
+            "hi": "सिक्के, सरकारी स्टाम्प, करेंसी-नोट या बैंक-नोट का कूटकरण।"
+          },
+          "unitIds": [
+            "178"
+          ]
+        },
+        {
+          "id": "n-179",
+          "number": "179",
+          "heading": {
+            "en": "Using as genuine, forged or counterfeit coin, Government stamp, currency-notes or bank-notes.",
+            "hi": "कूटरचित या कूटकृत सिक्के, सरकारी स्टाम्प, करेंसी-नोट या बैंक-नोट को असली के रूप में उपयोग करना।"
+          },
+          "unitIds": [
+            "179"
+          ]
+        },
+        {
+          "id": "n-180",
+          "number": "180",
+          "heading": {
+            "en": "Possession of forged or counterfeit coin, Government stamp, currency-notes or bank-notes.",
+            "hi": "कूटरचित या कूटकृत सिक्के, सरकारी स्टाम्प, करेंसी-नोट या बैंक-नोट का कब्जा।"
+          },
+          "unitIds": [
+            "180"
+          ]
+        },
+        {
+          "id": "n-181",
+          "number": "181",
+          "heading": {
+            "en": "Making or possessing instruments or materials for forging or counterfeiting coin, Government stamp, currency-notes or bank-notes.",
+            "hi": "सिक्के, सरकारी स्टाम्प, करेंसी-नोट या बैंक-नोट की कूटरचना या कूटकरण के लिए उपकरण या सामग्री बनाना या रखना।"
+          },
+          "unitIds": [
+            "181"
+          ]
+        },
+        {
+          "id": "n-182",
+          "number": "182",
+          "heading": {
+            "en": "Making or using documents resembling currency-notes or bank-notes.",
+            "hi": "करेंसी-नोट या बैंक-नोट से मिलते-जुलते दस्तावेज बनाना या उपयोग करना।"
+          },
+          "unitIds": [
+            "182"
+          ]
+        },
+        {
+          "id": "n-183",
+          "number": "183",
+          "heading": {
+            "en": "Effacing writing from substance bearing Government stamp, or removing from document a stamp used for it, with intent to cause loss to Government.",
+            "hi": "सरकार को हानि कारित करने के आशय से सरकारी स्टाम्प वाली वस्तु से लेखन मिटाना, या दस्तावेज से उसमें उपयोग किया गया स्टाम्प हटाना।"
+          },
+          "unitIds": [
+            "183"
+          ]
+        },
+        {
+          "id": "n-184",
+          "number": "184",
+          "heading": {
+            "en": "Using Government stamp known to have been before used.",
+            "hi": "पूर्व में उपयोग किया जाना ज्ञात सरकारी स्टाम्प का उपयोग करना।"
+          },
+          "unitIds": [
+            "184"
+          ]
+        },
+        {
+          "id": "n-185",
+          "number": "185",
+          "heading": {
+            "en": "Erasure of mark denoting that stamp has been used.",
+            "hi": "स्टाम्प के उपयोग किए जाने को दर्शाने वाले चिह्न का मेटना।"
+          },
+          "unitIds": [
+            "185"
+          ]
+        },
+        {
+          "id": "n-186",
+          "number": "186",
+          "heading": {
+            "en": "Prohibition of fictitious stamps.",
+            "hi": "कल्पित स्टाम्पों का प्रतिषेध।"
+          },
+          "unitIds": [
+            "186"
+          ]
+        },
+        {
+          "id": "n-187",
+          "number": "187",
+          "heading": {
+            "en": "Person employed in mint causing coin to be of different weight or composition from that fixed by law.",
+            "hi": "टकसाल में नियोजित व्यक्ति द्वारा सिक्के को विधि द्वारा नियत भार या संघटन से भिन्न बनाना कारित करना।"
+          },
+          "unitIds": [
+            "187"
+          ]
+        },
+        {
+          "id": "n-188",
+          "number": "188",
+          "heading": {
+            "en": "Unlawfully taking coining instrument from mint.",
+            "hi": "टकसाल से सिक्का ढालने का उपकरण विधिविरुद्ध रूप से ले जाना।"
+          },
+          "unitIds": [
+            "188"
+          ]
+        }
+      ],
+      "unitIds": [
+        "178",
+        "179",
+        "180",
+        "181",
+        "182",
+        "183",
+        "184",
+        "185",
+        "186",
+        "187",
+        "188"
+      ]
+    },
+    {
+      "id": "ch-XI-10",
+      "number": "XI",
+      "heading": {
+        "en": "Of offences against the public tranquillity",
+        "hi": ""
+      },
+      "children": [
+        {
+          "id": "n-189",
+          "number": "189",
+          "heading": {
+            "en": "Unlawful assembly.",
+            "hi": "विधिविरुद्ध जमाव।"
+          },
+          "unitIds": [
+            "189"
+          ]
+        },
+        {
+          "id": "n-190",
+          "number": "190",
+          "heading": {
+            "en": "Every member of unlawful assembly guilty of offence committed in prosecution of common object.",
+            "hi": "सामान्य उद्देश्य के अभियोजन में किए गए अपराध का विधिविरुद्ध जमाव का प्रत्येक सदस्य दोषी।"
+          },
+          "unitIds": [
+            "190"
+          ]
+        },
+        {
+          "id": "n-191",
+          "number": "191",
+          "heading": {
+            "en": "Rioting.",
+            "hi": "बलवा।"
+          },
+          "unitIds": [
+            "191"
+          ]
+        },
+        {
+          "id": "n-192",
+          "number": "192",
+          "heading": {
+            "en": "Wantonly giving provocation with intent to cause riot-if rioting be committed; if not committed.",
+            "hi": "बलवा कारित करने के आशय से स्वेच्छया प्रकोपन देना — यदि बलवा किया जाता है; यदि नहीं किया जाता।"
+          },
+          "unitIds": [
+            "192"
+          ]
+        },
+        {
+          "id": "n-193",
+          "number": "193",
+          "heading": {
+            "en": "Liability of owner, occupier, etc., of land on which an unlawful assembly or riot takes place.",
+            "hi": "उस भूमि के स्वामी, अधिभोगी आदि का दायित्व जिस पर विधिविरुद्ध जमाव या बलवा होता है।"
+          },
+          "unitIds": [
+            "193"
+          ]
+        },
+        {
+          "id": "n-194",
+          "number": "194",
+          "heading": {
+            "en": "Affray.",
+            "hi": "कलह (सार्वजनिक स्थान पर मारपीट)।"
+          },
+          "unitIds": [
+            "194"
+          ]
+        },
+        {
+          "id": "n-195",
+          "number": "195",
+          "heading": {
+            "en": "Assaulting or obstructing public servant when suppressing riot, etc.",
+            "hi": "बलवा आदि शमन करते समय लोक सेवक पर हमला करना या उसमें बाधा डालना।"
+          },
+          "unitIds": [
+            "195"
+          ]
+        },
+        {
+          "id": "n-196",
+          "number": "196",
+          "heading": {
+            "en": "Promoting enmity between different groups on grounds of religion, race, place of birth, residence, language, etc., and doing acts prejudicial to maintenance of harmony.",
+            "hi": "धर्म, मूलवंश, जन्मस्थान, निवास, भाषा आदि के आधार पर विभिन्न समूहों के बीच शत्रुता को बढ़ावा देना और सौहार्द बनाए रखने पर प्रतिकूल प्रभाव डालने वाले कार्य करना।"
+          },
+          "unitIds": [
+            "196"
+          ]
+        },
+        {
+          "id": "n-197",
+          "number": "197",
+          "heading": {
+            "en": "Imputations, assertions prejudicial to national integration.",
+            "hi": "राष्ट्रीय एकता पर प्रतिकूल प्रभाव डालने वाले लांछन एवं अभिकथन।"
+          },
+          "unitIds": [
+            "197"
+          ]
+        }
+      ],
+      "unitIds": [
+        "189",
+        "190",
+        "191",
+        "192",
+        "193",
+        "194",
+        "195",
+        "196",
+        "197"
+      ]
+    },
+    {
+      "id": "ch-XII-11",
+      "number": "XII",
+      "heading": {
+        "en": "Of offences by or relating to public servants",
+        "hi": ""
+      },
+      "children": [
+        {
+          "id": "n-198",
+          "number": "198",
+          "heading": {
+            "en": "Public servant disobeying law, with intent to cause injury to any person.",
+            "hi": "किसी व्यक्ति को क्षति कारित करने के आशय से लोक सेवक द्वारा विधि की अवज्ञा।"
+          },
+          "unitIds": [
+            "198"
+          ]
+        },
+        {
+          "id": "n-199",
+          "number": "199",
+          "heading": {
+            "en": "Public servant disobeying direction under law.",
+            "hi": "लोक सेवक द्वारा विधि के अधीन निदेश की अवज्ञा।"
+          },
+          "unitIds": [
+            "199"
+          ]
+        },
+        {
+          "id": "n-200",
+          "number": "200",
+          "heading": {
+            "en": "Punishment for non-treatment of victim.",
+            "hi": "पीड़ित का उपचार न करने के लिए दण्ड।"
+          },
+          "unitIds": [
+            "200"
+          ]
+        },
+        {
+          "id": "n-201",
+          "number": "201",
+          "heading": {
+            "en": "Public servant framing an incorrect document with intent to cause injury.",
+            "hi": "क्षति कारित करने के आशय से लोक सेवक द्वारा गलत दस्तावेज तैयार करना।"
+          },
+          "unitIds": [
+            "201"
+          ]
+        },
+        {
+          "id": "n-202",
+          "number": "202",
+          "heading": {
+            "en": "Public servant unlawfully engaging in trade.",
+            "hi": "लोक सेवक द्वारा विधिविरुद्ध रूप से व्यापार में संलग्न होना।"
+          },
+          "unitIds": [
+            "202"
+          ]
+        },
+        {
+          "id": "n-203",
+          "number": "203",
+          "heading": {
+            "en": "Public servant unlawfully buying or bidding for property.",
+            "hi": "लोक सेवक द्वारा विधिविरुद्ध रूप से संपत्ति खरीदना या उसकी बोली लगाना।"
+          },
+          "unitIds": [
+            "203"
+          ]
+        },
+        {
+          "id": "n-204",
+          "number": "204",
+          "heading": {
+            "en": "Personating a public servant.",
+            "hi": "लोक सेवक का प्रतिरूपण करना।"
+          },
+          "unitIds": [
+            "204"
+          ]
+        },
+        {
+          "id": "n-205",
+          "number": "205",
+          "heading": {
+            "en": "Wearing garb or carrying token used by public servant with fraudulent intent.",
+            "hi": "कपटपूर्ण आशय से लोक सेवक द्वारा उपयोग की जाने वाली वेशभूषा पहनना या चिह्न धारण करना।"
+          },
+          "unitIds": [
+            "205"
+          ]
+        }
+      ],
+      "unitIds": [
+        "198",
+        "199",
+        "200",
+        "201",
+        "202",
+        "203",
+        "204",
+        "205"
+      ]
+    },
+    {
+      "id": "ch-XIII-12",
+      "number": "XIII",
+      "heading": {
+        "en": "Of contempts of the lawful authority of public servants",
+        "hi": ""
+      },
+      "children": [
+        {
+          "id": "n-206",
+          "number": "206",
+          "heading": {
+            "en": "Absconding to avoid service of summons or other proceeding.",
+            "hi": "समन या अन्य कार्यवाही की तामील से बचने के लिए फरार होना।"
+          },
+          "unitIds": [
+            "206"
+          ]
+        },
+        {
+          "id": "n-207",
+          "number": "207",
+          "heading": {
+            "en": "Preventing service of summons or other proceeding, or preventing publication thereof.",
+            "hi": "समन या अन्य कार्यवाही की तामील रोकना, या उसके प्रकाशन को रोकना।"
+          },
+          "unitIds": [
+            "207"
+          ]
+        },
+        {
+          "id": "n-208",
+          "number": "208",
+          "heading": {
+            "en": "Non-attendance in obedience to an order from public servant.",
+            "hi": "लोक सेवक के आदेश के अनुपालन में उपस्थित न होना।"
+          },
+          "unitIds": [
+            "208"
+          ]
+        },
+        {
+          "id": "n-209",
+          "number": "209",
+          "heading": {
+            "en": "Non-appearance in response to a proclamation under section 84 of Bharatiya Nagarik Suraksha Sanhita, 2023.",
+            "hi": "भारतीय नागरिक सुरक्षा संहिता, 2023 की धारा 84 के अधीन उद्घोषणा के प्रत्युत्तर में उपस्थित न होना।"
+          },
+          "unitIds": [
+            "209"
+          ]
+        },
+        {
+          "id": "n-210",
+          "number": "210",
+          "heading": {
+            "en": "Omission to produce document or electronic record to public servant by person legally bound to produce it.",
+            "hi": "विधितः बाध्य व्यक्ति द्वारा लोक सेवक के समक्ष दस्तावेज या इलेक्ट्रॉनिक अभिलेख प्रस्तुत न करना।"
+          },
+          "unitIds": [
+            "210"
+          ]
+        },
+        {
+          "id": "n-211",
+          "number": "211",
+          "heading": {
+            "en": "Omission to give notice or information to public servant by person legally bound to give it.",
+            "hi": "विधितः बाध्य व्यक्ति द्वारा लोक सेवक को सूचना या जानकारी न देना।"
+          },
+          "unitIds": [
+            "211"
+          ]
+        },
+        {
+          "id": "n-212",
+          "number": "212",
+          "heading": {
+            "en": "Furnishing false information.",
+            "hi": "मिथ्या जानकारी देना।"
+          },
+          "unitIds": [
+            "212"
+          ]
+        },
+        {
+          "id": "n-213",
+          "number": "213",
+          "heading": {
+            "en": "Refusing oath or affirmation when duly required by public servant to make it.",
+            "hi": "लोक सेवक द्वारा सम्यक् रूप से अपेक्षित किए जाने पर शपथ या प्रतिज्ञान करने से इंकार करना।"
+          },
+          "unitIds": [
+            "213"
+          ]
+        },
+        {
+          "id": "n-214",
+          "number": "214",
+          "heading": {
+            "en": "Refusing to answer public servant authorised to question.",
+            "hi": "प्रश्न करने हेतु प्राधिकृत लोक सेवक को उत्तर देने से इंकार करना।"
+          },
+          "unitIds": [
+            "214"
+          ]
+        },
+        {
+          "id": "n-215",
+          "number": "215",
+          "heading": {
+            "en": "Refusing to sign statement.",
+            "hi": "कथन पर हस्ताक्षर करने से इंकार करना।"
+          },
+          "unitIds": [
+            "215"
+          ]
+        },
+        {
+          "id": "n-216",
+          "number": "216",
+          "heading": {
+            "en": "False statement on oath or affirmation to public servant or person authorised to administer an oath or affirmation.",
+            "hi": "लोक सेवक को, या शपथ या प्रतिज्ञान दिलाने के लिए प्राधिकृत व्यक्ति को, शपथ या प्रतिज्ञान पर मिथ्या कथन।"
+          },
+          "unitIds": [
+            "216"
+          ]
+        },
+        {
+          "id": "n-217",
+          "number": "217",
+          "heading": {
+            "en": "False information, with intent to cause public servant to use his lawful power to injury of another person.",
+            "hi": "लोक सेवक को अपनी विधिपूर्ण शक्ति का उपयोग किसी अन्य व्यक्ति को क्षति पहुँचाने के लिए कराने के आशय से मिथ्या जानकारी।"
+          },
+          "unitIds": [
+            "217"
+          ]
+        },
+        {
+          "id": "n-218",
+          "number": "218",
+          "heading": {
+            "en": "Resistance to taking of property by lawful authority of a public servant.",
+            "hi": "लोक सेवक के विधिपूर्ण प्राधिकार द्वारा संपत्ति के अभिग्रहण का प्रतिरोध।"
+          },
+          "unitIds": [
+            "218"
+          ]
+        },
+        {
+          "id": "n-219",
+          "number": "219",
+          "heading": {
+            "en": "Obstructing sale of property offered for sale by authority of public servant.",
+            "hi": "लोक सेवक के प्राधिकार द्वारा विक्रय हेतु प्रस्तुत संपत्ति के विक्रय में बाधा डालना।"
+          },
+          "unitIds": [
+            "219"
+          ]
+        },
+        {
+          "id": "n-220",
+          "number": "220",
+          "heading": {
+            "en": "Illegal purchase or bid for property offered for sale by authority of public servant.",
+            "hi": "लोक सेवक के प्राधिकार द्वारा विक्रय हेतु प्रस्तुत संपत्ति का विधिविरुद्ध क्रय या बोली।"
+          },
+          "unitIds": [
+            "220"
+          ]
+        },
+        {
+          "id": "n-221",
+          "number": "221",
+          "heading": {
+            "en": "Obstructing public servant in discharge of public functions.",
+            "hi": "लोक सेवक को लोक कृत्यों के निर्वहन में बाधा डालना।"
+          },
+          "unitIds": [
+            "221"
+          ]
+        },
+        {
+          "id": "n-222",
+          "number": "222",
+          "heading": {
+            "en": "Omission to assist public servant when bound by law to give assistance.",
+            "hi": "विधि द्वारा सहायता देने के लिए आबद्ध होने पर लोक सेवक की सहायता न करना।"
+          },
+          "unitIds": [
+            "222"
+          ]
+        },
+        {
+          "id": "n-223",
+          "number": "223",
+          "heading": {
+            "en": "Disobedience to order duly promulgated by public servant.",
+            "hi": "लोक सेवक द्वारा सम्यक् रूप से प्रख्यापित आदेश की अवज्ञा।"
+          },
+          "unitIds": [
+            "223"
+          ]
+        },
+        {
+          "id": "n-224",
+          "number": "224",
+          "heading": {
+            "en": "Threat of injury to public servant.",
+            "hi": "लोक सेवक को क्षति की धमकी।"
+          },
+          "unitIds": [
+            "224"
+          ]
+        },
+        {
+          "id": "n-225",
+          "number": "225",
+          "heading": {
+            "en": "Threat of injury to induce person to refrain from applying for protection to public servant.",
+            "hi": "किसी व्यक्ति को लोक सेवक से संरक्षण के लिए आवेदन करने से रोकने हेतु क्षति की धमकी।"
+          },
+          "unitIds": [
+            "225"
+          ]
+        },
+        {
+          "id": "n-226",
+          "number": "226",
+          "heading": {
+            "en": "Attempt to commit suicide to compel or restrain exercise of lawful power.",
+            "hi": "विधिपूर्ण शक्ति के प्रयोग को विवश या अवरुद्ध करने के लिए आत्महत्या का प्रयत्न।"
+          },
+          "unitIds": [
+            "226"
+          ]
+        }
+      ],
+      "unitIds": [
+        "206",
+        "207",
+        "208",
+        "209",
+        "210",
+        "211",
+        "212",
+        "213",
+        "214",
+        "215",
+        "216",
+        "217",
+        "218",
+        "219",
+        "220",
+        "221",
+        "222",
+        "223",
+        "224",
+        "225",
+        "226"
+      ]
+    },
+    {
+      "id": "ch-XIV-13",
+      "number": "XIV",
+      "heading": {
+        "en": "Of false evidence and offences against public justice",
+        "hi": ""
+      },
+      "children": [
+        {
+          "id": "n-227",
+          "number": "227",
+          "heading": {
+            "en": "Giving false evidence.",
+            "hi": "मिथ्या साक्ष्य देना।"
+          },
+          "unitIds": [
+            "227"
+          ]
+        },
+        {
+          "id": "n-228",
+          "number": "228",
+          "heading": {
+            "en": "Fabricating false evidence.",
+            "hi": "मिथ्या साक्ष्य गढ़ना।"
+          },
+          "unitIds": [
+            "228"
+          ]
+        },
+        {
+          "id": "n-229",
+          "number": "229",
+          "heading": {
+            "en": "Punishment for false evidence.",
+            "hi": "मिथ्या साक्ष्य के लिए दण्ड।"
+          },
+          "unitIds": [
+            "229"
+          ]
+        },
+        {
+          "id": "n-230",
+          "number": "230",
+          "heading": {
+            "en": "Giving or fabricating false evidence with intent to procure conviction of capital offence.",
+            "hi": "मृत्युदण्डनीय अपराध की दोषसिद्धि कराने के आशय से मिथ्या साक्ष्य देना या गढ़ना।"
+          },
+          "unitIds": [
+            "230"
+          ]
+        },
+        {
+          "id": "n-231",
+          "number": "231",
+          "heading": {
+            "en": "Giving or fabricating false evidence with intent to procure conviction of offence punishable with imprisonment for life or imprisonment.",
+            "hi": "आजीवन कारावास या कारावास से दण्डनीय अपराध की दोषसिद्धि कराने के आशय से मिथ्या साक्ष्य देना या गढ़ना।"
+          },
+          "unitIds": [
+            "231"
+          ]
+        },
+        {
+          "id": "n-232",
+          "number": "232",
+          "heading": {
+            "en": "Threatening any person to give false evidence.",
+            "hi": "किसी व्यक्ति को मिथ्या साक्ष्य देने के लिए धमकाना।"
+          },
+          "unitIds": [
+            "232"
+          ]
+        },
+        {
+          "id": "n-233",
+          "number": "233",
+          "heading": {
+            "en": "Using evidence known to be false.",
+            "hi": "मिथ्या ज्ञात साक्ष्य का उपयोग करना।"
+          },
+          "unitIds": [
+            "233"
+          ]
+        },
+        {
+          "id": "n-234",
+          "number": "234",
+          "heading": {
+            "en": "Issuing or signing false certificate.",
+            "hi": "मिथ्या प्रमाणपत्र जारी करना या उस पर हस्ताक्षर करना।"
+          },
+          "unitIds": [
+            "234"
+          ]
+        },
+        {
+          "id": "n-235",
+          "number": "235",
+          "heading": {
+            "en": "Using as true a certificate known to be false.",
+            "hi": "मिथ्या ज्ञात प्रमाणपत्र को सत्य के रूप में उपयोग करना।"
+          },
+          "unitIds": [
+            "235"
+          ]
+        },
+        {
+          "id": "n-236",
+          "number": "236",
+          "heading": {
+            "en": "False statement made in declaration which is by law receivable as evidence.",
+            "hi": "विधि द्वारा साक्ष्य के रूप में ग्राह्य घोषणा में मिथ्या कथन।"
+          },
+          "unitIds": [
+            "236"
+          ]
+        },
+        {
+          "id": "n-237",
+          "number": "237",
+          "heading": {
+            "en": "Using as true such declaration knowing it to be false.",
+            "hi": "ऐसी घोषणा को मिथ्या जानते हुए सत्य के रूप में उपयोग करना।"
+          },
+          "unitIds": [
+            "237"
+          ]
+        },
+        {
+          "id": "n-238",
+          "number": "238",
+          "heading": {
+            "en": "Causing disappearance of evidence of offence, or giving false information to screen offender.",
+            "hi": "अपराध के साक्ष्य का विलोपन कारित करना, या अपराधी को प्रतिच्छादित करने के लिए मिथ्या जानकारी देना।"
+          },
+          "unitIds": [
+            "238"
+          ]
+        },
+        {
+          "id": "n-239",
+          "number": "239",
+          "heading": {
+            "en": "Intentional omission to give information of offence by person bound to inform.",
+            "hi": "सूचित करने के लिए आबद्ध व्यक्ति द्वारा अपराध की जानकारी न देने का साशय लोप।"
+          },
+          "unitIds": [
+            "239"
+          ]
+        },
+        {
+          "id": "n-240",
+          "number": "240",
+          "heading": {
+            "en": "Giving false information respecting an offence committed.",
+            "hi": "किए गए अपराध के संबंध में मिथ्या जानकारी देना।"
+          },
+          "unitIds": [
+            "240"
+          ]
+        },
+        {
+          "id": "n-241",
+          "number": "241",
+          "heading": {
+            "en": "Destruction of document or electronic record to prevent its production as evidence.",
+            "hi": "साक्ष्य के रूप में प्रस्तुतीकरण रोकने के लिए दस्तावेज या इलेक्ट्रॉनिक अभिलेख का विनाश।"
+          },
+          "unitIds": [
+            "241"
+          ]
+        },
+        {
+          "id": "n-242",
+          "number": "242",
+          "heading": {
+            "en": "False personation for purpose of act or proceeding in suit or prosecution.",
+            "hi": "वाद या अभियोजन में कार्य या कार्यवाही के प्रयोजन के लिए मिथ्या प्रतिरूपण।"
+          },
+          "unitIds": [
+            "242"
+          ]
+        },
+        {
+          "id": "n-243",
+          "number": "243",
+          "heading": {
+            "en": "Fraudulent removal or concealment of property to prevent its seizure as forfeited or in execution.",
+            "hi": "समपहृत के रूप में या निष्पादन में कुर्की रोकने के लिए संपत्ति का कपटपूर्ण अपसारण या छिपाना।"
+          },
+          "unitIds": [
+            "243"
+          ]
+        },
+        {
+          "id": "n-244",
+          "number": "244",
+          "heading": {
+            "en": "Fraudulent claim to property to prevent its seizure as forfeited or in execution.",
+            "hi": "संपत्ति की कुर्की रोकने के लिए उस पर कपटपूर्ण दावा।"
+          },
+          "unitIds": [
+            "244"
+          ]
+        },
+        {
+          "id": "n-245",
+          "number": "245",
+          "heading": {
+            "en": "Fraudulently suffering decree for sum not due.",
+            "hi": "देय न होने वाली रकम के लिए कपटपूर्वक डिक्री होने देना।"
+          },
+          "unitIds": [
+            "245"
+          ]
+        },
+        {
+          "id": "n-246",
+          "number": "246",
+          "heading": {
+            "en": "Dishonestly making false claim in Court.",
+            "hi": "न्यायालय में बेईमानी से मिथ्या दावा करना।"
+          },
+          "unitIds": [
+            "246"
+          ]
+        },
+        {
+          "id": "n-247",
+          "number": "247",
+          "heading": {
+            "en": "Fraudulently obtaining decree for sum not due.",
+            "hi": "देय न होने वाली रकम के लिए कपटपूर्वक डिक्री प्राप्त करना।"
+          },
+          "unitIds": [
+            "247"
+          ]
+        },
+        {
+          "id": "n-248",
+          "number": "248",
+          "heading": {
+            "en": "False charge of offence made with intent to injure.",
+            "hi": "क्षति पहुँचाने के आशय से अपराध का मिथ्या आरोप।"
+          },
+          "unitIds": [
+            "248"
+          ]
+        },
+        {
+          "id": "n-249",
+          "number": "249",
+          "heading": {
+            "en": "Harbouring offender.",
+            "hi": "अपराधी को शरण देना।"
+          },
+          "unitIds": [
+            "249"
+          ]
+        },
+        {
+          "id": "n-250",
+          "number": "250",
+          "heading": {
+            "en": "Taking gift, etc., to screen an offender from punishment.",
+            "hi": "अपराधी को दण्ड से बचाने के लिए उपहार आदि लेना।"
+          },
+          "unitIds": [
+            "250"
+          ]
+        },
+        {
+          "id": "n-251",
+          "number": "251",
+          "heading": {
+            "en": "Offering gift or restoration of property in consideration of screening offender.",
+            "hi": "अपराधी को बचाने के प्रतिफल में उपहार या संपत्ति की वापसी की पेशकश।"
+          },
+          "unitIds": [
+            "251"
+          ]
+        },
+        {
+          "id": "n-252",
+          "number": "252",
+          "heading": {
+            "en": "Taking gift to help to recover stolen property, etc.",
+            "hi": "चुराई गई संपत्ति आदि वापस दिलाने में सहायता के लिए उपहार लेना।"
+          },
+          "unitIds": [
+            "252"
+          ]
+        },
+        {
+          "id": "n-253",
+          "number": "253",
+          "heading": {
+            "en": "Harbouring offender who has escaped from custody or whose apprehension has been ordered.",
+            "hi": "अभिरक्षा से निकल भागे या जिसकी गिरफ्तारी का आदेश हुआ हो, ऐसे अपराधी को शरण देना।"
+          },
+          "unitIds": [
+            "253"
+          ]
+        },
+        {
+          "id": "n-254",
+          "number": "254",
+          "heading": {
+            "en": "Penalty for harbouring robbers or dacoits.",
+            "hi": "लुटेरों या डाकुओं को शरण देने के लिए शास्ति।"
+          },
+          "unitIds": [
+            "254"
+          ]
+        },
+        {
+          "id": "n-255",
+          "number": "255",
+          "heading": {
+            "en": "Public servant disobeying direction of law with intent to save person from punishment or property from forfeiture.",
+            "hi": "किसी व्यक्ति को दण्ड से या संपत्ति को समपहरण से बचाने के आशय से लोक सेवक द्वारा विधि के निदेश की अवज्ञा।"
+          },
+          "unitIds": [
+            "255"
+          ]
+        },
+        {
+          "id": "n-256",
+          "number": "256",
+          "heading": {
+            "en": "Public servant framing incorrect record or writing with intent to save person from punishment or property from forfeiture.",
+            "hi": "किसी व्यक्ति को दण्ड से या संपत्ति को समपहरण से बचाने के आशय से लोक सेवक द्वारा गलत अभिलेख या लेख तैयार करना।"
+          },
+          "unitIds": [
+            "256"
+          ]
+        },
+        {
+          "id": "n-257",
+          "number": "257",
+          "heading": {
+            "en": "Public servant in judicial proceeding corruptly making report, etc., contrary to law.",
+            "hi": "न्यायिक कार्यवाही में लोक सेवक द्वारा भ्रष्टतापूर्वक विधि के विरुद्ध प्रतिवेदन आदि करना।"
+          },
+          "unitIds": [
+            "257"
+          ]
+        },
+        {
+          "id": "n-258",
+          "number": "258",
+          "heading": {
+            "en": "Commitment for trial or confinement by person having authority who knows that he is acting contrary to law.",
+            "hi": "यह जानते हुए कि वह विधि के विरुद्ध कार्य कर रहा है, प्राधिकार रखने वाले व्यक्ति द्वारा विचारण के लिए सुपुर्दगी या परिरोध।"
+          },
+          "unitIds": [
+            "258"
+          ]
+        },
+        {
+          "id": "n-259",
+          "number": "259",
+          "heading": {
+            "en": "Intentional omission to apprehend on part of public servant bound to apprehend.",
+            "hi": "गिरफ्तार करने के लिए आबद्ध लोक सेवक द्वारा साशय गिरफ्तार न करना।"
+          },
+          "unitIds": [
+            "259"
+          ]
+        },
+        {
+          "id": "n-260",
+          "number": "260",
+          "heading": {
+            "en": "Intentional omission to apprehend on part of public servant bound to apprehend person under sentence or lawfully committed.",
+            "hi": "दण्डादेशित या विधिपूर्वक सुपुर्द व्यक्ति को गिरफ्तार करने के लिए आबद्ध लोक सेवक द्वारा साशय गिरफ्तार न करना।"
+          },
+          "unitIds": [
+            "260"
+          ]
+        },
+        {
+          "id": "n-261",
+          "number": "261",
+          "heading": {
+            "en": "Escape from confinement or custody negligently suffered by public servant.",
+            "hi": "लोक सेवक द्वारा उपेक्षापूर्वक परिरोध या अभिरक्षा से निकल भागने देना।"
+          },
+          "unitIds": [
+            "261"
+          ]
+        },
+        {
+          "id": "n-262",
+          "number": "262",
+          "heading": {
+            "en": "Resistance or obstruction by a person to his lawful apprehension.",
+            "hi": "किसी व्यक्ति द्वारा अपनी विधिपूर्ण गिरफ्तारी का प्रतिरोध या बाधा।"
+          },
+          "unitIds": [
+            "262"
+          ]
+        },
+        {
+          "id": "n-263",
+          "number": "263",
+          "heading": {
+            "en": "Resistance or obstruction to lawful apprehension of another person.",
+            "hi": "किसी अन्य व्यक्ति की विधिपूर्ण गिरफ्तारी का प्रतिरोध या बाधा।"
+          },
+          "unitIds": [
+            "263"
+          ]
+        },
+        {
+          "id": "n-264",
+          "number": "264",
+          "heading": {
+            "en": "Omission to apprehend, or sufferance of escape, on part of public servant, in cases not otherwise provided for.",
+            "hi": "अन्यथा उपबंधित न होने वाले मामलों में लोक सेवक द्वारा गिरफ्तार न करना, या निकल भागने देना।"
+          },
+          "unitIds": [
+            "264"
+          ]
+        },
+        {
+          "id": "n-265",
+          "number": "265",
+          "heading": {
+            "en": "Resistance or obstruction to lawful apprehension or escape or rescue in cases not otherwise provided for.",
+            "hi": "अन्यथा उपबंधित न होने वाले मामलों में विधिपूर्ण गिरफ्तारी का प्रतिरोध या बाधा, या निकल भागना या छुड़ाना।"
+          },
+          "unitIds": [
+            "265"
+          ]
+        },
+        {
+          "id": "n-266",
+          "number": "266",
+          "heading": {
+            "en": "Violation of condition of remission of punishment.",
+            "hi": "दण्ड परिहार की शर्त का उल्लंघन।"
+          },
+          "unitIds": [
+            "266"
+          ]
+        },
+        {
+          "id": "n-267",
+          "number": "267",
+          "heading": {
+            "en": "Intentional insult or interruption to public servant sitting in judicial proceeding.",
+            "hi": "न्यायिक कार्यवाही में बैठे लोक सेवक का साशय अपमान या उसमें विघ्न डालना।"
+          },
+          "unitIds": [
+            "267"
+          ]
+        },
+        {
+          "id": "n-268",
+          "number": "268",
+          "heading": {
+            "en": "Personation of assessor.",
+            "hi": "असेसर का प्रतिरूपण।"
+          },
+          "unitIds": [
+            "268"
+          ]
+        },
+        {
+          "id": "n-269",
+          "number": "269",
+          "heading": {
+            "en": "Failure by person released on bail bond or bond to appear in Court.",
+            "hi": "जमानत बंधपत्र या बंधपत्र पर छोड़े गए व्यक्ति द्वारा न्यायालय में उपस्थित होने में असफलता।"
+          },
+          "unitIds": [
+            "269"
+          ]
+        }
+      ],
+      "unitIds": [
+        "227",
+        "228",
+        "229",
+        "230",
+        "231",
+        "232",
+        "233",
+        "234",
+        "235",
+        "236",
+        "237",
+        "238",
+        "239",
+        "240",
+        "241",
+        "242",
+        "243",
+        "244",
+        "245",
+        "246",
+        "247",
+        "248",
+        "249",
+        "250",
+        "251",
+        "252",
+        "253",
+        "254",
+        "255",
+        "256",
+        "257",
+        "258",
+        "259",
+        "260",
+        "261",
+        "262",
+        "263",
+        "264",
+        "265",
+        "266",
+        "267",
+        "268",
+        "269"
+      ]
+    },
+    {
+      "id": "ch-XV-14",
+      "number": "XV",
+      "heading": {
+        "en": "Of offences affecting the public health, safety, convenience, decency and morals",
+        "hi": ""
+      },
+      "children": [
+        {
+          "id": "n-270",
+          "number": "270",
+          "heading": {
+            "en": "Public nuisance.",
+            "hi": "लोक न्यूसेंस।"
+          },
+          "unitIds": [
+            "270"
+          ]
+        },
+        {
+          "id": "n-271",
+          "number": "271",
+          "heading": {
+            "en": "Negligent act likely to spread infection of disease dangerous to life.",
+            "hi": "जीवन के लिए खतरनाक रोग के संक्रमण को फैलाने की संभावना वाला उपेक्षापूर्ण कार्य।"
+          },
+          "unitIds": [
+            "271"
+          ]
+        },
+        {
+          "id": "n-272",
+          "number": "272",
+          "heading": {
+            "en": "Malignant act likely to spread infection of disease dangerous to life.",
+            "hi": "जीवन के लिए खतरनाक रोग के संक्रमण को फैलाने की संभावना वाला विद्वेषपूर्ण कार्य।"
+          },
+          "unitIds": [
+            "272"
+          ]
+        },
+        {
+          "id": "n-273",
+          "number": "273",
+          "heading": {
+            "en": "Disobedience to quarantine rule.",
+            "hi": "संगरोध (क्वारंटीन) नियम की अवज्ञा।"
+          },
+          "unitIds": [
+            "273"
+          ]
+        },
+        {
+          "id": "n-274",
+          "number": "274",
+          "heading": {
+            "en": "Adulteration of food or drink intended for sale.",
+            "hi": "विक्रय के लिए आशयित खाद्य या पेय में अपमिश्रण।"
+          },
+          "unitIds": [
+            "274"
+          ]
+        },
+        {
+          "id": "n-275",
+          "number": "275",
+          "heading": {
+            "en": "Sale of noxious food or drink.",
+            "hi": "हानिकर खाद्य या पेय का विक्रय।"
+          },
+          "unitIds": [
+            "275"
+          ]
+        },
+        {
+          "id": "n-276",
+          "number": "276",
+          "heading": {
+            "en": "Adulteration of drugs.",
+            "hi": "औषधियों में अपमिश्रण।"
+          },
+          "unitIds": [
+            "276"
+          ]
+        },
+        {
+          "id": "n-277",
+          "number": "277",
+          "heading": {
+            "en": "Sale of adulterated drugs.",
+            "hi": "अपमिश्रित औषधियों का विक्रय।"
+          },
+          "unitIds": [
+            "277"
+          ]
+        },
+        {
+          "id": "n-278",
+          "number": "278",
+          "heading": {
+            "en": "Sale of drug as a different drug or preparation.",
+            "hi": "किसी औषधि को भिन्न औषधि या मिश्रण के रूप में विक्रय करना।"
+          },
+          "unitIds": [
+            "278"
+          ]
+        },
+        {
+          "id": "n-279",
+          "number": "279",
+          "heading": {
+            "en": "Fouling water of public spring or reservoir.",
+            "hi": "सार्वजनिक स्रोत या जलाशय के पानी को दूषित करना।"
+          },
+          "unitIds": [
+            "279"
+          ]
+        },
+        {
+          "id": "n-280",
+          "number": "280",
+          "heading": {
+            "en": "Making atmosphere noxious to health.",
+            "hi": "वायुमंडल को स्वास्थ्य के लिए हानिकर बनाना।"
+          },
+          "unitIds": [
+            "280"
+          ]
+        },
+        {
+          "id": "n-281",
+          "number": "281",
+          "heading": {
+            "en": "Rash driving or riding on a public way.",
+            "hi": "सार्वजनिक मार्ग पर अविचारपूर्ण चालन या सवारी।"
+          },
+          "unitIds": [
+            "281"
+          ]
+        },
+        {
+          "id": "n-282",
+          "number": "282",
+          "heading": {
+            "en": "Rash navigation of vessel.",
+            "hi": "पोत का अविचारपूर्ण संचालन।"
+          },
+          "unitIds": [
+            "282"
+          ]
+        },
+        {
+          "id": "n-283",
+          "number": "283",
+          "heading": {
+            "en": "Exhibition of false light, mark or buoy.",
+            "hi": "मिथ्या प्रकाश, चिह्न या बॉय का प्रदर्शन।"
+          },
+          "unitIds": [
+            "283"
+          ]
+        },
+        {
+          "id": "n-284",
+          "number": "284",
+          "heading": {
+            "en": "Conveying person by water for hire in unsafe or overloaded vessel.",
+            "hi": "असुरक्षित या अतिभारित पोत में भाड़े पर जल-मार्ग से व्यक्ति को ले जाना।"
+          },
+          "unitIds": [
+            "284"
+          ]
+        },
+        {
+          "id": "n-285",
+          "number": "285",
+          "heading": {
+            "en": "Danger or obstruction in public way or line of navigation.",
+            "hi": "सार्वजनिक मार्ग या नौ-संचालन मार्ग में खतरा या बाधा।"
+          },
+          "unitIds": [
+            "285"
+          ]
+        },
+        {
+          "id": "n-286",
+          "number": "286",
+          "heading": {
+            "en": "Negligent conduct with respect to poisonous substance.",
+            "hi": "विषैले पदार्थ के संबंध में उपेक्षापूर्ण आचरण।"
+          },
+          "unitIds": [
+            "286"
+          ]
+        },
+        {
+          "id": "n-287",
+          "number": "287",
+          "heading": {
+            "en": "Negligent conduct with respect to fire or combustible matter.  .",
+            "hi": "अग्नि या ज्वलनशील पदार्थ के संबंध में उपेक्षापूर्ण आचरण।"
+          },
+          "unitIds": [
+            "287"
+          ]
+        },
+        {
+          "id": "n-288",
+          "number": "288",
+          "heading": {
+            "en": "Negligent conduct with respect to explosive substance.",
+            "hi": "विस्फोटक पदार्थ के संबंध में उपेक्षापूर्ण आचरण।"
+          },
+          "unitIds": [
+            "288"
+          ]
+        },
+        {
+          "id": "n-289",
+          "number": "289",
+          "heading": {
+            "en": "Negligent conduct with respect to machinery.",
+            "hi": "मशीनरी के संबंध में उपेक्षापूर्ण आचरण।"
+          },
+          "unitIds": [
+            "289"
+          ]
+        },
+        {
+          "id": "n-290",
+          "number": "290",
+          "heading": {
+            "en": "Negligent conduct with respect to pulling down, repairing or constructing buildings, etc.",
+            "hi": "इमारतों आदि को गिराने, मरम्मत करने या निर्माण करने के संबंध में उपेक्षापूर्ण आचरण।"
+          },
+          "unitIds": [
+            "290"
+          ]
+        },
+        {
+          "id": "n-291",
+          "number": "291",
+          "heading": {
+            "en": "N egligent conduct with respect to animal.",
+            "hi": "पशु के संबंध में उपेक्षापूर्ण आचरण।"
+          },
+          "unitIds": [
+            "291"
+          ]
+        },
+        {
+          "id": "n-292",
+          "number": "292",
+          "heading": {
+            "en": "Punishment for public nuisance in cases not otherwise provided for.",
+            "hi": "अन्यथा उपबंधित न होने वाले मामलों में लोक न्यूसेंस के लिए दण्ड।"
+          },
+          "unitIds": [
+            "292"
+          ]
+        },
+        {
+          "id": "n-293",
+          "number": "293",
+          "heading": {
+            "en": "Continuance of nuisance after injunction to discontinue.",
+            "hi": "बंद करने के व्यादेश के पश्चात् न्यूसेंस की निरंतरता।"
+          },
+          "unitIds": [
+            "293"
+          ]
+        },
+        {
+          "id": "n-294",
+          "number": "294",
+          "heading": {
+            "en": "Sale, etc., of obscene books, etc.",
+            "hi": "अश्लील पुस्तकों आदि का विक्रय आदि।"
+          },
+          "unitIds": [
+            "294"
+          ]
+        },
+        {
+          "id": "n-295",
+          "number": "295",
+          "heading": {
+            "en": "Sale, etc., of obscene objects to child.",
+            "hi": "बालक को अश्लील वस्तुओं का विक्रय आदि।"
+          },
+          "unitIds": [
+            "295"
+          ]
+        },
+        {
+          "id": "n-296",
+          "number": "296",
+          "heading": {
+            "en": "Obscene acts and songs.",
+            "hi": "अश्लील कार्य और गाने।"
+          },
+          "unitIds": [
+            "296"
+          ]
+        },
+        {
+          "id": "n-297",
+          "number": "297",
+          "heading": {
+            "en": "Keeping lottery office.",
+            "hi": "लॉटरी कार्यालय रखना।"
+          },
+          "unitIds": [
+            "297"
+          ]
+        }
+      ],
+      "unitIds": [
+        "270",
+        "271",
+        "272",
+        "273",
+        "274",
+        "275",
+        "276",
+        "277",
+        "278",
+        "279",
+        "280",
+        "281",
+        "282",
+        "283",
+        "284",
+        "285",
+        "286",
+        "287",
+        "288",
+        "289",
+        "290",
+        "291",
+        "292",
+        "293",
+        "294",
+        "295",
+        "296",
+        "297"
+      ]
+    },
+    {
+      "id": "ch-XVI-15",
+      "number": "XVI",
+      "heading": {
+        "en": "Of offences relating to religion",
+        "hi": ""
+      },
+      "children": [
+        {
+          "id": "n-298",
+          "number": "298",
+          "heading": {
+            "en": "Injuring or defiling place of worship with intent to insult religion of any class.",
+            "hi": "किसी वर्ग के धर्म का अपमान करने के आशय से पूजा स्थान को क्षति पहुँचाना या अपवित्र करना।"
+          },
+          "unitIds": [
+            "298"
+          ]
+        },
+        {
+          "id": "n-299",
+          "number": "299",
+          "heading": {
+            "en": "Deliberate and malicious acts, intended to outrage religious feelings of any class by insulting its religion or religious beliefs.",
+            "hi": "किसी वर्ग के धर्म या धार्मिक विश्वासों का अपमान करके उसकी धार्मिक भावनाओं को आहत करने के आशय से किए गए विमर्शित और विद्वेषपूर्ण कार्य।"
+          },
+          "unitIds": [
+            "299"
+          ]
+        },
+        {
+          "id": "n-300",
+          "number": "300",
+          "heading": {
+            "en": "Disturbing religious assembly.",
+            "hi": "धार्मिक जमाव में विघ्न डालना।"
+          },
+          "unitIds": [
+            "300"
+          ]
+        },
+        {
+          "id": "n-301",
+          "number": "301",
+          "heading": {
+            "en": "Trespassing on burial places, etc.",
+            "hi": "कब्रिस्तान आदि में अतिचार करना।"
+          },
+          "unitIds": [
+            "301"
+          ]
+        },
+        {
+          "id": "n-302",
+          "number": "302",
+          "heading": {
+            "en": "Uttering words, etc., with deliberate intent to wound religious feelings of any person.",
+            "hi": "किसी व्यक्ति की धार्मिक भावनाओं को ठेस पहुँचाने के विमर्शित आशय से शब्द आदि का उच्चारण।"
+          },
+          "unitIds": [
+            "302"
+          ]
+        }
+      ],
+      "unitIds": [
+        "298",
+        "299",
+        "300",
+        "301",
+        "302"
+      ]
+    },
+    {
+      "id": "ch-XVII-16",
+      "number": "XVII",
+      "heading": {
+        "en": "Of offences against property",
+        "hi": ""
+      },
+      "children": [
+        {
+          "id": "n-303",
+          "number": "303",
+          "heading": {
+            "en": "Theft.",
+            "hi": "चोरी।"
+          },
+          "unitIds": [
+            "303"
+          ]
+        },
+        {
+          "id": "n-304",
+          "number": "304",
+          "heading": {
+            "en": "Snatching.",
+            "hi": "झपटमारी।"
+          },
+          "unitIds": [
+            "304"
+          ]
+        },
+        {
+          "id": "n-305",
+          "number": "305",
+          "heading": {
+            "en": "Theft in a dwelling house, or means of transportation or place of worship, etc.",
+            "hi": "निवास गृह में, या परिवहन के साधन में, या पूजा स्थल आदि में चोरी।"
+          },
+          "unitIds": [
+            "305"
+          ]
+        },
+        {
+          "id": "n-306",
+          "number": "306",
+          "heading": {
+            "en": "Theft by clerk or servant of property in possession of master.",
+            "hi": "स्वामी के कब्जे की संपत्ति की लिपिक या सेवक द्वारा चोरी।"
+          },
+          "unitIds": [
+            "306"
+          ]
+        },
+        {
+          "id": "n-307",
+          "number": "307",
+          "heading": {
+            "en": "Theft after preparation made for causing death, hurt or restraint in order to committing of theft.",
+            "hi": "चोरी करने के लिए मृत्यु, उपहति या अवरोध कारित करने की तैयारी करने के पश्चात् चोरी।"
+          },
+          "unitIds": [
+            "307"
+          ]
+        },
+        {
+          "id": "n-308",
+          "number": "308",
+          "heading": {
+            "en": "Extortion.",
+            "hi": "उद्दापन।"
+          },
+          "unitIds": [
+            "308"
+          ]
+        },
+        {
+          "id": "n-309",
+          "number": "309",
+          "heading": {
+            "en": "Robbery.",
+            "hi": "लूट।"
+          },
+          "unitIds": [
+            "309"
+          ]
+        },
+        {
+          "id": "n-310",
+          "number": "310",
+          "heading": {
+            "en": "Dacoity.",
+            "hi": "डकैती।"
+          },
+          "unitIds": [
+            "310"
+          ]
+        },
+        {
+          "id": "n-311",
+          "number": "311",
+          "heading": {
+            "en": "Robbery, or dacoity, with attempt to cause death or grievous hurt.",
+            "hi": "मृत्यु या घोर उपहति कारित करने के प्रयत्न सहित लूट या डकैती।"
+          },
+          "unitIds": [
+            "311"
+          ]
+        },
+        {
+          "id": "n-312",
+          "number": "312",
+          "heading": {
+            "en": "Attempt to commit robbery or dacoity when armed with deadly weapon.",
+            "hi": "घातक हथियार से सज्जित होकर लूट या डकैती करने का प्रयत्न।"
+          },
+          "unitIds": [
+            "312"
+          ]
+        },
+        {
+          "id": "n-313",
+          "number": "313",
+          "heading": {
+            "en": "Punishment for belonging to gang of robbers, etc.",
+            "hi": "लुटेरों आदि के गिरोह से संबंधित होने के लिए दण्ड।"
+          },
+          "unitIds": [
+            "313"
+          ]
+        },
+        {
+          "id": "n-314",
+          "number": "314",
+          "heading": {
+            "en": "Dishonest misappropriation of property.",
+            "hi": "संपत्ति का बेईमानी से दुर्विनियोग।"
+          },
+          "unitIds": [
+            "314"
+          ]
+        },
+        {
+          "id": "n-315",
+          "number": "315",
+          "heading": {
+            "en": "Dishonest misappropriation of property possessed by deceased person at the time of his death.",
+            "hi": "मृत व्यक्ति की मृत्यु के समय उसके कब्जे की संपत्ति का बेईमानी से दुर्विनियोग।"
+          },
+          "unitIds": [
+            "315"
+          ]
+        },
+        {
+          "id": "n-316",
+          "number": "316",
+          "heading": {
+            "en": "Criminal breach of trust.",
+            "hi": "आपराधिक न्यासभंग।"
+          },
+          "unitIds": [
+            "316"
+          ]
+        },
+        {
+          "id": "n-317",
+          "number": "317",
+          "heading": {
+            "en": "Stolen property.",
+            "hi": "चुराई हुई संपत्ति।"
+          },
+          "unitIds": [
+            "317"
+          ]
+        },
+        {
+          "id": "n-318",
+          "number": "318",
+          "heading": {
+            "en": "Cheating.",
+            "hi": "छल।"
+          },
+          "unitIds": [
+            "318"
+          ]
+        },
+        {
+          "id": "n-319",
+          "number": "319",
+          "heading": {
+            "en": "Cheating by personation.",
+            "hi": "प्रतिरूपण द्वारा छल।"
+          },
+          "unitIds": [
+            "319"
+          ]
+        },
+        {
+          "id": "n-320",
+          "number": "320",
+          "heading": {
+            "en": "Dishonest or fraudulent removal or concealment of property to prevent distribution among creditors.",
+            "hi": "लेनदारों के बीच वितरण रोकने के लिए संपत्ति का बेईमानी या कपटपूर्ण अपसारण या छिपाना।"
+          },
+          "unitIds": [
+            "320"
+          ]
+        },
+        {
+          "id": "n-321",
+          "number": "321",
+          "heading": {
+            "en": "Dishonestly or fraudulently preventing debt being available for creditors.",
+            "hi": "लेनदारों के लिए ऋण उपलब्ध होने से बेईमानी या कपटपूर्वक रोकना।"
+          },
+          "unitIds": [
+            "321"
+          ]
+        },
+        {
+          "id": "n-322",
+          "number": "322",
+          "heading": {
+            "en": "Dishonest or fraudulent execution of deed of transfer containing false statement of consideration.",
+            "hi": "प्रतिफल के मिथ्या कथन वाले हस्तांतरण विलेख का बेईमानी या कपटपूर्ण निष्पादन।"
+          },
+          "unitIds": [
+            "322"
+          ]
+        },
+        {
+          "id": "n-323",
+          "number": "323",
+          "heading": {
+            "en": "Dishonest or fraudulent removal or concealment of property.",
+            "hi": "संपत्ति का बेईमानी या कपटपूर्ण अपसारण या छिपाना।"
+          },
+          "unitIds": [
+            "323"
+          ]
+        },
+        {
+          "id": "n-324",
+          "number": "324",
+          "heading": {
+            "en": "Mischief.",
+            "hi": "रिष्टि।"
+          },
+          "unitIds": [
+            "324"
+          ]
+        },
+        {
+          "id": "n-325",
+          "number": "325",
+          "heading": {
+            "en": "Mischief by killing or maiming animal.",
+            "hi": "पशु को मारकर या विकलांग बनाकर रिष्टि।"
+          },
+          "unitIds": [
+            "325"
+          ]
+        },
+        {
+          "id": "n-326",
+          "number": "326",
+          "heading": {
+            "en": "Mischief by injury, inundation, fire or explosive substance, etc.",
+            "hi": "क्षति, बाढ़, अग्नि या विस्फोटक पदार्थ आदि द्वारा रिष्टि।"
+          },
+          "unitIds": [
+            "326"
+          ]
+        },
+        {
+          "id": "n-327",
+          "number": "327",
+          "heading": {
+            "en": "Mischief with intent to destroy or make unsafe a rail, aircraft, decked vessel or one of twenty tons burden.",
+            "hi": "रेल, वायुयान, डेकयुक्त पोत या बीस टन भार के पोत को नष्ट करने या असुरक्षित बनाने के आशय से रिष्टि।"
+          },
+          "unitIds": [
+            "327"
+          ]
+        },
+        {
+          "id": "n-328",
+          "number": "328",
+          "heading": {
+            "en": "Punishment for intentionally running vessel aground or ashore with intent to commit theft, etc.",
+            "hi": "चोरी आदि करने के आशय से साशय पोत को उथले में या तट पर चढ़ाने के लिए दण्ड।"
+          },
+          "unitIds": [
+            "328"
+          ]
+        },
+        {
+          "id": "n-329",
+          "number": "329",
+          "heading": {
+            "en": "Criminal trespass and house-trespass.",
+            "hi": "आपराधिक अतिचार और गृह-अतिचार।"
+          },
+          "unitIds": [
+            "329"
+          ]
+        },
+        {
+          "id": "n-330",
+          "number": "330",
+          "heading": {
+            "en": "House-trespass and house-breaking.",
+            "hi": "गृह-अतिचार और गृह-भेदन।"
+          },
+          "unitIds": [
+            "330"
+          ]
+        },
+        {
+          "id": "n-331",
+          "number": "331",
+          "heading": {
+            "en": "Punishment for house-trespass or house-breaking.",
+            "hi": "गृह-अतिचार या गृह-भेदन के लिए दण्ड।"
+          },
+          "unitIds": [
+            "331"
+          ]
+        },
+        {
+          "id": "n-332",
+          "number": "332",
+          "heading": {
+            "en": "House-trespass in order to commit offence.",
+            "hi": "अपराध करने के लिए गृह-अतिचार।"
+          },
+          "unitIds": [
+            "332"
+          ]
+        },
+        {
+          "id": "n-333",
+          "number": "333",
+          "heading": {
+            "en": "House trespass after preparation for hurt, assault or wrongful restraint .",
+            "hi": "उपहति, हमला या सदोष अवरोध की तैयारी के पश्चात् गृह-अतिचार।"
+          },
+          "unitIds": [
+            "333"
+          ]
+        },
+        {
+          "id": "n-334",
+          "number": "334",
+          "heading": {
+            "en": "Dishonestly breaking open receptacle containing property.",
+            "hi": "संपत्ति रखने वाले पात्र को बेईमानी से तोड़ना।"
+          },
+          "unitIds": [
+            "334"
+          ]
+        }
+      ],
+      "unitIds": [
+        "303",
+        "304",
+        "305",
+        "306",
+        "307",
+        "308",
+        "309",
+        "310",
+        "311",
+        "312",
+        "313",
+        "314",
+        "315",
+        "316",
+        "317",
+        "318",
+        "319",
+        "320",
+        "321",
+        "322",
+        "323",
+        "324",
+        "325",
+        "326",
+        "327",
+        "328",
+        "329",
+        "330",
+        "331",
+        "332",
+        "333",
+        "334"
+      ]
+    },
+    {
+      "id": "ch-XVIII-17",
+      "number": "XVIII",
+      "heading": {
+        "en": "Of offences relating to documents and to property marks",
+        "hi": ""
+      },
+      "children": [
+        {
+          "id": "n-335",
+          "number": "335",
+          "heading": {
+            "en": "Making a false document.",
+            "hi": "मिथ्या दस्तावेज बनाना।"
+          },
+          "unitIds": [
+            "335"
+          ]
+        },
+        {
+          "id": "n-336",
+          "number": "336",
+          "heading": {
+            "en": "Forgery.",
+            "hi": "कूटरचना।"
+          },
+          "unitIds": [
+            "336"
+          ]
+        },
+        {
+          "id": "n-337",
+          "number": "337",
+          "heading": {
+            "en": "Forgery of record of Court or of public register, etc.",
+            "hi": "न्यायालय के अभिलेख या लोक रजिस्टर आदि की कूटरचना।"
+          },
+          "unitIds": [
+            "337"
+          ]
+        },
+        {
+          "id": "n-338",
+          "number": "338",
+          "heading": {
+            "en": "Forgery of valuable security, will, etc.",
+            "hi": "मूल्यवान प्रतिभूति, वसीयत आदि की कूटरचना।"
+          },
+          "unitIds": [
+            "338"
+          ]
+        },
+        {
+          "id": "n-339",
+          "number": "339",
+          "heading": {
+            "en": "Having possession of document described in section 337 or section 338, knowing it to be forged and intending to use it as genuine .",
+            "hi": "धारा 337 या धारा 338 में वर्णित दस्तावेज को कूटरचित जानते हुए और उसे असली के रूप में उपयोग करने का आशय रखते हुए कब्जे में रखना।"
+          },
+          "unitIds": [
+            "339"
+          ]
+        },
+        {
+          "id": "n-340",
+          "number": "340",
+          "heading": {
+            "en": "Forged document or electronic record and using it as genuine.",
+            "hi": "कूटरचित दस्तावेज या इलेक्ट्रॉनिक अभिलेख को असली के रूप में उपयोग करना।"
+          },
+          "unitIds": [
+            "340"
+          ]
+        },
+        {
+          "id": "n-341",
+          "number": "341",
+          "heading": {
+            "en": "Making or possessing counterfeit seal, etc., with intent to commit forgery punishable under section 338.",
+            "hi": "धारा 338 के अधीन दण्डनीय कूटरचना करने के आशय से कूटकृत मुहर आदि बनाना या रखना।"
+          },
+          "unitIds": [
+            "341"
+          ]
+        },
+        {
+          "id": "n-342",
+          "number": "342",
+          "heading": {
+            "en": "Counterfeiting device or mark used for authenticating documents described in section 338, or possessing counterfeit marked material.",
+            "hi": "धारा 338 में वर्णित दस्तावेजों को प्रामाणिक बनाने में उपयोग किए जाने वाले उपकरण या चिह्न की कूटकरण करना, या कूटकृत चिह्नित सामग्री रखना।"
+          },
+          "unitIds": [
+            "342"
+          ]
+        },
+        {
+          "id": "n-343",
+          "number": "343",
+          "heading": {
+            "en": "Fraudulent cancellation, destruction, etc., of will, authority to adopt, or valuable security",
+            "hi": "वसीयत, गोद लेने के प्राधिकार या मूल्यवान प्रतिभूति का कपटपूर्ण रद्दीकरण, विनाश आदि।"
+          },
+          "unitIds": [
+            "343"
+          ]
+        },
+        {
+          "id": "n-344",
+          "number": "344",
+          "heading": {
+            "en": "Falsification of accounts.",
+            "hi": "लेखाओं का मिथ्याकरण।"
+          },
+          "unitIds": [
+            "344"
+          ]
+        },
+        {
+          "id": "n-345",
+          "number": "345",
+          "heading": {
+            "en": "Property mark.",
+            "hi": "संपत्ति चिह्न।"
+          },
+          "unitIds": [
+            "345"
+          ]
+        },
+        {
+          "id": "n-346",
+          "number": "346",
+          "heading": {
+            "en": "Tampering with property mark with intent to cause injury.",
+            "hi": "क्षति कारित करने के आशय से संपत्ति चिह्न के साथ छेड़छाड़ करना।"
+          },
+          "unitIds": [
+            "346"
+          ]
+        },
+        {
+          "id": "n-347",
+          "number": "347",
+          "heading": {
+            "en": "Counterfeiting a property mark.",
+            "hi": "संपत्ति चिह्न की कूटकरण करना।"
+          },
+          "unitIds": [
+            "347"
+          ]
+        },
+        {
+          "id": "n-348",
+          "number": "348",
+          "heading": {
+            "en": "Making or possession of any instrument for counterfeiting a property mark.",
+            "hi": "संपत्ति चिह्न की कूटकरण के लिए कोई उपकरण बनाना या रखना।"
+          },
+          "unitIds": [
+            "348"
+          ]
+        },
+        {
+          "id": "n-349",
+          "number": "349",
+          "heading": {
+            "en": "Selling goods marked with a counterfeit property mark.",
+            "hi": "कूटकृत संपत्ति चिह्न से चिह्नित माल का विक्रय।"
+          },
+          "unitIds": [
+            "349"
+          ]
+        },
+        {
+          "id": "n-350",
+          "number": "350",
+          "heading": {
+            "en": "Making a false mark upon any receptacle containing goods.",
+            "hi": "माल रखने वाले किसी पात्र पर मिथ्या चिह्न बनाना।"
+          },
+          "unitIds": [
+            "350"
+          ]
+        }
+      ],
+      "unitIds": [
+        "335",
+        "336",
+        "337",
+        "338",
+        "339",
+        "340",
+        "341",
+        "342",
+        "343",
+        "344",
+        "345",
+        "346",
+        "347",
+        "348",
+        "349",
+        "350"
+      ]
+    },
+    {
+      "id": "ch-XIX-18",
+      "number": "XIX",
+      "heading": {
+        "en": "Of criminal intimidation, insult, annoyance, defamation, etc.",
+        "hi": ""
+      },
+      "children": [
+        {
+          "id": "n-351",
+          "number": "351",
+          "heading": {
+            "en": "Criminal intimidation.",
+            "hi": "आपराधिक अभित्रास।"
+          },
+          "unitIds": [
+            "351"
+          ]
+        },
+        {
+          "id": "n-352",
+          "number": "352",
+          "heading": {
+            "en": "Intentional insult with intent to provoke breach of peace.",
+            "hi": "शांति भंग कराने के आशय से साशय अपमान।"
+          },
+          "unitIds": [
+            "352"
+          ]
+        },
+        {
+          "id": "n-353",
+          "number": "353",
+          "heading": {
+            "en": "Statements conducing to public mischief.",
+            "hi": "लोक रिष्टि कारित करने वाले कथन।"
+          },
+          "unitIds": [
+            "353"
+          ]
+        },
+        {
+          "id": "n-354",
+          "number": "354",
+          "heading": {
+            "en": "Act caused by inducing person to believe that he will be rendered an object of Divine displeasure.",
+            "hi": "किसी व्यक्ति में यह विश्वास उत्पन्न कराकर कार्य कराना कि वह दैवी अप्रसन्नता का पात्र बनाया जाएगा।"
+          },
+          "unitIds": [
+            "354"
+          ]
+        },
+        {
+          "id": "n-355",
+          "number": "355",
+          "heading": {
+            "en": "Misconduct in public by a drunken person.",
+            "hi": "मत्त व्यक्ति द्वारा सार्वजनिक स्थान पर दुर्व्यवहार।"
+          },
+          "unitIds": [
+            "355"
+          ]
+        },
+        {
+          "id": "n-356",
+          "number": "356",
+          "heading": {
+            "en": "Defamation.",
+            "hi": "मानहानि।"
+          },
+          "unitIds": [
+            "356"
+          ]
+        },
+        {
+          "id": "n-357",
+          "number": "357",
+          "heading": {
+            "en": "Breach of contract to attend on and supply wants of helpless person.",
+            "hi": "असहाय व्यक्ति की देखभाल करने और उसकी आवश्यकताएँ पूरी करने के संविदा का भंग।"
+          },
+          "unitIds": [
+            "357"
+          ]
+        }
+      ],
+      "unitIds": [
+        "351",
+        "352",
+        "353",
+        "354",
+        "355",
+        "356",
+        "357"
+      ]
+    },
+    {
+      "id": "ch-XX-19",
+      "number": "XX",
+      "heading": {
+        "en": "Repeal and savings",
+        "hi": ""
+      },
+      "children": [
+        {
+          "id": "n-358",
+          "number": "358",
+          "heading": {
+            "en": "Repeal and savings.",
+            "hi": "निरसन और व्यावृत्तियाँ।"
+          },
+          "unitIds": [
+            "358"
+          ]
+        }
+      ],
+      "unitIds": [
+        "358"
+      ]
+    }
+  ],
+  "readingOrder": [
+    "1",
+    "2",
+    "3",
+    "4",
+    "5",
+    "6",
+    "7",
+    "8",
+    "9",
+    "10",
+    "11",
+    "12",
+    "13",
+    "14",
+    "15",
+    "16",
+    "17",
+    "18",
+    "19",
+    "20",
+    "21",
+    "22",
+    "23",
+    "24",
+    "25",
+    "26",
+    "27",
+    "28",
+    "29",
+    "30",
+    "31",
+    "32",
+    "33",
+    "34",
+    "35",
+    "36",
+    "37",
+    "38",
+    "39",
+    "40",
+    "41",
+    "42",
+    "43",
+    "44",
+    "45",
+    "46",
+    "47",
+    "48",
+    "49",
+    "50",
+    "51",
+    "52",
+    "53",
+    "54",
+    "55",
+    "56",
+    "57",
+    "58",
+    "59",
+    "60",
+    "61",
+    "62",
+    "63",
+    "64",
+    "65",
+    "66",
+    "67",
+    "68",
+    "69",
+    "70",
+    "71",
+    "72",
+    "73",
+    "74",
+    "75",
+    "76",
+    "77",
+    "78",
+    "79",
+    "80",
+    "81",
+    "82",
+    "83",
+    "84",
+    "85",
+    "86",
+    "87",
+    "88",
+    "89",
+    "90",
+    "91",
+    "92",
+    "93",
+    "94",
+    "95",
+    "96",
+    "97",
+    "98",
+    "99",
+    "100",
+    "101",
+    "102",
+    "103",
+    "104",
+    "105",
+    "106",
+    "107",
+    "108",
+    "109",
+    "110",
+    "111",
+    "112",
+    "113",
+    "114",
+    "115",
+    "116",
+    "117",
+    "118",
+    "119",
+    "120",
+    "121",
+    "122",
+    "123",
+    "124",
+    "125",
+    "126",
+    "127",
+    "128",
+    "129",
+    "130",
+    "131",
+    "132",
+    "133",
+    "134",
+    "135",
+    "136",
+    "137",
+    "138",
+    "139",
+    "140",
+    "141",
+    "142",
+    "143",
+    "144",
+    "145",
+    "146",
+    "147",
+    "148",
+    "149",
+    "150",
+    "151",
+    "152",
+    "153",
+    "154",
+    "155",
+    "156",
+    "157",
+    "158",
+    "159",
+    "160",
+    "161",
+    "162",
+    "163",
+    "164",
+    "165",
+    "166",
+    "167",
+    "168",
+    "169",
+    "170",
+    "171",
+    "172",
+    "173",
+    "174",
+    "175",
+    "176",
+    "177",
+    "178",
+    "179",
+    "180",
+    "181",
+    "182",
+    "183",
+    "184",
+    "185",
+    "186",
+    "187",
+    "188",
+    "189",
+    "190",
+    "191",
+    "192",
+    "193",
+    "194",
+    "195",
+    "196",
+    "197",
+    "198",
+    "199",
+    "200",
+    "201",
+    "202",
+    "203",
+    "204",
+    "205",
+    "206",
+    "207",
+    "208",
+    "209",
+    "210",
+    "211",
+    "212",
+    "213",
+    "214",
+    "215",
+    "216",
+    "217",
+    "218",
+    "219",
+    "220",
+    "221",
+    "222",
+    "223",
+    "224",
+    "225",
+    "226",
+    "227",
+    "228",
+    "229",
+    "230",
+    "231",
+    "232",
+    "233",
+    "234",
+    "235",
+    "236",
+    "237",
+    "238",
+    "239",
+    "240",
+    "241",
+    "242",
+    "243",
+    "244",
+    "245",
+    "246",
+    "247",
+    "248",
+    "249",
+    "250",
+    "251",
+    "252",
+    "253",
+    "254",
+    "255",
+    "256",
+    "257",
+    "258",
+    "259",
+    "260",
+    "261",
+    "262",
+    "263",
+    "264",
+    "265",
+    "266",
+    "267",
+    "268",
+    "269",
+    "270",
+    "271",
+    "272",
+    "273",
+    "274",
+    "275",
+    "276",
+    "277",
+    "278",
+    "279",
+    "280",
+    "281",
+    "282",
+    "283",
+    "284",
+    "285",
+    "286",
+    "287",
+    "288",
+    "289",
+    "290",
+    "291",
+    "292",
+    "293",
+    "294",
+    "295",
+    "296",
+    "297",
+    "298",
+    "299",
+    "300",
+    "301",
+    "302",
+    "303",
+    "304",
+    "305",
+    "306",
+    "307",
+    "308",
+    "309",
+    "310",
+    "311",
+    "312",
+    "313",
+    "314",
+    "315",
+    "316",
+    "317",
+    "318",
+    "319",
+    "320",
+    "321",
+    "322",
+    "323",
+    "324",
+    "325",
+    "326",
+    "327",
+    "328",
+    "329",
+    "330",
+    "331",
+    "332",
+    "333",
+    "334",
+    "335",
+    "336",
+    "337",
+    "338",
+    "339",
+    "340",
+    "341",
+    "342",
+    "343",
+    "344",
+    "345",
+    "346",
+    "347",
+    "348",
+    "349",
+    "350",
+    "351",
+    "352",
+    "353",
+    "354",
+    "355",
+    "356",
+    "357",
+    "358"
+  ],
+  "estimatedMinutes": 335,
+  "practiseCounts": {},
+  "examTags": [
+    "criminal-law",
+    "investigation",
+    "departmental-exam"
+  ],
+  "officialUrl": "https://www.ncrb.gov.in/uploads/SankalanPortal/ChaptersBNS.html",
+  "source": {
+    "name": "NCRB Sankalan — BNS / IPC correspondence table",
+    "url": "https://www.ncrb.gov.in/uploads/SankalanPortal/SectionTableBNS.html"
+  },
+  "disclaimer": {
+    "en": "Reference only; verify with the official gazette/order or your DDO.",
+    "hi": "केवल संदर्भ के लिए; आधिकारिक राजपत्र/आदेश अथवा अपने डीडीओ से सत्यापित करें।"
+  },
+  "verify": true
+}

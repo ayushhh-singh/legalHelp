@@ -243,8 +243,18 @@ describe('the nav config is the single source of truth', () => {
     expect([...PRIMARY_NAV_ITEMS, ...OVERFLOW_NAV_ITEMS].map((i) => i.id).sort()).toEqual(
       NAV_ITEMS.map((i) => i.id).sort(),
     )
-    // Four flagship slots, because the fifth belongs to "More".
+    // Four flagship slots; everything else belongs to "More".
     expect(PRIMARY_NAV_ITEMS).toHaveLength(4)
+  })
+
+  it('keeps the four visible tabs the four they have always been', () => {
+    // Session 26 added the Library as a sixth destination, and the brief was
+    // explicit that it must enter the "More" sheet rather than silently push
+    // one of these out. Asserted BY NAME, not by count: a swap keeps the count
+    // at four, and a reader who loses a tab they use every day would find out
+    // from the phone in their hand rather than from this suite.
+    expect(PRIMARY_NAV_ITEMS.map((item) => item.id)).toEqual(['law', 'pay', 'draft', 'learn'])
+    expect(OVERFLOW_NAV_ITEMS.map((item) => item.id)).toContain('library')
   })
 
   it('labels every destination in both languages', () => {

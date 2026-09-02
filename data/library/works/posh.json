@@ -1,0 +1,442 @@
+{
+  "$schema": "../../../schemas/library-work.schema.json",
+  "version": "1.0.0",
+  "generatedAt": "2026-09-02",
+  "id": "posh",
+  "title": {
+    "en": "Sexual Harassment of Women at Workplace (Prevention, Prohibition and Redressal) Act, 2013",
+    "hi": "कार्यस्थल पर महिलाओं का लैंगिक उत्पीड़न (निवारण, प्रतिषेध और प्रतितोष) अधिनियम, 2013"
+  },
+  "shortTitle": {
+    "en": "PoSH Act 2013",
+    "hi": "पॉश अधिनियम 2013"
+  },
+  "year": 2013,
+  "category": "workplace",
+  "description": {
+    "en": "Sexual harassment of women at the workplace — the Internal Committee, the complaint and inquiry procedure, timelines, and the employer's own statutory duties.",
+    "hi": "कार्यस्थल पर महिलाओं का लैंगिक उत्पीड़न — आंतरिक समिति, शिकायत एवं जाँच प्रक्रिया, समय-सीमाएँ, तथा नियोजक के अपने वैधानिक कर्तव्य।"
+  },
+  "corpus": {
+    "kind": "rules",
+    "file": "rules/text/posh.json"
+  },
+  "unitLabel": {
+    "en": "Section",
+    "hi": "धारा"
+  },
+  "publisher": "Ministry of Women and Child Development",
+  "tocSource": "flat",
+  "toc": [
+    {
+      "id": "n-posh-1",
+      "number": "1",
+      "heading": {
+        "en": "Short title, extent and commencement",
+        "hi": "संक्षिप्त नाम, विस्तार और प्रारंभ"
+      },
+      "unitIds": [
+        "posh-1"
+      ]
+    },
+    {
+      "id": "n-posh-2",
+      "number": "2",
+      "heading": {
+        "en": "Definitions",
+        "hi": "परिभाषाएँ"
+      },
+      "unitIds": [
+        "posh-2"
+      ]
+    },
+    {
+      "id": "n-posh-3",
+      "number": "3",
+      "heading": {
+        "en": "Prevention of sexual harassment",
+        "hi": "लैंगिक उत्पीड़न का निवारण"
+      },
+      "unitIds": [
+        "posh-3"
+      ]
+    },
+    {
+      "id": "n-posh-4",
+      "number": "4",
+      "heading": {
+        "en": "Constitution of Internal Complaints Committee",
+        "hi": "आंतरिक परिवाद समिति का गठन"
+      },
+      "unitIds": [
+        "posh-4"
+      ]
+    },
+    {
+      "id": "n-posh-5",
+      "number": "5",
+      "heading": {
+        "en": "Notification of District Officer",
+        "hi": "जिला अधिकारी की अधिसूचना"
+      },
+      "unitIds": [
+        "posh-5"
+      ]
+    },
+    {
+      "id": "n-posh-6",
+      "number": "6",
+      "heading": {
+        "en": "Constitution and jurisdiction of 1[Local Committee]",
+        "hi": "स्थानीय समिति का गठन और अधिकारिता"
+      },
+      "unitIds": [
+        "posh-6"
+      ]
+    },
+    {
+      "id": "n-posh-7",
+      "number": "7",
+      "heading": {
+        "en": "Composition, tenure and other terms and conditions of 2[Local Committee]",
+        "hi": "स्थानीय समिति की संरचना, पदावधि और अन्य निबंधन तथा शर्तें"
+      },
+      "unitIds": [
+        "posh-7"
+      ]
+    },
+    {
+      "id": "n-posh-8",
+      "number": "8",
+      "heading": {
+        "en": "Grants and audit",
+        "hi": "अनुदान और लेखापरीक्षा"
+      },
+      "unitIds": [
+        "posh-8"
+      ]
+    },
+    {
+      "id": "n-posh-9",
+      "number": "9",
+      "heading": {
+        "en": "Complaint of sexual harassment",
+        "hi": "लैंगिक उत्पीड़न का परिवाद"
+      },
+      "unitIds": [
+        "posh-9"
+      ]
+    },
+    {
+      "id": "n-posh-10",
+      "number": "10",
+      "heading": {
+        "en": "Conciliation",
+        "hi": "सुलह"
+      },
+      "unitIds": [
+        "posh-10"
+      ]
+    },
+    {
+      "id": "n-posh-11",
+      "number": "11",
+      "heading": {
+        "en": "Inquiry into complaint",
+        "hi": "परिवाद की जाँच"
+      },
+      "unitIds": [
+        "posh-11"
+      ]
+    },
+    {
+      "id": "n-posh-12",
+      "number": "12",
+      "heading": {
+        "en": "Action during pendency of inquiry",
+        "hi": "जाँच के लंबित रहने के दौरान कार्रवाई"
+      },
+      "unitIds": [
+        "posh-12"
+      ]
+    },
+    {
+      "id": "n-posh-13",
+      "number": "13",
+      "heading": {
+        "en": "Inquiry report",
+        "hi": "जाँच रिपोर्ट"
+      },
+      "unitIds": [
+        "posh-13"
+      ]
+    },
+    {
+      "id": "n-posh-14",
+      "number": "14",
+      "heading": {
+        "en": "Punishment for false or malicious complaint and false evidence",
+        "hi": "मिथ्या या विद्वेषपूर्ण परिवाद और मिथ्या साक्ष्य के लिए दंड"
+      },
+      "unitIds": [
+        "posh-14"
+      ]
+    },
+    {
+      "id": "n-posh-15",
+      "number": "15",
+      "heading": {
+        "en": "Determination of compensation",
+        "hi": "प्रतिकर का अवधारण"
+      },
+      "unitIds": [
+        "posh-15"
+      ]
+    },
+    {
+      "id": "n-posh-16",
+      "number": "16",
+      "heading": {
+        "en": "Prohibition of publication or making known contents of complaint and inquiry",
+        "hi": "परिवाद और जाँच की अंतर्वस्तु के प्रकाशन या प्रकट किए जाने का प्रतिषेध"
+      },
+      "unitIds": [
+        "posh-16"
+      ]
+    },
+    {
+      "id": "n-posh-17",
+      "number": "17",
+      "heading": {
+        "en": "Penalty for publication or making known contents of complaint and inquiry proceedings",
+        "hi": "परिवाद और जाँच कार्यवाहियों की अंतर्वस्तु के प्रकाशन या प्रकट किए जाने के लिए शास्ति"
+      },
+      "unitIds": [
+        "posh-17"
+      ]
+    },
+    {
+      "id": "n-posh-18",
+      "number": "18",
+      "heading": {
+        "en": "Appeal",
+        "hi": "अपील"
+      },
+      "unitIds": [
+        "posh-18"
+      ]
+    },
+    {
+      "id": "n-posh-19",
+      "number": "19",
+      "heading": {
+        "en": "Duties of employer",
+        "hi": "नियोजक के कर्तव्य"
+      },
+      "unitIds": [
+        "posh-19"
+      ]
+    },
+    {
+      "id": "n-posh-20",
+      "number": "20",
+      "heading": {
+        "en": "Duties and powers of District Officer",
+        "hi": "जिला अधिकारी के कर्तव्य और शक्तियाँ"
+      },
+      "unitIds": [
+        "posh-20"
+      ]
+    },
+    {
+      "id": "n-posh-21",
+      "number": "21",
+      "heading": {
+        "en": "Committee to submit annual report",
+        "hi": "समिति द्वारा वार्षिक रिपोर्ट प्रस्तुत किया जाना"
+      },
+      "unitIds": [
+        "posh-21"
+      ]
+    },
+    {
+      "id": "n-posh-22",
+      "number": "22",
+      "heading": {
+        "en": "Employer to include information in annual report",
+        "hi": "नियोजक द्वारा वार्षिक रिपोर्ट में जानकारी सम्मिलित किया जाना"
+      },
+      "unitIds": [
+        "posh-22"
+      ]
+    },
+    {
+      "id": "n-posh-23",
+      "number": "23",
+      "heading": {
+        "en": "Appropriate Government to monitor implementation and maintain data",
+        "hi": "समुचित सरकार द्वारा कार्यान्वयन की मॉनिटरी और आँकड़े रखा जाना"
+      },
+      "unitIds": [
+        "posh-23"
+      ]
+    },
+    {
+      "id": "n-posh-24",
+      "number": "24",
+      "heading": {
+        "en": "Appropriate Government to take measures to publicise the Act",
+        "hi": "समुचित सरकार द्वारा अधिनियम के प्रचार के उपाय"
+      },
+      "unitIds": [
+        "posh-24"
+      ]
+    },
+    {
+      "id": "n-posh-25",
+      "number": "25",
+      "heading": {
+        "en": "Power to call for information and inspection of records",
+        "hi": "जानकारी मँगाने और अभिलेखों के निरीक्षण की शक्ति"
+      },
+      "unitIds": [
+        "posh-25"
+      ]
+    },
+    {
+      "id": "n-posh-26",
+      "number": "26",
+      "heading": {
+        "en": "Penalty for non-compliance with provisions of Act",
+        "hi": "अधिनियम के उपबंधों का अनुपालन न करने के लिए शास्ति"
+      },
+      "unitIds": [
+        "posh-26"
+      ]
+    },
+    {
+      "id": "n-posh-27",
+      "number": "27",
+      "heading": {
+        "en": "Cognizance of offence by courts",
+        "hi": "न्यायालयों द्वारा अपराध का संज्ञान"
+      },
+      "unitIds": [
+        "posh-27"
+      ]
+    },
+    {
+      "id": "n-posh-28",
+      "number": "28",
+      "heading": {
+        "en": "Act not in derogation of any other law",
+        "hi": "अधिनियम का किसी अन्य विधि का अल्पीकरण न करना"
+      },
+      "unitIds": [
+        "posh-28"
+      ]
+    },
+    {
+      "id": "n-posh-29",
+      "number": "29",
+      "heading": {
+        "en": "Power of appropriate Government to make rules",
+        "hi": "समुचित सरकार की नियम बनाने की शक्ति"
+      },
+      "unitIds": [
+        "posh-29"
+      ]
+    },
+    {
+      "id": "n-posh-30",
+      "number": "30",
+      "heading": {
+        "en": "Power to remove difficulties",
+        "hi": "कठिनाइयाँ दूर करने की शक्ति"
+      },
+      "unitIds": [
+        "posh-30"
+      ]
+    }
+  ],
+  "readingOrder": [
+    "posh-1",
+    "posh-2",
+    "posh-3",
+    "posh-4",
+    "posh-5",
+    "posh-6",
+    "posh-7",
+    "posh-8",
+    "posh-9",
+    "posh-10",
+    "posh-11",
+    "posh-12",
+    "posh-13",
+    "posh-14",
+    "posh-15",
+    "posh-16",
+    "posh-17",
+    "posh-18",
+    "posh-19",
+    "posh-20",
+    "posh-21",
+    "posh-22",
+    "posh-23",
+    "posh-24",
+    "posh-25",
+    "posh-26",
+    "posh-27",
+    "posh-28",
+    "posh-29",
+    "posh-30"
+  ],
+  "estimatedMinutes": 58,
+  "practiseCounts": {
+    "posh-1": 1,
+    "posh-10": 3,
+    "posh-11": 6,
+    "posh-12": 3,
+    "posh-13": 6,
+    "posh-14": 3,
+    "posh-15": 3,
+    "posh-16": 4,
+    "posh-17": 2,
+    "posh-18": 3,
+    "posh-19": 4,
+    "posh-2": 5,
+    "posh-20": 2,
+    "posh-21": 3,
+    "posh-22": 2,
+    "posh-23": 2,
+    "posh-24": 1,
+    "posh-25": 2,
+    "posh-26": 3,
+    "posh-27": 1,
+    "posh-28": 2,
+    "posh-29": 2,
+    "posh-3": 2,
+    "posh-30": 2,
+    "posh-4": 8,
+    "posh-5": 3,
+    "posh-6": 5,
+    "posh-7": 3,
+    "posh-8": 2,
+    "posh-9": 2
+  },
+  "examTags": [
+    "workplace-safety",
+    "establishment",
+    "induction"
+  ],
+  "officialUrl": "https://www.indiacode.nic.in/bitstream/123456789/2104/1/A2013-14.pdf",
+  "source": {
+    "name": "Ministry of Women and Child Development — The Sexual Harassment of Women at Workplace Act, 2013",
+    "url": "https://www.indiacode.nic.in/bitstream/123456789/2104/1/A2013-14.pdf"
+  },
+  "disclaimer": {
+    "en": "Reference only; verify with the official gazette/order or your DDO.",
+    "hi": "केवल संदर्भ के लिए; आधिकारिक राजपत्र/आदेश अथवा अपने डीडीओ से सत्यापित करें।"
+  },
+  "verify": true
+}

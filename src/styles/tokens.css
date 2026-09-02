@@ -273,4 +273,25 @@
   --font-document:
     'Times New Roman', 'Tiro Devanagari Hindi', 'Noto Sans Devanagari Variable', 'Noto Sans Devanagari',
     Georgia, serif;
+
+  /*
+   * The Library reader's optional serif, and NOTHING else.
+   *
+   * Not a fourth self-hosted family, for the reason ADR-018 refused a mono face
+   * for the pay slip and the line above refuses one for the A4 preview: a
+   * reading PREFERENCE does not get to put ~25 KB of woff2 into every offline
+   * install. Every face here is already on the machine, and the bundled Noto
+   * Sans Devanagari catches the fall, so a Hindi reader who chooses the serif
+   * lands on the same Devanagari face they were already reading rather than on
+   * a platform default.
+   *
+   * Kept separate from --font-document even though the stacks are close. That
+   * one exists to agree with what Word will print (docx.ts names Times New
+   * Roman); this one exists because Georgia and Charter are easier on long
+   * statutory prose than Times is. Sharing the token would tie a reader's
+   * preference to the .docx export's font choice.
+   */
+  --font-reading:
+    Charter, 'Bitstream Charter', 'Iowan Old Style', Georgia, 'Times New Roman',
+    'Noto Sans Devanagari Variable', 'Noto Sans Devanagari', serif;
 }

@@ -89,7 +89,7 @@ function withProxyConnectSrc(headers: string): string {
  * the list is repeated — and `tests/seo.test.ts` reads the BUILT sitemap back
  * and compares it against NAV_ITEMS, which is what stops the two drifting.
  */
-const SITEMAP_ROUTES = ['/', '/law', '/pay', '/draft', '/learn', '/utils', '/settings']
+const SITEMAP_ROUTES = ['/', '/law', '/pay', '/draft', '/learn', '/library', '/utils', '/settings']
 
 /**
  * robots.txt and sitemap.xml, emitted at build time rather than committed to
@@ -159,6 +159,7 @@ const ROUTE_CRITICAL_MODULES: Record<string, string[]> = {
   '/pay': ['src/modules/pay/PayPage.tsx'],
   '/draft': ['src/modules/drafting/DraftPage.tsx', 'src/modules/drafting/PickerPage.tsx'],
   '/learn': ['src/modules/trainer/LearnPage.tsx', 'src/modules/trainer/pages/HomePage.tsx'],
+  '/library': ['src/modules/library/LibraryPage.tsx', 'src/modules/library/pages/LibraryHubPage.tsx'],
   '/utils': ['src/modules/utils/UtilsPage.tsx', 'src/modules/utils/UtilsHubPage.tsx'],
   '/settings': ['src/modules/settings/SettingsPage.tsx'],
 }

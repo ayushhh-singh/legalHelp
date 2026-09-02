@@ -22,8 +22,10 @@ data/drafting/
 # otherwise take turns rewriting the same 4 MB.
 data/rules/
 
-# same reason again: written by scripts/ingest/holidays.py and utils_seed.py.
+# same reason again: written by scripts/ingest/holidays.py, utils_seed.py and
+# library_seed.py.
 data/holidays/
+data/library/
 data/portals.json
 data/pension/
 

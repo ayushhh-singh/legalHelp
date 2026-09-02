@@ -24,6 +24,12 @@ export const SETTING_KEYS = {
   draft: 'draft',
   /** The Trainer's local daily-reminder toggle — see src/modules/trainer/reminder.ts. */
   learnReminder: 'learnReminder',
+  /**
+   * The Library reader's own type and language controls — reading mode, text
+   * size step, typeface and line spacing. A preference, not reading state:
+   * what has been READ is per unit and lives in `libraryProgress`.
+   */
+  library: 'library',
   /** True once the first-run onboarding has been completed or skipped. */
   onboarded: 'onboarded',
   /** Devanagari digits (०-९) in place of Arabic ones, applied wherever numerals render. */
@@ -318,6 +324,67 @@ export interface CommandRecentRow {
   viewedAt: string
 }
 
+/**
+ * The Library's four reading tables (Session 26).
+ *
+ * `libraryProgress` and `libraryBookmarks` are keyed `"<workId>:<unitId>"` — the
+ * same shape `holidayPicks` uses, and for the same reason: reading a unit twice
+ * or bookmarking it twice has nothing to accumulate, so the second write
+ * overwrites. `workId` is its own indexed field so "where was I in this book"
+ * answers without a table scan across every book.
+ *
+ * `libraryHighlights` and `libraryNotes` are declared now and written by
+ * nothing yet — Session 27 builds their UI. Declaring a dormant table costs
+ * nothing and means the kill switch, the backup and `clearAllData` all know
+ * about them on day one, which is the arrangement version 2 made for the AI
+ * tables.
+ */
+export interface LibraryProgressRow {
+  /** `"<workId>:<unitId>"`. */
+  id: string
+  workId: string
+  unitId: string
+  /** ISO instant of the last time this unit was open. */
+  at: string
+  /** Total dwell on this unit, in seconds, accumulated across visits. */
+  secondsRead: number
+}
+
+export interface LibraryBookmarkRow {
+  /** `"<workId>:<unitId>"`. */
+  id: string
+  workId: string
+  unitId: string
+  createdAt: string
+}
+
+/**
+ * A span of one unit's text, in one language, that the reader marked.
+ *
+ * `lang` is part of the row rather than derived: the English and Hindi renderings
+ * of a unit are different strings of different lengths, so an offset means
+ * nothing without knowing which one it indexes into.
+ */
+export interface LibraryHighlightRow {
+  id: string
+  workId: string
+  unitId: string
+  lang: 'en' | 'hi'
+  start: number
+  end: number
+  colour: string
+  note?: string
+  createdAt: string
+}
+
+export interface LibraryNoteRow {
+  id: string
+  workId: string
+  unitId: string
+  body: string
+  updatedAt: string
+}
+
 export type SettingKey = (typeof SETTING_KEYS)[keyof typeof SETTING_KEYS]
 
 export class SahayakDB extends Dexie {
@@ -342,6 +409,10 @@ export class SahayakDB extends Dexie {
   cardOverrides!: Table<CardOverrideRow, string>
   holidayPicks!: Table<HolidayPickRow, string>
   commandRecents!: Table<CommandRecentRow, string>
+  libraryProgress!: Table<LibraryProgressRow, string>
+  libraryBookmarks!: Table<LibraryBookmarkRow, string>
+  libraryHighlights!: Table<LibraryHighlightRow, string>
+  libraryNotes!: Table<LibraryNoteRow, string>
 
   constructor(name = 'sahayak') {
     super(name)
@@ -516,6 +587,42 @@ export class SahayakDB extends Dexie {
       cardOverrides: '&qId, decidedAt',
       holidayPicks: '&id, year, createdAt',
       commandRecents: '&id, viewedAt',
+    })
+    // Version 11 — the Library's reading state (Session 26).
+    //
+    // `libraryProgress` is indexed on `workId` ("where was I in this book")
+    // and on `at` (the hub's "continue reading" row, read newest-first);
+    // `libraryBookmarks` the same way. `libraryHighlights` and `libraryNotes`
+    // are indexed on a compound `[workId+unitId]`, because the only question
+    // either is ever asked is "what did I write on THIS unit" — a reader
+    // opening a unit must not pay a scan of every note they have ever made.
+    // Both are declared here and written by nothing until Session 27.
+    this.version(11).stores({
+      settings: '&key',
+      secrets: '&id',
+      aiAnswers: '&id, agentId, dataVersion, createdAt',
+      aiUsage: '&month',
+      lawFavourites: '&id, createdAt',
+      lawRecents: '&id, viewedAt',
+      payScenarios: '&id, name, updatedAt',
+      drafts: '&id, templateId, updatedAt',
+      draftDefaults: '&id, templateId, updatedAt',
+      glossaryFavourites: '&id, createdAt',
+      glossaryRecents: '&id, viewedAt',
+      srsCards: '&qId, due, state',
+      reviewLog: '&id, qId, at',
+      streaks: '&date',
+      trainerSettings: '&id',
+      trainerBookmarks: '&qId, createdAt',
+      trainerReports: '&id, qId, createdAt',
+      proposedCards: '&id, createdAt',
+      cardOverrides: '&qId, decidedAt',
+      holidayPicks: '&id, year, createdAt',
+      commandRecents: '&id, viewedAt',
+      libraryProgress: '&id, workId, at',
+      libraryBookmarks: '&id, workId, createdAt',
+      libraryHighlights: '&id, [workId+unitId], createdAt',
+      libraryNotes: '&id, [workId+unitId], updatedAt',
     })
   }
 }

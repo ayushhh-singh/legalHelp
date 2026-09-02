@@ -1,0 +1,1349 @@
+{
+  "$schema": "../../../schemas/library-work.schema.json",
+  "version": "1.0.0",
+  "generatedAt": "2026-09-02",
+  "id": "fr-sr",
+  "title": {
+    "en": "Fundamental Rules and Supplementary Rules",
+    "hi": "मूल नियम और अनुपूरक नियम"
+  },
+  "shortTitle": {
+    "en": "FR & SR",
+    "hi": "एफआर एवं एसआर"
+  },
+  "year": 1922,
+  "category": "service-rules",
+  "description": {
+    "en": "The Fundamental and Supplementary Rules — pay fixation, joining time, foreign service, compensatory allowances and the definitions the rest of establishment work rests on.",
+    "hi": "मूल तथा अनुपूरक नियम — वेतन निर्धारण, कार्यग्रहण अवधि, विदेश सेवा, प्रतिकर भत्ते तथा वे परिभाषाएँ जिन पर शेष स्थापना-कार्य आधारित है।"
+  },
+  "corpus": {
+    "kind": "rules",
+    "file": "rules/text/fr-sr.json"
+  },
+  "unitLabel": {
+    "en": "Rule",
+    "hi": "नियम"
+  },
+  "publisher": "Department of Personnel and Training",
+  "tocSource": "flat",
+  "toc": [
+    {
+      "id": "n-fr-sr-f-r-1",
+      "number": "F.R. 1",
+      "heading": {
+        "en": "",
+        "hi": "संक्षिप्त नाम और प्रारंभ"
+      },
+      "unitIds": [
+        "fr-sr-f-r-1"
+      ],
+      "excerpt": {
+        "en": "These rules may be called the Fundamental Rules. They shall come into force with effect from…",
+        "hi": ""
+      }
+    },
+    {
+      "id": "n-fr-sr-f-r-2",
+      "number": "F.R. 2",
+      "heading": {
+        "en": "",
+        "hi": "मूल नियमों की प्रयोज्यता"
+      },
+      "unitIds": [
+        "fr-sr-f-r-2"
+      ],
+      "excerpt": {
+        "en": "The Fundamental Rules apply, subject to the provisions of Rule 3 to all Government servants…",
+        "hi": ""
+      }
+    },
+    {
+      "id": "n-fr-sr-f-r-3",
+      "number": "F.R. 3",
+      "heading": {
+        "en": "",
+        "hi": "सेना अथवा नौसेना विनियमों से शासित सरकारी सेवकों को अलागू होना"
+      },
+      "unitIds": [
+        "fr-sr-f-r-3"
+      ],
+      "excerpt": {
+        "en": "Unless in any case it be otherwise distinctly provided by or under these rules, these rules do…",
+        "hi": ""
+      }
+    },
+    {
+      "id": "n-fr-sr-f-r-4",
+      "number": "F.R. 4",
+      "heading": {
+        "en": "",
+        "hi": "विलोपित"
+      },
+      "unitIds": [
+        "fr-sr-f-r-4"
+      ],
+      "excerpt": {
+        "en": "Deleted.",
+        "hi": ""
+      }
+    },
+    {
+      "id": "n-fr-sr-f-r-5d",
+      "number": "F.R. 5D",
+      "heading": {
+        "en": "",
+        "hi": "कठिनाई की दशा में नियमों में छूट देने की शक्ति"
+      },
+      "unitIds": [
+        "fr-sr-f-r-5d"
+      ],
+      "excerpt": {
+        "en": "eleted. F.R.5A. Where any Ministry or Department of Government is of opinion that the operation…",
+        "hi": ""
+      }
+    },
+    {
+      "id": "n-fr-sr-f-r-6",
+      "number": "F.R. 6",
+      "heading": {
+        "en": "",
+        "hi": "शक्तियों का प्रत्यायोजन"
+      },
+      "unitIds": [
+        "fr-sr-f-r-6"
+      ],
+      "excerpt": {
+        "en": "The Central Government may delegate to any of its officers, subject to any conditions which it…",
+        "hi": ""
+      }
+    },
+    {
+      "id": "n-fr-sr-f-r-7",
+      "number": "F.R. 7",
+      "heading": {
+        "en": "",
+        "hi": "वित्त मंत्रालय से परामर्श"
+      },
+      "unitIds": [
+        "fr-sr-f-r-7"
+      ],
+      "excerpt": {
+        "en": "No powers may be exercised or delegated under these rules except after consultation with the…",
+        "hi": ""
+      }
+    },
+    {
+      "id": "n-fr-sr-f-r-8",
+      "number": "F.R. 8",
+      "heading": {
+        "en": "",
+        "hi": "नियमों के निर्वचन की शक्ति"
+      },
+      "unitIds": [
+        "fr-sr-f-r-8"
+      ],
+      "excerpt": {
+        "en": "The power of interpreting these rules is reserved to The President. CHAPTER II DEFINITIONS",
+        "hi": ""
+      }
+    },
+    {
+      "id": "n-fr-sr-f-r-9",
+      "number": "F.R. 9",
+      "heading": {
+        "en": "",
+        "hi": "परिभाषाएँ"
+      },
+      "unitIds": [
+        "fr-sr-f-r-9"
+      ],
+      "excerpt": {
+        "en": "Unless there be something repugnant in the subject or context, the terms defined in this…",
+        "hi": ""
+      }
+    },
+    {
+      "id": "n-fr-sr-f-r-10",
+      "number": "F.R. 10",
+      "heading": {
+        "en": "",
+        "hi": "नियुक्ति के लिए चिकित्सा प्रमाणपत्र"
+      },
+      "unitIds": [
+        "fr-sr-f-r-10"
+      ],
+      "excerpt": {
+        "en": "- Except as provided by this rule, no person may be appointed in India to a post in Government…",
+        "hi": ""
+      }
+    },
+    {
+      "id": "n-fr-sr-f-r-11",
+      "number": "F.R. 11",
+      "heading": {
+        "en": "",
+        "hi": "सरकारी सेवक का पूरा समय सरकार के अधीन होना"
+      },
+      "unitIds": [
+        "fr-sr-f-r-11"
+      ],
+      "excerpt": {
+        "en": "- Unless in any case it be otherwise distinctly provided, the whole time of a Government…",
+        "hi": ""
+      }
+    },
+    {
+      "id": "n-fr-sr-f-r-12",
+      "number": "F.R. 12",
+      "heading": {
+        "en": "",
+        "hi": "नए पद पर अधिहक़ प्राप्त करने पर पूर्व अधिहक़ की समाप्ति"
+      },
+      "unitIds": [
+        "fr-sr-f-r-12"
+      ],
+      "excerpt": {
+        "en": "De1eted F.R. 12-A. Unless in any case it is otherwise provided in these rules a government…",
+        "hi": ""
+      }
+    },
+    {
+      "id": "n-fr-sr-f-r-13",
+      "number": "F.R. 13",
+      "heading": {
+        "en": "",
+        "hi": "अधिहक़ का बना रहना"
+      },
+      "unitIds": [
+        "fr-sr-f-r-13"
+      ],
+      "excerpt": {
+        "en": "A Government servant who has acquired lien on a post retains the lien on that post; (a) while…",
+        "hi": ""
+      }
+    },
+    {
+      "id": "n-fr-sr-f-r-14",
+      "number": "F.R. 14",
+      "heading": {
+        "en": "",
+        "hi": "अधिहक़ की समाप्ति एवं अंतरण"
+      },
+      "unitIds": [
+        "fr-sr-f-r-14"
+      ],
+      "excerpt": {
+        "en": "Deleted. F.R. 14-A. (a) Except as provided in Rule 13 and Clause (d) of this Rule, a Government…",
+        "hi": ""
+      }
+    },
+    {
+      "id": "n-fr-sr-f-r-15",
+      "number": "F.R. 15",
+      "heading": {
+        "en": "",
+        "hi": "निम्नतर वेतन के पद पर स्थानांतरण का निर्बंधन"
+      },
+      "unitIds": [
+        "fr-sr-f-r-15"
+      ],
+      "excerpt": {
+        "en": "(a) The President may transfer Government servant from one post to another provided that…",
+        "hi": ""
+      }
+    },
+    {
+      "id": "n-fr-sr-f-r-16",
+      "number": "F.R. 16",
+      "heading": {
+        "en": "",
+        "hi": "भविष्य निधि अथवा पारिवारिक पेंशन निधि में अभिदान"
+      },
+      "unitIds": [
+        "fr-sr-f-r-16"
+      ],
+      "excerpt": {
+        "en": "A Government servant may be required to subscribe to a provident fund, a family pension fund or…",
+        "hi": ""
+      }
+    },
+    {
+      "id": "n-fr-sr-f-r-17",
+      "number": "F.R. 17",
+      "heading": {
+        "en": "",
+        "hi": "पद ग्रहण की तिथि से वेतन का आहरण तथा अनधिकृत अनुपस्थिति"
+      },
+      "unitIds": [
+        "fr-sr-f-r-17"
+      ],
+      "excerpt": {
+        "en": "(1) Subject to any exceptions specifically made in these rules and to the provision of sub-rule…",
+        "hi": ""
+      }
+    },
+    {
+      "id": "n-fr-sr-f-r-18",
+      "number": "F.R. 18",
+      "heading": {
+        "en": "",
+        "hi": "लगातार छुट्टी की अधिकतम सीमा"
+      },
+      "unitIds": [
+        "fr-sr-f-r-18"
+      ],
+      "excerpt": {
+        "en": "Unless the President, in view of the exceptional circumstances of the case otherwise…",
+        "hi": ""
+      }
+    },
+    {
+      "id": "n-fr-sr-f-r-19",
+      "number": "F.R. 19",
+      "heading": {
+        "en": "",
+        "hi": "स्वीकृत वेतन से अधिक वेतन पर निर्बंधन"
+      },
+      "unitIds": [
+        "fr-sr-f-r-19"
+      ],
+      "excerpt": {
+        "en": "Except in the case of personal pay granted in the circumstances defined in Rule 9 (23) (a), the…",
+        "hi": ""
+      }
+    },
+    {
+      "id": "n-fr-sr-f-r-20",
+      "number": "F.R. 20",
+      "heading": {
+        "en": "",
+        "hi": "ड्यूटी मानी गई अवधि का वेतन"
+      },
+      "unitIds": [
+        "fr-sr-f-r-20"
+      ],
+      "excerpt": {
+        "en": "In respect of any period treated as duty under Rule 9 (6) (b), a Government servant may be…",
+        "hi": ""
+      }
+    },
+    {
+      "id": "n-fr-sr-f-r-21",
+      "number": "F.R. 21",
+      "heading": {
+        "en": "",
+        "hi": "विलोपित"
+      },
+      "unitIds": [
+        "fr-sr-f-r-21"
+      ],
+      "excerpt": {
+        "en": "DELETED",
+        "hi": ""
+      }
+    },
+    {
+      "id": "n-fr-sr-f-r-22",
+      "number": "F.R. 22",
+      "heading": {
+        "en": "",
+        "hi": "पदोन्नति अथवा नियुक्ति पर प्रारंभिक वेतन का नियतन"
+      },
+      "unitIds": [
+        "fr-sr-f-r-22"
+      ],
+      "excerpt": {
+        "en": "(I) The initial pay of a Government servant who is appointed to a post on a time-scale of pay…",
+        "hi": ""
+      }
+    },
+    {
+      "id": "n-fr-sr-f-r-22c",
+      "number": "F.R. 22C",
+      "heading": {
+        "en": "",
+        "hi": "विलोपित"
+      },
+      "unitIds": [
+        "fr-sr-f-r-22c"
+      ],
+      "excerpt": {
+        "en": "Deleted",
+        "hi": ""
+      }
+    },
+    {
+      "id": "n-fr-sr-f-r-23",
+      "number": "F.R. 23",
+      "heading": {
+        "en": "",
+        "hi": "पद के वेतन में परिवर्तन पर पुराने वेतन को बनाए रखने का विकल्प"
+      },
+      "unitIds": [
+        "fr-sr-f-r-23"
+      ],
+      "excerpt": {
+        "en": "The holder of a post, the pay of which is changed, shall be treated as if he were transferred,…",
+        "hi": ""
+      }
+    },
+    {
+      "id": "n-fr-sr-f-r-24",
+      "number": "F.R. 24",
+      "heading": {
+        "en": "",
+        "hi": "वेतनवृद्धि रोकना"
+      },
+      "unitIds": [
+        "fr-sr-f-r-24"
+      ],
+      "excerpt": {
+        "en": "An increment shall ordinarily be drawn as a matter of course unless it is withheld. An…",
+        "hi": ""
+      }
+    },
+    {
+      "id": "n-fr-sr-f-r-25",
+      "number": "F.R. 25",
+      "heading": {
+        "en": "",
+        "hi": "मुद्रित नहीं"
+      },
+      "unitIds": [
+        "fr-sr-f-r-25"
+      ],
+      "excerpt": {
+        "en": "Not Printed",
+        "hi": ""
+      }
+    },
+    {
+      "id": "n-fr-sr-f-r-26",
+      "number": "F.R. 26",
+      "heading": {
+        "en": "",
+        "hi": "वेतनवृद्धि के लिए गणनीय सेवा की शर्तें"
+      },
+      "unitIds": [
+        "fr-sr-f-r-26"
+      ],
+      "excerpt": {
+        "en": "The following provisions prescribe the conditions on which service counts for increments in a…",
+        "hi": ""
+      }
+    },
+    {
+      "id": "n-fr-sr-f-r-27",
+      "number": "F.R. 27",
+      "heading": {
+        "en": "",
+        "hi": "समय-पूर्व वेतनवृद्धि"
+      },
+      "unitIds": [
+        "fr-sr-f-r-27"
+      ],
+      "excerpt": {
+        "en": "Subject to any general or special orders that may be made by the President in this behalf, an…",
+        "hi": ""
+      }
+    },
+    {
+      "id": "n-fr-sr-f-r-28",
+      "number": "F.R. 28",
+      "heading": {
+        "en": "",
+        "hi": "शास्ति के रूप में निम्नतर पद पर वेतन"
+      },
+      "unitIds": [
+        "fr-sr-f-r-28"
+      ],
+      "excerpt": {
+        "en": "The authority which orders the transfer of a Government servant as a penalty from a higher to a…",
+        "hi": ""
+      }
+    },
+    {
+      "id": "n-fr-sr-f-r-29",
+      "number": "F.R. 29",
+      "heading": {
+        "en": "",
+        "hi": "शास्ति के रूप में निम्नतर स्तर पर न्यूनीकरण का प्रभाव"
+      },
+      "unitIds": [
+        "fr-sr-f-r-29"
+      ],
+      "excerpt": {
+        "en": "(1) If a Government servant is reduced as a measure of penalty to a lower stage in his…",
+        "hi": ""
+      }
+    },
+    {
+      "id": "n-fr-sr-f-r-30",
+      "number": "F.R. 30",
+      "heading": {
+        "en": "",
+        "hi": "विलोपित"
+      },
+      "unitIds": [
+        "fr-sr-f-r-30"
+      ],
+      "excerpt": {
+        "en": "Deleted",
+        "hi": ""
+      }
+    },
+    {
+      "id": "n-fr-sr-f-r-31",
+      "number": "F.R. 31",
+      "heading": {
+        "en": "",
+        "hi": "त्रुटिपूर्ण पदोन्नति की दशा में वेतन का विनियमन"
+      },
+      "unitIds": [
+        "fr-sr-f-r-31"
+      ],
+      "excerpt": {
+        "en": "Deleted F.R. 31-A. Notwithstanding the provisions contained in these rules, the pay of a…",
+        "hi": ""
+      }
+    },
+    {
+      "id": "n-fr-sr-f-r-32",
+      "number": "F.R. 32",
+      "heading": {
+        "en": "",
+        "hi": "विलोपित"
+      },
+      "unitIds": [
+        "fr-sr-f-r-32"
+      ],
+      "excerpt": {
+        "en": "Deleted.",
+        "hi": ""
+      }
+    },
+    {
+      "id": "n-fr-sr-f-r-33",
+      "number": "F.R. 33",
+      "heading": {
+        "en": "",
+        "hi": "वैयक्तिक दर पर नियत पद पर स्थानापन्न होने पर वेतन"
+      },
+      "unitIds": [
+        "fr-sr-f-r-33"
+      ],
+      "excerpt": {
+        "en": "When a Government servant officiates in a post the pay of which has been fixed at a rate…",
+        "hi": ""
+      }
+    },
+    {
+      "id": "n-fr-sr-f-r-34",
+      "number": "F.R. 34",
+      "heading": {
+        "en": "",
+        "hi": "विलोपित"
+      },
+      "unitIds": [
+        "fr-sr-f-r-34"
+      ],
+      "excerpt": {
+        "en": "Deleted.",
+        "hi": ""
+      }
+    },
+    {
+      "id": "n-fr-sr-f-r-35",
+      "number": "F.R. 35",
+      "heading": {
+        "en": "",
+        "hi": "स्थानापन्न सरकारी सेवक का वेतन कम नियत करने की शक्ति"
+      },
+      "unitIds": [
+        "fr-sr-f-r-35"
+      ],
+      "excerpt": {
+        "en": "The Central Government may fix the pay of an officiating Government servant at an amount less…",
+        "hi": ""
+      }
+    },
+    {
+      "id": "n-fr-sr-f-r-36",
+      "number": "F.R. 36",
+      "heading": {
+        "en": "",
+        "hi": "नियम 9(6)(ख) के अधीन स्थानापन्न पदोन्नति"
+      },
+      "unitIds": [
+        "fr-sr-f-r-36"
+      ],
+      "excerpt": {
+        "en": "The Central Government may issue general or special orders allowing acting promotions to be…",
+        "hi": ""
+      }
+    },
+    {
+      "id": "n-fr-sr-f-r-37",
+      "number": "F.R. 37",
+      "heading": {
+        "en": "",
+        "hi": "वैयक्तिक वेतन"
+      },
+      "unitIds": [
+        "fr-sr-f-r-37"
+      ],
+      "excerpt": {
+        "en": "Personal Pay.- Except when the authority sanctioning it orders otherwise, personal pay shall be…",
+        "hi": ""
+      }
+    },
+    {
+      "id": "n-fr-sr-f-r-38",
+      "number": "F.R. 38",
+      "heading": {
+        "en": "",
+        "hi": "विलोपित"
+      },
+      "unitIds": [
+        "fr-sr-f-r-38"
+      ],
+      "excerpt": {
+        "en": "Deleted.",
+        "hi": ""
+      }
+    },
+    {
+      "id": "n-fr-sr-f-r-39",
+      "number": "F.R. 39",
+      "heading": {
+        "en": "",
+        "hi": "नए व्यक्ति की नियुक्ति हेतु अस्थायी पद का वेतन"
+      },
+      "unitIds": [
+        "fr-sr-f-r-39"
+      ],
+      "excerpt": {
+        "en": "Pay of temporary posts.- When a temporary post is created which may have to be filled by a…",
+        "hi": ""
+      }
+    },
+    {
+      "id": "n-fr-sr-f-r-40",
+      "number": "F.R. 40",
+      "heading": {
+        "en": "",
+        "hi": "विद्यमान सरकारी सेवक हेतु अस्थायी पद का वेतन"
+      },
+      "unitIds": [
+        "fr-sr-f-r-40"
+      ],
+      "excerpt": {
+        "en": "When a temporary post is created which will probably be filled by a person who is already a…",
+        "hi": ""
+      }
+    },
+    {
+      "id": "n-fr-sr-f-r-41",
+      "number": "F.R. 41",
+      "heading": {
+        "en": "",
+        "hi": "निरस्त"
+      },
+      "unitIds": [
+        "fr-sr-f-r-41"
+      ],
+      "excerpt": {
+        "en": "- Cancelled.",
+        "hi": ""
+      }
+    },
+    {
+      "id": "n-fr-sr-f-r-42",
+      "number": "F.R. 42",
+      "heading": {
+        "en": "",
+        "hi": "निरस्त"
+      },
+      "unitIds": [
+        "fr-sr-f-r-42"
+      ],
+      "excerpt": {
+        "en": "- Cancelled.",
+        "hi": ""
+      }
+    },
+    {
+      "id": "n-fr-sr-f-r-43",
+      "number": "F.R. 43",
+      "heading": {
+        "en": "",
+        "hi": "निरस्त"
+      },
+      "unitIds": [
+        "fr-sr-f-r-43"
+      ],
+      "excerpt": {
+        "en": "- Cancelled. CHAPTER V Additions to Pay",
+        "hi": ""
+      }
+    },
+    {
+      "id": "n-fr-sr-f-r-44",
+      "number": "F.R. 44",
+      "heading": {
+        "en": "",
+        "hi": "प्रतिपूरक भत्ता"
+      },
+      "unitIds": [
+        "fr-sr-f-r-44"
+      ],
+      "excerpt": {
+        "en": "Compensatory allowance.-Subject to the general rule that the amount of compensatory allowance…",
+        "hi": ""
+      }
+    },
+    {
+      "id": "n-fr-sr-f-r-45",
+      "number": "F.R. 45",
+      "heading": {
+        "en": "",
+        "hi": "सरकारी आवासों का आबंटन"
+      },
+      "unitIds": [
+        "fr-sr-f-r-45"
+      ],
+      "excerpt": {
+        "en": "The Central Government may make rules or issue orders laying down the principles governing the…",
+        "hi": ""
+      }
+    },
+    {
+      "id": "n-fr-sr-f-r-46",
+      "number": "F.R. 46",
+      "heading": {
+        "en": "",
+        "hi": "फीस"
+      },
+      "unitIds": [
+        "fr-sr-f-r-46"
+      ],
+      "excerpt": {
+        "en": "(a) Fees.-Subject to any rule made under Rule 46-A and & Rule 47, a Government servant may be…",
+        "hi": ""
+      }
+    },
+    {
+      "id": "n-fr-sr-f-r-47",
+      "number": "F.R. 47",
+      "heading": {
+        "en": "",
+        "hi": "मानदेय एवं फीस की शर्तें"
+      },
+      "unitIds": [
+        "fr-sr-f-r-47"
+      ],
+      "excerpt": {
+        "en": "Subject to the provisions of the rules made by the President under Rule 46-A, the Central…",
+        "hi": ""
+      }
+    },
+    {
+      "id": "n-fr-sr-f-r-48",
+      "number": "F.R. 48",
+      "heading": {
+        "en": "",
+        "hi": "पुरस्कार"
+      },
+      "unitIds": [
+        "fr-sr-f-r-48"
+      ],
+      "excerpt": {
+        "en": "Any Government servant is eligible to receive and, except as otherwise provided by a general or…",
+        "hi": ""
+      }
+    },
+    {
+      "id": "n-fr-sr-f-r-49",
+      "number": "F.R. 49",
+      "heading": {
+        "en": "",
+        "hi": "एक से अधिक स्वतंत्र पदों पर स्थानापन्न होने पर वेतन"
+      },
+      "unitIds": [
+        "fr-sr-f-r-49"
+      ],
+      "excerpt": {
+        "en": "The Central Government may appoint a Government servant already holding a post in a substantive…",
+        "hi": ""
+      }
+    },
+    {
+      "id": "n-fr-sr-f-r-50",
+      "number": "F.R. 50",
+      "heading": {
+        "en": "",
+        "hi": "भारत से बाहर प्रतिनियुक्ति हेतु पूर्वानुमोदन"
+      },
+      "unitIds": [
+        "fr-sr-f-r-50"
+      ],
+      "excerpt": {
+        "en": "No deputation of Government servant out of India shall be sanctioned without the previous…",
+        "hi": ""
+      }
+    },
+    {
+      "id": "n-fr-sr-f-r-51",
+      "number": "F.R. 51",
+      "heading": {
+        "en": "",
+        "hi": "भारत से बाहर प्रतिनियुक्ति के दौरान वेतन"
+      },
+      "unitIds": [
+        "fr-sr-f-r-51"
+      ],
+      "excerpt": {
+        "en": "(1) When a Government servant is, with proper sanction, temporarily deputed for duty out of…",
+        "hi": ""
+      }
+    },
+    {
+      "id": "n-fr-sr-f-r-52",
+      "number": "F.R. 52",
+      "heading": {
+        "en": "",
+        "hi": "पदच्युति अथवा हटाए जाने पर वेतन एवं भत्तों की समाप्ति"
+      },
+      "unitIds": [
+        "fr-sr-f-r-52"
+      ],
+      "excerpt": {
+        "en": "The pay and allowances of a Government servant who is dismissed or removed from service cease…",
+        "hi": ""
+      }
+    },
+    {
+      "id": "n-fr-sr-f-r-53",
+      "number": "F.R. 53",
+      "heading": {
+        "en": "",
+        "hi": "निलंबन के दौरान निर्वाह भत्ता"
+      },
+      "unitIds": [
+        "fr-sr-f-r-53"
+      ],
+      "excerpt": {
+        "en": "(1) A Government servant under suspension or deemed to have been placed under suspension by an…",
+        "hi": ""
+      }
+    },
+    {
+      "id": "n-fr-sr-f-r-54",
+      "number": "F.R. 54",
+      "heading": {
+        "en": "",
+        "hi": "पुनर्स्थापन पर वेतन एवं भत्तों का विनिश्चय"
+      },
+      "unitIds": [
+        "fr-sr-f-r-54"
+      ],
+      "excerpt": {
+        "en": "(1) When a Government servant who has been dismissed, removed or compulsorily retired is…",
+        "hi": ""
+      }
+    },
+    {
+      "id": "n-fr-sr-f-r-55",
+      "number": "F.R. 55",
+      "heading": {
+        "en": "",
+        "hi": "निलंबन के दौरान छुट्टी न दिया जाना"
+      },
+      "unitIds": [
+        "fr-sr-f-r-55"
+      ],
+      "excerpt": {
+        "en": "Leave may not be granted to a Government servant under suspension. CHAPTER-IX Retirement",
+        "hi": ""
+      }
+    },
+    {
+      "id": "n-fr-sr-f-r-56",
+      "number": "F.R. 56",
+      "heading": {
+        "en": "",
+        "hi": "अधिवर्षिता की आयु"
+      },
+      "unitIds": [
+        "fr-sr-f-r-56"
+      ],
+      "excerpt": {
+        "en": "(a) Except as otherwise provided in this rule, every Government servant shall retire from…",
+        "hi": ""
+      }
+    },
+    {
+      "id": "n-fr-sr-f-r-108",
+      "number": "F.R. 108",
+      "heading": {
+        "en": "",
+        "hi": "कार्यग्रहण अवधि की समाप्ति के पश्चात् वेतन"
+      },
+      "unitIds": [
+        "fr-sr-f-r-108"
+      ],
+      "excerpt": {
+        "en": "A Government servant who does not join his post within his joining time is entitled to no pay…",
+        "hi": ""
+      }
+    },
+    {
+      "id": "n-fr-sr-f-r-109",
+      "number": "F.R. 109",
+      "heading": {
+        "en": "",
+        "hi": "विदेशी सेवा नियमों की प्रयोज्यता"
+      },
+      "unitIds": [
+        "fr-sr-f-r-109"
+      ],
+      "excerpt": {
+        "en": "The rules in this chapter apply to those Government servants only who are transferred to…",
+        "hi": ""
+      }
+    },
+    {
+      "id": "n-fr-sr-f-r-110",
+      "number": "F.R. 110",
+      "heading": {
+        "en": "",
+        "hi": "विदेशी सेवा में स्थानांतरण की शर्तें"
+      },
+      "unitIds": [
+        "fr-sr-f-r-110"
+      ],
+      "excerpt": {
+        "en": "(a) No Government servant may be transferred to Foreign Service against his will: Provided that…",
+        "hi": ""
+      }
+    },
+    {
+      "id": "n-fr-sr-f-r-111",
+      "number": "F.R. 111",
+      "heading": {
+        "en": "",
+        "hi": "विदेशी सेवा में स्थानांतरण की अर्हता"
+      },
+      "unitIds": [
+        "fr-sr-f-r-111"
+      ],
+      "excerpt": {
+        "en": "A transfer to Foreign Service is not admissible unless- (a) the duties to be performed after…",
+        "hi": ""
+      }
+    },
+    {
+      "id": "n-fr-sr-f-r-112",
+      "number": "F.R. 112",
+      "heading": {
+        "en": "",
+        "hi": "छुट्टी के दौरान विदेशी सेवा में स्थानांतरण का प्रभाव"
+      },
+      "unitIds": [
+        "fr-sr-f-r-112"
+      ],
+      "excerpt": {
+        "en": "If a Government servant is transferred to foreign service while on leave, he ceases, from the…",
+        "hi": ""
+      }
+    },
+    {
+      "id": "n-fr-sr-f-r-113",
+      "number": "F.R. 113",
+      "heading": {
+        "en": "",
+        "hi": "विदेशी सेवा में रहते हुए संवर्ग में बने रहना और पदोन्नति"
+      },
+      "unitIds": [
+        "fr-sr-f-r-113"
+      ],
+      "excerpt": {
+        "en": "(i) A Government servant transferred to foreign service shall remain in the cadre or cadres in…",
+        "hi": ""
+      }
+    },
+    {
+      "id": "n-fr-sr-f-r-114",
+      "number": "F.R. 114",
+      "heading": {
+        "en": "",
+        "hi": "विदेशी सेवा में वेतन एवं कार्यग्रहण अवधि"
+      },
+      "unitIds": [
+        "fr-sr-f-r-114"
+      ],
+      "excerpt": {
+        "en": "A Government servant in foreign service will draw pay from the foreign employer from the date…",
+        "hi": ""
+      }
+    },
+    {
+      "id": "n-fr-sr-f-r-115",
+      "number": "F.R. 115",
+      "heading": {
+        "en": "",
+        "hi": "विदेशी सेवा के दौरान पेंशन एवं छुट्टी वेतन का अंशदान"
+      },
+      "unitIds": [
+        "fr-sr-f-r-115"
+      ],
+      "excerpt": {
+        "en": "(a) While a Government servant is in foreign service, contribution towards the cost of his…",
+        "hi": ""
+      }
+    },
+    {
+      "id": "n-fr-sr-f-r-116",
+      "number": "F.R. 116",
+      "heading": {
+        "en": "",
+        "hi": "अंशदान की दर"
+      },
+      "unitIds": [
+        "fr-sr-f-r-116"
+      ],
+      "excerpt": {
+        "en": "The rate of contributions payable on account of pension and leave salary shall be such as the…",
+        "hi": ""
+      }
+    },
+    {
+      "id": "n-fr-sr-f-r-117",
+      "number": "F.R. 117",
+      "heading": {
+        "en": "",
+        "hi": "अंशदान की दरों का प्रयोजन"
+      },
+      "unitIds": [
+        "fr-sr-f-r-117"
+      ],
+      "excerpt": {
+        "en": "(a) The rates of pension contribution prescribed under Rule 116 will be designed to secure to…",
+        "hi": ""
+      }
+    },
+    {
+      "id": "n-fr-sr-f-r-118",
+      "number": "F.R. 118",
+      "heading": {
+        "en": "",
+        "hi": "विलोपित"
+      },
+      "unitIds": [
+        "fr-sr-f-r-118"
+      ],
+      "excerpt": {
+        "en": "Deleted.",
+        "hi": ""
+      }
+    },
+    {
+      "id": "n-fr-sr-f-r-119",
+      "number": "F.R. 119",
+      "heading": {
+        "en": "",
+        "hi": "अंशदान की छूट एवं ब्याज संबंधी नियम"
+      },
+      "unitIds": [
+        "fr-sr-f-r-119"
+      ],
+      "excerpt": {
+        "en": "In the case of transfer to foreign service, the Central Government may- (a) remit the…",
+        "hi": ""
+      }
+    },
+    {
+      "id": "n-fr-sr-f-r-120",
+      "number": "F.R. 120",
+      "heading": {
+        "en": "",
+        "hi": "अंशदान रोकने का निषेध"
+      },
+      "unitIds": [
+        "fr-sr-f-r-120"
+      ],
+      "excerpt": {
+        "en": "A Government servant in foreign service may not elect to withhold contributions and to forfeit…",
+        "hi": ""
+      }
+    },
+    {
+      "id": "n-fr-sr-f-r-121",
+      "number": "F.R. 121",
+      "heading": {
+        "en": "",
+        "hi": "विदेशी नियोक्ता से पेंशन अथवा उपदान स्वीकार करने हेतु अनुमति"
+      },
+      "unitIds": [
+        "fr-sr-f-r-121"
+      ],
+      "excerpt": {
+        "en": "A Government servant transferred to foreign service may not without the sanction of the Central…",
+        "hi": ""
+      }
+    },
+    {
+      "id": "n-fr-sr-f-r-122",
+      "number": "F.R. 122",
+      "heading": {
+        "en": "",
+        "hi": "भारत में विदेशी सेवा के दौरान छुट्टी"
+      },
+      "unitIds": [
+        "fr-sr-f-r-122"
+      ],
+      "excerpt": {
+        "en": "A Government servant in foreign service in India may not be granted leave otherwise than in…",
+        "hi": ""
+      }
+    },
+    {
+      "id": "n-fr-sr-f-r-123",
+      "number": "F.R. 123",
+      "heading": {
+        "en": "",
+        "hi": "भारत से बाहर विदेशी सेवा के दौरान छुट्टी"
+      },
+      "unitIds": [
+        "fr-sr-f-r-123"
+      ],
+      "excerpt": {
+        "en": "(a) A Government servant in foreign service out of India may be granted leave by his employer…",
+        "hi": ""
+      }
+    },
+    {
+      "id": "n-fr-sr-f-r-124",
+      "number": "F.R. 124",
+      "heading": {
+        "en": "",
+        "hi": "विदेशी सेवा में रहते हुए सरकारी पद पर स्थानापन्न होने पर वेतन"
+      },
+      "unitIds": [
+        "fr-sr-f-r-124"
+      ],
+      "excerpt": {
+        "en": "A Government servant in foreign service if, appointed to officiate in a post in Government…",
+        "hi": ""
+      }
+    },
+    {
+      "id": "n-fr-sr-f-r-125",
+      "number": "F.R. 125",
+      "heading": {
+        "en": "",
+        "hi": "विदेशी सेवा से प्रत्यावर्तन की तिथि"
+      },
+      "unitIds": [
+        "fr-sr-f-r-125"
+      ],
+      "excerpt": {
+        "en": "A Government servant reverts from foreign service to Government service on the date on which he…",
+        "hi": ""
+      }
+    },
+    {
+      "id": "n-fr-sr-f-r-126",
+      "number": "F.R. 126",
+      "heading": {
+        "en": "",
+        "hi": "प्रत्यावर्तन पर वेतन एवं अंशदान की समाप्ति"
+      },
+      "unitIds": [
+        "fr-sr-f-r-126"
+      ],
+      "excerpt": {
+        "en": "When a Government servant reverts from foreign service to Government service, his pay will…",
+        "hi": ""
+      }
+    },
+    {
+      "id": "n-fr-sr-f-r-127",
+      "number": "F.R. 127",
+      "heading": {
+        "en": "",
+        "hi": "अतिरिक्त स्थापना की लागत की वसूली"
+      },
+      "unitIds": [
+        "fr-sr-f-r-127"
+      ],
+      "excerpt": {
+        "en": "When an addition is made to a regular establishment on the condition that its cost, or a…",
+        "hi": ""
+      }
+    }
+  ],
+  "readingOrder": [
+    "fr-sr-f-r-1",
+    "fr-sr-f-r-2",
+    "fr-sr-f-r-3",
+    "fr-sr-f-r-4",
+    "fr-sr-f-r-5d",
+    "fr-sr-f-r-6",
+    "fr-sr-f-r-7",
+    "fr-sr-f-r-8",
+    "fr-sr-f-r-9",
+    "fr-sr-f-r-10",
+    "fr-sr-f-r-11",
+    "fr-sr-f-r-12",
+    "fr-sr-f-r-13",
+    "fr-sr-f-r-14",
+    "fr-sr-f-r-15",
+    "fr-sr-f-r-16",
+    "fr-sr-f-r-17",
+    "fr-sr-f-r-18",
+    "fr-sr-f-r-19",
+    "fr-sr-f-r-20",
+    "fr-sr-f-r-21",
+    "fr-sr-f-r-22",
+    "fr-sr-f-r-22c",
+    "fr-sr-f-r-23",
+    "fr-sr-f-r-24",
+    "fr-sr-f-r-25",
+    "fr-sr-f-r-26",
+    "fr-sr-f-r-27",
+    "fr-sr-f-r-28",
+    "fr-sr-f-r-29",
+    "fr-sr-f-r-30",
+    "fr-sr-f-r-31",
+    "fr-sr-f-r-32",
+    "fr-sr-f-r-33",
+    "fr-sr-f-r-34",
+    "fr-sr-f-r-35",
+    "fr-sr-f-r-36",
+    "fr-sr-f-r-37",
+    "fr-sr-f-r-38",
+    "fr-sr-f-r-39",
+    "fr-sr-f-r-40",
+    "fr-sr-f-r-41",
+    "fr-sr-f-r-42",
+    "fr-sr-f-r-43",
+    "fr-sr-f-r-44",
+    "fr-sr-f-r-45",
+    "fr-sr-f-r-46",
+    "fr-sr-f-r-47",
+    "fr-sr-f-r-48",
+    "fr-sr-f-r-49",
+    "fr-sr-f-r-50",
+    "fr-sr-f-r-51",
+    "fr-sr-f-r-52",
+    "fr-sr-f-r-53",
+    "fr-sr-f-r-54",
+    "fr-sr-f-r-55",
+    "fr-sr-f-r-56",
+    "fr-sr-f-r-108",
+    "fr-sr-f-r-109",
+    "fr-sr-f-r-110",
+    "fr-sr-f-r-111",
+    "fr-sr-f-r-112",
+    "fr-sr-f-r-113",
+    "fr-sr-f-r-114",
+    "fr-sr-f-r-115",
+    "fr-sr-f-r-116",
+    "fr-sr-f-r-117",
+    "fr-sr-f-r-118",
+    "fr-sr-f-r-119",
+    "fr-sr-f-r-120",
+    "fr-sr-f-r-121",
+    "fr-sr-f-r-122",
+    "fr-sr-f-r-123",
+    "fr-sr-f-r-124",
+    "fr-sr-f-r-125",
+    "fr-sr-f-r-126",
+    "fr-sr-f-r-127"
+  ],
+  "estimatedMinutes": 170,
+  "practiseCounts": {
+    "fr-sr-f-r-1": 2,
+    "fr-sr-f-r-10": 1,
+    "fr-sr-f-r-108": 1,
+    "fr-sr-f-r-109": 2,
+    "fr-sr-f-r-11": 3,
+    "fr-sr-f-r-110": 2,
+    "fr-sr-f-r-111": 2,
+    "fr-sr-f-r-112": 2,
+    "fr-sr-f-r-113": 1,
+    "fr-sr-f-r-114": 1,
+    "fr-sr-f-r-115": 3,
+    "fr-sr-f-r-116": 1,
+    "fr-sr-f-r-117": 2,
+    "fr-sr-f-r-119": 1,
+    "fr-sr-f-r-12": 1,
+    "fr-sr-f-r-120": 1,
+    "fr-sr-f-r-121": 1,
+    "fr-sr-f-r-122": 1,
+    "fr-sr-f-r-123": 2,
+    "fr-sr-f-r-124": 1,
+    "fr-sr-f-r-125": 1,
+    "fr-sr-f-r-126": 1,
+    "fr-sr-f-r-127": 1,
+    "fr-sr-f-r-13": 2,
+    "fr-sr-f-r-14": 3,
+    "fr-sr-f-r-15": 4,
+    "fr-sr-f-r-16": 1,
+    "fr-sr-f-r-17": 4,
+    "fr-sr-f-r-18": 3,
+    "fr-sr-f-r-19": 4,
+    "fr-sr-f-r-2": 3,
+    "fr-sr-f-r-20": 1,
+    "fr-sr-f-r-22": 6,
+    "fr-sr-f-r-23": 2,
+    "fr-sr-f-r-24": 3,
+    "fr-sr-f-r-26": 4,
+    "fr-sr-f-r-27": 2,
+    "fr-sr-f-r-28": 3,
+    "fr-sr-f-r-29": 3,
+    "fr-sr-f-r-3": 2,
+    "fr-sr-f-r-33": 1,
+    "fr-sr-f-r-35": 1,
+    "fr-sr-f-r-36": 2,
+    "fr-sr-f-r-37": 2,
+    "fr-sr-f-r-39": 1,
+    "fr-sr-f-r-40": 2,
+    "fr-sr-f-r-44": 2,
+    "fr-sr-f-r-45": 3,
+    "fr-sr-f-r-46": 3,
+    "fr-sr-f-r-47": 1,
+    "fr-sr-f-r-48": 1,
+    "fr-sr-f-r-49": 5,
+    "fr-sr-f-r-50": 3,
+    "fr-sr-f-r-51": 2,
+    "fr-sr-f-r-52": 2,
+    "fr-sr-f-r-53": 5,
+    "fr-sr-f-r-54": 5,
+    "fr-sr-f-r-55": 1,
+    "fr-sr-f-r-56": 3,
+    "fr-sr-f-r-5d": 1,
+    "fr-sr-f-r-6": 1,
+    "fr-sr-f-r-7": 1,
+    "fr-sr-f-r-8": 1,
+    "fr-sr-f-r-9": 7
+  },
+  "examTags": [
+    "pay-and-allowances",
+    "establishment",
+    "departmental-exam",
+    "ldce"
+  ],
+  "officialUrl": "https://dopt.gov.in/sites/default/files/Compilation_FR_SR_English_2.pdf",
+  "source": {
+    "name": "Department of Personnel and Training — Compilation of Fundamental Rules and Supplementary Rules — English",
+    "url": "https://dopt.gov.in/sites/default/files/Compilation_FR_SR_English_2.pdf"
+  },
+  "disclaimer": {
+    "en": "Reference only; verify with the official gazette/order or your DDO.",
+    "hi": "केवल संदर्भ के लिए; आधिकारिक राजपत्र/आदेश अथवा अपने डीडीओ से सत्यापित करें।"
+  },
+  "verify": true
+}

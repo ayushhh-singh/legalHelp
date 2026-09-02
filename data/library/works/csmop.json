@@ -1,0 +1,2260 @@
+{
+  "$schema": "../../../schemas/library-work.schema.json",
+  "version": "1.0.0",
+  "generatedAt": "2026-09-02",
+  "id": "csmop",
+  "title": {
+    "en": "Central Secretariat Manual of Office Procedure, 2022",
+    "hi": "केंद्रीय सचिवालय कार्यालय प्रक्रिया नियमावली, 2022"
+  },
+  "shortTitle": {
+    "en": "CSMOP 2022",
+    "hi": "सीएसएमओपी 2022"
+  },
+  "year": 2022,
+  "category": "office-procedure",
+  "description": {
+    "en": "The Central Secretariat Manual of Office Procedure — how a file is opened, noted on, referred, and how every kind of official communication is drafted and issued.",
+    "hi": "केंद्रीय सचिवालय कार्यालय प्रक्रिया नियमावली — फ़ाइल कैसे खोली जाती है, उस पर टिप्पणी कैसे लिखी जाती है, तथा प्रत्येक प्रकार का सरकारी पत्राचार कैसे प्रारूपित और जारी किया जाता है।"
+  },
+  "corpus": {
+    "kind": "rules",
+    "file": "rules/text/csmop.json"
+  },
+  "unitLabel": {
+    "en": "Paragraph",
+    "hi": "पैरा"
+  },
+  "publisher": "Department of Administrative Reforms and Public Grievances",
+  "tocSource": "numbering",
+  "toc": [
+    {
+      "id": "ch-1",
+      "number": "1",
+      "heading": {
+        "en": "Chapter 1",
+        "hi": "अध्याय 1"
+      },
+      "children": [
+        {
+          "id": "n-csmop-1-1",
+          "number": "1.1",
+          "heading": {
+            "en": "",
+            "hi": "लोक सेवा का मूल उद्देश्य"
+          },
+          "unitIds": [
+            "csmop-1-1"
+          ],
+          "excerpt": {
+            "en": "The prime objective of all public service is to meet the citizens' needs and to further enhance…",
+            "hi": ""
+          }
+        },
+        {
+          "id": "n-csmop-1-2",
+          "number": "1.2",
+          "heading": {
+            "en": "",
+            "hi": "सरकारी कामकाज में दक्षता और गति"
+          },
+          "unitIds": [
+            "csmop-1-2"
+          ],
+          "excerpt": {
+            "en": "The efficiency of Government to a large extent depends on evolution of adequate processes and…",
+            "hi": ""
+          }
+        },
+        {
+          "id": "n-csmop-1-3",
+          "number": "1.3",
+          "heading": {
+            "en": "",
+            "hi": "नियमावली की प्रक्रियाओं में संतुलन"
+          },
+          "unitIds": [
+            "csmop-1-3"
+          ],
+          "excerpt": {
+            "en": "The procedures prescribed in this manual attempt to balance the conflicting consideration of…",
+            "hi": ""
+          }
+        },
+        {
+          "id": "n-csmop-1-4",
+          "number": "1.4",
+          "heading": {
+            "en": "",
+            "hi": "नियमावली का प्रयोजन और पृष्ठभूमि"
+          },
+          "unitIds": [
+            "csmop-1-4"
+          ],
+          "excerpt": {
+            "en": "In order to create awareness about these processes and practices especially at the cutting edge…",
+            "hi": ""
+          }
+        },
+        {
+          "id": "n-csmop-1-5",
+          "number": "1.5",
+          "heading": {
+            "en": "",
+            "hi": "ईऑफिस के साथ प्रक्रियाओं का समायोजन"
+          },
+          "unitIds": [
+            "csmop-1-5"
+          ],
+          "excerpt": {
+            "en": "The procedures laid in earlier manuals (relating to physical paper work) have been dovetailed…",
+            "hi": ""
+          }
+        },
+        {
+          "id": "n-csmop-1-6",
+          "number": "1.6",
+          "heading": {
+            "en": "",
+            "hi": "नियमावली का प्रकाशन इतिहास और संस्करण"
+          },
+          "unitIds": [
+            "csmop-1-6"
+          ],
+          "excerpt": {
+            "en": "First published in March, 1955, CSMOP has been updated from time to time in accordance with the…",
+            "hi": ""
+          }
+        },
+        {
+          "id": "n-csmop-1-7",
+          "number": "1.7",
+          "heading": {
+            "en": "",
+            "hi": "सूचना और अभिलेख प्रबंधन की प्रक्रियाएँ"
+          },
+          "unitIds": [
+            "csmop-1-7"
+          ],
+          "excerpt": {
+            "en": "This Manual also lays down the essential procedures for efficient information and file…",
+            "hi": ""
+          }
+        }
+      ],
+      "unitIds": [
+        "csmop-1-1",
+        "csmop-1-2",
+        "csmop-1-3",
+        "csmop-1-4",
+        "csmop-1-5",
+        "csmop-1-6",
+        "csmop-1-7"
+      ]
+    },
+    {
+      "id": "ch-2",
+      "number": "2",
+      "heading": {
+        "en": "Chapter 2",
+        "hi": "अध्याय 2"
+      },
+      "children": [
+        {
+          "id": "n-csmop-2-1",
+          "number": "2.1",
+          "heading": {
+            "en": "",
+            "hi": "राष्ट्रपति"
+          },
+          "unitIds": [
+            "csmop-2-1"
+          ],
+          "excerpt": {
+            "en": "President : The executive power of the Union formally vests in the President and may be…",
+            "hi": ""
+          }
+        },
+        {
+          "id": "n-csmop-2-3",
+          "number": "2.3",
+          "heading": {
+            "en": "",
+            "hi": "सरकारी कामकाज का आबंटन/संचालन"
+          },
+          "unitIds": [
+            "csmop-2-3"
+          ],
+          "excerpt": {
+            "en": "Allocation/Transaction of Government Business: Among the Rules issued by the President for the…",
+            "hi": ""
+          }
+        },
+        {
+          "id": "n-csmop-2-4",
+          "number": "2.4",
+          "heading": {
+            "en": "",
+            "hi": "मंत्रालय/विभाग"
+          },
+          "unitIds": [
+            "csmop-2-4"
+          ],
+          "excerpt": {
+            "en": "Ministry/Department: (i) A Ministry/Department is responsible for formulation of…",
+            "hi": ""
+          }
+        },
+        {
+          "id": "n-csmop-2-5",
+          "number": "2.5",
+          "heading": {
+            "en": "",
+            "hi": "रक्षा मंत्रालय का एकीकृत मुख्यालय"
+          },
+          "unitIds": [
+            "csmop-2-5"
+          ],
+          "excerpt": {
+            "en": "Integrated Headquarters of Ministry of Defence: Integrated Headquarters of Ministry of Defence…",
+            "hi": ""
+          }
+        },
+        {
+          "id": "n-csmop-2-6",
+          "number": "2.6",
+          "heading": {
+            "en": "",
+            "hi": "संबद्ध और अधीनस्थ कार्यालय"
+          },
+          "unitIds": [
+            "csmop-2-6"
+          ],
+          "excerpt": {
+            "en": "Attached and Subordinate offices: (i) Where the execution of the policies of the government…",
+            "hi": ""
+          }
+        },
+        {
+          "id": "n-csmop-2-7",
+          "number": "2.7",
+          "heading": {
+            "en": "",
+            "hi": "संवैधानिक निकाय"
+          },
+          "unitIds": [
+            "csmop-2-7"
+          ],
+          "excerpt": {
+            "en": "Constitutional Bodies: Such bodies are constituted under the provisions of the Constitution of…",
+            "hi": ""
+          }
+        },
+        {
+          "id": "n-csmop-2-8",
+          "number": "2.8",
+          "heading": {
+            "en": "",
+            "hi": "सांविधिक निकाय"
+          },
+          "unitIds": [
+            "csmop-2-8"
+          ],
+          "excerpt": {
+            "en": "Statutory Bodies: Such bodies are established under the statute or an Act of Parliament. They…",
+            "hi": ""
+          }
+        },
+        {
+          "id": "n-csmop-2-9",
+          "number": "2.9",
+          "heading": {
+            "en": "",
+            "hi": "स्वायत्त निकाय"
+          },
+          "unitIds": [
+            "csmop-2-9"
+          ],
+          "excerpt": {
+            "en": "Autonomous Bodies: Such bodies are established by the Government to discharge the…",
+            "hi": ""
+          }
+        },
+        {
+          "id": "n-csmop-2-10",
+          "number": "2.10",
+          "heading": {
+            "en": "",
+            "hi": "केंद्रीय सार्वजनिक क्षेत्र उपक्रम"
+          },
+          "unitIds": [
+            "csmop-2-10"
+          ],
+          "excerpt": {
+            "en": "Central Public Sector Enterprises: \"Central Public Sector Enterprise (CPSE) is the Company…",
+            "hi": ""
+          }
+        },
+        {
+          "id": "n-csmop-2-11",
+          "number": "2.11",
+          "heading": {
+            "en": "",
+            "hi": "सूचना एवं सुविधा केंद्र"
+          },
+          "unitIds": [
+            "csmop-2-11"
+          ],
+          "excerpt": {
+            "en": "Information and Facilitation Counters (IFCs): The Information and Facilitation Counter will…",
+            "hi": ""
+          }
+        }
+      ],
+      "unitIds": [
+        "csmop-2-1",
+        "csmop-2-3",
+        "csmop-2-4",
+        "csmop-2-5",
+        "csmop-2-6",
+        "csmop-2-7",
+        "csmop-2-8",
+        "csmop-2-9",
+        "csmop-2-10",
+        "csmop-2-11"
+      ]
+    },
+    {
+      "id": "ch-3",
+      "number": "3",
+      "heading": {
+        "en": "Chapter 3",
+        "hi": "अध्याय 3"
+      },
+      "children": [
+        {
+          "id": "n-csmop-3-1",
+          "number": "3.1",
+          "heading": {
+            "en": "",
+            "hi": "सचिवालय में पदाधिकारियों के कार्य और उत्तरदायित्व"
+          },
+          "unitIds": [
+            "csmop-3-1"
+          ],
+          "excerpt": {
+            "en": "The broad functions and responsibilities of various functionaries in the Secretariat of a…",
+            "hi": ""
+          }
+        }
+      ],
+      "unitIds": [
+        "csmop-3-1"
+      ]
+    },
+    {
+      "id": "ch-4",
+      "number": "4",
+      "heading": {
+        "en": "Chapter 4",
+        "hi": "अध्याय 4"
+      },
+      "children": [
+        {
+          "id": "n-csmop-4-1",
+          "number": "4.1",
+          "heading": {
+            "en": "",
+            "hi": "संसदीय शासन प्रणाली में मंत्रिपरिषद की भूमिका"
+          },
+          "unitIds": [
+            "csmop-4-1"
+          ],
+          "excerpt": {
+            "en": "In a Parliamentary form of Government, the Council of Ministers shall collectively be…",
+            "hi": ""
+          }
+        },
+        {
+          "id": "n-csmop-4-2",
+          "number": "4.2",
+          "heading": {
+            "en": "",
+            "hi": "कार्य आबंटन एवं संचालन नियम, 1961 की मुख्य विशेषताएँ"
+          },
+          "unitIds": [
+            "csmop-4-2"
+          ],
+          "excerpt": {
+            "en": "The two key features of the Government of India (Transaction of Business) Rules, 1961 (para…",
+            "hi": ""
+          }
+        },
+        {
+          "id": "n-csmop-4-3",
+          "number": "4.3",
+          "heading": {
+            "en": "",
+            "hi": "सचिव या विभागाध्यक्ष को शक्तियों का प्रत्यायोजन"
+          },
+          "unitIds": [
+            "csmop-4-3"
+          ],
+          "excerpt": {
+            "en": "Powers have generally been delegated to the Secretary of a Department or Head of Department or…",
+            "hi": ""
+          }
+        },
+        {
+          "id": "n-csmop-4-4",
+          "number": "4.4",
+          "heading": {
+            "en": "",
+            "hi": "सक्षम प्राधिकारी को टिप्पणी के माध्यम से प्रस्तुतीकरण"
+          },
+          "unitIds": [
+            "csmop-4-4"
+          ],
+          "excerpt": {
+            "en": "For matters delegated to an authority within a Ministry/Department, decisions are arrived at…",
+            "hi": ""
+          }
+        },
+        {
+          "id": "n-csmop-4-5",
+          "number": "4.5",
+          "heading": {
+            "en": "",
+            "hi": "ज्ञान प्रबंधन उपकरणों का विकास"
+          },
+          "unitIds": [
+            "csmop-4-5"
+          ],
+          "excerpt": {
+            "en": "Sections/Desks are encouraged to develop and update tools of knowledge management described in…",
+            "hi": ""
+          }
+        },
+        {
+          "id": "n-csmop-4-6",
+          "number": "4.6",
+          "heading": {
+            "en": "",
+            "hi": "सार्वजनिक उपक्रमों के बोर्ड में सरकारी निदेशकों की भूमिका"
+          },
+          "unitIds": [
+            "csmop-4-6"
+          ],
+          "excerpt": {
+            "en": "The role of Government Directors on Boards of Public Enterprises shall be governed by the DPE…",
+            "hi": ""
+          }
+        },
+        {
+          "id": "n-csmop-4-7",
+          "number": "4.7",
+          "heading": {
+            "en": "",
+            "hi": "सरकार में निर्णय लेने की प्रक्रिया के वर्ग"
+          },
+          "unitIds": [
+            "csmop-4-7"
+          ],
+          "excerpt": {
+            "en": "The process of decision making in Government depends on whether it needs approval of the…",
+            "hi": ""
+          }
+        },
+        {
+          "id": "n-csmop-4-8",
+          "number": "4.8",
+          "heading": {
+            "en": "",
+            "hi": "विधायी और नीतिगत मामलों में निर्णय प्रक्रिया"
+          },
+          "unitIds": [
+            "csmop-4-8"
+          ],
+          "excerpt": {
+            "en": "The process of decision making in case of legislative matters/proposals that need approval of…",
+            "hi": ""
+          }
+        },
+        {
+          "id": "n-csmop-4-9",
+          "number": "4.9",
+          "heading": {
+            "en": "",
+            "hi": "सरकार में निर्णय लेने में दक्षता"
+          },
+          "unitIds": [
+            "csmop-4-9"
+          ],
+          "excerpt": {
+            "en": "Efficiency in Decision Making in the Government: (i) Efficient decision making is fundamental…",
+            "hi": ""
+          }
+        }
+      ],
+      "unitIds": [
+        "csmop-4-1",
+        "csmop-4-2",
+        "csmop-4-3",
+        "csmop-4-4",
+        "csmop-4-5",
+        "csmop-4-6",
+        "csmop-4-7",
+        "csmop-4-8",
+        "csmop-4-9"
+      ]
+    },
+    {
+      "id": "ch-5",
+      "number": "5",
+      "heading": {
+        "en": "Chapter 5",
+        "hi": "अध्याय 5"
+      },
+      "children": [
+        {
+          "id": "n-csmop-5-1",
+          "number": "5.1",
+          "heading": {
+            "en": "",
+            "hi": "डाक की प्राप्ति"
+          },
+          "unitIds": [
+            "csmop-5-1"
+          ],
+          "excerpt": {
+            "en": "Receipt of Dak: (i) During office hours, all dak including those addressed to…",
+            "hi": ""
+          }
+        },
+        {
+          "id": "n-csmop-5-2",
+          "number": "5.2",
+          "heading": {
+            "en": "",
+            "hi": "डाक की छानबीन"
+          },
+          "unitIds": [
+            "csmop-5-2"
+          ],
+          "excerpt": {
+            "en": "Scrutiny of dak: (i) Dak with urgency grading will be separated from other dak and dealt with…",
+            "hi": ""
+          }
+        },
+        {
+          "id": "n-csmop-5-3",
+          "number": "5.3",
+          "heading": {
+            "en": "",
+            "hi": "डाक का पंजीकरण"
+          },
+          "unitIds": [
+            "csmop-5-3"
+          ],
+          "excerpt": {
+            "en": "Registration of dak: (i) Dak should be registered at the entry level so as to maintain…",
+            "hi": ""
+          }
+        },
+        {
+          "id": "n-csmop-5-4",
+          "number": "5.4",
+          "heading": {
+            "en": "",
+            "hi": "डाक की पावती"
+          },
+          "unitIds": [
+            "csmop-5-4"
+          ],
+          "excerpt": {
+            "en": "Acknowledgement of dak: The receipt of dak including files from other Departments, except…",
+            "hi": ""
+          }
+        },
+        {
+          "id": "n-csmop-5-5",
+          "number": "5.5",
+          "heading": {
+            "en": "",
+            "hi": "प्राप्तियों का वितरण"
+          },
+          "unitIds": [
+            "csmop-5-5"
+          ],
+          "excerpt": {
+            "en": "Distribution of Receipts: (i) The receipt will be sent to the section / officer concerned and…",
+            "hi": ""
+          }
+        },
+        {
+          "id": "n-csmop-5-6",
+          "number": "5.6",
+          "heading": {
+            "en": "",
+            "hi": "प्राप्तियों का अवलोकन और अंकन"
+          },
+          "unitIds": [
+            "csmop-5-6"
+          ],
+          "excerpt": {
+            "en": "Perusal and Marking / sending of Receipts: On receiving the Receipts, the Section Officer will…",
+            "hi": ""
+          }
+        },
+        {
+          "id": "n-csmop-5-7",
+          "number": "5.7",
+          "heading": {
+            "en": "",
+            "hi": "प्राप्ति की गतिशीलता"
+          },
+          "unitIds": [
+            "csmop-5-7"
+          ],
+          "excerpt": {
+            "en": "Movement of receipt Manual receipt submitted to officers will move in pads conspicuously…",
+            "hi": ""
+          }
+        },
+        {
+          "id": "n-csmop-5-8",
+          "number": "5.8",
+          "heading": {
+            "en": "",
+            "hi": "उच्च अधिकारियों द्वारा प्राप्ति पर कार्रवाई"
+          },
+          "unitIds": [
+            "csmop-5-8"
+          ],
+          "excerpt": {
+            "en": "Action by higher officers: Officers to whom receipts are submitted will: (i) go through the…",
+            "hi": ""
+          }
+        },
+        {
+          "id": "n-csmop-5-9",
+          "number": "5.9",
+          "heading": {
+            "en": "",
+            "hi": "विवादित प्राप्तियों का आबंटन"
+          },
+          "unitIds": [
+            "csmop-5-9"
+          ],
+          "excerpt": {
+            "en": "Allocation of Disputed Receipts: If a section feels that it is not concerned with a mis-sent…",
+            "hi": ""
+          }
+        },
+        {
+          "id": "n-csmop-5-10",
+          "number": "5.10",
+          "heading": {
+            "en": "",
+            "hi": "विभाग के कार्यकर्ताओं द्वारा प्राप्ति पर कार्रवाई"
+          },
+          "unitIds": [
+            "csmop-5-10"
+          ],
+          "excerpt": {
+            "en": "Action on Receipt by functionaries in the Department: a. General Principles: Action on receipts…",
+            "hi": ""
+          }
+        }
+      ],
+      "unitIds": [
+        "csmop-5-1",
+        "csmop-5-2",
+        "csmop-5-3",
+        "csmop-5-4",
+        "csmop-5-5",
+        "csmop-5-6",
+        "csmop-5-7",
+        "csmop-5-8",
+        "csmop-5-9",
+        "csmop-5-10"
+      ]
+    },
+    {
+      "id": "ch-6",
+      "number": "6",
+      "heading": {
+        "en": "Chapter 6",
+        "hi": "अध्याय 6"
+      },
+      "children": [
+        {
+          "id": "n-csmop-6-13",
+          "number": "6.13",
+          "heading": {
+            "en": "",
+            "hi": "अनुभाग में प्राप्ति पर कार्रवाई और लुप्त संलग्नकों की जाँच"
+          },
+          "unitIds": [
+            "csmop-6-13"
+          ],
+          "excerpt": {
+            "en": ")and security grading appropriate to the case; (xiii) Sign the note (Para 7.3); (xiv) Submit…",
+            "hi": ""
+          }
+        }
+      ],
+      "unitIds": [
+        "csmop-6-13"
+      ]
+    },
+    {
+      "id": "ch-7",
+      "number": "7",
+      "heading": {
+        "en": "Chapter 7",
+        "hi": "अध्याय 7"
+      },
+      "children": [
+        {
+          "id": "n-csmop-7-1",
+          "number": "7.1",
+          "heading": {
+            "en": "",
+            "hi": "टिप्पणी"
+          },
+          "unitIds": [
+            "csmop-7-1"
+          ],
+          "excerpt": {
+            "en": "Note: (i) A 'Note' is remarks recorded on a case to facilitate its disposal. It includes a…",
+            "hi": ""
+          }
+        },
+        {
+          "id": "n-csmop-7-2",
+          "number": "7.2",
+          "heading": {
+            "en": "",
+            "hi": "टिप्पणी के लिए दिशानिर्देश"
+          },
+          "unitIds": [
+            "csmop-7-2"
+          ],
+          "excerpt": {
+            "en": "Guidelines for noting: (i) All notes shall be recorded on note sheet (Green Sheet). (ii) A note…",
+            "hi": ""
+          }
+        },
+        {
+          "id": "n-csmop-7-3",
+          "number": "7.3",
+          "heading": {
+            "en": "",
+            "hi": "अनुभाग में डीलिंग अधिकारी द्वारा परीक्षण"
+          },
+          "unitIds": [
+            "csmop-7-3"
+          ],
+          "excerpt": {
+            "en": "Examination in Section by Dealing Officer: When the line of action on a receipt is obvious or…",
+            "hi": ""
+          }
+        },
+        {
+          "id": "n-csmop-7-4",
+          "number": "7.4",
+          "heading": {
+            "en": "",
+            "hi": "अनुभाग अधिकारी द्वारा परीक्षण"
+          },
+          "unitIds": [
+            "csmop-7-4"
+          ],
+          "excerpt": {
+            "en": "Examination by Section Officer: Examination by Section Officer will include: (i) Check if…",
+            "hi": ""
+          }
+        },
+        {
+          "id": "n-csmop-7-5",
+          "number": "7.5",
+          "heading": {
+            "en": "",
+            "hi": "शाखा अधिकारी और उच्चतर अधिकारियों द्वारा परीक्षण"
+          },
+          "unitIds": [
+            "csmop-7-5"
+          ],
+          "excerpt": {
+            "en": "Examination by Branch Officer and above: (i) A Branch Officer or Division-in-charge or…",
+            "hi": ""
+          }
+        },
+        {
+          "id": "n-csmop-7-6",
+          "number": "7.6",
+          "heading": {
+            "en": "",
+            "hi": "निपटान का स्तर और प्रस्तुतीकरण का माध्यम"
+          },
+          "unitIds": [
+            "csmop-7-6"
+          ],
+          "excerpt": {
+            "en": "Level of disposal and channel of submission: Process of decision making in cases that are…",
+            "hi": ""
+          }
+        },
+        {
+          "id": "n-csmop-7-7",
+          "number": "7.7",
+          "heading": {
+            "en": "",
+            "hi": "सामान्य प्रक्रिया या नियमों से विचलन"
+          },
+          "unitIds": [
+            "csmop-7-7"
+          ],
+          "excerpt": {
+            "en": "Deviation from normal procedure or rules: In every case where a material or substantial…",
+            "hi": ""
+          }
+        },
+        {
+          "id": "n-csmop-7-8",
+          "number": "7.8",
+          "heading": {
+            "en": "",
+            "hi": "तथ्यों का चालू सारांश"
+          },
+          "unitIds": [
+            "csmop-7-8"
+          ],
+          "excerpt": {
+            "en": "Running summary of facts: To facilitate consideration and to obviate repeated recapitulation, a…",
+            "hi": ""
+          }
+        },
+        {
+          "id": "n-csmop-7-9",
+          "number": "7.9",
+          "heading": {
+            "en": "",
+            "hi": "मौखिक विचार-विमर्श"
+          },
+          "unitIds": [
+            "csmop-7-9"
+          ],
+          "excerpt": {
+            "en": "Oral discussions: (i) All points emerging from discussions (including telephonic discussions)…",
+            "hi": ""
+          }
+        },
+        {
+          "id": "n-csmop-7-10",
+          "number": "7.10",
+          "heading": {
+            "en": "",
+            "hi": "उच्च अधिकारियों द्वारा मौखिक अनुदेश"
+          },
+          "unitIds": [
+            "csmop-7-10"
+          ],
+          "excerpt": {
+            "en": "Oral instructions by higher officers: (i) Where an officer is giving direction (including…",
+            "hi": ""
+          }
+        },
+        {
+          "id": "n-csmop-7-11",
+          "number": "7.11",
+          "heading": {
+            "en": "",
+            "hi": "मंत्री की ओर से या मंत्री के मौखिक आदेश"
+          },
+          "unitIds": [
+            "csmop-7-11"
+          ],
+          "excerpt": {
+            "en": "Oral orders on behalf of or from Minister: (i) Whenever a member of the personal staff of a…",
+            "hi": ""
+          }
+        },
+        {
+          "id": "n-csmop-7-12",
+          "number": "7.12",
+          "heading": {
+            "en": "",
+            "hi": "मौखिक अनुदेशों की पुष्टि"
+          },
+          "unitIds": [
+            "csmop-7-12"
+          ],
+          "excerpt": {
+            "en": "Confirmation of oral instructions: (i) If an officer seeks confirmation of oral instructions…",
+            "hi": ""
+          }
+        },
+        {
+          "id": "n-csmop-7-13",
+          "number": "7.13",
+          "heading": {
+            "en": "",
+            "hi": "टिप्पणियों या आदेश में परिवर्तन"
+          },
+          "unitIds": [
+            "csmop-7-13"
+          ],
+          "excerpt": {
+            "en": "Modification of notes or order: (i) The higher officers should record their own notes giving…",
+            "hi": ""
+          }
+        },
+        {
+          "id": "n-csmop-7-14",
+          "number": "7.14",
+          "heading": {
+            "en": "",
+            "hi": "टिप्पणी की कार्यात्मक पद्धति"
+          },
+          "unitIds": [
+            "csmop-7-14"
+          ],
+          "excerpt": {
+            "en": "Functional Approach to Noting: (i) Noting should be kept to an optimal level. Therefore, it…",
+            "hi": ""
+          }
+        }
+      ],
+      "unitIds": [
+        "csmop-7-1",
+        "csmop-7-2",
+        "csmop-7-3",
+        "csmop-7-4",
+        "csmop-7-5",
+        "csmop-7-6",
+        "csmop-7-7",
+        "csmop-7-8",
+        "csmop-7-9",
+        "csmop-7-10",
+        "csmop-7-11",
+        "csmop-7-12",
+        "csmop-7-13",
+        "csmop-7-14"
+      ]
+    },
+    {
+      "id": "ch-8",
+      "number": "8",
+      "heading": {
+        "en": "Chapter 8",
+        "hi": "अध्याय 8"
+      },
+      "children": [
+        {
+          "id": "n-csmop-8-1",
+          "number": "8.1",
+          "heading": {
+            "en": "",
+            "hi": "अंतर-विभागीय परामर्श"
+          },
+          "unitIds": [
+            "csmop-8-1"
+          ],
+          "excerpt": {
+            "en": "Inter-Departmental consultations: Inter-Departmental consultation may take the form of…",
+            "hi": ""
+          }
+        },
+        {
+          "id": "n-csmop-8-2",
+          "number": "8.2",
+          "heading": {
+            "en": "",
+            "hi": "अन्य विभागों से प्राप्त फाइलों पर नोडल अनुभागों में टिप्पणी"
+          },
+          "unitIds": [
+            "csmop-8-2"
+          ],
+          "excerpt": {
+            "en": "Noting on files received in nodal Sections or nodal Ministries from other Departments: If a…",
+            "hi": ""
+          }
+        },
+        {
+          "id": "n-csmop-8-3",
+          "number": "8.3",
+          "heading": {
+            "en": "",
+            "hi": "ई-मेल"
+          },
+          "unitIds": [
+            "csmop-8-3"
+          ],
+          "excerpt": {
+            "en": "e-mail: The email services provided by NIC shall be used for official Communication. This is a…",
+            "hi": ""
+          }
+        },
+        {
+          "id": "n-csmop-8-4",
+          "number": "8.4",
+          "heading": {
+            "en": "",
+            "hi": "लिखित संचार के अन्य स्वरूप"
+          },
+          "unitIds": [
+            "csmop-8-4"
+          ],
+          "excerpt": {
+            "en": "Other forms of written communications: For correspondence between Government of India and…",
+            "hi": ""
+          }
+        },
+        {
+          "id": "n-csmop-8-5",
+          "number": "8.5",
+          "heading": {
+            "en": "",
+            "hi": "ई-मेल, फैक्स, स्पीड पोस्ट, पंजीकृत डाक और दूरभाष संचार"
+          },
+          "unitIds": [
+            "csmop-8-5"
+          ],
+          "excerpt": {
+            "en": "Email, fax, speed post, registered post, telephonic communications, etc.: (i) eMail, fax, speed…",
+            "hi": ""
+          }
+        },
+        {
+          "id": "n-csmop-8-6",
+          "number": "8.6",
+          "heading": {
+            "en": "",
+            "hi": "संबद्ध और अधीनस्थ कार्यालयों के साथ पत्राचार"
+          },
+          "unitIds": [
+            "csmop-8-6"
+          ],
+          "excerpt": {
+            "en": "Correspondence with attached and subordinate offices: A(i) Senior Officers/ Head of a…",
+            "hi": ""
+          }
+        },
+        {
+          "id": "n-csmop-8-7",
+          "number": "8.7",
+          "heading": {
+            "en": "",
+            "hi": "एकल फाइल प्रणाली"
+          },
+          "unitIds": [
+            "csmop-8-7"
+          ],
+          "excerpt": {
+            "en": "Single File System (SFS): (i) This will apply to matters which have to be referred by the…",
+            "hi": ""
+          }
+        },
+        {
+          "id": "n-csmop-8-8",
+          "number": "8.8",
+          "heading": {
+            "en": "",
+            "hi": "संवैधानिक प्राधिकारियों आदि को संदर्भ"
+          },
+          "unitIds": [
+            "csmop-8-8"
+          ],
+          "excerpt": {
+            "en": "References to Constitutional authorities, etc. Table 8.1 provides guidance on the procedure…",
+            "hi": ""
+          }
+        },
+        {
+          "id": "n-csmop-8-9",
+          "number": "8.9",
+          "heading": {
+            "en": "",
+            "hi": "प्राप्त पत्रों का शीघ्र उत्तर"
+          },
+          "unitIds": [
+            "csmop-8-9"
+          ],
+          "excerpt": {
+            "en": "Prompt response to letters received: (i) Each communication received from the Member of…",
+            "hi": ""
+          }
+        },
+        {
+          "id": "n-csmop-8-10",
+          "number": "8.10",
+          "heading": {
+            "en": "",
+            "hi": "उत्तर देने की लक्ष्य तिथि"
+          },
+          "unitIds": [
+            "csmop-8-10"
+          ],
+          "excerpt": {
+            "en": "Target date for replies: In all important matters in which State Governments, departments of…",
+            "hi": ""
+          }
+        },
+        {
+          "id": "n-csmop-8-11",
+          "number": "8.11",
+          "heading": {
+            "en": "",
+            "hi": "सरकारी संचार में राजभाषा का प्रयोग"
+          },
+          "unitIds": [
+            "csmop-8-11"
+          ],
+          "excerpt": {
+            "en": "Use of Official Language in Government communications: The provisions stipulated in the…",
+            "hi": ""
+          }
+        }
+      ],
+      "unitIds": [
+        "csmop-8-1",
+        "csmop-8-2",
+        "csmop-8-3",
+        "csmop-8-4",
+        "csmop-8-5",
+        "csmop-8-6",
+        "csmop-8-7",
+        "csmop-8-8",
+        "csmop-8-9",
+        "csmop-8-10",
+        "csmop-8-11"
+      ]
+    },
+    {
+      "id": "ch-9",
+      "number": "9",
+      "heading": {
+        "en": "Chapter 9",
+        "hi": "अध्याय 9"
+      },
+      "children": [
+        {
+          "id": "n-csmop-9-1",
+          "number": "9.1",
+          "heading": {
+            "en": "",
+            "hi": "मसौदा तैयार करने और उसके अनुमोदन की प्रक्रिया"
+          },
+          "unitIds": [
+            "csmop-9-1"
+          ],
+          "excerpt": {
+            "en": "Procedure for preparing draft communication and its approval: (i) No draft is required to be…",
+            "hi": ""
+          }
+        },
+        {
+          "id": "n-csmop-9-2",
+          "number": "9.2",
+          "heading": {
+            "en": "",
+            "hi": "प्रारूपण हेतु सामान्य अनुदेश"
+          },
+          "unitIds": [
+            "csmop-9-2"
+          ],
+          "excerpt": {
+            "en": "General instructions for drafting: (i) A draft should carry the message sought to be conveyed…",
+            "hi": ""
+          }
+        },
+        {
+          "id": "n-csmop-9-3",
+          "number": "9.3",
+          "heading": {
+            "en": "",
+            "hi": "सरकारी आदेशों का अनुप्रमाणन"
+          },
+          "unitIds": [
+            "csmop-9-3"
+          ],
+          "excerpt": {
+            "en": "Authentication of Government Orders: (i) All orders and other instruments made and executed in…",
+            "hi": ""
+          }
+        },
+        {
+          "id": "n-csmop-9-4",
+          "number": "9.4",
+          "heading": {
+            "en": "",
+            "hi": "अधिकारियों को नाम से संबोधित संचार"
+          },
+          "unitIds": [
+            "csmop-9-4"
+          ],
+          "excerpt": {
+            "en": "Addressing communications to officers by name: Normally no communication, other than that of a…",
+            "hi": ""
+          }
+        },
+        {
+          "id": "n-csmop-9-5",
+          "number": "9.5",
+          "heading": {
+            "en": "",
+            "hi": "अर्ध-सरकारी पत्रों का प्रारूपण"
+          },
+          "unitIds": [
+            "csmop-9-5"
+          ],
+          "excerpt": {
+            "en": "Drafting of Demi-official letters: (i) As the objective of writing a Demi-official (D.O.)…",
+            "hi": ""
+          }
+        },
+        {
+          "id": "n-csmop-9-6",
+          "number": "9.6",
+          "heading": {
+            "en": "",
+            "hi": "संचार जारी करने संबंधी उत्तरदायित्व मानचित्रण"
+          },
+          "unitIds": [
+            "csmop-9-6"
+          ],
+          "excerpt": {
+            "en": "Responsibility mapping regarding issue of communications Table: 9.1. Sl. No Action Primary…",
+            "hi": ""
+          }
+        }
+      ],
+      "unitIds": [
+        "csmop-9-1",
+        "csmop-9-2",
+        "csmop-9-3",
+        "csmop-9-4",
+        "csmop-9-5",
+        "csmop-9-6"
+      ]
+    },
+    {
+      "id": "ch-10",
+      "number": "10",
+      "heading": {
+        "en": "Chapter 10",
+        "hi": "अध्याय 10"
+      },
+      "children": [
+        {
+          "id": "n-csmop-10-1",
+          "number": "10.1",
+          "heading": {
+            "en": "",
+            "hi": "अभिलेख प्रबंधन की गतिविधियाँ"
+          },
+          "unitIds": [
+            "csmop-10-1"
+          ],
+          "excerpt": {
+            "en": "Activities involved in records management are: (1) Records management covers the activities…",
+            "hi": ""
+          }
+        },
+        {
+          "id": "n-csmop-10-2",
+          "number": "10.2",
+          "heading": {
+            "en": "",
+            "hi": "अभिलेखन का चरण"
+          },
+          "unitIds": [
+            "csmop-10-2"
+          ],
+          "excerpt": {
+            "en": "Stage of recording: Files should be recorded after action on all the issues considered thereon…",
+            "hi": ""
+          }
+        },
+        {
+          "id": "n-csmop-10-3",
+          "number": "10.3",
+          "heading": {
+            "en": "",
+            "hi": "अभिलेख प्रबंधन हेतु विभागीय अनुदेश"
+          },
+          "unitIds": [
+            "csmop-10-3"
+          ],
+          "excerpt": {
+            "en": "Departmental instructions for records management: Each Department has to issue Departmental…",
+            "hi": ""
+          }
+        },
+        {
+          "id": "n-csmop-10-4",
+          "number": "10.4",
+          "heading": {
+            "en": "",
+            "hi": "अभिलेखों का वर्गीकरण"
+          },
+          "unitIds": [
+            "csmop-10-4"
+          ],
+          "excerpt": {
+            "en": "Categorisation of records: Files may be recorded under any one of the following categories: (i)…",
+            "hi": ""
+          }
+        },
+        {
+          "id": "n-csmop-10-5",
+          "number": "10.5",
+          "heading": {
+            "en": "",
+            "hi": "अभिलेखन की प्रक्रिया"
+          },
+          "unitIds": [
+            "csmop-10-5"
+          ],
+          "excerpt": {
+            "en": "Procedure for recording: After action on the issue(s) considered on the file has been…",
+            "hi": ""
+          }
+        },
+        {
+          "id": "n-csmop-10-6",
+          "number": "10.6",
+          "heading": {
+            "en": "",
+            "hi": "अनुक्रमणिका का चरण"
+          },
+          "unitIds": [
+            "csmop-10-6"
+          ],
+          "excerpt": {
+            "en": "Stage of indexing: Files will be indexed at the time of their recording. Only those files which…",
+            "hi": ""
+          }
+        },
+        {
+          "id": "n-csmop-10-7",
+          "number": "10.7",
+          "heading": {
+            "en": "",
+            "hi": "अभिलेख प्रतिधारण अनुसूची"
+          },
+          "unitIds": [
+            "csmop-10-7"
+          ],
+          "excerpt": {
+            "en": "Record Retention Schedule: (i) To ensure that files are neither prematurely destroyed, nor kept…",
+            "hi": ""
+          }
+        },
+        {
+          "id": "n-csmop-10-8",
+          "number": "10.8",
+          "heading": {
+            "en": "",
+            "hi": "अभिलेखों की अभिरक्षा"
+          },
+          "unitIds": [
+            "csmop-10-8"
+          ],
+          "excerpt": {
+            "en": "Custody of records: (i) Recorded files are to be kept serially arranged in the sections/desks…",
+            "hi": ""
+          }
+        },
+        {
+          "id": "n-csmop-10-9",
+          "number": "10.9",
+          "heading": {
+            "en": "",
+            "hi": "अभिलेखों की समीक्षा और छँटाई"
+          },
+          "unitIds": [
+            "csmop-10-9"
+          ],
+          "excerpt": {
+            "en": "Review and weeding of records: (i) A category 'C' file will be reviewed on the expiry of the…",
+            "hi": ""
+          }
+        },
+        {
+          "id": "n-csmop-10-10",
+          "number": "10.10",
+          "heading": {
+            "en": "",
+            "hi": "अभिलेखन और समीक्षा की त्रैमासिक प्रगति रिपोर्ट"
+          },
+          "unitIds": [
+            "csmop-10-10"
+          ],
+          "excerpt": {
+            "en": "Quarterly progress reports of recording and reviewing of files: i. The record officer will…",
+            "hi": ""
+          }
+        },
+        {
+          "id": "n-csmop-10-11",
+          "number": "10.11",
+          "heading": {
+            "en": "",
+            "hi": "मंत्रियों के निजी कार्यालयों में अभिलेखों का रखरखाव/अंतरण"
+          },
+          "unitIds": [
+            "csmop-10-11"
+          ],
+          "excerpt": {
+            "en": "Maintenance/transfer of records in the personal offices of Ministers: (a) The personal offices…",
+            "hi": ""
+          }
+        },
+        {
+          "id": "n-csmop-10-12",
+          "number": "10.12",
+          "heading": {
+            "en": "",
+            "hi": "अधिकारियों और उनके निजी स्टाफ द्वारा रखे गए अभिलेख"
+          },
+          "unitIds": [
+            "csmop-10-12"
+          ],
+          "excerpt": {
+            "en": "Records maintained by officers and their personal staff: Each Department may issue departmental…",
+            "hi": ""
+          }
+        },
+        {
+          "id": "n-csmop-10-13",
+          "number": "10.13",
+          "heading": {
+            "en": "",
+            "hi": "अभिलेखों की माँग"
+          },
+          "unitIds": [
+            "csmop-10-13"
+          ],
+          "excerpt": {
+            "en": "Requisitioning of records: (i) No recorded file will be issued from the sections, Departmental…",
+            "hi": ""
+          }
+        }
+      ],
+      "unitIds": [
+        "csmop-10-1",
+        "csmop-10-2",
+        "csmop-10-3",
+        "csmop-10-4",
+        "csmop-10-5",
+        "csmop-10-6",
+        "csmop-10-7",
+        "csmop-10-8",
+        "csmop-10-9",
+        "csmop-10-10",
+        "csmop-10-11",
+        "csmop-10-12",
+        "csmop-10-13"
+      ]
+    },
+    {
+      "id": "ch-11",
+      "number": "11",
+      "heading": {
+        "en": "Chapter 11",
+        "hi": "अध्याय 11"
+      },
+      "children": [
+        {
+          "id": "n-csmop-11-4",
+          "number": "11.4",
+          "heading": {
+            "en": "",
+            "hi": "अभिलेख प्रतिधारण अनुसूची — रजिस्टरों की सूची (भाग एक)"
+          },
+          "unitIds": [
+            "csmop-11-4"
+          ],
+          "excerpt": {
+            "en": "Permanent. To be weeded out when the revised version becomes available Section Dispatch…",
+            "hi": ""
+          }
+        },
+        {
+          "id": "n-csmop-11-6",
+          "number": "11.6",
+          "heading": {
+            "en": "",
+            "hi": "अभिलेख प्रतिधारण अनुसूची — रजिस्टरों की सूची (भाग दो)"
+          },
+          "unitIds": [
+            "csmop-11-6"
+          ],
+          "excerpt": {
+            "en": "Permanent List of files transferred to Departmental record room 10.8(iii) List of files…",
+            "hi": ""
+          }
+        }
+      ],
+      "unitIds": [
+        "csmop-11-4",
+        "csmop-11-6"
+      ]
+    },
+    {
+      "id": "ch-12",
+      "number": "12",
+      "heading": {
+        "en": "Chapter 12",
+        "hi": "अध्याय 12"
+      },
+      "children": [
+        {
+          "id": "n-csmop-12-3",
+          "number": "12.3",
+          "heading": {
+            "en": "",
+            "hi": "संसदीय आश्वासन रजिस्टर"
+          },
+          "unitIds": [
+            "csmop-12-3"
+          ],
+          "excerpt": {
+            "en": "Register of Parliamentary Assurances",
+            "hi": ""
+          }
+        },
+        {
+          "id": "n-csmop-12-6",
+          "number": "12.6",
+          "heading": {
+            "en": "",
+            "hi": "आवधिक रिपोर्टों हेतु जाँच-सूची"
+          },
+          "unitIds": [
+            "csmop-12-6"
+          ],
+          "excerpt": {
+            "en": "Check-lists for periodical reports",
+            "hi": ""
+          }
+        },
+        {
+          "id": "n-csmop-12-7",
+          "number": "12.7",
+          "heading": {
+            "en": "",
+            "hi": "निरीक्षण रिपोर्टों की प्रतिधारण अवधि"
+          },
+          "unitIds": [
+            "csmop-12-7"
+          ],
+          "excerpt": {
+            "en": "Inspection reports I year after the ATN on that report is accepted NOTE: The retention period…",
+            "hi": ""
+          }
+        },
+        {
+          "id": "n-csmop-12-8",
+          "number": "12.8",
+          "heading": {
+            "en": "",
+            "hi": "आवधिक रिपोर्टों/विवरणियों की समीक्षा"
+          },
+          "unitIds": [
+            "csmop-12-8"
+          ],
+          "excerpt": {
+            "en": "Review of periodical reports/returns: (i) All periodical reports and returns relating to each…",
+            "hi": ""
+          }
+        },
+        {
+          "id": "n-csmop-12-9",
+          "number": "12.9",
+          "heading": {
+            "en": "",
+            "hi": "वेबसाइटों की निगरानी"
+          },
+          "unitIds": [
+            "csmop-12-9"
+          ],
+          "excerpt": {
+            "en": "Monitoring of Websites: All Central Government Ministries/Departments/Offices/PSUs should have…",
+            "hi": ""
+          }
+        },
+        {
+          "id": "n-csmop-12-10",
+          "number": "12.10",
+          "heading": {
+            "en": "",
+            "hi": "लंबित मामलों का निपटान"
+          },
+          "unitIds": [
+            "csmop-12-10"
+          ],
+          "excerpt": {
+            "en": "Disposal of Pending Matters: (i) With the objective of disposing of references from Members of…",
+            "hi": ""
+          }
+        }
+      ],
+      "unitIds": [
+        "csmop-12-3",
+        "csmop-12-6",
+        "csmop-12-7",
+        "csmop-12-8",
+        "csmop-12-9",
+        "csmop-12-10"
+      ]
+    },
+    {
+      "id": "ch-13",
+      "number": "13",
+      "heading": {
+        "en": "Chapter 13",
+        "hi": "अध्याय 13"
+      },
+      "children": [
+        {
+          "id": "n-csmop-13-1",
+          "number": "13.1",
+          "heading": {
+            "en": "",
+            "hi": "शासकीय सूचना का संसूचन"
+          },
+          "unitIds": [
+            "csmop-13-1"
+          ],
+          "excerpt": {
+            "en": "Communication of official information: Every Government servant shall, in performance of…",
+            "hi": ""
+          }
+        },
+        {
+          "id": "n-csmop-13-2",
+          "number": "13.2",
+          "heading": {
+            "en": "",
+            "hi": "वर्गीकृत कागजातों का व्यवहार"
+          },
+          "unitIds": [
+            "csmop-13-2"
+          ],
+          "excerpt": {
+            "en": "Treatment of classified papers: (i) The provisions contained in this manual apply primarily to…",
+            "hi": ""
+          }
+        },
+        {
+          "id": "n-csmop-13-3",
+          "number": "13.3",
+          "heading": {
+            "en": "",
+            "hi": "अंतर-विभागीय टिप्पणियों/फाइलों की गोपनीय प्रकृति"
+          },
+          "unitIds": [
+            "csmop-13-3"
+          ],
+          "excerpt": {
+            "en": "Confidential character of I.D. notes/ files: (i) A file or I.D. note referred by a Department…",
+            "hi": ""
+          }
+        },
+        {
+          "id": "n-csmop-13-4",
+          "number": "13.4",
+          "heading": {
+            "en": "",
+            "hi": "प्रेस को सूचना का संचार"
+          },
+          "unitIds": [
+            "csmop-13-4"
+          ],
+          "excerpt": {
+            "en": "Communication of information to the press : (i) Official information to the press and other…",
+            "hi": ""
+          }
+        },
+        {
+          "id": "n-csmop-13-5",
+          "number": "13.5",
+          "heading": {
+            "en": "",
+            "hi": "मुद्रित रिपोर्टों आदि हेतु प्रतिबंधात्मक वर्गीकरण का प्रयोग"
+          },
+          "unitIds": [
+            "csmop-13-5"
+          ],
+          "excerpt": {
+            "en": "Use of restrictive classification for printed reports etc.: (i) The restrictive classification…",
+            "hi": ""
+          }
+        }
+      ],
+      "unitIds": [
+        "csmop-13-1",
+        "csmop-13-2",
+        "csmop-13-3",
+        "csmop-13-4",
+        "csmop-13-5"
+      ]
+    },
+    {
+      "id": "ch-14",
+      "number": "14",
+      "heading": {
+        "en": "Chapter 14",
+        "hi": "अध्याय 14"
+      },
+      "children": [
+        {
+          "id": "n-csmop-14-1",
+          "number": "14.1",
+          "heading": {
+            "en": "",
+            "hi": "वार्षिक कार्य योजना"
+          },
+          "unitIds": [
+            "csmop-14-1"
+          ],
+          "excerpt": {
+            "en": "Annual Action Plan: (i) Formulation - In order that the programmes and projects undertaken by a…",
+            "hi": ""
+          }
+        },
+        {
+          "id": "n-csmop-14-2",
+          "number": "14.2",
+          "heading": {
+            "en": "",
+            "hi": "नागरिक/उपभोक्ता चार्टर"
+          },
+          "unitIds": [
+            "csmop-14-2"
+          ],
+          "excerpt": {
+            "en": "Citizens/Clients Charter: (i) Citizens Charter is an instrument which seeks to make a…",
+            "hi": ""
+          }
+        },
+        {
+          "id": "n-csmop-14-3",
+          "number": "14.3",
+          "heading": {
+            "en": "",
+            "hi": "लोक शिकायत निवारण तंत्र"
+          },
+          "unitIds": [
+            "csmop-14-3"
+          ],
+          "excerpt": {
+            "en": "Public Grievance Redressal Mechanism: (i) Grievances are expressions of resentment against…",
+            "hi": ""
+          }
+        },
+        {
+          "id": "n-csmop-14-4",
+          "number": "14.4",
+          "heading": {
+            "en": "",
+            "hi": "शिकायत निवारण हेतु मुख्य दिशानिर्देश"
+          },
+          "unitIds": [
+            "csmop-14-4"
+          ],
+          "excerpt": {
+            "en": "The main guidelines on Grievance Redressal are: (i) A grievance should be disposed within a…",
+            "hi": ""
+          }
+        },
+        {
+          "id": "n-csmop-14-5",
+          "number": "14.5",
+          "heading": {
+            "en": "",
+            "hi": "केंद्रीकृत लोक शिकायत निवारण एवं निगरानी प्रणाली (सीपीग्राम्स)"
+          },
+          "unitIds": [
+            "csmop-14-5"
+          ],
+          "excerpt": {
+            "en": "Central Public Grievance Redress and Monitoring System (CPGRAMS) based on web technology was…",
+            "hi": ""
+          }
+        },
+        {
+          "id": "n-csmop-14-6",
+          "number": "14.6",
+          "heading": {
+            "en": "",
+            "hi": "शिकायत निवारण हेतु न लिए जाने वाले मामले"
+          },
+          "unitIds": [
+            "csmop-14-6"
+          ],
+          "excerpt": {
+            "en": "Issues not taken up for Redressal of Grievances are as under: (i) Sub Judice cases or any other…",
+            "hi": ""
+          }
+        },
+        {
+          "id": "n-csmop-14-7",
+          "number": "14.7",
+          "heading": {
+            "en": "",
+            "hi": "लोक शिकायत संबंधी कार्य और वार्षिक प्रशासनिक रिपोर्ट"
+          },
+          "unitIds": [
+            "csmop-14-7"
+          ],
+          "excerpt": {
+            "en": "The machinery and work relating to public grievances and the statistics relating to…",
+            "hi": ""
+          }
+        },
+        {
+          "id": "n-csmop-14-8",
+          "number": "14.8",
+          "heading": {
+            "en": "",
+            "hi": "सीपीग्राम्स में अपील तंत्र"
+          },
+          "unitIds": [
+            "csmop-14-8"
+          ],
+          "excerpt": {
+            "en": "Appeal Mechanism in CPGRAMS is as under: (i) After closure of a grievance by the Nodal Public…",
+            "hi": ""
+          }
+        }
+      ],
+      "unitIds": [
+        "csmop-14-1",
+        "csmop-14-2",
+        "csmop-14-3",
+        "csmop-14-4",
+        "csmop-14-5",
+        "csmop-14-6",
+        "csmop-14-7",
+        "csmop-14-8"
+      ]
+    },
+    {
+      "id": "ch-15",
+      "number": "15",
+      "heading": {
+        "en": "Chapter 15",
+        "hi": "अध्याय 15"
+      },
+      "children": [
+        {
+          "id": "n-csmop-15-1",
+          "number": "15.1",
+          "heading": {
+            "en": "",
+            "hi": "ईऑफिस और डिजिटलीकरण का प्रयोजन"
+          },
+          "unitIds": [
+            "csmop-15-1"
+          ],
+          "excerpt": {
+            "en": "eOffice is aimed to bring in more transparency, efficiency and accountability in the Govt.…",
+            "hi": ""
+          }
+        },
+        {
+          "id": "n-csmop-15-2",
+          "number": "15.2",
+          "heading": {
+            "en": "",
+            "hi": "डिजिटलीकरण ढाँचा"
+          },
+          "unitIds": [
+            "csmop-15-2"
+          ],
+          "excerpt": {
+            "en": "Digitization Framework: Digitization of documents and files play a key role for overall…",
+            "hi": ""
+          }
+        }
+      ],
+      "unitIds": [
+        "csmop-15-1",
+        "csmop-15-2"
+      ]
+    },
+    {
+      "id": "ch-16",
+      "number": "16",
+      "heading": {
+        "en": "Chapter 16",
+        "hi": "अध्याय 16"
+      },
+      "children": [
+        {
+          "id": "n-csmop-16-1",
+          "number": "16.1",
+          "heading": {
+            "en": "",
+            "hi": "निरीक्षण का प्रयोजन और आवधिकता"
+          },
+          "unitIds": [
+            "csmop-16-1"
+          ],
+          "excerpt": {
+            "en": "Purpose and periodicity: (i) Inspections are not investigations. They are to find facts or…",
+            "hi": ""
+          }
+        },
+        {
+          "id": "n-csmop-16-2",
+          "number": "16.2",
+          "heading": {
+            "en": "",
+            "hi": "निरीक्षण प्रक्रिया का सरलीकरण"
+          },
+          "unitIds": [
+            "csmop-16-2"
+          ],
+          "excerpt": {
+            "en": "Simplification of the process of Inspection: CRU and the Departmental Records Room are the key…",
+            "hi": ""
+          }
+        },
+        {
+          "id": "n-csmop-16-3",
+          "number": "16.3",
+          "heading": {
+            "en": "",
+            "hi": "विभागीय अभिलेख कक्ष हेतु निरीक्षण प्रश्नावली"
+          },
+          "unitIds": [
+            "csmop-16-3"
+          ],
+          "excerpt": {
+            "en": "Inspection questionnaire for Departmental Records Room",
+            "hi": ""
+          }
+        },
+        {
+          "id": "n-csmop-16-4",
+          "number": "16.4",
+          "heading": {
+            "en": "",
+            "hi": "अनुभागों/डेस्कों हेतु निरीक्षण प्रश्नावली"
+          },
+          "unitIds": [
+            "csmop-16-4"
+          ],
+          "excerpt": {
+            "en": "Inspection questionnaire for sections / desks",
+            "hi": ""
+          }
+        },
+        {
+          "id": "n-csmop-16-5",
+          "number": "16.5",
+          "heading": {
+            "en": "",
+            "hi": "निरीक्षण दल/प्राधिकारी"
+          },
+          "unitIds": [
+            "csmop-16-5"
+          ],
+          "excerpt": {
+            "en": "Inspection questionnaire for personal section / staff 16.3. Inspection teams / authority: (i)…",
+            "hi": ""
+          }
+        },
+        {
+          "id": "n-csmop-16-6",
+          "number": "16.6",
+          "heading": {
+            "en": "",
+            "hi": "अनुपूरक निरीक्षण"
+          },
+          "unitIds": [
+            "csmop-16-6"
+          ],
+          "excerpt": {
+            "en": "Supplementary inspection: (i) Apart from the annual general inspection, departmental…",
+            "hi": ""
+          }
+        },
+        {
+          "id": "n-csmop-16-7",
+          "number": "16.7",
+          "heading": {
+            "en": "",
+            "hi": "पर्यवेक्षी अधिकारियों द्वारा आवधिक निरीक्षण"
+          },
+          "unitIds": [
+            "csmop-16-7"
+          ],
+          "excerpt": {
+            "en": "Periodic inspection by supervisory officers: The inspection as provided above should be…",
+            "hi": ""
+          }
+        }
+      ],
+      "unitIds": [
+        "csmop-16-1",
+        "csmop-16-2",
+        "csmop-16-3",
+        "csmop-16-4",
+        "csmop-16-5",
+        "csmop-16-6",
+        "csmop-16-7"
+      ]
+    }
+  ],
+  "readingOrder": [
+    "csmop-1-1",
+    "csmop-1-2",
+    "csmop-1-3",
+    "csmop-1-4",
+    "csmop-1-5",
+    "csmop-1-6",
+    "csmop-1-7",
+    "csmop-2-1",
+    "csmop-2-3",
+    "csmop-2-4",
+    "csmop-2-5",
+    "csmop-2-6",
+    "csmop-2-7",
+    "csmop-2-8",
+    "csmop-2-9",
+    "csmop-2-10",
+    "csmop-2-11",
+    "csmop-3-1",
+    "csmop-4-1",
+    "csmop-4-2",
+    "csmop-4-3",
+    "csmop-4-4",
+    "csmop-4-5",
+    "csmop-4-6",
+    "csmop-4-7",
+    "csmop-4-8",
+    "csmop-4-9",
+    "csmop-5-1",
+    "csmop-5-2",
+    "csmop-5-3",
+    "csmop-5-4",
+    "csmop-5-5",
+    "csmop-5-6",
+    "csmop-5-7",
+    "csmop-5-8",
+    "csmop-5-9",
+    "csmop-5-10",
+    "csmop-6-13",
+    "csmop-7-1",
+    "csmop-7-2",
+    "csmop-7-3",
+    "csmop-7-4",
+    "csmop-7-5",
+    "csmop-7-6",
+    "csmop-7-7",
+    "csmop-7-8",
+    "csmop-7-9",
+    "csmop-7-10",
+    "csmop-7-11",
+    "csmop-7-12",
+    "csmop-7-13",
+    "csmop-7-14",
+    "csmop-8-1",
+    "csmop-8-2",
+    "csmop-8-3",
+    "csmop-8-4",
+    "csmop-8-5",
+    "csmop-8-6",
+    "csmop-8-7",
+    "csmop-8-8",
+    "csmop-8-9",
+    "csmop-8-10",
+    "csmop-8-11",
+    "csmop-9-1",
+    "csmop-9-2",
+    "csmop-9-3",
+    "csmop-9-4",
+    "csmop-9-5",
+    "csmop-9-6",
+    "csmop-10-1",
+    "csmop-10-2",
+    "csmop-10-3",
+    "csmop-10-4",
+    "csmop-10-5",
+    "csmop-10-6",
+    "csmop-10-7",
+    "csmop-10-8",
+    "csmop-10-9",
+    "csmop-10-10",
+    "csmop-10-11",
+    "csmop-10-12",
+    "csmop-10-13",
+    "csmop-11-4",
+    "csmop-11-6",
+    "csmop-12-3",
+    "csmop-12-6",
+    "csmop-12-7",
+    "csmop-12-8",
+    "csmop-12-9",
+    "csmop-12-10",
+    "csmop-13-1",
+    "csmop-13-2",
+    "csmop-13-3",
+    "csmop-13-4",
+    "csmop-13-5",
+    "csmop-14-1",
+    "csmop-14-2",
+    "csmop-14-3",
+    "csmop-14-4",
+    "csmop-14-5",
+    "csmop-14-6",
+    "csmop-14-7",
+    "csmop-14-8",
+    "csmop-15-1",
+    "csmop-15-2",
+    "csmop-16-1",
+    "csmop-16-2",
+    "csmop-16-3",
+    "csmop-16-4",
+    "csmop-16-5",
+    "csmop-16-6",
+    "csmop-16-7"
+  ],
+  "estimatedMinutes": 310,
+  "practiseCounts": {
+    "csmop-1-1": 1,
+    "csmop-1-2": 1,
+    "csmop-1-3": 1,
+    "csmop-1-4": 2,
+    "csmop-1-5": 2,
+    "csmop-1-6": 1,
+    "csmop-1-7": 2,
+    "csmop-10-1": 2,
+    "csmop-10-10": 1,
+    "csmop-10-11": 2,
+    "csmop-10-12": 1,
+    "csmop-10-13": 3,
+    "csmop-10-2": 2,
+    "csmop-10-3": 1,
+    "csmop-10-4": 3,
+    "csmop-10-5": 3,
+    "csmop-10-6": 1,
+    "csmop-10-7": 2,
+    "csmop-10-8": 3,
+    "csmop-10-9": 4,
+    "csmop-11-4": 1,
+    "csmop-11-6": 1,
+    "csmop-12-10": 2,
+    "csmop-12-3": 1,
+    "csmop-12-6": 1,
+    "csmop-12-7": 1,
+    "csmop-12-8": 1,
+    "csmop-12-9": 1,
+    "csmop-13-1": 2,
+    "csmop-13-2": 3,
+    "csmop-13-3": 2,
+    "csmop-13-4": 1,
+    "csmop-13-5": 2,
+    "csmop-14-1": 1,
+    "csmop-14-2": 1,
+    "csmop-14-3": 1,
+    "csmop-14-4": 2,
+    "csmop-14-5": 3,
+    "csmop-14-6": 1,
+    "csmop-14-7": 1,
+    "csmop-14-8": 2,
+    "csmop-15-1": 1,
+    "csmop-15-2": 1,
+    "csmop-16-1": 1,
+    "csmop-16-2": 1,
+    "csmop-16-3": 1,
+    "csmop-16-4": 1,
+    "csmop-16-5": 3,
+    "csmop-16-6": 1,
+    "csmop-16-7": 2,
+    "csmop-2-1": 2,
+    "csmop-2-10": 2,
+    "csmop-2-11": 2,
+    "csmop-2-3": 2,
+    "csmop-2-4": 3,
+    "csmop-2-5": 1,
+    "csmop-2-6": 1,
+    "csmop-2-7": 1,
+    "csmop-2-8": 1,
+    "csmop-2-9": 1,
+    "csmop-3-1": 2,
+    "csmop-4-1": 1,
+    "csmop-4-2": 1,
+    "csmop-4-3": 1,
+    "csmop-4-4": 2,
+    "csmop-4-5": 1,
+    "csmop-4-6": 1,
+    "csmop-4-7": 1,
+    "csmop-4-8": 1,
+    "csmop-4-9": 3,
+    "csmop-5-1": 3,
+    "csmop-5-10": 3,
+    "csmop-5-2": 2,
+    "csmop-5-3": 3,
+    "csmop-5-4": 2,
+    "csmop-5-5": 3,
+    "csmop-5-6": 4,
+    "csmop-5-7": 3,
+    "csmop-5-8": 1,
+    "csmop-5-9": 4,
+    "csmop-6-13": 4,
+    "csmop-7-1": 2,
+    "csmop-7-10": 1,
+    "csmop-7-11": 1,
+    "csmop-7-12": 1,
+    "csmop-7-13": 2,
+    "csmop-7-14": 2,
+    "csmop-7-2": 3,
+    "csmop-7-3": 2,
+    "csmop-7-4": 2,
+    "csmop-7-5": 1,
+    "csmop-7-6": 3,
+    "csmop-7-7": 1,
+    "csmop-7-8": 2,
+    "csmop-7-9": 1,
+    "csmop-8-1": 3,
+    "csmop-8-10": 1,
+    "csmop-8-11": 1,
+    "csmop-8-2": 2,
+    "csmop-8-3": 1,
+    "csmop-8-4": 4,
+    "csmop-8-5": 1,
+    "csmop-8-6": 2,
+    "csmop-8-7": 2,
+    "csmop-8-8": 3,
+    "csmop-8-9": 2,
+    "csmop-9-1": 2,
+    "csmop-9-2": 2,
+    "csmop-9-3": 1,
+    "csmop-9-4": 2,
+    "csmop-9-5": 2,
+    "csmop-9-6": 1
+  },
+  "examTags": [
+    "noting-and-drafting",
+    "file-management",
+    "induction"
+  ],
+  "officialUrl": "https://www.darpg.gov.in/static/uploads/2025/10/774e0b8f427b7875158363d842fa431f.pdf",
+  "source": {
+    "name": "Department of Administrative Reforms and Public Grievances — Central Secretariat Manual of Office Procedure, 2022 (16th edition) — English",
+    "url": "https://www.darpg.gov.in/static/uploads/2025/10/774e0b8f427b7875158363d842fa431f.pdf"
+  },
+  "disclaimer": {
+    "en": "Reference only; verify with the official gazette/order or your DDO.",
+    "hi": "केवल संदर्भ के लिए; आधिकारिक राजपत्र/आदेश अथवा अपने डीडीओ से सत्यापित करें।"
+  },
+  "verify": true
+}

@@ -1,0 +1,4048 @@
+{
+  "$schema": "../../../schemas/library-work.schema.json",
+  "version": "1.0.0",
+  "generatedAt": "2026-09-02",
+  "id": "gfr",
+  "title": {
+    "en": "General Financial Rules, 2017",
+    "hi": "सामान्य वित्तीय नियम, 2017"
+  },
+  "shortTitle": {
+    "en": "GFR 2017",
+    "hi": "जीएफआर 2017"
+  },
+  "year": 2017,
+  "category": "finance",
+  "description": {
+    "en": "The General Financial Rules — how public money is spent: budgeting, procurement of goods, works and services, GeM, contracts, grants-in-aid and the audit trail behind each.",
+    "hi": "सामान्य वित्तीय नियम — सार्वजनिक धन कैसे व्यय होता है: बजट, माल, कार्य और सेवाओं की खरीद, जेम, संविदाएँ, सहायता अनुदान तथा प्रत्येक के पीछे का लेखा-परीक्षा अभिलेख।"
+  },
+  "corpus": {
+    "kind": "rules",
+    "file": "rules/text/gfr.json"
+  },
+  "unitLabel": {
+    "en": "Rule",
+    "hi": "नियम"
+  },
+  "publisher": "Department of Expenditure, Ministry of Finance",
+  "tocSource": "flat",
+  "toc": [
+    {
+      "id": "n-gfr-1",
+      "number": "1",
+      "heading": {
+        "en": "Short Title and Commencement",
+        "hi": "संक्षिप्त नाम और प्रारंभ"
+      },
+      "unitIds": [
+        "gfr-1"
+      ]
+    },
+    {
+      "id": "n-gfr-2",
+      "number": "2",
+      "heading": {
+        "en": "Definition",
+        "hi": "परिभाषाएँ"
+      },
+      "unitIds": [
+        "gfr-2"
+      ]
+    },
+    {
+      "id": "n-gfr-3",
+      "number": "3",
+      "heading": {
+        "en": "Interdepartmental",
+        "hi": "अंतर-विभागीय परामर्श"
+      },
+      "unitIds": [
+        "gfr-3"
+      ]
+    },
+    {
+      "id": "n-gfr-4",
+      "number": "4",
+      "heading": {
+        "en": "Departmental Regulations of financial",
+        "hi": "वित्तीय स्वरूप के विभागीय विनियम"
+      },
+      "unitIds": [
+        "gfr-4"
+      ]
+    },
+    {
+      "id": "n-gfr-5",
+      "number": "5",
+      "heading": {
+        "en": "Removal of Doubts",
+        "hi": "संदेहों का निराकरण"
+      },
+      "unitIds": [
+        "gfr-5"
+      ]
+    },
+    {
+      "id": "n-gfr-6",
+      "number": "6",
+      "heading": {
+        "en": "Modifications",
+        "hi": "उपांतरण"
+      },
+      "unitIds": [
+        "gfr-6"
+      ]
+    },
+    {
+      "id": "n-gfr-7",
+      "number": "7",
+      "heading": {
+        "en": "All moneys received by or on behalf of the Government",
+        "hi": "सरकार को या उसकी ओर से प्राप्त समस्त धनराशि"
+      },
+      "unitIds": [
+        "gfr-7"
+      ]
+    },
+    {
+      "id": "n-gfr-8",
+      "number": "8",
+      "heading": {
+        "en": "",
+        "hi": "संविधान के अनुच्छेद के अधीन प्राप्त धनराशि"
+      },
+      "unitIds": [
+        "gfr-8"
+      ],
+      "excerpt": {
+        "en": "(i) Under Article of the Constitution all moneys received by or deposited with any officer…",
+        "hi": ""
+      }
+    },
+    {
+      "id": "n-gfr-9",
+      "number": "9",
+      "heading": {
+        "en": "It is the duty of the Department of the Central Government concerned to ensure",
+        "hi": "राजस्व एवं शोध्य राशियों के सही निर्धारण का दायित्व"
+      },
+      "unitIds": [
+        "gfr-9"
+      ]
+    },
+    {
+      "id": "n-gfr-10",
+      "number": "10",
+      "heading": {
+        "en": "The Controlling Officer shall arrange to obtain from his subordinate officers'",
+        "hi": "नियंत्रक अधिकारी द्वारा मासिक लेखे प्राप्त करना"
+      },
+      "unitIds": [
+        "gfr-10"
+      ]
+    },
+    {
+      "id": "n-gfr-11",
+      "number": "11",
+      "heading": {
+        "en": "",
+        "hi": "राजस्व के निर्धारण, संग्रहण और परित्याग संबंधी विस्तृत नियम"
+      },
+      "unitIds": [
+        "gfr-11"
+      ],
+      "excerpt": {
+        "en": "Detailed rules and procedure regarding assessment, collection, allocation, remission and…",
+        "hi": ""
+      }
+    },
+    {
+      "id": "n-gfr-12",
+      "number": "12",
+      "heading": {
+        "en": "Amounts due to Government shall not be",
+        "hi": "सरकार को शोध्य राशियाँ बकाया न रखना"
+      },
+      "unitIds": [
+        "gfr-12"
+      ]
+    },
+    {
+      "id": "n-gfr-13",
+      "number": "13",
+      "heading": {
+        "en": "Unless specially authorized by any rule or order made by competent authority, no",
+        "hi": "संदिग्ध लेखे में राजस्व जमा न करना"
+      },
+      "unitIds": [
+        "gfr-13"
+      ]
+    },
+    {
+      "id": "n-gfr-14",
+      "number": "14",
+      "heading": {
+        "en": "Subject to any general or special orders",
+        "hi": "राजस्व संग्रहण की प्रगति से वित्त मंत्रालय को सूचित रखना"
+      },
+      "unitIds": [
+        "gfr-14"
+      ]
+    },
+    {
+      "id": "n-gfr-15",
+      "number": "15",
+      "heading": {
+        "en": "Rents of buildings and lands",
+        "hi": "भवनों और भूमि का किराया"
+      },
+      "unitIds": [
+        "gfr-15"
+      ]
+    },
+    {
+      "id": "n-gfr-16",
+      "number": "16",
+      "heading": {
+        "en": "Fines",
+        "hi": "जुर्माने"
+      },
+      "unitIds": [
+        "gfr-16"
+      ]
+    },
+    {
+      "id": "n-gfr-17",
+      "number": "17",
+      "heading": {
+        "en": "Miscellaneous",
+        "hi": "प्रकीर्ण मांगें"
+      },
+      "unitIds": [
+        "gfr-17"
+      ]
+    },
+    {
+      "id": "n-gfr-18",
+      "number": "18",
+      "heading": {
+        "en": "Remission of Revenue",
+        "hi": "राजस्व की छूट"
+      },
+      "unitIds": [
+        "gfr-18"
+      ]
+    },
+    {
+      "id": "n-gfr-19",
+      "number": "19",
+      "heading": {
+        "en": "Subject to any general or special",
+        "hi": "लेखा परीक्षा अधिकारी को वार्षिक विवरणी प्रस्तुत करना"
+      },
+      "unitIds": [
+        "gfr-19"
+      ]
+    },
+    {
+      "id": "n-gfr-21",
+      "number": "21",
+      "heading": {
+        "en": "Standards of financial propriety",
+        "hi": "वित्तीय औचित्य के मानक"
+      },
+      "unitIds": [
+        "gfr-21"
+      ]
+    },
+    {
+      "id": "n-gfr-22",
+      "number": "22",
+      "heading": {
+        "en": "Expenditure from Public Funds",
+        "hi": "लोक निधि से व्यय"
+      },
+      "unitIds": [
+        "gfr-22"
+      ]
+    },
+    {
+      "id": "n-gfr-23",
+      "number": "23",
+      "heading": {
+        "en": "Delegation of Financial Powers",
+        "hi": "वित्तीय शक्तियों का प्रत्यायोजन"
+      },
+      "unitIds": [
+        "gfr-23"
+      ]
+    },
+    {
+      "id": "n-gfr-24",
+      "number": "24",
+      "heading": {
+        "en": "Consultation with Financial Advisers",
+        "hi": "वित्तीय सलाहकारों से परामर्श"
+      },
+      "unitIds": [
+        "gfr-24"
+      ]
+    },
+    {
+      "id": "n-gfr-25",
+      "number": "25",
+      "heading": {
+        "en": "Provision of funds for sanction",
+        "hi": "स्वीकृति के लिए निधियों का प्रावधान"
+      },
+      "unitIds": [
+        "gfr-25"
+      ]
+    },
+    {
+      "id": "n-gfr-26",
+      "number": "26",
+      "heading": {
+        "en": "Responsibility of Controlling Officer in respect of Budget allocation",
+        "hi": "बजट आवंटन के संबंध में नियंत्रक अधिकारी का उत्तरदायित्व"
+      },
+      "unitIds": [
+        "gfr-26"
+      ]
+    },
+    {
+      "id": "n-gfr-27",
+      "number": "27",
+      "heading": {
+        "en": "Date of effect of sanction",
+        "hi": "स्वीकृति के प्रभावी होने की तिथि"
+      },
+      "unitIds": [
+        "gfr-27"
+      ]
+    },
+    {
+      "id": "n-gfr-28",
+      "number": "28",
+      "heading": {
+        "en": "Powers in regard to certain special",
+        "hi": "कतिपय विशेष विषयों के संबंध में शक्तियाँ"
+      },
+      "unitIds": [
+        "gfr-28"
+      ]
+    },
+    {
+      "id": "n-gfr-29",
+      "number": "29",
+      "heading": {
+        "en": "Procedure",
+        "hi": "स्वीकृतियों के संसूचन की प्रक्रिया"
+      },
+      "unitIds": [
+        "gfr-29"
+      ]
+    },
+    {
+      "id": "n-gfr-30",
+      "number": "30",
+      "heading": {
+        "en": "Lapse of Sanctions",
+        "hi": "स्वीकृतियों का व्यपगत होना"
+      },
+      "unitIds": [
+        "gfr-30"
+      ]
+    },
+    {
+      "id": "n-gfr-31",
+      "number": "31",
+      "heading": {
+        "en": "Notwithstanding anything contained in Rule 30, a sanction in respect of an",
+        "hi": "स्थायी स्थापना में वृद्धि से संबंधित स्वीकृतियाँ"
+      },
+      "unitIds": [
+        "gfr-31"
+      ]
+    },
+    {
+      "id": "n-gfr-33",
+      "number": "33",
+      "heading": {
+        "en": "Report of Losses",
+        "hi": "हानियों की रिपोर्ट"
+      },
+      "unitIds": [
+        "gfr-33"
+      ]
+    },
+    {
+      "id": "n-gfr-34",
+      "number": "34",
+      "heading": {
+        "en": "Loss of Government Property due to fire, theft, fraud",
+        "hi": "अग्नि, चोरी, कपट के कारण सरकारी संपत्ति की हानि"
+      },
+      "unitIds": [
+        "gfr-34"
+      ]
+    },
+    {
+      "id": "n-gfr-35",
+      "number": "35",
+      "heading": {
+        "en": "Loss of immovable property by fire, flood etc",
+        "hi": "अग्नि, बाढ़ आदि से अचल संपत्ति की हानि"
+      },
+      "unitIds": [
+        "gfr-35"
+      ]
+    },
+    {
+      "id": "n-gfr-36",
+      "number": "36",
+      "heading": {
+        "en": "Report",
+        "hi": "लेखा परीक्षा और लेखा अधिकारियों को रिपोर्ट"
+      },
+      "unitIds": [
+        "gfr-36"
+      ]
+    },
+    {
+      "id": "n-gfr-37",
+      "number": "37",
+      "heading": {
+        "en": "Responsibility of losses",
+        "hi": "हानियों का उत्तरदायित्व"
+      },
+      "unitIds": [
+        "gfr-37"
+      ]
+    },
+    {
+      "id": "n-gfr-38",
+      "number": "38",
+      "heading": {
+        "en": "Prompt disposal of cases of loss",
+        "hi": "हानि के मामलों का शीघ्र निपटान"
+      },
+      "unitIds": [
+        "gfr-38"
+      ]
+    },
+    {
+      "id": "n-gfr-39",
+      "number": "39",
+      "heading": {
+        "en": "Demand for information by Audit or Accounts",
+        "hi": "लेखा परीक्षा या लेखा अधिकारी द्वारा सूचना की मांग"
+      },
+      "unitIds": [
+        "gfr-39"
+      ]
+    },
+    {
+      "id": "n-gfr-40",
+      "number": "40",
+      "heading": {
+        "en": "A subordinate authority shall not withhold",
+        "hi": "अधीनस्थ प्राधिकारी द्वारा सूचना रोकी न जाना"
+      },
+      "unitIds": [
+        "gfr-40"
+      ]
+    },
+    {
+      "id": "n-gfr-41",
+      "number": "41",
+      "heading": {
+        "en": "If the contents of any file are categorized",
+        "hi": "गोपनीय या परम गोपनीय वर्गीकृत अभिलेख"
+      },
+      "unitIds": [
+        "gfr-41"
+      ]
+    },
+    {
+      "id": "n-gfr-42",
+      "number": "42",
+      "heading": {
+        "en": "Financial Year",
+        "hi": "वित्तीय वर्ष"
+      },
+      "unitIds": [
+        "gfr-42"
+      ]
+    },
+    {
+      "id": "n-gfr-43",
+      "number": "43",
+      "heading": {
+        "en": "",
+        "hi": "संसद में बजट प्रस्तुतीकरण"
+      },
+      "unitIds": [
+        "gfr-43"
+      ],
+      "excerpt": {
+        "en": "Presentation of Budget to Parliament. In accordance with the provisions of Article112 (1) of…",
+        "hi": ""
+      }
+    },
+    {
+      "id": "n-gfr-45",
+      "number": "45",
+      "heading": {
+        "en": "Receipt",
+        "hi": "प्राप्ति प्राक्कलन"
+      },
+      "unitIds": [
+        "gfr-45"
+      ]
+    },
+    {
+      "id": "n-gfr-47",
+      "number": "47",
+      "heading": {
+        "en": "User Charges. 'User Charges' is an important component of the non-tax",
+        "hi": "उपयोगकर्ता प्रभार"
+      },
+      "unitIds": [
+        "gfr-47"
+      ]
+    },
+    {
+      "id": "n-gfr-48",
+      "number": "48",
+      "heading": {
+        "en": "Dividends and Profits",
+        "hi": "लाभांश और लाभ"
+      },
+      "unitIds": [
+        "gfr-48"
+      ]
+    },
+    {
+      "id": "n-gfr-49",
+      "number": "49",
+      "heading": {
+        "en": "Receipts Portal",
+        "hi": "प्राप्ति पोर्टल"
+      },
+      "unitIds": [
+        "gfr-49"
+      ]
+    },
+    {
+      "id": "n-gfr-50",
+      "number": "50",
+      "heading": {
+        "en": "",
+        "hi": "व्यय प्राक्कलन"
+      },
+      "unitIds": [
+        "gfr-50"
+      ],
+      "excerpt": {
+        "en": "Expenditure estimates. The expenditure estimates shall show separately the sums required to…",
+        "hi": ""
+      }
+    },
+    {
+      "id": "n-gfr-51",
+      "number": "51",
+      "heading": {
+        "en": "Demands for Grants",
+        "hi": "अनुदान की मांगें"
+      },
+      "unitIds": [
+        "gfr-51"
+      ]
+    },
+    {
+      "id": "n-gfr-52",
+      "number": "52",
+      "heading": {
+        "en": "",
+        "hi": "वार्षिक वित्तीय विवरण और अनुदान मांगों का प्रारूप"
+      },
+      "unitIds": [
+        "gfr-52"
+      ],
+      "excerpt": {
+        "en": "Form of Annual Financial Statement and Demands for Grant. The form of the Annual Financial…",
+        "hi": ""
+      }
+    },
+    {
+      "id": "n-gfr-53",
+      "number": "53",
+      "heading": {
+        "en": "Acceptance and inclusion of estimates",
+        "hi": "प्राक्कलनों की स्वीकृति और समावेशन"
+      },
+      "unitIds": [
+        "gfr-53"
+      ]
+    },
+    {
+      "id": "n-gfr-54",
+      "number": "54",
+      "heading": {
+        "en": "Outcome Budget",
+        "hi": "परिणाम बजट"
+      },
+      "unitIds": [
+        "gfr-54"
+      ]
+    },
+    {
+      "id": "n-gfr-55",
+      "number": "55",
+      "heading": {
+        "en": "Vote on Account",
+        "hi": "लेखानुदान"
+      },
+      "unitIds": [
+        "gfr-55"
+      ]
+    },
+    {
+      "id": "n-gfr-56",
+      "number": "56",
+      "heading": {
+        "en": "Communication and distribution of grants and appropriations",
+        "hi": "अनुदानों और विनियोगों का संसूचन तथा वितरण"
+      },
+      "unitIds": [
+        "gfr-56"
+      ]
+    },
+    {
+      "id": "n-gfr-57",
+      "number": "57",
+      "heading": {
+        "en": "",
+        "hi": "व्यय नियंत्रण का उत्तरदायित्व"
+      },
+      "unitIds": [
+        "gfr-57"
+      ],
+      "excerpt": {
+        "en": "Responsibility for control of Expenditure. The Departments of the Central Government shall be…",
+        "hi": ""
+      }
+    },
+    {
+      "id": "n-gfr-58",
+      "number": "58",
+      "heading": {
+        "en": "Maintenance of Liability Register for effecting",
+        "hi": "व्यय नियंत्रण हेतु देयता रजिस्टर का रखरखाव"
+      },
+      "unitIds": [
+        "gfr-58"
+      ]
+    },
+    {
+      "id": "n-gfr-59",
+      "number": "59",
+      "heading": {
+        "en": "Personal attention of the Head of Department",
+        "hi": "बचत या अधिविशेष के आकलन हेतु विभागाध्यक्ष का व्यक्तिगत ध्यान"
+      },
+      "unitIds": [
+        "gfr-59"
+      ]
+    },
+    {
+      "id": "n-gfr-60",
+      "number": "60",
+      "heading": {
+        "en": "Control",
+        "hi": "अनुदान/विनियोग के विरुद्ध व्यय का नियंत्रण"
+      },
+      "unitIds": [
+        "gfr-60"
+      ]
+    },
+    {
+      "id": "n-gfr-61",
+      "number": "61",
+      "heading": {
+        "en": "Excess Expenditure",
+        "hi": "अधिक व्यय"
+      },
+      "unitIds": [
+        "gfr-61"
+      ]
+    },
+    {
+      "id": "n-gfr-62",
+      "number": "62",
+      "heading": {
+        "en": "Surrender of savings",
+        "hi": "बचतों का समर्पण"
+      },
+      "unitIds": [
+        "gfr-62"
+      ]
+    },
+    {
+      "id": "n-gfr-63",
+      "number": "63",
+      "heading": {
+        "en": "Expenditure on New Service",
+        "hi": "नई सेवा पर व्यय"
+      },
+      "unitIds": [
+        "gfr-63"
+      ]
+    },
+    {
+      "id": "n-gfr-64",
+      "number": "64",
+      "heading": {
+        "en": "Additional Allotment for excess",
+        "hi": "अधिक व्यय के लिए अतिरिक्त आवंटन"
+      },
+      "unitIds": [
+        "gfr-64"
+      ]
+    },
+    {
+      "id": "n-gfr-65",
+      "number": "65",
+      "heading": {
+        "en": "Re-appropriation of Funds",
+        "hi": "निधियों का पुनर्विनियोजन"
+      },
+      "unitIds": [
+        "gfr-65"
+      ]
+    },
+    {
+      "id": "n-gfr-66",
+      "number": "66",
+      "heading": {
+        "en": "Supplementary Grants",
+        "hi": "अनुपूरक अनुदान"
+      },
+      "unitIds": [
+        "gfr-66"
+      ]
+    },
+    {
+      "id": "n-gfr-67",
+      "number": "67",
+      "heading": {
+        "en": "Advance from Contingency Fund",
+        "hi": "आकस्मिकता निधि से अग्रिम"
+      },
+      "unitIds": [
+        "gfr-67"
+      ]
+    },
+    {
+      "id": "n-gfr-68",
+      "number": "68",
+      "heading": {
+        "en": "Inevitable Payments",
+        "hi": "अवश्यंभावी भुगतान"
+      },
+      "unitIds": [
+        "gfr-68"
+      ]
+    },
+    {
+      "id": "n-gfr-69",
+      "number": "69",
+      "heading": {
+        "en": "For easy reference an extract relating to procedures followed in the Accounts",
+        "hi": "निधियों के प्रावधान के विरुद्ध जांच की प्रक्रिया"
+      },
+      "unitIds": [
+        "gfr-69"
+      ]
+    },
+    {
+      "id": "n-gfr-70",
+      "number": "70",
+      "heading": {
+        "en": "Duties and Responsibilities of the Chief",
+        "hi": "मुख्य लेखा प्राधिकारी के कर्तव्य और उत्तरदायित्व"
+      },
+      "unitIds": [
+        "gfr-70"
+      ]
+    },
+    {
+      "id": "n-gfr-71",
+      "number": "71",
+      "heading": {
+        "en": "Preparation",
+        "hi": "लेखों की तैयारी और प्रस्तुतीकरण"
+      },
+      "unitIds": [
+        "gfr-71"
+      ]
+    },
+    {
+      "id": "n-gfr-72",
+      "number": "72",
+      "heading": {
+        "en": "Form of Accounts",
+        "hi": "लेखों का प्रारूप"
+      },
+      "unitIds": [
+        "gfr-72"
+      ]
+    },
+    {
+      "id": "n-gfr-73",
+      "number": "73",
+      "heading": {
+        "en": "Principles of Accounting",
+        "hi": "लेखांकन के सिद्धांत"
+      },
+      "unitIds": [
+        "gfr-73"
+      ]
+    },
+    {
+      "id": "n-gfr-76",
+      "number": "76",
+      "heading": {
+        "en": "Currency in which Accounts are kept",
+        "hi": "लेखे जिस मुद्रा में रखे जाते हैं"
+      },
+      "unitIds": [
+        "gfr-76"
+      ]
+    },
+    {
+      "id": "n-gfr-77",
+      "number": "77",
+      "heading": {
+        "en": "Main",
+        "hi": "लेखों के मुख्य विभाजन और संरचना"
+      },
+      "unitIds": [
+        "gfr-77"
+      ]
+    },
+    {
+      "id": "n-gfr-78",
+      "number": "78",
+      "heading": {
+        "en": "Classification",
+        "hi": "सरकारी लेखों में संव्यवहारों का वर्गीकरण"
+      },
+      "unitIds": [
+        "gfr-78"
+      ]
+    },
+    {
+      "id": "n-gfr-79",
+      "number": "79",
+      "heading": {
+        "en": "Authority to open a new Head of Account",
+        "hi": "लेखा शीर्ष खोलने का प्राधिकार"
+      },
+      "unitIds": [
+        "gfr-79"
+      ]
+    },
+    {
+      "id": "n-gfr-80",
+      "number": "80",
+      "heading": {
+        "en": "Conformity of budget heads with rules",
+        "hi": "बजट शीर्षों की वर्गीकरण नियमों से अनुरूपता"
+      },
+      "unitIds": [
+        "gfr-80"
+      ]
+    },
+    {
+      "id": "n-gfr-81",
+      "number": "81",
+      "heading": {
+        "en": "Responsibility",
+        "hi": "विभागीय अधिकारियों का उत्तरदायित्व"
+      },
+      "unitIds": [
+        "gfr-81"
+      ]
+    },
+    {
+      "id": "n-gfr-82",
+      "number": "82",
+      "heading": {
+        "en": "Classification should be recorded in all the bills and challans by Drawing",
+        "hi": "आहरण अधिकारियों द्वारा बिलों और चालानों में वर्गीकरण अंकित करना"
+      },
+      "unitIds": [
+        "gfr-82"
+      ]
+    },
+    {
+      "id": "n-gfr-83",
+      "number": "83",
+      "heading": {
+        "en": "Charged or Voted Expenditure",
+        "hi": "भारित या मतदेय व्यय"
+      },
+      "unitIds": [
+        "gfr-83"
+      ]
+    },
+    {
+      "id": "n-gfr-84",
+      "number": "84",
+      "heading": {
+        "en": "Capital",
+        "hi": "पूंजीगत या राजस्व व्यय"
+      },
+      "unitIds": [
+        "gfr-84"
+      ]
+    },
+    {
+      "id": "n-gfr-85",
+      "number": "85",
+      "heading": {
+        "en": "Banking Arrangements",
+        "hi": "बैंकिंग व्यवस्थाएँ"
+      },
+      "unitIds": [
+        "gfr-85"
+      ]
+    },
+    {
+      "id": "n-gfr-86",
+      "number": "86",
+      "heading": {
+        "en": "Public Financial Management System",
+        "hi": "लोक वित्तीय प्रबंधन प्रणाली"
+      },
+      "unitIds": [
+        "gfr-86"
+      ]
+    },
+    {
+      "id": "n-gfr-87",
+      "number": "87",
+      "heading": {
+        "en": "Direct Benefit Transfer",
+        "hi": "प्रत्यक्ष लाभ अंतरण"
+      },
+      "unitIds": [
+        "gfr-87"
+      ]
+    },
+    {
+      "id": "n-gfr-88",
+      "number": "88",
+      "heading": {
+        "en": "Appropriation Accounts",
+        "hi": "विनियोग लेखे"
+      },
+      "unitIds": [
+        "gfr-88"
+      ]
+    },
+    {
+      "id": "n-gfr-89",
+      "number": "89",
+      "heading": {
+        "en": "Finance Accounts",
+        "hi": "वित्त लेखे"
+      },
+      "unitIds": [
+        "gfr-89"
+      ]
+    },
+    {
+      "id": "n-gfr-91",
+      "number": "91",
+      "heading": {
+        "en": "Administrative",
+        "hi": "प्रशासनिक हित की व्यावसायिक व्यवस्थाओं में वित्तीय हिस्सेदारी"
+      },
+      "unitIds": [
+        "gfr-91"
+      ]
+    },
+    {
+      "id": "n-gfr-92",
+      "number": "92",
+      "heading": {
+        "en": "Subsidiary Accounts of Government",
+        "hi": "वाणिज्यिक कार्य करने वाले सरकारी विभागों के सहायक लेखे"
+      },
+      "unitIds": [
+        "gfr-92"
+      ]
+    },
+    {
+      "id": "n-gfr-94",
+      "number": "94",
+      "heading": {
+        "en": "Adequate regulations to be framed to ensure cost deduced is accurate and",
+        "hi": "लागत की शुद्धता सुनिश्चित करने हेतु विनियम"
+      },
+      "unitIds": [
+        "gfr-94"
+      ]
+    },
+    {
+      "id": "n-gfr-95",
+      "number": "95",
+      "heading": {
+        "en": "Maintenance",
+        "hi": "सहायक लेखों और विवरणों का रखरखाव तथा प्रस्तुतीकरण"
+      },
+      "unitIds": [
+        "gfr-95"
+      ]
+    },
+    {
+      "id": "n-gfr-96",
+      "number": "96",
+      "heading": {
+        "en": "Personal Deposit Account",
+        "hi": "व्यक्तिगत जमा खाता"
+      },
+      "unitIds": [
+        "gfr-96"
+      ]
+    },
+    {
+      "id": "n-gfr-97",
+      "number": "97",
+      "heading": {
+        "en": "Authority to open Personal Deposit",
+        "hi": "व्यक्तिगत जमा खाता खोलने का प्राधिकार"
+      },
+      "unitIds": [
+        "gfr-97"
+      ]
+    },
+    {
+      "id": "n-gfr-98",
+      "number": "98",
+      "heading": {
+        "en": "Capital",
+        "hi": "पूंजीगत व्यय"
+      },
+      "unitIds": [
+        "gfr-98"
+      ]
+    },
+    {
+      "id": "n-gfr-100",
+      "number": "100",
+      "heading": {
+        "en": "Allocation",
+        "hi": "पूंजीगत और राजस्व व्यय के बीच आबंटन"
+      },
+      "unitIds": [
+        "gfr-100"
+      ]
+    },
+    {
+      "id": "n-gfr-101",
+      "number": "101",
+      "heading": {
+        "en": "Capital receipts during construction",
+        "hi": "निर्माण अवधि की पूंजीगत प्राप्तियां"
+      },
+      "unitIds": [
+        "gfr-101"
+      ]
+    },
+    {
+      "id": "n-gfr-102",
+      "number": "102",
+      "heading": {
+        "en": "Receipts and recoveries representing",
+        "hi": "पूंजी लेखे में पूर्व नामे किए गए व्यय की वसूली से संबंधित प्राप्तियां"
+      },
+      "unitIds": [
+        "gfr-102"
+      ]
+    },
+    {
+      "id": "n-gfr-103",
+      "number": "103",
+      "heading": {
+        "en": "Conversion of outstanding loans into",
+        "hi": "बकाया ऋणों का समता निवेश या सहायता अनुदान में परिवर्तन"
+      },
+      "unitIds": [
+        "gfr-103"
+      ]
+    },
+    {
+      "id": "n-gfr-104",
+      "number": "104",
+      "heading": {
+        "en": "Interest rate",
+        "hi": "ब्याज दर"
+      },
+      "unitIds": [
+        "gfr-104"
+      ]
+    },
+    {
+      "id": "n-gfr-105",
+      "number": "105",
+      "heading": {
+        "en": "Charging of interest on capital",
+        "hi": "विशिष्ट ऋणों से प्राप्त पूंजीगत परिव्यय पर ब्याज प्रभारित करना"
+      },
+      "unitIds": [
+        "gfr-105"
+      ]
+    },
+    {
+      "id": "n-gfr-106",
+      "number": "106",
+      "heading": {
+        "en": "Method of calculation of interest",
+        "hi": "ब्याज की गणना की पद्धति"
+      },
+      "unitIds": [
+        "gfr-106"
+      ]
+    },
+    {
+      "id": "n-gfr-107",
+      "number": "107",
+      "heading": {
+        "en": "How interest charged to capital is to be",
+        "hi": "पूंजी में प्रभारित ब्याज का प्रत्यावर्तन"
+      },
+      "unitIds": [
+        "gfr-107"
+      ]
+    },
+    {
+      "id": "n-gfr-108",
+      "number": "108",
+      "heading": {
+        "en": "Adjustments with State Governments",
+        "hi": "राज्य सरकारों के साथ समायोजन"
+      },
+      "unitIds": [
+        "gfr-108"
+      ]
+    },
+    {
+      "id": "n-gfr-109",
+      "number": "109",
+      "heading": {
+        "en": "Re-audit",
+        "hi": "पुनः लेखा परीक्षा"
+      },
+      "unitIds": [
+        "gfr-109"
+      ]
+    },
+    {
+      "id": "n-gfr-111",
+      "number": "111",
+      "heading": {
+        "en": "Petty and isolated claims for services",
+        "hi": "सेवाओं के लिए छोटे और पृथक दावे अधिमानतः नहीं"
+      },
+      "unitIds": [
+        "gfr-111"
+      ]
+    },
+    {
+      "id": "n-gfr-112",
+      "number": "112",
+      "heading": {
+        "en": "Criteria in determining whether a particular claim is covered by the",
+        "hi": "पारस्परिक व्यवस्था के अंतर्गत दावे को कवर करने का मानदंड"
+      },
+      "unitIds": [
+        "gfr-112"
+      ]
+    },
+    {
+      "id": "n-gfr-113",
+      "number": "113",
+      "heading": {
+        "en": "Projects jointly executed by several",
+        "hi": "अनेक राज्य सरकारों द्वारा संयुक्त रूप से क्रियान्वित परियोजनाएं"
+      },
+      "unitIds": [
+        "gfr-113"
+      ]
+    },
+    {
+      "id": "n-gfr-114",
+      "number": "114",
+      "heading": {
+        "en": "Claims of State Governments on account of the extra cost of agency",
+        "hi": "अभिकरण कृत्यों की अतिरिक्त लागत पर राज्य सरकारों के दावे"
+      },
+      "unitIds": [
+        "gfr-114"
+      ]
+    },
+    {
+      "id": "n-gfr-115",
+      "number": "115",
+      "heading": {
+        "en": "The following principles shall be generally",
+        "hi": "अनुच्छेद 258 के अंतर्गत राज्य सरकारों के दावों में पालनीय सिद्धांत"
+      },
+      "unitIds": [
+        "gfr-115"
+      ]
+    },
+    {
+      "id": "n-gfr-116",
+      "number": "116",
+      "heading": {
+        "en": "Principles governing transactions in connection with the agency functions",
+        "hi": "राज्य सरकारों को सौंपे गए अभिकरण कृत्यों से संबंधित संव्यवहारों के सिद्धांत"
+      },
+      "unitIds": [
+        "gfr-116"
+      ]
+    },
+    {
+      "id": "n-gfr-117",
+      "number": "117",
+      "heading": {
+        "en": "Crucial date for closure of Inter",
+        "hi": "अंतर-सरकारी समायोजन के बंद होने की निर्णायक तिथि"
+      },
+      "unitIds": [
+        "gfr-117"
+      ]
+    },
+    {
+      "id": "n-gfr-118",
+      "number": "118",
+      "heading": {
+        "en": "Adjustments",
+        "hi": "विदेशी सरकारों, बाह्य निकायों आदि के साथ समायोजन"
+      },
+      "unitIds": [
+        "gfr-118"
+      ]
+    },
+    {
+      "id": "n-gfr-119",
+      "number": "119",
+      "heading": {
+        "en": "Recoveries of expenditure for services",
+        "hi": "गैर-सरकारी पक्षों को प्रदत्त सेवाओं के व्यय की वसूली"
+      },
+      "unitIds": [
+        "gfr-119"
+      ]
+    },
+    {
+      "id": "n-gfr-120",
+      "number": "120",
+      "heading": {
+        "en": "Recoveries of expenditure for services",
+        "hi": "अभिकर्ता के रूप में प्रदत्त सेवाओं के व्यय की वसूली"
+      },
+      "unitIds": [
+        "gfr-120"
+      ]
+    },
+    {
+      "id": "n-gfr-121",
+      "number": "121",
+      "heading": {
+        "en": "Payments to outside body or fund to be through grant-in-aid",
+        "hi": "बाह्य निकाय या निधि को सहायता अनुदान के माध्यम से भुगतान"
+      },
+      "unitIds": [
+        "gfr-121"
+      ]
+    },
+    {
+      "id": "n-gfr-122",
+      "number": "122",
+      "heading": {
+        "en": "Charges relating to the maintenance",
+        "hi": "सीमाओं के रखरखाव और सीमा विवादों से संबंधित प्रभार"
+      },
+      "unitIds": [
+        "gfr-122"
+      ]
+    },
+    {
+      "id": "n-gfr-123",
+      "number": "123",
+      "heading": {
+        "en": "Inter-Departmental Adjustments",
+        "hi": "अंतर-विभागीय समायोजन"
+      },
+      "unitIds": [
+        "gfr-123"
+      ]
+    },
+    {
+      "id": "n-gfr-124",
+      "number": "124",
+      "heading": {
+        "en": "Principles for division of Departments",
+        "hi": "अंतर-विभागीय भुगतानों के प्रयोजन हेतु विभागों का विभाजन"
+      },
+      "unitIds": [
+        "gfr-124"
+      ]
+    },
+    {
+      "id": "n-gfr-125",
+      "number": "125",
+      "heading": {
+        "en": "Period for preferment of claims",
+        "hi": "दावे प्रस्तुत करने की अवधि"
+      },
+      "unitIds": [
+        "gfr-125"
+      ]
+    },
+    {
+      "id": "n-gfr-126",
+      "number": "126",
+      "heading": {
+        "en": "Procedure for settlement of inter",
+        "hi": "अंतर-विभागीय समायोजन के निपटान की प्रक्रिया"
+      },
+      "unitIds": [
+        "gfr-126"
+      ]
+    },
+    {
+      "id": "n-gfr-127",
+      "number": "127",
+      "heading": {
+        "en": "Inter-departmental",
+        "hi": "लेखा वर्ष में किए जाने वाले अंतर-विभागीय और अन्य समायोजन"
+      },
+      "unitIds": [
+        "gfr-127"
+      ]
+    },
+    {
+      "id": "n-gfr-128",
+      "number": "128",
+      "heading": {
+        "en": "Adjustment of Pensionary Charges of certain",
+        "hi": "कतिपय वाणिज्यिक विभागों के पेंशन प्रभारों का समायोजन"
+      },
+      "unitIds": [
+        "gfr-128"
+      ]
+    },
+    {
+      "id": "n-gfr-129",
+      "number": "129",
+      "heading": {
+        "en": "Pensionary liability in the case of Government Departments / Undertakings",
+        "hi": "वाणिज्यिक घोषित सरकारी विभागों/उपक्रमों में पेंशन देयता"
+      },
+      "unitIds": [
+        "gfr-129"
+      ]
+    },
+    {
+      "id": "n-gfr-130",
+      "number": "130",
+      "heading": {
+        "en": "Original works means all new",
+        "hi": "मूल कार्यों की परिभाषा"
+      },
+      "unitIds": [
+        "gfr-130"
+      ]
+    },
+    {
+      "id": "n-gfr-131",
+      "number": "131",
+      "heading": {
+        "en": "Administrative control of works",
+        "hi": "कार्यों का प्रशासनिक नियंत्रण"
+      },
+      "unitIds": [
+        "gfr-131"
+      ]
+    },
+    {
+      "id": "n-gfr-132",
+      "number": "132",
+      "heading": {
+        "en": "Powers to sanction works",
+        "hi": "कार्यों को स्वीकृति देने की शक्तियां"
+      },
+      "unitIds": [
+        "gfr-132"
+      ]
+    },
+    {
+      "id": "n-gfr-133",
+      "number": "133",
+      "heading": {
+        "en": "A Ministry or Department at its",
+        "hi": "मंत्रालय या विभाग द्वारा प्रत्यक्ष मरम्मत कार्य निष्पादन"
+      },
+      "unitIds": [
+        "gfr-133"
+      ]
+    },
+    {
+      "id": "n-gfr-134",
+      "number": "134",
+      "heading": {
+        "en": "Work under the administrative",
+        "hi": "लोक निर्माण विभाग के प्रशासनिक नियंत्रणाधीन कार्य"
+      },
+      "unitIds": [
+        "gfr-134"
+      ]
+    },
+    {
+      "id": "n-gfr-135",
+      "number": "135",
+      "heading": {
+        "en": "General Rules",
+        "hi": "सामान्य नियम"
+      },
+      "unitIds": [
+        "gfr-135"
+      ]
+    },
+    {
+      "id": "n-gfr-136",
+      "number": "136",
+      "heading": {
+        "en": "No works shall be commenced or liability incurred in connection with it",
+        "hi": "कार्य आरंभ करने या दायित्व वहन करने से पूर्व अपेक्षाएं"
+      },
+      "unitIds": [
+        "gfr-136"
+      ]
+    },
+    {
+      "id": "n-gfr-137",
+      "number": "137",
+      "heading": {
+        "en": "For purpose",
+        "hi": "स्वीकृति के प्रयोजन हेतु कार्यों के समूह को एक कार्य मानना"
+      },
+      "unitIds": [
+        "gfr-137"
+      ]
+    },
+    {
+      "id": "n-gfr-138",
+      "number": "138",
+      "heading": {
+        "en": "Any anticipated or actual savings",
+        "hi": "स्वीकृत प्राक्कलन से बचत का अतिरिक्त कार्य में उपयोग न करना"
+      },
+      "unitIds": [
+        "gfr-138"
+      ]
+    },
+    {
+      "id": "n-gfr-139",
+      "number": "139",
+      "heading": {
+        "en": "Procedure for Execution of Works",
+        "hi": "कार्यों के निष्पादन की प्रक्रिया"
+      },
+      "unitIds": [
+        "gfr-139"
+      ]
+    },
+    {
+      "id": "n-gfr-140",
+      "number": "140",
+      "heading": {
+        "en": "For original/minor works and repair",
+        "hi": "मूल/लघु कार्यों और मरम्मत कार्यों हेतु प्रशासनिक अनुमोदन एवं स्वीकृति"
+      },
+      "unitIds": [
+        "gfr-140"
+      ]
+    },
+    {
+      "id": "n-gfr-141",
+      "number": "141",
+      "heading": {
+        "en": "Review of Projects",
+        "hi": "परियोजनाओं की समीक्षा"
+      },
+      "unitIds": [
+        "gfr-141"
+      ]
+    },
+    {
+      "id": "n-gfr-142",
+      "number": "142",
+      "heading": {
+        "en": "This chapter contains the general",
+        "hi": "वस्तुओं की खरीद संबंधी सामान्य नियम"
+      },
+      "unitIds": [
+        "gfr-142"
+      ]
+    },
+    {
+      "id": "n-gfr-143",
+      "number": "143",
+      "heading": {
+        "en": "Definition of Goods",
+        "hi": "वस्तुओं की परिभाषा"
+      },
+      "unitIds": [
+        "gfr-143"
+      ]
+    },
+    {
+      "id": "n-gfr-144",
+      "number": "144",
+      "heading": {
+        "en": "Fundamental principles of public",
+        "hi": "लोक क्रय के मूल सिद्धांत"
+      },
+      "unitIds": [
+        "gfr-144"
+      ]
+    },
+    {
+      "id": "n-gfr-145",
+      "number": "145",
+      "heading": {
+        "en": "Authorities competent to purchase",
+        "hi": "वस्तुओं की खरीद हेतु सक्षम प्राधिकारी"
+      },
+      "unitIds": [
+        "gfr-145"
+      ]
+    },
+    {
+      "id": "n-gfr-146",
+      "number": "146",
+      "heading": {
+        "en": "Procurement of goods required on mobilisation Procurement of goods",
+        "hi": "लामबंदी के दौरान अपेक्षित वस्तुओं की खरीद"
+      },
+      "unitIds": [
+        "gfr-146"
+      ]
+    },
+    {
+      "id": "n-gfr-147",
+      "number": "147",
+      "heading": {
+        "en": "Powers for procurement of goods",
+        "hi": "वस्तुओं की खरीद के लिए शक्तियां"
+      },
+      "unitIds": [
+        "gfr-147"
+      ]
+    },
+    {
+      "id": "n-gfr-148",
+      "number": "148",
+      "heading": {
+        "en": "Deleted3",
+        "hi": "विलोपित"
+      },
+      "unitIds": [
+        "gfr-148"
+      ]
+    },
+    {
+      "id": "n-gfr-149",
+      "number": "149",
+      "heading": {
+        "en": ". Government e-Market place (GeM)",
+        "hi": "सरकारी ई-मार्केटप्लेस (जेम)"
+      },
+      "unitIds": [
+        "gfr-149"
+      ]
+    },
+    {
+      "id": "n-gfr-150",
+      "number": "150",
+      "heading": {
+        "en": "Registration of Suppliers",
+        "hi": "आपूर्तिकर्ताओं का पंजीकरण"
+      },
+      "unitIds": [
+        "gfr-150"
+      ]
+    },
+    {
+      "id": "n-gfr-151",
+      "number": "151",
+      "heading": {
+        "en": "Debarment from bidding",
+        "hi": "बोली से प्रतिवारण"
+      },
+      "unitIds": [
+        "gfr-151"
+      ]
+    },
+    {
+      "id": "n-gfr-152",
+      "number": "152",
+      "heading": {
+        "en": "Enlistment",
+        "hi": "अभिकर्ताओं की सूचीयन"
+      },
+      "unitIds": [
+        "gfr-152"
+      ]
+    },
+    {
+      "id": "n-gfr-154",
+      "number": "154",
+      "heading": {
+        "en": "Purchase of goods without",
+        "hi": "उद्धरण के बिना वस्तुओं की खरीद"
+      },
+      "unitIds": [
+        "gfr-154"
+      ]
+    },
+    {
+      "id": "n-gfr-155",
+      "number": "155",
+      "heading": {
+        "en": "Purchase of goods by Purchase",
+        "hi": "क्रय समिति द्वारा वस्तुओं की खरीद"
+      },
+      "unitIds": [
+        "gfr-155"
+      ]
+    },
+    {
+      "id": "n-gfr-156",
+      "number": "156",
+      "heading": {
+        "en": "Deleted.21",
+        "hi": "विलोपित"
+      },
+      "unitIds": [
+        "gfr-156"
+      ]
+    },
+    {
+      "id": "n-gfr-157",
+      "number": "157",
+      "heading": {
+        "en": "A demand for goods should not be",
+        "hi": "वस्तुओं की मांग को छोटे-छोटे भागों में विभाजित न करना"
+      },
+      "unitIds": [
+        "gfr-157"
+      ]
+    },
+    {
+      "id": "n-gfr-158",
+      "number": "158",
+      "heading": {
+        "en": "Purchase of goods by obtaining",
+        "hi": "बोली प्राप्त कर वस्तुओं की खरीद"
+      },
+      "unitIds": [
+        "gfr-158"
+      ]
+    },
+    {
+      "id": "n-gfr-159",
+      "number": "159",
+      "heading": {
+        "en": "E-Publishing",
+        "hi": "ई-प्रकाशन"
+      },
+      "unitIds": [
+        "gfr-159"
+      ]
+    },
+    {
+      "id": "n-gfr-160",
+      "number": "160",
+      "heading": {
+        "en": "E -Procurement",
+        "hi": "ई-खरीद"
+      },
+      "unitIds": [
+        "gfr-160"
+      ]
+    },
+    {
+      "id": "n-gfr-161",
+      "number": "161",
+      "heading": {
+        "en": "Advertised Tender Enquiry",
+        "hi": "विज्ञापित निविदा जांच"
+      },
+      "unitIds": [
+        "gfr-161"
+      ]
+    },
+    {
+      "id": "n-gfr-162",
+      "number": "162",
+      "heading": {
+        "en": "Limited Tender Enquiry",
+        "hi": "सीमित निविदा जांच"
+      },
+      "unitIds": [
+        "gfr-162"
+      ]
+    },
+    {
+      "id": "n-gfr-163",
+      "number": "163",
+      "heading": {
+        "en": "Two bid system (simultaneous",
+        "hi": "द्वि-बोली प्रणाली"
+      },
+      "unitIds": [
+        "gfr-163"
+      ]
+    },
+    {
+      "id": "n-gfr-164",
+      "number": "164",
+      "heading": {
+        "en": "Two-Stage Bidding (Obtain bids in two stages with receipt of financial",
+        "hi": "द्वि-चरणीय बोली"
+      },
+      "unitIds": [
+        "gfr-164"
+      ]
+    },
+    {
+      "id": "n-gfr-165",
+      "number": "165",
+      "heading": {
+        "en": "Late Bids",
+        "hi": "विलंबित बोलियां"
+      },
+      "unitIds": [
+        "gfr-165"
+      ]
+    },
+    {
+      "id": "n-gfr-166",
+      "number": "166",
+      "heading": {
+        "en": "Single Tender Enquiry",
+        "hi": "एकल निविदा जांच"
+      },
+      "unitIds": [
+        "gfr-166"
+      ]
+    },
+    {
+      "id": "n-gfr-167",
+      "number": "167",
+      "heading": {
+        "en": "Electronic Reverse Auction",
+        "hi": "इलेक्ट्रॉनिक रिवर्स नीलामी"
+      },
+      "unitIds": [
+        "gfr-167"
+      ]
+    },
+    {
+      "id": "n-gfr-168",
+      "number": "168",
+      "heading": {
+        "en": "Contents of Bidding Document",
+        "hi": "निविदा दस्तावेज़ की विषय-वस्तु"
+      },
+      "unitIds": [
+        "gfr-168"
+      ]
+    },
+    {
+      "id": "n-gfr-169",
+      "number": "169",
+      "heading": {
+        "en": "Maintenance Contract",
+        "hi": "रखरखाव संविदा"
+      },
+      "unitIds": [
+        "gfr-169"
+      ]
+    },
+    {
+      "id": "n-gfr-170",
+      "number": "170",
+      "heading": {
+        "en": "Bid Security",
+        "hi": "बोली प्रतिभूति"
+      },
+      "unitIds": [
+        "gfr-170"
+      ]
+    },
+    {
+      "id": "n-gfr-171",
+      "number": "171",
+      "heading": {
+        "en": "Performance Security",
+        "hi": "निष्पादन प्रतिभूति"
+      },
+      "unitIds": [
+        "gfr-171"
+      ]
+    },
+    {
+      "id": "n-gfr-172",
+      "number": "172",
+      "heading": {
+        "en": "Advance payment to supplier",
+        "hi": "आपूर्तिकर्ता को अग्रिम भुगतान"
+      },
+      "unitIds": [
+        "gfr-172"
+      ]
+    },
+    {
+      "id": "n-gfr-175",
+      "number": "175",
+      "heading": {
+        "en": "Code of Integrity",
+        "hi": "सत्यनिष्ठा संहिता"
+      },
+      "unitIds": [
+        "gfr-175"
+      ]
+    },
+    {
+      "id": "n-gfr-176",
+      "number": "176",
+      "heading": {
+        "en": "Buy-Back Offer",
+        "hi": "पुनर्खरीद प्रस्ताव"
+      },
+      "unitIds": [
+        "gfr-176"
+      ]
+    },
+    {
+      "id": "n-gfr-177",
+      "number": "177",
+      "heading": {
+        "en": "\"Consulting Service means any",
+        "hi": "परामर्श सेवा की परिभाषा"
+      },
+      "unitIds": [
+        "gfr-177"
+      ]
+    },
+    {
+      "id": "n-gfr-178",
+      "number": "178",
+      "heading": {
+        "en": "The Ministries or Departments may",
+        "hi": "मंत्रालयों/विभागों द्वारा बाह्य विशेषज्ञों/परामर्शदाताओं की नियुक्ति"
+      },
+      "unitIds": [
+        "gfr-178"
+      ]
+    },
+    {
+      "id": "n-gfr-179",
+      "number": "179",
+      "heading": {
+        "en": "This chapter contains the fundamental",
+        "hi": "परामर्शदाताओं की नियुक्ति संबंधी मूल सिद्धांत"
+      },
+      "unitIds": [
+        "gfr-179"
+      ]
+    },
+    {
+      "id": "n-gfr-180",
+      "number": "180",
+      "heading": {
+        "en": "Identification of Services required",
+        "hi": "परामर्शदाताओं द्वारा निष्पादित की जाने वाली सेवाओं की पहचान"
+      },
+      "unitIds": [
+        "gfr-180"
+      ]
+    },
+    {
+      "id": "n-gfr-181",
+      "number": "181",
+      "heading": {
+        "en": "Preparation of scope of the required",
+        "hi": "अपेक्षित परामर्शदाता की कार्य-परिधि की तैयारी"
+      },
+      "unitIds": [
+        "gfr-181"
+      ]
+    },
+    {
+      "id": "n-gfr-182",
+      "number": "182",
+      "heading": {
+        "en": "Estimating reasonable expenditure",
+        "hi": "युक्तियुक्त व्यय का आकलन"
+      },
+      "unitIds": [
+        "gfr-182"
+      ]
+    },
+    {
+      "id": "n-gfr-183",
+      "number": "183",
+      "heading": {
+        "en": "Identification of likely sources",
+        "hi": "संभावित स्रोतों की पहचान"
+      },
+      "unitIds": [
+        "gfr-183"
+      ]
+    },
+    {
+      "id": "n-gfr-184",
+      "number": "184",
+      "heading": {
+        "en": "Short listing of consultants",
+        "hi": "परामर्शदाताओं की लघु-सूची तैयार करना"
+      },
+      "unitIds": [
+        "gfr-184"
+      ]
+    },
+    {
+      "id": "n-gfr-185",
+      "number": "185",
+      "heading": {
+        "en": "Preparation of Terms of Reference",
+        "hi": "संदर्भ शर्तों की तैयारी"
+      },
+      "unitIds": [
+        "gfr-185"
+      ]
+    },
+    {
+      "id": "n-gfr-186",
+      "number": "186",
+      "heading": {
+        "en": "Preparation and Issue of Request",
+        "hi": "प्रस्ताव आमंत्रण का प्रारूपण और निर्गमन"
+      },
+      "unitIds": [
+        "gfr-186"
+      ]
+    },
+    {
+      "id": "n-gfr-187",
+      "number": "187",
+      "heading": {
+        "en": "Receipt and opening of proposals",
+        "hi": "प्रस्तावों की प्राप्ति और खोलना"
+      },
+      "unitIds": [
+        "gfr-187"
+      ]
+    },
+    {
+      "id": "n-gfr-188",
+      "number": "188",
+      "heading": {
+        "en": "Late Bids",
+        "hi": "विलंबित बोलियां"
+      },
+      "unitIds": [
+        "gfr-188"
+      ]
+    },
+    {
+      "id": "n-gfr-189",
+      "number": "189",
+      "heading": {
+        "en": "Evaluation of Technical Bids",
+        "hi": "तकनीकी बोलियों का मूल्यांकन"
+      },
+      "unitIds": [
+        "gfr-189"
+      ]
+    },
+    {
+      "id": "n-gfr-190",
+      "number": "190",
+      "heading": {
+        "en": "Evaluation of Financial Bids of the technically qualified bidders",
+        "hi": "तकनीकी रूप से अर्हित बोलीदाताओं की वित्तीय बोलियों का मूल्यांकन"
+      },
+      "unitIds": [
+        "gfr-190"
+      ]
+    },
+    {
+      "id": "n-gfr-191",
+      "number": "191",
+      "heading": {
+        "en": "Methods of Selection/ Evaluation of Consultancy Proposals",
+        "hi": "परामर्श प्रस्तावों के चयन/मूल्यांकन की पद्धतियां"
+      },
+      "unitIds": [
+        "gfr-191"
+      ]
+    },
+    {
+      "id": "n-gfr-192",
+      "number": "192",
+      "heading": {
+        "en": "Quality and Cost Based Selection",
+        "hi": "गुणवत्ता और लागत आधारित चयन"
+      },
+      "unitIds": [
+        "gfr-192"
+      ]
+    },
+    {
+      "id": "n-gfr-193",
+      "number": "193",
+      "heading": {
+        "en": "Least Cost System (LCS)",
+        "hi": "न्यूनतम लागत प्रणाली"
+      },
+      "unitIds": [
+        "gfr-193"
+      ]
+    },
+    {
+      "id": "n-gfr-195",
+      "number": "195",
+      "heading": {
+        "en": "Monitoring the Contract",
+        "hi": "संविदा की निगरानी"
+      },
+      "unitIds": [
+        "gfr-195"
+      ]
+    },
+    {
+      "id": "n-gfr-196",
+      "number": "196",
+      "heading": {
+        "en": "Public competition for Design of symbols/logos",
+        "hi": "प्रतीकों/लोगो के अभिकल्प हेतु सार्वजनिक प्रतियोगिता"
+      },
+      "unitIds": [
+        "gfr-196"
+      ]
+    },
+    {
+      "id": "n-gfr-197",
+      "number": "197",
+      "heading": {
+        "en": "\"Non-Consulting Service\" means",
+        "hi": "गैर-परामर्श सेवा की परिभाषा"
+      },
+      "unitIds": [
+        "gfr-197"
+      ]
+    },
+    {
+      "id": "n-gfr-198",
+      "number": "198",
+      "heading": {
+        "en": "Procurement of Non-consulting",
+        "hi": "गैर-परामर्श सेवाओं की खरीद"
+      },
+      "unitIds": [
+        "gfr-198"
+      ]
+    },
+    {
+      "id": "n-gfr-199",
+      "number": "199",
+      "heading": {
+        "en": "Identification of likely contractors",
+        "hi": "संभावित संविदाकारों की पहचान"
+      },
+      "unitIds": [
+        "gfr-199"
+      ]
+    },
+    {
+      "id": "n-gfr-200",
+      "number": "200",
+      "heading": {
+        "en": "Preparation of Tender enquiry",
+        "hi": "निविदा जांच की तैयारी"
+      },
+      "unitIds": [
+        "gfr-200"
+      ]
+    },
+    {
+      "id": "n-gfr-201",
+      "number": "201",
+      "heading": {
+        "en": "Invitation of Bids",
+        "hi": "बोलियों का आमंत्रण"
+      },
+      "unitIds": [
+        "gfr-201"
+      ]
+    },
+    {
+      "id": "n-gfr-202",
+      "number": "202",
+      "heading": {
+        "en": "Late Bids",
+        "hi": "विलंबित बोलियां"
+      },
+      "unitIds": [
+        "gfr-202"
+      ]
+    },
+    {
+      "id": "n-gfr-203",
+      "number": "203",
+      "heading": {
+        "en": "Evaluation of Bids Received",
+        "hi": "प्राप्त बोलियों का मूल्यांकन"
+      },
+      "unitIds": [
+        "gfr-203"
+      ]
+    },
+    {
+      "id": "n-gfr-204",
+      "number": "204",
+      "heading": {
+        "en": "Procurement of Non-consulting",
+        "hi": "नामांकन द्वारा गैर-परामर्श सेवाओं की खरीद"
+      },
+      "unitIds": [
+        "gfr-204"
+      ]
+    },
+    {
+      "id": "n-gfr-205",
+      "number": "205",
+      "heading": {
+        "en": "Monitoring the Contract",
+        "hi": "संविदा की निगरानी"
+      },
+      "unitIds": [
+        "gfr-205"
+      ]
+    },
+    {
+      "id": "n-gfr-206",
+      "number": "206",
+      "heading": {
+        "en": "Any circumstances which are not",
+        "hi": "गैर-परामर्श सेवाओं की खरीद में अनाच्छादित परिस्थितियां"
+      },
+      "unitIds": [
+        "gfr-206"
+      ]
+    },
+    {
+      "id": "n-gfr-207",
+      "number": "207",
+      "heading": {
+        "en": "This chapter contains the basic rules",
+        "hi": "माल-सामग्री प्रबंधन संबंधी मूल नियम"
+      },
+      "unitIds": [
+        "gfr-207"
+      ]
+    },
+    {
+      "id": "n-gfr-208",
+      "number": "208",
+      "heading": {
+        "en": "Receipt of goods and materials",
+        "hi": "निजी आपूर्तिकर्ताओं से माल-सामग्री की प्राप्ति"
+      },
+      "unitIds": [
+        "gfr-208"
+      ]
+    },
+    {
+      "id": "n-gfr-209",
+      "number": "209",
+      "heading": {
+        "en": "Receipt/issue of goods and materials from internal divisions",
+        "hi": "उसी संगठन के आंतरिक प्रभागों से माल-सामग्री की प्राप्ति/निर्गम"
+      },
+      "unitIds": [
+        "gfr-209"
+      ]
+    },
+    {
+      "id": "n-gfr-210",
+      "number": "210",
+      "heading": {
+        "en": "Custody of goods and materials",
+        "hi": "माल-सामग्री की अभिरक्षा"
+      },
+      "unitIds": [
+        "gfr-210"
+      ]
+    },
+    {
+      "id": "n-gfr-211",
+      "number": "211",
+      "heading": {
+        "en": "Lists and Accounts",
+        "hi": "सूचियां और लेखे"
+      },
+      "unitIds": [
+        "gfr-211"
+      ]
+    },
+    {
+      "id": "n-gfr-212",
+      "number": "212",
+      "heading": {
+        "en": "Hiring out of Fixed Assets",
+        "hi": "स्थायी परिसंपत्तियों को भाड़े पर देना"
+      },
+      "unitIds": [
+        "gfr-212"
+      ]
+    },
+    {
+      "id": "n-gfr-213",
+      "number": "213",
+      "heading": {
+        "en": "Physical verification of Fixed",
+        "hi": "स्थायी परिसंपत्तियों का भौतिक सत्यापन"
+      },
+      "unitIds": [
+        "gfr-213"
+      ]
+    },
+    {
+      "id": "n-gfr-214",
+      "number": "214",
+      "heading": {
+        "en": "Buffer Stock",
+        "hi": "बफर स्टॉक"
+      },
+      "unitIds": [
+        "gfr-214"
+      ]
+    },
+    {
+      "id": "n-gfr-215",
+      "number": "215",
+      "heading": {
+        "en": "Physical verification of Library",
+        "hi": "पुस्तकालय पुस्तकों का भौतिक सत्यापन"
+      },
+      "unitIds": [
+        "gfr-215"
+      ]
+    },
+    {
+      "id": "n-gfr-216",
+      "number": "216",
+      "heading": {
+        "en": "Transfer of charge of goods, materials etc",
+        "hi": "माल-सामग्री आदि के प्रभार का हस्तांतरण"
+      },
+      "unitIds": [
+        "gfr-216"
+      ]
+    },
+    {
+      "id": "n-gfr-217",
+      "number": "217",
+      "heading": {
+        "en": "Disposal of Goods",
+        "hi": "माल का निपटान"
+      },
+      "unitIds": [
+        "gfr-217"
+      ]
+    },
+    {
+      "id": "n-gfr-218",
+      "number": "218",
+      "heading": {
+        "en": "Modes of Disposal",
+        "hi": "निपटान की विधियां"
+      },
+      "unitIds": [
+        "gfr-218"
+      ]
+    },
+    {
+      "id": "n-gfr-219",
+      "number": "219",
+      "heading": {
+        "en": "Disposal through Advertised Tender",
+        "hi": "विज्ञापित निविदा के माध्यम से निपटान"
+      },
+      "unitIds": [
+        "gfr-219"
+      ]
+    },
+    {
+      "id": "n-gfr-220",
+      "number": "220",
+      "heading": {
+        "en": "Disposal through Auction",
+        "hi": "नीलामी के माध्यम से निपटान"
+      },
+      "unitIds": [
+        "gfr-220"
+      ]
+    },
+    {
+      "id": "n-gfr-221",
+      "number": "221",
+      "heading": {
+        "en": "Disposal at scrap value or by other",
+        "hi": "रद्दी मूल्य पर या अन्य विधि से निपटान"
+      },
+      "unitIds": [
+        "gfr-221"
+      ]
+    },
+    {
+      "id": "n-gfr-222",
+      "number": "222",
+      "heading": {
+        "en": "A sale account should be prepared for goods disposed of in Form GFR 11 duly",
+        "hi": "विक्रय किए गए माल का विक्रय लेखा"
+      },
+      "unitIds": [
+        "gfr-222"
+      ]
+    },
+    {
+      "id": "n-gfr-223",
+      "number": "223",
+      "heading": {
+        "en": "Powers to write off",
+        "hi": "बट्टे खाते डालने की शक्तियां"
+      },
+      "unitIds": [
+        "gfr-223"
+      ]
+    },
+    {
+      "id": "n-gfr-224",
+      "number": "224",
+      "heading": {
+        "en": "All contracts shall be made by an authority empowered to do so by or",
+        "hi": "संविदाओं के निष्पादन हेतु सक्षम प्राधिकारी"
+      },
+      "unitIds": [
+        "gfr-224"
+      ]
+    },
+    {
+      "id": "n-gfr-225",
+      "number": "225",
+      "heading": {
+        "en": "General principles for contract",
+        "hi": "संविदा के सामान्य सिद्धांत"
+      },
+      "unitIds": [
+        "gfr-225"
+      ]
+    },
+    {
+      "id": "n-gfr-226",
+      "number": "226",
+      "heading": {
+        "en": "Management of Contracts",
+        "hi": "संविदाओं का प्रबंधन"
+      },
+      "unitIds": [
+        "gfr-226"
+      ]
+    },
+    {
+      "id": "n-gfr-227",
+      "number": "227",
+      "heading": {
+        "en": "Legal Advice",
+        "hi": "विधिक सलाह"
+      },
+      "unitIds": [
+        "gfr-227"
+      ]
+    },
+    {
+      "id": "n-gfr-228",
+      "number": "228",
+      "heading": {
+        "en": "As a general principle, Grants-in-aid can",
+        "hi": "सहायता अनुदान का सामान्य सिद्धांत"
+      },
+      "unitIds": [
+        "gfr-228"
+      ]
+    },
+    {
+      "id": "n-gfr-229",
+      "number": "229",
+      "heading": {
+        "en": "General Principles for setting up of Autonomous Organisations referred to",
+        "hi": "स्वायत्त संगठनों की स्थापना के सामान्य सिद्धांत"
+      },
+      "unitIds": [
+        "gfr-229"
+      ]
+    },
+    {
+      "id": "n-gfr-230",
+      "number": "230",
+      "heading": {
+        "en": "",
+        "hi": "सहायता अनुदान प्राप्त संस्थाओं की सूची का रखरखाव"
+      },
+      "unitIds": [
+        "gfr-230"
+      ],
+      "excerpt": {
+        "en": "In order to obviate duplication in Grants-in-aid, each Ministry or Department should maintain a…",
+        "hi": ""
+      }
+    },
+    {
+      "id": "n-gfr-231",
+      "number": "231",
+      "heading": {
+        "en": "",
+        "hi": "स्वैच्छिक संगठनों को सहायता अनुदान"
+      },
+      "unitIds": [
+        "gfr-231"
+      ],
+      "excerpt": {
+        "en": "Grants-in-aid to \"Voluntary Organisations\" Subject to the following terms and conditions,…",
+        "hi": ""
+      }
+    },
+    {
+      "id": "n-gfr-232",
+      "number": "232",
+      "heading": {
+        "en": "General",
+        "hi": "केंद्रीय प्रायोजित योजनाओं हेतु सहायता अनुदान के सामान्य सिद्धांत"
+      },
+      "unitIds": [
+        "gfr-232"
+      ]
+    },
+    {
+      "id": "n-gfr-233",
+      "number": "233",
+      "heading": {
+        "en": "Funding of Sponsored Projects or Schemes",
+        "hi": "प्रायोजित परियोजनाओं या योजनाओं का वित्तपोषण"
+      },
+      "unitIds": [
+        "gfr-233"
+      ]
+    },
+    {
+      "id": "n-gfr-234",
+      "number": "234",
+      "heading": {
+        "en": "Register of Grants",
+        "hi": "अनुदान रजिस्टर"
+      },
+      "unitIds": [
+        "gfr-234"
+      ]
+    },
+    {
+      "id": "n-gfr-235",
+      "number": "235",
+      "heading": {
+        "en": "Accounts of Grantee Institutions",
+        "hi": "अनुदानग्रहीता संस्थाओं के लेखे"
+      },
+      "unitIds": [
+        "gfr-235"
+      ]
+    },
+    {
+      "id": "n-gfr-236",
+      "number": "236",
+      "heading": {
+        "en": "Audit of Accounts",
+        "hi": "लेखों की लेखा परीक्षा"
+      },
+      "unitIds": [
+        "gfr-236"
+      ]
+    },
+    {
+      "id": "n-gfr-237",
+      "number": "237",
+      "heading": {
+        "en": "Time Schedule for submission of annual accounts",
+        "hi": "वार्षिक लेखे प्रस्तुत करने की समय-सारणी"
+      },
+      "unitIds": [
+        "gfr-237"
+      ]
+    },
+    {
+      "id": "n-gfr-238",
+      "number": "238",
+      "heading": {
+        "en": "Utilization Certificates",
+        "hi": "उपयोगिता प्रमाणपत्र"
+      },
+      "unitIds": [
+        "gfr-238"
+      ]
+    },
+    {
+      "id": "n-gfr-239",
+      "number": "239",
+      "heading": {
+        "en": "State",
+        "hi": "योजना अनुदान के लिए राज्य सरकार द्वारा उपयोगिता प्रमाणपत्र प्रस्तुत करना"
+      },
+      "unitIds": [
+        "gfr-239"
+      ]
+    },
+    {
+      "id": "n-gfr-240",
+      "number": "240",
+      "heading": {
+        "en": "State",
+        "hi": "स्थानीय निकायों के माध्यम से व्यय होने पर राज्य सरकार द्वारा उपयोगिता प्रमाणपत्र"
+      },
+      "unitIds": [
+        "gfr-240"
+      ]
+    },
+    {
+      "id": "n-gfr-241",
+      "number": "241",
+      "heading": {
+        "en": "Utilisation Certificate in case of Direct",
+        "hi": "प्रत्यक्ष लाभ अंतरण योजना में उपयोगिता प्रमाणपत्र"
+      },
+      "unitIds": [
+        "gfr-241"
+      ]
+    },
+    {
+      "id": "n-gfr-242",
+      "number": "242",
+      "heading": {
+        "en": "Performance parameters",
+        "hi": "निष्पादन प्राचल"
+      },
+      "unitIds": [
+        "gfr-242"
+      ]
+    },
+    {
+      "id": "n-gfr-243",
+      "number": "243",
+      "heading": {
+        "en": "Discretionary",
+        "hi": "विवेकाधीन अनुदान"
+      },
+      "unitIds": [
+        "gfr-243"
+      ]
+    },
+    {
+      "id": "n-gfr-244",
+      "number": "244",
+      "heading": {
+        "en": "Other Grants",
+        "hi": "अन्य अनुदान"
+      },
+      "unitIds": [
+        "gfr-244"
+      ]
+    },
+    {
+      "id": "n-gfr-245",
+      "number": "245",
+      "heading": {
+        "en": "Regulation of recurring Grants-in-aid",
+        "hi": "सरकारी कर्मचारी कल्याण हेतु आवर्ती सहायता अनुदानों का विनियमन"
+      },
+      "unitIds": [
+        "gfr-245"
+      ]
+    },
+    {
+      "id": "n-gfr-246",
+      "number": "246",
+      "heading": {
+        "en": "The rules in this Section shall be",
+        "hi": "राज्य सरकारों आदि को लोक धन के ऋण की स्वीकृति संबंधी नियमों का प्रयोज्य क्षेत्र"
+      },
+      "unitIds": [
+        "gfr-246"
+      ]
+    },
+    {
+      "id": "n-gfr-247",
+      "number": "247",
+      "heading": {
+        "en": "Powers and Procedure for sanction",
+        "hi": "ऋणों की स्वीकृति की शक्तियां और प्रक्रिया"
+      },
+      "unitIds": [
+        "gfr-247"
+      ]
+    },
+    {
+      "id": "n-gfr-248",
+      "number": "248",
+      "heading": {
+        "en": "All sanctions of loans issued by a Department of Central Government or an",
+        "hi": "केंद्रीय विभाग या प्रशासक द्वारा जारी ऋण स्वीकृतियां"
+      },
+      "unitIds": [
+        "gfr-248"
+      ]
+    },
+    {
+      "id": "n-gfr-249",
+      "number": "249",
+      "heading": {
+        "en": "All sanctions to loans shall be subject",
+        "hi": "ऋण की सभी स्वीकृतियां वित्तीय शक्ति प्रत्यायोजन नियमों के अधीन"
+      },
+      "unitIds": [
+        "gfr-249"
+      ]
+    },
+    {
+      "id": "n-gfr-250",
+      "number": "250",
+      "heading": {
+        "en": "General conditions for regulating",
+        "hi": "सभी ऋणों को विनियमित करने की सामान्य शर्तें"
+      },
+      "unitIds": [
+        "gfr-250"
+      ]
+    },
+    {
+      "id": "n-gfr-251",
+      "number": "251",
+      "heading": {
+        "en": "Interest on Loans",
+        "hi": "ऋणों पर ब्याज"
+      },
+      "unitIds": [
+        "gfr-251"
+      ]
+    },
+    {
+      "id": "n-gfr-252",
+      "number": "252",
+      "heading": {
+        "en": "Procedure to be followed for recovery of loans and interest thereon",
+        "hi": "ऋणों और उनके ब्याज की वसूली की प्रक्रिया"
+      },
+      "unitIds": [
+        "gfr-252"
+      ]
+    },
+    {
+      "id": "n-gfr-253",
+      "number": "253",
+      "heading": {
+        "en": "Loans to State and Union Territory",
+        "hi": "राज्य और संघ राज्यक्षेत्र सरकारों, स्थानीय निकायों आदि को ऋण"
+      },
+      "unitIds": [
+        "gfr-253"
+      ]
+    },
+    {
+      "id": "n-gfr-254",
+      "number": "254",
+      "heading": {
+        "en": "Undertaking to be obtained from wholly",
+        "hi": "पूर्णतः सरकारी स्वामित्व वाली कंपनियों से लिया जाने वाला वचनबंध"
+      },
+      "unitIds": [
+        "gfr-254"
+      ]
+    },
+    {
+      "id": "n-gfr-256",
+      "number": "256",
+      "heading": {
+        "en": "",
+        "hi": "उपयोगिता प्रमाणपत्र, रिपोर्ट, विवरण आदि प्रस्तुत करना"
+      },
+      "unitIds": [
+        "gfr-256"
+      ],
+      "excerpt": {
+        "en": "Submission of Utilization Certificate, Reports, Statements, etc. In cases in which conditions…",
+        "hi": ""
+      }
+    },
+    {
+      "id": "n-gfr-257",
+      "number": "257",
+      "heading": {
+        "en": "Installments of Loans",
+        "hi": "ऋण की किस्तें"
+      },
+      "unitIds": [
+        "gfr-257"
+      ]
+    },
+    {
+      "id": "n-gfr-258",
+      "number": "258",
+      "heading": {
+        "en": "Defaults in Payment",
+        "hi": "भुगतान में व्यतिक्रम"
+      },
+      "unitIds": [
+        "gfr-258"
+      ]
+    },
+    {
+      "id": "n-gfr-259",
+      "number": "259",
+      "heading": {
+        "en": "Irrecoverable",
+        "hi": "अवसूलनीय ऋण"
+      },
+      "unitIds": [
+        "gfr-259"
+      ]
+    },
+    {
+      "id": "n-gfr-260",
+      "number": "260",
+      "heading": {
+        "en": "Accounts and Control",
+        "hi": "लेखे और नियंत्रण"
+      },
+      "unitIds": [
+        "gfr-260"
+      ]
+    },
+    {
+      "id": "n-gfr-261",
+      "number": "261",
+      "heading": {
+        "en": "The instructions contained in this Chapter",
+        "hi": "सहायता अनुदान की लेखा परीक्षा लागत संबंधी अनुदेशों का ऋणों पर प्रयोग"
+      },
+      "unitIds": [
+        "gfr-261"
+      ]
+    },
+    {
+      "id": "n-gfr-262",
+      "number": "262",
+      "heading": {
+        "en": "Annual Returns",
+        "hi": "वार्षिक विवरणियां"
+      },
+      "unitIds": [
+        "gfr-262"
+      ]
+    },
+    {
+      "id": "n-gfr-263",
+      "number": "263",
+      "heading": {
+        "en": "Review of Annual Statements with a view to enforce repayments of the",
+        "hi": "मूलधन और ब्याज की वसूली हेतु वार्षिक विवरणों की समीक्षा"
+      },
+      "unitIds": [
+        "gfr-263"
+      ]
+    },
+    {
+      "id": "n-gfr-264",
+      "number": "264",
+      "heading": {
+        "en": "Implementation of Projects or Schemes through external aid receipt",
+        "hi": "बाह्य सहायता प्राप्ति से परियोजनाओं या योजनाओं का कार्यान्वयन"
+      },
+      "unitIds": [
+        "gfr-264"
+      ]
+    },
+    {
+      "id": "n-gfr-265",
+      "number": "265",
+      "heading": {
+        "en": "Currency of external aid",
+        "hi": "बाह्य सहायता की मुद्रा"
+      },
+      "unitIds": [
+        "gfr-265"
+      ]
+    },
+    {
+      "id": "n-gfr-266",
+      "number": "266",
+      "heading": {
+        "en": "Accounting of Cash grants",
+        "hi": "नकद अनुदानों का लेखांकन"
+      },
+      "unitIds": [
+        "gfr-266"
+      ]
+    },
+    {
+      "id": "n-gfr-267",
+      "number": "267",
+      "heading": {
+        "en": "Procedure",
+        "hi": "आहरण की प्रक्रिया"
+      },
+      "unitIds": [
+        "gfr-267"
+      ]
+    },
+    {
+      "id": "n-gfr-268",
+      "number": "268",
+      "heading": {
+        "en": "Fund Flow for State Projects",
+        "hi": "राज्य परियोजनाओं हेतु निधि प्रवाह"
+      },
+      "unitIds": [
+        "gfr-268"
+      ]
+    },
+    {
+      "id": "n-gfr-269",
+      "number": "269",
+      "heading": {
+        "en": "Fund flow for Central or Central",
+        "hi": "केंद्रीय या केंद्र प्रायोजित परियोजनाओं हेतु निधि प्रवाह"
+      },
+      "unitIds": [
+        "gfr-269"
+      ]
+    },
+    {
+      "id": "n-gfr-270",
+      "number": "270",
+      "heading": {
+        "en": "Fund flow for Public Sector or Financial Institutions",
+        "hi": "लोक क्षेत्र या वित्तीय संस्थाओं हेतु निधि प्रवाह"
+      },
+      "unitIds": [
+        "gfr-270"
+      ]
+    },
+    {
+      "id": "n-gfr-271",
+      "number": "271",
+      "heading": {
+        "en": "Repayment of loans",
+        "hi": "ऋणों का पुनर्भुगतान"
+      },
+      "unitIds": [
+        "gfr-271"
+      ]
+    },
+    {
+      "id": "n-gfr-272",
+      "number": "272",
+      "heading": {
+        "en": "Interest Payments",
+        "hi": "ब्याज भुगतान"
+      },
+      "unitIds": [
+        "gfr-272"
+      ]
+    },
+    {
+      "id": "n-gfr-273",
+      "number": "273",
+      "heading": {
+        "en": "Accounting of exchange variation",
+        "hi": "विनिमय भिन्नता का लेखांकन"
+      },
+      "unitIds": [
+        "gfr-273"
+      ]
+    },
+    {
+      "id": "n-gfr-274",
+      "number": "274",
+      "heading": {
+        "en": "Aid",
+        "hi": "सामग्री और उपस्करण के रूप में सहायता"
+      },
+      "unitIds": [
+        "gfr-274"
+      ]
+    },
+    {
+      "id": "n-gfr-275",
+      "number": "275",
+      "heading": {
+        "en": "Power to Give and Limits on Government Guarantees",
+        "hi": "सरकारी गारंटी देने की शक्ति और सीमाएं"
+      },
+      "unitIds": [
+        "gfr-275"
+      ]
+    },
+    {
+      "id": "n-gfr-276",
+      "number": "276",
+      "heading": {
+        "en": "Objectives",
+        "hi": "सरकारी गारंटी के उद्देश्य"
+      },
+      "unitIds": [
+        "gfr-276"
+      ]
+    },
+    {
+      "id": "n-gfr-277",
+      "number": "277",
+      "heading": {
+        "en": "Guidelines for grant of Government of India",
+        "hi": "भारत सरकार गारंटी प्रदान करने हेतु दिशानिर्देश"
+      },
+      "unitIds": [
+        "gfr-277"
+      ]
+    },
+    {
+      "id": "n-gfr-278",
+      "number": "278",
+      "heading": {
+        "en": "Borrowings from multilateral agencies",
+        "hi": "केंद्रीय लोक क्षेत्र उपक्रमों द्वारा बहुपक्षीय अभिकरणों से उधार"
+      },
+      "unitIds": [
+        "gfr-278"
+      ]
+    },
+    {
+      "id": "n-gfr-279",
+      "number": "279",
+      "heading": {
+        "en": "Levy of Guarantee Fees",
+        "hi": "गारंटी शुल्क का उद्ग्रहण"
+      },
+      "unitIds": [
+        "gfr-279"
+      ]
+    },
+    {
+      "id": "n-gfr-280",
+      "number": "280",
+      "heading": {
+        "en": "Execution of Government Guarantees",
+        "hi": "सरकारी गारंटी का निष्पादन"
+      },
+      "unitIds": [
+        "gfr-280"
+      ]
+    },
+    {
+      "id": "n-gfr-281",
+      "number": "281",
+      "heading": {
+        "en": "Review of Guarantees",
+        "hi": "गारंटियों की समीक्षा"
+      },
+      "unitIds": [
+        "gfr-281"
+      ]
+    },
+    {
+      "id": "n-gfr-282",
+      "number": "282",
+      "heading": {
+        "en": "Accounting for Guarantees",
+        "hi": "गारंटियों का लेखांकन"
+      },
+      "unitIds": [
+        "gfr-282"
+      ]
+    },
+    {
+      "id": "n-gfr-284",
+      "number": "284",
+      "heading": {
+        "en": "",
+        "hi": "स्थापन में वृद्धि हेतु प्रस्ताव"
+      },
+      "unitIds": [
+        "gfr-284"
+      ],
+      "excerpt": {
+        "en": "Proposal for additions to Establishment. All proposals for additions to establishment shall be…",
+        "hi": ""
+      }
+    },
+    {
+      "id": "n-gfr-285",
+      "number": "285",
+      "heading": {
+        "en": "",
+        "hi": "सेवा से संबंधित सभी विषयों का डिजिटीकृत अभिलेखन"
+      },
+      "unitIds": [
+        "gfr-285"
+      ],
+      "excerpt": {
+        "en": "All service matters from entry to exit, including leave, transfer, promotion, performance…",
+        "hi": ""
+      }
+    },
+    {
+      "id": "n-gfr-286",
+      "number": "286",
+      "heading": {
+        "en": "Transfer of Charge",
+        "hi": "प्रभार का हस्तांतरण"
+      },
+      "unitIds": [
+        "gfr-286"
+      ]
+    },
+    {
+      "id": "n-gfr-287",
+      "number": "287",
+      "heading": {
+        "en": "Date of Birth",
+        "hi": "जन्म तिथि"
+      },
+      "unitIds": [
+        "gfr-287"
+      ]
+    },
+    {
+      "id": "n-gfr-288",
+      "number": "288",
+      "heading": {
+        "en": "Service Book",
+        "hi": "सेवा पुस्तिका"
+      },
+      "unitIds": [
+        "gfr-288"
+      ]
+    },
+    {
+      "id": "n-gfr-289",
+      "number": "289",
+      "heading": {
+        "en": "Retrospective claim due from date of sanction",
+        "hi": "स्वीकृति की तिथि से प्रतिपूर्वप्रभावी दावा शोध्य होना"
+      },
+      "unitIds": [
+        "gfr-289"
+      ]
+    },
+    {
+      "id": "n-gfr-290",
+      "number": "290",
+      "heading": {
+        "en": "Due date of T",
+        "hi": "यात्रा भत्ता दावे की शोध्य तिथि"
+      },
+      "unitIds": [
+        "gfr-290"
+      ]
+    },
+    {
+      "id": "n-gfr-291",
+      "number": "291",
+      "heading": {
+        "en": "Reckoning the date in case of T",
+        "hi": "न्यायालय में उपस्थिति हेतु यात्रा भत्ता दावों की तिथि की गणना"
+      },
+      "unitIds": [
+        "gfr-291"
+      ]
+    },
+    {
+      "id": "n-gfr-292",
+      "number": "292",
+      "heading": {
+        "en": "Due date of Leave Travel Concession",
+        "hi": "अवकाश यात्रा रियायत दावे की शोध्य तिथि"
+      },
+      "unitIds": [
+        "gfr-292"
+      ]
+    },
+    {
+      "id": "n-gfr-293",
+      "number": "293",
+      "heading": {
+        "en": "Due date of Over Time Allowance",
+        "hi": "अधिसमय भत्ता दावे की शोध्य तिथि"
+      },
+      "unitIds": [
+        "gfr-293"
+      ]
+    },
+    {
+      "id": "n-gfr-294",
+      "number": "294",
+      "heading": {
+        "en": "Due date of a withheld increment",
+        "hi": "रोके गए वेतन-वृद्धि की शोध्य तिथि"
+      },
+      "unitIds": [
+        "gfr-294"
+      ]
+    },
+    {
+      "id": "n-gfr-295",
+      "number": "295",
+      "heading": {
+        "en": "Arrear Claims",
+        "hi": "बकाया दावे"
+      },
+      "unitIds": [
+        "gfr-295"
+      ]
+    },
+    {
+      "id": "n-gfr-296",
+      "number": "296",
+      "heading": {
+        "en": "Procedure for dealing with time",
+        "hi": "कालातीत दावों से निपटने की प्रक्रिया"
+      },
+      "unitIds": [
+        "gfr-296"
+      ]
+    },
+    {
+      "id": "n-gfr-297",
+      "number": "297",
+      "heading": {
+        "en": "Time barred claims of persons not in Government service",
+        "hi": "सरकारी सेवा में न रहने वाले व्यक्तियों के कालातीत दावे"
+      },
+      "unitIds": [
+        "gfr-297"
+      ]
+    },
+    {
+      "id": "n-gfr-298",
+      "number": "298",
+      "heading": {
+        "en": "Retrospective",
+        "hi": "प्रतिपूर्वप्रभावी स्वीकृतियां"
+      },
+      "unitIds": [
+        "gfr-298"
+      ]
+    },
+    {
+      "id": "n-gfr-299",
+      "number": "299",
+      "heading": {
+        "en": "Currency of sanction of Provident",
+        "hi": "भविष्य निधि अग्रिम/आहरण की स्वीकृति की अवधि"
+      },
+      "unitIds": [
+        "gfr-299"
+      ]
+    },
+    {
+      "id": "n-gfr-300",
+      "number": "300",
+      "heading": {
+        "en": "Sanctions of refunds of revenue",
+        "hi": "राजस्व की वापसी की स्वीकृतियां"
+      },
+      "unitIds": [
+        "gfr-300"
+      ]
+    },
+    {
+      "id": "n-gfr-301",
+      "number": "301",
+      "heading": {
+        "en": "",
+        "hi": "वापसी स्वीकृतियों का लेखा परीक्षा को संसूचन"
+      },
+      "unitIds": [
+        "gfr-301"
+      ],
+      "excerpt": {
+        "en": "Communication of refund sanctions to audit. The sanction to a refund of revenue may either be…",
+        "hi": ""
+      }
+    },
+    {
+      "id": "n-gfr-302",
+      "number": "302",
+      "heading": {
+        "en": "Compensation for accidental loss of property",
+        "hi": "संपत्ति की आकस्मिक हानि हेतु प्रतिकर"
+      },
+      "unitIds": [
+        "gfr-302"
+      ]
+    },
+    {
+      "id": "n-gfr-303",
+      "number": "303",
+      "heading": {
+        "en": "Public Debt",
+        "hi": "लोक ऋण"
+      },
+      "unitIds": [
+        "gfr-303"
+      ]
+    },
+    {
+      "id": "n-gfr-304",
+      "number": "304",
+      "heading": {
+        "en": "Provident Funds",
+        "hi": "भविष्य निधियां"
+      },
+      "unitIds": [
+        "gfr-304"
+      ]
+    },
+    {
+      "id": "n-gfr-305",
+      "number": "305",
+      "heading": {
+        "en": "Maintenance of a register for recovery of Postal Life Insurance",
+        "hi": "डाक जीवन बीमा प्रीमियम की वसूली हेतु रजिस्टर का रखरखाव"
+      },
+      "unitIds": [
+        "gfr-305"
+      ]
+    },
+    {
+      "id": "n-gfr-306",
+      "number": "306",
+      "heading": {
+        "en": "",
+        "hi": "नकदी संभालने वाले सरकारी सेवकों द्वारा प्रतिभूति प्रस्तुत करना"
+      },
+      "unitIds": [
+        "gfr-306"
+      ],
+      "excerpt": {
+        "en": "Furnishing of security by Government servants handling cash. Subject to any general or special…",
+        "hi": ""
+      }
+    },
+    {
+      "id": "n-gfr-307",
+      "number": "307",
+      "heading": {
+        "en": "Notwithstanding anything contained in Rule 306, security need not be furnished",
+        "hi": "नियम 306 के होते हुए भी प्रतिभूति न देने के अपवाद"
+      },
+      "unitIds": [
+        "gfr-307"
+      ]
+    },
+    {
+      "id": "n-gfr-308",
+      "number": "308",
+      "heading": {
+        "en": "Retention of Security",
+        "hi": "प्रतिभूति का प्रतिधारण"
+      },
+      "unitIds": [
+        "gfr-308"
+      ]
+    },
+    {
+      "id": "n-gfr-309",
+      "number": "309",
+      "heading": {
+        "en": "Save as otherwise provided in any law, rule or order relating to the transfer of",
+        "hi": "सरकारी भूमि के विक्रय हेतु पूर्व स्वीकृति"
+      },
+      "unitIds": [
+        "gfr-309"
+      ]
+    },
+    {
+      "id": "n-gfr-310",
+      "number": "310",
+      "heading": {
+        "en": "Transfer of Land",
+        "hi": "भूमि का हस्तांतरण"
+      },
+      "unitIds": [
+        "gfr-310"
+      ]
+    },
+    {
+      "id": "n-gfr-311",
+      "number": "311",
+      "heading": {
+        "en": "Detailed",
+        "hi": "पूर्त न्यास और धर्मादा बंदोबस्तों संबंधी विस्तृत अनुदेश"
+      },
+      "unitIds": [
+        "gfr-311"
+      ]
+    },
+    {
+      "id": "n-gfr-312",
+      "number": "312",
+      "heading": {
+        "en": "Financial arrangements between",
+        "hi": "केंद्रीय सरकार और स्थानीय निकायों के बीच वित्तीय व्यवस्थाएं"
+      },
+      "unitIds": [
+        "gfr-312"
+      ]
+    },
+    {
+      "id": "n-gfr-314",
+      "number": "314",
+      "heading": {
+        "en": "Taxes etc. collected by Government",
+        "hi": "स्थानीय निकायों की ओर से सरकार द्वारा संगृहीत कर आदि"
+      },
+      "unitIds": [
+        "gfr-314"
+      ]
+    },
+    {
+      "id": "n-gfr-315",
+      "number": "315",
+      "heading": {
+        "en": "Payments to Local Bodies",
+        "hi": "स्थानीय निकायों को भुगतान"
+      },
+      "unitIds": [
+        "gfr-315"
+      ]
+    },
+    {
+      "id": "n-gfr-316",
+      "number": "316",
+      "heading": {
+        "en": "Audit of Account of Local Bodies",
+        "hi": "स्थानीय निकायों के लेखों की लेखा परीक्षा"
+      },
+      "unitIds": [
+        "gfr-316"
+      ]
+    },
+    {
+      "id": "n-gfr-317",
+      "number": "317",
+      "heading": {
+        "en": "Audit Fees",
+        "hi": "लेखा परीक्षा शुल्क"
+      },
+      "unitIds": [
+        "gfr-317"
+      ]
+    },
+    {
+      "id": "n-gfr-318",
+      "number": "318",
+      "heading": {
+        "en": "In the case of Government Companies, the recovery of the cost of Supplementary",
+        "hi": "सरकारी कंपनियों में अनुपूरक लेखा परीक्षा की लागत की वसूली"
+      },
+      "unitIds": [
+        "gfr-318"
+      ]
+    },
+    {
+      "id": "n-gfr-319",
+      "number": "319",
+      "heading": {
+        "en": "Financial",
+        "hi": "सरकार और स्थानीय निकायों के बीच वित्तीय संव्यवहारों का निकटतम रुपये में पूर्णांकन"
+      },
+      "unitIds": [
+        "gfr-319"
+      ]
+    },
+    {
+      "id": "n-gfr-320",
+      "number": "320",
+      "heading": {
+        "en": "All the records prescribed for retention",
+        "hi": "अभिलेखों का विनाश और विद्युतीय रूप में रखरखाव"
+      },
+      "unitIds": [
+        "gfr-320"
+      ]
+    },
+    {
+      "id": "n-gfr-321",
+      "number": "321",
+      "heading": {
+        "en": "Rules relating to incurring contingent",
+        "hi": "आकस्मिक व्यय वहन संबंधी नियम"
+      },
+      "unitIds": [
+        "gfr-321"
+      ]
+    },
+    {
+      "id": "n-gfr-322",
+      "number": "322",
+      "heading": {
+        "en": "Permanent",
+        "hi": "स्थायी अग्रिम या इम्प्रेस्ट"
+      },
+      "unitIds": [
+        "gfr-322"
+      ]
+    },
+    {
+      "id": "n-gfr-323",
+      "number": "323",
+      "heading": {
+        "en": "Advances for Contingent and Miscellaneous purpose",
+        "hi": "आकस्मिक और प्रकीर्ण प्रयोजनों हेतु अग्रिम"
+      },
+      "unitIds": [
+        "gfr-323"
+      ]
+    },
+    {
+      "id": "n-gfr-324",
+      "number": "324",
+      "heading": {
+        "en": "The Ministry or Department may sanction",
+        "hi": "विधि सूट में सरकारी अधिवक्ता को अग्रिम की स्वीकृति"
+      },
+      "unitIds": [
+        "gfr-324"
+      ]
+    }
+  ],
+  "readingOrder": [
+    "gfr-1",
+    "gfr-2",
+    "gfr-3",
+    "gfr-4",
+    "gfr-5",
+    "gfr-6",
+    "gfr-7",
+    "gfr-8",
+    "gfr-9",
+    "gfr-10",
+    "gfr-11",
+    "gfr-12",
+    "gfr-13",
+    "gfr-14",
+    "gfr-15",
+    "gfr-16",
+    "gfr-17",
+    "gfr-18",
+    "gfr-19",
+    "gfr-21",
+    "gfr-22",
+    "gfr-23",
+    "gfr-24",
+    "gfr-25",
+    "gfr-26",
+    "gfr-27",
+    "gfr-28",
+    "gfr-29",
+    "gfr-30",
+    "gfr-31",
+    "gfr-33",
+    "gfr-34",
+    "gfr-35",
+    "gfr-36",
+    "gfr-37",
+    "gfr-38",
+    "gfr-39",
+    "gfr-40",
+    "gfr-41",
+    "gfr-42",
+    "gfr-43",
+    "gfr-45",
+    "gfr-47",
+    "gfr-48",
+    "gfr-49",
+    "gfr-50",
+    "gfr-51",
+    "gfr-52",
+    "gfr-53",
+    "gfr-54",
+    "gfr-55",
+    "gfr-56",
+    "gfr-57",
+    "gfr-58",
+    "gfr-59",
+    "gfr-60",
+    "gfr-61",
+    "gfr-62",
+    "gfr-63",
+    "gfr-64",
+    "gfr-65",
+    "gfr-66",
+    "gfr-67",
+    "gfr-68",
+    "gfr-69",
+    "gfr-70",
+    "gfr-71",
+    "gfr-72",
+    "gfr-73",
+    "gfr-76",
+    "gfr-77",
+    "gfr-78",
+    "gfr-79",
+    "gfr-80",
+    "gfr-81",
+    "gfr-82",
+    "gfr-83",
+    "gfr-84",
+    "gfr-85",
+    "gfr-86",
+    "gfr-87",
+    "gfr-88",
+    "gfr-89",
+    "gfr-91",
+    "gfr-92",
+    "gfr-94",
+    "gfr-95",
+    "gfr-96",
+    "gfr-97",
+    "gfr-98",
+    "gfr-100",
+    "gfr-101",
+    "gfr-102",
+    "gfr-103",
+    "gfr-104",
+    "gfr-105",
+    "gfr-106",
+    "gfr-107",
+    "gfr-108",
+    "gfr-109",
+    "gfr-111",
+    "gfr-112",
+    "gfr-113",
+    "gfr-114",
+    "gfr-115",
+    "gfr-116",
+    "gfr-117",
+    "gfr-118",
+    "gfr-119",
+    "gfr-120",
+    "gfr-121",
+    "gfr-122",
+    "gfr-123",
+    "gfr-124",
+    "gfr-125",
+    "gfr-126",
+    "gfr-127",
+    "gfr-128",
+    "gfr-129",
+    "gfr-130",
+    "gfr-131",
+    "gfr-132",
+    "gfr-133",
+    "gfr-134",
+    "gfr-135",
+    "gfr-136",
+    "gfr-137",
+    "gfr-138",
+    "gfr-139",
+    "gfr-140",
+    "gfr-141",
+    "gfr-142",
+    "gfr-143",
+    "gfr-144",
+    "gfr-145",
+    "gfr-146",
+    "gfr-147",
+    "gfr-148",
+    "gfr-149",
+    "gfr-150",
+    "gfr-151",
+    "gfr-152",
+    "gfr-154",
+    "gfr-155",
+    "gfr-156",
+    "gfr-157",
+    "gfr-158",
+    "gfr-159",
+    "gfr-160",
+    "gfr-161",
+    "gfr-162",
+    "gfr-163",
+    "gfr-164",
+    "gfr-165",
+    "gfr-166",
+    "gfr-167",
+    "gfr-168",
+    "gfr-169",
+    "gfr-170",
+    "gfr-171",
+    "gfr-172",
+    "gfr-175",
+    "gfr-176",
+    "gfr-177",
+    "gfr-178",
+    "gfr-179",
+    "gfr-180",
+    "gfr-181",
+    "gfr-182",
+    "gfr-183",
+    "gfr-184",
+    "gfr-185",
+    "gfr-186",
+    "gfr-187",
+    "gfr-188",
+    "gfr-189",
+    "gfr-190",
+    "gfr-191",
+    "gfr-192",
+    "gfr-193",
+    "gfr-195",
+    "gfr-196",
+    "gfr-197",
+    "gfr-198",
+    "gfr-199",
+    "gfr-200",
+    "gfr-201",
+    "gfr-202",
+    "gfr-203",
+    "gfr-204",
+    "gfr-205",
+    "gfr-206",
+    "gfr-207",
+    "gfr-208",
+    "gfr-209",
+    "gfr-210",
+    "gfr-211",
+    "gfr-212",
+    "gfr-213",
+    "gfr-214",
+    "gfr-215",
+    "gfr-216",
+    "gfr-217",
+    "gfr-218",
+    "gfr-219",
+    "gfr-220",
+    "gfr-221",
+    "gfr-222",
+    "gfr-223",
+    "gfr-224",
+    "gfr-225",
+    "gfr-226",
+    "gfr-227",
+    "gfr-228",
+    "gfr-229",
+    "gfr-230",
+    "gfr-231",
+    "gfr-232",
+    "gfr-233",
+    "gfr-234",
+    "gfr-235",
+    "gfr-236",
+    "gfr-237",
+    "gfr-238",
+    "gfr-239",
+    "gfr-240",
+    "gfr-241",
+    "gfr-242",
+    "gfr-243",
+    "gfr-244",
+    "gfr-245",
+    "gfr-246",
+    "gfr-247",
+    "gfr-248",
+    "gfr-249",
+    "gfr-250",
+    "gfr-251",
+    "gfr-252",
+    "gfr-253",
+    "gfr-254",
+    "gfr-256",
+    "gfr-257",
+    "gfr-258",
+    "gfr-259",
+    "gfr-260",
+    "gfr-261",
+    "gfr-262",
+    "gfr-263",
+    "gfr-264",
+    "gfr-265",
+    "gfr-266",
+    "gfr-267",
+    "gfr-268",
+    "gfr-269",
+    "gfr-270",
+    "gfr-271",
+    "gfr-272",
+    "gfr-273",
+    "gfr-274",
+    "gfr-275",
+    "gfr-276",
+    "gfr-277",
+    "gfr-278",
+    "gfr-279",
+    "gfr-280",
+    "gfr-281",
+    "gfr-282",
+    "gfr-284",
+    "gfr-285",
+    "gfr-286",
+    "gfr-287",
+    "gfr-288",
+    "gfr-289",
+    "gfr-290",
+    "gfr-291",
+    "gfr-292",
+    "gfr-293",
+    "gfr-294",
+    "gfr-295",
+    "gfr-296",
+    "gfr-297",
+    "gfr-298",
+    "gfr-299",
+    "gfr-300",
+    "gfr-301",
+    "gfr-302",
+    "gfr-303",
+    "gfr-304",
+    "gfr-305",
+    "gfr-306",
+    "gfr-307",
+    "gfr-308",
+    "gfr-309",
+    "gfr-310",
+    "gfr-311",
+    "gfr-312",
+    "gfr-314",
+    "gfr-315",
+    "gfr-316",
+    "gfr-317",
+    "gfr-318",
+    "gfr-319",
+    "gfr-320",
+    "gfr-321",
+    "gfr-322",
+    "gfr-323",
+    "gfr-324"
+  ],
+  "estimatedMinutes": 567,
+  "practiseCounts": {
+    "gfr-1": 2,
+    "gfr-10": 2,
+    "gfr-100": 1,
+    "gfr-102": 1,
+    "gfr-103": 1,
+    "gfr-104": 1,
+    "gfr-105": 1,
+    "gfr-106": 1,
+    "gfr-107": 1,
+    "gfr-109": 1,
+    "gfr-111": 2,
+    "gfr-112": 1,
+    "gfr-113": 1,
+    "gfr-114": 2,
+    "gfr-115": 4,
+    "gfr-116": 3,
+    "gfr-117": 1,
+    "gfr-12": 1,
+    "gfr-121": 1,
+    "gfr-122": 1,
+    "gfr-123": 1,
+    "gfr-124": 1,
+    "gfr-125": 1,
+    "gfr-128": 1,
+    "gfr-129": 1,
+    "gfr-13": 1,
+    "gfr-130": 1,
+    "gfr-132": 1,
+    "gfr-133": 3,
+    "gfr-134": 1,
+    "gfr-135": 1,
+    "gfr-136": 1,
+    "gfr-137": 1,
+    "gfr-138": 1,
+    "gfr-140": 2,
+    "gfr-141": 3,
+    "gfr-142": 1,
+    "gfr-144": 2,
+    "gfr-145": 2,
+    "gfr-146": 1,
+    "gfr-147": 2,
+    "gfr-149": 5,
+    "gfr-15": 1,
+    "gfr-150": 3,
+    "gfr-151": 4,
+    "gfr-152": 2,
+    "gfr-154": 3,
+    "gfr-155": 1,
+    "gfr-157": 1,
+    "gfr-158": 1,
+    "gfr-159": 2,
+    "gfr-16": 1,
+    "gfr-160": 1,
+    "gfr-161": 3,
+    "gfr-162": 5,
+    "gfr-163": 2,
+    "gfr-164": 2,
+    "gfr-165": 1,
+    "gfr-166": 2,
+    "gfr-167": 2,
+    "gfr-168": 1,
+    "gfr-169": 1,
+    "gfr-170": 4,
+    "gfr-171": 4,
+    "gfr-172": 2,
+    "gfr-175": 2,
+    "gfr-176": 1,
+    "gfr-177": 1,
+    "gfr-178": 1,
+    "gfr-179": 1,
+    "gfr-18": 1,
+    "gfr-180": 1,
+    "gfr-182": 1,
+    "gfr-183": 2,
+    "gfr-184": 2,
+    "gfr-186": 1,
+    "gfr-189": 1,
+    "gfr-190": 2,
+    "gfr-191": 2,
+    "gfr-192": 2,
+    "gfr-193": 1,
+    "gfr-196": 1,
+    "gfr-197": 1,
+    "gfr-199": 1,
+    "gfr-2": 1,
+    "gfr-201": 2,
+    "gfr-203": 1,
+    "gfr-206": 1,
+    "gfr-207": 2,
+    "gfr-208": 1,
+    "gfr-209": 1,
+    "gfr-21": 3,
+    "gfr-210": 1,
+    "gfr-211": 1,
+    "gfr-212": 1,
+    "gfr-213": 3,
+    "gfr-214": 2,
+    "gfr-215": 3,
+    "gfr-216": 1,
+    "gfr-217": 3,
+    "gfr-218": 3,
+    "gfr-219": 1,
+    "gfr-22": 1,
+    "gfr-220": 1,
+    "gfr-221": 1,
+    "gfr-222": 1,
+    "gfr-223": 3,
+    "gfr-224": 2,
+    "gfr-225": 4,
+    "gfr-226": 2,
+    "gfr-227": 1,
+    "gfr-228": 2,
+    "gfr-229": 3,
+    "gfr-23": 2,
+    "gfr-230": 3,
+    "gfr-231": 1,
+    "gfr-233": 2,
+    "gfr-234": 2,
+    "gfr-235": 1,
+    "gfr-236": 2,
+    "gfr-237": 2,
+    "gfr-238": 3,
+    "gfr-24": 2,
+    "gfr-241": 1,
+    "gfr-242": 1,
+    "gfr-243": 1,
+    "gfr-244": 1,
+    "gfr-245": 3,
+    "gfr-246": 1,
+    "gfr-248": 1,
+    "gfr-249": 1,
+    "gfr-25": 2,
+    "gfr-250": 2,
+    "gfr-251": 1,
+    "gfr-253": 1,
+    "gfr-254": 1,
+    "gfr-256": 2,
+    "gfr-257": 1,
+    "gfr-258": 1,
+    "gfr-259": 1,
+    "gfr-26": 1,
+    "gfr-261": 1,
+    "gfr-262": 1,
+    "gfr-263": 1,
+    "gfr-264": 1,
+    "gfr-265": 1,
+    "gfr-266": 1,
+    "gfr-267": 1,
+    "gfr-268": 2,
+    "gfr-269": 3,
+    "gfr-27": 2,
+    "gfr-270": 2,
+    "gfr-271": 1,
+    "gfr-272": 2,
+    "gfr-273": 1,
+    "gfr-274": 1,
+    "gfr-275": 2,
+    "gfr-276": 1,
+    "gfr-277": 2,
+    "gfr-278": 1,
+    "gfr-279": 2,
+    "gfr-28": 1,
+    "gfr-280": 1,
+    "gfr-281": 1,
+    "gfr-282": 2,
+    "gfr-284": 1,
+    "gfr-285": 1,
+    "gfr-286": 1,
+    "gfr-287": 1,
+    "gfr-288": 2,
+    "gfr-29": 1,
+    "gfr-290": 2,
+    "gfr-291": 1,
+    "gfr-292": 2,
+    "gfr-293": 2,
+    "gfr-294": 2,
+    "gfr-295": 1,
+    "gfr-297": 2,
+    "gfr-299": 2,
+    "gfr-30": 3,
+    "gfr-300": 1,
+    "gfr-301": 2,
+    "gfr-302": 1,
+    "gfr-303": 1,
+    "gfr-304": 1,
+    "gfr-305": 1,
+    "gfr-306": 2,
+    "gfr-307": 2,
+    "gfr-308": 1,
+    "gfr-309": 1,
+    "gfr-31": 1,
+    "gfr-310": 1,
+    "gfr-312": 1,
+    "gfr-314": 1,
+    "gfr-315": 1,
+    "gfr-316": 2,
+    "gfr-317": 1,
+    "gfr-318": 1,
+    "gfr-320": 1,
+    "gfr-321": 1,
+    "gfr-322": 1,
+    "gfr-323": 1,
+    "gfr-324": 2,
+    "gfr-33": 3,
+    "gfr-34": 3,
+    "gfr-35": 2,
+    "gfr-37": 1,
+    "gfr-38": 2,
+    "gfr-39": 2,
+    "gfr-4": 1,
+    "gfr-40": 1,
+    "gfr-41": 1,
+    "gfr-42": 1,
+    "gfr-43": 1,
+    "gfr-45": 1,
+    "gfr-47": 2,
+    "gfr-48": 1,
+    "gfr-49": 1,
+    "gfr-5": 1,
+    "gfr-50": 2,
+    "gfr-51": 1,
+    "gfr-53": 2,
+    "gfr-54": 1,
+    "gfr-55": 1,
+    "gfr-56": 1,
+    "gfr-57": 2,
+    "gfr-59": 3,
+    "gfr-6": 1,
+    "gfr-61": 2,
+    "gfr-62": 3,
+    "gfr-63": 3,
+    "gfr-64": 1,
+    "gfr-65": 2,
+    "gfr-66": 2,
+    "gfr-67": 3,
+    "gfr-68": 2,
+    "gfr-69": 1,
+    "gfr-7": 2,
+    "gfr-70": 2,
+    "gfr-71": 1,
+    "gfr-72": 2,
+    "gfr-73": 1,
+    "gfr-76": 1,
+    "gfr-77": 3,
+    "gfr-78": 1,
+    "gfr-79": 2,
+    "gfr-8": 2,
+    "gfr-80": 1,
+    "gfr-83": 3,
+    "gfr-85": 2,
+    "gfr-86": 2,
+    "gfr-87": 2,
+    "gfr-88": 1,
+    "gfr-89": 2,
+    "gfr-9": 2,
+    "gfr-92": 1,
+    "gfr-94": 1,
+    "gfr-96": 1,
+    "gfr-97": 2,
+    "gfr-98": 1
+  },
+  "examTags": [
+    "procurement",
+    "finance",
+    "departmental-exam"
+  ],
+  "officialUrl": "https://doe.gov.in/files/circulars_document/GFRupdatedupto31012026.pdf",
+  "source": {
+    "name": "Department of Expenditure, Ministry of Finance — General Financial Rules 2017 — updated up to 31 January 2026",
+    "url": "https://doe.gov.in/files/circulars_document/GFRupdatedupto31012026.pdf"
+  },
+  "disclaimer": {
+    "en": "Reference only; verify with the official gazette/order or your DDO.",
+    "hi": "केवल संदर्भ के लिए; आधिकारिक राजपत्र/आदेश अथवा अपने डीडीओ से सत्यापित करें।"
+  },
+  "verify": true
+}

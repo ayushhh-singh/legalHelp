@@ -1,0 +1,220 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://sahayak.local/schemas/library-work.schema.json",
+  "title": "One readable work in the Library",
+  "description": "Reading structure over a corpus this repository already ships. A work file carries NO statutory text: `corpus` is a pointer into data/rules/text/*.json or data/law/*.json, and `toc`/`readingOrder` name unit ids inside it. Written by scripts/ingest/library_seed.py; the runtime half is src/schemas/library.ts.",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "version",
+    "generatedAt",
+    "id",
+    "title",
+    "shortTitle",
+    "category",
+    "description",
+    "corpus",
+    "unitLabel",
+    "publisher",
+    "tocSource",
+    "toc",
+    "readingOrder",
+    "estimatedMinutes",
+    "practiseCounts",
+    "examTags",
+    "officialUrl",
+    "source",
+    "disclaimer"
+  ],
+  "properties": {
+    "$schema": {
+      "type": "string"
+    },
+    "version": {
+      "type": "string",
+      "pattern": "^\\d+\\.\\d+\\.\\d+$"
+    },
+    "generatedAt": {
+      "type": "string",
+      "pattern": "^\\d{4}-\\d{2}-\\d{2}$"
+    },
+    "id": {
+      "type": "string",
+      "pattern": "^[a-z0-9-]+$"
+    },
+    "title": {
+      "$ref": "#/$defs/bilingual"
+    },
+    "shortTitle": {
+      "$ref": "#/$defs/bilingual"
+    },
+    "year": {
+      "type": "integer",
+      "minimum": 1800,
+      "maximum": 2100
+    },
+    "category": {
+      "type": "string",
+      "enum": [
+        "criminal-law",
+        "service-rules",
+        "office-procedure",
+        "transparency",
+        "official-language",
+        "security",
+        "workplace",
+        "finance",
+        "other"
+      ]
+    },
+    "description": {
+      "$ref": "#/$defs/bilingual"
+    },
+    "corpus": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["kind", "file"],
+      "description": "A POINTER to the dataset that owns the text. Never a copy of it.",
+      "properties": {
+        "kind": {
+          "type": "string",
+          "enum": ["rules", "law"]
+        },
+        "file": {
+          "type": "string",
+          "pattern": "^(rules/text|law)/[a-z0-9-]+\\.json$"
+        }
+      }
+    },
+    "unitLabel": {
+      "$ref": "#/$defs/bilingual",
+      "description": "What one unit is called here — Rule, Section or Paragraph."
+    },
+    "publisher": {
+      "type": "string",
+      "minLength": 1
+    },
+    "tocSource": {
+      "type": "string",
+      "enum": ["chapters", "numbering", "flat"],
+      "description": "Where the table of contents came from. `chapters` — the corpus records a chapter per unit. `numbering` — the unit numbers themselves carry the division (CSMOP's `4.7`). `flat` — the corpus holds no division at all, so there is one node per unit and NOTHING was invented (docs/DATA-GAPS.md #70)."
+    },
+    "toc": {
+      "type": "array",
+      "minItems": 1,
+      "items": {
+        "$ref": "#/$defs/tocNode"
+      }
+    },
+    "readingOrder": {
+      "type": "array",
+      "minItems": 1,
+      "items": {
+        "type": "string",
+        "minLength": 1
+      },
+      "description": "Every unit id in the pointed-at corpus, in document order."
+    },
+    "estimatedMinutes": {
+      "type": "integer",
+      "minimum": 1
+    },
+    "examTags": {
+      "type": "array",
+      "minItems": 1,
+      "items": {
+        "type": "string",
+        "pattern": "^[a-z0-9-]+$"
+      },
+      "description": "This project's own navigation labels. Every one must have a bilingual label in src/lib/library/tags.ts, which tests/library-data.test.ts asserts."
+    },
+    "officialUrl": {
+      "type": "string",
+      "pattern": "^https?://"
+    },
+    "source": {
+      "$ref": "#/$defs/source"
+    },
+    "disclaimer": {
+      "$ref": "#/$defs/bilingual"
+    },
+    "verify": {
+      "type": "boolean",
+      "description": "True wherever any Hindi in this work is authored or curated by this project rather than published. True on every work so far."
+    },
+    "practiseCounts": {
+      "type": "object",
+      "description": "unit id -> how many APPROVED Trainer cards cite it, counted at build time from data/rules/cards/*.json. Empty for a law work: no card cites a law section. Counted here so the reader page can offer 'practise this' without downloading up to 1.1 MB of cards to find out whether there is anything to practise.",
+      "additionalProperties": {
+        "type": "integer",
+        "minimum": 1
+      }
+    }
+  },
+  "$defs": {
+    "bilingual": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["en", "hi"],
+      "properties": {
+        "en": {
+          "type": "string"
+        },
+        "hi": {
+          "type": "string"
+        }
+      }
+    },
+    "source": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["name", "url"],
+      "properties": {
+        "name": {
+          "type": "string",
+          "minLength": 1
+        },
+        "url": {
+          "type": "string",
+          "pattern": "^https?://"
+        }
+      }
+    },
+    "tocNode": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["id", "number", "heading", "unitIds"],
+      "properties": {
+        "id": {
+          "type": "string",
+          "minLength": 1
+        },
+        "number": {
+          "type": "string"
+        },
+        "heading": {
+          "$ref": "#/$defs/bilingual"
+        },
+        "children": {
+          "type": "array",
+          "minItems": 1,
+          "items": {
+            "$ref": "#/$defs/tocNode"
+          }
+        },
+        "unitIds": {
+          "type": "array",
+          "items": {
+            "type": "string",
+            "minLength": 1
+          },
+          "description": "Every unit under this node, flattened. A leaf carries exactly one."
+        },
+        "excerpt": {
+          "$ref": "#/$defs/bilingual",
+          "description": "The opening of the unit, capped, present ONLY on a leaf whose heading is missing in one or both languages. Four of the twelve rule books publish no heading this repository could extract (FR/SR, CSMOP and a handful of GFR/CCS rules), so without this an English table of contents over them would be a column of bare numbers. Same fallback scripts/authoring/make_cards.py already uses on a rule card's front. A quotation for navigation, never the provision itself."
+        }
+      }
+    }
+  }
+}

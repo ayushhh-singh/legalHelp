@@ -1,0 +1,155 @@
+{
+  "$schema": "../../../schemas/library-work.schema.json",
+  "version": "1.0.0",
+  "generatedAt": "2026-09-02",
+  "id": "ol-act",
+  "title": {
+    "en": "Official Languages Act, 1963",
+    "hi": "राजभाषा अधिनियम, 1963"
+  },
+  "shortTitle": {
+    "en": "OL Act 1963",
+    "hi": "राजभाषा अधिनियम"
+  },
+  "year": 1963,
+  "category": "official-language",
+  "description": {
+    "en": "The Official Languages Act — where Hindi is to be used, where English continues, and the statutory basis of every Rajbhasha instruction an office receives.",
+    "hi": "राजभाषा अधिनियम — हिंदी का प्रयोग कहाँ किया जाना है, अंग्रेज़ी कहाँ जारी रहेगी, तथा कार्यालय को प्राप्त प्रत्येक राजभाषा अनुदेश का वैधानिक आधार।"
+  },
+  "corpus": {
+    "kind": "rules",
+    "file": "rules/text/ol-act.json"
+  },
+  "unitLabel": {
+    "en": "Section",
+    "hi": "धारा"
+  },
+  "publisher": "Department of Official Language, Ministry of Home Affairs",
+  "tocSource": "flat",
+  "toc": [
+    {
+      "id": "n-ol-act-1",
+      "number": "1",
+      "heading": {
+        "en": "Short title and Commencement",
+        "hi": "संक्षिप्त नाम और प्रारंभ"
+      },
+      "unitIds": [
+        "ol-act-1"
+      ]
+    },
+    {
+      "id": "n-ol-act-2",
+      "number": "2",
+      "heading": {
+        "en": "Definitions",
+        "hi": "परिभाषाएँ"
+      },
+      "unitIds": [
+        "ol-act-2"
+      ]
+    },
+    {
+      "id": "n-ol-act-4",
+      "number": "4",
+      "heading": {
+        "en": "Committee on Official Language",
+        "hi": "राजभाषा संबंधी समिति"
+      },
+      "unitIds": [
+        "ol-act-4"
+      ]
+    },
+    {
+      "id": "n-ol-act-5",
+      "number": "5",
+      "heading": {
+        "en": "Authorised Hindi translation of Central Acts, etc",
+        "hi": "केंद्रीय अधिनियमों आदि का प्राधिकृत हिंदी अनुवाद"
+      },
+      "unitIds": [
+        "ol-act-5"
+      ]
+    },
+    {
+      "id": "n-ol-act-6",
+      "number": "6",
+      "heading": {
+        "en": "Authorised Hindi translation of State Acts in certain cases",
+        "hi": "कुछ दशाओं में राज्य अधिनियमों का प्राधिकृत हिंदी अनुवाद"
+      },
+      "unitIds": [
+        "ol-act-6"
+      ]
+    },
+    {
+      "id": "n-ol-act-7",
+      "number": "7",
+      "heading": {
+        "en": "Optional use of Hindi or other Official language in judgements, etc., of High Courts",
+        "hi": "उच्च न्यायालयों के निर्णयों आदि में हिंदी या अन्य राजभाषा का वैकल्पिक प्रयोग"
+      },
+      "unitIds": [
+        "ol-act-7"
+      ]
+    },
+    {
+      "id": "n-ol-act-8",
+      "number": "8",
+      "heading": {
+        "en": "Power to make rules",
+        "hi": "नियम बनाने की शक्ति"
+      },
+      "unitIds": [
+        "ol-act-8"
+      ]
+    },
+    {
+      "id": "n-ol-act-9",
+      "number": "9",
+      "heading": {
+        "en": "[Certain provisions not to apply to Jammu and Kashmir.]",
+        "hi": "जम्मू-कश्मीर पर कुछ उपबंधों का लागू न होना"
+      },
+      "unitIds": [
+        "ol-act-9"
+      ]
+    }
+  ],
+  "readingOrder": [
+    "ol-act-1",
+    "ol-act-2",
+    "ol-act-4",
+    "ol-act-5",
+    "ol-act-6",
+    "ol-act-7",
+    "ol-act-8",
+    "ol-act-9"
+  ],
+  "estimatedMinutes": 18,
+  "practiseCounts": {
+    "ol-act-1": 3,
+    "ol-act-2": 10,
+    "ol-act-4": 6,
+    "ol-act-5": 4,
+    "ol-act-6": 3,
+    "ol-act-7": 3,
+    "ol-act-8": 4,
+    "ol-act-9": 1
+  },
+  "examTags": [
+    "official-language",
+    "induction"
+  ],
+  "officialUrl": "https://rajbhasha.gov.in/sites/default/files/rajbhasha_act_1963e.pdf",
+  "source": {
+    "name": "Department of Official Language, Ministry of Home Affairs — The Official Languages Act, 1963 (as amended, 1967)",
+    "url": "https://rajbhasha.gov.in/sites/default/files/rajbhasha_act_1963e.pdf"
+  },
+  "disclaimer": {
+    "en": "Reference only; verify with the official gazette/order or your DDO.",
+    "hi": "केवल संदर्भ के लिए; आधिकारिक राजपत्र/आदेश अथवा अपने डीडीओ से सत्यापित करें।"
+  },
+  "verify": true
+}

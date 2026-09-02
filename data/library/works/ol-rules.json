@@ -1,0 +1,211 @@
+{
+  "$schema": "../../../schemas/library-work.schema.json",
+  "version": "1.0.0",
+  "generatedAt": "2026-09-02",
+  "id": "ol-rules",
+  "title": {
+    "en": "Official Languages (Use for Official Purposes of the Union) Rules, 1976",
+    "hi": "राजभाषा (संघ के शासकीय प्रयोजनों के लिए प्रयोग) नियम, 1976"
+  },
+  "shortTitle": {
+    "en": "OL Rules 1976",
+    "hi": "राजभाषा नियम 1976"
+  },
+  "year": 1976,
+  "category": "official-language",
+  "description": {
+    "en": "The Official Languages Rules — regions A, B and C, when a communication must be bilingual, translation duties and the returns an office files.",
+    "hi": "राजभाषा नियम — क, ख और ग क्षेत्र, पत्राचार कब द्विभाषी होना चाहिए, अनुवाद संबंधी कर्तव्य तथा कार्यालय द्वारा भेजी जाने वाली विवरणियाँ।"
+  },
+  "corpus": {
+    "kind": "rules",
+    "file": "rules/text/ol-rules.json"
+  },
+  "unitLabel": {
+    "en": "Rule",
+    "hi": "नियम"
+  },
+  "publisher": "Department of Official Language, Ministry of Home Affairs",
+  "tocSource": "flat",
+  "toc": [
+    {
+      "id": "n-ol-rules-1",
+      "number": "1",
+      "heading": {
+        "en": "Short title, extent and commencement",
+        "hi": "संक्षिप्त नाम, विस्तार और प्रारंभ"
+      },
+      "unitIds": [
+        "ol-rules-1"
+      ]
+    },
+    {
+      "id": "n-ol-rules-2",
+      "number": "2",
+      "heading": {
+        "en": "Definitions",
+        "hi": "परिभाषाएँ"
+      },
+      "unitIds": [
+        "ol-rules-2"
+      ]
+    },
+    {
+      "id": "n-ol-rules-3",
+      "number": "3",
+      "heading": {
+        "en": "Communications to States etc. other than to Central Government offices,",
+        "hi": "राज्यों आदि को, केंद्रीय सरकार के कार्यालयों से भिन्न, पत्रादि"
+      },
+      "unitIds": [
+        "ol-rules-3"
+      ]
+    },
+    {
+      "id": "n-ol-rules-4",
+      "number": "4",
+      "heading": {
+        "en": "",
+        "hi": "केंद्रीय सरकार के कार्यालयों के बीच पत्रादि"
+      },
+      "unitIds": [
+        "ol-rules-4"
+      ],
+      "excerpt": {
+        "en": "Notwithstanding anything contained in sub-rules (1) and (2), communications from a Central…",
+        "hi": ""
+      }
+    },
+    {
+      "id": "n-ol-rules-5",
+      "number": "5",
+      "heading": {
+        "en": "Replies to communications received in Hindi",
+        "hi": "हिंदी में प्राप्त पत्रादि के उत्तर"
+      },
+      "unitIds": [
+        "ol-rules-5"
+      ]
+    },
+    {
+      "id": "n-ol-rules-6",
+      "number": "6",
+      "heading": {
+        "en": "Use of both Hindi and English",
+        "hi": "हिंदी और अंग्रेज़ी दोनों का प्रयोग"
+      },
+      "unitIds": [
+        "ol-rules-6"
+      ]
+    },
+    {
+      "id": "n-ol-rules-7",
+      "number": "7",
+      "heading": {
+        "en": "Application, representations etc",
+        "hi": "आवेदन, अभ्यावेदन आदि"
+      },
+      "unitIds": [
+        "ol-rules-7"
+      ]
+    },
+    {
+      "id": "n-ol-rules-8",
+      "number": "8",
+      "heading": {
+        "en": "Noting in Central Government offices",
+        "hi": "केंद्रीय सरकार के कार्यालयों में टिप्पण"
+      },
+      "unitIds": [
+        "ol-rules-8"
+      ]
+    },
+    {
+      "id": "n-ol-rules-9",
+      "number": "9",
+      "heading": {
+        "en": "Proficiency in Hindi",
+        "hi": "हिंदी में प्रवीणता"
+      },
+      "unitIds": [
+        "ol-rules-9"
+      ]
+    },
+    {
+      "id": "n-ol-rules-10",
+      "number": "10",
+      "heading": {
+        "en": "Working knowledge of Hindi",
+        "hi": "हिंदी का कार्यसाधक ज्ञान"
+      },
+      "unitIds": [
+        "ol-rules-10"
+      ]
+    },
+    {
+      "id": "n-ol-rules-11",
+      "number": "11",
+      "heading": {
+        "en": "Manuals, Codes, other procedural literature, articles of Stationery, etc",
+        "hi": "मैनुअल, संहिताएँ, अन्य प्रक्रिया साहित्य, लेखन-सामग्री आदि"
+      },
+      "unitIds": [
+        "ol-rules-11"
+      ]
+    },
+    {
+      "id": "n-ol-rules-12",
+      "number": "12",
+      "heading": {
+        "en": "Responsibility for compliance",
+        "hi": "अनुपालन का उत्तरदायित्व"
+      },
+      "unitIds": [
+        "ol-rules-12"
+      ]
+    }
+  ],
+  "readingOrder": [
+    "ol-rules-1",
+    "ol-rules-2",
+    "ol-rules-3",
+    "ol-rules-4",
+    "ol-rules-5",
+    "ol-rules-6",
+    "ol-rules-7",
+    "ol-rules-8",
+    "ol-rules-9",
+    "ol-rules-10",
+    "ol-rules-11",
+    "ol-rules-12"
+  ],
+  "estimatedMinutes": 13,
+  "practiseCounts": {
+    "ol-rules-1": 2,
+    "ol-rules-10": 3,
+    "ol-rules-11": 2,
+    "ol-rules-12": 2,
+    "ol-rules-2": 5,
+    "ol-rules-3": 3,
+    "ol-rules-4": 4,
+    "ol-rules-5": 3,
+    "ol-rules-6": 3,
+    "ol-rules-7": 3,
+    "ol-rules-8": 3,
+    "ol-rules-9": 3
+  },
+  "examTags": [
+    "official-language",
+    "noting-and-drafting"
+  ],
+  "officialUrl": "https://rajbhasha.gov.in/en/official-language-rules-1976",
+  "source": {
+    "name": "Department of Official Language, Ministry of Home Affairs — Official Languages Rules, 1976 (as amended 1987, 2007, 2011)",
+    "url": "https://rajbhasha.gov.in/en/official-language-rules-1976"
+  },
+  "disclaimer": {
+    "en": "Reference only; verify with the official gazette/order or your DDO.",
+    "hi": "केवल संदर्भ के लिए; आधिकारिक राजपत्र/आदेश अथवा अपने डीडीओ से सत्यापित करें।"
+  },
+  "verify": true
+}

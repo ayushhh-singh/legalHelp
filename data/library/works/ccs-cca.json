@@ -1,0 +1,493 @@
+{
+  "$schema": "../../../schemas/library-work.schema.json",
+  "version": "1.0.0",
+  "generatedAt": "2026-09-02",
+  "id": "ccs-cca",
+  "title": {
+    "en": "Central Civil Services (Classification, Control and Appeal) Rules, 1965",
+    "hi": "केंद्रीय सिविल सेवा (वर्गीकरण, नियंत्रण और अपील) नियम, 1965"
+  },
+  "shortTitle": {
+    "en": "CCS (CCA) Rules",
+    "hi": "सीसीएस (सीसीए) नियम"
+  },
+  "year": 1965,
+  "category": "service-rules",
+  "description": {
+    "en": "Classification of services, the penalties that may be imposed, who may impose them, and the inquiry and appeal procedure every disciplinary proceeding must follow.",
+    "hi": "सेवाओं का वर्गीकरण, अधिरोपित की जा सकने वाली शास्तियाँ, उन्हें अधिरोपित करने वाला प्राधिकारी, तथा प्रत्येक अनुशासनिक कार्यवाही में अपनाई जाने वाली जाँच और अपील प्रक्रिया।"
+  },
+  "corpus": {
+    "kind": "rules",
+    "file": "rules/text/ccs-cca.json"
+  },
+  "unitLabel": {
+    "en": "Rule",
+    "hi": "नियम"
+  },
+  "publisher": "Department of Personnel and Training",
+  "tocSource": "flat",
+  "toc": [
+    {
+      "id": "n-ccs-cca-1",
+      "number": "1",
+      "heading": {
+        "en": "Short title and commencement",
+        "hi": "संक्षिप्त नाम और प्रारंभ"
+      },
+      "unitIds": [
+        "ccs-cca-1"
+      ]
+    },
+    {
+      "id": "n-ccs-cca-2",
+      "number": "2",
+      "heading": {
+        "en": "Interpretation",
+        "hi": "निर्वचन"
+      },
+      "unitIds": [
+        "ccs-cca-2"
+      ]
+    },
+    {
+      "id": "n-ccs-cca-3",
+      "number": "3",
+      "heading": {
+        "en": "Application",
+        "hi": "लागू होना"
+      },
+      "unitIds": [
+        "ccs-cca-3"
+      ]
+    },
+    {
+      "id": "n-ccs-cca-4",
+      "number": "4",
+      "heading": {
+        "en": "Classification of Services",
+        "hi": "सेवाओं का वर्गीकरण"
+      },
+      "unitIds": [
+        "ccs-cca-4"
+      ]
+    },
+    {
+      "id": "n-ccs-cca-5",
+      "number": "5",
+      "heading": {
+        "en": "Constitution of Central Civil Services",
+        "hi": "केंद्रीय सिविल सेवाओं का गठन"
+      },
+      "unitIds": [
+        "ccs-cca-5"
+      ]
+    },
+    {
+      "id": "n-ccs-cca-6",
+      "number": "6",
+      "heading": {
+        "en": "Classification of Posts",
+        "hi": "पदों का वर्गीकरण"
+      },
+      "unitIds": [
+        "ccs-cca-6"
+      ]
+    },
+    {
+      "id": "n-ccs-cca-7",
+      "number": "7",
+      "heading": {
+        "en": "General Central Service",
+        "hi": "सामान्य केंद्रीय सेवा"
+      },
+      "unitIds": [
+        "ccs-cca-7"
+      ]
+    },
+    {
+      "id": "n-ccs-cca-8",
+      "number": "8",
+      "heading": {
+        "en": "Appointments to Group 'A' Services and Posts",
+        "hi": "समूह 'क' सेवाओं और पदों पर नियुक्तियाँ"
+      },
+      "unitIds": [
+        "ccs-cca-8"
+      ]
+    },
+    {
+      "id": "n-ccs-cca-9",
+      "number": "9",
+      "heading": {
+        "en": "Appointments to other Services and Posts",
+        "hi": "अन्य सेवाओं और पदों पर नियुक्तियाँ"
+      },
+      "unitIds": [
+        "ccs-cca-9"
+      ]
+    },
+    {
+      "id": "n-ccs-cca-10",
+      "number": "10",
+      "heading": {
+        "en": "Suspension",
+        "hi": "निलंबन"
+      },
+      "unitIds": [
+        "ccs-cca-10"
+      ]
+    },
+    {
+      "id": "n-ccs-cca-11",
+      "number": "11",
+      "heading": {
+        "en": "Penalties",
+        "hi": "शास्तियाँ"
+      },
+      "unitIds": [
+        "ccs-cca-11"
+      ]
+    },
+    {
+      "id": "n-ccs-cca-12",
+      "number": "12",
+      "heading": {
+        "en": "Disciplinary Authorities",
+        "hi": "अनुशासनिक प्राधिकारी"
+      },
+      "unitIds": [
+        "ccs-cca-12"
+      ]
+    },
+    {
+      "id": "n-ccs-cca-13",
+      "number": "13",
+      "heading": {
+        "en": "Authority to institute proceedings",
+        "hi": "कार्यवाही संस्थित करने के लिए सक्षम प्राधिकारी"
+      },
+      "unitIds": [
+        "ccs-cca-13"
+      ]
+    },
+    {
+      "id": "n-ccs-cca-14",
+      "number": "14",
+      "heading": {
+        "en": "Procedure for imposing major penalties",
+        "hi": "बड़ी शास्तियाँ अधिरोपित करने की प्रक्रिया"
+      },
+      "unitIds": [
+        "ccs-cca-14"
+      ]
+    },
+    {
+      "id": "n-ccs-cca-15",
+      "number": "15",
+      "heading": {
+        "en": "Action on inquiry report",
+        "hi": "जाँच रिपोर्ट पर कार्रवाई"
+      },
+      "unitIds": [
+        "ccs-cca-15"
+      ]
+    },
+    {
+      "id": "n-ccs-cca-16",
+      "number": "16",
+      "heading": {
+        "en": "Procedure for imposing minor penalties",
+        "hi": "छोटी शास्तियाँ अधिरोपित करने की प्रक्रिया"
+      },
+      "unitIds": [
+        "ccs-cca-16"
+      ]
+    },
+    {
+      "id": "n-ccs-cca-17",
+      "number": "17",
+      "heading": {
+        "en": "Communication of Orders",
+        "hi": "आदेशों की संसूचना"
+      },
+      "unitIds": [
+        "ccs-cca-17"
+      ]
+    },
+    {
+      "id": "n-ccs-cca-18",
+      "number": "18",
+      "heading": {
+        "en": "Common Proceedings",
+        "hi": "सम्मिलित कार्यवाहियाँ"
+      },
+      "unitIds": [
+        "ccs-cca-18"
+      ]
+    },
+    {
+      "id": "n-ccs-cca-19",
+      "number": "19",
+      "heading": {
+        "en": "Special procedure in certain cases",
+        "hi": "कुछ मामलों में विशेष प्रक्रिया"
+      },
+      "unitIds": [
+        "ccs-cca-19"
+      ]
+    },
+    {
+      "id": "n-ccs-cca-20",
+      "number": "20",
+      "heading": {
+        "en": "Provisions regarding officers lent to State Governments, etc",
+        "hi": "राज्य सरकारों आदि को उधार दिए गए अधिकारियों संबंधी उपबंध"
+      },
+      "unitIds": [
+        "ccs-cca-20"
+      ]
+    },
+    {
+      "id": "n-ccs-cca-21",
+      "number": "21",
+      "heading": {
+        "en": "Provisions regarding officers borrowed from State Governments, etc",
+        "hi": "राज्य सरकारों आदि से उधार लिए गए अधिकारियों संबंधी उपबंध"
+      },
+      "unitIds": [
+        "ccs-cca-21"
+      ]
+    },
+    {
+      "id": "n-ccs-cca-22",
+      "number": "22",
+      "heading": {
+        "en": "Orders against which no appeal lies",
+        "hi": "ऐसे आदेश जिनके विरुद्ध कोई अपील नहीं होती"
+      },
+      "unitIds": [
+        "ccs-cca-22"
+      ]
+    },
+    {
+      "id": "n-ccs-cca-24",
+      "number": "24",
+      "heading": {
+        "en": "Appellate Authority",
+        "hi": "अपील प्राधिकारी"
+      },
+      "unitIds": [
+        "ccs-cca-24"
+      ]
+    },
+    {
+      "id": "n-ccs-cca-25",
+      "number": "25",
+      "heading": {
+        "en": "Period of Limitation of appeals",
+        "hi": "अपीलों की परिसीमा-अवधि"
+      },
+      "unitIds": [
+        "ccs-cca-25"
+      ]
+    },
+    {
+      "id": "n-ccs-cca-26",
+      "number": "26",
+      "heading": {
+        "en": "Form and contents of appeal",
+        "hi": "अपील का प्ररूप और अंतर्वस्तु"
+      },
+      "unitIds": [
+        "ccs-cca-26"
+      ]
+    },
+    {
+      "id": "n-ccs-cca-27",
+      "number": "27",
+      "heading": {
+        "en": "Consideration of appeal",
+        "hi": "अपील पर विचार"
+      },
+      "unitIds": [
+        "ccs-cca-27"
+      ]
+    },
+    {
+      "id": "n-ccs-cca-28",
+      "number": "28",
+      "heading": {
+        "en": "Implementation of orders in appeal",
+        "hi": "अपील में पारित आदेशों का कार्यान्वयन"
+      },
+      "unitIds": [
+        "ccs-cca-28"
+      ]
+    },
+    {
+      "id": "n-ccs-cca-29",
+      "number": "29",
+      "heading": {
+        "en": "Revision",
+        "hi": "पुनरीक्षण"
+      },
+      "unitIds": [
+        "ccs-cca-29"
+      ]
+    },
+    {
+      "id": "n-ccs-cca-29a",
+      "number": "29A",
+      "heading": {
+        "en": "Review",
+        "hi": "समीक्षा"
+      },
+      "unitIds": [
+        "ccs-cca-29a"
+      ]
+    },
+    {
+      "id": "n-ccs-cca-30",
+      "number": "30",
+      "heading": {
+        "en": "Service of orders, notices, etc",
+        "hi": "आदेशों, सूचनाओं आदि की तामील"
+      },
+      "unitIds": [
+        "ccs-cca-30"
+      ]
+    },
+    {
+      "id": "n-ccs-cca-31",
+      "number": "31",
+      "heading": {
+        "en": "Power to relax time-limit and to condone delay",
+        "hi": "समय-सीमा में छूट देने और विलंब क्षमा करने की शक्ति"
+      },
+      "unitIds": [
+        "ccs-cca-31"
+      ]
+    },
+    {
+      "id": "n-ccs-cca-32",
+      "number": "32",
+      "heading": {
+        "en": "Omitted",
+        "hi": "लोप किया गया"
+      },
+      "unitIds": [
+        "ccs-cca-32"
+      ]
+    },
+    {
+      "id": "n-ccs-cca-33",
+      "number": "33",
+      "heading": {
+        "en": "Transitory Provisions",
+        "hi": "संक्रमणकालीन उपबंध"
+      },
+      "unitIds": [
+        "ccs-cca-33"
+      ]
+    },
+    {
+      "id": "n-ccs-cca-34",
+      "number": "34",
+      "heading": {
+        "en": "Repeal and Saving",
+        "hi": "निरसन और व्यावृत्ति"
+      },
+      "unitIds": [
+        "ccs-cca-34"
+      ]
+    }
+  ],
+  "readingOrder": [
+    "ccs-cca-1",
+    "ccs-cca-2",
+    "ccs-cca-3",
+    "ccs-cca-4",
+    "ccs-cca-5",
+    "ccs-cca-6",
+    "ccs-cca-7",
+    "ccs-cca-8",
+    "ccs-cca-9",
+    "ccs-cca-10",
+    "ccs-cca-11",
+    "ccs-cca-12",
+    "ccs-cca-13",
+    "ccs-cca-14",
+    "ccs-cca-15",
+    "ccs-cca-16",
+    "ccs-cca-17",
+    "ccs-cca-18",
+    "ccs-cca-19",
+    "ccs-cca-20",
+    "ccs-cca-21",
+    "ccs-cca-22",
+    "ccs-cca-24",
+    "ccs-cca-25",
+    "ccs-cca-26",
+    "ccs-cca-27",
+    "ccs-cca-28",
+    "ccs-cca-29",
+    "ccs-cca-29a",
+    "ccs-cca-30",
+    "ccs-cca-31",
+    "ccs-cca-32",
+    "ccs-cca-33",
+    "ccs-cca-34"
+  ],
+  "estimatedMinutes": 193,
+  "practiseCounts": {
+    "ccs-cca-1": 1,
+    "ccs-cca-10": 8,
+    "ccs-cca-11": 4,
+    "ccs-cca-12": 2,
+    "ccs-cca-13": 2,
+    "ccs-cca-14": 6,
+    "ccs-cca-15": 5,
+    "ccs-cca-16": 5,
+    "ccs-cca-17": 3,
+    "ccs-cca-18": 5,
+    "ccs-cca-19": 3,
+    "ccs-cca-2": 4,
+    "ccs-cca-20": 3,
+    "ccs-cca-22": 3,
+    "ccs-cca-24": 4,
+    "ccs-cca-25": 4,
+    "ccs-cca-26": 1,
+    "ccs-cca-27": 5,
+    "ccs-cca-28": 1,
+    "ccs-cca-29": 4,
+    "ccs-cca-29a": 5,
+    "ccs-cca-3": 5,
+    "ccs-cca-30": 2,
+    "ccs-cca-31": 2,
+    "ccs-cca-33": 1,
+    "ccs-cca-34": 1,
+    "ccs-cca-4": 1,
+    "ccs-cca-5": 1,
+    "ccs-cca-6": 1,
+    "ccs-cca-7": 3,
+    "ccs-cca-8": 1,
+    "ccs-cca-9": 2
+  },
+  "examTags": [
+    "discipline",
+    "vigilance",
+    "departmental-exam",
+    "ldce"
+  ],
+  "officialUrl": "https://dopt.gov.in/sites/default/files/CCS-CCA-Rules-FINAL.pdf",
+  "source": {
+    "name": "Department of Personnel and Training — CCS (CCA) Rules, 1965 — consolidated",
+    "url": "https://dopt.gov.in/sites/default/files/CCS-CCA-Rules-FINAL.pdf"
+  },
+  "disclaimer": {
+    "en": "Reference only; verify with the official gazette/order or your DDO.",
+    "hi": "केवल संदर्भ के लिए; आधिकारिक राजपत्र/आदेश अथवा अपने डीडीओ से सत्यापित करें।"
+  },
+  "verify": true
+}

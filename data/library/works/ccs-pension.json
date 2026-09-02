@@ -1,0 +1,1180 @@
+{
+  "$schema": "../../../schemas/library-work.schema.json",
+  "version": "1.0.0",
+  "generatedAt": "2026-09-02",
+  "id": "ccs-pension",
+  "title": {
+    "en": "Central Civil Services (Pension) Rules, 2021",
+    "hi": "केंद्रीय सिविल सेवा (पेंशन) नियम, 2021"
+  },
+  "shortTitle": {
+    "en": "CCS (Pension) Rules",
+    "hi": "सीसीएस (पेंशन) नियम"
+  },
+  "year": 2021,
+  "category": "service-rules",
+  "description": {
+    "en": "Qualifying service, superannuation, retirement and death gratuity, family pension, commutation and the papers a retiring officer's office has to put together.",
+    "hi": "अर्हक सेवा, अधिवर्षिता, सेवानिवृत्ति और मृत्यु उपदान, पारिवारिक पेंशन, संराशीकरण तथा सेवानिवृत्त हो रहे अधिकारी के कार्यालय द्वारा तैयार किए जाने वाले दस्तावेज़।"
+  },
+  "corpus": {
+    "kind": "rules",
+    "file": "rules/text/ccs-pension.json"
+  },
+  "unitLabel": {
+    "en": "Rule",
+    "hi": "नियम"
+  },
+  "publisher": "Department of Pension and Pensioners' Welfare",
+  "tocSource": "flat",
+  "toc": [
+    {
+      "id": "n-ccs-pension-1",
+      "number": "1",
+      "heading": {
+        "en": "Short title and commencement",
+        "hi": "संक्षिप्त नाम और प्रारंभ"
+      },
+      "unitIds": [
+        "ccs-pension-1"
+      ]
+    },
+    {
+      "id": "n-ccs-pension-2",
+      "number": "2",
+      "heading": {
+        "en": "Application",
+        "hi": "प्रयोज्यता"
+      },
+      "unitIds": [
+        "ccs-pension-2"
+      ]
+    },
+    {
+      "id": "n-ccs-pension-3",
+      "number": "3",
+      "heading": {
+        "en": "Definitions",
+        "hi": "परिभाषाएँ"
+      },
+      "unitIds": [
+        "ccs-pension-3"
+      ]
+    },
+    {
+      "id": "n-ccs-pension-4",
+      "number": "4",
+      "heading": {
+        "en": "Government servants transferred from services and posts to which these rules do not apply",
+        "hi": "ऐसी सेवाओं और पदों से स्थानांतरित सरकारी सेवक जिन पर ये नियम लागू नहीं होते"
+      },
+      "unitIds": [
+        "ccs-pension-4"
+      ]
+    },
+    {
+      "id": "n-ccs-pension-5",
+      "number": "5",
+      "heading": {
+        "en": "Claims to pension or family pension",
+        "hi": "पेंशन या पारिवारिक पेंशन के दावे"
+      },
+      "unitIds": [
+        "ccs-pension-5"
+      ]
+    },
+    {
+      "id": "n-ccs-pension-6",
+      "number": "6",
+      "heading": {
+        "en": "Limitations on number of pensions",
+        "hi": "पेंशनों की संख्या पर निर्बंधन"
+      },
+      "unitIds": [
+        "ccs-pension-6"
+      ]
+    },
+    {
+      "id": "n-ccs-pension-7",
+      "number": "7",
+      "heading": {
+        "en": "Pension and family pension subject to future good conduct",
+        "hi": "पेंशन और पारिवारिक पेंशन भविष्य के सदाचरण के अधीन"
+      },
+      "unitIds": [
+        "ccs-pension-7"
+      ]
+    },
+    {
+      "id": "n-ccs-pension-8",
+      "number": "8",
+      "heading": {
+        "en": "Power to withhold or withdraw pension",
+        "hi": "पेंशन रोकने या वापस लेने की शक्ति"
+      },
+      "unitIds": [
+        "ccs-pension-8"
+      ]
+    },
+    {
+      "id": "n-ccs-pension-9",
+      "number": "9",
+      "heading": {
+        "en": "Commercial employment after retirement",
+        "hi": "सेवानिवृत्ति के पश्चात् वाणिज्यिक नियोजन"
+      },
+      "unitIds": [
+        "ccs-pension-9"
+      ]
+    },
+    {
+      "id": "n-ccs-pension-10",
+      "number": "10",
+      "heading": {
+        "en": "Employment after retirement under a Government outside India",
+        "hi": "सेवानिवृत्ति के पश्चात् भारत से बाहर किसी सरकार के अधीन नियोजन"
+      },
+      "unitIds": [
+        "ccs-pension-10"
+      ]
+    },
+    {
+      "id": "n-ccs-pension-11",
+      "number": "11",
+      "heading": {
+        "en": "Commencement of qualifying service",
+        "hi": "अर्हकारी सेवा का प्रारंभ"
+      },
+      "unitIds": [
+        "ccs-pension-11"
+      ]
+    },
+    {
+      "id": "n-ccs-pension-12",
+      "number": "12",
+      "heading": {
+        "en": "Conditions subject to which service qualifies",
+        "hi": "वे शर्तें जिनके अधीन सेवा अर्हकारी होती है"
+      },
+      "unitIds": [
+        "ccs-pension-12"
+      ]
+    },
+    {
+      "id": "n-ccs-pension-13",
+      "number": "13",
+      "heading": {
+        "en": "Service in State Governments",
+        "hi": "राज्य सरकारों में सेवा"
+      },
+      "unitIds": [
+        "ccs-pension-13"
+      ]
+    },
+    {
+      "id": "n-ccs-pension-14",
+      "number": "14",
+      "heading": {
+        "en": "Service in autonomous bodies",
+        "hi": "स्वायत्त निकायों में सेवा"
+      },
+      "unitIds": [
+        "ccs-pension-14"
+      ]
+    },
+    {
+      "id": "n-ccs-pension-15",
+      "number": "15",
+      "heading": {
+        "en": "Service rendered in temporary status by casual labourers",
+        "hi": "दैनिक वेतनभोगी श्रमिकों द्वारा अस्थायी हैसियत में की गई सेवा"
+      },
+      "unitIds": [
+        "ccs-pension-15"
+      ]
+    },
+    {
+      "id": "n-ccs-pension-16",
+      "number": "16",
+      "heading": {
+        "en": "Counting of service on probation",
+        "hi": "परिवीक्षा पर सेवा की गणना"
+      },
+      "unitIds": [
+        "ccs-pension-16"
+      ]
+    },
+    {
+      "id": "n-ccs-pension-17",
+      "number": "17",
+      "heading": {
+        "en": "Counting of service as apprentice",
+        "hi": "शिक्षु के रूप में सेवा की गणना"
+      },
+      "unitIds": [
+        "ccs-pension-17"
+      ]
+    },
+    {
+      "id": "n-ccs-pension-18",
+      "number": "18",
+      "heading": {
+        "en": "Counting of service on contract",
+        "hi": "संविदा पर सेवा की गणना"
+      },
+      "unitIds": [
+        "ccs-pension-18"
+      ]
+    },
+    {
+      "id": "n-ccs-pension-19",
+      "number": "19",
+      "heading": {
+        "en": "Counting of pre-retirement civil service in the case of re-employed Government servants",
+        "hi": "पुनर्नियोजित सरकारी सेवकों की दशा में सेवानिवृत्ति-पूर्व सिविल सेवा की गणना"
+      },
+      "unitIds": [
+        "ccs-pension-19"
+      ]
+    },
+    {
+      "id": "n-ccs-pension-20",
+      "number": "20",
+      "heading": {
+        "en": "Counting of military service rendered before civil employment",
+        "hi": "सिविल नियोजन से पूर्व की गई सैनिक सेवा की गणना"
+      },
+      "unitIds": [
+        "ccs-pension-20"
+      ]
+    },
+    {
+      "id": "n-ccs-pension-21",
+      "number": "21",
+      "heading": {
+        "en": "Counting of periods spent on leave",
+        "hi": "छुट्टी पर बिताई गई अवधियों की गणना"
+      },
+      "unitIds": [
+        "ccs-pension-21"
+      ]
+    },
+    {
+      "id": "n-ccs-pension-22",
+      "number": "22",
+      "heading": {
+        "en": "Counting of periods spent on training",
+        "hi": "प्रशिक्षण पर बिताई गई अवधियों की गणना"
+      },
+      "unitIds": [
+        "ccs-pension-22"
+      ]
+    },
+    {
+      "id": "n-ccs-pension-23",
+      "number": "23",
+      "heading": {
+        "en": "Counting of periods of suspension",
+        "hi": "निलंबन की अवधियों की गणना"
+      },
+      "unitIds": [
+        "ccs-pension-23"
+      ]
+    },
+    {
+      "id": "n-ccs-pension-24",
+      "number": "24",
+      "heading": {
+        "en": "Forfeiture of service on dismissal or removal",
+        "hi": "पदच्युति या हटाए जाने पर सेवा का समपहरण"
+      },
+      "unitIds": [
+        "ccs-pension-24"
+      ]
+    },
+    {
+      "id": "n-ccs-pension-25",
+      "number": "25",
+      "heading": {
+        "en": "Counting of past service on reinstatement",
+        "hi": "पुनर्स्थापन पर भूतपूर्व सेवा की गणना"
+      },
+      "unitIds": [
+        "ccs-pension-25"
+      ]
+    },
+    {
+      "id": "n-ccs-pension-26",
+      "number": "26",
+      "heading": {
+        "en": "Forfeiture of service on resignation",
+        "hi": "त्यागपत्र पर सेवा का समपहरण"
+      },
+      "unitIds": [
+        "ccs-pension-26"
+      ]
+    },
+    {
+      "id": "n-ccs-pension-27",
+      "number": "27",
+      "heading": {
+        "en": "Effect of interruption in service",
+        "hi": "सेवा में व्यवधान का प्रभाव"
+      },
+      "unitIds": [
+        "ccs-pension-27"
+      ]
+    },
+    {
+      "id": "n-ccs-pension-28",
+      "number": "28",
+      "heading": {
+        "en": "Condonation of interruption in service",
+        "hi": "सेवा में व्यवधान का माफ किया जाना"
+      },
+      "unitIds": [
+        "ccs-pension-28"
+      ]
+    },
+    {
+      "id": "n-ccs-pension-29",
+      "number": "29",
+      "heading": {
+        "en": "Deputation to United Nations and other organizations",
+        "hi": "संयुक्त राष्ट्र और अन्य संगठनों में प्रतिनियुक्ति"
+      },
+      "unitIds": [
+        "ccs-pension-29"
+      ]
+    },
+    {
+      "id": "n-ccs-pension-30",
+      "number": "30",
+      "heading": {
+        "en": "Periodic verification of qualifying service",
+        "hi": "अर्हकारी सेवा का आवधिक सत्यापन"
+      },
+      "unitIds": [
+        "ccs-pension-30"
+      ]
+    },
+    {
+      "id": "n-ccs-pension-31",
+      "number": "31",
+      "heading": {
+        "en": "Emoluments",
+        "hi": "परिलब्धियाँ"
+      },
+      "unitIds": [
+        "ccs-pension-31"
+      ]
+    },
+    {
+      "id": "n-ccs-pension-32",
+      "number": "32",
+      "heading": {
+        "en": "Average Emoluments",
+        "hi": "औसत परिलब्धियाँ"
+      },
+      "unitIds": [
+        "ccs-pension-32"
+      ]
+    },
+    {
+      "id": "n-ccs-pension-33",
+      "number": "33",
+      "heading": {
+        "en": "Superannuation pension or service gratuity",
+        "hi": "अधिवर्षिता पेंशन या सेवा उपदान"
+      },
+      "unitIds": [
+        "ccs-pension-33"
+      ]
+    },
+    {
+      "id": "n-ccs-pension-34",
+      "number": "34",
+      "heading": {
+        "en": "Retiring pension or service gratuity",
+        "hi": "सेवानिवृत्ति पेंशन या सेवा उपदान"
+      },
+      "unitIds": [
+        "ccs-pension-34"
+      ]
+    },
+    {
+      "id": "n-ccs-pension-35",
+      "number": "35",
+      "heading": {
+        "en": "Pension on absorption in or under a State Government",
+        "hi": "राज्य सरकार में या उसके अधीन अवशोषण पर पेंशन"
+      },
+      "unitIds": [
+        "ccs-pension-35"
+      ]
+    },
+    {
+      "id": "n-ccs-pension-36",
+      "number": "36",
+      "heading": {
+        "en": "Pension on absorption in or under a corporation, company or body",
+        "hi": "निगम, कंपनी या निकाय में या उसके अधीन अवशोषण पर पेंशन"
+      },
+      "unitIds": [
+        "ccs-pension-36"
+      ]
+    },
+    {
+      "id": "n-ccs-pension-37",
+      "number": "37",
+      "heading": {
+        "en": "Conditions for payment of pension on absorption consequent upon conversion of a Government",
+        "hi": "किसी सरकारी विभाग के लोक उपक्रम में परिवर्तित होने के परिणामस्वरूप अवशोषण पर पेंशन के भुगतान की शर्तें"
+      },
+      "unitIds": [
+        "ccs-pension-37"
+      ]
+    },
+    {
+      "id": "n-ccs-pension-38",
+      "number": "38",
+      "heading": {
+        "en": "Conditions for payment of pension on absorption consequent upon conversion of a Government",
+        "hi": "किसी सरकारी विभाग के केंद्रीय स्वायत्त निकाय में परिवर्तित होने के परिणामस्वरूप अवशोषण पर पेंशन के भुगतान की शर्तें"
+      },
+      "unitIds": [
+        "ccs-pension-38"
+      ]
+    },
+    {
+      "id": "n-ccs-pension-39",
+      "number": "39",
+      "heading": {
+        "en": "Invalid pension",
+        "hi": "अशक्तता पेंशन"
+      },
+      "unitIds": [
+        "ccs-pension-39"
+      ]
+    },
+    {
+      "id": "n-ccs-pension-40",
+      "number": "40",
+      "heading": {
+        "en": "Compulsory retirement pension",
+        "hi": "अनिवार्य सेवानिवृत्ति पेंशन"
+      },
+      "unitIds": [
+        "ccs-pension-40"
+      ]
+    },
+    {
+      "id": "n-ccs-pension-41",
+      "number": "41",
+      "heading": {
+        "en": "Compassionate allowance",
+        "hi": "अनुकंपा भत्ता"
+      },
+      "unitIds": [
+        "ccs-pension-41"
+      ]
+    },
+    {
+      "id": "n-ccs-pension-42",
+      "number": "42",
+      "heading": {
+        "en": "Retirement on completion of thirty years' qualifying service",
+        "hi": "तीस वर्ष की अर्हकारी सेवा पूर्ण होने पर सेवानिवृत्ति"
+      },
+      "unitIds": [
+        "ccs-pension-42"
+      ]
+    },
+    {
+      "id": "n-ccs-pension-43",
+      "number": "43",
+      "heading": {
+        "en": "Retirement on completion of twenty years' qualifying service",
+        "hi": "बीस वर्ष की अर्हकारी सेवा पूर्ण होने पर सेवानिवृत्ति"
+      },
+      "unitIds": [
+        "ccs-pension-43"
+      ]
+    },
+    {
+      "id": "n-ccs-pension-44",
+      "number": "44",
+      "heading": {
+        "en": "Amount of Pension",
+        "hi": "पेंशन की राशि"
+      },
+      "unitIds": [
+        "ccs-pension-44"
+      ]
+    },
+    {
+      "id": "n-ccs-pension-45",
+      "number": "45",
+      "heading": {
+        "en": "Retirement Gratuity and Death Gratuity",
+        "hi": "सेवानिवृत्ति उपदान और मृत्यु उपदान"
+      },
+      "unitIds": [
+        "ccs-pension-45"
+      ]
+    },
+    {
+      "id": "n-ccs-pension-46",
+      "number": "46",
+      "heading": {
+        "en": "Nominations",
+        "hi": "नामांकन"
+      },
+      "unitIds": [
+        "ccs-pension-46"
+      ]
+    },
+    {
+      "id": "n-ccs-pension-47",
+      "number": "47",
+      "heading": {
+        "en": "Persons to whom gratuity is payable",
+        "hi": "वे व्यक्ति जिन्हें उपदान संदेय है"
+      },
+      "unitIds": [
+        "ccs-pension-47"
+      ]
+    },
+    {
+      "id": "n-ccs-pension-48",
+      "number": "48",
+      "heading": {
+        "en": "Debarring a person from receiving gratuity",
+        "hi": "किसी व्यक्ति को उपदान प्राप्त करने से वंचित करना"
+      },
+      "unitIds": [
+        "ccs-pension-48"
+      ]
+    },
+    {
+      "id": "n-ccs-pension-50",
+      "number": "50",
+      "heading": {
+        "en": "Family Pension",
+        "hi": "पारिवारिक पेंशन"
+      },
+      "unitIds": [
+        "ccs-pension-50"
+      ]
+    },
+    {
+      "id": "n-ccs-pension-51",
+      "number": "51",
+      "heading": {
+        "en": "Entitlements of family of a missing Government servant or pensioner or family pensioner",
+        "hi": "लापता सरकारी सेवक, पेंशनभोगी या पारिवारिक पेंशनभोगी के परिवार की पात्रताएँ"
+      },
+      "unitIds": [
+        "ccs-pension-51"
+      ]
+    },
+    {
+      "id": "n-ccs-pension-52",
+      "number": "52",
+      "heading": {
+        "en": "Dearness Relief on Pension and Family Pension",
+        "hi": "पेंशन और पारिवारिक पेंशन पर महँगाई राहत"
+      },
+      "unitIds": [
+        "ccs-pension-52"
+      ]
+    },
+    {
+      "id": "n-ccs-pension-53",
+      "number": "53",
+      "heading": {
+        "en": "Processing of pension cases in the online pension sanctioning system",
+        "hi": "ऑनलाइन पेंशन स्वीकृति प्रणाली में पेंशन मामलों का प्रक्रियाकरण"
+      },
+      "unitIds": [
+        "ccs-pension-53"
+      ]
+    },
+    {
+      "id": "n-ccs-pension-54",
+      "number": "54",
+      "heading": {
+        "en": "Preparation of list of Government servants due for retirement",
+        "hi": "सेवानिवृत्ति हेतु नियत सरकारी सेवकों की सूची तैयार करना"
+      },
+      "unitIds": [
+        "ccs-pension-54"
+      ]
+    },
+    {
+      "id": "n-ccs-pension-55",
+      "number": "55",
+      "heading": {
+        "en": "Intimation to the Directorate of Estates regarding issue of \"No Demand Certificate\"",
+        "hi": "\"अदेय प्रमाणपत्र\" जारी करने के संबंध में संपदा निदेशालय को सूचना"
+      },
+      "unitIds": [
+        "ccs-pension-55"
+      ]
+    },
+    {
+      "id": "n-ccs-pension-56",
+      "number": "56",
+      "heading": {
+        "en": "Preparation for processing of pension case",
+        "hi": "पेंशन मामले के प्रक्रियाकरण की तैयारी"
+      },
+      "unitIds": [
+        "ccs-pension-56"
+      ]
+    },
+    {
+      "id": "n-ccs-pension-57",
+      "number": "57",
+      "heading": {
+        "en": "Stages for the processing of pension case on superannuation",
+        "hi": "अधिवर्षिता पर पेंशन मामले के प्रक्रियाकरण के चरण"
+      },
+      "unitIds": [
+        "ccs-pension-57"
+      ]
+    },
+    {
+      "id": "n-ccs-pension-58",
+      "number": "58",
+      "heading": {
+        "en": "Submission of forms by Government servant retiring for reasons other than superannuation",
+        "hi": "अधिवर्षिता से भिन्न कारणों से सेवानिवृत्त होने वाले सरकारी सेवक द्वारा प्रपत्रों का प्रस्तुतीकरण"
+      },
+      "unitIds": [
+        "ccs-pension-58"
+      ]
+    },
+    {
+      "id": "n-ccs-pension-59",
+      "number": "59",
+      "heading": {
+        "en": "Completion of pension case",
+        "hi": "पेंशन मामले का पूर्ण किया जाना"
+      },
+      "unitIds": [
+        "ccs-pension-59"
+      ]
+    },
+    {
+      "id": "n-ccs-pension-60",
+      "number": "60",
+      "heading": {
+        "en": "Forwarding of pension case to Accounts Officer",
+        "hi": "पेंशन मामला लेखा अधिकारी को अग्रेषित करना"
+      },
+      "unitIds": [
+        "ccs-pension-60"
+      ]
+    },
+    {
+      "id": "n-ccs-pension-61",
+      "number": "61",
+      "heading": {
+        "en": "Intimation to Accounts Officer regarding any event having bearing on pension or any Government dues",
+        "hi": "पेंशन या किसी सरकारी बकाया पर प्रभाव डालने वाली घटना के संबंध में लेखा अधिकारी को सूचना"
+      },
+      "unitIds": [
+        "ccs-pension-61"
+      ]
+    },
+    {
+      "id": "n-ccs-pension-62",
+      "number": "62",
+      "heading": {
+        "en": "Provisional pension for reasons other than Departmental or Judicial proceedings",
+        "hi": "विभागीय या न्यायिक कार्यवाहियों से भिन्न कारणों से अनंतिम पेंशन"
+      },
+      "unitIds": [
+        "ccs-pension-62"
+      ]
+    },
+    {
+      "id": "n-ccs-pension-63",
+      "number": "63",
+      "heading": {
+        "en": "Authorisation of pension and gratuity by the Accounts Officer",
+        "hi": "लेखा अधिकारी द्वारा पेंशन और उपदान का प्राधिकरण"
+      },
+      "unitIds": [
+        "ccs-pension-63"
+      ]
+    },
+    {
+      "id": "n-ccs-pension-64",
+      "number": "64",
+      "heading": {
+        "en": "Government servants on deputation",
+        "hi": "प्रतिनियुक्ति पर सरकारी सेवक"
+      },
+      "unitIds": [
+        "ccs-pension-64"
+      ]
+    },
+    {
+      "id": "n-ccs-pension-65",
+      "number": "65",
+      "heading": {
+        "en": "Interest on delayed payment of gratuity, pension and family pension",
+        "hi": "उपदान, पेंशन और पारिवारिक पेंशन के विलंबित भुगतान पर ब्याज"
+      },
+      "unitIds": [
+        "ccs-pension-65"
+      ]
+    },
+    {
+      "id": "n-ccs-pension-66",
+      "number": "66",
+      "heading": {
+        "en": "Revision of pension after authorisation",
+        "hi": "प्राधिकरण के पश्चात् पेंशन का पुनरीक्षण"
+      },
+      "unitIds": [
+        "ccs-pension-66"
+      ]
+    },
+    {
+      "id": "n-ccs-pension-67",
+      "number": "67",
+      "heading": {
+        "en": "Recovery and adjustment of Government dues",
+        "hi": "सरकारी बकायों की वसूली और समायोजन"
+      },
+      "unitIds": [
+        "ccs-pension-67"
+      ]
+    },
+    {
+      "id": "n-ccs-pension-68",
+      "number": "68",
+      "heading": {
+        "en": "Adjustment and recovery of dues pertaining to Government accommodation",
+        "hi": "सरकारी आवास से संबंधित बकायों का समायोजन और वसूली"
+      },
+      "unitIds": [
+        "ccs-pension-68"
+      ]
+    },
+    {
+      "id": "n-ccs-pension-69",
+      "number": "69",
+      "heading": {
+        "en": "Adjustment and recovery of dues other than dues pertaining to Government accommodation",
+        "hi": "सरकारी आवास से संबंधित बकायों से भिन्न बकायों का समायोजन और वसूली"
+      },
+      "unitIds": [
+        "ccs-pension-69"
+      ]
+    },
+    {
+      "id": "n-ccs-pension-70",
+      "number": "70",
+      "heading": {
+        "en": "Date of retirement to be notified",
+        "hi": "सेवानिवृत्ति की तिथि अधिसूचित किया जाना"
+      },
+      "unitIds": [
+        "ccs-pension-70"
+      ]
+    },
+    {
+      "id": "n-ccs-pension-71",
+      "number": "71",
+      "heading": {
+        "en": "Obtaining of claims for family pension and gratuity",
+        "hi": "पारिवारिक पेंशन और उपदान हेतु दावे प्राप्त करना"
+      },
+      "unitIds": [
+        "ccs-pension-71"
+      ]
+    },
+    {
+      "id": "n-ccs-pension-72",
+      "number": "72",
+      "heading": {
+        "en": "Verification of service and emoluments for family pension and gratuity",
+        "hi": "पारिवारिक पेंशन और उपदान हेतु सेवा और परिलब्धियों का सत्यापन"
+      },
+      "unitIds": [
+        "ccs-pension-72"
+      ]
+    },
+    {
+      "id": "n-ccs-pension-73",
+      "number": "73",
+      "heading": {
+        "en": "Action to be taken in cases where service records are incomplete",
+        "hi": "जहाँ सेवा अभिलेख अपूर्ण हों वहाँ की जाने वाली कार्रवाई"
+      },
+      "unitIds": [
+        "ccs-pension-73"
+      ]
+    },
+    {
+      "id": "n-ccs-pension-74",
+      "number": "74",
+      "heading": {
+        "en": "Forwarding the family pension case to the Accounts Officer",
+        "hi": "पारिवारिक पेंशन मामला लेखा अधिकारी को अग्रेषित करना"
+      },
+      "unitIds": [
+        "ccs-pension-74"
+      ]
+    },
+    {
+      "id": "n-ccs-pension-75",
+      "number": "75",
+      "heading": {
+        "en": "",
+        "hi": "सरकारी सेवक की मृत्यु पर अनंतिम पारिवारिक पेंशन और अनंतिम उपदान की स्वीकृति, आहरण और संवितरण"
+      },
+      "unitIds": [
+        "ccs-pension-75"
+      ],
+      "excerpt": {
+        "en": "Sanction, drawal and disbursement of provisional family pension and provisional gratuity on…",
+        "hi": ""
+      }
+    },
+    {
+      "id": "n-ccs-pension-76",
+      "number": "76",
+      "heading": {
+        "en": "Authorisation of final family pension and balance of the gratuity by the Accounts Officer",
+        "hi": "लेखा अधिकारी द्वारा अंतिम पारिवारिक पेंशन और शेष उपदान का प्राधिकरण"
+      },
+      "unitIds": [
+        "ccs-pension-76"
+      ]
+    },
+    {
+      "id": "n-ccs-pension-77",
+      "number": "77",
+      "heading": {
+        "en": "Adjustment of Government dues",
+        "hi": "सरकारी बकायों का समायोजन"
+      },
+      "unitIds": [
+        "ccs-pension-77"
+      ]
+    },
+    {
+      "id": "n-ccs-pension-78",
+      "number": "78",
+      "heading": {
+        "en": "",
+        "hi": "प्रतिनियुक्ति पर सरकारी सेवक की मृत्यु या लापता होने पर पारिवारिक पेंशन और मृत्यु उपदान का भुगतान"
+      },
+      "unitIds": [
+        "ccs-pension-78"
+      ],
+      "excerpt": {
+        "en": "Payment of family pension and death gratuity when a Government servant dies or goes missing…",
+        "hi": ""
+      }
+    },
+    {
+      "id": "n-ccs-pension-79",
+      "number": "79",
+      "heading": {
+        "en": "",
+        "hi": "पेंशनभोगी या पारिवारिक पेंशनभोगी की मृत्यु या लापता होने पर पारिवारिक पेंशन और अवशिष्ट उपदान की स्वीकृति"
+      },
+      "unitIds": [
+        "ccs-pension-79"
+      ],
+      "excerpt": {
+        "en": "Sanction of family pension and residuary gratuity on the death or disappearance of a pensioner…",
+        "hi": ""
+      }
+    },
+    {
+      "id": "n-ccs-pension-80",
+      "number": "80",
+      "heading": {
+        "en": "Authorisation of payment by Accounts Officer",
+        "hi": "लेखा अधिकारी द्वारा भुगतान का प्राधिकरण"
+      },
+      "unitIds": [
+        "ccs-pension-80"
+      ]
+    },
+    {
+      "id": "n-ccs-pension-81",
+      "number": "81",
+      "heading": {
+        "en": "Date from which pension becomes payable",
+        "hi": "वह तिथि जिससे पेंशन संदेय होती है"
+      },
+      "unitIds": [
+        "ccs-pension-81"
+      ]
+    },
+    {
+      "id": "n-ccs-pension-82",
+      "number": "82",
+      "heading": {
+        "en": "Currency in which pension is payable",
+        "hi": "वह मुद्रा जिसमें पेंशन संदेय है"
+      },
+      "unitIds": [
+        "ccs-pension-82"
+      ]
+    },
+    {
+      "id": "n-ccs-pension-83",
+      "number": "83",
+      "heading": {
+        "en": "Manner of payment of gratuity and pension",
+        "hi": "उपदान और पेंशन के भुगतान की रीति"
+      },
+      "unitIds": [
+        "ccs-pension-83"
+      ]
+    },
+    {
+      "id": "n-ccs-pension-84",
+      "number": "84",
+      "heading": {
+        "en": "Application of other rules",
+        "hi": "अन्य नियमों की प्रयोज्यता"
+      },
+      "unitIds": [
+        "ccs-pension-84"
+      ]
+    },
+    {
+      "id": "n-ccs-pension-85",
+      "number": "85",
+      "heading": {
+        "en": "Interpretation",
+        "hi": "निर्वचन"
+      },
+      "unitIds": [
+        "ccs-pension-85"
+      ]
+    },
+    {
+      "id": "n-ccs-pension-86",
+      "number": "86",
+      "heading": {
+        "en": "Power to relax",
+        "hi": "शिथिल करने की शक्ति"
+      },
+      "unitIds": [
+        "ccs-pension-86"
+      ]
+    },
+    {
+      "id": "n-ccs-pension-87",
+      "number": "87",
+      "heading": {
+        "en": "Repeal and Saving",
+        "hi": "निरसन और व्यावृत्ति"
+      },
+      "unitIds": [
+        "ccs-pension-87"
+      ]
+    }
+  ],
+  "readingOrder": [
+    "ccs-pension-1",
+    "ccs-pension-2",
+    "ccs-pension-3",
+    "ccs-pension-4",
+    "ccs-pension-5",
+    "ccs-pension-6",
+    "ccs-pension-7",
+    "ccs-pension-8",
+    "ccs-pension-9",
+    "ccs-pension-10",
+    "ccs-pension-11",
+    "ccs-pension-12",
+    "ccs-pension-13",
+    "ccs-pension-14",
+    "ccs-pension-15",
+    "ccs-pension-16",
+    "ccs-pension-17",
+    "ccs-pension-18",
+    "ccs-pension-19",
+    "ccs-pension-20",
+    "ccs-pension-21",
+    "ccs-pension-22",
+    "ccs-pension-23",
+    "ccs-pension-24",
+    "ccs-pension-25",
+    "ccs-pension-26",
+    "ccs-pension-27",
+    "ccs-pension-28",
+    "ccs-pension-29",
+    "ccs-pension-30",
+    "ccs-pension-31",
+    "ccs-pension-32",
+    "ccs-pension-33",
+    "ccs-pension-34",
+    "ccs-pension-35",
+    "ccs-pension-36",
+    "ccs-pension-37",
+    "ccs-pension-38",
+    "ccs-pension-39",
+    "ccs-pension-40",
+    "ccs-pension-41",
+    "ccs-pension-42",
+    "ccs-pension-43",
+    "ccs-pension-44",
+    "ccs-pension-45",
+    "ccs-pension-46",
+    "ccs-pension-47",
+    "ccs-pension-48",
+    "ccs-pension-50",
+    "ccs-pension-51",
+    "ccs-pension-52",
+    "ccs-pension-53",
+    "ccs-pension-54",
+    "ccs-pension-55",
+    "ccs-pension-56",
+    "ccs-pension-57",
+    "ccs-pension-58",
+    "ccs-pension-59",
+    "ccs-pension-60",
+    "ccs-pension-61",
+    "ccs-pension-62",
+    "ccs-pension-63",
+    "ccs-pension-64",
+    "ccs-pension-65",
+    "ccs-pension-66",
+    "ccs-pension-67",
+    "ccs-pension-68",
+    "ccs-pension-69",
+    "ccs-pension-70",
+    "ccs-pension-71",
+    "ccs-pension-72",
+    "ccs-pension-73",
+    "ccs-pension-74",
+    "ccs-pension-75",
+    "ccs-pension-76",
+    "ccs-pension-77",
+    "ccs-pension-78",
+    "ccs-pension-79",
+    "ccs-pension-80",
+    "ccs-pension-81",
+    "ccs-pension-82",
+    "ccs-pension-83",
+    "ccs-pension-84",
+    "ccs-pension-85",
+    "ccs-pension-86",
+    "ccs-pension-87"
+  ],
+  "estimatedMinutes": 683,
+  "practiseCounts": {
+    "ccs-pension-1": 1,
+    "ccs-pension-10": 2,
+    "ccs-pension-11": 3,
+    "ccs-pension-12": 2,
+    "ccs-pension-13": 1,
+    "ccs-pension-14": 2,
+    "ccs-pension-15": 1,
+    "ccs-pension-16": 1,
+    "ccs-pension-17": 1,
+    "ccs-pension-18": 1,
+    "ccs-pension-19": 2,
+    "ccs-pension-2": 2,
+    "ccs-pension-20": 3,
+    "ccs-pension-21": 4,
+    "ccs-pension-22": 1,
+    "ccs-pension-23": 1,
+    "ccs-pension-24": 2,
+    "ccs-pension-25": 2,
+    "ccs-pension-26": 5,
+    "ccs-pension-27": 2,
+    "ccs-pension-28": 3,
+    "ccs-pension-29": 1,
+    "ccs-pension-3": 1,
+    "ccs-pension-30": 4,
+    "ccs-pension-32": 2,
+    "ccs-pension-33": 3,
+    "ccs-pension-34": 4,
+    "ccs-pension-35": 3,
+    "ccs-pension-36": 2,
+    "ccs-pension-37": 1,
+    "ccs-pension-38": 1,
+    "ccs-pension-39": 4,
+    "ccs-pension-4": 1,
+    "ccs-pension-40": 4,
+    "ccs-pension-41": 3,
+    "ccs-pension-42": 4,
+    "ccs-pension-43": 4,
+    "ccs-pension-44": 4,
+    "ccs-pension-45": 4,
+    "ccs-pension-46": 3,
+    "ccs-pension-47": 3,
+    "ccs-pension-48": 3,
+    "ccs-pension-5": 3,
+    "ccs-pension-50": 2,
+    "ccs-pension-51": 3,
+    "ccs-pension-52": 3,
+    "ccs-pension-53": 1,
+    "ccs-pension-54": 3,
+    "ccs-pension-55": 4,
+    "ccs-pension-56": 1,
+    "ccs-pension-57": 3,
+    "ccs-pension-58": 2,
+    "ccs-pension-59": 3,
+    "ccs-pension-6": 5,
+    "ccs-pension-60": 2,
+    "ccs-pension-61": 2,
+    "ccs-pension-62": 3,
+    "ccs-pension-63": 2,
+    "ccs-pension-64": 1,
+    "ccs-pension-65": 4,
+    "ccs-pension-66": 3,
+    "ccs-pension-67": 1,
+    "ccs-pension-68": 3,
+    "ccs-pension-69": 2,
+    "ccs-pension-7": 4,
+    "ccs-pension-70": 1,
+    "ccs-pension-71": 3,
+    "ccs-pension-72": 1,
+    "ccs-pension-73": 3,
+    "ccs-pension-74": 2,
+    "ccs-pension-75": 3,
+    "ccs-pension-76": 3,
+    "ccs-pension-77": 1,
+    "ccs-pension-78": 1,
+    "ccs-pension-79": 3,
+    "ccs-pension-8": 5,
+    "ccs-pension-80": 2,
+    "ccs-pension-81": 2,
+    "ccs-pension-82": 3,
+    "ccs-pension-83": 1,
+    "ccs-pension-85": 1,
+    "ccs-pension-86": 1,
+    "ccs-pension-87": 1,
+    "ccs-pension-9": 4
+  },
+  "examTags": [
+    "pension",
+    "retirement",
+    "establishment"
+  ],
+  "officialUrl": "https://pensionersportal.gov.in/Document/CCS-Pension-Rules%202021-English.pdf",
+  "source": {
+    "name": "Department of Pension and Pensioners' Welfare — CCS (Pension) Rules, 2021 — gazette notification, English",
+    "url": "https://pensionersportal.gov.in/Document/CCS-Pension-Rules%202021-English.pdf"
+  },
+  "disclaimer": {
+    "en": "Reference only; verify with the official gazette/order or your DDO.",
+    "hi": "केवल संदर्भ के लिए; आधिकारिक राजपत्र/आदेश अथवा अपने डीडीओ से सत्यापित करें।"
+  },
+  "verify": true
+}

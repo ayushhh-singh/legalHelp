@@ -253,6 +253,45 @@
   }
 
   /*
+   * THE LIBRARY READER'S PRINTED UNIT.
+   *
+   * A named page again, for the reason `draft-a4` is one: asking for a reading
+   * margin here must not move the pay slip or the law card, which print at the
+   * global 15mm. 20mm is a reading margin rather than CSMOP's one inch — a
+   * printed rule is read and annotated, not filed as a Government document.
+   *
+   * What survives onto the page is the unit, its citation, its source and the
+   * dataset version. Everything else in the reader — the sticky header, the
+   * type controls, the prev/next pair and the whole related rail — carries
+   * `data-print-hide` and is dropped by the rule above, so a printed section is
+   * a citation somebody can put in a file rather than a screenshot of an app.
+   */
+  @page library-a4 {
+    size: A4;
+    margin: 20mm;
+  }
+
+  .library-print-root {
+    page: library-a4;
+  }
+
+  .library-print-page {
+    border: 0 !important;
+    box-shadow: none !important;
+  }
+
+  /* The file tab is a screen affordance; on paper it is a grey smudge. */
+  .library-print-page > span[aria-hidden='true'] {
+    display: none !important;
+  }
+
+  /* Never split a provision across a sheet if it fits on one. */
+  .library-print-root p,
+  .library-print-root li {
+    break-inside: avoid;
+  }
+
+  /*
    * The side-by-side view prints as two columns only if it fits; below that
    * the two issues are printed one after the other, each on its own page,
    * which is how a bilingual document is actually filed.

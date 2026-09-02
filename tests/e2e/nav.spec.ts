@@ -32,10 +32,19 @@ test.describe('bottom bar', () => {
     await page.keyboard.press('Enter')
     await expect(more).toHaveAttribute('aria-expanded', 'true')
 
-    await page.keyboard.press('Tab')
-    expect(await focusedLabel(page)).toContain('Utilities')
-    await page.keyboard.press('Tab')
-    expect(await focusedLabel(page)).toContain('Settings')
+    // Derived from the sheet rather than named: Session 26 added the Library
+    // as a third overflow destination, and a spec that hard-codes the two it
+    // used to have fails for a reason that is not about tab order — which is
+    // the thing this test exists to check.
+    const sheetLinks = await page
+      .locator('#nav-more-sheet a')
+      .evaluateAll((links) => links.map((link) => link.getAttribute('aria-label') ?? link.textContent ?? ''))
+    expect(sheetLinks.length).toBeGreaterThanOrEqual(2)
+
+    for (const label of sheetLinks) {
+      await page.keyboard.press('Tab')
+      expect(await focusedLabel(page)).toContain(label.trim().split(' (')[0] ?? '')
+    }
   })
 
   test('aria-controls always resolves, open or shut', async ({ page }) => {
@@ -86,7 +95,15 @@ test.describe('bottom bar', () => {
 test('every destination is reachable at every breakpoint', async ({ page }) => {
   // 767/768 and 1023/1024 are the two boundaries. A gap at any of them would
   // leave a module unreachable on that class of device.
-  for (const width of [320, 390, 767, 768, 1023, 1024, 1280]) {
+  //
+  // The expected COUNT is read from the widest viewport, where the sidebar
+  // shows every destination there is, rather than written down here. A literal
+  // is a second copy of `src/lib/nav.ts`'s length that goes stale the next time
+  // a module is added — which is exactly what happened when the Library landed
+  // (Session 26), and the failure said nothing about breakpoints.
+  let expected: number | null = null
+
+  for (const width of [1280, 320, 390, 767, 768, 1023, 1024]) {
     await page.setViewportSize({ width, height: 800 })
     await page.goto('/law')
     await expect(page.getByRole('heading', { level: 1 })).toBeVisible()
@@ -103,6 +120,13 @@ test('every destination is reachable at every breakpoint', async ({ page }) => {
       return inSidebar + inBar + behindMore
     })
 
-    expect(reachable, `${width}px reaches ${reachable} of 6 destinations`).toBe(6)
+    if (expected === null) {
+      // A guard that counts zero is not a guard.
+      expect(reachable, 'the widest viewport reached no destinations at all').toBeGreaterThanOrEqual(5)
+      expected = reachable
+      continue
+    }
+
+    expect(reachable, `${width}px reaches ${reachable} of ${expected} destinations`).toBe(expected)
   }
 })

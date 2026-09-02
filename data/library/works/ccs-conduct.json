@@ -1,0 +1,469 @@
+{
+  "$schema": "../../../schemas/library-work.schema.json",
+  "version": "1.0.0",
+  "generatedAt": "2026-09-02",
+  "id": "ccs-conduct",
+  "title": {
+    "en": "Central Civil Services (Conduct) Rules, 1964",
+    "hi": "केंद्रीय सिविल सेवा (आचरण) नियम, 1964"
+  },
+  "shortTitle": {
+    "en": "CCS (Conduct) Rules",
+    "hi": "सीसीएस (आचरण) नियम"
+  },
+  "year": 1964,
+  "category": "service-rules",
+  "description": {
+    "en": "What a Government servant may and may not do — integrity, gifts, private trade, property returns, political activity and the conduct rules a disciplinary case is built on.",
+    "hi": "सरकारी सेवक क्या कर सकता है और क्या नहीं — सत्यनिष्ठा, उपहार, निजी व्यापार, संपत्ति विवरणी, राजनीतिक गतिविधि तथा वे आचरण नियम जिन पर अनुशासनिक कार्रवाई आधारित होती है।"
+  },
+  "corpus": {
+    "kind": "rules",
+    "file": "rules/text/ccs-conduct.json"
+  },
+  "unitLabel": {
+    "en": "Rule",
+    "hi": "नियम"
+  },
+  "publisher": "Department of Personnel and Training",
+  "tocSource": "flat",
+  "toc": [
+    {
+      "id": "n-ccs-conduct-1",
+      "number": "1",
+      "heading": {
+        "en": "Short title, commencement and application",
+        "hi": "संक्षिप्त नाम, प्रारंभ और लागू होना"
+      },
+      "unitIds": [
+        "ccs-conduct-1"
+      ]
+    },
+    {
+      "id": "n-ccs-conduct-2",
+      "number": "2",
+      "heading": {
+        "en": "Definitions",
+        "hi": "परिभाषाएँ"
+      },
+      "unitIds": [
+        "ccs-conduct-2"
+      ]
+    },
+    {
+      "id": "n-ccs-conduct-3",
+      "number": "3",
+      "heading": {
+        "en": "General",
+        "hi": "साधारण"
+      },
+      "unitIds": [
+        "ccs-conduct-3"
+      ]
+    },
+    {
+      "id": "n-ccs-conduct-3a",
+      "number": "3A",
+      "heading": {
+        "en": "Promptness and Courtesy",
+        "hi": "तत्परता और शिष्टता"
+      },
+      "unitIds": [
+        "ccs-conduct-3a"
+      ]
+    },
+    {
+      "id": "n-ccs-conduct-3b",
+      "number": "3B",
+      "heading": {
+        "en": "Observance of Government's policies",
+        "hi": "सरकार की नीतियों का पालन"
+      },
+      "unitIds": [
+        "ccs-conduct-3b"
+      ]
+    },
+    {
+      "id": "n-ccs-conduct-3c",
+      "number": "3C",
+      "heading": {
+        "en": "Prohibition of sexual harassment of working women",
+        "hi": "कामकाजी महिलाओं के लैंगिक उत्पीड़न का प्रतिषेध"
+      },
+      "unitIds": [
+        "ccs-conduct-3c"
+      ]
+    },
+    {
+      "id": "n-ccs-conduct-4",
+      "number": "4",
+      "heading": {
+        "en": "Employment of near relatives of Government servant in Companies or firms",
+        "hi": "कंपनियों या फर्मों में सरकारी सेवक के निकट संबंधियों का नियोजन"
+      },
+      "unitIds": [
+        "ccs-conduct-4"
+      ]
+    },
+    {
+      "id": "n-ccs-conduct-5",
+      "number": "5",
+      "heading": {
+        "en": "Taking part in politics and elections",
+        "hi": "राजनीति और निर्वाचनों में भाग लेना"
+      },
+      "unitIds": [
+        "ccs-conduct-5"
+      ]
+    },
+    {
+      "id": "n-ccs-conduct-6",
+      "number": "6",
+      "heading": {
+        "en": "Joining of associations by Government servants",
+        "hi": "सरकारी सेवकों द्वारा संगमों में सम्मिलित होना"
+      },
+      "unitIds": [
+        "ccs-conduct-6"
+      ]
+    },
+    {
+      "id": "n-ccs-conduct-7",
+      "number": "7",
+      "heading": {
+        "en": "Demonstration and strikes",
+        "hi": "प्रदर्शन और हड़तालें"
+      },
+      "unitIds": [
+        "ccs-conduct-7"
+      ]
+    },
+    {
+      "id": "n-ccs-conduct-8",
+      "number": "8",
+      "heading": {
+        "en": "Connection with press or other media",
+        "hi": "समाचारपत्र या अन्य मीडिया से संबंध"
+      },
+      "unitIds": [
+        "ccs-conduct-8"
+      ]
+    },
+    {
+      "id": "n-ccs-conduct-9",
+      "number": "9",
+      "heading": {
+        "en": "Criticism of Government",
+        "hi": "सरकार की आलोचना"
+      },
+      "unitIds": [
+        "ccs-conduct-9"
+      ]
+    },
+    {
+      "id": "n-ccs-conduct-10",
+      "number": "10",
+      "heading": {
+        "en": "Evidence before Committee or any other authority",
+        "hi": "समिति या किसी अन्य प्राधिकारी के समक्ष साक्ष्य"
+      },
+      "unitIds": [
+        "ccs-conduct-10"
+      ]
+    },
+    {
+      "id": "n-ccs-conduct-11",
+      "number": "11",
+      "heading": {
+        "en": "Communication of Official Information",
+        "hi": "शासकीय सूचना का संसूचन"
+      },
+      "unitIds": [
+        "ccs-conduct-11"
+      ]
+    },
+    {
+      "id": "n-ccs-conduct-12",
+      "number": "12",
+      "heading": {
+        "en": "Subscriptions",
+        "hi": "चंदा"
+      },
+      "unitIds": [
+        "ccs-conduct-12"
+      ]
+    },
+    {
+      "id": "n-ccs-conduct-13",
+      "number": "13",
+      "heading": {
+        "en": "Gifts",
+        "hi": "उपहार"
+      },
+      "unitIds": [
+        "ccs-conduct-13"
+      ]
+    },
+    {
+      "id": "n-ccs-conduct-13a",
+      "number": "13A",
+      "heading": {
+        "en": "Dowry",
+        "hi": "दहेज"
+      },
+      "unitIds": [
+        "ccs-conduct-13a"
+      ]
+    },
+    {
+      "id": "n-ccs-conduct-14",
+      "number": "14",
+      "heading": {
+        "en": "Public demonstrations in honour of Government servants",
+        "hi": "सरकारी सेवकों के सम्मान में सार्वजनिक प्रदर्शन"
+      },
+      "unitIds": [
+        "ccs-conduct-14"
+      ]
+    },
+    {
+      "id": "n-ccs-conduct-15",
+      "number": "15",
+      "heading": {
+        "en": "Private trade or employment",
+        "hi": "निजी व्यापार या नियोजन"
+      },
+      "unitIds": [
+        "ccs-conduct-15"
+      ]
+    },
+    {
+      "id": "n-ccs-conduct-15a",
+      "number": "15A",
+      "heading": {
+        "en": "Sub-letting and vacation of Government accommodation",
+        "hi": "सरकारी आवास का उप-किराए पर देना और खाली करना"
+      },
+      "unitIds": [
+        "ccs-conduct-15a"
+      ]
+    },
+    {
+      "id": "n-ccs-conduct-16",
+      "number": "16",
+      "heading": {
+        "en": "Investment, lending and borrowing",
+        "hi": "निवेश, उधार देना और उधार लेना"
+      },
+      "unitIds": [
+        "ccs-conduct-16"
+      ]
+    },
+    {
+      "id": "n-ccs-conduct-17",
+      "number": "17",
+      "heading": {
+        "en": "Insolvency and habitual indebtedness",
+        "hi": "दिवालियापन और आदतन ऋणग्रस्तता"
+      },
+      "unitIds": [
+        "ccs-conduct-17"
+      ]
+    },
+    {
+      "id": "n-ccs-conduct-18",
+      "number": "18",
+      "heading": {
+        "en": "Movable, immovable and valuable property",
+        "hi": "जंगम, स्थावर और मूल्यवान संपत्ति"
+      },
+      "unitIds": [
+        "ccs-conduct-18"
+      ]
+    },
+    {
+      "id": "n-ccs-conduct-18a",
+      "number": "18A",
+      "heading": {
+        "en": "Restrictions in relation to acquisition and disposal of immovable",
+        "hi": "स्थावर संपत्ति के अर्जन और व्ययन संबंधी निर्बंधन"
+      },
+      "unitIds": [
+        "ccs-conduct-18a"
+      ]
+    },
+    {
+      "id": "n-ccs-conduct-19",
+      "number": "19",
+      "heading": {
+        "en": "Vindication of acts and character of Government servant",
+        "hi": "सरकारी सेवक के कार्यों और चरित्र का समर्थन"
+      },
+      "unitIds": [
+        "ccs-conduct-19"
+      ]
+    },
+    {
+      "id": "n-ccs-conduct-20",
+      "number": "20",
+      "heading": {
+        "en": "Canvassing of non-official or other outside influence",
+        "hi": "गैर-सरकारी या अन्य बाहरी प्रभाव के लिए अनुरोध"
+      },
+      "unitIds": [
+        "ccs-conduct-20"
+      ]
+    },
+    {
+      "id": "n-ccs-conduct-21",
+      "number": "21",
+      "heading": {
+        "en": "Restriction regarding marriage",
+        "hi": "विवाह संबंधी निर्बंधन"
+      },
+      "unitIds": [
+        "ccs-conduct-21"
+      ]
+    },
+    {
+      "id": "n-ccs-conduct-22",
+      "number": "22",
+      "heading": {
+        "en": "Consumption of intoxicating drinks and drugs",
+        "hi": "मादक पेयों और मादक द्रव्यों का सेवन"
+      },
+      "unitIds": [
+        "ccs-conduct-22"
+      ]
+    },
+    {
+      "id": "n-ccs-conduct-22a",
+      "number": "22A",
+      "heading": {
+        "en": "Prohibition regarding employment of children below 14 years of age",
+        "hi": "चौदह वर्ष से कम आयु के बालकों के नियोजन का प्रतिषेध"
+      },
+      "unitIds": [
+        "ccs-conduct-22a"
+      ]
+    },
+    {
+      "id": "n-ccs-conduct-23",
+      "number": "23",
+      "heading": {
+        "en": "Interpretation",
+        "hi": "निर्वचन"
+      },
+      "unitIds": [
+        "ccs-conduct-23"
+      ]
+    },
+    {
+      "id": "n-ccs-conduct-24",
+      "number": "24",
+      "heading": {
+        "en": "Delegation of Powers",
+        "hi": "शक्तियों का प्रत्यायोजन"
+      },
+      "unitIds": [
+        "ccs-conduct-24"
+      ]
+    },
+    {
+      "id": "n-ccs-conduct-25",
+      "number": "25",
+      "heading": {
+        "en": "Repeal and Saving",
+        "hi": "निरसन और व्यावृत्ति"
+      },
+      "unitIds": [
+        "ccs-conduct-25"
+      ]
+    }
+  ],
+  "readingOrder": [
+    "ccs-conduct-1",
+    "ccs-conduct-2",
+    "ccs-conduct-3",
+    "ccs-conduct-3a",
+    "ccs-conduct-3b",
+    "ccs-conduct-3c",
+    "ccs-conduct-4",
+    "ccs-conduct-5",
+    "ccs-conduct-6",
+    "ccs-conduct-7",
+    "ccs-conduct-8",
+    "ccs-conduct-9",
+    "ccs-conduct-10",
+    "ccs-conduct-11",
+    "ccs-conduct-12",
+    "ccs-conduct-13",
+    "ccs-conduct-13a",
+    "ccs-conduct-14",
+    "ccs-conduct-15",
+    "ccs-conduct-15a",
+    "ccs-conduct-16",
+    "ccs-conduct-17",
+    "ccs-conduct-18",
+    "ccs-conduct-18a",
+    "ccs-conduct-19",
+    "ccs-conduct-20",
+    "ccs-conduct-21",
+    "ccs-conduct-22",
+    "ccs-conduct-22a",
+    "ccs-conduct-23",
+    "ccs-conduct-24",
+    "ccs-conduct-25"
+  ],
+  "estimatedMinutes": 70,
+  "practiseCounts": {
+    "ccs-conduct-1": 4,
+    "ccs-conduct-10": 3,
+    "ccs-conduct-11": 2,
+    "ccs-conduct-12": 4,
+    "ccs-conduct-13": 5,
+    "ccs-conduct-13a": 2,
+    "ccs-conduct-14": 2,
+    "ccs-conduct-15": 5,
+    "ccs-conduct-15a": 3,
+    "ccs-conduct-16": 3,
+    "ccs-conduct-17": 4,
+    "ccs-conduct-18": 5,
+    "ccs-conduct-18a": 4,
+    "ccs-conduct-19": 4,
+    "ccs-conduct-2": 3,
+    "ccs-conduct-20": 2,
+    "ccs-conduct-21": 3,
+    "ccs-conduct-22": 3,
+    "ccs-conduct-22a": 4,
+    "ccs-conduct-23": 1,
+    "ccs-conduct-24": 4,
+    "ccs-conduct-25": 1,
+    "ccs-conduct-3": 2,
+    "ccs-conduct-3a": 3,
+    "ccs-conduct-3b": 1,
+    "ccs-conduct-3c": 3,
+    "ccs-conduct-4": 4,
+    "ccs-conduct-5": 3,
+    "ccs-conduct-6": 3,
+    "ccs-conduct-7": 1,
+    "ccs-conduct-8": 4,
+    "ccs-conduct-9": 3
+  },
+  "examTags": [
+    "conduct",
+    "vigilance",
+    "probation",
+    "departmental-exam"
+  ],
+  "officialUrl": "https://dopt.gov.in/sites/default/files/CCS_Conduct_Rules_1964_Updated_27Feb15_0.pdf",
+  "source": {
+    "name": "Department of Personnel and Training — CCS (Conduct) Rules, 1964 — updated as on 27 February 2015",
+    "url": "https://dopt.gov.in/sites/default/files/CCS_Conduct_Rules_1964_Updated_27Feb15_0.pdf"
+  },
+  "disclaimer": {
+    "en": "Reference only; verify with the official gazette/order or your DDO.",
+    "hi": "केवल संदर्भ के लिए; आधिकारिक राजपत्र/आदेश अथवा अपने डीडीओ से सत्यापित करें।"
+  },
+  "verify": true
+}

@@ -279,6 +279,51 @@ attributed to the manual was read from a 130-dpi rendering of the page it is on,
 which is why the manual's own `परम अग्रता` survives instead of the `सर्वोच्च अग्रता`
 everyone expects. Do not "fix" one of those strings against the extracted text.
 
+## The Library's reading structure
+
+`library_seed.py` writes the sixteen files under `data/library/` — one work per
+document plus the shelf index. It fetches nothing, and more than that, it
+**copies nothing**: a work file is a POINTER (`corpus.file`) into a corpus this
+repository already ships, plus the structure a reader needs to navigate it — a
+table of contents, a reading order, an estimate of how long it takes, the
+citation, and a count of the Trainer cards that cite each unit. The statutory
+text stays in the one file that owns it, so a dataset refresh corrects the
+Library for free. `test_library_seed.py` asserts the absence of a `text` key in
+a built work, because that is the property the whole design rests on.
+
+Three things about it are worth knowing before editing.
+
+**It never invents structure.** A table of contents is grouped only where the
+corpus already says how. `data/law/*.json` records a `chapter` per section, so
+the three Sanhitas get a nested one (`tocSource: "chapters"`); CSMOP numbers its
+paragraphs `<chapter>.<para>`, so it is grouped on the part before the dot
+(`"numbering"`), and the chapter TITLES are not in that corpus, so each node is
+labelled by its number alone rather than by a heading nobody published. The
+other eleven rule books publish no division this repository holds, and get a
+flat list (`"flat"`) — `docs/DATA-GAPS.md` #70. The work page tells the reader
+which of the three it is looking at, in both languages.
+
+**An excerpt is emitted exactly where a heading is missing.** Four of the twelve
+rule books print no heading the extractor could read — the whole of FR/SR and
+CSMOP, thirteen GFR rules and a handful of others, 221 units in all — so an
+English table of contents over them would be a column of bare numbers. The seed
+quotes the opening ~96 characters of the unit onto the leaf node, which is the
+same fallback `scripts/authoring/make_cards.py` already puts on a rule card's
+front. It is emitted ONLY where a heading is absent, and `tests/library-data.test.ts`
+asserts both halves of that.
+
+**Hindi headings come from the authoring pipeline, not from the corpus.**
+`data/rules/text/*.json` has `heading.hi === ""` for all 818 rules; the Hindi is
+authored in `scripts/authoring/hindi/<act>.json` and this script reads the same
+file `make_cards.py` does, so a rule cannot read one way in the Library and
+another on a Trainer card. Every work therefore carries `verify: true`, and so
+do the Sanhitas, whose Hindi headings are this project's own curation
+(`data/law/overlays/*-hindi-curated.json`). Two CCS (Leave) rules have no Hindi
+heading and 71 of the 87 law chapter titles have none — `docs/DATA-GAPS.md` #71.
+
+Like `pay_matrix.py` and `drafting_seed.py` it is on **no cron**: the structure
+of a rule book changes when a Ministry amends it, which is a reading job.
+
 ## Validating the datasets
 
 `validate_data.py` walks a manifest of every file under `/data` and validates it

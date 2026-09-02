@@ -1,0 +1,455 @@
+{
+  "$schema": "../../../schemas/library-work.schema.json",
+  "version": "1.0.0",
+  "generatedAt": "2026-09-02",
+  "id": "rti",
+  "title": {
+    "en": "Right to Information Act, 2005",
+    "hi": "सूचना का अधिकार अधिनियम, 2005"
+  },
+  "shortTitle": {
+    "en": "RTI Act",
+    "hi": "आरटीआई अधिनियम"
+  },
+  "year": 2005,
+  "category": "transparency",
+  "description": {
+    "en": "The Right to Information Act — what a public authority must publish, the thirty-day clock, the exemptions under section 8, third-party procedure and the appeal route.",
+    "hi": "सूचना का अधिकार अधिनियम — लोक प्राधिकरण द्वारा प्रकाशित की जाने वाली सूचना, तीस दिन की समय-सीमा, धारा 8 की छूटें, तृतीय-पक्ष प्रक्रिया तथा अपील का मार्ग।"
+  },
+  "corpus": {
+    "kind": "rules",
+    "file": "rules/text/rti.json"
+  },
+  "unitLabel": {
+    "en": "Section",
+    "hi": "धारा"
+  },
+  "publisher": "Department of Personnel and Training",
+  "tocSource": "flat",
+  "toc": [
+    {
+      "id": "n-rti-1",
+      "number": "1",
+      "heading": {
+        "en": "Short title, extent and commencement",
+        "hi": "संक्षिप्त नाम, विस्तार और प्रारंभ"
+      },
+      "unitIds": [
+        "rti-1"
+      ]
+    },
+    {
+      "id": "n-rti-2",
+      "number": "2",
+      "heading": {
+        "en": "Definitions",
+        "hi": "परिभाषाएँ"
+      },
+      "unitIds": [
+        "rti-2"
+      ]
+    },
+    {
+      "id": "n-rti-3",
+      "number": "3",
+      "heading": {
+        "en": "Right to information",
+        "hi": "सूचना का अधिकार"
+      },
+      "unitIds": [
+        "rti-3"
+      ]
+    },
+    {
+      "id": "n-rti-4",
+      "number": "4",
+      "heading": {
+        "en": "Obligations of public authorities",
+        "hi": "लोक प्राधिकारियों की बाध्यताएँ"
+      },
+      "unitIds": [
+        "rti-4"
+      ]
+    },
+    {
+      "id": "n-rti-5",
+      "number": "5",
+      "heading": {
+        "en": "Designation of Public Information Officers",
+        "hi": "लोक सूचना अधिकारियों का पदाभिधान"
+      },
+      "unitIds": [
+        "rti-5"
+      ]
+    },
+    {
+      "id": "n-rti-6",
+      "number": "6",
+      "heading": {
+        "en": "Request for obtaining information",
+        "hi": "सूचना अभिप्राप्त करने के लिए अनुरोध"
+      },
+      "unitIds": [
+        "rti-6"
+      ]
+    },
+    {
+      "id": "n-rti-7",
+      "number": "7",
+      "heading": {
+        "en": "Disposal of request",
+        "hi": "अनुरोध का निपटारा"
+      },
+      "unitIds": [
+        "rti-7"
+      ]
+    },
+    {
+      "id": "n-rti-8",
+      "number": "8",
+      "heading": {
+        "en": "Exemption from disclosure of information",
+        "hi": "सूचना के प्रकटन से छूट"
+      },
+      "unitIds": [
+        "rti-8"
+      ]
+    },
+    {
+      "id": "n-rti-9",
+      "number": "9",
+      "heading": {
+        "en": "Grounds for rejection to access in certain cases",
+        "hi": "कुछ मामलों में पहुँच अस्वीकार करने के आधार"
+      },
+      "unitIds": [
+        "rti-9"
+      ]
+    },
+    {
+      "id": "n-rti-10",
+      "number": "10",
+      "heading": {
+        "en": "Severability",
+        "hi": "पृथक्करणीयता"
+      },
+      "unitIds": [
+        "rti-10"
+      ]
+    },
+    {
+      "id": "n-rti-11",
+      "number": "11",
+      "heading": {
+        "en": "Third party information",
+        "hi": "पर-पक्षकार सूचना"
+      },
+      "unitIds": [
+        "rti-11"
+      ]
+    },
+    {
+      "id": "n-rti-12",
+      "number": "12",
+      "heading": {
+        "en": "Constitution of Central Information Commission",
+        "hi": "केंद्रीय सूचना आयोग का गठन"
+      },
+      "unitIds": [
+        "rti-12"
+      ]
+    },
+    {
+      "id": "n-rti-13",
+      "number": "13",
+      "heading": {
+        "en": "Term of office and conditions of service",
+        "hi": "पदावधि और सेवा की शर्तें"
+      },
+      "unitIds": [
+        "rti-13"
+      ]
+    },
+    {
+      "id": "n-rti-14",
+      "number": "14",
+      "heading": {
+        "en": "Removal of Chief Information Commissioner or Information Commissioner",
+        "hi": "मुख्य सूचना आयुक्त या सूचना आयुक्त को हटाया जाना"
+      },
+      "unitIds": [
+        "rti-14"
+      ]
+    },
+    {
+      "id": "n-rti-15",
+      "number": "15",
+      "heading": {
+        "en": "Constitution of State Information Commission",
+        "hi": "राज्य सूचना आयोग का गठन"
+      },
+      "unitIds": [
+        "rti-15"
+      ]
+    },
+    {
+      "id": "n-rti-16",
+      "number": "16",
+      "heading": {
+        "en": "Term of office and conditions of service",
+        "hi": "पदावधि और सेवा की शर्तें"
+      },
+      "unitIds": [
+        "rti-16"
+      ]
+    },
+    {
+      "id": "n-rti-17",
+      "number": "17",
+      "heading": {
+        "en": "Removal of State Chief Information Commissioner or State Information Commissioner",
+        "hi": "राज्य मुख्य सूचना आयुक्त या राज्य सूचना आयुक्त को हटाया जाना"
+      },
+      "unitIds": [
+        "rti-17"
+      ]
+    },
+    {
+      "id": "n-rti-18",
+      "number": "18",
+      "heading": {
+        "en": "Powers and functions of Information Commissions",
+        "hi": "सूचना आयोगों की शक्तियाँ और कृत्य"
+      },
+      "unitIds": [
+        "rti-18"
+      ]
+    },
+    {
+      "id": "n-rti-19",
+      "number": "19",
+      "heading": {
+        "en": "Appeal",
+        "hi": "अपील"
+      },
+      "unitIds": [
+        "rti-19"
+      ]
+    },
+    {
+      "id": "n-rti-20",
+      "number": "20",
+      "heading": {
+        "en": "Penalties",
+        "hi": "शास्तियाँ"
+      },
+      "unitIds": [
+        "rti-20"
+      ]
+    },
+    {
+      "id": "n-rti-21",
+      "number": "21",
+      "heading": {
+        "en": "Protection of action taken in good faith",
+        "hi": "सद्भावपूर्वक की गई कार्रवाई का संरक्षण"
+      },
+      "unitIds": [
+        "rti-21"
+      ]
+    },
+    {
+      "id": "n-rti-22",
+      "number": "22",
+      "heading": {
+        "en": "Act to have overriding effect",
+        "hi": "अधिनियम का अध्यारोही प्रभाव"
+      },
+      "unitIds": [
+        "rti-22"
+      ]
+    },
+    {
+      "id": "n-rti-23",
+      "number": "23",
+      "heading": {
+        "en": "Bar of jurisdiction of courts",
+        "hi": "न्यायालयों की अधिकारिता का वर्जन"
+      },
+      "unitIds": [
+        "rti-23"
+      ]
+    },
+    {
+      "id": "n-rti-24",
+      "number": "24",
+      "heading": {
+        "en": "Act not to apply to certain organisations",
+        "hi": "अधिनियम का कुछ संगठनों पर लागू न होना"
+      },
+      "unitIds": [
+        "rti-24"
+      ]
+    },
+    {
+      "id": "n-rti-25",
+      "number": "25",
+      "heading": {
+        "en": "Monitoring and reporting",
+        "hi": "मॉनिटरी और रिपोर्टिंग"
+      },
+      "unitIds": [
+        "rti-25"
+      ]
+    },
+    {
+      "id": "n-rti-26",
+      "number": "26",
+      "heading": {
+        "en": "Appropriate Government to prepare programmes",
+        "hi": "समुचित सरकार द्वारा कार्यक्रम तैयार किया जाना"
+      },
+      "unitIds": [
+        "rti-26"
+      ]
+    },
+    {
+      "id": "n-rti-27",
+      "number": "27",
+      "heading": {
+        "en": "Power to make rules by appropriate Government",
+        "hi": "समुचित सरकार की नियम बनाने की शक्ति"
+      },
+      "unitIds": [
+        "rti-27"
+      ]
+    },
+    {
+      "id": "n-rti-28",
+      "number": "28",
+      "heading": {
+        "en": "Power to make rules by competent authority",
+        "hi": "सक्षम प्राधिकारी की नियम बनाने की शक्ति"
+      },
+      "unitIds": [
+        "rti-28"
+      ]
+    },
+    {
+      "id": "n-rti-29",
+      "number": "29",
+      "heading": {
+        "en": "Laying of rules",
+        "hi": "नियमों का रखा जाना"
+      },
+      "unitIds": [
+        "rti-29"
+      ]
+    },
+    {
+      "id": "n-rti-30",
+      "number": "30",
+      "heading": {
+        "en": "Power to remove difficulties",
+        "hi": "कठिनाइयाँ दूर करने की शक्ति"
+      },
+      "unitIds": [
+        "rti-30"
+      ]
+    },
+    {
+      "id": "n-rti-31",
+      "number": "31",
+      "heading": {
+        "en": "Repeal",
+        "hi": "निरसन"
+      },
+      "unitIds": [
+        "rti-31"
+      ]
+    }
+  ],
+  "readingOrder": [
+    "rti-1",
+    "rti-2",
+    "rti-3",
+    "rti-4",
+    "rti-5",
+    "rti-6",
+    "rti-7",
+    "rti-8",
+    "rti-9",
+    "rti-10",
+    "rti-11",
+    "rti-12",
+    "rti-13",
+    "rti-14",
+    "rti-15",
+    "rti-16",
+    "rti-17",
+    "rti-18",
+    "rti-19",
+    "rti-20",
+    "rti-21",
+    "rti-22",
+    "rti-23",
+    "rti-24",
+    "rti-25",
+    "rti-26",
+    "rti-27",
+    "rti-28",
+    "rti-29",
+    "rti-30",
+    "rti-31"
+  ],
+  "estimatedMinutes": 106,
+  "practiseCounts": {
+    "rti-1": 3,
+    "rti-10": 3,
+    "rti-11": 4,
+    "rti-12": 2,
+    "rti-13": 1,
+    "rti-14": 2,
+    "rti-15": 1,
+    "rti-16": 1,
+    "rti-17": 1,
+    "rti-18": 3,
+    "rti-19": 4,
+    "rti-2": 4,
+    "rti-20": 3,
+    "rti-21": 1,
+    "rti-22": 2,
+    "rti-23": 2,
+    "rti-24": 4,
+    "rti-25": 3,
+    "rti-26": 1,
+    "rti-27": 1,
+    "rti-28": 3,
+    "rti-29": 1,
+    "rti-3": 1,
+    "rti-30": 2,
+    "rti-31": 1,
+    "rti-4": 4,
+    "rti-5": 5,
+    "rti-6": 5,
+    "rti-7": 6,
+    "rti-8": 6,
+    "rti-9": 3
+  },
+  "examTags": [
+    "rti",
+    "transparency",
+    "departmental-exam"
+  ],
+  "officialUrl": "https://dopt.gov.in/sites/default/files/RTI%20Act%202005%20%28updated%20as%20on%2018-11-2025%29.pdf",
+  "source": {
+    "name": "Department of Personnel and Training — Right to Information Act, 2005 — updated as on 18 November 2025",
+    "url": "https://dopt.gov.in/sites/default/files/RTI%20Act%202005%20%28updated%20as%20on%2018-11-2025%29.pdf"
+  },
+  "disclaimer": {
+    "en": "Reference only; verify with the official gazette/order or your DDO.",
+    "hi": "केवल संदर्भ के लिए; आधिकारिक राजपत्र/आदेश अथवा अपने डीडीओ से सत्यापित करें।"
+  },
+  "verify": true
+}

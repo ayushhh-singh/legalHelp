@@ -1,0 +1,1023 @@
+{
+  "$schema": "../../../schemas/library-work.schema.json",
+  "version": "1.0.0",
+  "generatedAt": "2026-09-02",
+  "id": "ccs-leave",
+  "title": {
+    "en": "Central Civil Services (Leave) Rules, 1972",
+    "hi": "केंद्रीय सिविल सेवा (छुट्टी) नियम, 1972"
+  },
+  "shortTitle": {
+    "en": "CCS (Leave) Rules",
+    "hi": "सीसीएस (छुट्टी) नियम"
+  },
+  "year": 1972,
+  "category": "service-rules",
+  "description": {
+    "en": "Every kind of leave a central Government servant can earn or take — earned leave, half pay, commuted, maternity, paternity, child care, study and extraordinary leave.",
+    "hi": "केंद्रीय सरकारी सेवक द्वारा अर्जित या ली जा सकने वाली प्रत्येक प्रकार की छुट्टी — अर्जित अवकाश, अर्ध वेतन, परिवर्तित, प्रसूति, पितृत्व, शिशु देखभाल, अध्ययन तथा असाधारण छुट्टी।"
+  },
+  "corpus": {
+    "kind": "rules",
+    "file": "rules/text/ccs-leave.json"
+  },
+  "unitLabel": {
+    "en": "Rule",
+    "hi": "नियम"
+  },
+  "publisher": "Department of Personnel and Training",
+  "tocSource": "flat",
+  "toc": [
+    {
+      "id": "n-ccs-leave-1",
+      "number": "1",
+      "heading": {
+        "en": "Short title and commencement",
+        "hi": "संक्षिप्त नाम और प्रारंभ"
+      },
+      "unitIds": [
+        "ccs-leave-1"
+      ]
+    },
+    {
+      "id": "n-ccs-leave-2",
+      "number": "2",
+      "heading": {
+        "en": "Extent of application",
+        "hi": "लागू होने का विस्तार"
+      },
+      "unitIds": [
+        "ccs-leave-2"
+      ]
+    },
+    {
+      "id": "n-ccs-leave-3",
+      "number": "3",
+      "heading": {
+        "en": "Definitions",
+        "hi": "परिभाषाएँ"
+      },
+      "unitIds": [
+        "ccs-leave-3"
+      ]
+    },
+    {
+      "id": "n-ccs-leave-4",
+      "number": "4",
+      "heading": {
+        "en": "Government servants on temporary transfer or on foreign service",
+        "hi": "अस्थायी स्थानांतरण पर या विदेश सेवा पर सरकारी सेवक"
+      },
+      "unitIds": [
+        "ccs-leave-4"
+      ]
+    },
+    {
+      "id": "n-ccs-leave-5",
+      "number": "5",
+      "heading": {
+        "en": "Transfer from services or posts governed by other leave rules",
+        "hi": "अन्य छुट्टी नियमों से शासित सेवाओं या पदों से स्थानांतरण"
+      },
+      "unitIds": [
+        "ccs-leave-5"
+      ]
+    },
+    {
+      "id": "n-ccs-leave-6",
+      "number": "6",
+      "heading": {
+        "en": "Transfer to industrial establishment",
+        "hi": "औद्योगिक स्थापन में स्थानांतरण"
+      },
+      "unitIds": [
+        "ccs-leave-6"
+      ]
+    },
+    {
+      "id": "n-ccs-leave-7",
+      "number": "7",
+      "heading": {
+        "en": "Right to leave",
+        "hi": "छुट्टी का अधिकार"
+      },
+      "unitIds": [
+        "ccs-leave-7"
+      ]
+    },
+    {
+      "id": "n-ccs-leave-8",
+      "number": "8",
+      "heading": {
+        "en": "Regulation of claim to leave",
+        "hi": "छुट्टी के दावे का विनियमन"
+      },
+      "unitIds": [
+        "ccs-leave-8"
+      ]
+    },
+    {
+      "id": "n-ccs-leave-9",
+      "number": "9",
+      "heading": {
+        "en": "Effect of dismissal, removal or resignation on leave at credit",
+        "hi": "पदच्युति, हटाए जाने या त्यागपत्र का जमा छुट्टी पर प्रभाव"
+      },
+      "unitIds": [
+        "ccs-leave-9"
+      ]
+    },
+    {
+      "id": "n-ccs-leave-10",
+      "number": "10",
+      "heading": {
+        "en": "Commutation of one kind of leave into another",
+        "hi": "एक प्रकार की छुट्टी का दूसरे प्रकार में संपरिवर्तन"
+      },
+      "unitIds": [
+        "ccs-leave-10"
+      ]
+    },
+    {
+      "id": "n-ccs-leave-11",
+      "number": "11",
+      "heading": {
+        "en": "Combination of different kinds of leave",
+        "hi": "विभिन्न प्रकार की छुट्टियों का संयोजन"
+      },
+      "unitIds": [
+        "ccs-leave-11"
+      ]
+    },
+    {
+      "id": "n-ccs-leave-12",
+      "number": "12",
+      "heading": {
+        "en": "Maximum amount of continuous leave",
+        "hi": "लगातार छुट्टी की अधिकतम मात्रा"
+      },
+      "unitIds": [
+        "ccs-leave-12"
+      ]
+    },
+    {
+      "id": "n-ccs-leave-13",
+      "number": "13",
+      "heading": {
+        "en": "Acceptance of service or employment while on leave",
+        "hi": "छुट्टी पर रहते हुए सेवा या नियोजन स्वीकार करना"
+      },
+      "unitIds": [
+        "ccs-leave-13"
+      ]
+    },
+    {
+      "id": "n-ccs-leave-14",
+      "number": "14",
+      "heading": {
+        "en": "Application for leave",
+        "hi": "छुट्टी के लिए आवेदन"
+      },
+      "unitIds": [
+        "ccs-leave-14"
+      ]
+    },
+    {
+      "id": "n-ccs-leave-15",
+      "number": "15",
+      "heading": {
+        "en": "Leave account",
+        "hi": "छुट्टी लेखा"
+      },
+      "unitIds": [
+        "ccs-leave-15"
+      ]
+    },
+    {
+      "id": "n-ccs-leave-16",
+      "number": "16",
+      "heading": {
+        "en": "Verification of title to leave",
+        "hi": "छुट्टी के हक का सत्यापन"
+      },
+      "unitIds": [
+        "ccs-leave-16"
+      ]
+    },
+    {
+      "id": "n-ccs-leave-17",
+      "number": "17",
+      "heading": {
+        "en": "Leave not to be granted in certain circumstances",
+        "hi": "कुछ परिस्थितियों में छुट्टी न दी जाना"
+      },
+      "unitIds": [
+        "ccs-leave-17"
+      ]
+    },
+    {
+      "id": "n-ccs-leave-18",
+      "number": "18",
+      "heading": {
+        "en": "Deleted",
+        "hi": "विलोपित"
+      },
+      "unitIds": [
+        "ccs-leave-18"
+      ]
+    },
+    {
+      "id": "n-ccs-leave-19",
+      "number": "19",
+      "heading": {
+        "en": "Grant of leave on medical certificate to Gazetted and non",
+        "hi": "राजपत्रित और अराजपत्रित सरकारी सेवकों को चिकित्सा प्रमाणपत्र पर छुट्टी की मंजूरी"
+      },
+      "unitIds": [
+        "ccs-leave-19"
+      ]
+    },
+    {
+      "id": "n-ccs-leave-20",
+      "number": "20",
+      "heading": {
+        "en": "Leave to a Government servant who is unlikely to be fit to return to duty",
+        "hi": "ऐसे सरकारी सेवक को छुट्टी जिसके ड्यूटी पर लौटने योग्य होने की संभावना नहीं है"
+      },
+      "unitIds": [
+        "ccs-leave-20"
+      ]
+    },
+    {
+      "id": "n-ccs-leave-21",
+      "number": "21",
+      "heading": {
+        "en": "Commencement and termination of leave",
+        "hi": "छुट्टी का प्रारंभ और समाप्ति"
+      },
+      "unitIds": [
+        "ccs-leave-21"
+      ]
+    },
+    {
+      "id": "n-ccs-leave-22",
+      "number": "22",
+      "heading": {
+        "en": "Combination of holidays with leave",
+        "hi": "छुट्टी के साथ छुट्टियों का संयोजन"
+      },
+      "unitIds": [
+        "ccs-leave-22"
+      ]
+    },
+    {
+      "id": "n-ccs-leave-23",
+      "number": "23",
+      "heading": {
+        "en": "Recall to duty before expiry of leave",
+        "hi": "छुट्टी की समाप्ति से पूर्व ड्यूटी पर वापस बुलाना"
+      },
+      "unitIds": [
+        "ccs-leave-23"
+      ]
+    },
+    {
+      "id": "n-ccs-leave-24",
+      "number": "24",
+      "heading": {
+        "en": "Return from leave",
+        "hi": "छुट्टी से वापसी"
+      },
+      "unitIds": [
+        "ccs-leave-24"
+      ]
+    },
+    {
+      "id": "n-ccs-leave-25",
+      "number": "25",
+      "heading": {
+        "en": "Absence after expiry of leave",
+        "hi": "छुट्टी की समाप्ति के पश्चात् अनुपस्थिति"
+      },
+      "unitIds": [
+        "ccs-leave-25"
+      ]
+    },
+    {
+      "id": "n-ccs-leave-26",
+      "number": "26",
+      "heading": {
+        "en": "Earned leave for Government servants serving in Departments other",
+        "hi": "अवकाश विभागों से भिन्न विभागों में सेवारत सरकारी सेवकों के लिए अर्जित छुट्टी"
+      },
+      "unitIds": [
+        "ccs-leave-26"
+      ]
+    },
+    {
+      "id": "n-ccs-leave-27",
+      "number": "27",
+      "heading": {
+        "en": "Calculation of Earned Leave",
+        "hi": "अर्जित छुट्टी की गणना"
+      },
+      "unitIds": [
+        "ccs-leave-27"
+      ]
+    },
+    {
+      "id": "n-ccs-leave-28",
+      "number": "28",
+      "heading": {
+        "en": "Earned leave for persons serving in Vacation Departments",
+        "hi": "अवकाश विभागों में सेवारत व्यक्तियों के लिए अर्जित छुट्टी"
+      },
+      "unitIds": [
+        "ccs-leave-28"
+      ]
+    },
+    {
+      "id": "n-ccs-leave-29",
+      "number": "29",
+      "heading": {
+        "en": "Half pay leave",
+        "hi": "अर्ध वेतन छुट्टी"
+      },
+      "unitIds": [
+        "ccs-leave-29"
+      ]
+    },
+    {
+      "id": "n-ccs-leave-30",
+      "number": "30",
+      "heading": {
+        "en": "Commuted leave",
+        "hi": "संपरिवर्तित छुट्टी"
+      },
+      "unitIds": [
+        "ccs-leave-30"
+      ]
+    },
+    {
+      "id": "n-ccs-leave-31",
+      "number": "31",
+      "heading": {
+        "en": "Leave not due",
+        "hi": "अदेय छुट्टी"
+      },
+      "unitIds": [
+        "ccs-leave-31"
+      ]
+    },
+    {
+      "id": "n-ccs-leave-32",
+      "number": "32",
+      "heading": {
+        "en": "Extraordinary leave",
+        "hi": "असाधारण छुट्टी"
+      },
+      "unitIds": [
+        "ccs-leave-32"
+      ]
+    },
+    {
+      "id": "n-ccs-leave-33",
+      "number": "33",
+      "heading": {
+        "en": "Leave to probationer, a person on probation and an apprentice",
+        "hi": "परिवीक्षाधीन व्यक्ति और शिक्षु को छुट्टी"
+      },
+      "unitIds": [
+        "ccs-leave-33"
+      ]
+    },
+    {
+      "id": "n-ccs-leave-34",
+      "number": "34",
+      "heading": {
+        "en": "Persons re-employed after retirement",
+        "hi": "सेवानिवृत्ति के पश्चात् पुनर्नियोजित व्यक्ति"
+      },
+      "unitIds": [
+        "ccs-leave-34"
+      ]
+    },
+    {
+      "id": "n-ccs-leave-35",
+      "number": "35",
+      "heading": {
+        "en": "Deleted",
+        "hi": "विलोपित"
+      },
+      "unitIds": [
+        "ccs-leave-35"
+      ]
+    },
+    {
+      "id": "n-ccs-leave-36",
+      "number": "36",
+      "heading": {
+        "en": "Deleted",
+        "hi": "विलोपित"
+      },
+      "unitIds": [
+        "ccs-leave-36"
+      ]
+    },
+    {
+      "id": "n-ccs-leave-37",
+      "number": "37",
+      "heading": {
+        "en": "Deleted",
+        "hi": "विलोपित"
+      },
+      "unitIds": [
+        "ccs-leave-37"
+      ]
+    },
+    {
+      "id": "n-ccs-leave-38",
+      "number": "38",
+      "heading": {
+        "en": "Leave preparatory to retirement",
+        "hi": "सेवानिवृत्ति पूर्व छुट्टी"
+      },
+      "unitIds": [
+        "ccs-leave-38"
+      ]
+    },
+    {
+      "id": "n-ccs-leave-38a",
+      "number": "38A",
+      "heading": {
+        "en": "Encashment of Earned Leave along with Leave Travel Concession",
+        "hi": "छुट्टी यात्रा रियायत के साथ अर्जित छुट्टी का नकदीकरण"
+      },
+      "unitIds": [
+        "ccs-leave-38a"
+      ]
+    },
+    {
+      "id": "n-ccs-leave-39",
+      "number": "39",
+      "heading": {
+        "en": "",
+        "hi": ""
+      },
+      "unitIds": [
+        "ccs-leave-39"
+      ],
+      "excerpt": {
+        "en": "Leave/Cash payment in lieu of leave beyond the date of retirement, compulsory retirement or…",
+        "hi": ""
+      }
+    },
+    {
+      "id": "n-ccs-leave-39a",
+      "number": "39A",
+      "heading": {
+        "en": "Cash equivalent of leave salary in case of death in service",
+        "hi": "सेवाकाल में मृत्यु की दशा में छुट्टी वेतन के समतुल्य नकद"
+      },
+      "unitIds": [
+        "ccs-leave-39a"
+      ]
+    },
+    {
+      "id": "n-ccs-leave-39b",
+      "number": "39B",
+      "heading": {
+        "en": "Cash equivalent of leave salary in case of invalidation from service",
+        "hi": "सेवा से अशक्तता की दशा में छुट्टी वेतन के समतुल्य नकद"
+      },
+      "unitIds": [
+        "ccs-leave-39b"
+      ]
+    },
+    {
+      "id": "n-ccs-leave-39c",
+      "number": "39C",
+      "heading": {
+        "en": "Payment of cash equivalent of leave salary in case of death, etc., of Government servant",
+        "hi": "सरकारी सेवक की मृत्यु आदि की दशा में छुट्टी वेतन के समतुल्य नकद का संदाय"
+      },
+      "unitIds": [
+        "ccs-leave-39c"
+      ]
+    },
+    {
+      "id": "n-ccs-leave-39d",
+      "number": "39D",
+      "heading": {
+        "en": "",
+        "hi": ""
+      },
+      "unitIds": [
+        "ccs-leave-39d"
+      ],
+      "excerpt": {
+        "en": "Cash equivalent of leave salary in case of permanent absorption in Public Sector…",
+        "hi": ""
+      }
+    },
+    {
+      "id": "n-ccs-leave-40",
+      "number": "40",
+      "heading": {
+        "en": "Leave Salary",
+        "hi": "छुट्टी वेतन"
+      },
+      "unitIds": [
+        "ccs-leave-40"
+      ]
+    },
+    {
+      "id": "n-ccs-leave-41",
+      "number": "41",
+      "heading": {
+        "en": "Drawal of leave salary",
+        "hi": "छुट्टी वेतन का आहरण"
+      },
+      "unitIds": [
+        "ccs-leave-41"
+      ]
+    },
+    {
+      "id": "n-ccs-leave-42",
+      "number": "42",
+      "heading": {
+        "en": "Advance of Leave salary",
+        "hi": "छुट्टी वेतन का अग्रिम"
+      },
+      "unitIds": [
+        "ccs-leave-42"
+      ]
+    },
+    {
+      "id": "n-ccs-leave-43",
+      "number": "43",
+      "heading": {
+        "en": "Maternity Leave",
+        "hi": "मातृत्व छुट्टी"
+      },
+      "unitIds": [
+        "ccs-leave-43"
+      ]
+    },
+    {
+      "id": "n-ccs-leave-43a",
+      "number": "43A",
+      "heading": {
+        "en": "Paternity leave",
+        "hi": "पितृत्व छुट्टी"
+      },
+      "unitIds": [
+        "ccs-leave-43a"
+      ]
+    },
+    {
+      "id": "n-ccs-leave-43aa",
+      "number": "43AA",
+      "heading": {
+        "en": "Paternity Leave for Child Adoption",
+        "hi": "बालक गोद लेने पर पितृत्व छुट्टी"
+      },
+      "unitIds": [
+        "ccs-leave-43aa"
+      ]
+    },
+    {
+      "id": "n-ccs-leave-43b",
+      "number": "43B",
+      "heading": {
+        "en": "Child Adoption Leave",
+        "hi": "बालक गोद लेने संबंधी छुट्टी"
+      },
+      "unitIds": [
+        "ccs-leave-43b"
+      ]
+    },
+    {
+      "id": "n-ccs-leave-43c",
+      "number": "43C",
+      "heading": {
+        "en": "Child Care Leave",
+        "hi": "बाल देखभाल छुट्टी"
+      },
+      "unitIds": [
+        "ccs-leave-43c"
+      ]
+    },
+    {
+      "id": "n-ccs-leave-44",
+      "number": "44",
+      "heading": {
+        "en": "Work Related Illness and Injury Leave",
+        "hi": "कार्य संबंधी बीमारी और चोट छुट्टी"
+      },
+      "unitIds": [
+        "ccs-leave-44"
+      ]
+    },
+    {
+      "id": "n-ccs-leave-45",
+      "number": "45",
+      "heading": {
+        "en": "Omitted",
+        "hi": "लोप किया गया"
+      },
+      "unitIds": [
+        "ccs-leave-45"
+      ]
+    },
+    {
+      "id": "n-ccs-leave-46",
+      "number": "46",
+      "heading": {
+        "en": "Omitted",
+        "hi": "लोप किया गया"
+      },
+      "unitIds": [
+        "ccs-leave-46"
+      ]
+    },
+    {
+      "id": "n-ccs-leave-47",
+      "number": "47",
+      "heading": {
+        "en": "Seamen's sick leave",
+        "hi": "नाविकों की रुग्णता छुट्टी"
+      },
+      "unitIds": [
+        "ccs-leave-47"
+      ]
+    },
+    {
+      "id": "n-ccs-leave-48",
+      "number": "48",
+      "heading": {
+        "en": "Special Leave connected to inquiry of sexual harassment",
+        "hi": "लैंगिक उत्पीड़न की जाँच से संबद्ध विशेष छुट्टी"
+      },
+      "unitIds": [
+        "ccs-leave-48"
+      ]
+    },
+    {
+      "id": "n-ccs-leave-49",
+      "number": "49",
+      "heading": {
+        "en": "Departmental Leave",
+        "hi": "विभागीय छुट्टी"
+      },
+      "unitIds": [
+        "ccs-leave-49"
+      ]
+    },
+    {
+      "id": "n-ccs-leave-50",
+      "number": "50",
+      "heading": {
+        "en": "Conditions for grant of study leave",
+        "hi": "अध्ययन छुट्टी मंजूर करने की शर्तें"
+      },
+      "unitIds": [
+        "ccs-leave-50"
+      ]
+    },
+    {
+      "id": "n-ccs-leave-51",
+      "number": "51",
+      "heading": {
+        "en": "Maximum amount of study leave",
+        "hi": "अध्ययन छुट्टी की अधिकतम मात्रा"
+      },
+      "unitIds": [
+        "ccs-leave-51"
+      ]
+    },
+    {
+      "id": "n-ccs-leave-52",
+      "number": "52",
+      "heading": {
+        "en": "Applications for study leave",
+        "hi": "अध्ययन छुट्टी के लिए आवेदन"
+      },
+      "unitIds": [
+        "ccs-leave-52"
+      ]
+    },
+    {
+      "id": "n-ccs-leave-53",
+      "number": "53",
+      "heading": {
+        "en": "Sanction of study leave",
+        "hi": "अध्ययन छुट्टी की मंजूरी"
+      },
+      "unitIds": [
+        "ccs-leave-53"
+      ]
+    },
+    {
+      "id": "n-ccs-leave-54",
+      "number": "54",
+      "heading": {
+        "en": "Accounting of study leave and combination with leave of other kinds",
+        "hi": "अध्ययन छुट्टी का लेखांकन और अन्य प्रकार की छुट्टियों के साथ संयोजन"
+      },
+      "unitIds": [
+        "ccs-leave-54"
+      ]
+    },
+    {
+      "id": "n-ccs-leave-55",
+      "number": "55",
+      "heading": {
+        "en": "Regular of study leave extending beyond course of study",
+        "hi": "अध्ययन पाठ्यक्रम से आगे बढ़ने वाली अध्ययन छुट्टी का विनियमन"
+      },
+      "unitIds": [
+        "ccs-leave-55"
+      ]
+    },
+    {
+      "id": "n-ccs-leave-56",
+      "number": "56",
+      "heading": {
+        "en": "Leave Salary during study leave",
+        "hi": "अध्ययन छुट्टी के दौरान छुट्टी वेतन"
+      },
+      "unitIds": [
+        "ccs-leave-56"
+      ]
+    },
+    {
+      "id": "n-ccs-leave-57",
+      "number": "57",
+      "heading": {
+        "en": "Omitted",
+        "hi": "लोप किया गया"
+      },
+      "unitIds": [
+        "ccs-leave-57"
+      ]
+    },
+    {
+      "id": "n-ccs-leave-58",
+      "number": "58",
+      "heading": {
+        "en": "Omitted",
+        "hi": "लोप किया गया"
+      },
+      "unitIds": [
+        "ccs-leave-58"
+      ]
+    },
+    {
+      "id": "n-ccs-leave-59",
+      "number": "59",
+      "heading": {
+        "en": "Omitted",
+        "hi": "लोप किया गया"
+      },
+      "unitIds": [
+        "ccs-leave-59"
+      ]
+    },
+    {
+      "id": "n-ccs-leave-60",
+      "number": "60",
+      "heading": {
+        "en": "Admissibility of allowances in addition to Study Allowance",
+        "hi": "अध्ययन भत्ते के अतिरिक्त भत्तों की अनुज्ञेयता"
+      },
+      "unitIds": [
+        "ccs-leave-60"
+      ]
+    },
+    {
+      "id": "n-ccs-leave-61",
+      "number": "61",
+      "heading": {
+        "en": "Travelling Allowance during study leave",
+        "hi": "अध्ययन छुट्टी के दौरान यात्रा भत्ता"
+      },
+      "unitIds": [
+        "ccs-leave-61"
+      ]
+    },
+    {
+      "id": "n-ccs-leave-62",
+      "number": "62",
+      "heading": {
+        "en": "Cost of fees for study",
+        "hi": "अध्ययन के लिए फीस की लागत"
+      },
+      "unitIds": [
+        "ccs-leave-62"
+      ]
+    },
+    {
+      "id": "n-ccs-leave-63",
+      "number": "63",
+      "heading": {
+        "en": "Resignation or retirement after study leave or non-completion of the course of study",
+        "hi": "अध्ययन छुट्टी के पश्चात् त्यागपत्र या सेवानिवृत्ति अथवा पाठ्यक्रम पूरा न करना"
+      },
+      "unitIds": [
+        "ccs-leave-63"
+      ]
+    },
+    {
+      "id": "n-ccs-leave-64",
+      "number": "64",
+      "heading": {
+        "en": "Interpretation",
+        "hi": "निर्वचन"
+      },
+      "unitIds": [
+        "ccs-leave-64"
+      ]
+    },
+    {
+      "id": "n-ccs-leave-65",
+      "number": "65",
+      "heading": {
+        "en": "Power to relax",
+        "hi": "छूट देने की शक्ति"
+      },
+      "unitIds": [
+        "ccs-leave-65"
+      ]
+    },
+    {
+      "id": "n-ccs-leave-66",
+      "number": "66",
+      "heading": {
+        "en": "Repeal and saving",
+        "hi": "निरसन और व्यावृत्ति"
+      },
+      "unitIds": [
+        "ccs-leave-66"
+      ]
+    }
+  ],
+  "readingOrder": [
+    "ccs-leave-1",
+    "ccs-leave-2",
+    "ccs-leave-3",
+    "ccs-leave-4",
+    "ccs-leave-5",
+    "ccs-leave-6",
+    "ccs-leave-7",
+    "ccs-leave-8",
+    "ccs-leave-9",
+    "ccs-leave-10",
+    "ccs-leave-11",
+    "ccs-leave-12",
+    "ccs-leave-13",
+    "ccs-leave-14",
+    "ccs-leave-15",
+    "ccs-leave-16",
+    "ccs-leave-17",
+    "ccs-leave-18",
+    "ccs-leave-19",
+    "ccs-leave-20",
+    "ccs-leave-21",
+    "ccs-leave-22",
+    "ccs-leave-23",
+    "ccs-leave-24",
+    "ccs-leave-25",
+    "ccs-leave-26",
+    "ccs-leave-27",
+    "ccs-leave-28",
+    "ccs-leave-29",
+    "ccs-leave-30",
+    "ccs-leave-31",
+    "ccs-leave-32",
+    "ccs-leave-33",
+    "ccs-leave-34",
+    "ccs-leave-35",
+    "ccs-leave-36",
+    "ccs-leave-37",
+    "ccs-leave-38",
+    "ccs-leave-38a",
+    "ccs-leave-39",
+    "ccs-leave-39a",
+    "ccs-leave-39b",
+    "ccs-leave-39c",
+    "ccs-leave-39d",
+    "ccs-leave-40",
+    "ccs-leave-41",
+    "ccs-leave-42",
+    "ccs-leave-43",
+    "ccs-leave-43a",
+    "ccs-leave-43aa",
+    "ccs-leave-43b",
+    "ccs-leave-43c",
+    "ccs-leave-44",
+    "ccs-leave-45",
+    "ccs-leave-46",
+    "ccs-leave-47",
+    "ccs-leave-48",
+    "ccs-leave-49",
+    "ccs-leave-50",
+    "ccs-leave-51",
+    "ccs-leave-52",
+    "ccs-leave-53",
+    "ccs-leave-54",
+    "ccs-leave-55",
+    "ccs-leave-56",
+    "ccs-leave-57",
+    "ccs-leave-58",
+    "ccs-leave-59",
+    "ccs-leave-60",
+    "ccs-leave-61",
+    "ccs-leave-62",
+    "ccs-leave-63",
+    "ccs-leave-64",
+    "ccs-leave-65",
+    "ccs-leave-66"
+  ],
+  "estimatedMinutes": 226,
+  "practiseCounts": {
+    "ccs-leave-1": 1,
+    "ccs-leave-10": 3,
+    "ccs-leave-11": 3,
+    "ccs-leave-12": 3,
+    "ccs-leave-13": 3,
+    "ccs-leave-14": 2,
+    "ccs-leave-15": 1,
+    "ccs-leave-16": 3,
+    "ccs-leave-17": 2,
+    "ccs-leave-19": 4,
+    "ccs-leave-2": 1,
+    "ccs-leave-20": 3,
+    "ccs-leave-21": 3,
+    "ccs-leave-22": 1,
+    "ccs-leave-23": 2,
+    "ccs-leave-24": 2,
+    "ccs-leave-25": 3,
+    "ccs-leave-26": 4,
+    "ccs-leave-27": 4,
+    "ccs-leave-28": 4,
+    "ccs-leave-29": 3,
+    "ccs-leave-3": 1,
+    "ccs-leave-30": 4,
+    "ccs-leave-31": 6,
+    "ccs-leave-32": 3,
+    "ccs-leave-33": 3,
+    "ccs-leave-34": 1,
+    "ccs-leave-38": 3,
+    "ccs-leave-38a": 3,
+    "ccs-leave-39b": 1,
+    "ccs-leave-39c": 2,
+    "ccs-leave-4": 2,
+    "ccs-leave-40": 1,
+    "ccs-leave-41": 1,
+    "ccs-leave-42": 3,
+    "ccs-leave-43": 4,
+    "ccs-leave-43a": 4,
+    "ccs-leave-43aa": 1,
+    "ccs-leave-43b": 3,
+    "ccs-leave-43c": 4,
+    "ccs-leave-44": 2,
+    "ccs-leave-47": 3,
+    "ccs-leave-48": 3,
+    "ccs-leave-49": 3,
+    "ccs-leave-5": 2,
+    "ccs-leave-50": 4,
+    "ccs-leave-51": 3,
+    "ccs-leave-52": 1,
+    "ccs-leave-53": 1,
+    "ccs-leave-54": 3,
+    "ccs-leave-55": 1,
+    "ccs-leave-56": 1,
+    "ccs-leave-6": 3,
+    "ccs-leave-60": 1,
+    "ccs-leave-61": 1,
+    "ccs-leave-62": 1,
+    "ccs-leave-63": 3,
+    "ccs-leave-64": 1,
+    "ccs-leave-65": 1,
+    "ccs-leave-66": 2,
+    "ccs-leave-7": 4,
+    "ccs-leave-8": 1,
+    "ccs-leave-9": 3
+  },
+  "examTags": [
+    "leave",
+    "establishment",
+    "departmental-exam"
+  ],
+  "officialUrl": "https://documents.doptcirculars.nic.in/D2/D02est/updatedccsleaverulesN9ExV.pdf",
+  "source": {
+    "name": "Department of Personnel and Training — CCS (Leave) Rules, 1972 — updated as on 24 September 2024",
+    "url": "https://documents.doptcirculars.nic.in/D2/D02est/updatedccsleaverulesN9ExV.pdf"
+  },
+  "disclaimer": {
+    "en": "Reference only; verify with the official gazette/order or your DDO.",
+    "hi": "केवल संदर्भ के लिए; आधिकारिक राजपत्र/आदेश अथवा अपने डीडीओ से सत्यापित करें।"
+  },
+  "verify": true
+}

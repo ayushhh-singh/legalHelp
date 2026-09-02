@@ -5456,3 +5456,177 @@ vitest.
 - `docs/DATA-GAPS.md` #57, #61 and #67 close. #13 and #14 are rewritten to what
   is actually left — the honest quality of a 1.5B model's Hindi, and the fact
   that nobody has run the Worker against a real key. #68 and #69 are new.
+
+---
+
+## ADR-038 — The Library: a reading module that points at the corpus instead of copying it, a table of contents that admits where it has none, and a Hindi gap stated in both directions
+
+**Status:** Accepted (Session 26)
+**Context:** The app already ships 5.5 MB of statute — 818 rules across twelve books and 1,059
+sections across three Sanhitas — and until now every one of those bytes was reachable only through a
+question. The Law Converter answers "what replaced IPC 302"; the Trainer asks "which rule is this";
+the Drafting Studio quotes CSMOP at you while you write. Nobody could sit down and READ the CCS
+(Conduct) Rules from Rule 1 to Rule 24, which is what an officer preparing for a departmental
+examination actually wants to do. This session builds that surface. No statutory text was fetched.
+
+### 1. A work is a POINTER, never a copy
+
+`data/library/works/*.json` carries an id, a title, a category, a table of contents, a reading order,
+an estimate, a citation — and `corpus: { kind, file }`, which names
+`data/rules/text/<act>.json` or `data/law/<code>.json`. It carries no provision text at all.
+`test_library_seed.py` asserts the absence of a `text` key in a built work, because the alternative
+is the failure mode this project has spent five sessions avoiding: a second copy of a statute that a
+dataset refresh cannot correct. The weekly NCRB ingest can rewrite `data/law/bns.json` and the
+Library is corrected with it.
+
+The cost of that decision is a promise: every unit id in a work file has to resolve. `tests/library-data.test.ts`
+is where that is enforced, in both directions — every id in the reading order exists in the pointed-at
+corpus, AND every record in the corpus is reachable from the reading order. A work that lost a rule
+would otherwise be a rule nobody could navigate to, and nothing else in the suite would have noticed.
+
+`src/lib/library/data.test.ts` covers the other half: it loads all fifteen works and all fifteen
+corpora through the real `?raw` specifiers. Those thirty import paths are written out one per file
+because a bundler can only chunk a specifier it can see, and a hand-written list of thirty paths is
+thirty chances to typo one — a mistake that `tests/library-data.test.ts` cannot see, because it reads
+the same files with `node:fs`.
+
+**The corpus specifiers are deliberately the same strings the Law Converter and the Rules Trainer
+already use.** Rollup gives one chunk per resolved specifier, so a reader who has opened `/law` and
+then opens the BNS here downloads nothing new.
+
+### 2. Three loaders, three costs
+
+The shelf (`data/library/index.json`, ~11 KB) draws fifteen cards. A work (8–220 KB) draws one table
+of contents and carries no statutory text, so `/library/:workId` renders a 531-row contents list for
+the BNSS without touching the 1.9 MB corpus. Only the reader pays for the corpus — and on the work
+page, only once the reader has typed a search worth running. Same lever `useLawEngine(enabled)`
+pulls.
+
+`practiseCounts` exists for this reason. "How many Trainer cards cite this rule" is a genuinely
+useful thing to show beside a rule, and answering it at read time would mean downloading
+`data/rules/cards/gfr.json` — 1.1 MB — to find out whether there is anything to practise. It is
+counted at build time instead, from `reviewState === 'approved'` only (an unapproved card is never
+served, and sending a reader to an empty review is worse than saying nothing), and
+`tests/library-data.test.ts` re-derives it in TypeScript from the same card files. That seam — a
+Python script writing a number a TypeScript surface reads — is exactly where a `reviewState` spelling
+would drift with nobody seeing a wrong figure.
+
+### 3. Where the corpus has no structure, the app says so
+
+The session brief was explicit: produce a flat table of contents rather than inventing structure, and
+record it. `tocSource` is that record, with three values.
+
+- `chapters` — `data/law/*.json` records a chapter per section, so the three Sanhitas get a nested
+  contents list with NCRB's own chapter titles.
+- `numbering` — CSMOP numbers its paragraphs `4.7`, so grouping on the part before the dot reads
+  structure the manual itself prints. The chapter TITLES are in no dataset here, so each node is
+  labelled by its number alone (`अध्याय 4`) rather than by a heading nobody published.
+- `flat` — the other eleven rule books, one node per rule, 307 of them for the GFR.
+
+The work page states which of the three it is showing, in both languages. `docs/DATA-GAPS.md` #70 has
+what closing the gap would take, and it is a change to `extract_rules.py` rather than to this module —
+a chapter heading is a line that parser currently walks past, and writing it onto each rule would
+improve the Trainer's Browse screen at the same time.
+
+### 4. The Hindi gap runs in BOTH directions, and this is the surface that made that visible
+
+The known half was: no Ministry publishes a Hindi issue of any of these fifteen documents with a
+readable text layer (ADR-023), so `text.hi` is empty for all 1,877 units. A reading module cannot
+paper over that. `mode: 'hi'` renders the English text under a bilingual notice that says so and says
+nothing here is machine-translated — an announced fallback, which the master context permits, rather
+than the silent one it forbids.
+
+The half nobody had seen: **221 units have no ENGLISH heading and do have a Hindi one.** Four rule
+books print no heading `extract_rules.py` could read — the whole of FR/SR and CSMOP among them — and
+Session 20 authored Hindi headings for all of them. So those units read better in Hindi than in
+English, which is the equal-footing rule failing in the direction nobody looks. Nothing was invented
+to fix it: `library_seed.py` quotes the unit's opening ~96 characters as an `excerpt`, which is the
+same fallback `make_cards.py` already puts on a rule-card front, and it is emitted ONLY where a
+heading is missing. `unitLabel()` in `src/lib/library/label.ts` is the one place that decides what to
+show, and it reports which language it actually returned so the markup can set `lang` correctly and
+italicise a quotation. `docs/DATA-GAPS.md` #71 has all three sub-gaps and what closing each costs.
+
+### 5. Splitting a statute for reading is safe only because joining it back is asserted
+
+The twelve rule books store a rule as one unbroken string — CCS (Conduct) Rule 3 is 4,000 characters
+on one line — which renders as a wall. `paragraphs()` breaks before a numbered sub-clause, a proviso,
+an explanation and an illustration, which are the four places a printed rule book itself breaks.
+
+That is doing something presentational to a statute, so the guarantee is explicit and tested:
+`paragraphs(text).join(' ')` is `text` with its whitespace collapsed, asserted over **every unit of
+every one of the fifteen works**. Without it a regex that ate a character would be invisible on
+screen and wrong in a way somebody would act on.
+
+Two things that pass came out of writing it. `/परन्तु\b/` matches nothing, ever — JavaScript defines a
+word boundary over `[A-Za-z0-9_]`, so the Devanagari half of a symmetric-looking pattern silently
+covered one language. That is the same trap `src/ai/agents/law.ts#SECTION_MENTION` records (ADR-035),
+hit again in a completely different file, and the Devanagari test in `library.test.ts` is what caught
+it.
+
+### 6. `unit.parts` is a re-segmentation, and rendering it beside the body prints the rule twice
+
+`data/rules/text/*.json` stores `subRules[]` as verbatim slices of the same `text` — all 219 rules
+that have them, which `library.test.ts` now asserts. The first version of the reader rendered the
+body AND the parts list, so every rule with sub-rules appeared twice on the page. Each half was
+individually correct, jsdom would never have shown it, and it was found by reading a Playwright
+failure's page snapshot for a different bug.
+
+The same mistake had a second face. `hindiTextMissing` was
+`body.hi.length === 0 && parts.length === 0` — and `parts` counts records regardless of language, so
+for those same 219 rules the "Hindi is not available" notice never rendered and the English text
+appeared silently under a Hindi setting. That is precisely the silent fallback the master context
+forbids, shipped by a condition that was one clause too clever. It is `body.hi.length === 0` now.
+
+`parts` is kept on `LibraryUnit`, documented as what it is, and rendered by nothing: a sub-rule
+number is a real citation, and Session 27's highlights and notes will want an anchor finer than a
+whole rule.
+
+### 7. Reading state is per unit, in IndexedDB, and progress is written on arrival
+
+Dexie version 11 adds four tables. `libraryProgress` and `libraryBookmarks` are keyed
+`"<workId>:<unitId>"` — the shape `holidayPicks` uses, and necessary here rather than decorative,
+because a law unit id is a bare section number that is unique only within its own code.
+`libraryHighlights` and `libraryNotes` are declared and written by nothing until Session 27, the
+arrangement version 2 made for the AI tables: a dormant table costs nothing and means the kill
+switch, the backup and `clearAllData` all know about it on day one.
+
+Progress is written on ARRIVAL and then every 30 seconds of dwell. Arrival carries zero seconds, so
+StrictMode's double mount writes the same row twice rather than two rows, and `secondsRead`
+accumulates only from the timer, which StrictMode's cleanup cancels. "Continue reading" therefore
+points at the unit the reader stopped IN, not the last one they finished — which is the whole point
+of the row.
+
+### 8. The nav gains a sixth destination and loses none
+
+`src/lib/nav.ts` is still the one list. The Library is deliberately not `flagship`: the four visible
+bottom-bar tabs are the four modules an officer opens on a phone between one thing and the next, and
+reading a rule book end to end is not one of them. `shell.edge.test.tsx` now asserts the four
+flagship ids BY NAME rather than by count, because a swap keeps the count at four and a reader who
+loses a tab they use every day would find out from the phone in their hand.
+
+Two Playwright specs failed on this and both were hard-coded counts of six destinations. Both now
+derive: `nav.spec.ts` reads the expected count from the widest viewport, where the sidebar shows
+everything there is, and reads the More sheet's tab order from the sheet itself. A literal there is a
+second copy of `src/lib/nav.ts`'s length that goes stale the next time a module is added — and when
+it did, the failure said nothing about breakpoints, which is what that test is for.
+
+### 9. The serif is the system serif
+
+The reader offers four size steps, two typefaces and two line spacings. The serif is `--font-reading`,
+a stack of faces already on the machine with the bundled Noto Sans Devanagari catching the fall — not
+a fourth self-hosted family. ADR-018 refused ~25 KB of woff2 for the pay slip's numerals; a reading
+PREFERENCE does not get to spend more than a pay slip did.
+
+Relaxed spacing is FORCED whenever Devanagari is on screen, per the master context's ≥ 1.75 rule. The
+control is disabled with the reason stated rather than hidden — ADR-030's line, applied again.
+
+### Consequences
+
+- 15 works, 1,877 units, ~57 hours of reading, 824 KB of structure over 5.5 MB this repo already had.
+- Initial route unchanged apart from a nav label and one `versions.json` entry; 145.0 KB gzip against
+  a 250 KB budget.
+- `docs/DATA-GAPS.md` #70 and #71 are what is left open, and neither is a defect in this module.
+- `src/schemas/` is a new directory. The Library's shape is read by two places that are not the
+  module — `src/lib/library`, which is pure and must not import a module, and the tests that read the
+  committed bytes off disk — which is why it does not live at `src/modules/library/schema.ts` the way
+  the four schemas before it do.

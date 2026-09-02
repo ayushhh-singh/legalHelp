@@ -69,15 +69,15 @@ Vitest under jsdom, with `fake-indexeddb` so Dexie is real rather than mocked. `
 clears **every** table before each test, so no test can leak an AI key, a cached answer or a
 scenario into the next one.
 
-| Area                   | Files                                                                                | Guarantees                                                                                                                                                                                                                  |
-| ---------------------- | ------------------------------------------------------------------------------------ | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| Pure calculation       | `src/lib/**/*.test.ts`                                                               | Golden figures worked out from the orders **before** the code ran (73 pay slips, the FSRS schedules, the leave and pension arithmetic). A test that asserts what the code currently returns tests nothing.                  |
-| Properties             | `src/lib/pay/rounding.property.test.ts`, `src/lib/srs/fsrs.property.test.ts`         | What must hold for _every_ input: rounding is monotonic and idempotent, a pay slip's lines add up to its own gross, and `Again ≤ Hard ≤ Good ≤ Easy` for any card in any state. See below.                                  |
-| Datasets               | `tests/*-data.test.ts`                                                               | The committed bytes under `/data`, read off disk — the artefact the weekly cron opens a PR against, not an import. Every assertion in `tests/pay-data.test.ts` was confirmed to fail against a deliberately corrupted copy. |
-| Components and routes  | `src/**/*.test.tsx`, `src/app/App.a11y.test.tsx`                                     | Rendering, hooks and axe under jsdom. `color-contrast` cannot run here — jsdom has no layout — so it reports as _incomplete_, which is why suite 3 exists.                                                                  |
-| Design tokens          | `src/styles/tokens.test.ts`                                                          | 85 contrast assertions, resolving `var()` chains and compositing `/15` tints **numerically** from `tokens.css`. There is no way to satisfy it by changing a class name.                                                     |
-| The e2e harness itself | `tests/e2e-harness.test.ts`                                                          | That every Playwright spec imports the gated `test` (suite 4). Run by `pnpm test`, so forgetting is a red build rather than a silent hole.                                                                                  |
-| Build artefacts        | `tests/bundle-budget.test.ts`, `tests/no-external-urls.test.ts`, `tests/seo.test.ts` | **Skip silently without a build.** Run `pnpm build && pnpm test`; CI has its own job.                                                                                                                                       |
+| Area                   | Files                                                                                | Guarantees                                                                                                                                                                                                                                                                                                                                                                                                                             |
+| ---------------------- | ------------------------------------------------------------------------------------ | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| Pure calculation       | `src/lib/**/*.test.ts`                                                               | Golden figures worked out from the orders **before** the code ran (73 pay slips, the FSRS schedules, the leave and pension arithmetic). A test that asserts what the code currently returns tests nothing.                                                                                                                                                                                                                             |
+| Properties             | `src/lib/pay/rounding.property.test.ts`, `src/lib/srs/fsrs.property.test.ts`         | What must hold for _every_ input: rounding is monotonic and idempotent, a pay slip's lines add up to its own gross, and `Again ≤ Hard ≤ Good ≤ Easy` for any card in any state. See below.                                                                                                                                                                                                                                             |
+| Datasets               | `tests/*-data.test.ts`                                                               | The committed bytes under `/data`, read off disk — the artefact the weekly cron opens a PR against, not an import. Every assertion in `tests/pay-data.test.ts` was confirmed to fail against a deliberately corrupted copy. `tests/library-data.test.ts` additionally checks a POINTER: every unit id a Library work names has to exist in the corpus it points at, and every record in that corpus has to be reachable from the work. |
+| Components and routes  | `src/**/*.test.tsx`, `src/app/App.a11y.test.tsx`                                     | Rendering, hooks and axe under jsdom. `color-contrast` cannot run here — jsdom has no layout — so it reports as _incomplete_, which is why suite 3 exists.                                                                                                                                                                                                                                                                             |
+| Design tokens          | `src/styles/tokens.test.ts`                                                          | 85 contrast assertions, resolving `var()` chains and compositing `/15` tints **numerically** from `tokens.css`. There is no way to satisfy it by changing a class name.                                                                                                                                                                                                                                                                |
+| The e2e harness itself | `tests/e2e-harness.test.ts`                                                          | That every Playwright spec imports the gated `test` (suite 4). Run by `pnpm test`, so forgetting is a red build rather than a silent hole.                                                                                                                                                                                                                                                                                             |
+| Build artefacts        | `tests/bundle-budget.test.ts`, `tests/no-external-urls.test.ts`, `tests/seo.test.ts` | **Skip silently without a build.** Run `pnpm build && pnpm test`; CI has its own job.                                                                                                                                                                                                                                                                                                                                                  |
 
 ### 2. Coverage — `pnpm test:coverage`
 
@@ -280,8 +280,8 @@ rather than buffering. Neither suite reaches the network.
 
 ### 8. Data pipeline — Python
 
-`scripts/ingest` and `scripts/authoring` are tested with stdlib `unittest`, not Vitest — 110 tests
-across the two. `validate_data.py` checks all 58 datasets against `schemas/`, and **fails on a file
+`scripts/ingest` and `scripts/authoring` are tested with stdlib `unittest`, not Vitest — 185 tests
+across the two. `validate_data.py` checks all 77 datasets against `schemas/`, and **fails on a file
 that is in neither its manifest nor its stated no-schema list**, so a new dataset cannot go
 unvalidated. Read `scripts/ingest/README.md` and `docs/AUTHORING.md` before touching either.
 
@@ -335,4 +335,27 @@ Kept as a record of what each layer is actually for.
 - **`/learn/review` was swept by neither axe nor the offline reload** — the Trainer's most-used screen, with every route around it covered. `tests/route-coverage.test.ts` now derives the route set from the routers and fails on any route in neither sweep.
 - **`/utils/portals` announced a repeat copy to nobody** — one live region shared by every row, so the second identical message was silent. Fixed by keying the announcement; the test asserts node identity, because asserting the text passes against the broken version.
 - **The coverage report sorted its rows with `localeCompare`**, in a file CI byte-compares.
+- **The Library reader printed every rule with sub-rules twice** — `data/rules/text/*.json` stores
+  `subRules[]` as verbatim slices of the same `text`, so a page that renders the body AND the parts
+  list renders the whole rule again. Each half was individually correct and jsdom would never have
+  shown it; it was found by reading a Playwright failure's page snapshot for a different bug. The
+  containment property is now asserted over all 219 such rules (ADR-038 §6).
+- **"Read this in Hindi" silently showed the English text with no notice, on 219 of 818 rules** —
+  the missing-Hindi condition was `body.hi.length === 0 && parts.length === 0`, and `parts` counts
+  records regardless of language, so the condition was false for exactly the rules that have
+  sub-rules. That is the silent fallback the master context forbids, produced by a clause that
+  looked like extra care. Found by `tests/e2e/library.spec.ts`, whose whole subject is that the
+  notice appears.
+- **A Devanagari proviso was never a paragraph break** — `/परन्तु\b/` matches nothing, ever:
+  JavaScript defines a word boundary over `[A-Za-z0-9_]`, so the Devanagari half of a
+  symmetric-looking pattern silently covered one language. The same trap ADR-035 records for
+  `src/ai/agents/law.ts`, hit again in an unrelated file, and caught by writing the Devanagari case
+  of a test whose English case already passed.
+- **A two-digit search inside a rule book found nothing** — `fuse`'s `minMatchCharLength` is 3, so
+  "11", the most obvious thing a reader types into the CCS (Conduct) Rules, never reached the index.
+  A unit number is now matched exactly, first, and a single digit is searchable where a single
+  letter is not.
+- **Two Playwright specs hard-coded "6 destinations"** and failed when the Library made it seven —
+  for a reason that had nothing to do with what either test was checking. Both derive the count now,
+  one from the widest viewport and one from the More sheet itself.
 - **Four unit files failed intermittently and passed in isolation** — the signature of a budget, not a defect. `waitFor`'s 1-second default and Vitest's 5-second default are races against CPU contention, not against the code; both are raised in `vite.config.ts` and `src/test/setup.ts`, with the assertions unchanged.

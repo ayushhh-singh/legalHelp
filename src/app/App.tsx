@@ -16,6 +16,7 @@ const LawPage = lazy(() => import('@/modules/law/LawPage'))
 const PayPage = lazy(() => import('@/modules/pay/PayPage'))
 const DraftPage = lazy(() => import('@/modules/drafting/DraftPage'))
 const LearnPage = lazy(() => import('@/modules/trainer/LearnPage'))
+const LibraryPage = lazy(() => import('@/modules/library/LibraryPage'))
 const UtilsPage = lazy(() => import('@/modules/utils/UtilsPage'))
 const SettingsPage = lazy(() => import('@/modules/settings/SettingsPage'))
 
@@ -106,6 +107,9 @@ export function App() {
                 {/* The Rules Trainer owns its own sub-routes (/learn/review, /learn/mock, …)
                     the same way. */}
                 <Route path="/learn/*" element={<LearnPage />} />
+                {/* The Library owns /library, /library/:workId and the reader
+                    below it the same way. */}
+                <Route path="/library/*" element={<LibraryPage />} />
                 {/* Utilities owns its own sub-routes (/utils/glossary) the same way. */}
                 <Route path="/utils/*" element={<UtilsPage />} />
                 <Route path="/settings" element={<SettingsPage />} />

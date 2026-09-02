@@ -28,6 +28,7 @@ const ROUTERS: ReadonlyArray<{ file: string; base: string }> = [
   { file: 'src/modules/law/LawPage.tsx', base: '/law' },
   { file: 'src/modules/drafting/DraftPage.tsx', base: '/draft' },
   { file: 'src/modules/trainer/LearnPage.tsx', base: '/learn' },
+  { file: 'src/modules/library/LibraryPage.tsx', base: '/library' },
   { file: 'src/modules/utils/UtilsPage.tsx', base: '/utils' },
 ]
 
@@ -40,6 +41,10 @@ const EXEMPT: Readonly<Record<string, string>> = {
   '/': 'a redirect, not a screen — App.tsx sends it to /onboarding or the home route',
   '/draft/:type':
     'parameterised; the sweeps visit /draft/office-memorandum, a real instance of it, because a literal ":type" renders the not-found redirect',
+  '/library/:workId':
+    'parameterised; the sweeps visit /library/ccs-conduct, a real instance of it, because a literal ":workId" renders the not-found redirect',
+  '/library/:workId/:unitId':
+    'parameterised; the sweeps visit /library/ccs-conduct/ccs-conduct-3, a real unit of a real work, for the same reason',
 }
 
 /** `<Route path="x" ...>` from a module router, ignoring the catch-all. */
@@ -112,7 +117,7 @@ describe('the route list this guard reads', () => {
   it('includes the sub-routes each module owns, not just its base', () => {
     // If the `<Route path="...">` shape ever changes, this fails rather than
     // quietly reducing the guard to four base paths.
-    for (const route of ['/law/whats-new', '/learn/review', '/utils/pension']) {
+    for (const route of ['/law/whats-new', '/learn/review', '/utils/pension', '/library/:workId']) {
       expect(ROUTES, `${route} was not derived from the routers`).toContain(route)
     }
   })
@@ -141,7 +146,9 @@ describe('the exemptions', () => {
     for (const route of Object.keys(EXEMPT)) {
       // A stale exemption is a route silently excused after it stopped being a
       // route — or, worse, a typo excusing nothing while looking like it does.
-      const known = ROUTES.includes(route) || route === '/draft/:type'
+      const known =
+        ROUTES.includes(route) ||
+        ['/draft/:type', '/library/:workId', '/library/:workId/:unitId'].includes(route)
       expect(known, `EXEMPT names ${route}, which the routers do not declare`).toBe(true)
     }
   })

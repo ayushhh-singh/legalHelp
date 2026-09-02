@@ -40,6 +40,13 @@ const ROUTES = [
   '/learn/bookmarks',
   '/learn/reports',
   '/learn/review-queue',
+  '/library',
+  // The reader is where the Library's markup actually is — a sticky progress
+  // header, four groups of type controls, the unit itself and a related rail —
+  // and the shelf sweep would see none of it. The work page is the table of
+  // contents and the search box.
+  '/library/ccs-conduct',
+  '/library/ccs-conduct/ccs-conduct-3',
   '/utils',
   // 1,891 terms is as much markup as the picker sweep would never see —
   // /utils alone never renders a single row of it.

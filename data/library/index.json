@@ -1,0 +1,630 @@
+{
+  "$schema": "../../schemas/library-index.schema.json",
+  "version": "1.0.0",
+  "generatedAt": "2026-09-02",
+  "disclaimer": {
+    "en": "Reference only; verify with the official gazette/order or your DDO.",
+    "hi": "केवल संदर्भ के लिए; आधिकारिक राजपत्र/आदेश अथवा अपने डीडीओ से सत्यापित करें।"
+  },
+  "totals": {
+    "works": 15,
+    "units": 1877,
+    "minutes": 3441
+  },
+  "works": [
+    {
+      "id": "bns",
+      "title": {
+        "en": "Bharatiya Nyaya Sanhita, 2023",
+        "hi": "भारतीय न्याय संहिता, 2023"
+      },
+      "shortTitle": {
+        "en": "BNS",
+        "hi": "BNS"
+      },
+      "year": 2023,
+      "category": "criminal-law",
+      "description": {
+        "en": "The Bharatiya Nyaya Sanhita — the substantive criminal law that replaced the Indian Penal Code on 1 July 2024. Offences, general exceptions and punishments, chapter by chapter.",
+        "hi": "भारतीय न्याय संहिता — वह मूल दंड विधि जिसने 1 जुलाई 2024 को भारतीय दण्ड संहिता का स्थान लिया। अपराध, साधारण अपवाद तथा दंड, अध्यायवार।"
+      },
+      "unitLabel": {
+        "en": "Section",
+        "hi": "धारा"
+      },
+      "publisher": "National Crime Records Bureau (Sankalan)",
+      "corpus": {
+        "kind": "law",
+        "file": "law/bns.json"
+      },
+      "tocSource": "chapters",
+      "unitCount": 358,
+      "estimatedMinutes": 335,
+      "examTags": [
+        "criminal-law",
+        "investigation",
+        "departmental-exam"
+      ],
+      "officialUrl": "https://www.ncrb.gov.in/uploads/SankalanPortal/ChaptersBNS.html",
+      "source": {
+        "name": "NCRB Sankalan — BNS / IPC correspondence table",
+        "url": "https://www.ncrb.gov.in/uploads/SankalanPortal/SectionTableBNS.html"
+      },
+      "file": "works/bns.json",
+      "verify": true
+    },
+    {
+      "id": "bnss",
+      "title": {
+        "en": "Bharatiya Nagarik Suraksha Sanhita, 2023",
+        "hi": "भारतीय नागरिक सुरक्षा संहिता, 2023"
+      },
+      "shortTitle": {
+        "en": "BNSS",
+        "hi": "BNSS"
+      },
+      "year": 2023,
+      "category": "criminal-law",
+      "description": {
+        "en": "The Bharatiya Nagarik Suraksha Sanhita — criminal procedure from first information to appeal, replacing the Code of Criminal Procedure, 1973.",
+        "hi": "भारतीय नागरिक सुरक्षा संहिता — प्रथम सूचना से अपील तक की दंड प्रक्रिया, जिसने दंड प्रक्रिया संहिता, 1973 का स्थान लिया।"
+      },
+      "unitLabel": {
+        "en": "Section",
+        "hi": "धारा"
+      },
+      "publisher": "National Crime Records Bureau (Sankalan)",
+      "corpus": {
+        "kind": "law",
+        "file": "law/bnss.json"
+      },
+      "tocSource": "chapters",
+      "unitCount": 531,
+      "estimatedMinutes": 507,
+      "examTags": [
+        "criminal-procedure",
+        "investigation",
+        "departmental-exam"
+      ],
+      "officialUrl": "https://www.ncrb.gov.in/uploads/SankalanPortal/ChaptersBNSS.html",
+      "source": {
+        "name": "NCRB Sankalan — BNSS / CrPC correspondence table",
+        "url": "https://www.ncrb.gov.in/uploads/SankalanPortal/SectionTableBNSS.html"
+      },
+      "file": "works/bnss.json",
+      "verify": true
+    },
+    {
+      "id": "bsa",
+      "title": {
+        "en": "Bharatiya Sakshya Adhiniyam, 2023",
+        "hi": "भारतीय साक्ष्य अधिनियम, 2023"
+      },
+      "shortTitle": {
+        "en": "BSA",
+        "hi": "BSA"
+      },
+      "year": 2023,
+      "category": "criminal-law",
+      "description": {
+        "en": "The Bharatiya Sakshya Adhiniyam — relevancy, admissibility, electronic records, burden of proof and witnesses, replacing the Indian Evidence Act, 1872.",
+        "hi": "भारतीय साक्ष्य अधिनियम — सुसंगति, ग्राह्यता, इलेक्ट्रॉनिक अभिलेख, सबूत का भार तथा साक्षी, जिसने भारतीय साक्ष्य अधिनियम, 1872 का स्थान लिया।"
+      },
+      "unitLabel": {
+        "en": "Section",
+        "hi": "धारा"
+      },
+      "publisher": "National Crime Records Bureau (Sankalan)",
+      "corpus": {
+        "kind": "law",
+        "file": "law/bsa.json"
+      },
+      "tocSource": "chapters",
+      "unitCount": 170,
+      "estimatedMinutes": 135,
+      "examTags": [
+        "evidence",
+        "investigation"
+      ],
+      "officialUrl": "https://www.ncrb.gov.in/uploads/SankalanPortal/ChaptersBSA.html",
+      "source": {
+        "name": "NCRB Sankalan — BSA / IEA correspondence table",
+        "url": "https://www.ncrb.gov.in/uploads/SankalanPortal/SectionTableBSA.html"
+      },
+      "file": "works/bsa.json",
+      "verify": true
+    },
+    {
+      "id": "ccs-cca",
+      "title": {
+        "en": "Central Civil Services (Classification, Control and Appeal) Rules, 1965",
+        "hi": "केंद्रीय सिविल सेवा (वर्गीकरण, नियंत्रण और अपील) नियम, 1965"
+      },
+      "shortTitle": {
+        "en": "CCS (CCA) Rules",
+        "hi": "सीसीएस (सीसीए) नियम"
+      },
+      "year": 1965,
+      "category": "service-rules",
+      "description": {
+        "en": "Classification of services, the penalties that may be imposed, who may impose them, and the inquiry and appeal procedure every disciplinary proceeding must follow.",
+        "hi": "सेवाओं का वर्गीकरण, अधिरोपित की जा सकने वाली शास्तियाँ, उन्हें अधिरोपित करने वाला प्राधिकारी, तथा प्रत्येक अनुशासनिक कार्यवाही में अपनाई जाने वाली जाँच और अपील प्रक्रिया।"
+      },
+      "unitLabel": {
+        "en": "Rule",
+        "hi": "नियम"
+      },
+      "publisher": "Department of Personnel and Training",
+      "corpus": {
+        "kind": "rules",
+        "file": "rules/text/ccs-cca.json"
+      },
+      "tocSource": "flat",
+      "unitCount": 34,
+      "estimatedMinutes": 193,
+      "examTags": [
+        "discipline",
+        "vigilance",
+        "departmental-exam",
+        "ldce"
+      ],
+      "officialUrl": "https://dopt.gov.in/sites/default/files/CCS-CCA-Rules-FINAL.pdf",
+      "source": {
+        "name": "Department of Personnel and Training — CCS (CCA) Rules, 1965 — consolidated",
+        "url": "https://dopt.gov.in/sites/default/files/CCS-CCA-Rules-FINAL.pdf"
+      },
+      "file": "works/ccs-cca.json",
+      "verify": true
+    },
+    {
+      "id": "ccs-conduct",
+      "title": {
+        "en": "Central Civil Services (Conduct) Rules, 1964",
+        "hi": "केंद्रीय सिविल सेवा (आचरण) नियम, 1964"
+      },
+      "shortTitle": {
+        "en": "CCS (Conduct) Rules",
+        "hi": "सीसीएस (आचरण) नियम"
+      },
+      "year": 1964,
+      "category": "service-rules",
+      "description": {
+        "en": "What a Government servant may and may not do — integrity, gifts, private trade, property returns, political activity and the conduct rules a disciplinary case is built on.",
+        "hi": "सरकारी सेवक क्या कर सकता है और क्या नहीं — सत्यनिष्ठा, उपहार, निजी व्यापार, संपत्ति विवरणी, राजनीतिक गतिविधि तथा वे आचरण नियम जिन पर अनुशासनिक कार्रवाई आधारित होती है।"
+      },
+      "unitLabel": {
+        "en": "Rule",
+        "hi": "नियम"
+      },
+      "publisher": "Department of Personnel and Training",
+      "corpus": {
+        "kind": "rules",
+        "file": "rules/text/ccs-conduct.json"
+      },
+      "tocSource": "flat",
+      "unitCount": 32,
+      "estimatedMinutes": 70,
+      "examTags": [
+        "conduct",
+        "vigilance",
+        "probation",
+        "departmental-exam"
+      ],
+      "officialUrl": "https://dopt.gov.in/sites/default/files/CCS_Conduct_Rules_1964_Updated_27Feb15_0.pdf",
+      "source": {
+        "name": "Department of Personnel and Training — CCS (Conduct) Rules, 1964 — updated as on 27 February 2015",
+        "url": "https://dopt.gov.in/sites/default/files/CCS_Conduct_Rules_1964_Updated_27Feb15_0.pdf"
+      },
+      "file": "works/ccs-conduct.json",
+      "verify": true
+    },
+    {
+      "id": "ccs-leave",
+      "title": {
+        "en": "Central Civil Services (Leave) Rules, 1972",
+        "hi": "केंद्रीय सिविल सेवा (छुट्टी) नियम, 1972"
+      },
+      "shortTitle": {
+        "en": "CCS (Leave) Rules",
+        "hi": "सीसीएस (छुट्टी) नियम"
+      },
+      "year": 1972,
+      "category": "service-rules",
+      "description": {
+        "en": "Every kind of leave a central Government servant can earn or take — earned leave, half pay, commuted, maternity, paternity, child care, study and extraordinary leave.",
+        "hi": "केंद्रीय सरकारी सेवक द्वारा अर्जित या ली जा सकने वाली प्रत्येक प्रकार की छुट्टी — अर्जित अवकाश, अर्ध वेतन, परिवर्तित, प्रसूति, पितृत्व, शिशु देखभाल, अध्ययन तथा असाधारण छुट्टी।"
+      },
+      "unitLabel": {
+        "en": "Rule",
+        "hi": "नियम"
+      },
+      "publisher": "Department of Personnel and Training",
+      "corpus": {
+        "kind": "rules",
+        "file": "rules/text/ccs-leave.json"
+      },
+      "tocSource": "flat",
+      "unitCount": 75,
+      "estimatedMinutes": 226,
+      "examTags": [
+        "leave",
+        "establishment",
+        "departmental-exam"
+      ],
+      "officialUrl": "https://documents.doptcirculars.nic.in/D2/D02est/updatedccsleaverulesN9ExV.pdf",
+      "source": {
+        "name": "Department of Personnel and Training — CCS (Leave) Rules, 1972 — updated as on 24 September 2024",
+        "url": "https://documents.doptcirculars.nic.in/D2/D02est/updatedccsleaverulesN9ExV.pdf"
+      },
+      "file": "works/ccs-leave.json",
+      "verify": true
+    },
+    {
+      "id": "ccs-pension",
+      "title": {
+        "en": "Central Civil Services (Pension) Rules, 2021",
+        "hi": "केंद्रीय सिविल सेवा (पेंशन) नियम, 2021"
+      },
+      "shortTitle": {
+        "en": "CCS (Pension) Rules",
+        "hi": "सीसीएस (पेंशन) नियम"
+      },
+      "year": 2021,
+      "category": "service-rules",
+      "description": {
+        "en": "Qualifying service, superannuation, retirement and death gratuity, family pension, commutation and the papers a retiring officer's office has to put together.",
+        "hi": "अर्हक सेवा, अधिवर्षिता, सेवानिवृत्ति और मृत्यु उपदान, पारिवारिक पेंशन, संराशीकरण तथा सेवानिवृत्त हो रहे अधिकारी के कार्यालय द्वारा तैयार किए जाने वाले दस्तावेज़।"
+      },
+      "unitLabel": {
+        "en": "Rule",
+        "hi": "नियम"
+      },
+      "publisher": "Department of Pension and Pensioners' Welfare",
+      "corpus": {
+        "kind": "rules",
+        "file": "rules/text/ccs-pension.json"
+      },
+      "tocSource": "flat",
+      "unitCount": 86,
+      "estimatedMinutes": 683,
+      "examTags": [
+        "pension",
+        "retirement",
+        "establishment"
+      ],
+      "officialUrl": "https://pensionersportal.gov.in/Document/CCS-Pension-Rules%202021-English.pdf",
+      "source": {
+        "name": "Department of Pension and Pensioners' Welfare — CCS (Pension) Rules, 2021 — gazette notification, English",
+        "url": "https://pensionersportal.gov.in/Document/CCS-Pension-Rules%202021-English.pdf"
+      },
+      "file": "works/ccs-pension.json",
+      "verify": true
+    },
+    {
+      "id": "csmop",
+      "title": {
+        "en": "Central Secretariat Manual of Office Procedure, 2022",
+        "hi": "केंद्रीय सचिवालय कार्यालय प्रक्रिया नियमावली, 2022"
+      },
+      "shortTitle": {
+        "en": "CSMOP 2022",
+        "hi": "सीएसएमओपी 2022"
+      },
+      "year": 2022,
+      "category": "office-procedure",
+      "description": {
+        "en": "The Central Secretariat Manual of Office Procedure — how a file is opened, noted on, referred, and how every kind of official communication is drafted and issued.",
+        "hi": "केंद्रीय सचिवालय कार्यालय प्रक्रिया नियमावली — फ़ाइल कैसे खोली जाती है, उस पर टिप्पणी कैसे लिखी जाती है, तथा प्रत्येक प्रकार का सरकारी पत्राचार कैसे प्रारूपित और जारी किया जाता है।"
+      },
+      "unitLabel": {
+        "en": "Paragraph",
+        "hi": "पैरा"
+      },
+      "publisher": "Department of Administrative Reforms and Public Grievances",
+      "corpus": {
+        "kind": "rules",
+        "file": "rules/text/csmop.json"
+      },
+      "tocSource": "numbering",
+      "unitCount": 112,
+      "estimatedMinutes": 310,
+      "examTags": [
+        "noting-and-drafting",
+        "file-management",
+        "induction"
+      ],
+      "officialUrl": "https://www.darpg.gov.in/static/uploads/2025/10/774e0b8f427b7875158363d842fa431f.pdf",
+      "source": {
+        "name": "Department of Administrative Reforms and Public Grievances — Central Secretariat Manual of Office Procedure, 2022 (16th edition) — English",
+        "url": "https://www.darpg.gov.in/static/uploads/2025/10/774e0b8f427b7875158363d842fa431f.pdf"
+      },
+      "file": "works/csmop.json",
+      "verify": true
+    },
+    {
+      "id": "fr-sr",
+      "title": {
+        "en": "Fundamental Rules and Supplementary Rules",
+        "hi": "मूल नियम और अनुपूरक नियम"
+      },
+      "shortTitle": {
+        "en": "FR & SR",
+        "hi": "एफआर एवं एसआर"
+      },
+      "year": 1922,
+      "category": "service-rules",
+      "description": {
+        "en": "The Fundamental and Supplementary Rules — pay fixation, joining time, foreign service, compensatory allowances and the definitions the rest of establishment work rests on.",
+        "hi": "मूल तथा अनुपूरक नियम — वेतन निर्धारण, कार्यग्रहण अवधि, विदेश सेवा, प्रतिकर भत्ते तथा वे परिभाषाएँ जिन पर शेष स्थापना-कार्य आधारित है।"
+      },
+      "unitLabel": {
+        "en": "Rule",
+        "hi": "नियम"
+      },
+      "publisher": "Department of Personnel and Training",
+      "corpus": {
+        "kind": "rules",
+        "file": "rules/text/fr-sr.json"
+      },
+      "tocSource": "flat",
+      "unitCount": 77,
+      "estimatedMinutes": 170,
+      "examTags": [
+        "pay-and-allowances",
+        "establishment",
+        "departmental-exam",
+        "ldce"
+      ],
+      "officialUrl": "https://dopt.gov.in/sites/default/files/Compilation_FR_SR_English_2.pdf",
+      "source": {
+        "name": "Department of Personnel and Training — Compilation of Fundamental Rules and Supplementary Rules — English",
+        "url": "https://dopt.gov.in/sites/default/files/Compilation_FR_SR_English_2.pdf"
+      },
+      "file": "works/fr-sr.json",
+      "verify": true
+    },
+    {
+      "id": "gfr",
+      "title": {
+        "en": "General Financial Rules, 2017",
+        "hi": "सामान्य वित्तीय नियम, 2017"
+      },
+      "shortTitle": {
+        "en": "GFR 2017",
+        "hi": "जीएफआर 2017"
+      },
+      "year": 2017,
+      "category": "finance",
+      "description": {
+        "en": "The General Financial Rules — how public money is spent: budgeting, procurement of goods, works and services, GeM, contracts, grants-in-aid and the audit trail behind each.",
+        "hi": "सामान्य वित्तीय नियम — सार्वजनिक धन कैसे व्यय होता है: बजट, माल, कार्य और सेवाओं की खरीद, जेम, संविदाएँ, सहायता अनुदान तथा प्रत्येक के पीछे का लेखा-परीक्षा अभिलेख।"
+      },
+      "unitLabel": {
+        "en": "Rule",
+        "hi": "नियम"
+      },
+      "publisher": "Department of Expenditure, Ministry of Finance",
+      "corpus": {
+        "kind": "rules",
+        "file": "rules/text/gfr.json"
+      },
+      "tocSource": "flat",
+      "unitCount": 307,
+      "estimatedMinutes": 567,
+      "examTags": [
+        "procurement",
+        "finance",
+        "departmental-exam"
+      ],
+      "officialUrl": "https://doe.gov.in/files/circulars_document/GFRupdatedupto31012026.pdf",
+      "source": {
+        "name": "Department of Expenditure, Ministry of Finance — General Financial Rules 2017 — updated up to 31 January 2026",
+        "url": "https://doe.gov.in/files/circulars_document/GFRupdatedupto31012026.pdf"
+      },
+      "file": "works/gfr.json",
+      "verify": true
+    },
+    {
+      "id": "ol-act",
+      "title": {
+        "en": "Official Languages Act, 1963",
+        "hi": "राजभाषा अधिनियम, 1963"
+      },
+      "shortTitle": {
+        "en": "OL Act 1963",
+        "hi": "राजभाषा अधिनियम"
+      },
+      "year": 1963,
+      "category": "official-language",
+      "description": {
+        "en": "The Official Languages Act — where Hindi is to be used, where English continues, and the statutory basis of every Rajbhasha instruction an office receives.",
+        "hi": "राजभाषा अधिनियम — हिंदी का प्रयोग कहाँ किया जाना है, अंग्रेज़ी कहाँ जारी रहेगी, तथा कार्यालय को प्राप्त प्रत्येक राजभाषा अनुदेश का वैधानिक आधार।"
+      },
+      "unitLabel": {
+        "en": "Section",
+        "hi": "धारा"
+      },
+      "publisher": "Department of Official Language, Ministry of Home Affairs",
+      "corpus": {
+        "kind": "rules",
+        "file": "rules/text/ol-act.json"
+      },
+      "tocSource": "flat",
+      "unitCount": 8,
+      "estimatedMinutes": 18,
+      "examTags": [
+        "official-language",
+        "induction"
+      ],
+      "officialUrl": "https://rajbhasha.gov.in/sites/default/files/rajbhasha_act_1963e.pdf",
+      "source": {
+        "name": "Department of Official Language, Ministry of Home Affairs — The Official Languages Act, 1963 (as amended, 1967)",
+        "url": "https://rajbhasha.gov.in/sites/default/files/rajbhasha_act_1963e.pdf"
+      },
+      "file": "works/ol-act.json",
+      "verify": true
+    },
+    {
+      "id": "ol-rules",
+      "title": {
+        "en": "Official Languages (Use for Official Purposes of the Union) Rules, 1976",
+        "hi": "राजभाषा (संघ के शासकीय प्रयोजनों के लिए प्रयोग) नियम, 1976"
+      },
+      "shortTitle": {
+        "en": "OL Rules 1976",
+        "hi": "राजभाषा नियम 1976"
+      },
+      "year": 1976,
+      "category": "official-language",
+      "description": {
+        "en": "The Official Languages Rules — regions A, B and C, when a communication must be bilingual, translation duties and the returns an office files.",
+        "hi": "राजभाषा नियम — क, ख और ग क्षेत्र, पत्राचार कब द्विभाषी होना चाहिए, अनुवाद संबंधी कर्तव्य तथा कार्यालय द्वारा भेजी जाने वाली विवरणियाँ।"
+      },
+      "unitLabel": {
+        "en": "Rule",
+        "hi": "नियम"
+      },
+      "publisher": "Department of Official Language, Ministry of Home Affairs",
+      "corpus": {
+        "kind": "rules",
+        "file": "rules/text/ol-rules.json"
+      },
+      "tocSource": "flat",
+      "unitCount": 12,
+      "estimatedMinutes": 13,
+      "examTags": [
+        "official-language",
+        "noting-and-drafting"
+      ],
+      "officialUrl": "https://rajbhasha.gov.in/en/official-language-rules-1976",
+      "source": {
+        "name": "Department of Official Language, Ministry of Home Affairs — Official Languages Rules, 1976 (as amended 1987, 2007, 2011)",
+        "url": "https://rajbhasha.gov.in/en/official-language-rules-1976"
+      },
+      "file": "works/ol-rules.json",
+      "verify": true
+    },
+    {
+      "id": "osa",
+      "title": {
+        "en": "Official Secrets Act, 1923",
+        "hi": "शासकीय गुप्त बात अधिनियम, 1923"
+      },
+      "shortTitle": {
+        "en": "OSA 1923",
+        "hi": "ओएसए 1923"
+      },
+      "year": 1923,
+      "category": "security",
+      "description": {
+        "en": "The Official Secrets Act — prohibited places, wrongful communication of information, and the offences an officer handling classified material is expected to know by heart.",
+        "hi": "शासकीय गुप्त बात अधिनियम — प्रतिषिद्ध स्थान, सूचना का दोषपूर्ण संसूचन, तथा वर्गीकृत सामग्री संभालने वाले अधिकारी से अपेक्षित अपराधों की जानकारी।"
+      },
+      "unitLabel": {
+        "en": "Section",
+        "hi": "धारा"
+      },
+      "publisher": "Ministry of Home Affairs",
+      "corpus": {
+        "kind": "rules",
+        "file": "rules/text/osa.json"
+      },
+      "tocSource": "flat",
+      "unitCount": 14,
+      "estimatedMinutes": 50,
+      "examTags": [
+        "security",
+        "vigilance"
+      ],
+      "officialUrl": "https://www.mha.gov.in/sites/default/files/Official_Secret_Act1923_2.pdf",
+      "source": {
+        "name": "Ministry of Home Affairs — The Official Secrets Act, 1923",
+        "url": "https://www.mha.gov.in/sites/default/files/Official_Secret_Act1923_2.pdf"
+      },
+      "file": "works/osa.json",
+      "verify": true
+    },
+    {
+      "id": "posh",
+      "title": {
+        "en": "Sexual Harassment of Women at Workplace (Prevention, Prohibition and Redressal) Act, 2013",
+        "hi": "कार्यस्थल पर महिलाओं का लैंगिक उत्पीड़न (निवारण, प्रतिषेध और प्रतितोष) अधिनियम, 2013"
+      },
+      "shortTitle": {
+        "en": "PoSH Act 2013",
+        "hi": "पॉश अधिनियम 2013"
+      },
+      "year": 2013,
+      "category": "workplace",
+      "description": {
+        "en": "Sexual harassment of women at the workplace — the Internal Committee, the complaint and inquiry procedure, timelines, and the employer's own statutory duties.",
+        "hi": "कार्यस्थल पर महिलाओं का लैंगिक उत्पीड़न — आंतरिक समिति, शिकायत एवं जाँच प्रक्रिया, समय-सीमाएँ, तथा नियोजक के अपने वैधानिक कर्तव्य।"
+      },
+      "unitLabel": {
+        "en": "Section",
+        "hi": "धारा"
+      },
+      "publisher": "Ministry of Women and Child Development",
+      "corpus": {
+        "kind": "rules",
+        "file": "rules/text/posh.json"
+      },
+      "tocSource": "flat",
+      "unitCount": 30,
+      "estimatedMinutes": 58,
+      "examTags": [
+        "workplace-safety",
+        "establishment",
+        "induction"
+      ],
+      "officialUrl": "https://www.indiacode.nic.in/bitstream/123456789/2104/1/A2013-14.pdf",
+      "source": {
+        "name": "Ministry of Women and Child Development — The Sexual Harassment of Women at Workplace Act, 2013",
+        "url": "https://www.indiacode.nic.in/bitstream/123456789/2104/1/A2013-14.pdf"
+      },
+      "file": "works/posh.json",
+      "verify": true
+    },
+    {
+      "id": "rti",
+      "title": {
+        "en": "Right to Information Act, 2005",
+        "hi": "सूचना का अधिकार अधिनियम, 2005"
+      },
+      "shortTitle": {
+        "en": "RTI Act",
+        "hi": "आरटीआई अधिनियम"
+      },
+      "year": 2005,
+      "category": "transparency",
+      "description": {
+        "en": "The Right to Information Act — what a public authority must publish, the thirty-day clock, the exemptions under section 8, third-party procedure and the appeal route.",
+        "hi": "सूचना का अधिकार अधिनियम — लोक प्राधिकरण द्वारा प्रकाशित की जाने वाली सूचना, तीस दिन की समय-सीमा, धारा 8 की छूटें, तृतीय-पक्ष प्रक्रिया तथा अपील का मार्ग।"
+      },
+      "unitLabel": {
+        "en": "Section",
+        "hi": "धारा"
+      },
+      "publisher": "Department of Personnel and Training",
+      "corpus": {
+        "kind": "rules",
+        "file": "rules/text/rti.json"
+      },
+      "tocSource": "flat",
+      "unitCount": 31,
+      "estimatedMinutes": 106,
+      "examTags": [
+        "rti",
+        "transparency",
+        "departmental-exam"
+      ],
+      "officialUrl": "https://dopt.gov.in/sites/default/files/RTI%20Act%202005%20%28updated%20as%20on%2018-11-2025%29.pdf",
+      "source": {
+        "name": "Department of Personnel and Training — Right to Information Act, 2005 — updated as on 18 November 2025",
+        "url": "https://dopt.gov.in/sites/default/files/RTI%20Act%202005%20%28updated%20as%20on%2018-11-2025%29.pdf"
+      },
+      "file": "works/rti.json",
+      "verify": true
+    }
+  ]
+}

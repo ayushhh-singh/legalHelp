@@ -1,4 +1,4 @@
-import { Calculator, FileSignature, GraduationCap, Scale, Settings, Wrench } from 'lucide-react'
+import { BookOpen, Calculator, FileSignature, GraduationCap, Scale, Settings, Wrench } from 'lucide-react'
 import type { LucideIcon } from 'lucide-react'
 
 import type { Language } from '@/i18n'
@@ -62,6 +62,13 @@ export const NAV_ITEMS: readonly NavItem[] = [
     flagship: true,
   },
   {
+    id: 'library',
+    path: '/library',
+    icon: BookOpen,
+    label: { en: 'Library', hi: 'पुस्तकालय' },
+    short: { en: 'Library', hi: 'पुस्तक' },
+  },
+  {
     id: 'utils',
     path: '/utils',
     icon: Wrench,
@@ -80,6 +87,13 @@ export const NAV_ITEMS: readonly NavItem[] = [
 /**
  * The four bottom-bar slots below 768px. The remainder go into the "More"
  * sheet; from 768px up the bar simply shows everything and "More" disappears.
+ *
+ * The Library is the sixth primary destination and is deliberately NOT
+ * flagship: the four visible tabs are the four modules an officer opens on a
+ * phone between one thing and the next, and reading a rule book end to end is
+ * not one of them. Nothing was pushed out to make room — the session brief was
+ * explicit about that, and `src/app/shell.edge.test.tsx` asserts the four
+ * flagship ids by name so a later session cannot quietly swap one.
  */
 export const PRIMARY_NAV_ITEMS = NAV_ITEMS.filter((item) => item.flagship)
 export const OVERFLOW_NAV_ITEMS = NAV_ITEMS.filter((item) => !item.flagship)

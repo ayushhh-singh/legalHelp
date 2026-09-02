@@ -112,6 +112,12 @@ const EVERY_ROUTE = [
   '/learn/reports',
   '/learn/settings',
   '/learn/review-queue',
+  '/library',
+  '/library/ccs-conduct',
+  // The reader is what an officer actually opens on a train; the corpus chunk
+  // it needs is precached rather than fetched on demand, and an offline reload
+  // is what proves it.
+  '/library/ccs-conduct/ccs-conduct-3',
   '/utils',
   '/utils/glossary',
   '/utils/holidays',

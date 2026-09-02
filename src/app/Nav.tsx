@@ -156,7 +156,7 @@ export function BottomTabs() {
         (only one is visible per breakpoint).
       */}
       <nav aria-label={t('a11y.tabNavigation')} className="flex flex-col-reverse">
-        <ul className="grid grid-cols-5 border-t border-border bg-card md:grid-cols-6">
+        <ul className="grid grid-cols-5 border-t border-border bg-card md:grid-cols-7">
           {PRIMARY_NAV_ITEMS.map((item) => (
             <li key={item.id}>
               <TabLink item={item} />
