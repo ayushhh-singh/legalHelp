@@ -121,6 +121,7 @@ export function normaliseScenario(scenario: PayScenario, tables: PayTables): Pay
   const cells = levelFor(tables.matrix, level)?.cells.length ?? 1
   return {
     ...scenario,
+    jobId: jobFor(tables.jobs, scenario.jobId) ? scenario.jobId : null,
     level,
     cellIndex: Math.min(Math.max(0, Math.trunc(scenario.cellIndex)), cells - 1),
     cityId: cityFor(tables.cities, scenario.cityId) ? scenario.cityId : null,

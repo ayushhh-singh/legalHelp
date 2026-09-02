@@ -500,6 +500,31 @@ are load-bearing, and each is enforced by a test rather than by convention:
 
 ### Notes for the next session
 
+- **An edge-case pass over the Trainer-home/mock-button fix and the pay Combobox fix (the commit
+  fixing the first-run `EmptyState` hiding navigation, and `Combobox`/`Pickers` showing the live
+  query instead of the selected label) found one more real defect, in code neither of those two
+  touches directly: `normaliseScenario()` in `src/lib/pay/scenario.ts` clamped a stale `level` and a
+  stale `cityId` back to a valid value — the exact pattern its own two adjacent lines already show —
+  but let a stale `jobId` through unchecked.** `payScenarios` (Dexie, up to ten named scenarios) and
+  a shared `/pay` URL both persist a `jobId` across a `data/pay/jobs.json` update, and
+  `normaliseScenario` is the one place that kind of untrusted, cross-session state is meant to be
+  sanitised before anything reads it — `scenarioFromParams` and the "load a saved scenario" flow in
+  `PayPage.tsx` both route through it. The Job picker's new `selectedLabel` (this session) is what
+  actually surfaced it: a `jobId` naming a post no longer in the table resolves to no label, so the
+  box renders exactly like "nothing picked" — indistinguishable, and with the trailing clear control
+  hidden too, since `showClear` reads `selectedLabel`. `jobFor(tables.jobs, scenario.jobId) ?
+  scenario.jobId : null` is the one-line fix, mirroring the `cityId` line right above it.
+  `src/lib/pay/scenario.test.ts` did not exist before this — `normaliseScenario` had no direct test
+  at all — and now has three, the first confirmed to fail against the code before the fix.
+- **The City picker's "Anywhere else (Z)" is a real, deliberate selection with `cityId: null`, not
+  an absence of one** — `defaultScenario` already starts every scenario there, and the list marks
+  that row `aria-selected` when `selectedId === null`. The box showing the plain placeholder for
+  that state (rather than "Anywhere else (Z)" as a resolved label) reads the same as "never touched"
+  and was true before this session's Combobox fix too — `PayScenario` has no separate flag for
+  "explicitly Z" versus "not yet chosen", so telling them apart in the box would need a data-model
+  change, not a Combobox one. Considered and left alone; a future session reaching for
+  `selectedLabel` should not treat this as a bug to re-discover.
+
 - **`validateCitations` is not the only rule an agent has to satisfy on Tier 0 — the DEVICE is.**
   `LOCAL_MAX_TOOL_STEPS` is 2, and `src/ai/agents/law.ts#TIER_POLICIES.local` independently cuts the
   research pass to one tool-calling turn, one snippet and a two-sentence answer. Any agent that can
