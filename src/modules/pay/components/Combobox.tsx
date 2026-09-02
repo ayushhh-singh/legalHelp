@@ -39,6 +39,13 @@ interface ComboboxProps<T> {
   /** Already filtered and ordered by the caller. */
   options: ReadonlyArray<ComboboxOption<T>>
   selectedId: string | null
+  /**
+   * The label of the option matching `selectedId`, resolved by the caller from
+   * the FULL table — not from `options`, which is filtered to the live query
+   * and stops containing the selected row the moment the query no longer
+   * matches it.
+   */
+  selectedLabel?: string
   query: string
   onQueryChange: (query: string) => void
   onSelect: (option: ComboboxOption<T>) => void
@@ -57,6 +64,7 @@ export function Combobox<T>({
   placeholder,
   options,
   selectedId,
+  selectedLabel,
   query,
   onQueryChange,
   onSelect,
@@ -72,6 +80,15 @@ export function Combobox<T>({
   const listId = `${fieldId}-listbox`
   const [open, setOpen] = useState(false)
   const [activeIndex, setActiveIndex] = useState(0)
+  /**
+   * The input shows the SELECTION until the reader actually types — `query` is
+   * a live search string the reader wants to filter by, and once a selection
+   * exists that string is stale the instant it stops matching, which used to
+   * surface as the picked label reverting to the placeholder. `typing` is what
+   * a live "field" flips between: false shows `selectedLabel`, true shows
+   * `query`.
+   */
+  const [typing, setTyping] = useState(false)
   const inputRef = useRef<HTMLInputElement>(null)
   const listRef = useRef<HTMLUListElement>(null)
 
@@ -106,10 +123,21 @@ export function Combobox<T>({
       if (!row) return
       if (row.option) onSelect(row.option)
       else onClear?.()
+      setTyping(false)
+      onQueryChange('')
       setOpen(false)
     },
-    [onClear, onSelect, rows],
+    [onClear, onQueryChange, onSelect, rows],
   )
+
+  const showClear = Boolean(selectedLabel) || query.length > 0
+
+  const clear = () => {
+    onClear?.()
+    onQueryChange('')
+    setTyping(false)
+    inputRef.current?.focus()
+  }
 
   const move = (delta: number) => {
     if (!open) {
@@ -154,9 +182,11 @@ export function Combobox<T>({
         commit(currentIndex)
         break
       case 'Escape':
-        // Closes without changing the value, which is what Escape means here.
-        if (!open) return
+        // Closes without changing the value, which is what Escape means here
+        // — `typing false` is what restores the selected label over whatever
+        // was half-typed.
         event.preventDefault()
+        setTyping(false)
         setOpen(false)
         break
       default:
@@ -186,18 +216,29 @@ export function Combobox<T>({
           aria-activedescendant={open && rows.length > 0 ? optionId(currentIndex) : undefined}
           aria-describedby={countText ? `${fieldId}-count` : undefined}
           placeholder={placeholder}
-          value={query}
+          value={typing ? query : (selectedLabel ?? '')}
           onChange={(event) => {
+            setTyping(true)
             onQueryChange(event.target.value)
             setActiveIndex(0)
             setOpen(true)
           }}
-          onFocus={() => setOpen(true)}
+          onFocus={() => {
+            setOpen(true)
+            // A selection sits in the field as text the reader almost always
+            // wants to replace, not edit — select it so the next keystroke
+            // (the browser's own default for a selected range) overwrites it,
+            // the way a native `<select>`'s "type to search" already reads.
+            if (selectedLabel) inputRef.current?.select()
+          }}
           onKeyDown={onKeyDown}
           // A blur that lands inside the list is a click on an option, and the
           // option's own onMouseDown has already handled it.
           onBlur={(event) => {
-            if (!event.relatedTarget || !listRef.current?.contains(event.relatedTarget)) setOpen(false)
+            if (!event.relatedTarget || !listRef.current?.contains(event.relatedTarget)) {
+              setOpen(false)
+              setTyping(false)
+            }
           }}
           className="h-11 w-full rounded-lg border border-input bg-card pr-10 pl-9 text-sm focus-visible:ring-2 focus-visible:ring-ring focus-visible:outline-none"
         />
@@ -207,12 +248,15 @@ export function Combobox<T>({
           aria-hidden="true"
           onMouseDown={(event) => {
             event.preventDefault()
-            setOpen((value) => !value)
-            inputRef.current?.focus()
+            if (showClear) clear()
+            else {
+              setOpen((value) => !value)
+              inputRef.current?.focus()
+            }
           }}
           className="absolute top-1/2 right-1 flex h-9 w-9 -translate-y-1/2 items-center justify-center rounded-md text-muted-foreground hover:text-foreground"
         >
-          {query ? <X className="h-4 w-4" /> : <ChevronDown className="h-4 w-4" />}
+          {showClear ? <X className="h-4 w-4" /> : <ChevronDown className="h-4 w-4" />}
         </button>
       </div>
 

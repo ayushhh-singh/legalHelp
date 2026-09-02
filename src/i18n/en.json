@@ -1235,7 +1235,9 @@
       "pendingLater_zero": "Nothing more due today",
       "allCaughtUp": "You're caught up. Come back later, or start a mock test.",
       "firstRunTitle": "No cards yet",
-      "firstRunBody": "Spaced repetition shows you a card right before you'd otherwise forget it, so a few minutes a day covers what cramming cannot."
+      "firstRunBody": "Spaced repetition shows you a card right before you'd otherwise forget it, so a few minutes a day covers what cramming cannot.",
+      "mockUnavailableReason": "No mock-test questions are approved yet for the rule books you've chosen.",
+      "mockUnavailableLink": "Browse the rule bank instead"
     },
     "review": {
       "title": "Review",

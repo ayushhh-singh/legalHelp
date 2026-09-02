@@ -43,6 +43,10 @@ export function JobPicker({
   const [query, setQuery] = useState('')
   const index = useMemo(() => buildJobIndex(tables.jobs), [tables.jobs])
   const hits = useMemo(() => searchJobs(index, query, 60), [index, query])
+  // Resolved from the FULL table, not `hits` — `hits` is filtered to `query`
+  // and stops containing the selected job the instant the query no longer
+  // matches it, which is what let the box's own selection vanish.
+  const selectedLabel = tables.jobs.jobs.find((job) => job.id === selectedId)?.title[language]
 
   const options: Array<ComboboxOption<JobOption>> = hits.map((hit) => ({
     id: hit.job.id,
@@ -71,17 +75,12 @@ export function JobPicker({
       placeholder={t('pay.picker.jobPlaceholder')}
       options={options}
       selectedId={selectedId}
+      selectedLabel={selectedLabel}
       query={query}
       onQueryChange={setQuery}
-      onSelect={(option) => {
-        onSelect(option.value)
-        setQuery('')
-      }}
+      onSelect={(option) => onSelect(option.value)}
       clearOption={{ id: '__custom__', label: t('pay.picker.custom'), hint: t('pay.picker.customHint') }}
-      onClear={() => {
-        onClear()
-        setQuery('')
-      }}
+      onClear={onClear}
       emptyText={t('pay.picker.noJobs')}
       countText={query ? t('pay.picker.jobCount', { count: hits.length }) : undefined}
     />
@@ -107,6 +106,8 @@ export function CityPicker({
   const [query, setQuery] = useState('')
   const index = useMemo(() => buildCityIndex(tables.cities), [tables.cities])
   const hits = useMemo(() => searchCities(index, query, 60), [index, query])
+  // Same reasoning as `JobPicker.selectedLabel`: resolved from the full table.
+  const selectedLabel = tables.cities.cities.find((city) => city.id === selectedId)?.name[language]
 
   const options: Array<ComboboxOption<HraCity>> = hits.map((city) => ({
     id: city.id,
@@ -128,19 +129,14 @@ export function CityPicker({
       placeholder={t('pay.picker.cityPlaceholder')}
       options={options}
       selectedId={selectedId}
+      selectedLabel={selectedLabel}
       query={query}
       onQueryChange={setQuery}
-      onSelect={(option) => {
-        onSelect(option.value)
-        setQuery('')
-      }}
+      onSelect={(option) => onSelect(option.value)}
       // Z is not a list — the annexure names X and Y and says the rest is Z —
       // so "anywhere else" is a real choice here, not an absence of one.
       clearOption={{ id: '__z__', label: t('pay.picker.zClass'), hint: t('pay.picker.zClassHint') }}
-      onClear={() => {
-        onClear()
-        setQuery('')
-      }}
+      onClear={onClear}
       emptyText={t('pay.picker.noCities')}
       countText={query ? t('pay.picker.cityCount', { count: hits.length }) : undefined}
     />

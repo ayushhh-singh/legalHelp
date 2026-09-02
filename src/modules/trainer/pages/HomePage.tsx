@@ -10,12 +10,21 @@ import { useTrainerSettings } from '../useTrainerSettings'
 import { toTrainerTopicHref } from '../url'
 
 import { useAi } from '@/ai/useAi'
-import { EmptyState } from '@/components/common/EmptyState'
 import { PageHeader } from '@/components/common/PageHeader'
 import { Chip, ProgressBar, QueryErrorState, SectionCard, Skeleton, StatCard } from '@/components/ui-x'
 import { Button } from '@/components/ui/button'
 import { useT } from '@/i18n/useT'
 import { allStreaks, currentStreak, getDueQueue, longestStreak, saveSettings, statsForDay, weakAreasFor } from '@/lib/srs'
+import { isServed } from '@/modules/trainer/schema'
+
+/**
+ * The mock test's own eligible-card kinds (`MockPage.tsx`), duplicated rather
+ * than imported: each `/learn/*` page is its own lazy chunk
+ * (`LearnPage.tsx`), and importing from `MockPage.tsx` here would pull that
+ * whole page — its `CardView`, `AccuracyChart`, results screen — into Home's
+ * chunk too.
+ */
+const MOCK_KINDS = new Set(['mcq', 'trueFalse', 'scenario'])
 
 /**
  * `/learn` — the Trainer's dashboard: due count, streak, today's goal, weak
@@ -81,6 +90,17 @@ export default function HomePage() {
   const streakCount = streaks ? currentStreak(streaks, now) : 0
   const bestStreak = streaks ? longestStreak(streaks) : 0
 
+  const mockPool =
+    catalogue && settings
+      ? catalogue.filter(
+          (card) =>
+            isServed(card) &&
+            MOCK_KINDS.has(card.kind) &&
+            (settings.actsEnabled.length === 0 || settings.actsEnabled.includes(card.act)),
+        )
+      : []
+  const mockDisabled = mockPool.length === 0
+
   return (
     <div className="mx-auto flex max-w-4xl flex-col gap-6">
       <PageHeader
@@ -98,19 +118,18 @@ export default function HomePage() {
 
       {loading ? (
         <Skeleton className="h-64 w-full" />
-      ) : isFirstRun ? (
-        <EmptyState
-          icon={GraduationCap}
-          title={t('pages.learn.emptyTitle')}
-          body={t('pages.learn.emptyBody')}
-          action={
-            <Button asChild>
-              <Link to="/learn/review">{t('trainer.home.startReview')}</Link>
-            </Button>
-          }
-        />
       ) : (
         <>
+          {isFirstRun ? (
+            <SectionCard className="flex items-start gap-3 p-4">
+              <GraduationCap aria-hidden="true" className="mt-0.5 h-5 w-5 shrink-0 text-muted-foreground" />
+              <div>
+                <h2 className="text-sm font-semibold">{t('trainer.home.firstRunTitle')}</h2>
+                <p className="mt-1 text-sm text-muted-foreground">{t('trainer.home.firstRunBody')}</p>
+              </div>
+            </SectionCard>
+          ) : null}
+
           <div className="grid grid-cols-2 gap-3 sm:grid-cols-4">
             <StatCard label={t('trainer.home.dueLabel')} value={String(remaining)} />
             <StatCard
@@ -137,10 +156,24 @@ export default function HomePage() {
             <Button asChild size="lg">
               <Link to="/learn/review">{t('trainer.home.startReview')}</Link>
             </Button>
-            <Button asChild size="lg" variant="outline">
-              <Link to="/learn/mock">{t('trainer.home.startMock')}</Link>
-            </Button>
+            {mockDisabled ? (
+              <Button type="button" size="lg" variant="outline" disabled aria-describedby="mock-unavailable-reason">
+                {t('trainer.home.startMock')}
+              </Button>
+            ) : (
+              <Button asChild size="lg" variant="outline">
+                <Link to="/learn/mock">{t('trainer.home.startMock')}</Link>
+              </Button>
+            )}
           </div>
+          {mockDisabled ? (
+            <p id="mock-unavailable-reason" className="text-xs text-muted-foreground">
+              {t('trainer.home.mockUnavailableReason')}{' '}
+              <Link className="text-primary underline" to="/learn/browse">
+                {t('trainer.home.mockUnavailableLink')}
+              </Link>
+            </p>
+          ) : null}
 
           <SectionCard className="p-4">
             <h2 className="text-sm font-semibold">{t('trainer.home.weakAreasTitle')}</h2>

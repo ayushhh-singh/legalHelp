@@ -4,14 +4,18 @@ import { useState } from 'react'
 import { describe, expect, it } from 'vitest'
 
 import { AllowanceList } from './components/AllowanceList'
+import { ComparePanel } from './components/ComparePanel'
 import { InfoPopover } from './components/InfoPopover'
 import { Payslip } from './components/Payslip'
-import { JobPicker } from './components/Pickers'
+import { CityPicker, JobPicker } from './components/Pickers'
 
+import { CONSENT_VERSION, DEFAULT_AI_SETTINGS } from '@/ai/flags'
 import i18n from '@/i18n'
 import { computePay } from '@/lib/pay/engine'
-import { scenarioForJob, toPayInput, withAllowance, type PayScenario } from '@/lib/pay/scenario'
+import { defaultScenario, scenarioForJob, toPayInput, withAllowance, type PayScenario } from '@/lib/pay/scenario'
 import { loadPayTables } from '@/test/payTables'
+
+import type { UseAi } from '@/ai/useAi'
 
 /**
  * The Pay module's chrome, in jsdom.
@@ -106,6 +110,198 @@ describe('JobPicker', () => {
     render(<Harness onPick={() => undefined} />)
     await user.type(screen.getByRole('combobox', { name: /post/i }), 'constable')
     expect(screen.getByText(/Central Armed Police Forces/i)).toBeVisible()
+  })
+
+  it('shows the selected post label, not the live query, once a post is picked', async () => {
+    const user = userEvent.setup()
+    render(<Harness onPick={() => undefined} />)
+
+    const input = screen.getByRole('combobox', { name: /post/i })
+    await user.type(input, 'ACIO')
+    await user.keyboard('{ArrowDown}{Enter}')
+
+    expect(input).toHaveValue('Assistant Central Intelligence Officer, Grade-I/Executive')
+  })
+
+  it('keeps showing the selected label after the field loses focus', async () => {
+    const user = userEvent.setup()
+    render(
+      <>
+        <Harness onPick={() => undefined} />
+        <button type="button">elsewhere</button>
+      </>,
+    )
+
+    const input = screen.getByRole('combobox', { name: /post/i })
+    await user.type(input, 'ACIO')
+    await user.keyboard('{ArrowDown}{Enter}')
+    await user.click(screen.getByRole('button', { name: 'elsewhere' }))
+
+    expect(input).toHaveValue('Assistant Central Intelligence Officer, Grade-I/Executive')
+  })
+
+  it('lets the reader type over a selection to search for something else', async () => {
+    const user = userEvent.setup()
+    render(
+      <>
+        <Harness onPick={() => undefined} />
+        <button type="button">elsewhere</button>
+      </>,
+    )
+
+    const input = screen.getByRole('combobox', { name: /post/i })
+    await user.type(input, 'ACIO')
+    await user.keyboard('{ArrowDown}{Enter}')
+    expect(input).toHaveValue('Assistant Central Intelligence Officer, Grade-I/Executive')
+
+    // Focus has to move away and back for a real `focus` event to fire — a
+    // click on an already-focused field (as it is right after `{Enter}`)
+    // never does, which is exactly the case the `.select()`-on-focus behaviour
+    // exists for: refocusing a field holding a selection.
+    await user.click(screen.getByRole('button', { name: 'elsewhere' }))
+    await user.click(input)
+    await user.keyboard('constable')
+
+    expect(input).toHaveValue('constable')
+    expect(screen.getByText(/Central Armed Police Forces/i)).toBeVisible()
+  })
+
+  it('restores the selected label if Escape is pressed mid-search', async () => {
+    const user = userEvent.setup()
+    render(
+      <>
+        <Harness onPick={() => undefined} />
+        <button type="button">elsewhere</button>
+      </>,
+    )
+
+    const input = screen.getByRole('combobox', { name: /post/i })
+    await user.type(input, 'ACIO')
+    await user.keyboard('{ArrowDown}{Enter}')
+
+    await user.click(screen.getByRole('button', { name: 'elsewhere' }))
+    await user.click(input)
+    await user.keyboard('constable')
+    await user.keyboard('{Escape}')
+
+    expect(input).toHaveValue('Assistant Central Intelligence Officer, Grade-I/Executive')
+  })
+
+  it('clears the selection and shows the placeholder when the clear control is pressed', async () => {
+    const user = userEvent.setup()
+    const { container } = render(<Harness onPick={() => undefined} />)
+
+    const input = screen.getByRole('combobox', { name: /post/i })
+    await user.type(input, 'ACIO')
+    await user.keyboard('{ArrowDown}{Enter}')
+    expect(input).toHaveValue('Assistant Central Intelligence Officer, Grade-I/Executive')
+
+    // Decorative and `aria-hidden` on purpose (mouse-only; the accessible way
+    // to clear is the "Custom" row in the listbox), so it is reached by a DOM
+    // query rather than a role.
+    const clearButton = container.querySelector('button[aria-hidden="true"]')
+    if (!clearButton) throw new Error('no clear control found')
+    await user.click(clearButton)
+
+    expect(input).toHaveValue('')
+    expect(input).toHaveAttribute('placeholder')
+  })
+})
+
+describe('CityPicker', () => {
+  function Harness() {
+    const [selected, setSelected] = useState<string | null>(null)
+    return (
+      <CityPicker
+        tables={tables}
+        selectedId={selected}
+        onSelect={(city) => setSelected(city.id)}
+        onClear={() => setSelected(null)}
+      />
+    )
+  }
+
+  it('shows the selected city label after picking it, in the active language', async () => {
+    const user = userEvent.setup()
+    render(<Harness />)
+
+    const input = screen.getByRole('combobox', { name: /place of posting/i })
+    await user.type(input, 'Delhi')
+    await user.keyboard('{ArrowDown}{Enter}')
+
+    expect(input).toHaveValue('Delhi')
+  })
+})
+
+describe('Pickers language switch', () => {
+  it('re-renders the selected label in the other language without losing the selection', async () => {
+    const user = userEvent.setup()
+    function Harness() {
+      const [selected, setSelected] = useState<string | null>(null)
+      return (
+        <JobPicker tables={tables} selectedId={selected} onSelect={(o) => setSelected(o.job.id)} onClear={() => setSelected(null)} />
+      )
+    }
+    render(<Harness />)
+
+    const input = screen.getByRole('combobox', { name: /post/i })
+    await user.type(input, 'ACIO')
+    await user.keyboard('{ArrowDown}{Enter}')
+    expect(input).toHaveValue('Assistant Central Intelligence Officer, Grade-I/Executive')
+
+    await i18n.changeLanguage('hi')
+    expect(input).toHaveValue('सहायक केंद्रीय आसूचना अधिकारी, ग्रेड-I/कार्यपालक')
+
+    await i18n.changeLanguage('en')
+  })
+})
+
+const aiState = (over: Partial<UseAi> = {}): UseAi => ({
+  enabled: false,
+  ready: true,
+  tier: 'byok',
+  settings: { ...DEFAULT_AI_SETTINGS, tier: 'byok', consentVersion: CONSENT_VERSION, hasKey: true },
+  provider: null,
+  budget: null,
+  error: null,
+  refreshBudget: () => Promise.resolve(),
+  ...over,
+})
+
+describe('ComparePanel', () => {
+  function Harness() {
+    const [a, setA] = useState<PayScenario>(defaultScenario(tables))
+    const [b, setB] = useState<PayScenario>(defaultScenario(tables))
+    return (
+      <ComparePanel
+        tables={tables}
+        ai={aiState()}
+        a={a}
+        b={b}
+        onChangeA={(patch) => setA((current) => ({ ...current, ...patch }))}
+        onChangeB={(patch) => setB((current) => ({ ...current, ...patch }))}
+        onPickA={(jobId) => setA((current) => (jobId ? scenarioForJob(jobId, tables, current) : { ...current, jobId: null }))}
+        onPickB={(jobId) => setB((current) => (jobId ? scenarioForJob(jobId, tables, current) : { ...current, jobId: null }))}
+      />
+    )
+  }
+
+  it('shows each side its own selected post, independently of the other', async () => {
+    const user = userEvent.setup()
+    render(<Harness />)
+
+    const inputA = screen.getByRole('combobox', { name: 'First post' })
+    const inputB = screen.getByRole('combobox', { name: 'Second post' })
+
+    await user.type(inputA, 'ACIO')
+    await user.keyboard('{ArrowDown}{Enter}')
+
+    await user.type(inputB, 'constable')
+    await user.keyboard('{ArrowDown}{Enter}')
+
+    expect(inputA).toHaveValue('Assistant Central Intelligence Officer, Grade-I/Executive')
+    expect(inputB).not.toHaveValue('')
+    expect((inputB as HTMLInputElement).value).not.toBe((inputA as HTMLInputElement).value)
   })
 })
 
