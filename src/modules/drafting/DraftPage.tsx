@@ -26,6 +26,15 @@ const ProfilePage = lazy(() => import('./ProfilePage'))
 const AddressBookPage = lazy(() => import('./AddressBookPage'))
 const NumberingPage = lazy(() => import('./NumberingPage'))
 const PersonalTemplatesPage = lazy(() => import('./PersonalTemplatesPage'))
+/*
+  The import screen and the print route are their own chunks, and both matter.
+  The importer's own code is small, but pressing Choose a file pulls in
+  `mammoth` and `pdfjs-dist` — about 630 KB gzip between them — and an officer
+  who only ever writes new documents should never meet either. The print route
+  is split for the ordinary reason: it is a screen.
+*/
+const ImportPage = lazy(() => import('./ImportPage'))
+const PrintPage = lazy(() => import('./PrintPage'))
 
 function Fallback() {
   const { t } = useT()
@@ -44,6 +53,8 @@ export default function DraftPage() {
         <Route path="documents" element={<DocumentsPage />} />
         <Route path="new/:type" element={<NewDocumentPage />} />
         <Route path="d/:id" element={<DocEditorPage />} />
+        <Route path="d/:id/print" element={<PrintPage />} />
+        <Route path="import" element={<ImportPage />} />
         <Route path="profile" element={<ProfilePage />} />
         <Route path="address-book" element={<AddressBookPage />} />
         <Route path="numbering" element={<NumberingPage />} />

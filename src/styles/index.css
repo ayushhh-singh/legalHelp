@@ -454,3 +454,94 @@
     break-after: page;
   }
 }
+
+/* ------------------------------------------------------------------ *
+ * THE PRINT ROUTE — /draft/d/:id/print (Session 30, ADR-042 §5)
+ *
+ * The `@page` rule itself is NOT here: paper size and margins are the
+ * officer's choice, and `@page { size: var(--x) }` is invalid CSS in every
+ * browser, so `src/lib/drafting/print.ts#pageRuleCss` builds the rule as
+ * literal text and `PrintPage` injects it. What is here is everything that
+ * does not vary — the running header and footer, the page counter and the
+ * page-break rules.
+ *
+ * `position: fixed` inside `@media print` is how a running header is made in
+ * CSS 2.1: a fixed element repeats on every printed page. It is deliberately
+ * INSIDE the print block, because on screen the same element would sit on top
+ * of the page the officer is reading.
+ * ------------------------------------------------------------------ */
+
+.draft-running-header,
+.draft-running-footer {
+  display: none;
+}
+
+@media print {
+  .draft-running-header,
+  .draft-running-footer {
+    display: block;
+    position: fixed;
+    left: 0;
+    right: 0;
+    text-align: center;
+    font-size: 9pt;
+    color: #111;
+  }
+
+  .draft-running-header {
+    top: 0;
+  }
+
+  .draft-running-footer {
+    bottom: 0;
+  }
+
+  .draft-letterhead-image {
+    display: block;
+    margin: 0 auto 2mm;
+    max-height: 30mm;
+    max-width: 160mm;
+  }
+
+  /*
+   * "Page 1 of 3", from the page counters the print engine keeps.
+   *
+   * `counter(page)` and `counter(pages)` are the only way to know the page
+   * number in CSS, and `pages` in particular is unimplemented in some
+   * engines — where it is, the number is simply absent and the sentence around
+   * it still reads, which is why the word "of" is a real text node in the
+   * markup and not part of the generated content.
+   */
+  .draft-page-number::after {
+    content: counter(page);
+  }
+
+  .draft-page-total::after {
+    content: counter(pages);
+  }
+
+  /*
+   * Where a document may and may not break.
+   *
+   * The signature block goes with what it signs, an enclosure list is not
+   * split across two sheets, and a heading is never the last thing on a page.
+   * `orphans`/`widows` cover the ordinary case that no class can name: a single
+   * line of a paragraph stranded at the top or bottom of a sheet.
+   */
+  .draft-print-root p,
+  .draft-print-root li {
+    orphans: 2;
+    widows: 2;
+  }
+
+  .draft-print-root h1,
+  .draft-print-root h2,
+  .draft-print-root h3 {
+    break-after: avoid;
+  }
+
+  .draft-print-root table,
+  .draft-print-root tr {
+    break-inside: avoid;
+  }
+}

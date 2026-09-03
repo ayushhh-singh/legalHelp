@@ -462,6 +462,35 @@ export function MetaPanel({
               }
             />
           </Row>
+          {/*
+            The telephone and the e-mail are HERE and not only on the profile.
+
+            `checklist.ts`'s `signature-block` rule is a `must` on most forms —
+            CSMOP 9.2(x) asks for the designation, the telephone and the e-mail
+            under the signature — and `meta.signature` is a SNAPSHOT taken when
+            the document was created (ADR-041 §5). So a document created before
+            the profile was filled, or one made by the importer, carried a
+            required item the officer could not satisfy anywhere in the app: the
+            export refused it and the only control was on a screen that does not
+            reach back into an existing document. Found by the export gate this
+            session put in front of it.
+          */}
+          <Row label={t('draft.meta.signaturePhone')}>
+            <input
+              className={field}
+              type="tel"
+              value={meta.signature.phone}
+              onChange={(event) => setMeta({ signature: { ...meta.signature, phone: event.target.value } })}
+            />
+          </Row>
+          <Row label={t('draft.meta.signatureEmail')}>
+            <input
+              className={field}
+              type="email"
+              value={meta.signature.email}
+              onChange={(event) => setMeta({ signature: { ...meta.signature, email: event.target.value } })}
+            />
+          </Row>
         </div>
         <label className="mt-2 flex items-center gap-2 text-sm">
           <input

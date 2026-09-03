@@ -1200,7 +1200,9 @@
       "place": "Place",
       "tags": "Tags",
       "variables": "This form's own fields",
-      "fillFromProfile": "Fill from my profile"
+      "fillFromProfile": "Fill from my profile",
+      "signaturePhone": "Telephone",
+      "signatureEmail": "E-mail"
     },
     "review": {
       "heading": "Review",

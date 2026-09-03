@@ -244,7 +244,19 @@ export default function ProfilePage() {
           {book.length === 0 ? (
             <p className="text-sm text-muted-foreground">
               {t('draft.addressBook.none')}{' '}
-              <Link to="/draft/address-book" className="text-primary underline-offset-4 hover:underline">
+              {/*
+                Underlined ALWAYS, not on hover.
+
+                Every other `text-primary` link in this app is the whole content
+                of its own element, where colour alone is enough for axe. This
+                one sits INSIDE a sentence, which is the case
+                `link-in-text-block` is about: a reader who cannot tell the two
+                colours apart has nothing to go on. Caught by the a11y sweep
+                after the route was added to it — the design rule this project
+                already states for navigation ("active state is never colour
+                alone") applies to a link in a paragraph too.
+              */}
+              <Link to="/draft/address-book" className="text-primary underline underline-offset-4">
                 {t('draft.addressBook.add')}
               </Link>
             </p>

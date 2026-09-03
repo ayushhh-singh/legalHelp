@@ -350,6 +350,54 @@ as "Review bullet" and made `getByRole('tab', { name: 'Review' })` ambiguous wit
 input's name, `bg-destructive/10` with `text-destructive-foreground` failing
 `color-contrast` on fourteen elements, and an `h1` → `h3` heading jump.
 
+### 8c. Import and export — where a FILE is the untrusted input
+
+Session 30 (ADR-042) opened the model's two ends, and the split is the same
+shape one level down: a mapping decision is pure and testable against a string,
+a `File` is not, and a print stylesheet is not testable anywhere but a browser.
+
+**Pure, and the bulk of it again** — `src/lib/drafting/{html,zip,importDocx,
+importPdf,extract,paste,letterhead,print,docxExport}.test.ts`. Every mapping
+decision is a string in and a `BodyNode[]` out, so a table with a `rowspan`, a
+Devanagari paragraph number and a legacy-font text layer are all one-line
+fixtures. Two of these are worth copying the shape of:
+
+- **`zip.test.ts` checks the writer against Node's own `zlib`, not against the
+  reader.** A round trip through both passes with two matching bugs. It also
+  reads a real `.docx` written by the `docx` package, because the importer opens
+  files Word wrote, not files this file wrote — the same rule `docx.test.ts`
+  states about not using a zip library to check a zip library.
+- **`importPdf.test.ts` drives the heuristics with synthetic text runs at
+  coordinates.** A full-pipeline failure tells you a document came out wrong; it
+  does not tell you which of the five join rules was responsible.
+
+**The committed fixtures are GENERATED** — `scripts/drafting-fixtures.mjs`
+writes all ten of `tests/fixtures/drafting/` from source that says what each is
+for, and CI runs `--check`. A `.docx` is opaque in a diff, and a fixture nobody
+can read is a fixture nobody can correct. The `.docx` files are written by the
+app's own zip writer through Vite's SSR module runner, which exercises it
+against mammoth as a side effect.
+
+**jsdom, with two accommodations that are worth knowing** —
+`tests/drafting-io.test.ts` drives the whole pipeline from a real `File`.
+mammoth ships two builds and Vitest resolves the NODE one, so `readFile.ts`
+passes both `arrayBuffer` and `buffer` and the shipped code path is what runs
+here. pdf.js's `workerSrc` is set only when unset, so the test can point it at
+the worker on disk — under jsdom the app's own `new URL(..., import.meta.url)`
+resolves to `http://localhost/...`, which pdf.js's fake-worker fallback refuses.
+
+**A real browser** — `tests/e2e/draft-io.spec.ts`, eight tests over both
+projects. One journey end to end (import a `.docx` → the review screen → create
+→ the export gate refuses → open the checklist → fill the signature → export →
+re-import), a scanned PDF's message, a `.doc` under a `.docx` name, the captured
+letterhead, a Hindi run, the print route with its generated `@page` rule and its
+counters, and a batch `.zip` counted by its local file headers. Its first
+execution found three things nothing else could: an export refusal pointing at a
+control that did not exist, `extensionOf` returning the last character of a name
+with no dot in it (Playwright saves a download to a path with no extension), and
+a `link-in-text-block` violation on `/draft/profile` that arrived with the route
+being added to the axe sweep.
+
 ### 9. Data pipeline — Python
 
 `scripts/ingest` and `scripts/authoring` are tested with stdlib `unittest`, not Vitest — 185 tests

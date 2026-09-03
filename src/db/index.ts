@@ -122,6 +122,32 @@ export interface TemplateRecentRow {
   viewedAt: string
 }
 
+/**
+ * A letterhead image the officer supplied.
+ *
+ * The BYTES live here, in a `Blob`, and not as a data URI in the profile row.
+ * Three reasons, in order of weight: a base64 data URI is a third larger than
+ * the file it encodes and the profile row is read on every new document; a
+ * `Blob` can be handed straight to `URL.createObjectURL` for the preview and
+ * to `ImageRun` for the `.docx` with no decoding step; and a table can be
+ * deleted on its own, so "remove my letterhead" does not rewrite the profile.
+ *
+ * There is exactly one row today, keyed `letterhead`, and the table is keyed on
+ * an id rather than fixed at one because a second office is a second row and
+ * not a migration.
+ */
+export interface LetterheadImageRow {
+  id: string
+  /** `image/png`, `image/jpeg` or `image/svg+xml`. */
+  type: string
+  name: string
+  data: Blob
+  /** Natural size in CSS pixels, measured once on upload. */
+  width: number
+  height: number
+  updatedAt: string
+}
+
 /** Keys are declared centrally so a typo cannot create an orphan row. */
 export const SETTING_KEYS = {
   language: 'language',
@@ -724,6 +750,7 @@ export class SahayakDB extends Dexie {
   numberIssues!: Table<NumberIssueRow, string>
   templateFavourites!: Table<TemplateFavouriteRow, string>
   templateRecents!: Table<TemplateRecentRow, string>
+  letterheadImages!: Table<LetterheadImageRow, string>
 
   constructor(name = 'sahayak') {
     super(name)
@@ -1096,6 +1123,63 @@ export class SahayakDB extends Dexie {
       numberIssues: '&id, patternId, number, issuedAt',
       templateFavourites: '&id, createdAt',
       templateRecents: '&id, viewedAt',
+    })
+
+    /*
+      Version 15 — the letterhead image (Session 30, ADR-042 §6).
+
+      One new table and nothing else, so there is no `upgrade()` block: a
+      version that only ADDS a store needs no data moved, and writing an empty
+      upgrade function would suggest to the next reader that one was considered
+      and found unnecessary rather than that none was needed.
+
+      Every table of every version above is repeated verbatim, because Dexie
+      reads a version's `stores()` as the COMPLETE schema at that version — an
+      omitted table is a dropped table, not an unchanged one.
+    */
+    this.version(15).stores({
+      settings: '&key',
+      secrets: '&id',
+      aiAnswers: '&id, agentId, dataVersion, createdAt',
+      aiUsage: '&month',
+      lawFavourites: '&id, createdAt',
+      lawRecents: '&id, viewedAt',
+      payScenarios: '&id, name, updatedAt',
+      drafts: '&id, templateId, updatedAt',
+      draftDefaults: '&id, templateId, updatedAt',
+      glossaryFavourites: '&id, createdAt',
+      glossaryRecents: '&id, viewedAt',
+      srsCards: '&qId, due, state',
+      reviewLog: '&id, qId, at',
+      streaks: '&date',
+      trainerSettings: '&id',
+      trainerBookmarks: '&qId, createdAt',
+      trainerReports: '&id, qId, createdAt',
+      proposedCards: '&id, createdAt',
+      cardOverrides: '&qId, decidedAt',
+      holidayPicks: '&id, year, createdAt',
+      commandRecents: '&id, viewedAt',
+      libraryProgress: '&id, workId, at',
+      libraryBookmarks: '&id, workId, createdAt',
+      libraryHighlights: '&id, [workId+unitId], workId, colour, createdAt',
+      libraryNotes: '&id, [workId+unitId], workId, updatedAt',
+      libraryPersonalWorks: '&id, updatedAt',
+      chapterCards: '&id, workId, due',
+      chapterLog: '&id, cardId, workId, at',
+      feynmanAttempts: '&id, [workId+unitId], workId, at',
+      studySessions: '&id, workId, startedAt',
+      studyGoals: '&id, updatedAt',
+      documents: '&id, templateId, status, updatedAt, threadId',
+      docVersions: '&id, docId, at',
+      docComments: '&id, docId, resolved, createdAt',
+      draftingProfile: '&id',
+      addressBook: '&id, updatedAt, createdAt',
+      personalTemplates: '&id, baseTemplateId, updatedAt',
+      numberPatterns: '&id, updatedAt',
+      numberIssues: '&id, patternId, number, issuedAt',
+      templateFavourites: '&id, createdAt',
+      templateRecents: '&id, viewedAt',
+      letterheadImages: '&id, updatedAt',
     })
   }
 }

@@ -512,6 +512,7 @@ function Editor({
             lintBlocked={blocked}
             fallbackName={personalName ?? template.shortName[language]}
             onGoToText={() => setTab('write')}
+            onOpenChecklist={() => setTab('review')}
           />
         ) : null}
 

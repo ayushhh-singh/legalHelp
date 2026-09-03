@@ -6718,3 +6718,241 @@ decides whether the file is guarded. This mattered immediately: Session 30 is
 building the import/export layer in the same directory in the same working
 tree, and its eight files were covered by every rule before either session had
 committed.
+
+---
+
+## ADR-042 — Import and export: a mapping layer that never converts silently, a ZIP with no dependency, and print instead of a PDF writer
+
+**Date:** 2026-09-04 · **Status:** Accepted · **Supersedes:** nothing · **Amends:** ADR-020 (the `.docx` writer gains a second projection), ADR-041 (`RenderedBlock.nodes` acquires its first consumer outside the preview)
+
+### Context
+
+Session 29 built the document editor and the model under it. This session gives
+that model its two open sides: a document an officer already has, on their
+disk, in Word or as a PDF; and a document leaving this app for a word processor,
+a printer or somebody's inbox. Both are where a drafting tool either fits into
+an office or does not — an officer with two hundred documents in a folder will
+not retype them, and one who cannot hand a colleague a `.docx` has a very
+private notepad.
+
+### 1. Every lossy step produces a notice, and the notices come BEFORE the save
+
+A conversion between two document models is lossy and there is no version of
+this that is not. `.docx` has merged cells, footnotes, images, tracked changes,
+headers, footers, section columns and a dozen numbering schemes; the editor's
+model has fifteen node types on purpose (ADR-041 §2). The decision is not
+whether to lose things — it is whether the officer is told.
+
+`ImportNotice` is the answer, and the shape matters: a code, a count and up to
+twelve named examples, produced by the mapping layer itself rather than by the
+screen. The import review screen lists every one of them under **"What was not
+imported"**, and it does so **before the document is created** — an officer who
+sees "3 images were left out" before pressing Create can go back to Word. A
+toast afterwards would be an apology.
+
+This is `resolveAnchor`'s rule from the Library (ADR-039 §1) in a new place: a
+conversion that cannot be exact must be able to say so. An importer that
+quietly drops an image is worse than one that refuses the file, because the
+officer signs what came out.
+
+### 2. `mammoth` cannot see four things, and each is recovered from the OOXML
+
+The brief's split — "mammoth → HTML → editor JSON via a mapping layer" — is what
+was built, and it is right: `src/lib/drafting/importDocx.ts` is pure, so every
+mapping decision is testable against a string with no zip, no browser and no
+`File`. But mammoth's HTML is lossy in four ways that matter here, and all four
+are read out of the archive directly by `src/modules/drafting/import/readFile.ts`:
+
+- **Tracked changes.** mammoth accepts every insertion and drops every deletion,
+  silently. That is the right answer — it is what "accept all" means — but the
+  document the officer is now editing is not the document they were sent.
+  `scanDocumentXml` counts `w:ins`/`w:del`.
+- **Merged cells.** mammoth emits `colspan`/`rowspan`; the editor's table model
+  has neither, deliberately (a merge has no meaning in the plain-text projection
+  every checklist rule reads). The table is flattened into a rectangle — the
+  content stays in the cell it was in and the span is filled with empty cells —
+  and the flattening is reported.
+- **Headers and footers.** mammoth does not read them at all, and they are
+  exactly the part this app has a field for. They are read out of
+  `word/header*.xml`, offered for review, and **never applied**: a header may be
+  a page number, a confidentiality stamp or a letterhead, and only the officer
+  knows which. A line that is only a `PAGE`/`NUMPAGES` field result is dropped.
+- **Page breaks.** Reachable only through a style-map entry
+  (`br[type='page'] => hr`), which is why the reader supplies one; `<hr>` is the
+  single void element that survives mammoth's own empty-element pruning.
+
+### 3. The ZIP is 120 lines here rather than a dependency
+
+Two things need one and they pull in opposite directions: batch export WRITES a
+`.zip` of `.docx` files, and `.docx` import READS a zip. `fflate` would have
+done it and was not added, for three reasons in order of weight.
+
+1. **`CompressionStream` and `DecompressionStream` are native**, in every
+   browser this app supports and in Node 18 and later. A DEFLATE implementation
+   is the only genuinely hard part of a ZIP, and the platform already has one.
+2. **A `.docx` is already compressed**, so the outer archive in a batch export
+   compresses almost nothing — which makes `STORE` a perfectly good fallback
+   where `CompressionStream` is absent rather than a compromise.
+3. A dependency costs a lockfile entry, a size-budget line, a licence check and
+   a supply-chain surface, for about a hundred lines of container format.
+
+`src/lib/drafting/zip.ts` is pure and takes its clock as an ARGUMENT — the
+directory forbids a clock of its own (`purity.test.ts`) and an archive that is a
+function of its inputs is one a test can byte-compare. `zip.test.ts` checks the
+writer against **Node's own `zlib`** rather than against the reader, which is
+the same rule `docx.test.ts` already states about not using a zip library to
+check a zip library, and reads a real `.docx` written by the `docx` package —
+because the importer opens files Word wrote, not files this file wrote.
+
+The reader walks the **central directory**, never local headers from the front:
+a local header may declare its sizes as zero and defer them to a data descriptor
+after the payload, and Word writes `.docx` files both ways.
+
+### 4. The `.docx` writer gains a second projection, and `lines` is still the fallback
+
+`RenderedBlock` carries `lines` always and `nodes` only when the block came from
+the document editor (ADR-041 §3). `docx.ts` now reads `nodes` when they are
+there and `lines` when they are not, and that single rule closes
+`docs/DATA-GAPS.md` #78: before it, a table an officer built in the editor
+exported as one paragraph of tab-separated text, because `linesOfNodes` is the
+plain-text projection and tabs are what a plain-text table is.
+
+The fallback is not a legacy path to be removed. Every block of CHROME — the
+file number, the Government of India block, the subject, the salutation, the
+signature, the copy-to list — is rendered from a template layout and has no
+`nodes`, in a document written in the new editor as much as in one migrated from
+the old form. Both halves are live in every export, and the whole of the
+pre-existing `docx.test.ts` is untouched and green, which is the claim.
+
+**One rule from ADR-020 is deliberately relaxed.** "The engine has already made
+every decision" is still true of every block without `nodes`; it is not true of
+paragraph numbers in the body any more. The brief asks for true Word numbering
+"so Word renumbers on edit", and an officer who deletes paragraph 3 in Word and
+gets 1, 2, 4, 5 has been handed a document that is wrong in a way they will not
+notice. Fidelity survives because the numbering's `start` is taken from the
+marker the engine generated — CSMOP leaves the opening paragraph of an O.M.
+unnumbered and numbers from 2, so the export starts at 2 — and `wordNumbering:
+false` puts the marker back as literal text. The round-trip test asserts BOTH
+behaviours, because the trade is real: with Word numbering on, the number is not
+text any more and a re-import sees a plain paragraph.
+
+### 5. There is no PDF writer, and that is a decision about Devanagari
+
+The brief asks for a print route and for "Export PDF" to be `window.print()`
+with an instruction sheet. That is what was built, and the reason is worth
+stating because the obvious objection is that a PDF library would be tidier.
+
+**A JavaScript PDF library cannot shape Devanagari.** jsPDF and pdf-lib both
+draw a string by mapping code points to glyph ids one at a time. Devanagari
+needs reordering (the `ि` matra is typed after its consonant and printed before
+it), conjunct substitution (`क` + `्` + `ष` → `क्ष`) and mark positioning — a
+HarfBuzz job, and neither library carries a shaper. The output is not slightly
+wrong; it is `काय्रालय` where the document says `कार्यालय`, in a file an officer
+signs. Embedding a WASM shaper would be several hundred kilobytes on a route
+whose whole point is that the browser already does this correctly, with the
+fonts this app already ships.
+
+So the print route is a real screen with real controls — paper, which language,
+whether the letterhead prints, whether page numbers do — and a bilingual
+instruction sheet saying to choose "Save as PDF". Two consequences:
+
+- **The `@page` rule is GENERATED**, by `print.ts#pageRuleCss`, and injected as
+  literal text. `@page { size: var(--x) }` is invalid CSS in every browser and
+  falls back to the printer's default, which is Letter in some locales — so a
+  paper size the officer CHOSE cannot travel through a custom property. The rule
+  is NAMED, for the reason `draft-a4` and `library-a4` are named: a margin asked
+  for here must not move the pay slip or the law card.
+- **The running header and footer are `position: fixed` inside `@media print`**,
+  which is how CSS 2.1 makes a running header, and `counter(page)` /
+  `counter(pages)` supply "Page 1 of 3" where the engine implements them. The
+  word "of" is a real text node rather than generated content, so the sentence
+  still reads where `counter(pages)` is unimplemented.
+
+`.a4-page` is the right surface for the document itself — it paints fixed white
+paper in both themes because it is a FACSIMILE of a Government letter — and
+everything around it on that screen keeps the theme tokens.
+
+### 6. The app supplies no emblem
+
+`src/lib/drafting/letterhead.ts` accepts an image the OFFICER supplies, and the
+card says so in both languages before it offers the control. There is no
+Government of India emblem, no ministry crest and no seal anywhere in this
+repository and there will not be: reproducing the State Emblem is governed by
+the State Emblem of India (Prohibition of Improper Use) Act 2005, and an app
+that shipped one would be handing every reader a ready-made letterhead for an
+office they may not hold.
+
+An SVG gets a check a raster does not. A PNG is inert; an SVG is a document that
+can carry script, an external reference and a stylesheet, and it is rendered by
+the browser. It is never rendered inline — it goes in an `<img src="blob:…">`,
+where scripts do not run and external references are blocked by the CSP — and
+`svgIsInert` is the second belt, so a file that would be blocked at render time
+is refused at upload time where the officer can be told why.
+
+The image goes in the RUNNING HEADER only, and the letterhead LINES do not: they
+are already on the page, because `renderOfficialDoc`'s `applyStationery`
+prepends them to the first `header` block. Putting them in both printed the
+officer's letterhead twice on page one, which is what the first version did.
+
+### 7. `meta.signature` gained two controls it never had
+
+The export gate refuses a document failing a `must` checklist item, and
+`checklist.ts`'s `signature-block` rule wants the designation, the telephone and
+the e-mail under the signature (CSMOP 9.2(x)). `meta.signature` is a SNAPSHOT
+taken at creation (ADR-041 §5) and `MetaPanel` offered a name and a designation
+and nothing else — so a document created before the profile was filled, or one
+made by the importer, carried a required item **the officer could not satisfy
+anywhere in the app**. Two `<input>`s in the signature fieldset. Found by
+putting an export gate in front of an imported document, which is the only
+sequence that reaches it.
+
+### 8. The fixtures are generated from source, and CI checks them
+
+`tests/fixtures/drafting/` holds ten files — five `.docx`, three `.pdf`, a
+zero-byte file and an OLE2 compound file wearing a `.docx` name. Every one is
+built by `scripts/drafting-fixtures.mjs` from source that says what it is for,
+because a binary is opaque in a diff and a fixture nobody can read is a fixture
+nobody can correct. The `.docx` files are written **by the app's own zip
+writer**, loaded through Vite's SSR module runner — the arrangement
+`scripts/library-extracts.mjs` established (ADR-039 §4) — which exercises that
+writer against mammoth as a side effect. `node scripts/drafting-fixtures.mjs
+--check` rebuilds all ten and compares, and CI runs it.
+
+### Addendum — what the tests found
+
+Four defects, and the pattern is worth naming because it is not the one the last
+several passes found. There is no model here at all; the untrusted input is a
+FILE, and every one of these was in code that reads it.
+
+1. **`extract.ts` threw away half the file numbers in this corpus.** The guard
+   asked "does a date appear in this candidate" rather than "is this candidate
+   entirely a date" — so `12/2/2023-JCA`, which is how a great many of the
+   orders this app cites are numbered, was rejected as a date. `12/05/2026` is a
+   date; `12/2/2023-JCA` contains one. `isOnlyADate` is the whole fix, and the
+   test that caught it was written to check something else.
+2. **Two-column detection ran over LINES, which is exactly the wrong input.**
+   Two columns share their baselines, so `linesOf` — which groups by baseline,
+   as it must — merges "left column line one" and "right column line one" into
+   one line spanning the page. A gutter search over lines therefore finds
+   nothing on precisely the pages it exists for, and the first version reported
+   every two-column document as one column. It reads the ITEMS now, with a
+   `SPANNING_ALLOWANCE` of 2 so a title across the top does not defeat it.
+3. **The export refusal pointed at a control that was not there.** The blocked
+   card said "open the checklist to see which" and offered no way to open it —
+   the same "wired up and cannot fire" family ADR-039's addendum names, in a
+   surface that had been written that hour. The browser run is what caught it,
+   because the export button was simply disabled with nowhere to go.
+4. **`extensionOf` returned the last CHARACTER of a name with no dot in it.**
+   `name.slice(name.lastIndexOf('.'))` slices from -1, so `README` had extension
+   `"E"`. The refusal was right by accident and the message was not. Found
+   because Playwright saves a download to a temporary path with no extension —
+   a browser run finding a bug in string handling, which is not where anyone
+   would have looked for one.
+
+And one **inherited** defect fixed rather than reported: `/draft/profile` failed
+axe's `link-in-text-block` on `serious`, because a `text-primary` link inside a
+sentence was distinguishable by colour alone. Every other `text-primary` link in
+this app is the whole content of its own element, where colour is enough; this
+one is in a paragraph, which is the case the rule is about. It arrived in the
+concurrent session's commit and its author's session had ended, so it is fixed
+here — the sweep it fails is one this session added the route to.
