@@ -94,7 +94,20 @@ export function studyStreak(input: Omit<WeeklyInput, 'days'>): number {
   for (const row of input.chapterLog) add(row.at)
   for (const row of input.attempts) add(row.at)
 
-  let day = istDay(input.now)
+  /*
+    The walk starts from YESTERDAY when today has not been studied yet, which
+    is the rule `src/lib/srs/day.ts#currentStreak` already follows one directory
+    over.
+
+    Starting from today unconditionally looked more conservative and was not: a
+    reader with thirty consecutive days saw 0 on this screen every morning until
+    they opened something, while `/learn` showed 30 at the same moment — two
+    screens of one app contradicting each other about one reader for most of
+    every day. The screen already says "nothing studied today yet" on its own
+    line, so one number never had to carry both facts.
+  */
+  const today = istDay(input.now)
+  let day = active.has(today) ? today : addIstDays(today, -1)
   let streak = 0
   while (active.has(day)) {
     streak += 1

@@ -665,6 +665,64 @@ are load-bearing, and each is enforced by a test rather than by convention:
 
 ### Notes for the next session
 
+- **An edge-case pass over this session found FOURTEEN defects, and the pattern was ADR-039's, not
+  ADR-032's.** There IS a model here and its half was guarded — citations re-derived, a personal
+  snippet never presented as law, the screen run before the provider is constructed. What failed was
+  the code around it, in three families, and ADR-040's addendum has all fourteen. The four most
+  transferable are below; every regression test was confirmed to fail against the committed code
+  first (`src/lib/retrieval.edge.test.ts`, `src/lib/study/edge.test.ts`,
+  `src/modules/library/study.edge.test.tsx`, `src/ai/tools/library.edge.test.ts`).
+
+- **`numberKey` folded `18(2)` into `182`, which is a REAL rule number.** 256 of GFR's 307 rule
+  numbers were reachable that way and `1(1)` collides with Rule 11 in every one of the nine books
+  with eleven rules. Because the exact-number pass scores 1.0, it put a stranger level with the
+  provision the reader asked for. This is **ADR-035's `refKey()` lesson one resolution further down**
+  — there a digits-only key could not tell 124 from 124A — and the file already contained a test
+  named "keeps 124 and 124A apart" two blocks above the assertion that encoded the new collision.
+  A key that throws away structure throws away identity. `PROVISION` separately missed `s 65B`, which
+  the session brief names verbatim, and `F.R. 17(1)`, which is what this repo's own `citation()`
+  prints.
+
+- **A rail component that is not keyed on the unit will save one provision's writing against
+  another.** `j`/`k` navigate without unmounting the rail, so `FeynmanBox` kept the textarea's
+  contents across a unit change and `saveAttempt` read `unit.id` from the props it had _now_. Write
+  about Rule 3, press `j`, press Save, and it is stored against Rule 4 — nothing throws and both
+  screens look correct. `ChapterRevisionCard` and `StudyAskPanel` leaked confirmations the same way.
+  Fixed with a `key`, never an effect that clears state (`ReviewPage`'s `wrongAnswer` rule).
+
+- **A surface that records as it goes must not also offer a "save" that records again.** The chapter
+  quiz graded every answer through `reviewCard` as it was given, and "add the ones I got wrong to my
+  review deck" graded them a second time — cutting FSRS stability from 4.72 days to 1.51 on a matured
+  card and writing a `reviewLog` row for a review that never happened. `reviewLog` is what the weekly
+  review counts and what retention is measured from, so it outlives the schedule. The screen states
+  what is already true and links to the deck instead.
+
+- **Four features were wired end to end and could never fire** — the third session in a row to land
+  on this. The coverage heat-map was mounted `cards={null}`, so `quizzed` was false for every unit
+  and `readNotQuizzed` was `read` under another name; the Pomodoro lengths had no setter although
+  `clampPomodoro` was written, bounded and tested; the Ask panel rendered on a reader-added document
+  where every tool refuses a `my-` id, so it could only ever say "it could not answer"; and
+  `get_related_cards` loaded twelve rule books to answer about one. Ask what would have to be true
+  for a control to succeed, and check that it can be.
+
+- **Two committed tests were asserting the defects.** `retrieval.test.ts` asserted
+  `numberKey('318 (4)') === '3184'` and `analytics.test.ts` asserted a streak of 0 for a reader who
+  studied yesterday and not yet today — while `src/lib/srs/day.ts#currentStreak`, one directory over,
+  had always counted from yesterday, so two screens contradicted each other about one reader every
+  morning. ADR-037's `token`-suppression lesson again: when an edge pass contradicts a committed
+  assertion, decide which is describing the app.
+
+- **`role="img"` belongs on a `<div>` of `<span>`s, never on a `<ul>`** — and the first test written
+  for a `React.lazy` component's ABSENCE cannot fail. `StudyAskPanel` is lazy, so it is missing for a
+  tick whatever the gate says; the test now renders a work where the panel _should_ appear first, to
+  resolve and cache the module, before asserting it is absent elsewhere. `network.sentinel`'s story
+  (ADR-031) in a second place.
+
+- **`Promise.all` in a list nobody is watching is how a feature disappears silently.**
+  `useDueChaptersEverywhere` loaded every work with a due chapter that way, so one failed chunk made
+  the revise list vanish from both hubs, permanently, with nothing in the console. A due list that
+  disappears is worse than a short one — the reader concludes they are up to date. `allSettled` now.
+
 - **The ordering is the deliverable, not the features.** Precomputed first, retrieval always, a model
   last — `docs/AI.md` §13 is the written policy, including why fine-tuning is rejected (grounding is
   retrieval, not weights: a fine-tuned model has no snippets to cite, and `validateCitations()` would

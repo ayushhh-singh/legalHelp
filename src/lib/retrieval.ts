@@ -128,8 +128,35 @@ export interface RetrievedSnippet {
  * `src/lib/library/corpus.ts` hit again with `/परन्तु\b/` (ADR-038). The
  * English half is anchored; the Devanagari half is not, and cannot be.
  */
-const PROVISION =
-  /(?:\b(?:section|sec\.?|s\.|rule|para(?:graph)?|regulation|article|clause)\s*(?:no\.?\s*)?|(?:धाराओं|धारा|नियमों|नियम|उपनियम|अनुच्छेद|पैरा|खंड)\s*(?:सं\.?\s*)?)([0-9०-९]+(?:\s*\([0-9a-zA-Z०-९]+\))*[A-Za-z]{0,2})/giu
+/**
+ * The unit words, in the order the alternation must try them.
+ *
+ * Order is load-bearing twice. `section` before `sec` before `s` — otherwise
+ * `s` matches the first letter of "section" and the number group is handed
+ * "ection". And `f.r.`/`s.r.` before the bare `s`, or `S.` matches on its own
+ * and the number group is handed "R.".
+ *
+ * `s` without a full stop is one of the four forms the session brief names
+ * verbatim ("s 65B"), and it is safe unanchored because the group carries a
+ * leading `\b`: the `s` of "items" is preceded by a word character, so there is
+ * no boundary in front of it and "items 65B" is not a reference to s.65B.
+ *
+ * `f.r.`/`s.r.` are here because they are what this repository's own
+ * `citation()` prints for every FR & SR provision — the shape a reader gets
+ * when they copy a citation off a Trainer card and paste it back into a search
+ * box.
+ *
+ * The plurals are here because the Devanagari half always had them
+ * (`नियमों|नियम`) and the English half did not, so "Rules 18" matched nothing
+ * while "नियमों 18" matched. An asymmetry between two language halves is the
+ * ADR-035/ADR-039 trap in its mildest form and it is still worth closing.
+ */
+const UNIT_WORDS = String.raw`sections?|secs?\.?|f\.?\s?r\.?|s\.?\s?r\.?|s\.?|rules?|paras?(?:graphs?)?|regulations?|articles?|clauses?`
+
+const PROVISION = new RegExp(
+  String.raw`(?:\b(?:${UNIT_WORDS})\s*(?:no\.?\s*)?|(?:धाराओं|धारा|नियमों|नियम|उपनियम|अनुच्छेद|पैरा|खंड)\s*(?:सं\.?\s*)?)([0-9०-९]+(?:\s*\([0-9a-zA-Z०-९]+\))*[A-Za-z]{0,2})`,
+  'giu',
+)
 
 /** A bare number a reader typed on its own: "18", "65B", "4.7". */
 const BARE_NUMBER = /^[0-9०-९]+(?:\.[0-9०-९]+)*[A-Za-z]{0,2}(?:\([0-9a-zA-Z०-९]+\))*$/u
@@ -138,10 +165,24 @@ const DEVANAGARI_DIGITS = '०१२३४५६७८९'
 
 /** Devanagari digits fold to ASCII; case and punctuation go. `65B` keeps its `B`. */
 export function numberKey(reference: string): string {
-  return reference
-    .replace(/[०-९]/g, (digit) => String(DEVANAGARI_DIGITS.indexOf(digit)))
-    .toUpperCase()
-    .replace(/[^0-9A-Z.]/g, '')
+  return (
+    reference
+      .replace(/[०-९]/g, (digit) => String(DEVANAGARI_DIGITS.indexOf(digit)))
+      .toUpperCase()
+      // The PARENTHESES ARE KEPT, and that is the whole point of this line.
+      //
+      // Stripping them folded `18(2)` to `182`, and `182` is a real rule
+      // number: GFR has 307 rules and 256 of its numbers are reachable that
+      // way, and `1(1)` collides with Rule 11 in every one of the nine books
+      // that has eleven rules. Because the exact-number pass scores at 1.0,
+      // that did not merely rank a stranger highly — it put a provision the
+      // reader never asked for level with the one they did.
+      //
+      // This is ADR-035's `refKey()` lesson in a second file: there a digits-
+      // only key could not tell 124 from 124A, here it could not tell 18(2)
+      // from 182. A key that throws away structure throws away identity.
+      .replace(/[^0-9A-Z.()]/g, '')
+  )
 }
 
 /**

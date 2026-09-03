@@ -33,11 +33,28 @@ const doc = (over: Partial<RetrievalDoc> & Pick<RetrievalDoc, 'id' | 'kind'>): R
 })
 
 describe('numberKey and numbersIn', () => {
-  it('folds Devanagari digits and drops punctuation, keeping a letter suffix', () => {
+  it('folds Devanagari digits and case, and KEEPS a sub-section apart', () => {
     expect(numberKey('१०३')).toBe('103')
-    expect(numberKey('318 (4)')).toBe('3184')
     expect(numberKey('65b')).toBe('65B')
     expect(numberKey('4.7')).toBe('4.7')
+
+    /*
+      This assertion used to read `expect(numberKey('318 (4)')).toBe('3184')`,
+      and it was describing the defect rather than the requirement.
+
+      `3184` is not a fold of `318(4)` — it is a DIFFERENT provision number, and
+      in this corpus a real one: `1(1)` folded onto Rule 11 in every one of the
+      nine rule books with eleven rules, and 256 of GFR's 307 rule numbers were
+      reachable that way. Because the number pass scores 1.0, the stranger
+      arrived level with the right answer.
+
+      Which makes the test two blocks down ("keeps 124 and 124A apart", citing
+      ADR-035) the exact lesson this file then broke one level of resolution
+      further in. An edge-case pass that contradicts a committed assertion has
+      to decide which of the two is describing the app; this one was not.
+    */
+    expect(numberKey('318 (4)')).toBe('318(4)')
+    expect(numberKey('318 (4)')).not.toBe(numberKey('3184'))
   })
 
   it('keeps 124 and 124A apart', () => {
@@ -49,8 +66,11 @@ describe('numberKey and numbersIn', () => {
 
   it('reads a bare number, and both resolutions of a sub-section', () => {
     expect(numbersIn('18')).toEqual(['18'])
-    expect(numbersIn('rule 18(2)')).toContain('182')
+    // Both resolutions, and neither of them the concatenation: `18(2)` is the
+    // sub-section and `18` is the rule that stores it. `182` is somebody else.
+    expect(numbersIn('rule 18(2)')).toContain('18(2)')
     expect(numbersIn('rule 18(2)')).toContain('18')
+    expect(numbersIn('rule 18(2)')).not.toContain('182')
   })
 
   it('reads a Devanagari unit word, which carries no word boundary', () => {

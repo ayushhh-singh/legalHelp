@@ -4,7 +4,7 @@ import { Link, Navigate, useParams } from 'react-router-dom'
 
 import { useWork } from '../useLibrary'
 import { useChapters } from '../useStudy'
-import { toUnitHref, toWorkHref } from '../url'
+import { toPractiseHref, toUnitHref, toWorkHref } from '../url'
 
 import { Badge, ProgressBar, QueryErrorState, SectionCard, Skeleton } from '@/components/ui-x'
 import { Button } from '@/components/ui/button'
@@ -57,7 +57,6 @@ export default function ChapterQuizPage() {
   const [at, setAt] = useState(0)
   const [chosen, setChosen] = useState<Map<string, number | null>>(new Map())
   const [outcome, setOutcome] = useState<QuizOutcome | null>(null)
-  const [addedCount, setAddedCount] = useState<number | null>(null)
 
   const questions = useMemo(
     () => (chapter && catalogue ? buildChapterQuiz(chapter, catalogue, seed) : []),
@@ -101,20 +100,11 @@ export default function ChapterQuizPage() {
     }
   }, [chapter, chosen, questions])
 
-  const addWrong = useCallback(async () => {
-    if (!outcome) return
-    for (const qId of outcome.wrong) {
-      await reviewCard({ qId, grade: 'Again', catalogue: catalogue ?? [], now: new Date() })
-    }
-    setAddedCount(outcome.wrong.length)
-  }, [catalogue, outcome])
-
   const restart = useCallback(() => {
     setSeed(`${workId}:${nodeId}:${Date.now()}`)
     setAt(0)
     setChosen(new Map())
     setOutcome(null)
-    setAddedCount(null)
   }, [nodeId, workId])
 
   if (!isWorkId(workId)) return <Navigate to="/library" replace />
@@ -236,22 +226,33 @@ export default function ChapterQuizPage() {
               })}
             </ul>
 
+            {/*
+                There is NO "add these to my deck" button, and its absence is
+                the honest version of the brief's own request.
+
+                Every answer above went through `reviewCard` as it was given, so
+                the wrong ones are already at the front of the queue. A button
+                that graded them a second time — which is what shipped — cost
+                the reader a lapse they never earned: on a matured card the
+                second `Again` cut FSRS stability from 4.72 days to 1.51 and
+                wrote a `reviewLog` row for a review that never happened.
+
+                So the screen says what is already true and offers the deck.
+            */}
+            {outcome.wrong.length > 0 ? (
+              <p className="rounded-lg border border-border bg-muted px-3 py-2 text-sm">
+                {t('library.study.quiz.wrongAlreadyIn', { count: outcome.wrong.length })}
+              </p>
+            ) : null}
+
             <div className="flex flex-wrap gap-2">
-              {outcome.wrong.length > 0 ? (
-                <Button type="button" onClick={() => void addWrong()}>
-                  {t('library.study.quiz.addWrong')}
-                </Button>
-              ) : null}
+              <Button asChild variant="outline">
+                <Link to={toPractiseHref(work.data.id)}>{t('library.study.quiz.openDeck')}</Link>
+              </Button>
               <Button type="button" variant="outline" onClick={restart}>
                 {t('library.study.quiz.again')}
               </Button>
             </div>
-
-            {addedCount !== null ? (
-              <p role="status" className="text-sm text-tulsi-foreground">
-                {t('library.study.quiz.added', { count: addedCount })}
-              </p>
-            ) : null}
 
             <p className="border-t border-border pt-3 text-xs text-muted-foreground">
               {t('library.study.quiz.countsToward')}

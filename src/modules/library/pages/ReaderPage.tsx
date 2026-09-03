@@ -898,7 +898,21 @@ export default function ReaderPage() {
             <div className="flex flex-col gap-4">
               {studyAid ? <StudyAidCard aid={studyAid} corpus={corpus.data} workId={work.id} /> : null}
 
-              <FeynmanBox workId={work.id} unit={unit} chapter={chapter} />
+              {/*
+                  KEYED ON THE UNIT, and this one is not cosmetic.
+
+                  `j`/`k` and the prev/next links navigate between units without
+                  unmounting this rail, so without the key a reader who starts
+                  writing about Rule 3, moves to Rule 4 and presses Save has
+                  their words about Rule 3 stored against **Rule 4** —
+                  `saveAttempt` takes `unit.id` from the props it has now.
+                  Nothing throws and both screens look right.
+
+                  A key rather than an effect that clears the state, for the
+                  reason CLAUDE.md records for `ReviewPage`'s `wrongAnswer`:
+                  derive or remount, never resynchronise one render late.
+              */}
+              <FeynmanBox key={unit.id} workId={work.id} unit={unit} chapter={chapter} />
 
               <TestMeCard chapter={chapter} cited={chapterCitedCards} />
 
@@ -908,11 +922,39 @@ export default function ReaderPage() {
                 chapter while they are in it. The due list on both hubs links
                 to the chapter's first unit for the same reason.
               */}
-              {chapter ? <ChapterRevisionCard chapter={chapter} /> : null}
+              {chapter ? <ChapterRevisionCard key={chapter.id} chapter={chapter} /> : null}
 
-              {studyAiAvailable(ai.enabled) ? (
+              {/*
+                  A PERSONAL work is excluded, and this is a reachability
+                  condition rather than a policy one.
+
+                  Every tool in `src/ai/tools/library.ts` guards on `isWorkId`,
+                  which a `my-`-prefixed id fails by construction — so on a
+                  document the reader added themselves, `get_unit`,
+                  `get_study_aid`, `get_definitions`, `retrieve` and
+                  `get_related_cards` all return "unknown work", the run cites
+                  nothing, and `groundedRequired` discards it. The panel
+                  rendered anyway: an input, six intent chips and a button that
+                  could only ever produce "it could not answer".
+
+                  Widening the tools to reach a personal document is a separate
+                  decision with its own question — those units are not published
+                  statute and nothing about them is citable — so what changes
+                  here is only that the app stops offering a control it cannot
+                  honour. ADR-039's second addendum, for the fourth time in this
+                  session.
+              */}
+              {studyAiAvailable(ai.enabled) && work.origin !== 'personal' ? (
                 <Suspense fallback={null}>
+                  {/*
+                      Keyed on the unit for the same reason as the two above: an
+                      answer about the previous provision must not still be
+                      sitting under this one, and a run in flight for a unit the
+                      reader has left is a run they are paying for and will not
+                      read — the key unmounts the hook, whose cleanup aborts it.
+                  */}
                   <StudyAskPanel
+                    key={unit.id}
                     ai={ai}
                     workId={work.id}
                     unitId={unit.id}

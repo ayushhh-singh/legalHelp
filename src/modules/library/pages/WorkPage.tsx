@@ -32,6 +32,9 @@ import {
   unitLabel,
   type ReaderWork,
 } from '@/lib/library'
+import { useAsync } from '@/lib/useAsync'
+import { loadCardsForAct } from '@/modules/trainer/data'
+import type { Card } from '@/modules/trainer/schema'
 import { cn } from '@/lib/utils'
 
 /**
@@ -71,6 +74,43 @@ export default function WorkPage() {
   const corpus = useReaderCorpus(work.work, searching || view === 'quickref')
   const quickref = useQuickRef(work.work, corpus.data, view === 'quickref')
   const index = useWorkSearchIndex(corpus.data)
+  /*
+    This work's own Trainer cards, for the coverage map's "quizzed" flag.
+
+    ONE act (`loadCardsForAct`), not the Trainer's 1.1 MB catalogue: the
+    question is which of THIS work's rules the reader has been asked about, and
+    eleven other acts cannot help answer it. `data/rules/cards/<act>.json` is
+    precached, so after the first visit it costs nothing, and it is fetched
+    after this page has painted rather than on the way to it.
+
+    The map shipped with `cards={null}` hard-coded at its call site, which made
+    `quizzed` false for every unit — the badge read 0 for ever and
+    `readNotQuizzed`, the figure the summary exists to produce, was `read` under
+    a second name.
+
+    Declared HERE, above the early returns, rather than beside the JSX that uses
+    it: hooks run in the same order on every render or they run in the wrong
+    order on one of them.
+  */
+  const cardsWorkId = work.work && work.work.origin !== 'personal' ? work.work.id : null
+  const actCardsState = useAsync(
+    useMemo(
+      () => () =>
+        cardsWorkId === null
+          ? Promise.resolve([] as Card[])
+          : loadCardsForAct(cardsWorkId)
+              .then((file) => file.cards)
+              // A work with no rule book behind it — BNS/BNSS/BSA — simply has
+              // no cards. That is not an error, and the heat-map still has two
+              // of its three dimensions.
+              .catch(() => [] as Card[]),
+      [cardsWorkId],
+    ),
+    `coverage-cards:${cardsWorkId ?? 'none'}`,
+    cardsWorkId !== null,
+  )
+  const actCards = actCardsState.status === 'ready' ? actCardsState.data : null
+
   const readIds = useReadUnitIds(workId)
   const lastRead = useLastReadUnitId(workId)
 
@@ -402,7 +442,7 @@ export default function WorkPage() {
         <div className="flex flex-col gap-4">
           <SessionTimer workId={data.id} workLabel={data.shortTitle[language] || data.shortTitle.en} />
           <ChapterStudyList work={data} />
-          <CoverageMap workId={data.id} unitIds={data.readingOrder} toc={data.toc} cards={null} />
+          <CoverageMap workId={data.id} unitIds={data.readingOrder} toc={data.toc} cards={actCards} />
         </div>
       )}
 

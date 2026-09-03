@@ -1,5 +1,5 @@
 import { Pause, Play } from 'lucide-react'
-import { useCallback, useState } from 'react'
+import { useCallback, useMemo, useState } from 'react'
 
 import { useRunningSession } from '../useStudy'
 
@@ -7,7 +7,9 @@ import { Badge, SectionCard } from '@/components/ui-x'
 import { Button } from '@/components/ui/button'
 import { useT } from '@/i18n/useT'
 import {
-  DEFAULT_POMODORO,
+  POMODORO_BREAK_MINUTES,
+  POMODORO_WORK_MINUTES,
+  clampPomodoro,
   completedPomodoros,
   focusedMinutes,
   formatDuration,
@@ -43,7 +45,27 @@ export function SessionTimer({ workId, workLabel, nodeId = null, className }: Se
   const { t } = useT()
   const running = useRunningSession()
   const now = useNow(1000)
-  const [config] = useState<PomodoroConfig>(DEFAULT_POMODORO)
+  /*
+    The lengths are held as the RAW STRINGS the reader typed, and clamped only
+    when a config is built out of them.
+
+    Clamping on every keystroke is what the obvious version does and it fights
+    the reader: typing the "1" of "15" snaps the field to 5 and the "5" then
+    lands on that. Keeping the raw text and clamping at the point of use means
+    the field says what was typed while the hint under it says what the timer
+    will actually do — which is the honest pair.
+
+    Until Session 28's edge pass this was `const [config] = useState(...)` with
+    no setter at all: `clampPomodoro` was written, bounded (5-90 / 1-30) and
+    tested, and the only caller that could ever vary it was its own test file.
+    The brief asked for "free or Pomodoro 25/5, configurable".
+  */
+  const [workText, setWorkText] = useState(String(POMODORO_WORK_MINUTES))
+  const [breakText, setBreakText] = useState(String(POMODORO_BREAK_MINUTES))
+  const config: PomodoroConfig = useMemo(
+    () => clampPomodoro({ workMinutes: Number(workText), breakMinutes: Number(breakText) }),
+    [breakText, workText],
+  )
   const [mode, setMode] = useState<'free' | 'pomodoro'>('free')
   const [stopped, setStopped] = useState<number | null>(null)
 
@@ -136,12 +158,45 @@ export function SessionTimer({ workId, workLabel, nodeId = null, className }: Se
               </div>
             </fieldset>
             {mode === 'pomodoro' ? (
-              <p className="text-xs text-muted-foreground">
-                {t('library.study.session.pomodoroHint', {
-                  work: config.workMinutes,
-                  break: config.breakMinutes,
-                })}
-              </p>
+              <>
+                <div className="flex flex-wrap gap-3">
+                  <label className="flex flex-col gap-1 text-sm">
+                    <span className="text-xs font-semibold text-muted-foreground uppercase">
+                      {t('library.study.session.workMinutes')}
+                    </span>
+                    <input
+                      type="number"
+                      inputMode="numeric"
+                      min={5}
+                      max={90}
+                      value={workText}
+                      onChange={(event) => setWorkText(event.target.value)}
+                      className="min-h-11 w-24 rounded-lg border border-input bg-card px-3 text-sm tabular-nums"
+                    />
+                  </label>
+                  <label className="flex flex-col gap-1 text-sm">
+                    <span className="text-xs font-semibold text-muted-foreground uppercase">
+                      {t('library.study.session.breakMinutes')}
+                    </span>
+                    <input
+                      type="number"
+                      inputMode="numeric"
+                      min={1}
+                      max={30}
+                      value={breakText}
+                      onChange={(event) => setBreakText(event.target.value)}
+                      className="min-h-11 w-24 rounded-lg border border-input bg-card px-3 text-sm tabular-nums"
+                    />
+                  </label>
+                </div>
+                <p className="text-xs text-muted-foreground">
+                  {t('library.study.session.pomodoroHint', {
+                    work: config.workMinutes,
+                    break: config.breakMinutes,
+                  })}
+                </p>
+                <p className="text-xs text-muted-foreground">{t('library.study.session.lengthsClamped')}</p>
+              </>
             ) : null}
             <div>
               <Button type="button" onClick={() => void start()}>

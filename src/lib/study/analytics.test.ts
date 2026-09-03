@@ -172,8 +172,19 @@ describe('weeklyReview', () => {
 })
 
 describe('studyStreak', () => {
-  it('is zero when nothing happened today', () => {
-    expect(studyStreak({ now: NOW, ...empty, progress: [progress('2026-09-02T06:00:00.000Z')] })).toBe(0)
+  /*
+    This test used to assert 0 for "studied yesterday, not yet today", and it
+    was describing the defect rather than the requirement — `currentStreak` in
+    `src/lib/srs/day.ts` has always counted from yesterday in exactly that
+    state, so the two screens disagreed about one reader every morning. See
+    `src/lib/study/edge.test.ts`.
+  */
+  it('still counts yesterday’s run before today’s first study', () => {
+    expect(studyStreak({ now: NOW, ...empty, progress: [progress('2026-09-02T06:00:00.000Z')] })).toBe(1)
+  })
+
+  it('is zero when the run ended before yesterday', () => {
+    expect(studyStreak({ now: NOW, ...empty, progress: [progress('2026-09-01T06:00:00.000Z')] })).toBe(0)
   })
 
   it('counts consecutive IST days ending today', () => {

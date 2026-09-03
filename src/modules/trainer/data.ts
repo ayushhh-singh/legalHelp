@@ -78,6 +78,19 @@ export function loadRulesIndex(): Promise<RulesIndex> {
   })
 }
 
+/**
+ * ONE act's cards.
+ *
+ * Exported since Session 28's edge pass: the Library's coverage heat-map needs
+ * a card → unit map for a single work, and `loadAllCards` is 1.1 MB across
+ * twelve acts to answer a question about one of them. A work page that wants
+ * to know which of ITS rules have been quizzed should pay for its own act and
+ * nothing else.
+ */
+export function loadCardsForAct(actId: string): Promise<RulesCards> {
+  return loadActCards(actId)
+}
+
 function loadActCards(actId: string): Promise<RulesCards> {
   const loader = CARD_LOADERS[actId]
   if (!loader) return Promise.reject(new Error(`unknown rules act: ${actId}`))

@@ -209,7 +209,7 @@ function GoalEditor({ workIds, label }: { workIds: readonly string[]; label: (id
     <div className="flex flex-wrap items-end gap-3 border-t border-border pt-4">
       <label className="flex flex-col gap-1 text-sm">
         <span className="text-xs font-semibold text-muted-foreground uppercase">
-          {t('library.study.hub.reviseAndPlan')}
+          {t('library.mine.filterWork')}
         </span>
         <select
           value={workId}

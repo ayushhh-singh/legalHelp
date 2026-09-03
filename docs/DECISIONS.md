@@ -6262,3 +6262,136 @@ model has no snippets to cite.
   the two parameterised ones exempted in `tests/route-coverage.test.ts` with a
   real instance named, the way `/library/:workId/:unitId` already was.
 - `CONSENT_VERSION` is 3, so every reader who had AI on is asked again.
+
+### Addendum — an edge-case pass over this session, after the commit
+
+Fourteen defects, each confirmed to FAIL against the committed code before its
+fix was written. The regression files are `src/lib/retrieval.edge.test.ts` (9),
+`src/lib/study/edge.test.ts` (5), `src/modules/library/study.edge.test.tsx` (12)
+and `src/ai/tools/library.edge.test.ts` (5).
+
+**The pattern is ADR-039's second addendum, not ADR-032's.** There is a model in
+this session and its half was guarded — citations are re-derived, a personal
+snippet cannot be presented as law, the screen runs before the provider is
+constructed. What failed was almost entirely the code around it, and in two
+recognisable families.
+
+#### 1. A key that threw away structure, and so threw away identity
+
+`numberKey` folded `18(2)` to `182` by stripping the parentheses. `182` is not a
+fold of `18(2)` — it is a different provision, and in this corpus a real one:
+`1(1)` collides with Rule 11 in every one of the nine rule books that has eleven
+rules, and **256 of GFR's 307 rule numbers** are reachable that way. Because the
+exact-number pass scores 1.0, this did not rank a stranger highly — it placed
+one level with the provision the reader asked for, ahead of every relevant fuse
+hit.
+
+That is **ADR-035's `refKey()` lesson one level of resolution further down**:
+there a digits-only key could not tell 124 from 124A, here it could not tell
+18(2) from 182. The file that contains this even has a test named "keeps 124 and
+124A apart" citing that ADR, two blocks above the assertion that encoded the new
+collision.
+
+`PROVISION` separately missed `s 65B` — one of the four number forms **the
+session brief names verbatim** — because the alternation carried `s\.` and
+required the full stop; and `F.R. 17(1)`, which is what this repository's own
+`citation()` prints for every FR & SR provision. The English unit words also had
+no plurals while the Devanagari half had always carried them, so `नियमों 18`
+matched and `Rules 18` did not — the two-language-halves asymmetry of ADR-035 and
+ADR-039 in its mildest form, and still worth closing.
+
+#### 2. Features that were wired end to end and could never fire
+
+Four of them, and this is the third session in a row to produce this shape:
+
+- **The coverage heat-map's third dimension.** `WorkPage` mounted
+  `<CoverageMap … cards={null} />`, so `quizzed` was false for every unit: the
+  badge read 0 for ever and `readNotQuizzed` — the figure the whole summary
+  exists to produce — was `read` under a second name. It now loads ONE act
+  (`loadCardsForAct`, newly exported), not the Trainer's 1.1 MB catalogue.
+- **The Pomodoro lengths.** The brief asked for "free or Pomodoro 25/5,
+  configurable". `clampPomodoro` was written, bounded 5-90 / 1-30 and tested,
+  and `SessionTimer` held its config in a `useState` with no setter — the only
+  caller that could vary it was its own test file.
+- **Ask, on a document the reader added.** Every tool in
+  `src/ai/tools/library.ts` guards on `isWorkId`, which a `my-`-prefixed id
+  fails by construction, so on a personal work the panel could only ever produce
+  "it could not answer". It is not offered there now.
+- **`get_related_cards` loading twelve rule books** to answer about one — the
+  same waste `practiseCounts` exists to prevent (ADR-038 §2).
+
+#### 3. State that outlived the unit it was about
+
+Three components in the reader's rail kept their state across a unit change,
+because `j`/`k` and the prev/next links navigate without unmounting the rail and
+none of them was keyed. One of the three corrupts data:
+
+**A reader who starts writing their own words about Rule 3, moves to Rule 4 and
+presses Save has their prose stored against Rule 4.** `saveAttempt` reads
+`unit.id` from the props it has now; the textarea still holds what was typed for
+the unit before. Nothing throws, nothing logs, and a screenshot of either screen
+looks correct.
+
+The other two are confirmations rather than data — a stale "Rated. Back on …"
+for a chapter never rated, and an AI answer about the previous provision sitting
+under this one. All three are fixed with a `key`, not with an effect that
+clears the state: the rule CLAUDE.md already records for `ReviewPage`'s
+`wrongAnswer` is derive or remount, never resynchronise one render late.
+
+#### 4. One button that quietly punished the reader twice
+
+"Add the ones I got wrong to my review deck" called `reviewCard` with `Again` a
+second time for cards the quiz had graded `Again` seconds earlier. On a card the
+officer had matured into `review`, the first `Again` is the lapse they earned;
+the second cut FSRS stability from **4.72 days to 1.51** and wrote a `reviewLog`
+row for a review that never happened — and `reviewLog` is what the weekly review
+counts and what retention is measured from, so the damage outlives the schedule.
+
+The button was redundant as a grading action from the moment answers were wired
+into the Trainer's own history: the wrong ones are already at the front of the
+queue. The screen says so now and offers the deck instead. **Anything that
+writes to a schedule twice for one event is worth looking for wherever a surface
+both records as it goes and offers a "save" at the end.**
+
+#### 5. Three smaller ones, each a rule this repository already had
+
+- `useDueChaptersEverywhere` used `Promise.all`, so ONE work file that failed to
+  load made the revise list vanish from both hubs, permanently and silently. A
+  due list that disappears is worse than a short one: the reader concludes they
+  are up to date. `Promise.allSettled` now.
+- `StudyAskPanel`'s tool and phase labels were built by interpolating into `t()`
+  behind an `as` cast — exactly what the drafting panel's own comment warns
+  against, and with `fallbackLng: false` a missing key IS its own name. They are
+  a literal map now, asserted against the registry's actual `library` scope,
+  which is the mechanism `src/ai/tools/registry.test.ts` already uses.
+- `get_my_notes` — the one tool in this app that reads what the officer wrote —
+  was the only one of the six without an `isWorkId` guard, so an unknown work
+  returned a confident, empty `{ personal: true, notes: [], highlights: [] }`.
+
+#### Two committed tests were asserting the defects
+
+`src/lib/retrieval.test.ts` asserted `numberKey('318 (4)') === '3184'` and
+`src/lib/study/analytics.test.ts` asserted the streak was 0 for a reader who had
+studied yesterday and not yet today. Both were corrected with the reason written
+at the assertion. This is the Tier 0 `token`-suppression lesson from ADR-037's
+second addendum arriving again: **when an edge-case pass contradicts a committed
+assertion, decide which of the two is describing the app** — and here neither
+was.
+
+#### One candidate dismissed by a test rather than by argument
+
+The revision sheet's mode toggle builds ``to={`?${''}`}`` — a bare `"?"` —
+for the link back to the full sheet, which looked wrong. It works: React Router
+resolves it against the current path and clears the query. The test is kept as a
+regression guard rather than deleted, because the next reader of that line will
+have the same doubt.
+
+#### And one test that could not fail
+
+The first version of the personal-document test asserted the Ask panel was
+absent, and passed against the bug: `StudyAskPanel` is behind `React.lazy`, so it
+is absent for a tick on a fresh module registry whatever the gate says. The test
+now renders a dataset work first to resolve and cache the lazy module, so
+"not in the document" means the gate kept it out. `network.sentinel`'s own story
+(ADR-031) in a second place — break the code and watch the assertion go red
+before believing it.

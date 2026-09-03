@@ -201,8 +201,21 @@ export function useDueChaptersEverywhere(now: Date): DueChapter[] | undefined {
   const works = useAsync(
     useMemo(
       () => () =>
-        Promise.all((dueWorkIds ?? []).map((id) => loadWork(id))).then((rows) =>
-          rows.filter((row): row is LibraryWork => Boolean(row)),
+        /*
+          SETTLED, not `Promise.all`.
+
+          One work file that fails to load — a chunk lost offline, a work id
+          from a backup restored onto a build that no longer ships it — made the
+          whole promise reject, `useAsync` report `error`, and the memo below
+          return `undefined` for ever. The effect is that the revise list
+          silently disappears from BOTH hubs and never comes back, with no
+          message and nothing in the console. A due list that vanishes is worse
+          than one that is short: the reader concludes they are up to date.
+        */
+        Promise.allSettled((dueWorkIds ?? []).map((id) => loadWork(id))).then((results) =>
+          results
+            .filter((row): row is PromiseFulfilledResult<LibraryWork> => row.status === 'fulfilled')
+            .map((row) => row.value),
         ),
       // The identity of the loader is what `useAsync` re-runs on, so it is
       // keyed on the SET of works rather than on the array's identity.

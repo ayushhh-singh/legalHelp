@@ -1887,12 +1887,12 @@
         "results": "{{right}} of {{total}} right",
         "correct": "Correct",
         "wrong": "Not this one",
-        "addWrong": "Add the ones I got wrong to my review deck",
-        "added": "Added {{count}} card to your deck.",
-        "added_other": "Added {{count}} cards to your deck.",
         "countsToward": "Answers here go into the Trainer’s own history, so they change what it schedules next.",
         "again": "Ask me again",
-        "review": "Review the answers"
+        "review": "Review the answers",
+        "wrongAlreadyIn": "The {{count}} you got wrong is already at the front of your review deck — every answer here was recorded as you gave it.",
+        "wrongAlreadyIn_other": "The {{count}} you got wrong are already at the front of your review deck — every answer here was recorded as you gave it.",
+        "openDeck": "Open my review deck"
       },
       "revise": {
         "title": "Revise",
@@ -1931,7 +1931,10 @@
         "completed_other": "{{count}} intervals done",
         "stopped": "{{minutes}} focused minutes logged.",
         "discarded": "Under a minute — not logged.",
-        "onWork": "on {{work}}"
+        "onWork": "on {{work}}",
+        "workMinutes": "Minutes of work",
+        "breakMinutes": "Minutes off",
+        "lengthsClamped": "Between 5 and 90 minutes of work, and 1 to 30 off. The line above is what the timer will actually do."
       },
       "goal": {
         "title": "Weekly goal",

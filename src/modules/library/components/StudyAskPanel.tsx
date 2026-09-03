@@ -1,6 +1,7 @@
 import { Check, Copy, Loader2, Sparkles, X } from 'lucide-react'
 import { useState } from 'react'
 
+import { PHASE_LABELS, labelFor } from '../askLabels'
 import { useStudyAsk, UNGROUNDED_CODES } from '../useStudyAsk'
 
 import type { StudyAnswerResult, StudyIntent, StudyStep } from '@/ai/agents/study'
@@ -207,9 +208,12 @@ function Progress({ steps, partial }: { steps: readonly StudyStep[]; partial: st
         {steps.map((step, at) => (
           <li key={at} className="flex items-center gap-2">
             <Loader2 aria-hidden="true" className="h-3 w-3 animate-spin" />
-            {step.tool
-              ? t(`library.study.ask.tool.${step.tool}` as 'library.study.ask.tool.get_unit')
-              : t(`library.study.ask.step.${step.phase}` as 'library.study.ask.step.screening')}
+            {(() => {
+              // An unlabelled tool falls back to the phase it is part of, which
+              // is always true and never a raw key.
+              const label = step.tool ? labelFor(step.tool) : null
+              return t(label ?? PHASE_LABELS[step.phase])
+            })()}
           </li>
         ))}
       </ol>

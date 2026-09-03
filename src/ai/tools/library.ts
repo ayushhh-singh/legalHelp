@@ -22,7 +22,8 @@ import {
 } from '@/lib/retrieval'
 import { chaptersOf } from '@/lib/study'
 import { docsFromAids, docsFromCorpus, docsFromDefinitions } from '@/modules/library/retrievalDocs'
-import { loadAllCards } from '@/modules/trainer/data'
+import { loadCardsForAct } from '@/modules/trainer/data'
+import type { Card } from '@/modules/trainer/schema'
 import { effectiveCatalogue } from '@/modules/trainer/reviewQueue'
 import { isAidServed } from '@/schemas/library'
 
@@ -295,8 +296,23 @@ export function registerLibraryTools(): void {
       }
       if (units.length === 0) return { work, count: 0, cards: [] }
 
+      /*
+        ONE act, not the Trainer's whole catalogue.
+
+        This used to call `loadAllCards`, which is 1.1 MB across twelve rule
+        books, to answer a question about one of them — the same waste the
+        Library's coverage heat-map had, and the reason `practiseCounts` is in
+        the dataset at all (ADR-038 §2). Every one of the twelve rule-book work
+        ids IS its act id, asserted in `src/ai/tools/library.edge.test.ts`; the
+        three Sanhitas have no cards and resolve to nothing rather than to an
+        error.
+      */
       const [raw, overrides, proposed] = await Promise.all([
-        once('all-cards', loadAllCards),
+        once(`cards:${work}`, () =>
+          loadCardsForAct(work)
+            .then((file) => file.cards)
+            .catch(() => [] as Card[]),
+        ),
         db.cardOverrides.toArray(),
         db.proposedCards.toArray(),
       ])
@@ -338,6 +354,11 @@ export function registerLibraryTools(): void {
       unit: z.string().min(1).optional().describe('One unit. Omit for every note in the work.'),
     }),
     handler: async ({ work, unit }) => {
+      // The same guard the other five carry. It was missing here — on the one
+      // tool that reads what the officer wrote — so an unknown work id returned
+      // an empty, confident `{ personal: true, notes: [], highlights: [] }`
+      // instead of saying it did not recognise the work.
+      if (!isWorkId(work)) return { work, personal: true, error: 'unknown work', notes: [], highlights: [] }
       const [notes, highlights] = await Promise.all([
         unit
           ? db.libraryNotes.where('[workId+unitId]').equals([work, unit]).toArray()
