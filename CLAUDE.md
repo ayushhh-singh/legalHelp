@@ -547,13 +547,28 @@ are load-bearing, and each is enforced by a test rather than by convention:
 
 ### Notes for the next session
 
-- **An edge-case pass over the Library found ELEVEN defects and every one of them was in the code
+- **A latest-ref in a mount-only listener is right for a handler with state ACROSS keypresses and
+  wrong for one whose target depends on where the reader currently is.** `useGlobalShortcuts` needs
+  it (a pending `g` chord and its timer would not survive a re-subscription) and the Library reader
+  does not, and copying it anyway made `j` then `k` go forward one and back two: the ref lands in a
+  passive effect, after paint, so a keypress in that window reads the previous unit's neighbours.
+  Re-subscribing the listener per unit is the obvious repair and is wrong the same way one level
+  down — the new listener is also attached in a passive effect, so the failure went from every time
+  to one run in six, **which is worse**. `src/modules/library/url.ts#unitIdFromPath` is the fix:
+  read the current unit from `window.location.pathname` at press time, because the navigation
+  updates the URL synchronously and nothing else about the render has happened yet. And note the
+  test layer this lives in — **the jsdom version passes against every broken variant**, since React
+  flushes passive effects between two `userEvent` interactions, so `tests/e2e/library.spec.ts` is
+  what actually holds it.
+
+- **An edge-case pass over the Library found TWELVE defects and every one of them was in the code
   around the data, not in the data.** ADR-038's addendum has all eleven;
   `src/lib/library/library.edge.test.ts` and `src/modules/library/library.edge.test.tsx` are the
   regression files, and each test was confirmed to fail against the committed code first. This is the
   third session in a row to land on the same shape (ADR-032, ADR-035) and the first with no model in
   it, so the lesson generalises past agents: **whatever you obviously distrust gets guarded, and
-  whatever you write yourself gets written as though it cannot fail.** The four most transferable:
+  whatever you write yourself gets written as though it cannot fail.** The four most transferable
+  (the fifth has its own note above):
   `isWorkId` used `key in objectLiteral`, which walks `Object.prototype`, so `constructor` and
   `toString` were accepted as work ids out of the address bar; three screens blocked their whole
   render on a `useLiveQuery` they only decorate themselves with, so a device whose storage is refused

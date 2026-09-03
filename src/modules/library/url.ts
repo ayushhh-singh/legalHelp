@@ -30,3 +30,38 @@ export const toLawSearchHref = (query: string): string => `/law?q=${encodeURICom
 
 /** The Trainer, filtered to the rule book a unit belongs to. */
 export const toPractiseHref = (actId: string): string => `/learn/review?act=${encodeURIComponent(actId)}`
+
+/**
+ * The unit id in a `/library/<workId>/<unitId>` path, or `null`.
+ *
+ * The inverse of `toUnitHref`, and it exists for one reason: the reader's
+ * keyboard handler needs to know which unit it is on AT THE MOMENT A KEY IS
+ * PRESSED, and no per-render value can tell it that.
+ *
+ * Both shapes were tried and both are wrong in the same way. A mount-only
+ * listener reading a "latest ref" updated in an effect, and a listener
+ * re-subscribed per unit, are BOTH swapped in a passive effect — so between
+ * React Router committing a navigation and that effect running, the attached
+ * handler still closes over the previous unit's neighbours. Press `j` then `k`
+ * quickly from Rule 2 and you land on Rule 1: forward one, back two. It was
+ * deterministic with the ref and merely flaky with the re-subscription, which
+ * is worse, not better.
+ *
+ * `window.location.pathname` is updated synchronously by the navigation itself,
+ * before any of that, so it is the one authoritative answer. Under
+ * `MemoryRouter` it says nothing about the route, which is why the caller keeps
+ * its rendered `unitId` as the fallback — and why the jsdom tests, where
+ * effects flush between interactions anyway, still exercise the same code.
+ */
+export function unitIdFromPath(pathname: string, workId: string): string | null {
+  const prefix = `/library/${encodeURIComponent(workId)}/`
+  if (!pathname.startsWith(prefix)) return null
+  const rest = pathname.slice(prefix.length)
+  if (!rest || rest.includes('/')) return null
+  try {
+    return decodeURIComponent(rest)
+  } catch {
+    // A malformed percent-escape in the address bar is not a crash.
+    return null
+  }
+}

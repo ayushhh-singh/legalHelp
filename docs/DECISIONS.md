@@ -5631,13 +5631,14 @@ control is disabled with the reason stated rather than hidden — ADR-030's line
   committed bytes off disk — which is why it does not live at `src/modules/library/schema.ts` the way
   the four schemas before it do.
 
-### ADR-038 addendum — an edge-case pass, eleven defects, and where every one of them was
+### ADR-038 addendum — an edge-case pass, twelve defects, and where every one of them was
 
-A requested pass over the Library after the commit. Eleven real defects, each confirmed to fail
+A requested pass over the Library after the commit. Twelve real defects, each confirmed to fail
 against the committed code before its fix was written — `src/lib/library/library.edge.test.ts` (14)
-and `src/modules/library/library.edge.test.tsx` (18) are the regression files.
+and `src/modules/library/library.edge.test.tsx` (22) are the regression files, plus one in
+`tests/e2e/library.spec.ts` that no test renderer can hold (defect 12).
 
-**All eleven were in the code around the data, and none in the data.** That is the pattern ADR-032's
+**All twelve were in the code around the data, and none in the data.** That is the pattern ADR-032's
 addendum named for the drafting agent and ADR-035's repeated for the law agent, arriving a third time
 in a session with no model in it at all. The dataset was obviously untrusted, so it is schema-validated
 twice, its pointers are checked in both directions, and its structure is asserted over every unit of
@@ -5706,6 +5707,33 @@ every work. The pages, the loaders and the store were written as though code can
     render's `prefs` while `useLiveQuery` was still a tick behind. It reads the stored row inside the
     write now, and it no longer rejects: a device that cannot keep a preference must lose the
     preference, not throw out of an onClick.
+
+12. **`j` then `k` went forward one and back two — and the fix for a lint error is what put it
+    there.** `react-hooks/refs` correctly refused a ref assigned during render, so the reader's key
+    handler became a mount-only listener reading a "latest ref" updated in an effect: the shape
+    `useGlobalShortcuts` uses. That shape's precondition does not hold here. It exists for a handler
+    carrying state ACROSS keypresses — a pending `g` chord and its timer — which a re-subscription
+    would destroy; this handler is stateless, and its target depends entirely on where the reader
+    currently is. A ref updated in a passive effect lands after paint, so a `k` arriving between
+    React Router committing the navigation and that effect running read the PREVIOUS unit's
+    neighbours: from Rule 3 to Rule 1.
+
+    Re-subscribing the listener per unit was the obvious repair and it is also wrong, for the same
+    reason one level down: the new listener is attached in a passive effect too, so the window only
+    narrows. It went from failing every time to failing about one run in six, **which is worse** — a
+    deterministic failure is a bug report and a flake is an argument.
+
+    What is actually correct is not to consult a per-render snapshot at all. `unitIdFromPath(
+window.location.pathname, workId)` is authoritative because the navigation updates the URL
+    synchronously, before any of that; the rendered `unitId` stays as the fallback for `MemoryRouter`,
+    which does not touch `window.location`. Twelve consecutive passes on the project that was flaky.
+
+    **The jsdom test for this passes against every broken version**, because React flushes passive
+    effects between two `userEvent` interactions and the window never opens under a test renderer.
+    It is kept — the sequence is worth asserting — with a comment saying plainly which layer holds
+    the guarantee, so nobody reads it as the thing that covers this. `tests/e2e/library.spec.ts` is.
+    That is the same lesson `network.sentinel()` taught in ADR-031: break the code and watch the new
+    assertion go red before believing it.
 
 Two smaller things the pass settled rather than fixed. `estimateReadTime`'s trailing
 `|| words.length / WPM[lang]` could not fire — `minutes` is zero only when there are no words, which

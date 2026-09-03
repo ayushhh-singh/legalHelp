@@ -81,6 +81,19 @@ test('moves between units with j and k, and not while typing', async ({ page }) 
   await page.keyboard.press('j')
   await expect(page).toHaveURL(new RegExp(`/library/${WORK}/${UNITS[2]}$`))
 
+  /**
+   * THE SECOND PRESS IS THE ONE THAT CATCHES ANYTHING, and only here.
+   *
+   * The reader's key handler first shipped as a mount-only listener reading a
+   * "latest ref" updated in an effect — the shape `useGlobalShortcuts` uses.
+   * That ref lands after paint, and the neighbours change on every navigation,
+   * so a `k` arriving between the re-render and the effect flush read the
+   * PREVIOUS unit's neighbours and went back two rules: from Rule 3 to Rule 1.
+   *
+   * The equivalent jsdom test passes against that version — React flushes
+   * passive effects between two `userEvent` interactions, so the window never
+   * opens under a test renderer. Only a real browser presses fast enough.
+   */
   await page.keyboard.press('k')
   await expect(page).toHaveURL(new RegExp(`/library/${WORK}/${UNITS[1]}$`))
 

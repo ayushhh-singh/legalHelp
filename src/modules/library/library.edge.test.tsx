@@ -9,6 +9,7 @@ import WorkPage from './pages/WorkPage'
 
 import { db } from '@/db'
 import { loadCorpus, loadWork, unitLabel } from '@/lib/library'
+import { toUnitHref, unitIdFromPath } from './url'
 
 /**
  * An edge-case pass over the Library's three screens, after the commit.
@@ -251,6 +252,36 @@ describe('an id in the address bar that names no work', () => {
   })
 })
 
+describe('unitIdFromPath', () => {
+  /**
+   * The reader's key handler resolves "where am I" from the URL at press time
+   * rather than from a per-render snapshot, because no snapshot can be current
+   * during the window between a navigation and the passive effect that would
+   * refresh it. This is that parse.
+   */
+  it('reads the unit out of a reader path', () => {
+    expect(unitIdFromPath('/library/ccs-conduct/ccs-conduct-3', 'ccs-conduct')).toBe('ccs-conduct-3')
+    expect(unitIdFromPath('/library/bns/103', 'bns')).toBe('103')
+  })
+
+  it('decodes, so a unit id that needed escaping survives the round trip', () => {
+    const href = toUnitHref('fr-sr', 'fr-sr-f-r-5d')
+    expect(unitIdFromPath(new URL(href, 'https://x').pathname, 'fr-sr')).toBe('fr-sr-f-r-5d')
+  })
+
+  it('answers null for anything that is not this work’s reader', () => {
+    expect(unitIdFromPath('/library/ccs-conduct', 'ccs-conduct')).toBeNull()
+    expect(unitIdFromPath('/library/bns/103', 'bnss')).toBeNull()
+    expect(unitIdFromPath('/law?q=302', 'bns')).toBeNull()
+    // A deeper path is a different route, not a unit with a slash in it.
+    expect(unitIdFromPath('/library/bns/103/notes', 'bns')).toBeNull()
+  })
+
+  it('does not throw on a malformed escape in the address bar', () => {
+    expect(unitIdFromPath('/library/bns/%E0%A4', 'bns')).toBeNull()
+  })
+})
+
 describe('the reader’s own keyboard shortcuts', () => {
   /**
    * ADR-029's addendum, defect six, in a new file: a bare-key shortcut fired
@@ -290,6 +321,23 @@ describe('the reader’s own keyboard shortcuts', () => {
     await user.keyboard('j')
     await waitFor(() =>
       expect(screen.getByRole('heading', { level: 1 })).not.toHaveTextContent('General'),
+    )
+
+    // A second press, because the defect this file records was in the second
+    // one — from Rule 3, `k` went to Rule 1. But be clear about what this
+    // assertion is and is not: it PASSES against the broken version. React
+    // flushes passive effects between two `userEvent` interactions under
+    // jsdom, so the stale-ref window this test would need simply does not open
+    // here. It was confirmed against the committed code and went green.
+    //
+    // `tests/e2e/library.spec.ts` is what covers it, in a real browser. This
+    // stays because the SEQUENCE is worth asserting — `j` then `k` returns to
+    // where it started — and because a reader of this file should be told
+    // which layer actually holds that guarantee rather than assuming it is
+    // this one.
+    await user.keyboard('k')
+    await waitFor(() =>
+      expect(screen.getByRole('heading', { level: 1 })).toHaveTextContent('General'),
     )
   })
 })

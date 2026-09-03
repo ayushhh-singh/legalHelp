@@ -1,11 +1,11 @@
 import { ArrowLeft, Bookmark, BookmarkCheck, ChevronLeft, ChevronRight, Printer } from 'lucide-react'
-import { useCallback, useEffect, useMemo, useRef, useState } from 'react'
+import { useEffect, useMemo, useRef, useState } from 'react'
 import { Link, Navigate, useNavigate, useParams } from 'react-router-dom'
 
 import { RelatedRail } from '../components/RelatedRail'
 import { TypeControls } from '../components/TypeControls'
 import { UnitBody } from '../components/UnitBody'
-import { toUnitHref, toWorkHref } from '../url'
+import { toUnitHref, toWorkHref, unitIdFromPath } from '../url'
 import { useBookmarkedUnitIds, useReaderPrefs, useWork, useWorkCorpus } from '../useLibrary'
 
 import { DataVersion } from '@/components/common/DataVersion'
@@ -97,64 +97,61 @@ export default function ReaderPage() {
   )
 
   /**
-   * `navigate` and the neighbours change on every unit; the listener must not
-   * be re-subscribed for that, so the handler reads them through a ref. The
-   * same "latest ref in a mount-only effect" shape `useGlobalShortcuts` uses,
-   * and for the same reason it gives there — a keydown listener re-created
-   * mid-interaction drops keys (ADR-029).
+   * The current unit is read from the URL at press time, not from this render.
+   *
+   * Two shapes were tried before this one and both were wrong in the same way.
+   * A mount-only listener reading a "latest ref" (the shape
+   * `useGlobalShortcuts` uses) and a listener re-subscribed on every unit are
+   * BOTH swapped in a passive effect, so between React Router committing a
+   * navigation and that effect running, the attached handler still closes over
+   * the previous unit's neighbours: `j` then `k` from Rule 2 lands on Rule 1.
+   * Forward one, back two. The ref version failed every time; the
+   * re-subscribing version failed about one run in six, which is worse.
+   *
+   * `unitIdFromPath(window.location.pathname, …)` is authoritative because the
+   * navigation updates the URL synchronously, before any of that. The rendered
+   * `unitId` stays as the fallback for `MemoryRouter`, which does not touch
+   * `window.location` — and where effects flush between interactions anyway, so
+   * the window never opens.
+   *
+   * `useGlobalShortcuts`'s own latest-ref shape is right THERE and wrong here,
+   * and the difference is worth naming: it carries state across keypresses (a
+   * pending `g` and its timer) that a re-subscription would destroy, and its
+   * targets are static paths that cannot go stale. This handler is stateless
+   * and its target depends entirely on where the reader currently is.
    */
-  const navRef = useRef({ around, workId, navigate })
-  useEffect(() => {
-    navRef.current = { around, workId, navigate }
-  }, [around, workId, navigate])
-
   useEffect(() => {
     const onKeyDown = (event: KeyboardEvent) => {
       if (event.metaKey || event.ctrlKey || event.altKey) return
       if (isTypingTarget(event.target) || dialogOpen()) return
-      const { around: current, workId: id, navigate: go } = navRef.current
-      if (!current || !id) return
+      if (!workId || !corpus.data) return
+
+      const here = unitIdFromPath(window.location.pathname, workId) ?? unitId
+      if (!here) return
 
       // Case-folded: CapsLock made `useGlobalShortcuts` miss every chord until
       // ADR-029's edge-case pass, and the same key would miss here.
       const key = event.key.length === 1 ? event.key.toLowerCase() : event.key
-      const target = key === 'j' ? current.next?.id : key === 'k' ? current.previous?.id : null
+      const order = work.data?.readingOrder ?? []
+      const neighbours = adjacent(corpus.data, here)
 
-      if (target) {
+      const target =
+        key === 'j' ? neighbours.next?.id
+        : key === 'k' ? neighbours.previous?.id
+        : event.key === 'Home' ? order[0]
+        : event.key === 'End' ? order.at(-1)
+        : undefined
+
+      if (target !== undefined && target !== here) {
         event.preventDefault()
-        void go(toUnitHref(id, target))
+        void navigate(toUnitHref(workId, target))
       }
     }
     document.addEventListener('keydown', onKeyDown)
     return () => document.removeEventListener('keydown', onKeyDown)
-  }, [])
-
-  /** Home/End want the work, which the ref above does not carry. */
-  const jumpTo = useCallback(
-    (which: 'first' | 'last') => {
-      if (!work.data || !workId) return
-      const order = work.data.readingOrder
-      const id = which === 'first' ? order[0] : order.at(-1)
-      if (id) void navigate(toUnitHref(workId, id))
-    },
-    [work.data, workId, navigate],
-  )
-
-  useEffect(() => {
-    const onKeyDown = (event: KeyboardEvent) => {
-      if (event.metaKey || event.ctrlKey || event.altKey) return
-      if (isTypingTarget(event.target) || dialogOpen()) return
-      if (event.key === 'Home') {
-        event.preventDefault()
-        jumpTo('first')
-      } else if (event.key === 'End') {
-        event.preventDefault()
-        jumpTo('last')
-      }
-    }
-    document.addEventListener('keydown', onKeyDown)
-    return () => document.removeEventListener('keydown', onKeyDown)
-  }, [jumpTo])
+    // `corpus.data` and `work.data` change once per WORK, not per unit, so this
+    // subscribes about as often as the reader opens a book.
+  }, [corpus.data, work.data, workId, unitId, navigate])
 
   // Arrival, then every 30 seconds of dwell. The first write carries no
   // seconds — the reader has not read for any yet — which is what makes an
