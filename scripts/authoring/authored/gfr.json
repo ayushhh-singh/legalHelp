@@ -40,7 +40,10 @@
       },
       "ruleRef": {
         "textId": "gfr-21",
-        "citation": { "en": "Rule 21, General Financial Rules, 2017", "hi": "नियम 21, सामान्य वित्तीय नियम, 2017" }
+        "citation": {
+          "en": "Rule 21, General Financial Rules, 2017",
+          "hi": "नियम 21, सामान्य वित्तीय नियम, 2017"
+        }
       },
       "difficulty": "medium",
       "stageA": { "index": 1, "angle": "Rule 21(iii) — the bar on self-dealing in sanctioning expenditure" },
@@ -66,10 +69,16 @@
       },
       "ruleRef": {
         "textId": "gfr-23",
-        "citation": { "en": "Rule 23, General Financial Rules, 2017", "hi": "नियम 23, सामान्य वित्तीय नियम, 2017" }
+        "citation": {
+          "en": "Rule 23, General Financial Rules, 2017",
+          "hi": "नियम 23, सामान्य वित्तीय नियम, 2017"
+        }
       },
       "difficulty": "easy",
-      "stageA": { "index": 2, "angle": "Rule 23 — undelegated financial power vests in the Finance Ministry" },
+      "stageA": {
+        "index": 2,
+        "angle": "Rule 23 — undelegated financial power vests in the Finance Ministry"
+      },
       "groundingRuleIds": ["gfr-23"]
     },
     {
@@ -94,7 +103,10 @@
       },
       "ruleRef": {
         "textId": "gfr-30",
-        "citation": { "en": "Rule 30, General Financial Rules, 2017", "hi": "नियम 30, सामान्य वित्तीय नियम, 2017" }
+        "citation": {
+          "en": "Rule 30, General Financial Rules, 2017",
+          "hi": "नियम 30, सामान्य वित्तीय नियम, 2017"
+        }
       },
       "difficulty": "medium",
       "stageA": { "index": 3, "angle": "Rule 30 — the twelve-month default lapse period" },
@@ -108,11 +120,23 @@
         "en": "Rule 33 of the General Financial Rules, 2017 requires every loss of public money or property to be reported to the next higher authority, the Statutory Audit Officer and the Principal Accounts Officer. Which petty losses are exempted from this reporting requirement?",
         "hi": "सामान्य वित्तीय नियम, 2017 का नियम 33 सार्वजनिक धन या संपत्ति की प्रत्येक हानि की रिपोर्ट अगले उच्चतर प्राधिकारी, सांविधिक लेखापरीक्षा अधिकारी और प्रधान लेखा अधिकारी को किए जाने की अपेक्षा करता है। कौन-सी छोटी हानियाँ इस रिपोर्टिंग अपेक्षा से छूट प्राप्त हैं?"
       },
-      "back": { "en": "Losses of value not exceeding rupees ten thousand.", "hi": "दस हज़ार रुपये से अनधिक मूल्य की हानियाँ।" },
+      "back": {
+        "en": "Losses of value not exceeding rupees ten thousand.",
+        "hi": "दस हज़ार रुपये से अनधिक मूल्य की हानियाँ।"
+      },
       "options": [
-        { "en": "Losses of value not exceeding rupees one thousand", "hi": "एक हज़ार रुपये से अनधिक मूल्य की हानियाँ" },
-        { "en": "Losses of value not exceeding rupees five thousand", "hi": "पाँच हज़ार रुपये से अनधिक मूल्य की हानियाँ" },
-        { "en": "Losses of value not exceeding rupees ten thousand", "hi": "दस हज़ार रुपये से अनधिक मूल्य की हानियाँ" },
+        {
+          "en": "Losses of value not exceeding rupees one thousand",
+          "hi": "एक हज़ार रुपये से अनधिक मूल्य की हानियाँ"
+        },
+        {
+          "en": "Losses of value not exceeding rupees five thousand",
+          "hi": "पाँच हज़ार रुपये से अनधिक मूल्य की हानियाँ"
+        },
+        {
+          "en": "Losses of value not exceeding rupees ten thousand",
+          "hi": "दस हज़ार रुपये से अनधिक मूल्य की हानियाँ"
+        },
         {
           "en": "No loss is exempted; every loss, however small, must be reported",
           "hi": "कोई हानि छूट प्राप्त नहीं है; चाहे कितनी भी छोटी हो, प्रत्येक हानि की रिपोर्ट करनी होगी"
@@ -125,7 +149,10 @@
       },
       "ruleRef": {
         "textId": "gfr-33",
-        "citation": { "en": "Rule 33, General Financial Rules, 2017", "hi": "नियम 33, सामान्य वित्तीय नियम, 2017" }
+        "citation": {
+          "en": "Rule 33, General Financial Rules, 2017",
+          "hi": "नियम 33, सामान्य वित्तीय नियम, 2017"
+        }
       },
       "difficulty": "medium",
       "stageA": { "index": 4, "angle": "Rule 33(1) — the ten-thousand-rupee petty-loss exemption" },
@@ -153,10 +180,16 @@
       },
       "ruleRef": {
         "textId": "gfr-34",
-        "citation": { "en": "Rule 34, General Financial Rules, 2017", "hi": "नियम 34, सामान्य वित्तीय नियम, 2017" }
+        "citation": {
+          "en": "Rule 34, General Financial Rules, 2017",
+          "hi": "नियम 34, सामान्य वित्तीय नियम, 2017"
+        }
       },
       "difficulty": "hard",
-      "stageA": { "index": 5, "angle": "Rule 34's fifty-thousand-rupee Police-reporting threshold, against Rule 33's own figure" },
+      "stageA": {
+        "index": 5,
+        "angle": "Rule 34's fifty-thousand-rupee Police-reporting threshold, against Rule 33's own figure"
+      },
       "groundingRuleIds": ["gfr-34", "gfr-33"]
     },
     {
@@ -179,7 +212,10 @@
       },
       "ruleRef": {
         "textId": "gfr-62",
-        "citation": { "en": "Rule 62, General Financial Rules, 2017", "hi": "नियम 62, सामान्य वित्तीय नियम, 2017" }
+        "citation": {
+          "en": "Rule 62, General Financial Rules, 2017",
+          "hi": "नियम 62, सामान्य वित्तीय नियम, 2017"
+        }
       },
       "difficulty": "medium",
       "stageA": { "index": 6, "angle": "Rule 62(2) — no saving held in reserve for future excesses" },
@@ -202,7 +238,10 @@
           "en": "A supplementary grant or appropriation, or an advance from the Contingency Fund, during that year",
           "hi": "उस वर्ष के दौरान अनुपूरक अनुदान या विनियोग, अथवा आकस्मिकता निधि से अग्रिम"
         },
-        { "en": "The oral concurrence of the Financial Adviser alone", "hi": "केवल वित्तीय सलाहकार की मौखिक सहमति" },
+        {
+          "en": "The oral concurrence of the Financial Adviser alone",
+          "hi": "केवल वित्तीय सलाहकार की मौखिक सहमति"
+        },
         {
           "en": "A re-appropriation of savings from another head within the same Demand",
           "hi": "उसी मांग के भीतर किसी अन्य शीर्ष से बचत का पुनर्विनियोजन"
@@ -219,10 +258,16 @@
       },
       "ruleRef": {
         "textId": "gfr-63",
-        "citation": { "en": "Rule 63, General Financial Rules, 2017", "hi": "नियम 63, सामान्य वित्तीय नियम, 2017" }
+        "citation": {
+          "en": "Rule 63, General Financial Rules, 2017",
+          "hi": "नियम 63, सामान्य वित्तीय नियम, 2017"
+        }
       },
       "difficulty": "medium",
-      "stageA": { "index": 7, "angle": "Rule 63 — New Service needs a supplementary grant/appropriation or a Contingency Fund advance" },
+      "stageA": {
+        "index": 7,
+        "angle": "Rule 63 — New Service needs a supplementary grant/appropriation or a Contingency Fund advance"
+      },
       "groundingRuleIds": ["gfr-63"]
     },
     {
@@ -238,12 +283,18 @@
         "hi": "किसी विशेष व्यापार चिह्न, व्यापार नाम या ब्रांड की अपेक्षा दर्शाना।"
       },
       "options": [
-        { "en": "Specifying any technical or performance characteristics at all", "hi": "किसी भी तकनीकी या निष्पादन विशेषता को विनिर्दिष्ट करना" },
+        {
+          "en": "Specifying any technical or performance characteristics at all",
+          "hi": "किसी भी तकनीकी या निष्पादन विशेषता को विनिर्दिष्ट करना"
+        },
         {
           "en": "Indicating a requirement for a particular trade mark, trade name or brand",
           "hi": "किसी विशेष व्यापार चिह्न, व्यापार नाम या ब्रांड की अपेक्षा दर्शाना"
         },
-        { "en": "Referring to national or international technical standards", "hi": "राष्ट्रीय या अंतरराष्ट्रीय तकनीकी मानकों का उल्लेख करना" },
+        {
+          "en": "Referring to national or international technical standards",
+          "hi": "राष्ट्रीय या अंतरराष्ट्रीय तकनीकी मानकों का उल्लेख करना"
+        },
         {
           "en": "Publishing the procurement cycle's schedule before the tender is issued",
           "hi": "निविदा जारी होने से पहले खरीद चक्र की समय-सारणी प्रकाशित करना"
@@ -256,7 +307,10 @@
       },
       "ruleRef": {
         "textId": "gfr-144",
-        "citation": { "en": "Rule 144, General Financial Rules, 2017", "hi": "नियम 144, सामान्य वित्तीय नियम, 2017" }
+        "citation": {
+          "en": "Rule 144, General Financial Rules, 2017",
+          "hi": "नियम 144, सामान्य वित्तीय नियम, 2017"
+        }
       },
       "difficulty": "medium",
       "stageA": { "index": 8, "angle": "Rule 144(i) — no brand-name requirement in the specification" },
@@ -282,10 +336,16 @@
       },
       "ruleRef": {
         "textId": "gfr-145",
-        "citation": { "en": "Rule 145, General Financial Rules, 2017", "hi": "नियम 145, सामान्य वित्तीय नियम, 2017" }
+        "citation": {
+          "en": "Rule 145, General Financial Rules, 2017",
+          "hi": "नियम 145, सामान्य वित्तीय नियम, 2017"
+        }
       },
       "difficulty": "easy",
-      "stageA": { "index": 9, "angle": "Rule 145 — purchasing power flows from the general power to incur expenditure" },
+      "stageA": {
+        "index": 9,
+        "angle": "Rule 145 — purchasing power flows from the general power to incur expenditure"
+      },
       "groundingRuleIds": ["gfr-145"]
     },
     {
@@ -310,10 +370,16 @@
       },
       "ruleRef": {
         "textId": "gfr-149",
-        "citation": { "en": "Rule 149, General Financial Rules, 2017", "hi": "नियम 149, सामान्य वित्तीय नियम, 2017" }
+        "citation": {
+          "en": "Rule 149, General Financial Rules, 2017",
+          "hi": "नियम 149, सामान्य वित्तीय नियम, 2017"
+        }
       },
       "difficulty": "medium",
-      "stageA": { "index": 10, "angle": "Rule 149(i) — the GeM direct-purchase ceiling of rupees fifty thousand" },
+      "stageA": {
+        "index": 10,
+        "angle": "Rule 149(i) — the GeM direct-purchase ceiling of rupees fifty thousand"
+      },
       "groundingRuleIds": ["gfr-149"]
     },
     {
@@ -329,7 +395,10 @@
         "hi": "वस्तु की प्रकृति के अनुसार एक से तीन वर्ष के बीच।"
       },
       "options": [
-        { "en": "A fixed five years for every category of goods", "hi": "वस्तुओं की प्रत्येक श्रेणी के लिए निश्चित पाँच वर्ष" },
+        {
+          "en": "A fixed five years for every category of goods",
+          "hi": "वस्तुओं की प्रत्येक श्रेणी के लिए निश्चित पाँच वर्ष"
+        },
         {
           "en": "Six months, renewable indefinitely without review",
           "hi": "छह मास, बिना किसी पुनरीक्षण के अनिश्चित काल तक नवीकरणीय"
@@ -338,7 +407,10 @@
           "en": "Permanently, once registered, unless removed for a breach",
           "hi": "स्थायी रूप से, एक बार पंजीकृत होने पर, जब तक किसी उल्लंघन के लिए न हटाया जाए"
         },
-        { "en": "Between one and three years, depending on the nature of the goods", "hi": "वस्तु की प्रकृति के अनुसार एक से तीन वर्ष के बीच" }
+        {
+          "en": "Between one and three years, depending on the nature of the goods",
+          "hi": "वस्तु की प्रकृति के अनुसार एक से तीन वर्ष के बीच"
+        }
       ],
       "answerIndex": 3,
       "explanation": {
@@ -347,7 +419,10 @@
       },
       "ruleRef": {
         "textId": "gfr-150",
-        "citation": { "en": "Rule 150, General Financial Rules, 2017", "hi": "नियम 150, सामान्य वित्तीय नियम, 2017" }
+        "citation": {
+          "en": "Rule 150, General Financial Rules, 2017",
+          "hi": "नियम 150, सामान्य वित्तीय नियम, 2017"
+        }
       },
       "difficulty": "easy",
       "stageA": { "index": 11, "angle": "Rule 150(iii) — registration period of one to three years" },
@@ -374,7 +449,10 @@
           "en": "The firm may still bid, since a conviction only matters if it concerns the specific contract in question",
           "hi": "फर्म फिर भी बोली लगा सकती है, क्योंकि दोषसिद्धि केवल तभी मायने रखती है जब वह संबंधित विशिष्ट संविदा से जुड़ी हो"
         },
-        { "en": "The firm is debarred for life, with no maximum period", "hi": "फर्म आजीवन अवरोधित है, कोई अधिकतम अवधि नहीं है" },
+        {
+          "en": "The firm is debarred for life, with no maximum period",
+          "hi": "फर्म आजीवन अवरोधित है, कोई अधिकतम अवधि नहीं है"
+        },
         {
           "en": "The firm may bid again immediately once it pays the fine imposed by the court",
           "hi": "न्यायालय द्वारा अधिरोपित जुर्माना चुका देने पर फर्म तुरंत पुनः बोली लगा सकती है"
@@ -387,10 +465,16 @@
       },
       "ruleRef": {
         "textId": "gfr-151",
-        "citation": { "en": "Rule 151, General Financial Rules, 2017", "hi": "नियम 151, सामान्य वित्तीय नियम, 2017" }
+        "citation": {
+          "en": "Rule 151, General Financial Rules, 2017",
+          "hi": "नियम 151, सामान्य वित्तीय नियम, 2017"
+        }
       },
       "difficulty": "hard",
-      "stageA": { "index": 12, "angle": "Rule 151(i)-(ii) — automatic debarment on conviction, capped at three years" },
+      "stageA": {
+        "index": 12,
+        "angle": "Rule 151(i)-(ii) — automatic debarment on conviction, capped at three years"
+      },
       "groundingRuleIds": ["gfr-151"]
     },
     {
@@ -415,10 +499,16 @@
       },
       "ruleRef": {
         "textId": "gfr-154",
-        "citation": { "en": "Rule 154, General Financial Rules, 2017", "hi": "नियम 154, सामान्य वित्तीय नियम, 2017" }
+        "citation": {
+          "en": "Rule 154, General Financial Rules, 2017",
+          "hi": "नियम 154, सामान्य वित्तीय नियम, 2017"
+        }
       },
       "difficulty": "easy",
-      "stageA": { "index": 13, "angle": "Rule 154 — the rupees-fifty-thousand purchase-without-quotation ceiling" },
+      "stageA": {
+        "index": 13,
+        "angle": "Rule 154 — the rupees-fifty-thousand purchase-without-quotation ceiling"
+      },
       "groundingRuleIds": ["gfr-154"]
     },
     {
@@ -458,10 +548,16 @@
       },
       "ruleRef": {
         "textId": "gfr-155",
-        "citation": { "en": "Rule 155, General Financial Rules, 2017", "hi": "नियम 155, सामान्य वित्तीय नियम, 2017" }
+        "citation": {
+          "en": "Rule 155, General Financial Rules, 2017",
+          "hi": "नियम 155, सामान्य वित्तीय नियम, 2017"
+        }
       },
       "difficulty": "medium",
-      "stageA": { "index": 14, "angle": "Rule 155 — the Local Purchase Committee band, continuing from Rule 154" },
+      "stageA": {
+        "index": 14,
+        "angle": "Rule 155 — the Local Purchase Committee band, continuing from Rule 154"
+      },
       "groundingRuleIds": ["gfr-155", "gfr-154"]
     },
     {
@@ -480,7 +576,10 @@
           "en": "Rupees one crore and above, in every Ministry without exception",
           "hi": "हर मंत्रालय में बिना किसी अपवाद के एक करोड़ रुपये और उससे अधिक"
         },
-        { "en": "There is no monetary threshold; it applies to every purchase of goods", "hi": "कोई मौद्रिक सीमा नहीं है; यह वस्तुओं की प्रत्येक खरीद पर लागू होता है" }
+        {
+          "en": "There is no monetary threshold; it applies to every purchase of goods",
+          "hi": "कोई मौद्रिक सीमा नहीं है; यह वस्तुओं की प्रत्येक खरीद पर लागू होता है"
+        }
       ],
       "answerIndex": 0,
       "explanation": {
@@ -489,7 +588,10 @@
       },
       "ruleRef": {
         "textId": "gfr-161",
-        "citation": { "en": "Rule 161, General Financial Rules, 2017", "hi": "नियम 161, सामान्य वित्तीय नियम, 2017" }
+        "citation": {
+          "en": "Rule 161, General Financial Rules, 2017",
+          "hi": "नियम 161, सामान्य वित्तीय नियम, 2017"
+        }
       },
       "difficulty": "medium",
       "stageA": { "index": 15, "angle": "Rule 161(i) — the fifty-lakh Advertised Tender Enquiry threshold" },
@@ -508,13 +610,22 @@
         "hi": "संपर्क की जाने वाली आपूर्तिकर्ता फर्मों की संख्या तीन से अधिक होनी चाहिए, जो पंजीकृत आपूर्तिकर्ताओं की सूची से ली जाएँ।"
       },
       "options": [
-        { "en": "Exactly three firms must be approached, no more and no fewer", "hi": "ठीक तीन फर्मों से संपर्क किया जाना चाहिए, न अधिक न कम" },
+        {
+          "en": "Exactly three firms must be approached, no more and no fewer",
+          "hi": "ठीक तीन फर्मों से संपर्क किया जाना चाहिए, न अधिक न कम"
+        },
         {
           "en": "The number of firms should be more than three, drawn from the list of registered suppliers",
           "hi": "फर्मों की संख्या तीन से अधिक होनी चाहिए, जो पंजीकृत आपूर्तिकर्ताओं की सूची से ली जाएँ"
         },
-        { "en": "A single firm is sufficient, provided it is on the registered list", "hi": "एक ही फर्म पर्याप्त है, बशर्ते वह पंजीकृत सूची में हो" },
-        { "en": "There is no minimum; even one unsolicited bid may be accepted", "hi": "कोई न्यूनतम संख्या नहीं है; एक अयाचित बोली भी स्वीकार की जा सकती है" }
+        {
+          "en": "A single firm is sufficient, provided it is on the registered list",
+          "hi": "एक ही फर्म पर्याप्त है, बशर्ते वह पंजीकृत सूची में हो"
+        },
+        {
+          "en": "There is no minimum; even one unsolicited bid may be accepted",
+          "hi": "कोई न्यूनतम संख्या नहीं है; एक अयाचित बोली भी स्वीकार की जा सकती है"
+        }
       ],
       "answerIndex": 1,
       "explanation": {
@@ -523,7 +634,10 @@
       },
       "ruleRef": {
         "textId": "gfr-162",
-        "citation": { "en": "Rule 162, General Financial Rules, 2017", "hi": "नियम 162, सामान्य वित्तीय नियम, 2017" }
+        "citation": {
+          "en": "Rule 162, General Financial Rules, 2017",
+          "hi": "नियम 162, सामान्य वित्तीय नियम, 2017"
+        }
       },
       "difficulty": "medium",
       "stageA": { "index": 16, "angle": "Rule 162(i)-(ii) — more than three firms, and no unsolicited bids" },
@@ -549,10 +663,16 @@
       },
       "ruleRef": {
         "textId": "gfr-163",
-        "citation": { "en": "Rule 163, General Financial Rules, 2017", "hi": "नियम 163, सामान्य वित्तीय नियम, 2017" }
+        "citation": {
+          "en": "Rule 163, General Financial Rules, 2017",
+          "hi": "नियम 163, सामान्य वित्तीय नियम, 2017"
+        }
       },
       "difficulty": "medium",
-      "stageA": { "index": 17, "angle": "Rule 163 — technical bids opened and evaluated before the financial bid stage" },
+      "stageA": {
+        "index": 17,
+        "angle": "Rule 163 — technical bids opened and evaluated before the financial bid stage"
+      },
       "groundingRuleIds": ["gfr-163"]
     },
     {
@@ -592,7 +712,10 @@
       },
       "ruleRef": {
         "textId": "gfr-165",
-        "citation": { "en": "Rule 165, General Financial Rules, 2017", "hi": "नियम 165, सामान्य वित्तीय नियम, 2017" }
+        "citation": {
+          "en": "Rule 165, General Financial Rules, 2017",
+          "hi": "नियम 165, सामान्य वित्तीय नियम, 2017"
+        }
       },
       "difficulty": "easy",
       "stageA": { "index": 18, "angle": "Rule 165 — late bids are never considered, whatever the delay" },
@@ -635,7 +758,10 @@
       },
       "ruleRef": {
         "textId": "gfr-166",
-        "citation": { "en": "Rule 166, General Financial Rules, 2017", "hi": "नियम 166, सामान्य वित्तीय नियम, 2017" }
+        "citation": {
+          "en": "Rule 166, General Financial Rules, 2017",
+          "hi": "नियम 166, सामान्य वित्तीय नियम, 2017"
+        }
       },
       "difficulty": "medium",
       "stageA": { "index": 19, "angle": "Rule 166(i) and its Proprietary Article Certificate note" },
@@ -678,10 +804,16 @@
       },
       "ruleRef": {
         "textId": "gfr-167",
-        "citation": { "en": "Rule 167, General Financial Rules, 2017", "hi": "नियम 167, सामान्य वित्तीय नियम, 2017" }
+        "citation": {
+          "en": "Rule 167, General Financial Rules, 2017",
+          "hi": "नियम 167, सामान्य वित्तीय नियम, 2017"
+        }
       },
       "difficulty": "hard",
-      "stageA": { "index": 20, "angle": "Rule 167(ii) — the three preconditions for an electronic reverse auction" },
+      "stageA": {
+        "index": 20,
+        "angle": "Rule 167(ii) — the three preconditions for an electronic reverse auction"
+      },
       "groundingRuleIds": ["gfr-167"]
     },
     {
@@ -706,7 +838,10 @@
       },
       "ruleRef": {
         "textId": "gfr-170",
-        "citation": { "en": "Rule 170, General Financial Rules, 2017", "hi": "नियम 170, सामान्य वित्तीय नियम, 2017" }
+        "citation": {
+          "en": "Rule 170, General Financial Rules, 2017",
+          "hi": "नियम 170, सामान्य वित्तीय नियम, 2017"
+        }
       },
       "difficulty": "medium",
       "stageA": { "index": 21, "angle": "Rule 170(i) — the two-to-five-percent bid security band" },
@@ -733,7 +868,10 @@
           "en": "Three to five percent, valid for sixty days beyond completion of all contractual obligations including warranty",
           "hi": "तीन से पाँच प्रतिशत, वारंटी सहित सभी संविदात्मक बाध्यताओं की पूर्ति के पश्चात् साठ दिनों तक वैध"
         },
-        { "en": "Ten percent, valid for ninety days beyond delivery", "hi": "दस प्रतिशत, आपूर्ति के पश्चात् नब्बे दिनों तक वैध" },
+        {
+          "en": "Ten percent, valid for ninety days beyond delivery",
+          "hi": "दस प्रतिशत, आपूर्ति के पश्चात् नब्बे दिनों तक वैध"
+        },
         {
           "en": "Three to ten percent, the same figure that applies to Works contracts",
           "hi": "तीन से दस प्रतिशत, वही आँकड़ा जो कार्य संविदाओं पर लागू होता है"
@@ -746,10 +884,16 @@
       },
       "ruleRef": {
         "textId": "gfr-171",
-        "citation": { "en": "Rule 171, General Financial Rules, 2017", "hi": "नियम 171, सामान्य वित्तीय नियम, 2017" }
+        "citation": {
+          "en": "Rule 171, General Financial Rules, 2017",
+          "hi": "नियम 171, सामान्य वित्तीय नियम, 2017"
+        }
       },
       "difficulty": "hard",
-      "stageA": { "index": 22, "angle": "Rule 171(i)-(ii) — the goods/services performance-security band, against the Works figure" },
+      "stageA": {
+        "index": 22,
+        "angle": "Rule 171(i)-(ii) — the goods/services performance-security band, against the Works figure"
+      },
       "groundingRuleIds": ["gfr-171"]
     },
     {
@@ -789,10 +933,16 @@
       },
       "ruleRef": {
         "textId": "gfr-175",
-        "citation": { "en": "Rule 175, General Financial Rules, 2017", "hi": "नियम 175, सामान्य वित्तीय नियम, 2017" }
+        "citation": {
+          "en": "Rule 175, General Financial Rules, 2017",
+          "hi": "नियम 175, सामान्य वित्तीय नियम, 2017"
+        }
       },
       "difficulty": "hard",
-      "stageA": { "index": 23, "angle": "Rule 175(1) — the Code of Integrity binds a procuring-entity official too" },
+      "stageA": {
+        "index": 23,
+        "angle": "Rule 175(1) — the Code of Integrity binds a procuring-entity official too"
+      },
       "groundingRuleIds": ["gfr-175"]
     },
     {
@@ -816,7 +966,10 @@
           "en": "Only a technical inspection, and only for items above a prescribed value",
           "hi": "केवल तकनीकी निरीक्षण, और केवल विहित मूल्य से अधिक की वस्तुओं के लिए"
         },
-        { "en": "Only a visual inspection; counting and weighing are optional courtesies", "hi": "केवल दृश्य निरीक्षण; गिनना और तौलना वैकल्पिक शिष्टाचार हैं" },
+        {
+          "en": "Only a visual inspection; counting and weighing are optional courtesies",
+          "hi": "केवल दृश्य निरीक्षण; गिनना और तौलना वैकल्पिक शिष्टाचार हैं"
+        },
         {
           "en": "Counting, measuring or weighing, and a visual inspection, to confirm quantity, specification and the absence of damage or deficiency",
           "hi": "गिनना, मापना या तौलना, तथा दृश्य निरीक्षण, ताकि मात्रा, विशिष्टि और क्षति या कमी के अभाव की पुष्टि हो सके"
@@ -829,7 +982,10 @@
       },
       "ruleRef": {
         "textId": "gfr-208",
-        "citation": { "en": "Rule 208, General Financial Rules, 2017", "hi": "नियम 208, सामान्य वित्तीय नियम, 2017" }
+        "citation": {
+          "en": "Rule 208, General Financial Rules, 2017",
+          "hi": "नियम 208, सामान्य वित्तीय नियम, 2017"
+        }
       },
       "difficulty": "easy",
       "stageA": { "index": 24, "angle": "Rule 208(ii)-(iii) — inspection before stock-register entry" },
@@ -855,10 +1011,16 @@
       },
       "ruleRef": {
         "textId": "gfr-213",
-        "citation": { "en": "Rule 213, General Financial Rules, 2017", "hi": "नियम 213, सामान्य वित्तीय नियम, 2017" }
+        "citation": {
+          "en": "Rule 213, General Financial Rules, 2017",
+          "hi": "नियम 213, सामान्य वित्तीय नियम, 2017"
+        }
       },
       "difficulty": "easy",
-      "stageA": { "index": 25, "angle": "Rule 213(1)-(3) — annual physical verification and its link to Rules 33-38" },
+      "stageA": {
+        "index": 25,
+        "angle": "Rule 213(1)-(3) — annual physical verification and its link to Rules 33-38"
+      },
       "groundingRuleIds": ["gfr-213", "gfr-33"]
     },
     {
@@ -874,7 +1036,10 @@
         { "en": "Form GFR-10", "hi": "प्रपत्र जीएफआर-10" },
         { "en": "Form GFR-11", "hi": "प्रपत्र जीएफआर-11" },
         { "en": "Form GFR-12-A", "hi": "प्रपत्र जीएफआर-12क" },
-        { "en": "No prescribed form; a plain office note suffices", "hi": "कोई विहित प्रपत्र नहीं; एक साधारण कार्यालय टिप्पणी पर्याप्त है" }
+        {
+          "en": "No prescribed form; a plain office note suffices",
+          "hi": "कोई विहित प्रपत्र नहीं; एक साधारण कार्यालय टिप्पणी पर्याप्त है"
+        }
       ],
       "answerIndex": 0,
       "explanation": {
@@ -883,10 +1048,16 @@
       },
       "ruleRef": {
         "textId": "gfr-217",
-        "citation": { "en": "Rule 217, General Financial Rules, 2017", "hi": "नियम 217, सामान्य वित्तीय नियम, 2017" }
+        "citation": {
+          "en": "Rule 217, General Financial Rules, 2017",
+          "hi": "नियम 217, सामान्य वित्तीय नियम, 2017"
+        }
       },
       "difficulty": "hard",
-      "stageA": { "index": 26, "angle": "Rule 217(iii) — Form GFR-10, distinguished from GFR-11 and GFR-12-A" },
+      "stageA": {
+        "index": 26,
+        "angle": "Rule 217(iii) — Form GFR-10, distinguished from GFR-11 and GFR-12-A"
+      },
       "groundingRuleIds": ["gfr-217"]
     },
     {
@@ -911,10 +1082,16 @@
       },
       "ruleRef": {
         "textId": "gfr-218",
-        "citation": { "en": "Rule 218, General Financial Rules, 2017", "hi": "नियम 218, सामान्य वित्तीय नियम, 2017" }
+        "citation": {
+          "en": "Rule 218, General Financial Rules, 2017",
+          "hi": "नियम 218, सामान्य वित्तीय नियम, 2017"
+        }
       },
       "difficulty": "medium",
-      "stageA": { "index": 27, "angle": "Rule 218(i) — the rupees-four-lakh threshold for advertised tender or auction" },
+      "stageA": {
+        "index": 27,
+        "angle": "Rule 218(i) — the rupees-four-lakh threshold for advertised tender or auction"
+      },
       "groundingRuleIds": ["gfr-218"]
     },
     {
@@ -939,10 +1116,16 @@
       },
       "ruleRef": {
         "textId": "gfr-223",
-        "citation": { "en": "Rule 223, General Financial Rules, 2017", "hi": "नियम 223, सामान्य वित्तीय नियम, 2017" }
+        "citation": {
+          "en": "Rule 223, General Financial Rules, 2017",
+          "hi": "नियम 223, सामान्य वित्तीय नियम, 2017"
+        }
       },
       "difficulty": "hard",
-      "stageA": { "index": 28, "angle": "Rule 223(2)-(3) — losses due to depreciation, against losses not due to it" },
+      "stageA": {
+        "index": 28,
+        "angle": "Rule 223(2)-(3) — losses due to depreciation, against losses not due to it"
+      },
       "groundingRuleIds": ["gfr-223"]
     },
     {
@@ -958,9 +1141,18 @@
         "hi": "किसी व्यक्ति, या पृथक् विधिक अस्तित्व रखने वाली किसी लोक संस्था या संस्थान को।"
       },
       "options": [
-        { "en": "Only an autonomous organisation set up under a specific statute", "hi": "केवल किसी विशिष्ट कानून के अधीन स्थापित स्वायत्त संगठन को" },
-        { "en": "Only a co-operative society registered under the relevant law", "hi": "केवल संबंधित विधि के अधीन पंजीकृत सहकारी समिति को" },
-        { "en": "Only a Government servant, for a sanctioned personal purpose", "hi": "केवल किसी सरकारी सेवक को, किसी स्वीकृत निजी प्रयोजन हेतु" },
+        {
+          "en": "Only an autonomous organisation set up under a specific statute",
+          "hi": "केवल किसी विशिष्ट कानून के अधीन स्थापित स्वायत्त संगठन को"
+        },
+        {
+          "en": "Only a co-operative society registered under the relevant law",
+          "hi": "केवल संबंधित विधि के अधीन पंजीकृत सहकारी समिति को"
+        },
+        {
+          "en": "Only a Government servant, for a sanctioned personal purpose",
+          "hi": "केवल किसी सरकारी सेवक को, किसी स्वीकृत निजी प्रयोजन हेतु"
+        },
         {
           "en": "A person, or a public body or institution having a distinct legal entity",
           "hi": "किसी व्यक्ति, या पृथक् विधिक अस्तित्व रखने वाली किसी लोक संस्था या संस्थान को"
@@ -973,10 +1165,16 @@
       },
       "ruleRef": {
         "textId": "gfr-228",
-        "citation": { "en": "Rule 228, General Financial Rules, 2017", "hi": "नियम 228, सामान्य वित्तीय नियम, 2017" }
+        "citation": {
+          "en": "Rule 228, General Financial Rules, 2017",
+          "hi": "नियम 228, सामान्य वित्तीय नियम, 2017"
+        }
       },
       "difficulty": "medium",
-      "stageA": { "index": 29, "angle": "Rule 228 — the general principle, against the categories that follow it" },
+      "stageA": {
+        "index": 29,
+        "angle": "Rule 228 — the general principle, against the categories that follow it"
+      },
       "groundingRuleIds": ["gfr-228"]
     },
     {
@@ -1016,10 +1214,16 @@
       },
       "ruleRef": {
         "textId": "gfr-238",
-        "citation": { "en": "Rule 238, General Financial Rules, 2017", "hi": "नियम 238, सामान्य वित्तीय नियम, 2017" }
+        "citation": {
+          "en": "Rule 238, General Financial Rules, 2017",
+          "hi": "नियम 238, सामान्य वित्तीय नियम, 2017"
+        }
       },
       "difficulty": "medium",
-      "stageA": { "index": 30, "angle": "Rule 238(1) — the twelve-month Utilization Certificate deadline and blacklisting" },
+      "stageA": {
+        "index": 30,
+        "angle": "Rule 238(1) — the twelve-month Utilization Certificate deadline and blacklisting"
+      },
       "groundingRuleIds": ["gfr-238"]
     }
   ]

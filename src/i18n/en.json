@@ -214,6 +214,11 @@
           "name": "Shared service",
           "leaves": "The same content is sent to this app's operator, who forwards it to Anthropic.",
           "cost": "Free to you."
+        },
+        "openai": {
+          "name": "Another AI service",
+          "leaves": "Your question, the app’s instructions and the records it looked up are sent to the service at the address you enter. This app cannot know which service that is, or what its terms say about your data.",
+          "cost": "Whatever that service charges you. Several have free tiers — and a free tier is often free because the provider may use what passes through it. Ollama on this machine sends nothing over a network at all."
         }
       }
     },
@@ -222,13 +227,15 @@
       "off": "Off",
       "local": "On this device",
       "byok": "Your own Anthropic key",
-      "proxy": "Shared service"
+      "proxy": "Shared service",
+      "openai": "Another AI service"
     },
     "tierHint": {
       "off": "No AI surface is shown and no request is made.",
       "local": "Runs in this browser on your graphics card. Free, after a large one-time download.",
       "byok": "Paste a key from your Anthropic console. It stays in this browser.",
-      "proxy": "Sent to this app's operator, who forwards it to Anthropic. Free to you."
+      "proxy": "Sent to this app's operator, who forwards it to Anthropic. Free to you.",
+      "openai": "Any endpoint that speaks the OpenAI chat format — a free Google AI Studio or Groq key, an OpenRouter free model, or Ollama on this machine."
     },
     "model": {
       "label": "Model",
@@ -326,6 +333,33 @@
       "tool_timeout": "A lookup took too long to answer.",
       "invalid_args": "The assistant could not call a lookup correctly.",
       "unknown_tool": "The assistant asked for a lookup that does not exist."
+    },
+    "openai": {
+      "heading": "Another AI service",
+      "intro": "Any service that speaks the OpenAI chat format works here. Enter its address and the model name exactly as that service spells them.",
+      "free": "Free options exist: Google AI Studio, Groq, several models on OpenRouter, and Ollama running on this machine. Sahayak takes no cut and sees no bill either way.",
+      "baseUrl": "Address",
+      "baseUrlHint": "The base address, without /chat/completions — for example https://api.groq.com/openai/v1 or http://localhost:11434/v1.",
+      "baseUrlInvalid": "That is not an address this app can use.",
+      "insecure": "This address is not encrypted and is not on this machine. Anything sent to it can be read in transit.",
+      "localOnly": "This address is on this machine, so nothing leaves it.",
+      "model": "Model",
+      "modelHint": "Exactly as that service names it — this app never rewrites it.",
+      "key": "Key",
+      "keyHint": "Stored encrypted in this browser and sent only to the address above. Leave it empty for a service that needs none, such as Ollama.",
+      "keySaved": "A key is stored.",
+      "saveKey": "Save key",
+      "removeKey": "Remove key",
+      "capabilities": "What this service supports",
+      "supportsTools": "Tool calling",
+      "supportsToolsHint": "Turn this on only if the service documents it. Sahayak cannot test for it: a service that ignores the field and one that honours it answer the same way.",
+      "supportsJson": "JSON replies",
+      "supportsJsonHint": "Asks the service to reply in JSON. Used when tool calling is not available.",
+      "note": {
+        "tools": "This service will be asked to call the app’s tools directly.",
+        "jsonFallback": "This service does not do tool calling, so the app will fetch what it needs first and ask for a JSON reply. Answers stay grounded; they are just gathered differently.",
+        "textOnly": "This service does neither tool calling nor JSON replies, so answers may be less reliably structured. Turn on whichever the service documents."
+      }
     }
   },
   "law": {
@@ -1396,6 +1430,11 @@
       "focusPlan": {
         "button": "Get a focus plan"
       }
+    },
+    "revise": {
+      "heading": "Chapters to revise",
+      "hint": "A separate schedule from your cards, kept in the Library.",
+      "open": "Open the Library"
     }
   },
   "library": {
@@ -1789,6 +1828,213 @@
       "openQueue": "Open the review queue",
       "failed": "That card could not be stored on this device.",
       "unavailable": "Cards can only be made from a rule book this app ships."
+    },
+    "study": {
+      "aid": {
+        "title": "Understanding this",
+        "badge": "Sahayak’s explanation",
+        "disclaimer": "Written and reviewed by Sahayak, not published by any Ministry. The provision above is what governs.",
+        "example": "In practice",
+        "misconception": "The trap",
+        "examRelevance": "Why it is asked",
+        "mnemonic": "Remember it as",
+        "connects": "Read it with",
+        "none": "No study aid has been written for this one yet."
+      },
+      "feynman": {
+        "title": "Explain it in your own words",
+        "intro": "Write it out without looking. Then read the rule beside what you wrote and mark yourself.",
+        "placeholder": "What does this rule require, of whom, and where does it stop?",
+        "start": "Write my own version",
+        "submit": "Check it against the rule",
+        "cancel": "Cancel",
+        "tooShort": "Write a little more before checking.",
+        "yours": "What you wrote",
+        "theirs": "What the rule says",
+        "gradeHeading": "Mark yourself on three things",
+        "prompt": {
+          "requires": "What it requires",
+          "appliesTo": "Who it applies to",
+          "limit": "The limit or exception"
+        },
+        "grade": {
+          "missed": "Missed",
+          "partial": "Partly",
+          "got-it": "Got it"
+        },
+        "save": "Save this attempt",
+        "saved": "Saved. Read it again in a week.",
+        "score": "{{points}} of {{max}}",
+        "missedNote": "Read the rule again for: {{prompts}}",
+        "previous": "Your earlier attempts",
+        "attemptOn": "Attempt on {{date}}",
+        "deleteAttempt": "Delete this attempt",
+        "aiComment": "One remark from the assistant",
+        "askForComment": "Ask the assistant to comment"
+      },
+      "quiz": {
+        "title": "Test me on this chapter",
+        "titleFor": "Test: {{chapter}}",
+        "start": "Start the quiz",
+        "available": "{{count}} question available",
+        "available_other": "{{count}} questions available",
+        "none": "No approved practice questions cite this chapter yet.",
+        "onlyApproved": "Every question here already exists in the Rules Trainer and has been through its four-stage review. Nothing is generated.",
+        "progress": "Question {{position}} of {{total}}",
+        "next": "Next question",
+        "finish": "Finish",
+        "skip": "Skip",
+        "results": "{{right}} of {{total}} right",
+        "correct": "Correct",
+        "wrong": "Not this one",
+        "addWrong": "Add the ones I got wrong to my review deck",
+        "added": "Added {{count}} card to your deck.",
+        "added_other": "Added {{count}} cards to your deck.",
+        "countsToward": "Answers here go into the Trainer’s own history, so they change what it schedules next.",
+        "again": "Ask me again",
+        "review": "Review the answers"
+      },
+      "revise": {
+        "title": "Revise",
+        "heading": "Chapters to revise",
+        "confidence": "How confident are you with this chapter?",
+        "level": {
+          "1": "I could not use it",
+          "2": "I would have to look it up",
+          "3": "I could use it",
+          "4": "I could explain it to someone"
+        },
+        "rated": "Rated. Back on {{date}}.",
+        "due": "{{count}} chapter due",
+        "due_other": "{{count}} chapters due",
+        "dueIn": "Revise: {{chapter}}",
+        "nothingDue": "Nothing to revise today.",
+        "neverRated": "Not rated yet",
+        "fromQuiz": "Rated from your quiz result.",
+        "fromFeynman": "Rated from your own explanation.",
+        "forget": "Start this chapter again",
+        "separate": "A separate schedule from your practice cards. Cards ask a question; this asks whether you could use the chapter."
+      },
+      "session": {
+        "title": "Study session",
+        "start": "Start a session",
+        "stop": "Stop",
+        "running": "Running for {{time}}",
+        "mode": "Timing",
+        "free": "Free running",
+        "pomodoro": "Pomodoro",
+        "pomodoroHint": "{{work}} minutes of work, {{break}} minutes off.",
+        "phaseWork": "Working",
+        "phaseBreak": "Break",
+        "remaining": "{{time}} left",
+        "completed": "{{count}} interval done",
+        "completed_other": "{{count}} intervals done",
+        "stopped": "{{minutes}} focused minutes logged.",
+        "discarded": "Under a minute — not logged.",
+        "onWork": "on {{work}}"
+      },
+      "goal": {
+        "title": "Weekly goal",
+        "minutes": "Minutes a week",
+        "units": "Units a week",
+        "save": "Save goal",
+        "clear": "Remove goal",
+        "none": "No goal set for this work.",
+        "met": "Met",
+        "progress": "{{done}} of {{target}}",
+        "hint": "Leave both empty to remove the goal. A goal that asks for nothing is not stored."
+      },
+      "review": {
+        "title": "My study",
+        "subtitle": "The last seven days, and where you are in each book.",
+        "week": "{{from}} to {{to}}",
+        "minutes": "Focused minutes",
+        "unitsRead": "Units opened",
+        "cardsReviewed": "Cards reviewed",
+        "chaptersRevised": "Chapters revised",
+        "attempts": "Own-words attempts",
+        "streak": "{{count}} day in a row",
+        "streak_other": "{{count}} days in a row",
+        "noStreak": "Nothing studied today yet.",
+        "byWork": "Time by work",
+        "empty": "Nothing logged in the last seven days. Open a work and start a session.",
+        "localOnly": "Every figure here comes from this device and stays on it."
+      },
+      "coverage": {
+        "title": "Coverage",
+        "subtitle": "Read, annotated, quizzed — three different things.",
+        "read": "Read",
+        "annotated": "Annotated",
+        "quizzed": "Quizzed",
+        "untouched": "Not opened",
+        "readNotQuizzed": "{{count}} read but never quizzed",
+        "legend": "Darker means more of the three.",
+        "unitState": "{{unit}} — {{states}}"
+      },
+      "sheet": {
+        "title": "Revision sheet",
+        "titleFor": "Revision sheet — {{chapter}}",
+        "open": "Revision sheet",
+        "mode": "Show",
+        "full": "Everything",
+        "twentyFourHour": "24-hour mode",
+        "twentyFourHourHint": "Only the traps, the limits and what you wrote yourself.",
+        "print": "Print",
+        "empty": "There is nothing to print for this chapter yet — no aids, no notes, no highlights.",
+        "skipped": "{{count}} unit with nothing on it was left out.",
+        "skipped_other": "{{count}} units with nothing on them were left out.",
+        "yourNotes": "Your notes",
+        "yourHighlights": "What you marked",
+        "limits": "Limits and figures"
+      },
+      "ask": {
+        "title": "Ask about this",
+        "placeholder": "What is unclear about this?",
+        "send": "Ask",
+        "cancel": "Cancel",
+        "intent": {
+          "simpler": "Explain it simpler",
+          "example": "Another example",
+          "difference": "Difference from…",
+          "whatIf": "What happens if…",
+          "summarise": "Summarise this chapter",
+          "quiz": "Quiz me on this"
+        },
+        "useNotes": "Let it read my own notes on this",
+        "useNotesHint": "Your notes are sent with the question when this is on. They are marked as yours, never as the law.",
+        "step": {
+          "screening": "Checking the question",
+          "researching": "Reading",
+          "reading": "Sorting what it read",
+          "answering": "Writing",
+          "verifying": "Checking every citation",
+          "done": "Done"
+        },
+        "tool": {
+          "get_unit": "reading the provision",
+          "get_study_aid": "reading the study aid",
+          "get_definitions": "reading the defined terms",
+          "retrieve": "searching this work",
+          "get_related_cards": "reading the practice questions",
+          "get_my_notes": "reading your own notes"
+        },
+        "sources": "What this answer rests on",
+        "personalSource": "your own note",
+        "aiMarked": "AI-generated",
+        "copy": "Copy the answer with its sources",
+        "copied": "Copied.",
+        "copyFailed": "This browser refused the clipboard.",
+        "refused": "Nothing was sent",
+        "failed": "It could not answer",
+        "whyNot": "An answer is only shown when every provision it names comes from something it actually read.",
+        "problems": "Notes on this run",
+        "onDevice": "Answered on this device",
+        "offer": "Everything above works with AI off. This asks a model, and what you type leaves the device."
+      },
+      "hub": {
+        "title": "Study",
+        "reviseAndPlan": "Revise and plan"
+      }
     }
   },
   "palette": {

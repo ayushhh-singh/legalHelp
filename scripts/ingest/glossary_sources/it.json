@@ -175,7 +175,14 @@
   { "en": "e-Learning", "hi": "ई-लर्निंग" },
   { "en": "Direct Benefit Transfer", "hi": "प्रत्यक्ष लाभ अंतरण" },
   { "en": "Grievance Redressal Portal", "hi": "शिकायत निवारण पोर्टल" },
-  { "en": "CPGRAMS", "hi": "सीपीग्राम्स", "note": { "en": "Centralized Public Grievance Redress and Monitoring System", "hi": "केंद्रीकृत लोक शिकायत निवारण एवं निगरानी प्रणाली" } },
+  {
+    "en": "CPGRAMS",
+    "hi": "सीपीग्राम्स",
+    "note": {
+      "en": "Centralized Public Grievance Redress and Monitoring System",
+      "hi": "केंद्रीकृत लोक शिकायत निवारण एवं निगरानी प्रणाली"
+    }
+  },
   { "en": "Cyber Security", "hi": "साइबर सुरक्षा" },
   { "en": "Cyber Crime", "hi": "साइबर अपराध" },
   { "en": "Cyber Attack", "hi": "साइबर हमला" },
@@ -197,7 +204,11 @@
   { "en": "Incident Response", "hi": "घटना अनुक्रिया" },
   { "en": "Information Security Policy", "hi": "सूचना सुरक्षा नीति" },
   { "en": "Computer Emergency Response Team", "hi": "कंप्यूटर आपात अनुक्रिया दल" },
-  { "en": "Indian Computer Emergency Response Team", "hi": "भारतीय कंप्यूटर आपात अनुक्रिया दल", "alsoHi": ["सर्ट-इन"] },
+  {
+    "en": "Indian Computer Emergency Response Team",
+    "hi": "भारतीय कंप्यूटर आपात अनुक्रिया दल",
+    "alsoHi": ["सर्ट-इन"]
+  },
   { "en": "Ransomware", "hi": "रैनसमवेयर" },
   { "en": "Trojan (malware)", "hi": "ट्रोजन" },
   { "en": "Spyware", "hi": "स्पाइवेयर" },

@@ -1,6 +1,12 @@
 import type { CardPatch } from './reviewQueue'
 
-import { db, type CardOverrideRow, type ProposedCardRow, type TrainerBookmarkRow, type TrainerReportRow } from '@/db'
+import {
+  db,
+  type CardOverrideRow,
+  type ProposedCardRow,
+  type TrainerBookmarkRow,
+  type TrainerReportRow,
+} from '@/db'
 
 /**
  * The Dexie half of everything `src/lib/srs/store.ts` does not own: bookmarks,
@@ -40,7 +46,13 @@ export const listReports = (): Promise<TrainerReportRow[]> =>
   db.trainerReports.orderBy('createdAt').reverse().toArray()
 
 export async function submitReport(qId: string, reason: string, note: string): Promise<TrainerReportRow> {
-  const row: TrainerReportRow = { id: `${qId}#${Date.now()}`, qId, reason, note, createdAt: new Date().toISOString() }
+  const row: TrainerReportRow = {
+    id: `${qId}#${Date.now()}`,
+    qId,
+    reason,
+    note,
+    createdAt: new Date().toISOString(),
+  }
   await db.trainerReports.put(row)
   return row
 }
@@ -49,7 +61,9 @@ export async function submitReport(qId: string, reason: string, note: string): P
 export function reportsToCsv(rows: readonly TrainerReportRow[]): string {
   const escape = (value: string): string => `"${value.replace(/"/g, '""')}"`
   const header = ['id', 'qId', 'reason', 'note', 'createdAt'].join(',')
-  const lines = rows.map((row) => [row.id, row.qId, row.reason, row.note, row.createdAt].map(escape).join(','))
+  const lines = rows.map((row) =>
+    [row.id, row.qId, row.reason, row.note, row.createdAt].map(escape).join(','),
+  )
   return [header, ...lines].join('\n')
 }
 
@@ -80,6 +94,8 @@ export async function decideCard(input: DecideInput): Promise<void> {
 export async function bulkApprove(qIds: readonly string[]): Promise<void> {
   const at = new Date().toISOString()
   await db.transaction('rw', db.cardOverrides, async () => {
-    await db.cardOverrides.bulkPut(qIds.map((qId) => ({ qId, action: 'approved' as const, patch: null, decidedAt: at })))
+    await db.cardOverrides.bulkPut(
+      qIds.map((qId) => ({ qId, action: 'approved' as const, patch: null, decidedAt: at })),
+    )
   })
 }

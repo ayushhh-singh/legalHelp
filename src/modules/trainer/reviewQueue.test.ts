@@ -71,7 +71,12 @@ describe('effectiveCatalogue', () => {
 
   it('promotes an unreviewed dataset card the reader approved', () => {
     const pending = makeCard({ id: 'a-1', act: 'a', reviewState: 'unreviewed' })
-    const decision: CardOverrideRow = { qId: 'a-1', action: 'approved', patch: null, decidedAt: '2026-08-28T00:00:00.000Z' }
+    const decision: CardOverrideRow = {
+      qId: 'a-1',
+      action: 'approved',
+      patch: null,
+      decidedAt: '2026-08-28T00:00:00.000Z',
+    }
     const result = effectiveCatalogue([pending], [decision], [])
     const card = result.find((c) => c.id === 'a-1')
     expect(card?.reviewState).toBe('approved')
@@ -93,7 +98,12 @@ describe('effectiveCatalogue', () => {
 
   it('never resurrects a rejected card', () => {
     const pending = makeCard({ id: 'a-1', act: 'a', reviewState: 'unreviewed' })
-    const decision: CardOverrideRow = { qId: 'a-1', action: 'rejected', patch: null, decidedAt: '2026-08-28T00:00:00.000Z' }
+    const decision: CardOverrideRow = {
+      qId: 'a-1',
+      action: 'rejected',
+      patch: null,
+      decidedAt: '2026-08-28T00:00:00.000Z',
+    }
     const result = effectiveCatalogue([pending], [decision], [])
     expect(result.find((c) => c.id === 'a-1')?.reviewState).toBe('unreviewed')
     expect(result.filter(isServed)).toHaveLength(0)
@@ -101,7 +111,12 @@ describe('effectiveCatalogue', () => {
 
   it('brings an approved AI-proposed card into the catalogue as a new entry', () => {
     const row = proposedRow('ai-1')
-    const decision: CardOverrideRow = { qId: 'ai-1', action: 'approved', patch: null, decidedAt: '2026-08-28T00:00:00.000Z' }
+    const decision: CardOverrideRow = {
+      qId: 'ai-1',
+      action: 'approved',
+      patch: null,
+      decidedAt: '2026-08-28T00:00:00.000Z',
+    }
     const result = effectiveCatalogue([], [decision], [row])
     const card = result.find((c) => c.id === 'ai-1')
     expect(card?.reviewState).toBe('approved')
@@ -115,13 +130,23 @@ describe('effectiveCatalogue', () => {
 
   it('leaves a rejected proposed card out entirely', () => {
     const row = proposedRow('ai-1')
-    const decision: CardOverrideRow = { qId: 'ai-1', action: 'rejected', patch: null, decidedAt: '2026-08-28T00:00:00.000Z' }
+    const decision: CardOverrideRow = {
+      qId: 'ai-1',
+      action: 'rejected',
+      patch: null,
+      decidedAt: '2026-08-28T00:00:00.000Z',
+    }
     expect(effectiveCatalogue([], [decision], [row])).toEqual([])
   })
 
   it('drops a proposed row whose stored card cannot be parsed', () => {
     const row: ProposedCardRow = { id: 'bad', createdAt: '2026-08-28T00:00:00.000Z', card: { garbage: true } }
-    const decision: CardOverrideRow = { qId: 'bad', action: 'approved', patch: null, decidedAt: '2026-08-28T00:00:00.000Z' }
+    const decision: CardOverrideRow = {
+      qId: 'bad',
+      action: 'approved',
+      patch: null,
+      decidedAt: '2026-08-28T00:00:00.000Z',
+    }
     expect(effectiveCatalogue([], [decision], [row])).toEqual([])
   })
 })
@@ -140,13 +165,23 @@ describe('pendingReviewQueue', () => {
 
   it('drops a card once it has a decision, approved or rejected', () => {
     const pending = makeCard({ id: 'a-1', act: 'a', reviewState: 'unreviewed' })
-    const decision: CardOverrideRow = { qId: 'a-1', action: 'approved', patch: null, decidedAt: '2026-08-28T00:00:00.000Z' }
+    const decision: CardOverrideRow = {
+      qId: 'a-1',
+      action: 'approved',
+      patch: null,
+      decidedAt: '2026-08-28T00:00:00.000Z',
+    }
     expect(pendingReviewQueue([pending], [decision], [])).toEqual([])
   })
 
   it('does not list a rejected card twice under a second decision', () => {
     const proposed = proposedRow('ai-1')
-    const decision: CardOverrideRow = { qId: 'ai-1', action: 'rejected', patch: null, decidedAt: '2026-08-28T00:00:00.000Z' }
+    const decision: CardOverrideRow = {
+      qId: 'ai-1',
+      action: 'rejected',
+      patch: null,
+      decidedAt: '2026-08-28T00:00:00.000Z',
+    }
     expect(pendingReviewQueue([], [decision], [proposed])).toEqual([])
   })
 })

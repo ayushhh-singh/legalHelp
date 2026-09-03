@@ -71,7 +71,10 @@ function ToolCard({
   subtitle: string
 }) {
   return (
-    <Link to={to} className="block rounded-lg focus-visible:ring-2 focus-visible:ring-ring focus-visible:outline-none">
+    <Link
+      to={to}
+      className="block rounded-lg focus-visible:ring-2 focus-visible:ring-ring focus-visible:outline-none"
+    >
       <SectionCard active className="h-full p-4 transition-colors hover:border-input">
         <div className="flex items-start gap-3">
           <Icon aria-hidden="true" className="mt-0.5 h-5 w-5 shrink-0 text-marigold-foreground" />

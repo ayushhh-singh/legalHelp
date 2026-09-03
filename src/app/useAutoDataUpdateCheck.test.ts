@@ -159,9 +159,10 @@ describe('useAutoDataUpdateCheck', () => {
     // check that assumption again before assuming the hook broke.
     setOnline(true)
     const bumped = { ...DATASETS.app!, version: '9.9.9' }
-    const fetchSpy = vi
-      .fn()
-      .mockResolvedValue({ ok: true, json: () => Promise.resolve({ datasets: { ...UNCHANGED_DATASETS, app: bumped } }) })
+    const fetchSpy = vi.fn().mockResolvedValue({
+      ok: true,
+      json: () => Promise.resolve({ datasets: { ...UNCHANGED_DATASETS, app: bumped } }),
+    })
     vi.stubGlobal('fetch', fetchSpy)
 
     const { result } = renderHook(() => useAutoDataUpdateCheck(true), { wrapper: StrictMode })
@@ -177,7 +178,9 @@ describe('useAutoDataUpdateCheck', () => {
 
   it('under StrictMode, no update still records exactly one check', async () => {
     setOnline(true)
-    const fetchSpy = vi.fn().mockResolvedValue({ ok: true, json: () => Promise.resolve({ datasets: UNCHANGED_DATASETS }) })
+    const fetchSpy = vi
+      .fn()
+      .mockResolvedValue({ ok: true, json: () => Promise.resolve({ datasets: UNCHANGED_DATASETS }) })
     vi.stubGlobal('fetch', fetchSpy)
 
     renderHook(() => useAutoDataUpdateCheck(true), { wrapper: StrictMode })

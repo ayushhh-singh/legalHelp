@@ -326,7 +326,12 @@ export async function explainPayslip(params: PayExplainParams): Promise<PayAgent
     for (const lineId of lineIds) {
       onProgress?.({ phase: 'reading', tool: 'explain_pay_line' })
       explained.push(
-        await callTool(tools, 'explain_pay_line', { jobId, lineId, ...(overrides ? { overrides } : {}) }, signal),
+        await callTool(
+          tools,
+          'explain_pay_line',
+          { jobId, lineId, ...(overrides ? { overrides } : {}) },
+          signal,
+        ),
       )
     }
     for (const line of computed.lines ?? []) {
@@ -345,7 +350,14 @@ export async function explainPayslip(params: PayExplainParams): Promise<PayAgent
       { type: 'computed', source: jobId, id: 'payslip', text: JSON.stringify(computed) },
       { type: 'computed', source: 'per-line explanations', id: 'lines', text: JSON.stringify(explained) },
       ...(sources.length > 0
-        ? [{ type: 'computed' as const, source: 'allowance sources', id: 'sources', text: JSON.stringify(sources) }]
+        ? [
+            {
+              type: 'computed' as const,
+              source: 'allowance sources',
+              id: 'sources',
+              text: JSON.stringify(sources),
+            },
+          ]
         : []),
     ],
     language,
@@ -386,7 +398,13 @@ export async function explainPayslip(params: PayExplainParams): Promise<PayAgent
   }
 
   onProgress?.({ phase: 'done' })
-  return { status: 'ok', text: run.text, usage: run.usage, cost: estimateCost(run.meta.model, run.usage), meta: run.meta }
+  return {
+    status: 'ok',
+    text: run.text,
+    usage: run.usage,
+    cost: estimateCost(run.meta.model, run.usage),
+    meta: run.meta,
+  }
 }
 
 /* ------------------------------------------------------------------ *
@@ -479,5 +497,11 @@ export async function compareJobsForReader(params: PayCompareParams): Promise<Pa
   }
 
   onProgress?.({ phase: 'done' })
-  return { status: 'ok', text: run.text, usage: run.usage, cost: estimateCost(run.meta.model, run.usage), meta: run.meta }
+  return {
+    status: 'ok',
+    text: run.text,
+    usage: run.usage,
+    cost: estimateCost(run.meta.model, run.usage),
+    meta: run.meta,
+  }
 }

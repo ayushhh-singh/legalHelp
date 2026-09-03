@@ -118,6 +118,12 @@ const EVERY_ROUTE = [
   // it needs is precached rather than fetched on demand, and an offline reload
   // is what proves it.
   '/library/ccs-conduct/ccs-conduct-3',
+  // Session 28's study screens. Every figure on them is arithmetic over rows
+  // this device already holds, and the quiz draws from a precached catalogue,
+  // so all three must work with no network at all.
+  '/library/study',
+  '/library/ccs-conduct/quiz/group-n-ccs-conduct-1',
+  '/library/ccs-conduct/sheet/group-n-ccs-conduct-1',
   // Everything a reader wrote is in IndexedDB and everything they added is a
   // row, so these five must work with no network at all — which is the only
   // condition most of this session's work will ever be used under.

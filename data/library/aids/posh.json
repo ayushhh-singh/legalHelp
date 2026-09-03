@@ -1,0 +1,1688 @@
+{
+  "$schema": "../../../schemas/library-aids.schema.json",
+  "version": "1.0.0",
+  "generatedAt": "2026-09-03",
+  "workId": "posh",
+  "unitLabel": {
+    "en": "Section",
+    "hi": "धारा"
+  },
+  "disclaimer": {
+    "en": "A study aid is Sahayak’s own explanation, not the text of the rule. Reference only; verify with the official gazette/order or your DDO.",
+    "hi": "अध्ययन सहायिका सहायक की अपनी व्याख्या है, नियम का पाठ नहीं। केवल संदर्भ हेतु; आधिकारिक राजपत्र/आदेश अथवा अपने डीडीओ से सत्यापित करें।"
+  },
+  "source": {
+    "name": "Ministry of Women and Child Development — The Sexual Harassment of Women at Workplace Act, 2013",
+    "url": "https://www.indiacode.nic.in/bitstream/123456789/2104/1/A2013-14.pdf"
+  },
+  "aids": [
+    {
+      "id": "aid-posh-1",
+      "workId": "posh",
+      "unitId": "posh-1",
+      "explanation": {
+        "en": "The Act is the Sexual Harassment of Women at Workplace (Prevention, Prohibition and Redressal) Act, 2013. It extends to the whole of India and came into force on the date the Central Government appointed by notification — 9 December 2013, recorded in the footnote to this section. The three words in the title are the Act’s own structure: prevention (the employer’s duties), prohibition (section 3), and redressal (the Committees, the inquiry and the appeal).",
+        "hi": "यह अधिनियम कार्यस्थल पर महिलाओं का लैंगिक उत्पीड़न (निवारण, प्रतिषेध और प्रतितोष) अधिनियम, 2013 है। यह संपूर्ण भारत तक विस्तारित है और उस तिथि से प्रवृत्त हुआ जो केंद्र सरकार ने अधिसूचना द्वारा नियत की — 9 दिसंबर 2013, जो इस धारा की पाद-टिप्पणी में अभिलिखित है। शीर्षक के तीन शब्द ही अधिनियम की संरचना हैं: निवारण (नियोजक के कर्तव्य), प्रतिषेध (धारा 3), तथा प्रतितोष (समितियाँ, जाँच और अपील)।"
+      },
+      "example": {
+        "en": "An incident before 9 December 2013 is not governed by this Act. What governed it was Rule 3C of the CCS (Conduct) Rules, 1964 for a Government servant, and the Supreme Court’s guidelines before that.",
+        "hi": "9 दिसंबर 2013 से पूर्व की घटना इस अधिनियम से शासित नहीं है। सरकारी कर्मचारी के लिए उसे सीसीएस (आचरण) नियम, 1964 का नियम 3ग शासित करता था, और उससे पूर्व उच्चतम न्यायालय के मार्गनिर्देश।"
+      },
+      "connects": [
+        "posh-3",
+        "posh-4",
+        "posh-19"
+      ],
+      "reviewed": true,
+      "reviewState": "approved",
+      "generationMeta": {
+        "promptVersion": "study-aid-v1",
+        "batchId": "library-aids-2026-09-03-posh",
+        "stageA": {
+          "index": 1,
+          "angle": "name, extent, and a commencement fixed by notification"
+        },
+        "critic": {
+          "verdict": "approve",
+          "reason": "The commencement date is in the corpus as a footnote to this section, so quoting it is grounded; the title-as-structure point is what makes the aid useful rather than formal."
+        },
+        "verify": {
+          "grounded": true,
+          "note": "Sub-sections (1)-(3) and the footnote recording 9 December 2013 (S.O. 3606(E)) are in the text of this unit."
+        },
+        "dedup": {
+          "maxScore": 0,
+          "against": null,
+          "verdict": "keep"
+        },
+        "groundingUnitIds": [
+          "posh-1"
+        ]
+      },
+      "source": {
+        "name": "Ministry of Women and Child Development — The Sexual Harassment of Women at Workplace Act, 2013",
+        "url": "https://www.indiacode.nic.in/bitstream/123456789/2104/1/A2013-14.pdf"
+      },
+      "verify": true
+    },
+    {
+      "id": "aid-posh-2",
+      "workId": "posh",
+      "unitId": "posh-2",
+      "explanation": {
+        "en": "\"Aggrieved woman\" is a woman OF ANY AGE, WHETHER EMPLOYED OR NOT, who alleges sexual harassment at a workplace. \"Employee\" reaches regular, temporary, ad hoc and daily-wage workers, direct or through a contractor, with or without the principal employer’s knowledge, paid or voluntary, and includes a co-worker, contract worker, probationer, trainee and apprentice. \"Sexual harassment\" is five kinds of UNWELCOME act or behaviour, directly or by implication. \"Workplace\" includes Government and private organisations, hospitals, sports venues, ANY PLACE VISITED by the employee arising out of or during employment including employer-provided transport, and a dwelling place or house.",
+        "hi": "\"व्यथित महिला\" किसी भी आयु की महिला है, चाहे नियोजित हो या नहीं, जो कार्यस्थल पर लैंगिक उत्पीड़न का अभिकथन करे। \"कर्मचारी\" में नियमित, अस्थायी, तदर्थ और दैनिक-वेतन कर्मी आते हैं, प्रत्यक्ष या ठेकेदार के माध्यम से, प्रधान नियोजक की जानकारी सहित या बिना, वेतनभोगी या स्वैच्छिक, तथा सहकर्मी, संविदा कर्मी, परिवीक्षाधीन, प्रशिक्षु और शिक्षु भी। \"लैंगिक उत्पीड़न\" पाँच प्रकार के अवांछित कार्य या व्यवहार हैं, प्रत्यक्ष या विवक्षित रूप से। \"कार्यस्थल\" में सरकारी और निजी संगठन, अस्पताल, खेल स्थल, कर्मचारी द्वारा नियोजन के दौरान या उससे उद्भूत रूप से गया कोई भी स्थान — जिसमें नियोजक द्वारा उपलब्ध परिवहन भी है — तथा निवास-स्थान या घर सम्मिलित हैं।"
+      },
+      "example": {
+        "en": "A visitor to an office who is not employed there is still an \"aggrieved woman\" under clause (a)(i): the words are \"whether employed or not\". An incident in the office car on the way to a meeting is at a \"workplace\" under clause (o)(v).",
+        "hi": "कार्यालय में आने वाली वह महिला जो वहाँ नियोजित नहीं है, फिर भी खंड (क)(i) के अधीन \"व्यथित महिला\" है: शब्द हैं \"चाहे नियोजित हो या नहीं\"। बैठक के लिए जाते समय कार्यालय की गाड़ी में हुई घटना खंड (ण)(v) के अधीन \"कार्यस्थल\" पर है।"
+      },
+      "connects": [
+        "posh-3",
+        "posh-9",
+        "posh-6"
+      ],
+      "misconception": {
+        "en": "\"Only an employee can complain, and only inside office premises.\" Both halves are wrong: clause (a)(i) says whether employed or not, and clause (o)(v) reaches any place visited arising out of or during employment.",
+        "hi": "\"केवल कर्मचारी शिकायत कर सकती है, और केवल कार्यालय परिसर के भीतर।\" दोनों गलत हैं: खंड (क)(i) कहता है चाहे नियोजित हो या नहीं, और खंड (ण)(v) नियोजन से उद्भूत या उसके दौरान गए किसी भी स्थान तक पहुँचता है।"
+      },
+      "examRelevance": {
+        "en": "The five limbs of \"sexual harassment\" in clause (n) are identical to the ones Rule 3C of the CCS (Conduct) Rules, 1964 sets out, which is why the two operate in parallel for a Government servant.",
+        "hi": "खंड (न) में \"लैंगिक उत्पीड़न\" के पाँच अंग वही हैं जो सीसीएस (आचरण) नियम, 1964 का नियम 3ग देता है, और इसीलिए सरकारी कर्मचारी के लिए दोनों साथ-साथ चलते हैं।"
+      },
+      "reviewed": true,
+      "reviewState": "approved",
+      "generationMeta": {
+        "promptVersion": "study-aid-v1",
+        "batchId": "library-aids-2026-09-03-posh",
+        "stageA": {
+          "index": 2,
+          "angle": "four definitions that decide who is covered and where"
+        },
+        "critic": {
+          "verdict": "approve",
+          "reason": "Four definitions, each with the phrase that widens it; the Conduct Rules parallel is checked against that book rather than asserted."
+        },
+        "verify": {
+          "grounded": true,
+          "note": "Clauses (a), (f), (n)(i)-(v) and (o)(i)-(vi) are verbatim. The Rule 3C comparison was read from data/rules/text/ccs-conduct.json."
+        },
+        "dedup": {
+          "maxScore": 0,
+          "against": null,
+          "verdict": "keep"
+        },
+        "groundingUnitIds": [
+          "posh-2"
+        ]
+      },
+      "source": {
+        "name": "Ministry of Women and Child Development — The Sexual Harassment of Women at Workplace Act, 2013",
+        "url": "https://www.indiacode.nic.in/bitstream/123456789/2104/1/A2013-14.pdf"
+      },
+      "verify": true
+    },
+    {
+      "id": "aid-posh-3",
+      "workId": "posh",
+      "unitId": "posh-3",
+      "explanation": {
+        "en": "Sub-section (1) is the prohibition in one line: no woman shall be subjected to sexual harassment at any workplace. Sub-section (2) then lists five circumstances which, if present in relation to or connected with an act or behaviour, MAY AMOUNT TO sexual harassment — an implied or explicit promise of preferential treatment, an implied or explicit threat of detrimental treatment, a threat about present or future employment status, interference with her work or a hostile work environment, and humiliating treatment likely to affect her health or safety.",
+        "hi": "उप-धारा (1) एक पंक्ति में प्रतिषेध है: किसी भी कार्यस्थल पर किसी महिला को लैंगिक उत्पीड़न का शिकार नहीं बनाया जाएगा। उप-धारा (2) फिर पाँच परिस्थितियाँ गिनाती है जो किसी कार्य या व्यवहार से संबंधित या संबद्ध होने पर लैंगिक उत्पीड़न बन सकती हैं — नियोजन में अधिमानी व्यवहार का विवक्षित या अभिव्यक्त वचन, हानिकर व्यवहार की विवक्षित या अभिव्यक्त धमकी, उसकी वर्तमान या भावी नियोजन-स्थिति के बारे में धमकी, उसके काम में हस्तक्षेप या शत्रुतापूर्ण कार्य-वातावरण, तथा ऐसा अपमानजनक व्यवहार जो उसके स्वास्थ्य या सुरक्षा को प्रभावित कर सके।"
+      },
+      "example": {
+        "en": "Clause (iv) — interference with her work, or an intimidating, offensive or hostile work environment — needs no promise or threat at all. It is the limb that covers a sustained pattern rather than a single demand.",
+        "hi": "खंड (iv) — उसके काम में हस्तक्षेप, अथवा भयोत्पादक, आपत्तिजनक या शत्रुतापूर्ण कार्य-वातावरण — में कोई वचन या धमकी आवश्यक ही नहीं। यही वह अंग है जो एकल माँग नहीं, निरंतर प्रवृत्ति को समाविष्ट करता है।"
+      },
+      "connects": [
+        "posh-2",
+        "posh-9",
+        "posh-19"
+      ],
+      "misconception": {
+        "en": "\"Sexual harassment requires a demand for a favour.\" That is only clause (n)(ii) of section 2. Section 3(2) shows the Act reaching a hostile environment and humiliating treatment with no demand at all.",
+        "hi": "\"लैंगिक उत्पीड़न में किसी उपकार की माँग आवश्यक है।\" वह केवल धारा 2 का खंड (न)(ii) है। धारा 3(2) दिखाती है कि अधिनियम बिना किसी माँग के भी शत्रुतापूर्ण वातावरण और अपमानजनक व्यवहार तक पहुँचता है।"
+      },
+      "examRelevance": {
+        "en": "The five circumstances in section 3(2) and the five acts in section 2(n) are different lists and are frequently mixed up. One defines the conduct; the other colours it.",
+        "hi": "धारा 3(2) की पाँच परिस्थितियाँ और धारा 2(न) के पाँच कार्य भिन्न सूचियाँ हैं और प्रायः मिला दी जाती हैं। एक आचरण को परिभाषित करती है; दूसरी उसे रंग देती है।"
+      },
+      "reviewed": true,
+      "reviewState": "approved",
+      "generationMeta": {
+        "promptVersion": "study-aid-v1",
+        "batchId": "library-aids-2026-09-03-posh",
+        "stageA": {
+          "index": 3,
+          "angle": "the prohibition, and the five circumstances that colour conduct"
+        },
+        "critic": {
+          "verdict": "approve",
+          "reason": "Keeping the two five-item lists apart is the aid’s main work, and it is a real and common confusion."
+        },
+        "verify": {
+          "grounded": true,
+          "note": "Sub-sections (1) and (2)(i)-(v) are verbatim; the section 2(n) list is quoted from section 2."
+        },
+        "dedup": {
+          "maxScore": 0,
+          "against": null,
+          "verdict": "keep"
+        },
+        "groundingUnitIds": [
+          "posh-3",
+          "posh-2"
+        ]
+      },
+      "source": {
+        "name": "Ministry of Women and Child Development — The Sexual Harassment of Women at Workplace Act, 2013",
+        "url": "https://www.indiacode.nic.in/bitstream/123456789/2104/1/A2013-14.pdf"
+      },
+      "verify": true
+    },
+    {
+      "id": "aid-posh-4",
+      "workId": "posh",
+      "unitId": "posh-4",
+      "explanation": {
+        "en": "Every employer must constitute an Internal Committee by an order IN WRITING, and where the workplace has offices at different places or at divisional or sub-divisional level, at EVERY such unit. It consists of a Presiding Officer who is a woman employed at a senior level; not fewer than two members from among the employees, preferably committed to the cause of women or with social-work experience or legal knowledge; and one member from an NGO or association committed to the cause of women or familiar with sexual harassment issues. At least ONE-HALF of the nominated members must be women. Members hold office for a period not exceeding three years.",
+        "hi": "प्रत्येक नियोजक को लिखित आदेश द्वारा आंतरिक समिति गठित करनी होगी, और जहाँ कार्यस्थल के कार्यालय भिन्न स्थानों पर या मंडल/उप-मंडल स्तर पर हों, वहाँ प्रत्येक ऐसी इकाई पर। उसमें एक पीठासीन अधिकारी होगी जो वरिष्ठ स्तर पर नियोजित महिला हो; कर्मचारियों में से कम से कम दो सदस्य, अधिमानतः वे जो महिलाओं के प्रति प्रतिबद्ध हों या जिन्हें सामाजिक कार्य का अनुभव या विधिक ज्ञान हो; तथा किसी गैर-सरकारी संगठन या संगम से एक सदस्य जो महिलाओं के प्रति प्रतिबद्ध हो या लैंगिक उत्पीड़न के विषयों से परिचित हो। नामनिर्दिष्ट सदस्यों में कम से कम आधी महिलाएँ होनी चाहिए। सदस्य तीन वर्ष से अनधिक अवधि तक पद धारण करते हैं।"
+      },
+      "example": {
+        "en": "The three provisos to clause (a) handle the real difficulty: if no senior-level woman employee is available at that unit, the Presiding Officer is nominated from another unit, and failing that from any other workplace of the same employer or another department.",
+        "hi": "खंड (क) के तीन परंतुक वास्तविक कठिनाई संभालते हैं: यदि उस इकाई पर कोई वरिष्ठ स्तर की महिला कर्मचारी उपलब्ध न हो, तो पीठासीन अधिकारी दूसरी इकाई से नामनिर्दिष्ट होगी, और वहाँ भी न हो तो उसी नियोजक के किसी अन्य कार्यस्थल अथवा अन्य विभाग से।"
+      },
+      "connects": [
+        "posh-6",
+        "posh-16",
+        "posh-26"
+      ],
+      "misconception": {
+        "en": "\"One Committee per organisation is enough.\" The proviso to sub-section (1) requires an Internal Committee at ALL administrative units or offices where they are located at different places.",
+        "hi": "\"एक संगठन के लिए एक समिति पर्याप्त है।\" उप-धारा (1) का परंतुक अपेक्षित करता है कि जहाँ कार्यालय भिन्न स्थानों पर हों, वहाँ सभी प्रशासनिक इकाइयों या कार्यालयों पर आंतरिक समिति हो।"
+      },
+      "examRelevance": {
+        "en": "The external NGO member, the one-half women requirement and the three-year tenure are the three composition facts asked about.",
+        "hi": "बाहरी गैर-सरकारी संगठन सदस्य, आधी महिलाओं की अपेक्षा तथा तीन वर्ष की पदावधि — यही तीन संरचना-तथ्य पूछे जाते हैं।"
+      },
+      "mnemonic": {
+        "en": "Woman senior chair · 2+ employee members · 1 outside NGO member · half women · 3 years.",
+        "hi": "वरिष्ठ महिला अध्यक्ष · 2+ कर्मचारी सदस्य · 1 बाहरी गैर-सरकारी सदस्य · आधी महिलाएँ · 3 वर्ष।"
+      },
+      "reviewed": true,
+      "reviewState": "approved",
+      "generationMeta": {
+        "promptVersion": "study-aid-v1",
+        "batchId": "library-aids-2026-09-03-posh",
+        "stageA": {
+          "index": 4,
+          "angle": "who sits on the Internal Committee, and for how long"
+        },
+        "critic": {
+          "verdict": "approve",
+          "reason": "Composition, the half-women floor and the tenure; the per-unit requirement in the proviso is the compliance failure this section is usually cited for."
+        },
+        "verify": {
+          "grounded": true,
+          "note": "Sub-sections (1) with its proviso, (2)(a)-(c) with the three provisos, (3), (4) and (5)(a)-(d) are verbatim."
+        },
+        "dedup": {
+          "maxScore": 0,
+          "against": null,
+          "verdict": "keep"
+        },
+        "groundingUnitIds": [
+          "posh-4"
+        ]
+      },
+      "source": {
+        "name": "Ministry of Women and Child Development — The Sexual Harassment of Women at Workplace Act, 2013",
+        "url": "https://www.indiacode.nic.in/bitstream/123456789/2104/1/A2013-14.pdf"
+      },
+      "verify": true
+    },
+    {
+      "id": "aid-posh-5",
+      "workId": "posh",
+      "unitId": "posh-5",
+      "explanation": {
+        "en": "The appropriate Government MAY notify a District Magistrate, Additional District Magistrate, Collector or Deputy Collector as the District Officer for every district, to exercise the powers and discharge the functions under this Act. Nothing else in the Act works at district level until this is done: the Local Committee is constituted by the District Officer under section 6, and the nodal officers in each block and ward are designated by him.",
+        "hi": "समुचित सरकार प्रत्येक जिले के लिए किसी जिला मजिस्ट्रेट, अपर जिला मजिस्ट्रेट, कलेक्टर अथवा उप-कलेक्टर को इस अधिनियम के अधीन शक्तियों के प्रयोग और कृत्यों के निर्वहन हेतु जिला अधिकारी अधिसूचित कर सकती है। जब तक यह न हो, जिला स्तर पर इस अधिनियम का कुछ भी काम नहीं करता: स्थानीय समिति धारा 6 के अधीन जिला अधिकारी गठित करता है, और प्रत्येक खंड और वार्ड में नोडल अधिकारी वही नामनिर्दिष्ट करता है।"
+      },
+      "example": {
+        "en": "A domestic worker’s complaint has nowhere to go without a District Officer: she is outside any Internal Committee, and the Local Committee that would hear her is the District Officer’s to constitute.",
+        "hi": "जिला अधिकारी के बिना किसी घरेलू कामगार की शिकायत के लिए कोई स्थान नहीं है: वह किसी आंतरिक समिति से बाहर है, और जो स्थानीय समिति उसे सुनेगी उसे गठित करना जिला अधिकारी का काम है।"
+      },
+      "connects": [
+        "posh-6",
+        "posh-20",
+        "posh-9"
+      ],
+      "misconception": {
+        "en": "\"The District Officer is a new post.\" The section names four EXISTING district functionaries; the appropriate Government designates one of them.",
+        "hi": "\"जिला अधिकारी नया पद है।\" धारा चार विद्यमान जिला-स्तरीय पदाधिकारियों को नामित करती है; समुचित सरकार उनमें से एक को पदाभिहित करती है।"
+      },
+      "reviewed": true,
+      "reviewState": "approved",
+      "generationMeta": {
+        "promptVersion": "study-aid-v1",
+        "batchId": "library-aids-2026-09-03-posh",
+        "stageA": {
+          "index": 5,
+          "angle": "the officer who makes the Local Committee possible"
+        },
+        "critic": {
+          "verdict": "approve",
+          "reason": "One sentence, but it is the hinge for the whole district-level machinery, which is what the example shows."
+        },
+        "verify": {
+          "grounded": true,
+          "note": "The four named functionaries are verbatim; the Local Committee and nodal-officer consequences are read from section 6."
+        },
+        "dedup": {
+          "maxScore": 0,
+          "against": null,
+          "verdict": "keep"
+        },
+        "groundingUnitIds": [
+          "posh-5",
+          "posh-6"
+        ]
+      },
+      "source": {
+        "name": "Ministry of Women and Child Development — The Sexual Harassment of Women at Workplace Act, 2013",
+        "url": "https://www.indiacode.nic.in/bitstream/123456789/2104/1/A2013-14.pdf"
+      },
+      "verify": true
+    },
+    {
+      "id": "aid-posh-6",
+      "workId": "posh",
+      "unitId": "posh-6",
+      "explanation": {
+        "en": "Every District Officer constitutes a Local Committee in the district to receive complaints in TWO situations: from establishments where no Internal Committee exists because they have fewer than ten workers, and where the complaint is AGAINST THE EMPLOYER HIMSELF. The District Officer also designates one nodal officer in every block, taluka and tehsil in rural or tribal areas and in every ward or municipality in urban areas, to receive complaints and forward them to the Local Committee within SEVEN days.",
+        "hi": "प्रत्येक जिला अधिकारी जिले में एक स्थानीय समिति गठित करता है जो दो स्थितियों में शिकायतें प्राप्त करे: ऐसे प्रतिष्ठानों से जहाँ दस से कम कर्मी होने के कारण कोई आंतरिक समिति नहीं है, तथा जहाँ शिकायत स्वयं नियोजक के विरुद्ध हो। जिला अधिकारी ग्रामीण या जनजातीय क्षेत्र के प्रत्येक खंड, तालुका और तहसील में तथा शहरी क्षेत्र के प्रत्येक वार्ड या नगरपालिका में एक नोडल अधिकारी भी नामनिर्दिष्ट करता है, जो शिकायतें प्राप्त करके सात दिन के भीतर स्थानीय समिति को अग्रेषित करे।"
+      },
+      "example": {
+        "en": "A complaint by an employee of a large Ministry against the Head of Department who is the \"employer\" under section 2(g)(i) goes to the LOCAL Committee, not to that Ministry’s own Internal Committee. This is the limb most often missed in a big organisation.",
+        "hi": "किसी बड़े मंत्रालय के कर्मचारी की उस विभागाध्यक्ष के विरुद्ध शिकायत, जो धारा 2(छ)(i) के अधीन \"नियोजक\" है, स्थानीय समिति को जाती है, उस मंत्रालय की अपनी आंतरिक समिति को नहीं। बड़े संगठन में यही अंग सबसे अधिक छूटता है।"
+      },
+      "connects": [
+        "posh-4",
+        "posh-5",
+        "posh-2"
+      ],
+      "misconception": {
+        "en": "\"The Local Committee is only for small establishments.\" It is also the forum for a complaint against the employer, whatever the size of the organisation.",
+        "hi": "\"स्थानीय समिति केवल छोटे प्रतिष्ठानों के लिए है।\" वह नियोजक के विरुद्ध शिकायत का भी मंच है, संगठन का आकार चाहे जो हो।"
+      },
+      "examRelevance": {
+        "en": "Fewer than ten workers, a complaint against the employer, and the seven-day forwarding by the nodal officer are the three facts.",
+        "hi": "दस से कम कर्मी, नियोजक के विरुद्ध शिकायत, तथा नोडल अधिकारी द्वारा सात दिन में अग्रेषण — यही तीन तथ्य हैं।"
+      },
+      "reviewed": true,
+      "reviewState": "approved",
+      "generationMeta": {
+        "promptVersion": "study-aid-v1",
+        "batchId": "library-aids-2026-09-03-posh",
+        "stageA": {
+          "index": 6,
+          "angle": "the two situations only the Local Committee can handle"
+        },
+        "critic": {
+          "verdict": "approve",
+          "reason": "The against-the-employer limb is the practically important half and is what the example is built on."
+        },
+        "verify": {
+          "grounded": true,
+          "note": "Sub-sections (1), (2) with the seven-day period, and (3) are verbatim; the 2016 renaming footnote is in the corpus."
+        },
+        "dedup": {
+          "maxScore": 0,
+          "against": null,
+          "verdict": "keep"
+        },
+        "groundingUnitIds": [
+          "posh-6"
+        ]
+      },
+      "source": {
+        "name": "Ministry of Women and Child Development — The Sexual Harassment of Women at Workplace Act, 2013",
+        "url": "https://www.indiacode.nic.in/bitstream/123456789/2104/1/A2013-14.pdf"
+      },
+      "verify": true
+    },
+    {
+      "id": "aid-posh-7",
+      "workId": "posh",
+      "unitId": "posh-7",
+      "explanation": {
+        "en": "The Local Committee is nominated by the District Officer: a Chairperson from among eminent women in the field of social work committed to the cause of women; one member from among women working in a block, taluka, tehsil, ward or municipality in the district; two members, at least one a woman, from NGOs or persons familiar with sexual harassment issues; and the district officer dealing with social welfare or women and child development, ex officio. One nominee should preferably have a background in law, and one MUST be a woman belonging to the Scheduled Castes, the Scheduled Tribes, the Other Backward Classes or a notified minority community. Tenure is not more than three years.",
+        "hi": "स्थानीय समिति जिला अधिकारी द्वारा नामनिर्दिष्ट होती है: अध्यक्ष सामाजिक कार्य के क्षेत्र की ऐसी प्रतिष्ठित महिलाओं में से जो महिलाओं के प्रति प्रतिबद्ध हों; एक सदस्य जिले के किसी खंड, तालुका, तहसील, वार्ड या नगरपालिका में कार्यरत महिलाओं में से; दो सदस्य, जिनमें कम से कम एक महिला हो, गैर-सरकारी संगठनों से अथवा लैंगिक उत्पीड़न के विषयों से परिचित व्यक्तियों में से; तथा जिले में समाज कल्याण अथवा महिला एवं बाल विकास देखने वाला अधिकारी, पदेन। एक नामिती को अधिमानतः विधि की पृष्ठभूमि होनी चाहिए, और एक का अनुसूचित जाति, अनुसूचित जनजाति, अन्य पिछड़े वर्ग अथवा अधिसूचित अल्पसंख्यक समुदाय की महिला होना अनिवार्य है। पदावधि तीन वर्ष से अधिक नहीं।"
+      },
+      "example": {
+        "en": "The two provisos to clause (c) are different in force: the law background is \"preferably\", the reserved seat is \"shall\". A Committee constituted without the reserved seat is not properly constituted.",
+        "hi": "खंड (ग) के दोनों परंतुक बल में भिन्न हैं: विधि की पृष्ठभूमि \"अधिमानतः\" है, आरक्षित स्थान \"होगा\" है। आरक्षित स्थान के बिना गठित समिति विधिवत् गठित नहीं है।"
+      },
+      "connects": [
+        "posh-6",
+        "posh-4",
+        "posh-8"
+      ],
+      "misconception": {
+        "en": "\"Both provisos to clause (c) are recommendations.\" Only the first is. The second uses \"shall\" for the reserved seat.",
+        "hi": "\"खंड (ग) के दोनों परंतुक सिफारिश हैं।\" केवल पहला है। दूसरा आरक्षित स्थान के लिए \"होगा\" का प्रयोग करता है।"
+      },
+      "examRelevance": {
+        "en": "Five members, the ex officio welfare officer, and the mandatory SC/ST/OBC or minority woman nominee are the composition facts.",
+        "hi": "पाँच सदस्य, पदेन कल्याण अधिकारी, तथा अनिवार्य अनुसूचित जाति/जनजाति/अन्य पिछड़ा वर्ग या अल्पसंख्यक महिला नामिती — यही संरचना-तथ्य हैं।"
+      },
+      "reviewed": true,
+      "reviewState": "approved",
+      "generationMeta": {
+        "promptVersion": "study-aid-v1",
+        "batchId": "library-aids-2026-09-03-posh",
+        "stageA": {
+          "index": 7,
+          "angle": "the Local Committee’s composition, and its two reserved seats"
+        },
+        "critic": {
+          "verdict": "approve",
+          "reason": "The preferably/shall distinction between the two provisos is the only thing here that changes an outcome, and it is the aid’s centre."
+        },
+        "verify": {
+          "grounded": true,
+          "note": "Sub-sections (1)(a)-(d) with both provisos, (2), (3)(a)-(d) and (4) are verbatim."
+        },
+        "dedup": {
+          "maxScore": 0,
+          "against": null,
+          "verdict": "keep"
+        },
+        "groundingUnitIds": [
+          "posh-7"
+        ]
+      },
+      "source": {
+        "name": "Ministry of Women and Child Development — The Sexual Harassment of Women at Workplace Act, 2013",
+        "url": "https://www.indiacode.nic.in/bitstream/123456789/2104/1/A2013-14.pdf"
+      },
+      "verify": true
+    },
+    {
+      "id": "aid-posh-8",
+      "workId": "posh",
+      "unitId": "posh-8",
+      "explanation": {
+        "en": "Section 8 is the funding chain for the Local Committee’s fees and allowances under section 7(4). The Central Government, after appropriation by Parliament, may make grants to a State Government; the State may set up an agency and transfer the grants to it; the agency pays the District Officer the sums required; and the agency’s accounts are maintained and audited as prescribed in consultation with the Accountant General of the State, with an audited copy and the auditor’s report furnished to the State Government.",
+        "hi": "धारा 8 धारा 7(4) के अधीन स्थानीय समिति की फीस और भत्तों के लिए वित्त-श्रृंखला है। केंद्र सरकार, संसद द्वारा विनियोग के पश्चात्, राज्य सरकार को अनुदान दे सकती है; राज्य कोई अभिकरण स्थापित करके उसे अनुदान अंतरित कर सकता है; अभिकरण जिला अधिकारी को अपेक्षित राशि देता है; और अभिकरण के लेखे राज्य के महालेखाकार के परामर्श से विहित रीति से रखे और लेखा-परीक्षित होते हैं, तथा लेखा-परीक्षित प्रति और लेखा-परीक्षक की रिपोर्ट राज्य सरकार को दी जाती है।"
+      },
+      "example": {
+        "en": "The Internal Committee’s NGO member is paid by the EMPLOYER under section 4(4). The Local Committee’s members are paid through this chain instead — which is the practical difference between the two Committees’ funding.",
+        "hi": "आंतरिक समिति के गैर-सरकारी संगठन सदस्य को धारा 4(4) के अधीन नियोजक भुगतान करता है। स्थानीय समिति के सदस्यों को इसी श्रृंखला से भुगतान होता है — दोनों समितियों के वित्तपोषण में यही व्यावहारिक अंतर है।"
+      },
+      "connects": [
+        "posh-7",
+        "posh-4",
+        "posh-5"
+      ],
+      "misconception": {
+        "en": "\"The employer pays for both Committees.\" The employer pays the Internal Committee’s external member; the Local Committee is funded through the Centre-State-agency chain in this section.",
+        "hi": "\"दोनों समितियों का भुगतान नियोजक करता है।\" नियोजक आंतरिक समिति के बाहरी सदस्य को भुगतान करता है; स्थानीय समिति इसी धारा की केंद्र-राज्य-अभिकरण श्रृंखला से वित्तपोषित है।"
+      },
+      "reviewed": true,
+      "reviewState": "approved",
+      "generationMeta": {
+        "promptVersion": "study-aid-v1",
+        "batchId": "library-aids-2026-09-03-posh",
+        "stageA": {
+          "index": 8,
+          "angle": "who pays the Local Committee, and how the money travels"
+        },
+        "critic": {
+          "verdict": "approve",
+          "reason": "A funding section is easy to skip, and the contrast with section 4(4) is the only thing in it an officer needs."
+        },
+        "verify": {
+          "grounded": true,
+          "note": "Sub-sections (1)-(4) are verbatim; the section 4(4) contrast is quoted from section 4."
+        },
+        "dedup": {
+          "maxScore": 0,
+          "against": null,
+          "verdict": "keep"
+        },
+        "groundingUnitIds": [
+          "posh-8",
+          "posh-7",
+          "posh-4"
+        ]
+      },
+      "source": {
+        "name": "Ministry of Women and Child Development — The Sexual Harassment of Women at Workplace Act, 2013",
+        "url": "https://www.indiacode.nic.in/bitstream/123456789/2104/1/A2013-14.pdf"
+      },
+      "verify": true
+    },
+    {
+      "id": "aid-posh-9",
+      "workId": "posh",
+      "unitId": "posh-9",
+      "explanation": {
+        "en": "An aggrieved woman may complain IN WRITING to the Internal Committee, or to the Local Committee where none is constituted, within THREE MONTHS of the incident — and in a series of incidents, within three months of the LAST one. Where she cannot complain in writing, the Presiding Officer, Chairperson or any member must render all reasonable assistance to put it in writing. The Committee may, for reasons recorded in writing, extend the limit by a further period not exceeding three months if satisfied that circumstances prevented her from filing in time. Where she cannot complain because of physical or mental incapacity or death, her legal heir or a prescribed person may.",
+        "hi": "व्यथित महिला घटना से तीन मास के भीतर आंतरिक समिति को, अथवा जहाँ वह गठित न हो वहाँ स्थानीय समिति को, लिखित शिकायत कर सकती है — और घटनाओं की शृंखला में, अंतिम घटना से तीन मास के भीतर। जहाँ वह लिखित शिकायत न कर सके, वहाँ पीठासीन अधिकारी, अध्यक्ष अथवा कोई सदस्य उसे लिखित रूप देने में सभी युक्तियुक्त सहायता देगा। समिति, लिखित में अभिलिखित कारणों से, यदि संतुष्ट हो कि परिस्थितियों ने उसे समय पर दाखिल करने से रोका, तो तीन मास से अनधिक और अवधि बढ़ा सकती है। जहाँ वह शारीरिक या मानसिक असमर्थता या मृत्यु के कारण शिकायत न कर सके, वहाँ उसका विधिक उत्तराधिकारी अथवा विहित व्यक्ति कर सकता है।"
+      },
+      "example": {
+        "en": "A complaint made in the fifth month is not automatically barred: the second proviso lets the Committee extend up to a total of six, provided it records its reasons in writing.",
+        "hi": "पाँचवें मास में की गई शिकायत स्वतः वर्जित नहीं है: दूसरा परंतुक समिति को कुल छह मास तक बढ़ाने देता है, बशर्ते वह अपने कारण लिखित में अभिलिखित करे।"
+      },
+      "connects": [
+        "posh-10",
+        "posh-11",
+        "posh-2"
+      ],
+      "misconception": {
+        "en": "\"After three months nothing can be done.\" The extension is up to three further months on recorded reasons, so the outer limit is six.",
+        "hi": "\"तीन मास बाद कुछ नहीं हो सकता।\" अभिलिखित कारणों पर तीन मास और की छूट है, अतः बाह्य सीमा छह मास है।"
+      },
+      "examRelevance": {
+        "en": "Three months from the LAST incident in a series, and the further three months on recorded reasons, are the two time facts.",
+        "hi": "शृंखला में अंतिम घटना से तीन मास, तथा अभिलिखित कारणों पर तीन मास और — यही दो समय-तथ्य हैं।"
+      },
+      "mnemonic": {
+        "en": "3 months, +3 on recorded reasons, from the LAST incident.",
+        "hi": "3 मास, अभिलिखित कारणों पर +3, और गणना अंतिम घटना से।"
+      },
+      "reviewed": true,
+      "reviewState": "approved",
+      "generationMeta": {
+        "promptVersion": "study-aid-v1",
+        "batchId": "library-aids-2026-09-03-posh",
+        "stageA": {
+          "index": 9,
+          "angle": "three months, extendable by three more, and who else may complain"
+        },
+        "critic": {
+          "verdict": "approve",
+          "reason": "Both time limits, the assistance proviso and the legal-heir route; the \"last incident\" trigger is the detail that decides limitation in a real case."
+        },
+        "verify": {
+          "grounded": true,
+          "note": "Sub-sections (1) with both provisos and (2) are verbatim."
+        },
+        "dedup": {
+          "maxScore": 0,
+          "against": null,
+          "verdict": "keep"
+        },
+        "groundingUnitIds": [
+          "posh-9"
+        ]
+      },
+      "source": {
+        "name": "Ministry of Women and Child Development — The Sexual Harassment of Women at Workplace Act, 2013",
+        "url": "https://www.indiacode.nic.in/bitstream/123456789/2104/1/A2013-14.pdf"
+      },
+      "verify": true
+    },
+    {
+      "id": "aid-posh-10",
+      "workId": "posh",
+      "unitId": "posh-10",
+      "explanation": {
+        "en": "Before initiating an inquiry, and only AT THE REQUEST OF THE AGGRIEVED WOMAN, the Committee may take steps to settle the matter through conciliation. The proviso is absolute: NO MONETARY SETTLEMENT shall be made as a basis of conciliation. Where a settlement is reached, the Committee records it, forwards it to the employer or District Officer for action, gives copies to both parties, and NO FURTHER INQUIRY is conducted.",
+        "hi": "जाँच आरंभ करने से पूर्व, और केवल व्यथित महिला के अनुरोध पर, समिति सुलह के माध्यम से मामला निपटाने हेतु कदम उठा सकती है। परंतुक निरपेक्ष है: सुलह के आधार के रूप में कोई धनीय समझौता नहीं किया जाएगा। समझौता होने पर समिति उसे अभिलिखित करती है, कार्रवाई हेतु नियोजक या जिला अधिकारी को अग्रेषित करती है, दोनों पक्षकारों को प्रतियाँ देती है, और आगे कोई जाँच नहीं होती।"
+      },
+      "example": {
+        "en": "A Committee that proposes conciliation on its own initiative has acted outside the section: the words are \"at the request of the aggrieved woman\". And if the respondent later breaks a term of the settlement, section 11(1)’s first proviso revives the inquiry.",
+        "hi": "जो समिति स्वयं पहल करके सुलह प्रस्तावित करती है, उसने धारा से बाहर कार्य किया: शब्द हैं \"व्यथित महिला के अनुरोध पर\"। और यदि प्रत्यर्थी बाद में समझौते की कोई शर्त तोड़े, तो धारा 11(1) का पहला परंतुक जाँच पुनर्जीवित कर देता है।"
+      },
+      "connects": [
+        "posh-9",
+        "posh-11"
+      ],
+      "misconception": {
+        "en": "\"Conciliation can include a payment to settle.\" The proviso forbids exactly that: no monetary settlement may be the basis of conciliation. Compensation is a section 13/15 outcome after a finding, not a bargain.",
+        "hi": "\"सुलह में समझौते के लिए भुगतान हो सकता है।\" परंतुक ठीक यही वर्जित करता है: कोई धनीय समझौता सुलह का आधार नहीं हो सकता। प्रतिकर निष्कर्ष के बाद धारा 13/15 का परिणाम है, कोई सौदा नहीं।"
+      },
+      "examRelevance": {
+        "en": "At her request only, no monetary settlement, and no further inquiry once settled — three rules from four short sub-sections.",
+        "hi": "केवल उसके अनुरोध पर, कोई धनीय समझौता नहीं, और निपटान के बाद कोई आगे जाँच नहीं — चार छोटी उप-धाराओं से तीन नियम।"
+      },
+      "reviewed": true,
+      "reviewState": "approved",
+      "generationMeta": {
+        "promptVersion": "study-aid-v1",
+        "batchId": "library-aids-2026-09-03-posh",
+        "stageA": {
+          "index": 10,
+          "angle": "conciliation, and the one thing it may never be"
+        },
+        "critic": {
+          "verdict": "approve",
+          "reason": "The no-monetary-settlement proviso and the at-her-request trigger are the two things that make conciliation lawful, and the revival route is in section 11."
+        },
+        "verify": {
+          "grounded": true,
+          "note": "Sub-sections (1) with its proviso, (2), (3) and (4) are verbatim; the revival proviso is quoted from section 11(1)."
+        },
+        "dedup": {
+          "maxScore": 0,
+          "against": null,
+          "verdict": "keep"
+        },
+        "groundingUnitIds": [
+          "posh-10",
+          "posh-11"
+        ]
+      },
+      "source": {
+        "name": "Ministry of Women and Child Development — The Sexual Harassment of Women at Workplace Act, 2013",
+        "url": "https://www.indiacode.nic.in/bitstream/123456789/2104/1/A2013-14.pdf"
+      },
+      "verify": true
+    },
+    {
+      "id": "aid-posh-11",
+      "workId": "posh",
+      "unitId": "posh-11",
+      "explanation": {
+        "en": "Where the respondent is an EMPLOYEE, the Committee inquires in accordance with the service rules applicable to him, or as prescribed where none exist. Where the complaint is by a DOMESTIC WORKER, the Local Committee, if a prima facie case exists, forwards it to the police within SEVEN days for registration. Both parties, where both are employees, must be heard and given a copy of the findings so they can represent against them. The Committee has a civil court’s powers to summon and examine on oath and to require discovery and production of documents. The inquiry SHALL BE COMPLETED WITHIN NINETY DAYS.",
+        "hi": "जहाँ प्रत्यर्थी कर्मचारी हो, वहाँ समिति उस पर लागू सेवा नियमों के अनुसार जाँच करती है, अथवा जहाँ ऐसे नियम न हों वहाँ विहित रीति से। जहाँ शिकायत घरेलू कामगार की हो, वहाँ स्थानीय समिति, प्रथम दृष्टया मामला बनने पर, उसे सात दिन के भीतर पंजीकरण हेतु पुलिस को अग्रेषित करती है। जहाँ दोनों पक्षकार कर्मचारी हों, वहाँ दोनों को सुना जाना होगा और निष्कर्षों की प्रति दी जानी होगी ताकि वे उनके विरुद्ध अभ्यावेदन कर सकें। समिति को शपथ पर समन करने और परीक्षा करने तथा दस्तावेज़ों के प्रकटीकरण और पेश करने की सिविल न्यायालय की शक्तियाँ प्राप्त हैं। जाँच नब्बे दिन के भीतर पूरी की जाएगी।"
+      },
+      "example": {
+        "en": "For a Government servant, \"the service rules applicable to the respondent\" means the CCS (CCA) Rules, 1965 — and Rule 14(2)’s proviso in that book deems the Complaints Committee to be the inquiring authority appointed by the disciplinary authority. The two statutes are wired together at exactly that point.",
+        "hi": "सरकारी कर्मचारी के लिए \"प्रत्यर्थी पर लागू सेवा नियम\" का अर्थ सीसीएस (सीसीए) नियम, 1965 है — और उस पुस्तक के नियम 14(2) का परंतुक शिकायत समिति को अनुशासनिक प्राधिकारी द्वारा नियुक्त जाँच प्राधिकारी मानता है। दोनों अधिनियम ठीक उसी बिंदु पर जुड़ते हैं।"
+      },
+      "connects": [
+        "posh-10",
+        "posh-13",
+        "posh-12"
+      ],
+      "misconception": {
+        "en": "\"The Committee runs its own procedure.\" For an employee respondent it follows the SERVICE RULES applicable to him; only where no such rules exist does it use the prescribed manner.",
+        "hi": "\"समिति अपनी प्रक्रिया चलाती है।\" कर्मचारी प्रत्यर्थी के लिए वह उस पर लागू सेवा नियमों का अनुसरण करती है; केवल जहाँ ऐसे नियम न हों, वहीं विहित रीति का।"
+      },
+      "examRelevance": {
+        "en": "Ninety days for the inquiry, seven days to forward a domestic worker’s complaint to the police, and the civil-court powers are the three facts.",
+        "hi": "जाँच हेतु नब्बे दिन, घरेलू कामगार की शिकायत पुलिस को अग्रेषित करने हेतु सात दिन, तथा सिविल न्यायालय की शक्तियाँ — यही तीन तथ्य हैं।"
+      },
+      "reviewed": true,
+      "reviewState": "approved",
+      "generationMeta": {
+        "promptVersion": "study-aid-v1",
+        "batchId": "library-aids-2026-09-03-posh",
+        "stageA": {
+          "index": 11,
+          "angle": "the inquiry, its powers, and its ninety-day limit"
+        },
+        "critic": {
+          "verdict": "approve",
+          "reason": "The service-rules route is what makes this Act work inside Government, and the CCA Rule 14(2) proviso is quoted from that corpus rather than asserted."
+        },
+        "verify": {
+          "grounded": true,
+          "note": "Sub-sections (1) with both provisos, (2), (3)(a)-(c) and (4)’s ninety days are verbatim. The CCS (CCA) Rule 14(2) proviso was read from data/rules/text/ccs-cca.json."
+        },
+        "dedup": {
+          "maxScore": 0,
+          "against": null,
+          "verdict": "keep"
+        },
+        "groundingUnitIds": [
+          "posh-11"
+        ]
+      },
+      "source": {
+        "name": "Ministry of Women and Child Development — The Sexual Harassment of Women at Workplace Act, 2013",
+        "url": "https://www.indiacode.nic.in/bitstream/123456789/2104/1/A2013-14.pdf"
+      },
+      "verify": true
+    },
+    {
+      "id": "aid-posh-12",
+      "workId": "posh",
+      "unitId": "posh-12",
+      "explanation": {
+        "en": "During the pendency of an inquiry, ON A WRITTEN REQUEST by the aggrieved woman, the Committee may recommend to the employer to transfer her or the respondent to another workplace, to grant her leave of up to THREE MONTHS, or to grant such other relief as may be prescribed. Leave granted under this section is IN ADDITION to the leave she would otherwise be entitled to. The employer SHALL implement the recommendation and report the implementation back to the Committee.",
+        "hi": "जाँच लंबित रहने के दौरान, व्यथित महिला के लिखित अनुरोध पर, समिति नियोजक को सिफारिश कर सकती है कि उसे अथवा प्रत्यर्थी को किसी अन्य कार्यस्थल पर स्थानांतरित किया जाए, उसे तीन मास तक का अवकाश दिया जाए, अथवा विहित कोई अन्य अनुतोष दिया जाए। इस धारा के अधीन दिया गया अवकाश उस अवकाश के अतिरिक्त है जिसकी वह अन्यथा हकदार है। नियोजक सिफारिश कार्यान्वित करेगा और कार्यान्वयन की रिपोर्ट समिति को भेजेगा।"
+      },
+      "example": {
+        "en": "Sub-section (2) is the point that matters to a Government servant: three months under this section does not come out of her earned or half pay leave account. It is additional.",
+        "hi": "उप-धारा (2) वही बिंदु है जो सरकारी कर्मचारी के लिए महत्वपूर्ण है: इस धारा के तीन मास उसके अर्जित अवकाश या अर्ध-वेतन अवकाश खाते से नहीं कटते। वह अतिरिक्त है।"
+      },
+      "connects": [
+        "posh-11",
+        "posh-19"
+      ],
+      "misconception": {
+        "en": "\"The Committee can order a transfer.\" It RECOMMENDS; the employer implements under sub-section (3). And it may recommend only on her written request, not on its own motion.",
+        "hi": "\"समिति स्थानांतरण का आदेश दे सकती है।\" वह सिफारिश करती है; कार्यान्वयन उप-धारा (3) के अधीन नियोजक करता है। और वह केवल उसके लिखित अनुरोध पर सिफारिश कर सकती है, स्वप्रेरणा से नहीं।"
+      },
+      "examRelevance": {
+        "en": "Three months of ADDITIONAL leave is the figure, and \"on a written request made by the aggrieved woman\" is the trigger.",
+        "hi": "तीन मास का अतिरिक्त अवकाश आँकड़ा है, और \"व्यथित महिला द्वारा किए गए लिखित अनुरोध पर\" प्रवर्तक है।"
+      },
+      "reviewed": true,
+      "reviewState": "approved",
+      "generationMeta": {
+        "promptVersion": "study-aid-v1",
+        "batchId": "library-aids-2026-09-03-posh",
+        "stageA": {
+          "index": 12,
+          "angle": "interim relief, on her written request only"
+        },
+        "critic": {
+          "verdict": "approve",
+          "reason": "The additionality of the leave and the recommend-not-order distinction are the two operative points."
+        },
+        "verify": {
+          "grounded": true,
+          "note": "Sub-sections (1)(a)-(c), (2) and (3) are verbatim."
+        },
+        "dedup": {
+          "maxScore": 0,
+          "against": null,
+          "verdict": "keep"
+        },
+        "groundingUnitIds": [
+          "posh-12"
+        ]
+      },
+      "source": {
+        "name": "Ministry of Women and Child Development — The Sexual Harassment of Women at Workplace Act, 2013",
+        "url": "https://www.indiacode.nic.in/bitstream/123456789/2104/1/A2013-14.pdf"
+      },
+      "verify": true
+    },
+    {
+      "id": "aid-posh-13",
+      "workId": "posh",
+      "unitId": "posh-13",
+      "explanation": {
+        "en": "The Committee gives its report of findings to the employer or District Officer within TEN DAYS of completing the inquiry, and the report is made available to the parties. If the allegation is NOT proved, it recommends that no action be taken. If it IS proved, it recommends action for sexual harassment AS A MISCONDUCT under the service rules, and deduction from the respondent’s salary of a sum to be paid to the aggrieved woman determined under section 15. The employer or District Officer must ACT ON THE RECOMMENDATION WITHIN SIXTY DAYS of receiving it.",
+        "hi": "समिति जाँच पूरी होने के दस दिन के भीतर अपने निष्कर्षों की रिपोर्ट नियोजक अथवा जिला अधिकारी को देती है, और रिपोर्ट पक्षकारों को उपलब्ध कराई जाती है। यदि अभिकथन सिद्ध न हो, तो वह सिफारिश करती है कि कोई कार्रवाई न की जाए। यदि सिद्ध हो, तो वह सिफारिश करती है कि लैंगिक उत्पीड़न पर सेवा नियमों के अधीन कदाचार के रूप में कार्रवाई हो, तथा प्रत्यर्थी के वेतन से वह राशि काटी जाए जो धारा 15 के अधीन निर्धारित होकर व्यथित महिला को दी जाए। नियोजक अथवा जिला अधिकारी को प्राप्ति के साठ दिन के भीतर सिफारिश पर कार्रवाई करनी होगी।"
+      },
+      "example": {
+        "en": "The two provisos to clause (ii) cover the respondent who leaves: if the salary cannot be deducted because he is absent or has ceased employment, he may be directed to pay directly, and on failure the order may be forwarded to the District Officer for recovery AS AN ARREAR OF LAND REVENUE.",
+        "hi": "खंड (ii) के दोनों परंतुक उस प्रत्यर्थी को संभालते हैं जो चला जाता है: यदि अनुपस्थिति या सेवा-समाप्ति के कारण वेतन से कटौती संभव न हो, तो उसे सीधे भुगतान का निदेश दिया जा सकता है, और विफल रहने पर आदेश भू-राजस्व की बकाया के रूप में वसूली हेतु जिला अधिकारी को अग्रेषित किया जा सकता है।"
+      },
+      "connects": [
+        "posh-11",
+        "posh-15",
+        "posh-18"
+      ],
+      "misconception": {
+        "en": "\"Compensation is decided by a court.\" Under this Act the Committee recommends the sum, determined on the section 15 factors, and the employer deducts it from the respondent’s salary.",
+        "hi": "\"प्रतिकर न्यायालय तय करता है।\" इस अधिनियम के अधीन समिति वह राशि सिफारिश करती है, जो धारा 15 के कारकों पर निर्धारित होती है, और नियोजक उसे प्रत्यर्थी के वेतन से काटता है।"
+      },
+      "examRelevance": {
+        "en": "Ten days to report, sixty days to act, and recovery as an arrear of land revenue are the three facts.",
+        "hi": "रिपोर्ट हेतु दस दिन, कार्रवाई हेतु साठ दिन, तथा भू-राजस्व की बकाया के रूप में वसूली — यही तीन तथ्य हैं।"
+      },
+      "mnemonic": {
+        "en": "Report in 10, act in 60, recover as land revenue.",
+        "hi": "10 में रिपोर्ट, 60 में कार्रवाई, वसूली भू-राजस्व की भाँति।"
+      },
+      "reviewed": true,
+      "reviewState": "approved",
+      "generationMeta": {
+        "promptVersion": "study-aid-v1",
+        "batchId": "library-aids-2026-09-03-posh",
+        "stageA": {
+          "index": 13,
+          "angle": "ten days, sixty days, and the two ways a finding can go"
+        },
+        "critic": {
+          "verdict": "approve",
+          "reason": "Both outcomes, both time limits and the recovery route; the land-revenue proviso is the part that surprises readers and is genuinely operative."
+        },
+        "verify": {
+          "grounded": true,
+          "note": "Sub-sections (1), (2), (3)(i)-(ii) with both provisos and (4)’s sixty days are verbatim."
+        },
+        "dedup": {
+          "maxScore": 0,
+          "against": null,
+          "verdict": "keep"
+        },
+        "groundingUnitIds": [
+          "posh-13"
+        ]
+      },
+      "source": {
+        "name": "Ministry of Women and Child Development — The Sexual Harassment of Women at Workplace Act, 2013",
+        "url": "https://www.indiacode.nic.in/bitstream/123456789/2104/1/A2013-14.pdf"
+      },
+      "verify": true
+    },
+    {
+      "id": "aid-posh-14",
+      "workId": "posh",
+      "unitId": "posh-14",
+      "explanation": {
+        "en": "Where the Committee concludes that the allegation is MALICIOUS, or that the complainant made it knowing it to be false, or produced a forged or misleading document, it may recommend action against her under the service rules. Two provisos limit it decisively: a mere INABILITY TO SUBSTANTIATE a complaint, or to provide adequate proof, need not attract action; and malicious intent must be ESTABLISHED AFTER AN INQUIRY in the prescribed manner before any action is recommended. Sub-section (2) applies the same to a witness who gave false evidence.",
+        "hi": "जहाँ समिति यह निष्कर्ष निकाले कि अभिकथन विद्वेषपूर्ण है, अथवा शिकायतकर्ता ने उसे मिथ्या जानते हुए किया, अथवा कोई कूटरचित या भ्रामक दस्तावेज़ पेश किया, वहाँ वह सेवा नियमों के अधीन उसके विरुद्ध कार्रवाई की सिफारिश कर सकती है। दो परंतुक इसे निर्णायक रूप से सीमित करते हैं: शिकायत को पुष्ट करने में, अथवा पर्याप्त प्रमाण देने में, केवल असमर्थता से कार्रवाई आवश्यक नहीं; और कोई कार्रवाई सिफारिश करने से पूर्व विद्वेषपूर्ण आशय विहित प्रक्रिया के अनुसार जाँच के बाद स्थापित होना चाहिए। उप-धारा (2) मिथ्या साक्ष्य देने वाले साक्षी पर वही लागू करती है।"
+      },
+      "example": {
+        "en": "A complaint that fails for want of evidence is NOT a false complaint. The first proviso says so expressly, and treating an unproved complaint as malicious is the commonest misuse of this section.",
+        "hi": "साक्ष्य के अभाव में विफल शिकायत मिथ्या शिकायत नहीं है। पहला परंतुक स्पष्टतः यही कहता है, और अप्रमाणित शिकायत को विद्वेषपूर्ण मान लेना इस धारा का सबसे सामान्य दुरुपयोग है।"
+      },
+      "connects": [
+        "posh-13",
+        "posh-9",
+        "posh-18"
+      ],
+      "misconception": {
+        "en": "\"If the complaint is not proved, action follows against the complainant.\" The first proviso rules that out, and the second requires a separate inquiry into malice before anything is recommended.",
+        "hi": "\"यदि शिकायत सिद्ध न हो, तो शिकायतकर्ता पर कार्रवाई होगी।\" पहला परंतुक इसे रोकता है, और दूसरा किसी भी सिफारिश से पूर्व विद्वेष की पृथक् जाँच अपेक्षित करता है।"
+      },
+      "examRelevance": {
+        "en": "The first proviso — inability to substantiate is not malice — is the single most quoted line of this section.",
+        "hi": "पहला परंतुक — पुष्ट न कर पाना विद्वेष नहीं है — इस धारा की सर्वाधिक उद्धृत पंक्ति है।"
+      },
+      "reviewed": true,
+      "reviewState": "approved",
+      "generationMeta": {
+        "promptVersion": "study-aid-v1",
+        "batchId": "library-aids-2026-09-03-posh",
+        "stageA": {
+          "index": 14,
+          "angle": "a false complaint, and the proviso that protects an unproved one"
+        },
+        "critic": {
+          "verdict": "approve",
+          "reason": "Both provisos are the substance; without them this section reads as a deterrent to complaining, which is the opposite of what the text does."
+        },
+        "verify": {
+          "grounded": true,
+          "note": "Sub-section (1) with both provisos and sub-section (2) are verbatim."
+        },
+        "dedup": {
+          "maxScore": 0,
+          "against": null,
+          "verdict": "keep"
+        },
+        "groundingUnitIds": [
+          "posh-14"
+        ]
+      },
+      "source": {
+        "name": "Ministry of Women and Child Development — The Sexual Harassment of Women at Workplace Act, 2013",
+        "url": "https://www.indiacode.nic.in/bitstream/123456789/2104/1/A2013-14.pdf"
+      },
+      "verify": true
+    },
+    {
+      "id": "aid-posh-15",
+      "workId": "posh",
+      "unitId": "posh-15",
+      "explanation": {
+        "en": "In determining the sum payable to the aggrieved woman under section 13(3)(ii), the Committee must have regard to five things: the mental trauma, pain, suffering and emotional distress caused; the loss in career opportunity due to the incident; medical expenses incurred for physical or psychiatric treatment; the income and financial status of the RESPONDENT; and the feasibility of payment in a lump sum or in instalments.",
+        "hi": "धारा 13(3)(ii) के अधीन व्यथित महिला को देय राशि निर्धारित करते समय समिति को पाँच बातों का ध्यान रखना होगा: कारित मानसिक आघात, पीड़ा, कष्ट और भावनात्मक व्यथा; घटना के कारण वृत्ति-अवसर की हानि; शारीरिक या मनोचिकित्सीय उपचार पर हुआ चिकित्सा-व्यय; प्रत्यर्थी की आय और वित्तीय स्थिति; तथा एकमुश्त अथवा किस्तों में भुगतान की व्यवहार्यता।"
+      },
+      "example": {
+        "en": "Clause (d) looks at the RESPONDENT’s income, not the complainant’s: the figure is set by what he can pay as well as by what she suffered, which is why clause (e) allows instalments.",
+        "hi": "खंड (घ) प्रत्यर्थी की आय देखता है, शिकायतकर्ता की नहीं: राशि इस पर भी तय होती है कि वह कितना दे सकता है और इस पर भी कि उसने क्या भोगा, और इसीलिए खंड (ङ) किस्तें अनुज्ञात करता है।"
+      },
+      "connects": [
+        "posh-13",
+        "posh-11"
+      ],
+      "misconception": {
+        "en": "\"Compensation is a fixed scale.\" There is none: five factors are weighed, and two of them are about the respondent’s capacity to pay rather than about the harm.",
+        "hi": "\"प्रतिकर की नियत दर होती है।\" कोई नहीं है: पाँच कारक तौले जाते हैं, और उनमें दो हानि के बारे में नहीं, प्रत्यर्थी की भुगतान-क्षमता के बारे में हैं।"
+      },
+      "examRelevance": {
+        "en": "The five clauses (a)-(e) are a straight list question.",
+        "hi": "पाँच खंड (क)-(ङ) सीधा सूची-प्रश्न हैं।"
+      },
+      "reviewed": true,
+      "reviewState": "approved",
+      "generationMeta": {
+        "promptVersion": "study-aid-v1",
+        "batchId": "library-aids-2026-09-03-posh",
+        "stageA": {
+          "index": 15,
+          "angle": "the five factors that fix the sum"
+        },
+        "critic": {
+          "verdict": "approve",
+          "reason": "Five factors in the section’s own order; the point about clauses (d) and (e) being about capacity rather than harm is what makes the list make sense."
+        },
+        "verify": {
+          "grounded": true,
+          "note": "Clauses (a)-(e) are verbatim."
+        },
+        "dedup": {
+          "maxScore": 0,
+          "against": null,
+          "verdict": "keep"
+        },
+        "groundingUnitIds": [
+          "posh-15"
+        ]
+      },
+      "source": {
+        "name": "Ministry of Women and Child Development — The Sexual Harassment of Women at Workplace Act, 2013",
+        "url": "https://www.indiacode.nic.in/bitstream/123456789/2104/1/A2013-14.pdf"
+      },
+      "verify": true
+    },
+    {
+      "id": "aid-posh-16",
+      "workId": "posh",
+      "unitId": "posh-16",
+      "explanation": {
+        "en": "NOTWITHSTANDING the Right to Information Act, 2005, the contents of a complaint, the identity and addresses of the aggrieved woman, the respondent and the witnesses, any information about the conciliation and inquiry proceedings, the Committee’s recommendations and the action taken shall not be published, communicated or made known to the public, press or media in any manner. The proviso permits information about the JUSTICE SECURED to be disseminated, without any name, address, identity or particular likely to lead to identification.",
+        "hi": "सूचना का अधिकार अधिनियम, 2005 के होते हुए भी, शिकायत की अंतर्वस्तु, व्यथित महिला, प्रत्यर्थी और साक्षियों की पहचान तथा पते, सुलह और जाँच कार्यवाहियों संबंधी कोई भी जानकारी, समिति की सिफारिशें तथा की गई कार्रवाई किसी भी रीति से जनता, प्रेस या मीडिया को प्रकाशित, संप्रेषित या ज्ञात नहीं कराई जाएगी। परंतुक यह अनुज्ञात करता है कि प्राप्त न्याय के विषय में जानकारी प्रसारित की जाए, बिना किसी नाम, पते, पहचान अथवा ऐसे किसी विवरण के जो पहचान करा सके।"
+      },
+      "example": {
+        "en": "An RTI application for the inquiry report in a PoSH case runs into this section, which is expressly \"notwithstanding\" the RTI Act. Section 22 of the RTI Act gives that Act overriding effect over other laws — and this section is a later, specific override in the other direction.",
+        "hi": "किसी पॉश मामले की जाँच रिपोर्ट हेतु आरटीआई आवेदन इसी धारा से टकराता है, जो स्पष्टतः आरटीआई अधिनियम \"के होते हुए भी\" है। आरटीआई अधिनियम की धारा 22 उस अधिनियम को अन्य विधियों पर अध्यारोही प्रभाव देती है — और यह धारा दूसरी दिशा में बाद का, विशिष्ट अध्यारोहण है।"
+      },
+      "connects": [
+        "posh-17",
+        "posh-13"
+      ],
+      "misconception": {
+        "en": "\"Nothing about a PoSH case can ever be published.\" The proviso expressly permits publicising the justice secured, so long as nothing identifying the woman or the witnesses goes with it.",
+        "hi": "\"पॉश मामले के बारे में कुछ भी कभी प्रकाशित नहीं किया जा सकता।\" परंतुक प्राप्त न्याय का प्रचार स्पष्टतः अनुज्ञात करता है, बशर्ते उसके साथ महिला या साक्षियों की पहचान कराने वाला कुछ न जाए।"
+      },
+      "examRelevance": {
+        "en": "This is the standard example of a statute overriding the RTI Act by an express non obstante clause.",
+        "hi": "यह उस अधिनियम का मानक उदाहरण है जो स्पष्ट अध्यारोही उपबंध द्वारा आरटीआई अधिनियम पर अध्यारोहण करता है।"
+      },
+      "reviewed": true,
+      "reviewState": "approved",
+      "generationMeta": {
+        "promptVersion": "study-aid-v1",
+        "batchId": "library-aids-2026-09-03-posh",
+        "stageA": {
+          "index": 16,
+          "angle": "the confidentiality clause that overrides the RTI Act"
+        },
+        "critic": {
+          "verdict": "approve",
+          "reason": "The RTI interaction is the reason this section is asked about, and both statutes are in this app’s own corpus so the comparison is checkable."
+        },
+        "verify": {
+          "grounded": true,
+          "note": "The non obstante opening naming the RTI Act, the list of protected items and the proviso are verbatim. RTI section 22 was read from data/rules/text/rti.json."
+        },
+        "dedup": {
+          "maxScore": 0,
+          "against": null,
+          "verdict": "keep"
+        },
+        "groundingUnitIds": [
+          "posh-16"
+        ]
+      },
+      "source": {
+        "name": "Ministry of Women and Child Development — The Sexual Harassment of Women at Workplace Act, 2013",
+        "url": "https://www.indiacode.nic.in/bitstream/123456789/2104/1/A2013-14.pdf"
+      },
+      "verify": true
+    },
+    {
+      "id": "aid-posh-17",
+      "workId": "posh",
+      "unitId": "posh-17",
+      "explanation": {
+        "en": "Where a person ENTRUSTED WITH THE DUTY to handle or deal with the complaint, the inquiry, the recommendations or the action contravenes section 16, he is liable to a penalty under the service rules applicable to him, or in the prescribed manner where none exist. The liability follows the entrustment: it reaches a Committee member, a dealing official and anyone else through whose hands the papers pass.",
+        "hi": "जहाँ शिकायत, जाँच, सिफारिशों अथवा की जाने वाली कार्रवाई को संभालने या उससे व्यवहार करने के कर्तव्य से न्यस्त कोई व्यक्ति धारा 16 का उल्लंघन करे, वहाँ वह उस पर लागू सेवा नियमों के अधीन शास्ति का भागी है, अथवा जहाँ ऐसे नियम न हों वहाँ विहित रीति से। दायित्व न्यास का अनुसरण करता है: यह समिति के सदस्य, कार्यकारी कर्मचारी तथा उस हर व्यक्ति तक पहुँचता है जिसके हाथ से कागज़ात गुज़रते हैं।"
+      },
+      "example": {
+        "en": "A dealing clerk who leaks the complaint to a colleague is inside this section even though he is not on the Committee: he is a person entrusted with the duty to handle it.",
+        "hi": "जो कार्यकारी लिपिक शिकायत किसी सहकर्मी को लीक करता है, वह इस धारा के भीतर है यद्यपि वह समिति में नहीं है: वह उसे संभालने के कर्तव्य से न्यस्त व्यक्ति है।"
+      },
+      "connects": [
+        "posh-16",
+        "posh-18"
+      ],
+      "misconception": {
+        "en": "\"Only Committee members are bound by confidentiality.\" Section 16 binds everyone; section 17 penalises anyone ENTRUSTED with handling the matter.",
+        "hi": "\"गोपनीयता से केवल समिति के सदस्य बँधे हैं।\" धारा 16 सबको बाँधती है; धारा 17 उस हर व्यक्ति को दंडित करती है जो विषय को संभालने के कर्तव्य से न्यस्त है।"
+      },
+      "reviewed": true,
+      "reviewState": "approved",
+      "generationMeta": {
+        "promptVersion": "study-aid-v1",
+        "batchId": "library-aids-2026-09-03-posh",
+        "stageA": {
+          "index": 17,
+          "angle": "who is liable for a breach of confidentiality"
+        },
+        "critic": {
+          "verdict": "approve",
+          "reason": "The breadth of \"entrusted with the duty to handle or deal with\" is the operative point and is quoted verbatim."
+        },
+        "verify": {
+          "grounded": true,
+          "note": "The section is one sentence and is quoted in substance, including \"entrusted with the duty to handle or deal with\"."
+        },
+        "dedup": {
+          "maxScore": 0,
+          "against": null,
+          "verdict": "keep"
+        },
+        "groundingUnitIds": [
+          "posh-17"
+        ]
+      },
+      "source": {
+        "name": "Ministry of Women and Child Development — The Sexual Harassment of Women at Workplace Act, 2013",
+        "url": "https://www.indiacode.nic.in/bitstream/123456789/2104/1/A2013-14.pdf"
+      },
+      "verify": true
+    },
+    {
+      "id": "aid-posh-18",
+      "workId": "posh",
+      "unitId": "posh-18",
+      "explanation": {
+        "en": "An appeal lies against a section 13(2) recommendation that the allegation was not proved, against a section 13(3)(i) or (ii) recommendation, against a section 14(1) or (2) recommendation about a false complaint or false evidence, against a section 17 penalty, and against NON-IMPLEMENTATION of a recommendation. It goes to the court or tribunal named in the service rules applicable to the person, or in the prescribed manner where none exist, and must be preferred within NINETY DAYS of the recommendations.",
+        "hi": "अपील इन के विरुद्ध होती है: धारा 13(2) की उस सिफारिश के विरुद्ध कि अभिकथन सिद्ध नहीं हुआ; धारा 13(3)(i) या (ii) की सिफारिश के विरुद्ध; मिथ्या शिकायत या मिथ्या साक्ष्य संबंधी धारा 14(1) या (2) की सिफारिश के विरुद्ध; धारा 17 की शास्ति के विरुद्ध; तथा सिफारिश के कार्यान्वित न होने के विरुद्ध। वह उस न्यायालय या अधिकरण को जाती है जो व्यक्ति पर लागू सेवा नियमों में नामित है, अथवा जहाँ ऐसे नियम न हों वहाँ विहित रीति से, और सिफारिशों से नब्बे दिन के भीतर की जानी चाहिए।"
+      },
+      "example": {
+        "en": "NON-IMPLEMENTATION is itself appealable: an aggrieved woman whose employer has done nothing within the sixty days section 13(4) allows has an appeal without waiting further.",
+        "hi": "कार्यान्वयन न होना स्वयं अपील-योग्य है: जिस व्यथित महिला के नियोजक ने धारा 13(4) के साठ दिन में कुछ नहीं किया, उसके पास और प्रतीक्षा किए बिना अपील है।"
+      },
+      "connects": [
+        "posh-13",
+        "posh-14",
+        "posh-17"
+      ],
+      "misconception": {
+        "en": "\"Only the respondent can appeal.\" Any person aggrieved may — which includes the complainant, against a \"not proved\" finding under section 13(2).",
+        "hi": "\"केवल प्रत्यर्थी अपील कर सकता है।\" कोई भी व्यथित व्यक्ति कर सकता है — जिसमें धारा 13(2) के \"सिद्ध नहीं\" निष्कर्ष के विरुद्ध शिकायतकर्ता भी है।"
+      },
+      "examRelevance": {
+        "en": "Ninety days from the recommendations, and non-implementation as an appealable ground, are the two facts.",
+        "hi": "सिफारिशों से नब्बे दिन, तथा कार्यान्वयन न होना अपील का आधार — यही दो तथ्य हैं।"
+      },
+      "reviewed": true,
+      "reviewState": "approved",
+      "generationMeta": {
+        "promptVersion": "study-aid-v1",
+        "batchId": "library-aids-2026-09-03-posh",
+        "stageA": {
+          "index": 18,
+          "angle": "ninety days, and what may be appealed"
+        },
+        "critic": {
+          "verdict": "approve",
+          "reason": "The list of appealable outcomes and the ninety-day limit; the non-implementation ground is the one readers do not expect."
+        },
+        "verify": {
+          "grounded": true,
+          "note": "Sub-sections (1) and (2) are verbatim; the sixty-day figure is quoted from section 13(4)."
+        },
+        "dedup": {
+          "maxScore": 0,
+          "against": null,
+          "verdict": "keep"
+        },
+        "groundingUnitIds": [
+          "posh-18",
+          "posh-13"
+        ]
+      },
+      "source": {
+        "name": "Ministry of Women and Child Development — The Sexual Harassment of Women at Workplace Act, 2013",
+        "url": "https://www.indiacode.nic.in/bitstream/123456789/2104/1/A2013-14.pdf"
+      },
+      "verify": true
+    },
+    {
+      "id": "aid-posh-19",
+      "workId": "posh",
+      "unitId": "posh-19",
+      "explanation": {
+        "en": "Every employer must provide a safe working environment including safety from persons coming into contact at the workplace; DISPLAY at a conspicuous place the penal consequences of sexual harassment and the order constituting the Internal Committee; organise workshops and awareness programmes at regular intervals and orientation for Committee members; provide facilities and information to the Committee; assist in securing the attendance of the respondent and witnesses; assist the woman if she chooses to file a criminal complaint; cause action to be initiated against the perpetrator even where he is not an employee; TREAT SEXUAL HARASSMENT AS A MISCONDUCT under the service rules; and monitor timely submission of the Committee’s reports.",
+        "hi": "प्रत्येक नियोजक को सुरक्षित कार्य-वातावरण देना होगा जिसमें कार्यस्थल पर संपर्क में आने वाले व्यक्तियों से सुरक्षा भी हो; किसी सहज दृश्य स्थान पर लैंगिक उत्पीड़न के दंडात्मक परिणाम तथा आंतरिक समिति के गठन का आदेश प्रदर्शित करना होगा; नियमित अंतराल पर कार्यशालाएँ और जागरूकता कार्यक्रम तथा समिति के सदस्यों हेतु अभिमुखीकरण आयोजित करने होंगे; समिति को सुविधाएँ और जानकारी देनी होगी; प्रत्यर्थी और साक्षियों की उपस्थिति सुनिश्चित करने में सहायता करनी होगी; यदि महिला आपराधिक शिकायत करना चाहे तो सहायता देनी होगी; अपराधी के विरुद्ध कार्रवाई आरंभ करानी होगी, चाहे वह कर्मचारी न भी हो; सेवा नियमों के अधीन लैंगिक उत्पीड़न को कदाचार मानना होगा; तथा समिति की रिपोर्टों के समय पर प्रस्तुत होने की निगरानी करनी होगी।"
+      },
+      "example": {
+        "en": "Clause (i) is the hinge between this Act and the service rules: it is the employer’s duty to TREAT sexual harassment as a misconduct, which is what lets a CCS (CCA) Rules proceeding follow a PoSH finding.",
+        "hi": "खंड (i) इस अधिनियम और सेवा नियमों के बीच की धुरी है: लैंगिक उत्पीड़न को कदाचार मानना नियोजक का कर्तव्य है, और यही सीसीएस (सीसीए) नियमों की कार्यवाही को पॉश निष्कर्ष के बाद संभव बनाता है।"
+      },
+      "connects": [
+        "posh-4",
+        "posh-26",
+        "posh-3"
+      ],
+      "misconception": {
+        "en": "\"The employer’s job is to constitute the Committee and stand back.\" Ten distinct duties are listed, and failing several of them is punishable under section 26.",
+        "hi": "\"नियोजक का काम समिति गठित करके अलग हो जाना है।\" दस पृथक् कर्तव्य सूचीबद्ध हैं, और उनमें कई का पालन न करना धारा 26 के अधीन दंडनीय है।"
+      },
+      "examRelevance": {
+        "en": "The display duty in clause (b) and the treat-as-misconduct duty in clause (i) are the two most-asked clauses.",
+        "hi": "खंड (ख) का प्रदर्शन-कर्तव्य तथा खंड (i) का कदाचार-मानने का कर्तव्य — यही दो खंड सर्वाधिक पूछे जाते हैं।"
+      },
+      "reviewed": true,
+      "reviewState": "approved",
+      "generationMeta": {
+        "promptVersion": "study-aid-v1",
+        "batchId": "library-aids-2026-09-03-posh",
+        "stageA": {
+          "index": 19,
+          "angle": "ten duties, and the two that create liability under other laws"
+        },
+        "critic": {
+          "verdict": "approve",
+          "reason": "All ten duties in the section’s own order, with the two that connect to other statutes marked."
+        },
+        "verify": {
+          "grounded": true,
+          "note": "Clauses (a)-(j) are verbatim."
+        },
+        "dedup": {
+          "maxScore": 0,
+          "against": null,
+          "verdict": "keep"
+        },
+        "groundingUnitIds": [
+          "posh-19"
+        ]
+      },
+      "source": {
+        "name": "Ministry of Women and Child Development — The Sexual Harassment of Women at Workplace Act, 2013",
+        "url": "https://www.indiacode.nic.in/bitstream/123456789/2104/1/A2013-14.pdf"
+      },
+      "verify": true
+    },
+    {
+      "id": "aid-posh-20",
+      "workId": "posh",
+      "unitId": "posh-20",
+      "explanation": {
+        "en": "The District Officer has exactly two duties under this section: to monitor the timely submission of the report furnished by the Local Committee, and to take such measures as may be necessary for engaging non-governmental organisations to create awareness about sexual harassment and women’s rights. His other functions come from sections 5, 6, 8, 13 and 21, not from here.",
+        "hi": "इस धारा के अधीन जिला अधिकारी के ठीक दो कर्तव्य हैं: स्थानीय समिति द्वारा दी गई रिपोर्ट के समय पर प्रस्तुत होने की निगरानी करना, तथा लैंगिक उत्पीड़न और महिलाओं के अधिकारों के विषय में जागरूकता सृजित करने हेतु गैर-सरकारी संगठनों को जोड़ने के लिए आवश्यक उपाय करना। उसके अन्य कृत्य धाराओं 5, 6, 8, 13 और 21 से आते हैं, यहाँ से नहीं।"
+      },
+      "example": {
+        "en": "Constituting the Local Committee is a section 6 function, and acting on its recommendation within sixty days is a section 13(4) function. This section adds monitoring and awareness on top of both.",
+        "hi": "स्थानीय समिति गठित करना धारा 6 का कृत्य है, और उसकी सिफारिश पर साठ दिन में कार्रवाई करना धारा 13(4) का। यह धारा दोनों के ऊपर निगरानी और जागरूकता जोड़ती है।"
+      },
+      "connects": [
+        "posh-6",
+        "posh-13",
+        "posh-21"
+      ],
+      "misconception": {
+        "en": "\"Section 20 is the District Officer’s full job description.\" It is two duties; the rest of his role is scattered across five other sections.",
+        "hi": "\"धारा 20 जिला अधिकारी का पूरा कार्य-विवरण है।\" यह दो कर्तव्य हैं; उसकी शेष भूमिका पाँच अन्य धाराओं में बिखरी है।"
+      },
+      "reviewed": true,
+      "reviewState": "approved",
+      "generationMeta": {
+        "promptVersion": "study-aid-v1",
+        "batchId": "library-aids-2026-09-03-posh",
+        "stageA": {
+          "index": 20,
+          "angle": "the District Officer’s two duties"
+        },
+        "critic": {
+          "verdict": "approve",
+          "reason": "Short section; the aid’s value is naming where the rest of the District Officer’s functions actually live, each verified in this corpus."
+        },
+        "verify": {
+          "grounded": true,
+          "note": "Clauses (a) and (b) are verbatim; the other functions were read from sections 5, 6, 8, 13 and 21 of this same corpus."
+        },
+        "dedup": {
+          "maxScore": 0,
+          "against": null,
+          "verdict": "keep"
+        },
+        "groundingUnitIds": [
+          "posh-20"
+        ]
+      },
+      "source": {
+        "name": "Ministry of Women and Child Development — The Sexual Harassment of Women at Workplace Act, 2013",
+        "url": "https://www.indiacode.nic.in/bitstream/123456789/2104/1/A2013-14.pdf"
+      },
+      "verify": true
+    },
+    {
+      "id": "aid-posh-21",
+      "workId": "posh",
+      "unitId": "posh-21",
+      "explanation": {
+        "en": "The Internal Committee or the Local Committee prepares an annual report in each CALENDAR year, in the prescribed form and at the prescribed time, and submits it to the employer AND the District Officer. The District Officer then forwards a brief report on the annual reports he has received to the State Government.",
+        "hi": "आंतरिक समिति अथवा स्थानीय समिति प्रत्येक कैलेंडर वर्ष में विहित प्ररूप में और विहित समय पर वार्षिक रिपोर्ट तैयार करती है, और उसे नियोजक तथा जिला अधिकारी दोनों को प्रस्तुत करती है। जिला अधिकारी फिर प्राप्त वार्षिक रिपोर्टों पर संक्षिप्त रिपोर्ट राज्य सरकार को अग्रेषित करता है।"
+      },
+      "example": {
+        "en": "An Internal Committee that reports only to its own employer has not complied: sub-section (1) names the employer AND the District Officer, which is what makes the district-level aggregation in sub-section (2) possible.",
+        "hi": "जो आंतरिक समिति केवल अपने नियोजक को रिपोर्ट देती है, उसने अनुपालन नहीं किया: उप-धारा (1) नियोजक तथा जिला अधिकारी दोनों को नामित करती है, और यही उप-धारा (2) के जिला-स्तरीय समेकन को संभव बनाता है।"
+      },
+      "connects": [
+        "posh-22",
+        "posh-23",
+        "posh-20"
+      ],
+      "misconception": {
+        "en": "\"The report goes to the employer.\" It goes to both the employer and the District Officer, which is the point of having a district-level picture at all.",
+        "hi": "\"रिपोर्ट नियोजक को जाती है।\" वह नियोजक और जिला अधिकारी दोनों को जाती है, और जिला-स्तरीय चित्र होने का यही प्रयोजन है।"
+      },
+      "reviewed": true,
+      "reviewState": "approved",
+      "generationMeta": {
+        "promptVersion": "study-aid-v1",
+        "batchId": "library-aids-2026-09-03-posh",
+        "stageA": {
+          "index": 21,
+          "angle": "the Committee’s annual report, and where it goes"
+        },
+        "critic": {
+          "verdict": "approve",
+          "reason": "The dual addressee is the only operative content and is the compliance point."
+        },
+        "verify": {
+          "grounded": true,
+          "note": "Sub-sections (1) and (2) are verbatim, including \"calendar year\" and \"to the employer and the District Officer\"."
+        },
+        "dedup": {
+          "maxScore": 0,
+          "against": null,
+          "verdict": "keep"
+        },
+        "groundingUnitIds": [
+          "posh-21"
+        ]
+      },
+      "source": {
+        "name": "Ministry of Women and Child Development — The Sexual Harassment of Women at Workplace Act, 2013",
+        "url": "https://www.indiacode.nic.in/bitstream/123456789/2104/1/A2013-14.pdf"
+      },
+      "verify": true
+    },
+    {
+      "id": "aid-posh-22",
+      "workId": "posh",
+      "unitId": "posh-22",
+      "explanation": {
+        "en": "The employer must include in its organisation’s annual report the number of cases filed under this Act and their disposal — or, where no such annual report is required to be prepared, intimate that number to the District Officer. It is a public-facing disclosure obligation and it is separate from the Committee’s own report under section 21.",
+        "hi": "नियोजक को अपने संगठन की वार्षिक रिपोर्ट में इस अधिनियम के अधीन दाखिल मामलों की संख्या तथा उनका निपटान सम्मिलित करना होगा — अथवा जहाँ ऐसी वार्षिक रिपोर्ट तैयार करना अपेक्षित न हो, वहाँ वह संख्या जिला अधिकारी को सूचित करनी होगी। यह जनता के सामने आने वाला प्रकटन-दायित्व है और धारा 21 की समिति की अपनी रिपोर्ट से पृथक् है।"
+      },
+      "example": {
+        "en": "A Ministry publishing an annual report must carry the number of PoSH cases and their disposal in it. Failing to take action under section 22 is one of the failures section 26 makes punishable with a fine.",
+        "hi": "वार्षिक रिपोर्ट प्रकाशित करने वाले मंत्रालय को उसमें पॉश मामलों की संख्या और उनका निपटान देना होगा। धारा 22 के अधीन कार्रवाई न करना उन विफलताओं में से एक है जिन्हें धारा 26 जुर्माने से दंडनीय बनाती है।"
+      },
+      "connects": [
+        "posh-21",
+        "posh-26"
+      ],
+      "misconception": {
+        "en": "\"Section 21 and section 22 are the same report.\" They are not: section 21 is the Committee’s report to the employer and District Officer; section 22 is the employer’s disclosure in its own organisational annual report.",
+        "hi": "\"धारा 21 और धारा 22 एक ही रिपोर्ट हैं।\" नहीं: धारा 21 समिति की रिपोर्ट है जो नियोजक और जिला अधिकारी को जाती है; धारा 22 नियोजक का प्रकटन है जो उसकी अपनी संगठनात्मक वार्षिक रिपोर्ट में जाता है।"
+      },
+      "reviewed": true,
+      "reviewState": "approved",
+      "generationMeta": {
+        "promptVersion": "study-aid-v1",
+        "batchId": "library-aids-2026-09-03-posh",
+        "stageA": {
+          "index": 22,
+          "angle": "the number that has to appear in the organisation’s own annual report"
+        },
+        "critic": {
+          "verdict": "approve",
+          "reason": "The two-reports distinction is real and the section 26 consequence is what gives it teeth."
+        },
+        "verify": {
+          "grounded": true,
+          "note": "The section is one sentence and is quoted in substance; section 26(1)(b) names section 22 expressly."
+        },
+        "dedup": {
+          "maxScore": 0,
+          "against": null,
+          "verdict": "keep"
+        },
+        "groundingUnitIds": [
+          "posh-22",
+          "posh-26"
+        ]
+      },
+      "source": {
+        "name": "Ministry of Women and Child Development — The Sexual Harassment of Women at Workplace Act, 2013",
+        "url": "https://www.indiacode.nic.in/bitstream/123456789/2104/1/A2013-14.pdf"
+      },
+      "verify": true
+    },
+    {
+      "id": "aid-posh-23",
+      "workId": "posh",
+      "unitId": "posh-23",
+      "explanation": {
+        "en": "The appropriate Government shall monitor the implementation of this Act and maintain data on the number of cases filed and disposed of in respect of ALL cases of sexual harassment at workplace. Read with sections 21 and 22, it completes the reporting chain: Committee to employer and District Officer, District Officer to State Government, and appropriate Government keeping the aggregate.",
+        "hi": "समुचित सरकार इस अधिनियम के कार्यान्वयन की निगरानी करेगी और कार्यस्थल पर लैंगिक उत्पीड़न के सभी मामलों के संबंध में दाखिल तथा निपटाए गए मामलों की संख्या का आँकड़ा रखेगी। धाराओं 21 और 22 के साथ पढ़ने पर यह रिपोर्टिंग श्रृंखला पूरी करती है: समिति से नियोजक और जिला अधिकारी तक, जिला अधिकारी से राज्य सरकार तक, और समुचित सरकार के पास समेकित आँकड़ा।"
+      },
+      "example": {
+        "en": "Which Government is the \"appropriate Government\" for a particular workplace is decided by section 2(b) — the Centre for a workplace it establishes, owns, controls or substantially finances, and the State for any other within its territory.",
+        "hi": "किसी विशेष कार्यस्थल के लिए \"समुचित सरकार\" कौन है, यह धारा 2(ख) तय करती है — उस कार्यस्थल के लिए केंद्र जिसे वह स्थापित, स्वामित्वाधीन, नियंत्रित अथवा सारभूत रूप से वित्तपोषित करता है, और अपने राज्यक्षेत्र के भीतर शेष के लिए राज्य।"
+      },
+      "connects": [
+        "posh-21",
+        "posh-22",
+        "posh-2"
+      ],
+      "misconception": {
+        "en": "\"The Central Government monitors everything.\" The duty is on the APPROPRIATE Government, and section 2(b) decides which one that is for a given workplace.",
+        "hi": "\"निगरानी केंद्र सरकार करती है।\" कर्तव्य समुचित सरकार पर है, और किसी दिए गए कार्यस्थल के लिए वह कौन है, यह धारा 2(ख) तय करती है।"
+      },
+      "reviewed": true,
+      "reviewState": "approved",
+      "generationMeta": {
+        "promptVersion": "study-aid-v1",
+        "batchId": "library-aids-2026-09-03-posh",
+        "stageA": {
+          "index": 23,
+          "angle": "monitoring and data at the level of the appropriate Government"
+        },
+        "critic": {
+          "verdict": "approve",
+          "reason": "One sentence; its value is closing the reporting chain and pointing at the section 2(b) definition that decides who owes the duty."
+        },
+        "verify": {
+          "grounded": true,
+          "note": "The section is one sentence and is quoted in substance; the \"appropriate Government\" definition is quoted from section 2(b)."
+        },
+        "dedup": {
+          "maxScore": 0,
+          "against": null,
+          "verdict": "keep"
+        },
+        "groundingUnitIds": [
+          "posh-23",
+          "posh-2"
+        ]
+      },
+      "source": {
+        "name": "Ministry of Women and Child Development — The Sexual Harassment of Women at Workplace Act, 2013",
+        "url": "https://www.indiacode.nic.in/bitstream/123456789/2104/1/A2013-14.pdf"
+      },
+      "verify": true
+    },
+    {
+      "id": "aid-posh-24",
+      "workId": "posh",
+      "unitId": "posh-24",
+      "explanation": {
+        "en": "The appropriate Government MAY, subject to the availability of financial and other resources, develop information, education, communication and training materials and organise awareness programmes to advance public understanding of the Act, and formulate orientation and training programmes for members of the Local Committee. Note the split: this section trains the LOCAL Committee’s members; orientation for INTERNAL Committee members is the employer’s duty under section 19(c).",
+        "hi": "समुचित सरकार, वित्तीय और अन्य संसाधनों की उपलब्धता के अधीन, सूचना, शिक्षा, संचार और प्रशिक्षण सामग्री विकसित कर सकती है तथा अधिनियम के विषय में जन-समझ बढ़ाने हेतु जागरूकता कार्यक्रम आयोजित कर सकती है, और स्थानीय समिति के सदस्यों हेतु अभिमुखीकरण तथा प्रशिक्षण कार्यक्रम बना सकती है। विभाजन पर ध्यान दें: यह धारा स्थानीय समिति के सदस्यों को प्रशिक्षित करती है; आंतरिक समिति के सदस्यों का अभिमुखीकरण धारा 19(ग) के अधीन नियोजक का कर्तव्य है।"
+      },
+      "example": {
+        "en": "An employer cannot point at section 24 to excuse not running orientation for its own Internal Committee: section 19(c) puts that squarely on the employer, and it is not qualified by resources.",
+        "hi": "नियोजक अपनी आंतरिक समिति का अभिमुखीकरण न कराने के लिए धारा 24 की ओर संकेत नहीं कर सकता: धारा 19(ग) उसे सीधे नियोजक पर डालती है, और वह संसाधनों की शर्त से बँधी नहीं है।"
+      },
+      "connects": [
+        "posh-19",
+        "posh-7"
+      ],
+      "misconception": {
+        "en": "\"Committee training is the Government’s job.\" Only for the Local Committee. Internal Committee orientation is the employer’s, under section 19(c).",
+        "hi": "\"समिति का प्रशिक्षण सरकार का काम है।\" केवल स्थानीय समिति का। आंतरिक समिति का अभिमुखीकरण धारा 19(ग) के अधीन नियोजक का है।"
+      },
+      "reviewed": true,
+      "reviewState": "approved",
+      "generationMeta": {
+        "promptVersion": "study-aid-v1",
+        "batchId": "library-aids-2026-09-03-posh",
+        "stageA": {
+          "index": 24,
+          "angle": "a publicity duty, subject to resources"
+        },
+        "critic": {
+          "verdict": "approve",
+          "reason": "The Local-versus-Internal training split is the operative content and both halves are checkable in this corpus."
+        },
+        "verify": {
+          "grounded": true,
+          "note": "Clauses (a) and (b) with the resources qualification are verbatim; section 19(c) was read from section 19."
+        },
+        "dedup": {
+          "maxScore": 0,
+          "against": null,
+          "verdict": "keep"
+        },
+        "groundingUnitIds": [
+          "posh-24",
+          "posh-19"
+        ]
+      },
+      "source": {
+        "name": "Ministry of Women and Child Development — The Sexual Harassment of Women at Workplace Act, 2013",
+        "url": "https://www.indiacode.nic.in/bitstream/123456789/2104/1/A2013-14.pdf"
+      },
+      "verify": true
+    },
+    {
+      "id": "aid-posh-25",
+      "workId": "posh",
+      "unitId": "posh-25",
+      "explanation": {
+        "en": "The appropriate Government, satisfied that it is necessary in the public interest or in the interest of women employees, may BY ORDER IN WRITING call upon an employer or District Officer to furnish information relating to sexual harassment, or authorise an officer to inspect the records and the workplace and report within a specified period. Sub-section (2) makes it a duty: every employer and District Officer SHALL produce on demand all information, records and documents in his custody bearing on the subject of the inspection.",
+        "hi": "समुचित सरकार, यह संतुष्ट होने पर कि लोकहित में अथवा महिला कर्मचारियों के हित में ऐसा आवश्यक है, लिखित आदेश द्वारा किसी नियोजक या जिला अधिकारी से लैंगिक उत्पीड़न संबंधी जानकारी माँग सकती है, अथवा किसी अधिकारी को अभिलेखों और कार्यस्थल के निरीक्षण तथा विनिर्दिष्ट अवधि में रिपोर्ट देने हेतु प्राधिकृत कर सकती है। उप-धारा (2) इसे कर्तव्य बनाती है: प्रत्येक नियोजक और जिला अधिकारी माँगे जाने पर अपनी अभिरक्षा की वह समस्त जानकारी, अभिलेख और दस्तावेज़ पेश करेगा जिनका निरीक्षण के विषय से संबंध हो।"
+      },
+      "example": {
+        "en": "The power requires an ORDER IN WRITING and a recorded satisfaction of public interest or the interest of women employees; an informal request for a Committee’s file is not this power being exercised.",
+        "hi": "इस शक्ति के लिए लिखित आदेश तथा लोकहित या महिला कर्मचारियों के हित की अभिलिखित संतुष्टि अपेक्षित है; समिति की फ़ाइल हेतु अनौपचारिक अनुरोध इस शक्ति का प्रयोग नहीं है।"
+      },
+      "connects": [
+        "posh-16",
+        "posh-23"
+      ],
+      "misconception": {
+        "en": "\"Section 16 confidentiality blocks an inspection.\" Section 16 bars publication to the public, press and media; section 25 is an official inspection power exercised by written order, and section 16 does not name it.",
+        "hi": "\"धारा 16 की गोपनीयता निरीक्षण रोक देती है।\" धारा 16 जनता, प्रेस और मीडिया को प्रकाशन वर्जित करती है; धारा 25 लिखित आदेश से प्रयुक्त शासकीय निरीक्षण-शक्ति है, और धारा 16 उसका उल्लेख नहीं करती।"
+      },
+      "reviewed": true,
+      "reviewState": "approved",
+      "generationMeta": {
+        "promptVersion": "study-aid-v1",
+        "batchId": "library-aids-2026-09-03-posh",
+        "stageA": {
+          "index": 25,
+          "angle": "inspection, and the duty to produce records on demand"
+        },
+        "critic": {
+          "verdict": "approve",
+          "reason": "The written-order requirement and the production duty are the operative content; the section 16 point is stated as a reading of what that section actually bars."
+        },
+        "verify": {
+          "grounded": true,
+          "note": "Sub-sections (1)(a)-(b) and (2) are verbatim; section 16’s list of prohibited recipients was read from that section."
+        },
+        "dedup": {
+          "maxScore": 0,
+          "against": null,
+          "verdict": "keep"
+        },
+        "groundingUnitIds": [
+          "posh-25",
+          "posh-16"
+        ]
+      },
+      "source": {
+        "name": "Ministry of Women and Child Development — The Sexual Harassment of Women at Workplace Act, 2013",
+        "url": "https://www.indiacode.nic.in/bitstream/123456789/2104/1/A2013-14.pdf"
+      },
+      "verify": true
+    },
+    {
+      "id": "aid-posh-26",
+      "workId": "posh",
+      "unitId": "posh-26",
+      "explanation": {
+        "en": "An employer who fails to constitute an Internal Committee under section 4(1), fails to take action under sections 13, 14 and 22, or contravenes, attempts to contravene or abets contravention of any other provision or rule, is punishable with FINE WHICH MAY EXTEND TO FIFTY THOUSAND RUPEES. On a subsequent conviction for the same offence he is liable to TWICE the punishment that might have been imposed on a first conviction, subject to the maximum for that offence, and to cancellation or non-renewal of the licence, approval or registration required for his business.",
+        "hi": "जो नियोजक धारा 4(1) के अधीन आंतरिक समिति गठित करने में विफल रहे, धाराओं 13, 14 और 22 के अधीन कार्रवाई करने में विफल रहे, अथवा किसी अन्य उपबंध या नियम का उल्लंघन करे, उल्लंघन का प्रयत्न करे या उसका दुष्प्रेरण करे, वह पचास हज़ार रुपये तक के जुर्माने से दंडनीय है। उसी अपराध की पश्चात्वर्ती दोषसिद्धि पर वह उस दंड के दुगुने का भागी है जो प्रथम दोषसिद्धि पर अधिरोपित किया जा सकता था, उस अपराध की अधिकतम सीमा के अधीन, तथा अपने कारोबार हेतु अपेक्षित अनुज्ञप्ति, अनुमोदन या रजिस्ट्रीकरण के रद्द किए जाने या नवीकरण न होने का भी।"
+      },
+      "example": {
+        "en": "Not constituting the Internal Committee is itself the offence — no complaint and no incident is needed. That is what makes section 4(1) compliance auditable rather than aspirational.",
+        "hi": "आंतरिक समिति गठित न करना स्वयं अपराध है — किसी शिकायत या घटना की आवश्यकता नहीं। यही धारा 4(1) के अनुपालन को आकांक्षा नहीं, लेखा-परीक्षण-योग्य बनाता है।"
+      },
+      "connects": [
+        "posh-4",
+        "posh-19",
+        "posh-27"
+      ],
+      "misconception": {
+        "en": "\"A penalty needs a proved incident.\" Sub-section (1)(a) is a standalone failure to constitute the Committee, and the fine follows from that alone.",
+        "hi": "\"शास्ति के लिए सिद्ध घटना चाहिए।\" उप-धारा (1)(क) समिति गठित न करने की स्वतंत्र विफलता है, और जुर्माना केवल उसी से आता है।"
+      },
+      "examRelevance": {
+        "en": "Fifty thousand rupees, doubling on a subsequent conviction, and licence cancellation are the three consequences.",
+        "hi": "पचास हज़ार रुपये, पश्चात्वर्ती दोषसिद्धि पर दुगुना, तथा अनुज्ञप्ति का रद्दकरण — यही तीन परिणाम हैं।"
+      },
+      "reviewed": true,
+      "reviewState": "approved",
+      "generationMeta": {
+        "promptVersion": "study-aid-v1",
+        "batchId": "library-aids-2026-09-03-posh",
+        "stageA": {
+          "index": 26,
+          "angle": "fifty thousand rupees, and what a second conviction costs"
+        },
+        "critic": {
+          "verdict": "approve",
+          "reason": "The figure is in the Act itself, so quoting it is safe; the standalone nature of clause (1)(a) is the compliance point."
+        },
+        "verify": {
+          "grounded": true,
+          "note": "Sub-sections (1)(a)-(c) and (2)(i)-(ii) with the proviso are verbatim, including \"fifty thousand rupees\"."
+        },
+        "dedup": {
+          "maxScore": 0,
+          "against": null,
+          "verdict": "keep"
+        },
+        "groundingUnitIds": [
+          "posh-26"
+        ]
+      },
+      "source": {
+        "name": "Ministry of Women and Child Development — The Sexual Harassment of Women at Workplace Act, 2013",
+        "url": "https://www.indiacode.nic.in/bitstream/123456789/2104/1/A2013-14.pdf"
+      },
+      "verify": true
+    },
+    {
+      "id": "aid-posh-27",
+      "workId": "posh",
+      "unitId": "posh-27",
+      "explanation": {
+        "en": "No court may take cognizance of an offence under this Act except on a complaint made by the AGGRIEVED WOMAN or a person authorised by the Internal Committee or Local Committee in that behalf. No court inferior to a Metropolitan Magistrate or a Judicial Magistrate of the first class may try it. And every offence under this Act is NON-COGNIZABLE.",
+        "hi": "कोई न्यायालय इस अधिनियम के अपराध का संज्ञान नहीं लेगा सिवाय व्यथित महिला द्वारा अथवा आंतरिक समिति या स्थानीय समिति द्वारा इस निमित्त प्राधिकृत व्यक्ति द्वारा की गई परिवाद पर। महानगर मजिस्ट्रेट अथवा प्रथम श्रेणी न्यायिक मजिस्ट्रेट से अवर कोई न्यायालय उसका विचारण नहीं करेगा। और इस अधिनियम का प्रत्येक अपराध असंज्ञेय है।"
+      },
+      "example": {
+        "en": "Non-cognizable means the police may not register a case and investigate on their own motion for a section 26 offence. The route is a complaint by the aggrieved woman or by a person the Committee authorises.",
+        "hi": "असंज्ञेय होने का अर्थ है कि धारा 26 के अपराध में पुलिस स्वप्रेरणा से मामला दर्ज करके अनुसंधान नहीं कर सकती। मार्ग व्यथित महिला की, अथवा समिति द्वारा प्राधिकृत व्यक्ति की, परिवाद है।"
+      },
+      "connects": [
+        "posh-26",
+        "posh-11"
+      ],
+      "misconception": {
+        "en": "\"Any person can prosecute an employer who has no Committee.\" Only the aggrieved woman, or someone the Committee authorises, can set the court in motion.",
+        "hi": "\"जिस नियोजक की समिति नहीं है, उस पर कोई भी अभियोजन चला सकता है।\" न्यायालय को केवल व्यथित महिला, अथवा समिति द्वारा प्राधिकृत व्यक्ति ही गति दे सकता है।"
+      },
+      "examRelevance": {
+        "en": "Non-cognizable, first-class Magistrate as the minimum court, and the restricted right to complain are the three facts.",
+        "hi": "असंज्ञेय, न्यूनतम न्यायालय प्रथम श्रेणी मजिस्ट्रेट, तथा परिवाद का सीमित अधिकार — यही तीन तथ्य हैं।"
+      },
+      "reviewed": true,
+      "reviewState": "approved",
+      "generationMeta": {
+        "promptVersion": "study-aid-v1",
+        "batchId": "library-aids-2026-09-03-posh",
+        "stageA": {
+          "index": 27,
+          "angle": "who may complain to a court, and what kind of offence it is"
+        },
+        "critic": {
+          "verdict": "approve",
+          "reason": "Three short sub-sections, each a separate procedural fact; the non-cognizable point is what decides how a case actually starts."
+        },
+        "verify": {
+          "grounded": true,
+          "note": "Sub-sections (1), (2) and (3) are verbatim."
+        },
+        "dedup": {
+          "maxScore": 0,
+          "against": null,
+          "verdict": "keep"
+        },
+        "groundingUnitIds": [
+          "posh-27"
+        ]
+      },
+      "source": {
+        "name": "Ministry of Women and Child Development — The Sexual Harassment of Women at Workplace Act, 2013",
+        "url": "https://www.indiacode.nic.in/bitstream/123456789/2104/1/A2013-14.pdf"
+      },
+      "verify": true
+    },
+    {
+      "id": "aid-posh-28",
+      "workId": "posh",
+      "unitId": "posh-28",
+      "explanation": {
+        "en": "The provisions of this Act are IN ADDITION TO and NOT IN DEROGATION OF any other law in force. That is why a PoSH inquiry and a criminal complaint can run alongside each other, and why a Government servant faces both a Committee inquiry under this Act and disciplinary proceedings under the CCS (CCA) Rules, 1965 for the same conduct.",
+        "hi": "इस अधिनियम के उपबंध प्रवृत्त किसी अन्य विधि के अतिरिक्त हैं, उसका अल्पीकरण करने वाले नहीं। इसीलिए पॉश जाँच और आपराधिक परिवाद साथ-साथ चल सकते हैं, और इसीलिए सरकारी कर्मचारी उसी आचरण के लिए इस अधिनियम की समिति-जाँच और सीसीएस (सीसीए) नियम, 1965 की अनुशासनिक कार्यवाही दोनों का सामना करता है।"
+      },
+      "example": {
+        "en": "Section 19(g) and (h) assume exactly this: the employer must assist the woman in filing a criminal complaint and cause action to be initiated under the general criminal law, in addition to whatever this Act produces.",
+        "hi": "धारा 19(छ) और (ज) ठीक यही मानकर चलती हैं: नियोजक को आपराधिक शिकायत दाखिल करने में महिला की सहायता करनी होगी और सामान्य दंड विधि के अधीन कार्रवाई आरंभ करानी होगी, इस अधिनियम से जो कुछ निकले उसके अतिरिक्त।"
+      },
+      "connects": [
+        "posh-19",
+        "posh-11",
+        "posh-16"
+      ],
+      "misconception": {
+        "en": "\"Choosing the PoSH route gives up the criminal one.\" Section 28 says the Act is in addition to other law, and section 19(g) puts a duty on the employer to assist with a criminal complaint.",
+        "hi": "\"पॉश मार्ग चुनने से आपराधिक मार्ग छूट जाता है।\" धारा 28 कहती है कि अधिनियम अन्य विधि के अतिरिक्त है, और धारा 19(छ) नियोजक पर आपराधिक शिकायत में सहायता का कर्तव्य डालती है।"
+      },
+      "reviewed": true,
+      "reviewState": "approved",
+      "generationMeta": {
+        "promptVersion": "study-aid-v1",
+        "batchId": "library-aids-2026-09-03-posh",
+        "stageA": {
+          "index": 28,
+          "angle": "this Act adds to other law, it does not replace it"
+        },
+        "critic": {
+          "verdict": "approve",
+          "reason": "One sentence whose consequence — parallel remedies — is the practically important fact, and both cross-references are in this app’s corpora."
+        },
+        "verify": {
+          "grounded": true,
+          "note": "The section is one sentence and is quoted in substance; section 19(g) and (h) were read from section 19."
+        },
+        "dedup": {
+          "maxScore": 0,
+          "against": null,
+          "verdict": "keep"
+        },
+        "groundingUnitIds": [
+          "posh-28",
+          "posh-19"
+        ]
+      },
+      "source": {
+        "name": "Ministry of Women and Child Development — The Sexual Harassment of Women at Workplace Act, 2013",
+        "url": "https://www.indiacode.nic.in/bitstream/123456789/2104/1/A2013-14.pdf"
+      },
+      "verify": true
+    },
+    {
+      "id": "aid-posh-29",
+      "workId": "posh",
+      "unitId": "posh-29",
+      "explanation": {
+        "en": "The Central Government may make rules for thirteen listed matters, among them the fees or allowances for Internal and Local Committee members, who may complain on behalf of a woman unable to do so, the MANNER OF INQUIRY under section 11(1) where no service rules exist, the relief during pendency under section 12(1)(c), the manner of action under sections 13, 14 and 17, the manner of appeal under section 18(1), and the form and time of the annual report. Every rule is laid before each House of Parliament for a total of thirty days.",
+        "hi": "केंद्र सरकार तेरह सूचीबद्ध विषयों पर नियम बना सकती है, जिनमें आंतरिक और स्थानीय समिति के सदस्यों की फीस या भत्ते, उस महिला की ओर से कौन शिकायत कर सकता है जो स्वयं न कर सके, धारा 11(1) के अधीन जाँच की रीति जहाँ कोई सेवा नियम न हों, धारा 12(1)(ग) के अधीन लंबन-कालीन अनुतोष, धाराओं 13, 14 और 17 के अधीन कार्रवाई की रीति, धारा 18(1) के अधीन अपील की रीति, तथा वार्षिक रिपोर्ट का प्ररूप और समय सम्मिलित हैं। प्रत्येक नियम संसद के प्रत्येक सदन के समक्ष कुल तीस दिन के लिए रखा जाता है।"
+      },
+      "example": {
+        "en": "Clause (e) matters most in the private sector: where no service rules apply to the respondent, the whole inquiry procedure comes from these rules rather than from the Act. In Government the service rules supply it, which is why section 11(1) reads the way it does.",
+        "hi": "खंड (ङ) निजी क्षेत्र में सर्वाधिक महत्वपूर्ण है: जहाँ प्रत्यर्थी पर कोई सेवा नियम लागू न हों, वहाँ पूरी जाँच-प्रक्रिया अधिनियम से नहीं, इन्हीं नियमों से आती है। सरकार में सेवा नियम उसे देते हैं, और इसीलिए धारा 11(1) उस रूप में लिखी है।"
+      },
+      "connects": [
+        "posh-11",
+        "posh-18",
+        "posh-21"
+      ],
+      "misconception": {
+        "en": "\"The Act sets out the inquiry procedure.\" It does not: for an employee respondent it points at the service rules, and otherwise at rules made under section 29(2)(e).",
+        "hi": "\"अधिनियम जाँच-प्रक्रिया देता है।\" नहीं देता: कर्मचारी प्रत्यर्थी के लिए वह सेवा नियमों की ओर संकेत करता है, और अन्यथा धारा 29(2)(ङ) के अधीन बने नियमों की ओर।"
+      },
+      "reviewed": true,
+      "reviewState": "approved",
+      "generationMeta": {
+        "promptVersion": "study-aid-v1",
+        "batchId": "library-aids-2026-09-03-posh",
+        "stageA": {
+          "index": 29,
+          "angle": "thirteen rule-making heads, and the laying requirement"
+        },
+        "critic": {
+          "verdict": "approve",
+          "reason": "Thirteen heads summarised, with clause (e) singled out because it is where the actual inquiry procedure lives for a non-Government workplace."
+        },
+        "verify": {
+          "grounded": true,
+          "note": "Sub-section (2)(a)-(m), the laying formula in (3) and the State-rule provision in (4) are in the text."
+        },
+        "dedup": {
+          "maxScore": 0,
+          "against": null,
+          "verdict": "keep"
+        },
+        "groundingUnitIds": [
+          "posh-29"
+        ]
+      },
+      "source": {
+        "name": "Ministry of Women and Child Development — The Sexual Harassment of Women at Workplace Act, 2013",
+        "url": "https://www.indiacode.nic.in/bitstream/123456789/2104/1/A2013-14.pdf"
+      },
+      "verify": true
+    },
+    {
+      "id": "aid-posh-30",
+      "workId": "posh",
+      "unitId": "posh-30",
+      "explanation": {
+        "en": "The Central Government could, by order in the Official Gazette, make provisions not inconsistent with the Act to remove a difficulty in giving effect to it — but no such order could be made after TWO YEARS from commencement. Every order had to be laid before each House of Parliament. Commencement was 9 December 2013, so the power lapsed on 9 December 2015 and nothing can be done under this section today.",
+        "hi": "केंद्र सरकार, राजपत्र में आदेश द्वारा, अधिनियम को प्रभावी करने में आने वाली कठिनाई दूर करने हेतु उससे असंगत न होने वाले उपबंध कर सकती थी — किंतु प्रारंभ से दो वर्ष के बाद ऐसा कोई आदेश नहीं किया जा सकता था। प्रत्येक आदेश संसद के प्रत्येक सदन के समक्ष रखा जाना था। प्रारंभ 9 दिसंबर 2013 था, अतः यह शक्ति 9 दिसंबर 2015 को समाप्त हो गई और आज इस धारा के अधीन कुछ नहीं किया जा सकता।"
+      },
+      "example": {
+        "en": "A difficulty arising today is met by rules under section 29, or by an amendment — as the 2016 amendment did when it renamed the Local Complaints Committee the Local Committee throughout.",
+        "hi": "आज उत्पन्न कठिनाई का समाधान धारा 29 के नियमों से, अथवा संशोधन से होता है — जैसा 2016 के संशोधन ने किया जब उसने सर्वत्र स्थानीय शिकायत समिति का नाम बदलकर स्थानीय समिति कर दिया।"
+      },
+      "connects": [
+        "posh-1",
+        "posh-29"
+      ],
+      "misconception": {
+        "en": "\"A removal-of-difficulties power can be used whenever a gap appears.\" The proviso here closed it two years after commencement, and the commencement date is in section 1’s own footnote.",
+        "hi": "\"कठिनाई-निवारण शक्ति जब भी कोई कमी दिखे, प्रयोग की जा सकती है।\" यहाँ परंतुक ने उसे प्रारंभ के दो वर्ष बाद बंद कर दिया, और प्रारंभ की तिथि धारा 1 की अपनी पाद-टिप्पणी में है।"
+      },
+      "reviewed": true,
+      "reviewState": "approved",
+      "generationMeta": {
+        "promptVersion": "study-aid-v1",
+        "batchId": "library-aids-2026-09-03-posh",
+        "stageA": {
+          "index": 30,
+          "angle": "a removal-of-difficulties power that has expired"
+        },
+        "critic": {
+          "verdict": "approve",
+          "reason": "The lapse date is computed from a commencement date the corpus itself records, and the 2016 renaming is footnoted in this corpus too — so both dates are grounded rather than recalled."
+        },
+        "verify": {
+          "grounded": true,
+          "note": "Sub-sections (1) with its two-year proviso and (2) are verbatim. The 9 December 2013 commencement is in section 1’s footnote; the 2016 renaming footnote (Act 23 of 2016, w.e.f. 6-5-2016) appears in sections 6, 7, 8 and 24 of this corpus."
+        },
+        "dedup": {
+          "maxScore": 0,
+          "against": null,
+          "verdict": "keep"
+        },
+        "groundingUnitIds": [
+          "posh-30",
+          "posh-1"
+        ]
+      },
+      "source": {
+        "name": "Ministry of Women and Child Development — The Sexual Harassment of Women at Workplace Act, 2013",
+        "url": "https://www.indiacode.nic.in/bitstream/123456789/2104/1/A2013-14.pdf"
+      },
+      "verify": true
+    }
+  ]
+}

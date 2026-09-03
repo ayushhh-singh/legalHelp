@@ -49,7 +49,8 @@ export default function ReviewPage() {
   )
   const current = queue?.[0] ?? null
   const bookmarked = useLiveQuery(
-    () => (current ? db.trainerBookmarks.get(current.qId).then((row) => Boolean(row)) : Promise.resolve(false)),
+    () =>
+      current ? db.trainerBookmarks.get(current.qId).then((row) => Boolean(row)) : Promise.resolve(false),
     [current?.qId],
     false,
   )
@@ -125,7 +126,9 @@ export default function ReviewPage() {
             onToggleBookmark={() => void toggleBookmark(current.qId)}
             onReport={() => setReportOpen((open) => !open)}
             onAnswered={(result) =>
-              setWrongAnswer(result.correct ? null : { qId: current.qId, due: current.srs?.due ?? null, ...result })
+              setWrongAnswer(
+                result.correct ? null : { qId: current.qId, due: current.srs?.due ?? null, ...result },
+              )
             }
           />
 

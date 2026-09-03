@@ -76,9 +76,9 @@ describe('useGlossarySuggest', () => {
     // to splice Hindi into a code, not a sentence.
     const panel: Glossary = { ...GLOSSARY, terms: [...GLOSSARY.terms, term('Panel', 'पैनल')] }
     expect(renderHook(() => useGlossarySuggest('See Panel2 for the list.', panel)).result.current).toEqual([])
-    expect(
-      renderHook(() => useGlossarySuggest('Ref: Secretary-2024/estt.', panel)).result.current,
-    ).toEqual([])
+    expect(renderHook(() => useGlossarySuggest('Ref: Secretary-2024/estt.', panel)).result.current).toEqual(
+      [],
+    )
   })
 
   it('still matches a term immediately followed by punctuation', () => {

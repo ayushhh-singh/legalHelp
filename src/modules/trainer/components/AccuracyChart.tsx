@@ -29,7 +29,12 @@ export function AccuracyChart({ data }: { data: AccuracyDatum[] }) {
       <ResponsiveContainer width="100%" height="100%">
         <BarChart data={rows} margin={{ top: 8, right: 8, left: -16, bottom: 8 }}>
           <CartesianGrid strokeDasharray="3 3" stroke="var(--border)" vertical={false} />
-          <XAxis dataKey="label" tick={{ fill: 'var(--muted-foreground)', fontSize: 12 }} axisLine={{ stroke: 'var(--border)' }} tickLine={false} />
+          <XAxis
+            dataKey="label"
+            tick={{ fill: 'var(--muted-foreground)', fontSize: 12 }}
+            axisLine={{ stroke: 'var(--border)' }}
+            tickLine={false}
+          />
           <YAxis
             domain={[0, 100]}
             tick={{ fill: 'var(--muted-foreground)', fontSize: 12 }}

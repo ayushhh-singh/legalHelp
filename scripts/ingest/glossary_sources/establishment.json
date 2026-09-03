@@ -149,7 +149,14 @@
   { "en": "Ad hoc appointment", "hi": "तदर्थ नियुक्ति" },
   { "en": "Substantive appointment", "hi": "मौलिक नियुक्ति" },
   { "en": "Lien", "hi": "लियन" },
-  { "en": "Foreign service", "hi": "विदेशी सेवा", "note": { "en": "FR term: service under an employer other than the government (e.g. a PSU or autonomous body), not overseas posting.", "hi": "मूल नियोक्ता (सरकार) के अतिरिक्त किसी अन्य नियोक्ता के अधीन सेवा; विदेश में पदस्थापन नहीं।" } },
+  {
+    "en": "Foreign service",
+    "hi": "विदेशी सेवा",
+    "note": {
+      "en": "FR term: service under an employer other than the government (e.g. a PSU or autonomous body), not overseas posting.",
+      "hi": "मूल नियोक्ता (सरकार) के अतिरिक्त किसी अन्य नियोक्ता के अधीन सेवा; विदेश में पदस्थापन नहीं।"
+    }
+  },
   { "en": "Deputation allowance", "hi": "प्रतिनियुक्ति भत्ता" },
   { "en": "Parent department", "hi": "मूल विभाग" },
   { "en": "Borrowing department", "hi": "उधार लेने वाला विभाग" },
@@ -274,7 +281,14 @@
   { "en": "Grievance redressal", "hi": "शिकायत निवारण" },
   { "en": "Public Grievance Officer", "hi": "लोक शिकायत अधिकारी" },
   { "en": "Central Administrative Tribunal", "hi": "केंद्रीय प्रशासनिक अधिकरण" },
-  { "en": "Original Application", "hi": "मूल आवेदन", "note": { "en": "The CAT term for a plaint filed before the Central Administrative Tribunal.", "hi": "केंद्रीय प्रशासनिक अधिकरण में दायर याचिका हेतु प्रयुक्त शब्द।" } },
+  {
+    "en": "Original Application",
+    "hi": "मूल आवेदन",
+    "note": {
+      "en": "The CAT term for a plaint filed before the Central Administrative Tribunal.",
+      "hi": "केंद्रीय प्रशासनिक अधिकरण में दायर याचिका हेतु प्रयुक्त शब्द।"
+    }
+  },
   { "en": "Contempt petition", "hi": "अवमानना याचिका" },
   { "en": "Rejoining after leave", "hi": "अवकाश के पश्चात पुनः कार्यभार ग्रहण" },
   { "en": "Extension of probation", "hi": "परिवीक्षा अवधि का विस्तार" },

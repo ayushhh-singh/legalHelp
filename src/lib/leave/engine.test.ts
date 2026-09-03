@@ -4,7 +4,13 @@ import { calculateLeaveBalances, cashEquivalent, elCredited, hplCredited } from 
 
 import type { LeaveInput } from './types'
 
-const baseInput: LeaveInput = { doj: '2020-01-01', elTaken: 0, hplTaken: 0, clTakenThisYear: 0, rhTakenThisYear: 0 }
+const baseInput: LeaveInput = {
+  doj: '2020-01-01',
+  elTaken: 0,
+  hplTaken: 0,
+  clTakenThisYear: 0,
+  rhTakenThisYear: 0,
+}
 
 describe('EL and HPL credit across half-years', () => {
   it('credits 15 EL and 10 HPL at the six-month mark', () => {

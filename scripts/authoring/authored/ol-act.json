@@ -37,7 +37,10 @@
         "citation": { "en": "Section 1, Official Languages Act, 1963", "hi": "धारा 1, राजभाषा अधिनियम, 1963" }
       },
       "difficulty": "easy",
-      "stageA": { "index": 1, "angle": "Section 1(2) — which provision commenced by the Act itself vs by notification" },
+      "stageA": {
+        "index": 1,
+        "angle": "Section 1(2) — which provision commenced by the Act itself vs by notification"
+      },
       "groundingRuleIds": ["ol-act-1"]
     },
     {
@@ -53,7 +56,10 @@
         { "en": "Devanagari script", "hi": "देवनागरी लिपि" },
         { "en": "Kaithi script", "hi": "कैथी लिपि" },
         { "en": "Perso-Arabic (Urdu) script", "hi": "फारसी-अरबी (उर्दू) लिपि" },
-        { "en": "Whichever script the concerned State Government notifies", "hi": "जो लिपि संबंधित राज्य सरकार अधिसूचित करे" }
+        {
+          "en": "Whichever script the concerned State Government notifies",
+          "hi": "जो लिपि संबंधित राज्य सरकार अधिसूचित करे"
+        }
       ],
       "answerIndex": 0,
       "explanation": {
@@ -81,8 +87,14 @@
         "hi": "संघ के उन सभी शासकीय प्रयोजनों के लिए जिनके लिए वह नियत दिन से ठीक पहले प्रयोग की जा रही थी, तथा संसद में कार्य-संचालन के लिए।"
       },
       "options": [
-        { "en": "Only for correspondence with foreign embassies", "hi": "केवल विदेशी दूतावासों के साथ पत्राचार के लिए" },
-        { "en": "Only for the internal record-keeping of the judiciary", "hi": "केवल न्यायपालिका के आंतरिक अभिलेखों के लिए" },
+        {
+          "en": "Only for correspondence with foreign embassies",
+          "hi": "केवल विदेशी दूतावासों के साथ पत्राचार के लिए"
+        },
+        {
+          "en": "Only for the internal record-keeping of the judiciary",
+          "hi": "केवल न्यायपालिका के आंतरिक अभिलेखों के लिए"
+        },
         {
           "en": "All official purposes of the Union for which it was already in use, and for the transaction of business in Parliament",
           "hi": "संघ के उन सभी शासकीय प्रयोजनों के लिए जिनके लिए वह पहले से प्रयोग में थी, तथा संसद में कार्य-संचालन के लिए"
@@ -131,7 +143,10 @@
         "citation": { "en": "Section 3, Official Languages Act, 1963", "hi": "धारा 3, राजभाषा अधिनियम, 1963" }
       },
       "difficulty": "medium",
-      "stageA": { "index": 4, "angle": "Section 3(1) first proviso — mandatory English for a non-Hindi State" },
+      "stageA": {
+        "index": 4,
+        "angle": "Section 3(1) first proviso — mandatory English for a non-Hindi State"
+      },
       "groundingRuleIds": ["ol-act-2"]
     },
     {
@@ -344,7 +359,10 @@
         "citation": { "en": "Section 4, Official Languages Act, 1963", "hi": "धारा 4, राजभाषा अधिनियम, 1963" }
       },
       "difficulty": "easy",
-      "stageA": { "index": 9, "angle": "Section 4(2) — Committee composition, 20 Lok Sabha + 10 Rajya Sabha" },
+      "stageA": {
+        "index": 9,
+        "angle": "Section 4(2) — Committee composition, 20 Lok Sabha + 10 Rajya Sabha"
+      },
       "groundingRuleIds": ["ol-act-4"]
     },
     {
@@ -387,7 +405,10 @@
         "citation": { "en": "Section 4, Official Languages Act, 1963", "hi": "धारा 4, राजभाषा अधिनियम, 1963" }
       },
       "difficulty": "hard",
-      "stageA": { "index": 10, "angle": "Section 4(3)-(4) — the President's directive power and its Section-3 constraint" },
+      "stageA": {
+        "index": 10,
+        "angle": "Section 4(3)-(4) — the President's directive power and its Section-3 constraint"
+      },
       "groundingRuleIds": ["ol-act-4"]
     },
     {
@@ -424,7 +445,10 @@
         "citation": { "en": "Section 5, Official Languages Act, 1963", "hi": "धारा 5, राजभाषा अधिनियम, 1963" }
       },
       "difficulty": "medium",
-      "stageA": { "index": 11, "angle": "Section 5(1) — the Hindi translation's status as the authoritative text" },
+      "stageA": {
+        "index": 11,
+        "angle": "Section 5(1) — the Hindi translation's status as the authoritative text"
+      },
       "groundingRuleIds": ["ol-act-5"]
     },
     {
@@ -450,7 +474,10 @@
         "citation": { "en": "Section 5, Official Languages Act, 1963", "hi": "धारा 5, राजभाषा अधिनियम, 1963" }
       },
       "difficulty": "easy",
-      "stageA": { "index": 12, "angle": "Section 5(2) — Bills and amendments need an authorised Hindi translation" },
+      "stageA": {
+        "index": 12,
+        "angle": "Section 5(2) — Bills and amendments need an authorised Hindi translation"
+      },
       "groundingRuleIds": ["ol-act-5"]
     },
     {
@@ -539,7 +566,10 @@
         "citation": { "en": "Section 7, Official Languages Act, 1963", "hi": "धारा 7, राजभाषा अधिनियम, 1963" }
       },
       "difficulty": "medium",
-      "stageA": { "index": 14, "angle": "Section 7 — President's consent and the High-Court-issued English translation" },
+      "stageA": {
+        "index": 14,
+        "angle": "Section 7 — President's consent and the High-Court-issued English translation"
+      },
       "groundingRuleIds": ["ol-act-7"]
     },
     {
@@ -582,7 +612,10 @@
         "citation": { "en": "Section 8, Official Languages Act, 1963", "hi": "धारा 8, राजभाषा अधिनियम, 1963" }
       },
       "difficulty": "hard",
-      "stageA": { "index": 15, "angle": "Section 8(2) — the thirty-day laying requirement and the savings clause" },
+      "stageA": {
+        "index": 15,
+        "angle": "Section 8(2) — the thirty-day laying requirement and the savings clause"
+      },
       "groundingRuleIds": ["ol-act-8"]
     }
   ]

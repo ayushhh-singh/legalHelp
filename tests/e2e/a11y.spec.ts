@@ -47,6 +47,13 @@ const ROUTES = [
   // contents and the search box.
   '/library/ccs-conduct',
   '/library/ccs-conduct/ccs-conduct-3',
+  // Session 28's four study screens. The quiz is a radio-shaped option list and
+  // a results table; the sheet is a printable document; the hub is the weekly
+  // review with a goal FORM in it — three number inputs and a select, which is
+  // where a missing label costs a reader most.
+  '/library/study',
+  '/library/ccs-conduct/quiz/group-n-ccs-conduct-1',
+  '/library/ccs-conduct/sheet/group-n-ccs-conduct-1',
   // Session 27's five screens. Each is as much markup again as the shelf, and
   // four of them are mostly FORM — filter selects, a picker pair, a file input
   // and a review list — which is where a missing label costs a reader most.

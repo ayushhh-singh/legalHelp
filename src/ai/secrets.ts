@@ -17,11 +17,24 @@ import { db, type VaultRow } from '@/db'
  * documents the threat model; this module owns where the bytes live and when
  * the key is in memory.
  *
- * There is exactly one secret today. It is still keyed by id so that a future
- * Tier 2 bearer token does not need a second mechanism.
+ * Two secrets today — Tier 1's Anthropic key and Tier 3's key for whatever
+ * OpenAI-compatible endpoint the reader configured. Keying by id is what let
+ * the second one arrive without a second mechanism, which is what the first
+ * version of this file said it was for.
  */
 
 export const ANTHROPIC_KEY_ID = 'anthropic-api-key'
+
+/**
+ * Tier 3's key, in the SAME vault under a different id — which is what the
+ * comment above promised the id was for.
+ *
+ * It is a separate secret rather than one "current key" because the two tiers
+ * can both be configured at once and a reader switching between them must not
+ * have to paste a key again. The kill switch clears the vault wholesale, so
+ * both go together (`clearVault`).
+ */
+export const OPENAI_KEY_ID = 'openai-compatible-api-key'
 const VAULT_ID = 'vault'
 
 /**

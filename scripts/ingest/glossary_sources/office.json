@@ -165,7 +165,14 @@
   { "en": "Sanction", "hi": "स्वीकृति" },
   { "en": "Concurrence", "hi": "सहमति" },
   { "en": "Ratification", "hi": "अनुसमर्थन" },
-  { "en": "Endorsement (of a proposal)", "hi": "समर्थन", "note": { "en": "The process of endorsing/supporting a proposal in noting, distinct from the postal endorsement form on a letter.", "hi": "प्रस्ताव का समर्थन, पत्र पर की जाने वाली पृष्ठांकन प्रक्रिया से भिन्न।" } },
+  {
+    "en": "Endorsement (of a proposal)",
+    "hi": "समर्थन",
+    "note": {
+      "en": "The process of endorsing/supporting a proposal in noting, distinct from the postal endorsement form on a letter.",
+      "hi": "प्रस्ताव का समर्थन, पत्र पर की जाने वाली पृष्ठांकन प्रक्रिया से भिन्न।"
+    }
+  },
   { "en": "Observation", "hi": "प्रेक्षण" },
   { "en": "Comments", "hi": "टिप्पणियाँ" },
   { "en": "Views", "hi": "राय" },

@@ -123,7 +123,10 @@
           "en": "In Hindi, with a Hindi translation attached if it is issued in English",
           "hi": "हिंदी में, और अंग्रेज़ी में जारी करने पर हिंदी अनुवाद संलग्न कर"
         },
-        { "en": "In English only, with no translation required", "hi": "केवल अंग्रेज़ी में, बिना किसी अनुवाद के" },
+        {
+          "en": "In English only, with no translation required",
+          "hi": "केवल अंग्रेज़ी में, बिना किसी अनुवाद के"
+        },
         {
           "en": "In whichever language the sending officer prefers, with no exceptions",
           "hi": "भेजने वाले अधिकारी की इच्छानुसार किसी भी भाषा में, बिना किसी अपवाद के"
@@ -189,7 +192,10 @@
         }
       },
       "difficulty": "hard",
-      "stageA": { "index": 5, "angle": "Rule 3(2)(b) — a person in Region B is treated differently from an office there" },
+      "stageA": {
+        "index": 5,
+        "angle": "Rule 3(2)(b) — a person in Region B is treated differently from an office there"
+      },
       "groundingRuleIds": ["ol-rules-3"]
     },
     {
@@ -226,7 +232,10 @@
         }
       },
       "difficulty": "easy",
-      "stageA": { "index": 6, "angle": "Ministry-to-Ministry communication — Hindi or English, unconditionally" },
+      "stageA": {
+        "index": 6,
+        "angle": "Ministry-to-Ministry communication — Hindi or English, unconditionally"
+      },
       "groundingRuleIds": ["ol-rules-4"]
     },
     {
@@ -321,7 +330,10 @@
         }
       },
       "difficulty": "medium",
-      "stageA": { "index": 8, "angle": "Rule 5's override of Rules 3 and 4 whenever the received letter is in Hindi" },
+      "stageA": {
+        "index": 8,
+        "angle": "Rule 5's override of Rules 3 and 4 whenever the received letter is in Hindi"
+      },
       "groundingRuleIds": ["ol-rules-5", "ol-rules-3", "ol-rules-4"]
     },
     {
@@ -413,7 +425,10 @@
           "en": "Where the document is of a legal or technical nature",
           "hi": "जहाँ दस्तावेज़ विधिक या तकनीकी प्रकृति का हो"
         },
-        { "en": "Where the document exceeds five pages in length", "hi": "जहाँ दस्तावेज़ पाँच पृष्ठों से अधिक लंबा हो" },
+        {
+          "en": "Where the document exceeds five pages in length",
+          "hi": "जहाँ दस्तावेज़ पाँच पृष्ठों से अधिक लंबा हो"
+        },
         {
           "en": "Where the document is addressed to a person outside the office",
           "hi": "जहाँ दस्तावेज़ कार्यालय के बाहर के किसी व्यक्ति को संबोधित हो"
@@ -436,7 +451,10 @@
         }
       },
       "difficulty": "medium",
-      "stageA": { "index": 11, "angle": "Rule 8(2) — the legal/technical exception to the no-translation-demand rule" },
+      "stageA": {
+        "index": 11,
+        "angle": "Rule 8(2) — the legal/technical exception to the no-translation-demand rule"
+      },
       "groundingRuleIds": ["ol-rules-8"]
     },
     {
@@ -460,7 +478,10 @@
           "en": "He has merely worked for five years in a Region A office",
           "hi": "उसने केवल क्षेत्र क के किसी कार्यालय में पाँच वर्ष कार्य किया हो"
         },
-        { "en": "He has passed the Pragya examination alone", "hi": "उसने केवल प्रज्ञा परीक्षा उत्तीर्ण की हो" },
+        {
+          "en": "He has passed the Pragya examination alone",
+          "hi": "उसने केवल प्रज्ञा परीक्षा उत्तीर्ण की हो"
+        },
         {
           "en": "His superior officer certifies that he speaks Hindi fluently",
           "hi": "उसका वरिष्ठ अधिकारी प्रमाणित करे कि वह हिंदी धाराप्रवाह बोलता है"
@@ -479,7 +500,10 @@
         }
       },
       "difficulty": "medium",
-      "stageA": { "index": 12, "angle": "Rule 9's three routes to proficiency, distinguished from Rule 10's working knowledge" },
+      "stageA": {
+        "index": 12,
+        "angle": "Rule 9's three routes to proficiency, distinguished from Rule 10's working knowledge"
+      },
       "groundingRuleIds": ["ol-rules-9", "ol-rules-10"]
     },
     {
@@ -513,7 +537,10 @@
         }
       },
       "difficulty": "medium",
-      "stageA": { "index": 13, "angle": "Rule 10(2) — the 80% office-level threshold and Rule 10(4)'s denotification" },
+      "stageA": {
+        "index": 13,
+        "angle": "Rule 10(2) — the 80% office-level threshold and Rule 10(4)'s denotification"
+      },
       "groundingRuleIds": ["ol-rules-10"]
     },
     {

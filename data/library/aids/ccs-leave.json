@@ -1,0 +1,2351 @@
+{
+  "$schema": "../../../schemas/library-aids.schema.json",
+  "version": "1.0.0",
+  "generatedAt": "2026-09-03",
+  "workId": "ccs-leave",
+  "unitLabel": {
+    "en": "Rule",
+    "hi": "नियम"
+  },
+  "disclaimer": {
+    "en": "A study aid is Sahayak’s own explanation, not the text of the rule. Reference only; verify with the official gazette/order or your DDO.",
+    "hi": "अध्ययन सहायिका सहायक की अपनी व्याख्या है, नियम का पाठ नहीं। केवल संदर्भ हेतु; आधिकारिक राजपत्र/आदेश अथवा अपने डीडीओ से सत्यापित करें।"
+  },
+  "source": {
+    "name": "Department of Personnel and Training — CCS (Leave) Rules, 1972 — updated as on 24 September 2024",
+    "url": "https://documents.doptcirculars.nic.in/D2/D02est/updatedccsleaverulesN9ExV.pdf"
+  },
+  "aids": [
+    {
+      "id": "aid-ccs-leave-2",
+      "workId": "ccs-leave",
+      "unitId": "ccs-leave-2",
+      "explanation": {
+        "en": "These rules apply to Government servants appointed to civil services and posts under the Union, but NOT to eleven categories: railway servants; casual, daily-rated or part-time staff; persons paid from contingencies; workmen in industrial establishments; work-charged staff; All India Service members; persons locally recruited abroad; contract staff unless the contract says otherwise; persons for whom the Constitution or another law makes special provision; persons governed for leave by the Fundamental Rules or the Civil Service Regulations; and persons on deputation to a Central Department from a State Government or elsewhere for a limited duration.",
+        "hi": "ये नियम संघ के अधीन सिविल सेवाओं और पदों पर नियुक्त सरकारी कर्मचारियों पर लागू होते हैं, किंतु ग्यारह कोटियों पर नहीं: रेलवे कर्मचारी; आकस्मिक, दैनिक-दर या अंशकालिक कर्मी; आकस्मिकता से वेतन पाने वाले; औद्योगिक प्रतिष्ठानों के कर्मकार; कार्य-प्रभारित कर्मी; अखिल भारतीय सेवा के सदस्य; विदेश में स्थानीय रूप से भर्ती व्यक्ति; संविदा कर्मी, जब तक संविदा अन्यथा न कहे; वे व्यक्ति जिनके लिए संविधान या अन्य विधि विशेष उपबंध करती है; वे जो अवकाश हेतु मूल नियमों या सिविल सेवा विनियमों से शासित हैं; तथा सीमित अवधि हेतु राज्य सरकार या अन्यत्र से केंद्रीय विभाग में प्रतिनियुक्त व्यक्ति।"
+      },
+      "example": {
+        "en": "Clause (k) is the one that catches people out: a State officer on deputation to a Ministry for a fixed period keeps his own State leave rules, and his leave account is not maintained under these rules.",
+        "hi": "खंड (ट) वही है जो चूक करा देता है: नियत अवधि हेतु किसी मंत्रालय में प्रतिनियुक्त राज्य अधिकारी अपने राज्य के अवकाश नियमों से ही शासित रहता है, और उसका अवकाश खाता इन नियमों के अधीन नहीं रखा जाता।"
+      },
+      "connects": [
+        "ccs-leave-3",
+        "ccs-leave-4",
+        "ccs-leave-5"
+      ],
+      "misconception": {
+        "en": "\"Everyone in a Central office is under the CCS (Leave) Rules.\" Eleven categories are excluded by name, and a deputationist from a State is one of them.",
+        "hi": "\"केंद्रीय कार्यालय में सब सीसीएस (अवकाश) नियमों के अधीन हैं।\" ग्यारह कोटियाँ नाम से अपवर्जित हैं, और राज्य से आया प्रतिनियुक्त व्यक्ति उनमें से एक है।"
+      },
+      "reviewed": true,
+      "reviewState": "approved",
+      "generationMeta": {
+        "promptVersion": "study-aid-v1",
+        "batchId": "library-aids-2026-09-03-ccs-leave",
+        "stageA": {
+          "index": 1,
+          "angle": "eleven categories these rules do not reach"
+        },
+        "critic": {
+          "verdict": "approve",
+          "reason": "The eleven exclusions are the whole rule; clause (k) is picked for the example because it is the live case in a Ministry."
+        },
+        "verify": {
+          "grounded": true,
+          "note": "Clauses (a)-(k) are verbatim."
+        },
+        "dedup": {
+          "maxScore": 0,
+          "against": null,
+          "verdict": "keep"
+        },
+        "groundingUnitIds": [
+          "ccs-leave-2"
+        ]
+      },
+      "source": {
+        "name": "Department of Personnel and Training — CCS (Leave) Rules, 1972 — updated as on 24 September 2024",
+        "url": "https://documents.doptcirculars.nic.in/D2/D02est/updatedccsleaverulesN9ExV.pdf"
+      },
+      "verify": true
+    },
+    {
+      "id": "aid-ccs-leave-3",
+      "workId": "ccs-leave",
+      "unitId": "ccs-leave-3",
+      "explanation": {
+        "en": "Three definitions do most of the work. \"Authority competent to grant leave\" is not a rank — it is whoever Column (3) of the FIRST SCHEDULE names for that kind of leave. \"Completed years of service\" or \"one year’s continuous service\" is continuous service under the Central Government INCLUDING periods on leave, extraordinary leave included. \"Date of retirement\" is the AFTERNOON OF THE LAST DAY of the month in which the officer attains the retirement age.",
+        "hi": "तीन परिभाषाएँ अधिकांश कार्य करती हैं। \"अवकाश स्वीकृत करने हेतु सक्षम प्राधिकारी\" कोई पंक्ति नहीं है — वह वही है जिसे उस प्रकार के अवकाश हेतु पहली अनुसूची का स्तंभ (3) नामित करे। \"सेवा के पूर्ण वर्ष\" अथवा \"एक वर्ष की निरंतर सेवा\" केंद्र सरकार के अधीन निरंतर सेवा है, जिसमें अवकाश की अवधि भी सम्मिलित है, असाधारण अवकाश सहित। \"सेवानिवृत्ति की तिथि\" उस मास के अंतिम दिन का अपराह्न है जिसमें कर्मचारी सेवानिवृत्ति आयु प्राप्त करता है।"
+      },
+      "example": {
+        "en": "Because extraordinary leave counts towards \"one year’s continuous service\", a temporary officer who has been on EOL still builds the eligibility Rule 32(2)(b) and Rule 31(1-A) turn on.",
+        "hi": "चूँकि असाधारण अवकाश \"एक वर्ष की निरंतर सेवा\" में गिना जाता है, इसलिए जो अस्थायी कर्मचारी असाधारण अवकाश पर रहा है, वह भी वह पात्रता बनाता है जिस पर नियम 32(2)(ख) और नियम 31(1-क) टिकते हैं।"
+      },
+      "connects": [
+        "ccs-leave-2",
+        "ccs-leave-32",
+        "ccs-leave-39"
+      ],
+      "misconception": {
+        "en": "\"Extraordinary leave is a break in service.\" For the definition of continuous service in clause (d) it is not: the definition expressly includes leave, \"including extraordinary leave\".",
+        "hi": "\"असाधारण अवकाश सेवा में विच्छेद है।\" खंड (घ) की निरंतर सेवा की परिभाषा के लिए नहीं: परिभाषा स्पष्टतः अवकाश को सम्मिलित करती है, \"असाधारण अवकाश सहित\"।"
+      },
+      "examRelevance": {
+        "en": "\"Afternoon of the last day of the month\" in clause (e) is what makes the retirement-day leave encashment under Rule 39 possible at all.",
+        "hi": "खंड (ङ) का \"मास के अंतिम दिन का अपराह्न\" ही नियम 39 के अधीन सेवानिवृत्ति-दिवस पर अवकाश नकदीकरण को संभव बनाता है।"
+      },
+      "reviewed": true,
+      "reviewState": "approved",
+      "generationMeta": {
+        "promptVersion": "study-aid-v1",
+        "batchId": "library-aids-2026-09-03-ccs-leave",
+        "stageA": {
+          "index": 2,
+          "angle": "the definitions that decide when leave starts and who grants it"
+        },
+        "critic": {
+          "verdict": "approve",
+          "reason": "Three definitions with real downstream effect; the First Schedule is not in this dataset and the aid says where the answer lives rather than inventing one."
+        },
+        "verify": {
+          "grounded": true,
+          "note": "Clauses (c), (d) and (e) of sub-rule (1) are verbatim."
+        },
+        "dedup": {
+          "maxScore": 0,
+          "against": null,
+          "verdict": "keep"
+        },
+        "groundingUnitIds": [
+          "ccs-leave-3"
+        ]
+      },
+      "source": {
+        "name": "Department of Personnel and Training — CCS (Leave) Rules, 1972 — updated as on 24 September 2024",
+        "url": "https://documents.doptcirculars.nic.in/D2/D02est/updatedccsleaverulesN9ExV.pdf"
+      },
+      "verify": true
+    },
+    {
+      "id": "aid-ccs-leave-7",
+      "workId": "ccs-leave",
+      "unitId": "ccs-leave-7",
+      "explanation": {
+        "en": "Leave CANNOT BE CLAIMED AS OF RIGHT. When the exigencies of public service require it, leave of any kind may be refused or revoked by the authority competent to grant it — but that authority may NOT alter the kind of leave due and applied for, except at the officer’s own written request. The proviso adds one protection: leave applied for under Rule 20 may not be refused or revoked without reference to the Medical Authority, whose advice is binding.",
+        "hi": "अवकाश अधिकार के रूप में नहीं माँगा जा सकता। लोक सेवा की अपरिहार्यताएँ अपेक्षित करें तो अवकाश स्वीकृत करने हेतु सक्षम प्राधिकारी किसी भी प्रकार का अवकाश अस्वीकार या प्रतिसंहृत कर सकता है — किंतु वह प्राधिकारी देय और आवेदित अवकाश का प्रकार नहीं बदल सकता, सिवाय कर्मचारी के अपने लिखित अनुरोध पर। परंतुक एक संरक्षण जोड़ता है: नियम 20 के अधीन आवेदित अवकाश चिकित्सा प्राधिकारी को निर्देश किए बिना अस्वीकार या प्रतिसंहृत नहीं किया जा सकता, और उसकी सलाह बाध्यकारी है।"
+      },
+      "example": {
+        "en": "An officer applying for earned leave cannot be granted half pay leave instead: converting the kind of leave needs his own WRITTEN request, and Rule 10 governs a retrospective commutation.",
+        "hi": "अर्जित अवकाश हेतु आवेदन करने वाले कर्मचारी को उसके बदले अर्ध-वेतन अवकाश नहीं दिया जा सकता: अवकाश का प्रकार बदलने हेतु उसका अपना लिखित अनुरोध चाहिए, और भूतलक्षी परिवर्तन नियम 10 से शासित है।"
+      },
+      "connects": [
+        "ccs-leave-10",
+        "ccs-leave-20",
+        "ccs-leave-17"
+      ],
+      "misconception": {
+        "en": "\"Earned leave at credit can be taken as of right.\" Sub-rule (1) says leave cannot be claimed as of right at all — the balance is an entitlement to be considered, not a licence to be absent.",
+        "hi": "\"जमा अर्जित अवकाश अधिकार के रूप में लिया जा सकता है।\" उप-नियम (1) कहता है कि अवकाश अधिकार के रूप में माँगा ही नहीं जा सकता — शेष विचार किए जाने की पात्रता है, अनुपस्थित रहने की छूट नहीं।"
+      },
+      "examRelevance": {
+        "en": "\"Leave cannot be claimed as of right\" is quoted verbatim more often than any other line in this book.",
+        "hi": "\"अवकाश अधिकार के रूप में नहीं माँगा जा सकता\" इस पुस्तक की किसी भी अन्य पंक्ति से अधिक बार शब्दशः उद्धृत होती है।"
+      },
+      "reviewed": true,
+      "reviewState": "approved",
+      "generationMeta": {
+        "promptVersion": "study-aid-v1",
+        "batchId": "library-aids-2026-09-03-ccs-leave",
+        "stageA": {
+          "index": 3,
+          "angle": "the sentence every leave application starts from"
+        },
+        "critic": {
+          "verdict": "approve",
+          "reason": "Three limbs — no right, refusal on exigencies, no unilateral change of kind — plus the Rule 20 medical proviso, which is the one place the authority is bound."
+        },
+        "verify": {
+          "grounded": true,
+          "note": "Sub-rules (1) and (2) with the proviso are verbatim."
+        },
+        "dedup": {
+          "maxScore": 0,
+          "against": null,
+          "verdict": "keep"
+        },
+        "groundingUnitIds": [
+          "ccs-leave-7"
+        ]
+      },
+      "source": {
+        "name": "Department of Personnel and Training — CCS (Leave) Rules, 1972 — updated as on 24 September 2024",
+        "url": "https://documents.doptcirculars.nic.in/D2/D02est/updatedccsleaverulesN9ExV.pdf"
+      },
+      "verify": true
+    },
+    {
+      "id": "aid-ccs-leave-8",
+      "workId": "ccs-leave",
+      "unitId": "ccs-leave-8",
+      "explanation": {
+        "en": "A Government servant’s claim to leave is regulated by the rules IN FORCE AT THE TIME THE LEAVE IS APPLIED FOR AND GRANTED — not by the rules in force when the entitlement accrued, and not by the rules in force when the leave is actually taken.",
+        "hi": "सरकारी कर्मचारी का अवकाश-दावा उन नियमों से विनियमित होता है जो अवकाश के लिए आवेदन करने और स्वीकृत होने के समय प्रवृत्त थे — न कि उन नियमों से जो पात्रता प्रोद्भूत होने के समय प्रवृत्त थे, और न उनसे जो अवकाश वस्तुतः लेने के समय प्रवृत्त हों।"
+      },
+      "example": {
+        "en": "The maternity leave figure moved from 135 days to 180 days in 2009 and the earned leave ceiling from 240 to 300 days in 2002. Which figure applies to a particular case is decided by this rule, from the date of application and grant.",
+        "hi": "प्रसूति अवकाश का आँकड़ा 2009 में 135 दिन से 180 दिन हुआ और अर्जित अवकाश की सीमा 2002 में 240 से 300 दिन। किसी विशेष मामले में कौन-सा आँकड़ा लागू होगा, यह इसी नियम से, आवेदन और स्वीकृति की तिथि से, तय होता है।"
+      },
+      "connects": [
+        "ccs-leave-7",
+        "ccs-leave-43",
+        "ccs-leave-26"
+      ],
+      "misconception": {
+        "en": "\"The rules as they were when I earned the leave apply.\" They do not; the rule fixes the date of APPLICATION AND GRANT as the reference point.",
+        "hi": "\"जब मैंने अवकाश अर्जित किया तब के नियम लागू होंगे।\" नहीं; नियम आवेदन और स्वीकृति की तिथि को संदर्भ-बिंदु बनाता है।"
+      },
+      "reviewed": true,
+      "reviewState": "approved",
+      "generationMeta": {
+        "promptVersion": "study-aid-v1",
+        "batchId": "library-aids-2026-09-03-ccs-leave",
+        "stageA": {
+          "index": 4,
+          "angle": "which version of the rules applies to your application"
+        },
+        "critic": {
+          "verdict": "approve",
+          "reason": "One sentence with a real consequence in every amended-figure case; both amendment examples are footnoted in this corpus."
+        },
+        "verify": {
+          "grounded": true,
+          "note": "The rule is one sentence and is quoted in substance. The 135→180 and 240→300 substitutions are recorded as amendment notes in Rules 43 and 26 of this corpus."
+        },
+        "dedup": {
+          "maxScore": 0,
+          "against": null,
+          "verdict": "keep"
+        },
+        "groundingUnitIds": [
+          "ccs-leave-8",
+          "ccs-leave-43",
+          "ccs-leave-26"
+        ]
+      },
+      "source": {
+        "name": "Department of Personnel and Training — CCS (Leave) Rules, 1972 — updated as on 24 September 2024",
+        "url": "https://documents.doptcirculars.nic.in/D2/D02est/updatedccsleaverulesN9ExV.pdf"
+      },
+      "verify": true
+    },
+    {
+      "id": "aid-ccs-leave-9",
+      "workId": "ccs-leave",
+      "unitId": "ccs-leave-9",
+      "explanation": {
+        "en": "Leave at credit CEASES from the date of dismissal, removal or resignation — except as Rule 39 and this rule provide. Three exceptions follow. A resignation to take another post under the Government of India applied for THROUGH PROPER CHANNEL does not make the leave lapse. An officer dismissed or removed and reinstated on appeal or revision counts his pre-dismissal service for leave. And an officer re-employed after compensation or invalid pension who is allowed to count past service for pension counts it for leave too.",
+        "hi": "पदच्युति, हटाए जाने अथवा त्यागपत्र की तिथि से जमा अवकाश समाप्त हो जाता है — नियम 39 और इस नियम में उपबंधित के सिवाय। तीन अपवाद आते हैं। भारत सरकार के अधीन किसी अन्य पद हेतु सम्यक् माध्यम से किए गए आवेदन पर दिया गया त्यागपत्र अवकाश को व्यपगत नहीं करता। पदच्युत या हटाया गया वह कर्मचारी जो अपील या पुनरीक्षण पर बहाल होता है, अवकाश हेतु अपनी पूर्ववर्ती सेवा गिनता है। और प्रतिकर या अशक्तता पेंशन पर सेवानिवृत्त होकर पुनर्नियोजित वह कर्मचारी जिसे पेंशन हेतु पूर्व सेवा गिनने दी गई है, उसे अवकाश हेतु भी गिनता है।"
+      },
+      "example": {
+        "en": "THROUGH PROPER CHANNEL is the operative phrase in sub-rule (2): an officer who resigns to join another Central post without routing the application through his department loses the leave at his credit.",
+        "hi": "उप-नियम (2) में \"सम्यक् माध्यम से\" प्रवर्तनीय वाक्यांश है: जो अधिकारी अपने विभाग के माध्यम से आवेदन भेजे बिना त्यागपत्र देकर किसी अन्य केंद्रीय पद पर जाता है, वह अपना जमा अवकाश खो देता है।"
+      },
+      "connects": [
+        "ccs-leave-39",
+        "ccs-leave-17"
+      ],
+      "misconception": {
+        "en": "\"Resignation always wipes the leave account.\" Not where the resignation is to take up another Government of India post applied for through proper channel.",
+        "hi": "\"त्यागपत्र से अवकाश खाता सदा समाप्त हो जाता है।\" तब नहीं जब त्यागपत्र भारत सरकार के किसी अन्य पद हेतु हो जिसका आवेदन सम्यक् माध्यम से गया हो।"
+      },
+      "reviewed": true,
+      "reviewState": "approved",
+      "generationMeta": {
+        "promptVersion": "study-aid-v1",
+        "batchId": "library-aids-2026-09-03-ccs-leave",
+        "stageA": {
+          "index": 5,
+          "angle": "when leave at credit lapses, and the three times it does not"
+        },
+        "critic": {
+          "verdict": "approve",
+          "reason": "The proper-channel exception is the one with a practical consequence and the aid is built on it."
+        },
+        "verify": {
+          "grounded": true,
+          "note": "Sub-rules (1)-(4) are verbatim, including \"forwarded through proper channel\"."
+        },
+        "dedup": {
+          "maxScore": 0,
+          "against": null,
+          "verdict": "keep"
+        },
+        "groundingUnitIds": [
+          "ccs-leave-9"
+        ]
+      },
+      "source": {
+        "name": "Department of Personnel and Training — CCS (Leave) Rules, 1972 — updated as on 24 September 2024",
+        "url": "https://documents.doptcirculars.nic.in/D2/D02est/updatedccsleaverulesN9ExV.pdf"
+      },
+      "verify": true
+    },
+    {
+      "id": "aid-ccs-leave-10",
+      "workId": "ccs-leave",
+      "unitId": "ccs-leave-10",
+      "explanation": {
+        "en": "At the officer’s request the authority that granted leave MAY commute it retrospectively into a different kind of leave that was due and admissible at the time — but commutation cannot be claimed as a matter of right. The proviso is a hard deadline: no such request is considered unless received within THIRTY DAYS of the officer joining duty on expiry of that spell of leave. Leave salary is then adjusted: an excess is recovered, arrears are paid.",
+        "hi": "कर्मचारी के अनुरोध पर अवकाश स्वीकृत करने वाला प्राधिकारी उसे भूतलक्षी रूप से ऐसे भिन्न प्रकार के अवकाश में परिवर्तित कर सकता है जो उस समय देय और अनुज्ञेय था — किंतु परिवर्तन अधिकार के रूप में नहीं माँगा जा सकता। परंतुक कठोर समय-सीमा है: ऐसा कोई अनुरोध तब तक विचारित नहीं होगा जब तक वह उस अवकाश-अवधि की समाप्ति पर कर्मचारी के ड्यूटी पर लौटने के तीस दिन के भीतर प्राप्त न हो। तब अवकाश वेतन का समायोजन होता है: अधिक भुगतान वसूला जाता है, बकाया दिया जाता है।"
+      },
+      "example": {
+        "en": "The NOTE covers the commonest case: extraordinary leave, whether granted on medical certificate or otherwise, may be commuted retrospectively into LEAVE NOT DUE, subject to Rule 31 — which is how an officer who exhausted his credit while ill can recover his leave salary.",
+        "hi": "टिप्पण सबसे सामान्य स्थिति संभालता है: असाधारण अवकाश, चाहे चिकित्सा प्रमाणपत्र पर दिया गया हो या अन्यथा, नियम 31 के अधीन रहते हुए भूतलक्षी रूप से अदेय अवकाश में परिवर्तित किया जा सकता है — और इसी से वह कर्मचारी अपना अवकाश वेतन वापस पा सकता है जिसका जमा अवकाश बीमारी में समाप्त हो गया।"
+      },
+      "connects": [
+        "ccs-leave-7",
+        "ccs-leave-31",
+        "ccs-leave-32"
+      ],
+      "misconception": {
+        "en": "\"Commutation can be asked for any time.\" Thirty days from joining duty after that spell of leave is the outer limit, and the proviso is worded as a bar on consideration.",
+        "hi": "\"परिवर्तन कभी भी माँगा जा सकता है।\" उस अवकाश-अवधि के बाद ड्यूटी पर लौटने से तीस दिन बाह्य सीमा है, और परंतुक विचारण पर वर्जन के रूप में लिखा है।"
+      },
+      "examRelevance": {
+        "en": "Thirty days from joining duty, and the EOL-to-Leave-Not-Due route in the NOTE, are the two facts.",
+        "hi": "ड्यूटी पर लौटने से तीस दिन, तथा टिप्पण का असाधारण-अवकाश-से-अदेय-अवकाश मार्ग — यही दो तथ्य हैं।"
+      },
+      "reviewed": true,
+      "reviewState": "approved",
+      "generationMeta": {
+        "promptVersion": "study-aid-v1",
+        "batchId": "library-aids-2026-09-03-ccs-leave",
+        "stageA": {
+          "index": 6,
+          "angle": "converting one kind of leave into another, within thirty days"
+        },
+        "critic": {
+          "verdict": "approve",
+          "reason": "The thirty-day proviso and the NOTE are the operative content, and both are quoted with their conditions."
+        },
+        "verify": {
+          "grounded": true,
+          "note": "Sub-rules (1) with its proviso, (2) and the NOTE are verbatim."
+        },
+        "dedup": {
+          "maxScore": 0,
+          "against": null,
+          "verdict": "keep"
+        },
+        "groundingUnitIds": [
+          "ccs-leave-10"
+        ]
+      },
+      "source": {
+        "name": "Department of Personnel and Training — CCS (Leave) Rules, 1972 — updated as on 24 September 2024",
+        "url": "https://documents.doptcirculars.nic.in/D2/D02est/updatedccsleaverulesN9ExV.pdf"
+      },
+      "verify": true
+    },
+    {
+      "id": "aid-ccs-leave-11",
+      "workId": "ccs-leave",
+      "unitId": "ccs-leave-11",
+      "explanation": {
+        "en": "Except as otherwise provided, any kind of leave under these rules may be granted in combination with, or in continuation of, any other kind. The Explanation carves out the one exception that matters daily: CASUAL LEAVE IS NOT RECOGNISED AS LEAVE under these rules at all, and therefore cannot be combined with any kind of leave admissible under them.",
+        "hi": "जहाँ अन्यथा उपबंधित न हो, वहाँ इन नियमों के अधीन किसी भी प्रकार का अवकाश किसी अन्य प्रकार के अवकाश के साथ अथवा उसकी निरंतरता में स्वीकृत किया जा सकता है। स्पष्टीकरण वह एक अपवाद अलग करता है जो प्रतिदिन काम आता है: आकस्मिक अवकाश इन नियमों के अधीन अवकाश माना ही नहीं जाता, अतः वह इनके अधीन अनुज्ञेय किसी भी प्रकार के अवकाश के साथ नहीं जोड़ा जा सकता।"
+      },
+      "example": {
+        "en": "An officer cannot take two days of casual leave and then run three days of earned leave straight on. Earned leave and half pay leave, by contrast, may be combined freely under the main clause.",
+        "hi": "कोई कर्मचारी दो दिन आकस्मिक अवकाश लेकर उसके तुरंत बाद तीन दिन अर्जित अवकाश नहीं चला सकता। इसके विपरीत, अर्जित अवकाश और अर्ध-वेतन अवकाश मुख्य उपबंध के अधीन स्वतंत्रतापूर्वक जोड़े जा सकते हैं।"
+      },
+      "connects": [
+        "ccs-leave-22",
+        "ccs-leave-12"
+      ],
+      "misconception": {
+        "en": "\"Casual leave is a kind of leave.\" It is not, under these rules — which is why it does not appear in the leave account, is not governed by Rule 26 or 29, and cannot be combined.",
+        "hi": "\"आकस्मिक अवकाश एक प्रकार का अवकाश है।\" इन नियमों के अधीन नहीं — और इसीलिए वह अवकाश खाते में नहीं दिखता, नियम 26 या 29 से शासित नहीं है, और जोड़ा नहीं जा सकता।"
+      },
+      "examRelevance": {
+        "en": "That casual leave is outside these rules altogether is the point being tested, not the combination rule itself.",
+        "hi": "परीक्षा का बिंदु यह है कि आकस्मिक अवकाश इन नियमों से पूर्णतः बाहर है, स्वयं संयोजन का नियम नहीं।"
+      },
+      "reviewed": true,
+      "reviewState": "approved",
+      "generationMeta": {
+        "promptVersion": "study-aid-v1",
+        "batchId": "library-aids-2026-09-03-ccs-leave",
+        "stageA": {
+          "index": 7,
+          "angle": "why casual leave cannot be added to anything"
+        },
+        "critic": {
+          "verdict": "approve",
+          "reason": "The Explanation is the whole content; the general permission is one clause and needs no elaboration."
+        },
+        "verify": {
+          "grounded": true,
+          "note": "The main clause and the Explanation are verbatim."
+        },
+        "dedup": {
+          "maxScore": 0,
+          "against": null,
+          "verdict": "keep"
+        },
+        "groundingUnitIds": [
+          "ccs-leave-11"
+        ]
+      },
+      "source": {
+        "name": "Department of Personnel and Training — CCS (Leave) Rules, 1972 — updated as on 24 September 2024",
+        "url": "https://documents.doptcirculars.nic.in/D2/D02est/updatedccsleaverulesN9ExV.pdf"
+      },
+      "verify": true
+    },
+    {
+      "id": "aid-ccs-leave-12",
+      "workId": "ccs-leave",
+      "unitId": "ccs-leave-12",
+      "explanation": {
+        "en": "No Government servant may be granted leave of ANY KIND for a continuous period exceeding FIVE YEARS. And an officer who remains absent from duty for a continuous period exceeding five years — other than on foreign service, WITH OR WITHOUT LEAVE — shall be DEEMED TO HAVE RESIGNED, unless the President otherwise determines in view of exceptional circumstances. Two provisos protect the officer: a reasonable opportunity to explain must be given first, and the rule does not apply where leave is applied for on medical certificate in connection with a disability.",
+        "hi": "किसी सरकारी कर्मचारी को किसी भी प्रकार का अवकाश पाँच वर्ष से अधिक की निरंतर अवधि के लिए स्वीकृत नहीं किया जाएगा। और जो कर्मचारी पाँच वर्ष से अधिक की निरंतर अवधि तक ड्यूटी से अनुपस्थित रहे — विदेश सेवा के सिवाय, अवकाश सहित या बिना — वह त्यागपत्र दे चुका समझा जाएगा, जब तक राष्ट्रपति असाधारण परिस्थितियों को देखते हुए अन्यथा न ठहराएँ। दो परंतुक कर्मचारी की रक्षा करते हैं: पहले स्पष्टीकरण का युक्तियुक्त अवसर देना होगा, और यह नियम वहाँ लागू नहीं जहाँ निःशक्तता के संबंध में चिकित्सा प्रमाणपत्र पर अवकाश आवेदित हो।"
+      },
+      "example": {
+        "en": "The words \"with or without leave\" are what make this a hard ceiling: five years of sanctioned extraordinary leave triggers the deeming just as five years of unauthorised absence does.",
+        "hi": "\"अवकाश सहित या बिना\" शब्द ही इसे कठोर सीमा बनाते हैं: पाँच वर्ष का स्वीकृत असाधारण अवकाश उसी प्रकार उपधारणा सक्रिय करता है जैसे पाँच वर्ष की अनधिकृत अनुपस्थिति।"
+      },
+      "connects": [
+        "ccs-leave-32",
+        "ccs-leave-25",
+        "ccs-leave-20"
+      ],
+      "misconception": {
+        "en": "\"Sanctioned leave cannot lead to deemed resignation.\" Sub-rule (2) says \"with or without leave\", so it can — subject to the disability proviso and the President’s power.",
+        "hi": "\"स्वीकृत अवकाश से मानी गई त्यागपत्र नहीं हो सकता।\" उप-नियम (2) कहता है \"अवकाश सहित या बिना\", अतः हो सकता है — निःशक्तता वाले परंतुक और राष्ट्रपति की शक्ति के अधीन रहते हुए।"
+      },
+      "mnemonic": {
+        "en": "Five years is the ceiling, and crossing it is a deemed resignation.",
+        "hi": "पाँच वर्ष सीमा है, और उसे पार करना मानी गई त्यागपत्र है।"
+      },
+      "reviewed": true,
+      "reviewState": "approved",
+      "generationMeta": {
+        "promptVersion": "study-aid-v1",
+        "batchId": "library-aids-2026-09-03-ccs-leave",
+        "stageA": {
+          "index": 8,
+          "angle": "five years, and the deemed resignation that follows"
+        },
+        "critic": {
+          "verdict": "approve",
+          "reason": "The five-year figure, the deeming, and both provisos; the disability proviso was inserted in 2018 and is in the corpus with its notification number."
+        },
+        "verify": {
+          "grounded": true,
+          "note": "Sub-rules (1) and (2) with both provisos are verbatim."
+        },
+        "dedup": {
+          "maxScore": 0,
+          "against": null,
+          "verdict": "keep"
+        },
+        "groundingUnitIds": [
+          "ccs-leave-12"
+        ]
+      },
+      "source": {
+        "name": "Department of Personnel and Training — CCS (Leave) Rules, 1972 — updated as on 24 September 2024",
+        "url": "https://documents.doptcirculars.nic.in/D2/D02est/updatedccsleaverulesN9ExV.pdf"
+      },
+      "verify": true
+    },
+    {
+      "id": "aid-ccs-leave-13",
+      "workId": "ccs-leave",
+      "unitId": "ccs-leave-13",
+      "explanation": {
+        "en": "An officer on leave — including leave preparatory to retirement — may NOT take up any service or employment elsewhere, including setting up private practice as an accountant, consultant, or legal or medical practitioner, without previous sanction of the President if the work is outside India, or of the appointing authority if it is in India. Ordinarily no such permission is given on ordinary leave; in an exceptional case the officer’s services may be temporarily transferred or he may be required to resign first. On leave preparatory to retirement he may NOT take private employment, but may take employment with a public sector undertaking or a body of the kind Rule 38(2)(a) names.",
+        "hi": "अवकाश पर — जिसमें सेवानिवृत्ति-पूर्व अवकाश भी है — कोई कर्मचारी अन्यत्र कोई सेवा या नियोजन नहीं ले सकता, जिसमें लेखाकार, परामर्शदाता अथवा विधि या चिकित्सा व्यवसायी के रूप में निजी व्यवसाय स्थापित करना भी है, बिना पूर्व मंजूरी के — यदि कार्य भारत से बाहर हो तो राष्ट्रपति की, और भारत में हो तो नियुक्ति प्राधिकारी की। सामान्य अवकाश पर ऐसी अनुमति सामान्यतः नहीं दी जाती; असाधारण मामले में कर्मचारी की सेवाएँ अस्थायी रूप से अंतरित की जा सकती हैं अथवा उससे पहले त्यागपत्र माँगा जा सकता है। सेवानिवृत्ति-पूर्व अवकाश पर वह निजी नियोजन नहीं ले सकता, किंतु सार्वजनिक उपक्रम अथवा नियम 38(2)(क) में नामित प्रकार के निकाय में नियोजन ले सकता है।"
+      },
+      "example": {
+        "en": "The exempted categories are named at the start of sub-rule (1): an officer already permitted limited private practice, or permitted casual literary work or service as an examiner, is outside the prohibition for that work.",
+        "hi": "छूट प्राप्त कोटियाँ उप-नियम (1) के आरंभ में नामित हैं: जिस कर्मचारी को सीमित निजी व्यवसाय की अनुमति पहले से है, अथवा कभी-कभार साहित्यिक कार्य या परीक्षक के रूप में सेवा की, वह उस कार्य के लिए इस निषेध से बाहर है।"
+      },
+      "connects": [
+        "ccs-leave-38",
+        "ccs-leave-40"
+      ],
+      "misconception": {
+        "en": "\"Leave preparatory to retirement is my own time.\" It is leave, and sub-rule (2)(c) expressly bars private employment during it while permitting a PSU or a Rule 38(2)(a) body.",
+        "hi": "\"सेवानिवृत्ति-पूर्व अवकाश मेरा अपना समय है।\" वह अवकाश है, और उप-नियम (2)(ग) उसके दौरान निजी नियोजन स्पष्टतः वर्जित करता है जबकि सार्वजनिक उपक्रम अथवा नियम 38(2)(क) के निकाय की अनुमति देता है।"
+      },
+      "reviewed": true,
+      "reviewState": "approved",
+      "generationMeta": {
+        "promptVersion": "study-aid-v1",
+        "batchId": "library-aids-2026-09-03-ccs-leave",
+        "stageA": {
+          "index": 9,
+          "angle": "taking other work while on leave"
+        },
+        "critic": {
+          "verdict": "approve",
+          "reason": "The two sanctioning authorities, the LPR carve-out and the named exemptions are the operative content."
+        },
+        "verify": {
+          "grounded": true,
+          "note": "Sub-rules (1)(a)-(b), (2)(a)-(c) and (3)(a)-(b) are verbatim, as is the exemption list opening sub-rule (1)."
+        },
+        "dedup": {
+          "maxScore": 0,
+          "against": null,
+          "verdict": "keep"
+        },
+        "groundingUnitIds": [
+          "ccs-leave-13"
+        ]
+      },
+      "source": {
+        "name": "Department of Personnel and Training — CCS (Leave) Rules, 1972 — updated as on 24 September 2024",
+        "url": "https://documents.doptcirculars.nic.in/D2/D02est/updatedccsleaverulesN9ExV.pdf"
+      },
+      "verify": true
+    },
+    {
+      "id": "aid-ccs-leave-14",
+      "workId": "ccs-leave",
+      "unitId": "ccs-leave-14",
+      "explanation": {
+        "en": "Every application for leave or for extension is made IN FORM 1 to the authority competent to grant it. The 2018 proviso covers disability: where the officer is unable to submit the application or the medical certificate because of a disability, it may be signed and submitted by the spouse; by a parent if the officer is unmarried; by a child (including an adopted child), brother or sister who has attained majority; or by a limited guardian appointed under section 14 of the Rights of Persons with Disabilities Act, 2016 — and it is then DEEMED to have been made by the officer himself.",
+        "hi": "अवकाश अथवा उसके विस्तार का प्रत्येक आवेदन प्ररूप 1 में उस प्राधिकारी को किया जाता है जो उसे स्वीकृत करने हेतु सक्षम है। 2018 का परंतुक निःशक्तता संभालता है: जहाँ कर्मचारी निःशक्तता के कारण आवेदन या चिकित्सा प्रमाणपत्र प्रस्तुत न कर सके, वहाँ उसे पति/पत्नी; अविवाहित होने पर माता-पिता; वयस्क संतान (दत्तक सहित), भाई या बहन; अथवा दिव्यांगजन अधिकार अधिनियम, 2016 की धारा 14 के अधीन नियुक्त सीमित संरक्षक हस्ताक्षरित और प्रस्तुत कर सकता है — और तब वह कर्मचारी द्वारा स्वयं किया गया समझा जाएगा।"
+      },
+      "example": {
+        "en": "The deeming in the closing words is what matters: the application is treated as the officer’s own, so no separate ratification is needed when he recovers.",
+        "hi": "अंतिम शब्दों की उपधारणा ही महत्वपूर्ण है: आवेदन कर्मचारी का अपना माना जाता है, अतः स्वस्थ होने पर पृथक् अनुसमर्थन की आवश्यकता नहीं।"
+      },
+      "connects": [
+        "ccs-leave-16",
+        "ccs-leave-20",
+        "ccs-leave-3"
+      ],
+      "misconception": {
+        "en": "\"Only the officer can apply for his own leave.\" The 2018 proviso lists four categories who may, where a disability prevents him.",
+        "hi": "\"अपने अवकाश हेतु केवल कर्मचारी ही आवेदन कर सकता है।\" 2018 का परंतुक चार कोटियाँ गिनाता है जो कर सकती हैं, जहाँ निःशक्तता उसे रोकती हो।"
+      },
+      "reviewed": true,
+      "reviewState": "approved",
+      "generationMeta": {
+        "promptVersion": "study-aid-v1",
+        "batchId": "library-aids-2026-09-03-ccs-leave",
+        "stageA": {
+          "index": 10,
+          "angle": "Form 1, and who may sign it when the officer cannot"
+        },
+        "critic": {
+          "verdict": "approve",
+          "reason": "The disability proviso is the substantive content and the deeming clause is what makes it work."
+        },
+        "verify": {
+          "grounded": true,
+          "note": "The main clause and the proviso’s clauses (a)-(d) with the deeming words are verbatim."
+        },
+        "dedup": {
+          "maxScore": 0,
+          "against": null,
+          "verdict": "keep"
+        },
+        "groundingUnitIds": [
+          "ccs-leave-14"
+        ]
+      },
+      "source": {
+        "name": "Department of Personnel and Training — CCS (Leave) Rules, 1972 — updated as on 24 September 2024",
+        "url": "https://documents.doptcirculars.nic.in/D2/D02est/updatedccsleaverulesN9ExV.pdf"
+      },
+      "verify": true
+    },
+    {
+      "id": "aid-ccs-leave-15",
+      "workId": "ccs-leave",
+      "unitId": "ccs-leave-15",
+      "explanation": {
+        "en": "A leave account is maintained in FORM 2 for every Government servant — by the AUDIT OFFICER for a Gazetted officer, and by the HEAD OF OFFICE or an officer he authorises for a non-Gazetted one. The NOTE covers the mixed case: where a Gazetted officer’s pay and allowances are drawn and disbursed by the Head of Office, that Head of Office keeps the leave account too.",
+        "hi": "प्रत्येक सरकारी कर्मचारी के लिए प्ररूप 2 में अवकाश खाता रखा जाता है — राजपत्रित अधिकारी के लिए लेखापरीक्षा अधिकारी द्वारा, और अराजपत्रित के लिए कार्यालय-प्रमुख अथवा उसके द्वारा प्राधिकृत अधिकारी द्वारा। टिप्पण मिश्रित स्थिति संभालता है: जहाँ राजपत्रित अधिकारी का वेतन और भत्ते कार्यालय-प्रमुख आहरित और वितरित करता है, वहाँ अवकाश खाता भी वही रखता है।"
+      },
+      "example": {
+        "en": "This is why Rule 16 says no leave is granted until an admissibility report has been obtained \"from the authority maintaining the leave account\" — which this rule identifies.",
+        "hi": "इसीलिए नियम 16 कहता है कि \"अवकाश खाता रखने वाले प्राधिकारी\" से अनुज्ञेयता रिपोर्ट प्राप्त होने तक कोई अवकाश स्वीकृत नहीं किया जाएगा — और वह प्राधिकारी यही नियम पहचानता है।"
+      },
+      "connects": [
+        "ccs-leave-16",
+        "ccs-leave-27"
+      ],
+      "misconception": {
+        "en": "\"The Head of Office keeps everyone’s leave account.\" For a Gazetted officer it is the Audit Officer, unless the Head of Office also draws and disburses his pay.",
+        "hi": "\"अवकाश खाता सबका कार्यालय-प्रमुख रखता है।\" राजपत्रित अधिकारी का लेखापरीक्षा अधिकारी रखता है, जब तक कार्यालय-प्रमुख उसका वेतन भी आहरित और वितरित न करता हो।"
+      },
+      "reviewed": true,
+      "reviewState": "approved",
+      "generationMeta": {
+        "promptVersion": "study-aid-v1",
+        "batchId": "library-aids-2026-09-03-ccs-leave",
+        "stageA": {
+          "index": 11,
+          "angle": "who keeps the leave account"
+        },
+        "critic": {
+          "verdict": "approve",
+          "reason": "The Gazetted/non-Gazetted split and the NOTE’s mixed case are the whole rule and both decide who signs a report under Rule 16."
+        },
+        "verify": {
+          "grounded": true,
+          "note": "The main clause and the NOTE are verbatim."
+        },
+        "dedup": {
+          "maxScore": 0,
+          "against": null,
+          "verdict": "keep"
+        },
+        "groundingUnitIds": [
+          "ccs-leave-15"
+        ]
+      },
+      "source": {
+        "name": "Department of Personnel and Training — CCS (Leave) Rules, 1972 — updated as on 24 September 2024",
+        "url": "https://documents.doptcirculars.nic.in/D2/D02est/updatedccsleaverulesN9ExV.pdf"
+      },
+      "verify": true
+    },
+    {
+      "id": "aid-ccs-leave-16",
+      "workId": "ccs-leave",
+      "unitId": "ccs-leave-16",
+      "explanation": {
+        "en": "NO LEAVE may be granted until a report on its admissibility has been obtained from the authority maintaining the leave account, and the sanction order must state the balance of earned leave and half pay leave at credit. Where the report would be unduly delayed, the sanctioning authority may compute the admissible leave from available information and issue a PROVISIONAL sanction for a period NOT EXCEEDING SIXTY DAYS, subject to later verification and a modified sanction where necessary. For a Gazetted officer the Audit Officer may similarly issue a provisional leave salary slip for up to sixty days.",
+        "hi": "अवकाश खाता रखने वाले प्राधिकारी से अनुज्ञेयता रिपोर्ट प्राप्त हुए बिना कोई अवकाश स्वीकृत नहीं किया जाएगा, और स्वीकृति आदेश में जमा अर्जित अवकाश तथा अर्ध-वेतन अवकाश का शेष दर्शाया जाना चाहिए। जहाँ रिपोर्ट में अनुचित विलंब हो, वहाँ स्वीकृति प्राधिकारी उपलब्ध जानकारी से अनुज्ञेय अवकाश की गणना करके साठ दिन से अनधिक अवधि हेतु अनंतिम स्वीकृति दे सकता है, जो बाद के सत्यापन और आवश्यक होने पर उपांतरित स्वीकृति के अधीन होगी। राजपत्रित अधिकारी हेतु लेखापरीक्षा अधिकारी इसी प्रकार साठ दिन तक की अनंतिम अवकाश वेतन पर्ची जारी कर सकता है।"
+      },
+      "example": {
+        "en": "The NOTE to sub-rule (2) is the safeguard: for leave preparatory to retirement, or for cash payment in lieu of leave under Rule 39, an UNDERTAKING to refund any excess leave salary is taken from the officer.",
+        "hi": "उप-नियम (2) का टिप्पण संरक्षण है: सेवानिवृत्ति-पूर्व अवकाश हेतु, अथवा नियम 39 के अधीन अवकाश के बदले नकद भुगतान हेतु, कर्मचारी से अधिक अवकाश वेतन लौटाने का वचनबंध लिया जाता है।"
+      },
+      "connects": [
+        "ccs-leave-15",
+        "ccs-leave-38",
+        "ccs-leave-39"
+      ],
+      "misconception": {
+        "en": "\"A sanction order need only say how many days are granted.\" The NOTE to sub-rule (1) requires it to indicate the BALANCE of earned leave and half pay leave at credit.",
+        "hi": "\"स्वीकृति आदेश में केवल दिनों की संख्या लिखनी होती है।\" उप-नियम (1) का टिप्पण अपेक्षित करता है कि उसमें जमा अर्जित अवकाश और अर्ध-वेतन अवकाश का शेष दर्शाया जाए।"
+      },
+      "examRelevance": {
+        "en": "Sixty days is the provisional-sanction ceiling in both sub-rule (2)(a) and (2)(c).",
+        "hi": "साठ दिन उप-नियम (2)(क) और (2)(ग) दोनों में अनंतिम स्वीकृति की सीमा है।"
+      },
+      "reviewed": true,
+      "reviewState": "approved",
+      "generationMeta": {
+        "promptVersion": "study-aid-v1",
+        "batchId": "library-aids-2026-09-03-ccs-leave",
+        "stageA": {
+          "index": 12,
+          "angle": "no leave without an admissibility report, and the sixty-day escape"
+        },
+        "critic": {
+          "verdict": "approve",
+          "reason": "The report requirement, the sixty-day provisional route and the balance-in-the-order NOTE are the three things a sanctioning office gets wrong."
+        },
+        "verify": {
+          "grounded": true,
+          "note": "Sub-rules (1) with its NOTE and (2)(a)-(c) with its NOTE are verbatim."
+        },
+        "dedup": {
+          "maxScore": 0,
+          "against": null,
+          "verdict": "keep"
+        },
+        "groundingUnitIds": [
+          "ccs-leave-16"
+        ]
+      },
+      "source": {
+        "name": "Department of Personnel and Training — CCS (Leave) Rules, 1972 — updated as on 24 September 2024",
+        "url": "https://documents.doptcirculars.nic.in/D2/D02est/updatedccsleaverulesN9ExV.pdf"
+      },
+      "verify": true
+    },
+    {
+      "id": "aid-ccs-leave-17",
+      "workId": "ccs-leave",
+      "unitId": "ccs-leave-17",
+      "explanation": {
+        "en": "Leave SHALL NOT be granted to a Government servant whom a competent punishing authority has DECIDED to dismiss, remove or compulsorily retire from Government service. Note what it does not say: a pending inquiry is not enough, and suspension is not enough. The bar attaches to a DECISION by the competent punishing authority.",
+        "hi": "ऐसे सरकारी कर्मचारी को अवकाश स्वीकृत नहीं किया जाएगा जिसे सक्षम दंड-प्राधिकारी ने सेवा से पदच्युत करने, हटाने अथवा अनिवार्यतः सेवानिवृत्त करने का निश्चय कर लिया हो। ध्यान दें कि यह क्या नहीं कहता: लंबित जाँच पर्याप्त नहीं, और निलंबन पर्याप्त नहीं। वर्जन सक्षम दंड-प्राधिकारी के निश्चय से जुड़ता है।"
+      },
+      "example": {
+        "en": "An officer under suspension with a charge-sheet pending is not inside this rule. Whether he is granted leave is a Rule 7 question — exigencies of public service — not a Rule 17 prohibition.",
+        "hi": "निलंबित और आरोप-पत्र लंबित रहते हुए कर्मचारी इस नियम के भीतर नहीं है। उसे अवकाश मिलेगा या नहीं, यह नियम 7 का प्रश्न है — लोक सेवा की अपरिहार्यताएँ — नियम 17 का निषेध नहीं।"
+      },
+      "connects": [
+        "ccs-leave-7",
+        "ccs-leave-9"
+      ],
+      "misconception": {
+        "en": "\"An officer under inquiry cannot be granted leave.\" Rule 17 bars leave only once the punishing authority has DECIDED on dismissal, removal or compulsory retirement.",
+        "hi": "\"जाँच के अधीन कर्मचारी को अवकाश नहीं दिया जा सकता।\" नियम 17 अवकाश तभी वर्जित करता है जब दंड-प्राधिकारी पदच्युति, हटाने या अनिवार्य सेवानिवृत्ति का निश्चय कर चुका हो।"
+      },
+      "reviewed": true,
+      "reviewState": "approved",
+      "generationMeta": {
+        "promptVersion": "study-aid-v1",
+        "batchId": "library-aids-2026-09-03-ccs-leave",
+        "stageA": {
+          "index": 13,
+          "angle": "the one circumstance in which leave must be refused"
+        },
+        "critic": {
+          "verdict": "approve",
+          "reason": "One sentence; the aid’s work is stating precisely what does NOT trigger it, which is where the rule is over-applied."
+        },
+        "verify": {
+          "grounded": true,
+          "note": "The rule is one sentence and is quoted in substance; the \"decided to\" trigger is its own word."
+        },
+        "dedup": {
+          "maxScore": 0,
+          "against": null,
+          "verdict": "keep"
+        },
+        "groundingUnitIds": [
+          "ccs-leave-17"
+        ]
+      },
+      "source": {
+        "name": "Department of Personnel and Training — CCS (Leave) Rules, 1972 — updated as on 24 September 2024",
+        "url": "https://documents.doptcirculars.nic.in/D2/D02est/updatedccsleaverulesN9ExV.pdf"
+      },
+      "verify": true
+    },
+    {
+      "id": "aid-ccs-leave-20",
+      "workId": "ccs-leave",
+      "unitId": "ccs-leave-20",
+      "explanation": {
+        "en": "When a Medical Authority reports that there is no reasonable prospect of the officer ever being fit to return to duty, leave is NOT necessarily to be refused. If the Authority cannot say with certainty that he will never again be fit, leave up to TWELVE MONTHS at a time may be granted and may not be extended without a further medical reference. Where he is certified to have acquired a disability that may prevent further service, leave may be granted after a certificate in FORM 3-A — and two provisos then protect his account: leave debited under the first route is REMITTED BACK, and leave granted under the second is NOT DEBITED at all. Section 20 of the Rights of Persons with Disabilities Act, 2016 applies suo motu.",
+        "hi": "जब चिकित्सा प्राधिकारी रिपोर्ट करे कि कर्मचारी के कभी भी ड्यूटी पर लौटने योग्य होने की युक्तियुक्त संभावना नहीं है, तब अवकाश आवश्यक रूप से अस्वीकार नहीं किया जाएगा। यदि प्राधिकारी निश्चयपूर्वक न कह सके कि वह फिर कभी योग्य नहीं होगा, तो एक बार में बारह मास तक का अवकाश स्वीकृत किया जा सकता है और आगे चिकित्सा निर्देश के बिना बढ़ाया नहीं जा सकता। जहाँ प्रमाणित हो कि उसने ऐसी निःशक्तता प्राप्त कर ली है जो आगे सेवा से रोक सकती है, वहाँ प्ररूप 3-क में प्रमाणपत्र के बाद अवकाश दिया जा सकता है — और तब दो परंतुक उसके खाते की रक्षा करते हैं: पहले मार्ग में डेबिट किया गया अवकाश वापस जमा किया जाएगा, और दूसरे मार्ग में दिया गया अवकाश डेबिट किया ही नहीं जाएगा। दिव्यांगजन अधिकार अधिनियम, 2016 की धारा 20 स्वतः लागू होती है।"
+      },
+      "example": {
+        "en": "Rule 7’s proviso locks this in from the other side: leave applied for under Rule 20 may not be refused or revoked without reference to the Medical Authority, whose advice is BINDING.",
+        "hi": "नियम 7 का परंतुक इसे दूसरी ओर से बाँधता है: नियम 20 के अधीन आवेदित अवकाश चिकित्सा प्राधिकारी को निर्देश किए बिना अस्वीकार या प्रतिसंहृत नहीं किया जा सकता, और उसकी सलाह बाध्यकारी है।"
+      },
+      "connects": [
+        "ccs-leave-7",
+        "ccs-leave-19",
+        "ccs-leave-12"
+      ],
+      "misconception": {
+        "en": "\"If a Medical Board says the officer will not recover, leave is refused.\" The rule says the opposite in its opening words — leave \"shall not necessarily be refused\".",
+        "hi": "\"यदि चिकित्सा बोर्ड कहे कि कर्मचारी स्वस्थ नहीं होगा, तो अवकाश अस्वीकार होगा।\" नियम अपने आरंभिक शब्दों में इसके विपरीत कहता है — अवकाश \"आवश्यक रूप से अस्वीकार नहीं किया जाएगा\"।"
+      },
+      "reviewed": true,
+      "reviewState": "approved",
+      "generationMeta": {
+        "promptVersion": "study-aid-v1",
+        "batchId": "library-aids-2026-09-03-ccs-leave",
+        "stageA": {
+          "index": 14,
+          "angle": "leave for an officer who may never return to duty"
+        },
+        "critic": {
+          "verdict": "approve",
+          "reason": "Both routes, both provisos and the binding-advice link to Rule 7; this is the rule that most often decides a disabled officer’s remaining service."
+        },
+        "verify": {
+          "grounded": true,
+          "note": "Sub-rules (1)(a)-(b)(i)-(ii) with both provisos and (2) are verbatim; Rule 7’s proviso was read from Rule 7."
+        },
+        "dedup": {
+          "maxScore": 0,
+          "against": null,
+          "verdict": "keep"
+        },
+        "groundingUnitIds": [
+          "ccs-leave-20",
+          "ccs-leave-7"
+        ]
+      },
+      "source": {
+        "name": "Department of Personnel and Training — CCS (Leave) Rules, 1972 — updated as on 24 September 2024",
+        "url": "https://documents.doptcirculars.nic.in/D2/D02est/updatedccsleaverulesN9ExV.pdf"
+      },
+      "verify": true
+    },
+    {
+      "id": "aid-ccs-leave-21",
+      "workId": "ccs-leave",
+      "unitId": "ccs-leave-21",
+      "explanation": {
+        "en": "Except as Rule 22 provides, leave ORDINARILY BEGINS on the day the transfer of charge is effected and ENDS on the day PRECEDING that on which charge is resumed. The whole of the prefixing and suffixing machinery in Rule 22 is an exception to this one sentence.",
+        "hi": "नियम 22 में उपबंधित के सिवाय, अवकाश सामान्यतः उस दिन आरंभ होता है जिस दिन कार्यभार का अंतरण होता है और उस दिन से एक दिन पूर्व समाप्त होता है जिस दिन कार्यभार पुनः ग्रहण किया जाता है। नियम 22 का पूरा उपसर्ग-प्रत्यय तंत्र इसी एक वाक्य का अपवाद है।"
+      },
+      "example": {
+        "en": "An officer who hands over charge on a Friday and resumes on the following Monday has leave running Friday to Sunday — unless Rule 22 lets the intervening holiday be prefixed or suffixed instead.",
+        "hi": "जो अधिकारी शुक्रवार को कार्यभार सौंपता है और अगले सोमवार को पुनः ग्रहण करता है, उसका अवकाश शुक्रवार से रविवार तक चलेगा — जब तक नियम 22 बीच की छुट्टी को उपसर्ग या प्रत्यय के रूप में जोड़ने न दे।"
+      },
+      "connects": [
+        "ccs-leave-22",
+        "ccs-leave-24"
+      ],
+      "misconception": {
+        "en": "\"Leave ends on the day I rejoin.\" It ends on the day PRECEDING that day — one day’s difference, and it is the day the leave account is debited for.",
+        "hi": "\"अवकाश उस दिन समाप्त होता है जिस दिन मैं पुनः उपस्थित होता हूँ।\" वह उससे एक दिन पूर्व समाप्त होता है — एक दिन का अंतर, और उसी दिन के लिए अवकाश खाता डेबिट होता है।"
+      },
+      "reviewed": true,
+      "reviewState": "approved",
+      "generationMeta": {
+        "promptVersion": "study-aid-v1",
+        "batchId": "library-aids-2026-09-03-ccs-leave",
+        "stageA": {
+          "index": 15,
+          "angle": "the day leave begins and the day it ends"
+        },
+        "critic": {
+          "verdict": "approve",
+          "reason": "One sentence, and its off-by-one is a real and recurring error in leave accounting."
+        },
+        "verify": {
+          "grounded": true,
+          "note": "The rule is one sentence and is quoted in substance."
+        },
+        "dedup": {
+          "maxScore": 0,
+          "against": null,
+          "verdict": "keep"
+        },
+        "groundingUnitIds": [
+          "ccs-leave-21"
+        ]
+      },
+      "source": {
+        "name": "Department of Personnel and Training — CCS (Leave) Rules, 1972 — updated as on 24 September 2024",
+        "url": "https://documents.doptcirculars.nic.in/D2/D02est/updatedccsleaverulesN9ExV.pdf"
+      },
+      "verify": true
+    },
+    {
+      "id": "aid-ccs-leave-22",
+      "workId": "ccs-leave",
+      "unitId": "ccs-leave-22",
+      "explanation": {
+        "en": "Where the day immediately before leave begins, or immediately after it expires, is a holiday or a series of holidays, the officer is DEEMED to have been permitted to leave station at the close of the day before, or return the day after — unless permission was specifically withheld for administrative reasons — provided three conditions hold: no handing over of securities or money beyond a permanent advance, no correspondingly early transfer of a replacement, and no delay in the replacement’s onward transfer or discharge. For leave on MEDICAL CERTIFICATE the treatment is automatic and different: holidays immediately preceding the day of certification are prefixed, holidays succeeding the day of certification of fitness (including that day) are suffixed, and holidays before certification are treated as PART OF THE LEAVE.",
+        "hi": "जहाँ अवकाश आरंभ होने से ठीक पूर्व का, अथवा उसकी समाप्ति के ठीक बाद का दिन कोई छुट्टी या छुट्टियों की शृंखला हो, वहाँ कर्मचारी को पूर्ववर्ती दिन की समाप्ति पर स्टेशन छोड़ने अथवा अगले दिन लौटने की अनुज्ञा दी गई समझी जाएगी — जब तक प्रशासनिक कारणों से अनुज्ञा विशेष रूप से रोक न दी गई हो — बशर्ते तीन शर्तें पूरी हों: स्थायी अग्रिम से अधिक प्रतिभूतियों या धन का हस्तांतरण न हो, प्रतिस्थापक का तदनुरूप शीघ्र स्थानांतरण न हो, और प्रतिस्थापक के आगे के स्थानांतरण या सेवा-मुक्ति में विलंब न हो। चिकित्सा प्रमाणपत्र पर अवकाश हेतु व्यवहार स्वतः और भिन्न है: प्रमाणन के दिन से ठीक पूर्व की छुट्टियाँ उपसर्ग होंगी, स्वस्थता प्रमाणन के दिन के बाद की छुट्टियाँ (उस दिन सहित) प्रत्यय होंगी, और प्रमाणन से पूर्व की छुट्टियाँ अवकाश का भाग मानी जाएँगी।"
+      },
+      "example": {
+        "en": "Prefixing and suffixing does not cost a day of leave; treating a holiday as PART of the leave does. That is the whole practical difference between clause (1)(i) and clause (1)(ii).",
+        "hi": "उपसर्ग और प्रत्यय जोड़ने से अवकाश का एक दिन खर्च नहीं होता; छुट्टी को अवकाश का भाग मानने से होता है। खंड (1)(i) और खंड (1)(ii) के बीच पूरा व्यावहारिक अंतर यही है।"
+      },
+      "connects": [
+        "ccs-leave-21",
+        "ccs-leave-19"
+      ],
+      "misconception": {
+        "en": "\"Holidays are always free at both ends.\" The deemed permission can be specifically withheld for administrative reasons, and it is subject to three conditions in clauses (a) to (c).",
+        "hi": "\"छुट्टियाँ दोनों ओर सदा मुफ़्त हैं।\" मानी गई अनुज्ञा प्रशासनिक कारणों से विशेष रूप से रोकी जा सकती है, और वह खंड (क) से (ग) की तीन शर्तों के अधीन है।"
+      },
+      "examRelevance": {
+        "en": "The medical-certificate rules in clause (1)(ii)(a) and (b) are asked about because they are automatic and because one of their limbs debits leave.",
+        "hi": "खंड (1)(ii)(क) और (ख) के चिकित्सा-प्रमाणपत्र नियम इसलिए पूछे जाते हैं कि वे स्वतः हैं और उनका एक अंग अवकाश डेबिट करता है।"
+      },
+      "reviewed": true,
+      "reviewState": "approved",
+      "generationMeta": {
+        "promptVersion": "study-aid-v1",
+        "batchId": "library-aids-2026-09-03-ccs-leave",
+        "stageA": {
+          "index": 16,
+          "angle": "prefixing and suffixing holidays, and the medical-certificate variant"
+        },
+        "critic": {
+          "verdict": "approve",
+          "reason": "Both regimes and the three conditions; the \"part of the leave\" limb is the costly one and the aid says so."
+        },
+        "verify": {
+          "grounded": true,
+          "note": "Sub-rule (1)(i) with conditions (a)-(c) and (1)(ii)(a)-(b) are verbatim."
+        },
+        "dedup": {
+          "maxScore": 0,
+          "against": null,
+          "verdict": "keep"
+        },
+        "groundingUnitIds": [
+          "ccs-leave-22"
+        ]
+      },
+      "source": {
+        "name": "Department of Personnel and Training — CCS (Leave) Rules, 1972 — updated as on 24 September 2024",
+        "url": "https://documents.doptcirculars.nic.in/D2/D02est/updatedccsleaverulesN9ExV.pdf"
+      },
+      "verify": true
+    },
+    {
+      "id": "aid-ccs-leave-23",
+      "workId": "ccs-leave",
+      "unitId": "ccs-leave-23",
+      "explanation": {
+        "en": "A recall to duty before the expiry of leave is treated as COMPULSORY IN ALL CASES. Where the leave was in India, the officer is on duty from the date he starts for the station he is ordered to, and draws travelling allowance for the journey and leave salary until he joins, at the rate he would have drawn but for the recall. Where the leave was outside India, the voyage counts as duty for leave purposes, and he receives leave salary during the voyage and until joining, a free passage to India, a refund of his outward passage if he had not completed half his leave or three months (whichever is shorter), and travelling allowance from the landing place to his place of duty.",
+        "hi": "अवकाश की समाप्ति से पूर्व ड्यूटी पर वापस बुलाया जाना सभी मामलों में अनिवार्य माना जाता है। जहाँ अवकाश भारत में था, वहाँ कर्मचारी उस तिथि से ड्यूटी पर है जिस दिन वह आदेशित स्टेशन के लिए चलता है, और यात्रा हेतु यात्रा भत्ता तथा उपस्थित होने तक अवकाश वेतन उसी दर पर पाता है जो वापस न बुलाए जाने पर मिलता। जहाँ अवकाश भारत से बाहर था, वहाँ समुद्री यात्रा अवकाश-गणना हेतु ड्यूटी गिनी जाती है, और उसे यात्रा के दौरान तथा उपस्थित होने तक अवकाश वेतन, भारत तक निःशुल्क मार्ग, बाहर जाने के मार्ग की प्रतिपूर्ति यदि उसने अवकाश का आधा भाग अथवा तीन मास (जो कम हो) पूरा न किया हो, तथा उतरने के स्थान से ड्यूटी के स्थान तक यात्रा भत्ता मिलता है।"
+      },
+      "example": {
+        "en": "\"Compulsory in all cases\" is the operative phrase: the officer cannot be asked to volunteer to return and thereby lose the travelling allowance and the on-duty treatment that a recall carries.",
+        "hi": "\"सभी मामलों में अनिवार्य\" प्रवर्तनीय वाक्यांश है: कर्मचारी से स्वेच्छा से लौटने को नहीं कहा जा सकता, जिससे वह वापस बुलाए जाने के साथ आने वाला यात्रा भत्ता और ड्यूटी-गणना खो दे।"
+      },
+      "connects": [
+        "ccs-leave-24",
+        "ccs-leave-40"
+      ],
+      "misconception": {
+        "en": "\"A recall is a request.\" Sub-rule (3) makes it compulsory in all cases, which is what triggers the entitlements that follow it.",
+        "hi": "\"वापस बुलाना अनुरोध है।\" उप-नियम (3) उसे सभी मामलों में अनिवार्य बनाता है, और यही उसके बाद आने वाली पात्रताएँ सक्रिय करता है।"
+      },
+      "reviewed": true,
+      "reviewState": "approved",
+      "generationMeta": {
+        "promptVersion": "study-aid-v1",
+        "batchId": "library-aids-2026-09-03-ccs-leave",
+        "stageA": {
+          "index": 17,
+          "angle": "recall is compulsory, and what it entitles the officer to"
+        },
+        "critic": {
+          "verdict": "approve",
+          "reason": "The compulsory characterisation and the two entitlement sets are the whole rule; sub-rules (1) and (2) are deleted in the source and the aid ignores them."
+        },
+        "verify": {
+          "grounded": true,
+          "note": "Sub-rule (3)(a)(i)-(ii) and (3)(b)(i)-(iv) are verbatim, including \"treated as compulsory in all cases\"."
+        },
+        "dedup": {
+          "maxScore": 0,
+          "against": null,
+          "verdict": "keep"
+        },
+        "groundingUnitIds": [
+          "ccs-leave-23"
+        ]
+      },
+      "source": {
+        "name": "Department of Personnel and Training — CCS (Leave) Rules, 1972 — updated as on 24 September 2024",
+        "url": "https://documents.doptcirculars.nic.in/D2/D02est/updatedccsleaverulesN9ExV.pdf"
+      },
+      "verify": true
+    },
+    {
+      "id": "aid-ccs-leave-24",
+      "workId": "ccs-leave",
+      "unitId": "ccs-leave-24",
+      "explanation": {
+        "en": "An officer on leave may NOT return before the leave expires unless permitted by the authority that granted it, and an officer on leave preparatory to retirement is precluded from returning save with the consent of the authority competent to appoint him. Leave taken on medical certificate ends only on production of a FITNESS certificate in FORM 5 — from a Medical Board for a Gazetted officer, except where the leave was three months or less or the Board said no second appearance was needed. And a returning officer is NOT entitled, absent specific orders, to resume the post he held before.",
+        "hi": "अवकाश पर कर्मचारी अवकाश समाप्त होने से पूर्व नहीं लौट सकता, जब तक उसे स्वीकृत करने वाला प्राधिकारी अनुज्ञा न दे, और सेवानिवृत्ति-पूर्व अवकाश पर कर्मचारी को लौटने से रोका गया है, सिवाय उस प्राधिकारी की सहमति के जो उसे नियुक्त करने हेतु सक्षम है। चिकित्सा प्रमाणपत्र पर लिया गया अवकाश प्ररूप 5 में स्वस्थता प्रमाणपत्र प्रस्तुत करने पर ही समाप्त होता है — राजपत्रित अधिकारी हेतु चिकित्सा बोर्ड से, सिवाय उस स्थिति के जहाँ अवकाश तीन मास या उससे कम का हो अथवा बोर्ड ने कह दिया हो कि दुबारा उपस्थित होना आवश्यक नहीं।"
+      },
+      "example": {
+        "en": "Sub-rule (4)(a) is the one that surprises: returning from leave does not restore the officer to his old post as a matter of course. He reports his return and awaits orders.",
+        "hi": "उप-नियम (4)(क) ही चौंकाता है: अवकाश से लौटना कर्मचारी को स्वतः उसके पुराने पद पर वापस नहीं करता। वह अपनी वापसी की सूचना देता है और आदेशों की प्रतीक्षा करता है।"
+      },
+      "connects": [
+        "ccs-leave-21",
+        "ccs-leave-25",
+        "ccs-leave-38"
+      ],
+      "misconception": {
+        "en": "\"I can cut my leave short and come back.\" Not without the permission of the authority that granted it — and on leave preparatory to retirement, not without the appointing authority’s consent.",
+        "hi": "\"मैं अपना अवकाश छोटा करके लौट सकता हूँ।\" उसे स्वीकृत करने वाले प्राधिकारी की अनुज्ञा के बिना नहीं — और सेवानिवृत्ति-पूर्व अवकाश पर, नियुक्ति प्राधिकारी की सहमति के बिना नहीं।"
+      },
+      "reviewed": true,
+      "reviewState": "approved",
+      "generationMeta": {
+        "promptVersion": "study-aid-v1",
+        "batchId": "library-aids-2026-09-03-ccs-leave",
+        "stageA": {
+          "index": 18,
+          "angle": "coming back early, coming back on a medical certificate, and coming back to what"
+        },
+        "critic": {
+          "verdict": "approve",
+          "reason": "Four separate rules in one section; sub-rule (4)(a) is picked for the example because it is the one nobody expects."
+        },
+        "verify": {
+          "grounded": true,
+          "note": "Sub-rules (1), (2), (3)(a)-(d) and (4)(a)-(b) are verbatim."
+        },
+        "dedup": {
+          "maxScore": 0,
+          "against": null,
+          "verdict": "keep"
+        },
+        "groundingUnitIds": [
+          "ccs-leave-24"
+        ]
+      },
+      "source": {
+        "name": "Department of Personnel and Training — CCS (Leave) Rules, 1972 — updated as on 24 September 2024",
+        "url": "https://documents.doptcirculars.nic.in/D2/D02est/updatedccsleaverulesN9ExV.pdf"
+      },
+      "verify": true
+    },
+    {
+      "id": "aid-ccs-leave-25",
+      "workId": "ccs-leave",
+      "unitId": "ccs-leave-25",
+      "explanation": {
+        "en": "Unless the competent authority extends the leave, an officer who remains absent after it ends gets NO LEAVE SALARY for that period, and the period is DEBITED AS THOUGH IT WERE HALF PAY LEAVE to the extent such leave is due — the excess being treated as EXTRAORDINARY LEAVE. Separately, WILFUL absence after the expiry of leave renders him liable to disciplinary action.",
+        "hi": "जब तक सक्षम प्राधिकारी अवकाश न बढ़ाए, अवकाश समाप्त होने के बाद अनुपस्थित रहने वाले कर्मचारी को उस अवधि का कोई अवकाश वेतन नहीं मिलता, और वह अवधि उसके खाते में अर्ध-वेतन अवकाश के रूप में डेबिट होती है, जहाँ तक ऐसा अवकाश देय हो — शेष असाधारण अवकाश माना जाता है। पृथक् रूप से, अवकाश की समाप्ति के बाद जानबूझकर अनुपस्थिति उसे अनुशासनिक कार्रवाई का भागी बनाती है।"
+      },
+      "example": {
+        "en": "The two consequences are independent: the leave account is debited whether or not the absence was wilful, and the disciplinary liability arises only if it was.",
+        "hi": "दोनों परिणाम स्वतंत्र हैं: अवकाश खाता डेबिट होता है चाहे अनुपस्थिति जानबूझकर हो या नहीं, और अनुशासनिक दायित्व तभी उठता है जब वह जानबूझकर हो।"
+      },
+      "connects": [
+        "ccs-leave-12",
+        "ccs-leave-29",
+        "ccs-leave-32"
+      ],
+      "misconception": {
+        "en": "\"Absence after leave is simply loss of pay.\" It is also debited to the half pay leave account, and beyond that to extraordinary leave — so it consumes an entitlement as well as a salary.",
+        "hi": "\"अवकाश के बाद अनुपस्थिति केवल वेतन की हानि है।\" वह अर्ध-वेतन अवकाश खाते में भी डेबिट होती है, और उससे आगे असाधारण अवकाश में — अतः वह वेतन के साथ पात्रता भी खा जाती है।"
+      },
+      "reviewed": true,
+      "reviewState": "approved",
+      "generationMeta": {
+        "promptVersion": "study-aid-v1",
+        "batchId": "library-aids-2026-09-03-ccs-leave",
+        "stageA": {
+          "index": 19,
+          "angle": "what absence after leave costs, in leave and in discipline"
+        },
+        "critic": {
+          "verdict": "approve",
+          "reason": "Both consequences and their independence; the debit-as-HPL mechanic is the part officers do not expect."
+        },
+        "verify": {
+          "grounded": true,
+          "note": "Sub-rules (1) and (2) are verbatim."
+        },
+        "dedup": {
+          "maxScore": 0,
+          "against": null,
+          "verdict": "keep"
+        },
+        "groundingUnitIds": [
+          "ccs-leave-25"
+        ]
+      },
+      "source": {
+        "name": "Department of Personnel and Training — CCS (Leave) Rules, 1972 — updated as on 24 September 2024",
+        "url": "https://documents.doptcirculars.nic.in/D2/D02est/updatedccsleaverulesN9ExV.pdf"
+      },
+      "verify": true
+    },
+    {
+      "id": "aid-ccs-leave-26",
+      "workId": "ccs-leave",
+      "unitId": "ccs-leave-26",
+      "explanation": {
+        "en": "Earned leave is credited IN ADVANCE in two instalments of FIFTEEN DAYS each, on 1 January and 1 July of every calendar year, for an officer in a non-Vacation Department. Leave at credit at the close of a half-year is carried forward, subject to the carried-forward leave plus the new credit not exceeding THREE HUNDRED DAYS. Where the balance on 31 December or 30 June is 300 days or less but more than 285, the 15-day advance credit is kept SEPARATELY instead of being credited, and set off against leave actually availed in that half-year. Unavailed joining time may also be credited as earned leave up to fifteen days, subject to the same 300-day ceiling.",
+        "hi": "गैर-अवकाश विभाग के कर्मचारी को अर्जित अवकाश प्रत्येक कैलेंडर वर्ष की 1 जनवरी और 1 जुलाई को पंद्रह-पंद्रह दिन की दो किस्तों में अग्रिम जमा किया जाता है। अर्ध-वर्ष के अंत में जमा अवकाश आगे ले जाया जाता है, इस शर्त के अधीन कि आगे लाया गया अवकाश और नया जमा मिलाकर तीन सौ दिन से अधिक न हो। जहाँ 31 दिसंबर या 30 जून को शेष 300 दिन या उससे कम किंतु 285 से अधिक हो, वहाँ 15 दिन का अग्रिम जमा खाते में डालने के बजाय पृथक् रखा जाता है और उस अर्ध-वर्ष में वस्तुतः लिए गए अवकाश के विरुद्ध समायोजित होता है। अनुपयुक्त कार्यग्रहण काल भी पंद्रह दिन तक अर्जित अवकाश के रूप में जमा किया जा सकता है, उसी 300-दिन की सीमा के अधीन।"
+      },
+      "example": {
+        "en": "An officer with 292 days on 31 December does not simply get 307. The 15 days are held separately and set off against what he actually takes in that half-year — which is what stops the ceiling being breached on paper.",
+        "hi": "31 दिसंबर को 292 दिन वाले कर्मचारी को केवल 307 नहीं मिल जाते। वे 15 दिन पृथक् रखे जाते हैं और उस अर्ध-वर्ष में वस्तुतः लिए गए अवकाश के विरुद्ध समायोजित होते हैं — और यही सीमा को कागज़ पर टूटने से रोकता है।"
+      },
+      "connects": [
+        "ccs-leave-27",
+        "ccs-leave-28",
+        "ccs-leave-39"
+      ],
+      "misconception": {
+        "en": "\"Earned leave is earned month by month.\" It is credited IN ADVANCE, in two 15-day instalments; Rule 27’s 2½ days a month applies to a part half-year — the year of appointment, retirement, resignation, removal or death.",
+        "hi": "\"अर्जित अवकाश मास-दर-मास अर्जित होता है।\" वह अग्रिम जमा होता है, 15-15 दिन की दो किस्तों में; नियम 27 का प्रतिमास 2½ दिन आंशिक अर्ध-वर्ष पर लागू होता है — नियुक्ति, सेवानिवृत्ति, त्यागपत्र, हटाए जाने या मृत्यु का वर्ष।"
+      },
+      "examRelevance": {
+        "en": "Fifteen days twice a year, a 300-day ceiling, and the 285-to-300 separate-credit mechanic are the three facts.",
+        "hi": "वर्ष में दो बार पंद्रह दिन, 300 दिन की सीमा, तथा 285-से-300 वाली पृथक्-जमा प्रणाली — यही तीन तथ्य हैं।"
+      },
+      "mnemonic": {
+        "en": "15 + 15 a year, capped at 300; above 285, held separately.",
+        "hi": "वर्ष में 15 + 15, सीमा 300; 285 से ऊपर, पृथक् रखा हुआ।"
+      },
+      "reviewed": true,
+      "reviewState": "approved",
+      "generationMeta": {
+        "promptVersion": "study-aid-v1",
+        "batchId": "library-aids-2026-09-03-ccs-leave",
+        "stageA": {
+          "index": 20,
+          "angle": "fifteen plus fifteen, and the three-hundred-day wall"
+        },
+        "critic": {
+          "verdict": "approve",
+          "reason": "The 300-day ceiling and the separate-credit mechanism are the two things a leave clerk has to get right, and the 240→300 substitution is footnoted in the corpus."
+        },
+        "verify": {
+          "grounded": true,
+          "note": "Sub-rule (1)(a)(i)-(ii) with the joining-time proviso and (1)(b) with its proviso are verbatim, including the \"240 days substituted with 300 days\" note."
+        },
+        "dedup": {
+          "maxScore": 0,
+          "against": null,
+          "verdict": "keep"
+        },
+        "groundingUnitIds": [
+          "ccs-leave-26"
+        ]
+      },
+      "source": {
+        "name": "Department of Personnel and Training — CCS (Leave) Rules, 1972 — updated as on 24 September 2024",
+        "url": "https://documents.doptcirculars.nic.in/D2/D02est/updatedccsleaverulesN9ExV.pdf"
+      },
+      "verify": true
+    },
+    {
+      "id": "aid-ccs-leave-27",
+      "workId": "ccs-leave",
+      "unitId": "ccs-leave-27",
+      "explanation": {
+        "en": "Earned leave is credited at 2½ DAYS FOR EACH COMPLETED CALENDAR MONTH in four situations: the half-year in which the officer is appointed (for the months he is likely to serve), the half-year in which he retires or resigns (up to that date), removal or dismissal (up to the end of the month PRECEDING the month of removal), and death in service (up to the date of death). Where extraordinary leave or a dies-non period fell in a half-year, the next half-year’s credit is reduced by ONE-TENTH of that period, subject to a maximum of 15 days. Fractions of a day are rounded off to the nearest day.",
+        "hi": "अर्जित अवकाश चार स्थितियों में प्रत्येक पूर्ण कैलेंडर मास हेतु 2½ दिन की दर से जमा होता है: वह अर्ध-वर्ष जिसमें कर्मचारी नियुक्त होता है (उन मासों हेतु जो वह देगा), वह अर्ध-वर्ष जिसमें वह सेवानिवृत्त होता है या त्यागपत्र देता है (उस तिथि तक), हटाया जाना या पदच्युति (हटाए जाने के मास से पूर्ववर्ती मास के अंत तक), तथा सेवाकाल में मृत्यु (मृत्यु की तिथि तक)। जहाँ किसी अर्ध-वर्ष में असाधारण अवकाश अथवा दिन-रहित अवधि पड़ी हो, वहाँ अगले अर्ध-वर्ष का जमा उस अवधि के दसवें भाग से घटाया जाएगा, अधिकतम 15 दिन के अधीन। दिन के भिन्नांक निकटतम दिन तक पूर्णांकित होते हैं।"
+      },
+      "example": {
+        "en": "The removal case is deliberately harsher than the retirement case: credit stops at the end of the month BEFORE the month of removal, whereas on retirement it runs up to the actual date.",
+        "hi": "हटाए जाने की स्थिति सेवानिवृत्ति की स्थिति से जानबूझकर कठोर है: जमा हटाए जाने के मास से पूर्ववर्ती मास के अंत पर रुक जाता है, जबकि सेवानिवृत्ति पर वह वास्तविक तिथि तक चलता है।"
+      },
+      "connects": [
+        "ccs-leave-26",
+        "ccs-leave-32",
+        "ccs-leave-29"
+      ],
+      "misconception": {
+        "en": "\"Extraordinary leave has no effect on earned leave.\" It reduces the NEXT half-year’s credit by one-tenth of the EOL period, capped at 15 days.",
+        "hi": "\"असाधारण अवकाश का अर्जित अवकाश पर कोई प्रभाव नहीं।\" वह अगले अर्ध-वर्ष का जमा असाधारण अवकाश अवधि के दसवें भाग से घटाता है, अधिकतम 15 दिन।"
+      },
+      "examRelevance": {
+        "en": "One-tenth for earned leave (Rule 27) and one-eighteenth for half pay leave (Rule 29) is the pair most often swapped.",
+        "hi": "अर्जित अवकाश हेतु दसवाँ भाग (नियम 27) और अर्ध-वेतन अवकाश हेतु अठारहवाँ भाग (नियम 29) — यही युग्म सर्वाधिक अदल-बदल जाता है।"
+      },
+      "mnemonic": {
+        "en": "2½ a month · EOL costs 1/10 of EL credit (max 15) and 1/18 of HPL credit (max 10).",
+        "hi": "प्रतिमास 2½ · असाधारण अवकाश से अर्जित जमा का 1/10 (अधि. 15) और अर्ध-वेतन जमा का 1/18 (अधि. 10) घटता है।"
+      },
+      "reviewed": true,
+      "reviewState": "approved",
+      "generationMeta": {
+        "promptVersion": "study-aid-v1",
+        "batchId": "library-aids-2026-09-03-ccs-leave",
+        "stageA": {
+          "index": 21,
+          "angle": "two and a half days a month, and the four occasions it is used"
+        },
+        "critic": {
+          "verdict": "approve",
+          "reason": "The four occasions and the one-tenth reduction; the Rule 29 counterpart is quoted from Rule 29 so the mnemonic is checkable."
+        },
+        "verify": {
+          "grounded": true,
+          "note": "Sub-rules (1), (2)(a)-(c), (3) and (4) are verbatim; the one-eighteenth figure is from Rule 29(2)(d)."
+        },
+        "dedup": {
+          "maxScore": 0,
+          "against": null,
+          "verdict": "keep"
+        },
+        "groundingUnitIds": [
+          "ccs-leave-27",
+          "ccs-leave-29"
+        ]
+      },
+      "source": {
+        "name": "Department of Personnel and Training — CCS (Leave) Rules, 1972 — updated as on 24 September 2024",
+        "url": "https://documents.doptcirculars.nic.in/D2/D02est/updatedccsleaverulesN9ExV.pdf"
+      },
+      "verify": true
+    },
+    {
+      "id": "aid-ccs-leave-28",
+      "workId": "ccs-leave",
+      "unitId": "ccs-leave-28",
+      "explanation": {
+        "en": "An officer in a VACATION DEPARTMENT gets earned leave in two instalments of FIVE DAYS each, not fifteen — because the vacation itself is the substitute. Where he avails only part of the vacation, he gets additional earned leave in the same proportion of twenty days as the vacation not taken bears to the full vacation, with the total credit not exceeding THIRTY days in a calendar year. If he takes NO vacation at all in a year, Rule 26 applies to him instead.",
+        "hi": "अवकाश विभाग के कर्मचारी को अर्जित अवकाश पंद्रह नहीं, पाँच-पाँच दिन की दो किस्तों में मिलता है — क्योंकि वार्षिक अवकाश स्वयं उसका प्रतिस्थापन है। जहाँ वह वार्षिक अवकाश का केवल भाग लेता है, वहाँ उसे बीस दिन के उसी अनुपात में अतिरिक्त अर्जित अवकाश मिलता है जो न लिया गया वार्षिक अवकाश पूरे वार्षिक अवकाश से रखता है, और कुल जमा कैलेंडर वर्ष में तीस दिन से अधिक नहीं। यदि वह वर्ष में कोई वार्षिक अवकाश न ले, तो उस पर नियम 26 लागू होता है।"
+      },
+      "example": {
+        "en": "NOTE 1 is the protection: an officer is treated as having availed the vacation unless a higher authority ordered him to forgo it — and if such an order prevented him from enjoying more than fifteen days of it, he is treated as having availed NONE of it.",
+        "hi": "टिप्पण 1 संरक्षण है: कर्मचारी को वार्षिक अवकाश लिया हुआ माना जाता है, जब तक कोई उच्चतर प्राधिकारी उसे छोड़ने का आदेश न दे — और यदि ऐसे आदेश ने उसे पंद्रह दिन से अधिक उसका उपभोग करने से रोका, तो उसे कोई भी वार्षिक अवकाश न लिया हुआ माना जाता है।"
+      },
+      "connects": [
+        "ccs-leave-26",
+        "ccs-leave-27"
+      ],
+      "misconception": {
+        "en": "\"Everyone gets 15 + 15.\" A Vacation Department officer gets 5 + 5, plus a proportionate share of twenty days for vacation he was not able to take, capped at thirty in the year.",
+        "hi": "\"सबको 15 + 15 मिलता है।\" अवकाश विभाग के कर्मचारी को 5 + 5 मिलता है, साथ में उस वार्षिक अवकाश के लिए बीस दिन का समानुपाती भाग जो वह न ले सका, वर्ष में तीस की सीमा के अधीन।"
+      },
+      "reviewed": true,
+      "reviewState": "approved",
+      "generationMeta": {
+        "promptVersion": "study-aid-v1",
+        "batchId": "library-aids-2026-09-03-ccs-leave",
+        "stageA": {
+          "index": 22,
+          "angle": "why a Vacation Department officer earns less earned leave"
+        },
+        "critic": {
+          "verdict": "approve",
+          "reason": "The 5+5 figure, the proportionate twenty and the thirty-day cap, plus NOTE 1’s fifteen-day protection."
+        },
+        "verify": {
+          "grounded": true,
+          "note": "Sub-rule (1)(a)-(c) with the Explanation and NOTE 1 are verbatim."
+        },
+        "dedup": {
+          "maxScore": 0,
+          "against": null,
+          "verdict": "keep"
+        },
+        "groundingUnitIds": [
+          "ccs-leave-28"
+        ]
+      },
+      "source": {
+        "name": "Department of Personnel and Training — CCS (Leave) Rules, 1972 — updated as on 24 September 2024",
+        "url": "https://documents.doptcirculars.nic.in/D2/D02est/updatedccsleaverulesN9ExV.pdf"
+      },
+      "verify": true
+    },
+    {
+      "id": "aid-ccs-leave-29",
+      "workId": "ccs-leave",
+      "unitId": "ccs-leave-29",
+      "explanation": {
+        "en": "Half pay leave is credited in advance in two instalments of TEN DAYS each on 1 January and 1 July. For a part half-year it accrues at 5/3 DAYS PER COMPLETED CALENDAR MONTH — on appointment, up to retirement or resignation, up to the end of the month preceding removal or dismissal, and up to the date of death. A dies-non period reduces the next half-year’s credit by ONE-EIGHTEENTH, subject to a maximum of TEN days. It may be granted on medical certificate OR on private affairs, and there is NO ceiling on accumulation.",
+        "hi": "अर्ध-वेतन अवकाश 1 जनवरी और 1 जुलाई को दस-दस दिन की दो किस्तों में अग्रिम जमा होता है। आंशिक अर्ध-वर्ष हेतु वह प्रत्येक पूर्ण कैलेंडर मास पर 5/3 दिन की दर से बनता है — नियुक्ति पर, सेवानिवृत्ति या त्यागपत्र तक, हटाए जाने या पदच्युति के मास से पूर्ववर्ती मास के अंत तक, तथा मृत्यु की तिथि तक। दिन-रहित अवधि अगले अर्ध-वर्ष का जमा अठारहवें भाग से घटाती है, अधिकतम दस दिन के अधीन। यह चिकित्सा प्रमाणपत्र पर अथवा निजी कार्य पर स्वीकृत किया जा सकता है, और संचय पर कोई सीमा नहीं है।"
+      },
+      "example": {
+        "en": "Sub-rule (4) is the sentence that surprises people: half pay leave may be granted on PRIVATE AFFAIRS, not only on medical grounds. What a medical certificate buys is Rule 30’s commuted leave at full pay.",
+        "hi": "उप-नियम (4) वही वाक्य है जो चौंकाता है: अर्ध-वेतन अवकाश निजी कार्य पर भी स्वीकृत किया जा सकता है, केवल चिकित्सा आधार पर नहीं। चिकित्सा प्रमाणपत्र से जो मिलता है वह नियम 30 का पूर्ण वेतन वाला परिवर्तित अवकाश है।"
+      },
+      "connects": [
+        "ccs-leave-30",
+        "ccs-leave-31",
+        "ccs-leave-27"
+      ],
+      "misconception": {
+        "en": "\"Half pay leave needs a medical certificate.\" It does not — sub-rule (4) allows it on private affairs. The certificate is what Rule 30 needs to commute it to full pay.",
+        "hi": "\"अर्ध-वेतन अवकाश हेतु चिकित्सा प्रमाणपत्र चाहिए।\" नहीं — उप-नियम (4) उसे निजी कार्य पर भी अनुज्ञात करता है। प्रमाणपत्र वह है जो नियम 30 को उसे पूर्ण वेतन में बदलने हेतु चाहिए।"
+      },
+      "examRelevance": {
+        "en": "Ten plus ten, 5/3 a month, one-eighteenth for dies non, and no accumulation ceiling — four facts, and the last one is the contrast with earned leave.",
+        "hi": "दस जमा दस, प्रतिमास 5/3, दिन-रहित हेतु अठारहवाँ भाग, तथा संचय पर कोई सीमा नहीं — चार तथ्य, और अंतिम अर्जित अवकाश से विरोधाभास है।"
+      },
+      "reviewed": true,
+      "reviewState": "approved",
+      "generationMeta": {
+        "promptVersion": "study-aid-v1",
+        "batchId": "library-aids-2026-09-03-ccs-leave",
+        "stageA": {
+          "index": 23,
+          "angle": "ten plus ten, and no ceiling at all"
+        },
+        "critic": {
+          "verdict": "approve",
+          "reason": "The private-affairs limb is the point most often got wrong, and the no-ceiling contrast with Rule 26 is what makes half pay leave worth accumulating."
+        },
+        "verify": {
+          "grounded": true,
+          "note": "Sub-rules (1), (2)(a)-(d), (3) and (4) are verbatim. The absence of an accumulation ceiling is an absence in the rule, which the aid states as such rather than as a positive provision."
+        },
+        "dedup": {
+          "maxScore": 0,
+          "against": null,
+          "verdict": "keep"
+        },
+        "groundingUnitIds": [
+          "ccs-leave-29"
+        ]
+      },
+      "source": {
+        "name": "Department of Personnel and Training — CCS (Leave) Rules, 1972 — updated as on 24 September 2024",
+        "url": "https://documents.doptcirculars.nic.in/D2/D02est/updatedccsleaverulesN9ExV.pdf"
+      },
+      "verify": true
+    },
+    {
+      "id": "aid-ccs-leave-30",
+      "workId": "ccs-leave",
+      "unitId": "ccs-leave-30",
+      "explanation": {
+        "en": "Commuted leave is half pay leave taken at FULL leave salary, and it costs TWICE its length from the half pay leave account. It is granted on MEDICAL CERTIFICATE, not exceeding half the half pay leave due, and only where the authority is satisfied there is a reasonable prospect of the officer returning to duty. Sub-rule (1-A) is the one exception to the certificate: up to 180 DAYS of half pay leave may be commuted during the entire service WITHOUT a medical certificate for an approved course of study certified to be in the public interest.",
+        "hi": "परिवर्तित अवकाश वही अर्ध-वेतन अवकाश है जो पूर्ण अवकाश वेतन पर लिया जाता है, और वह अर्ध-वेतन अवकाश खाते से अपनी लंबाई का दुगुना खर्च कराता है। यह चिकित्सा प्रमाणपत्र पर स्वीकृत होता है, देय अर्ध-वेतन अवकाश के आधे से अनधिक, और केवल तब जब प्राधिकारी संतुष्ट हो कि कर्मचारी के ड्यूटी पर लौटने की युक्तियुक्त संभावना है। उप-नियम (1-क) प्रमाणपत्र का एकमात्र अपवाद है: संपूर्ण सेवाकाल में 180 दिन तक का अर्ध-वेतन अवकाश ऐसे अनुमोदित अध्ययन-पाठ्यक्रम हेतु बिना चिकित्सा प्रमाणपत्र परिवर्तित किया जा सकता है जिसे अवकाश स्वीकृति प्राधिकारी लोकहित में प्रमाणित करे।"
+      },
+      "example": {
+        "en": "The NOTE removes a common obstacle: commuted leave may be granted at the officer’s request EVEN WHEN earned leave is due to him. He is not required to exhaust earned leave first.",
+        "hi": "टिप्पण एक सामान्य बाधा हटाता है: परिवर्तित अवकाश कर्मचारी के अनुरोध पर तब भी स्वीकृत किया जा सकता है जब उसे अर्जित अवकाश देय हो। उसे पहले अर्जित अवकाश समाप्त करने की आवश्यकता नहीं।"
+      },
+      "connects": [
+        "ccs-leave-29",
+        "ccs-leave-31",
+        "ccs-leave-40"
+      ],
+      "misconception": {
+        "en": "\"Commuted leave is a separate kind of leave with its own account.\" It is half pay leave paid at full rate, debited at 2× — there is no separate credit for it.",
+        "hi": "\"परिवर्तित अवकाश अपने खाते वाला पृथक् प्रकार का अवकाश है।\" वह अर्ध-वेतन अवकाश ही है जो पूर्ण दर पर मिलता है और 2× डेबिट होता है — उसका पृथक् जमा है ही नहीं।"
+      },
+      "examRelevance": {
+        "en": "Twice the debit, the 180-day study exception without a certificate, and the recovery on resignation are the three facts.",
+        "hi": "दुगुना डेबिट, बिना प्रमाणपत्र 180 दिन का अध्ययन अपवाद, तथा त्यागपत्र पर वसूली — यही तीन तथ्य हैं।"
+      },
+      "mnemonic": {
+        "en": "Full pay now, double debit later.",
+        "hi": "अभी पूर्ण वेतन, बाद में दुगुना डेबिट।"
+      },
+      "reviewed": true,
+      "reviewState": "approved",
+      "generationMeta": {
+        "promptVersion": "study-aid-v1",
+        "batchId": "library-aids-2026-09-03-ccs-leave",
+        "stageA": {
+          "index": 24,
+          "angle": "full pay from half pay leave, at twice the debit"
+        },
+        "critic": {
+          "verdict": "approve",
+          "reason": "The 2× debit, the study exception and the NOTE; the resignation recovery in sub-rule (2) with its ill-health and death proviso is included by reference."
+        },
+        "verify": {
+          "grounded": true,
+          "note": "Sub-rules (1)(a),(d), (1-A) and (2) with its proviso, and the NOTE, are verbatim."
+        },
+        "dedup": {
+          "maxScore": 0,
+          "against": null,
+          "verdict": "keep"
+        },
+        "groundingUnitIds": [
+          "ccs-leave-30"
+        ]
+      },
+      "source": {
+        "name": "Department of Personnel and Training — CCS (Leave) Rules, 1972 — updated as on 24 September 2024",
+        "url": "https://documents.doptcirculars.nic.in/D2/D02est/updatedccsleaverulesN9ExV.pdf"
+      },
+      "verify": true
+    },
+    {
+      "id": "aid-ccs-leave-31",
+      "workId": "ccs-leave",
+      "unitId": "ccs-leave-31",
+      "explanation": {
+        "en": "Leave Not Due is half pay leave granted IN ADVANCE, on medical certificate, to a permanent or quasi-permanent officer, limited to 360 DAYS during the entire service — never as leave preparatory to retirement. Three conditions: a reasonable prospect of return to duty, a limit of the half pay leave he is LIKELY TO EARN thereafter, and debit against half pay leave earned subsequently. Sub-rule (1-A) extends it to a TEMPORARY officer suffering from TB, leprosy, cancer or mental illness, again up to 360 days, with a minimum of one year’s service and a post likely to last till his return.",
+        "hi": "अदेय अवकाश वह अर्ध-वेतन अवकाश है जो स्थायी या अर्ध-स्थायी कर्मचारी को चिकित्सा प्रमाणपत्र पर अग्रिम दिया जाता है, संपूर्ण सेवाकाल में 360 दिन तक — सेवानिवृत्ति-पूर्व अवकाश के रूप में कभी नहीं। तीन शर्तें: ड्यूटी पर लौटने की युक्तियुक्त संभावना, उसके बाद अर्जित होने की संभावना वाले अर्ध-वेतन अवकाश की सीमा, तथा बाद में अर्जित अर्ध-वेतन अवकाश के विरुद्ध डेबिट। उप-नियम (1-क) इसे उस अस्थायी कर्मचारी तक बढ़ाता है जो क्षय रोग, कुष्ठ, कैंसर या मानसिक बीमारी से पीड़ित हो, फिर 360 दिन तक, कम से कम एक वर्ष की सेवा और ऐसे पद के साथ जो उसकी वापसी तक बना रहने की संभावना रखता हो।"
+      },
+      "example": {
+        "en": "The recovery rules are strict. An officer who takes Leave Not Due and then resigns or retires voluntarily without returning has the leave CANCELLED, his resignation dated back to when the leave began, and the leave salary recovered.",
+        "hi": "वसूली के नियम कड़े हैं। जो कर्मचारी अदेय अवकाश लेकर बिना लौटे त्यागपत्र देता है या स्वेच्छा से सेवानिवृत्त होता है, उसका वह अवकाश रद्द हो जाता है, उसका त्यागपत्र अवकाश आरंभ होने की तिथि से प्रभावी होता है, और अवकाश वेतन वसूला जाता है।"
+      },
+      "connects": [
+        "ccs-leave-29",
+        "ccs-leave-30",
+        "ccs-leave-10"
+      ],
+      "misconception": {
+        "en": "\"Leave Not Due can be taken before retirement to bridge the gap.\" Sub-rule (1) opens with \"Save in the case of leave preparatory to retirement\" — it is expressly excluded there.",
+        "hi": "\"अदेय अवकाश सेवानिवृत्ति से पहले अंतर पाटने हेतु लिया जा सकता है।\" उप-नियम (1) आरंभ ही \"सेवानिवृत्ति-पूर्व अवकाश की स्थिति के सिवाय\" से करता है — वहाँ वह स्पष्टतः अपवर्जित है।"
+      },
+      "examRelevance": {
+        "en": "360 days in the entire service, on medical certificate, permanent or quasi-permanent — and the temporary-employee extension for four named illnesses.",
+        "hi": "संपूर्ण सेवाकाल में 360 दिन, चिकित्सा प्रमाणपत्र पर, स्थायी या अर्ध-स्थायी — तथा चार नामित बीमारियों हेतु अस्थायी कर्मचारी का विस्तार।"
+      },
+      "reviewed": true,
+      "reviewState": "approved",
+      "generationMeta": {
+        "promptVersion": "study-aid-v1",
+        "batchId": "library-aids-2026-09-03-ccs-leave",
+        "stageA": {
+          "index": 25,
+          "angle": "borrowing against leave you have not earned yet"
+        },
+        "critic": {
+          "verdict": "approve",
+          "reason": "The 360-day limit, the three conditions, the temporary extension and the recovery rules; the LPR exclusion is the opening clause and is the misconception."
+        },
+        "verify": {
+          "grounded": true,
+          "note": "Sub-rules (1)(a)-(c), (1-A)(i)-(iii) and (2)(a)-(b) are verbatim, including the \"Save in the case of leave preparatory to retirement\" opening."
+        },
+        "dedup": {
+          "maxScore": 0,
+          "against": null,
+          "verdict": "keep"
+        },
+        "groundingUnitIds": [
+          "ccs-leave-31"
+        ]
+      },
+      "source": {
+        "name": "Department of Personnel and Training — CCS (Leave) Rules, 1972 — updated as on 24 September 2024",
+        "url": "https://documents.doptcirculars.nic.in/D2/D02est/updatedccsleaverulesN9ExV.pdf"
+      },
+      "verify": true
+    },
+    {
+      "id": "aid-ccs-leave-32",
+      "workId": "ccs-leave",
+      "unitId": "ccs-leave-32",
+      "explanation": {
+        "en": "Extraordinary leave may be granted in special circumstances when NO OTHER LEAVE IS ADMISSIBLE, or when other leave is admissible but the officer APPLIES IN WRITING for extraordinary leave instead. The limits in sub-rule (2) apply ONLY to an officer who is not in permanent or quasi-permanent employ: three months on any one occasion; six months where he has completed a year’s continuous service and the request is supported by a medical certificate; and EIGHTEEN MONTHS where he has completed a year’s service and is undergoing treatment for pulmonary tuberculosis or tubercular pleurisy in a recognised sanatorium, tuberculosis of another part of the body, leprosy, cancer or mental illness in a recognised institution.",
+        "hi": "असाधारण अवकाश विशेष परिस्थितियों में तब स्वीकृत किया जा सकता है जब कोई अन्य अवकाश अनुज्ञेय न हो, अथवा जब अन्य अवकाश अनुज्ञेय हो किंतु कर्मचारी उसके बदले लिखित में असाधारण अवकाश हेतु आवेदन करे। उप-नियम (2) की सीमाएँ केवल उस कर्मचारी पर लागू हैं जो स्थायी या अर्ध-स्थायी नियोजन में नहीं है: एक बार में तीन मास; छह मास जहाँ उसने एक वर्ष की निरंतर सेवा पूरी की हो और अनुरोध चिकित्सा प्रमाणपत्र से समर्थित हो; तथा अठारह मास जहाँ उसने एक वर्ष की सेवा पूरी की हो और वह मान्यता-प्राप्त स्वास्थ्य-आश्रम में फुफ्फुसीय क्षय रोग या क्षयजन्य प्लूरिसी, शरीर के किसी अन्य भाग के क्षय रोग, कुष्ठ, कैंसर अथवा मान्यता-प्राप्त संस्था में मानसिक बीमारी का उपचार करा रहा हो।"
+      },
+      "example": {
+        "en": "A PERMANENT officer has no sub-rule (2) ceiling at all — the limits are on the temporary officer. What binds the permanent officer instead is Rule 12’s five-year continuous-absence ceiling.",
+        "hi": "स्थायी कर्मचारी पर उप-नियम (2) की कोई सीमा है ही नहीं — सीमाएँ अस्थायी कर्मचारी पर हैं। स्थायी कर्मचारी को जो बाँधता है वह नियम 12 की पाँच वर्ष की निरंतर-अनुपस्थिति सीमा है।"
+      },
+      "connects": [
+        "ccs-leave-12",
+        "ccs-leave-27",
+        "ccs-leave-40"
+      ],
+      "misconception": {
+        "en": "\"Extraordinary leave is only when nothing else is left.\" Clause (1)(b) lets an officer choose it in writing even when other leave is admissible — which he might, to preserve his earned leave.",
+        "hi": "\"असाधारण अवकाश तभी है जब और कुछ न बचे।\" खंड (1)(ख) कर्मचारी को लिखित में उसे चुनने देता है, तब भी जब अन्य अवकाश अनुज्ञेय हो — जो वह अपना अर्जित अवकाश बचाने हेतु कर सकता है।"
+      },
+      "examRelevance": {
+        "en": "Three, six and eighteen months for a temporary officer, and no leave salary at all under Rule 40(5).",
+        "hi": "अस्थायी कर्मचारी हेतु तीन, छह और अठारह मास, तथा नियम 40(5) के अधीन कोई अवकाश वेतन नहीं।"
+      },
+      "reviewed": true,
+      "reviewState": "approved",
+      "generationMeta": {
+        "promptVersion": "study-aid-v1",
+        "batchId": "library-aids-2026-09-03-ccs-leave",
+        "stageA": {
+          "index": 26,
+          "angle": "leave with no salary, and the limits that apply only to a temporary officer"
+        },
+        "critic": {
+          "verdict": "approve",
+          "reason": "The permanent/temporary split is the structural point, and it is the reason readers misremember the three limits as universal."
+        },
+        "verify": {
+          "grounded": true,
+          "note": "Sub-rules (1)(a)-(b) and (2)(a),(b),(d)(i)-(iv) with the NOTE are verbatim; the no-leave-salary rule is Rule 40(5) and the five-year ceiling is Rule 12(2)."
+        },
+        "dedup": {
+          "maxScore": 0,
+          "against": null,
+          "verdict": "keep"
+        },
+        "groundingUnitIds": [
+          "ccs-leave-32",
+          "ccs-leave-40",
+          "ccs-leave-12"
+        ]
+      },
+      "source": {
+        "name": "Department of Personnel and Training — CCS (Leave) Rules, 1972 — updated as on 24 September 2024",
+        "url": "https://documents.doptcirculars.nic.in/D2/D02est/updatedccsleaverulesN9ExV.pdf"
+      },
+      "verify": true
+    },
+    {
+      "id": "aid-ccs-leave-33",
+      "workId": "ccs-leave",
+      "unitId": "ccs-leave-33",
+      "explanation": {
+        "en": "The rule distinguishes three statuses. A PROBATIONER is entitled to leave under these rules only if he held his post substantively otherwise than on probation, and leave granted to him when his services are proposed to be terminated may not extend beyond the probation period or the date of termination. A PERSON APPOINTED ON PROBATION is entitled to leave as a temporary or permanent servant according to whether the post is temporary or permanent — and as a permanent servant if he already holds a lien on a permanent post. An APPRENTICE gets only leave on medical certificate at half pay for up to one month in a year of apprenticeship, plus extraordinary leave under Rule 32.",
+        "hi": "नियम तीन स्थितियाँ अलग करता है। परिवीक्षाधीन व्यक्ति इन नियमों के अधीन अवकाश का हकदार केवल तब है जब उसने परिवीक्षा से भिन्न रूप में अपना पद मूल रूप से धारण किया हो, और सेवा समाप्त करने का प्रस्ताव होने पर उसे दिया गया अवकाश परिवीक्षा अवधि अथवा समाप्ति की तिथि से आगे नहीं जाएगा। परिवीक्षा पर नियुक्त व्यक्ति अवकाश का हकदार अस्थायी या स्थायी कर्मचारी के रूप में है, इस पर कि पद अस्थायी है या स्थायी — और स्थायी कर्मचारी के रूप में यदि वह किसी स्थायी पद पर पहले से धारणाधिकार रखता हो। शिक्षु को केवल चिकित्सा प्रमाणपत्र पर अर्ध वेतन पर, शिक्षुता के वर्ष में एक मास तक का अवकाश मिलता है, साथ में नियम 32 का असाधारण अवकाश।"
+      },
+      "example": {
+        "en": "\"Probationer\" and \"person appointed on probation\" are different statuses in this rule, not two names for one thing — and they get different leave. The lien proviso in sub-rule (2) is what most often decides a real case.",
+        "hi": "\"परिवीक्षाधीन व्यक्ति\" और \"परिवीक्षा पर नियुक्त व्यक्ति\" इस नियम में भिन्न स्थितियाँ हैं, एक ही बात के दो नाम नहीं — और उन्हें अवकाश भी भिन्न मिलता है। उप-नियम (2) का धारणाधिकार वाला परंतुक ही प्रायः वास्तविक मामला तय करता है।"
+      },
+      "connects": [
+        "ccs-leave-32",
+        "ccs-leave-2"
+      ],
+      "misconception": {
+        "en": "\"A probationer and a person on probation are the same.\" The rule treats them in two separate sub-rules with different entitlements, which is why its heading names both.",
+        "hi": "\"परिवीक्षाधीन व्यक्ति और परिवीक्षा पर नियुक्त व्यक्ति एक ही हैं।\" नियम उन्हें दो पृथक् उप-नियमों में भिन्न पात्रताओं के साथ रखता है, और इसीलिए उसका शीर्षक दोनों का नाम लेता है।"
+      },
+      "reviewed": true,
+      "reviewState": "approved",
+      "generationMeta": {
+        "promptVersion": "study-aid-v1",
+        "batchId": "library-aids-2026-09-03-ccs-leave",
+        "stageA": {
+          "index": 27,
+          "angle": "probationer, person on probation, and apprentice — three different answers"
+        },
+        "critic": {
+          "verdict": "approve",
+          "reason": "The three-status distinction is the whole rule and is invisible unless someone points at the heading, which names all three."
+        },
+        "verify": {
+          "grounded": true,
+          "note": "Sub-rules (1)(a)-(b), (2) with its proviso and (3)(a)-(b) are verbatim."
+        },
+        "dedup": {
+          "maxScore": 0,
+          "against": null,
+          "verdict": "keep"
+        },
+        "groundingUnitIds": [
+          "ccs-leave-33"
+        ]
+      },
+      "source": {
+        "name": "Department of Personnel and Training — CCS (Leave) Rules, 1972 — updated as on 24 September 2024",
+        "url": "https://documents.doptcirculars.nic.in/D2/D02est/updatedccsleaverulesN9ExV.pdf"
+      },
+      "verify": true
+    },
+    {
+      "id": "aid-ccs-leave-38",
+      "workId": "ccs-leave",
+      "unitId": "ccs-leave-38",
+      "explanation": {
+        "en": "Leave preparatory to retirement is earned leave due — NOT EXCEEDING 300 DAYS — together with half pay leave due, granted subject to the condition that it extends up to AND INCLUDES the date of retirement. The NOTE excludes extraordinary leave from it. For an officer on foreign service with a Government-controlled body, the decision to grant or refuse rests with the foreign employer WITH THE CONCURRENCE of the lending authority, and he may still encash earned leave at credit on the date of retirement under Rule 39(2).",
+        "hi": "सेवानिवृत्ति-पूर्व अवकाश देय अर्जित अवकाश है — 300 दिन से अनधिक — साथ में देय अर्ध-वेतन अवकाश, इस शर्त के अधीन स्वीकृत कि वह सेवानिवृत्ति की तिथि तक और उसे सम्मिलित करते हुए चले। टिप्पण उसमें से असाधारण अवकाश अपवर्जित करता है। सरकार-नियंत्रित निकाय में विदेश सेवा पर कर्मचारी के लिए स्वीकृति या अस्वीकृति का निर्णय विदेशी नियोजक का है, उधार देने वाले प्राधिकारी की सहमति से, और वह नियम 39(2) के अधीन सेवानिवृत्ति की तिथि पर जमा अर्जित अवकाश का नकदीकरण फिर भी करा सकता है।"
+      },
+      "example": {
+        "en": "Rule 13(2)(c) is the companion restriction: on leave preparatory to retirement an officer may not take PRIVATE employment, though he may join a public sector undertaking or a Rule 38(2)(a) body.",
+        "hi": "नियम 13(2)(ग) साथ चलने वाला प्रतिबंध है: सेवानिवृत्ति-पूर्व अवकाश पर कर्मचारी निजी नियोजन नहीं ले सकता, यद्यपि वह किसी सार्वजनिक उपक्रम अथवा नियम 38(2)(क) के निकाय में जा सकता है।"
+      },
+      "connects": [
+        "ccs-leave-13",
+        "ccs-leave-39",
+        "ccs-leave-24"
+      ],
+      "misconception": {
+        "en": "\"Leave preparatory to retirement can include extraordinary leave to stretch it.\" The NOTE excludes extraordinary leave expressly.",
+        "hi": "\"सेवानिवृत्ति-पूर्व अवकाश को खींचने हेतु उसमें असाधारण अवकाश जोड़ा जा सकता है।\" टिप्पण असाधारण अवकाश को स्पष्टतः अपवर्जित करता है।"
+      },
+      "reviewed": true,
+      "reviewState": "approved",
+      "generationMeta": {
+        "promptVersion": "study-aid-v1",
+        "batchId": "library-aids-2026-09-03-ccs-leave",
+        "stageA": {
+          "index": 28,
+          "angle": "leave that runs up to the date of retirement"
+        },
+        "critic": {
+          "verdict": "approve",
+          "reason": "The 300-day figure, the up-to-and-including condition and the extraordinary-leave exclusion; the Rule 13 restriction is the practical consequence."
+        },
+        "verify": {
+          "grounded": true,
+          "note": "Sub-rules (1) with the NOTE, (2)(a)-(b) and (3) with its proviso are verbatim; Rule 13(2)(c) was read from Rule 13."
+        },
+        "dedup": {
+          "maxScore": 0,
+          "against": null,
+          "verdict": "keep"
+        },
+        "groundingUnitIds": [
+          "ccs-leave-38",
+          "ccs-leave-13"
+        ]
+      },
+      "source": {
+        "name": "Department of Personnel and Training — CCS (Leave) Rules, 1972 — updated as on 24 September 2024",
+        "url": "https://documents.doptcirculars.nic.in/D2/D02est/updatedccsleaverulesN9ExV.pdf"
+      },
+      "verify": true
+    },
+    {
+      "id": "aid-ccs-leave-38a",
+      "workId": "ccs-leave",
+      "unitId": "ccs-leave-38a",
+      "explanation": {
+        "en": "An officer may encash up to TEN DAYS of earned leave when availing Leave Travel Concession while in service, subject to two conditions: at least THIRTY DAYS of earned leave remain at credit after counting both the encashment and the leave being taken, and the total so encashed across the entire career does not exceed SIXTY DAYS. The cash equivalent is pay plus dearness allowance on the date of availing LTC, multiplied by the number of days; NO House Rent Allowance is included. This encashment does NOT count against the quantum encashable under Rules 6, 39, 39-A, 39-B, 39-C and 39-D.",
+        "hi": "कर्मचारी सेवाकाल में अवकाश यात्रा रियायत लेते समय दस दिन तक का अर्जित अवकाश नकद करा सकता है, दो शर्तों के अधीन: नकदीकरण तथा लिए जा रहे अवकाश दोनों को गिनने के बाद कम से कम तीस दिन का अर्जित अवकाश जमा रहे, और संपूर्ण सेवाकाल में इस प्रकार नकद कराया गया कुल साठ दिन से अधिक न हो। नकद समतुल्य अवकाश यात्रा रियायत लेने की तिथि का वेतन जमा महँगाई भत्ता, दिनों की संख्या से गुणा है; इसमें मकान किराया भत्ता सम्मिलित नहीं। यह नकदीकरण नियम 6, 39, 39-क, 39-ख, 39-ग और 39-घ के अधीन नकद कराने योग्य मात्रा में नहीं गिना जाता।"
+      },
+      "example": {
+        "en": "Sub-rule (5) is the sting: if the officer then fails to avail the LTC within the time the CCS (LTC) Rules, 1988 allow, he must REFUND the whole amount with interest at two per cent above the Provident Fund rate — and gets the leave credited back.",
+        "hi": "उप-नियम (5) चुभने वाला अंश है: यदि कर्मचारी फिर सीसीएस (अवकाश यात्रा रियायत) नियम, 1988 की समय-सीमा में यात्रा रियायत न ले, तो उसे पूरी राशि भविष्य निधि दर से दो प्रतिशत अधिक ब्याज सहित लौटानी होगी — और अवकाश वापस जमा हो जाएगा।"
+      },
+      "connects": [
+        "ccs-leave-39",
+        "ccs-leave-26"
+      ],
+      "misconception": {
+        "en": "\"LTC encashment eats into the 300-day retirement encashment.\" Sub-rule (4) says it is not deducted from the quantum encashable under Rules 6, 39, 39-A to 39-D.",
+        "hi": "\"अवकाश यात्रा रियायत का नकदीकरण सेवानिवृत्ति के 300 दिन में से कट जाता है।\" उप-नियम (4) कहता है कि वह नियम 6, 39, 39-क से 39-घ के अधीन नकद कराने योग्य मात्रा से नहीं घटाया जाता।"
+      },
+      "examRelevance": {
+        "en": "Ten days at a time, sixty days in a career, thirty days to remain at credit, and no HRA in the calculation.",
+        "hi": "एक बार में दस दिन, सेवाकाल में साठ दिन, जमा में तीस दिन बचे रहें, तथा गणना में मकान किराया भत्ता नहीं।"
+      },
+      "mnemonic": {
+        "en": "10 at a time · 60 in a career · 30 must remain · no HRA.",
+        "hi": "एक बार 10 · सेवाकाल में 60 · 30 बचे रहें · मकान किराया भत्ता नहीं।"
+      },
+      "reviewed": true,
+      "reviewState": "approved",
+      "generationMeta": {
+        "promptVersion": "study-aid-v1",
+        "batchId": "library-aids-2026-09-03-ccs-leave",
+        "stageA": {
+          "index": 29,
+          "angle": "encashing ten days with LTC, and what it costs"
+        },
+        "critic": {
+          "verdict": "approve",
+          "reason": "Four numbers, the exclusion of HRA and the refund-with-interest consequence; all are in the rule and none is from an order."
+        },
+        "verify": {
+          "grounded": true,
+          "note": "Sub-rules (1)(a)-(b), (2), (3), (4) and (5) are verbatim."
+        },
+        "dedup": {
+          "maxScore": 0,
+          "against": null,
+          "verdict": "keep"
+        },
+        "groundingUnitIds": [
+          "ccs-leave-38a"
+        ]
+      },
+      "source": {
+        "name": "Department of Personnel and Training — CCS (Leave) Rules, 1972 — updated as on 24 September 2024",
+        "url": "https://documents.doptcirculars.nic.in/D2/D02est/updatedccsleaverulesN9ExV.pdf"
+      },
+      "verify": true
+    },
+    {
+      "id": "aid-ccs-leave-39",
+      "workId": "ccs-leave",
+      "unitId": "ccs-leave-39",
+      "explanation": {
+        "en": "No leave may be granted beyond the date of retirement, final cessation of duties, retirement on notice, or resignation. On retirement at the normal age the competent authority SUO MOTU issues an order granting the cash equivalent of leave salary for BOTH earned leave and half pay leave at credit, subject to a maximum of THREE HUNDRED DAYS in total. Earned leave is paid at pay plus DA; the half pay leave component at half pay leave salary plus DA. To make up a shortfall in earned leave, NO COMMUTATION of half pay leave is permissible.",
+        "hi": "सेवानिवृत्ति, कर्तव्यों की अंतिम समाप्ति, सूचना पर सेवानिवृत्ति, अथवा त्यागपत्र की तिथि के बाद कोई अवकाश स्वीकृत नहीं किया जा सकता। सामान्य आयु पर सेवानिवृत्ति पर सक्षम प्राधिकारी स्वप्रेरणा से जमा अर्जित अवकाश और अर्ध-वेतन अवकाश दोनों के अवकाश वेतन का नकद समतुल्य देने का आदेश करता है, कुल मिलाकर अधिकतम तीन सौ दिन के अधीन। अर्जित अवकाश वेतन जमा महँगाई भत्ते पर देय है; अर्ध-वेतन अवकाश का अंश अर्ध-वेतन अवकाश वेतन जमा महँगाई भत्ते पर। अर्जित अवकाश की कमी पूरी करने हेतु अर्ध-वेतन अवकाश का कोई परिवर्तन अनुज्ञेय नहीं है।"
+      },
+      "example": {
+        "en": "The 300 days is a COMBINED ceiling: 250 days of earned leave plus 100 of half pay leave is 350 at credit but 300 payable. And the officer cannot commute half pay leave to fill a gap in the earned leave half — clause (2)(c) forbids exactly that.",
+        "hi": "300 दिन संयुक्त सीमा है: 250 दिन अर्जित अवकाश और 100 दिन अर्ध-वेतन अवकाश जमा में 350 हैं किंतु देय 300। और कर्मचारी अर्जित अवकाश वाले भाग की कमी भरने हेतु अर्ध-वेतन अवकाश परिवर्तित नहीं कर सकता — खंड (2)(ग) ठीक यही वर्जित करता है।"
+      },
+      "connects": [
+        "ccs-leave-26",
+        "ccs-leave-38",
+        "ccs-leave-38a"
+      ],
+      "misconception": {
+        "en": "\"300 days of earned leave plus the half pay leave separately.\" The NOTE says the overall limit for encashment INCLUDING both is 300 days.",
+        "hi": "\"300 दिन अर्जित अवकाश और उसके अलग से अर्ध-वेतन अवकाश।\" टिप्पण कहता है कि दोनों को सम्मिलित करते हुए नकदीकरण की समग्र सीमा 300 दिन है।"
+      },
+      "examRelevance": {
+        "en": "Suo motu, in one lump sum as a one-time settlement, capped at 300 days combined, with no commutation to fill a shortfall.",
+        "hi": "स्वप्रेरणा से, एकमुश्त एक-बार के निपटान के रूप में, संयुक्त रूप से 300 दिन की सीमा, और कमी भरने हेतु कोई परिवर्तन नहीं।"
+      },
+      "reviewed": true,
+      "reviewState": "approved",
+      "generationMeta": {
+        "promptVersion": "study-aid-v1",
+        "batchId": "library-aids-2026-09-03-ccs-leave",
+        "stageA": {
+          "index": 30,
+          "angle": "the three-hundred-day encashment at retirement"
+        },
+        "critic": {
+          "verdict": "approve",
+          "reason": "The combined ceiling is the single most misremembered figure in this book, and the no-commutation clause is what makes it bite."
+        },
+        "verify": {
+          "grounded": true,
+          "note": "Sub-rules (1)(a)-(d) and (2)(a),(b)(i)-(ii),(c) with the NOTE are verbatim."
+        },
+        "dedup": {
+          "maxScore": 0,
+          "against": null,
+          "verdict": "keep"
+        },
+        "groundingUnitIds": [
+          "ccs-leave-39"
+        ]
+      },
+      "source": {
+        "name": "Department of Personnel and Training — CCS (Leave) Rules, 1972 — updated as on 24 September 2024",
+        "url": "https://documents.doptcirculars.nic.in/D2/D02est/updatedccsleaverulesN9ExV.pdf"
+      },
+      "verify": true
+    },
+    {
+      "id": "aid-ccs-leave-40",
+      "workId": "ccs-leave",
+      "unitId": "ccs-leave-40",
+      "explanation": {
+        "en": "Earned leave pays leave salary EQUAL TO THE PAY drawn immediately before proceeding on it. Half pay leave and Leave Not Due pay HALF that amount. Commuted leave pays the FULL amount. Extraordinary leave pays NOTHING. For an officer granted leave earned during re-employment, leave salary is based on pay EXCLUSIVE of pension and the pension equivalent of other retirement benefits. Where an officer has availed more leave than the credit finally due, the overdrawn leave salary is adjusted.",
+        "hi": "अर्जित अवकाश उस वेतन के बराबर अवकाश वेतन देता है जो उस पर जाने से ठीक पूर्व लिया गया था। अर्ध-वेतन अवकाश और अदेय अवकाश उसका आधा देते हैं। परिवर्तित अवकाश पूरी राशि देता है। असाधारण अवकाश कुछ नहीं देता। पुनर्नियोजन के दौरान अर्जित अवकाश पर अवकाश वेतन उस वेतन पर आधारित है जिसमें पेंशन और अन्य सेवानिवृत्ति लाभों का पेंशन-समतुल्य सम्मिलित नहीं है। जहाँ कर्मचारी ने अंततः देय जमा से अधिक अवकाश ले लिया हो, वहाँ अधिक आहरित अवकाश वेतन समायोजित किया जाता है।"
+      },
+      "example": {
+        "en": "Sub-rule (5) is why extraordinary leave is the last resort and Rule 42’s advance of leave salary is not available for it: there is no leave salary to advance.",
+        "hi": "उप-नियम (5) ही कारण है कि असाधारण अवकाश अंतिम उपाय है और नियम 42 का अवकाश वेतन अग्रिम उसके लिए उपलब्ध नहीं: अग्रिम देने योग्य कोई अवकाश वेतन ही नहीं है।"
+      },
+      "connects": [
+        "ccs-leave-30",
+        "ccs-leave-32",
+        "ccs-leave-42"
+      ],
+      "misconception": {
+        "en": "\"Half pay leave pays half the basic pay.\" It pays half the LEAVE SALARY defined in sub-rule (1) — which is the pay drawn immediately before the leave, not a component of it.",
+        "hi": "\"अर्ध-वेतन अवकाश मूल वेतन का आधा देता है।\" वह उप-नियम (1) में परिभाषित अवकाश वेतन का आधा देता है — जो अवकाश से ठीक पूर्व लिया गया वेतन है, उसका कोई घटक नहीं।"
+      },
+      "mnemonic": {
+        "en": "EL full · HPL and LND half · commuted full · EOL nil.",
+        "hi": "अर्जित पूरा · अर्ध-वेतन और अदेय आधा · परिवर्तित पूरा · असाधारण शून्य।"
+      },
+      "reviewed": true,
+      "reviewState": "approved",
+      "generationMeta": {
+        "promptVersion": "study-aid-v1",
+        "batchId": "library-aids-2026-09-03-ccs-leave",
+        "stageA": {
+          "index": 31,
+          "angle": "what each kind of leave pays"
+        },
+        "critic": {
+          "verdict": "approve",
+          "reason": "Four rates in one table plus the re-employment rule; this is the reference an officer actually looks up."
+        },
+        "verify": {
+          "grounded": true,
+          "note": "Sub-rules (1), (3), (4), (5), (7)(c), (8) and (9)(a) are verbatim."
+        },
+        "dedup": {
+          "maxScore": 0,
+          "against": null,
+          "verdict": "keep"
+        },
+        "groundingUnitIds": [
+          "ccs-leave-40"
+        ]
+      },
+      "source": {
+        "name": "Department of Personnel and Training — CCS (Leave) Rules, 1972 — updated as on 24 September 2024",
+        "url": "https://documents.doptcirculars.nic.in/D2/D02est/updatedccsleaverulesN9ExV.pdf"
+      },
+      "verify": true
+    },
+    {
+      "id": "aid-ccs-leave-42",
+      "workId": "ccs-leave",
+      "unitId": "ccs-leave-42",
+      "explanation": {
+        "en": "An officer — including one on foreign service — proceeding on leave for a period of NOT LESS THAN THIRTY DAYS may be allowed an advance in lieu of leave salary of up to ONE MONTH’S pay and allowances admissible on that leave salary, subject to the usual deductions for income tax, provident fund, house rent and recovery of advances.",
+        "hi": "तीस दिन से अन्यून अवधि के अवकाश पर जाने वाले कर्मचारी को — जिसमें विदेश सेवा पर कर्मचारी भी है — उस अवकाश वेतन पर अनुज्ञेय एक मास तक के वेतन और भत्तों का अवकाश वेतन के बदले अग्रिम दिया जा सकता है, आयकर, भविष्य निधि, मकान किराया तथा अग्रिमों की वसूली की सामान्य कटौतियों के अधीन।"
+      },
+      "example": {
+        "en": "Twenty-nine days of leave does not qualify: the thirty-day floor is a condition, not a rounding. And the advance is of the pay admissible ON THAT LEAVE SALARY — so on half pay leave it is an advance of half pay, not full.",
+        "hi": "उनतीस दिन का अवकाश पात्र नहीं है: तीस दिन की न्यूनतम सीमा शर्त है, कोई पूर्णांकन नहीं। और अग्रिम उस वेतन का है जो उस अवकाश वेतन पर अनुज्ञेय है — अतः अर्ध-वेतन अवकाश पर वह आधे वेतन का अग्रिम है, पूरे का नहीं।"
+      },
+      "connects": [
+        "ccs-leave-40"
+      ],
+      "misconception": {
+        "en": "\"The advance is a month’s full pay.\" It is a month of the pay and allowances admissible ON THAT LEAVE SALARY, which Rule 40 fixes by the kind of leave.",
+        "hi": "\"अग्रिम एक मास का पूरा वेतन है।\" वह उस अवकाश वेतन पर अनुज्ञेय वेतन और भत्तों का एक मास है, जिसे नियम 40 अवकाश के प्रकार से नियत करता है।"
+      },
+      "reviewed": true,
+      "reviewState": "approved",
+      "generationMeta": {
+        "promptVersion": "study-aid-v1",
+        "batchId": "library-aids-2026-09-03-ccs-leave",
+        "stageA": {
+          "index": 32,
+          "angle": "an advance against leave salary, and its one condition"
+        },
+        "critic": {
+          "verdict": "approve",
+          "reason": "The thirty-day floor and the \"on that leave salary\" qualifier are the two things that decide the amount."
+        },
+        "verify": {
+          "grounded": true,
+          "note": "The rule is one sentence and is quoted in substance; the leave-salary rates are Rule 40’s."
+        },
+        "dedup": {
+          "maxScore": 0,
+          "against": null,
+          "verdict": "keep"
+        },
+        "groundingUnitIds": [
+          "ccs-leave-42",
+          "ccs-leave-40"
+        ]
+      },
+      "source": {
+        "name": "Department of Personnel and Training — CCS (Leave) Rules, 1972 — updated as on 24 September 2024",
+        "url": "https://documents.doptcirculars.nic.in/D2/D02est/updatedccsleaverulesN9ExV.pdf"
+      },
+      "verify": true
+    },
+    {
+      "id": "aid-ccs-leave-43",
+      "workId": "ccs-leave",
+      "unitId": "ccs-leave-43",
+      "explanation": {
+        "en": "A female Government servant (including an apprentice) WITH LESS THAN TWO SURVIVING CHILDREN may be granted maternity leave of 180 DAYS from its commencement, on leave salary equal to the pay drawn immediately before. Maternity leave of up to 45 DAYS may also be granted, IRRESPECTIVE of the number of surviving children, once in the entire service, in case of miscarriage including abortion, on a medical certificate under Rule 19. It may be combined with leave of any other kind — and leave due and admissible up to a MAXIMUM OF TWO YEARS may be granted in continuation, without the medical certificate Rules 30 and 31 would otherwise need. Maternity leave is NOT debited against the leave account.",
+        "hi": "दो से कम जीवित संतान वाली महिला सरकारी कर्मचारी (शिक्षु सहित) को उसके आरंभ से 180 दिन का प्रसूति अवकाश दिया जा सकता है, ठीक पूर्व लिए गए वेतन के बराबर अवकाश वेतन पर। गर्भपात सहित गर्भस्राव की स्थिति में, जीवित संतानों की संख्या पर ध्यान दिए बिना, संपूर्ण सेवाकाल में एक बार 45 दिन तक का प्रसूति अवकाश भी नियम 19 के चिकित्सा प्रमाणपत्र पर दिया जा सकता है। यह किसी भी अन्य प्रकार के अवकाश के साथ जोड़ा जा सकता है — और उसकी निरंतरता में देय तथा अनुज्ञेय अवकाश अधिकतम दो वर्ष तक दिया जा सकता है, उस चिकित्सा प्रमाणपत्र के बिना जो नियम 30 और 31 अन्यथा माँगते। प्रसूति अवकाश अवकाश खाते में डेबिट नहीं होता।"
+      },
+      "example": {
+        "en": "Sub-rule (4)(b) is the provision that makes a long absence possible: up to two years of leave due and admissible — including commuted leave up to 60 days and Leave Not Due — may follow maternity leave without a medical certificate.",
+        "hi": "उप-नियम (4)(ख) वही उपबंध है जो लंबी अनुपस्थिति संभव बनाता है: दो वर्ष तक का देय और अनुज्ञेय अवकाश — जिसमें 60 दिन तक का परिवर्तित अवकाश और अदेय अवकाश भी है — प्रसूति अवकाश के बाद बिना चिकित्सा प्रमाणपत्र लिया जा सकता है।"
+      },
+      "connects": [
+        "ccs-leave-43b",
+        "ccs-leave-43c",
+        "ccs-leave-30"
+      ],
+      "misconception": {
+        "en": "\"Maternity leave is 135 days.\" It was; it has been 180 days since the 2009 amendment, which is footnoted in the rule itself. Rule 8 decides which figure applies to a given application.",
+        "hi": "\"प्रसूति अवकाश 135 दिन है।\" था; 2009 के संशोधन के बाद से 180 दिन है, जो स्वयं नियम में पाद-टिप्पणी है। किसी आवेदन पर कौन-सा आँकड़ा लागू होगा, यह नियम 8 तय करता है।"
+      },
+      "examRelevance": {
+        "en": "180 days, 45 days for miscarriage irrespective of children, two years in continuation, and no debit to the leave account.",
+        "hi": "180 दिन, गर्भस्राव हेतु 45 दिन चाहे संतानें कितनी भी हों, निरंतरता में दो वर्ष, तथा अवकाश खाते में कोई डेबिट नहीं।"
+      },
+      "reviewed": true,
+      "reviewState": "approved",
+      "generationMeta": {
+        "promptVersion": "study-aid-v1",
+        "batchId": "library-aids-2026-09-03-ccs-leave",
+        "stageA": {
+          "index": 33,
+          "angle": "a hundred and eighty days, two surviving children, and no debit"
+        },
+        "critic": {
+          "verdict": "approve",
+          "reason": "Four facts, and the 135→180 substitution note is in the corpus so the misconception is grounded rather than recalled."
+        },
+        "verify": {
+          "grounded": true,
+          "note": "Sub-rules (1) with its substitution note, (2), (3) with its proviso, (4)(a)-(b) and (5) are verbatim."
+        },
+        "dedup": {
+          "maxScore": 0,
+          "against": null,
+          "verdict": "keep"
+        },
+        "groundingUnitIds": [
+          "ccs-leave-43"
+        ]
+      },
+      "source": {
+        "name": "Department of Personnel and Training — CCS (Leave) Rules, 1972 — updated as on 24 September 2024",
+        "url": "https://documents.doptcirculars.nic.in/D2/D02est/updatedccsleaverulesN9ExV.pdf"
+      },
+      "verify": true
+    },
+    {
+      "id": "aid-ccs-leave-43a",
+      "workId": "ccs-leave",
+      "unitId": "ccs-leave-43a",
+      "explanation": {
+        "en": "A male Government servant (including an apprentice) with LESS THAN TWO SURVIVING CHILDREN may be granted 15 DAYS of paternity leave during his wife’s confinement — from up to 15 days BEFORE to up to SIX MONTHS FROM the date of delivery. He draws pay equal to that drawn immediately before. It may be combined with leave of any other kind, is NOT debited against the leave account, and LAPSES if not availed within that window. Sub-rule (6), inserted in 2024, extends the same 15 days to a commissioning father where the child is born through surrogacy.",
+        "hi": "दो से कम जीवित संतान वाले पुरुष सरकारी कर्मचारी (शिक्षु सहित) को उसकी पत्नी के प्रसव के दौरान 15 दिन का पितृत्व अवकाश दिया जा सकता है — प्रसव की तिथि से 15 दिन पूर्व तक से लेकर छह मास बाद तक। उसे ठीक पूर्व लिए गए वेतन के बराबर वेतन मिलता है। यह किसी भी अन्य प्रकार के अवकाश के साथ जोड़ा जा सकता है, अवकाश खाते में डेबिट नहीं होता, और उस अवधि में न लेने पर व्यपगत हो जाता है। 2024 में अंतःस्थापित उप-नियम (6) वही 15 दिन उस आदेशक पिता तक बढ़ाता है जहाँ संतान सरोगेसी से जन्मी हो।"
+      },
+      "example": {
+        "en": "The NOTE is unusual and worth knowing: paternity leave \"shall not normally be refused under any circumstances\" — a direction to the sanctioning authority that most kinds of leave do not carry.",
+        "hi": "टिप्पण असामान्य और जानने योग्य है: पितृत्व अवकाश \"सामान्यतः किसी भी परिस्थिति में अस्वीकार नहीं किया जाएगा\" — स्वीकृति प्राधिकारी को ऐसा निदेश जो अधिकांश प्रकार के अवकाश नहीं रखते।"
+      },
+      "connects": [
+        "ccs-leave-43aa",
+        "ccs-leave-43",
+        "ccs-leave-7"
+      ],
+      "misconception": {
+        "en": "\"Paternity leave can be taken any time in the child’s first year.\" The window is 15 days before to six months from the date of delivery; outside it the leave lapses.",
+        "hi": "\"पितृत्व अवकाश संतान के पहले वर्ष में कभी भी लिया जा सकता है।\" अवधि प्रसव की तिथि से 15 दिन पूर्व से छह मास बाद तक है; उसके बाहर अवकाश व्यपगत हो जाता है।"
+      },
+      "examRelevance": {
+        "en": "15 days, less than two surviving children, a window of 15 days before to six months after, and no debit.",
+        "hi": "15 दिन, दो से कम जीवित संतान, 15 दिन पूर्व से छह मास बाद की अवधि, तथा कोई डेबिट नहीं।"
+      },
+      "reviewed": true,
+      "reviewState": "approved",
+      "generationMeta": {
+        "promptVersion": "study-aid-v1",
+        "batchId": "library-aids-2026-09-03-ccs-leave",
+        "stageA": {
+          "index": 34,
+          "angle": "fifteen days, and the window they must fall in"
+        },
+        "critic": {
+          "verdict": "approve",
+          "reason": "The window and the lapse are the operative content; the surrogacy sub-rule is dated 2024 in the corpus and is stated with that provenance."
+        },
+        "verify": {
+          "grounded": true,
+          "note": "Sub-rules (1)-(6) with NOTE and Note 3 are verbatim, including the 18 June 2024 notification for sub-rule (6)."
+        },
+        "dedup": {
+          "maxScore": 0,
+          "against": null,
+          "verdict": "keep"
+        },
+        "groundingUnitIds": [
+          "ccs-leave-43a"
+        ]
+      },
+      "source": {
+        "name": "Department of Personnel and Training — CCS (Leave) Rules, 1972 — updated as on 24 September 2024",
+        "url": "https://documents.doptcirculars.nic.in/D2/D02est/updatedccsleaverulesN9ExV.pdf"
+      },
+      "verify": true
+    },
+    {
+      "id": "aid-ccs-leave-43aa",
+      "workId": "ccs-leave",
+      "unitId": "ccs-leave-43aa",
+      "explanation": {
+        "en": "A male Government servant with less than two surviving children who accepts a child in PRE-ADOPTION FOSTER CARE, or validly adopts a child BELOW ONE YEAR of age, may be granted 15 DAYS of paternity leave within SIX MONTHS of that date. It is paid at the pay drawn immediately before, may be combined with other leave, is not debited to the leave account, and lapses if not availed in the window. The proviso is the risk: where pre-adoption foster care is NOT followed by a valid adoption, the leave already availed is DEBITED from any other leave to his credit.",
+        "hi": "दो से कम जीवित संतान वाला पुरुष सरकारी कर्मचारी जो किसी संतान को दत्तक-पूर्व पालन-पोषण में स्वीकार करता है, अथवा एक वर्ष से कम आयु की संतान को विधिमान्य रूप से गोद लेता है, उसे उस तिथि से छह मास के भीतर 15 दिन का पितृत्व अवकाश दिया जा सकता है। यह ठीक पूर्व लिए गए वेतन पर देय है, अन्य अवकाश के साथ जोड़ा जा सकता है, अवकाश खाते में डेबिट नहीं होता, और उस अवधि में न लेने पर व्यपगत हो जाता है। परंतुक जोखिम है: जहाँ दत्तक-पूर्व पालन-पोषण के बाद विधिमान्य दत्तक ग्रहण न हो, वहाँ पहले लिया गया अवकाश उसके जमा किसी अन्य अवकाश से डेबिट कर दिया जाता है।"
+      },
+      "example": {
+        "en": "NOTE 2 widens \"child\" to a WARD taken under the Guardians and Wards Act, 1890 or personal law — provided the ward lives with the officer, is treated as a member of the family, and has been given the status of a natural-born child by a special will.",
+        "hi": "टिप्पण 2 \"संतान\" को उस प्रतिपाल्य तक बढ़ाता है जो संरक्षक और प्रतिपाल्य अधिनियम, 1890 अथवा व्यक्तिगत विधि के अधीन लिया गया हो — बशर्ते प्रतिपाल्य कर्मचारी के साथ रहता हो, परिवार का सदस्य माना जाता हो, और उसे विशेष वसीयत द्वारा प्राकृतिक संतान का दर्जा दिया गया हो।"
+      },
+      "connects": [
+        "ccs-leave-43a",
+        "ccs-leave-43b"
+      ],
+      "misconception": {
+        "en": "\"Adoption paternity leave is safe once taken.\" The proviso claws it back into another leave account if the foster care does not become a valid adoption.",
+        "hi": "\"दत्तक ग्रहण का पितृत्व अवकाश लेने के बाद सुरक्षित है।\" यदि पालन-पोषण विधिमान्य दत्तक ग्रहण में न बदले, तो परंतुक उसे किसी अन्य अवकाश खाते में वापस डाल देता है।"
+      },
+      "reviewed": true,
+      "reviewState": "approved",
+      "generationMeta": {
+        "promptVersion": "study-aid-v1",
+        "batchId": "library-aids-2026-09-03-ccs-leave",
+        "stageA": {
+          "index": 35,
+          "angle": "paternity leave when a child is adopted"
+        },
+        "critic": {
+          "verdict": "approve",
+          "reason": "The one-year age limit, the six-month window and the claw-back proviso; NOTE 2’s ward definition is the part that decides unusual cases."
+        },
+        "verify": {
+          "grounded": true,
+          "note": "Sub-rules (1) with its proviso, (2)-(5) and NOTES 1 and 2 are verbatim."
+        },
+        "dedup": {
+          "maxScore": 0,
+          "against": null,
+          "verdict": "keep"
+        },
+        "groundingUnitIds": [
+          "ccs-leave-43aa"
+        ]
+      },
+      "source": {
+        "name": "Department of Personnel and Training — CCS (Leave) Rules, 1972 — updated as on 24 September 2024",
+        "url": "https://documents.doptcirculars.nic.in/D2/D02est/updatedccsleaverulesN9ExV.pdf"
+      },
+      "verify": true
+    },
+    {
+      "id": "aid-ccs-leave-43b",
+      "workId": "ccs-leave",
+      "unitId": "ccs-leave-43b",
+      "explanation": {
+        "en": "A female Government servant with FEWER THAN TWO SURVIVING CHILDREN who accepts a child in pre-adoption foster care or validly adopts a child BELOW ONE YEAR of age may be granted 180 DAYS of child adoption leave, immediately after that date, at the pay drawn immediately before. It may be combined with other leave, and in continuation she may be granted leave due and admissible — including Leave Not Due and up to 60 days of commuted leave without a medical certificate — for a period of ONE YEAR REDUCED BY THE AGE OF THE CHILD on the date of valid adoption. It is not debited against the leave account.",
+        "hi": "दो से कम जीवित संतान वाली महिला सरकारी कर्मचारी जो किसी संतान को दत्तक-पूर्व पालन-पोषण में स्वीकार करती है अथवा एक वर्ष से कम आयु की संतान को विधिमान्य रूप से गोद लेती है, उसे उस तिथि के तुरंत बाद 180 दिन का शिशु दत्तक ग्रहण अवकाश दिया जा सकता है, ठीक पूर्व लिए गए वेतन पर। यह अन्य अवकाश के साथ जोड़ा जा सकता है, और उसकी निरंतरता में उसे देय तथा अनुज्ञेय अवकाश — जिसमें अदेय अवकाश और बिना चिकित्सा प्रमाणपत्र 60 दिन तक का परिवर्तित अवकाश भी है — एक वर्ष में से दत्तक ग्रहण की तिथि पर संतान की आयु घटाकर मिली अवधि तक दिया जा सकता है। यह अवकाश खाते में डेबिट नहीं होता।"
+      },
+      "example": {
+        "en": "The one-year-minus-age formula means a child adopted at nine months brings three months of further leave, not twelve — and the proviso withholds even that where she already has two surviving children at the time of adoption.",
+        "hi": "एक-वर्ष-में-से-आयु का सूत्र यह अर्थ रखता है कि नौ मास की आयु में गोद ली गई संतान पर आगे तीन मास का अवकाश मिलेगा, बारह नहीं — और परंतुक वह भी रोक देता है जहाँ दत्तक ग्रहण के समय उसकी दो जीवित संतानें पहले से हों।"
+      },
+      "connects": [
+        "ccs-leave-43",
+        "ccs-leave-43aa",
+        "ccs-leave-43c"
+      ],
+      "misconception": {
+        "en": "\"Adoption leave and maternity leave are the same length and follow the same rules.\" Both are 180 days, but the continuation entitlement differs: maternity leave allows up to two years, adoption leave one year reduced by the child’s age.",
+        "hi": "\"दत्तक ग्रहण अवकाश और प्रसूति अवकाश समान लंबाई के हैं और एक ही नियम रखते हैं।\" दोनों 180 दिन हैं, किंतु निरंतरता की पात्रता भिन्न है: प्रसूति अवकाश दो वर्ष तक अनुज्ञात करता है, दत्तक ग्रहण अवकाश एक वर्ष में से संतान की आयु घटाकर।"
+      },
+      "reviewed": true,
+      "reviewState": "approved",
+      "generationMeta": {
+        "promptVersion": "study-aid-v1",
+        "batchId": "library-aids-2026-09-03-ccs-leave",
+        "stageA": {
+          "index": 36,
+          "angle": "a hundred and eighty days on adoption, and the one-year reduction"
+        },
+        "critic": {
+          "verdict": "approve",
+          "reason": "The 180 days, the one-year-minus-age continuation and the two-surviving-children proviso; the contrast with Rule 43 is checked against Rule 43’s own text."
+        },
+        "verify": {
+          "grounded": true,
+          "note": "Sub-rules (1) with its proviso, (2), (3)(a)-(b) with its proviso, (4) and the NOTE are verbatim."
+        },
+        "dedup": {
+          "maxScore": 0,
+          "against": null,
+          "verdict": "keep"
+        },
+        "groundingUnitIds": [
+          "ccs-leave-43b",
+          "ccs-leave-43"
+        ]
+      },
+      "source": {
+        "name": "Department of Personnel and Training — CCS (Leave) Rules, 1972 — updated as on 24 September 2024",
+        "url": "https://documents.doptcirculars.nic.in/D2/D02est/updatedccsleaverulesN9ExV.pdf"
+      },
+      "verify": true
+    },
+    {
+      "id": "aid-ccs-leave-43c",
+      "workId": "ccs-leave",
+      "unitId": "ccs-leave-43c",
+      "explanation": {
+        "en": "A FEMALE Government servant and a SINGLE MALE Government servant may be granted child care leave for a maximum of SEVEN HUNDRED AND THIRTY DAYS during the entire service, to look after the TWO ELDEST SURVIVING CHILDREN — for rearing or for any of their needs such as education or sickness. \"Child\" means a child below EIGHTEEN years, or an offspring of ANY AGE with a minimum disability of forty per cent as specified in the 2001 notification. It may not be granted for more than THREE SPELLS in a calendar year, though a 2024 office memorandum lets the sanctioning authority relax up to three further spells where the child is hospitalised as an inpatient.",
+        "hi": "महिला सरकारी कर्मचारी तथा एकल पुरुष सरकारी कर्मचारी को संपूर्ण सेवाकाल में अधिकतम सात सौ तीस दिन का शिशु देखभाल अवकाश दिया जा सकता है, दो ज्येष्ठतम जीवित संतानों की देखभाल हेतु — पालन-पोषण अथवा शिक्षा या बीमारी जैसी उनकी किसी भी आवश्यकता हेतु। \"संतान\" का अर्थ अठारह वर्ष से कम आयु की संतान, अथवा किसी भी आयु की वह संतान जिसे 2001 की अधिसूचना में विनिर्दिष्ट न्यूनतम चालीस प्रतिशत निःशक्तता हो। यह कैलेंडर वर्ष में तीन से अधिक खंडों में नहीं दिया जा सकता, यद्यपि 2024 का एक कार्यालय ज्ञापन स्वीकृति प्राधिकारी को तीन और खंडों तक छूट देने देता है जहाँ संतान अस्पताल में भर्ती हो।"
+      },
+      "example": {
+        "en": "The disability limb removes the age cap entirely: an offspring of any age with a minimum forty per cent disability is a \"child\" for this rule, so the entitlement does not end when the child turns eighteen.",
+        "hi": "निःशक्तता वाला अंग आयु-सीमा पूर्णतः हटा देता है: न्यूनतम चालीस प्रतिशत निःशक्तता वाली किसी भी आयु की संतान इस नियम के लिए \"संतान\" है, अतः अठारह वर्ष होने पर पात्रता समाप्त नहीं होती।"
+      },
+      "connects": [
+        "ccs-leave-43",
+        "ccs-leave-43b"
+      ],
+      "misconception": {
+        "en": "\"Child care leave is only for women.\" Since the 2018 amendment a SINGLE male Government servant is expressly included, and the corpus carries that notification.",
+        "hi": "\"शिशु देखभाल अवकाश केवल महिलाओं के लिए है।\" 2018 के संशोधन के बाद एकल पुरुष सरकारी कर्मचारी स्पष्टतः सम्मिलित है, और यह अधिसूचना कोष में है।"
+      },
+      "examRelevance": {
+        "en": "730 days in the entire service, two eldest surviving children, three spells a year, and the age cap lifted for a forty-per-cent disability.",
+        "hi": "संपूर्ण सेवाकाल में 730 दिन, दो ज्येष्ठतम जीवित संतानें, वर्ष में तीन खंड, तथा चालीस प्रतिशत निःशक्तता पर आयु-सीमा हटी हुई।"
+      },
+      "mnemonic": {
+        "en": "730 days · 2 eldest children · 3 spells a year · 18 years, or any age at 40% disability.",
+        "hi": "730 दिन · 2 ज्येष्ठतम संतानें · वर्ष में 3 खंड · 18 वर्ष, अथवा 40% निःशक्तता पर कोई भी आयु।"
+      },
+      "reviewed": true,
+      "reviewState": "approved",
+      "generationMeta": {
+        "promptVersion": "study-aid-v1",
+        "batchId": "library-aids-2026-09-03-ccs-leave",
+        "stageA": {
+          "index": 37,
+          "angle": "seven hundred and thirty days, and who may take them"
+        },
+        "critic": {
+          "verdict": "approve",
+          "reason": "Four numbers and the two-limb definition of \"child\"; the single-male extension and the 2024 relaxation are both footnoted in the corpus and are attributed to their notifications."
+        },
+        "verify": {
+          "grounded": true,
+          "note": "Sub-rules (1), (2)(a)-(b) and (3)(i) with the 2024 office-memorandum note are verbatim in this corpus."
+        },
+        "dedup": {
+          "maxScore": 0,
+          "against": null,
+          "verdict": "keep"
+        },
+        "groundingUnitIds": [
+          "ccs-leave-43c"
+        ]
+      },
+      "source": {
+        "name": "Department of Personnel and Training — CCS (Leave) Rules, 1972 — updated as on 24 September 2024",
+        "url": "https://documents.doptcirculars.nic.in/D2/D02est/updatedccsleaverulesN9ExV.pdf"
+      },
+      "verify": true
+    },
+    {
+      "id": "aid-ccs-leave-44",
+      "workId": "ccs-leave",
+      "unitId": "ccs-leave-44",
+      "explanation": {
+        "en": "Work Related Illness and Injury Leave is granted where illness or injury is ATTRIBUTABLE TO or AGGRAVATED IN the performance of official duties, or in consequence of the officer’s official position. Full pay and allowances run for the ENTIRE PERIOD OF HOSPITALISATION. Beyond hospitalisation, an ordinary Government servant gets full pay and allowances for SIX MONTHS and half pay for TWELVE MONTHS more — the half-pay period being commutable to full pay by debiting half pay leave. A CAPF officer gets six months full and TWENTY-FOUR months at full pay only; CAPF personnel below officer rank get full pay and allowances with NO LIMIT of period. No earned leave or half pay leave is credited while on WRIIL.",
+        "hi": "कार्य-संबंधी बीमारी और चोट अवकाश वहाँ दिया जाता है जहाँ बीमारी या चोट सरकारी कर्तव्यों के निर्वहन से उद्भूत हो अथवा उसमें बढ़ी हो, अथवा कर्मचारी की सरकारी हैसियत के परिणामस्वरूप हो। अस्पताल में भर्ती रहने की संपूर्ण अवधि तक पूर्ण वेतन और भत्ते चलते हैं। अस्पताल से आगे, साधारण सरकारी कर्मचारी को छह मास पूर्ण वेतन और भत्ते तथा उसके बाद बारह मास अर्ध वेतन मिलता है — अर्ध-वेतन अवधि को अर्ध-वेतन अवकाश डेबिट करके पूर्ण वेतन में बदला जा सकता है। केंद्रीय सशस्त्र पुलिस बल के अधिकारी को छह मास पूर्ण तथा चौबीस मास केवल पूर्ण वेतन; अधिकारी से नीचे के कार्मिकों को पूर्ण वेतन और भत्ते बिना किसी अवधि-सीमा के। कार्य-संबंधी बीमारी और चोट अवकाश के दौरान कोई अर्जित अवकाश या अर्ध-वेतन अवकाश जमा नहीं होता।"
+      },
+      "example": {
+        "en": "Sub-rule (4) is the cost: no earned leave and no half pay leave accrue while the officer is on WRIIL. It is generous in pay and expensive in accrual.",
+        "hi": "उप-नियम (4) उसकी कीमत है: कार्य-संबंधी बीमारी और चोट अवकाश के दौरान न अर्जित अवकाश बनता है न अर्ध-वेतन अवकाश। यह वेतन में उदार है और संचय में महँगा।"
+      },
+      "connects": [
+        "ccs-leave-29",
+        "ccs-leave-19",
+        "ccs-leave-20"
+      ],
+      "misconception": {
+        "en": "\"WRIIL is just sick leave at full pay.\" It has its own eligibility test — attributable to or aggravated in the performance of duty — and its own accrual consequence in sub-rule (4).",
+        "hi": "\"कार्य-संबंधी बीमारी और चोट अवकाश केवल पूर्ण वेतन वाला बीमारी अवकाश है।\" उसकी अपनी पात्रता-कसौटी है — कर्तव्य-निर्वहन से उद्भूत या उसमें बढ़ी हुई — और उप-नियम (4) में अपना संचय-परिणाम भी।"
+      },
+      "examRelevance": {
+        "en": "Six months full plus twelve months half for a civilian; six plus twenty-four for a CAPF officer; unlimited for CAPF below officer rank.",
+        "hi": "असैनिक कर्मचारी हेतु छह मास पूर्ण और बारह मास अर्ध; केंद्रीय सशस्त्र पुलिस बल के अधिकारी हेतु छह जमा चौबीस; अधिकारी से नीचे हेतु असीमित।"
+      },
+      "reviewed": true,
+      "reviewState": "approved",
+      "generationMeta": {
+        "promptVersion": "study-aid-v1",
+        "batchId": "library-aids-2026-09-03-ccs-leave",
+        "stageA": {
+          "index": 38,
+          "angle": "full pay for an injury that came from the job"
+        },
+        "critic": {
+          "verdict": "approve",
+          "reason": "Three different entitlement tracks and the no-accrual rule; all three tracks are in sub-rule (2)(a)-(c)."
+        },
+        "verify": {
+          "grounded": true,
+          "note": "The opening eligibility test and sub-rules (1), (2)(a)-(c), (3) and (4) are verbatim."
+        },
+        "dedup": {
+          "maxScore": 0,
+          "against": null,
+          "verdict": "keep"
+        },
+        "groundingUnitIds": [
+          "ccs-leave-44"
+        ]
+      },
+      "source": {
+        "name": "Department of Personnel and Training — CCS (Leave) Rules, 1972 — updated as on 24 September 2024",
+        "url": "https://documents.doptcirculars.nic.in/D2/D02est/updatedccsleaverulesN9ExV.pdf"
+      },
+      "verify": true
+    },
+    {
+      "id": "aid-ccs-leave-48",
+      "workId": "ccs-leave",
+      "unitId": "ccs-leave-48",
+      "explanation": {
+        "en": "Leave up to NINETY DAYS may be granted to an aggrieved female Government servant ON THE RECOMMENDATION of the Internal Committee or the Local Committee, during the pendency of an inquiry under the Sexual Harassment of Women at Workplace (Prevention, Prohibition and Redressal) Act, 2013 — and it shall NOT BE DEBITED against her leave account.",
+        "hi": "लैंगिक उत्पीड़न से व्यथित महिला सरकारी कर्मचारी को, आंतरिक समिति अथवा स्थानीय समिति की सिफारिश पर, कार्यस्थल पर महिलाओं का लैंगिक उत्पीड़न (निवारण, प्रतिषेध और प्रतितोष) अधिनियम, 2013 के अधीन जाँच लंबित रहने के दौरान नब्बे दिन तक का अवकाश दिया जा सकता है — और वह उसके अवकाश खाते में डेबिट नहीं होगा।"
+      },
+      "example": {
+        "en": "This is the service-rule half of section 12 of the PoSH Act, which lets the Committee recommend leave \"up to a period of three months\" that is \"in addition to the leave she would be otherwise entitled\". The two provisions are the same relief, written twice.",
+        "hi": "यह पॉश अधिनियम की धारा 12 का सेवा-नियम वाला अंश है, जो समिति को \"तीन मास तक\" का अवकाश सिफारिश करने देती है जो \"उस अवकाश के अतिरिक्त है जिसकी वह अन्यथा हकदार है\"। दोनों उपबंध एक ही अनुतोष हैं, दो बार लिखे हुए।"
+      },
+      "connects": [
+        "ccs-leave-43",
+        "ccs-leave-40"
+      ],
+      "misconception": {
+        "en": "\"She has to use her own leave during the inquiry.\" Rule 48 grants up to ninety days that are NOT debited, on the Committee’s recommendation.",
+        "hi": "\"जाँच के दौरान उसे अपना अवकाश प्रयोग करना होगा।\" नियम 48 समिति की सिफारिश पर नब्बे दिन तक का ऐसा अवकाश देता है जो डेबिट नहीं होता।"
+      },
+      "reviewed": true,
+      "reviewState": "approved",
+      "generationMeta": {
+        "promptVersion": "study-aid-v1",
+        "batchId": "library-aids-2026-09-03-ccs-leave",
+        "stageA": {
+          "index": 39,
+          "angle": "ninety days that cost nothing from the leave account"
+        },
+        "critic": {
+          "verdict": "approve",
+          "reason": "The ninety days and the no-debit rule; the PoSH section 12 counterpart is quoted from that Act, which this app also ships, so the pairing is checkable."
+        },
+        "verify": {
+          "grounded": true,
+          "note": "The rule is one sentence and is quoted in substance; PoSH section 12(1)(b) and 12(2) were read from data/rules/text/posh.json."
+        },
+        "dedup": {
+          "maxScore": 0,
+          "against": null,
+          "verdict": "keep"
+        },
+        "groundingUnitIds": [
+          "ccs-leave-48"
+        ]
+      },
+      "source": {
+        "name": "Department of Personnel and Training — CCS (Leave) Rules, 1972 — updated as on 24 September 2024",
+        "url": "https://documents.doptcirculars.nic.in/D2/D02est/updatedccsleaverulesN9ExV.pdf"
+      },
+      "verify": true
+    },
+    {
+      "id": "aid-ccs-leave-50",
+      "workId": "ccs-leave",
+      "unitId": "ccs-leave-50",
+      "explanation": {
+        "en": "Study leave may be granted, with due regard to the exigencies of public service, for a special course of higher study or specialised training in a professional or technical subject having a DIRECT AND CLOSE CONNECTION with the officer’s sphere of duty. It may also be granted for a training course or study tour certified to be of definite advantage from the point of view of public interest and related to his duties; for studies connected with the framework or background of public administration, subject to the course being approved and a full report being submitted on return; and for studies not closely connected with his work but capable of widening his mind and improving his abilities as a civil servant.",
+        "hi": "लोक सेवा की अपरिहार्यताओं का सम्यक् ध्यान रखते हुए अध्ययन अवकाश ऐसे विशेष उच्च अध्ययन या विशेषीकृत प्रशिक्षण हेतु दिया जा सकता है जो किसी व्यावसायिक या तकनीकी विषय में हो और कर्मचारी के कर्तव्य-क्षेत्र से प्रत्यक्ष और निकट संबंध रखता हो। यह ऐसे प्रशिक्षण-पाठ्यक्रम या अध्ययन-भ्रमण हेतु भी दिया जा सकता है जिसे लोकहित की दृष्टि से निश्चित लाभप्रद प्रमाणित किया गया हो और जो उसके कर्तव्यों से संबंधित हो; लोक प्रशासन की रूपरेखा या पृष्ठभूमि से जुड़े अध्ययन हेतु, बशर्ते पाठ्यक्रम अनुमोदित हो और लौटने पर पूर्ण रिपोर्ट दी जाए; तथा ऐसे अध्ययन हेतु जो उसके कार्य से निकट रूप से जुड़ा न हो किंतु उसकी दृष्टि व्यापक कर सके और सिविल सेवक के रूप में उसकी क्षमताएँ बेहतर कर सके।"
+      },
+      "example": {
+        "en": "Sub-rule (2)(iii) is the widest limb and it costs the most process: an application under it is considered on the merits of each case IN CONSULTATION WITH the Department of Expenditure of the Ministry of Finance.",
+        "hi": "उप-नियम (2)(iii) सबसे व्यापक अंग है और उसमें प्रक्रिया भी सबसे अधिक है: उसके अधीन आवेदन प्रत्येक मामले के गुणागुण पर, वित्त मंत्रालय के व्यय विभाग के परामर्श से विचारित होता है।"
+      },
+      "connects": [
+        "ccs-leave-51",
+        "ccs-leave-56",
+        "ccs-leave-63"
+      ],
+      "misconception": {
+        "en": "\"Study leave is only for a degree closely tied to my job.\" Sub-rule (2)(iii) expressly covers studies NOT closely connected with the work, if they widen the officer’s mind and improve his abilities.",
+        "hi": "\"अध्ययन अवकाश केवल अपने कार्य से निकट जुड़ी उपाधि हेतु है।\" उप-नियम (2)(iii) स्पष्टतः ऐसे अध्ययन को समाविष्ट करता है जो कार्य से निकट रूप से जुड़ा न हो, यदि वह कर्मचारी की दृष्टि व्यापक करे और क्षमताएँ बेहतर करे।"
+      },
+      "reviewed": true,
+      "reviewState": "approved",
+      "generationMeta": {
+        "promptVersion": "study-aid-v1",
+        "batchId": "library-aids-2026-09-03-ccs-leave",
+        "stageA": {
+          "index": 40,
+          "angle": "what study leave is for, and the certificate it needs"
+        },
+        "critic": {
+          "verdict": "approve",
+          "reason": "Four grounds in the rule’s own order, with the consultation requirement attached to the one clause that carries it."
+        },
+        "verify": {
+          "grounded": true,
+          "note": "Sub-rules (1), (2)(i)-(iii) with the NOTE and (3)(i)-(ii) are verbatim."
+        },
+        "dedup": {
+          "maxScore": 0,
+          "against": null,
+          "verdict": "keep"
+        },
+        "groundingUnitIds": [
+          "ccs-leave-50"
+        ]
+      },
+      "source": {
+        "name": "Department of Personnel and Training — CCS (Leave) Rules, 1972 — updated as on 24 September 2024",
+        "url": "https://documents.doptcirculars.nic.in/D2/D02est/updatedccsleaverulesN9ExV.pdf"
+      },
+      "verify": true
+    },
+    {
+      "id": "aid-ccs-leave-51",
+      "workId": "ccs-leave",
+      "unitId": "ccs-leave-51",
+      "explanation": {
+        "en": "The maximum study leave is ORDINARILY TWELVE MONTHS at any one time, and TWENTY-FOUR MONTHS in all during the entire service — inclusive of similar leave for study or training granted under any other rules. For Central Health Service officers acquiring a postgraduate qualification the figure is THIRTY-SIX MONTHS, subject to a bond under Rule 53(4) to serve the Government for FIVE YEARS after the course.",
+        "hi": "अध्ययन अवकाश की अधिकतम सीमा एक बार में सामान्यतः बारह मास, तथा संपूर्ण सेवाकाल में कुल चौबीस मास है — जिसमें किसी अन्य नियमावली के अधीन दिया गया वैसा ही अध्ययन या प्रशिक्षण अवकाश भी सम्मिलित है। स्नातकोत्तर अर्हता प्राप्त करने वाले केंद्रीय स्वास्थ्य सेवा अधिकारियों हेतु आँकड़ा छत्तीस मास है, जो नियम 53(4) के अधीन पाठ्यक्रम के बाद पाँच वर्ष सरकार की सेवा करने के बंधपत्र के अधीन है।"
+      },
+      "example": {
+        "en": "The \"inclusive of similar kind of leave for study or training granted under any other rules\" clause is what stops an officer stacking twenty-four months here on top of study leave taken under another set of rules.",
+        "hi": "\"किसी अन्य नियमावली के अधीन दिया गया वैसा ही अध्ययन या प्रशिक्षण अवकाश सम्मिलित\" वाला उपबंध ही कर्मचारी को यहाँ के चौबीस मास किसी अन्य नियमावली के अध्ययन अवकाश के ऊपर जोड़ने से रोकता है।"
+      },
+      "connects": [
+        "ccs-leave-50",
+        "ccs-leave-63",
+        "ccs-leave-56"
+      ],
+      "misconception": {
+        "en": "\"Twenty-four months is per course.\" It is the lifetime total across the entire service, and it counts study leave taken under other rules too.",
+        "hi": "\"चौबीस मास प्रति पाठ्यक्रम हैं।\" वह संपूर्ण सेवाकाल का कुल योग है, और उसमें अन्य नियमावलियों के अधीन लिया गया अध्ययन अवकाश भी गिना जाता है।"
+      },
+      "examRelevance": {
+        "en": "Twelve at a time, twenty-four in a career, thirty-six for a Central Health Service postgraduate with a five-year bond.",
+        "hi": "एक बार में बारह, सेवाकाल में चौबीस, केंद्रीय स्वास्थ्य सेवा के स्नातकोत्तर हेतु छत्तीस, पाँच वर्ष के बंधपत्र सहित।"
+      },
+      "mnemonic": {
+        "en": "12 at a time · 24 in a career · 36 for CHS with a 5-year bond.",
+        "hi": "एक बार 12 · सेवाकाल में 24 · केंद्रीय स्वास्थ्य सेवा हेतु 36, 5 वर्ष का बंधपत्र।"
+      },
+      "reviewed": true,
+      "reviewState": "approved",
+      "generationMeta": {
+        "promptVersion": "study-aid-v1",
+        "batchId": "library-aids-2026-09-03-ccs-leave",
+        "stageA": {
+          "index": 41,
+          "angle": "twelve, twenty-four and thirty-six months"
+        },
+        "critic": {
+          "verdict": "approve",
+          "reason": "Three figures and the inclusive clause; the bond requirement is cross-referenced to Rule 53(4), which the corpus carries."
+        },
+        "verify": {
+          "grounded": true,
+          "note": "Sub-rules (1)(a)-(b) and (2) are verbatim."
+        },
+        "dedup": {
+          "maxScore": 0,
+          "against": null,
+          "verdict": "keep"
+        },
+        "groundingUnitIds": [
+          "ccs-leave-51"
+        ]
+      },
+      "source": {
+        "name": "Department of Personnel and Training — CCS (Leave) Rules, 1972 — updated as on 24 September 2024",
+        "url": "https://documents.doptcirculars.nic.in/D2/D02est/updatedccsleaverulesN9ExV.pdf"
+      },
+      "verify": true
+    },
+    {
+      "id": "aid-ccs-leave-65",
+      "workId": "ccs-leave",
+      "unitId": "ccs-leave-65",
+      "explanation": {
+        "en": "Where a Ministry or Department is satisfied that the operation of ANY of these rules causes UNDUE HARDSHIP in a particular case, it may by order, FOR REASONS TO BE RECORDED IN WRITING, dispense with or relax the requirement of that rule to the extent and subject to the conditions it considers necessary to deal with the case justly and equitably. The proviso is the control: no such order may be made except with the CONCURRENCE of the Ministry of Personnel, Public Grievances and Pensions.",
+        "hi": "जहाँ कोई मंत्रालय या विभाग संतुष्ट हो कि इनमें से किसी नियम के प्रवर्तन से किसी विशेष मामले में अनुचित कठिनाई होती है, वहाँ वह आदेश द्वारा, लिखित में अभिलिखित किए जाने वाले कारणों से, उस नियम की अपेक्षा को उस सीमा तक और उन शर्तों के अधीन शिथिल या अभिमुक्त कर सकता है जो उसे मामले को न्यायसंगत और साम्यापूर्ण रीति से निपटाने हेतु आवश्यक लगें। परंतुक नियंत्रण है: ऐसा कोई आदेश कार्मिक, लोक शिकायत और पेंशन मंत्रालय की सहमति के बिना नहीं किया जाएगा।"
+      },
+      "example": {
+        "en": "Rule 64 and Rule 65 do different things and are often confused: Rule 64 sends a question of INTERPRETATION to the Ministry of Personnel for decision; Rule 65 lets a Ministry RELAX a rule with that Ministry’s concurrence.",
+        "hi": "नियम 64 और नियम 65 भिन्न कार्य करते हैं और प्रायः मिला दिए जाते हैं: नियम 64 व्याख्या का प्रश्न निर्णय हेतु कार्मिक मंत्रालय को भेजता है; नियम 65 किसी मंत्रालय को उसी मंत्रालय की सहमति से नियम शिथिल करने देता है।"
+      },
+      "connects": [
+        "ccs-leave-64",
+        "ccs-leave-7"
+      ],
+      "misconception": {
+        "en": "\"A Ministry can relax a leave rule on its own.\" The proviso requires the concurrence of the Ministry of Personnel, Public Grievances and Pensions in every case.",
+        "hi": "\"कोई मंत्रालय स्वयं अवकाश नियम शिथिल कर सकता है।\" परंतुक प्रत्येक मामले में कार्मिक, लोक शिकायत और पेंशन मंत्रालय की सहमति अपेक्षित करता है।"
+      },
+      "examRelevance": {
+        "en": "Undue hardship, reasons recorded in writing, and the DoPT concurrence proviso are the three elements.",
+        "hi": "अनुचित कठिनाई, लिखित में अभिलिखित कारण, तथा कार्मिक विभाग की सहमति वाला परंतुक — यही तीन अंग हैं।"
+      },
+      "reviewed": true,
+      "reviewState": "approved",
+      "generationMeta": {
+        "promptVersion": "study-aid-v1",
+        "batchId": "library-aids-2026-09-03-ccs-leave",
+        "stageA": {
+          "index": 42,
+          "angle": "relaxing a rule that works unjustly"
+        },
+        "critic": {
+          "verdict": "approve",
+          "reason": "Three elements and the Rule 64 contrast, which is the confusion this aid exists to remove."
+        },
+        "verify": {
+          "grounded": true,
+          "note": "The rule and its proviso are verbatim; Rule 64 was read from Rule 64."
+        },
+        "dedup": {
+          "maxScore": 0,
+          "against": null,
+          "verdict": "keep"
+        },
+        "groundingUnitIds": [
+          "ccs-leave-65",
+          "ccs-leave-64"
+        ]
+      },
+      "source": {
+        "name": "Department of Personnel and Training — CCS (Leave) Rules, 1972 — updated as on 24 September 2024",
+        "url": "https://documents.doptcirculars.nic.in/D2/D02est/updatedccsleaverulesN9ExV.pdf"
+      },
+      "verify": true
+    }
+  ]
+}

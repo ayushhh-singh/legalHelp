@@ -6033,3 +6033,232 @@ looks correct.
    cost thousands of map lookups on every render, and the reader re-renders on every selection
    change. It is a `Map` built once per corpus. Neither this nor (8) was visible — which is the
    reason to say what a query is linear in, rather than whether it returns the right answer.
+
+## ADR-040 — Precomputed first, a model last: 223 hand-written study aids, two decks that share an engine and not a table, retrieval that the plain search box uses too, and a fourth tier the reader points wherever they like
+
+**Date:** 2026-09-03 · **Status:** Accepted · **Supersedes:** nothing · **Amends:** ADR-030 (`connect-src`), ADR-036 (when the one-pass agent shape applies)
+
+### Context
+
+Session 28's brief opened with an ordering instruction rather than a feature
+list: _"Order matters: precomputed aids (zero cost, the default), then active
+recall and planning (no AI), then retrieval, then the AI paths."_ Everything
+below follows from taking that literally.
+
+### 1. A study aid is authored, reviewed and shipped — never generated at read time
+
+`data/library/aids/<act>.json` is 225 rows, **223 approved**, written act by act
+with the unit's own text open and put through the four stages
+`docs/AUTHORING.md` prescribes: generate, critic, verify from the text alone,
+dedup. Each carries `explanation`, `example`, `connects`, and optionally
+`misconception`, `examRelevance` and `mnemonic`, all `{ en, hi }`; each carries
+`generationMeta` recording what each stage said, `groundingUnitIds` naming the
+units it rests on, and `verify: true` unconditionally.
+
+Two rows are `rejected` with a reason and are never served — `ccs-cca-32`
+(Omitted) and `osa-16` (repealed). They stay in the file, which is the same rule
+`data/rules/cards` follows: a card is never deleted for being wrong, it is
+rejected with a reason, and the reason is the audit trail.
+
+**An aid that cannot be grounded in the unit's own text was not written.** That
+is why seven acts are covered and eight are not: CCS Conduct (32), CCS CCA (34),
+RTI (31), OSA (14), PoSH (30), CCS Leave (40) and CSMOP (40). `docs/DATA-GAPS.md`
+#76 records what is left and what a second reader over the set would involve.
+
+`tests/library-aids.test.ts` (36) checks the loader map against the file set, the
+schema per file, the ≥220 floor, uniqueness, one aid per unit, and the POINTER in
+both directions — every `unitId`, every `connects` entry and every
+`groundingUnitIds` entry resolving into the pointed-at corpus. That last is the
+half that is easy to skip and the half that catches an aid nobody can reach.
+
+**`groundingUnitIds` is restricted to the aid's own work.** The first version of
+the CCA aids named `ccs-conduct-4` and `ccs-conduct-14` — a real and useful
+comparison — and it made the pointer test a cross-corpus claim, which is a
+different and much weaker thing to assert. The comparison lives in the aid's
+`verify.note` prose instead.
+
+### 2. The chapter deck reuses the engine and refuses to share its table
+
+The brief said "reuse `src/lib/srs` with a deck id — do not fork the engine",
+and the trap that creates is the opposite of forking. `src/lib/study/chapters.ts`
+imports `createCard` and `gradeCard` wholesale — they are pure and take a row —
+but a chapter goes into `chapterCards`, not `srsCards`.
+
+The reason is concrete: a chapter has no `qId` in `data/rules/cards`, so every
+catalogue-taking function in `src/lib/srs` would look one up and find nothing,
+and "12 due" on `/learn` would silently mean twelve of two different things.
+`toSrs`/`fromSrs` are the whole of the translation and the two shapes differ by
+one field, the identifier. `src/lib/study/independence.test.ts` grades one deck
+and asserts the other did not move, in both directions, and does it for the SAME
+underlying rule so the claim cannot be true by accident.
+
+**`src/lib/study/` is a new directory rather than a file in `src/lib/srs/`**,
+because `src/lib/srs/purity.test.ts` enumerates its files BY NAME and polices
+what each may do. Adding one there would have meant editing the guard in the
+same commit as the thing it guards.
+
+**A flat work is grouped into runs of twelve.** Eleven of the fifteen works are
+`tocSource: 'flat'` (`docs/DATA-GAPS.md` #70) — one node per rule — and a
+revision deck with one card per rule is the card deck again with worse
+questions. `groupFlat` keys each group on its FIRST unit id, never on a
+position, so inserting a rule at the top of a book does not renumber every card
+the reader has built a schedule on. Same rule `docs/AUTHORING.md` states for a
+cloze card's id.
+
+**`dueChapters` puts never-rated chapters LAST**, which is the opposite of the
+card queue. A card the reader has never seen is the point of a study session; a
+chapter they have never rated is not something they are behind on, and offering
+two thousand of them as "due" would make the list useless on day one.
+`includeNew: false` is what both hubs pass.
+
+### 3. Retrieval is pure, and the plain search box uses it
+
+`src/lib/retrieval.ts` runs with AI off and is what the study agent's `retrieve`
+tool calls. That is deliberate: retrieval quality is visible to every reader, so
+it is under constant pressure to be good, rather than being an invisible
+sub-component of a feature most readers never turn on.
+
+Three things it does that a plain fuse.js index does not:
+
+- **A number pass before fuse, scored 1.0.** `numbersIn` keeps both the full
+  sub-section and its base, so "Rule 18(2)" finds 18(2) and then 18. fuse's
+  `minMatchCharLength` refuses a two-character query outright (the trap
+  ADR-038 already hit), and a provision number is the most obvious thing a
+  reader types.
+- **An exact-heading pass, scored 0.98, between the number pass and fuse.**
+  Without it a glossary entry whose citation is literally `"Suspension /
+निलंबन"` out-ranked CCA Rule 10, whose citation never contains the word —
+  because citation is the highest-weighted field and a glossary citation IS the
+  term. The fix is not to re-weight heading above citation: a citation is still
+  the only unambiguous field, and "Definitions" is a heading four rule books
+  share. `KIND_ORDER` breaks an exact tie in favour of the source over
+  commentary over vocabulary over the reader's own writing.
+- **`alsoSearch`, indexed and never rendered.** Only one language's citation and
+  heading were indexed at first, so `आचरण` found nothing over an
+  English-built index. The other language now rides along in a field the
+  results never show.
+
+`tests/fixtures/retrieval.ts` is 40 cases, each with a written `why`, and it is
+the specification the way `tests/fixtures/law-search.ts` is for the converter.
+**Four of the fixtures were my own over-claims and were corrected with reasons
+rather than by loosening the code** — a bare `18` across seven works has no right
+answer, which is ADR-029 point 4's ambiguity in a second place, so those cases
+assert `topKind` plus an `expectId`/`rejectId` rather than a `topId`.
+
+### 4. Everything the reader typed stays on the device, including in the analytics
+
+`src/lib/study/{sessions,analytics}.ts` are pure and every figure is arithmetic
+over rows this device already holds. Three decisions worth recording:
+
+- **A session's minutes are computed from `startedAt` and the wall clock, never
+  accumulated.** A backgrounded tab, a sleeping laptop and a tick React skipped
+  under load all give the right answer, because nothing was being counted.
+  `MAX_SESSION_MINUTES = 240` caps a forgotten timer: a session left running
+  overnight is not a night of study, and letting it into the weekly total would
+  make every other number on that screen meaningless.
+- **A session worth under a minute is DISCARDED, not stored as zero**, and
+  `endSession` tells the caller so it can say so rather than appearing to have
+  saved something.
+- **`goalProgress` averages only the targets that were SET.** A goal of "180
+  minutes a week" with no unit target must not read as half done because a
+  target nobody asked for is empty.
+- **Coverage is three independent flags, not a score.** Read, annotated and
+  quizzed collapse into `depth` for the heat-map's colour, but
+  `summariseCoverage` reports `readNotQuizzed` separately, because that is the
+  figure an officer preparing for a departmental examination actually wants and
+  a single "progress" percentage would hide it.
+
+The five new tables are in the backup automatically: `buildBackup` excludes by
+NAME (`secrets`, `aiAnswers`, `aiUsage`) rather than including by name, so a
+table a later session adds is backed up by default. `independence.test.ts`
+asserts it anyway, because "included by default" is a convention that lasts
+until somebody switches it to an allowlist for a good-sounding reason.
+
+### 5. Tier 3: an OpenAI-compatible endpoint the reader points wherever they like
+
+`src/ai/providers/openaiCompatible.ts` speaks `/chat/completions` with
+streaming, tool calling and JSON mode. It exists so the free tiers are a real
+option — Google AI Studio, Groq, an OpenRouter free model, or a local Ollama
+that reaches no network at all — because "bring your own Anthropic key" is not
+free and this project's first rule is that it is free for users.
+
+Four decisions:
+
+- **The transport lives in `src/ai/providers/wire.ts`**, which is still the only
+  module in the app permitted to call `fetch` (a file-scoped exception in
+  `eslint.config.js`). Putting it in the new provider would have made the audit
+  question — "what can reach the network?" — answerable from two files instead
+  of one.
+- **The API key is OPTIONAL and `tierReady` asks only for a URL and a model.**
+  Ollama wants no key. A tier that refused to start without one would have made
+  the only genuinely offline model option unreachable.
+- **`maxContext` is 0, not a guess.** This provider cannot know it, and
+  inventing a number the reader would rely on is worse than admitting it.
+- **`capabilityNote()` is honest about tool calling.** An endpoint without it
+  falls back to JSON mode and the UI says which of the three states it is in
+  (`tools` / `jsonFallback` / `textOnly`), rather than silently degrading.
+
+`CONSENT_VERSION` is **3**. A reader who consented to Tier 1 and Tier 2 did not
+consent to a request going to a host they had not been told about, and a
+consent version is how this app asks again.
+
+**This amends ADR-030's `connect-src 'self' https://api.anthropic.com`.** It now
+also names `https://generativelanguage.googleapis.com`, `https://api.groq.com`,
+`https://openrouter.ai` and loopback — the three providers the consent notice
+itself names, plus a local Ollama. `connect-src https:` was considered and
+rejected: it would let any script in the bundle reach any host, which is the one
+thing `default-src 'self'` exists to prevent. The residual limit is real and is
+written down as `docs/DATA-GAPS.md` #75.
+
+### 6. The study agent is ADR-035's two-pass shape, and it is last in the rail
+
+`src/ai/agents/study.ts` with `groundedRequired: true`, six `library`-scope
+tools, and a bilingual cached prompt file. It is two passes rather than
+ADR-036's single pass for the reason ADR-035 gives — `validateCitations()`
+rejects a number that appears in no cited snippet, and a tool result is not one
+— and specifically because the lookup here genuinely needs research first: "the
+difference between Rule 3 and Rule 11" cannot name what to fetch until something
+has been fetched. ADR-036's cheaper shape stays right where the caller already
+knows what to read.
+
+**`get_my_notes` is the first tool in this app that reads the officer's own
+writing.** Three things constrain it: `includeNotes` is a checkbox that is off
+until it is ticked, with a hint saying what ticking it does; every snippet it
+produces is `personal: true` and is labelled as the reader's on the way in and
+rendered as theirs on the way out; and `misattributesPersonal()` fails the run in
+code when the answer treats one as law. A persona instruction is not a check —
+ADR-036's lesson, applied to a different failure.
+
+**The screen is the Law Converter's, narrowed differently.**
+`screenStudyQuestion()` refuses a departmental RECORD (every pattern requiring a
+digit) and does NOT refuse "secret" or "classified": the Official Secrets Act is
+one of the fifteen works in this library, and a question about what it says is a
+question about published statute. `screenBrief()`'s opposite bias is right for a
+DOCUMENT and wrong for a question.
+
+**The rail's order is the whole argument.** Aid → Feynman → test-me → Ask →
+related. Four of the five reach no network, need no key and cost nothing;
+`src/modules/library/ai-seam.ts` states the test that keeps it honest — flipping
+`STUDY_AI_ENABLED` to `false` must cost the module one affordance out of five,
+not make it useless. `docs/AI.md` §13 is the general policy, including why
+fine-tuning is rejected: grounding is retrieval, not weights, and a fine-tuned
+model has no snippets to cite.
+
+### Consequences
+
+- `data/library/aids/` is a new dataset family and a new `verify: true` surface;
+  `StudyAidCard` says on every render that it is this project's writing and that
+  the provision above is what governs.
+- Dexie is at **v13** with five new tables and no `upgrade()` block, because all
+  five are new and empty.
+- `src/lib/study/` is a second pure library beside `src/lib/srs/`, with its own
+  `purity.test.ts` that enumerates its files by name. That test needed a `code()`
+  helper stripping comments, because `analytics.ts` type-imports `@/db` (erased,
+  reaches no database) and `quiz.ts` names `Math.random()` in a comment
+  explaining why it does not use it — the sibling guard in `src/lib/srs` avoided
+  both only by choosing a pattern its own prose happened not to match.
+- Three new routes (`/library/study`, `/library/:workId/quiz/:nodeId`,
+  `/library/:workId/sheet/:nodeId`), all three in the axe and offline sweeps —
+  the two parameterised ones exempted in `tests/route-coverage.test.ts` with a
+  real instance named, the way `/library/:workId/:unitId` already was.
+- `CONSENT_VERSION` is 3, so every reader who had AI on is asked again.

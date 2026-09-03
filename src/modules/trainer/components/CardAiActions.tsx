@@ -91,7 +91,13 @@ export function CardAiActions({ ai, card, wrongAnswer }: CardAiActionsProps) {
   )
 }
 
-function Result({ state, onDismiss }: { state: ReturnType<typeof useTutorAi>['state']; onDismiss: () => void }) {
+function Result({
+  state,
+  onDismiss,
+}: {
+  state: ReturnType<typeof useTutorAi>['state']
+  onDismiss: () => void
+}) {
   const { t } = useT()
 
   switch (state.kind) {

@@ -12,7 +12,13 @@ import { CityPicker, JobPicker } from './components/Pickers'
 import { CONSENT_VERSION, DEFAULT_AI_SETTINGS } from '@/ai/flags'
 import i18n from '@/i18n'
 import { computePay } from '@/lib/pay/engine'
-import { defaultScenario, scenarioForJob, toPayInput, withAllowance, type PayScenario } from '@/lib/pay/scenario'
+import {
+  defaultScenario,
+  scenarioForJob,
+  toPayInput,
+  withAllowance,
+  type PayScenario,
+} from '@/lib/pay/scenario'
 import { loadPayTables } from '@/test/payTables'
 
 import type { UseAi } from '@/ai/useAi'
@@ -239,7 +245,12 @@ describe('Pickers language switch', () => {
     function Harness() {
       const [selected, setSelected] = useState<string | null>(null)
       return (
-        <JobPicker tables={tables} selectedId={selected} onSelect={(o) => setSelected(o.job.id)} onClear={() => setSelected(null)} />
+        <JobPicker
+          tables={tables}
+          selectedId={selected}
+          onSelect={(o) => setSelected(o.job.id)}
+          onClear={() => setSelected(null)}
+        />
       )
     }
     render(<Harness />)
@@ -280,8 +291,12 @@ describe('ComparePanel', () => {
         b={b}
         onChangeA={(patch) => setA((current) => ({ ...current, ...patch }))}
         onChangeB={(patch) => setB((current) => ({ ...current, ...patch }))}
-        onPickA={(jobId) => setA((current) => (jobId ? scenarioForJob(jobId, tables, current) : { ...current, jobId: null }))}
-        onPickB={(jobId) => setB((current) => (jobId ? scenarioForJob(jobId, tables, current) : { ...current, jobId: null }))}
+        onPickA={(jobId) =>
+          setA((current) => (jobId ? scenarioForJob(jobId, tables, current) : { ...current, jobId: null }))
+        }
+        onPickB={(jobId) =>
+          setB((current) => (jobId ? scenarioForJob(jobId, tables, current) : { ...current, jobId: null }))
+        }
       />
     )
   }

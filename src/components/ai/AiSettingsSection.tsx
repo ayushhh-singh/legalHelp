@@ -36,19 +36,33 @@ import { useT } from '@/i18n/useT'
  */
 const LocalModelSection = lazy(() => import('@/components/ai/LocalModelSection'))
 
+/**
+ * Tier 3's own section. Lazy for the same reason: a reader on Tier 1 has no use
+ * for the endpoint form, and it carries the provider module's URL helpers.
+ */
+const OpenAiSection = lazy(() => import('@/components/ai/OpenAiSection'))
+
+/**
+ * Typed `Record<AiTier, …>` rather than inferred, so a new tier is a COMPILE
+ * ERROR here rather than a row with a raw key for its label. Adding `openai`
+ * to `AI_TIERS` broke this file and four others, which is the whole reason
+ * `AI_TIERS` is a const array with exhaustive switches over it.
+ */
 const TIER_LABEL = {
   off: 'ai.tier.off',
   local: 'ai.tier.local',
   byok: 'ai.tier.byok',
   proxy: 'ai.tier.proxy',
-} as const
+  openai: 'ai.tier.openai',
+} as const satisfies Record<AiTier, string>
 
 const TIER_HINT = {
   off: 'ai.tierHint.off',
   local: 'ai.tierHint.local',
   byok: 'ai.tierHint.byok',
   proxy: 'ai.tierHint.proxy',
-} as const
+  openai: 'ai.tierHint.openai',
+} as const satisfies Record<AiTier, string>
 
 type TestState =
   { status: 'idle' } | { status: 'running' } | { status: 'ok' } | { status: 'failed'; reason: string }
@@ -203,6 +217,12 @@ export default function AiSettingsSection() {
           </Suspense>
         ) : null}
 
+        {settings.tier === 'openai' ? (
+          <Suspense fallback={<Skeleton className="h-64 w-full" />}>
+            <OpenAiSection />
+          </Suspense>
+        ) : null}
+
         {settings.tier === 'byok' ? (
           <div className="flex flex-col gap-2">
             <label htmlFor="ai-key" className="text-sm font-semibold">
@@ -256,14 +276,15 @@ export default function AiSettingsSection() {
         ) : null}
 
         {/* The API model picker names Anthropic models, none of which Tier 0
-            runs — the on-device model is chosen in the section above. Showing
-            both at once was two pickers for one word.
+            or Tier 3 runs — the on-device model is chosen in the section above,
+            and Tier 3's model is whatever the reader's own endpoint calls it.
+            Showing both at once was two pickers for one word.
 
             Not rendered rather than hidden with a class: `display: none` leaves
             a labelled <select> in the DOM, which is a control that exists for
             anything reading the document and does not exist for the reader.
             The same rule the drafting panel's brief box follows (ADR-032 §5). */}
-        {settings.tier === 'local' ? null : (
+        {settings.tier === 'local' || settings.tier === 'openai' ? null : (
           <div className="flex flex-col gap-2">
             <label htmlFor="ai-model" className="text-sm font-semibold">
               {t('ai.model.label')}

@@ -64,7 +64,9 @@ describe('with AI off, or with no post picked', () => {
     )
     expect(withAiOff).toBeEmptyDOMElement()
 
-    const { container: withNoPost } = render(<PayExplainPanel ai={aiState()} scenario={{ ...SCENARIO, jobId: null }} />)
+    const { container: withNoPost } = render(
+      <PayExplainPanel ai={aiState()} scenario={{ ...SCENARIO, jobId: null }} />,
+    )
     expect(withNoPost).toBeEmptyDOMElement()
   })
 })
@@ -75,16 +77,22 @@ describe('with AI on and a post picked', () => {
     const provider = new MockProvider({
       id: 'explain-ok',
       turns: [
-        { stopReason: 'end_turn', content: [{ type: 'text', text: 'Your basic pay is what the matrix sets [1].' }] },
+        {
+          stopReason: 'end_turn',
+          content: [{ type: 'text', text: 'Your basic pay is what the matrix sets [1].' }],
+        },
       ],
     })
 
     render(<PayExplainPanel ai={aiState({ provider })} scenario={SCENARIO} />)
 
     await user.click(screen.getByRole('button', { name: 'Explain my payslip' }))
-    await waitFor(() => expect(screen.getByText(/Your basic pay is what the matrix sets/)).toBeInTheDocument(), {
-      timeout: 10_000,
-    })
+    await waitFor(
+      () => expect(screen.getByText(/Your basic pay is what the matrix sets/)).toBeInTheDocument(),
+      {
+        timeout: 10_000,
+      },
+    )
   })
 
   it('shows a refusal rather than an invented figure', async () => {
@@ -94,7 +102,9 @@ describe('with AI on and a post picked', () => {
       turns: [
         {
           stopReason: 'end_turn',
-          content: [{ type: 'text', text: 'A special unadvertised bonus of 91% is also credited this month.' }],
+          content: [
+            { type: 'text', text: 'A special unadvertised bonus of 91% is also credited this month.' },
+          ],
         },
       ],
     })

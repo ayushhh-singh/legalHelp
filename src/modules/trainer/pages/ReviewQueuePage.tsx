@@ -42,7 +42,8 @@ export default function ReviewQueuePage() {
   // compared against below.
   const [loadedFor, setLoadedFor] = useState<string | null>(null)
 
-  const current: QueueEntry | null = entries && entries.length > 0 ? (entries[Math.min(index, entries.length - 1)] ?? null) : null
+  const current: QueueEntry | null =
+    entries && entries.length > 0 ? (entries[Math.min(index, entries.length - 1)] ?? null) : null
 
   // Adjusted during render, not in an effect: "the focused card changed" is a
   // value derived from `entries`/`index`, and resetting the form here — rather
@@ -75,7 +76,8 @@ export default function ReviewQueuePage() {
   useEffect(() => {
     const onKeyDown = (event: KeyboardEvent) => {
       const target = event.target
-      const typing = target instanceof HTMLElement && (target.tagName === 'INPUT' || target.tagName === 'TEXTAREA')
+      const typing =
+        target instanceof HTMLElement && (target.tagName === 'INPUT' || target.tagName === 'TEXTAREA')
       if (typing || !entries || entries.length === 0) return
 
       if (event.key === 'j') setIndex((i) => Math.min(entries.length - 1, i + 1))
@@ -114,11 +116,20 @@ export default function ReviewQueuePage() {
       />
 
       {entries.length === 0 ? (
-        <EmptyState icon={FileJson} title={t('trainer.reviewQueue.emptyTitle')} body={t('trainer.reviewQueue.emptyBody')} />
+        <EmptyState
+          icon={FileJson}
+          title={t('trainer.reviewQueue.emptyTitle')}
+          body={t('trainer.reviewQueue.emptyBody')}
+        />
       ) : (
         <>
           <div className="flex flex-wrap items-center justify-between gap-2 text-xs text-muted-foreground">
-            <span>{t('trainer.reviewQueue.progress', { current: Math.min(index, entries.length - 1) + 1, total: entries.length })}</span>
+            <span>
+              {t('trainer.reviewQueue.progress', {
+                current: Math.min(index, entries.length - 1) + 1,
+                total: entries.length,
+              })}
+            </span>
             <span>{t('trainer.reviewQueue.keyboardHint')}</span>
           </div>
 
@@ -141,7 +152,9 @@ export default function ReviewQueuePage() {
             <SectionCard active className="p-5">
               <div className="flex flex-wrap items-center gap-2">
                 <Chip>{current.card.act}</Chip>
-                <Chip tone="marigold">{current.card.ruleRef.citation[language] || current.card.ruleRef.citation.en}</Chip>
+                <Chip tone="marigold">
+                  {current.card.ruleRef.citation[language] || current.card.ruleRef.citation.en}
+                </Chip>
                 <Badge tone={current.source === 'ai' ? 'info' : 'neutral'}>
                   {current.source === 'ai' ? (
                     <>
@@ -155,8 +168,12 @@ export default function ReviewQueuePage() {
 
               {!editing ? (
                 <div className="mt-4 space-y-2">
-                  <p className="text-base font-medium">{current.card.front[language] || current.card.front.en}</p>
-                  <p className="text-sm text-muted-foreground">{current.card.back[language] || current.card.back.en}</p>
+                  <p className="text-base font-medium">
+                    {current.card.front[language] || current.card.front.en}
+                  </p>
+                  <p className="text-sm text-muted-foreground">
+                    {current.card.back[language] || current.card.back.en}
+                  </p>
                 </div>
               ) : (
                 <div className="mt-4 space-y-3">
@@ -164,25 +181,49 @@ export default function ReviewQueuePage() {
                     <label className="text-xs font-medium text-muted-foreground" htmlFor="edit-front-en">
                       {t('trainer.reviewQueue.editFrontLabel')} (EN)
                     </label>
-                    <textarea id="edit-front-en" value={frontEn} onChange={(e) => setFrontEn(e.target.value)} rows={2} className="mt-1 w-full rounded-md border border-input bg-background p-2 text-sm" />
+                    <textarea
+                      id="edit-front-en"
+                      value={frontEn}
+                      onChange={(e) => setFrontEn(e.target.value)}
+                      rows={2}
+                      className="mt-1 w-full rounded-md border border-input bg-background p-2 text-sm"
+                    />
                   </div>
                   <div>
                     <label className="text-xs font-medium text-muted-foreground" htmlFor="edit-front-hi">
                       {t('trainer.reviewQueue.editFrontLabel')} (HI)
                     </label>
-                    <textarea id="edit-front-hi" value={frontHi} onChange={(e) => setFrontHi(e.target.value)} rows={2} className="mt-1 w-full rounded-md border border-input bg-background p-2 text-sm" />
+                    <textarea
+                      id="edit-front-hi"
+                      value={frontHi}
+                      onChange={(e) => setFrontHi(e.target.value)}
+                      rows={2}
+                      className="mt-1 w-full rounded-md border border-input bg-background p-2 text-sm"
+                    />
                   </div>
                   <div>
                     <label className="text-xs font-medium text-muted-foreground" htmlFor="edit-back-en">
                       {t('trainer.reviewQueue.editBackLabel')} (EN)
                     </label>
-                    <textarea id="edit-back-en" value={backEn} onChange={(e) => setBackEn(e.target.value)} rows={2} className="mt-1 w-full rounded-md border border-input bg-background p-2 text-sm" />
+                    <textarea
+                      id="edit-back-en"
+                      value={backEn}
+                      onChange={(e) => setBackEn(e.target.value)}
+                      rows={2}
+                      className="mt-1 w-full rounded-md border border-input bg-background p-2 text-sm"
+                    />
                   </div>
                   <div>
                     <label className="text-xs font-medium text-muted-foreground" htmlFor="edit-back-hi">
                       {t('trainer.reviewQueue.editBackLabel')} (HI)
                     </label>
-                    <textarea id="edit-back-hi" value={backHi} onChange={(e) => setBackHi(e.target.value)} rows={2} className="mt-1 w-full rounded-md border border-input bg-background p-2 text-sm" />
+                    <textarea
+                      id="edit-back-hi"
+                      value={backHi}
+                      onChange={(e) => setBackHi(e.target.value)}
+                      rows={2}
+                      className="mt-1 w-full rounded-md border border-input bg-background p-2 text-sm"
+                    />
                   </div>
                 </div>
               )}
@@ -230,7 +271,12 @@ export default function ReviewQueuePage() {
                     <Button type="button" size="sm" variant="outline" onClick={() => setEditing(true)}>
                       {t('trainer.reviewQueue.edit')}
                     </Button>
-                    <Button type="button" size="sm" variant="destructive" onClick={() => void reject(current)}>
+                    <Button
+                      type="button"
+                      size="sm"
+                      variant="destructive"
+                      onClick={() => void reject(current)}
+                    >
                       <X aria-hidden="true" />
                       {t('trainer.reviewQueue.reject')}
                     </Button>

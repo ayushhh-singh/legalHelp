@@ -463,6 +463,116 @@ export interface LibraryPersonalWorkRow {
 
 export type SettingKey = (typeof SETTING_KEYS)[keyof typeof SETTING_KEYS]
 
+/**
+ * One chapter of one work, scheduled by FSRS — the SECOND deck this app keeps.
+ *
+ * The card deck (`srsCards`) asks a question and grades the answer. This deck
+ * asks nothing: the reader READS a chapter and rates how confident they are
+ * that they could use it, 1-4, and that rating is the FSRS grade. It is a
+ * separate table rather than a flag on `srsCards` for two reasons, and both are
+ * about not corrupting the other deck. A chapter is not a `Card` — it has no
+ * `qId` in `data/rules/cards`, so every function in `src/lib/srs` that is
+ * handed a catalogue would have nothing to look it up in. And the two decks
+ * have to be countable apart: "12 cards and 3 chapters due" is the honest
+ * report, and one table would make it "15 due" with no way back.
+ *
+ * The scheduling itself is NOT forked — `src/lib/study/chapters.ts` calls
+ * `gradeCard` and `createCard` from `src/lib/srs/engine.ts`, which are pure and
+ * take a row, so both decks are scheduled by the same FSRS instance with the
+ * same fuzz-off guarantee (ADR-025).
+ */
+export interface ChapterCardRow {
+  /** `"<workId>:<nodeId>"` — the table-of-contents node, not a unit. */
+  id: string
+  workId: string
+  nodeId: string
+  /** Everything `SrsCardRow` carries, minus its `qId`. */
+  due: string
+  stability: number
+  difficulty: number
+  elapsed: number
+  scheduled: number
+  reps: number
+  lapses: number
+  state: 'new' | 'learning' | 'review' | 'relearning'
+  lastReview: string | null
+  lastGrade: 'Again' | 'Hard' | 'Good' | 'Easy' | null
+  learningSteps: number
+}
+
+/** One confidence rating on one chapter. Append-only, like `reviewLog`. */
+export interface ChapterLogRow {
+  /** `"<cardId>#<reps>#<at>"`, the shape `src/lib/srs/engine.ts` uses. */
+  id: string
+  cardId: string
+  workId: string
+  grade: 'Again' | 'Hard' | 'Good' | 'Easy'
+  at: string
+  stateBefore: 'new' | 'learning' | 'review' | 'relearning'
+  /**
+   * What produced the rating. A rating the reader gave after reading is
+   * `confidence`; one derived from a chapter quiz or a Feynman self-grade is
+   * marked as such, so "how did I actually rate this" stays answerable.
+   */
+  reason: 'confidence' | 'quiz' | 'feynman'
+}
+
+/**
+ * One attempt at explaining a unit in the reader's own words.
+ *
+ * The text is stored EXACTLY as typed and is never sent anywhere. The three
+ * grades are the reader's own — `src/lib/study/feynman.ts` states the three
+ * prompts and this row records what they said about each. There is no marking:
+ * an attempt is evidence the reader produced, and the value is in re-reading it
+ * a week later beside the rule.
+ */
+export interface FeynmanAttemptRow {
+  id: string
+  workId: string
+  unitId: string
+  /** What the reader wrote, verbatim. */
+  body: string
+  /** Self-grade per prompt, in the order `FEYNMAN_PROMPTS` declares them. */
+  grades: ('missed' | 'partial' | 'got-it')[]
+  at: string
+  /** An AI comment, if the reader asked for one and AI was on. Never required. */
+  comment?: string
+}
+
+/**
+ * One study session — a stretch of time the reader spent on a work.
+ *
+ * `endedAt` is null while the session is running, which is what makes an
+ * interrupted session recoverable: the timer is wall-clock arithmetic over
+ * `startedAt`, not a counter that dies with the tab.
+ */
+export interface StudySessionRow {
+  id: string
+  workId: string
+  /** The table-of-contents node the reader was working through, if any. */
+  nodeId: string | null
+  mode: 'free' | 'pomodoro'
+  startedAt: string
+  endedAt: string | null
+  /** Focused minutes, excluding breaks. Written when the session ends. */
+  minutes: number
+  /** Completed pomodoro work intervals. Zero in free mode. */
+  pomodoros: number
+}
+
+/**
+ * A weekly target for one work. `minutes` and `units` are both optional and a
+ * goal with neither is not stored — a goal that asks for nothing is noise on
+ * the weekly review screen.
+ */
+export interface StudyGoalRow {
+  /** The work id. One goal per work. */
+  id: string
+  minutesPerWeek?: number
+  unitsPerWeek?: number
+  updatedAt: string
+}
+
 export class SahayakDB extends Dexie {
   settings!: Table<SettingRow, string>
   secrets!: Table<SecretsRow, string>
@@ -490,6 +600,11 @@ export class SahayakDB extends Dexie {
   libraryHighlights!: Table<LibraryHighlightRow, string>
   libraryNotes!: Table<LibraryNoteRow, string>
   libraryPersonalWorks!: Table<LibraryPersonalWorkRow, string>
+  chapterCards!: Table<ChapterCardRow, string>
+  chapterLog!: Table<ChapterLogRow, string>
+  feynmanAttempts!: Table<FeynmanAttemptRow, string>
+  studySessions!: Table<StudySessionRow, string>
+  studyGoals!: Table<StudyGoalRow, string>
 
   constructor(name = 'sahayak') {
     super(name)
@@ -747,6 +862,55 @@ export class SahayakDB extends Dexie {
       libraryHighlights: '&id, [workId+unitId], workId, colour, createdAt',
       libraryNotes: '&id, [workId+unitId], workId, updatedAt',
       libraryPersonalWorks: '&id, updatedAt',
+    })
+    // Version 13 — the study layer (Session 28): the chapter revision deck, the
+    // Feynman attempts, the session log and the weekly goals.
+    //
+    // `chapterCards` is indexed on `due` for the same reason `srsCards` is: "what
+    // is due now" is a range query over an ISO-8601 UTC string, not a scan. It is
+    // also indexed on `workId`, because the Library's own surfaces ask "what is
+    // due in THIS book" and the compound key alone cannot answer that.
+    // `chapterLog` and `feynmanAttempts` are append-only and carry `at` so a
+    // week's work is a range query; `feynmanAttempts` also carries the compound
+    // `[workId+unitId]`, which is how the reader page finds the attempts on the
+    // unit in front of them. `studySessions` is indexed on `startedAt` for the
+    // weekly review, and `studyGoals` is keyed on the work id alone — a goal is
+    // a setting about a book, not a log.
+    //
+    // No `.upgrade()` block: all five tables are new and empty, and nothing
+    // written before this release has a shape to migrate.
+    this.version(13).stores({
+      settings: '&key',
+      secrets: '&id',
+      aiAnswers: '&id, agentId, dataVersion, createdAt',
+      aiUsage: '&month',
+      lawFavourites: '&id, createdAt',
+      lawRecents: '&id, viewedAt',
+      payScenarios: '&id, name, updatedAt',
+      drafts: '&id, templateId, updatedAt',
+      draftDefaults: '&id, templateId, updatedAt',
+      glossaryFavourites: '&id, createdAt',
+      glossaryRecents: '&id, viewedAt',
+      srsCards: '&qId, due, state',
+      reviewLog: '&id, qId, at',
+      streaks: '&date',
+      trainerSettings: '&id',
+      trainerBookmarks: '&qId, createdAt',
+      trainerReports: '&id, qId, createdAt',
+      proposedCards: '&id, createdAt',
+      cardOverrides: '&qId, decidedAt',
+      holidayPicks: '&id, year, createdAt',
+      commandRecents: '&id, viewedAt',
+      libraryProgress: '&id, workId, at',
+      libraryBookmarks: '&id, workId, createdAt',
+      libraryHighlights: '&id, [workId+unitId], workId, colour, createdAt',
+      libraryNotes: '&id, [workId+unitId], workId, updatedAt',
+      libraryPersonalWorks: '&id, updatedAt',
+      chapterCards: '&id, workId, due',
+      chapterLog: '&id, cardId, workId, at',
+      feynmanAttempts: '&id, [workId+unitId], workId, at',
+      studySessions: '&id, workId, startedAt',
+      studyGoals: '&id, updatedAt',
     })
   }
 }

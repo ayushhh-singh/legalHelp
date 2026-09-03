@@ -398,7 +398,9 @@ describe('weeklyFocusPlan', () => {
       turns: [
         {
           stopReason: 'end_turn',
-          content: [{ type: 'text', text: 'Focus on CCS (Conduct) Rule 1 first — it has the most lapses [1].' }],
+          content: [
+            { type: 'text', text: 'Focus on CCS (Conduct) Rule 1 first — it has the most lapses [1].' },
+          ],
         },
       ],
     })

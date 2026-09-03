@@ -1,0 +1,1865 @@
+{
+  "$schema": "../../../schemas/library-aids.schema.json",
+  "version": "1.0.0",
+  "generatedAt": "2026-09-03",
+  "workId": "ccs-cca",
+  "unitLabel": {
+    "en": "Rule",
+    "hi": "नियम"
+  },
+  "disclaimer": {
+    "en": "A study aid is Sahayak’s own explanation, not the text of the rule. Reference only; verify with the official gazette/order or your DDO.",
+    "hi": "अध्ययन सहायिका सहायक की अपनी व्याख्या है, नियम का पाठ नहीं। केवल संदर्भ हेतु; आधिकारिक राजपत्र/आदेश अथवा अपने डीडीओ से सत्यापित करें।"
+  },
+  "source": {
+    "name": "Department of Personnel and Training — CCS (CCA) Rules, 1965 — consolidated",
+    "url": "https://dopt.gov.in/sites/default/files/CCS-CCA-Rules-FINAL.pdf"
+  },
+  "aids": [
+    {
+      "id": "aid-ccs-cca-1",
+      "workId": "ccs-cca",
+      "unitId": "ccs-cca-1",
+      "explanation": {
+        "en": "Rule 1 gives the rules their name — the Central Civil Services (Classification, Control and Appeal) Rules, 1965 — and their commencement date, 1 December 1965. It matters because these are the DISCIPLINARY rules: the CCS (Conduct) Rules, 1964 say what an officer must not do, and this book says who may act on it and how.",
+        "hi": "नियम 1 इन नियमों को उनका नाम देता है — केंद्रीय सिविल सेवा (वर्गीकरण, नियंत्रण और अपील) नियम, 1965 — तथा प्रारंभ की तिथि, 1 दिसंबर 1965। यह महत्वपूर्ण है क्योंकि ये अनुशासनिक नियम हैं: सीसीएस (आचरण) नियम, 1964 बताते हैं कि कर्मचारी क्या न करे, और यह पुस्तक बताती है कि उस पर कौन और किस प्रकार कार्रवाई कर सकता है।"
+      },
+      "example": {
+        "en": "A charge-sheet alleging a breach of Rule 3 of the Conduct Rules is drawn up and inquired into under Rule 14 of THESE rules. Two different books, two different rule numbers, and quoting one for the other is the most common drafting error in a disciplinary file.",
+        "hi": "आचरण नियमों के नियम 3 के उल्लंघन का आरोप-पत्र इन्हीं नियमों के नियम 14 के अधीन तैयार और जाँचा जाता है। दो अलग पुस्तकें, दो अलग नियम संख्याएँ, और एक के लिए दूसरी उद्धृत करना अनुशासनिक फ़ाइल की सबसे सामान्य प्रारूपण त्रुटि है।"
+      },
+      "connects": [
+        "ccs-cca-3",
+        "ccs-cca-11"
+      ],
+      "misconception": {
+        "en": "\"Conduct and CCA are one book.\" They are two, made under the same constitutional power but doing different work: one defines misconduct, the other creates the machinery.",
+        "hi": "\"आचरण और सीसीए एक ही पुस्तक हैं।\" ये दो हैं, एक ही सांविधानिक शक्ति के अधीन बनी किंतु भिन्न कार्य करती हैं: एक कदाचार परिभाषित करती है, दूसरी तंत्र बनाती है।"
+      },
+      "reviewed": true,
+      "reviewState": "approved",
+      "generationMeta": {
+        "promptVersion": "study-aid-v1",
+        "batchId": "library-aids-2026-09-03-ccs-cca",
+        "stageA": {
+          "index": 1,
+          "angle": "the two facts a citation of these rules rests on"
+        },
+        "critic": {
+          "verdict": "approve",
+          "reason": "A two-line rule; the aid earns its place by naming the Conduct/CCA division, which is what a reader needs before opening either."
+        },
+        "verify": {
+          "grounded": true,
+          "note": "The title and the commencement date are the whole of Rule 1. The Conduct/CCA relationship is a statement about two books this app ships, not a claim about Rule 1’s text."
+        },
+        "dedup": {
+          "maxScore": 0,
+          "against": null,
+          "verdict": "keep"
+        },
+        "groundingUnitIds": [
+          "ccs-cca-1",
+          "ccs-cca-11"
+        ]
+      },
+      "source": {
+        "name": "Department of Personnel and Training — CCS (CCA) Rules, 1965 — consolidated",
+        "url": "https://dopt.gov.in/sites/default/files/CCS-CCA-Rules-FINAL.pdf"
+      },
+      "verify": true
+    },
+    {
+      "id": "aid-ccs-cca-2",
+      "workId": "ccs-cca",
+      "unitId": "ccs-cca-2",
+      "explanation": {
+        "en": "Rule 2 fixes the vocabulary the whole book runs on. \"Appointing authority\" has four alternative meanings — the authority empowered to appoint to the Service, or to the grade, or to the post, or the authority that actually appointed him — and where more than one applies, the HIGHEST of them is the appointing authority. \"Disciplinary authority\" is defined simply as the authority competent under these rules to impose a Rule 11 penalty, and \"Commission\" means the Union Public Service Commission.",
+        "hi": "नियम 2 पूरी पुस्तक की शब्दावली निश्चित करता है। \"नियुक्ति प्राधिकारी\" के चार वैकल्पिक अर्थ हैं — वह प्राधिकारी जो उस सेवा में, या उस ग्रेड में, या उस पद पर नियुक्ति करने हेतु सशक्त है, अथवा जिसने वस्तुतः नियुक्त किया — और जहाँ एक से अधिक लागू हों, वहाँ उनमें से उच्चतम नियुक्ति प्राधिकारी है। \"अनुशासनिक प्राधिकारी\" केवल वह प्राधिकारी है जो इन नियमों के अधीन नियम 11 की शास्ति अधिरोपित करने हेतु सक्षम है, और \"आयोग\" का अर्थ संघ लोक सेवा आयोग है।"
+      },
+      "example": {
+        "en": "An Assistant appointed by a Head of Office who has since been promoted into a grade to which the Ministry appoints: clause (a)(iv) makes the highest of the competing authorities the appointing authority, which is what decides whether a suspension order under Rule 10 was made by a competent authority.",
+        "hi": "कोई सहायक जिसे कार्यालय-प्रमुख ने नियुक्त किया और जो अब ऐसे ग्रेड में पदोन्नत हो चुका है जिसमें नियुक्ति मंत्रालय करता है: खंड (क)(iv) प्रतिस्पर्धी प्राधिकारियों में उच्चतम को नियुक्ति प्राधिकारी बनाता है, और यही तय करता है कि नियम 10 के अधीन निलंबन आदेश सक्षम प्राधिकारी ने किया था या नहीं।"
+      },
+      "connects": [
+        "ccs-cca-10",
+        "ccs-cca-12",
+        "ccs-cca-24"
+      ],
+      "misconception": {
+        "en": "\"The appointing authority is whoever signed my appointment letter.\" That is only clause (a)(iii). Where the Service, the grade and the post have different appointing authorities, the definition takes the HIGHEST.",
+        "hi": "\"नियुक्ति प्राधिकारी वही है जिसने मेरा नियुक्ति-पत्र हस्ताक्षरित किया।\" वह केवल खंड (क)(iii) है। जहाँ सेवा, ग्रेड और पद के नियुक्ति प्राधिकारी भिन्न हों, वहाँ परिभाषा उच्चतम को लेती है।"
+      },
+      "examRelevance": {
+        "en": "\"Whichever authority is the highest authority\" in clause (a)(iv) is the phrase a question turns on.",
+        "hi": "खंड (क)(iv) का \"जो भी प्राधिकारी उच्चतम हो\" वाक्यांश ही प्रश्न का आधार बनता है।"
+      },
+      "reviewed": true,
+      "reviewState": "approved",
+      "generationMeta": {
+        "promptVersion": "study-aid-v1",
+        "batchId": "library-aids-2026-09-03-ccs-cca",
+        "stageA": {
+          "index": 2,
+          "angle": "the four alternative meanings of \"appointing authority\""
+        },
+        "critic": {
+          "verdict": "approve",
+          "reason": "Only the three definitions that decide competence are given; the rest of Rule 2 is vocabulary the reader meets in context."
+        },
+        "verify": {
+          "grounded": true,
+          "note": "Clauses (a)(i)-(iv) with the \"whichever authority is the highest\" tail, (d) and (g) are verbatim."
+        },
+        "dedup": {
+          "maxScore": 0,
+          "against": null,
+          "verdict": "keep"
+        },
+        "groundingUnitIds": [
+          "ccs-cca-2"
+        ]
+      },
+      "source": {
+        "name": "Department of Personnel and Training — CCS (CCA) Rules, 1965 — consolidated",
+        "url": "https://dopt.gov.in/sites/default/files/CCS-CCA-Rules-FINAL.pdf"
+      },
+      "verify": true
+    },
+    {
+      "id": "aid-ccs-cca-3",
+      "workId": "ccs-cca",
+      "unitId": "ccs-cca-3",
+      "explanation": {
+        "en": "These rules apply to every Government servant including a civilian in the Defence Services, but not to a railway servant, a member of an All India Service, a person in casual employment, a person liable to discharge on less than one month’s notice, or a person for whom special provision is made by law or by an agreement approved by the President. Sub-rule (3) pulls a temporarily transferred officer back in, and sub-rule (4) sends any doubt about application to the President, whose decision settles it.",
+        "hi": "ये नियम प्रत्येक सरकारी कर्मचारी पर लागू होते हैं, जिसमें रक्षा सेवाओं का असैनिक कर्मचारी भी है, किंतु रेलवे कर्मचारी, अखिल भारतीय सेवा के सदस्य, आकस्मिक नियोजन वाले व्यक्ति, एक मास से कम सूचना पर सेवा-मुक्ति के भागी व्यक्ति, अथवा ऐसे व्यक्ति पर नहीं जिसके लिए विधि द्वारा या राष्ट्रपति द्वारा अनुमोदित करार द्वारा विशेष उपबंध किया गया हो। उप-नियम (3) अस्थायी रूप से स्थानांतरित कर्मचारी को वापस भीतर लाता है, और उप-नियम (4) लागू होने संबंधी किसी भी संदेह को राष्ट्रपति के पास भेजता है, जिसका निर्णय उसे तय करता है।"
+      },
+      "example": {
+        "en": "A Central Secretariat officer temporarily transferred to a railway post remains under these rules by sub-rule (3), even though a railway servant is excluded by sub-rule (1)(a). The exclusion follows the post; the sub-rule follows the person.",
+        "hi": "रेलवे के पद पर अस्थायी रूप से स्थानांतरित केंद्रीय सचिवालय का अधिकारी उप-नियम (3) से इन नियमों के अधीन बना रहता है, यद्यपि रेलवे कर्मचारी उप-नियम (1)(क) से अपवर्जित है। अपवर्जन पद का अनुसरण करता है; उप-नियम व्यक्ति का।"
+      },
+      "connects": [
+        "ccs-cca-1",
+        "ccs-cca-2"
+      ],
+      "misconception": {
+        "en": "\"A person on probation is casually employed.\" Casual employment in clause (c) means work with no continuity of appointment. A probationer holds a post and is fully inside these rules.",
+        "hi": "\"परिवीक्षा पर व्यक्ति आकस्मिक नियोजन में है।\" खंड (ग) का आकस्मिक नियोजन वह कार्य है जिसमें नियुक्ति की निरंतरता नहीं। परिवीक्षाधीन व्यक्ति पद धारण करता है और पूर्णतः इन नियमों के भीतर है।"
+      },
+      "reviewed": true,
+      "reviewState": "approved",
+      "generationMeta": {
+        "promptVersion": "study-aid-v1",
+        "batchId": "library-aids-2026-09-03-ccs-cca",
+        "stageA": {
+          "index": 3,
+          "angle": "five exclusions, and the doubt that goes to the President"
+        },
+        "critic": {
+          "verdict": "approve",
+          "reason": "Five exclusions and the transfer save-back; the misconception separates two categories that are genuinely confused in office notes."
+        },
+        "verify": {
+          "grounded": true,
+          "note": "Clauses (a)-(e) of sub-rule (1), sub-rules (2), (3) and (4) are verbatim in substance. The probation point is a reading of clause (c), not a claim about any other rule."
+        },
+        "dedup": {
+          "maxScore": 0,
+          "against": null,
+          "verdict": "keep"
+        },
+        "groundingUnitIds": [
+          "ccs-cca-3"
+        ]
+      },
+      "source": {
+        "name": "Department of Personnel and Training — CCS (CCA) Rules, 1965 — consolidated",
+        "url": "https://dopt.gov.in/sites/default/files/CCS-CCA-Rules-FINAL.pdf"
+      },
+      "verify": true
+    },
+    {
+      "id": "aid-ccs-cca-4",
+      "workId": "ccs-cca",
+      "unitId": "ccs-cca-4",
+      "explanation": {
+        "en": "Rule 4 classifies the Civil Services of the Union into Groups ‘A’, ‘B’, ‘C’ and ‘D’, and adds that where a Service has more than one grade, different grades may fall in different Groups. Classification is not decoration: the Group decides who may impose which penalty under Rule 12 and to whom an appeal lies under Rule 24.",
+        "hi": "नियम 4 संघ की सिविल सेवाओं को समूह ‘क’, ‘ख’, ‘ग’ और ‘घ’ में वर्गीकृत करता है, और जोड़ता है कि जहाँ किसी सेवा में एक से अधिक ग्रेड हों, वहाँ भिन्न ग्रेड भिन्न समूहों में आ सकते हैं। वर्गीकरण सजावट नहीं है: समूह ही तय करता है कि नियम 12 के अधीन कौन कौन-सी शास्ति अधिरोपित कर सकता है और नियम 24 के अधीन अपील किसके पास जाएगी।"
+      },
+      "example": {
+        "en": "A Service whose entry grade is Group ‘B’ and whose senior grade is Group ‘A’ is a single Service with two Groups under sub-rule (2). The officer’s disciplinary authority changes as he moves between them.",
+        "hi": "जिस सेवा का प्रवेश ग्रेड समूह ‘ख’ और वरिष्ठ ग्रेड समूह ‘क’ है, वह उप-नियम (2) के अधीन दो समूहों वाली एक ही सेवा है। दोनों के बीच जाने पर कर्मचारी का अनुशासनिक प्राधिकारी बदल जाता है।"
+      },
+      "connects": [
+        "ccs-cca-6",
+        "ccs-cca-12"
+      ],
+      "reviewed": true,
+      "reviewState": "approved",
+      "generationMeta": {
+        "promptVersion": "study-aid-v1",
+        "batchId": "library-aids-2026-09-03-ccs-cca",
+        "stageA": {
+          "index": 4,
+          "angle": "why Services and posts are classified separately"
+        },
+        "critic": {
+          "verdict": "approve",
+          "reason": "Two sub-rules, plus the consequence that makes classification worth reading at all."
+        },
+        "verify": {
+          "grounded": true,
+          "note": "Both sub-rules are verbatim; the Rule 12 and Rule 24 consequences are cross-references to rules in this same book."
+        },
+        "dedup": {
+          "maxScore": 0,
+          "against": null,
+          "verdict": "keep"
+        },
+        "groundingUnitIds": [
+          "ccs-cca-4",
+          "ccs-cca-12",
+          "ccs-cca-24"
+        ]
+      },
+      "source": {
+        "name": "Department of Personnel and Training — CCS (CCA) Rules, 1965 — consolidated",
+        "url": "https://dopt.gov.in/sites/default/files/CCS-CCA-Rules-FINAL.pdf"
+      },
+      "verify": true
+    },
+    {
+      "id": "aid-ccs-cca-5",
+      "workId": "ccs-cca",
+      "unitId": "ccs-cca-5",
+      "explanation": {
+        "en": "Rule 5 says only that the four Groups consist of the Services and grades specified in the Schedule. The list itself is deliberately outside the rule so that it can be amended without amending the rule — which is why a question about whether a particular Service is Group ‘B’ is answered from the Schedule and never from Rule 5.",
+        "hi": "नियम 5 केवल इतना कहता है कि चारों समूह उन सेवाओं और ग्रेडों से बनते हैं जो अनुसूची में विनिर्दिष्ट हैं। सूची जानबूझकर नियम से बाहर रखी गई है ताकि नियम में संशोधन किए बिना उसे संशोधित किया जा सके — यही कारण है कि कोई विशेष सेवा समूह ‘ख’ है या नहीं, यह प्रश्न अनुसूची से उत्तरित होता है, नियम 5 से कभी नहीं।"
+      },
+      "example": {
+        "en": "An officer looking up whether his Service is Group ‘B’ for the purposes of Rule 12(3) goes to the Schedule; Rule 5 only tells him that the Schedule is where to look.",
+        "hi": "नियम 12(3) के प्रयोजनार्थ अपनी सेवा समूह ‘ख’ है या नहीं, यह देखने वाला अधिकारी अनुसूची के पास जाएगा; नियम 5 केवल इतना बताता है कि देखना कहाँ है।"
+      },
+      "connects": [
+        "ccs-cca-4",
+        "ccs-cca-33"
+      ],
+      "misconception": {
+        "en": "\"The Schedule is an annexure to be skipped.\" Rule 5, Rule 9, Rule 12 and Rule 24 all get their operative content from it. This app does not carry the Schedule.",
+        "hi": "\"अनुसूची छोड़ देने योग्य परिशिष्ट है।\" नियम 5, नियम 9, नियम 12 और नियम 24 सभी अपनी प्रवर्तनीय अंतर्वस्तु उसी से लेते हैं। यह ऐप अनुसूची नहीं रखता।"
+      },
+      "reviewed": true,
+      "reviewState": "approved",
+      "generationMeta": {
+        "promptVersion": "study-aid-v1",
+        "batchId": "library-aids-2026-09-03-ccs-cca",
+        "stageA": {
+          "index": 5,
+          "angle": "why the Schedule, not the rule, holds the list"
+        },
+        "critic": {
+          "verdict": "approve",
+          "reason": "One sentence; the aid’s real work is telling the reader that this app’s corpus does not include the Schedule, which is a limit they should know before relying on it."
+        },
+        "verify": {
+          "grounded": true,
+          "note": "The rule is one sentence and the aid quotes its substance. The statement that the Schedule is not in this dataset is a fact about `data/rules/text/ccs-cca.json`, checked against the file."
+        },
+        "dedup": {
+          "maxScore": 0,
+          "against": null,
+          "verdict": "keep"
+        },
+        "groundingUnitIds": [
+          "ccs-cca-5"
+        ]
+      },
+      "source": {
+        "name": "Department of Personnel and Training — CCS (CCA) Rules, 1965 — consolidated",
+        "url": "https://dopt.gov.in/sites/default/files/CCS-CCA-Rules-FINAL.pdf"
+      },
+      "verify": true
+    },
+    {
+      "id": "aid-ccs-cca-6",
+      "workId": "ccs-cca",
+      "unitId": "ccs-cca-6",
+      "explanation": {
+        "en": "Rule 6 classifies civil POSTS into the same four Groups by a general or special order of the President. Rule 6-A is the piece that still matters daily: every reference to Class I, II, III and IV in any earlier rule, order, schedule, notification or instruction is to be read as Group ‘A’, ‘B’, ‘C’ and ‘D’ respectively, and \"Class\" is to be read as \"Group\".",
+        "hi": "नियम 6 सिविल पदों को राष्ट्रपति के सामान्य या विशेष आदेश द्वारा उन्हीं चार समूहों में वर्गीकृत करता है। नियम 6-क वह अंश है जो आज भी प्रतिदिन प्रासंगिक है: किसी भी पूर्ववर्ती नियम, आदेश, अनुसूची, अधिसूचना या अनुदेश में श्रेणी I, II, III और IV का प्रत्येक निर्देश क्रमशः समूह ‘क’, ‘ख’, ‘ग’ और ‘घ’ पढ़ा जाएगा, और \"श्रेणी\" को \"समूह\" पढ़ा जाएगा।"
+      },
+      "example": {
+        "en": "The CCS (Conduct) Rules still say \"Class I Officer\" in Rule 4(2)(i) and \"Class III or Class IV employees\" in the Note to Rule 14. Rule 6-A is what tells an officer to read those as Group ‘A’ and Groups ‘C’ or ‘D’.",
+        "hi": "सीसीएस (आचरण) नियम आज भी नियम 4(2)(i) में \"श्रेणी I अधिकारी\" और नियम 14 के टिप्पण में \"श्रेणी III या श्रेणी IV कर्मचारी\" कहते हैं। नियम 6-क ही अधिकारी को बताता है कि उन्हें समूह ‘क’ तथा समूह ‘ग’ या ‘घ’ पढ़ा जाए।"
+      },
+      "connects": [
+        "ccs-cca-4",
+        "ccs-cca-7"
+      ],
+      "examRelevance": {
+        "en": "The Class-to-Group mapping is asked directly, and the order of the four is the whole answer.",
+        "hi": "श्रेणी-से-समूह का मिलान सीधे पूछा जाता है, और चारों का क्रम ही पूरा उत्तर है।"
+      },
+      "mnemonic": {
+        "en": "I→A, II→B, III→C, IV→D. Roman to letter, in order.",
+        "hi": "I→क, II→ख, III→ग, IV→घ। रोमन से अक्षर, क्रम में।"
+      },
+      "reviewed": true,
+      "reviewState": "approved",
+      "generationMeta": {
+        "promptVersion": "study-aid-v1",
+        "batchId": "library-aids-2026-09-03-ccs-cca",
+        "stageA": {
+          "index": 6,
+          "angle": "the Class-to-Group conversion that is still cited"
+        },
+        "critic": {
+          "verdict": "approve",
+          "reason": "Rule 6-A is the operative half and the example uses two live citations from the Conduct Rules this app also ships, which is what makes the mapping concrete."
+        },
+        "verify": {
+          "grounded": true,
+          "note": "Rule 6’s four Groups and Rule 6-A’s construction clause are verbatim. The two Conduct Rules citations were checked against `data/rules/text/ccs-conduct.json`."
+        },
+        "dedup": {
+          "maxScore": 0,
+          "against": null,
+          "verdict": "keep"
+        },
+        "groundingUnitIds": [
+          "ccs-cca-6"
+        ]
+      },
+      "source": {
+        "name": "Department of Personnel and Training — CCS (CCA) Rules, 1965 — consolidated",
+        "url": "https://dopt.gov.in/sites/default/files/CCS-CCA-Rules-FINAL.pdf"
+      },
+      "verify": true
+    },
+    {
+      "id": "aid-ccs-cca-7",
+      "workId": "ccs-cca",
+      "unitId": "ccs-cca-7",
+      "explanation": {
+        "en": "Rule 7 is a residual clause: a Central Civil post of any Group that is not included in any other Central Civil Service is deemed to be in the General Central Service of that Group, and the officer appointed to it is deemed a member of that Service — UNLESS he is already a member of another Central Civil Service of the same Group.",
+        "hi": "नियम 7 अवशिष्ट उपबंध है: किसी भी समूह का ऐसा केंद्रीय सिविल पद जो किसी अन्य केंद्रीय सिविल सेवा में सम्मिलित नहीं है, उसी समूह की सामान्य केंद्रीय सेवा में समझा जाएगा, और उस पर नियुक्त कर्मचारी उस सेवा का सदस्य समझा जाएगा — जब तक कि वह उसी समूह की किसी अन्य केंद्रीय सिविल सेवा का सदस्य पहले से न हो।"
+      },
+      "example": {
+        "en": "An officer of a constituted Service appointed to an isolated post in the same Group does not become a member of the General Central Service: the closing \"unless\" keeps him in his own Service, which is what decides his appointing and disciplinary authority.",
+        "hi": "गठित सेवा का अधिकारी जो उसी समूह के किसी एकाकी पद पर नियुक्त होता है, सामान्य केंद्रीय सेवा का सदस्य नहीं बनता: अंतिम \"जब तक कि\" उसे उसकी अपनी सेवा में बनाए रखता है, और यही उसका नियुक्ति तथा अनुशासनिक प्राधिकारी तय करता है।"
+      },
+      "connects": [
+        "ccs-cca-6",
+        "ccs-cca-9"
+      ],
+      "misconception": {
+        "en": "\"An isolated post always means General Central Service.\" The deeming is displaced whenever the holder is already in another Central Civil Service of the same Group.",
+        "hi": "\"एकाकी पद का अर्थ सदा सामान्य केंद्रीय सेवा है।\" जब धारक उसी समूह की किसी अन्य केंद्रीय सिविल सेवा में पहले से हो, तो यह उपधारणा हट जाती है।"
+      },
+      "reviewed": true,
+      "reviewState": "approved",
+      "generationMeta": {
+        "promptVersion": "study-aid-v1",
+        "batchId": "library-aids-2026-09-03-ccs-cca",
+        "stageA": {
+          "index": 7,
+          "angle": "the residual Service, and the \"unless\" that limits it"
+        },
+        "critic": {
+          "verdict": "approve",
+          "reason": "The closing \"unless\" is the only thing in this rule that can be got wrong, and the aid is built around it."
+        },
+        "verify": {
+          "grounded": true,
+          "note": "The deeming clause and the concluding \"unless he is already a member of any other Central Civil Service of the same group\" are verbatim."
+        },
+        "dedup": {
+          "maxScore": 0,
+          "against": null,
+          "verdict": "keep"
+        },
+        "groundingUnitIds": [
+          "ccs-cca-7"
+        ]
+      },
+      "source": {
+        "name": "Department of Personnel and Training — CCS (CCA) Rules, 1965 — consolidated",
+        "url": "https://dopt.gov.in/sites/default/files/CCS-CCA-Rules-FINAL.pdf"
+      },
+      "verify": true
+    },
+    {
+      "id": "aid-ccs-cca-8",
+      "workId": "ccs-cca",
+      "unitId": "ccs-cca-8",
+      "explanation": {
+        "en": "All appointments to Group ‘A’ Services and posts are made by the President. The proviso lets the President delegate that power to any other authority by general or special order, subject to conditions specified in the order — which is how, in practice, most Group ‘A’ appointments are made by a Ministry rather than by the President personally.",
+        "hi": "समूह ‘क’ की सेवाओं और पदों पर सभी नियुक्तियाँ राष्ट्रपति द्वारा की जाती हैं। परंतुक राष्ट्रपति को सामान्य या विशेष आदेश द्वारा वह शक्ति किसी अन्य प्राधिकारी को प्रत्यायोजित करने देता है, आदेश में विनिर्दिष्ट शर्तों के अधीन — व्यवहार में इसी से अधिकांश समूह ‘क’ नियुक्तियाँ राष्ट्रपति द्वारा स्वयं नहीं, मंत्रालय द्वारा की जाती हैं।"
+      },
+      "example": {
+        "en": "A delegation order naming the Ministry as the appointing authority for a Group ‘A’ post also fixes who the disciplinary authority is, through Rule 2(a)(i) and Rule 12(4)(a) — a delegation of appointment carries disciplinary consequences.",
+        "hi": "समूह ‘क’ पद हेतु मंत्रालय को नियुक्ति प्राधिकारी नामित करने वाला प्रत्यायोजन आदेश नियम 2(क)(i) तथा नियम 12(4)(क) के माध्यम से यह भी तय कर देता है कि अनुशासनिक प्राधिकारी कौन है — नियुक्ति का प्रत्यायोजन अनुशासनिक परिणाम साथ लाता है।"
+      },
+      "connects": [
+        "ccs-cca-2",
+        "ccs-cca-9",
+        "ccs-cca-12"
+      ],
+      "reviewed": true,
+      "reviewState": "approved",
+      "generationMeta": {
+        "promptVersion": "study-aid-v1",
+        "batchId": "library-aids-2026-09-03-ccs-cca",
+        "stageA": {
+          "index": 8,
+          "angle": "appointment by the President, and the delegation proviso"
+        },
+        "critic": {
+          "verdict": "approve",
+          "reason": "The delegation proviso is what makes the rule work in practice and is the only moving part."
+        },
+        "verify": {
+          "grounded": true,
+          "note": "The main clause and the proviso are verbatim. The Rule 2 and Rule 12 consequences are cross-references within this book."
+        },
+        "dedup": {
+          "maxScore": 0,
+          "against": null,
+          "verdict": "keep"
+        },
+        "groundingUnitIds": [
+          "ccs-cca-8",
+          "ccs-cca-2",
+          "ccs-cca-12"
+        ]
+      },
+      "source": {
+        "name": "Department of Personnel and Training — CCS (CCA) Rules, 1965 — consolidated",
+        "url": "https://dopt.gov.in/sites/default/files/CCS-CCA-Rules-FINAL.pdf"
+      },
+      "verify": true
+    },
+    {
+      "id": "aid-ccs-cca-9",
+      "workId": "ccs-cca",
+      "unitId": "ccs-cca-9",
+      "explanation": {
+        "en": "For Central Civil Services other than the General Central Service in Groups ‘B’, ‘C’ and ‘D’, appointments are made by the authorities specified in the Schedule, with a proviso allowing officers empowered by those authorities to make Group ‘C’ and ‘D’ appointments. For posts INCLUDED in the General Central Service, the appointing authority is whoever a general or special order of the President names — and only where no such order exists does the Schedule apply.",
+        "hi": "सामान्य केंद्रीय सेवा से भिन्न समूह ‘ख’, ‘ग’ और ‘घ’ की केंद्रीय सिविल सेवाओं में नियुक्तियाँ अनुसूची में विनिर्दिष्ट प्राधिकारियों द्वारा की जाती हैं, और परंतुक उन प्राधिकारियों द्वारा सशक्त अधिकारियों को समूह ‘ग’ और ‘घ’ की नियुक्तियाँ करने देता है। सामान्य केंद्रीय सेवा में सम्मिलित पदों के लिए नियुक्ति प्राधिकारी वही है जिसे राष्ट्रपति का सामान्य या विशेष आदेश नामित करे — और केवल ऐसे आदेश के अभाव में अनुसूची लागू होती है।"
+      },
+      "example": {
+        "en": "For a General Central Service Group ‘C’ post, an officer must look for a Presidential order FIRST and fall back on the Schedule only if there is none. Reading the Schedule first is how a suspension order comes to be made by an authority that was not competent.",
+        "hi": "सामान्य केंद्रीय सेवा के समूह ‘ग’ पद के लिए अधिकारी को पहले राष्ट्रपति का आदेश देखना चाहिए और उसके अभाव में ही अनुसूची पर लौटना चाहिए। पहले अनुसूची पढ़ने से ही निलंबन आदेश ऐसे प्राधिकारी द्वारा हो जाता है जो सक्षम नहीं था।"
+      },
+      "connects": [
+        "ccs-cca-7",
+        "ccs-cca-8",
+        "ccs-cca-10"
+      ],
+      "misconception": {
+        "en": "\"The Schedule always says who appoints.\" For General Central Service posts the Schedule is the FALLBACK; a Presidential order displaces it.",
+        "hi": "\"नियुक्ति कौन करता है, यह सदा अनुसूची बताती है।\" सामान्य केंद्रीय सेवा के पदों के लिए अनुसूची विकल्प है; राष्ट्रपति का आदेश उसे विस्थापित कर देता है।"
+      },
+      "reviewed": true,
+      "reviewState": "approved",
+      "generationMeta": {
+        "promptVersion": "study-aid-v1",
+        "batchId": "library-aids-2026-09-03-ccs-cca",
+        "stageA": {
+          "index": 9,
+          "angle": "where the appointing authority for Groups B, C and D is actually written"
+        },
+        "critic": {
+          "verdict": "approve",
+          "reason": "The order-then-Schedule sequence in sub-rule (2) is the substance and is stated in the rule’s own priority."
+        },
+        "verify": {
+          "grounded": true,
+          "note": "Sub-rule (1) with its proviso and sub-rule (2)’s \"or where no such order has been made, by the authorities, specified in this behalf in the Schedule\" are verbatim."
+        },
+        "dedup": {
+          "maxScore": 0,
+          "against": null,
+          "verdict": "keep"
+        },
+        "groundingUnitIds": [
+          "ccs-cca-9"
+        ]
+      },
+      "source": {
+        "name": "Department of Personnel and Training — CCS (CCA) Rules, 1965 — consolidated",
+        "url": "https://dopt.gov.in/sites/default/files/CCS-CCA-Rules-FINAL.pdf"
+      },
+      "verify": true
+    },
+    {
+      "id": "aid-ccs-cca-10",
+      "workId": "ccs-cca",
+      "unitId": "ccs-cca-10",
+      "explanation": {
+        "en": "Rule 10 has three distinct mechanisms. Sub-rule (1) is an ORDER of suspension, available where a disciplinary proceeding is contemplated or pending, where the officer has engaged in activities prejudicial to the security of the State, or where a criminal case against him is under investigation, inquiry or trial. Sub-rule (2) is DEEMED suspension, which happens by operation of law on detention in custody beyond forty-eight hours or on conviction with a sentence of imprisonment beyond forty-eight hours. Sub-rules (6) and (7) are the time limit: a suspension must be reviewed before ninety days on the recommendation of a Review Committee, is not valid beyond ninety days without such a review, and any extension is for no more than one hundred and eighty days at a time.",
+        "hi": "नियम 10 में तीन पृथक् तंत्र हैं। उप-नियम (1) निलंबन का आदेश है, जो तब उपलब्ध है जब अनुशासनिक कार्यवाही विचाराधीन या लंबित हो, जब कर्मचारी राज्य की सुरक्षा के प्रतिकूल क्रियाकलापों में लिप्त रहा हो, अथवा जब उसके विरुद्ध आपराधिक मामला अनुसंधान, जाँच या विचारण में हो। उप-नियम (2) मानी गई निलंबन है, जो अड़तालीस घंटे से अधिक अभिरक्षा में निरोध पर, अथवा अड़तालीस घंटे से अधिक कारावास की सजा सहित दोषसिद्धि पर, विधि के प्रवर्तन से स्वतः हो जाता है। उप-नियम (6) और (7) समय-सीमा हैं: निलंबन की समीक्षा समीक्षा समिति की सिफारिश पर नब्बे दिन से पूर्व होनी चाहिए, ऐसी समीक्षा के बिना वह नब्बे दिन के बाद विधिमान्य नहीं रहता, और कोई भी विस्तार एक बार में एक सौ अस्सी दिन से अधिक का नहीं होगा।"
+      },
+      "example": {
+        "en": "An officer detained on Friday and released on Monday has been in custody more than forty-eight hours and is DEEMED suspended from the date of detention — no order is needed, and an order made later does not change the start date.",
+        "hi": "शुक्रवार को निरुद्ध और सोमवार को छोड़ा गया अधिकारी अड़तालीस घंटे से अधिक अभिरक्षा में रहा है और निरोध की तिथि से निलंबित समझा जाएगा — कोई आदेश अपेक्षित नहीं, और बाद में किया गया आदेश प्रारंभ तिथि नहीं बदलता।"
+      },
+      "connects": [
+        "ccs-cca-2",
+        "ccs-cca-22",
+        "ccs-cca-27"
+      ],
+      "misconception": {
+        "en": "\"Suspension can run indefinitely until the inquiry ends.\" Sub-rule (7) says an order of suspension is NOT VALID after ninety days unless extended after review before that expiry.",
+        "hi": "\"जाँच समाप्त होने तक निलंबन अनिश्चित काल चल सकता है।\" उप-नियम (7) कहता है कि समाप्ति से पूर्व समीक्षा के बाद विस्तार न हो तो निलंबन आदेश नब्बे दिन के बाद विधिमान्य नहीं रहता।"
+      },
+      "examRelevance": {
+        "en": "Forty-eight hours, ninety days and one hundred and eighty days are the three numbers in this rule, and they attach to three different things.",
+        "hi": "अड़तालीस घंटे, नब्बे दिन और एक सौ अस्सी दिन — इस नियम की तीन संख्याएँ हैं, और तीनों तीन भिन्न बातों से जुड़ी हैं।"
+      },
+      "mnemonic": {
+        "en": "48 hours makes it deemed; 90 days makes it lapse; 180 days is the longest single extension.",
+        "hi": "48 घंटे से मानी गई; 90 दिन पर व्यपगत; 180 दिन एक बार का अधिकतम विस्तार।"
+      },
+      "reviewed": true,
+      "reviewState": "approved",
+      "generationMeta": {
+        "promptVersion": "study-aid-v1",
+        "batchId": "library-aids-2026-09-03-ccs-cca",
+        "stageA": {
+          "index": 10,
+          "angle": "ordered suspension, deemed suspension, and the ninety-day rule"
+        },
+        "critic": {
+          "verdict": "approve",
+          "reason": "The three mechanisms and the three numbers are the whole of what an officer needs, and the deemed-suspension example is the case most often mishandled in a file."
+        },
+        "verify": {
+          "grounded": true,
+          "note": "Sub-rules (1)(a),(aa),(b); (2)(a),(b) with the forty-eight hour Explanation; (6)’s Review Committee and one-hundred-and-eighty-day cap; and (7)’s validity limit are all verbatim."
+        },
+        "dedup": {
+          "maxScore": 0,
+          "against": null,
+          "verdict": "keep"
+        },
+        "groundingUnitIds": [
+          "ccs-cca-10"
+        ]
+      },
+      "source": {
+        "name": "Department of Personnel and Training — CCS (CCA) Rules, 1965 — consolidated",
+        "url": "https://dopt.gov.in/sites/default/files/CCS-CCA-Rules-FINAL.pdf"
+      },
+      "verify": true
+    },
+    {
+      "id": "aid-ccs-cca-11",
+      "workId": "ccs-cca",
+      "unitId": "ccs-cca-11",
+      "explanation": {
+        "en": "Rule 11 lists nine penalties. Minor: censure; withholding of promotion; recovery of pecuniary loss caused by negligence or breach of orders; reduction by one stage for not more than three years without cumulative effect and not affecting pension; and withholding of increments. Major: reduction to a lower stage for a specified period; reduction to a lower time-scale, grade, post or Service; compulsory retirement; removal, which is not a disqualification for future employment; and dismissal, which ordinarily is. The first proviso makes removal or dismissal mandatory where a charge of disproportionate assets or of accepting illegal gratification is established.",
+        "hi": "नियम 11 नौ शास्तियाँ सूचीबद्ध करता है। लघु: निंदा; पदोन्नति रोकना; उपेक्षा या आदेश-भंग से सरकार को हुई धनीय हानि की वसूली; तीन वर्ष से अनधिक अवधि के लिए एक स्तर की कमी, संचयी प्रभाव रहित और पेंशन पर प्रतिकूल प्रभाव रहित; तथा वेतनवृद्धि रोकना। गुरु: विनिर्दिष्ट अवधि के लिए निम्नतर स्तर पर कमी; निम्नतर वेतनमान, ग्रेड, पद या सेवा में कमी; अनिवार्य सेवानिवृत्ति; सेवा से हटाना, जो भावी सरकारी नियोजन के लिए निरर्हता नहीं है; तथा सेवा से पदच्युति, जो सामान्यतः निरर्हता है। पहला परंतुक आय से अधिक संपत्ति अथवा अवैध परितोषण स्वीकार करने का आरोप सिद्ध होने पर हटाना या पदच्युति अनिवार्य कर देता है।"
+      },
+      "example": {
+        "en": "An officer removed from service may apply for another Government post; an officer dismissed ordinarily may not. That single difference between clauses (viii) and (ix) is the reason the choice between them is recorded with reasons.",
+        "hi": "सेवा से हटाया गया अधिकारी किसी अन्य सरकारी पद हेतु आवेदन कर सकता है; पदच्युत अधिकारी सामान्यतः नहीं। खंड (viii) और (ix) का यही एक अंतर वह कारण है जिससे दोनों में चयन कारणों सहित अभिलिखित किया जाता है।"
+      },
+      "connects": [
+        "ccs-cca-12",
+        "ccs-cca-14",
+        "ccs-cca-16"
+      ],
+      "misconception": {
+        "en": "\"Non-promotion and stopping at the efficiency bar are penalties.\" The Explanation expressly says they are not — nor is withholding an increment for failing a departmental examination, nor is reversion from an officiating post on the ground of unsuitability.",
+        "hi": "\"पदोन्नति न देना और दक्षता रोक पर रोकना शास्तियाँ हैं।\" स्पष्टीकरण स्पष्टतः कहता है कि वे नहीं हैं — न विभागीय परीक्षा में असफल होने पर वेतनवृद्धि रोकना, न अनुपयुक्तता के आधार पर स्थानापन्न पद से प्रत्यावर्तन।"
+      },
+      "examRelevance": {
+        "en": "Clauses (i) to (iv) are minor and (v) to (ix) major — that split is what Rules 12, 13, 14, 15 and 16 all refer back to by clause number.",
+        "hi": "खंड (i) से (iv) लघु और (v) से (ix) गुरु — यही विभाजन है जिसका निर्देश नियम 12, 13, 14, 15 और 16 सभी खंड-संख्या से करते हैं।"
+      },
+      "mnemonic": {
+        "en": "Minor i–iv, Major v–ix. Removal reappoints, dismissal does not.",
+        "hi": "लघु i–iv, गुरु v–ix। हटाना पुनर्नियुक्ति की गुंजाइश छोड़ता है, पदच्युति नहीं।"
+      },
+      "reviewed": true,
+      "reviewState": "approved",
+      "generationMeta": {
+        "promptVersion": "study-aid-v1",
+        "batchId": "library-aids-2026-09-03-ccs-cca",
+        "stageA": {
+          "index": 11,
+          "angle": "nine penalties, the minor/major line, and what is not a penalty at all"
+        },
+        "critic": {
+          "verdict": "approve",
+          "reason": "Nine penalties in the rule’s own order, the minor/major boundary by clause number, and the Explanation’s four non-penalties, which is the part most often got wrong."
+        },
+        "verify": {
+          "grounded": true,
+          "note": "Every clause (i)-(ix), the mandatory-penalty proviso, the exceptional-case proviso and the Explanation’s items (i)-(iv) are in the text."
+        },
+        "dedup": {
+          "maxScore": 0,
+          "against": null,
+          "verdict": "keep"
+        },
+        "groundingUnitIds": [
+          "ccs-cca-11"
+        ]
+      },
+      "source": {
+        "name": "Department of Personnel and Training — CCS (CCA) Rules, 1965 — consolidated",
+        "url": "https://dopt.gov.in/sites/default/files/CCS-CCA-Rules-FINAL.pdf"
+      },
+      "verify": true
+    },
+    {
+      "id": "aid-ccs-cca-12",
+      "workId": "ccs-cca",
+      "unitId": "ccs-cca-12",
+      "explanation": {
+        "en": "Rule 12 says who may impose which penalty. The President may impose any of them. Otherwise the appointing authority, or an authority named in the Schedule or by a Presidential order, may. Sub-rule (4)(a) is the ceiling that matters: no penalty in clauses (v) to (ix) of Rule 11 — the major penalties — may be imposed by any authority SUBORDINATE to the appointing authority.",
+        "hi": "नियम 12 बताता है कि कौन-सी शास्ति कौन अधिरोपित कर सकता है। राष्ट्रपति कोई भी अधिरोपित कर सकते हैं। अन्यथा नियुक्ति प्राधिकारी, अथवा अनुसूची में या राष्ट्रपति के आदेश से नामित प्राधिकारी। उप-नियम (4)(क) वह सीमा है जो महत्वपूर्ण है: नियम 11 के खंड (v) से (ix) की कोई भी शास्ति — गुरु शास्तियाँ — नियुक्ति प्राधिकारी के अधीनस्थ किसी भी प्राधिकारी द्वारा अधिरोपित नहीं की जा सकती।"
+      },
+      "example": {
+        "en": "A Head of Office may censure a Group ‘C’ officer under sub-rule (3)(b) but may not dismiss him if the appointing authority is higher. An order of dismissal by a subordinate authority is not merely irregular; it is outside sub-rule (4)(a).",
+        "hi": "कार्यालय-प्रमुख उप-नियम (3)(ख) के अधीन समूह ‘ग’ के कर्मचारी की निंदा कर सकता है किंतु यदि नियुक्ति प्राधिकारी उच्चतर है तो उसे पदच्युत नहीं कर सकता। अधीनस्थ प्राधिकारी द्वारा पदच्युति का आदेश केवल अनियमित नहीं है; वह उप-नियम (4)(क) से बाहर है।"
+      },
+      "connects": [
+        "ccs-cca-2",
+        "ccs-cca-11",
+        "ccs-cca-13"
+      ],
+      "misconception": {
+        "en": "\"The disciplinary authority can impose any penalty it likes.\" Sub-rule (4)(a) caps a subordinate authority at the minor penalties, and Rule 13(2) separately lets an authority competent only for minor penalties INSTITUTE proceedings for major ones.",
+        "hi": "\"अनुशासनिक प्राधिकारी कोई भी शास्ति अधिरोपित कर सकता है।\" उप-नियम (4)(क) अधीनस्थ प्राधिकारी को लघु शास्तियों तक सीमित करता है, और नियम 13(2) पृथक् रूप से केवल लघु शास्तियों हेतु सक्षम प्राधिकारी को गुरु शास्तियों की कार्यवाही संस्थित करने देता है।"
+      },
+      "reviewed": true,
+      "reviewState": "approved",
+      "generationMeta": {
+        "promptVersion": "study-aid-v1",
+        "batchId": "library-aids-2026-09-03-ccs-cca",
+        "stageA": {
+          "index": 12,
+          "angle": "the ceiling on a subordinate authority"
+        },
+        "critic": {
+          "verdict": "approve",
+          "reason": "The subordination ceiling is the rule’s operative core and the Rule 13(2) contrast is exactly the distinction officers collapse."
+        },
+        "verify": {
+          "grounded": true,
+          "note": "Sub-rules (1), (2), (3)(a)-(b) and (4)(a) are verbatim. The Rule 13(2) point is attributed to Rule 13."
+        },
+        "dedup": {
+          "maxScore": 0,
+          "against": null,
+          "verdict": "keep"
+        },
+        "groundingUnitIds": [
+          "ccs-cca-12",
+          "ccs-cca-13"
+        ]
+      },
+      "source": {
+        "name": "Department of Personnel and Training — CCS (CCA) Rules, 1965 — consolidated",
+        "url": "https://dopt.gov.in/sites/default/files/CCS-CCA-Rules-FINAL.pdf"
+      },
+      "verify": true
+    },
+    {
+      "id": "aid-ccs-cca-13",
+      "workId": "ccs-cca",
+      "unitId": "ccs-cca-13",
+      "explanation": {
+        "en": "Rule 13 separates two powers that are easily merged. Sub-rule (1) lets the President, or an authority he empowers, institute disciplinary proceedings, or direct a disciplinary authority to do so. Sub-rule (2) is the important one: an authority competent only for the MINOR penalties in clauses (i) to (iv) may nevertheless institute proceedings for the MAJOR penalties in clauses (v) to (ix), even though it cannot impose them.",
+        "hi": "नियम 13 दो शक्तियों को अलग करता है जिन्हें मिला देना आसान है। उप-नियम (1) राष्ट्रपति को, अथवा उनके द्वारा सशक्त प्राधिकारी को, अनुशासनिक कार्यवाही संस्थित करने या किसी अनुशासनिक प्राधिकारी को ऐसा करने का निदेश देने देता है। उप-नियम (2) महत्वपूर्ण है: जो प्राधिकारी केवल खंड (i) से (iv) की लघु शास्तियों हेतु सक्षम है, वह भी खंड (v) से (ix) की गुरु शास्तियों हेतु कार्यवाही संस्थित कर सकता है, यद्यपि वह उन्हें अधिरोपित नहीं कर सकता।"
+      },
+      "example": {
+        "en": "A Head of Office competent only to censure may draw up articles of charge under Rule 14 aiming at removal, hold the inquiry, and then send the case to the authority that CAN impose it. The proceeding is validly instituted; only the final order needs a higher authority.",
+        "hi": "केवल निंदा हेतु सक्षम कार्यालय-प्रमुख नियम 14 के अधीन हटाने के लक्ष्य से आरोप-अनुच्छेद तैयार कर सकता है, जाँच करा सकता है, और फिर मामला उस प्राधिकारी को भेज सकता है जो उसे अधिरोपित कर सके। कार्यवाही विधिमान्य रूप से संस्थित है; केवल अंतिम आदेश हेतु उच्चतर प्राधिकारी चाहिए।"
+      },
+      "connects": [
+        "ccs-cca-12",
+        "ccs-cca-14"
+      ],
+      "misconception": {
+        "en": "\"Only the authority that can impose the penalty can start the case.\" Sub-rule (2) says the opposite, expressly and with a \"notwithstanding\".",
+        "hi": "\"मामला केवल वही प्राधिकारी आरंभ कर सकता है जो शास्ति अधिरोपित कर सके।\" उप-नियम (2) इसके विपरीत, स्पष्टतः और \"के होते हुए भी\" सहित कहता है।"
+      },
+      "reviewed": true,
+      "reviewState": "approved",
+      "generationMeta": {
+        "promptVersion": "study-aid-v1",
+        "batchId": "library-aids-2026-09-03-ccs-cca",
+        "stageA": {
+          "index": 13,
+          "angle": "instituting proceedings is not the same as imposing a penalty"
+        },
+        "critic": {
+          "verdict": "approve",
+          "reason": "One sub-rule with a non obstante clause that reverses the natural assumption; that is the whole aid."
+        },
+        "verify": {
+          "grounded": true,
+          "note": "Sub-rule (2)’s \"notwithstanding that such disciplinary authority is not competent under these rules to impose any of the latter penalties\" is verbatim."
+        },
+        "dedup": {
+          "maxScore": 0,
+          "against": null,
+          "verdict": "keep"
+        },
+        "groundingUnitIds": [
+          "ccs-cca-13"
+        ]
+      },
+      "source": {
+        "name": "Department of Personnel and Training — CCS (CCA) Rules, 1965 — consolidated",
+        "url": "https://dopt.gov.in/sites/default/files/CCS-CCA-Rules-FINAL.pdf"
+      },
+      "verify": true
+    },
+    {
+      "id": "aid-ccs-cca-14",
+      "workId": "ccs-cca",
+      "unitId": "ccs-cca-14",
+      "explanation": {
+        "en": "No major penalty may be imposed except after an inquiry under this rule and Rule 15. The sequence is: the disciplinary authority frames definite and distinct articles of charge with a statement of imputations and lists of documents and witnesses; delivers them to the officer; the officer files a written statement of defence within fifteen days, extendable in blocks of fifteen but never beyond forty-five days from receipt of the charges; an inquiring authority and a Presenting Officer are appointed; the officer appears within ten working days; he may take the assistance of another serving or retired Government servant but a legal practitioner only if the Presenting Officer is one or the disciplinary authority permits.",
+        "hi": "इस नियम तथा नियम 15 के अधीन जाँच के बिना कोई गुरु शास्ति अधिरोपित नहीं की जा सकती। क्रम यह है: अनुशासनिक प्राधिकारी निश्चित और सुभिन्न आरोप-अनुच्छेद बनाता है, साथ में आक्षेपों का विवरण तथा दस्तावेज़ों और साक्षियों की सूचियाँ; उन्हें कर्मचारी को देता है; कर्मचारी पंद्रह दिन में लिखित प्रतिरक्षा-कथन देता है, जो पंद्रह-पंद्रह दिन बढ़ सकता है किंतु आरोप प्राप्ति से पैंतालीस दिन से आगे कभी नहीं; जाँच प्राधिकारी तथा प्रस्तुतकर्ता अधिकारी नियुक्त होते हैं; कर्मचारी दस कार्य-दिवस के भीतर उपस्थित होता है; वह किसी अन्य सेवारत या सेवानिवृत्त सरकारी कर्मचारी की सहायता ले सकता है, किंतु विधि-व्यवसायी की केवल तब जब प्रस्तुतकर्ता अधिकारी विधि-व्यवसायी हो अथवा अनुशासनिक प्राधिकारी अनुज्ञा दे।"
+      },
+      "example": {
+        "en": "An officer asks a colleague to be his Defence Assistant. The Note bars a Government servant who already has three pending disciplinary cases in hand from assisting; the officer must choose someone else, and a retired officer is expressly permitted by sub-rule (8)(b).",
+        "hi": "कोई अधिकारी अपने सहकर्मी से प्रतिरक्षा सहायक बनने को कहता है। टिप्पण ऐसे सरकारी कर्मचारी को सहायता से वर्जित करता है जिसके पास पहले से तीन लंबित अनुशासनिक मामले हैं; अधिकारी को किसी और को चुनना होगा, और सेवानिवृत्त अधिकारी उप-नियम (8)(ख) से स्पष्टतः अनुज्ञेय है।"
+      },
+      "connects": [
+        "ccs-cca-11",
+        "ccs-cca-15",
+        "ccs-cca-16"
+      ],
+      "misconception": {
+        "en": "\"An officer may engage a lawyer in a departmental inquiry.\" Only if the Presenting Officer is a legal practitioner, or the disciplinary authority permits it having regard to the circumstances. Otherwise the assistance is from a Government servant, serving or retired.",
+        "hi": "\"विभागीय जाँच में कर्मचारी वकील रख सकता है।\" केवल तब जब प्रस्तुतकर्ता अधिकारी विधि-व्यवसायी हो, अथवा अनुशासनिक प्राधिकारी परिस्थितियों को देखते हुए अनुज्ञा दे। अन्यथा सहायता सेवारत या सेवानिवृत्त सरकारी कर्मचारी से ही।"
+      },
+      "examRelevance": {
+        "en": "Fifteen days for the defence statement, forty-five days as the absolute outer limit, and ten working days to appear are the three time limits asked about.",
+        "hi": "प्रतिरक्षा-कथन हेतु पंद्रह दिन, परम बाह्य सीमा पैंतालीस दिन, तथा उपस्थित होने हेतु दस कार्य-दिवस — यही तीन समय-सीमाएँ पूछी जाती हैं।"
+      },
+      "reviewed": true,
+      "reviewState": "approved",
+      "generationMeta": {
+        "promptVersion": "study-aid-v1",
+        "batchId": "library-aids-2026-09-03-ccs-cca",
+        "stageA": {
+          "index": 14,
+          "angle": "the major-penalty inquiry, in the order it actually happens"
+        },
+        "critic": {
+          "verdict": "approve",
+          "reason": "Long rule; the aid follows the rule’s own order and stops at the point where Rule 15 takes over, so the two aids do not overlap."
+        },
+        "verify": {
+          "grounded": true,
+          "note": "Sub-rules (1), (3)(i)-(ii), (4)(a)-(b) with the forty-five-day proviso, (5)(c), (7)’s ten working days and (8)(a)-(b) with the Note are all in the text. The sexual-harassment proviso to sub-rule (2) is noted in the Rule 3C aid rather than repeated here."
+        },
+        "dedup": {
+          "maxScore": 0,
+          "against": null,
+          "verdict": "keep"
+        },
+        "groundingUnitIds": [
+          "ccs-cca-14"
+        ]
+      },
+      "source": {
+        "name": "Department of Personnel and Training — CCS (CCA) Rules, 1965 — consolidated",
+        "url": "https://dopt.gov.in/sites/default/files/CCS-CCA-Rules-FINAL.pdf"
+      },
+      "verify": true
+    },
+    {
+      "id": "aid-ccs-cca-15",
+      "workId": "ccs-cca",
+      "unitId": "ccs-cca-15",
+      "explanation": {
+        "en": "On receiving the inquiry report the disciplinary authority must forward a copy to the officer — together with its own tentative reasons for any disagreement with the inquiring authority’s findings — and give him fifteen days to represent, WHETHER OR NOT the report is favourable to him. Where the Commission must be consulted, its advice is also sent to the officer for a further fifteen-day representation. Sub-rule (6) then says that once a major penalty is decided on, no further opportunity on the QUANTUM of penalty is required.",
+        "hi": "जाँच रिपोर्ट प्राप्त होने पर अनुशासनिक प्राधिकारी उसकी प्रति कर्मचारी को भेजेगा — साथ में जाँच प्राधिकारी के निष्कर्षों से असहमति के अपने अनंतिम कारण भी — और अभ्यावेदन हेतु पंद्रह दिन देगा, चाहे रिपोर्ट उसके पक्ष में हो या न हो। जहाँ आयोग से परामर्श आवश्यक है, वहाँ उसकी सलाह भी कर्मचारी को और पंद्रह दिन के अभ्यावेदन हेतु भेजी जाती है। उप-नियम (6) फिर कहता है कि गुरु शास्ति तय हो जाने पर शास्ति की मात्रा पर आगे कोई अवसर अपेक्षित नहीं।"
+      },
+      "example": {
+        "en": "An inquiry report exonerating the officer must still be sent to him: sub-rule (2)’s \"irrespective of whether the report is favourable or not\" exists because a disciplinary authority disagreeing with an exoneration is precisely the case where the officer needs to be heard.",
+        "hi": "कर्मचारी को दोषमुक्त करने वाली जाँच रिपोर्ट भी उसे भेजनी होगी: उप-नियम (2) का \"चाहे रिपोर्ट उसके पक्ष में हो या न हो\" इसीलिए है कि दोषमुक्ति से असहमत अनुशासनिक प्राधिकारी वही स्थिति है जहाँ कर्मचारी को सुना जाना आवश्यक है।"
+      },
+      "connects": [
+        "ccs-cca-14",
+        "ccs-cca-17",
+        "ccs-cca-11"
+      ],
+      "misconception": {
+        "en": "\"I get a chance to argue about the punishment before it is imposed.\" Sub-rule (6) says the opposite for major penalties: no opportunity of representation on the proposed penalty is necessary. The representation is on the FINDINGS, at the report stage.",
+        "hi": "\"शास्ति अधिरोपित होने से पहले उस पर तर्क का अवसर मिलेगा।\" उप-नियम (6) गुरु शास्तियों के लिए इसके विपरीत कहता है: प्रस्तावित शास्ति पर अभ्यावेदन का अवसर आवश्यक नहीं। अभ्यावेदन निष्कर्षों पर होता है, रिपोर्ट के चरण पर।"
+      },
+      "examRelevance": {
+        "en": "The tentative-disagreement note and the fifteen-day representation are the two things a valid order under this rule must show.",
+        "hi": "अनंतिम असहमति टिप्पण तथा पंद्रह दिन का अभ्यावेदन — इस नियम के अधीन विधिमान्य आदेश में यही दो बातें दिखनी चाहिए।"
+      },
+      "reviewed": true,
+      "reviewState": "approved",
+      "generationMeta": {
+        "promptVersion": "study-aid-v1",
+        "batchId": "library-aids-2026-09-03-ccs-cca",
+        "stageA": {
+          "index": 15,
+          "angle": "why the inquiry report is sent to the officer before the penalty"
+        },
+        "critic": {
+          "verdict": "approve",
+          "reason": "The disagreement note and sub-rule (6) are the two things that decide whether an order survives challenge, and both are stated with the rule’s own qualifications."
+        },
+        "verify": {
+          "grounded": true,
+          "note": "Sub-rules (1)-(6) are in the text; \"irrespective of whether the report is favourable or not to the Government servant\" and sub-rule (6)’s closing words are verbatim."
+        },
+        "dedup": {
+          "maxScore": 0,
+          "against": null,
+          "verdict": "keep"
+        },
+        "groundingUnitIds": [
+          "ccs-cca-15"
+        ]
+      },
+      "source": {
+        "name": "Department of Personnel and Training — CCS (CCA) Rules, 1965 — consolidated",
+        "url": "https://dopt.gov.in/sites/default/files/CCS-CCA-Rules-FINAL.pdf"
+      },
+      "verify": true
+    },
+    {
+      "id": "aid-ccs-cca-16",
+      "workId": "ccs-cca",
+      "unitId": "ccs-cca-16",
+      "explanation": {
+        "en": "A minor penalty needs written intimation of the proposal and the imputations, a reasonable opportunity to represent, consideration of that representation, consultation with the Commission where necessary, and a recorded finding on each imputation. A full Rule 14 inquiry is needed only where the disciplinary authority thinks it necessary — EXCEPT under sub-rule (1-A), where it is compulsory: withholding increments in a way that adversely affects pension, or for more than three years, or with cumulative effect.",
+        "hi": "लघु शास्ति हेतु प्रस्ताव तथा आक्षेपों की लिखित सूचना, अभ्यावेदन का युक्तियुक्त अवसर, उस अभ्यावेदन पर विचार, आवश्यक होने पर आयोग से परामर्श, तथा प्रत्येक आक्षेप पर अभिलिखित निष्कर्ष अपेक्षित है। नियम 14 की पूर्ण जाँच केवल तब अपेक्षित है जब अनुशासनिक प्राधिकारी उसे आवश्यक समझे — उप-नियम (1-क) के सिवाय, जहाँ वह अनिवार्य है: वेतनवृद्धि इस प्रकार रोकना कि पेंशन पर प्रतिकूल प्रभाव पड़े, अथवा तीन वर्ष से अधिक के लिए, अथवा संचयी प्रभाव सहित।"
+      },
+      "example": {
+        "en": "Withholding one increment for one year without cumulative effect is a minor penalty on the ordinary procedure. Withholding increments for four years, or with cumulative effect, triggers sub-rule (1-A) and requires the full Rule 14 inquiry even though the penalty is still a minor one.",
+        "hi": "एक वर्ष के लिए एक वेतनवृद्धि, संचयी प्रभाव रहित, रोकना सामान्य प्रक्रिया पर लघु शास्ति है। चार वर्ष के लिए, अथवा संचयी प्रभाव सहित, वेतनवृद्धि रोकना उप-नियम (1-क) को सक्रिय करता है और शास्ति के लघु रहते हुए भी नियम 14 की पूर्ण जाँच अपेक्षित करता है।"
+      },
+      "connects": [
+        "ccs-cca-11",
+        "ccs-cca-14",
+        "ccs-cca-15"
+      ],
+      "misconception": {
+        "en": "\"Minor penalty means no inquiry.\" Sub-rule (1-A) makes an inquiry compulsory in three situations, and sub-rule (1)(b) leaves it open in every other.",
+        "hi": "\"लघु शास्ति का अर्थ जाँच नहीं।\" उप-नियम (1-क) तीन स्थितियों में जाँच अनिवार्य करता है, और उप-नियम (1)(ख) शेष हर स्थिति में उसे खुला छोड़ता है।"
+      },
+      "examRelevance": {
+        "en": "The three triggers in sub-rule (1-A) — pension effect, more than three years, cumulative effect — are the answer to \"when is an inquiry compulsory for a minor penalty\".",
+        "hi": "उप-नियम (1-क) के तीन प्रवर्तक — पेंशन पर प्रभाव, तीन वर्ष से अधिक, संचयी प्रभाव — \"लघु शास्ति हेतु जाँच कब अनिवार्य है\" का उत्तर हैं।"
+      },
+      "reviewed": true,
+      "reviewState": "approved",
+      "generationMeta": {
+        "promptVersion": "study-aid-v1",
+        "batchId": "library-aids-2026-09-03-ccs-cca",
+        "stageA": {
+          "index": 16,
+          "angle": "when a minor penalty still needs a full inquiry"
+        },
+        "critic": {
+          "verdict": "approve",
+          "reason": "Sub-rule (1-A) is the rule’s real content and is stated with all three triggers, in the rule’s own order."
+        },
+        "verify": {
+          "grounded": true,
+          "note": "Clauses (a)-(e) of sub-rule (1) and the three triggers of sub-rule (1-A) are verbatim."
+        },
+        "dedup": {
+          "maxScore": 0,
+          "against": null,
+          "verdict": "keep"
+        },
+        "groundingUnitIds": [
+          "ccs-cca-16"
+        ]
+      },
+      "source": {
+        "name": "Department of Personnel and Training — CCS (CCA) Rules, 1965 — consolidated",
+        "url": "https://dopt.gov.in/sites/default/files/CCS-CCA-Rules-FINAL.pdf"
+      },
+      "verify": true
+    },
+    {
+      "id": "aid-ccs-cca-17",
+      "workId": "ccs-cca",
+      "unitId": "ccs-cca-17",
+      "explanation": {
+        "en": "An order made by the disciplinary authority is communicated to the officer along with: a copy of its finding on each article of charge, or — where it was not the inquiring authority — a statement of its own findings with brief reasons for any disagreement; a copy of the Commission’s advice, if any; and where the advice was not accepted, a brief statement of the reasons for not accepting it.",
+        "hi": "अनुशासनिक प्राधिकारी द्वारा किया गया आदेश कर्मचारी को इनके साथ संसूचित किया जाता है: प्रत्येक आरोप-अनुच्छेद पर उसके निष्कर्ष की प्रति, अथवा — जहाँ वह जाँच प्राधिकारी नहीं था — असहमति के संक्षिप्त कारणों सहित अपने निष्कर्षों का कथन; आयोग की सलाह की प्रति, यदि कोई हो; तथा जहाँ सलाह स्वीकार न की गई हो, उसे स्वीकार न करने के कारणों का संक्षिप्त कथन।"
+      },
+      "example": {
+        "en": "An order that simply says \"the penalty of censure is imposed\" and encloses nothing does not comply: the findings on each article are part of what has to be supplied.",
+        "hi": "ऐसा आदेश जो केवल कहे \"निंदा की शास्ति अधिरोपित की जाती है\" और कुछ संलग्न न करे, अनुपालन नहीं करता: प्रत्येक अनुच्छेद पर निष्कर्ष भी दिए जाने वाली सामग्री का भाग हैं।"
+      },
+      "connects": [
+        "ccs-cca-15",
+        "ccs-cca-25"
+      ],
+      "misconception": {
+        "en": "\"Reasons for not accepting the Commission’s advice are internal.\" The rule requires a brief statement of them to go to the officer with the order.",
+        "hi": "\"आयोग की सलाह न मानने के कारण आंतरिक हैं।\" नियम अपेक्षा करता है कि उनका संक्षिप्त कथन आदेश के साथ कर्मचारी तक जाए।"
+      },
+      "examRelevance": {
+        "en": "This rule also starts the Rule 25 clock: the forty-five days for an appeal run from delivery of a copy of the order.",
+        "hi": "यह नियम नियम 25 की गणना भी आरंभ करता है: अपील के पैंतालीस दिन आदेश की प्रति परिदत्त होने से चलते हैं।"
+      },
+      "reviewed": true,
+      "reviewState": "approved",
+      "generationMeta": {
+        "promptVersion": "study-aid-v1",
+        "batchId": "library-aids-2026-09-03-ccs-cca",
+        "stageA": {
+          "index": 17,
+          "angle": "what must travel with the order"
+        },
+        "critic": {
+          "verdict": "approve",
+          "reason": "A short rule whose value is the list of enclosures; the Rule 25 link is what makes the moment of communication consequential."
+        },
+        "verify": {
+          "grounded": true,
+          "note": "The three enclosures are the whole of the rule. The Rule 25 point is attributed to Rule 25."
+        },
+        "dedup": {
+          "maxScore": 0,
+          "against": null,
+          "verdict": "keep"
+        },
+        "groundingUnitIds": [
+          "ccs-cca-17",
+          "ccs-cca-25"
+        ]
+      },
+      "source": {
+        "name": "Department of Personnel and Training — CCS (CCA) Rules, 1965 — consolidated",
+        "url": "https://dopt.gov.in/sites/default/files/CCS-CCA-Rules-FINAL.pdf"
+      },
+      "verify": true
+    },
+    {
+      "id": "aid-ccs-cca-18",
+      "workId": "ccs-cca",
+      "unitId": "ccs-cca-18",
+      "explanation": {
+        "en": "Where two or more Government servants are concerned in the same case, an order may direct a COMMON proceeding, made by the President or by an authority competent to dismiss all of them. The Note handles the usual complication: if their dismissal authorities differ, the highest of them makes the order, with the consent of the others. The order must specify which authority acts as disciplinary authority, which Rule 11 penalties it may impose, and whether Rule 14 and 15 or Rule 16 will be followed.",
+        "hi": "जहाँ दो या अधिक सरकारी कर्मचारी एक ही मामले से संबंधित हों, वहाँ आदेश द्वारा सामूहिक कार्यवाही का निदेश दिया जा सकता है, जो राष्ट्रपति द्वारा अथवा उन सबको पदच्युत करने हेतु सक्षम प्राधिकारी द्वारा किया जाए। टिप्पण सामान्य जटिलता संभालता है: यदि उनके पदच्युति प्राधिकारी भिन्न हों, तो उनमें उच्चतम, शेष की सहमति से, आदेश करेगा। आदेश में यह विनिर्दिष्ट होगा कि कौन प्राधिकारी अनुशासनिक प्राधिकारी के रूप में कार्य करेगा, वह नियम 11 की कौन-सी शास्तियाँ अधिरोपित कर सकेगा, तथा नियम 14 और 15 का अनुसरण होगा या नियम 16 का।"
+      },
+      "example": {
+        "en": "A Section Officer and an Assistant, both said to have passed the same irregular file, can be inquired into together — but the order has to name the disciplinary authority and the procedure, because the appeal under Rule 24(2)(i) then lies to whoever that authority is immediately subordinate to.",
+        "hi": "एक अनुभाग अधिकारी और एक सहायक, जिन दोनों पर एक ही अनियमित फ़ाइल पारित करने का आरोप है, एक साथ जाँचे जा सकते हैं — किंतु आदेश में अनुशासनिक प्राधिकारी और प्रक्रिया नामित होनी चाहिए, क्योंकि तब नियम 24(2)(i) के अधीन अपील उसी के पास जाएगी जिसका वह प्राधिकारी तत्काल अधीनस्थ है।"
+      },
+      "connects": [
+        "ccs-cca-12",
+        "ccs-cca-24"
+      ],
+      "misconception": {
+        "en": "\"A common proceeding is just convenience.\" It changes who the disciplinary authority is and, through Rule 24(2)(i), who hears the appeal.",
+        "hi": "\"सामूहिक कार्यवाही केवल सुविधा है।\" यह बदल देती है कि अनुशासनिक प्राधिकारी कौन है और नियम 24(2)(i) के माध्यम से अपील कौन सुनेगा।"
+      },
+      "reviewed": true,
+      "reviewState": "approved",
+      "generationMeta": {
+        "promptVersion": "study-aid-v1",
+        "batchId": "library-aids-2026-09-03-ccs-cca",
+        "stageA": {
+          "index": 18,
+          "angle": "one proceeding for two or more officers"
+        },
+        "critic": {
+          "verdict": "approve",
+          "reason": "The Note and the three specifications are the operative content; the appellate consequence is what makes the rule matter."
+        },
+        "verify": {
+          "grounded": true,
+          "note": "Sub-rule (1) with the Note and sub-rule (2)(i)-(iii) are verbatim. The Rule 24(2)(i) consequence is attributed to Rule 24."
+        },
+        "dedup": {
+          "maxScore": 0,
+          "against": null,
+          "verdict": "keep"
+        },
+        "groundingUnitIds": [
+          "ccs-cca-18",
+          "ccs-cca-24"
+        ]
+      },
+      "source": {
+        "name": "Department of Personnel and Training — CCS (CCA) Rules, 1965 — consolidated",
+        "url": "https://dopt.gov.in/sites/default/files/CCS-CCA-Rules-FINAL.pdf"
+      },
+      "verify": true
+    },
+    {
+      "id": "aid-ccs-cca-19",
+      "workId": "ccs-cca",
+      "unitId": "ccs-cca-19",
+      "explanation": {
+        "en": "Rule 19 dispenses with the Rule 14 inquiry in exactly three situations: where the penalty is imposed on the ground of conduct that led to a CONVICTION on a criminal charge; where the disciplinary authority records in writing that it is not reasonably practicable to hold an inquiry; and where the President is satisfied that an inquiry is not expedient in the interest of the security of the State. In the conviction case the officer may still be given an opportunity to represent on the penalty proposed.",
+        "hi": "नियम 19 ठीक तीन स्थितियों में नियम 14 की जाँच से छूट देता है: जहाँ शास्ति उस आचरण के आधार पर अधिरोपित हो जो आपराधिक आरोप में दोषसिद्धि तक ले गया; जहाँ अनुशासनिक प्राधिकारी लिखित में अभिलिखित करे कि जाँच करना युक्तियुक्त रूप से व्यवहार्य नहीं; तथा जहाँ राष्ट्रपति संतुष्ट हों कि राज्य की सुरक्षा के हित में जाँच करना समीचीन नहीं। दोषसिद्धि वाली स्थिति में कर्मचारी को प्रस्तावित शास्ति पर अभ्यावेदन का अवसर फिर भी दिया जा सकता है।"
+      },
+      "example": {
+        "en": "An officer convicted of an offence may be dismissed on the ground of that conduct without a departmental inquiry — but clause (ii), \"not reasonably practicable\", is not available merely because an inquiry would be inconvenient: the reasons have to be recorded in writing.",
+        "hi": "किसी अपराध में दोषसिद्ध अधिकारी उस आचरण के आधार पर बिना विभागीय जाँच के पदच्युत किया जा सकता है — किंतु खंड (ii), \"युक्तियुक्त रूप से व्यवहार्य नहीं\", केवल इसलिए उपलब्ध नहीं है कि जाँच असुविधाजनक होगी: कारण लिखित में अभिलिखित करने होंगे।"
+      },
+      "connects": [
+        "ccs-cca-14",
+        "ccs-cca-11"
+      ],
+      "misconception": {
+        "en": "\"Acquittal in the criminal case ends the departmental case.\" Clause (i) is about conduct that led to a CONVICTION; a departmental proceeding on the same facts after an acquittal is a different question this rule does not answer.",
+        "hi": "\"आपराधिक मामले में दोषमुक्ति विभागीय मामला समाप्त कर देती है।\" खंड (i) उस आचरण के बारे में है जो दोषसिद्धि तक ले गया; दोषमुक्ति के बाद उन्हीं तथ्यों पर विभागीय कार्यवाही भिन्न प्रश्न है जिसका उत्तर यह नियम नहीं देता।"
+      },
+      "examRelevance": {
+        "en": "The three clauses, and the requirement of recorded written reasons in clause (ii), are the whole answer.",
+        "hi": "तीनों खंड, तथा खंड (ii) में लिखित अभिलिखित कारणों की अपेक्षा — यही पूरा उत्तर है।"
+      },
+      "reviewed": true,
+      "reviewState": "approved",
+      "generationMeta": {
+        "promptVersion": "study-aid-v1",
+        "batchId": "library-aids-2026-09-03-ccs-cca",
+        "stageA": {
+          "index": 19,
+          "angle": "the three cases where no inquiry is held"
+        },
+        "critic": {
+          "verdict": "approve",
+          "reason": "Three clauses and the recorded-reasons requirement. The misconception is honest about what this rule does NOT decide rather than inventing an answer."
+        },
+        "verify": {
+          "grounded": true,
+          "note": "The non obstante opening, clauses (i)-(iii) and both provisos are verbatim."
+        },
+        "dedup": {
+          "maxScore": 0,
+          "against": null,
+          "verdict": "keep"
+        },
+        "groundingUnitIds": [
+          "ccs-cca-19"
+        ]
+      },
+      "source": {
+        "name": "Department of Personnel and Training — CCS (CCA) Rules, 1965 — consolidated",
+        "url": "https://dopt.gov.in/sites/default/files/CCS-CCA-Rules-FINAL.pdf"
+      },
+      "verify": true
+    },
+    {
+      "id": "aid-ccs-cca-20",
+      "workId": "ccs-cca",
+      "unitId": "ccs-cca-20",
+      "explanation": {
+        "en": "Where an officer’s services are lent to another department, a State Government or a local authority, the BORROWING authority has the powers of the appointing authority for suspension and of the disciplinary authority for conducting the proceeding — and must inform the lending authority forthwith. But it may impose only the minor penalties, after consulting the lending authority; for a major penalty it must return the officer’s services to the lending authority and transmit the inquiry proceedings.",
+        "hi": "जहाँ किसी कर्मचारी की सेवाएँ किसी अन्य विभाग, राज्य सरकार या स्थानीय प्राधिकारी को उधार दी गई हों, वहाँ उधार लेने वाला प्राधिकारी निलंबन हेतु नियुक्ति प्राधिकारी की तथा कार्यवाही संचालित करने हेतु अनुशासनिक प्राधिकारी की शक्तियाँ रखता है — और उधार देने वाले प्राधिकारी को तत्काल सूचित करेगा। किंतु वह उधार देने वाले प्राधिकारी से परामर्श के बाद केवल लघु शास्तियाँ अधिरोपित कर सकता है; गुरु शास्ति हेतु उसे कर्मचारी की सेवाएँ उधार देने वाले प्राधिकारी को लौटानी होंगी और जाँच की कार्यवाहियाँ भेजनी होंगी।"
+      },
+      "example": {
+        "en": "An officer on deputation to a State Government can be suspended and inquired into by that State Government. If the finding calls for removal, the State cannot impose it: the services go back and the lending authority passes the order.",
+        "hi": "किसी राज्य सरकार में प्रतिनियुक्त अधिकारी को वह राज्य सरकार निलंबित कर सकती है और उसकी जाँच कर सकती है। यदि निष्कर्ष हटाने की माँग करता है, तो राज्य उसे अधिरोपित नहीं कर सकता: सेवाएँ लौटती हैं और उधार देने वाला प्राधिकारी आदेश करता है।"
+      },
+      "connects": [
+        "ccs-cca-21",
+        "ccs-cca-10",
+        "ccs-cca-11"
+      ],
+      "misconception": {
+        "en": "\"The borrowing authority has no disciplinary power.\" It has the full power to suspend and to inquire, and to impose minor penalties. The line is drawn at the major penalties.",
+        "hi": "\"उधार लेने वाले प्राधिकारी के पास अनुशासनिक शक्ति नहीं।\" उसके पास निलंबित करने, जाँच करने और लघु शास्तियाँ अधिरोपित करने की पूरी शक्ति है। रेखा गुरु शास्तियों पर खिंचती है।"
+      },
+      "examRelevance": {
+        "en": "The difference-of-opinion proviso — services go back to the lending authority — is the detail usually dropped.",
+        "hi": "मतभेद वाला परंतुक — सेवाएँ उधार देने वाले प्राधिकारी को लौटेंगी — वह ब्योरा है जो प्रायः छूट जाता है।"
+      },
+      "reviewed": true,
+      "reviewState": "approved",
+      "generationMeta": {
+        "promptVersion": "study-aid-v1",
+        "batchId": "library-aids-2026-09-03-ccs-cca",
+        "stageA": {
+          "index": 20,
+          "angle": "who disciplines an officer lent to somebody else"
+        },
+        "critic": {
+          "verdict": "approve",
+          "reason": "The minor/major line and the difference-of-opinion proviso are the operative content and both are in."
+        },
+        "verify": {
+          "grounded": true,
+          "note": "Sub-rule (1) with its proviso and sub-rule (2)(i)-(ii) with the difference-of-opinion proviso and the Explanation are all in the text."
+        },
+        "dedup": {
+          "maxScore": 0,
+          "against": null,
+          "verdict": "keep"
+        },
+        "groundingUnitIds": [
+          "ccs-cca-20"
+        ]
+      },
+      "source": {
+        "name": "Department of Personnel and Training — CCS (CCA) Rules, 1965 — consolidated",
+        "url": "https://dopt.gov.in/sites/default/files/CCS-CCA-Rules-FINAL.pdf"
+      },
+      "verify": true
+    },
+    {
+      "id": "aid-ccs-cca-21",
+      "workId": "ccs-cca",
+      "unitId": "ccs-cca-21",
+      "explanation": {
+        "en": "Rule 21 is Rule 20 seen from the other side: where the Centre has BORROWED an officer, the lending authority must be informed forthwith of a suspension or the start of a proceeding, and for a minor penalty the disciplinary authority acts after consulting the lending authority. For a major penalty the services are returned and the proceedings transmitted. One category is named out of the consultation requirement: a Government servant serving in the Intelligence Bureau up to the rank of Assistant Central Intelligence Officer.",
+        "hi": "नियम 21 वही नियम 20 दूसरी ओर से है: जहाँ केंद्र ने किसी अधिकारी को उधार लिया हो, वहाँ निलंबन अथवा कार्यवाही आरंभ होने की सूचना उधार देने वाले प्राधिकारी को तत्काल देनी होगी, और लघु शास्ति हेतु अनुशासनिक प्राधिकारी उधार देने वाले प्राधिकारी से परामर्श के बाद कार्य करेगा। गुरु शास्ति हेतु सेवाएँ लौटाई जाती हैं और कार्यवाहियाँ भेजी जाती हैं। परामर्श की अपेक्षा से एक कोटि नामित रूप से बाहर है: आसूचना ब्यूरो में सहायक केंद्रीय आसूचना अधिकारी के पद तक सेवारत सरकारी कर्मचारी।"
+      },
+      "example": {
+        "en": "A State police officer borrowed by the Centre and proceeded against for a minor penalty: the lending State must be consulted first. The same step is not required for an Intelligence Bureau officer up to ACIO rank, who is expressly excepted.",
+        "hi": "केंद्र द्वारा उधार लिए गए किसी राज्य पुलिस अधिकारी के विरुद्ध लघु शास्ति की कार्यवाही: पहले उधार देने वाले राज्य से परामर्श आवश्यक है। सहायक केंद्रीय आसूचना अधिकारी के पद तक के आसूचना ब्यूरो अधिकारी के लिए यही चरण अपेक्षित नहीं, जो स्पष्टतः अपवादित है।"
+      },
+      "connects": [
+        "ccs-cca-20",
+        "ccs-cca-10"
+      ],
+      "misconception": {
+        "en": "\"Rules 20 and 21 are the same rule stated twice.\" They differ in one substantive way — the Intelligence Bureau exception appears only in Rule 21.",
+        "hi": "\"नियम 20 और 21 एक ही नियम दो बार हैं।\" वे एक सारभूत बात में भिन्न हैं — आसूचना ब्यूरो का अपवाद केवल नियम 21 में है।"
+      },
+      "reviewed": true,
+      "reviewState": "approved",
+      "generationMeta": {
+        "promptVersion": "study-aid-v1",
+        "batchId": "library-aids-2026-09-03-ccs-cca",
+        "stageA": {
+          "index": 21,
+          "angle": "the mirror rule, and its one named exception"
+        },
+        "critic": {
+          "verdict": "approve",
+          "reason": "The named exception is what distinguishes this rule from Rule 20 and is quoted precisely, including the rank ceiling."
+        },
+        "verify": {
+          "grounded": true,
+          "note": "Sub-rule (1)’s \"forthwith be informed\" and sub-rule (2)’s \"except in regard to a Government servant serving in the Intelligence Bureau up to the rank of Assistant Central Intelligence Officer\" are verbatim."
+        },
+        "dedup": {
+          "maxScore": 0,
+          "against": null,
+          "verdict": "keep"
+        },
+        "groundingUnitIds": [
+          "ccs-cca-21"
+        ]
+      },
+      "source": {
+        "name": "Department of Personnel and Training — CCS (CCA) Rules, 1965 — consolidated",
+        "url": "https://dopt.gov.in/sites/default/files/CCS-CCA-Rules-FINAL.pdf"
+      },
+      "verify": true
+    },
+    {
+      "id": "aid-ccs-cca-22",
+      "workId": "ccs-cca",
+      "unitId": "ccs-cca-22",
+      "explanation": {
+        "en": "No appeal lies against an order made by the President, an order of an interlocutory nature or a step-in-aid of a disciplinary proceeding, or an order passed by an inquiring authority during a Rule 14 inquiry. An order of SUSPENSION is expressly carved out of the interlocutory bar and remains appealable. Rule 23, printed inside this record in the source, lists what is appealable — including a Rule 11 penalty, an enhancement, an order varying pay, allowances or pension to the officer’s disadvantage, and orders about subsistence allowance and the treatment of the suspension period.",
+        "hi": "राष्ट्रपति द्वारा किए गए आदेश, अंतर्वर्ती प्रकृति के अथवा अनुशासनिक कार्यवाही के अंतिम निपटान में सहायक चरण के आदेश, अथवा नियम 14 की जाँच के दौरान जाँच प्राधिकारी द्वारा पारित आदेश के विरुद्ध कोई अपील नहीं होगी। निलंबन का आदेश अंतर्वर्ती वर्जन से स्पष्टतः बाहर रखा गया है और अपील-योग्य बना रहता है। नियम 23, जो स्रोत में इसी अभिलेख के भीतर मुद्रित है, बताता है कि क्या अपील-योग्य है — जिसमें नियम 11 की शास्ति, शास्ति की वृद्धि, वेतन/भत्ते/पेंशन को प्रतिकूल रूप से बदलने वाला आदेश, तथा निर्वाह भत्ता और निलंबन-अवधि के उपचार संबंधी आदेश सम्मिलित हैं।"
+      },
+      "example": {
+        "en": "An officer cannot appeal the inquiring authority’s refusal to summon a witness — that is a step-in-aid under clause (iii). He CAN appeal the suspension order itself, because clause (ii) says \"other than an order of suspension\".",
+        "hi": "अधिकारी जाँच प्राधिकारी द्वारा साक्षी बुलाने से इनकार के विरुद्ध अपील नहीं कर सकता — वह खंड (iii) के अधीन सहायक चरण है। वह निलंबन आदेश के विरुद्ध अपील कर सकता है, क्योंकि खंड (ii) कहता है \"निलंबन के आदेश से भिन्न\"।"
+      },
+      "connects": [
+        "ccs-cca-24",
+        "ccs-cca-25",
+        "ccs-cca-10"
+      ],
+      "misconception": {
+        "en": "\"Suspension is interlocutory, so it cannot be appealed.\" Clause (ii) expressly excludes it from the bar, and Rule 27(1) tells the appellate authority exactly what to consider on such an appeal.",
+        "hi": "\"निलंबन अंतर्वर्ती है, अतः उस पर अपील नहीं।\" खंड (ii) उसे वर्जन से स्पष्टतः बाहर करता है, और नियम 27(1) अपील प्राधिकारी को बताता है कि ऐसी अपील में क्या देखना है।"
+      },
+      "examRelevance": {
+        "en": "Rule 23’s Explanation extends \"Government servant\" to a person who has CEASED to be in Government service, and \"pension\" to gratuity and other retirement benefits.",
+        "hi": "नियम 23 का स्पष्टीकरण \"सरकारी कर्मचारी\" को उस व्यक्ति तक बढ़ाता है जो सेवा में नहीं रहा, और \"पेंशन\" को उपदान तथा अन्य सेवानिवृत्ति लाभों तक।"
+      },
+      "reviewed": true,
+      "reviewState": "approved",
+      "generationMeta": {
+        "promptVersion": "study-aid-v1",
+        "batchId": "library-aids-2026-09-03-ccs-cca",
+        "stageA": {
+          "index": 22,
+          "angle": "the three orders that cannot be appealed, and the long list that can"
+        },
+        "critic": {
+          "verdict": "approve",
+          "reason": "The suspension carve-out is the point of the rule. The aid says openly that Rule 23’s text sits inside this record in this dataset, which is a fact about the extraction the reader can see for themselves."
+        },
+        "verify": {
+          "grounded": true,
+          "note": "Clauses (i)-(iii), the \"other than an order of suspension\" carve-out, and Rule 23’s list and Explanation are all inside the text of this record as extracted."
+        },
+        "dedup": {
+          "maxScore": 0,
+          "against": null,
+          "verdict": "keep"
+        },
+        "groundingUnitIds": [
+          "ccs-cca-22"
+        ]
+      },
+      "source": {
+        "name": "Department of Personnel and Training — CCS (CCA) Rules, 1965 — consolidated",
+        "url": "https://dopt.gov.in/sites/default/files/CCS-CCA-Rules-FINAL.pdf"
+      },
+      "verify": true
+    },
+    {
+      "id": "aid-ccs-cca-24",
+      "workId": "ccs-cca",
+      "unitId": "ccs-cca-24",
+      "explanation": {
+        "en": "An appeal goes to the authority named in the Schedule or by a Presidential order. Where none is named, the rule supplies a default that depends on the Group: for Groups ‘A’ and ‘B’, to the appointing authority if the order was made by an authority subordinate to it, and otherwise to the President; for Groups ‘C’ and ‘D’, to the authority to which the order-making authority is immediately subordinate. A person who has CEASED to be in Government service may appeal too.",
+        "hi": "अपील अनुसूची में अथवा राष्ट्रपति के आदेश से नामित प्राधिकारी के पास जाती है। जहाँ कोई नामित न हो, वहाँ नियम समूह के अनुसार व्यवस्था देता है: समूह ‘क’ और ‘ख’ के लिए, नियुक्ति प्राधिकारी के पास यदि आदेश उसके अधीनस्थ प्राधिकारी ने किया हो, अन्यथा राष्ट्रपति के पास; समूह ‘ग’ और ‘घ’ के लिए, उस प्राधिकारी के पास जिसका आदेश करने वाला प्राधिकारी तत्काल अधीनस्थ है। जो व्यक्ति सरकारी सेवा में नहीं रहा, वह भी अपील कर सकता है।"
+      },
+      "example": {
+        "en": "A Group ‘C’ official censured by his Head of Office appeals to whoever the Head of Office is immediately subordinate to — not to the appointing authority, which is the Group ‘A’/’B’ rule.",
+        "hi": "अपने कार्यालय-प्रमुख द्वारा निंदित समूह ‘ग’ का कर्मचारी उस प्राधिकारी के पास अपील करेगा जिसका कार्यालय-प्रमुख तत्काल अधीनस्थ है — नियुक्ति प्राधिकारी के पास नहीं, जो समूह ‘क’/‘ख’ का नियम है।"
+      },
+      "connects": [
+        "ccs-cca-22",
+        "ccs-cca-25",
+        "ccs-cca-18"
+      ],
+      "misconception": {
+        "en": "\"An appeal always goes to the next higher officer.\" For Groups ‘A’ and ‘B’ it goes to the APPOINTING authority, which may be several levels above the officer who made the order.",
+        "hi": "\"अपील सदा अगले उच्चतर अधिकारी के पास जाती है।\" समूह ‘क’ और ‘ख’ के लिए वह नियुक्ति प्राधिकारी के पास जाती है, जो आदेश करने वाले अधिकारी से कई स्तर ऊपर हो सकता है।"
+      },
+      "reviewed": true,
+      "reviewState": "approved",
+      "generationMeta": {
+        "promptVersion": "study-aid-v1",
+        "batchId": "library-aids-2026-09-03-ccs-cca",
+        "stageA": {
+          "index": 23,
+          "angle": "finding the right appellate authority when nothing names one"
+        },
+        "critic": {
+          "verdict": "approve",
+          "reason": "The Group-dependent default is the rule’s substance; the sub-rule (2)(ii) case where the order-maker has since become the appellate authority is left to the text because it is rare."
+        },
+        "verify": {
+          "grounded": true,
+          "note": "Sub-rule (1)(i)(a)-(b) and (1)(ii), and the opening words extending the right to a person who has ceased to be in Government service, are verbatim."
+        },
+        "dedup": {
+          "maxScore": 0,
+          "against": null,
+          "verdict": "keep"
+        },
+        "groundingUnitIds": [
+          "ccs-cca-24"
+        ]
+      },
+      "source": {
+        "name": "Department of Personnel and Training — CCS (CCA) Rules, 1965 — consolidated",
+        "url": "https://dopt.gov.in/sites/default/files/CCS-CCA-Rules-FINAL.pdf"
+      },
+      "verify": true
+    },
+    {
+      "id": "aid-ccs-cca-25",
+      "workId": "ccs-cca",
+      "unitId": "ccs-cca-25",
+      "explanation": {
+        "en": "An appeal must be preferred within forty-five days from the date a copy of the order appealed against is DELIVERED to the appellant. The proviso lets the appellate authority entertain a late appeal if satisfied that the appellant had sufficient cause for not preferring it in time — and Rule 31 gives a general power to condone delay besides.",
+        "hi": "अपील उस तिथि से पैंतालीस दिन के भीतर की जानी चाहिए जब अपील किए जाने वाले आदेश की प्रति अपीलार्थी को परिदत्त हो। परंतुक अपील प्राधिकारी को विलंबित अपील ग्रहण करने देता है यदि वह संतुष्ट हो कि अपीलार्थी के पास समय पर अपील न करने का पर्याप्त कारण था — और नियम 31 विलंब क्षमा करने की सामान्य शक्ति अलग से देता है।"
+      },
+      "example": {
+        "en": "An order signed on 1 March but delivered on 20 March starts the clock on 20 March. Rule 30 requires service in person or by registered post, which is what makes the delivery date provable.",
+        "hi": "1 मार्च को हस्ताक्षरित किंतु 20 मार्च को परिदत्त आदेश की गणना 20 मार्च से आरंभ होती है। नियम 30 व्यक्तिगत तामील अथवा रजिस्टर्ड डाक अपेक्षित करता है, और यही परिदान की तिथि को प्रमाणीय बनाता है।"
+      },
+      "connects": [
+        "ccs-cca-17",
+        "ccs-cca-30",
+        "ccs-cca-31"
+      ],
+      "misconception": {
+        "en": "\"Forty-five days from the date of the order.\" From the date the copy is DELIVERED to the appellant — which is a different date, and Rule 30 is why it is provable.",
+        "hi": "\"आदेश की तिथि से पैंतालीस दिन।\" प्रति अपीलार्थी को परिदत्त होने की तिथि से — जो भिन्न तिथि है, और नियम 30 ही उसे प्रमाणीय बनाता है।"
+      },
+      "examRelevance": {
+        "en": "Forty-five days, running from delivery, with a sufficient-cause condonation — three elements, and the second is the one that is misremembered.",
+        "hi": "पैंतालीस दिन, परिदान से गणना, पर्याप्त कारण पर क्षमा — तीन अंग, और दूसरा ही गलत याद रहता है।"
+      },
+      "reviewed": true,
+      "reviewState": "approved",
+      "generationMeta": {
+        "promptVersion": "study-aid-v1",
+        "batchId": "library-aids-2026-09-03-ccs-cca",
+        "stageA": {
+          "index": 24,
+          "angle": "forty-five days, from delivery, with a condonation power"
+        },
+        "critic": {
+          "verdict": "approve",
+          "reason": "Short rule; the \"delivered to the appellant\" trigger and the Rule 30 link are what make it usable."
+        },
+        "verify": {
+          "grounded": true,
+          "note": "\"within a period of forty-five days from the date on which a copy of the order appealed against is delivered to the appellant\" and the sufficient-cause proviso are verbatim."
+        },
+        "dedup": {
+          "maxScore": 0,
+          "against": null,
+          "verdict": "keep"
+        },
+        "groundingUnitIds": [
+          "ccs-cca-25",
+          "ccs-cca-30",
+          "ccs-cca-31"
+        ]
+      },
+      "source": {
+        "name": "Department of Personnel and Training — CCS (CCA) Rules, 1965 — consolidated",
+        "url": "https://dopt.gov.in/sites/default/files/CCS-CCA-Rules-FINAL.pdf"
+      },
+      "verify": true
+    },
+    {
+      "id": "aid-ccs-cca-26",
+      "workId": "ccs-cca",
+      "unitId": "ccs-cca-26",
+      "explanation": {
+        "en": "An appeal must be preferred separately and in the appellant’s own name; presented to the authority to whom it lies, with a copy forwarded by the appellant to the authority that made the order; contain all material statements and arguments relied on; and be complete in itself and free of disrespectful or improper language. The order-making authority must then forward the appeal with its comments and the records without waiting to be asked.",
+        "hi": "अपील पृथक् रूप से और अपीलार्थी के अपने नाम से की जानी चाहिए; उस प्राधिकारी को प्रस्तुत की जानी चाहिए जिसके पास वह जाती है, और एक प्रति अपीलार्थी द्वारा आदेश करने वाले प्राधिकारी को भेजी जानी चाहिए; उसमें वे सभी तात्त्विक कथन और तर्क हों जिन पर वह निर्भर है; और वह अपने आप में पूर्ण तथा अनादरपूर्ण या अनुचित भाषा से रहित हो। आदेश करने वाला प्राधिकारी फिर बिना कहे अपील को अपनी टिप्पणियों और अभिलेखों सहित अग्रेषित करेगा।"
+      },
+      "example": {
+        "en": "A joint appeal signed by three officials does not comply with sub-rule (1): each must appeal separately and in his own name, even on identical facts.",
+        "hi": "तीन कर्मचारियों द्वारा हस्ताक्षरित सामूहिक अपील उप-नियम (1) का अनुपालन नहीं करती: प्रत्येक को पृथक् रूप से और अपने नाम से अपील करनी होगी, समान तथ्यों पर भी।"
+      },
+      "connects": [
+        "ccs-cca-25",
+        "ccs-cca-27"
+      ],
+      "misconception": {
+        "en": "\"The appellate authority will call for the file.\" Sub-rule (3) puts that duty on the ORDER-MAKING authority, \"without any avoidable delay, and without waiting for any direction\".",
+        "hi": "\"अपील प्राधिकारी फ़ाइल मँगा लेगा।\" उप-नियम (3) यह कर्तव्य आदेश करने वाले प्राधिकारी पर डालता है, \"बिना किसी परिहार्य विलंब के, और किसी निदेश की प्रतीक्षा किए बिना\"।"
+      },
+      "reviewed": true,
+      "reviewState": "approved",
+      "generationMeta": {
+        "promptVersion": "study-aid-v1",
+        "batchId": "library-aids-2026-09-03-ccs-cca",
+        "stageA": {
+          "index": 25,
+          "angle": "four requirements a valid appeal has to meet"
+        },
+        "critic": {
+          "verdict": "approve",
+          "reason": "The separate-appeal rule and the forward-without-being-asked duty are the two things that go wrong; both are quoted."
+        },
+        "verify": {
+          "grounded": true,
+          "note": "Sub-rules (1), (2) and (3) are verbatim, including \"without any avoidable delay, and without waiting for any direction from the appellate authority\"."
+        },
+        "dedup": {
+          "maxScore": 0,
+          "against": null,
+          "verdict": "keep"
+        },
+        "groundingUnitIds": [
+          "ccs-cca-26"
+        ]
+      },
+      "source": {
+        "name": "Department of Personnel and Training — CCS (CCA) Rules, 1965 — consolidated",
+        "url": "https://dopt.gov.in/sites/default/files/CCS-CCA-Rules-FINAL.pdf"
+      },
+      "verify": true
+    },
+    {
+      "id": "aid-ccs-cca-27",
+      "workId": "ccs-cca",
+      "unitId": "ccs-cca-27",
+      "explanation": {
+        "en": "On an appeal against a penalty the appellate authority must consider three things: whether the procedure was complied with and, if not, whether the non-compliance violated the Constitution or caused a failure of justice; whether the findings are warranted by the evidence on record; and whether the penalty is adequate, inadequate or severe. It may confirm, enhance, reduce or set aside the penalty, or remit the case. On an appeal against SUSPENSION it asks a different question: whether, in the light of Rule 10, the suspension is justified.",
+        "hi": "शास्ति के विरुद्ध अपील पर अपील प्राधिकारी तीन बातें देखेगा: क्या प्रक्रिया का अनुपालन हुआ और यदि नहीं, तो क्या उस अनुपालन-हीनता से संविधान का उल्लंघन हुआ या न्याय की विफलता हुई; क्या निष्कर्ष अभिलेख पर के साक्ष्य से समर्थित हैं; और क्या शास्ति पर्याप्त, अपर्याप्त अथवा कठोर है। वह शास्ति की पुष्टि, वृद्धि, कमी अथवा उसे अपास्त कर सकता है, या मामला प्रतिप्रेषित कर सकता है। निलंबन के विरुद्ध अपील पर वह भिन्न प्रश्न पूछता है: क्या नियम 10 के आलोक में निलंबन न्यायोचित है।"
+      },
+      "example": {
+        "en": "An appellate authority minded to ENHANCE a censure into a removal cannot simply do it: proviso (ii) requires a Rule 14 inquiry first if none has been held, and proviso (iii) requires a reasonable opportunity against the proposed enhanced penalty if one has.",
+        "hi": "जो अपील प्राधिकारी निंदा को हटाने में बढ़ाना चाहता है, वह सीधे ऐसा नहीं कर सकता: परंतुक (ii) अपेक्षित करता है कि यदि नियम 14 की जाँच न हुई हो तो पहले हो, और परंतुक (iii) अपेक्षित करता है कि यदि हुई हो तो प्रस्तावित बढ़ी शास्ति के विरुद्ध युक्तियुक्त अवसर मिले।"
+      },
+      "connects": [
+        "ccs-cca-24",
+        "ccs-cca-29",
+        "ccs-cca-10"
+      ],
+      "misconception": {
+        "en": "\"An appeal can only help me.\" The appellate authority may ENHANCE the penalty — sub-rule (2)(c)(i) says \"confirming, enhancing, reducing, or setting aside\" — subject to the provisos that require an opportunity first.",
+        "hi": "\"अपील से केवल लाभ ही हो सकता है।\" अपील प्राधिकारी शास्ति बढ़ा भी सकता है — उप-नियम (2)(ग)(i) कहता है \"पुष्टि, वृद्धि, कमी अथवा अपास्त करना\" — उन परंतुकों के अधीन जो पहले अवसर अपेक्षित करते हैं।"
+      },
+      "examRelevance": {
+        "en": "The three considerations in sub-rule (2)(a)-(c) are asked as a list; \"failure of justice\" is the qualifier in (a) that is usually dropped.",
+        "hi": "उप-नियम (2)(क)-(ग) के तीन विचारणीय बिंदु सूची के रूप में पूछे जाते हैं; (क) का \"न्याय की विफलता\" वह विशेषक है जो प्रायः छूट जाता है।"
+      },
+      "reviewed": true,
+      "reviewState": "approved",
+      "generationMeta": {
+        "promptVersion": "study-aid-v1",
+        "batchId": "library-aids-2026-09-03-ccs-cca",
+        "stageA": {
+          "index": 26,
+          "angle": "the three questions an appellate authority must ask"
+        },
+        "critic": {
+          "verdict": "approve",
+          "reason": "The three considerations, the power to enhance and the two provisos that condition it are the operative content."
+        },
+        "verify": {
+          "grounded": true,
+          "note": "Sub-rules (1), (2)(a)-(c), (2)(i)-(ii) and provisos (i)-(iv), and sub-rule (3), are all in the text."
+        },
+        "dedup": {
+          "maxScore": 0,
+          "against": null,
+          "verdict": "keep"
+        },
+        "groundingUnitIds": [
+          "ccs-cca-27"
+        ]
+      },
+      "source": {
+        "name": "Department of Personnel and Training — CCS (CCA) Rules, 1965 — consolidated",
+        "url": "https://dopt.gov.in/sites/default/files/CCS-CCA-Rules-FINAL.pdf"
+      },
+      "verify": true
+    },
+    {
+      "id": "aid-ccs-cca-28",
+      "workId": "ccs-cca",
+      "unitId": "ccs-cca-28",
+      "explanation": {
+        "en": "The authority that made the order appealed against shall give effect to the orders passed by the appellate authority. It exists because the appellate authority is usually not the authority that holds the officer’s service records: the order has to be implemented downstream, and this rule is what makes that a duty rather than a courtesy.",
+        "hi": "जिस प्राधिकारी ने अपील किया गया आदेश किया था, वह अपील प्राधिकारी द्वारा पारित आदेशों को कार्यान्वित करेगा। यह इसलिए है कि अपील प्राधिकारी प्रायः वह प्राधिकारी नहीं होता जिसके पास कर्मचारी के सेवा-अभिलेख हैं: आदेश नीचे कार्यान्वित होना है, और यह नियम उसे शिष्टाचार नहीं, कर्तव्य बनाता है।"
+      },
+      "example": {
+        "en": "An appellate authority setting aside a reduction in pay does not itself restore the pay; the disciplinary authority that made the order does, under this rule.",
+        "hi": "वेतन में कमी अपास्त करने वाला अपील प्राधिकारी स्वयं वेतन बहाल नहीं करता; वह अनुशासनिक प्राधिकारी करता है जिसने आदेश किया था, इसी नियम के अधीन।"
+      },
+      "connects": [
+        "ccs-cca-27"
+      ],
+      "reviewed": true,
+      "reviewState": "approved",
+      "generationMeta": {
+        "promptVersion": "study-aid-v1",
+        "batchId": "library-aids-2026-09-03-ccs-cca",
+        "stageA": {
+          "index": 27,
+          "angle": "a one-line rule that closes the loop"
+        },
+        "critic": {
+          "verdict": "approve",
+          "reason": "One sentence, but it answers a real question — who actually gives effect — and the example is the commonest instance."
+        },
+        "verify": {
+          "grounded": true,
+          "note": "The rule is one sentence and the aid quotes its substance without extension."
+        },
+        "dedup": {
+          "maxScore": 0,
+          "against": null,
+          "verdict": "keep"
+        },
+        "groundingUnitIds": [
+          "ccs-cca-28"
+        ]
+      },
+      "source": {
+        "name": "Department of Personnel and Training — CCS (CCA) Rules, 1965 — consolidated",
+        "url": "https://dopt.gov.in/sites/default/files/CCS-CCA-Rules-FINAL.pdf"
+      },
+      "verify": true
+    },
+    {
+      "id": "aid-ccs-cca-29",
+      "workId": "ccs-cca",
+      "unitId": "ccs-cca-29",
+      "explanation": {
+        "en": "Revision is a power to reopen an order where no appeal was preferred or none lies. It may be exercised by the President; the Comptroller and Auditor-General for the Indian Audit and Accounts Department; the Member (Personnel), Postal Services Board or the Adviser (HRD), Department of Telecommunications for their staff; a Head of Department directly under the Central Government; the appellate authority WITHIN SIX MONTHS of the order proposed to be revised; or any other authority the President specifies. The reviser may confirm, modify or set aside the order, or confirm, reduce, enhance or set aside the penalty, or impose one where none was imposed.",
+        "hi": "पुनरीक्षण उस आदेश को पुनः खोलने की शक्ति है जिस पर अपील न की गई हो अथवा जिस पर अपील न होती हो। यह प्रयोग कर सकते हैं: राष्ट्रपति; भारतीय लेखापरीक्षा और लेखा विभाग के लिए नियंत्रक-महालेखापरीक्षक; अपने कर्मचारियों के लिए सदस्य (कार्मिक), डाक सेवा बोर्ड अथवा सलाहकार (मानव संसाधन विकास), दूरसंचार विभाग; केंद्र सरकार के सीधे अधीन विभागाध्यक्ष; अपील प्राधिकारी, पुनरीक्षित किए जाने वाले आदेश की तिथि से छह मास के भीतर; अथवा राष्ट्रपति द्वारा विनिर्दिष्ट कोई अन्य प्राधिकारी। पुनरीक्षक आदेश की पुष्टि, उसमें उपांतरण अथवा उसे अपास्त कर सकता है, या शास्ति की पुष्टि, कमी, वृद्धि अथवा उसे अपास्त कर सकता है, या जहाँ कोई शास्ति न हो वहाँ अधिरोपित कर सकता है।"
+      },
+      "example": {
+        "en": "An appellate authority that has already decided an appeal may still revise its own order, but only within six months — clause (v) is the only entry in the list carrying its own time limit.",
+        "hi": "जिस अपील प्राधिकारी ने अपील पहले ही निर्णीत कर दी है, वह अपने आदेश का पुनरीक्षण फिर भी कर सकता है, किंतु केवल छह मास के भीतर — खंड (v) ही सूची की एकमात्र प्रविष्टि है जो अपनी समय-सीमा साथ लाती है।"
+      },
+      "connects": [
+        "ccs-cca-27",
+        "ccs-cca-29a"
+      ],
+      "misconception": {
+        "en": "\"Revision is only for the President.\" Six categories may revise, and one of them is the appellate authority itself, within six months.",
+        "hi": "\"पुनरीक्षण केवल राष्ट्रपति के लिए है।\" छह कोटियाँ पुनरीक्षण कर सकती हैं, और उनमें से एक स्वयं अपील प्राधिकारी है, छह मास के भीतर।"
+      },
+      "examRelevance": {
+        "en": "The six-month limit attaching only to clause (v), and the subordination condition in the second proviso, are the two details tested.",
+        "hi": "छह मास की सीमा केवल खंड (v) से जुड़ना, तथा दूसरे परंतुक की अधीनस्थता-शर्त — यही दो ब्योरे परखे जाते हैं।"
+      },
+      "reviewed": true,
+      "reviewState": "approved",
+      "generationMeta": {
+        "promptVersion": "study-aid-v1",
+        "batchId": "library-aids-2026-09-03-ccs-cca",
+        "stageA": {
+          "index": 28,
+          "angle": "revision, and the six authorities that may exercise it"
+        },
+        "critic": {
+          "verdict": "approve",
+          "reason": "Six authorities in the rule’s own order; the six-month limit is attached to the one clause that carries it rather than to the rule as a whole, which is the error to avoid."
+        },
+        "verify": {
+          "grounded": true,
+          "note": "Clauses (i)-(vi), the powers in (a)-(d), the representation proviso and the second proviso’s subordination condition are all in the text."
+        },
+        "dedup": {
+          "maxScore": 0,
+          "against": null,
+          "verdict": "keep"
+        },
+        "groundingUnitIds": [
+          "ccs-cca-29"
+        ]
+      },
+      "source": {
+        "name": "Department of Personnel and Training — CCS (CCA) Rules, 1965 — consolidated",
+        "url": "https://dopt.gov.in/sites/default/files/CCS-CCA-Rules-FINAL.pdf"
+      },
+      "verify": true
+    },
+    {
+      "id": "aid-ccs-cca-29a",
+      "workId": "ccs-cca",
+      "unitId": "ccs-cca-29a",
+      "explanation": {
+        "en": "Review under Rule 29A belongs to the President alone, and it has exactly one ground: new material or evidence that could not be produced or was not available when the order was passed, and that has the effect of CHANGING THE NATURE of the case. There is no time limit — \"at any time\" — and the same representation and inquiry protections apply before any penalty is imposed or enhanced.",
+        "hi": "नियम 29क के अधीन पुनर्विलोकन केवल राष्ट्रपति का है, और उसका ठीक एक आधार है: ऐसी नई सामग्री या साक्ष्य जो आदेश पारित करते समय प्रस्तुत न की जा सकी हो या उपलब्ध न रही हो, और जिसका प्रभाव मामले की प्रकृति बदल देना हो। कोई समय-सीमा नहीं — \"किसी भी समय\" — और कोई शास्ति अधिरोपित या बढ़ाने से पूर्व वही अभ्यावेदन तथा जाँच संरक्षण लागू होते हैं।"
+      },
+      "example": {
+        "en": "A document that existed but was not on the record is not enough on its own: it must also change the nature of the case. A fresh argument on the same material is not a ground for review at all.",
+        "hi": "जो दस्तावेज़ विद्यमान था किंतु अभिलेख पर नहीं था, वह अकेले पर्याप्त नहीं: उसे मामले की प्रकृति भी बदलनी होगी। उसी सामग्री पर नया तर्क पुनर्विलोकन का आधार है ही नहीं।"
+      },
+      "connects": [
+        "ccs-cca-29",
+        "ccs-cca-27"
+      ],
+      "misconception": {
+        "en": "\"Review and revision are the same.\" Revision (Rule 29) is open to six authorities and needs no new evidence; review (Rule 29A) belongs to the President alone and needs new material that changes the nature of the case.",
+        "hi": "\"पुनर्विलोकन और पुनरीक्षण एक ही हैं।\" पुनरीक्षण (नियम 29) छह प्राधिकारियों के लिए खुला है और नए साक्ष्य की अपेक्षा नहीं करता; पुनर्विलोकन (नियम 29क) केवल राष्ट्रपति का है और ऐसी नई सामग्री चाहता है जो मामले की प्रकृति बदल दे।"
+      },
+      "mnemonic": {
+        "en": "Revision: six authorities, no new evidence. Review: the President, new evidence only.",
+        "hi": "पुनरीक्षण: छह प्राधिकारी, नया साक्ष्य नहीं। पुनर्विलोकन: राष्ट्रपति, केवल नया साक्ष्य।"
+      },
+      "reviewed": true,
+      "reviewState": "approved",
+      "generationMeta": {
+        "promptVersion": "study-aid-v1",
+        "batchId": "library-aids-2026-09-03-ccs-cca",
+        "stageA": {
+          "index": 29,
+          "angle": "the one ground on which the President may review"
+        },
+        "critic": {
+          "verdict": "approve",
+          "reason": "The revision/review distinction is the single most-confused pair in this book, and both halves of the mnemonic are drawn from the two rules’ own text."
+        },
+        "verify": {
+          "grounded": true,
+          "note": "\"any new material or evidence which could not be produced or was not available at the time of passing the order under review and which has the effect of changing the nature of the case\" is verbatim, as is \"at any time\"."
+        },
+        "dedup": {
+          "maxScore": 0,
+          "against": null,
+          "verdict": "keep"
+        },
+        "groundingUnitIds": [
+          "ccs-cca-29a",
+          "ccs-cca-29"
+        ]
+      },
+      "source": {
+        "name": "Department of Personnel and Training — CCS (CCA) Rules, 1965 — consolidated",
+        "url": "https://dopt.gov.in/sites/default/files/CCS-CCA-Rules-FINAL.pdf"
+      },
+      "verify": true
+    },
+    {
+      "id": "aid-ccs-cca-30",
+      "workId": "ccs-cca",
+      "unitId": "ccs-cca-30",
+      "explanation": {
+        "en": "Every order, notice and process under these rules is served in person on the Government servant, or communicated to him by registered post. Those are the only two modes the rule names — which is what makes the delivery date under Rule 25 provable, and what a challenge to an ex parte inquiry usually turns on.",
+        "hi": "इन नियमों के अधीन प्रत्येक आदेश, सूचना और आदेशिका सरकारी कर्मचारी पर व्यक्तिगत रूप से तामील की जाएगी, अथवा उसे रजिस्टर्ड डाक से संसूचित की जाएगी। नियम केवल यही दो प्रकार नामित करता है — और यही नियम 25 के अधीन परिदान की तिथि को प्रमाणीय बनाता है, तथा एकपक्षीय जाँच की चुनौती प्रायः इसी पर टिकती है।"
+      },
+      "example": {
+        "en": "A charge-sheet left on an officer’s desk, or emailed, is not served in either of the two named modes. If he never appears, the record must still show service in person or by registered post.",
+        "hi": "अधिकारी की मेज़ पर छोड़ा गया या ईमेल किया गया आरोप-पत्र दोनों नामित प्रकारों में से किसी में तामील नहीं है। यदि वह कभी उपस्थित न हो, तब भी अभिलेख में व्यक्तिगत तामील या रजिस्टर्ड डाक दिखनी चाहिए।"
+      },
+      "connects": [
+        "ccs-cca-25",
+        "ccs-cca-14"
+      ],
+      "misconception": {
+        "en": "\"Any communication that reaches the officer is service.\" The rule names two modes and no more, and the file has to show which one was used.",
+        "hi": "\"कोई भी संसूचना जो कर्मचारी तक पहुँचे, तामील है।\" नियम दो प्रकार नामित करता है, उससे अधिक नहीं, और फ़ाइल में दिखना चाहिए कि कौन-सा प्रयुक्त हुआ।"
+      },
+      "reviewed": true,
+      "reviewState": "approved",
+      "generationMeta": {
+        "promptVersion": "study-aid-v1",
+        "batchId": "library-aids-2026-09-03-ccs-cca",
+        "stageA": {
+          "index": 30,
+          "angle": "two permitted modes of service, and why it matters"
+        },
+        "critic": {
+          "verdict": "approve",
+          "reason": "A one-line rule whose consequence — the Rule 25 clock, and the ex parte challenge — is what makes it worth an aid."
+        },
+        "verify": {
+          "grounded": true,
+          "note": "\"served in person on the Government servant concerned or communicated to him by registered post\" is verbatim; the Rule 25 link is attributed."
+        },
+        "dedup": {
+          "maxScore": 0,
+          "against": null,
+          "verdict": "keep"
+        },
+        "groundingUnitIds": [
+          "ccs-cca-30",
+          "ccs-cca-25"
+        ]
+      },
+      "source": {
+        "name": "Department of Personnel and Training — CCS (CCA) Rules, 1965 — consolidated",
+        "url": "https://dopt.gov.in/sites/default/files/CCS-CCA-Rules-FINAL.pdf"
+      },
+      "verify": true
+    },
+    {
+      "id": "aid-ccs-cca-31",
+      "workId": "ccs-cca",
+      "unitId": "ccs-cca-31",
+      "explanation": {
+        "en": "Except where these rules expressly provide otherwise, the authority competent to make any order may, for good and sufficient reasons or if sufficient cause is shown, extend any time specified in the rules or condone any delay. It is a general power and it reaches every time limit in the book — the fifteen days for a written statement, the ten working days to appear, the forty-five days for an appeal.",
+        "hi": "जहाँ इन नियमों में स्पष्टतः अन्यथा उपबंधित न हो, वहाँ कोई आदेश करने हेतु सक्षम प्राधिकारी पर्याप्त और उचित कारणों से अथवा पर्याप्त कारण दिखाए जाने पर, इन नियमों में विनिर्दिष्ट कोई समय बढ़ा सकता है या कोई विलंब क्षमा कर सकता है। यह सामान्य शक्ति है और पुस्तक की प्रत्येक समय-सीमा तक पहुँचती है — लिखित कथन के पंद्रह दिन, उपस्थित होने के दस कार्य-दिवस, अपील के पैंतालीस दिन।"
+      },
+      "example": {
+        "en": "The forty-five day outer limit on extending the written statement in Rule 14(4)(b) is expressly provided (\"under no circumstances\"), so Rule 31 does not reach it. That is what \"save as otherwise expressly provided\" is doing.",
+        "hi": "नियम 14(4)(ख) में लिखित कथन बढ़ाने की पैंतालीस दिन की बाह्य सीमा स्पष्टतः उपबंधित है (\"किसी भी परिस्थिति में नहीं\"), अतः नियम 31 वहाँ नहीं पहुँचता। \"जहाँ स्पष्टतः अन्यथा उपबंधित न हो\" यही कर रहा है।"
+      },
+      "connects": [
+        "ccs-cca-25",
+        "ccs-cca-14"
+      ],
+      "misconception": {
+        "en": "\"Rule 31 can extend anything.\" The opening words carve out every limit the rules expressly fix, and Rule 14(4)(b)’s forty-five days is one of them.",
+        "hi": "\"नियम 31 कुछ भी बढ़ा सकता है।\" आरंभिक शब्द उन सभी सीमाओं को बाहर कर देते हैं जो नियम स्पष्टतः नियत करते हैं, और नियम 14(4)(ख) के पैंतालीस दिन उनमें से एक हैं।"
+      },
+      "reviewed": true,
+      "reviewState": "approved",
+      "generationMeta": {
+        "promptVersion": "study-aid-v1",
+        "batchId": "library-aids-2026-09-03-ccs-cca",
+        "stageA": {
+          "index": 31,
+          "angle": "the general power that saves a missed deadline"
+        },
+        "critic": {
+          "verdict": "approve",
+          "reason": "The \"save as otherwise expressly provided\" limit is the whole point and the example names a real express limit from Rule 14."
+        },
+        "verify": {
+          "grounded": true,
+          "note": "The rule’s opening words and its two grounds are verbatim; Rule 14(4)(b)’s \"under no circumstances … shall exceed forty-five days\" was read from Rule 14’s own text."
+        },
+        "dedup": {
+          "maxScore": 0,
+          "against": null,
+          "verdict": "keep"
+        },
+        "groundingUnitIds": [
+          "ccs-cca-31",
+          "ccs-cca-14"
+        ]
+      },
+      "source": {
+        "name": "Department of Personnel and Training — CCS (CCA) Rules, 1965 — consolidated",
+        "url": "https://dopt.gov.in/sites/default/files/CCS-CCA-Rules-FINAL.pdf"
+      },
+      "verify": true
+    },
+    {
+      "id": "aid-ccs-cca-32",
+      "workId": "ccs-cca",
+      "unitId": "ccs-cca-32",
+      "explanation": {
+        "en": "Rule 32 has been omitted and carries no text. Nothing can be explained about it, and no aid is served for it.",
+        "hi": "नियम 32 लोप कर दिया गया है और उसमें कोई पाठ नहीं है। इसके विषय में कुछ भी समझाया नहीं जा सकता, और इसके लिए कोई सहायिका प्रस्तुत नहीं की जाती।"
+      },
+      "example": {
+        "en": "Not applicable — the rule is empty.",
+        "hi": "लागू नहीं — नियम रिक्त है।"
+      },
+      "connects": [],
+      "reviewed": true,
+      "reviewState": "rejected",
+      "reviewNote": "The rule is omitted and the corpus carries no text for it. An aid over an emptied rule cannot be grounded in anything, which is the same reason make_cards.py refuses to serve a card for a deleted rule. Kept in the file as the audit trail.",
+      "generationMeta": {
+        "promptVersion": "study-aid-v1",
+        "batchId": "library-aids-2026-09-03-ccs-cca",
+        "stageA": {
+          "index": 32,
+          "angle": "an omitted rule"
+        },
+        "critic": {
+          "verdict": "reject",
+          "reason": "There is no provision to explain. Anything written here would be about the numbering, not about a rule."
+        },
+        "verify": {
+          "grounded": false,
+          "note": "The unit’s text is empty in data/rules/text/ccs-cca.json, so no claim about it can be grounded. Auto-rejected."
+        },
+        "dedup": {
+          "maxScore": 0,
+          "against": null,
+          "verdict": "keep"
+        },
+        "groundingUnitIds": [
+          "ccs-cca-32"
+        ]
+      },
+      "source": {
+        "name": "Department of Personnel and Training — CCS (CCA) Rules, 1965 — consolidated",
+        "url": "https://dopt.gov.in/sites/default/files/CCS-CCA-Rules-FINAL.pdf"
+      },
+      "verify": true
+    },
+    {
+      "id": "aid-ccs-cca-33",
+      "workId": "ccs-cca",
+      "unitId": "ccs-cca-33",
+      "explanation": {
+        "en": "Rule 33 is a bridge. From the commencement of these rules until the Schedules under them are published, the Schedules to the CCS (CCA) Rules, 1957 and to the Civilians in Defence Services (CCA) Rules, 1952 are DEEMED to be the Schedules of these rules for the categories of Government servants they applied to immediately before.",
+        "hi": "नियम 33 एक सेतु है। इन नियमों के प्रारंभ से लेकर इनके अधीन अनुसूचियाँ प्रकाशित होने तक, सीसीएस (सीसीए) नियम, 1957 तथा रक्षा सेवाओं के असैनिक कर्मचारी (सीसीए) नियम, 1952 की अनुसूचियाँ उन कोटियों के सरकारी कर्मचारियों के लिए इन नियमों की अनुसूचियाँ समझी जाएँगी जिन पर वे ठीक पूर्व लागू थीं।"
+      },
+      "example": {
+        "en": "For the interval, a question about who is the appointing authority under Rule 9 was answered from the 1957 Schedule, read as if it were the Schedule to these rules.",
+        "hi": "उस अंतराल में, नियम 9 के अधीन नियुक्ति प्राधिकारी कौन है, यह प्रश्न 1957 की अनुसूची से उत्तरित होता था, जिसे इन्हीं नियमों की अनुसूची मानकर पढ़ा जाता था।"
+      },
+      "connects": [
+        "ccs-cca-5",
+        "ccs-cca-34"
+      ],
+      "misconception": {
+        "en": "\"A transitory provision is spent and can be ignored.\" It is read with Rule 34(1), which repeals the 1957 and 1952 rules \"subject to the provisions of rule 33\" — the two have to be read together to see what survived.",
+        "hi": "\"संक्रमणकालीन उपबंध समाप्त हो चुका है, उसे छोड़ा जा सकता है।\" इसे नियम 34(1) के साथ पढ़ा जाता है, जो 1957 और 1952 के नियमों को \"नियम 33 के उपबंधों के अधीन रहते हुए\" निरसित करता है — दोनों साथ पढ़कर ही दिखता है कि क्या बचा।"
+      },
+      "reviewed": true,
+      "reviewState": "approved",
+      "generationMeta": {
+        "promptVersion": "study-aid-v1",
+        "batchId": "library-aids-2026-09-03-ccs-cca",
+        "stageA": {
+          "index": 33,
+          "angle": "which Schedule applies before the new one is published"
+        },
+        "critic": {
+          "verdict": "approve",
+          "reason": "Short and largely spent, but the Rule 34(1) linkage is real and is the reason the rule is still printed."
+        },
+        "verify": {
+          "grounded": true,
+          "note": "The deeming clause is verbatim; Rule 34(1)’s \"Subject to the provisions of rule 33\" was read from Rule 34’s own opening."
+        },
+        "dedup": {
+          "maxScore": 0,
+          "against": null,
+          "verdict": "keep"
+        },
+        "groundingUnitIds": [
+          "ccs-cca-33",
+          "ccs-cca-34"
+        ]
+      },
+      "source": {
+        "name": "Department of Personnel and Training — CCS (CCA) Rules, 1965 — consolidated",
+        "url": "https://dopt.gov.in/sites/default/files/CCS-CCA-Rules-FINAL.pdf"
+      },
+      "verify": true
+    },
+    {
+      "id": "aid-ccs-cca-34",
+      "workId": "ccs-cca",
+      "unitId": "ccs-cca-34",
+      "explanation": {
+        "en": "Rule 34(1) repeals the CCS (CCA) Rules, 1957 and the Civilians in Defence Services (CCA) Rules, 1952 so far as they are inconsistent with these rules, subject to Rule 33. Two savings follow: the repeal does not affect the previous operation of those rules or anything done under them, and a proceeding pending at commencement is continued and disposed of under THESE rules as if it had begun under them. Sub-rule (2) separately preserves any right of appeal that had already accrued.",
+        "hi": "नियम 34(1) सीसीएस (सीसीए) नियम, 1957 तथा रक्षा सेवाओं के असैनिक कर्मचारी (सीसीए) नियम, 1952 को, जहाँ तक वे इन नियमों से असंगत हैं, नियम 33 के अधीन रहते हुए निरसित करता है। दो व्यावृत्तियाँ आती हैं: निरसन उन नियमों के पूर्व प्रवर्तन को अथवा उनके अधीन की गई किसी बात को प्रभावित नहीं करता, और प्रारंभ के समय लंबित कार्यवाही इन्हीं नियमों के अधीन जारी रहकर निपटाई जाएगी, मानो वह इन्हीं के अधीन आरंभ हुई हो। उप-नियम (2) पृथक् रूप से उस अपील-अधिकार को संरक्षित रखता है जो पहले ही प्रोद्भूत हो चुका था।"
+      },
+      "example": {
+        "en": "A proceeding begun under the 1957 rules and pending on 1 December 1965 continued under these rules — but an appeal right that had already accrued under the old rules was not taken away by sub-rule (2).",
+        "hi": "1957 के नियमों के अधीन आरंभ और 1 दिसंबर 1965 को लंबित कार्यवाही इन्हीं नियमों के अधीन जारी रही — किंतु पुराने नियमों के अधीन पहले ही प्रोद्भूत अपील-अधिकार उप-नियम (2) से छीना नहीं गया।"
+      },
+      "connects": [
+        "ccs-cca-33",
+        "ccs-cca-24"
+      ],
+      "misconception": {
+        "en": "\"A pending case continues under the old procedure.\" Clause (b) says the opposite: it is disposed of under THESE rules, as if the proceedings were under them.",
+        "hi": "\"लंबित मामला पुरानी प्रक्रिया से चलेगा।\" खंड (ख) इसके विपरीत कहता है: वह इन्हीं नियमों के अधीन निपटाया जाएगा, मानो कार्यवाही इन्हीं के अधीन हो।"
+      },
+      "reviewed": true,
+      "reviewState": "approved",
+      "generationMeta": {
+        "promptVersion": "study-aid-v1",
+        "batchId": "library-aids-2026-09-03-ccs-cca",
+        "stageA": {
+          "index": 34,
+          "angle": "what a repeal saves, and the right of appeal that survives it"
+        },
+        "critic": {
+          "verdict": "approve",
+          "reason": "The operative sub-rules are the first few sentences of this record; the source PDF then prints the Schedule and appendices inside the same block, and the aid takes nothing from them."
+        },
+        "verify": {
+          "grounded": true,
+          "note": "Sub-rule (1) with provisos (a) and (b) and sub-rule (2)’s saving of an accrued right of appeal are in the opening of this record. The material that follows in the extraction is the source’s own Schedule and appendices and is not relied on."
+        },
+        "dedup": {
+          "maxScore": 0,
+          "against": null,
+          "verdict": "keep"
+        },
+        "groundingUnitIds": [
+          "ccs-cca-34"
+        ]
+      },
+      "source": {
+        "name": "Department of Personnel and Training — CCS (CCA) Rules, 1965 — consolidated",
+        "url": "https://dopt.gov.in/sites/default/files/CCS-CCA-Rules-FINAL.pdf"
+      },
+      "verify": true
+    }
+  ]
+}

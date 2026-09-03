@@ -7,7 +7,14 @@
   { "en": "Officer on Special Duty", "hi": "विशेष कर्तव्य अधिकारी" },
   { "en": "Private Secretary", "hi": "निजी सचिव" },
   { "en": "Personal Assistant", "hi": "व्यक्तिगत सहायक" },
-  { "en": "Personal Secretary", "hi": "वैयक्तिक सचिव", "note": { "en": "Distinct from Private Secretary (निजी सचिव), a separate designation in the same cadre hierarchy; the two are not interchangeable in service rules.", "hi": "निजी सचिव (Private Secretary) से भिन्न पद है; संवर्ग में दोनों अलग-अलग पद हैं और परस्पर विनिमेय नहीं हैं।" } },
+  {
+    "en": "Personal Secretary",
+    "hi": "वैयक्तिक सचिव",
+    "note": {
+      "en": "Distinct from Private Secretary (निजी सचिव), a separate designation in the same cadre hierarchy; the two are not interchangeable in service rules.",
+      "hi": "निजी सचिव (Private Secretary) से भिन्न पद है; संवर्ग में दोनों अलग-अलग पद हैं और परस्पर विनिमेय नहीं हैं।"
+    }
+  },
   { "en": "Principal Private Secretary", "hi": "प्रधान निजी सचिव" },
   { "en": "Senior Principal Private Secretary", "hi": "वरिष्ठ प्रधान निजी सचिव" },
   { "en": "Resident Commissioner", "hi": "स्थानिक आयुक्त" },
@@ -33,18 +40,48 @@
 
   { "en": "Divisional Commissioner", "hi": "संभागीय आयुक्त" },
   { "en": "District Magistrate", "hi": "जिला मजिस्ट्रेट" },
-  { "en": "Collector", "hi": "कलक्टर", "alsoHi": ["जिलाधिकारी"], "note": { "en": "The same post is called जिलाधिकारी in some states (e.g. UP, Bihar) and कलक्टर in others; both forms appear in official correspondence.", "hi": "यह पद कुछ राज्यों (यथा उ.प्र., बिहार) में जिलाधिकारी और अन्य में कलक्टर कहलाता है; दोनों रूप शासकीय पत्राचार में प्रयुक्त होते हैं।" } },
+  {
+    "en": "Collector",
+    "hi": "कलक्टर",
+    "alsoHi": ["जिलाधिकारी"],
+    "note": {
+      "en": "The same post is called जिलाधिकारी in some states (e.g. UP, Bihar) and कलक्टर in others; both forms appear in official correspondence.",
+      "hi": "यह पद कुछ राज्यों (यथा उ.प्र., बिहार) में जिलाधिकारी और अन्य में कलक्टर कहलाता है; दोनों रूप शासकीय पत्राचार में प्रयुक्त होते हैं।"
+    }
+  },
   { "en": "Deputy Commissioner", "hi": "उप आयुक्त" },
   { "en": "Additional District Magistrate", "hi": "अपर जिला मजिस्ट्रेट" },
   { "en": "Sub-Divisional Magistrate", "hi": "उपखंड मजिस्ट्रेट" },
-  { "en": "Sub-Divisional Officer", "hi": "उपखंड अधिकारी", "note": { "en": "Distinct from Sub-Divisional Magistrate: the SDO title is used for the revenue/executive charge, the SDM for the office holding magisterial powers — often the same officer, but the two titles are not synonyms in service rules.", "hi": "उपखंड मजिस्ट्रेट से भिन्न: उपखंड अधिकारी राजस्व/कार्यपालक प्रभार के लिए और उपखंड मजिस्ट्रेट दंडाधिकार रखने वाले पद के लिए प्रयुक्त होता है; प्रायः एक ही अधिकारी दोनों धारण करता है, किंतु सेवा नियमों में दोनों उपाधियाँ पर्यायवाची नहीं हैं।" } },
+  {
+    "en": "Sub-Divisional Officer",
+    "hi": "उपखंड अधिकारी",
+    "note": {
+      "en": "Distinct from Sub-Divisional Magistrate: the SDO title is used for the revenue/executive charge, the SDM for the office holding magisterial powers — often the same officer, but the two titles are not synonyms in service rules.",
+      "hi": "उपखंड मजिस्ट्रेट से भिन्न: उपखंड अधिकारी राजस्व/कार्यपालक प्रभार के लिए और उपखंड मजिस्ट्रेट दंडाधिकार रखने वाले पद के लिए प्रयुक्त होता है; प्रायः एक ही अधिकारी दोनों धारण करता है, किंतु सेवा नियमों में दोनों उपाधियाँ पर्यायवाची नहीं हैं।"
+    }
+  },
   { "en": "Tehsildar", "hi": "तहसीलदार" },
   { "en": "Naib Tehsildar", "hi": "नायब तहसीलदार" },
   { "en": "Block Development Officer", "hi": "खंड विकास अधिकारी" },
-  { "en": "Circle Officer", "hi": "अंचल अधिकारी", "alsoHi": ["सर्किल अधिकारी"], "note": { "en": "Same title covers two different posts by context: a revenue-circle officer, and (separately) a police Circle Officer/CO — see Circle Inspector.", "hi": "यह पदनाम संदर्भ के अनुसार दो भिन्न पदों के लिए प्रयुक्त होता है: राजस्व वृत्त अधिकारी, और (अलग से) पुलिस क्षेत्राधिकारी — देखें Circle Inspector।" } },
+  {
+    "en": "Circle Officer",
+    "hi": "अंचल अधिकारी",
+    "alsoHi": ["सर्किल अधिकारी"],
+    "note": {
+      "en": "Same title covers two different posts by context: a revenue-circle officer, and (separately) a police Circle Officer/CO — see Circle Inspector.",
+      "hi": "यह पदनाम संदर्भ के अनुसार दो भिन्न पदों के लिए प्रयुक्त होता है: राजस्व वृत्त अधिकारी, और (अलग से) पुलिस क्षेत्राधिकारी — देखें Circle Inspector।"
+    }
+  },
   { "en": "Patwari", "hi": "पटवारी" },
   { "en": "Kanungo", "hi": "कानूनगो" },
-  { "en": "Lekhpal", "hi": "लेखपाल", "note": { "en": "Uttar Pradesh's title for the village-level revenue official elsewhere called Patwari.", "hi": "उत्तर प्रदेश में ग्राम-स्तरीय राजस्व अधिकारी को यह नाम दिया गया है, जिसे अन्यत्र पटवारी कहा जाता है।" } },
+  {
+    "en": "Lekhpal",
+    "hi": "लेखपाल",
+    "note": {
+      "en": "Uttar Pradesh's title for the village-level revenue official elsewhere called Patwari.",
+      "hi": "उत्तर प्रदेश में ग्राम-स्तरीय राजस्व अधिकारी को यह नाम दिया गया है, जिसे अन्यत्र पटवारी कहा जाता है।"
+    }
+  },
   { "en": "Revenue Inspector", "hi": "राजस्व निरीक्षक" },
   { "en": "Additional Collector", "hi": "अपर कलक्टर" },
   { "en": "Deputy Collector", "hi": "उप कलक्टर" },
@@ -71,7 +108,14 @@
   { "en": "Additional Superintendent of Police", "hi": "अपर पुलिस अधीक्षक" },
   { "en": "Deputy Superintendent of Police", "hi": "पुलिस उपाधीक्षक" },
   { "en": "Assistant Superintendent of Police", "hi": "सहायक पुलिस अधीक्षक" },
-  { "en": "Circle Inspector", "hi": "क्षेत्राधिकारी", "note": { "en": "The police charge commonly called \"CO\"; not the same office as the revenue Circle Officer above, though the English title overlaps.", "hi": "यह पुलिस विभाग का प्रभार है, जिसे प्रायः \"सी.ओ.\" कहा जाता है; ऊपर दिए राजस्व अंचल अधिकारी से भिन्न पद है, यद्यपि अंग्रेज़ी पदनाम मिलता-जुलता है।" } },
+  {
+    "en": "Circle Inspector",
+    "hi": "क्षेत्राधिकारी",
+    "note": {
+      "en": "The police charge commonly called \"CO\"; not the same office as the revenue Circle Officer above, though the English title overlaps.",
+      "hi": "यह पुलिस विभाग का प्रभार है, जिसे प्रायः \"सी.ओ.\" कहा जाता है; ऊपर दिए राजस्व अंचल अधिकारी से भिन्न पद है, यद्यपि अंग्रेज़ी पदनाम मिलता-जुलता है।"
+    }
+  },
   { "en": "Inspector of Police", "hi": "पुलिस निरीक्षक" },
   { "en": "Sub-Inspector", "hi": "उप निरीक्षक" },
   { "en": "Assistant Sub-Inspector", "hi": "सहायक उप निरीक्षक" },
@@ -122,11 +166,32 @@
   { "en": "Civil Judge", "hi": "सिविल न्यायाधीश" },
   { "en": "Sessions Judge", "hi": "सत्र न्यायाधीश" },
   { "en": "Additional Sessions Judge", "hi": "अपर सत्र न्यायाधीश" },
-  { "en": "Munsif", "hi": "मुंसिफ", "note": { "en": "A subordinate-judiciary rank, junior to Civil Judge, retained by name in several states' court hierarchies.", "hi": "अधीनस्थ न्यायपालिका का एक पद, जो सिविल न्यायाधीश से कनिष्ठ है; कई राज्यों की न्यायालयी संरचना में इसी नाम से बना हुआ है।" } },
+  {
+    "en": "Munsif",
+    "hi": "मुंसिफ",
+    "note": {
+      "en": "A subordinate-judiciary rank, junior to Civil Judge, retained by name in several states' court hierarchies.",
+      "hi": "अधीनस्थ न्यायपालिका का एक पद, जो सिविल न्यायाधीश से कनिष्ठ है; कई राज्यों की न्यायालयी संरचना में इसी नाम से बना हुआ है।"
+    }
+  },
   { "en": "Bench Clerk", "hi": "पीठ लिपिक" },
   { "en": "Process Server", "hi": "सम्मन तामीलकर्ता" },
-  { "en": "Nazir", "hi": "नाजिर", "note": { "en": "Court ministerial officer in charge of records, processes and court property.", "hi": "न्यायालय का लिपिकीय अधिकारी, जो अभिलेखों, तामील-प्रक्रिया और न्यायालय संपत्ति का प्रभारी होता है।" } },
-  { "en": "Ahalmad", "hi": "अहलमद", "note": { "en": "Court ministerial staff member in charge of case files, used mainly in north Indian district courts.", "hi": "न्यायालय का लिपिकीय कर्मचारी, जो पत्रावलियों का प्रभारी होता है; मुख्यतः उत्तर भारत के जिला न्यायालयों में प्रयुक्त पद।" } },
+  {
+    "en": "Nazir",
+    "hi": "नाजिर",
+    "note": {
+      "en": "Court ministerial officer in charge of records, processes and court property.",
+      "hi": "न्यायालय का लिपिकीय अधिकारी, जो अभिलेखों, तामील-प्रक्रिया और न्यायालय संपत्ति का प्रभारी होता है।"
+    }
+  },
+  {
+    "en": "Ahalmad",
+    "hi": "अहलमद",
+    "note": {
+      "en": "Court ministerial staff member in charge of case files, used mainly in north Indian district courts.",
+      "hi": "न्यायालय का लिपिकीय कर्मचारी, जो पत्रावलियों का प्रभारी होता है; मुख्यतः उत्तर भारत के जिला न्यायालयों में प्रयुक्त पद।"
+    }
+  },
 
   { "en": "Commissioner of Income Tax", "hi": "आयकर आयुक्त" },
   { "en": "Principal Commissioner of Income Tax", "hi": "प्रधान आयकर आयुक्त" },
@@ -201,7 +266,15 @@
   { "en": "Senior Stenographer", "hi": "वरिष्ठ आशुलिपिक" },
   { "en": "Junior Stenographer", "hi": "कनिष्ठ आशुलिपिक" },
   { "en": "Typist", "hi": "टंकक" },
-  { "en": "Peon", "hi": "चपरासी", "alsoHi": ["परिचारी"], "note": { "en": "परिचारी is the currently preferred official term in most cadre rules; चपरासी remains common in everyday usage.", "hi": "अधिकांश संवर्ग नियमों में वर्तमान में परिचारी शब्द अधिमानित है; चपरासी शब्द सामान्य बोलचाल में अब भी प्रचलित है।" } },
+  {
+    "en": "Peon",
+    "hi": "चपरासी",
+    "alsoHi": ["परिचारी"],
+    "note": {
+      "en": "परिचारी is the currently preferred official term in most cadre rules; चपरासी remains common in everyday usage.",
+      "hi": "अधिकांश संवर्ग नियमों में वर्तमान में परिचारी शब्द अधिमानित है; चपरासी शब्द सामान्य बोलचाल में अब भी प्रचलित है।"
+    }
+  },
   { "en": "Daftari", "hi": "दफ्तरी" },
   { "en": "Record Keeper", "hi": "अभिलेखपाल" },
   { "en": "Chowkidar", "hi": "चौकीदार" },

@@ -12,7 +12,14 @@
   { "en": "Consolidated Fund of India", "hi": "भारत की संचित निधि" },
   { "en": "Contingency Fund of India", "hi": "भारत की आकस्मिकता निधि" },
   { "en": "Public Account", "hi": "लोक लेखा", "alsoHi": ["सार्वजनिक लेखा"] },
-  { "en": "Charged expenditure", "hi": "भारित व्यय", "note": { "en": "Expenditure charged on the Consolidated Fund, not subject to vote of Parliament.", "hi": "संचित निधि पर भारित व्यय, जो संसद के मतदान के अधीन नहीं होता।" } },
+  {
+    "en": "Charged expenditure",
+    "hi": "भारित व्यय",
+    "note": {
+      "en": "Expenditure charged on the Consolidated Fund, not subject to vote of Parliament.",
+      "hi": "संचित निधि पर भारित व्यय, जो संसद के मतदान के अधीन नहीं होता।"
+    }
+  },
   { "en": "Voted expenditure", "hi": "मतदेय व्यय" },
   { "en": "Plan expenditure", "hi": "योजना व्यय" },
   { "en": "Non-plan expenditure", "hi": "गैर-योजना व्यय" },
@@ -27,7 +34,14 @@
   { "en": "Minor head", "hi": "लघु शीर्ष" },
   { "en": "Sub-head", "hi": "उप शीर्ष" },
   { "en": "Detailed head", "hi": "विस्तृत शीर्ष" },
-  { "en": "Object head", "hi": "उद्देश्य शीर्ष", "note": { "en": "The lowest tier of budget classification, showing expenditure by object such as salaries, travel or office expenses.", "hi": "बजट वर्गीकरण का सबसे निचला स्तर, जो वेतन, यात्रा या कार्यालय व्यय जैसे उद्देश्यों के अनुसार व्यय दर्शाता है।" } },
+  {
+    "en": "Object head",
+    "hi": "उद्देश्य शीर्ष",
+    "note": {
+      "en": "The lowest tier of budget classification, showing expenditure by object such as salaries, travel or office expenses.",
+      "hi": "बजट वर्गीकरण का सबसे निचला स्तर, जो वेतन, यात्रा या कार्यालय व्यय जैसे उद्देश्यों के अनुसार व्यय दर्शाता है।"
+    }
+  },
   { "en": "Financial sanction", "hi": "वित्तीय स्वीकृति" },
   { "en": "Financial concurrence", "hi": "वित्तीय सहमति" },
   { "en": "Delegated financial power", "hi": "प्रत्यायोजित वित्तीय शक्ति" },
@@ -57,7 +71,14 @@
   { "en": "Government e-Marketplace", "hi": "सरकारी ई-बाज़ार" },
   { "en": "Procurement committee", "hi": "खरीद समिति" },
   { "en": "Purchase committee", "hi": "क्रय समिति" },
-  { "en": "Condemnation of stores", "hi": "भंडार का निर्लेखन", "note": { "en": "Formal write-off of unserviceable or obsolete stores from the stock register.", "hi": "अनुपयोगी या अप्रचलित भंडार को स्टॉक रजिस्टर से औपचारिक रूप से अपलिखित करना।" } },
+  {
+    "en": "Condemnation of stores",
+    "hi": "भंडार का निर्लेखन",
+    "note": {
+      "en": "Formal write-off of unserviceable or obsolete stores from the stock register.",
+      "hi": "अनुपयोगी या अप्रचलित भंडार को स्टॉक रजिस्टर से औपचारिक रूप से अपलिखित करना।"
+    }
+  },
   { "en": "Physical verification of stores", "hi": "भंडार का भौतिक सत्यापन" },
   { "en": "Stock register", "hi": "स्टॉक रजिस्टर" },
   { "en": "Dead stock register", "hi": "मृत स्टॉक रजिस्टर" },
@@ -68,7 +89,11 @@
   { "en": "Cheque Drawing and Disbursing Officer", "hi": "चेक आहरण एवं संवितरण अधिकारी" },
   { "en": "Controller General of Accounts", "hi": "महालेखा नियंत्रक" },
   { "en": "Comptroller and Auditor General", "hi": "भारत के नियंत्रक एवं महालेखा परीक्षक" },
-  { "en": "Public Financial Management System", "hi": "लोक वित्तीय प्रबंधन प्रणाली", "alsoHi": ["सार्वजनिक वित्तीय प्रबंधन प्रणाली"] },
+  {
+    "en": "Public Financial Management System",
+    "hi": "लोक वित्तीय प्रबंधन प्रणाली",
+    "alsoHi": ["सार्वजनिक वित्तीय प्रबंधन प्रणाली"]
+  },
   { "en": "Bill", "hi": "बिल" },
   { "en": "Contingent bill", "hi": "आकस्मिक बिल" },
   { "en": "Travelling allowance bill", "hi": "यात्रा भत्ता बिल" },
@@ -185,11 +210,32 @@
   { "en": "Excess expenditure", "hi": "अधिक व्यय" },
   { "en": "Unauthorised expenditure", "hi": "अनधिकृत व्यय" },
   { "en": "Anticipated savings", "hi": "प्रत्याशित बचत" },
-  { "en": "Token grant", "hi": "सांकेतिक अनुदान", "note": { "en": "A nominal grant of Re. 1 taken in the budget to enable re-appropriation of funds to a new item.", "hi": "किसी नई मद के लिए निधियों के पुनर्विनियोग हेतु बजट में लिया गया एक रुपये का सांकेतिक अनुदान।" } },
-  { "en": "New service", "hi": "नई सेवा", "note": { "en": "Budgetary term for expenditure not provided for in the budget and not covered by an existing head, requiring prior Parliamentary sanction even from savings.", "hi": "ऐसा व्यय जिसका बजट में प्रावधान न हो और जो किसी मौजूदा शीर्ष के अंतर्गत न आता हो; बचत में से भी इसके लिए संसद की पूर्व स्वीकृति आवश्यक है।" } },
+  {
+    "en": "Token grant",
+    "hi": "सांकेतिक अनुदान",
+    "note": {
+      "en": "A nominal grant of Re. 1 taken in the budget to enable re-appropriation of funds to a new item.",
+      "hi": "किसी नई मद के लिए निधियों के पुनर्विनियोग हेतु बजट में लिया गया एक रुपये का सांकेतिक अनुदान।"
+    }
+  },
+  {
+    "en": "New service",
+    "hi": "नई सेवा",
+    "note": {
+      "en": "Budgetary term for expenditure not provided for in the budget and not covered by an existing head, requiring prior Parliamentary sanction even from savings.",
+      "hi": "ऐसा व्यय जिसका बजट में प्रावधान न हो और जो किसी मौजूदा शीर्ष के अंतर्गत न आता हो; बचत में से भी इसके लिए संसद की पूर्व स्वीकृति आवश्यक है।"
+    }
+  },
   { "en": "New instrument of service", "hi": "सेवा का नया माध्यम" },
   { "en": "Cut motion", "hi": "कटौती प्रस्ताव" },
-  { "en": "Guillotine (of demands)", "hi": "गिलोटिन", "note": { "en": "The procedure by which the Speaker puts all outstanding demands for grants to vote together at the close of the allotted time, without further discussion.", "hi": "निर्धारित समय समाप्त होने पर लोकसभा अध्यक्ष द्वारा शेष बची सभी अनुदान मांगों को बिना और चर्चा के एक साथ मतदान हेतु रखने की प्रक्रिया।" } },
+  {
+    "en": "Guillotine (of demands)",
+    "hi": "गिलोटिन",
+    "note": {
+      "en": "The procedure by which the Speaker puts all outstanding demands for grants to vote together at the close of the allotted time, without further discussion.",
+      "hi": "निर्धारित समय समाप्त होने पर लोकसभा अध्यक्ष द्वारा शेष बची सभी अनुदान मांगों को बिना और चर्चा के एक साथ मतदान हेतु रखने की प्रक्रिया।"
+    }
+  },
   { "en": "Money Bill", "hi": "धन विधेयक" },
   { "en": "Finance Bill", "hi": "वित्त विधेयक" },
   { "en": "Economic Survey", "hi": "आर्थिक सर्वेक्षण" },
@@ -218,7 +264,15 @@
   { "en": "Debarment", "hi": "निषेधन" },
   { "en": "Arbitration", "hi": "मध्यस्थता" },
   { "en": "Liquidated damages", "hi": "परिनिर्धारित क्षतिपूर्ति" },
-  { "en": "Force majeure", "hi": "अप्रत्याशित घटना", "alsoHi": ["दैवी आपदा"], "note": { "en": "Contract clause excusing performance for events beyond either party's control, such as war, flood or lockdown.", "hi": "युद्ध, बाढ़ या लॉकडाउन जैसी दोनों पक्षों के नियंत्रण से बाहर की घटनाओं के लिए संविदा में अनुपालन से छूट देने वाला खंड।" } },
+  {
+    "en": "Force majeure",
+    "hi": "अप्रत्याशित घटना",
+    "alsoHi": ["दैवी आपदा"],
+    "note": {
+      "en": "Contract clause excusing performance for events beyond either party's control, such as war, flood or lockdown.",
+      "hi": "युद्ध, बाढ़ या लॉकडाउन जैसी दोनों पक्षों के नियंत्रण से बाहर की घटनाओं के लिए संविदा में अनुपालन से छूट देने वाला खंड।"
+    }
+  },
   { "en": "Bank guarantee", "hi": "बैंक गारंटी" },
   { "en": "Security deposit", "hi": "प्रतिभूति जमा" },
   { "en": "Retention money", "hi": "प्रतिधारित राशि" },
@@ -250,7 +304,14 @@
   { "en": "Single Nodal Agency", "hi": "एकल नोडल अभिकरण" },
   { "en": "Central Nodal Agency", "hi": "केंद्रीय नोडल अभिकरण" },
   { "en": "Treasury Single Account", "hi": "राजकोष एकल खाता" },
-  { "en": "Just-in-time release of funds", "hi": "समयबद्ध निधि निर्गमन", "note": { "en": "Funds are released to an implementing agency only as and when actually required, rather than in advance in bulk.", "hi": "कार्यान्वयन अभिकरण को निधि अग्रिम रूप से एकमुश्त न देकर, वास्तविक आवश्यकता के समय ही जारी करना।" } },
+  {
+    "en": "Just-in-time release of funds",
+    "hi": "समयबद्ध निधि निर्गमन",
+    "note": {
+      "en": "Funds are released to an implementing agency only as and when actually required, rather than in advance in bulk.",
+      "hi": "कार्यान्वयन अभिकरण को निधि अग्रिम रूप से एकमुश्त न देकर, वास्तविक आवश्यकता के समय ही जारी करना।"
+    }
+  },
   { "en": "Budgetary control", "hi": "बजटीय नियंत्रण" },
   { "en": "Trial balance", "hi": "तलपट" },
   { "en": "Journal (accounting)", "hi": "रोजनामचा" },
@@ -291,12 +352,22 @@
   { "en": "Pension sanctioning authority", "hi": "पेंशन स्वीकृति प्राधिकारी" },
   { "en": "National Pension System", "hi": "राष्ट्रीय पेंशन प्रणाली" },
   { "en": "Unified Pension Scheme", "hi": "एकीकृत पेंशन योजना" },
-  { "en": "Central Government Employees Group Insurance Scheme", "hi": "केंद्रीय सरकार कर्मचारी समूह बीमा योजना" },
+  {
+    "en": "Central Government Employees Group Insurance Scheme",
+    "hi": "केंद्रीय सरकार कर्मचारी समूह बीमा योजना"
+  },
   { "en": "Deposit Linked Insurance", "hi": "जमा सहबद्ध बीमा" },
   { "en": "Nomination (service matters)", "hi": "नामांकन" },
   { "en": "Service book", "hi": "सेवा पुस्तिका" },
   { "en": "Last Pay Certificate", "hi": "अंतिम वेतन प्रमाणपत्र" },
-  { "en": "No Demand Certificate", "hi": "अदेय प्रमाणपत्र", "note": { "en": "Certificate confirming no dues are outstanding against the employee, obtained before final settlement of retirement/leave benefits.", "hi": "कर्मचारी के विरुद्ध कोई देय राशि बकाया न होने का प्रमाणपत्र, जो सेवानिवृत्ति/अवकाश लाभों के अंतिम भुगतान से पूर्व प्राप्त किया जाता है।" } },
+  {
+    "en": "No Demand Certificate",
+    "hi": "अदेय प्रमाणपत्र",
+    "note": {
+      "en": "Certificate confirming no dues are outstanding against the employee, obtained before final settlement of retirement/leave benefits.",
+      "hi": "कर्मचारी के विरुद्ध कोई देय राशि बकाया न होने का प्रमाणपत्र, जो सेवानिवृत्ति/अवकाश लाभों के अंतिम भुगतान से पूर्व प्राप्त किया जाता है।"
+    }
+  },
   { "en": "No objection certificate", "hi": "अनापत्ति प्रमाणपत्र" },
   { "en": "Audited accounts", "hi": "लेखापरीक्षित लेखे" },
   { "en": "Statement of expenditure", "hi": "व्यय विवरण" },

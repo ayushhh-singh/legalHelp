@@ -28,7 +28,14 @@ export async function listCommandRecents(): Promise<PaletteItem[]> {
   // stuck at whatever rank it was already at instead of moving back to the
   // top, silently breaking the "recent items first" ordering the moment two
   // different items had ever been recorded.
-  return rows.map((row) => ({ id: row.id, en: row.en, hi: row.hi, to: row.to, hint: row.section, recordRecent: true }))
+  return rows.map((row) => ({
+    id: row.id,
+    en: row.en,
+    hi: row.hi,
+    to: row.to,
+    hint: row.section,
+    recordRecent: true,
+  }))
 }
 
 export async function recordCommandRecent(item: PaletteItem, section: string): Promise<void> {

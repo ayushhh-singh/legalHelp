@@ -28,7 +28,9 @@ async function enableAi(page: import('@playwright/test').Page): Promise<void> {
   await expect(page.getByText('A key is stored on this device.')).toBeVisible()
 }
 
-test('the review session offers a scenario action once AI is on, and reaches no network', async ({ page }) => {
+test('the review session offers a scenario action once AI is on, and reaches no network', async ({
+  page,
+}) => {
   await enableAi(page)
 
   await page.goto('/learn/review')

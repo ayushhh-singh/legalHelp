@@ -26,7 +26,7 @@
 #     violation the browser reports is a capability check that already
 #     handled being refused (tests/e2e/csp.spec.ts allowlists exactly it).
 
-# The four connect-src destinations, and who reaches each:
+# The connect-src destinations, and who reaches each:
 #   api.anthropic.com  — Tier 1 (the reader's own key) and nothing else.
 #   huggingface.co and its LFS CDNs (*.hf.co, *.huggingface.co) — Tier 0's
 #     one-time model download, started by hand in Settings. The CDN hostname
@@ -35,12 +35,28 @@
 #     #69 has what that costs and what would tighten it.
 #   raw.githubusercontent.com — Tier 0's compiled model library (.wasm), which
 #     mlc-ai publishes from a GitHub repository rather than from Hugging Face.
+# Tier 3's named hosts, and the one thing this policy cannot do:
+#   generativelanguage.googleapis.com, api.groq.com and openrouter.ai — the
+#     three free services the consent notice names by name. They are listed
+#     because the app RECOMMENDS them; a reader who takes the recommendation
+#     should not then have to widen a policy they cannot edit.
+#   http://localhost:* and http://127.0.0.1:* — Ollama, running on the reader's
+#     own machine. Explicitly `http:`, because that is what Ollama serves and
+#     refusing it would rule out the one option on Tier 3 that sends nothing
+#     over a network at all. It reaches only the reader's own loopback.
+# ANY OTHER Tier 3 ENDPOINT IS REFUSED BY THIS POLICY on the hosted site, and
+# that is a real limit rather than an oversight: `connect-src` cannot be widened
+# at runtime for a URL the reader types, and widening it to `https:` would throw
+# away the backstop for every other tier at the same time. An operator
+# self-hosting this app can add their own host to the line below;
+# docs/DATA-GAPS.md #75 records what that costs and the two alternatives.
+#
 # Tier 2's own origin is NOT here: it is only known at build time, so
 # vite.config.ts appends VITE_AI_PROXY_URL's origin to this directive when a
 # build sets one. A build without one emits this line unchanged, which is what
 # tests/e2e/csp.spec.ts reads.
 /*
-  Content-Security-Policy: default-src 'self'; script-src 'self' 'wasm-unsafe-eval'; style-src 'self' 'unsafe-inline'; style-src-attr 'none'; font-src 'self'; img-src 'self' data:; connect-src 'self' https://api.anthropic.com https://huggingface.co https://*.huggingface.co https://*.hf.co https://raw.githubusercontent.com; worker-src 'self' blob:; manifest-src 'self'; media-src 'none'; object-src 'none'; frame-src 'none'; frame-ancestors 'none'; base-uri 'self'; form-action 'none'
+  Content-Security-Policy: default-src 'self'; script-src 'self' 'wasm-unsafe-eval'; style-src 'self' 'unsafe-inline'; style-src-attr 'none'; font-src 'self'; img-src 'self' data:; connect-src 'self' https://api.anthropic.com https://huggingface.co https://*.huggingface.co https://*.hf.co https://raw.githubusercontent.com https://generativelanguage.googleapis.com https://api.groq.com https://openrouter.ai http://localhost:* http://127.0.0.1:*; worker-src 'self' blob:; manifest-src 'self'; media-src 'none'; object-src 'none'; frame-src 'none'; frame-ancestors 'none'; base-uri 'self'; form-action 'none'
   Strict-Transport-Security: max-age=63072000; includeSubDomains; preload
   X-Content-Type-Options: nosniff
   Referrer-Policy: no-referrer

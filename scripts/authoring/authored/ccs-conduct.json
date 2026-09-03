@@ -1201,7 +1201,10 @@
         "citation": { "en": "Rule 13, CCS (Conduct) Rules, 1964", "hi": "नियम 13, सीसीएस (आचरण) नियम, 1964" }
       },
       "difficulty": "medium",
-      "stageA": { "index": 32, "angle": "Rule 13(2) — the Group-wise wedding-gift reporting threshold, as a workplace scenario" },
+      "stageA": {
+        "index": 32,
+        "angle": "Rule 13(2) — the Group-wise wedding-gift reporting threshold, as a workplace scenario"
+      },
       "groundingRuleIds": ["ccs-conduct-13"]
     },
     {
@@ -1244,7 +1247,10 @@
         "citation": { "en": "Rule 15, CCS (Conduct) Rules, 1964", "hi": "नियम 15, सीसीएस (आचरण) नियम, 1964" }
       },
       "difficulty": "medium",
-      "stageA": { "index": 33, "angle": "Rule 15(1)(a) — a commercial private business, distinguished from the Rule 15(2) exceptions" },
+      "stageA": {
+        "index": 33,
+        "angle": "Rule 15(1)(a) — a commercial private business, distinguished from the Rule 15(2) exceptions"
+      },
       "groundingRuleIds": ["ccs-conduct-15"]
     },
     {
@@ -1287,7 +1293,10 @@
         "citation": { "en": "Rule 4, CCS (Conduct) Rules, 1964", "hi": "नियम 4, सीसीएस (आचरण) नियम, 1964" }
       },
       "difficulty": "medium",
-      "stageA": { "index": 34, "angle": "Rule 4(3) — a family member's employment as a conflict-of-interest referral duty" },
+      "stageA": {
+        "index": 34,
+        "angle": "Rule 4(3) — a family member's employment as a conflict-of-interest referral duty"
+      },
       "groundingRuleIds": ["ccs-conduct-4"]
     },
     {
@@ -1330,7 +1339,10 @@
         "citation": { "en": "Rule 8, CCS (Conduct) Rules, 1964", "hi": "नियम 8, सीसीएस (आचरण) नियम, 1964" }
       },
       "difficulty": "medium",
-      "stageA": { "index": 35, "angle": "Rule 8(1) sanction requirement extended to a personal electronic-media channel" },
+      "stageA": {
+        "index": 35,
+        "angle": "Rule 8(1) sanction requirement extended to a personal electronic-media channel"
+      },
       "groundingRuleIds": ["ccs-conduct-8"]
     },
     {
@@ -1373,7 +1385,10 @@
         "citation": { "en": "Rule 12, CCS (Conduct) Rules, 1964", "hi": "नियम 12, सीसीएस (आचरण) नियम, 1964" }
       },
       "difficulty": "easy",
-      "stageA": { "index": 36, "angle": "Rule 12 — sanction required even for a humane, internal-office collection" },
+      "stageA": {
+        "index": 36,
+        "angle": "Rule 12 — sanction required even for a humane, internal-office collection"
+      },
       "groundingRuleIds": ["ccs-conduct-12"]
     },
     {
@@ -1416,7 +1431,10 @@
         "citation": { "en": "Rule 17, CCS (Conduct) Rules, 1964", "hi": "नियम 17, सीसीएस (आचरण) नियम, 1964" }
       },
       "difficulty": "medium",
-      "stageA": { "index": 37, "angle": "Rule 17 — the reporting duty on institution of a debt-recovery proceeding" },
+      "stageA": {
+        "index": 37,
+        "angle": "Rule 17 — the reporting duty on institution of a debt-recovery proceeding"
+      },
       "groundingRuleIds": ["ccs-conduct-17"]
     },
     {
@@ -1459,7 +1477,10 @@
         "citation": { "en": "Rule 20, CCS (Conduct) Rules, 1964", "hi": "नियम 20, सीसीएस (आचरण) नियम, 1964" }
       },
       "difficulty": "medium",
-      "stageA": { "index": 38, "angle": "Rule 20 — the attempt itself, applied to an MP's recommendation letter" },
+      "stageA": {
+        "index": 38,
+        "angle": "Rule 20 — the attempt itself, applied to an MP's recommendation letter"
+      },
       "groundingRuleIds": ["ccs-conduct-20"]
     },
     {
@@ -1502,7 +1523,10 @@
         "citation": { "en": "Rule 21, CCS (Conduct) Rules, 1964", "hi": "नियम 21, सीसीएस (आचरण) नियम, 1964" }
       },
       "difficulty": "hard",
-      "stageA": { "index": 39, "angle": "Rule 21(2) — the two cumulative conditions, applied where personal law alone would permit it" },
+      "stageA": {
+        "index": 39,
+        "angle": "Rule 21(2) — the two cumulative conditions, applied where personal law alone would permit it"
+      },
       "groundingRuleIds": ["ccs-conduct-21"]
     },
     {
@@ -1542,7 +1566,10 @@
       },
       "ruleRef": {
         "textId": "ccs-conduct-22a",
-        "citation": { "en": "Rule 22A, CCS (Conduct) Rules, 1964", "hi": "नियम 22क, सीसीएस (आचरण) नियम, 1964" }
+        "citation": {
+          "en": "Rule 22A, CCS (Conduct) Rules, 1964",
+          "hi": "नियम 22क, सीसीएस (आचरण) नियम, 1964"
+        }
       },
       "difficulty": "easy",
       "stageA": { "index": 40, "angle": "Rule 22A — no domestic or 'not the officer's own act' exception" },
@@ -1588,7 +1615,10 @@
         "citation": { "en": "Rule 6, CCS (Conduct) Rules, 1964", "hi": "नियम 6, सीसीएस (आचरण) नियम, 1964" }
       },
       "difficulty": "medium",
-      "stageA": { "index": 41, "angle": "Rule 6 is not confined to political parties — a secessionist residents' body still fails the test" },
+      "stageA": {
+        "index": 41,
+        "angle": "Rule 6 is not confined to political parties — a secessionist residents' body still fails the test"
+      },
       "groundingRuleIds": ["ccs-conduct-6"]
     }
   ]

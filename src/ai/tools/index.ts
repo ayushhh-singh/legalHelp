@@ -3,6 +3,7 @@ import { z } from 'zod'
 import { registerDraftingTools } from './drafting'
 import { registerGlossaryTools } from './glossary'
 import { registerLawTools } from './law'
+import { registerLibraryTools } from './library'
 import { registerPayTools } from './pay'
 import { registerTool, registeredToolNames } from './registry'
 import { registerRulesTools } from './rules'
@@ -31,6 +32,7 @@ export function registerBuiltinTools(): void {
   registerDraftingTools()
   registerGlossaryTools()
   registerRulesTools()
+  registerLibraryTools()
 
   if (registeredToolNames().includes('dataset_versions')) return
 

@@ -95,7 +95,10 @@ test('highlights a passage, writes a note on it, and adds it to the trainer', as
 
   // ---- add to trainer, and find it in the queue the Trainer owns --------
   await selectPhrase(page, phrase)
-  await page.getByRole('toolbar').getByRole('button', { name: t('en', 'library.select.trainer') }).click()
+  await page
+    .getByRole('toolbar')
+    .getByRole('button', { name: t('en', 'library.select.trainer') })
+    .click()
 
   const dialog = page.getByRole('dialog', { name: t('en', 'library.trainer.title') })
   await expect(dialog).toBeVisible()
@@ -173,6 +176,21 @@ test('shows a bookmark, a note and a highlight together in My Study', async ({ p
     .getByRole('toolbar')
     .getByRole('button', { name: t('en', 'library.select.colour.violet') })
     .click()
+
+  /*
+    Wait for the highlight to LAND before navigating.
+
+    `createHighlight` is a Dexie write and the click returns before it resolves,
+    so `goto` immediately afterwards is a race with it. It is fast enough on a
+    desktop and it is not on the Pixel 7 project, where this failed every run
+    and reported the symptom two screens away — "My Study shows no entry" —
+    rather than "the write was cut off". The annotations panel below the text is
+    the app's own confirmation that the row exists; the first test in this file
+    already waits on it.
+  */
+  await expect(
+    page.getByRole('region', { name: t('en', 'library.highlight.title') }).getByText('devotion to duty'),
+  ).toBeVisible()
 
   await page.goto('/library/mine')
   await expect(page.getByRole('heading', { level: 1, name: t('en', 'library.mine.title') })).toBeVisible()

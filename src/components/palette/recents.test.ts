@@ -30,7 +30,12 @@ describe('command palette recents', () => {
   it('carries the item’s own text and destination through', async () => {
     await recordCommandRecent(item('a', { en: 'Punishment for murder', hi: 'हत्या के लिए दंड' }), 'law')
     const [recent] = await listCommandRecents()
-    expect(recent).toMatchObject({ id: 'a', en: 'Punishment for murder', hi: 'हत्या के लिए दंड', to: '/law?q=a' })
+    expect(recent).toMatchObject({
+      id: 'a',
+      en: 'Punishment for murder',
+      hi: 'हत्या के लिए दंड',
+      to: '/law?q=a',
+    })
   })
 
   it(`keeps at most ${RECENT_LIMIT} rows`, async () => {

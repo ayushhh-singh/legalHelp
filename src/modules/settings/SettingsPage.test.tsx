@@ -49,14 +49,11 @@ describe('SettingsPage', () => {
     })
   })
 
-  it('links to Trainer settings for the reminder\'s time and rule-book scope', async () => {
+  it("links to Trainer settings for the reminder's time and rule-book scope", async () => {
     await renderSettings()
 
     await waitFor(() => expect(screen.getByText('Off.')).toBeInTheDocument())
-    expect(screen.getByRole('link', { name: /Trainer settings/ })).toHaveAttribute(
-      'href',
-      '/learn/settings',
-    )
+    expect(screen.getByRole('link', { name: /Trainer settings/ })).toHaveAttribute('href', '/learn/settings')
   })
 
   it('shows the About card with the package version and licence', async () => {

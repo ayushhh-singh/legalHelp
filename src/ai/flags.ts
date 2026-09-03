@@ -31,8 +31,17 @@ import { isAiTier, type AiTier } from './types'
  * once are not the same device, and a reader who consented on the strength of
  * the first sentence is owed the second one. That is a change of substance,
  * so every device reads the notice again.
+ *
+ * 2 → 3 (Tier 3, the OpenAI-compatible endpoint). Versions 1 and 2 could name
+ * every recipient: nobody, Anthropic, or the operator and Anthropic. Version 3
+ * cannot. The reader chooses the host, so the honest sentence is "whatever
+ * service you configure, at the URL you gave" — which is a genuinely different
+ * disclosure and not a rewording of the old one. It also has to say the thing
+ * the other tiers did not need to: a free tier is usually free BECAUSE the
+ * provider may use the traffic, and this app cannot audit anybody's terms on
+ * the reader's behalf.
  */
-export const CONSENT_VERSION = 2
+export const CONSENT_VERSION = 3
 
 /** Tokens per calendar month, across input and output. Zero means "no calls". */
 export const DEFAULT_MONTHLY_TOKEN_BUDGET = 200_000
@@ -54,6 +63,29 @@ export interface AiSettings {
   answerCache: boolean
   /** Tier 0: which model from `src/ai/local/catalogue.ts` the reader chose. */
   localModel: string
+  /**
+   * Tier 3: the endpoint's base URL, without `/chat/completions`.
+   *
+   * Empty until the reader configures one, and `tierReady` refuses the tier
+   * until it is set — the same shape `hasKey` gives Tier 1 and
+   * `localModelInstalled` gives Tier 0.
+   */
+  openAiBaseUrl: string
+  /** Tier 3: the model name, exactly as that endpoint spells it. */
+  openAiModel: string
+  /**
+   * Tier 3: what the reader says the endpoint supports.
+   *
+   * Stored rather than probed, because there is no reliable probe: an endpoint
+   * that ignores an unknown `tools` field and one that honours it answer the
+   * same 200. What this buys is honesty — `capabilityNote()` tells the reader
+   * what their run will actually do, and the agent downgrades visibly instead
+   * of dropping the tools and letting the model invent a call.
+   */
+  openAiSupportsTools: boolean
+  openAiSupportsJson: boolean
+  /** Mirrors "a Tier 3 key exists in the secrets table". Never the key itself. */
+  hasOpenAiKey: boolean
   /**
    * Mirrors "the weights are in this browser's Cache API".
    *
@@ -80,6 +112,11 @@ export const DEFAULT_AI_SETTINGS: AiSettings = {
   answerCache: true,
   localModel: DEFAULT_LOCAL_MODEL,
   localModelInstalled: false,
+  openAiBaseUrl: '',
+  openAiModel: '',
+  openAiSupportsTools: false,
+  openAiSupportsJson: false,
+  hasOpenAiKey: false,
 }
 
 const isRecord = (value: unknown): value is Record<string, unknown> =>
@@ -121,6 +158,11 @@ export function parseAiSettings(value: unknown): AiSettings {
         ? value.localModel
         : DEFAULT_AI_SETTINGS.localModel,
     localModelInstalled: value.localModelInstalled === true,
+    openAiBaseUrl: typeof value.openAiBaseUrl === 'string' ? value.openAiBaseUrl : '',
+    openAiModel: typeof value.openAiModel === 'string' ? value.openAiModel : '',
+    openAiSupportsTools: value.openAiSupportsTools === true,
+    openAiSupportsJson: value.openAiSupportsJson === true,
+    hasOpenAiKey: value.hasOpenAiKey === true,
   }
 }
 
@@ -152,6 +194,11 @@ export function tierReady(settings: AiSettings, proxyUrl: string | undefined): b
       // reader pressing "Ask" and triggering a gigabyte of download they never
       // asked for — the download is a deliberate act in Settings.
       return settings.localModelInstalled
+    case 'openai':
+      // A URL and a model name, both the reader's. NOT a key: a local Ollama
+      // needs none, and requiring one would rule out the only option on this
+      // tier that sends nothing over a network at all.
+      return settings.openAiBaseUrl.trim().length > 0 && settings.openAiModel.trim().length > 0
   }
 }
 

@@ -41,7 +41,17 @@
     },
     "portal": {
       "type": "object",
-      "required": ["id", "name", "shortName", "purpose", "url", "category", "helpline", "administeredBy", "verify"],
+      "required": [
+        "id",
+        "name",
+        "shortName",
+        "purpose",
+        "url",
+        "category",
+        "helpline",
+        "administeredBy",
+        "verify"
+      ],
       "additionalProperties": false,
       "properties": {
         "id": { "type": "string", "pattern": "^[a-z0-9-]+$" },

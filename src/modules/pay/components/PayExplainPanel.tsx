@@ -43,7 +43,9 @@ export function PayExplainPanel({ ai, scenario }: { ai: UseAi; scenario: PayScen
           type="button"
           size="sm"
           variant="outline"
-          onClick={() => ask.explainPayslip({ jobId: scenario.jobId!, overrides: overridesFromScenario(scenario) })}
+          onClick={() =>
+            ask.explainPayslip({ jobId: scenario.jobId!, overrides: overridesFromScenario(scenario) })
+          }
         >
           <Sparkles aria-hidden="true" className="h-4 w-4" />
           {t('pay.ai.explain.button')}

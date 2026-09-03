@@ -1254,7 +1254,10 @@
         "citation": { "en": "Rule 19, CCS (CCA) Rules, 1965", "hi": "नियम 19, सीसीएस (सीसीए) नियम, 1965" }
       },
       "difficulty": "medium",
-      "stageA": { "index": 35, "angle": "Rule 19(i) proviso — no inquiry, but still an opportunity on the penalty" },
+      "stageA": {
+        "index": 35,
+        "angle": "Rule 19(i) proviso — no inquiry, but still an opportunity on the penalty"
+      },
       "groundingRuleIds": ["ccs-cca-19"]
     },
     {
@@ -1389,7 +1392,10 @@
         "citation": { "en": "Rule 14, CCS (CCA) Rules, 1965", "hi": "नियम 14, सीसीएस (सीसीए) नियम, 1965" }
       },
       "difficulty": "medium",
-      "stageA": { "index": 38, "angle": "Rule 14(20) — an ex parte inquiry when the officer does not engage" },
+      "stageA": {
+        "index": 38,
+        "angle": "Rule 14(20) — an ex parte inquiry when the officer does not engage"
+      },
       "groundingRuleIds": ["ccs-cca-14"]
     },
     {

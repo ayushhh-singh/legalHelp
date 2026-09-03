@@ -2,7 +2,13 @@ import { useLiveQuery } from 'dexie-react-hooks'
 import { useEffect, useState } from 'react'
 
 import { getSetting, setSetting, SETTING_KEYS } from '@/db'
-import { diffVersions, fetchLatestVersions, hasUpdates, isCheckDue, type UpdateCheckResult } from '@/lib/dataUpdates'
+import {
+  diffVersions,
+  fetchLatestVersions,
+  hasUpdates,
+  isCheckDue,
+  type UpdateCheckResult,
+} from '@/lib/dataUpdates'
 
 /**
  * The automatic half of "Check for data updates" (ADR-034): runs

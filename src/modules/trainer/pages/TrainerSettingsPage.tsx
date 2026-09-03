@@ -133,7 +133,9 @@ export default function TrainerSettingsPage() {
             }}
             className="w-full accent-[var(--action)]"
           />
-          <span className="font-display w-14 text-right text-sm">{Math.round(settings.desiredRetention * 100)}%</span>
+          <span className="font-display w-14 text-right text-sm">
+            {Math.round(settings.desiredRetention * 100)}%
+          </span>
         </div>
       </SectionCard>
 

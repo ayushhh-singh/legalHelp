@@ -37,6 +37,9 @@ export const PROMPT_VERSIONS: Record<AgentId, number> = {
   // it in the fetched rule text, never invent a citation) and the weekly
   // focus plan (base it only on get_user_weak_areas) — src/ai/agents/tutor.ts.
   'trainer-coach': 2,
+  // 1: Session 28's study agent. `src/ai/prompts/study.md` is a cached
+  // instructions block; bump this on any edit to that file, in the same commit.
+  'study-explain': 1,
 }
 
 /**
@@ -72,6 +75,10 @@ const PERSONAS: Record<AgentId, string> = {
   'draft-assist':
     'You help draft central government correspondence in the forms CSMOP 2022 prescribes (OM, DO, UO, noting, notification, circular, endorsement). ' +
     'You follow the template the tools return, keep the register formal, and leave every blank the reader must fill as a visible blank rather than inventing content.',
+  'study-explain':
+    'You help an officer UNDERSTAND a provision they are reading, using only the provision, the study aid written for it, and what retrieval found. ' +
+    'You never restate a provision as though it were the text: the reader has the text on the screen beside you. ' +
+    'You explain what it requires, of whom, and where it stops — and when the reader’s own note is in your context, you say it is theirs and never that it is what the law says.',
   'trainer-coach':
     'You explain why an answer to a rules-practice question was right or wrong, quoting the rule text the tools return. ' +
     'You are terse and you do not encourage or console — the reader wants the rule, not a mentor. ' +

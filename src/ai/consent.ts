@@ -27,8 +27,14 @@ export interface TierDisclosure {
   costsMoney: boolean
   /** Needs an API key stored on the device. */
   requiresKey: boolean
-  /** Who, other than the reader, can see the prompt. */
-  recipient: 'nobody' | 'anthropic' | 'operator-and-anthropic'
+  /**
+   * Who, other than the reader, can see the prompt.
+   *
+   * `chosen-endpoint` is the honest answer for Tier 3 and the reason
+   * CONSENT_VERSION went 2 → 3: the reader picks the host, so this app cannot
+   * name it. Every other value here names a party by name.
+   */
+  recipient: 'nobody' | 'anthropic' | 'operator-and-anthropic' | 'chosen-endpoint'
   /** i18n key under `ai.consent.tiers`, resolved by the modal. */
   i18nKey: string
 }
@@ -62,9 +68,26 @@ export const TIER_DISCLOSURES: Record<ActiveTier, TierDisclosure> = {
     recipient: 'operator-and-anthropic',
     i18nKey: 'proxy',
   },
+  openai: {
+    tier: 'openai',
+    // NOT local, even when the reader points it at `http://localhost:11434`.
+    // This flag is what the consent notice renders from, and it has to describe
+    // the tier rather than one configuration of it — a reader who reads "nothing
+    // leaves this device" and then types a Groq URL has been told something
+    // untrue. `OpenAiCompatibleProvider.capabilities.localOnly` answers the
+    // narrower question about the URL actually configured.
+    localOnly: false,
+    // The free tiers this notice names are free. A paid endpoint is the
+    // reader's own arrangement with their own provider, and this app never
+    // sees a bill either way.
+    costsMoney: false,
+    requiresKey: false,
+    recipient: 'chosen-endpoint',
+    i18nKey: 'openai',
+  },
 }
 
-export const ACTIVE_TIERS: readonly ActiveTier[] = ['local', 'byok', 'proxy']
+export const ACTIVE_TIERS: readonly ActiveTier[] = ['local', 'byok', 'proxy', 'openai']
 
 /** The settings patch that records consent. Does not turn anything on. */
 export function acceptConsentPatch(now: Date = new Date()): Partial<AiSettings> {
@@ -111,6 +134,11 @@ export function tierAvailable(tier: ActiveTier, proxyUrl: string | undefined): b
       return true
     case 'proxy':
       return Boolean(proxyUrl)
+    case 'openai':
+      // Ships in every build. Whether THIS reader has configured a URL is a
+      // question the settings section answers inside itself, with the reason,
+      // rather than by making the option vanish.
+      return true
   }
 }
 

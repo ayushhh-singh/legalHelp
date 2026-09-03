@@ -108,10 +108,11 @@ describe('the version 2 upgrade', () => {
     try {
       await v2.open()
 
-      // The class declares up to version 12 now (the Library's annotation
-      // layer and the reader's own works, Session 27), so opening it upgrades a
-      // v1 database straight to the current version rather than stopping at 2.
-      expect(v2.verno).toBe(12)
+      // The class declares up to version 13 now (Session 28's study layer:
+      // the chapter revision deck, Feynman attempts, sessions and goals), so
+      // opening it upgrades a v1 database straight to the current version
+      // rather than stopping at 2.
+      expect(v2.verno).toBe(13)
       expect(await v2.settings.get(SETTING_KEYS.theme)).toEqual({
         key: SETTING_KEYS.theme,
         value: 'dark',
@@ -139,6 +140,11 @@ describe('the version 2 upgrade', () => {
       expect(await v2.libraryBookmarks.count()).toBe(0)
       expect(await v2.libraryHighlights.count()).toBe(0)
       expect(await v2.libraryNotes.count()).toBe(0)
+      expect(await v2.chapterCards.count()).toBe(0)
+      expect(await v2.chapterLog.count()).toBe(0)
+      expect(await v2.feynmanAttempts.count()).toBe(0)
+      expect(await v2.studySessions.count()).toBe(0)
+      expect(await v2.studyGoals.count()).toBe(0)
     } finally {
       v2.close()
       await Dexie.delete(name)
@@ -152,9 +158,12 @@ describe('the version 2 upgrade', () => {
       'aiAnswers',
       'aiUsage',
       'cardOverrides',
+      'chapterCards',
+      'chapterLog',
       'commandRecents',
       'draftDefaults',
       'drafts',
+      'feynmanAttempts',
       'glossaryFavourites',
       'glossaryRecents',
       'holidayPicks',
@@ -172,6 +181,8 @@ describe('the version 2 upgrade', () => {
       'settings',
       'srsCards',
       'streaks',
+      'studyGoals',
+      'studySessions',
       'trainerBookmarks',
       'trainerReports',
       'trainerSettings',

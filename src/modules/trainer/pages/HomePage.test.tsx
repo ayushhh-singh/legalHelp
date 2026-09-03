@@ -7,7 +7,14 @@ import { useEffectiveCatalogue, useRulesIndex } from '../useCatalogue'
 import { useTrainerSettings } from '../useTrainerSettings'
 
 import i18n from '@/i18n'
-import { allStreaks, getDueQueue, statsForDay, weakAreasFor, type DayStats, type TrainerSettings } from '@/lib/srs'
+import {
+  allStreaks,
+  getDueQueue,
+  statsForDay,
+  weakAreasFor,
+  type DayStats,
+  type TrainerSettings,
+} from '@/lib/srs'
 
 import type { Card, RulesIndex } from '../schema'
 
@@ -128,7 +135,12 @@ const STATS: DayStats = {
 }
 
 function mockReady(catalogue: Card[], settings: TrainerSettings, streaks: unknown[]) {
-  vi.mocked(useRulesIndex).mockReturnValue({ status: 'ready', data: RULES_INDEX, error: null, retry: () => undefined })
+  vi.mocked(useRulesIndex).mockReturnValue({
+    status: 'ready',
+    data: RULES_INDEX,
+    error: null,
+    retry: () => undefined,
+  })
   vi.mocked(useEffectiveCatalogue).mockReturnValue(catalogue)
   vi.mocked(useTrainerSettings).mockReturnValue(settings)
   vi.mocked(allStreaks).mockResolvedValue(streaks as never)
@@ -158,7 +170,10 @@ describe('HomePage, first run (an empty Dexie)', () => {
     expect(screen.getByRole('link', { name: /^browse$/i })).toHaveAttribute('href', '/learn/browse')
     expect(screen.getByRole('link', { name: /bookmarks/i })).toHaveAttribute('href', '/learn/bookmarks')
     expect(screen.getByRole('link', { name: /reports/i })).toHaveAttribute('href', '/learn/reports')
-    expect(screen.getByRole('link', { name: /local review queue/i })).toHaveAttribute('href', '/learn/review-queue')
+    expect(screen.getByRole('link', { name: /local review queue/i })).toHaveAttribute(
+      'href',
+      '/learn/review-queue',
+    )
     expect(screen.getByRole('link', { name: /start review/i })).toHaveAttribute('href', '/learn/review')
     expect(screen.getByRole('link', { name: /mock test/i })).toHaveAttribute('href', '/learn/mock')
   })

@@ -1,0 +1,148 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://sahayak.local/schemas/library-aids.schema.json",
+  "title": "Precomputed study aids for one work in the Library",
+  "description": "One aid per unit: a plain-language explanation, a situation an officer would recognise, the units it connects to, and — where the unit has one — the misconception it invites, why an examiner asks about it, and a memory hook. Every aid is authored in session against the unit's own text and carries the four-stage authoring record that `data/rules/cards/*.json` carries. NOTHING HERE IS THE LAW. An aid never restates a provision as though it were the text: the reader page renders the provision from the corpus above the aid, and the aid carries `verify: true` unconditionally because it is this project's own writing rather than anything a Ministry published.",
+  "type": "object",
+  "additionalProperties": false,
+  "required": ["version", "generatedAt", "workId", "unitLabel", "disclaimer", "source", "aids"],
+  "properties": {
+    "$schema": { "type": "string" },
+    "version": { "type": "string", "pattern": "^\\d+\\.\\d+\\.\\d+$" },
+    "generatedAt": { "type": "string", "pattern": "^\\d{4}-\\d{2}-\\d{2}$" },
+    "workId": { "type": "string", "pattern": "^[a-z0-9-]+$" },
+    "unitLabel": {
+      "description": "What one unit is called in this work — Rule, Section or Paragraph.",
+      "$ref": "#/$defs/bilingual"
+    },
+    "disclaimer": { "$ref": "#/$defs/bilingual" },
+    "source": { "$ref": "#/$defs/source" },
+    "aids": { "type": "array", "items": { "$ref": "#/$defs/aid" } }
+  },
+  "$defs": {
+    "bilingual": {
+      "description": "Both languages present and non-empty. Equal bilingual footing is a hard rule of this project: a missing Hindi string is a CI failure, never a fallback.",
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["en", "hi"],
+      "properties": {
+        "en": { "type": "string", "minLength": 1 },
+        "hi": { "type": "string", "minLength": 1 }
+      }
+    },
+    "source": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["name", "url"],
+      "properties": {
+        "name": { "type": "string", "minLength": 1 },
+        "url": { "type": "string", "pattern": "^https?://" }
+      }
+    },
+    "generationMeta": {
+      "description": "The four-stage authoring record docs/AUTHORING.md prescribes, adapted for prose rather than for a keyed question. Stage C here is not a blind answer — an explanation has no key to hide — it is a re-derivation: every claim read back against the unit's own text with nothing else in front of it.",
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["promptVersion", "batchId", "stageA", "critic", "verify", "dedup", "groundingUnitIds"],
+      "properties": {
+        "promptVersion": { "type": "string", "minLength": 1 },
+        "batchId": { "type": "string", "minLength": 1 },
+        "stageA": {
+          "type": "object",
+          "additionalProperties": false,
+          "required": ["index", "angle"],
+          "properties": {
+            "index": { "type": "integer", "minimum": 1 },
+            "angle": { "type": "string", "minLength": 1 }
+          }
+        },
+        "critic": {
+          "type": "object",
+          "additionalProperties": false,
+          "required": ["verdict", "reason"],
+          "properties": {
+            "verdict": { "enum": ["approve", "reject"] },
+            "reason": { "type": "string", "minLength": 1 }
+          }
+        },
+        "verify": {
+          "description": "grounded=false auto-rejects: an aid that states something the unit does not is exactly what this dataset must not carry.",
+          "type": "object",
+          "additionalProperties": false,
+          "required": ["grounded", "note"],
+          "properties": {
+            "grounded": { "type": "boolean" },
+            "note": { "type": "string", "minLength": 1 }
+          }
+        },
+        "dedup": {
+          "type": "object",
+          "additionalProperties": false,
+          "required": ["maxScore", "verdict"],
+          "properties": {
+            "maxScore": { "type": "number", "minimum": 0, "maximum": 100 },
+            "against": { "type": ["string", "null"] },
+            "verdict": { "enum": ["keep", "duplicate"] }
+          }
+        },
+        "groundingUnitIds": {
+          "description": "Every unit whose text an assertion in this aid rests on. The first is always the aid's own unit.",
+          "type": "array",
+          "minItems": 1,
+          "items": { "type": "string", "minLength": 1 }
+        }
+      }
+    },
+    "aid": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "id",
+        "workId",
+        "unitId",
+        "explanation",
+        "example",
+        "connects",
+        "reviewed",
+        "reviewState",
+        "generationMeta",
+        "source",
+        "verify"
+      ],
+      "properties": {
+        "id": { "type": "string", "pattern": "^[a-z0-9-]+$" },
+        "workId": { "type": "string", "pattern": "^[a-z0-9-]+$" },
+        "unitId": {
+          "description": "A unit id in data/rules/text/<work>.json or data/law/<work>.json — resolved in both directions by tests/library-aids.test.ts.",
+          "type": "string",
+          "minLength": 1
+        },
+        "explanation": {
+          "description": "Two or three plain sentences. What the provision requires, of whom, and the limit on it.",
+          "$ref": "#/$defs/bilingual"
+        },
+        "example": {
+          "description": "A situation an officer would recognise. Never a real person, a real file number or a real case.",
+          "$ref": "#/$defs/bilingual"
+        },
+        "connects": {
+          "description": "Other unit ids in the same work that an officer reading this one has to hold beside it. May be empty.",
+          "type": "array",
+          "items": { "type": "string", "minLength": 1 }
+        },
+        "misconception": { "$ref": "#/$defs/bilingual" },
+        "examRelevance": { "$ref": "#/$defs/bilingual" },
+        "mnemonic": { "$ref": "#/$defs/bilingual" },
+        "reviewed": { "type": "boolean" },
+        "reviewState": { "enum": ["unreviewed", "approved", "rejected", "needs-hindi"] },
+        "reviewNote": { "type": "string", "minLength": 1 },
+        "generationMeta": { "$ref": "#/$defs/generationMeta" },
+        "source": { "$ref": "#/$defs/source" },
+        "verify": {
+          "description": "Always true. An aid is this project's own explanation, not published text, and every surface that renders one says so.",
+          "const": true
+        }
+      }
+    }
+  }
+}

@@ -37,7 +37,13 @@ vi.mock('./favourites', async (importOriginal) => {
     ...actual,
     listFavourites: () =>
       Promise.resolve([
-        { id: 'cabinet-secretary', termId: 'cabinet-secretary', en: 'Cabinet Secretary', hi: 'मंत्रिमंडल सचिव', createdAt: '2026-08-28T00:00:00.000Z' },
+        {
+          id: 'cabinet-secretary',
+          termId: 'cabinet-secretary',
+          en: 'Cabinet Secretary',
+          hi: 'मंत्रिमंडल सचिव',
+          createdAt: '2026-08-28T00:00:00.000Z',
+        },
       ]),
     listRecents: () => Promise.resolve([]),
   }

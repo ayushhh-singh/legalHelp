@@ -19,7 +19,12 @@ const facts: PensionFacts = {
   version: '1.0.0',
   generatedAt: '2026-08-29T00:00:00Z',
   disclaimer: { en: 'x', hi: 'x' },
-  superannuation: { ageYears: 60, rule: { en: 'x', hi: 'x' }, source: { name: 'x', url: 'https://x.example' }, verify: false },
+  superannuation: {
+    ageYears: 60,
+    rule: { en: 'x', hi: 'x' },
+    source: { name: 'x', url: 'https://x.example' },
+    verify: false,
+  },
   gratuity: {
     fractionPerSixMonths: 0.25,
     maxMultiplier: 16.5,

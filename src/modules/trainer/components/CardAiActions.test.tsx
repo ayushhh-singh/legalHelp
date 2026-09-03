@@ -54,7 +54,11 @@ beforeEach(async () => {
 describe('with AI off', () => {
   it('renders nothing', () => {
     const { container } = render(
-      <CardAiActions ai={aiState({ enabled: false, ready: false, tier: 'off' })} card={CARD} wrongAnswer={null} />,
+      <CardAiActions
+        ai={aiState({ enabled: false, ready: false, tier: 'off' })}
+        card={CARD}
+        wrongAnswer={null}
+      />,
     )
     expect(container).toBeEmptyDOMElement()
   })
@@ -63,7 +67,11 @@ describe('with AI off', () => {
 describe('with AI on', () => {
   it('offers "Give me a scenario" always, and "Explain" only after a wrong answer', () => {
     const { rerender } = render(
-      <CardAiActions ai={aiState({ provider: new MockProvider({ id: 'unused', turns: [] }) })} card={CARD} wrongAnswer={null} />,
+      <CardAiActions
+        ai={aiState({ provider: new MockProvider({ id: 'unused', turns: [] }) })}
+        card={CARD}
+        wrongAnswer={null}
+      />,
     )
     expect(screen.getByRole('button', { name: 'Give me a scenario on this rule' })).toBeInTheDocument()
     expect(screen.queryByRole('button', { name: 'Explain' })).not.toBeInTheDocument()
@@ -72,7 +80,10 @@ describe('with AI on', () => {
       <CardAiActions
         ai={aiState({ provider: new MockProvider({ id: 'unused', turns: [] }) })}
         card={CARD}
-        wrongAnswer={{ picked: 'Leave encashment.', correctText: 'Short title, commencement and application.' }}
+        wrongAnswer={{
+          picked: 'Leave encashment.',
+          correctText: 'Short title, commencement and application.',
+        }}
       />,
     )
     expect(screen.getByRole('button', { name: 'Explain' })).toBeInTheDocument()
@@ -94,7 +105,10 @@ describe('with AI on', () => {
       <CardAiActions
         ai={aiState({ provider })}
         card={CARD}
-        wrongAnswer={{ picked: 'Leave encashment.', correctText: 'Short title, commencement and application.' }}
+        wrongAnswer={{
+          picked: 'Leave encashment.',
+          correctText: 'Short title, commencement and application.',
+        }}
       />,
     )
 

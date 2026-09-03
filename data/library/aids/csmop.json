@@ -1,0 +1,2311 @@
+{
+  "$schema": "../../../schemas/library-aids.schema.json",
+  "version": "1.0.0",
+  "generatedAt": "2026-09-03",
+  "workId": "csmop",
+  "unitLabel": {
+    "en": "Paragraph",
+    "hi": "पैरा"
+  },
+  "disclaimer": {
+    "en": "A study aid is Sahayak’s own explanation, not the text of the rule. Reference only; verify with the official gazette/order or your DDO.",
+    "hi": "अध्ययन सहायिका सहायक की अपनी व्याख्या है, नियम का पाठ नहीं। केवल संदर्भ हेतु; आधिकारिक राजपत्र/आदेश अथवा अपने डीडीओ से सत्यापित करें।"
+  },
+  "source": {
+    "name": "Department of Administrative Reforms and Public Grievances — Central Secretariat Manual of Office Procedure, 2022 (16th edition) — English",
+    "url": "https://www.darpg.gov.in/static/uploads/2025/10/774e0b8f427b7875158363d842fa431f.pdf"
+  },
+  "aids": [
+    {
+      "id": "aid-csmop-2-4",
+      "workId": "csmop",
+      "unitId": "csmop-2-4",
+      "explanation": {
+        "en": "A Department is divided into Wings, Divisions, Branches and Sections. A Secretary heads the Department; a Special/Additional/Joint Secretary heads a Wing; a Director, Joint Director or Deputy Secretary heads a Division; an Under Secretary is the Branch Officer; and a Section — supervised by a Section Officer — is the LOWEST unit, staffed by Assistant Section Officers and Senior Secretariat Assistants as dealing officers with Junior Secretariat Assistants as clerical support.",
+        "hi": "विभाग स्कंधों, प्रभागों, शाखाओं और अनुभागों में विभाजित है। सचिव विभाग का प्रमुख है; विशेष/अपर/संयुक्त सचिव किसी स्कंध का; निदेशक, संयुक्त निदेशक अथवा उप सचिव किसी प्रभाग का; अवर सचिव शाखा अधिकारी है; और अनुभाग — जिसका पर्यवेक्षण अनुभाग अधिकारी करता है — निम्नतम इकाई है, जिसमें कार्यकारी अधिकारी के रूप में सहायक अनुभाग अधिकारी और वरिष्ठ सचिवालय सहायक तथा लिपिकीय सहायता के रूप में कनिष्ठ सचिवालय सहायक होते हैं।"
+      },
+      "example": {
+        "en": "A Desk is not a smaller Section: sub-para (vi) says a Desk functionary deals with cases INDEPENDENTLY with stenographic assistance and submits them to the next higher officer, whereas a Section works through a Section Officer.",
+        "hi": "डेस्क कोई छोटा अनुभाग नहीं है: उप-पैरा (vi) कहता है कि डेस्क अधिकारी आशुलिपिक सहायता के साथ मामले स्वतंत्र रूप से निपटाता है और उन्हें अगले उच्चतर अधिकारी को प्रस्तुत करता है, जबकि अनुभाग अनुभाग अधिकारी के माध्यम से काम करता है।"
+      },
+      "connects": [
+        "csmop-3-1",
+        "csmop-7-6",
+        "csmop-2-6"
+      ],
+      "misconception": {
+        "en": "\"A Section Officer is the dealing officer.\" The dealing officer is the ASO, SSA or JSA; the Section Officer SUPERVISES and examines under Para 7.4.",
+        "hi": "\"अनुभाग अधिकारी ही कार्यकारी अधिकारी है।\" कार्यकारी अधिकारी सहायक अनुभाग अधिकारी, वरिष्ठ या कनिष्ठ सचिवालय सहायक है; अनुभाग अधिकारी पैरा 7.4 के अधीन पर्यवेक्षण और परीक्षण करता है।"
+      },
+      "reviewed": true,
+      "reviewState": "approved",
+      "generationMeta": {
+        "promptVersion": "study-aid-v1",
+        "batchId": "library-aids-2026-09-03-csmop",
+        "stageA": {
+          "index": 1,
+          "angle": "the six levels between a Secretary and a dealing hand"
+        },
+        "critic": {
+          "verdict": "approve",
+          "reason": "Six levels in the manual’s own order; the Desk contrast is the part of sub-para (vi) an officer needs when a file is marked to a Desk rather than a Section."
+        },
+        "verify": {
+          "grounded": true,
+          "note": "Sub-paras (i)-(vi) are verbatim, including the Desk description."
+        },
+        "dedup": {
+          "maxScore": 0,
+          "against": null,
+          "verdict": "keep"
+        },
+        "groundingUnitIds": [
+          "csmop-2-4"
+        ]
+      },
+      "source": {
+        "name": "Department of Administrative Reforms and Public Grievances — Central Secretariat Manual of Office Procedure, 2022 (16th edition) — English",
+        "url": "https://www.darpg.gov.in/static/uploads/2025/10/774e0b8f427b7875158363d842fa431f.pdf"
+      },
+      "verify": true
+    },
+    {
+      "id": "aid-csmop-2-6",
+      "workId": "csmop",
+      "unitId": "csmop-2-6",
+      "explanation": {
+        "en": "ATTACHED offices provide the detailed executive direction needed to implement the Department’s policies and act as a repository of technical information, advising the Department. SUBORDINATE offices are field establishments or agencies for the detailed EXECUTION of policy, functioning under an attached office — or directly under the Department where the volume of executive direction is not considerable.",
+        "hi": "संलग्न कार्यालय विभाग की नीतियों के कार्यान्वयन हेतु अपेक्षित विस्तृत कार्यपालक निदेश देते हैं तथा तकनीकी जानकारी के भंडार के रूप में विभाग को परामर्श देते हैं। अधीनस्थ कार्यालय क्षेत्रीय प्रतिष्ठान अथवा नीति के विस्तृत निष्पादन हेतु अभिकरण हैं, जो किसी संलग्न कार्यालय के अधीन कार्य करते हैं — अथवा सीधे विभाग के अधीन, जहाँ कार्यपालक निदेश की मात्रा अधिक न हो।"
+      },
+      "example": {
+        "en": "The distinction decides who writes to whom: Para 8.6 sets out how senior officers and heads of attached and subordinate offices correspond with the Department, and a communication addressed on the wrong footing is a form error, not a courtesy one.",
+        "hi": "यह भेद तय करता है कि कौन किसे लिखे: पैरा 8.6 बताता है कि वरिष्ठ अधिकारी तथा संलग्न और अधीनस्थ कार्यालयों के प्रमुख विभाग से किस प्रकार पत्राचार करें, और गलत आधार पर संबोधित संप्रेषण प्ररूप की त्रुटि है, शिष्टाचार की नहीं।"
+      },
+      "connects": [
+        "csmop-2-4",
+        "csmop-8-7"
+      ],
+      "misconception": {
+        "en": "\"Attached and subordinate are the same thing at different sizes.\" The manual distinguishes them by FUNCTION — direction and technical advice versus field execution — not by size.",
+        "hi": "\"संलग्न और अधीनस्थ एक ही बात हैं, बस आकार अलग है।\" नियमावली उन्हें कृत्य से अलग करती है — निदेश और तकनीकी परामर्श बनाम क्षेत्रीय निष्पादन — आकार से नहीं।"
+      },
+      "reviewed": true,
+      "reviewState": "approved",
+      "generationMeta": {
+        "promptVersion": "study-aid-v1",
+        "batchId": "library-aids-2026-09-03-csmop",
+        "stageA": {
+          "index": 2,
+          "angle": "attached versus subordinate — a real distinction, not a courtesy"
+        },
+        "critic": {
+          "verdict": "approve",
+          "reason": "Both definitions and the Para 8.6 consequence, which is where the distinction actually bites in daily work."
+        },
+        "verify": {
+          "grounded": true,
+          "note": "Sub-paras (i)-(iii) are verbatim; Para 8.6’s subject is read from its own opening."
+        },
+        "dedup": {
+          "maxScore": 0,
+          "against": null,
+          "verdict": "keep"
+        },
+        "groundingUnitIds": [
+          "csmop-2-6",
+          "csmop-8-6"
+        ]
+      },
+      "source": {
+        "name": "Department of Administrative Reforms and Public Grievances — Central Secretariat Manual of Office Procedure, 2022 (16th edition) — English",
+        "url": "https://www.darpg.gov.in/static/uploads/2025/10/774e0b8f427b7875158363d842fa431f.pdf"
+      },
+      "verify": true
+    },
+    {
+      "id": "aid-csmop-3-1",
+      "workId": "csmop",
+      "unitId": "csmop-3-1",
+      "explanation": {
+        "en": "The Secretary is the administrative head of the Ministry/Department, the principal adviser to the Minister on policy and administration, the Chief Accounting Authority, and his responsibility is \"complete and undivided\". A Special/Additional/Joint Secretary has the maximum measure of INDEPENDENT functioning for the business of his Wing, subject to the Secretary’s overall responsibility. A Director/Deputy Secretary acts on behalf of the Secretary and holds charge of a Division. An Under Secretary is in charge of a Branch and exercises control both over disposal of business and over discipline.",
+        "hi": "सचिव मंत्रालय/विभाग का प्रशासनिक प्रमुख है, नीति और प्रशासन पर मंत्री का प्रमुख सलाहकार, मुख्य लेखा प्राधिकारी, और उसका उत्तरदायित्व \"संपूर्ण और अविभाजित\" है। विशेष/अपर/संयुक्त सचिव को अपने स्कंध के कार्य हेतु स्वतंत्र कार्य-संचालन की अधिकतम मात्रा प्राप्त है, सचिव के समग्र उत्तरदायित्व के अधीन। निदेशक/उप सचिव सचिव की ओर से कार्य करता है और किसी प्रभाग का भार धारण करता है। अवर सचिव किसी शाखा का प्रभारी है और कार्य-निपटान तथा अनुशासन दोनों पर नियंत्रण रखता है।"
+      },
+      "example": {
+        "en": "The Under Secretary’s dual control — disposal AND discipline — is what makes him the officer a Section actually answers to, and it is why Para 7.5 gives a Branch Officer the discussed-note technique for complex cases.",
+        "hi": "अवर सचिव का दोहरा नियंत्रण — निपटान तथा अनुशासन — ही उसे वह अधिकारी बनाता है जिसे अनुभाग वस्तुतः उत्तरदायी है, और इसीलिए पैरा 7.5 शाखा अधिकारी को जटिल मामलों हेतु चर्चित-टिप्पण की तकनीक देता है।"
+      },
+      "connects": [
+        "csmop-2-4",
+        "csmop-7-5",
+        "csmop-7-6"
+      ],
+      "misconception": {
+        "en": "\"Every level adds a layer of approval.\" A Joint Secretary is described as having the MAXIMUM measure of independent functioning for his Wing — the design intent is disposal at his level, not routing upwards.",
+        "hi": "\"हर स्तर अनुमोदन की एक परत जोड़ता है।\" संयुक्त सचिव को अपने स्कंध हेतु स्वतंत्र कार्य-संचालन की अधिकतम मात्रा वाला बताया गया है — रचना का आशय उसी स्तर पर निपटान है, ऊपर भेजना नहीं।"
+      },
+      "examRelevance": {
+        "en": "\"Complete and undivided\" for the Secretary and \"Chief Accounting Authority\" are the two phrases quoted verbatim in questions.",
+        "hi": "सचिव हेतु \"संपूर्ण और अविभाजित\" तथा \"मुख्य लेखा प्राधिकारी\" — प्रश्नों में यही दो वाक्यांश शब्दशः उद्धृत होते हैं।"
+      },
+      "reviewed": true,
+      "reviewState": "approved",
+      "generationMeta": {
+        "promptVersion": "study-aid-v1",
+        "batchId": "library-aids-2026-09-03-csmop",
+        "stageA": {
+          "index": 3,
+          "angle": "what each rank in the Secretariat is responsible for"
+        },
+        "critic": {
+          "verdict": "approve",
+          "reason": "Four functionaries in the manual’s own order, each with the phrase that defines its responsibility."
+        },
+        "verify": {
+          "grounded": true,
+          "note": "Sub-paras (i)-(iv) are verbatim."
+        },
+        "dedup": {
+          "maxScore": 0,
+          "against": null,
+          "verdict": "keep"
+        },
+        "groundingUnitIds": [
+          "csmop-3-1"
+        ]
+      },
+      "source": {
+        "name": "Department of Administrative Reforms and Public Grievances — Central Secretariat Manual of Office Procedure, 2022 (16th edition) — English",
+        "url": "https://www.darpg.gov.in/static/uploads/2025/10/774e0b8f427b7875158363d842fa431f.pdf"
+      },
+      "verify": true
+    },
+    {
+      "id": "aid-csmop-4-3",
+      "workId": "csmop",
+      "unitId": "csmop-4-3",
+      "explanation": {
+        "en": "Powers are generally delegated to the Secretary, a Head of Department or a Head of Office, and a case within those powers is processed on a file for that authority to decide. Where a decision carries FINANCIAL implications beyond the Department’s delegated powers, the Ministry of Finance’s instructions on the SFC, EFC, PIB and PPPAC route apply. Where it needs the Committee of Secretaries, a Group of Ministers, a Cabinet Committee or the Cabinet, the Cabinet Secretariat’s guidelines apply. Table 4.1 lists the standing consultations — Finance for financial matters, Personnel for personnel matters, Law and Justice for legislation, rules, orders and important contracts, and External Affairs for anything affecting India’s external relations.",
+        "hi": "शक्तियाँ सामान्यतः सचिव, विभागाध्यक्ष अथवा कार्यालय-प्रमुख को प्रत्यायोजित हैं, और उन शक्तियों के भीतर का मामला उस प्राधिकारी के निर्णय हेतु फ़ाइल पर संसाधित होता है। जहाँ निर्णय के वित्तीय निहितार्थ विभाग की प्रत्यायोजित शक्तियों से आगे हों, वहाँ वित्त मंत्रालय के एसएफसी, ईएफसी, पीआईबी और पीपीपीएसी संबंधी अनुदेश लागू होते हैं। जहाँ सचिवों की समिति, मंत्री-समूह, मंत्रिमंडलीय समिति अथवा मंत्रिमंडल की आवश्यकता हो, वहाँ मंत्रिमंडल सचिवालय के मार्गनिर्देश लागू होते हैं। तालिका 4.1 स्थायी परामर्श सूचीबद्ध करती है — वित्तीय विषयों हेतु वित्त, कार्मिक विषयों हेतु कार्मिक, विधान/नियम/आदेश तथा महत्वपूर्ण संविदाओं हेतु विधि और न्याय, तथा भारत के बाह्य संबंधों को प्रभावित करने वाले किसी भी विषय हेतु विदेश मंत्रालय।"
+      },
+      "example": {
+        "en": "A draft rule is a Law and Justice consultation whatever its subject, and a contract of importance is too — Table 4.1 entry 3 names \"the making of rules and orders and preparation of important contracts\" in the same row.",
+        "hi": "नियम का प्रारूप विषय चाहे जो हो, विधि और न्याय का परामर्श है, और महत्वपूर्ण संविदा भी — तालिका 4.1 की प्रविष्टि 3 एक ही पंक्ति में \"नियमों और आदेशों का बनाना तथा महत्वपूर्ण संविदाओं की तैयारी\" नामित करती है।"
+      },
+      "connects": [
+        "csmop-4-7",
+        "csmop-8-1",
+        "csmop-7-6"
+      ],
+      "misconception": {
+        "en": "\"Inter-Ministerial consultation is optional courtesy.\" Table 4.1 lists the matters where it is REQUIRED, and the financial route through SFC/EFC/PIB is instruction-bound, not discretionary.",
+        "hi": "\"अंतर-मंत्रालयी परामर्श वैकल्पिक शिष्टाचार है।\" तालिका 4.1 उन विषयों को सूचीबद्ध करती है जहाँ यह अपेक्षित है, और एसएफसी/ईएफसी/पीआईबी वाला वित्तीय मार्ग अनुदेश-बद्ध है, विवेकाधीन नहीं।"
+      },
+      "reviewed": true,
+      "reviewState": "approved",
+      "generationMeta": {
+        "promptVersion": "study-aid-v1",
+        "batchId": "library-aids-2026-09-03-csmop",
+        "stageA": {
+          "index": 4,
+          "angle": "when a decision leaves the Department"
+        },
+        "critic": {
+          "verdict": "approve",
+          "reason": "Three escalation routes and the four standing consultations from Table 4.1; nothing is added to the table."
+        },
+        "verify": {
+          "grounded": true,
+          "note": "Sub-paras (i)-(iv) and the first four rows of Table 4.1 are verbatim."
+        },
+        "dedup": {
+          "maxScore": 0,
+          "against": null,
+          "verdict": "keep"
+        },
+        "groundingUnitIds": [
+          "csmop-4-3"
+        ]
+      },
+      "source": {
+        "name": "Department of Administrative Reforms and Public Grievances — Central Secretariat Manual of Office Procedure, 2022 (16th edition) — English",
+        "url": "https://www.darpg.gov.in/static/uploads/2025/10/774e0b8f427b7875158363d842fa431f.pdf"
+      },
+      "verify": true
+    },
+    {
+      "id": "aid-csmop-4-7",
+      "workId": "csmop",
+      "unitId": "csmop-4-7",
+      "explanation": {
+        "en": "How a decision is made depends on whether it needs the approval of Parliament, of the Cabinet or a Cabinet Committee, or falls within the powers of the Minister or the Secretary. On that basis decisions fall into three categories: LEGISLATIVE PROPOSALS, POLICY ISSUES, and everything else — cases under the delegated powers of the Ministry.",
+        "hi": "निर्णय कैसे लिया जाएगा, यह इस पर निर्भर है कि उसे संसद का अनुमोदन चाहिए, मंत्रिमंडल या मंत्रिमंडलीय समिति का, अथवा वह मंत्री या सचिव की शक्तियों के भीतर है। इसी आधार पर निर्णय तीन कोटियों में आते हैं: विधायी प्रस्ताव, नीतिगत विषय, तथा शेष सब — मंत्रालय की प्रत्यायोजित शक्तियों के अधीन मामले।"
+      },
+      "example": {
+        "en": "The third category is the ordinary working day: Para 7.6 is the process for it, and Para 4.3 is what happens when a case crosses out of it into the first two.",
+        "hi": "तीसरी कोटि ही सामान्य कार्य-दिवस है: उसकी प्रक्रिया पैरा 7.6 है, और पैरा 4.3 वह है जो तब होता है जब कोई मामला उससे निकलकर पहली दो में चला जाए।"
+      },
+      "connects": [
+        "csmop-4-3",
+        "csmop-7-6",
+        "csmop-4-9"
+      ],
+      "misconception": {
+        "en": "\"Policy and legislative proposals are one category.\" The manual lists them separately, and Para 4.8 deals with legislative matters on their own.",
+        "hi": "\"नीति और विधायी प्रस्ताव एक ही कोटि हैं।\" नियमावली उन्हें अलग-अलग सूचीबद्ध करती है, और पैरा 4.8 विधायी विषयों को स्वतंत्र रूप से देखता है।"
+      },
+      "reviewed": true,
+      "reviewState": "approved",
+      "generationMeta": {
+        "promptVersion": "study-aid-v1",
+        "batchId": "library-aids-2026-09-03-csmop",
+        "stageA": {
+          "index": 5,
+          "angle": "three categories of Government decision"
+        },
+        "critic": {
+          "verdict": "approve",
+          "reason": "Three categories, and the aid’s value is showing which paragraph governs each rather than restating four lines."
+        },
+        "verify": {
+          "grounded": true,
+          "note": "The three categories (a)-(c) and the criterion sentence are verbatim."
+        },
+        "dedup": {
+          "maxScore": 0,
+          "against": null,
+          "verdict": "keep"
+        },
+        "groundingUnitIds": [
+          "csmop-4-7"
+        ]
+      },
+      "source": {
+        "name": "Department of Administrative Reforms and Public Grievances — Central Secretariat Manual of Office Procedure, 2022 (16th edition) — English",
+        "url": "https://www.darpg.gov.in/static/uploads/2025/10/774e0b8f427b7875158363d842fa431f.pdf"
+      },
+      "verify": true
+    },
+    {
+      "id": "aid-csmop-4-9",
+      "workId": "csmop",
+      "unitId": "csmop-4-9",
+      "explanation": {
+        "en": "Four things are named as what makes decision-making efficient. PUBLISH the channel of submission for unclassified cases on the Department’s website and review the levels of disposal at least once in THREE YEARS. Identify work that suits the DESK OFFICER SYSTEM. Use the e-Office platform optimally, with reskilling and migration to updated versions. And STRENGTHEN THE CENTRAL REGISTRY UNIT with the human resources and infrastructure a digital secretariat needs.",
+        "hi": "निर्णय-प्रक्रिया को कुशल बनाने वाली चार बातें नामित हैं। अवर्गीकृत मामलों हेतु प्रस्तुतीकरण की श्रृंखला विभाग की वेबसाइट पर प्रकाशित करें और निपटान के स्तरों की समीक्षा कम से कम तीन वर्ष में एक बार करें। ऐसा कार्य पहचानें जो डेस्क अधिकारी प्रणाली के उपयुक्त हो। ई-ऑफिस मंच का इष्टतम प्रयोग करें, साथ में पुनःकौशल और अद्यतन संस्करणों में संक्रमण। तथा केंद्रीय रजिस्ट्री इकाई को उन मानव संसाधनों और अवसंरचना से सुदृढ़ करें जो डिजिटल सचिवालय हेतु आवश्यक हैं।"
+      },
+      "example": {
+        "en": "Publishing the channel of submission is not transparency for its own sake: Para 7.6 says the Dealing Officer acts on a case in accordance with those very instructions, so a channel nobody can read is a channel nobody can follow.",
+        "hi": "प्रस्तुतीकरण की श्रृंखला प्रकाशित करना केवल पारदर्शिता हेतु नहीं है: पैरा 7.6 कहता है कि कार्यकारी अधिकारी उन्हीं अनुदेशों के अनुसार मामले पर कार्रवाई करता है, अतः जो श्रृंखला कोई पढ़ न सके, उसका पालन भी कोई नहीं कर सकता।"
+      },
+      "connects": [
+        "csmop-7-6",
+        "csmop-5-3",
+        "csmop-2-4"
+      ],
+      "misconception": {
+        "en": "\"Para 4.9 is an exhortation.\" Each of its four provisions cites a specific paragraph or chapter of the manual and imposes a concrete act — including a three-yearly review with a stated interval.",
+        "hi": "\"पैरा 4.9 उपदेश है।\" उसके चारों उपबंध नियमावली के किसी विशिष्ट पैरा या अध्याय का उद्धरण देते हैं और ठोस कार्य अधिरोपित करते हैं — जिसमें निर्धारित अंतराल वाली त्रैवार्षिक समीक्षा भी है।"
+      },
+      "reviewed": true,
+      "reviewState": "approved",
+      "generationMeta": {
+        "promptVersion": "study-aid-v1",
+        "batchId": "library-aids-2026-09-03-csmop",
+        "stageA": {
+          "index": 6,
+          "angle": "four compliance provisions that speed decision-making up"
+        },
+        "critic": {
+          "verdict": "approve",
+          "reason": "Four named provisions with their own cross-references, and the three-year review interval, which is the only number in the paragraph."
+        },
+        "verify": {
+          "grounded": true,
+          "note": "Sub-para (ii)(a)-(d) is verbatim, including the three-year review and the cross-references to Paras 7.6 and 3.1 and Chapter 15."
+        },
+        "dedup": {
+          "maxScore": 0,
+          "against": null,
+          "verdict": "keep"
+        },
+        "groundingUnitIds": [
+          "csmop-4-9"
+        ]
+      },
+      "source": {
+        "name": "Department of Administrative Reforms and Public Grievances — Central Secretariat Manual of Office Procedure, 2022 (16th edition) — English",
+        "url": "https://www.darpg.gov.in/static/uploads/2025/10/774e0b8f427b7875158363d842fa431f.pdf"
+      },
+      "verify": true
+    },
+    {
+      "id": "aid-csmop-5-1",
+      "workId": "csmop",
+      "unitId": "csmop-5-1",
+      "explanation": {
+        "en": "During office hours ALL dak — including dak addressed to Ministers or officers by name — is received in the CRU or IFC. Three departures: dak with an urgency grading addressed by name goes by special messenger direct to the addressee or their personal staff; where an officer is on leave, tour, training, retired or transferred, the successor, personal staff, link officer or the officer below him receives it, EXCEPT confidential letters, and the CRU receives it if none is in position; and outside office hours, dak marked immediate and addressed by name is received by the addressee at his residence, with prior telephone intimation.",
+        "hi": "कार्यालय-समय में समस्त डाक — मंत्रियों या अधिकारियों को नाम से संबोधित डाक सहित — केंद्रीय रजिस्ट्री इकाई या सूचना एवं सुविधा केंद्र में प्राप्त होती है। तीन अपवाद: नाम से संबोधित तात्कालिकता-श्रेणी वाली डाक विशेष संदेशवाहक द्वारा सीधे संबोधिती अथवा उसके निजी स्टाफ को जाती है; जहाँ अधिकारी अवकाश, दौरे, प्रशिक्षण पर हो, सेवानिवृत्त या स्थानांतरित हो, वहाँ उत्तराधिकारी, निजी स्टाफ, लिंक अधिकारी अथवा उससे नीचे का अधिकारी उसे प्राप्त करता है — गोपनीय पत्रों को छोड़कर — और कोई भी उपलब्ध न हो तो केंद्रीय रजिस्ट्री इकाई; तथा कार्यालय-समय के बाद, तत्काल अंकित और नाम से संबोधित डाक संबोधिती अपने निवास पर प्राप्त करता है, पूर्व दूरभाष सूचना के साथ।"
+      },
+      "example": {
+        "en": "The manual is emphatic on one point: \"In no case immediate and/or important letters should be undelivered or returned by the Department.\" An absent addressee is not a reason to send dak back.",
+        "hi": "नियमावली एक बिंदु पर स्पष्ट है: \"किसी भी दशा में तत्काल और/या महत्वपूर्ण पत्र अवितरित न रहें अथवा विभाग द्वारा लौटाए न जाएँ।\" संबोधिती की अनुपस्थिति डाक लौटाने का कारण नहीं है।"
+      },
+      "connects": [
+        "csmop-5-2",
+        "csmop-5-3",
+        "csmop-5-5"
+      ],
+      "misconception": {
+        "en": "\"Dak addressed by name goes straight to the officer.\" Only where it carries an urgency grading. Ordinary by-name dak is received in the CRU or IFC like everything else.",
+        "hi": "\"नाम से संबोधित डाक सीधे अधिकारी को जाती है।\" केवल तब जब उस पर तात्कालिकता-श्रेणी हो। सामान्य नाम-वाली डाक शेष सब की भाँति केंद्रीय रजिस्ट्री इकाई या सूचना एवं सुविधा केंद्र में प्राप्त होती है।"
+      },
+      "reviewed": true,
+      "reviewState": "approved",
+      "generationMeta": {
+        "promptVersion": "study-aid-v1",
+        "batchId": "library-aids-2026-09-03-csmop",
+        "stageA": {
+          "index": 7,
+          "angle": "where dak is received, and the three cases that bypass the registry"
+        },
+        "critic": {
+          "verdict": "approve",
+          "reason": "The general rule plus its three departures; the \"in no case … returned\" sentence is the manual’s own emphasis and is the practical instruction."
+        },
+        "verify": {
+          "grounded": true,
+          "note": "Sub-paras (i)-(iv) are verbatim, including the undelivered-or-returned sentence."
+        },
+        "dedup": {
+          "maxScore": 0,
+          "against": null,
+          "verdict": "keep"
+        },
+        "groundingUnitIds": [
+          "csmop-5-1"
+        ]
+      },
+      "source": {
+        "name": "Department of Administrative Reforms and Public Grievances — Central Secretariat Manual of Office Procedure, 2022 (16th edition) — English",
+        "url": "https://www.darpg.gov.in/static/uploads/2025/10/774e0b8f427b7875158363d842fa431f.pdf"
+      },
+      "verify": true
+    },
+    {
+      "id": "aid-csmop-5-2",
+      "workId": "csmop",
+      "unitId": "csmop-5-2",
+      "explanation": {
+        "en": "Urgency-graded dak is separated and dealt with FIRST. All covers are opened by the CRU or IFC EXCEPT those addressed to Ministers or officers by name and those bearing a SECURITY GRADING. On opening, enclosures are checked and any missing item is noted on the dak. Every opened dak — and the COVER of unopened classified dak — is date-stamped with the Ministry/Department, the date of receipt and the CRU/IFC registration number. The dak is then sorted section-wise and officer-wise against an up-to-date list of subject allocation.",
+        "hi": "तात्कालिकता-श्रेणी वाली डाक अलग करके पहले निपटाई जाती है। सभी लिफ़ाफ़े केंद्रीय रजिस्ट्री इकाई या सूचना एवं सुविधा केंद्र खोलता है, सिवाय उनके जो मंत्रियों या अधिकारियों को नाम से संबोधित हों तथा जिन पर सुरक्षा-श्रेणी अंकित हो। खोलने पर संलग्नक जाँचे जाते हैं और कोई वस्तु न मिलने पर डाक पर उसका उल्लेख होता है। प्रत्येक खोली गई डाक — और अनखुली वर्गीकृत डाक का लिफ़ाफ़ा — मंत्रालय/विभाग, प्राप्ति तिथि तथा रजिस्ट्रीकरण संख्या सहित तिथि-मुद्रांकित होती है। फिर डाक विषय-आवंटन की अद्यतन सूची के विरुद्ध अनुभागवार और अधिकारीवार छाँटी जाती है।"
+      },
+      "example": {
+        "en": "The COVER of a classified letter is stamped even though the cover is not opened — which is how a security-graded item enters the register without anybody in the CRU reading it.",
+        "hi": "वर्गीकृत पत्र का लिफ़ाफ़ा मुद्रांकित होता है यद्यपि लिफ़ाफ़ा खोला नहीं जाता — और इसी प्रकार सुरक्षा-श्रेणी वाली वस्तु रजिस्टर में आ जाती है बिना किसी के उसे पढ़े।"
+      },
+      "connects": [
+        "csmop-5-1",
+        "csmop-5-3",
+        "csmop-13-2"
+      ],
+      "misconception": {
+        "en": "\"Classified dak is not registered.\" Its COVER is date-stamped and it enters the system; what is protected is the contents, not the fact of receipt.",
+        "hi": "\"वर्गीकृत डाक रजिस्टर नहीं होती।\" उसका लिफ़ाफ़ा तिथि-मुद्रांकित होता है और वह प्रणाली में आ जाती है; संरक्षित अंतर्वस्तु है, प्राप्ति का तथ्य नहीं।"
+      },
+      "reviewed": true,
+      "reviewState": "approved",
+      "generationMeta": {
+        "promptVersion": "study-aid-v1",
+        "batchId": "library-aids-2026-09-03-csmop",
+        "stageA": {
+          "index": 8,
+          "angle": "which covers may be opened, and what goes on the stamp"
+        },
+        "critic": {
+          "verdict": "approve",
+          "reason": "The two exceptions to opening and the stamping of an unopened cover are the operative content and the second is the one nobody expects."
+        },
+        "verify": {
+          "grounded": true,
+          "note": "Sub-paras (i)-(v) and Box 5.1’s stamp specimen are verbatim."
+        },
+        "dedup": {
+          "maxScore": 0,
+          "against": null,
+          "verdict": "keep"
+        },
+        "groundingUnitIds": [
+          "csmop-5-2"
+        ]
+      },
+      "source": {
+        "name": "Department of Administrative Reforms and Public Grievances — Central Secretariat Manual of Office Procedure, 2022 (16th edition) — English",
+        "url": "https://www.darpg.gov.in/static/uploads/2025/10/774e0b8f427b7875158363d842fa431f.pdf"
+      },
+      "verify": true
+    },
+    {
+      "id": "aid-csmop-5-3",
+      "workId": "csmop",
+      "unitId": "csmop-5-3",
+      "explanation": {
+        "en": "Dak is registered AT THE ENTRY LEVEL so that accountability attaches to every paper received. Six classes are excepted, subject to departmental instructions: receipts already covered by a purpose-built register (telephone bills, for instance); communications from Members of Parliament, for which Para 12.2 requires a separate register; identical copies of a representation apart from the first, unless a senior officer has recorded remarks; CASUAL LEAVE applications; circulars, office memoranda and extracts circulated for general information; and any other class departmental instructions exempt.",
+        "hi": "डाक प्रवेश-स्तर पर ही रजिस्टर की जाती है ताकि प्राप्त प्रत्येक कागज़ पर जवाबदेही जुड़े। विभागीय अनुदेशों के अधीन छह वर्ग अपवादित हैं: वे प्राप्तियाँ जो किसी विशेष प्रयोजन-रजिस्टर से पहले ही संभल जाती हैं (जैसे दूरभाष बिल); संसद सदस्यों से प्राप्त संप्रेषण, जिनके लिए पैरा 12.2 पृथक् रजिस्टर अपेक्षित करता है; किसी अभ्यावेदन की समरूप प्रतियाँ, पहली को छोड़कर, जब तक किसी वरिष्ठ अधिकारी ने टिप्पणी न लिखी हो; आकस्मिक अवकाश आवेदन; सामान्य जानकारी हेतु परिचालित परिपत्र, कार्यालय ज्ञापन और उद्धरण; तथा कोई अन्य वर्ग जिसे विभागीय अनुदेश छूट दें।"
+      },
+      "example": {
+        "en": "A Member of Parliament’s letter is excepted from the general register precisely because it goes into a STRICTER one: Para 12.2 requires a separate register to watch its disposal.",
+        "hi": "संसद सदस्य का पत्र सामान्य रजिस्टर से इसीलिए अपवादित है कि वह एक कड़े रजिस्टर में जाता है: पैरा 12.2 उसके निपटान की निगरानी हेतु पृथक् रजिस्टर अपेक्षित करता है।"
+      },
+      "connects": [
+        "csmop-5-2",
+        "csmop-5-4",
+        "csmop-8-9"
+      ],
+      "misconception": {
+        "en": "\"An exception means the paper is untracked.\" Two of the six exceptions exist because a BETTER register already covers the item, and the exceptions are themselves subject to departmental instructions.",
+        "hi": "\"अपवाद का अर्थ है कागज़ अनुरेखित रह गया।\" छह में दो अपवाद इसलिए हैं कि उस वस्तु को कोई बेहतर रजिस्टर पहले ही समाविष्ट करता है, और अपवाद स्वयं विभागीय अनुदेशों के अधीन हैं।"
+      },
+      "examRelevance": {
+        "en": "The six exempted classes in sub-para (ii)(a)-(f) are a straight list question.",
+        "hi": "उप-पैरा (ii)(क)-(च) के छह छूट-प्राप्त वर्ग सीधा सूची-प्रश्न हैं।"
+      },
+      "reviewed": true,
+      "reviewState": "approved",
+      "generationMeta": {
+        "promptVersion": "study-aid-v1",
+        "batchId": "library-aids-2026-09-03-csmop",
+        "stageA": {
+          "index": 9,
+          "angle": "six classes of dak that need no registration"
+        },
+        "critic": {
+          "verdict": "approve",
+          "reason": "Six exceptions in the manual’s own order; the MP-letter point explains why an exception is not a gap."
+        },
+        "verify": {
+          "grounded": true,
+          "note": "Sub-paras (i)-(iii) including clauses (a)-(f) are verbatim."
+        },
+        "dedup": {
+          "maxScore": 0,
+          "against": null,
+          "verdict": "keep"
+        },
+        "groundingUnitIds": [
+          "csmop-5-3"
+        ]
+      },
+      "source": {
+        "name": "Department of Administrative Reforms and Public Grievances — Central Secretariat Manual of Office Procedure, 2022 (16th edition) — English",
+        "url": "https://www.darpg.gov.in/static/uploads/2025/10/774e0b8f427b7875158363d842fa431f.pdf"
+      },
+      "verify": true
+    },
+    {
+      "id": "aid-csmop-5-4",
+      "workId": "csmop",
+      "unitId": "csmop-5-4",
+      "explanation": {
+        "en": "Receipt of dak, INCLUDING FILES from other Departments, is acknowledged by the recipient by signing IN INK IN FULL in the messenger (peon) book, with name, date and designation — except ordinary postal dak. Dak received through e-mail is also to be acknowledged. In eFile, acknowledgement is automatic by SMS or e-mail after registration, provided the sender’s mobile number and e-mail address were entered.",
+        "hi": "डाक की प्राप्ति — अन्य विभागों से आई फ़ाइलों सहित — प्राप्तकर्ता द्वारा संदेशवाहक (चपरासी) पुस्तिका में नाम, तिथि और पदनाम सहित पूरे हस्ताक्षर स्याही से करके स्वीकार की जाती है — साधारण डाकघर की डाक को छोड़कर। ई-मेल से प्राप्त डाक की भी पावती दी जानी चाहिए। ई-फ़ाइल में रजिस्ट्रीकरण के बाद पावती एसएमएस या ई-मेल से स्वतः हो जाती है, बशर्ते प्रेषक का मोबाइल नंबर और ई-मेल पता दर्ज किया गया हो।"
+      },
+      "example": {
+        "en": "A file received from another Department is dak for this purpose. Taking it without a signature in the peon book leaves no record of when custody changed, which is exactly what Para 5.3’s accountability rests on.",
+        "hi": "किसी अन्य विभाग से प्राप्त फ़ाइल इस प्रयोजन हेतु डाक है। चपरासी पुस्तिका में हस्ताक्षर किए बिना उसे लेना यह अभिलेख नहीं छोड़ता कि अभिरक्षा कब बदली, और पैरा 5.3 की जवाबदेही ठीक इसी पर टिकी है।"
+      },
+      "connects": [
+        "csmop-5-3",
+        "csmop-5-5"
+      ],
+      "misconception": {
+        "en": "\"Initials are enough.\" The manual says signing IN INK IN FULL with name, date and designation.",
+        "hi": "\"संक्षिप्त हस्ताक्षर पर्याप्त हैं।\" नियमावली कहती है नाम, तिथि और पदनाम सहित स्याही से पूरे हस्ताक्षर।"
+      },
+      "reviewed": true,
+      "reviewState": "approved",
+      "generationMeta": {
+        "promptVersion": "study-aid-v1",
+        "batchId": "library-aids-2026-09-03-csmop",
+        "stageA": {
+          "index": 10,
+          "angle": "what an acknowledgement of dak has to carry"
+        },
+        "critic": {
+          "verdict": "approve",
+          "reason": "The full-signature requirement and the inclusion of files from other Departments are the two things this short paragraph decides."
+        },
+        "verify": {
+          "grounded": true,
+          "note": "The paragraph and Box e.5.6 are verbatim."
+        },
+        "dedup": {
+          "maxScore": 0,
+          "against": null,
+          "verdict": "keep"
+        },
+        "groundingUnitIds": [
+          "csmop-5-4"
+        ]
+      },
+      "source": {
+        "name": "Department of Administrative Reforms and Public Grievances — Central Secretariat Manual of Office Procedure, 2022 (16th edition) — English",
+        "url": "https://www.darpg.gov.in/static/uploads/2025/10/774e0b8f427b7875158363d842fa431f.pdf"
+      },
+      "verify": true
+    },
+    {
+      "id": "aid-csmop-5-5",
+      "workId": "csmop",
+      "unitId": "csmop-5-5",
+      "explanation": {
+        "en": "Receipts go to the section or officer concerned and are acknowledged by the receiver, or acknowledged in a section-wise register. Urgency-graded dak is distributed AS AND WHEN RECEIVED; other dak may go at suitable intervals — the manual names 11.00 a.m., 2.00 p.m. and 4.00 p.m. Dak too late for the last round is kept ready for early next day. The official in charge of the CRU must ensure sorting and registration is completed on the DAY OF RECEIPT so far as possible, that the night duty staff attends to the rest without prejudice to Immediate and Priority dak, and that pending receipts are handed over to the night duty staff against their full signature.",
+        "hi": "प्राप्तियाँ संबंधित अनुभाग या अधिकारी को जाती हैं और प्राप्तकर्ता द्वारा स्वीकार की जाती हैं, अथवा अनुभागवार रजिस्टर में पावती ली जाती है। तात्कालिकता-श्रेणी वाली डाक प्राप्त होते ही वितरित होती है; अन्य डाक उपयुक्त अंतराल पर — नियमावली 11.00 पूर्वाह्न, 2.00 अपराह्न और 4.00 अपराह्न नामित करती है। अंतिम चक्र के लिए बहुत देर से आई डाक अगले दिन प्रातः वितरण हेतु तैयार रखी जाती है। केंद्रीय रजिस्ट्री इकाई का प्रभारी सुनिश्चित करेगा कि यथासंभव छँटाई और रजिस्ट्रीकरण प्राप्ति के दिन ही पूरा हो, शेष कार्य रात्रि-ड्यूटी कर्मचारी करें — तत्काल और प्राथमिकता डाक पर प्रतिकूल प्रभाव डाले बिना — तथा लंबित प्राप्तियाँ रात्रि-ड्यूटी कर्मचारियों को उनके पूरे हस्ताक्षर लेकर सौंपी जाएँ।"
+      },
+      "example": {
+        "en": "The three named times are for ORDINARY dak only. Urgency-graded dak does not wait for a round, and dak with an urgency grading received outside office hours goes to the section if staff are on duty.",
+        "hi": "तीनों नामित समय केवल सामान्य डाक के लिए हैं। तात्कालिकता-श्रेणी वाली डाक किसी चक्र की प्रतीक्षा नहीं करती, और कार्यालय-समय के बाद प्राप्त ऐसी डाक अनुभाग को जाती है यदि कर्मचारी ड्यूटी पर हों।"
+      },
+      "connects": [
+        "csmop-5-4",
+        "csmop-5-6",
+        "csmop-5-1"
+      ],
+      "misconception": {
+        "en": "\"Dak is distributed three times a day.\" Those are suggested intervals for ordinary dak; urgency-graded dak is distributed as and when received.",
+        "hi": "\"डाक दिन में तीन बार वितरित होती है।\" वे सामान्य डाक हेतु सुझाए गए अंतराल हैं; तात्कालिकता-श्रेणी वाली डाक प्राप्त होते ही वितरित होती है।"
+      },
+      "reviewed": true,
+      "reviewState": "approved",
+      "generationMeta": {
+        "promptVersion": "study-aid-v1",
+        "batchId": "library-aids-2026-09-03-csmop",
+        "stageA": {
+          "index": 11,
+          "angle": "three distribution rounds a day, and what happens to the late post"
+        },
+        "critic": {
+          "verdict": "approve",
+          "reason": "The two distribution regimes and the CRU in-charge’s three duties; the times are quoted as the manual gives them, with \"may\" preserved."
+        },
+        "verify": {
+          "grounded": true,
+          "note": "Sub-paras (i)-(iv) including clauses (a)-(c) are verbatim."
+        },
+        "dedup": {
+          "maxScore": 0,
+          "against": null,
+          "verdict": "keep"
+        },
+        "groundingUnitIds": [
+          "csmop-5-5"
+        ]
+      },
+      "source": {
+        "name": "Department of Administrative Reforms and Public Grievances — Central Secretariat Manual of Office Procedure, 2022 (16th edition) — English",
+        "url": "https://www.darpg.gov.in/static/uploads/2025/10/774e0b8f427b7875158363d842fa431f.pdf"
+      },
+      "verify": true
+    },
+    {
+      "id": "aid-csmop-5-9",
+      "workId": "csmop",
+      "unitId": "csmop-5-9",
+      "explanation": {
+        "en": "Where a section believes a receipt or forwarded e-mail was mis-sent to it, the matter goes to the UNDER SECRETARY designated by departmental instructions for deciding allocation of disputed receipts. He must settle it at the earliest and WITHIN TWO WORKING DAYS from the date of receipt in the Department — and within HALF A DAY where the disputed receipt carries an urgency grading.",
+        "hi": "जहाँ किसी अनुभाग को लगे कि कोई प्राप्ति या अग्रेषित ई-मेल उसे गलती से भेजी गई है, वहाँ विषय उस अवर सचिव के पास जाता है जिसे विभागीय अनुदेशों ने विवादित प्राप्तियों का आवंटन तय करने हेतु नामनिर्दिष्ट किया है। उसे इसे यथाशीघ्र और विभाग में प्राप्ति की तिथि से दो कार्य-दिवस के भीतर निपटाना होगा — तथा विवादित प्राप्ति पर तात्कालिकता-श्रेणी होने पर आधे दिन के भीतर।"
+      },
+      "example": {
+        "en": "The clock runs from receipt IN THE DEPARTMENT, not from the day the second section objected — so a receipt bounced between two sections for a week is already out of time when it reaches the Under Secretary.",
+        "hi": "गणना विभाग में प्राप्ति से चलती है, उस दिन से नहीं जब दूसरे अनुभाग ने आपत्ति की — अतः एक सप्ताह तक दो अनुभागों के बीच घूमी प्राप्ति अवर सचिव तक पहुँचते-पहुँचते पहले ही समय-बाह्य हो चुकी है।"
+      },
+      "connects": [
+        "csmop-5-5",
+        "csmop-5-10"
+      ],
+      "misconception": {
+        "en": "\"A disputed receipt goes back to the CRU.\" It goes to a designated Under Secretary, and the two-day clock runs from receipt in the Department.",
+        "hi": "\"विवादित प्राप्ति केंद्रीय रजिस्ट्री इकाई को वापस जाती है।\" वह नामनिर्दिष्ट अवर सचिव के पास जाती है, और दो दिन की गणना विभाग में प्राप्ति से चलती है।"
+      },
+      "examRelevance": {
+        "en": "Two working days, half a day for urgent, and a designated Under Secretary as the deciding authority.",
+        "hi": "दो कार्य-दिवस, तात्कालिक हेतु आधा दिन, तथा निर्णय प्राधिकारी के रूप में नामनिर्दिष्ट अवर सचिव।"
+      },
+      "reviewed": true,
+      "reviewState": "approved",
+      "generationMeta": {
+        "promptVersion": "study-aid-v1",
+        "batchId": "library-aids-2026-09-03-csmop",
+        "stageA": {
+          "index": 12,
+          "angle": "two working days to settle a disputed receipt, half a day if urgent"
+        },
+        "critic": {
+          "verdict": "approve",
+          "reason": "One sentence with two deadlines and a named authority; the start of the clock is what makes them enforceable."
+        },
+        "verify": {
+          "grounded": true,
+          "note": "The paragraph is one sentence and is quoted in substance, including both deadlines."
+        },
+        "dedup": {
+          "maxScore": 0,
+          "against": null,
+          "verdict": "keep"
+        },
+        "groundingUnitIds": [
+          "csmop-5-9"
+        ]
+      },
+      "source": {
+        "name": "Department of Administrative Reforms and Public Grievances — Central Secretariat Manual of Office Procedure, 2022 (16th edition) — English",
+        "url": "https://www.darpg.gov.in/static/uploads/2025/10/774e0b8f427b7875158363d842fa431f.pdf"
+      },
+      "verify": true
+    },
+    {
+      "id": "aid-csmop-5-10",
+      "workId": "csmop",
+      "unitId": "csmop-5-10",
+      "explanation": {
+        "en": "Four general principles govern action on receipts: paper work at an essential minimum, the least possible time for examination and disposal, \"SPEED WITH ACCURACY\" as the objective, and simplified pre-structured formats — standard process sheets — for repetitive cases. The Dealing Officer must then segregate receipts by urgency grading and deal with the graded ones first; check enclosures and chase any that are missing; send extracts to any other section concerned; process the receipt on a current file or open a new one; locate connected files using the standing guard file, precedent book and reference folder; identify the issues and record a note on the FUNCTIONAL APPROACH of Para 7.14; and arrange the papers.",
+        "hi": "प्राप्तियों पर कार्रवाई को चार सामान्य सिद्धांत शासित करते हैं: कागज़ी कार्य न्यूनतम आवश्यक, परीक्षण और निपटान में न्यूनतम संभव समय, उद्देश्य \"शुद्धता के साथ गति\", तथा पुनरावर्ती मामलों हेतु सरलीकृत पूर्व-संरचित प्ररूप — मानक प्रक्रिया पत्रक। कार्यकारी अधिकारी को फिर प्राप्तियाँ तात्कालिकता-श्रेणी से अलग करनी होंगी और श्रेणीबद्ध पहले निपटानी होंगी; संलग्नक जाँचकर छूटे हुए मँगाने होंगे; संबंधित किसी अन्य अनुभाग को उद्धरण भेजने होंगे; प्राप्ति को चालू फ़ाइल पर संसाधित करना या नई फ़ाइल खोलनी होगी; स्थायी गार्ड फ़ाइल, पूर्वोदाहरण पुस्तिका और संदर्भ फोल्डर से संबद्ध फ़ाइलें खोजनी होंगी; विषय पहचानकर पैरा 7.14 के कार्यात्मक दृष्टिकोण पर टिप्पण लिखना होगा; और कागज़ात व्यवस्थित करने होंगे।"
+      },
+      "example": {
+        "en": "\"Speed with accuracy\" is the manual’s own phrase and it is the standard against which sub-para (a)(iii) asks an officer to optimise BOTH the quality and the quantity of his work — not one at the cost of the other.",
+        "hi": "\"शुद्धता के साथ गति\" नियमावली का अपना वाक्यांश है और वही वह मानक है जिसके विरुद्ध उप-पैरा (क)(iii) अधिकारी से अपने कार्य की गुणवत्ता और मात्रा दोनों को इष्टतम करने को कहता है — एक की कीमत पर दूसरी नहीं।"
+      },
+      "connects": [
+        "csmop-7-14",
+        "csmop-7-3",
+        "csmop-5-5"
+      ],
+      "misconception": {
+        "en": "\"The dealing officer’s job starts with the note.\" Six steps come before it in sub-para (b), and one of them — sending extracts to any other concerned section — is what stops a case being examined twice.",
+        "hi": "\"कार्यकारी अधिकारी का काम टिप्पण से शुरू होता है।\" उप-पैरा (ख) में उससे पहले छह चरण आते हैं, और उनमें से एक — संबंधित किसी अन्य अनुभाग को उद्धरण भेजना — वही है जो किसी मामले की दो बार जाँच होने से रोकता है।"
+      },
+      "reviewed": true,
+      "reviewState": "approved",
+      "generationMeta": {
+        "promptVersion": "study-aid-v1",
+        "batchId": "library-aids-2026-09-03-csmop",
+        "stageA": {
+          "index": 13,
+          "angle": "the dealing officer’s checklist, in the order the manual gives it"
+        },
+        "critic": {
+          "verdict": "approve",
+          "reason": "Four principles and the dealing officer’s ordered steps; the note is placed where the manual places it, at step (viii), not first."
+        },
+        "verify": {
+          "grounded": true,
+          "note": "Sub-paras (a)(i)-(iv) and (b)(i)-(ix) are verbatim."
+        },
+        "dedup": {
+          "maxScore": 0,
+          "against": null,
+          "verdict": "keep"
+        },
+        "groundingUnitIds": [
+          "csmop-5-10"
+        ]
+      },
+      "source": {
+        "name": "Department of Administrative Reforms and Public Grievances — Central Secretariat Manual of Office Procedure, 2022 (16th edition) — English",
+        "url": "https://www.darpg.gov.in/static/uploads/2025/10/774e0b8f427b7875158363d842fa431f.pdf"
+      },
+      "verify": true
+    },
+    {
+      "id": "aid-csmop-7-1",
+      "workId": "csmop",
+      "unitId": "csmop-7-1",
+      "explanation": {
+        "en": "A NOTE is the remarks recorded on a case to facilitate its disposal. It includes a précis of previous papers, an analysis of the issues requiring decision, the financial, legal or other implications, suggestions with justifications, and the final decision along with the AUTHORITY COMPETENT to take it. NOTING is the process of recording a note on the notes portion of a file, done by the dealing officer and the officers above him so that the competent authority can decide.",
+        "hi": "टिप्पण किसी मामले पर उसके निपटान को सुगम बनाने हेतु अभिलिखित टिप्पणियाँ हैं। उसमें पूर्ववर्ती कागज़ात का सार, निर्णय अपेक्षित करने वाले विषयों का विश्लेषण, वित्तीय, विधिक अथवा अन्य निहितार्थ, औचित्य सहित सुझाव, तथा अंतिम निर्णय के साथ उसे लेने हेतु सक्षम प्राधिकारी सम्मिलित हैं। टिप्पण-लेखन फ़ाइल के टिप्पण-भाग पर टिप्पण अभिलिखित करने की प्रक्रिया है, जो कार्यकारी अधिकारी और उससे ऊपर के अधिकारी करते हैं ताकि सक्षम प्राधिकारी निर्णय ले सके।"
+      },
+      "example": {
+        "en": "Naming the COMPETENT AUTHORITY is part of the definition of a note, not an optional courtesy — and Para 7.3(x) makes the dealing officer indicate it along with a copy of the delegation of powers.",
+        "hi": "सक्षम प्राधिकारी का नाम लेना टिप्पण की परिभाषा का ही अंग है, कोई वैकल्पिक शिष्टाचार नहीं — और पैरा 7.3(x) कार्यकारी अधिकारी से अपेक्षित करता है कि वह उसे शक्तियों के प्रत्यायोजन की प्रति सहित दर्शाए।"
+      },
+      "connects": [
+        "csmop-7-2",
+        "csmop-7-3",
+        "csmop-7-14"
+      ],
+      "misconception": {
+        "en": "\"A note is a summary of the file.\" The definition names five components, and analysis of implications and a justified suggestion are two of them.",
+        "hi": "\"टिप्पण फ़ाइल का सारांश है।\" परिभाषा पाँच घटक नामित करती है, और निहितार्थों का विश्लेषण तथा औचित्य सहित सुझाव उनमें से दो हैं।"
+      },
+      "reviewed": true,
+      "reviewState": "approved",
+      "generationMeta": {
+        "promptVersion": "study-aid-v1",
+        "batchId": "library-aids-2026-09-03-csmop",
+        "stageA": {
+          "index": 14,
+          "angle": "what a note is, and what it must contain"
+        },
+        "critic": {
+          "verdict": "approve",
+          "reason": "Five components in the manual’s own order; the Para 7.3(x) cross-reference is what makes the competent-authority element concrete."
+        },
+        "verify": {
+          "grounded": true,
+          "note": "Sub-paras (i)-(ii) are verbatim; Para 7.3(x) was read from Para 7.3."
+        },
+        "dedup": {
+          "maxScore": 0,
+          "against": null,
+          "verdict": "keep"
+        },
+        "groundingUnitIds": [
+          "csmop-7-1",
+          "csmop-7-3"
+        ]
+      },
+      "source": {
+        "name": "Department of Administrative Reforms and Public Grievances — Central Secretariat Manual of Office Procedure, 2022 (16th edition) — English",
+        "url": "https://www.darpg.gov.in/static/uploads/2025/10/774e0b8f427b7875158363d842fa431f.pdf"
+      },
+      "verify": true
+    },
+    {
+      "id": "aid-csmop-7-2",
+      "workId": "csmop",
+      "unitId": "csmop-7-2",
+      "explanation": {
+        "en": "All notes go on the note sheet (Green Sheet). A note is submitted either to seek approval of the competent authority or for information, and must be CONCISE — verbatim reproduction or paraphrasing of the paper under consideration, the fresh receipt or earlier notes is to be avoided in favour of a summarised version. An officer passing orders confines his note to the actual points he is making, without repeating ground already covered: if he AGREES with the preceding note he MERELY APPENDS HIS SIGNATURE, and if he decides differently he gives reasons. Relevant provisions of an Act or rules are PLACED ON THE FILE and referred to, not reproduced. A SELF-CONTAINED note goes with every case submitted to the Secretary or the Minister unless a running summary already serves that purpose.",
+        "hi": "सभी टिप्पण टिप्पण-पत्रक (हरे पत्रक) पर लिखे जाते हैं। टिप्पण या तो सक्षम प्राधिकारी के अनुमोदन हेतु या जानकारी हेतु प्रस्तुत होता है, और संक्षिप्त होना चाहिए — विचाराधीन कागज़, नई प्राप्ति अथवा पूर्ववर्ती टिप्पणों का शब्दशः पुनरुत्पादन या पुनर्कथन टालना है, उसके स्थान पर सारांशित रूप देना है। आदेश पारित करने वाला अधिकारी अपने टिप्पण को उन्हीं बिंदुओं तक सीमित रखता है जो वह कह रहा है, पहले से आई बात दोहराए बिना: यदि वह पूर्ववर्ती टिप्पण से सहमत है तो केवल हस्ताक्षर करता है, और भिन्न निर्णय ले तो कारण देता है। अधिनियम या नियमों के सुसंगत उपबंध फ़ाइल पर रखे जाते हैं और उनका निर्देश दिया जाता है, उन्हें उद्धृत नहीं किया जाता। सचिव या मंत्री को प्रस्तुत प्रत्येक मामले के साथ स्वयंपूर्ण टिप्पण जाता है, जब तक चालू तथ्य-सार पहले से वह प्रयोजन पूरा न कर रहा हो।"
+      },
+      "example": {
+        "en": "Sub-para (v) is the licence an officer most often does not use: if he agrees with the note below, he MERELY APPENDS HIS SIGNATURE. A paragraph restating agreement is exactly the length the manual is trying to remove.",
+        "hi": "उप-पैरा (v) वही छूट है जिसका प्रयोग अधिकारी प्रायः नहीं करता: यदि वह नीचे के टिप्पण से सहमत है तो वह केवल हस्ताक्षर करता है। सहमति दोहराने वाला अनुच्छेद ठीक वही लंबाई है जिसे नियमावली हटाना चाहती है।"
+      },
+      "connects": [
+        "csmop-7-1",
+        "csmop-7-8",
+        "csmop-7-14"
+      ],
+      "misconception": {
+        "en": "\"Quoting the rule in the note shows diligence.\" Sub-para (vii) says the opposite: place the extract on the file and draw attention to it, unless the extract on the note is ESSENTIAL to arrive at a decision.",
+        "hi": "\"टिप्पण में नियम उद्धृत करना तत्परता दिखाता है।\" उप-पैरा (vii) इसके विपरीत कहता है: उद्धरण फ़ाइल पर रखें और उस पर ध्यान दिलाएँ, जब तक टिप्पण पर वह उद्धरण निर्णय तक पहुँचने हेतु अनिवार्य न हो।"
+      },
+      "examRelevance": {
+        "en": "The Green Sheet, the merely-append-signature rule and the self-contained note for the Secretary or Minister are the three most-quoted points.",
+        "hi": "हरा पत्रक, केवल हस्ताक्षर करने का नियम, तथा सचिव या मंत्री हेतु स्वयंपूर्ण टिप्पण — यही तीन बिंदु सर्वाधिक उद्धृत होते हैं।"
+      },
+      "reviewed": true,
+      "reviewState": "approved",
+      "generationMeta": {
+        "promptVersion": "study-aid-v1",
+        "batchId": "library-aids-2026-09-03-csmop",
+        "stageA": {
+          "index": 15,
+          "angle": "the eight rules that keep a note short"
+        },
+        "critic": {
+          "verdict": "approve",
+          "reason": "Eight sub-paras summarised in the manual’s own order; the two that shorten a note most are the misconception and the example."
+        },
+        "verify": {
+          "grounded": true,
+          "note": "Sub-paras (i)-(viii) are verbatim."
+        },
+        "dedup": {
+          "maxScore": 0,
+          "against": null,
+          "verdict": "keep"
+        },
+        "groundingUnitIds": [
+          "csmop-7-2"
+        ]
+      },
+      "source": {
+        "name": "Department of Administrative Reforms and Public Grievances — Central Secretariat Manual of Office Procedure, 2022 (16th edition) — English",
+        "url": "https://www.darpg.gov.in/static/uploads/2025/10/774e0b8f427b7875158363d842fa431f.pdf"
+      },
+      "verify": true
+    },
+    {
+      "id": "aid-csmop-7-3",
+      "workId": "csmop",
+      "unitId": "csmop-7-3",
+      "explanation": {
+        "en": "Where the line of action is obvious, based on a clear precedent, or already indicated by a higher officer, a DRAFT goes up without an elaborate note. Otherwise the dealing officer must verify the checkable statements; point out mistakes, incorrect statements and missing data; obtain what is missing; furnish other relevant information held in the Department; prepare the note on the functional approach of Para 7.14; state the issues and the points requiring decision; draw attention to the statutory or customary procedure and the relevant provisions; draw attention to precedents; SUGGEST A COURSE OF ACTION WITH JUSTIFICATION AND ALTERNATIVES; indicate the competent authority with a copy of the delegation of powers; sign in full with the complete date on the LEFT below the note; and leave at least a QUARTER OF A PAGE below the last note when the file goes to the Secretary or Minister.",
+        "hi": "जहाँ कार्रवाई की दिशा स्पष्ट हो, किसी स्पष्ट पूर्वोदाहरण या प्रथा पर आधारित हो, अथवा किसी उच्चतर अधिकारी ने बता दी हो, वहाँ विस्तृत टिप्पण के बिना प्रारूप ऊपर भेजा जाता है। अन्यथा कार्यकारी अधिकारी को जाँचने योग्य कथन सत्यापित करने होंगे; त्रुटियाँ, गलत कथन और छूटा हुआ आँकड़ा बताना होगा; छूटी जानकारी प्राप्त करनी होगी; विभाग में उपलब्ध अन्य सुसंगत जानकारी देनी होगी; पैरा 7.14 के कार्यात्मक दृष्टिकोण पर टिप्पण तैयार करना होगा; विषय और निर्णय अपेक्षित बिंदु स्पष्ट करने होंगे; सांविधिक या प्रथागत प्रक्रिया तथा सुसंगत उपबंधों पर ध्यान दिलाना होगा; पूर्वोदाहरणों पर ध्यान दिलाना होगा; औचित्य और वैकल्पिक मार्गों सहित कार्रवाई का मार्ग सुझाना होगा; सक्षम प्राधिकारी को शक्ति-प्रत्यायोजन की प्रति सहित दर्शाना होगा; टिप्पण के नीचे बाईं ओर पूरी तिथि सहित पूरे हस्ताक्षर करने होंगे; तथा फ़ाइल सचिव या मंत्री को जाते समय अंतिम टिप्पण के नीचे कम से कम पृष्ठ का एक चौथाई भाग छोड़ना होगा।"
+      },
+      "example": {
+        "en": "The quarter-page rule in sub-para (xii) exists so a Secretary or Minister has room to record his own note on the same sheet. It is a formatting instruction with a functional reason.",
+        "hi": "उप-पैरा (xii) का एक-चौथाई पृष्ठ वाला नियम इसलिए है कि सचिव या मंत्री के पास उसी पत्रक पर अपना टिप्पण लिखने की जगह रहे। यह प्ररूपण का अनुदेश है जिसका कार्यात्मक कारण है।"
+      },
+      "connects": [
+        "csmop-7-1",
+        "csmop-7-4",
+        "csmop-7-14"
+      ],
+      "misconception": {
+        "en": "\"A note recommends one course of action.\" Sub-para (ix) asks for the suggested course WITH JUSTIFICATIONS and ALTERNATIVE courses for the competent authority’s consideration.",
+        "hi": "\"टिप्पण एक ही मार्ग की सिफारिश करता है।\" उप-पैरा (ix) सुझाया गया मार्ग औचित्य सहित तथा सक्षम प्राधिकारी के विचारार्थ वैकल्पिक मार्ग भी माँगता है।"
+      },
+      "examRelevance": {
+        "en": "Signature on the LEFT for the dealing officer and on the RIGHT for the Section Officer and above (Para 7.4) is a paired detail that is asked about.",
+        "hi": "कार्यकारी अधिकारी के हस्ताक्षर बाईं ओर और अनुभाग अधिकारी तथा उससे ऊपर के दाईं ओर (पैरा 7.4) — यह युग्म-ब्योरा पूछा जाता है।"
+      },
+      "reviewed": true,
+      "reviewState": "approved",
+      "generationMeta": {
+        "promptVersion": "study-aid-v1",
+        "batchId": "library-aids-2026-09-03-csmop",
+        "stageA": {
+          "index": 16,
+          "angle": "twelve things a dealing officer’s note must do"
+        },
+        "critic": {
+          "verdict": "approve",
+          "reason": "Twelve steps in the manual’s order, plus the no-elaborate-note shortcut that opens the paragraph; the left/right signature pairing is checked against Para 7.4."
+        },
+        "verify": {
+          "grounded": true,
+          "note": "The opening sentence and sub-paras (i)-(xii) are verbatim; the right-side signature rule is from Para 7.4(iv)."
+        },
+        "dedup": {
+          "maxScore": 0,
+          "against": null,
+          "verdict": "keep"
+        },
+        "groundingUnitIds": [
+          "csmop-7-3",
+          "csmop-7-4"
+        ]
+      },
+      "source": {
+        "name": "Department of Administrative Reforms and Public Grievances — Central Secretariat Manual of Office Procedure, 2022 (16th edition) — English",
+        "url": "https://www.darpg.gov.in/static/uploads/2025/10/774e0b8f427b7875158363d842fa431f.pdf"
+      },
+      "verify": true
+    },
+    {
+      "id": "aid-csmop-7-4",
+      "workId": "csmop",
+      "unitId": "csmop-7-4",
+      "explanation": {
+        "en": "Examination by the Section Officer is four things: check whether the functional approach to noting (Para 7.14) was adopted; consider using an existing STANDARD PROCESS SHEET or developing a new one; evaluate the adequacy and relevance of the inputs provided; and — the point of form — the Section Officer and above simply SIGN ON THE RIGHT below the note with the date if they agree with the Section note, and record a note only if they do not. The signature is to be rubber stamped.",
+        "hi": "अनुभाग अधिकारी द्वारा परीक्षण में चार बातें हैं: जाँचना कि टिप्पण-लेखन का कार्यात्मक दृष्टिकोण (पैरा 7.14) अपनाया गया या नहीं; विद्यमान मानक प्रक्रिया पत्रक के प्रयोग अथवा नया बनाने पर विचार; दिए गए निवेशों की पर्याप्तता और सुसंगति का मूल्यांकन; तथा — प्ररूप का बिंदु — अनुभाग अधिकारी और उससे ऊपर के अधिकारी अनुभाग-टिप्पण से सहमत होने पर तिथि सहित टिप्पण के नीचे दाईं ओर केवल हस्ताक्षर करते हैं, और असहमत होने पर ही टिप्पण लिखते हैं। हस्ताक्षर रबर-मुद्रांकित होने चाहिए।"
+      },
+      "example": {
+        "en": "Left for the dealing officer (Para 7.3(xi)), right for the Section Officer and above. The two sides of the page are how a file shows at a glance who originated and who approved.",
+        "hi": "कार्यकारी अधिकारी के लिए बाईं ओर (पैरा 7.3(xi)), अनुभाग अधिकारी और उससे ऊपर के लिए दाईं ओर। पृष्ठ के दोनों पक्ष ही एक दृष्टि में दिखाते हैं कि किसने आरंभ किया और किसने अनुमोदित।"
+      },
+      "connects": [
+        "csmop-7-3",
+        "csmop-7-14",
+        "csmop-7-2"
+      ],
+      "misconception": {
+        "en": "\"The Section Officer must write his own note.\" Only if he disagrees. Agreement is expressed by signature alone, which is Para 7.2(v) applied at this level.",
+        "hi": "\"अनुभाग अधिकारी को अपना टिप्पण लिखना ही होगा।\" केवल असहमत होने पर। सहमति केवल हस्ताक्षर से व्यक्त होती है, जो इस स्तर पर लागू पैरा 7.2(v) है।"
+      },
+      "reviewed": true,
+      "reviewState": "approved",
+      "generationMeta": {
+        "promptVersion": "study-aid-v1",
+        "batchId": "library-aids-2026-09-03-csmop",
+        "stageA": {
+          "index": 17,
+          "angle": "what a Section Officer adds, and where he signs"
+        },
+        "critic": {
+          "verdict": "approve",
+          "reason": "Four items and the signature side; the left/right pairing is what makes this paragraph memorable and is grounded in Para 7.3."
+        },
+        "verify": {
+          "grounded": true,
+          "note": "Sub-paras (i)-(iv) are verbatim; the left-side rule is Para 7.3(xi)."
+        },
+        "dedup": {
+          "maxScore": 0,
+          "against": null,
+          "verdict": "keep"
+        },
+        "groundingUnitIds": [
+          "csmop-7-4",
+          "csmop-7-3"
+        ]
+      },
+      "source": {
+        "name": "Department of Administrative Reforms and Public Grievances — Central Secretariat Manual of Office Procedure, 2022 (16th edition) — English",
+        "url": "https://www.darpg.gov.in/static/uploads/2025/10/774e0b8f427b7875158363d842fa431f.pdf"
+      },
+      "verify": true
+    },
+    {
+      "id": "aid-csmop-7-5",
+      "workId": "csmop",
+      "unitId": "csmop-7-5",
+      "explanation": {
+        "en": "A Branch Officer, Division-in-charge or Wing-in-charge discusses a new or complex case with his team before deciding the course of action. For such problem-solving or policy cases the technique is a DISCUSSED NOTE: it is submitted as a DRAFT, cleared by senior officers, and only then faired and submitted by the dealing officer. After the discussion the dealing officer prepares a comprehensive, self-contained, REASONED note — based on the relevant Act, rules and instructions — clearly indicating that it is a discussed note, and containing the background, the issues, the precedents, an analysis of the facts against the provisions, and the recommended course of action.",
+        "hi": "शाखा अधिकारी, प्रभाग-प्रभारी अथवा स्कंध-प्रभारी किसी नए या जटिल मामले पर कार्रवाई का मार्ग तय करने से पूर्व अपनी टीम से चर्चा करता है। ऐसे समस्या-समाधान या नीतिगत मामलों की तकनीक चर्चित टिप्पण है: वह प्रारूप के रूप में प्रस्तुत होता है, वरिष्ठ अधिकारियों से स्वीकृत होता है, और तभी कार्यकारी अधिकारी उसे स्वच्छ प्रति में प्रस्तुत करता है। चर्चा के बाद कार्यकारी अधिकारी एक व्यापक, स्वयंपूर्ण, तर्कयुक्त टिप्पण तैयार करता है — सुसंगत अधिनियम, नियमों और अनुदेशों पर आधारित — यह स्पष्टतः दर्शाते हुए कि वह चर्चित टिप्पण है, और उसमें पृष्ठभूमि, विषय, पूर्वोदाहरण, उपबंधों के विरुद्ध तथ्यों का विश्लेषण, तथा अनुमोदन हेतु संस्तुत मार्ग होते हैं।"
+      },
+      "example": {
+        "en": "Marking it AS a discussed note is part of the technique: a reader further up the channel needs to know that the reasoning was settled in a meeting rather than arrived at on paper.",
+        "hi": "उसे चर्चित टिप्पण के रूप में अंकित करना तकनीक का ही अंग है: श्रृंखला में ऊपर के पाठक को जानना चाहिए कि तर्क किसी बैठक में तय हुआ, कागज़ पर नहीं बना।"
+      },
+      "connects": [
+        "csmop-7-3",
+        "csmop-7-9",
+        "csmop-7-14"
+      ],
+      "misconception": {
+        "en": "\"A discussed note replaces the dealing officer’s note.\" It is prepared BY the dealing officer after the discussion, and it is submitted as a draft first.",
+        "hi": "\"चर्चित टिप्पण कार्यकारी अधिकारी के टिप्पण का स्थान ले लेता है।\" वह चर्चा के बाद कार्यकारी अधिकारी ही तैयार करता है, और पहले प्रारूप के रूप में प्रस्तुत होता है।"
+      },
+      "reviewed": true,
+      "reviewState": "approved",
+      "generationMeta": {
+        "promptVersion": "study-aid-v1",
+        "batchId": "library-aids-2026-09-03-csmop",
+        "stageA": {
+          "index": 18,
+          "angle": "the discussed note, and why it is submitted as a draft"
+        },
+        "critic": {
+          "verdict": "approve",
+          "reason": "The draft-then-fair sequence and the mandatory marking are the two things that distinguish a discussed note from an ordinary one."
+        },
+        "verify": {
+          "grounded": true,
+          "note": "Sub-paras (i)-(iii) are verbatim."
+        },
+        "dedup": {
+          "maxScore": 0,
+          "against": null,
+          "verdict": "keep"
+        },
+        "groundingUnitIds": [
+          "csmop-7-5"
+        ]
+      },
+      "source": {
+        "name": "Department of Administrative Reforms and Public Grievances — Central Secretariat Manual of Office Procedure, 2022 (16th edition) — English",
+        "url": "https://www.darpg.gov.in/static/uploads/2025/10/774e0b8f427b7875158363d842fa431f.pdf"
+      },
+      "verify": true
+    },
+    {
+      "id": "aid-csmop-7-6",
+      "workId": "csmop",
+      "unitId": "csmop-7-6",
+      "explanation": {
+        "en": "Each Department issues instructions on the LEVEL OF FINAL DISPOSAL and the CHANNEL OF SUBMISSION for each category of case, and must PUBLISH the channel for unclassified cases on its website along with the name, telephone number and e-mail of the officers dealing with each subject. The instructions are reviewed at least once in THREE YEARS, keeping levels to a minimum, and the channel of submission SHOULD NOT BE MORE THAN FOUR. A case for the Minister-in-charge may be initiated at Deputy Secretary or Director level. Where LEVEL JUMPING is done, the case on its return must pass through EVERY level jumped over.",
+        "hi": "प्रत्येक विभाग प्रत्येक कोटि के मामलों हेतु अंतिम निपटान के स्तर तथा प्रस्तुतीकरण की श्रृंखला पर अनुदेश जारी करता है, और अवर्गीकृत मामलों की श्रृंखला अपनी वेबसाइट पर, प्रत्येक विषय देखने वाले अधिकारियों के नाम, दूरभाष और ई-मेल सहित, प्रकाशित करता है। अनुदेशों की समीक्षा कम से कम तीन वर्ष में एक बार होती है, स्तर न्यूनतम रखते हुए, और प्रस्तुतीकरण की श्रृंखला चार से अधिक नहीं होनी चाहिए। मंत्री-प्रभारी हेतु मामला उप सचिव या निदेशक स्तर पर आरंभ किया जा सकता है। जहाँ स्तर-लंघन किया जाए, वहाँ लौटते समय मामला लंघित प्रत्येक स्तर से गुज़रना चाहिए।"
+      },
+      "example": {
+        "en": "Level jumping is permitted but not free: sub-para (iv) sends the case back through every level jumped over, and those officers may in a suitable case RESUBMIT it — so skipping a level buys speed upward and costs it downward.",
+        "hi": "स्तर-लंघन अनुज्ञेय है किंतु मुफ़्त नहीं: उप-पैरा (iv) मामले को लंघित प्रत्येक स्तर से वापस भेजता है, और वे अधिकारी उपयुक्त मामले में उसे पुनः प्रस्तुत कर सकते हैं — अतः स्तर छोड़ने से ऊपर जाते समय गति मिलती है और लौटते समय जाती है।"
+      },
+      "connects": [
+        "csmop-4-9",
+        "csmop-3-1",
+        "csmop-7-3"
+      ],
+      "misconception": {
+        "en": "\"Four levels is a maximum for the whole file.\" It is a maximum for the CHANNEL OF SUBMISSION, and the instruction is coupled with a duty to delegate powers so that the limit is workable.",
+        "hi": "\"चार स्तर पूरी फ़ाइल के लिए अधिकतम हैं।\" यह प्रस्तुतीकरण की श्रृंखला हेतु अधिकतम है, और यह अनुदेश शक्तियाँ प्रत्यायोजित करने के कर्तव्य के साथ जुड़ा है ताकि सीमा व्यवहार्य रहे।"
+      },
+      "examRelevance": {
+        "en": "Not more than four levels, a three-yearly review, and the website publication requirement are the three facts.",
+        "hi": "चार से अधिक स्तर नहीं, त्रैवार्षिक समीक्षा, तथा वेबसाइट पर प्रकाशन की अपेक्षा — यही तीन तथ्य हैं।"
+      },
+      "mnemonic": {
+        "en": "Four levels · reviewed every three years · published on the website.",
+        "hi": "चार स्तर · हर तीन वर्ष में समीक्षा · वेबसाइट पर प्रकाशित।"
+      },
+      "reviewed": true,
+      "reviewState": "approved",
+      "generationMeta": {
+        "promptVersion": "study-aid-v1",
+        "batchId": "library-aids-2026-09-03-csmop",
+        "stageA": {
+          "index": 19,
+          "angle": "four levels, a three-yearly review, and what level-jumping costs"
+        },
+        "critic": {
+          "verdict": "approve",
+          "reason": "Three numbers and the level-jumping rule; the publication duty ties back to Para 4.9(ii)(a), which says the same thing."
+        },
+        "verify": {
+          "grounded": true,
+          "note": "Sub-paras (i)-(iv) are verbatim."
+        },
+        "dedup": {
+          "maxScore": 0,
+          "against": null,
+          "verdict": "keep"
+        },
+        "groundingUnitIds": [
+          "csmop-7-6"
+        ]
+      },
+      "source": {
+        "name": "Department of Administrative Reforms and Public Grievances — Central Secretariat Manual of Office Procedure, 2022 (16th edition) — English",
+        "url": "https://www.darpg.gov.in/static/uploads/2025/10/774e0b8f427b7875158363d842fa431f.pdf"
+      },
+      "verify": true
+    },
+    {
+      "id": "aid-csmop-7-7",
+      "workId": "csmop",
+      "unitId": "csmop-7-7",
+      "explanation": {
+        "en": "In EVERY case where a material or substantial deviation from the existing procedure or rules is sought to be made, it is THE RESPONSIBILITY OF THE DECISION-MAKING AUTHORITY to ensure that REASONS ARE RECORDED IN WRITING justifying that deviation. The duty is on the deciding authority, not on the dealing officer who proposed it.",
+        "hi": "प्रत्येक ऐसे मामले में जहाँ विद्यमान प्रक्रिया या नियमों से तात्त्विक अथवा सारभूत विचलन किया जाना हो, यह सुनिश्चित करना निर्णय लेने वाले प्राधिकारी का उत्तरदायित्व है कि उस विचलन को न्यायोचित ठहराने वाले कारण लिखित में अभिलिखित हों। यह कर्तव्य निर्णय प्राधिकारी पर है, उस कार्यकारी अधिकारी पर नहीं जिसने उसे प्रस्तावित किया।"
+      },
+      "example": {
+        "en": "A deviation approved with a bare \"Approved\" on the note does not satisfy this paragraph: what it requires is recorded reasons justifying the departure, and it places that duty on the officer who approved.",
+        "hi": "टिप्पण पर केवल \"अनुमोदित\" लिखकर स्वीकृत विचलन इस पैरा को संतुष्ट नहीं करता: यह विचलन को न्यायोचित ठहराने वाले अभिलिखित कारण अपेक्षित करता है, और वह कर्तव्य अनुमोदन करने वाले अधिकारी पर डालता है।"
+      },
+      "connects": [
+        "csmop-7-13",
+        "csmop-7-2",
+        "csmop-4-3"
+      ],
+      "misconception": {
+        "en": "\"The dealing officer must justify the deviation in his note.\" He should; but this paragraph makes it the DECISION-MAKING AUTHORITY’s responsibility to ensure the reasons are on record.",
+        "hi": "\"कार्यकारी अधिकारी को अपने टिप्पण में विचलन का औचित्य देना होगा।\" देना चाहिए; किंतु यह पैरा कारणों के अभिलेख पर होने को सुनिश्चित करना निर्णय प्राधिकारी का उत्तरदायित्व बनाता है।"
+      },
+      "examRelevance": {
+        "en": "\"Material or substantial deviation\" and \"reasons recorded in writing\" are the two phrases quoted.",
+        "hi": "\"तात्त्विक अथवा सारभूत विचलन\" तथा \"लिखित में अभिलिखित कारण\" — यही दो वाक्यांश उद्धृत होते हैं।"
+      },
+      "reviewed": true,
+      "reviewState": "approved",
+      "generationMeta": {
+        "promptVersion": "study-aid-v1",
+        "batchId": "library-aids-2026-09-03-csmop",
+        "stageA": {
+          "index": 20,
+          "angle": "one sentence that governs every departure from the rules"
+        },
+        "critic": {
+          "verdict": "approve",
+          "reason": "One sentence; placing the duty on the deciding authority rather than the proposer is the point and is the manual’s own allocation."
+        },
+        "verify": {
+          "grounded": true,
+          "note": "The paragraph is one sentence and is quoted in substance."
+        },
+        "dedup": {
+          "maxScore": 0,
+          "against": null,
+          "verdict": "keep"
+        },
+        "groundingUnitIds": [
+          "csmop-7-7"
+        ]
+      },
+      "source": {
+        "name": "Department of Administrative Reforms and Public Grievances — Central Secretariat Manual of Office Procedure, 2022 (16th edition) — English",
+        "url": "https://www.darpg.gov.in/static/uploads/2025/10/774e0b8f427b7875158363d842fa431f.pdf"
+      },
+      "verify": true
+    },
+    {
+      "id": "aid-csmop-7-8",
+      "workId": "csmop",
+      "unitId": "csmop-7-8",
+      "explanation": {
+        "en": "A running summary of facts is prepared and updated to avoid repeated recapitulation. Each update is DATED at the right top corner, filed in the CORRESPONDENCE portion, and given a page number. It includes the advice or views of other Departments consulted — but NOT the opinions of individual officers WITHIN the Department. It is kept up to date through a NEWER VERSION, and the PREVIOUS VERSION IS NOT DESTROYED, because it is useful in framing new policy, amendments and court cases.",
+        "hi": "बार-बार पुनरावृत्ति से बचने हेतु चालू तथ्य-सार तैयार और अद्यतन किया जाता है। प्रत्येक अद्यतन दाहिने ऊपरी कोने पर दिनांकित होता है, पत्राचार-भाग में दाखिल होता है, और उसे पृष्ठ संख्या दी जाती है। उसमें परामर्श किए गए अन्य विभागों की सलाह या मत सम्मिलित हैं — किंतु विभाग के भीतर के व्यक्तिगत अधिकारियों के मत नहीं। वह नए संस्करण के माध्यम से अद्यतन रखा जाता है, और पूर्ववर्ती संस्करण नष्ट नहीं किया जाता, क्योंकि वह नई नीति बनाने, संशोधनों तथा न्यायालयीन मामलों में उपयोगी होता है।"
+      },
+      "example": {
+        "en": "Para 7.2(vi) is the payoff: an officer noting on a file that has a running summary refers to the appropriate PART of the summary instead of repeating the facts in his own note. The summary exists to make every later note shorter.",
+        "hi": "पैरा 7.2(vi) उसका प्रतिफल है: जिस फ़ाइल पर चालू तथ्य-सार है, उस पर टिप्पण लिखने वाला अधिकारी अपने टिप्पण में तथ्य दोहराने के बजाय सार के उपयुक्त भाग का निर्देश देता है। सार का प्रयोजन ही हर बाद के टिप्पण को छोटा करना है।"
+      },
+      "connects": [
+        "csmop-7-2",
+        "csmop-7-13"
+      ],
+      "misconception": {
+        "en": "\"The running summary records what everyone thought.\" It carries the views of other DEPARTMENTS consulted, and expressly not the opinions of individual officers within the Department — those stay on the notes.",
+        "hi": "\"चालू तथ्य-सार में सबके मत आते हैं।\" उसमें परामर्श किए गए अन्य विभागों के मत आते हैं, और विभाग के भीतर के व्यक्तिगत अधिकारियों के मत स्पष्टतः नहीं — वे टिप्पणों पर ही रहते हैं।"
+      },
+      "reviewed": true,
+      "reviewState": "approved",
+      "generationMeta": {
+        "promptVersion": "study-aid-v1",
+        "batchId": "library-aids-2026-09-03-csmop",
+        "stageA": {
+          "index": 21,
+          "angle": "the running summary of facts, and what it may not contain"
+        },
+        "critic": {
+          "verdict": "approve",
+          "reason": "The exclusion of internal individual opinions and the keep-the-previous-version rule are the two operative instructions."
+        },
+        "verify": {
+          "grounded": true,
+          "note": "The paragraph is verbatim; Para 7.2(vi) was read from Para 7.2."
+        },
+        "dedup": {
+          "maxScore": 0,
+          "against": null,
+          "verdict": "keep"
+        },
+        "groundingUnitIds": [
+          "csmop-7-8",
+          "csmop-7-2"
+        ]
+      },
+      "source": {
+        "name": "Department of Administrative Reforms and Public Grievances — Central Secretariat Manual of Office Procedure, 2022 (16th edition) — English",
+        "url": "https://www.darpg.gov.in/static/uploads/2025/10/774e0b8f427b7875158363d842fa431f.pdf"
+      },
+      "verify": true
+    },
+    {
+      "id": "aid-csmop-7-9",
+      "workId": "csmop",
+      "unitId": "csmop-7-9",
+      "explanation": {
+        "en": "All points emerging from discussions between two or more officers — INCLUDING TELEPHONIC discussions, and discussions between officers of different Departments — and the conclusions reached, are recorded on the relevant file by the officer submitting a note. Points the recording officer considers important enough should be CONFIRMED BY ALL who participated or are responsible — particularly where the policy is not clear, where an important deviation from prescribed policy is involved, where two or more levels differ on a significant issue or on the decision, or where the decision, though agreed, is an important one.",
+        "hi": "दो या अधिक अधिकारियों के बीच चर्चाओं से — दूरभाष चर्चाओं सहित, और भिन्न विभागों के अधिकारियों के बीच की चर्चाओं सहित — उभरे सभी बिंदु और निकाले गए निष्कर्ष, टिप्पण प्रस्तुत करने वाला अधिकारी सुसंगत फ़ाइल पर अभिलिखित करता है। जिन बिंदुओं को अभिलेखक अधिकारी पर्याप्त महत्वपूर्ण समझे, उनकी पुष्टि उन सबसे करानी चाहिए जिन्होंने भाग लिया या जो उत्तरदायी हैं — विशेषतः जहाँ नीति स्पष्ट न हो, जहाँ विहित नीति से महत्वपूर्ण विचलन हो, जहाँ दो या अधिक स्तर किसी महत्वपूर्ण विषय या स्वयं निर्णय पर भिन्न मत रखते हों, अथवा जहाँ निर्णय, सर्वसम्मत होते हुए भी, महत्वपूर्ण हो।"
+      },
+      "example": {
+        "en": "A telephone call between two Ministries is a discussion for this paragraph. If its conclusion is acted on and never recorded, the file shows a decision with no visible basis.",
+        "hi": "दो मंत्रालयों के बीच दूरभाष वार्ता इस पैरा के लिए चर्चा है। यदि उसके निष्कर्ष पर कार्रवाई हो और वह कभी अभिलिखित न हो, तो फ़ाइल ऐसा निर्णय दिखाती है जिसका कोई दृश्य आधार नहीं।"
+      },
+      "connects": [
+        "csmop-7-10",
+        "csmop-7-11",
+        "csmop-7-5"
+      ],
+      "misconception": {
+        "en": "\"Only formal meetings need minuting.\" Telephonic discussions are named in the same clause, and the confirmation requirement attaches to importance, not to formality.",
+        "hi": "\"केवल औपचारिक बैठकों का कार्यवृत्त चाहिए।\" दूरभाष चर्चाएँ उसी खंड में नामित हैं, और पुष्टि की अपेक्षा महत्व से जुड़ी है, औपचारिकता से नहीं।"
+      },
+      "reviewed": true,
+      "reviewState": "approved",
+      "generationMeta": {
+        "promptVersion": "study-aid-v1",
+        "batchId": "library-aids-2026-09-03-csmop",
+        "stageA": {
+          "index": 22,
+          "angle": "putting an oral discussion on the file"
+        },
+        "critic": {
+          "verdict": "approve",
+          "reason": "The inclusion of telephone calls and the four situations where confirmation is desirable are the operative content."
+        },
+        "verify": {
+          "grounded": true,
+          "note": "Sub-paras (i)-(ii) are verbatim, including the four named situations."
+        },
+        "dedup": {
+          "maxScore": 0,
+          "against": null,
+          "verdict": "keep"
+        },
+        "groundingUnitIds": [
+          "csmop-7-9"
+        ]
+      },
+      "source": {
+        "name": "Department of Administrative Reforms and Public Grievances — Central Secretariat Manual of Office Procedure, 2022 (16th edition) — English",
+        "url": "https://www.darpg.gov.in/static/uploads/2025/10/774e0b8f427b7875158363d842fa431f.pdf"
+      },
+      "verify": true
+    },
+    {
+      "id": "aid-csmop-7-10",
+      "workId": "csmop",
+      "unitId": "csmop-7-10",
+      "explanation": {
+        "en": "An officer giving a direction — including by telephone, social media platform or SMS — on a matter he or his subordinate has power to decide shall ORDINARILY DO SO IN WRITING; if there is no time, he must follow it up with WRITTEN CONFIRMATION at the earliest. An officer shall act in his BEST JUDGMENT except when acting under a superior’s instructions, and in that case must obtain the directions in writing WHEREVER PRACTICABLE before carrying them out, or written confirmation as soon as possible afterwards. If the instructions came from an officer higher than his immediate superior, he must bring them to his IMMEDIATE SUPERIOR’S notice at the earliest.",
+        "hi": "जो अधिकारी ऐसे विषय पर निदेश दे — दूरभाष, सोशल मीडिया मंच अथवा एसएमएस सहित — जिस पर वह या उसका अधीनस्थ निर्णय करने की शक्ति रखता है, वह सामान्यतः लिखित में ही देगा; समय न हो तो यथाशीघ्र लिखित पुष्टि करेगा। अधिकारी अपने सर्वोत्तम विवेक से कार्य करेगा, सिवाय तब जब वह किसी वरिष्ठ के अनुदेशों के अधीन कार्य कर रहा हो, और उस दशा में उसे कार्यान्वयन से पूर्व जहाँ व्यवहार्य हो निदेश लिखित में लेने होंगे, अथवा यथाशीघ्र बाद में लिखित पुष्टि। यदि अनुदेश उसके तत्काल वरिष्ठ से भी ऊपर के अधिकारी से आए हों, तो उसे यथाशीघ्र अपने तत्काल वरिष्ठ की जानकारी में लाना होगा।"
+      },
+      "example": {
+        "en": "Rule 3(2) of the CCS (Conduct) Rules, 1964 says the same thing from the other side: a superior’s direction shall ordinarily be in writing, and a subordinate who receives an oral one shall seek confirmation in writing as early as possible. The conduct rule and the manual are one obligation written twice.",
+        "hi": "सीसीएस (आचरण) नियम, 1964 का नियम 3(2) यही बात दूसरी ओर से कहता है: वरिष्ठ का निदेश सामान्यतः लिखित होगा, और मौखिक निदेश पाने वाला अधीनस्थ यथाशीघ्र लिखित पुष्टि माँगेगा। आचरण नियम और नियमावली एक ही बाध्यता हैं, दो बार लिखी हुई।"
+      },
+      "connects": [
+        "csmop-7-11",
+        "csmop-7-12",
+        "csmop-7-9"
+      ],
+      "misconception": {
+        "en": "\"Getting it in writing is defensive.\" The manual makes it the DEFAULT for both sides, and adds the duty to inform the immediate superior when the instruction came from above him.",
+        "hi": "\"लिखित में लेना बचाव है।\" नियमावली इसे दोनों पक्षों के लिए सामान्य नियम बनाती है, और यह कर्तव्य भी जोड़ती है कि जब अनुदेश तत्काल वरिष्ठ से ऊपर से आए तो उसे सूचित किया जाए।"
+      },
+      "reviewed": true,
+      "reviewState": "approved",
+      "generationMeta": {
+        "promptVersion": "study-aid-v1",
+        "batchId": "library-aids-2026-09-03-csmop",
+        "stageA": {
+          "index": 23,
+          "angle": "an oral direction, and the officer’s duty to get it in writing"
+        },
+        "critic": {
+          "verdict": "approve",
+          "reason": "Both sub-paras plus the immediate-superior duty; the Conduct Rules parallel is checked against that book and is stated as a parallel, not as this manual’s text."
+        },
+        "verify": {
+          "grounded": true,
+          "note": "Sub-paras (i)-(ii) are verbatim, including \"telephonic, social media platforms, sms\". Rule 3(2)(iii)-(iv) was read from data/rules/text/ccs-conduct.json."
+        },
+        "dedup": {
+          "maxScore": 0,
+          "against": null,
+          "verdict": "keep"
+        },
+        "groundingUnitIds": [
+          "csmop-7-10"
+        ]
+      },
+      "source": {
+        "name": "Department of Administrative Reforms and Public Grievances — Central Secretariat Manual of Office Procedure, 2022 (16th edition) — English",
+        "url": "https://www.darpg.gov.in/static/uploads/2025/10/774e0b8f427b7875158363d842fa431f.pdf"
+      },
+      "verify": true
+    },
+    {
+      "id": "aid-csmop-7-11",
+      "workId": "csmop",
+      "unitId": "csmop-7-11",
+      "explanation": {
+        "en": "A member of a Minister’s personal staff who communicates an oral order on the Minister’s behalf must CONFIRM IT IN WRITING IMMEDIATELY thereafter. If an officer receives oral instructions from the Minister or his personal staff and they ARE in accordance with the norms, rules and procedure, he brings them to the SECRETARY’s notice. If they are NOT, he must SEEK CLEAR ORDERS from the Secretary about the line of action, STATING CLEARLY that the oral instructions are not in accordance with the rules. In a rare and urgent case where the Minister is on tour or sick, the decision is conveyed in writing by his Private Secretary, and confirmation is obtained on file when the Minister returns.",
+        "hi": "मंत्री के निजी स्टाफ का जो सदस्य मंत्री की ओर से कोई मौखिक आदेश संप्रेषित करे, वह उसके तुरंत बाद उसकी लिखित पुष्टि करेगा। यदि कोई अधिकारी मंत्री या उनके निजी स्टाफ से मौखिक अनुदेश पाए और वे मानदंडों, नियमों और प्रक्रिया के अनुरूप हों, तो वह उन्हें सचिव की जानकारी में लाएगा। यदि वे अनुरूप न हों, तो वह कार्रवाई के मार्ग पर सचिव से स्पष्ट आदेश माँगेगा, स्पष्टतः यह कहते हुए कि मौखिक अनुदेश नियमों के अनुरूप नहीं हैं। किसी विरल और तात्कालिक मामले में जहाँ मंत्री दौरे पर या अस्वस्थ हों, वहाँ निर्णय उनके निजी सचिव द्वारा लिखित में संप्रेषित होगा, और मंत्री के लौटने पर फ़ाइल पर पुष्टि ली जाएगी।"
+      },
+      "example": {
+        "en": "The two paths differ in what the officer does, not in whether he reports: a compliant instruction is BROUGHT TO NOTICE, a non-compliant one requires him to SEEK ORDERS and to say in terms that it is not in accordance with the rules.",
+        "hi": "दोनों मार्ग इसमें भिन्न हैं कि अधिकारी क्या करता है, इसमें नहीं कि वह रिपोर्ट करता है या नहीं: अनुरूप अनुदेश जानकारी में लाया जाता है, अननुरूप अनुदेश पर उसे आदेश माँगने होते हैं और स्पष्ट शब्दों में कहना होता है कि वह नियमों के अनुरूप नहीं है।"
+      },
+      "connects": [
+        "csmop-7-10",
+        "csmop-7-12"
+      ],
+      "misconception": {
+        "en": "\"An oral order from the Minister’s office must simply be carried out.\" Sub-para (iii) requires the officer to seek clear orders from the Secretary and to state that the instruction is not in accordance with the rules.",
+        "hi": "\"मंत्री कार्यालय का मौखिक आदेश बस पालन करना है।\" उप-पैरा (iii) अपेक्षित करता है कि अधिकारी सचिव से स्पष्ट आदेश माँगे और कहे कि अनुदेश नियमों के अनुरूप नहीं है।"
+      },
+      "examRelevance": {
+        "en": "The split between sub-paras (ii) and (iii) — in accordance with the rules or not — is the point being tested.",
+        "hi": "उप-पैरा (ii) और (iii) का विभाजन — नियमों के अनुरूप या नहीं — यही परीक्षा का बिंदु है।"
+      },
+      "reviewed": true,
+      "reviewState": "approved",
+      "generationMeta": {
+        "promptVersion": "study-aid-v1",
+        "batchId": "library-aids-2026-09-03-csmop",
+        "stageA": {
+          "index": 24,
+          "angle": "an oral order from a Minister’s office, and the two paths it takes"
+        },
+        "critic": {
+          "verdict": "approve",
+          "reason": "Four sub-paras, and the compliant/non-compliant split is the manual’s own structure."
+        },
+        "verify": {
+          "grounded": true,
+          "note": "Sub-paras (i)-(iv) are verbatim."
+        },
+        "dedup": {
+          "maxScore": 0,
+          "against": null,
+          "verdict": "keep"
+        },
+        "groundingUnitIds": [
+          "csmop-7-11"
+        ]
+      },
+      "source": {
+        "name": "Department of Administrative Reforms and Public Grievances — Central Secretariat Manual of Office Procedure, 2022 (16th edition) — English",
+        "url": "https://www.darpg.gov.in/static/uploads/2025/10/774e0b8f427b7875158363d842fa431f.pdf"
+      },
+      "verify": true
+    },
+    {
+      "id": "aid-csmop-7-12",
+      "workId": "csmop",
+      "unitId": "csmop-7-12",
+      "explanation": {
+        "en": "If an officer SEEKS confirmation of oral instructions given by his superior, the superior SHOULD CONFIRM IT IN WRITING whenever such confirmation is sought. And a communication from a junior officer seeking confirmation must be ACKNOWLEDGED — by the Minister’s personal staff, or by the senior officer or his personal staff, as the case may be.",
+        "hi": "यदि कोई अधिकारी अपने वरिष्ठ द्वारा दिए गए मौखिक अनुदेशों की पुष्टि माँगे, तो वरिष्ठ जब भी ऐसी पुष्टि माँगी जाए, उसे लिखित में पुष्ट करेगा। और पुष्टि माँगने वाले कनिष्ठ अधिकारी के संप्रेषण की पावती दी जानी चाहिए — मंत्री के निजी स्टाफ द्वारा, अथवा वरिष्ठ अधिकारी या उनके निजी स्टाफ द्वारा, जैसी स्थिति हो।"
+      },
+      "example": {
+        "en": "The acknowledgement requirement in sub-para (ii) is what stops a request for confirmation from disappearing: silence is no longer a safe response to a junior who has asked in writing.",
+        "hi": "उप-पैरा (ii) की पावती-अपेक्षा ही पुष्टि के अनुरोध को गुम होने से रोकती है: लिखित में पूछने वाले कनिष्ठ के प्रति मौन अब सुरक्षित उत्तर नहीं है।"
+      },
+      "connects": [
+        "csmop-7-10",
+        "csmop-7-11"
+      ],
+      "misconception": {
+        "en": "\"Confirmation is at the superior’s discretion.\" The paragraph says he should confirm WHENEVER such confirmation is sought.",
+        "hi": "\"पुष्टि वरिष्ठ के विवेक पर है।\" पैरा कहता है कि जब भी ऐसी पुष्टि माँगी जाए, उसे पुष्ट करना चाहिए।"
+      },
+      "reviewed": true,
+      "reviewState": "approved",
+      "generationMeta": {
+        "promptVersion": "study-aid-v1",
+        "batchId": "library-aids-2026-09-03-csmop",
+        "stageA": {
+          "index": 25,
+          "angle": "the duty to confirm when confirmation is asked for"
+        },
+        "critic": {
+          "verdict": "approve",
+          "reason": "Two sub-paras; the acknowledgement duty is the half that is usually forgotten and it is what makes the first half work."
+        },
+        "verify": {
+          "grounded": true,
+          "note": "Sub-paras (i)-(ii) are verbatim."
+        },
+        "dedup": {
+          "maxScore": 0,
+          "against": null,
+          "verdict": "keep"
+        },
+        "groundingUnitIds": [
+          "csmop-7-12"
+        ]
+      },
+      "source": {
+        "name": "Department of Administrative Reforms and Public Grievances — Central Secretariat Manual of Office Procedure, 2022 (16th edition) — English",
+        "url": "https://www.darpg.gov.in/static/uploads/2025/10/774e0b8f427b7875158363d842fa431f.pdf"
+      },
+      "verify": true
+    },
+    {
+      "id": "aid-csmop-7-13",
+      "workId": "csmop",
+      "unitId": "csmop-7-13",
+      "explanation": {
+        "en": "Higher officers record their OWN notes, correcting or modifying facts given in earlier notes where necessary. Replacement or modification of notes already recorded — once the file has been further noted upon by others — is NOT PERMITTED. Where a final decision already communicated is later found to rest on a mistaken ground, wrong facts or a wrong interpretation, a review is examined and the revised decision taken in consultation with the Ministry of Law where required, and with the approval of an officer HIGHER than the one who took the original decision, with the reasons recorded on the file. UNDER NO CIRCUMSTANCES may a note be pasted over or removed from a file: a mistake or a disagreement is dealt with by recording a NEW note, keeping the earlier one.",
+        "hi": "उच्चतर अधिकारी अपने स्वयं के टिप्पण अभिलिखित करते हैं, आवश्यक होने पर पूर्ववर्ती टिप्पणों में दिए तथ्यों को सुधारते या उपांतरित करते हुए। पहले से अभिलिखित टिप्पणों का प्रतिस्थापन या उपांतरण — जब फ़ाइल पर अन्य लोग आगे टिप्पण कर चुके हों — अनुज्ञेय नहीं है। जहाँ पहले से संसूचित अंतिम निर्णय बाद में भ्रांत आधार, गलत तथ्यों अथवा गलत व्याख्या पर टिका पाया जाए, वहाँ पुनर्विलोकन जाँचा जाता है और संशोधित निर्णय, अपेक्षित होने पर विधि मंत्रालय के परामर्श से तथा उस अधिकारी से उच्चतर अधिकारी के अनुमोदन से लिया जाता है जिसने मूल निर्णय लिया था, और कारण फ़ाइल पर अभिलिखित होते हैं। किसी भी परिस्थिति में कोई टिप्पण फ़ाइल पर चिपकाया या हटाया नहीं जाएगा: त्रुटि या असहमति की स्थिति में नया टिप्पण अभिलिखित किया जाता है, पूर्ववर्ती को फ़ाइल पर रखते हुए।"
+      },
+      "example": {
+        "en": "The remedy for a wrong note is another note, and the remedy for a wrong DECISION is a review approved by an officer higher than the one who took it — with the reasons for the reversal recorded on the file.",
+        "hi": "गलत टिप्पण का उपचार दूसरा टिप्पण है, और गलत निर्णय का उपचार ऐसा पुनर्विलोकन है जिसे उस अधिकारी से उच्चतर अधिकारी अनुमोदित करे जिसने वह निर्णय लिया था — और पलटने के कारण फ़ाइल पर अभिलिखित हों।"
+      },
+      "connects": [
+        "csmop-7-7",
+        "csmop-7-2",
+        "csmop-10-2"
+      ],
+      "misconception": {
+        "en": "\"An obvious typing error in a note can be corrected.\" Not by altering the note. Sub-para (ii) is absolute: a new note is recorded and the earlier one stays.",
+        "hi": "\"टिप्पण की स्पष्ट टंकण-त्रुटि सुधारी जा सकती है।\" टिप्पण बदलकर नहीं। उप-पैरा (ii) निरपेक्ष है: नया टिप्पण अभिलिखित होता है और पूर्ववर्ती बना रहता है।"
+      },
+      "examRelevance": {
+        "en": "\"Under no circumstances a note shall be pasted over or removed from the file\" is quoted verbatim, and so is the higher-officer approval for a revised decision.",
+        "hi": "\"किसी भी परिस्थिति में कोई टिप्पण फ़ाइल पर चिपकाया या हटाया नहीं जाएगा\" शब्दशः उद्धृत होता है, और संशोधित निर्णय हेतु उच्चतर अधिकारी का अनुमोदन भी।"
+      },
+      "reviewed": true,
+      "reviewState": "approved",
+      "generationMeta": {
+        "promptVersion": "study-aid-v1",
+        "batchId": "library-aids-2026-09-03-csmop",
+        "stageA": {
+          "index": 26,
+          "angle": "why a note on a file can never be removed"
+        },
+        "critic": {
+          "verdict": "approve",
+          "reason": "The absolute prohibition and the review route are the two halves; the Ministry of Law consultation is stated with the manual’s own \"if so required\"."
+        },
+        "verify": {
+          "grounded": true,
+          "note": "Sub-paras (i)-(ii) are verbatim."
+        },
+        "dedup": {
+          "maxScore": 0,
+          "against": null,
+          "verdict": "keep"
+        },
+        "groundingUnitIds": [
+          "csmop-7-13"
+        ]
+      },
+      "source": {
+        "name": "Department of Administrative Reforms and Public Grievances — Central Secretariat Manual of Office Procedure, 2022 (16th edition) — English",
+        "url": "https://www.darpg.gov.in/static/uploads/2025/10/774e0b8f427b7875158363d842fa431f.pdf"
+      },
+      "verify": true
+    },
+    {
+      "id": "aid-csmop-7-14",
+      "workId": "csmop",
+      "unitId": "csmop-7-14",
+      "explanation": {
+        "en": "The functional approach decides the KIND and SIZE of note by the category of case. An EPHEMERAL case needs NO NOTING — the Section Officer records briefly why no action is necessary, files it at the dak stage in the File \"O\" bundle, and it is destroyed on 31 December every year. A CORRESPONDENCE-HANDLING case needs a short note of a few sentences. A REPETITIVE case gets a STANDARD PROCESS SHEET. A PROBLEM-SOLVING case gets a structured and detailed note. A POLICY or PLANNING case gets a detailed note covering the aspects, implications and expected outcome.",
+        "hi": "कार्यात्मक दृष्टिकोण मामले की कोटि से टिप्पण का प्रकार और आकार तय करता है। क्षणिक मामले में कोई टिप्पण आवश्यक नहीं — अनुभाग अधिकारी संक्षेप में कारण अभिलिखित करता है कि कार्रवाई क्यों आवश्यक नहीं, उसे डाक-चरण पर ही फ़ाइल \"ओ\" बंडल में दाखिल करता है, और वह प्रत्येक वर्ष 31 दिसंबर को नष्ट कर दिया जाता है। पत्राचार-निपटान के मामले में कुछ वाक्यों का लघु टिप्पण चाहिए। पुनरावर्ती मामले को मानक प्रक्रिया पत्रक मिलता है। समस्या-समाधान के मामले को संरचित और विस्तृत टिप्पण मिलता है। नीति या नियोजन के मामले को विस्तृत टिप्पण मिलता है जिसमें पहलू, निहितार्थ और अपेक्षित परिणाम आते हैं।"
+      },
+      "example": {
+        "en": "A case can be closed with NO note at all — that is what an ephemeral or \"No-Noting\" case is. The Section Officer records the brief reason, files it at the dak stage, and it never becomes a file.",
+        "hi": "कोई मामला बिना किसी टिप्पण के बंद हो सकता है — क्षणिक अथवा \"टिप्पण-रहित\" मामला यही है। अनुभाग अधिकारी संक्षिप्त कारण अभिलिखित करता है, उसे डाक-चरण पर दाखिल करता है, और वह कभी फ़ाइल बनता ही नहीं।"
+      },
+      "connects": [
+        "csmop-7-2",
+        "csmop-7-3",
+        "csmop-5-10"
+      ],
+      "misconception": {
+        "en": "\"Every receipt becomes a file with a note.\" Table 7.1’s first category needs no noting at all, and the manual gives it a name — File \"O\" — and a destruction date.",
+        "hi": "\"हर प्राप्ति टिप्पण सहित फ़ाइल बनती है।\" तालिका 7.1 की पहली कोटि में कोई टिप्पण आवश्यक ही नहीं, और नियमावली उसे नाम देती है — फ़ाइल \"ओ\" — तथा नष्ट करने की तिथि भी।"
+      },
+      "examRelevance": {
+        "en": "The five categories of Table 7.1 in order, and the 31 December destruction of the File \"O\" bundle, are the two facts.",
+        "hi": "तालिका 7.1 की पाँच कोटियाँ क्रम में, तथा फ़ाइल \"ओ\" बंडल का 31 दिसंबर को नष्ट होना — यही दो तथ्य हैं।"
+      },
+      "mnemonic": {
+        "en": "Ephemeral → none · Correspondence → a few sentences · Repetitive → a process sheet · Problem → structured · Policy → detailed.",
+        "hi": "क्षणिक → कुछ नहीं · पत्राचार → कुछ वाक्य · पुनरावर्ती → प्रक्रिया पत्रक · समस्या → संरचित · नीति → विस्तृत।"
+      },
+      "reviewed": true,
+      "reviewState": "approved",
+      "generationMeta": {
+        "promptVersion": "study-aid-v1",
+        "batchId": "library-aids-2026-09-03-csmop",
+        "stageA": {
+          "index": 27,
+          "angle": "five categories of case, and how much noting each deserves"
+        },
+        "critic": {
+          "verdict": "approve",
+          "reason": "Table 7.1 in its own order plus the File \"O\" mechanics; this is the single most useful paragraph in Chapter 7 for a dealing officer."
+        },
+        "verify": {
+          "grounded": true,
+          "note": "Sub-para (i) with Table 7.1 and sub-para (ii)(1)-(2) are verbatim."
+        },
+        "dedup": {
+          "maxScore": 0,
+          "against": null,
+          "verdict": "keep"
+        },
+        "groundingUnitIds": [
+          "csmop-7-14"
+        ]
+      },
+      "source": {
+        "name": "Department of Administrative Reforms and Public Grievances — Central Secretariat Manual of Office Procedure, 2022 (16th edition) — English",
+        "url": "https://www.darpg.gov.in/static/uploads/2025/10/774e0b8f427b7875158363d842fa431f.pdf"
+      },
+      "verify": true
+    },
+    {
+      "id": "aid-csmop-8-1",
+      "workId": "csmop",
+      "unitId": "csmop-8-1",
+      "explanation": {
+        "en": "Inter-Departmental consultation takes the form of ID notes, meetings or oral discussions, and the ID note — formerly the U.O. note — is the most common written form within the Secretariat. It is used to obtain advice, views, comments or concurrence, or to seek clarification of existing rules from a nodal Ministry, and may also be used between a Department and its attached and subordinate offices in either direction. It is either recorded on the file referred, or is an independent self-contained note, and is marked to a named officer in the referring Department. A TIME LIMIT is to be prescribed when calling for advice or concurrence, and a Ministry that cannot meet it must SEEK ADDITIONAL TIME.",
+        "hi": "अंतर-विभागीय परामर्श अंतर-विभागीय टिप्पण, बैठकों अथवा मौखिक चर्चाओं का रूप लेता है, और अंतर-विभागीय टिप्पण — पूर्व में यू.ओ. टिप्पण — सचिवालय के भीतर सबसे सामान्य लिखित रूप है। इसका प्रयोग सलाह, मत, टिप्पणियाँ अथवा सहमति प्राप्त करने, अथवा नोडल मंत्रालय से विद्यमान नियमों का स्पष्टीकरण माँगने हेतु होता है, और विभाग तथा उसके संलग्न व अधीनस्थ कार्यालयों के बीच दोनों दिशाओं में भी। वह या तो निर्दिष्ट की गई फ़ाइल पर अभिलिखित होता है, या स्वतंत्र स्वयंपूर्ण टिप्पण होता है, और निर्देशक विभाग के किसी नामित अधिकारी को अंकित होता है। सलाह या सहमति माँगते समय समय-सीमा विहित करनी होती है, और जो मंत्रालय उसका पालन न कर सके, उसे अतिरिक्त समय माँगना होगा।"
+      },
+      "example": {
+        "en": "The manual notes the name change: the ID note was earlier known as the U.O. note. A file that still says \"U.O. note\" is not wrong about the instrument, only about its current name.",
+        "hi": "नियमावली नाम-परिवर्तन दर्ज करती है: अंतर-विभागीय टिप्पण पहले यू.ओ. टिप्पण कहलाता था। जिस फ़ाइल पर अब भी \"यू.ओ. टिप्पण\" लिखा है, वह लिखत के बारे में गलत नहीं है, केवल उसके वर्तमान नाम के बारे में।"
+      },
+      "connects": [
+        "csmop-8-7",
+        "csmop-8-10",
+        "csmop-4-3"
+      ],
+      "misconception": {
+        "en": "\"A reference can simply be left unanswered.\" The referring Ministry prescribes a time limit, and a Ministry unable to meet it must SEEK additional time rather than let it lapse.",
+        "hi": "\"किसी निर्देश को अनुत्तरित छोड़ा जा सकता है।\" निर्देशक मंत्रालय समय-सीमा विहित करता है, और जो मंत्रालय उसका पालन न कर सके, उसे उसे व्यपगत होने देने के बजाय अतिरिक्त समय माँगना होगा।"
+      },
+      "reviewed": true,
+      "reviewState": "approved",
+      "generationMeta": {
+        "promptVersion": "study-aid-v1",
+        "batchId": "library-aids-2026-09-03-csmop",
+        "stageA": {
+          "index": 28,
+          "angle": "the Inter-Departmental note, and the time limit it must carry"
+        },
+        "critic": {
+          "verdict": "approve",
+          "reason": "The three forms, the ID note’s uses, the name change and the time-limit duty; nothing is taken from the flow chart embedded in the text."
+        },
+        "verify": {
+          "grounded": true,
+          "note": "Sub-paras 1(i)-(iii) and 2(i)-(iii) are verbatim."
+        },
+        "dedup": {
+          "maxScore": 0,
+          "against": null,
+          "verdict": "keep"
+        },
+        "groundingUnitIds": [
+          "csmop-8-1"
+        ]
+      },
+      "source": {
+        "name": "Department of Administrative Reforms and Public Grievances — Central Secretariat Manual of Office Procedure, 2022 (16th edition) — English",
+        "url": "https://www.darpg.gov.in/static/uploads/2025/10/774e0b8f427b7875158363d842fa431f.pdf"
+      },
+      "verify": true
+    },
+    {
+      "id": "aid-csmop-8-3",
+      "workId": "csmop",
+      "unitId": "csmop-8-3",
+      "explanation": {
+        "en": "The e-mail services provided by NIC SHALL be used for official communication. It is a paperless mode for a Department in the eOffice environment, and it may be used even where CLASSIFIED data is shared — but such data is to be sent ONLY IN ENCRYPTED FORM. Further guidance is in the e-mail Policy of the Government of India prepared and updated by the Ministry of Electronics and Information Technology.",
+        "hi": "सरकारी संप्रेषण हेतु एनआईसी द्वारा प्रदत्त ई-मेल सेवाओं का प्रयोग किया जाएगा। ई-ऑफिस परिवेश में विभाग हेतु यह कागज़-रहित माध्यम है, और इसका प्रयोग वहाँ भी किया जा सकता है जहाँ वर्गीकृत आँकड़ा साझा हो — किंतु ऐसा आँकड़ा केवल कूटित रूप में ही भेजा जाएगा। आगे का मार्गदर्शन भारत सरकार की ई-मेल नीति में है, जिसे इलेक्ट्रॉनिकी और सूचना प्रौद्योगिकी मंत्रालय तैयार और अद्यतन करता है।"
+      },
+      "example": {
+        "en": "A personal or commercial e-mail account is outside this paragraph. The instruction is not that e-mail may be used; it is that the NIC service SHALL be the one used for official communication.",
+        "hi": "निजी या वाणिज्यिक ई-मेल खाता इस पैरा से बाहर है। अनुदेश यह नहीं है कि ई-मेल का प्रयोग किया जा सकता है; यह है कि सरकारी संप्रेषण हेतु एनआईसी सेवा का ही प्रयोग किया जाएगा।"
+      },
+      "connects": [
+        "csmop-8-5",
+        "csmop-13-2",
+        "csmop-5-1"
+      ],
+      "misconception": {
+        "en": "\"Classified material may never go by e-mail.\" It may, on the NIC service, ONLY in encrypted form — which is a permission with a condition, not a prohibition.",
+        "hi": "\"वर्गीकृत सामग्री ई-मेल से कभी नहीं जा सकती।\" जा सकती है, एनआईसी सेवा पर, केवल कूटित रूप में — यह शर्त सहित अनुमति है, निषेध नहीं।"
+      },
+      "reviewed": true,
+      "reviewState": "approved",
+      "generationMeta": {
+        "promptVersion": "study-aid-v1",
+        "batchId": "library-aids-2026-09-03-csmop",
+        "stageA": {
+          "index": 29,
+          "angle": "which e-mail service may carry official communication"
+        },
+        "critic": {
+          "verdict": "approve",
+          "reason": "Three short instructions, and the encryption condition is the one that carries a security consequence."
+        },
+        "verify": {
+          "grounded": true,
+          "note": "The paragraph is verbatim, including the encryption condition and the MeitY policy reference."
+        },
+        "dedup": {
+          "maxScore": 0,
+          "against": null,
+          "verdict": "keep"
+        },
+        "groundingUnitIds": [
+          "csmop-8-3"
+        ]
+      },
+      "source": {
+        "name": "Department of Administrative Reforms and Public Grievances — Central Secretariat Manual of Office Procedure, 2022 (16th edition) — English",
+        "url": "https://www.darpg.gov.in/static/uploads/2025/10/774e0b8f427b7875158363d842fa431f.pdf"
+      },
+      "verify": true
+    },
+    {
+      "id": "aid-csmop-8-4",
+      "workId": "csmop",
+      "unitId": "csmop-8-4",
+      "explanation": {
+        "en": "A LETTER is used for corresponding with State Governments, the UPSC and other constitutional bodies, heads of attached and subordinate offices, public enterprises, statutory authorities, public bodies and members of the public. It is formal, addressed on behalf of the Department or Government to the head of the organisation BY DESIGNATION, opens \"Sir / Madam\" and closes \"Yours faithfully\". A DEMI-OFFICIAL letter is used by one officer to another to draw his PERSONAL ATTENTION to an official matter of importance or urgency. It is written in the first person and should as far as possible be addressed to an officer of SIMILAR LEVEL — or, where none is available, to an officer one or two levels below the officer to whom it is addressed.",
+        "hi": "पत्र का प्रयोग राज्य सरकारों, संघ लोक सेवा आयोग तथा अन्य सांविधानिक निकायों, संलग्न और अधीनस्थ कार्यालयों के प्रमुखों, सार्वजनिक उपक्रमों, सांविधिक प्राधिकारियों, लोक निकायों तथा जनता के सदस्यों से पत्राचार हेतु होता है। वह औपचारिक है, विभाग या सरकार की ओर से संगठन के प्रमुख को पदनाम से संबोधित, \"महोदय / महोदया\" से आरंभ और \"भवदीय\" से समाप्त। अर्ध-सरकारी पत्र का प्रयोग एक अधिकारी द्वारा दूसरे को किसी महत्वपूर्ण या तात्कालिक सरकारी विषय पर व्यक्तिगत ध्यान आकर्षित करने हेतु होता है। वह प्रथम पुरुष में लिखा जाता है और यथासंभव समान स्तर के अधिकारी को संबोधित होना चाहिए — अथवा वैसा अधिकारी उपलब्ध न होने पर, जिसे संबोधित करना था उससे एक या दो स्तर नीचे के अधिकारी को।"
+      },
+      "example": {
+        "en": "A demi-official letter may go to officers in other public offices EXCEPT the chief of a Constitutional authority — in that case it is addressed to the SECRETARY of the authority.",
+        "hi": "अर्ध-सरकारी पत्र अन्य लोक कार्यालयों के अधिकारियों को जा सकता है, सिवाय किसी सांविधानिक प्राधिकारी के प्रमुख के — उस दशा में वह उस प्राधिकारी के सचिव को संबोधित होता है।"
+      },
+      "connects": [
+        "csmop-9-5",
+        "csmop-9-4",
+        "csmop-8-6"
+      ],
+      "misconception": {
+        "en": "\"A demi-official letter can be sent to anyone senior.\" As far as possible it goes to an officer of SIMILAR level, and the one-or-two-levels-below rule is a fallback for when no such officer is available.",
+        "hi": "\"अर्ध-सरकारी पत्र किसी भी वरिष्ठ को भेजा जा सकता है।\" यथासंभव वह समान स्तर के अधिकारी को जाता है, और एक-या-दो-स्तर-नीचे वाला नियम तब का विकल्प है जब वैसा अधिकारी उपलब्ध न हो।"
+      },
+      "examRelevance": {
+        "en": "The salutation and subscription of a letter — \"Sir / Madam\" and \"Yours faithfully\" — and the similar-level rule for a D.O. are the details asked about.",
+        "hi": "पत्र का संबोधन और समापन — \"महोदय / महोदया\" तथा \"भवदीय\" — और अर्ध-सरकारी पत्र का समान-स्तर नियम — यही ब्योरे पूछे जाते हैं।"
+      },
+      "reviewed": true,
+      "reviewState": "approved",
+      "generationMeta": {
+        "promptVersion": "study-aid-v1",
+        "batchId": "library-aids-2026-09-03-csmop",
+        "stageA": {
+          "index": 30,
+          "angle": "the letter and the demi-official, and who each is addressed to"
+        },
+        "critic": {
+          "verdict": "approve",
+          "reason": "Two forms with their addressees, register and salutation; the Constitutional-authority exception is the part that decides an unusual case."
+        },
+        "verify": {
+          "grounded": true,
+          "note": "Items 1 and 2 with sub-clauses (a)-(b) are verbatim."
+        },
+        "dedup": {
+          "maxScore": 0,
+          "against": null,
+          "verdict": "keep"
+        },
+        "groundingUnitIds": [
+          "csmop-8-4"
+        ]
+      },
+      "source": {
+        "name": "Department of Administrative Reforms and Public Grievances — Central Secretariat Manual of Office Procedure, 2022 (16th edition) — English",
+        "url": "https://www.darpg.gov.in/static/uploads/2025/10/774e0b8f427b7875158363d842fa431f.pdf"
+      },
+      "verify": true
+    },
+    {
+      "id": "aid-csmop-8-5",
+      "workId": "csmop",
+      "unitId": "csmop-8-5",
+      "explanation": {
+        "en": "E-mail, fax, speed post, registered post and special messenger are MODES OF SENDING a communication — not forms of communication in the sense Para 8.4 uses. The telephone may be used appropriately for intra- and inter-Departmental consultation, for communicating information between parties situated locally, and in matters of urgency with outstation offices. Telephonic communications should, wherever necessary, be FOLLOWED BY WRITTEN COMMUNICATIONS for confirmation.",
+        "hi": "ई-मेल, फैक्स, स्पीड पोस्ट, रजिस्टर्ड डाक और विशेष संदेशवाहक संप्रेषण भेजने के माध्यम हैं — पैरा 8.4 के अर्थ में संप्रेषण के रूप नहीं। दूरभाष का उपयुक्त प्रयोग अंतर्विभागीय और अंतर-विभागीय परामर्श हेतु, स्थानीय पक्षकारों के बीच जानकारी के संप्रेषण हेतु, तथा बाहरी कार्यालयों के साथ तात्कालिक विषयों में किया जा सकता है। दूरभाष संप्रेषण, जहाँ आवश्यक हो, पुष्टि हेतु लिखित संप्रेषण से अनुसरित होने चाहिए।"
+      },
+      "example": {
+        "en": "An Office Memorandum sent by e-mail is still an Office Memorandum. The FORM is decided by Para 8.4 and the appendix of formats; the mode only decides how it travels.",
+        "hi": "ई-मेल से भेजा गया कार्यालय ज्ञापन फिर भी कार्यालय ज्ञापन है। रूप पैरा 8.4 और प्ररूपों की अनुसूची तय करती है; माध्यम केवल यह तय करता है कि वह कैसे पहुँचे।"
+      },
+      "connects": [
+        "csmop-8-4",
+        "csmop-8-3",
+        "csmop-7-10"
+      ],
+      "misconception": {
+        "en": "\"E-mail is a form of communication.\" The manual lists it as a MODE. The distinction matters because the form decides the salutation, the register and the signature, and the mode decides none of them.",
+        "hi": "\"ई-मेल संप्रेषण का एक रूप है।\" नियमावली उसे माध्यम के रूप में सूचीबद्ध करती है। यह भेद इसलिए महत्वपूर्ण है कि रूप संबोधन, शैली और हस्ताक्षर तय करता है, और माध्यम इनमें से कुछ भी नहीं।"
+      },
+      "reviewed": true,
+      "reviewState": "approved",
+      "generationMeta": {
+        "promptVersion": "study-aid-v1",
+        "batchId": "library-aids-2026-09-03-csmop",
+        "stageA": {
+          "index": 31,
+          "angle": "a mode of sending is not a form of communication"
+        },
+        "critic": {
+          "verdict": "approve",
+          "reason": "The mode/form distinction is the whole content and it is a real source of drafting error."
+        },
+        "verify": {
+          "grounded": true,
+          "note": "Sub-paras (i)-(iii) are verbatim."
+        },
+        "dedup": {
+          "maxScore": 0,
+          "against": null,
+          "verdict": "keep"
+        },
+        "groundingUnitIds": [
+          "csmop-8-5"
+        ]
+      },
+      "source": {
+        "name": "Department of Administrative Reforms and Public Grievances — Central Secretariat Manual of Office Procedure, 2022 (16th edition) — English",
+        "url": "https://www.darpg.gov.in/static/uploads/2025/10/774e0b8f427b7875158363d842fa431f.pdf"
+      },
+      "verify": true
+    },
+    {
+      "id": "aid-csmop-8-7",
+      "workId": "csmop",
+      "unitId": "csmop-8-7",
+      "explanation": {
+        "en": "The Single File System applies where a NON-SECRETARIAT ORGANISATION must refer a matter to the Department for a sanction or order beyond its own delegated powers. The file cover shows the originating NSO’s name and that it follows SFS; the file needs NO I.D. number and travels as though from one officer to another in the same organisation. The NSO must complete it in all respects: every point for decision clearly brought out, all connected papers placed and referred to, draft orders or sanctions put up where the Department has to approve them for issue, and the availability of FUNDS CERTIFIED where expenditure is involved. As a rule ALL NOTINGS in the Department are on the NSO’s own file; a shadow file is permitted only for sensitive or delicate personnel, policy or finance matters, by general or special order.",
+        "hi": "एकल फ़ाइल प्रणाली वहाँ लागू है जहाँ कोई गैर-सचिवालय संगठन अपनी प्रत्यायोजित शक्तियों से परे किसी मंजूरी या आदेश हेतु विभाग को कोई विषय निर्दिष्ट करे। फ़ाइल के आवरण पर मूल गैर-सचिवालय संगठन का नाम और यह दिखता है कि वह एकल फ़ाइल प्रणाली का अनुसरण करती है; फ़ाइल पर कोई अंतर-विभागीय संख्या आवश्यक नहीं और वह ऐसे चलती है मानो एक ही संगठन के एक अधिकारी से दूसरे को जा रही हो। गैर-सचिवालय संगठन को उसे सब प्रकार से पूर्ण करना होगा: निर्णय का प्रत्येक बिंदु स्पष्ट रूप से सामने लाया जाए, सभी संबद्ध कागज़ात रखे और निर्दिष्ट हों, जहाँ विभाग को जारी करने हेतु अनुमोदन करना हो वहाँ आदेश/मंजूरी के प्रारूप प्रस्तुत हों, तथा जहाँ व्यय अंतर्ग्रस्त हो वहाँ निधियों की उपलब्धता प्रमाणित हो। सामान्य नियम यह है कि विभाग के सभी टिप्पण गैर-सचिवालय संगठन की अपनी फ़ाइल पर होंगे; छाया फ़ाइल केवल संवेदनशील या नाजुक कार्मिक, नीति या वित्त विषयों में, सामान्य या विशेष आदेश द्वारा अनुज्ञात है।"
+      },
+      "example": {
+        "en": "The officer last dealing with the case in the NSO marks it to the appropriate officer in the Department BY NAME — which is why an SFS file needs no I.D. number: it is being handed to a person, not referred to a Department.",
+        "hi": "गैर-सचिवालय संगठन में मामला अंतिम बार देखने वाला अधिकारी उसे विभाग के उपयुक्त अधिकारी को नाम से अंकित करता है — और इसीलिए एकल फ़ाइल प्रणाली की फ़ाइल पर कोई अंतर-विभागीय संख्या आवश्यक नहीं: वह किसी व्यक्ति को सौंपी जा रही है, किसी विभाग को निर्दिष्ट नहीं।"
+      },
+      "connects": [
+        "csmop-8-1",
+        "csmop-2-6"
+      ],
+      "misconception": {
+        "en": "\"The Department opens its own file on an SFS reference.\" As a rule all notings are on the NSO’s file; a shadow file is the exception and needs an order.",
+        "hi": "\"विभाग एकल फ़ाइल प्रणाली के निर्देश पर अपनी फ़ाइल खोलता है।\" सामान्य नियम यह है कि सभी टिप्पण गैर-सचिवालय संगठन की फ़ाइल पर होते हैं; छाया फ़ाइल अपवाद है और उसके लिए आदेश चाहिए।"
+      },
+      "reviewed": true,
+      "reviewState": "approved",
+      "generationMeta": {
+        "promptVersion": "study-aid-v1",
+        "batchId": "library-aids-2026-09-03-csmop",
+        "stageA": {
+          "index": 32,
+          "angle": "the Single File System, and what the originating office must complete"
+        },
+        "critic": {
+          "verdict": "approve",
+          "reason": "The four completeness requirements and the shadow-file exception; the by-name marking explains the absence of an I.D. number."
+        },
+        "verify": {
+          "grounded": true,
+          "note": "Sub-paras (i)-(vi) including clauses (a)-(d) are verbatim."
+        },
+        "dedup": {
+          "maxScore": 0,
+          "against": null,
+          "verdict": "keep"
+        },
+        "groundingUnitIds": [
+          "csmop-8-7"
+        ]
+      },
+      "source": {
+        "name": "Department of Administrative Reforms and Public Grievances — Central Secretariat Manual of Office Procedure, 2022 (16th edition) — English",
+        "url": "https://www.darpg.gov.in/static/uploads/2025/10/774e0b8f427b7875158363d842fa431f.pdf"
+      },
+      "verify": true
+    },
+    {
+      "id": "aid-csmop-8-9",
+      "workId": "csmop",
+      "unitId": "csmop-8-9",
+      "explanation": {
+        "en": "A communication from a Member of Parliament, a member of the public, a recognised association or a public body is ACKNOWLEDGED WITHIN 15 DAYS, followed by a reply within the NEXT 15 DAYS of the acknowledgement. Where a final reply will be delayed, or information must come from another Ministry, an INTERIM reply goes within 15 days OF RECEIPT indicating the likely date of the final reply. A communication wrongly addressed is TRANSFERRED WITHIN 5 WORKING DAYS of receipt, under intimation to the party. Where a request cannot be acceded to, the reasons are given COURTEOUSLY — and requests from the public are to be looked at from the user’s point of view, not solely from what is administratively convenient.",
+        "hi": "संसद सदस्य, जनता के किसी सदस्य, मान्यता-प्राप्त संगम अथवा लोक निकाय से प्राप्त संप्रेषण की पावती 15 दिन के भीतर दी जाती है, और उसके बाद पावती के अगले 15 दिन के भीतर उत्तर। जहाँ अंतिम उत्तर में विलंब हो, अथवा जानकारी किसी अन्य मंत्रालय से आनी हो, वहाँ प्राप्ति से 15 दिन के भीतर अंतरिम उत्तर जाता है जिसमें अंतिम उत्तर की संभावित तिथि बताई जाती है। गलत पते पर आया संप्रेषण प्राप्ति से 5 कार्य-दिवस के भीतर अंतरित किया जाता है, संबंधित पक्षकार को सूचित करते हुए। जहाँ अनुरोध स्वीकार न किया जा सके, वहाँ कारण शिष्टतापूर्वक दिए जाते हैं — और जनता के अनुरोधों को उपयोगकर्ता की दृष्टि से देखा जाए, केवल प्रशासनिक सुविधा की दृष्टि से नहीं।"
+      },
+      "example": {
+        "en": "The two fifteens are sequential, not alternative: acknowledgement within 15 days of receipt, reply within 15 days OF THE ACKNOWLEDGEMENT. That is up to thirty days in all, and an interim reply does not stop the clock on the final one.",
+        "hi": "दोनों पंद्रह क्रमिक हैं, वैकल्पिक नहीं: प्राप्ति से 15 दिन में पावती, पावती से 15 दिन में उत्तर। कुल मिलाकर तीस दिन तक, और अंतरिम उत्तर अंतिम उत्तर की गणना नहीं रोकता।"
+      },
+      "connects": [
+        "csmop-8-10",
+        "csmop-5-3",
+        "csmop-14-4"
+      ],
+      "misconception": {
+        "en": "\"Fifteen days is the total time to reply.\" Fifteen days is the acknowledgement; the reply runs fifteen days from the acknowledgement, and a wrongly addressed letter must be transferred in five WORKING days.",
+        "hi": "\"उत्तर देने का कुल समय पंद्रह दिन है।\" पंद्रह दिन पावती के हैं; उत्तर पावती से पंद्रह दिन चलता है, और गलत पते वाला पत्र पाँच कार्य-दिवस में अंतरित करना होता है।"
+      },
+      "examRelevance": {
+        "en": "15 + 15, an interim reply within 15 days of receipt, and 5 working days for a transfer — three numbers.",
+        "hi": "15 + 15, प्राप्ति से 15 दिन में अंतरिम उत्तर, तथा अंतरण हेतु 5 कार्य-दिवस — तीन संख्याएँ।"
+      },
+      "mnemonic": {
+        "en": "Acknowledge in 15 · reply in 15 more · transfer in 5 working days.",
+        "hi": "15 में पावती · अगले 15 में उत्तर · 5 कार्य-दिवस में अंतरण।"
+      },
+      "reviewed": true,
+      "reviewState": "approved",
+      "generationMeta": {
+        "promptVersion": "study-aid-v1",
+        "batchId": "library-aids-2026-09-03-csmop",
+        "stageA": {
+          "index": 33,
+          "angle": "fifteen days to acknowledge, fifteen more to reply"
+        },
+        "critic": {
+          "verdict": "approve",
+          "reason": "Three deadlines and the courtesy instruction; the sequential reading of the two fifteens is the point most often got wrong."
+        },
+        "verify": {
+          "grounded": true,
+          "note": "Sub-paras (i)-(v) are verbatim."
+        },
+        "dedup": {
+          "maxScore": 0,
+          "against": null,
+          "verdict": "keep"
+        },
+        "groundingUnitIds": [
+          "csmop-8-9"
+        ]
+      },
+      "source": {
+        "name": "Department of Administrative Reforms and Public Grievances — Central Secretariat Manual of Office Procedure, 2022 (16th edition) — English",
+        "url": "https://www.darpg.gov.in/static/uploads/2025/10/774e0b8f427b7875158363d842fa431f.pdf"
+      },
+      "verify": true
+    },
+    {
+      "id": "aid-csmop-8-10",
+      "workId": "csmop",
+      "unitId": "csmop-8-10",
+      "explanation": {
+        "en": "In all important matters where State Governments, Central Government departments, other offices, public bodies or individuals are consulted, a TIME LIMIT for replies may ordinarily be specified. On the expiry of that date, the orders of the appropriate authority are obtained on whether the offices that have not replied may be allowed an EXTENSION, or whether the matter may be PROCESSED WITHOUT WAITING for their replies.",
+        "hi": "सभी महत्वपूर्ण विषयों में जहाँ राज्य सरकारों, केंद्र सरकार के विभागों, अन्य कार्यालयों, लोक निकायों अथवा व्यक्तियों से परामर्श किया जाए, वहाँ सामान्यतः उत्तरों हेतु समय-सीमा विनिर्दिष्ट की जा सकती है। उस तिथि की समाप्ति पर, उपयुक्त प्राधिकारी के आदेश लिए जाते हैं कि जिन कार्यालयों के उत्तर नहीं आए उन्हें समय-विस्तार दिया जाए, अथवा विषय उनके उत्तरों की प्रतीक्षा किए बिना संसाधित किया जाए।"
+      },
+      "example": {
+        "en": "Silence does not stall a case indefinitely — but nor does it authorise the dealing officer to proceed on his own. The orders of the APPROPRIATE AUTHORITY are what settle which of the two happens.",
+        "hi": "मौन किसी मामले को अनिश्चित काल नहीं रोकता — किंतु वह कार्यकारी अधिकारी को स्वयं आगे बढ़ने का प्राधिकार भी नहीं देता। दोनों में से क्या होगा, यह उपयुक्त प्राधिकारी के आदेश तय करते हैं।"
+      },
+      "connects": [
+        "csmop-8-1",
+        "csmop-8-9"
+      ],
+      "misconception": {
+        "en": "\"If they do not reply by the date, we can proceed.\" Only on the orders of the appropriate authority, which may instead grant an extension.",
+        "hi": "\"यदि वे तिथि तक उत्तर न दें, तो हम आगे बढ़ सकते हैं।\" केवल उपयुक्त प्राधिकारी के आदेश पर, जो उसके बजाय समय-विस्तार भी दे सकता है।"
+      },
+      "reviewed": true,
+      "reviewState": "approved",
+      "generationMeta": {
+        "promptVersion": "study-aid-v1",
+        "batchId": "library-aids-2026-09-03-csmop",
+        "stageA": {
+          "index": 34,
+          "angle": "what to do when a consulted office does not reply"
+        },
+        "critic": {
+          "verdict": "approve",
+          "reason": "One sentence with two possible outcomes and a named decision-maker; the aid is about who decides, which is the part that gets skipped."
+        },
+        "verify": {
+          "grounded": true,
+          "note": "The paragraph is one sentence and is quoted in substance."
+        },
+        "dedup": {
+          "maxScore": 0,
+          "against": null,
+          "verdict": "keep"
+        },
+        "groundingUnitIds": [
+          "csmop-8-10"
+        ]
+      },
+      "source": {
+        "name": "Department of Administrative Reforms and Public Grievances — Central Secretariat Manual of Office Procedure, 2022 (16th edition) — English",
+        "url": "https://www.darpg.gov.in/static/uploads/2025/10/774e0b8f427b7875158363d842fa431f.pdf"
+      },
+      "verify": true
+    },
+    {
+      "id": "aid-csmop-9-1",
+      "workId": "csmop",
+      "unitId": "csmop-9-1",
+      "explanation": {
+        "en": "NO draft is required in simple, straightforward or repetitive cases for which standard forms exist — those go up with FAIR COPIES for signature. A draft is put up, with the notes, where the case is complex, the line of action is unclear, or there is more than one option. After the competent authority decides, he may have the fair communication made for HIS OWN signature, or AUTHORISE ITS ISSUE under the signature of an officer NOT BELOW THE RANK OF UNDER SECRETARY. Every draft put up for approval carries the word \"DRAFT\" at TOP CENTRE, and drafts of letters with crucial policy, financial or vigilance implications that senior officers changed — barring grammatical corrections — form part of the CORRESPONDENCE portion.",
+        "hi": "सरल, सीधे या पुनरावर्ती मामलों में, जिनके लिए मानक प्ररूप विद्यमान हैं, कोई प्रारूप अपेक्षित नहीं — वे हस्ताक्षर हेतु स्वच्छ प्रतियों के साथ ऊपर जाते हैं। प्रारूप टिप्पणों के साथ वहाँ प्रस्तुत होता है जहाँ मामला जटिल हो, कार्रवाई की दिशा अस्पष्ट हो, अथवा एक से अधिक विकल्प हों। सक्षम प्राधिकारी के निर्णय के बाद वह स्वच्छ संप्रेषण अपने हस्ताक्षर हेतु बनवा सकता है, अथवा अवर सचिव की पंक्ति से अनिम्न किसी अधिकारी के हस्ताक्षर से उसे जारी करने का प्राधिकार दे सकता है। अनुमोदन हेतु प्रस्तुत प्रत्येक प्रारूप पर ऊपर मध्य में \"प्रारूप\" लिखा होता है, और महत्वपूर्ण नीतिगत, वित्तीय या सतर्कता निहितार्थ वाले उन पत्रों के प्रारूप, जिन्हें वरिष्ठ अधिकारियों ने बदला हो — व्याकरण-सुधार को छोड़कर — पत्राचार-भाग का अंग बनते हैं।"
+      },
+      "example": {
+        "en": "Sub-para (v) is an audit trail: where a senior officer rewrote a draft on a policy, financial or vigilance matter, the earlier draft goes into the correspondence portion so the change is visible on the record.",
+        "hi": "उप-पैरा (v) एक लेखा-परीक्षा-चिह्न है: जहाँ किसी वरिष्ठ अधिकारी ने नीतिगत, वित्तीय या सतर्कता विषय के प्रारूप को फिर से लिखा हो, वहाँ पूर्ववर्ती प्रारूप पत्राचार-भाग में जाता है ताकि परिवर्तन अभिलेख पर दिखे।"
+      },
+      "connects": [
+        "csmop-9-2",
+        "csmop-9-3",
+        "csmop-7-3"
+      ],
+      "misconception": {
+        "en": "\"Only the deciding officer can sign the issue.\" He may authorise issue under the signature of an officer not below Under Secretary — which is what \"By order and in the name of…\" over an Under Secretary’s signature reflects.",
+        "hi": "\"जारी करने पर हस्ताक्षर केवल निर्णय करने वाला अधिकारी कर सकता है।\" वह अवर सचिव से अनिम्न किसी अधिकारी के हस्ताक्षर से जारी करने का प्राधिकार दे सकता है — और अवर सचिव के हस्ताक्षर के ऊपर \"आदेश से तथा … के नाम से\" यही दर्शाता है।"
+      },
+      "reviewed": true,
+      "reviewState": "approved",
+      "generationMeta": {
+        "promptVersion": "study-aid-v1",
+        "batchId": "library-aids-2026-09-03-csmop",
+        "stageA": {
+          "index": 35,
+          "angle": "when a draft is needed, and who may sign the issue"
+        },
+        "critic": {
+          "verdict": "approve",
+          "reason": "The no-draft shortcut, the Under Secretary floor for issue, the DRAFT marking and the correspondence-portion rule are the four operative instructions."
+        },
+        "verify": {
+          "grounded": true,
+          "note": "Sub-paras (i)-(v) are verbatim."
+        },
+        "dedup": {
+          "maxScore": 0,
+          "against": null,
+          "verdict": "keep"
+        },
+        "groundingUnitIds": [
+          "csmop-9-1"
+        ]
+      },
+      "source": {
+        "name": "Department of Administrative Reforms and Public Grievances — Central Secretariat Manual of Office Procedure, 2022 (16th edition) — English",
+        "url": "https://www.darpg.gov.in/static/uploads/2025/10/774e0b8f427b7875158363d842fa431f.pdf"
+      },
+      "verify": true
+    },
+    {
+      "id": "aid-csmop-9-2",
+      "workId": "csmop",
+      "unitId": "csmop-9-2",
+      "explanation": {
+        "en": "A draft carries its message in language that is CLEAR, CONCISE AND UNAMBIGUOUS. Lengthy sentences, abruptness, redundancy, circumlocution, superlatives and repetition are avoided; an unavoidably long communication ends with a SUMMARY specifying the action expected. A communication conveying the views or orders of the Government of India must be EXPRESSLY stated to have been written UNDER THE DIRECTIONS OF GOVERNMENT. The number and date of the last communication in the series is always referred to. When asking for information, SPECIFY THE DATE — the manual’s own example is \"…may be sent by 28-02-2019\" instead of \"…may be sent immediately\". Every draft bears the FILE NUMBER.",
+        "hi": "प्रारूप अपना संदेश स्पष्ट, संक्षिप्त और असंदिग्ध भाषा में ले जाता है। लंबे वाक्य, रूखापन, अतिरेक, वक्रोक्ति, अतिशयोक्ति और पुनरावृत्ति टाली जाती है; अपरिहार्य रूप से लंबा संप्रेषण ऐसे सारांश से समाप्त होता है जो अपेक्षित कार्रवाई विनिर्दिष्ट करे। भारत सरकार के मत या आदेश संप्रेषित करने वाले संप्रेषण में स्पष्टतः कहा जाना चाहिए कि वह सरकार के निदेशों के अधीन लिखा गया है। शृंखला के अंतिम संप्रेषण की संख्या और तिथि का निर्देश सदा दिया जाता है। जानकारी माँगते समय तिथि विनिर्दिष्ट करें — नियमावली का अपना उदाहरण है \"…28-02-2019 तक भेजा जाए\" न कि \"…तुरंत भेजा जाए\"। प्रत्येक प्रारूप पर फ़ाइल संख्या होती है।"
+      },
+      "example": {
+        "en": "\"Immediately\" is the word the manual singles out: it gives the alternative in terms, with a date. A request with no date is a request with no deadline, and Para 8.10 then has nothing to run from.",
+        "hi": "\"तुरंत\" वही शब्द है जिसे नियमावली चुनकर उठाती है: वह विकल्प शब्दों में देती है, तिथि सहित। बिना तिथि का अनुरोध बिना समय-सीमा का अनुरोध है, और तब पैरा 8.10 के पास चलने के लिए कुछ नहीं रहता।"
+      },
+      "connects": [
+        "csmop-9-1",
+        "csmop-8-10",
+        "csmop-9-5"
+      ],
+      "misconception": {
+        "en": "\"Saying it is a Government communication is implicit in the letterhead.\" Sub-para (iii) requires it to be EXPRESSLY expressed to have been written under the directions of Government.",
+        "hi": "\"लेटरहेड से ही स्पष्ट है कि यह सरकारी संप्रेषण है।\" उप-पैरा (iii) अपेक्षित करता है कि स्पष्टतः कहा जाए कि वह सरकार के निदेशों के अधीन लिखा गया है।"
+      },
+      "examRelevance": {
+        "en": "The list of what to avoid in sub-para (ii), and the \"by 28-02-2019\" example, are the two most quotable parts.",
+        "hi": "उप-पैरा (ii) में क्या टालना है उसकी सूची, तथा \"28-02-2019 तक\" वाला उदाहरण — यही दो सर्वाधिक उद्धरण-योग्य भाग हैं।"
+      },
+      "reviewed": true,
+      "reviewState": "approved",
+      "generationMeta": {
+        "promptVersion": "study-aid-v1",
+        "batchId": "library-aids-2026-09-03-csmop",
+        "stageA": {
+          "index": 36,
+          "angle": "six drafting rules, and the one about dates"
+        },
+        "critic": {
+          "verdict": "approve",
+          "reason": "Six instructions in the manual’s order, including its own worked example of a dated request."
+        },
+        "verify": {
+          "grounded": true,
+          "note": "Sub-paras (i)-(vi) are verbatim, including the \"may be sent by 28-02-2019\" example."
+        },
+        "dedup": {
+          "maxScore": 0,
+          "against": null,
+          "verdict": "keep"
+        },
+        "groundingUnitIds": [
+          "csmop-9-2"
+        ]
+      },
+      "source": {
+        "name": "Department of Administrative Reforms and Public Grievances — Central Secretariat Manual of Office Procedure, 2022 (16th edition) — English",
+        "url": "https://www.darpg.gov.in/static/uploads/2025/10/774e0b8f427b7875158363d842fa431f.pdf"
+      },
+      "verify": true
+    },
+    {
+      "id": "aid-csmop-9-3",
+      "workId": "csmop",
+      "unitId": "csmop-9-3",
+      "explanation": {
+        "en": "All orders and instruments made and executed IN THE NAME OF THE PRESIDENT must be expressed to be made in his name and signed by an officer having regular or ex-officio Secretariat status of AND ABOVE THE RANK OF UNDER SECRETARY, or otherwise specifically authorised under the Authentication (Orders and Other Instruments) Rules, 2002. Where the power to make an order or notification is conferred by a STATUTE of the Government of India, the order is expressed to be made IN THE NAME OF THE GOVERNMENT OF INDIA rather than in the President’s name.",
+        "hi": "राष्ट्रपति के नाम से किए और निष्पादित सभी आदेश और लिखत उनके नाम से किए गए कहे जाने चाहिए और ऐसे अधिकारी द्वारा हस्ताक्षरित होने चाहिए जिसे नियमित या पदेन सचिवालयी दर्जा अवर सचिव की पंक्ति का या उससे ऊपर का प्राप्त हो, अथवा जो प्रमाणीकरण (आदेश और अन्य लिखत) नियम, 2002 के अधीन विशेष रूप से प्राधिकृत हो। जहाँ आदेश या अधिसूचना करने की शक्ति भारत सरकार के किसी अधिनियम से प्रदत्त हो, वहाँ आदेश राष्ट्रपति के नाम से नहीं, भारत सरकार के नाम से किया गया कहा जाता है।"
+      },
+      "example": {
+        "en": "The two limbs pick different formulas: an executive order under Article 77 is \"in the name of the President\"; a statutory notification under an Act is \"in the name of the Government of India\". Using the wrong one is a defect of authentication, not of style.",
+        "hi": "दोनों अंग भिन्न सूत्र चुनते हैं: अनुच्छेद 77 के अधीन कार्यपालक आदेश \"राष्ट्रपति के नाम से\" होता है; किसी अधिनियम के अधीन सांविधिक अधिसूचना \"भारत सरकार के नाम से\"। गलत सूत्र का प्रयोग प्रमाणीकरण की त्रुटि है, शैली की नहीं।"
+      },
+      "connects": [
+        "csmop-9-1",
+        "csmop-4-3"
+      ],
+      "misconception": {
+        "en": "\"Any officer can sign an order made in the President’s name.\" The floor is Under Secretary rank with regular or ex-officio Secretariat status, or specific authorisation under the 2002 Rules.",
+        "hi": "\"राष्ट्रपति के नाम से किए गए आदेश पर कोई भी अधिकारी हस्ताक्षर कर सकता है।\" न्यूनतम सीमा नियमित या पदेन सचिवालयी दर्जे सहित अवर सचिव की पंक्ति है, अथवा 2002 के नियमों के अधीन विशेष प्राधिकार।"
+      },
+      "reviewed": true,
+      "reviewState": "approved",
+      "generationMeta": {
+        "promptVersion": "study-aid-v1",
+        "batchId": "library-aids-2026-09-03-csmop",
+        "stageA": {
+          "index": 37,
+          "angle": "who may authenticate an order made in the President’s name"
+        },
+        "critic": {
+          "verdict": "approve",
+          "reason": "Two limbs, the Under Secretary floor and the 2002 Rules reference; the aid does not claim any provision of those Rules, which this app does not carry."
+        },
+        "verify": {
+          "grounded": true,
+          "note": "Sub-paras (i)-(ii) are verbatim. The Article 77 characterisation is stated as context and not attributed to this paragraph."
+        },
+        "dedup": {
+          "maxScore": 0,
+          "against": null,
+          "verdict": "keep"
+        },
+        "groundingUnitIds": [
+          "csmop-9-3"
+        ]
+      },
+      "source": {
+        "name": "Department of Administrative Reforms and Public Grievances — Central Secretariat Manual of Office Procedure, 2022 (16th edition) — English",
+        "url": "https://www.darpg.gov.in/static/uploads/2025/10/774e0b8f427b7875158363d842fa431f.pdf"
+      },
+      "verify": true
+    },
+    {
+      "id": "aid-csmop-9-4",
+      "workId": "csmop",
+      "unitId": "csmop-9-4",
+      "explanation": {
+        "en": "NORMALLY no communication — other than one of a classified nature or a demi-official letter — should be addressed or marked to an officer BY NAME, unless the matter is intended to receive his personal attention because of its special nature, urgency or importance, or because ground has already been covered in personal discussion with him. In such a case the communication is addressed to the HEAD OF THE ORGANISATION with \"Attention: …\" written ABOVE the subject line.",
+        "hi": "सामान्यतः कोई संप्रेषण — वर्गीकृत प्रकृति के अथवा अर्ध-सरकारी पत्र को छोड़कर — किसी अधिकारी को नाम से संबोधित या अंकित नहीं किया जाना चाहिए, जब तक विषय की विशेष प्रकृति, तात्कालिकता या महत्व के कारण, अथवा उसके साथ पहले हुई व्यक्तिगत चर्चा के कारण, यह आशयित न हो कि वह उसका व्यक्तिगत ध्यान पाए। ऐसी दशा में संप्रेषण संगठन के प्रमुख को संबोधित होता है और विषय-पंक्ति के ऊपर \"ध्यानार्थ: …\" लिखा जाता है।"
+      },
+      "example": {
+        "en": "The remedy is not to address the officer directly but to add an \"Attention\" line above the subject: the letter still goes to the head of the organisation, so it survives the officer’s transfer or absence.",
+        "hi": "उपचार यह नहीं है कि अधिकारी को सीधे संबोधित किया जाए, बल्कि विषय के ऊपर \"ध्यानार्थ\" पंक्ति जोड़ी जाए: पत्र फिर भी संगठन के प्रमुख को जाता है, अतः वह उस अधिकारी के स्थानांतरण या अनुपस्थिति में भी काम करता रहता है।"
+      },
+      "connects": [
+        "csmop-8-4",
+        "csmop-5-1"
+      ],
+      "misconception": {
+        "en": "\"Marking a letter by name gets it dealt with faster.\" Para 5.1 shows the opposite risk: by-name dak without an urgency grading still goes through the CRU, and a by-name letter can sit with an absent officer.",
+        "hi": "\"नाम से अंकित पत्र जल्दी निपटता है।\" पैरा 5.1 उलटा जोखिम दिखाता है: बिना तात्कालिकता-श्रेणी की नाम-वाली डाक फिर भी केंद्रीय रजिस्ट्री इकाई से जाती है, और नाम-वाला पत्र अनुपस्थित अधिकारी के पास पड़ा रह सकता है।"
+      },
+      "reviewed": true,
+      "reviewState": "approved",
+      "generationMeta": {
+        "promptVersion": "study-aid-v1",
+        "batchId": "library-aids-2026-09-03-csmop",
+        "stageA": {
+          "index": 38,
+          "angle": "when a communication may be addressed to an officer by name"
+        },
+        "critic": {
+          "verdict": "approve",
+          "reason": "The general bar, its two exceptions and the Attention-line remedy; the Para 5.1 consequence is what makes the rule practical rather than formal."
+        },
+        "verify": {
+          "grounded": true,
+          "note": "The paragraph is verbatim, including the \"Attention: …\" placement above the Subject."
+        },
+        "dedup": {
+          "maxScore": 0,
+          "against": null,
+          "verdict": "keep"
+        },
+        "groundingUnitIds": [
+          "csmop-9-4",
+          "csmop-5-1"
+        ]
+      },
+      "source": {
+        "name": "Department of Administrative Reforms and Public Grievances — Central Secretariat Manual of Office Procedure, 2022 (16th edition) — English",
+        "url": "https://www.darpg.gov.in/static/uploads/2025/10/774e0b8f427b7875158363d842fa431f.pdf"
+      },
+      "verify": true
+    },
+    {
+      "id": "aid-csmop-9-5",
+      "workId": "csmop",
+      "unitId": "csmop-9-5",
+      "explanation": {
+        "en": "Because a D.O. letter’s objective is to invite the addressee’s PERSONAL ATTENTION, the style is direct, personal and friendly, and the ACTIVE VOICE is preferred — the manual’s own examples are \"I notice\" rather than \"It is noticed\", and \"I seek your cooperation in the matter of…\" rather than \"It is expedient to come to the issue at the beginning itself\". A D.O. letter should PREFERABLY NOT EXCEED ONE PAGE; a longer message is condensed into small paragraphs with the detailed arguments set out in APPENDICES. The draft is faired by the personal staff of the signing officer, and the colour code and use of the National Emblem follow Ministry of Home Affairs instructions.",
+        "hi": "चूँकि अर्ध-सरकारी पत्र का उद्देश्य संबोधिती का व्यक्तिगत ध्यान आकर्षित करना है, अतः शैली सीधी, वैयक्तिक और मैत्रीपूर्ण होती है, और कर्तृवाच्य को वरीयता दी जाती है — नियमावली के अपने उदाहरण हैं \"मैं देखता हूँ\" न कि \"यह देखा गया है\", तथा \"मैं इस विषय में आपके सहयोग का आकांक्षी हूँ…\" न कि \"आरंभ में ही विषय पर आना समीचीन है\"। अर्ध-सरकारी पत्र अधिमानतः एक पृष्ठ से अधिक नहीं होना चाहिए; लंबा संदेश छोटे अनुच्छेदों में संघनित किया जाता है और विस्तृत तर्क परिशिष्टों में रखे जाते हैं। प्रारूप हस्ताक्षर करने वाले अधिकारी का निजी स्टाफ स्वच्छ प्रति में तैयार करता है, और रंग-संकेत तथा राष्ट्रीय प्रतीक का प्रयोग गृह मंत्रालय के अनुदेशों के अनुसार होता है।"
+      },
+      "example": {
+        "en": "The one-page limit is a drafting discipline with an appendix as its escape: the argument does not have to be shortened, only moved off the page the addressee will actually read.",
+        "hi": "एक-पृष्ठ की सीमा प्रारूपण का अनुशासन है जिसका निकास परिशिष्ट है: तर्क को छोटा करना आवश्यक नहीं, केवल उस पृष्ठ से हटाना है जिसे संबोधिती वस्तुतः पढ़ेगा।"
+      },
+      "connects": [
+        "csmop-8-4",
+        "csmop-9-2"
+      ],
+      "misconception": {
+        "en": "\"Official writing avoids the first person.\" A D.O. letter is the exception the manual builds a paragraph around, and it gives two worked examples in favour of \"I\".",
+        "hi": "\"सरकारी लेखन में उत्तम पुरुष टाला जाता है।\" अर्ध-सरकारी पत्र वही अपवाद है जिस पर नियमावली एक पूरा पैरा बनाती है, और वह \"मैं\" के पक्ष में दो उदाहरण देती है।"
+      },
+      "reviewed": true,
+      "reviewState": "approved",
+      "generationMeta": {
+        "promptVersion": "study-aid-v1",
+        "batchId": "library-aids-2026-09-03-csmop",
+        "stageA": {
+          "index": 39,
+          "angle": "how a demi-official letter is written, and how long it may be"
+        },
+        "critic": {
+          "verdict": "approve",
+          "reason": "The active-voice examples are the manual’s own, and the one-page rule with its appendix escape is the practical instruction."
+        },
+        "verify": {
+          "grounded": true,
+          "note": "Sub-paras (i)-(iii) with both worked examples are verbatim."
+        },
+        "dedup": {
+          "maxScore": 0,
+          "against": null,
+          "verdict": "keep"
+        },
+        "groundingUnitIds": [
+          "csmop-9-5"
+        ]
+      },
+      "source": {
+        "name": "Department of Administrative Reforms and Public Grievances — Central Secretariat Manual of Office Procedure, 2022 (16th edition) — English",
+        "url": "https://www.darpg.gov.in/static/uploads/2025/10/774e0b8f427b7875158363d842fa431f.pdf"
+      },
+      "verify": true
+    },
+    {
+      "id": "aid-csmop-10-2",
+      "workId": "csmop",
+      "unitId": "csmop-10-2",
+      "explanation": {
+        "en": "Files are RECORDED after action on all the issues considered on them is complete, as per the record retention schedules of Para 10.7. Files of a PURELY EPHEMERAL nature — casual leave records, circulars of temporary nature — containing papers of little reference or research value may be DESTROYED AFTER ONE YEAR WITHOUT being formally recorded. In eFile, an electronic file on which action is complete is CLOSED into a separate folder with the competent authority’s approval, and may be reopened by the official who closed it with that authority’s approval.",
+        "hi": "फ़ाइलें तब अभिलिखित होती हैं जब उन पर विचारित सभी विषयों पर कार्रवाई पूरी हो जाए, पैरा 10.7 की अभिलेख-प्रतिधारण अनुसूचियों के अनुसार। विशुद्ध रूप से क्षणिक प्रकृति की फ़ाइलें — आकस्मिक अवकाश अभिलेख, अस्थायी प्रकृति के परिपत्र — जिनमें अल्प संदर्भ या शोध मूल्य के कागज़ात हों, औपचारिक रूप से अभिलिखित हुए बिना एक वर्ष बाद नष्ट की जा सकती हैं। ई-फ़ाइल में, जिस इलेक्ट्रॉनिक फ़ाइल पर कार्रवाई पूरी हो जाए वह सक्षम प्राधिकारी के अनुमोदन से पृथक् फोल्डर में बंद कर दी जाती है, और उसे बंद करने वाला अधिकारी उसी प्राधिकारी के अनुमोदन से पुनः खोल सकता है।"
+      },
+      "example": {
+        "en": "Recording and closing are different acts: a physical file is RECORDED and categorised under Para 10.4, whereas an electronic file is CLOSED into a folder and can be reopened with approval.",
+        "hi": "अभिलेखन और बंद करना भिन्न कार्य हैं: भौतिक फ़ाइल अभिलिखित होकर पैरा 10.4 के अधीन कोटिबद्ध होती है, जबकि इलेक्ट्रॉनिक फ़ाइल किसी फोल्डर में बंद होती है और अनुमोदन से पुनः खोली जा सकती है।"
+      },
+      "connects": [
+        "csmop-10-4",
+        "csmop-7-14"
+      ],
+      "misconception": {
+        "en": "\"Every file must be recorded before destruction.\" A purely ephemeral file may be destroyed after one year WITHOUT being formally recorded.",
+        "hi": "\"नष्ट करने से पूर्व हर फ़ाइल अभिलिखित होनी चाहिए।\" विशुद्ध क्षणिक फ़ाइल औपचारिक रूप से अभिलिखित हुए बिना एक वर्ष बाद नष्ट की जा सकती है।"
+      },
+      "reviewed": true,
+      "reviewState": "approved",
+      "generationMeta": {
+        "promptVersion": "study-aid-v1",
+        "batchId": "library-aids-2026-09-03-csmop",
+        "stageA": {
+          "index": 40,
+          "angle": "when a file is recorded, and what is destroyed without being recorded"
+        },
+        "critic": {
+          "verdict": "approve",
+          "reason": "The record-then-retain rule, the ephemeral exception and the eFile close/reopen mechanics; the \"week\" media check at the end of the paragraph is not asserted as a rule for paper files."
+        },
+        "verify": {
+          "grounded": true,
+          "note": "The paragraph and Box e.10.1 are verbatim."
+        },
+        "dedup": {
+          "maxScore": 0,
+          "against": null,
+          "verdict": "keep"
+        },
+        "groundingUnitIds": [
+          "csmop-10-2"
+        ]
+      },
+      "source": {
+        "name": "Department of Administrative Reforms and Public Grievances — Central Secretariat Manual of Office Procedure, 2022 (16th edition) — English",
+        "url": "https://www.darpg.gov.in/static/uploads/2025/10/774e0b8f427b7875158363d842fa431f.pdf"
+      },
+      "verify": true
+    },
+    {
+      "id": "aid-csmop-10-4",
+      "workId": "csmop",
+      "unitId": "csmop-10-4",
+      "explanation": {
+        "en": "A file is recorded under one of three categories. Category ‘A’ — KEEP AND MICROFILM — is for files qualifying for permanent preservation that contain a document so precious the original must be preserved with access restricted, or material likely to be needed frequently and simultaneously, and for files of historical importance. Category ‘B’ — KEEP BUT DO NOT MICROFILM — covers files for permanent preservation that are not of that kind. Category ‘C’ — KEEP FOR A SPECIFIED PERIOD ONLY — covers files of secondary importance with reference value for NOT MORE THAN TEN YEARS; in an exceptional case a file needed beyond ten years is UPGRADED TO ‘B’. eFiles use only two categories, ‘A’ and ‘C’.",
+        "hi": "फ़ाइल तीन कोटियों में से किसी एक में अभिलिखित होती है। कोटि ‘क’ — रखें और माइक्रोफ़िल्म करें — उन फ़ाइलों के लिए है जो स्थायी परिरक्षण योग्य हैं और जिनमें ऐसा बहुमूल्य दस्तावेज़ हो जिसका मूल सुरक्षित रखना और पहुँच सीमित रखना आवश्यक हो, अथवा ऐसी सामग्री जो बारंबार और एक साथ अपेक्षित हो, तथा ऐतिहासिक महत्व की फ़ाइलों के लिए। कोटि ‘ख’ — रखें किंतु माइक्रोफ़िल्म न करें — स्थायी परिरक्षण योग्य उन फ़ाइलों को समाविष्ट करती है जो उस प्रकार की नहीं हैं। कोटि ‘ग’ — केवल विनिर्दिष्ट अवधि तक रखें — गौण महत्व की उन फ़ाइलों के लिए है जिनका संदर्भ मूल्य दस वर्ष से अधिक नहीं; असाधारण दशा में दस वर्ष से आगे अपेक्षित फ़ाइल कोटि ‘ख’ में उन्नत की जाती है। ई-फ़ाइलों में केवल दो कोटियाँ हैं, ‘क’ और ‘ग’।"
+      },
+      "example": {
+        "en": "Ten years is the ceiling of Category ‘C’, not a default: a file still needed beyond it does not get an extension in ‘C’ — it is upgraded to ‘B’, which is permanent preservation.",
+        "hi": "दस वर्ष कोटि ‘ग’ की सीमा है, कोई सामान्य अवधि नहीं: उससे आगे अपेक्षित फ़ाइल को ‘ग’ में विस्तार नहीं मिलता — वह ‘ख’ में उन्नत होती है, जो स्थायी परिरक्षण है।"
+      },
+      "connects": [
+        "csmop-10-2",
+        "csmop-10-7"
+      ],
+      "misconception": {
+        "en": "\"Category ‘B’ is a lower grade than ‘A’.\" Both are PERMANENT preservation; the difference is only whether the file is microfilmed.",
+        "hi": "\"कोटि ‘ख’ ‘क’ से निम्न श्रेणी है।\" दोनों स्थायी परिरक्षण हैं; अंतर केवल इतना है कि फ़ाइल माइक्रोफ़िल्म की जाती है या नहीं।"
+      },
+      "examRelevance": {
+        "en": "A = keep and microfilm, B = keep, C = up to ten years then upgrade or weed — the three-line answer.",
+        "hi": "क = रखें और माइक्रोफ़िल्म करें, ख = रखें, ग = दस वर्ष तक फिर उन्नयन या निराकरण — तीन-पंक्ति का उत्तर।"
+      },
+      "mnemonic": {
+        "en": "A microfilm · B keep · C ten years.",
+        "hi": "क माइक्रोफ़िल्म · ख रखें · ग दस वर्ष।"
+      },
+      "reviewed": true,
+      "reviewState": "approved",
+      "generationMeta": {
+        "promptVersion": "study-aid-v1",
+        "batchId": "library-aids-2026-09-03-csmop",
+        "stageA": {
+          "index": 41,
+          "angle": "three categories of record, and what each one means"
+        },
+        "critic": {
+          "verdict": "approve",
+          "reason": "Three categories with the ten-year ceiling and the upgrade rule; the eFile two-category simplification is in the same paragraph and is stated as such."
+        },
+        "verify": {
+          "grounded": true,
+          "note": "Sub-paras (i)-(iii) and the eFile categorisation are verbatim."
+        },
+        "dedup": {
+          "maxScore": 0,
+          "against": null,
+          "verdict": "keep"
+        },
+        "groundingUnitIds": [
+          "csmop-10-4"
+        ]
+      },
+      "source": {
+        "name": "Department of Administrative Reforms and Public Grievances — Central Secretariat Manual of Office Procedure, 2022 (16th edition) — English",
+        "url": "https://www.darpg.gov.in/static/uploads/2025/10/774e0b8f427b7875158363d842fa431f.pdf"
+      },
+      "verify": true
+    },
+    {
+      "id": "aid-csmop-13-1",
+      "workId": "csmop",
+      "unitId": "csmop-13-1",
+      "explanation": {
+        "en": "Every Government servant shall, in performance of his duties IN GOOD FAITH, communicate information to a person in accordance with the Right to Information Act, 2005 and the rules under it — with a proviso that, except under a general or special order of the Government or in good-faith performance of assigned duties, no Government servant shall communicate, directly or indirectly, any official document or any part of it, or CLASSIFIED INFORMATION, to any Government servant or other person NOT AUTHORISED to receive it.",
+        "hi": "प्रत्येक सरकारी कर्मचारी अपने कर्तव्यों के सद्भावपूर्ण निर्वहन में सूचना का अधिकार अधिनियम, 2005 तथा उसके अधीन बने नियमों के अनुसार किसी व्यक्ति को सूचना संप्रेषित करेगा — इस परंतुक सहित कि सरकार के सामान्य या विशेष आदेश के अधीन अथवा सौंपे गए कर्तव्यों के सद्भावपूर्ण निर्वहन में के सिवाय, कोई सरकारी कर्मचारी किसी सरकारी दस्तावेज़ या उसके किसी भाग, अथवा वर्गीकृत सूचना को, प्रत्यक्ष या अप्रत्यक्ष रूप से ऐसे किसी सरकारी कर्मचारी या अन्य व्यक्ति को संप्रेषित नहीं करेगा जो उसे प्राप्त करने हेतु प्राधिकृत नहीं है।"
+      },
+      "example": {
+        "en": "This is Rule 11 of the CCS (Conduct) Rules, 1964 reproduced in the manual, word for word in substance. An officer therefore faces the same obligation from two directions: a conduct rule whose breach is misconduct, and an office procedure whose breach is a procedural failure.",
+        "hi": "यह सीसीएस (आचरण) नियम, 1964 का नियम 11 ही है जिसे नियमावली में सारतः शब्दशः पुनरुत्पादित किया गया है। अतः अधिकारी पर यही बाध्यता दो दिशाओं से आती है: वह आचरण नियम जिसके उल्लंघन पर कदाचार बनता है, और वह कार्यालय प्रक्रिया जिसके उल्लंघन पर प्रक्रियागत चूक।"
+      },
+      "connects": [
+        "csmop-13-2",
+        "csmop-13-4",
+        "csmop-8-3"
+      ],
+      "misconception": {
+        "en": "\"Sharing a paper with a colleague in another Section is internal.\" The proviso names \"any Government servant … not authorised\", exactly as Conduct Rule 11 does. Authorisation, not employment, is the test.",
+        "hi": "\"किसी अन्य अनुभाग के सहकर्मी को कागज़ दिखाना आंतरिक है।\" परंतुक \"ऐसे किसी सरकारी कर्मचारी … जो प्राधिकृत नहीं\" का नाम लेता है, ठीक वैसे ही जैसे आचरण नियम 11। कसौटी नियोजन नहीं, प्राधिकार है।"
+      },
+      "reviewed": true,
+      "reviewState": "approved",
+      "generationMeta": {
+        "promptVersion": "study-aid-v1",
+        "batchId": "library-aids-2026-09-03-csmop",
+        "stageA": {
+          "index": 42,
+          "angle": "the same duty as Conduct Rule 11, restated in the manual"
+        },
+        "critic": {
+          "verdict": "approve",
+          "reason": "The paragraph reproduces Conduct Rule 11 and the aid says so and checks it, rather than presenting it as a separate obligation."
+        },
+        "verify": {
+          "grounded": true,
+          "note": "The paragraph with its proviso is verbatim; the comparison was made against Rule 11 in data/rules/text/ccs-conduct.json."
+        },
+        "dedup": {
+          "maxScore": 0,
+          "against": null,
+          "verdict": "keep"
+        },
+        "groundingUnitIds": [
+          "csmop-13-1"
+        ]
+      },
+      "source": {
+        "name": "Department of Administrative Reforms and Public Grievances — Central Secretariat Manual of Office Procedure, 2022 (16th edition) — English",
+        "url": "https://www.darpg.gov.in/static/uploads/2025/10/774e0b8f427b7875158363d842fa431f.pdf"
+      },
+      "verify": true
+    }
+  ]
+}

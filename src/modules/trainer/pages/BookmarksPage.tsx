@@ -16,7 +16,11 @@ import { useT } from '@/i18n/useT'
 export default function BookmarksPage() {
   const { t, language } = useT()
   const catalogue = useEffectiveCatalogue()
-  const bookmarks = useLiveQuery(() => db.trainerBookmarks.orderBy('createdAt').reverse().toArray(), [], undefined)
+  const bookmarks = useLiveQuery(
+    () => db.trainerBookmarks.orderBy('createdAt').reverse().toArray(),
+    [],
+    undefined,
+  )
 
   if (!catalogue || bookmarks === undefined) {
     return (
@@ -45,7 +49,11 @@ export default function BookmarksPage() {
       />
 
       {rows.length === 0 ? (
-        <EmptyState icon={Bookmark} title={t('trainer.bookmarks.emptyTitle')} body={t('trainer.bookmarks.emptyBody')} />
+        <EmptyState
+          icon={Bookmark}
+          title={t('trainer.bookmarks.emptyTitle')}
+          body={t('trainer.bookmarks.emptyBody')}
+        />
       ) : (
         <ul className="divide-y divide-border overflow-hidden rounded-lg border border-border bg-card">
           {rows.map(({ row, card }) => (
@@ -55,7 +63,9 @@ export default function BookmarksPage() {
                 <p className="mt-1 truncate text-sm">{card!.front[language] || card!.front.en}</p>
               </div>
               <Button asChild size="sm" variant="outline">
-                <Link to={`/learn/review?act=${encodeURIComponent(card!.act)}`}>{t('trainer.bookmarks.reviewThis')}</Link>
+                <Link to={`/learn/review?act=${encodeURIComponent(card!.act)}`}>
+                  {t('trainer.bookmarks.reviewThis')}
+                </Link>
               </Button>
               <Button
                 type="button"

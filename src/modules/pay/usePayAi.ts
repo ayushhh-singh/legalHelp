@@ -52,31 +52,34 @@ export function usePayAi(params: UsePayAiParams): UsePayAi {
     [],
   )
 
-  const start = useCallback((run: (signal: AbortSignal, onProgress: (step: PayAgentStep) => void) => Promise<void>) => {
-    abort.current?.abort()
-    const controller = new AbortController()
-    abort.current = controller
-    const steps: PayAgentStep[] = []
-    setBusy(true)
-    setState({ kind: 'running', steps })
+  const start = useCallback(
+    (run: (signal: AbortSignal, onProgress: (step: PayAgentStep) => void) => Promise<void>) => {
+      abort.current?.abort()
+      const controller = new AbortController()
+      abort.current = controller
+      const steps: PayAgentStep[] = []
+      setBusy(true)
+      setState({ kind: 'running', steps })
 
-    void run(controller.signal, (step) => {
-      if (controller.signal.aborted) return
-      steps.push(step)
-      setState({ kind: 'running', steps: [...steps] })
-    })
-      .catch((error: unknown) => {
+      void run(controller.signal, (step) => {
         if (controller.signal.aborted) return
-        setState({ kind: 'error', message: error instanceof Error ? error.message : String(error) })
+        steps.push(step)
+        setState({ kind: 'running', steps: [...steps] })
       })
-      .finally(() => {
-        if (abort.current === controller) {
-          abort.current = null
-          setBusy(false)
-        }
-        latest.current.onSpent?.()
-      })
-  }, [])
+        .catch((error: unknown) => {
+          if (controller.signal.aborted) return
+          setState({ kind: 'error', message: error instanceof Error ? error.message : String(error) })
+        })
+        .finally(() => {
+          if (abort.current === controller) {
+            abort.current = null
+            setBusy(false)
+          }
+          latest.current.onSpent?.()
+        })
+    },
+    [],
+  )
 
   const load = async () => {
     const [agent, registry, builtins] = await Promise.all([

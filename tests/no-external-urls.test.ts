@@ -106,6 +106,30 @@ const ALLOWED_INERT: ReadonlyArray<{ pattern: RegExp; why: string }> = [
   },
   { pattern: /^https?:\/\/(www\.)?w3\.org\//, why: 'XML/SVG namespace identifiers, never fetched' },
   {
+    // Session 28, ADR-040 §5.
+    pattern: /^https:\/\/api\.groq\.com\/openai\/v1$/,
+    why:
+      'an EXAMPLE base URL in the Settings copy for the OpenAI-compatible tier (src/i18n/*.json, ' +
+      'ai.openai.baseUrlHint). It is prose shown to a reader who has to type their own endpoint in, not a ' +
+      'value any code reads: `OpenAiCompatibleProvider` takes its base URL from the settings row and from ' +
+      'nowhere else, and the placeholder is what a reader replaces. Naming a real free provider is the ' +
+      'point of the sentence — "an OpenAI-compatible endpoint" tells somebody who does not already know ' +
+      'nothing at all. The host is on connect-src (public/_headers) so a reader who types it can actually ' +
+      'use it; it is still only reached if they do.',
+  },
+  {
+    // Loopback, in the same sentence, for a local Ollama. Both the ASCII full
+    // stop and the Devanagari danda end the Hindi/English sentence, and the
+    // sweep's URL pattern swallows the trailing punctuation — matched here
+    // rather than trimmed there, because trimming punctuation out of a URL
+    // scanner is how a real URL gets past it.
+    pattern: /^http:\/\/(localhost|127\.0\.0\.1):\d+\/v1[.।]?$/,
+    why:
+      'the example base URL for a local Ollama, in the same Settings hint. Loopback reaches no network at ' +
+      'all, which is exactly why it is offered: it is the one configuration of Tier 3 that keeps the ' +
+      "reader's question on their own machine.",
+  },
+  {
     pattern: /^https?:\/\/purl\.(oclc\.org\/ooxml|org\/dc)\//,
     why:
       "OOXML namespace identifiers in mammoth's .docx reader (the `docx-reader` chunk) — the transitional " +

@@ -290,3 +290,78 @@ export type LibraryDefinitions = z.infer<typeof libraryDefinitionsSchema>
 export type DefinedTermRecord = LibraryDefinitions['terms'][number]
 export type LibraryQuickRef = z.infer<typeof libraryQuickRefSchema>
 export type QuickRefRecord = LibraryQuickRef['rows'][number]
+
+/**
+ * `data/library/aids/<work>.json` — the precomputed study aids.
+ *
+ * The one dataset in the Library that is WRITING rather than structure. Every
+ * other file under `data/library` points at a corpus this repository already
+ * ships (ADR-038 §1); an aid says something the corpus does not, in plain
+ * language, so it is held to the four-stage discipline `docs/AUTHORING.md`
+ * prescribes for a Trainer card and it carries `verify: true` unconditionally.
+ *
+ * `reviewState` is the same four-valued field a card carries and means the same
+ * things — only `approved` is ever shown, `rejected` stays in the file as the
+ * audit trail, and `needs-hindi` is an aid whose English is right and whose
+ * Hindi has not been written. `isAidServed` is the one predicate.
+ */
+const aidGenerationMetaSchema = z.strictObject({
+  promptVersion: z.string().min(1),
+  batchId: z.string().min(1),
+  stageA: z.strictObject({ index: z.number().int().min(1), angle: z.string().min(1) }),
+  critic: z.strictObject({ verdict: z.enum(['approve', 'reject']), reason: z.string().min(1) }),
+  /**
+   * Stage C, adapted. A question hides its key and is answered blind; an
+   * explanation has no key, so what is re-derived instead is every claim it
+   * makes, read back against the unit's own text alone. `grounded: false`
+   * auto-rejects.
+   */
+  verify: z.strictObject({ grounded: z.boolean(), note: z.string().min(1) }),
+  dedup: z.strictObject({
+    maxScore: z.number().min(0).max(100),
+    against: z.string().nullable().optional(),
+    verdict: z.enum(['keep', 'duplicate']),
+  }),
+  groundingUnitIds: z.array(z.string().min(1)).min(1),
+})
+
+export const studyAidSchema = z.strictObject({
+  id: slug,
+  workId: slug,
+  unitId: z.string().min(1),
+  explanation: bilingual,
+  example: bilingual,
+  connects: z.array(z.string().min(1)),
+  misconception: bilingual.optional(),
+  examRelevance: bilingual.optional(),
+  mnemonic: bilingual.optional(),
+  reviewed: z.boolean(),
+  reviewState: z.enum(['unreviewed', 'approved', 'rejected', 'needs-hindi']),
+  reviewNote: z.string().min(1).optional(),
+  generationMeta: aidGenerationMetaSchema,
+  source: librarySourceSchema,
+  /**
+   * `z.literal(true)`, not `z.boolean()`. An aid is this project's own writing;
+   * there is no version of one that a Ministry published, so there is no state
+   * in which this may be false.
+   */
+  verify: z.literal(true),
+})
+
+export const libraryAidsSchema = z.strictObject({
+  $schema: z.string().optional(),
+  version: semver,
+  generatedAt: isoDate,
+  workId: slug,
+  unitLabel: bilingual,
+  disclaimer: bilingual,
+  source: librarySourceSchema,
+  aids: z.array(studyAidSchema),
+})
+
+export type StudyAid = z.infer<typeof studyAidSchema>
+export type LibraryAids = z.infer<typeof libraryAidsSchema>
+export type AidGenerationMeta = z.infer<typeof aidGenerationMetaSchema>
+
+/** The one predicate that decides whether an aid is ever shown to a reader. */
+export const isAidServed = (aid: StudyAid): boolean => aid.reviewState === 'approved'

@@ -60,10 +60,7 @@
               "minYears": { "type": "number" },
               "maxYears": { "oneOf": [{ "type": "null" }, { "type": "number" }] },
               "multiplier": {
-                "oneOf": [
-                  { "type": "number" },
-                  { "const": "half-per-six-months-max-33" }
-                ]
+                "oneOf": [{ "type": "number" }, { "const": "half-per-six-months-max-33" }]
               },
               "label": { "$ref": "#/$defs/bilingual" }
             }

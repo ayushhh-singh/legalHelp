@@ -116,10 +116,15 @@ export default function BrowsePage() {
                   <span>
                     <span className="block text-sm font-semibold">{act.name[language] || act.name.en}</span>
                     <span className="mt-0.5 block text-xs text-muted-foreground">
-                      {t('trainer.browse.rulesCount', { count: rules.size })} · {t('trainer.browse.cardsCount', { count: cards.length })}
+                      {t('trainer.browse.rulesCount', { count: rules.size })} ·{' '}
+                      {t('trainer.browse.cardsCount', { count: cards.length })}
                     </span>
                   </span>
-                  {isOpen ? <ChevronDown aria-hidden="true" className="h-4 w-4 shrink-0" /> : <ChevronRight aria-hidden="true" className="h-4 w-4 shrink-0" />}
+                  {isOpen ? (
+                    <ChevronDown aria-hidden="true" className="h-4 w-4 shrink-0" />
+                  ) : (
+                    <ChevronRight aria-hidden="true" className="h-4 w-4 shrink-0" />
+                  )}
                 </button>
                 <Button
                   type="button"
@@ -144,23 +149,35 @@ export default function BrowsePage() {
                 <ul className="divide-y divide-border border-t border-border">
                   {[...rules.entries()].map(([rule, ruleCards]) => {
                     const citation = ruleCards[0]?.ruleRef.citation
-                    const mastery = Math.round(ruleCards.reduce((sum, c) => sum + masteryOf(c.id), 0) / ruleCards.length)
+                    const mastery = Math.round(
+                      ruleCards.reduce((sum, c) => sum + masteryOf(c.id), 0) / ruleCards.length,
+                    )
                     return (
                       <li key={rule} className="flex items-center justify-between gap-3 px-4 py-2.5">
                         <div className="min-w-0">
                           <p className="truncate text-sm">{citation?.[language] || citation?.en || rule}</p>
-                          <p className="text-xs text-muted-foreground">{t('trainer.browse.cardsCount', { count: ruleCards.length })}</p>
+                          <p className="text-xs text-muted-foreground">
+                            {t('trainer.browse.cardsCount', { count: ruleCards.length })}
+                          </p>
                         </div>
                         <div className="flex w-28 shrink-0 flex-col items-end gap-1">
                           <span className="text-xs text-muted-foreground">
                             {mastery === 0 ? t('trainer.browse.masteryNotStarted') : `${mastery}%`}
                           </span>
-                          <ProgressBar value={mastery} label={t('trainer.browse.masteryLabel')} className="w-full" />
+                          <ProgressBar
+                            value={mastery}
+                            label={t('trainer.browse.masteryLabel')}
+                            className="w-full"
+                          />
                         </div>
                       </li>
                     )
                   })}
-                  {rules.size === 0 ? <li className="px-4 py-3 text-sm text-muted-foreground">{t('trainer.browse.noCardsYet')}</li> : null}
+                  {rules.size === 0 ? (
+                    <li className="px-4 py-3 text-sm text-muted-foreground">
+                      {t('trainer.browse.noCardsYet')}
+                    </li>
+                  ) : null}
                 </ul>
               ) : null}
             </SectionCard>

@@ -18,6 +18,9 @@ const BookmarksPage = lazy(() => import('./pages/BookmarksPage'))
 const ComparePage = lazy(() => import('./pages/ComparePage'))
 const LibrarySearchPage = lazy(() => import('./pages/LibrarySearchPage'))
 const AddWorkPage = lazy(() => import('./pages/AddWorkPage'))
+const StudyHubPage = lazy(() => import('./pages/StudyHubPage'))
+const ChapterQuizPage = lazy(() => import('./pages/ChapterQuizPage'))
+const RevisionSheetPage = lazy(() => import('./pages/RevisionSheetPage'))
 
 function Fallback() {
   const { t } = useT()
@@ -45,6 +48,15 @@ export default function LibraryPage() {
         <Route path="compare" element={<ComparePage />} />
         <Route path="search" element={<LibrarySearchPage />} />
         <Route path="add" element={<AddWorkPage />} />
+        <Route path="study" element={<StudyHubPage />} />
+        {/*
+          `quiz` and `sheet` are static segments inside a work, so they are
+          declared before `:workId/:unitId` for the same reason as above: a
+          reader of this file should be able to see that they are not units.
+          No unit id in any of the fifteen corpora is either word.
+        */}
+        <Route path=":workId/quiz/:nodeId" element={<ChapterQuizPage />} />
+        <Route path=":workId/sheet/:nodeId" element={<RevisionSheetPage />} />
         <Route path=":workId" element={<WorkPage />} />
         <Route path=":workId/:unitId" element={<ReaderPage />} />
         <Route path="*" element={<Navigate to="/library" replace />} />

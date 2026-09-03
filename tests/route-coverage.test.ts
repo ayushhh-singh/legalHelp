@@ -45,6 +45,10 @@ const EXEMPT: Readonly<Record<string, string>> = {
     'parameterised; the sweeps visit /library/ccs-conduct, a real instance of it, because a literal ":workId" renders the not-found redirect',
   '/library/:workId/:unitId':
     'parameterised; the sweeps visit /library/ccs-conduct/ccs-conduct-3, a real unit of a real work, for the same reason',
+  '/library/:workId/quiz/:nodeId':
+    'parameterised; the sweeps visit /library/ccs-conduct/quiz/group-n-ccs-conduct-1, a real chapter of a real work, for the same reason',
+  '/library/:workId/sheet/:nodeId':
+    'parameterised; the sweeps visit /library/ccs-conduct/sheet/group-n-ccs-conduct-1, likewise',
 }
 
 /** `<Route path="x" ...>` from a module router, ignoring the catch-all. */

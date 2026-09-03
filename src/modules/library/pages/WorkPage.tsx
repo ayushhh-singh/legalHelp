@@ -2,7 +2,10 @@ import { ArrowLeft, BookOpen, Clock, Download, Search, Trash2, X } from 'lucide-
 import { useMemo, useState } from 'react'
 import { Link, Navigate, useParams } from 'react-router-dom'
 
+import { ChapterStudyList } from '../components/ChapterStudyList'
+import { CoverageMap } from '../components/CoverageMap'
 import { QuickRefTables } from '../components/QuickRefTables'
+import { SessionTimer } from '../components/SessionTimer'
 import { TocTree } from '../components/TocTree'
 import { toCompareHref, toUnitHref } from '../url'
 import { useLastReadUnitId, useReadUnitIds, useWorkSearchIndex } from '../useLibrary'
@@ -385,6 +388,22 @@ export default function WorkPage() {
           */}
           <TocTree key={lastRead ?? ''} work={data} readIds={read} currentUnitId={lastRead} />
         </section>
+      )}
+
+      {/*
+        The study layer, below the contents rather than above it: this page's
+        job is still "open this book", and a reader who has never studied here
+        sees a timer and an empty coverage grid, not a wall of analytics.
+
+        A PERSONAL work gets none of it — no chapters worth revising, no
+        approved cards citing it, and `practiseCounts` is empty by construction.
+      */}
+      {data.origin === 'personal' ? null : (
+        <div className="flex flex-col gap-4">
+          <SessionTimer workId={data.id} workLabel={data.shortTitle[language] || data.shortTitle.en} />
+          <ChapterStudyList work={data} />
+          <CoverageMap workId={data.id} unitIds={data.readingOrder} toc={data.toc} cards={null} />
+        </div>
       )}
 
       <Disclaimer />

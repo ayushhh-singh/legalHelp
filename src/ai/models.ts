@@ -112,7 +112,13 @@ export function resolveEffort(model: ModelInfo, effort: Effort): Effort | undefi
  * it runs at. Adding an agent means adding a row — there is no default row on
  * purpose, so a new agent cannot inherit an effort nobody chose for it.
  */
-export const AGENT_IDS = ['law-explain', 'pay-explain', 'draft-assist', 'trainer-coach'] as const
+export const AGENT_IDS = [
+  'law-explain',
+  'pay-explain',
+  'draft-assist',
+  'trainer-coach',
+  'study-explain',
+] as const
 export type AgentId = (typeof AGENT_IDS)[number]
 
 export interface TaskDefaults {
@@ -132,6 +138,11 @@ export const TASK_DEFAULTS: Record<AgentId, TaskDefaults> = {
   'draft-assist': { model: DEFAULT_MODEL, effort: 'medium', maxSteps: 8, groundedRequired: true },
   // Explains why an answer was wrong, citing the rule text behind the card.
   'trainer-coach': { model: DEFAULT_MODEL, effort: 'low', maxSteps: 4, groundedRequired: true },
+  // Reads a provision, its precomputed aid and what retrieval found, and
+  // explains it. Six steps because the research pass may legitimately want a
+  // unit, its aid and a retrieval over the work before it can answer
+  // "the difference between Rule X and Rule Y".
+  'study-explain': { model: DEFAULT_MODEL, effort: 'medium', maxSteps: 6, groundedRequired: true },
 }
 
 /**

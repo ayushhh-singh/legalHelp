@@ -317,7 +317,10 @@
         "citation": { "en": "Para 7.13, CSMOP 2022", "hi": "पैरा 7.13, सीएसएमओपी 2022" }
       },
       "difficulty": "hard",
-      "stageA": { "index": 8, "angle": "Para 7.13 — a note is never replaced, and who may approve a revised decision" },
+      "stageA": {
+        "index": 8,
+        "angle": "Para 7.13 — a note is never replaced, and who may approve a revised decision"
+      },
       "groundingRuleIds": ["csmop-7-13"]
     },
     {
@@ -348,7 +351,10 @@
         "citation": { "en": "Para 7.14, CSMOP 2022", "hi": "पैरा 7.14, सीएसएमओपी 2022" }
       },
       "difficulty": "easy",
-      "stageA": { "index": 9, "angle": "Para 7.14, Table 7.1 — the ephemeral-case row of the functional approach" },
+      "stageA": {
+        "index": 9,
+        "angle": "Para 7.14, Table 7.1 — the ephemeral-case row of the functional approach"
+      },
       "groundingRuleIds": ["csmop-7-14"]
     },
     {
@@ -434,7 +440,10 @@
         "citation": { "en": "Para 8.4, CSMOP 2022", "hi": "पैरा 8.4, सीएसएमओपी 2022" }
       },
       "difficulty": "easy",
-      "stageA": { "index": 11, "angle": "Para 8.4(3) — the Office Memorandum's person, salutation and subscription" },
+      "stageA": {
+        "index": 11,
+        "angle": "Para 8.4(3) — the Office Memorandum's person, salutation and subscription"
+      },
       "groundingRuleIds": ["csmop-8-4"]
     },
     {
@@ -594,7 +603,10 @@
         "citation": { "en": "Para 9.5, CSMOP 2022", "hi": "पैरा 9.5, सीएसएमओपी 2022" }
       },
       "difficulty": "medium",
-      "stageA": { "index": 15, "angle": "Para 9.5(ii) — the D.O. letter's one-page preference and who fairs it" },
+      "stageA": {
+        "index": 15,
+        "angle": "Para 9.5(ii) — the D.O. letter's one-page preference and who fairs it"
+      },
       "groundingRuleIds": ["csmop-9-5"]
     },
     {
@@ -620,7 +632,10 @@
         "citation": { "en": "Para 5.3, CSMOP 2022", "hi": "पैरा 5.3, सीएसएमओपी 2022" }
       },
       "difficulty": "easy",
-      "stageA": { "index": 16, "angle": "Para 5.3(ii) — casual leave applications exempt from dak registration" },
+      "stageA": {
+        "index": 16,
+        "angle": "Para 5.3(ii) — casual leave applications exempt from dak registration"
+      },
       "groundingRuleIds": ["csmop-5-3"]
     },
     {
@@ -672,7 +687,10 @@
         "citation": { "en": "Para 7.8, CSMOP 2022", "hi": "पैरा 7.8, सीएसएमओपी 2022" }
       },
       "difficulty": "medium",
-      "stageA": { "index": 18, "angle": "Para 7.8 — the previous version of a running summary is kept, not destroyed" },
+      "stageA": {
+        "index": 18,
+        "angle": "Para 7.8 — the previous version of a running summary is kept, not destroyed"
+      },
       "groundingRuleIds": ["csmop-7-8"]
     },
     {
@@ -724,7 +742,10 @@
         "citation": { "en": "Para 13.1, CSMOP 2022", "hi": "पैरा 13.1, सीएसएमओपी 2022" }
       },
       "difficulty": "easy",
-      "stageA": { "index": 20, "angle": "Para 13.1 — the RTI-recast duty to communicate official information" },
+      "stageA": {
+        "index": 20,
+        "angle": "Para 13.1 — the RTI-recast duty to communicate official information"
+      },
       "groundingRuleIds": ["csmop-13-1"]
     },
     {
@@ -767,7 +788,10 @@
         "citation": { "en": "Para 5.6, CSMOP 2022", "hi": "पैरा 5.6, सीएसएमओपी 2022" }
       },
       "difficulty": "medium",
-      "stageA": { "index": 21, "angle": "Para 5.6(iv) — the Section Officer may retain a receipt needing her own attention" },
+      "stageA": {
+        "index": 21,
+        "angle": "Para 5.6(iv) — the Section Officer may retain a receipt needing her own attention"
+      },
       "groundingRuleIds": ["csmop-5-6"]
     },
     {
@@ -810,7 +834,10 @@
         "citation": { "en": "Para 7.3, CSMOP 2022", "hi": "पैरा 7.3, सीएसएमओपी 2022" }
       },
       "difficulty": "medium",
-      "stageA": { "index": 22, "angle": "Para 7.3 — an obvious, precedent-based case goes up as a draft, not an elaborate note" },
+      "stageA": {
+        "index": 22,
+        "angle": "Para 7.3 — an obvious, precedent-based case goes up as a draft, not an elaborate note"
+      },
       "groundingRuleIds": ["csmop-7-3"]
     },
     {
@@ -853,7 +880,10 @@
         "citation": { "en": "Para 8.4, CSMOP 2022", "hi": "पैरा 8.4, सीएसएमओपी 2022" }
       },
       "difficulty": "medium",
-      "stageA": { "index": 23, "angle": "Para 8.4(9) — an endorsement is not used for a State Government; a letter is" },
+      "stageA": {
+        "index": 23,
+        "angle": "Para 8.4(9) — an endorsement is not used for a State Government; a letter is"
+      },
       "groundingRuleIds": ["csmop-8-4"]
     },
     {
@@ -939,7 +969,10 @@
         "citation": { "en": "Para 9.4, CSMOP 2022", "hi": "पैरा 9.4, सीएसएमओपी 2022" }
       },
       "difficulty": "medium",
-      "stageA": { "index": 25, "angle": "Para 9.4 — the Attention line, addressed to the Head of the organisation" },
+      "stageA": {
+        "index": 25,
+        "angle": "Para 9.4 — the Attention line, addressed to the Head of the organisation"
+      },
       "groundingRuleIds": ["csmop-9-4"]
     }
   ]

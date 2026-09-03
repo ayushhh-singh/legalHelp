@@ -109,8 +109,7 @@ export default function PensionPage() {
       : null
 
   const upsPayout = scheme === 'ups' ? upsAssuredPayout(avgLast12Basic, qualifyingYears) : null
-  const upsLump =
-    scheme === 'ups' && gratuity ? upsLumpSum(basicPlusDa, gratuity.halfYears) : null
+  const upsLump = scheme === 'ups' && gratuity ? upsLumpSum(basicPlusDa, gratuity.halfYears) : null
 
   const ageNextBirthdayAtRetirement =
     datesValid && retirementDate ? completedYears(dob, retirementDate) + 1 : null
@@ -163,7 +162,9 @@ export default function PensionPage() {
             />
           </div>
           <div>
-            <label className="mb-1 block text-xs font-medium text-muted-foreground">{t('utils.pension.scheme')}</label>
+            <label className="mb-1 block text-xs font-medium text-muted-foreground">
+              {t('utils.pension.scheme')}
+            </label>
             <div className="flex h-10 items-center gap-3">
               <label className="inline-flex items-center gap-1.5 text-sm">
                 <input type="radio" checked={scheme === 'ups'} onChange={() => setScheme('ups')} />
@@ -175,8 +176,19 @@ export default function PensionPage() {
               </label>
             </div>
           </div>
-          <NumberField id="pension-basic" label={t('utils.pension.basicPay')} value={basicPay} onChange={setBasicPay} />
-          <NumberField id="pension-da" label={t('utils.pension.daPercent')} value={daPercent} onChange={setDaPercent} suffix="%" />
+          <NumberField
+            id="pension-basic"
+            label={t('utils.pension.basicPay')}
+            value={basicPay}
+            onChange={setBasicPay}
+          />
+          <NumberField
+            id="pension-da"
+            label={t('utils.pension.daPercent')}
+            value={daPercent}
+            onChange={setDaPercent}
+            suffix="%"
+          />
           {scheme === 'ups' ? (
             <NumberField
               id="pension-avg12"
@@ -245,7 +257,9 @@ export default function PensionPage() {
                 value={existingCorpus}
                 onChange={setExistingCorpus}
               />
-              <p className="font-display mt-3 text-2xl">{npsCorpus !== null ? formatRupees(npsCorpus, language) : '—'}</p>
+              <p className="font-display mt-3 text-2xl">
+                {npsCorpus !== null ? formatRupees(npsCorpus, language) : '—'}
+              </p>
               <p className="mt-1 text-xs text-muted-foreground">{t('utils.pension.npsProjectionNote')}</p>
             </SectionCard>
           ) : (
@@ -255,7 +269,9 @@ export default function PensionPage() {
                 <>
                   <p className="font-display mt-2 text-2xl">
                     {formatRupees(upsPayout.amount, language)}{' '}
-                    <span className="text-sm font-normal text-muted-foreground">{t('utils.pension.perMonth')}</span>
+                    <span className="text-sm font-normal text-muted-foreground">
+                      {t('utils.pension.perMonth')}
+                    </span>
                   </p>
                   {upsPayout.flooredByMinimum ? (
                     <p className="mt-1 text-xs text-muted-foreground">{t('utils.pension.upsFloored')}</p>
@@ -300,8 +316,18 @@ export default function PensionPage() {
               {t('utils.pension.gpfRate', { rate: gpfRate })}
             </p>
             <div className="mt-2 grid gap-3 sm:grid-cols-2">
-              <NumberField id="pension-gpf-balance" label={t('utils.pension.gpfExisting')} value={gpfBalance} onChange={setGpfBalance} />
-              <NumberField id="pension-gpf-monthly" label={t('utils.pension.gpfMonthly')} value={gpfMonthly} onChange={setGpfMonthly} />
+              <NumberField
+                id="pension-gpf-balance"
+                label={t('utils.pension.gpfExisting')}
+                value={gpfBalance}
+                onChange={setGpfBalance}
+              />
+              <NumberField
+                id="pension-gpf-monthly"
+                label={t('utils.pension.gpfMonthly')}
+                value={gpfMonthly}
+                onChange={setGpfMonthly}
+              />
             </div>
             <p className="font-display mt-3 text-2xl">
               {gpfProjection !== null ? formatRupees(gpfProjection, language) : '—'}

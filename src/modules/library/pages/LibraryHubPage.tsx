@@ -17,6 +17,8 @@ import { shelfProgress, useAllProgress, useLibraryIndex } from '../useLibrary'
 import { DataVersion } from '@/components/common/DataVersion'
 import { Disclaimer } from '@/components/common/Disclaimer'
 import { PageHeader } from '@/components/common/PageHeader'
+import { DueChaptersCard } from '../components/DueChaptersCard'
+
 import { Badge, Chip, QueryErrorState, SectionCard, Skeleton } from '@/components/ui-x'
 import { useT } from '@/i18n/useT'
 import { LIBRARY_CATEGORIES, tagLabel } from '@/lib/library'
@@ -166,6 +168,14 @@ export default function LibraryHubPage() {
           hours: Math.round(totals.minutes / 60),
         })}
       </p>
+
+      {/*
+        The chapter deck's due list, above the shelf: a reader who is behind on
+        a chapter they have already rated is being told before they are offered
+        fifteen new books. It renders nothing at all when nothing is due
+        (`DueChaptersCard`), which on a fresh device is every day.
+      */}
+      <DueChaptersCard />
 
       {/*
         The four screens that are ABOUT the shelf rather than on it. Plain links

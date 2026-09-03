@@ -31,9 +31,9 @@ const DRAFTING_INDEX: DraftingIndex = {
     },
     {
       id: 'demi-official',
-      name: { en: "Demi-official letter (D.O.)", hi: 'अर्ध-सरकारी पत्र (डी.ओ.)' },
+      name: { en: 'Demi-official letter (D.O.)', hi: 'अर्ध-सरकारी पत्र (डी.ओ.)' },
       shortName: { en: 'D.O. letter', hi: 'अ.स. पत्र' },
-      useWhen: { en: "One officer to another.", hi: 'एक अधिकारी से दूसरे को।' },
+      useWhen: { en: 'One officer to another.', hi: 'एक अधिकारी से दूसरे को।' },
       group: 'communication',
       person: 'first',
       csmopParas: ['8.4(2)'],
@@ -50,7 +50,10 @@ const RULES_INDEX: RulesIndex = {
   acts: [
     {
       id: 'ccs-conduct',
-      name: { en: 'Central Civil Services (Conduct) Rules, 1964', hi: 'केंद्रीय सिविल सेवा (आचरण) नियम, 1964' },
+      name: {
+        en: 'Central Civil Services (Conduct) Rules, 1964',
+        hi: 'केंद्रीय सिविल सेवा (आचरण) नियम, 1964',
+      },
       short: { en: 'CCS (Conduct)', hi: 'सीसीएस (आचरण)' },
       unit: { en: 'Rule', hi: 'नियम' },
       publisher: 'DoPT',
@@ -82,7 +85,10 @@ const PORTALS: PortalsDataset = {
       id: 'ehrms',
       name: { en: 'e-HRMS', hi: 'ई-एचआरएमएस' },
       shortName: { en: 'e-HRMS', hi: 'ई-एचआरएमएस' },
-      purpose: { en: 'Human resource management for central government employees.', hi: 'केंद्र सरकार कर्मचारियों के लिए मानव संसाधन प्रबंधन।' },
+      purpose: {
+        en: 'Human resource management for central government employees.',
+        hi: 'केंद्र सरकार कर्मचारियों के लिए मानव संसाधन प्रबंधन।',
+      },
       url: 'https://ehrms.gov.in',
       category: 'hr-service',
       helpline: null,

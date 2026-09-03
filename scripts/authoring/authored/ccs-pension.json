@@ -43,7 +43,10 @@
         "citation": { "en": "Rule 5, CCS (Pension) Rules, 2021", "hi": "नियम 5, सीसीएस (पेंशन) नियम, 2021" }
       },
       "difficulty": "medium",
-      "stageA": { "index": 1, "angle": "Rule 5(1) — the governing rules are fixed to the date of the qualifying event" },
+      "stageA": {
+        "index": 1,
+        "angle": "Rule 5(1) — the governing rules are fixed to the date of the qualifying event"
+      },
       "groundingRuleIds": ["ccs-pension-5"]
     },
     {
@@ -112,7 +115,10 @@
         "citation": { "en": "Rule 7, CCS (Pension) Rules, 2021", "hi": "नियम 7, सीसीएस (पेंशन) नियम, 2021" }
       },
       "difficulty": "hard",
-      "stageA": { "index": 3, "angle": "Rule 7(4) — the post-retirement publication clearance for intelligence/security organisations" },
+      "stageA": {
+        "index": 3,
+        "angle": "Rule 7(4) — the post-retirement publication clearance for intelligence/security organisations"
+      },
       "groundingRuleIds": ["ccs-pension-7"]
     },
     {
@@ -132,7 +138,10 @@
           "en": "His full pension and gratuity, to be recovered later if he is found guilty",
           "hi": "उसकी पूर्ण पेंशन और उपदान, जिसे बाद में दोषी पाए जाने पर वसूल किया जाएगा"
         },
-        { "en": "No pension at all until the proceedings conclude", "hi": "कार्यवाही समाप्त होने तक कोई पेंशन नहीं" },
+        {
+          "en": "No pension at all until the proceedings conclude",
+          "hi": "कार्यवाही समाप्त होने तक कोई पेंशन नहीं"
+        },
         {
           "en": "A provisional pension equal to the maximum pension admissible on qualifying service up to the date of retirement (or up to the date before suspension began), with no gratuity paid until the proceedings conclude",
           "hi": "सेवानिवृत्ति की तारीख तक (अथवा निलंबन आरंभ होने से पहले की तारीख तक) की अर्हकारी सेवा पर अनुज्ञेय अधिकतम पेंशन के बराबर अनंतिम पेंशन, तथा कार्यवाही समाप्त होने तक कोई उपदान नहीं"
@@ -152,7 +161,10 @@
         "citation": { "en": "Rule 8, CCS (Pension) Rules, 2021", "hi": "नियम 8, सीसीएस (पेंशन) नियम, 2021" }
       },
       "difficulty": "hard",
-      "stageA": { "index": 4, "angle": "Rule 8(3)-(4) — provisional pension pending proceedings, gratuity withheld entirely" },
+      "stageA": {
+        "index": 4,
+        "angle": "Rule 8(3)-(4) — provisional pension pending proceedings, gratuity withheld entirely"
+      },
       "groundingRuleIds": ["ccs-pension-8"]
     },
     {
@@ -195,7 +207,10 @@
         "citation": { "en": "Rule 9, CCS (Pension) Rules, 2021", "hi": "नियम 9, सीसीएस (पेंशन) नियम, 2021" }
       },
       "difficulty": "medium",
-      "stageA": { "index": 5, "angle": "Rule 9(1) — the Group 'A' threshold for the commercial-employment sanction" },
+      "stageA": {
+        "index": 5,
+        "angle": "Rule 9(1) — the Group 'A' threshold for the commercial-employment sanction"
+      },
       "groundingRuleIds": ["ccs-pension-9"]
     },
     {
@@ -350,7 +365,10 @@
         "citation": { "en": "Rule 20, CCS (Pension) Rules, 2021", "hi": "नियम 20, सीसीएस (पेंशन) नियम, 2021" }
       },
       "difficulty": "hard",
-      "stageA": { "index": 9, "angle": "Rule 20(1) — the option-and-refund condition for counting military service" },
+      "stageA": {
+        "index": 9,
+        "angle": "Rule 20(1) — the option-and-refund condition for counting military service"
+      },
       "groundingRuleIds": ["ccs-pension-20"]
     },
     {
@@ -370,7 +388,10 @@
           "en": "All leave for which leave salary is payable, and all extraordinary leave granted on a medical certificate",
           "hi": "वह समस्त छुट्टी जिसके लिए छुट्टी वेतन देय हो, तथा चिकित्सा प्रमाणपत्र पर दी गई समस्त असाधारण छुट्टी"
         },
-        { "en": "Only casual leave and restricted holidays", "hi": "केवल आकस्मिक छुट्टी और प्रतिबंधित अवकाश" },
+        {
+          "en": "Only casual leave and restricted holidays",
+          "hi": "केवल आकस्मिक छुट्टी और प्रतिबंधित अवकाश"
+        },
         { "en": "Only leave preparatory to retirement", "hi": "केवल सेवानिवृत्ति-पूर्व छुट्टी" },
         {
           "en": "All extraordinary leave, whatever the reason it was granted",
@@ -387,7 +408,10 @@
         "citation": { "en": "Rule 21, CCS (Pension) Rules, 2021", "hi": "नियम 21, सीसीएस (पेंशन) नियम, 2021" }
       },
       "difficulty": "medium",
-      "stageA": { "index": 10, "angle": "Rule 21 — leave-salary leave and medical-certificate EOL count without a special order" },
+      "stageA": {
+        "index": 10,
+        "angle": "Rule 21 — leave-salary leave and medical-certificate EOL count without a special order"
+      },
       "groundingRuleIds": ["ccs-pension-21"]
     },
     {
@@ -437,7 +461,10 @@
           "en": "It does not entail forfeiture of his past service, unlike an ordinary resignation",
           "hi": "इससे उसकी भूतकालिक सेवा का समपहरण नहीं होता, जबकि साधारण त्यागपत्र से होता है"
         },
-        { "en": "Only half of the past service is carried forward", "hi": "केवल आधी भूतकालिक सेवा ही आगे गिनी जाती है" },
+        {
+          "en": "Only half of the past service is carried forward",
+          "hi": "केवल आधी भूतकालिक सेवा ही आगे गिनी जाती है"
+        },
         {
           "en": "The past service is forfeited unless the President personally condones it",
           "hi": "जब तक राष्ट्रपति स्वयं क्षमा न करें, भूतकालिक सेवा समपहृत रहती है"
@@ -453,7 +480,10 @@
         "citation": { "en": "Rule 26, CCS (Pension) Rules, 2021", "hi": "नियम 26, सीसीएस (पेंशन) नियम, 2021" }
       },
       "difficulty": "medium",
-      "stageA": { "index": 12, "angle": "Rule 26(2) — the proper-permission exception to resignation forfeiture" },
+      "stageA": {
+        "index": 12,
+        "angle": "Rule 26(2) — the proper-permission exception to resignation forfeiture"
+      },
       "groundingRuleIds": ["ccs-pension-26"]
     },
     {
@@ -559,8 +589,17 @@
         "citation": { "en": "Rule 33, CCS (Pension) Rules, 2021", "hi": "नियम 33, सीसीएस (पेंशन) नियम, 2021" }
       },
       "difficulty": "easy",
-      "stageA": { "index": 15, "angle": "Rule 33 — superannuation pension, distinguished from voluntary/compulsory/invalid retirement" },
-      "groundingRuleIds": ["ccs-pension-33", "ccs-pension-34", "ccs-pension-39", "ccs-pension-40", "ccs-pension-43"]
+      "stageA": {
+        "index": 15,
+        "angle": "Rule 33 — superannuation pension, distinguished from voluntary/compulsory/invalid retirement"
+      },
+      "groundingRuleIds": [
+        "ccs-pension-33",
+        "ccs-pension-34",
+        "ccs-pension-39",
+        "ccs-pension-40",
+        "ccs-pension-43"
+      ]
     },
     {
       "id": "ccs-pension-q-016",
@@ -599,7 +638,10 @@
         "citation": { "en": "Rule 34, CCS (Pension) Rules, 2021", "hi": "नियम 34, सीसीएस (पेंशन) नियम, 2021" }
       },
       "difficulty": "medium",
-      "stageA": { "index": 16, "angle": "Rule 34(1)(a) — voluntary retirement under Rule 43 leads to a retiring pension, not superannuation pension" },
+      "stageA": {
+        "index": 16,
+        "angle": "Rule 34(1)(a) — voluntary retirement under Rule 43 leads to a retiring pension, not superannuation pension"
+      },
       "groundingRuleIds": ["ccs-pension-34", "ccs-pension-43"]
     },
     {
@@ -666,7 +708,10 @@
           "en": "Exactly half of the superannuation pension or gratuity, with no discretion",
           "hi": "अधिवर्षिता पेंशन या उपदान का ठीक आधा, बिना किसी विवेकाधिकार के"
         },
-        { "en": "Not less than one-third and not more than two-thirds", "hi": "एक-तिहाई से कम नहीं और दो-तिहाई से अधिक नहीं" },
+        {
+          "en": "Not less than one-third and not more than two-thirds",
+          "hi": "एक-तिहाई से कम नहीं और दो-तिहाई से अधिक नहीं"
+        },
         {
           "en": "The full superannuation pension or gratuity, with no reduction possible",
           "hi": "पूर्ण अधिवर्षिता पेंशन या उपदान, जिसमें कोई कटौती संभव न हो"
@@ -682,7 +727,10 @@
         "citation": { "en": "Rule 40, CCS (Pension) Rules, 2021", "hi": "नियम 40, सीसीएस (पेंशन) नियम, 2021" }
       },
       "difficulty": "medium",
-      "stageA": { "index": 18, "angle": "Rule 40(1) — the two-thirds-to-full range for compulsory retirement pension" },
+      "stageA": {
+        "index": 18,
+        "angle": "Rule 40(1) — the two-thirds-to-full range for compulsory retirement pension"
+      },
       "groundingRuleIds": ["ccs-pension-40"]
     },
     {
@@ -725,7 +773,10 @@
         "citation": { "en": "Rule 41, CCS (Pension) Rules, 2021", "hi": "नियम 41, सीसीएस (पेंशन) नियम, 2021" }
       },
       "difficulty": "medium",
-      "stageA": { "index": 19, "angle": "Rule 41 — the compassionate-allowance discretion after dismissal or removal" },
+      "stageA": {
+        "index": 19,
+        "angle": "Rule 41 — the compassionate-allowance discretion after dismissal or removal"
+      },
       "groundingRuleIds": ["ccs-pension-41"]
     },
     {
@@ -741,7 +792,10 @@
         "hi": "कम से कम तीन मास की लिखित सूचना, अथवा ऐसी सूचना के स्थान पर तीन मास का वेतन और भत्ते।"
       },
       "options": [
-        { "en": "One month's notice, or one month's pay in lieu", "hi": "एक मास की सूचना, अथवा उसके स्थान पर एक मास का वेतन" },
+        {
+          "en": "One month's notice, or one month's pay in lieu",
+          "hi": "एक मास की सूचना, अथवा उसके स्थान पर एक मास का वेतन"
+        },
         {
           "en": "Six months' notice, with no option to pay in lieu",
           "hi": "छह मास की सूचना, बिना उसके स्थान पर भुगतान के विकल्प के"
@@ -808,7 +862,10 @@
         "citation": { "en": "Rule 43, CCS (Pension) Rules, 2021", "hi": "नियम 43, सीसीएस (पेंशन) नियम, 2021" }
       },
       "difficulty": "hard",
-      "stageA": { "index": 21, "angle": "Rule 43(3) — when permission for voluntary retirement can be withheld" },
+      "stageA": {
+        "index": 21,
+        "angle": "Rule 43(3) — when permission for voluntary retirement can be withheld"
+      },
       "groundingRuleIds": ["ccs-pension-43"]
     },
     {
@@ -879,7 +936,10 @@
         "citation": { "en": "Rule 45, CCS (Pension) Rules, 2021", "hi": "नियम 45, सीसीएस (पेंशन) नियम, 2021" }
       },
       "difficulty": "medium",
-      "stageA": { "index": 23, "angle": "Rule 45(1)(a) — the quarter-emoluments formula, the 16½-times ceiling, and the twenty-lakh cap" },
+      "stageA": {
+        "index": 23,
+        "angle": "Rule 45(1)(a) — the quarter-emoluments formula, the 16½-times ceiling, and the twenty-lakh cap"
+      },
       "groundingRuleIds": ["ccs-pension-45"]
     },
     {
@@ -948,7 +1008,10 @@
         "citation": { "en": "Rule 47, CCS (Pension) Rules, 2021", "hi": "नियम 47, सीसीएस (पेंशन) नियम, 2021" }
       },
       "difficulty": "hard",
-      "stageA": { "index": 25, "angle": "Rule 47(1)(b) — the two-tier default order in the absence of a nomination" },
+      "stageA": {
+        "index": 25,
+        "angle": "Rule 47(1)(b) — the two-tier default order in the absence of a nomination"
+      },
       "groundingRuleIds": ["ccs-pension-47", "ccs-pension-45"]
     },
     {
@@ -991,7 +1054,10 @@
         "citation": { "en": "Rule 48, CCS (Pension) Rules, 2021", "hi": "नियम 48, सीसीएस (पेंशन) नियम, 2021" }
       },
       "difficulty": "hard",
-      "stageA": { "index": 26, "angle": "Rule 48 — suspension of the murderer-nominee's claim, then debarment or restoration" },
+      "stageA": {
+        "index": 26,
+        "angle": "Rule 48 — suspension of the murderer-nominee's claim, then debarment or restoration"
+      },
       "groundingRuleIds": ["ccs-pension-48"]
     },
     {
@@ -1016,7 +1082,10 @@
           "en": "50% of pay, payable for seven years or until the deceased would have turned sixty-seven, whichever is less",
           "hi": "वेतन का 50 प्रतिशत, जो सात वर्ष के लिए अथवा जब तक मृतक सड़सठ वर्ष का न हो जाता, जो भी कम हो, तक देय है"
         },
-        { "en": "100% of pay, payable for five years", "hi": "वेतन का 100 प्रतिशत, जो पांच वर्ष के लिए देय है" }
+        {
+          "en": "100% of pay, payable for five years",
+          "hi": "वेतन का 100 प्रतिशत, जो पांच वर्ष के लिए देय है"
+        }
       ],
       "answerIndex": 1,
       "explanation": {
@@ -1028,7 +1097,10 @@
         "citation": { "en": "Rule 50, CCS (Pension) Rules, 2021", "hi": "नियम 50, सीसीएस (पेंशन) नियम, 2021" }
       },
       "difficulty": "hard",
-      "stageA": { "index": 27, "angle": "Rule 50(2)(a) — the 50%-for-ten-years rate for death in service, against the death-after-retirement and uniform rates" },
+      "stageA": {
+        "index": 27,
+        "angle": "Rule 50(2)(a) — the 50%-for-ten-years rate for death in service, against the death-after-retirement and uniform rates"
+      },
       "groundingRuleIds": ["ccs-pension-50"]
     },
     {
@@ -1071,7 +1143,10 @@
         "citation": { "en": "Rule 52, CCS (Pension) Rules, 2021", "hi": "नियम 52, सीसीएस (पेंशन) नियम, 2021" }
       },
       "difficulty": "medium",
-      "stageA": { "index": 28, "angle": "Rule 52(2) — dearness relief withheld on re-employment, and the proviso's exception" },
+      "stageA": {
+        "index": 28,
+        "angle": "Rule 52(2) — dearness relief withheld on re-employment, and the proviso's exception"
+      },
       "groundingRuleIds": ["ccs-pension-52"]
     },
     {
@@ -1091,7 +1166,10 @@
           "en": "From the date following the expiry of three months from the date of retirement, up to the date the arrears are actually paid",
           "hi": "सेवानिवृत्ति की तारीख से तीन मास की समाप्ति के अगले दिन से, बकाया राशि के वास्तविक भुगतान की तारीख तक"
         },
-        { "en": "From the date of retirement itself, with no grace period", "hi": "बिना किसी छूट अवधि के, सेवानिवृत्ति की तारीख से ही" },
+        {
+          "en": "From the date of retirement itself, with no grace period",
+          "hi": "बिना किसी छूट अवधि के, सेवानिवृत्ति की तारीख से ही"
+        },
         {
           "en": "From the date the pension case is first submitted to the Head of Office",
           "hi": "पेंशन मामले के कार्यालयाध्यक्ष को प्रथम बार प्रस्तुत किए जाने की तारीख से"

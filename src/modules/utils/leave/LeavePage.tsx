@@ -89,7 +89,13 @@ export default function LeavePage() {
   const balances = useMemo(() => {
     if (!asOfValid) return null
     return calculateLeaveBalances(
-      { doj, elTaken: num(elTaken), hplTaken: num(hplTaken), clTakenThisYear: num(clTaken), rhTakenThisYear: num(rhTaken) },
+      {
+        doj,
+        elTaken: num(elTaken),
+        hplTaken: num(hplTaken),
+        clTakenThisYear: num(clTaken),
+        rhTakenThisYear: num(rhTaken),
+      },
       asOf,
     )
   }, [asOfValid, doj, asOf, elTaken, hplTaken, clTaken, rhTaken])
@@ -129,11 +135,36 @@ export default function LeavePage() {
               className="h-10 w-full rounded-md border border-input bg-card px-3 text-sm tabular-nums focus-visible:ring-2 focus-visible:ring-ring focus-visible:outline-none"
             />
           </div>
-          <NumberField id="leave-basic" label={t('utils.leave.basicPlusDa')} value={basicPlusDa} onChange={setBasicPlusDa} />
-          <NumberField id="leave-el-taken" label={t('utils.leave.elTaken')} value={elTaken} onChange={setElTaken} />
-          <NumberField id="leave-hpl-taken" label={t('utils.leave.hplTaken')} value={hplTaken} onChange={setHplTaken} />
-          <NumberField id="leave-cl-taken" label={t('utils.leave.clTaken')} value={clTaken} onChange={setClTaken} />
-          <NumberField id="leave-rh-taken" label={t('utils.leave.rhTaken')} value={rhTaken} onChange={setRhTaken} />
+          <NumberField
+            id="leave-basic"
+            label={t('utils.leave.basicPlusDa')}
+            value={basicPlusDa}
+            onChange={setBasicPlusDa}
+          />
+          <NumberField
+            id="leave-el-taken"
+            label={t('utils.leave.elTaken')}
+            value={elTaken}
+            onChange={setElTaken}
+          />
+          <NumberField
+            id="leave-hpl-taken"
+            label={t('utils.leave.hplTaken')}
+            value={hplTaken}
+            onChange={setHplTaken}
+          />
+          <NumberField
+            id="leave-cl-taken"
+            label={t('utils.leave.clTaken')}
+            value={clTaken}
+            onChange={setClTaken}
+          />
+          <NumberField
+            id="leave-rh-taken"
+            label={t('utils.leave.rhTaken')}
+            value={rhTaken}
+            onChange={setRhTaken}
+          />
         </div>
         {!asOfValid ? <p className="mt-2 text-xs text-destructive">{t('utils.leave.dateError')}</p> : null}
       </SectionCard>
@@ -151,8 +182,14 @@ export default function LeavePage() {
               value={t('utils.leave.days', { count: Math.floor(balances.hpl.balance * 100) / 100 })}
               hint={t('utils.leave.commutableHint', { count: balances.hpl.commutable })}
             />
-            <StatCard label={t('utils.leave.cl')} value={t('utils.leave.days', { count: balances.cl.balance })} />
-            <StatCard label={t('utils.leave.rh')} value={t('utils.leave.days', { count: balances.rh.balance })} />
+            <StatCard
+              label={t('utils.leave.cl')}
+              value={t('utils.leave.days', { count: balances.cl.balance })}
+            />
+            <StatCard
+              label={t('utils.leave.rh')}
+              value={t('utils.leave.days', { count: balances.rh.balance })}
+            />
           </div>
 
           <SectionCard className="p-4">
@@ -184,7 +221,10 @@ export default function LeavePage() {
               {elEncashment !== null ? formatRupees(elEncashment, language) : '—'}
             </p>
             <p className="mt-1 text-xs text-muted-foreground">
-              {t('utils.leave.encashmentDays', { count: balances.el.encashable, max: EL_ENCASHMENT_MAX_DAYS })}
+              {t('utils.leave.encashmentDays', {
+                count: balances.el.encashable,
+                max: EL_ENCASHMENT_MAX_DAYS,
+              })}
             </p>
 
             <div className="mt-4 flex flex-wrap items-center justify-between gap-2 border-t border-border pt-3">

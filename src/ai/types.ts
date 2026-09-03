@@ -16,12 +16,18 @@ export type Bilingual = Record<Language, string>
  * Activation tiers. The app code is identical in all four; only where the
  * tokens are produced changes.
  *
- * - `off`   — the default. Zero outbound requests, no AI surface renders.
- * - `local` — Tier 0, WebLLM in the browser. Nothing leaves the device.
- * - `byok`  — Tier 1, the reader's own key, browser → api.anthropic.com.
- * - `proxy` — Tier 2, the owner's key behind a Cloudflare Worker.
+ * - `off`    — the default. Zero outbound requests, no AI surface renders.
+ * - `local`  — Tier 0, WebLLM in the browser. Nothing leaves the device.
+ * - `byok`   — Tier 1, the reader's own key, browser → api.anthropic.com.
+ * - `proxy`  — Tier 2, the owner's key behind a Cloudflare Worker.
+ * - `openai` — Tier 3, any endpoint that speaks `POST /chat/completions`: a
+ *   free Google AI Studio or Groq key, an OpenRouter free model, or a local
+ *   Ollama, which sends nothing over a network at all. It exists because the
+ *   other three each ask for something an ordinary officer may not have — a
+ *   WebGPU machine, a paid Anthropic account, or an operator with credits —
+ *   and an AI layer nobody can reach is not a layer.
  */
-export const AI_TIERS = ['off', 'local', 'byok', 'proxy'] as const
+export const AI_TIERS = ['off', 'local', 'byok', 'proxy', 'openai'] as const
 export type AiTier = (typeof AI_TIERS)[number]
 
 export const isAiTier = (value: unknown): value is AiTier =>
@@ -80,7 +86,7 @@ export interface SystemBlock {
  * handed only the tools its surface can justify — a smaller tool list is both
  * a cheaper prompt and a smaller blast radius.
  */
-export const TOOL_SCOPES = ['law', 'pay', 'draft', 'learn', 'utils', 'common'] as const
+export const TOOL_SCOPES = ['law', 'pay', 'draft', 'learn', 'library', 'utils', 'common'] as const
 export type ToolScope = (typeof TOOL_SCOPES)[number]
 
 /** What a handler is allowed to know about the run it is serving. */
@@ -208,7 +214,7 @@ export interface ChatResult {
   model: string
 }
 
-export const AI_PROVIDER_IDS = ['mock', 'local', 'anthropic-direct', 'proxy'] as const
+export const AI_PROVIDER_IDS = ['mock', 'local', 'anthropic-direct', 'proxy', 'openai-compatible'] as const
 export type AiProviderId = (typeof AI_PROVIDER_IDS)[number]
 
 /* ------------------------------------------------------------------ *

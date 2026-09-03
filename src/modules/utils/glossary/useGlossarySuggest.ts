@@ -45,10 +45,7 @@ function buildMatcher(glossary: Glossary): { regex: RegExp; byLower: Map<string,
   }
   const sorted = [...byLower.keys()].sort((a, b) => b.length - a.length)
   const pattern = sorted.map(escapeRegExp).join('|')
-  const regex = new RegExp(
-    `(?<![A-Za-z0-9_])(?<!\\d-)(?:${pattern})(?![A-Za-z0-9_])(?!-\\d)`,
-    'gi',
-  )
+  const regex = new RegExp(`(?<![A-Za-z0-9_])(?<!\\d-)(?:${pattern})(?![A-Za-z0-9_])(?!-\\d)`, 'gi')
   return { regex, byLower }
 }
 

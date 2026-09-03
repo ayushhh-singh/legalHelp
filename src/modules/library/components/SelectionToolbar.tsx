@@ -35,6 +35,33 @@ interface SelectionToolbarProps {
   onClose: () => void
 }
 
+/**
+ * Where the toolbar sits, clamped at BOTH ends of the viewport.
+ *
+ * Above the selection by default. The first version clamped only the top
+ * (`Math.max(8, top - 56)`), so a selection in the last paragraph of a rule on
+ * a phone put the toolbar underneath the fixed bottom tab bar — which is 4.5rem
+ * tall and, at the time, shared this element's stacking level.
+ *
+ * When there is no room above, it flips BELOW the selection rather than being
+ * pushed up over the text the officer just marked. `TAB_BAR` is the bar's own
+ * height plus a margin, and it is subtracted unconditionally: the bar is hidden
+ * from 1024px, and eight pixels of extra clearance on a desktop is not worth a
+ * viewport-width branch that only one of the two layouts ever exercises.
+ */
+const TOOLBAR_HEIGHT = 52
+const TAB_BAR = 84
+
+function anchor(at: { top: number; left: number }): { top: number; left: number } {
+  const viewport = typeof window === 'undefined' ? 800 : window.innerHeight
+  const floor = viewport - TAB_BAR - TOOLBAR_HEIGHT
+  const above = at.top - 56
+  // Below the selection when there is no room above it, and never past the
+  // floor either way.
+  const top = above < 8 ? Math.min(at.top + 24, Math.max(8, floor)) : Math.min(above, Math.max(8, floor))
+  return { top: Math.max(8, top), left: at.left }
+}
+
 export function SelectionToolbar({ at, quote, onColour, onNote, onTrainer, onClose }: SelectionToolbarProps) {
   const { t } = useT()
   const ref = useRef<HTMLDivElement>(null)
@@ -62,13 +89,16 @@ export function SelectionToolbar({ at, quote, onColour, onNote, onTrainer, onClo
       role="toolbar"
       aria-label={t('library.select.toolbar', { quote: short })}
       data-print-hide
-      style={
-        at
-          ? { position: 'fixed', top: Math.max(8, at.top - 56), left: at.left, transform: 'translateX(-50%)' }
-          : undefined
-      }
+      style={at ? { position: 'fixed', ...anchor(at), transform: 'translateX(-50%)' } : undefined}
       className={cn(
-        'z-40 flex items-center gap-1 rounded-lg border border-border bg-card p-1 shadow-lg',
+        // z-45, ABOVE the bottom tab bar (z-40) and below a dialog (z-50).
+        // At z-40 it tied with the tab bar and lost on DOM order, so on a phone
+        // the tab bar swallowed every click on a colour — the toolbar was
+        // visible, enabled and stable, and Playwright reported "<span>Pay</span>
+        // intercepts pointer events" for fifty retries. Same shape as the
+        // service-worker toast covering "Next question" (DATA-GAPS #59): a
+        // fixed bar at the bottom of a phone is over whatever is under it.
+        'z-45 flex items-center gap-1 rounded-lg border border-border bg-card p-1 shadow-lg',
         !at && 'mb-3',
       )}
     >

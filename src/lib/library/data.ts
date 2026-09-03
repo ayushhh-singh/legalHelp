@@ -2,10 +2,12 @@ import { buildCorpus, type CorpusJson, type CorpusWork } from './corpus'
 import type { LibraryCorpus } from './types'
 
 import {
+  libraryAidsSchema,
   libraryDefinitionsSchema,
   libraryIndexSchema,
   libraryQuickRefSchema,
   libraryWorkSchema,
+  type LibraryAids,
   type LibraryDefinitions,
   type LibraryIndex,
   type LibraryQuickRef,
@@ -259,4 +261,44 @@ const emptyQuickRef = (workId: string): LibraryQuickRef => ({
   source: NO_SOURCE,
   counts: { time: 0, money: 0, authority: 0 },
   rows: [],
+})
+
+/**
+ * `data/library/aids/<work>.json` — the precomputed study aids.
+ *
+ * Seven of the fifteen works have one; the other eight have none, and that is
+ * a fact about how far the authoring has got rather than about the schema.
+ * Like the two extract maps above, an absent file resolves to an EMPTY dataset
+ * rather than rejecting: the rail renders nothing for a work with no aids, and
+ * every caller would otherwise have to handle an error for a case that is not
+ * one. The specifiers are written out for the reason the maps above are — a
+ * bundler can only chunk a specifier it can see.
+ */
+const AID_LOADERS: Record<string, () => Promise<{ default: string }>> = {
+  'ccs-cca': () => import('../../../data/library/aids/ccs-cca.json?raw'),
+  'ccs-conduct': () => import('../../../data/library/aids/ccs-conduct.json?raw'),
+  'ccs-leave': () => import('../../../data/library/aids/ccs-leave.json?raw'),
+  csmop: () => import('../../../data/library/aids/csmop.json?raw'),
+  osa: () => import('../../../data/library/aids/osa.json?raw'),
+  posh: () => import('../../../data/library/aids/posh.json?raw'),
+  rti: () => import('../../../data/library/aids/rti.json?raw'),
+}
+
+/** Every work id that ships a study-aid file. Ordered, for the tests. */
+export const AID_WORK_IDS: readonly string[] = Object.keys(AID_LOADERS)
+
+export function loadStudyAids(workId: string): Promise<LibraryAids> {
+  const loader = loaderFor(AID_LOADERS, workId)
+  if (!loader) return Promise.resolve(emptyAids(workId))
+  return once(`aids:${workId}`, async () => libraryAidsSchema.parse(parse<unknown>((await loader()).default)))
+}
+
+const emptyAids = (workId: string): LibraryAids => ({
+  version: '1.0.0',
+  generatedAt: '1970-01-01',
+  workId,
+  unitLabel: { en: 'Unit', hi: 'इकाई' },
+  disclaimer: { en: '', hi: '' },
+  source: NO_SOURCE,
+  aids: [],
 })

@@ -4,6 +4,8 @@ import { useState } from 'react'
 import { Link } from 'react-router-dom'
 
 import { FocusPlanCard } from '../components/FocusPlanCard'
+
+import { DueChaptersCard } from '@/modules/library/components/DueChaptersCard'
 import { useEffectiveCatalogue, useRulesIndex } from '../useCatalogue'
 import { useNow } from '../useNow'
 import { useTrainerSettings } from '../useTrainerSettings'
@@ -14,7 +16,15 @@ import { PageHeader } from '@/components/common/PageHeader'
 import { Chip, ProgressBar, QueryErrorState, SectionCard, Skeleton, StatCard } from '@/components/ui-x'
 import { Button } from '@/components/ui/button'
 import { useT } from '@/i18n/useT'
-import { allStreaks, currentStreak, getDueQueue, longestStreak, saveSettings, statsForDay, weakAreasFor } from '@/lib/srs'
+import {
+  allStreaks,
+  currentStreak,
+  getDueQueue,
+  longestStreak,
+  saveSettings,
+  statsForDay,
+  weakAreasFor,
+} from '@/lib/srs'
 import { isServed } from '@/modules/trainer/schema'
 
 /**
@@ -50,12 +60,18 @@ export default function HomePage() {
     undefined,
   )
   const stats = useLiveQuery(
-    () => (catalogue && settings ? statsForDay(catalogue, now, undefined, settings.actsEnabled) : Promise.resolve(null)),
+    () =>
+      catalogue && settings
+        ? statsForDay(catalogue, now, undefined, settings.actsEnabled)
+        : Promise.resolve(null),
     [catalogue, settings, now],
     undefined,
   )
   const weakAreas = useLiveQuery(
-    () => (catalogue ? weakAreasFor(catalogue, { by: 'rule', minReviews: 3, acts: settings?.actsEnabled }) : Promise.resolve(null)),
+    () =>
+      catalogue
+        ? weakAreasFor(catalogue, { by: 'rule', minReviews: 3, acts: settings?.actsEnabled })
+        : Promise.resolve(null),
     [catalogue, settings],
     undefined,
   )
@@ -67,7 +83,13 @@ export default function HomePage() {
     return <QueryErrorState onRetry={index.retry} />
   }
 
-  const loading = index.status !== 'ready' || !catalogue || !settings || !stats || queue === undefined || streaks === undefined
+  const loading =
+    index.status !== 'ready' ||
+    !catalogue ||
+    !settings ||
+    !stats ||
+    queue === undefined ||
+    streaks === undefined
 
   const toggleAct = async (actId: string) => {
     if (!settings) return
@@ -157,7 +179,13 @@ export default function HomePage() {
               <Link to="/learn/review">{t('trainer.home.startReview')}</Link>
             </Button>
             {mockDisabled ? (
-              <Button type="button" size="lg" variant="outline" disabled aria-describedby="mock-unavailable-reason">
+              <Button
+                type="button"
+                size="lg"
+                variant="outline"
+                disabled
+                aria-describedby="mock-unavailable-reason"
+              >
                 {t('trainer.home.startMock')}
               </Button>
             ) : (
@@ -184,7 +212,8 @@ export default function HomePage() {
                   {weakAreas.slice(0, 8).map((area) => (
                     <Link key={area.key} to={toTrainerTopicHref(area.act)}>
                       <Chip tone="coral">
-                        {(area.citation?.[language] || area.citation?.en || area.key)} · {Math.round(area.rate * 100)}%
+                        {area.citation?.[language] || area.citation?.en || area.key} ·{' '}
+                        {Math.round(area.rate * 100)}%
                       </Chip>
                     </Link>
                   ))}
@@ -196,6 +225,16 @@ export default function HomePage() {
             <FocusPlanCard ai={ai} />
           </SectionCard>
 
+          {/*
+            The Library's chapter deck, surfaced here as well as on its own hub.
+            It is a SEPARATE schedule from this page's cards — a card asks a
+            question, a chapter asks whether the reader could use it — and the
+            hint under the list says so, because two "due" counts on one screen
+            that mean different things is exactly how a reader stops trusting
+            either. Nothing renders when nothing is due.
+          */}
+          <DueChaptersCard />
+
           <SectionCard className="p-4">
             <h2 className="text-sm font-semibold">{t('trainer.home.actsTitle')}</h2>
             <p className="mt-1 text-xs text-muted-foreground">{t('trainer.home.actsHint')}</p>
@@ -204,8 +243,15 @@ export default function HomePage() {
                 ? index.data.acts.map((act) => {
                     const active = settings.actsEnabled.length === 0 || settings.actsEnabled.includes(act.id)
                     return (
-                      <button key={act.id} type="button" disabled={savingActs} onClick={() => void toggleAct(act.id)}>
-                        <Chip tone={active ? 'action' : 'neutral'}>{act.short[language] || act.short.en}</Chip>
+                      <button
+                        key={act.id}
+                        type="button"
+                        disabled={savingActs}
+                        onClick={() => void toggleAct(act.id)}
+                      >
+                        <Chip tone={active ? 'action' : 'neutral'}>
+                          {act.short[language] || act.short.en}
+                        </Chip>
                       </button>
                     )
                   })

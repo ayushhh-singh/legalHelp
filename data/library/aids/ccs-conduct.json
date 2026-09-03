@@ -1,0 +1,1752 @@
+{
+  "$schema": "../../../schemas/library-aids.schema.json",
+  "version": "1.0.0",
+  "generatedAt": "2026-09-03",
+  "workId": "ccs-conduct",
+  "unitLabel": {
+    "en": "Rule",
+    "hi": "नियम"
+  },
+  "disclaimer": {
+    "en": "A study aid is Sahayak’s own explanation, not the text of the rule. Reference only; verify with the official gazette/order or your DDO.",
+    "hi": "अध्ययन सहायिका सहायक की अपनी व्याख्या है, नियम का पाठ नहीं। केवल संदर्भ हेतु; आधिकारिक राजपत्र/आदेश अथवा अपने डीडीओ से सत्यापित करें।"
+  },
+  "source": {
+    "name": "Department of Personnel and Training — CCS (Conduct) Rules, 1964 — updated as on 27 February 2015",
+    "url": "https://dopt.gov.in/sites/default/files/CCS_Conduct_Rules_1964_Updated_27Feb15_0.pdf"
+  },
+  "aids": [
+    {
+      "id": "aid-ccs-conduct-1",
+      "workId": "ccs-conduct",
+      "unitId": "ccs-conduct-1",
+      "explanation": {
+        "en": "These rules bind every person appointed to a civil service or post under the Union, including a civilian in a Defence Service. They expressly do NOT apply to railway servants, to members of an All India Service, or to a post the President has excluded by order. Sub-rule (3) also carries a partial exemption: a named list of rules does not apply to certain low-paid non-gazetted staff in ports, defence installations, works, irrigation, mines, factories and Central Tractor Organisation field units.",
+        "hi": "ये नियम संघ के अधीन किसी सिविल सेवा या पद पर नियुक्त प्रत्येक व्यक्ति पर लागू होते हैं, जिसमें रक्षा सेवा का असैनिक कर्मचारी भी सम्मिलित है। ये रेलवे कर्मचारियों, अखिल भारतीय सेवा के सदस्यों, तथा उस पद पर लागू नहीं होते जिसे राष्ट्रपति ने आदेश द्वारा अपवर्जित कर दिया हो। उप-नियम (3) में आंशिक छूट भी है: कुछ नामित नियम पत्तनों, रक्षा प्रतिष्ठानों, निर्माण, सिंचाई, खानों, कारखानों तथा केंद्रीय ट्रैक्टर संगठन की क्षेत्रीय इकाइयों के कुछ अल्प-वेतनभोगी अराजपत्रित कर्मचारियों पर लागू नहीं होते।"
+      },
+      "example": {
+        "en": "A Section Officer deputed to a public sector undertaking is still covered: Rule 2(b)’s Explanation deems a Government servant whose services are placed at the disposal of a company to be serving under Government even though the salary comes from elsewhere. An officer of the IAS working in the same building is not covered by these rules at all — the All India Services (Conduct) Rules, 1968 govern them.",
+        "hi": "किसी सार्वजनिक उपक्रम में प्रतिनियुक्त अनुभाग अधिकारी फिर भी इन नियमों के अधीन है: नियम 2(ख) का स्पष्टीकरण ऐसे सरकारी कर्मचारी को, जिसकी सेवाएँ किसी कंपनी को उपलब्ध कराई गई हैं, सरकार के अधीन सेवारत ही मानता है, भले वेतन अन्यत्र से मिले। उसी भवन में कार्यरत भारतीय प्रशासनिक सेवा का अधिकारी इन नियमों के अधीन नहीं आता — उस पर अखिल भारतीय सेवा (आचरण) नियम, 1968 लागू होते हैं।"
+      },
+      "connects": [
+        "ccs-conduct-2",
+        "ccs-conduct-25"
+      ],
+      "misconception": {
+        "en": "\"These are the conduct rules for all government servants.\" They are not. An All India Service officer and a railway servant each have their own conduct rules, and applying a CCS (Conduct) rule number to them is the commonest citation error in a departmental note.",
+        "hi": "\"ये सभी सरकारी कर्मचारियों के आचरण नियम हैं।\" ऐसा नहीं है। अखिल भारतीय सेवा के अधिकारी तथा रेलवे कर्मचारी के अपने-अपने आचरण नियम हैं, और विभागीय टिप्पणी में उन पर सीसीएस (आचरण) नियम की संख्या उद्धृत करना सबसे सामान्य त्रुटि है।"
+      },
+      "examRelevance": {
+        "en": "The three exclusions in the first proviso — railway servant, All India Service member, post excluded by Presidential order — are a standard \"which of these is NOT covered\" question.",
+        "hi": "पहले परंतुक की तीन अपवर्जनाएँ — रेलवे कर्मचारी, अखिल भारतीय सेवा का सदस्य, राष्ट्रपति के आदेश से अपवर्जित पद — \"इनमें से कौन शामिल नहीं है\" प्रकार का मानक प्रश्न हैं।"
+      },
+      "reviewed": true,
+      "reviewState": "approved",
+      "generationMeta": {
+        "promptVersion": "study-aid-v1",
+        "batchId": "library-aids-2026-09-03-ccs-conduct",
+        "stageA": {
+          "index": 1,
+          "angle": "who these rules bind, and who they do not"
+        },
+        "critic": {
+          "verdict": "approve",
+          "reason": "Scope stated from sub-rule (3) and both provisos; the deputation point is drawn from Rule 2’s Explanation and is cross-referenced rather than presented as Rule 1."
+        },
+        "verify": {
+          "grounded": true,
+          "note": "Every exclusion named appears in the first proviso of sub-rule (3). The Rs. 500 partial exemption is not quoted as a live figure because the aid does not turn on it."
+        },
+        "dedup": {
+          "maxScore": 0,
+          "against": null,
+          "verdict": "keep"
+        },
+        "groundingUnitIds": [
+          "ccs-conduct-1",
+          "ccs-conduct-2"
+        ]
+      },
+      "source": {
+        "name": "Department of Personnel and Training — CCS (Conduct) Rules, 1964 — updated as on 27 February 2015",
+        "url": "https://dopt.gov.in/sites/default/files/CCS_Conduct_Rules_1964_Updated_27Feb15_0.pdf"
+      },
+      "verify": true
+    },
+    {
+      "id": "aid-ccs-conduct-2",
+      "workId": "ccs-conduct",
+      "unitId": "ccs-conduct-2",
+      "explanation": {
+        "en": "This rule fixes three terms for the whole book: \"the Government\" means the Central Government, \"Government servant\" covers anyone appointed to a civil service or post under the Union, and \"members of family\" means the spouse, a wholly dependent child or step-child, and any other blood or marriage relation who is wholly dependent. A spouse separated by a decree of a competent court is excluded, and so is a child no longer dependent or of whose custody the officer has been deprived.",
+        "hi": "यह नियम पूरी नियमावली के लिए तीन पद निश्चित करता है: \"सरकार\" का अर्थ केंद्र सरकार, \"सरकारी कर्मचारी\" में संघ के अधीन किसी सिविल सेवा या पद पर नियुक्त प्रत्येक व्यक्ति, तथा \"परिवार के सदस्य\" में पति या पत्नी, पूर्णतः आश्रित संतान या सौतेली संतान, और रक्त या विवाह से संबंधित कोई अन्य पूर्णतः आश्रित व्यक्ति। सक्षम न्यायालय की डिक्री द्वारा पृथक् किया गया पति/पत्नी अपवर्जित है, तथा वह संतान भी जो अब आश्रित नहीं है या जिसकी अभिरक्षा कर्मचारी से छीन ली गई है।"
+      },
+      "example": {
+        "en": "An Under Secretary’s married son, earning and living separately, is not a \"member of family\". So the son buying a flat needs no intimation under Rule 18. The officer’s wife, even living in another city, is a member of family — her purchase of the same flat does.",
+        "hi": "किसी अवर सचिव का विवाहित पुत्र, जो स्वयं कमाता है और अलग रहता है, \"परिवार का सदस्य\" नहीं है। अतः पुत्र द्वारा फ्लैट खरीदने पर नियम 18 के अधीन कोई सूचना अपेक्षित नहीं। अधिकारी की पत्नी, चाहे दूसरे नगर में रहती हो, परिवार की सदस्य है — उसके द्वारा वही फ्लैट खरीदने पर सूचना देनी होगी।"
+      },
+      "connects": [
+        "ccs-conduct-4",
+        "ccs-conduct-13",
+        "ccs-conduct-18"
+      ],
+      "misconception": {
+        "en": "\"Family means everyone who lives with me.\" Residence is irrelevant for a spouse — the rule says \"whether residing with the Government servant or not\" — and dependence, not residence, is the test for everyone else.",
+        "hi": "\"परिवार का अर्थ वे सब जो मेरे साथ रहते हैं।\" पति/पत्नी के लिए निवास अप्रासंगिक है — नियम कहता है \"चाहे साथ रहता हो या नहीं\" — और शेष सबके लिए कसौटी निवास नहीं, आश्रितता है।"
+      },
+      "mnemonic": {
+        "en": "Spouse regardless of residence; everyone else only if wholly dependent.",
+        "hi": "पति/पत्नी — निवास चाहे जो हो; शेष सब — केवल यदि पूर्णतः आश्रित हों।"
+      },
+      "reviewed": true,
+      "reviewState": "approved",
+      "generationMeta": {
+        "promptVersion": "study-aid-v1",
+        "batchId": "library-aids-2026-09-03-ccs-conduct",
+        "stageA": {
+          "index": 2,
+          "angle": "the definition that decides half the other rules — \"members of family\""
+        },
+        "critic": {
+          "verdict": "approve",
+          "reason": "The two exclusions inside clause (c)(i) and (c)(ii) are the operative content and are both stated; the example turns on dependence, which is the test the rule actually applies."
+        },
+        "verify": {
+          "grounded": true,
+          "note": "\"whether residing with the Government servant or not\", the decree exclusion and the \"wholly dependent\" test are each verbatim concepts in clause (c). The Rule 18 consequence is cross-referenced, not asserted from this rule."
+        },
+        "dedup": {
+          "maxScore": 0,
+          "against": null,
+          "verdict": "keep"
+        },
+        "groundingUnitIds": [
+          "ccs-conduct-2",
+          "ccs-conduct-18"
+        ]
+      },
+      "source": {
+        "name": "Department of Personnel and Training — CCS (Conduct) Rules, 1964 — updated as on 27 February 2015",
+        "url": "https://dopt.gov.in/sites/default/files/CCS_Conduct_Rules_1964_Updated_27Feb15_0.pdf"
+      },
+      "verify": true
+    },
+    {
+      "id": "aid-ccs-conduct-3",
+      "workId": "ccs-conduct",
+      "unitId": "ccs-conduct-3",
+      "explanation": {
+        "en": "Rule 3(1) is the rule every charge-sheet for misconduct falls back on. It requires a Government servant at all times to maintain absolute integrity, maintain devotion to duty, and do nothing unbecoming of a Government servant — and then adds a long list including political neutrality, merit-based decisions, declaring private interests, and not placing oneself under financial obligation to anyone who could influence official duty. Sub-rule (2) puts a supervisory officer under a duty to secure the integrity of subordinates, and requires an oral direction to be confirmed in writing.",
+        "hi": "नियम 3(1) वह नियम है जिस पर कदाचार का प्रत्येक आरोप-पत्र अंततः टिकता है। यह अपेक्षा करता है कि सरकारी कर्मचारी हर समय पूर्ण सत्यनिष्ठा बनाए रखे, कर्तव्य के प्रति निष्ठा बनाए रखे, तथा ऐसा कुछ न करे जो सरकारी कर्मचारी के लिए अशोभनीय हो — और फिर एक लंबी सूची जोड़ता है जिसमें राजनीतिक तटस्थता, योग्यता-आधारित निर्णय, निजी हितों की घोषणा, तथा किसी ऐसे व्यक्ति के प्रति वित्तीय दायित्व में न पड़ना सम्मिलित है जो सरकारी कर्तव्य को प्रभावित कर सके। उप-नियम (2) पर्यवेक्षी अधिकारी पर अधीनस्थों की सत्यनिष्ठा सुनिश्चित करने का दायित्व डालता है, तथा मौखिक निदेश की लिखित पुष्टि अपेक्षित करता है।"
+      },
+      "example": {
+        "en": "A Deputy Secretary is telephoned by his Joint Secretary and told to release a payment ahead of turn. Under sub-rule (2)(iv) he should seek written confirmation as soon as possible, and the superior then has a duty to confirm it in writing. Explanation II warns the other way: this is not a licence to push every ordinary decision upstairs for cover.",
+        "hi": "किसी उप सचिव को उसका संयुक्त सचिव दूरभाष पर कहता है कि एक भुगतान बारी से पहले जारी करें। उप-नियम (2)(iv) के अधीन उसे यथाशीघ्र लिखित पुष्टि माँगनी चाहिए, और तब वरिष्ठ का कर्तव्य है कि लिखित में पुष्टि करे। स्पष्टीकरण II दूसरी दिशा में चेतावनी देता है: यह हर सामान्य निर्णय को आड़ के लिए ऊपर ठेलने की छूट नहीं है।"
+      },
+      "connects": [
+        "ccs-conduct-3a",
+        "ccs-conduct-11",
+        "ccs-conduct-16"
+      ],
+      "misconception": {
+        "en": "\"Habitual delay is a performance issue, not misconduct.\" Explanation I says the opposite: an officer who habitually fails to finish assigned work within the time set, to the expected quality, is DEEMED to be lacking in devotion to duty under Rule 3(1)(ii).",
+        "hi": "\"आदतन विलंब कार्य-निष्पादन का विषय है, कदाचार का नहीं।\" स्पष्टीकरण I इसके विपरीत कहता है: जो कर्मचारी आदतन सौंपा गया कार्य नियत समय में अपेक्षित गुणवत्ता के साथ पूरा नहीं करता, वह नियम 3(1)(ii) के अर्थ में कर्तव्य-निष्ठा में कमी वाला समझा जाएगा।"
+      },
+      "examRelevance": {
+        "en": "The three limbs of Rule 3(1) — absolute integrity, devotion to duty, nothing unbecoming — are asked verbatim more often than any other line in this book.",
+        "hi": "नियम 3(1) के तीन अंग — पूर्ण सत्यनिष्ठा, कर्तव्य-निष्ठा, कुछ भी अशोभनीय न करना — इस पुस्तक की किसी भी अन्य पंक्ति से अधिक बार शब्दशः पूछे जाते हैं।"
+      },
+      "mnemonic": {
+        "en": "Integrity — Devotion — Nothing unbecoming. Three limbs, in that order.",
+        "hi": "सत्यनिष्ठा — कर्तव्यनिष्ठा — कुछ अशोभनीय नहीं। तीन अंग, इसी क्रम में।"
+      },
+      "reviewed": true,
+      "reviewState": "approved",
+      "generationMeta": {
+        "promptVersion": "study-aid-v1",
+        "batchId": "library-aids-2026-09-03-ccs-conduct",
+        "stageA": {
+          "index": 3,
+          "angle": "the three classical duties, and the twenty-one that were added to them"
+        },
+        "critic": {
+          "verdict": "approve",
+          "reason": "The three limbs are quoted in the rule’s own order; Explanation I is the substance of the misconception and is a deeming provision, which the aid says."
+        },
+        "verify": {
+          "grounded": true,
+          "note": "Explanation I’s deeming language, sub-rule (2)(iii)-(iv) on oral directions, and Explanation II’s warning are each present in the text. The list in sub-rule (1) is summarised, not enumerated, and no clause number is attached to a duty the text does not put there."
+        },
+        "dedup": {
+          "maxScore": 0,
+          "against": null,
+          "verdict": "keep"
+        },
+        "groundingUnitIds": [
+          "ccs-conduct-3"
+        ]
+      },
+      "source": {
+        "name": "Department of Personnel and Training — CCS (Conduct) Rules, 1964 — updated as on 27 February 2015",
+        "url": "https://dopt.gov.in/sites/default/files/CCS_Conduct_Rules_1964_Updated_27Feb15_0.pdf"
+      },
+      "verify": true
+    },
+    {
+      "id": "aid-ccs-conduct-3a",
+      "workId": "ccs-conduct",
+      "unitId": "ccs-conduct-3a",
+      "explanation": {
+        "en": "Rule 3A forbids exactly two things: acting in a discourteous manner while performing official duties, and adopting dilatory tactics or wilfully causing delay in disposing of assigned work. It is short because it is the operative version of Rule 3(1)(xi)’s \"courtesy and good behaviour\" — a positive duty there, a prohibition here.",
+        "hi": "नियम 3क ठीक दो बातें वर्जित करता है: सरकारी कर्तव्यों के निर्वहन में अशिष्ट व्यवहार, तथा सौंपे गए कार्य के निपटान में विलंबकारी युक्तियाँ अपनाना या जानबूझकर विलंब करना। यह संक्षिप्त इसलिए है कि यह नियम 3(1)(xi) की \"शिष्टता और सद्व्यवहार\" का प्रवर्तनीय रूप है — वहाँ सकारात्मक कर्तव्य, यहाँ निषेध।"
+      },
+      "example": {
+        "en": "A Section Officer who returns the same file four times for objections he could have raised at once, each time restarting the clock, is adopting dilatory tactics under clause (b) even though every individual objection was in order.",
+        "hi": "जो अनुभाग अधिकारी वही फ़ाइल चार बार आपत्तियों के साथ लौटाता है, जबकि सभी आपत्तियाँ एक साथ उठाई जा सकती थीं, और हर बार समय-गणना नए सिरे से शुरू होती है, वह खंड (ख) के अधीन विलंबकारी युक्ति अपना रहा है — भले ही प्रत्येक आपत्ति अपने आप में ठीक हो।"
+      },
+      "connects": [
+        "ccs-conduct-3"
+      ],
+      "misconception": {
+        "en": "\"Delay only counts if it was for a bribe or a favour.\" The rule says \"wilfully cause delays\" — the motive is not an element. Wilful is enough.",
+        "hi": "\"विलंब तभी गिना जाएगा जब वह रिश्वत या उपकार के लिए हो।\" नियम कहता है \"जानबूझकर विलंब करना\" — हेतु इसका अंग नहीं है। जानबूझकर होना पर्याप्त है।"
+      },
+      "reviewed": true,
+      "reviewState": "approved",
+      "generationMeta": {
+        "promptVersion": "study-aid-v1",
+        "batchId": "library-aids-2026-09-03-ccs-conduct",
+        "stageA": {
+          "index": 4,
+          "angle": "the two things this rule actually forbids"
+        },
+        "critic": {
+          "verdict": "approve",
+          "reason": "Two clauses, both stated; the link to Rule 3(1)(xi) is an accurate characterisation and is marked as a relationship rather than as text of 3A."
+        },
+        "verify": {
+          "grounded": true,
+          "note": "\"discourteous manner\", \"dilatory tactics\" and \"wilfully cause delays\" are the rule’s own words."
+        },
+        "dedup": {
+          "maxScore": 0,
+          "against": null,
+          "verdict": "keep"
+        },
+        "groundingUnitIds": [
+          "ccs-conduct-3a",
+          "ccs-conduct-3"
+        ]
+      },
+      "source": {
+        "name": "Department of Personnel and Training — CCS (Conduct) Rules, 1964 — updated as on 27 February 2015",
+        "url": "https://dopt.gov.in/sites/default/files/CCS_Conduct_Rules_1964_Updated_27Feb15_0.pdf"
+      },
+      "verify": true
+    },
+    {
+      "id": "aid-ccs-conduct-3b",
+      "workId": "ccs-conduct",
+      "unitId": "ccs-conduct-3b",
+      "explanation": {
+        "en": "Rule 3B makes four Government policies personally binding on the officer rather than merely on the department: age of marriage, preservation of the environment, protection of wildlife, and protection of cultural heritage. Clause (ii) adds the policies on prevention of crime against women. It is a conduct rule, so a breach is misconduct, not merely a departure from policy.",
+        "hi": "नियम 3ख चार सरकारी नीतियों को विभाग पर ही नहीं, स्वयं कर्मचारी पर बाध्यकारी बनाता है: विवाह की आयु, पर्यावरण संरक्षण, वन्यजीव संरक्षण, तथा सांस्कृतिक धरोहर की रक्षा। खंड (ii) महिलाओं के विरुद्ध अपराध की रोकथाम संबंधी नीतियों को जोड़ता है। यह आचरण नियम है, अतः उल्लंघन कदाचार है, केवल नीति से विचलन नहीं।"
+      },
+      "example": {
+        "en": "An officer who arranges the marriage of a daughter below the legal age of marriage has breached Rule 3B(i) in his private life, and the breach is actionable as misconduct even though no official file was touched.",
+        "hi": "जो अधिकारी अपनी पुत्री का विवाह विधिक विवाह-आयु से कम में कराता है, उसने अपने निजी जीवन में नियम 3ख(i) का उल्लंघन किया है, और यह उल्लंघन कदाचार के रूप में कार्रवाई-योग्य है, भले किसी सरकारी फ़ाइल का संबंध न हो।"
+      },
+      "connects": [
+        "ccs-conduct-3",
+        "ccs-conduct-13a"
+      ],
+      "misconception": {
+        "en": "\"Conduct rules govern office behaviour.\" Rules 3B, 13A, 17, 21 and 22 all reach into private life. This one is the clearest example of a policy the officer must obey off duty.",
+        "hi": "\"आचरण नियम कार्यालयीन व्यवहार को नियंत्रित करते हैं।\" नियम 3ख, 13क, 17, 21 और 22 सभी निजी जीवन तक पहुँचते हैं। यह उस नीति का सबसे स्पष्ट उदाहरण है जिसका पालन कर्मचारी को ड्यूटी से बाहर भी करना है।"
+      },
+      "reviewed": true,
+      "reviewState": "approved",
+      "generationMeta": {
+        "promptVersion": "study-aid-v1",
+        "batchId": "library-aids-2026-09-03-ccs-conduct",
+        "stageA": {
+          "index": 5,
+          "angle": "four named Government policies an officer must personally follow"
+        },
+        "critic": {
+          "verdict": "approve",
+          "reason": "Four policies in clause (i) plus clause (ii) — enumerated exactly as the rule does, with nothing added."
+        },
+        "verify": {
+          "grounded": true,
+          "note": "The four subjects and the second clause are verbatim. \"Misconduct\" is a characterisation of what a conduct rule breach is and is not attributed to this rule’s own words."
+        },
+        "dedup": {
+          "maxScore": 0,
+          "against": null,
+          "verdict": "keep"
+        },
+        "groundingUnitIds": [
+          "ccs-conduct-3b"
+        ]
+      },
+      "source": {
+        "name": "Department of Personnel and Training — CCS (Conduct) Rules, 1964 — updated as on 27 February 2015",
+        "url": "https://dopt.gov.in/sites/default/files/CCS_Conduct_Rules_1964_Updated_27Feb15_0.pdf"
+      },
+      "verify": true
+    },
+    {
+      "id": "aid-ccs-conduct-3c",
+      "workId": "ccs-conduct",
+      "unitId": "ccs-conduct-3c",
+      "explanation": {
+        "en": "Rule 3C has two distinct commands. Sub-rule (1) forbids any Government servant from indulging in sexual harassment of any woman at any workplace. Sub-rule (2) puts a separate, independent duty on whoever is in charge of a workplace to take appropriate steps to prevent it. The Explanation defines \"sexual harassment\" through five kinds of conduct and five circumstances, and defines \"workplace\" broadly enough to include hospitals, sports venues and places visited during employment.",
+        "hi": "नियम 3ग में दो पृथक् आदेश हैं। उप-नियम (1) किसी भी सरकारी कर्मचारी को किसी भी कार्यस्थल पर किसी भी महिला के लैंगिक उत्पीड़न से वर्जित करता है। उप-नियम (2) कार्यस्थल के प्रभारी पर उसे रोकने हेतु समुचित कदम उठाने का पृथक्, स्वतंत्र दायित्व डालता है। स्पष्टीकरण \"लैंगिक उत्पीड़न\" को पाँच प्रकार के आचरण तथा पाँच परिस्थितियों से परिभाषित करता है, और \"कार्यस्थल\" को इतना व्यापक परिभाषित करता है कि उसमें अस्पताल, खेल स्थल तथा नियोजन के दौरान गए स्थान भी आ जाएँ।"
+      },
+      "example": {
+        "en": "A Branch Officer who receives a complaint about a colleague and files it without action has not himself harassed anyone, but he is in charge of that workplace and sub-rule (2) is a duty on him in his own right.",
+        "hi": "जो शाखा अधिकारी किसी सहकर्मी के विरुद्ध शिकायत पाकर उसे बिना कार्रवाई दाखिल कर देता है, उसने स्वयं किसी का उत्पीड़न नहीं किया, किंतु वह उस कार्यस्थल का प्रभारी है और उप-नियम (2) उसका अपना दायित्व है।"
+      },
+      "connects": [
+        "ccs-conduct-3",
+        "ccs-conduct-3b"
+      ],
+      "misconception": {
+        "en": "\"This is covered by the PoSH Act, so the conduct rule adds nothing.\" They run in parallel: the PoSH Act 2013 creates the complaints machinery and the Internal Committee, and Rule 3C makes the same conduct a disciplinary matter under the CCS rules. An inquiry under one does not displace the other.",
+        "hi": "\"यह पॉश अधिनियम में आ जाता है, अतः आचरण नियम कुछ नहीं जोड़ता।\" दोनों साथ-साथ चलते हैं: पॉश अधिनियम, 2013 शिकायत तंत्र और आंतरिक समिति बनाता है, और नियम 3ग उसी आचरण को सीसीएस नियमों के अधीन अनुशासनिक विषय बनाता है। एक के अधीन जाँच दूसरे को विस्थापित नहीं करती।"
+      },
+      "examRelevance": {
+        "en": "The two-limb structure — a personal prohibition plus a separate duty on the person in charge — is the point most often missed.",
+        "hi": "दो-अंगीय संरचना — व्यक्तिगत निषेध तथा प्रभारी व्यक्ति पर पृथक् दायित्व — वही बिंदु है जो सबसे अधिक छूटता है।"
+      },
+      "reviewed": true,
+      "reviewState": "approved",
+      "generationMeta": {
+        "promptVersion": "study-aid-v1",
+        "batchId": "library-aids-2026-09-03-ccs-conduct",
+        "stageA": {
+          "index": 6,
+          "angle": "the personal prohibition and the supervisor’s separate duty"
+        },
+        "critic": {
+          "verdict": "approve",
+          "reason": "Both sub-rules stated as separate commands, which is the rule’s actual structure. The PoSH relationship is stated as parallel operation and does not claim any provision of the PoSH Act."
+        },
+        "verify": {
+          "grounded": true,
+          "note": "Sub-rules (1) and (2), the five behaviours in Explanation (I)(a), the five circumstances in (b), and the breadth of \"workplace\" in (c) are all in the text."
+        },
+        "dedup": {
+          "maxScore": 0,
+          "against": null,
+          "verdict": "keep"
+        },
+        "groundingUnitIds": [
+          "ccs-conduct-3c"
+        ]
+      },
+      "source": {
+        "name": "Department of Personnel and Training — CCS (Conduct) Rules, 1964 — updated as on 27 February 2015",
+        "url": "https://dopt.gov.in/sites/default/files/CCS_Conduct_Rules_1964_Updated_27Feb15_0.pdf"
+      },
+      "verify": true
+    },
+    {
+      "id": "aid-ccs-conduct-4",
+      "workId": "ccs-conduct",
+      "unitId": "ccs-conduct-4",
+      "explanation": {
+        "en": "Rule 4 separates three things. Sub-rule (1) forbids using position or influence to get a family member a job in any company or firm. Sub-rule (2)(i) requires a Class I Officer to obtain previous sanction before permitting a son, daughter or dependant to take employment with a firm he has official dealings with — with an urgency escape that permits provisional acceptance subject to later permission. Sub-rule (3) is the recusal rule: an officer must not deal with any matter or contract involving a firm employing a member of his family, and must refer it to his superior.",
+        "hi": "नियम 4 तीन बातें अलग करता है। उप-नियम (1) परिवार के किसी सदस्य को किसी कंपनी या फर्म में नौकरी दिलाने हेतु पद या प्रभाव के प्रयोग को वर्जित करता है। उप-नियम (2)(i) प्रथम श्रेणी अधिकारी से अपेक्षा करता है कि वह अपने पुत्र, पुत्री या आश्रित को ऐसी फर्म में नियोजन स्वीकार करने की अनुमति देने से पूर्व पूर्व मंजूरी ले, जिससे उसके सरकारी संव्यवहार हैं — तत्काल स्थिति में अनंतिम स्वीकृति की छूट है, जो बाद की अनुमति के अधीन रहेगी। उप-नियम (3) विरति का नियम है: अधिकारी ऐसे किसी मामले या संविदा से व्यवहार नहीं करेगा जिसमें उसके परिवार के सदस्य को नियोजित करने वाली फर्म शामिल हो, और उसे अपने वरिष्ठ को निर्दिष्ट करेगा।"
+      },
+      "example": {
+        "en": "An Under Secretary in a procurement division whose wife joins a bidding vendor must, under sub-rule (2)(ii), intimate the acceptance to the prescribed authority and say whether he has had official dealings with that firm — and under sub-rule (3) he must refer every file involving that vendor to his superior instead of disposing of it himself.",
+        "hi": "क्रय प्रभाग में कार्यरत उस अवर सचिव को, जिसकी पत्नी किसी बोलीदाता विक्रेता में सम्मिलित हो जाती है, उप-नियम (2)(ii) के अधीन विहित प्राधिकारी को स्वीकृति की सूचना देनी होगी और बताना होगा कि उस फर्म से उसके सरकारी संव्यवहार रहे हैं या नहीं — तथा उप-नियम (3) के अधीन उस विक्रेता से संबंधित प्रत्येक फ़ाइल स्वयं निपटाने के बजाय अपने वरिष्ठ को निर्दिष्ट करनी होगी।"
+      },
+      "connects": [
+        "ccs-conduct-2",
+        "ccs-conduct-15",
+        "ccs-conduct-16"
+      ],
+      "misconception": {
+        "en": "\"Intimation is only needed if I helped.\" Sub-rule (2)(ii) requires intimation as soon as the officer becomes AWARE of the acceptance, whether or not he had any hand in it.",
+        "hi": "\"सूचना तभी देनी है जब मैंने सहायता की हो।\" उप-नियम (2)(ii) अपेक्षा करता है कि नियोजन स्वीकार किए जाने की जानकारी होते ही सूचना दी जाए, चाहे उसमें कर्मचारी का कोई हाथ रहा हो या नहीं।"
+      },
+      "reviewed": true,
+      "reviewState": "approved",
+      "generationMeta": {
+        "promptVersion": "study-aid-v1",
+        "batchId": "library-aids-2026-09-03-ccs-conduct",
+        "stageA": {
+          "index": 7,
+          "angle": "three separate prohibitions about relatives and employers"
+        },
+        "critic": {
+          "verdict": "approve",
+          "reason": "The three sub-rules do different work and the aid keeps them apart; the urgency proviso is included because it is the part an officer actually needs at the moment of decision."
+        },
+        "verify": {
+          "grounded": true,
+          "note": "Sub-rules (1), (2)(i) with its proviso, (2)(ii) with its \"as soon as he becomes aware\" wording, and (3)’s reference-to-superior requirement are all in the text."
+        },
+        "dedup": {
+          "maxScore": 0,
+          "against": null,
+          "verdict": "keep"
+        },
+        "groundingUnitIds": [
+          "ccs-conduct-4"
+        ]
+      },
+      "source": {
+        "name": "Department of Personnel and Training — CCS (Conduct) Rules, 1964 — updated as on 27 February 2015",
+        "url": "https://dopt.gov.in/sites/default/files/CCS_Conduct_Rules_1964_Updated_27Feb15_0.pdf"
+      },
+      "verify": true
+    },
+    {
+      "id": "aid-ccs-conduct-5",
+      "workId": "ccs-conduct",
+      "unitId": "ccs-conduct-5",
+      "explanation": {
+        "en": "Rule 5 forbids a Government servant from being a member of or associated with any political party or organisation that takes part in politics, and from taking part in, subscribing to or assisting any political movement. Sub-rule (2) adds a duty to try to prevent a family member from assisting a movement subversive of the Government, and to report to Government if he cannot. Sub-rule (4) forbids canvassing in any election — but the first proviso preserves the right to vote, provided the officer gives no indication of how he votes.",
+        "hi": "नियम 5 सरकारी कर्मचारी को किसी राजनीतिक दल या राजनीति में भाग लेने वाले संगठन का सदस्य होने या उससे संबद्ध होने से, तथा किसी राजनीतिक आंदोलन में भाग लेने, चंदा देने या सहायता करने से वर्जित करता है। उप-नियम (2) यह कर्तव्य जोड़ता है कि वह परिवार के सदस्य को सरकार के विरुद्ध विध्वंसक आंदोलन की सहायता से रोकने का प्रयत्न करे, और न रोक सके तो सरकार को रिपोर्ट करे। उप-नियम (4) किसी भी निर्वाचन में प्रचार वर्जित करता है — किंतु पहला परंतुक मत देने का अधिकार सुरक्षित रखता है, बशर्ते कर्मचारी यह संकेत न दे कि उसने किसे मत दिया।"
+      },
+      "example": {
+        "en": "An Assistant Section Officer may vote in a general election. If he puts a party sticker on his car or a flag on his house, the Explanation treats that display as taking part in a political movement, and the vote proviso does not save him.",
+        "hi": "कोई सहायक अनुभाग अधिकारी आम चुनाव में मत दे सकता है। यदि वह अपनी कार पर दल का स्टिकर या घर पर झंडा लगाता है, तो स्पष्टीकरण उस प्रदर्शन को राजनीतिक आंदोलन में भाग लेना मानता है, और मत देने का परंतुक उसे नहीं बचाता।"
+      },
+      "connects": [
+        "ccs-conduct-6",
+        "ccs-conduct-9",
+        "ccs-conduct-20"
+      ],
+      "misconception": {
+        "en": "\"Voting is participation, so an officer should abstain.\" The opposite: the first proviso to sub-rule (4) expressly preserves the right to vote. What is forbidden is indicating how he voted.",
+        "hi": "\"मत देना भागीदारी है, अतः कर्मचारी को नहीं देना चाहिए।\" इसके विपरीत: उप-नियम (4) का पहला परंतुक मत देने का अधिकार स्पष्टतः सुरक्षित रखता है। वर्जित यह है कि वह बताए किसे मत दिया।"
+      },
+      "examRelevance": {
+        "en": "The vote proviso and the sticker/flag Explanation are a paired question: one is protected, the other is not.",
+        "hi": "मत देने का परंतुक और स्टिकर/झंडे वाला स्पष्टीकरण एक युग्म प्रश्न हैं: एक संरक्षित है, दूसरा नहीं।"
+      },
+      "reviewed": true,
+      "reviewState": "approved",
+      "generationMeta": {
+        "promptVersion": "study-aid-v1",
+        "batchId": "library-aids-2026-09-03-ccs-conduct",
+        "stageA": {
+          "index": 8,
+          "angle": "party membership, family activity, and the right to vote"
+        },
+        "critic": {
+          "verdict": "approve",
+          "reason": "Sub-rules (1), (2) and (4) with the vote proviso and the display Explanation — the four operative pieces, none invented."
+        },
+        "verify": {
+          "grounded": true,
+          "note": "\"give no indication of the manner in which he proposes to vote or has voted\" and the Explanation’s \"display … on his person, vehicle or residence\" are the rule’s own words."
+        },
+        "dedup": {
+          "maxScore": 0,
+          "against": null,
+          "verdict": "keep"
+        },
+        "groundingUnitIds": [
+          "ccs-conduct-5"
+        ]
+      },
+      "source": {
+        "name": "Department of Personnel and Training — CCS (Conduct) Rules, 1964 — updated as on 27 February 2015",
+        "url": "https://dopt.gov.in/sites/default/files/CCS_Conduct_Rules_1964_Updated_27Feb15_0.pdf"
+      },
+      "verify": true
+    },
+    {
+      "id": "aid-ccs-conduct-6",
+      "workId": "ccs-conduct",
+      "unitId": "ccs-conduct-6",
+      "explanation": {
+        "en": "Rule 6 forbids joining or continuing in an association only where its objects or activities are prejudicial to the sovereignty and integrity of India, or to public order or morality. That is a much narrower test than Rule 5’s political prohibition: an association is not caught merely for being unofficial, or unpopular, or unregistered.",
+        "hi": "नियम 6 किसी संगम में सम्मिलित होने या बने रहने को केवल तब वर्जित करता है जब उसके उद्देश्य या क्रियाकलाप भारत की प्रभुता और अखंडता, अथवा लोक-व्यवस्था या सदाचार के प्रतिकूल हों। यह नियम 5 के राजनीतिक निषेध से कहीं संकीर्ण कसौटी है: कोई संगम केवल इसलिए इसकी परिधि में नहीं आता कि वह गैर-सरकारी, अलोकप्रिय या अपंजीकृत है।"
+      },
+      "example": {
+        "en": "Membership of a residents’ welfare association or a professional body is untouched by Rule 6. Membership of an organisation whose stated object is secession would be caught, and \"continue to be a member\" means the officer must leave once he knows.",
+        "hi": "निवासी कल्याण संगम या किसी व्यावसायिक निकाय की सदस्यता नियम 6 से अछूती है। ऐसे संगठन की सदस्यता जिसका घोषित उद्देश्य पृथक्करण हो, इसकी परिधि में आएगी, और \"सदस्य बने रहना\" का अर्थ है कि जानकारी होते ही कर्मचारी को छोड़ना होगा।"
+      },
+      "connects": [
+        "ccs-conduct-5",
+        "ccs-conduct-7"
+      ],
+      "misconception": {
+        "en": "\"Rule 6 bans every non-official association.\" It bans an association on three named grounds and no others. A Service Association is dealt with elsewhere, not here.",
+        "hi": "\"नियम 6 हर गैर-सरकारी संगम पर रोक लगाता है।\" यह तीन नामित आधारों पर रोक लगाता है, अन्य किसी पर नहीं। सेवा संगम का विषय अन्यत्र है, यहाँ नहीं।"
+      },
+      "reviewed": true,
+      "reviewState": "approved",
+      "generationMeta": {
+        "promptVersion": "study-aid-v1",
+        "batchId": "library-aids-2026-09-03-ccs-conduct",
+        "stageA": {
+          "index": 9,
+          "angle": "the narrow test this rule applies to an association"
+        },
+        "critic": {
+          "verdict": "approve",
+          "reason": "Three grounds, quoted; the contrast with Rule 5 is a comparison of two rules both in this book and is marked as such."
+        },
+        "verify": {
+          "grounded": true,
+          "note": "\"prejudicial to the interests of the sovereignty and integrity of India, or public order or morality\" and \"join or continue to be a member\" are verbatim."
+        },
+        "dedup": {
+          "maxScore": 0,
+          "against": null,
+          "verdict": "keep"
+        },
+        "groundingUnitIds": [
+          "ccs-conduct-6",
+          "ccs-conduct-5"
+        ]
+      },
+      "source": {
+        "name": "Department of Personnel and Training — CCS (Conduct) Rules, 1964 — updated as on 27 February 2015",
+        "url": "https://dopt.gov.in/sites/default/files/CCS_Conduct_Rules_1964_Updated_27Feb15_0.pdf"
+      },
+      "verify": true
+    },
+    {
+      "id": "aid-ccs-conduct-7",
+      "workId": "ccs-conduct",
+      "unitId": "ccs-conduct-7",
+      "explanation": {
+        "en": "The two clauses of Rule 7 are not symmetrical. Clause (i) forbids a demonstration only if it is prejudicial to sovereignty and integrity, the security of the State, friendly relations with foreign States, public order, decency or morality, or involves contempt of court, defamation or incitement to an offence. Clause (ii) forbids resorting to or abetting any form of strike, coercion or physical duress in connection with service matters, with no qualifying condition at all.",
+        "hi": "नियम 7 के दोनों खंड सममित नहीं हैं। खंड (i) प्रदर्शन को केवल तब वर्जित करता है जब वह प्रभुता और अखंडता, राज्य की सुरक्षा, विदेशी राज्यों से मैत्रीपूर्ण संबंध, लोक-व्यवस्था, शिष्टता या सदाचार के प्रतिकूल हो, अथवा उसमें न्यायालय की अवमानना, मानहानि या अपराध के लिए उद्दीपन हो। खंड (ii) सेवा-विषयक किसी भी प्रकार की हड़ताल, प्रपीड़न या शारीरिक दबाव में भाग लेने या उसका दुष्प्रेरण करने को बिना किसी शर्त के वर्जित करता है।"
+      },
+      "example": {
+        "en": "A silent demonstration outside office hours on a service matter may or may not be caught, depending on whether one of clause (i)’s grounds is made out. A mass casual-leave action on the same matter is caught outright: it is \"any form of strike\", and abetting it is equally forbidden.",
+        "hi": "सेवा-विषय पर कार्यालय-समय के बाद किया गया मौन प्रदर्शन खंड (i) के किसी आधार के बनने पर ही परिधि में आएगा। उसी विषय पर सामूहिक आकस्मिक-अवकाश की कार्रवाई सीधे परिधि में है: वह \"किसी भी प्रकार की हड़ताल\" है, और उसका दुष्प्रेरण भी उतना ही वर्जित है।"
+      },
+      "connects": [
+        "ccs-conduct-6",
+        "ccs-conduct-5"
+      ],
+      "misconception": {
+        "en": "\"Only the organisers are liable for a strike.\" Clause (ii) forbids abetting \"in any way\", so the person who did not strike but arranged it is inside the rule.",
+        "hi": "\"हड़ताल के लिए केवल आयोजक उत्तरदायी हैं।\" खंड (ii) \"किसी भी प्रकार\" के दुष्प्रेरण को वर्जित करता है, अतः वह व्यक्ति भी नियम के भीतर है जिसने हड़ताल नहीं की किंतु उसका प्रबंध किया।"
+      },
+      "mnemonic": {
+        "en": "Demonstration — conditional. Strike — absolute.",
+        "hi": "प्रदर्शन — सशर्त। हड़ताल — निरपेक्ष।"
+      },
+      "reviewed": true,
+      "reviewState": "approved",
+      "generationMeta": {
+        "promptVersion": "study-aid-v1",
+        "batchId": "library-aids-2026-09-03-ccs-conduct",
+        "stageA": {
+          "index": 10,
+          "angle": "why a demonstration is qualified and a strike is not"
+        },
+        "critic": {
+          "verdict": "approve",
+          "reason": "The asymmetry between the two clauses is the whole content of the rule and is what the aid is built on."
+        },
+        "verify": {
+          "grounded": true,
+          "note": "Clause (i)’s grounds are quoted in the rule’s order; clause (ii)’s \"resort to or in any way abet any form of strike or coercion or physical duress\" is verbatim."
+        },
+        "dedup": {
+          "maxScore": 0,
+          "against": null,
+          "verdict": "keep"
+        },
+        "groundingUnitIds": [
+          "ccs-conduct-7"
+        ]
+      },
+      "source": {
+        "name": "Department of Personnel and Training — CCS (Conduct) Rules, 1964 — updated as on 27 February 2015",
+        "url": "https://dopt.gov.in/sites/default/files/CCS_Conduct_Rules_1964_Updated_27Feb15_0.pdf"
+      },
+      "verify": true
+    },
+    {
+      "id": "aid-ccs-conduct-8",
+      "workId": "ccs-conduct",
+      "unitId": "ccs-conduct-8",
+      "explanation": {
+        "en": "Rule 8(1) requires previous sanction before owning, conducting or participating in the editing or management of any newspaper, periodical or electronic media. Sub-rule (2) exempts publication or media participation in the bona fide discharge of official duties. Sub-rule (3) is unconditional: an officer publishing a book or appearing in public media must at all times make clear that the views expressed are his own and not the Government’s.",
+        "hi": "नियम 8(1) किसी समाचारपत्र, आवधिक प्रकाशन या इलेक्ट्रॉनिक मीडिया के स्वामित्व, संचालन अथवा संपादन/प्रबंधन में भाग लेने से पूर्व पूर्व मंजूरी अपेक्षित करता है। उप-नियम (2) सरकारी कर्तव्यों के सद्भावपूर्ण निर्वहन में किए गए प्रकाशन या मीडिया-भागीदारी को छूट देता है। उप-नियम (3) निरपेक्ष है: पुस्तक प्रकाशित करने या सार्वजनिक मीडिया में भाग लेने वाला कर्मचारी हर समय स्पष्ट करेगा कि व्यक्त विचार उसके अपने हैं, सरकार के नहीं।"
+      },
+      "example": {
+        "en": "An officer writing a textbook on public finance does not need sanction under sub-rule (1) — he is not editing or managing a periodical — but sub-rule (3) still requires the disclaimer on the book.",
+        "hi": "लोक वित्त पर पाठ्यपुस्तक लिखने वाले अधिकारी को उप-नियम (1) के अधीन मंजूरी नहीं चाहिए — वह किसी आवधिक का संपादन या प्रबंध नहीं कर रहा — किंतु उप-नियम (3) के अधीन पुस्तक पर अस्वीकरण फिर भी अपेक्षित है।"
+      },
+      "connects": [
+        "ccs-conduct-9",
+        "ccs-conduct-15",
+        "ccs-conduct-19"
+      ],
+      "misconception": {
+        "en": "\"The disclaimer is only for controversial subjects.\" Sub-rule (3) says \"at all times\", with no subject-matter limit.",
+        "hi": "\"अस्वीकरण केवल विवादास्पद विषयों पर चाहिए।\" उप-नियम (3) कहता है \"हर समय\", विषय-वस्तु की कोई सीमा नहीं।"
+      },
+      "reviewed": true,
+      "reviewState": "approved",
+      "generationMeta": {
+        "promptVersion": "study-aid-v1",
+        "batchId": "library-aids-2026-09-03-ccs-conduct",
+        "stageA": {
+          "index": 11,
+          "angle": "what needs sanction, and the disclaimer that is always required"
+        },
+        "critic": {
+          "verdict": "approve",
+          "reason": "The three sub-rules do three different things and the example turns on the gap between (1) and (3), which is where officers actually get caught."
+        },
+        "verify": {
+          "grounded": true,
+          "note": "\"previous sanction\", the bona fide-duties exemption and \"shall at all times make it clear that the views expressed by him are his own\" are all in the text."
+        },
+        "dedup": {
+          "maxScore": 0,
+          "against": null,
+          "verdict": "keep"
+        },
+        "groundingUnitIds": [
+          "ccs-conduct-8"
+        ]
+      },
+      "source": {
+        "name": "Department of Personnel and Training — CCS (Conduct) Rules, 1964 — updated as on 27 February 2015",
+        "url": "https://dopt.gov.in/sites/default/files/CCS_Conduct_Rules_1964_Updated_27Feb15_0.pdf"
+      },
+      "verify": true
+    },
+    {
+      "id": "aid-ccs-conduct-9",
+      "workId": "ccs-conduct",
+      "unitId": "ccs-conduct-9",
+      "explanation": {
+        "en": "Rule 9 forbids a statement of fact or opinion — in a broadcast, in any electronic media, in a document published under any name or anonymously, in a communication to the press, or in any public utterance — that adversely criticises a current or recent policy or action of the Central or a State Government, or that can embarrass Centre-State or Centre-foreign-State relations. Two things are outside it: a statement made in an official capacity or in the due performance of duty, and a bona fide expression of views by an office-bearer of a recognised service association on service conditions.",
+        "hi": "नियम 9 तथ्य या राय के ऐसे कथन को वर्जित करता है — प्रसारण में, किसी इलेक्ट्रॉनिक मीडिया में, किसी भी नाम से अथवा अनाम प्रकाशित दस्तावेज़ में, प्रेस को संप्रेषण में, अथवा किसी सार्वजनिक कथन में — जो केंद्र या राज्य सरकार की किसी वर्तमान या हाल की नीति या कार्रवाई की प्रतिकूल आलोचना करे, अथवा केंद्र-राज्य या केंद्र-विदेशी राज्य संबंधों में असुविधा उत्पन्न कर सके। इससे बाहर दो बातें हैं: सरकारी हैसियत में या कर्तव्य के सम्यक् निर्वहन में किया गया कथन, तथा सेवा-शर्तों पर सेवा संगम के पदाधिकारी द्वारा सद्भावपूर्वक व्यक्त विचार।"
+      },
+      "example": {
+        "en": "An officer posting criticism of a recent Government scheme under a pen name is inside the rule: it expressly covers a document published \"anonymously, pseudonymously or in the name of any other person\". The same officer briefing the press as the department’s spokesperson is outside it, under the last proviso.",
+        "hi": "छद्म नाम से किसी हाल की सरकारी योजना की आलोचना पोस्ट करने वाला अधिकारी नियम के भीतर है: यह स्पष्टतः \"अनाम, छद्मनाम अथवा किसी अन्य व्यक्ति के नाम से\" प्रकाशित दस्तावेज़ को समाविष्ट करता है। वही अधिकारी विभाग के प्रवक्ता के रूप में प्रेस को जानकारी देते समय अंतिम परंतुक के अधीन इससे बाहर है।"
+      },
+      "connects": [
+        "ccs-conduct-8",
+        "ccs-conduct-10",
+        "ccs-conduct-19"
+      ],
+      "misconception": {
+        "en": "\"Anonymous is safe.\" The rule names anonymous and pseudonymous publication in the same breath as publication under one’s own name.",
+        "hi": "\"अनाम होना सुरक्षित है।\" नियम अनाम और छद्मनाम प्रकाशन का उल्लेख अपने नाम से प्रकाशन के साथ ही करता है।"
+      },
+      "examRelevance": {
+        "en": "The service-association proviso is the exception most often left out of an answer.",
+        "hi": "सेवा संगम वाला परंतुक वह अपवाद है जो उत्तर में सबसे अधिक छूटता है।"
+      },
+      "reviewed": true,
+      "reviewState": "approved",
+      "generationMeta": {
+        "promptVersion": "study-aid-v1",
+        "batchId": "library-aids-2026-09-03-ccs-conduct",
+        "stageA": {
+          "index": 12,
+          "angle": "three kinds of statement, and the two things that are not caught"
+        },
+        "critic": {
+          "verdict": "approve",
+          "reason": "Three limbs and two exceptions; the service-association proviso is stated with the qualification the text gives it (office-bearer, service conditions)."
+        },
+        "verify": {
+          "grounded": true,
+          "note": "\"anonymously, pseudonymously or in the name of any other person\", the three clauses (i)-(iii) and both provisos are in the text. The proviso is limited to a category specified in the second proviso to Rule 1(3), which the aid does not overstate."
+        },
+        "dedup": {
+          "maxScore": 0,
+          "against": null,
+          "verdict": "keep"
+        },
+        "groundingUnitIds": [
+          "ccs-conduct-9"
+        ]
+      },
+      "source": {
+        "name": "Department of Personnel and Training — CCS (Conduct) Rules, 1964 — updated as on 27 February 2015",
+        "url": "https://dopt.gov.in/sites/default/files/CCS_Conduct_Rules_1964_Updated_27Feb15_0.pdf"
+      },
+      "verify": true
+    },
+    {
+      "id": "aid-ccs-conduct-10",
+      "workId": "ccs-conduct",
+      "unitId": "ccs-conduct-10",
+      "explanation": {
+        "en": "Rule 10(1) requires previous sanction before giving evidence in connection with any enquiry conducted by any person, committee or authority. Sub-rule (2) adds that even with sanction, the officer must not criticise the policy or action of the Central or a State Government while giving it. Sub-rule (3) takes three cases out entirely: an enquiry before an authority appointed by Government, Parliament or a State Legislature; a judicial enquiry; and a departmental enquiry ordered by an authority subordinate to Government.",
+        "hi": "नियम 10(1) किसी व्यक्ति, समिति या प्राधिकारी द्वारा संचालित किसी जाँच के संबंध में साक्ष्य देने से पूर्व पूर्व मंजूरी अपेक्षित करता है। उप-नियम (2) जोड़ता है कि मंजूरी मिलने पर भी कर्मचारी साक्ष्य देते समय केंद्र या राज्य सरकार की नीति या कार्रवाई की आलोचना नहीं करेगा। उप-नियम (3) तीन स्थितियाँ पूर्णतः बाहर कर देता है: सरकार, संसद या राज्य विधान-मंडल द्वारा नियुक्त प्राधिकारी के समक्ष जाँच; न्यायिक जाँच; तथा सरकार के अधीनस्थ प्राधिकारियों द्वारा आदेशित विभागीय जाँच।"
+      },
+      "example": {
+        "en": "An officer summoned as a witness in a court case needs no sanction — sub-rule (3)(b) exempts a judicial enquiry. An officer invited to depose before a private industry body’s enquiry does need it.",
+        "hi": "न्यायालय के मामले में साक्षी के रूप में समन किए गए अधिकारी को मंजूरी नहीं चाहिए — उप-नियम (3)(ख) न्यायिक जाँच को छूट देता है। किसी निजी उद्योग निकाय की जाँच में गवाही देने हेतु आमंत्रित अधिकारी को चाहिए।"
+      },
+      "connects": [
+        "ccs-conduct-9",
+        "ccs-conduct-11"
+      ],
+      "misconception": {
+        "en": "\"Sanction means I can say anything.\" Sub-rule (2) survives the sanction: criticism of Government policy in the evidence is still forbidden.",
+        "hi": "\"मंजूरी मिल गई तो कुछ भी कह सकता हूँ।\" उप-नियम (2) मंजूरी के बाद भी बना रहता है: साक्ष्य में सरकारी नीति की आलोचना तब भी वर्जित है।"
+      },
+      "reviewed": true,
+      "reviewState": "approved",
+      "generationMeta": {
+        "promptVersion": "study-aid-v1",
+        "batchId": "library-aids-2026-09-03-ccs-conduct",
+        "stageA": {
+          "index": 13,
+          "angle": "the general bar, and the three enquiries it does not touch"
+        },
+        "critic": {
+          "verdict": "approve",
+          "reason": "The three exemptions are the operative content and are given in the rule’s own order; the layered effect of sub-rule (2) is the point of the misconception."
+        },
+        "verify": {
+          "grounded": true,
+          "note": "Sub-rules (1), (2) and the three clauses of (3) are quoted in substance, with no exemption added."
+        },
+        "dedup": {
+          "maxScore": 0,
+          "against": null,
+          "verdict": "keep"
+        },
+        "groundingUnitIds": [
+          "ccs-conduct-10"
+        ]
+      },
+      "source": {
+        "name": "Department of Personnel and Training — CCS (Conduct) Rules, 1964 — updated as on 27 February 2015",
+        "url": "https://dopt.gov.in/sites/default/files/CCS_Conduct_Rules_1964_Updated_27Feb15_0.pdf"
+      },
+      "verify": true
+    },
+    {
+      "id": "aid-ccs-conduct-11",
+      "workId": "ccs-conduct",
+      "unitId": "ccs-conduct-11",
+      "explanation": {
+        "en": "Rule 11 was rewritten around the RTI Act and now points both ways. The main clause is a POSITIVE duty: every Government servant shall, in good faith, communicate information to a person in accordance with the Right to Information Act, 2005 and the rules under it. The proviso is the prohibition: except under a general or special order of Government, or in good-faith performance of assigned duties, no officer may communicate any official document or classified information to anyone not authorised to receive it.",
+        "hi": "नियम 11 सूचना का अधिकार अधिनियम के इर्द-गिर्द पुनर्लिखित हुआ है और अब दोनों दिशाओं में देखता है। मुख्य उपबंध सकारात्मक कर्तव्य है: प्रत्येक सरकारी कर्मचारी सद्भावपूर्वक सूचना का अधिकार अधिनियम, 2005 तथा उसके अधीन बने नियमों के अनुसार किसी व्यक्ति को सूचना संप्रेषित करेगा। परंतुक निषेध है: सरकार के सामान्य या विशेष आदेश के अधीन अथवा सौंपे गए कर्तव्यों के सद्भावपूर्ण निर्वहन में के सिवाय, कोई कर्मचारी किसी सरकारी दस्तावेज़ या वर्गीकृत सूचना को ऐसे किसी व्यक्ति को संप्रेषित नहीं करेगा जो उसे प्राप्त करने के लिए प्राधिकृत नहीं है।"
+      },
+      "example": {
+        "en": "A Central Public Information Officer refusing a properly made RTI request on the ground of \"office practice\" is in breach of the main clause, not merely of the RTI Act. An officer forwarding a draft Cabinet note to a friend in another Ministry is in breach of the proviso even though both are Government servants — the proviso reaches \"any Government servant … not authorized\".",
+        "hi": "विधिवत् किए गए आरटीआई आवेदन को \"कार्यालय-प्रथा\" के आधार पर अस्वीकार करने वाला केंद्रीय लोक सूचना अधिकारी मुख्य उपबंध का उल्लंघन कर रहा है, केवल आरटीआई अधिनियम का नहीं। किसी मित्र को, जो दूसरे मंत्रालय में है, मंत्रिमंडल टिप्पण का प्रारूप भेजने वाला अधिकारी परंतुक का उल्लंघन कर रहा है, यद्यपि दोनों सरकारी कर्मचारी हैं — परंतुक \"किसी भी सरकारी कर्मचारी … जो प्राधिकृत नहीं\" तक पहुँचता है।"
+      },
+      "connects": [
+        "ccs-conduct-3",
+        "ccs-conduct-9",
+        "ccs-conduct-10"
+      ],
+      "misconception": {
+        "en": "\"Sharing a file with another Government servant is internal, so it is safe.\" The proviso expressly names \"any Government servant\" alongside \"any other person\". Authorisation, not employment, is the test.",
+        "hi": "\"किसी अन्य सरकारी कर्मचारी को फ़ाइल दिखाना आंतरिक है, अतः सुरक्षित है।\" परंतुक स्पष्टतः \"किसी अन्य व्यक्ति\" के साथ \"किसी सरकारी कर्मचारी\" का भी उल्लेख करता है। कसौटी नियोजन नहीं, प्राधिकार है।"
+      },
+      "examRelevance": {
+        "en": "The direction of this rule reversed after 2005. A question that treats Rule 11 as a pure secrecy rule is testing whether the reader has read the current text.",
+        "hi": "इस नियम की दिशा 2005 के बाद उलट गई। जो प्रश्न नियम 11 को विशुद्ध गोपनीयता नियम मानता है, वह यह जाँच रहा है कि पाठक ने वर्तमान पाठ पढ़ा है या नहीं।"
+      },
+      "reviewed": true,
+      "reviewState": "approved",
+      "generationMeta": {
+        "promptVersion": "study-aid-v1",
+        "batchId": "library-aids-2026-09-03-ccs-conduct",
+        "stageA": {
+          "index": 14,
+          "angle": "a duty to disclose, and a prohibition on unauthorised disclosure"
+        },
+        "critic": {
+          "verdict": "approve",
+          "reason": "Both halves stated in the rule’s own order — duty first, proviso second — which is the structural point."
+        },
+        "verify": {
+          "grounded": true,
+          "note": "\"communicate information to a person in accordance with the Right to Information Act, 2005\" and the proviso’s \"any Government servant or any other person to whom he is no authorized\" are both in the text (the extraction carries the source’s own typo, which the aid does not reproduce)."
+        },
+        "dedup": {
+          "maxScore": 0,
+          "against": null,
+          "verdict": "keep"
+        },
+        "groundingUnitIds": [
+          "ccs-conduct-11"
+        ]
+      },
+      "source": {
+        "name": "Department of Personnel and Training — CCS (Conduct) Rules, 1964 — updated as on 27 February 2015",
+        "url": "https://dopt.gov.in/sites/default/files/CCS_Conduct_Rules_1964_Updated_27Feb15_0.pdf"
+      },
+      "verify": true
+    },
+    {
+      "id": "aid-ccs-conduct-12",
+      "workId": "ccs-conduct",
+      "unitId": "ccs-conduct-12",
+      "explanation": {
+        "en": "Rule 12 forbids asking for or accepting contributions to, or otherwise associating oneself with the raising of, any funds or other collections in cash or in kind, in pursuance of any object whatsoever, without previous sanction of Government or the prescribed authority. The phrase \"any object whatsoever\" is what makes it wide: the object being charitable does not take a collection outside the rule.",
+        "hi": "नियम 12 किसी भी उद्देश्य से नकद या वस्तु-रूप में किसी निधि या अन्य संग्रह हेतु अभिदाय माँगने, स्वीकार करने, अथवा उसके संग्रहण से स्वयं को अन्यथा संबद्ध करने को, सरकार या विहित प्राधिकारी की पूर्व मंजूरी के बिना वर्जित करता है। \"किसी भी उद्देश्य से\" वाक्यांश ही इसे व्यापक बनाता है: उद्देश्य का पुण्यार्थ होना संग्रह को नियम से बाहर नहीं करता।"
+      },
+      "example": {
+        "en": "An officer circulating an office collection for flood relief needs previous sanction. So does one collecting for a departing colleague’s farewell gift — and Rule 14’s Note separately forbids pressuring anyone to subscribe to a farewell.",
+        "hi": "बाढ़ राहत हेतु कार्यालय में चंदा चलाने वाले अधिकारी को पूर्व मंजूरी चाहिए। विदा हो रहे सहकर्मी के विदाई उपहार हेतु संग्रह करने वाले को भी — और नियम 14 का टिप्पण अलग से किसी पर विदाई-चंदे के लिए दबाव डालने को वर्जित करता है।"
+      },
+      "connects": [
+        "ccs-conduct-13",
+        "ccs-conduct-14"
+      ],
+      "misconception": {
+        "en": "\"Charity is exempt.\" Nothing in Rule 12 exempts a charitable object; the words are \"in pursuance of any object whatsoever\".",
+        "hi": "\"पुण्यार्थ कार्य को छूट है।\" नियम 12 में पुण्यार्थ उद्देश्य को कोई छूट नहीं; शब्द हैं \"किसी भी उद्देश्य से\"।"
+      },
+      "reviewed": true,
+      "reviewState": "approved",
+      "generationMeta": {
+        "promptVersion": "study-aid-v1",
+        "batchId": "library-aids-2026-09-03-ccs-conduct",
+        "stageA": {
+          "index": 15,
+          "angle": "how wide \"any funds or other collections\" really is"
+        },
+        "critic": {
+          "verdict": "approve",
+          "reason": "Single-sentence rule; the aid’s work is showing how far \"any object whatsoever\" and \"in cash or in kind\" reach, which is the only thing to get wrong here."
+        },
+        "verify": {
+          "grounded": true,
+          "note": "Every quoted phrase is verbatim. The Rule 14 Note is cross-referenced and attributed to Rule 14."
+        },
+        "dedup": {
+          "maxScore": 0,
+          "against": null,
+          "verdict": "keep"
+        },
+        "groundingUnitIds": [
+          "ccs-conduct-12",
+          "ccs-conduct-14"
+        ]
+      },
+      "source": {
+        "name": "Department of Personnel and Training — CCS (Conduct) Rules, 1964 — updated as on 27 February 2015",
+        "url": "https://dopt.gov.in/sites/default/files/CCS_Conduct_Rules_1964_Updated_27Feb15_0.pdf"
+      },
+      "verify": true
+    },
+    {
+      "id": "aid-ccs-conduct-13",
+      "workId": "ccs-conduct",
+      "unitId": "ccs-conduct-13",
+      "explanation": {
+        "en": "Rule 13(1) is a flat prohibition on accepting a gift, and the Explanation makes \"gift\" include free transport, boarding, lodging or any other pecuniary advantage from anyone other than a near relative or personal friend with no official dealings. Sub-rule (2) then permits gifts from near relatives or such friends on occasions like weddings and religious functions, subject to a REPORT above a value threshold that rises with the officer’s group. Sub-rule (3) covers every other case and requires SANCTION above a much lower threshold. Sub-rules (4) and (5) deal with foreign dignitaries and foreign firms.",
+        "hi": "नियम 13(1) उपहार स्वीकार करने पर सपाट निषेध है, और स्पष्टीकरण \"उपहार\" में नि:शुल्क परिवहन, भोजन, आवास अथवा कोई अन्य धनीय लाभ सम्मिलित करता है, जब वह ऐसे व्यक्ति से मिले जो निकट संबंधी या ऐसा निजी मित्र न हो जिससे सरकारी संव्यवहार न हों। उप-नियम (2) विवाह और धार्मिक अनुष्ठान जैसे अवसरों पर निकट संबंधियों या ऐसे मित्रों से उपहार की अनुमति देता है, किंतु एक मूल्य-सीमा से ऊपर रिपोर्ट अपेक्षित है, जो कर्मचारी के समूह के साथ बढ़ती है। उप-नियम (3) शेष हर स्थिति को समाविष्ट करता है और कहीं कम सीमा से ऊपर मंजूरी अपेक्षित करता है। उप-नियम (4) और (5) विदेशी गणमान्य व्यक्तियों तथा विदेशी फर्मों से संबंधित हैं।"
+      },
+      "example": {
+        "en": "A Group ‘A’ officer receiving a wedding gift from his brother above the sub-rule (2) threshold makes a REPORT to Government. The same officer receiving a gift of any consequence from a contractor is not in sub-rule (2) at all — the contractor has official dealings — and needs sanction under sub-rule (3), if it is permissible at all.",
+        "hi": "किसी समूह ‘क’ अधिकारी को अपने भाई से उप-नियम (2) की सीमा से अधिक मूल्य का विवाह-उपहार मिलने पर वह सरकार को रिपोर्ट करेगा। उसी अधिकारी को किसी ठेकेदार से कोई भी उल्लेखनीय उपहार मिलने पर वह उप-नियम (2) में आता ही नहीं — ठेकेदार से सरकारी संव्यवहार हैं — और उप-नियम (3) के अधीन मंजूरी अपेक्षित होगी, यदि वह अनुज्ञेय हो।"
+      },
+      "connects": [
+        "ccs-conduct-12",
+        "ccs-conduct-14",
+        "ccs-conduct-16"
+      ],
+      "misconception": {
+        "en": "\"A gift is only money or an object.\" The Explanation makes free transport, boarding, lodging and \"any other pecuniary advantage\" a gift. Note (1) carves out a casual meal, a lift or other social hospitality; Note (2) warns against lavish or frequent hospitality from anyone with official dealings.",
+        "hi": "\"उपहार का अर्थ केवल धन या वस्तु है।\" स्पष्टीकरण नि:शुल्क परिवहन, भोजन, आवास तथा \"कोई अन्य धनीय लाभ\" को उपहार बनाता है। टिप्पण (1) आकस्मिक भोजन, वाहन-सुविधा या अन्य सामाजिक आतिथ्य को अलग करता है; टिप्पण (2) सरकारी संव्यवहार वाले किसी भी व्यक्ति से भव्य या बारंबार आतिथ्य के विरुद्ध चेतावनी देता है।"
+      },
+      "examRelevance": {
+        "en": "Report-versus-sanction is the distinction being tested, not the rupee figures — and the figures in the published text have been revised by later orders, so check them against the current DoPT O.M. before quoting one.",
+        "hi": "परीक्षा का बिंदु रिपोर्ट बनाम मंजूरी का अंतर है, रुपये के आँकड़े नहीं — और प्रकाशित पाठ के आँकड़े बाद के आदेशों से संशोधित हुए हैं, अतः कोई आँकड़ा उद्धृत करने से पूर्व वर्तमान डीओपीटी कार्यालय ज्ञापन से मिला लें।"
+      },
+      "reviewed": true,
+      "reviewState": "approved",
+      "generationMeta": {
+        "promptVersion": "study-aid-v1",
+        "batchId": "library-aids-2026-09-03-ccs-conduct",
+        "stageA": {
+          "index": 16,
+          "angle": "the three gift regimes, and which one applies when"
+        },
+        "critic": {
+          "verdict": "approve",
+          "reason": "The aid deliberately does NOT state the rupee thresholds as live figures: the extracted text carries values that later orders have revised, and a study aid quoting a stale figure is worse than one that names the structure and sends the reader to the order."
+        },
+        "verify": {
+          "grounded": true,
+          "note": "The Explanation, Notes (1) and (2), the report/sanction split between sub-rules (2) and (3), and the foreign-dignitary and foreign-firm sub-rules are all in the text. No threshold value is asserted."
+        },
+        "dedup": {
+          "maxScore": 0,
+          "against": null,
+          "verdict": "keep"
+        },
+        "groundingUnitIds": [
+          "ccs-conduct-13"
+        ]
+      },
+      "source": {
+        "name": "Department of Personnel and Training — CCS (Conduct) Rules, 1964 — updated as on 27 February 2015",
+        "url": "https://dopt.gov.in/sites/default/files/CCS_Conduct_Rules_1964_Updated_27Feb15_0.pdf"
+      },
+      "verify": true
+    },
+    {
+      "id": "aid-ccs-conduct-13a",
+      "workId": "ccs-conduct",
+      "unitId": "ccs-conduct-13a",
+      "explanation": {
+        "en": "Rule 13A forbids three things: giving dowry, taking dowry, and abetting either — and separately, demanding dowry directly or indirectly from the parent or guardian of a bride or bridegroom. \"Dowry\" is not defined here; the rule borrows the meaning from the Dowry Prohibition Act, 1961.",
+        "hi": "नियम 13क तीन बातें वर्जित करता है: दहेज देना, दहेज लेना, तथा किसी का दुष्प्रेरण करना — और पृथक् रूप से, वधू या वर के माता-पिता या संरक्षक से प्रत्यक्ष या अप्रत्यक्ष रूप से दहेज की माँग करना। \"दहेज\" यहाँ परिभाषित नहीं है; नियम दहेज प्रतिषेध अधिनियम, 1961 से अर्थ उधार लेता है।"
+      },
+      "example": {
+        "en": "An officer whose son’s marriage is being arranged, and who lets a relative convey a demand on his behalf, is inside clause (ii): the demand may be \"directly or indirectly\".",
+        "hi": "जिस अधिकारी के पुत्र का विवाह तय हो रहा है और जो अपनी ओर से किसी संबंधी द्वारा माँग भिजवाता है, वह खंड (ii) के भीतर है: माँग \"प्रत्यक्ष या अप्रत्यक्ष\" हो सकती है।"
+      },
+      "connects": [
+        "ccs-conduct-3b",
+        "ccs-conduct-21"
+      ],
+      "misconception": {
+        "en": "\"Only taking dowry is misconduct.\" Giving it is named first in clause (i), and abetting either is named alongside.",
+        "hi": "\"केवल दहेज लेना कदाचार है।\" देना खंड (i) में पहले नामित है, और दोनों का दुष्प्रेरण साथ ही नामित है।"
+      },
+      "reviewed": true,
+      "reviewState": "approved",
+      "generationMeta": {
+        "promptVersion": "study-aid-v1",
+        "batchId": "library-aids-2026-09-03-ccs-conduct",
+        "stageA": {
+          "index": 17,
+          "angle": "three separate acts, and the borrowed definition"
+        },
+        "critic": {
+          "verdict": "approve",
+          "reason": "Both clauses, the \"directly or indirectly\" qualification, and the borrowed definition — nothing else is in the rule."
+        },
+        "verify": {
+          "grounded": true,
+          "note": "Clause (i)’s \"give or take or abet\", clause (ii)’s \"directly or indirectly, from the parent or guardian of a bride or bridegroom\" and the Explanation’s reference to the Dowry Prohibition Act, 1961 are verbatim."
+        },
+        "dedup": {
+          "maxScore": 0,
+          "against": null,
+          "verdict": "keep"
+        },
+        "groundingUnitIds": [
+          "ccs-conduct-13a"
+        ]
+      },
+      "source": {
+        "name": "Department of Personnel and Training — CCS (Conduct) Rules, 1964 — updated as on 27 February 2015",
+        "url": "https://dopt.gov.in/sites/default/files/CCS_Conduct_Rules_1964_Updated_27Feb15_0.pdf"
+      },
+      "verify": true
+    },
+    {
+      "id": "aid-ccs-conduct-14",
+      "workId": "ccs-conduct",
+      "unitId": "ccs-conduct-14",
+      "explanation": {
+        "en": "Rule 14 requires previous sanction before receiving a complimentary or valedictory address, accepting a testimonial, or attending a meeting or entertainment held in the officer’s honour or in another officer’s honour. Two things fall outside: a farewell of a substantially private and informal character on retirement, transfer or leaving Government service; and simple, inexpensive entertainments arranged by public bodies or institutions.",
+        "hi": "नियम 14 अपेक्षा करता है कि प्रशंसा-पत्र या विदाई-अभिनंदन प्राप्त करने, प्रशस्ति-पत्र स्वीकार करने, अथवा कर्मचारी के या किसी अन्य कर्मचारी के सम्मान में आयोजित बैठक या मनोरंजन में सम्मिलित होने से पूर्व पूर्व मंजूरी ली जाए। दो बातें इससे बाहर हैं: सेवानिवृत्ति, स्थानांतरण या सेवा छोड़ने पर मूलतः निजी और अनौपचारिक स्वरूप की विदाई; तथा लोक निकायों या संस्थाओं द्वारा आयोजित सादा और कम खर्चीला मनोरंजन।"
+      },
+      "example": {
+        "en": "A small tea in the section on a colleague’s transfer falls in the first exception. A formal felicitation with an address, organised by a trade body the officer regulates, does not — and the Note separately forbids collecting subscriptions from Class III or Class IV employees for the entertainment of anyone above them.",
+        "hi": "किसी सहकर्मी के स्थानांतरण पर अनुभाग में छोटी चाय पहली अपवाद-कोटि में आती है। उस व्यापार निकाय द्वारा आयोजित अभिनंदन-पत्र सहित औपचारिक सम्मान-समारोह, जिसका विनियमन अधिकारी करता है, नहीं आता — और टिप्पण अलग से यह वर्जित करता है कि तृतीय या चतुर्थ श्रेणी के कर्मचारियों से उनसे ऊपर के किसी व्यक्ति के मनोरंजन हेतु चंदा लिया जाए।"
+      },
+      "connects": [
+        "ccs-conduct-12",
+        "ccs-conduct-13"
+      ],
+      "misconception": {
+        "en": "\"Farewells are exempt.\" Only a farewell of a substantially private and informal character, and only on retirement, transfer or leaving service. A public felicitation is not a farewell within the proviso.",
+        "hi": "\"विदाई समारोहों को छूट है।\" केवल मूलतः निजी और अनौपचारिक स्वरूप की विदाई, और केवल सेवानिवृत्ति, स्थानांतरण या सेवा छोड़ने पर। सार्वजनिक अभिनंदन परंतुक के अर्थ में विदाई नहीं है।"
+      },
+      "reviewed": true,
+      "reviewState": "approved",
+      "generationMeta": {
+        "promptVersion": "study-aid-v1",
+        "batchId": "library-aids-2026-09-03-ccs-conduct",
+        "stageA": {
+          "index": 18,
+          "angle": "the general bar and the two farewell exceptions"
+        },
+        "critic": {
+          "verdict": "approve",
+          "reason": "The proviso’s two clauses are quoted with their qualifiers, which is where the rule actually bites; the Note is included because it is the part with a class dimension officers are asked about."
+        },
+        "verify": {
+          "grounded": true,
+          "note": "\"substantially private and informal character\", the three occasions, \"simple and inexpensive entertainments arranged by public bodies or institutions\", and the Note’s prohibition are all in the text."
+        },
+        "dedup": {
+          "maxScore": 0,
+          "against": null,
+          "verdict": "keep"
+        },
+        "groundingUnitIds": [
+          "ccs-conduct-14"
+        ]
+      },
+      "source": {
+        "name": "Department of Personnel and Training — CCS (Conduct) Rules, 1964 — updated as on 27 February 2015",
+        "url": "https://dopt.gov.in/sites/default/files/CCS_Conduct_Rules_1964_Updated_27Feb15_0.pdf"
+      },
+      "verify": true
+    },
+    {
+      "id": "aid-ccs-conduct-15",
+      "workId": "ccs-conduct",
+      "unitId": "ccs-conduct-15",
+      "explanation": {
+        "en": "Rule 15(1) requires previous sanction for trade or business, for negotiating or undertaking any other employment, for holding an elective office or canvassing for one, for canvassing for a family member’s insurance or commission agency, for taking part in the promotion or management of a bank or company or a commercial co-operative society, and for participating in a sponsored or privately produced media programme. Sub-rule (2) permits five things without sanction — honorary social or charitable work, occasional literary, artistic or scientific work, amateur sport, and non-elective management of a literary/scientific/charitable society or club, and of a co-operative society substantially for Government servants — with a one-month report in the last two cases. Sub-rule (3) requires a report if a family member is in trade or runs an agency, and sub-rule (4) requires sanction before accepting any fee.",
+        "hi": "नियम 15(1) पूर्व मंजूरी अपेक्षित करता है — व्यापार या कारोबार हेतु, किसी अन्य नियोजन हेतु वार्ता करने या उसे लेने हेतु, निर्वाचित पद धारण करने या उसके लिए प्रचार करने हेतु, परिवार के सदस्य की बीमा या कमीशन एजेंसी के समर्थन में प्रचार हेतु, किसी बैंक/कंपनी या वाणिज्यिक सहकारी समिति के संवर्धन या प्रबंध में भाग लेने हेतु, तथा प्रायोजित या निजी रूप से निर्मित मीडिया कार्यक्रम में भाग लेने हेतु। उप-नियम (2) पाँच बातें बिना मंजूरी अनुज्ञात करता है — मानद सामाजिक या पुण्यार्थ कार्य, कभी-कभार साहित्यिक/कलात्मक/वैज्ञानिक कार्य, शौकिया खेल, तथा साहित्यिक/वैज्ञानिक/पुण्यार्थ समिति या क्लब का और मुख्यतः सरकारी कर्मचारियों के लिए बनी सहकारी समिति का गैर-निर्वाचित प्रबंध — अंतिम दो में एक मास के भीतर रिपोर्ट देनी होगी। उप-नियम (3) परिवार के सदस्य के व्यापार या एजेंसी की रिपोर्ट अपेक्षित करता है, और उप-नियम (4) कोई फीस स्वीकार करने से पूर्व मंजूरी।"
+      },
+      "example": {
+        "en": "An officer who writes an occasional article for a journal is inside sub-rule (2)(b) and needs no sanction. If he becomes the journal’s editor he is inside Rule 8(1) instead. If he joins the managing committee of a residents’ co-operative society he is inside sub-rule (2)(e) and owes a report within one month.",
+        "hi": "जो अधिकारी किसी पत्रिका के लिए कभी-कभार लेख लिखता है, वह उप-नियम (2)(ख) में है और उसे मंजूरी नहीं चाहिए। यदि वह उस पत्रिका का संपादक बन जाता है तो वह नियम 8(1) में आ जाता है। यदि वह किसी निवासी सहकारी समिति की प्रबंध समिति में सम्मिलित होता है तो वह उप-नियम (2)(ङ) में है और एक मास के भीतर रिपोर्ट देनी होगी।"
+      },
+      "connects": [
+        "ccs-conduct-4",
+        "ccs-conduct-8",
+        "ccs-conduct-16"
+      ],
+      "misconception": {
+        "en": "\"Sub-rule (2) is a blanket permission.\" It is conditional twice over: the Government may direct the officer to stop, and clauses (d) and (e) require a report within one month with details of the participation.",
+        "hi": "\"उप-नियम (2) सर्वथा अनुमति है।\" यह दो बार सशर्त है: सरकार कर्मचारी को रोकने का निदेश दे सकती है, और खंड (घ) तथा (ङ) में भागीदारी के ब्योरे सहित एक मास के भीतर रिपोर्ट अपेक्षित है।"
+      },
+      "examRelevance": {
+        "en": "The one-month report in the proviso to sub-rule (2), and the fee rule in sub-rule (4) borrowing its definition from FR 9(6-A), are the two details usually dropped.",
+        "hi": "उप-नियम (2) के परंतुक की एक-मास रिपोर्ट, तथा उप-नियम (4) का फीस नियम जो अपनी परिभाषा मूल नियम 9(6-क) से लेता है — ये दो ब्योरे प्रायः छूट जाते हैं।"
+      },
+      "reviewed": true,
+      "reviewState": "approved",
+      "generationMeta": {
+        "promptVersion": "study-aid-v1",
+        "batchId": "library-aids-2026-09-03-ccs-conduct",
+        "stageA": {
+          "index": 19,
+          "angle": "what needs sanction, what does not, and the one-month report"
+        },
+        "critic": {
+          "verdict": "approve",
+          "reason": "Long rule; the aid gives the sanction/no-sanction split and both conditions on sub-rule (2), which is what an officer needs before acting."
+        },
+        "verify": {
+          "grounded": true,
+          "note": "Every listed item in sub-rules (1)(a)-(f) and (2)(a)-(e), the two provisos, sub-rule (3) and sub-rule (4) with its FR 9(6-A) reference are in the text."
+        },
+        "dedup": {
+          "maxScore": 0,
+          "against": null,
+          "verdict": "keep"
+        },
+        "groundingUnitIds": [
+          "ccs-conduct-15"
+        ]
+      },
+      "source": {
+        "name": "Department of Personnel and Training — CCS (Conduct) Rules, 1964 — updated as on 27 February 2015",
+        "url": "https://dopt.gov.in/sites/default/files/CCS_Conduct_Rules_1964_Updated_27Feb15_0.pdf"
+      },
+      "verify": true
+    },
+    {
+      "id": "aid-ccs-conduct-15a",
+      "workId": "ccs-conduct",
+      "unitId": "ccs-conduct-15a",
+      "explanation": {
+        "en": "Rule 15A has two sentences and each is a separate obligation. Sub-rule (1) forbids sub-letting, leasing or otherwise allowing anyone else to occupy Government accommodation allotted to the officer. Sub-rule (2) requires vacating it within the time limit prescribed by the allotting authority once the allotment is cancelled.",
+        "hi": "नियम 15क में दो वाक्य हैं और प्रत्येक पृथक् दायित्व है। उप-नियम (1) कर्मचारी को आबंटित सरकारी आवास को उपकिराए पर देने, पट्टे पर देने अथवा किसी अन्य व्यक्ति द्वारा उस पर कब्जा अन्यथा अनुज्ञात करने से वर्जित करता है। उप-नियम (2) आबंटन रद्द होने पर आबंटन प्राधिकारी द्वारा विहित समय-सीमा के भीतर आवास खाली करना अपेक्षित करता है।"
+      },
+      "example": {
+        "en": "An officer transferred out of Delhi who leaves a relative in the quarter while the allotment stands is inside sub-rule (1) — \"otherwise allow occupation by any other person\" does not require rent to change hands.",
+        "hi": "दिल्ली से स्थानांतरित वह अधिकारी जो आबंटन बने रहते हुए क्वार्टर में किसी संबंधी को छोड़ देता है, उप-नियम (1) के भीतर है — \"किसी अन्य व्यक्ति द्वारा कब्जा अन्यथा अनुज्ञात करना\" के लिए किराए का लेन-देन आवश्यक नहीं।"
+      },
+      "connects": [
+        "ccs-conduct-3"
+      ],
+      "misconception": {
+        "en": "\"Sub-letting means charging rent.\" The rule says \"sub-let, lease or otherwise allow occupation\", so a rent-free arrangement is caught too.",
+        "hi": "\"उपकिराया देने का अर्थ किराया वसूलना है।\" नियम कहता है \"उपकिराए पर देना, पट्टे पर देना अथवा कब्जा अन्यथा अनुज्ञात करना\", अतः निःशुल्क व्यवस्था भी परिधि में है।"
+      },
+      "reviewed": true,
+      "reviewState": "approved",
+      "generationMeta": {
+        "promptVersion": "study-aid-v1",
+        "batchId": "library-aids-2026-09-03-ccs-conduct",
+        "stageA": {
+          "index": 20,
+          "angle": "two separate obligations about Government accommodation"
+        },
+        "critic": {
+          "verdict": "approve",
+          "reason": "Two sentences, two obligations; the misconception is the actual reading error the words \"or otherwise allow occupation\" are there to prevent."
+        },
+        "verify": {
+          "grounded": true,
+          "note": "Both sub-rules are quoted in substance and the phrase the misconception turns on is verbatim."
+        },
+        "dedup": {
+          "maxScore": 0,
+          "against": null,
+          "verdict": "keep"
+        },
+        "groundingUnitIds": [
+          "ccs-conduct-15a"
+        ]
+      },
+      "source": {
+        "name": "Department of Personnel and Training — CCS (Conduct) Rules, 1964 — updated as on 27 February 2015",
+        "url": "https://dopt.gov.in/sites/default/files/CCS_Conduct_Rules_1964_Updated_27Feb15_0.pdf"
+      },
+      "verify": true
+    },
+    {
+      "id": "aid-ccs-conduct-16",
+      "workId": "ccs-conduct",
+      "unitId": "ccs-conduct-16",
+      "explanation": {
+        "en": "Rule 16 has three layers. Sub-rule (1) forbids speculation in any stock, share or investment, and the Explanation deems frequent purchase or sale to be speculation — while the proviso protects occasional investment through a licensed broker. Sub-rule (2) forbids an investment likely to embarrass or influence the officer in his official duties, deems a director’s-quota share purchase to be one, and bars anyone involved in pricing a public sector IPO or FPO from applying for its shares. Sub-rule (4) bars lending, borrowing or depositing money with any person, firm or private limited company within the local limits of the officer’s authority or with whom he is likely to have official dealings.",
+        "hi": "नियम 16 में तीन परतें हैं। उप-नियम (1) किसी स्टॉक, शेयर या निवेश में सट्टेबाजी वर्जित करता है, और स्पष्टीकरण बारंबार क्रय या विक्रय को सट्टेबाजी मानता है — जबकि परंतुक अनुज्ञप्तिधारी दलाल के माध्यम से कभी-कभार निवेश को संरक्षित रखता है। उप-नियम (2) ऐसा निवेश वर्जित करता है जो कर्मचारी को उसके सरकारी कर्तव्यों में असुविधा में डाले या प्रभावित करे, निदेशक-कोटे से शेयर क्रय को ऐसा ही मानता है, और किसी केंद्रीय सार्वजनिक उपक्रम के आईपीओ/एफपीओ का मूल्य-निर्धारण करने वाले को उसके शेयरों हेतु आवेदन से वर्जित करता है। उप-नियम (4) कर्मचारी के प्राधिकार की स्थानीय सीमाओं के भीतर के अथवा ऐसे किसी व्यक्ति, फर्म या प्राइवेट लिमिटेड कंपनी से, जिससे सरकारी संव्यवहार संभावित हों, धन उधार देने, लेने या जमा करने पर रोक लगाता है।"
+      },
+      "example": {
+        "en": "An officer in a Ministry that owns a public sector undertaking, who sits on the committee fixing its IPO price, may not apply for those shares himself, through a family member, or through anyone acting on his behalf — sub-rule (2)(ii) names all three routes.",
+        "hi": "किसी ऐसे मंत्रालय का अधिकारी जिसके अधीन कोई सार्वजनिक उपक्रम है, और जो उसके आईपीओ का मूल्य तय करने वाली समिति में है, उन शेयरों हेतु न स्वयं, न परिवार के किसी सदस्य के माध्यम से, न अपनी ओर से कार्य करने वाले किसी व्यक्ति के माध्यम से आवेदन कर सकता — उप-नियम (2)(ii) तीनों मार्ग नामित करता है।"
+      },
+      "connects": [
+        "ccs-conduct-17",
+        "ccs-conduct-18",
+        "ccs-conduct-4"
+      ],
+      "misconception": {
+        "en": "\"Buying shares is banned.\" It is not. Sub-rule (1)’s proviso protects occasional investment through a licensed broker; what is deemed speculation is FREQUENT purchase or sale, and what is separately forbidden is an investment likely to embarrass the officer.",
+        "hi": "\"शेयर खरीदना वर्जित है।\" ऐसा नहीं है। उप-नियम (1) का परंतुक अनुज्ञप्तिधारी दलाल के माध्यम से कभी-कभार निवेश को संरक्षित रखता है; सट्टेबाजी बारंबार क्रय या विक्रय को माना गया है, और अलग से वह निवेश वर्जित है जो कर्मचारी को असुविधा में डाल सके।"
+      },
+      "examRelevance": {
+        "en": "The Explanation’s \"frequent purchase or sale\" test and the temporary interest-free loan proviso in sub-rule (4) are the two most-asked details.",
+        "hi": "स्पष्टीकरण की \"बारंबार क्रय या विक्रय\" कसौटी तथा उप-नियम (4) का अस्थायी ब्याजरहित ऋण वाला परंतुक — ये दो ब्योरे सर्वाधिक पूछे जाते हैं।"
+      },
+      "reviewed": true,
+      "reviewState": "approved",
+      "generationMeta": {
+        "promptVersion": "study-aid-v1",
+        "batchId": "library-aids-2026-09-03-ccs-conduct",
+        "stageA": {
+          "index": 21,
+          "angle": "speculation, embarrassing investment, and the lending bar"
+        },
+        "critic": {
+          "verdict": "approve",
+          "reason": "Three sub-rules that are often merged into one wrong statement; the aid separates speculation, embarrassing investment and the lending bar."
+        },
+        "verify": {
+          "grounded": true,
+          "note": "The Explanation, both provisos to sub-rule (1) and (4), the director’s-quota deeming clause and the IPO/FPO bar are all in the text. The reporting duty in sub-rule (4)(ii) on transfer to a post that would breach the rule is not asserted beyond what the text says."
+        },
+        "dedup": {
+          "maxScore": 0,
+          "against": null,
+          "verdict": "keep"
+        },
+        "groundingUnitIds": [
+          "ccs-conduct-16"
+        ]
+      },
+      "source": {
+        "name": "Department of Personnel and Training — CCS (Conduct) Rules, 1964 — updated as on 27 February 2015",
+        "url": "https://dopt.gov.in/sites/default/files/CCS_Conduct_Rules_1964_Updated_27Feb15_0.pdf"
+      },
+      "verify": true
+    },
+    {
+      "id": "aid-ccs-conduct-17",
+      "workId": "ccs-conduct",
+      "unitId": "ccs-conduct-17",
+      "explanation": {
+        "en": "Rule 17 requires an officer to manage his private affairs so as to avoid habitual indebtedness or insolvency, and to report the full facts forthwith if any legal proceeding is instituted to recover a debt from him or to adjudge him insolvent. The Note reverses the usual burden: it is on the OFFICER to prove that the indebtedness arose from circumstances he could not have foreseen with ordinary diligence and did not proceed from extravagant or dissipated habits.",
+        "hi": "नियम 17 अपेक्षा करता है कि कर्मचारी अपने निजी मामलों का प्रबंध इस प्रकार करे कि आदतन ऋणग्रस्तता या दिवालियापन से बचे, और यदि उससे ऋण-वसूली हेतु अथवा उसे दिवालिया घोषित करने हेतु कोई विधिक कार्यवाही संस्थित हो तो तत्काल पूर्ण तथ्य रिपोर्ट करे। टिप्पण सामान्य भार को उलट देता है: यह सिद्ध करने का भार कर्मचारी पर है कि ऋणग्रस्तता ऐसी परिस्थितियों से उत्पन्न हुई जिनका सामान्य सतर्कता से पूर्वानुमान संभव न था, और वह अपव्ययी या विलासी आदतों से नहीं आई।"
+      },
+      "example": {
+        "en": "An officer sued by a bank for a defaulted personal loan must report the proceeding forthwith, without waiting for the outcome; and at any departmental stage it is he who must show the debt was not the product of extravagance.",
+        "hi": "जिस अधिकारी पर बैंक ने चूक वाले व्यक्तिगत ऋण हेतु वाद किया है, उसे परिणाम की प्रतीक्षा किए बिना तत्काल कार्यवाही की रिपोर्ट करनी होगी; और किसी भी विभागीय स्तर पर उसे ही यह दिखाना होगा कि ऋण अपव्यय का परिणाम नहीं था।"
+      },
+      "connects": [
+        "ccs-conduct-16",
+        "ccs-conduct-18"
+      ],
+      "misconception": {
+        "en": "\"Report it once the case is decided.\" The rule says \"forthwith\", when the proceeding is instituted.",
+        "hi": "\"मामला तय होने पर रिपोर्ट करेंगे।\" नियम कहता है \"तत्काल\", जब कार्यवाही संस्थित हो।"
+      },
+      "reviewed": true,
+      "reviewState": "approved",
+      "generationMeta": {
+        "promptVersion": "study-aid-v1",
+        "batchId": "library-aids-2026-09-03-ccs-conduct",
+        "stageA": {
+          "index": 22,
+          "angle": "a positive duty, a reporting duty, and a reversed burden"
+        },
+        "critic": {
+          "verdict": "approve",
+          "reason": "The reversed burden in the Note is the substantive content and is stated as the Note’s, not the rule’s."
+        },
+        "verify": {
+          "grounded": true,
+          "note": "\"forthwith report the full facts of the legal proceedings\" and the Note’s \"burden of proving … shall be upon the Government servant\" are verbatim."
+        },
+        "dedup": {
+          "maxScore": 0,
+          "against": null,
+          "verdict": "keep"
+        },
+        "groundingUnitIds": [
+          "ccs-conduct-17"
+        ]
+      },
+      "source": {
+        "name": "Department of Personnel and Training — CCS (Conduct) Rules, 1964 — updated as on 27 February 2015",
+        "url": "https://dopt.gov.in/sites/default/files/CCS_Conduct_Rules_1964_Updated_27Feb15_0.pdf"
+      },
+      "verify": true
+    },
+    {
+      "id": "aid-ccs-conduct-18",
+      "workId": "ccs-conduct",
+      "unitId": "ccs-conduct-18",
+      "explanation": {
+        "en": "Rule 18 stacks four obligations. On FIRST APPOINTMENT, every officer files a return of assets and liabilities. ANNUALLY, Group ‘A’ and ‘B’ officers file an immovable property return. For IMMOVABLE property, previous KNOWLEDGE of the prescribed authority is needed before acquiring or disposing — but previous SANCTION if the other party has official dealings with him. For MOVABLE property, a report within one month, and only where the value exceeds two months’ basic pay — again sanction instead, if the other party has official dealings.",
+        "hi": "नियम 18 चार दायित्व एक के ऊपर एक रखता है। प्रथम नियुक्ति पर, प्रत्येक कर्मचारी आस्तियों और दायित्वों का विवरण देता है। प्रतिवर्ष, समूह ‘क’ और ‘ख’ के कर्मचारी अचल संपत्ति विवरणी देते हैं। अचल संपत्ति के लिए, अर्जन या व्ययन से पूर्व विहित प्राधिकारी की पूर्व जानकारी अपेक्षित है — किंतु यदि दूसरा पक्षकार ऐसा व्यक्ति है जिससे सरकारी संव्यवहार हैं, तो पूर्व मंजूरी। चल संपत्ति के लिए, एक मास के भीतर रिपोर्ट, और केवल तब जब मूल्य दो मास के मूल वेतन से अधिक हो — यहाँ भी संव्यवहार वाले पक्षकार के मामले में मंजूरी।"
+      },
+      "example": {
+        "en": "A Section Officer buying a car worth more than two months’ basic pay reports it within one month under sub-rule (3). If he buys it from a dealer his section regulates, the proviso applies and he needs previous sanction instead.",
+        "hi": "दो मास के मूल वेतन से अधिक मूल्य की कार खरीदने वाला अनुभाग अधिकारी उप-नियम (3) के अधीन एक मास के भीतर रिपोर्ट करेगा। यदि वह ऐसे विक्रेता से खरीदता है जिसका विनियमन उसका अनुभाग करता है, तो परंतुक लागू होगा और उसे पूर्व मंजूरी लेनी होगी।"
+      },
+      "connects": [
+        "ccs-conduct-18a",
+        "ccs-conduct-16",
+        "ccs-conduct-2"
+      ],
+      "misconception": {
+        "en": "\"Immovable property needs sanction.\" As a rule it needs previous KNOWLEDGE of the prescribed authority; sanction is required only where the transaction is with a person having official dealings with the officer. The two words are not interchangeable and the distinction is the whole of sub-rule (2).",
+        "hi": "\"अचल संपत्ति के लिए मंजूरी चाहिए।\" सामान्य नियम विहित प्राधिकारी की पूर्व जानकारी है; मंजूरी केवल तब अपेक्षित है जब संव्यवहार ऐसे व्यक्ति से हो जिससे कर्मचारी के सरकारी संबंध हैं। ये दो शब्द विनिमेय नहीं हैं और यही अंतर उप-नियम (2) का सार है।"
+      },
+      "examRelevance": {
+        "en": "Knowledge versus sanction, and the two-months’-basic-pay movable threshold, are the two things this rule is asked about.",
+        "hi": "जानकारी बनाम मंजूरी, तथा चल संपत्ति की दो-मास-मूल-वेतन सीमा — इस नियम पर यही दो बातें पूछी जाती हैं।"
+      },
+      "mnemonic": {
+        "en": "Immovable: knowledge, unless official dealings → sanction. Movable: report in a month above two months’ basic pay.",
+        "hi": "अचल: जानकारी, जब तक सरकारी संव्यवहार न हों → तब मंजूरी। चल: दो मास के मूल वेतन से ऊपर, एक मास में रिपोर्ट।"
+      },
+      "reviewed": true,
+      "reviewState": "approved",
+      "generationMeta": {
+        "promptVersion": "study-aid-v1",
+        "batchId": "library-aids-2026-09-03-ccs-conduct",
+        "stageA": {
+          "index": 23,
+          "angle": "four different property obligations, each with its own trigger"
+        },
+        "critic": {
+          "verdict": "approve",
+          "reason": "The knowledge/sanction distinction is the single most-confused point in this book and is the aid’s centre of gravity; \"two months’ basic pay\" is a formula rather than a rupee figure, so it does not go stale."
+        },
+        "verify": {
+          "grounded": true,
+          "note": "\"previous knowledge of the prescribed authority\" in sub-rule (2), both provisos, \"within one month\" and \"exceeds two months’ basic pay\" in sub-rule (3), and the first-appointment and annual returns in sub-rule (1) are all verbatim."
+        },
+        "dedup": {
+          "maxScore": 0,
+          "against": null,
+          "verdict": "keep"
+        },
+        "groundingUnitIds": [
+          "ccs-conduct-18"
+        ]
+      },
+      "source": {
+        "name": "Department of Personnel and Training — CCS (Conduct) Rules, 1964 — updated as on 27 February 2015",
+        "url": "https://dopt.gov.in/sites/default/files/CCS_Conduct_Rules_1964_Updated_27Feb15_0.pdf"
+      },
+      "verify": true
+    },
+    {
+      "id": "aid-ccs-conduct-18a",
+      "workId": "ccs-conduct",
+      "unitId": "ccs-conduct-18a",
+      "explanation": {
+        "en": "Rule 18A overrides Rule 18(2) for two categories. Any immovable property situated OUTSIDE India — acquired or disposed of, in the officer’s name or a family member’s — needs previous sanction of the prescribed authority, not merely previous knowledge. So does any transaction with a foreigner, a foreign Government, or a foreign organisation or concern for the acquisition or disposal of immovable property, wherever situated.",
+        "hi": "नियम 18क दो कोटियों के लिए नियम 18(2) का अध्यारोहण करता है। भारत के बाहर स्थित कोई भी अचल संपत्ति — अर्जित हो या व्ययित, कर्मचारी के नाम हो या परिवार के सदस्य के — के लिए विहित प्राधिकारी की पूर्व मंजूरी अपेक्षित है, केवल पूर्व जानकारी नहीं। किसी विदेशी, विदेशी सरकार, अथवा विदेशी संगठन या प्रतिष्ठान से अचल संपत्ति के अर्जन या व्ययन हेतु किए गए किसी भी संव्यवहार के लिए भी, चाहे संपत्ति कहीं भी स्थित हो।"
+      },
+      "example": {
+        "en": "An officer inheriting a flat abroad and wishing to sell it needs previous sanction under clause (b). An officer selling a Delhi flat to a foreign national needs sanction under clause (c)(ii), even though the property is in India.",
+        "hi": "विदेश में फ्लैट विरासत में पाने वाले और उसे बेचने के इच्छुक अधिकारी को खंड (ख) के अधीन पूर्व मंजूरी चाहिए। किसी विदेशी नागरिक को दिल्ली का फ्लैट बेचने वाले अधिकारी को खंड (ग)(ii) के अधीन मंजूरी चाहिए, यद्यपि संपत्ति भारत में है।"
+      },
+      "connects": [
+        "ccs-conduct-18"
+      ],
+      "misconception": {
+        "en": "\"This rule is about property abroad.\" Clause (c) is about the COUNTERPARTY, not the location: a transaction with a foreigner over Indian property is inside it.",
+        "hi": "\"यह नियम विदेश की संपत्ति के बारे में है।\" खंड (ग) प्रतिपक्षकार के बारे में है, स्थान के बारे में नहीं: किसी विदेशी से भारतीय संपत्ति का संव्यवहार भी इसके भीतर है।"
+      },
+      "reviewed": true,
+      "reviewState": "approved",
+      "generationMeta": {
+        "promptVersion": "study-aid-v1",
+        "batchId": "library-aids-2026-09-03-ccs-conduct",
+        "stageA": {
+          "index": 24,
+          "angle": "why property abroad and dealings with foreigners are treated apart"
+        },
+        "critic": {
+          "verdict": "approve",
+          "reason": "The non obstante opening and the counterparty limb in clause (c) are the two things that make this a separate rule rather than a footnote to Rule 18."
+        },
+        "verify": {
+          "grounded": true,
+          "note": "\"Notwithstanding anything contained in sub-rule (2) of Rule 18\", clauses (a), (b) and (c)(i)-(ii), and the Explanation borrowing \"prescribed authority\" from Rule 18 are all in the text."
+        },
+        "dedup": {
+          "maxScore": 0,
+          "against": null,
+          "verdict": "keep"
+        },
+        "groundingUnitIds": [
+          "ccs-conduct-18a"
+        ]
+      },
+      "source": {
+        "name": "Department of Personnel and Training — CCS (Conduct) Rules, 1964 — updated as on 27 February 2015",
+        "url": "https://dopt.gov.in/sites/default/files/CCS_Conduct_Rules_1964_Updated_27Feb15_0.pdf"
+      },
+      "verify": true
+    },
+    {
+      "id": "aid-ccs-conduct-19",
+      "workId": "ccs-conduct",
+      "unitId": "ccs-conduct-19",
+      "explanation": {
+        "en": "Rule 19(1) requires previous sanction before going to a court or to the press to vindicate an OFFICIAL act that has been adversely criticised or defamed — but the proviso gives a deemed permission: if no sanction is received within three months of the Government receiving the request, the officer is free to assume it was granted. Sub-rule (2) leaves vindication of PRIVATE character outside the sanction requirement altogether, subject only to a report to the prescribed authority.",
+        "hi": "नियम 19(1) उस सरकारी कार्य के प्रतिवाद हेतु न्यायालय या प्रेस का सहारा लेने से पूर्व पूर्व मंजूरी अपेक्षित करता है जिसकी प्रतिकूल आलोचना या मानहानि हुई हो — किंतु परंतुक मानी गई अनुमति देता है: यदि सरकार द्वारा अनुरोध प्राप्त होने के तीन मास के भीतर मंजूरी नहीं मिलती, तो कर्मचारी यह मान सकता है कि अनुमति दे दी गई। उप-नियम (2) निजी चरित्र के प्रतिवाद को मंजूरी की अपेक्षा से पूर्णतः बाहर रखता है, केवल विहित प्राधिकारी को रिपोर्ट देने के अधीन।"
+      },
+      "example": {
+        "en": "An officer whose sanctioning decision is attacked in a newspaper asks for sanction to reply, hears nothing for three months, and may then proceed. The same officer defamed about a family matter needs no sanction at all — but must still report the action he takes.",
+        "hi": "जिस अधिकारी के मंजूरी-संबंधी निर्णय पर समाचारपत्र में आक्षेप हुआ है, वह उत्तर देने की मंजूरी माँगता है, तीन मास तक कुछ नहीं सुनता, और तब आगे बढ़ सकता है। उसी अधिकारी की किसी पारिवारिक विषय पर मानहानि होने पर उसे कोई मंजूरी नहीं चाहिए — किंतु की गई कार्रवाई की रिपोर्ट फिर भी देनी होगी।"
+      },
+      "connects": [
+        "ccs-conduct-8",
+        "ccs-conduct-9"
+      ],
+      "misconception": {
+        "en": "\"Silence means refusal.\" Here silence means the opposite: the proviso creates a deemed grant after three months from the date the Government received the request.",
+        "hi": "\"मौन का अर्थ अस्वीकृति है।\" यहाँ मौन का अर्थ इसके विपरीत है: परंतुक सरकार द्वारा अनुरोध प्राप्ति की तिथि से तीन मास बाद मानी गई अनुमति बनाता है।"
+      },
+      "examRelevance": {
+        "en": "Three months, and running from receipt of the request rather than from its despatch, is the detail that is tested.",
+        "hi": "तीन मास, और वह भी अनुरोध भेजने से नहीं बल्कि प्राप्ति की तिथि से — यही ब्योरा परखा जाता है।"
+      },
+      "reviewed": true,
+      "reviewState": "approved",
+      "generationMeta": {
+        "promptVersion": "study-aid-v1",
+        "batchId": "library-aids-2026-09-03-ccs-conduct",
+        "stageA": {
+          "index": 25,
+          "angle": "the deemed permission after three months, and the private-character exception"
+        },
+        "critic": {
+          "verdict": "approve",
+          "reason": "A deemed-permission proviso is rare in this book and is the reason this aid exists; the running-from-receipt detail is quoted precisely."
+        },
+        "verify": {
+          "grounded": true,
+          "note": "\"within a period of three months from the date of receipt of his request by the Government\" and sub-rule (2)’s report requirement are verbatim."
+        },
+        "dedup": {
+          "maxScore": 0,
+          "against": null,
+          "verdict": "keep"
+        },
+        "groundingUnitIds": [
+          "ccs-conduct-19"
+        ]
+      },
+      "source": {
+        "name": "Department of Personnel and Training — CCS (Conduct) Rules, 1964 — updated as on 27 February 2015",
+        "url": "https://dopt.gov.in/sites/default/files/CCS_Conduct_Rules_1964_Updated_27Feb15_0.pdf"
+      },
+      "verify": true
+    },
+    {
+      "id": "aid-ccs-conduct-20",
+      "workId": "ccs-conduct",
+      "unitId": "ccs-conduct-20",
+      "explanation": {
+        "en": "Rule 20 forbids bringing, or attempting to bring, political or other outside influence to bear upon any superior authority to further the officer’s own interests in matters pertaining to his service. Three elements have to be present: outside influence, a superior authority, and the officer’s own service interest.",
+        "hi": "नियम 20 अपने सेवा-संबंधी मामलों में अपने हित साधने हेतु किसी वरिष्ठ प्राधिकारी पर राजनीतिक या अन्य बाहरी प्रभाव डालने या डालने का प्रयत्न करने को वर्जित करता है। तीन अंग होने चाहिए: बाहरी प्रभाव, वरिष्ठ प्राधिकारी, तथा कर्मचारी का अपना सेवा-हित।"
+      },
+      "example": {
+        "en": "An officer who gets a Member of Parliament to write about his transfer is inside the rule. An officer who files a statutory representation through proper channel about the same transfer is not — a representation is not outside influence.",
+        "hi": "जो अधिकारी अपने स्थानांतरण के बारे में किसी संसद सदस्य से पत्र लिखवाता है, वह नियम के भीतर है। जो अधिकारी उसी स्थानांतरण पर सम्यक् माध्यम से सांविधिक अभ्यावेदन देता है, वह नहीं — अभ्यावेदन बाहरी प्रभाव नहीं है।"
+      },
+      "connects": [
+        "ccs-conduct-5",
+        "ccs-conduct-19"
+      ],
+      "misconception": {
+        "en": "\"Any approach outside the office is caught.\" The rule is limited to influence brought on a SUPERIOR AUTHORITY to further the officer’s OWN service interests. A representation through channel, and a matter that is not the officer’s own service interest, are both outside it.",
+        "hi": "\"कार्यालय के बाहर किया गया हर संपर्क परिधि में है।\" नियम केवल उस प्रभाव तक सीमित है जो वरिष्ठ प्राधिकारी पर कर्मचारी के अपने सेवा-हित हेतु डाला जाए। सम्यक् माध्यम से अभ्यावेदन, तथा ऐसा विषय जो कर्मचारी का अपना सेवा-हित न हो — दोनों इससे बाहर हैं।"
+      },
+      "reviewed": true,
+      "reviewState": "approved",
+      "generationMeta": {
+        "promptVersion": "study-aid-v1",
+        "batchId": "library-aids-2026-09-03-ccs-conduct",
+        "stageA": {
+          "index": 26,
+          "angle": "the one thing this rule forbids, and the two it does not"
+        },
+        "critic": {
+          "verdict": "approve",
+          "reason": "One-sentence rule; the three elements are what an answer has to name and the aid names them."
+        },
+        "verify": {
+          "grounded": true,
+          "note": "\"political or other outside influence\", \"upon any superior authority\" and \"to further his interests in respect of matters pertaining to his service\" are verbatim. The representation contrast is a reading of the rule’s limits, not an assertion of any other provision."
+        },
+        "dedup": {
+          "maxScore": 0,
+          "against": null,
+          "verdict": "keep"
+        },
+        "groundingUnitIds": [
+          "ccs-conduct-20"
+        ]
+      },
+      "source": {
+        "name": "Department of Personnel and Training — CCS (Conduct) Rules, 1964 — updated as on 27 February 2015",
+        "url": "https://dopt.gov.in/sites/default/files/CCS_Conduct_Rules_1964_Updated_27Feb15_0.pdf"
+      },
+      "verify": true
+    },
+    {
+      "id": "aid-ccs-conduct-21",
+      "workId": "ccs-conduct",
+      "unitId": "ccs-conduct-21",
+      "explanation": {
+        "en": "Rule 21 states the bigamy bar from both sides: clause (1) forbids marrying a person who has a spouse living, and clause (2) forbids an officer who has a spouse living from marrying anyone. The Central Government may permit such a marriage only if it is satisfied on TWO grounds together — that the marriage is permissible under the personal law of both parties, AND that there are other grounds for doing so. Sub-rule (3) is separate: an officer who marries a person who is not of Indian nationality must forthwith intimate the fact.",
+        "hi": "नियम 21 द्विविवाह-निषेध को दोनों ओर से कहता है: खंड (1) ऐसे व्यक्ति से विवाह वर्जित करता है जिसका जीवित पति/पत्नी हो, और खंड (2) ऐसे कर्मचारी को, जिसका जीवित पति/पत्नी हो, किसी से भी विवाह करने से वर्जित करता है। केंद्र सरकार ऐसे विवाह की अनुमति केवल तब दे सकती है जब वह दो आधारों पर एक साथ संतुष्ट हो — कि विवाह दोनों पक्षकारों के व्यक्तिगत विधि के अधीन अनुज्ञेय है, तथा ऐसा करने के अन्य आधार भी हैं। उप-नियम (3) पृथक् है: जो कर्मचारी अभारतीय राष्ट्रीयता के व्यक्ति से विवाह करता है, उसे तत्काल इसकी सूचना देनी होगी।"
+      },
+      "example": {
+        "en": "An officer marrying a foreign national must intimate the Government forthwith under sub-rule (3), even though the marriage itself needs no permission — sub-rule (3) is an intimation, not a sanction.",
+        "hi": "किसी विदेशी नागरिक से विवाह करने वाले अधिकारी को उप-नियम (3) के अधीन तत्काल सरकार को सूचित करना होगा, यद्यपि विवाह के लिए कोई अनुमति अपेक्षित नहीं — उप-नियम (3) सूचना है, मंजूरी नहीं।"
+      },
+      "connects": [
+        "ccs-conduct-13a",
+        "ccs-conduct-3b"
+      ],
+      "misconception": {
+        "en": "\"Permissible under personal law is enough.\" The proviso needs both limbs: permissibility AND other grounds. Personal-law permissibility alone does not oblige Government to permit.",
+        "hi": "\"व्यक्तिगत विधि के अधीन अनुज्ञेय होना पर्याप्त है।\" परंतुक दोनों अंग माँगता है: अनुज्ञेयता तथा अन्य आधार। केवल व्यक्तिगत विधि की अनुज्ञेयता सरकार को अनुमति देने के लिए बाध्य नहीं करती।"
+      },
+      "reviewed": true,
+      "reviewState": "approved",
+      "generationMeta": {
+        "promptVersion": "study-aid-v1",
+        "batchId": "library-aids-2026-09-03-ccs-conduct",
+        "stageA": {
+          "index": 27,
+          "angle": "two prohibitions, one permission, and a separate intimation"
+        },
+        "critic": {
+          "verdict": "approve",
+          "reason": "The conjunctive proviso, and the fact that sub-rule (3) is an intimation rather than a permission, are the two points that are actually mistaken."
+        },
+        "verify": {
+          "grounded": true,
+          "note": "Clauses (1) and (2), the proviso’s \"(a) … and (b) …\" conjunctive structure, and sub-rule (3)’s \"shall forthwith intimate the fact to the Government\" are verbatim."
+        },
+        "dedup": {
+          "maxScore": 0,
+          "against": null,
+          "verdict": "keep"
+        },
+        "groundingUnitIds": [
+          "ccs-conduct-21"
+        ]
+      },
+      "source": {
+        "name": "Department of Personnel and Training — CCS (Conduct) Rules, 1964 — updated as on 27 February 2015",
+        "url": "https://dopt.gov.in/sites/default/files/CCS_Conduct_Rules_1964_Updated_27Feb15_0.pdf"
+      },
+      "verify": true
+    },
+    {
+      "id": "aid-ccs-conduct-22",
+      "workId": "ccs-conduct",
+      "unitId": "ccs-conduct-22",
+      "explanation": {
+        "en": "Rule 22 imposes five obligations: strictly abide by any local law on intoxicating drinks or drugs wherever the officer happens to be; not be under the influence during duty and take care that duty is not affected at any time; refrain from consuming in a PUBLIC PLACE; not appear in a public place in a state of intoxication; and not use any drink or drug to excess. The Explanation defines \"public place\" as any place or premises, including a conveyance, to which the public have or are permitted to have access, on payment or otherwise.",
+        "hi": "नियम 22 पाँच दायित्व अधिरोपित करता है: कर्मचारी जहाँ भी हो, मादक पेय या औषधि संबंधी किसी भी स्थानीय विधि का कड़ाई से पालन करे; ड्यूटी के दौरान प्रभाव में न हो और ध्यान रखे कि किसी भी समय कर्तव्य-निर्वहन प्रभावित न हो; सार्वजनिक स्थान पर सेवन से विरत रहे; सार्वजनिक स्थान पर नशे की अवस्था में न दिखे; तथा किसी पेय या औषधि का अति प्रयोग न करे। स्पष्टीकरण \"सार्वजनिक स्थान\" को ऐसे किसी स्थान या परिसर के रूप में परिभाषित करता है, जिसमें वाहन भी सम्मिलित है, जहाँ जनता की पहुँच हो या अनुज्ञात हो, चाहे भुगतान पर या अन्यथा।"
+      },
+      "example": {
+        "en": "A restaurant open to the public is a public place, and so is a train compartment: the Explanation names a conveyance. Clause (bb) forbids consumption there regardless of whether the officer is on duty or shows any sign of intoxication.",
+        "hi": "जनता के लिए खुला रेस्तराँ सार्वजनिक स्थान है, और रेलगाड़ी का डिब्बा भी: स्पष्टीकरण वाहन को नामित करता है। खंड (खख) वहाँ सेवन वर्जित करता है, चाहे कर्मचारी ड्यूटी पर हो या नहीं और चाहे नशे का कोई लक्षण दिखे या नहीं।"
+      },
+      "connects": [
+        "ccs-conduct-3"
+      ],
+      "misconception": {
+        "en": "\"Only being drunk on duty is misconduct.\" Clause (bb) forbids consumption in a public place at any time, and clause (d) forbids excess use anywhere.",
+        "hi": "\"केवल ड्यूटी पर नशे में होना कदाचार है।\" खंड (खख) किसी भी समय सार्वजनिक स्थान पर सेवन वर्जित करता है, और खंड (घ) कहीं भी अति प्रयोग।"
+      },
+      "reviewed": true,
+      "reviewState": "approved",
+      "generationMeta": {
+        "promptVersion": "study-aid-v1",
+        "batchId": "library-aids-2026-09-03-ccs-conduct",
+        "stageA": {
+          "index": 28,
+          "angle": "five separate obligations about drink and drugs"
+        },
+        "critic": {
+          "verdict": "approve",
+          "reason": "Five clauses; the \"conveyance\" limb of the Explanation is included because it is the part that surprises readers."
+        },
+        "verify": {
+          "grounded": true,
+          "note": "Clauses (a), (b), (bb), (c), (d) and the Explanation’s definition including \"(including a conveyance)\" are all verbatim."
+        },
+        "dedup": {
+          "maxScore": 0,
+          "against": null,
+          "verdict": "keep"
+        },
+        "groundingUnitIds": [
+          "ccs-conduct-22"
+        ]
+      },
+      "source": {
+        "name": "Department of Personnel and Training — CCS (Conduct) Rules, 1964 — updated as on 27 February 2015",
+        "url": "https://dopt.gov.in/sites/default/files/CCS_Conduct_Rules_1964_Updated_27Feb15_0.pdf"
+      },
+      "verify": true
+    },
+    {
+      "id": "aid-ccs-conduct-22a",
+      "workId": "ccs-conduct",
+      "unitId": "ccs-conduct-22a",
+      "explanation": {
+        "en": "Rule 22A forbids a Government servant from employing any child below the age of 14 years to work. There is no proviso, no exception for domestic or light work, and no requirement that the employment be connected with official duty.",
+        "hi": "नियम 22क सरकारी कर्मचारी को 14 वर्ष से कम आयु के किसी बालक को काम पर नियोजित करने से वर्जित करता है। इसमें कोई परंतुक नहीं, घरेलू या हल्के काम हेतु कोई अपवाद नहीं, और यह अपेक्षा भी नहीं कि नियोजन सरकारी कर्तव्य से संबंधित हो।"
+      },
+      "example": {
+        "en": "An officer employing a 13-year-old as domestic help at his residence is in breach, whatever the wage and whatever the family circumstances of the child.",
+        "hi": "अपने निवास पर 13 वर्ष के बालक को घरेलू सहायक के रूप में नियोजित करने वाला अधिकारी उल्लंघन कर रहा है, वेतन चाहे जो हो और बालक की पारिवारिक परिस्थिति चाहे जो हो।"
+      },
+      "connects": [
+        "ccs-conduct-3b"
+      ],
+      "misconception": {
+        "en": "\"This is about official employment.\" It is not qualified in any way — \"No Government servant shall employ to work any child below the age of 14 years\" reaches private household employment.",
+        "hi": "\"यह सरकारी नियोजन के बारे में है।\" यह किसी प्रकार सीमित नहीं है — \"कोई सरकारी कर्मचारी 14 वर्ष से कम आयु के किसी बालक को काम पर नियोजित नहीं करेगा\" निजी घरेलू नियोजन तक पहुँचता है।"
+      },
+      "reviewed": true,
+      "reviewState": "approved",
+      "generationMeta": {
+        "promptVersion": "study-aid-v1",
+        "batchId": "library-aids-2026-09-03-ccs-conduct",
+        "stageA": {
+          "index": 29,
+          "angle": "a one-line rule with no exception at all"
+        },
+        "critic": {
+          "verdict": "approve",
+          "reason": "The absence of a proviso IS the content of this rule, and saying so is more useful than paraphrasing eighteen words."
+        },
+        "verify": {
+          "grounded": true,
+          "note": "The rule is one sentence and carries no proviso, exception or qualification; the aid asserts nothing beyond it."
+        },
+        "dedup": {
+          "maxScore": 0,
+          "against": null,
+          "verdict": "keep"
+        },
+        "groundingUnitIds": [
+          "ccs-conduct-22a"
+        ]
+      },
+      "source": {
+        "name": "Department of Personnel and Training — CCS (Conduct) Rules, 1964 — updated as on 27 February 2015",
+        "url": "https://dopt.gov.in/sites/default/files/CCS_Conduct_Rules_1964_Updated_27Feb15_0.pdf"
+      },
+      "verify": true
+    },
+    {
+      "id": "aid-ccs-conduct-23",
+      "workId": "ccs-conduct",
+      "unitId": "ccs-conduct-23",
+      "explanation": {
+        "en": "Rule 23 sends any question about the interpretation of these rules to the Government, whose decision on it is final. It is the reason a doubtful conduct question travels up through the administrative Ministry to the Department of Personnel and Training rather than being settled locally.",
+        "hi": "नियम 23 इन नियमों की व्याख्या संबंधी किसी भी प्रश्न को सरकार के पास भेजता है, जिसका उस पर निर्णय अंतिम होगा। यही कारण है कि आचरण संबंधी संदिग्ध प्रश्न स्थानीय स्तर पर तय होने के बजाय प्रशासनिक मंत्रालय से होते हुए कार्मिक और प्रशिक्षण विभाग तक जाता है।"
+      },
+      "example": {
+        "en": "A Head of Office unsure whether a particular society is \"for commercial purposes\" under Rule 15(1)(e) cannot decide it himself under this rule; the question is one of interpretation and goes up.",
+        "hi": "जो कार्यालय-प्रमुख यह निश्चित नहीं कर पा रहा कि कोई समिति नियम 15(1)(ङ) के अर्थ में \"वाणिज्यिक प्रयोजनों हेतु\" है या नहीं, वह इस नियम के अधीन स्वयं निर्णय नहीं कर सकता; प्रश्न व्याख्या का है और ऊपर जाएगा।"
+      },
+      "connects": [
+        "ccs-conduct-24"
+      ],
+      "misconception": {
+        "en": "\"Rule 23 lets Government decide a disciplinary case.\" It decides what a rule MEANS. Whether a particular officer breached it is a disciplinary question under the CCS (CCA) Rules, 1965, not this rule.",
+        "hi": "\"नियम 23 सरकार को अनुशासनिक मामला तय करने देता है।\" यह तय करता है कि नियम का अर्थ क्या है। किसी विशेष कर्मचारी ने उसका उल्लंघन किया या नहीं, यह सीसीएस (सीसीए) नियम, 1965 के अधीन अनुशासनिक प्रश्न है, इस नियम के अधीन नहीं।"
+      },
+      "reviewed": true,
+      "reviewState": "approved",
+      "generationMeta": {
+        "promptVersion": "study-aid-v1",
+        "batchId": "library-aids-2026-09-03-ccs-conduct",
+        "stageA": {
+          "index": 30,
+          "angle": "who settles a dispute about what a rule means"
+        },
+        "critic": {
+          "verdict": "approve",
+          "reason": "Short rule, but the interpretation/adjudication confusion is real and is what the misconception addresses; the CCA reference is a cross-book pointer, not a claim about a CCA provision."
+        },
+        "verify": {
+          "grounded": true,
+          "note": "\"If any question arises relating to the interpretation of these rules, it shall be referred to the Government whose decision thereon shall be final\" is the whole rule and is quoted in substance."
+        },
+        "dedup": {
+          "maxScore": 0,
+          "against": null,
+          "verdict": "keep"
+        },
+        "groundingUnitIds": [
+          "ccs-conduct-23"
+        ]
+      },
+      "source": {
+        "name": "Department of Personnel and Training — CCS (Conduct) Rules, 1964 — updated as on 27 February 2015",
+        "url": "https://dopt.gov.in/sites/default/files/CCS_Conduct_Rules_1964_Updated_27Feb15_0.pdf"
+      },
+      "verify": true
+    },
+    {
+      "id": "aid-ccs-conduct-24",
+      "workId": "ccs-conduct",
+      "unitId": "ccs-conduct-24",
+      "explanation": {
+        "en": "Rule 24 lets Government direct, by general or special order, that a power it or a Head of Department exercises under these rules may also be exercised by another officer or authority, subject to any conditions in the order. Two powers are expressly carved out: the interpretation power under Rule 23, and the delegation power in Rule 24 itself.",
+        "hi": "नियम 24 सरकार को सामान्य या विशेष आदेश द्वारा यह निदेश देने की शक्ति देता है कि इन नियमों के अधीन उसके या किसी विभागाध्यक्ष के प्रयोग-योग्य कोई शक्ति किसी अन्य अधिकारी या प्राधिकारी द्वारा भी प्रयोग की जा सकेगी, आदेश में विनिर्दिष्ट शर्तों के अधीन। दो शक्तियाँ स्पष्टतः अपवर्जित हैं: नियम 23 की व्याख्या-शक्ति, तथा स्वयं नियम 24 की प्रत्यायोजन-शक्ति।"
+      },
+      "example": {
+        "en": "The sanctioning power under Rule 15(1) can be delegated downwards by order. The power to interpret Rule 15 cannot: Rule 23 is outside the delegation.",
+        "hi": "नियम 15(1) के अधीन मंजूरी की शक्ति आदेश द्वारा नीचे प्रत्यायोजित की जा सकती है। नियम 15 की व्याख्या की शक्ति नहीं: नियम 23 प्रत्यायोजन से बाहर है।"
+      },
+      "connects": [
+        "ccs-conduct-23"
+      ],
+      "misconception": {
+        "en": "\"Anything under these rules can be delegated.\" The parenthesis \"(except the powers under Rule 23 and this rule)\" is the operative limit and is easy to read past.",
+        "hi": "\"इन नियमों के अधीन कुछ भी प्रत्यायोजित किया जा सकता है।\" कोष्ठक \"(नियम 23 तथा इस नियम की शक्तियों के सिवाय)\" ही प्रवर्तनीय सीमा है और उसे पढ़ने में छोड़ देना आसान है।"
+      },
+      "reviewed": true,
+      "reviewState": "approved",
+      "generationMeta": {
+        "promptVersion": "study-aid-v1",
+        "batchId": "library-aids-2026-09-03-ccs-conduct",
+        "stageA": {
+          "index": 31,
+          "angle": "what may be delegated, and the two powers that may not"
+        },
+        "critic": {
+          "verdict": "approve",
+          "reason": "The carve-out is the only thing in the rule that can be got wrong, and it is what the aid is about."
+        },
+        "verify": {
+          "grounded": true,
+          "note": "\"(except the powers under Rule 23 and this rule)\" and \"subject to such conditions, if any, as may be specified in the order\" are verbatim."
+        },
+        "dedup": {
+          "maxScore": 0,
+          "against": null,
+          "verdict": "keep"
+        },
+        "groundingUnitIds": [
+          "ccs-conduct-24"
+        ]
+      },
+      "source": {
+        "name": "Department of Personnel and Training — CCS (Conduct) Rules, 1964 — updated as on 27 February 2015",
+        "url": "https://dopt.gov.in/sites/default/files/CCS_Conduct_Rules_1964_Updated_27Feb15_0.pdf"
+      },
+      "verify": true
+    },
+    {
+      "id": "aid-ccs-conduct-25",
+      "workId": "ccs-conduct",
+      "unitId": "ccs-conduct-25",
+      "explanation": {
+        "en": "Rule 25 repeals the corresponding earlier rules but saves three things. An order made or action taken under the repealed rules is deemed to have been made or taken under the corresponding provision of these rules. The repeal does not affect the previous operation of the repealed rules. And a contravention of one of them remains punishable as if it were a contravention of these rules.",
+        "hi": "नियम 25 तत्संगत पूर्ववर्ती नियमों को निरसित करता है किंतु तीन बातें व्यावृत्त रखता है। निरसित नियमों के अधीन किया गया आदेश या कार्रवाई इन नियमों के तत्संगत उपबंध के अधीन किया गया समझा जाएगा। निरसन निरसित नियमों के पूर्व प्रवर्तन को प्रभावित नहीं करेगा। और उनमें से किसी का उल्लंघन इस प्रकार दंडनीय बना रहेगा मानो वह इन नियमों का उल्लंघन हो।"
+      },
+      "example": {
+        "en": "A sanction granted under the pre-1964 conduct rules for private employment continues to hold good, and does not need to be applied for again under Rule 15.",
+        "hi": "1964 से पूर्व के आचरण नियमों के अधीन निजी नियोजन हेतु दी गई मंजूरी वैध बनी रहती है, और नियम 15 के अधीन उसके लिए फिर से आवेदन करने की आवश्यकता नहीं।"
+      },
+      "connects": [
+        "ccs-conduct-1"
+      ],
+      "misconception": {
+        "en": "\"A repeal wipes the slate.\" The second proviso does the opposite: a contravention of a repealed rule stays punishable as if it were a contravention of these rules.",
+        "hi": "\"निरसन सब कुछ मिटा देता है।\" दूसरा परंतुक इसके विपरीत करता है: निरसित नियम का उल्लंघन इस प्रकार दंडनीय बना रहता है मानो वह इन नियमों का उल्लंघन हो।"
+      },
+      "reviewed": true,
+      "reviewState": "approved",
+      "generationMeta": {
+        "promptVersion": "study-aid-v1",
+        "batchId": "library-aids-2026-09-03-ccs-conduct",
+        "stageA": {
+          "index": 32,
+          "angle": "what survives a repeal"
+        },
+        "critic": {
+          "verdict": "approve",
+          "reason": "A saving clause is easy to skip and its second proviso is genuinely consequential. The extracted text of this rule is followed by the source PDF’s list of amendment notifications, which the aid ignores because it is apparatus, not rule."
+        },
+        "verify": {
+          "grounded": true,
+          "note": "The repeal, the deeming proviso and the second proviso on previous operation and punishability are all in the operative sentences of this rule. Nothing is taken from the amendment list that follows them."
+        },
+        "dedup": {
+          "maxScore": 0,
+          "against": null,
+          "verdict": "keep"
+        },
+        "groundingUnitIds": [
+          "ccs-conduct-25"
+        ]
+      },
+      "source": {
+        "name": "Department of Personnel and Training — CCS (Conduct) Rules, 1964 — updated as on 27 February 2015",
+        "url": "https://dopt.gov.in/sites/default/files/CCS_Conduct_Rules_1964_Updated_27Feb15_0.pdf"
+      },
+      "verify": true
+    }
+  ]
+}

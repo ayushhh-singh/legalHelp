@@ -31,7 +31,14 @@
   { "en": "File number cum subject index", "hi": "फाइल संख्या-सह-विषय सूचकांक" },
   { "en": "Colour coding of files", "hi": "फाइलों का रंग-संकेतन" },
   { "en": "Establishment file", "hi": "स्थापना फाइल" },
-  { "en": "Personal file", "hi": "व्यक्तिगत फाइल", "note": { "en": "Officer's personal/service record file, as distinct from a subject file.", "hi": "अधिकारी की सेवा-संबंधी व्यक्तिगत फाइल, विषय फाइल से भिन्न।" } },
+  {
+    "en": "Personal file",
+    "hi": "व्यक्तिगत फाइल",
+    "note": {
+      "en": "Officer's personal/service record file, as distinct from a subject file.",
+      "hi": "अधिकारी की सेवा-संबंधी व्यक्तिगत फाइल, विषय फाइल से भिन्न।"
+    }
+  },
   { "en": "Policy file", "hi": "नीति फाइल" },
   { "en": "Reference file", "hi": "संदर्भ फाइल" },
   { "en": "Opening a file", "hi": "फाइल खोलना" },
@@ -167,7 +174,10 @@
   { "en": "Digital signature", "hi": "डिजिटल हस्ताक्षर" },
   { "en": "Electronic file movement", "hi": "इलेक्ट्रॉनिक फाइल संचलन" },
   { "en": "File tracking system", "hi": "फाइल अनुरेखण प्रणाली" },
-  { "en": "National Informatics Centre e-Office module", "hi": "राष्ट्रीय सूचना विज्ञान केंद्र ई-कार्यालय मॉड्यूल" },
+  {
+    "en": "National Informatics Centre e-Office module",
+    "hi": "राष्ट्रीय सूचना विज्ञान केंद्र ई-कार्यालय मॉड्यूल"
+  },
   { "en": "Appraisal of records", "hi": "अभिलेखों का मूल्यांकन" },
   { "en": "Record survey", "hi": "अभिलेख सर्वेक्षण" },
   { "en": "Half-yearly review of files", "hi": "फाइलों की छमाही समीक्षा" },
@@ -189,5 +199,12 @@
   { "en": "Workflow (e-Office)", "hi": "कार्यप्रवाह" },
   { "en": "File inspection", "hi": "फाइल निरीक्षण" },
   { "en": "File movement chart", "hi": "फाइल संचलन चार्ट" },
-  { "en": "Hybrid file movement", "hi": "सम्मिश्र फाइल संचलन", "note": { "en": "Where part of the movement is physical and part electronic during the e-Office transition.", "hi": "ई-कार्यालय संक्रमण के दौरान संचलन का कुछ भाग भौतिक और कुछ इलेक्ट्रॉनिक रूप में होना।" } }
+  {
+    "en": "Hybrid file movement",
+    "hi": "सम्मिश्र फाइल संचलन",
+    "note": {
+      "en": "Where part of the movement is physical and part electronic during the e-Office transition.",
+      "hi": "ई-कार्यालय संक्रमण के दौरान संचलन का कुछ भाग भौतिक और कुछ इलेक्ट्रॉनिक रूप में होना।"
+    }
+  }
 ]

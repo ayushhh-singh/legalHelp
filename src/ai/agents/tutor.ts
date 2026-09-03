@@ -246,7 +246,7 @@ export async function explainAnswer(params: ExplainAnswerParams): Promise<TutorR
       '',
       'Explain in at most four sentences why the correct answer is correct and what in the rule text makes',
       'the picked answer wrong. Quote the rule rather than paraphrasing its substance, and mention the',
-      "history in [2] if it shows a pattern (repeated lapses, a long-held card that just failed). Cite [1]",
+      'history in [2] if it shows a pattern (repeated lapses, a long-held card that just failed). Cite [1]',
       'whenever you name the rule number, and cite [2] if you use the history.',
     ].join('\n'),
     context,
@@ -263,7 +263,13 @@ export async function explainAnswer(params: ExplainAnswerParams): Promise<TutorR
   if (!run.ok) return failed(run)
 
   onProgress?.({ phase: 'done' })
-  return { status: 'ok', text: run.text, usage: run.usage, cost: estimateCost(run.meta.model, run.usage), meta: run.meta }
+  return {
+    status: 'ok',
+    text: run.text,
+    usage: run.usage,
+    cost: estimateCost(run.meta.model, run.usage),
+    meta: run.meta,
+  }
 }
 
 /* ------------------------------------------------------------------ *
@@ -516,5 +522,11 @@ export async function weeklyFocusPlan(params: FocusPlanParams): Promise<TutorRes
   if (!run.ok) return failed(run)
 
   onProgress?.({ phase: 'done' })
-  return { status: 'ok', text: run.text, usage: run.usage, cost: estimateCost(run.meta.model, run.usage), meta: run.meta }
+  return {
+    status: 'ok',
+    text: run.text,
+    usage: run.usage,
+    cost: estimateCost(run.meta.model, run.usage),
+    meta: run.meta,
+  }
 }

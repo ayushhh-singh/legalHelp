@@ -111,7 +111,11 @@ describe('the AI settings section', () => {
     // VITE_AI_PROXY_URL, and a permanently disabled control the reader can do
     // nothing about is noise rather than disclosure.
     expect(screen.queryByRole('radio', { name: /Shared service/ })).not.toBeInTheDocument()
-    expect(within(tierGroup()).getAllByRole('radio')).toHaveLength(3)
+    // Tier 3 ships in every build too: the reader supplies the endpoint, so
+    // there is nothing for a build to be missing (ADR-040 §5). Its own section
+    // is where an unusable base URL is reported.
+    expect(screen.getByRole('radio', { name: /Another AI service/ })).toBeEnabled()
+    expect(within(tierGroup()).getAllByRole('radio')).toHaveLength(4)
     await waitFor(() => expect(screen.getByLabelText('Model')).toBeEnabled())
   })
 

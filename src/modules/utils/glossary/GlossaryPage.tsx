@@ -81,7 +81,10 @@ export default function GlossaryPage() {
     // "external callback" shape `SectionActions.tsx`'s own effect gets from
     // `isFavourite(...).then(...)`.
     queueMicrotask(() => {
-      const term = glossary.status === 'ready' ? glossary.data.terms.find((candidate) => candidate.id === termId) : undefined
+      const term =
+        glossary.status === 'ready'
+          ? glossary.data.terms.find((candidate) => candidate.id === termId)
+          : undefined
       if (term) setQuery(term.en)
     })
   }, [glossary, searchParams])
@@ -109,14 +112,18 @@ export default function GlossaryPage() {
   const favouriteResults = useMemo(
     () =>
       view === 'favourites'
-        ? favourites.map((row) => byId.get(row.termId)).filter((term): term is GlossaryTerm => term !== undefined)
+        ? favourites
+            .map((row) => byId.get(row.termId))
+            .filter((term): term is GlossaryTerm => term !== undefined)
         : [],
     [view, favourites, byId],
   )
   const recentResults = useMemo(
     () =>
       view === 'recents'
-        ? recents.map((row) => byId.get(row.termId)).filter((term): term is GlossaryTerm => term !== undefined)
+        ? recents
+            .map((row) => byId.get(row.termId))
+            .filter((term): term is GlossaryTerm => term !== undefined)
         : [],
     [view, recents, byId],
   )
@@ -320,7 +327,7 @@ function CategoryChip({
       className={cn(
         'inline-flex min-h-9 cursor-pointer items-center justify-center rounded-full border px-3 text-xs font-medium transition-colors',
         checked
-          ? 'border-action bg-action text-action-foreground font-semibold'
+          ? 'border-action bg-action font-semibold text-action-foreground'
           : 'border-border bg-card text-muted-foreground hover:border-input hover:text-foreground',
         'has-[:focus-visible]:ring-2 has-[:focus-visible]:ring-ring has-[:focus-visible]:ring-offset-2 has-[:focus-visible]:ring-offset-background',
       )}

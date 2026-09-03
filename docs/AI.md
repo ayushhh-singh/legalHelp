@@ -579,6 +579,51 @@ applies its one `overrides` object to BOTH posts, and forwarding side A's level
 would silently force post B onto it, which is not what the table on screen
 shows.
 
+## 7C. The study agent
+
+`src/ai/agents/study.ts`, persona `study-explain`, prompt file
+`src/ai/prompts/study.md` (bilingual, in the CACHED prefix, so editing it means
+bumping `PROMPT_VERSIONS['study-explain']` in the same commit). Six tools, all
+scope `library`, registered by `src/ai/tools/library.ts`: `get_unit`,
+`get_study_aid`, `get_definitions`, `retrieve`, `get_related_cards` and
+`get_my_notes`.
+
+**It is the two-pass shape ADR-035 settled**, for the reason that ADR records:
+`validateCitations()` rejects a provision number that appears in no CITED
+CONTEXT SNIPPET, and a tool result is not one. Stage 3 turns what the research
+pass read into numbered, type-labelled snippets and the answer pass writes from
+those alone, with `tools: []`. It is the two-pass shape rather than
+ADR-036's one-pass shape because the lookup genuinely needs a round of research
+first: "the difference between Rule 3 and Rule 11" cannot name what to fetch
+until something has been fetched.
+
+**It is the LAST thing in the rail, and that is the design.** Above it sit the
+precomputed study aid, the reader's own explanation and a quiz drawn from
+approved Trainer cards — none of which reaches a network, needs a key or costs
+anything. `src/modules/library/ai-seam.ts` states the test: if
+`STUDY_AI_ENABLED` were flipped to `false`, the module would lose one affordance
+out of five rather than become useless.
+
+**`get_my_notes` is the first tool in this app that reads the officer's own
+writing, and three things constrain it.** It runs only when `includeNotes` is
+true, which is a checkbox that is OFF until it is ticked, with a hint saying
+what ticking it does. Every snippet it produces is `personal: true` and is
+labelled as the reader's own on the way in and rendered as theirs on the way
+out. And `misattributesPersonal()` fails the run in code when the answer treats
+one as law — a persona instruction is not a check (ADR-036's lesson, applied to
+a different failure).
+
+**The screen is the Law Converter's, not the Drafting Studio's.**
+`screenStudyQuestion()` refuses a departmental RECORD (an FIR, case, diary,
+charge-sheet or crime number, each pattern requiring a digit) and does NOT
+refuse the words "secret" or "classified" — the Official Secrets Act is one of
+the fifteen works in this library, and a question about what it says is a
+question about published statute. Advice about a person's case is a steer, not
+a refusal (`caseAdviceSteer()`).
+
+**Tier 0 has its own policy row**, as §11's checklist requires: one retrieval,
+one snippet, a short answer, labelled as answered on the device.
+
 ## 8. How to add a tool
 
 A tool is a **pure function over local data**: bundled JSON in `/data`, or the
@@ -834,6 +879,21 @@ tells the reader something about their own device, which they can do something
 about; "not configured in this build" is about somebody the reader has never
 met. `tierPickable()` is that question and `tierAvailable()` is the other one.
 
+**Tier 3, the OpenAI-compatible endpoint.** `src/ai/providers/openaiCompatible.ts`
+speaks `/chat/completions` to whatever base URL the reader gives it, so the free
+tiers exist as a real option: Google AI Studio, Groq, an OpenRouter free model,
+or a local Ollama on `http://localhost:11434/v1` that reaches no network at all.
+Order to turn it on: enter the base URL and the model in Settings, then the key
+if the endpoint wants one (Ollama does not, which is why the key is OPTIONAL and
+`tierReady` asks only for a URL and a model). `capabilityNote()` reports what the
+endpoint can actually do — an endpoint with no tool calling falls back to JSON
+mode and the UI SAYS so rather than silently degrading. `maxContext` is 0
+because this provider cannot know it and inventing one would be a number the
+reader would rely on. **Read `docs/DATA-GAPS.md` #75 before debugging a
+connection failure on the deployed site**: `connect-src` names four endpoints
+and refuses every other one, and a CSP refusal surfaces as an opaque provider
+error.
+
 **What the Worker can see, and what it keeps.** It can see every prompt that
 passes through it — that is the whole difference between Tier 1 and Tier 2, and
 the consent notice says so to the reader in both languages. It logs no body, no
@@ -844,3 +904,65 @@ accident; and it writes two integers to KV, both expiring. Four guards run
 before the key is attached — origin, per-IP rate limit, model allowlist, daily
 token budget — and `worker/test/policy.test.ts` proves each by calling it while
 `worker/test/worker.test.ts` proves the wiring in workerd.
+
+## 13. The policy: precomputed first, retrieval always, a model last
+
+This is the ordering every surface in this app follows, and Session 28 is where
+it was written down rather than merely practised.
+
+**1. Precomputed first.** Anything that can be written once, reviewed once and
+shipped is written once, reviewed once and shipped. `data/library/aids/` is 223
+study aids authored through the four-stage pipeline in `docs/AUTHORING.md`;
+`data/library/definitions/` and `data/library/quickref/` are generated by the
+app's own parsers; `data/rules/cards` is 1,595 reviewed practice cards. All of
+it works offline, on every device, with no key, at zero cost, in both languages,
+and a reader can check where each piece came from. A model cannot beat any of
+those properties — it can only be more flexible.
+
+**2. Retrieval always.** `src/lib/retrieval.ts` is pure, runs with AI off, and
+powers the plain search box as well as the agent's `retrieve` tool. That is
+deliberate: retrieval quality is VISIBLE to every reader, so it is under
+constant pressure to be good, rather than being an invisible sub-component of a
+feature most readers never turn on. It is also what makes grounding possible at
+all — see below.
+
+**3. A model last, and only where the first two cannot go.** Explaining a
+provision in words the reader chooses, comparing two rules they name, answering
+"what happens if" — these need generation, and nothing precomputed covers the
+space. Everything else does not.
+
+### Fine-tuning is rejected, and the reason is not cost
+
+The obvious alternative to a grounded agent over local JSON is a model
+fine-tuned on Indian service rules. It is rejected, and it would still be
+rejected if it were free.
+
+- **Grounding is retrieval, not weights.** Every answer in this app must name a
+  provision that appears in something the run actually READ, and
+  `validateCitations()` enforces it by comparing the answer against numbered
+  snippets. A fine-tuned model has no snippets: its knowledge is in its
+  parameters, and there is nothing to cite. The check that makes this app's
+  answers checkable would have to be deleted to accommodate it.
+- **A rule book changes when a Ministry amends it.** `data/rules` and
+  `data/law` are refreshed by a script and reviewed in a pull request; weights
+  are refreshed by a training run. DA went from 53% to 60% on 1 January 2026,
+  the DPDP Act substituted RTI s.8(1)(j) on 13 November 2025, and BNS s.106(2)
+  was expressly not brought into force — a model trained before any of those
+  states the old position confidently and cites nothing.
+- **A wrong weight is invisible; a wrong row is a diff.** Every fact in `/data`
+  carries `{ source: { name, url }, fetchedAt }` and `verify`, and a reader can
+  open the order. There is no equivalent for a parameter.
+- **It would not stay on the device.** Tier 0's whole promise is that nothing
+  the reader types leaves; a fine-tune is a model somebody has to host, which
+  makes it Tier 2 with extra steps and worse provenance.
+
+The one place fine-tuning would genuinely help — smaller models following the
+emulated tool protocol on Tier 0 — is a real gap, and the honest answer there is
+`LOCAL_MAX_TOOL_STEPS = 2` and a narrower policy row, not a training run.
+
+### What this means when you add a surface
+
+Ask, in this order: can it be a dataset? can it be retrieval over a dataset? can
+it be a deterministic function over the reader's own rows? Only when all three
+answer no does an agent earn its place — and then it goes at the BOTTOM of
+whatever it is added to, so the surface still works without it.

@@ -55,6 +55,19 @@ export async function createProvider(
       })
     }
 
+    case 'openai': {
+      const { OpenAiCompatibleProvider } = await import('./providers/openaiCompatible')
+      const supports: ('tools' | 'json')[] = []
+      if (settings.openAiSupportsTools) supports.push('tools')
+      if (settings.openAiSupportsJson) supports.push('json')
+      return new OpenAiCompatibleProvider({
+        baseUrl: settings.openAiBaseUrl,
+        model: settings.openAiModel,
+        supports,
+        ...(options.fetchImpl ? { fetchImpl: options.fetchImpl } : {}),
+      })
+    }
+
     case 'proxy': {
       const baseUrl = options.proxyUrl ?? proxyUrlFromEnv()
       if (!baseUrl) {

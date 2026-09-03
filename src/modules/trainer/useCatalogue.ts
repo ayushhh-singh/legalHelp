@@ -29,7 +29,11 @@ type Keyed<T> = Settled<T> & { key: string }
 
 const LOADING = { status: 'loading', data: null, error: null } as const
 
-function useAsync<T>(load: () => Promise<T>, key: string, enabled = true): AsyncState<T> & { retry: () => void } {
+function useAsync<T>(
+  load: () => Promise<T>,
+  key: string,
+  enabled = true,
+): AsyncState<T> & { retry: () => void } {
   const [settled, setSettled] = useState<Keyed<T> | null>(null)
   const [attempt, setAttempt] = useState(0)
   const requestKey = `${key}#${attempt}`

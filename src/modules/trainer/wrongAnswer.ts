@@ -28,5 +28,7 @@ export function activeWrongAnswerFor(
   current: CurrentCard | null,
 ): WrongAnswerRecord | null {
   if (!wrongAnswer || !current) return null
-  return wrongAnswer.qId === current.qId && wrongAnswer.due === (current.srs?.due ?? null) ? wrongAnswer : null
+  return wrongAnswer.qId === current.qId && wrongAnswer.due === (current.srs?.due ?? null)
+    ? wrongAnswer
+    : null
 }

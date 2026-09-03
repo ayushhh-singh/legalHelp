@@ -65,13 +65,17 @@ export function PayCompareAiPanel({
         <p className="text-sm text-muted-foreground">{t('pay.ai.notReady')}</p>
       ) : (
         <>
-          {customised ? <p className="text-xs text-muted-foreground">{t('pay.ai.compare.customisedNote')}</p> : null}
+          {customised ? (
+            <p className="text-xs text-muted-foreground">{t('pay.ai.compare.customisedNote')}</p>
+          ) : null}
           {ask.state.kind === 'idle' ? (
             <Button
               type="button"
               size="sm"
               variant="outline"
-              onClick={() => ask.compareJobs({ jobA: a.jobId!, jobB: b.jobId!, overrides: { daRate: a.daRate } })}
+              onClick={() =>
+                ask.compareJobs({ jobA: a.jobId!, jobB: b.jobId!, overrides: { daRate: a.daRate } })
+              }
             >
               <Sparkles aria-hidden="true" className="h-4 w-4" />
               {t('pay.ai.compare.button')}

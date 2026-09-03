@@ -41,6 +41,18 @@ const at = (path: string) =>
 const read = (workId: string, unitId: string, at: string) =>
   db.libraryProgress.put({ id: `${workId}:${unitId}`, workId, unitId, at, secondsRead: 60 })
 
+/**
+ * The provision's own text, inside the `<article>`.
+ *
+ * Session 28 put a study aid in the rail, and CCS Conduct Rule 3's aid quotes
+ * the phrase this file used as its "the rule rendered" probe — so a bare
+ * `findByText(/absolute integrity/i)` now matches two elements and throws. The
+ * probe is scoped to the article rather than made more specific, because what
+ * these tests actually mean is "the RULE is on screen", and the article is
+ * where the rule is.
+ */
+const ruleText = async () => within(await screen.findByRole('article')).findByText(/absolute integrity/i)
+
 beforeEach(async () => {
   await db.libraryProgress.clear()
 })
@@ -86,7 +98,7 @@ describe('a screen must not wait on a read it only decorates itself with', () =>
     } as never)
     try {
       at('/library/ccs-conduct/ccs-conduct-3')
-      expect(await screen.findByText(/absolute integrity/i)).toBeInTheDocument()
+      expect(await ruleText()).toBeInTheDocument()
     } finally {
       spy.mockRestore()
     }
@@ -206,7 +218,7 @@ describe('the related rail', () => {
    */
   it('offers neighbours in a work whose table of contents is flat', async () => {
     at('/library/ccs-conduct/ccs-conduct-3')
-    await screen.findByText(/absolute integrity/i)
+    await ruleText()
 
     const rail = await screen.findByRole('region', { name: 'Around this' })
     const nearby = await within(rail).findByRole('region', { name: /Nearby in this work/ })
@@ -290,7 +302,7 @@ describe('the reader’s own keyboard shortcuts', () => {
   it('does not move between units while a dialog is open over the page', async () => {
     const user = userEvent.setup()
     at('/library/ccs-conduct/ccs-conduct-3')
-    await screen.findByText(/absolute integrity/i)
+    await ruleText()
 
     // Stands in for the shortcuts-help sheet or the AI consent modal — neither
     // is reachable from this module, which is why the guard is a DOM query.
@@ -301,7 +313,7 @@ describe('the reader’s own keyboard shortcuts', () => {
       await user.keyboard('j')
       await user.keyboard('{Home}')
       // Still on Rule 3: nothing navigated underneath.
-      expect(await screen.findByText(/absolute integrity/i)).toBeInTheDocument()
+      expect(await ruleText()).toBeInTheDocument()
     } finally {
       sheet.remove()
     }
@@ -314,7 +326,7 @@ describe('the reader’s own keyboard shortcuts', () => {
     // `scrollIntoView` in the unit-change effect threw and took the route down.
     const user = userEvent.setup()
     at('/library/ccs-conduct/ccs-conduct-3')
-    await screen.findByText(/absolute integrity/i)
+    await ruleText()
 
     await user.keyboard('j')
     await waitFor(() => expect(screen.getByRole('heading', { level: 1 })).not.toHaveTextContent('General'))
@@ -351,7 +363,7 @@ describe('the 30-second dwell timer', () => {
     const visibility = vi.spyOn(document, 'visibilityState', 'get').mockReturnValue('hidden')
     try {
       at('/library/ccs-conduct/ccs-conduct-3')
-      await vi.waitFor(() => expect(screen.getByText(/absolute integrity/i)).toBeInTheDocument())
+      await vi.waitFor(async () => expect(await ruleText()).toBeInTheDocument())
 
       // Arrival is still recorded — that is what "continue reading" reads back.
       await vi.waitFor(async () =>

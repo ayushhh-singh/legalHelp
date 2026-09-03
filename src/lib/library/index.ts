@@ -114,11 +114,13 @@ export {
 export { buildCorpus, paragraphs, tocLeaves, type CorpusJson, type CorpusWork } from './corpus'
 export { lawCrossReferences, type LawCrossReference } from './crossRefs'
 export {
+  AID_WORK_IDS,
   isWorkId,
   loadCorpus,
   loadDefinitions,
   loadLibraryIndex,
   loadQuickRef,
+  loadStudyAids,
   loadWork,
   resetLibraryCache,
   WORK_IDS,

@@ -76,7 +76,10 @@ export default function MockPage() {
   const pool = useMemo(() => {
     if (!catalogue) return []
     return catalogue.filter(
-      (card) => isServed(card) && MOCK_KINDS.has(card.kind) && (selectedActs.length === 0 || selectedActs.includes(card.act)),
+      (card) =>
+        isServed(card) &&
+        MOCK_KINDS.has(card.kind) &&
+        (selectedActs.length === 0 || selectedActs.includes(card.act)),
     )
   }, [catalogue, selectedActs])
 
@@ -89,7 +92,9 @@ export default function MockPage() {
   }
 
   const toggleAct = (actId: string) =>
-    setSelectedActs((current) => (current.includes(actId) ? current.filter((id) => id !== actId) : [...current, actId]))
+    setSelectedActs((current) =>
+      current.includes(actId) ? current.filter((id) => id !== actId) : [...current, actId],
+    )
 
   const start = () => {
     const questions = shuffled(pool).slice(0, count)
@@ -155,14 +160,18 @@ export default function MockPage() {
       />
 
       {stage.phase === 'setup' ? (
-        <SectionCard className="p-4 space-y-5">
+        <SectionCard className="space-y-5 p-4">
           <div>
             <h2 className="text-sm font-semibold">{t('trainer.mock.setupActsLabel')}</h2>
             <div className="mt-2 flex flex-wrap gap-2">
               {index.status === 'ready'
                 ? index.data.acts.map((act) => (
                     <button key={act.id} type="button" onClick={() => toggleAct(act.id)}>
-                      <Chip tone={selectedActs.length === 0 || selectedActs.includes(act.id) ? 'action' : 'neutral'}>
+                      <Chip
+                        tone={
+                          selectedActs.length === 0 || selectedActs.includes(act.id) ? 'action' : 'neutral'
+                        }
+                      >
                         {act.short[language] || act.short.en}
                       </Chip>
                     </button>
@@ -175,7 +184,13 @@ export default function MockPage() {
             <h2 className="text-sm font-semibold">{t('trainer.mock.setupCountLabel')}</h2>
             <div className="mt-2 flex gap-2">
               {COUNT_OPTIONS.map((n) => (
-                <Button key={n} type="button" size="sm" variant={count === n ? 'default' : 'outline'} onClick={() => setCount(n)}>
+                <Button
+                  key={n}
+                  type="button"
+                  size="sm"
+                  variant={count === n ? 'default' : 'outline'}
+                  onClick={() => setCount(n)}
+                >
                   {n}
                 </Button>
               ))}
@@ -193,14 +208,18 @@ export default function MockPage() {
                   variant={timerMinutes === minutes ? 'default' : 'outline'}
                   onClick={() => setTimerMinutes(minutes)}
                 >
-                  {minutes === 0 ? t('trainer.mock.setupTimerOff') : t('trainer.mock.setupTimerMinutes', { count: minutes })}
+                  {minutes === 0
+                    ? t('trainer.mock.setupTimerOff')
+                    : t('trainer.mock.setupTimerMinutes', { count: minutes })}
                 </Button>
               ))}
             </div>
           </div>
 
           {pool.length < count ? (
-            <p className="text-sm text-coral-foreground">{t('trainer.mock.setupNotEnough', { available: pool.length })}</p>
+            <p className="text-sm text-coral-foreground">
+              {t('trainer.mock.setupNotEnough', { available: pool.length })}
+            </p>
           ) : null}
 
           <Button type="button" size="lg" disabled={pool.length === 0} onClick={start}>
@@ -212,9 +231,16 @@ export default function MockPage() {
       {stage.phase === 'active' ? (
         <>
           <div className="flex items-center justify-between text-sm text-muted-foreground">
-            <span>{t('trainer.mock.questionProgress', { current: stage.index + 1, total: stage.questions.length })}</span>
+            <span>
+              {t('trainer.mock.questionProgress', {
+                current: stage.index + 1,
+                total: stage.questions.length,
+              })}
+            </span>
             {stage.deadline !== null ? (
-              <span>{t('trainer.mock.timeRemaining', { time: formatTime(stage.deadline - now.getTime()) })}</span>
+              <span>
+                {t('trainer.mock.timeRemaining', { time: formatTime(stage.deadline - now.getTime()) })}
+              </span>
             ) : null}
           </div>
           <ProgressBar value={(stage.index / stage.questions.length) * 100} label={t('trainer.mock.title')} />
@@ -236,7 +262,11 @@ export default function MockPage() {
             />
           ) : null}
 
-          <Button type="button" onClick={advance} disabled={!stage.answers.some((a) => a.card.id === stage.questions[stage.index]?.id)}>
+          <Button
+            type="button"
+            onClick={advance}
+            disabled={!stage.answers.some((a) => a.card.id === stage.questions[stage.index]?.id)}
+          >
             {stage.index + 1 >= stage.questions.length ? t('trainer.mock.finish') : t('trainer.mock.next')}
           </Button>
         </>
@@ -282,7 +312,9 @@ function ResultsView({
     <div className="flex flex-col gap-4">
       <SectionCard className="p-4">
         <h2 className="text-lg font-semibold">{t('trainer.mock.resultsTitle')}</h2>
-        <p className="font-display mt-1 text-2xl">{t('trainer.mock.resultsScore', { correct, total: answers.length })}</p>
+        <p className="font-display mt-1 text-2xl">
+          {t('trainer.mock.resultsScore', { correct, total: answers.length })}
+        </p>
       </SectionCard>
 
       <SectionCard className="p-4">
@@ -302,9 +334,13 @@ function ResultsView({
               <li key={a.card.id} className="py-3">
                 <p className="text-sm font-medium">{a.card.front[language] || a.card.front.en}</p>
                 {a.card.explanation ? (
-                  <p className="mt-1 text-xs text-muted-foreground">{a.card.explanation[language] || a.card.explanation.en}</p>
+                  <p className="mt-1 text-xs text-muted-foreground">
+                    {a.card.explanation[language] || a.card.explanation.en}
+                  </p>
                 ) : null}
-                <p className="mt-1 text-xs text-muted-foreground">{a.card.ruleRef.citation[language] || a.card.ruleRef.citation.en}</p>
+                <p className="mt-1 text-xs text-muted-foreground">
+                  {a.card.ruleRef.citation[language] || a.card.ruleRef.citation.en}
+                </p>
               </li>
             ))}
           </ul>
@@ -316,7 +352,9 @@ function ResultsView({
                 {t('trainer.mock.resultsAddWrong')}
               </Button>
             ) : (
-              <p className="text-sm text-tulsi-foreground">{t('trainer.mock.resultsAddedWrong', { count: addedCount })}</p>
+              <p className="text-sm text-tulsi-foreground">
+                {t('trainer.mock.resultsAddedWrong', { count: addedCount })}
+              </p>
             )}
           </div>
         ) : null}

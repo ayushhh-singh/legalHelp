@@ -304,7 +304,9 @@ function Calculator({
                 write({ scenario: withAllowance(scenario, id, { enabled: true, rateKey }) })
               }
             />
-            {ai.enabled ? <PayExplainPanel key={scenario.jobId ?? 'none'} ai={ai} scenario={scenario} /> : null}
+            {ai.enabled ? (
+              <PayExplainPanel key={scenario.jobId ?? 'none'} ai={ai} scenario={scenario} />
+            ) : null}
           </div>
         </div>
       ) : null}

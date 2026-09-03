@@ -44,7 +44,7 @@ interface CardViewProps {
 }
 
 const bilingual = (value: { en: string; hi: string }, language: Language, otherShown: boolean) =>
-  otherShown ? value : { [language]: value[language] || value.en } as Partial<{ en: string; hi: string }>
+  otherShown ? value : ({ [language]: value[language] || value.en } as Partial<{ en: string; hi: string }>)
 
 /**
  * One card, however it must be asked: a rule's flip card, a cloze reader can
@@ -93,7 +93,11 @@ export function CardView({
     if (mode === 'review' && card.kind === 'cloze' && card.cloze) {
       const normalise = (s: string) => s.trim().toLowerCase()
       const answer = card.cloze.answer[language] || card.cloze.answer.en
-      onAnswered?.({ correct: normalise(clozeInput) === normalise(answer), picked: clozeInput, correctText: answer })
+      onAnswered?.({
+        correct: normalise(clozeInput) === normalise(answer),
+        picked: clozeInput,
+        correctText: answer,
+      })
     }
   }
 
@@ -125,9 +129,17 @@ export function CardView({
   useEffect(() => {
     const onKeyDown = (event: KeyboardEvent) => {
       const target = event.target
-      const typing = target instanceof HTMLElement && (target.tagName === 'INPUT' || target.tagName === 'TEXTAREA')
+      const typing =
+        target instanceof HTMLElement && (target.tagName === 'INPUT' || target.tagName === 'TEXTAREA')
 
-      if (!revealed && event.key === ' ' && !typing && card.kind !== 'mcq' && card.kind !== 'trueFalse' && card.kind !== 'scenario') {
+      if (
+        !revealed &&
+        event.key === ' ' &&
+        !typing &&
+        card.kind !== 'mcq' &&
+        card.kind !== 'trueFalse' &&
+        card.kind !== 'scenario'
+      ) {
         event.preventDefault()
         reveal()
         return
@@ -174,7 +186,13 @@ export function CardView({
             >
               <Bookmark aria-hidden="true" className={bookmarked ? 'fill-marigold text-marigold' : ''} />
             </Button>
-            <Button type="button" variant="ghost" size="icon" aria-label={t('trainer.card.report')} onClick={onReport}>
+            <Button
+              type="button"
+              variant="ghost"
+              size="icon"
+              aria-label={t('trainer.card.report')}
+              onClick={onReport}
+            >
               <Flag aria-hidden="true" />
             </Button>
           </div>
@@ -232,8 +250,12 @@ export function CardView({
                 )}
               >
                 <span>{option[language] || option.en}</span>
-                {showCorrectness && isCorrect ? <Check aria-hidden="true" className="h-4 w-4 shrink-0 text-tulsi-foreground" /> : null}
-                {showCorrectness && isPicked && !isCorrect ? <X aria-hidden="true" className="h-4 w-4 shrink-0 text-coral-foreground" /> : null}
+                {showCorrectness && isCorrect ? (
+                  <Check aria-hidden="true" className="h-4 w-4 shrink-0 text-tulsi-foreground" />
+                ) : null}
+                {showCorrectness && isPicked && !isCorrect ? (
+                  <X aria-hidden="true" className="h-4 w-4 shrink-0 text-coral-foreground" />
+                ) : null}
               </button>
             )
           })}
@@ -291,7 +313,9 @@ export function CardView({
                 {t(`trainer.grade.${g}`)}
                 <span className="ml-1 text-xs text-muted-foreground">({i + 1})</span>
               </span>
-              <span className="text-xs text-muted-foreground">{intervalLabel(previews[g].due, now, language)}</span>
+              <span className="text-xs text-muted-foreground">
+                {intervalLabel(previews[g].due, now, language)}
+              </span>
             </Button>
           ))}
         </div>
@@ -310,12 +334,21 @@ interface ClozeBodyProps {
   onReveal: () => void
 }
 
-function ClozeBody({ card, language, otherLanguageShown, revealed, value, onChange, onReveal }: ClozeBodyProps) {
+function ClozeBody({
+  card,
+  language,
+  otherLanguageShown,
+  revealed,
+  value,
+  onChange,
+  onReveal,
+}: ClozeBodyProps) {
   const { t } = useT()
   if (!card.cloze) return null
   const answer = bilingual(card.cloze.answer, language, otherLanguageShown)
   const normalise = (s: string) => s.trim().toLowerCase()
-  const matched = revealed && normalise(value) === normalise(card.cloze.answer[language] || card.cloze.answer.en)
+  const matched =
+    revealed && normalise(value) === normalise(card.cloze.answer[language] || card.cloze.answer.en)
 
   return (
     <div className="mt-4 space-y-3">

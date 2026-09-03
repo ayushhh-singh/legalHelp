@@ -15,14 +15,29 @@ const dataset: HolidaysDataset = {
   verify: true,
   delegationNote: { en: 'x', hi: 'x' },
   gazetted: [
-    { id: 'republic-day', name: { en: 'Republic Day', hi: 'गणतंत्र दिवस' }, date: '2026-01-26', day: 'Monday' },
-    { id: 'independence-day', name: { en: 'Independence Day', hi: 'स्वतंत्रता दिवस' }, date: '2026-08-15', day: 'Saturday' },
+    {
+      id: 'republic-day',
+      name: { en: 'Republic Day', hi: 'गणतंत्र दिवस' },
+      date: '2026-01-26',
+      day: 'Monday',
+    },
+    {
+      id: 'independence-day',
+      name: { en: 'Independence Day', hi: 'स्वतंत्रता दिवस' },
+      date: '2026-08-15',
+      day: 'Saturday',
+    },
     { id: 'christmas-day', name: { en: 'Christmas Day', hi: 'क्रिसमस' }, date: '2026-12-25', day: 'Friday' },
   ],
   restricted: [
     { id: 'holi', name: { en: 'Holi', hi: 'होली' }, date: '2026-03-04', day: 'Wednesday' },
     { id: 'diwali', name: { en: 'Diwali', hi: 'दिवाली' }, date: '2026-11-08', day: 'Sunday' },
-    { id: 'christmas-eve', name: { en: 'Christmas Eve', hi: 'क्रिसमस की पूर्व संध्या' }, date: '2026-12-24', day: 'Thursday' },
+    {
+      id: 'christmas-eve',
+      name: { en: 'Christmas Eve', hi: 'क्रिसमस की पूर्व संध्या' },
+      date: '2026-12-24',
+      day: 'Thursday',
+    },
   ],
 }
 
@@ -55,7 +70,10 @@ describe('validatePicks', () => {
   })
 
   it('rejects a third pick', () => {
-    expect(validatePicks(dataset, ['holi', 'diwali', 'christmas-eve'])).toEqual({ ok: false, reason: 'too-many' })
+    expect(validatePicks(dataset, ['holi', 'diwali', 'christmas-eve'])).toEqual({
+      ok: false,
+      reason: 'too-many',
+    })
   })
 
   it('rejects an id that is not in the restricted list', () => {

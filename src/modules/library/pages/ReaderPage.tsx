@@ -11,18 +11,22 @@ import {
   Minimize2,
   Printer,
 } from 'lucide-react'
-import { useCallback, useEffect, useMemo, useRef, useState } from 'react'
+import { Suspense, lazy, useCallback, useEffect, useMemo, useRef, useState } from 'react'
 import { Link, Navigate, useNavigate, useParams } from 'react-router-dom'
 
 import { AddToTrainerDialog } from '../components/AddToTrainerDialog'
 import { AmendmentBanner } from '../components/AmendmentBanner'
+import { ChapterRevisionCard } from '../components/ChapterRevisionCard'
 import { AnnotatedBody } from '../components/AnnotatedBody'
 import { AnnotationsPanel } from '../components/AnnotationsPanel'
 import { DefinitionPopover } from '../components/DefinitionPopover'
 import { KeyboardHelpSheet } from '../components/KeyboardHelpSheet'
 import { NoteEditor } from '../components/NoteEditor'
 import { ReadAloudBar } from '../components/ReadAloudBar'
+import { FeynmanBox } from '../components/FeynmanBox'
 import { RelatedRail } from '../components/RelatedRail'
+import { StudyAidCard } from '../components/StudyAidCard'
+import { TestMeCard } from '../components/TestMeCard'
 import { SelectionToolbar } from '../components/SelectionToolbar'
 import { TypeControls } from '../components/TypeControls'
 import { clearSelection, selectionAnchor, selectionOffsets } from '../selection'
@@ -36,8 +40,25 @@ import {
   useReaderWork,
   useUnitProgress,
 } from '../useAnnotations'
+import { studyAiAvailable } from '../ai-seam'
 import { useBookmarkedUnitIds, useReaderPrefs } from '../useLibrary'
+import { useStudyAid } from '../useStudy'
 import { useReadAloud } from '../useReadAloud'
+
+import { useAi } from '@/ai/useAi'
+import { chapterFor } from '@/lib/study'
+
+/**
+ * The Ask panel is `lazy` and is mounted only when AI is on, so a reader with
+ * AI off — every device's default — never downloads it, and neither the agent
+ * nor the provider nor the tool registry lands on the device of anyone who has
+ * not asked for it (`docs/AI.md`: laziness here is a privacy property, not a
+ * performance one). `useAi` itself is safe to import statically — it reads the
+ * consent row and nothing else.
+ */
+const StudyAskPanel = lazy(() =>
+  import('../components/StudyAskPanel').then((module) => ({ default: module.StudyAskPanel })),
+)
 
 import { DataVersion } from '@/components/common/DataVersion'
 import { Disclaimer } from '@/components/common/Disclaimer'
@@ -150,6 +171,25 @@ export default function ReaderPage() {
   const bookmarked = useBookmarkedUnitIds(workId)
   const bookmark = useBookmark(workId, unitId)
   const progress = useUnitProgress(workId, unitId)
+
+  /*
+    The study layer. All four reads are cheap and none of them blocks the
+    render: the aid dataset is 8-30 KB per work behind its own `?raw` chunk,
+    the chapter list is derived from the table of contents already in memory,
+    and `useAi()` is the consent row this app hydrates at boot.
+
+    A PERSONAL work has none of this — no aids were written for a document the
+    reader added, and its `toc` is one node per unit — so `aidWorkId` is null
+    there and the rail simply renders fewer cards.
+  */
+  const aidWorkId = work && work.origin !== 'personal' && isWorkId(work.id) ? work.id : undefined
+  const studyAid = useStudyAid(aidWorkId, unitId)
+  const chapterWork = work && work.origin !== 'personal' ? work : null
+  const chapter = useMemo(
+    () => (chapterWork && unitId ? chapterFor(chapterWork, unitId) : null),
+    [chapterWork, unitId],
+  )
+  const ai = useAi()
 
   const unit = corpus.data && unitId ? getUnit(corpus.data, unitId) : null
   const around = useMemo(
@@ -491,6 +531,12 @@ export default function ReaderPage() {
   const readMinutes = estimateReadTime([...unit.body.en, ...unit.body.hi].join(' '))
   const isBookmarked = (bookmarked ?? new Set<string>()).has(unit.id)
   const cardCount = work.practiseCounts[unit.id] ?? 0
+  // Approved Trainer cards citing anything in this chapter, from the work file
+  // itself — never from `data/rules/cards`, which is 1.1 MB (ADR-038 §2).
+  const chapterCitedCards = (chapter?.unitIds ?? []).reduce(
+    (total, id) => total + (work.practiseCounts[id] ?? 0),
+    0,
+  )
   const amendments = work.amendments[unit.id] ?? []
   const versionKey = versionKeyFor(work)
   const markedRead = Boolean(progress?.markedReadAt)
@@ -841,9 +887,45 @@ export default function ReaderPage() {
             page entirely, and gone in focus mode. */}
         {prefs.focus ? null : (
           <div data-print-hide className="h-fit lg:sticky lg:top-40">
-            {corpus.data ? (
-              <RelatedRail work={work} corpus={corpus.data} unit={unit} cardCount={cardCount} />
-            ) : null}
+            {/*
+                The rail's order is the session brief's, and it is the ordering
+                the whole module is built on: the precomputed aid first (zero
+                cost, no key, works offline on every device), then the reader's
+                own explanation, then a quiz over cards that already exist, and
+                only then anything that reaches a model. Everything above Ask
+                is complete without it — see `src/modules/library/ai-seam.ts`.
+            */}
+            <div className="flex flex-col gap-4">
+              {studyAid ? <StudyAidCard aid={studyAid} corpus={corpus.data} workId={work.id} /> : null}
+
+              <FeynmanBox workId={work.id} unit={unit} chapter={chapter} />
+
+              <TestMeCard chapter={chapter} cited={chapterCitedCards} />
+
+              {/*
+                The confidence rating sits HERE rather than on a screen of its
+                own, because a reader can only judge whether they could use a
+                chapter while they are in it. The due list on both hubs links
+                to the chapter's first unit for the same reason.
+              */}
+              {chapter ? <ChapterRevisionCard chapter={chapter} /> : null}
+
+              {studyAiAvailable(ai.enabled) ? (
+                <Suspense fallback={null}>
+                  <StudyAskPanel
+                    ai={ai}
+                    workId={work.id}
+                    unitId={unit.id}
+                    nodeId={chapter?.nodeId ?? null}
+                    onOpenCitation={(href) => void navigate(href)}
+                  />
+                </Suspense>
+              ) : null}
+
+              {corpus.data ? (
+                <RelatedRail work={work} corpus={corpus.data} unit={unit} cardCount={cardCount} />
+              ) : null}
+            </div>
           </div>
         )}
       </div>

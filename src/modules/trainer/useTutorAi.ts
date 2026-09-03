@@ -18,14 +18,27 @@ export type TutorAiState =
   | { kind: 'idle' }
   | { kind: 'running'; steps: TutorStep[] }
   | { kind: 'explain'; text: string; usage: TokenUsage; cost: number }
-  | { kind: 'scenario'; text: string; cardId: string; reviewQueueUrl: string; usage: TokenUsage; cost: number }
+  | {
+      kind: 'scenario'
+      text: string
+      cardId: string
+      reviewQueueUrl: string
+      usage: TokenUsage
+      cost: number
+    }
   | { kind: 'focusPlan'; text: string; usage: TokenUsage; cost: number }
   | { kind: 'error'; message: string }
 
 export interface UseTutorAi {
   state: TutorAiState
   busy: boolean
-  explain: (params: { act: string; rule: string; qId: string; pickedAnswer: string; correctAnswer: string }) => void
+  explain: (params: {
+    act: string
+    rule: string
+    qId: string
+    pickedAnswer: string
+    correctAnswer: string
+  }) => void
   scenario: (params: { act: string; rule: string }) => void
   focusPlan: (params?: { act?: string }) => void
   cancel: () => void
@@ -57,31 +70,34 @@ export function useTutorAi(params: UseTutorAiParams): UseTutorAi {
     [],
   )
 
-  const start = useCallback((run: (signal: AbortSignal, onProgress: (step: TutorStep) => void) => Promise<void>) => {
-    abort.current?.abort()
-    const controller = new AbortController()
-    abort.current = controller
-    const steps: TutorStep[] = []
-    setBusy(true)
-    setState({ kind: 'running', steps })
+  const start = useCallback(
+    (run: (signal: AbortSignal, onProgress: (step: TutorStep) => void) => Promise<void>) => {
+      abort.current?.abort()
+      const controller = new AbortController()
+      abort.current = controller
+      const steps: TutorStep[] = []
+      setBusy(true)
+      setState({ kind: 'running', steps })
 
-    void run(controller.signal, (step) => {
-      if (controller.signal.aborted) return
-      steps.push(step)
-      setState({ kind: 'running', steps: [...steps] })
-    })
-      .catch((error: unknown) => {
+      void run(controller.signal, (step) => {
         if (controller.signal.aborted) return
-        setState({ kind: 'error', message: error instanceof Error ? error.message : String(error) })
+        steps.push(step)
+        setState({ kind: 'running', steps: [...steps] })
       })
-      .finally(() => {
-        if (abort.current === controller) {
-          abort.current = null
-          setBusy(false)
-        }
-        latest.current.onSpent?.()
-      })
-  }, [])
+        .catch((error: unknown) => {
+          if (controller.signal.aborted) return
+          setState({ kind: 'error', message: error instanceof Error ? error.message : String(error) })
+        })
+        .finally(() => {
+          if (abort.current === controller) {
+            abort.current = null
+            setBusy(false)
+          }
+          latest.current.onSpent?.()
+        })
+    },
+    [],
+  )
 
   const load = async () => {
     const [agent, registry, builtins] = await Promise.all([

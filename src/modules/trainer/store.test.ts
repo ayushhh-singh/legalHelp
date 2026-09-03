@@ -50,9 +50,17 @@ describe('reports', () => {
 
   it('exports to a CSV a reader could hand to an auditor', () => {
     const csv = reportsToCsv([
-      { id: 'q1#1', qId: 'q1', reason: 'wrong-answer', note: 'Says "B"', createdAt: '2026-08-28T00:00:00.000Z' },
+      {
+        id: 'q1#1',
+        qId: 'q1',
+        reason: 'wrong-answer',
+        note: 'Says "B"',
+        createdAt: '2026-08-28T00:00:00.000Z',
+      },
     ])
-    expect(csv).toBe('id,qId,reason,note,createdAt\n"q1#1","q1","wrong-answer","Says ""B""","2026-08-28T00:00:00.000Z"')
+    expect(csv).toBe(
+      'id,qId,reason,note,createdAt\n"q1#1","q1","wrong-answer","Says ""B""","2026-08-28T00:00:00.000Z"',
+    )
   })
 })
 

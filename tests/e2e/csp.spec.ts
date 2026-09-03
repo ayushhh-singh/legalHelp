@@ -183,6 +183,15 @@ test.describe('under the production Content-Security-Policy', () => {
       'https://*.huggingface.co',
       'https://*.hf.co',
       'https://raw.githubusercontent.com',
+      // Tier 3 (ADR-040 §5): the three free providers the consent notice
+      // itself names, plus loopback for a local Ollama. Any OTHER base URL a
+      // reader types is refused on the hosted site — `docs/DATA-GAPS.md` #75
+      // records that limit and why `connect-src https:` was rejected instead.
+      'https://generativelanguage.googleapis.com',
+      'https://api.groq.com',
+      'https://openrouter.ai',
+      'http://localhost:*',
+      'http://127.0.0.1:*',
     ])
 
     expect(HEADERS['Strict-Transport-Security']).toMatch(/max-age=\d{7,}/)

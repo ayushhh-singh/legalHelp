@@ -167,9 +167,7 @@ export interface UpsPayoutResult {
 export function upsAssuredPayout(avgLast12MonthsBasic: number, qualifyingYears: number): UpsPayoutResult {
   if (qualifyingYears < 10) return { eligible: false, amount: 0, flooredByMinimum: false }
   const raw =
-    qualifyingYears >= 25
-      ? 0.5 * avgLast12MonthsBasic
-      : 0.5 * avgLast12MonthsBasic * (qualifyingYears / 25)
+    qualifyingYears >= 25 ? 0.5 * avgLast12MonthsBasic : 0.5 * avgLast12MonthsBasic * (qualifyingYears / 25)
   const amount = Math.max(raw, 10_000)
   return { eligible: true, amount: Math.round(amount), flooredByMinimum: amount > raw }
 }

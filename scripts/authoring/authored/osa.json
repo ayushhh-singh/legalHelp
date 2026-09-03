@@ -23,10 +23,16 @@
       },
       "ruleRef": {
         "textId": "osa-1",
-        "citation": { "en": "Section 1, Official Secrets Act, 1923", "hi": "धारा 1, शासकीय गुप्त बात अधिनियम, 1923" }
+        "citation": {
+          "en": "Section 1, Official Secrets Act, 1923",
+          "hi": "धारा 1, शासकीय गुप्त बात अधिनियम, 1923"
+        }
       },
       "difficulty": "easy",
-      "stageA": { "index": 1, "angle": "Section 1(2) — extraterritorial reach to Government servants and citizens" },
+      "stageA": {
+        "index": 1,
+        "angle": "Section 1(2) — extraterritorial reach to Government servants and citizens"
+      },
       "groundingRuleIds": ["osa-1"]
     },
     {
@@ -46,12 +52,18 @@
           "en": "Any work of defence, arsenal, or naval, military or air force establishment, or a place used for building, repairing, making or storing munitions of war",
           "hi": "कोई रक्षा-कार्य, शस्त्रागार, अथवा नौसेना, सेना या वायुसेना की स्थापना, अथवा युद्ध-सामग्री के निर्माण, मरम्मत, बनाने या भंडारण के लिए प्रयुक्त कोई स्थान"
         },
-        { "en": "Any private residence, regardless of its use", "hi": "कोई भी निजी आवास, चाहे उसका उपयोग कुछ भी हो" },
+        {
+          "en": "Any private residence, regardless of its use",
+          "hi": "कोई भी निजी आवास, चाहे उसका उपयोग कुछ भी हो"
+        },
         {
           "en": "Any place open to the public without restriction",
           "hi": "कोई भी ऐसा स्थान जो बिना किसी निर्बंधन के जनता के लिए खुला हो"
         },
-        { "en": "Any commercial office not connected with Government", "hi": "सरकार से असंबद्ध कोई भी वाणिज्यिक कार्यालय" }
+        {
+          "en": "Any commercial office not connected with Government",
+          "hi": "सरकार से असंबद्ध कोई भी वाणिज्यिक कार्यालय"
+        }
       ],
       "answerIndex": 0,
       "explanation": {
@@ -60,7 +72,10 @@
       },
       "ruleRef": {
         "textId": "osa-2",
-        "citation": { "en": "Section 2, Official Secrets Act, 1923", "hi": "धारा 2, शासकीय गुप्त बात अधिनियम, 1923" }
+        "citation": {
+          "en": "Section 2, Official Secrets Act, 1923",
+          "hi": "धारा 2, शासकीय गुप्त बात अधिनियम, 1923"
+        }
       },
       "difficulty": "medium",
       "stageA": { "index": 2, "angle": "Section 2(8)(a) — the core definition of 'prohibited place'" },
@@ -83,12 +98,18 @@
           "en": "'Document' excludes part of a document, and 'sketch' excludes photographs",
           "hi": "'दस्तावेज़' में दस्तावेज़ के भाग को अपवर्जित किया गया है, तथा 'रेखाचित्र' में फोटोग्राफ अपवर्जित है"
         },
-        { "en": "'Model' excludes design, pattern and specimen", "hi": "'प्रतिरूप' में अभिकल्प, प्रतिमान और नमूना अपवर्जित है" },
+        {
+          "en": "'Model' excludes design, pattern and specimen",
+          "hi": "'प्रतिरूप' में अभिकल्प, प्रतिमान और नमूना अपवर्जित है"
+        },
         {
           "en": "'Document' includes part of a document, and 'sketch' includes any photograph or other mode of representing any place or thing",
           "hi": "'दस्तावेज़' में किसी दस्तावेज़ का भाग सम्मिलित है, तथा 'रेखाचित्र' में किसी स्थान या वस्तु को निरूपित करने की कोई फोटोग्राफ या अन्य रीति सम्मिलित है"
         },
-        { "en": "'Photograph' excludes an undeveloped film or plate", "hi": "'फोटोग्राफ' में अविकसित फिल्म या प्लेट अपवर्जित है" }
+        {
+          "en": "'Photograph' excludes an undeveloped film or plate",
+          "hi": "'फोटोग्राफ' में अविकसित फिल्म या प्लेट अपवर्जित है"
+        }
       ],
       "answerIndex": 2,
       "explanation": {
@@ -97,7 +118,10 @@
       },
       "ruleRef": {
         "textId": "osa-2",
-        "citation": { "en": "Section 2, Official Secrets Act, 1923", "hi": "धारा 2, शासकीय गुप्त बात अधिनियम, 1923" }
+        "citation": {
+          "en": "Section 2, Official Secrets Act, 1923",
+          "hi": "धारा 2, शासकीय गुप्त बात अधिनियम, 1923"
+        }
       },
       "difficulty": "easy",
       "stageA": { "index": 3, "angle": "Sections 2(3)/2(9) — 'document' and 'sketch' defined inclusively" },
@@ -125,7 +149,10 @@
       },
       "ruleRef": {
         "textId": "osa-3",
-        "citation": { "en": "Section 3, Official Secrets Act, 1923", "hi": "धारा 3, शासकीय गुप्त बात अधिनियम, 1923" }
+        "citation": {
+          "en": "Section 3, Official Secrets Act, 1923",
+          "hi": "धारा 3, शासकीय गुप्त बात अधिनियम, 1923"
+        }
       },
       "difficulty": "medium",
       "stageA": { "index": 4, "angle": "Section 3(1) — the fourteen-year and three-year bands" },
@@ -168,10 +195,16 @@
       },
       "ruleRef": {
         "textId": "osa-3",
-        "citation": { "en": "Section 3, Official Secrets Act, 1923", "hi": "धारा 3, शासकीय गुप्त बात अधिनियम, 1923" }
+        "citation": {
+          "en": "Section 3, Official Secrets Act, 1923",
+          "hi": "धारा 3, शासकीय गुप्त बात अधिनियम, 1923"
+        }
       },
       "difficulty": "hard",
-      "stageA": { "index": 5, "angle": "Section 3(1)(a) — mere approach/vicinity to a prohibited place suffices" },
+      "stageA": {
+        "index": 5,
+        "angle": "Section 3(1)(a) — mere approach/vicinity to a prohibited place suffices"
+      },
       "groundingRuleIds": ["osa-3", "osa-2"]
     },
     {
@@ -211,7 +244,10 @@
       },
       "ruleRef": {
         "textId": "osa-3",
-        "citation": { "en": "Section 3, Official Secrets Act, 1923", "hi": "धारा 3, शासकीय गुप्त बात अधिनियम, 1923" }
+        "citation": {
+          "en": "Section 3, Official Secrets Act, 1923",
+          "hi": "धारा 3, शासकीय गुप्त बात अधिनियम, 1923"
+        }
       },
       "difficulty": "hard",
       "stageA": { "index": 6, "angle": "Section 3(2) — the reversed/relaxed burden and the presumption" },
@@ -251,10 +287,16 @@
       },
       "ruleRef": {
         "textId": "osa-4",
-        "citation": { "en": "Section 4, Official Secrets Act, 1923", "hi": "धारा 4, शासकीय गुप्त बात अधिनियम, 1923" }
+        "citation": {
+          "en": "Section 4, Official Secrets Act, 1923",
+          "hi": "धारा 4, शासकीय गुप्त बात अधिनियम, 1923"
+        }
       },
       "difficulty": "medium",
-      "stageA": { "index": 7, "angle": "Section 4(2)(a) — the two grounds for presuming contact with a foreign agent" },
+      "stageA": {
+        "index": 7,
+        "angle": "Section 4(2)(a) — the two grounds for presuming contact with a foreign agent"
+      },
       "groundingRuleIds": ["osa-4"]
     },
     {
@@ -275,8 +317,14 @@
           "en": "A person to whom he is authorised to communicate it, a Court of Justice, or a person to whom it is his duty, in the interests of the State, to communicate it",
           "hi": "उस व्यक्ति को जिसे संसूचित करने के लिए वह प्राधिकृत है, किसी न्यायालय को, अथवा उस व्यक्ति को जिसे राज्य के हित में संसूचित करना उसका कर्तव्य है"
         },
-        { "en": "Any officer senior to him in rank, regardless of authorisation", "hi": "उससे वरिष्ठ श्रेणी का कोई भी अधिकारी, प्राधिकार के बिना भी" },
-        { "en": "A journalist, provided the communication is off the record", "hi": "कोई पत्रकार, बशर्ते संसूचना अनौपचारिक हो" }
+        {
+          "en": "Any officer senior to him in rank, regardless of authorisation",
+          "hi": "उससे वरिष्ठ श्रेणी का कोई भी अधिकारी, प्राधिकार के बिना भी"
+        },
+        {
+          "en": "A journalist, provided the communication is off the record",
+          "hi": "कोई पत्रकार, बशर्ते संसूचना अनौपचारिक हो"
+        }
       ],
       "answerIndex": 1,
       "explanation": {
@@ -285,7 +333,10 @@
       },
       "ruleRef": {
         "textId": "osa-5",
-        "citation": { "en": "Section 5, Official Secrets Act, 1923", "hi": "धारा 5, शासकीय गुप्त बात अधिनियम, 1923" }
+        "citation": {
+          "en": "Section 5, Official Secrets Act, 1923",
+          "hi": "धारा 5, शासकीय गुप्त बात अधिनियम, 1923"
+        }
       },
       "difficulty": "medium",
       "stageA": { "index": 8, "angle": "Section 5(1)(a) — the three exceptions to the communication bar" },
@@ -328,10 +379,16 @@
       },
       "ruleRef": {
         "textId": "osa-5",
-        "citation": { "en": "Section 5, Official Secrets Act, 1923", "hi": "धारा 5, शासकीय गुप्त बात अधिनियम, 1923" }
+        "citation": {
+          "en": "Section 5, Official Secrets Act, 1923",
+          "hi": "धारा 5, शासकीय गुप्त बात अधिनियम, 1923"
+        }
       },
       "difficulty": "hard",
-      "stageA": { "index": 9, "angle": "Section 5(1)(c) — wrongful retention, and the Act's reach beyond Government servants" },
+      "stageA": {
+        "index": 9,
+        "angle": "Section 5(1)(c) — wrongful retention, and the Act's reach beyond Government servants"
+      },
       "groundingRuleIds": ["osa-5"]
     },
     {
@@ -354,7 +411,10 @@
       },
       "ruleRef": {
         "textId": "osa-5",
-        "citation": { "en": "Section 5, Official Secrets Act, 1923", "hi": "धारा 5, शासकीय गुप्त बात अधिनियम, 1923" }
+        "citation": {
+          "en": "Section 5, Official Secrets Act, 1923",
+          "hi": "धारा 5, शासकीय गुप्त बात अधिनियम, 1923"
+        }
       },
       "difficulty": "medium",
       "stageA": { "index": 10, "angle": "Section 5(4) — the aggravated punishment band" },
@@ -391,10 +451,16 @@
       },
       "ruleRef": {
         "textId": "osa-6",
-        "citation": { "en": "Section 6, Official Secrets Act, 1923", "hi": "धारा 6, शासकीय गुप्त बात अधिनियम, 1923" }
+        "citation": {
+          "en": "Section 6, Official Secrets Act, 1923",
+          "hi": "धारा 6, शासकीय गुप्त बात अधिनियम, 1923"
+        }
       },
       "difficulty": "medium",
-      "stageA": { "index": 11, "angle": "Section 6(1) — the qualifying prejudicial purpose governing clause (a)" },
+      "stageA": {
+        "index": 11,
+        "angle": "Section 6(1) — the qualifying prejudicial purpose governing clause (a)"
+      },
       "groundingRuleIds": ["osa-6"]
     },
     {
@@ -434,10 +500,16 @@
       },
       "ruleRef": {
         "textId": "osa-6",
-        "citation": { "en": "Section 6, Official Secrets Act, 1923", "hi": "धारा 6, शासकीय गुप्त बात अधिनियम, 1923" }
+        "citation": {
+          "en": "Section 6, Official Secrets Act, 1923",
+          "hi": "धारा 6, शासकीय गुप्त बात अधिनियम, 1923"
+        }
       },
       "difficulty": "hard",
-      "stageA": { "index": 12, "angle": "Section 6(1)(c)/(3) — forged documents distinguished from spying under Section 3" },
+      "stageA": {
+        "index": 12,
+        "angle": "Section 6(1)(c)/(3) — forged documents distinguished from spying under Section 3"
+      },
       "groundingRuleIds": ["osa-6", "osa-3"]
     },
     {
@@ -453,13 +525,19 @@
         "hi": "कोई पुलिस अधिकारी, अथवा संघ के सशस्त्र बलों का ऐसा सदस्य, जो उस प्रतिषिद्ध स्थान के संबंध में रक्षक, संतरी, गश्त या अन्य समरूप कर्तव्य पर नियुक्त हो।"
       },
       "options": [
-        { "en": "Any member of the public present near the prohibited place", "hi": "प्रतिषिद्ध स्थान के निकट उपस्थित जनता का कोई भी सदस्य" },
+        {
+          "en": "Any member of the public present near the prohibited place",
+          "hi": "प्रतिषिद्ध स्थान के निकट उपस्थित जनता का कोई भी सदस्य"
+        },
         {
           "en": "A police officer, or a member of the Armed Forces of the Union, engaged on guard, sentry, patrol or similar duty in relation to that place",
           "hi": "कोई पुलिस अधिकारी, अथवा संघ के सशस्त्र बलों का ऐसा सदस्य, जो उस स्थान के संबंध में रक्षक, संतरी, गश्त या समरूप कर्तव्य पर नियुक्त हो"
         },
         { "en": "Only a Superintendent of Police personally", "hi": "केवल स्वयं पुलिस अधीक्षक" },
-        { "en": "Employees of the establishment who are off duty", "hi": "स्थापना के वे कर्मचारी जो कर्तव्य पर नहीं हैं" }
+        {
+          "en": "Employees of the establishment who are off duty",
+          "hi": "स्थापना के वे कर्मचारी जो कर्तव्य पर नहीं हैं"
+        }
       ],
       "answerIndex": 1,
       "explanation": {
@@ -468,7 +546,10 @@
       },
       "ruleRef": {
         "textId": "osa-7",
-        "citation": { "en": "Section 7, Official Secrets Act, 1923", "hi": "धारा 7, शासकीय गुप्त बात अधिनियम, 1923" }
+        "citation": {
+          "en": "Section 7, Official Secrets Act, 1923",
+          "hi": "धारा 7, शासकीय गुप्त बात अधिनियम, 1923"
+        }
       },
       "difficulty": "medium",
       "stageA": { "index": 13, "angle": "Section 7(1) — who is protected: on-duty police and armed forces" },
@@ -494,7 +575,10 @@
       },
       "ruleRef": {
         "textId": "osa-7",
-        "citation": { "en": "Section 7, Official Secrets Act, 1923", "hi": "धारा 7, शासकीय गुप्त बात अधिनियम, 1923" }
+        "citation": {
+          "en": "Section 7, Official Secrets Act, 1923",
+          "hi": "धारा 7, शासकीय गुप्त बात अधिनियम, 1923"
+        }
       },
       "difficulty": "easy",
       "stageA": { "index": 14, "angle": "Section 7(2) — the punishment band" },
@@ -518,8 +602,14 @@
           "hi": "किसी पुलिस अधीक्षक को, किसी सशक्त निरीक्षक-श्रेणी के पुलिस अधिकारी को, अथवा रक्षक/संतरी/गश्त कर्तव्य पर नियुक्त संघ के सशस्त्र बलों के सदस्य को"
         },
         { "en": "Only the Central Information Commission", "hi": "केवल केंद्रीय सूचना आयोग" },
-        { "en": "Any Member of Parliament representing the area", "hi": "उस क्षेत्र का प्रतिनिधित्व करने वाला कोई भी संसद सदस्य" },
-        { "en": "The editor of a newspaper of the person's choice", "hi": "व्यक्ति की पसंद के किसी समाचारपत्र का संपादक" }
+        {
+          "en": "Any Member of Parliament representing the area",
+          "hi": "उस क्षेत्र का प्रतिनिधित्व करने वाला कोई भी संसद सदस्य"
+        },
+        {
+          "en": "The editor of a newspaper of the person's choice",
+          "hi": "व्यक्ति की पसंद के किसी समाचारपत्र का संपादक"
+        }
       ],
       "answerIndex": 0,
       "explanation": {
@@ -528,7 +618,10 @@
       },
       "ruleRef": {
         "textId": "osa-8",
-        "citation": { "en": "Section 8, Official Secrets Act, 1923", "hi": "धारा 8, शासकीय गुप्त बात अधिनियम, 1923" }
+        "citation": {
+          "en": "Section 8, Official Secrets Act, 1923",
+          "hi": "धारा 8, शासकीय गुप्त बात अधिनियम, 1923"
+        }
       },
       "difficulty": "medium",
       "stageA": { "index": 15, "angle": "Section 8(1) — the named recipients of the duty to inform" },
@@ -554,7 +647,10 @@
       },
       "ruleRef": {
         "textId": "osa-9",
-        "citation": { "en": "Section 9, Official Secrets Act, 1923", "hi": "धारा 9, शासकीय गुप्त बात अधिनियम, 1923" }
+        "citation": {
+          "en": "Section 9, Official Secrets Act, 1923",
+          "hi": "धारा 9, शासकीय गुप्त बात अधिनियम, 1923"
+        }
       },
       "difficulty": "easy",
       "stageA": { "index": 16, "angle": "Section 9 — attempt and abetment carry the same punishment" },
@@ -575,7 +671,10 @@
       "options": [
         { "en": "Section 8 only", "hi": "केवल धारा 8" },
         { "en": "Any provision of the Indian Penal Code", "hi": "भारतीय दंड संहिता का कोई भी उपबंध" },
-        { "en": "Section 3, or Section 3 read with Section 9", "hi": "धारा 3, अथवा धारा 9 के साथ पठित धारा 3" },
+        {
+          "en": "Section 3, or Section 3 read with Section 9",
+          "hi": "धारा 3, अथवा धारा 9 के साथ पठित धारा 3"
+        },
         { "en": "Section 6 only", "hi": "केवल धारा 6" }
       ],
       "answerIndex": 2,
@@ -585,10 +684,16 @@
       },
       "ruleRef": {
         "textId": "osa-10",
-        "citation": { "en": "Section 10, Official Secrets Act, 1923", "hi": "धारा 10, शासकीय गुप्त बात अधिनियम, 1923" }
+        "citation": {
+          "en": "Section 10, Official Secrets Act, 1923",
+          "hi": "धारा 10, शासकीय गुप्त बात अधिनियम, 1923"
+        }
       },
       "difficulty": "medium",
-      "stageA": { "index": 17, "angle": "Section 10(1) — harbouring tied specifically to Section 3, read with Section 9" },
+      "stageA": {
+        "index": 17,
+        "angle": "Section 10(1) — harbouring tied specifically to Section 3, read with Section 9"
+      },
       "groundingRuleIds": ["osa-10", "osa-3", "osa-9"]
     },
     {
@@ -628,10 +733,16 @@
       },
       "ruleRef": {
         "textId": "osa-10",
-        "citation": { "en": "Section 10, Official Secrets Act, 1923", "hi": "धारा 10, शासकीय गुप्त बात अधिनियम, 1923" }
+        "citation": {
+          "en": "Section 10, Official Secrets Act, 1923",
+          "hi": "धारा 10, शासकीय गुप्त बात अधिनियम, 1923"
+        }
       },
       "difficulty": "hard",
-      "stageA": { "index": 18, "angle": "Section 10(1)-(2) — permitting a meeting AND the separate duty to inform" },
+      "stageA": {
+        "index": 18,
+        "angle": "Section 10(1)-(2) — permitting a meeting AND the separate duty to inform"
+      },
       "groundingRuleIds": ["osa-10"]
     },
     {
@@ -671,7 +782,10 @@
       },
       "ruleRef": {
         "textId": "osa-11",
-        "citation": { "en": "Section 11, Official Secrets Act, 1923", "hi": "धारा 11, शासकीय गुप्त बात अधिनियम, 1923" }
+        "citation": {
+          "en": "Section 11, Official Secrets Act, 1923",
+          "hi": "धारा 11, शासकीय गुप्त बात अधिनियम, 1923"
+        }
       },
       "difficulty": "medium",
       "stageA": { "index": 19, "angle": "Section 11(1) — which Magistrate, and minimum executing rank" },
@@ -714,7 +828,10 @@
       },
       "ruleRef": {
         "textId": "osa-11",
-        "citation": { "en": "Section 11, Official Secrets Act, 1923", "hi": "धारा 11, शासकीय गुप्त बात अधिनियम, 1923" }
+        "citation": {
+          "en": "Section 11, Official Secrets Act, 1923",
+          "hi": "धारा 11, शासकीय गुप्त बात अधिनियम, 1923"
+        }
       },
       "difficulty": "hard",
       "stageA": { "index": 20, "angle": "Section 11(2)-(3) — the emergency route and the mandatory report" },
@@ -737,7 +854,10 @@
           "en": "Any court inferior to a District or Presidency Magistrate's court, unless it is a first-class Magistrate specially empowered by the appropriate Government",
           "hi": "जिला या प्रेसीडेंसी मजिस्ट्रेट के न्यायालय से निम्नतर कोई भी न्यायालय, सिवाय समुचित सरकार द्वारा विशेष रूप से सशक्त प्रथम श्रेणी के मजिस्ट्रेट के"
         },
-        { "en": "Only courts located outside the National Capital Territory", "hi": "केवल राष्ट्रीय राजधानी क्षेत्र से बाहर स्थित न्यायालय" },
+        {
+          "en": "Only courts located outside the National Capital Territory",
+          "hi": "केवल राष्ट्रीय राजधानी क्षेत्र से बाहर स्थित न्यायालय"
+        },
         {
           "en": "No court is barred; any Magistrate may try any offence under the Act",
           "hi": "कोई भी न्यायालय वर्जित नहीं है; कोई भी मजिस्ट्रेट इस अधिनियम के अधीन किसी भी अपराध का विचारण कर सकता है"
@@ -751,7 +871,10 @@
       },
       "ruleRef": {
         "textId": "osa-13",
-        "citation": { "en": "Section 13, Official Secrets Act, 1923", "hi": "धारा 13, शासकीय गुप्त बात अधिनियम, 1923" }
+        "citation": {
+          "en": "Section 13, Official Secrets Act, 1923",
+          "hi": "धारा 13, शासकीय गुप्त बात अधिनियम, 1923"
+        }
       },
       "difficulty": "medium",
       "stageA": { "index": 21, "angle": "Section 13(1) — the floor on which courts may try the offence" },
@@ -774,7 +897,10 @@
           "en": "By order of, or under authority from, the appropriate Government, or an officer it has empowered in this behalf",
           "hi": "समुचित सरकार के आदेश से, अथवा उसके प्राधिकार के अधीन, अथवा उसके द्वारा इस निमित्त सशक्त किसी अधिकारी द्वारा"
         },
-        { "en": "By any citizen, on a plain written application", "hi": "किसी भी नागरिक द्वारा, साधारण लिखित आवेदन पर" },
+        {
+          "en": "By any citizen, on a plain written application",
+          "hi": "किसी भी नागरिक द्वारा, साधारण लिखित आवेदन पर"
+        },
         {
           "en": "By the complainant's employer alone, without Government involvement",
           "hi": "केवल परिवादी के नियोक्ता द्वारा, सरकार की संलिप्तता के बिना"
@@ -791,10 +917,16 @@
       },
       "ruleRef": {
         "textId": "osa-13",
-        "citation": { "en": "Section 13, Official Secrets Act, 1923", "hi": "धारा 13, शासकीय गुप्त बात अधिनियम, 1923" }
+        "citation": {
+          "en": "Section 13, Official Secrets Act, 1923",
+          "hi": "धारा 13, शासकीय गुप्त बात अधिनियम, 1923"
+        }
       },
       "difficulty": "hard",
-      "stageA": { "index": 22, "angle": "Section 13(3) — the sanction gate on cognizance, and the 13(5) split" },
+      "stageA": {
+        "index": 22,
+        "angle": "Section 13(3) — the sanction gate on cognizance, and the 13(5) split"
+      },
       "groundingRuleIds": ["osa-13"]
     },
     {
@@ -834,10 +966,16 @@
       },
       "ruleRef": {
         "textId": "osa-14",
-        "citation": { "en": "Section 14, Official Secrets Act, 1923", "hi": "धारा 14, शासकीय गुप्त बात अधिनियम, 1923" }
+        "citation": {
+          "en": "Section 14, Official Secrets Act, 1923",
+          "hi": "धारा 14, शासकीय गुप्त बात अधिनियम, 1923"
+        }
       },
       "difficulty": "medium",
-      "stageA": { "index": 23, "angle": "Section 14 — the ground for excluding the public, and the public-sentencing proviso" },
+      "stageA": {
+        "index": 23,
+        "angle": "Section 14 — the ground for excluding the public, and the public-sentencing proviso"
+      },
       "groundingRuleIds": ["osa-14"]
     },
     {
@@ -853,9 +991,15 @@
         "hi": "जो व्यक्ति अपराध किए जाने के समय कंपनी के कारबार के संचालन का भारसाधक था और उसके लिए उत्तरदायी था, वह कंपनी के साथ दोषी उपधारित किया जाता है; उसे यह सिद्ध करने पर प्रतिरक्षा प्राप्त है कि अपराध उसकी जानकारी के बिना किया गया, अथवा उसने उसे रोकने के लिए सम्यक तत्परता बरती।"
       },
       "options": [
-        { "en": "Every shareholder of the company, with no defence available", "hi": "कंपनी का प्रत्येक अंशधारी, बिना किसी प्रतिरक्षा के" },
+        {
+          "en": "Every shareholder of the company, with no defence available",
+          "hi": "कंपनी का प्रत्येक अंशधारी, बिना किसी प्रतिरक्षा के"
+        },
         { "en": "Only the company's auditor", "hi": "केवल कंपनी का लेखा-परीक्षक" },
-        { "en": "No individual — only the company itself can be prosecuted", "hi": "कोई व्यक्ति नहीं — केवल कंपनी पर ही अभियोजन चलाया जा सकता है" },
+        {
+          "en": "No individual — only the company itself can be prosecuted",
+          "hi": "कोई व्यक्ति नहीं — केवल कंपनी पर ही अभियोजन चलाया जा सकता है"
+        },
         {
           "en": "Every person in charge of, and responsible to the company for, the conduct of its business at the time — with a defence of lack of knowledge or due diligence",
           "hi": "अपराध के समय कंपनी के कारबार के संचालन का भारसाधक और उसके लिए उत्तरदायी प्रत्येक व्यक्ति — जिसे जानकारी न होने या सम्यक तत्परता की प्रतिरक्षा उपलब्ध है"
@@ -900,7 +1044,10 @@
       },
       "ruleRef": {
         "textId": "osa-16",
-        "citation": { "en": "Section 16, Official Secrets Act, 1923", "hi": "धारा 16, शासकीय गुप्त बात अधिनियम, 1923" }
+        "citation": {
+          "en": "Section 16, Official Secrets Act, 1923",
+          "hi": "धारा 16, शासकीय गुप्त बात अधिनियम, 1923"
+        }
       },
       "difficulty": "easy",
       "stageA": { "index": 25, "angle": "Section 16 — repealed by the Repealing Act, 1927" },

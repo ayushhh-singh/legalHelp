@@ -8,7 +8,8 @@ import { DEFAULT_REMINDER_SETTING, localDay, shouldRemind } from './reminder'
  * local-time `Date` constructor rather than a UTC ISO string — the same
  * function read the same way regardless of which time zone runs the suite.
  */
-const local = (y: number, m: number, d: number, hour = 0, minute = 0): Date => new Date(y, m - 1, d, hour, minute)
+const local = (y: number, m: number, d: number, hour = 0, minute = 0): Date =>
+  new Date(y, m - 1, d, hour, minute)
 
 describe('localDay', () => {
   it('reads the device-local calendar day', () => {

@@ -111,3 +111,30 @@ export function unitIdFromPath(pathname: string, workId: string): string | null 
     return null
   }
 }
+
+/* ------------------------------------------------------------------ *
+ * The study layer's own routes (Session 28)
+ * ------------------------------------------------------------------ */
+
+/**
+ * `/library/:workId/quiz/:nodeId` and `/library/:workId/sheet/:nodeId`.
+ *
+ * The NODE is in the path rather than in a query string, for the reason
+ * `toUnitHref` puts a unit there: a chapter quiz and a revision sheet are each
+ * a document in their own right — a thing an officer bookmarks, prints and
+ * comes back to — and not a view state over a page they were already on.
+ *
+ * `quiz` and `sheet` are static segments and cannot be mistaken for a unit id:
+ * `LibraryPage`'s routes place `:workId/:unitId` after both, and no unit id in
+ * any of the fifteen corpora is either word.
+ */
+export const toChapterQuizHref = (workId: string, nodeId: string): string =>
+  `/library/${encodeURIComponent(workId)}/quiz/${encodeURIComponent(nodeId)}`
+
+export const toRevisionSheetHref = (workId: string, nodeId: string, mode?: 'twentyFourHour'): string =>
+  `/library/${encodeURIComponent(workId)}/sheet/${encodeURIComponent(nodeId)}${
+    mode === 'twentyFourHour' ? '?mode=24h' : ''
+  }`
+
+/** `/library/study` — the weekly review, the goals and the coverage map. */
+export const toStudyHref = (): string => '/library/study'

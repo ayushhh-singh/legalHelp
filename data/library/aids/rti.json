@@ -1,0 +1,1750 @@
+{
+  "$schema": "../../../schemas/library-aids.schema.json",
+  "version": "1.0.0",
+  "generatedAt": "2026-09-03",
+  "workId": "rti",
+  "unitLabel": {
+    "en": "Section",
+    "hi": "धारा"
+  },
+  "disclaimer": {
+    "en": "A study aid is Sahayak’s own explanation, not the text of the rule. Reference only; verify with the official gazette/order or your DDO.",
+    "hi": "अध्ययन सहायिका सहायक की अपनी व्याख्या है, नियम का पाठ नहीं। केवल संदर्भ हेतु; आधिकारिक राजपत्र/आदेश अथवा अपने डीडीओ से सत्यापित करें।"
+  },
+  "source": {
+    "name": "Department of Personnel and Training — Right to Information Act, 2005 — updated as on 18 November 2025",
+    "url": "https://dopt.gov.in/sites/default/files/RTI%20Act%202005%20%28updated%20as%20on%2018-11-2025%29.pdf"
+  },
+  "aids": [
+    {
+      "id": "aid-rti-1",
+      "workId": "rti",
+      "unitId": "rti-1",
+      "explanation": {
+        "en": "Section 1 gives the Act its name, extends it to the whole of India, and splits its commencement in two. Section 4(1), sections 5(1) and 5(2), and sections 12, 13, 15, 16, 24, 27 and 28 came into force AT ONCE; everything else came into force on the one hundred and twentieth day after enactment. The split is why a public authority had to designate its Public Information Officers and publish its section 4 material before any citizen could file a request.",
+        "hi": "धारा 1 अधिनियम को उसका नाम देती है, उसे संपूर्ण भारत तक विस्तारित करती है, और उसके प्रारंभ को दो भागों में बाँटती है। धारा 4(1), धारा 5(1) और 5(2), तथा धाराएँ 12, 13, 15, 16, 24, 27 और 28 तत्काल प्रवृत्त हुईं; शेष सब अधिनियमन के एक सौ बीसवें दिन। यही विभाजन कारण है कि किसी नागरिक के आवेदन करने से पूर्व ही लोक प्राधिकारी को अपने लोक सूचना अधिकारी नामित करने और धारा 4 की सामग्री प्रकाशित करनी पड़ी।"
+      },
+      "example": {
+        "en": "The one-hundred-and-twenty-day gap was preparation time. Section 5 required designation within a hundred days of enactment, so the machinery existed before the right became exercisable.",
+        "hi": "एक सौ बीस दिन का अंतराल तैयारी का समय था। धारा 5 अधिनियमन के सौ दिन के भीतर नामांकन अपेक्षित करती थी, अतः अधिकार प्रयोग-योग्य होने से पूर्व तंत्र विद्यमान था।"
+      },
+      "connects": [
+        "rti-4",
+        "rti-5"
+      ],
+      "misconception": {
+        "en": "\"The whole Act started on one day.\" Nine provisions started at once and the rest a hundred and twenty days later, which is what the reference to section 4(1) and section 5(1)-(2) in sub-section (3) is doing.",
+        "hi": "\"पूरा अधिनियम एक ही दिन आरंभ हुआ।\" नौ उपबंध तत्काल आरंभ हुए और शेष एक सौ बीस दिन बाद, और उप-धारा (3) में धारा 4(1) तथा धारा 5(1)-(2) का निर्देश यही कर रहा है।"
+      },
+      "reviewed": true,
+      "reviewState": "approved",
+      "generationMeta": {
+        "promptVersion": "study-aid-v1",
+        "batchId": "library-aids-2026-09-03-rti",
+        "stageA": {
+          "index": 1,
+          "angle": "the two commencement dates inside one Act"
+        },
+        "critic": {
+          "verdict": "approve",
+          "reason": "The staged commencement is the only substantive thing in section 1 and it explains the design of sections 4 and 5."
+        },
+        "verify": {
+          "grounded": true,
+          "note": "The list of provisions in sub-section (3) and the one-hundred-and-twentieth-day formula are verbatim; the hundred-day designation period is read from section 5(1)-(2)."
+        },
+        "dedup": {
+          "maxScore": 0,
+          "against": null,
+          "verdict": "keep"
+        },
+        "groundingUnitIds": [
+          "rti-1",
+          "rti-5"
+        ]
+      },
+      "source": {
+        "name": "Department of Personnel and Training — Right to Information Act, 2005 — updated as on 18 November 2025",
+        "url": "https://dopt.gov.in/sites/default/files/RTI%20Act%202005%20%28updated%20as%20on%2018-11-2025%29.pdf"
+      },
+      "verify": true
+    },
+    {
+      "id": "aid-rti-2",
+      "workId": "rti",
+      "unitId": "rti-2",
+      "explanation": {
+        "en": "\"Information\" is defined extremely widely — any material in any form, including records, documents, memos, e-mails, opinions, advices, press releases, circulars, orders, logbooks, contracts, reports, papers, samples, models and data in electronic form — and it reaches information about a PRIVATE body that a public authority can access under any other law. \"Public authority\" covers any authority, body or institution of self-government established by or under the Constitution, by an Act of Parliament or a State Legislature, or by notification, and includes a body owned, controlled or substantially financed by Government.",
+        "hi": "\"सूचना\" अत्यंत व्यापक रूप से परिभाषित है — किसी भी रूप में कोई भी सामग्री, जिसमें अभिलेख, दस्तावेज़, ज्ञापन, ई-मेल, राय, सलाह, प्रेस विज्ञप्तियाँ, परिपत्र, आदेश, लॉगबुक, संविदाएँ, रिपोर्ट, कागज़ात, नमूने, प्रतिरूप तथा इलेक्ट्रॉनिक रूप में डेटा सम्मिलित हैं — और यह किसी निजी निकाय की उस सूचना तक भी पहुँचती है जिस तक लोक प्राधिकारी किसी अन्य विधि के अधीन पहुँच सकता है। \"लोक प्राधिकारी\" में संविधान द्वारा या उसके अधीन, संसद या राज्य विधान-मंडल की विधि द्वारा, अथवा अधिसूचना द्वारा स्थापित कोई भी प्राधिकारी, निकाय या स्वशासन संस्था आती है, और वह निकाय भी जो सरकार द्वारा स्वामित्वाधीन, नियंत्रित अथवा सारभूत रूप से वित्तपोषित है।"
+      },
+      "example": {
+        "en": "A file noting is an \"opinion\" or an \"advice\" and is information. A private contractor’s records that the Ministry can call for under the contract are information too, because clause (f) reaches information relating to a private body accessible to a public authority under any other law.",
+        "hi": "फ़ाइल की टिप्पणी \"राय\" या \"सलाह\" है और सूचना है। किसी निजी ठेकेदार के वे अभिलेख भी सूचना हैं जिन्हें मंत्रालय संविदा के अधीन मँगा सकता है, क्योंकि खंड (च) उस निजी निकाय संबंधी सूचना तक पहुँचता है जो किसी अन्य विधि के अधीन लोक प्राधिकारी को सुलभ हो।"
+      },
+      "connects": [
+        "rti-3",
+        "rti-6",
+        "rti-8"
+      ],
+      "misconception": {
+        "en": "\"Only formal records are information.\" The definition names opinions and advices, which is what makes a file noting disclosable in principle — subject to section 8.",
+        "hi": "\"केवल औपचारिक अभिलेख ही सूचना हैं।\" परिभाषा राय और सलाह को नामित करती है, और यही फ़ाइल-टिप्पणी को सैद्धांतिक रूप से प्रकटन-योग्य बनाता है — धारा 8 के अधीन रहते हुए।"
+      },
+      "examRelevance": {
+        "en": "Clause (f)’s reach into private-body information held accessible under another law, and clause (h)’s \"substantially financed\" limb, are the two parts asked about.",
+        "hi": "खंड (च) की उस निजी-निकाय सूचना तक पहुँच जो किसी अन्य विधि के अधीन सुलभ हो, तथा खंड (ज) का \"सारभूत रूप से वित्तपोषित\" अंग — यही दो भाग पूछे जाते हैं।"
+      },
+      "reviewed": true,
+      "reviewState": "approved",
+      "generationMeta": {
+        "promptVersion": "study-aid-v1",
+        "batchId": "library-aids-2026-09-03-rti",
+        "stageA": {
+          "index": 2,
+          "angle": "the two definitions that decide whether the Act applies at all"
+        },
+        "critic": {
+          "verdict": "approve",
+          "reason": "Only the two definitions that decide applicability are given; the rest of section 2 is met in context."
+        },
+        "verify": {
+          "grounded": true,
+          "note": "Clauses (f) and (h) are quoted in substance, including the private-body limb and the \"owned, controlled or substantially financed\" words."
+        },
+        "dedup": {
+          "maxScore": 0,
+          "against": null,
+          "verdict": "keep"
+        },
+        "groundingUnitIds": [
+          "rti-2"
+        ]
+      },
+      "source": {
+        "name": "Department of Personnel and Training — Right to Information Act, 2005 — updated as on 18 November 2025",
+        "url": "https://dopt.gov.in/sites/default/files/RTI%20Act%202005%20%28updated%20as%20on%2018-11-2025%29.pdf"
+      },
+      "verify": true
+    },
+    {
+      "id": "aid-rti-3",
+      "workId": "rti",
+      "unitId": "rti-3",
+      "explanation": {
+        "en": "Section 3 is the whole right: subject to the provisions of this Act, all CITIZENS shall have the right to information. Two words carry the qualifications — \"subject to the provisions of this Act\" is what lets sections 8, 9 and 24 cut it down, and \"citizens\" is what limits who may ask.",
+        "hi": "धारा 3 ही पूरा अधिकार है: इस अधिनियम के उपबंधों के अधीन रहते हुए, सभी नागरिकों को सूचना का अधिकार होगा। दो शब्द ही सीमाएँ रखते हैं — \"इस अधिनियम के उपबंधों के अधीन रहते हुए\" वह है जो धाराओं 8, 9 और 24 को इसे घटाने देता है, और \"नागरिकों\" वह है जो सीमित करता है कि कौन माँग सकता है।"
+      },
+      "example": {
+        "en": "A company or a foreign national is not a citizen, so the right in section 3 is not theirs. An Indian citizen resident abroad is one, and nothing in section 6 requires residence.",
+        "hi": "कोई कंपनी अथवा विदेशी नागरिक नागरिक नहीं है, अतः धारा 3 का अधिकार उनका नहीं। विदेश में रहने वाला भारतीय नागरिक नागरिक है, और धारा 6 में निवास की कोई अपेक्षा नहीं।"
+      },
+      "connects": [
+        "rti-2",
+        "rti-6",
+        "rti-8"
+      ],
+      "misconception": {
+        "en": "\"Anyone can file an RTI.\" The right is a citizen’s. The Act does not confer it on a company, a firm or a non-citizen.",
+        "hi": "\"कोई भी आरटीआई दाखिल कर सकता है।\" यह अधिकार नागरिक का है। अधिनियम इसे किसी कंपनी, फर्म अथवा गैर-नागरिक को प्रदान नहीं करता।"
+      },
+      "examRelevance": {
+        "en": "Section 3 is one line and it is quoted verbatim in questions; the word to notice is \"citizens\".",
+        "hi": "धारा 3 एक पंक्ति है और प्रश्नों में शब्दशः उद्धृत होती है; ध्यान देने योग्य शब्द है \"नागरिकों\"।"
+      },
+      "reviewed": true,
+      "reviewState": "approved",
+      "generationMeta": {
+        "promptVersion": "study-aid-v1",
+        "batchId": "library-aids-2026-09-03-rti",
+        "stageA": {
+          "index": 3,
+          "angle": "one sentence, two qualifications"
+        },
+        "critic": {
+          "verdict": "approve",
+          "reason": "A one-line section whose two qualifications carry the whole of the Act’s structure."
+        },
+        "verify": {
+          "grounded": true,
+          "note": "The section is one sentence and both qualifying phrases are its own words."
+        },
+        "dedup": {
+          "maxScore": 0,
+          "against": null,
+          "verdict": "keep"
+        },
+        "groundingUnitIds": [
+          "rti-3"
+        ]
+      },
+      "source": {
+        "name": "Department of Personnel and Training — Right to Information Act, 2005 — updated as on 18 November 2025",
+        "url": "https://dopt.gov.in/sites/default/files/RTI%20Act%202005%20%28updated%20as%20on%2018-11-2025%29.pdf"
+      },
+      "verify": true
+    },
+    {
+      "id": "aid-rti-4",
+      "workId": "rti",
+      "unitId": "rti-4",
+      "explanation": {
+        "en": "Section 4 is the proactive-disclosure duty, and it is independent of any application. Every public authority must catalogue and index its records, computerise what is appropriate, and PUBLISH seventeen categories of material — its organisation and functions, the powers and duties of its officers, the decision-making procedure and channels of supervision, its norms, the rules and manuals it uses, the categories of documents it holds, its consultation arrangements, its boards and committees, a directory of officers, monthly remuneration, budget, subsidy programmes, concessions granted, information in electronic form, facilities for citizens, and the particulars of its Public Information Officers.",
+        "hi": "धारा 4 स्वप्रेरित प्रकटन का कर्तव्य है, और वह किसी आवेदन से स्वतंत्र है। प्रत्येक लोक प्राधिकारी को अपने अभिलेख सूचीबद्ध और अनुक्रमित करने होंगे, उपयुक्त अभिलेख कंप्यूटरीकृत करने होंगे, तथा सत्रह कोटियों की सामग्री प्रकाशित करनी होगी — उसका संगठन और कृत्य, अधिकारियों की शक्तियाँ और कर्तव्य, निर्णय-प्रक्रिया तथा पर्यवेक्षण की श्रृंखलाएँ, उसके मानदंड, प्रयुक्त नियम और नियमावलियाँ, धारित दस्तावेज़ों की कोटियाँ, परामर्श की व्यवस्थाएँ, उसके बोर्ड और समितियाँ, अधिकारियों की निर्देशिका, मासिक पारिश्रमिक, बजट, सहायिकी कार्यक्रम, दी गई रियायतें, इलेक्ट्रॉनिक रूप में सूचना, नागरिकों हेतु सुविधाएँ, तथा उसके लोक सूचना अधिकारियों का विवरण।"
+      },
+      "example": {
+        "en": "A Ministry that answers every RTI application promptly but has never published its section 4(1)(b) manual is still in default: the duty is to publish, not to wait to be asked.",
+        "hi": "जो मंत्रालय प्रत्येक आरटीआई आवेदन का त्वरित उत्तर देता है किंतु जिसने धारा 4(1)(ख) की नियमावली कभी प्रकाशित नहीं की, वह फिर भी चूक में है: कर्तव्य प्रकाशित करने का है, पूछे जाने की प्रतीक्षा करने का नहीं।"
+      },
+      "connects": [
+        "rti-1",
+        "rti-2",
+        "rti-25"
+      ],
+      "misconception": {
+        "en": "\"Section 4 is a policy aspiration.\" It is an obligation, and it is one of the provisions section 1(3) brought into force AT ONCE rather than after a hundred and twenty days.",
+        "hi": "\"धारा 4 नीतिगत आकांक्षा है।\" यह बाध्यता है, और यह उन उपबंधों में से है जिन्हें धारा 1(3) ने एक सौ बीस दिन बाद नहीं, तत्काल प्रवृत्त किया।"
+      },
+      "examRelevance": {
+        "en": "That section 4(1) is in the immediate-commencement list of section 1(3) is the detail that ties the two sections together.",
+        "hi": "धारा 4(1) का धारा 1(3) की तत्काल-प्रारंभ सूची में होना वह ब्योरा है जो दोनों धाराओं को जोड़ता है।"
+      },
+      "reviewed": true,
+      "reviewState": "approved",
+      "generationMeta": {
+        "promptVersion": "study-aid-v1",
+        "batchId": "library-aids-2026-09-03-rti",
+        "stageA": {
+          "index": 4,
+          "angle": "the duty that exists whether or not anyone asks"
+        },
+        "critic": {
+          "verdict": "approve",
+          "reason": "The seventeen categories are summarised in the Act’s own order; the link back to section 1(3) is what makes the \"duty without an application\" point concrete."
+        },
+        "verify": {
+          "grounded": true,
+          "note": "Sub-rule (1)(a) and the clauses of (1)(b)(i)-(xvi) are in the text; the immediate-commencement point is read from section 1(3)."
+        },
+        "dedup": {
+          "maxScore": 0,
+          "against": null,
+          "verdict": "keep"
+        },
+        "groundingUnitIds": [
+          "rti-4",
+          "rti-1"
+        ]
+      },
+      "source": {
+        "name": "Department of Personnel and Training — Right to Information Act, 2005 — updated as on 18 November 2025",
+        "url": "https://dopt.gov.in/sites/default/files/RTI%20Act%202005%20%28updated%20as%20on%2018-11-2025%29.pdf"
+      },
+      "verify": true
+    },
+    {
+      "id": "aid-rti-5",
+      "workId": "rti",
+      "unitId": "rti-5",
+      "explanation": {
+        "en": "Every public authority designates as many Central or State Public Information Officers as are necessary in all its administrative units, and separately designates an Assistant Public Information Officer at each sub-divisional or sub-district level to RECEIVE applications and appeals and forward them forthwith. The proviso to sub-section (2) is the practical consequence: where an application is given to an Assistant PIO, five days are ADDED to the section 7(1) response period. Sub-section (5) is the sting: an officer whose assistance the PIO seeks is treated as a PIO for the purposes of any contravention.",
+        "hi": "प्रत्येक लोक प्राधिकारी अपनी सभी प्रशासनिक इकाइयों में उतने केंद्रीय या राज्य लोक सूचना अधिकारी नामित करता है जितने आवश्यक हों, और पृथक् रूप से प्रत्येक उप-मंडल या उप-जिला स्तर पर एक सहायक लोक सूचना अधिकारी नामित करता है जो आवेदन और अपीलें प्राप्त करे और तत्काल अग्रेषित करे। उप-धारा (2) का परंतुक व्यावहारिक परिणाम है: जहाँ आवेदन सहायक लोक सूचना अधिकारी को दिया जाए, वहाँ धारा 7(1) की उत्तर-अवधि में पाँच दिन जोड़े जाते हैं। उप-धारा (5) चुभने वाला अंश है: जिस अधिकारी की सहायता लोक सूचना अधिकारी माँगता है, वह किसी भी उल्लंघन के प्रयोजनार्थ लोक सूचना अधिकारी माना जाएगा।"
+      },
+      "example": {
+        "en": "An application handed in at a sub-divisional office has thirty-five days, not thirty. An officer in the record room who sits on the file the PIO asked him for can himself be penalised under section 20, because sub-section (5) treats him as the PIO for that purpose.",
+        "hi": "उप-मंडल कार्यालय में दिए गए आवेदन के लिए तीस नहीं, पैंतीस दिन हैं। अभिलेख कक्ष का जो अधिकारी लोक सूचना अधिकारी द्वारा माँगी गई फ़ाइल दबाए रखता है, वह स्वयं धारा 20 के अधीन शास्ति का भागी हो सकता है, क्योंकि उप-धारा (5) उसे उस प्रयोजनार्थ लोक सूचना अधिकारी मानती है।"
+      },
+      "connects": [
+        "rti-6",
+        "rti-7",
+        "rti-20"
+      ],
+      "misconception": {
+        "en": "\"Only the PIO can be penalised.\" Sub-section (5) extends PIO status, for the purposes of a contravention, to any officer whose assistance was sought under sub-section (4).",
+        "hi": "\"केवल लोक सूचना अधिकारी पर शास्ति लग सकती है।\" उप-धारा (5) उल्लंघन के प्रयोजनार्थ उस प्रत्येक अधिकारी तक लोक सूचना अधिकारी का दर्जा बढ़ाती है जिसकी सहायता उप-धारा (4) के अधीन माँगी गई थी।"
+      },
+      "examRelevance": {
+        "en": "Thirty days plus five for an Assistant PIO is a standard calculation question; sub-section (5) is the standard \"who can be penalised\" question.",
+        "hi": "सहायक लोक सूचना अधिकारी हेतु तीस जमा पाँच दिन मानक गणना-प्रश्न है; उप-धारा (5) मानक \"शास्ति किस पर\" प्रश्न है।"
+      },
+      "mnemonic": {
+        "en": "APIO adds five. Helper counts as PIO.",
+        "hi": "सहायक लोसूअ पाँच दिन जोड़ता है। सहायता देने वाला भी लोसूअ गिना जाता है।"
+      },
+      "reviewed": true,
+      "reviewState": "approved",
+      "generationMeta": {
+        "promptVersion": "study-aid-v1",
+        "batchId": "library-aids-2026-09-03-rti",
+        "stageA": {
+          "index": 5,
+          "angle": "the PIO, the Assistant PIO, and the five days the Assistant costs"
+        },
+        "critic": {
+          "verdict": "approve",
+          "reason": "The five-day proviso and sub-section (5) are the two operative consequences and both are stated with their own conditions."
+        },
+        "verify": {
+          "grounded": true,
+          "note": "Sub-sections (1), (2) with its proviso, (3), (4) and (5) are verbatim."
+        },
+        "dedup": {
+          "maxScore": 0,
+          "against": null,
+          "verdict": "keep"
+        },
+        "groundingUnitIds": [
+          "rti-5"
+        ]
+      },
+      "source": {
+        "name": "Department of Personnel and Training — Right to Information Act, 2005 — updated as on 18 November 2025",
+        "url": "https://dopt.gov.in/sites/default/files/RTI%20Act%202005%20%28updated%20as%20on%2018-11-2025%29.pdf"
+      },
+      "verify": true
+    },
+    {
+      "id": "aid-rti-6",
+      "workId": "rti",
+      "unitId": "rti-6",
+      "explanation": {
+        "en": "A request is made in writing or electronically, in English, Hindi or the official language of the area, with the prescribed fee, to the PIO or the Assistant PIO, specifying the particulars sought. Sub-section (2) is the protection: the applicant is not required to give ANY reason for the request, or any personal details beyond those needed to contact him. Sub-section (3) makes a wrongly addressed application the public authority’s problem, not the citizen’s: it must be transferred, and the transfer must happen in no case later than five days from receipt.",
+        "hi": "आवेदन लिखित में अथवा इलेक्ट्रॉनिक माध्यम से, अंग्रेज़ी, हिंदी अथवा उस क्षेत्र की राजभाषा में, विहित फीस सहित, लोक सूचना अधिकारी या सहायक लोक सूचना अधिकारी को, माँगी गई सूचना का विवरण देते हुए किया जाता है। उप-धारा (2) संरक्षण है: आवेदक से अनुरोध का कोई कारण, अथवा संपर्क हेतु आवश्यक विवरण से अधिक कोई व्यक्तिगत विवरण अपेक्षित नहीं। उप-धारा (3) गलत पते पर भेजे गए आवेदन को नागरिक की नहीं, लोक प्राधिकारी की समस्या बनाती है: उसे अंतरित करना होगा, और अंतरण प्राप्ति से किसी भी दशा में पाँच दिन के बाद नहीं।"
+      },
+      "example": {
+        "en": "A PIO who returns an application asking why the information is wanted has acted against sub-section (2). One who sits on a misdirected application for three weeks has breached the five-day transfer proviso, and the thirty days under section 7 have been running throughout.",
+        "hi": "जो लोक सूचना अधिकारी यह पूछते हुए आवेदन लौटाता है कि सूचना क्यों चाहिए, उसने उप-धारा (2) के विरुद्ध कार्य किया। जो गलत भेजे गए आवेदन को तीन सप्ताह दबाए रखता है, उसने पाँच दिन के अंतरण परंतुक का उल्लंघन किया, और धारा 7 के तीस दिन तब भी चलते रहे।"
+      },
+      "connects": [
+        "rti-3",
+        "rti-5",
+        "rti-7"
+      ],
+      "misconception": {
+        "en": "\"An applicant must show he is affected.\" Sub-section (2) says no reason may be required at all — locus standi is not a concept this Act uses.",
+        "hi": "\"आवेदक को यह दिखाना होगा कि वह प्रभावित है।\" उप-धारा (2) कहती है कि कोई कारण अपेक्षित ही नहीं किया जा सकता — इस अधिनियम में वाद-योग्यता की धारणा है ही नहीं।"
+      },
+      "examRelevance": {
+        "en": "The five-day transfer limit, and the oral-request assistance proviso to sub-section (1), are the two details asked about.",
+        "hi": "पाँच दिन की अंतरण सीमा, तथा उप-धारा (1) का मौखिक अनुरोध में सहायता वाला परंतुक — यही दो ब्योरे पूछे जाते हैं।"
+      },
+      "reviewed": true,
+      "reviewState": "approved",
+      "generationMeta": {
+        "promptVersion": "study-aid-v1",
+        "batchId": "library-aids-2026-09-03-rti",
+        "stageA": {
+          "index": 6,
+          "angle": "what an applicant must give, and what may not be asked of them"
+        },
+        "critic": {
+          "verdict": "approve",
+          "reason": "The no-reasons protection and the five-day transfer are the two things a PIO gets wrong; both are quoted with their limits."
+        },
+        "verify": {
+          "grounded": true,
+          "note": "Sub-sections (1) with its proviso, (2) and (3) with the five-day proviso are verbatim."
+        },
+        "dedup": {
+          "maxScore": 0,
+          "against": null,
+          "verdict": "keep"
+        },
+        "groundingUnitIds": [
+          "rti-6"
+        ]
+      },
+      "source": {
+        "name": "Department of Personnel and Training — Right to Information Act, 2005 — updated as on 18 November 2025",
+        "url": "https://dopt.gov.in/sites/default/files/RTI%20Act%202005%20%28updated%20as%20on%2018-11-2025%29.pdf"
+      },
+      "verify": true
+    },
+    {
+      "id": "aid-rti-7",
+      "workId": "rti",
+      "unitId": "rti-7",
+      "explanation": {
+        "en": "The PIO must, as expeditiously as possible and in any case within THIRTY days of receiving a request, either provide the information on payment of the prescribed fee or reject it for a reason in section 8 or 9. Where the information concerns the LIFE OR LIBERTY of a person, the period is forty-eight hours. Failure to decide within the period is a DEEMED REFUSAL under sub-section (2), which is what makes an appeal possible against silence. The time between sending an intimation of further fee and its payment is excluded from the thirty days.",
+        "hi": "लोक सूचना अधिकारी को यथासंभव शीघ्र और किसी भी दशा में अनुरोध प्राप्ति से तीस दिन के भीतर या तो विहित फीस के भुगतान पर सूचना देनी होगी या धारा 8 अथवा 9 के किसी कारण से उसे अस्वीकार करना होगा। जहाँ सूचना किसी व्यक्ति के जीवन या स्वतंत्रता से संबंधित हो, वहाँ अवधि अड़तालीस घंटे है। अवधि के भीतर निर्णय न करना उप-धारा (2) के अधीन मानी गई अस्वीकृति है, और यही मौन के विरुद्ध अपील संभव बनाता है। अतिरिक्त फीस की सूचना भेजने और उसके भुगतान के बीच का समय तीस दिन से अपवर्जित है।"
+      },
+      "example": {
+        "en": "A PIO who says nothing for forty days has refused the request in law on day thirty-one, and the first appeal under section 19(1) runs from the expiry of that period rather than from any letter.",
+        "hi": "जो लोक सूचना अधिकारी चालीस दिन तक कुछ नहीं कहता, उसने विधितः इकतीसवें दिन अनुरोध अस्वीकार कर दिया, और धारा 19(1) की प्रथम अपील किसी पत्र से नहीं, उस अवधि की समाप्ति से चलती है।"
+      },
+      "connects": [
+        "rti-6",
+        "rti-8",
+        "rti-19"
+      ],
+      "misconception": {
+        "en": "\"Silence means the application is still pending.\" Sub-section (2) deems it refused, which starts the appeal clock. Waiting for a reply is how a first appeal goes out of time.",
+        "hi": "\"मौन का अर्थ आवेदन अभी लंबित है।\" उप-धारा (2) उसे अस्वीकृत मानती है, और इसी से अपील की गणना आरंभ होती है। उत्तर की प्रतीक्षा करने से ही प्रथम अपील समय-बाधित होती है।"
+      },
+      "examRelevance": {
+        "en": "Thirty days, forty-eight hours for life or liberty, thirty-five where an Assistant PIO received it, and forty days where a third party was heard under section 11 — four different periods, each attached to a different section.",
+        "hi": "तीस दिन, जीवन या स्वतंत्रता हेतु अड़तालीस घंटे, सहायक लोक सूचना अधिकारी को प्राप्त होने पर पैंतीस, तथा धारा 11 के अधीन तृतीय पक्ष को सुने जाने पर चालीस — चार भिन्न अवधियाँ, प्रत्येक भिन्न धारा से जुड़ी।"
+      },
+      "mnemonic": {
+        "en": "30 normal · 48 hours for life or liberty · 35 via an Assistant PIO · 40 with a third party.",
+        "hi": "30 सामान्य · जीवन/स्वतंत्रता पर 48 घंटे · सहायक लोसूअ से 35 · तृतीय पक्ष सहित 40।"
+      },
+      "reviewed": true,
+      "reviewState": "approved",
+      "generationMeta": {
+        "promptVersion": "study-aid-v1",
+        "batchId": "library-aids-2026-09-03-rti",
+        "stageA": {
+          "index": 7,
+          "angle": "thirty days, forty-eight hours, and deemed refusal"
+        },
+        "critic": {
+          "verdict": "approve",
+          "reason": "The four periods are the reason this section is asked about, and each is attributed to the section that creates it rather than all to section 7."
+        },
+        "verify": {
+          "grounded": true,
+          "note": "Sub-sections (1) with its forty-eight-hour proviso, (2)’s deemed refusal and (3)(a)’s exclusion of the fee interval are verbatim. The thirty-five and forty day figures come from sections 5(2) and 11(3) and are attributed there."
+        },
+        "dedup": {
+          "maxScore": 0,
+          "against": null,
+          "verdict": "keep"
+        },
+        "groundingUnitIds": [
+          "rti-7",
+          "rti-5",
+          "rti-11"
+        ]
+      },
+      "source": {
+        "name": "Department of Personnel and Training — Right to Information Act, 2005 — updated as on 18 November 2025",
+        "url": "https://dopt.gov.in/sites/default/files/RTI%20Act%202005%20%28updated%20as%20on%2018-11-2025%29.pdf"
+      },
+      "verify": true
+    },
+    {
+      "id": "aid-rti-8",
+      "workId": "rti",
+      "unitId": "rti-8",
+      "explanation": {
+        "en": "Section 8(1) lists the exemptions: sovereignty and security; information forbidden by a court or amounting to contempt; breach of privilege; commercial confidence, trade secrets or intellectual property harming a third party; fiduciary information; information received in confidence from a foreign Government; information endangering life or safety or identifying a confidential source; information impeding investigation, apprehension or prosecution; Cabinet papers; and personal information. Sub-section (2) is the override: a public authority MAY allow access, notwithstanding the Official Secrets Act, 1923 and notwithstanding these exemptions, if the public interest in disclosure outweighs the harm. Sub-section (3) makes information about a matter more than twenty years old disclosable, except under clauses (a), (c) and (i).",
+        "hi": "धारा 8(1) अपवर्जन सूचीबद्ध करती है: प्रभुता और सुरक्षा; न्यायालय द्वारा वर्जित अथवा अवमानना बनने वाली सूचना; विशेषाधिकार भंग; वाणिज्यिक विश्वास, व्यापार गुप्ति अथवा बौद्धिक संपदा जिससे तृतीय पक्ष को हानि हो; न्यासिक संबंध की सूचना; विदेशी सरकार से विश्वास में प्राप्त सूचना; जीवन या सुरक्षा को संकट में डालने वाली अथवा गोपनीय स्रोत की पहचान कराने वाली सूचना; अनुसंधान, पकड़ने या अभियोजन में बाधा डालने वाली सूचना; मंत्रिमंडल के कागज़ात; तथा व्यक्तिगत सूचना। उप-धारा (2) अध्यारोहण है: लोक प्राधिकारी, शासकीय गुप्त बात अधिनियम, 1923 के होते हुए भी तथा इन अपवर्जनों के होते हुए भी, पहुँच अनुज्ञात कर सकता है यदि प्रकटन में लोकहित संरक्षित हितों की हानि से अधिक हो। उप-धारा (3) बीस वर्ष से पुराने विषय की सूचना को प्रकटन-योग्य बनाती है, खंड (क), (ग) और (झ) के सिवाय।"
+      },
+      "example": {
+        "en": "Cabinet papers are exempt under clause (i), but the first proviso to that clause requires the DECISIONS of the Council of Ministers, the reasons and the material on which they were taken to be made public once the decision is taken and the matter is complete.",
+        "hi": "मंत्रिमंडल के कागज़ात खंड (झ) के अधीन अपवर्जित हैं, किंतु उस खंड का पहला परंतुक अपेक्षित करता है कि निर्णय हो जाने और विषय पूरा हो जाने पर मंत्रिपरिषद् के निर्णय, उनके कारण तथा वह सामग्री जिस पर वे लिए गए, सार्वजनिक किए जाएँ।"
+      },
+      "connects": [
+        "rti-9",
+        "rti-10",
+        "rti-22",
+        "rti-24"
+      ],
+      "misconception": {
+        "en": "\"An exemption ends the matter.\" Sub-section (2) lets a public authority disclose anyway on a public-interest balance, and section 10 requires the non-exempt part to be severed and given. An outright refusal of a whole record is rarely the right answer.",
+        "hi": "\"अपवर्जन से बात समाप्त।\" उप-धारा (2) लोक प्राधिकारी को लोकहित के संतुलन पर फिर भी प्रकट करने देती है, और धारा 10 अपेक्षित करती है कि अ-अपवर्जित भाग पृथक् करके दिया जाए। पूरे अभिलेख की सीधी अस्वीकृति प्रायः सही उत्तर नहीं है।"
+      },
+      "examRelevance": {
+        "en": "Clause (j) was SUBSTITUTED by the Digital Personal Data Protection Act, 2023 with effect from 13 November 2025 and now reads simply \"information which relates to personal information\" — the earlier public-activity and unwarranted-invasion qualifications are gone. An answer written from an older copy of the Act will be wrong on this clause.",
+        "hi": "खंड (ञ) को डिजिटल व्यक्तिगत डेटा संरक्षण अधिनियम, 2023 द्वारा 13 नवंबर 2025 से प्रतिस्थापित किया गया और अब वह केवल \"ऐसी सूचना जो व्यक्तिगत सूचना से संबंधित है\" पढ़ता है — पूर्ववर्ती लोक-क्रियाकलाप तथा अनुचित अतिक्रमण वाली शर्तें हट गई हैं। अधिनियम की पुरानी प्रति से लिखा उत्तर इस खंड पर गलत होगा।"
+      },
+      "reviewed": true,
+      "reviewState": "approved",
+      "generationMeta": {
+        "promptVersion": "study-aid-v1",
+        "batchId": "library-aids-2026-09-03-rti",
+        "stageA": {
+          "index": 8,
+          "angle": "ten exemptions, the public-interest override, and the twenty-year rule"
+        },
+        "critic": {
+          "verdict": "approve",
+          "reason": "Ten clauses in the Act’s own order, the override, the twenty-year rule, and the 2025 substitution of clause (j) — which the corpus this app ships already carries and which is the single most consequential recent change to this section."
+        },
+        "verify": {
+          "grounded": true,
+          "note": "Clauses (a)-(j), sub-section (2)’s override including the Official Secrets Act reference, and sub-section (3)’s twenty-year rule with its three excepted clauses are all in the text. The clause (j) substitution is recorded in the corpus itself as \"Subs. by Act 22 of 2023, s. 44 for clause (j) (w.e.f. 13-11-2025)\"."
+        },
+        "dedup": {
+          "maxScore": 0,
+          "against": null,
+          "verdict": "keep"
+        },
+        "groundingUnitIds": [
+          "rti-8"
+        ]
+      },
+      "source": {
+        "name": "Department of Personnel and Training — Right to Information Act, 2005 — updated as on 18 November 2025",
+        "url": "https://dopt.gov.in/sites/default/files/RTI%20Act%202005%20%28updated%20as%20on%2018-11-2025%29.pdf"
+      },
+      "verify": true
+    },
+    {
+      "id": "aid-rti-9",
+      "workId": "rti",
+      "unitId": "rti-9",
+      "explanation": {
+        "en": "Section 9 is a separate, narrow ground: a PIO may reject a request where providing access would infringe a COPYRIGHT subsisting in a person other than the State. It operates \"without prejudice to section 8\", so it is an addition to the exemptions, not one of them — and the copyright must belong to someone other than the State, which is what keeps a Government publication outside it.",
+        "hi": "धारा 9 पृथक्, संकीर्ण आधार है: लोक सूचना अधिकारी ऐसा अनुरोध अस्वीकार कर सकता है जिसमें पहुँच देने से राज्य से भिन्न किसी व्यक्ति में विद्यमान कॉपीराइट का अतिक्रमण हो। यह \"धारा 8 पर प्रतिकूल प्रभाव डाले बिना\" काम करती है, अतः यह अपवर्जनों में वृद्धि है, उनमें से एक नहीं — और कॉपीराइट राज्य से भिन्न किसी का होना चाहिए, जो सरकारी प्रकाशन को इससे बाहर रखता है।"
+      },
+      "example": {
+        "en": "A consultant’s copyrighted report submitted to a Ministry may be refused under section 9; the Ministry’s own circular, whose copyright vests in the State, may not.",
+        "hi": "मंत्रालय को प्रस्तुत किसी परामर्शदाता की कॉपीराइट-युक्त रिपोर्ट धारा 9 के अधीन अस्वीकार की जा सकती है; मंत्रालय का अपना परिपत्र, जिसका कॉपीराइट राज्य में निहित है, नहीं।"
+      },
+      "connects": [
+        "rti-8",
+        "rti-10"
+      ],
+      "misconception": {
+        "en": "\"Section 9 is an eleventh exemption.\" It is a separate ground of rejection and is expressly \"without prejudice to the provisions of section 8\", so a refusal has to name whichever one it rests on.",
+        "hi": "\"धारा 9 ग्यारहवाँ अपवर्जन है।\" यह अस्वीकृति का पृथक् आधार है और स्पष्टतः \"धारा 8 के उपबंधों पर प्रतिकूल प्रभाव डाले बिना\" है, अतः अस्वीकृति में यह नामित होना चाहिए कि वह किस पर टिकी है।"
+      },
+      "reviewed": true,
+      "reviewState": "approved",
+      "generationMeta": {
+        "promptVersion": "study-aid-v1",
+        "batchId": "library-aids-2026-09-03-rti",
+        "stageA": {
+          "index": 9,
+          "angle": "the one ground of rejection that is not in section 8"
+        },
+        "critic": {
+          "verdict": "approve",
+          "reason": "One sentence; the \"other than the State\" limb is the only thing that can be got wrong and is the aid’s subject."
+        },
+        "verify": {
+          "grounded": true,
+          "note": "\"would involve an infringement of copyright subsisting in a person other than the State\" is verbatim, as is the opening \"without prejudice to the provisions of section 8\"."
+        },
+        "dedup": {
+          "maxScore": 0,
+          "against": null,
+          "verdict": "keep"
+        },
+        "groundingUnitIds": [
+          "rti-9"
+        ]
+      },
+      "source": {
+        "name": "Department of Personnel and Training — Right to Information Act, 2005 — updated as on 18 November 2025",
+        "url": "https://dopt.gov.in/sites/default/files/RTI%20Act%202005%20%28updated%20as%20on%2018-11-2025%29.pdf"
+      },
+      "verify": true
+    },
+    {
+      "id": "aid-rti-10",
+      "workId": "rti",
+      "unitId": "rti-10",
+      "explanation": {
+        "en": "Where a request is rejected because the information is exempt, access MAY still be provided to the part of the record that is not exempt and can reasonably be severed. When part access is granted, the PIO must give a notice stating that only part is being supplied, the reasons with findings on any material question of fact, the name and designation of the decider, the fee calculation, and the applicant’s rights of review including the particulars of the first appellate authority.",
+        "hi": "जहाँ अनुरोध इसलिए अस्वीकार किया जाए कि सूचना अपवर्जित है, वहाँ अभिलेख के उस भाग तक पहुँच फिर भी दी जा सकती है जो अपवर्जित नहीं है और युक्तियुक्त रूप से पृथक् किया जा सकता है। आंशिक पहुँच दिए जाने पर लोक सूचना अधिकारी को सूचना देनी होगी कि केवल भाग दिया जा रहा है, किसी तात्त्विक तथ्य-प्रश्न पर निष्कर्षों सहित कारण, निर्णयकर्ता का नाम और पदनाम, फीस की गणना, तथा आवेदक के पुनरीक्षण-अधिकार, जिनमें प्रथम अपील प्राधिकारी का विवरण भी है।"
+      },
+      "example": {
+        "en": "A file containing one exempt note among twenty pages is not an exempt file. The nineteen pages are severed and supplied with a section 10(2) notice; a blanket refusal is what a first appeal will set aside.",
+        "hi": "बीस पृष्ठों में एक अपवर्जित टिप्पणी वाली फ़ाइल अपवर्जित फ़ाइल नहीं है। उन्नीस पृष्ठ पृथक् करके धारा 10(2) की सूचना सहित दिए जाते हैं; सरसरी अस्वीकृति वही है जिसे प्रथम अपील अपास्त करेगी।"
+      },
+      "connects": [
+        "rti-8",
+        "rti-19"
+      ],
+      "misconception": {
+        "en": "\"Any exempt content makes the whole record exempt.\" Severability is the rule, and the notice under sub-section (2) is what proves it was applied.",
+        "hi": "\"कोई भी अपवर्जित अंतर्वस्तु पूरे अभिलेख को अपवर्जित कर देती है।\" पृथक्करणीयता नियम है, और उप-धारा (2) की सूचना ही प्रमाण है कि उसे लागू किया गया।"
+      },
+      "examRelevance": {
+        "en": "The five contents of the section 10(2) notice are a list question.",
+        "hi": "धारा 10(2) की सूचना की पाँच अंतर्वस्तुएँ सूची-प्रश्न हैं।"
+      },
+      "reviewed": true,
+      "reviewState": "approved",
+      "generationMeta": {
+        "promptVersion": "study-aid-v1",
+        "batchId": "library-aids-2026-09-03-rti",
+        "stageA": {
+          "index": 10,
+          "angle": "why a partly exempt record still has to be given in part"
+        },
+        "critic": {
+          "verdict": "approve",
+          "reason": "Severability plus the five-item notice; both are the operative content."
+        },
+        "verify": {
+          "grounded": true,
+          "note": "Sub-section (1)’s \"which can reasonably be severed\" and the five clauses (a)-(e) of sub-section (2) are verbatim."
+        },
+        "dedup": {
+          "maxScore": 0,
+          "against": null,
+          "verdict": "keep"
+        },
+        "groundingUnitIds": [
+          "rti-10"
+        ]
+      },
+      "source": {
+        "name": "Department of Personnel and Training — Right to Information Act, 2005 — updated as on 18 November 2025",
+        "url": "https://dopt.gov.in/sites/default/files/RTI%20Act%202005%20%28updated%20as%20on%2018-11-2025%29.pdf"
+      },
+      "verify": true
+    },
+    {
+      "id": "aid-rti-11",
+      "workId": "rti",
+      "unitId": "rti-11",
+      "explanation": {
+        "en": "Where a PIO intends to disclose information supplied by a third party and treated by it as confidential, he must give that third party written notice WITHIN FIVE DAYS of receiving the request and invite a submission. The third party has TEN DAYS from receipt of the notice to make representations. The PIO must then decide within FORTY days of the original request, notwithstanding section 7, and notify the third party — who is entitled to appeal under section 19.",
+        "hi": "जहाँ लोक सूचना अधिकारी ऐसी सूचना प्रकट करने का आशय रखता हो जो किसी तृतीय पक्ष ने दी हो और जिसे उसने गोपनीय माना हो, वहाँ उसे अनुरोध प्राप्ति से पाँच दिन के भीतर उस तृतीय पक्ष को लिखित सूचना देकर उसका पक्ष आमंत्रित करना होगा। तृतीय पक्ष को सूचना प्राप्ति से दस दिन में अभ्यावेदन का अवसर है। लोक सूचना अधिकारी को फिर धारा 7 के होते हुए भी मूल अनुरोध से चालीस दिन के भीतर निर्णय करना होगा और तृतीय पक्ष को सूचित करना होगा — जो धारा 19 के अधीन अपील का हकदार है।"
+      },
+      "example": {
+        "en": "A tender bid marked confidential by the bidder triggers this procedure. The proviso to sub-section (1) still allows disclosure — except for trade or commercial secrets protected by law — where the public interest outweighs the harm to the third party.",
+        "hi": "बोलीदाता द्वारा गोपनीय अंकित निविदा-बोली यह प्रक्रिया सक्रिय करती है। उप-धारा (1) का परंतुक फिर भी प्रकटन अनुज्ञात करता है — विधि द्वारा संरक्षित व्यापार या वाणिज्यिक गुप्तियों को छोड़कर — जहाँ लोकहित तृतीय पक्ष की हानि से अधिक हो।"
+      },
+      "connects": [
+        "rti-7",
+        "rti-8",
+        "rti-19"
+      ],
+      "misconception": {
+        "en": "\"A third party can veto disclosure.\" It gets notice and a hearing; the decision remains the PIO’s, and the proviso expressly permits disclosure on a public-interest balance.",
+        "hi": "\"तृतीय पक्ष प्रकटन रोक सकता है।\" उसे सूचना और सुनवाई मिलती है; निर्णय लोक सूचना अधिकारी का ही रहता है, और परंतुक लोकहित के संतुलन पर प्रकटन स्पष्टतः अनुज्ञात करता है।"
+      },
+      "examRelevance": {
+        "en": "Five days to notify, ten days to represent, forty days to decide — three numbers in one section.",
+        "hi": "सूचित करने हेतु पाँच दिन, अभ्यावेदन हेतु दस दिन, निर्णय हेतु चालीस दिन — एक ही धारा में तीन संख्याएँ।"
+      },
+      "mnemonic": {
+        "en": "Notify in 5, hear in 10, decide in 40.",
+        "hi": "5 में सूचना, 10 में सुनवाई, 40 में निर्णय।"
+      },
+      "reviewed": true,
+      "reviewState": "approved",
+      "generationMeta": {
+        "promptVersion": "study-aid-v1",
+        "batchId": "library-aids-2026-09-03-rti",
+        "stageA": {
+          "index": 11,
+          "angle": "the third-party procedure, and the forty days it produces"
+        },
+        "critic": {
+          "verdict": "approve",
+          "reason": "Three numbers and the public-interest proviso are the operative content; the third-party appeal right is what closes the loop."
+        },
+        "verify": {
+          "grounded": true,
+          "note": "Sub-sections (1) with its proviso, (2), (3) and (4) are verbatim, including \"notwithstanding anything contained in section 7\"."
+        },
+        "dedup": {
+          "maxScore": 0,
+          "against": null,
+          "verdict": "keep"
+        },
+        "groundingUnitIds": [
+          "rti-11"
+        ]
+      },
+      "source": {
+        "name": "Department of Personnel and Training — Right to Information Act, 2005 — updated as on 18 November 2025",
+        "url": "https://dopt.gov.in/sites/default/files/RTI%20Act%202005%20%28updated%20as%20on%2018-11-2025%29.pdf"
+      },
+      "verify": true
+    },
+    {
+      "id": "aid-rti-12",
+      "workId": "rti",
+      "unitId": "rti-12",
+      "explanation": {
+        "en": "The Central Government constitutes the Central Information Commission by notification. It consists of the Chief Information Commissioner and not more than TEN Information Commissioners. They are appointed by the President on the recommendation of a committee of the Prime Minister as Chairperson, the Leader of Opposition in the Lok Sabha, and a Union Cabinet Minister nominated by the Prime Minister. Its general superintendence vests in the Chief Information Commissioner, and it acts autonomously without direction from any other authority under the Act.",
+        "hi": "केंद्र सरकार अधिसूचना द्वारा केंद्रीय सूचना आयोग का गठन करती है। उसमें मुख्य सूचना आयुक्त तथा दस से अनधिक सूचना आयुक्त होते हैं। उनकी नियुक्ति राष्ट्रपति द्वारा उस समिति की सिफारिश पर होती है जिसमें अध्यक्ष के रूप में प्रधानमंत्री, लोक सभा में प्रतिपक्ष का नेता, तथा प्रधानमंत्री द्वारा नामनिर्दिष्ट एक संघीय मंत्रिमंडलीय मंत्री होते हैं। सामान्य अधीक्षण मुख्य सूचना आयुक्त में निहित है, और आयोग इस अधिनियम के अधीन किसी अन्य प्राधिकारी के निदेश के बिना स्वायत्त रूप से कार्य करता है।"
+      },
+      "example": {
+        "en": "The Explanation to sub-section (3) covers the recurring difficulty: where no Leader of Opposition has been recognised in the Lok Sabha, the leader of the single largest opposition group is DEEMED to be the Leader of Opposition for this committee.",
+        "hi": "उप-धारा (3) का स्पष्टीकरण बार-बार आने वाली कठिनाई संभालता है: जहाँ लोक सभा में कोई प्रतिपक्ष का नेता मान्यता-प्राप्त न हो, वहाँ प्रतिपक्ष के एकल सबसे बड़े समूह का नेता इस समिति हेतु प्रतिपक्ष का नेता समझा जाएगा।"
+      },
+      "connects": [
+        "rti-13",
+        "rti-15",
+        "rti-18"
+      ],
+      "misconception": {
+        "en": "\"There are ten Commissioners.\" The ceiling is ten Information Commissioners BESIDES the Chief Information Commissioner, and the number is \"as may be deemed necessary\" up to that.",
+        "hi": "\"दस आयुक्त होते हैं।\" सीमा मुख्य सूचना आयुक्त के अतिरिक्त दस सूचना आयुक्तों की है, और संख्या उस सीमा तक \"जितनी आवश्यक समझी जाए\" है।"
+      },
+      "examRelevance": {
+        "en": "The three members of the selection committee, and the Explanation about a missing Leader of Opposition, are asked directly.",
+        "hi": "चयन समिति के तीन सदस्य, तथा प्रतिपक्ष का नेता न होने संबंधी स्पष्टीकरण, सीधे पूछे जाते हैं।"
+      },
+      "reviewed": true,
+      "reviewState": "approved",
+      "generationMeta": {
+        "promptVersion": "study-aid-v1",
+        "batchId": "library-aids-2026-09-03-rti",
+        "stageA": {
+          "index": 12,
+          "angle": "how the Central Information Commission is composed and appointed"
+        },
+        "critic": {
+          "verdict": "approve",
+          "reason": "Composition, the appointing committee and the Explanation; the parallel State provisions are in the section 15 aid rather than repeated here."
+        },
+        "verify": {
+          "grounded": true,
+          "note": "Sub-sections (1)-(7) are in the text; \"not exceeding ten\" and the three committee members with the Explanation are verbatim."
+        },
+        "dedup": {
+          "maxScore": 0,
+          "against": null,
+          "verdict": "keep"
+        },
+        "groundingUnitIds": [
+          "rti-12"
+        ]
+      },
+      "source": {
+        "name": "Department of Personnel and Training — Right to Information Act, 2005 — updated as on 18 November 2025",
+        "url": "https://dopt.gov.in/sites/default/files/RTI%20Act%202005%20%28updated%20as%20on%2018-11-2025%29.pdf"
+      },
+      "verify": true
+    },
+    {
+      "id": "aid-rti-13",
+      "workId": "rti",
+      "unitId": "rti-13",
+      "explanation": {
+        "en": "Since the 2019 amendment, the Chief Information Commissioner and every Information Commissioner hold office \"for such term as may be prescribed by the Central Government\" — NOT for the five years the Act originally fixed. The age ceiling of sixty-five survives, as does the bar on reappointment as an Information Commissioner. An Information Commissioner may be appointed Chief Information Commissioner, but the aggregate of both offices may not exceed five years. Salaries and conditions are also now as prescribed by the Central Government.",
+        "hi": "2019 के संशोधन के बाद मुख्य सूचना आयुक्त तथा प्रत्येक सूचना आयुक्त \"ऐसी अवधि तक जो केंद्र सरकार विहित करे\" पद धारण करते हैं — उन पाँच वर्षों तक नहीं जो अधिनियम ने मूलतः नियत किए थे। पैंसठ वर्ष की आयु-सीमा बनी हुई है, और सूचना आयुक्त के रूप में पुनर्नियुक्ति का वर्जन भी। सूचना आयुक्त मुख्य सूचना आयुक्त नियुक्त हो सकता है, किंतु दोनों पदों का कुल योग पाँच वर्ष से अधिक नहीं होगा। वेतन और सेवा-शर्तें भी अब केंद्र सरकार द्वारा विहित हैं।"
+      },
+      "example": {
+        "en": "An Information Commissioner who serves three years and is then appointed Chief Information Commissioner may hold the higher office for at most two more years: the second proviso caps the aggregate at five.",
+        "hi": "जो सूचना आयुक्त तीन वर्ष सेवा करके मुख्य सूचना आयुक्त नियुक्त होता है, वह उच्चतर पद अधिकतम दो वर्ष और धारण कर सकता है: दूसरा परंतुक कुल योग पाँच वर्ष पर सीमित करता है।"
+      },
+      "connects": [
+        "rti-12",
+        "rti-14",
+        "rti-16",
+        "rti-27"
+      ],
+      "misconception": {
+        "en": "\"The term is five years.\" It was, and it is not since the Right to Information (Amendment) Act, 2019. Anyone appointed BEFORE that amendment continues to be governed by the old provisions — the second proviso to sub-section (5) says so.",
+        "hi": "\"अवधि पाँच वर्ष है।\" थी, और सूचना का अधिकार (संशोधन) अधिनियम, 2019 के बाद नहीं है। उस संशोधन से पूर्व नियुक्त व्यक्ति पुराने उपबंधों से ही शासित रहता है — उप-धारा (5) का दूसरा परंतुक ऐसा कहता है।"
+      },
+      "examRelevance": {
+        "en": "This is the classic stale-answer trap in this Act: five years is the pre-2019 position and is wrong today. Section 27(2)(ca) is where the prescribing power now sits.",
+        "hi": "यह इस अधिनियम का उत्कृष्ट पुराना-उत्तर जाल है: पाँच वर्ष 2019 से पूर्व की स्थिति है और आज गलत है। विहित करने की शक्ति अब धारा 27(2)(कक) में है।"
+      },
+      "reviewed": true,
+      "reviewState": "approved",
+      "generationMeta": {
+        "promptVersion": "study-aid-v1",
+        "batchId": "library-aids-2026-09-03-rti",
+        "stageA": {
+          "index": 13,
+          "angle": "the term that is no longer five years"
+        },
+        "critic": {
+          "verdict": "approve",
+          "reason": "The 2019 substitution is the reason this aid exists; the aggregate-five-years proviso survives it and is stated separately so the two are not confused."
+        },
+        "verify": {
+          "grounded": true,
+          "note": "The bracketed substitution \"[for such term as may be prescribed by the Central Government]\" with its footnote, the sixty-five-year proviso, both provisos to sub-section (2) and both provisos to sub-section (5) are all in the corpus text."
+        },
+        "dedup": {
+          "maxScore": 0,
+          "against": null,
+          "verdict": "keep"
+        },
+        "groundingUnitIds": [
+          "rti-13",
+          "rti-27"
+        ]
+      },
+      "source": {
+        "name": "Department of Personnel and Training — Right to Information Act, 2005 — updated as on 18 November 2025",
+        "url": "https://dopt.gov.in/sites/default/files/RTI%20Act%202005%20%28updated%20as%20on%2018-11-2025%29.pdf"
+      },
+      "verify": true
+    },
+    {
+      "id": "aid-rti-14",
+      "workId": "rti",
+      "unitId": "rti-14",
+      "explanation": {
+        "en": "A Chief Information Commissioner or Information Commissioner is removed by order of the President on the ground of proved misbehaviour or incapacity ONLY after the Supreme Court, on a reference by the President, reports after inquiry that he ought to be removed. Sub-section (3) is a separate route needing no reference: the President may remove him if he is adjudged insolvent, is convicted of an offence involving moral turpitude in the President’s opinion, takes paid outside employment, is unfit by infirmity of mind or body, or acquires an interest likely to prejudicially affect his functions.",
+        "hi": "मुख्य सूचना आयुक्त अथवा सूचना आयुक्त को सिद्ध दुर्व्यवहार या असमर्थता के आधार पर राष्ट्रपति के आदेश से केवल तब हटाया जाता है जब उच्चतम न्यायालय, राष्ट्रपति द्वारा किए गए निर्देश पर, जाँच के बाद रिपोर्ट करे कि उसे हटाया जाना चाहिए। उप-धारा (3) पृथक् मार्ग है जिसमें निर्देश अपेक्षित नहीं: राष्ट्रपति उसे हटा सकते हैं यदि वह दिवालिया अधिनिर्णीत हो, राष्ट्रपति की राय में नैतिक अधमता वाले अपराध में दोषसिद्ध हो, बाहर सवैतनिक नियोजन ले, मन या शरीर की दुर्बलता से अयोग्य हो, अथवा ऐसा हित अर्जित कर ले जो उसके कृत्यों पर प्रतिकूल प्रभाव डाल सके।"
+      },
+      "example": {
+        "en": "Sub-section (4) is a deeming clause worth knowing: a Commissioner concerned or interested in a Government contract, or sharing in its profit otherwise than as an ordinary member of an incorporated company, is DEEMED guilty of misbehaviour — which routes him back into the sub-section (1) Supreme Court procedure.",
+        "hi": "उप-धारा (4) जानने योग्य उपधारणा है: जो आयुक्त किसी सरकारी संविदा से संबंधित या उसमें हितबद्ध हो, अथवा किसी निगमित कंपनी के साधारण सदस्य के रूप में के अतिरिक्त उसके लाभ में भागी हो, वह दुर्व्यवहार का दोषी समझा जाएगा — जो उसे वापस उप-धारा (1) की उच्चतम न्यायालय प्रक्रिया में ले जाता है।"
+      },
+      "connects": [
+        "rti-13",
+        "rti-17"
+      ],
+      "misconception": {
+        "en": "\"Every removal needs a Supreme Court reference.\" Sub-section (3) opens with a \"notwithstanding\" and lists five grounds on which the President may remove directly.",
+        "hi": "\"हर हटाने हेतु उच्चतम न्यायालय का निर्देश चाहिए।\" उप-धारा (3) \"के होते हुए भी\" से आरंभ होती है और पाँच आधार गिनाती है जिन पर राष्ट्रपति सीधे हटा सकते हैं।"
+      },
+      "examRelevance": {
+        "en": "The five grounds in sub-section (3), and the deeming clause in sub-section (4), are the two list questions.",
+        "hi": "उप-धारा (3) के पाँच आधार, तथा उप-धारा (4) की उपधारणा — यही दो सूची-प्रश्न हैं।"
+      },
+      "reviewed": true,
+      "reviewState": "approved",
+      "generationMeta": {
+        "promptVersion": "study-aid-v1",
+        "batchId": "library-aids-2026-09-03-rti",
+        "stageA": {
+          "index": 14,
+          "angle": "two routes to removal, and only one needs the Supreme Court"
+        },
+        "critic": {
+          "verdict": "approve",
+          "reason": "The two routes are what the section is about; the deeming clause is included because it feeds back into the first route."
+        },
+        "verify": {
+          "grounded": true,
+          "note": "Sub-sections (1)-(4) are verbatim, including the five grounds (a)-(e) and the \"deemed to be guilty of misbehaviour\" clause."
+        },
+        "dedup": {
+          "maxScore": 0,
+          "against": null,
+          "verdict": "keep"
+        },
+        "groundingUnitIds": [
+          "rti-14"
+        ]
+      },
+      "source": {
+        "name": "Department of Personnel and Training — Right to Information Act, 2005 — updated as on 18 November 2025",
+        "url": "https://dopt.gov.in/sites/default/files/RTI%20Act%202005%20%28updated%20as%20on%2018-11-2025%29.pdf"
+      },
+      "verify": true
+    },
+    {
+      "id": "aid-rti-15",
+      "workId": "rti",
+      "unitId": "rti-15",
+      "explanation": {
+        "en": "Every State Government constitutes a State Information Commission by notification. It consists of a State Chief Information Commissioner and not more than TEN State Information Commissioners, appointed by the GOVERNOR on the recommendation of a committee of the Chief Minister as Chairperson, the Leader of Opposition in the Legislative Assembly, and a Cabinet Minister nominated by the Chief Minister. Its headquarters is at such place in the State as the State Government notifies — unlike the Central Commission, whose headquarters the Act fixes at Delhi.",
+        "hi": "प्रत्येक राज्य सरकार अधिसूचना द्वारा राज्य सूचना आयोग का गठन करती है। उसमें राज्य मुख्य सूचना आयुक्त तथा दस से अनधिक राज्य सूचना आयुक्त होते हैं, जिनकी नियुक्ति राज्यपाल द्वारा उस समिति की सिफारिश पर होती है जिसमें अध्यक्ष के रूप में मुख्यमंत्री, विधान सभा में प्रतिपक्ष का नेता, तथा मुख्यमंत्री द्वारा नामनिर्दिष्ट एक मंत्रिमंडलीय मंत्री होते हैं। उसका मुख्यालय राज्य में उस स्थान पर होगा जिसे राज्य सरकार अधिसूचित करे — केंद्रीय आयोग से भिन्न, जिसका मुख्यालय अधिनियम स्वयं दिल्ली में नियत करता है।"
+      },
+      "example": {
+        "en": "A second appeal against a State public authority goes to the State Information Commission under section 19(3), not to the Central Information Commission — the two Commissions are constituted separately and their jurisdictions follow the \"appropriate Government\" definition in section 2(a).",
+        "hi": "किसी राज्य लोक प्राधिकारी के विरुद्ध द्वितीय अपील धारा 19(3) के अधीन राज्य सूचना आयोग को जाती है, केंद्रीय सूचना आयोग को नहीं — दोनों आयोग पृथक् रूप से गठित हैं और उनकी अधिकारिता धारा 2(क) की \"समुचित सरकार\" परिभाषा का अनुसरण करती है।"
+      },
+      "connects": [
+        "rti-12",
+        "rti-16",
+        "rti-2"
+      ],
+      "misconception": {
+        "en": "\"The State Commission mirrors the Central one exactly.\" Two differences are in the text: the appointing authority is the Governor with a Chief-Minister-led committee, and the headquarters is notified by the State rather than fixed at Delhi.",
+        "hi": "\"राज्य आयोग केंद्रीय का ठीक प्रतिबिंब है।\" दो अंतर पाठ में हैं: नियुक्ति प्राधिकारी राज्यपाल हैं और समिति की अध्यक्षता मुख्यमंत्री करते हैं, तथा मुख्यालय दिल्ली में नियत नहीं, राज्य द्वारा अधिसूचित होता है।"
+      },
+      "reviewed": true,
+      "reviewState": "approved",
+      "generationMeta": {
+        "promptVersion": "study-aid-v1",
+        "batchId": "library-aids-2026-09-03-rti",
+        "stageA": {
+          "index": 15,
+          "angle": "the State Commission, and the two things that differ from the Centre"
+        },
+        "critic": {
+          "verdict": "approve",
+          "reason": "The aid is built on the two real differences from section 12 rather than repeating the parallel text, which is what makes it worth reading beside it."
+        },
+        "verify": {
+          "grounded": true,
+          "note": "Sub-sections (1)-(3) and (7) are verbatim; the Delhi headquarters point comes from section 12(7) and is attributed to it."
+        },
+        "dedup": {
+          "maxScore": 0,
+          "against": null,
+          "verdict": "keep"
+        },
+        "groundingUnitIds": [
+          "rti-15",
+          "rti-12"
+        ]
+      },
+      "source": {
+        "name": "Department of Personnel and Training — Right to Information Act, 2005 — updated as on 18 November 2025",
+        "url": "https://dopt.gov.in/sites/default/files/RTI%20Act%202005%20%28updated%20as%20on%2018-11-2025%29.pdf"
+      },
+      "verify": true
+    },
+    {
+      "id": "aid-rti-16",
+      "workId": "rti",
+      "unitId": "rti-16",
+      "explanation": {
+        "en": "Since the 2019 amendment, a State Chief Information Commissioner and a State Information Commissioner hold office for such term as may be prescribed by the CENTRAL Government — not the State Government — subject to the sixty-five-year ceiling. Salaries, allowances and conditions of service are also prescribed by the Central Government. The aggregate cap of five years across both offices, and the bar on reappointment, mirror section 13.",
+        "hi": "2019 के संशोधन के बाद राज्य मुख्य सूचना आयुक्त तथा राज्य सूचना आयुक्त ऐसी अवधि तक पद धारण करते हैं जो केंद्र सरकार विहित करे — राज्य सरकार नहीं — पैंसठ वर्ष की सीमा के अधीन। वेतन, भत्ते और सेवा-शर्तें भी केंद्र सरकार द्वारा विहित हैं। दोनों पदों में कुल पाँच वर्ष की सीमा तथा पुनर्नियुक्ति का वर्जन धारा 13 के अनुरूप हैं।"
+      },
+      "example": {
+        "en": "A State Government cannot fix its own Information Commissioner’s tenure: the substituted words in sub-sections (1) and (2) name the Central Government, and section 27(2)(ca) is the rule-making power that implements it.",
+        "hi": "कोई राज्य सरकार अपने सूचना आयुक्त की पदावधि स्वयं नियत नहीं कर सकती: उप-धाराओं (1) और (2) के प्रतिस्थापित शब्द केंद्र सरकार को नामित करते हैं, और धारा 27(2)(कक) वह नियम-निर्माण शक्ति है जो उसे कार्यान्वित करती है।"
+      },
+      "connects": [
+        "rti-13",
+        "rti-15",
+        "rti-27"
+      ],
+      "misconception": {
+        "en": "\"The State prescribes the State Commissioner’s term.\" The amended text says the Central Government does, for both the State Chief Information Commissioner and the State Information Commissioners.",
+        "hi": "\"राज्य आयुक्त की अवधि राज्य विहित करता है।\" संशोधित पाठ कहता है कि केंद्र सरकार करती है, राज्य मुख्य सूचना आयुक्त तथा राज्य सूचना आयुक्तों दोनों के लिए।"
+      },
+      "examRelevance": {
+        "en": "That the CENTRAL Government prescribes a STATE Commissioner’s term is the counter-intuitive fact this section is asked about.",
+        "hi": "राज्य आयुक्त की अवधि केंद्र सरकार विहित करती है — यही प्रति-सहज तथ्य इस धारा पर पूछा जाता है।"
+      },
+      "reviewed": true,
+      "reviewState": "approved",
+      "generationMeta": {
+        "promptVersion": "study-aid-v1",
+        "batchId": "library-aids-2026-09-03-rti",
+        "stageA": {
+          "index": 16,
+          "angle": "the State term, prescribed by the CENTRAL Government"
+        },
+        "critic": {
+          "verdict": "approve",
+          "reason": "The Centre-prescribes-for-States point is the whole substance and is quoted from the substituted text itself."
+        },
+        "verify": {
+          "grounded": true,
+          "note": "The bracketed substitutions in sub-sections (1), (2) and (5) naming the Central Government, and both provisos to sub-section (2), are in the corpus text with their amendment footnotes."
+        },
+        "dedup": {
+          "maxScore": 0,
+          "against": null,
+          "verdict": "keep"
+        },
+        "groundingUnitIds": [
+          "rti-16"
+        ]
+      },
+      "source": {
+        "name": "Department of Personnel and Training — Right to Information Act, 2005 — updated as on 18 November 2025",
+        "url": "https://dopt.gov.in/sites/default/files/RTI%20Act%202005%20%28updated%20as%20on%2018-11-2025%29.pdf"
+      },
+      "verify": true
+    },
+    {
+      "id": "aid-rti-17",
+      "workId": "rti",
+      "unitId": "rti-17",
+      "explanation": {
+        "en": "A State Chief Information Commissioner or State Information Commissioner is removed by order of the GOVERNOR on the ground of proved misbehaviour or incapacity, only after a reference to the Supreme Court — not to a High Court — and its report on inquiry. Sub-section (3) gives the same five direct grounds as section 14(3), and sub-section (4) the same deeming clause about a Government contract, here read with reference to the Government of the State.",
+        "hi": "राज्य मुख्य सूचना आयुक्त अथवा राज्य सूचना आयुक्त को सिद्ध दुर्व्यवहार या असमर्थता के आधार पर राज्यपाल के आदेश से हटाया जाता है, और वह भी केवल उच्चतम न्यायालय को — किसी उच्च न्यायालय को नहीं — निर्देश तथा जाँच पर उसकी रिपोर्ट के बाद। उप-धारा (3) वही पाँच सीधे आधार देती है जो धारा 14(3) देती है, और उप-धारा (4) सरकारी संविदा संबंधी वही उपधारणा, जो यहाँ राज्य सरकार के संदर्भ में पढ़ी जाती है।"
+      },
+      "example": {
+        "en": "The reference goes to the Supreme Court even though the appointing authority is the Governor: sub-section (1) names the Supreme Court expressly, which is the detail that surprises readers.",
+        "hi": "निर्देश उच्चतम न्यायालय को जाता है यद्यपि नियुक्ति प्राधिकारी राज्यपाल हैं: उप-धारा (1) उच्चतम न्यायालय को स्पष्टतः नामित करती है, और यही ब्योरा पाठकों को चौंकाता है।"
+      },
+      "connects": [
+        "rti-14",
+        "rti-15"
+      ],
+      "misconception": {
+        "en": "\"A State Commissioner’s removal goes through the High Court.\" The section names the Supreme Court, exactly as section 14 does for the Centre.",
+        "hi": "\"राज्य आयुक्त को हटाने का मामला उच्च न्यायालय से जाता है।\" धारा उच्चतम न्यायालय को नामित करती है, ठीक वैसे ही जैसे धारा 14 केंद्र के लिए करती है।"
+      },
+      "reviewed": true,
+      "reviewState": "approved",
+      "generationMeta": {
+        "promptVersion": "study-aid-v1",
+        "batchId": "library-aids-2026-09-03-rti",
+        "stageA": {
+          "index": 17,
+          "angle": "removal at the State level, mirroring section 14"
+        },
+        "critic": {
+          "verdict": "approve",
+          "reason": "The Supreme-Court-not-High-Court point is the only real difference from the reader’s expectation, and it is what the aid is for."
+        },
+        "verify": {
+          "grounded": true,
+          "note": "Sub-sections (1)-(4) are verbatim; \"the Supreme Court\" appears in sub-sections (1) and (2) of this section as extracted."
+        },
+        "dedup": {
+          "maxScore": 0,
+          "against": null,
+          "verdict": "keep"
+        },
+        "groundingUnitIds": [
+          "rti-17"
+        ]
+      },
+      "source": {
+        "name": "Department of Personnel and Training — Right to Information Act, 2005 — updated as on 18 November 2025",
+        "url": "https://dopt.gov.in/sites/default/files/RTI%20Act%202005%20%28updated%20as%20on%2018-11-2025%29.pdf"
+      },
+      "verify": true
+    },
+    {
+      "id": "aid-rti-18",
+      "workId": "rti",
+      "unitId": "rti-18",
+      "explanation": {
+        "en": "The Commission receives and inquires into a COMPLAINT — which is a different route from an appeal — from a person who could not submit a request because no PIO was appointed or the Assistant PIO refused to accept it, who was refused information, who got no response in time, who was charged a fee he considers unreasonable, who believes he was given incomplete, misleading or false information, or on any other matter relating to requesting or obtaining records. While inquiring it has the powers of a civil court under the Code of Civil Procedure, 1908: summoning attendance and evidence on oath, discovery and inspection of documents, evidence on affidavit, requisitioning public records, and issuing summonses.",
+        "hi": "आयोग शिकायत प्राप्त करता है और उसकी जाँच करता है — जो अपील से भिन्न मार्ग है — ऐसे व्यक्ति से जो अनुरोध इसलिए प्रस्तुत न कर सका कि कोई लोक सूचना अधिकारी नियुक्त ही नहीं था अथवा सहायक लोक सूचना अधिकारी ने लेने से इनकार किया, जिसे सूचना देने से मना किया गया, जिसे समय पर उत्तर नहीं मिला, जिससे ऐसी फीस माँगी गई जिसे वह अनुचित समझता है, जो मानता है कि उसे अपूर्ण, भ्रामक या मिथ्या सूचना दी गई, अथवा अभिलेख माँगने या प्राप्त करने से संबंधित किसी अन्य विषय पर। जाँच करते समय उसे सिविल प्रक्रिया संहिता, 1908 के अधीन सिविल न्यायालय की शक्तियाँ प्राप्त हैं: उपस्थिति और शपथ पर साक्ष्य हेतु समन, दस्तावेज़ों का प्रकटीकरण और निरीक्षण, शपथपत्र पर साक्ष्य, लोक अभिलेखों की अध्यपेक्षा, तथा समन जारी करना।"
+      },
+      "example": {
+        "en": "A citizen whose application was simply refused at the counter has a COMPLAINT under clause (a) — there is no PIO decision to appeal against. A citizen refused information by a PIO has an APPEAL under section 19. Choosing the wrong route is the commonest procedural error.",
+        "hi": "जिस नागरिक का आवेदन काउंटर पर ही लेने से मना कर दिया गया, उसके पास खंड (क) के अधीन शिकायत है — अपील के लिए कोई लोक सूचना अधिकारी का निर्णय ही नहीं है। जिस नागरिक को लोक सूचना अधिकारी ने सूचना देने से मना किया, उसके पास धारा 19 की अपील है। गलत मार्ग चुनना सबसे सामान्य प्रक्रियात्मक त्रुटि है।"
+      },
+      "connects": [
+        "rti-19",
+        "rti-20",
+        "rti-5"
+      ],
+      "misconception": {
+        "en": "\"A complaint and a second appeal are the same thing.\" They are different jurisdictions with different triggers; section 18 needs no prior decision, section 19(3) needs a first-appeal decision or its absence.",
+        "hi": "\"शिकायत और द्वितीय अपील एक ही हैं।\" ये भिन्न अधिकारिताएँ हैं जिनके प्रवर्तक भिन्न हैं; धारा 18 को किसी पूर्व निर्णय की आवश्यकता नहीं, धारा 19(3) को प्रथम अपील का निर्णय अथवा उसका अभाव चाहिए।"
+      },
+      "examRelevance": {
+        "en": "The six complaint grounds (a)-(f) and the five civil-court powers (a)-(e) are two list questions from one section.",
+        "hi": "शिकायत के छह आधार (क)-(च) तथा सिविल न्यायालय की पाँच शक्तियाँ (क)-(ङ) — एक ही धारा से दो सूची-प्रश्न।"
+      },
+      "reviewed": true,
+      "reviewState": "approved",
+      "generationMeta": {
+        "promptVersion": "study-aid-v1",
+        "batchId": "library-aids-2026-09-03-rti",
+        "stageA": {
+          "index": 18,
+          "angle": "the complaint jurisdiction, and the civil-court powers behind it"
+        },
+        "critic": {
+          "verdict": "approve",
+          "reason": "The complaint/appeal distinction is the practical point and is the thing most often confused; both lists are in the Act’s own order."
+        },
+        "verify": {
+          "grounded": true,
+          "note": "Sub-section (1)(a)-(f), sub-section (2) and sub-section (3)(a)-(f) are verbatim."
+        },
+        "dedup": {
+          "maxScore": 0,
+          "against": null,
+          "verdict": "keep"
+        },
+        "groundingUnitIds": [
+          "rti-18"
+        ]
+      },
+      "source": {
+        "name": "Department of Personnel and Training — Right to Information Act, 2005 — updated as on 18 November 2025",
+        "url": "https://dopt.gov.in/sites/default/files/RTI%20Act%202005%20%28updated%20as%20on%2018-11-2025%29.pdf"
+      },
+      "verify": true
+    },
+    {
+      "id": "aid-rti-19",
+      "workId": "rti",
+      "unitId": "rti-19",
+      "explanation": {
+        "en": "A first appeal lies within THIRTY days of the decision or of the expiry of the section 7 period, to an officer SENIOR IN RANK to the PIO in the same public authority, and must be disposed of within thirty days or an extended total of forty-five days for recorded reasons. A second appeal lies within NINETY days to the Information Commission. Sub-section (5) puts the ONUS of proving that a denial was justified on the PIO who denied it, and sub-section (7) makes the Commission’s decision binding.",
+        "hi": "प्रथम अपील निर्णय से अथवा धारा 7 की अवधि की समाप्ति से तीस दिन के भीतर, उसी लोक प्राधिकारी में लोक सूचना अधिकारी से वरिष्ठ पंक्ति के अधिकारी को होती है, और उसका निपटान तीस दिन में या अभिलिखित कारणों से कुल पैंतालीस दिन के बढ़े समय में होना चाहिए। द्वितीय अपील नब्बे दिन के भीतर सूचना आयोग को होती है। उप-धारा (5) यह सिद्ध करने का भार कि अस्वीकृति न्यायोचित थी, उसी लोक सूचना अधिकारी पर डालती है जिसने अस्वीकार किया, और उप-धारा (7) आयोग के निर्णय को बाध्यकारी बनाती है।"
+      },
+      "example": {
+        "en": "A first appeal filed on the thirty-fifth day is not automatically out: the proviso lets the appellate officer admit it if satisfied the appellant was prevented by sufficient cause. The same power exists for the ninety-day second appeal.",
+        "hi": "पैंतीसवें दिन दाखिल प्रथम अपील स्वतः बाहर नहीं होती: परंतुक अपील अधिकारी को उसे ग्रहण करने देता है यदि वह संतुष्ट हो कि अपीलार्थी पर्याप्त कारण से रुका रहा। यही शक्ति नब्बे दिन की द्वितीय अपील के लिए भी है।"
+      },
+      "connects": [
+        "rti-7",
+        "rti-18",
+        "rti-20"
+      ],
+      "misconception": {
+        "en": "\"The applicant must prove the refusal was wrong.\" Sub-section (5) reverses it: the onus to prove a denial was justified is on the PIO who denied the request.",
+        "hi": "\"आवेदक को सिद्ध करना होगा कि अस्वीकृति गलत थी।\" उप-धारा (5) इसे उलट देती है: अस्वीकृति न्यायोचित थी, यह सिद्ध करने का भार उसी लोक सूचना अधिकारी पर है जिसने अनुरोध अस्वीकार किया।"
+      },
+      "examRelevance": {
+        "en": "Thirty days for the first appeal, ninety for the second, thirty-or-forty-five to dispose of the first — three numbers, plus the reversed onus.",
+        "hi": "प्रथम अपील हेतु तीस दिन, द्वितीय हेतु नब्बे, प्रथम के निपटान हेतु तीस या पैंतालीस — तीन संख्याएँ, और उलटा भार।"
+      },
+      "mnemonic": {
+        "en": "First 30, second 90, dispose in 30 (45 with reasons). The PIO carries the burden.",
+        "hi": "प्रथम 30, द्वितीय 90, निपटान 30 (कारणों सहित 45)। भार लोक सूचना अधिकारी पर।"
+      },
+      "reviewed": true,
+      "reviewState": "approved",
+      "generationMeta": {
+        "promptVersion": "study-aid-v1",
+        "batchId": "library-aids-2026-09-03-rti",
+        "stageA": {
+          "index": 19,
+          "angle": "first appeal, second appeal, and where the burden lies"
+        },
+        "critic": {
+          "verdict": "approve",
+          "reason": "Three periods, the senior-in-rank requirement and the reversed onus are the whole of what an appellant and a PIO each need."
+        },
+        "verify": {
+          "grounded": true,
+          "note": "Sub-sections (1) with its proviso, (2), (3) with its proviso, (4), (5), (6) and (7) are verbatim."
+        },
+        "dedup": {
+          "maxScore": 0,
+          "against": null,
+          "verdict": "keep"
+        },
+        "groundingUnitIds": [
+          "rti-19"
+        ]
+      },
+      "source": {
+        "name": "Department of Personnel and Training — Right to Information Act, 2005 — updated as on 18 November 2025",
+        "url": "https://dopt.gov.in/sites/default/files/RTI%20Act%202005%20%28updated%20as%20on%2018-11-2025%29.pdf"
+      },
+      "verify": true
+    },
+    {
+      "id": "aid-rti-20",
+      "workId": "rti",
+      "unitId": "rti-20",
+      "explanation": {
+        "en": "Where the Commission finds that a PIO has without reasonable cause refused to receive an application, failed to furnish information within the section 7(1) period, malafidely denied a request, knowingly given incorrect, incomplete or misleading information, destroyed information that was the subject of a request, or obstructed its furnishing, it SHALL impose a penalty of two hundred and fifty rupees per day until the application is received or the information furnished, subject to a total ceiling of twenty-five thousand rupees. Sub-section (2) adds a recommendation for disciplinary action where the same conduct was persistent.",
+        "hi": "जहाँ आयोग पाए कि लोक सूचना अधिकारी ने बिना युक्तियुक्त कारण आवेदन लेने से इनकार किया, धारा 7(1) की अवधि में सूचना नहीं दी, दुर्भावपूर्वक अनुरोध अस्वीकार किया, जानबूझकर गलत, अपूर्ण या भ्रामक सूचना दी, अनुरोध की विषयवस्तु रही सूचना नष्ट की, अथवा सूचना देने में किसी प्रकार बाधा डाली, वहाँ वह प्रतिदिन दो सौ पचास रुपये की शास्ति अधिरोपित करेगा, जब तक आवेदन प्राप्त न हो जाए या सूचना न दे दी जाए, कुल पच्चीस हज़ार रुपये की सीमा के अधीन। उप-धारा (2) उसी आचरण के लगातार होने पर अनुशासनिक कार्रवाई की सिफारिश जोड़ती है।"
+      },
+      "example": {
+        "en": "The second proviso reverses the burden here too: it is for the PIO to prove that he acted reasonably and diligently, and the first proviso guarantees him a reasonable opportunity of being heard before any penalty.",
+        "hi": "दूसरा परंतुक यहाँ भी भार उलट देता है: यह सिद्ध करना लोक सूचना अधिकारी का है कि उसने युक्तियुक्त और तत्परता से कार्य किया, और पहला परंतुक उसे किसी भी शास्ति से पूर्व सुने जाने का युक्तियुक्त अवसर सुनिश्चित करता है।"
+      },
+      "connects": [
+        "rti-7",
+        "rti-19",
+        "rti-5"
+      ],
+      "misconception": {
+        "en": "\"The penalty is discretionary.\" The word is \"shall impose\". What is open is whether the conduct was without reasonable cause — and proving that it was not is the PIO’s burden.",
+        "hi": "\"शास्ति विवेकाधीन है।\" शब्द है \"अधिरोपित करेगा\"। खुला यह है कि आचरण बिना युक्तियुक्त कारण था या नहीं — और वह नहीं था, यह सिद्ध करने का भार लोक सूचना अधिकारी पर है।"
+      },
+      "examRelevance": {
+        "en": "Two hundred and fifty rupees a day, capped at twenty-five thousand, are the two figures. Both are in the Act itself, not in a rule, so they do not change with a fee notification.",
+        "hi": "प्रतिदिन दो सौ पचास रुपये, अधिकतम पच्चीस हज़ार — यही दो आँकड़े हैं। दोनों अधिनियम में ही हैं, किसी नियम में नहीं, अतः फीस अधिसूचना से नहीं बदलते।"
+      },
+      "mnemonic": {
+        "en": "₹250 a day, ₹25,000 in all.",
+        "hi": "प्रतिदिन ₹250, कुल ₹25,000।"
+      },
+      "reviewed": true,
+      "reviewState": "approved",
+      "generationMeta": {
+        "promptVersion": "study-aid-v1",
+        "batchId": "library-aids-2026-09-03-rti",
+        "stageA": {
+          "index": 20,
+          "angle": "the penalty, the ceiling, and who has to prove what"
+        },
+        "critic": {
+          "verdict": "approve",
+          "reason": "The two figures are in the Act’s own text (unlike the Conduct Rules’ gift thresholds, which live in orders), so quoting them is safe; the reversed burden and the mandatory \"shall\" are the two things officers get wrong."
+        },
+        "verify": {
+          "grounded": true,
+          "note": "Sub-section (1) with both provisos and sub-section (2) are verbatim, including \"two hundred and fifty rupees each day\" and \"shall not exceed twenty-five thousand rupees\"."
+        },
+        "dedup": {
+          "maxScore": 0,
+          "against": null,
+          "verdict": "keep"
+        },
+        "groundingUnitIds": [
+          "rti-20"
+        ]
+      },
+      "source": {
+        "name": "Department of Personnel and Training — Right to Information Act, 2005 — updated as on 18 November 2025",
+        "url": "https://dopt.gov.in/sites/default/files/RTI%20Act%202005%20%28updated%20as%20on%2018-11-2025%29.pdf"
+      },
+      "verify": true
+    },
+    {
+      "id": "aid-rti-21",
+      "workId": "rti",
+      "unitId": "rti-21",
+      "explanation": {
+        "en": "No suit, prosecution or other legal proceeding lies against any person for anything done, or intended to be done, IN GOOD FAITH under this Act or the rules made under it. The protection follows the good faith, not the office: a PIO acting in good faith is protected against a civil suit, and one acting malafidely is inside section 20’s penalty, which is not a \"legal proceeding\" this section bars.",
+        "hi": "इस अधिनियम अथवा उसके अधीन बने नियमों के अधीन सद्भावपूर्वक की गई अथवा किए जाने के आशय से की गई किसी बात के लिए किसी व्यक्ति के विरुद्ध कोई वाद, अभियोजन अथवा अन्य विधिक कार्यवाही नहीं होगी। संरक्षण सद्भाव का अनुसरण करता है, पद का नहीं: सद्भावपूर्वक कार्य करने वाला लोक सूचना अधिकारी सिविल वाद से संरक्षित है, और दुर्भावपूर्वक कार्य करने वाला धारा 20 की शास्ति के भीतर है, जो इस धारा द्वारा वर्जित \"विधिक कार्यवाही\" नहीं है।"
+      },
+      "example": {
+        "en": "A PIO who discloses a document under a reasonable reading of section 8 and is later sued by the third party has section 21. A PIO who destroys a requested file has neither good faith nor this protection.",
+        "hi": "जो लोक सूचना अधिकारी धारा 8 की युक्तियुक्त व्याख्या पर कोई दस्तावेज़ प्रकट करता है और बाद में तृतीय पक्ष द्वारा वाद का सामना करता है, उसके पास धारा 21 है। जो लोक सूचना अधिकारी माँगी गई फ़ाइल नष्ट कर देता है, उसके पास न सद्भाव है न यह संरक्षण।"
+      },
+      "connects": [
+        "rti-20",
+        "rti-8"
+      ],
+      "misconception": {
+        "en": "\"Section 21 protects a PIO from the Commission’s penalty.\" It bars a suit, prosecution or legal proceeding; the section 20 penalty is imposed by the Commission in its own jurisdiction and turns on the absence of reasonable cause.",
+        "hi": "\"धारा 21 लोक सूचना अधिकारी को आयोग की शास्ति से बचाती है।\" यह वाद, अभियोजन या विधिक कार्यवाही वर्जित करती है; धारा 20 की शास्ति आयोग अपनी अधिकारिता में अधिरोपित करता है और वह युक्तियुक्त कारण के अभाव पर टिकती है।"
+      },
+      "reviewed": true,
+      "reviewState": "approved",
+      "generationMeta": {
+        "promptVersion": "study-aid-v1",
+        "batchId": "library-aids-2026-09-03-rti",
+        "stageA": {
+          "index": 21,
+          "angle": "what good faith protects, and what it does not"
+        },
+        "critic": {
+          "verdict": "approve",
+          "reason": "One sentence; the aid’s work is distinguishing what it bars from the section 20 penalty, which is a genuine confusion."
+        },
+        "verify": {
+          "grounded": true,
+          "note": "The section is one sentence and is quoted in substance; the section 20 distinction is drawn from section 20’s own text."
+        },
+        "dedup": {
+          "maxScore": 0,
+          "against": null,
+          "verdict": "keep"
+        },
+        "groundingUnitIds": [
+          "rti-21",
+          "rti-20"
+        ]
+      },
+      "source": {
+        "name": "Department of Personnel and Training — Right to Information Act, 2005 — updated as on 18 November 2025",
+        "url": "https://dopt.gov.in/sites/default/files/RTI%20Act%202005%20%28updated%20as%20on%2018-11-2025%29.pdf"
+      },
+      "verify": true
+    },
+    {
+      "id": "aid-rti-22",
+      "workId": "rti",
+      "unitId": "rti-22",
+      "explanation": {
+        "en": "The provisions of this Act have effect NOTWITHSTANDING anything inconsistent in the Official Secrets Act, 1923, in any other law in force, or in any instrument having effect by virtue of any law other than this Act. Naming the Official Secrets Act expressly is deliberate: it is the statute most often cited to refuse disclosure, and section 8(2) separately allows disclosure notwithstanding that Act where the public interest outweighs the harm.",
+        "hi": "इस अधिनियम के उपबंध शासकीय गुप्त बात अधिनियम, 1923 में, प्रवृत्त किसी अन्य विधि में, अथवा इस अधिनियम से भिन्न किसी विधि के आधार पर प्रभावी किसी लिखत में असंगत किसी बात के होते हुए भी प्रभावी होंगे। शासकीय गुप्त बात अधिनियम का स्पष्ट नामोल्लेख जानबूझकर है: प्रकटन से इनकार हेतु सर्वाधिक उद्धृत यही अधिनियम है, और धारा 8(2) पृथक् रूप से उस अधिनियम के होते हुए भी प्रकटन अनुज्ञात करती है जहाँ लोकहित हानि से अधिक हो।"
+      },
+      "example": {
+        "en": "A refusal that says only \"this is a classified document under the Official Secrets Act\" does not survive section 22 read with section 8: the exemption relied on has to be one of section 8’s own clauses.",
+        "hi": "ऐसी अस्वीकृति जो केवल कहे \"यह शासकीय गुप्त बात अधिनियम के अधीन वर्गीकृत दस्तावेज़ है\", धारा 22 को धारा 8 के साथ पढ़ने पर टिकती नहीं: जिस अपवर्जन पर भरोसा किया जाए वह धारा 8 का ही कोई खंड होना चाहिए।"
+      },
+      "connects": [
+        "rti-8",
+        "rti-23"
+      ],
+      "misconception": {
+        "en": "\"The Official Secrets Act overrides the RTI Act.\" Section 22 says the opposite in terms, and section 8(2) names that Act again in the public-interest override.",
+        "hi": "\"शासकीय गुप्त बात अधिनियम आरटीआई अधिनियम पर अध्यारोही है।\" धारा 22 शब्दों में इसके विपरीत कहती है, और धारा 8(2) लोकहित अध्यारोहण में उस अधिनियम का पुनः नाम लेती है।"
+      },
+      "examRelevance": {
+        "en": "Section 22 is quoted verbatim in questions; the two things to notice are the express naming of the Official Secrets Act and the reach to \"any instrument having effect by virtue of any law\".",
+        "hi": "धारा 22 प्रश्नों में शब्दशः उद्धृत होती है; ध्यान देने योग्य दो बातें हैं — शासकीय गुप्त बात अधिनियम का स्पष्ट नामोल्लेख तथा \"किसी विधि के आधार पर प्रभावी किसी लिखत\" तक पहुँच।"
+      },
+      "reviewed": true,
+      "reviewState": "approved",
+      "generationMeta": {
+        "promptVersion": "study-aid-v1",
+        "batchId": "library-aids-2026-09-03-rti",
+        "stageA": {
+          "index": 22,
+          "angle": "the overriding clause, and why it names the Official Secrets Act"
+        },
+        "critic": {
+          "verdict": "approve",
+          "reason": "One sentence; the reason the OSA is named, and the section 8(2) link, are what make it more than a formula."
+        },
+        "verify": {
+          "grounded": true,
+          "note": "The section is verbatim; the section 8(2) cross-reference is read from section 8’s own text."
+        },
+        "dedup": {
+          "maxScore": 0,
+          "against": null,
+          "verdict": "keep"
+        },
+        "groundingUnitIds": [
+          "rti-22",
+          "rti-8"
+        ]
+      },
+      "source": {
+        "name": "Department of Personnel and Training — Right to Information Act, 2005 — updated as on 18 November 2025",
+        "url": "https://dopt.gov.in/sites/default/files/RTI%20Act%202005%20%28updated%20as%20on%2018-11-2025%29.pdf"
+      },
+      "verify": true
+    },
+    {
+      "id": "aid-rti-23",
+      "workId": "rti",
+      "unitId": "rti-23",
+      "explanation": {
+        "en": "No court shall entertain any suit, application or other proceeding in respect of any ORDER MADE UNDER THIS ACT, and no such order may be called in question otherwise than by way of an appeal under this Act. The bar is on collateral challenge to an order made under the Act; it is not a bar on the constitutional writ jurisdiction of the High Courts and the Supreme Court, which no ordinary statute can take away.",
+        "hi": "कोई न्यायालय इस अधिनियम के अधीन किए गए किसी आदेश के संबंध में कोई वाद, आवेदन अथवा अन्य कार्यवाही ग्रहण नहीं करेगा, और ऐसे किसी आदेश को इस अधिनियम की अपील के अतिरिक्त किसी अन्य रीति से प्रश्नगत नहीं किया जाएगा। यह वर्जन अधिनियम के अधीन किए गए आदेश की पार्श्विक चुनौती पर है; यह उच्च न्यायालयों तथा उच्चतम न्यायालय की सांविधानिक रिट अधिकारिता पर वर्जन नहीं है, जिसे कोई साधारण अधिनियम छीन नहीं सकता।"
+      },
+      "example": {
+        "en": "An applicant dissatisfied with a first appellate order goes to the Commission under section 19(3), not to a civil court. That is the route section 23 leaves open, and it is the reason the section exists.",
+        "hi": "प्रथम अपील के आदेश से असंतुष्ट आवेदक धारा 19(3) के अधीन आयोग के पास जाता है, किसी सिविल न्यायालय में नहीं। यही मार्ग धारा 23 खुला रखती है, और यही कारण है कि यह धारा है।"
+      },
+      "connects": [
+        "rti-19",
+        "rti-22"
+      ],
+      "misconception": {
+        "en": "\"No court can look at an RTI matter at all.\" The section bars a suit, application or proceeding in respect of an ORDER made under the Act, and channels challenges into the Act’s own appeal route.",
+        "hi": "\"कोई न्यायालय आरटीआई विषय देख ही नहीं सकता।\" धारा अधिनियम के अधीन किए गए आदेश के संबंध में वाद, आवेदन या कार्यवाही वर्जित करती है, और चुनौतियों को अधिनियम के अपने अपील-मार्ग में भेजती है।"
+      },
+      "reviewed": true,
+      "reviewState": "approved",
+      "generationMeta": {
+        "promptVersion": "study-aid-v1",
+        "batchId": "library-aids-2026-09-03-rti",
+        "stageA": {
+          "index": 23,
+          "angle": "what the bar on courts actually bars"
+        },
+        "critic": {
+          "verdict": "approve",
+          "reason": "The aid states what the section says and marks the constitutional limit as a limit rather than asserting any case law, which this dataset does not carry."
+        },
+        "verify": {
+          "grounded": true,
+          "note": "The section is one sentence and is quoted in substance. The writ-jurisdiction sentence is stated as a general constitutional limit and cites no authority the corpus does not hold."
+        },
+        "dedup": {
+          "maxScore": 0,
+          "against": null,
+          "verdict": "keep"
+        },
+        "groundingUnitIds": [
+          "rti-23"
+        ]
+      },
+      "source": {
+        "name": "Department of Personnel and Training — Right to Information Act, 2005 — updated as on 18 November 2025",
+        "url": "https://dopt.gov.in/sites/default/files/RTI%20Act%202005%20%28updated%20as%20on%2018-11-2025%29.pdf"
+      },
+      "verify": true
+    },
+    {
+      "id": "aid-rti-24",
+      "workId": "rti",
+      "unitId": "rti-24",
+      "explanation": {
+        "en": "The Act does not apply to the intelligence and security organisations specified in the SECOND SCHEDULE, or to information those organisations furnish to Government. Two exceptions survive: information about allegations of CORRUPTION, and information about allegations of HUMAN RIGHTS VIOLATIONS. Human-rights information may be given only with the approval of the Central Information Commission and, notwithstanding section 7, within FORTY-FIVE days. The Central Government may amend the Schedule by notification, which must be laid before each House of Parliament.",
+        "hi": "यह अधिनियम दूसरी अनुसूची में विनिर्दिष्ट आसूचना और सुरक्षा संगठनों पर, अथवा उन संगठनों द्वारा सरकार को दी गई सूचना पर लागू नहीं होता। दो अपवाद बने रहते हैं: भ्रष्टाचार के अभिकथनों संबंधी सूचना, तथा मानव अधिकार उल्लंघन के अभिकथनों संबंधी सूचना। मानव अधिकार संबंधी सूचना केवल केंद्रीय सूचना आयोग के अनुमोदन से और धारा 7 के होते हुए भी पैंतालीस दिन के भीतर दी जा सकती है। केंद्र सरकार अधिसूचना द्वारा अनुसूची में संशोधन कर सकती है, जिसे संसद के प्रत्येक सदन के समक्ष रखना होगा।"
+      },
+      "example": {
+        "en": "A request to a Second Schedule organisation about a corruption allegation is NOT excluded by sub-section (1) — the first proviso keeps it in. A request about a human rights allegation is also in, but needs the Commission’s approval and carries a forty-five-day period instead of thirty.",
+        "hi": "दूसरी अनुसूची के किसी संगठन से भ्रष्टाचार के अभिकथन संबंधी अनुरोध उप-धारा (1) से अपवर्जित नहीं है — पहला परंतुक उसे भीतर रखता है। मानव अधिकार अभिकथन संबंधी अनुरोध भी भीतर है, किंतु उसमें आयोग का अनुमोदन चाहिए और तीस के बजाय पैंतालीस दिन की अवधि है।"
+      },
+      "connects": [
+        "rti-8",
+        "rti-7",
+        "rti-2"
+      ],
+      "misconception": {
+        "en": "\"An exempt organisation answers nothing.\" Corruption and human rights allegations are expressly carved out of the exclusion by both provisos, and the same two exceptions apply to State organisations under sub-section (4).",
+        "hi": "\"अपवर्जित संगठन कुछ भी उत्तर नहीं देता।\" भ्रष्टाचार तथा मानव अधिकार अभिकथन दोनों परंतुकों द्वारा अपवर्जन से स्पष्टतः बाहर हैं, और वही दो अपवाद उप-धारा (4) के अधीन राज्य संगठनों पर भी लागू हैं।"
+      },
+      "examRelevance": {
+        "en": "The forty-five-day period for human-rights information, and the requirement of the Commission’s prior approval, are the two details asked about.",
+        "hi": "मानव अधिकार सूचना हेतु पैंतालीस दिन की अवधि, तथा आयोग के पूर्व अनुमोदन की अपेक्षा — यही दो ब्योरे पूछे जाते हैं।"
+      },
+      "reviewed": true,
+      "reviewState": "approved",
+      "generationMeta": {
+        "promptVersion": "study-aid-v1",
+        "batchId": "library-aids-2026-09-03-rti",
+        "stageA": {
+          "index": 24,
+          "angle": "the exempt organisations, and the two things they may not withhold"
+        },
+        "critic": {
+          "verdict": "approve",
+          "reason": "The two carve-outs and the forty-five-day period are the operative content. This app does not carry the Second Schedule, and the aid does not name any organisation."
+        },
+        "verify": {
+          "grounded": true,
+          "note": "Sub-sections (1) with both provisos, (2), (3), (4) with both provisos and (5) are verbatim. No organisation is named, because the Second Schedule is not in this dataset."
+        },
+        "dedup": {
+          "maxScore": 0,
+          "against": null,
+          "verdict": "keep"
+        },
+        "groundingUnitIds": [
+          "rti-24"
+        ]
+      },
+      "source": {
+        "name": "Department of Personnel and Training — Right to Information Act, 2005 — updated as on 18 November 2025",
+        "url": "https://dopt.gov.in/sites/default/files/RTI%20Act%202005%20%28updated%20as%20on%2018-11-2025%29.pdf"
+      },
+      "verify": true
+    },
+    {
+      "id": "aid-rti-25",
+      "workId": "rti",
+      "unitId": "rti-25",
+      "explanation": {
+        "en": "Each Information Commission prepares an annual report on the implementation of the Act and sends it to the appropriate Government. Every Ministry or Department must collect and provide the information needed for it. The report must state, for the year: the number of requests to each public authority; the number of refusals, the provisions relied on and how often each was invoked; the appeals referred to the Commission, their nature and outcome; any disciplinary action taken over the administration of the Act; the charges collected; facts showing effort to implement the spirit of the Act; and recommendations for reform.",
+        "hi": "प्रत्येक सूचना आयोग अधिनियम के कार्यान्वयन पर वार्षिक रिपोर्ट तैयार करता है और समुचित सरकार को भेजता है। प्रत्येक मंत्रालय या विभाग को उसके लिए अपेक्षित सूचना एकत्र करके देनी होती है। रिपोर्ट में उस वर्ष के लिए यह कहना होगा: प्रत्येक लोक प्राधिकारी को किए गए अनुरोधों की संख्या; अस्वीकृतियों की संख्या, उनके आधार-उपबंध तथा प्रत्येक कितनी बार लागू हुआ; आयोग को निर्दिष्ट अपीलें, उनकी प्रकृति और परिणाम; अधिनियम के प्रशासन के संबंध में की गई कोई अनुशासनिक कार्रवाई; वसूले गए प्रभार; अधिनियम की भावना के कार्यान्वयन के प्रयत्न दर्शाने वाले तथ्य; तथा सुधार हेतु सिफारिशें।"
+      },
+      "example": {
+        "en": "Clause (b) is what makes refusals auditable: the report has to say which provision of section 8 or 9 was invoked and how many times, so a public authority that refuses everything under one clause is visible in the aggregate.",
+        "hi": "खंड (ख) ही अस्वीकृतियों को लेखा-परीक्षण-योग्य बनाता है: रिपोर्ट में बताना होगा कि धारा 8 या 9 का कौन-सा उपबंध कितनी बार लागू हुआ, अतः जो लोक प्राधिकारी सब कुछ एक ही खंड के अधीन अस्वीकार करता है, वह समग्र आँकड़ों में दिख जाता है।"
+      },
+      "connects": [
+        "rti-4",
+        "rti-8",
+        "rti-18"
+      ],
+      "misconception": {
+        "en": "\"The report is the Commission’s own work.\" Sub-section (2) puts a duty on every Ministry and Department to collect and provide the information and to keep the records for it.",
+        "hi": "\"रिपोर्ट आयोग का अपना काम है।\" उप-धारा (2) प्रत्येक मंत्रालय और विभाग पर वह सूचना एकत्र करने, देने तथा उसके लिए अभिलेख रखने का कर्तव्य डालती है।"
+      },
+      "reviewed": true,
+      "reviewState": "approved",
+      "generationMeta": {
+        "promptVersion": "study-aid-v1",
+        "batchId": "library-aids-2026-09-03-rti",
+        "stageA": {
+          "index": 25,
+          "angle": "the annual report, and the seven things it must state"
+        },
+        "critic": {
+          "verdict": "approve",
+          "reason": "Seven contents in the Act’s own order; the clause (b) point is what makes the report an accountability instrument rather than a formality."
+        },
+        "verify": {
+          "grounded": true,
+          "note": "Sub-sections (1), (2) and (3)(a)-(g) are verbatim."
+        },
+        "dedup": {
+          "maxScore": 0,
+          "against": null,
+          "verdict": "keep"
+        },
+        "groundingUnitIds": [
+          "rti-25"
+        ]
+      },
+      "source": {
+        "name": "Department of Personnel and Training — Right to Information Act, 2005 — updated as on 18 November 2025",
+        "url": "https://dopt.gov.in/sites/default/files/RTI%20Act%202005%20%28updated%20as%20on%2018-11-2025%29.pdf"
+      },
+      "verify": true
+    },
+    {
+      "id": "aid-rti-26",
+      "workId": "rti",
+      "unitId": "rti-26",
+      "explanation": {
+        "en": "The appropriate Government may — to the extent of available resources — develop educational programmes, especially for disadvantaged communities, encourage public authorities to run them, promote timely dissemination, and train Public Information Officers. Sub-section (2) is not permissive: it SHALL, within eighteen months of commencement, compile a guide in its official language containing what a person exercising a right under the Act would reasonably need, and update it at regular intervals.",
+        "hi": "समुचित सरकार — उपलब्ध संसाधनों की सीमा तक — शैक्षिक कार्यक्रम विकसित कर सकती है, विशेषतः वंचित समुदायों के लिए, लोक प्राधिकारियों को उन्हें चलाने हेतु प्रोत्साहित कर सकती है, समय पर प्रसार को बढ़ावा दे सकती है, तथा लोक सूचना अधिकारियों को प्रशिक्षित कर सकती है। उप-धारा (2) अनुज्ञापक नहीं है: वह प्रारंभ से अठारह मास के भीतर अपनी राजभाषा में ऐसी मार्गदर्शिका संकलित करेगी जिसमें वह सामग्री हो जिसकी अधिनियम के अधीन अधिकार का प्रयोग करने वाले व्यक्ति को युक्तियुक्त रूप से आवश्यकता हो, और उसे नियमित अंतराल पर अद्यतन करेगी।"
+      },
+      "example": {
+        "en": "The guide must include the postal and street address, telephone, fax and e-mail of every PIO appointed under section 5(1) — clause (b) of sub-section (3) says so, which is why a public authority’s RTI page carries that list.",
+        "hi": "मार्गदर्शिका में धारा 5(1) के अधीन नियुक्त प्रत्येक लोक सूचना अधिकारी का डाक और गली का पता, दूरभाष, फैक्स और ई-मेल होना चाहिए — उप-धारा (3) का खंड (ख) ऐसा कहता है, और इसीलिए किसी लोक प्राधिकारी के आरटीआई पृष्ठ पर वह सूची रहती है।"
+      },
+      "connects": [
+        "rti-4",
+        "rti-5"
+      ],
+      "misconception": {
+        "en": "\"Section 26 is entirely discretionary.\" Sub-section (1) is (\"may\"), sub-section (2) is not (\"shall … within eighteen months\").",
+        "hi": "\"धारा 26 पूर्णतः विवेकाधीन है।\" उप-धारा (1) है (\"कर सकती है\"), उप-धारा (2) नहीं (\"अठारह मास के भीतर … करेगी\")।"
+      },
+      "reviewed": true,
+      "reviewState": "approved",
+      "generationMeta": {
+        "promptVersion": "study-aid-v1",
+        "batchId": "library-aids-2026-09-03-rti",
+        "stageA": {
+          "index": 26,
+          "angle": "the education duty, and the guide that had to be published"
+        },
+        "critic": {
+          "verdict": "approve",
+          "reason": "The may/shall split across sub-sections (1) and (2) is the point; the example uses one concrete clause of the guide’s contents."
+        },
+        "verify": {
+          "grounded": true,
+          "note": "Sub-sections (1)(a)-(d), (2)’s eighteen-month obligation and (3)(a)-(f) are verbatim."
+        },
+        "dedup": {
+          "maxScore": 0,
+          "against": null,
+          "verdict": "keep"
+        },
+        "groundingUnitIds": [
+          "rti-26"
+        ]
+      },
+      "source": {
+        "name": "Department of Personnel and Training — Right to Information Act, 2005 — updated as on 18 November 2025",
+        "url": "https://dopt.gov.in/sites/default/files/RTI%20Act%202005%20%28updated%20as%20on%2018-11-2025%29.pdf"
+      },
+      "verify": true
+    },
+    {
+      "id": "aid-rti-27",
+      "workId": "rti",
+      "unitId": "rti-27",
+      "explanation": {
+        "en": "The appropriate Government may make rules by notification for the cost of dissemination under section 4(4), the fee under sections 6(1) and 7(1) and 7(5), the salaries and conditions of officers and employees, the procedure of the Commission in deciding appeals under section 19(10), and any other prescribed matter. Clauses (ca) and (cb), inserted in 2019, are the ones that matter now: they are where the TERM of office and the SALARIES of the Chief Information Commissioner, the Information Commissioners and their State counterparts are prescribed.",
+        "hi": "समुचित सरकार अधिसूचना द्वारा नियम बना सकती है — धारा 4(4) के अधीन प्रसार की लागत, धारा 6(1) तथा 7(1) और 7(5) के अधीन फीस, अधिकारियों और कर्मचारियों के वेतन तथा सेवा-शर्तें, धारा 19(10) के अधीन अपील निर्णय में आयोग की प्रक्रिया, तथा कोई अन्य विहित विषय। 2019 में अंतःस्थापित खंड (कक) और (खख) अब महत्वपूर्ण हैं: वहीं मुख्य सूचना आयुक्त, सूचना आयुक्तों तथा उनके राज्य समकक्षों की पदावधि तथा वेतन विहित किए जाते हैं।"
+      },
+      "example": {
+        "en": "A question about how long a Commissioner holds office is now answered from the rules made under clause (ca), not from section 13 — which is exactly why section 13 no longer states a number.",
+        "hi": "कोई आयुक्त कितने समय पद धारण करता है, इस प्रश्न का उत्तर अब खंड (कक) के अधीन बने नियमों से मिलता है, धारा 13 से नहीं — और यही कारण है कि धारा 13 अब कोई संख्या नहीं बताती।"
+      },
+      "connects": [
+        "rti-13",
+        "rti-16",
+        "rti-28",
+        "rti-29"
+      ],
+      "misconception": {
+        "en": "\"Rule-making power is a formality at the end of an Act.\" Here it carries a substantive change: the 2019 amendment MOVED the tenure and salary of Commissioners out of the Act and into rules.",
+        "hi": "\"नियम-निर्माण शक्ति अधिनियम के अंत की औपचारिकता है।\" यहाँ वह सारभूत परिवर्तन वहन करती है: 2019 के संशोधन ने आयुक्तों की पदावधि और वेतन अधिनियम से हटाकर नियमों में डाल दिए।"
+      },
+      "reviewed": true,
+      "reviewState": "approved",
+      "generationMeta": {
+        "promptVersion": "study-aid-v1",
+        "batchId": "library-aids-2026-09-03-rti",
+        "stageA": {
+          "index": 27,
+          "angle": "where the 2019 amendment put the tenure power"
+        },
+        "critic": {
+          "verdict": "approve",
+          "reason": "Clauses (ca) and (cb) are the reason to read this section at all today, and the corpus carries their insertion footnote."
+        },
+        "verify": {
+          "grounded": true,
+          "note": "Sub-section (2)(a)-(f) including the inserted clauses (ca) and (cb) with their footnote \"Ins. by Act 24 of 2019, s. 4 (w.e.f. 24-10-2019)\" are in the text."
+        },
+        "dedup": {
+          "maxScore": 0,
+          "against": null,
+          "verdict": "keep"
+        },
+        "groundingUnitIds": [
+          "rti-27"
+        ]
+      },
+      "source": {
+        "name": "Department of Personnel and Training — Right to Information Act, 2005 — updated as on 18 November 2025",
+        "url": "https://dopt.gov.in/sites/default/files/RTI%20Act%202005%20%28updated%20as%20on%2018-11-2025%29.pdf"
+      },
+      "verify": true
+    },
+    {
+      "id": "aid-rti-28",
+      "workId": "rti",
+      "unitId": "rti-28",
+      "explanation": {
+        "en": "A COMPETENT AUTHORITY — as section 2(e) defines it, the Speaker, the Chairman, the Chief Justice of India, a Chief Justice of a High Court, the President or a Governor, or an administrator under article 239 — may make rules for the cost of dissemination under section 4(4), the fee under section 6(1), the fee under section 7(1), and any other prescribed matter. The list is shorter than section 27’s and carries no tenure or salary power.",
+        "hi": "सक्षम प्राधिकारी — जैसा धारा 2(ङ) परिभाषित करती है: अध्यक्ष, सभापति, भारत के मुख्य न्यायमूर्ति, किसी उच्च न्यायालय के मुख्य न्यायमूर्ति, राष्ट्रपति या राज्यपाल, अथवा अनुच्छेद 239 के अधीन प्रशासक — धारा 4(4) के अधीन प्रसार की लागत, धारा 6(1) की फीस, धारा 7(1) की फीस, तथा कोई अन्य विहित विषय के लिए नियम बना सकता है। यह सूची धारा 27 की सूची से छोटी है और उसमें पदावधि या वेतन की कोई शक्ति नहीं।"
+      },
+      "example": {
+        "en": "This is why the Supreme Court, a High Court and each House of Parliament each notify their OWN RTI fee rules: they are competent authorities under section 2(e) and section 28 gives them the power directly.",
+        "hi": "इसी कारण उच्चतम न्यायालय, प्रत्येक उच्च न्यायालय तथा संसद का प्रत्येक सदन अपने-अपने आरटीआई फीस नियम अधिसूचित करते हैं: वे धारा 2(ङ) के अधीन सक्षम प्राधिकारी हैं और धारा 28 उन्हें सीधे यह शक्ति देती है।"
+      },
+      "connects": [
+        "rti-2",
+        "rti-27"
+      ],
+      "misconception": {
+        "en": "\"All RTI fees are fixed by one set of rules.\" Fees depend on which authority the application goes to, because section 28 gives competent authorities their own fee-making power.",
+        "hi": "\"सभी आरटीआई फीस एक ही नियमावली से नियत हैं।\" फीस इस पर निर्भर है कि आवेदन किस प्राधिकारी को गया, क्योंकि धारा 28 सक्षम प्राधिकारियों को अपनी फीस-निर्माण शक्ति देती है।"
+      },
+      "reviewed": true,
+      "reviewState": "approved",
+      "generationMeta": {
+        "promptVersion": "study-aid-v1",
+        "batchId": "library-aids-2026-09-03-rti",
+        "stageA": {
+          "index": 28,
+          "angle": "the competent authority’s own, narrower rule-making power"
+        },
+        "critic": {
+          "verdict": "approve",
+          "reason": "The contrast with section 27’s longer list is the substance, and the \"competent authority\" definition is pulled in from section 2(e) because the section is unreadable without it."
+        },
+        "verify": {
+          "grounded": true,
+          "note": "Sub-section (2)(i)-(iv) is verbatim; the definition of \"competent authority\" is quoted from section 2(e)."
+        },
+        "dedup": {
+          "maxScore": 0,
+          "against": null,
+          "verdict": "keep"
+        },
+        "groundingUnitIds": [
+          "rti-28",
+          "rti-2"
+        ]
+      },
+      "source": {
+        "name": "Department of Personnel and Training — Right to Information Act, 2005 — updated as on 18 November 2025",
+        "url": "https://dopt.gov.in/sites/default/files/RTI%20Act%202005%20%28updated%20as%20on%2018-11-2025%29.pdf"
+      },
+      "verify": true
+    },
+    {
+      "id": "aid-rti-29",
+      "workId": "rti",
+      "unitId": "rti-29",
+      "explanation": {
+        "en": "Every rule made by the Central Government is laid before each House of Parliament for a total of thirty days, which may fall in one session or in two or more successive sessions. If both Houses agree on a modification, or agree that the rule should not be made, the rule has effect only in the modified form or none at all — but any such modification or annulment is WITHOUT PREJUDICE to the validity of anything previously done under the rule. A State Government’s rule is laid before the State Legislature.",
+        "hi": "केंद्र सरकार द्वारा बनाया गया प्रत्येक नियम संसद के प्रत्येक सदन के समक्ष कुल तीस दिन के लिए रखा जाता है, जो एक सत्र में अथवा दो या अधिक क्रमवर्ती सत्रों में हो सकते हैं। यदि दोनों सदन किसी उपांतरण पर सहमत हों, अथवा सहमत हों कि नियम नहीं बनाया जाना चाहिए, तो नियम केवल उपांतरित रूप में प्रभावी होगा अथवा निष्प्रभाव होगा — किंतु ऐसा कोई उपांतरण या निराकरण उस नियम के अधीन पूर्व में की गई किसी बात की विधिमान्यता पर प्रतिकूल प्रभाव नहीं डालेगा। राज्य सरकार का नियम राज्य विधान-मंडल के समक्ष रखा जाता है।"
+      },
+      "example": {
+        "en": "A fee rule annulled by both Houses does not undo the fees already collected under it: the closing words of sub-section (1) preserve what was previously done.",
+        "hi": "दोनों सदनों द्वारा निराकृत फीस नियम उसके अधीन पहले वसूली गई फीस को अकृत नहीं करता: उप-धारा (1) के अंतिम शब्द पूर्व में की गई बात को संरक्षित रखते हैं।"
+      },
+      "connects": [
+        "rti-27",
+        "rti-28"
+      ],
+      "misconception": {
+        "en": "\"Thirty days means thirty sitting days in one session.\" The section says a total period of thirty days which may be comprised in one session or in two or more successive sessions.",
+        "hi": "\"तीस दिन का अर्थ एक ही सत्र के तीस बैठक-दिवस।\" धारा कहती है कुल तीस दिन की अवधि, जो एक सत्र में अथवा दो या अधिक क्रमवर्ती सत्रों में हो सकती है।"
+      },
+      "reviewed": true,
+      "reviewState": "approved",
+      "generationMeta": {
+        "promptVersion": "study-aid-v1",
+        "batchId": "library-aids-2026-09-03-rti",
+        "stageA": {
+          "index": 29,
+          "angle": "the thirty-day laying period, and what survives an annulment"
+        },
+        "critic": {
+          "verdict": "approve",
+          "reason": "The laying formula is standard, but the without-prejudice tail is the part with a real consequence and is what the example turns on."
+        },
+        "verify": {
+          "grounded": true,
+          "note": "Sub-sections (1) and (2) are verbatim, including \"without prejudice to the validity of anything previously done under that rule\"."
+        },
+        "dedup": {
+          "maxScore": 0,
+          "against": null,
+          "verdict": "keep"
+        },
+        "groundingUnitIds": [
+          "rti-29"
+        ]
+      },
+      "source": {
+        "name": "Department of Personnel and Training — Right to Information Act, 2005 — updated as on 18 November 2025",
+        "url": "https://dopt.gov.in/sites/default/files/RTI%20Act%202005%20%28updated%20as%20on%2018-11-2025%29.pdf"
+      },
+      "verify": true
+    },
+    {
+      "id": "aid-rti-30",
+      "workId": "rti",
+      "unitId": "rti-30",
+      "explanation": {
+        "en": "The Central Government could, by order published in the Official Gazette, make provisions not inconsistent with the Act to remove a difficulty in giving effect to it — but the proviso bars any such order after two years from commencement. Every order made had to be laid before each House of Parliament. The power is spent; what remains useful is knowing that it was time-limited, which is why a removal-of-difficulties order cannot be relied on today.",
+        "hi": "केंद्र सरकार, राजपत्र में प्रकाशित आदेश द्वारा, अधिनियम को प्रभावी करने में आने वाली कठिनाई दूर करने हेतु उससे असंगत न होने वाले उपबंध कर सकती थी — किंतु परंतुक प्रारंभ से दो वर्ष के बाद ऐसा कोई आदेश वर्जित करता है। किया गया प्रत्येक आदेश संसद के प्रत्येक सदन के समक्ष रखा जाना था। यह शक्ति समाप्त हो चुकी है; उपयोगी यह जानना है कि वह समयबद्ध थी, और इसीलिए आज किसी कठिनाई-निवारण आदेश पर भरोसा नहीं किया जा सकता।"
+      },
+      "example": {
+        "en": "A difficulty arising now is dealt with by amending the Act or the rules under section 27, not by an order under section 30 — the proviso closed that route two years after commencement.",
+        "hi": "आज उत्पन्न कठिनाई का समाधान अधिनियम अथवा धारा 27 के अधीन नियमों में संशोधन से होता है, धारा 30 के आदेश से नहीं — परंतुक ने वह मार्ग प्रारंभ के दो वर्ष बाद बंद कर दिया।"
+      },
+      "connects": [
+        "rti-27",
+        "rti-1"
+      ],
+      "misconception": {
+        "en": "\"A removal-of-difficulties power is permanent.\" Almost none is, and this one carries an express two-year proviso.",
+        "hi": "\"कठिनाई-निवारण शक्ति स्थायी होती है।\" प्रायः कोई नहीं होती, और इसमें दो वर्ष का स्पष्ट परंतुक है।"
+      },
+      "reviewed": true,
+      "reviewState": "approved",
+      "generationMeta": {
+        "promptVersion": "study-aid-v1",
+        "batchId": "library-aids-2026-09-03-rti",
+        "stageA": {
+          "index": 30,
+          "angle": "a power that expired two years after commencement"
+        },
+        "critic": {
+          "verdict": "approve",
+          "reason": "The two-year proviso is the whole content and the aid says plainly that the power is spent rather than pretending it is live."
+        },
+        "verify": {
+          "grounded": true,
+          "note": "Sub-section (1) with its two-year proviso and sub-section (2) are verbatim."
+        },
+        "dedup": {
+          "maxScore": 0,
+          "against": null,
+          "verdict": "keep"
+        },
+        "groundingUnitIds": [
+          "rti-30"
+        ]
+      },
+      "source": {
+        "name": "Department of Personnel and Training — Right to Information Act, 2005 — updated as on 18 November 2025",
+        "url": "https://dopt.gov.in/sites/default/files/RTI%20Act%202005%20%28updated%20as%20on%2018-11-2025%29.pdf"
+      },
+      "verify": true
+    },
+    {
+      "id": "aid-rti-31",
+      "workId": "rti",
+      "unitId": "rti-31",
+      "explanation": {
+        "en": "Section 31 repeals the Freedom of Information Act, 2002 (5 of 2003). That Act had been passed but never brought into force, and this Act replaced it — which is why the Right to Information Act, 2005 is the first operative central freedom-of-information statute in India rather than the second.",
+        "hi": "धारा 31 सूचना की स्वतंत्रता अधिनियम, 2002 (2003 का 5) को निरसित करती है। वह अधिनियम पारित तो हुआ था किंतु कभी प्रवृत्त नहीं हुआ, और इस अधिनियम ने उसका स्थान लिया — यही कारण है कि सूचना का अधिकार अधिनियम, 2005 भारत का दूसरा नहीं, पहला प्रवर्तनीय केंद्रीय सूचना-स्वतंत्रता अधिनियम है।"
+      },
+      "example": {
+        "en": "A citation of the Freedom of Information Act, 2002 in a current office note is a citation of a repealed Act; the corresponding provision has to be found in this Act.",
+        "hi": "वर्तमान कार्यालयीन टिप्पणी में सूचना की स्वतंत्रता अधिनियम, 2002 का उद्धरण एक निरसित अधिनियम का उद्धरण है; तत्संगत उपबंध इसी अधिनियम में खोजना होगा।"
+      },
+      "connects": [
+        "rti-1",
+        "rti-22"
+      ],
+      "reviewed": true,
+      "reviewState": "approved",
+      "generationMeta": {
+        "promptVersion": "study-aid-v1",
+        "batchId": "library-aids-2026-09-03-rti",
+        "stageA": {
+          "index": 31,
+          "angle": "the one Act this one repealed"
+        },
+        "critic": {
+          "verdict": "approve",
+          "reason": "One sentence. The aid adds only the fact that the repealed Act was never brought into force, which is why the repeal was clean, and states it as context rather than as text of section 31."
+        },
+        "verify": {
+          "grounded": true,
+          "note": "The repeal and the Act number \"(5 of 2003)\" are verbatim. The observation that the 2002 Act was never brought into force is offered as context and is not attributed to this section."
+        },
+        "dedup": {
+          "maxScore": 0,
+          "against": null,
+          "verdict": "keep"
+        },
+        "groundingUnitIds": [
+          "rti-31"
+        ]
+      },
+      "source": {
+        "name": "Department of Personnel and Training — Right to Information Act, 2005 — updated as on 18 November 2025",
+        "url": "https://dopt.gov.in/sites/default/files/RTI%20Act%202005%20%28updated%20as%20on%2018-11-2025%29.pdf"
+      },
+      "verify": true
+    }
+  ]
+}

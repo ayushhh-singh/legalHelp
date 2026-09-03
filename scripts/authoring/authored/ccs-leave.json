@@ -1027,7 +1027,10 @@
         "citation": { "en": "Rule 31, CCS (Leave) Rules, 1972", "hi": "नियम 31, सीसीएस (छुट्टी) नियम, 1972" }
       },
       "difficulty": "hard",
-      "stageA": { "index": 31, "angle": "Rule 31 vs Rule 30 — leave not due when nothing is at credit at all" },
+      "stageA": {
+        "index": 31,
+        "angle": "Rule 31 vs Rule 30 — leave not due when nothing is at credit at all"
+      },
       "groundingRuleIds": ["ccs-leave-31", "ccs-leave-30"]
     },
     {
@@ -1070,7 +1073,10 @@
         "citation": { "en": "Rule 43, CCS (Leave) Rules, 1972", "hi": "नियम 43, सीसीएस (छुट्टी) नियम, 1972" }
       },
       "difficulty": "hard",
-      "stageA": { "index": 32, "angle": "Rule 43(3) miscarriage leave has no two-child limit, unlike Rule 43(1)" },
+      "stageA": {
+        "index": 32,
+        "angle": "Rule 43(3) miscarriage leave has no two-child limit, unlike Rule 43(1)"
+      },
       "groundingRuleIds": ["ccs-leave-43", "ccs-leave-19"]
     },
     {
@@ -1110,7 +1116,10 @@
       },
       "ruleRef": {
         "textId": "ccs-leave-39c",
-        "citation": { "en": "Rule 39C, CCS (Leave) Rules, 1972", "hi": "नियम 39ग, सीसीएस (छुट्टी) नियम, 1972" }
+        "citation": {
+          "en": "Rule 39C, CCS (Leave) Rules, 1972",
+          "hi": "नियम 39ग, सीसीएस (छुट्टी) नियम, 1972"
+        }
       },
       "difficulty": "hard",
       "stageA": { "index": 33, "angle": "Rule 39C's order of payment — mother precedes sister" },
@@ -1156,7 +1165,10 @@
         "citation": { "en": "Rule 17, CCS (Leave) Rules, 1972", "hi": "नियम 17, सीसीएस (छुट्टी) नियम, 1972" }
       },
       "difficulty": "medium",
-      "stageA": { "index": 34, "angle": "Rule 17 — leave barred the moment dismissal is decided, not when ordered" },
+      "stageA": {
+        "index": 34,
+        "angle": "Rule 17 — leave barred the moment dismissal is decided, not when ordered"
+      },
       "groundingRuleIds": ["ccs-leave-17", "ccs-leave-7"]
     },
     {
@@ -1199,7 +1211,10 @@
         "citation": { "en": "Rule 6, CCS (Leave) Rules, 1972", "hi": "नियम 6, सीसीएस (छुट्टी) नियम, 1972" }
       },
       "difficulty": "hard",
-      "stageA": { "index": 35, "angle": "Rule 6 — suo motu encashment on transfer to Factories Act leave terms" },
+      "stageA": {
+        "index": 35,
+        "angle": "Rule 6 — suo motu encashment on transfer to Factories Act leave terms"
+      },
       "groundingRuleIds": ["ccs-leave-6", "ccs-leave-39"]
     },
     {
@@ -1239,7 +1254,10 @@
       },
       "ruleRef": {
         "textId": "ccs-leave-39b",
-        "citation": { "en": "Rule 39B, CCS (Leave) Rules, 1972", "hi": "नियम 39ख, सीसीएस (छुट्टी) नियम, 1972" }
+        "citation": {
+          "en": "Rule 39B, CCS (Leave) Rules, 1972",
+          "hi": "नियम 39ख, सीसीएस (छुट्टी) नियम, 1972"
+        }
       },
       "difficulty": "hard",
       "stageA": { "index": 36, "angle": "Rule 39B(2) — temporary employee gets EL only, not HPL" },
@@ -1285,7 +1303,10 @@
         "citation": { "en": "Rule 14, CCS (Leave) Rules, 1972", "hi": "नियम 14, सीसीएस (छुट्टी) नियम, 1972" }
       },
       "difficulty": "medium",
-      "stageA": { "index": 37, "angle": "Rule 14's disability proviso — who may sign on the officer's behalf" },
+      "stageA": {
+        "index": 37,
+        "angle": "Rule 14's disability proviso — who may sign on the officer's behalf"
+      },
       "groundingRuleIds": ["ccs-leave-14"]
     },
     {
@@ -1328,7 +1349,10 @@
         "citation": { "en": "Rule 10, CCS (Leave) Rules, 1972", "hi": "नियम 10, सीसीएस (छुट्टी) नियम, 1972" }
       },
       "difficulty": "hard",
-      "stageA": { "index": 38, "angle": "Rule 10 — retrospective commutation, the 30-day window and no right to it" },
+      "stageA": {
+        "index": 38,
+        "angle": "Rule 10 — retrospective commutation, the 30-day window and no right to it"
+      },
       "groundingRuleIds": ["ccs-leave-10", "ccs-leave-31"]
     },
     {
@@ -1371,7 +1395,10 @@
         "citation": { "en": "Rule 54, CCS (Leave) Rules, 1972", "hi": "नियम 54, सीसीएस (छुट्टी) नियम, 1972" }
       },
       "difficulty": "hard",
-      "stageA": { "index": 39, "angle": "Rule 54(2) — the 28/36-month ceiling and the extraordinary-leave exception" },
+      "stageA": {
+        "index": 39,
+        "angle": "Rule 54(2) — the 28/36-month ceiling and the extraordinary-leave exception"
+      },
       "groundingRuleIds": ["ccs-leave-54"]
     },
     {
@@ -1414,7 +1441,10 @@
         "citation": { "en": "Rule 44, CCS (Leave) Rules, 1972", "hi": "नियम 44, सीसीएस (छुट्टी) नियम, 1972" }
       },
       "difficulty": "medium",
-      "stageA": { "index": 40, "angle": "Rule 44 — full pay throughout hospitalization, before the six/twelve-month structure begins" },
+      "stageA": {
+        "index": 40,
+        "angle": "Rule 44 — full pay throughout hospitalization, before the six/twelve-month structure begins"
+      },
       "groundingRuleIds": ["ccs-leave-44"]
     }
   ]

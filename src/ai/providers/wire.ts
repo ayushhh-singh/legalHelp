@@ -417,3 +417,340 @@ export function parseMessageResponse(payload: unknown, fallbackModel: string): C
     model: asString(message?.model) ?? fallbackModel,
   }
 }
+
+/* ------------------------------------------------------------------ *
+ * The OpenAI-compatible wire format
+ * ------------------------------------------------------------------ */
+
+/**
+ * `POST /chat/completions`, the shape almost every non-Anthropic endpoint
+ * speaks — Google AI Studio's compatibility layer, Groq, OpenRouter, a local
+ * Ollama, and a dozen others.
+ *
+ * IT IS IN THIS FILE, and that is the point. `eslint.config.js` grants exactly
+ * one file-scoped `fetch` exception and this is it, so "what in this app can
+ * talk to the network?" stays answerable from one file (docs/AI.md §4). A
+ * second provider with its own transport would be a second answer.
+ *
+ * Nothing here reads settings, IndexedDB or the DOM. It is handed a URL,
+ * headers and a request, and it returns content blocks in the SAME
+ * `ContentPart[]` shape `streamMessages` returns — which is what lets `runAgent`
+ * be unable to tell the two apart.
+ */
+
+/** A `messages` array in the OpenAI shape. */
+type OpenAiMessage = Record<string, unknown>
+
+/**
+ * The system blocks, flattened.
+ *
+ * There is no `cache_control` here and there cannot be: prompt caching is an
+ * Anthropic feature with an Anthropic wire representation, and no
+ * OpenAI-compatible endpoint has an equivalent this app could set. The blocks
+ * are joined in order into one system message, which is the correct
+ * degradation — the ORDER is what `src/ai/prompts.ts` guarantees, and the cache
+ * breakpoints are an optimisation on top of it that simply does not apply here.
+ * `docs/AI.md` §10's cost table is Anthropic's and does not describe this tier.
+ */
+function systemToOpenAi(blocks: readonly SystemBlock[]): string {
+  return blocks
+    .map((block) => block.text.trim())
+    .filter(Boolean)
+    .join('\n\n')
+}
+
+/**
+ * One `Message` becomes one or more OpenAI messages.
+ *
+ * The shapes genuinely differ. Anthropic puts a tool RESULT in a user turn as a
+ * `tool_result` block; OpenAI has a `role: "tool"` message per result. A turn
+ * carrying three tool results therefore becomes three messages, and a turn
+ * carrying text and a tool call becomes one message with both — which is why
+ * this returns an array rather than an object.
+ */
+function messageToOpenAi(message: Message): OpenAiMessage[] {
+  const out: OpenAiMessage[] = []
+  const text = message.content
+    .filter((part): part is Extract<ContentPart, { type: 'text' }> => part.type === 'text')
+    .map((part) => part.text)
+    .join('')
+  const calls = message.content.filter(
+    (part): part is Extract<ContentPart, { type: 'tool_use' }> => part.type === 'tool_use',
+  )
+  const results = message.content.filter(
+    (part): part is Extract<ContentPart, { type: 'tool_result' }> => part.type === 'tool_result',
+  )
+
+  if (message.role === 'assistant') {
+    if (text || calls.length > 0) {
+      out.push({
+        role: 'assistant',
+        content: text || null,
+        ...(calls.length > 0
+          ? {
+              tool_calls: calls.map((call) => ({
+                id: call.id,
+                type: 'function',
+                function: { name: call.name, arguments: JSON.stringify(call.input ?? {}) },
+              })),
+            }
+          : {}),
+      })
+    }
+    return out
+  }
+
+  // A user turn. Tool results become their own `role: "tool"` messages, and
+  // they go FIRST: an endpoint that validates the conversation expects every
+  // tool call to be answered before the next user message.
+  for (const result of results) {
+    out.push({ role: 'tool', tool_call_id: result.toolUseId, content: result.content })
+  }
+  if (text) out.push({ role: 'user', content: text })
+  return out
+}
+
+export interface OpenAiBodyOptions {
+  model: string
+  maxTokens: number
+  stream: boolean
+  /**
+   * Whether the endpoint accepts a `tools` array. When it does not, the caller
+   * has already folded the tool list into the prompt and asks for JSON instead
+   * — see `src/ai/providers/openaiCompatible.ts`, which is honest about the
+   * downgrade rather than silently dropping the tools.
+   */
+  tools: boolean
+  /** Whether the endpoint accepts `response_format: { type: "json_object" }`. */
+  jsonMode: boolean
+}
+
+export function buildChatCompletionsBody(
+  params: ChatParams,
+  options: OpenAiBodyOptions,
+): Record<string, unknown> {
+  const system = systemToOpenAi(params.system)
+  const messages: OpenAiMessage[] = [
+    ...(system ? [{ role: 'system', content: system }] : []),
+    ...params.messages.flatMap(messageToOpenAi),
+  ]
+
+  const wantsJson = Boolean(params.jsonSchema)
+  const sendTools = options.tools && (params.tools?.length ?? 0) > 0
+
+  return {
+    model: options.model,
+    messages,
+    max_tokens: options.maxTokens,
+    ...(options.stream ? { stream: true, stream_options: { include_usage: true } } : {}),
+    ...(sendTools
+      ? {
+          tools: (params.tools ?? []).map((tool) => ({
+            type: 'function',
+            function: {
+              name: tool.name,
+              description: tool.description,
+              parameters: tool.inputSchema,
+            },
+          })),
+        }
+      : {}),
+    // `json_object`, never `json_schema`: the schema-constrained form is not
+    // part of the compatibility surface most of these endpoints implement, and
+    // sending it to one that does not know it is a 400 rather than a downgrade.
+    // The agent validates the parsed object against the zod schema either way.
+    ...(wantsJson && options.jsonMode && !sendTools ? { response_format: { type: 'json_object' } } : {}),
+  }
+}
+
+interface OpenAiToolAccumulator {
+  id: string
+  name: string
+  args: string
+}
+
+/**
+ * Streams a `chat/completions` response and reassembles content blocks.
+ *
+ * Tool arguments arrive as `function.arguments` fragments that are only valid
+ * JSON once the stream ends, so they are concatenated and parsed at the close —
+ * the same arrangement `streamMessages` makes for `input_json_delta`. The index
+ * on each `tool_calls` delta is what keeps two parallel calls apart; an
+ * endpoint that omits it (some do) falls back to 0, which merges them, and the
+ * agent's argument validation is what catches the result.
+ */
+export async function streamChatCompletions(request: WireRequest): Promise<ChatResult> {
+  const doFetch = resolveFetch(request.fetchImpl)
+  const response = await send(request, doFetch, {
+    'content-type': 'application/json',
+    accept: 'text/event-stream',
+    ...request.headers,
+  })
+
+  if (!response.ok) await throwForStatus(response)
+  if (!response.body) throw new AiError('provider', 'The response carried no body to stream.')
+
+  let text = ''
+  const tools = new Map<number, OpenAiToolAccumulator>()
+  let usage: TokenUsage = { ...EMPTY_USAGE }
+  let stopReason: StopReason = 'end_turn'
+  let model = asString(request.body.model) ?? 'unknown'
+
+  const reader = response.body.getReader()
+  const decoder = new TextDecoder()
+  let buffer = ''
+
+  try {
+    for (;;) {
+      const { done, value } = await reader.read()
+      if (done) break
+      buffer = (buffer + decoder.decode(value, { stream: true })).replace(/\r\n/g, '\n')
+      buffer = drainFrames(buffer)
+    }
+    buffer = drainFrames(`${buffer + decoder.decode()}\n\n`)
+  } catch (error) {
+    void reader.cancel().catch(() => undefined)
+    if (request.signal?.aborted) throw new AiError('aborted', 'Cancelled.')
+    if (error instanceof AiError) throw error
+    throw new AiError('provider', errorMessage(error))
+  } finally {
+    reader.releaseLock()
+  }
+
+  const content: ContentPart[] = []
+  if (text) content.push({ type: 'text', text })
+  for (const [, call] of [...tools.entries()].sort(([a], [b]) => a - b)) {
+    if (!call.name) continue
+    content.push({
+      type: 'tool_use',
+      id: call.id || `call_${call.name}`,
+      name: call.name,
+      input: call.args ? (safeParse(call.args) ?? {}) : {},
+    })
+  }
+
+  request.onEvent?.({ type: 'usage', usage, model })
+  return { content, stopReason, usage, model }
+
+  function drainFrames(source: string): string {
+    let rest = source
+    let boundary = rest.indexOf('\n\n')
+    while (boundary !== -1) {
+      handleFrame(rest.slice(0, boundary))
+      rest = rest.slice(boundary + 2)
+      boundary = rest.indexOf('\n\n')
+    }
+    return rest
+  }
+
+  function handleFrame(frame: string): void {
+    const dataLines = frame
+      .split('\n')
+      .filter((line) => line.startsWith('data:'))
+      .map((line) => line.slice(5).replace(/^ /, ''))
+    if (dataLines.length === 0) return
+
+    const raw = dataLines.join('\n')
+    // The sentinel every OpenAI-compatible endpoint sends to close the stream.
+    // It is not JSON, and parsing it would be a silent no-op that hid a real
+    // parse failure behind it.
+    if (raw.trim() === '[DONE]') return
+
+    const payload = asRecord(safeParse(raw))
+    if (!payload) return
+
+    const error = asRecord(payload.error)
+    if (error) throw new AiError('provider', asString(error.message) ?? 'The provider reported an error.')
+
+    model = asString(payload.model) ?? model
+    usage = mergeOpenAiUsage(usage, asRecord(payload.usage))
+
+    const choice = asRecord((asArray(payload.choices) ?? [])[0])
+    if (!choice) return
+
+    const finish = asString(choice.finish_reason)
+    if (finish) stopReason = toOpenAiStopReason(finish) ?? stopReason
+
+    const delta = asRecord(choice.delta) ?? asRecord(choice.message)
+    if (!delta) return
+
+    const chunk = asString(delta.content)
+    if (chunk) {
+      text += chunk
+      request.onEvent?.({ type: 'token', text: chunk })
+    }
+
+    for (const raw of asArray(delta.tool_calls) ?? []) {
+      const entry = asRecord(raw)
+      if (!entry) continue
+      const index = asNumber(entry.index) ?? 0
+      const fn = asRecord(entry.function)
+      const existing = tools.get(index) ?? { id: '', name: '', args: '' }
+      tools.set(index, {
+        id: asString(entry.id) ?? existing.id,
+        name: asString(fn?.name) ?? existing.name,
+        args: existing.args + (asString(fn?.arguments) ?? ''),
+      })
+    }
+  }
+}
+
+/**
+ * OpenAI reports cumulative token counts in a single `usage` object, usually on
+ * the last frame. There is no cache-read/cache-write split to map, so those two
+ * stay zero — and `estimateCost` prices this tier at the reader's own endpoint,
+ * which this app cannot know, so the figure it shows is a token count rather
+ * than a claim about money.
+ */
+function mergeOpenAiUsage(current: TokenUsage, wire: Record<string, unknown> | undefined): TokenUsage {
+  if (!wire) return current
+  return {
+    inputTokens: Math.max(current.inputTokens, numberOr(wire.prompt_tokens, 0)),
+    outputTokens: Math.max(current.outputTokens, numberOr(wire.completion_tokens, 0)),
+    cacheCreationInputTokens: 0,
+    cacheReadInputTokens: 0,
+  }
+}
+
+const OPENAI_STOP_REASONS: Record<string, StopReason> = {
+  stop: 'end_turn',
+  tool_calls: 'tool_use',
+  function_call: 'tool_use',
+  length: 'max_tokens',
+  content_filter: 'refusal',
+}
+
+function toOpenAiStopReason(value: string): StopReason | undefined {
+  return OPENAI_STOP_REASONS[value]
+}
+
+/** Reads a NON-streamed `chat/completions` response into the same shape. */
+export function parseChatCompletion(payload: unknown, fallbackModel: string): ChatResult {
+  const body = asRecord(payload)
+  const choice = asRecord((asArray(body?.choices) ?? [])[0])
+  const message = asRecord(choice?.message)
+  const content: ContentPart[] = []
+
+  const text = asString(message?.content)
+  if (text) content.push({ type: 'text', text })
+
+  for (const raw of asArray(message?.tool_calls) ?? []) {
+    const entry = asRecord(raw)
+    const fn = asRecord(entry?.function)
+    const name = asString(fn?.name)
+    if (!name) continue
+    content.push({
+      type: 'tool_use',
+      id: asString(entry?.id) ?? `call_${name}`,
+      name,
+      input: safeParse(asString(fn?.arguments) ?? '') ?? {},
+    })
+  }
+
+  return {
+    content,
+    stopReason: toOpenAiStopReason(asString(choice?.finish_reason) ?? '') ?? 'end_turn',
+    usage: mergeOpenAiUsage({ ...EMPTY_USAGE }, asRecord(body?.usage)),
+    model: asString(body?.model) ?? fallbackModel,
+  }
+}

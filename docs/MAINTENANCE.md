@@ -38,13 +38,13 @@ data must not require a development session.
 
 ## What each cron does
 
-| Workflow | Runs | Reads | Produces |
-| --- | --- | --- | --- |
-| `ingest-law.yml` | Weekly (Mon 03:00 IST) + dispatch | NCRB Sankalan | A pull request naming, per code (BNS/BNSS/BSA), how many sections were added, changed or deleted — never just a byte count |
-| `ingest-pay.yml` | Monthly (1st, 08:30 IST) + dispatch | Department of Expenditure | Either a pull request proposing a new Dearness Allowance rate (only when an order both changed AND parsed), or an issue per order it could not resolve — see below |
-| `ingest-holidays.yml` | Yearly (1 Nov, 08:30 IST) + dispatch | Nothing — `holidays.py` reaches no host | An issue asking a human to add next year's calendar by hand (the common case, since DoPT's circular is read and typed in, not fetched), or a pull request if a hand-edit to the script was made but never run locally |
-| `ingest-glossary.yml` | Dispatch only | Nothing — `glossary_seed.py` reaches no host | A pull request rebuilding `data/glossary.json` from the committed source files, for a reviewer who edited them and would rather not run the script locally |
-| `lint-workflows.yml` | Any change under `.github/workflows/**` | Nothing | A failed check if a workflow file is not `actionlint`-clean |
+| Workflow              | Runs                                    | Reads                                        | Produces                                                                                                                                                                                                              |
+| --------------------- | --------------------------------------- | -------------------------------------------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| `ingest-law.yml`      | Weekly (Mon 03:00 IST) + dispatch       | NCRB Sankalan                                | A pull request naming, per code (BNS/BNSS/BSA), how many sections were added, changed or deleted — never just a byte count                                                                                            |
+| `ingest-pay.yml`      | Monthly (1st, 08:30 IST) + dispatch     | Department of Expenditure                    | Either a pull request proposing a new Dearness Allowance rate (only when an order both changed AND parsed), or an issue per order it could not resolve — see below                                                    |
+| `ingest-holidays.yml` | Yearly (1 Nov, 08:30 IST) + dispatch    | Nothing — `holidays.py` reaches no host      | An issue asking a human to add next year's calendar by hand (the common case, since DoPT's circular is read and typed in, not fetched), or a pull request if a hand-edit to the script was made but never run locally |
+| `ingest-glossary.yml` | Dispatch only                           | Nothing — `glossary_seed.py` reaches no host | A pull request rebuilding `data/glossary.json` from the committed source files, for a reviewer who edited them and would rather not run the script locally                                                            |
+| `lint-workflows.yml`  | Any change under `.github/workflows/**` | Nothing                                      | A failed check if a workflow file is not `actionlint`-clean                                                                                                                                                           |
 
 None of the four data workflows commits directly to `main`. That is deliberate and costs something on
 purpose: a direct push would trigger CI, and a successful CI run on `main` triggers a production
