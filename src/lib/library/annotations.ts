@@ -106,7 +106,14 @@ export async function setHighlightColour(id: string, colour: HighlightColour): P
  */
 export async function deleteHighlight(id: string): Promise<void> {
   await db.transaction('rw', db.libraryHighlights, db.libraryNotes, async () => {
-    const attached = await db.libraryNotes.where('id').notEqual('').toArray()
+    const row = await db.libraryHighlights.get(id)
+    if (!row) return
+
+    // Scoped to the unit the highlight is on, through the compound index that
+    // exists for exactly this question. The first version read EVERY note in
+    // the database (`where('id').notEqual('')`) to find the one or two attached
+    // here — correct, and linear in everything the reader has ever written.
+    const attached = await db.libraryNotes.where('[workId+unitId]').equals([row.workId, row.unitId]).toArray()
     await Promise.all(
       attached
         .filter((note) => note.highlightId === id)

@@ -5956,3 +5956,80 @@ sit in the queue for ever with nothing to check it against, so the dialog says s
    correctly. The work already carries the citation that card should quote, so it is passed in. The
    same test caught `https://example.gov.in` in the note editor's help copy; the copy no longer names
    a URL at all.
+
+### Second addendum — an edge-case pass, nine defects, and one pattern worth naming
+
+Requested after the commit and run the way ADR-032, ADR-035 and ADR-037 ran theirs: every test below
+was confirmed to FAIL against the committed code before its fix was written. `src/lib/library/edge.test.ts`,
+the `useReadAloud` / `useStudyContext` blocks in `src/modules/library/annotations.test.tsx`,
+`src/lib/library/trainerCard.test.ts` and three new cases in `src/lib/library/annotations.test.ts`
+are the regression files.
+
+**The pattern is not the one the previous three passes found, and that is the point.** ADR-032 and
+ADR-035 both concluded: the model's half was guarded and the code's half was not. There is no model
+here, and the untrusted halves WERE guarded — a stored offset is re-anchored, a quote that cannot be
+found is kept and reported, a chosen file is refused by kind and by size, a card is parsed before it
+is written, a personal work's id can never collide. What failed instead was subtler and, in three
+cases, worse:
+
+> **A feature the brief named, wired up end to end, that could never actually happen.**
+
+Auto-continue navigated and fell silent. The compare page could not be given a second unit. My Study's
+"needs attention" — the promise that makes "a highlight is never dropped" mean anything — had no way
+to know which highlights were lost. Each was reachable, looked implemented, had its i18n keys, its
+control and its route, and did nothing. None of them throws; none of them logs; a screenshot of each
+looks correct.
+
+1. **Auto-continue navigated to the next unit and stopped speaking.** `useReadAloud` calls
+   `controller.load()` whenever the text changes, and `load` stops whatever is in flight — right when
+   the READER navigates, and exactly wrong when read-aloud navigated on its own. The fix records that
+   the move was its own doing (`continuing`, a ref written in a callback and read in an effect) and
+   plays once the new unit has loaded. The other half matters as much: a flag set unconditionally
+   would read the whole book aloud to somebody who pressed nothing, so there is a test for the
+   silence too. Note where the first test went: a controller-level test CANNOT fail against this, and
+   `src/lib/library/edge.test.ts` says so rather than reading as coverage it is not.
+
+2. **`parseCompareRef` refused `?a=bns:`, which is what the compare page writes first.** A work is
+   chosen before a unit — it has to be, because the unit list comes from that work's corpus — so the
+   page writes the work with an empty unit and fills it in. Refusing that as malformed meant the work
+   never loaded, so the unit picker stayed disabled, so nothing could ever be compared. A deadlock
+   reachable by the first click on the page.
+
+3. **My Study's "needs attention" could not fire.** That screen deliberately loads no corpus, so the
+   first version guessed from the row alone and flagged an empty quote — a state `createHighlight`
+   refuses to produce. `useStudyContext` now loads the corpora of the works the reader has ACTUALLY
+   annotated (one or two books for almost anybody, every one precached) and answers two questions in
+   one pass: which highlights are lost, and how each annotated unit cites itself.
+
+4. **…and its first version reported `checked: true` before it had opened anything.** The initial
+   state and the settled-and-empty state were the same constant. So the screen said "0 need
+   attention" while it was still working — and, worse, the hook's own test passed against a hook that
+   did nothing at all, because it waited for `checked` and got it immediately. `NOT_YET` and
+   `NOTHING_TO_CHECK` are separate constants now. This is the "a test that cannot fail is not
+   evidence" trap (ADR-031) arriving through a shared constant rather than a weak assertion.
+
+5. **"Split at the cursor" split at the midpoint.** A label that lies, about the one operation on the
+   review screen where the reader has a precise intention. The textarea reports its own caret;
+   nothing else can, which is why the first version reached for a number it could compute.
+
+6. **A cloze card whose stem was the blank alone.** `cloze.text` was the literal `"____"`, so the card
+   showed a citation and a gap and asked nothing — answerable only by somebody who already had the
+   rule in front of them. It would have looked right in the dialog, looked right in the review queue,
+   and been discovered by whoever tried to review it. `src/lib/library/trainerCard.ts` builds the stem
+   from the SENTENCE the passage came from, is pure, and is tested — which is the real fix: what a
+   card asks is a property worth asserting, and it was previously buried in a dialog.
+
+7. **The Markdown export's "citation" was an internal unit id.** `ccs-conduct-3` is not a citation,
+   and the export is the one artefact of this session that leaves the app. It now carries
+   `unit.citation` — from the same corpus pass as (3), which is why the two are one hook.
+
+8. **`deleteHighlight` read every note in the database.** `where('id').notEqual('')` to find the one
+   or two attached to the highlight being removed — correct, and linear in everything the reader has
+   ever written. It reads the highlight's own row first and then queries the `[workId+unitId]` index
+   that exists for exactly that question. The honest consequence, which has a test: a note keyed to
+   this highlight from a DIFFERENT unit is no longer detached. Nothing in the UI can produce one.
+
+9. **`resolveUnitId` walked the whole reading order per citation.** A BNSS section with ten of them
+   cost thousands of map lookups on every render, and the reader re-renders on every selection
+   change. It is a `Map` built once per corpus. Neither this nor (8) was visible — which is the
+   reason to say what a query is linear in, rather than whether it returns the right answer.

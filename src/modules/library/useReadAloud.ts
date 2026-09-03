@@ -1,4 +1,4 @@
-import { useCallback, useEffect, useMemo, useState } from 'react'
+import { useCallback, useEffect, useMemo, useRef, useState } from 'react'
 
 import type { ReaderPrefs } from './useLibrary'
 
@@ -85,6 +85,18 @@ export function useReadAloud(
   })
 
   /**
+   * Set when the READ finished on its own, so the next unit knows to start.
+   *
+   * `load()` stops whatever is speaking, which is right when the reader
+   * navigates and was also what happened when auto-continue navigated: the page
+   * moved and the voice went quiet, which is the one thing the toggle exists to
+   * prevent. A ref rather than state because nothing renders from it and
+   * because it is written inside a callback and read inside an effect — never
+   * during render.
+   */
+  const continuing = useRef(false)
+
+  /**
    * The finish callback is SET on the controller, not passed to it.
    *
    * Auto-continue navigates, so `onFinished` changes on every unit — and a
@@ -94,8 +106,11 @@ export function useReadAloud(
    * which `react-hooks/refs` refuses.
    */
   useEffect(() => {
-    controller?.setOnFinished(onFinished)
-  }, [controller, onFinished])
+    controller?.setOnFinished(() => {
+      continuing.current = prefs.autoContinue
+      onFinished()
+    })
+  }, [controller, onFinished, prefs.autoContinue])
 
   useEffect(() => {
     if (!controller) return
@@ -118,12 +133,21 @@ export function useReadAloud(
   const reason = useMemo(() => noLocalVoiceReason(allVoices, lang), [allVoices, lang])
 
   // A new unit, or a language switch, is a new read. `load` stops whatever was
-  // in flight, which is also what makes navigating away silence the voice.
+  // in flight, which is also what makes navigating away silence the voice —
+  // and is why auto-continue has to say, explicitly, that this move was its
+  // own doing.
   useEffect(() => {
-    controller?.load(
+    if (!controller) return
+    controller.load(
       sentences.map((sentence) => sentence.text),
       lang,
     )
+    if (continuing.current) {
+      continuing.current = false
+      // Only when the previous unit finished ON ITS OWN with the toggle on.
+      // Arriving at a unit any other way is silent.
+      if (sentences.length > 0) controller.play()
+    }
   }, [controller, sentences, lang])
 
   useEffect(() => () => controller?.stop(), [controller])

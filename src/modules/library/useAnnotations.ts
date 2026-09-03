@@ -1,7 +1,9 @@
 import { useLiveQuery } from 'dexie-react-hooks'
-import { useCallback, useMemo } from 'react'
+import { useCallback, useEffect, useMemo, useRef, useState } from 'react'
 
 import { useWork } from './useLibrary'
+
+import type { Language } from '@/i18n'
 
 import {
   db,
@@ -13,6 +15,7 @@ import {
 } from '@/db'
 import { useAsync, type AsyncState } from '@/lib/useAsync'
 import {
+  anchorText,
   buildPersonalCorpus,
   extractQuickRef,
   fromDataset,
@@ -23,7 +26,9 @@ import {
   loadDefinitions,
   loadQuickRef,
   loadCorpus,
+  loadWork,
   parseDefinitions,
+  resolveHighlights,
   type LibraryCorpus,
   type ReaderWork,
 } from '@/lib/library'
@@ -276,12 +281,6 @@ export function useNotes(workId: string | undefined, unitId: string | undefined)
   )
 }
 
-export interface StudyRows {
-  highlights: LibraryHighlightRow[]
-  notes: LibraryNoteRow[]
-  bookmarks: LibraryBookmarkRow[]
-}
-
 /**
  * Everything the reader has written, across every work — My Study's whole feed.
  *
@@ -301,6 +300,155 @@ export function useStudyRows(): StudyRows | undefined {
     [],
     undefined,
   )
+}
+
+export interface StudyRows {
+  highlights: LibraryHighlightRow[]
+  notes: LibraryNoteRow[]
+  bookmarks: LibraryBookmarkRow[]
+}
+
+export interface StudyContext {
+  /** Highlights that neither their offsets nor their quote can locate. */
+  lost: ReadonlySet<string>
+  /** `"<workId>:<unitId>"` → how that unit cites itself, and its printed number. */
+  units: ReadonlyMap<string, { citation: string; number: string }>
+  /** False until the corpora have been read. "Not yet" and "none" are different answers. */
+  checked: boolean
+}
+
+/** Settled, with nothing in it — what an unannotated reader gets. */
+const NOTHING_TO_CHECK: StudyContext = { lost: new Set<string>(), units: new Map(), checked: true }
+
+/**
+ * NOT settled. The distinction is the whole point of `checked`, and conflating
+ * the two was a real defect: the initial state claimed to be checked, so My
+ * Study rendered "0 need attention" before a single corpus had been opened and
+ * the hook's own test passed against a hook that did nothing at all.
+ */
+const NOT_YET: StudyContext = { lost: new Set<string>(), units: new Map(), checked: false }
+
+/**
+ * The two things My Study cannot answer from its own rows.
+ *
+ * 1. **Which highlights are lost.** The brief is explicit: a highlight that can
+ *    be found by neither its offsets nor its quote is listed under "needs
+ *    attention" and never dropped. That needs the text as it is now.
+ * 2. **How each annotated unit cites itself.** The export leaves this app, and
+ *    "ccs-conduct-3" is an internal id, not a citation an officer could use a
+ *    month later. `unit.citation` is the real one.
+ *
+ * Both need the corpus, which My Study otherwise deliberately does not load —
+ * so this loads the corpora of the works the reader has ACTUALLY annotated, in
+ * one pass, and answers both. That is one or two books for almost everybody,
+ * every one already precached, and bounded by what they marked rather than by
+ * the size of the shelf.
+ *
+ * A work that will not load is skipped rather than reported: the annotations in
+ * it are fine and the corpus is what failed.
+ */
+export function useStudyContext(rows: StudyRows | undefined, language: Language): StudyContext {
+  const [state, setState] = useState<StudyContext>(NOT_YET)
+
+  const highlights = rows?.highlights
+  const notes = rows?.notes
+  const bookmarks = rows?.bookmarks
+
+  /**
+   * The effect is keyed on a SIGNATURE of the rows, not on their identity.
+   *
+   * `useLiveQuery` returns stable arrays between writes, so identity would
+   * usually do — but a caller that builds `{ highlights, notes: [], bookmarks: [] }`
+   * inline gets three new arrays on every render, and each one cancels the
+   * in-flight pass before it can finish. That is not a hypothetical: this
+   * hook's own test does exactly that, and it is a reasonable thing for a
+   * caller to do.
+   *
+   * The rows themselves are read through a ref updated in an effect declared
+   * ABOVE the one that uses it, so it is written before it is read on the same
+   * commit and never during render. Safe here in a way the reader's key handler
+   * was not (see `../url.ts#unitIdFromPath`): nothing about this depends on
+   * landing before a paint.
+   */
+  const signature = useMemo(
+    () =>
+      [
+        (highlights ?? []).map((row) => `${row.id}:${row.quote}:${row.lang}`).join('|'),
+        (notes ?? []).map((row) => `${row.id}:${row.workId}:${row.unitId}`).join('|'),
+        (bookmarks ?? []).map((row) => row.id).join('|'),
+      ].join('#'),
+    [highlights, notes, bookmarks],
+  )
+
+  const rowsRef = useRef<StudyRows | undefined>(rows)
+  useEffect(() => {
+    rowsRef.current = rows
+  }, [rows])
+
+  /**
+   * Keyed on the ROWS, not on a derived work list.
+   *
+   * These come from `useLiveQuery`, which returns new arrays only when the
+   * query actually re-runs — that is, when something is written. So this
+   * re-checks exactly when the annotations change and not on every render.
+   *
+   * The first version cached a `workId` set and read the rows through a ref
+   * assigned during render, which `react-hooks/refs` refuses — and rightly:
+   * adding a highlight to a work already in the set would not have re-checked.
+   */
+  useEffect(() => {
+    let cancelled = false
+    const current = rowsRef.current
+    const all = [...(current?.highlights ?? []), ...(current?.notes ?? []), ...(current?.bookmarks ?? [])]
+    // Nothing to check is answered at READ time below, not by setting state
+    // here: `react-hooks/set-state-in-effect` refuses a synchronous setState in
+    // an effect, and it is right — this is a fact about the arguments. Same
+    // shape `ReviewPage`'s `wrongAnswer` uses: derive, do not resynchronise.
+    if (all.length === 0) return
+
+    const check = async () => {
+      const lost = new Set<string>()
+      const units = new Map<string, { citation: string; number: string }>()
+
+      for (const workId of new Set(all.map((row) => row.workId))) {
+        try {
+          const corpus = isPersonalWorkId(workId)
+            ? await db.libraryPersonalWorks.get(workId).then((row) => (row ? buildPersonalCorpus(row) : null))
+            : await loadWork(workId).then(loadCorpus)
+          if (!corpus) continue
+
+          for (const row of all.filter((entry) => entry.workId === workId)) {
+            const unit = corpus.units.get(row.unitId)
+            if (!unit) {
+              // A unit the work no longer has is as lost as a quote that moved.
+              if ('quote' in row) lost.add(row.id)
+              continue
+            }
+            units.set(`${workId}:${row.unitId}`, {
+              citation: unit.citation[language],
+              number: unit.number,
+            })
+            if (!('quote' in row)) continue
+
+            const text = anchorText(unit.body[row.lang])
+            const [resolved] = resolveHighlights([row], text, row.lang)
+            if (resolved?.resolution.status === 'lost') lost.add(row.id)
+          }
+        } catch {
+          // The corpus failed, not the annotations. Say nothing about them.
+        }
+      }
+      if (!cancelled) setState({ lost, units, checked: true })
+    }
+
+    void check()
+    return () => {
+      cancelled = true
+    }
+  }, [signature, language])
+
+  const empty = (highlights?.length ?? 0) + (notes?.length ?? 0) + (bookmarks?.length ?? 0) === 0
+  return empty ? NOTHING_TO_CHECK : state
 }
 
 export function usePersonalWorks() {

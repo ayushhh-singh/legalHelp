@@ -5,7 +5,7 @@ import { Link } from 'react-router-dom'
 import { NoteBody } from '../components/NoteBody'
 import { toUnitHref } from '../url'
 import { useLibraryIndex } from '../useLibrary'
-import { usePersonalWorks, useStudyRows } from '../useAnnotations'
+import { usePersonalWorks, useStudyContext, useStudyRows } from '../useAnnotations'
 
 import { EmptyState } from '@/components/common/EmptyState'
 import { PageHeader } from '@/components/common/PageHeader'
@@ -62,6 +62,15 @@ export default function MyStudyPage() {
   const rows = useStudyRows()
   const index = useLibraryIndex()
   const personal = usePersonalWorks()
+  /**
+   * Which highlights can no longer be found in the text they marked.
+   *
+   * The one thing on this screen a reader can act on, and it needs the corpus —
+   * which this screen otherwise deliberately does not load. `useHighlightHealth`
+   * loads only the works the reader has actually annotated. Until it settles
+   * the screen says nothing rather than "none", which are different answers.
+   */
+  const health = useStudyContext(rows, language)
 
   const [work, setWork] = useState('')
   const [colour, setColour] = useState('')
@@ -98,9 +107,7 @@ export default function MyStudyPage() {
         createdAt: row.createdAt,
         colour: colourOf(row),
         text: row.quote,
-        // A row whose quote is empty could never be found again by any means;
-        // that is the one case this screen can identify without the corpus.
-        lost: row.quote.trim().length === 0,
+        lost: health.lost.has(row.id),
       })),
       ...rows.notes.map((row) => ({
         id: row.id,
@@ -123,7 +130,7 @@ export default function MyStudyPage() {
         lost: false,
       })),
     ].sort((a, b) => (a.createdAt < b.createdAt ? 1 : -1))
-  }, [rows])
+  }, [rows, health.lost])
 
   const shown = useMemo(() => {
     const needle = query.trim().toLowerCase()
@@ -143,17 +150,29 @@ export default function MyStudyPage() {
 
   const attention = shown.filter((entry) => entry.lost)
 
+  /**
+   * The ones that need attention come FIRST, because they are the only entries
+   * on this screen the reader can do anything about — and because a highlight
+   * whose text has moved is the one thing here that looks fine in a list sorted
+   * by date and is not.
+   */
+  const ordered = health.checked ? [...attention, ...shown.filter((entry) => !entry.lost)] : shown
+
   const exportSelected = () => {
     const picked = shown.filter((entry) => chosen.has(entry.id))
     const byUnit = new Map<string, ExportableAnnotation>()
 
     for (const entry of picked) {
       const key = `${entry.workId}:${entry.unitId}`
+      const resolved = health.units.get(key)
       const existing = byUnit.get(key) ?? {
         workTitle: names.get(entry.workId) ?? entry.workId,
-        unitNumber: entry.unitId,
+        unitNumber: resolved?.number ?? entry.unitId,
         unitHeading: '',
-        citation: `${names.get(entry.workId) ?? entry.workId} — ${entry.unitId}`,
+        // The unit's OWN citation where the corpus could be read, and the work
+        // plus the internal id where it could not — never the id alone, which
+        // means nothing outside this app.
+        citation: resolved?.citation ?? `${names.get(entry.workId) ?? entry.workId} — ${entry.unitId}`,
         path: toUnitHref(entry.workId, entry.unitId),
         highlights: [],
         notes: [],
@@ -288,7 +307,7 @@ export default function MyStudyPage() {
           <div className="flex flex-wrap items-center gap-2">
             <p role="status" className="text-sm text-muted-foreground tabular-nums">
               {t('library.mine.resultsCount', { count: shown.length })}
-              {attention.length > 0
+              {health.checked && attention.length > 0
                 ? ` · ${t('library.mine.needsAttentionCount', { count: attention.length })}`
                 : ''}
             </p>
@@ -317,7 +336,7 @@ export default function MyStudyPage() {
             <p className="text-sm text-muted-foreground">{t('library.mine.noneFiltered')}</p>
           ) : (
             <ul className="flex flex-col gap-2">
-              {shown.map((entry) => (
+              {ordered.map((entry) => (
                 <li key={entry.id}>
                   <SectionCard active={entry.lost}>
                     <div className="flex items-start gap-3 p-3">
@@ -335,7 +354,9 @@ export default function MyStudyPage() {
                       />
                       <div className="flex min-w-0 flex-1 flex-col gap-1.5">
                         <div className="flex flex-wrap items-center gap-2">
-                          <SectionNumber className="text-xs">{entry.unitId}</SectionNumber>
+                          <SectionNumber className="text-xs">
+                            {health.units.get(`${entry.workId}:${entry.unitId}`)?.number ?? entry.unitId}
+                          </SectionNumber>
                           <Link
                             to={toUnitHref(entry.workId, entry.unitId)}
                             className="text-xs text-primary underline-offset-4 hover:underline"

@@ -105,6 +105,38 @@ describe('deleteHighlight', () => {
     expect(await highlightsFor('ccs-conduct', 'ccs-conduct-3')).toEqual([])
   })
 
+  it('does nothing for a highlight that is not there', async () => {
+    // The row is read first now, so that the note query can be scoped to its
+    // unit; a missing row must not become a crash in a click handler.
+    await expect(deleteHighlight('hl-nothing')).resolves.toBeUndefined()
+  })
+
+  it('leaves a note attached to a DIFFERENT highlight on the same unit alone', async () => {
+    const first = await make()
+    const second = await make({ colour: 'coral' })
+    await saveNote({
+      workId: 'ccs-conduct',
+      unitId: 'ccs-conduct-3',
+      highlightId: second.id,
+      body: 'about the second one',
+    })
+
+    await deleteHighlight(first.id)
+    const [stored] = await notesFor('ccs-conduct', 'ccs-conduct-3')
+    expect(stored?.highlightId).toBe(second.id)
+  })
+
+  it('leaves a note on another unit alone', async () => {
+    const row = await make()
+    await saveNote({ workId: 'rti', unitId: 'rti-8', highlightId: row.id, body: 'elsewhere' })
+    await deleteHighlight(row.id)
+    // Scoping the detach query to the highlight's own unit means a note keyed
+    // to it from another unit is not reached — which cannot happen through the
+    // UI, and is the honest consequence of the index this uses.
+    const [elsewhere] = await notesFor('rti', 'rti-8')
+    expect(elsewhere?.highlightId).toBe(row.id)
+  })
+
   /**
    * The officer wrote the note; removing a colour is not asking to lose it.
    * The note becomes a note on the unit, which is what it would have been if

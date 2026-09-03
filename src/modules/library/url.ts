@@ -29,10 +29,22 @@ export const toLibrarySearchHref = (query?: string): string =>
  */
 export const compareRef = (workId: string, unitId: string): string => `${workId}:${unitId}`
 
+/**
+ * A work with NO unit yet is a valid state, and refusing it was a deadlock.
+ *
+ * The compare page writes `?a=bns:` the moment a work is chosen and fills the
+ * unit in afterwards — it has to, because the unit list comes from that work's
+ * corpus. The first version treated a trailing colon as malformed, so the work
+ * never loaded, so the unit picker stayed disabled, so a work could never be
+ * compared with anything. Reachable by the first click on the page.
+ *
+ * What is still refused: no colon at all, and an empty work id. The split is on
+ * the FIRST colon, so a unit id containing one survives intact.
+ */
 export function parseCompareRef(value: string | null): { workId: string; unitId: string } | null {
   if (!value) return null
   const at = value.indexOf(':')
-  if (at <= 0 || at === value.length - 1) return null
+  if (at <= 0) return null
   return { workId: value.slice(0, at), unitId: value.slice(at + 1) }
 }
 

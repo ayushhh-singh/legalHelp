@@ -193,6 +193,17 @@ export default function ReaderPage() {
   )
 
   const definitions = useDefinedTerms(work, corpus.data, prefs.terms)
+
+  const byNumber = useMemo(() => {
+    const index = new Map<string, string>()
+    for (const id of corpus.data?.order ?? []) {
+      const number = corpus.data?.units.get(id)?.number
+      // First wins: two units printing the same number is a corpus problem,
+      // and a citation should open the earlier one rather than the later.
+      if (number && !index.has(number)) index.set(number, id)
+    }
+    return index
+  }, [corpus.data])
   const [term, setTerm] = useState<{ term: DefinedTermRecord; at: { top: number; left: number } } | null>(
     null,
   )
@@ -498,13 +509,16 @@ export default function ReaderPage() {
     return total + (next ? estimateReadTime([...next.body.en, ...next.body.hi].join(' ')) : 0)
   }, 0)
 
-  const resolveUnitId = (targetWorkId: string, number: string): string | null => {
-    if (targetWorkId !== work.id || !corpus.data) return null
-    for (const id of corpus.data.order) {
-      if (corpus.data.units.get(id)?.number === number) return id
-    }
-    return null
-  }
+  /**
+   * Number → unit id, built once per corpus rather than scanned per citation.
+   *
+   * The first version walked `corpus.order` for every reference in every
+   * paragraph on every render. A BNSS section with ten citations meant five
+   * thousand map lookups per render, and the reader re-renders on every
+   * selection change.
+   */
+  const resolveUnitId = (targetWorkId: string, number: string): string | null =>
+    targetWorkId === work.id ? (byNumber.get(number) ?? null) : null
 
   const resolveWiki = (targetWorkId: string, targetUnitId: string) =>
     targetWorkId === work.id && corpus.data?.units.has(targetUnitId)

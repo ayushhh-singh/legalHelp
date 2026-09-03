@@ -90,6 +90,8 @@ export default function ComparePage() {
   const index = useLibraryIndex()
   const personal = usePersonalWorks()
 
+  // `unitId` may be empty: a work is chosen first and its units are listed
+  // from its own corpus. `Pane` renders the "pick one" message for that state.
   const a = parseCompareRef(params.get('a'))
   const b = parseCompareRef(params.get('b'))
 
@@ -99,12 +101,12 @@ export default function ComparePage() {
   const corpusB = useReaderCorpus(workB.work)
 
   const textA = useMemo(() => {
-    const unit = a && corpusA.data ? corpusA.data.units.get(a.unitId) : null
+    const unit = a?.unitId && corpusA.data ? corpusA.data.units.get(a.unitId) : null
     return unit ? anchorText(unit.body.en.length > 0 ? unit.body.en : unit.body.hi) : ''
   }, [a, corpusA.data])
 
   const textB = useMemo(() => {
-    const unit = b && corpusB.data ? corpusB.data.units.get(b.unitId) : null
+    const unit = b?.unitId && corpusB.data ? corpusB.data.units.get(b.unitId) : null
     return unit ? anchorText(unit.body.en.length > 0 ? unit.body.en : unit.body.hi) : ''
   }, [b, corpusB.data])
 
@@ -214,12 +216,12 @@ export default function ComparePage() {
       ) : (
         <SectionCard>
           <div className="flex flex-col gap-4 p-4">
-            {a && b && diff?.identical ? (
+            {a?.unitId && b?.unitId && diff?.identical ? (
               <p role="status" className="text-sm text-tulsi-foreground">
                 {t('library.compare.identical')}
               </p>
             ) : null}
-            {a && b && diff === null && textA && textB ? (
+            {a?.unitId && b?.unitId && diff === null && textA && textB ? (
               <p role="note" className="text-sm text-muted-foreground">
                 {t('library.compare.tooLong')}
               </p>

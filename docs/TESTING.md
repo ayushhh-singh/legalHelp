@@ -311,7 +311,7 @@ tree and still needs a label; only the axe sweep says so.
 ### 9. Data pipeline — Python
 
 `scripts/ingest` and `scripts/authoring` are tested with stdlib `unittest`, not Vitest — 185 tests
-across the two. `validate_data.py` checks all 77 datasets against `schemas/`, and **fails on a file
+across the two. `validate_data.py` checks all 107 datasets against `schemas/`, and **fails on a file
 that is in neither its manifest nor its stated no-schema list**, so a new dataset cannot go
 unvalidated. Read `scripts/ingest/README.md` and `docs/AUTHORING.md` before touching either.
 

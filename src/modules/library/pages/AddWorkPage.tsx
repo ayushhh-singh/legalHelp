@@ -55,6 +55,14 @@ export default function AddWorkPage() {
   const [busy, setBusy] = useState(false)
   const [error, setError] = useState<ExtractFailure | null>(null)
   const [saving, setSaving] = useState(false)
+  /**
+   * Where the caret is in each part's textarea.
+   *
+   * "Split at the cursor" said so and split at the MIDPOINT — a label that lies
+   * about the one operation on this screen where the reader has a precise
+   * intention. A textarea reports its own caret; nothing else can.
+   */
+  const [caret, setCaret] = useState<Record<number, number>>({})
 
   const propose = (text: string) => {
     const result = splitDocument(text)
@@ -326,6 +334,12 @@ export default function AddWorkPage() {
                         aria-label={`${t('library.add.proposed')} ${unit.number}`}
                         value={unit.text}
                         onChange={(event) => patch(index, { text: event.target.value })}
+                        onSelect={(event) =>
+                          setCaret((current) => ({
+                            ...current,
+                            [index]: event.currentTarget.selectionStart,
+                          }))
+                        }
                         rows={3}
                         className="w-full resize-y rounded-md border border-input bg-background p-2 text-xs"
                       />
@@ -348,11 +362,14 @@ export default function AddWorkPage() {
                         <button
                           type="button"
                           onClick={() =>
-                            setUnits((current) =>
-                              current
-                                ? splitUnitAt(current, index, Math.floor(unit.text.length / 2))
-                                : current,
-                            )
+                            setUnits((current) => {
+                              if (!current) return current
+                              // The caret if the reader has put one in this
+                              // part; the midpoint only as a fallback for a
+                              // part they have not touched.
+                              const at = caret[index] ?? Math.floor(unit.text.length / 2)
+                              return splitUnitAt(current, index, at)
+                            })
                           }
                           className="inline-flex min-h-8 items-center gap-1 rounded-md px-2 text-xs transition-colors hover:bg-accent hover:text-accent-foreground focus-visible:ring-2 focus-visible:ring-ring focus-visible:outline-none"
                         >

@@ -57,9 +57,7 @@ describe('a screen must not wait on a read it only decorates itself with', () =>
    * The library the reader wanted to read is right there in a precached chunk.
    */
   it('renders the shelf even when progress never resolves', async () => {
-    const spy = vi.spyOn(db.libraryProgress, 'toArray').mockReturnValue(
-      new Promise(() => undefined) as never,
-    )
+    const spy = vi.spyOn(db.libraryProgress, 'toArray').mockReturnValue(new Promise(() => undefined) as never)
     try {
       at('/library')
       expect(await screen.findByRole('heading', { level: 1, name: 'Library' })).toBeInTheDocument()
@@ -319,9 +317,7 @@ describe('the reader’s own keyboard shortcuts', () => {
     await screen.findByText(/absolute integrity/i)
 
     await user.keyboard('j')
-    await waitFor(() =>
-      expect(screen.getByRole('heading', { level: 1 })).not.toHaveTextContent('General'),
-    )
+    await waitFor(() => expect(screen.getByRole('heading', { level: 1 })).not.toHaveTextContent('General'))
 
     // A second press, because the defect this file records was in the second
     // one — from Rule 3, `k` went to Rule 1. But be clear about what this
@@ -336,9 +332,7 @@ describe('the reader’s own keyboard shortcuts', () => {
     // which layer actually holds that guarantee rather than assuming it is
     // this one.
     await user.keyboard('k')
-    await waitFor(() =>
-      expect(screen.getByRole('heading', { level: 1 })).toHaveTextContent('General'),
-    )
+    await waitFor(() => expect(screen.getByRole('heading', { level: 1 })).toHaveTextContent('General'))
   })
 })
 
@@ -354,9 +348,7 @@ describe('the 30-second dwell timer', () => {
     // it is about — which is how a test comes to fail with a message that
     // describes something other than what went wrong.
     vi.useFakeTimers({ toFake: ['setInterval', 'clearInterval'] })
-    const visibility = vi
-      .spyOn(document, 'visibilityState', 'get')
-      .mockReturnValue('hidden')
+    const visibility = vi.spyOn(document, 'visibilityState', 'get').mockReturnValue('hidden')
     try {
       at('/library/ccs-conduct/ccs-conduct-3')
       await vi.waitFor(() => expect(screen.getByText(/absolute integrity/i)).toBeInTheDocument())
