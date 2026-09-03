@@ -69,10 +69,10 @@ describe('registration', () => {
 })
 
 describe('list_draft_templates', () => {
-  it('lists all fourteen with their use-when line', async () => {
+  it('lists all forty-three with their use-when line', async () => {
     const result = await call('list_draft_templates', {})
     const templates = result.templates as { id: string; useWhen: string; useWhenHi: string }[]
-    expect(templates).toHaveLength(14)
+    expect(templates).toHaveLength(43)
     for (const entry of templates) {
       expect(entry.useWhen.length, entry.id).toBeGreaterThan(20)
       expect(entry.useWhenHi.length, entry.id).toBeGreaterThan(20)
@@ -83,17 +83,46 @@ describe('list_draft_templates', () => {
     const result = await call('list_draft_templates', {})
     const templates = result.templates as { id: string; formatPrescribedByCsmop: boolean }[]
     const unprescribed = templates.filter((entry) => !entry.formatPrescribedByCsmop).map((e) => e.id)
-    expect(unprescribed.sort()).toEqual(
-      [
-        'circular',
-        'leave-application',
-        'representation',
-        'rti-reply',
-        'show-cause-reply',
-        'ta-bill-cover',
-        'tour-programme',
-      ].sort(),
-    )
+    // Thirty-six of the forty-three. `verify: true` means CSMOP prescribes no
+    // format for that form, and every one of them names the chassis it borrows.
+    expect(unprescribed.sort()).toEqual([
+      'acknowledgement',
+      'advisory',
+      'agenda-note',
+      'appeal',
+      'certificate',
+      'charge-report',
+      'charges-reply',
+      'circular',
+      'condolence-do',
+      'explanation-letter',
+      'forwarding-letter',
+      'gpf-advance',
+      'grievance',
+      'house-allotment',
+      'interim-reply',
+      'joining-report',
+      'leave-application',
+      'ltc-application',
+      'minutes-of-meeting',
+      'noc-issue',
+      'noc-request',
+      'office-order',
+      'relieving-order',
+      'reminder',
+      'representation',
+      'rti-application',
+      'rti-first-appeal-reply',
+      'rti-reply',
+      'sanction-order',
+      'show-cause-reply',
+      'speaking-order',
+      'ta-bill-cover',
+      'tour-programme',
+      'tour-report',
+      'transfer-request',
+      'vigilance-clearance',
+    ])
   })
 })
 
@@ -122,7 +151,7 @@ describe('get_draft_template', () => {
   it('says so, and lists the alternatives, for a form that does not exist', async () => {
     const result = await call('get_draft_template', { templateId: 'not-a-form' })
     expect(result.found).toBe(false)
-    expect(result.available).toHaveLength(14)
+    expect(result.available).toHaveLength(43)
   })
 
   it('rejects an id that is not a slug before the handler ever runs', () => {

@@ -1,0 +1,633 @@
+{
+  "version": "2.0.0",
+  "generatedAt": "2026-09-03T00:00:00Z",
+  "disclaimer": {
+    "en": "Reference only; verify with the official gazette/order or your DDO.",
+    "hi": "केवल संदर्भ के लिए; सरकारी राजपत्र/आदेश या अपने डीडीओ से सत्यापित करें।"
+  },
+  "template": {
+    "id": "noc-request",
+    "name": {
+      "en": "NOC request",
+      "hi": "अनापत्ति हेतु अनुरोध"
+    },
+    "shortName": {
+      "en": "NOC request",
+      "hi": "अनापत्ति अनुरोध"
+    },
+    "person": "first",
+    "usedBy": {
+      "en": "An officer, on their own behalf.",
+      "hi": "एक अधिकारी, अपनी ओर से।"
+    },
+    "whenToUse": {
+      "en": "The purpose must be stated, because the office certifies against that purpose and no other. Where the certificate is for applying to a post outside the Department, rule 20 of the CCS (Conduct) Rules, 1964 and the standing instructions on forwarding applications apply, and the application itself is forwarded rather than an NOC issued.",
+      "hi": "प्रयोजन अवश्य बताया जाना चाहिए, क्योंकि कार्यालय उसी प्रयोजन के लिए प्रमाणित करता है, किसी अन्य के लिए नहीं। जहाँ प्रमाणपत्र विभाग के बाहर किसी पद हेतु आवेदन के लिए हो, वहाँ केंद्रीय सिविल सेवा (आचरण) नियम, 1964 का नियम 20 तथा आवेदन अग्रेषित करने संबंधी स्थायी अनुदेश लागू होते हैं, और अनापत्ति जारी करने के बजाय आवेदन ही अग्रेषित किया जाता है।"
+    },
+    "salutation": null,
+    "subscription": null,
+    "urgencyAllowed": false,
+    "csmopRef": {
+      "edition": "CSMOP 2022, sixteenth edition",
+      "paras": [
+        "8.4(1)"
+      ],
+      "chassis": "letter",
+      "note": {
+        "en": "CSMOP prescribes no format. Where the NOC is for outside employment, rule 20 of the CCS (Conduct) Rules, 1964 governs. Built on the letter chassis.",
+        "hi": "सीएसएमओपी कोई प्रारूप निर्धारित नहीं करता। जहाँ अनापत्ति बाहर के नियोजन हेतु हो, वहाँ केंद्रीय सिविल सेवा (आचरण) नियम, 1964 का नियम 20 लागू होता है। पत्र ढाँचे पर बना।"
+      }
+    },
+    "fields": [
+      {
+        "id": "place",
+        "label": {
+          "en": "Place",
+          "hi": "स्थान"
+        },
+        "type": "text",
+        "required": true,
+        "sample": {
+          "en": "New Delhi",
+          "hi": "नई दिल्ली"
+        }
+      },
+      {
+        "id": "date",
+        "label": {
+          "en": "Date",
+          "hi": "दिनांक"
+        },
+        "type": "date",
+        "required": true,
+        "sample": {
+          "en": "2026-08-28",
+          "hi": "2026-08-28"
+        },
+        "hint": {
+          "en": "dd.mm.yyyy in English; दिनांक dd.mm.yyyy in Hindi.",
+          "hi": "अंग्रेज़ी में dd.mm.yyyy; हिंदी में दिनांक dd.mm.yyyy।"
+        }
+      },
+      {
+        "id": "addressee",
+        "label": {
+          "en": "Addressee",
+          "hi": "प्रेषिती"
+        },
+        "type": "list",
+        "required": true,
+        "sample": {
+          "en": [
+            "The Under Secretary (Establishment)",
+            "Department of Personnel and Training",
+            "North Block, New Delhi"
+          ],
+          "hi": [
+            "अवर सचिव (स्थापना)",
+            "कार्मिक और प्रशिक्षण विभाग",
+            "नॉर्थ ब्लॉक, नई दिल्ली"
+          ]
+        }
+      },
+      {
+        "id": "subject",
+        "label": {
+          "en": "Subject",
+          "hi": "विषय"
+        },
+        "type": "text",
+        "required": true,
+        "sample": {
+          "en": "Request for a no objection certificate for the issue of an ordinary passport.",
+          "hi": "साधारण पासपोर्ट जारी करने हेतु अनापत्ति प्रमाणपत्र के लिए अनुरोध।"
+        }
+      },
+      {
+        "id": "paras",
+        "label": {
+          "en": "Body paragraphs",
+          "hi": "मुख्य पैराग्राफ"
+        },
+        "type": "paras",
+        "required": true,
+        "sample": {
+          "en": [
+            "I request that a no objection certificate may kindly be issued in my favour for applying for an ordinary passport.",
+            "My particulars are: name A.B.C., designation Assistant Section Officer, date of joining this Department 15.07.2019, employee code DPT/2019/0451.",
+            "A copy of the application form and the passport-size photographs are enclosed.",
+            "It is certified that no disciplinary or vigilance proceedings are pending or contemplated against me to the best of my knowledge."
+          ],
+          "hi": [
+            "अनुरोध है कि साधारण पासपोर्ट हेतु आवेदन करने हेतु मेरे पक्ष में अनापत्ति प्रमाणपत्र जारी किया जाए।",
+            "मेरा विवरण इस प्रकार है : नाम ए.बी.सी., पदनाम सहायक अनुभाग अधिकारी, इस विभाग में कार्यग्रहण दिनांक 15.07.2019, कर्मचारी कोड डीपीटी/2019/0451।",
+            "आवेदन प्रपत्र की प्रति तथा पासपोर्ट आकार के फोटो संलग्न हैं।",
+            "प्रमाणित किया जाता है कि मेरी जानकारी में मेरे विरुद्ध कोई अनुशासनिक या सतर्कता कार्यवाही न तो लंबित है और न विचाराधीन।"
+          ]
+        },
+        "hint": {
+          "en": "One paragraph per line. The first is left unnumbered and the rest are numbered from 2.",
+          "hi": "प्रति पंक्ति एक पैराग्राफ। पहला बिना संख्या के रहता है और शेष 2 से क्रमांकित होते हैं।"
+        }
+      },
+      {
+        "id": "signatoryName",
+        "label": {
+          "en": "Your name",
+          "hi": "आपका नाम"
+        },
+        "type": "text",
+        "required": true,
+        "sample": {
+          "en": "A.B.C.",
+          "hi": "ए.बी.सी."
+        }
+      },
+      {
+        "id": "signatoryDesignation",
+        "label": {
+          "en": "Your designation",
+          "hi": "आपका पदनाम"
+        },
+        "type": "text",
+        "required": true,
+        "sample": {
+          "en": "Assistant Section Officer",
+          "hi": "सहायक अनुभाग अधिकारी"
+        }
+      },
+      {
+        "id": "phone",
+        "label": {
+          "en": "Telephone number",
+          "hi": "दूरभाष संख्या"
+        },
+        "type": "text",
+        "required": true,
+        "sample": {
+          "en": "011-2309 2590",
+          "hi": "011-2309 2590"
+        }
+      },
+      {
+        "id": "email",
+        "label": {
+          "en": "Email",
+          "hi": "ई-मेल"
+        },
+        "type": "text",
+        "required": true,
+        "sample": {
+          "en": "abc@nic.in",
+          "hi": "abc@nic.in"
+        }
+      },
+      {
+        "id": "enclosures",
+        "label": {
+          "en": "Enclosures",
+          "hi": "संलग्नक"
+        },
+        "type": "list",
+        "required": false,
+        "sample": {
+          "en": [
+            "A copy of the application form.",
+            "Two passport-size photographs."
+          ],
+          "hi": [
+            "आवेदन प्रपत्र की एक प्रति।",
+            "पासपोर्ट आकार के दो फोटो।"
+          ]
+        },
+        "hint": {
+          "en": "The count goes at the bottom left of the draft — 'Encl. 3' (9.2(vii)).",
+          "hi": "मसौदे के नीचे बाईं ओर संख्या दी जाती है — 'Encl. 3' (9.2(vii))।"
+        }
+      }
+    ],
+    "layout": {
+      "en": [
+        {
+          "role": "dateLine",
+          "align": "right",
+          "lines": [
+            "{{place}}, the {{date}}"
+          ]
+        },
+        {
+          "role": "addressee",
+          "align": "left",
+          "lead": "To,",
+          "source": "addressee"
+        },
+        {
+          "role": "subject",
+          "align": "left",
+          "lines": [
+            "Subject: {{subject}}"
+          ]
+        },
+        {
+          "role": "salutation",
+          "align": "left",
+          "lines": [
+            "Sir / Madam,"
+          ]
+        },
+        {
+          "role": "body",
+          "align": "left",
+          "source": "paras",
+          "numbered": true
+        },
+        {
+          "role": "closing",
+          "align": "right",
+          "lines": [
+            "Yours faithfully,"
+          ]
+        },
+        {
+          "role": "signature",
+          "align": "left",
+          "lines": [
+            "({{signatoryName}})",
+            "{{signatoryDesignation}}",
+            "Tele. No.: {{phone}}",
+            "Email: {{email}}"
+          ]
+        },
+        {
+          "role": "enclosures",
+          "align": "left",
+          "lead": "List of enclosures:",
+          "source": "enclosures",
+          "itemPrefix": "ordinal",
+          "omitWhenEmpty": true
+        }
+      ],
+      "hi": [
+        {
+          "role": "dateLine",
+          "align": "right",
+          "lines": [
+            "{{place}}, दिनांक {{date}}"
+          ]
+        },
+        {
+          "role": "addressee",
+          "align": "left",
+          "lead": "सेवा में,",
+          "source": "addressee"
+        },
+        {
+          "role": "subject",
+          "align": "left",
+          "lines": [
+            "विषय : {{subject}}"
+          ]
+        },
+        {
+          "role": "salutation",
+          "align": "left",
+          "lines": [
+            "महोदय / महोदया,"
+          ]
+        },
+        {
+          "role": "body",
+          "align": "left",
+          "source": "paras",
+          "numbered": true
+        },
+        {
+          "role": "closing",
+          "align": "right",
+          "lines": [
+            "भवदीय,"
+          ]
+        },
+        {
+          "role": "signature",
+          "align": "left",
+          "lines": [
+            "({{signatoryName}})",
+            "{{signatoryDesignation}}",
+            "दूरभाष संख्या : {{phone}}",
+            "ई-मेल : {{email}}"
+          ]
+        },
+        {
+          "role": "enclosures",
+          "align": "left",
+          "lead": "संलग्नकों की सूची :",
+          "source": "enclosures",
+          "itemPrefix": "ordinal",
+          "omitWhenEmpty": true
+        }
+      ]
+    },
+    "checklist": [
+      {
+        "id": "purpose-stated",
+        "label": {
+          "en": "The purpose is stated",
+          "hi": "प्रयोजन बताया गया है"
+        },
+        "why": {
+          "en": "The office certifies against the purpose named and no other; a request with none asks the office to certify at large.",
+          "hi": "कार्यालय नामित प्रयोजन हेतु प्रमाणित करता है, किसी अन्य हेतु नहीं; बिना प्रयोजन का अनुरोध कार्यालय से खुला प्रमाणन माँगता है।"
+        },
+        "severity": "must",
+        "rule": {
+          "kind": "regex",
+          "role": "body",
+          "pattern": "(for|purpose|हेतु|प्रयोजन)"
+        }
+      },
+      {
+        "id": "subject",
+        "label": {
+          "en": "The subject is stated",
+          "hi": "विषय लिखा गया है"
+        },
+        "why": {
+          "en": "The specimens in Appendix 8.1 carry a subject line above the body on every form that is addressed to anyone.",
+          "hi": "परिशिष्ट 8.1 के नमूनों में हर संबोधित प्रपत्र पर मुख्य भाग के ऊपर विषय पंक्ति होती है।"
+        },
+        "severity": "must",
+        "rule": {
+          "kind": "blockPresent",
+          "role": "subject"
+        },
+        "csmopRef": "Appendix 8.1"
+      },
+      {
+        "id": "para-numbering",
+        "label": {
+          "en": "Paragraphs are serially numbered",
+          "hi": "पैराग्राफ क्रमानुसार संख्यांकित हैं"
+        },
+        "why": {
+          "en": "The specimens leave the first paragraph unnumbered and number the rest from 2.",
+          "hi": "नमूनों में पहला पैराग्राफ बिना संख्या के रहता है और शेष 2 से क्रमांकित होते हैं।"
+        },
+        "severity": "must",
+        "rule": {
+          "kind": "paraNumbering"
+        },
+        "csmopRef": "Appendix 8.1"
+      },
+      {
+        "id": "no-placeholders",
+        "label": {
+          "en": "No placeholder is left unfilled",
+          "hi": "कोई प्लेसहोल्डर अधूरा नहीं छूटा"
+        },
+        "why": {
+          "en": "A draft that goes out with {{…}} still in it has not been read.",
+          "hi": "जिस मसौदे में {{…}} रह जाए, उसे पढ़ा ही नहीं गया।"
+        },
+        "severity": "must",
+        "rule": {
+          "kind": "noPlaceholders"
+        }
+      }
+    ],
+    "source": {
+      "name": "Central Secretariat Manual of Office Procedure, 2022 (16th edition), DARPG",
+      "url": "https://www.darpg.gov.in/static/uploads/2025/10/774e0b8f427b7875158363d842fa431f.pdf",
+      "reference": "CSMOP 2022, sixteenth edition",
+      "dated": "2022-08-05"
+    },
+    "fetchedAt": "2026-09-03T00:00:00Z",
+    "verify": true,
+    "variables": [
+      {
+        "key": "purpose",
+        "label": {
+          "en": "Purpose of the NOC",
+          "hi": "अनापत्ति का प्रयोजन"
+        },
+        "type": "text",
+        "required": true,
+        "sample": {
+          "en": "applying for an ordinary passport",
+          "hi": "साधारण पासपोर्ट हेतु आवेदन करने"
+        }
+      },
+      {
+        "key": "employeeName",
+        "label": {
+          "en": "Your name",
+          "hi": "आपका नाम"
+        },
+        "type": "text",
+        "required": true,
+        "sample": {
+          "en": "A.B.C.",
+          "hi": "ए.बी.सी."
+        },
+        "defaultFrom": "name"
+      },
+      {
+        "key": "employeeDesignation",
+        "label": {
+          "en": "Your designation",
+          "hi": "आपका पदनाम"
+        },
+        "type": "text",
+        "required": true,
+        "sample": {
+          "en": "Assistant Section Officer",
+          "hi": "सहायक अनुभाग अधिकारी"
+        },
+        "defaultFrom": "designation"
+      },
+      {
+        "key": "joiningDate",
+        "label": {
+          "en": "Date of joining",
+          "hi": "कार्यग्रहण दिनांक"
+        },
+        "type": "date",
+        "required": true,
+        "sample": {
+          "en": "15.07.2019",
+          "hi": "15.07.2019"
+        }
+      },
+      {
+        "key": "employeeCode",
+        "label": {
+          "en": "Employee code",
+          "hi": "कर्मचारी कोड"
+        },
+        "type": "text",
+        "required": true,
+        "sample": {
+          "en": "DPT/2019/0451",
+          "hi": "डीपीटी/2019/0451"
+        }
+      },
+      {
+        "key": "extraDetails",
+        "label": {
+          "en": "Anything else the office needs",
+          "hi": "कार्यालय को और क्या चाहिए"
+        },
+        "type": "textarea",
+        "required": false,
+        "sample": {
+          "en": "A copy of the application form and the passport-size photographs are enclosed.",
+          "hi": "आवेदन प्रपत्र की प्रति तथा पासपोर्ट आकार के फोटो संलग्न हैं।"
+        }
+      }
+    ],
+    "bodySkeleton": {
+      "en": {
+        "type": "doc",
+        "content": [
+          {
+            "type": "numberedPara",
+            "attrs": {
+              "level": 1
+            },
+            "content": [
+              {
+                "type": "text",
+                "text": "I request that a no objection certificate may kindly be issued in my favour for {{purpose}}."
+              }
+            ]
+          },
+          {
+            "type": "numberedPara",
+            "attrs": {
+              "level": 1
+            },
+            "content": [
+              {
+                "type": "text",
+                "text": "My particulars are: name {{employeeName}}, designation {{employeeDesignation}}, date of joining this Department {{joiningDate}}, employee code {{employeeCode}}."
+              }
+            ]
+          },
+          {
+            "type": "paragraph",
+            "content": [
+              {
+                "type": "text",
+                "text": "{{#if extraDetails}}"
+              }
+            ]
+          },
+          {
+            "type": "numberedPara",
+            "attrs": {
+              "level": 1
+            },
+            "content": [
+              {
+                "type": "text",
+                "text": "{{extraDetails}}"
+              }
+            ]
+          },
+          {
+            "type": "paragraph",
+            "content": [
+              {
+                "type": "text",
+                "text": "{{/if}}"
+              }
+            ]
+          },
+          {
+            "type": "numberedPara",
+            "attrs": {
+              "level": 1
+            },
+            "content": [
+              {
+                "type": "text",
+                "text": "It is certified that no disciplinary or vigilance proceedings are pending or contemplated against me to the best of my knowledge."
+              }
+            ]
+          }
+        ]
+      },
+      "hi": {
+        "type": "doc",
+        "content": [
+          {
+            "type": "numberedPara",
+            "attrs": {
+              "level": 1
+            },
+            "content": [
+              {
+                "type": "text",
+                "text": "अनुरोध है कि {{purpose}} हेतु मेरे पक्ष में अनापत्ति प्रमाणपत्र जारी किया जाए।"
+              }
+            ]
+          },
+          {
+            "type": "numberedPara",
+            "attrs": {
+              "level": 1
+            },
+            "content": [
+              {
+                "type": "text",
+                "text": "मेरा विवरण इस प्रकार है : नाम {{employeeName}}, पदनाम {{employeeDesignation}}, इस विभाग में कार्यग्रहण दिनांक {{joiningDate}}, कर्मचारी कोड {{employeeCode}}।"
+              }
+            ]
+          },
+          {
+            "type": "paragraph",
+            "content": [
+              {
+                "type": "text",
+                "text": "{{#if extraDetails}}"
+              }
+            ]
+          },
+          {
+            "type": "numberedPara",
+            "attrs": {
+              "level": 1
+            },
+            "content": [
+              {
+                "type": "text",
+                "text": "{{extraDetails}}"
+              }
+            ]
+          },
+          {
+            "type": "paragraph",
+            "content": [
+              {
+                "type": "text",
+                "text": "{{/if}}"
+              }
+            ]
+          },
+          {
+            "type": "numberedPara",
+            "attrs": {
+              "level": 1
+            },
+            "content": [
+              {
+                "type": "text",
+                "text": "प्रमाणित किया जाता है कि मेरी जानकारी में मेरे विरुद्ध कोई अनुशासनिक या सतर्कता कार्यवाही न तो लंबित है और न विचाराधीन।"
+              }
+            ]
+          }
+        ]
+      }
+    }
+  }
+}

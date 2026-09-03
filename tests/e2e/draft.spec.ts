@@ -79,9 +79,21 @@ test('writes an O.M., clears the checklist, exports a real .docx, and survives a
   await expect(card).toBeVisible({ timeout: 30_000 })
   // The one-line "use when" the picker loads index.json for.
   await expect(page.getByText('Everyday business between Departments')).toBeVisible()
-  await card.click()
 
   // ---- the editor ---------------------------------------------------------
+  /*
+    Reached by URL rather than by pressing the card, and that is the change
+    Session 29 made rather than a workaround.
+
+    The picker's cards now open the DOCUMENT editor at `/draft/new/:type`
+    (ADR-041). This form-and-preview editor is kept and stays reachable —
+    `RecentDrafts` links straight to `/draft/:type?d=<id>`, which is how an
+    officer opens a draft written before the change, and every row in the
+    `drafts` table still opens here until the migration on `/draft/documents`
+    is run. What this test covers is that editor, so it goes to it directly.
+    `tests/e2e/draft-editor.spec.ts` is the same journey through the new one.
+  */
+  await page.goto('/draft/office-memorandum')
   await expect(page).toHaveURL(/\/draft\/office-memorandum/)
   await expect(page.getByRole('heading', { level: 1, name: 'Office Memorandum (O.M.)' })).toBeVisible()
 

@@ -1,0 +1,781 @@
+{
+  "version": "2.0.0",
+  "generatedAt": "2026-09-03T00:00:00Z",
+  "disclaimer": {
+    "en": "Reference only; verify with the official gazette/order or your DDO.",
+    "hi": "केवल संदर्भ के लिए; सरकारी राजपत्र/आदेश या अपने डीडीओ से सत्यापित करें।"
+  },
+  "template": {
+    "id": "ltc-application",
+    "name": {
+      "en": "LTC application",
+      "hi": "अवकाश यात्रा रियायत आवेदन"
+    },
+    "shortName": {
+      "en": "LTC",
+      "hi": "अवकाश यात्रा रियायत"
+    },
+    "person": "first",
+    "usedBy": {
+      "en": "An officer, on their own behalf.",
+      "hi": "एक अधिकारी, अपनी ओर से।"
+    },
+    "whenToUse": {
+      "en": "Under the CCS (LTC) Rules, 1988 the concession is availed in a four-year block, and the declaration of the home town and of the block being availed is what the sanctioning authority checks first. Where an advance is asked for, the application must say so before the journey, since an advance cannot be sanctioned afterwards.",
+      "hi": "केंद्रीय सिविल सेवा (अवकाश यात्रा रियायत) नियम, 1988 के अंतर्गत यह रियायत चार वर्ष के ब्लॉक में ली जाती है, और गृह नगर तथा जिस ब्लॉक का उपयोग हो रहा है, उसकी घोषणा ही स्वीकृति प्राधिकारी सबसे पहले जाँचता है। जहाँ अग्रिम माँगा जाए वहाँ आवेदन में यात्रा से पूर्व यह लिखा जाना चाहिए, क्योंकि अग्रिम बाद में स्वीकृत नहीं हो सकता।"
+    },
+    "salutation": null,
+    "subscription": null,
+    "urgencyAllowed": false,
+    "csmopRef": {
+      "edition": "CSMOP 2022, sixteenth edition",
+      "paras": [
+        "8.4(1)"
+      ],
+      "chassis": "letter",
+      "note": {
+        "en": "CSMOP prescribes no format for an LTC application; the entitlement and the block years come from the CCS (LTC) Rules, 1988. Built on the letter chassis.",
+        "hi": "सीएसएमओपी अवकाश यात्रा रियायत आवेदन का कोई प्रारूप निर्धारित नहीं करता; पात्रता और ब्लॉक वर्ष केंद्रीय सिविल सेवा (अवकाश यात्रा रियायत) नियम, 1988 से आते हैं। पत्र ढाँचे पर बना।"
+      }
+    },
+    "fields": [
+      {
+        "id": "place",
+        "label": {
+          "en": "Place",
+          "hi": "स्थान"
+        },
+        "type": "text",
+        "required": true,
+        "sample": {
+          "en": "New Delhi",
+          "hi": "नई दिल्ली"
+        }
+      },
+      {
+        "id": "date",
+        "label": {
+          "en": "Date",
+          "hi": "दिनांक"
+        },
+        "type": "date",
+        "required": true,
+        "sample": {
+          "en": "2026-08-28",
+          "hi": "2026-08-28"
+        },
+        "hint": {
+          "en": "dd.mm.yyyy in English; दिनांक dd.mm.yyyy in Hindi.",
+          "hi": "अंग्रेज़ी में dd.mm.yyyy; हिंदी में दिनांक dd.mm.yyyy।"
+        }
+      },
+      {
+        "id": "addressee",
+        "label": {
+          "en": "Addressee",
+          "hi": "प्रेषिती"
+        },
+        "type": "list",
+        "required": true,
+        "sample": {
+          "en": [
+            "The Under Secretary (Establishment)",
+            "Department of Personnel and Training",
+            "North Block, New Delhi"
+          ],
+          "hi": [
+            "अवर सचिव (स्थापना)",
+            "कार्मिक और प्रशिक्षण विभाग",
+            "नॉर्थ ब्लॉक, नई दिल्ली"
+          ]
+        }
+      },
+      {
+        "id": "subject",
+        "label": {
+          "en": "Subject",
+          "hi": "विषय"
+        },
+        "type": "text",
+        "required": true,
+        "sample": {
+          "en": "Application for leave travel concession for the block year 2026-2029.",
+          "hi": "ब्लॉक वर्ष 2026-2029 हेतु अवकाश यात्रा रियायत के लिए आवेदन।"
+        }
+      },
+      {
+        "id": "paras",
+        "label": {
+          "en": "Body paragraphs",
+          "hi": "मुख्य पैराग्राफ"
+        },
+        "type": "paras",
+        "required": true,
+        "sample": {
+          "en": [
+            "I request that I may be permitted to avail of leave travel concession of the home town kind for the block year 2026-2029, in respect of myself and the members of my family listed below.",
+            "My declared home town is Varanasi and the place to be visited is Varanasi. The journey is proposed to be performed from 10.10.2026 to 20.10.2026 by rail, in the entitled class.",
+            "# Family members travelling",
+            ". ",
+            "An advance of Rs. 30,000 is requested, which I undertake to adjust by submitting the claim within one month of the completion of the return journey.",
+            "I have applied separately for leave for the period of the journey."
+          ],
+          "hi": [
+            "अनुरोध है कि मुझे ब्लॉक वर्ष 2026-2029 हेतु गृह नगर प्रकार की अवकाश यात्रा रियायत का उपयोग करने की अनुमति दी जाए, स्वयं तथा नीचे सूचीबद्ध अपने परिवार के सदस्यों के संबंध में।",
+            "मेरा घोषित गृह नगर वाराणसी है और जिस स्थान की यात्रा करनी है वह वाराणसी है। यात्रा 10.10.2026 से 20.10.2026 तक रेल, पात्र श्रेणी में द्वारा करने का प्रस्ताव है।",
+            "# यात्रा करने वाले परिवार के सदस्य",
+            ". ",
+            "30,000 रुपये का अग्रिम अनुरोधित है, जिसे मैं वापसी यात्रा पूरी होने के एक माह के भीतर दावा प्रस्तुत करके समायोजित करने का वचन देता/देती हूँ।",
+            "यात्रा की अवधि के लिए मैंने अलग से अवकाश हेतु आवेदन किया है।"
+          ]
+        },
+        "hint": {
+          "en": "One paragraph per line. The first is left unnumbered and the rest are numbered from 2.",
+          "hi": "प्रति पंक्ति एक पैराग्राफ। पहला बिना संख्या के रहता है और शेष 2 से क्रमांकित होते हैं।"
+        }
+      },
+      {
+        "id": "signatoryName",
+        "label": {
+          "en": "Your name",
+          "hi": "आपका नाम"
+        },
+        "type": "text",
+        "required": true,
+        "sample": {
+          "en": "A.B.C.",
+          "hi": "ए.बी.सी."
+        }
+      },
+      {
+        "id": "signatoryDesignation",
+        "label": {
+          "en": "Your designation",
+          "hi": "आपका पदनाम"
+        },
+        "type": "text",
+        "required": true,
+        "sample": {
+          "en": "Assistant Section Officer",
+          "hi": "सहायक अनुभाग अधिकारी"
+        }
+      },
+      {
+        "id": "phone",
+        "label": {
+          "en": "Telephone number",
+          "hi": "दूरभाष संख्या"
+        },
+        "type": "text",
+        "required": true,
+        "sample": {
+          "en": "011-2309 2590",
+          "hi": "011-2309 2590"
+        }
+      },
+      {
+        "id": "email",
+        "label": {
+          "en": "Email",
+          "hi": "ई-मेल"
+        },
+        "type": "text",
+        "required": true,
+        "sample": {
+          "en": "abc@nic.in",
+          "hi": "abc@nic.in"
+        }
+      },
+      {
+        "id": "enclosures",
+        "label": {
+          "en": "Enclosures",
+          "hi": "संलग्नक"
+        },
+        "type": "list",
+        "required": false,
+        "sample": {
+          "en": [
+            "A copy of the declaration of my home town."
+          ],
+          "hi": [
+            "मेरे गृह नगर की घोषणा की प्रति।"
+          ]
+        },
+        "hint": {
+          "en": "The count goes at the bottom left of the draft — 'Encl. 3' (9.2(vii)).",
+          "hi": "मसौदे के नीचे बाईं ओर संख्या दी जाती है — 'Encl. 3' (9.2(vii))।"
+        }
+      }
+    ],
+    "layout": {
+      "en": [
+        {
+          "role": "dateLine",
+          "align": "right",
+          "lines": [
+            "{{place}}, the {{date}}"
+          ]
+        },
+        {
+          "role": "addressee",
+          "align": "left",
+          "lead": "To,",
+          "source": "addressee"
+        },
+        {
+          "role": "subject",
+          "align": "left",
+          "lines": [
+            "Subject: {{subject}}"
+          ]
+        },
+        {
+          "role": "salutation",
+          "align": "left",
+          "lines": [
+            "Sir / Madam,"
+          ]
+        },
+        {
+          "role": "body",
+          "align": "left",
+          "source": "paras",
+          "numbered": true
+        },
+        {
+          "role": "closing",
+          "align": "right",
+          "lines": [
+            "Yours faithfully,"
+          ]
+        },
+        {
+          "role": "signature",
+          "align": "left",
+          "lines": [
+            "({{signatoryName}})",
+            "{{signatoryDesignation}}",
+            "Tele. No.: {{phone}}",
+            "Email: {{email}}"
+          ]
+        },
+        {
+          "role": "enclosures",
+          "align": "left",
+          "lead": "List of enclosures:",
+          "source": "enclosures",
+          "itemPrefix": "ordinal",
+          "omitWhenEmpty": true
+        }
+      ],
+      "hi": [
+        {
+          "role": "dateLine",
+          "align": "right",
+          "lines": [
+            "{{place}}, दिनांक {{date}}"
+          ]
+        },
+        {
+          "role": "addressee",
+          "align": "left",
+          "lead": "सेवा में,",
+          "source": "addressee"
+        },
+        {
+          "role": "subject",
+          "align": "left",
+          "lines": [
+            "विषय : {{subject}}"
+          ]
+        },
+        {
+          "role": "salutation",
+          "align": "left",
+          "lines": [
+            "महोदय / महोदया,"
+          ]
+        },
+        {
+          "role": "body",
+          "align": "left",
+          "source": "paras",
+          "numbered": true
+        },
+        {
+          "role": "closing",
+          "align": "right",
+          "lines": [
+            "भवदीय,"
+          ]
+        },
+        {
+          "role": "signature",
+          "align": "left",
+          "lines": [
+            "({{signatoryName}})",
+            "{{signatoryDesignation}}",
+            "दूरभाष संख्या : {{phone}}",
+            "ई-मेल : {{email}}"
+          ]
+        },
+        {
+          "role": "enclosures",
+          "align": "left",
+          "lead": "संलग्नकों की सूची :",
+          "source": "enclosures",
+          "itemPrefix": "ordinal",
+          "omitWhenEmpty": true
+        }
+      ]
+    },
+    "checklist": [
+      {
+        "id": "block-year",
+        "label": {
+          "en": "The block year is declared",
+          "hi": "ब्लॉक वर्ष घोषित है"
+        },
+        "why": {
+          "en": "The concession is availed in a four-year block and the sanctioning authority checks the block before anything else.",
+          "hi": "यह रियायत चार वर्ष के ब्लॉक में ली जाती है और स्वीकृति प्राधिकारी सबसे पहले ब्लॉक ही जाँचता है।"
+        },
+        "severity": "must",
+        "rule": {
+          "kind": "regex",
+          "role": "body",
+          "pattern": "(block|ब्लॉक)"
+        }
+      },
+      {
+        "id": "subject",
+        "label": {
+          "en": "The subject is stated",
+          "hi": "विषय लिखा गया है"
+        },
+        "why": {
+          "en": "The specimens in Appendix 8.1 carry a subject line above the body on every form that is addressed to anyone.",
+          "hi": "परिशिष्ट 8.1 के नमूनों में हर संबोधित प्रपत्र पर मुख्य भाग के ऊपर विषय पंक्ति होती है।"
+        },
+        "severity": "must",
+        "rule": {
+          "kind": "blockPresent",
+          "role": "subject"
+        },
+        "csmopRef": "Appendix 8.1"
+      },
+      {
+        "id": "para-numbering",
+        "label": {
+          "en": "Paragraphs are serially numbered",
+          "hi": "पैराग्राफ क्रमानुसार संख्यांकित हैं"
+        },
+        "why": {
+          "en": "The specimens leave the first paragraph unnumbered and number the rest from 2.",
+          "hi": "नमूनों में पहला पैराग्राफ बिना संख्या के रहता है और शेष 2 से क्रमांकित होते हैं।"
+        },
+        "severity": "must",
+        "rule": {
+          "kind": "paraNumbering"
+        },
+        "csmopRef": "Appendix 8.1"
+      },
+      {
+        "id": "no-placeholders",
+        "label": {
+          "en": "No placeholder is left unfilled",
+          "hi": "कोई प्लेसहोल्डर अधूरा नहीं छूटा"
+        },
+        "why": {
+          "en": "A draft that goes out with {{…}} still in it has not been read.",
+          "hi": "जिस मसौदे में {{…}} रह जाए, उसे पढ़ा ही नहीं गया।"
+        },
+        "severity": "must",
+        "rule": {
+          "kind": "noPlaceholders"
+        }
+      }
+    ],
+    "source": {
+      "name": "Central Secretariat Manual of Office Procedure, 2022 (16th edition), DARPG",
+      "url": "https://www.darpg.gov.in/static/uploads/2025/10/774e0b8f427b7875158363d842fa431f.pdf",
+      "reference": "CSMOP 2022, sixteenth edition",
+      "dated": "2022-08-05"
+    },
+    "fetchedAt": "2026-09-03T00:00:00Z",
+    "verify": true,
+    "variables": [
+      {
+        "key": "ltcType",
+        "label": {
+          "en": "Kind of LTC",
+          "hi": "रियायत का प्रकार"
+        },
+        "type": "select",
+        "required": true,
+        "sample": {
+          "en": "home town",
+          "hi": "गृह नगर"
+        },
+        "options": [
+          {
+            "value": "home town",
+            "label": {
+              "en": "Home town",
+              "hi": "गृह नगर"
+            }
+          },
+          {
+            "value": "any place in India",
+            "label": {
+              "en": "Any place in India",
+              "hi": "भारत में कोई स्थान"
+            }
+          }
+        ]
+      },
+      {
+        "key": "blockYear",
+        "label": {
+          "en": "Block year",
+          "hi": "ब्लॉक वर्ष"
+        },
+        "type": "text",
+        "required": true,
+        "sample": {
+          "en": "2026-2029",
+          "hi": "2026-2029"
+        }
+      },
+      {
+        "key": "homeTown",
+        "label": {
+          "en": "Declared home town",
+          "hi": "घोषित गृह नगर"
+        },
+        "type": "text",
+        "required": true,
+        "sample": {
+          "en": "Varanasi",
+          "hi": "वाराणसी"
+        }
+      },
+      {
+        "key": "destination",
+        "label": {
+          "en": "Place to be visited",
+          "hi": "यात्रा का स्थान"
+        },
+        "type": "text",
+        "required": true,
+        "sample": {
+          "en": "Varanasi",
+          "hi": "वाराणसी"
+        }
+      },
+      {
+        "key": "fromDate",
+        "label": {
+          "en": "Journey from",
+          "hi": "यात्रा प्रारंभ"
+        },
+        "type": "date",
+        "required": true,
+        "sample": {
+          "en": "10.10.2026",
+          "hi": "10.10.2026"
+        }
+      },
+      {
+        "key": "toDate",
+        "label": {
+          "en": "Journey to",
+          "hi": "यात्रा समाप्ति"
+        },
+        "type": "date",
+        "required": true,
+        "sample": {
+          "en": "20.10.2026",
+          "hi": "20.10.2026"
+        }
+      },
+      {
+        "key": "modeOfTravel",
+        "label": {
+          "en": "Mode of travel",
+          "hi": "यात्रा का साधन"
+        },
+        "type": "text",
+        "required": true,
+        "sample": {
+          "en": "rail, in the entitled class",
+          "hi": "रेल, पात्र श्रेणी में"
+        }
+      },
+      {
+        "key": "familyMembers",
+        "label": {
+          "en": "Family members travelling",
+          "hi": "यात्रा करने वाले परिवार के सदस्य"
+        },
+        "type": "enclosures",
+        "required": true,
+        "sample": {
+          "en": "Smt. X.Y.Z., spouse, age 38",
+          "hi": "श्रीमती एक्स.वाई.ज़ेड., पत्नी, आयु 38"
+        },
+        "hint": {
+          "en": "Name, relationship and age, one per line.",
+          "hi": "नाम, संबंध और आयु, प्रति पंक्ति एक।"
+        }
+      },
+      {
+        "key": "advanceAmount",
+        "label": {
+          "en": "Advance requested",
+          "hi": "अनुरोधित अग्रिम"
+        },
+        "type": "text",
+        "required": false,
+        "sample": {
+          "en": "30,000",
+          "hi": "30,000"
+        },
+        "pattern": "^[0-9][0-9,]*$",
+        "patternHint": {
+          "en": "Figures only.",
+          "hi": "केवल अंक।"
+        }
+      }
+    ],
+    "bodySkeleton": {
+      "en": {
+        "type": "doc",
+        "content": [
+          {
+            "type": "numberedPara",
+            "attrs": {
+              "level": 1
+            },
+            "content": [
+              {
+                "type": "text",
+                "text": "I request that I may be permitted to avail of leave travel concession of the {{ltcType}} kind for the block year {{blockYear}}, in respect of myself and the members of my family listed below."
+              }
+            ]
+          },
+          {
+            "type": "numberedPara",
+            "attrs": {
+              "level": 1
+            },
+            "content": [
+              {
+                "type": "text",
+                "text": "My declared home town is {{homeTown}} and the place to be visited is {{destination}}. The journey is proposed to be performed from {{fromDate}} to {{toDate}} by {{modeOfTravel}}."
+              }
+            ]
+          },
+          {
+            "type": "heading",
+            "attrs": {
+              "level": 2
+            },
+            "content": [
+              {
+                "type": "text",
+                "text": "Family members travelling"
+              }
+            ]
+          },
+          {
+            "type": "paragraph",
+            "content": [
+              {
+                "type": "text",
+                "text": "{{#each familyMembers}}"
+              }
+            ]
+          },
+          {
+            "type": "numberedPara",
+            "attrs": {
+              "level": 1
+            },
+            "content": [
+              {
+                "type": "text",
+                "text": "{{@index}}. {{.}}"
+              }
+            ]
+          },
+          {
+            "type": "paragraph",
+            "content": [
+              {
+                "type": "text",
+                "text": "{{/each}}"
+              }
+            ]
+          },
+          {
+            "type": "paragraph",
+            "content": [
+              {
+                "type": "text",
+                "text": "{{#if advanceAmount}}"
+              }
+            ]
+          },
+          {
+            "type": "numberedPara",
+            "attrs": {
+              "level": 1
+            },
+            "content": [
+              {
+                "type": "text",
+                "text": "An advance of Rs. {{advanceAmount}} is requested, which I undertake to adjust by submitting the claim within one month of the completion of the return journey."
+              }
+            ]
+          },
+          {
+            "type": "paragraph",
+            "content": [
+              {
+                "type": "text",
+                "text": "{{/if}}"
+              }
+            ]
+          },
+          {
+            "type": "numberedPara",
+            "attrs": {
+              "level": 1
+            },
+            "content": [
+              {
+                "type": "text",
+                "text": "I have applied separately for leave for the period of the journey."
+              }
+            ]
+          }
+        ]
+      },
+      "hi": {
+        "type": "doc",
+        "content": [
+          {
+            "type": "numberedPara",
+            "attrs": {
+              "level": 1
+            },
+            "content": [
+              {
+                "type": "text",
+                "text": "अनुरोध है कि मुझे ब्लॉक वर्ष {{blockYear}} हेतु {{ltcType}} प्रकार की अवकाश यात्रा रियायत का उपयोग करने की अनुमति दी जाए, स्वयं तथा नीचे सूचीबद्ध अपने परिवार के सदस्यों के संबंध में।"
+              }
+            ]
+          },
+          {
+            "type": "numberedPara",
+            "attrs": {
+              "level": 1
+            },
+            "content": [
+              {
+                "type": "text",
+                "text": "मेरा घोषित गृह नगर {{homeTown}} है और जिस स्थान की यात्रा करनी है वह {{destination}} है। यात्रा {{fromDate}} से {{toDate}} तक {{modeOfTravel}} द्वारा करने का प्रस्ताव है।"
+              }
+            ]
+          },
+          {
+            "type": "heading",
+            "attrs": {
+              "level": 2
+            },
+            "content": [
+              {
+                "type": "text",
+                "text": "यात्रा करने वाले परिवार के सदस्य"
+              }
+            ]
+          },
+          {
+            "type": "paragraph",
+            "content": [
+              {
+                "type": "text",
+                "text": "{{#each familyMembers}}"
+              }
+            ]
+          },
+          {
+            "type": "numberedPara",
+            "attrs": {
+              "level": 1
+            },
+            "content": [
+              {
+                "type": "text",
+                "text": "{{@index}}. {{.}}"
+              }
+            ]
+          },
+          {
+            "type": "paragraph",
+            "content": [
+              {
+                "type": "text",
+                "text": "{{/each}}"
+              }
+            ]
+          },
+          {
+            "type": "paragraph",
+            "content": [
+              {
+                "type": "text",
+                "text": "{{#if advanceAmount}}"
+              }
+            ]
+          },
+          {
+            "type": "numberedPara",
+            "attrs": {
+              "level": 1
+            },
+            "content": [
+              {
+                "type": "text",
+                "text": "{{advanceAmount}} रुपये का अग्रिम अनुरोधित है, जिसे मैं वापसी यात्रा पूरी होने के एक माह के भीतर दावा प्रस्तुत करके समायोजित करने का वचन देता/देती हूँ।"
+              }
+            ]
+          },
+          {
+            "type": "paragraph",
+            "content": [
+              {
+                "type": "text",
+                "text": "{{/if}}"
+              }
+            ]
+          },
+          {
+            "type": "numberedPara",
+            "attrs": {
+              "level": 1
+            },
+            "content": [
+              {
+                "type": "text",
+                "text": "यात्रा की अवधि के लिए मैंने अलग से अवकाश हेतु आवेदन किया है।"
+              }
+            ]
+          }
+        ]
+      }
+    }
+  }
+}

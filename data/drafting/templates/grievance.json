@@ -1,0 +1,617 @@
+{
+  "version": "2.0.0",
+  "generatedAt": "2026-09-03T00:00:00Z",
+  "disclaimer": {
+    "en": "Reference only; verify with the official gazette/order or your DDO.",
+    "hi": "केवल संदर्भ के लिए; सरकारी राजपत्र/आदेश या अपने डीडीओ से सत्यापित करें।"
+  },
+  "template": {
+    "id": "grievance",
+    "name": {
+      "en": "Grievance / complaint",
+      "hi": "शिकायत"
+    },
+    "shortName": {
+      "en": "Grievance",
+      "hi": "शिकायत"
+    },
+    "person": "first",
+    "usedBy": {
+      "en": "An officer, on their own behalf.",
+      "hi": "एक अधिकारी, अपनी ओर से।"
+    },
+    "whenToUse": {
+      "en": "A grievance states what happened, what rule or instruction it is inconsistent with, what has already been done about it, and what redress is asked for. It is not a representation under the CCS (CCA) Rules and does not begin any appeal period; where a statutory remedy exists, it should say so and reserve the right rather than replacing it.",
+      "hi": "शिकायत में यह बताया जाता है कि क्या हुआ, वह किस नियम या अनुदेश के विरुद्ध है, अब तक उस पर क्या किया गया, और क्या उपचार माँगा जा रहा है। यह केंद्रीय सिविल सेवा (वर्गीकरण, नियंत्रण और अपील) नियमों के अंतर्गत अभ्यावेदन नहीं है और इससे कोई अपील अवधि आरंभ नहीं होती; जहाँ वैधानिक उपचार उपलब्ध हो, वहाँ यह कहकर अधिकार सुरक्षित रखना चाहिए, उसे प्रतिस्थापित नहीं करना चाहिए।"
+    },
+    "salutation": null,
+    "subscription": null,
+    "urgencyAllowed": false,
+    "csmopRef": {
+      "edition": "CSMOP 2022, sixteenth edition",
+      "paras": [
+        "8.9(i)",
+        "8.9(iv)"
+      ],
+      "chassis": "letter",
+      "note": {
+        "en": "CSMOP 8.9 governs how a communication from an individual is acknowledged and replied to, but prescribes no format for the grievance itself. Built on the letter chassis.",
+        "hi": "सीएसएमओपी 8.9 यह शासित करता है कि किसी व्यक्ति के पत्र की पावती और उत्तर कैसे दिया जाए, पर स्वयं शिकायत का कोई प्रारूप निर्धारित नहीं करता। पत्र ढाँचे पर बना।"
+      }
+    },
+    "fields": [
+      {
+        "id": "place",
+        "label": {
+          "en": "Place",
+          "hi": "स्थान"
+        },
+        "type": "text",
+        "required": true,
+        "sample": {
+          "en": "New Delhi",
+          "hi": "नई दिल्ली"
+        }
+      },
+      {
+        "id": "date",
+        "label": {
+          "en": "Date",
+          "hi": "दिनांक"
+        },
+        "type": "date",
+        "required": true,
+        "sample": {
+          "en": "2026-08-28",
+          "hi": "2026-08-28"
+        },
+        "hint": {
+          "en": "dd.mm.yyyy in English; दिनांक dd.mm.yyyy in Hindi.",
+          "hi": "अंग्रेज़ी में dd.mm.yyyy; हिंदी में दिनांक dd.mm.yyyy।"
+        }
+      },
+      {
+        "id": "addressee",
+        "label": {
+          "en": "Addressee",
+          "hi": "प्रेषिती"
+        },
+        "type": "list",
+        "required": true,
+        "sample": {
+          "en": [
+            "The Under Secretary (Establishment)",
+            "Department of Personnel and Training",
+            "North Block, New Delhi"
+          ],
+          "hi": [
+            "अवर सचिव (स्थापना)",
+            "कार्मिक और प्रशिक्षण विभाग",
+            "नॉर्थ ब्लॉक, नई दिल्ली"
+          ]
+        }
+      },
+      {
+        "id": "subject",
+        "label": {
+          "en": "Subject",
+          "hi": "विषय"
+        },
+        "type": "text",
+        "required": true,
+        "sample": {
+          "en": "Grievance regarding non-payment of Children Education Allowance for 2025-26.",
+          "hi": "वर्ष 2025-26 के बाल शिक्षा भत्ते के भुगतान न होने संबंधी शिकायत।"
+        }
+      },
+      {
+        "id": "paras",
+        "label": {
+          "en": "Body paragraphs",
+          "hi": "मुख्य पैराग्राफ"
+        },
+        "type": "paras",
+        "required": true,
+        "sample": {
+          "en": [
+            "I wish to bring to notice that my claim for Children Education Allowance for the academic year 2025-26, submitted on 10.04.2026, has not been settled although eight months have passed.",
+            "This is not consistent with the Department of Expenditure O.M. dated 16.08.2024, which prescribes settlement within sixty days.",
+            "I have already written to the Drawing and Disbursing Officer twice, on 20.06.2026 and 05.08.2026, without result.",
+            "I request that the claim may be settled and the amount credited with the pay for the current month, and that I may be informed of the action taken by 30.09.2026."
+          ],
+          "hi": [
+            "मैं यह ध्यान में लाना चाहता/चाहती हूँ कि शैक्षणिक वर्ष 2025-26 हेतु मेरा बाल शिक्षा भत्ता दावा, जो 10.04.2026 को प्रस्तुत किया गया था, आठ माह बीत जाने पर भी निपटाया नहीं गया है।",
+            "यह व्यय विभाग का दिनांक 16.08.2024 का कार्यालय ज्ञापन, जो साठ दिन में निपटान निर्धारित करता है के अनुरूप नहीं है।",
+            "मैं पहले ही आहरण एवं संवितरण अधिकारी को दो बार, 20.06.2026 और 05.08.2026 को लिखा, किंतु कोई परिणाम नहीं निकला।",
+            "अनुरोध है कि दावा निपटाया जाए और राशि चालू माह के वेतन के साथ जमा की जाए, और की गई कार्रवाई से मुझे 30.09.2026 तक अवगत कराया जाए।"
+          ]
+        },
+        "hint": {
+          "en": "One paragraph per line. The first is left unnumbered and the rest are numbered from 2.",
+          "hi": "प्रति पंक्ति एक पैराग्राफ। पहला बिना संख्या के रहता है और शेष 2 से क्रमांकित होते हैं।"
+        }
+      },
+      {
+        "id": "signatoryName",
+        "label": {
+          "en": "Your name",
+          "hi": "आपका नाम"
+        },
+        "type": "text",
+        "required": true,
+        "sample": {
+          "en": "A.B.C.",
+          "hi": "ए.बी.सी."
+        }
+      },
+      {
+        "id": "signatoryDesignation",
+        "label": {
+          "en": "Your designation",
+          "hi": "आपका पदनाम"
+        },
+        "type": "text",
+        "required": true,
+        "sample": {
+          "en": "Assistant Section Officer",
+          "hi": "सहायक अनुभाग अधिकारी"
+        }
+      },
+      {
+        "id": "phone",
+        "label": {
+          "en": "Telephone number",
+          "hi": "दूरभाष संख्या"
+        },
+        "type": "text",
+        "required": true,
+        "sample": {
+          "en": "011-2309 2590",
+          "hi": "011-2309 2590"
+        }
+      },
+      {
+        "id": "email",
+        "label": {
+          "en": "Email",
+          "hi": "ई-मेल"
+        },
+        "type": "text",
+        "required": true,
+        "sample": {
+          "en": "abc@nic.in",
+          "hi": "abc@nic.in"
+        }
+      },
+      {
+        "id": "enclosures",
+        "label": {
+          "en": "Enclosures",
+          "hi": "संलग्नक"
+        },
+        "type": "list",
+        "required": false,
+        "sample": {
+          "en": [
+            "A copy of my claim dated 10.04.2026."
+          ],
+          "hi": [
+            "दिनांक 10.04.2026 के मेरे दावे की प्रति।"
+          ]
+        },
+        "hint": {
+          "en": "The count goes at the bottom left of the draft — 'Encl. 3' (9.2(vii)).",
+          "hi": "मसौदे के नीचे बाईं ओर संख्या दी जाती है — 'Encl. 3' (9.2(vii))।"
+        }
+      }
+    ],
+    "layout": {
+      "en": [
+        {
+          "role": "dateLine",
+          "align": "right",
+          "lines": [
+            "{{place}}, the {{date}}"
+          ]
+        },
+        {
+          "role": "addressee",
+          "align": "left",
+          "lead": "To,",
+          "source": "addressee"
+        },
+        {
+          "role": "subject",
+          "align": "left",
+          "lines": [
+            "Subject: {{subject}}"
+          ]
+        },
+        {
+          "role": "salutation",
+          "align": "left",
+          "lines": [
+            "Sir / Madam,"
+          ]
+        },
+        {
+          "role": "body",
+          "align": "left",
+          "source": "paras",
+          "numbered": true
+        },
+        {
+          "role": "closing",
+          "align": "right",
+          "lines": [
+            "Yours faithfully,"
+          ]
+        },
+        {
+          "role": "signature",
+          "align": "left",
+          "lines": [
+            "({{signatoryName}})",
+            "{{signatoryDesignation}}",
+            "Tele. No.: {{phone}}",
+            "Email: {{email}}"
+          ]
+        },
+        {
+          "role": "enclosures",
+          "align": "left",
+          "lead": "List of enclosures:",
+          "source": "enclosures",
+          "itemPrefix": "ordinal",
+          "omitWhenEmpty": true
+        }
+      ],
+      "hi": [
+        {
+          "role": "dateLine",
+          "align": "right",
+          "lines": [
+            "{{place}}, दिनांक {{date}}"
+          ]
+        },
+        {
+          "role": "addressee",
+          "align": "left",
+          "lead": "सेवा में,",
+          "source": "addressee"
+        },
+        {
+          "role": "subject",
+          "align": "left",
+          "lines": [
+            "विषय : {{subject}}"
+          ]
+        },
+        {
+          "role": "salutation",
+          "align": "left",
+          "lines": [
+            "महोदय / महोदया,"
+          ]
+        },
+        {
+          "role": "body",
+          "align": "left",
+          "source": "paras",
+          "numbered": true
+        },
+        {
+          "role": "closing",
+          "align": "right",
+          "lines": [
+            "भवदीय,"
+          ]
+        },
+        {
+          "role": "signature",
+          "align": "left",
+          "lines": [
+            "({{signatoryName}})",
+            "{{signatoryDesignation}}",
+            "दूरभाष संख्या : {{phone}}",
+            "ई-मेल : {{email}}"
+          ]
+        },
+        {
+          "role": "enclosures",
+          "align": "left",
+          "lead": "संलग्नकों की सूची :",
+          "source": "enclosures",
+          "itemPrefix": "ordinal",
+          "omitWhenEmpty": true
+        }
+      ]
+    },
+    "checklist": [
+      {
+        "id": "redress-sought",
+        "label": {
+          "en": "What is asked for is stated",
+          "hi": "क्या माँगा जा रहा है वह बताया गया है"
+        },
+        "why": {
+          "en": "A grievance that describes a wrong without saying what would put it right leaves the office to decide what the complainant wanted.",
+          "hi": "जो शिकायत गलती का वर्णन करती है पर यह नहीं बताती कि उसे क्या सही करेगा, वह कार्यालय पर छोड़ देती है कि शिकायतकर्ता क्या चाहता था।"
+        },
+        "severity": "must",
+        "rule": {
+          "kind": "regex",
+          "role": "body",
+          "pattern": "(request|may be|pray|अनुरोध|प्रार्थना|जाए)"
+        }
+      },
+      {
+        "id": "subject",
+        "label": {
+          "en": "The subject is stated",
+          "hi": "विषय लिखा गया है"
+        },
+        "why": {
+          "en": "The specimens in Appendix 8.1 carry a subject line above the body on every form that is addressed to anyone.",
+          "hi": "परिशिष्ट 8.1 के नमूनों में हर संबोधित प्रपत्र पर मुख्य भाग के ऊपर विषय पंक्ति होती है।"
+        },
+        "severity": "must",
+        "rule": {
+          "kind": "blockPresent",
+          "role": "subject"
+        },
+        "csmopRef": "Appendix 8.1"
+      },
+      {
+        "id": "para-numbering",
+        "label": {
+          "en": "Paragraphs are serially numbered",
+          "hi": "पैराग्राफ क्रमानुसार संख्यांकित हैं"
+        },
+        "why": {
+          "en": "The specimens leave the first paragraph unnumbered and number the rest from 2.",
+          "hi": "नमूनों में पहला पैराग्राफ बिना संख्या के रहता है और शेष 2 से क्रमांकित होते हैं।"
+        },
+        "severity": "must",
+        "rule": {
+          "kind": "paraNumbering"
+        },
+        "csmopRef": "Appendix 8.1"
+      },
+      {
+        "id": "no-placeholders",
+        "label": {
+          "en": "No placeholder is left unfilled",
+          "hi": "कोई प्लेसहोल्डर अधूरा नहीं छूटा"
+        },
+        "why": {
+          "en": "A draft that goes out with {{…}} still in it has not been read.",
+          "hi": "जिस मसौदे में {{…}} रह जाए, उसे पढ़ा ही नहीं गया।"
+        },
+        "severity": "must",
+        "rule": {
+          "kind": "noPlaceholders"
+        }
+      }
+    ],
+    "source": {
+      "name": "Central Secretariat Manual of Office Procedure, 2022 (16th edition), DARPG",
+      "url": "https://www.darpg.gov.in/static/uploads/2025/10/774e0b8f427b7875158363d842fa431f.pdf",
+      "reference": "CSMOP 2022, sixteenth edition",
+      "dated": "2022-08-05"
+    },
+    "fetchedAt": "2026-09-03T00:00:00Z",
+    "verify": true,
+    "variables": [
+      {
+        "key": "whatHappened",
+        "label": {
+          "en": "What happened",
+          "hi": "क्या हुआ"
+        },
+        "type": "textarea",
+        "required": true,
+        "sample": {
+          "en": "my claim for Children Education Allowance for the academic year 2025-26, submitted on 10.04.2026, has not been settled although eight months have passed",
+          "hi": "शैक्षणिक वर्ष 2025-26 हेतु मेरा बाल शिक्षा भत्ता दावा, जो 10.04.2026 को प्रस्तुत किया गया था, आठ माह बीत जाने पर भी निपटाया नहीं गया है"
+        }
+      },
+      {
+        "key": "provision",
+        "label": {
+          "en": "Rule or instruction it goes against",
+          "hi": "किस नियम या अनुदेश के विरुद्ध"
+        },
+        "type": "text",
+        "required": true,
+        "sample": {
+          "en": "the Department of Expenditure O.M. dated 16.08.2024, which prescribes settlement within sixty days",
+          "hi": "व्यय विभाग का दिनांक 16.08.2024 का कार्यालय ज्ञापन, जो साठ दिन में निपटान निर्धारित करता है"
+        }
+      },
+      {
+        "key": "stepsTaken",
+        "label": {
+          "en": "What you have already done",
+          "hi": "आपने अब तक क्या किया"
+        },
+        "type": "textarea",
+        "required": false,
+        "sample": {
+          "en": "written to the Drawing and Disbursing Officer twice, on 20.06.2026 and 05.08.2026",
+          "hi": "आहरण एवं संवितरण अधिकारी को दो बार, 20.06.2026 और 05.08.2026 को लिखा"
+        }
+      },
+      {
+        "key": "redressSought",
+        "label": {
+          "en": "Redress sought",
+          "hi": "अपेक्षित उपचार"
+        },
+        "type": "textarea",
+        "required": true,
+        "sample": {
+          "en": "the claim may be settled and the amount credited with the pay for the current month",
+          "hi": "दावा निपटाया जाए और राशि चालू माह के वेतन के साथ जमा की जाए"
+        }
+      },
+      {
+        "key": "replyBy",
+        "label": {
+          "en": "Action to be informed by",
+          "hi": "कार्रवाई की सूचना कब तक"
+        },
+        "type": "date",
+        "required": true,
+        "sample": {
+          "en": "30.09.2026",
+          "hi": "30.09.2026"
+        }
+      }
+    ],
+    "bodySkeleton": {
+      "en": {
+        "type": "doc",
+        "content": [
+          {
+            "type": "numberedPara",
+            "attrs": {
+              "level": 1
+            },
+            "content": [
+              {
+                "type": "text",
+                "text": "I wish to bring to notice that {{whatHappened}}."
+              }
+            ]
+          },
+          {
+            "type": "numberedPara",
+            "attrs": {
+              "level": 1
+            },
+            "content": [
+              {
+                "type": "text",
+                "text": "This is not consistent with {{provision}}."
+              }
+            ]
+          },
+          {
+            "type": "paragraph",
+            "content": [
+              {
+                "type": "text",
+                "text": "{{#if stepsTaken}}"
+              }
+            ]
+          },
+          {
+            "type": "numberedPara",
+            "attrs": {
+              "level": 1
+            },
+            "content": [
+              {
+                "type": "text",
+                "text": "I have already {{stepsTaken}}, without result."
+              }
+            ]
+          },
+          {
+            "type": "paragraph",
+            "content": [
+              {
+                "type": "text",
+                "text": "{{/if}}"
+              }
+            ]
+          },
+          {
+            "type": "numberedPara",
+            "attrs": {
+              "level": 1
+            },
+            "content": [
+              {
+                "type": "text",
+                "text": "I request that {{redressSought}}, and that I may be informed of the action taken by {{replyBy}}."
+              }
+            ]
+          }
+        ]
+      },
+      "hi": {
+        "type": "doc",
+        "content": [
+          {
+            "type": "numberedPara",
+            "attrs": {
+              "level": 1
+            },
+            "content": [
+              {
+                "type": "text",
+                "text": "मैं यह ध्यान में लाना चाहता/चाहती हूँ कि {{whatHappened}}।"
+              }
+            ]
+          },
+          {
+            "type": "numberedPara",
+            "attrs": {
+              "level": 1
+            },
+            "content": [
+              {
+                "type": "text",
+                "text": "यह {{provision}} के अनुरूप नहीं है।"
+              }
+            ]
+          },
+          {
+            "type": "paragraph",
+            "content": [
+              {
+                "type": "text",
+                "text": "{{#if stepsTaken}}"
+              }
+            ]
+          },
+          {
+            "type": "numberedPara",
+            "attrs": {
+              "level": 1
+            },
+            "content": [
+              {
+                "type": "text",
+                "text": "मैं पहले ही {{stepsTaken}}, किंतु कोई परिणाम नहीं निकला।"
+              }
+            ]
+          },
+          {
+            "type": "paragraph",
+            "content": [
+              {
+                "type": "text",
+                "text": "{{/if}}"
+              }
+            ]
+          },
+          {
+            "type": "numberedPara",
+            "attrs": {
+              "level": 1
+            },
+            "content": [
+              {
+                "type": "text",
+                "text": "अनुरोध है कि {{redressSought}}, और की गई कार्रवाई से मुझे {{replyBy}} तक अवगत कराया जाए।"
+              }
+            ]
+          }
+        ]
+      }
+    }
+  }
+}

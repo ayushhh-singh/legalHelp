@@ -1,0 +1,868 @@
+{
+  "version": "2.0.0",
+  "generatedAt": "2026-09-03T00:00:00Z",
+  "disclaimer": {
+    "en": "Reference only; verify with the official gazette/order or your DDO.",
+    "hi": "केवल संदर्भ के लिए; सरकारी राजपत्र/आदेश या अपने डीडीओ से सत्यापित करें।"
+  },
+  "template": {
+    "id": "tour-report",
+    "name": {
+      "en": "Tour report",
+      "hi": "दौरा रिपोर्ट"
+    },
+    "shortName": {
+      "en": "Tour report",
+      "hi": "दौरा रिपोर्ट"
+    },
+    "person": "third",
+    "usedBy": {
+      "en": "The officer who undertook the tour.",
+      "hi": "दौरा करने वाला अधिकारी।"
+    },
+    "whenToUse": {
+      "en": "Submitted after an approved tour and before the T.A. bill, because the bill is settled against it. It names the approval, the places and dates actually visited, what was inspected or discussed, and the action now proposed — the last being the part that makes a tour report worth filing.",
+      "hi": "अनुमोदित दौरे के बाद और यात्रा भत्ता बिल से पहले प्रस्तुत, क्योंकि बिल का निपटान इसी के विरुद्ध होता है। इसमें अनुमोदन, वास्तव में देखे गए स्थान और तिथियाँ, क्या निरीक्षण या चर्चा हुई, तथा अब प्रस्तावित कार्रवाई दी जाती है — अंतिम बात ही दौरा रिपोर्ट को फाइल करने योग्य बनाती है।"
+    },
+    "salutation": null,
+    "subscription": null,
+    "urgencyAllowed": false,
+    "csmopRef": {
+      "edition": "CSMOP 2022, sixteenth edition",
+      "paras": [
+        "8.4(3)"
+      ],
+      "chassis": "tour-programme",
+      "note": {
+        "en": "CSMOP prescribes no format for this form. It is built on the tour programme chassis.",
+        "hi": "सीएसएमओपी इस प्ररूप का कोई प्रारूप निर्धारित नहीं करता। यह tour programme ढाँचे पर बना है।"
+      }
+    },
+    "fields": [
+      {
+        "id": "fileNumber",
+        "label": {
+          "en": "File / communication number",
+          "hi": "फाइल / पत्र संख्या"
+        },
+        "type": "text",
+        "required": true,
+        "sample": {
+          "en": "A-11011/2/2026-Estt.",
+          "hi": "ए-11011/2/2026-स्थापना"
+        },
+        "hint": {
+          "en": "Every draft put up on a file bears the file number (9.2(vi)).",
+          "hi": "फाइल पर प्रस्तुत प्रत्येक मसौदे पर फाइल संख्या होती है (9.2(vi))।"
+        }
+      },
+      {
+        "id": "ministry",
+        "label": {
+          "en": "Ministry",
+          "hi": "मंत्रालय"
+        },
+        "type": "text",
+        "required": true,
+        "sample": {
+          "en": "Ministry of Personnel, Public Grievances and Pensions",
+          "hi": "कार्मिक, लोक शिकायत तथा पेंशन मंत्रालय"
+        }
+      },
+      {
+        "id": "department",
+        "label": {
+          "en": "Department",
+          "hi": "विभाग"
+        },
+        "type": "text",
+        "required": true,
+        "sample": {
+          "en": "Department of Personnel and Training",
+          "hi": "कार्मिक और प्रशिक्षण विभाग"
+        }
+      },
+      {
+        "id": "place",
+        "label": {
+          "en": "Place",
+          "hi": "स्थान"
+        },
+        "type": "text",
+        "required": true,
+        "sample": {
+          "en": "New Delhi",
+          "hi": "नई दिल्ली"
+        }
+      },
+      {
+        "id": "date",
+        "label": {
+          "en": "Date",
+          "hi": "दिनांक"
+        },
+        "type": "date",
+        "required": true,
+        "sample": {
+          "en": "2026-08-28",
+          "hi": "2026-08-28"
+        },
+        "hint": {
+          "en": "dd.mm.yyyy in English; दिनांक dd.mm.yyyy in Hindi.",
+          "hi": "अंग्रेज़ी में dd.mm.yyyy; हिंदी में दिनांक dd.mm.yyyy।"
+        }
+      },
+      {
+        "id": "addressee",
+        "label": {
+          "en": "Addressee",
+          "hi": "प्रेषिती"
+        },
+        "type": "list",
+        "required": true,
+        "sample": {
+          "en": [
+            "The Under Secretary",
+            "Department of Expenditure",
+            "North Block, New Delhi"
+          ],
+          "hi": [
+            "अवर सचिव",
+            "व्यय विभाग",
+            "नॉर्थ ब्लॉक, नई दिल्ली"
+          ]
+        },
+        "hint": {
+          "en": "One line each: designation, organisation, address.",
+          "hi": "एक-एक पंक्ति में : पदनाम, संगठन, पता।"
+        }
+      },
+      {
+        "id": "subject",
+        "label": {
+          "en": "Subject",
+          "hi": "विषय"
+        },
+        "type": "text",
+        "required": true,
+        "sample": {
+          "en": "Tour report — inspection of the Regional Office, Lucknow, from 12.08.2026 to 14.08.2026.",
+          "hi": "दौरा रिपोर्ट — क्षेत्रीय कार्यालय, लखनऊ का 12.08.2026 से 14.08.2026 तक निरीक्षण।"
+        }
+      },
+      {
+        "id": "paras",
+        "label": {
+          "en": "Body paragraphs",
+          "hi": "मुख्य पैराग्राफ"
+        },
+        "type": "paras",
+        "required": true,
+        "sample": {
+          "en": [
+            "The tour was undertaken with the approval of the Joint Secretary (Administration) conveyed vide O.M. No. A-19011/3/2026-Estt. dated 05.08.2026, for the purpose of the annual inspection of the Regional Office, Lucknow.",
+            "# Places visited",
+            ". ",
+            "# Observations",
+            "The Office is functioning with four posts vacant against a sanctioned strength of eleven, and disposal of pension cases has slipped to an average of 62 days.",
+            "# Action proposed",
+            "The vacancies may be filled on priority and a monthly disposal statement called for from the Regional Office.",
+            "No free transport or hospitality was availed of during the tour except as stated above."
+          ],
+          "hi": [
+            "यह दौरा कार्यालय ज्ञापन संख्या ए-19011/3/2026-स्थापना दिनांक 05.08.2026 द्वारा संप्रेषित संयुक्त सचिव (प्रशासन) के अनुमोदन से, क्षेत्रीय कार्यालय, लखनऊ का वार्षिक निरीक्षण के प्रयोजन हेतु किया गया।",
+            "# देखे गए स्थान",
+            ". ",
+            "# प्रेक्षण",
+            "कार्यालय स्वीकृत ग्यारह पदों में से चार रिक्त रहते हुए कार्य कर रहा है, और पेंशन मामलों का निपटान औसतन 62 दिन तक पहुँच गया है।",
+            "# प्रस्तावित कार्रवाई",
+            "रिक्तियाँ प्राथमिकता से भरी जाएँ और क्षेत्रीय कार्यालय से मासिक निपटान विवरण माँगा जाए।",
+            "दौरे के दौरान उपर्युक्त के अतिरिक्त कोई नि:शुल्क परिवहन या आतिथ्य नहीं लिया गया।"
+          ]
+        },
+        "hint": {
+          "en": "One paragraph per line. The first is left unnumbered and the rest are numbered from 2.",
+          "hi": "प्रति पंक्ति एक पैराग्राफ। पहला बिना संख्या के रहता है और शेष 2 से क्रमांकित होते हैं।"
+        }
+      },
+      {
+        "id": "signatoryName",
+        "label": {
+          "en": "Name of the signatory",
+          "hi": "हस्ताक्षरकर्ता का नाम"
+        },
+        "type": "text",
+        "required": true,
+        "sample": {
+          "en": "A.B.C.",
+          "hi": "ए.बी.सी."
+        }
+      },
+      {
+        "id": "signatoryDesignation",
+        "label": {
+          "en": "Designation",
+          "hi": "पदनाम"
+        },
+        "type": "text",
+        "required": true,
+        "sample": {
+          "en": "Under Secretary to the Govt. of India",
+          "hi": "अवर सचिव, भारत सरकार"
+        }
+      },
+      {
+        "id": "phone",
+        "label": {
+          "en": "Telephone number",
+          "hi": "दूरभाष संख्या"
+        },
+        "type": "text",
+        "required": true,
+        "sample": {
+          "en": "011-2309 2590",
+          "hi": "011-2309 2590"
+        }
+      },
+      {
+        "id": "email",
+        "label": {
+          "en": "Email",
+          "hi": "ई-मेल"
+        },
+        "type": "text",
+        "required": true,
+        "sample": {
+          "en": "us-estt@nic.in",
+          "hi": "us-estt@nic.in"
+        }
+      },
+      {
+        "id": "enclosures",
+        "label": {
+          "en": "Enclosures",
+          "hi": "संलग्नक"
+        },
+        "type": "list",
+        "required": false,
+        "sample": {
+          "en": [
+            "Boarding passes and hotel bills for the journey."
+          ],
+          "hi": [
+            "यात्रा के बोर्डिंग पास तथा होटल बिल।"
+          ]
+        },
+        "hint": {
+          "en": "The count goes at the bottom left of the draft — 'Encl. 3' (9.2(vii)).",
+          "hi": "मसौदे के नीचे बाईं ओर संख्या दी जाती है — 'Encl. 3' (9.2(vii))।"
+        }
+      },
+      {
+        "id": "copyTo",
+        "label": {
+          "en": "Copy to",
+          "hi": "प्रतिलिपि"
+        },
+        "type": "list",
+        "required": false,
+        "sample": {
+          "en": [
+            "The Establishment Section, for the T.A. bill.",
+            "The tour file."
+          ],
+          "hi": [
+            "यात्रा भत्ता बिल हेतु स्थापना अनुभाग।",
+            "दौरा फाइल।"
+          ]
+        }
+      }
+    ],
+    "layout": {
+      "en": [
+        {
+          "role": "fileNumber",
+          "align": "left",
+          "lines": [
+            "No. {{fileNumber}}"
+          ]
+        },
+        {
+          "role": "header",
+          "align": "center",
+          "lines": [
+            "Government of India",
+            "{{ministry}}",
+            "{{department}}"
+          ]
+        },
+        {
+          "role": "dateLine",
+          "align": "right",
+          "lines": [
+            "{{place}}, the {{date}}"
+          ]
+        },
+        {
+          "role": "title",
+          "align": "center",
+          "emphasis": "title",
+          "lines": [
+            "TOUR REPORT"
+          ]
+        },
+        {
+          "role": "subject",
+          "align": "left",
+          "lines": [
+            "Subject: {{subject}}"
+          ]
+        },
+        {
+          "role": "body",
+          "align": "left",
+          "source": "paras",
+          "numbered": true
+        },
+        {
+          "role": "signature",
+          "align": "right",
+          "lines": [
+            "-Sd/-",
+            "({{signatoryName}})",
+            "{{signatoryDesignation}}",
+            "Tele. No.: {{phone}}",
+            "Email: {{email}}"
+          ]
+        },
+        {
+          "role": "addressee",
+          "align": "left",
+          "lead": "To",
+          "source": "addressee"
+        },
+        {
+          "role": "enclosures",
+          "align": "left",
+          "lead": "List of enclosures:",
+          "source": "enclosures",
+          "itemPrefix": "ordinal",
+          "omitWhenEmpty": true
+        },
+        {
+          "role": "copyTo",
+          "align": "left",
+          "lead": "Copy forwarded for information / necessary action to:",
+          "source": "copyTo",
+          "itemPrefix": "ordinal",
+          "omitWhenEmpty": true
+        }
+      ],
+      "hi": [
+        {
+          "role": "fileNumber",
+          "align": "left",
+          "lines": [
+            "संख्या {{fileNumber}}"
+          ]
+        },
+        {
+          "role": "header",
+          "align": "center",
+          "lines": [
+            "भारत सरकार",
+            "{{ministry}}",
+            "{{department}}"
+          ]
+        },
+        {
+          "role": "dateLine",
+          "align": "right",
+          "lines": [
+            "{{place}}, दिनांक {{date}}"
+          ]
+        },
+        {
+          "role": "title",
+          "align": "center",
+          "emphasis": "title",
+          "lines": [
+            "दौरा रिपोर्ट"
+          ]
+        },
+        {
+          "role": "subject",
+          "align": "left",
+          "lines": [
+            "विषय : {{subject}}"
+          ]
+        },
+        {
+          "role": "body",
+          "align": "left",
+          "source": "paras",
+          "numbered": true
+        },
+        {
+          "role": "signature",
+          "align": "right",
+          "lines": [
+            "-हस्ताक्षरित/-",
+            "({{signatoryName}})",
+            "{{signatoryDesignation}}",
+            "दूरभाष संख्या : {{phone}}",
+            "ई-मेल : {{email}}"
+          ]
+        },
+        {
+          "role": "addressee",
+          "align": "left",
+          "lead": "सेवा में,",
+          "source": "addressee"
+        },
+        {
+          "role": "enclosures",
+          "align": "left",
+          "lead": "संलग्नकों की सूची :",
+          "source": "enclosures",
+          "itemPrefix": "ordinal",
+          "omitWhenEmpty": true
+        },
+        {
+          "role": "copyTo",
+          "align": "left",
+          "lead": "प्रति सूचना/आवश्यक कार्रवाई के लिए अग्रेषित :",
+          "source": "copyTo",
+          "itemPrefix": "ordinal",
+          "omitWhenEmpty": true
+        }
+      ]
+    },
+    "checklist": [
+      {
+        "id": "subject",
+        "label": {
+          "en": "The subject is stated",
+          "hi": "विषय लिखा गया है"
+        },
+        "why": {
+          "en": "The specimens in Appendix 8.1 carry a subject line above the body on every form that is addressed to anyone.",
+          "hi": "परिशिष्ट 8.1 के नमूनों में हर संबोधित प्रपत्र पर मुख्य भाग के ऊपर विषय पंक्ति होती है।"
+        },
+        "severity": "must",
+        "rule": {
+          "kind": "blockPresent",
+          "role": "subject"
+        },
+        "csmopRef": "Appendix 8.1"
+      },
+      {
+        "id": "number-and-date",
+        "label": {
+          "en": "Number and date are on the draft",
+          "hi": "मसौदे पर संख्या और दिनांक हैं"
+        },
+        "why": {
+          "en": "Every draft put up on a file bears the file number, and the number and date of the last communication in the series must be quoted.",
+          "hi": "फाइल पर प्रस्तुत प्रत्येक मसौदे पर फाइल संख्या होती है, और शृंखला के अंतिम पत्र की संख्या तथा दिनांक उद्धृत की जानी चाहिए।"
+        },
+        "severity": "must",
+        "rule": {
+          "kind": "allRequired",
+          "fields": [
+            "fileNumber",
+            "date"
+          ]
+        },
+        "csmopRef": "9.2(iv), 9.2(vi)"
+      },
+      {
+        "id": "signature-block",
+        "label": {
+          "en": "Signature block carries designation, telephone and email",
+          "hi": "हस्ताक्षर खंड में पदनाम, दूरभाष और ई-मेल हैं"
+        },
+        "why": {
+          "en": "The name, designation, telephone number, fax number and e-mail address of the signing officer must invariably be on the draft.",
+          "hi": "हस्ताक्षर करने वाले अधिकारी का नाम, पदनाम, दूरभाष संख्या, फैक्स संख्या और ई-मेल पता मसौदे पर अनिवार्यतः होना चाहिए।"
+        },
+        "severity": "must",
+        "rule": {
+          "kind": "allRequired",
+          "fields": [
+            "signatoryName",
+            "signatoryDesignation",
+            "phone",
+            "email"
+          ]
+        },
+        "csmopRef": "9.2(xii)"
+      },
+      {
+        "id": "approval-cited",
+        "label": {
+          "en": "The tour approval is cited",
+          "hi": "दौरा अनुमोदन उद्धृत है"
+        },
+        "why": {
+          "en": "The T.A. bill is settled against the approved programme; a report that does not cite the approval cannot be matched to it.",
+          "hi": "यात्रा भत्ता बिल का निपटान अनुमोदित कार्यक्रम के विरुद्ध होता है; जो रिपोर्ट अनुमोदन उद्धृत नहीं करती उसे उससे मिलाया नहीं जा सकता।"
+        },
+        "severity": "must",
+        "rule": {
+          "kind": "regex",
+          "role": "body",
+          "pattern": "(approval|sanction|अनुमोदन|स्वीकृति)"
+        },
+        "csmopRef": "9.2(iv)"
+      },
+      {
+        "id": "no-placeholders",
+        "label": {
+          "en": "No placeholder is left unfilled",
+          "hi": "कोई प्लेसहोल्डर अधूरा नहीं छूटा"
+        },
+        "why": {
+          "en": "A draft that goes out with {{…}} still in it has not been read.",
+          "hi": "जिस मसौदे में {{…}} रह जाए, उसे पढ़ा ही नहीं गया।"
+        },
+        "severity": "must",
+        "rule": {
+          "kind": "noPlaceholders"
+        }
+      }
+    ],
+    "source": {
+      "name": "Central Secretariat Manual of Office Procedure, 2022 (16th edition), DARPG",
+      "url": "https://www.darpg.gov.in/static/uploads/2025/10/774e0b8f427b7875158363d842fa431f.pdf",
+      "reference": "CSMOP 2022, sixteenth edition",
+      "dated": "2022-08-05"
+    },
+    "fetchedAt": "2026-09-03T00:00:00Z",
+    "verify": true,
+    "variables": [
+      {
+        "key": "approvingAuthority",
+        "label": {
+          "en": "Who approved the tour",
+          "hi": "दौरे का अनुमोदन किसने किया"
+        },
+        "type": "text",
+        "required": true,
+        "sample": {
+          "en": "the Joint Secretary (Administration)",
+          "hi": "संयुक्त सचिव (प्रशासन)"
+        }
+      },
+      {
+        "key": "approvalReference",
+        "label": {
+          "en": "Approval number and date",
+          "hi": "अनुमोदन संख्या और दिनांक"
+        },
+        "type": "text",
+        "required": true,
+        "sample": {
+          "en": "O.M. No. A-19011/3/2026-Estt. dated 05.08.2026",
+          "hi": "कार्यालय ज्ञापन संख्या ए-19011/3/2026-स्थापना दिनांक 05.08.2026"
+        }
+      },
+      {
+        "key": "purpose",
+        "label": {
+          "en": "Purpose of the tour",
+          "hi": "दौरे का प्रयोजन"
+        },
+        "type": "text",
+        "required": true,
+        "sample": {
+          "en": "the annual inspection of the Regional Office, Lucknow",
+          "hi": "क्षेत्रीय कार्यालय, लखनऊ का वार्षिक निरीक्षण"
+        }
+      },
+      {
+        "key": "places",
+        "label": {
+          "en": "Places and dates",
+          "hi": "स्थान और तिथियाँ"
+        },
+        "type": "enclosures",
+        "required": true,
+        "sample": {
+          "en": "Regional Office, Lucknow — 12.08.2026 to 14.08.2026",
+          "hi": "क्षेत्रीय कार्यालय, लखनऊ — 12.08.2026 से 14.08.2026"
+        },
+        "hint": {
+          "en": "One per line, with the dates actually spent there.",
+          "hi": "प्रति पंक्ति एक, वहाँ वास्तव में बिताई गई तिथियों सहित।"
+        }
+      },
+      {
+        "key": "observations",
+        "label": {
+          "en": "Observations",
+          "hi": "प्रेक्षण"
+        },
+        "type": "textarea",
+        "required": true,
+        "sample": {
+          "en": "The Office is functioning with four posts vacant against a sanctioned strength of eleven, and disposal of pension cases has slipped to an average of 62 days.",
+          "hi": "कार्यालय स्वीकृत ग्यारह पदों में से चार रिक्त रहते हुए कार्य कर रहा है, और पेंशन मामलों का निपटान औसतन 62 दिन तक पहुँच गया है।"
+        }
+      },
+      {
+        "key": "actionProposed",
+        "label": {
+          "en": "Action proposed",
+          "hi": "प्रस्तावित कार्रवाई"
+        },
+        "type": "textarea",
+        "required": true,
+        "sample": {
+          "en": "The vacancies may be filled on priority and a monthly disposal statement called for from the Regional Office.",
+          "hi": "रिक्तियाँ प्राथमिकता से भरी जाएँ और क्षेत्रीय कार्यालय से मासिक निपटान विवरण माँगा जाए।"
+        }
+      }
+    ],
+    "bodySkeleton": {
+      "en": {
+        "type": "doc",
+        "content": [
+          {
+            "type": "numberedPara",
+            "attrs": {
+              "level": 1
+            },
+            "content": [
+              {
+                "type": "text",
+                "text": "The tour was undertaken with the approval of {{approvingAuthority}} conveyed vide {{approvalReference}}, for the purpose of {{purpose}}."
+              }
+            ]
+          },
+          {
+            "type": "heading",
+            "attrs": {
+              "level": 2
+            },
+            "content": [
+              {
+                "type": "text",
+                "text": "Places visited"
+              }
+            ]
+          },
+          {
+            "type": "paragraph",
+            "content": [
+              {
+                "type": "text",
+                "text": "{{#each places}}"
+              }
+            ]
+          },
+          {
+            "type": "numberedPara",
+            "attrs": {
+              "level": 1
+            },
+            "content": [
+              {
+                "type": "text",
+                "text": "{{@index}}. {{.}}"
+              }
+            ]
+          },
+          {
+            "type": "paragraph",
+            "content": [
+              {
+                "type": "text",
+                "text": "{{/each}}"
+              }
+            ]
+          },
+          {
+            "type": "heading",
+            "attrs": {
+              "level": 2
+            },
+            "content": [
+              {
+                "type": "text",
+                "text": "Observations"
+              }
+            ]
+          },
+          {
+            "type": "numberedPara",
+            "attrs": {
+              "level": 1
+            },
+            "content": [
+              {
+                "type": "text",
+                "text": "{{observations}}"
+              }
+            ]
+          },
+          {
+            "type": "heading",
+            "attrs": {
+              "level": 2
+            },
+            "content": [
+              {
+                "type": "text",
+                "text": "Action proposed"
+              }
+            ]
+          },
+          {
+            "type": "numberedPara",
+            "attrs": {
+              "level": 1
+            },
+            "content": [
+              {
+                "type": "text",
+                "text": "{{actionProposed}}"
+              }
+            ]
+          },
+          {
+            "type": "numberedPara",
+            "attrs": {
+              "level": 1
+            },
+            "content": [
+              {
+                "type": "text",
+                "text": "No free transport or hospitality was availed of during the tour except as stated above."
+              }
+            ]
+          }
+        ]
+      },
+      "hi": {
+        "type": "doc",
+        "content": [
+          {
+            "type": "numberedPara",
+            "attrs": {
+              "level": 1
+            },
+            "content": [
+              {
+                "type": "text",
+                "text": "यह दौरा {{approvalReference}} द्वारा संप्रेषित {{approvingAuthority}} के अनुमोदन से, {{purpose}} के प्रयोजन हेतु किया गया।"
+              }
+            ]
+          },
+          {
+            "type": "heading",
+            "attrs": {
+              "level": 2
+            },
+            "content": [
+              {
+                "type": "text",
+                "text": "देखे गए स्थान"
+              }
+            ]
+          },
+          {
+            "type": "paragraph",
+            "content": [
+              {
+                "type": "text",
+                "text": "{{#each places}}"
+              }
+            ]
+          },
+          {
+            "type": "numberedPara",
+            "attrs": {
+              "level": 1
+            },
+            "content": [
+              {
+                "type": "text",
+                "text": "{{@index}}. {{.}}"
+              }
+            ]
+          },
+          {
+            "type": "paragraph",
+            "content": [
+              {
+                "type": "text",
+                "text": "{{/each}}"
+              }
+            ]
+          },
+          {
+            "type": "heading",
+            "attrs": {
+              "level": 2
+            },
+            "content": [
+              {
+                "type": "text",
+                "text": "प्रेक्षण"
+              }
+            ]
+          },
+          {
+            "type": "numberedPara",
+            "attrs": {
+              "level": 1
+            },
+            "content": [
+              {
+                "type": "text",
+                "text": "{{observations}}"
+              }
+            ]
+          },
+          {
+            "type": "heading",
+            "attrs": {
+              "level": 2
+            },
+            "content": [
+              {
+                "type": "text",
+                "text": "प्रस्तावित कार्रवाई"
+              }
+            ]
+          },
+          {
+            "type": "numberedPara",
+            "attrs": {
+              "level": 1
+            },
+            "content": [
+              {
+                "type": "text",
+                "text": "{{actionProposed}}"
+              }
+            ]
+          },
+          {
+            "type": "numberedPara",
+            "attrs": {
+              "level": 1
+            },
+            "content": [
+              {
+                "type": "text",
+                "text": "दौरे के दौरान उपर्युक्त के अतिरिक्त कोई नि:शुल्क परिवहन या आतिथ्य नहीं लिया गया।"
+              }
+            ]
+          }
+        ]
+      }
+    }
+  }
+}

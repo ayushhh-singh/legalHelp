@@ -1,0 +1,763 @@
+{
+  "version": "2.0.0",
+  "generatedAt": "2026-09-03T00:00:00Z",
+  "disclaimer": {
+    "en": "Reference only; verify with the official gazette/order or your DDO.",
+    "hi": "केवल संदर्भ के लिए; सरकारी राजपत्र/आदेश या अपने डीडीओ से सत्यापित करें।"
+  },
+  "template": {
+    "id": "explanation-letter",
+    "name": {
+      "en": "Letter calling for an explanation",
+      "hi": "स्पष्टीकरण माँगने का पत्र"
+    },
+    "shortName": {
+      "en": "Call for explanation",
+      "hi": "स्पष्टीकरण"
+    },
+    "person": "third",
+    "usedBy": {
+      "en": "A controlling officer or an establishment section.",
+      "hi": "नियंत्रक अधिकारी या स्थापना अनुभाग।"
+    },
+    "whenToUse": {
+      "en": "This is NOT a charge memorandum and must not read like one. It states the fact observed, asks for the employee's explanation by a named date, and says that the explanation will be considered before a view is taken. Where a penalty is in contemplation, the CCS (CCA) Rules 1965 procedure applies and a charge memorandum under rule 14 or 16 is the correct instrument, not this.",
+      "hi": "यह आरोप ज्ञापन नहीं है और उस जैसा नहीं पढ़ा जाना चाहिए। इसमें देखा गया तथ्य बताया जाता है, नामित तिथि तक कर्मचारी का स्पष्टीकरण माँगा जाता है, और यह कहा जाता है कि कोई मत बनाने से पहले स्पष्टीकरण पर विचार किया जाएगा। जहाँ शास्ति विचाराधीन हो वहाँ केंद्रीय सिविल सेवा (वर्गीकरण, नियंत्रण और अपील) नियम, 1965 की प्रक्रिया लागू होती है और नियम 14 या 16 के अंतर्गत आरोप ज्ञापन ही सही लिखत है, यह नहीं।"
+    },
+    "salutation": null,
+    "subscription": null,
+    "urgencyAllowed": true,
+    "csmopRef": {
+      "edition": "CSMOP 2022, sixteenth edition",
+      "paras": [
+        "8.4(3)"
+      ],
+      "chassis": "office-memorandum",
+      "note": {
+        "en": "CSMOP prescribes no format for calling an explanation. It is built on the Office Memorandum chassis. The point at which an explanation becomes a disciplinary proceeding is governed by the CCS (CCA) Rules, 1965, not by the manual.",
+        "hi": "सीएसएमओपी स्पष्टीकरण माँगने का कोई प्रारूप निर्धारित नहीं करता। यह कार्यालय ज्ञापन ढाँचे पर बना है। स्पष्टीकरण कब अनुशासनिक कार्यवाही बन जाता है, यह नियमावली से नहीं बल्कि केंद्रीय सिविल सेवा (वर्गीकरण, नियंत्रण और अपील) नियम, 1965 से शासित होता है।"
+      }
+    },
+    "fields": [
+      {
+        "id": "urgency",
+        "label": {
+          "en": "Urgency grading",
+          "hi": "तात्कालिकता ग्रेडिंग"
+        },
+        "type": "select",
+        "required": false,
+        "sample": {
+          "en": "none",
+          "hi": "none"
+        },
+        "hint": {
+          "en": "Marked by or under the orders of an officer not lower than a Section Officer (9.2(xi)).",
+          "hi": "अनुभाग अधिकारी से अनिम्न अधिकारी द्वारा या उनके आदेश से अंकित (9.2(xi))।"
+        },
+        "options": [
+          {
+            "value": "none",
+            "label": {
+              "en": "None",
+              "hi": "कोई नहीं"
+            }
+          },
+          {
+            "value": "immediate",
+            "label": {
+              "en": "IMMEDIATE",
+              "hi": "तत्काल"
+            }
+          },
+          {
+            "value": "priority",
+            "label": {
+              "en": "PRIORITY",
+              "hi": "अग्रता"
+            }
+          },
+          {
+            "value": "top-priority",
+            "label": {
+              "en": "TOP PRIORITY",
+              "hi": "परम अग्रता"
+            }
+          }
+        ]
+      },
+      {
+        "id": "fileNumber",
+        "label": {
+          "en": "File / communication number",
+          "hi": "फाइल / पत्र संख्या"
+        },
+        "type": "text",
+        "required": true,
+        "sample": {
+          "en": "A-11011/2/2026-Estt.",
+          "hi": "ए-11011/2/2026-स्थापना"
+        },
+        "hint": {
+          "en": "Every draft put up on a file bears the file number (9.2(vi)).",
+          "hi": "फाइल पर प्रस्तुत प्रत्येक मसौदे पर फाइल संख्या होती है (9.2(vi))।"
+        }
+      },
+      {
+        "id": "ministry",
+        "label": {
+          "en": "Ministry",
+          "hi": "मंत्रालय"
+        },
+        "type": "text",
+        "required": true,
+        "sample": {
+          "en": "Ministry of Personnel, Public Grievances and Pensions",
+          "hi": "कार्मिक, लोक शिकायत तथा पेंशन मंत्रालय"
+        }
+      },
+      {
+        "id": "department",
+        "label": {
+          "en": "Department",
+          "hi": "विभाग"
+        },
+        "type": "text",
+        "required": true,
+        "sample": {
+          "en": "Department of Personnel and Training",
+          "hi": "कार्मिक और प्रशिक्षण विभाग"
+        }
+      },
+      {
+        "id": "place",
+        "label": {
+          "en": "Place",
+          "hi": "स्थान"
+        },
+        "type": "text",
+        "required": true,
+        "sample": {
+          "en": "New Delhi",
+          "hi": "नई दिल्ली"
+        }
+      },
+      {
+        "id": "date",
+        "label": {
+          "en": "Date",
+          "hi": "दिनांक"
+        },
+        "type": "date",
+        "required": true,
+        "sample": {
+          "en": "2026-08-28",
+          "hi": "2026-08-28"
+        },
+        "hint": {
+          "en": "dd.mm.yyyy in English; दिनांक dd.mm.yyyy in Hindi.",
+          "hi": "अंग्रेज़ी में dd.mm.yyyy; हिंदी में दिनांक dd.mm.yyyy।"
+        }
+      },
+      {
+        "id": "addressee",
+        "label": {
+          "en": "Addressee",
+          "hi": "प्रेषिती"
+        },
+        "type": "list",
+        "required": true,
+        "sample": {
+          "en": [
+            "The Under Secretary",
+            "Department of Expenditure",
+            "North Block, New Delhi"
+          ],
+          "hi": [
+            "अवर सचिव",
+            "व्यय विभाग",
+            "नॉर्थ ब्लॉक, नई दिल्ली"
+          ]
+        },
+        "hint": {
+          "en": "One line each: designation, organisation, address.",
+          "hi": "एक-एक पंक्ति में : पदनाम, संगठन, पता।"
+        }
+      },
+      {
+        "id": "subject",
+        "label": {
+          "en": "Subject",
+          "hi": "विषय"
+        },
+        "type": "text",
+        "required": true,
+        "sample": {
+          "en": "Explanation called for — unauthorised absence from duty from 10.08.2026 to 14.08.2026.",
+          "hi": "स्पष्टीकरण माँगा गया — 10.08.2026 से 14.08.2026 तक कर्तव्य से अनधिकृत अनुपस्थिति।"
+        }
+      },
+      {
+        "id": "paras",
+        "label": {
+          "en": "Body paragraphs",
+          "hi": "मुख्य पैराग्राफ"
+        },
+        "type": "paras",
+        "required": true,
+        "sample": {
+          "en": [
+            "The undersigned is directed to state that the attendance record of the Section shows that you remained absent from duty from 10.08.2026 to 14.08.2026 without any application for leave having been received.",
+            "Shri A.B.C., Assistant Section Officer, is requested to furnish an explanation in the matter so as to reach the undersigned by 10.09.2026.",
+            "The explanation will be considered before a view is taken in the matter. No decision has been taken and nothing in this communication is to be read as a charge."
+          ],
+          "hi": [
+            "अधोहस्ताक्षरी को निदेश हुआ है कि यह बताएँ कि अनुभाग के उपस्थिति अभिलेख से पता चलता है कि आप 10.08.2026 से 14.08.2026 तक कर्तव्य से अनुपस्थित रहे और अवकाश हेतु कोई आवेदन प्राप्त नहीं हुआ।",
+            "श्री ए.बी.सी., सहायक अनुभाग अधिकारी से अनुरोध है कि इस विषय में अपना स्पष्टीकरण इस प्रकार प्रस्तुत करें कि वह 10.09.2026 तक अधोहस्ताक्षरी को प्राप्त हो जाए।",
+            "इस विषय में कोई मत बनाने से पहले स्पष्टीकरण पर विचार किया जाएगा। अभी कोई निर्णय नहीं लिया गया है और इस पत्र में कुछ भी आरोप के रूप में नहीं पढ़ा जाना है।"
+          ]
+        },
+        "hint": {
+          "en": "One paragraph per line. The first is left unnumbered and the rest are numbered from 2.",
+          "hi": "प्रति पंक्ति एक पैराग्राफ। पहला बिना संख्या के रहता है और शेष 2 से क्रमांकित होते हैं।"
+        }
+      },
+      {
+        "id": "signatoryName",
+        "label": {
+          "en": "Name of the signatory",
+          "hi": "हस्ताक्षरकर्ता का नाम"
+        },
+        "type": "text",
+        "required": true,
+        "sample": {
+          "en": "A.B.C.",
+          "hi": "ए.बी.सी."
+        }
+      },
+      {
+        "id": "signatoryDesignation",
+        "label": {
+          "en": "Designation",
+          "hi": "पदनाम"
+        },
+        "type": "text",
+        "required": true,
+        "sample": {
+          "en": "Under Secretary to the Govt. of India",
+          "hi": "अवर सचिव, भारत सरकार"
+        }
+      },
+      {
+        "id": "phone",
+        "label": {
+          "en": "Telephone number",
+          "hi": "दूरभाष संख्या"
+        },
+        "type": "text",
+        "required": true,
+        "sample": {
+          "en": "011-2309 2590",
+          "hi": "011-2309 2590"
+        }
+      },
+      {
+        "id": "email",
+        "label": {
+          "en": "Email",
+          "hi": "ई-मेल"
+        },
+        "type": "text",
+        "required": true,
+        "sample": {
+          "en": "us-estt@nic.in",
+          "hi": "us-estt@nic.in"
+        }
+      },
+      {
+        "id": "enclosures",
+        "label": {
+          "en": "Enclosures",
+          "hi": "संलग्नक"
+        },
+        "type": "list",
+        "required": false,
+        "sample": {
+          "en": [],
+          "hi": []
+        },
+        "hint": {
+          "en": "The count goes at the bottom left of the draft — 'Encl. 3' (9.2(vii)).",
+          "hi": "मसौदे के नीचे बाईं ओर संख्या दी जाती है — 'Encl. 3' (9.2(vii))।"
+        }
+      },
+      {
+        "id": "copyTo",
+        "label": {
+          "en": "Copy to",
+          "hi": "प्रतिलिपि"
+        },
+        "type": "list",
+        "required": false,
+        "sample": {
+          "en": [
+            "The personal file."
+          ],
+          "hi": [
+            "वैयक्तिक फाइल।"
+          ]
+        }
+      }
+    ],
+    "layout": {
+      "en": [
+        {
+          "role": "urgency",
+          "align": "right",
+          "emphasis": "bold",
+          "lines": [
+            "{{urgency}}"
+          ],
+          "omitWhenEmpty": true
+        },
+        {
+          "role": "fileNumber",
+          "align": "left",
+          "lines": [
+            "No. {{fileNumber}}"
+          ]
+        },
+        {
+          "role": "header",
+          "align": "center",
+          "lines": [
+            "Government of India",
+            "{{ministry}}",
+            "{{department}}"
+          ]
+        },
+        {
+          "role": "dateLine",
+          "align": "right",
+          "lines": [
+            "{{place}}, the {{date}}"
+          ]
+        },
+        {
+          "role": "title",
+          "align": "center",
+          "emphasis": "title",
+          "lines": [
+            "OFFICE MEMORANDUM"
+          ]
+        },
+        {
+          "role": "subject",
+          "align": "left",
+          "lines": [
+            "Subject: {{subject}}"
+          ]
+        },
+        {
+          "role": "body",
+          "align": "left",
+          "source": "paras",
+          "numbered": true
+        },
+        {
+          "role": "signature",
+          "align": "right",
+          "lines": [
+            "-Sd/-",
+            "({{signatoryName}})",
+            "{{signatoryDesignation}}",
+            "Tele. No.: {{phone}}",
+            "Email: {{email}}"
+          ]
+        },
+        {
+          "role": "addressee",
+          "align": "left",
+          "lead": "To",
+          "source": "addressee"
+        },
+        {
+          "role": "enclosures",
+          "align": "left",
+          "lead": "List of enclosures:",
+          "source": "enclosures",
+          "itemPrefix": "ordinal",
+          "omitWhenEmpty": true
+        },
+        {
+          "role": "copyTo",
+          "align": "left",
+          "lead": "Copy forwarded for information / necessary action to:",
+          "source": "copyTo",
+          "itemPrefix": "ordinal",
+          "omitWhenEmpty": true
+        }
+      ],
+      "hi": [
+        {
+          "role": "urgency",
+          "align": "right",
+          "emphasis": "bold",
+          "lines": [
+            "{{urgency}}"
+          ],
+          "omitWhenEmpty": true
+        },
+        {
+          "role": "fileNumber",
+          "align": "left",
+          "lines": [
+            "संख्या {{fileNumber}}"
+          ]
+        },
+        {
+          "role": "header",
+          "align": "center",
+          "lines": [
+            "भारत सरकार",
+            "{{ministry}}",
+            "{{department}}"
+          ]
+        },
+        {
+          "role": "dateLine",
+          "align": "right",
+          "lines": [
+            "{{place}}, दिनांक {{date}}"
+          ]
+        },
+        {
+          "role": "title",
+          "align": "center",
+          "emphasis": "title",
+          "lines": [
+            "कार्यालय ज्ञापन"
+          ]
+        },
+        {
+          "role": "subject",
+          "align": "left",
+          "lines": [
+            "विषय : {{subject}}"
+          ]
+        },
+        {
+          "role": "body",
+          "align": "left",
+          "source": "paras",
+          "numbered": true
+        },
+        {
+          "role": "signature",
+          "align": "right",
+          "lines": [
+            "-हस्ताक्षरित/-",
+            "({{signatoryName}})",
+            "{{signatoryDesignation}}",
+            "दूरभाष संख्या : {{phone}}",
+            "ई-मेल : {{email}}"
+          ]
+        },
+        {
+          "role": "addressee",
+          "align": "left",
+          "lead": "सेवा में,",
+          "source": "addressee"
+        },
+        {
+          "role": "enclosures",
+          "align": "left",
+          "lead": "संलग्नकों की सूची :",
+          "source": "enclosures",
+          "itemPrefix": "ordinal",
+          "omitWhenEmpty": true
+        },
+        {
+          "role": "copyTo",
+          "align": "left",
+          "lead": "प्रति सूचना/आवश्यक कार्रवाई के लिए अग्रेषित :",
+          "source": "copyTo",
+          "itemPrefix": "ordinal",
+          "omitWhenEmpty": true
+        }
+      ]
+    },
+    "checklist": [
+      {
+        "id": "subject",
+        "label": {
+          "en": "The subject is stated",
+          "hi": "विषय लिखा गया है"
+        },
+        "why": {
+          "en": "The specimens in Appendix 8.1 carry a subject line above the body on every form that is addressed to anyone.",
+          "hi": "परिशिष्ट 8.1 के नमूनों में हर संबोधित प्रपत्र पर मुख्य भाग के ऊपर विषय पंक्ति होती है।"
+        },
+        "severity": "must",
+        "rule": {
+          "kind": "blockPresent",
+          "role": "subject"
+        },
+        "csmopRef": "Appendix 8.1"
+      },
+      {
+        "id": "number-and-date",
+        "label": {
+          "en": "Number and date are on the draft",
+          "hi": "मसौदे पर संख्या और दिनांक हैं"
+        },
+        "why": {
+          "en": "Every draft put up on a file bears the file number, and the number and date of the last communication in the series must be quoted.",
+          "hi": "फाइल पर प्रस्तुत प्रत्येक मसौदे पर फाइल संख्या होती है, और शृंखला के अंतिम पत्र की संख्या तथा दिनांक उद्धृत की जानी चाहिए।"
+        },
+        "severity": "must",
+        "rule": {
+          "kind": "allRequired",
+          "fields": [
+            "fileNumber",
+            "date"
+          ]
+        },
+        "csmopRef": "9.2(iv), 9.2(vi)"
+      },
+      {
+        "id": "third-person",
+        "label": {
+          "en": "Written in the third person",
+          "hi": "अन्य पुरुष में लिखा गया"
+        },
+        "why": {
+          "en": "An Office Memorandum is written in the third person and bears no salutation or subscription.",
+          "hi": "कार्यालय ज्ञापन अन्य पुरुष में लिखा जाता है और उसमें कोई अभिवादन या मानार्थ संबोधन नहीं होता।"
+        },
+        "severity": "must",
+        "rule": {
+          "kind": "person",
+          "value": "third"
+        },
+        "csmopRef": "8.4(3)"
+      },
+      {
+        "id": "signature-block",
+        "label": {
+          "en": "Signature block carries designation, telephone and email",
+          "hi": "हस्ताक्षर खंड में पदनाम, दूरभाष और ई-मेल हैं"
+        },
+        "why": {
+          "en": "The name, designation, telephone number, fax number and e-mail address of the signing officer must invariably be on the draft.",
+          "hi": "हस्ताक्षर करने वाले अधिकारी का नाम, पदनाम, दूरभाष संख्या, फैक्स संख्या और ई-मेल पता मसौदे पर अनिवार्यतः होना चाहिए।"
+        },
+        "severity": "must",
+        "rule": {
+          "kind": "allRequired",
+          "fields": [
+            "signatoryName",
+            "signatoryDesignation",
+            "phone",
+            "email"
+          ]
+        },
+        "csmopRef": "9.2(xii)"
+      },
+      {
+        "id": "reply-date",
+        "label": {
+          "en": "A date is named where information is called for",
+          "hi": "जहाँ सूचना माँगी गई है वहाँ तारीख दी गई है"
+        },
+        "why": {
+          "en": "Instead of 'may be sent immediately', state 'may be sent by 28.02.2026'.",
+          "hi": "'तुरंत भेजी जाए' के स्थान पर 'दिनांक 28.02.2026 तक भेजी जाए' लिखें।"
+        },
+        "severity": "should",
+        "rule": {
+          "kind": "replyDate"
+        },
+        "csmopRef": "9.2(v)"
+      },
+      {
+        "id": "not-a-charge",
+        "label": {
+          "en": "It is clear that no charge has been framed",
+          "hi": "यह स्पष्ट है कि कोई आरोप नहीं लगाया गया है"
+        },
+        "why": {
+          "en": "A letter calling for an explanation that reads like a charge memorandum invites the answer that the CCS (CCA) Rules procedure was not followed.",
+          "hi": "स्पष्टीकरण माँगने का जो पत्र आरोप ज्ञापन जैसा पढ़ा जाता है, वह यह उत्तर आमंत्रित करता है कि केंद्रीय सिविल सेवा (वर्गीकरण, नियंत्रण और अपील) नियमों की प्रक्रिया का पालन नहीं हुआ।"
+        },
+        "severity": "should",
+        "rule": {
+          "kind": "regexAbsent",
+          "role": "body",
+          "pattern": "(articles of charge|major penalty|minor penalty|आरोप के अनुच्छेद|बड़ी शास्ति|लघु शास्ति)"
+        }
+      },
+      {
+        "id": "no-placeholders",
+        "label": {
+          "en": "No placeholder is left unfilled",
+          "hi": "कोई प्लेसहोल्डर अधूरा नहीं छूटा"
+        },
+        "why": {
+          "en": "A draft that goes out with {{…}} still in it has not been read.",
+          "hi": "जिस मसौदे में {{…}} रह जाए, उसे पढ़ा ही नहीं गया।"
+        },
+        "severity": "must",
+        "rule": {
+          "kind": "noPlaceholders"
+        }
+      }
+    ],
+    "source": {
+      "name": "Central Secretariat Manual of Office Procedure, 2022 (16th edition), DARPG",
+      "url": "https://www.darpg.gov.in/static/uploads/2025/10/774e0b8f427b7875158363d842fa431f.pdf",
+      "reference": "CSMOP 2022, sixteenth edition",
+      "dated": "2022-08-05"
+    },
+    "fetchedAt": "2026-09-03T00:00:00Z",
+    "verify": true,
+    "variables": [
+      {
+        "key": "observedFact",
+        "label": {
+          "en": "The fact observed",
+          "hi": "देखा गया तथ्य"
+        },
+        "type": "textarea",
+        "required": true,
+        "sample": {
+          "en": "the attendance record of the Section shows that you remained absent from duty from 10.08.2026 to 14.08.2026 without any application for leave having been received",
+          "hi": "अनुभाग के उपस्थिति अभिलेख से पता चलता है कि आप 10.08.2026 से 14.08.2026 तक कर्तव्य से अनुपस्थित रहे और अवकाश हेतु कोई आवेदन प्राप्त नहीं हुआ"
+        }
+      },
+      {
+        "key": "employeeName",
+        "label": {
+          "en": "Employee's name",
+          "hi": "कर्मचारी का नाम"
+        },
+        "type": "text",
+        "required": true,
+        "sample": {
+          "en": "Shri A.B.C.",
+          "hi": "श्री ए.बी.सी."
+        }
+      },
+      {
+        "key": "employeeDesignation",
+        "label": {
+          "en": "Designation",
+          "hi": "पदनाम"
+        },
+        "type": "text",
+        "required": true,
+        "sample": {
+          "en": "Assistant Section Officer",
+          "hi": "सहायक अनुभाग अधिकारी"
+        }
+      },
+      {
+        "key": "replyBy",
+        "label": {
+          "en": "Explanation by",
+          "hi": "स्पष्टीकरण कब तक"
+        },
+        "type": "date",
+        "required": true,
+        "sample": {
+          "en": "10.09.2026",
+          "hi": "10.09.2026"
+        }
+      }
+    ],
+    "bodySkeleton": {
+      "en": {
+        "type": "doc",
+        "content": [
+          {
+            "type": "numberedPara",
+            "attrs": {
+              "level": 1
+            },
+            "content": [
+              {
+                "type": "text",
+                "text": "The undersigned is directed to state that {{observedFact}}."
+              }
+            ]
+          },
+          {
+            "type": "numberedPara",
+            "attrs": {
+              "level": 1
+            },
+            "content": [
+              {
+                "type": "text",
+                "text": "{{employeeName}}, {{employeeDesignation}}, is requested to furnish an explanation in the matter so as to reach the undersigned by {{replyBy}}."
+              }
+            ]
+          },
+          {
+            "type": "numberedPara",
+            "attrs": {
+              "level": 1
+            },
+            "content": [
+              {
+                "type": "text",
+                "text": "The explanation will be considered before a view is taken in the matter. No decision has been taken and nothing in this communication is to be read as a charge."
+              }
+            ]
+          }
+        ]
+      },
+      "hi": {
+        "type": "doc",
+        "content": [
+          {
+            "type": "numberedPara",
+            "attrs": {
+              "level": 1
+            },
+            "content": [
+              {
+                "type": "text",
+                "text": "अधोहस्ताक्षरी को निदेश हुआ है कि यह बताएँ कि {{observedFact}}।"
+              }
+            ]
+          },
+          {
+            "type": "numberedPara",
+            "attrs": {
+              "level": 1
+            },
+            "content": [
+              {
+                "type": "text",
+                "text": "{{employeeName}}, {{employeeDesignation}} से अनुरोध है कि इस विषय में अपना स्पष्टीकरण इस प्रकार प्रस्तुत करें कि वह {{replyBy}} तक अधोहस्ताक्षरी को प्राप्त हो जाए।"
+              }
+            ]
+          },
+          {
+            "type": "numberedPara",
+            "attrs": {
+              "level": 1
+            },
+            "content": [
+              {
+                "type": "text",
+                "text": "इस विषय में कोई मत बनाने से पहले स्पष्टीकरण पर विचार किया जाएगा। अभी कोई निर्णय नहीं लिया गया है और इस पत्र में कुछ भी आरोप के रूप में नहीं पढ़ा जाना है।"
+              }
+            ]
+          }
+        ]
+      }
+    }
+  }
+}

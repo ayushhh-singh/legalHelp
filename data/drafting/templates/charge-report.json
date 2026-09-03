@@ -1,0 +1,750 @@
+{
+  "version": "2.0.0",
+  "generatedAt": "2026-09-03T00:00:00Z",
+  "disclaimer": {
+    "en": "Reference only; verify with the official gazette/order or your DDO.",
+    "hi": "केवल संदर्भ के लिए; सरकारी राजपत्र/आदेश या अपने डीडीओ से सत्यापित करें।"
+  },
+  "template": {
+    "id": "charge-report",
+    "name": {
+      "en": "Handing over / taking over charge report",
+      "hi": "कार्यभार हस्तांतरण / ग्रहण रिपोर्ट"
+    },
+    "shortName": {
+      "en": "Charge report",
+      "hi": "कार्यभार रिपोर्ट"
+    },
+    "person": "third",
+    "usedBy": {
+      "en": "The officer handing over and the officer taking over, jointly.",
+      "hi": "कार्यभार सौंपने वाला और ग्रहण करने वाला अधिकारी, संयुक्त रूप से।"
+    },
+    "whenToUse": {
+      "en": "Signed by both officers on the day charge changes hands. What makes it useful later is the list of what was actually handed over — cash, stamps, keys, stores, and the files still pending — because that list is the only record of what the incoming officer inherited.",
+      "hi": "कार्यभार बदलने के दिन दोनों अधिकारियों द्वारा हस्ताक्षरित। इसे बाद में उपयोगी वह सूची बनाती है कि वास्तव में क्या सौंपा गया — नकदी, टिकट, चाबियाँ, भंडार, और अब भी लंबित फाइलें — क्योंकि वही एकमात्र अभिलेख है कि आने वाले अधिकारी को क्या मिला।"
+    },
+    "salutation": null,
+    "subscription": null,
+    "urgencyAllowed": false,
+    "csmopRef": {
+      "edition": "CSMOP 2022, sixteenth edition",
+      "paras": [
+        "8.4(1)"
+      ],
+      "chassis": "letter",
+      "note": {
+        "en": "CSMOP prescribes no format for this form. It is built on the letter chassis.",
+        "hi": "सीएसएमओपी इस प्ररूप का कोई प्रारूप निर्धारित नहीं करता। यह letter ढाँचे पर बना है।"
+      }
+    },
+    "fields": [
+      {
+        "id": "place",
+        "label": {
+          "en": "Place",
+          "hi": "स्थान"
+        },
+        "type": "text",
+        "required": true,
+        "sample": {
+          "en": "New Delhi",
+          "hi": "नई दिल्ली"
+        }
+      },
+      {
+        "id": "date",
+        "label": {
+          "en": "Date",
+          "hi": "दिनांक"
+        },
+        "type": "date",
+        "required": true,
+        "sample": {
+          "en": "2026-08-28",
+          "hi": "2026-08-28"
+        },
+        "hint": {
+          "en": "dd.mm.yyyy in English; दिनांक dd.mm.yyyy in Hindi.",
+          "hi": "अंग्रेज़ी में dd.mm.yyyy; हिंदी में दिनांक dd.mm.yyyy।"
+        }
+      },
+      {
+        "id": "addressee",
+        "label": {
+          "en": "Addressee",
+          "hi": "प्रेषिती"
+        },
+        "type": "list",
+        "required": true,
+        "sample": {
+          "en": [
+            "The Under Secretary (Establishment)",
+            "Department of Personnel and Training",
+            "North Block, New Delhi"
+          ],
+          "hi": [
+            "अवर सचिव (स्थापना)",
+            "कार्मिक और प्रशिक्षण विभाग",
+            "नॉर्थ ब्लॉक, नई दिल्ली"
+          ]
+        }
+      },
+      {
+        "id": "subject",
+        "label": {
+          "en": "Subject",
+          "hi": "विषय"
+        },
+        "type": "text",
+        "required": true,
+        "sample": {
+          "en": "Handing over and taking over of the charge of the post of Section Officer (Establishment).",
+          "hi": "अनुभाग अधिकारी (स्थापना) पद के कार्यभार का हस्तांतरण एवं ग्रहण।"
+        }
+      },
+      {
+        "id": "paras",
+        "label": {
+          "en": "Body paragraphs",
+          "hi": "मुख्य पैराग्राफ"
+        },
+        "type": "paras",
+        "required": true,
+        "sample": {
+          "en": [
+            "I, A.B.C., Section Officer (Establishment), have handed over the charge of the post of Section Officer (Establishment) on the afternoon of 31.08.2026 to P.Q.R., Section Officer, who has taken over the same.",
+            "# Handed over",
+            ". ",
+            "The following matters were pending on the date of transfer of charge and have been brought to the notice of the incoming officer: the revision of the Recruitment Rules, on which comments of three Divisions are awaited",
+            "The charge report is submitted for record and for the necessary entries in the service books of both officers."
+          ],
+          "hi": [
+            "मैं, ए.बी.सी., अनुभाग अधिकारी (स्थापना), ने 31.08.2026 के अपराह्न में अनुभाग अधिकारी (स्थापना) पद का कार्यभार पी.क्यू.आर., अनुभाग अधिकारी को सौंप दिया है, जिन्होंने उसे ग्रहण कर लिया है।",
+            "# सौंपी गई वस्तुएँ",
+            ". ",
+            "कार्यभार हस्तांतरण की तिथि को निम्नलिखित मामले लंबित थे और उन्हें आने वाले अधिकारी के संज्ञान में लाया गया है : भर्ती नियमों का पुनरीक्षण, जिस पर तीन प्रभागों की टिप्पणियाँ प्रतीक्षित हैं",
+            "यह कार्यभार रिपोर्ट अभिलेख हेतु तथा दोनों अधिकारियों की सेवा पुस्तिकाओं में आवश्यक प्रविष्टियों हेतु प्रस्तुत है।"
+          ]
+        },
+        "hint": {
+          "en": "One paragraph per line. The first is left unnumbered and the rest are numbered from 2.",
+          "hi": "प्रति पंक्ति एक पैराग्राफ। पहला बिना संख्या के रहता है और शेष 2 से क्रमांकित होते हैं।"
+        }
+      },
+      {
+        "id": "signatoryName",
+        "label": {
+          "en": "Your name",
+          "hi": "आपका नाम"
+        },
+        "type": "text",
+        "required": true,
+        "sample": {
+          "en": "A.B.C.",
+          "hi": "ए.बी.सी."
+        }
+      },
+      {
+        "id": "signatoryDesignation",
+        "label": {
+          "en": "Your designation",
+          "hi": "आपका पदनाम"
+        },
+        "type": "text",
+        "required": true,
+        "sample": {
+          "en": "Section Officer",
+          "hi": "अनुभाग अधिकारी"
+        }
+      },
+      {
+        "id": "phone",
+        "label": {
+          "en": "Telephone number",
+          "hi": "दूरभाष संख्या"
+        },
+        "type": "text",
+        "required": true,
+        "sample": {
+          "en": "011-2309 2590",
+          "hi": "011-2309 2590"
+        }
+      },
+      {
+        "id": "email",
+        "label": {
+          "en": "Email",
+          "hi": "ई-मेल"
+        },
+        "type": "text",
+        "required": true,
+        "sample": {
+          "en": "abc@nic.in",
+          "hi": "abc@nic.in"
+        }
+      },
+      {
+        "id": "enclosures",
+        "label": {
+          "en": "Enclosures",
+          "hi": "संलग्नक"
+        },
+        "type": "list",
+        "required": false,
+        "sample": {
+          "en": [
+            "The cash book and the permanent advance register."
+          ],
+          "hi": [
+            "रोकड़ बही तथा स्थायी अग्रिम रजिस्टर।"
+          ]
+        },
+        "hint": {
+          "en": "The count goes at the bottom left of the draft — 'Encl. 3' (9.2(vii)).",
+          "hi": "मसौदे के नीचे बाईं ओर संख्या दी जाती है — 'Encl. 3' (9.2(vii))।"
+        }
+      }
+    ],
+    "layout": {
+      "en": [
+        {
+          "role": "dateLine",
+          "align": "right",
+          "lines": [
+            "{{place}}, the {{date}}"
+          ]
+        },
+        {
+          "role": "addressee",
+          "align": "left",
+          "lead": "To,",
+          "source": "addressee"
+        },
+        {
+          "role": "subject",
+          "align": "left",
+          "lines": [
+            "Subject: {{subject}}"
+          ]
+        },
+        {
+          "role": "salutation",
+          "align": "left",
+          "lines": [
+            "Sir / Madam,"
+          ]
+        },
+        {
+          "role": "body",
+          "align": "left",
+          "source": "paras",
+          "numbered": true
+        },
+        {
+          "role": "closing",
+          "align": "right",
+          "lines": [
+            "Yours faithfully,"
+          ]
+        },
+        {
+          "role": "signature",
+          "align": "left",
+          "lines": [
+            "({{signatoryName}})",
+            "{{signatoryDesignation}}",
+            "Tele. No.: {{phone}}",
+            "Email: {{email}}"
+          ]
+        },
+        {
+          "role": "enclosures",
+          "align": "left",
+          "lead": "List of enclosures:",
+          "source": "enclosures",
+          "itemPrefix": "ordinal",
+          "omitWhenEmpty": true
+        }
+      ],
+      "hi": [
+        {
+          "role": "dateLine",
+          "align": "right",
+          "lines": [
+            "{{place}}, दिनांक {{date}}"
+          ]
+        },
+        {
+          "role": "addressee",
+          "align": "left",
+          "lead": "सेवा में,",
+          "source": "addressee"
+        },
+        {
+          "role": "subject",
+          "align": "left",
+          "lines": [
+            "विषय : {{subject}}"
+          ]
+        },
+        {
+          "role": "salutation",
+          "align": "left",
+          "lines": [
+            "महोदय / महोदया,"
+          ]
+        },
+        {
+          "role": "body",
+          "align": "left",
+          "source": "paras",
+          "numbered": true
+        },
+        {
+          "role": "closing",
+          "align": "right",
+          "lines": [
+            "भवदीय,"
+          ]
+        },
+        {
+          "role": "signature",
+          "align": "left",
+          "lines": [
+            "({{signatoryName}})",
+            "{{signatoryDesignation}}",
+            "दूरभाष संख्या : {{phone}}",
+            "ई-मेल : {{email}}"
+          ]
+        },
+        {
+          "role": "enclosures",
+          "align": "left",
+          "lead": "संलग्नकों की सूची :",
+          "source": "enclosures",
+          "itemPrefix": "ordinal",
+          "omitWhenEmpty": true
+        }
+      ]
+    },
+    "checklist": [
+      {
+        "id": "subject",
+        "label": {
+          "en": "The subject is stated",
+          "hi": "विषय लिखा गया है"
+        },
+        "why": {
+          "en": "The specimens in Appendix 8.1 carry a subject line above the body on every form that is addressed to anyone.",
+          "hi": "परिशिष्ट 8.1 के नमूनों में हर संबोधित प्रपत्र पर मुख्य भाग के ऊपर विषय पंक्ति होती है।"
+        },
+        "severity": "must",
+        "rule": {
+          "kind": "blockPresent",
+          "role": "subject"
+        },
+        "csmopRef": "Appendix 8.1"
+      },
+      {
+        "id": "para-numbering",
+        "label": {
+          "en": "Paragraphs are serially numbered",
+          "hi": "पैराग्राफ क्रमानुसार संख्यांकित हैं"
+        },
+        "why": {
+          "en": "The specimens leave the first paragraph unnumbered and number the rest from 2.",
+          "hi": "नमूनों में पहला पैराग्राफ बिना संख्या के रहता है और शेष 2 से क्रमांकित होते हैं।"
+        },
+        "severity": "must",
+        "rule": {
+          "kind": "paraNumbering"
+        },
+        "csmopRef": "Appendix 8.1"
+      },
+      {
+        "id": "both-officers",
+        "label": {
+          "en": "Both officers are named",
+          "hi": "दोनों अधिकारी नामित हैं"
+        },
+        "why": {
+          "en": "A charge report signed by one officer records a handover nobody acknowledged receiving.",
+          "hi": "एक ही अधिकारी द्वारा हस्ताक्षरित कार्यभार रिपोर्ट ऐसा हस्तांतरण अभिलिखित करती है जिसकी प्राप्ति किसी ने स्वीकार नहीं की।"
+        },
+        "severity": "must",
+        "rule": {
+          "kind": "regex",
+          "role": "body",
+          "pattern": "(taken over|taking over|ग्रहण कर)"
+        }
+      },
+      {
+        "id": "no-placeholders",
+        "label": {
+          "en": "No placeholder is left unfilled",
+          "hi": "कोई प्लेसहोल्डर अधूरा नहीं छूटा"
+        },
+        "why": {
+          "en": "A draft that goes out with {{…}} still in it has not been read.",
+          "hi": "जिस मसौदे में {{…}} रह जाए, उसे पढ़ा ही नहीं गया।"
+        },
+        "severity": "must",
+        "rule": {
+          "kind": "noPlaceholders"
+        }
+      }
+    ],
+    "source": {
+      "name": "Central Secretariat Manual of Office Procedure, 2022 (16th edition), DARPG",
+      "url": "https://www.darpg.gov.in/static/uploads/2025/10/774e0b8f427b7875158363d842fa431f.pdf",
+      "reference": "CSMOP 2022, sixteenth edition",
+      "dated": "2022-08-05"
+    },
+    "fetchedAt": "2026-09-03T00:00:00Z",
+    "verify": true,
+    "variables": [
+      {
+        "key": "outgoingOfficer",
+        "label": {
+          "en": "Officer handing over",
+          "hi": "कार्यभार सौंपने वाला अधिकारी"
+        },
+        "type": "text",
+        "required": true,
+        "sample": {
+          "en": "A.B.C.",
+          "hi": "ए.बी.सी."
+        }
+      },
+      {
+        "key": "outgoingDesignation",
+        "label": {
+          "en": "Their designation",
+          "hi": "उनका पदनाम"
+        },
+        "type": "text",
+        "required": true,
+        "sample": {
+          "en": "Section Officer (Establishment)",
+          "hi": "अनुभाग अधिकारी (स्थापना)"
+        }
+      },
+      {
+        "key": "incomingOfficer",
+        "label": {
+          "en": "Officer taking over",
+          "hi": "कार्यभार ग्रहण करने वाला अधिकारी"
+        },
+        "type": "text",
+        "required": true,
+        "sample": {
+          "en": "P.Q.R.",
+          "hi": "पी.क्यू.आर."
+        }
+      },
+      {
+        "key": "incomingDesignation",
+        "label": {
+          "en": "Their designation",
+          "hi": "उनका पदनाम"
+        },
+        "type": "text",
+        "required": true,
+        "sample": {
+          "en": "Section Officer",
+          "hi": "अनुभाग अधिकारी"
+        }
+      },
+      {
+        "key": "post",
+        "label": {
+          "en": "Post",
+          "hi": "पद"
+        },
+        "type": "text",
+        "required": true,
+        "sample": {
+          "en": "Section Officer (Establishment)",
+          "hi": "अनुभाग अधिकारी (स्थापना)"
+        }
+      },
+      {
+        "key": "chargeDate",
+        "label": {
+          "en": "Date charge changed hands",
+          "hi": "कार्यभार बदलने का दिनांक"
+        },
+        "type": "date",
+        "required": true,
+        "sample": {
+          "en": "31.08.2026",
+          "hi": "31.08.2026"
+        }
+      },
+      {
+        "key": "time",
+        "label": {
+          "en": "Forenoon or afternoon",
+          "hi": "पूर्वाह्न या अपराह्न"
+        },
+        "type": "select",
+        "required": true,
+        "sample": {
+          "en": "afternoon",
+          "hi": "अपराह्न"
+        },
+        "options": [
+          {
+            "value": "forenoon",
+            "label": {
+              "en": "forenoon",
+              "hi": "पूर्वाह्न"
+            }
+          },
+          {
+            "value": "afternoon",
+            "label": {
+              "en": "afternoon",
+              "hi": "अपराह्न"
+            }
+          }
+        ]
+      },
+      {
+        "key": "itemsHandedOver",
+        "label": {
+          "en": "What was handed over",
+          "hi": "क्या सौंपा गया"
+        },
+        "type": "enclosures",
+        "required": true,
+        "sample": {
+          "en": "Permanent advance of Rs. 5,000 in cash, verified and found correct.",
+          "hi": "5,000 रुपये का स्थायी अग्रिम नकद, सत्यापित और सही पाया गया।"
+        },
+        "hint": {
+          "en": "Cash, stamps, keys, stores, registers — one per line.",
+          "hi": "नकदी, टिकट, चाबियाँ, भंडार, रजिस्टर — प्रति पंक्ति एक।"
+        }
+      },
+      {
+        "key": "pendingItems",
+        "label": {
+          "en": "Matters left pending",
+          "hi": "लंबित छोड़े गए मामले"
+        },
+        "type": "textarea",
+        "required": false,
+        "sample": {
+          "en": "the revision of the Recruitment Rules, on which comments of three Divisions are awaited",
+          "hi": "भर्ती नियमों का पुनरीक्षण, जिस पर तीन प्रभागों की टिप्पणियाँ प्रतीक्षित हैं"
+        }
+      }
+    ],
+    "bodySkeleton": {
+      "en": {
+        "type": "doc",
+        "content": [
+          {
+            "type": "numberedPara",
+            "attrs": {
+              "level": 1
+            },
+            "content": [
+              {
+                "type": "text",
+                "text": "I, {{outgoingOfficer}}, {{outgoingDesignation}}, have handed over the charge of the post of {{post}} on the {{time}} of {{chargeDate}} to {{incomingOfficer}}, {{incomingDesignation}}, who has taken over the same."
+              }
+            ]
+          },
+          {
+            "type": "heading",
+            "attrs": {
+              "level": 2
+            },
+            "content": [
+              {
+                "type": "text",
+                "text": "Handed over"
+              }
+            ]
+          },
+          {
+            "type": "paragraph",
+            "content": [
+              {
+                "type": "text",
+                "text": "{{#each itemsHandedOver}}"
+              }
+            ]
+          },
+          {
+            "type": "numberedPara",
+            "attrs": {
+              "level": 1
+            },
+            "content": [
+              {
+                "type": "text",
+                "text": "{{@index}}. {{.}}"
+              }
+            ]
+          },
+          {
+            "type": "paragraph",
+            "content": [
+              {
+                "type": "text",
+                "text": "{{/each}}"
+              }
+            ]
+          },
+          {
+            "type": "paragraph",
+            "content": [
+              {
+                "type": "text",
+                "text": "{{#if pendingItems}}"
+              }
+            ]
+          },
+          {
+            "type": "numberedPara",
+            "attrs": {
+              "level": 1
+            },
+            "content": [
+              {
+                "type": "text",
+                "text": "The following matters were pending on the date of transfer of charge and have been brought to the notice of the incoming officer: {{pendingItems}}"
+              }
+            ]
+          },
+          {
+            "type": "paragraph",
+            "content": [
+              {
+                "type": "text",
+                "text": "{{/if}}"
+              }
+            ]
+          },
+          {
+            "type": "numberedPara",
+            "attrs": {
+              "level": 1
+            },
+            "content": [
+              {
+                "type": "text",
+                "text": "The charge report is submitted for record and for the necessary entries in the service books of both officers."
+              }
+            ]
+          }
+        ]
+      },
+      "hi": {
+        "type": "doc",
+        "content": [
+          {
+            "type": "numberedPara",
+            "attrs": {
+              "level": 1
+            },
+            "content": [
+              {
+                "type": "text",
+                "text": "मैं, {{outgoingOfficer}}, {{outgoingDesignation}}, ने {{chargeDate}} के {{time}} में {{post}} पद का कार्यभार {{incomingOfficer}}, {{incomingDesignation}} को सौंप दिया है, जिन्होंने उसे ग्रहण कर लिया है।"
+              }
+            ]
+          },
+          {
+            "type": "heading",
+            "attrs": {
+              "level": 2
+            },
+            "content": [
+              {
+                "type": "text",
+                "text": "सौंपी गई वस्तुएँ"
+              }
+            ]
+          },
+          {
+            "type": "paragraph",
+            "content": [
+              {
+                "type": "text",
+                "text": "{{#each itemsHandedOver}}"
+              }
+            ]
+          },
+          {
+            "type": "numberedPara",
+            "attrs": {
+              "level": 1
+            },
+            "content": [
+              {
+                "type": "text",
+                "text": "{{@index}}. {{.}}"
+              }
+            ]
+          },
+          {
+            "type": "paragraph",
+            "content": [
+              {
+                "type": "text",
+                "text": "{{/each}}"
+              }
+            ]
+          },
+          {
+            "type": "paragraph",
+            "content": [
+              {
+                "type": "text",
+                "text": "{{#if pendingItems}}"
+              }
+            ]
+          },
+          {
+            "type": "numberedPara",
+            "attrs": {
+              "level": 1
+            },
+            "content": [
+              {
+                "type": "text",
+                "text": "कार्यभार हस्तांतरण की तिथि को निम्नलिखित मामले लंबित थे और उन्हें आने वाले अधिकारी के संज्ञान में लाया गया है : {{pendingItems}}"
+              }
+            ]
+          },
+          {
+            "type": "paragraph",
+            "content": [
+              {
+                "type": "text",
+                "text": "{{/if}}"
+              }
+            ]
+          },
+          {
+            "type": "numberedPara",
+            "attrs": {
+              "level": 1
+            },
+            "content": [
+              {
+                "type": "text",
+                "text": "यह कार्यभार रिपोर्ट अभिलेख हेतु तथा दोनों अधिकारियों की सेवा पुस्तिकाओं में आवश्यक प्रविष्टियों हेतु प्रस्तुत है।"
+              }
+            ]
+          }
+        ]
+      }
+    }
+  }
+}

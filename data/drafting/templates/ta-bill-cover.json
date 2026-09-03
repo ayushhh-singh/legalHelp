@@ -1,6 +1,6 @@
 {
-  "version": "1.1.0",
-  "generatedAt": "2026-08-28T00:00:00Z",
+  "version": "2.0.0",
+  "generatedAt": "2026-09-03T00:00:00Z",
   "disclaimer": {
     "en": "Reference only; verify with the official gazette/order or your DDO.",
     "hi": "केवल संदर्भ के लिए; सरकारी राजपत्र/आदेश या अपने डीडीओ से सत्यापित करें।"
@@ -529,7 +529,86 @@
       "reference": "CSMOP 2022, sixteenth edition",
       "dated": "2022-08-05"
     },
-    "fetchedAt": "2026-08-28T00:00:00Z",
-    "verify": true
+    "fetchedAt": "2026-09-03T00:00:00Z",
+    "verify": true,
+    "variables": [
+      {
+        "key": "mainPoint",
+        "label": {
+          "en": "The point of the document",
+          "hi": "दस्तावेज़ की मुख्य बात"
+        },
+        "type": "textarea",
+        "required": true,
+        "sample": {
+          "en": "It is certified that the journeys were performed by the class of accommodation for which the claim is made, that no free transport or hospitality was availed of, and that the daily allowance claimed is for the halts actually made. No advance was drawn against this tour.",
+          "hi": "यह प्रमाणित किया जाता है कि यात्राएँ उसी श्रेणी में की गईं जिसके लिए दावा किया गया है, कोई नि:शुल्क परिवहन या आतिथ्य नहीं लिया गया, और दावा किया गया दैनिक भत्ता वास्तव में किए गए विश्रामों के लिए है। इस दौरे के विरुद्ध कोई अग्रिम नहीं लिया गया था।"
+        },
+        "hint": {
+          "en": "What is being decided, asked for or conveyed. Add further paragraphs in the editor.",
+          "hi": "क्या तय, माँगा या संप्रेषित किया जा रहा है। आगे के पैराग्राफ संपादक में जोड़ें।"
+        }
+      }
+    ],
+    "bodySkeleton": {
+      "en": {
+        "type": "doc",
+        "content": [
+          {
+            "type": "numberedPara",
+            "attrs": {
+              "level": 1
+            },
+            "content": [
+              {
+                "type": "text",
+                "text": "With reference to your letter No. {number} dated {date} on the subject cited above, I am directed to say that"
+              }
+            ]
+          },
+          {
+            "type": "numberedPara",
+            "attrs": {
+              "level": 1
+            },
+            "content": [
+              {
+                "type": "text",
+                "text": "{{mainPoint}}"
+              }
+            ]
+          }
+        ]
+      },
+      "hi": {
+        "type": "doc",
+        "content": [
+          {
+            "type": "numberedPara",
+            "attrs": {
+              "level": 1
+            },
+            "content": [
+              {
+                "type": "text",
+                "text": "ऊपर उद्धृत विषय पर आपके दिनांक {date} के पत्र क्रमांक {number} के संदर्भ में, मुझे यह कहने का निदेश हुआ है कि"
+              }
+            ]
+          },
+          {
+            "type": "numberedPara",
+            "attrs": {
+              "level": 1
+            },
+            "content": [
+              {
+                "type": "text",
+                "text": "{{mainPoint}}"
+              }
+            ]
+          }
+        ]
+      }
+    }
   }
 }

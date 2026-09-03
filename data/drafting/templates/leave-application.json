@@ -1,6 +1,6 @@
 {
-  "version": "1.1.0",
-  "generatedAt": "2026-08-28T00:00:00Z",
+  "version": "2.0.0",
+  "generatedAt": "2026-09-03T00:00:00Z",
   "disclaimer": {
     "en": "Reference only; verify with the official gazette/order or your DDO.",
     "hi": "केवल संदर्भ के लिए; सरकारी राजपत्र/आदेश या अपने डीडीओ से सत्यापित करें।"
@@ -580,7 +580,86 @@
       "reference": "CSMOP 2022, sixteenth edition",
       "dated": "2022-08-05"
     },
-    "fetchedAt": "2026-08-28T00:00:00Z",
-    "verify": true
+    "fetchedAt": "2026-09-03T00:00:00Z",
+    "verify": true,
+    "variables": [
+      {
+        "key": "mainPoint",
+        "label": {
+          "en": "The point of the document",
+          "hi": "दस्तावेज़ की मुख्य बात"
+        },
+        "type": "textarea",
+        "required": true,
+        "sample": {
+          "en": "The leave is required to attend to a family commitment. My address during the period of leave will be 14, Rajaji Marg, Coimbatore - 641002, telephone 98xxx xxxxx. During my absence the work of the Section may kindly be entrusted to Shri P.Q.R., Assistant Section Officer, who has agreed to hold the charge. It is certified that I am likely, on the expiry of this leave, to return to duty at the station from which I proceed on leave.",
+          "hi": "अवकाश एक पारिवारिक दायित्व के निर्वहन हेतु अपेक्षित है। अवकाश की अवधि में मेरा पता 14, राजाजी मार्ग, कोयंबटूर - 641002 तथा दूरभाष 98xxx xxxxx रहेगा। मेरी अनुपस्थिति में अनुभाग का कार्य श्री पी.क्यू.आर., सहायक अनुभाग अधिकारी को सौंपने की कृपा की जाए, जिन्होंने कार्यभार संभालने पर सहमति दी है। यह प्रमाणित किया जाता है कि इस अवकाश की समाप्ति पर मेरे उसी स्टेशन पर ड्यूटी पर लौटने की संभावना है जहाँ से मैं अवकाश पर जा रहा हूँ।"
+        },
+        "hint": {
+          "en": "What is being decided, asked for or conveyed. Add further paragraphs in the editor.",
+          "hi": "क्या तय, माँगा या संप्रेषित किया जा रहा है। आगे के पैराग्राफ संपादक में जोड़ें।"
+        }
+      }
+    ],
+    "bodySkeleton": {
+      "en": {
+        "type": "doc",
+        "content": [
+          {
+            "type": "numberedPara",
+            "attrs": {
+              "level": 1
+            },
+            "content": [
+              {
+                "type": "text",
+                "text": "I request that I may kindly be granted {days} days' earned leave from {from} to {to}."
+              }
+            ]
+          },
+          {
+            "type": "numberedPara",
+            "attrs": {
+              "level": 1
+            },
+            "content": [
+              {
+                "type": "text",
+                "text": "{{mainPoint}}"
+              }
+            ]
+          }
+        ]
+      },
+      "hi": {
+        "type": "doc",
+        "content": [
+          {
+            "type": "numberedPara",
+            "attrs": {
+              "level": 1
+            },
+            "content": [
+              {
+                "type": "text",
+                "text": "अनुरोध है कि मुझे दिनांक {from} से {to} तक {days} दिनों का अर्जित अवकाश स्वीकृत करने की कृपा की जाए।"
+              }
+            ]
+          },
+          {
+            "type": "numberedPara",
+            "attrs": {
+              "level": 1
+            },
+            "content": [
+              {
+                "type": "text",
+                "text": "{{mainPoint}}"
+              }
+            ]
+          }
+        ]
+      }
+    }
   }
 }

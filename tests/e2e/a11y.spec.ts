@@ -28,6 +28,16 @@ const ROUTES = [
   // toolbar, an A4 preview and an export bar — and the picker sweep would
   // never see any of it.
   '/draft/office-memorandum',
+  // Session 29's document editor and the four screens around it. The editor is
+  // the one that matters — a six-tab tablist, a `role="toolbar"` of twenty-odd
+  // controls and a contenteditable surface, none of which the picker sweep can
+  // see — and `/draft/d/:id` is parameterised, so `EXEMPT` in
+  // `tests/route-coverage.test.ts` names the instance this sweep visits.
+  '/draft/documents',
+  '/draft/profile',
+  '/draft/address-book',
+  '/draft/numbering',
+  '/draft/my-templates',
   '/learn',
   // The review card itself — a radiogroup of options, four grade buttons and a
   // report dialog — is the single most-used screen in the Trainer and was swept

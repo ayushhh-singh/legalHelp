@@ -1,0 +1,624 @@
+{
+  "version": "2.0.0",
+  "generatedAt": "2026-09-03T00:00:00Z",
+  "disclaimer": {
+    "en": "Reference only; verify with the official gazette/order or your DDO.",
+    "hi": "केवल संदर्भ के लिए; सरकारी राजपत्र/आदेश या अपने डीडीओ से सत्यापित करें।"
+  },
+  "template": {
+    "id": "rti-application",
+    "name": {
+      "en": "RTI application (as a citizen)",
+      "hi": "आरटीआई आवेदन (नागरिक के रूप में)"
+    },
+    "shortName": {
+      "en": "RTI application",
+      "hi": "आरटीआई आवेदन"
+    },
+    "person": "first",
+    "usedBy": {
+      "en": "An officer, on their own behalf.",
+      "hi": "एक अधिकारी, अपनी ओर से।"
+    },
+    "whenToUse": {
+      "en": "Section 6(1) of the Right to Information Act, 2005 requires a request in writing to the Central Public Information Officer, with the prescribed fee of ten rupees. Section 6(2) says the applicant SHALL NOT be required to give any reason for the request or any personal details beyond those needed to contact them — so an application that explains why the information is wanted has given away something it did not have to. Numbering the points asked for is what makes a point-wise reply possible, and what makes a missing answer visible on a first appeal.",
+      "hi": "सूचना का अधिकार अधिनियम, 2005 की धारा 6(1) के अनुसार केंद्रीय लोक सूचना अधिकारी को दस रुपये के निर्धारित शुल्क सहित लिखित अनुरोध किया जाना चाहिए। धारा 6(2) कहती है कि आवेदक से अनुरोध का कोई कारण या संपर्क हेतु आवश्यक विवरण से अधिक कोई व्यक्तिगत विवरण नहीं माँगा जाएगा — अतः जो आवेदन यह बताता है कि सूचना क्यों चाहिए, उसने वह दे दिया जो देना आवश्यक नहीं था। माँगे गए बिंदुओं को क्रमांकित करना ही बिंदुवार उत्तर संभव बनाता है, और प्रथम अपील में छूटा उत्तर दिखाई देता है।"
+    },
+    "salutation": null,
+    "subscription": null,
+    "urgencyAllowed": false,
+    "csmopRef": {
+      "edition": "CSMOP 2022, sixteenth edition",
+      "paras": [
+        "12.5"
+      ],
+      "chassis": "letter",
+      "note": {
+        "en": "CSMOP prescribes no format; the fee, the thirty-day limit and section 6(2)'s bar on asking for reasons all come from the Right to Information Act, 2005. Built on the letter chassis.",
+        "hi": "सीएसएमओपी कोई प्रारूप निर्धारित नहीं करता; शुल्क, तीस दिन की सीमा और कारण पूछने पर धारा 6(2) की रोक — ये सभी सूचना का अधिकार अधिनियम, 2005 से आते हैं। पत्र ढाँचे पर बना।"
+      }
+    },
+    "fields": [
+      {
+        "id": "place",
+        "label": {
+          "en": "Place",
+          "hi": "स्थान"
+        },
+        "type": "text",
+        "required": true,
+        "sample": {
+          "en": "New Delhi",
+          "hi": "नई दिल्ली"
+        }
+      },
+      {
+        "id": "date",
+        "label": {
+          "en": "Date",
+          "hi": "दिनांक"
+        },
+        "type": "date",
+        "required": true,
+        "sample": {
+          "en": "2026-08-28",
+          "hi": "2026-08-28"
+        },
+        "hint": {
+          "en": "dd.mm.yyyy in English; दिनांक dd.mm.yyyy in Hindi.",
+          "hi": "अंग्रेज़ी में dd.mm.yyyy; हिंदी में दिनांक dd.mm.yyyy।"
+        }
+      },
+      {
+        "id": "addressee",
+        "label": {
+          "en": "Addressee",
+          "hi": "प्रेषिती"
+        },
+        "type": "list",
+        "required": true,
+        "sample": {
+          "en": [
+            "The Central Public Information Officer",
+            "Department of Personnel and Training",
+            "North Block, New Delhi - 110001"
+          ],
+          "hi": [
+            "केंद्रीय लोक सूचना अधिकारी",
+            "कार्मिक और प्रशिक्षण विभाग",
+            "नॉर्थ ब्लॉक, नई दिल्ली - 110001"
+          ]
+        }
+      },
+      {
+        "id": "subject",
+        "label": {
+          "en": "Subject",
+          "hi": "विषय"
+        },
+        "type": "text",
+        "required": true,
+        "sample": {
+          "en": "Request for information under section 6 of the Right to Information Act, 2005.",
+          "hi": "सूचना का अधिकार अधिनियम, 2005 की धारा 6 के अंतर्गत सूचना हेतु अनुरोध।"
+        }
+      },
+      {
+        "id": "paras",
+        "label": {
+          "en": "Body paragraphs",
+          "hi": "मुख्य पैराग्राफ"
+        },
+        "type": "paras",
+        "required": true,
+        "sample": {
+          "en": [
+            "I request the following information under section 6 of the Right to Information Act, 2005, relating to the filling of the posts of Assistant Section Officer by promotion for the period 1 April 2024 to 31 March 2026.",
+            ". ",
+            "The prescribed fee of Rs. 10 has been paid by an Indian Postal Order of Rs. 10 bearing number 45F 123456, enclosed. I am a citizen of India.",
+            "The information may kindly be sent to the address given above. If any part of this request is held to relate to another public authority, it may be transferred under section 6(3) within five days and I may be informed."
+          ],
+          "hi": [
+            "मैं सूचना का अधिकार अधिनियम, 2005 की धारा 6 के अंतर्गत 1 अप्रैल 2024 से 31 मार्च 2026 की अवधि हेतु पदोन्नति द्वारा सहायक अनुभाग अधिकारी के पदों को भरे जाने से संबंधित निम्नलिखित सूचना का अनुरोध करता/करती हूँ।",
+            ". ",
+            "10 रुपये का निर्धारित शुल्क 10 रुपये का भारतीय पोस्टल आर्डर संख्या 45F 123456, संलग्न द्वारा दिया गया है। मैं भारत का नागरिक हूँ।",
+            "कृपया सूचना उपर्युक्त पते पर भेजी जाए। यदि इस अनुरोध का कोई भाग किसी अन्य लोक प्राधिकरण से संबंधित माना जाए तो उसे धारा 6(3) के अंतर्गत पाँच दिन में अंतरित किया जाए और मुझे सूचित किया जाए।"
+          ]
+        },
+        "hint": {
+          "en": "One paragraph per line. The first is left unnumbered and the rest are numbered from 2.",
+          "hi": "प्रति पंक्ति एक पैराग्राफ। पहला बिना संख्या के रहता है और शेष 2 से क्रमांकित होते हैं।"
+        }
+      },
+      {
+        "id": "signatoryName",
+        "label": {
+          "en": "Your name",
+          "hi": "आपका नाम"
+        },
+        "type": "text",
+        "required": true,
+        "sample": {
+          "en": "A.B.C.",
+          "hi": "ए.बी.सी."
+        }
+      },
+      {
+        "id": "signatoryDesignation",
+        "label": {
+          "en": "Your designation",
+          "hi": "आपका पदनाम"
+        },
+        "type": "text",
+        "required": true,
+        "sample": {
+          "en": "Applicant",
+          "hi": "आवेदक"
+        }
+      },
+      {
+        "id": "phone",
+        "label": {
+          "en": "Telephone number",
+          "hi": "दूरभाष संख्या"
+        },
+        "type": "text",
+        "required": true,
+        "sample": {
+          "en": "011-2309 2590",
+          "hi": "011-2309 2590"
+        }
+      },
+      {
+        "id": "email",
+        "label": {
+          "en": "Email",
+          "hi": "ई-मेल"
+        },
+        "type": "text",
+        "required": true,
+        "sample": {
+          "en": "abc@nic.in",
+          "hi": "abc@nic.in"
+        }
+      },
+      {
+        "id": "enclosures",
+        "label": {
+          "en": "Enclosures",
+          "hi": "संलग्नक"
+        },
+        "type": "list",
+        "required": false,
+        "sample": {
+          "en": [
+            "Indian Postal Order No. 45F 123456 for Rs. 10."
+          ],
+          "hi": [
+            "10 रुपये का भारतीय पोस्टल आर्डर संख्या 45F 123456।"
+          ]
+        },
+        "hint": {
+          "en": "The count goes at the bottom left of the draft — 'Encl. 3' (9.2(vii)).",
+          "hi": "मसौदे के नीचे बाईं ओर संख्या दी जाती है — 'Encl. 3' (9.2(vii))।"
+        }
+      }
+    ],
+    "layout": {
+      "en": [
+        {
+          "role": "dateLine",
+          "align": "right",
+          "lines": [
+            "{{place}}, the {{date}}"
+          ]
+        },
+        {
+          "role": "addressee",
+          "align": "left",
+          "lead": "To,",
+          "source": "addressee"
+        },
+        {
+          "role": "subject",
+          "align": "left",
+          "lines": [
+            "Subject: {{subject}}"
+          ]
+        },
+        {
+          "role": "salutation",
+          "align": "left",
+          "lines": [
+            "Sir / Madam,"
+          ]
+        },
+        {
+          "role": "body",
+          "align": "left",
+          "source": "paras",
+          "numbered": true
+        },
+        {
+          "role": "closing",
+          "align": "right",
+          "lines": [
+            "Yours faithfully,"
+          ]
+        },
+        {
+          "role": "signature",
+          "align": "left",
+          "lines": [
+            "({{signatoryName}})",
+            "{{signatoryDesignation}}",
+            "Tele. No.: {{phone}}",
+            "Email: {{email}}"
+          ]
+        },
+        {
+          "role": "enclosures",
+          "align": "left",
+          "lead": "List of enclosures:",
+          "source": "enclosures",
+          "itemPrefix": "ordinal",
+          "omitWhenEmpty": true
+        }
+      ],
+      "hi": [
+        {
+          "role": "dateLine",
+          "align": "right",
+          "lines": [
+            "{{place}}, दिनांक {{date}}"
+          ]
+        },
+        {
+          "role": "addressee",
+          "align": "left",
+          "lead": "सेवा में,",
+          "source": "addressee"
+        },
+        {
+          "role": "subject",
+          "align": "left",
+          "lines": [
+            "विषय : {{subject}}"
+          ]
+        },
+        {
+          "role": "salutation",
+          "align": "left",
+          "lines": [
+            "महोदय / महोदया,"
+          ]
+        },
+        {
+          "role": "body",
+          "align": "left",
+          "source": "paras",
+          "numbered": true
+        },
+        {
+          "role": "closing",
+          "align": "right",
+          "lines": [
+            "भवदीय,"
+          ]
+        },
+        {
+          "role": "signature",
+          "align": "left",
+          "lines": [
+            "({{signatoryName}})",
+            "{{signatoryDesignation}}",
+            "दूरभाष संख्या : {{phone}}",
+            "ई-मेल : {{email}}"
+          ]
+        },
+        {
+          "role": "enclosures",
+          "align": "left",
+          "lead": "संलग्नकों की सूची :",
+          "source": "enclosures",
+          "itemPrefix": "ordinal",
+          "omitWhenEmpty": true
+        }
+      ]
+    },
+    "checklist": [
+      {
+        "id": "no-reasons",
+        "label": {
+          "en": "No reason for wanting the information is given",
+          "hi": "सूचना क्यों चाहिए, इसका कोई कारण नहीं दिया गया"
+        },
+        "why": {
+          "en": "Section 6(2) says an applicant shall not be required to give any reason for the request. Giving one anyway hands the public authority something it may not ask for.",
+          "hi": "धारा 6(2) कहती है कि आवेदक से अनुरोध का कोई कारण नहीं माँगा जाएगा। फिर भी कारण देना लोक प्राधिकरण को वह दे देता है जो वह माँग ही नहीं सकता।"
+        },
+        "severity": "should",
+        "rule": {
+          "kind": "regexAbsent",
+          "role": "body",
+          "pattern": "(the reason for|because I|I need this|since I|इसका कारण यह|क्योंकि मुझे)"
+        }
+      },
+      {
+        "id": "fee",
+        "label": {
+          "en": "The fee is accounted for",
+          "hi": "शुल्क का उल्लेख है"
+        },
+        "why": {
+          "en": "A request under section 6(1) is accompanied by the prescribed fee; without it the clock does not start.",
+          "hi": "धारा 6(1) के अंतर्गत अनुरोध के साथ निर्धारित शुल्क होता है; उसके बिना समय की गणना आरंभ ही नहीं होती।"
+        },
+        "severity": "must",
+        "rule": {
+          "kind": "regex",
+          "role": "body",
+          "pattern": "(fee|शुल्क)"
+        }
+      },
+      {
+        "id": "subject",
+        "label": {
+          "en": "The subject is stated",
+          "hi": "विषय लिखा गया है"
+        },
+        "why": {
+          "en": "The specimens in Appendix 8.1 carry a subject line above the body on every form that is addressed to anyone.",
+          "hi": "परिशिष्ट 8.1 के नमूनों में हर संबोधित प्रपत्र पर मुख्य भाग के ऊपर विषय पंक्ति होती है।"
+        },
+        "severity": "must",
+        "rule": {
+          "kind": "blockPresent",
+          "role": "subject"
+        },
+        "csmopRef": "Appendix 8.1"
+      },
+      {
+        "id": "para-numbering",
+        "label": {
+          "en": "Paragraphs are serially numbered",
+          "hi": "पैराग्राफ क्रमानुसार संख्यांकित हैं"
+        },
+        "why": {
+          "en": "The specimens leave the first paragraph unnumbered and number the rest from 2.",
+          "hi": "नमूनों में पहला पैराग्राफ बिना संख्या के रहता है और शेष 2 से क्रमांकित होते हैं।"
+        },
+        "severity": "must",
+        "rule": {
+          "kind": "paraNumbering"
+        },
+        "csmopRef": "Appendix 8.1"
+      },
+      {
+        "id": "no-placeholders",
+        "label": {
+          "en": "No placeholder is left unfilled",
+          "hi": "कोई प्लेसहोल्डर अधूरा नहीं छूटा"
+        },
+        "why": {
+          "en": "A draft that goes out with {{…}} still in it has not been read.",
+          "hi": "जिस मसौदे में {{…}} रह जाए, उसे पढ़ा ही नहीं गया।"
+        },
+        "severity": "must",
+        "rule": {
+          "kind": "noPlaceholders"
+        }
+      }
+    ],
+    "source": {
+      "name": "Central Secretariat Manual of Office Procedure, 2022 (16th edition), DARPG",
+      "url": "https://www.darpg.gov.in/static/uploads/2025/10/774e0b8f427b7875158363d842fa431f.pdf",
+      "reference": "CSMOP 2022, sixteenth edition",
+      "dated": "2022-08-05"
+    },
+    "fetchedAt": "2026-09-03T00:00:00Z",
+    "verify": true,
+    "variables": [
+      {
+        "key": "aboutWhat",
+        "label": {
+          "en": "What the information is about",
+          "hi": "सूचना किस बारे में है"
+        },
+        "type": "text",
+        "required": true,
+        "sample": {
+          "en": "the filling of the posts of Assistant Section Officer by promotion",
+          "hi": "पदोन्नति द्वारा सहायक अनुभाग अधिकारी के पदों को भरे जाने"
+        }
+      },
+      {
+        "key": "period",
+        "label": {
+          "en": "Period",
+          "hi": "अवधि"
+        },
+        "type": "text",
+        "required": true,
+        "sample": {
+          "en": "1 April 2024 to 31 March 2026",
+          "hi": "1 अप्रैल 2024 से 31 मार्च 2026"
+        }
+      },
+      {
+        "key": "points",
+        "label": {
+          "en": "Points, one per line",
+          "hi": "बिंदु, प्रति पंक्ति एक"
+        },
+        "type": "enclosures",
+        "required": true,
+        "sample": {
+          "en": "The number of posts of Assistant Section Officer filled by promotion in each of the two years, year-wise.",
+          "hi": "दोनों वर्षों में से प्रत्येक में पदोन्नति द्वारा भरे गए सहायक अनुभाग अधिकारी पदों की संख्या, वर्षवार।"
+        },
+        "hint": {
+          "en": "Number each point. A numbered point that is not answered is visible on first appeal; a paragraph of prose is not.",
+          "hi": "प्रत्येक बिंदु को क्रमांकित करें। जिस क्रमांकित बिंदु का उत्तर न मिले वह प्रथम अपील में दिखता है; गद्य का अनुच्छेद नहीं दिखता।"
+        }
+      },
+      {
+        "key": "feeMode",
+        "label": {
+          "en": "How the fee was paid",
+          "hi": "शुल्क कैसे दिया गया"
+        },
+        "type": "text",
+        "required": true,
+        "sample": {
+          "en": "an Indian Postal Order of Rs. 10 bearing number 45F 123456, enclosed",
+          "hi": "10 रुपये का भारतीय पोस्टल आर्डर संख्या 45F 123456, संलग्न"
+        }
+      }
+    ],
+    "bodySkeleton": {
+      "en": {
+        "type": "doc",
+        "content": [
+          {
+            "type": "numberedPara",
+            "attrs": {
+              "level": 1
+            },
+            "content": [
+              {
+                "type": "text",
+                "text": "I request the following information under section 6 of the Right to Information Act, 2005, relating to {{aboutWhat}} for the period {{period}}."
+              }
+            ]
+          },
+          {
+            "type": "paragraph",
+            "content": [
+              {
+                "type": "text",
+                "text": "{{#each points}}"
+              }
+            ]
+          },
+          {
+            "type": "numberedPara",
+            "attrs": {
+              "level": 1
+            },
+            "content": [
+              {
+                "type": "text",
+                "text": "{{@index}}. {{.}}"
+              }
+            ]
+          },
+          {
+            "type": "paragraph",
+            "content": [
+              {
+                "type": "text",
+                "text": "{{/each}}"
+              }
+            ]
+          },
+          {
+            "type": "numberedPara",
+            "attrs": {
+              "level": 1
+            },
+            "content": [
+              {
+                "type": "text",
+                "text": "The prescribed fee of Rs. 10 has been paid by {{feeMode}}. I am a citizen of India."
+              }
+            ]
+          },
+          {
+            "type": "numberedPara",
+            "attrs": {
+              "level": 1
+            },
+            "content": [
+              {
+                "type": "text",
+                "text": "The information may kindly be sent to the address given above. If any part of this request is held to relate to another public authority, it may be transferred under section 6(3) within five days and I may be informed."
+              }
+            ]
+          }
+        ]
+      },
+      "hi": {
+        "type": "doc",
+        "content": [
+          {
+            "type": "numberedPara",
+            "attrs": {
+              "level": 1
+            },
+            "content": [
+              {
+                "type": "text",
+                "text": "मैं सूचना का अधिकार अधिनियम, 2005 की धारा 6 के अंतर्गत {{period}} की अवधि हेतु {{aboutWhat}} से संबंधित निम्नलिखित सूचना का अनुरोध करता/करती हूँ।"
+              }
+            ]
+          },
+          {
+            "type": "paragraph",
+            "content": [
+              {
+                "type": "text",
+                "text": "{{#each points}}"
+              }
+            ]
+          },
+          {
+            "type": "numberedPara",
+            "attrs": {
+              "level": 1
+            },
+            "content": [
+              {
+                "type": "text",
+                "text": "{{@index}}. {{.}}"
+              }
+            ]
+          },
+          {
+            "type": "paragraph",
+            "content": [
+              {
+                "type": "text",
+                "text": "{{/each}}"
+              }
+            ]
+          },
+          {
+            "type": "numberedPara",
+            "attrs": {
+              "level": 1
+            },
+            "content": [
+              {
+                "type": "text",
+                "text": "10 रुपये का निर्धारित शुल्क {{feeMode}} द्वारा दिया गया है। मैं भारत का नागरिक हूँ।"
+              }
+            ]
+          },
+          {
+            "type": "numberedPara",
+            "attrs": {
+              "level": 1
+            },
+            "content": [
+              {
+                "type": "text",
+                "text": "कृपया सूचना उपर्युक्त पते पर भेजी जाए। यदि इस अनुरोध का कोई भाग किसी अन्य लोक प्राधिकरण से संबंधित माना जाए तो उसे धारा 6(3) के अंतर्गत पाँच दिन में अंतरित किया जाए और मुझे सूचित किया जाए।"
+              }
+            ]
+          }
+        ]
+      }
+    }
+  }
+}

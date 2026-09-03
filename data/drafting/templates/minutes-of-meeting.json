@@ -1,0 +1,915 @@
+{
+  "version": "2.0.0",
+  "generatedAt": "2026-09-03T00:00:00Z",
+  "disclaimer": {
+    "en": "Reference only; verify with the official gazette/order or your DDO.",
+    "hi": "केवल संदर्भ के लिए; सरकारी राजपत्र/आदेश या अपने डीडीओ से सत्यापित करें।"
+  },
+  "template": {
+    "id": "minutes-of-meeting",
+    "name": {
+      "en": "Minutes of meeting",
+      "hi": "बैठक का कार्यवृत्त"
+    },
+    "shortName": {
+      "en": "Minutes",
+      "hi": "कार्यवृत्त"
+    },
+    "person": "third",
+    "usedBy": {
+      "en": "The section that convened the meeting.",
+      "hi": "बैठक बुलाने वाला अनुभाग।"
+    },
+    "whenToUse": {
+      "en": "CSMOP 8.4(10): minutes record the date, time and venue of a meeting, who presided, who participated, the conclusions reached and who is to act on each. The last of those is the one most often left out, and it is what makes minutes usable a month later.",
+      "hi": "सीएसएमओपी 8.4(10) : कार्यवृत्त में बैठक का दिनांक, समय और स्थान, अध्यक्षता, प्रतिभागी, निकाले गए निष्कर्ष तथा प्रत्येक पर कौन कार्रवाई करेगा, अभिलिखित होते हैं। अंतिम बात ही सबसे अधिक छूटती है, और वही कार्यवृत्त को एक माह बाद उपयोगी बनाती है।"
+    },
+    "salutation": null,
+    "subscription": null,
+    "urgencyAllowed": false,
+    "csmopRef": {
+      "edition": "CSMOP 2022, sixteenth edition",
+      "paras": [
+        "8.4(10)"
+      ],
+      "chassis": "office-memorandum",
+      "note": {
+        "en": "CSMOP 8.4(10) names Minutes as a form of written communication and says what they record, but Appendix 8.1 carries no specimen for one. This template is built on the Office Memorandum head.",
+        "hi": "सीएसएमओपी 8.4(10) कार्यवृत्त को लिखित संचार के एक प्ररूप के रूप में नामित करता है और बताता है कि उसमें क्या अभिलिखित होता है, पर परिशिष्ट 8.1 में उसका कोई नमूना नहीं है। यह टेम्पलेट कार्यालय ज्ञापन के शीर्ष पर बना है।"
+      }
+    },
+    "fields": [
+      {
+        "id": "fileNumber",
+        "label": {
+          "en": "File / communication number",
+          "hi": "फाइल / पत्र संख्या"
+        },
+        "type": "text",
+        "required": true,
+        "sample": {
+          "en": "A-11011/2/2026-Estt.",
+          "hi": "ए-11011/2/2026-स्थापना"
+        },
+        "hint": {
+          "en": "Every draft put up on a file bears the file number (9.2(vi)).",
+          "hi": "फाइल पर प्रस्तुत प्रत्येक मसौदे पर फाइल संख्या होती है (9.2(vi))।"
+        }
+      },
+      {
+        "id": "ministry",
+        "label": {
+          "en": "Ministry",
+          "hi": "मंत्रालय"
+        },
+        "type": "text",
+        "required": true,
+        "sample": {
+          "en": "Ministry of Personnel, Public Grievances and Pensions",
+          "hi": "कार्मिक, लोक शिकायत तथा पेंशन मंत्रालय"
+        }
+      },
+      {
+        "id": "department",
+        "label": {
+          "en": "Department",
+          "hi": "विभाग"
+        },
+        "type": "text",
+        "required": true,
+        "sample": {
+          "en": "Department of Personnel and Training",
+          "hi": "कार्मिक और प्रशिक्षण विभाग"
+        }
+      },
+      {
+        "id": "place",
+        "label": {
+          "en": "Place",
+          "hi": "स्थान"
+        },
+        "type": "text",
+        "required": true,
+        "sample": {
+          "en": "New Delhi",
+          "hi": "नई दिल्ली"
+        }
+      },
+      {
+        "id": "date",
+        "label": {
+          "en": "Date",
+          "hi": "दिनांक"
+        },
+        "type": "date",
+        "required": true,
+        "sample": {
+          "en": "2026-08-28",
+          "hi": "2026-08-28"
+        },
+        "hint": {
+          "en": "dd.mm.yyyy in English; दिनांक dd.mm.yyyy in Hindi.",
+          "hi": "अंग्रेज़ी में dd.mm.yyyy; हिंदी में दिनांक dd.mm.yyyy।"
+        }
+      },
+      {
+        "id": "addressee",
+        "label": {
+          "en": "Addressee",
+          "hi": "प्रेषिती"
+        },
+        "type": "list",
+        "required": true,
+        "sample": {
+          "en": [
+            "The Under Secretary",
+            "Department of Expenditure",
+            "North Block, New Delhi"
+          ],
+          "hi": [
+            "अवर सचिव",
+            "व्यय विभाग",
+            "नॉर्थ ब्लॉक, नई दिल्ली"
+          ]
+        },
+        "hint": {
+          "en": "One line each: designation, organisation, address.",
+          "hi": "एक-एक पंक्ति में : पदनाम, संगठन, पता।"
+        }
+      },
+      {
+        "id": "subject",
+        "label": {
+          "en": "Subject",
+          "hi": "विषय"
+        },
+        "type": "text",
+        "required": true,
+        "sample": {
+          "en": "Minutes of the meeting held on 20.08.2026 on the revision of the Recruitment Rules.",
+          "hi": "भर्ती नियमों के पुनरीक्षण पर दिनांक 20.08.2026 को हुई बैठक का कार्यवृत्त।"
+        }
+      },
+      {
+        "id": "paras",
+        "label": {
+          "en": "Body paragraphs",
+          "hi": "मुख्य पैराग्राफ"
+        },
+        "type": "paras",
+        "required": true,
+        "sample": {
+          "en": [
+            "A meeting was held on 20.08.2026 at 11.00 a.m. in Room No. 108, North Block, New Delhi under the chairmanship of Shri R.K. Sharma, Joint Secretary (Administration) to consider the revision of the Recruitment Rules for the post of Assistant Section Officer.",
+            "# Participants",
+            ". ",
+            "# Discussion and decisions",
+            "The meeting ended with a vote of thanks to the Chair. Action on each decision above rests with the office named against it, and a compliance report is to reach this Section by 30.09.2026."
+          ],
+          "hi": [
+            "सहायक अनुभाग अधिकारी पद के भर्ती नियमों का पुनरीक्षण पर विचार करने हेतु 20.08.2026 को पूर्वाह्न 11.00 बजे कक्ष संख्या 108, नॉर्थ ब्लॉक, नई दिल्ली में श्री आर.के. शर्मा, संयुक्त सचिव (प्रशासन) की अध्यक्षता में एक बैठक हुई।",
+            "# प्रतिभागी",
+            ". ",
+            "# चर्चा और निर्णय",
+            "बैठक अध्यक्ष महोदय के प्रति धन्यवाद ज्ञापन के साथ समाप्त हुई। उपर्युक्त प्रत्येक निर्णय पर कार्रवाई उसके सामने नामित कार्यालय की है, और अनुपालन रिपोर्ट 30.09.2026 तक इस अनुभाग में पहुँचनी चाहिए।"
+          ]
+        },
+        "hint": {
+          "en": "One paragraph per line. The first is left unnumbered and the rest are numbered from 2.",
+          "hi": "प्रति पंक्ति एक पैराग्राफ। पहला बिना संख्या के रहता है और शेष 2 से क्रमांकित होते हैं।"
+        }
+      },
+      {
+        "id": "signatoryName",
+        "label": {
+          "en": "Name of the signatory",
+          "hi": "हस्ताक्षरकर्ता का नाम"
+        },
+        "type": "text",
+        "required": true,
+        "sample": {
+          "en": "A.B.C.",
+          "hi": "ए.बी.सी."
+        }
+      },
+      {
+        "id": "signatoryDesignation",
+        "label": {
+          "en": "Designation",
+          "hi": "पदनाम"
+        },
+        "type": "text",
+        "required": true,
+        "sample": {
+          "en": "Under Secretary to the Govt. of India",
+          "hi": "अवर सचिव, भारत सरकार"
+        }
+      },
+      {
+        "id": "phone",
+        "label": {
+          "en": "Telephone number",
+          "hi": "दूरभाष संख्या"
+        },
+        "type": "text",
+        "required": true,
+        "sample": {
+          "en": "011-2309 2590",
+          "hi": "011-2309 2590"
+        }
+      },
+      {
+        "id": "email",
+        "label": {
+          "en": "Email",
+          "hi": "ई-मेल"
+        },
+        "type": "text",
+        "required": true,
+        "sample": {
+          "en": "us-estt@nic.in",
+          "hi": "us-estt@nic.in"
+        }
+      },
+      {
+        "id": "enclosures",
+        "label": {
+          "en": "Enclosures",
+          "hi": "संलग्नक"
+        },
+        "type": "list",
+        "required": false,
+        "sample": {
+          "en": [
+            "The agenda circulated for the meeting."
+          ],
+          "hi": [
+            "बैठक हेतु परिचालित कार्यसूची।"
+          ]
+        },
+        "hint": {
+          "en": "The count goes at the bottom left of the draft — 'Encl. 3' (9.2(vii)).",
+          "hi": "मसौदे के नीचे बाईं ओर संख्या दी जाती है — 'Encl. 3' (9.2(vii))।"
+        }
+      },
+      {
+        "id": "copyTo",
+        "label": {
+          "en": "Copy to",
+          "hi": "प्रतिलिपि"
+        },
+        "type": "list",
+        "required": false,
+        "sample": {
+          "en": [
+            "All participants.",
+            "The meeting file."
+          ],
+          "hi": [
+            "सभी प्रतिभागी।",
+            "बैठक फाइल।"
+          ]
+        }
+      }
+    ],
+    "layout": {
+      "en": [
+        {
+          "role": "fileNumber",
+          "align": "left",
+          "lines": [
+            "No. {{fileNumber}}"
+          ]
+        },
+        {
+          "role": "header",
+          "align": "center",
+          "lines": [
+            "Government of India",
+            "{{ministry}}",
+            "{{department}}"
+          ]
+        },
+        {
+          "role": "dateLine",
+          "align": "right",
+          "lines": [
+            "{{place}}, the {{date}}"
+          ]
+        },
+        {
+          "role": "title",
+          "align": "center",
+          "emphasis": "title",
+          "lines": [
+            "MINUTES OF THE MEETING"
+          ]
+        },
+        {
+          "role": "subject",
+          "align": "left",
+          "lines": [
+            "Subject: {{subject}}"
+          ]
+        },
+        {
+          "role": "body",
+          "align": "left",
+          "source": "paras",
+          "numbered": true
+        },
+        {
+          "role": "signature",
+          "align": "right",
+          "lines": [
+            "-Sd/-",
+            "({{signatoryName}})",
+            "{{signatoryDesignation}}",
+            "Tele. No.: {{phone}}",
+            "Email: {{email}}"
+          ]
+        },
+        {
+          "role": "addressee",
+          "align": "left",
+          "lead": "To",
+          "source": "addressee"
+        },
+        {
+          "role": "enclosures",
+          "align": "left",
+          "lead": "List of enclosures:",
+          "source": "enclosures",
+          "itemPrefix": "ordinal",
+          "omitWhenEmpty": true
+        },
+        {
+          "role": "copyTo",
+          "align": "left",
+          "lead": "Copy forwarded for information / necessary action to:",
+          "source": "copyTo",
+          "itemPrefix": "ordinal",
+          "omitWhenEmpty": true
+        }
+      ],
+      "hi": [
+        {
+          "role": "fileNumber",
+          "align": "left",
+          "lines": [
+            "संख्या {{fileNumber}}"
+          ]
+        },
+        {
+          "role": "header",
+          "align": "center",
+          "lines": [
+            "भारत सरकार",
+            "{{ministry}}",
+            "{{department}}"
+          ]
+        },
+        {
+          "role": "dateLine",
+          "align": "right",
+          "lines": [
+            "{{place}}, दिनांक {{date}}"
+          ]
+        },
+        {
+          "role": "title",
+          "align": "center",
+          "emphasis": "title",
+          "lines": [
+            "बैठक का कार्यवृत्त"
+          ]
+        },
+        {
+          "role": "subject",
+          "align": "left",
+          "lines": [
+            "विषय : {{subject}}"
+          ]
+        },
+        {
+          "role": "body",
+          "align": "left",
+          "source": "paras",
+          "numbered": true
+        },
+        {
+          "role": "signature",
+          "align": "right",
+          "lines": [
+            "-हस्ताक्षरित/-",
+            "({{signatoryName}})",
+            "{{signatoryDesignation}}",
+            "दूरभाष संख्या : {{phone}}",
+            "ई-मेल : {{email}}"
+          ]
+        },
+        {
+          "role": "addressee",
+          "align": "left",
+          "lead": "सेवा में,",
+          "source": "addressee"
+        },
+        {
+          "role": "enclosures",
+          "align": "left",
+          "lead": "संलग्नकों की सूची :",
+          "source": "enclosures",
+          "itemPrefix": "ordinal",
+          "omitWhenEmpty": true
+        },
+        {
+          "role": "copyTo",
+          "align": "left",
+          "lead": "प्रति सूचना/आवश्यक कार्रवाई के लिए अग्रेषित :",
+          "source": "copyTo",
+          "itemPrefix": "ordinal",
+          "omitWhenEmpty": true
+        }
+      ]
+    },
+    "checklist": [
+      {
+        "id": "subject",
+        "label": {
+          "en": "The subject is stated",
+          "hi": "विषय लिखा गया है"
+        },
+        "why": {
+          "en": "The specimens in Appendix 8.1 carry a subject line above the body on every form that is addressed to anyone.",
+          "hi": "परिशिष्ट 8.1 के नमूनों में हर संबोधित प्रपत्र पर मुख्य भाग के ऊपर विषय पंक्ति होती है।"
+        },
+        "severity": "must",
+        "rule": {
+          "kind": "blockPresent",
+          "role": "subject"
+        },
+        "csmopRef": "Appendix 8.1"
+      },
+      {
+        "id": "number-and-date",
+        "label": {
+          "en": "Number and date are on the draft",
+          "hi": "मसौदे पर संख्या और दिनांक हैं"
+        },
+        "why": {
+          "en": "Every draft put up on a file bears the file number, and the number and date of the last communication in the series must be quoted.",
+          "hi": "फाइल पर प्रस्तुत प्रत्येक मसौदे पर फाइल संख्या होती है, और शृंखला के अंतिम पत्र की संख्या तथा दिनांक उद्धृत की जानी चाहिए।"
+        },
+        "severity": "must",
+        "rule": {
+          "kind": "allRequired",
+          "fields": [
+            "fileNumber",
+            "date"
+          ]
+        },
+        "csmopRef": "9.2(iv), 9.2(vi)"
+      },
+      {
+        "id": "third-person",
+        "label": {
+          "en": "Written in the third person",
+          "hi": "अन्य पुरुष में लिखा गया"
+        },
+        "why": {
+          "en": "An Office Memorandum is written in the third person and bears no salutation or subscription.",
+          "hi": "कार्यालय ज्ञापन अन्य पुरुष में लिखा जाता है और उसमें कोई अभिवादन या मानार्थ संबोधन नहीं होता।"
+        },
+        "severity": "must",
+        "rule": {
+          "kind": "person",
+          "value": "third"
+        },
+        "csmopRef": "8.4(3)"
+      },
+      {
+        "id": "signature-block",
+        "label": {
+          "en": "Signature block carries designation, telephone and email",
+          "hi": "हस्ताक्षर खंड में पदनाम, दूरभाष और ई-मेल हैं"
+        },
+        "why": {
+          "en": "The name, designation, telephone number, fax number and e-mail address of the signing officer must invariably be on the draft.",
+          "hi": "हस्ताक्षर करने वाले अधिकारी का नाम, पदनाम, दूरभाष संख्या, फैक्स संख्या और ई-मेल पता मसौदे पर अनिवार्यतः होना चाहिए।"
+        },
+        "severity": "must",
+        "rule": {
+          "kind": "allRequired",
+          "fields": [
+            "signatoryName",
+            "signatoryDesignation",
+            "phone",
+            "email"
+          ]
+        },
+        "csmopRef": "9.2(xii)"
+      },
+      {
+        "id": "who-presided",
+        "label": {
+          "en": "Date, venue and who presided are recorded",
+          "hi": "दिनांक, स्थान और अध्यक्षता अभिलिखित हैं"
+        },
+        "why": {
+          "en": "Minutes record the date, time and venue of the meeting and who presided over it.",
+          "hi": "कार्यवृत्त में बैठक का दिनांक, समय और स्थान तथा अध्यक्षता अभिलिखित होती है।"
+        },
+        "severity": "must",
+        "rule": {
+          "kind": "regex",
+          "role": "body",
+          "pattern": "(chairmanship|presided|chaired|अध्यक्षता)"
+        },
+        "csmopRef": "8.4(10)"
+      },
+      {
+        "id": "action-owner",
+        "label": {
+          "en": "Each decision names who acts on it",
+          "hi": "प्रत्येक निर्णय पर कार्रवाई करने वाला नामित है"
+        },
+        "why": {
+          "en": "Minutes that record what was decided but not who does it are minutes nobody can follow up.",
+          "hi": "जो कार्यवृत्त यह अभिलिखित करता है कि क्या तय हुआ पर यह नहीं कि कौन करेगा, उसका अनुसरण कोई नहीं कर सकता।"
+        },
+        "severity": "should",
+        "rule": {
+          "kind": "regex",
+          "role": "body",
+          "pattern": "(Section|Division|Officer|अनुभाग|प्रभाग|अधिकारी)"
+        },
+        "csmopRef": "8.4(10)"
+      },
+      {
+        "id": "no-placeholders",
+        "label": {
+          "en": "No placeholder is left unfilled",
+          "hi": "कोई प्लेसहोल्डर अधूरा नहीं छूटा"
+        },
+        "why": {
+          "en": "A draft that goes out with {{…}} still in it has not been read.",
+          "hi": "जिस मसौदे में {{…}} रह जाए, उसे पढ़ा ही नहीं गया।"
+        },
+        "severity": "must",
+        "rule": {
+          "kind": "noPlaceholders"
+        }
+      }
+    ],
+    "source": {
+      "name": "Central Secretariat Manual of Office Procedure, 2022 (16th edition), DARPG",
+      "url": "https://www.darpg.gov.in/static/uploads/2025/10/774e0b8f427b7875158363d842fa431f.pdf",
+      "reference": "CSMOP 2022, sixteenth edition",
+      "dated": "2022-08-05"
+    },
+    "fetchedAt": "2026-09-03T00:00:00Z",
+    "verify": true,
+    "variables": [
+      {
+        "key": "meetingDate",
+        "label": {
+          "en": "Date of the meeting",
+          "hi": "बैठक का दिनांक"
+        },
+        "type": "date",
+        "required": true,
+        "sample": {
+          "en": "20.08.2026",
+          "hi": "20.08.2026"
+        }
+      },
+      {
+        "key": "meetingTime",
+        "label": {
+          "en": "Time",
+          "hi": "समय"
+        },
+        "type": "text",
+        "required": true,
+        "sample": {
+          "en": "11.00 a.m.",
+          "hi": "पूर्वाह्न 11.00"
+        }
+      },
+      {
+        "key": "venue",
+        "label": {
+          "en": "Venue",
+          "hi": "स्थान"
+        },
+        "type": "text",
+        "required": true,
+        "sample": {
+          "en": "Room No. 108, North Block, New Delhi",
+          "hi": "कक्ष संख्या 108, नॉर्थ ब्लॉक, नई दिल्ली"
+        }
+      },
+      {
+        "key": "chairperson",
+        "label": {
+          "en": "Who presided",
+          "hi": "अध्यक्षता किसने की"
+        },
+        "type": "text",
+        "required": true,
+        "sample": {
+          "en": "Shri R.K. Sharma, Joint Secretary (Administration)",
+          "hi": "श्री आर.के. शर्मा, संयुक्त सचिव (प्रशासन)"
+        }
+      },
+      {
+        "key": "agenda",
+        "label": {
+          "en": "What was considered",
+          "hi": "किस पर विचार हुआ"
+        },
+        "type": "text",
+        "required": true,
+        "sample": {
+          "en": "the revision of the Recruitment Rules for the post of Assistant Section Officer",
+          "hi": "सहायक अनुभाग अधिकारी पद के भर्ती नियमों का पुनरीक्षण"
+        }
+      },
+      {
+        "key": "participants",
+        "label": {
+          "en": "Participants",
+          "hi": "प्रतिभागी"
+        },
+        "type": "enclosures",
+        "required": true,
+        "sample": {
+          "en": "Shri A.B.C., Director (Establishment)",
+          "hi": "श्री ए.बी.सी., निदेशक (स्थापना)"
+        },
+        "hint": {
+          "en": "One per line, with designation.",
+          "hi": "प्रति पंक्ति एक, पदनाम सहित।"
+        }
+      },
+      {
+        "key": "decisions",
+        "label": {
+          "en": "Decisions, one per line",
+          "hi": "निर्णय, प्रति पंक्ति एक"
+        },
+        "type": "enclosures",
+        "required": true,
+        "sample": {
+          "en": "The draft Recruitment Rules will be circulated to all Divisions for comments by 05.09.2026 — Establishment Section.",
+          "hi": "भर्ती नियमों का मसौदा टिप्पणियों हेतु सभी प्रभागों को 05.09.2026 तक परिचालित किया जाएगा — स्थापना अनुभाग।"
+        },
+        "hint": {
+          "en": "End each with the office that has to act on it.",
+          "hi": "प्रत्येक के अंत में वह कार्यालय लिखें जिसे कार्रवाई करनी है।"
+        }
+      },
+      {
+        "key": "complianceBy",
+        "label": {
+          "en": "Compliance report by",
+          "hi": "अनुपालन रिपोर्ट कब तक"
+        },
+        "type": "date",
+        "required": true,
+        "sample": {
+          "en": "30.09.2026",
+          "hi": "30.09.2026"
+        }
+      }
+    ],
+    "bodySkeleton": {
+      "en": {
+        "type": "doc",
+        "content": [
+          {
+            "type": "numberedPara",
+            "attrs": {
+              "level": 1
+            },
+            "content": [
+              {
+                "type": "text",
+                "text": "A meeting was held on {{meetingDate}} at {{meetingTime}} in {{venue}} under the chairmanship of {{chairperson}} to consider {{agenda}}."
+              }
+            ]
+          },
+          {
+            "type": "heading",
+            "attrs": {
+              "level": 2
+            },
+            "content": [
+              {
+                "type": "text",
+                "text": "Participants"
+              }
+            ]
+          },
+          {
+            "type": "paragraph",
+            "content": [
+              {
+                "type": "text",
+                "text": "{{#each participants}}"
+              }
+            ]
+          },
+          {
+            "type": "numberedPara",
+            "attrs": {
+              "level": 1
+            },
+            "content": [
+              {
+                "type": "text",
+                "text": "{{@index}}. {{.}}"
+              }
+            ]
+          },
+          {
+            "type": "paragraph",
+            "content": [
+              {
+                "type": "text",
+                "text": "{{/each}}"
+              }
+            ]
+          },
+          {
+            "type": "heading",
+            "attrs": {
+              "level": 2
+            },
+            "content": [
+              {
+                "type": "text",
+                "text": "Discussion and decisions"
+              }
+            ]
+          },
+          {
+            "type": "paragraph",
+            "content": [
+              {
+                "type": "text",
+                "text": "{{#each decisions}}"
+              }
+            ]
+          },
+          {
+            "type": "numberedPara",
+            "attrs": {
+              "level": 1
+            },
+            "content": [
+              {
+                "type": "text",
+                "text": "{{.}}"
+              }
+            ]
+          },
+          {
+            "type": "paragraph",
+            "content": [
+              {
+                "type": "text",
+                "text": "{{/each}}"
+              }
+            ]
+          },
+          {
+            "type": "numberedPara",
+            "attrs": {
+              "level": 1
+            },
+            "content": [
+              {
+                "type": "text",
+                "text": "The meeting ended with a vote of thanks to the Chair. Action on each decision above rests with the office named against it, and a compliance report is to reach this Section by {{complianceBy}}."
+              }
+            ]
+          }
+        ]
+      },
+      "hi": {
+        "type": "doc",
+        "content": [
+          {
+            "type": "numberedPara",
+            "attrs": {
+              "level": 1
+            },
+            "content": [
+              {
+                "type": "text",
+                "text": "{{agenda}} पर विचार करने हेतु {{meetingDate}} को {{meetingTime}} बजे {{venue}} में {{chairperson}} की अध्यक्षता में एक बैठक हुई।"
+              }
+            ]
+          },
+          {
+            "type": "heading",
+            "attrs": {
+              "level": 2
+            },
+            "content": [
+              {
+                "type": "text",
+                "text": "प्रतिभागी"
+              }
+            ]
+          },
+          {
+            "type": "paragraph",
+            "content": [
+              {
+                "type": "text",
+                "text": "{{#each participants}}"
+              }
+            ]
+          },
+          {
+            "type": "numberedPara",
+            "attrs": {
+              "level": 1
+            },
+            "content": [
+              {
+                "type": "text",
+                "text": "{{@index}}. {{.}}"
+              }
+            ]
+          },
+          {
+            "type": "paragraph",
+            "content": [
+              {
+                "type": "text",
+                "text": "{{/each}}"
+              }
+            ]
+          },
+          {
+            "type": "heading",
+            "attrs": {
+              "level": 2
+            },
+            "content": [
+              {
+                "type": "text",
+                "text": "चर्चा और निर्णय"
+              }
+            ]
+          },
+          {
+            "type": "paragraph",
+            "content": [
+              {
+                "type": "text",
+                "text": "{{#each decisions}}"
+              }
+            ]
+          },
+          {
+            "type": "numberedPara",
+            "attrs": {
+              "level": 1
+            },
+            "content": [
+              {
+                "type": "text",
+                "text": "{{.}}"
+              }
+            ]
+          },
+          {
+            "type": "paragraph",
+            "content": [
+              {
+                "type": "text",
+                "text": "{{/each}}"
+              }
+            ]
+          },
+          {
+            "type": "numberedPara",
+            "attrs": {
+              "level": 1
+            },
+            "content": [
+              {
+                "type": "text",
+                "text": "बैठक अध्यक्ष महोदय के प्रति धन्यवाद ज्ञापन के साथ समाप्त हुई। उपर्युक्त प्रत्येक निर्णय पर कार्रवाई उसके सामने नामित कार्यालय की है, और अनुपालन रिपोर्ट {{complianceBy}} तक इस अनुभाग में पहुँचनी चाहिए।"
+              }
+            ]
+          }
+        ]
+      }
+    }
+  }
+}

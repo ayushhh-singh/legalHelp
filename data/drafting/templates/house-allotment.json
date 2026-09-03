@@ -1,0 +1,642 @@
+{
+  "version": "2.0.0",
+  "generatedAt": "2026-09-03T00:00:00Z",
+  "disclaimer": {
+    "en": "Reference only; verify with the official gazette/order or your DDO.",
+    "hi": "केवल संदर्भ के लिए; सरकारी राजपत्र/आदेश या अपने डीडीओ से सत्यापित करें।"
+  },
+  "template": {
+    "id": "house-allotment",
+    "name": {
+      "en": "House allotment application",
+      "hi": "आवास आवंटन आवेदन"
+    },
+    "shortName": {
+      "en": "House allotment",
+      "hi": "आवास आवंटन"
+    },
+    "person": "first",
+    "usedBy": {
+      "en": "An officer, on their own behalf.",
+      "hi": "एक अधिकारी, अपनी ओर से।"
+    },
+    "whenToUse": {
+      "en": "Allotment out of the General Pool is by seniority in the priority date list maintained by the Directorate of Estates under the Allotment of Government Residences (General Pool in Delhi) Rules, 1963. The application is made through the office, which certifies the pay, the date of entitlement and whether any Government accommodation is already held — the last being the one that decides eligibility.",
+      "hi": "सामान्य पूल से आवंटन संपदा निदेशालय द्वारा सरकारी निवास आवंटन (दिल्ली में सामान्य पूल) नियम, 1963 के अंतर्गत रखी गई प्राथमिकता तिथि सूची की वरिष्ठता के अनुसार होता है। आवेदन कार्यालय के माध्यम से किया जाता है, जो वेतन, पात्रता तिथि तथा यह प्रमाणित करता है कि कोई सरकारी आवास पहले से है या नहीं — अंतिम बात ही पात्रता तय करती है।"
+    },
+    "salutation": null,
+    "subscription": null,
+    "urgencyAllowed": false,
+    "csmopRef": {
+      "edition": "CSMOP 2022, sixteenth edition",
+      "paras": [
+        "8.4(1)"
+      ],
+      "chassis": "letter",
+      "note": {
+        "en": "CSMOP prescribes no format. Eligibility and the priority date come from the Allotment of Government Residences (General Pool in Delhi) Rules, 1963. Built on the letter chassis.",
+        "hi": "सीएसएमओपी कोई प्रारूप निर्धारित नहीं करता। पात्रता और प्राथमिकता तिथि सरकारी निवास आवंटन (दिल्ली में सामान्य पूल) नियम, 1963 से आती हैं। पत्र ढाँचे पर बना।"
+      }
+    },
+    "fields": [
+      {
+        "id": "place",
+        "label": {
+          "en": "Place",
+          "hi": "स्थान"
+        },
+        "type": "text",
+        "required": true,
+        "sample": {
+          "en": "New Delhi",
+          "hi": "नई दिल्ली"
+        }
+      },
+      {
+        "id": "date",
+        "label": {
+          "en": "Date",
+          "hi": "दिनांक"
+        },
+        "type": "date",
+        "required": true,
+        "sample": {
+          "en": "2026-08-28",
+          "hi": "2026-08-28"
+        },
+        "hint": {
+          "en": "dd.mm.yyyy in English; दिनांक dd.mm.yyyy in Hindi.",
+          "hi": "अंग्रेज़ी में dd.mm.yyyy; हिंदी में दिनांक dd.mm.yyyy।"
+        }
+      },
+      {
+        "id": "addressee",
+        "label": {
+          "en": "Addressee",
+          "hi": "प्रेषिती"
+        },
+        "type": "list",
+        "required": true,
+        "sample": {
+          "en": [
+            "The Deputy Director of Estates",
+            "Directorate of Estates",
+            "Nirman Bhawan, New Delhi - 110011"
+          ],
+          "hi": [
+            "उप संपदा निदेशक",
+            "संपदा निदेशालय",
+            "निर्माण भवन, नई दिल्ली - 110011"
+          ]
+        }
+      },
+      {
+        "id": "subject",
+        "label": {
+          "en": "Subject",
+          "hi": "विषय"
+        },
+        "type": "text",
+        "required": true,
+        "sample": {
+          "en": "Application for allotment of General Pool residential accommodation of Type IV.",
+          "hi": "प्रकार-IV के सामान्य पूल आवासीय आवास के आवंटन हेतु आवेदन।"
+        }
+      },
+      {
+        "id": "paras",
+        "label": {
+          "en": "Body paragraphs",
+          "hi": "मुख्य पैराग्राफ"
+        },
+        "type": "paras",
+        "required": true,
+        "sample": {
+          "en": [
+            "I request that I may be considered for the allotment of General Pool residential accommodation of Type IV, for which I am eligible on a basic pay of Rs. 67,700 in Level 10 of the Pay Matrix.",
+            "My date of entitlement to this type is 01.07.2024 and my present station of posting is New Delhi. I am not in occupation of any Government accommodation at present.",
+            "My preferences, in order, are: Kaka Nagar, Pandara Road, R.K. Puram Sector 12",
+            "The application is submitted through the Establishment Section of this Department, which is requested to certify the particulars above."
+          ],
+          "hi": [
+            "अनुरोध है कि मुझ पर प्रकार-IV के सामान्य पूल आवासीय आवास के आवंटन हेतु विचार किया जाए, जिसके लिए मैं वेतन मैट्रिक्स के स्तर 10 में 67,700 रुपये के मूल वेतन पर पात्र हूँ।",
+            "इस प्रकार हेतु मेरी पात्रता तिथि 01.07.2024 है और मेरा वर्तमान तैनाती स्थान नई दिल्ली है। मैं वर्तमान में किसी सरकारी आवास में नहीं रह रहा/रही हूँ।",
+            "मेरी वरीयताएँ क्रम में इस प्रकार हैं : काका नगर, पंडारा रोड, आर.के. पुरम सेक्टर 12",
+            "यह आवेदन इस विभाग के स्थापना अनुभाग के माध्यम से प्रस्तुत है, जिससे अनुरोध है कि उपर्युक्त विवरण प्रमाणित करें।"
+          ]
+        },
+        "hint": {
+          "en": "One paragraph per line. The first is left unnumbered and the rest are numbered from 2.",
+          "hi": "प्रति पंक्ति एक पैराग्राफ। पहला बिना संख्या के रहता है और शेष 2 से क्रमांकित होते हैं।"
+        }
+      },
+      {
+        "id": "signatoryName",
+        "label": {
+          "en": "Your name",
+          "hi": "आपका नाम"
+        },
+        "type": "text",
+        "required": true,
+        "sample": {
+          "en": "A.B.C.",
+          "hi": "ए.बी.सी."
+        }
+      },
+      {
+        "id": "signatoryDesignation",
+        "label": {
+          "en": "Your designation",
+          "hi": "आपका पदनाम"
+        },
+        "type": "text",
+        "required": true,
+        "sample": {
+          "en": "Assistant Section Officer",
+          "hi": "सहायक अनुभाग अधिकारी"
+        }
+      },
+      {
+        "id": "phone",
+        "label": {
+          "en": "Telephone number",
+          "hi": "दूरभाष संख्या"
+        },
+        "type": "text",
+        "required": true,
+        "sample": {
+          "en": "011-2309 2590",
+          "hi": "011-2309 2590"
+        }
+      },
+      {
+        "id": "email",
+        "label": {
+          "en": "Email",
+          "hi": "ई-मेल"
+        },
+        "type": "text",
+        "required": true,
+        "sample": {
+          "en": "abc@nic.in",
+          "hi": "abc@nic.in"
+        }
+      },
+      {
+        "id": "enclosures",
+        "label": {
+          "en": "Enclosures",
+          "hi": "संलग्नक"
+        },
+        "type": "list",
+        "required": false,
+        "sample": {
+          "en": [
+            "A copy of my last pay certificate."
+          ],
+          "hi": [
+            "मेरे अंतिम वेतन प्रमाणपत्र की प्रति।"
+          ]
+        },
+        "hint": {
+          "en": "The count goes at the bottom left of the draft — 'Encl. 3' (9.2(vii)).",
+          "hi": "मसौदे के नीचे बाईं ओर संख्या दी जाती है — 'Encl. 3' (9.2(vii))।"
+        }
+      }
+    ],
+    "layout": {
+      "en": [
+        {
+          "role": "dateLine",
+          "align": "right",
+          "lines": [
+            "{{place}}, the {{date}}"
+          ]
+        },
+        {
+          "role": "addressee",
+          "align": "left",
+          "lead": "To,",
+          "source": "addressee"
+        },
+        {
+          "role": "subject",
+          "align": "left",
+          "lines": [
+            "Subject: {{subject}}"
+          ]
+        },
+        {
+          "role": "salutation",
+          "align": "left",
+          "lines": [
+            "Sir / Madam,"
+          ]
+        },
+        {
+          "role": "body",
+          "align": "left",
+          "source": "paras",
+          "numbered": true
+        },
+        {
+          "role": "closing",
+          "align": "right",
+          "lines": [
+            "Yours faithfully,"
+          ]
+        },
+        {
+          "role": "signature",
+          "align": "left",
+          "lines": [
+            "({{signatoryName}})",
+            "{{signatoryDesignation}}",
+            "Tele. No.: {{phone}}",
+            "Email: {{email}}"
+          ]
+        },
+        {
+          "role": "enclosures",
+          "align": "left",
+          "lead": "List of enclosures:",
+          "source": "enclosures",
+          "itemPrefix": "ordinal",
+          "omitWhenEmpty": true
+        }
+      ],
+      "hi": [
+        {
+          "role": "dateLine",
+          "align": "right",
+          "lines": [
+            "{{place}}, दिनांक {{date}}"
+          ]
+        },
+        {
+          "role": "addressee",
+          "align": "left",
+          "lead": "सेवा में,",
+          "source": "addressee"
+        },
+        {
+          "role": "subject",
+          "align": "left",
+          "lines": [
+            "विषय : {{subject}}"
+          ]
+        },
+        {
+          "role": "salutation",
+          "align": "left",
+          "lines": [
+            "महोदय / महोदया,"
+          ]
+        },
+        {
+          "role": "body",
+          "align": "left",
+          "source": "paras",
+          "numbered": true
+        },
+        {
+          "role": "closing",
+          "align": "right",
+          "lines": [
+            "भवदीय,"
+          ]
+        },
+        {
+          "role": "signature",
+          "align": "left",
+          "lines": [
+            "({{signatoryName}})",
+            "{{signatoryDesignation}}",
+            "दूरभाष संख्या : {{phone}}",
+            "ई-मेल : {{email}}"
+          ]
+        },
+        {
+          "role": "enclosures",
+          "align": "left",
+          "lead": "संलग्नकों की सूची :",
+          "source": "enclosures",
+          "itemPrefix": "ordinal",
+          "omitWhenEmpty": true
+        }
+      ]
+    },
+    "checklist": [
+      {
+        "id": "accommodation-declared",
+        "label": {
+          "en": "Whether accommodation is already held is declared",
+          "hi": "पहले से आवास धारित है या नहीं, घोषित है"
+        },
+        "why": {
+          "en": "Eligibility turns on it, and a declaration found later to be wrong is a matter under the CCS (Conduct) Rules, not merely a wrong allotment.",
+          "hi": "पात्रता इसी पर निर्भर है, और बाद में गलत पाई गई घोषणा केवल गलत आवंटन नहीं बल्कि केंद्रीय सिविल सेवा (आचरण) नियमों का विषय है।"
+        },
+        "severity": "must",
+        "rule": {
+          "kind": "regex",
+          "role": "body",
+          "pattern": "(accommodation|occupation|आवास|अधिभोग)"
+        }
+      },
+      {
+        "id": "subject",
+        "label": {
+          "en": "The subject is stated",
+          "hi": "विषय लिखा गया है"
+        },
+        "why": {
+          "en": "The specimens in Appendix 8.1 carry a subject line above the body on every form that is addressed to anyone.",
+          "hi": "परिशिष्ट 8.1 के नमूनों में हर संबोधित प्रपत्र पर मुख्य भाग के ऊपर विषय पंक्ति होती है।"
+        },
+        "severity": "must",
+        "rule": {
+          "kind": "blockPresent",
+          "role": "subject"
+        },
+        "csmopRef": "Appendix 8.1"
+      },
+      {
+        "id": "para-numbering",
+        "label": {
+          "en": "Paragraphs are serially numbered",
+          "hi": "पैराग्राफ क्रमानुसार संख्यांकित हैं"
+        },
+        "why": {
+          "en": "The specimens leave the first paragraph unnumbered and number the rest from 2.",
+          "hi": "नमूनों में पहला पैराग्राफ बिना संख्या के रहता है और शेष 2 से क्रमांकित होते हैं।"
+        },
+        "severity": "must",
+        "rule": {
+          "kind": "paraNumbering"
+        },
+        "csmopRef": "Appendix 8.1"
+      },
+      {
+        "id": "no-placeholders",
+        "label": {
+          "en": "No placeholder is left unfilled",
+          "hi": "कोई प्लेसहोल्डर अधूरा नहीं छूटा"
+        },
+        "why": {
+          "en": "A draft that goes out with {{…}} still in it has not been read.",
+          "hi": "जिस मसौदे में {{…}} रह जाए, उसे पढ़ा ही नहीं गया।"
+        },
+        "severity": "must",
+        "rule": {
+          "kind": "noPlaceholders"
+        }
+      }
+    ],
+    "source": {
+      "name": "Central Secretariat Manual of Office Procedure, 2022 (16th edition), DARPG",
+      "url": "https://www.darpg.gov.in/static/uploads/2025/10/774e0b8f427b7875158363d842fa431f.pdf",
+      "reference": "CSMOP 2022, sixteenth edition",
+      "dated": "2022-08-05"
+    },
+    "fetchedAt": "2026-09-03T00:00:00Z",
+    "verify": true,
+    "variables": [
+      {
+        "key": "houseType",
+        "label": {
+          "en": "Type applied for",
+          "hi": "जिस प्रकार हेतु आवेदन"
+        },
+        "type": "text",
+        "required": true,
+        "sample": {
+          "en": "Type IV",
+          "hi": "प्रकार-IV"
+        }
+      },
+      {
+        "key": "basicPay",
+        "label": {
+          "en": "Basic pay",
+          "hi": "मूल वेतन"
+        },
+        "type": "text",
+        "required": true,
+        "sample": {
+          "en": "67,700",
+          "hi": "67,700"
+        }
+      },
+      {
+        "key": "payLevel",
+        "label": {
+          "en": "Pay level",
+          "hi": "वेतन स्तर"
+        },
+        "type": "text",
+        "required": true,
+        "sample": {
+          "en": "10",
+          "hi": "10"
+        }
+      },
+      {
+        "key": "entitlementDate",
+        "label": {
+          "en": "Date of entitlement",
+          "hi": "पात्रता तिथि"
+        },
+        "type": "date",
+        "required": true,
+        "sample": {
+          "en": "01.07.2024",
+          "hi": "01.07.2024"
+        }
+      },
+      {
+        "key": "station",
+        "label": {
+          "en": "Station of posting",
+          "hi": "तैनाती स्थान"
+        },
+        "type": "text",
+        "required": true,
+        "sample": {
+          "en": "New Delhi",
+          "hi": "नई दिल्ली"
+        }
+      },
+      {
+        "key": "accommodationHeld",
+        "label": {
+          "en": "Accommodation already held",
+          "hi": "पहले से धारित आवास"
+        },
+        "type": "textarea",
+        "required": true,
+        "sample": {
+          "en": "I am not in occupation of any Government accommodation at present.",
+          "hi": "मैं वर्तमान में किसी सरकारी आवास में नहीं रह रहा/रही हूँ।"
+        }
+      },
+      {
+        "key": "preferredLocalities",
+        "label": {
+          "en": "Preferred localities",
+          "hi": "वरीयता वाले क्षेत्र"
+        },
+        "type": "text",
+        "required": false,
+        "sample": {
+          "en": "Kaka Nagar, Pandara Road, R.K. Puram Sector 12",
+          "hi": "काका नगर, पंडारा रोड, आर.के. पुरम सेक्टर 12"
+        }
+      }
+    ],
+    "bodySkeleton": {
+      "en": {
+        "type": "doc",
+        "content": [
+          {
+            "type": "numberedPara",
+            "attrs": {
+              "level": 1
+            },
+            "content": [
+              {
+                "type": "text",
+                "text": "I request that I may be considered for the allotment of General Pool residential accommodation of {{houseType}}, for which I am eligible on a basic pay of Rs. {{basicPay}} in Level {{payLevel}} of the Pay Matrix."
+              }
+            ]
+          },
+          {
+            "type": "numberedPara",
+            "attrs": {
+              "level": 1
+            },
+            "content": [
+              {
+                "type": "text",
+                "text": "My date of entitlement to this type is {{entitlementDate}} and my present station of posting is {{station}}. {{accommodationHeld}}"
+              }
+            ]
+          },
+          {
+            "type": "paragraph",
+            "content": [
+              {
+                "type": "text",
+                "text": "{{#if preferredLocalities}}"
+              }
+            ]
+          },
+          {
+            "type": "numberedPara",
+            "attrs": {
+              "level": 1
+            },
+            "content": [
+              {
+                "type": "text",
+                "text": "My preferences, in order, are: {{preferredLocalities}}"
+              }
+            ]
+          },
+          {
+            "type": "paragraph",
+            "content": [
+              {
+                "type": "text",
+                "text": "{{/if}}"
+              }
+            ]
+          },
+          {
+            "type": "numberedPara",
+            "attrs": {
+              "level": 1
+            },
+            "content": [
+              {
+                "type": "text",
+                "text": "The application is submitted through the Establishment Section of this Department, which is requested to certify the particulars above."
+              }
+            ]
+          }
+        ]
+      },
+      "hi": {
+        "type": "doc",
+        "content": [
+          {
+            "type": "numberedPara",
+            "attrs": {
+              "level": 1
+            },
+            "content": [
+              {
+                "type": "text",
+                "text": "अनुरोध है कि मुझ पर {{houseType}} के सामान्य पूल आवासीय आवास के आवंटन हेतु विचार किया जाए, जिसके लिए मैं वेतन मैट्रिक्स के स्तर {{payLevel}} में {{basicPay}} रुपये के मूल वेतन पर पात्र हूँ।"
+              }
+            ]
+          },
+          {
+            "type": "numberedPara",
+            "attrs": {
+              "level": 1
+            },
+            "content": [
+              {
+                "type": "text",
+                "text": "इस प्रकार हेतु मेरी पात्रता तिथि {{entitlementDate}} है और मेरा वर्तमान तैनाती स्थान {{station}} है। {{accommodationHeld}}"
+              }
+            ]
+          },
+          {
+            "type": "paragraph",
+            "content": [
+              {
+                "type": "text",
+                "text": "{{#if preferredLocalities}}"
+              }
+            ]
+          },
+          {
+            "type": "numberedPara",
+            "attrs": {
+              "level": 1
+            },
+            "content": [
+              {
+                "type": "text",
+                "text": "मेरी वरीयताएँ क्रम में इस प्रकार हैं : {{preferredLocalities}}"
+              }
+            ]
+          },
+          {
+            "type": "paragraph",
+            "content": [
+              {
+                "type": "text",
+                "text": "{{/if}}"
+              }
+            ]
+          },
+          {
+            "type": "numberedPara",
+            "attrs": {
+              "level": 1
+            },
+            "content": [
+              {
+                "type": "text",
+                "text": "यह आवेदन इस विभाग के स्थापना अनुभाग के माध्यम से प्रस्तुत है, जिससे अनुरोध है कि उपर्युक्त विवरण प्रमाणित करें।"
+              }
+            ]
+          }
+        ]
+      }
+    }
+  }
+}

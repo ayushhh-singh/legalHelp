@@ -1,0 +1,848 @@
+{
+  "version": "2.0.0",
+  "generatedAt": "2026-09-03T00:00:00Z",
+  "disclaimer": {
+    "en": "Reference only; verify with the official gazette/order or your DDO.",
+    "hi": "केवल संदर्भ के लिए; सरकारी राजपत्र/आदेश या अपने डीडीओ से सत्यापित करें।"
+  },
+  "template": {
+    "id": "forwarding-letter",
+    "name": {
+      "en": "Forwarding letter",
+      "hi": "अग्रेषण पत्र"
+    },
+    "shortName": {
+      "en": "Forwarding",
+      "hi": "अग्रेषण"
+    },
+    "person": "first",
+    "usedBy": {
+      "en": "Any section forwarding a representation, bill, application or reference.",
+      "hi": "कोई भी अनुभाग जो अभ्यावेदन, बिल, आवेदन या संदर्भ अग्रेषित कर रहा हो।"
+    },
+    "whenToUse": {
+      "en": "Used when papers are sent on to the office competent to deal with them. It differs from an endorsement (8.4(9)) in that an endorsement merely passes a paper on, while a forwarding letter says what the receiving office is expected to do and by when. CSMOP 8.9(iii) requires a wrongly addressed communication to be transferred within five working days and the party told.",
+      "hi": "तब प्रयुक्त होता है जब कागज़ात उस कार्यालय को भेजे जाएँ जो उन पर कार्रवाई के लिए सक्षम है। यह पृष्ठांकन (8.4(9)) से इस प्रकार भिन्न है कि पृष्ठांकन केवल कागज़ आगे बढ़ाता है, जबकि अग्रेषण पत्र यह बताता है कि प्राप्तकर्ता कार्यालय से क्या और कब तक अपेक्षित है। सीएसएमओपी 8.9(iii) के अनुसार गलत पते पर भेजा गया पत्र पाँच कार्य दिवसों में अंतरित किया जाए और पक्षकार को सूचित किया जाए।"
+    },
+    "salutation": null,
+    "subscription": null,
+    "urgencyAllowed": true,
+    "csmopRef": {
+      "edition": "CSMOP 2022, sixteenth edition",
+      "paras": [
+        "8.4(1)",
+        "8.9(iii)",
+        "9.2(vii)"
+      ],
+      "chassis": "letter",
+      "note": {
+        "en": "CSMOP prescribes no format for this form. It is built on the letter chassis.",
+        "hi": "सीएसएमओपी इस प्ररूप का कोई प्रारूप निर्धारित नहीं करता। यह letter ढाँचे पर बना है।"
+      }
+    },
+    "fields": [
+      {
+        "id": "urgency",
+        "label": {
+          "en": "Urgency grading",
+          "hi": "तात्कालिकता ग्रेडिंग"
+        },
+        "type": "select",
+        "required": false,
+        "sample": {
+          "en": "none",
+          "hi": "none"
+        },
+        "hint": {
+          "en": "Marked by or under the orders of an officer not lower than a Section Officer (9.2(xi)).",
+          "hi": "अनुभाग अधिकारी से अनिम्न अधिकारी द्वारा या उनके आदेश से अंकित (9.2(xi))।"
+        },
+        "options": [
+          {
+            "value": "none",
+            "label": {
+              "en": "None",
+              "hi": "कोई नहीं"
+            }
+          },
+          {
+            "value": "immediate",
+            "label": {
+              "en": "IMMEDIATE",
+              "hi": "तत्काल"
+            }
+          },
+          {
+            "value": "priority",
+            "label": {
+              "en": "PRIORITY",
+              "hi": "अग्रता"
+            }
+          },
+          {
+            "value": "top-priority",
+            "label": {
+              "en": "TOP PRIORITY",
+              "hi": "परम अग्रता"
+            }
+          }
+        ]
+      },
+      {
+        "id": "fileNumber",
+        "label": {
+          "en": "File / communication number",
+          "hi": "फाइल / पत्र संख्या"
+        },
+        "type": "text",
+        "required": true,
+        "sample": {
+          "en": "A-11011/2/2026-Estt.",
+          "hi": "ए-11011/2/2026-स्थापना"
+        },
+        "hint": {
+          "en": "Every draft put up on a file bears the file number (9.2(vi)).",
+          "hi": "फाइल पर प्रस्तुत प्रत्येक मसौदे पर फाइल संख्या होती है (9.2(vi))।"
+        }
+      },
+      {
+        "id": "ministry",
+        "label": {
+          "en": "Ministry",
+          "hi": "मंत्रालय"
+        },
+        "type": "text",
+        "required": true,
+        "sample": {
+          "en": "Ministry of Personnel, Public Grievances and Pensions",
+          "hi": "कार्मिक, लोक शिकायत तथा पेंशन मंत्रालय"
+        }
+      },
+      {
+        "id": "department",
+        "label": {
+          "en": "Department",
+          "hi": "विभाग"
+        },
+        "type": "text",
+        "required": true,
+        "sample": {
+          "en": "Department of Personnel and Training",
+          "hi": "कार्मिक और प्रशिक्षण विभाग"
+        }
+      },
+      {
+        "id": "place",
+        "label": {
+          "en": "Place",
+          "hi": "स्थान"
+        },
+        "type": "text",
+        "required": true,
+        "sample": {
+          "en": "New Delhi",
+          "hi": "नई दिल्ली"
+        }
+      },
+      {
+        "id": "date",
+        "label": {
+          "en": "Date",
+          "hi": "दिनांक"
+        },
+        "type": "date",
+        "required": true,
+        "sample": {
+          "en": "2026-08-28",
+          "hi": "2026-08-28"
+        },
+        "hint": {
+          "en": "dd.mm.yyyy in English; दिनांक dd.mm.yyyy in Hindi.",
+          "hi": "अंग्रेज़ी में dd.mm.yyyy; हिंदी में दिनांक dd.mm.yyyy।"
+        }
+      },
+      {
+        "id": "addressee",
+        "label": {
+          "en": "Addressee",
+          "hi": "प्रेषिती"
+        },
+        "type": "list",
+        "required": true,
+        "sample": {
+          "en": [
+            "The Under Secretary",
+            "Department of Expenditure",
+            "North Block, New Delhi"
+          ],
+          "hi": [
+            "अवर सचिव",
+            "व्यय विभाग",
+            "नॉर्थ ब्लॉक, नई दिल्ली"
+          ]
+        },
+        "hint": {
+          "en": "One line each: designation, organisation, address.",
+          "hi": "एक-एक पंक्ति में : पदनाम, संगठन, पता।"
+        }
+      },
+      {
+        "id": "subject",
+        "label": {
+          "en": "Subject",
+          "hi": "विषय"
+        },
+        "type": "text",
+        "required": true,
+        "sample": {
+          "en": "Forwarding of the representation of Shri A.B.C. regarding fixation of pay.",
+          "hi": "वेतन निर्धारण के संबंध में श्री ए.बी.सी. का अभ्यावेदन अग्रेषित करना।"
+        }
+      },
+      {
+        "id": "paras",
+        "label": {
+          "en": "Body paragraphs",
+          "hi": "मुख्य पैराग्राफ"
+        },
+        "type": "paras",
+        "required": true,
+        "sample": {
+          "en": [
+            "I am directed to forward herewith the representation dated 05.06.2026 of Shri A.B.C., Section Officer received in this Department from Shri A.B.C., Section Officer on 10.06.2026, which relates to a matter within the competence of your office.",
+            "It is requested that the matter may be examined and a reply sent directly to the applicant, under intimation to this Department, by 15.07.2026.",
+            "The applicant has been informed of this transfer."
+          ],
+          "hi": [
+            "मुझे निदेश हुआ है कि श्री ए.बी.सी., अनुभाग अधिकारी से 10.06.2026 को इस विभाग में प्राप्त श्री ए.बी.सी., अनुभाग अधिकारी का दिनांक 05.06.2026 का अभ्यावेदन एतद्द्वारा अग्रेषित करूँ, जो आपके कार्यालय की सक्षमता के भीतर के विषय से संबंधित है।",
+            "अनुरोध है कि मामले की जाँच कर आवेदक को सीधे उत्तर 15.07.2026 तक भेज दिया जाए, तथा इस विभाग को इसकी सूचना दी जाए।",
+            "आवेदक को इस अंतरण की सूचना दे दी गई है।"
+          ]
+        },
+        "hint": {
+          "en": "One paragraph per line. The first is left unnumbered and the rest are numbered from 2.",
+          "hi": "प्रति पंक्ति एक पैराग्राफ। पहला बिना संख्या के रहता है और शेष 2 से क्रमांकित होते हैं।"
+        }
+      },
+      {
+        "id": "signatoryName",
+        "label": {
+          "en": "Name of the signatory",
+          "hi": "हस्ताक्षरकर्ता का नाम"
+        },
+        "type": "text",
+        "required": true,
+        "sample": {
+          "en": "A.B.C.",
+          "hi": "ए.बी.सी."
+        }
+      },
+      {
+        "id": "signatoryDesignation",
+        "label": {
+          "en": "Designation",
+          "hi": "पदनाम"
+        },
+        "type": "text",
+        "required": true,
+        "sample": {
+          "en": "Under Secretary to the Govt. of India",
+          "hi": "अवर सचिव, भारत सरकार"
+        }
+      },
+      {
+        "id": "phone",
+        "label": {
+          "en": "Telephone number",
+          "hi": "दूरभाष संख्या"
+        },
+        "type": "text",
+        "required": true,
+        "sample": {
+          "en": "011-2309 2590",
+          "hi": "011-2309 2590"
+        }
+      },
+      {
+        "id": "email",
+        "label": {
+          "en": "Email",
+          "hi": "ई-मेल"
+        },
+        "type": "text",
+        "required": true,
+        "sample": {
+          "en": "us-estt@nic.in",
+          "hi": "us-estt@nic.in"
+        }
+      },
+      {
+        "id": "enclosures",
+        "label": {
+          "en": "Enclosures",
+          "hi": "संलग्नक"
+        },
+        "type": "list",
+        "required": false,
+        "sample": {
+          "en": [
+            "The representation dated 05.06.2026 of Shri A.B.C., in original."
+          ],
+          "hi": [
+            "श्री ए.बी.सी. का दिनांक 05.06.2026 का अभ्यावेदन, मूल रूप में।"
+          ]
+        },
+        "hint": {
+          "en": "The count goes at the bottom left of the draft — 'Encl. 3' (9.2(vii)).",
+          "hi": "मसौदे के नीचे बाईं ओर संख्या दी जाती है — 'Encl. 3' (9.2(vii))।"
+        }
+      },
+      {
+        "id": "copyTo",
+        "label": {
+          "en": "Copy to",
+          "hi": "प्रतिलिपि"
+        },
+        "type": "list",
+        "required": false,
+        "sample": {
+          "en": [
+            "The office order file."
+          ],
+          "hi": [
+            "कार्यालय आदेश फाइल।"
+          ]
+        }
+      }
+    ],
+    "layout": {
+      "en": [
+        {
+          "role": "urgency",
+          "align": "right",
+          "emphasis": "bold",
+          "lines": [
+            "{{urgency}}"
+          ],
+          "omitWhenEmpty": true
+        },
+        {
+          "role": "fileNumber",
+          "align": "left",
+          "lines": [
+            "No. {{fileNumber}}"
+          ]
+        },
+        {
+          "role": "header",
+          "align": "center",
+          "lines": [
+            "Government of India",
+            "{{ministry}}",
+            "{{department}}"
+          ]
+        },
+        {
+          "role": "dateLine",
+          "align": "right",
+          "lines": [
+            "{{place}}, the {{date}}"
+          ]
+        },
+        {
+          "role": "addressee",
+          "align": "left",
+          "lead": "To,",
+          "source": "addressee"
+        },
+        {
+          "role": "subject",
+          "align": "left",
+          "lines": [
+            "Subject: {{subject}}"
+          ]
+        },
+        {
+          "role": "salutation",
+          "align": "left",
+          "lines": [
+            "Sir / Madam,"
+          ]
+        },
+        {
+          "role": "body",
+          "align": "left",
+          "source": "paras",
+          "numbered": true
+        },
+        {
+          "role": "closing",
+          "align": "right",
+          "lines": [
+            "Yours faithfully,"
+          ]
+        },
+        {
+          "role": "signature",
+          "align": "right",
+          "lines": [
+            "-Sd/-",
+            "({{signatoryName}})",
+            "{{signatoryDesignation}}",
+            "Tele. No.: {{phone}}",
+            "Email: {{email}}"
+          ]
+        },
+        {
+          "role": "enclosures",
+          "align": "left",
+          "lead": "List of enclosures:",
+          "source": "enclosures",
+          "itemPrefix": "ordinal",
+          "omitWhenEmpty": true
+        },
+        {
+          "role": "copyTo",
+          "align": "left",
+          "lead": "Copy forwarded for information / necessary action to:",
+          "source": "copyTo",
+          "itemPrefix": "ordinal",
+          "omitWhenEmpty": true
+        }
+      ],
+      "hi": [
+        {
+          "role": "urgency",
+          "align": "right",
+          "emphasis": "bold",
+          "lines": [
+            "{{urgency}}"
+          ],
+          "omitWhenEmpty": true
+        },
+        {
+          "role": "fileNumber",
+          "align": "left",
+          "lines": [
+            "संख्या {{fileNumber}}"
+          ]
+        },
+        {
+          "role": "header",
+          "align": "center",
+          "lines": [
+            "भारत सरकार",
+            "{{ministry}}",
+            "{{department}}"
+          ]
+        },
+        {
+          "role": "dateLine",
+          "align": "right",
+          "lines": [
+            "{{place}}, दिनांक {{date}}"
+          ]
+        },
+        {
+          "role": "addressee",
+          "align": "left",
+          "lead": "सेवा में,",
+          "source": "addressee"
+        },
+        {
+          "role": "subject",
+          "align": "left",
+          "lines": [
+            "विषय : {{subject}}"
+          ]
+        },
+        {
+          "role": "salutation",
+          "align": "left",
+          "lines": [
+            "महोदय / महोदया,"
+          ]
+        },
+        {
+          "role": "body",
+          "align": "left",
+          "source": "paras",
+          "numbered": true
+        },
+        {
+          "role": "closing",
+          "align": "right",
+          "lines": [
+            "भवदीय,"
+          ]
+        },
+        {
+          "role": "signature",
+          "align": "right",
+          "lines": [
+            "-हस्ताक्षरित/-",
+            "({{signatoryName}})",
+            "{{signatoryDesignation}}",
+            "दूरभाष संख्या : {{phone}}",
+            "ई-मेल : {{email}}"
+          ]
+        },
+        {
+          "role": "enclosures",
+          "align": "left",
+          "lead": "संलग्नकों की सूची :",
+          "source": "enclosures",
+          "itemPrefix": "ordinal",
+          "omitWhenEmpty": true
+        },
+        {
+          "role": "copyTo",
+          "align": "left",
+          "lead": "प्रति सूचना/आवश्यक कार्रवाई के लिए अग्रेषित :",
+          "source": "copyTo",
+          "itemPrefix": "ordinal",
+          "omitWhenEmpty": true
+        }
+      ]
+    },
+    "checklist": [
+      {
+        "id": "subject",
+        "label": {
+          "en": "The subject is stated",
+          "hi": "विषय लिखा गया है"
+        },
+        "why": {
+          "en": "The specimens in Appendix 8.1 carry a subject line above the body on every form that is addressed to anyone.",
+          "hi": "परिशिष्ट 8.1 के नमूनों में हर संबोधित प्रपत्र पर मुख्य भाग के ऊपर विषय पंक्ति होती है।"
+        },
+        "severity": "must",
+        "rule": {
+          "kind": "blockPresent",
+          "role": "subject"
+        },
+        "csmopRef": "Appendix 8.1"
+      },
+      {
+        "id": "number-and-date",
+        "label": {
+          "en": "Number and date are on the draft",
+          "hi": "मसौदे पर संख्या और दिनांक हैं"
+        },
+        "why": {
+          "en": "Every draft put up on a file bears the file number, and the number and date of the last communication in the series must be quoted.",
+          "hi": "फाइल पर प्रस्तुत प्रत्येक मसौदे पर फाइल संख्या होती है, और शृंखला के अंतिम पत्र की संख्या तथा दिनांक उद्धृत की जानी चाहिए।"
+        },
+        "severity": "must",
+        "rule": {
+          "kind": "allRequired",
+          "fields": [
+            "fileNumber",
+            "date"
+          ]
+        },
+        "csmopRef": "9.2(iv), 9.2(vi)"
+      },
+      {
+        "id": "enclosures",
+        "label": {
+          "en": "Enclosures mentioned in the text are listed",
+          "hi": "पाठ में उल्लिखित संलग्नक सूचीबद्ध हैं"
+        },
+        "why": {
+          "en": "A draft should clearly specify the enclosures which are to accompany the fair copy, and the number goes at the bottom left.",
+          "hi": "मसौदे में स्पष्ट रूप से बताया जाना चाहिए कि स्वच्छ प्रति के साथ कौन-से संलग्नक जाएँगे, और संख्या नीचे बाईं ओर दी जाती है।"
+        },
+        "severity": "must",
+        "rule": {
+          "kind": "enclosuresConsistent"
+        },
+        "csmopRef": "9.2(vii)"
+      },
+      {
+        "id": "reply-date",
+        "label": {
+          "en": "A date is named where information is called for",
+          "hi": "जहाँ सूचना माँगी गई है वहाँ तारीख दी गई है"
+        },
+        "why": {
+          "en": "Instead of 'may be sent immediately', state 'may be sent by 28.02.2026'.",
+          "hi": "'तुरंत भेजी जाए' के स्थान पर 'दिनांक 28.02.2026 तक भेजी जाए' लिखें।"
+        },
+        "severity": "should",
+        "rule": {
+          "kind": "replyDate"
+        },
+        "csmopRef": "9.2(v)"
+      },
+      {
+        "id": "signature-block",
+        "label": {
+          "en": "Signature block carries designation, telephone and email",
+          "hi": "हस्ताक्षर खंड में पदनाम, दूरभाष और ई-मेल हैं"
+        },
+        "why": {
+          "en": "The name, designation, telephone number, fax number and e-mail address of the signing officer must invariably be on the draft.",
+          "hi": "हस्ताक्षर करने वाले अधिकारी का नाम, पदनाम, दूरभाष संख्या, फैक्स संख्या और ई-मेल पता मसौदे पर अनिवार्यतः होना चाहिए।"
+        },
+        "severity": "must",
+        "rule": {
+          "kind": "allRequired",
+          "fields": [
+            "signatoryName",
+            "signatoryDesignation",
+            "phone",
+            "email"
+          ]
+        },
+        "csmopRef": "9.2(xii)"
+      },
+      {
+        "id": "para-numbering",
+        "label": {
+          "en": "Paragraphs are serially numbered",
+          "hi": "पैराग्राफ क्रमानुसार संख्यांकित हैं"
+        },
+        "why": {
+          "en": "The specimens leave the first paragraph unnumbered and number the rest from 2.",
+          "hi": "नमूनों में पहला पैराग्राफ बिना संख्या के रहता है और शेष 2 से क्रमांकित होते हैं।"
+        },
+        "severity": "must",
+        "rule": {
+          "kind": "paraNumbering"
+        },
+        "csmopRef": "Appendix 8.1"
+      },
+      {
+        "id": "no-placeholders",
+        "label": {
+          "en": "No placeholder is left unfilled",
+          "hi": "कोई प्लेसहोल्डर अधूरा नहीं छूटा"
+        },
+        "why": {
+          "en": "A draft that goes out with {{…}} still in it has not been read.",
+          "hi": "जिस मसौदे में {{…}} रह जाए, उसे पढ़ा ही नहीं गया।"
+        },
+        "severity": "must",
+        "rule": {
+          "kind": "noPlaceholders"
+        }
+      }
+    ],
+    "source": {
+      "name": "Central Secretariat Manual of Office Procedure, 2022 (16th edition), DARPG",
+      "url": "https://www.darpg.gov.in/static/uploads/2025/10/774e0b8f427b7875158363d842fa431f.pdf",
+      "reference": "CSMOP 2022, sixteenth edition",
+      "dated": "2022-08-05"
+    },
+    "fetchedAt": "2026-09-03T00:00:00Z",
+    "verify": true,
+    "variables": [
+      {
+        "key": "papers",
+        "label": {
+          "en": "What is being forwarded",
+          "hi": "क्या अग्रेषित किया जा रहा है"
+        },
+        "type": "text",
+        "required": true,
+        "sample": {
+          "en": "the representation dated 05.06.2026 of Shri A.B.C., Section Officer",
+          "hi": "श्री ए.बी.सी., अनुभाग अधिकारी का दिनांक 05.06.2026 का अभ्यावेदन"
+        }
+      },
+      {
+        "key": "receivedFrom",
+        "label": {
+          "en": "Received from",
+          "hi": "किससे प्राप्त"
+        },
+        "type": "text",
+        "required": true,
+        "sample": {
+          "en": "Shri A.B.C., Section Officer",
+          "hi": "श्री ए.बी.सी., अनुभाग अधिकारी"
+        }
+      },
+      {
+        "key": "receivedOn",
+        "label": {
+          "en": "Received on",
+          "hi": "प्राप्ति दिनांक"
+        },
+        "type": "date",
+        "required": true,
+        "sample": {
+          "en": "10.06.2026",
+          "hi": "10.06.2026"
+        }
+      },
+      {
+        "key": "replyBy",
+        "label": {
+          "en": "Reply expected by",
+          "hi": "उत्तर कब तक अपेक्षित"
+        },
+        "type": "date",
+        "required": true,
+        "sample": {
+          "en": "15.07.2026",
+          "hi": "15.07.2026"
+        },
+        "hint": {
+          "en": "Name the date. CSMOP 9.2(v) refuses 'immediately'.",
+          "hi": "तारीख दें। सीएसएमओपी 9.2(v) 'तुरंत' को स्वीकार नहीं करता।"
+        }
+      },
+      {
+        "key": "applicantInformed",
+        "label": {
+          "en": "The applicant has been told",
+          "hi": "आवेदक को सूचित कर दिया गया"
+        },
+        "type": "select",
+        "required": false,
+        "sample": {
+          "en": "yes",
+          "hi": "हाँ"
+        },
+        "options": [
+          {
+            "value": "yes",
+            "label": {
+              "en": "yes",
+              "hi": "हाँ"
+            }
+          },
+          {
+            "value": "",
+            "label": {
+              "en": "not yet",
+              "hi": "अभी नहीं"
+            }
+          }
+        ]
+      }
+    ],
+    "bodySkeleton": {
+      "en": {
+        "type": "doc",
+        "content": [
+          {
+            "type": "numberedPara",
+            "attrs": {
+              "level": 1
+            },
+            "content": [
+              {
+                "type": "text",
+                "text": "I am directed to forward herewith {{papers}} received in this Department from {{receivedFrom}} on {{receivedOn}}, which relates to a matter within the competence of your office."
+              }
+            ]
+          },
+          {
+            "type": "numberedPara",
+            "attrs": {
+              "level": 1
+            },
+            "content": [
+              {
+                "type": "text",
+                "text": "It is requested that the matter may be examined and a reply sent directly to the applicant, under intimation to this Department, by {{replyBy}}."
+              }
+            ]
+          },
+          {
+            "type": "paragraph",
+            "content": [
+              {
+                "type": "text",
+                "text": "{{#if applicantInformed}}"
+              }
+            ]
+          },
+          {
+            "type": "numberedPara",
+            "attrs": {
+              "level": 1
+            },
+            "content": [
+              {
+                "type": "text",
+                "text": "The applicant has been informed of this transfer."
+              }
+            ]
+          },
+          {
+            "type": "paragraph",
+            "content": [
+              {
+                "type": "text",
+                "text": "{{/if}}"
+              }
+            ]
+          }
+        ]
+      },
+      "hi": {
+        "type": "doc",
+        "content": [
+          {
+            "type": "numberedPara",
+            "attrs": {
+              "level": 1
+            },
+            "content": [
+              {
+                "type": "text",
+                "text": "मुझे निदेश हुआ है कि {{receivedFrom}} से {{receivedOn}} को इस विभाग में प्राप्त {{papers}} एतद्द्वारा अग्रेषित करूँ, जो आपके कार्यालय की सक्षमता के भीतर के विषय से संबंधित है।"
+              }
+            ]
+          },
+          {
+            "type": "numberedPara",
+            "attrs": {
+              "level": 1
+            },
+            "content": [
+              {
+                "type": "text",
+                "text": "अनुरोध है कि मामले की जाँच कर आवेदक को सीधे उत्तर {{replyBy}} तक भेज दिया जाए, तथा इस विभाग को इसकी सूचना दी जाए।"
+              }
+            ]
+          },
+          {
+            "type": "paragraph",
+            "content": [
+              {
+                "type": "text",
+                "text": "{{#if applicantInformed}}"
+              }
+            ]
+          },
+          {
+            "type": "numberedPara",
+            "attrs": {
+              "level": 1
+            },
+            "content": [
+              {
+                "type": "text",
+                "text": "आवेदक को इस अंतरण की सूचना दे दी गई है।"
+              }
+            ]
+          },
+          {
+            "type": "paragraph",
+            "content": [
+              {
+                "type": "text",
+                "text": "{{/if}}"
+              }
+            ]
+          }
+        ]
+      }
+    }
+  }
+}

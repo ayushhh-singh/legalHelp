@@ -1,6 +1,6 @@
 {
-  "version": "1.1.0",
-  "generatedAt": "2026-08-28T00:00:00Z",
+  "version": "2.0.0",
+  "generatedAt": "2026-09-03T00:00:00Z",
   "disclaimer": {
     "en": "Reference only; verify with the official gazette/order or your DDO.",
     "hi": "केवल संदर्भ के लिए; सरकारी राजपत्र/आदेश या अपने डीडीओ से सत्यापित करें।"
@@ -550,7 +550,86 @@
       "reference": "CSMOP 2022, sixteenth edition",
       "dated": "2022-08-05"
     },
-    "fetchedAt": "2026-08-28T00:00:00Z",
-    "verify": false
+    "fetchedAt": "2026-09-03T00:00:00Z",
+    "verify": false,
+    "variables": [
+      {
+        "key": "mainPoint",
+        "label": {
+          "en": "The point of the document",
+          "hi": "दस्तावेज़ की मुख्य बात"
+        },
+        "type": "textarea",
+        "required": true,
+        "sample": {
+          "en": "A copy each of the papers mentioned below is forwarded for information and necessary action.",
+          "hi": "नीचे उल्लिखित प्रत्येक कागजात की एक प्रति सूचना एवं आवश्यक कार्रवाई के लिए अग्रेषित की जाती है।"
+        },
+        "hint": {
+          "en": "What is being decided, asked for or conveyed. Add further paragraphs in the editor.",
+          "hi": "क्या तय, माँगा या संप्रेषित किया जा रहा है। आगे के पैराग्राफ संपादक में जोड़ें।"
+        }
+      }
+    ],
+    "bodySkeleton": {
+      "en": {
+        "type": "doc",
+        "content": [
+          {
+            "type": "numberedPara",
+            "attrs": {
+              "level": 1
+            },
+            "content": [
+              {
+                "type": "text",
+                "text": "A copy each of the papers mentioned below is forwarded for information and necessary action."
+              }
+            ]
+          },
+          {
+            "type": "numberedPara",
+            "attrs": {
+              "level": 1
+            },
+            "content": [
+              {
+                "type": "text",
+                "text": "{{mainPoint}}"
+              }
+            ]
+          }
+        ]
+      },
+      "hi": {
+        "type": "doc",
+        "content": [
+          {
+            "type": "numberedPara",
+            "attrs": {
+              "level": 1
+            },
+            "content": [
+              {
+                "type": "text",
+                "text": "नीचे उल्लिखित प्रत्येक कागजात की एक प्रति सूचना एवं आवश्यक कार्रवाई के लिए अग्रेषित की जाती है।"
+              }
+            ]
+          },
+          {
+            "type": "numberedPara",
+            "attrs": {
+              "level": 1
+            },
+            "content": [
+              {
+                "type": "text",
+                "text": "{{mainPoint}}"
+              }
+            ]
+          }
+        ]
+      }
+    }
   }
 }

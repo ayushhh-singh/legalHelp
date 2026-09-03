@@ -1,0 +1,703 @@
+{
+  "version": "2.0.0",
+  "generatedAt": "2026-09-03T00:00:00Z",
+  "disclaimer": {
+    "en": "Reference only; verify with the official gazette/order or your DDO.",
+    "hi": "केवल संदर्भ के लिए; सरकारी राजपत्र/आदेश या अपने डीडीओ से सत्यापित करें।"
+  },
+  "template": {
+    "id": "appeal",
+    "name": {
+      "en": "Appeal to the appellate authority",
+      "hi": "अपीलीय प्राधिकारी को अपील"
+    },
+    "shortName": {
+      "en": "Appeal",
+      "hi": "अपील"
+    },
+    "person": "first",
+    "usedBy": {
+      "en": "An officer, on their own behalf.",
+      "hi": "एक अधिकारी, अपनी ओर से।"
+    },
+    "whenToUse": {
+      "en": "Rule 23 of the CCS (CCA) Rules, 1965 gives an appeal against a penalty and against certain other orders, and rule 25 requires it to be preferred within forty-five days of the date on which the order was delivered. Rule 24 requires the appeal to be addressed to the appellate authority, to be submitted through the authority that made the order, to contain all material statements and arguments, to be complete in itself and to be in a language that is courteous and temperate.",
+      "hi": "केंद्रीय सिविल सेवा (वर्गीकरण, नियंत्रण और अपील) नियम, 1965 का नियम 23 शास्ति तथा कुछ अन्य आदेशों के विरुद्ध अपील देता है, और नियम 25 के अनुसार वह आदेश की प्राप्ति की तिथि से पैंतालीस दिन के भीतर की जानी चाहिए। नियम 24 के अनुसार अपील अपीलीय प्राधिकारी को संबोधित हो, आदेश करने वाले प्राधिकारी के माध्यम से प्रस्तुत हो, उसमें सभी सारवान कथन और तर्क हों, वह स्वतःपूर्ण हो और उसकी भाषा शिष्ट और संयत हो।"
+    },
+    "salutation": null,
+    "subscription": null,
+    "urgencyAllowed": false,
+    "csmopRef": {
+      "edition": "CSMOP 2022, sixteenth edition",
+      "paras": [
+        "8.4(1)"
+      ],
+      "chassis": "letter",
+      "note": {
+        "en": "CSMOP prescribes no format. Rules 23 to 27 of the CCS (CCA) Rules, 1965 govern who may appeal, to whom, within what time and what the appeal must contain. Built on the letter chassis.",
+        "hi": "सीएसएमओपी कोई प्रारूप निर्धारित नहीं करता। केंद्रीय सिविल सेवा (वर्गीकरण, नियंत्रण और अपील) नियम, 1965 के नियम 23 से 27 यह शासित करते हैं कि कौन, किसे, कितने समय में अपील कर सकता है और अपील में क्या होना चाहिए। पत्र ढाँचे पर बना।"
+      }
+    },
+    "fields": [
+      {
+        "id": "place",
+        "label": {
+          "en": "Place",
+          "hi": "स्थान"
+        },
+        "type": "text",
+        "required": true,
+        "sample": {
+          "en": "New Delhi",
+          "hi": "नई दिल्ली"
+        }
+      },
+      {
+        "id": "date",
+        "label": {
+          "en": "Date",
+          "hi": "दिनांक"
+        },
+        "type": "date",
+        "required": true,
+        "sample": {
+          "en": "2026-08-28",
+          "hi": "2026-08-28"
+        },
+        "hint": {
+          "en": "dd.mm.yyyy in English; दिनांक dd.mm.yyyy in Hindi.",
+          "hi": "अंग्रेज़ी में dd.mm.yyyy; हिंदी में दिनांक dd.mm.yyyy।"
+        }
+      },
+      {
+        "id": "addressee",
+        "label": {
+          "en": "Addressee",
+          "hi": "प्रेषिती"
+        },
+        "type": "list",
+        "required": true,
+        "sample": {
+          "en": [
+            "The Joint Secretary (Administration)",
+            "Department of Personnel and Training",
+            "North Block, New Delhi",
+            "(through the Under Secretary (Establishment))"
+          ],
+          "hi": [
+            "संयुक्त सचिव (प्रशासन)",
+            "कार्मिक और प्रशिक्षण विभाग",
+            "नॉर्थ ब्लॉक, नई दिल्ली",
+            "(अवर सचिव (स्थापना) के माध्यम से)"
+          ]
+        }
+      },
+      {
+        "id": "subject",
+        "label": {
+          "en": "Subject",
+          "hi": "विषय"
+        },
+        "type": "text",
+        "required": true,
+        "sample": {
+          "en": "Appeal under rule 23 of the CCS (CCA) Rules, 1965 against the order dated 12.08.2026.",
+          "hi": "दिनांक 12.08.2026 के आदेश के विरुद्ध केंद्रीय सिविल सेवा (वर्गीकरण, नियंत्रण और अपील) नियम, 1965 के नियम 23 के अंतर्गत अपील।"
+        }
+      },
+      {
+        "id": "paras",
+        "label": {
+          "en": "Body paragraphs",
+          "hi": "मुख्य पैराग्राफ"
+        },
+        "type": "paras",
+        "required": true,
+        "sample": {
+          "en": [
+            "This appeal is preferred under rule 23 of the Central Civil Services (Classification, Control and Appeal) Rules, 1965 against the order No. A-11012/7/2026-Vig. dated 12.08.2026, by which the penalty of censure was imposed upon me under rule 11(i) of the said Rules. The order was delivered to me on 18.08.2026 and this appeal is within the forty-five days allowed by rule 25.",
+            "# Grounds of appeal",
+            "# Prayer",
+            "It is prayed that the impugned order may be set aside and the penalty quashed.",
+            "The appeal is complete in itself and does not contain any disrespectful or improper language."
+          ],
+          "hi": [
+            "यह अपील केंद्रीय सिविल सेवा (वर्गीकरण, नियंत्रण और अपील) नियम, 1965 के नियम 23 के अंतर्गत आदेश संख्या ए-11012/7/2026-सतर्कता दिनांक 12.08.2026 के विरुद्ध प्रस्तुत है, जिसके द्वारा उक्त नियमों के नियम 11(i) के अंतर्गत मुझ पर निंदा की शास्ति अधिरोपित की गई। आदेश मुझे 18.08.2026 को प्राप्त हुआ और यह अपील नियम 25 द्वारा अनुमत पैंतालीस दिन के भीतर है।",
+            "# अपील के आधार",
+            "# प्रार्थना",
+            "प्रार्थना है कि आक्षेपित आदेश अपास्त किया जाए और शास्ति निरस्त की जाए।",
+            "यह अपील स्वतःपूर्ण है और इसमें कोई अनादरपूर्ण या अनुचित भाषा नहीं है।"
+          ]
+        },
+        "hint": {
+          "en": "One paragraph per line. The first is left unnumbered and the rest are numbered from 2.",
+          "hi": "प्रति पंक्ति एक पैराग्राफ। पहला बिना संख्या के रहता है और शेष 2 से क्रमांकित होते हैं।"
+        }
+      },
+      {
+        "id": "signatoryName",
+        "label": {
+          "en": "Your name",
+          "hi": "आपका नाम"
+        },
+        "type": "text",
+        "required": true,
+        "sample": {
+          "en": "A.B.C.",
+          "hi": "ए.बी.सी."
+        }
+      },
+      {
+        "id": "signatoryDesignation",
+        "label": {
+          "en": "Your designation",
+          "hi": "आपका पदनाम"
+        },
+        "type": "text",
+        "required": true,
+        "sample": {
+          "en": "Section Officer",
+          "hi": "अनुभाग अधिकारी"
+        }
+      },
+      {
+        "id": "phone",
+        "label": {
+          "en": "Telephone number",
+          "hi": "दूरभाष संख्या"
+        },
+        "type": "text",
+        "required": true,
+        "sample": {
+          "en": "011-2309 2590",
+          "hi": "011-2309 2590"
+        }
+      },
+      {
+        "id": "email",
+        "label": {
+          "en": "Email",
+          "hi": "ई-मेल"
+        },
+        "type": "text",
+        "required": true,
+        "sample": {
+          "en": "abc@nic.in",
+          "hi": "abc@nic.in"
+        }
+      },
+      {
+        "id": "enclosures",
+        "label": {
+          "en": "Enclosures",
+          "hi": "संलग्नक"
+        },
+        "type": "list",
+        "required": false,
+        "sample": {
+          "en": [
+            "A copy of the order dated 12.08.2026 appealed against."
+          ],
+          "hi": [
+            "जिस दिनांक 12.08.2026 के आदेश के विरुद्ध अपील है उसकी प्रति।"
+          ]
+        },
+        "hint": {
+          "en": "The count goes at the bottom left of the draft — 'Encl. 3' (9.2(vii)).",
+          "hi": "मसौदे के नीचे बाईं ओर संख्या दी जाती है — 'Encl. 3' (9.2(vii))।"
+        }
+      }
+    ],
+    "layout": {
+      "en": [
+        {
+          "role": "dateLine",
+          "align": "right",
+          "lines": [
+            "{{place}}, the {{date}}"
+          ]
+        },
+        {
+          "role": "addressee",
+          "align": "left",
+          "lead": "To,",
+          "source": "addressee"
+        },
+        {
+          "role": "subject",
+          "align": "left",
+          "lines": [
+            "Subject: {{subject}}"
+          ]
+        },
+        {
+          "role": "salutation",
+          "align": "left",
+          "lines": [
+            "Sir / Madam,"
+          ]
+        },
+        {
+          "role": "body",
+          "align": "left",
+          "source": "paras",
+          "numbered": true
+        },
+        {
+          "role": "closing",
+          "align": "right",
+          "lines": [
+            "Yours faithfully,"
+          ]
+        },
+        {
+          "role": "signature",
+          "align": "left",
+          "lines": [
+            "({{signatoryName}})",
+            "{{signatoryDesignation}}",
+            "Tele. No.: {{phone}}",
+            "Email: {{email}}"
+          ]
+        },
+        {
+          "role": "enclosures",
+          "align": "left",
+          "lead": "List of enclosures:",
+          "source": "enclosures",
+          "itemPrefix": "ordinal",
+          "omitWhenEmpty": true
+        }
+      ],
+      "hi": [
+        {
+          "role": "dateLine",
+          "align": "right",
+          "lines": [
+            "{{place}}, दिनांक {{date}}"
+          ]
+        },
+        {
+          "role": "addressee",
+          "align": "left",
+          "lead": "सेवा में,",
+          "source": "addressee"
+        },
+        {
+          "role": "subject",
+          "align": "left",
+          "lines": [
+            "विषय : {{subject}}"
+          ]
+        },
+        {
+          "role": "salutation",
+          "align": "left",
+          "lines": [
+            "महोदय / महोदया,"
+          ]
+        },
+        {
+          "role": "body",
+          "align": "left",
+          "source": "paras",
+          "numbered": true
+        },
+        {
+          "role": "closing",
+          "align": "right",
+          "lines": [
+            "भवदीय,"
+          ]
+        },
+        {
+          "role": "signature",
+          "align": "left",
+          "lines": [
+            "({{signatoryName}})",
+            "{{signatoryDesignation}}",
+            "दूरभाष संख्या : {{phone}}",
+            "ई-मेल : {{email}}"
+          ]
+        },
+        {
+          "role": "enclosures",
+          "align": "left",
+          "lead": "संलग्नकों की सूची :",
+          "source": "enclosures",
+          "itemPrefix": "ordinal",
+          "omitWhenEmpty": true
+        }
+      ]
+    },
+    "checklist": [
+      {
+        "id": "within-time",
+        "label": {
+          "en": "The date of the order and of its delivery are given",
+          "hi": "आदेश और उसकी प्राप्ति की तिथियाँ दी गई हैं"
+        },
+        "why": {
+          "en": "Rule 25 runs the forty-five days from the date the order was delivered. An appeal that gives neither date invites a preliminary objection instead of an answer.",
+          "hi": "नियम 25 के अनुसार पैंतालीस दिन आदेश की प्राप्ति की तिथि से चलते हैं। जो अपील कोई तिथि नहीं देती वह उत्तर के बजाय प्रारंभिक आपत्ति आमंत्रित करती है।"
+        },
+        "severity": "must",
+        "rule": {
+          "kind": "allRequired",
+          "fields": [
+            "date"
+          ]
+        }
+      },
+      {
+        "id": "temperate",
+        "label": {
+          "en": "The language is courteous and temperate",
+          "hi": "भाषा शिष्ट और संयत है"
+        },
+        "why": {
+          "en": "Rule 24 requires an appeal to be couched in courteous and temperate language and free from any disrespectful or improper expression.",
+          "hi": "नियम 24 के अनुसार अपील की भाषा शिष्ट और संयत हो तथा उसमें कोई अनादरपूर्ण या अनुचित अभिव्यक्ति न हो।"
+        },
+        "severity": "must",
+        "rule": {
+          "kind": "regexAbsent",
+          "role": "body",
+          "pattern": "(malafide|mala fide|deliberately false|biased|dishonest|द्वेषपूर्ण|जानबूझकर झूठा|पक्षपाती|बेईमान)"
+        }
+      },
+      {
+        "id": "subject",
+        "label": {
+          "en": "The subject is stated",
+          "hi": "विषय लिखा गया है"
+        },
+        "why": {
+          "en": "The specimens in Appendix 8.1 carry a subject line above the body on every form that is addressed to anyone.",
+          "hi": "परिशिष्ट 8.1 के नमूनों में हर संबोधित प्रपत्र पर मुख्य भाग के ऊपर विषय पंक्ति होती है।"
+        },
+        "severity": "must",
+        "rule": {
+          "kind": "blockPresent",
+          "role": "subject"
+        },
+        "csmopRef": "Appendix 8.1"
+      },
+      {
+        "id": "para-numbering",
+        "label": {
+          "en": "Paragraphs are serially numbered",
+          "hi": "पैराग्राफ क्रमानुसार संख्यांकित हैं"
+        },
+        "why": {
+          "en": "The specimens leave the first paragraph unnumbered and number the rest from 2.",
+          "hi": "नमूनों में पहला पैराग्राफ बिना संख्या के रहता है और शेष 2 से क्रमांकित होते हैं।"
+        },
+        "severity": "must",
+        "rule": {
+          "kind": "paraNumbering"
+        },
+        "csmopRef": "Appendix 8.1"
+      },
+      {
+        "id": "no-placeholders",
+        "label": {
+          "en": "No placeholder is left unfilled",
+          "hi": "कोई प्लेसहोल्डर अधूरा नहीं छूटा"
+        },
+        "why": {
+          "en": "A draft that goes out with {{…}} still in it has not been read.",
+          "hi": "जिस मसौदे में {{…}} रह जाए, उसे पढ़ा ही नहीं गया।"
+        },
+        "severity": "must",
+        "rule": {
+          "kind": "noPlaceholders"
+        }
+      }
+    ],
+    "source": {
+      "name": "Central Secretariat Manual of Office Procedure, 2022 (16th edition), DARPG",
+      "url": "https://www.darpg.gov.in/static/uploads/2025/10/774e0b8f427b7875158363d842fa431f.pdf",
+      "reference": "CSMOP 2022, sixteenth edition",
+      "dated": "2022-08-05"
+    },
+    "fetchedAt": "2026-09-03T00:00:00Z",
+    "verify": true,
+    "variables": [
+      {
+        "key": "orderNumber",
+        "label": {
+          "en": "Order appealed against — number",
+          "hi": "जिस आदेश के विरुद्ध अपील — संख्या"
+        },
+        "type": "text",
+        "required": true,
+        "sample": {
+          "en": "A-11012/7/2026-Vig.",
+          "hi": "ए-11012/7/2026-सतर्कता"
+        }
+      },
+      {
+        "key": "orderDate",
+        "label": {
+          "en": "Order date",
+          "hi": "आदेश दिनांक"
+        },
+        "type": "date",
+        "required": true,
+        "sample": {
+          "en": "12.08.2026",
+          "hi": "12.08.2026"
+        }
+      },
+      {
+        "key": "deliveryDate",
+        "label": {
+          "en": "Order delivered to me on",
+          "hi": "आदेश मुझे कब प्राप्त हुआ"
+        },
+        "type": "date",
+        "required": true,
+        "sample": {
+          "en": "18.08.2026",
+          "hi": "18.08.2026"
+        }
+      },
+      {
+        "key": "whatWasOrdered",
+        "label": {
+          "en": "What the order did",
+          "hi": "आदेश ने क्या किया"
+        },
+        "type": "textarea",
+        "required": true,
+        "sample": {
+          "en": "the penalty of censure was imposed upon me under rule 11(i) of the said Rules",
+          "hi": "उक्त नियमों के नियम 11(i) के अंतर्गत मुझ पर निंदा की शास्ति अधिरोपित की गई"
+        }
+      },
+      {
+        "key": "grounds",
+        "label": {
+          "en": "Grounds, one per line",
+          "hi": "आधार, प्रति पंक्ति एक"
+        },
+        "type": "enclosures",
+        "required": true,
+        "sample": {
+          "en": "The order does not record any finding on the explanation submitted by me on 05.07.2026.",
+          "hi": "आदेश में मेरे द्वारा 05.07.2026 को प्रस्तुत स्पष्टीकरण पर कोई निष्कर्ष अभिलिखित नहीं है।"
+        },
+        "hint": {
+          "en": "Each ground a separate point. Courteous and temperate language — rule 24.",
+          "hi": "प्रत्येक आधार एक अलग बिंदु। भाषा शिष्ट और संयत हो — नियम 24।"
+        }
+      },
+      {
+        "key": "prayer",
+        "label": {
+          "en": "What you ask the appellate authority to do",
+          "hi": "अपीलीय प्राधिकारी से क्या करने की प्रार्थना"
+        },
+        "type": "textarea",
+        "required": true,
+        "sample": {
+          "en": "the impugned order may be set aside and the penalty quashed",
+          "hi": "आक्षेपित आदेश अपास्त किया जाए और शास्ति निरस्त की जाए"
+        }
+      }
+    ],
+    "bodySkeleton": {
+      "en": {
+        "type": "doc",
+        "content": [
+          {
+            "type": "numberedPara",
+            "attrs": {
+              "level": 1
+            },
+            "content": [
+              {
+                "type": "text",
+                "text": "This appeal is preferred under rule 23 of the Central Civil Services (Classification, Control and Appeal) Rules, 1965 against the order No. {{orderNumber}} dated {{orderDate}}, by which {{whatWasOrdered}}. The order was delivered to me on {{deliveryDate}} and this appeal is within the forty-five days allowed by rule 25."
+              }
+            ]
+          },
+          {
+            "type": "heading",
+            "attrs": {
+              "level": 2
+            },
+            "content": [
+              {
+                "type": "text",
+                "text": "Grounds of appeal"
+              }
+            ]
+          },
+          {
+            "type": "paragraph",
+            "content": [
+              {
+                "type": "text",
+                "text": "{{#each grounds}}"
+              }
+            ]
+          },
+          {
+            "type": "numberedPara",
+            "attrs": {
+              "level": 1
+            },
+            "content": [
+              {
+                "type": "text",
+                "text": "{{.}}"
+              }
+            ]
+          },
+          {
+            "type": "paragraph",
+            "content": [
+              {
+                "type": "text",
+                "text": "{{/each}}"
+              }
+            ]
+          },
+          {
+            "type": "heading",
+            "attrs": {
+              "level": 2
+            },
+            "content": [
+              {
+                "type": "text",
+                "text": "Prayer"
+              }
+            ]
+          },
+          {
+            "type": "numberedPara",
+            "attrs": {
+              "level": 1
+            },
+            "content": [
+              {
+                "type": "text",
+                "text": "It is prayed that {{prayer}}."
+              }
+            ]
+          },
+          {
+            "type": "numberedPara",
+            "attrs": {
+              "level": 1
+            },
+            "content": [
+              {
+                "type": "text",
+                "text": "The appeal is complete in itself and does not contain any disrespectful or improper language."
+              }
+            ]
+          }
+        ]
+      },
+      "hi": {
+        "type": "doc",
+        "content": [
+          {
+            "type": "numberedPara",
+            "attrs": {
+              "level": 1
+            },
+            "content": [
+              {
+                "type": "text",
+                "text": "यह अपील केंद्रीय सिविल सेवा (वर्गीकरण, नियंत्रण और अपील) नियम, 1965 के नियम 23 के अंतर्गत आदेश संख्या {{orderNumber}} दिनांक {{orderDate}} के विरुद्ध प्रस्तुत है, जिसके द्वारा {{whatWasOrdered}}। आदेश मुझे {{deliveryDate}} को प्राप्त हुआ और यह अपील नियम 25 द्वारा अनुमत पैंतालीस दिन के भीतर है।"
+              }
+            ]
+          },
+          {
+            "type": "heading",
+            "attrs": {
+              "level": 2
+            },
+            "content": [
+              {
+                "type": "text",
+                "text": "अपील के आधार"
+              }
+            ]
+          },
+          {
+            "type": "paragraph",
+            "content": [
+              {
+                "type": "text",
+                "text": "{{#each grounds}}"
+              }
+            ]
+          },
+          {
+            "type": "numberedPara",
+            "attrs": {
+              "level": 1
+            },
+            "content": [
+              {
+                "type": "text",
+                "text": "{{.}}"
+              }
+            ]
+          },
+          {
+            "type": "paragraph",
+            "content": [
+              {
+                "type": "text",
+                "text": "{{/each}}"
+              }
+            ]
+          },
+          {
+            "type": "heading",
+            "attrs": {
+              "level": 2
+            },
+            "content": [
+              {
+                "type": "text",
+                "text": "प्रार्थना"
+              }
+            ]
+          },
+          {
+            "type": "numberedPara",
+            "attrs": {
+              "level": 1
+            },
+            "content": [
+              {
+                "type": "text",
+                "text": "प्रार्थना है कि {{prayer}}।"
+              }
+            ]
+          },
+          {
+            "type": "numberedPara",
+            "attrs": {
+              "level": 1
+            },
+            "content": [
+              {
+                "type": "text",
+                "text": "यह अपील स्वतःपूर्ण है और इसमें कोई अनादरपूर्ण या अनुचित भाषा नहीं है।"
+              }
+            ]
+          }
+        ]
+      }
+    }
+  }
+}

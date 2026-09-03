@@ -112,7 +112,7 @@ describe('the version 2 upgrade', () => {
       // the chapter revision deck, Feynman attempts, sessions and goals), so
       // opening it upgrades a v1 database straight to the current version
       // rather than stopping at 2.
-      expect(v2.verno).toBe(13)
+      expect(v2.verno).toBe(14)
       expect(await v2.settings.get(SETTING_KEYS.theme)).toEqual({
         key: SETTING_KEYS.theme,
         value: 'dark',
@@ -155,13 +155,18 @@ describe('the version 2 upgrade', () => {
     // clearAllData iterates db.tables, so a table added without being declared
     // on the class would be silently left behind by the kill switch.
     expect(db.tables.map((table) => table.name).sort()).toEqual([
+      'addressBook',
       'aiAnswers',
       'aiUsage',
       'cardOverrides',
       'chapterCards',
       'chapterLog',
       'commandRecents',
+      'docComments',
+      'docVersions',
+      'documents',
       'draftDefaults',
+      'draftingProfile',
       'drafts',
       'feynmanAttempts',
       'glossaryFavourites',
@@ -174,7 +179,10 @@ describe('the version 2 upgrade', () => {
       'libraryNotes',
       'libraryPersonalWorks',
       'libraryProgress',
+      'numberIssues',
+      'numberPatterns',
       'payScenarios',
+      'personalTemplates',
       'proposedCards',
       'reviewLog',
       'secrets',
@@ -183,6 +191,8 @@ describe('the version 2 upgrade', () => {
       'streaks',
       'studyGoals',
       'studySessions',
+      'templateFavourites',
+      'templateRecents',
       'trainerBookmarks',
       'trainerReports',
       'trainerSettings',

@@ -1,0 +1,663 @@
+{
+  "version": "2.0.0",
+  "generatedAt": "2026-09-03T00:00:00Z",
+  "disclaimer": {
+    "en": "Reference only; verify with the official gazette/order or your DDO.",
+    "hi": "केवल संदर्भ के लिए; सरकारी राजपत्र/आदेश या अपने डीडीओ से सत्यापित करें।"
+  },
+  "template": {
+    "id": "gpf-advance",
+    "name": {
+      "en": "GPF advance / withdrawal application",
+      "hi": "सामान्य भविष्य निधि अग्रिम / आहरण आवेदन"
+    },
+    "shortName": {
+      "en": "GPF advance",
+      "hi": "भविष्य निधि अग्रिम"
+    },
+    "person": "first",
+    "usedBy": {
+      "en": "An officer, on their own behalf.",
+      "hi": "एक अधिकारी, अपनी ओर से।"
+    },
+    "whenToUse": {
+      "en": "The General Provident Fund (Central Services) Rules, 1960 allow a temporary advance, which is recovered in instalments, and a part-final withdrawal, which is not. Which of the two is being asked for, the purpose, the amount and the balance at credit are the four facts the sanctioning authority needs; an application missing any of them comes back.",
+      "hi": "सामान्य भविष्य निधि (केंद्रीय सेवाएँ) नियम, 1960 अस्थायी अग्रिम की अनुमति देते हैं, जो किस्तों में वसूला जाता है, तथा आंशिक अंतिम आहरण की, जो वसूला नहीं जाता। इन दोनों में से क्या माँगा जा रहा है, प्रयोजन, राशि और जमा शेष — ये चार तथ्य स्वीकृति प्राधिकारी को चाहिए; इनमें से कोई भी छूटा आवेदन लौट आता है।"
+    },
+    "salutation": null,
+    "subscription": null,
+    "urgencyAllowed": false,
+    "csmopRef": {
+      "edition": "CSMOP 2022, sixteenth edition",
+      "paras": [
+        "8.4(1)"
+      ],
+      "chassis": "letter",
+      "note": {
+        "en": "CSMOP prescribes no format. The entitlement, the purposes and the recovery come from the General Provident Fund (Central Services) Rules, 1960. Built on the letter chassis.",
+        "hi": "सीएसएमओपी कोई प्रारूप निर्धारित नहीं करता। पात्रता, प्रयोजन और वसूली सामान्य भविष्य निधि (केंद्रीय सेवाएँ) नियम, 1960 से आते हैं। पत्र ढाँचे पर बना।"
+      }
+    },
+    "fields": [
+      {
+        "id": "place",
+        "label": {
+          "en": "Place",
+          "hi": "स्थान"
+        },
+        "type": "text",
+        "required": true,
+        "sample": {
+          "en": "New Delhi",
+          "hi": "नई दिल्ली"
+        }
+      },
+      {
+        "id": "date",
+        "label": {
+          "en": "Date",
+          "hi": "दिनांक"
+        },
+        "type": "date",
+        "required": true,
+        "sample": {
+          "en": "2026-08-28",
+          "hi": "2026-08-28"
+        },
+        "hint": {
+          "en": "dd.mm.yyyy in English; दिनांक dd.mm.yyyy in Hindi.",
+          "hi": "अंग्रेज़ी में dd.mm.yyyy; हिंदी में दिनांक dd.mm.yyyy।"
+        }
+      },
+      {
+        "id": "addressee",
+        "label": {
+          "en": "Addressee",
+          "hi": "प्रेषिती"
+        },
+        "type": "list",
+        "required": true,
+        "sample": {
+          "en": [
+            "The Under Secretary (Establishment)",
+            "Department of Personnel and Training",
+            "North Block, New Delhi"
+          ],
+          "hi": [
+            "अवर सचिव (स्थापना)",
+            "कार्मिक और प्रशिक्षण विभाग",
+            "नॉर्थ ब्लॉक, नई दिल्ली"
+          ]
+        }
+      },
+      {
+        "id": "subject",
+        "label": {
+          "en": "Subject",
+          "hi": "विषय"
+        },
+        "type": "text",
+        "required": true,
+        "sample": {
+          "en": "Application for a temporary advance from the General Provident Fund.",
+          "hi": "सामान्य भविष्य निधि से अस्थायी अग्रिम हेतु आवेदन।"
+        }
+      },
+      {
+        "id": "paras",
+        "label": {
+          "en": "Body paragraphs",
+          "hi": "मुख्य पैराग्राफ"
+        },
+        "type": "paras",
+        "required": true,
+        "sample": {
+          "en": [
+            "I request the sanction of a temporary advance of Rs. 1,50,000 from my General Provident Fund account No. DPT/12345 for the purpose of meeting the cost of higher education of my daughter.",
+            "The balance at my credit as on 31.03.2026 was Rs. 8,42,000, as per the account statement enclosed. A temporary advance of Rs. 60,000 sanctioned in March 2024 has been fully recovered.",
+            "I request that the advance may be recovered in 36 monthly instalments beginning with the pay for the month of November 2026."
+          ],
+          "hi": [
+            "अनुरोध है कि मेरे सामान्य भविष्य निधि खाता संख्या डीपीटी/12345 से अपनी पुत्री की उच्च शिक्षा का व्यय वहन करने के प्रयोजन हेतु 1,50,000 रुपये का अस्थायी अग्रिम स्वीकृत किया जाए।",
+            "संलग्न खाता विवरण के अनुसार 31.03.2026 को मेरे खाते में 8,42,000 रुपये जमा थे। मार्च 2024 में स्वीकृत 60,000 रुपये का अस्थायी अग्रिम पूरी तरह वसूल हो चुका है।",
+            "अनुरोध है कि अग्रिम की वसूली नवंबर 2026 माह के वेतन से आरंभ करके 36 मासिक किस्तों में की जाए।"
+          ]
+        },
+        "hint": {
+          "en": "One paragraph per line. The first is left unnumbered and the rest are numbered from 2.",
+          "hi": "प्रति पंक्ति एक पैराग्राफ। पहला बिना संख्या के रहता है और शेष 2 से क्रमांकित होते हैं।"
+        }
+      },
+      {
+        "id": "signatoryName",
+        "label": {
+          "en": "Your name",
+          "hi": "आपका नाम"
+        },
+        "type": "text",
+        "required": true,
+        "sample": {
+          "en": "A.B.C.",
+          "hi": "ए.बी.सी."
+        }
+      },
+      {
+        "id": "signatoryDesignation",
+        "label": {
+          "en": "Your designation",
+          "hi": "आपका पदनाम"
+        },
+        "type": "text",
+        "required": true,
+        "sample": {
+          "en": "Assistant Section Officer",
+          "hi": "सहायक अनुभाग अधिकारी"
+        }
+      },
+      {
+        "id": "phone",
+        "label": {
+          "en": "Telephone number",
+          "hi": "दूरभाष संख्या"
+        },
+        "type": "text",
+        "required": true,
+        "sample": {
+          "en": "011-2309 2590",
+          "hi": "011-2309 2590"
+        }
+      },
+      {
+        "id": "email",
+        "label": {
+          "en": "Email",
+          "hi": "ई-मेल"
+        },
+        "type": "text",
+        "required": true,
+        "sample": {
+          "en": "abc@nic.in",
+          "hi": "abc@nic.in"
+        }
+      },
+      {
+        "id": "enclosures",
+        "label": {
+          "en": "Enclosures",
+          "hi": "संलग्नक"
+        },
+        "type": "list",
+        "required": false,
+        "sample": {
+          "en": [
+            "A statement of my General Provident Fund account as on 31.03.2026."
+          ],
+          "hi": [
+            "31.03.2026 की स्थिति के अनुसार मेरे सामान्य भविष्य निधि खाते का विवरण।"
+          ]
+        },
+        "hint": {
+          "en": "The count goes at the bottom left of the draft — 'Encl. 3' (9.2(vii)).",
+          "hi": "मसौदे के नीचे बाईं ओर संख्या दी जाती है — 'Encl. 3' (9.2(vii))।"
+        }
+      }
+    ],
+    "layout": {
+      "en": [
+        {
+          "role": "dateLine",
+          "align": "right",
+          "lines": [
+            "{{place}}, the {{date}}"
+          ]
+        },
+        {
+          "role": "addressee",
+          "align": "left",
+          "lead": "To,",
+          "source": "addressee"
+        },
+        {
+          "role": "subject",
+          "align": "left",
+          "lines": [
+            "Subject: {{subject}}"
+          ]
+        },
+        {
+          "role": "salutation",
+          "align": "left",
+          "lines": [
+            "Sir / Madam,"
+          ]
+        },
+        {
+          "role": "body",
+          "align": "left",
+          "source": "paras",
+          "numbered": true
+        },
+        {
+          "role": "closing",
+          "align": "right",
+          "lines": [
+            "Yours faithfully,"
+          ]
+        },
+        {
+          "role": "signature",
+          "align": "left",
+          "lines": [
+            "({{signatoryName}})",
+            "{{signatoryDesignation}}",
+            "Tele. No.: {{phone}}",
+            "Email: {{email}}"
+          ]
+        },
+        {
+          "role": "enclosures",
+          "align": "left",
+          "lead": "List of enclosures:",
+          "source": "enclosures",
+          "itemPrefix": "ordinal",
+          "omitWhenEmpty": true
+        }
+      ],
+      "hi": [
+        {
+          "role": "dateLine",
+          "align": "right",
+          "lines": [
+            "{{place}}, दिनांक {{date}}"
+          ]
+        },
+        {
+          "role": "addressee",
+          "align": "left",
+          "lead": "सेवा में,",
+          "source": "addressee"
+        },
+        {
+          "role": "subject",
+          "align": "left",
+          "lines": [
+            "विषय : {{subject}}"
+          ]
+        },
+        {
+          "role": "salutation",
+          "align": "left",
+          "lines": [
+            "महोदय / महोदया,"
+          ]
+        },
+        {
+          "role": "body",
+          "align": "left",
+          "source": "paras",
+          "numbered": true
+        },
+        {
+          "role": "closing",
+          "align": "right",
+          "lines": [
+            "भवदीय,"
+          ]
+        },
+        {
+          "role": "signature",
+          "align": "left",
+          "lines": [
+            "({{signatoryName}})",
+            "{{signatoryDesignation}}",
+            "दूरभाष संख्या : {{phone}}",
+            "ई-मेल : {{email}}"
+          ]
+        },
+        {
+          "role": "enclosures",
+          "align": "left",
+          "lead": "संलग्नकों की सूची :",
+          "source": "enclosures",
+          "itemPrefix": "ordinal",
+          "omitWhenEmpty": true
+        }
+      ]
+    },
+    "checklist": [
+      {
+        "id": "balance-stated",
+        "label": {
+          "en": "The balance at credit is stated",
+          "hi": "जमा शेष लिखा गया है"
+        },
+        "why": {
+          "en": "The sanctioning authority checks the amount asked for against the balance. An application without it cannot be decided at all.",
+          "hi": "स्वीकृति प्राधिकारी माँगी गई राशि की जाँच शेष के विरुद्ध करता है। उसके बिना आवेदन पर निर्णय ही नहीं हो सकता।"
+        },
+        "severity": "must",
+        "rule": {
+          "kind": "regex",
+          "role": "body",
+          "pattern": "(balance|credit|शेष|जमा)"
+        }
+      },
+      {
+        "id": "subject",
+        "label": {
+          "en": "The subject is stated",
+          "hi": "विषय लिखा गया है"
+        },
+        "why": {
+          "en": "The specimens in Appendix 8.1 carry a subject line above the body on every form that is addressed to anyone.",
+          "hi": "परिशिष्ट 8.1 के नमूनों में हर संबोधित प्रपत्र पर मुख्य भाग के ऊपर विषय पंक्ति होती है।"
+        },
+        "severity": "must",
+        "rule": {
+          "kind": "blockPresent",
+          "role": "subject"
+        },
+        "csmopRef": "Appendix 8.1"
+      },
+      {
+        "id": "para-numbering",
+        "label": {
+          "en": "Paragraphs are serially numbered",
+          "hi": "पैराग्राफ क्रमानुसार संख्यांकित हैं"
+        },
+        "why": {
+          "en": "The specimens leave the first paragraph unnumbered and number the rest from 2.",
+          "hi": "नमूनों में पहला पैराग्राफ बिना संख्या के रहता है और शेष 2 से क्रमांकित होते हैं।"
+        },
+        "severity": "must",
+        "rule": {
+          "kind": "paraNumbering"
+        },
+        "csmopRef": "Appendix 8.1"
+      },
+      {
+        "id": "no-placeholders",
+        "label": {
+          "en": "No placeholder is left unfilled",
+          "hi": "कोई प्लेसहोल्डर अधूरा नहीं छूटा"
+        },
+        "why": {
+          "en": "A draft that goes out with {{…}} still in it has not been read.",
+          "hi": "जिस मसौदे में {{…}} रह जाए, उसे पढ़ा ही नहीं गया।"
+        },
+        "severity": "must",
+        "rule": {
+          "kind": "noPlaceholders"
+        }
+      }
+    ],
+    "source": {
+      "name": "Central Secretariat Manual of Office Procedure, 2022 (16th edition), DARPG",
+      "url": "https://www.darpg.gov.in/static/uploads/2025/10/774e0b8f427b7875158363d842fa431f.pdf",
+      "reference": "CSMOP 2022, sixteenth edition",
+      "dated": "2022-08-05"
+    },
+    "fetchedAt": "2026-09-03T00:00:00Z",
+    "verify": true,
+    "variables": [
+      {
+        "key": "advanceKind",
+        "label": {
+          "en": "Advance or withdrawal",
+          "hi": "अग्रिम या आहरण"
+        },
+        "type": "select",
+        "required": true,
+        "sample": {
+          "en": "temporary advance",
+          "hi": "अस्थायी अग्रिम"
+        },
+        "options": [
+          {
+            "value": "temporary advance",
+            "label": {
+              "en": "Temporary advance (recovered)",
+              "hi": "अस्थायी अग्रिम (वसूली योग्य)"
+            }
+          },
+          {
+            "value": "part-final withdrawal",
+            "label": {
+              "en": "Part-final withdrawal (not recovered)",
+              "hi": "आंशिक अंतिम आहरण (वसूली नहीं)"
+            }
+          }
+        ]
+      },
+      {
+        "key": "amount",
+        "label": {
+          "en": "Amount",
+          "hi": "राशि"
+        },
+        "type": "text",
+        "required": true,
+        "sample": {
+          "en": "1,50,000",
+          "hi": "1,50,000"
+        },
+        "pattern": "^[0-9][0-9,]*$",
+        "patternHint": {
+          "en": "Figures only.",
+          "hi": "केवल अंक।"
+        }
+      },
+      {
+        "key": "accountNumber",
+        "label": {
+          "en": "GPF account number",
+          "hi": "भविष्य निधि खाता संख्या"
+        },
+        "type": "text",
+        "required": true,
+        "sample": {
+          "en": "DPT/12345",
+          "hi": "डीपीटी/12345"
+        }
+      },
+      {
+        "key": "purpose",
+        "label": {
+          "en": "Purpose",
+          "hi": "प्रयोजन"
+        },
+        "type": "text",
+        "required": true,
+        "sample": {
+          "en": "meeting the cost of higher education of my daughter",
+          "hi": "अपनी पुत्री की उच्च शिक्षा का व्यय वहन करने"
+        }
+      },
+      {
+        "key": "balanceDate",
+        "label": {
+          "en": "Balance as on",
+          "hi": "शेष किस दिनांक को"
+        },
+        "type": "date",
+        "required": true,
+        "sample": {
+          "en": "31.03.2026",
+          "hi": "31.03.2026"
+        }
+      },
+      {
+        "key": "balance",
+        "label": {
+          "en": "Balance at credit",
+          "hi": "जमा शेष"
+        },
+        "type": "text",
+        "required": true,
+        "sample": {
+          "en": "8,42,000",
+          "hi": "8,42,000"
+        }
+      },
+      {
+        "key": "previousAdvance",
+        "label": {
+          "en": "Previous advance, if any",
+          "hi": "पूर्व अग्रिम, यदि कोई"
+        },
+        "type": "textarea",
+        "required": false,
+        "sample": {
+          "en": "A temporary advance of Rs. 60,000 sanctioned in March 2024 has been fully recovered.",
+          "hi": "मार्च 2024 में स्वीकृत 60,000 रुपये का अस्थायी अग्रिम पूरी तरह वसूल हो चुका है।"
+        }
+      },
+      {
+        "key": "instalments",
+        "label": {
+          "en": "Instalments of recovery",
+          "hi": "वसूली की किस्तें"
+        },
+        "type": "number",
+        "required": false,
+        "sample": {
+          "en": "36",
+          "hi": "36"
+        }
+      },
+      {
+        "key": "recoveryFrom",
+        "label": {
+          "en": "Recovery to begin from",
+          "hi": "वसूली किस माह से"
+        },
+        "type": "text",
+        "required": false,
+        "sample": {
+          "en": "November 2026",
+          "hi": "नवंबर 2026"
+        }
+      }
+    ],
+    "bodySkeleton": {
+      "en": {
+        "type": "doc",
+        "content": [
+          {
+            "type": "numberedPara",
+            "attrs": {
+              "level": 1
+            },
+            "content": [
+              {
+                "type": "text",
+                "text": "I request the sanction of a {{advanceKind}} of Rs. {{amount}} from my General Provident Fund account No. {{accountNumber}} for the purpose of {{purpose}}."
+              }
+            ]
+          },
+          {
+            "type": "numberedPara",
+            "attrs": {
+              "level": 1
+            },
+            "content": [
+              {
+                "type": "text",
+                "text": "The balance at my credit as on {{balanceDate}} was Rs. {{balance}}, as per the account statement enclosed. {{previousAdvance}}"
+              }
+            ]
+          },
+          {
+            "type": "paragraph",
+            "content": [
+              {
+                "type": "text",
+                "text": "{{#if instalments}}"
+              }
+            ]
+          },
+          {
+            "type": "numberedPara",
+            "attrs": {
+              "level": 1
+            },
+            "content": [
+              {
+                "type": "text",
+                "text": "I request that the advance may be recovered in {{instalments}} monthly instalments beginning with the pay for the month of {{recoveryFrom}}."
+              }
+            ]
+          },
+          {
+            "type": "paragraph",
+            "content": [
+              {
+                "type": "text",
+                "text": "{{/if}}"
+              }
+            ]
+          }
+        ]
+      },
+      "hi": {
+        "type": "doc",
+        "content": [
+          {
+            "type": "numberedPara",
+            "attrs": {
+              "level": 1
+            },
+            "content": [
+              {
+                "type": "text",
+                "text": "अनुरोध है कि मेरे सामान्य भविष्य निधि खाता संख्या {{accountNumber}} से {{purpose}} के प्रयोजन हेतु {{amount}} रुपये का {{advanceKind}} स्वीकृत किया जाए।"
+              }
+            ]
+          },
+          {
+            "type": "numberedPara",
+            "attrs": {
+              "level": 1
+            },
+            "content": [
+              {
+                "type": "text",
+                "text": "संलग्न खाता विवरण के अनुसार {{balanceDate}} को मेरे खाते में {{balance}} रुपये जमा थे। {{previousAdvance}}"
+              }
+            ]
+          },
+          {
+            "type": "paragraph",
+            "content": [
+              {
+                "type": "text",
+                "text": "{{#if instalments}}"
+              }
+            ]
+          },
+          {
+            "type": "numberedPara",
+            "attrs": {
+              "level": 1
+            },
+            "content": [
+              {
+                "type": "text",
+                "text": "अनुरोध है कि अग्रिम की वसूली {{recoveryFrom}} माह के वेतन से आरंभ करके {{instalments}} मासिक किस्तों में की जाए।"
+              }
+            ]
+          },
+          {
+            "type": "paragraph",
+            "content": [
+              {
+                "type": "text",
+                "text": "{{/if}}"
+              }
+            ]
+          }
+        ]
+      }
+    }
+  }
+}

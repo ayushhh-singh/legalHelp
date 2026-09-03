@@ -50,10 +50,10 @@ from ingest_common import DATA_DIR, log, read_json, validate, write_json  # noqa
 OUT_DIR = DATA_DIR / "drafting"
 TEMPLATE_DIR = OUT_DIR / "templates"
 
-VERSION = "1.1.0"
+VERSION = "2.0.0"
 # Fixed, not a clock: a re-run whose content has not changed must produce
 # byte-identical files, or `--check` in CI reports a diff on every run.
-STAMP = "2026-08-28T00:00:00Z"
+STAMP = "2026-09-03T00:00:00Z"
 
 CSMOP_EN_URL = "https://www.darpg.gov.in/static/uploads/2025/10/774e0b8f427b7875158363d842fa431f.pdf"
 CSMOP_HI_URL = "https://www.darpg.gov.in/static/uploads/2025/10/8b5d6eb6c7c47bc69e271e25f1c2cc43.pdf"
@@ -3508,6 +3508,125 @@ TEMPLATES.append(
         ],
     )
 )
+
+
+# --------------------------------------------------------------------------- #
+# 3b. The twenty-nine forms Session 29 added
+#
+# `drafting_forms.py` owns them and defines no helper of its own — it is handed
+# the ones above, so there is one definition of what a template is and one
+# self-check over all forty-three. The split is a reading convenience: the
+# fourteen forms CSMOP gives a specimen for are here, the rest are there.
+# --------------------------------------------------------------------------- #
+
+import drafting_forms  # noqa: E402
+
+
+class _Helpers:
+    """The seed's own builders, handed to `drafting_forms.build`."""
+
+    bl = staticmethod(bl)
+    field = staticmethod(field)
+    block = staticmethod(block)
+    check = staticmethod(check)
+    template = staticmethod(template)
+    ref = staticmethod(ref)
+    f_urgency = staticmethod(f_urgency)
+    f_file_number = staticmethod(f_file_number)
+    f_ministry = staticmethod(f_ministry)
+    f_department = staticmethod(f_department)
+    f_place = staticmethod(f_place)
+    f_date = staticmethod(f_date)
+    f_subject = staticmethod(f_subject)
+    f_paras = staticmethod(f_paras)
+    f_signatory = staticmethod(f_signatory)
+    f_enclosures = staticmethod(f_enclosures)
+    f_copy_to = staticmethod(f_copy_to)
+    head_en = staticmethod(head_en)
+    head_hi = staticmethod(head_hi)
+    check_third_person = staticmethod(check_third_person)
+    URGENCY_EN = URGENCY_EN
+    URGENCY_HI = URGENCY_HI
+    SIGN_EN = SIGN_EN
+    SIGN_HI = SIGN_HI
+    ENCL_EN = ENCL_EN
+    ENCL_HI = ENCL_HI
+    COPY_EN = COPY_EN
+    COPY_HI = COPY_HI
+    BODY_EN = BODY_EN
+    BODY_HI = BODY_HI
+    CHECK_NO_PLACEHOLDERS = CHECK_NO_PLACEHOLDERS
+    CHECK_NUMBER_DATE = CHECK_NUMBER_DATE
+    CHECK_SUBJECT = CHECK_SUBJECT
+    CHECK_PARA_NUMBERING = CHECK_PARA_NUMBERING
+    CHECK_ENCLOSURES = CHECK_ENCLOSURES
+    CHECK_SIGNATURE = CHECK_SIGNATURE
+    CHECK_REPLY_DATE = CHECK_REPLY_DATE
+
+
+TEMPLATES.extend(drafting_forms.build(_Helpers))
+
+
+def _opening_phrase(tid: str) -> dict[str, str] | None:
+    """The standard opening this form's phrase library already carries."""
+    for entry in PHRASES:
+        if entry["kind"] == "opening" and tid in entry["appliesTo"]:
+            return entry["text"]
+    return None
+
+
+def _add_legacy_skeletons() -> None:
+    """Give the fourteen original forms a `bodySkeleton` without touching their
+    worked example.
+
+    Their `paras` samples are hand-authored from the Appendix 8.1 specimens and
+    two of them are snapshotted as `.txt` in `tests/__snapshots__` — the shape of
+    a page is the thing under test there, so those samples must not move. What
+    they lacked was a STARTING body: a document created from one of these forms
+    used to open with an empty textarea.
+
+    So the skeleton is built from what the form already knows about itself — the
+    standard opening in `phrases.json` for that form, then one `{{mainPoint}}`
+    placeholder — and `mainPoint`'s worked example is the form's own remaining
+    sample paragraphs, so instantiating the skeleton from the variable samples
+    produces the specimen's own prose rather than a chip.
+    """
+    for record in TEMPLATES:
+        if record.get("bodySkeleton"):
+            continue
+        paras = next((f for f in record["fields"] if f["id"] == "paras"), None)
+        if paras is None:
+            # A form with no body field — the endorsement is a single fixed
+            # sentence — has no skeleton to build and does not want one.
+            record.setdefault("variables", [])
+            continue
+
+        opening = _opening_phrase(record["id"])
+        sample_en = list(paras["sample"]["en"])
+        sample_hi = list(paras["sample"]["hi"])
+        first_en = opening["en"] if opening else (sample_en[0] if sample_en else "")
+        first_hi = opening["hi"] if opening else (sample_hi[0] if sample_hi else "")
+        rest_en = " ".join(sample_en[1:]) or (sample_en[0] if sample_en else "")
+        rest_hi = " ".join(sample_hi[1:]) or (sample_hi[0] if sample_hi else "")
+
+        record["variables"] = [
+            drafting_forms.var(
+                "mainPoint",
+                bl("The point of the document", "दस्तावेज़ की मुख्य बात"),
+                "textarea",
+                True,
+                ex=(rest_en, rest_hi),
+                hint=bl(
+                    "What is being decided, asked for or conveyed. Add further paragraphs in the editor.",
+                    "क्या तय, माँगा या संप्रेषित किया जा रहा है। आगे के पैराग्राफ संपादक में जोड़ें।",
+                ),
+            )
+        ]
+        record["bodySkeleton"] = drafting_forms.skeleton([first_en, "{{mainPoint}}"], [first_hi, "{{mainPoint}}"])
+
+
+_add_legacy_skeletons()
+
 
 
 # --------------------------------------------------------------------------- #

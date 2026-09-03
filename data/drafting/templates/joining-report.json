@@ -1,0 +1,625 @@
+{
+  "version": "2.0.0",
+  "generatedAt": "2026-09-03T00:00:00Z",
+  "disclaimer": {
+    "en": "Reference only; verify with the official gazette/order or your DDO.",
+    "hi": "केवल संदर्भ के लिए; सरकारी राजपत्र/आदेश या अपने डीडीओ से सत्यापित करें।"
+  },
+  "template": {
+    "id": "joining-report",
+    "name": {
+      "en": "Joining report",
+      "hi": "कार्यग्रहण रिपोर्ट"
+    },
+    "shortName": {
+      "en": "Joining report",
+      "hi": "कार्यग्रहण"
+    },
+    "person": "third",
+    "usedBy": {
+      "en": "An officer joining a post.",
+      "hi": "पद ग्रहण करने वाला अधिकारी।"
+    },
+    "whenToUse": {
+      "en": "Submitted on the day of joining. It must state the date and the forenoon or afternoon, because pay, allowances and the joining time are all counted from that half-day. Where joining follows a transfer, the relieving order is cited so the two offices' records agree.",
+      "hi": "कार्यग्रहण के दिन प्रस्तुत। इसमें दिनांक और पूर्वाह्न या अपराह्न अवश्य लिखा जाना चाहिए, क्योंकि वेतन, भत्ते और कार्यग्रहण काल सभी उसी आधे दिन से गिने जाते हैं। जहाँ कार्यग्रहण स्थानांतरण के बाद हो, वहाँ कार्यमुक्ति आदेश उद्धृत किया जाता है ताकि दोनों कार्यालयों के अभिलेख मेल खाएँ।"
+    },
+    "salutation": null,
+    "subscription": null,
+    "urgencyAllowed": false,
+    "csmopRef": {
+      "edition": "CSMOP 2022, sixteenth edition",
+      "paras": [
+        "8.4(1)"
+      ],
+      "chassis": "letter",
+      "note": {
+        "en": "CSMOP prescribes no format for this form. It is built on the letter chassis.",
+        "hi": "सीएसएमओपी इस प्ररूप का कोई प्रारूप निर्धारित नहीं करता। यह letter ढाँचे पर बना है।"
+      }
+    },
+    "fields": [
+      {
+        "id": "place",
+        "label": {
+          "en": "Place",
+          "hi": "स्थान"
+        },
+        "type": "text",
+        "required": true,
+        "sample": {
+          "en": "New Delhi",
+          "hi": "नई दिल्ली"
+        }
+      },
+      {
+        "id": "date",
+        "label": {
+          "en": "Date",
+          "hi": "दिनांक"
+        },
+        "type": "date",
+        "required": true,
+        "sample": {
+          "en": "2026-08-28",
+          "hi": "2026-08-28"
+        },
+        "hint": {
+          "en": "dd.mm.yyyy in English; दिनांक dd.mm.yyyy in Hindi.",
+          "hi": "अंग्रेज़ी में dd.mm.yyyy; हिंदी में दिनांक dd.mm.yyyy।"
+        }
+      },
+      {
+        "id": "addressee",
+        "label": {
+          "en": "Addressee",
+          "hi": "प्रेषिती"
+        },
+        "type": "list",
+        "required": true,
+        "sample": {
+          "en": [
+            "The Under Secretary (Establishment)",
+            "Department of Expenditure",
+            "North Block, New Delhi"
+          ],
+          "hi": [
+            "अवर सचिव (स्थापना)",
+            "व्यय विभाग",
+            "नॉर्थ ब्लॉक, नई दिल्ली"
+          ]
+        }
+      },
+      {
+        "id": "subject",
+        "label": {
+          "en": "Subject",
+          "hi": "विषय"
+        },
+        "type": "text",
+        "required": true,
+        "sample": {
+          "en": "Joining report on transfer to the Department of Expenditure.",
+          "hi": "व्यय विभाग में स्थानांतरण पर कार्यग्रहण रिपोर्ट।"
+        }
+      },
+      {
+        "id": "paras",
+        "label": {
+          "en": "Body paragraphs",
+          "hi": "मुख्य पैराग्राफ"
+        },
+        "type": "paras",
+        "required": true,
+        "sample": {
+          "en": [
+            "I have to report that I have joined the post of Section Officer in this Department on the forenoon of 01.09.2026, in pursuance of order No. A-32011/4/2026-Estt. dated 12.08.2026.",
+            "I was relieved from the Department of Personnel and Training on the afternoon of 31.08.2026 vide their order No. A-32011/4/2026-Estt..",
+            "It is requested that my joining may kindly be taken on record and the necessary entries made in the service book."
+          ],
+          "hi": [
+            "मुझे यह सूचित करना है कि मैंने आदेश संख्या ए-32011/4/2026-स्थापना दिनांक 12.08.2026 के अनुसरण में 01.09.2026 के पूर्वाह्न में इस विभाग में अनुभाग अधिकारी का पद ग्रहण कर लिया है।",
+            "मुझे कार्मिक और प्रशिक्षण विभाग से उनके आदेश संख्या ए-32011/4/2026-स्थापना द्वारा 31.08.2026 के अपराह्न में कार्यमुक्त किया गया था।",
+            "अनुरोध है कि मेरे कार्यग्रहण को अभिलेख में लिया जाए और सेवा पुस्तिका में आवश्यक प्रविष्टियाँ की जाएँ।"
+          ]
+        },
+        "hint": {
+          "en": "One paragraph per line. The first is left unnumbered and the rest are numbered from 2.",
+          "hi": "प्रति पंक्ति एक पैराग्राफ। पहला बिना संख्या के रहता है और शेष 2 से क्रमांकित होते हैं।"
+        }
+      },
+      {
+        "id": "signatoryName",
+        "label": {
+          "en": "Your name",
+          "hi": "आपका नाम"
+        },
+        "type": "text",
+        "required": true,
+        "sample": {
+          "en": "A.B.C.",
+          "hi": "ए.बी.सी."
+        }
+      },
+      {
+        "id": "signatoryDesignation",
+        "label": {
+          "en": "Your designation",
+          "hi": "आपका पदनाम"
+        },
+        "type": "text",
+        "required": true,
+        "sample": {
+          "en": "Section Officer",
+          "hi": "अनुभाग अधिकारी"
+        }
+      },
+      {
+        "id": "phone",
+        "label": {
+          "en": "Telephone number",
+          "hi": "दूरभाष संख्या"
+        },
+        "type": "text",
+        "required": true,
+        "sample": {
+          "en": "011-2309 2590",
+          "hi": "011-2309 2590"
+        }
+      },
+      {
+        "id": "email",
+        "label": {
+          "en": "Email",
+          "hi": "ई-मेल"
+        },
+        "type": "text",
+        "required": true,
+        "sample": {
+          "en": "abc@nic.in",
+          "hi": "abc@nic.in"
+        }
+      },
+      {
+        "id": "enclosures",
+        "label": {
+          "en": "Enclosures",
+          "hi": "संलग्नक"
+        },
+        "type": "list",
+        "required": false,
+        "sample": {
+          "en": [
+            "A copy of the relieving order dated 31.08.2026."
+          ],
+          "hi": [
+            "दिनांक 31.08.2026 के कार्यमुक्ति आदेश की प्रति।"
+          ]
+        },
+        "hint": {
+          "en": "The count goes at the bottom left of the draft — 'Encl. 3' (9.2(vii)).",
+          "hi": "मसौदे के नीचे बाईं ओर संख्या दी जाती है — 'Encl. 3' (9.2(vii))।"
+        }
+      }
+    ],
+    "layout": {
+      "en": [
+        {
+          "role": "dateLine",
+          "align": "right",
+          "lines": [
+            "{{place}}, the {{date}}"
+          ]
+        },
+        {
+          "role": "addressee",
+          "align": "left",
+          "lead": "To,",
+          "source": "addressee"
+        },
+        {
+          "role": "subject",
+          "align": "left",
+          "lines": [
+            "Subject: {{subject}}"
+          ]
+        },
+        {
+          "role": "salutation",
+          "align": "left",
+          "lines": [
+            "Sir / Madam,"
+          ]
+        },
+        {
+          "role": "body",
+          "align": "left",
+          "source": "paras",
+          "numbered": true
+        },
+        {
+          "role": "closing",
+          "align": "right",
+          "lines": [
+            "Yours faithfully,"
+          ]
+        },
+        {
+          "role": "signature",
+          "align": "left",
+          "lines": [
+            "({{signatoryName}})",
+            "{{signatoryDesignation}}",
+            "Tele. No.: {{phone}}",
+            "Email: {{email}}"
+          ]
+        },
+        {
+          "role": "enclosures",
+          "align": "left",
+          "lead": "List of enclosures:",
+          "source": "enclosures",
+          "itemPrefix": "ordinal",
+          "omitWhenEmpty": true
+        }
+      ],
+      "hi": [
+        {
+          "role": "dateLine",
+          "align": "right",
+          "lines": [
+            "{{place}}, दिनांक {{date}}"
+          ]
+        },
+        {
+          "role": "addressee",
+          "align": "left",
+          "lead": "सेवा में,",
+          "source": "addressee"
+        },
+        {
+          "role": "subject",
+          "align": "left",
+          "lines": [
+            "विषय : {{subject}}"
+          ]
+        },
+        {
+          "role": "salutation",
+          "align": "left",
+          "lines": [
+            "महोदय / महोदया,"
+          ]
+        },
+        {
+          "role": "body",
+          "align": "left",
+          "source": "paras",
+          "numbered": true
+        },
+        {
+          "role": "closing",
+          "align": "right",
+          "lines": [
+            "भवदीय,"
+          ]
+        },
+        {
+          "role": "signature",
+          "align": "left",
+          "lines": [
+            "({{signatoryName}})",
+            "{{signatoryDesignation}}",
+            "दूरभाष संख्या : {{phone}}",
+            "ई-मेल : {{email}}"
+          ]
+        },
+        {
+          "role": "enclosures",
+          "align": "left",
+          "lead": "संलग्नकों की सूची :",
+          "source": "enclosures",
+          "itemPrefix": "ordinal",
+          "omitWhenEmpty": true
+        }
+      ]
+    },
+    "checklist": [
+      {
+        "id": "subject",
+        "label": {
+          "en": "The subject is stated",
+          "hi": "विषय लिखा गया है"
+        },
+        "why": {
+          "en": "The specimens in Appendix 8.1 carry a subject line above the body on every form that is addressed to anyone.",
+          "hi": "परिशिष्ट 8.1 के नमूनों में हर संबोधित प्रपत्र पर मुख्य भाग के ऊपर विषय पंक्ति होती है।"
+        },
+        "severity": "must",
+        "rule": {
+          "kind": "blockPresent",
+          "role": "subject"
+        },
+        "csmopRef": "Appendix 8.1"
+      },
+      {
+        "id": "para-numbering",
+        "label": {
+          "en": "Paragraphs are serially numbered",
+          "hi": "पैराग्राफ क्रमानुसार संख्यांकित हैं"
+        },
+        "why": {
+          "en": "The specimens leave the first paragraph unnumbered and number the rest from 2.",
+          "hi": "नमूनों में पहला पैराग्राफ बिना संख्या के रहता है और शेष 2 से क्रमांकित होते हैं।"
+        },
+        "severity": "must",
+        "rule": {
+          "kind": "paraNumbering"
+        },
+        "csmopRef": "Appendix 8.1"
+      },
+      {
+        "id": "half-day",
+        "label": {
+          "en": "The forenoon or afternoon of joining is stated",
+          "hi": "कार्यग्रहण का पूर्वाह्न या अपराह्न लिखा है"
+        },
+        "why": {
+          "en": "Pay and the joining time run from the half-day. A report giving only a date will come back.",
+          "hi": "वेतन और कार्यग्रहण काल आधे दिन से चलते हैं। केवल दिनांक देने वाली रिपोर्ट लौट आएगी।"
+        },
+        "severity": "must",
+        "rule": {
+          "kind": "regex",
+          "role": "body",
+          "pattern": "(forenoon|afternoon|पूर्वाह्न|अपराह्न)"
+        }
+      },
+      {
+        "id": "no-placeholders",
+        "label": {
+          "en": "No placeholder is left unfilled",
+          "hi": "कोई प्लेसहोल्डर अधूरा नहीं छूटा"
+        },
+        "why": {
+          "en": "A draft that goes out with {{…}} still in it has not been read.",
+          "hi": "जिस मसौदे में {{…}} रह जाए, उसे पढ़ा ही नहीं गया।"
+        },
+        "severity": "must",
+        "rule": {
+          "kind": "noPlaceholders"
+        }
+      }
+    ],
+    "source": {
+      "name": "Central Secretariat Manual of Office Procedure, 2022 (16th edition), DARPG",
+      "url": "https://www.darpg.gov.in/static/uploads/2025/10/774e0b8f427b7875158363d842fa431f.pdf",
+      "reference": "CSMOP 2022, sixteenth edition",
+      "dated": "2022-08-05"
+    },
+    "fetchedAt": "2026-09-03T00:00:00Z",
+    "verify": true,
+    "variables": [
+      {
+        "key": "post",
+        "label": {
+          "en": "Post joined",
+          "hi": "ग्रहण किया गया पद"
+        },
+        "type": "text",
+        "required": true,
+        "sample": {
+          "en": "Section Officer",
+          "hi": "अनुभाग अधिकारी"
+        }
+      },
+      {
+        "key": "joiningDate",
+        "label": {
+          "en": "Date of joining",
+          "hi": "कार्यग्रहण दिनांक"
+        },
+        "type": "date",
+        "required": true,
+        "sample": {
+          "en": "01.09.2026",
+          "hi": "01.09.2026"
+        }
+      },
+      {
+        "key": "joiningTime",
+        "label": {
+          "en": "Forenoon or afternoon",
+          "hi": "पूर्वाह्न या अपराह्न"
+        },
+        "type": "select",
+        "required": true,
+        "sample": {
+          "en": "forenoon",
+          "hi": "पूर्वाह्न"
+        },
+        "options": [
+          {
+            "value": "forenoon",
+            "label": {
+              "en": "forenoon",
+              "hi": "पूर्वाह्न"
+            }
+          },
+          {
+            "value": "afternoon",
+            "label": {
+              "en": "afternoon",
+              "hi": "अपराह्न"
+            }
+          }
+        ]
+      },
+      {
+        "key": "orderReference",
+        "label": {
+          "en": "Order under which you joined",
+          "hi": "जिस आदेश के अंतर्गत कार्यग्रहण"
+        },
+        "type": "text",
+        "required": true,
+        "sample": {
+          "en": "order No. A-32011/4/2026-Estt. dated 12.08.2026",
+          "hi": "आदेश संख्या ए-32011/4/2026-स्थापना दिनांक 12.08.2026"
+        }
+      },
+      {
+        "key": "previousOffice",
+        "label": {
+          "en": "Office relieved from",
+          "hi": "जिस कार्यालय से कार्यमुक्त"
+        },
+        "type": "text",
+        "required": true,
+        "sample": {
+          "en": "the Department of Personnel and Training",
+          "hi": "कार्मिक और प्रशिक्षण विभाग"
+        }
+      },
+      {
+        "key": "reliefDate",
+        "label": {
+          "en": "Date of relief",
+          "hi": "कार्यमुक्ति दिनांक"
+        },
+        "type": "date",
+        "required": true,
+        "sample": {
+          "en": "31.08.2026",
+          "hi": "31.08.2026"
+        }
+      },
+      {
+        "key": "reliefTime",
+        "label": {
+          "en": "Forenoon or afternoon of relief",
+          "hi": "कार्यमुक्ति का पूर्वाह्न या अपराह्न"
+        },
+        "type": "select",
+        "required": true,
+        "sample": {
+          "en": "afternoon",
+          "hi": "अपराह्न"
+        },
+        "options": [
+          {
+            "value": "forenoon",
+            "label": {
+              "en": "forenoon",
+              "hi": "पूर्वाह्न"
+            }
+          },
+          {
+            "value": "afternoon",
+            "label": {
+              "en": "afternoon",
+              "hi": "अपराह्न"
+            }
+          }
+        ]
+      },
+      {
+        "key": "relievingOrder",
+        "label": {
+          "en": "Relieving order number",
+          "hi": "कार्यमुक्ति आदेश संख्या"
+        },
+        "type": "text",
+        "required": true,
+        "sample": {
+          "en": "A-32011/4/2026-Estt.",
+          "hi": "ए-32011/4/2026-स्थापना"
+        }
+      }
+    ],
+    "bodySkeleton": {
+      "en": {
+        "type": "doc",
+        "content": [
+          {
+            "type": "numberedPara",
+            "attrs": {
+              "level": 1
+            },
+            "content": [
+              {
+                "type": "text",
+                "text": "I have to report that I have joined the post of {{post}} in this Department on the {{joiningTime}} of {{joiningDate}}, in pursuance of {{orderReference}}."
+              }
+            ]
+          },
+          {
+            "type": "numberedPara",
+            "attrs": {
+              "level": 1
+            },
+            "content": [
+              {
+                "type": "text",
+                "text": "I was relieved from {{previousOffice}} on the {{reliefTime}} of {{reliefDate}} vide their order No. {{relievingOrder}}."
+              }
+            ]
+          },
+          {
+            "type": "numberedPara",
+            "attrs": {
+              "level": 1
+            },
+            "content": [
+              {
+                "type": "text",
+                "text": "It is requested that my joining may kindly be taken on record and the necessary entries made in the service book."
+              }
+            ]
+          }
+        ]
+      },
+      "hi": {
+        "type": "doc",
+        "content": [
+          {
+            "type": "numberedPara",
+            "attrs": {
+              "level": 1
+            },
+            "content": [
+              {
+                "type": "text",
+                "text": "मुझे यह सूचित करना है कि मैंने {{orderReference}} के अनुसरण में {{joiningDate}} के {{joiningTime}} में इस विभाग में {{post}} का पद ग्रहण कर लिया है।"
+              }
+            ]
+          },
+          {
+            "type": "numberedPara",
+            "attrs": {
+              "level": 1
+            },
+            "content": [
+              {
+                "type": "text",
+                "text": "मुझे {{previousOffice}} से उनके आदेश संख्या {{relievingOrder}} द्वारा {{reliefDate}} के {{reliefTime}} में कार्यमुक्त किया गया था।"
+              }
+            ]
+          },
+          {
+            "type": "numberedPara",
+            "attrs": {
+              "level": 1
+            },
+            "content": [
+              {
+                "type": "text",
+                "text": "अनुरोध है कि मेरे कार्यग्रहण को अभिलेख में लिया जाए और सेवा पुस्तिका में आवश्यक प्रविष्टियाँ की जाएँ।"
+              }
+            ]
+          }
+        ]
+      }
+    }
+  }
+}

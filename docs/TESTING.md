@@ -308,6 +308,48 @@ to the shelf on the first render after it was saved, because `useLiveQuery` repo
 by its route. And `/library/add` shipped an `sr-only` file input, which is still in the accessibility
 tree and still needs a label; only the axe sweep says so.
 
+### 8b. The document editor — where THAT split runs
+
+Session 29 replaced the Drafting Studio's form with a real document editor
+(ADR-041), and the split between what jsdom proves and what a browser proves is
+worth stating, because one of the obvious tests turned out to prove nothing.
+
+**Pure, and the bulk of it** — `src/lib/drafting/{model,skeleton,renderDoc,lint,migrate,numbering,versions,personal}.test.ts`
+plus `tests/drafting-library.test.ts`. Nothing here imports Tiptap: the body is
+plain JSON, `bindings` and `instantiate` and `renderOfficialDoc` are functions
+over it, and `lintDocument` takes `now` and the glossary as arguments so both
+can be tested at all. `tests/drafting-library.test.ts` is the one that matters
+most — it renders **every one of the forty-three forms from its own skeleton, in
+both languages, and runs that form's own checklist and lint over the result.**
+A form whose skeleton its own checklist rejects fails the build.
+
+**jsdom** — `src/modules/drafting/editor/{extensions,editor}.test.tsx`. Tiptap's
+`Editor` constructs headlessly under jsdom, which is what lets `extensions.test.ts`
+assert that the editor's schema produces only node types
+`src/lib/drafting/model.ts` can store. `editor.test.tsx` covers roles, names,
+`aria-pressed`, the placeholder chips and the find-and-replace panel.
+
+**Not in jsdom, deliberately.** There is no jsdom test that the editor does not
+re-seed itself on every keystroke. The obvious one — assert the paragraph's DOM
+node is the same object after a re-render — was written and it PASSES against a
+version with the guard deleted, because ProseMirror diffs the document it is
+given and reuses the nodes. The only thing the guard protects is the SELECTION,
+and jsdom implements no layout at all: `Range.getClientRects` is absent, and
+stubbing it makes ProseMirror place typed characters _worse_ than the absence
+does. The claim lives in `tests/e2e/draft-editor.spec.ts`, where a real browser
+types two separate runs and the second lands where the caret was. A test that
+cannot fail is not evidence.
+
+**A real browser** — `tests/e2e/draft-editor.spec.ts`. One journey end to end
+(create → fill the placeholders → issue a number → save a version → edit → diff
+→ restore → reload), the too-new refusal, the export gate, an axe sweep of all
+six tabs, a keyboard-only pass and a Hindi run. Its first execution found four
+things nothing else could: a bullet inside a tab's accessible name (which reads
+as "Review bullet" and made `getByRole('tab', { name: 'Review' })` ambiguous with
+"Preview"), two hints nested inside their `<label>` and so swallowed into the
+input's name, `bg-destructive/10` with `text-destructive-foreground` failing
+`color-contrast` on fourteen elements, and an `h1` → `h3` heading jump.
+
 ### 9. Data pipeline — Python
 
 `scripts/ingest` and `scripts/authoring` are tested with stdlib `unittest`, not Vitest — 185 tests

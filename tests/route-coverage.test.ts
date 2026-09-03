@@ -41,6 +41,10 @@ const EXEMPT: Readonly<Record<string, string>> = {
   '/': 'a redirect, not a screen — App.tsx sends it to /onboarding or the home route',
   '/draft/:type':
     'parameterised; the sweeps visit /draft/office-memorandum, a real instance of it, because a literal ":type" renders the not-found redirect',
+  '/draft/d/:id':
+    'parameterised; a document id is minted by `crypto.getRandomValues` and exists only on the device that made one. `tests/e2e/draft-editor.spec.ts` creates a real document and sweeps the editor with axe there, which is the only place a real id exists.',
+  '/draft/new/:type':
+    'parameterised, and not a screen: it creates a document and redirects. `tests/e2e/draft-editor.spec.ts` walks through it on the way to the editor.',
   '/library/:workId':
     'parameterised; the sweeps visit /library/ccs-conduct, a real instance of it, because a literal ":workId" renders the not-found redirect',
   '/library/:workId/:unitId':

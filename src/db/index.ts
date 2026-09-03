@@ -13,6 +13,115 @@ export interface SettingRow {
   value: unknown
 }
 
+// ------------------------------------------------- the Drafting Studio, v2
+
+/**
+ * A document written in the new editor (Session 29, ADR-041).
+ *
+ * The row IS an `OfficialDoc` — `src/lib/drafting/model.ts` owns the shape and
+ * `readDoc` is the only thing that should turn one of these back into a typed
+ * document. It is declared `unknown` here for the reason `DraftRow.values` is:
+ * a row written by a later release is untrusted input, and a type declaration
+ * that says otherwise is a claim this file cannot keep.
+ *
+ * `drafts` (the Session 8 table) is NOT dropped. Migration copies each row into
+ * `documents` and leaves the original where it is — the backup the brief asks
+ * for is the table itself, and a migration that deletes its own source is one
+ * nobody can re-run.
+ */
+export interface DocumentRow {
+  id: string
+  templateId: string
+  title: string
+  status: string
+  updatedAt: string
+  createdAt: string
+  /** Set on a row produced by migrating a Session 8 draft. Its `drafts` id. */
+  migratedFrom?: string
+  threadId?: string
+  doc: unknown
+}
+
+/** One snapshot. `doc` is the whole `OfficialDoc` as it was. */
+export interface DocVersionRow {
+  id: string
+  docId: string
+  at: string
+  reason: string
+  label: string
+  doc: unknown
+}
+
+/** A comment to self, anchored to a block. Never exported with the document. */
+export interface DocCommentRow {
+  id: string
+  docId: string
+  blockIndex: number
+  blockText: string
+  text: string
+  resolved: boolean
+  createdAt: string
+  updatedAt: string
+}
+
+/** The one profile row. Keyed on the literal `"profile"`. */
+export interface DraftingProfileRow {
+  id: 'profile'
+  updatedAt: string
+  [key: string]: unknown
+}
+
+export interface AddressBookRow {
+  id: string
+  name: unknown
+  updatedAt: string
+  createdAt: string
+  [key: string]: unknown
+}
+
+/**
+ * A template the officer saved themselves.
+ *
+ * `base` is the official template it was cloned from, and it is what the
+ * renderer uses for the layout and the checklist. A personal template never
+ * claims a CSMOP reference of its own — `src/modules/drafting/personal.ts`
+ * refuses to store one — and every surface badges it "yours".
+ */
+export interface PersonalTemplateRow {
+  id: string
+  name: string
+  baseTemplateId: string
+  updatedAt: string
+  createdAt: string
+  template: unknown
+}
+
+export interface NumberPatternRow {
+  id: string
+  name: string
+  updatedAt: string
+  [key: string]: unknown
+}
+
+/** One number that was actually issued. Append-only; the duplicate check reads it. */
+export interface NumberIssueRow {
+  id: string
+  patternId: string
+  number: string
+  docId: string
+  issuedAt: string
+}
+
+export interface TemplateFavouriteRow {
+  id: string
+  createdAt: string
+}
+
+export interface TemplateRecentRow {
+  id: string
+  viewedAt: string
+}
+
 /** Keys are declared centrally so a typo cannot create an orphan row. */
 export const SETTING_KEYS = {
   language: 'language',
@@ -605,6 +714,16 @@ export class SahayakDB extends Dexie {
   feynmanAttempts!: Table<FeynmanAttemptRow, string>
   studySessions!: Table<StudySessionRow, string>
   studyGoals!: Table<StudyGoalRow, string>
+  documents!: Table<DocumentRow, string>
+  docVersions!: Table<DocVersionRow, string>
+  docComments!: Table<DocCommentRow, string>
+  draftingProfile!: Table<DraftingProfileRow, string>
+  addressBook!: Table<AddressBookRow, string>
+  personalTemplates!: Table<PersonalTemplateRow, string>
+  numberPatterns!: Table<NumberPatternRow, string>
+  numberIssues!: Table<NumberIssueRow, string>
+  templateFavourites!: Table<TemplateFavouriteRow, string>
+  templateRecents!: Table<TemplateRecentRow, string>
 
   constructor(name = 'sahayak') {
     super(name)
@@ -911,6 +1030,72 @@ export class SahayakDB extends Dexie {
       feynmanAttempts: '&id, [workId+unitId], workId, at',
       studySessions: '&id, workId, startedAt',
       studyGoals: '&id, updatedAt',
+    })
+    // Version 14 — the document editor (Session 29, ADR-041).
+    //
+    // `documents` replaces `drafts` as what an editor opens, and `drafts` is
+    // kept rather than dropped: the migration copies out of it and a migration
+    // that deletes its own source is one nobody can re-run. Indexed on
+    // `templateId` and `status` for "my office memoranda" and "what is still a
+    // draft", and on `updatedAt` because every list of documents is read
+    // newest-first.
+    //
+    // `docVersions` and `docComments` are keyed on their own id and indexed on
+    // `docId`, so opening one document reads only its own snapshots. Both are
+    // capped by code rather than by the schema — `prune` keeps thirty.
+    //
+    // `draftingProfile` is one row keyed on the literal "profile", the shape
+    // `trainerSettings` already uses for a single settings row. It is a table
+    // rather than a `settings` key because it is a document of its own with a
+    // dozen bilingual members, and because a `settings` row is read once at
+    // hydrate while this must be live-queried.
+    //
+    // `numberIssues` is append-only and indexed on `number` so the duplicate
+    // warning is a lookup rather than a scan.
+    //
+    // No `upgrade()` block: all ten are new and empty.
+    this.version(14).stores({
+      settings: '&key',
+      secrets: '&id',
+      aiAnswers: '&id, agentId, dataVersion, createdAt',
+      aiUsage: '&month',
+      lawFavourites: '&id, createdAt',
+      lawRecents: '&id, viewedAt',
+      payScenarios: '&id, name, updatedAt',
+      drafts: '&id, templateId, updatedAt',
+      draftDefaults: '&id, templateId, updatedAt',
+      glossaryFavourites: '&id, createdAt',
+      glossaryRecents: '&id, viewedAt',
+      srsCards: '&qId, due, state',
+      reviewLog: '&id, qId, at',
+      streaks: '&date',
+      trainerSettings: '&id',
+      trainerBookmarks: '&qId, createdAt',
+      trainerReports: '&id, qId, createdAt',
+      proposedCards: '&id, createdAt',
+      cardOverrides: '&qId, decidedAt',
+      holidayPicks: '&id, year, createdAt',
+      commandRecents: '&id, viewedAt',
+      libraryProgress: '&id, workId, at',
+      libraryBookmarks: '&id, workId, createdAt',
+      libraryHighlights: '&id, [workId+unitId], workId, colour, createdAt',
+      libraryNotes: '&id, [workId+unitId], workId, updatedAt',
+      libraryPersonalWorks: '&id, updatedAt',
+      chapterCards: '&id, workId, due',
+      chapterLog: '&id, cardId, workId, at',
+      feynmanAttempts: '&id, [workId+unitId], workId, at',
+      studySessions: '&id, workId, startedAt',
+      studyGoals: '&id, updatedAt',
+      documents: '&id, templateId, status, updatedAt, threadId',
+      docVersions: '&id, docId, at',
+      docComments: '&id, docId, resolved, createdAt',
+      draftingProfile: '&id',
+      addressBook: '&id, updatedAt, createdAt',
+      personalTemplates: '&id, baseTemplateId, updatedAt',
+      numberPatterns: '&id, updatedAt',
+      numberIssues: '&id, patternId, number, issuedAt',
+      templateFavourites: '&id, createdAt',
+      templateRecents: '&id, viewedAt',
     })
   }
 }

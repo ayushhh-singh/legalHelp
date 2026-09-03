@@ -6395,3 +6395,219 @@ now renders a dataset work first to resolve and cache the lazy module, so
 "not in the document" means the gate kept it out. `network.sentinel`'s own story
 (ADR-031) in a second place — break the code and watch the assertion go red
 before believing it.
+
+---
+
+## ADR-041 — Tiptap 3 over Lexical, a document model whose body is editor JSON, and one renderer that still emits the blocks the checklist reads
+
+**Date:** 2026-09-03 · **Status:** Accepted · **Supersedes:** nothing · **Amends:** ADR-020 (the drafting engine gains a second front door), ADR-021 (the editor is no longer a form)
+
+### Context
+
+Sessions 8 and 21 built the Drafting Studio as a **guided form beside a live A4
+preview**: fifteen labelled boxes, one of them a textarea whose lines became the
+document's paragraphs. That shape is right for a leave application and wrong for
+a note on a file, a set of minutes or a speaking order — anything with a heading,
+a table, a quoted provision or a sub-paragraph. This session replaces the form
+with a real document editor and, because Sessions 30 and 31 build print, `.docx`
+and a register on top of it, the model is the deliverable rather than the
+toolbar.
+
+### 1. The editor: Tiptap 3, on the evidence of a spike
+
+The brief asked for a throwaway spike of **Tiptap 3** (open-source core and the
+free extensions only — no Tiptap Pro package is used or installed) against this
+project's own toolchain, and for Lexical only if that failed. It did not fail.
+
+The spike lives nowhere in the repository — it was a separate npm project pinned
+to this app's exact versions: React 19.2.8, react-dom 19.2.8, Vite 8.2.2,
+`typescript-native` 7.0.2, `@types/react` 19.2.18, `strict` and
+`noUncheckedIndexedAccess` both on. It exercised the four things this session
+actually needs and nothing else:
+
+| What                                                                      | Result                     |
+| ------------------------------------------------------------------------- | -------------------------- |
+| `tsc` 7.0.2 `--noEmit`, strict + `noUncheckedIndexedAccess`               | exit 0, no errors          |
+| `vite build` 8.2.2                                                        | exit 0                     |
+| A custom **block** node with a typed attribute (the `numberedPara` shape) | compiles, round-trips JSON |
+| A custom **inline atom** with a React `NodeView` (the placeholder chip)   | compiles, renders          |
+| `@tiptap/extension-table`, `@tiptap/extension-placeholder`                | compile, render            |
+| Headless `new Editor(...)` under **jsdom**, `getJSON()`/`getText()`       | passes                     |
+| `useEditor` + `EditorContent` mounted with `@testing-library/react`       | passes                     |
+
+The last two rows are why the decision was not close. The pure layer this
+session builds — model, skeleton instantiation, renderer, lint, migration — is
+tested without an editor at all, but `bodySkeleton` fixtures for forty templates
+have to be parsed and normalised by _something_, and a library that needs a real
+browser to construct a document would have pushed all forty into Playwright.
+Tiptap's `Editor` constructs headlessly under jsdom, so `pnpm test` can build a
+document, ask for its JSON, and assert on it.
+
+Two numbers, measured rather than estimated. The spike's production bundle is
+**200.73 KB gzip**; the same project with the editor replaced by
+`createRoot(...).render(<div>hi</div>)` is **59.91 KB gzip**. Tiptap 3 plus
+ProseMirror plus the table and placeholder extensions is therefore
+**≈ 140.8 KB gzip**. That is under the 256 KB `largestChunk` figure in
+`scripts/size-budget.json`, so it needs no exemption, and it is behind the
+`/draft` route's lazy import, so it is not on the initial route at all. Licence
+is MIT on every package used; the React 19 peer range is declared upstream
+(`^17 || ^18 || ^19`), not forced.
+
+Lexical was not evaluated, deliberately. The brief made it the fallback and
+there was nothing to fall back from; evaluating it anyway would have been a
+second spike whose result could not change the answer.
+
+### 2. The body is editor JSON, and `docModelVersion` is the reason that is safe
+
+`OfficialDoc.body` is a ProseMirror/Tiptap document — `{ type: 'doc', content:
+[...] }` — and `bodyHi` is its Hindi counterpart when `lang` is `bilingual`.
+Storing a vendor's document JSON in IndexedDB is a real commitment, so three
+things bound it:
+
+- **`docModelVersion` is on every stored document**, and `src/lib/drafting/model.ts`
+  is the only file that knows what the current one is. A document at an older
+  version is upgraded on read by `upgradeDoc`, never in place on disk; a document
+  at a _newer_ version than this build understands is refused rather than
+  half-read, for the reason `asDraft` gives about a half-restored form.
+- **The node vocabulary is ours, not the vendor's.** `BODY_NODES` in `model.ts`
+  enumerates the eleven node types a stored body may contain — `doc`,
+  `paragraph`, `numberedPara`, `heading`, `bulletList`, `orderedList`,
+  `listItem`, `table`/`tableRow`/`tableCell`/`tableHeader`, `blockquote`,
+  `pageBreak`, `placeholder`, `text` — and `bodySchema` rejects anything else.
+  A Tiptap upgrade that starts emitting a new node type fails a test rather than
+  landing unreadable rows on a device.
+- **Nothing downstream of the editor imports Tiptap.** `renderOfficialDoc`,
+  `lintDocument`, `migrateDraft` and the checklist all read the JSON as plain
+  data. `src/lib/drafting/purity.test.ts` asserts it by reading the files: no
+  file under `src/lib/drafting/` may import `@tiptap/*`, React, Dexie or call
+  `fetch`, and only `model.ts` may name `DOC_MODEL_VERSION`.
+
+### 3. One renderer, and it still produces `RenderedBlock[]`
+
+The brief asks for one renderer from `OfficialDoc` → `RenderedDoc` → three
+targets. The temptation was a new block shape. It was refused: the existing
+`RenderedBlock`/`DocumentModel` is already what `evaluateChecklist`, `serialise`
+and `docx.ts` read, and a second shape would have meant a second checklist
+evaluator — which is exactly the "two implementations of one grammar" that
+ADR-039 §4 spent a Node script avoiding.
+
+So `renderOfficialDoc(doc, template, lang, options)` returns the **same
+`RenderResult`** `renderDocument` returns, and `RenderedBlock` gains one
+optional member:
+
+```ts
+nodes?: RenderedNode[]   // the rich projection: headings, tables, quotes, markers
+lines: string[]          // the plain-text projection — unchanged, still the contract
+```
+
+`lines` is generated _from_ `nodes`, so the two cannot disagree. Everything that
+reads `lines` — the checklist's `textOf`, `serialise`, `docx.ts`, every one of
+the fourteen committed `.txt` snapshots — keeps working untouched, and that is
+the claim: **`pnpm test` passes with the old engine and the new one both live.**
+The A4 preview draws `nodes` when they are there and `lines` when they are not,
+which is what lets the legacy form-rendered path and the editor-rendered path
+share one component.
+
+### 4. `vars` is a sibling of `meta`, not a member of it
+
+The brief enumerates `meta`'s keys, and every one of them is document _chrome_ —
+the number, the date, the subject, who it is from and to, the enclosures, the
+signature, the reference lines. A template's typed variables are a different
+thing: they are the bindings its `bodySkeleton` interpolates, and a form with a
+`sanctionAmount` or a `leaveKind` has no business widening the meta of every
+other form.
+
+`OfficialDoc.vars: Record<string, VarValue>` is therefore a sibling.
+`bindings(doc, lang)` in `model.ts` is the single function that merges the two
+into the flat `Record<string, string | string[]>` that placeholders,
+`{{#if}}` conditions, `{{#each}}` repeaters, the legacy layout renderer and the
+checklist's `resolved` all read. One resolution function, so "what is `subject`
+worth here" has exactly one answer.
+
+### 5. A profile change never rewrites a document
+
+`meta.from` and `meta.signature` are **snapshots** taken when the document is
+created, not references into the profile row. An officer who is promoted in
+March does not want February's minutes re-signed with the new designation, and a
+document already issued must render tomorrow exactly as it rendered the day it
+went out. The same rule governs the address book: deleting an addressee leaves
+every document that named them intact, because `meta.to` holds a copy rather
+than an id. `linkedAddresseeId` is carried alongside so a live row can still be
+_offered_ — it is a convenience, never the source of what prints.
+
+### 6. Terminology lint asks the glossary, and is a hint
+
+`lintDocument` takes the glossary terms as an argument for the same reason the
+pay engine takes its tables as one: `data/glossary.json` is 970 KB and belongs
+behind a lazy import, and a pure function that reaches for a dataset puts the
+dataset in whatever chunk imports the function. With no terms supplied, the
+terminology check reports nothing rather than passing falsely — an absent
+dataset is not evidence of consistent vocabulary.
+
+Every terminology finding is `severity: 'hint'` and names the standard term
+without changing anything. `data/glossary.json` carries `verify: true` on all
+1,891 entries (ADR-024), and a lint that silently rewrote an officer's Hindi
+against an unverified term list would be putting a compiled glossary above the
+officer's own judgement.
+
+### Addendum — what the first browser run found
+
+`tests/e2e/draft-editor.spec.ts` was written before it was run, and its first
+execution against a real build found four defects nothing else in the suite
+could have. Three are patterns CLAUDE.md already records for other modules,
+which is worth saying plainly: **the value of a new browser sweep is mostly that
+it re-finds your own known traps in a place you were not looking for them.**
+
+1. **A `•` inside a tab's accessible name.** The Review tab gained a dot when
+   something must be fixed, and the dot was ordinary text — so a screen reader
+   heard "Review bullet", and `getByRole('tab', { name: 'Review' })` matched
+   "Preview" as well, because Playwright's string `name` is a case-insensitive
+   SUBSTRING. It is `aria-hidden` now with an `sr-only` sentence beside it, and
+   the spec anchors its regex at the start. CLAUDE.md already recorded the
+   substring trap costing half an hour on `{ name: 'Post' }` matching "Place of
+   posting".
+2. **Three hints nested inside their own `<label>`.** The accessible name of the
+   pattern box read "Pattern Tokens: {FILE} {SEQ} {YEAR} {YY} {SECTION} {TYPE}",
+   which made the field unfindable by its own name and reads badly out loud. A
+   name says what a control IS; a description says what to put in it. They are
+   siblings linked with `aria-describedby` now — `MetaPanel`'s `Row` does it with
+   one `cloneElement` so all sixteen call sites stayed ordinary JSX.
+3. **`bg-destructive/10` with `text-destructive-foreground` failed
+   `color-contrast` on fourteen elements.** `--destructive-foreground` is white
+   on light and navy on dark: it is the colour for text on SOLID destructive.
+   Marigold, tulsi and coral are the three that carry a `-foreground` paired
+   with their own `/15` tint, so an error row is coral. `--muted-foreground`
+   fails on those tints too, so the CSMOP reference line inside a failing row
+   inherits the row's colour instead of setting its own. CLAUDE.md recorded the
+   same thing about `EraseSection`'s `bg-destructive/5` in Session 14 — twice is
+   a hint that this wants a token rather than a rule everyone rediscovers.
+4. **An `h1` → `h3` jump** in the review panel, `moderate heading-order`.
+
+And two findings from the unit suite that are worth recording because both were
+caught by a test written to check something else:
+
+- **The version diff rippled.** Paragraph markers are generated by POSITION, so
+  inserting a paragraph renumbers every line below it, and `diffDocuments`
+  reported one insertion as a change to the whole rest of the document — exactly
+  the failure the block-then-word design exists to avoid. `linesOf` in
+  `versions.ts` strips the marker from a `para` and keeps it on a `listItem`,
+  because a bullet is something the officer wrote and a paragraph number is
+  something the renderer counted.
+- **`paraNumberingHolds` could not see a heading.** An editor body may contain a
+  heading, a list item, a quotation or a table row, and over `lines` alone none
+  of those is distinguishable from a paragraph that lost its number — so an
+  appeal with a "Grounds of appeal" heading failed a rule it satisfies. It reads
+  `nodes` when they are there and behaves exactly as before when they are not,
+  which is every draft of the fourteen original forms.
+
+One test was **deleted for being false**, and that is the finding worth carrying
+forward. The obvious jsdom assertion that the editor does not re-seed itself on
+every keystroke — the paragraph's DOM node is the same object after a re-render —
+was written, passed, and then passed again against a version with the guard
+deleted: ProseMirror diffs the document it is given and reuses the nodes, so a
+re-seed of identical content is invisible in the DOM. The only thing the guard
+protects is the SELECTION, and jsdom implements no layout at all. Stubbing
+`Range.getClientRects` was tried and made ProseMirror place typed characters
+_worse_ than the absence does. The claim is in the browser spec now, and a
+comment sits where the jsdom test would have been saying why. A test that cannot
+fail is not evidence; one that looks like evidence is worse than none.

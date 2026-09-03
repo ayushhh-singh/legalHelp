@@ -101,7 +101,23 @@ function paraNumberingHolds(result: RenderResult, template: DocTemplate): boolea
   if (!layout || !rendered) return false
 
   // A lead line is the block's heading, not its first paragraph.
-  const paras = layout.lead ? rendered.lines.slice(1) : rendered.lines
+  //
+  // `nodes` is present when the body came from the document editor rather than
+  // from a `paras` textarea (ADR-041 §3), and it is read here for a reason the
+  // legacy path never had: an editor body may contain a heading, a list item, a
+  // quotation or a table row, and NONE of those is a numbered paragraph. Over
+  // `lines` alone those are indistinguishable from a paragraph that lost its
+  // number, so a perfectly correct document with a "Grounds of appeal" heading
+  // in it would fail this rule. Where there are no `nodes` — every draft of the
+  // fourteen original forms — the behaviour is exactly what it was.
+  const paras = rendered.nodes
+    ? rendered.nodes
+        .filter((node) => node.kind === 'para')
+        .map((node) => `${node.marker}${node.runs.map((run) => run.text).join('')}`)
+        .filter((line) => line.trim().length > 0)
+    : layout.lead
+      ? rendered.lines.slice(1)
+      : rendered.lines
   if (paras.length === 0) return false
 
   const from = layout.numberFrom ?? 2

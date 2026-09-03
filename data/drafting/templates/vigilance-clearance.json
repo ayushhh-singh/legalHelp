@@ -1,0 +1,583 @@
+{
+  "version": "2.0.0",
+  "generatedAt": "2026-09-03T00:00:00Z",
+  "disclaimer": {
+    "en": "Reference only; verify with the official gazette/order or your DDO.",
+    "hi": "केवल संदर्भ के लिए; सरकारी राजपत्र/आदेश या अपने डीडीओ से सत्यापित करें।"
+  },
+  "template": {
+    "id": "vigilance-clearance",
+    "name": {
+      "en": "Vigilance clearance request",
+      "hi": "सतर्कता निकासी अनुरोध"
+    },
+    "shortName": {
+      "en": "Vigilance clearance",
+      "hi": "सतर्कता निकासी"
+    },
+    "person": "first",
+    "usedBy": {
+      "en": "An officer, on their own behalf.",
+      "hi": "एक अधिकारी, अपनी ओर से।"
+    },
+    "whenToUse": {
+      "en": "Required before empanelment, deputation, foreign posting, promotion and retirement benefits. The request must name the officer, the period to be covered and the purpose, and must ask about both limbs — disciplinary proceedings under the CCS (CCA) Rules, 1965 and any vigilance case — because clearance on one is not clearance on the other.",
+      "hi": "सूचीबद्धता, प्रतिनियुक्ति, विदेश तैनाती, पदोन्नति और सेवानिवृत्ति लाभों से पूर्व अपेक्षित। अनुरोध में अधिकारी, जिस अवधि को कवर करना है और प्रयोजन नामित होने चाहिए, तथा दोनों पहलुओं के बारे में पूछा जाना चाहिए — केंद्रीय सिविल सेवा (वर्गीकरण, नियंत्रण और अपील) नियम, 1965 के अंतर्गत अनुशासनिक कार्यवाही और कोई सतर्कता मामला — क्योंकि एक पर निकासी दूसरे पर निकासी नहीं है।"
+    },
+    "salutation": null,
+    "subscription": null,
+    "urgencyAllowed": false,
+    "csmopRef": {
+      "edition": "CSMOP 2022, sixteenth edition",
+      "paras": [
+        "8.4(3)"
+      ],
+      "chassis": "letter",
+      "note": {
+        "en": "CSMOP prescribes no format. What must be certified comes from the standing instructions on vigilance clearance and the CCS (CCA) Rules, 1965. Built on the letter chassis.",
+        "hi": "सीएसएमओपी कोई प्रारूप निर्धारित नहीं करता। क्या प्रमाणित करना है यह सतर्कता निकासी संबंधी स्थायी अनुदेशों तथा केंद्रीय सिविल सेवा (वर्गीकरण, नियंत्रण और अपील) नियम, 1965 से आता है। पत्र ढाँचे पर बना।"
+      }
+    },
+    "fields": [
+      {
+        "id": "place",
+        "label": {
+          "en": "Place",
+          "hi": "स्थान"
+        },
+        "type": "text",
+        "required": true,
+        "sample": {
+          "en": "New Delhi",
+          "hi": "नई दिल्ली"
+        }
+      },
+      {
+        "id": "date",
+        "label": {
+          "en": "Date",
+          "hi": "दिनांक"
+        },
+        "type": "date",
+        "required": true,
+        "sample": {
+          "en": "2026-08-28",
+          "hi": "2026-08-28"
+        },
+        "hint": {
+          "en": "dd.mm.yyyy in English; दिनांक dd.mm.yyyy in Hindi.",
+          "hi": "अंग्रेज़ी में dd.mm.yyyy; हिंदी में दिनांक dd.mm.yyyy।"
+        }
+      },
+      {
+        "id": "addressee",
+        "label": {
+          "en": "Addressee",
+          "hi": "प्रेषिती"
+        },
+        "type": "list",
+        "required": true,
+        "sample": {
+          "en": [
+            "The Vigilance Officer",
+            "Department of Personnel and Training",
+            "North Block, New Delhi"
+          ],
+          "hi": [
+            "सतर्कता अधिकारी",
+            "कार्मिक और प्रशिक्षण विभाग",
+            "नॉर्थ ब्लॉक, नई दिल्ली"
+          ]
+        }
+      },
+      {
+        "id": "subject",
+        "label": {
+          "en": "Subject",
+          "hi": "विषय"
+        },
+        "type": "text",
+        "required": true,
+        "sample": {
+          "en": "Vigilance clearance in respect of Shri A.B.C., Section Officer, for deputation.",
+          "hi": "प्रतिनियुक्ति हेतु श्री ए.बी.सी., अनुभाग अधिकारी के संबंध में सतर्कता निकासी।"
+        }
+      },
+      {
+        "id": "paras",
+        "label": {
+          "en": "Body paragraphs",
+          "hi": "मुख्य पैराग्राफ"
+        },
+        "type": "paras",
+        "required": true,
+        "sample": {
+          "en": [
+            "Vigilance clearance is requested in respect of Shri A.B.C., Section Officer, for deputation to the Department of Expenditure, covering the period the last ten years.",
+            "It may kindly be confirmed whether any disciplinary proceedings under the CCS (CCA) Rules, 1965 are pending or contemplated against the officer, and whether any vigilance case, complaint or investigation is pending.",
+            "The information is required by 20.09.2026, as the proposal has to be submitted to the Department of Expenditure by that date."
+          ],
+          "hi": [
+            "व्यय विभाग में प्रतिनियुक्ति हेतु श्री ए.बी.सी., अनुभाग अधिकारी के संबंध में पिछले दस वर्ष की अवधि के लिए सतर्कता निकासी अनुरोधित है।",
+            "कृपया पुष्टि करें कि क्या अधिकारी के विरुद्ध केंद्रीय सिविल सेवा (वर्गीकरण, नियंत्रण और अपील) नियम, 1965 के अंतर्गत कोई अनुशासनिक कार्यवाही लंबित या विचाराधीन है, तथा क्या कोई सतर्कता मामला, शिकायत या जाँच लंबित है।",
+            "यह सूचना 20.09.2026 तक अपेक्षित है, क्योंकि प्रस्ताव उस तिथि तक व्यय विभाग को प्रस्तुत करना है।"
+          ]
+        },
+        "hint": {
+          "en": "One paragraph per line. The first is left unnumbered and the rest are numbered from 2.",
+          "hi": "प्रति पंक्ति एक पैराग्राफ। पहला बिना संख्या के रहता है और शेष 2 से क्रमांकित होते हैं।"
+        }
+      },
+      {
+        "id": "signatoryName",
+        "label": {
+          "en": "Your name",
+          "hi": "आपका नाम"
+        },
+        "type": "text",
+        "required": true,
+        "sample": {
+          "en": "A.B.C.",
+          "hi": "ए.बी.सी."
+        }
+      },
+      {
+        "id": "signatoryDesignation",
+        "label": {
+          "en": "Your designation",
+          "hi": "आपका पदनाम"
+        },
+        "type": "text",
+        "required": true,
+        "sample": {
+          "en": "Under Secretary to the Govt. of India",
+          "hi": "अवर सचिव, भारत सरकार"
+        }
+      },
+      {
+        "id": "phone",
+        "label": {
+          "en": "Telephone number",
+          "hi": "दूरभाष संख्या"
+        },
+        "type": "text",
+        "required": true,
+        "sample": {
+          "en": "011-2309 2590",
+          "hi": "011-2309 2590"
+        }
+      },
+      {
+        "id": "email",
+        "label": {
+          "en": "Email",
+          "hi": "ई-मेल"
+        },
+        "type": "text",
+        "required": true,
+        "sample": {
+          "en": "abc@nic.in",
+          "hi": "abc@nic.in"
+        }
+      },
+      {
+        "id": "enclosures",
+        "label": {
+          "en": "Enclosures",
+          "hi": "संलग्नक"
+        },
+        "type": "list",
+        "required": false,
+        "sample": {
+          "en": [
+            "The deputation proposal in respect of the officer."
+          ],
+          "hi": [
+            "अधिकारी के संबंध में प्रतिनियुक्ति प्रस्ताव।"
+          ]
+        },
+        "hint": {
+          "en": "The count goes at the bottom left of the draft — 'Encl. 3' (9.2(vii)).",
+          "hi": "मसौदे के नीचे बाईं ओर संख्या दी जाती है — 'Encl. 3' (9.2(vii))।"
+        }
+      }
+    ],
+    "layout": {
+      "en": [
+        {
+          "role": "dateLine",
+          "align": "right",
+          "lines": [
+            "{{place}}, the {{date}}"
+          ]
+        },
+        {
+          "role": "addressee",
+          "align": "left",
+          "lead": "To,",
+          "source": "addressee"
+        },
+        {
+          "role": "subject",
+          "align": "left",
+          "lines": [
+            "Subject: {{subject}}"
+          ]
+        },
+        {
+          "role": "salutation",
+          "align": "left",
+          "lines": [
+            "Sir / Madam,"
+          ]
+        },
+        {
+          "role": "body",
+          "align": "left",
+          "source": "paras",
+          "numbered": true
+        },
+        {
+          "role": "closing",
+          "align": "right",
+          "lines": [
+            "Yours faithfully,"
+          ]
+        },
+        {
+          "role": "signature",
+          "align": "left",
+          "lines": [
+            "({{signatoryName}})",
+            "{{signatoryDesignation}}",
+            "Tele. No.: {{phone}}",
+            "Email: {{email}}"
+          ]
+        },
+        {
+          "role": "enclosures",
+          "align": "left",
+          "lead": "List of enclosures:",
+          "source": "enclosures",
+          "itemPrefix": "ordinal",
+          "omitWhenEmpty": true
+        }
+      ],
+      "hi": [
+        {
+          "role": "dateLine",
+          "align": "right",
+          "lines": [
+            "{{place}}, दिनांक {{date}}"
+          ]
+        },
+        {
+          "role": "addressee",
+          "align": "left",
+          "lead": "सेवा में,",
+          "source": "addressee"
+        },
+        {
+          "role": "subject",
+          "align": "left",
+          "lines": [
+            "विषय : {{subject}}"
+          ]
+        },
+        {
+          "role": "salutation",
+          "align": "left",
+          "lines": [
+            "महोदय / महोदया,"
+          ]
+        },
+        {
+          "role": "body",
+          "align": "left",
+          "source": "paras",
+          "numbered": true
+        },
+        {
+          "role": "closing",
+          "align": "right",
+          "lines": [
+            "भवदीय,"
+          ]
+        },
+        {
+          "role": "signature",
+          "align": "left",
+          "lines": [
+            "({{signatoryName}})",
+            "{{signatoryDesignation}}",
+            "दूरभाष संख्या : {{phone}}",
+            "ई-मेल : {{email}}"
+          ]
+        },
+        {
+          "role": "enclosures",
+          "align": "left",
+          "lead": "संलग्नकों की सूची :",
+          "source": "enclosures",
+          "itemPrefix": "ordinal",
+          "omitWhenEmpty": true
+        }
+      ]
+    },
+    "checklist": [
+      {
+        "id": "both-limbs",
+        "label": {
+          "en": "Both disciplinary and vigilance status are asked about",
+          "hi": "अनुशासनिक और सतर्कता दोनों स्थितियाँ पूछी गई हैं"
+        },
+        "why": {
+          "en": "Clearance on disciplinary proceedings is not clearance on a vigilance case; a request that asks about one gets an answer about one.",
+          "hi": "अनुशासनिक कार्यवाही पर निकासी सतर्कता मामले पर निकासी नहीं है; जो अनुरोध एक के बारे में पूछता है उसे एक का ही उत्तर मिलता है।"
+        },
+        "severity": "must",
+        "rule": {
+          "kind": "regex",
+          "role": "body",
+          "pattern": "(vigilance|सतर्कता)"
+        }
+      },
+      {
+        "id": "reply-date",
+        "label": {
+          "en": "A date is named where information is called for",
+          "hi": "जहाँ सूचना माँगी गई है वहाँ तारीख दी गई है"
+        },
+        "why": {
+          "en": "Instead of 'may be sent immediately', state 'may be sent by 28.02.2026'.",
+          "hi": "'तुरंत भेजी जाए' के स्थान पर 'दिनांक 28.02.2026 तक भेजी जाए' लिखें।"
+        },
+        "severity": "should",
+        "rule": {
+          "kind": "replyDate"
+        },
+        "csmopRef": "9.2(v)"
+      },
+      {
+        "id": "subject",
+        "label": {
+          "en": "The subject is stated",
+          "hi": "विषय लिखा गया है"
+        },
+        "why": {
+          "en": "The specimens in Appendix 8.1 carry a subject line above the body on every form that is addressed to anyone.",
+          "hi": "परिशिष्ट 8.1 के नमूनों में हर संबोधित प्रपत्र पर मुख्य भाग के ऊपर विषय पंक्ति होती है।"
+        },
+        "severity": "must",
+        "rule": {
+          "kind": "blockPresent",
+          "role": "subject"
+        },
+        "csmopRef": "Appendix 8.1"
+      },
+      {
+        "id": "para-numbering",
+        "label": {
+          "en": "Paragraphs are serially numbered",
+          "hi": "पैराग्राफ क्रमानुसार संख्यांकित हैं"
+        },
+        "why": {
+          "en": "The specimens leave the first paragraph unnumbered and number the rest from 2.",
+          "hi": "नमूनों में पहला पैराग्राफ बिना संख्या के रहता है और शेष 2 से क्रमांकित होते हैं।"
+        },
+        "severity": "must",
+        "rule": {
+          "kind": "paraNumbering"
+        },
+        "csmopRef": "Appendix 8.1"
+      },
+      {
+        "id": "no-placeholders",
+        "label": {
+          "en": "No placeholder is left unfilled",
+          "hi": "कोई प्लेसहोल्डर अधूरा नहीं छूटा"
+        },
+        "why": {
+          "en": "A draft that goes out with {{…}} still in it has not been read.",
+          "hi": "जिस मसौदे में {{…}} रह जाए, उसे पढ़ा ही नहीं गया।"
+        },
+        "severity": "must",
+        "rule": {
+          "kind": "noPlaceholders"
+        }
+      }
+    ],
+    "source": {
+      "name": "Central Secretariat Manual of Office Procedure, 2022 (16th edition), DARPG",
+      "url": "https://www.darpg.gov.in/static/uploads/2025/10/774e0b8f427b7875158363d842fa431f.pdf",
+      "reference": "CSMOP 2022, sixteenth edition",
+      "dated": "2022-08-05"
+    },
+    "fetchedAt": "2026-09-03T00:00:00Z",
+    "verify": true,
+    "variables": [
+      {
+        "key": "officerName",
+        "label": {
+          "en": "Officer's name",
+          "hi": "अधिकारी का नाम"
+        },
+        "type": "text",
+        "required": true,
+        "sample": {
+          "en": "Shri A.B.C.",
+          "hi": "श्री ए.बी.सी."
+        }
+      },
+      {
+        "key": "officerDesignation",
+        "label": {
+          "en": "Designation",
+          "hi": "पदनाम"
+        },
+        "type": "text",
+        "required": true,
+        "sample": {
+          "en": "Section Officer",
+          "hi": "अनुभाग अधिकारी"
+        }
+      },
+      {
+        "key": "purpose",
+        "label": {
+          "en": "Purpose",
+          "hi": "प्रयोजन"
+        },
+        "type": "text",
+        "required": true,
+        "sample": {
+          "en": "deputation to the Department of Expenditure",
+          "hi": "व्यय विभाग में प्रतिनियुक्ति"
+        }
+      },
+      {
+        "key": "period",
+        "label": {
+          "en": "Period to be covered",
+          "hi": "जिस अवधि हेतु"
+        },
+        "type": "text",
+        "required": true,
+        "sample": {
+          "en": "the last ten years",
+          "hi": "पिछले दस वर्ष"
+        }
+      },
+      {
+        "key": "replyBy",
+        "label": {
+          "en": "Information required by",
+          "hi": "सूचना कब तक अपेक्षित"
+        },
+        "type": "date",
+        "required": true,
+        "sample": {
+          "en": "20.09.2026",
+          "hi": "20.09.2026"
+        }
+      },
+      {
+        "key": "submitTo",
+        "label": {
+          "en": "Proposal to be submitted to",
+          "hi": "प्रस्ताव किसे प्रस्तुत करना है"
+        },
+        "type": "text",
+        "required": true,
+        "sample": {
+          "en": "the Department of Expenditure",
+          "hi": "व्यय विभाग"
+        }
+      }
+    ],
+    "bodySkeleton": {
+      "en": {
+        "type": "doc",
+        "content": [
+          {
+            "type": "numberedPara",
+            "attrs": {
+              "level": 1
+            },
+            "content": [
+              {
+                "type": "text",
+                "text": "Vigilance clearance is requested in respect of {{officerName}}, {{officerDesignation}}, for {{purpose}}, covering the period {{period}}."
+              }
+            ]
+          },
+          {
+            "type": "numberedPara",
+            "attrs": {
+              "level": 1
+            },
+            "content": [
+              {
+                "type": "text",
+                "text": "It may kindly be confirmed whether any disciplinary proceedings under the CCS (CCA) Rules, 1965 are pending or contemplated against the officer, and whether any vigilance case, complaint or investigation is pending."
+              }
+            ]
+          },
+          {
+            "type": "numberedPara",
+            "attrs": {
+              "level": 1
+            },
+            "content": [
+              {
+                "type": "text",
+                "text": "The information is required by {{replyBy}}, as the proposal has to be submitted to {{submitTo}} by that date."
+              }
+            ]
+          }
+        ]
+      },
+      "hi": {
+        "type": "doc",
+        "content": [
+          {
+            "type": "numberedPara",
+            "attrs": {
+              "level": 1
+            },
+            "content": [
+              {
+                "type": "text",
+                "text": "{{purpose}} हेतु {{officerName}}, {{officerDesignation}} के संबंध में {{period}} की अवधि के लिए सतर्कता निकासी अनुरोधित है।"
+              }
+            ]
+          },
+          {
+            "type": "numberedPara",
+            "attrs": {
+              "level": 1
+            },
+            "content": [
+              {
+                "type": "text",
+                "text": "कृपया पुष्टि करें कि क्या अधिकारी के विरुद्ध केंद्रीय सिविल सेवा (वर्गीकरण, नियंत्रण और अपील) नियम, 1965 के अंतर्गत कोई अनुशासनिक कार्यवाही लंबित या विचाराधीन है, तथा क्या कोई सतर्कता मामला, शिकायत या जाँच लंबित है।"
+              }
+            ]
+          },
+          {
+            "type": "numberedPara",
+            "attrs": {
+              "level": 1
+            },
+            "content": [
+              {
+                "type": "text",
+                "text": "यह सूचना {{replyBy}} तक अपेक्षित है, क्योंकि प्रस्ताव उस तिथि तक {{submitTo}} को प्रस्तुत करना है।"
+              }
+            ]
+          }
+        ]
+      }
+    }
+  }
+}

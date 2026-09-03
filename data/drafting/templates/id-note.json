@@ -1,6 +1,6 @@
 {
-  "version": "1.1.0",
-  "generatedAt": "2026-08-28T00:00:00Z",
+  "version": "2.0.0",
+  "generatedAt": "2026-09-03T00:00:00Z",
   "disclaimer": {
     "en": "Reference only; verify with the official gazette/order or your DDO.",
     "hi": "केवल संदर्भ के लिए; सरकारी राजपत्र/आदेश या अपने डीडीओ से सत्यापित करें।"
@@ -601,7 +601,86 @@
       "reference": "CSMOP 2022, sixteenth edition",
       "dated": "2022-08-05"
     },
-    "fetchedAt": "2026-08-28T00:00:00Z",
-    "verify": false
+    "fetchedAt": "2026-09-03T00:00:00Z",
+    "verify": false,
+    "variables": [
+      {
+        "key": "mainPoint",
+        "label": {
+          "en": "The point of the document",
+          "hi": "दस्तावेज़ की मुख्य बात"
+        },
+        "type": "textarea",
+        "required": true,
+        "sample": {
+          "en": "A question has now arisen whether an officer re-employed immediately on superannuation may retain the card issued to him before retirement. The matter has been examined in this Department. The rules are silent on re-employment, and no precedent is available on the file. It is felt that a card carrying the pre-retirement designation would be misleading and that a fresh card should be issued. This Department will be grateful for the advice of the Department of Legal Affairs on the issue raised in para 4 above. Comments are requested by 30.09.2026, please.",
+          "hi": "अब प्रश्न यह उठता है कि क्या अधिवर्षिता पर तत्काल पुनर्नियोजित अधिकारी सेवानिवृत्ति से पूर्व जारी पहचान पत्र अपने पास रख सकता है। इस विभाग में मामले की जाँच की गई है। नियम पुनर्नियोजन पर मौन हैं और फाइल पर कोई मिसाल उपलब्ध नहीं है। ऐसा प्रतीत होता है कि सेवानिवृत्ति-पूर्व पदनाम वाला पहचान पत्र भ्रामक होगा और नया पत्र जारी किया जाना चाहिए। यह विभाग उपर्युक्त पैरा 4 में उठाए गए मुद्दे पर विधि कार्य विभाग की सलाह के लिए आभारी रहेगा। टिप्पणियाँ दिनांक 30.09.2026 तक अपेक्षित हैं।"
+        },
+        "hint": {
+          "en": "What is being decided, asked for or conveyed. Add further paragraphs in the editor.",
+          "hi": "क्या तय, माँगा या संप्रेषित किया जा रहा है। आगे के पैराग्राफ संपादक में जोड़ें।"
+        }
+      }
+    ],
+    "bodySkeleton": {
+      "en": {
+        "type": "doc",
+        "content": [
+          {
+            "type": "numberedPara",
+            "attrs": {
+              "level": 1
+            },
+            "content": [
+              {
+                "type": "text",
+                "text": "The present rules regulating {subject} provide, inter alia, that"
+              }
+            ]
+          },
+          {
+            "type": "numberedPara",
+            "attrs": {
+              "level": 1
+            },
+            "content": [
+              {
+                "type": "text",
+                "text": "{{mainPoint}}"
+              }
+            ]
+          }
+        ]
+      },
+      "hi": {
+        "type": "doc",
+        "content": [
+          {
+            "type": "numberedPara",
+            "attrs": {
+              "level": 1
+            },
+            "content": [
+              {
+                "type": "text",
+                "text": "{subject} को विनियमित करने वाले वर्तमान नियमों में अन्य बातों के साथ-साथ यह है कि"
+              }
+            ]
+          },
+          {
+            "type": "numberedPara",
+            "attrs": {
+              "level": 1
+            },
+            "content": [
+              {
+                "type": "text",
+                "text": "{{mainPoint}}"
+              }
+            ]
+          }
+        ]
+      }
+    }
   }
 }

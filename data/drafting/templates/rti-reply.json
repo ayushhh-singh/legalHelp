@@ -1,6 +1,6 @@
 {
-  "version": "1.1.0",
-  "generatedAt": "2026-08-28T00:00:00Z",
+  "version": "2.0.0",
+  "generatedAt": "2026-09-03T00:00:00Z",
   "disclaimer": {
     "en": "Reference only; verify with the official gazette/order or your DDO.",
     "hi": "केवल संदर्भ के लिए; सरकारी राजपत्र/आदेश या अपने डीडीओ से सत्यापित करें।"
@@ -668,7 +668,86 @@
       "reference": "CSMOP 2022, sixteenth edition",
       "dated": "2022-08-05"
     },
-    "fetchedAt": "2026-08-28T00:00:00Z",
-    "verify": true
+    "fetchedAt": "2026-09-03T00:00:00Z",
+    "verify": true,
+    "variables": [
+      {
+        "key": "mainPoint",
+        "label": {
+          "en": "The point of the document",
+          "hi": "दस्तावेज़ की मुख्य बात"
+        },
+        "type": "textarea",
+        "required": true,
+        "sample": {
+          "en": "Point 1: The number of posts of Section Officer sanctioned in this Department as on 01.04.2026 is 214, of which 187 are filled. A statement is enclosed. Point 2: The information sought relates to the deliberations of a Departmental Promotion Committee and is exempt from disclosure under Section 8(1)(j) of the Act, being personal information the disclosure of which has no relationship to any public activity or interest. Point 3: The information sought is not held by this Department. Your application has been transferred in respect of this point to the Central Public Information Officer, Department of Expenditure, under Section 6(3) of the Act, and you are advised accordingly. If you are not satisfied with this reply, you may prefer a first appeal under Section 19(1) of the Act within 30 days to Shri A. K. Menon, Deputy Secretary and First Appellate Authority, Department of Personnel and Training, North Block, New Delhi - 110001.",
+          "hi": "बिंदु 1 : दिनांक 01.04.2026 को इस विभाग में अनुभाग अधिकारी के स्वीकृत पदों की संख्या 214 है, जिनमें से 187 भरे हुए हैं। विवरण संलग्न है। बिंदु 2 : माँगी गई सूचना विभागीय पदोन्नति समिति के विचार-विमर्श से संबंधित है और अधिनियम की धारा 8(1)(ञ) के अधीन प्रकटन से छूट प्राप्त है, क्योंकि यह ऐसी व्यक्तिगत सूचना है जिसके प्रकटन का किसी लोक क्रियाकलाप या हित से कोई संबंध नहीं है। बिंदु 3 : माँगी गई सूचना इस विभाग के पास उपलब्ध नहीं है। इस बिंदु के संबंध में आपका आवेदन अधिनियम की धारा 6(3) के अधीन केंद्रीय लोक सूचना अधिकारी, व्यय विभाग को अंतरित कर दिया गया है, और आपको तदनुसार सूचित किया जाता है। यदि आप इस उत्तर से संतुष्ट नहीं हैं तो आप अधिनियम की धारा 19(1) के अंतर्गत 30 दिन के भीतर श्री ए. के. मेनन, उप सचिव एवं प्रथम अपीलीय प्राधिकारी, कार्मिक और प्रशिक्षण विभाग, नॉर्थ ब्लॉक, नई दिल्ली - 110001 को प्रथम अपील कर सकते हैं।"
+        },
+        "hint": {
+          "en": "What is being decided, asked for or conveyed. Add further paragraphs in the editor.",
+          "hi": "क्या तय, माँगा या संप्रेषित किया जा रहा है। आगे के पैराग्राफ संपादक में जोड़ें।"
+        }
+      }
+    ],
+    "bodySkeleton": {
+      "en": {
+        "type": "doc",
+        "content": [
+          {
+            "type": "numberedPara",
+            "attrs": {
+              "level": 1
+            },
+            "content": [
+              {
+                "type": "text",
+                "text": "With reference to your letter No. {number} dated {date} on the subject cited above, I am directed to say that"
+              }
+            ]
+          },
+          {
+            "type": "numberedPara",
+            "attrs": {
+              "level": 1
+            },
+            "content": [
+              {
+                "type": "text",
+                "text": "{{mainPoint}}"
+              }
+            ]
+          }
+        ]
+      },
+      "hi": {
+        "type": "doc",
+        "content": [
+          {
+            "type": "numberedPara",
+            "attrs": {
+              "level": 1
+            },
+            "content": [
+              {
+                "type": "text",
+                "text": "ऊपर उद्धृत विषय पर आपके दिनांक {date} के पत्र क्रमांक {number} के संदर्भ में, मुझे यह कहने का निदेश हुआ है कि"
+              }
+            ]
+          },
+          {
+            "type": "numberedPara",
+            "attrs": {
+              "level": 1
+            },
+            "content": [
+              {
+                "type": "text",
+                "text": "{{mainPoint}}"
+              }
+            ]
+          }
+        ]
+      }
+    }
   }
 }

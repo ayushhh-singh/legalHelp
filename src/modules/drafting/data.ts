@@ -13,8 +13,8 @@ import type { DocTemplate, DocTemplateFile, DraftingIndex, PhraseLibrary, Struct
  * The specifiers are written out one per file rather than built from a
  * template string, for the reason `src/modules/pay/data.ts` records: a bundler
  * can only make a chunk for a specifier it can see, and a computed specifier
- * would put all fourteen templates into every chunk. Fourteen lines is the
- * price of a picker that downloads one form.
+ * would put all forty-three templates into every chunk. Forty-three lines is
+ * the price of a picker that downloads one form.
  */
 
 const parse = <T>(raw: string): T => JSON.parse(raw) as T
@@ -34,6 +34,39 @@ const TEMPLATE_LOADERS: Record<string, () => Promise<{ default: string }>> = {
   'show-cause-reply': () => import('../../../data/drafting/templates/show-cause-reply.json?raw'),
   'tour-programme': () => import('../../../data/drafting/templates/tour-programme.json?raw'),
   'ta-bill-cover': () => import('../../../data/drafting/templates/ta-bill-cover.json?raw'),
+
+  // Session 29 — Template Library v2. Every one of these carries `variables`
+  // and a `bodySkeleton`; the fourteen above gained a skeleton and kept their
+  // worked example unchanged (ADR-041, drafting_seed.py#_add_legacy_skeletons).
+  acknowledgement: () => import('../../../data/drafting/templates/acknowledgement.json?raw'),
+  advisory: () => import('../../../data/drafting/templates/advisory.json?raw'),
+  'agenda-note': () => import('../../../data/drafting/templates/agenda-note.json?raw'),
+  appeal: () => import('../../../data/drafting/templates/appeal.json?raw'),
+  certificate: () => import('../../../data/drafting/templates/certificate.json?raw'),
+  'charge-report': () => import('../../../data/drafting/templates/charge-report.json?raw'),
+  'charges-reply': () => import('../../../data/drafting/templates/charges-reply.json?raw'),
+  'condolence-do': () => import('../../../data/drafting/templates/condolence-do.json?raw'),
+  'explanation-letter': () => import('../../../data/drafting/templates/explanation-letter.json?raw'),
+  'forwarding-letter': () => import('../../../data/drafting/templates/forwarding-letter.json?raw'),
+  'gpf-advance': () => import('../../../data/drafting/templates/gpf-advance.json?raw'),
+  grievance: () => import('../../../data/drafting/templates/grievance.json?raw'),
+  'house-allotment': () => import('../../../data/drafting/templates/house-allotment.json?raw'),
+  'interim-reply': () => import('../../../data/drafting/templates/interim-reply.json?raw'),
+  'joining-report': () => import('../../../data/drafting/templates/joining-report.json?raw'),
+  'ltc-application': () => import('../../../data/drafting/templates/ltc-application.json?raw'),
+  'minutes-of-meeting': () => import('../../../data/drafting/templates/minutes-of-meeting.json?raw'),
+  'noc-issue': () => import('../../../data/drafting/templates/noc-issue.json?raw'),
+  'noc-request': () => import('../../../data/drafting/templates/noc-request.json?raw'),
+  'office-order': () => import('../../../data/drafting/templates/office-order.json?raw'),
+  'relieving-order': () => import('../../../data/drafting/templates/relieving-order.json?raw'),
+  reminder: () => import('../../../data/drafting/templates/reminder.json?raw'),
+  'rti-application': () => import('../../../data/drafting/templates/rti-application.json?raw'),
+  'rti-first-appeal-reply': () => import('../../../data/drafting/templates/rti-first-appeal-reply.json?raw'),
+  'sanction-order': () => import('../../../data/drafting/templates/sanction-order.json?raw'),
+  'speaking-order': () => import('../../../data/drafting/templates/speaking-order.json?raw'),
+  'tour-report': () => import('../../../data/drafting/templates/tour-report.json?raw'),
+  'transfer-request': () => import('../../../data/drafting/templates/transfer-request.json?raw'),
+  'vigilance-clearance': () => import('../../../data/drafting/templates/vigilance-clearance.json?raw'),
 }
 
 /** Every template id the Drafting Studio can open. */
@@ -54,7 +87,7 @@ function once<T>(key: string, load: () => Promise<T>): Promise<T> {
   return pending
 }
 
-/** The picker's data: fourteen names, no layouts. */
+/** The picker's data: forty-three names, no layouts. */
 export function loadDraftingIndex(): Promise<DraftingIndex> {
   return once('index', async () => {
     const module = await import('../../../data/drafting/index.json?raw')

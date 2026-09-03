@@ -1,5 +1,7 @@
 import { z } from 'zod'
 
+import { bodySchema } from '@/lib/drafting/model'
+
 /**
  * The runtime half of the drafting dataset contract.
  *
@@ -171,6 +173,41 @@ export const checklistItemSchema = z.strictObject({
   rule: ruleSchema,
 })
 
+/**
+ * Template Library v2 — a typed variable.
+ *
+ * A **variable** is what the template's `bodySkeleton` interpolates; a
+ * **field** is what its `layout` interpolates. They are separate id spaces on
+ * purpose: the layout is the page's chrome and is nearly the same across
+ * forty-three forms, while the variables are what one form's body is about.
+ * `bindings()` in `src/lib/drafting/model.ts` merges the two into the one
+ * lookup every placeholder, condition and repeater reads.
+ *
+ * `sample` is required and is not decoration: the seed DERIVES each template's
+ * `paras` worked example by substituting these into the skeleton, so a variable
+ * without one would ship a form whose own worked example still contains
+ * `{{key}}` — and `noPlaceholders` is a `must` on most of the library.
+ */
+export const templateVariableSchema = z.strictObject({
+  key: fieldId,
+  label: bilingual,
+  hint: bilingual.optional(),
+  type: z.enum(['text', 'textarea', 'date', 'number', 'select', 'addressee', 'enclosures', 'copyTo']),
+  required: z.boolean(),
+  sample: bilingualText,
+  options: z.array(z.strictObject({ value: z.string(), label: bilingual })).optional(),
+  /**
+   * A key of the officer's drafting profile this variable defaults from. The
+   * default is copied in once, when the document is created — changing the
+   * profile never rewrites a document that already exists (ADR-041 §5).
+   */
+  defaultFrom: z
+    .enum(['name', 'designation', 'office', 'ministry', 'department', 'phone', 'email', 'place'])
+    .optional(),
+  pattern: z.string().optional(),
+  patternHint: bilingual.optional(),
+})
+
 export const docTemplateSchema = z.strictObject({
   id: slug,
   name: bilingual,
@@ -191,6 +228,14 @@ export const docTemplateSchema = z.strictObject({
   fields: z.array(fieldSchema).min(1),
   layout: z.strictObject({ en: z.array(blockSchema).min(1), hi: z.array(blockSchema).min(1) }),
   checklist: z.array(checklistItemSchema).min(1),
+  /** Template Library v2. Absent on a form built before this session. */
+  variables: z.array(templateVariableSchema).optional(),
+  /**
+   * The starting body, in editor JSON, in both languages. Marker paragraphs
+   * (`{{#if x}}`, `{{#each xs}}`) are expanded by `src/lib/drafting/skeleton.ts`
+   * when a document is created from this form.
+   */
+  bodySkeleton: z.strictObject({ en: bodySchema, hi: bodySchema }).optional(),
   notes: z
     .array(
       z.strictObject({
@@ -237,6 +282,7 @@ export type PhraseLibrary = z.infer<typeof phraseLibrarySchema>
 export type BlockRole = z.infer<typeof blockRoleSchema>
 export type LayoutBlock = z.infer<typeof blockSchema>
 export type TemplateField = z.infer<typeof fieldSchema>
+export type TemplateVariable = z.infer<typeof templateVariableSchema>
 export type ChecklistRule = z.infer<typeof ruleSchema>
 export type ChecklistItem = z.infer<typeof checklistItemSchema>
 export type DocTemplate = z.infer<typeof docTemplateSchema>

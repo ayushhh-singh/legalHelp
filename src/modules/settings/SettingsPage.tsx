@@ -99,6 +99,20 @@ export default function SettingsPage() {
         </Link>
       </section>
 
+      {/*
+        The drafting profile lives in the Drafting Studio and is LINKED from
+        here, not duplicated. It is one thing an officer sets, read by every new
+        document, and the reminder section two above it established the pattern:
+        one setting, one screen, a link from wherever else it is looked for.
+      */}
+      <section className="flex flex-col gap-2">
+        <h2 className="text-lg font-semibold">{t('draft.profile.heading')}</h2>
+        <p className="max-w-prose text-sm text-muted-foreground">{t('draft.profile.lead')}</p>
+        <Link to="/draft/profile" className="text-sm text-primary underline-offset-4 hover:underline">
+          {t('draft.profile.open')}
+        </Link>
+      </section>
+
       <section className="flex flex-col gap-2">
         <h2 className="text-lg font-semibold">{t('pages.settings.privacyTitle')}</h2>
         <p className="max-w-prose text-sm text-muted-foreground">{t('pages.settings.privacyBody')}</p>

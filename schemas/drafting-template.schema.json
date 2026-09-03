@@ -441,6 +441,26 @@
         },
         "verify": {
           "type": "boolean"
+        },
+        "variables": {
+          "type": "array",
+          "items": {
+            "$ref": "#/$defs/templateVariable"
+          }
+        },
+        "bodySkeleton": {
+          "$comment": "The starting body, in editor JSON, in both languages. Marker paragraphs ({{#if x}}, {{#each xs}}) are expanded by src/lib/drafting/skeleton.ts when a document is created from this form.",
+          "type": "object",
+          "additionalProperties": false,
+          "required": ["en", "hi"],
+          "properties": {
+            "en": {
+              "$ref": "#/$defs/bodyDoc"
+            },
+            "hi": {
+              "$ref": "#/$defs/bodyDoc"
+            }
+          }
         }
       }
     },
@@ -467,6 +487,138 @@
         "endorsement",
         "footer"
       ]
+    },
+    "templateVariable": {
+      "$comment": "Template Library v2. A VARIABLE is what bodySkeleton interpolates; a FIELD is what the layout interpolates. The two id spaces are separate and drafting_seed.py's self-check keeps them from colliding.",
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["key", "label", "type", "required", "sample"],
+      "properties": {
+        "key": {
+          "type": "string",
+          "pattern": "^[a-zA-Z][a-zA-Z0-9]*$"
+        },
+        "label": {
+          "$ref": "#/$defs/bilingual"
+        },
+        "hint": {
+          "$ref": "#/$defs/bilingual"
+        },
+        "type": {
+          "enum": ["text", "textarea", "date", "number", "select", "addressee", "enclosures", "copyTo"]
+        },
+        "required": {
+          "type": "boolean"
+        },
+        "sample": {
+          "type": "object",
+          "additionalProperties": false,
+          "required": ["en", "hi"],
+          "properties": {
+            "en": {
+              "type": "string"
+            },
+            "hi": {
+              "type": "string"
+            }
+          },
+          "$comment": "The worked example. The template's own `paras` sample is DERIVED from the skeleton by substituting these, so a variable with no example would ship a form whose worked example still contains {{key}} and fails its own noPlaceholders checklist item."
+        },
+        "options": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "additionalProperties": false,
+            "required": ["value", "label"],
+            "properties": {
+              "value": {
+                "type": "string"
+              },
+              "label": {
+                "$ref": "#/$defs/bilingual"
+              }
+            }
+          }
+        },
+        "defaultFrom": {
+          "enum": ["name", "designation", "office", "ministry", "department", "phone", "email", "place"],
+          "$comment": "A key of the officer's drafting profile this variable defaults from. The default is copied into the document once, at creation; changing the profile never rewrites an existing document."
+        },
+        "pattern": {
+          "type": "string",
+          "$comment": "A validation regular expression the editor checks the value against."
+        },
+        "patternHint": {
+          "$ref": "#/$defs/bilingual"
+        }
+      }
+    },
+    "bodyNode": {
+      "$comment": "One node of an editor document. The TYPE is closed and the attributes are open: Tiptap attaches its own bookkeeping (colspan, colwidth, textAlign) and refusing a key we do not read would make every Tiptap point release a migration. src/lib/drafting/model.ts carries the same list.",
+      "type": "object",
+      "required": ["type"],
+      "properties": {
+        "type": {
+          "enum": [
+            "doc",
+            "paragraph",
+            "numberedPara",
+            "heading",
+            "bulletList",
+            "orderedList",
+            "listItem",
+            "blockquote",
+            "table",
+            "tableRow",
+            "tableCell",
+            "tableHeader",
+            "pageBreak",
+            "placeholder",
+            "hardBreak",
+            "text"
+          ]
+        },
+        "attrs": {
+          "type": "object"
+        },
+        "content": {
+          "type": "array",
+          "items": {
+            "$ref": "#/$defs/bodyNode"
+          }
+        },
+        "marks": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "required": ["type"],
+            "properties": {
+              "type": {
+                "enum": ["bold", "italic", "underline"]
+              }
+            }
+          }
+        },
+        "text": {
+          "type": "string"
+        }
+      }
+    },
+    "bodyDoc": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["type", "content"],
+      "properties": {
+        "type": {
+          "const": "doc"
+        },
+        "content": {
+          "type": "array",
+          "items": {
+            "$ref": "#/$defs/bodyNode"
+          }
+        }
+      }
     }
   }
 }

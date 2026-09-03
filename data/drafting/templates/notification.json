@@ -1,6 +1,6 @@
 {
-  "version": "1.1.0",
-  "generatedAt": "2026-08-28T00:00:00Z",
+  "version": "2.0.0",
+  "generatedAt": "2026-09-03T00:00:00Z",
   "disclaimer": {
     "en": "Reference only; verify with the official gazette/order or your DDO.",
     "hi": "केवल संदर्भ के लिए; सरकारी राजपत्र/आदेश या अपने डीडीओ से सत्यापित करें।"
@@ -593,7 +593,86 @@
       "reference": "CSMOP 2022, sixteenth edition",
       "dated": "2022-08-05"
     },
-    "fetchedAt": "2026-08-28T00:00:00Z",
-    "verify": false
+    "fetchedAt": "2026-09-03T00:00:00Z",
+    "verify": false,
+    "variables": [
+      {
+        "key": "mainPoint",
+        "label": {
+          "en": "The point of the document",
+          "hi": "दस्तावेज़ की मुख्य बात"
+        },
+        "type": "textarea",
+        "required": true,
+        "sample": {
+          "en": "No. A-32014/1/2026-Estt. — Shri X.Y.Z., Under Secretary in the Department of Personnel and Training, is appointed to officiate as Deputy Secretary in that Department with effect from 01.10.2026, vice Shri L.M.N., transferred to the Department of Expenditure.",
+          "hi": "सं. ए-32014/1/2026-स्थापना — श्री एक्स.वाई.ज़ेड., कार्मिक और प्रशिक्षण विभाग में अवर सचिव, को दिनांक 01.10.2026 से उस विभाग में उप सचिव के रूप में कार्य करने के लिए नियुक्त किया जाता है, श्री एल.एम.एन. के स्थान पर, जिनका स्थानांतरण व्यय विभाग में किया गया है।"
+        },
+        "hint": {
+          "en": "What is being decided, asked for or conveyed. Add further paragraphs in the editor.",
+          "hi": "क्या तय, माँगा या संप्रेषित किया जा रहा है। आगे के पैराग्राफ संपादक में जोड़ें।"
+        }
+      }
+    ],
+    "bodySkeleton": {
+      "en": {
+        "type": "doc",
+        "content": [
+          {
+            "type": "numberedPara",
+            "attrs": {
+              "level": 1
+            },
+            "content": [
+              {
+                "type": "text",
+                "text": "Shri {name}, {designation} in the Department of {department}, is appointed to officiate as {newDesignation} in that Department with effect from {date}."
+              }
+            ]
+          },
+          {
+            "type": "numberedPara",
+            "attrs": {
+              "level": 1
+            },
+            "content": [
+              {
+                "type": "text",
+                "text": "{{mainPoint}}"
+              }
+            ]
+          }
+        ]
+      },
+      "hi": {
+        "type": "doc",
+        "content": [
+          {
+            "type": "numberedPara",
+            "attrs": {
+              "level": 1
+            },
+            "content": [
+              {
+                "type": "text",
+                "text": "श्री {name}, {department} विभाग में {designation}, को उस विभाग में {date} से {newDesignation} के रूप में कार्य करने के लिए नियुक्त किया जाता है।"
+              }
+            ]
+          },
+          {
+            "type": "numberedPara",
+            "attrs": {
+              "level": 1
+            },
+            "content": [
+              {
+                "type": "text",
+                "text": "{{mainPoint}}"
+              }
+            ]
+          }
+        ]
+      }
+    }
   }
 }

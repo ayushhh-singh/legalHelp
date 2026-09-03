@@ -1,0 +1,652 @@
+{
+  "version": "2.0.0",
+  "generatedAt": "2026-09-03T00:00:00Z",
+  "disclaimer": {
+    "en": "Reference only; verify with the official gazette/order or your DDO.",
+    "hi": "केवल संदर्भ के लिए; सरकारी राजपत्र/आदेश या अपने डीडीओ से सत्यापित करें।"
+  },
+  "template": {
+    "id": "office-order",
+    "name": {
+      "en": "Office Order",
+      "hi": "कार्यालय आदेश"
+    },
+    "shortName": {
+      "en": "Office Order",
+      "hi": "कार्यालय आदेश"
+    },
+    "person": "third",
+    "usedBy": {
+      "en": "A Department, for its own establishment.",
+      "hi": "एक विभाग, अपने स्वयं के स्थापना कार्य के लिए।"
+    },
+    "whenToUse": {
+      "en": "CSMOP 8.4(4): an Office Order is normally used for issuing instructions on routine internal administration — grant of leave, distribution of work among sections and officers, and internal postings and transfers. It is written in the third person and carries no salutation.",
+      "hi": "सीएसएमओपी 8.4(4) : कार्यालय आदेश सामान्यतः नियमित आंतरिक प्रशासन संबंधी अनुदेश जारी करने के लिए प्रयुक्त होता है — छुट्टी की स्वीकृति, अनुभागों और अधिकारियों के बीच कार्य-विभाजन, तथा आंतरिक तैनाती और स्थानांतरण। यह अन्य पुरुष में लिखा जाता है और इसमें कोई अभिवादन नहीं होता।"
+    },
+    "salutation": null,
+    "subscription": null,
+    "urgencyAllowed": false,
+    "csmopRef": {
+      "edition": "CSMOP 2022, sixteenth edition",
+      "paras": [
+        "8.4(4)",
+        "Appendix 8.1"
+      ],
+      "chassis": "office-memorandum",
+      "note": {
+        "en": "CSMOP 8.4(4) names the Office Order and Appendix 8.1 page 90 gives its specimen, which shares its head with the Office Memorandum. This template borrows that head.",
+        "hi": "सीएसएमओपी 8.4(4) कार्यालय आदेश का उल्लेख करता है और परिशिष्ट 8.1 पृष्ठ 90 उसका नमूना देता है, जिसका शीर्ष कार्यालय ज्ञापन जैसा ही है। यह टेम्पलेट वही शीर्ष लेता है।"
+      }
+    },
+    "fields": [
+      {
+        "id": "fileNumber",
+        "label": {
+          "en": "File / communication number",
+          "hi": "फाइल / पत्र संख्या"
+        },
+        "type": "text",
+        "required": true,
+        "sample": {
+          "en": "A-11011/2/2026-Estt.",
+          "hi": "ए-11011/2/2026-स्थापना"
+        },
+        "hint": {
+          "en": "Every draft put up on a file bears the file number (9.2(vi)).",
+          "hi": "फाइल पर प्रस्तुत प्रत्येक मसौदे पर फाइल संख्या होती है (9.2(vi))।"
+        }
+      },
+      {
+        "id": "ministry",
+        "label": {
+          "en": "Ministry",
+          "hi": "मंत्रालय"
+        },
+        "type": "text",
+        "required": true,
+        "sample": {
+          "en": "Ministry of Personnel, Public Grievances and Pensions",
+          "hi": "कार्मिक, लोक शिकायत तथा पेंशन मंत्रालय"
+        }
+      },
+      {
+        "id": "department",
+        "label": {
+          "en": "Department",
+          "hi": "विभाग"
+        },
+        "type": "text",
+        "required": true,
+        "sample": {
+          "en": "Department of Personnel and Training",
+          "hi": "कार्मिक और प्रशिक्षण विभाग"
+        }
+      },
+      {
+        "id": "place",
+        "label": {
+          "en": "Place",
+          "hi": "स्थान"
+        },
+        "type": "text",
+        "required": true,
+        "sample": {
+          "en": "New Delhi",
+          "hi": "नई दिल्ली"
+        }
+      },
+      {
+        "id": "date",
+        "label": {
+          "en": "Date",
+          "hi": "दिनांक"
+        },
+        "type": "date",
+        "required": true,
+        "sample": {
+          "en": "2026-08-28",
+          "hi": "2026-08-28"
+        },
+        "hint": {
+          "en": "dd.mm.yyyy in English; दिनांक dd.mm.yyyy in Hindi.",
+          "hi": "अंग्रेज़ी में dd.mm.yyyy; हिंदी में दिनांक dd.mm.yyyy।"
+        }
+      },
+      {
+        "id": "subject",
+        "label": {
+          "en": "Subject",
+          "hi": "विषय"
+        },
+        "type": "text",
+        "required": true,
+        "sample": {
+          "en": "Grant of earned leave to Shri A.B.C., Assistant Section Officer.",
+          "hi": "श्री ए.बी.सी., सहायक अनुभाग अधिकारी को अर्जित अवकाश की स्वीकृति।"
+        }
+      },
+      {
+        "id": "paras",
+        "label": {
+          "en": "Body paragraphs",
+          "hi": "मुख्य पैराग्राफ"
+        },
+        "type": "paras",
+        "required": true,
+        "sample": {
+          "en": [
+            "Earned leave for 10 days from 01.09.2026 to 10.09.2026 is sanctioned in favour of Shri A.B.C., Assistant Section Officer, under rule 26 of the CCS (Leave) Rules, 1972.",
+            "The officer will hand over charge to Shri P.Q.R., Assistant Section Officer before proceeding on leave and will resume duty on the forenoon of the day following the expiry of the leave."
+          ],
+          "hi": [
+            "श्री ए.बी.सी., सहायक अनुभाग अधिकारी के पक्ष में 01.09.2026 से 10.09.2026 तक 10 दिन का अर्जित अवकाश केंद्रीय सिविल सेवा (अवकाश) नियम, 1972 के नियम 26 के अंतर्गत स्वीकृत किया जाता है।",
+            "अधिकारी अवकाश पर जाने से पूर्व श्री पी.क्यू.आर., सहायक अनुभाग अधिकारी को कार्यभार सौंपेंगे और अवकाश समाप्त होने के अगले दिन पूर्वाह्न में कार्यभार ग्रहण करेंगे।"
+          ]
+        },
+        "hint": {
+          "en": "One paragraph per line. The first is left unnumbered and the rest are numbered from 2.",
+          "hi": "प्रति पंक्ति एक पैराग्राफ। पहला बिना संख्या के रहता है और शेष 2 से क्रमांकित होते हैं।"
+        }
+      },
+      {
+        "id": "signatoryName",
+        "label": {
+          "en": "Name of the signatory",
+          "hi": "हस्ताक्षरकर्ता का नाम"
+        },
+        "type": "text",
+        "required": true,
+        "sample": {
+          "en": "A.B.C.",
+          "hi": "ए.बी.सी."
+        }
+      },
+      {
+        "id": "signatoryDesignation",
+        "label": {
+          "en": "Designation",
+          "hi": "पदनाम"
+        },
+        "type": "text",
+        "required": true,
+        "sample": {
+          "en": "Under Secretary to the Govt. of India",
+          "hi": "अवर सचिव, भारत सरकार"
+        }
+      },
+      {
+        "id": "phone",
+        "label": {
+          "en": "Telephone number",
+          "hi": "दूरभाष संख्या"
+        },
+        "type": "text",
+        "required": true,
+        "sample": {
+          "en": "011-2309 2590",
+          "hi": "011-2309 2590"
+        }
+      },
+      {
+        "id": "email",
+        "label": {
+          "en": "Email",
+          "hi": "ई-मेल"
+        },
+        "type": "text",
+        "required": true,
+        "sample": {
+          "en": "us-estt@nic.in",
+          "hi": "us-estt@nic.in"
+        }
+      },
+      {
+        "id": "enclosures",
+        "label": {
+          "en": "Enclosures",
+          "hi": "संलग्नक"
+        },
+        "type": "list",
+        "required": false,
+        "sample": {
+          "en": [],
+          "hi": []
+        },
+        "hint": {
+          "en": "The count goes at the bottom left of the draft — 'Encl. 3' (9.2(vii)).",
+          "hi": "मसौदे के नीचे बाईं ओर संख्या दी जाती है — 'Encl. 3' (9.2(vii))।"
+        }
+      },
+      {
+        "id": "copyTo",
+        "label": {
+          "en": "Copy to",
+          "hi": "प्रतिलिपि"
+        },
+        "type": "list",
+        "required": false,
+        "sample": {
+          "en": [
+            "The officer concerned.",
+            "The Cashier.",
+            "The Section concerned.",
+            "The office order file."
+          ],
+          "hi": [
+            "संबंधित अधिकारी।",
+            "रोकड़िया।",
+            "संबंधित अनुभाग।",
+            "कार्यालय आदेश फाइल।"
+          ]
+        }
+      }
+    ],
+    "layout": {
+      "en": [
+        {
+          "role": "fileNumber",
+          "align": "left",
+          "lines": [
+            "No. {{fileNumber}}"
+          ]
+        },
+        {
+          "role": "header",
+          "align": "center",
+          "lines": [
+            "Government of India",
+            "{{ministry}}",
+            "{{department}}"
+          ]
+        },
+        {
+          "role": "dateLine",
+          "align": "right",
+          "lines": [
+            "{{place}}, the {{date}}"
+          ]
+        },
+        {
+          "role": "title",
+          "align": "center",
+          "emphasis": "title",
+          "lines": [
+            "OFFICE ORDER"
+          ]
+        },
+        {
+          "role": "subject",
+          "align": "left",
+          "lines": [
+            "Subject: {{subject}}"
+          ]
+        },
+        {
+          "role": "body",
+          "align": "left",
+          "source": "paras",
+          "numbered": true
+        },
+        {
+          "role": "signature",
+          "align": "right",
+          "lines": [
+            "-Sd/-",
+            "({{signatoryName}})",
+            "{{signatoryDesignation}}",
+            "Tele. No.: {{phone}}",
+            "Email: {{email}}"
+          ]
+        },
+        {
+          "role": "enclosures",
+          "align": "left",
+          "lead": "List of enclosures:",
+          "source": "enclosures",
+          "itemPrefix": "ordinal",
+          "omitWhenEmpty": true
+        },
+        {
+          "role": "copyTo",
+          "align": "left",
+          "lead": "Copy forwarded for information / necessary action to:",
+          "source": "copyTo",
+          "itemPrefix": "ordinal",
+          "omitWhenEmpty": true
+        }
+      ],
+      "hi": [
+        {
+          "role": "fileNumber",
+          "align": "left",
+          "lines": [
+            "संख्या {{fileNumber}}"
+          ]
+        },
+        {
+          "role": "header",
+          "align": "center",
+          "lines": [
+            "भारत सरकार",
+            "{{ministry}}",
+            "{{department}}"
+          ]
+        },
+        {
+          "role": "dateLine",
+          "align": "right",
+          "lines": [
+            "{{place}}, दिनांक {{date}}"
+          ]
+        },
+        {
+          "role": "title",
+          "align": "center",
+          "emphasis": "title",
+          "lines": [
+            "कार्यालय आदेश"
+          ]
+        },
+        {
+          "role": "subject",
+          "align": "left",
+          "lines": [
+            "विषय : {{subject}}"
+          ]
+        },
+        {
+          "role": "body",
+          "align": "left",
+          "source": "paras",
+          "numbered": true
+        },
+        {
+          "role": "signature",
+          "align": "right",
+          "lines": [
+            "-हस्ताक्षरित/-",
+            "({{signatoryName}})",
+            "{{signatoryDesignation}}",
+            "दूरभाष संख्या : {{phone}}",
+            "ई-मेल : {{email}}"
+          ]
+        },
+        {
+          "role": "enclosures",
+          "align": "left",
+          "lead": "संलग्नकों की सूची :",
+          "source": "enclosures",
+          "itemPrefix": "ordinal",
+          "omitWhenEmpty": true
+        },
+        {
+          "role": "copyTo",
+          "align": "left",
+          "lead": "प्रति सूचना/आवश्यक कार्रवाई के लिए अग्रेषित :",
+          "source": "copyTo",
+          "itemPrefix": "ordinal",
+          "omitWhenEmpty": true
+        }
+      ]
+    },
+    "checklist": [
+      {
+        "id": "subject",
+        "label": {
+          "en": "The subject is stated",
+          "hi": "विषय लिखा गया है"
+        },
+        "why": {
+          "en": "The specimens in Appendix 8.1 carry a subject line above the body on every form that is addressed to anyone.",
+          "hi": "परिशिष्ट 8.1 के नमूनों में हर संबोधित प्रपत्र पर मुख्य भाग के ऊपर विषय पंक्ति होती है।"
+        },
+        "severity": "must",
+        "rule": {
+          "kind": "blockPresent",
+          "role": "subject"
+        },
+        "csmopRef": "Appendix 8.1"
+      },
+      {
+        "id": "number-and-date",
+        "label": {
+          "en": "Number and date are on the draft",
+          "hi": "मसौदे पर संख्या और दिनांक हैं"
+        },
+        "why": {
+          "en": "Every draft put up on a file bears the file number, and the number and date of the last communication in the series must be quoted.",
+          "hi": "फाइल पर प्रस्तुत प्रत्येक मसौदे पर फाइल संख्या होती है, और शृंखला के अंतिम पत्र की संख्या तथा दिनांक उद्धृत की जानी चाहिए।"
+        },
+        "severity": "must",
+        "rule": {
+          "kind": "allRequired",
+          "fields": [
+            "fileNumber",
+            "date"
+          ]
+        },
+        "csmopRef": "9.2(iv), 9.2(vi)"
+      },
+      {
+        "id": "third-person",
+        "label": {
+          "en": "Written in the third person",
+          "hi": "अन्य पुरुष में लिखा गया"
+        },
+        "why": {
+          "en": "An Office Memorandum is written in the third person and bears no salutation or subscription.",
+          "hi": "कार्यालय ज्ञापन अन्य पुरुष में लिखा जाता है और उसमें कोई अभिवादन या मानार्थ संबोधन नहीं होता।"
+        },
+        "severity": "must",
+        "rule": {
+          "kind": "person",
+          "value": "third"
+        },
+        "csmopRef": "8.4(3)"
+      },
+      {
+        "id": "signature-block",
+        "label": {
+          "en": "Signature block carries designation, telephone and email",
+          "hi": "हस्ताक्षर खंड में पदनाम, दूरभाष और ई-मेल हैं"
+        },
+        "why": {
+          "en": "The name, designation, telephone number, fax number and e-mail address of the signing officer must invariably be on the draft.",
+          "hi": "हस्ताक्षर करने वाले अधिकारी का नाम, पदनाम, दूरभाष संख्या, फैक्स संख्या और ई-मेल पता मसौदे पर अनिवार्यतः होना चाहिए।"
+        },
+        "severity": "must",
+        "rule": {
+          "kind": "allRequired",
+          "fields": [
+            "signatoryName",
+            "signatoryDesignation",
+            "phone",
+            "email"
+          ]
+        },
+        "csmopRef": "9.2(xii)"
+      },
+      {
+        "id": "authority",
+        "label": {
+          "en": "The rule or delegation under which it is issued is cited",
+          "hi": "जिस नियम या प्रत्यायोजन के अंतर्गत जारी है वह उद्धृत है"
+        },
+        "why": {
+          "en": "An order that grants something must say what empowers it — the leave rule, the delegation of financial powers, or the transfer policy.",
+          "hi": "जो आदेश कुछ स्वीकृत करता है उसे यह बताना चाहिए कि उसे क्या शक्ति देता है — अवकाश नियम, वित्तीय शक्तियों का प्रत्यायोजन, या स्थानांतरण नीति।"
+        },
+        "severity": "should",
+        "rule": {
+          "kind": "regex",
+          "role": "body",
+          "pattern": "(rule|regulation|order dated|delegation|नियम|विनियम|प्रत्यायोजन)"
+        }
+      },
+      {
+        "id": "no-placeholders",
+        "label": {
+          "en": "No placeholder is left unfilled",
+          "hi": "कोई प्लेसहोल्डर अधूरा नहीं छूटा"
+        },
+        "why": {
+          "en": "A draft that goes out with {{…}} still in it has not been read.",
+          "hi": "जिस मसौदे में {{…}} रह जाए, उसे पढ़ा ही नहीं गया।"
+        },
+        "severity": "must",
+        "rule": {
+          "kind": "noPlaceholders"
+        }
+      }
+    ],
+    "source": {
+      "name": "Central Secretariat Manual of Office Procedure, 2022 (16th edition), DARPG",
+      "url": "https://www.darpg.gov.in/static/uploads/2025/10/774e0b8f427b7875158363d842fa431f.pdf",
+      "reference": "CSMOP 2022, sixteenth edition",
+      "dated": "2022-08-05"
+    },
+    "fetchedAt": "2026-09-03T00:00:00Z",
+    "verify": true,
+    "variables": [
+      {
+        "key": "officerName",
+        "label": {
+          "en": "Officer's name",
+          "hi": "अधिकारी का नाम"
+        },
+        "type": "text",
+        "required": true,
+        "sample": {
+          "en": "Shri A.B.C.",
+          "hi": "श्री ए.बी.सी."
+        }
+      },
+      {
+        "key": "officerDesignation",
+        "label": {
+          "en": "Officer's designation",
+          "hi": "अधिकारी का पदनाम"
+        },
+        "type": "text",
+        "required": true,
+        "sample": {
+          "en": "Assistant Section Officer",
+          "hi": "सहायक अनुभाग अधिकारी"
+        }
+      },
+      {
+        "key": "days",
+        "label": {
+          "en": "Number of days",
+          "hi": "दिनों की संख्या"
+        },
+        "type": "number",
+        "required": true,
+        "sample": {
+          "en": "10",
+          "hi": "10"
+        }
+      },
+      {
+        "key": "fromDate",
+        "label": {
+          "en": "From",
+          "hi": "से"
+        },
+        "type": "date",
+        "required": true,
+        "sample": {
+          "en": "01.09.2026",
+          "hi": "01.09.2026"
+        }
+      },
+      {
+        "key": "toDate",
+        "label": {
+          "en": "To",
+          "hi": "तक"
+        },
+        "type": "date",
+        "required": true,
+        "sample": {
+          "en": "10.09.2026",
+          "hi": "10.09.2026"
+        }
+      },
+      {
+        "key": "chargeTo",
+        "label": {
+          "en": "Charge handed over to",
+          "hi": "कार्यभार किसे सौंपा गया"
+        },
+        "type": "text",
+        "required": false,
+        "sample": {
+          "en": "Shri P.Q.R., Assistant Section Officer",
+          "hi": "श्री पी.क्यू.आर., सहायक अनुभाग अधिकारी"
+        }
+      }
+    ],
+    "bodySkeleton": {
+      "en": {
+        "type": "doc",
+        "content": [
+          {
+            "type": "numberedPara",
+            "attrs": {
+              "level": 1
+            },
+            "content": [
+              {
+                "type": "text",
+                "text": "Earned leave for {{days}} days from {{fromDate}} to {{toDate}} is sanctioned in favour of {{officerName}}, {{officerDesignation}}, under rule 26 of the CCS (Leave) Rules, 1972."
+              }
+            ]
+          },
+          {
+            "type": "numberedPara",
+            "attrs": {
+              "level": 1
+            },
+            "content": [
+              {
+                "type": "text",
+                "text": "The officer will hand over charge to {{chargeTo}} before proceeding on leave and will resume duty on the forenoon of the day following the expiry of the leave."
+              }
+            ]
+          }
+        ]
+      },
+      "hi": {
+        "type": "doc",
+        "content": [
+          {
+            "type": "numberedPara",
+            "attrs": {
+              "level": 1
+            },
+            "content": [
+              {
+                "type": "text",
+                "text": "{{officerName}}, {{officerDesignation}} के पक्ष में {{fromDate}} से {{toDate}} तक {{days}} दिन का अर्जित अवकाश केंद्रीय सिविल सेवा (अवकाश) नियम, 1972 के नियम 26 के अंतर्गत स्वीकृत किया जाता है।"
+              }
+            ]
+          },
+          {
+            "type": "numberedPara",
+            "attrs": {
+              "level": 1
+            },
+            "content": [
+              {
+                "type": "text",
+                "text": "अधिकारी अवकाश पर जाने से पूर्व {{chargeTo}} को कार्यभार सौंपेंगे और अवकाश समाप्त होने के अगले दिन पूर्वाह्न में कार्यभार ग्रहण करेंगे।"
+              }
+            ]
+          }
+        ]
+      }
+    }
+  }
+}

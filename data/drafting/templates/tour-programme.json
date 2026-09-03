@@ -1,6 +1,6 @@
 {
-  "version": "1.1.0",
-  "generatedAt": "2026-08-28T00:00:00Z",
+  "version": "2.0.0",
+  "generatedAt": "2026-09-03T00:00:00Z",
   "disclaimer": {
     "en": "Reference only; verify with the official gazette/order or your DDO.",
     "hi": "केवल संदर्भ के लिए; सरकारी राजपत्र/आदेश या अपने डीडीओ से सत्यापित करें।"
@@ -709,7 +709,86 @@
       "reference": "CSMOP 2022, sixteenth edition",
       "dated": "2022-08-05"
     },
-    "fetchedAt": "2026-08-28T00:00:00Z",
-    "verify": true
+    "fetchedAt": "2026-09-03T00:00:00Z",
+    "verify": true,
+    "variables": [
+      {
+        "key": "mainPoint",
+        "label": {
+          "en": "The point of the document",
+          "hi": "दस्तावेज़ की मुख्य बात"
+        },
+        "type": "textarea",
+        "required": true,
+        "sample": {
+          "en": "Travel is proposed by rail in AC 2-tier, which is the entitlement at Level 8, and the officer will not be leaving headquarters on a public holiday. Daily allowance is claimed for three nights of halt at Mumbai. The expenditure is debitable to the sanctioned travel budget of the Division for the current financial year, in which a balance of Rs. 3,80,000 is available.",
+          "hi": "यात्रा रेल द्वारा द्वितीय वातानुकूलित श्रेणी में प्रस्तावित है, जो स्तर 8 पर पात्रता है, और अधिकारी सार्वजनिक अवकाश के दिन मुख्यालय नहीं छोड़ेंगे। मुंबई में तीन रात्रि विश्राम हेतु दैनिक भत्ते का दावा है। व्यय चालू वित्त वर्ष के लिए प्रभाग के स्वीकृत यात्रा बजट में नामे है, जिसमें 3,80,000 रुपये का शेष उपलब्ध है।"
+        },
+        "hint": {
+          "en": "What is being decided, asked for or conveyed. Add further paragraphs in the editor.",
+          "hi": "क्या तय, माँगा या संप्रेषित किया जा रहा है। आगे के पैराग्राफ संपादक में जोड़ें।"
+        }
+      }
+    ],
+    "bodySkeleton": {
+      "en": {
+        "type": "doc",
+        "content": [
+          {
+            "type": "numberedPara",
+            "attrs": {
+              "level": 1
+            },
+            "content": [
+              {
+                "type": "text",
+                "text": "The tour programme of Shri X.Y.Z., Section Officer (Level 8), for the period 15.09.2026 to 18.09.2026 is placed below for approval."
+              }
+            ]
+          },
+          {
+            "type": "numberedPara",
+            "attrs": {
+              "level": 1
+            },
+            "content": [
+              {
+                "type": "text",
+                "text": "{{mainPoint}}"
+              }
+            ]
+          }
+        ]
+      },
+      "hi": {
+        "type": "doc",
+        "content": [
+          {
+            "type": "numberedPara",
+            "attrs": {
+              "level": 1
+            },
+            "content": [
+              {
+                "type": "text",
+                "text": "श्री एक्स.वाई.ज़ेड., अनुभाग अधिकारी (स्तर 8) का दिनांक 15.09.2026 से 18.09.2026 तक की अवधि का दौरा कार्यक्रम अनुमोदनार्थ नीचे प्रस्तुत है।"
+              }
+            ]
+          },
+          {
+            "type": "numberedPara",
+            "attrs": {
+              "level": 1
+            },
+            "content": [
+              {
+                "type": "text",
+                "text": "{{mainPoint}}"
+              }
+            ]
+          }
+        ]
+      }
+    }
   }
 }

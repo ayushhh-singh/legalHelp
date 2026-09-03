@@ -1,0 +1,755 @@
+{
+  "version": "2.0.0",
+  "generatedAt": "2026-09-03T00:00:00Z",
+  "disclaimer": {
+    "en": "Reference only; verify with the official gazette/order or your DDO.",
+    "hi": "केवल संदर्भ के लिए; सरकारी राजपत्र/आदेश या अपने डीडीओ से सत्यापित करें।"
+  },
+  "template": {
+    "id": "charges-reply",
+    "name": {
+      "en": "Reply to a memorandum of charges",
+      "hi": "आरोप ज्ञापन का उत्तर"
+    },
+    "shortName": {
+      "en": "Charges reply",
+      "hi": "आरोप उत्तर"
+    },
+    "person": "first",
+    "usedBy": {
+      "en": "An officer, on their own behalf.",
+      "hi": "एक अधिकारी, अपनी ओर से।"
+    },
+    "whenToUse": {
+      "en": "This is the REPLY side only. Rule 14 governs a major-penalty proceeding and rule 16 a minor-penalty one; in both the charged officer submits a written statement of defence within the time allowed, admitting or denying each article of charge separately, and saying whether an oral inquiry is desired. Answering the articles as a whole rather than one by one is the commonest defect, and it leaves an unanswered article to be treated as admitted.",
+      "hi": "यह केवल उत्तर पक्ष है। नियम 14 बड़ी शास्ति की कार्यवाही को और नियम 16 लघु शास्ति की कार्यवाही को शासित करता है; दोनों में आरोपित अधिकारी अनुमत समय के भीतर लिखित बचाव कथन प्रस्तुत करता है, प्रत्येक आरोप को अलग-अलग स्वीकार या अस्वीकार करता है, और यह बताता है कि मौखिक जाँच वांछित है या नहीं। आरोपों का एक साथ उत्तर देना, एक-एक करके नहीं, सबसे सामान्य दोष है, और इससे अनुत्तरित आरोप स्वीकृत मान लिया जाता है।"
+    },
+    "salutation": null,
+    "subscription": null,
+    "urgencyAllowed": false,
+    "csmopRef": {
+      "edition": "CSMOP 2022, sixteenth edition",
+      "paras": [
+        "8.4(1)"
+      ],
+      "chassis": "letter",
+      "note": {
+        "en": "CSMOP prescribes no format. Rules 14 and 16 of the CCS (CCA) Rules, 1965 govern the proceeding and the time allowed. Built on the letter chassis. This template covers the REPLY only — this app does not draft a charge memorandum.",
+        "hi": "सीएसएमओपी कोई प्रारूप निर्धारित नहीं करता। केंद्रीय सिविल सेवा (वर्गीकरण, नियंत्रण और अपील) नियम, 1965 के नियम 14 और 16 कार्यवाही और अनुमत समय को शासित करते हैं। पत्र ढाँचे पर बना। यह टेम्पलेट केवल उत्तर के लिए है — यह ऐप आरोप ज्ञापन का मसौदा नहीं बनाता।"
+      }
+    },
+    "fields": [
+      {
+        "id": "place",
+        "label": {
+          "en": "Place",
+          "hi": "स्थान"
+        },
+        "type": "text",
+        "required": true,
+        "sample": {
+          "en": "New Delhi",
+          "hi": "नई दिल्ली"
+        }
+      },
+      {
+        "id": "date",
+        "label": {
+          "en": "Date",
+          "hi": "दिनांक"
+        },
+        "type": "date",
+        "required": true,
+        "sample": {
+          "en": "2026-08-28",
+          "hi": "2026-08-28"
+        },
+        "hint": {
+          "en": "dd.mm.yyyy in English; दिनांक dd.mm.yyyy in Hindi.",
+          "hi": "अंग्रेज़ी में dd.mm.yyyy; हिंदी में दिनांक dd.mm.yyyy।"
+        }
+      },
+      {
+        "id": "addressee",
+        "label": {
+          "en": "Addressee",
+          "hi": "प्रेषिती"
+        },
+        "type": "list",
+        "required": true,
+        "sample": {
+          "en": [
+            "The Disciplinary Authority",
+            "Department of Personnel and Training",
+            "North Block, New Delhi"
+          ],
+          "hi": [
+            "अनुशासनिक प्राधिकारी",
+            "कार्मिक और प्रशिक्षण विभाग",
+            "नॉर्थ ब्लॉक, नई दिल्ली"
+          ]
+        }
+      },
+      {
+        "id": "subject",
+        "label": {
+          "en": "Subject",
+          "hi": "विषय"
+        },
+        "type": "text",
+        "required": true,
+        "sample": {
+          "en": "Written statement of defence in respect of the memorandum of charges dated 12.08.2026.",
+          "hi": "दिनांक 12.08.2026 के आरोप ज्ञापन के संबंध में लिखित बचाव कथन।"
+        }
+      },
+      {
+        "id": "paras",
+        "label": {
+          "en": "Body paragraphs",
+          "hi": "मुख्य पैराग्राफ"
+        },
+        "type": "paras",
+        "required": true,
+        "sample": {
+          "en": [
+            "This written statement of defence is submitted in reply to the memorandum of charges No. A-11012/7/2026-Vig. dated 12.08.2026, served on me on 18.08.2026, under rule 16 of the Central Civil Services (Classification, Control and Appeal) Rules, 1965.",
+            "# Reply to each article of charge",
+            "For the purpose of my defence I request that the following documents may be made available to me: the file movement register of the Section for the period 01.07.2026 to 31.07.2026",
+            "I desire an oral inquiry in the matter. The statement is submitted with respect, and I pray that the charges may be dropped."
+          ],
+          "hi": [
+            "यह लिखित बचाव कथन केंद्रीय सिविल सेवा (वर्गीकरण, नियंत्रण और अपील) नियम, 1965 के नियम 16 के अंतर्गत आरोप ज्ञापन संख्या ए-11012/7/2026-सतर्कता दिनांक 12.08.2026, जो मुझे 18.08.2026 को तामील हुआ, के उत्तर में प्रस्तुत है।",
+            "# प्रत्येक आरोप का उत्तर",
+            "अपने बचाव के प्रयोजन हेतु अनुरोध है कि निम्नलिखित दस्तावेज़ मुझे उपलब्ध कराए जाएँ : अनुभाग का 01.07.2026 से 31.07.2026 की अवधि का फाइल गतिविधि रजिस्टर",
+            "मैं इस विषय में मौखिक जाँच चाहता/चाहती हूँ। यह कथन सादर प्रस्तुत है, और मेरी प्रार्थना है कि आरोप वापस ले लिए जाएँ।"
+          ]
+        },
+        "hint": {
+          "en": "One paragraph per line. The first is left unnumbered and the rest are numbered from 2.",
+          "hi": "प्रति पंक्ति एक पैराग्राफ। पहला बिना संख्या के रहता है और शेष 2 से क्रमांकित होते हैं।"
+        }
+      },
+      {
+        "id": "signatoryName",
+        "label": {
+          "en": "Your name",
+          "hi": "आपका नाम"
+        },
+        "type": "text",
+        "required": true,
+        "sample": {
+          "en": "A.B.C.",
+          "hi": "ए.बी.सी."
+        }
+      },
+      {
+        "id": "signatoryDesignation",
+        "label": {
+          "en": "Your designation",
+          "hi": "आपका पदनाम"
+        },
+        "type": "text",
+        "required": true,
+        "sample": {
+          "en": "Section Officer",
+          "hi": "अनुभाग अधिकारी"
+        }
+      },
+      {
+        "id": "phone",
+        "label": {
+          "en": "Telephone number",
+          "hi": "दूरभाष संख्या"
+        },
+        "type": "text",
+        "required": true,
+        "sample": {
+          "en": "011-2309 2590",
+          "hi": "011-2309 2590"
+        }
+      },
+      {
+        "id": "email",
+        "label": {
+          "en": "Email",
+          "hi": "ई-मेल"
+        },
+        "type": "text",
+        "required": true,
+        "sample": {
+          "en": "abc@nic.in",
+          "hi": "abc@nic.in"
+        }
+      },
+      {
+        "id": "enclosures",
+        "label": {
+          "en": "Enclosures",
+          "hi": "संलग्नक"
+        },
+        "type": "list",
+        "required": false,
+        "sample": {
+          "en": [
+            "A copy of the memorandum of charges dated 12.08.2026."
+          ],
+          "hi": [
+            "दिनांक 12.08.2026 के आरोप ज्ञापन की प्रति।"
+          ]
+        },
+        "hint": {
+          "en": "The count goes at the bottom left of the draft — 'Encl. 3' (9.2(vii)).",
+          "hi": "मसौदे के नीचे बाईं ओर संख्या दी जाती है — 'Encl. 3' (9.2(vii))।"
+        }
+      }
+    ],
+    "layout": {
+      "en": [
+        {
+          "role": "dateLine",
+          "align": "right",
+          "lines": [
+            "{{place}}, the {{date}}"
+          ]
+        },
+        {
+          "role": "addressee",
+          "align": "left",
+          "lead": "To,",
+          "source": "addressee"
+        },
+        {
+          "role": "subject",
+          "align": "left",
+          "lines": [
+            "Subject: {{subject}}"
+          ]
+        },
+        {
+          "role": "salutation",
+          "align": "left",
+          "lines": [
+            "Sir / Madam,"
+          ]
+        },
+        {
+          "role": "body",
+          "align": "left",
+          "source": "paras",
+          "numbered": true
+        },
+        {
+          "role": "closing",
+          "align": "right",
+          "lines": [
+            "Yours faithfully,"
+          ]
+        },
+        {
+          "role": "signature",
+          "align": "left",
+          "lines": [
+            "({{signatoryName}})",
+            "{{signatoryDesignation}}",
+            "Tele. No.: {{phone}}",
+            "Email: {{email}}"
+          ]
+        },
+        {
+          "role": "enclosures",
+          "align": "left",
+          "lead": "List of enclosures:",
+          "source": "enclosures",
+          "itemPrefix": "ordinal",
+          "omitWhenEmpty": true
+        }
+      ],
+      "hi": [
+        {
+          "role": "dateLine",
+          "align": "right",
+          "lines": [
+            "{{place}}, दिनांक {{date}}"
+          ]
+        },
+        {
+          "role": "addressee",
+          "align": "left",
+          "lead": "सेवा में,",
+          "source": "addressee"
+        },
+        {
+          "role": "subject",
+          "align": "left",
+          "lines": [
+            "विषय : {{subject}}"
+          ]
+        },
+        {
+          "role": "salutation",
+          "align": "left",
+          "lines": [
+            "महोदय / महोदया,"
+          ]
+        },
+        {
+          "role": "body",
+          "align": "left",
+          "source": "paras",
+          "numbered": true
+        },
+        {
+          "role": "closing",
+          "align": "right",
+          "lines": [
+            "भवदीय,"
+          ]
+        },
+        {
+          "role": "signature",
+          "align": "left",
+          "lines": [
+            "({{signatoryName}})",
+            "{{signatoryDesignation}}",
+            "दूरभाष संख्या : {{phone}}",
+            "ई-मेल : {{email}}"
+          ]
+        },
+        {
+          "role": "enclosures",
+          "align": "left",
+          "lead": "संलग्नकों की सूची :",
+          "source": "enclosures",
+          "itemPrefix": "ordinal",
+          "omitWhenEmpty": true
+        }
+      ]
+    },
+    "checklist": [
+      {
+        "id": "article-by-article",
+        "label": {
+          "en": "Each article of charge is answered separately",
+          "hi": "प्रत्येक आरोप का अलग-अलग उत्तर दिया गया है"
+        },
+        "why": {
+          "en": "An article of charge that is not specifically denied is treated as admitted. Answering the memorandum as a whole is the commonest and costliest defect in a defence statement.",
+          "hi": "जिस आरोप को विशेष रूप से अस्वीकार न किया जाए वह स्वीकृत माना जाता है। ज्ञापन का एक साथ उत्तर देना बचाव कथन का सबसे सामान्य और सबसे महँगा दोष है।"
+        },
+        "severity": "must",
+        "rule": {
+          "kind": "regex",
+          "role": "body",
+          "pattern": "(Article|charge|आरोप)"
+        }
+      },
+      {
+        "id": "inquiry-choice",
+        "label": {
+          "en": "Whether an oral inquiry is desired is stated",
+          "hi": "मौखिक जाँच वांछित है या नहीं, बताया गया है"
+        },
+        "why": {
+          "en": "The disciplinary authority has to record this; leaving it out means the decision is taken without knowing what the charged officer wanted.",
+          "hi": "अनुशासनिक प्राधिकारी को यह अभिलिखित करना होता है; इसे छोड़ना अर्थात यह निर्णय बिना यह जाने लेना कि आरोपित अधिकारी क्या चाहता था।"
+        },
+        "severity": "must",
+        "rule": {
+          "kind": "regex",
+          "role": "body",
+          "pattern": "(inquiry|enquiry|जाँच)"
+        }
+      },
+      {
+        "id": "subject",
+        "label": {
+          "en": "The subject is stated",
+          "hi": "विषय लिखा गया है"
+        },
+        "why": {
+          "en": "The specimens in Appendix 8.1 carry a subject line above the body on every form that is addressed to anyone.",
+          "hi": "परिशिष्ट 8.1 के नमूनों में हर संबोधित प्रपत्र पर मुख्य भाग के ऊपर विषय पंक्ति होती है।"
+        },
+        "severity": "must",
+        "rule": {
+          "kind": "blockPresent",
+          "role": "subject"
+        },
+        "csmopRef": "Appendix 8.1"
+      },
+      {
+        "id": "para-numbering",
+        "label": {
+          "en": "Paragraphs are serially numbered",
+          "hi": "पैराग्राफ क्रमानुसार संख्यांकित हैं"
+        },
+        "why": {
+          "en": "The specimens leave the first paragraph unnumbered and number the rest from 2.",
+          "hi": "नमूनों में पहला पैराग्राफ बिना संख्या के रहता है और शेष 2 से क्रमांकित होते हैं।"
+        },
+        "severity": "must",
+        "rule": {
+          "kind": "paraNumbering"
+        },
+        "csmopRef": "Appendix 8.1"
+      },
+      {
+        "id": "no-placeholders",
+        "label": {
+          "en": "No placeholder is left unfilled",
+          "hi": "कोई प्लेसहोल्डर अधूरा नहीं छूटा"
+        },
+        "why": {
+          "en": "A draft that goes out with {{…}} still in it has not been read.",
+          "hi": "जिस मसौदे में {{…}} रह जाए, उसे पढ़ा ही नहीं गया।"
+        },
+        "severity": "must",
+        "rule": {
+          "kind": "noPlaceholders"
+        }
+      }
+    ],
+    "source": {
+      "name": "Central Secretariat Manual of Office Procedure, 2022 (16th edition), DARPG",
+      "url": "https://www.darpg.gov.in/static/uploads/2025/10/774e0b8f427b7875158363d842fa431f.pdf",
+      "reference": "CSMOP 2022, sixteenth edition",
+      "dated": "2022-08-05"
+    },
+    "fetchedAt": "2026-09-03T00:00:00Z",
+    "verify": true,
+    "variables": [
+      {
+        "key": "memoNumber",
+        "label": {
+          "en": "Memorandum number",
+          "hi": "ज्ञापन संख्या"
+        },
+        "type": "text",
+        "required": true,
+        "sample": {
+          "en": "A-11012/7/2026-Vig.",
+          "hi": "ए-11012/7/2026-सतर्कता"
+        }
+      },
+      {
+        "key": "memoDate",
+        "label": {
+          "en": "Memorandum dated",
+          "hi": "ज्ञापन का दिनांक"
+        },
+        "type": "date",
+        "required": true,
+        "sample": {
+          "en": "12.08.2026",
+          "hi": "12.08.2026"
+        }
+      },
+      {
+        "key": "servedDate",
+        "label": {
+          "en": "Served on me on",
+          "hi": "मुझे कब तामील हुआ"
+        },
+        "type": "date",
+        "required": true,
+        "sample": {
+          "en": "18.08.2026",
+          "hi": "18.08.2026"
+        }
+      },
+      {
+        "key": "ccaRule",
+        "label": {
+          "en": "Under which rule",
+          "hi": "किस नियम के अंतर्गत"
+        },
+        "type": "select",
+        "required": true,
+        "sample": {
+          "en": "16",
+          "hi": "16"
+        },
+        "options": [
+          {
+            "value": "14",
+            "label": {
+              "en": "Rule 14 (major penalty)",
+              "hi": "नियम 14 (बड़ी शास्ति)"
+            }
+          },
+          {
+            "value": "16",
+            "label": {
+              "en": "Rule 16 (minor penalty)",
+              "hi": "नियम 16 (लघु शास्ति)"
+            }
+          }
+        ]
+      },
+      {
+        "key": "articleReplies",
+        "label": {
+          "en": "Reply to each article, one per line",
+          "hi": "प्रत्येक आरोप का उत्तर, प्रति पंक्ति एक"
+        },
+        "type": "enclosures",
+        "required": true,
+        "sample": {
+          "en": "Article I is denied. The file in question was returned to the Section on 04.07.2026, as the movement register at page 41 shows.",
+          "hi": "आरोप I अस्वीकार है। प्रश्नगत फाइल 04.07.2026 को अनुभाग को लौटा दी गई थी, जैसा कि पृष्ठ 41 पर गतिविधि रजिस्टर से प्रकट है।"
+        },
+        "hint": {
+          "en": "One line per article, in the order the memorandum lists them. An article not answered is treated as admitted.",
+          "hi": "प्रति आरोप एक पंक्ति, उसी क्रम में जिसमें ज्ञापन ने उन्हें दिया है। जिस आरोप का उत्तर न दिया जाए वह स्वीकृत माना जाता है।"
+        }
+      },
+      {
+        "key": "documentsSought",
+        "label": {
+          "en": "Documents sought for the defence",
+          "hi": "बचाव हेतु वांछित दस्तावेज़"
+        },
+        "type": "textarea",
+        "required": false,
+        "sample": {
+          "en": "the file movement register of the Section for the period 01.07.2026 to 31.07.2026",
+          "hi": "अनुभाग का 01.07.2026 से 31.07.2026 की अवधि का फाइल गतिविधि रजिस्टर"
+        }
+      },
+      {
+        "key": "inquiryWanted",
+        "label": {
+          "en": "Oral inquiry",
+          "hi": "मौखिक जाँच"
+        },
+        "type": "select",
+        "required": true,
+        "sample": {
+          "en": "desire",
+          "hi": "चाहता/चाहती हूँ"
+        },
+        "options": [
+          {
+            "value": "desire",
+            "label": {
+              "en": "I desire an oral inquiry",
+              "hi": "मैं मौखिक जाँच चाहता/चाहती हूँ"
+            }
+          },
+          {
+            "value": "do not desire",
+            "label": {
+              "en": "I do not desire an oral inquiry",
+              "hi": "मैं मौखिक जाँच नहीं चाहता/चाहती"
+            }
+          }
+        ]
+      }
+    ],
+    "bodySkeleton": {
+      "en": {
+        "type": "doc",
+        "content": [
+          {
+            "type": "numberedPara",
+            "attrs": {
+              "level": 1
+            },
+            "content": [
+              {
+                "type": "text",
+                "text": "This written statement of defence is submitted in reply to the memorandum of charges No. {{memoNumber}} dated {{memoDate}}, served on me on {{servedDate}}, under rule {{ccaRule}} of the Central Civil Services (Classification, Control and Appeal) Rules, 1965."
+              }
+            ]
+          },
+          {
+            "type": "heading",
+            "attrs": {
+              "level": 2
+            },
+            "content": [
+              {
+                "type": "text",
+                "text": "Reply to each article of charge"
+              }
+            ]
+          },
+          {
+            "type": "paragraph",
+            "content": [
+              {
+                "type": "text",
+                "text": "{{#each articleReplies}}"
+              }
+            ]
+          },
+          {
+            "type": "numberedPara",
+            "attrs": {
+              "level": 1
+            },
+            "content": [
+              {
+                "type": "text",
+                "text": "{{.}}"
+              }
+            ]
+          },
+          {
+            "type": "paragraph",
+            "content": [
+              {
+                "type": "text",
+                "text": "{{/each}}"
+              }
+            ]
+          },
+          {
+            "type": "paragraph",
+            "content": [
+              {
+                "type": "text",
+                "text": "{{#if documentsSought}}"
+              }
+            ]
+          },
+          {
+            "type": "numberedPara",
+            "attrs": {
+              "level": 1
+            },
+            "content": [
+              {
+                "type": "text",
+                "text": "For the purpose of my defence I request that the following documents may be made available to me: {{documentsSought}}"
+              }
+            ]
+          },
+          {
+            "type": "paragraph",
+            "content": [
+              {
+                "type": "text",
+                "text": "{{/if}}"
+              }
+            ]
+          },
+          {
+            "type": "numberedPara",
+            "attrs": {
+              "level": 1
+            },
+            "content": [
+              {
+                "type": "text",
+                "text": "I {{inquiryWanted}} an oral inquiry in the matter. The statement is submitted with respect, and I pray that the charges may be dropped."
+              }
+            ]
+          }
+        ]
+      },
+      "hi": {
+        "type": "doc",
+        "content": [
+          {
+            "type": "numberedPara",
+            "attrs": {
+              "level": 1
+            },
+            "content": [
+              {
+                "type": "text",
+                "text": "यह लिखित बचाव कथन केंद्रीय सिविल सेवा (वर्गीकरण, नियंत्रण और अपील) नियम, 1965 के नियम {{ccaRule}} के अंतर्गत आरोप ज्ञापन संख्या {{memoNumber}} दिनांक {{memoDate}}, जो मुझे {{servedDate}} को तामील हुआ, के उत्तर में प्रस्तुत है।"
+              }
+            ]
+          },
+          {
+            "type": "heading",
+            "attrs": {
+              "level": 2
+            },
+            "content": [
+              {
+                "type": "text",
+                "text": "प्रत्येक आरोप का उत्तर"
+              }
+            ]
+          },
+          {
+            "type": "paragraph",
+            "content": [
+              {
+                "type": "text",
+                "text": "{{#each articleReplies}}"
+              }
+            ]
+          },
+          {
+            "type": "numberedPara",
+            "attrs": {
+              "level": 1
+            },
+            "content": [
+              {
+                "type": "text",
+                "text": "{{.}}"
+              }
+            ]
+          },
+          {
+            "type": "paragraph",
+            "content": [
+              {
+                "type": "text",
+                "text": "{{/each}}"
+              }
+            ]
+          },
+          {
+            "type": "paragraph",
+            "content": [
+              {
+                "type": "text",
+                "text": "{{#if documentsSought}}"
+              }
+            ]
+          },
+          {
+            "type": "numberedPara",
+            "attrs": {
+              "level": 1
+            },
+            "content": [
+              {
+                "type": "text",
+                "text": "अपने बचाव के प्रयोजन हेतु अनुरोध है कि निम्नलिखित दस्तावेज़ मुझे उपलब्ध कराए जाएँ : {{documentsSought}}"
+              }
+            ]
+          },
+          {
+            "type": "paragraph",
+            "content": [
+              {
+                "type": "text",
+                "text": "{{/if}}"
+              }
+            ]
+          },
+          {
+            "type": "numberedPara",
+            "attrs": {
+              "level": 1
+            },
+            "content": [
+              {
+                "type": "text",
+                "text": "मैं इस विषय में मौखिक जाँच {{inquiryWanted}}। यह कथन सादर प्रस्तुत है, और मेरी प्रार्थना है कि आरोप वापस ले लिए जाएँ।"
+              }
+            ]
+          }
+        ]
+      }
+    }
+  }
+}

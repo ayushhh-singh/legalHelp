@@ -1,0 +1,766 @@
+{
+  "version": "2.0.0",
+  "generatedAt": "2026-09-03T00:00:00Z",
+  "disclaimer": {
+    "en": "Reference only; verify with the official gazette/order or your DDO.",
+    "hi": "केवल संदर्भ के लिए; सरकारी राजपत्र/आदेश या अपने डीडीओ से सत्यापित करें।"
+  },
+  "template": {
+    "id": "sanction-order",
+    "name": {
+      "en": "Sanction order",
+      "hi": "स्वीकृति आदेश"
+    },
+    "shortName": {
+      "en": "Sanction",
+      "hi": "स्वीकृति"
+    },
+    "person": "third",
+    "usedBy": {
+      "en": "A Department, exercising delegated financial powers.",
+      "hi": "एक विभाग, प्रत्यायोजित वित्तीय शक्तियों का प्रयोग करते हुए।"
+    },
+    "whenToUse": {
+      "en": "CSMOP 8.4(5): an Order is used for issuing financial sanctions and for making final orders in disciplinary cases. It is addressed to nobody. CSMOP 9.3(i): an instrument made in the name of the President is expressed to be so made and is signed by an officer of or above the rank of Under Secretary.",
+      "hi": "सीएसएमओपी 8.4(5) : आदेश का प्रयोग वित्तीय स्वीकृतियाँ जारी करने और अनुशासनिक मामलों में अंतिम आदेश देने के लिए होता है। यह किसी को संबोधित नहीं होता। सीएसएमओपी 9.3(i) : राष्ट्रपति के नाम से किया गया लिखत ऐसा कहकर व्यक्त किया जाता है और उस पर अवर सचिव या उससे ऊपर के अधिकारी हस्ताक्षर करते हैं।"
+    },
+    "salutation": null,
+    "subscription": null,
+    "urgencyAllowed": false,
+    "csmopRef": {
+      "edition": "CSMOP 2022, sixteenth edition",
+      "paras": [
+        "8.4(5)",
+        "9.3(i)",
+        "Appendix 8.1"
+      ],
+      "chassis": "office-memorandum",
+      "note": {
+        "en": "CSMOP 8.4(5) names the Order and Appendix 8.1 page 91 gives its specimen — a financial sanction written on the Office Memorandum head. This template borrows that head.",
+        "hi": "सीएसएमओपी 8.4(5) आदेश का उल्लेख करता है और परिशिष्ट 8.1 पृष्ठ 91 उसका नमूना देता है — कार्यालय ज्ञापन के शीर्ष पर लिखी एक वित्तीय स्वीकृति। यह टेम्पलेट वही शीर्ष लेता है।"
+      }
+    },
+    "fields": [
+      {
+        "id": "fileNumber",
+        "label": {
+          "en": "File / communication number",
+          "hi": "फाइल / पत्र संख्या"
+        },
+        "type": "text",
+        "required": true,
+        "sample": {
+          "en": "A-11011/2/2026-Estt.",
+          "hi": "ए-11011/2/2026-स्थापना"
+        },
+        "hint": {
+          "en": "Every draft put up on a file bears the file number (9.2(vi)).",
+          "hi": "फाइल पर प्रस्तुत प्रत्येक मसौदे पर फाइल संख्या होती है (9.2(vi))।"
+        }
+      },
+      {
+        "id": "ministry",
+        "label": {
+          "en": "Ministry",
+          "hi": "मंत्रालय"
+        },
+        "type": "text",
+        "required": true,
+        "sample": {
+          "en": "Ministry of Personnel, Public Grievances and Pensions",
+          "hi": "कार्मिक, लोक शिकायत तथा पेंशन मंत्रालय"
+        }
+      },
+      {
+        "id": "department",
+        "label": {
+          "en": "Department",
+          "hi": "विभाग"
+        },
+        "type": "text",
+        "required": true,
+        "sample": {
+          "en": "Department of Personnel and Training",
+          "hi": "कार्मिक और प्रशिक्षण विभाग"
+        }
+      },
+      {
+        "id": "place",
+        "label": {
+          "en": "Place",
+          "hi": "स्थान"
+        },
+        "type": "text",
+        "required": true,
+        "sample": {
+          "en": "New Delhi",
+          "hi": "नई दिल्ली"
+        }
+      },
+      {
+        "id": "date",
+        "label": {
+          "en": "Date",
+          "hi": "दिनांक"
+        },
+        "type": "date",
+        "required": true,
+        "sample": {
+          "en": "2026-08-28",
+          "hi": "2026-08-28"
+        },
+        "hint": {
+          "en": "dd.mm.yyyy in English; दिनांक dd.mm.yyyy in Hindi.",
+          "hi": "अंग्रेज़ी में dd.mm.yyyy; हिंदी में दिनांक dd.mm.yyyy।"
+        }
+      },
+      {
+        "id": "subject",
+        "label": {
+          "en": "Subject",
+          "hi": "विषय"
+        },
+        "type": "text",
+        "required": true,
+        "sample": {
+          "en": "Sanction for the purchase of office furniture for the Establishment Section.",
+          "hi": "स्थापना अनुभाग हेतु कार्यालय फर्नीचर की खरीद के लिए स्वीकृति।"
+        }
+      },
+      {
+        "id": "paras",
+        "label": {
+          "en": "Body paragraphs",
+          "hi": "मुख्य पैराग्राफ"
+        },
+        "type": "paras",
+        "required": true,
+        "sample": {
+          "en": [
+            "Sanction of the President is hereby accorded under rule 10 of the Delegation of Financial Powers Rules, 1978 to the incurring of an expenditure of Rs. 1,25,000 (Rupees one lakh twenty-five thousand only) on the purchase of office furniture for the Establishment Section.",
+            "The expenditure is debitable to the head of account 2052.00.090.01.13 — Office Expenses for the financial year 2026-27 and is within the sanctioned budget provision.",
+            "This issues with the concurrence of the Integrated Finance Division vide their Dy. No. IFD/2026/431 dated 20.08.2026."
+          ],
+          "hi": [
+            "एतद्द्वारा वित्तीय शक्ति प्रत्यायोजन नियम, 1978 का नियम 10 के अंतर्गत स्थापना अनुभाग हेतु कार्यालय फर्नीचर की खरीद पर 1,25,000 रुपये (एक लाख पच्चीस हज़ार रुपये मात्र) के व्यय के उपगमन हेतु राष्ट्रपति की स्वीकृति प्रदान की जाती है।",
+            "यह व्यय वित्तीय वर्ष 2026-27 के लिए लेखा शीर्ष 2052.00.090.01.13 — कार्यालय व्यय में नामे होगा और स्वीकृत बजट प्रावधान के भीतर है।",
+            "यह एकीकृत वित्त प्रभाग की सहमति से जारी है, उनका डायरी क्रमांक आईएफडी/2026/431 दिनांक 20.08.2026।"
+          ]
+        },
+        "hint": {
+          "en": "One paragraph per line. The first is left unnumbered and the rest are numbered from 2.",
+          "hi": "प्रति पंक्ति एक पैराग्राफ। पहला बिना संख्या के रहता है और शेष 2 से क्रमांकित होते हैं।"
+        }
+      },
+      {
+        "id": "signatoryName",
+        "label": {
+          "en": "Name of the signatory",
+          "hi": "हस्ताक्षरकर्ता का नाम"
+        },
+        "type": "text",
+        "required": true,
+        "sample": {
+          "en": "A.B.C.",
+          "hi": "ए.बी.सी."
+        }
+      },
+      {
+        "id": "signatoryDesignation",
+        "label": {
+          "en": "Designation",
+          "hi": "पदनाम"
+        },
+        "type": "text",
+        "required": true,
+        "sample": {
+          "en": "Under Secretary to the Govt. of India",
+          "hi": "अवर सचिव, भारत सरकार"
+        }
+      },
+      {
+        "id": "phone",
+        "label": {
+          "en": "Telephone number",
+          "hi": "दूरभाष संख्या"
+        },
+        "type": "text",
+        "required": true,
+        "sample": {
+          "en": "011-2309 2590",
+          "hi": "011-2309 2590"
+        }
+      },
+      {
+        "id": "email",
+        "label": {
+          "en": "Email",
+          "hi": "ई-मेल"
+        },
+        "type": "text",
+        "required": true,
+        "sample": {
+          "en": "us-estt@nic.in",
+          "hi": "us-estt@nic.in"
+        }
+      },
+      {
+        "id": "enclosures",
+        "label": {
+          "en": "Enclosures",
+          "hi": "संलग्नक"
+        },
+        "type": "list",
+        "required": false,
+        "sample": {
+          "en": [],
+          "hi": []
+        },
+        "hint": {
+          "en": "The count goes at the bottom left of the draft — 'Encl. 3' (9.2(vii)).",
+          "hi": "मसौदे के नीचे बाईं ओर संख्या दी जाती है — 'Encl. 3' (9.2(vii))।"
+        }
+      },
+      {
+        "id": "copyTo",
+        "label": {
+          "en": "Copy to",
+          "hi": "प्रतिलिपि"
+        },
+        "type": "list",
+        "required": false,
+        "sample": {
+          "en": [
+            "The Pay and Accounts Officer.",
+            "The Integrated Finance Division.",
+            "The sanction file."
+          ],
+          "hi": [
+            "वेतन एवं लेखा अधिकारी।",
+            "एकीकृत वित्त प्रभाग।",
+            "स्वीकृति फाइल।"
+          ]
+        }
+      }
+    ],
+    "layout": {
+      "en": [
+        {
+          "role": "fileNumber",
+          "align": "left",
+          "lines": [
+            "No. {{fileNumber}}"
+          ]
+        },
+        {
+          "role": "header",
+          "align": "center",
+          "lines": [
+            "Government of India",
+            "{{ministry}}",
+            "{{department}}"
+          ]
+        },
+        {
+          "role": "dateLine",
+          "align": "right",
+          "lines": [
+            "{{place}}, the {{date}}"
+          ]
+        },
+        {
+          "role": "title",
+          "align": "center",
+          "emphasis": "title",
+          "lines": [
+            "ORDER"
+          ]
+        },
+        {
+          "role": "subject",
+          "align": "left",
+          "lines": [
+            "Subject: {{subject}}"
+          ]
+        },
+        {
+          "role": "body",
+          "align": "left",
+          "source": "paras",
+          "numbered": true
+        },
+        {
+          "role": "signature",
+          "align": "right",
+          "lines": [
+            "-Sd/-",
+            "({{signatoryName}})",
+            "{{signatoryDesignation}}",
+            "Tele. No.: {{phone}}",
+            "Email: {{email}}"
+          ]
+        },
+        {
+          "role": "enclosures",
+          "align": "left",
+          "lead": "List of enclosures:",
+          "source": "enclosures",
+          "itemPrefix": "ordinal",
+          "omitWhenEmpty": true
+        },
+        {
+          "role": "copyTo",
+          "align": "left",
+          "lead": "Copy forwarded for information / necessary action to:",
+          "source": "copyTo",
+          "itemPrefix": "ordinal",
+          "omitWhenEmpty": true
+        }
+      ],
+      "hi": [
+        {
+          "role": "fileNumber",
+          "align": "left",
+          "lines": [
+            "संख्या {{fileNumber}}"
+          ]
+        },
+        {
+          "role": "header",
+          "align": "center",
+          "lines": [
+            "भारत सरकार",
+            "{{ministry}}",
+            "{{department}}"
+          ]
+        },
+        {
+          "role": "dateLine",
+          "align": "right",
+          "lines": [
+            "{{place}}, दिनांक {{date}}"
+          ]
+        },
+        {
+          "role": "title",
+          "align": "center",
+          "emphasis": "title",
+          "lines": [
+            "आदेश"
+          ]
+        },
+        {
+          "role": "subject",
+          "align": "left",
+          "lines": [
+            "विषय : {{subject}}"
+          ]
+        },
+        {
+          "role": "body",
+          "align": "left",
+          "source": "paras",
+          "numbered": true
+        },
+        {
+          "role": "signature",
+          "align": "right",
+          "lines": [
+            "-हस्ताक्षरित/-",
+            "({{signatoryName}})",
+            "{{signatoryDesignation}}",
+            "दूरभाष संख्या : {{phone}}",
+            "ई-मेल : {{email}}"
+          ]
+        },
+        {
+          "role": "enclosures",
+          "align": "left",
+          "lead": "संलग्नकों की सूची :",
+          "source": "enclosures",
+          "itemPrefix": "ordinal",
+          "omitWhenEmpty": true
+        },
+        {
+          "role": "copyTo",
+          "align": "left",
+          "lead": "प्रति सूचना/आवश्यक कार्रवाई के लिए अग्रेषित :",
+          "source": "copyTo",
+          "itemPrefix": "ordinal",
+          "omitWhenEmpty": true
+        }
+      ]
+    },
+    "checklist": [
+      {
+        "id": "subject",
+        "label": {
+          "en": "The subject is stated",
+          "hi": "विषय लिखा गया है"
+        },
+        "why": {
+          "en": "The specimens in Appendix 8.1 carry a subject line above the body on every form that is addressed to anyone.",
+          "hi": "परिशिष्ट 8.1 के नमूनों में हर संबोधित प्रपत्र पर मुख्य भाग के ऊपर विषय पंक्ति होती है।"
+        },
+        "severity": "must",
+        "rule": {
+          "kind": "blockPresent",
+          "role": "subject"
+        },
+        "csmopRef": "Appendix 8.1"
+      },
+      {
+        "id": "number-and-date",
+        "label": {
+          "en": "Number and date are on the draft",
+          "hi": "मसौदे पर संख्या और दिनांक हैं"
+        },
+        "why": {
+          "en": "Every draft put up on a file bears the file number, and the number and date of the last communication in the series must be quoted.",
+          "hi": "फाइल पर प्रस्तुत प्रत्येक मसौदे पर फाइल संख्या होती है, और शृंखला के अंतिम पत्र की संख्या तथा दिनांक उद्धृत की जानी चाहिए।"
+        },
+        "severity": "must",
+        "rule": {
+          "kind": "allRequired",
+          "fields": [
+            "fileNumber",
+            "date"
+          ]
+        },
+        "csmopRef": "9.2(iv), 9.2(vi)"
+      },
+      {
+        "id": "third-person",
+        "label": {
+          "en": "Written in the third person",
+          "hi": "अन्य पुरुष में लिखा गया"
+        },
+        "why": {
+          "en": "An Office Memorandum is written in the third person and bears no salutation or subscription.",
+          "hi": "कार्यालय ज्ञापन अन्य पुरुष में लिखा जाता है और उसमें कोई अभिवादन या मानार्थ संबोधन नहीं होता।"
+        },
+        "severity": "must",
+        "rule": {
+          "kind": "person",
+          "value": "third"
+        },
+        "csmopRef": "8.4(3)"
+      },
+      {
+        "id": "signature-block",
+        "label": {
+          "en": "Signature block carries designation, telephone and email",
+          "hi": "हस्ताक्षर खंड में पदनाम, दूरभाष और ई-मेल हैं"
+        },
+        "why": {
+          "en": "The name, designation, telephone number, fax number and e-mail address of the signing officer must invariably be on the draft.",
+          "hi": "हस्ताक्षर करने वाले अधिकारी का नाम, पदनाम, दूरभाष संख्या, फैक्स संख्या और ई-मेल पता मसौदे पर अनिवार्यतः होना चाहिए।"
+        },
+        "severity": "must",
+        "rule": {
+          "kind": "allRequired",
+          "fields": [
+            "signatoryName",
+            "signatoryDesignation",
+            "phone",
+            "email"
+          ]
+        },
+        "csmopRef": "9.2(xii)"
+      },
+      {
+        "id": "presidents-sanction",
+        "label": {
+          "en": "The sanction is expressed to be the President's",
+          "hi": "स्वीकृति राष्ट्रपति की कहकर व्यक्त की गई है"
+        },
+        "why": {
+          "en": "An instrument made in the name of the President must be expressed to be so made; a sanction that merely says 'sanction is accorded' names no authority at all.",
+          "hi": "राष्ट्रपति के नाम से किया गया लिखत ऐसा कहकर व्यक्त किया जाना चाहिए; जो स्वीकृति केवल 'स्वीकृति दी जाती है' कहती है वह किसी प्राधिकार का नाम ही नहीं लेती।"
+        },
+        "severity": "must",
+        "rule": {
+          "kind": "regex",
+          "role": "body",
+          "pattern": "(President|राष्ट्रपति)"
+        },
+        "csmopRef": "9.3(i)"
+      },
+      {
+        "id": "amount-in-words",
+        "label": {
+          "en": "The amount is given in figures and in words",
+          "hi": "राशि अंकों और शब्दों दोनों में दी गई है"
+        },
+        "why": {
+          "en": "A sanction carrying a figure alone is a sanction one keystroke can multiply by ten.",
+          "hi": "केवल अंक वाली स्वीकृति ऐसी है जिसे एक कुंजी-दबाव दस गुना कर सकता है।"
+        },
+        "severity": "must",
+        "rule": {
+          "kind": "regex",
+          "role": "body",
+          "pattern": "\\([A-Za-zऀ-ॿ][^)]{3,}\\)"
+        }
+      },
+      {
+        "id": "no-placeholders",
+        "label": {
+          "en": "No placeholder is left unfilled",
+          "hi": "कोई प्लेसहोल्डर अधूरा नहीं छूटा"
+        },
+        "why": {
+          "en": "A draft that goes out with {{…}} still in it has not been read.",
+          "hi": "जिस मसौदे में {{…}} रह जाए, उसे पढ़ा ही नहीं गया।"
+        },
+        "severity": "must",
+        "rule": {
+          "kind": "noPlaceholders"
+        }
+      }
+    ],
+    "source": {
+      "name": "Central Secretariat Manual of Office Procedure, 2022 (16th edition), DARPG",
+      "url": "https://www.darpg.gov.in/static/uploads/2025/10/774e0b8f427b7875158363d842fa431f.pdf",
+      "reference": "CSMOP 2022, sixteenth edition",
+      "dated": "2022-08-05"
+    },
+    "fetchedAt": "2026-09-03T00:00:00Z",
+    "verify": true,
+    "variables": [
+      {
+        "key": "authority",
+        "label": {
+          "en": "Rule or delegation relied on",
+          "hi": "जिस नियम या प्रत्यायोजन का आश्रय लिया गया"
+        },
+        "type": "text",
+        "required": true,
+        "sample": {
+          "en": "rule 10 of the Delegation of Financial Powers Rules, 1978",
+          "hi": "वित्तीय शक्ति प्रत्यायोजन नियम, 1978 का नियम 10"
+        },
+        "hint": {
+          "en": "For example: rule 10 of the Delegation of Financial Powers Rules, 1978.",
+          "hi": "उदाहरण : वित्तीय शक्ति प्रत्यायोजन नियम, 1978 का नियम 10।"
+        }
+      },
+      {
+        "key": "amount",
+        "label": {
+          "en": "Amount in figures",
+          "hi": "राशि अंकों में"
+        },
+        "type": "text",
+        "required": true,
+        "sample": {
+          "en": "1,25,000",
+          "hi": "1,25,000"
+        },
+        "pattern": "^[0-9][0-9,]*(\\.[0-9]{1,2})?$",
+        "patternHint": {
+          "en": "Figures only — 1,25,000 or 1,25,000.00.",
+          "hi": "केवल अंक — 1,25,000 या 1,25,000.00।"
+        }
+      },
+      {
+        "key": "amountWords",
+        "label": {
+          "en": "Amount in words",
+          "hi": "राशि शब्दों में"
+        },
+        "type": "text",
+        "required": true,
+        "sample": {
+          "en": "Rupees one lakh twenty-five thousand only",
+          "hi": "एक लाख पच्चीस हज़ार रुपये मात्र"
+        }
+      },
+      {
+        "key": "purpose",
+        "label": {
+          "en": "Purpose of the expenditure",
+          "hi": "व्यय का प्रयोजन"
+        },
+        "type": "text",
+        "required": true,
+        "sample": {
+          "en": "the purchase of office furniture for the Establishment Section",
+          "hi": "स्थापना अनुभाग हेतु कार्यालय फर्नीचर की खरीद"
+        }
+      },
+      {
+        "key": "headOfAccount",
+        "label": {
+          "en": "Head of account",
+          "hi": "लेखा शीर्ष"
+        },
+        "type": "text",
+        "required": true,
+        "sample": {
+          "en": "2052.00.090.01.13 — Office Expenses",
+          "hi": "2052.00.090.01.13 — कार्यालय व्यय"
+        }
+      },
+      {
+        "key": "financialYear",
+        "label": {
+          "en": "Financial year",
+          "hi": "वित्तीय वर्ष"
+        },
+        "type": "text",
+        "required": true,
+        "sample": {
+          "en": "2026-27",
+          "hi": "2026-27"
+        }
+      },
+      {
+        "key": "ifdNumber",
+        "label": {
+          "en": "IFD diary number",
+          "hi": "एकीकृत वित्त प्रभाग डायरी संख्या"
+        },
+        "type": "text",
+        "required": false,
+        "sample": {
+          "en": "IFD/2026/431",
+          "hi": "आईएफडी/2026/431"
+        }
+      },
+      {
+        "key": "ifdDate",
+        "label": {
+          "en": "IFD concurrence date",
+          "hi": "एकीकृत वित्त प्रभाग सहमति दिनांक"
+        },
+        "type": "date",
+        "required": false,
+        "sample": {
+          "en": "20.08.2026",
+          "hi": "20.08.2026"
+        }
+      }
+    ],
+    "bodySkeleton": {
+      "en": {
+        "type": "doc",
+        "content": [
+          {
+            "type": "numberedPara",
+            "attrs": {
+              "level": 1
+            },
+            "content": [
+              {
+                "type": "text",
+                "text": "Sanction of the President is hereby accorded under {{authority}} to the incurring of an expenditure of Rs. {{amount}} ({{amountWords}}) on {{purpose}}."
+              }
+            ]
+          },
+          {
+            "type": "numberedPara",
+            "attrs": {
+              "level": 1
+            },
+            "content": [
+              {
+                "type": "text",
+                "text": "The expenditure is debitable to the head of account {{headOfAccount}} for the financial year {{financialYear}} and is within the sanctioned budget provision."
+              }
+            ]
+          },
+          {
+            "type": "paragraph",
+            "content": [
+              {
+                "type": "text",
+                "text": "{{#if ifdNumber}}"
+              }
+            ]
+          },
+          {
+            "type": "numberedPara",
+            "attrs": {
+              "level": 1
+            },
+            "content": [
+              {
+                "type": "text",
+                "text": "This issues with the concurrence of the Integrated Finance Division vide their Dy. No. {{ifdNumber}} dated {{ifdDate}}."
+              }
+            ]
+          },
+          {
+            "type": "paragraph",
+            "content": [
+              {
+                "type": "text",
+                "text": "{{/if}}"
+              }
+            ]
+          }
+        ]
+      },
+      "hi": {
+        "type": "doc",
+        "content": [
+          {
+            "type": "numberedPara",
+            "attrs": {
+              "level": 1
+            },
+            "content": [
+              {
+                "type": "text",
+                "text": "एतद्द्वारा {{authority}} के अंतर्गत {{purpose}} पर {{amount}} रुपये ({{amountWords}}) के व्यय के उपगमन हेतु राष्ट्रपति की स्वीकृति प्रदान की जाती है।"
+              }
+            ]
+          },
+          {
+            "type": "numberedPara",
+            "attrs": {
+              "level": 1
+            },
+            "content": [
+              {
+                "type": "text",
+                "text": "यह व्यय वित्तीय वर्ष {{financialYear}} के लिए लेखा शीर्ष {{headOfAccount}} में नामे होगा और स्वीकृत बजट प्रावधान के भीतर है।"
+              }
+            ]
+          },
+          {
+            "type": "paragraph",
+            "content": [
+              {
+                "type": "text",
+                "text": "{{#if ifdNumber}}"
+              }
+            ]
+          },
+          {
+            "type": "numberedPara",
+            "attrs": {
+              "level": 1
+            },
+            "content": [
+              {
+                "type": "text",
+                "text": "यह एकीकृत वित्त प्रभाग की सहमति से जारी है, उनका डायरी क्रमांक {{ifdNumber}} दिनांक {{ifdDate}}।"
+              }
+            ]
+          },
+          {
+            "type": "paragraph",
+            "content": [
+              {
+                "type": "text",
+                "text": "{{/if}}"
+              }
+            ]
+          }
+        ]
+      }
+    }
+  }
+}

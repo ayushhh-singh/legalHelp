@@ -1,6 +1,6 @@
 {
-  "version": "1.1.0",
-  "generatedAt": "2026-08-28T00:00:00Z",
+  "version": "2.0.0",
+  "generatedAt": "2026-09-03T00:00:00Z",
   "disclaimer": {
     "en": "Reference only; verify with the official gazette/order or your DDO.",
     "hi": "केवल संदर्भ के लिए; सरकारी राजपत्र/आदेश या अपने डीडीओ से सत्यापित करें।"
@@ -595,7 +595,86 @@
       "reference": "CSMOP 2022, sixteenth edition",
       "dated": "2022-08-05"
     },
-    "fetchedAt": "2026-08-28T00:00:00Z",
-    "verify": false
+    "fetchedAt": "2026-09-03T00:00:00Z",
+    "verify": false,
+    "variables": [
+      {
+        "key": "mainPoint",
+        "label": {
+          "en": "The point of the document",
+          "hi": "दस्तावेज़ की मुख्य बात"
+        },
+        "type": "textarea",
+        "required": true,
+        "sample": {
+          "en": "The rule position is at flag 'A'. Rule 26 of the CCS (Leave) Rules, 1972 permits earned leave up to 180 days at a time, and prefixing and suffixing of holidays is admissible unless the leave is on medical grounds followed by fitness certification. The applicant has 96 days of earned leave to his credit as on 01.10.2026, as verified from the leave account at page 9/c. The Section can be managed by Shri P.Q.R. during the period. A precedent in a similar case is at flag 'B', decided at the level of the Under Secretary. In view of the above, it is proposed that the leave applied for may be sanctioned. If approved, a draft Office Order is placed below for signature. Under Secretary (Administration) is the competent authority to sanction earned leave to a Section Officer. Submitted for approval.",
+          "hi": "नियम की स्थिति ध्वज 'क' पर है। केंद्रीय सिविल सेवा (छुट्टी) नियम, 1972 का नियम 26 एक बार में 180 दिन तक अर्जित अवकाश की अनुमति देता है, और चिकित्सा आधार पर अवकाश के अतिरिक्त अन्य मामलों में अवकाश से पूर्व और पश्चात के सार्वजनिक अवकाश जोड़े जा सकते हैं। पृष्ठ 9/पत्राचार पर अवकाश लेखा से सत्यापित किया गया है कि दिनांक 01.10.2026 को आवेदक के खाते में 96 दिन का अर्जित अवकाश शेष है। इस अवधि में अनुभाग का कार्य श्री पी.क्यू.आर. द्वारा संभाला जा सकता है। इसी प्रकार के मामले की मिसाल ध्वज 'ख' पर है, जिसका निर्णय अवर सचिव के स्तर पर किया गया था। उपर्युक्त को देखते हुए प्रस्ताव है कि माँगा गया अवकाश स्वीकृत किया जाए। अनुमोदन होने पर हस्ताक्षर के लिए कार्यालय आदेश का मसौदा नीचे रखा गया है। अनुभाग अधिकारी को अर्जित अवकाश स्वीकृत करने के लिए अवर सचिव (प्रशासन) सक्षम प्राधिकारी हैं। अनुमोदनार्थ प्रस्तुत।"
+        },
+        "hint": {
+          "en": "What is being decided, asked for or conveyed. Add further paragraphs in the editor.",
+          "hi": "क्या तय, माँगा या संप्रेषित किया जा रहा है। आगे के पैराग्राफ संपादक में जोड़ें।"
+        }
+      }
+    ],
+    "bodySkeleton": {
+      "en": {
+        "type": "doc",
+        "content": [
+          {
+            "type": "numberedPara",
+            "attrs": {
+              "level": 1
+            },
+            "content": [
+              {
+                "type": "text",
+                "text": "A question has now arisen whether"
+              }
+            ]
+          },
+          {
+            "type": "numberedPara",
+            "attrs": {
+              "level": 1
+            },
+            "content": [
+              {
+                "type": "text",
+                "text": "{{mainPoint}}"
+              }
+            ]
+          }
+        ]
+      },
+      "hi": {
+        "type": "doc",
+        "content": [
+          {
+            "type": "numberedPara",
+            "attrs": {
+              "level": 1
+            },
+            "content": [
+              {
+                "type": "text",
+                "text": "अब प्रश्न यह उठता है कि क्या"
+              }
+            ]
+          },
+          {
+            "type": "numberedPara",
+            "attrs": {
+              "level": 1
+            },
+            "content": [
+              {
+                "type": "text",
+                "text": "{{mainPoint}}"
+              }
+            ]
+          }
+        ]
+      }
+    }
   }
 }

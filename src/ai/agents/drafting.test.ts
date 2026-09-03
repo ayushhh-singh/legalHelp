@@ -535,7 +535,11 @@ describe('runDraftingAgent — what it refuses to pass on', () => {
     const provider = new MockProvider(
       planScript(
         'om-unknown',
-        { templateId: 'office-order', rationale: OM_RATIONALE, fieldValues: {} },
+        // Not `office-order`: that WAS an unknown form until Session 29 built
+        // it, and a test whose premise the library can satisfy silently stops
+        // testing anything. `press-communique` is Appendix 8.1's remaining
+        // specimen and is deliberately not built (docs/DATA-GAPS.md #37).
+        { templateId: 'press-communique', rationale: OM_RATIONALE, fieldValues: {} },
         OM_CALLS,
       ),
     )
@@ -550,7 +554,7 @@ describe('runDraftingAgent — what it refuses to pass on', () => {
 
     expect(result.status).toBe('error')
     if (result.status !== 'error') return
-    expect(result.message).toContain('office-order')
+    expect(result.message).toContain('press-communique')
   })
 
   it('fails closed on an ungrounded plan', async () => {

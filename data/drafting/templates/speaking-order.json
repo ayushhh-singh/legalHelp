@@ -1,0 +1,802 @@
+{
+  "version": "2.0.0",
+  "generatedAt": "2026-09-03T00:00:00Z",
+  "disclaimer": {
+    "en": "Reference only; verify with the official gazette/order or your DDO.",
+    "hi": "केवल संदर्भ के लिए; सरकारी राजपत्र/आदेश या अपने डीडीओ से सत्यापित करें।"
+  },
+  "template": {
+    "id": "speaking-order",
+    "name": {
+      "en": "Speaking order",
+      "hi": "सकारण आदेश"
+    },
+    "shortName": {
+      "en": "Speaking order",
+      "hi": "सकारण आदेश"
+    },
+    "person": "third",
+    "usedBy": {
+      "en": "A competent authority deciding a matter that affects a person's rights.",
+      "hi": "किसी व्यक्ति के अधिकारों को प्रभावित करने वाले मामले का निर्णय करने वाला सक्षम प्राधिकारी।"
+    },
+    "whenToUse": {
+      "en": "An order that decides something against a person must give the reasons for the decision on the face of the order. It sets out what was claimed, what was considered, what the rule provides, the finding on each point, and the operative decision — in that order, so the reader can follow the reasoning without the file.",
+      "hi": "जो आदेश किसी व्यक्ति के विरुद्ध कुछ तय करता है उसमें निर्णय के कारण आदेश पर ही देने होते हैं। इसमें क्या दावा किया गया, क्या विचार किया गया, नियम क्या कहता है, प्रत्येक बिंदु पर निष्कर्ष, और प्रवर्तनीय निर्णय — इसी क्रम में — ताकि पाठक फाइल के बिना तर्क का अनुसरण कर सके।"
+    },
+    "salutation": null,
+    "subscription": null,
+    "urgencyAllowed": false,
+    "csmopRef": {
+      "edition": "CSMOP 2022, sixteenth edition",
+      "paras": [
+        "8.4(5)"
+      ],
+      "chassis": "office-memorandum",
+      "note": {
+        "en": "CSMOP names the Order form (8.4(5)) but prescribes no structure for a reasoned decision. The requirement to record reasons comes from administrative law and from CCS (CCA) Rules 1965 rule 27, not from the manual.",
+        "hi": "सीएसएमओपी आदेश प्ररूप (8.4(5)) का उल्लेख करता है पर सकारण निर्णय की कोई संरचना निर्धारित नहीं करता। कारण अभिलिखित करने की अपेक्षा प्रशासनिक विधि और केंद्रीय सिविल सेवा (वर्गीकरण, नियंत्रण और अपील) नियम 1965 के नियम 27 से आती है, नियमावली से नहीं।"
+      }
+    },
+    "fields": [
+      {
+        "id": "fileNumber",
+        "label": {
+          "en": "File / communication number",
+          "hi": "फाइल / पत्र संख्या"
+        },
+        "type": "text",
+        "required": true,
+        "sample": {
+          "en": "A-11011/2/2026-Estt.",
+          "hi": "ए-11011/2/2026-स्थापना"
+        },
+        "hint": {
+          "en": "Every draft put up on a file bears the file number (9.2(vi)).",
+          "hi": "फाइल पर प्रस्तुत प्रत्येक मसौदे पर फाइल संख्या होती है (9.2(vi))।"
+        }
+      },
+      {
+        "id": "ministry",
+        "label": {
+          "en": "Ministry",
+          "hi": "मंत्रालय"
+        },
+        "type": "text",
+        "required": true,
+        "sample": {
+          "en": "Ministry of Personnel, Public Grievances and Pensions",
+          "hi": "कार्मिक, लोक शिकायत तथा पेंशन मंत्रालय"
+        }
+      },
+      {
+        "id": "department",
+        "label": {
+          "en": "Department",
+          "hi": "विभाग"
+        },
+        "type": "text",
+        "required": true,
+        "sample": {
+          "en": "Department of Personnel and Training",
+          "hi": "कार्मिक और प्रशिक्षण विभाग"
+        }
+      },
+      {
+        "id": "place",
+        "label": {
+          "en": "Place",
+          "hi": "स्थान"
+        },
+        "type": "text",
+        "required": true,
+        "sample": {
+          "en": "New Delhi",
+          "hi": "नई दिल्ली"
+        }
+      },
+      {
+        "id": "date",
+        "label": {
+          "en": "Date",
+          "hi": "दिनांक"
+        },
+        "type": "date",
+        "required": true,
+        "sample": {
+          "en": "2026-08-28",
+          "hi": "2026-08-28"
+        },
+        "hint": {
+          "en": "dd.mm.yyyy in English; दिनांक dd.mm.yyyy in Hindi.",
+          "hi": "अंग्रेज़ी में dd.mm.yyyy; हिंदी में दिनांक dd.mm.yyyy।"
+        }
+      },
+      {
+        "id": "subject",
+        "label": {
+          "en": "Subject",
+          "hi": "विषय"
+        },
+        "type": "text",
+        "required": true,
+        "sample": {
+          "en": "Order on the representation of Shri A.B.C. against the fixation of his pay.",
+          "hi": "श्री ए.बी.सी. के वेतन निर्धारण के विरुद्ध उनके अभ्यावेदन पर आदेश।"
+        }
+      },
+      {
+        "id": "paras",
+        "label": {
+          "en": "Body paragraphs",
+          "hi": "मुख्य पैराग्राफ"
+        },
+        "type": "paras",
+        "required": true,
+        "sample": {
+          "en": [
+            "Shri A.B.C., Section Officer, has made a representation dated 05.06.2026 praying that his pay on promotion be re-fixed with effect from 01.07.2025.",
+            "The representation has been examined with reference to FR 22(I)(a)(1) and the Department of Expenditure O.M. dated 27.07.2017 and to the records of the case.",
+            "On the facts, the option for re-fixation was exercised beyond the period prescribed in the said O.M..",
+            "In view of the foregoing, the representation is rejected. The option is required to be exercised within one month of the date of promotion, and no ground has been shown for condoning the delay of eleven months.",
+            "The applicant may, if aggrieved, prefer an appeal to the Joint Secretary (Administration) within 45 days of the receipt of this order."
+          ],
+          "hi": [
+            "श्री ए.बी.सी., अनुभाग अधिकारी ने दिनांक 05.06.2026 का अभ्यावेदन प्रस्तुत किया है जिसमें यह प्रार्थना की गई है कि पदोन्नति पर उनका वेतन 01.07.2025 से पुनर्निर्धारित किया जाए।",
+            "अभ्यावेदन की जाँच मूल नियम 22(I)(क)(1) तथा व्यय विभाग का कार्यालय ज्ञापन दिनांक 27.07.2017 तथा मामले के अभिलेखों के संदर्भ में की गई है।",
+            "तथ्यों पर, पुनर्निर्धारण का विकल्प उक्त कार्यालय ज्ञापन में निर्धारित अवधि के बाद प्रयोग किया गया।",
+            "उपर्युक्त को देखते हुए, अभ्यावेदन अस्वीकार किया जाता है। विकल्प पदोन्नति की तिथि से एक माह के भीतर प्रयोग किया जाना अपेक्षित है, और ग्यारह माह के विलंब को क्षमा करने का कोई आधार नहीं दर्शाया गया है।",
+            "यदि आवेदक व्यथित हो तो वह इस आदेश की प्राप्ति के 45 दिन के भीतर संयुक्त सचिव (प्रशासन) को अपील प्रस्तुत कर सकता है।"
+          ]
+        },
+        "hint": {
+          "en": "One paragraph per line. The first is left unnumbered and the rest are numbered from 2.",
+          "hi": "प्रति पंक्ति एक पैराग्राफ। पहला बिना संख्या के रहता है और शेष 2 से क्रमांकित होते हैं।"
+        }
+      },
+      {
+        "id": "signatoryName",
+        "label": {
+          "en": "Name of the signatory",
+          "hi": "हस्ताक्षरकर्ता का नाम"
+        },
+        "type": "text",
+        "required": true,
+        "sample": {
+          "en": "A.B.C.",
+          "hi": "ए.बी.सी."
+        }
+      },
+      {
+        "id": "signatoryDesignation",
+        "label": {
+          "en": "Designation",
+          "hi": "पदनाम"
+        },
+        "type": "text",
+        "required": true,
+        "sample": {
+          "en": "Under Secretary to the Govt. of India",
+          "hi": "अवर सचिव, भारत सरकार"
+        }
+      },
+      {
+        "id": "phone",
+        "label": {
+          "en": "Telephone number",
+          "hi": "दूरभाष संख्या"
+        },
+        "type": "text",
+        "required": true,
+        "sample": {
+          "en": "011-2309 2590",
+          "hi": "011-2309 2590"
+        }
+      },
+      {
+        "id": "email",
+        "label": {
+          "en": "Email",
+          "hi": "ई-मेल"
+        },
+        "type": "text",
+        "required": true,
+        "sample": {
+          "en": "us-estt@nic.in",
+          "hi": "us-estt@nic.in"
+        }
+      },
+      {
+        "id": "enclosures",
+        "label": {
+          "en": "Enclosures",
+          "hi": "संलग्नक"
+        },
+        "type": "list",
+        "required": false,
+        "sample": {
+          "en": [],
+          "hi": []
+        },
+        "hint": {
+          "en": "The count goes at the bottom left of the draft — 'Encl. 3' (9.2(vii)).",
+          "hi": "मसौदे के नीचे बाईं ओर संख्या दी जाती है — 'Encl. 3' (9.2(vii))।"
+        }
+      },
+      {
+        "id": "copyTo",
+        "label": {
+          "en": "Copy to",
+          "hi": "प्रतिलिपि"
+        },
+        "type": "list",
+        "required": false,
+        "sample": {
+          "en": [
+            "The office order file."
+          ],
+          "hi": [
+            "कार्यालय आदेश फाइल।"
+          ]
+        }
+      }
+    ],
+    "layout": {
+      "en": [
+        {
+          "role": "fileNumber",
+          "align": "left",
+          "lines": [
+            "No. {{fileNumber}}"
+          ]
+        },
+        {
+          "role": "header",
+          "align": "center",
+          "lines": [
+            "Government of India",
+            "{{ministry}}",
+            "{{department}}"
+          ]
+        },
+        {
+          "role": "dateLine",
+          "align": "right",
+          "lines": [
+            "{{place}}, the {{date}}"
+          ]
+        },
+        {
+          "role": "title",
+          "align": "center",
+          "emphasis": "title",
+          "lines": [
+            "ORDER"
+          ]
+        },
+        {
+          "role": "subject",
+          "align": "left",
+          "lines": [
+            "Subject: {{subject}}"
+          ]
+        },
+        {
+          "role": "body",
+          "align": "left",
+          "source": "paras",
+          "numbered": true
+        },
+        {
+          "role": "signature",
+          "align": "right",
+          "lines": [
+            "-Sd/-",
+            "({{signatoryName}})",
+            "{{signatoryDesignation}}",
+            "Tele. No.: {{phone}}",
+            "Email: {{email}}"
+          ]
+        },
+        {
+          "role": "enclosures",
+          "align": "left",
+          "lead": "List of enclosures:",
+          "source": "enclosures",
+          "itemPrefix": "ordinal",
+          "omitWhenEmpty": true
+        },
+        {
+          "role": "copyTo",
+          "align": "left",
+          "lead": "Copy forwarded for information / necessary action to:",
+          "source": "copyTo",
+          "itemPrefix": "ordinal",
+          "omitWhenEmpty": true
+        }
+      ],
+      "hi": [
+        {
+          "role": "fileNumber",
+          "align": "left",
+          "lines": [
+            "संख्या {{fileNumber}}"
+          ]
+        },
+        {
+          "role": "header",
+          "align": "center",
+          "lines": [
+            "भारत सरकार",
+            "{{ministry}}",
+            "{{department}}"
+          ]
+        },
+        {
+          "role": "dateLine",
+          "align": "right",
+          "lines": [
+            "{{place}}, दिनांक {{date}}"
+          ]
+        },
+        {
+          "role": "title",
+          "align": "center",
+          "emphasis": "title",
+          "lines": [
+            "आदेश"
+          ]
+        },
+        {
+          "role": "subject",
+          "align": "left",
+          "lines": [
+            "विषय : {{subject}}"
+          ]
+        },
+        {
+          "role": "body",
+          "align": "left",
+          "source": "paras",
+          "numbered": true
+        },
+        {
+          "role": "signature",
+          "align": "right",
+          "lines": [
+            "-हस्ताक्षरित/-",
+            "({{signatoryName}})",
+            "{{signatoryDesignation}}",
+            "दूरभाष संख्या : {{phone}}",
+            "ई-मेल : {{email}}"
+          ]
+        },
+        {
+          "role": "enclosures",
+          "align": "left",
+          "lead": "संलग्नकों की सूची :",
+          "source": "enclosures",
+          "itemPrefix": "ordinal",
+          "omitWhenEmpty": true
+        },
+        {
+          "role": "copyTo",
+          "align": "left",
+          "lead": "प्रति सूचना/आवश्यक कार्रवाई के लिए अग्रेषित :",
+          "source": "copyTo",
+          "itemPrefix": "ordinal",
+          "omitWhenEmpty": true
+        }
+      ]
+    },
+    "checklist": [
+      {
+        "id": "subject",
+        "label": {
+          "en": "The subject is stated",
+          "hi": "विषय लिखा गया है"
+        },
+        "why": {
+          "en": "The specimens in Appendix 8.1 carry a subject line above the body on every form that is addressed to anyone.",
+          "hi": "परिशिष्ट 8.1 के नमूनों में हर संबोधित प्रपत्र पर मुख्य भाग के ऊपर विषय पंक्ति होती है।"
+        },
+        "severity": "must",
+        "rule": {
+          "kind": "blockPresent",
+          "role": "subject"
+        },
+        "csmopRef": "Appendix 8.1"
+      },
+      {
+        "id": "number-and-date",
+        "label": {
+          "en": "Number and date are on the draft",
+          "hi": "मसौदे पर संख्या और दिनांक हैं"
+        },
+        "why": {
+          "en": "Every draft put up on a file bears the file number, and the number and date of the last communication in the series must be quoted.",
+          "hi": "फाइल पर प्रस्तुत प्रत्येक मसौदे पर फाइल संख्या होती है, और शृंखला के अंतिम पत्र की संख्या तथा दिनांक उद्धृत की जानी चाहिए।"
+        },
+        "severity": "must",
+        "rule": {
+          "kind": "allRequired",
+          "fields": [
+            "fileNumber",
+            "date"
+          ]
+        },
+        "csmopRef": "9.2(iv), 9.2(vi)"
+      },
+      {
+        "id": "signature-block",
+        "label": {
+          "en": "Signature block carries designation, telephone and email",
+          "hi": "हस्ताक्षर खंड में पदनाम, दूरभाष और ई-मेल हैं"
+        },
+        "why": {
+          "en": "The name, designation, telephone number, fax number and e-mail address of the signing officer must invariably be on the draft.",
+          "hi": "हस्ताक्षर करने वाले अधिकारी का नाम, पदनाम, दूरभाष संख्या, फैक्स संख्या और ई-मेल पता मसौदे पर अनिवार्यतः होना चाहिए।"
+        },
+        "severity": "must",
+        "rule": {
+          "kind": "allRequired",
+          "fields": [
+            "signatoryName",
+            "signatoryDesignation",
+            "phone",
+            "email"
+          ]
+        },
+        "csmopRef": "9.2(xii)"
+      },
+      {
+        "id": "reasons-recorded",
+        "label": {
+          "en": "Reasons for the decision are recorded",
+          "hi": "निर्णय के कारण अभिलिखित हैं"
+        },
+        "why": {
+          "en": "An order that decides a claim without giving reasons is not a speaking order and is liable to be set aside on appeal for that reason alone.",
+          "hi": "जो आदेश बिना कारण दिए किसी दावे का निर्णय करता है वह सकारण आदेश नहीं है और केवल इसी कारण अपील में अपास्त हो सकता है।"
+        },
+        "severity": "must",
+        "rule": {
+          "kind": "regex",
+          "role": "body",
+          "pattern": "(because|since|in view of|for the reason|reasons|क्योंकि|कारण|के दृष्टिगत|देखते हुए)"
+        }
+      },
+      {
+        "id": "appeal-remedy",
+        "label": {
+          "en": "The appellate remedy is stated",
+          "hi": "अपीलीय उपचार बताया गया है"
+        },
+        "why": {
+          "en": "A person told what has been decided must also be told to whom and within what time they may appeal, or the remedy is one they have to discover.",
+          "hi": "जिस व्यक्ति को निर्णय बताया जाए उसे यह भी बताया जाना चाहिए कि वह किसे और कितने समय में अपील कर सकता है, अन्यथा उपचार उसे स्वयं खोजना पड़ता है।"
+        },
+        "severity": "must",
+        "rule": {
+          "kind": "regex",
+          "role": "body",
+          "pattern": "(appeal|अपील)"
+        }
+      },
+      {
+        "id": "no-placeholders",
+        "label": {
+          "en": "No placeholder is left unfilled",
+          "hi": "कोई प्लेसहोल्डर अधूरा नहीं छूटा"
+        },
+        "why": {
+          "en": "A draft that goes out with {{…}} still in it has not been read.",
+          "hi": "जिस मसौदे में {{…}} रह जाए, उसे पढ़ा ही नहीं गया।"
+        },
+        "severity": "must",
+        "rule": {
+          "kind": "noPlaceholders"
+        }
+      }
+    ],
+    "source": {
+      "name": "Central Secretariat Manual of Office Procedure, 2022 (16th edition), DARPG",
+      "url": "https://www.darpg.gov.in/static/uploads/2025/10/774e0b8f427b7875158363d842fa431f.pdf",
+      "reference": "CSMOP 2022, sixteenth edition",
+      "dated": "2022-08-05"
+    },
+    "fetchedAt": "2026-09-03T00:00:00Z",
+    "verify": true,
+    "variables": [
+      {
+        "key": "applicantName",
+        "label": {
+          "en": "Applicant's name",
+          "hi": "आवेदक का नाम"
+        },
+        "type": "text",
+        "required": true,
+        "sample": {
+          "en": "Shri A.B.C.",
+          "hi": "श्री ए.बी.सी."
+        }
+      },
+      {
+        "key": "applicantDesignation",
+        "label": {
+          "en": "Applicant's designation",
+          "hi": "आवेदक का पदनाम"
+        },
+        "type": "text",
+        "required": true,
+        "sample": {
+          "en": "Section Officer",
+          "hi": "अनुभाग अधिकारी"
+        }
+      },
+      {
+        "key": "representationDate",
+        "label": {
+          "en": "Date of the representation",
+          "hi": "अभ्यावेदन का दिनांक"
+        },
+        "type": "date",
+        "required": true,
+        "sample": {
+          "en": "05.06.2026",
+          "hi": "05.06.2026"
+        }
+      },
+      {
+        "key": "prayer",
+        "label": {
+          "en": "What was prayed for",
+          "hi": "क्या प्रार्थना की गई"
+        },
+        "type": "textarea",
+        "required": true,
+        "sample": {
+          "en": "his pay on promotion be re-fixed with effect from 01.07.2025",
+          "hi": "पदोन्नति पर उनका वेतन 01.07.2025 से पुनर्निर्धारित किया जाए"
+        }
+      },
+      {
+        "key": "provision",
+        "label": {
+          "en": "Rule or order examined against",
+          "hi": "जिस नियम या आदेश के विरुद्ध जाँच की गई"
+        },
+        "type": "text",
+        "required": true,
+        "sample": {
+          "en": "FR 22(I)(a)(1) and the Department of Expenditure O.M. dated 27.07.2017",
+          "hi": "मूल नियम 22(I)(क)(1) तथा व्यय विभाग का कार्यालय ज्ञापन दिनांक 27.07.2017"
+        }
+      },
+      {
+        "key": "finding",
+        "label": {
+          "en": "Finding on the facts",
+          "hi": "तथ्यों पर निष्कर्ष"
+        },
+        "type": "textarea",
+        "required": true,
+        "sample": {
+          "en": "the option for re-fixation was exercised beyond the period prescribed in the said O.M.",
+          "hi": "पुनर्निर्धारण का विकल्प उक्त कार्यालय ज्ञापन में निर्धारित अवधि के बाद प्रयोग किया गया"
+        }
+      },
+      {
+        "key": "decision",
+        "label": {
+          "en": "Decision",
+          "hi": "निर्णय"
+        },
+        "type": "select",
+        "required": true,
+        "sample": {
+          "en": "rejected",
+          "hi": "अस्वीकार"
+        },
+        "options": [
+          {
+            "value": "allowed",
+            "label": {
+              "en": "allowed",
+              "hi": "स्वीकार"
+            }
+          },
+          {
+            "value": "partly allowed",
+            "label": {
+              "en": "partly allowed",
+              "hi": "अंशतः स्वीकार"
+            }
+          },
+          {
+            "value": "rejected",
+            "label": {
+              "en": "rejected",
+              "hi": "अस्वीकार"
+            }
+          }
+        ]
+      },
+      {
+        "key": "reasons",
+        "label": {
+          "en": "Reasons for the decision",
+          "hi": "निर्णय के कारण"
+        },
+        "type": "textarea",
+        "required": true,
+        "sample": {
+          "en": "The option is required to be exercised within one month of the date of promotion, and no ground has been shown for condoning the delay of eleven months.",
+          "hi": "विकल्प पदोन्नति की तिथि से एक माह के भीतर प्रयोग किया जाना अपेक्षित है, और ग्यारह माह के विलंब को क्षमा करने का कोई आधार नहीं दर्शाया गया है।"
+        },
+        "hint": {
+          "en": "This is what makes the order a speaking one. A decision with no reasons is set aside on appeal.",
+          "hi": "यही आदेश को सकारण बनाता है। बिना कारण का निर्णय अपील में अपास्त हो जाता है।"
+        }
+      },
+      {
+        "key": "appellateAuthority",
+        "label": {
+          "en": "Appellate authority",
+          "hi": "अपीलीय प्राधिकारी"
+        },
+        "type": "text",
+        "required": true,
+        "sample": {
+          "en": "the Joint Secretary (Administration)",
+          "hi": "संयुक्त सचिव (प्रशासन)"
+        }
+      },
+      {
+        "key": "appealDays",
+        "label": {
+          "en": "Days to appeal",
+          "hi": "अपील के लिए दिन"
+        },
+        "type": "number",
+        "required": true,
+        "sample": {
+          "en": "45",
+          "hi": "45"
+        }
+      }
+    ],
+    "bodySkeleton": {
+      "en": {
+        "type": "doc",
+        "content": [
+          {
+            "type": "numberedPara",
+            "attrs": {
+              "level": 1
+            },
+            "content": [
+              {
+                "type": "text",
+                "text": "{{applicantName}}, {{applicantDesignation}}, has made a representation dated {{representationDate}} praying that {{prayer}}."
+              }
+            ]
+          },
+          {
+            "type": "numberedPara",
+            "attrs": {
+              "level": 1
+            },
+            "content": [
+              {
+                "type": "text",
+                "text": "The representation has been examined with reference to {{provision}} and to the records of the case."
+              }
+            ]
+          },
+          {
+            "type": "numberedPara",
+            "attrs": {
+              "level": 1
+            },
+            "content": [
+              {
+                "type": "text",
+                "text": "On the facts, {{finding}}."
+              }
+            ]
+          },
+          {
+            "type": "numberedPara",
+            "attrs": {
+              "level": 1
+            },
+            "content": [
+              {
+                "type": "text",
+                "text": "In view of the foregoing, the representation is {{decision}}. {{reasons}}"
+              }
+            ]
+          },
+          {
+            "type": "numberedPara",
+            "attrs": {
+              "level": 1
+            },
+            "content": [
+              {
+                "type": "text",
+                "text": "The applicant may, if aggrieved, prefer an appeal to {{appellateAuthority}} within {{appealDays}} days of the receipt of this order."
+              }
+            ]
+          }
+        ]
+      },
+      "hi": {
+        "type": "doc",
+        "content": [
+          {
+            "type": "numberedPara",
+            "attrs": {
+              "level": 1
+            },
+            "content": [
+              {
+                "type": "text",
+                "text": "{{applicantName}}, {{applicantDesignation}} ने दिनांक {{representationDate}} का अभ्यावेदन प्रस्तुत किया है जिसमें यह प्रार्थना की गई है कि {{prayer}}।"
+              }
+            ]
+          },
+          {
+            "type": "numberedPara",
+            "attrs": {
+              "level": 1
+            },
+            "content": [
+              {
+                "type": "text",
+                "text": "अभ्यावेदन की जाँच {{provision}} तथा मामले के अभिलेखों के संदर्भ में की गई है।"
+              }
+            ]
+          },
+          {
+            "type": "numberedPara",
+            "attrs": {
+              "level": 1
+            },
+            "content": [
+              {
+                "type": "text",
+                "text": "तथ्यों पर, {{finding}}।"
+              }
+            ]
+          },
+          {
+            "type": "numberedPara",
+            "attrs": {
+              "level": 1
+            },
+            "content": [
+              {
+                "type": "text",
+                "text": "उपर्युक्त को देखते हुए, अभ्यावेदन {{decision}} किया जाता है। {{reasons}}"
+              }
+            ]
+          },
+          {
+            "type": "numberedPara",
+            "attrs": {
+              "level": 1
+            },
+            "content": [
+              {
+                "type": "text",
+                "text": "यदि आवेदक व्यथित हो तो वह इस आदेश की प्राप्ति के {{appealDays}} दिन के भीतर {{appellateAuthority}} को अपील प्रस्तुत कर सकता है।"
+              }
+            ]
+          }
+        ]
+      }
+    }
+  }
+}

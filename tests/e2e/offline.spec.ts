@@ -102,6 +102,14 @@ const EVERY_ROUTE = [
   '/pay',
   '/draft',
   '/draft/office-memorandum',
+  // The document editor's own chunk carries Tiptap and ProseMirror — 141 KB
+  // gzip — and an offline reload is what proves the service worker precached
+  // it rather than fetching it when the officer first opened a document.
+  '/draft/documents',
+  '/draft/profile',
+  '/draft/address-book',
+  '/draft/numbering',
+  '/draft/my-templates',
   '/learn',
   '/learn/review',
   // recharts is behind this route's own chunk; an offline reload is what proves
@@ -142,6 +150,20 @@ const EVERY_ROUTE = [
 ]
 
 test('reloads every route with no network and still renders its own page', async ({ page, context }) => {
+  /*
+    One test, thirty-seven routes, two navigations each.
+
+    The explicit budget is here for the reason `a11y.spec.ts`'s route sweep
+    carries one: this is ONE test that does a great deal, and the default 30s
+    is a ceiling on the whole loop rather than on any one route. Session 29's
+    seven new `/draft` routes are what pushed it past — the failure was
+    `/utils/portals`, thirty-fifth in the list and nothing to do with the
+    change. An intermittent failure that passes in isolation is a budget, not a
+    defect (CLAUDE.md); the per-route `toBeVisible` below keeps its own 30s, so
+    a route that genuinely never renders still fails fast and by name.
+  */
+  test.setTimeout(300_000)
+
   await page.goto('/settings')
   await expect(page.getByRole('main')).toBeVisible()
   await serviceWorkerReady(page)

@@ -1,6 +1,6 @@
 {
-  "version": "1.1.0",
-  "generatedAt": "2026-08-28T00:00:00Z",
+  "version": "2.0.0",
+  "generatedAt": "2026-09-03T00:00:00Z",
   "disclaimer": {
     "en": "Reference only; verify with the official gazette/order or your DDO.",
     "hi": "केवल संदर्भ के लिए; सरकारी राजपत्र/आदेश या अपने डीडीओ से सत्यापित करें।"
@@ -496,7 +496,86 @@
       "reference": "CSMOP 2022, sixteenth edition",
       "dated": "2022-08-05"
     },
-    "fetchedAt": "2026-08-28T00:00:00Z",
-    "verify": true
+    "fetchedAt": "2026-09-03T00:00:00Z",
+    "verify": true,
+    "variables": [
+      {
+        "key": "mainPoint",
+        "label": {
+          "en": "The point of the document",
+          "hi": "दस्तावेज़ की मुख्य बात"
+        },
+        "type": "textarea",
+        "required": true,
+        "sample": {
+          "en": "Allegation 1 — that the files at Sl. Nos. 4 to 9 of the Annexure were not submitted within the prescribed time. The delay in respect of five of these files is admitted. The files were received in the Section on 02.07.2026, when the Section was working with two of its four posts vacant, as recorded in this Department's own O.M. No. A-12011/2/2026-Estt. dated 08.07.2026. Allegation 2 — that the delay was not brought to the notice of the Branch Officer. This is not correct. The position was reported in my note dated 09.07.2026 at page 23/n of File No. A-12011/2/2026-Estt., a copy of which is enclosed. I have at no stage acted in disregard of the instructions on timely disposal, and no loss has been caused to the Government. In view of the above, I request that the notice may kindly be withdrawn and the matter dropped. Should it be considered necessary, I request an opportunity of a personal hearing before a decision is taken.",
+          "hi": "आरोप 1 — कि अनुबंध के क्रम संख्या 4 से 9 तक की फाइलें निर्धारित समय में प्रस्तुत नहीं की गईं। इनमें से पाँच फाइलों के संबंध में विलंब स्वीकार है। ये फाइलें अनुभाग में दिनांक 02.07.2026 को प्राप्त हुईं, जब अनुभाग के चार में से दो पद रिक्त थे, जैसा कि इस विभाग के ही कार्यालय ज्ञापन संख्या ए-12011/2/2026-स्थापना दिनांक 08.07.2026 में अभिलिखित है। आरोप 2 — कि विलंब की सूचना शाखा अधिकारी को नहीं दी गई। यह सही नहीं है। यह स्थिति फाइल संख्या ए-12011/2/2026-स्थापना के पृष्ठ 23/टिप्पणी पर मेरी दिनांक 09.07.2026 की टिप्पणी में सूचित की गई थी, जिसकी प्रति संलग्न है। मैंने किसी भी स्तर पर समयबद्ध निपटान संबंधी अनुदेशों की अवहेलना नहीं की है, और सरकार को कोई हानि नहीं हुई है। उपर्युक्त को देखते हुए अनुरोध है कि नोटिस वापस लेकर मामला समाप्त करने की कृपा की जाए। यदि आवश्यक समझा जाए तो निर्णय से पूर्व व्यक्तिगत सुनवाई का अवसर देने का अनुरोध है।"
+        },
+        "hint": {
+          "en": "What is being decided, asked for or conveyed. Add further paragraphs in the editor.",
+          "hi": "क्या तय, माँगा या संप्रेषित किया जा रहा है। आगे के पैराग्राफ संपादक में जोड़ें।"
+        }
+      }
+    ],
+    "bodySkeleton": {
+      "en": {
+        "type": "doc",
+        "content": [
+          {
+            "type": "numberedPara",
+            "attrs": {
+              "level": 1
+            },
+            "content": [
+              {
+                "type": "text",
+                "text": "Please refer to the show-cause notice No. {number} dated {date}. My reply to the allegations contained therein is submitted below."
+              }
+            ]
+          },
+          {
+            "type": "numberedPara",
+            "attrs": {
+              "level": 1
+            },
+            "content": [
+              {
+                "type": "text",
+                "text": "{{mainPoint}}"
+              }
+            ]
+          }
+        ]
+      },
+      "hi": {
+        "type": "doc",
+        "content": [
+          {
+            "type": "numberedPara",
+            "attrs": {
+              "level": 1
+            },
+            "content": [
+              {
+                "type": "text",
+                "text": "कृपया कारण बताओ नोटिस संख्या {number} दिनांक {date} का संदर्भ लें। उसमें लगाए गए आरोपों पर मेरा उत्तर नीचे प्रस्तुत है।"
+              }
+            ]
+          },
+          {
+            "type": "numberedPara",
+            "attrs": {
+              "level": 1
+            },
+            "content": [
+              {
+                "type": "text",
+                "text": "{{mainPoint}}"
+              }
+            ]
+          }
+        ]
+      }
+    }
   }
 }

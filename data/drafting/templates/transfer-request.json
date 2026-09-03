@@ -1,0 +1,642 @@
+{
+  "version": "2.0.0",
+  "generatedAt": "2026-09-03T00:00:00Z",
+  "disclaimer": {
+    "en": "Reference only; verify with the official gazette/order or your DDO.",
+    "hi": "केवल संदर्भ के लिए; सरकारी राजपत्र/आदेश या अपने डीडीओ से सत्यापित करें।"
+  },
+  "template": {
+    "id": "transfer-request",
+    "name": {
+      "en": "Transfer request",
+      "hi": "स्थानांतरण अनुरोध"
+    },
+    "shortName": {
+      "en": "Transfer request",
+      "hi": "स्थानांतरण"
+    },
+    "person": "first",
+    "usedBy": {
+      "en": "An officer, on their own behalf.",
+      "hi": "एक अधिकारी, अपनी ओर से।"
+    },
+    "whenToUse": {
+      "en": "A request for transfer is decided against the Department's own transfer policy and the Department of Personnel and Training's instructions on the posting of employees with a disability, of women, and of those with a spouse in Government service. Naming the ground the policy recognises, and the document that proves it, is what turns a request into a case.",
+      "hi": "स्थानांतरण अनुरोध का निर्णय विभाग की अपनी स्थानांतरण नीति तथा दिव्यांग कर्मचारियों, महिलाओं और जिनके जीवनसाथी सरकारी सेवा में हैं, उनकी तैनाती संबंधी कार्मिक और प्रशिक्षण विभाग के अनुदेशों के आधार पर होता है। नीति द्वारा मान्य आधार और उसे सिद्ध करने वाला दस्तावेज़ नामित करना ही अनुरोध को मामला बनाता है।"
+    },
+    "salutation": null,
+    "subscription": null,
+    "urgencyAllowed": false,
+    "csmopRef": {
+      "edition": "CSMOP 2022, sixteenth edition",
+      "paras": [
+        "8.4(1)"
+      ],
+      "chassis": "letter",
+      "note": {
+        "en": "CSMOP prescribes no format. The grounds and their weight come from the Department's transfer policy and DoPT's instructions. Built on the letter chassis.",
+        "hi": "सीएसएमओपी कोई प्रारूप निर्धारित नहीं करता। आधार और उनका महत्व विभाग की स्थानांतरण नीति तथा कार्मिक और प्रशिक्षण विभाग के अनुदेशों से आते हैं। पत्र ढाँचे पर बना।"
+      }
+    },
+    "fields": [
+      {
+        "id": "place",
+        "label": {
+          "en": "Place",
+          "hi": "स्थान"
+        },
+        "type": "text",
+        "required": true,
+        "sample": {
+          "en": "New Delhi",
+          "hi": "नई दिल्ली"
+        }
+      },
+      {
+        "id": "date",
+        "label": {
+          "en": "Date",
+          "hi": "दिनांक"
+        },
+        "type": "date",
+        "required": true,
+        "sample": {
+          "en": "2026-08-28",
+          "hi": "2026-08-28"
+        },
+        "hint": {
+          "en": "dd.mm.yyyy in English; दिनांक dd.mm.yyyy in Hindi.",
+          "hi": "अंग्रेज़ी में dd.mm.yyyy; हिंदी में दिनांक dd.mm.yyyy।"
+        }
+      },
+      {
+        "id": "addressee",
+        "label": {
+          "en": "Addressee",
+          "hi": "प्रेषिती"
+        },
+        "type": "list",
+        "required": true,
+        "sample": {
+          "en": [
+            "The Under Secretary (Establishment)",
+            "Department of Personnel and Training",
+            "North Block, New Delhi"
+          ],
+          "hi": [
+            "अवर सचिव (स्थापना)",
+            "कार्मिक और प्रशिक्षण विभाग",
+            "नॉर्थ ब्लॉक, नई दिल्ली"
+          ]
+        }
+      },
+      {
+        "id": "subject",
+        "label": {
+          "en": "Subject",
+          "hi": "विषय"
+        },
+        "type": "text",
+        "required": true,
+        "sample": {
+          "en": "Request for transfer to the Regional Office, Lucknow, on grounds of spouse posting.",
+          "hi": "जीवनसाथी की तैनाती के आधार पर क्षेत्रीय कार्यालय, लखनऊ में स्थानांतरण हेतु अनुरोध।"
+        }
+      },
+      {
+        "id": "paras",
+        "label": {
+          "en": "Body paragraphs",
+          "hi": "मुख्य पैराग्राफ"
+        },
+        "type": "paras",
+        "required": true,
+        "sample": {
+          "en": [
+            "I request that I may be considered for transfer to the Regional Office, Lucknow, on the ground that my spouse, who is also in Central Government service, has been posted at Lucknow with effect from 01.07.2026.",
+            "I have been serving at New Delhi since 15.07.2019, that is, for 7 years, and my present post is Assistant Section Officer, Establishment Section.",
+            "In support, a copy of my spouse's posting order dated 20.06.2026 is enclosed.",
+            "I shall be grateful if the request may be considered in accordance with the transfer policy of the Department. I am willing to be relieved at the convenience of the office."
+          ],
+          "hi": [
+            "अनुरोध है कि मुझ पर क्षेत्रीय कार्यालय, लखनऊ में स्थानांतरण हेतु विचार किया जाए, इस आधार पर कि मेरे जीवनसाथी, जो केंद्र सरकार की सेवा में हैं, की तैनाती 01.07.2026 से लखनऊ में हुई है।",
+            "मैं 15.07.2019 से, अर्थात 7 वर्ष से, नई दिल्ली में सेवारत हूँ, और मेरा वर्तमान पद सहायक अनुभाग अधिकारी, स्थापना अनुभाग है।",
+            "समर्थन में मेरे जीवनसाथी के दिनांक 20.06.2026 के तैनाती आदेश की प्रति संलग्न है।",
+            "आभारी रहूँगा/रहूँगी यदि अनुरोध पर विभाग की स्थानांतरण नीति के अनुसार विचार किया जाए। मैं कार्यालय की सुविधा के अनुसार कार्यमुक्त होने को तैयार हूँ।"
+          ]
+        },
+        "hint": {
+          "en": "One paragraph per line. The first is left unnumbered and the rest are numbered from 2.",
+          "hi": "प्रति पंक्ति एक पैराग्राफ। पहला बिना संख्या के रहता है और शेष 2 से क्रमांकित होते हैं।"
+        }
+      },
+      {
+        "id": "signatoryName",
+        "label": {
+          "en": "Your name",
+          "hi": "आपका नाम"
+        },
+        "type": "text",
+        "required": true,
+        "sample": {
+          "en": "A.B.C.",
+          "hi": "ए.बी.सी."
+        }
+      },
+      {
+        "id": "signatoryDesignation",
+        "label": {
+          "en": "Your designation",
+          "hi": "आपका पदनाम"
+        },
+        "type": "text",
+        "required": true,
+        "sample": {
+          "en": "Assistant Section Officer",
+          "hi": "सहायक अनुभाग अधिकारी"
+        }
+      },
+      {
+        "id": "phone",
+        "label": {
+          "en": "Telephone number",
+          "hi": "दूरभाष संख्या"
+        },
+        "type": "text",
+        "required": true,
+        "sample": {
+          "en": "011-2309 2590",
+          "hi": "011-2309 2590"
+        }
+      },
+      {
+        "id": "email",
+        "label": {
+          "en": "Email",
+          "hi": "ई-मेल"
+        },
+        "type": "text",
+        "required": true,
+        "sample": {
+          "en": "abc@nic.in",
+          "hi": "abc@nic.in"
+        }
+      },
+      {
+        "id": "enclosures",
+        "label": {
+          "en": "Enclosures",
+          "hi": "संलग्नक"
+        },
+        "type": "list",
+        "required": false,
+        "sample": {
+          "en": [
+            "A copy of my spouse's posting order dated 20.06.2026."
+          ],
+          "hi": [
+            "मेरे जीवनसाथी के दिनांक 20.06.2026 के तैनाती आदेश की प्रति।"
+          ]
+        },
+        "hint": {
+          "en": "The count goes at the bottom left of the draft — 'Encl. 3' (9.2(vii)).",
+          "hi": "मसौदे के नीचे बाईं ओर संख्या दी जाती है — 'Encl. 3' (9.2(vii))।"
+        }
+      }
+    ],
+    "layout": {
+      "en": [
+        {
+          "role": "dateLine",
+          "align": "right",
+          "lines": [
+            "{{place}}, the {{date}}"
+          ]
+        },
+        {
+          "role": "addressee",
+          "align": "left",
+          "lead": "To,",
+          "source": "addressee"
+        },
+        {
+          "role": "subject",
+          "align": "left",
+          "lines": [
+            "Subject: {{subject}}"
+          ]
+        },
+        {
+          "role": "salutation",
+          "align": "left",
+          "lines": [
+            "Sir / Madam,"
+          ]
+        },
+        {
+          "role": "body",
+          "align": "left",
+          "source": "paras",
+          "numbered": true
+        },
+        {
+          "role": "closing",
+          "align": "right",
+          "lines": [
+            "Yours faithfully,"
+          ]
+        },
+        {
+          "role": "signature",
+          "align": "left",
+          "lines": [
+            "({{signatoryName}})",
+            "{{signatoryDesignation}}",
+            "Tele. No.: {{phone}}",
+            "Email: {{email}}"
+          ]
+        },
+        {
+          "role": "enclosures",
+          "align": "left",
+          "lead": "List of enclosures:",
+          "source": "enclosures",
+          "itemPrefix": "ordinal",
+          "omitWhenEmpty": true
+        }
+      ],
+      "hi": [
+        {
+          "role": "dateLine",
+          "align": "right",
+          "lines": [
+            "{{place}}, दिनांक {{date}}"
+          ]
+        },
+        {
+          "role": "addressee",
+          "align": "left",
+          "lead": "सेवा में,",
+          "source": "addressee"
+        },
+        {
+          "role": "subject",
+          "align": "left",
+          "lines": [
+            "विषय : {{subject}}"
+          ]
+        },
+        {
+          "role": "salutation",
+          "align": "left",
+          "lines": [
+            "महोदय / महोदया,"
+          ]
+        },
+        {
+          "role": "body",
+          "align": "left",
+          "source": "paras",
+          "numbered": true
+        },
+        {
+          "role": "closing",
+          "align": "right",
+          "lines": [
+            "भवदीय,"
+          ]
+        },
+        {
+          "role": "signature",
+          "align": "left",
+          "lines": [
+            "({{signatoryName}})",
+            "{{signatoryDesignation}}",
+            "दूरभाष संख्या : {{phone}}",
+            "ई-मेल : {{email}}"
+          ]
+        },
+        {
+          "role": "enclosures",
+          "align": "left",
+          "lead": "संलग्नकों की सूची :",
+          "source": "enclosures",
+          "itemPrefix": "ordinal",
+          "omitWhenEmpty": true
+        }
+      ]
+    },
+    "checklist": [
+      {
+        "id": "ground-named",
+        "label": {
+          "en": "A ground the policy recognises is named",
+          "hi": "नीति द्वारा मान्य आधार नामित है"
+        },
+        "why": {
+          "en": "A request that gives no ground is decided against the general seniority position, which is rarely what the applicant wanted.",
+          "hi": "जो अनुरोध कोई आधार नहीं देता उसका निर्णय सामान्य वरिष्ठता स्थिति के आधार पर होता है, जो प्रायः वह नहीं होता जो आवेदक चाहता था।"
+        },
+        "severity": "must",
+        "rule": {
+          "kind": "regex",
+          "role": "body",
+          "pattern": "(ground|on account of|because|आधार|कारण)"
+        }
+      },
+      {
+        "id": "subject",
+        "label": {
+          "en": "The subject is stated",
+          "hi": "विषय लिखा गया है"
+        },
+        "why": {
+          "en": "The specimens in Appendix 8.1 carry a subject line above the body on every form that is addressed to anyone.",
+          "hi": "परिशिष्ट 8.1 के नमूनों में हर संबोधित प्रपत्र पर मुख्य भाग के ऊपर विषय पंक्ति होती है।"
+        },
+        "severity": "must",
+        "rule": {
+          "kind": "blockPresent",
+          "role": "subject"
+        },
+        "csmopRef": "Appendix 8.1"
+      },
+      {
+        "id": "para-numbering",
+        "label": {
+          "en": "Paragraphs are serially numbered",
+          "hi": "पैराग्राफ क्रमानुसार संख्यांकित हैं"
+        },
+        "why": {
+          "en": "The specimens leave the first paragraph unnumbered and number the rest from 2.",
+          "hi": "नमूनों में पहला पैराग्राफ बिना संख्या के रहता है और शेष 2 से क्रमांकित होते हैं।"
+        },
+        "severity": "must",
+        "rule": {
+          "kind": "paraNumbering"
+        },
+        "csmopRef": "Appendix 8.1"
+      },
+      {
+        "id": "no-placeholders",
+        "label": {
+          "en": "No placeholder is left unfilled",
+          "hi": "कोई प्लेसहोल्डर अधूरा नहीं छूटा"
+        },
+        "why": {
+          "en": "A draft that goes out with {{…}} still in it has not been read.",
+          "hi": "जिस मसौदे में {{…}} रह जाए, उसे पढ़ा ही नहीं गया।"
+        },
+        "severity": "must",
+        "rule": {
+          "kind": "noPlaceholders"
+        }
+      }
+    ],
+    "source": {
+      "name": "Central Secretariat Manual of Office Procedure, 2022 (16th edition), DARPG",
+      "url": "https://www.darpg.gov.in/static/uploads/2025/10/774e0b8f427b7875158363d842fa431f.pdf",
+      "reference": "CSMOP 2022, sixteenth edition",
+      "dated": "2022-08-05"
+    },
+    "fetchedAt": "2026-09-03T00:00:00Z",
+    "verify": true,
+    "variables": [
+      {
+        "key": "requestedStation",
+        "label": {
+          "en": "Station requested",
+          "hi": "अनुरोधित स्थान"
+        },
+        "type": "text",
+        "required": true,
+        "sample": {
+          "en": "the Regional Office, Lucknow",
+          "hi": "क्षेत्रीय कार्यालय, लखनऊ"
+        }
+      },
+      {
+        "key": "ground",
+        "label": {
+          "en": "Ground for the request",
+          "hi": "अनुरोध का आधार"
+        },
+        "type": "textarea",
+        "required": true,
+        "sample": {
+          "en": "my spouse, who is also in Central Government service, has been posted at Lucknow with effect from 01.07.2026",
+          "hi": "मेरे जीवनसाथी, जो केंद्र सरकार की सेवा में हैं, की तैनाती 01.07.2026 से लखनऊ में हुई है"
+        }
+      },
+      {
+        "key": "presentStation",
+        "label": {
+          "en": "Present station",
+          "hi": "वर्तमान स्थान"
+        },
+        "type": "text",
+        "required": true,
+        "sample": {
+          "en": "New Delhi",
+          "hi": "नई दिल्ली"
+        }
+      },
+      {
+        "key": "sinceDate",
+        "label": {
+          "en": "At this station since",
+          "hi": "इस स्थान पर कब से"
+        },
+        "type": "date",
+        "required": true,
+        "sample": {
+          "en": "15.07.2019",
+          "hi": "15.07.2019"
+        }
+      },
+      {
+        "key": "durationYears",
+        "label": {
+          "en": "Years at this station",
+          "hi": "इस स्थान पर कितने वर्ष"
+        },
+        "type": "number",
+        "required": true,
+        "sample": {
+          "en": "7",
+          "hi": "7"
+        }
+      },
+      {
+        "key": "presentPost",
+        "label": {
+          "en": "Present post",
+          "hi": "वर्तमान पद"
+        },
+        "type": "text",
+        "required": true,
+        "sample": {
+          "en": "Assistant Section Officer, Establishment Section",
+          "hi": "सहायक अनुभाग अधिकारी, स्थापना अनुभाग"
+        }
+      },
+      {
+        "key": "supportingDocument",
+        "label": {
+          "en": "Supporting document",
+          "hi": "समर्थक दस्तावेज़"
+        },
+        "type": "text",
+        "required": false,
+        "sample": {
+          "en": "a copy of my spouse's posting order dated 20.06.2026",
+          "hi": "मेरे जीवनसाथी के दिनांक 20.06.2026 के तैनाती आदेश की प्रति"
+        }
+      }
+    ],
+    "bodySkeleton": {
+      "en": {
+        "type": "doc",
+        "content": [
+          {
+            "type": "numberedPara",
+            "attrs": {
+              "level": 1
+            },
+            "content": [
+              {
+                "type": "text",
+                "text": "I request that I may be considered for transfer to {{requestedStation}}, on the ground that {{ground}}."
+              }
+            ]
+          },
+          {
+            "type": "numberedPara",
+            "attrs": {
+              "level": 1
+            },
+            "content": [
+              {
+                "type": "text",
+                "text": "I have been serving at {{presentStation}} since {{sinceDate}}, that is, for {{durationYears}} years, and my present post is {{presentPost}}."
+              }
+            ]
+          },
+          {
+            "type": "paragraph",
+            "content": [
+              {
+                "type": "text",
+                "text": "{{#if supportingDocument}}"
+              }
+            ]
+          },
+          {
+            "type": "numberedPara",
+            "attrs": {
+              "level": 1
+            },
+            "content": [
+              {
+                "type": "text",
+                "text": "In support, {{supportingDocument}} is enclosed."
+              }
+            ]
+          },
+          {
+            "type": "paragraph",
+            "content": [
+              {
+                "type": "text",
+                "text": "{{/if}}"
+              }
+            ]
+          },
+          {
+            "type": "numberedPara",
+            "attrs": {
+              "level": 1
+            },
+            "content": [
+              {
+                "type": "text",
+                "text": "I shall be grateful if the request may be considered in accordance with the transfer policy of the Department. I am willing to be relieved at the convenience of the office."
+              }
+            ]
+          }
+        ]
+      },
+      "hi": {
+        "type": "doc",
+        "content": [
+          {
+            "type": "numberedPara",
+            "attrs": {
+              "level": 1
+            },
+            "content": [
+              {
+                "type": "text",
+                "text": "अनुरोध है कि मुझ पर {{requestedStation}} में स्थानांतरण हेतु विचार किया जाए, इस आधार पर कि {{ground}}।"
+              }
+            ]
+          },
+          {
+            "type": "numberedPara",
+            "attrs": {
+              "level": 1
+            },
+            "content": [
+              {
+                "type": "text",
+                "text": "मैं {{sinceDate}} से, अर्थात {{durationYears}} वर्ष से, {{presentStation}} में सेवारत हूँ, और मेरा वर्तमान पद {{presentPost}} है।"
+              }
+            ]
+          },
+          {
+            "type": "paragraph",
+            "content": [
+              {
+                "type": "text",
+                "text": "{{#if supportingDocument}}"
+              }
+            ]
+          },
+          {
+            "type": "numberedPara",
+            "attrs": {
+              "level": 1
+            },
+            "content": [
+              {
+                "type": "text",
+                "text": "समर्थन में {{supportingDocument}} संलग्न है।"
+              }
+            ]
+          },
+          {
+            "type": "paragraph",
+            "content": [
+              {
+                "type": "text",
+                "text": "{{/if}}"
+              }
+            ]
+          },
+          {
+            "type": "numberedPara",
+            "attrs": {
+              "level": 1
+            },
+            "content": [
+              {
+                "type": "text",
+                "text": "आभारी रहूँगा/रहूँगी यदि अनुरोध पर विभाग की स्थानांतरण नीति के अनुसार विचार किया जाए। मैं कार्यालय की सुविधा के अनुसार कार्यमुक्त होने को तैयार हूँ।"
+              }
+            ]
+          }
+        ]
+      }
+    }
+  }
+}

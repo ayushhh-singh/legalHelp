@@ -35,6 +35,38 @@ export interface RenderOptions {
   width?: number
 }
 
+/**
+ * One run of text inside a rendered node.
+ *
+ * `placeholder` is set on a run that stands for a field nobody filled: it
+ * prints as `{{fileNumber}}` in `lines` — which is what makes the checklist's
+ * `noPlaceholders` rule catch it and what blocks an export — and draws as a
+ * chip in the editor and the preview.
+ */
+export interface RenderedRun {
+  text: string
+  bold?: boolean
+  italic?: boolean
+  underline?: boolean
+  placeholder?: string
+}
+
+/**
+ * The rich projection of a block.
+ *
+ * `RenderedBlock.lines` is generated FROM this, never beside it, so the two
+ * cannot disagree — which is what lets `serialise`, `docx.ts` and every rule in
+ * `checklist.ts` go on reading `lines` while the A4 preview draws structure
+ * the old form model could not express (ADR-041 §3).
+ */
+export type RenderedNode =
+  | { kind: 'para'; marker: string; align: 'left' | 'center' | 'right'; runs: RenderedRun[] }
+  | { kind: 'heading'; level: 1 | 2 | 3; runs: RenderedRun[] }
+  | { kind: 'listItem'; marker: string; depth: number; runs: RenderedRun[] }
+  | { kind: 'quote'; runs: RenderedRun[] }
+  | { kind: 'table'; rows: { header: boolean; cells: RenderedRun[][] }[] }
+  | { kind: 'pageBreak' }
+
 export interface RenderedBlock {
   role: BlockRole
   /**
@@ -58,6 +90,16 @@ export interface RenderedBlock {
    * the checklist's `blockPresent` rule does not count it.
    */
   filled: boolean
+  /**
+   * The rich projection, present only on a block rendered from an editor body.
+   *
+   * A block rendered from a template's `layout` (the fourteen forms built
+   * before this model existed, and the chrome of every form after it) has
+   * `lines` and nothing else, and the preview draws it exactly as it always
+   * did. Optional rather than always-present for that reason: `nodes: []` and
+   * "this block has no structure to draw" are different claims.
+   */
+  nodes?: RenderedNode[]
 }
 
 export type IssueCode = 'required' | 'date-format' | 'unknown-field' | 'unknown-option' | 'too-long'

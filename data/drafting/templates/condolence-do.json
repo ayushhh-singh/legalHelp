@@ -1,0 +1,550 @@
+{
+  "version": "2.0.0",
+  "generatedAt": "2026-09-03T00:00:00Z",
+  "disclaimer": {
+    "en": "Reference only; verify with the official gazette/order or your DDO.",
+    "hi": "केवल संदर्भ के लिए; सरकारी राजपत्र/आदेश या अपने डीडीओ से सत्यापित करें।"
+  },
+  "template": {
+    "id": "condolence-do",
+    "name": {
+      "en": "Condolence / felicitation D.O. letter",
+      "hi": "शोक / बधाई अर्ध-सरकारी पत्र"
+    },
+    "shortName": {
+      "en": "Condolence / felicitation",
+      "hi": "शोक / बधाई"
+    },
+    "person": "first",
+    "usedBy": {
+      "en": "One officer, writing personally to another.",
+      "hi": "एक अधिकारी, दूसरे को व्यक्तिगत रूप से लिखते हुए।"
+    },
+    "whenToUse": {
+      "en": "CSMOP 8.4(2): a demi-official letter is used where the matter is to be brought to the personal attention of the officer addressed, and 9.5(i) requires the first person and the active voice. That register is the whole of this form: a condolence in the third person reads as a circular. 9.5(ii) asks for not more than one page, which for this form is generous.",
+      "hi": "सीएसएमओपी 8.4(2) : अर्ध-सरकारी पत्र तब प्रयुक्त होता है जब विषय संबोधित अधिकारी के व्यक्तिगत ध्यान में लाना हो, और 9.5(i) उत्तम पुरुष तथा कर्तृवाच्य की अपेक्षा करता है। यही शैली इस प्ररूप का सर्वस्व है : अन्य पुरुष में लिखी संवेदना परिपत्र जैसी पढ़ी जाती है। 9.5(ii) एक पृष्ठ से अधिक न लिखने को कहता है, जो इस प्ररूप के लिए पर्याप्त से अधिक है।"
+    },
+    "salutation": null,
+    "subscription": null,
+    "urgencyAllowed": false,
+    "csmopRef": {
+      "edition": "CSMOP 2022, sixteenth edition",
+      "paras": [
+        "8.4(2)",
+        "9.5(i)",
+        "9.5(ii)"
+      ],
+      "chassis": "demi-official",
+      "note": {
+        "en": "CSMOP prescribes the demi-official form (8.4(2), specimen at Appendix 8.1 page 88) but no wording for a personal letter of condolence or felicitation. This template borrows the D.O. chassis.",
+        "hi": "सीएसएमओपी अर्ध-सरकारी प्ररूप (8.4(2), नमूना परिशिष्ट 8.1 पृष्ठ 88) निर्धारित करता है पर संवेदना या बधाई के व्यक्तिगत पत्र के लिए कोई शब्दावली नहीं। यह टेम्पलेट अर्ध-सरकारी ढाँचा लेता है।"
+      }
+    },
+    "fields": [
+      {
+        "id": "fileNumber",
+        "label": {
+          "en": "File / communication number",
+          "hi": "फाइल / पत्र संख्या"
+        },
+        "type": "text",
+        "required": true,
+        "sample": {
+          "en": "A-11011/2/2026-Estt.",
+          "hi": "ए-11011/2/2026-स्थापना"
+        },
+        "hint": {
+          "en": "Every draft put up on a file bears the file number (9.2(vi)).",
+          "hi": "फाइल पर प्रस्तुत प्रत्येक मसौदे पर फाइल संख्या होती है (9.2(vi))।"
+        }
+      },
+      {
+        "id": "ministry",
+        "label": {
+          "en": "Ministry",
+          "hi": "मंत्रालय"
+        },
+        "type": "text",
+        "required": true,
+        "sample": {
+          "en": "Ministry of Personnel, Public Grievances and Pensions",
+          "hi": "कार्मिक, लोक शिकायत तथा पेंशन मंत्रालय"
+        }
+      },
+      {
+        "id": "department",
+        "label": {
+          "en": "Department",
+          "hi": "विभाग"
+        },
+        "type": "text",
+        "required": true,
+        "sample": {
+          "en": "Department of Personnel and Training",
+          "hi": "कार्मिक और प्रशिक्षण विभाग"
+        }
+      },
+      {
+        "id": "place",
+        "label": {
+          "en": "Place",
+          "hi": "स्थान"
+        },
+        "type": "text",
+        "required": true,
+        "sample": {
+          "en": "New Delhi",
+          "hi": "नई दिल्ली"
+        }
+      },
+      {
+        "id": "date",
+        "label": {
+          "en": "Date",
+          "hi": "दिनांक"
+        },
+        "type": "date",
+        "required": true,
+        "sample": {
+          "en": "2026-08-28",
+          "hi": "2026-08-28"
+        },
+        "hint": {
+          "en": "dd.mm.yyyy in English; दिनांक dd.mm.yyyy in Hindi.",
+          "hi": "अंग्रेज़ी में dd.mm.yyyy; हिंदी में दिनांक dd.mm.yyyy।"
+        }
+      },
+      {
+        "id": "addresseeName",
+        "label": {
+          "en": "Addressee's name",
+          "hi": "प्रेषिती का नाम"
+        },
+        "type": "text",
+        "required": true,
+        "sample": {
+          "en": "Shri R.K. Sharma",
+          "hi": "श्री आर.के. शर्मा"
+        }
+      },
+      {
+        "id": "addressee",
+        "label": {
+          "en": "Addressee's designation and address",
+          "hi": "प्रेषिती का पदनाम और पता"
+        },
+        "type": "list",
+        "required": true,
+        "sample": {
+          "en": [
+            "Joint Secretary",
+            "Department of Expenditure",
+            "North Block, New Delhi"
+          ],
+          "hi": [
+            "संयुक्त सचिव",
+            "व्यय विभाग",
+            "नॉर्थ ब्लॉक, नई दिल्ली"
+          ]
+        }
+      },
+      {
+        "id": "paras",
+        "label": {
+          "en": "Body paragraphs",
+          "hi": "मुख्य पैराग्राफ"
+        },
+        "type": "paras",
+        "required": true,
+        "sample": {
+          "en": [
+            "I was deeply saddened to learn of the passing of your father.",
+            "I had the privilege of meeting him during your posting at Lucknow, and I remember his warmth and his interest in the work of this Department. Please convey my condolences to your family.",
+            "Please do let me know if there is anything I can do."
+          ],
+          "hi": [
+            "आपके पिताजी के निधन का समाचार जानकर मुझे अत्यंत दुःख हुआ।",
+            "लखनऊ में आपकी तैनाती के दौरान मुझे उनसे मिलने का सौभाग्य मिला था, और मुझे उनकी आत्मीयता तथा इस विभाग के कार्य में उनकी रुचि स्मरण है। कृपया अपने परिवार तक मेरी संवेदनाएँ पहुँचाएँ।",
+            "यदि मैं कुछ कर सकूँ तो कृपया अवश्य बताइएगा।"
+          ]
+        },
+        "hint": {
+          "en": "One paragraph per line. The first is left unnumbered and the rest are numbered from 2.",
+          "hi": "प्रति पंक्ति एक पैराग्राफ। पहला बिना संख्या के रहता है और शेष 2 से क्रमांकित होते हैं।"
+        }
+      },
+      {
+        "id": "signatoryName",
+        "label": {
+          "en": "Name of the signatory",
+          "hi": "हस्ताक्षरकर्ता का नाम"
+        },
+        "type": "text",
+        "required": true,
+        "sample": {
+          "en": "A.B.C.",
+          "hi": "ए.बी.सी."
+        }
+      },
+      {
+        "id": "signatoryDesignation",
+        "label": {
+          "en": "Designation",
+          "hi": "पदनाम"
+        },
+        "type": "text",
+        "required": true,
+        "sample": {
+          "en": "Joint Secretary to the Govt. of India",
+          "hi": "संयुक्त सचिव, भारत सरकार"
+        }
+      },
+      {
+        "id": "phone",
+        "label": {
+          "en": "Telephone number",
+          "hi": "दूरभाष संख्या"
+        },
+        "type": "text",
+        "required": true,
+        "sample": {
+          "en": "011-2309 2590",
+          "hi": "011-2309 2590"
+        }
+      }
+    ],
+    "layout": {
+      "en": [
+        {
+          "role": "header",
+          "align": "left",
+          "lines": [
+            "{{signatoryName}}",
+            "{{signatoryDesignation}}",
+            "Tele.: {{phone}}"
+          ]
+        },
+        {
+          "role": "fileNumber",
+          "align": "right",
+          "lines": [
+            "D.O. No. {{fileNumber}}"
+          ]
+        },
+        {
+          "role": "header",
+          "align": "center",
+          "lines": [
+            "Government of India",
+            "{{ministry}}",
+            "{{department}}"
+          ]
+        },
+        {
+          "role": "dateLine",
+          "align": "right",
+          "lines": [
+            "{{place}}, the {{date}}"
+          ]
+        },
+        {
+          "role": "salutation",
+          "align": "left",
+          "lines": [
+            "My dear {{addresseeName}},"
+          ]
+        },
+        {
+          "role": "body",
+          "align": "left",
+          "source": "paras",
+          "numbered": true
+        },
+        {
+          "role": "closing",
+          "align": "right",
+          "lines": [
+            "With regards,"
+          ]
+        },
+        {
+          "role": "closing",
+          "align": "right",
+          "lines": [
+            "Yours sincerely,"
+          ]
+        },
+        {
+          "role": "signature",
+          "align": "right",
+          "lines": [
+            "({{signatoryName}})"
+          ]
+        },
+        {
+          "role": "addressee",
+          "align": "left",
+          "source": "addressee"
+        }
+      ],
+      "hi": [
+        {
+          "role": "header",
+          "align": "left",
+          "lines": [
+            "{{signatoryName}}",
+            "{{signatoryDesignation}}",
+            "दूरभाष : {{phone}}"
+          ]
+        },
+        {
+          "role": "fileNumber",
+          "align": "right",
+          "lines": [
+            "अर्ध-सरकारी पत्र संख्या {{fileNumber}}"
+          ]
+        },
+        {
+          "role": "header",
+          "align": "center",
+          "lines": [
+            "भारत सरकार",
+            "{{ministry}}",
+            "{{department}}"
+          ]
+        },
+        {
+          "role": "dateLine",
+          "align": "right",
+          "lines": [
+            "{{place}}, दिनांक {{date}}"
+          ]
+        },
+        {
+          "role": "salutation",
+          "align": "left",
+          "lines": [
+            "प्रिय {{addresseeName}},"
+          ]
+        },
+        {
+          "role": "body",
+          "align": "left",
+          "source": "paras",
+          "numbered": true
+        },
+        {
+          "role": "closing",
+          "align": "right",
+          "lines": [
+            "शुभकामनाओं सहित,"
+          ]
+        },
+        {
+          "role": "closing",
+          "align": "right",
+          "lines": [
+            "भवदीय,"
+          ]
+        },
+        {
+          "role": "signature",
+          "align": "right",
+          "lines": [
+            "({{signatoryName}})"
+          ]
+        },
+        {
+          "role": "addressee",
+          "align": "left",
+          "source": "addressee"
+        }
+      ]
+    },
+    "checklist": [
+      {
+        "id": "first-person",
+        "label": {
+          "en": "Written in the first person",
+          "hi": "उत्तम पुरुष में लिखा गया"
+        },
+        "why": {
+          "en": "A demi-official letter is written in the first person and in a personal, friendly tone. A condolence in the third person reads as a circular.",
+          "hi": "अर्ध-सरकारी पत्र उत्तम पुरुष में और व्यक्तिगत, आत्मीय शैली में लिखा जाता है। अन्य पुरुष में लिखी संवेदना परिपत्र जैसी पढ़ी जाती है।"
+        },
+        "severity": "must",
+        "rule": {
+          "kind": "person",
+          "value": "first"
+        },
+        "csmopRef": "9.5(i)"
+      },
+      {
+        "id": "one-page",
+        "label": {
+          "en": "It stays within one page",
+          "hi": "यह एक पृष्ठ में रहता है"
+        },
+        "why": {
+          "en": "A demi-official letter should preferably not exceed one page.",
+          "hi": "अर्ध-सरकारी पत्र अधिमानतः एक पृष्ठ से अधिक नहीं होना चाहिए।"
+        },
+        "severity": "should",
+        "rule": {
+          "kind": "maxWords",
+          "role": "body",
+          "count": 300
+        },
+        "csmopRef": "9.5(ii)"
+      },
+      {
+        "id": "no-placeholders",
+        "label": {
+          "en": "No placeholder is left unfilled",
+          "hi": "कोई प्लेसहोल्डर अधूरा नहीं छूटा"
+        },
+        "why": {
+          "en": "A draft that goes out with {{…}} still in it has not been read.",
+          "hi": "जिस मसौदे में {{…}} रह जाए, उसे पढ़ा ही नहीं गया।"
+        },
+        "severity": "must",
+        "rule": {
+          "kind": "noPlaceholders"
+        }
+      }
+    ],
+    "source": {
+      "name": "Central Secretariat Manual of Office Procedure, 2022 (16th edition), DARPG",
+      "url": "https://www.darpg.gov.in/static/uploads/2025/10/774e0b8f427b7875158363d842fa431f.pdf",
+      "reference": "CSMOP 2022, sixteenth edition",
+      "dated": "2022-08-05"
+    },
+    "fetchedAt": "2026-09-03T00:00:00Z",
+    "verify": true,
+    "variables": [
+      {
+        "key": "opening",
+        "label": {
+          "en": "Opening line",
+          "hi": "आरंभिक पंक्ति"
+        },
+        "type": "textarea",
+        "required": true,
+        "sample": {
+          "en": "I was deeply saddened to learn of the passing of your father.",
+          "hi": "आपके पिताजी के निधन का समाचार जानकर मुझे अत्यंत दुःख हुआ।"
+        }
+      },
+      {
+        "key": "message",
+        "label": {
+          "en": "The message",
+          "hi": "संदेश"
+        },
+        "type": "textarea",
+        "required": true,
+        "sample": {
+          "en": "I had the privilege of meeting him during your posting at Lucknow, and I remember his warmth and his interest in the work of this Department. Please convey my condolences to your family.",
+          "hi": "लखनऊ में आपकी तैनाती के दौरान मुझे उनसे मिलने का सौभाग्य मिला था, और मुझे उनकी आत्मीयता तथा इस विभाग के कार्य में उनकी रुचि स्मरण है। कृपया अपने परिवार तक मेरी संवेदनाएँ पहुँचाएँ।"
+        }
+      },
+      {
+        "key": "closing",
+        "label": {
+          "en": "Closing line",
+          "hi": "समापन पंक्ति"
+        },
+        "type": "textarea",
+        "required": true,
+        "sample": {
+          "en": "Please do let me know if there is anything I can do.",
+          "hi": "यदि मैं कुछ कर सकूँ तो कृपया अवश्य बताइएगा।"
+        }
+      }
+    ],
+    "bodySkeleton": {
+      "en": {
+        "type": "doc",
+        "content": [
+          {
+            "type": "numberedPara",
+            "attrs": {
+              "level": 1
+            },
+            "content": [
+              {
+                "type": "text",
+                "text": "{{opening}}"
+              }
+            ]
+          },
+          {
+            "type": "numberedPara",
+            "attrs": {
+              "level": 1
+            },
+            "content": [
+              {
+                "type": "text",
+                "text": "{{message}}"
+              }
+            ]
+          },
+          {
+            "type": "numberedPara",
+            "attrs": {
+              "level": 1
+            },
+            "content": [
+              {
+                "type": "text",
+                "text": "{{closing}}"
+              }
+            ]
+          }
+        ]
+      },
+      "hi": {
+        "type": "doc",
+        "content": [
+          {
+            "type": "numberedPara",
+            "attrs": {
+              "level": 1
+            },
+            "content": [
+              {
+                "type": "text",
+                "text": "{{opening}}"
+              }
+            ]
+          },
+          {
+            "type": "numberedPara",
+            "attrs": {
+              "level": 1
+            },
+            "content": [
+              {
+                "type": "text",
+                "text": "{{message}}"
+              }
+            ]
+          },
+          {
+            "type": "numberedPara",
+            "attrs": {
+              "level": 1
+            },
+            "content": [
+              {
+                "type": "text",
+                "text": "{{closing}}"
+              }
+            ]
+          }
+        ]
+      }
+    }
+  }
+}

@@ -1,11 +1,54 @@
 {
-  "version": "1.1.0",
-  "generatedAt": "2026-08-28T00:00:00Z",
+  "version": "2.0.0",
+  "generatedAt": "2026-09-03T00:00:00Z",
   "disclaimer": {
     "en": "Reference only; verify with the official gazette/order or your DDO.",
     "hi": "केवल संदर्भ के लिए; सरकारी राजपत्र/आदेश या अपने डीडीओ से सत्यापित करें।"
   },
   "templates": [
+    {
+      "id": "acknowledgement",
+      "name": {
+        "en": "Acknowledgement",
+        "hi": "पावती"
+      },
+      "shortName": {
+        "en": "Acknowledgement",
+        "hi": "पावती"
+      },
+      "useWhen": {
+        "en": "Acknowledging a communication within 15 days, as CSMOP 8.9(i) requires.",
+        "hi": "सीएसएमओपी 8.9(i) के अनुसार 15 दिन के भीतर किसी पत्र की पावती देना।"
+      },
+      "group": "communication",
+      "person": "third",
+      "csmopParas": [
+        "8.9(i)"
+      ],
+      "verify": true
+    },
+    {
+      "id": "advisory",
+      "name": {
+        "en": "Advisory",
+        "hi": "परामर्शी"
+      },
+      "shortName": {
+        "en": "Advisory",
+        "hi": "परामर्शी"
+      },
+      "useWhen": {
+        "en": "Drawing attention to existing instructions without issuing new ones.",
+        "hi": "नए अनुदेश जारी किए बिना विद्यमान अनुदेशों की ओर ध्यान आकर्षित करना।"
+      },
+      "group": "communication",
+      "person": "third",
+      "csmopParas": [
+        "8.4(3)",
+        "9.2(iii)"
+      ],
+      "verify": true
+    },
     {
       "id": "circular",
       "name": {
@@ -25,6 +68,29 @@
       "csmopParas": [
         "8.4(3)",
         "Appendix 8.1"
+      ],
+      "verify": true
+    },
+    {
+      "id": "condolence-do",
+      "name": {
+        "en": "Condolence / felicitation D.O. letter",
+        "hi": "शोक / बधाई अर्ध-सरकारी पत्र"
+      },
+      "shortName": {
+        "en": "Condolence / felicitation",
+        "hi": "शोक / बधाई"
+      },
+      "useWhen": {
+        "en": "A personal D.O. letter of condolence on a bereavement, or of felicitation on an honour.",
+        "hi": "किसी शोक पर संवेदना, या किसी सम्मान पर बधाई का व्यक्तिगत अर्ध-सरकारी पत्र।"
+      },
+      "group": "communication",
+      "person": "first",
+      "csmopParas": [
+        "8.4(2)",
+        "9.5(i)",
+        "9.5(ii)"
       ],
       "verify": true
     },
@@ -74,6 +140,51 @@
       "verify": false
     },
     {
+      "id": "forwarding-letter",
+      "name": {
+        "en": "Forwarding letter",
+        "hi": "अग्रेषण पत्र"
+      },
+      "shortName": {
+        "en": "Forwarding",
+        "hi": "अग्रेषण"
+      },
+      "useWhen": {
+        "en": "Sending papers on to the office that has to act on them, with a line on what is expected.",
+        "hi": "कागज़ात उस कार्यालय को भेजना जिसे उन पर कार्रवाई करनी है, अपेक्षा की एक पंक्ति सहित।"
+      },
+      "group": "communication",
+      "person": "first",
+      "csmopParas": [
+        "8.4(1)",
+        "8.9(iii)",
+        "9.2(vii)"
+      ],
+      "verify": true
+    },
+    {
+      "id": "interim-reply",
+      "name": {
+        "en": "Interim reply",
+        "hi": "अंतरिम उत्तर"
+      },
+      "shortName": {
+        "en": "Interim reply",
+        "hi": "अंतरिम उत्तर"
+      },
+      "useWhen": {
+        "en": "Where a final reply will be delayed because information must be obtained from elsewhere.",
+        "hi": "जहाँ अंतिम उत्तर में विलंब होगा क्योंकि सूचना अन्यत्र से प्राप्त करनी है।"
+      },
+      "group": "communication",
+      "person": "third",
+      "csmopParas": [
+        "8.9(ii)",
+        "8.10"
+      ],
+      "verify": true
+    },
+    {
       "id": "letter",
       "name": {
         "en": "Letter",
@@ -120,6 +231,93 @@
       "verify": false
     },
     {
+      "id": "reminder",
+      "name": {
+        "en": "Reminder",
+        "hi": "अनुस्मारक"
+      },
+      "shortName": {
+        "en": "Reminder",
+        "hi": "अनुस्मारक"
+      },
+      "useWhen": {
+        "en": "Chasing a reply that has not come — first, second or final reminder on one series.",
+        "hi": "जो उत्तर नहीं आया उसका अनुसरण — एक ही शृंखला पर पहला, दूसरा या अंतिम अनुस्मारक।"
+      },
+      "group": "communication",
+      "person": "first",
+      "csmopParas": [
+        "8.10",
+        "9.2(iv)",
+        "9.2(v)"
+      ],
+      "verify": true
+    },
+    {
+      "id": "agenda-note",
+      "name": {
+        "en": "Agenda note",
+        "hi": "कार्यसूची टिप्पणी"
+      },
+      "shortName": {
+        "en": "Agenda note",
+        "hi": "कार्यसूची"
+      },
+      "useWhen": {
+        "en": "Putting an item before a committee or a meeting, with the background and the decision sought.",
+        "hi": "किसी समिति या बैठक के समक्ष मद रखना, पृष्ठभूमि और अपेक्षित निर्णय सहित।"
+      },
+      "group": "internal",
+      "person": "third",
+      "csmopParas": [
+        "7.2(viii)",
+        "7.14"
+      ],
+      "verify": true
+    },
+    {
+      "id": "certificate",
+      "name": {
+        "en": "Certificate (experience / no dues)",
+        "hi": "प्रमाणपत्र (अनुभव / अदेयता)"
+      },
+      "shortName": {
+        "en": "Certificate",
+        "hi": "प्रमाणपत्र"
+      },
+      "useWhen": {
+        "en": "Certifying service, experience or that no dues are outstanding against an employee.",
+        "hi": "किसी कर्मचारी की सेवा, अनुभव या यह प्रमाणित करना कि उस पर कोई देय बकाया नहीं है।"
+      },
+      "group": "internal",
+      "person": "third",
+      "csmopParas": [
+        "8.4(3)"
+      ],
+      "verify": true
+    },
+    {
+      "id": "explanation-letter",
+      "name": {
+        "en": "Letter calling for an explanation",
+        "hi": "स्पष्टीकरण माँगने का पत्र"
+      },
+      "shortName": {
+        "en": "Call for explanation",
+        "hi": "स्पष्टीकरण"
+      },
+      "useWhen": {
+        "en": "Calling for an explanation before deciding whether any further action is needed.",
+        "hi": "यह तय करने से पहले कि आगे कोई कार्रवाई आवश्यक है या नहीं, स्पष्टीकरण माँगना।"
+      },
+      "group": "internal",
+      "person": "third",
+      "csmopParas": [
+        "8.4(3)"
+      ],
+      "verify": true
+    },
+    {
       "id": "id-note",
       "name": {
         "en": "Inter-Departmental note (U.O. note)",
@@ -143,6 +341,48 @@
         "Appendix 8.1"
       ],
       "verify": false
+    },
+    {
+      "id": "minutes-of-meeting",
+      "name": {
+        "en": "Minutes of meeting",
+        "hi": "बैठक का कार्यवृत्त"
+      },
+      "shortName": {
+        "en": "Minutes",
+        "hi": "कार्यवृत्त"
+      },
+      "useWhen": {
+        "en": "Recording a meeting: who chaired, who attended, what was decided and who acts on each item.",
+        "hi": "बैठक का अभिलेख : अध्यक्षता किसने की, कौन उपस्थित रहे, क्या निर्णय हुए और प्रत्येक मद पर कौन कार्रवाई करेगा।"
+      },
+      "group": "internal",
+      "person": "third",
+      "csmopParas": [
+        "8.4(10)"
+      ],
+      "verify": true
+    },
+    {
+      "id": "noc-issue",
+      "name": {
+        "en": "No Objection Certificate",
+        "hi": "अनापत्ति प्रमाणपत्र"
+      },
+      "shortName": {
+        "en": "NOC (issue)",
+        "hi": "अनापत्ति (जारी)"
+      },
+      "useWhen": {
+        "en": "Issuing a no-objection certificate to an employee for a passport, a job application or a loan.",
+        "hi": "पासपोर्ट, नौकरी के आवेदन या ऋण हेतु किसी कर्मचारी को अनापत्ति प्रमाणपत्र जारी करना।"
+      },
+      "group": "internal",
+      "person": "third",
+      "csmopParas": [
+        "8.4(3)"
+      ],
+      "verify": true
     },
     {
       "id": "noting",
@@ -172,6 +412,241 @@
       "verify": false
     },
     {
+      "id": "office-order",
+      "name": {
+        "en": "Office Order",
+        "hi": "कार्यालय आदेश"
+      },
+      "shortName": {
+        "en": "Office Order",
+        "hi": "कार्यालय आदेश"
+      },
+      "useWhen": {
+        "en": "Routine internal administration — leave, distribution of work, internal postings and transfers.",
+        "hi": "नियमित आंतरिक प्रशासन — छुट्टी, कार्य-विभाजन, आंतरिक तैनाती और स्थानांतरण।"
+      },
+      "group": "internal",
+      "person": "third",
+      "csmopParas": [
+        "8.4(4)",
+        "Appendix 8.1"
+      ],
+      "verify": true
+    },
+    {
+      "id": "relieving-order",
+      "name": {
+        "en": "Relieving order",
+        "hi": "कार्यमुक्ति आदेश"
+      },
+      "shortName": {
+        "en": "Relieving order",
+        "hi": "कार्यमुक्ति"
+      },
+      "useWhen": {
+        "en": "Relieving an officer of their duties on transfer, deputation, retirement or resignation.",
+        "hi": "स्थानांतरण, प्रतिनियुक्ति, सेवानिवृत्ति या त्यागपत्र पर अधिकारी को कर्तव्यों से कार्यमुक्त करने हेतु।"
+      },
+      "group": "internal",
+      "person": "third",
+      "csmopParas": [
+        "8.4(4)"
+      ],
+      "verify": true
+    },
+    {
+      "id": "sanction-order",
+      "name": {
+        "en": "Sanction order",
+        "hi": "स्वीकृति आदेश"
+      },
+      "shortName": {
+        "en": "Sanction",
+        "hi": "स्वीकृति"
+      },
+      "useWhen": {
+        "en": "Conveying a financial sanction of the President under the delegated financial powers.",
+        "hi": "प्रत्यायोजित वित्तीय शक्तियों के अंतर्गत राष्ट्रपति की वित्तीय स्वीकृति संप्रेषित करने के लिए।"
+      },
+      "group": "internal",
+      "person": "third",
+      "csmopParas": [
+        "8.4(5)",
+        "9.3(i)",
+        "Appendix 8.1"
+      ],
+      "verify": true
+    },
+    {
+      "id": "tour-report",
+      "name": {
+        "en": "Tour report",
+        "hi": "दौरा रिपोर्ट"
+      },
+      "shortName": {
+        "en": "Tour report",
+        "hi": "दौरा रिपोर्ट"
+      },
+      "useWhen": {
+        "en": "Reporting on an official tour after return — where, why, what was seen and what follows.",
+        "hi": "लौटने के बाद सरकारी दौरे की रिपोर्ट — कहाँ, क्यों, क्या देखा और आगे क्या।"
+      },
+      "group": "internal",
+      "person": "third",
+      "csmopParas": [
+        "8.4(3)"
+      ],
+      "verify": true
+    },
+    {
+      "id": "appeal",
+      "name": {
+        "en": "Appeal to the appellate authority",
+        "hi": "अपीलीय प्राधिकारी को अपील"
+      },
+      "shortName": {
+        "en": "Appeal",
+        "hi": "अपील"
+      },
+      "useWhen": {
+        "en": "Appealing against an order under rule 23 of the CCS (CCA) Rules, 1965, within 45 days.",
+        "hi": "केंद्रीय सिविल सेवा (वर्गीकरण, नियंत्रण और अपील) नियम, 1965 के नियम 23 के अंतर्गत 45 दिन में अपील।"
+      },
+      "group": "personal",
+      "person": "first",
+      "csmopParas": [
+        "8.4(1)"
+      ],
+      "verify": true
+    },
+    {
+      "id": "charge-report",
+      "name": {
+        "en": "Handing over / taking over charge report",
+        "hi": "कार्यभार हस्तांतरण / ग्रहण रिपोर्ट"
+      },
+      "shortName": {
+        "en": "Charge report",
+        "hi": "कार्यभार रिपोर्ट"
+      },
+      "useWhen": {
+        "en": "Recording that charge of a post, its cash, stores and pending files has changed hands.",
+        "hi": "यह अभिलिखित करना कि किसी पद, उसकी नकदी, भंडार और लंबित फाइलों का कार्यभार बदल गया है।"
+      },
+      "group": "personal",
+      "person": "third",
+      "csmopParas": [
+        "8.4(1)"
+      ],
+      "verify": true
+    },
+    {
+      "id": "charges-reply",
+      "name": {
+        "en": "Reply to a memorandum of charges",
+        "hi": "आरोप ज्ञापन का उत्तर"
+      },
+      "shortName": {
+        "en": "Charges reply",
+        "hi": "आरोप उत्तर"
+      },
+      "useWhen": {
+        "en": "Answering articles of charge under rule 14 or rule 16 of the CCS (CCA) Rules, 1965.",
+        "hi": "केंद्रीय सिविल सेवा (वर्गीकरण, नियंत्रण और अपील) नियम, 1965 के नियम 14 या 16 के अंतर्गत आरोपों का उत्तर।"
+      },
+      "group": "personal",
+      "person": "first",
+      "csmopParas": [
+        "8.4(1)"
+      ],
+      "verify": true
+    },
+    {
+      "id": "gpf-advance",
+      "name": {
+        "en": "GPF advance / withdrawal application",
+        "hi": "सामान्य भविष्य निधि अग्रिम / आहरण आवेदन"
+      },
+      "shortName": {
+        "en": "GPF advance",
+        "hi": "भविष्य निधि अग्रिम"
+      },
+      "useWhen": {
+        "en": "Applying for a temporary advance from, or a part-final withdrawal out of, the GPF.",
+        "hi": "सामान्य भविष्य निधि से अस्थायी अग्रिम या आंशिक अंतिम आहरण हेतु आवेदन।"
+      },
+      "group": "personal",
+      "person": "first",
+      "csmopParas": [
+        "8.4(1)"
+      ],
+      "verify": true
+    },
+    {
+      "id": "grievance",
+      "name": {
+        "en": "Grievance / complaint",
+        "hi": "शिकायत"
+      },
+      "shortName": {
+        "en": "Grievance",
+        "hi": "शिकायत"
+      },
+      "useWhen": {
+        "en": "Raising a grievance with the office, before or instead of a formal representation.",
+        "hi": "औपचारिक अभ्यावेदन से पहले या उसके स्थान पर कार्यालय के समक्ष शिकायत उठाना।"
+      },
+      "group": "personal",
+      "person": "first",
+      "csmopParas": [
+        "8.9(i)",
+        "8.9(iv)"
+      ],
+      "verify": true
+    },
+    {
+      "id": "house-allotment",
+      "name": {
+        "en": "House allotment application",
+        "hi": "आवास आवंटन आवेदन"
+      },
+      "shortName": {
+        "en": "House allotment",
+        "hi": "आवास आवंटन"
+      },
+      "useWhen": {
+        "en": "Applying for allotment of General Pool residential accommodation, or for a change of type.",
+        "hi": "सामान्य पूल आवासीय आवास के आवंटन, या प्रकार परिवर्तन हेतु आवेदन।"
+      },
+      "group": "personal",
+      "person": "first",
+      "csmopParas": [
+        "8.4(1)"
+      ],
+      "verify": true
+    },
+    {
+      "id": "joining-report",
+      "name": {
+        "en": "Joining report",
+        "hi": "कार्यग्रहण रिपोर्ट"
+      },
+      "shortName": {
+        "en": "Joining report",
+        "hi": "कार्यग्रहण"
+      },
+      "useWhen": {
+        "en": "Reporting that you have joined a post, on transfer, promotion, or return from leave.",
+        "hi": "यह सूचित करना कि आपने स्थानांतरण, पदोन्नति या अवकाश से लौटकर पद ग्रहण कर लिया है।"
+      },
+      "group": "personal",
+      "person": "third",
+      "csmopParas": [
+        "8.4(1)"
+      ],
+      "verify": true
+    },
+    {
       "id": "leave-application",
       "name": {
         "en": "Leave application",
@@ -190,6 +665,48 @@
       "csmopParas": [
         "8.4(4)",
         "Appendix 8.1"
+      ],
+      "verify": true
+    },
+    {
+      "id": "ltc-application",
+      "name": {
+        "en": "LTC application",
+        "hi": "अवकाश यात्रा रियायत आवेदन"
+      },
+      "shortName": {
+        "en": "LTC",
+        "hi": "अवकाश यात्रा रियायत"
+      },
+      "useWhen": {
+        "en": "Applying for leave travel concession — home town or any place in India — with an advance if wanted.",
+        "hi": "अवकाश यात्रा रियायत हेतु आवेदन — गृह नगर या भारत में कोई स्थान — चाहें तो अग्रिम सहित।"
+      },
+      "group": "personal",
+      "person": "first",
+      "csmopParas": [
+        "8.4(1)"
+      ],
+      "verify": true
+    },
+    {
+      "id": "noc-request",
+      "name": {
+        "en": "NOC request",
+        "hi": "अनापत्ति हेतु अनुरोध"
+      },
+      "shortName": {
+        "en": "NOC request",
+        "hi": "अनापत्ति अनुरोध"
+      },
+      "useWhen": {
+        "en": "Asking your own office for a no-objection certificate — passport, outside job, loan, visa.",
+        "hi": "अपने कार्यालय से अनापत्ति प्रमाणपत्र माँगना — पासपोर्ट, बाहर की नौकरी, ऋण, वीज़ा।"
+      },
+      "group": "personal",
+      "person": "first",
+      "csmopParas": [
+        "8.4(1)"
       ],
       "verify": true
     },
@@ -213,6 +730,27 @@
         "8.4(1)",
         "8.9",
         "Appendix 8.1"
+      ],
+      "verify": true
+    },
+    {
+      "id": "rti-application",
+      "name": {
+        "en": "RTI application (as a citizen)",
+        "hi": "आरटीआई आवेदन (नागरिक के रूप में)"
+      },
+      "shortName": {
+        "en": "RTI application",
+        "hi": "आरटीआई आवेदन"
+      },
+      "useWhen": {
+        "en": "Asking a public authority for information under section 6 of the RTI Act, 2005.",
+        "hi": "सूचना का अधिकार अधिनियम, 2005 की धारा 6 के अंतर्गत किसी लोक प्राधिकरण से सूचना माँगना।"
+      },
+      "group": "personal",
+      "person": "first",
+      "csmopParas": [
+        "12.5"
       ],
       "verify": true
     },
@@ -286,6 +824,48 @@
       "verify": true
     },
     {
+      "id": "transfer-request",
+      "name": {
+        "en": "Transfer request",
+        "hi": "स्थानांतरण अनुरोध"
+      },
+      "shortName": {
+        "en": "Transfer request",
+        "hi": "स्थानांतरण"
+      },
+      "useWhen": {
+        "en": "Asking for a posting or transfer, on grounds the transfer policy actually recognises.",
+        "hi": "ऐसे आधारों पर तैनाती या स्थानांतरण माँगना जिन्हें स्थानांतरण नीति वास्तव में मान्यता देती है।"
+      },
+      "group": "personal",
+      "person": "first",
+      "csmopParas": [
+        "8.4(1)"
+      ],
+      "verify": true
+    },
+    {
+      "id": "vigilance-clearance",
+      "name": {
+        "en": "Vigilance clearance request",
+        "hi": "सतर्कता निकासी अनुरोध"
+      },
+      "shortName": {
+        "en": "Vigilance clearance",
+        "hi": "सतर्कता निकासी"
+      },
+      "useWhen": {
+        "en": "Asking the vigilance section to confirm that nothing is pending against an officer.",
+        "hi": "सतर्कता अनुभाग से यह पुष्टि माँगना कि किसी अधिकारी के विरुद्ध कुछ लंबित नहीं है।"
+      },
+      "group": "personal",
+      "person": "first",
+      "csmopParas": [
+        "8.4(3)"
+      ],
+      "verify": true
+    },
+    {
       "id": "notification",
       "name": {
         "en": "Notification",
@@ -310,6 +890,27 @@
       "verify": false
     },
     {
+      "id": "rti-first-appeal-reply",
+      "name": {
+        "en": "RTI first appeal — order",
+        "hi": "आरटीआई प्रथम अपील — आदेश"
+      },
+      "shortName": {
+        "en": "First appeal order",
+        "hi": "प्रथम अपील आदेश"
+      },
+      "useWhen": {
+        "en": "Deciding a first appeal under section 19(1) of the Right to Information Act, 2005.",
+        "hi": "सूचना का अधिकार अधिनियम, 2005 की धारा 19(1) के अंतर्गत प्रथम अपील का निर्णय।"
+      },
+      "group": "statutory",
+      "person": "third",
+      "csmopParas": [
+        "12.5"
+      ],
+      "verify": true
+    },
+    {
       "id": "rti-reply",
       "name": {
         "en": "Reply to an RTI application",
@@ -330,6 +931,27 @@
         "8.9",
         "12.5",
         "Appendix 8.1"
+      ],
+      "verify": true
+    },
+    {
+      "id": "speaking-order",
+      "name": {
+        "en": "Speaking order",
+        "hi": "सकारण आदेश"
+      },
+      "shortName": {
+        "en": "Speaking order",
+        "hi": "सकारण आदेश"
+      },
+      "useWhen": {
+        "en": "Deciding a representation, appeal or claim where reasons must be recorded on the order itself.",
+        "hi": "ऐसे अभ्यावेदन, अपील या दावे का निर्णय जहाँ आदेश पर ही कारण अभिलिखित करने आवश्यक हों।"
+      },
+      "group": "statutory",
+      "person": "third",
+      "csmopParas": [
+        "8.4(5)"
       ],
       "verify": true
     }

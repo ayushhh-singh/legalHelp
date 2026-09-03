@@ -1,6 +1,6 @@
 {
-  "version": "1.1.0",
-  "generatedAt": "2026-08-28T00:00:00Z",
+  "version": "2.0.0",
+  "generatedAt": "2026-09-03T00:00:00Z",
   "disclaimer": {
     "en": "Reference only; verify with the official gazette/order or your DDO.",
     "hi": "केवल संदर्भ के लिए; सरकारी राजपत्र/आदेश या अपने डीडीओ से सत्यापित करें।"
@@ -495,7 +495,86 @@
       "reference": "CSMOP 2022, sixteenth edition",
       "dated": "2022-08-05"
     },
-    "fetchedAt": "2026-08-28T00:00:00Z",
-    "verify": true
+    "fetchedAt": "2026-09-03T00:00:00Z",
+    "verify": true,
+    "variables": [
+      {
+        "key": "mainPoint",
+        "label": {
+          "en": "The point of the document",
+          "hi": "दस्तावेज़ की मुख्य बात"
+        },
+        "type": "textarea",
+        "required": true,
+        "sample": {
+          "en": "I was promoted to the post of Section Officer with effect from 01.05.2026 and my pay was fixed at Level 8, Cell 1 of the Pay Matrix. I had exercised the option under FR 22(I)(a)(1) to have my pay fixed from the date of my next increment, which option is on record at page 11 of my service book. The option appears not to have been given effect to. Had it been applied, my pay would have been fixed at Level 8, Cell 2 with effect from 01.07.2026, and the difference works out to Rs. 2,400 per month. In similar circumstances, the pay of Shri A.B.C., Section Officer, was re-fixed by this Department vide Office Order No. A-11011/7/2025-Estt. dated 09.09.2025, a copy of which is enclosed. I therefore request that my pay may kindly be re-fixed in terms of the option exercised, and the arrears released. I shall be grateful for a decision at an early date.",
+          "hi": "मुझे दिनांक 01.05.2026 से अनुभाग अधिकारी के पद पर पदोन्नत किया गया और मेरा वेतन वेतन मैट्रिक्स के स्तर 8, कोष्ठ 1 में निर्धारित किया गया। मैंने मूल नियम 22(I)(क)(1) के अधीन अपनी अगली वेतनवृद्धि की तारीख से वेतन निर्धारण का विकल्प दिया था, जो मेरी सेवा पुस्तिका के पृष्ठ 11 पर अभिलिखित है। प्रतीत होता है कि उस विकल्प को कार्यान्वित नहीं किया गया। यदि उसे लागू किया जाता तो मेरा वेतन दिनांक 01.07.2026 से स्तर 8, कोष्ठ 2 में निर्धारित होता, और अंतर 2,400 रुपये प्रति माह बनता है। इसी प्रकार की परिस्थितियों में इस विभाग द्वारा कार्यालय आदेश संख्या ए-11011/7/2025-स्थापना दिनांक 09.09.2025 से श्री ए.बी.सी., अनुभाग अधिकारी का वेतन पुनर्निर्धारित किया गया था, जिसकी प्रति संलग्न है। अतः अनुरोध है कि दिए गए विकल्प के अनुसार मेरा वेतन पुनर्निर्धारित कर बकाया जारी करने की कृपा की जाए। शीघ्र निर्णय के लिए मैं आभारी रहूँगा।"
+        },
+        "hint": {
+          "en": "What is being decided, asked for or conveyed. Add further paragraphs in the editor.",
+          "hi": "क्या तय, माँगा या संप्रेषित किया जा रहा है। आगे के पैराग्राफ संपादक में जोड़ें।"
+        }
+      }
+    ],
+    "bodySkeleton": {
+      "en": {
+        "type": "doc",
+        "content": [
+          {
+            "type": "numberedPara",
+            "attrs": {
+              "level": 1
+            },
+            "content": [
+              {
+                "type": "text",
+                "text": "I respectfully submit the following representation for kind consideration."
+              }
+            ]
+          },
+          {
+            "type": "numberedPara",
+            "attrs": {
+              "level": 1
+            },
+            "content": [
+              {
+                "type": "text",
+                "text": "{{mainPoint}}"
+              }
+            ]
+          }
+        ]
+      },
+      "hi": {
+        "type": "doc",
+        "content": [
+          {
+            "type": "numberedPara",
+            "attrs": {
+              "level": 1
+            },
+            "content": [
+              {
+                "type": "text",
+                "text": "मैं सादर निम्नलिखित अभ्यावेदन कृपया विचारार्थ प्रस्तुत करता/करती हूँ।"
+              }
+            ]
+          },
+          {
+            "type": "numberedPara",
+            "attrs": {
+              "level": 1
+            },
+            "content": [
+              {
+                "type": "text",
+                "text": "{{mainPoint}}"
+              }
+            ]
+          }
+        ]
+      }
+    }
   }
 }

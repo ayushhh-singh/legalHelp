@@ -106,6 +106,15 @@ const ALLOWED_INERT: ReadonlyArray<{ pattern: RegExp; why: string }> = [
   },
   { pattern: /^https?:\/\/(www\.)?w3\.org\//, why: 'XML/SVG namespace identifiers, never fetched' },
   {
+    pattern: /^https:\/\/prosemirror\.net\/docs\//,
+    why:
+      'a documentation link inside a ProseMirror ERROR MESSAGE, in the DocEditorPage chunk. ' +
+      'prosemirror-model#2025 calls `stream.err("Only non-generatable nodes (…) in a required position ' +
+      '(see https://prosemirror.net/docs/guide/#generatable)")` while compiling a content expression. ' +
+      'Read at the source rather than assumed: one occurrence, inside a thrown parse error, never ' +
+      'fetched, linked or rendered. Session 29, ADR-041.',
+  },
+  {
     // Session 28, ADR-040 §5.
     pattern: /^https:\/\/api\.groq\.com\/openai\/v1$/,
     why:

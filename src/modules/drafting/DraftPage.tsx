@@ -19,6 +19,13 @@ import { useT } from '@/i18n/useT'
  */
 const PickerPage = lazy(() => import('./PickerPage'))
 const EditorPage = lazy(() => import('./EditorPage'))
+const DocEditorPage = lazy(() => import('./DocEditorPage'))
+const DocumentsPage = lazy(() => import('./DocumentsPage'))
+const NewDocumentPage = lazy(() => import('./NewDocumentPage'))
+const ProfilePage = lazy(() => import('./ProfilePage'))
+const AddressBookPage = lazy(() => import('./AddressBookPage'))
+const NumberingPage = lazy(() => import('./NumberingPage'))
+const PersonalTemplatesPage = lazy(() => import('./PersonalTemplatesPage'))
 
 function Fallback() {
   const { t } = useT()
@@ -34,6 +41,20 @@ export default function DraftPage() {
     <Suspense fallback={<Fallback />}>
       <Routes>
         <Route index element={<PickerPage />} />
+        <Route path="documents" element={<DocumentsPage />} />
+        <Route path="new/:type" element={<NewDocumentPage />} />
+        <Route path="d/:id" element={<DocEditorPage />} />
+        <Route path="profile" element={<ProfilePage />} />
+        <Route path="address-book" element={<AddressBookPage />} />
+        <Route path="numbering" element={<NumberingPage />} />
+        <Route path="my-templates" element={<PersonalTemplatesPage />} />
+        {/*
+          The Session 8 form-and-preview editor. It is kept, and kept reachable,
+          because every draft in the `drafts` table still opens in it and the
+          migration into `documents` is offered rather than forced. Its route is
+          LAST so a document type that collides with one of the names above —
+          none does today — cannot shadow a real screen.
+        */}
         <Route path=":type" element={<EditorPage />} />
         <Route path="*" element={<Navigate to="/draft" replace />} />
       </Routes>

@@ -220,40 +220,40 @@
       }
     },
     "drafting-templates": {
-      "version": "1.1.0",
-      "updated": "2026-08-28",
+      "version": "2.0.0",
+      "updated": "2026-09-03",
       "label": {
         "en": "CSMOP document templates",
         "hi": "सीएसएमओपी दस्तावेज़ टेम्पलेट"
       },
-      "rows": 14,
-      "sha256": "c2e7c490c1b62b0dc527f0acd27bc7b1251891805ad4fe3d93fc274e14df6732",
+      "rows": 43,
+      "sha256": "4c4afd4e8e1a1946a63f505c3a83dbc6fc74ffc8fedbd6e6ac23a420ba7a80e8",
       "source": {
         "name": "Central Secretariat Manual of Office Procedure, 2022 (16th edition), DARPG"
       }
     },
     "drafting-terms": {
-      "version": "1.1.0",
-      "updated": "2026-08-28",
+      "version": "2.0.0",
+      "updated": "2026-09-03",
       "label": {
         "en": "Rajbhasha structural terms",
         "hi": "राजभाषा संरचनात्मक शब्दावली"
       },
       "rows": 78,
-      "sha256": "97d26215018f3b3bd0812303ba844c98da5b9aa23b0d701cb12e2ebbc7d3e0b8",
+      "sha256": "91374ba6d030d06be1a64c5a1283998e792d8142b16a88b7451670181a9fd91d",
       "source": {
         "name": "CSMOP 2022 (Hindi issue) and the Saral Prashasanik Shabdavali, Department of Official Language"
       }
     },
     "drafting-phrases": {
-      "version": "1.1.0",
-      "updated": "2026-08-28",
+      "version": "2.0.0",
+      "updated": "2026-09-03",
       "label": {
         "en": "Drafting phrase library",
         "hi": "प्रारूपण वाक्यांश संग्रह"
       },
       "rows": 49,
-      "sha256": "c77ee2cf8f75c093eb1c0b5e951e93d5bc01e8251523152f6c40146c102a7875",
+      "sha256": "e3e5878ee7390aa359efb617254e0bf1055d5cc62fe9aa42ea29f8f5746ae9eb",
       "source": {
         "name": "Central Secretariat Manual of Office Procedure, 2022 (16th edition), DARPG"
       }

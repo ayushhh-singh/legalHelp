@@ -52,23 +52,52 @@ const terms = structureTermsSchema.parse(readJson('data/drafting/structure-terms
 const LANGS = ['en', 'hi'] as const
 
 describe('the drafting datasets', () => {
-  it('carries the fourteen document types the Drafting Studio promises', () => {
-    expect(templateFiles).toHaveLength(14)
+  it('carries the forty-three document types the Drafting Studio promises', () => {
+    expect(templateFiles).toHaveLength(43)
     expect(templates.map((template) => template.id).sort()).toEqual([
+      'acknowledgement',
+      'advisory',
+      'agenda-note',
+      'appeal',
+      'certificate',
+      'charge-report',
+      'charges-reply',
       'circular',
+      'condolence-do',
       'demi-official',
       'endorsement',
+      'explanation-letter',
+      'forwarding-letter',
+      'gpf-advance',
+      'grievance',
+      'house-allotment',
       'id-note',
+      'interim-reply',
+      'joining-report',
       'leave-application',
       'letter',
+      'ltc-application',
+      'minutes-of-meeting',
+      'noc-issue',
+      'noc-request',
       'notification',
       'noting',
       'office-memorandum',
+      'office-order',
+      'relieving-order',
+      'reminder',
       'representation',
+      'rti-application',
+      'rti-first-appeal-reply',
       'rti-reply',
+      'sanction-order',
       'show-cause-reply',
+      'speaking-order',
       'ta-bill-cover',
       'tour-programme',
+      'tour-report',
+      'transfer-request',
+      'vigilance-clearance',
     ])
   })
 
@@ -143,7 +172,7 @@ describe('the drafting datasets', () => {
   })
 
   it('has a loader for every template file, and no loader for a file that is not there', () => {
-    // src/modules/drafting/data.ts writes its fourteen import specifiers out by
+    // src/modules/drafting/data.ts writes its forty-three import specifiers out by
     // hand, because a bundler can only make a chunk for a specifier it can see.
     // Nothing else would notice a template added to data/ and not to that list.
     expect([...TEMPLATE_IDS].sort()).toEqual(templates.map((template) => template.id).sort())
@@ -247,7 +276,7 @@ describe('the drafting datasets', () => {
 })
 
 describe('the loader', () => {
-  it('resolves every one of its fourteen import specifiers', async () => {
+  it('resolves every one of its forty-three import specifiers', async () => {
     // TEMPLATE_IDS matching the files on disk does not prove the paths beside
     // them are right — a typo in one specifier is a route that 404s at runtime
     // for one document type only.
@@ -259,7 +288,7 @@ describe('the loader', () => {
   })
 
   it('loads the index, the phrases and the terms', async () => {
-    expect((await loadDraftingIndex()).templates).toHaveLength(14)
+    expect((await loadDraftingIndex()).templates).toHaveLength(43)
     expect((await loadPhrases()).phrases.length).toBeGreaterThan(0)
     expect((await loadStructureTerms()).terms.length).toBeGreaterThan(0)
   })

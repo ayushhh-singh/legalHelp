@@ -1,0 +1,798 @@
+{
+  "version": "2.0.0",
+  "generatedAt": "2026-09-03T00:00:00Z",
+  "disclaimer": {
+    "en": "Reference only; verify with the official gazette/order or your DDO.",
+    "hi": "केवल संदर्भ के लिए; सरकारी राजपत्र/आदेश या अपने डीडीओ से सत्यापित करें।"
+  },
+  "template": {
+    "id": "rti-first-appeal-reply",
+    "name": {
+      "en": "RTI first appeal — order",
+      "hi": "आरटीआई प्रथम अपील — आदेश"
+    },
+    "shortName": {
+      "en": "First appeal order",
+      "hi": "प्रथम अपील आदेश"
+    },
+    "person": "third",
+    "usedBy": {
+      "en": "The First Appellate Authority.",
+      "hi": "प्रथम अपीलीय प्राधिकारी।"
+    },
+    "whenToUse": {
+      "en": "Section 19(1) of the Right to Information Act, 2005 gives an appeal to an officer senior to the CPIO, and section 19(6) requires it to be disposed of within thirty days, or forty-five for reasons recorded in writing. The order records the appeal, what the CPIO said, the finding on each point, the direction, and the second appeal to the Central Information Commission under section 19(3) with its ninety-day limit.",
+      "hi": "सूचना का अधिकार अधिनियम, 2005 की धारा 19(1) केंद्रीय लोक सूचना अधिकारी से वरिष्ठ अधिकारी को अपील देती है, और धारा 19(6) उसे तीस दिन में, या लिखित रूप में कारण अभिलिखित करके पैंतालीस दिन में निपटाने की अपेक्षा करती है। आदेश में अपील, केंद्रीय लोक सूचना अधिकारी ने क्या कहा, प्रत्येक बिंदु पर निष्कर्ष, निदेश, तथा धारा 19(3) के अंतर्गत केंद्रीय सूचना आयोग को नब्बे दिन की द्वितीय अपील अभिलिखित होती है।"
+    },
+    "salutation": null,
+    "subscription": null,
+    "urgencyAllowed": false,
+    "csmopRef": {
+      "edition": "CSMOP 2022, sixteenth edition",
+      "paras": [
+        "12.5"
+      ],
+      "chassis": "rti-reply",
+      "note": {
+        "en": "The thirty-day limit, the duty to give reasons and the second appeal all come from the Right to Information Act, 2005 itself, not from CSMOP. The form is built on the RTI reply chassis.",
+        "hi": "तीस दिन की सीमा, कारण देने का कर्तव्य और द्वितीय अपील — ये सभी सूचना का अधिकार अधिनियम, 2005 से आते हैं, सीएसएमओपी से नहीं। प्ररूप आरटीआई उत्तर ढाँचे पर बना है।"
+      }
+    },
+    "fields": [
+      {
+        "id": "fileNumber",
+        "label": {
+          "en": "File / communication number",
+          "hi": "फाइल / पत्र संख्या"
+        },
+        "type": "text",
+        "required": true,
+        "sample": {
+          "en": "A-11011/2/2026-Estt.",
+          "hi": "ए-11011/2/2026-स्थापना"
+        },
+        "hint": {
+          "en": "Every draft put up on a file bears the file number (9.2(vi)).",
+          "hi": "फाइल पर प्रस्तुत प्रत्येक मसौदे पर फाइल संख्या होती है (9.2(vi))।"
+        }
+      },
+      {
+        "id": "ministry",
+        "label": {
+          "en": "Ministry",
+          "hi": "मंत्रालय"
+        },
+        "type": "text",
+        "required": true,
+        "sample": {
+          "en": "Ministry of Personnel, Public Grievances and Pensions",
+          "hi": "कार्मिक, लोक शिकायत तथा पेंशन मंत्रालय"
+        }
+      },
+      {
+        "id": "department",
+        "label": {
+          "en": "Department",
+          "hi": "विभाग"
+        },
+        "type": "text",
+        "required": true,
+        "sample": {
+          "en": "Department of Personnel and Training",
+          "hi": "कार्मिक और प्रशिक्षण विभाग"
+        }
+      },
+      {
+        "id": "place",
+        "label": {
+          "en": "Place",
+          "hi": "स्थान"
+        },
+        "type": "text",
+        "required": true,
+        "sample": {
+          "en": "New Delhi",
+          "hi": "नई दिल्ली"
+        }
+      },
+      {
+        "id": "date",
+        "label": {
+          "en": "Date",
+          "hi": "दिनांक"
+        },
+        "type": "date",
+        "required": true,
+        "sample": {
+          "en": "2026-08-28",
+          "hi": "2026-08-28"
+        },
+        "hint": {
+          "en": "dd.mm.yyyy in English; दिनांक dd.mm.yyyy in Hindi.",
+          "hi": "अंग्रेज़ी में dd.mm.yyyy; हिंदी में दिनांक dd.mm.yyyy।"
+        }
+      },
+      {
+        "id": "addressee",
+        "label": {
+          "en": "Addressee",
+          "hi": "प्रेषिती"
+        },
+        "type": "list",
+        "required": true,
+        "sample": {
+          "en": [
+            "Shri A.B.C.",
+            "12, Rajendra Nagar",
+            "New Delhi - 110060"
+          ],
+          "hi": [
+            "श्री ए.बी.सी.",
+            "12, राजेंद्र नगर",
+            "नई दिल्ली - 110060"
+          ]
+        },
+        "hint": {
+          "en": "One line each: designation, organisation, address.",
+          "hi": "एक-एक पंक्ति में : पदनाम, संगठन, पता।"
+        }
+      },
+      {
+        "id": "subject",
+        "label": {
+          "en": "Subject",
+          "hi": "विषय"
+        },
+        "type": "text",
+        "required": true,
+        "sample": {
+          "en": "Order in first appeal under section 19(1) of the RTI Act, 2005 — appeal of Shri A.B.C.",
+          "hi": "सूचना का अधिकार अधिनियम, 2005 की धारा 19(1) के अंतर्गत प्रथम अपील में आदेश — श्री ए.बी.सी. की अपील।"
+        }
+      },
+      {
+        "id": "paras",
+        "label": {
+          "en": "Body paragraphs",
+          "hi": "मुख्य पैराग्राफ"
+        },
+        "type": "paras",
+        "required": true,
+        "sample": {
+          "en": [
+            "The appellant filed an application under the Right to Information Act, 2005 on 02.05.2026, which was replied to by the Central Public Information Officer on 29.05.2026. The present appeal under section 19(1) was received on 18.06.2026.",
+            "The appellant's grievance is that point 3 of the application, relating to the file notings, was not answered at all.",
+            "The record and the submissions of the Central Public Information Officer have been examined. The reply of the Central Public Information Officer does not deal with point 3, and no exemption under section 8 has been claimed in respect of it.",
+            "Accordingly, the appeal is partly allowed. The Central Public Information Officer is directed to furnish a point-wise reply to point 3 free of cost within fifteen days of the receipt of this order.",
+            "If the appellant is not satisfied with this order, a second appeal lies to the Central Information Commission, Baba Gangnath Marg, Munirka, New Delhi - 110067, under section 19(3) of the Act, within ninety days of the date on which this order is received."
+          ],
+          "hi": [
+            "अपीलकर्ता ने सूचना का अधिकार अधिनियम, 2005 के अंतर्गत 02.05.2026 को आवेदन प्रस्तुत किया, जिसका उत्तर केंद्रीय लोक सूचना अधिकारी द्वारा 29.05.2026 को दिया गया। धारा 19(1) के अंतर्गत यह अपील 18.06.2026 को प्राप्त हुई।",
+            "अपीलकर्ता की शिकायत यह है कि आवेदन के बिंदु 3, जो फाइल टिप्पणियों से संबंधित है, का उत्तर दिया ही नहीं गया।",
+            "अभिलेख तथा केंद्रीय लोक सूचना अधिकारी के अभ्यावेदन की जाँच की गई है। केंद्रीय लोक सूचना अधिकारी के उत्तर में बिंदु 3 का निपटान नहीं किया गया है, और उसके संबंध में धारा 8 के अंतर्गत कोई छूट का दावा नहीं किया गया है।",
+            "तदनुसार, अपील अंशतः स्वीकार की जाती है। केंद्रीय लोक सूचना अधिकारी को निदेश दिया जाता है कि इस आदेश की प्राप्ति के पंद्रह दिन के भीतर बिंदु 3 का बिंदुवार उत्तर नि:शुल्क उपलब्ध कराएँ।",
+            "यदि अपीलकर्ता इस आदेश से संतुष्ट नहीं है तो अधिनियम की धारा 19(3) के अंतर्गत इस आदेश की प्राप्ति की तिथि से नब्बे दिन के भीतर केंद्रीय सूचना आयोग, बाबा गंगनाथ मार्ग, मुनिरका, नई दिल्ली - 110067 को द्वितीय अपील की जा सकती है।"
+          ]
+        },
+        "hint": {
+          "en": "One paragraph per line. The first is left unnumbered and the rest are numbered from 2.",
+          "hi": "प्रति पंक्ति एक पैराग्राफ। पहला बिना संख्या के रहता है और शेष 2 से क्रमांकित होते हैं।"
+        }
+      },
+      {
+        "id": "signatoryName",
+        "label": {
+          "en": "Name of the signatory",
+          "hi": "हस्ताक्षरकर्ता का नाम"
+        },
+        "type": "text",
+        "required": true,
+        "sample": {
+          "en": "A.B.C.",
+          "hi": "ए.बी.सी."
+        }
+      },
+      {
+        "id": "signatoryDesignation",
+        "label": {
+          "en": "Designation",
+          "hi": "पदनाम"
+        },
+        "type": "text",
+        "required": true,
+        "sample": {
+          "en": "First Appellate Authority",
+          "hi": "प्रथम अपीलीय प्राधिकारी"
+        }
+      },
+      {
+        "id": "phone",
+        "label": {
+          "en": "Telephone number",
+          "hi": "दूरभाष संख्या"
+        },
+        "type": "text",
+        "required": true,
+        "sample": {
+          "en": "011-2309 2590",
+          "hi": "011-2309 2590"
+        }
+      },
+      {
+        "id": "email",
+        "label": {
+          "en": "Email",
+          "hi": "ई-मेल"
+        },
+        "type": "text",
+        "required": true,
+        "sample": {
+          "en": "us-estt@nic.in",
+          "hi": "us-estt@nic.in"
+        }
+      },
+      {
+        "id": "enclosures",
+        "label": {
+          "en": "Enclosures",
+          "hi": "संलग्नक"
+        },
+        "type": "list",
+        "required": false,
+        "sample": {
+          "en": [],
+          "hi": []
+        },
+        "hint": {
+          "en": "The count goes at the bottom left of the draft — 'Encl. 3' (9.2(vii)).",
+          "hi": "मसौदे के नीचे बाईं ओर संख्या दी जाती है — 'Encl. 3' (9.2(vii))।"
+        }
+      },
+      {
+        "id": "copyTo",
+        "label": {
+          "en": "Copy to",
+          "hi": "प्रतिलिपि"
+        },
+        "type": "list",
+        "required": false,
+        "sample": {
+          "en": [
+            "The Central Public Information Officer concerned.",
+            "The RTI file."
+          ],
+          "hi": [
+            "संबंधित केंद्रीय लोक सूचना अधिकारी।",
+            "आरटीआई फाइल।"
+          ]
+        }
+      }
+    ],
+    "layout": {
+      "en": [
+        {
+          "role": "fileNumber",
+          "align": "left",
+          "lines": [
+            "No. {{fileNumber}}"
+          ]
+        },
+        {
+          "role": "header",
+          "align": "center",
+          "lines": [
+            "Government of India",
+            "{{ministry}}",
+            "{{department}}"
+          ]
+        },
+        {
+          "role": "dateLine",
+          "align": "right",
+          "lines": [
+            "{{place}}, the {{date}}"
+          ]
+        },
+        {
+          "role": "title",
+          "align": "center",
+          "emphasis": "title",
+          "lines": [
+            "ORDER IN FIRST APPEAL"
+          ]
+        },
+        {
+          "role": "subject",
+          "align": "left",
+          "lines": [
+            "Subject: {{subject}}"
+          ]
+        },
+        {
+          "role": "body",
+          "align": "left",
+          "source": "paras",
+          "numbered": true
+        },
+        {
+          "role": "signature",
+          "align": "right",
+          "lines": [
+            "-Sd/-",
+            "({{signatoryName}})",
+            "{{signatoryDesignation}}",
+            "Tele. No.: {{phone}}",
+            "Email: {{email}}"
+          ]
+        },
+        {
+          "role": "addressee",
+          "align": "left",
+          "lead": "To",
+          "source": "addressee"
+        },
+        {
+          "role": "enclosures",
+          "align": "left",
+          "lead": "List of enclosures:",
+          "source": "enclosures",
+          "itemPrefix": "ordinal",
+          "omitWhenEmpty": true
+        },
+        {
+          "role": "copyTo",
+          "align": "left",
+          "lead": "Copy forwarded for information / necessary action to:",
+          "source": "copyTo",
+          "itemPrefix": "ordinal",
+          "omitWhenEmpty": true
+        }
+      ],
+      "hi": [
+        {
+          "role": "fileNumber",
+          "align": "left",
+          "lines": [
+            "संख्या {{fileNumber}}"
+          ]
+        },
+        {
+          "role": "header",
+          "align": "center",
+          "lines": [
+            "भारत सरकार",
+            "{{ministry}}",
+            "{{department}}"
+          ]
+        },
+        {
+          "role": "dateLine",
+          "align": "right",
+          "lines": [
+            "{{place}}, दिनांक {{date}}"
+          ]
+        },
+        {
+          "role": "title",
+          "align": "center",
+          "emphasis": "title",
+          "lines": [
+            "प्रथम अपील में आदेश"
+          ]
+        },
+        {
+          "role": "subject",
+          "align": "left",
+          "lines": [
+            "विषय : {{subject}}"
+          ]
+        },
+        {
+          "role": "body",
+          "align": "left",
+          "source": "paras",
+          "numbered": true
+        },
+        {
+          "role": "signature",
+          "align": "right",
+          "lines": [
+            "-हस्ताक्षरित/-",
+            "({{signatoryName}})",
+            "{{signatoryDesignation}}",
+            "दूरभाष संख्या : {{phone}}",
+            "ई-मेल : {{email}}"
+          ]
+        },
+        {
+          "role": "addressee",
+          "align": "left",
+          "lead": "सेवा में,",
+          "source": "addressee"
+        },
+        {
+          "role": "enclosures",
+          "align": "left",
+          "lead": "संलग्नकों की सूची :",
+          "source": "enclosures",
+          "itemPrefix": "ordinal",
+          "omitWhenEmpty": true
+        },
+        {
+          "role": "copyTo",
+          "align": "left",
+          "lead": "प्रति सूचना/आवश्यक कार्रवाई के लिए अग्रेषित :",
+          "source": "copyTo",
+          "itemPrefix": "ordinal",
+          "omitWhenEmpty": true
+        }
+      ]
+    },
+    "checklist": [
+      {
+        "id": "subject",
+        "label": {
+          "en": "The subject is stated",
+          "hi": "विषय लिखा गया है"
+        },
+        "why": {
+          "en": "The specimens in Appendix 8.1 carry a subject line above the body on every form that is addressed to anyone.",
+          "hi": "परिशिष्ट 8.1 के नमूनों में हर संबोधित प्रपत्र पर मुख्य भाग के ऊपर विषय पंक्ति होती है।"
+        },
+        "severity": "must",
+        "rule": {
+          "kind": "blockPresent",
+          "role": "subject"
+        },
+        "csmopRef": "Appendix 8.1"
+      },
+      {
+        "id": "number-and-date",
+        "label": {
+          "en": "Number and date are on the draft",
+          "hi": "मसौदे पर संख्या और दिनांक हैं"
+        },
+        "why": {
+          "en": "Every draft put up on a file bears the file number, and the number and date of the last communication in the series must be quoted.",
+          "hi": "फाइल पर प्रस्तुत प्रत्येक मसौदे पर फाइल संख्या होती है, और शृंखला के अंतिम पत्र की संख्या तथा दिनांक उद्धृत की जानी चाहिए।"
+        },
+        "severity": "must",
+        "rule": {
+          "kind": "allRequired",
+          "fields": [
+            "fileNumber",
+            "date"
+          ]
+        },
+        "csmopRef": "9.2(iv), 9.2(vi)"
+      },
+      {
+        "id": "signature-block",
+        "label": {
+          "en": "Signature block carries designation, telephone and email",
+          "hi": "हस्ताक्षर खंड में पदनाम, दूरभाष और ई-मेल हैं"
+        },
+        "why": {
+          "en": "The name, designation, telephone number, fax number and e-mail address of the signing officer must invariably be on the draft.",
+          "hi": "हस्ताक्षर करने वाले अधिकारी का नाम, पदनाम, दूरभाष संख्या, फैक्स संख्या और ई-मेल पता मसौदे पर अनिवार्यतः होना चाहिए।"
+        },
+        "severity": "must",
+        "rule": {
+          "kind": "allRequired",
+          "fields": [
+            "signatoryName",
+            "signatoryDesignation",
+            "phone",
+            "email"
+          ]
+        },
+        "csmopRef": "9.2(xii)"
+      },
+      {
+        "id": "second-appeal",
+        "label": {
+          "en": "The second appeal to the CIC is stated with its time limit",
+          "hi": "केंद्रीय सूचना आयोग को द्वितीय अपील समय-सीमा सहित बताई गई है"
+        },
+        "why": {
+          "en": "Section 19(3) gives ninety days for a second appeal to the Central Information Commission. An order that does not name the forum and the limit leaves the appellant to find both.",
+          "hi": "धारा 19(3) केंद्रीय सूचना आयोग को द्वितीय अपील हेतु नब्बे दिन देती है। जो आदेश मंच और सीमा नहीं बताता वह अपीलकर्ता को दोनों स्वयं खोजने पर छोड़ देता है।"
+        },
+        "severity": "must",
+        "rule": {
+          "kind": "regex",
+          "role": "body",
+          "pattern": "(19\\(3\\)|Central Information Commission|केंद्रीय सूचना आयोग)"
+        }
+      },
+      {
+        "id": "reasons-recorded",
+        "label": {
+          "en": "Reasons for the decision are recorded",
+          "hi": "निर्णय के कारण अभिलिखित हैं"
+        },
+        "why": {
+          "en": "A first-appeal order is a quasi-judicial order and must give the reasons on its face.",
+          "hi": "प्रथम अपील आदेश अर्ध-न्यायिक आदेश है और उसमें कारण उसी पर दिए जाने चाहिए।"
+        },
+        "severity": "must",
+        "rule": {
+          "kind": "regex",
+          "role": "body",
+          "pattern": "(does not|has not|because|since|section 8|नहीं|क्योंकि|धारा 8)"
+        }
+      },
+      {
+        "id": "no-placeholders",
+        "label": {
+          "en": "No placeholder is left unfilled",
+          "hi": "कोई प्लेसहोल्डर अधूरा नहीं छूटा"
+        },
+        "why": {
+          "en": "A draft that goes out with {{…}} still in it has not been read.",
+          "hi": "जिस मसौदे में {{…}} रह जाए, उसे पढ़ा ही नहीं गया।"
+        },
+        "severity": "must",
+        "rule": {
+          "kind": "noPlaceholders"
+        }
+      }
+    ],
+    "source": {
+      "name": "Central Secretariat Manual of Office Procedure, 2022 (16th edition), DARPG",
+      "url": "https://www.darpg.gov.in/static/uploads/2025/10/774e0b8f427b7875158363d842fa431f.pdf",
+      "reference": "CSMOP 2022, sixteenth edition",
+      "dated": "2022-08-05"
+    },
+    "fetchedAt": "2026-09-03T00:00:00Z",
+    "verify": true,
+    "variables": [
+      {
+        "key": "applicationDate",
+        "label": {
+          "en": "RTI application dated",
+          "hi": "आरटीआई आवेदन का दिनांक"
+        },
+        "type": "date",
+        "required": true,
+        "sample": {
+          "en": "02.05.2026",
+          "hi": "02.05.2026"
+        }
+      },
+      {
+        "key": "cpioReplyDate",
+        "label": {
+          "en": "CPIO replied on",
+          "hi": "केंद्रीय लोक सूचना अधिकारी का उत्तर दिनांक"
+        },
+        "type": "date",
+        "required": true,
+        "sample": {
+          "en": "29.05.2026",
+          "hi": "29.05.2026"
+        }
+      },
+      {
+        "key": "appealDate",
+        "label": {
+          "en": "Appeal received on",
+          "hi": "अपील प्राप्ति दिनांक"
+        },
+        "type": "date",
+        "required": true,
+        "sample": {
+          "en": "18.06.2026",
+          "hi": "18.06.2026"
+        }
+      },
+      {
+        "key": "grievance",
+        "label": {
+          "en": "The appellant's grievance",
+          "hi": "अपीलकर्ता की शिकायत"
+        },
+        "type": "textarea",
+        "required": true,
+        "sample": {
+          "en": "point 3 of the application, relating to the file notings, was not answered at all",
+          "hi": "आवेदन के बिंदु 3, जो फाइल टिप्पणियों से संबंधित है, का उत्तर दिया ही नहीं गया"
+        }
+      },
+      {
+        "key": "finding",
+        "label": {
+          "en": "Finding",
+          "hi": "निष्कर्ष"
+        },
+        "type": "textarea",
+        "required": true,
+        "sample": {
+          "en": "The reply of the Central Public Information Officer does not deal with point 3, and no exemption under section 8 has been claimed in respect of it.",
+          "hi": "केंद्रीय लोक सूचना अधिकारी के उत्तर में बिंदु 3 का निपटान नहीं किया गया है, और उसके संबंध में धारा 8 के अंतर्गत कोई छूट का दावा नहीं किया गया है।"
+        }
+      },
+      {
+        "key": "decision",
+        "label": {
+          "en": "Decision",
+          "hi": "निर्णय"
+        },
+        "type": "select",
+        "required": true,
+        "sample": {
+          "en": "partly allowed",
+          "hi": "अंशतः स्वीकार"
+        },
+        "options": [
+          {
+            "value": "allowed",
+            "label": {
+              "en": "allowed",
+              "hi": "स्वीकार"
+            }
+          },
+          {
+            "value": "partly allowed",
+            "label": {
+              "en": "partly allowed",
+              "hi": "अंशतः स्वीकार"
+            }
+          },
+          {
+            "value": "dismissed",
+            "label": {
+              "en": "dismissed",
+              "hi": "खारिज"
+            }
+          }
+        ]
+      },
+      {
+        "key": "direction",
+        "label": {
+          "en": "Direction to the CPIO",
+          "hi": "केंद्रीय लोक सूचना अधिकारी को निदेश"
+        },
+        "type": "textarea",
+        "required": true,
+        "sample": {
+          "en": "The Central Public Information Officer is directed to furnish a point-wise reply to point 3 free of cost within fifteen days of the receipt of this order.",
+          "hi": "केंद्रीय लोक सूचना अधिकारी को निदेश दिया जाता है कि इस आदेश की प्राप्ति के पंद्रह दिन के भीतर बिंदु 3 का बिंदुवार उत्तर नि:शुल्क उपलब्ध कराएँ।"
+        }
+      }
+    ],
+    "bodySkeleton": {
+      "en": {
+        "type": "doc",
+        "content": [
+          {
+            "type": "numberedPara",
+            "attrs": {
+              "level": 1
+            },
+            "content": [
+              {
+                "type": "text",
+                "text": "The appellant filed an application under the Right to Information Act, 2005 on {{applicationDate}}, which was replied to by the Central Public Information Officer on {{cpioReplyDate}}. The present appeal under section 19(1) was received on {{appealDate}}."
+              }
+            ]
+          },
+          {
+            "type": "numberedPara",
+            "attrs": {
+              "level": 1
+            },
+            "content": [
+              {
+                "type": "text",
+                "text": "The appellant's grievance is that {{grievance}}."
+              }
+            ]
+          },
+          {
+            "type": "numberedPara",
+            "attrs": {
+              "level": 1
+            },
+            "content": [
+              {
+                "type": "text",
+                "text": "The record and the submissions of the Central Public Information Officer have been examined. {{finding}}"
+              }
+            ]
+          },
+          {
+            "type": "numberedPara",
+            "attrs": {
+              "level": 1
+            },
+            "content": [
+              {
+                "type": "text",
+                "text": "Accordingly, the appeal is {{decision}}. {{direction}}"
+              }
+            ]
+          },
+          {
+            "type": "numberedPara",
+            "attrs": {
+              "level": 1
+            },
+            "content": [
+              {
+                "type": "text",
+                "text": "If the appellant is not satisfied with this order, a second appeal lies to the Central Information Commission, Baba Gangnath Marg, Munirka, New Delhi - 110067, under section 19(3) of the Act, within ninety days of the date on which this order is received."
+              }
+            ]
+          }
+        ]
+      },
+      "hi": {
+        "type": "doc",
+        "content": [
+          {
+            "type": "numberedPara",
+            "attrs": {
+              "level": 1
+            },
+            "content": [
+              {
+                "type": "text",
+                "text": "अपीलकर्ता ने सूचना का अधिकार अधिनियम, 2005 के अंतर्गत {{applicationDate}} को आवेदन प्रस्तुत किया, जिसका उत्तर केंद्रीय लोक सूचना अधिकारी द्वारा {{cpioReplyDate}} को दिया गया। धारा 19(1) के अंतर्गत यह अपील {{appealDate}} को प्राप्त हुई।"
+              }
+            ]
+          },
+          {
+            "type": "numberedPara",
+            "attrs": {
+              "level": 1
+            },
+            "content": [
+              {
+                "type": "text",
+                "text": "अपीलकर्ता की शिकायत यह है कि {{grievance}}।"
+              }
+            ]
+          },
+          {
+            "type": "numberedPara",
+            "attrs": {
+              "level": 1
+            },
+            "content": [
+              {
+                "type": "text",
+                "text": "अभिलेख तथा केंद्रीय लोक सूचना अधिकारी के अभ्यावेदन की जाँच की गई है। {{finding}}"
+              }
+            ]
+          },
+          {
+            "type": "numberedPara",
+            "attrs": {
+              "level": 1
+            },
+            "content": [
+              {
+                "type": "text",
+                "text": "तदनुसार, अपील {{decision}} की जाती है। {{direction}}"
+              }
+            ]
+          },
+          {
+            "type": "numberedPara",
+            "attrs": {
+              "level": 1
+            },
+            "content": [
+              {
+                "type": "text",
+                "text": "यदि अपीलकर्ता इस आदेश से संतुष्ट नहीं है तो अधिनियम की धारा 19(3) के अंतर्गत इस आदेश की प्राप्ति की तिथि से नब्बे दिन के भीतर केंद्रीय सूचना आयोग, बाबा गंगनाथ मार्ग, मुनिरका, नई दिल्ली - 110067 को द्वितीय अपील की जा सकती है।"
+              }
+            ]
+          }
+        ]
+      }
+    }
+  }
+}

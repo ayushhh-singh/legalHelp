@@ -152,7 +152,25 @@ class Build(unittest.TestCase):
 
     def test_writes_one_file_per_template_plus_three(self) -> None:
         self.assertEqual(len(seed.TEMPLATES) + 3, len(self.files))
-        self.assertEqual(14, len(seed.TEMPLATES))
+        # Fourteen forms in Session 8, forty-three from Session 29 on: the
+        # twenty-nine in `drafting_forms.py` are extended onto the same list and
+        # go through the same `self_check` (ADR-041).
+        self.assertEqual(43, len(seed.TEMPLATES))
+
+    def test_every_form_carries_variables_and_a_skeleton(self) -> None:
+        # Template Library v2. Both members are optional in the schema so a
+        # template written before Session 29 still parses, but nothing in the
+        # library is without them any more — a form with no skeleton opens onto
+        # an empty editor, and a variable with no worked example ships a `paras`
+        # sample that still contains `{{key}}`.
+        for record in seed.TEMPLATES:
+            self.assertTrue(record.get("bodySkeleton"), record["id"])
+            self.assertTrue(record.get("variables"), record["id"])
+            for lang in ("en", "hi"):
+                self.assertEqual("doc", record["bodySkeleton"][lang]["type"], record["id"])
+            for variable in record["variables"]:
+                self.assertTrue(variable["sample"]["en"], f"{record['id']}/{variable['key']}")
+                self.assertTrue(variable["sample"]["hi"], f"{record['id']}/{variable['key']}")
 
     def test_the_index_lists_every_template_and_nothing_else(self) -> None:
         index = {entry["id"] for entry in self.files["drafting/index.json"]["templates"]}
