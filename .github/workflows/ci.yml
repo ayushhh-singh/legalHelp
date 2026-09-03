@@ -50,7 +50,7 @@ jobs:
       # The import fixtures are .docx and .pdf files — opaque in a diff, and a
       # fixture nobody can read is a fixture nobody can correct. They are built
       # from source in scripts/drafting-fixtures.mjs and committed, so this is
-      # what stops the two drifting: --check rebuilds all ten and compares,
+      # what stops the two drifting: --check rebuilds all eleven and compares,
       # writing nothing (ADR-042 §8).
       - name: The committed import fixtures match their source
         run: node scripts/drafting-fixtures.mjs --check

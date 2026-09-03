@@ -178,10 +178,44 @@ test.describe('the print route', () => {
     const css = await page.locator('style').allTextContents()
     expect(css.join('\n')).toContain('size: 210mm 297mm;')
 
+    /*
+      And it has to reach the sheet, not just the wrapper.
+
+      `A4Preview` renders `.a4-print-root`, which `src/styles/index.css` pins to
+      `page: draft-a4` — a fixed A4. That element is INSIDE `.draft-print-root`,
+      so a rule on the wrapper alone was overridden for everything in it and the
+      paper control changed a stylesheet nothing applied. Asserting the CSS text
+      alone was a proxy for the assertion this is: the nesting is real, so the
+      generated rule must name the inner element.
+    */
+    await expect(page.locator('.draft-print-root .a4-print-root')).toHaveCount(1)
+    expect(css.join('\n')).toContain('.draft-print-root .a4-print-root')
+
     // The counters exist as real elements, so the print engine has somewhere
     // to put `counter(page)` — the numbers themselves only exist on paper.
     await expect(page.locator('.draft-page-number')).toHaveCount(1)
     await expect(page.locator('.draft-page-total')).toHaveCount(1)
+
+    /*
+      The running footer sits in the page MARGIN, not on the last line.
+
+      `position: fixed` in paged media is positioned against the page's content
+      area, so `bottom: 0` is the bottom of the text column — the page number
+      printed on top of the document. Print emulation lays a fixed element out
+      against the viewport rather than a page, so the pagination is not real
+      here; what IS real and what this checks is the computed offset, which is
+      what decides whether the band is inside the margin or on the text.
+    */
+    await page.emulateMedia({ media: 'print' })
+    const offsets = await page.evaluate(() => {
+      const footer = document.querySelector('.draft-running-footer')
+      if (!footer) return null
+      const style = getComputedStyle(footer)
+      return { position: style.position, bottom: Number.parseFloat(style.bottom) }
+    })
+    expect(offsets?.position).toBe('fixed')
+    expect(offsets?.bottom, 'the page number is inside the text column').toBeLessThan(0)
+    await page.emulateMedia({ media: null })
 
     // Letter is offered and changes the rule that will actually be applied.
     await page.getByLabel(/Paper/).selectOption('Letter')

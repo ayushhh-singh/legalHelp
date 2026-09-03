@@ -200,7 +200,7 @@ SESSION CLOSE-OUT (mandatory at the end of every session):
 >    not satisfy anywhere in the app.
 > 9. **The eleven import fixtures are GENERATED from source and CI checks them.** A `.docx` is opaque in
 >    a diff, and a fixture nobody can read is a fixture nobody can correct.
->    `scripts/drafting-fixtures.mjs` builds all ten — through the app's own zip writer, loaded via
+>    `scripts/drafting-fixtures.mjs` builds all eleven — through the app's own zip writer, loaded via
 >    Vite's SSR module runner — and `--check` rebuilds and compares.
 
 > **This session replaces the Drafting Studio's form with a real document editor, and the MODEL is
@@ -802,6 +802,69 @@ are load-bearing, and each is enforced by a test rather than by convention:
    registration.
 
 ### Notes for the next session
+
+- **An edge-case pass over Session 30 found ELEVEN defects, and the pattern is one sentence: the FILE
+  was distrusted and the CONVERSION was not.** Every way an officer can hand this app the wrong thing
+  — a `.doc` in disguise, a scan, an encrypted PDF, a garbled text layer, an over-cap file, a
+  zero-byte one — already had its own refusal and a message saying what to do next, because a file is
+  obviously untrusted. What failed was everything downstream of "the file is fine". ADR-042's second
+  addendum has all eleven; the four most transferable are below, and every regression test was
+  confirmed to fail against the committed code first.
+
+- **A proxy assertion is not an assertion, and three of the eleven had one.** A test that the print
+  route's stylesheet CHANGED, rather than that it applied. A test that numbering EXISTED, rather than
+  at what level. A test that a subject CONTAINED a phrase, rather than that it ended. All three
+  passed against the broken code. Before believing a new assertion here, break the code and watch it
+  go red — `network.sentinel()` has the same story (ADR-031) and this is its third repetition.
+
+- **`position: fixed` in paged media is positioned against the page's CONTENT area, not the sheet.**
+  So `top: 0` on a running header is the top of the TEXT COLUMN: the letterhead printed on the
+  document's first block and the page number on its last. Both bands live in the page margin now
+  (`top: -20mm`, `bottom: -14mm`), and `LETTERHEAD_MAX_HEIGHT_MM` is 16mm rather than 30mm because
+  that is what a 25.4mm margin holds. Any future running element owes itself the same arithmetic.
+
+- **A nested named `@page` beats the one on its ancestor, and that is how a control comes to do
+  nothing.** `A4Preview` renders `.a4-print-root`, which `index.css` pins to `page: draft-a4`. The
+  print route wraps it, so the generated rule sat on the outside and Letter rewrote a stylesheet
+  nothing applied. `pageRuleCss` names both selectors now, scoped under `.draft-print-root` so the
+  editor's preview and every other surface sharing the class are untouched.
+
+- **Creating a `blob:` URL during render and revoking it in an effect gives you a revoked URL on
+  screen, in every `pnpm dev` session, and NO browser run in this project can see it.** StrictMode
+  mounts, runs the effect, DESTROYS it and runs it again — the destroy revokes the URL while it is
+  still in state and still rendered, and the recreated effect has nothing to do. Measured:
+  `created: 1, src: "blob:u1", revoked: ["blob:u1"]`. `pnpm test:e2e` builds for production where
+  StrictMode is inert, which is exactly the trap CLAUDE.md already records costing Session 8 two
+  defects in `useDraft`. `useObjectUrl` writes the `src` on to the element in an effect and takes it
+  off in the same cleanup: the DOM is an external system, which is the one thing an effect is for.
+
+- **`'2. '.split('.')` has length TWO**, because a paragraph marker ends in a full stop and a space.
+  `length - 1` put every ordinary numbered paragraph at Word level 1 and every sub-paragraph at
+  level 2 — so an O.M. that should read `2.` `3.` `4.` down the left margin opened indented and
+  numbered `2.1` `2.2` `2.3`. Count the GROUPS (`markerDepth` in `docx.ts`), and clamp: a reference
+  to a level `numberingConfig` never defined opens unnumbered.
+
+- **`\p{Extended_Pictographic}` includes `©`, `®` and `™`.** Stripping emoji from an export took all
+  three out of every document, so a footer reading `© 2026 Government of India` exported as
+  ` 2026 Government of India`. `\p{Emoji_Presentation}` is the property that actually predicts a
+  black box on an office laser, and none of the three has it. `✓` survives; `✓️` loses only its
+  variation selector.
+
+- **`navigator.share` needs the transient activation of the gesture that started it, and every
+  `await` on the way there spends it.** The batch builds its archive first, so a real browser rejects
+  with `NotAllowedError` on a perfectly ordinary press. Swallowing every rejection as "the officer
+  cancelled" left them with no file, no message and no error. A cancellation is `AbortError`;
+  anything else falls back to the download and says so.
+
+- **A subtractive test needs a floor.** "Take away the words a page number is made of and the digits,
+  and if nothing is left that is all it was" drops `011-23092345` — a footer holding nothing but the
+  office telephone. A line with no page WORD in it is a page number only if it is short.
+
+- **The export panel's language selector chose between two identical files.** `DocEditorPage` renders
+  `single` in the APP language and `bilingual` in both, and `documentsFor` answered `'hi'` with
+  `single` — so an officer working in English who picked हिंदी got the English document under a file
+  name ending `(HI)`. When two renders exist, the pair is authoritative and the single one is only a
+  fallback.
 
 - **A conversion that cannot be exact must be able to say so, and the saying has to come BEFORE the
   save.** `ImportNotice` is a code, a count and up to twelve named examples, produced by the pure

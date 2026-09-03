@@ -226,6 +226,15 @@ const REFERENCE_LABEL =
 const SUBJECT_STOPS = [SALUTATION, TO_LABEL, /^\s*$/]
 
 /**
+ * A line that finishes the subject.
+ *
+ * The danda is in it because a Hindi subject ends `…के संबंध में।` — the
+ * English half working is not evidence, which this project has now recorded
+ * three times (ADR-035, ADR-038, ADR-039) and once more here.
+ */
+const ENDS_SUBJECT = /[.।॥—-]\s*$/
+
+/**
  * The four facts, from the first page.
  *
  * Takes TEXT rather than a body or a `File`, so the same function serves the
@@ -284,13 +293,29 @@ export function extractMeta(text: string, options: { maxLines?: number } = {}): 
   // half that says what it is about.
   const subjectAt = lines.findIndex((line) => SUBJECT_LABEL.test(line))
   if (subjectAt !== -1) {
-    const parts = [(lines[subjectAt] ?? '').replace(SUBJECT_LABEL, '')]
-    for (let index = subjectAt + 1; index < lines.length && parts.length < 4; index += 1) {
+    const first = (lines[subjectAt] ?? '').replace(SUBJECT_LABEL, '')
+    const parts = [first]
+    /*
+      The terminator is checked on the FIRST line too, and that is the whole
+      fix. The loop below stopped when a CONTINUATION line ended a sentence and
+      never asked whether the subject line already had — so a document with no
+      blank line after the subject had its opening paragraph appended to it.
+
+      That is not a rare shape: `reconstructPdf` joins paragraphs with a single
+      newline, so every subject read out of a PDF swallowed the body's first
+      paragraph, into the document's title and its `meta.subject`. A real
+      Government subject that runs onto a second line does not carry a full stop
+      halfway through it, which is what makes this safe as well as necessary.
+    */
+    for (
+      let index = subjectAt + 1;
+      index < lines.length && parts.length < 4 && !ENDS_SUBJECT.test(parts[parts.length - 1] ?? '');
+      index += 1
+    ) {
       const line = lines[index] ?? ''
       if (SUBJECT_STOPS.some((stop) => stop.test(line))) break
       if (SUBJECT_LABEL.test(line)) break
       parts.push(line)
-      if (/[.—-]\s*$/.test(line)) break
     }
     out.subject = parts
       .join(' ')

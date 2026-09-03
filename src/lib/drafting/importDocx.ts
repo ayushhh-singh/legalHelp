@@ -630,7 +630,13 @@ const decodeXml = (text: string): string =>
 const PAGE_WORDS = /\b(?:page|of|pages)\b|पृष्ठ|में\s*से|कुल/gi
 
 export function isPageField(line: string): boolean {
-  return line.replace(PAGE_WORDS, '').replace(/[\d\s/\u0966-\u096F.,:-]+/g, '') === ''
+  const withoutWords = line.replace(PAGE_WORDS, '')
+  if (withoutWords.replace(/[\d\s/\u0966-\u096F.,:-]+/g, '') !== '') return false
+  // Something with no page word in it is a page number only if it is SHORT.
+  // Without this a footer holding nothing but a telephone number —
+  // `011-23092345`, which is what half of them are — subtracted to nothing and
+  // was dropped as a field result, silently losing a letterhead line.
+  return withoutWords !== line || line.replace(/\D/g, '').length <= 3
 }
 
 export function headerFooterLines(parts: Map<string, string>): { header: string[]; footer: string[] } {

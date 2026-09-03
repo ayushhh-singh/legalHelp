@@ -126,7 +126,7 @@ function Sheet({ doc, template }: { doc: OfficialDoc; template: DocTemplate }) {
   const mismatch = bilingual ? bilingualMismatch(bilingual.en.document, bilingual.hi.document) : null
 
   const letterheadRow = useLiveQuery(() => getLetterhead(), [])
-  const letterheadUrl = useObjectUrl(letterheadOn ? letterheadRow?.data : null)
+  const letterheadImage = useObjectUrl(letterheadOn ? letterheadRow?.data : null)
 
   /*
     The running header carries the IMAGE and nothing else.
@@ -242,9 +242,15 @@ function Sheet({ doc, template }: { doc: OfficialDoc; template: DocTemplate }) {
       </div>
 
       <div className="draft-print-root">
-        {letterheadUrl ? (
+        {letterheadOn && letterheadRow ? (
           <div className="draft-running-header" aria-hidden="true">
-            <img src={letterheadUrl} alt="" className="draft-letterhead-image" />
+            {/*
+              Gated on the ROW, not on a URL. `useObjectUrl` writes the `src` on
+              to this element in an effect, so the element has to exist for the
+              effect to find — gating on the URL would mean the image never
+              rendered at all.
+            */}
+            <img ref={letterheadImage} alt="" className="draft-letterhead-image" />
           </div>
         ) : null}
 

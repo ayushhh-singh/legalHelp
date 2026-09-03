@@ -45,9 +45,18 @@ export interface BatchOptions {
   settings?: ExportSettings
   labels: { pageOf: string; columnEn: string; columnHi: string }
   onProgress?: (done: number, total: number) => void
-  /** Aborts between documents. A half-written archive is never handed over. */
-  signal?: AbortSignal
 }
+
+/*
+  There is deliberately no `signal`.
+
+  One was written — an `AbortSignal` checked between documents — and removed,
+  because no surface passes one: `BatchExportBar` disables every control while a
+  batch is building, so there is nothing an officer can press to cancel. An
+  option no caller can reach is a feature that cannot fire, which is the exact
+  failure family ADR-039's second addendum names. Add it back with the control,
+  not before.
+*/
 
 export interface BatchResult {
   entries: ZipEntry[]
@@ -69,7 +78,6 @@ export async function buildBatchEntries(ids: readonly string[], options: BatchOp
   const { toDocxBytes } = await import('@/lib/drafting/docx')
 
   for (const [index, id] of ids.entries()) {
-    if (options.signal?.aborted) break
     try {
       const found = await getDocument(id)
       if (!found.ok) {

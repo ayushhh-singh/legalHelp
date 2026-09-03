@@ -26,8 +26,17 @@
 /** Big enough for a scanned letterhead at 300 dpi, small enough to embed. */
 export const LETTERHEAD_MAX_BYTES = 512 * 1024
 
-/** What the header band can be without pushing the document off its first page. */
-export const LETTERHEAD_MAX_HEIGHT_MM = 30
+/**
+ * What fits in the page margin, which is what bounds a running header.
+ *
+ * Not an aesthetic choice: `@page` is CSMOP's 25.4mm and the printed band sits
+ * INSIDE that margin (`src/styles/index.css`), because a `position: fixed`
+ * header is positioned against the text column and anything taller lands on the
+ * document's first line. 16mm leaves 4mm to the text and 5.4mm to the paper
+ * edge. The `.docx` header uses the same figure so the printed mark and the
+ * embedded one are the same size.
+ */
+export const LETTERHEAD_MAX_HEIGHT_MM = 16
 export const LETTERHEAD_MAX_WIDTH_MM = 160
 
 export const LETTERHEAD_TYPES = ['image/png', 'image/jpeg', 'image/svg+xml'] as const

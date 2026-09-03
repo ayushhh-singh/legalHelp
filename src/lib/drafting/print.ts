@@ -113,7 +113,23 @@ export function pageRuleCss(setup: PageSetup, name = 'draft-print'): string {
     `  size: ${round(dimensions.widthMm)}mm ${round(dimensions.heightMm)}mm;`,
     `  margin: ${round(top)}mm ${round(right)}mm ${round(bottom)}mm ${round(left)}mm;`,
     `}`,
-    `.draft-print-root { page: ${name}; }`,
+    /*
+      BOTH selectors, and the second one is the one that does the work.
+
+      `A4Preview` renders `.a4-print-root`, and `src/styles/index.css` sets
+      `page: draft-a4` on it — a fixed A4 at CSMOP margins, which is right for
+      the editor's preview. The print route wraps that same element, so a rule
+      on the ancestor alone was overridden by the inner named page for
+      everything inside it: the paper control changed the stylesheet and could
+      not change the page.
+
+      The override is scoped to `.draft-print-root` deliberately. A bare
+      `.a4-print-root` rule here would follow the officer's choice of paper into
+      the editor's preview and out to every other printable surface that shares
+      the class.
+    */
+    `.draft-print-root,`,
+    `.draft-print-root .a4-print-root { page: ${name}; }`,
   ].join('\n')
 }
 

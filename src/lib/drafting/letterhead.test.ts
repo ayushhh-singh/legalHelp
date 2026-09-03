@@ -5,6 +5,7 @@ import {
   embeddableInDocx,
   fitLetterhead,
   LETTERHEAD_MAX_BYTES,
+  LETTERHEAD_MAX_HEIGHT_MM,
   mmToTwip,
   svgIsInert,
 } from './letterhead'
@@ -101,9 +102,12 @@ describe('fitLetterhead', () => {
     expect(fitted.widthMm / fitted.heightMm).toBeCloseTo(6, 1)
   })
 
-  it('fits a tall image to the height of the band', () => {
+  it('fits a tall image to the height of the band, which is what the margin allows', () => {
+    // 16mm, not an arbitrary number: the printed band sits inside the page's
+    // 25.4mm margin, because a `position: fixed` running header is positioned
+    // against the text column and anything taller lands on the first line.
     const fitted = fitLetterhead({ width: 200, height: 800 })
-    expect(fitted.heightMm).toBeCloseTo(30, 0)
+    expect(fitted.heightMm).toBeCloseTo(LETTERHEAD_MAX_HEIGHT_MM, 0)
   })
 
   it('never enlarges a small image', () => {

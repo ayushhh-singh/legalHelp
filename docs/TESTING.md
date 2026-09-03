@@ -372,7 +372,7 @@ fixtures. Two of these are worth copying the shape of:
   does not tell you which of the five join rules was responsible.
 
 **The committed fixtures are GENERATED** — `scripts/drafting-fixtures.mjs`
-writes all ten of `tests/fixtures/drafting/` from source that says what each is
+writes all eleven of `tests/fixtures/drafting/` from source that says what each is
 for, and CI runs `--check`. A `.docx` is opaque in a diff, and a fixture nobody
 can read is a fixture nobody can correct. The `.docx` files are written by the
 app's own zip writer through Vite's SSR module runner, which exercises it

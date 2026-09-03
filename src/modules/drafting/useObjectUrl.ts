@@ -1,41 +1,53 @@
-import { useEffect, useState } from 'react'
+import { useEffect, useRef, type RefObject } from 'react'
 
 /**
- * A blob as a URL an `<img>` can use, revoked when it is no longer that blob.
+ * Show a `Blob` in an `<img>`, and revoke its URL when it is no longer shown.
  *
- * The obvious shape — `useEffect(() => { setUrl(createObjectURL(blob)); return
- * () => revoke(url) }, [blob])` — is a `setState` in an effect body, which
- * `react-hooks/set-state-in-effect` rejects and which is genuinely a cascading
- * render: the component paints once with no image, then again with one.
+ * Attach the returned ref to the image. There is no state and no return value
+ * to render, and that is the whole design rather than a stylistic preference —
+ * the two obvious shapes are both wrong, and the second one is wrong in a way
+ * no browser test in this project could ever have caught.
  *
- * The shape here creates the URL during RENDER and adjusts state in the same
- * pass, which is React's own "adjusting state when a prop changes" pattern —
- * the render that reads the new blob is the render that has its URL. The effect
- * that remains does one thing, and it is the thing effects are for: releasing a
- * resource the component acquired. Without it every letterhead preview pins its
- * blob in memory for the life of the tab.
+ * **`useEffect(() => { setUrl(createObjectURL(blob)); return () => revoke(url) })`**
+ * is a `setState` inside an effect body: a cascading render that paints once
+ * with no image and again with one, which `react-hooks/set-state-in-effect`
+ * rejects.
  *
- * `null` in gives `null` out, so a caller can turn the preview off by passing
- * nothing rather than by conditionally calling a hook.
+ * **Creating the URL during render and revoking it in the effect** — which is
+ * what this hook did first — is worse, and the reason is StrictMode. React
+ * mounts, runs the effect, DESTROYS it, and runs it again; the destroy revokes
+ * the URL, and the recreated effect has nothing to do because the URL is still
+ * sitting in state. The component then renders a `blob:` URL that has already
+ * been revoked, which is a broken image with nothing in the console. It is
+ * invisible to `pnpm test:e2e`, because that runs a production build where
+ * StrictMode is inert (CLAUDE.md records the same trap costing two defects in
+ * Session 8's `useDraft`), and it is what an officer sees in `pnpm dev`.
+ *
+ * Writing to the DOM node is what effects are FOR — "update external systems"
+ * is the rule's own first bullet — so the URL is made and destroyed in the same
+ * effect, in step, and StrictMode's destroy-and-recreate produces a second URL
+ * that is actually on the element.
  */
-export function useObjectUrl(blob: Blob | null | undefined): string | null {
-  const [current, setCurrent] = useState<{ blob: Blob | null; url: string | null }>({
-    blob: null,
-    url: null,
-  })
+export function useObjectUrl(blob: Blob | null | undefined): RefObject<HTMLImageElement | null> {
+  const ref = useRef<HTMLImageElement | null>(null)
 
-  const next = blob ?? null
-  if (current.blob !== next) {
-    if (current.url) URL.revokeObjectURL(current.url)
-    setCurrent({ blob: next, url: next ? URL.createObjectURL(next) : null })
-  }
+  useEffect(() => {
+    const node = ref.current
+    if (!node) return
+    if (!blob) {
+      node.removeAttribute('src')
+      return
+    }
+    const url = URL.createObjectURL(blob)
+    node.setAttribute('src', url)
+    return () => {
+      // The attribute goes with the URL. Leaving it behind would point the
+      // element at a `blob:` that no longer resolves, which is the state this
+      // hook exists to make impossible.
+      node.removeAttribute('src')
+      URL.revokeObjectURL(url)
+    }
+  }, [blob])
 
-  useEffect(
-    () => () => {
-      if (current.url) URL.revokeObjectURL(current.url)
-    },
-    [current.url],
-  )
-
-  return current.blob === next ? current.url : null
+  return ref
 }

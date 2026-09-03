@@ -154,10 +154,58 @@ export function canShareFiles(files: readonly File[]): boolean {
   }
 }
 
-/** The documents to export for a view — one language, or both in layout order. */
+/**
+ * The documents to export for a view — one language, or both in layout order.
+ *
+ * **The bilingual pair is authoritative when it is there**, and that is the
+ * whole of this function. `DocEditorPage` renders `single` in the APP language
+ * and `bilingual` in both, so answering `hi` with `single` handed back the
+ * English render whenever the app was in English: the export panel's language
+ * selector produced the same file either way, under a file name claiming
+ * otherwise. `single` is the fallback for a caller that has only one render.
+ */
 export const documentsFor = (
   view: 'en' | 'hi' | 'both',
   single: DocumentModel | null,
   bilingual: { en: DocumentModel; hi: DocumentModel } | null,
-): DocumentModel[] =>
-  view === 'both' ? (bilingual ? [bilingual.en, bilingual.hi] : []) : single ? [single] : []
+): DocumentModel[] => {
+  if (bilingual) {
+    if (view === 'both') return [bilingual.en, bilingual.hi]
+    return [view === 'en' ? bilingual.en : bilingual.hi]
+  }
+  if (view === 'both') return []
+  return single ? [single] : []
+}
+
+/**
+ * Whether a refused `navigator.share` should fall back to a download.
+ *
+ * `navigator.share` requires TRANSIENT ACTIVATION — the user gesture that
+ * started the call — and the batch builds its archive first, so every `await`
+ * on the way there spends it. A real browser then rejects the share with
+ * `NotAllowedError` on a press that looked perfectly ordinary.
+ *
+ * The first version caught every rejection and did nothing, on the grounds that
+ * a cancelled share is not a failure. A CANCELLATION is `AbortError`.
+ * Everything else means the officer pressed Share and got no file, no message
+ * and no error — which is the worst of the three outcomes and the one that
+ * looks like the app is broken.
+ */
+export function shareFallbackNeeded(error: unknown): boolean {
+  return (error as { name?: string } | null | undefined)?.name !== 'AbortError'
+}
+
+/**
+ * What the export has to say about the letterhead before it is built.
+ *
+ * `embeddableInDocx` refuses an SVG — Word needs a raster and this app has no
+ * rasteriser — so `docxLetterhead` returns null and the Word file is written
+ * with no letterhead on it. The profile card says so, on a screen an officer
+ * exporting a document need never have visited. ADR-042 §6 claims that nothing
+ * silently produces a Word file with no letterhead; this is what makes the
+ * claim true where the export actually happens.
+ */
+export function letterheadWarning(row: { type: string } | null | undefined, enabled: boolean): 'svg' | null {
+  if (!enabled || !row) return null
+  return embeddableInDocx(row.type as LetterheadType) ? null : 'svg'
+}

@@ -66,7 +66,9 @@ describe('pageRuleCss', () => {
   })
 
   it('names the page, so a margin here cannot move the pay slip', () => {
-    expect(pageRuleCss(defaultPageSetup('A4'))).toContain('.draft-print-root { page: draft-print; }')
+    expect(pageRuleCss(defaultPageSetup('A4'))).toContain(
+      '.draft-print-root .a4-print-root { page: draft-print; }',
+    )
     expect(pageRuleCss(defaultPageSetup('A4'), 'other')).toContain('@page other {')
   })
 

@@ -2,7 +2,7 @@ import { ClipboardCopy, FileArchive, Share2 } from 'lucide-react'
 import { useState } from 'react'
 
 import { batchPlainText, buildBatchZip } from './exportBatch'
-import { canShareFiles, defaultExportSettings, saveBlob } from '../exportDoc'
+import { canShareFiles, defaultExportSettings, saveBlob, shareFallbackNeeded } from '../exportDoc'
 
 import { Button } from '@/components/ui/button'
 import { useT } from '@/i18n/useT'
@@ -111,10 +111,21 @@ export function BatchExportBar({ ids, onClear }: { ids: readonly string[]; onCle
             void run((blob) => {
               const file = new File([blob], zipName, { type: 'application/zip' })
               if (canShareFiles([file])) {
-                void navigator.share({ files: [file], title: t('draft.batch.shareTitle') }).catch(() => {
-                  // A cancelled share is not a failure and must not be reported
-                  // as one — the officer pressed Cancel.
-                })
+                void navigator
+                  .share({ files: [file], title: t('draft.batch.shareTitle') })
+                  .catch((error: unknown) => {
+                    /*
+                      A cancellation is `AbortError` and is not a failure — the
+                      officer pressed Cancel. ANYTHING else is, and the commonest
+                      one is `NotAllowedError`: `navigator.share` needs the user
+                      gesture that started the call, and building the archive
+                      spends it. Swallowing that left the officer with no file,
+                      no message and no error on a perfectly ordinary press.
+                    */
+                    if (!shareFallbackNeeded(error)) return
+                    saveBlob(blob, zipName)
+                    setMessage(t('draft.batch.sharedAsDownload'))
+                  })
                 return
               }
               saveBlob(blob, zipName)

@@ -488,18 +488,35 @@
     color: #111;
   }
 
+  /*
+    NEGATIVE offsets, and that is not a nudge — it is the difference between a
+    running header and a smear across the first line of the document.
+
+    `position: fixed` in paged media is positioned against the page's CONTENT
+    area, not the sheet, so `top: 0` is the top of the text column: the
+    letterhead printed on top of the document's first block and the page number
+    on top of its last. The offsets put both bands inside the page margin, which
+    is where a running header belongs and which is the only place they cannot
+    collide with the text.
+
+    The numbers are tied to the margin. `@page` here is CSMOP's 25.4mm, so a
+    band starting 20mm above the text column and 16mm tall ends 4mm short of the
+    text and 5.4mm short of the paper edge. `LETTERHEAD_MAX_HEIGHT_MM` in
+    `src/lib/drafting/letterhead.ts` is the same 16mm, so the printed mark and
+    the one embedded in the `.docx` are the same size.
+  */
   .draft-running-header {
-    top: 0;
+    top: -20mm;
   }
 
   .draft-running-footer {
-    bottom: 0;
+    bottom: -14mm;
   }
 
   .draft-letterhead-image {
     display: block;
-    margin: 0 auto 2mm;
-    max-height: 30mm;
+    margin: 0 auto;
+    max-height: 16mm;
     max-width: 160mm;
   }
 

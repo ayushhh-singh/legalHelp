@@ -43,10 +43,15 @@ export function LetterheadCard() {
         {t('draft.letterhead.noEmblem')}
       </p>
 
-      {row && preview ? (
+      {row ? (
         <div className="flex flex-wrap items-center gap-3">
+          {/*
+            No `src` here: `useObjectUrl` puts one on this element in an effect
+            and takes it off again in the same effect's cleanup, so the element
+            never points at a URL that has been revoked.
+          */}
           <img
-            src={preview}
+            ref={preview}
             alt={t('draft.letterhead.current')}
             className="max-h-24 max-w-full rounded border border-border bg-white p-2"
           />

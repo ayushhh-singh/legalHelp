@@ -148,6 +148,66 @@ export interface LetterheadImageRow {
   updatedAt: string
 }
 
+/**
+ * A communication that ARRIVED — the letter an officer is about to answer
+ * (Session 31, ADR-043 §2).
+ *
+ * The `text` is the whole letter, and it is the most sensitive thing this app
+ * stores after a document: it is somebody else's writing, addressed to this
+ * office. Three consequences the reply screen keeps:
+ *
+ *  - **Nothing is written here until the officer chooses "keep with the
+ *    draft".** A letter pasted to read the chips and then abandoned leaves no
+ *    row at all — the analysis lives in component state and dies with the tab.
+ *  - **It is in the backup**, because `buildBackup` excludes by NAME and this
+ *    is not one of the three excluded. That is right: an officer restoring a
+ *    device wants the letter their draft answers.
+ *  - **`analysis` is what the deterministic pass read**, stored as `unknown`
+ *    for the reason `DocumentRow.doc` is: a row written by a later release is
+ *    untrusted input.
+ */
+export interface IntakeRow {
+  id: string
+  /** The letter as received. Never edited by the app. */
+  text: string
+  /** The subject, denormalised so a list renders without parsing every letter. */
+  subject: string
+  number: string
+  /** ISO date of the letter itself. `receivedOn` is when it reached the office. */
+  date: string
+  receivedOn: string
+  createdAt: string
+  updatedAt: string
+  /** `analyseIntake`'s output, as the officer corrected it. */
+  analysis: unknown
+  /** The AI analysis, when one was run and kept. Absent otherwise. */
+  aiAnalysis?: unknown
+  /** Documents drafted in reply point here; this is the convenience back-link. */
+  replyDocId?: string
+}
+
+/**
+ * One line of the correspondence register (Session 31, ADR-043 §5).
+ *
+ * `src/lib/drafting/register.ts` owns the shape and `readEntry` is the only
+ * thing that should turn one of these back into a typed entry. Declared
+ * `unknown`-free here because the register's own schema fills every default,
+ * but read through `readEntry` all the same — the fields below are what the
+ * INDEXES need, and the source of truth is the parsed row.
+ */
+export interface RegisterEntryRow {
+  id: string
+  direction: string
+  number: string
+  date: string
+  status: string
+  threadId: string
+  followUpDate: string
+  updatedAt: string
+  createdAt: string
+  entry: unknown
+}
+
 /** Keys are declared centrally so a typo cannot create an orphan row. */
 export const SETTING_KEYS = {
   language: 'language',
@@ -751,6 +811,8 @@ export class SahayakDB extends Dexie {
   templateFavourites!: Table<TemplateFavouriteRow, string>
   templateRecents!: Table<TemplateRecentRow, string>
   letterheadImages!: Table<LetterheadImageRow, string>
+  intakes!: Table<IntakeRow, string>
+  registerEntries!: Table<RegisterEntryRow, string>
 
   constructor(name = 'sahayak') {
     super(name)
@@ -1180,6 +1242,77 @@ export class SahayakDB extends Dexie {
       templateFavourites: '&id, createdAt',
       templateRecents: '&id, viewedAt',
       letterheadImages: '&id, updatedAt',
+    })
+
+    /*
+      Version 16 — the inbound letter and the correspondence register
+      (Session 31, ADR-043).
+
+      Two new tables and nothing else, so there is no `upgrade()` block, for the
+      reason version 15's note gives: a version that only ADDS a store needs no
+      data moved, and an empty upgrade function suggests one was considered and
+      found unnecessary rather than that none was needed.
+
+      `registerEntries` carries seven indexes because the register is a screen
+      of filters — direction, status, thread, follow-up date — and because
+      `duplicateNumbers` looks a number up on every issue. The row denormalises
+      exactly those fields out of `entry`; `readEntry` is what turns the row
+      back into something typed.
+
+      Both tables are in the backup automatically, because `buildBackup`
+      excludes by NAME rather than including by name. Asserted anyway in
+      `src/modules/drafting/register/registerStore.test.ts`, because "it is
+      backed up" is a claim rather than a comment.
+
+      Every table of every version above is repeated verbatim: Dexie reads a
+      version's `stores()` as the COMPLETE schema at that version, so an omitted
+      table is a dropped table.
+    */
+    this.version(16).stores({
+      settings: '&key',
+      secrets: '&id',
+      aiAnswers: '&id, agentId, dataVersion, createdAt',
+      aiUsage: '&month',
+      lawFavourites: '&id, createdAt',
+      lawRecents: '&id, viewedAt',
+      payScenarios: '&id, name, updatedAt',
+      drafts: '&id, templateId, updatedAt',
+      draftDefaults: '&id, templateId, updatedAt',
+      glossaryFavourites: '&id, createdAt',
+      glossaryRecents: '&id, viewedAt',
+      srsCards: '&qId, due, state',
+      reviewLog: '&id, qId, at',
+      streaks: '&date',
+      trainerSettings: '&id',
+      trainerBookmarks: '&qId, createdAt',
+      trainerReports: '&id, qId, createdAt',
+      proposedCards: '&id, createdAt',
+      cardOverrides: '&qId, decidedAt',
+      holidayPicks: '&id, year, createdAt',
+      commandRecents: '&id, viewedAt',
+      libraryProgress: '&id, workId, at',
+      libraryBookmarks: '&id, workId, createdAt',
+      libraryHighlights: '&id, [workId+unitId], workId, colour, createdAt',
+      libraryNotes: '&id, [workId+unitId], workId, updatedAt',
+      libraryPersonalWorks: '&id, updatedAt',
+      chapterCards: '&id, workId, due',
+      chapterLog: '&id, cardId, workId, at',
+      feynmanAttempts: '&id, [workId+unitId], workId, at',
+      studySessions: '&id, workId, startedAt',
+      studyGoals: '&id, updatedAt',
+      documents: '&id, templateId, status, updatedAt, threadId',
+      docVersions: '&id, docId, at',
+      docComments: '&id, docId, resolved, createdAt',
+      draftingProfile: '&id',
+      addressBook: '&id, updatedAt, createdAt',
+      personalTemplates: '&id, baseTemplateId, updatedAt',
+      numberPatterns: '&id, updatedAt',
+      numberIssues: '&id, patternId, number, issuedAt',
+      templateFavourites: '&id, createdAt',
+      templateRecents: '&id, viewedAt',
+      letterheadImages: '&id, updatedAt',
+      intakes: '&id, createdAt, updatedAt',
+      registerEntries: '&id, direction, number, status, threadId, followUpDate, date, updatedAt',
     })
   }
 }

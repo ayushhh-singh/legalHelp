@@ -9,6 +9,7 @@ import {
   defaultExportSettings,
   docxLetterhead,
   documentsFor,
+  letterheadWarning,
   nameFor,
   saveBlob,
   type ExportSettings,
@@ -130,8 +131,18 @@ export function DocExportPanel({
   }
 
   const copy = async () => {
+    /*
+      Which language is copied comes from `documents`, not from `single`.
+      `single` is rendered in the APP language, so copying with the Hindi view
+      selected used to put the English text on the clipboard — the same defect
+      as the download, one function along.
+    */
     const text =
-      view === 'both' && bilingual ? serialiseBilingual(bilingual) : single ? serialise(single.document) : ''
+      view === 'both' && bilingual
+        ? serialiseBilingual(bilingual)
+        : documents[0]
+          ? serialise(documents[0])
+          : ''
     try {
       await navigator.clipboard.writeText(text)
       setMessage(t('draft.export.copied'))
@@ -196,6 +207,15 @@ export function DocExportPanel({
             {t('draft.export.anyway')}
           </Button>
         </div>
+      ) : null}
+
+      {letterheadWarning(letterheadRow, settings.letterhead) === 'svg' ? (
+        <p
+          role="status"
+          className="rounded-lg border-l-[3px] border-marigold bg-marigold/15 p-3 text-sm text-marigold-foreground"
+        >
+          {t('draft.letterhead.svgNote')}
+        </p>
       ) : null}
 
       <SectionCard className="flex flex-col gap-3 p-4">

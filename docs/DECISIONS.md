@@ -6908,15 +6908,16 @@ sequence that reaches it.
 
 ### 8. The fixtures are generated from source, and CI checks them
 
-`tests/fixtures/drafting/` holds ten files — five `.docx`, three `.pdf`, a
-zero-byte file and an OLE2 compound file wearing a `.docx` name. Every one is
+`tests/fixtures/drafting/` holds eleven files — five `.docx`, four `.pdf`
+(a letter, two columns, a scan and a password-protected one), a zero-byte file
+and an OLE2 compound file wearing a `.docx` name. Every one is
 built by `scripts/drafting-fixtures.mjs` from source that says what it is for,
 because a binary is opaque in a diff and a fixture nobody can read is a fixture
 nobody can correct. The `.docx` files are written **by the app's own zip
 writer**, loaded through Vite's SSR module runner — the arrangement
 `scripts/library-extracts.mjs` established (ADR-039 §4) — which exercises that
 writer against mammoth as a side effect. `node scripts/drafting-fixtures.mjs
---check` rebuilds all ten and compares, and CI runs it.
+--check` rebuilds all eleven and compares, and CI runs it.
 
 ### Addendum — what the tests found
 
@@ -6956,3 +6957,116 @@ this app is the whole content of its own element, where colour is enough; this
 one is in a paragraph, which is the case the rule is about. It arrived in the
 concurrent session's commit and its author's session had ended, so it is fixed
 here — the sweep it fails is one this session added the route to.
+
+### Second addendum — the edge-case pass, and eleven defects
+
+The pass over this session's own work found eleven, each confirmed to fail
+against the committed code before its fix was written
+(`src/lib/drafting/io.edge.test.ts`, `src/modules/drafting/io.edge.test.tsx`).
+
+**The pattern is one sentence: the FILE was distrusted and the CONVERSION was
+not.** Every way an officer can hand this app the wrong thing — a `.doc` under a
+`.docx` name, a scan, an encrypted PDF, a garbled text layer, a 400 MB file, a
+zero-byte one — already had its own refusal and a message saying what to do
+next, because a file is obviously untrusted and guarding it is the obvious part.
+What failed was everything downstream of "the file is fine": an off-by-one in a
+level, three controls that could not reach the thing they were labelled for, and
+a strip list that quietly took three characters out of a Government document.
+That is the same shape ADR-032 and ADR-035 named for an agent, one layer along:
+**whatever you obviously distrust gets guarded, and whatever you write yourself
+gets written as though it cannot fail.**
+
+Four of the eleven were **a control that is on screen, is labelled, is wired to
+state, and cannot reach what it names** — ADR-039's second addendum, four more
+times.
+
+1. **Every numbered paragraph exported one level too deep.** `'2. '.split('.')`
+   is `['2', ' ']` — length TWO, because a marker ends in a full stop and a
+   space — so `length - 1` put an ordinary paragraph at Word level 1 and a
+   sub-paragraph at level 2. Nothing throws and the numbers still appear: Word
+   draws level 1 with the `%1.%2` format at a 425-twip indent, so an O.M. whose
+   paragraphs should read `2.` `3.` `4.` down the left margin opened indented
+   and numbered `2.1` `2.2` `2.3`. The test that shipped asserted `<w:numPr>`
+   was present and the marker text was gone, and both were true of the broken
+   version.
+2. **The export panel's language selector chose between two identical files.**
+   `DocEditorPage` renders `single` in the APP language and `bilingual` in both;
+   `documentsFor` answered `'hi'` with `single`. So an officer working in
+   English who picked हिंदी and pressed Export got the English document under a
+   file name ending `(HI)`. The bilingual pair is authoritative now, and `single`
+   is the fallback for a caller that has only one render.
+3. **The print route's paper control could not change the page.** `A4Preview`
+   renders `.a4-print-root`, which `src/styles/index.css` pins to
+   `page: draft-a4` — a fixed A4. The print route wraps that element, so the
+   generated rule was on the ANCESTOR and the inner named page won for
+   everything inside it: choosing Letter rewrote a stylesheet nothing applied.
+   The e2e test asserted that the CSS TEXT changed, which was true and was a
+   proxy for the assertion it meant to make.
+4. **The running header and footer printed on top of the document.**
+   `position: fixed` in paged media is positioned against the page's CONTENT
+   area, not the sheet, so `top: 0` is the top of the text column — the
+   letterhead landed on the first block and the page number on the last. Both
+   bands sit in the page margin now, and `LETTERHEAD_MAX_HEIGHT_MM` is 16mm
+   rather than 30mm because that is what a 25.4mm margin holds.
+5. **`©`, `®` and `™` were stripped out of every export.**
+   `\p{Extended_Pictographic}` includes all three — they are emoji by default
+   presentation rules and they are also ordinary characters a Government
+   document uses — so `© 2026 Government of India` exported as
+   ` 2026 Government of India`. `\p{Emoji_Presentation}` is the property that
+   actually predicts a black box on an office laser, and none of the three has
+   it. `✓` survives; `✓️` loses only its variation selector.
+6. **The subject swallowed the body's opening paragraph.** The continuation loop
+   stopped when a CONTINUATION line ended a sentence and never asked whether the
+   subject line already had — and `reconstructPdf` joins paragraphs with a
+   single newline, so **every** subject read out of a PDF took the first
+   paragraph with it, into `meta.subject` and into the document's title. The
+   test that shipped used `toContain`, which passed. A real Government subject
+   that wraps carries no full stop halfway through it, which is what makes the
+   terminator check safe as well as necessary — and the first version of the
+   regression test invented one that did, which would have made the fix
+   impossible (ADR-040's rule about a fixture that encodes a wrong expectation).
+7. **The letterhead preview showed an already-revoked `blob:` URL, in every
+   `pnpm dev` session.** The hook created the URL during render and revoked it in
+   the effect's cleanup; StrictMode mounts, runs the effect, DESTROYS it and runs
+   it again, so the destroy revoked the URL while it was still in state and still
+   on screen and the recreated effect had nothing to do. Measured:
+   `created: 1, src: "blob:u1", revoked: ["blob:u1"]`. **No browser run in this
+   project could have found it** — `pnpm test:e2e` builds for production, where
+   StrictMode is inert, which is exactly the trap CLAUDE.md records costing
+   Session 8 two defects in `useDraft`. The hook writes the `src` on to the
+   element in an effect now and takes it off in the same effect's cleanup: the
+   DOM is an external system, which is the one thing an effect is for.
+8. **A share the browser refused did nothing at all.** `navigator.share` needs
+   the transient activation of the gesture that started it, and the batch builds
+   its archive first — so a real browser rejects with `NotAllowedError` on a
+   perfectly ordinary press. Every rejection was swallowed on the grounds that
+   "a cancelled share is not a failure". A cancellation is `AbortError`;
+   everything else meant no file, no message and no error.
+9. **A footer that is only a telephone number was dropped as a page number.**
+   The test was subtractive — take away the words a page number is made of and
+   the digits, and if nothing is left that is all it was — and `011-23092345`
+   subtracts to nothing too. A line with no page WORD in it has to be short.
+10. **The export said nothing about an SVG letterhead it could not embed.**
+    §6 above claims that nothing silently produces a Word file with no
+    letterhead; that was true only on the profile screen, which an officer
+    exporting a document need never have visited.
+11. **A dead `AbortSignal`.** `buildBatchEntries` checked one between documents
+    and no caller could pass one, because the bar disables every control while a
+    batch is building. Removed rather than left as a feature that cannot fire.
+
+Two things worth carrying forward beyond the list. **A proxy assertion is not an
+assertion**: three of these had tests that passed against the broken code because
+they checked something adjacent — that a stylesheet changed rather than that it
+applied, that numbering existed rather than at what level, that a subject
+contained a phrase rather than that it ended. And **the one defect a browser
+could not find was the one in a browser API**: StrictMode is a development-only
+behaviour, so the suite that runs a real browser is the suite that cannot see it.
+
+One thing was found and deliberately **not** fixed. The importer maps a `To`
+block on to `name`/`designation`/`organisation`/`address` by POSITION, so "The
+Under Secretary" lands in the name field. It renders identically —
+`addresseeLines` prints the members in that order and filters the empty ones —
+and every rule for improving it is a guess that is wrong in the other language or
+on the other form ("The Under Secretary" is a designation; "Shri A.B. Sharma" is
+a name; `अवर सचिव` is a designation and looks like neither). `docs/DATA-GAPS.md`
+#88 records it rather than trading one wrong guess for another.

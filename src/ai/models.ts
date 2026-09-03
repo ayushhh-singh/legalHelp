@@ -118,6 +118,8 @@ export const AGENT_IDS = [
   'draft-assist',
   'trainer-coach',
   'study-explain',
+  'intake-analyse',
+  'doc-modify',
 ] as const
 export type AgentId = (typeof AGENT_IDS)[number]
 
@@ -143,6 +145,29 @@ export const TASK_DEFAULTS: Record<AgentId, TaskDefaults> = {
   // unit, its aid and a retrieval over the work before it can answer
   // "the difference between Rule X and Rule Y".
   'study-explain': { model: DEFAULT_MODEL, effort: 'medium', maxSteps: 6, groundedRequired: true },
+  /*
+    Reads a letter this app has already read deterministically and reports what
+    it asks for. Four steps because the only research it does is retrieval over
+    a provision the letter itself cited — the number, the date and the subject
+    were extracted before the model ran (ADR-043 §2).
+
+    `groundedRequired` is the agent's POLICY and is true; the one pass it makes
+    overrides it to false at the call site, because that pass has no tools and
+    the rule is then unsatisfiable by construction (ADR-035 §1). The row stays
+    true so a second, tool-calling pass added here later is grounded by default
+    rather than inheriting an exemption nobody chose.
+  */
+  'intake-analyse': { model: DEFAULT_MODEL, effort: 'medium', maxSteps: 4, groundedRequired: true },
+  /*
+    Rewrites a document the officer already has. Grounding is on for the same
+    reason it is on for `draft-assist`: an invented rule number inside a
+    paragraph somebody signs is the worst thing this app can produce, and the
+    instruction, the document and every retrieved snippet are all numbered
+    context the model may cite. Six steps: "add a reference to Rule 18(2)"
+    legitimately wants a lookup before the rewrite. The one pass overrides this
+    to false at the call site for the same reason `intake-analyse` does.
+  */
+  'doc-modify': { model: DEFAULT_MODEL, effort: 'medium', maxSteps: 6, groundedRequired: true },
 }
 
 /**

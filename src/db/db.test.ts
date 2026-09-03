@@ -108,13 +108,14 @@ describe('the version 2 upgrade', () => {
     try {
       await v2.open()
 
-      // The class declares up to version 15 now — 14 is Session 29's ten
-      // drafting tables and 15 is Session 30's letterhead image — so opening it
+      // The class declares up to version 16 now — 14 is Session 29's ten
+      // drafting tables, 15 is Session 30's letterhead image and 16 is Session
+      // 31's inbound letter and correspondence register — so opening it
       // upgrades a v1 database straight to the current version rather than
       // stopping at 2. This number is asserted rather than read from the class
       // deliberately: a version added without a migration being thought about
       // should fail here.
-      expect(v2.verno).toBe(15)
+      expect(v2.verno).toBe(16)
       expect(await v2.settings.get(SETTING_KEYS.theme)).toEqual({
         key: SETTING_KEYS.theme,
         value: 'dark',
@@ -174,6 +175,7 @@ describe('the version 2 upgrade', () => {
       'glossaryFavourites',
       'glossaryRecents',
       'holidayPicks',
+      'intakes',
       'lawFavourites',
       'lawRecents',
       'letterheadImages',
@@ -187,6 +189,7 @@ describe('the version 2 upgrade', () => {
       'payScenarios',
       'personalTemplates',
       'proposedCards',
+      'registerEntries',
       'reviewLog',
       'secrets',
       'settings',

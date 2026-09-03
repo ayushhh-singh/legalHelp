@@ -182,15 +182,26 @@ const KEEP_TOGETHER: ReadonlySet<RenderedBlock['role']> = new Set([
  */
 const BIDI_CONTROLS = /[\u202A-\u202E\u2066-\u2069]/g
 /*
-  Alternation rather than one character class.
+  `Emoji_Presentation`, NOT `Extended_Pictographic`.
 
-  A class holding a base character AND a combining one — the variation
-  selector, the enclosing keycap — is what `no-misleading-character-class`
-  exists to catch, and the rule is right: inside a class each piece matches
-  separately, which is what is wanted here but reads as though the pair were
-  one glyph. Spelled out, it says what it does.
+  The two differ by exactly the characters a Government document uses:
+  `Extended_Pictographic` includes U+00A9 ©, U+00AE ® and U+2122 ™, so the
+  first version of this silently exported `© 2026 Government of India` as
+  ` 2026 Government of India`. `Emoji_Presentation` means "renders as an emoji
+  unless told otherwise", which is the property that actually predicts the
+  black box on an office laser — and none of those three has it.
+
+  The three alternatives after it are the pieces that carry no presentation of
+  their own: a skin-tone modifier, the variation selector that forces emoji
+  presentation onto a text character (so `✓️` becomes `✓` rather than a hole),
+  and the enclosing keycap.
+
+  Alternation rather than one character class, because a class holding a base
+  character AND a combining one is what `no-misleading-character-class` exists
+  to catch — inside a class each piece matches separately, which is what is
+  wanted here but reads as though the pair were one glyph.
 */
-const PICTOGRAPHS = /\p{Extended_Pictographic}|[\u{1F3FB}-\u{1F3FF}]|\u{FE0F}|\u{20E3}/gu
+const PICTOGRAPHS = /\p{Emoji_Presentation}|[\u{1F3FB}-\u{1F3FF}]|\u{FE0F}|\u{20E3}/gu
 
 export interface SanitiseResult {
   text: string
@@ -377,6 +388,28 @@ function tableFor(node: Extract<RenderedNode, { kind: 'table' }>, resolved: Reso
 
 // ------------------------------------------------------------------ nodes
 
+/**
+ * How deep a paragraph marker is: `2.` is 0, `2.1` is 1, `2.1.1` is 2.
+ *
+ * Counting the GROUPS, not the pieces `split('.')` returns. A marker ends in a
+ * full stop and a space, so `'2. '.split('.')` is `['2', ' ']` — length two —
+ * and `length - 1` put every ordinary numbered paragraph at Word level 1.
+ * Nothing throws and the numbers still appear: Word draws level 1 with the
+ * `%1.%2` format at a 425-twip indent, so an O.M. whose paragraphs should read
+ * `2.` `3.` `4.` down the left margin opens indented and numbered `2.1` `2.2`.
+ *
+ * Clamped at 2 because `numberingConfig` defines three levels; a reference to a
+ * level that was never defined opens unnumbered.
+ */
+function markerDepth(marker: string): number {
+  const groups = marker
+    .trim()
+    .replace(/[.)]+$/, '')
+    .split('.')
+    .filter(Boolean)
+  return Math.min(2, Math.max(0, groups.length - 1))
+}
+
 type Child = Paragraph | Table
 
 function paragraphFor(children: TextRun[], shape: Omit<IParagraphOptions, 'children'>): Paragraph {
@@ -394,7 +427,7 @@ function nodesFor(
     switch (node.kind) {
       case 'para': {
         const numbered = resolved.wordNumbering && node.marker !== ''
-        const level = numbered ? Math.min(2, node.marker.split('.').length - 1) : 0
+        const level = numbered ? markerDepth(node.marker) : 0
         out.push(
           paragraphFor(
             runsFor(
