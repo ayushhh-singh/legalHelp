@@ -52,7 +52,18 @@ export function useWorkSearchIndex(corpus: LibraryCorpus | null): WorkSearchInde
   return useMemo(() => (corpus ? buildWorkSearchIndex(corpus) : null), [corpus])
 }
 
-/** Which units of a work have been opened. `undefined` while Dexie answers. */
+/**
+ * Which units of a work have been opened. `undefined` while Dexie answers —
+ * and NO CALLER MAY BLOCK ITS RENDER ON THAT.
+ *
+ * On a device whose storage is refused — a private window, a managed device
+ * with site data blocked — `useLiveQuery` never produces a value at all, and
+ * the committed pages each sat on a skeleton for ever waiting for one. Read
+ * ticks and a progress ring are conveniences; the table of contents and the
+ * rule are what the reader came for, and both are in a precached chunk that
+ * needs no database. Treat `undefined` as "nothing yet" for display, and keep
+ * it distinguishable for anything that genuinely needs to know.
+ */
 export function useReadUnitIds(workId: string | undefined): Set<string> | undefined {
   const rows = useLiveQuery(
     (): Promise<LibraryProgressRow[]> => (workId ? progressFor(workId) : Promise.resolve([])),
@@ -62,9 +73,67 @@ export function useReadUnitIds(workId: string | undefined): Set<string> | undefi
   return useMemo(() => (rows ? new Set(rows.map((row) => row.unitId)) : undefined), [rows])
 }
 
-/** Every unit opened, across every work — the hub's per-card progress rings. */
-export function useAllProgress() {
-  return useLiveQuery(() => db.libraryProgress.toArray(), [], undefined)
+/**
+ * Every unit opened, across every work — the hub's progress rings and its
+ * per-work "continue reading" rows. `undefined` while Dexie answers; see
+ * `useReadUnitIds` for why the hub must not wait for it.
+ */
+export function useAllProgress(): LibraryProgressRow[] | undefined {
+  return useLiveQuery((): Promise<LibraryProgressRow[]> => db.libraryProgress.toArray(), [], undefined)
+}
+
+/**
+ * The unit each work was last left on, newest first, plus which work that was.
+ *
+ * Two questions, one pass over the same rows: the brief asks for "continue
+ * reading" on EVERY card that has progress, and for the file tab on the work
+ * last opened. The committed hub answered both with one variable and so offered
+ * the link only on the card that already had the tab — a reader half way
+ * through the CCS (Leave) Rules who then opened the BNS lost their place in the
+ * Leave Rules entirely.
+ */
+export interface ShelfProgress {
+  /** workId -> the units of it that have been opened. */
+  readByWork: ReadonlyMap<string, ReadonlySet<string>>
+  /** workId -> the unit it was last left on. */
+  resumeByWork: ReadonlyMap<string, string>
+  /** The work opened most recently, which is the one that gets the file tab. */
+  latestWorkId: string | null
+}
+
+export function shelfProgress(rows: readonly LibraryProgressRow[] | undefined): ShelfProgress {
+  const readByWork = new Map<string, Set<string>>()
+  const latestPerWork = new Map<string, LibraryProgressRow>()
+  let latest: LibraryProgressRow | null = null
+
+  for (const row of rows ?? []) {
+    const set = readByWork.get(row.workId)
+    if (set) set.add(row.unitId)
+    else readByWork.set(row.workId, new Set([row.unitId]))
+
+    const best = latestPerWork.get(row.workId)
+    if (!best || row.at > best.at) latestPerWork.set(row.workId, row)
+    if (!latest || row.at > latest.at) latest = row
+  }
+
+  return {
+    readByWork,
+    resumeByWork: new Map([...latestPerWork].map(([workId, row]) => [workId, row.unitId])),
+    latestWorkId: latest?.workId ?? null,
+  }
+}
+
+/** The unit one work was last left on — what opens the right branch of its TOC. */
+export function useLastReadUnitId(workId: string | undefined): string | undefined {
+  const rows = useLiveQuery(
+    (): Promise<LibraryProgressRow[]> => (workId ? progressFor(workId) : Promise.resolve([])),
+    [workId],
+    undefined,
+  )
+  return useMemo(() => {
+    if (!rows || rows.length === 0) return undefined
+    return rows.reduce((best, row) => (row.at > best.at ? row : best)).unitId
+  }, [rows])
 }
 
 export function useBookmarkedUnitIds(workId: string | undefined): Set<string> | undefined {
@@ -132,12 +201,24 @@ export function useReaderPrefs(language: Language): {
   const row = useLiveQuery(() => db.settings.get(SETTING_KEYS.library), [], undefined)
   const prefs = useMemo(() => normalise(row?.value, language), [row, language])
 
-  const update = useCallback(
-    async (patch: Partial<ReaderPrefs>) => {
-      await setSetting(SETTING_KEYS.library, { ...prefs, ...patch })
-    },
-    [prefs],
-  )
+  /**
+   * Read-modify-write against the STORED row, not against the last render's.
+   *
+   * `useLiveQuery` lands a tick after the write, so two quick presses of the
+   * size stepper both computed their patch from the same stale `prefs` and the
+   * second silently undid the first. Reading inside the write closes that
+   * window. It also never rejects: a device whose storage is refused must lose
+   * a preference, not throw out of an onClick.
+   */
+  const update = useCallback(async (patch: Partial<ReaderPrefs>) => {
+    try {
+      const stored = await db.settings.get(SETTING_KEYS.library)
+      await setSetting(SETTING_KEYS.library, { ...normalise(stored?.value, language), ...patch })
+    } catch {
+      // Nothing to tell the reader: the control simply does not stick, and the
+      // page they are reading is unaffected.
+    }
+  }, [language])
 
   return { prefs, hydrated: row !== undefined, update }
 }

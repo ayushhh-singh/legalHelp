@@ -5630,3 +5630,90 @@ control is disabled with the reason stated rather than hidden — ADR-030's line
   module — `src/lib/library`, which is pure and must not import a module, and the tests that read the
   committed bytes off disk — which is why it does not live at `src/modules/library/schema.ts` the way
   the four schemas before it do.
+
+### ADR-038 addendum — an edge-case pass, eleven defects, and where every one of them was
+
+A requested pass over the Library after the commit. Eleven real defects, each confirmed to fail
+against the committed code before its fix was written — `src/lib/library/library.edge.test.ts` (14)
+and `src/modules/library/library.edge.test.tsx` (18) are the regression files.
+
+**All eleven were in the code around the data, and none in the data.** That is the pattern ADR-032's
+addendum named for the drafting agent and ADR-035's repeated for the law agent, arriving a third time
+in a session with no model in it at all. The dataset was obviously untrusted, so it is schema-validated
+twice, its pointers are checked in both directions, and its structure is asserted over every unit of
+every work. The pages, the loaders and the store were written as though code cannot fail.
+
+1. **`isWorkId` said yes to `constructor`, `toString`, `hasOwnProperty`, `valueOf` and `__proto__`.**
+   `WORK_LOADERS` is an object literal and `in` walks the prototype chain, so a work id out of the
+   address bar could name a function on `Object.prototype`, be called as though it were a dynamic
+   import, and fail inside `JSON.parse` with a message naming neither the work nor the problem.
+   `Object.hasOwn` throughout, via one `loaderFor()`. Nothing was exploitable — no secret to reach,
+   no network to reach it over. It was a guard saying yes to what it was written to say no to.
+
+2. **`recordProgress` rejected on a device whose storage is refused.** It is called from an effect on
+   arrival at every unit and from a 30-second interval after that, so a private window or a managed
+   device with site data blocked produced an unhandled rejection every half minute. It returns
+   `false` now rather than throwing — and there is a test on the positive side too, because without
+   one "reports false when it fails" and "never writes anything" are the same passing test.
+
+3. **All three screens blocked their whole render on a Dexie read they only decorate themselves
+   with.** Read ticks, the progress ring and the bookmark state are conveniences; on a device where
+   `useLiveQuery` never produces a value, the hub, the work page and the reader each sat on a
+   skeleton for ever — with the library the reader wanted sitting in a precached chunk that needs no
+   database at all.
+
+4. **"Continue reading" was offered only on the work last opened.** The brief asks for two separate
+   things and the committed hub answered both with one variable, so a reader half way through the CCS
+   (Leave) Rules who then opened the BNS lost their place in the Leave Rules entirely: the ring said
+   40% and there was nothing to press. `shelfProgress()` answers both questions in one pass now, and
+   the file tab still marks exactly one card — asserted on its own, so the fix cannot drift into
+   fifteen tabs.
+
+5. **"Nearby in this work" was empty for eleven of the fifteen works.** `tocPath` returns a single
+   node for a flat table of contents, so `path.at(-2) ?? path.at(-1)` resolved to the LEAF, whose
+   `unitIds` is the one unit the reader is already on. Every rule book except the three Sanhitas and
+   CSMOP — which is where an officer actually reads — rendered nothing there. The fallback has to be
+   the whole work, not the leaf.
+
+6. **Search results were labelled by a hand-rolled fallback instead of `unitLabel`.** FR/SR and CSMOP
+   publish no heading this repository could extract, which is the entire reason `unitLabel` exists —
+   and every hit in either of them rendered a section number beside an empty string. Worth noting how
+   nearly this was missed: the first version of its test read the whole row, which also carries a
+   snippet of the body, and passed against the broken code. It asserts on the row's own two elements
+   now.
+
+7. **The progress ring told a reader who had started that they had not.** One section of the BNSS is
+   0.19%, which `Math.round` makes zero, which read as "Not started". The arc being invisible at that
+   width is honest; the words were not. Anything above zero reads `<1%` at worst and draws a minimum
+   visible tick.
+
+8. **An id naming no work rendered a red failure card instead of going back to the shelf.** A wrong
+   URL and a failed load are different questions with different answers — and
+   `tests/route-coverage.test.ts` had been exempting `/library/:workId` on the stated grounds that it
+   "renders the not-found redirect", which was simply not true. An exemption whose reason is untrue
+   excuses nothing while looking as though it does.
+
+9. **`j`, `k` and Home fired underneath an open dialog.** ADR-029's addendum, defect six, in a new
+   file: a bare-key shortcut fired under an open sheet navigates away and leaves the sheet showing
+   over a page it was never opened on. `useGlobalShortcuts` guards on a live `[role="dialog"]` query
+   and this handler shipped without one.
+
+10. **The dwell timer accumulated in a background tab.** A unit left open overnight recorded eight
+    hours into a field called `secondsRead`, which Session 27 is going to surface. The arrival write
+    stays unconditional — arriving is what "continue reading" reads back.
+
+11. **`useReaderPrefs.update` lost a rapid second change**, computing its patch from the last
+    render's `prefs` while `useLiveQuery` was still a tick behind. It reads the stored row inside the
+    write now, and it no longer rejects: a device that cannot keep a preference must lose the
+    preference, not throw out of an onClick.
+
+Two smaller things the pass settled rather than fixed. `estimateReadTime`'s trailing
+`|| words.length / WPM[lang]` could not fire — `minutes` is zero only when there are no words, which
+the guard above has already returned for — and with it gone the `lang` parameter provably carried no
+information, so **the brief's own signature was narrowed to `estimateReadTime(text)`**. The rate is
+picked per word by the script that word is written in, which is strictly better than a
+reader-language rate and is what the corpus needs; a parameter that does nothing and a branch nothing
+can reach are the same lie told twice. And the unit-change effect's `scrollIntoView` is now optional-
+called: every browser this app targets has it, jsdom does not, and an effect that throws takes the
+whole route down through `App.tsx`'s ErrorBoundary. That one is why the reader could not be driven in
+a component test at all — it crashed on the first `j` press, which is how the pass found it.

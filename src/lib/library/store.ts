@@ -24,26 +24,39 @@ export const progressId = (workId: string, unitId: string): string => `${workId}
  * `seconds` of 0 is a real call — the reader arrived and has not yet dwelt —
  * and it must still write the row, because that is what "continue reading"
  * reads back.
+ *
+ * IT NEVER REJECTS. This is called from an effect on arrival at every unit and
+ * from a 30-second interval after that, so a device whose storage is refused —
+ * a private window, a managed device with site data blocked, a full quota —
+ * would otherwise produce an unhandled rejection every half minute for as long
+ * as the reader stayed on the page. Remembering where somebody got to is a
+ * convenience; failing to remember it must cost them nothing. The caller can
+ * still tell, because `false` comes back.
  */
 export async function recordProgress(
   workId: string,
   unitId: string,
   seconds: number,
   now = new Date(),
-): Promise<void> {
+): Promise<boolean> {
   const id = progressId(workId, unitId)
   const added = Number.isFinite(seconds) && seconds > 0 ? Math.round(seconds) : 0
 
-  await db.transaction('rw', db.libraryProgress, async () => {
-    const existing = await db.libraryProgress.get(id)
-    await db.libraryProgress.put({
-      id,
-      workId,
-      unitId,
-      at: now.toISOString(),
-      secondsRead: (existing?.secondsRead ?? 0) + added,
+  try {
+    await db.transaction('rw', db.libraryProgress, async () => {
+      const existing = await db.libraryProgress.get(id)
+      await db.libraryProgress.put({
+        id,
+        workId,
+        unitId,
+        at: now.toISOString(),
+        secondsRead: (existing?.secondsRead ?? 0) + added,
+      })
     })
-  })
+    return true
+  } catch {
+    return false
+  }
 }
 
 /** Every unit of one work the reader has opened. */

@@ -547,6 +547,35 @@ are load-bearing, and each is enforced by a test rather than by convention:
 
 ### Notes for the next session
 
+- **An edge-case pass over the Library found ELEVEN defects and every one of them was in the code
+  around the data, not in the data.** ADR-038's addendum has all eleven;
+  `src/lib/library/library.edge.test.ts` and `src/modules/library/library.edge.test.tsx` are the
+  regression files, and each test was confirmed to fail against the committed code first. This is the
+  third session in a row to land on the same shape (ADR-032, ADR-035) and the first with no model in
+  it, so the lesson generalises past agents: **whatever you obviously distrust gets guarded, and
+  whatever you write yourself gets written as though it cannot fail.** The four most transferable:
+  `isWorkId` used `key in objectLiteral`, which walks `Object.prototype`, so `constructor` and
+  `toString` were accepted as work ids out of the address bar; three screens blocked their whole
+  render on a `useLiveQuery` they only decorate themselves with, so a device whose storage is refused
+  sat on a skeleton for ever with the library sitting in a precached chunk beside it; `recordProgress`
+  rejected from an interval every thirty seconds on that same device; and `j`/`k` fired underneath an
+  open dialog, which is ADR-029's addendum defect six arriving verbatim in a new file.
+
+- **A test that reads the whole row passes against a heading that is not there.** The search-result
+  label was `heading[language] || heading.en` rather than `unitLabel`, so every hit in FR/SR and
+  CSMOP rendered a section number beside an empty string — and the first version of the test written
+  to catch it asserted over `hit.textContent`, which also carries a snippet of the body, and went
+  green against the broken code. It asserts on the row's own two elements now. Break the code and
+  watch the new assertion go red before believing it; `network.sentinel()` has the same story
+  (ADR-031).
+
+- **`estimateReadTime` lost its `lang` parameter, deliberately, and the brief's signature with it.**
+  The trailing `|| words.length / WPM[lang]` could not fire — `minutes` is zero only when there are
+  no words, which the guard above has already returned for — and with the dead branch gone the
+  parameter provably carried no information. The rate is picked per WORD by the script it is written
+  in, which is what this corpus actually needs. A parameter that does nothing and a branch nothing
+  can reach are the same lie told twice.
+
 - **A reading module over a corpus you already ship is mostly a question about POINTERS, and the
   test that matters runs in both directions.** `data/library/works/*.json` names unit ids in
   `data/rules/text` and `data/law` and copies no text. `tests/library-data.test.ts` asserts that

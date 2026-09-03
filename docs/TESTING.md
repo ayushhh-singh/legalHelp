@@ -335,6 +335,20 @@ Kept as a record of what each layer is actually for.
 - **`/learn/review` was swept by neither axe nor the offline reload** — the Trainer's most-used screen, with every route around it covered. `tests/route-coverage.test.ts` now derives the route set from the routers and fails on any route in neither sweep.
 - **`/utils/portals` announced a repeat copy to nobody** — one live region shared by every row, so the second identical message was silent. Fixed by keying the announcement; the test asserts node identity, because asserting the text passes against the broken version.
 - **The coverage report sorted its rows with `localeCompare`**, in a file CI byte-compares.
+- **`isWorkId` said yes to `constructor`, `toString` and `__proto__`** — `WORK_LOADERS` is an object
+  literal and `in` walks the prototype chain, so a work id out of the address bar could name a
+  function on `Object.prototype` and be called as though it were a dynamic import. Found by asking
+  what the URL can actually contain; the fix is `Object.hasOwn`.
+- **Three Library screens blocked their whole render on a Dexie read they only decorate themselves
+  with** — on a device whose storage is refused, `useLiveQuery` never produces a value and the hub,
+  the work page and the reader each sat on a skeleton for ever, with the library the reader wanted
+  sitting in a precached chunk that needs no database. Found by holding the query open on purpose,
+  the way `GlossaryPage.test.tsx` and `pay-restore.test.tsx` hold a promise open rather than trusting
+  a real timing window to land the same way twice.
+- **A search result was labelled by a hand-rolled fallback, so every hit in FR/SR and CSMOP rendered
+  a number beside an empty string** — and the first version of the test that was supposed to catch it
+  read the whole row, which also carries a snippet of the body, and passed against the broken code.
+  It asserts on the row's own two elements now. A test that cannot fail is not evidence.
 - **The Library reader printed every rule with sub-rules twice** — `data/rules/text/*.json` stores
   `subRules[]` as verbatim slices of the same `text`, so a page that renders the body AND the parts
   list renders the whole rule again. Each half was individually correct and jsdom would never have

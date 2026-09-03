@@ -70,8 +70,29 @@ const CORPUS_LOADERS: Record<string, () => Promise<{ default: string }>> = {
 /** Every work id the Library can open. */
 export const WORK_IDS: readonly string[] = Object.keys(WORK_LOADERS)
 
+/**
+ * `Object.hasOwn`, never `in`, and never a bare bracket lookup.
+ *
+ * A work id comes out of `useParams`, which is to say out of the address bar,
+ * and both maps above are object literals — so `'constructor' in WORK_LOADERS`
+ * is TRUE and `WORK_LOADERS['toString']` is a real function. The committed
+ * version of `isWorkId` said yes to five strings that name nothing in this
+ * catalogue, and `loadWork` then called `Object.prototype.toString` as though
+ * it were a dynamic import and failed inside a `JSON.parse` with a message
+ * naming neither the work nor the problem.
+ *
+ * Nothing here was exploitable — there is no secret to reach and no network to
+ * reach it over. It was wrong in the ordinary way: a guard saying yes to what
+ * it was written to say no to, and an error that pointed at the wrong file.
+ */
+const loaderFor = (
+  loaders: Record<string, () => Promise<{ default: string }>>,
+  key: string,
+): (() => Promise<{ default: string }>) | null =>
+  Object.hasOwn(loaders, key) ? (loaders[key] ?? null) : null
+
 export const isWorkId = (value: unknown): value is string =>
-  typeof value === 'string' && value in WORK_LOADERS
+  typeof value === 'string' && Object.hasOwn(WORK_LOADERS, value)
 
 const cache = new Map<string, Promise<unknown>>()
 
@@ -100,7 +121,7 @@ export function loadLibraryIndex(): Promise<LibraryIndex> {
 }
 
 export function loadWork(workId: string): Promise<LibraryWork> {
-  const loader = WORK_LOADERS[workId]
+  const loader = loaderFor(WORK_LOADERS, workId)
   if (!loader) return Promise.reject(new Error(`unknown library work: ${workId}`))
   return once(`work:${workId}`, async () => libraryWorkSchema.parse(parse<unknown>((await loader()).default)))
 }
@@ -117,7 +138,7 @@ export function loadWork(workId: string): Promise<LibraryWork> {
  * unknown `corpus.file` rejects by name.
  */
 export function loadCorpus(work: LibraryWork): Promise<LibraryCorpus> {
-  const loader = CORPUS_LOADERS[work.corpus.file]
+  const loader = loaderFor(CORPUS_LOADERS, work.corpus.file)
   if (!loader) return Promise.reject(new Error(`unknown corpus pointer: ${work.corpus.file}`))
   return once(`corpus:${work.corpus.file}:${work.id}`, async () =>
     buildCorpus(work, parse<CorpusJson>((await loader()).default)),

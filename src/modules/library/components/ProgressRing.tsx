@@ -24,11 +24,22 @@ const CIRCUMFERENCE = 2 * Math.PI * RADIUS
  *
  * The percentage is ALSO written beside it as text, and the ring carries
  * `role="img"` with its own label — state is never colour or shape alone.
+ *
+ * A reader who has opened one section of the BNSS is at 0.19%, which rounds to
+ * zero — and the committed version reported that as "Not started", to somebody
+ * who had demonstrably started. The ARC being invisible at that width is
+ * honest; the WORDS were not. Anything above zero now reads `<1%` at worst and
+ * draws a minimum visible tick.
  */
+/** Below this the arc is a hairline nobody can see; it is drawn at this instead. */
+const MIN_VISIBLE_PCT = 2
+
 export function ProgressRing({ value, label, className }: ProgressRingProps) {
   const { t } = useT()
-  const pct = Number.isNaN(value) ? 0 : Math.min(100, Math.max(0, Math.round(value)))
-  const offset = CIRCUMFERENCE * (1 - pct / 100)
+  const raw = Number.isNaN(value) ? 0 : Math.min(100, Math.max(0, value))
+  const pct = Math.round(raw)
+  const started = raw > 0
+  const offset = CIRCUMFERENCE * (1 - Math.max(raw, started ? MIN_VISIBLE_PCT : 0) / 100)
 
   return (
     <span className={cn('inline-flex items-center gap-2', className)}>
@@ -48,7 +59,7 @@ export function ProgressRing({ value, label, className }: ProgressRingProps) {
           strokeWidth={STROKE}
           className="stroke-muted"
         />
-        {pct > 0 ? (
+        {started ? (
           <circle
             cx={SIZE / 2}
             cy={SIZE / 2}
@@ -63,7 +74,7 @@ export function ProgressRing({ value, label, className }: ProgressRingProps) {
         ) : null}
       </svg>
       <span className="text-xs text-muted-foreground tabular-nums">
-        {pct > 0 ? `${pct}%` : t('library.notStarted')}
+        {started ? (pct > 0 ? `${pct}%` : t('library.underOnePercent')) : t('library.notStarted')}
       </span>
     </span>
   )

@@ -1,10 +1,16 @@
 import { ArrowLeft, BookOpen, Clock, Search, X } from 'lucide-react'
 import { useMemo, useState } from 'react'
-import { Link, useParams } from 'react-router-dom'
+import { Link, Navigate, useParams } from 'react-router-dom'
 
 import { TocTree } from '../components/TocTree'
 import { toUnitHref } from '../url'
-import { useReadUnitIds, useWork, useWorkCorpus, useWorkSearchIndex } from '../useLibrary'
+import {
+  useLastReadUnitId,
+  useReadUnitIds,
+  useWork,
+  useWorkCorpus,
+  useWorkSearchIndex,
+} from '../useLibrary'
 
 import { DataVersion } from '@/components/common/DataVersion'
 import { Disclaimer } from '@/components/common/Disclaimer'
@@ -13,7 +19,7 @@ import { SourceChip } from '@/components/common/SourceChip'
 import { Badge, Chip, QueryErrorState, SectionCard, SectionNumber, Skeleton } from '@/components/ui-x'
 import { Button } from '@/components/ui/button'
 import { useT } from '@/i18n/useT'
-import { firstUnitId, isSearchable, searchWithin, tagLabel } from '@/lib/library'
+import { firstUnitId, isSearchable, isWorkId, searchWithin, tagLabel, unitLabel } from '@/lib/library'
 import { cn } from '@/lib/utils'
 import type { LibraryWork } from '@/schemas/library'
 
@@ -51,11 +57,22 @@ export default function WorkPage() {
   const corpus = useWorkCorpus(work.data, searching)
   const index = useWorkSearchIndex(corpus.data)
   const readIds = useReadUnitIds(workId)
+  const lastRead = useLastReadUnitId(workId)
 
   const hits = useMemo(
     () => (index && searching ? searchWithin(index, query, SEARCH_LIMIT) : []),
     [index, query, searching],
   )
+
+  /**
+   * An id that names no work is a wrong URL, not a failed load, and the two
+   * deserve different answers. `tests/route-coverage.test.ts` exempts
+   * `/library/:workId` on the stated grounds that a literal ":workId" renders
+   * the not-found redirect — which it did not, until now: it rendered a red
+   * failure card, and an exemption whose reason is untrue excuses nothing while
+   * looking as though it does.
+   */
+  if (workId !== undefined && !isWorkId(workId)) return <Navigate to="/library" replace />
 
   if (work.status === 'error') {
     return (
@@ -71,7 +88,11 @@ export default function WorkPage() {
     )
   }
 
-  if (work.status === 'loading' || readIds === undefined) {
+  // NOT `|| readIds === undefined`. Read ticks are a decoration over a table
+  // of contents that came from a precached chunk; a device whose storage is
+  // refused never resolves that query and used to sit on this skeleton for
+  // ever. See `useReadUnitIds`.
+  if (work.status === 'loading') {
     return (
       <div className="mx-auto flex max-w-4xl flex-col gap-4">
         <Skeleton className="h-20 w-full" />
@@ -82,7 +103,8 @@ export default function WorkPage() {
 
   const data = work.data
   const first = firstUnitId(data)
-  const readCount = data.readingOrder.filter((id) => readIds.has(id)).length
+  const read = readIds ?? new Set<string>()
+  const readCount = data.readingOrder.filter((id) => read.has(id)).length
 
   return (
     <div className="mx-auto flex max-w-4xl flex-col gap-6">
@@ -209,7 +231,12 @@ export default function WorkPage() {
                         <span className="flex items-center gap-2">
                           <SectionNumber className="text-xs">{hit.unit.number}</SectionNumber>
                           <span className="text-sm font-medium">
-                            {hit.unit.heading[language] || hit.unit.heading.en}
+                            {/* `unitLabel`, not a hand-rolled fallback: FR/SR
+                                and CSMOP publish no heading at all, and the
+                                committed `heading[language] || heading.en`
+                                rendered a section number beside an empty
+                                string for every hit in either of them. */}
+                            {unitLabel(hit.unit.heading, hit.unit.excerpt, language).text}
                           </span>
                         </span>
                         <span className="text-xs text-muted-foreground">{hit.snippet}</span>
@@ -226,7 +253,15 @@ export default function WorkPage() {
           <h2 id="library-toc-heading" className="mb-3 text-lg font-semibold">
             {t('library.toc.title')}
           </h2>
-          <TocTree work={data} readIds={readIds} />
+          {/*
+            Keyed on the resume point so the branch the reader was last in is
+            the one that opens. `Chapter` seeds its own `useState` from
+            `defaultOpen`, so a `currentUnitId` that arrives from IndexedDB a
+            tick after first paint would otherwise be ignored — and a reader
+            who stopped at BNSS section 300 would come back to chapter I.
+            Remounting a contents list nobody has touched yet costs nothing.
+          */}
+          <TocTree key={lastRead ?? ''} work={data} readIds={read} currentUnitId={lastRead} />
         </section>
       )}
 

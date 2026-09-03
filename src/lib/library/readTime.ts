@@ -26,13 +26,23 @@ const DEVANAGARI = /\p{Script=Devanagari}/u
 /**
  * Reading time in whole minutes, never less than one.
  *
- * `lang` is the reader's language, not the text's: a Hindi reader reading the
- * English text of a rule (which is every rule in this corpus — no Ministry
- * publishes a readable Hindi text layer) is still reading English words, so the
- * script of each WORD is what picks the rate, and `lang` only breaks the tie
- * for a string with no words in either script.
+ * TAKES NO LANGUAGE, deliberately — the session brief's own signature was
+ * `estimateReadTime(text, lang)` and measurement said the parameter carries no
+ * information. The rate is picked per WORD by the script that word is written
+ * in, because a Hindi reader reading the English text of a rule (which is every
+ * rule in this corpus — no Ministry publishes a readable Hindi text layer) is
+ * still reading English words. The only string the reader's own language could
+ * have broken a tie for is one with no words in either script, and that
+ * returns the one-minute floor either way.
+ *
+ * The first version kept `lang` and ended `Math.ceil(minutes || words.length /
+ * WPM[lang])`, which looked like it used it. That branch could not fire:
+ * `minutes` is zero only when there are no words, which the guard below has
+ * already returned for. A parameter that provably does nothing and a branch
+ * nothing can reach are the same lie told twice; `library.edge.test.ts` holds
+ * the property instead.
  */
-export function estimateReadTime(text: string, lang: Language = 'en'): number {
+export function estimateReadTime(text: string): number {
   const words = text.split(/\s+/).filter(Boolean)
   if (words.length === 0) return 1
 
@@ -40,9 +50,13 @@ export function estimateReadTime(text: string, lang: Language = 'en'): number {
   for (const word of words) if (DEVANAGARI.test(word)) devanagari += 1
   const latin = words.length - devanagari
 
-  const minutes = latin / WPM.en + devanagari / WPM.hi
-  // A string of pure punctuation counts as no words in either script; the
-  // reader's own language is what settles the rate then, and the floor of one
-  // minute makes the answer the same either way.
-  return Math.max(1, Math.ceil(minutes || words.length / WPM[lang]))
+  // No `|| words.length / WPM[lang]` fallback. The committed version had one,
+  // and it could not fire: `minutes` is zero only when both counts are zero,
+  // which happens only when there are no words, which the guard above has
+  // already returned for. A branch nothing can reach is a claim about
+  // behaviour that nothing supports — and that one implied a
+  // language-dependent answer this function does not have. `lang` remains a
+  // parameter because a caller reasonably passes it and a future script might
+  // need it; `library.edge.test.ts` holds the property it was reaching for.
+  return Math.max(1, Math.ceil(latin / WPM.en + devanagari / WPM.hi))
 }

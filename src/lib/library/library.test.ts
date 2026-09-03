@@ -299,24 +299,24 @@ describe('unitLabel', () => {
 
 describe('estimateReadTime', () => {
   it('reads English at 180 words a minute', () => {
-    expect(estimateReadTime(Array(360).fill('word').join(' '), 'en')).toBe(2)
+    expect(estimateReadTime(Array(360).fill('word').join(' '))).toBe(2)
   })
 
   it('reads Devanagari more slowly, at 140', () => {
-    expect(estimateReadTime(Array(280).fill('शब्द').join(' '), 'hi')).toBe(2)
+    expect(estimateReadTime(Array(280).fill('शब्द').join(' '))).toBe(2)
   })
 
   it('rates each word by its own script, not by the reader', () => {
     // A Hindi reader reading the English text of a rule — which is every rule
     // in this corpus — is still reading English words.
     const english = Array(360).fill('word').join(' ')
-    expect(estimateReadTime(english, 'hi')).toBe(estimateReadTime(english, 'en'))
+    expect(estimateReadTime(english)).toBe(Math.ceil(360 / 180))
   })
 
   it('never reports less than a minute', () => {
-    expect(estimateReadTime('', 'en')).toBe(1)
-    expect(estimateReadTime('one', 'en')).toBe(1)
-    expect(estimateReadTime('—', 'en')).toBe(1)
+    expect(estimateReadTime('')).toBe(1)
+    expect(estimateReadTime('one')).toBe(1)
+    expect(estimateReadTime('—')).toBe(1)
   })
 })
 

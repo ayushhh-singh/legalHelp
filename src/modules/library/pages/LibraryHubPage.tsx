@@ -4,7 +4,7 @@ import { Link } from 'react-router-dom'
 
 import { ProgressRing } from '../components/ProgressRing'
 import { toUnitHref, toWorkHref } from '../url'
-import { useAllProgress, useLibraryIndex } from '../useLibrary'
+import { shelfProgress, useAllProgress, useLibraryIndex } from '../useLibrary'
 
 import { DataVersion } from '@/components/common/DataVersion'
 import { Disclaimer } from '@/components/common/Disclaimer'
@@ -24,8 +24,16 @@ import type { LibraryIndexEntry } from '@/schemas/library'
  * `useLawEngine(enabled)` pulls on the Law Converter.
  *
  * THE FILE TAB MARKS THE WORK LAST OPENED — one card per screen, which is the
- * whole rule for that signature. It is the same question "continue reading"
- * answers, so the two cannot disagree.
+ * whole rule for that signature. "Continue reading" is a DIFFERENT question and
+ * is offered on every card that has progress: the committed version answered
+ * both with one variable, so a reader half way through the CCS (Leave) Rules
+ * who then opened the BNS lost their place in the Leave Rules entirely — the
+ * ring said 40% and there was nothing to press.
+ *
+ * The shelf renders whether or not the progress read ever lands. It is a set
+ * of rings and resume links over a list that came from a precached chunk; a
+ * device whose storage is refused gets the library without them rather than a
+ * skeleton for ever.
  */
 
 function minutesLabel(minutes: number, t: ReturnType<typeof useT>['t']): string {
@@ -113,17 +121,7 @@ export default function LibraryHubPage() {
   const index = useLibraryIndex()
   const progress = useAllProgress()
 
-  const byWork = useMemo(() => {
-    const read = new Map<string, Set<string>>()
-    let latest: { workId: string; unitId: string; at: string } | null = null
-    for (const row of progress ?? []) {
-      const set = read.get(row.workId)
-      if (set) set.add(row.unitId)
-      else read.set(row.workId, new Set([row.unitId]))
-      if (!latest || row.at > latest.at) latest = { workId: row.workId, unitId: row.unitId, at: row.at }
-    }
-    return { read, latest }
-  }, [progress])
+  const { readByWork, resumeByWork, latestWorkId } = useMemo(() => shelfProgress(progress), [progress])
 
   if (index.status === 'error') {
     return (
@@ -133,7 +131,7 @@ export default function LibraryHubPage() {
     )
   }
 
-  if (index.status === 'loading' || progress === undefined) {
+  if (index.status === 'loading') {
     return (
       <div className="mx-auto flex max-w-5xl flex-col gap-4">
         <Skeleton className="h-16 w-full" />
@@ -170,16 +168,17 @@ export default function LibraryHubPage() {
           </h2>
           <div className={cn('grid gap-4', 'sm:grid-cols-2 lg:grid-cols-3')}>
             {group.works.map((work) => {
-              const isLatest = byWork.latest?.workId === work.id
+              const resume = resumeByWork.get(work.id)
               return (
                 <WorkCard
                   key={work.id}
                   work={work}
-                  readCount={byWork.read.get(work.id)?.size ?? 0}
-                  active={isLatest}
-                  continueTo={
-                    isLatest && byWork.latest ? toUnitHref(byWork.latest.workId, byWork.latest.unitId) : null
-                  }
+                  readCount={readByWork.get(work.id)?.size ?? 0}
+                  // The file tab, and only on the work last opened. A
+                  // DIFFERENT question from whether there is a place to
+                  // resume — which is the conflation this fixed.
+                  active={latestWorkId === work.id}
+                  continueTo={resume ? toUnitHref(work.id, resume) : null}
                 />
               )
             })}

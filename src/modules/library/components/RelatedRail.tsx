@@ -44,13 +44,26 @@ export function RelatedRail({ work, corpus, unit, cardCount, className }: Relate
   const { t, language } = useT()
 
   const nearby = useMemo(() => {
+    /**
+     * The BRANCH, meaning the node above the leaf — which for a law work is the
+     * chapter and for a flat rule book does not exist at all.
+     *
+     * The committed version fell back to `path.at(-1)`, the leaf itself, whose
+     * `unitIds` is the one unit the reader is already on. Siblings came out
+     * empty and this section rendered nothing for eleven of the fifteen works:
+     * every rule book except the three Sanhitas and CSMOP, which is where an
+     * officer actually reads. The fallback has to be the whole work.
+     */
     const path = tocPath(work, unit.id)
-    const branch = path.at(-2) ?? path.at(-1)
+    const branch = path.length > 1 ? path.at(-2) : undefined
     const siblings = (branch?.unitIds ?? work.readingOrder).filter((id) => id !== unit.id)
 
     // Centred on the reader's position rather than taken from the top: the
     // sections around section 300 are the useful ones, not sections 1-6.
-    const at = siblings.findIndex((id) => corpus.order.indexOf(id) > corpus.order.indexOf(unit.id))
+    // `corpus.order.indexOf(unit.id)` is hoisted: computing it inside the
+    // predicate made this quadratic over a 531-section chapter for no reason.
+    const here = corpus.order.indexOf(unit.id)
+    const at = siblings.findIndex((id) => corpus.order.indexOf(id) > here)
     const from = Math.max(0, (at < 0 ? siblings.length : at) - Math.floor(NEARBY_LIMIT / 2))
     return siblings
       .slice(from, from + NEARBY_LIMIT)
