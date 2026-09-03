@@ -1,0 +1,314 @@
+{
+  "$schema": "../../../schemas/library-quickref.schema.json",
+  "version": "1.0.0",
+  "generatedAt": "2026-09-03",
+  "workId": "ccs-conduct",
+  "source": {
+    "name": "Department of Personnel and Training — CCS (Conduct) Rules, 1964 — updated as on 27 February 2015",
+    "url": "https://dopt.gov.in/sites/default/files/CCS_Conduct_Rules_1964_Updated_27Feb15_0.pdf"
+  },
+  "counts": {
+    "time": 7,
+    "money": 9,
+    "authority": 17
+  },
+  "rows": [
+    {
+      "unitId": "ccs-conduct-1",
+      "unitNumber": "1",
+      "kind": "money",
+      "value": "Rs.500",
+      "sortKey": 500,
+      "quote": "…ny Government servant who draws a pay which does not exceed Rs.500 per mensem and holds a non-gazetted post in any of the foll…",
+      "verify": false
+    },
+    {
+      "unitId": "ccs-conduct-4",
+      "unitNumber": "4",
+      "kind": "authority",
+      "value": "prescribed authority",
+      "sortKey": "prescribed authority",
+      "quote": "…t in any 16company or firm, intimate such acceptance to the prescribed authority and shall also intimate whether he has or has had any offic…",
+      "verify": false
+    },
+    {
+      "unitId": "ccs-conduct-12",
+      "unitNumber": "12",
+      "kind": "authority",
+      "value": "prescribed authority",
+      "sortKey": "prescribed authority",
+      "quote": "…cept with the previous sanction of the Government or of the prescribed authority, ask for or accept contributions to, or otherwise associate…",
+      "verify": false
+    },
+    {
+      "unitId": "ccs-conduct-13",
+      "unitNumber": "13",
+      "kind": "money",
+      "value": "rupees twenty",
+      "sortKey": 20,
+      "quote": "…o the Government, if the value of such gift exceeds;- (i) 42rupees twenty five thousand in the case of a Government servant holding a…",
+      "verify": true
+    },
+    {
+      "unitId": "ccs-conduct-13",
+      "unitNumber": "13",
+      "kind": "money",
+      "value": "rupees fifteen thousand",
+      "sortKey": 15000,
+      "quote": "…se of a Government servant holding any Group 'A' post; (ii) rupees fifteen thousand in the case of a Government servant holding any Group 'B' p…",
+      "verify": true
+    },
+    {
+      "unitId": "ccs-conduct-13",
+      "unitNumber": "13",
+      "kind": "money",
+      "value": "rupees seven thousand",
+      "sortKey": 7000,
+      "quote": "…e of a Government servant holding any Group 'B' post; (iii) rupees seven thousand five hundred in the case of a Government servant holding an…",
+      "verify": true
+    },
+    {
+      "unitId": "ccs-conduct-13",
+      "unitNumber": "13",
+      "kind": "money",
+      "value": "rupees one thousand",
+      "sortKey": 1000,
+      "quote": "…e Government if the value thereof exceeds. Page 9 of 21 (i) rupees one thousand five hundred in the case of a Government servant holding an…",
+      "verify": true
+    },
+    {
+      "unitId": "ccs-conduct-13",
+      "unitNumber": "13",
+      "kind": "money",
+      "value": "rupees five hundred",
+      "sortKey": 500,
+      "quote": "…t servant holding any Group 'A' or Group 'B' post; and (ii) rupees five hundred in the case of a Government servant holding any Group 'C' o…",
+      "verify": true
+    },
+    {
+      "unitId": "ccs-conduct-13",
+      "unitNumber": "13",
+      "kind": "money",
+      "value": "rupees one thousand",
+      "sortKey": 1000,
+      "quote": "…ket value of gifts received on one occasion does not exceed rupees one thousand. In all other cases, the acceptance and retention of such g…",
+      "verify": true
+    },
+    {
+      "unitId": "ccs-conduct-15",
+      "unitNumber": "15",
+      "kind": "time",
+      "value": "a period of one month",
+      "sortKey": 30,
+      "quote": "…ficial duties shall not suffer thereby and he shall, within a period of one month of his taking part in such activity, report to the Governme…",
+      "verify": false
+    },
+    {
+      "unitId": "ccs-conduct-15",
+      "unitNumber": "15",
+      "kind": "authority",
+      "value": "prescribed authority",
+      "sortKey": "prescribed authority",
+      "quote": "…blic body or any private person without the sanction of the prescribed authority. EXPLANATION- The term 'fee' used here shall have the meani…",
+      "verify": false
+    },
+    {
+      "unitId": "ccs-conduct-16",
+      "unitNumber": "16",
+      "kind": "authority",
+      "value": "prescribed authority",
+      "sortKey": "prescribed authority",
+      "quote": "…ule (4), he shall forthwith report the circumstances to the prescribed authority and shall thereafter act in accordance with such order as m…",
+      "verify": false
+    },
+    {
+      "unitId": "ccs-conduct-18",
+      "unitNumber": "18",
+      "kind": "time",
+      "value": "one month",
+      "sortKey": 30,
+      "quote": "…r in the name of the member of his family, he shall, within one month from the date of such transaction, report the same to the p…",
+      "verify": false
+    },
+    {
+      "unitId": "ccs-conduct-18",
+      "unitNumber": "18",
+      "kind": "time",
+      "value": "two months",
+      "sortKey": 60,
+      "quote": "…prescribed authority, if the value of such property exceeds two months' basic pay of the Government servant: Provided that the pre…",
+      "verify": true
+    },
+    {
+      "unitId": "ccs-conduct-18",
+      "unitNumber": "18",
+      "kind": "time",
+      "value": "two months",
+      "sortKey": 60,
+      "quote": "…surance policies, the annual premia of which exceeds Rs. 42'two months' basic pay of the Government servant , shares, securities a…",
+      "verify": true
+    },
+    {
+      "unitId": "ccs-conduct-18",
+      "unitNumber": "18",
+      "kind": "time",
+      "value": "one year",
+      "sortKey": 365,
+      "quote": "…ovable property from year to year or for any term exceeding one year or reserving a yearly rent.",
+      "verify": true
+    },
+    {
+      "unitId": "ccs-conduct-18",
+      "unitNumber": "18",
+      "kind": "money",
+      "value": "Rs.331",
+      "sortKey": 331,
+      "quote": "…ns, the values of items of movable property worth less than Rs.3310,000/- may be added and shown as a lump sum. The value of a…",
+      "verify": false
+    },
+    {
+      "unitId": "ccs-conduct-18",
+      "unitNumber": "18",
+      "kind": "money",
+      "value": "Rs. 42",
+      "sortKey": 42,
+      "quote": "…ery, insurance policies, the annual premia of which exceeds Rs. 42'two months' basic pay of the Government servant , shares, s…",
+      "verify": false
+    },
+    {
+      "unitId": "ccs-conduct-18",
+      "unitNumber": "18",
+      "kind": "authority",
+      "value": "prescribed authority",
+      "sortKey": "prescribed authority",
+      "quote": "…nt servant shall, except with the previous knowledge of the prescribed authority, acquire or dispose of any immovable property by lease, mor…",
+      "verify": false
+    },
+    {
+      "unitId": "ccs-conduct-18",
+      "unitNumber": "18",
+      "kind": "authority",
+      "value": "prescribed authority",
+      "sortKey": "prescribed authority",
+      "quote": "…of his family: 27Provided that the previous sanction of the prescribed authority shall be obtained by the Government servant if any such tra…",
+      "verify": false
+    },
+    {
+      "unitId": "ccs-conduct-18",
+      "unitNumber": "18",
+      "kind": "authority",
+      "value": "prescribed authority",
+      "sortKey": "prescribed authority",
+      "quote": "…h from the date of such transaction, report the same to the prescribed authority, if the value of such property exceeds two months' basic pa…",
+      "verify": false
+    },
+    {
+      "unitId": "ccs-conduct-18",
+      "unitNumber": "18",
+      "kind": "authority",
+      "value": "prescribed authority",
+      "sortKey": "prescribed authority",
+      "quote": "…ernment servant: Provided that the previous sanction of the prescribed authority shall be obtained by the Government servant if any such tra…",
+      "verify": false
+    },
+    {
+      "unitId": "ccs-conduct-18",
+      "unitNumber": "18",
+      "kind": "authority",
+      "value": "prescribed authority",
+      "sortKey": "prescribed authority",
+      "quote": "…aving official dealings with him. (4) The Government or the prescribed authority may, at any time, by general or special order, require a Go…",
+      "verify": false
+    },
+    {
+      "unitId": "ccs-conduct-18",
+      "unitNumber": "18",
+      "kind": "authority",
+      "value": "prescribed authority",
+      "sortKey": "prescribed authority",
+      "quote": "…statement shall, if so required by the Government or by the prescribed authority, include the details of the means by which, or the source f…",
+      "verify": false
+    },
+    {
+      "unitId": "ccs-conduct-18",
+      "unitNumber": "18",
+      "kind": "authority",
+      "value": "Prescribed authority",
+      "sortKey": "prescribed authority",
+      "quote": "…) refrigerators, radios radiograms and television sets. 2. \"Prescribed authority\" means- (a) (i) the Government, in the case of a Government…",
+      "verify": false
+    },
+    {
+      "unitId": "ccs-conduct-18",
+      "unitNumber": "18",
+      "kind": "authority",
+      "value": "Head of Department",
+      "sortKey": "head of department",
+      "quote": "…cifically specified by the Government for any purpose; (ii) Head of Department, in the case of a Government servant holding any Group 'B'…",
+      "verify": false
+    },
+    {
+      "unitId": "ccs-conduct-18",
+      "unitNumber": "18",
+      "kind": "authority",
+      "value": "Head of Office",
+      "sortKey": "head of office",
+      "quote": "…e of a Government servant holding any Group 'B' post; (iii) Head of Office, in the case of a Government servant holding any Group 'C'…",
+      "verify": false
+    },
+    {
+      "unitId": "ccs-conduct-18a",
+      "unitNumber": "18A",
+      "kind": "authority",
+      "value": "prescribed authority",
+      "sortKey": "prescribed authority",
+      "quote": "…ent servant shall, except with the previous sanction of the prescribed authority, - (a) acquire, by purchase, mortgage, lease, gift or other…",
+      "verify": false
+    },
+    {
+      "unitId": "ccs-conduct-18a",
+      "unitNumber": "18A",
+      "kind": "authority",
+      "value": "prescribed authority",
+      "sortKey": "prescribed authority",
+      "quote": "…me of any member of his family. Explanation.- In this rule \"prescribed authority\" has the same meaning as in Rule 18. Page 15 of 21",
+      "verify": false
+    },
+    {
+      "unitId": "ccs-conduct-19",
+      "unitNumber": "19",
+      "kind": "time",
+      "value": "a period of three months",
+      "sortKey": 90,
+      "quote": "…such sanction is received by the Government servant within a period of three months from the date of receipt of his request by the Government,…",
+      "verify": false
+    },
+    {
+      "unitId": "ccs-conduct-19",
+      "unitNumber": "19",
+      "kind": "authority",
+      "value": "prescribed authority",
+      "sortKey": "prescribed authority",
+      "quote": "…taken, the Government servant shall submit a report to the prescribed authority regarding such action.",
+      "verify": false
+    },
+    {
+      "unitId": "ccs-conduct-22a",
+      "unitNumber": "22A",
+      "kind": "time",
+      "value": "14 years",
+      "sortKey": 5110,
+      "quote": "…ent servant shall employ to work any child below the age of 14 years.",
+      "verify": true
+    },
+    {
+      "unitId": "ccs-conduct-24",
+      "unitNumber": "24",
+      "kind": "authority",
+      "value": "Head of Department",
+      "sortKey": "head of department",
+      "quote": "…ecial order, direct that any power exercisable by it or any Head of Department under these rules (except the powers under Rule 23 and this…",
+      "verify": false
+    }
+  ]
+}

@@ -1,0 +1,134 @@
+{
+  "$schema": "../../../schemas/library-quickref.schema.json",
+  "version": "1.0.0",
+  "generatedAt": "2026-09-03",
+  "workId": "osa",
+  "source": {
+    "name": "Ministry of Home Affairs — The Official Secrets Act, 1923",
+    "url": "https://www.mha.gov.in/sites/default/files/Official_Secret_Act1923_2.pdf"
+  },
+  "counts": {
+    "time": 13,
+    "money": 0,
+    "authority": 0
+  },
+  "rows": [
+    {
+      "unitId": "osa-3",
+      "unitNumber": "3",
+      "kind": "time",
+      "value": "three years",
+      "sortKey": 1095,
+      "quote": "…ecret official code, to fourteen years and in other case to three years. (2) On a prosecution for an offence punishable under this…",
+      "verify": true
+    },
+    {
+      "unitId": "osa-5",
+      "unitNumber": "5",
+      "kind": "time",
+      "value": "five years",
+      "sortKey": 1825,
+      "quote": "…punishable with imprisonment for a term which may extend to five years, or if such offence is committed with intent to assist any…",
+      "verify": true
+    },
+    {
+      "unitId": "osa-5",
+      "unitNumber": "5",
+      "kind": "time",
+      "value": "ten years",
+      "sortKey": 3650,
+      "quote": "…ent for life or imprisonment for a term which may extend to ten years and shall, in either case, also be liable to fine.\"",
+      "verify": true
+    },
+    {
+      "unitId": "osa-6",
+      "unitNumber": "6",
+      "kind": "time",
+      "value": "six months",
+      "sortKey": 180,
+      "quote": "…968). 2 Subs. by Act 42 of 1971, S.6 ?(during emergency and six months thereafter. -- 646 die, seal or stamp, or knowingly uses, o…",
+      "verify": true
+    },
+    {
+      "unitId": "osa-6",
+      "unitNumber": "6",
+      "kind": "time",
+      "value": "three years",
+      "sortKey": 1095,
+      "quote": "…ishable with imprisonment for a term which may extend to 1*[three years], or with fine, or with both. (4) The provisions of sub-sec…",
+      "verify": true
+    },
+    {
+      "unitId": "osa-7",
+      "unitNumber": "7",
+      "kind": "time",
+      "value": "two years",
+      "sortKey": 730,
+      "quote": "…e with or impede, --- 1 Subs. by Act 24 of 1967, s. 6, for \"two years \". 2 The words \"with imprisonment for a term which may exte…",
+      "verify": true
+    },
+    {
+      "unitId": "osa-7",
+      "unitNumber": "7",
+      "kind": "time",
+      "value": "three years",
+      "sortKey": 1095,
+      "quote": "…hall be punishable with imprisonment which may extend to 2*[three years], or with fine, or with both.",
+      "verify": true
+    },
+    {
+      "unitId": "osa-8",
+      "unitNumber": "8",
+      "kind": "time",
+      "value": "three years",
+      "sortKey": 1095,
+      "quote": "…hall be punishable with imprisonment which may extend to 3*[three years], or with fine, or with both.",
+      "verify": true
+    },
+    {
+      "unitId": "osa-10",
+      "unitNumber": "10",
+      "kind": "time",
+      "value": "two years",
+      "sortKey": 730,
+      "quote": "…is Majesty's forces\". 2 Subs. by Act 24 of 1967, s. 7, for \"two years\". 3 Subs. by s. 8, ibid., for \"two years\". 648 (3)A person…",
+      "verify": true
+    },
+    {
+      "unitId": "osa-10",
+      "unitNumber": "10",
+      "kind": "time",
+      "value": "two years",
+      "sortKey": 730,
+      "quote": "…f 1967, s. 7, for \"two years\". 3 Subs. by s. 8, ibid., for \"two years\". 648 (3)A person guilty of an offence under this section s…",
+      "verify": true
+    },
+    {
+      "unitId": "osa-10",
+      "unitNumber": "10",
+      "kind": "time",
+      "value": "three years",
+      "sortKey": 1095,
+      "quote": "…ishable with imprisonment for a term which may extend to 1*[three years], or with fine, or with both.",
+      "verify": true
+    },
+    {
+      "unitId": "osa-11",
+      "unitNumber": "11",
+      "kind": "time",
+      "value": "seven years",
+      "sortKey": 2555,
+      "quote": "…punishable with imprisonment for a term which may extend to seven years.]",
+      "verify": true
+    },
+    {
+      "unitId": "osa-13",
+      "unitNumber": "13",
+      "kind": "time",
+      "value": "one year",
+      "sortKey": 365,
+      "quote": "…fence under this Act. 1 Subs. by Act 24 of 1967, s. 9, for \"one year\". 2 Subs. by s. 10, ibid., for the former section. 3 Subs.…",
+      "verify": true
+    }
+  ]
+}

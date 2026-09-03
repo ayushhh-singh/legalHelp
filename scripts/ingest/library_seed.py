@@ -277,6 +277,133 @@ LAW_WORKS: list[dict[str, Any]] = [
 # genuinely differ: the section text comes from NCRB Sankalan's chapter pages,
 # the correspondence table from its section table. Neither is invented — both
 # are URLs already cited by `data/law/*.json`.
+
+# ---------------------------------------------------------------------------
+# Amendment notes
+# ---------------------------------------------------------------------------
+#
+# A slot for "this provision has changed and the text below has not caught up".
+#
+# It exists because the alternative is worse in both directions. Editing the
+# base text would make `data/library` a second, divergent copy of a statute the
+# ingest owns — the exact thing ADR-038 §1 refuses. Saying nothing would leave
+# an officer reading the RTI Act's section 8 in this app the old clause (j),
+# with no hint that Parliament substituted it. So the STRUCTURE layer carries a
+# dated, sourced note and the reader renders it as a banner above the unit,
+# and the text underneath stays exactly what the source publishes.
+#
+# EVERY NOTE IS HAND-WRITTEN AND HAND-SOURCED. Nothing here is extracted, and
+# `self_check` refuses a note whose unit is not in the work's own reading order,
+# so a renumbered corpus fails the build rather than silently dropping a banner.
+# The list is deliberately short: these are the amendments an officer using this
+# app in 2026 will actually trip over, not a change history.
+
+AMENDMENTS: dict[str, dict[str, list[dict[str, Any]]]] = {
+    "rti": {
+        "rti-8": [
+            {
+                "date": "2025-11-13",
+                "note": {
+                    "en": "Clause (j) of sub-section (1) was SUBSTITUTED by section 44(3) of the Digital "
+                    "Personal Data Protection Act, 2023, which came into force on 13 November 2025 "
+                    "(G.S.R. 843(E)). The substituted clause exempts \u201cinformation which relates to "
+                    "personal information\u201d, without the public-activity, unwarranted-invasion and "
+                    "larger-public-interest wording printed below. The text below is the Act as this "
+                    "repository last read it and does not yet reflect the substitution.",
+                    "hi": "उपधारा (1) के खंड (ज) को डिजिटल व्यक्तिगत डेटा संरक्षण अधिनियम, 2023 की धारा "
+                    "44(3) द्वारा प्रतिस्थापित किया गया, जो 13 नवंबर 2025 को प्रवृत्त हुई (जी.एस.आर. "
+                    "843(अ))। प्रतिस्थापित खंड \u201cऐसी सूचना जो व्यक्तिगत सूचना से संबंधित है\u201d को "
+                    "छूट देता है, तथा नीचे मुद्रित लोक-गतिविधि, अनुचित अतिक्रमण और वृहत्तर लोकहित संबंधी "
+                    "शब्दावली उसमें नहीं है। नीचे दिया गया पाठ वही है जो इस भंडार ने अंतिम बार पढ़ा था और "
+                    "उसमें यह प्रतिस्थापन अभी सम्मिलित नहीं है।",
+                },
+                "source": {
+                    "name": "The Digital Personal Data Protection Act, 2023 (No. 22 of 2023), s. 44(3)",
+                    "url": "https://egazette.gov.in/WriteReadData/2023/248045.pdf",
+                },
+            }
+        ]
+    },
+    "bns": {
+        "1": [
+            {
+                "date": "2024-07-01",
+                "note": {
+                    "en": "Brought into force on 1 July 2024 by S.O. 850(E) of 23 February 2024, EXCEPT "
+                    "sub-section (2) of section 106, which has not been brought into force. An offence "
+                    "committed before that date is dealt with under the Indian Penal Code, 1860.",
+                    "hi": "23 फरवरी 2024 की अधिसूचना एस.ओ. 850(अ) द्वारा 1 जुलाई 2024 से प्रवृत्त, धारा "
+                    "106 की उपधारा (2) को छोड़कर, जो प्रवृत्त नहीं की गई है। उस तिथि से पूर्व किए गए अपराध "
+                    "पर भारतीय दण्ड संहिता, 1860 लागू होती है।",
+                },
+                "source": {
+                    "name": "Ministry of Home Affairs, S.O. 850(E), 23 February 2024",
+                    "url": "https://www.mha.gov.in/sites/default/files/BhartiyaNyayaSanhita_24022024.pdf",
+                },
+            }
+        ],
+        "106": [
+            {
+                "date": "2024-07-01",
+                "note": {
+                    "en": "Sub-section (2) of this section is NOT in force. The commencement notification "
+                    "brought the Sanhita into force from 1 July 2024 except this sub-section.",
+                    "hi": "इस धारा की उपधारा (2) प्रवृत्त नहीं है। प्रवर्तन अधिसूचना ने इस उपधारा को छोड़कर "
+                    "संहिता को 1 जुलाई 2024 से प्रवृत्त किया।",
+                },
+                "source": {
+                    "name": "Ministry of Home Affairs, S.O. 850(E), 23 February 2024",
+                    "url": "https://www.mha.gov.in/sites/default/files/BhartiyaNyayaSanhita_24022024.pdf",
+                },
+            }
+        ],
+    },
+    "bnss": {
+        "1": [
+            {
+                "date": "2024-07-01",
+                "note": {
+                    "en": "Brought into force on 1 July 2024 by the Ministry of Home Affairs notification "
+                    "of 23 February 2024. A proceeding pending immediately before that date continues "
+                    "under the Code of Criminal Procedure, 1973 \u2014 see section 531.",
+                    "hi": "गृह मंत्रालय की 23 फरवरी 2024 की अधिसूचना द्वारा 1 जुलाई 2024 से प्रवृत्त। उस "
+                    "तिथि से ठीक पूर्व लंबित कार्यवाही दंड प्रक्रिया संहिता, 1973 के अधीन जारी रहती है "
+                    "\u2014 धारा 531 देखें।",
+                },
+                "source": {
+                    "name": "Ministry of Home Affairs notification, 23 February 2024",
+                    "url": "https://www.mha.gov.in/sites/default/files/BharatiyaNagarikSurakshaSanhita_24022024.pdf",
+                },
+            }
+        ]
+    },
+    "bsa": {
+        "1": [
+            {
+                "date": "2024-07-01",
+                "note": {
+                    "en": "Brought into force on 1 July 2024 by the Ministry of Home Affairs notification "
+                    "of 23 February 2024, replacing the Indian Evidence Act, 1872.",
+                    "hi": "गृह मंत्रालय की 23 फरवरी 2024 की अधिसूचना द्वारा 1 जुलाई 2024 से प्रवृत्त, जिसने "
+                    "भारतीय साक्ष्य अधिनियम, 1872 का स्थान लिया।",
+                },
+                "source": {
+                    "name": "Ministry of Home Affairs notification, 23 February 2024",
+                    "url": "https://www.mha.gov.in/sites/default/files/BharatiyaSakshyaAdhiniyam_24022024.pdf",
+                },
+            }
+        ]
+    },
+}
+
+
+def amendments_for(work_id: str, reading_order: list[str]) -> dict[str, list[dict[str, Any]]]:
+    """This work's notes, keyed by unit id. Empty for a work with none."""
+    known = set(reading_order)
+    notes = AMENDMENTS.get(work_id, {})
+    return {unit: entries for unit, entries in sorted(notes.items()) if unit in known}
+
+
 LAW_OFFICIAL_SOURCE_ID = "ncrb-sankalan-chapters"
 
 
@@ -450,6 +577,7 @@ def build_rules_work(meta: dict[str, Any]) -> dict[str, Any]:
             if unit_id in set(reading_order)
         },
         "examTags": meta["examTags"],
+        "amendments": amendments_for(act_id, reading_order),
         "officialUrl": corpus["source"]["url"],
         "source": corpus["source"],
         "disclaimer": DISCLAIMER,
@@ -531,6 +659,7 @@ def build_law_work(meta: dict[str, Any]) -> dict[str, Any]:
         # map rather than omitted, so a consumer never has to test for absence.
         "practiseCounts": {},
         "examTags": meta["examTags"],
+        "amendments": amendments_for(code, order),
         "officialUrl": official["url"],
         "source": {"name": primary["name"]["en"], "url": primary["url"]},
         "disclaimer": DISCLAIMER,
@@ -642,6 +771,21 @@ def self_check(works: list[dict[str, Any]], index: dict[str, Any]) -> int:
             bad(f"{wid}: no Hindi description")
         if not work["examTags"]:
             bad(f"{wid}: no exam tags")
+
+        # An amendment note is a banner rendered ABOVE a specific unit. A note
+        # keyed to a unit this work does not have renders nowhere at all, which
+        # is the failure this catches: `amendments_for` filters against the
+        # reading order, so a key that survives to here means the two disagree.
+        # A renumbered corpus fails the build rather than silently dropping the
+        # one thing on the page that says the text below is out of date.
+        for unit_id, notes in work.get("amendments", {}).items():
+            if unit_id not in units:
+                bad(f"{wid}: amendment note on {unit_id}, which is not a unit of this work")
+            for note in notes:
+                if not note["note"]["hi"].strip():
+                    bad(f"{wid}: amendment note on {unit_id} has no Hindi")
+                if not note["source"]["url"].startswith("http"):
+                    bad(f"{wid}: amendment note on {unit_id} has no source URL")
 
     ids = [w["id"] for w in index["works"]]
     if len(ids) != len(set(ids)):

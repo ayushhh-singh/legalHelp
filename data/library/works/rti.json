@@ -1,7 +1,7 @@
 {
   "$schema": "../../../schemas/library-work.schema.json",
   "version": "1.0.0",
-  "generatedAt": "2026-09-02",
+  "generatedAt": "2026-09-03",
   "id": "rti",
   "title": {
     "en": "Right to Information Act, 2005",
@@ -442,6 +442,21 @@
     "transparency",
     "departmental-exam"
   ],
+  "amendments": {
+    "rti-8": [
+      {
+        "date": "2025-11-13",
+        "note": {
+          "en": "Clause (j) of sub-section (1) was SUBSTITUTED by section 44(3) of the Digital Personal Data Protection Act, 2023, which came into force on 13 November 2025 (G.S.R. 843(E)). The substituted clause exempts “information which relates to personal information”, without the public-activity, unwarranted-invasion and larger-public-interest wording printed below. The text below is the Act as this repository last read it and does not yet reflect the substitution.",
+          "hi": "उपधारा (1) के खंड (ज) को डिजिटल व्यक्तिगत डेटा संरक्षण अधिनियम, 2023 की धारा 44(3) द्वारा प्रतिस्थापित किया गया, जो 13 नवंबर 2025 को प्रवृत्त हुई (जी.एस.आर. 843(अ))। प्रतिस्थापित खंड “ऐसी सूचना जो व्यक्तिगत सूचना से संबंधित है” को छूट देता है, तथा नीचे मुद्रित लोक-गतिविधि, अनुचित अतिक्रमण और वृहत्तर लोकहित संबंधी शब्दावली उसमें नहीं है। नीचे दिया गया पाठ वही है जो इस भंडार ने अंतिम बार पढ़ा था और उसमें यह प्रतिस्थापन अभी सम्मिलित नहीं है।"
+        },
+        "source": {
+          "name": "The Digital Personal Data Protection Act, 2023 (No. 22 of 2023), s. 44(3)",
+          "url": "https://egazette.gov.in/WriteReadData/2023/248045.pdf"
+        }
+      }
+    ]
+  },
   "officialUrl": "https://dopt.gov.in/sites/default/files/RTI%20Act%202005%20%28updated%20as%20on%2018-11-2025%29.pdf",
   "source": {
     "name": "Department of Personnel and Training — Right to Information Act, 2005 — updated as on 18 November 2025",

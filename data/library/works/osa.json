@@ -1,7 +1,7 @@
 {
   "$schema": "../../../schemas/library-work.schema.json",
   "version": "1.0.0",
-  "generatedAt": "2026-09-02",
+  "generatedAt": "2026-09-03",
   "id": "osa",
   "title": {
     "en": "Official Secrets Act, 1923",
@@ -220,6 +220,7 @@
     "security",
     "vigilance"
   ],
+  "amendments": {},
   "officialUrl": "https://www.mha.gov.in/sites/default/files/Official_Secret_Act1923_2.pdf",
   "source": {
     "name": "Ministry of Home Affairs — The Official Secrets Act, 1923",

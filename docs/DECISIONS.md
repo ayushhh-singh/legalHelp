@@ -5745,3 +5745,214 @@ can reach are the same lie told twice. And the unit-change effect's `scrollIntoV
 called: every browser this app targets has it, jsdom does not, and an effect that throws takes the
 whole route down through `App.tsx`'s ErrorBoundary. That one is why the reader could not be driven in
 a component test at all — it crashed on the first `j` press, which is how the pass found it.
+
+## ADR-039 — The Library's annotation layer: an anchor that can admit it is lost, one grammar generated twice, and a warm surface that is not cream paper
+
+**Status:** Accepted (Session 27)
+
+**Context:** Session 26 built a reading module over a corpus this repository already ships (ADR-038).
+An officer could read the CCS (Conduct) Rules end to end and could not mark a single line of them.
+This session adds what turns reading into study: highlights, margin notes, bookmarks with labels, a
+place to see all of it, defined terms, inline cross-references, a side-by-side comparison,
+quick-reference tables, amendment notices, read-aloud, and documents the reader adds themselves.
+Everything device-only, offline, bilingual.
+
+### 1. A highlight is two offsets AND the text it covered, and it is never dropped
+
+The obvious storage for a highlight is a pair of character offsets. It is also wrong on its own,
+because the thing it indexes into is not stable: `data/law/*.json` is rewritten weekly by the NCRB
+ingest, and a word inserted ahead of a highlight moves every offset after it. Offsets alone would
+silently mark the wrong words — worse than losing the highlight, because nothing would look wrong.
+
+So the row carries `quote`, and `resolveAnchor` (`src/lib/library/anchor.ts`) answers in three
+states: `exact` (the offsets still hold), `reanchored` (they did not, and the quote was found —
+nearest to where it used to be, which is the only defensible rule when a rule repeats a phrase), and
+`lost`. **A lost highlight is listed, never deleted.** It appears in My Study under "needs attention"
+with the words the officer marked and a sentence saying what happened. An officer's own mark is not
+this app's to expire.
+
+Two more things make the offsets mean anything at all:
+
+- **They index into ONE normalised string per unit per language.** `anchorText()` is NFC-composed,
+  whitespace-collapsed, and is exactly what the reader renders — `AnnotatedBody` slices it and each
+  paragraph carries its own `data-para-start`. That works only because ADR-038 §5 already asserts
+  that `paragraphs(text).join(' ')` reproduces the text with whitespace collapsed; this session's
+  `anchor.test.ts` asserts the dependency rather than assuming it.
+- **`lang` is on the row.** The English and Hindi renderings are different strings of different
+  lengths. A highlight made in English never renders on the Hindi pane, and `resolveHighlights`
+  drops the other language's rows rather than resolving them — otherwise "re-anchor by quote" would
+  cheerfully find an English phrase inside the English fallback shown under a Hindi setting.
+
+The whole scheme has one precondition, stated at `src/modules/library/selection.ts`: **nothing inside
+a paragraph may render text the provision does not contain.** `Range.toString().length` is what
+counts characters, and it counts an `sr-only` label too. Decoration goes on attributes; controls go
+outside the paragraph.
+
+### 2. A highlight nests INSIDE a citation, never the other way round
+
+Three layers are drawn over the same words: the reader's highlights, the terms the document defines,
+and the citations it makes. Highlights genuinely overlap each other and are split by
+`segmentParagraph`; a citation or a defined term is ONE clickable thing and is the outer element.
+Reversing that cuts a link in half at a highlight boundary and hands a screen reader two controls
+where the document has one.
+
+That leaves one real cost. Clicking a highlight to recolour it needs a `<button>`, and a button
+inside a button is invalid markup — so a highlight sitting under a citation is painted and not
+clickable. It is reachable regardless: the annotations panel under the text lists every highlight as
+a real control, which it has to do anyway for the ones the corpus moved out from under.
+
+### 3. A margin note is parsed to an AST, never to HTML
+
+`src/lib/library/markdown.ts` implements five things — bold, italic, links, wiki-links and lists —
+and returns nodes. `NoteBody` walks them, so React escapes every leaf. Nothing in this app calls
+`dangerouslySetInnerHTML`, and a note is the one place where text a person typed is rendered with
+structure; handing a renderer markup rather than nodes is how that becomes an injection surface. The
+one thing React does not escape is a URL in an attribute, so `safeHref` refuses anything that is not
+http(s) or a route inside this app — and a refused link renders as its own text, visibly, rather than
+as a control that does nothing.
+
+Two tabs on one unit is a real case (it is how an officer compares two rules) and both autosave.
+Last write wins, which is the only resolution available without a merge interface nobody asked for —
+but `isStale` compares the stored row against the one this tab last wrote, so the tab that lost is
+TOLD, and offered the stored version. And "Saved" is set from the write resolving, never from the
+debounce firing: reporting an intention as an outcome is how an officer closes a tab on a note that
+was never stored.
+
+### 4. The definitions and quick-reference datasets are generated by running the app's own parsers
+
+`data/library/definitions/*.json` and `data/library/quickref/*.json` are the first datasets in this
+repository written by a **Node** script rather than a Python one, and the reason is a rule this
+project already holds: two implementations of one grammar is one implementation that drifts.
+
+These parsers must run in the BROWSER, over a document the reader added themselves — the session
+brief asks for exactly that. A Python copy for the fifteen bundled works and a TypeScript copy for
+everything else would be two grammars, and only one of them exercised by `pnpm test`. So
+`scripts/library-extracts.mjs` loads `src/lib/library/definitions.ts` and `quickref.ts` through
+**Vite's own SSR module runner** — which resolves this project's `@/` aliases and compiles its
+TypeScript exactly as the build does — and runs them over the committed corpora. No new dependency;
+Vite is already here. Hand-run and on no cron, for the reason `pay_matrix.py` and `drafting_seed.py`
+are not on one.
+
+Both datasets carry CONFIDENCE, because both read a drafting convention rather than a
+machine-readable field, and the convention is not kept perfectly. The CCS (Leave) Rules lost their
+quotation marks in extraction; a period with no "within" is as likely to be a term of office as a
+deadline. Anything below full confidence carries `verify: true` and the surface shows a badge. One
+work is worse than that and is recorded rather than tolerated: CCS (Pension) rule 3 arrives with its
+clause letters and quoted terms gone outright, and `UNPARSEABLE` in the generator names it with a
+pointer to `docs/DATA-GAPS.md` #72 — so a NEW work that stops parsing still fails the run.
+
+### 5. An amendment is a banner on the structure, never an edit to the text
+
+An officer reading the RTI Act's section 8 in this app gets the clause Parliament substituted in
+November 2025 — the old one. Editing the base text to fix that would make `data/library` a second,
+divergent copy of a statute the ingest owns, which is precisely what ADR-038 §1 refuses; saying
+nothing would leave the reader to find out elsewhere.
+
+So `amendments` is a slot on the WORK, keyed by unit id, carrying a date, a bilingual note and a
+source. Four are populated, each hand-sourced: the DPDP Act 2023 s.44(3) substitution of RTI
+s.8(1)(j) (in force 13 November 2025, G.S.R. 843(E)), and the 1 July 2024 commencement of the three
+Sanhitas — including that BNS s.106(2) was expressly NOT brought into force, which is the kind of
+thing an officer needs and no dataset here would otherwise say. `library_seed.py`'s `self_check`
+refuses a note keyed to a unit the work does not have, so a renumbered corpus fails the build rather
+than silently dropping the one thing on the page that says the text is out of date.
+
+### 6. Read aloud refuses a voice that is not on the device
+
+`speechSynthesis` does not promise local synthesis. Chrome ships "Google" voices that synthesise on a
+server, and choosing one would post the statute an officer is reading to a third party — against
+this project's hardest rule. `SpeechSynthesisVoice.localService` says which is which, so
+`usableVoices()` keeps only local voices and `noLocalVoiceReason()` distinguishes three cases (no
+voices at all, only remote ones for this language, none for this language) so the notice can say
+which. A remote voice is not ranked last; it is not offered, because a picker that lists one is a
+picker somebody chooses from.
+
+The controller (`ReadAloudController`) speaks one SENTENCE at a time, which is what makes the
+reading position highlightable at all — `onboundary` is not implemented consistently enough to build
+on, and one utterance per unit fires `onend` once, at the end. The generation counter exists because
+`synth.cancel()` fires `onend` for the utterance it cancelled in most browsers, and without it
+pressing Stop starts the next sentence.
+
+### 7. "Sepia" is an 8% marigold wash, not cream paper
+
+The brief asked for a sepia reading theme. `.claude/skills/frontend-design/SKILL.md` lists "cream
+paper + serif + terracotta" under NEVER — it was this project's own superseded direction
+(ADR-003/006) — and the reader already offers a serif, so a cream card would rebuild two thirds of it
+as a preference. The request is answered inside the palette instead: `color-mix(in srgb, var(--marigold) 8%, var(--card))`,
+no new token, nothing cream, text tokens untouched. It is composited `in srgb` deliberately, because
+that is the arithmetic `src/styles/tokens.test.ts#tint` re-does when it asserts every text token
+still clears AA on the result, in both themes.
+
+### 8. A personal work widens the READER's type, not the dataset's schema
+
+`libraryWorkSchema` requires a publisher, an official URL and a source. That requirement is load-bearing:
+it is what stops a committed work shipping without a citation. A document the reader added has none of
+the three.
+
+So the reader takes `ReaderWork` — `LibraryWork` with `source` and `officialUrl` nullable and an
+`origin` discriminator — and `fromDataset`/`fromPersonal` are the only two places that produce one.
+Every surface that renders a citation, a source chip or a dataset version has to handle the null,
+which is the point of making it nullable rather than filling it with something plausible. Three pure
+helpers narrowed to structural subtypes for the same reason (`CorpusWork`, `OrderedWork`, `TocWork`):
+a personal document must be navigable without being a dataset.
+
+A personal work never leaves the device, is never presented as a source, and cannot collide with a
+bundled id (`my-` prefix, asserted against the real `WORK_IDS`). Deleting one takes every highlight,
+note, bookmark and progress row with it — the opposite of `deleteHighlight`, which detaches its note
+rather than deleting it, and deliberately: a note whose highlight is gone is still about a rule that
+exists; a note on a document that no longer exists can never be opened again.
+
+### 9. "Add to trainer" reuses the one queue there is
+
+A highlighted passage becomes a `proposedCards` row with `reviewState: 'unreviewed'` — exactly what
+the AI `propose_card` tool writes — and `/learn/review-queue` is where a human accepts it, after
+which `effectiveCatalogue` folds the approval over the dataset (ADR-027). No second path, nothing
+that can reach the FSRS schedule, and no mutation of `data/rules`. The card is parsed through
+`cardSchema` before the write and a shape it rejects is reported as a failure rather than as a card
+the reader will go looking for — ADR-032's lesson about reading a confirmation back from the write.
+
+It is offered only for a rule book this app ships. A card citing "my-office-order-abc rule 3" would
+sit in the queue for ever with nothing to check it against, so the dialog says so rather than hiding.
+
+### Consequences
+
+- Dexie **v12**: `libraryPersonalWorks` is new; `libraryHighlights` and `libraryNotes` — declared
+  dormant in v11 — get their real shapes and a `workId` index for My Study's filters. No `upgrade()`
+  block: nothing had written either table, and the three added fields on existing tables are absent
+  on every row written before this release, which every reader of them already treats as "not set".
+- Five new routes, all in both sweeps. `tests/route-coverage.test.ts` refused the commit until they
+  were, which is what it is for.
+- Initial route **unchanged at 145.3 KB gzip**. pdf.js, mammoth and pdf.js's worker (~630 KB gzip
+  together) are excluded from the service worker's precache like `web-llm`, and
+  `tests/bundle-budget.test.ts` asserts their absence from the built manifest.
+- `docs/DATA-GAPS.md` #72, #73 and #74 are what this session leaves open.
+
+### Addendum — five things that were wrong first, and what caught each
+
+1. **`नियमों?` does not mean "नियम, optionally plural".** `?` quantifies one code point and the
+   Devanagari plural suffix is two, so that pattern reads as "नियमो followed by an optional
+   anusvara" — it does not match the singular at all. `src/lib/library/refs.ts` had it on five unit
+   words, and the effect was that `उप-नियम` matched NOTHING, so every Hindi sub-rule fixture came
+   back with an empty path. This is the ADR-035 `\b` trap in a different costume and it is nastier:
+   `\b` fails to match anything, which is loud once the Devanagari case is tested, whereas this
+   matches a REAL but wrong string, so a test written against the plural passes and only the
+   singular silently vanishes. Caught by the thirty-fixture table, which is why the table has Hindi
+   halves at all. `isDefinitionsUnit` had the plain `\b` version too.
+2. **A `manualChunks` entry that only NAMES a chunk changed what the entry loads.** Naming pdf.js so
+   that `globIgnores` could refer to it put 125 KB gzip of PDF parser on the initial route — 269.8 KB
+   against a 250 KB budget. `pnpm size` caught it. mammoth does not do this, so it keeps its name;
+   pdf.js is matched by the name the chunker chose, and `tests/bundle-budget.test.ts` asserts the
+   three chunks are absent from the precache so that a rename fails a test rather than quietly
+   re-adding 630 KB to every install.
+3. **A recursive parser sharing module-level sticky regexes walked its cursor BACKWARDS.**
+   `parseInline` reads `STRONG.lastIndex` after recursing into the bold's own contents — and the
+   inner call had reassigned it. It does not throw; it allocates until the process dies, which is how
+   it presented: a Vitest worker killed by the heap limit with no failing assertion to point at.
+   Every match now reads `lastIndex` before it recurses.
+4. **A test that installs fake timers and then times out never restores the clock.** One leaked fake
+   clock made the six tests after it hang for thirty seconds each, which reads as six broken
+   components. A 500 ms debounce is cheap enough to wait out; the test uses real timers.
+5. **A URL written to satisfy a type is still a URL in the bundle.** `AddToTrainerDialog` invented a
+   source for the card it writes, and `tests/no-external-urls.test.ts` refused the citation host —
+   correctly. The work already carries the citation that card should quote, so it is passed in. The
+   same test caught `https://example.gov.in` in the note editor's help copy; the copy no longer names
+   a URL at all.

@@ -1,7 +1,7 @@
 {
   "$schema": "../../../schemas/library-work.schema.json",
   "version": "1.0.0",
-  "generatedAt": "2026-09-02",
+  "generatedAt": "2026-09-03",
   "id": "bns",
   "title": {
     "en": "Bharatiya Nyaya Sanhita, 2023",
@@ -4932,6 +4932,34 @@
     "investigation",
     "departmental-exam"
   ],
+  "amendments": {
+    "1": [
+      {
+        "date": "2024-07-01",
+        "note": {
+          "en": "Brought into force on 1 July 2024 by S.O. 850(E) of 23 February 2024, EXCEPT sub-section (2) of section 106, which has not been brought into force. An offence committed before that date is dealt with under the Indian Penal Code, 1860.",
+          "hi": "23 फरवरी 2024 की अधिसूचना एस.ओ. 850(अ) द्वारा 1 जुलाई 2024 से प्रवृत्त, धारा 106 की उपधारा (2) को छोड़कर, जो प्रवृत्त नहीं की गई है। उस तिथि से पूर्व किए गए अपराध पर भारतीय दण्ड संहिता, 1860 लागू होती है।"
+        },
+        "source": {
+          "name": "Ministry of Home Affairs, S.O. 850(E), 23 February 2024",
+          "url": "https://www.mha.gov.in/sites/default/files/BhartiyaNyayaSanhita_24022024.pdf"
+        }
+      }
+    ],
+    "106": [
+      {
+        "date": "2024-07-01",
+        "note": {
+          "en": "Sub-section (2) of this section is NOT in force. The commencement notification brought the Sanhita into force from 1 July 2024 except this sub-section.",
+          "hi": "इस धारा की उपधारा (2) प्रवृत्त नहीं है। प्रवर्तन अधिसूचना ने इस उपधारा को छोड़कर संहिता को 1 जुलाई 2024 से प्रवृत्त किया।"
+        },
+        "source": {
+          "name": "Ministry of Home Affairs, S.O. 850(E), 23 February 2024",
+          "url": "https://www.mha.gov.in/sites/default/files/BhartiyaNyayaSanhita_24022024.pdf"
+        }
+      }
+    ]
+  },
   "officialUrl": "https://www.ncrb.gov.in/uploads/SankalanPortal/ChaptersBNS.html",
   "source": {
     "name": "NCRB Sankalan — BNS / IPC correspondence table",

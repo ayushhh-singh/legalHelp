@@ -1,0 +1,638 @@
+{
+  "$schema": "../../../schemas/library-quickref.schema.json",
+  "version": "1.0.0",
+  "generatedAt": "2026-09-03",
+  "workId": "posh",
+  "source": {
+    "name": "Ministry of Women and Child Development — The Sexual Harassment of Women at Workplace Act, 2013",
+    "url": "https://www.indiacode.nic.in/bitstream/123456789/2104/1/A2013-14.pdf"
+  },
+  "counts": {
+    "time": 14,
+    "money": 0,
+    "authority": 55
+  },
+  "rows": [
+    {
+      "unitId": "posh-2",
+      "unitNumber": "2",
+      "kind": "authority",
+      "value": "Internal Complaints Committee",
+      "sortKey": "internal complaints committee",
+      "quote": "…d by the domestic worker; (h) \"Internal Committee\" means an Internal Complaints Committee constituted under section 4; (i) \"Local Committee\" means th…",
+      "verify": false
+    },
+    {
+      "unitId": "posh-2",
+      "unitNumber": "2",
+      "kind": "authority",
+      "value": "Local Committee",
+      "sortKey": "local committee",
+      "quote": "…rnal Complaints Committee constituted under section 4; (i) \"Local Committee\" means the Local Complaints Committee constituted under sec…",
+      "verify": false
+    },
+    {
+      "unitId": "posh-2",
+      "unitNumber": "2",
+      "kind": "authority",
+      "value": "Local Committee",
+      "sortKey": "local committee",
+      "quote": "…j) \"Member\" means a Member of the Internal Committee or the Local Committee, as the case may be; (k) \"prescribed\" means prescribed by r…",
+      "verify": false
+    },
+    {
+      "unitId": "posh-2",
+      "unitNumber": "2",
+      "kind": "authority",
+      "value": "Presiding Officer",
+      "sortKey": "presiding officer",
+      "quote": "…cribed\" means prescribed by rules made under this Act; (l) \"Presiding Officer\" means the Presiding Officer of the Internal Complaints Com…",
+      "verify": false
+    },
+    {
+      "unitId": "posh-2",
+      "unitNumber": "2",
+      "kind": "authority",
+      "value": "Presiding Officer",
+      "sortKey": "presiding officer",
+      "quote": "…ules made under this Act; (l) \"Presiding Officer\" means the Presiding Officer of the Internal Complaints Committee nominated under sub-se…",
+      "verify": false
+    },
+    {
+      "unitId": "posh-2",
+      "unitNumber": "2",
+      "kind": "authority",
+      "value": "Internal Complaints Committee",
+      "sortKey": "internal complaints committee",
+      "quote": "…(l) \"Presiding Officer\" means the Presiding Officer of the Internal Complaints Committee nominated under sub-section (2) of section 4; (m) \"responde…",
+      "verify": false
+    },
+    {
+      "unitId": "posh-3",
+      "unitNumber": "3",
+      "kind": "authority",
+      "value": "INTERNAL COMPLAINTS COMMITTEE",
+      "sortKey": "internal complaints committee",
+      "quote": "…to affect her health or safety. CHAPTER II CONSTITUTION OF INTERNAL COMPLAINTS COMMITTEE",
+      "verify": false
+    },
+    {
+      "unitId": "posh-4",
+      "unitNumber": "4",
+      "kind": "time",
+      "value": "three years",
+      "sortKey": 1095,
+      "quote": "…Committee shall hold office for such period, not exceeding three years, from the date of their nomination as may be specified by t…",
+      "verify": false
+    },
+    {
+      "unitId": "posh-4",
+      "unitNumber": "4",
+      "kind": "authority",
+      "value": "Internal Complaints Committee",
+      "sortKey": "internal complaints committee",
+      "quote": "…rder in writing, constitute a Committee to be known as the \"Internal Complaints Committee\": Provided that where the offices or administrative units o…",
+      "verify": false
+    },
+    {
+      "unitId": "posh-4",
+      "unitNumber": "4",
+      "kind": "authority",
+      "value": "Presiding Officer",
+      "sortKey": "presiding officer",
+      "quote": "…ng members to be nominated by the employer, namely: - (a) a Presiding Officer who shall be a woman employed at a senior level at workplac…",
+      "verify": false
+    },
+    {
+      "unitId": "posh-4",
+      "unitNumber": "4",
+      "kind": "authority",
+      "value": "Presiding Officer",
+      "sortKey": "presiding officer",
+      "quote": "…in case a senior level woman employee is not available, the Presiding Officer shall be nominated from other offices or administrative uni…",
+      "verify": false
+    },
+    {
+      "unitId": "posh-4",
+      "unitNumber": "4",
+      "kind": "authority",
+      "value": "Presiding Officer",
+      "sortKey": "presiding officer",
+      "quote": "…he workplace do not have a senior level woman employee, the Presiding Officer shall be nominated from any other workplace of the same emp…",
+      "verify": false
+    },
+    {
+      "unitId": "posh-4",
+      "unitNumber": "4",
+      "kind": "authority",
+      "value": "Presiding Officer",
+      "sortKey": "presiding officer",
+      "quote": "…f of the total Members so nominated shall be women. (3) The Presiding Officer and every Member of the Internal Committee shall hold offic…",
+      "verify": false
+    },
+    {
+      "unitId": "posh-4",
+      "unitNumber": "4",
+      "kind": "authority",
+      "value": "Presiding Officer",
+      "sortKey": "presiding officer",
+      "quote": "…ittee, by the employer, as may be prescribed. (5) Where the Presiding Officer or any Member of the Internal Committee, - (a) contravenes…",
+      "verify": false
+    },
+    {
+      "unitId": "posh-4",
+      "unitNumber": "4",
+      "kind": "authority",
+      "value": "Presiding Officer",
+      "sortKey": "presiding officer",
+      "quote": "…tinuance in office prejudicial to the public interest, such Presiding Officer or Member, as the case may be, shall be removed from the Co…",
+      "verify": false
+    },
+    {
+      "unitId": "posh-6",
+      "unitNumber": "6",
+      "kind": "time",
+      "value": "a period of seven days",
+      "sortKey": 7,
+      "quote": "…forward the same to the concerned 2[Local Committee] within a period of seven days. (3) The jurisdiction of the 2[Local Committee] shall exten…",
+      "verify": false
+    },
+    {
+      "unitId": "posh-6",
+      "unitNumber": "6",
+      "kind": "authority",
+      "value": "Local Committee",
+      "sortKey": "local committee",
+      "quote": "…n the district concerned, a committee to be known as the \"1[Local Committee]\" to receive complaints of 1. Subs. by Act 23 of 2016, s. 3…",
+      "verify": false
+    },
+    {
+      "unitId": "posh-6",
+      "unitNumber": "6",
+      "kind": "authority",
+      "value": "Local Committee",
+      "sortKey": "local committee",
+      "quote": "…receive complaints and forward the same to the concerned 2[Local Committee] within a period of seven days. (3) The jurisdiction of the…",
+      "verify": false
+    },
+    {
+      "unitId": "posh-6",
+      "unitNumber": "6",
+      "kind": "authority",
+      "value": "Local Committee",
+      "sortKey": "local committee",
+      "quote": "…ithin a period of seven days. (3) The jurisdiction of the 2[Local Committee] shall extend to the areas of the district where it is cons…",
+      "verify": false
+    },
+    {
+      "unitId": "posh-7",
+      "unitNumber": "7",
+      "kind": "time",
+      "value": "three years",
+      "sortKey": 1095,
+      "quote": "…Committee shall hold office for such period, not exceeding three years, form the date of their appointment as may be specified by…",
+      "verify": false
+    },
+    {
+      "unitId": "posh-7",
+      "unitNumber": "7",
+      "kind": "authority",
+      "value": "Local Committee",
+      "sortKey": "local committee",
+      "quote": "(1) The 2[Local Committee] shall consist of the following members to be nominated by…",
+      "verify": false
+    },
+    {
+      "unitId": "posh-7",
+      "unitNumber": "7",
+      "kind": "authority",
+      "value": "Local Committee",
+      "sortKey": "local committee",
+      "quote": "…ber ex officio. (2) The Chairperson and every Member of the Local Committee shall hold office for such period, not exceeding three year…",
+      "verify": false
+    },
+    {
+      "unitId": "posh-7",
+      "unitNumber": "7",
+      "kind": "authority",
+      "value": "Local Committee",
+      "sortKey": "local committee",
+      "quote": "…t Officer. (3) Where the Chairperson or any Member of the 2[Local Committee]- (a) contravenes the provisions of section 16; or (b) has…",
+      "verify": false
+    },
+    {
+      "unitId": "posh-7",
+      "unitNumber": "7",
+      "kind": "authority",
+      "value": "Local Committee",
+      "sortKey": "local committee",
+      "quote": "…ions of this section. (4) The Chairperson or Members of the Local Committee other than the Members nominated under clauses (b) and (d)…",
+      "verify": false
+    },
+    {
+      "unitId": "posh-7",
+      "unitNumber": "7",
+      "kind": "authority",
+      "value": "Local Committee",
+      "sortKey": "local committee",
+      "quote": "…such fees or allowances for holding the proceedings of the Local Committee as may be prescribed.",
+      "verify": false
+    },
+    {
+      "unitId": "posh-8",
+      "unitNumber": "8",
+      "kind": "authority",
+      "value": "Internal Complaints Committee",
+      "sortKey": "internal complaints committee",
+      "quote": "…Subs. by Act 23 of 2016, s. 3 and the Second Schedule, for \"Internal Complaints Committee\" (w.e.f. 6-5-2016). 2. Subs. by s. 3 and the Second Schedul…",
+      "verify": false
+    },
+    {
+      "unitId": "posh-9",
+      "unitNumber": "9",
+      "kind": "time",
+      "value": "a period of three months",
+      "sortKey": 90,
+      "quote": "…e Local Committee, in case it is not so constituted, within a period of three months from the date of incident and in case of a series of incide…",
+      "verify": false
+    },
+    {
+      "unitId": "posh-9",
+      "unitNumber": "9",
+      "kind": "time",
+      "value": "a period of three months",
+      "sortKey": 90,
+      "quote": "…te of incident and in case of a series of incidents, within a period of three months from the date of last incident: Provided that where such co…",
+      "verify": false
+    },
+    {
+      "unitId": "posh-9",
+      "unitNumber": "9",
+      "kind": "time",
+      "value": "three months",
+      "sortKey": 90,
+      "quote": "…be recorded in writing, extend the time limit not exceeding three months , if it is satisfied that the circumstances were such which…",
+      "verify": false
+    },
+    {
+      "unitId": "posh-9",
+      "unitNumber": "9",
+      "kind": "authority",
+      "value": "Local Committee",
+      "sortKey": "local committee",
+      "quote": "…rkplace to the Internal Committee if so constituted, or the Local Committee, in case it is not so constituted, within a period of three…",
+      "verify": false
+    },
+    {
+      "unitId": "posh-9",
+      "unitNumber": "9",
+      "kind": "authority",
+      "value": "Presiding Officer",
+      "sortKey": "presiding officer",
+      "quote": "…ed that where such complaint cannot be made in writing, the Presiding Officer or any Member of the Internal Committee or the Chairperson…",
+      "verify": false
+    },
+    {
+      "unitId": "posh-9",
+      "unitNumber": "9",
+      "kind": "authority",
+      "value": "Local Committee",
+      "sortKey": "local committee",
+      "quote": "…Internal Committee or the Chairperson or any Member of the Local Committee, as the case may be, shall render all reasonable assistance…",
+      "verify": false
+    },
+    {
+      "unitId": "posh-9",
+      "unitNumber": "9",
+      "kind": "authority",
+      "value": "Local Committee",
+      "sortKey": "local committee",
+      "quote": "…her that the Internal Committee or, as the case may be, the Local Committee may, for the reasons to be recorded in writing, extend the…",
+      "verify": false
+    },
+    {
+      "unitId": "posh-10",
+      "unitNumber": "10",
+      "kind": "authority",
+      "value": "Local Committee",
+      "sortKey": "local committee",
+      "quote": "(1) The Internal Committee or, as the case may be, the Local Committee, may, before initiating an inquiry under section 11 and at…",
+      "verify": false
+    },
+    {
+      "unitId": "posh-10",
+      "unitNumber": "10",
+      "kind": "authority",
+      "value": "Local Committee",
+      "sortKey": "local committee",
+      "quote": "…ved at under sub-section (1), the Internal Committee or the Local Committee, as the case may be, shall record the settlement so arrived…",
+      "verify": false
+    },
+    {
+      "unitId": "posh-10",
+      "unitNumber": "10",
+      "kind": "authority",
+      "value": "Local Committee",
+      "sortKey": "local committee",
+      "quote": "…ed in the recommendation. (3) The Internal Committee or the Local Committee, as the case may be, shall provide the copies of the settle…",
+      "verify": false
+    },
+    {
+      "unitId": "posh-10",
+      "unitNumber": "10",
+      "kind": "authority",
+      "value": "Local Committee",
+      "sortKey": "local committee",
+      "quote": "…inquiry shall be conducted by the Internal Committee or the Local Committee, as the case may be.",
+      "verify": false
+    },
+    {
+      "unitId": "posh-11",
+      "unitNumber": "11",
+      "kind": "time",
+      "value": "a period of seven days",
+      "sortKey": 7,
+      "quote": "…cie case exist, forward the complaint to the police, within a period of seven days for registering the case under section 509 of the Indian Pe…",
+      "verify": false
+    },
+    {
+      "unitId": "posh-11",
+      "unitNumber": "11",
+      "kind": "time",
+      "value": "a period of ninety days",
+      "sortKey": 90,
+      "quote": "…The inquiry under sub-section (1) shall be completed within a period of ninety days. CHAPTER V INQUIRY INTO COMPLAINT",
+      "verify": false
+    },
+    {
+      "unitId": "posh-11",
+      "unitNumber": "11",
+      "kind": "authority",
+      "value": "Local Committee",
+      "sortKey": "local committee",
+      "quote": "…the provisions of section 10, the Internal Committee or the Local Committee, as the case may be, shall, where the respondent is an empl…",
+      "verify": false
+    },
+    {
+      "unitId": "posh-11",
+      "unitNumber": "11",
+      "kind": "authority",
+      "value": "Local Committee",
+      "sortKey": "local committee",
+      "quote": "…r as may be prescribed or in case of a domestic worker, the Local Committee shall, if prima facie case exist, forward the complaint to…",
+      "verify": false
+    },
+    {
+      "unitId": "posh-11",
+      "unitNumber": "11",
+      "kind": "authority",
+      "value": "Local Committee",
+      "sortKey": "local committee",
+      "quote": "…e the aggrieved woman informs the Internal Committee or the Local Committee, as the case may be, that any term or condition of the sett…",
+      "verify": false
+    },
+    {
+      "unitId": "posh-11",
+      "unitNumber": "11",
+      "kind": "authority",
+      "value": "Local Committee",
+      "sortKey": "local committee",
+      "quote": "…plied with by the respondent, the Internal Committee or the Local Committee shall proceed to make an inquiry into the complaint or, as…",
+      "verify": false
+    },
+    {
+      "unitId": "posh-11",
+      "unitNumber": "11",
+      "kind": "authority",
+      "value": "Local Committee",
+      "sortKey": "local committee",
+      "quote": "…nquiry under sub-section (1), the Internal Committee or the Local Committee, as the case may be, shall have the same powers as are vest…",
+      "verify": false
+    },
+    {
+      "unitId": "posh-12",
+      "unitNumber": "12",
+      "kind": "time",
+      "value": "a period of three months",
+      "sortKey": 90,
+      "quote": "…workplace; or (b) grant leave to the aggrieved woman up to a period of three months; or (c) grant such other relief to the aggrieved woman a ma…",
+      "verify": true
+    },
+    {
+      "unitId": "posh-12",
+      "unitNumber": "12",
+      "kind": "authority",
+      "value": "local Committee",
+      "sortKey": "local committee",
+      "quote": "…made by the aggrieved woman, the Internal Committee or the local Committee, as the case may be, may recommend to the employer to- (a)…",
+      "verify": false
+    },
+    {
+      "unitId": "posh-12",
+      "unitNumber": "12",
+      "kind": "authority",
+      "value": "Local Committee",
+      "sortKey": "local committee",
+      "quote": "…(3) On the recommendation of the Internal Committee or the Local Committee, as the case may be, under sub-section (1), the employer sh…",
+      "verify": false
+    },
+    {
+      "unitId": "posh-12",
+      "unitNumber": "12",
+      "kind": "authority",
+      "value": "Local Committee",
+      "sortKey": "local committee",
+      "quote": "…ort of such implementation to the Internal Committee or the Local Committee, as the case may be.",
+      "verify": false
+    },
+    {
+      "unitId": "posh-13",
+      "unitNumber": "13",
+      "kind": "time",
+      "value": "a period of ten days",
+      "sortKey": 10,
+      "quote": "…mployer, or as the case may be, the District Officer within a period of ten days from the date of completion of the inquiry and such report…",
+      "verify": false
+    },
+    {
+      "unitId": "posh-13",
+      "unitNumber": "13",
+      "kind": "time",
+      "value": "sixty days",
+      "sortKey": 60,
+      "quote": "…e District Officer shall act upon the recommendation within sixty days of its receipt by him.",
+      "verify": false
+    },
+    {
+      "unitId": "posh-13",
+      "unitNumber": "13",
+      "kind": "authority",
+      "value": "Local Committee",
+      "sortKey": "local committee",
+      "quote": "…of an inquiry under this Act, the Internal Committee or the Local Committee, as the case may be, shall provide a report of its findings…",
+      "verify": false
+    },
+    {
+      "unitId": "posh-13",
+      "unitNumber": "13",
+      "kind": "authority",
+      "value": "Local Committee",
+      "sortKey": "local committee",
+      "quote": "…concerned parties. (2) Where the Internal Committee or the Local Committee, as the case may be, arrives at the conclusion that the all…",
+      "verify": false
+    },
+    {
+      "unitId": "posh-13",
+      "unitNumber": "13",
+      "kind": "authority",
+      "value": "Local Committee",
+      "sortKey": "local committee",
+      "quote": "…aken in the matter. (3) Where the Internal Committee or the Local Committee, as the case may be, arrives at the conclusion that the all…",
+      "verify": false
+    },
+    {
+      "unitId": "posh-13",
+      "unitNumber": "13",
+      "kind": "authority",
+      "value": "Local Committee",
+      "sortKey": "local committee",
+      "quote": "…se (ii), the Internal Committee or as, the case may be, the Local Committee may forward the order for recovery of the sum as an arrear…",
+      "verify": false
+    },
+    {
+      "unitId": "posh-14",
+      "unitNumber": "14",
+      "kind": "authority",
+      "value": "Local Committee",
+      "sortKey": "local committee",
+      "quote": "(1) Where the Internal Committee or the Local Committee, as the case may be, arrives at a conclusion that the alleg…",
+      "verify": false
+    },
+    {
+      "unitId": "posh-14",
+      "unitNumber": "14",
+      "kind": "authority",
+      "value": "Local Committee",
+      "sortKey": "local committee",
+      "quote": "…ion is recommended. (2) Where the Internal Committee or the Local Committee, as the case may be, arrives at a conclusion that during th…",
+      "verify": false
+    },
+    {
+      "unitId": "posh-15",
+      "unitNumber": "15",
+      "kind": "authority",
+      "value": "Local Committee",
+      "sortKey": "local committee",
+      "quote": "…ub-section (3) of section 13, the Internal Committee or the Local Committee, as the case may be, shall have regard to- (a) the mental t…",
+      "verify": false
+    },
+    {
+      "unitId": "posh-16",
+      "unitNumber": "16",
+      "kind": "authority",
+      "value": "Local Committee",
+      "sortKey": "local committee",
+      "quote": "…oceedings, recommendations of the Internal Committee or the Local Committee, as the case may be, and the action taken by the employer o…",
+      "verify": false
+    },
+    {
+      "unitId": "posh-18",
+      "unitNumber": "18",
+      "kind": "time",
+      "value": "a period of ninety days",
+      "sortKey": 90,
+      "quote": "…The appeal under sub-section (1) shall be preferred within a period of ninety days of the recommendations. CHAPTER VI DUTIES OF EMPLOYER",
+      "verify": false
+    },
+    {
+      "unitId": "posh-19",
+      "unitNumber": "19",
+      "kind": "authority",
+      "value": "Local Committee",
+      "sortKey": "local committee",
+      "quote": "…ovide necessary facilities to the Internal Committee or the Local Committee, as the case may be, for dealing with the complaint and con…",
+      "verify": false
+    },
+    {
+      "unitId": "posh-19",
+      "unitNumber": "19",
+      "kind": "authority",
+      "value": "Local Committee",
+      "sortKey": "local committee",
+      "quote": "…spondent and witnesses before the Internal Committee or the Local Committee, as the case may be; (f) make available such information to…",
+      "verify": false
+    },
+    {
+      "unitId": "posh-19",
+      "unitNumber": "19",
+      "kind": "authority",
+      "value": "Local Committee",
+      "sortKey": "local committee",
+      "quote": "…available such information to the Internal Committee or the Local Committee, as the case be, as it may require having regard to the com…",
+      "verify": false
+    },
+    {
+      "unitId": "posh-20",
+      "unitNumber": "20",
+      "kind": "authority",
+      "value": "Local Committee",
+      "sortKey": "local committee",
+      "quote": "…a) monitor the timely submission of report furnished by the Local Committee; (b) take such measures as may be necessary for engaging no…",
+      "verify": false
+    },
+    {
+      "unitId": "posh-21",
+      "unitNumber": "21",
+      "kind": "authority",
+      "value": "Local Committee",
+      "sortKey": "local committee",
+      "quote": "(1) The Internal Committee or the Local Committee, as the case may be, shall in each calendar year prepare, i…",
+      "verify": false
+    },
+    {
+      "unitId": "posh-24",
+      "unitNumber": "24",
+      "kind": "authority",
+      "value": "Local Committee",
+      "sortKey": "local committee",
+      "quote": "…rientation and training programmes for the members of the 1[Local Committee].",
+      "verify": false
+    },
+    {
+      "unitId": "posh-27",
+      "unitNumber": "27",
+      "kind": "authority",
+      "value": "Local Committee",
+      "sortKey": "local committee",
+      "quote": "…woman or any person authorised by the Internal Committee or Local Committee in this behalf. (2) No court inferior to that of a Metropol…",
+      "verify": false
+    },
+    {
+      "unitId": "posh-29",
+      "unitNumber": "29",
+      "kind": "time",
+      "value": "thirty days",
+      "sortKey": 30,
+      "quote": "…f Parliament, while it is in session, for a total period of thirty days which may be comprised in one session or in two or more suc…",
+      "verify": true
+    },
+    {
+      "unitId": "posh-29",
+      "unitNumber": "29",
+      "kind": "authority",
+      "value": "Local Committee",
+      "sortKey": "local committee",
+      "quote": "…preparation of annual report by Internal Committee and the Local Committee under sub-section (1) of section 21. (3) Every rule made by…",
+      "verify": false
+    },
+    {
+      "unitId": "posh-30",
+      "unitNumber": "30",
+      "kind": "time",
+      "value": "a period of two years",
+      "sortKey": 730,
+      "quote": "…order shall be made under this section after the expiry of a period of two years from the commencement of this Act. (2) Every order made und…",
+      "verify": false
+    }
+  ]
+}

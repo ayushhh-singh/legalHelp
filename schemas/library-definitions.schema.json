@@ -1,0 +1,55 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://sahayak.local/schemas/library-definitions.schema.json",
+  "title": "One work's defined terms",
+  "description": "The terms a document's own definitions clause defines, read out of the corpus the work points at. Written by scripts/library-extracts.mjs, which runs the very modules the browser runs (src/lib/library/definitions.ts) so that a bundled work and a work the reader added themselves are read by one grammar. Every term carries a confidence, because this reads a drafting convention rather than a machine-readable field.",
+  "type": "object",
+  "additionalProperties": false,
+  "required": ["version", "generatedAt", "workId", "unitId", "unitNumber", "source", "terms"],
+  "properties": {
+    "$schema": { "type": "string" },
+    "version": { "type": "string", "pattern": "^\\d+\\.\\d+\\.\\d+$" },
+    "generatedAt": { "type": "string", "pattern": "^\\d{4}-\\d{2}-\\d{2}$" },
+    "workId": { "type": "string", "pattern": "^[a-z0-9-]+$" },
+    "unitId": {
+      "description": "The unit that IS the definitions clause, or null where the document has none. Null rather than an absent key: four of the fifteen works genuinely have no such clause, and that is an answer.",
+      "type": ["string", "null"],
+      "minLength": 1
+    },
+    "unitNumber": { "type": ["string", "null"], "minLength": 1 },
+    "source": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["name", "url"],
+      "properties": {
+        "name": { "type": "string", "minLength": 1 },
+        "url": { "type": "string", "pattern": "^https?://" }
+      }
+    },
+    "terms": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": ["term", "definition", "marker", "confidence", "verify"],
+        "properties": {
+          "term": { "type": "string", "minLength": 1 },
+          "definition": { "type": "string", "minLength": 1 },
+          "marker": {
+            "description": "The clause letter the definition is filed under — \"(a)\", \"(iv)\" — or null where the clause carries none.",
+            "type": ["string", "null"],
+            "minLength": 1
+          },
+          "confidence": {
+            "description": "high: a quoted term under a clause letter. medium: quoted with no letter. low: the quotation marks were lost in extraction and the term was read from the clause letter and the connective alone.",
+            "enum": ["high", "medium", "low"]
+          },
+          "verify": {
+            "description": "True for anything below high — the popover shows a Verify badge rather than hiding the term.",
+            "type": "boolean"
+          }
+        }
+      }
+    }
+  }
+}

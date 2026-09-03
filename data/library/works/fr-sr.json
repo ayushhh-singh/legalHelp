@@ -1,7 +1,7 @@
 {
   "$schema": "../../../schemas/library-work.schema.json",
   "version": "1.0.0",
-  "generatedAt": "2026-09-02",
+  "generatedAt": "2026-09-03",
   "id": "fr-sr",
   "title": {
     "en": "Fundamental Rules and Supplementary Rules",
@@ -1336,6 +1336,7 @@
     "departmental-exam",
     "ldce"
   ],
+  "amendments": {},
   "officialUrl": "https://dopt.gov.in/sites/default/files/Compilation_FR_SR_English_2.pdf",
   "source": {
     "name": "Department of Personnel and Training — Compilation of Fundamental Rules and Supplementary Rules — English",

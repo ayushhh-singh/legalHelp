@@ -348,6 +348,15 @@ export interface LibraryProgressRow {
   at: string
   /** Total dwell on this unit, in seconds, accumulated across visits. */
   secondsRead: number
+  /**
+   * When the reader said they had read it — a DELIBERATE act, distinct from
+   * having opened it, which is what every other field here records. The table
+   * of contents ticks arrivals; this is the tick an officer working through a
+   * rule book for an examination actually wants.
+   */
+  markedReadAt?: string | null
+  /** How far down the unit the reader was, 0-1, so returning lands where they left. */
+  scrollRatio?: number
 }
 
 export interface LibraryBookmarkRow {
@@ -355,6 +364,8 @@ export interface LibraryBookmarkRow {
   id: string
   workId: string
   unitId: string
+  /** What the reader called it. Optional — a bookmark with no label is still a bookmark. */
+  label?: string
   createdAt: string
 }
 
@@ -363,7 +374,16 @@ export interface LibraryBookmarkRow {
  *
  * `lang` is part of the row rather than derived: the English and Hindi renderings
  * of a unit are different strings of different lengths, so an offset means
- * nothing without knowing which one it indexes into.
+ * nothing without knowing which one it indexes into. A highlight made in English
+ * never renders on the Hindi pane, and the other way round.
+ *
+ * `quote` is the recovery path and is why a highlight cannot be silently lost.
+ * The offsets index into `normaliseText()` of the unit as it was when the mark
+ * was made; `data/law/*.json` is rewritten weekly by the NCRB ingest, so a word
+ * inserted ahead of a highlight moves every offset after it.
+ * `src/lib/library/anchor.ts#resolveAnchor` tries the offsets, then searches for
+ * this text, and a highlight that neither finds is listed under "needs
+ * attention" in My Study rather than deleted.
  */
 export interface LibraryHighlightRow {
   id: string
@@ -372,16 +392,72 @@ export interface LibraryHighlightRow {
   lang: 'en' | 'hi'
   start: number
   end: number
+  /** The text covered when the highlight was made — see above. */
+  quote: string
+  /** One of the four paired accent tokens: marigold, tulsi, violet, coral. */
   colour: string
-  note?: string
   createdAt: string
 }
 
+/**
+ * A margin note, on a unit and optionally on one highlight inside it.
+ *
+ * `body` is markdown-lite (`src/lib/library/markdown.ts`) and is stored as the
+ * reader typed it, never as rendered markup — the AST is built at render time
+ * so nothing in this app ever has to trust stored HTML.
+ *
+ * `highlightId` is what makes a note "about this phrase" rather than "about
+ * this rule", and `part` is the finer anchor `LibraryUnit.parts` was kept for:
+ * a sub-rule number is a real citation an officer uses.
+ */
 export interface LibraryNoteRow {
   id: string
   workId: string
   unitId: string
+  highlightId?: string
+  /** A sub-rule number — "1(2)" — where the note is about one part of a rule. */
+  part?: string
   body: string
+  createdAt: string
+  updatedAt: string
+}
+
+/**
+ * A document the reader added themselves — pasted, or extracted on this device
+ * from a .txt/.md/.pdf/.docx file.
+ *
+ * NEVER LEAVES THE DEVICE AND IS NEVER PRESENTED AS A SOURCE. It carries no
+ * publisher, no official URL and no citation, and every surface that renders it
+ * marks it as the reader's own document (`src/lib/library/personal.ts`). It is
+ * excluded from anything that presents sources as authoritative, which is the
+ * session brief's own requirement and the reason it is a separate table rather
+ * than a flag on a work.
+ *
+ * The units are stored inline rather than in a table of their own: a personal
+ * work is one document of a few hundred kilobytes at most, it is always read
+ * whole, and a second table would buy a join for nothing.
+ */
+export interface LibraryPersonalWorkRow {
+  /** Always `my-<slug>`, so a personal id can never collide with a dataset one. */
+  id: string
+  title: string
+  /** The one language the document is in. There is no translation of it. */
+  language: 'en' | 'hi'
+  /** What the reader says it is and where it came from. Free text. */
+  note: string
+  /**
+   * What one unit of THIS document is called.
+   *
+   * Asked on the review screen rather than assumed, because the alternative is
+   * to label every unit of every personal document "Section" and print
+   * "Section 12" on a citation for something that is a paragraph of an office
+   * order. `item` is the honest default for a document that numbers its parts
+   * and does not say what they are.
+   */
+  unitWord: 'section' | 'rule' | 'paragraph' | 'item'
+  units: { id: string; number: string; heading: string; text: string; division: string | null }[]
+  divisions: { label: string; title: string; from: number }[]
+  createdAt: string
   updatedAt: string
 }
 
@@ -413,6 +489,7 @@ export class SahayakDB extends Dexie {
   libraryBookmarks!: Table<LibraryBookmarkRow, string>
   libraryHighlights!: Table<LibraryHighlightRow, string>
   libraryNotes!: Table<LibraryNoteRow, string>
+  libraryPersonalWorks!: Table<LibraryPersonalWorkRow, string>
 
   constructor(name = 'sahayak') {
     super(name)
@@ -623,6 +700,53 @@ export class SahayakDB extends Dexie {
       libraryBookmarks: '&id, workId, createdAt',
       libraryHighlights: '&id, [workId+unitId], createdAt',
       libraryNotes: '&id, [workId+unitId], updatedAt',
+    })
+    // Version 12 — the Library's annotation layer and the reader's own works
+    // (Session 27), which is what version 11 declared its two dormant tables
+    // for.
+    //
+    // `libraryHighlights` and `libraryNotes` gain a `workId` index: My Study
+    // filters by work across every unit, which the compound `[workId+unitId]`
+    // cannot answer on its own, and `colour` is indexed because filtering by it
+    // is one of the three filters that screen offers. `libraryPersonalWorks` is
+    // the one new table; it is indexed on `updatedAt` because the shelf lists
+    // the reader's own documents newest-first, the same way every other
+    // recents-shaped table here is.
+    //
+    // No `.upgrade()` block: both annotation tables were declared in version 11
+    // and written by nothing, so there are no rows to migrate — the row shapes
+    // changed on paper only (`quote` on a highlight, `highlightId`/`part` and
+    // timestamps on a note, `label` on a bookmark, `markedReadAt`/`scrollRatio`
+    // on progress). The three optional fields on existing tables need no
+    // migration either: absent is the state every row written before this
+    // release is in, and every reader of them treats absent as "not set".
+    this.version(12).stores({
+      settings: '&key',
+      secrets: '&id',
+      aiAnswers: '&id, agentId, dataVersion, createdAt',
+      aiUsage: '&month',
+      lawFavourites: '&id, createdAt',
+      lawRecents: '&id, viewedAt',
+      payScenarios: '&id, name, updatedAt',
+      drafts: '&id, templateId, updatedAt',
+      draftDefaults: '&id, templateId, updatedAt',
+      glossaryFavourites: '&id, createdAt',
+      glossaryRecents: '&id, viewedAt',
+      srsCards: '&qId, due, state',
+      reviewLog: '&id, qId, at',
+      streaks: '&date',
+      trainerSettings: '&id',
+      trainerBookmarks: '&qId, createdAt',
+      trainerReports: '&id, qId, createdAt',
+      proposedCards: '&id, createdAt',
+      cardOverrides: '&qId, decidedAt',
+      holidayPicks: '&id, year, createdAt',
+      commandRecents: '&id, viewedAt',
+      libraryProgress: '&id, workId, at',
+      libraryBookmarks: '&id, workId, createdAt',
+      libraryHighlights: '&id, [workId+unitId], workId, colour, createdAt',
+      libraryNotes: '&id, [workId+unitId], workId, updatedAt',
+      libraryPersonalWorks: '&id, updatedAt',
     })
   }
 }

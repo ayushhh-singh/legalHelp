@@ -11,6 +11,7 @@ import {
   Scale,
   Settings,
   Wrench,
+  BookOpen,
 } from 'lucide-react'
 import { useEffect, useMemo, useState } from 'react'
 import { useNavigate } from 'react-router-dom'
@@ -23,6 +24,7 @@ import {
   glossaryItems,
   jobItems,
   lawItems,
+  libraryItems,
   portalItems,
   trainerTopicItems,
 } from './sections'
@@ -132,12 +134,23 @@ export function CommandPalette() {
     if (data.drafting) push('draft', t('palette.groups.draft'), draftingItems(data.drafting, trimmed))
     if (data.trainer) push('trainer', t('palette.groups.trainer'), trainerTopicItems(data.trainer, trimmed))
     if (data.portals) push('portals', t('palette.groups.portals'), portalItems(data.portals, trimmed))
+    if (data.library) push('library', t('palette.groups.library'), libraryItems(data.library, trimmed))
     return out
   }, [trimmed, data, t])
 
-  const loadingMore = trimmed.length > 0 && (!data.law || !data.jobs || !data.glossary || !data.drafting || !data.trainer || !data.portals)
+  const loadingMore =
+    trimmed.length > 0 &&
+    (!data.law ||
+      !data.jobs ||
+      !data.glossary ||
+      !data.drafting ||
+      !data.trainer ||
+      !data.portals ||
+      !data.library)
   const totalResults =
-    navResults.length + settingsResults.length + sections.reduce((sum, section) => sum + section.items.length, 0)
+    navResults.length +
+    settingsResults.length +
+    sections.reduce((sum, section) => sum + section.items.length, 0)
 
   const go = (item: PaletteItem, section: string) => {
     closePalette()
@@ -199,7 +212,14 @@ export function CommandPalette() {
               // with a literal `'recent'` here would overwrite it, so the
               // next open shows "recent" as this row's own category instead
               // of "law"/"glossary"/whichever it actually was.
-              <PaletteRow key={item.id} item={item} language={language} otherLanguage={otherLanguage} icon={Clock} onSelect={() => go(item, item.hint ?? 'recent')} />
+              <PaletteRow
+                key={item.id}
+                item={item}
+                language={language}
+                otherLanguage={otherLanguage}
+                icon={Clock}
+                onSelect={() => go(item, item.hint ?? 'recent')}
+              />
             ))}
           </Command.Group>
         ) : null}
@@ -210,7 +230,14 @@ export function CommandPalette() {
             className="px-1 py-1.5 text-xs font-medium text-muted-foreground [&_[cmdk-group-items]]:mt-1"
           >
             {navResults.map((item) => (
-              <PaletteRow key={item.id} item={item} language={language} otherLanguage={otherLanguage} icon={Compass} onSelect={() => go(item, 'nav')} />
+              <PaletteRow
+                key={item.id}
+                item={item}
+                language={language}
+                otherLanguage={otherLanguage}
+                icon={Compass}
+                onSelect={() => go(item, 'nav')}
+              />
             ))}
           </Command.Group>
         ) : null}
@@ -275,7 +302,9 @@ export function CommandPalette() {
       */}
       {loadingMore ? (
         <Command.Loading label={t('palette.loading')}>
-          <p className="border-t border-border px-3 py-2 text-xs text-muted-foreground">{t('palette.loading')}</p>
+          <p className="border-t border-border px-3 py-2 text-xs text-muted-foreground">
+            {t('palette.loading')}
+          </p>
         </Command.Loading>
       ) : null}
     </Command.Dialog>
@@ -289,6 +318,7 @@ const SECTION_ICON: Record<string, typeof Scale> = {
   draft: FileSignature,
   trainer: GraduationCap,
   portals: Wrench,
+  library: BookOpen,
 }
 
 const SETTINGS_ICON: Record<string, typeof Scale> = {

@@ -1,0 +1,35 @@
+{
+  "$schema": "../../../schemas/library-definitions.schema.json",
+  "version": "1.0.0",
+  "generatedAt": "2026-09-03",
+  "workId": "ccs-conduct",
+  "unitId": "ccs-conduct-2",
+  "unitNumber": "2",
+  "source": {
+    "name": "Department of Personnel and Training — CCS (Conduct) Rules, 1964 — updated as on 27 February 2015",
+    "url": "https://dopt.gov.in/sites/default/files/CCS_Conduct_Rules_1964_Updated_27Feb15_0.pdf"
+  },
+  "terms": [
+    {
+      "term": "The Government",
+      "definition": "the Central Government",
+      "marker": "(a)",
+      "confidence": "high",
+      "verify": false
+    },
+    {
+      "term": "Government servant",
+      "definition": "any person appointed by Government to any civil service or post in connection with the affairs of the Union and includes a civilian in a Defence Service; EXPLANATION.-A Government servant whose services are placed at the disposal of a company, corporation, organisation or a local authority by the Government shall, for the purpose of these rules, be deemed to be a Government servant serving under the Government notwithstanding that his salary is drawn from sources other than the Consolidated Fund of India",
+      "marker": "(b)",
+      "confidence": "high",
+      "verify": false
+    },
+    {
+      "term": "Members of family",
+      "definition": "(i) the wife or husband as the case may be, of the Government servant, whether residing with the Government servant or not but does not include a wife or husband, as the case may be, separated from the Government servant by a decree or order of a competent Court; (ii) son or daughter or step-son or step-daughter of the Government servant and wholly dependent on him, but does not include a child or step-child who is no longer in any way dependent on the Government servant or of whose custody the Government servant has been deprived by or under any law; (iii) any other person related, whether by blood or marriage to the Government servant or to the Government servant's wife or husband, and wholly dependent on the Government servant",
+      "marker": "(c)",
+      "confidence": "high",
+      "verify": false
+    }
+  ]
+}

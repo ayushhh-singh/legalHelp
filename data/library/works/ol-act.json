@@ -1,7 +1,7 @@
 {
   "$schema": "../../../schemas/library-work.schema.json",
   "version": "1.0.0",
-  "generatedAt": "2026-09-02",
+  "generatedAt": "2026-09-03",
   "id": "ol-act",
   "title": {
     "en": "Official Languages Act, 1963",
@@ -142,6 +142,7 @@
     "official-language",
     "induction"
   ],
+  "amendments": {},
   "officialUrl": "https://rajbhasha.gov.in/sites/default/files/rajbhasha_act_1963e.pdf",
   "source": {
     "name": "Department of Official Language, Ministry of Home Affairs — The Official Languages Act, 1963 (as amended, 1967)",

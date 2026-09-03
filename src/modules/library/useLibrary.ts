@@ -152,12 +152,35 @@ export type ReadingMode = Language | 'both'
 export type TypeFamily = 'sans' | 'serif'
 export type LineHeight = 'normal' | 'relaxed'
 
+/**
+ * The reading surface's own tint.
+ *
+ * `sepia` is a THIRD reading surface inside the existing token system, not a
+ * third app theme: it repaints the page under the text and nothing else, and it
+ * is defined in `src/styles/index.css` from the same `--marigold`/`--foreground`
+ * tokens the rest of the app uses, so it inherits their contrast guarantees.
+ * Dark is the app's own theme toggle and is deliberately NOT duplicated here —
+ * two controls that both darken the page is how they come to disagree.
+ */
+export type ReadingSurface = 'default' | 'sepia'
+
 export interface ReaderPrefs {
   mode: ReadingMode
   /** 1-4. The step, not a pixel size — the sizes themselves live in the reader. */
   size: number
   family: TypeFamily
   lineHeight: LineHeight
+  surface: ReadingSurface
+  /** Focus mode: the rails and the type controls go away, the text stays. */
+  focus: boolean
+  /** Dotted underlines and a popover on every term the document defines. */
+  terms: boolean
+  /** Read aloud: keep going into the next unit when this one finishes. */
+  autoContinue: boolean
+  /** Read-aloud speed, 0.8-1.5. Clamped by `src/lib/library/tts.ts`. */
+  rate: number
+  /** The chosen voice, by URI. Null until one is picked, and after one is uninstalled. */
+  voiceURI: string | null
 }
 
 export const DEFAULT_READER_PREFS: ReaderPrefs = {
@@ -167,12 +190,27 @@ export const DEFAULT_READER_PREFS: ReaderPrefs = {
   size: 2,
   family: 'sans',
   lineHeight: 'normal',
+  surface: 'default',
+  focus: false,
+  // On by default: a reader who has not heard of the feature is better served
+  // by seeing that "competent authority" is defined than by not.
+  terms: true,
+  autoContinue: false,
+  rate: 1,
+  voiceURI: null,
 }
 
 const clampSize = (value: unknown): number => {
   const n = typeof value === 'number' ? Math.round(value) : NaN
   return Number.isFinite(n) ? Math.min(4, Math.max(1, n)) : DEFAULT_READER_PREFS.size
 }
+
+const clampRate = (value: unknown): number => {
+  const n = typeof value === 'number' ? Math.round(value * 10) / 10 : NaN
+  return Number.isFinite(n) ? Math.min(1.5, Math.max(0.8, n)) : DEFAULT_READER_PREFS.rate
+}
+
+const bool = (value: unknown, fallback: boolean): boolean => (typeof value === 'boolean' ? value : fallback)
 
 /** A stored row is untrusted input, the same way every other settings row is. */
 function normalise(stored: unknown, language: Language): ReaderPrefs {
@@ -182,6 +220,15 @@ function normalise(stored: unknown, language: Language): ReaderPrefs {
     size: clampSize(row.size),
     family: row.family === 'serif' ? 'serif' : 'sans',
     lineHeight: row.lineHeight === 'relaxed' ? 'relaxed' : 'normal',
+    surface: row.surface === 'sepia' ? 'sepia' : 'default',
+    focus: bool(row.focus, DEFAULT_READER_PREFS.focus),
+    terms: bool(row.terms, DEFAULT_READER_PREFS.terms),
+    autoContinue: bool(row.autoContinue, DEFAULT_READER_PREFS.autoContinue),
+    rate: clampRate(row.rate),
+    // A voice URI is a string a browser gave us for a voice that may since have
+    // been uninstalled; the picker re-checks it against the installed list
+    // rather than trusting it here.
+    voiceURI: typeof row.voiceURI === 'string' ? row.voiceURI : null,
   }
 }
 
@@ -210,15 +257,18 @@ export function useReaderPrefs(language: Language): {
    * window. It also never rejects: a device whose storage is refused must lose
    * a preference, not throw out of an onClick.
    */
-  const update = useCallback(async (patch: Partial<ReaderPrefs>) => {
-    try {
-      const stored = await db.settings.get(SETTING_KEYS.library)
-      await setSetting(SETTING_KEYS.library, { ...normalise(stored?.value, language), ...patch })
-    } catch {
-      // Nothing to tell the reader: the control simply does not stick, and the
-      // page they are reading is unaffected.
-    }
-  }, [language])
+  const update = useCallback(
+    async (patch: Partial<ReaderPrefs>) => {
+      try {
+        const stored = await db.settings.get(SETTING_KEYS.library)
+        await setSetting(SETTING_KEYS.library, { ...normalise(stored?.value, language), ...patch })
+      } catch {
+        // Nothing to tell the reader: the control simply does not stick, and the
+        // page they are reading is unaffected.
+      }
+    },
+    [language],
+  )
 
   return { prefs, hydrated: row !== undefined, update }
 }

@@ -1,0 +1,70 @@
+{
+  "$schema": "../../../schemas/library-definitions.schema.json",
+  "version": "1.0.0",
+  "generatedAt": "2026-09-03",
+  "workId": "osa",
+  "unitId": "osa-2",
+  "unitNumber": "2",
+  "source": {
+    "name": "Ministry of Home Affairs — The Official Secrets Act, 1923",
+    "url": "https://www.mha.gov.in/sites/default/files/Official_Secret_Act1923_2.pdf"
+  },
+  "terms": [
+    {
+      "term": "document",
+      "definition": "part of a document",
+      "marker": "(3)",
+      "confidence": "high",
+      "verify": false
+    },
+    {
+      "term": "model",
+      "definition": "design, pattern and specimen",
+      "marker": "(4)",
+      "confidence": "high",
+      "verify": false
+    },
+    {
+      "term": "munitions of war",
+      "definition": "the whole or any part of any ship, submarine, aircraft, tank or similar engine, arms and ammunition, torpedo, or mine intended or adapted for use in war, and any other article, material, or device, whether actual or proposed, intended for such use",
+      "marker": "(5)",
+      "confidence": "high",
+      "verify": false
+    },
+    {
+      "term": "office under Government",
+      "definition": "any office or employment in or under any department of the Government 1* * *",
+      "marker": "(6)",
+      "confidence": "high",
+      "verify": false
+    },
+    {
+      "term": "photograph",
+      "definition": "an undeveloped film or plate",
+      "marker": "(7)",
+      "confidence": "high",
+      "verify": false
+    },
+    {
+      "term": "prohibited place",
+      "definition": "(a)any work of defence, arsenal, naval, military or air force establishment or station, mine, minefield, camp, ship or aircraft belonging to, or occupied by or on behalf of, Government, any military telegraph or telephone so belonging or occupied, any wireless or signal station or office so belonging or occupied and any factory, dockyard or other place so belonging or occupied and used for the purpose of building, repairing, making or storing any munitions of war, or any sketches, plans, models or documents relating thereto, or for the purpose of getting any metals, oil or minerals of use in time of war; (b)any place not belonging to Government where any munitions of war or any sketches, models, plans or documents relating thereto, are being made, repaired, gotten or stored under contract with, or with any person on behalf of, Government, or otherwise on behalf of Government; (c)any place belonging to or used for the purpose of Government which is for the time being declared by the Central Government, by notification in the Official Gazette, to be a prohibited place for the purposes of this Act on the ground that information with respect thereto, or damage thereto, would be useful to an 1 The words \"or of the Government of the United Kingdom or of any British possession \" omitted by Act 24 of 1967, s. 3. 641 enemy, and to which a copy of the notification in respect thereof has been affixed in English and in the vernacular of the locality; (d)any railway, road, way or channel, or other means of communication by land or water (including any works or structures being part thereof or connected therewith) or any place used for gas, water or electricity works or other works for purposes of a public character, or any place where any munitions of war or any sketches, models, plans, or documents relating thereto, are being made, repaired, or stored otherwise than on behalf of Government, which is for the time being declared by the Central Government, by notification in the Official Gazette, to be a prohibited place for the purposes of this Act on the ground that information with respect thereto, or the destruction or obstruction thereof, or interference therewith, would be useful to an enemy, and to which a copy of the notification in respect thereof has been affixed in English and in the vernacular of the locality",
+      "marker": "(8)",
+      "confidence": "high",
+      "verify": false
+    },
+    {
+      "term": "sketch",
+      "definition": "any photograph or other mode of representing any place or thing; and 1* * * * *",
+      "marker": "(9)",
+      "confidence": "high",
+      "verify": false
+    },
+    {
+      "term": "Superintendent of Police",
+      "definition": "any police- officer of a like or superior rank, and any person upon whom the powers of a Superintendent of Police are for the purposes of this Act conferred by the Central Government 2* * *",
+      "marker": "(10)",
+      "confidence": "high",
+      "verify": false
+    }
+  ]
+}

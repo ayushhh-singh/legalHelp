@@ -266,6 +266,30 @@
    * `data-print-hide` and is dropped by the rule above, so a printed section is
    * a citation somebody can put in a file rather than a screenshot of an app.
    */
+  /**
+ * The Library's warm reading surface.
+ *
+ * The session brief asked for a "sepia" reading theme. What it does NOT get is
+ * cream paper: `.claude/skills/frontend-design/SKILL.md` lists "cream paper +
+ * serif + terracotta" under NEVER — it was this project's own superseded
+ * direction (ADR-003/006) — and the reader already offers a serif, so a cream
+ * card would rebuild two thirds of it as a preference.
+ *
+ * This is the same request answered inside the palette instead: an 8% wash of
+ * `--marigold`, the one accent, over the card that is already there. No new
+ * token, nothing cream, no terracotta, and the text tokens are untouched — so
+ * the surface is warmer and every contrast guarantee still holds. It is
+ * composited `in srgb` deliberately, because that is the arithmetic
+ * `src/styles/tokens.test.ts#tint` re-does when it asserts the result clears AA
+ * in both themes.
+ *
+ * Dark needs no second rule: `--marigold` is one value in both themes and
+ * `--card` is already the dark surface, so the wash warms it by the same 8%.
+ */
+  .library-sepia .library-print-page {
+    background-color: color-mix(in srgb, var(--marigold) 8%, var(--card));
+  }
+
   @page library-a4 {
     size: A4;
     margin: 20mm;

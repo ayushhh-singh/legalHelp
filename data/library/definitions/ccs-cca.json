@@ -1,0 +1,98 @@
+{
+  "$schema": "../../../schemas/library-definitions.schema.json",
+  "version": "1.0.0",
+  "generatedAt": "2026-09-03",
+  "workId": "ccs-cca",
+  "unitId": "ccs-cca-2",
+  "unitNumber": "2",
+  "source": {
+    "name": "Department of Personnel and Training — CCS (CCA) Rules, 1965 — consolidated",
+    "url": "https://dopt.gov.in/sites/default/files/CCS-CCA-Rules-FINAL.pdf"
+  },
+  "terms": [
+    {
+      "term": "appointing authority",
+      "definition": "(i) the authority empowered to make appointments to the Service of which the Government servant is for the time being a member or to the grade of the Service in which the Government servant is for the time being included, or (ii) the authority empowered to make appointments to the post which the Government servant for the time being holds, or (iii) the authority which appointed the Government servant to such Service, grade or post, as the case may be, or (iv) where the Government servant having been a permanent member of any other Service or having substantively held any other permanent post, has been in continuous employment of the Government, the authority which appointed him to that Service or to any grade in that Service or to that post, whichever authority is the highest authority; (b) \"cadre authority\", in relation to a Service, has the same meaning as in the rules regulating that Service",
+      "marker": "(a)",
+      "confidence": "high",
+      "verify": false
+    },
+    {
+      "term": "Central Civil Service and Central Civil post",
+      "definition": "a civilian Service or civilian post, as the case may be, of the corresponding Group in the Defence Services",
+      "marker": "(c)",
+      "confidence": "high",
+      "verify": false
+    },
+    {
+      "term": "Commission",
+      "definition": "the Union Public Service Commission",
+      "marker": "(d)",
+      "confidence": "high",
+      "verify": false
+    },
+    {
+      "term": "Defence Services",
+      "definition": "services under the Government of India in the Ministry of Defence, paid out of the Defence Services Estimates, and not subject to the Army Act, 1950 (46 of 1950), the Navy Act, 1957 (62 of 1957) and the Air Force Act, 1950 (45 of 1950)",
+      "marker": "(e)",
+      "confidence": "high",
+      "verify": false
+    },
+    {
+      "term": "Department of the Government of India",
+      "definition": "any establishment or organization declared by the President by a notification in the Official Gazette to be a department of the Government of India",
+      "marker": "(f)",
+      "confidence": "high",
+      "verify": false
+    },
+    {
+      "term": "disciplinary authority",
+      "definition": "the authority competent under these rules to impose on a Government servant any of the penalties specified in Rule 11",
+      "marker": "(g)",
+      "confidence": "high",
+      "verify": false
+    },
+    {
+      "term": "Government servant",
+      "definition": "a person who - (i) is a member of a Service or holds a civil post under the Union, and includes any such person on foreign service or whose services are temporarily placed at the disposal of a State Government, or a local or other authority; (ii) is a member of a Service or holds a civil post under a State Government and whose services are temporarily placed at the disposal of the Central Government; (iii) is in the service of a local or other authority and whose services are temporarily placed at the disposal of the Central Government",
+      "marker": "(h)",
+      "confidence": "high",
+      "verify": false
+    },
+    {
+      "term": "head of the department",
+      "definition": "the authority declared to be the head of the department under the Fundamental and Supplementary Rules or the Civil Service Regulations, as the case may be",
+      "marker": "(i)",
+      "confidence": "high",
+      "verify": false
+    },
+    {
+      "term": "head of the office",
+      "definition": "the authority declared to be the head of the office under the General Financial Rules",
+      "marker": "(j)",
+      "confidence": "high",
+      "verify": false
+    },
+    {
+      "term": "Schedule",
+      "definition": "the Schedule to these rules",
+      "marker": "(k)",
+      "confidence": "high",
+      "verify": false
+    },
+    {
+      "term": "Secretary",
+      "definition": "the Secretary to the Government of India in any Ministry or Department, and includes- (i) a Special Secretary or an Additional Secretary, (ii) a Joint Secretary placed in independent charge of a Ministry or Department, (iii) in relation to the Cabinet Secretariat, the Secretary to the Cabinet, (iv) in relation to the President's Secretariat, the Secretary to the President, or as the case may be, the Military Secretary to the President, (v) in relation to Prime Minister's Secretariat, the Secretary to the Prime Minister, and (vi) in relation to the Planning Commission, the Secretary or the Additional Secretary to the Planning Commission",
+      "marker": "(l)",
+      "confidence": "high",
+      "verify": false
+    },
+    {
+      "term": "Service",
+      "definition": "a civil service of the Union",
+      "marker": "(m)",
+      "confidence": "high",
+      "verify": false
+    }
+  ]
+}

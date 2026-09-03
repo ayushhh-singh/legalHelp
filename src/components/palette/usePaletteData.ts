@@ -2,6 +2,7 @@ import { useEffect, useState } from 'react'
 
 import { loadDraftingIndex } from '@/modules/drafting/data'
 import type { DraftingIndex } from '@/modules/drafting/schema'
+import { loadLibraryIndex } from '@/lib/library'
 import { loadCorpus } from '@/modules/law/data'
 import { buildEngine, type LawSearchEngine } from '@/modules/law/search'
 import { loadPayTables } from '@/modules/pay/data'
@@ -12,6 +13,7 @@ import { loadGlossary } from '@/modules/utils/glossary/data'
 import { buildGlossaryIndex, type GlossaryIndex } from '@/modules/utils/glossary/search'
 import { loadPortals } from '@/modules/utils/portals/data'
 import type { PortalsDataset } from '@/modules/utils/portals/schema'
+import type { LibraryIndex } from '@/schemas/library'
 
 /**
  * Every dataset the command palette searches, loaded the first time the
@@ -42,6 +44,8 @@ export interface PaletteData {
   drafting: DraftingIndex | null
   trainer: RulesIndex | null
   portals: PortalsDataset | null
+  /** The 11 KB shelf, never the corpora — see `libraryItems` for why. */
+  library: LibraryIndex | null
 }
 
 const EMPTY: PaletteData = {
@@ -51,13 +55,12 @@ const EMPTY: PaletteData = {
   drafting: null,
   trainer: null,
   portals: null,
+  library: null,
 }
 
 export function usePaletteData(enabled: boolean): PaletteData {
   const [state, setState] = useState<PaletteData>(() =>
-    enabled
-      ? { ...EMPTY, law: lawEngineCache, jobs: jobIndexCache, glossary: glossaryIndexCache }
-      : EMPTY,
+    enabled ? { ...EMPTY, law: lawEngineCache, jobs: jobIndexCache, glossary: glossaryIndexCache } : EMPTY,
   )
 
   useEffect(() => {
@@ -109,6 +112,12 @@ export function usePaletteData(enabled: boolean): PaletteData {
     void loadPortals()
       .then((dataset) => {
         if (!cancelled) setState((s) => ({ ...s, portals: dataset }))
+      })
+      .catch(() => {})
+
+    void loadLibraryIndex()
+      .then((index) => {
+        if (!cancelled) setState((s) => ({ ...s, library: index }))
       })
       .catch(() => {})
 

@@ -1,0 +1,62 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://sahayak.local/schemas/library-quickref.schema.json",
+  "title": "One work's time limits, money figures and named authorities",
+  "description": "An INDEX, not an answer: every row names the unit it came from and quotes the words it was read out of, because a number lifted out of its provision is exactly the kind of fact somebody acts on and gets wrong. Written by scripts/library-extracts.mjs from src/lib/library/quickref.ts, the same module that runs over a reader's own added document.",
+  "type": "object",
+  "additionalProperties": false,
+  "required": ["version", "generatedAt", "workId", "source", "counts", "rows"],
+  "properties": {
+    "$schema": { "type": "string" },
+    "version": { "type": "string", "pattern": "^\\d+\\.\\d+\\.\\d+$" },
+    "generatedAt": { "type": "string", "pattern": "^\\d{4}-\\d{2}-\\d{2}$" },
+    "workId": { "type": "string", "pattern": "^[a-z0-9-]+$" },
+    "source": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["name", "url"],
+      "properties": {
+        "name": { "type": "string", "minLength": 1 },
+        "url": { "type": "string", "pattern": "^https?://" }
+      }
+    },
+    "counts": {
+      "description": "Per kind, so the work page can label its three tabs without loading the rows.",
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["time", "money", "authority"],
+      "properties": {
+        "time": { "type": "integer", "minimum": 0 },
+        "money": { "type": "integer", "minimum": 0 },
+        "authority": { "type": "integer", "minimum": 0 }
+      }
+    },
+    "rows": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": ["unitId", "unitNumber", "kind", "value", "sortKey", "quote", "verify"],
+        "properties": {
+          "unitId": { "type": "string", "minLength": 1 },
+          "unitNumber": { "type": "string", "minLength": 1 },
+          "kind": { "enum": ["time", "money", "authority"] },
+          "value": {
+            "description": "The matched words, exactly as the provision writes them.",
+            "type": "string",
+            "minLength": 1
+          },
+          "sortKey": {
+            "description": "What the table sorts by: days for a time limit, rupees for a figure, the lower-cased phrase for an authority. A period and a figure are not comparable, which is why the tables are separate.",
+            "type": ["number", "string"]
+          },
+          "quote": { "type": "string", "minLength": 1 },
+          "verify": {
+            "description": "True where the extraction is less certain — a period with no deadline lead-in (\"a term of five years\" is not a time limit), or a figure written in words.",
+            "type": "boolean"
+          }
+        }
+      }
+    }
+  }
+}

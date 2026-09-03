@@ -451,6 +451,32 @@ export default defineConfig({
           // it once it has actually been fetched, so a reader who HAS chosen
           // Tier 0 keeps working offline (ADR-037).
           '**/web-llm-*.js',
+          // pdf.js and mammoth, and pdf.js's own worker — together about
+          // 630 KB gzip, reached only when a reader adds a document of their
+          // own from a file (`src/modules/library/personal/extract.ts`). Same
+          // trade as web-llm one line up and a fifth of the size: charging
+          // every installed device for a reader who pastes text, or never adds
+          // a document at all, is the wrong default. The `NetworkFirst` rule
+          // below caches all three once they have actually been fetched, so a
+          // reader who HAS added a document keeps working offline.
+          //
+          // Named by `manualChunks` below rather than left to the chunker, for
+          // the reason ADR-037 records: three mechanisms have to be able to
+          // refer to the same file.
+          //
+          // pdf.js is matched by the name the CHUNKER gives it, not by a
+          // `manualChunks` name. Naming it there was tried and is what the
+          // size budget caught: a named chunk becomes part of the entry's
+          // shared graph, and 125 KB gzip of PDF parser landed on the initial
+          // route of an app most of whose readers never open a PDF. mammoth
+          // does NOT do that, so it keeps its name. The cost of depending on a
+          // chunker-chosen name is paid by
+          // `tests/bundle-budget.test.ts`, which asserts these three are
+          // absent from the built precache manifest — so a rename fails a test
+          // rather than quietly re-adding 630 KB to every install.
+          '**/pdf-*.js',
+          '**/pdf.worker*',
+          '**/docx-reader-*.js',
           '**/inter-cyrillic-*',
           '**/inter-cyrillic-ext-*',
           '**/inter-greek-*',
@@ -520,6 +546,11 @@ export default defineConfig({
          */
         manualChunks(id: string) {
           if (id.includes('@mlc-ai/web-llm')) return 'web-llm'
+          // The two file readers behind "add a document". Named so that
+          // `globIgnores` above and `scripts/size-budget.json` can both refer
+          // to them; without a fixed name the chunker's choice would silently
+          // change and the precache exclusion would stop matching.
+          if (id.includes('/mammoth/')) return 'docx-reader'
           return undefined
         },
       },

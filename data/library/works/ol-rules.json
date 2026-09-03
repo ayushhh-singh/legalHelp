@@ -1,7 +1,7 @@
 {
   "$schema": "../../../schemas/library-work.schema.json",
   "version": "1.0.0",
-  "generatedAt": "2026-09-02",
+  "generatedAt": "2026-09-03",
   "id": "ol-rules",
   "title": {
     "en": "Official Languages (Use for Official Purposes of the Union) Rules, 1976",
@@ -198,6 +198,7 @@
     "official-language",
     "noting-and-drafting"
   ],
+  "amendments": {},
   "officialUrl": "https://rajbhasha.gov.in/en/official-language-rules-1976",
   "source": {
     "name": "Department of Official Language, Ministry of Home Affairs — Official Languages Rules, 1976 (as amended 1987, 2007, 2011)",

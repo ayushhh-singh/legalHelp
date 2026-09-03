@@ -25,6 +25,76 @@ describe('buildBackup', () => {
     }
   })
 
+  /**
+   * Named explicitly, on top of the "every table" assertion above.
+   *
+   * That one passes by construction — `EXCLUDED_FROM_BACKUP` is a deny-list, so
+   * a table added in a later session is backed up by default and the loop
+   * cannot fail for it. Which is the right default and also means the general
+   * assertion cannot tell anyone whether the five tables that hold a reader's
+   * annotations are really in the file. These are the rows an officer would
+   * most notice the loss of: what they highlighted, what they wrote, what they
+   * bookmarked, how far they had read, and a document they added themselves
+   * that exists in no dataset and cannot be recovered from anywhere else.
+   */
+  it('carries every Library table, including the ones a reader cannot get back', async () => {
+    const backup = await buildBackup('0.1.0')
+    for (const table of [
+      'libraryProgress',
+      'libraryBookmarks',
+      'libraryHighlights',
+      'libraryNotes',
+      'libraryPersonalWorks',
+    ]) {
+      expect(Object.keys(backup.tables), table).toContain(table)
+    }
+  })
+
+  it('round-trips a highlight, a note and a personal work through export and import', async () => {
+    await db.libraryHighlights.put({
+      id: 'hl-1',
+      workId: 'rti',
+      unitId: 'rti-8',
+      lang: 'en',
+      start: 10,
+      end: 24,
+      quote: 'public interest',
+      colour: 'marigold',
+      createdAt: '2026-09-03T00:00:00.000Z',
+    })
+    await db.libraryNotes.put({
+      id: 'note-1',
+      workId: 'rti',
+      unitId: 'rti-8',
+      body: 'Read with the DPDP amendment.',
+      createdAt: '2026-09-03T00:00:00.000Z',
+      updatedAt: '2026-09-03T00:00:00.000Z',
+    })
+    await db.libraryPersonalWorks.put({
+      id: 'my-office-order-abc',
+      title: 'Office order',
+      language: 'en',
+      note: '',
+      unitWord: 'paragraph',
+      units: [
+        { id: 'my-office-order-abc-1', number: '1', heading: '', text: 'Applies to all.', division: null },
+      ],
+      divisions: [],
+      createdAt: '2026-09-03T00:00:00.000Z',
+      updatedAt: '2026-09-03T00:00:00.000Z',
+    })
+
+    const backup = await buildBackup('0.1.0')
+    await db.libraryHighlights.clear()
+    await db.libraryNotes.clear()
+    await db.libraryPersonalWorks.clear()
+    await restoreBackup(backup)
+
+    expect((await db.libraryHighlights.get('hl-1'))?.quote).toBe('public interest')
+    expect((await db.libraryNotes.get('note-1'))?.body).toBe('Read with the DPDP amendment.')
+    expect((await db.libraryPersonalWorks.get('my-office-order-abc'))?.units).toHaveLength(1)
+  })
+
   it('carries the rows that are actually there', async () => {
     await setSetting(SETTING_KEYS.theme, 'dark')
     await db.lawFavourites.put({

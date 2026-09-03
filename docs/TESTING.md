@@ -278,7 +278,37 @@ rather than buffering. Neither suite reaches the network.
 
 ---
 
-### 8. Data pipeline — Python
+### 8. The Library's annotation layer — where the split runs
+
+Session 27's work divides unusually cleanly between what jsdom can answer and what it cannot, and the
+division is worth knowing before adding a test to it.
+
+**jsdom answers the anchoring**, which is the breakable part. jsdom has a real `Selection` and a real
+`Range`, so `src/modules/library/annotations.test.tsx` drives a selection over rendered paragraphs and
+checks that `selectionOffsets` produces offsets that slice back to what was selected — including
+across the spans a highlight splits a paragraph into, which is the case a text-node walk would get
+wrong. It also covers the three-layer render (highlights nest inside citations, never the reverse),
+the note editor's debounce and its cross-tab notice, and that "add to trainer" writes an `unreviewed`
+row and nothing else.
+
+**Only a browser answers whether a mark survives.**
+`tests/e2e/library-annotations.spec.ts` highlights a real phrase in the CCS (Conduct) Rules, reloads,
+finds it still drawn over the text, writes a note on it, reloads again, and then adds it to the
+Trainer and finds it in `/learn/review-queue`. A second test pastes an act, confirms the split and
+reads the result with the network off. Neither declares `allowCrossOrigin`, so both are also privacy
+assertions.
+
+That spec selects by building a `Range` in the page rather than dragging the mouse: Playwright's
+mouse emulation across a wrapped line is unreliable, and what is under test is the offset mapping,
+not the platform's drag handling.
+
+**Two defects came out of that split and both were on the browser side.** A personal work bounced back
+to the shelf on the first render after it was saved, because `useLiveQuery` reports "still asking" and
+`Table.get` reports "no such row" with the same `undefined` — nothing in jsdom opened a personal work
+by its route. And `/library/add` shipped an `sr-only` file input, which is still in the accessibility
+tree and still needs a label; only the axe sweep says so.
+
+### 9. Data pipeline — Python
 
 `scripts/ingest` and `scripts/authoring` are tested with stdlib `unittest`, not Vitest — 185 tests
 across the two. `validate_data.py` checks all 77 datasets against `schemas/`, and **fails on a file
@@ -316,6 +346,7 @@ are uploaded for 14 days — `pnpm exec playwright show-trace <file>`.
 - **A page that renders more than a few hundred rows needs its render capped**, and only axe in a real browser will tell you. An unfiltered 1,891-row glossary ran `axe.run()` past a 30-second timeout; `MAX_RENDERED = 100` bounds the list, never the search.
 - **`pnpm test:e2e` cannot see a StrictMode bug.** Playwright runs a production build, where StrictMode is inert, so an effect that is not idempotent across mount → cleanup → mount passes every e2e spec and is broken the moment anyone opens `pnpm dev`. Any new effect that guards a ref, or that a cleanup disarms, wants a test that renders inside `<StrictMode>` — `src/lib/useAsync.test.tsx` and `src/modules/drafting/useDraft.test.tsx` are the pattern.
 - **A race that will not reproduce outside the real test runner is not evidence the runner is wrong.** An `aria-required-children` failure appeared only under `playwright test --repeat-each=10` and never in a hand-written replay of the same steps (ADR-029).
+- **A test that installs fake timers and then times out never restores the clock.** `vi.useFakeTimers()` in a `try` whose `finally` calls `vi.useRealTimers()` does NOT protect the tests after it: a test killed by its own timeout never reaches the `finally`, and every test that follows then hangs for the full 30 seconds. One leaked clock reads as six broken components. Prefer waiting out a real debounce — 500 ms is cheap — and reach for fake timers only where the interval is minutes.
 
 ## Findings this harness has produced
 

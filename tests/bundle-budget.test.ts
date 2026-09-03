@@ -1,4 +1,4 @@
-import { existsSync, readFileSync } from 'node:fs'
+import { readdirSync, existsSync, readFileSync } from 'node:fs'
 import { gzipSync } from 'node:zlib'
 
 import { describe, expect, it } from 'vitest'
@@ -75,6 +75,36 @@ describe('bundle budget', () => {
       'anthropic-version',
     ]) {
       expect(initial, `"${marker}" reached the initial route`).not.toContain(marker)
+    }
+  })
+
+  /**
+   * The three chunks behind "add a document", absent from the PRECACHE.
+   *
+   * ~630 KB gzip of pdf.js, its worker and mammoth, for a feature most readers
+   * never use. `globIgnores` in `vite.config.ts` keeps them out — and two of
+   * the three patterns match a name the CHUNKER chose rather than one
+   * `manualChunks` fixed, because naming pdf.js there put 125 KB of it on the
+   * initial route (the budget above caught that, which is what it is for).
+   *
+   * This is the test that makes depending on a chunker-chosen name safe: a
+   * rename fails here, loudly, instead of silently re-adding 630 KB to every
+   * install. The `NetworkFirst` runtime rule still caches all three once
+   * fetched, so a reader who HAS added a document keeps working offline.
+   */
+  built('keeps the two file readers and the PDF worker out of the precache', () => {
+    const manifest = readFromRoot('dist/sw.js')
+    const assets = readdirSync(fromRoot('dist/assets'))
+
+    const excluded = assets.filter(
+      (asset) => /^pdf[-.]/.test(asset) || asset.startsWith('docx-reader-') || asset.startsWith('web-llm-'),
+    )
+    // If this is empty the assertion below proves nothing — the chunks were
+    // renamed and the globIgnores stopped matching, which is the failure.
+    expect(excluded.length, 'no pdf/mammoth/web-llm chunk found in dist/assets').toBeGreaterThanOrEqual(3)
+
+    for (const asset of excluded) {
+      expect(manifest, `${asset} is precached and should not be`).not.toContain(asset)
     }
   })
 

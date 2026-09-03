@@ -236,6 +236,36 @@ describe('design tokens', () => {
     })
   })
 
+  /**
+   * The Library's warm reading surface (`.library-sepia` in `index.css`).
+   *
+   * It is an 8% `--marigold` wash over `--card` rather than a cream token,
+   * because "cream paper + serif + terracotta" is on the design system's NEVER
+   * list and the reader already offers a serif. That makes it a COMPOSITE
+   * surface nothing else in this file covers: the pairs above check declared
+   * tokens, and this one is declared nowhere. Asserted here so a change to
+   * `--marigold` or `--card` cannot quietly push the body text of a rule book
+   * below AA on the surface a reader chose for comfort.
+   */
+  describe('the Library reading surface', () => {
+    const READING_ALPHA = 0.08
+
+    it.each(THEME_NAMES.flatMap((theme) => TEXT_TOKENS.map((token) => [theme, token] as const)))(
+      'carries --%s text on the marigold wash at AA (%s)',
+      (theme, token) => {
+        const surface = tint(get(theme, 'marigold'), get(theme, 'card'), READING_ALPHA)
+        expect(contrast(get(theme, token), surface)).toBeGreaterThanOrEqual(AA_TEXT)
+      },
+    )
+
+    it.each(THEME_NAMES)('keeps the wash distinguishable from the plain card (%s)', (theme) => {
+      // If it were not, the control would do nothing visible and the reader
+      // would toggle it back and forth looking for the difference.
+      const surface = tint(get(theme, 'marigold'), get(theme, 'card'), READING_ALPHA)
+      expect(contrast(surface, get(theme, 'card'))).toBeGreaterThan(1.01)
+    })
+  })
+
   it('keeps --marigold identical in both themes, as one brand gold', () => {
     expect(get('light', 'marigold')).toEqual(get('dark', 'marigold'))
     expect(get('light', 'marigold')).toEqual(get('light', 'brand-gold'))

@@ -1,0 +1,44 @@
+{
+  "$schema": "../../../schemas/library-quickref.schema.json",
+  "version": "1.0.0",
+  "generatedAt": "2026-09-03",
+  "workId": "ol-act",
+  "source": {
+    "name": "Department of Official Language, Ministry of Home Affairs — The Official Languages Act, 1963 (as amended, 1967)",
+    "url": "https://rajbhasha.gov.in/sites/default/files/rajbhasha_act_1963e.pdf"
+  },
+  "counts": {
+    "time": 3,
+    "money": 0,
+    "authority": 0
+  },
+  "rows": [
+    {
+      "unitId": "ol-act-2",
+      "unitNumber": "2",
+      "kind": "time",
+      "value": "fifteen years",
+      "sortKey": 5475,
+      "quote": "…ament.- (1) Notwithstanding the expiration of the period of fifteen years from the commencement of the Constitution, the English lang…",
+      "verify": true
+    },
+    {
+      "unitId": "ol-act-4",
+      "unitNumber": "4",
+      "kind": "time",
+      "value": "ten years",
+      "sortKey": 3650,
+      "quote": "(1) After the expiration of ten years from the date on which section 3 comes into force, there sh…",
+      "verify": true
+    },
+    {
+      "unitId": "ol-act-8",
+      "unitNumber": "8",
+      "kind": "time",
+      "value": "thirty days",
+      "sortKey": 30,
+      "quote": "…of Parliament while it is in session for a total period of thirty days which may be comprised in one session or 2[in two or more s…",
+      "verify": true
+    }
+  ]
+}

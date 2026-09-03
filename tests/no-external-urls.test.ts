@@ -105,6 +105,29 @@ const ALLOWED_INERT: ReadonlyArray<{ pattern: RegExp; why: string }> = [
       'under src/ names it, the same way CITATION_HOSTS is (ADR-030).',
   },
   { pattern: /^https?:\/\/(www\.)?w3\.org\//, why: 'XML/SVG namespace identifiers, never fetched' },
+  {
+    pattern: /^https?:\/\/purl\.(oclc\.org\/ooxml|org\/dc)\//,
+    why:
+      "OOXML namespace identifiers in mammoth's .docx reader (the `docx-reader` chunk) — the transitional " +
+      'and strict flavours of the same names the `docx` writer already carries. Namespace URIs are names, ' +
+      'not addresses: nothing resolves them. Confined to that chunk by the carriers assertion below.',
+  },
+  {
+    pattern: /^https?:\/\/(goo\.gl\/(MqrFmX|rRqMUw)|schemas\.zwobble\.org\/mammoth\/style-map)$/,
+    why:
+      'mammoth documentation links in a thrown-error message, and its own style-map namespace identifier. ' +
+      'Read in the built bundle; neither is fetched, and both are inside the lazily-imported `docx-reader` ' +
+      'chunk that only "add a document" pulls.',
+  },
+  {
+    pattern: /^https?:\/\/(example\.com|foo\.bar|\$\{e\})$/,
+    why:
+      "pdf.js's own placeholder URLs — one in a JSDoc-derived string, one in a URL-validity probe, and one " +
+      'template literal whose host is substituted at runtime from the document being read. All three are ' +
+      'inside the lazily-imported pdf.js chunk, which is reached only when a reader opens a PDF of their own ' +
+      'from their own device (src/modules/library/personal/extract.ts) and which is excluded from the ' +
+      'service worker precache.',
+  },
   { pattern: /^https?:\/\/ui\.shadcn\.com\/schema\.json$/, why: 'components.json $schema, tooling only' },
   { pattern: /^https?:\/\/react\.dev\/errors\//, why: 'React 19 minified-error message text' },
   {
@@ -713,14 +736,25 @@ describe('no external URLs', () => {
      * exactly as `names api.anthropic.com in exactly one module` does for the
      * one endpoint this app may ever reach.
      */
-    whenBuilt('confines the OOXML namespaces to the .docx exporter’s own chunk', () => {
-      const ooxml = /https?:\/\/(schemas\.(openxmlformats\.org|microsoft\.com)|purl\.org\/dc)\//
+    whenBuilt('confines the OOXML namespaces to the two chunks that read or write .docx', () => {
+      const ooxml =
+        /https?:\/\/(schemas\.(openxmlformats\.org|microsoft\.com)|purl\.(org\/dc|oclc\.org\/ooxml))\//
       const carriers = walk(dist, BUILD_EXTENSIONS)
         .filter((file) => ooxml.test(readFromRoot(relative(projectRoot, file))))
         .map((file) => relative(projectRoot, file))
+        .sort()
 
-      expect(carriers).toHaveLength(1)
-      expect(carriers[0]).toMatch(/^dist[\\/]assets[\\/]docx-[\w-]+\.js$/)
+      // TWO now, not one: `docx-*` writes a .docx in the Drafting Studio and
+      // `docx-reader-*` (mammoth) reads one a reader added to the Library. Both
+      // are vendor chunks behind a dynamic import; the claim is unchanged —
+      // an OOXML namespace in APPLICATION code, or on the initial route, still
+      // fails here.
+      // Asserted as a SET, not by position: `docx-IfYi…` sorts before
+      // `docx-reader-…` on one build and could sort after it on another, and a
+      // test that fails on a content hash is a test nobody trusts.
+      expect(carriers).toHaveLength(2)
+      expect(carriers.some((file) => /assets[\\/]docx-reader-[\w-]+\.js$/.test(file))).toBe(true)
+      expect(carriers.some((file) => /assets[\\/]docx-(?!reader)[\w-]+\.js$/.test(file))).toBe(true)
     })
 
     /**

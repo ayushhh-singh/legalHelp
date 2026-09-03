@@ -36,8 +36,18 @@ export function adjacent(corpus: LibraryCorpus, unitId: string): Adjacent {
   return { previous: at(-1), next: at(1), position: index + 1, total: present.length }
 }
 
+/**
+ * The narrow shapes these three read.
+ *
+ * Structural rather than `LibraryWork` for the reason `CorpusWork` in
+ * `corpus.ts` gives: a document the reader added has no publisher, no official
+ * URL and no source, and it must still be navigable.
+ */
+export type OrderedWork = Pick<LibraryWork, 'readingOrder'>
+export type TocWork = Pick<LibraryWork, 'toc'>
+
 /** The first unit of a work — what "Start reading" opens. */
-export function firstUnitId(work: LibraryWork): string | null {
+export function firstUnitId(work: OrderedWork): string | null {
   return work.readingOrder[0] ?? null
 }
 
@@ -46,7 +56,7 @@ export function firstUnitId(work: LibraryWork): string | null {
  * reader's breadcrumb and for opening the right branch of the TOC. Empty when
  * the unit is not in this table of contents.
  */
-export function tocPath(work: LibraryWork, unitId: string): TocNode[] {
+export function tocPath(work: TocWork, unitId: string): TocNode[] {
   const walk = (nodes: readonly TocNode[], trail: TocNode[]): TocNode[] | null => {
     for (const node of nodes) {
       if (!node.unitIds.includes(unitId)) continue
@@ -60,6 +70,6 @@ export function tocPath(work: LibraryWork, unitId: string): TocNode[] {
 }
 
 /** Every unit id the table of contents names, in order. */
-export function tocUnitIds(work: LibraryWork): string[] {
+export function tocUnitIds(work: TocWork): string[] {
   return tocLeaves(work.toc).flatMap((node) => node.unitIds)
 }

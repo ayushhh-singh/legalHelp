@@ -1,0 +1,77 @@
+{
+  "$schema": "../../../schemas/library-definitions.schema.json",
+  "version": "1.0.0",
+  "generatedAt": "2026-09-03",
+  "workId": "ol-rules",
+  "unitId": "ol-rules-2",
+  "unitNumber": "2",
+  "source": {
+    "name": "Department of Official Language, Ministry of Home Affairs — Official Languages Rules, 1976 (as amended 1987, 2007, 2011)",
+    "url": "https://rajbhasha.gov.in/en/official-language-rules-1976"
+  },
+  "terms": [
+    {
+      "term": "Act",
+      "definition": "theOfficial Languages Act, 1963 (19 of 1963):",
+      "marker": "(a)",
+      "confidence": "high",
+      "verify": false
+    },
+    {
+      "term": "Central Government Office",
+      "definition": "(i) any Ministry, Department or office of the Central Government, (ii) any office of a Commission, Committee or Tribunal appointed by the Central Government; and (iii) any office of a corporation or company owned or controlled by the Central Government",
+      "marker": "(b)",
+      "confidence": "high",
+      "verify": false
+    },
+    {
+      "term": "Employee",
+      "definition": "any person employed in a Central Government office",
+      "marker": "(c)",
+      "confidence": "high",
+      "verify": false
+    },
+    {
+      "term": "Notified Office",
+      "definition": "an office notified under sub-rule (4) of rule 10",
+      "marker": "(d)",
+      "confidence": "high",
+      "verify": false
+    },
+    {
+      "term": "Proficiency in Hindi",
+      "definition": "proficiency in Hindi as described in rule 9",
+      "marker": "(e)",
+      "confidence": "high",
+      "verify": false
+    },
+    {
+      "term": "Region A",
+      "definition": "the States of Bihar, Haryana, Himachal Pradesh, Madhya Pradesh, Chhattisgarh, Jharkhand, Uttarakhand, Rajasthan and Uttar Pradesh and the Union Territories of Delhi and Andaman and Nicobar Islands",
+      "marker": "(f)",
+      "confidence": "high",
+      "verify": false
+    },
+    {
+      "term": "Region B",
+      "definition": "the States of Gujarat, Maharashtra and Punjab and the Union Territory of Chandigarh, Daman and Diu and Dadra and Nagar Haveli",
+      "marker": "(g)",
+      "confidence": "high",
+      "verify": false
+    },
+    {
+      "term": "Region C",
+      "definition": "the States and the Union Territories other than those referred to in clauses (f) and (g)",
+      "marker": "(h)",
+      "confidence": "high",
+      "verify": false
+    },
+    {
+      "term": "Working knowledge of Hindi",
+      "definition": "working knowledge of Hindi as described in rule 10",
+      "marker": "(i)",
+      "confidence": "high",
+      "verify": false
+    }
+  ]
+}

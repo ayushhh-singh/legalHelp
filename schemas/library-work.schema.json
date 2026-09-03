@@ -24,7 +24,8 @@
     "examTags",
     "officialUrl",
     "source",
-    "disclaimer"
+    "disclaimer",
+    "amendments"
   ],
   "properties": {
     "$schema": {
@@ -148,6 +149,32 @@
       "additionalProperties": {
         "type": "integer",
         "minimum": 1
+      }
+    },
+    "amendments": {
+      "description": "Dated, sourced notes about a provision that has CHANGED, keyed by unit id. The base text is never edited to match: data/library carries structure, and the corpus it points at is owned by the ingest that fetched it (ADR-038 s.1). The reader renders each note as a banner above the unit, so an officer reading a provision this app has not caught up with is told so rather than left to find out elsewhere. Hand-written and hand-sourced; empty for a work with no such note.",
+      "type": "object",
+      "additionalProperties": {
+        "type": "array",
+        "minItems": 1,
+        "items": {
+          "type": "object",
+          "additionalProperties": false,
+          "required": ["date", "note", "source"],
+          "properties": {
+            "date": {
+              "description": "When the change took effect, ISO. Not when it was notified.",
+              "type": "string",
+              "pattern": "^\\d{4}-\\d{2}-\\d{2}$"
+            },
+            "note": {
+              "$ref": "#/$defs/bilingual"
+            },
+            "source": {
+              "$ref": "#/$defs/source"
+            }
+          }
+        }
       }
     }
   },

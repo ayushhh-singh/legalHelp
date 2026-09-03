@@ -118,6 +118,14 @@ const EVERY_ROUTE = [
   // it needs is precached rather than fetched on demand, and an offline reload
   // is what proves it.
   '/library/ccs-conduct/ccs-conduct-3',
+  // Everything a reader wrote is in IndexedDB and everything they added is a
+  // row, so these five must work with no network at all — which is the only
+  // condition most of this session's work will ever be used under.
+  '/library/mine',
+  '/library/bookmarks',
+  '/library/compare',
+  '/library/search',
+  '/library/add',
   '/utils',
   '/utils/glossary',
   '/utils/holidays',

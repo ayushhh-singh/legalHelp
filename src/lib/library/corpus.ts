@@ -121,7 +121,18 @@ const cite = (unitLabel: Bilingual, number: string, title: Bilingual): Bilingual
  * The excerpt travels with the unit for the same reason, so a caller with a
  * unit in hand never has to go back to the TOC to label it.
  */
-export function buildCorpus(work: LibraryWork, corpus: CorpusJson): LibraryCorpus {
+/**
+ * The parts of a work this file actually reads.
+ *
+ * Narrower than `LibraryWork` on purpose: a document the reader added has no
+ * publisher, no official URL and no source (`src/lib/library/personal.ts`), and
+ * it must still be able to become a corpus. Taking a structural subtype is what
+ * lets one reader render both without the dataset schema being relaxed to
+ * accommodate something that is not a dataset.
+ */
+export type CorpusWork = Pick<LibraryWork, 'id' | 'toc' | 'readingOrder' | 'unitLabel' | 'title' | 'corpus'>
+
+export function buildCorpus(work: CorpusWork, corpus: CorpusJson): LibraryCorpus {
   const byNodeUnit = new Map<string, TocNode>()
   for (const node of tocLeaves(work.toc)) {
     const unitId = node.unitIds[0]

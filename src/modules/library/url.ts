@@ -13,6 +13,40 @@
  */
 export const toLibraryHref = (): string => '/library'
 
+/** The Library's own screens, beside the shelf. */
+export const toMineHref = (): string => '/library/mine'
+export const toBookmarksHref = (): string => '/library/bookmarks'
+export const toAddWorkHref = (): string => '/library/add'
+export const toLibrarySearchHref = (query?: string): string =>
+  query ? `/library/search?q=${encodeURIComponent(query)}` : '/library/search'
+
+/**
+ * `/library/compare?a=<work>:<unit>&b=…` — two units side by side.
+ *
+ * A colon-joined pair rather than four parameters, because the two sides are
+ * one thing the reader swaps: `a` and `b` trading places must be one edit, and
+ * a link with `aWork` but no `aUnit` is a state nobody meant to produce.
+ */
+export const compareRef = (workId: string, unitId: string): string => `${workId}:${unitId}`
+
+export function parseCompareRef(value: string | null): { workId: string; unitId: string } | null {
+  if (!value) return null
+  const at = value.indexOf(':')
+  if (at <= 0 || at === value.length - 1) return null
+  return { workId: value.slice(0, at), unitId: value.slice(at + 1) }
+}
+
+export function toCompareHref(
+  a: { workId: string; unitId: string } | null,
+  b?: { workId: string; unitId: string } | null,
+): string {
+  const params = new URLSearchParams()
+  if (a) params.set('a', compareRef(a.workId, a.unitId))
+  if (b) params.set('b', compareRef(b.workId, b.unitId))
+  const query = params.toString()
+  return query ? `/library/compare?${query}` : '/library/compare'
+}
+
 export const toWorkHref = (workId: string): string => `/library/${encodeURIComponent(workId)}`
 
 export const toUnitHref = (workId: string, unitId: string): string =>

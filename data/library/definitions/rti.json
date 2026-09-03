@@ -1,0 +1,126 @@
+{
+  "$schema": "../../../schemas/library-definitions.schema.json",
+  "version": "1.0.0",
+  "generatedAt": "2026-09-03",
+  "workId": "rti",
+  "unitId": "rti-2",
+  "unitNumber": "2",
+  "source": {
+    "name": "Department of Personnel and Training — Right to Information Act, 2005 — updated as on 18 November 2025",
+    "url": "https://dopt.gov.in/sites/default/files/RTI%20Act%202005%20%28updated%20as%20on%2018-11-2025%29.pdf"
+  },
+  "terms": [
+    {
+      "term": "appropriate Government",
+      "definition": "in relation to a public authority which is established, constituted, owned, controlled or substantially financed by funds provided directly or indirectly- (i) by the Central Government or the Union territory administration, the Central Government; (ii) by the State Government, the State Government",
+      "marker": "(a)",
+      "confidence": "high",
+      "verify": false
+    },
+    {
+      "term": "Central Information Commission",
+      "definition": "the Central Information Commission constituted under sub-section (1) of section 12",
+      "marker": "(b)",
+      "confidence": "high",
+      "verify": false
+    },
+    {
+      "term": "Central Public Information Officer",
+      "definition": "the Central Public Information Officer designated under sub-section (1) and includes a Central Assistant Public Information Officer designated as such under sub-section (2) of section 5",
+      "marker": "(c)",
+      "confidence": "high",
+      "verify": false
+    },
+    {
+      "term": "Chief Information Commissioner",
+      "definition": "the Chief Information Commissioner and Information Commissioner appointed under sub-section (3) of section 12; 1. The words \"except the State of Jammu and Kashmir\" omitted by Act 34 of 2019, s. 95 and the Fifth Schedule (w.e.f. 31-10-2019)",
+      "marker": "(d)",
+      "confidence": "high",
+      "verify": false
+    },
+    {
+      "term": "Information Commissioner",
+      "definition": "the Chief Information Commissioner and Information Commissioner appointed under sub-section (3) of section 12; 1. The words \"except the State of Jammu and Kashmir\" omitted by Act 34 of 2019, s. 95 and the Fifth Schedule (w.e.f. 31-10-2019)",
+      "marker": "(d)",
+      "confidence": "high",
+      "verify": false
+    },
+    {
+      "term": "competent authority",
+      "definition": "(i) the Speaker in the case of the House of the People or the Legislative Assembly of a State or a Union territory having such Assembly and the Chairman in the case of the Council of States or Legislative Council of a State; (ii) the Chief Justice of India in the case of the Supreme Court; (iii) the Chief Justice of the High Court in the case of a High Court; (iv) the President or the Governor, as the case may be, in the case of other authorities established or constituted by or under the Constitution; (v) the administrator appointed under article 239 of the Constitution",
+      "marker": "(e)",
+      "confidence": "high",
+      "verify": false
+    },
+    {
+      "term": "information",
+      "definition": "any material in any form, including records, documents, memos, e-mails, opinions, advices, press releases, circulars, orders, logbooks, contracts, reports, papers, samples, models, data material held in any electronic form and information relating to any private body which can be accessed by a public authority under any other law for the time being in force",
+      "marker": "(f)",
+      "confidence": "high",
+      "verify": false
+    },
+    {
+      "term": "prescribed",
+      "definition": "prescribed by rules made under this Act by the appropriate Government or the competent authority, as the case may be",
+      "marker": "(g)",
+      "confidence": "high",
+      "verify": false
+    },
+    {
+      "term": "public authority",
+      "definition": "any authority or body or institution of self- government established or constituted- (a) by or under the Constitution; (b) by any other law made by Parliament; (c) by any other law made by State Legislature; (d) by notification issued or order made by the appropriate Government, and includes any- (i) body owned, controlled or substantially financed; (ii) non-Government organisation substantially financed, directly or indirectly by funds provided by the appropriate Government",
+      "marker": "(h)",
+      "confidence": "high",
+      "verify": false
+    },
+    {
+      "term": "record",
+      "definition": "(a) any document, manuscript and file; (b) any microfilm, microfiche and facsimile copy of a document; (c) any reproduction of image or images embodied in such microfilm (whether enlarged or not); and (d) any other material produced by a computer or any other device",
+      "marker": "(i)",
+      "confidence": "high",
+      "verify": false
+    },
+    {
+      "term": "right to information",
+      "definition": "the right to information accessible under this Act which is held by or under the control of any public authority and includes the right to- (i) inspection of work, documents, records; (ii) taking notes, extracts or certified copies of documents or records; (iii) taking certified samples of material; (iv) obtaining information in the form of diskettes, floppies, tapes, video cassettes or in any other electronic mode or through printouts where such information is stored in a computer or in any other device",
+      "marker": "(j)",
+      "confidence": "high",
+      "verify": false
+    },
+    {
+      "term": "State Information Commission",
+      "definition": "the State Information Commission constituted under sub-section (1) of section 15",
+      "marker": "(k)",
+      "confidence": "high",
+      "verify": false
+    },
+    {
+      "term": "State Chief Information Commissioner",
+      "definition": "the State Chief Information Commissioner and the State Information Commissioner appointed under sub- section (3) of section 15",
+      "marker": "(l)",
+      "confidence": "high",
+      "verify": false
+    },
+    {
+      "term": "State Information Commissioner",
+      "definition": "the State Chief Information Commissioner and the State Information Commissioner appointed under sub- section (3) of section 15",
+      "marker": "(l)",
+      "confidence": "high",
+      "verify": false
+    },
+    {
+      "term": "State Public Information Officer",
+      "definition": "the State Public Information Officer designated under sub-section (1) and includes a State Assistant Public Information Officer designated as such under sub-section (2) of section 5",
+      "marker": "(m)",
+      "confidence": "high",
+      "verify": false
+    },
+    {
+      "term": "third party",
+      "definition": "a person other than the citizen making a request for information and includes a public authority. CHAPTER II RIGHT TO INFORMATION AND OBLIGATIONS OF PUBLIC AUTHORITIES",
+      "marker": "(n)",
+      "confidence": "high",
+      "verify": false
+    }
+  ]
+}

@@ -1,0 +1,2483 @@
+{
+  "$schema": "../../../schemas/library-quickref.schema.json",
+  "version": "1.0.0",
+  "generatedAt": "2026-09-03",
+  "workId": "rti",
+  "source": {
+    "name": "Department of Personnel and Training — Right to Information Act, 2005 — updated as on 18 November 2025",
+    "url": "https://dopt.gov.in/sites/default/files/RTI%20Act%202005%20%28updated%20as%20on%2018-11-2025%29.pdf"
+  },
+  "counts": {
+    "time": 26,
+    "money": 0,
+    "authority": 248
+  },
+  "rows": [
+    {
+      "unitId": "rti-2",
+      "unitNumber": "2",
+      "kind": "authority",
+      "value": "Central Information Commission",
+      "sortKey": "central information commission",
+      "quote": "…t; (ii) by the State Government, the State Government; (b) \"Central Information Commission\" means the Central Information Commission constituted under…",
+      "verify": false
+    },
+    {
+      "unitId": "rti-2",
+      "unitNumber": "2",
+      "kind": "authority",
+      "value": "Central Information Commission",
+      "sortKey": "central information commission",
+      "quote": "…Government; (b) \"Central Information Commission\" means the Central Information Commission constituted under sub-section (1) of section 12; (c) \"Centr…",
+      "verify": false
+    },
+    {
+      "unitId": "rti-2",
+      "unitNumber": "2",
+      "kind": "authority",
+      "value": "Central Public Information Officer",
+      "sortKey": "central public information officer",
+      "quote": "…ssion constituted under sub-section (1) of section 12; (c) \"Central Public Information Officer\" means the Central Public Information Officer designated un…",
+      "verify": false
+    },
+    {
+      "unitId": "rti-2",
+      "unitNumber": "2",
+      "kind": "authority",
+      "value": "Central Public Information Officer",
+      "sortKey": "central public information officer",
+      "quote": "…tion 12; (c) \"Central Public Information Officer\" means the Central Public Information Officer designated under sub-section (1) and includes a Central Ass…",
+      "verify": false
+    },
+    {
+      "unitId": "rti-2",
+      "unitNumber": "2",
+      "kind": "authority",
+      "value": "Central Assistant Public Information Officer",
+      "sortKey": "central assistant public information officer",
+      "quote": "…ion Officer designated under sub-section (1) and includes a Central Assistant Public Information Officer designated as such under sub-section (2) of section 5; (d)…",
+      "verify": false
+    },
+    {
+      "unitId": "rti-2",
+      "unitNumber": "2",
+      "kind": "authority",
+      "value": "Chief Information Commissioner",
+      "sortKey": "chief information commissioner",
+      "quote": "…designated as such under sub-section (2) of section 5; (d) \"Chief Information Commissioner\" and \"Information Commissioner\" mean the Chief Information…",
+      "verify": false
+    },
+    {
+      "unitId": "rti-2",
+      "unitNumber": "2",
+      "kind": "authority",
+      "value": "Information Commissioner",
+      "sortKey": "information commissioner",
+      "quote": "…(2) of section 5; (d) \"Chief Information Commissioner\" and \"Information Commissioner\" mean the Chief Information Commissioner and Information Co…",
+      "verify": false
+    },
+    {
+      "unitId": "rti-2",
+      "unitNumber": "2",
+      "kind": "authority",
+      "value": "Chief Information Commissioner",
+      "sortKey": "chief information commissioner",
+      "quote": "…ation Commissioner\" and \"Information Commissioner\" mean the Chief Information Commissioner and Information Commissioner appointed under sub-section (3…",
+      "verify": false
+    },
+    {
+      "unitId": "rti-2",
+      "unitNumber": "2",
+      "kind": "authority",
+      "value": "Information Commissioner",
+      "sortKey": "information commissioner",
+      "quote": "…n Commissioner\" mean the Chief Information Commissioner and Information Commissioner appointed under sub-section (3) of section 12; 1. The words…",
+      "verify": false
+    },
+    {
+      "unitId": "rti-2",
+      "unitNumber": "2",
+      "kind": "authority",
+      "value": "competent authority",
+      "sortKey": "competent authority",
+      "quote": "…019, s. 95 and the Fifth Schedule (w.e.f. 31-10-2019). (e) \"competent authority\" means- (i) the Speaker in the case of the House of the Peo…",
+      "verify": false
+    },
+    {
+      "unitId": "rti-2",
+      "unitNumber": "2",
+      "kind": "authority",
+      "value": "competent authority",
+      "sortKey": "competent authority",
+      "quote": "…es made under this Act by the appropriate Government or the competent authority, as the case may be; (h) \"public authority\" means any autho…",
+      "verify": false
+    },
+    {
+      "unitId": "rti-2",
+      "unitNumber": "2",
+      "kind": "authority",
+      "value": "State Information Commission",
+      "sortKey": "state information commission",
+      "quote": "…mation is stored in a computer or in any other device; (k) \"State Information Commission\" means the State Information Commission constituted under s…",
+      "verify": false
+    },
+    {
+      "unitId": "rti-2",
+      "unitNumber": "2",
+      "kind": "authority",
+      "value": "State Information Commission",
+      "sortKey": "state information commission",
+      "quote": "…other device; (k) \"State Information Commission\" means the State Information Commission constituted under sub-section (1) of section 15; (l) \"State…",
+      "verify": false
+    },
+    {
+      "unitId": "rti-2",
+      "unitNumber": "2",
+      "kind": "authority",
+      "value": "Chief Information Commissioner",
+      "sortKey": "chief information commissioner",
+      "quote": "…constituted under sub-section (1) of section 15; (l) \"State Chief Information Commissioner\" and \"State Information Commissioner\" mean the State Chief…",
+      "verify": false
+    },
+    {
+      "unitId": "rti-2",
+      "unitNumber": "2",
+      "kind": "authority",
+      "value": "Information Commissioner",
+      "sortKey": "information commissioner",
+      "quote": "…n 15; (l) \"State Chief Information Commissioner\" and \"State Information Commissioner\" mean the State Chief Information Commissioner and the Stat…",
+      "verify": false
+    },
+    {
+      "unitId": "rti-2",
+      "unitNumber": "2",
+      "kind": "authority",
+      "value": "Chief Information Commissioner",
+      "sortKey": "chief information commissioner",
+      "quote": "…sioner\" and \"State Information Commissioner\" mean the State Chief Information Commissioner and the State Information Commissioner appointed under sub-…",
+      "verify": false
+    },
+    {
+      "unitId": "rti-2",
+      "unitNumber": "2",
+      "kind": "authority",
+      "value": "Information Commissioner",
+      "sortKey": "information commissioner",
+      "quote": "…mean the State Chief Information Commissioner and the State Information Commissioner appointed under sub- section (3) of section 15; (m) \"State…",
+      "verify": false
+    },
+    {
+      "unitId": "rti-2",
+      "unitNumber": "2",
+      "kind": "authority",
+      "value": "State Public Information Officer",
+      "sortKey": "state public information officer",
+      "quote": "…sioner appointed under sub- section (3) of section 15; (m) \"State Public Information Officer\" means the State Public Information Officer designated unde…",
+      "verify": false
+    },
+    {
+      "unitId": "rti-2",
+      "unitNumber": "2",
+      "kind": "authority",
+      "value": "State Public Information Officer",
+      "sortKey": "state public information officer",
+      "quote": "…ection 15; (m) \"State Public Information Officer\" means the State Public Information Officer designated under sub-section (1) and includes a State Assis…",
+      "verify": false
+    },
+    {
+      "unitId": "rti-2",
+      "unitNumber": "2",
+      "kind": "authority",
+      "value": "Public Information Officer",
+      "sortKey": "public information officer",
+      "quote": "…gnated under sub-section (1) and includes a State Assistant Public Information Officer designated as such under sub-section (2) of section 5; (n)…",
+      "verify": false
+    },
+    {
+      "unitId": "rti-4",
+      "unitNumber": "4",
+      "kind": "authority",
+      "value": "Central Public Information Officer",
+      "sortKey": "central public information officer",
+      "quote": "…sible, to the extent possible in electronic format with the Central Public Information Officer or State Public Information Officer, as the case may be, av…",
+      "verify": false
+    },
+    {
+      "unitId": "rti-4",
+      "unitNumber": "4",
+      "kind": "authority",
+      "value": "State Public Information Officer",
+      "sortKey": "state public information officer",
+      "quote": "…ronic format with the Central Public Information Officer or State Public Information Officer, as the case may be, available free or at such cost of the…",
+      "verify": false
+    },
+    {
+      "unitId": "rti-5",
+      "unitNumber": "5",
+      "kind": "time",
+      "value": "hundred days",
+      "sortKey": 100,
+      "quote": "(1) Every public authority shall, within one hundred days of the enactment of this Act, designate as many officers as…",
+      "verify": true
+    },
+    {
+      "unitId": "rti-5",
+      "unitNumber": "5",
+      "kind": "time",
+      "value": "hundred days",
+      "sortKey": 100,
+      "quote": "…ery public authority shall designate an officer, within one hundred days of the enactment of this Act, at each sub-divisional level…",
+      "verify": true
+    },
+    {
+      "unitId": "rti-5",
+      "unitNumber": "5",
+      "kind": "time",
+      "value": "a period of five days",
+      "sortKey": 5,
+      "quote": "…e Assistant Public Information Officer, as the case may be, a period of five days shall be added in computing the period for response specifi…",
+      "verify": true
+    },
+    {
+      "unitId": "rti-5",
+      "unitNumber": "5",
+      "kind": "authority",
+      "value": "Central Assistant Public Information Officer",
+      "sortKey": "central assistant public information officer",
+      "quote": "…each sub-divisional level or other sub- district level as a Central Assistant Public Information Officer or a State Assistant Public Information Officer, as the cas…",
+      "verify": false
+    },
+    {
+      "unitId": "rti-5",
+      "unitNumber": "5",
+      "kind": "authority",
+      "value": "Public Information Officer",
+      "sortKey": "public information officer",
+      "quote": "…l Assistant Public Information Officer or a State Assistant Public Information Officer, as the case may be, to receive the applications for inform…",
+      "verify": false
+    },
+    {
+      "unitId": "rti-5",
+      "unitNumber": "5",
+      "kind": "authority",
+      "value": "Central Public Information Officer",
+      "sortKey": "central public information officer",
+      "quote": "…als under this Act for forwarding the same forthwith to the Central Public Information Officer or the State Public Information Officer or senior officer s…",
+      "verify": false
+    },
+    {
+      "unitId": "rti-5",
+      "unitNumber": "5",
+      "kind": "authority",
+      "value": "State Public Information Officer",
+      "sortKey": "state public information officer",
+      "quote": "…forthwith to the Central Public Information Officer or the State Public Information Officer or senior officer specified under sub-section (1) of sectio…",
+      "verify": false
+    },
+    {
+      "unitId": "rti-5",
+      "unitNumber": "5",
+      "kind": "authority",
+      "value": "Central Information Commission",
+      "sortKey": "central information commission",
+      "quote": "…fficer specified under sub-section (1) of section 19 or the Central Information Commission or the State Information Commission, as the case may be: Pr…",
+      "verify": false
+    },
+    {
+      "unitId": "rti-5",
+      "unitNumber": "5",
+      "kind": "authority",
+      "value": "State Information Commission",
+      "sortKey": "state information commission",
+      "quote": "…of section 19 or the Central Information Commission or the State Information Commission, as the case may be: Provided that where an application for…",
+      "verify": false
+    },
+    {
+      "unitId": "rti-5",
+      "unitNumber": "5",
+      "kind": "authority",
+      "value": "Central Assistant Public Information Officer",
+      "sortKey": "central assistant public information officer",
+      "quote": "…here an application for information or appeal is given to a Central Assistant Public Information Officer or a State Assistant Public Information Officer, as the cas…",
+      "verify": false
+    },
+    {
+      "unitId": "rti-5",
+      "unitNumber": "5",
+      "kind": "authority",
+      "value": "Central Public Information Officer",
+      "sortKey": "central public information officer",
+      "quote": "…nse specified under sub-section (1) of section 7. (3) Every Central Public Information Officer or State Public Information Officer, as the case may be, sh…",
+      "verify": false
+    },
+    {
+      "unitId": "rti-5",
+      "unitNumber": "5",
+      "kind": "authority",
+      "value": "State Public Information Officer",
+      "sortKey": "state public information officer",
+      "quote": "…section 7. (3) Every Central Public Information Officer or State Public Information Officer, as the case may be, shall deal with requests from persons…",
+      "verify": false
+    },
+    {
+      "unitId": "rti-5",
+      "unitNumber": "5",
+      "kind": "authority",
+      "value": "Central Public Information Officer",
+      "sortKey": "central public information officer",
+      "quote": "…assistance to the persons seeking such information. (4) The Central Public Information Officer or State Public Information Officer, as the case may be, ma…",
+      "verify": false
+    },
+    {
+      "unitId": "rti-5",
+      "unitNumber": "5",
+      "kind": "authority",
+      "value": "State Public Information Officer",
+      "sortKey": "state public information officer",
+      "quote": "…information. (4) The Central Public Information Officer or State Public Information Officer, as the case may be, may seek the assistance of any other o…",
+      "verify": false
+    },
+    {
+      "unitId": "rti-5",
+      "unitNumber": "5",
+      "kind": "authority",
+      "value": "Central Public Information Officer",
+      "sortKey": "central public information officer",
+      "quote": "…t under sub-section (4), shall render all assistance to the Central Public Information Officer or State Public Information Officer, as the case may be, se…",
+      "verify": false
+    },
+    {
+      "unitId": "rti-5",
+      "unitNumber": "5",
+      "kind": "authority",
+      "value": "State Public Information Officer",
+      "sortKey": "state public information officer",
+      "quote": "…all assistance to the Central Public Information Officer or State Public Information Officer, as the case may be, seeking his or her assistance and for…",
+      "verify": false
+    },
+    {
+      "unitId": "rti-5",
+      "unitNumber": "5",
+      "kind": "authority",
+      "value": "Central Public Information Officer",
+      "sortKey": "central public information officer",
+      "quote": "…sions of this Act, such other officer shall be treated as a Central Public Information Officer or State Public Information Officer, as the case may be.",
+      "verify": false
+    },
+    {
+      "unitId": "rti-5",
+      "unitNumber": "5",
+      "kind": "authority",
+      "value": "State Public Information Officer",
+      "sortKey": "state public information officer",
+      "quote": "…shall be treated as a Central Public Information Officer or State Public Information Officer, as the case may be.",
+      "verify": false
+    },
+    {
+      "unitId": "rti-6",
+      "unitNumber": "6",
+      "kind": "time",
+      "value": "five days",
+      "sortKey": 5,
+      "quote": "…ll be made as soon as practicable but in no case later than five days from the date of receipt of the application.",
+      "verify": true
+    },
+    {
+      "unitId": "rti-6",
+      "unitNumber": "6",
+      "kind": "authority",
+      "value": "Central Public Information Officer",
+      "sortKey": "central public information officer",
+      "quote": "…de, accompanying such fee as may be prescribed, to- (a) the Central Public Information Officer or State Public Information Officer, as the case may be, of…",
+      "verify": false
+    },
+    {
+      "unitId": "rti-6",
+      "unitNumber": "6",
+      "kind": "authority",
+      "value": "State Public Information Officer",
+      "sortKey": "state public information officer",
+      "quote": "…escribed, to- (a) the Central Public Information Officer or State Public Information Officer, as the case may be, of the concerned public authority; (b)…",
+      "verify": false
+    },
+    {
+      "unitId": "rti-6",
+      "unitNumber": "6",
+      "kind": "authority",
+      "value": "Central Assistant Public Information Officer",
+      "sortKey": "central assistant public information officer",
+      "quote": "…the case may be, of the concerned public authority; (b) the Central Assistant Public Information Officer or State Assistant Public Information Officer, as the case…",
+      "verify": false
+    },
+    {
+      "unitId": "rti-6",
+      "unitNumber": "6",
+      "kind": "authority",
+      "value": "Public Information Officer",
+      "sortKey": "public information officer",
+      "quote": "…ral Assistant Public Information Officer or State Assistant Public Information Officer, as the case may be, specifying the particulars of the info…",
+      "verify": false
+    },
+    {
+      "unitId": "rti-6",
+      "unitNumber": "6",
+      "kind": "authority",
+      "value": "Central Public Information Officer",
+      "sortKey": "central public information officer",
+      "quote": "…ided that where such request cannot be made in writing, the Central Public Information Officer or State Public Information Officer, as the case may be, sh…",
+      "verify": false
+    },
+    {
+      "unitId": "rti-6",
+      "unitNumber": "6",
+      "kind": "authority",
+      "value": "State Public Information Officer",
+      "sortKey": "state public information officer",
+      "quote": "…made in writing, the Central Public Information Officer or State Public Information Officer, as the case may be, shall render all reasonable assistance…",
+      "verify": false
+    },
+    {
+      "unitId": "rti-7",
+      "unitNumber": "7",
+      "kind": "time",
+      "value": "thirty days",
+      "sortKey": 30,
+      "quote": "…shall, as expeditiously as possible, and in any case within thirty days of the receipt of the request, either provide the informati…",
+      "verify": false
+    },
+    {
+      "unitId": "rti-7",
+      "unitNumber": "7",
+      "kind": "time",
+      "value": "forty-eight hours",
+      "sortKey": 2,
+      "quote": "…e or liberty of a person, the same shall be provided within forty-eight hours of the receipt of the request. (2) If the Central Public In…",
+      "verify": false
+    },
+    {
+      "unitId": "rti-7",
+      "unitNumber": "7",
+      "kind": "time",
+      "value": "thirty days",
+      "sortKey": 30,
+      "quote": "…ll be excluded for the purpose of calculating the period of thirty days referred to in that sub-section; (b) information concerning…",
+      "verify": true
+    },
+    {
+      "unitId": "rti-7",
+      "unitNumber": "7",
+      "kind": "authority",
+      "value": "Central Public Information Officer",
+      "sortKey": "central public information officer",
+      "quote": "…ction 5 or the proviso to sub-section (3) of section 6, the Central Public Information Officer or State Public Information Officer, as the case may be, on…",
+      "verify": false
+    },
+    {
+      "unitId": "rti-7",
+      "unitNumber": "7",
+      "kind": "authority",
+      "value": "State Public Information Officer",
+      "sortKey": "state public information officer",
+      "quote": "…(3) of section 6, the Central Public Information Officer or State Public Information Officer, as the case may be, on receipt of a request under section…",
+      "verify": false
+    },
+    {
+      "unitId": "rti-7",
+      "unitNumber": "7",
+      "kind": "authority",
+      "value": "Central Public Information Officer",
+      "sortKey": "central public information officer",
+      "quote": "…forty-eight hours of the receipt of the request. (2) If the Central Public Information Officer or State Public Information Officer, as the case may be, fa…",
+      "verify": false
+    },
+    {
+      "unitId": "rti-7",
+      "unitNumber": "7",
+      "kind": "authority",
+      "value": "State Public Information Officer",
+      "sortKey": "state public information officer",
+      "quote": "…e request. (2) If the Central Public Information Officer or State Public Information Officer, as the case may be, fails to give decision on the request…",
+      "verify": false
+    },
+    {
+      "unitId": "rti-7",
+      "unitNumber": "7",
+      "kind": "authority",
+      "value": "Central Public Information Officer",
+      "sortKey": "central public information officer",
+      "quote": "…tion within the period specified under sub-section (1), the Central Public Information Officer or State Public Information Officer, as the case may be, sh…",
+      "verify": false
+    },
+    {
+      "unitId": "rti-7",
+      "unitNumber": "7",
+      "kind": "authority",
+      "value": "State Public Information Officer",
+      "sortKey": "state public information officer",
+      "quote": "…sub-section (1), the Central Public Information Officer or State Public Information Officer, as the case may be, shall be deemed to have refused the re…",
+      "verify": false
+    },
+    {
+      "unitId": "rti-7",
+      "unitNumber": "7",
+      "kind": "authority",
+      "value": "Central Public Information Officer",
+      "sortKey": "central public information officer",
+      "quote": "…fee representing the cost of providing the information, the Central Public Information Officer or State Public Information Officer, as the case may be, sh…",
+      "verify": false
+    },
+    {
+      "unitId": "rti-7",
+      "unitNumber": "7",
+      "kind": "authority",
+      "value": "State Public Information Officer",
+      "sortKey": "state public information officer",
+      "quote": "…the information, the Central Public Information Officer or State Public Information Officer, as the case may be, shall send an intimation to the person…",
+      "verify": false
+    },
+    {
+      "unitId": "rti-7",
+      "unitNumber": "7",
+      "kind": "authority",
+      "value": "appellate authority",
+      "sortKey": "appellate authority",
+      "quote": "…e form of access provided, including the particulars of the appellate authority, time limit, process and any other forms. (4) Where access…",
+      "verify": false
+    },
+    {
+      "unitId": "rti-7",
+      "unitNumber": "7",
+      "kind": "authority",
+      "value": "Central Public Information Officer",
+      "sortKey": "central public information officer",
+      "quote": "…to whom access is to be provided is sensorily disabled, the Central Public Information Officer or State Public Information Officer, as the case may be, sh…",
+      "verify": false
+    },
+    {
+      "unitId": "rti-7",
+      "unitNumber": "7",
+      "kind": "authority",
+      "value": "State Public Information Officer",
+      "sortKey": "state public information officer",
+      "quote": "…nsorily disabled, the Central Public Information Officer or State Public Information Officer, as the case may be, shall provide assistance to enable acc…",
+      "verify": false
+    },
+    {
+      "unitId": "rti-7",
+      "unitNumber": "7",
+      "kind": "authority",
+      "value": "Central Public Information Officer",
+      "sortKey": "central public information officer",
+      "quote": "…. (7) Before taking any decision under sub-section (1), the Central Public Information Officer or State Public Information Officer, as the case may be, sh…",
+      "verify": false
+    },
+    {
+      "unitId": "rti-7",
+      "unitNumber": "7",
+      "kind": "authority",
+      "value": "Central Public Information Officer",
+      "sortKey": "central public information officer",
+      "quote": "…here a request has been rejected under sub-section (1), the Central Public Information Officer or State Public Information Officer, as the case may be, sh…",
+      "verify": false
+    },
+    {
+      "unitId": "rti-7",
+      "unitNumber": "7",
+      "kind": "authority",
+      "value": "appellate authority",
+      "sortKey": "appellate authority",
+      "quote": "…ejection may be preferred; and (iii) the particulars of the appellate authority. (9) An information shall ordinarily be provided in the for…",
+      "verify": false
+    },
+    {
+      "unitId": "rti-8",
+      "unitNumber": "8",
+      "kind": "time",
+      "value": "twenty years",
+      "sortKey": 7300,
+      "quote": "…event or matter which has taken place, occurred or happened twenty years before the date on which any request is made under section…",
+      "verify": true
+    },
+    {
+      "unitId": "rti-8",
+      "unitNumber": "8",
+      "kind": "time",
+      "value": "twenty years",
+      "sortKey": 7300,
+      "quote": "…uestion arises as to the date from which the said period of twenty years has to be computed, the decision of the Central Government…",
+      "verify": true
+    },
+    {
+      "unitId": "rti-8",
+      "unitNumber": "8",
+      "kind": "authority",
+      "value": "competent authority",
+      "sortKey": "competent authority",
+      "quote": "…harm the competitive position of a third party, unless the competent authority is satisfied that larger public interest warrants the discl…",
+      "verify": false
+    },
+    {
+      "unitId": "rti-8",
+      "unitNumber": "8",
+      "kind": "authority",
+      "value": "competent authority",
+      "sortKey": "competent authority",
+      "quote": "…lable to a person in his fiduciary relationship, unless the competent authority is satisfied that the larger public interest warrants the d…",
+      "verify": false
+    },
+    {
+      "unitId": "rti-9",
+      "unitNumber": "9",
+      "kind": "authority",
+      "value": "Central Public Information Officer",
+      "sortKey": "central public information officer",
+      "quote": "Without prejudice to the provisions of section 8, a Central Public Information Officer or a State Public Information Officer, as the case may be,…",
+      "verify": false
+    },
+    {
+      "unitId": "rti-9",
+      "unitNumber": "9",
+      "kind": "authority",
+      "value": "State Public Information Officer",
+      "sortKey": "state public information officer",
+      "quote": "…ons of section 8, a Central Public Information Officer or a State Public Information Officer, as the case may be, may reject a request for information w…",
+      "verify": false
+    },
+    {
+      "unitId": "rti-10",
+      "unitNumber": "10",
+      "kind": "authority",
+      "value": "Central Public Information Officer",
+      "sortKey": "central public information officer",
+      "quote": "…granted to a part of the record under sub-section (1), the Central Public Information Officer or State Public Information Officer, as the case may be, sh…",
+      "verify": false
+    },
+    {
+      "unitId": "rti-10",
+      "unitNumber": "10",
+      "kind": "authority",
+      "value": "State Public Information Officer",
+      "sortKey": "state public information officer",
+      "quote": "…sub-section (1), the Central Public Information Officer or State Public Information Officer, as the case may be, shall give a notice to the applicant,…",
+      "verify": false
+    },
+    {
+      "unitId": "rti-10",
+      "unitNumber": "10",
+      "kind": "authority",
+      "value": "Central Information Commission",
+      "sortKey": "central information commission",
+      "quote": "…fficer specified under sub-section (1) of section 19 or the Central Information Commission or the State Information Commission, as the case may be, ti…",
+      "verify": false
+    },
+    {
+      "unitId": "rti-10",
+      "unitNumber": "10",
+      "kind": "authority",
+      "value": "State Information Commission",
+      "sortKey": "state information commission",
+      "quote": "…of section 19 or the Central Information Commission or the State Information Commission, as the case may be, time limit, process and any other form…",
+      "verify": false
+    },
+    {
+      "unitId": "rti-11",
+      "unitNumber": "11",
+      "kind": "time",
+      "value": "five days",
+      "sortKey": 5,
+      "quote": "….f. 13-11-2025). Officer, as the case may be, shall, within five days from the receipt of the request, give a written notice to s…",
+      "verify": false
+    },
+    {
+      "unitId": "rti-11",
+      "unitNumber": "11",
+      "kind": "time",
+      "value": "ten days",
+      "sortKey": 10,
+      "quote": "…on or record or part thereof, the third party shall, within ten days from the date of receipt of such notice, be given the oppor…",
+      "verify": false
+    },
+    {
+      "unitId": "rti-11",
+      "unitNumber": "11",
+      "kind": "time",
+      "value": "forty days",
+      "sortKey": 40,
+      "quote": "…blic Information Officer, as the case may be, shall, within forty days after receipt of the request under section 6, if the third…",
+      "verify": false
+    },
+    {
+      "unitId": "rti-11",
+      "unitNumber": "11",
+      "kind": "authority",
+      "value": "Central Public Information Officer",
+      "sortKey": "central public information officer",
+      "quote": "(1) Where a Central Public Information Officer or a State Public Information Officer, as the case may be,…",
+      "verify": false
+    },
+    {
+      "unitId": "rti-11",
+      "unitNumber": "11",
+      "kind": "authority",
+      "value": "State Public Information Officer",
+      "sortKey": "state public information officer",
+      "quote": "(1) Where a Central Public Information Officer or a State Public Information Officer, as the case may be, intends to disclose any information or…",
+      "verify": false
+    },
+    {
+      "unitId": "rti-11",
+      "unitNumber": "11",
+      "kind": "authority",
+      "value": "Central Public Information Officer",
+      "sortKey": "central public information officer",
+      "quote": "…d has been treated as confidential by that third party, the Central Public Information Officer or State Public Information 1. Subs. by Act 22 of 2023, s.…",
+      "verify": false
+    },
+    {
+      "unitId": "rti-11",
+      "unitNumber": "11",
+      "kind": "authority",
+      "value": "Central Public Information Officer",
+      "sortKey": "central public information officer",
+      "quote": "…to such third party of the request and of the fact that the Central Public Information Officer or State Public Information Officer, as the case may be, in…",
+      "verify": false
+    },
+    {
+      "unitId": "rti-11",
+      "unitNumber": "11",
+      "kind": "authority",
+      "value": "State Public Information Officer",
+      "sortKey": "state public information officer",
+      "quote": "…of the fact that the Central Public Information Officer or State Public Information Officer, as the case may be, intends to disclose the information or…",
+      "verify": false
+    },
+    {
+      "unitId": "rti-11",
+      "unitNumber": "11",
+      "kind": "authority",
+      "value": "Central Public Information Officer",
+      "sortKey": "central public information officer",
+      "quote": "…ts of such third party. (2) Where a notice is served by the Central Public Information Officer or State Public Information Officer, as the case may be, un…",
+      "verify": false
+    },
+    {
+      "unitId": "rti-11",
+      "unitNumber": "11",
+      "kind": "authority",
+      "value": "State Public Information Officer",
+      "sortKey": "state public information officer",
+      "quote": "…tice is served by the Central Public Information Officer or State Public Information Officer, as the case may be, under sub-section (1) to a third party…",
+      "verify": false
+    },
+    {
+      "unitId": "rti-11",
+      "unitNumber": "11",
+      "kind": "authority",
+      "value": "Central Public Information Officer",
+      "sortKey": "central public information officer",
+      "quote": "…e. (3) Notwithstanding anything contained in section 7, the Central Public Information Officer or State Public Information Officer, as the case may be, sh…",
+      "verify": false
+    },
+    {
+      "unitId": "rti-11",
+      "unitNumber": "11",
+      "kind": "authority",
+      "value": "State Public Information Officer",
+      "sortKey": "state public information officer",
+      "quote": "…ned in section 7, the Central Public Information Officer or State Public Information Officer, as the case may be, shall, within forty days after receipt…",
+      "verify": false
+    },
+    {
+      "unitId": "rti-11",
+      "unitNumber": "11",
+      "kind": "authority",
+      "value": "CENTRAL INFORMATION COMMISSION",
+      "sortKey": "central information commission",
+      "quote": "…peal under section 19 against the decision. CHAPTER III THE CENTRAL INFORMATION COMMISSION",
+      "verify": false
+    },
+    {
+      "unitId": "rti-12",
+      "unitNumber": "12",
+      "kind": "authority",
+      "value": "Central Information Commission",
+      "sortKey": "central information commission",
+      "quote": "…the Official Gazette, constitute a body to be known as the Central Information Commission to exercise the powers conferred on, and to perform the fun…",
+      "verify": false
+    },
+    {
+      "unitId": "rti-12",
+      "unitNumber": "12",
+      "kind": "authority",
+      "value": "Central Information Commission",
+      "sortKey": "central information commission",
+      "quote": "…rform the functions assigned to, it under this Act. (2) The Central Information Commission shall consist of- (a) the Chief Information Commissioner; a…",
+      "verify": false
+    },
+    {
+      "unitId": "rti-12",
+      "unitNumber": "12",
+      "kind": "authority",
+      "value": "Chief Information Commissioner",
+      "sortKey": "chief information commissioner",
+      "quote": "…he Central Information Commission shall consist of- (a) the Chief Information Commissioner; and (b) such number of Central Information Commissioners,…",
+      "verify": false
+    },
+    {
+      "unitId": "rti-12",
+      "unitNumber": "12",
+      "kind": "authority",
+      "value": "Chief Information Commissioner",
+      "sortKey": "chief information commissioner",
+      "quote": "…ers, not exceeding ten, as may be deemed necessary. (3) The Chief Information Commissioner and Information Commissioners shall be appointed by the Pre…",
+      "verify": false
+    },
+    {
+      "unitId": "rti-12",
+      "unitNumber": "12",
+      "kind": "authority",
+      "value": "Central Information Commission",
+      "sortKey": "central information commission",
+      "quote": "…rintendence, direction and management of the affairs of the Central Information Commission shall vest in the Chief Information Commissioner who shall…",
+      "verify": false
+    },
+    {
+      "unitId": "rti-12",
+      "unitNumber": "12",
+      "kind": "authority",
+      "value": "Chief Information Commissioner",
+      "sortKey": "chief information commissioner",
+      "quote": "…irs of the Central Information Commission shall vest in the Chief Information Commissioner who shall be assisted by the Information Commissioners and…",
+      "verify": false
+    },
+    {
+      "unitId": "rti-12",
+      "unitNumber": "12",
+      "kind": "authority",
+      "value": "Central Information Commission",
+      "sortKey": "central information commission",
+      "quote": "…such acts and things which may be exercised or done by the Central Information Commission autonomously without being subjected to directions by any o…",
+      "verify": false
+    },
+    {
+      "unitId": "rti-12",
+      "unitNumber": "12",
+      "kind": "authority",
+      "value": "Chief Information Commissioner",
+      "sortKey": "chief information commissioner",
+      "quote": "…o directions by any other authority under this Act. (5) The Chief Information Commissioner and Information Commissioners shall be persons of eminence…",
+      "verify": false
+    },
+    {
+      "unitId": "rti-12",
+      "unitNumber": "12",
+      "kind": "authority",
+      "value": "Chief Information Commissioner",
+      "sortKey": "chief information commissioner",
+      "quote": "…alism, mass media or administration and governance. (6) The Chief Information Commissioner or an Information Commissioner shall not be a Member of Par…",
+      "verify": false
+    },
+    {
+      "unitId": "rti-12",
+      "unitNumber": "12",
+      "kind": "authority",
+      "value": "Information Commissioner",
+      "sortKey": "information commissioner",
+      "quote": "…nd governance. (6) The Chief Information Commissioner or an Information Commissioner shall not be a Member of Parliament or Member of the Legisl…",
+      "verify": false
+    },
+    {
+      "unitId": "rti-12",
+      "unitNumber": "12",
+      "kind": "authority",
+      "value": "Central Information Commission",
+      "sortKey": "central information commission",
+      "quote": "…ess or pursuing any profession. (7) The headquarters of the Central Information Commission shall be at Delhi and the Central Information Commission ma…",
+      "verify": false
+    },
+    {
+      "unitId": "rti-12",
+      "unitNumber": "12",
+      "kind": "authority",
+      "value": "Central Information Commission",
+      "sortKey": "central information commission",
+      "quote": "…he Central Information Commission shall be at Delhi and the Central Information Commission may, with the previous approval of the Central Government,…",
+      "verify": false
+    },
+    {
+      "unitId": "rti-13",
+      "unitNumber": "13",
+      "kind": "time",
+      "value": "five years",
+      "sortKey": 1825,
+      "quote": "…ion Commissioner, his term of office shall not be more than five years in aggregate as the Information Commissioner and the Chief…",
+      "verify": true
+    },
+    {
+      "unitId": "rti-13",
+      "unitNumber": "13",
+      "kind": "time",
+      "value": "five years",
+      "sortKey": 1825,
+      "quote": "…orce.] 1. Subs. by Act 24 of 2019, s. 2, for \"for a term of five years from the date on which he enters upon his office\" (w.e.f. 2…",
+      "verify": true
+    },
+    {
+      "unitId": "rti-13",
+      "unitNumber": "13",
+      "kind": "authority",
+      "value": "Chief Information Commissioner",
+      "sortKey": "chief information commissioner",
+      "quote": "(1) The Chief Information Commissioner shall hold office 1[for such term as may be prescribed by t…",
+      "verify": false
+    },
+    {
+      "unitId": "rti-13",
+      "unitNumber": "13",
+      "kind": "authority",
+      "value": "Chief Information Commissioner",
+      "sortKey": "chief information commissioner",
+      "quote": "…d shall not be eligible for reappointment: Provided that no Chief Information Commissioner shall hold office as such after he has attained the age of…",
+      "verify": false
+    },
+    {
+      "unitId": "rti-13",
+      "unitNumber": "13",
+      "kind": "authority",
+      "value": "Information Commissioner",
+      "sortKey": "information commissioner",
+      "quote": "…fter he has attained the age of sixty-five years. (2) Every Information Commissioner shall hold office 1[for such term as may be prescribed by t…",
+      "verify": false
+    },
+    {
+      "unitId": "rti-13",
+      "unitNumber": "13",
+      "kind": "authority",
+      "value": "Information Commissioner",
+      "sortKey": "information commissioner",
+      "quote": "…arlier, and shall not be eligible for reappointment as such Information Commissioner: Provided that every Information Commissioner shall, on vac…",
+      "verify": false
+    },
+    {
+      "unitId": "rti-13",
+      "unitNumber": "13",
+      "kind": "authority",
+      "value": "Information Commissioner",
+      "sortKey": "information commissioner",
+      "quote": "…tment as such Information Commissioner: Provided that every Information Commissioner shall, on vacating his office under this sub-section be eli…",
+      "verify": false
+    },
+    {
+      "unitId": "rti-13",
+      "unitNumber": "13",
+      "kind": "authority",
+      "value": "Chief Information Commissioner",
+      "sortKey": "chief information commissioner",
+      "quote": "…e under this sub-section be eligible for appointment as the Chief Information Commissioner in the manner specified in sub-section (3) of section 12: P…",
+      "verify": false
+    },
+    {
+      "unitId": "rti-13",
+      "unitNumber": "13",
+      "kind": "authority",
+      "value": "Information Commissioner",
+      "sortKey": "information commissioner",
+      "quote": "…-section (3) of section 12: Provided further that where the Information Commissioner is appointed as the Chief Information Commissioner, his ter…",
+      "verify": false
+    },
+    {
+      "unitId": "rti-13",
+      "unitNumber": "13",
+      "kind": "authority",
+      "value": "Chief Information Commissioner",
+      "sortKey": "chief information commissioner",
+      "quote": "…that where the Information Commissioner is appointed as the Chief Information Commissioner, his term of office shall not be more than five years in ag…",
+      "verify": false
+    },
+    {
+      "unitId": "rti-13",
+      "unitNumber": "13",
+      "kind": "authority",
+      "value": "Information Commissioner",
+      "sortKey": "information commissioner",
+      "quote": "…ffice shall not be more than five years in aggregate as the Information Commissioner and the Chief Information Commissioner. (3) The Chief Infor…",
+      "verify": false
+    },
+    {
+      "unitId": "rti-13",
+      "unitNumber": "13",
+      "kind": "authority",
+      "value": "Chief Information Commissioner",
+      "sortKey": "chief information commissioner",
+      "quote": "…years in aggregate as the Information Commissioner and the Chief Information Commissioner. (3) The Chief Information Commissioner or an Information C…",
+      "verify": false
+    },
+    {
+      "unitId": "rti-13",
+      "unitNumber": "13",
+      "kind": "authority",
+      "value": "Chief Information Commissioner",
+      "sortKey": "chief information commissioner",
+      "quote": "…ommissioner and the Chief Information Commissioner. (3) The Chief Information Commissioner or an Information Commissioner shall before he enters upon…",
+      "verify": false
+    },
+    {
+      "unitId": "rti-13",
+      "unitNumber": "13",
+      "kind": "authority",
+      "value": "Information Commissioner",
+      "sortKey": "information commissioner",
+      "quote": "…Commissioner. (3) The Chief Information Commissioner or an Information Commissioner shall before he enters upon his office make and subscribe b…",
+      "verify": false
+    },
+    {
+      "unitId": "rti-13",
+      "unitNumber": "13",
+      "kind": "authority",
+      "value": "Chief Information Commissioner",
+      "sortKey": "chief information commissioner",
+      "quote": "…form set out for the purpose in the First Schedule. (4) The Chief Information Commissioner or an Information Commissioner may, at any time, by writing…",
+      "verify": false
+    },
+    {
+      "unitId": "rti-13",
+      "unitNumber": "13",
+      "kind": "authority",
+      "value": "Information Commissioner",
+      "sortKey": "information commissioner",
+      "quote": "…irst Schedule. (4) The Chief Information Commissioner or an Information Commissioner may, at any time, by writing under his hand addressed to th…",
+      "verify": false
+    },
+    {
+      "unitId": "rti-13",
+      "unitNumber": "13",
+      "kind": "authority",
+      "value": "Chief Information Commissioner",
+      "sortKey": "chief information commissioner",
+      "quote": "…to the President, resign from his office: Provided that the Chief Information Commissioner or an Information Commissioner may be removed in the manner…",
+      "verify": false
+    },
+    {
+      "unitId": "rti-13",
+      "unitNumber": "13",
+      "kind": "authority",
+      "value": "Information Commissioner",
+      "sortKey": "information commissioner",
+      "quote": "…ice: Provided that the Chief Information Commissioner or an Information Commissioner may be removed in the manner specified under section 14. 2[…",
+      "verify": false
+    },
+    {
+      "unitId": "rti-13",
+      "unitNumber": "13",
+      "kind": "authority",
+      "value": "Chief Information Commissioner",
+      "sortKey": "chief information commissioner",
+      "quote": "…payable to and other terms and conditions of service of the Chief Information Commissioner and the Information Commissioners shall be such as may be p…",
+      "verify": false
+    },
+    {
+      "unitId": "rti-13",
+      "unitNumber": "13",
+      "kind": "authority",
+      "value": "Chief Information Commissioner",
+      "sortKey": "chief information commissioner",
+      "quote": "…salaries, allowances and other conditions of service of the Chief Information Commissioner or the Information Commissioners shall not be varied to the…",
+      "verify": false
+    },
+    {
+      "unitId": "rti-13",
+      "unitNumber": "13",
+      "kind": "authority",
+      "value": "Chief Information Commissioner",
+      "sortKey": "chief information commissioner",
+      "quote": "…dvantage after their appointment: Provided further that the Chief Information Commissioner and the Information Commissioners appointed before the comm…",
+      "verify": false
+    },
+    {
+      "unitId": "rti-13",
+      "unitNumber": "13",
+      "kind": "authority",
+      "value": "Chief Information Commissioner",
+      "sortKey": "chief information commissioner",
+      "quote": "…. 24-10-2019). (6) The Central Government shall provide the Chief Information Commissioner and the Information Commissioners with such officers and em…",
+      "verify": false
+    },
+    {
+      "unitId": "rti-14",
+      "unitNumber": "14",
+      "kind": "authority",
+      "value": "Chief Information Commissioner",
+      "sortKey": "chief information commissioner",
+      "quote": "(1) Subject to the provisions of sub-section (3), the Chief Information Commissioner or any Information Commissioner shall be removed from his o…",
+      "verify": false
+    },
+    {
+      "unitId": "rti-14",
+      "unitNumber": "14",
+      "kind": "authority",
+      "value": "Information Commissioner",
+      "sortKey": "information commissioner",
+      "quote": "…sub-section (3), the Chief Information Commissioner or any Information Commissioner shall be removed from his office only by order of the Presi…",
+      "verify": false
+    },
+    {
+      "unitId": "rti-14",
+      "unitNumber": "14",
+      "kind": "authority",
+      "value": "Chief Information Commissioner",
+      "sortKey": "chief information commissioner",
+      "quote": "…to it by the President, has, on inquiry, reported that the Chief Information Commissioner or any Information Commissioner, as the case may be, ought…",
+      "verify": false
+    },
+    {
+      "unitId": "rti-14",
+      "unitNumber": "14",
+      "kind": "authority",
+      "value": "Information Commissioner",
+      "sortKey": "information commissioner",
+      "quote": "…ry, reported that the Chief Information Commissioner or any Information Commissioner, as the case may be, ought on such ground be removed. (2) T…",
+      "verify": false
+    },
+    {
+      "unitId": "rti-14",
+      "unitNumber": "14",
+      "kind": "authority",
+      "value": "Chief Information Commissioner",
+      "sortKey": "chief information commissioner",
+      "quote": "…prohibit also from attending the office during inquiry, the Chief Information Commissioner or Information Commissioner in respect of whom a reference…",
+      "verify": false
+    },
+    {
+      "unitId": "rti-14",
+      "unitNumber": "14",
+      "kind": "authority",
+      "value": "Information Commissioner",
+      "sortKey": "information commissioner",
+      "quote": "…ffice during inquiry, the Chief Information Commissioner or Information Commissioner in respect of whom a reference has been made to the Supreme…",
+      "verify": false
+    },
+    {
+      "unitId": "rti-14",
+      "unitNumber": "14",
+      "kind": "authority",
+      "value": "Chief Information Commissioner",
+      "sortKey": "chief information commissioner",
+      "quote": "…tion (1), the President may by order remove from office the Chief Information Commissioner or any Information Commissioner if the Chief Information Co…",
+      "verify": false
+    },
+    {
+      "unitId": "rti-14",
+      "unitNumber": "14",
+      "kind": "authority",
+      "value": "Information Commissioner",
+      "sortKey": "information commissioner",
+      "quote": "…emove from office the Chief Information Commissioner or any Information Commissioner if the Chief Information Commissioner or a Information Comm…",
+      "verify": false
+    },
+    {
+      "unitId": "rti-14",
+      "unitNumber": "14",
+      "kind": "authority",
+      "value": "Chief Information Commissioner",
+      "sortKey": "chief information commissioner",
+      "quote": "…rmation Commissioner or any Information Commissioner if the Chief Information Commissioner or a Information Commissioner, as the case may be,- (a) is…",
+      "verify": false
+    },
+    {
+      "unitId": "rti-14",
+      "unitNumber": "14",
+      "kind": "authority",
+      "value": "Information Commissioner",
+      "sortKey": "information commissioner",
+      "quote": "…ion Commissioner if the Chief Information Commissioner or a Information Commissioner, as the case may be,- (a) is adjudged an insolvent; or (b)…",
+      "verify": false
+    },
+    {
+      "unitId": "rti-14",
+      "unitNumber": "14",
+      "kind": "authority",
+      "value": "Chief Information Commissioner",
+      "sortKey": "chief information commissioner",
+      "quote": "…t as is likely to affect prejudicially his functions as the Chief Information Commissioner or a Information Commissioner. (4) If the Chief Information…",
+      "verify": false
+    },
+    {
+      "unitId": "rti-14",
+      "unitNumber": "14",
+      "kind": "authority",
+      "value": "Information Commissioner",
+      "sortKey": "information commissioner",
+      "quote": "…ly his functions as the Chief Information Commissioner or a Information Commissioner. (4) If the Chief Information Commissioner or a Information…",
+      "verify": false
+    },
+    {
+      "unitId": "rti-14",
+      "unitNumber": "14",
+      "kind": "authority",
+      "value": "Chief Information Commissioner",
+      "sortKey": "chief information commissioner",
+      "quote": "…tion Commissioner or a Information Commissioner. (4) If the Chief Information Commissioner or a Information Commissioner in any way, concerned or inte…",
+      "verify": false
+    },
+    {
+      "unitId": "rti-14",
+      "unitNumber": "14",
+      "kind": "authority",
+      "value": "Information Commissioner",
+      "sortKey": "information commissioner",
+      "quote": "…ommissioner. (4) If the Chief Information Commissioner or a Information Commissioner in any way, concerned or interested in any contract or agre…",
+      "verify": false
+    },
+    {
+      "unitId": "rti-14",
+      "unitNumber": "14",
+      "kind": "authority",
+      "value": "STATE INFORMATION COMMISSION",
+      "sortKey": "state information commission",
+      "quote": "…(1), be deemed to be guilty of misbehaviour. CHAPTER IV THE STATE INFORMATION COMMISSION",
+      "verify": false
+    },
+    {
+      "unitId": "rti-15",
+      "unitNumber": "15",
+      "kind": "authority",
+      "value": "State Information Commission",
+      "sortKey": "state information commission",
+      "quote": "…rform the functions assigned to, it under this Act. (2) The State Information Commission shall consist of- (a) the State Chief Information Commissio…",
+      "verify": false
+    },
+    {
+      "unitId": "rti-15",
+      "unitNumber": "15",
+      "kind": "authority",
+      "value": "Chief Information Commissioner",
+      "sortKey": "chief information commissioner",
+      "quote": "…tate Information Commission shall consist of- (a) the State Chief Information Commissioner, and (b) such number of State Information Commissioners, no…",
+      "verify": false
+    },
+    {
+      "unitId": "rti-15",
+      "unitNumber": "15",
+      "kind": "authority",
+      "value": "Chief Information Commissioner",
+      "sortKey": "chief information commissioner",
+      "quote": "…ot exceeding ten, as may be deemed necessary. (3) The State Chief Information Commissioner and the State Information Commissioners shall be appointed…",
+      "verify": false
+    },
+    {
+      "unitId": "rti-15",
+      "unitNumber": "15",
+      "kind": "authority",
+      "value": "State Information Commission",
+      "sortKey": "state information commission",
+      "quote": "…rintendence, direction and management of the affairs of the State Information Commission shall vest in the State Chief Information Commissioner who…",
+      "verify": false
+    },
+    {
+      "unitId": "rti-15",
+      "unitNumber": "15",
+      "kind": "authority",
+      "value": "Chief Information Commissioner",
+      "sortKey": "chief information commissioner",
+      "quote": "…of the State Information Commission shall vest in the State Chief Information Commissioner who shall be assisted by the State Information Commissioner…",
+      "verify": false
+    },
+    {
+      "unitId": "rti-15",
+      "unitNumber": "15",
+      "kind": "authority",
+      "value": "State Information Commission",
+      "sortKey": "state information commission",
+      "quote": "…such acts and things which may be exercised or done by the State Information Commission autonomously without being subjected to directions by any o…",
+      "verify": false
+    },
+    {
+      "unitId": "rti-15",
+      "unitNumber": "15",
+      "kind": "authority",
+      "value": "Chief Information Commissioner",
+      "sortKey": "chief information commissioner",
+      "quote": "…ctions by any other authority under this Act. (5) The State Chief Information Commissioner and the State Information Commissioners shall be persons of…",
+      "verify": false
+    },
+    {
+      "unitId": "rti-15",
+      "unitNumber": "15",
+      "kind": "authority",
+      "value": "Chief Information Commissioner",
+      "sortKey": "chief information commissioner",
+      "quote": "…mass media or administration and governance. (6) The State Chief Information Commissioner or a State Information Commissioner shall not be a Member o…",
+      "verify": false
+    },
+    {
+      "unitId": "rti-15",
+      "unitNumber": "15",
+      "kind": "authority",
+      "value": "Information Commissioner",
+      "sortKey": "information commissioner",
+      "quote": "…ce. (6) The State Chief Information Commissioner or a State Information Commissioner shall not be a Member of Parliament or Member of the Legisl…",
+      "verify": false
+    },
+    {
+      "unitId": "rti-15",
+      "unitNumber": "15",
+      "kind": "authority",
+      "value": "State Information Commission",
+      "sortKey": "state information commission",
+      "quote": "…ess or pursuing any profession. (7) The headquarters of the State Information Commission shall be at such place in the State as the State Government…",
+      "verify": false
+    },
+    {
+      "unitId": "rti-15",
+      "unitNumber": "15",
+      "kind": "authority",
+      "value": "State Information Commission",
+      "sortKey": "state information commission",
+      "quote": "…y, by notification in the Official Gazette, specify and the State Information Commission may, with the previous approval of the State Government, es…",
+      "verify": false
+    },
+    {
+      "unitId": "rti-16",
+      "unitNumber": "16",
+      "kind": "time",
+      "value": "five years",
+      "sortKey": 1825,
+      "quote": "…ion Commissioner, his term of office shall not be more than five years in aggregate as the State Information Commissioner and the…",
+      "verify": true
+    },
+    {
+      "unitId": "rti-16",
+      "unitNumber": "16",
+      "kind": "time",
+      "value": "five years",
+      "sortKey": 1825,
+      "quote": "…n 17. 1. Subs. by Act 24 of 2019, s. 3, for, \"for a term of five years from the date on which he enters upon his office\" (w.e.f. 2…",
+      "verify": true
+    },
+    {
+      "unitId": "rti-16",
+      "unitNumber": "16",
+      "kind": "authority",
+      "value": "Chief Information Commissioner",
+      "sortKey": "chief information commissioner",
+      "quote": "(1) The State Chief Information Commissioner shall hold office 1[for such term as may be prescribed by t…",
+      "verify": false
+    },
+    {
+      "unitId": "rti-16",
+      "unitNumber": "16",
+      "kind": "authority",
+      "value": "Chief Information Commissioner",
+      "sortKey": "chief information commissioner",
+      "quote": "…l not be eligible for reappointment: Provided that no State Chief Information Commissioner shall hold office as such after he has attained the age of…",
+      "verify": false
+    },
+    {
+      "unitId": "rti-16",
+      "unitNumber": "16",
+      "kind": "authority",
+      "value": "Information Commissioner",
+      "sortKey": "information commissioner",
+      "quote": "…e has attained the age of sixty-five years. (2) Every State Information Commissioner shall hold office 1[for such term as may be prescribed by t…",
+      "verify": false
+    },
+    {
+      "unitId": "rti-16",
+      "unitNumber": "16",
+      "kind": "authority",
+      "value": "Information Commissioner",
+      "sortKey": "information commissioner",
+      "quote": "…, and shall not be eligible for reappointment as such State Information Commissioner: Provided that every State Information Commissioner shall,…",
+      "verify": false
+    },
+    {
+      "unitId": "rti-16",
+      "unitNumber": "16",
+      "kind": "authority",
+      "value": "Information Commissioner",
+      "sortKey": "information commissioner",
+      "quote": "…h State Information Commissioner: Provided that every State Information Commissioner shall, on vacating his office under this sub- section, be e…",
+      "verify": false
+    },
+    {
+      "unitId": "rti-16",
+      "unitNumber": "16",
+      "kind": "authority",
+      "value": "Chief Information Commissioner",
+      "sortKey": "chief information commissioner",
+      "quote": "…this sub- section, be eligible for appointment as the State Chief Information Commissioner in the manner specified in sub-section (3) of section 15: P…",
+      "verify": false
+    },
+    {
+      "unitId": "rti-16",
+      "unitNumber": "16",
+      "kind": "authority",
+      "value": "Information Commissioner",
+      "sortKey": "information commissioner",
+      "quote": "…on (3) of section 15: Provided further that where the State Information Commissioner is appointed as the State Chief Information Commissioner, h…",
+      "verify": false
+    },
+    {
+      "unitId": "rti-16",
+      "unitNumber": "16",
+      "kind": "authority",
+      "value": "Chief Information Commissioner",
+      "sortKey": "chief information commissioner",
+      "quote": "…he State Information Commissioner is appointed as the State Chief Information Commissioner, his term of office shall not be more than five years in ag…",
+      "verify": false
+    },
+    {
+      "unitId": "rti-16",
+      "unitNumber": "16",
+      "kind": "authority",
+      "value": "Information Commissioner",
+      "sortKey": "information commissioner",
+      "quote": "…shall not be more than five years in aggregate as the State Information Commissioner and the State Chief Information Commissioner. (3) The State…",
+      "verify": false
+    },
+    {
+      "unitId": "rti-16",
+      "unitNumber": "16",
+      "kind": "authority",
+      "value": "Chief Information Commissioner",
+      "sortKey": "chief information commissioner",
+      "quote": "…gregate as the State Information Commissioner and the State Chief Information Commissioner. (3) The State Chief Information Commissioner or a State In…",
+      "verify": false
+    },
+    {
+      "unitId": "rti-16",
+      "unitNumber": "16",
+      "kind": "authority",
+      "value": "Chief Information Commissioner",
+      "sortKey": "chief information commissioner",
+      "quote": "…and the State Chief Information Commissioner. (3) The State Chief Information Commissioner or a State Information Commissioner, shall before he enters…",
+      "verify": false
+    },
+    {
+      "unitId": "rti-16",
+      "unitNumber": "16",
+      "kind": "authority",
+      "value": "Information Commissioner",
+      "sortKey": "information commissioner",
+      "quote": "…er. (3) The State Chief Information Commissioner or a State Information Commissioner, shall before he enters upon his office make and subscribe…",
+      "verify": false
+    },
+    {
+      "unitId": "rti-16",
+      "unitNumber": "16",
+      "kind": "authority",
+      "value": "Chief Information Commissioner",
+      "sortKey": "chief information commissioner",
+      "quote": "…et out for the purpose in the First Schedule. (4) The State Chief Information Commissioner or a State Information Commissioner may, at any time, by wr…",
+      "verify": false
+    },
+    {
+      "unitId": "rti-16",
+      "unitNumber": "16",
+      "kind": "authority",
+      "value": "Information Commissioner",
+      "sortKey": "information commissioner",
+      "quote": "…le. (4) The State Chief Information Commissioner or a State Information Commissioner may, at any time, by writing under his hand addressed to th…",
+      "verify": false
+    },
+    {
+      "unitId": "rti-16",
+      "unitNumber": "16",
+      "kind": "authority",
+      "value": "Chief Information Commissioner",
+      "sortKey": "chief information commissioner",
+      "quote": "…e Governor, resign from his office: Provided that the State Chief Information Commissioner or a State Information Commissioner may be removed in the m…",
+      "verify": false
+    },
+    {
+      "unitId": "rti-16",
+      "unitNumber": "16",
+      "kind": "authority",
+      "value": "Information Commissioner",
+      "sortKey": "information commissioner",
+      "quote": "…ed that the State Chief Information Commissioner or a State Information Commissioner may be removed in the manner specified under section 17. 1.…",
+      "verify": false
+    },
+    {
+      "unitId": "rti-16",
+      "unitNumber": "16",
+      "kind": "authority",
+      "value": "Chief Information Commissioner",
+      "sortKey": "chief information commissioner",
+      "quote": "…e to and other terms and conditions of service of the State Chief Information Commissioner and the State Information Commissioners shall be such as ma…",
+      "verify": false
+    },
+    {
+      "unitId": "rti-16",
+      "unitNumber": "16",
+      "kind": "authority",
+      "value": "Chief Information Commissioner",
+      "sortKey": "chief information commissioner",
+      "quote": "…es, allowances and other conditions of service of the State Chief Information Commissioner and the State Information Commissioners shall not be varied…",
+      "verify": false
+    },
+    {
+      "unitId": "rti-16",
+      "unitNumber": "16",
+      "kind": "authority",
+      "value": "Chief Information Commissioner",
+      "sortKey": "chief information commissioner",
+      "quote": "…ge after their appointment: Provided further that the State Chief Information Commissioner and the State Information Commissioners appointed before th…",
+      "verify": false
+    },
+    {
+      "unitId": "rti-16",
+      "unitNumber": "16",
+      "kind": "authority",
+      "value": "Chief Information Commissioner",
+      "sortKey": "chief information commissioner",
+      "quote": "…to force.] (6) The State Government shall provide the State Chief Information Commissioner and the State Information Commissioners with such officers…",
+      "verify": false
+    },
+    {
+      "unitId": "rti-17",
+      "unitNumber": "17",
+      "kind": "authority",
+      "value": "Chief Information Commissioner",
+      "sortKey": "chief information commissioner",
+      "quote": "(1) Subject to the provisions of sub-section (3), the State Chief Information Commissioner or a State Information Commissioner shall be removed from h…",
+      "verify": false
+    },
+    {
+      "unitId": "rti-17",
+      "unitNumber": "17",
+      "kind": "authority",
+      "value": "Information Commissioner",
+      "sortKey": "information commissioner",
+      "quote": "…on (3), the State Chief Information Commissioner or a State Information Commissioner shall be removed from his office only by order of the Gover…",
+      "verify": false
+    },
+    {
+      "unitId": "rti-17",
+      "unitNumber": "17",
+      "kind": "authority",
+      "value": "Chief Information Commissioner",
+      "sortKey": "chief information commissioner",
+      "quote": "…it by the Governor, has on inquiry, reported that the State Chief Information Commissioner or a State Information Commissioner, as the case may be, ou…",
+      "verify": false
+    },
+    {
+      "unitId": "rti-17",
+      "unitNumber": "17",
+      "kind": "authority",
+      "value": "Information Commissioner",
+      "sortKey": "information commissioner",
+      "quote": "…ed that the State Chief Information Commissioner or a State Information Commissioner, as the case may be, ought on such ground be removed. (2) T…",
+      "verify": false
+    },
+    {
+      "unitId": "rti-17",
+      "unitNumber": "17",
+      "kind": "authority",
+      "value": "Chief Information Commissioner",
+      "sortKey": "chief information commissioner",
+      "quote": "…it also from attending the office during inquiry, the State Chief Information Commissioner or a State Information Commissioner in respect of whom a re…",
+      "verify": false
+    },
+    {
+      "unitId": "rti-17",
+      "unitNumber": "17",
+      "kind": "authority",
+      "value": "Information Commissioner",
+      "sortKey": "information commissioner",
+      "quote": "…nquiry, the State Chief Information Commissioner or a State Information Commissioner in respect of whom a reference has been made to the Supreme…",
+      "verify": false
+    },
+    {
+      "unitId": "rti-17",
+      "unitNumber": "17",
+      "kind": "authority",
+      "value": "Chief Information Commissioner",
+      "sortKey": "chief information commissioner",
+      "quote": "…(1), the Governor may by order remove from office the State Chief Information Commissioner or a State Information Commissioner if a State Chief Inform…",
+      "verify": false
+    },
+    {
+      "unitId": "rti-17",
+      "unitNumber": "17",
+      "kind": "authority",
+      "value": "Information Commissioner",
+      "sortKey": "information commissioner",
+      "quote": "…office the State Chief Information Commissioner or a State Information Commissioner if a State Chief Information Commissioner or a State Inform…",
+      "verify": false
+    },
+    {
+      "unitId": "rti-17",
+      "unitNumber": "17",
+      "kind": "authority",
+      "value": "Chief Information Commissioner",
+      "sortKey": "chief information commissioner",
+      "quote": "…Commissioner or a State Information Commissioner if a State Chief Information Commissioner or a State Information Commissioner, as the case may be,- (…",
+      "verify": false
+    },
+    {
+      "unitId": "rti-17",
+      "unitNumber": "17",
+      "kind": "authority",
+      "value": "Information Commissioner",
+      "sortKey": "information commissioner",
+      "quote": "…sioner if a State Chief Information Commissioner or a State Information Commissioner, as the case may be,- (a) is adjudged an insolvent; or (b)…",
+      "verify": false
+    },
+    {
+      "unitId": "rti-17",
+      "unitNumber": "17",
+      "kind": "authority",
+      "value": "Chief Information Commissioner",
+      "sortKey": "chief information commissioner",
+      "quote": "…s likely to affect prejudicially his functions as the State Chief Information Commissioner or a State Information Commissioner. (4) If the State Chief…",
+      "verify": false
+    },
+    {
+      "unitId": "rti-17",
+      "unitNumber": "17",
+      "kind": "authority",
+      "value": "Information Commissioner",
+      "sortKey": "information commissioner",
+      "quote": "…ions as the State Chief Information Commissioner or a State Information Commissioner. (4) If the State Chief Information Commissioner or a State…",
+      "verify": false
+    },
+    {
+      "unitId": "rti-17",
+      "unitNumber": "17",
+      "kind": "authority",
+      "value": "Chief Information Commissioner",
+      "sortKey": "chief information commissioner",
+      "quote": "…ioner or a State Information Commissioner. (4) If the State Chief Information Commissioner or a State Information Commissioner in any way, concerned o…",
+      "verify": false
+    },
+    {
+      "unitId": "rti-17",
+      "unitNumber": "17",
+      "kind": "authority",
+      "value": "Information Commissioner",
+      "sortKey": "information commissioner",
+      "quote": "…(4) If the State Chief Information Commissioner or a State Information Commissioner in any way, concerned or interested in any contract or agre…",
+      "verify": false
+    },
+    {
+      "unitId": "rti-18",
+      "unitNumber": "18",
+      "kind": "authority",
+      "value": "Central Information Commission",
+      "sortKey": "central information commission",
+      "quote": "…to the provisions of this Act, it shall be the duty of the Central Information Commission or State Information Commission, as the case may be, to rec…",
+      "verify": false
+    },
+    {
+      "unitId": "rti-18",
+      "unitNumber": "18",
+      "kind": "authority",
+      "value": "State Information Commission",
+      "sortKey": "state information commission",
+      "quote": "…shall be the duty of the Central Information Commission or State Information Commission, as the case may be, to receive and inquire into a complain…",
+      "verify": false
+    },
+    {
+      "unitId": "rti-18",
+      "unitNumber": "18",
+      "kind": "authority",
+      "value": "Central Public Information Officer",
+      "sortKey": "central public information officer",
+      "quote": "…-10-2019). (a) who has been unable to submit a request to a Central Public Information Officer or State Public Information Officer, as the case may be, ei…",
+      "verify": false
+    },
+    {
+      "unitId": "rti-18",
+      "unitNumber": "18",
+      "kind": "authority",
+      "value": "State Public Information Officer",
+      "sortKey": "state public information officer",
+      "quote": "…submit a request to a Central Public Information Officer or State Public Information Officer, as the case may be, either by reason that no such officer…",
+      "verify": false
+    },
+    {
+      "unitId": "rti-18",
+      "unitNumber": "18",
+      "kind": "authority",
+      "value": "Central Assistant Public Information Officer",
+      "sortKey": "central assistant public information officer",
+      "quote": "…h officer has been appointed under this Act, or because the Central Assistant Public Information Officer or State Assistant Public Information Officer, as the case…",
+      "verify": false
+    },
+    {
+      "unitId": "rti-18",
+      "unitNumber": "18",
+      "kind": "authority",
+      "value": "Public Information Officer",
+      "sortKey": "public information officer",
+      "quote": "…ral Assistant Public Information Officer or State Assistant Public Information Officer, as the case may be, has refused to accept his or her appli…",
+      "verify": false
+    },
+    {
+      "unitId": "rti-18",
+      "unitNumber": "18",
+      "kind": "authority",
+      "value": "Central Public Information Officer",
+      "sortKey": "central public information officer",
+      "quote": "…ion or appeal under this Act for forwarding the same to the Central Public Information Officer or State Public Information Officer or senior officer speci…",
+      "verify": false
+    },
+    {
+      "unitId": "rti-18",
+      "unitNumber": "18",
+      "kind": "authority",
+      "value": "State Public Information Officer",
+      "sortKey": "state public information officer",
+      "quote": "…rding the same to the Central Public Information Officer or State Public Information Officer or senior officer specified in sub-section (1) of section 1…",
+      "verify": false
+    },
+    {
+      "unitId": "rti-18",
+      "unitNumber": "18",
+      "kind": "authority",
+      "value": "Central Information Commission",
+      "sortKey": "central information commission",
+      "quote": "…r officer specified in sub-section (1) of section 19 or the Central Information Commission or the State Information Commission, as the case may be; (b…",
+      "verify": false
+    },
+    {
+      "unitId": "rti-18",
+      "unitNumber": "18",
+      "kind": "authority",
+      "value": "State Information Commission",
+      "sortKey": "state information commission",
+      "quote": "…of section 19 or the Central Information Commission or the State Information Commission, as the case may be; (b) who has been refused access to any…",
+      "verify": false
+    },
+    {
+      "unitId": "rti-18",
+      "unitNumber": "18",
+      "kind": "authority",
+      "value": "Central Information Commission",
+      "sortKey": "central information commission",
+      "quote": "…r obtaining access to records under this Act. (2) Where the Central Information Commission or State Information Commission, as the case may be, is sat…",
+      "verify": false
+    },
+    {
+      "unitId": "rti-18",
+      "unitNumber": "18",
+      "kind": "authority",
+      "value": "State Information Commission",
+      "sortKey": "state information commission",
+      "quote": "…r this Act. (2) Where the Central Information Commission or State Information Commission, as the case may be, is satisfied that there are reasonable…",
+      "verify": false
+    },
+    {
+      "unitId": "rti-18",
+      "unitNumber": "18",
+      "kind": "authority",
+      "value": "Central Information Commission",
+      "sortKey": "central information commission",
+      "quote": "…ter, it may initiate an inquiry in respect thereof. (3) The Central Information Commission or State Information Commission, as the case may be, shall,…",
+      "verify": false
+    },
+    {
+      "unitId": "rti-18",
+      "unitNumber": "18",
+      "kind": "authority",
+      "value": "State Information Commission",
+      "sortKey": "state information commission",
+      "quote": "…respect thereof. (3) The Central Information Commission or State Information Commission, as the case may be, shall, while inquiring into any matter…",
+      "verify": false
+    },
+    {
+      "unitId": "rti-18",
+      "unitNumber": "18",
+      "kind": "authority",
+      "value": "Central Information Commission",
+      "sortKey": "central information commission",
+      "quote": "…of Parliament or State Legislature, as the case may be, the Central Information Commission or the State Information Commission, as the case may be, ma…",
+      "verify": false
+    },
+    {
+      "unitId": "rti-18",
+      "unitNumber": "18",
+      "kind": "authority",
+      "value": "State Information Commission",
+      "sortKey": "state information commission",
+      "quote": "…the case may be, the Central Information Commission or the State Information Commission, as the case may be, may, during the inquiry of any complai…",
+      "verify": false
+    },
+    {
+      "unitId": "rti-19",
+      "unitNumber": "19",
+      "kind": "time",
+      "value": "thirty days",
+      "sortKey": 30,
+      "quote": "…Public Information Officer, as the case may be, may within thirty days from the expiry of such period or from the receipt of such…",
+      "verify": false
+    },
+    {
+      "unitId": "rti-19",
+      "unitNumber": "19",
+      "kind": "time",
+      "value": "thirty days",
+      "sortKey": 30,
+      "quote": "…icer may admit the appeal after the expiry of the period of thirty days if he or she is satisfied that the appellant was prevented…",
+      "verify": true
+    },
+    {
+      "unitId": "rti-19",
+      "unitNumber": "19",
+      "kind": "time",
+      "value": "thirty days",
+      "sortKey": 30,
+      "quote": "…he appeal by the concerned third party shall be made within thirty days from the date of the order. (3) A second appeal against the…",
+      "verify": false
+    },
+    {
+      "unitId": "rti-19",
+      "unitNumber": "19",
+      "kind": "time",
+      "value": "ninety days",
+      "sortKey": 90,
+      "quote": "…against the decision under sub-section (1) shall lie within ninety days from the date on which the decision should have been made o…",
+      "verify": false
+    },
+    {
+      "unitId": "rti-19",
+      "unitNumber": "19",
+      "kind": "time",
+      "value": "ninety days",
+      "sortKey": 90,
+      "quote": "…be, may admit the appeal after the expiry of the period of ninety days if it is satisfied that the appellant was prevented by suff…",
+      "verify": true
+    },
+    {
+      "unitId": "rti-19",
+      "unitNumber": "19",
+      "kind": "time",
+      "value": "thirty days",
+      "sortKey": 30,
+      "quote": "…-section (1) or sub-section (2) shall be disposed of within thirty days of the receipt of the appeal or within such extended period…",
+      "verify": false
+    },
+    {
+      "unitId": "rti-19",
+      "unitNumber": "19",
+      "kind": "time",
+      "value": "forty-five days",
+      "sortKey": 45,
+      "quote": "…eal or within such extended period not exceeding a total of forty-five days from the date of filing thereof, as the case may be, for re…",
+      "verify": true
+    },
+    {
+      "unitId": "rti-19",
+      "unitNumber": "19",
+      "kind": "authority",
+      "value": "Central Public Information Officer",
+      "sortKey": "central public information officer",
+      "quote": "…tion (3) of section 7, or is aggrieved by a decision of the Central Public Information Officer or State Public Information Officer, as the case may be, ma…",
+      "verify": false
+    },
+    {
+      "unitId": "rti-19",
+      "unitNumber": "19",
+      "kind": "authority",
+      "value": "State Public Information Officer",
+      "sortKey": "state public information officer",
+      "quote": "…by a decision of the Central Public Information Officer or State Public Information Officer, as the case may be, may within thirty days from the expiry…",
+      "verify": false
+    },
+    {
+      "unitId": "rti-19",
+      "unitNumber": "19",
+      "kind": "authority",
+      "value": "Central Public Information Officer",
+      "sortKey": "central public information officer",
+      "quote": "…efer an appeal to such officer who is senior in rank to the Central Public Information Officer or State Public Information Officer as the case may be, in…",
+      "verify": false
+    },
+    {
+      "unitId": "rti-19",
+      "unitNumber": "19",
+      "kind": "authority",
+      "value": "State Public Information Officer",
+      "sortKey": "state public information officer",
+      "quote": "…senior in rank to the Central Public Information Officer or State Public Information Officer as the case may be, in each public authority: Provided that…",
+      "verify": false
+    },
+    {
+      "unitId": "rti-19",
+      "unitNumber": "19",
+      "kind": "authority",
+      "value": "Central Public Information Officer",
+      "sortKey": "central public information officer",
+      "quote": "…(2) Where an appeal is preferred against an order made by a Central Public Information Officer or a State Public Information Officer, as the case may be,…",
+      "verify": false
+    },
+    {
+      "unitId": "rti-19",
+      "unitNumber": "19",
+      "kind": "authority",
+      "value": "State Public Information Officer",
+      "sortKey": "state public information officer",
+      "quote": "…an order made by a Central Public Information Officer or a State Public Information Officer, as the case may be, under section 11 to disclose third par…",
+      "verify": false
+    },
+    {
+      "unitId": "rti-19",
+      "unitNumber": "19",
+      "kind": "authority",
+      "value": "Central Information Commission",
+      "sortKey": "central information commission",
+      "quote": "…on should have been made or was actually received, with the Central Information Commission or the State Information Commission: Provided that the Cent…",
+      "verify": false
+    },
+    {
+      "unitId": "rti-19",
+      "unitNumber": "19",
+      "kind": "authority",
+      "value": "State Information Commission",
+      "sortKey": "state information commission",
+      "quote": "…ly received, with the Central Information Commission or the State Information Commission: Provided that the Central Information Commission or the St…",
+      "verify": false
+    },
+    {
+      "unitId": "rti-19",
+      "unitNumber": "19",
+      "kind": "authority",
+      "value": "Central Information Commission",
+      "sortKey": "central information commission",
+      "quote": "…sion or the State Information Commission: Provided that the Central Information Commission or the State Information Commission, as the case may be, ma…",
+      "verify": false
+    },
+    {
+      "unitId": "rti-19",
+      "unitNumber": "19",
+      "kind": "authority",
+      "value": "State Information Commission",
+      "sortKey": "state information commission",
+      "quote": "…on: Provided that the Central Information Commission or the State Information Commission, as the case may be, may admit the appeal after the expiry…",
+      "verify": false
+    },
+    {
+      "unitId": "rti-19",
+      "unitNumber": "19",
+      "kind": "authority",
+      "value": "Central Public Information Officer",
+      "sortKey": "central public information officer",
+      "quote": "…from filing the appeal in time. (4) If the decision of the Central Public Information Officer or State Public Information Officer, as the case may be, ag…",
+      "verify": false
+    },
+    {
+      "unitId": "rti-19",
+      "unitNumber": "19",
+      "kind": "authority",
+      "value": "State Public Information Officer",
+      "sortKey": "state public information officer",
+      "quote": "…f the decision of the Central Public Information Officer or State Public Information Officer, as the case may be, against which an appeal is preferred r…",
+      "verify": false
+    },
+    {
+      "unitId": "rti-19",
+      "unitNumber": "19",
+      "kind": "authority",
+      "value": "Central Information Commission",
+      "sortKey": "central information commission",
+      "quote": "…l is preferred relates to information of a third party, the Central Information Commission or State Information Commission, as the case may be, shall…",
+      "verify": false
+    },
+    {
+      "unitId": "rti-19",
+      "unitNumber": "19",
+      "kind": "authority",
+      "value": "State Information Commission",
+      "sortKey": "state information commission",
+      "quote": "…ion of a third party, the Central Information Commission or State Information Commission, as the case may be, shall give a reasonable opportunity of…",
+      "verify": false
+    },
+    {
+      "unitId": "rti-19",
+      "unitNumber": "19",
+      "kind": "authority",
+      "value": "Central Public Information Officer",
+      "sortKey": "central public information officer",
+      "quote": "…ve that a denial of a request was justified shall be on the Central Public Information Officer or State Public Information Officer, as the case may be, wh…",
+      "verify": false
+    },
+    {
+      "unitId": "rti-19",
+      "unitNumber": "19",
+      "kind": "authority",
+      "value": "State Public Information Officer",
+      "sortKey": "state public information officer",
+      "quote": "…ified shall be on the Central Public Information Officer or State Public Information Officer, as the case may be, who denied the request. (6) An appeal…",
+      "verify": false
+    },
+    {
+      "unitId": "rti-19",
+      "unitNumber": "19",
+      "kind": "authority",
+      "value": "Central Information Commission",
+      "sortKey": "central information commission",
+      "quote": "…reasons to be recorded in writing. (7) The decision of the Central Information Commission or State Information Commission, as the case may be, shall…",
+      "verify": false
+    },
+    {
+      "unitId": "rti-19",
+      "unitNumber": "19",
+      "kind": "authority",
+      "value": "State Information Commission",
+      "sortKey": "state information commission",
+      "quote": "…. (7) The decision of the Central Information Commission or State Information Commission, as the case may be, shall be binding. (8) In its decision,…",
+      "verify": false
+    },
+    {
+      "unitId": "rti-19",
+      "unitNumber": "19",
+      "kind": "authority",
+      "value": "Central Information Commission",
+      "sortKey": "central information commission",
+      "quote": "…the case may be, shall be binding. (8) In its decision, the Central Information Commission or State Information Commission, as the case may be, has th…",
+      "verify": false
+    },
+    {
+      "unitId": "rti-19",
+      "unitNumber": "19",
+      "kind": "authority",
+      "value": "State Information Commission",
+      "sortKey": "state information commission",
+      "quote": "…(8) In its decision, the Central Information Commission or State Information Commission, as the case may be, has the power to- (a) require the publ…",
+      "verify": false
+    },
+    {
+      "unitId": "rti-19",
+      "unitNumber": "19",
+      "kind": "authority",
+      "value": "Central Public Information Officer",
+      "sortKey": "central public information officer",
+      "quote": "…if so requested, in a particular form; (ii) by appointing a Central Public Information Officer or State Public Information Officer, as the case may be; (i…",
+      "verify": false
+    },
+    {
+      "unitId": "rti-19",
+      "unitNumber": "19",
+      "kind": "authority",
+      "value": "State Public Information Officer",
+      "sortKey": "state public information officer",
+      "quote": "…(ii) by appointing a Central Public Information Officer or State Public Information Officer, as the case may be; (iii) by publishing certain informatio…",
+      "verify": false
+    },
+    {
+      "unitId": "rti-19",
+      "unitNumber": "19",
+      "kind": "authority",
+      "value": "Central Information Commission",
+      "sortKey": "central information commission",
+      "quote": "…rovided under this Act; (d) reject the application. (9) The Central Information Commission or State Information Commission, as the case may be, shall…",
+      "verify": false
+    },
+    {
+      "unitId": "rti-19",
+      "unitNumber": "19",
+      "kind": "authority",
+      "value": "State Information Commission",
+      "sortKey": "state information commission",
+      "quote": "…the application. (9) The Central Information Commission or State Information Commission, as the case may be, shall give notice of its decision, inc…",
+      "verify": false
+    },
+    {
+      "unitId": "rti-19",
+      "unitNumber": "19",
+      "kind": "authority",
+      "value": "Central Information Commission",
+      "sortKey": "central information commission",
+      "quote": "…peal, to the complainant and the public authority. (10) The Central Information Commission or State Information Commission, as the case may be, shall…",
+      "verify": false
+    },
+    {
+      "unitId": "rti-19",
+      "unitNumber": "19",
+      "kind": "authority",
+      "value": "State Information Commission",
+      "sortKey": "state information commission",
+      "quote": "…ublic authority. (10) The Central Information Commission or State Information Commission, as the case may be, shall decide the appeal in accordance…",
+      "verify": false
+    },
+    {
+      "unitId": "rti-20",
+      "unitNumber": "20",
+      "kind": "authority",
+      "value": "Central Information Commission",
+      "sortKey": "central information commission",
+      "quote": "(1)Where the Central Information Commission or the State Information Commission, as the case may be, at…",
+      "verify": false
+    },
+    {
+      "unitId": "rti-20",
+      "unitNumber": "20",
+      "kind": "authority",
+      "value": "State Information Commission",
+      "sortKey": "state information commission",
+      "quote": "(1)Where the Central Information Commission or the State Information Commission, as the case may be, at the time of deciding any complaint…",
+      "verify": false
+    },
+    {
+      "unitId": "rti-20",
+      "unitNumber": "20",
+      "kind": "authority",
+      "value": "Central Public Information Officer",
+      "sortKey": "central public information officer",
+      "quote": "…deciding any complaint or appeal is of the opinion that the Central Public Information Officer or the State Public Information Officer, as the case may be…",
+      "verify": false
+    },
+    {
+      "unitId": "rti-20",
+      "unitNumber": "20",
+      "kind": "authority",
+      "value": "State Public Information Officer",
+      "sortKey": "state public information officer",
+      "quote": "…opinion that the Central Public Information Officer or the State Public Information Officer, as the case may be, has, without any reasonable cause, ref…",
+      "verify": false
+    },
+    {
+      "unitId": "rti-20",
+      "unitNumber": "20",
+      "kind": "authority",
+      "value": "Central Public Information Officer",
+      "sortKey": "central public information officer",
+      "quote": "…l not exceed twenty-five thousand rupees: Provided that the Central Public Information Officer or the State Public Information Officer, as the case may be…",
+      "verify": false
+    },
+    {
+      "unitId": "rti-20",
+      "unitNumber": "20",
+      "kind": "authority",
+      "value": "State Public Information Officer",
+      "sortKey": "state public information officer",
+      "quote": "…Provided that the Central Public Information Officer or the State Public Information Officer, as the case may be, shall be given a reasonable opportunit…",
+      "verify": false
+    },
+    {
+      "unitId": "rti-20",
+      "unitNumber": "20",
+      "kind": "authority",
+      "value": "Central Public Information Officer",
+      "sortKey": "central public information officer",
+      "quote": "…ing that he acted reasonably and diligently shall be on the Central Public Information Officer or the State Public Information Officer, as the case may be…",
+      "verify": false
+    },
+    {
+      "unitId": "rti-20",
+      "unitNumber": "20",
+      "kind": "authority",
+      "value": "State Public Information Officer",
+      "sortKey": "state public information officer",
+      "quote": "…y shall be on the Central Public Information Officer or the State Public Information Officer, as the case may be. (2) Where the Central Information Comm…",
+      "verify": false
+    },
+    {
+      "unitId": "rti-20",
+      "unitNumber": "20",
+      "kind": "authority",
+      "value": "Central Information Commission",
+      "sortKey": "central information commission",
+      "quote": "…blic Information Officer, as the case may be. (2) Where the Central Information Commission or the State Information Commission, as the case may be, at…",
+      "verify": false
+    },
+    {
+      "unitId": "rti-20",
+      "unitNumber": "20",
+      "kind": "authority",
+      "value": "State Information Commission",
+      "sortKey": "state information commission",
+      "quote": "…may be. (2) Where the Central Information Commission or the State Information Commission, as the case may be, at the time of deciding any complaint…",
+      "verify": false
+    },
+    {
+      "unitId": "rti-20",
+      "unitNumber": "20",
+      "kind": "authority",
+      "value": "Central Public Information Officer",
+      "sortKey": "central public information officer",
+      "quote": "…ion, it shall recommend for disciplinary action against the Central Public Information Officer or the State Public Information Officer, as the case may be…",
+      "verify": false
+    },
+    {
+      "unitId": "rti-20",
+      "unitNumber": "20",
+      "kind": "authority",
+      "value": "State Public Information Officer",
+      "sortKey": "state public information officer",
+      "quote": "…ction against the Central Public Information Officer or the State Public Information Officer, as the case may be, under the service rules applicable to…",
+      "verify": false
+    },
+    {
+      "unitId": "rti-24",
+      "unitNumber": "24",
+      "kind": "time",
+      "value": "forty-five days",
+      "sortKey": 45,
+      "quote": "…ned in section 7, such information shall be provided within forty-five days from the date of the receipt of request. (2) The Central Go…",
+      "verify": false
+    },
+    {
+      "unitId": "rti-24",
+      "unitNumber": "24",
+      "kind": "authority",
+      "value": "Central Information Commission",
+      "sortKey": "central information commission",
+      "quote": "…nformation shall only be provided after the approval of the Central Information Commission, and notwithstanding anything contained in section 7, such…",
+      "verify": false
+    },
+    {
+      "unitId": "rti-24",
+      "unitNumber": "24",
+      "kind": "authority",
+      "value": "State Information Commission",
+      "sortKey": "state information commission",
+      "quote": "…nformation shall only be provided after the approval of the State Information Commission and, notwithstanding anything contained in section 7, such…",
+      "verify": false
+    },
+    {
+      "unitId": "rti-25",
+      "unitNumber": "25",
+      "kind": "authority",
+      "value": "Central Information Commission",
+      "sortKey": "central information commission",
+      "quote": "(1) The Central Information Commission or State Information Commission, as the case may be, shall,…",
+      "verify": false
+    },
+    {
+      "unitId": "rti-25",
+      "unitNumber": "25",
+      "kind": "authority",
+      "value": "State Information Commission",
+      "sortKey": "state information commission",
+      "quote": "(1) The Central Information Commission or State Information Commission, as the case may be, shall, as soon as practicable after th…",
+      "verify": false
+    },
+    {
+      "unitId": "rti-25",
+      "unitNumber": "25",
+      "kind": "authority",
+      "value": "Central Information Commission",
+      "sortKey": "central information commission",
+      "quote": "…r jurisdiction, collect and provide such information to the Central Information Commission or State Information Commission, as the case may be, as is…",
+      "verify": false
+    },
+    {
+      "unitId": "rti-25",
+      "unitNumber": "25",
+      "kind": "authority",
+      "value": "State Information Commission",
+      "sortKey": "state information commission",
+      "quote": "…e such information to the Central Information Commission or State Information Commission, as the case may be, as is required to prepare the report u…",
+      "verify": false
+    },
+    {
+      "unitId": "rti-25",
+      "unitNumber": "25",
+      "kind": "authority",
+      "value": "Central Information Commission",
+      "sortKey": "central information commission",
+      "quote": "…ons were invoked; (c) the number of appeals referred to the Central Information Commission or State Information Commission, as the case may be, for re…",
+      "verify": false
+    },
+    {
+      "unitId": "rti-25",
+      "unitNumber": "25",
+      "kind": "authority",
+      "value": "State Information Commission",
+      "sortKey": "state information commission",
+      "quote": "…f appeals referred to the Central Information Commission or State Information Commission, as the case may be, for review, the nature of the appeals…",
+      "verify": false
+    },
+    {
+      "unitId": "rti-25",
+      "unitNumber": "25",
+      "kind": "authority",
+      "value": "Central Information Commission",
+      "sortKey": "central information commission",
+      "quote": "…ter the end of each year, cause a copy of the report of the Central Information Commission or the State Information Commission, as the case may be, re…",
+      "verify": false
+    },
+    {
+      "unitId": "rti-25",
+      "unitNumber": "25",
+      "kind": "authority",
+      "value": "State Information Commission",
+      "sortKey": "state information commission",
+      "quote": "…of the report of the Central Information Commission or the State Information Commission, as the case may be, referred to in sub-section (1) to be l…",
+      "verify": false
+    },
+    {
+      "unitId": "rti-25",
+      "unitNumber": "25",
+      "kind": "authority",
+      "value": "Central Information Commission",
+      "sortKey": "central information commission",
+      "quote": "…ate Legislature before that House. (5) If it appears to the Central Information Commission or State Information Commission, as the case may be, that t…",
+      "verify": false
+    },
+    {
+      "unitId": "rti-25",
+      "unitNumber": "25",
+      "kind": "authority",
+      "value": "State Information Commission",
+      "sortKey": "state information commission",
+      "quote": "…(5) If it appears to the Central Information Commission or State Information Commission, as the case may be, that the practice of a public authorit…",
+      "verify": false
+    },
+    {
+      "unitId": "rti-26",
+      "unitNumber": "26",
+      "kind": "authority",
+      "value": "Central Public Information Officer",
+      "sortKey": "central public information officer",
+      "quote": "…ax number and, if available, electronic mail address of the Central Public Information Officer or State Public Information Officer, as the case may be, of…",
+      "verify": false
+    },
+    {
+      "unitId": "rti-26",
+      "unitNumber": "26",
+      "kind": "authority",
+      "value": "State Public Information Officer",
+      "sortKey": "state public information officer",
+      "quote": "…c mail address of the Central Public Information Officer or State Public Information Officer, as the case may be, of every public authority appointed un…",
+      "verify": false
+    },
+    {
+      "unitId": "rti-26",
+      "unitNumber": "26",
+      "kind": "authority",
+      "value": "Central Public Information Officer",
+      "sortKey": "central public information officer",
+      "quote": "…ich request for access to an information shall be made to a Central Public Information Officer or State Public Information Officer, as the case may be; (d…",
+      "verify": false
+    },
+    {
+      "unitId": "rti-26",
+      "unitNumber": "26",
+      "kind": "authority",
+      "value": "State Public Information Officer",
+      "sortKey": "state public information officer",
+      "quote": "…on shall be made to a Central Public Information Officer or State Public Information Officer, as the case may be; (d) the assistance available from and…",
+      "verify": false
+    },
+    {
+      "unitId": "rti-26",
+      "unitNumber": "26",
+      "kind": "authority",
+      "value": "Central Public Information Officer",
+      "sortKey": "central public information officer",
+      "quote": "…be; (d) the assistance available from and the duties of the Central Public Information Officer or State Public Information Officer, as the case may be, of…",
+      "verify": false
+    },
+    {
+      "unitId": "rti-26",
+      "unitNumber": "26",
+      "kind": "authority",
+      "value": "State Public Information Officer",
+      "sortKey": "state public information officer",
+      "quote": "…and the duties of the Central Public Information Officer or State Public Information Officer, as the case may be, of a public authority under this Act;…",
+      "verify": false
+    },
+    {
+      "unitId": "rti-26",
+      "unitNumber": "26",
+      "kind": "authority",
+      "value": "Central Information Commission",
+      "sortKey": "central information commission",
+      "quote": "…ority under this Act; (e) the assistance available from the Central Information Commission or State Information Commission, as the case may be; (f) al…",
+      "verify": false
+    },
+    {
+      "unitId": "rti-26",
+      "unitNumber": "26",
+      "kind": "authority",
+      "value": "State Information Commission",
+      "sortKey": "state information commission",
+      "quote": "…stance available from the Central Information Commission or State Information Commission, as the case may be; (f) all remedies in law available rega…",
+      "verify": false
+    },
+    {
+      "unitId": "rti-27",
+      "unitNumber": "27",
+      "kind": "authority",
+      "value": "Chief Information Commissioner",
+      "sortKey": "chief information commissioner",
+      "quote": "…(1) and (5) of section 7; 1[(ca) the term of office of the Chief Information Commissioner and Information Commissioners under sub-sections (1) and (2…",
+      "verify": false
+    },
+    {
+      "unitId": "rti-27",
+      "unitNumber": "27",
+      "kind": "authority",
+      "value": "Chief Information Commissioner",
+      "sortKey": "chief information commissioner",
+      "quote": "…under sub-sections (1) and (2) of section 13 and the State Chief Information Commissioner and State Information Commissioners under sub-sections (1)…",
+      "verify": false
+    },
+    {
+      "unitId": "rti-27",
+      "unitNumber": "27",
+      "kind": "authority",
+      "value": "Chief Information Commissioner",
+      "sortKey": "chief information commissioner",
+      "quote": "…allowances and other terms and conditions of service of the Chief Information Commissioner and the Information Commissioners under sub-section (5) of…",
+      "verify": false
+    },
+    {
+      "unitId": "rti-27",
+      "unitNumber": "27",
+      "kind": "authority",
+      "value": "Chief Information Commissioner",
+      "sortKey": "chief information commissioner",
+      "quote": "…issioners under sub-section (5) of section 13 and the State Chief Information Commissioner and the State Information Commissioners under sub-section (…",
+      "verify": false
+    },
+    {
+      "unitId": "rti-27",
+      "unitNumber": "27",
+      "kind": "authority",
+      "value": "Central Information Commission",
+      "sortKey": "central information commission",
+      "quote": "…n (6) of section 16; (e) the procedure to be adopted by the Central Information Commission or State Information Commission, as the case may be, in dec…",
+      "verify": false
+    },
+    {
+      "unitId": "rti-27",
+      "unitNumber": "27",
+      "kind": "authority",
+      "value": "State Information Commission",
+      "sortKey": "state information commission",
+      "quote": "…dure to be adopted by the Central Information Commission or State Information Commission, as the case may be, in deciding the appeals under sub-sect…",
+      "verify": false
+    },
+    {
+      "unitId": "rti-28",
+      "unitNumber": "28",
+      "kind": "authority",
+      "value": "competent authority",
+      "sortKey": "competent authority",
+      "quote": "(1) The competent authority may, by notification in the Official Gazette, make rules to…",
+      "verify": false
+    },
+    {
+      "unitId": "rti-29",
+      "unitNumber": "29",
+      "kind": "time",
+      "value": "thirty days",
+      "sortKey": 30,
+      "quote": "…f Parliament, while it is in session, for a total period of thirty days which may be comprised in one session or in two or more suc…",
+      "verify": true
+    },
+    {
+      "unitId": "rti-30",
+      "unitNumber": "30",
+      "kind": "time",
+      "value": "a period of two years",
+      "sortKey": 730,
+      "quote": "…ovided that no such order shall be made after the expiry of a period of two years from the date of the commencement of this Act. (2) Every or…",
+      "verify": false
+    }
+  ]
+}

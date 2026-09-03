@@ -6,9 +6,9 @@ import { toUnitHref } from '../url'
 
 import { SectionNumber } from '@/components/ui-x'
 import { useT } from '@/i18n/useT'
-import { unitLabel } from '@/lib/library'
+import { unitLabel, type ReaderWork } from '@/lib/library'
 import { cn } from '@/lib/utils'
-import type { LibraryWork, TocNode } from '@/schemas/library'
+import type { TocNode } from '@/schemas/library'
 
 /**
  * A work's table of contents, collapsible where the work has chapters.
@@ -29,7 +29,7 @@ import type { LibraryWork, TocNode } from '@/schemas/library'
 
 interface UnitRowProps {
   node: TocNode
-  work: LibraryWork
+  work: ReaderWork
   read: boolean
   current: boolean
 }
@@ -69,7 +69,7 @@ function UnitRow({ node, work, read, current }: UnitRowProps) {
 
 interface ChapterProps {
   node: TocNode
-  work: LibraryWork
+  work: ReaderWork
   readIds: ReadonlySet<string>
   currentUnitId?: string
   defaultOpen: boolean
@@ -123,7 +123,7 @@ function Chapter({ node, work, readIds, currentUnitId, defaultOpen }: ChapterPro
 }
 
 interface TocTreeProps {
-  work: LibraryWork
+  work: ReaderWork
   readIds: ReadonlySet<string>
   /** Opens (and marks) the branch the reader is in. */
   currentUnitId?: string

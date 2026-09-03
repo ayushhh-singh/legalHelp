@@ -1,0 +1,800 @@
+{
+  "$schema": "../../../schemas/library-quickref.schema.json",
+  "version": "1.0.0",
+  "generatedAt": "2026-09-03",
+  "workId": "fr-sr",
+  "source": {
+    "name": "Department of Personnel and Training — Compilation of Fundamental Rules and Supplementary Rules — English",
+    "url": "https://dopt.gov.in/sites/default/files/Compilation_FR_SR_English_2.pdf"
+  },
+  "counts": {
+    "time": 64,
+    "money": 3,
+    "authority": 20
+  },
+  "rows": [
+    {
+      "unitId": "fr-sr-f-r-17",
+      "unitNumber": "F.R. 17",
+      "kind": "authority",
+      "value": "competent authority",
+      "sortKey": "competent authority",
+      "quote": "…authority from, or valid reason to the satisfaction of the competent authority; and (iii) in the case of an individual employee, remaining…",
+      "verify": false
+    },
+    {
+      "unitId": "fr-sr-f-r-17",
+      "unitNumber": "F.R. 17",
+      "kind": "authority",
+      "value": "competent authority",
+      "sortKey": "competent authority",
+      "quote": "…he service of the employee, unless otherwise decided by the competent authority for the purpose of leave travel concession, quasi-permanenc…",
+      "verify": false
+    },
+    {
+      "unitId": "fr-sr-f-r-17",
+      "unitNumber": "F.R. 17",
+      "kind": "authority",
+      "value": "Competent Authority",
+      "sortKey": "competent authority",
+      "quote": "…similar activities. EXPLANATION 2.- In this rule, the term \"Competent Authority\" means the \"Appointing Authority\".",
+      "verify": false
+    },
+    {
+      "unitId": "fr-sr-f-r-17",
+      "unitNumber": "F.R. 17",
+      "kind": "authority",
+      "value": "Appointing Authority",
+      "sortKey": "appointing authority",
+      "quote": "…2.- In this rule, the term \"Competent Authority\" means the \"Appointing Authority\".",
+      "verify": false
+    },
+    {
+      "unitId": "fr-sr-f-r-18",
+      "unitNumber": "F.R. 18",
+      "kind": "time",
+      "value": "five years",
+      "sortKey": 1825,
+      "quote": "…granted leave of any kind for a continuous period exceeding five years. CHAPTER IV Pay",
+      "verify": true
+    },
+    {
+      "unitId": "fr-sr-f-r-22",
+      "unitNumber": "F.R. 22",
+      "kind": "time",
+      "value": "one month",
+      "sortKey": 30,
+      "quote": "…nment servant shall have the option, to be exercised within one month from the date of promotion or appointment, as the case may…",
+      "verify": false
+    },
+    {
+      "unitId": "fr-sr-f-r-22",
+      "unitNumber": "F.R. 22",
+      "kind": "time",
+      "value": "one month",
+      "sortKey": 30,
+      "quote": "…of initial appointment or promotion, to be exercised within one month from the date of such regular appointment. In cases where a…",
+      "verify": false
+    },
+    {
+      "unitId": "fr-sr-f-r-22",
+      "unitNumber": "F.R. 22",
+      "kind": "time",
+      "value": "three months",
+      "sortKey": 90,
+      "quote": "…be extended to the retired employee to be exercised within three months from the date when his or her junior became eligible to ava…",
+      "verify": false
+    },
+    {
+      "unitId": "fr-sr-f-r-22",
+      "unitNumber": "F.R. 22",
+      "kind": "time",
+      "value": "three months",
+      "sortKey": 90,
+      "quote": "…ior most, he or she may exercise the option facility within three months from the date when his or her immediate senior became eligi…",
+      "verify": false
+    },
+    {
+      "unitId": "fr-sr-f-r-22",
+      "unitNumber": "F.R. 22",
+      "kind": "authority",
+      "value": "Competent Authority",
+      "sortKey": "competent authority",
+      "quote": "…d during the process of regularization and found fit by the Competent Authority along with his or her juniors, who are still in service and…",
+      "verify": false
+    },
+    {
+      "unitId": "fr-sr-f-r-29",
+      "unitNumber": "F.R. 29",
+      "kind": "authority",
+      "value": "Competent Authority",
+      "sortKey": "competent authority",
+      "quote": "…lower stage in a time-scale, is set aside or modified by a Competent Authority on appeal or review, the pay of the Government servant shal…",
+      "verify": false
+    },
+    {
+      "unitId": "fr-sr-f-r-29",
+      "unitNumber": "F.R. 29",
+      "kind": "authority",
+      "value": "Competent Authority",
+      "sortKey": "competent authority",
+      "quote": "…spect of any period prior to the issue of the orders of the Competent Authority under this rule is revised, the leave salary and allowances…",
+      "verify": false
+    },
+    {
+      "unitId": "fr-sr-f-r-45",
+      "unitNumber": "F.R. 45",
+      "kind": "time",
+      "value": "one month",
+      "sortKey": 30,
+      "quote": "…y fix a standard licence fee to cover a period greater than one month, but not greater than one year. Where the Central Governmen…",
+      "verify": true
+    },
+    {
+      "unitId": "fr-sr-f-r-45",
+      "unitNumber": "F.R. 45",
+      "kind": "time",
+      "value": "one year",
+      "sortKey": 365,
+      "quote": "…cover a period greater than one month, but not greater than one year. Where the Central Government takes action under this provi…",
+      "verify": true
+    },
+    {
+      "unitId": "fr-sr-f-r-45",
+      "unitNumber": "F.R. 45",
+      "kind": "time",
+      "value": "one year",
+      "sortKey": 365,
+      "quote": "…od of occupation as prescribed under Rule 45 above bears to one year. NOTE 1. -For the purpose of dub-clauses (a), (b) and (bb)…",
+      "verify": true
+    },
+    {
+      "unitId": "fr-sr-f-r-45",
+      "unitNumber": "F.R. 45",
+      "kind": "time",
+      "value": "12 months",
+      "sortKey": 360,
+      "quote": "…ment servant shall pay the deficiency on demand made within 12 months from the date on which the short recovery was made, in such…",
+      "verify": false
+    },
+    {
+      "unitId": "fr-sr-f-r-49",
+      "unitNumber": "F.R. 49",
+      "kind": "time",
+      "value": "45 days",
+      "sortKey": 45,
+      "quote": "…ts, if the additional charge is held for a period exceeding 45 days but not exceeding 3 months: Provided that if in any particu…",
+      "verify": true
+    },
+    {
+      "unitId": "fr-sr-f-r-49",
+      "unitNumber": "F.R. 49",
+      "kind": "time",
+      "value": "3 months",
+      "sortKey": 90,
+      "quote": "…ge is held for a period exceeding 45 days but not exceeding 3 months: Provided that if in any particular case, it is considered…",
+      "verify": false
+    },
+    {
+      "unitId": "fr-sr-f-r-49",
+      "unitNumber": "F.R. 49",
+      "kind": "time",
+      "value": "3 months",
+      "sortKey": 90,
+      "quote": "…hold charge of another post or posts for a period exceeding 3 months, the concurrence of Department of Personnel and Training sh…",
+      "verify": true
+    },
+    {
+      "unitId": "fr-sr-f-r-49",
+      "unitNumber": "F.R. 49",
+      "kind": "time",
+      "value": "3 months",
+      "sortKey": 90,
+      "quote": "…for the payment of the additional pay beyond the period of 3 months; (iv) where an officer is formally appointed to hold full a…",
+      "verify": true
+    },
+    {
+      "unitId": "fr-sr-f-r-49",
+      "unitNumber": "F.R. 49",
+      "kind": "money",
+      "value": "Rs 2,25,000",
+      "sortKey": 225000,
+      "quote": "…aggregate of pay and additional pay shall in no case exceed Rs 2,25,000 ; (v) no additional pay shall be admissible to a Government…",
+      "verify": false
+    },
+    {
+      "unitId": "fr-sr-f-r-49",
+      "unitNumber": "F.R. 49",
+      "kind": "authority",
+      "value": "Competent Authority",
+      "sortKey": "competent authority",
+      "quote": "…he is appointed to officiate in the higher post, unless the Competent Authority reduces his officiating pay under Rule 35; but no additiona…",
+      "verify": false
+    },
+    {
+      "unitId": "fr-sr-f-r-53",
+      "unitNumber": "F.R. 53",
+      "kind": "time",
+      "value": "three months",
+      "sortKey": 90,
+      "quote": "…alary: Provided that where the period of suspension exceeds three months, the authority which made or is deemed to have made the ord…",
+      "verify": true
+    },
+    {
+      "unitId": "fr-sr-f-r-53",
+      "unitNumber": "F.R. 53",
+      "kind": "time",
+      "value": "three months",
+      "sortKey": 90,
+      "quote": "…owance for any period subsequent to the period of the first three months as follows:- (i) the amount of subsistence allowance may be…",
+      "verify": true
+    },
+    {
+      "unitId": "fr-sr-f-r-53",
+      "unitNumber": "F.R. 53",
+      "kind": "time",
+      "value": "three months",
+      "sortKey": 90,
+      "quote": "…istence allowance admissible during the period of the first three months, if, in the opinion of the said authority, the period of su…",
+      "verify": true
+    },
+    {
+      "unitId": "fr-sr-f-r-53",
+      "unitNumber": "F.R. 53",
+      "kind": "authority",
+      "value": "appointing authority",
+      "sortKey": "appointing authority",
+      "quote": "…med to have been placed under suspension by an order of the appointing authority shall be entitled to the following payments, namely:- (i) i…",
+      "verify": false
+    },
+    {
+      "unitId": "fr-sr-f-r-54",
+      "unitNumber": "F.R. 54",
+      "kind": "time",
+      "value": "sixty days",
+      "sortKey": 60,
+      "quote": "…giving him an opportunity to make his representation within sixty days from the date on which the communication in this regard is…",
+      "verify": false
+    },
+    {
+      "unitId": "fr-sr-f-r-54",
+      "unitNumber": "F.R. 54",
+      "kind": "time",
+      "value": "sixty days",
+      "sortKey": 60,
+      "quote": "…onnection within such period (which in no case shall exceed sixty days from the date on which the notice has been served) as may b…",
+      "verify": true
+    },
+    {
+      "unitId": "fr-sr-f-r-54",
+      "unitNumber": "F.R. 54",
+      "kind": "time",
+      "value": "three months",
+      "sortKey": 90,
+      "quote": "…sary for the grant of- (a) extraordinary leave in excess of three months in the case of temporary Government servant; and (b) leave…",
+      "verify": true
+    },
+    {
+      "unitId": "fr-sr-f-r-54",
+      "unitNumber": "F.R. 54",
+      "kind": "time",
+      "value": "five years",
+      "sortKey": 1825,
+      "quote": "…Government servant; and (b) leave of any kind in excess of five years in the case of permanent or quasi-permanent Government serv…",
+      "verify": true
+    },
+    {
+      "unitId": "fr-sr-f-r-54",
+      "unitNumber": "F.R. 54",
+      "kind": "authority",
+      "value": "reviewing authority",
+      "sortKey": "reviewing authority",
+      "quote": "…ry retirement from service is set aside by the appellate or reviewing authority solely on the ground of non-compliance with the requirement…",
+      "verify": false
+    },
+    {
+      "unitId": "fr-sr-f-r-54",
+      "unitNumber": "F.R. 54",
+      "kind": "authority",
+      "value": "competent authority",
+      "sortKey": "competent authority",
+      "quote": "…emoval or compulsory retirement, as the case may be, as the competent authority may determine, after giving, notice to the Government serva…",
+      "verify": false
+    },
+    {
+      "unitId": "fr-sr-f-r-54",
+      "unitNumber": "F.R. 54",
+      "kind": "authority",
+      "value": "competent authority",
+      "sortKey": "competent authority",
+      "quote": "…shall not be treated as a period spent on duty, unless the competent authority specifically directs that it shall be treated so for any sp…",
+      "verify": false
+    },
+    {
+      "unitId": "fr-sr-f-r-54",
+      "unitNumber": "F.R. 54",
+      "kind": "authority",
+      "value": "competent authority",
+      "sortKey": "competent authority",
+      "quote": "…missible to the Government servant. NOTE.- The order of the competent authority under the preceding proviso shall be absolute and no higher…",
+      "verify": false
+    },
+    {
+      "unitId": "fr-sr-f-r-54",
+      "unitNumber": "F.R. 54",
+      "kind": "authority",
+      "value": "competent authority",
+      "sortKey": "competent authority",
+      "quote": "…would have been entitled had he not been suspended, as the competent authority may determine, after giving notice to the Government servan…",
+      "verify": false
+    },
+    {
+      "unitId": "fr-sr-f-r-54",
+      "unitNumber": "F.R. 54",
+      "kind": "authority",
+      "value": "competent authority",
+      "sortKey": "competent authority",
+      "quote": "…n shall not be treated as a period spent on duty unless the competent authority specifically directs that it shall be so treated for any sp…",
+      "verify": false
+    },
+    {
+      "unitId": "fr-sr-f-r-56",
+      "unitNumber": "F.R. 56",
+      "kind": "time",
+      "value": "sixty years",
+      "sortKey": 21900,
+      "quote": "…of the last day of the month in which he attains the age of sixty years: Provided that a Government servant whose date of birth is…",
+      "verify": true
+    },
+    {
+      "unitId": "fr-sr-f-r-56",
+      "unitNumber": "F.R. 56",
+      "kind": "time",
+      "value": "sixty years",
+      "sortKey": 21900,
+      "quote": "…the last day of the preceding month on attaining the age of sixty years. Provided further that a Government servant who has attaine…",
+      "verify": true
+    },
+    {
+      "unitId": "fr-sr-f-r-56",
+      "unitNumber": "F.R. 56",
+      "kind": "time",
+      "value": "60 years",
+      "sortKey": 21900,
+      "quote": "…uch extension in service shall be granted beyond the age of 60 years. (b) A workman who is governed by these rules shall retire…",
+      "verify": true
+    },
+    {
+      "unitId": "fr-sr-f-r-56",
+      "unitNumber": "F.R. 56",
+      "kind": "time",
+      "value": "five years",
+      "sortKey": 1825,
+      "quote": "…desire to continue in their service upto the age of sixty- five years: Provided that the age of superannuation in respect of the…",
+      "verify": true
+    },
+    {
+      "unitId": "fr-sr-f-r-56",
+      "unitNumber": "F.R. 56",
+      "kind": "time",
+      "value": "six months",
+      "sortKey": 180,
+      "quote": "…ty-two years or attaining the age of sixty-two years within six months from the date of publication of these amendment rules in th…",
+      "verify": false
+    },
+    {
+      "unitId": "fr-sr-f-r-56",
+      "unitNumber": "F.R. 56",
+      "kind": "time",
+      "value": "a period of thirty days",
+      "sortKey": 30,
+      "quote": "…sory and consultancy as specified in sub-clause (i), within a period of thirty days from the date of the commencement of the Fundamental (Secon…",
+      "verify": false
+    },
+    {
+      "unitId": "fr-sr-f-r-56",
+      "unitNumber": "F.R. 56",
+      "kind": "time",
+      "value": "a period of thirty days",
+      "sortKey": 30,
+      "quote": "…ice on attaining the age of sixty-two years or on expiry of a period of thirty days from the date of the commencement of the Fundamental (Secon…",
+      "verify": true
+    },
+    {
+      "unitId": "fr-sr-f-r-56",
+      "unitNumber": "F.R. 56",
+      "kind": "time",
+      "value": "65 years",
+      "sortKey": 23725,
+      "quote": "…ing in the Central Government Nursing Institutions shall be 65 years subject to the condition that they continue to function as…",
+      "verify": true
+    },
+    {
+      "unitId": "fr-sr-f-r-56",
+      "unitNumber": "F.R. 56",
+      "kind": "time",
+      "value": "60 years",
+      "sortKey": 21900,
+      "quote": "…ey continue to function as faculty members after the age of 60 years. (c) Deleted. (cc) Deleted. (d) No government servant shall…",
+      "verify": true
+    },
+    {
+      "unitId": "fr-sr-f-r-56",
+      "unitNumber": "F.R. 56",
+      "kind": "time",
+      "value": "sixty years",
+      "sortKey": 21900,
+      "quote": "…ranted extension in service beyond the age of retirement of sixty years: Provided that a Government servant dealing with budget wor…",
+      "verify": true
+    },
+    {
+      "unitId": "fr-sr-f-r-56",
+      "unitNumber": "F.R. 56",
+      "kind": "time",
+      "value": "three months",
+      "sortKey": 90,
+      "quote": "…be granted extension of service for a period not exceeding three months in public interest; Provided further that a specialist in m…",
+      "verify": false
+    },
+    {
+      "unitId": "fr-sr-f-r-56",
+      "unitNumber": "F.R. 56",
+      "kind": "time",
+      "value": "64 years",
+      "sortKey": 23360,
+      "quote": "…tature may be granted extension of service up to the age of 64 years, if such extension is in public interest and the grounds fo…",
+      "verify": true
+    },
+    {
+      "unitId": "fr-sr-f-r-56",
+      "unitNumber": "F.R. 56",
+      "kind": "time",
+      "value": "four years",
+      "sortKey": 1460,
+      "quote": "…at his total term as such Cabinet Secretary does not exceed four years. Provided also that the Central Government may, if it consi…",
+      "verify": true
+    },
+    {
+      "unitId": "fr-sr-f-r-56",
+      "unitNumber": "F.R. 56",
+      "kind": "time",
+      "value": "two years",
+      "sortKey": 730,
+      "quote": "…such extension in service under this rule, does not exceed two years or the period provided in the respective Act or rules made…",
+      "verify": true
+    },
+    {
+      "unitId": "fr-sr-f-r-56",
+      "unitNumber": "F.R. 56",
+      "kind": "time",
+      "value": "three months",
+      "sortKey": 90,
+      "quote": "…an extension in service for a further period not exceeding three months beyond the said period of two years to the Home Secretary a…",
+      "verify": false
+    },
+    {
+      "unitId": "fr-sr-f-r-56",
+      "unitNumber": "F.R. 56",
+      "kind": "time",
+      "value": "two years",
+      "sortKey": 730,
+      "quote": "…period not exceeding three months beyond the said period of two years to the Home Secretary and the Defence Secretary. Provided a…",
+      "verify": true
+    },
+    {
+      "unitId": "fr-sr-f-r-56",
+      "unitNumber": "F.R. 56",
+      "kind": "time",
+      "value": "one year",
+      "sortKey": 365,
+      "quote": "…an extension in service for a further period not exceeding one year beyond the said period of two years to the Foreign Secretar…",
+      "verify": false
+    },
+    {
+      "unitId": "fr-sr-f-r-56",
+      "unitNumber": "F.R. 56",
+      "kind": "time",
+      "value": "two years",
+      "sortKey": 730,
+      "quote": "…her period not exceeding one year beyond the said period of two years to the Foreign Secretary. Provided also that, the Central G…",
+      "verify": true
+    },
+    {
+      "unitId": "fr-sr-f-r-56",
+      "unitNumber": "F.R. 56",
+      "kind": "time",
+      "value": "66 years",
+      "sortKey": 24090,
+      "quote": "…r periods as it may deem proper subject to a maximum age of 66 years. Provided also that the Appropriate Authority shall have th…",
+      "verify": true
+    },
+    {
+      "unitId": "fr-sr-f-r-56",
+      "unitNumber": "F.R. 56",
+      "kind": "time",
+      "value": "three months",
+      "sortKey": 90,
+      "quote": "…ch extension by giving a notice in writing of not less than three months in the case of a permanent or a quasi-permanent Government…",
+      "verify": true
+    },
+    {
+      "unitId": "fr-sr-f-r-56",
+      "unitNumber": "F.R. 56",
+      "kind": "time",
+      "value": "one month",
+      "sortKey": 30,
+      "quote": "…a permanent or a quasi-permanent Government servant, or, of one month in the case of a temporary Government servant, or pay and a…",
+      "verify": true
+    },
+    {
+      "unitId": "fr-sr-f-r-56",
+      "unitNumber": "F.R. 56",
+      "kind": "time",
+      "value": "sixty years",
+      "sortKey": 21900,
+      "quote": "…to be in civil employment on the date he attains the age of sixty years. (j) Notwithstanding anything contained in this rule, the A…",
+      "verify": true
+    },
+    {
+      "unitId": "fr-sr-f-r-56",
+      "unitNumber": "F.R. 56",
+      "kind": "time",
+      "value": "three months",
+      "sortKey": 90,
+      "quote": "…re any Government servant by giving him notice of less than three months in writing or three months' pay and allowances in lieu of s…",
+      "verify": true
+    },
+    {
+      "unitId": "fr-sr-f-r-56",
+      "unitNumber": "F.R. 56",
+      "kind": "time",
+      "value": "three months",
+      "sortKey": 90,
+      "quote": "…y giving him notice of less than three months in writing or three months' pay and allowances in lieu of such notice: (i) If he is,in…",
+      "verify": true
+    },
+    {
+      "unitId": "fr-sr-f-r-56",
+      "unitNumber": "F.R. 56",
+      "kind": "time",
+      "value": "35 years",
+      "sortKey": 12775,
+      "quote": "…had entered Government service before attaining the age of 35 years, after he has attained the age of 50 years; (ii)in any othe…",
+      "verify": true
+    },
+    {
+      "unitId": "fr-sr-f-r-56",
+      "unitNumber": "F.R. 56",
+      "kind": "time",
+      "value": "50 years",
+      "sortKey": 18250,
+      "quote": "…ining the age of 35 years, after he has attained the age of 50 years; (ii)in any other case after he has attained the age of fif…",
+      "verify": true
+    },
+    {
+      "unitId": "fr-sr-f-r-56",
+      "unitNumber": "F.R. 56",
+      "kind": "time",
+      "value": "three months",
+      "sortKey": 90,
+      "quote": "…y Government servant may, by giving notice of not less than three months in writing to the appropriate authority, retire from servic…",
+      "verify": true
+    },
+    {
+      "unitId": "fr-sr-f-r-56",
+      "unitNumber": "F.R. 56",
+      "kind": "time",
+      "value": "one year",
+      "sortKey": 365,
+      "quote": "…the post in India and served for a period of not less than one year; and (c) it shall be open to the Appropriate Authority to w…",
+      "verify": true
+    },
+    {
+      "unitId": "fr-sr-f-r-56",
+      "unitNumber": "F.R. 56",
+      "kind": "time",
+      "value": "three months",
+      "sortKey": 90,
+      "quote": "…g to the Appointing Authority to accept notice of less than three months giving reasons therefor; (b) On receipt of a request under…",
+      "verify": true
+    },
+    {
+      "unitId": "fr-sr-f-r-56",
+      "unitNumber": "F.R. 56",
+      "kind": "time",
+      "value": "three months",
+      "sortKey": 90,
+      "quote": "…such request for the curtailment of the period of notice of three months on merits and if it is satisfied that the curtailment of th…",
+      "verify": true
+    },
+    {
+      "unitId": "fr-sr-f-r-56",
+      "unitNumber": "F.R. 56",
+      "kind": "time",
+      "value": "three months",
+      "sortKey": 90,
+      "quote": "…Appointing Authority may relax the requirement of notice of three months on the condition that the Government servant shall not appl…",
+      "verify": true
+    },
+    {
+      "unitId": "fr-sr-f-r-56",
+      "unitNumber": "F.R. 56",
+      "kind": "time",
+      "value": "three months",
+      "sortKey": 90,
+      "quote": "…of his pension before the expiry of the period of notice of three months. (2) A Government servant, who has elected to retire under…",
+      "verify": true
+    },
+    {
+      "unitId": "fr-sr-f-r-56",
+      "unitNumber": "F.R. 56",
+      "kind": "time",
+      "value": "thirty years",
+      "sortKey": 10950,
+      "quote": "…s not governed by any pension rules, after he has completed thirty years' service by giving him notice of not less than three months…",
+      "verify": true
+    },
+    {
+      "unitId": "fr-sr-f-r-56",
+      "unitNumber": "F.R. 56",
+      "kind": "time",
+      "value": "three months",
+      "sortKey": 90,
+      "quote": "…thirty years' service by giving him notice of not less than three months in writing or three months' pay and allowances in lieu of s…",
+      "verify": true
+    },
+    {
+      "unitId": "fr-sr-f-r-56",
+      "unitNumber": "F.R. 56",
+      "kind": "time",
+      "value": "three months",
+      "sortKey": 90,
+      "quote": "…ving him notice of not less than three months in writing or three months' pay and allowances in lieu of such notice. (m) A Governmen…",
+      "verify": true
+    },
+    {
+      "unitId": "fr-sr-f-r-56",
+      "unitNumber": "F.R. 56",
+      "kind": "time",
+      "value": "three months",
+      "sortKey": 90,
+      "quote": "…y any pension rules, may, by giving notice of not less than three months in writing to the Appropriate Authority, retire from servic…",
+      "verify": true
+    },
+    {
+      "unitId": "fr-sr-f-r-56",
+      "unitNumber": "F.R. 56",
+      "kind": "time",
+      "value": "thirty years",
+      "sortKey": 10950,
+      "quote": "…riate Authority, retire from service after he has completed thirty years service; Provided that it shall be open to the Appropriate…",
+      "verify": true
+    },
+    {
+      "unitId": "fr-sr-f-r-56",
+      "unitNumber": "F.R. 56",
+      "kind": "time",
+      "value": "three months",
+      "sortKey": 90,
+      "quote": "…vernment servant is required or wants to retire. NOTE2.-The three months' notice referred to in Clauses (j), (k),(l) or (m) may be g…",
+      "verify": true
+    },
+    {
+      "unitId": "fr-sr-f-r-56",
+      "unitNumber": "F.R. 56",
+      "kind": "time",
+      "value": "30 years",
+      "sortKey": 10950,
+      "quote": "…the age specified in Clauses (j) and (k), or has completed 30 years of service specified in Clauses (l) and (m), provided that…",
+      "verify": true
+    },
+    {
+      "unitId": "fr-sr-f-r-56",
+      "unitNumber": "F.R. 56",
+      "kind": "time",
+      "value": "30 years",
+      "sortKey": 10950,
+      "quote": "…ace after he has attained the relevant age or has completed 30 years' service, as the case may be. NOTE 3.-In computing the noti…",
+      "verify": true
+    },
+    {
+      "unitId": "fr-sr-f-r-56",
+      "unitNumber": "F.R. 56",
+      "kind": "time",
+      "value": "three months",
+      "sortKey": 90,
+      "quote": "…the case may be. NOTE 3.-In computing the notice period of three months referred to in clauses (j) to (m), date of service of the n…",
+      "verify": true
+    },
+    {
+      "unitId": "fr-sr-f-r-56",
+      "unitNumber": "F.R. 56",
+      "kind": "time",
+      "value": "eight years",
+      "sortKey": 2920,
+      "quote": "…ate on which a Government servant attains the age of fifty- eight years or sixty years, as the case may be, shall be determined wit…",
+      "verify": true
+    },
+    {
+      "unitId": "fr-sr-f-r-56",
+      "unitNumber": "F.R. 56",
+      "kind": "time",
+      "value": "sixty years",
+      "sortKey": 21900,
+      "quote": "…Government servant attains the age of fifty- eight years or sixty years, as the case may be, shall be determined with reference to…",
+      "verify": true
+    },
+    {
+      "unitId": "fr-sr-f-r-56",
+      "unitNumber": "F.R. 56",
+      "kind": "time",
+      "value": "five years",
+      "sortKey": 1825,
+      "quote": "…is serving, if- (a) a request in this regard is made within five years of his entry into Government service; (b) it is clearly est…",
+      "verify": false
+    },
+    {
+      "unitId": "fr-sr-f-r-56",
+      "unitNumber": "F.R. 56",
+      "kind": "money",
+      "value": "Rs. 58",
+      "sortKey": 58,
+      "quote": "…ent service. NOTE 7.- Not printed. ***** CHAPTER X Leave [F.Rs. 58 to 104 -Not Printed] Please refer to CCS (Leave) Rules, 197…",
+      "verify": false
+    },
+    {
+      "unitId": "fr-sr-f-r-56",
+      "unitNumber": "F.R. 56",
+      "kind": "money",
+      "value": "Rs 105",
+      "sortKey": 105,
+      "quote": "…fer to CCS (Leave) Rules, 1972. CHAPTER XI JOINING TIME [F. Rs 105 to 107- Not Printed] Please refer to CCS (Joining Time) Rul…",
+      "verify": false
+    },
+    {
+      "unitId": "fr-sr-f-r-56",
+      "unitNumber": "F.R. 56",
+      "kind": "authority",
+      "value": "competent authority",
+      "sortKey": "competent authority",
+      "quote": "…ending on their expertise and experience, as decided by the competent authority in the concerned Ministry or Department from time to time,…",
+      "verify": false
+    },
+    {
+      "unitId": "fr-sr-f-r-56",
+      "unitNumber": "F.R. 56",
+      "kind": "authority",
+      "value": "Appointing Authority",
+      "sortKey": "appointing authority",
+      "quote": "…d to in sub-clause (1) may make a request in writing to the Appointing Authority to accept notice of less than three months giving reasons t…",
+      "verify": false
+    },
+    {
+      "unitId": "fr-sr-f-r-56",
+      "unitNumber": "F.R. 56",
+      "kind": "authority",
+      "value": "Appointing Authority",
+      "sortKey": "appointing authority",
+      "quote": "…(b) On receipt of a request under sub-clause (1-A)(a), the Appointing Authority may consider such request for the curtailment of the period…",
+      "verify": false
+    },
+    {
+      "unitId": "fr-sr-f-r-56",
+      "unitNumber": "F.R. 56",
+      "kind": "authority",
+      "value": "Appointing Authority",
+      "sortKey": "appointing authority",
+      "quote": "…notice will not cause any administrative inconvenience, the Appointing Authority may relax the requirement of notice of three months on the…",
+      "verify": false
+    },
+    {
+      "unitId": "fr-sr-f-r-56",
+      "unitNumber": "F.R. 56",
+      "kind": "authority",
+      "value": "Appointing Authority",
+      "sortKey": "appointing authority",
+      "quote": "…nd has given the necessary intimation to that effect to the Appointing Authority, shall be precluded from withdrawing his election subsequen…",
+      "verify": false
+    }
+  ]
+}

@@ -1,7 +1,7 @@
 {
   "$schema": "../../../schemas/library-work.schema.json",
   "version": "1.0.0",
-  "generatedAt": "2026-09-02",
+  "generatedAt": "2026-09-03",
   "id": "bsa",
   "title": {
     "en": "Bharatiya Sakshya Adhiniyam, 2023",
@@ -2391,6 +2391,21 @@
     "evidence",
     "investigation"
   ],
+  "amendments": {
+    "1": [
+      {
+        "date": "2024-07-01",
+        "note": {
+          "en": "Brought into force on 1 July 2024 by the Ministry of Home Affairs notification of 23 February 2024, replacing the Indian Evidence Act, 1872.",
+          "hi": "गृह मंत्रालय की 23 फरवरी 2024 की अधिसूचना द्वारा 1 जुलाई 2024 से प्रवृत्त, जिसने भारतीय साक्ष्य अधिनियम, 1872 का स्थान लिया।"
+        },
+        "source": {
+          "name": "Ministry of Home Affairs notification, 23 February 2024",
+          "url": "https://www.mha.gov.in/sites/default/files/BharatiyaSakshyaAdhiniyam_24022024.pdf"
+        }
+      }
+    ]
+  },
   "officialUrl": "https://www.ncrb.gov.in/uploads/SankalanPortal/ChaptersBSA.html",
   "source": {
     "name": "NCRB Sankalan — BSA / IEA correspondence table",

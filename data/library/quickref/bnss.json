@@ -1,0 +1,1718 @@
+{
+  "$schema": "../../../schemas/library-quickref.schema.json",
+  "version": "1.0.0",
+  "generatedAt": "2026-09-03",
+  "workId": "bnss",
+  "source": {
+    "name": "NCRB Sankalan — BNSS / CrPC correspondence table",
+    "url": "https://www.ncrb.gov.in/uploads/SankalanPortal/SectionTableBNSS.html"
+  },
+  "counts": {
+    "time": 176,
+    "money": 0,
+    "authority": 13
+  },
+  "rows": [
+    {
+      "unitId": "2",
+      "unitNumber": "2",
+      "kind": "time",
+      "value": "two years",
+      "sortKey": 730,
+      "quote": "…imprisonment for life or imprisonment for a term exceeding two years. (2) Words and expressions used herein and not defined but…",
+      "verify": true
+    },
+    {
+      "unitId": "11",
+      "unitNumber": "11",
+      "kind": "time",
+      "value": "one year",
+      "sortKey": 365,
+      "quote": "…strates and shall be appointed for such term, not exceeding one year at a time, as the High Court may, by general or special ord…",
+      "verify": false
+    },
+    {
+      "unitId": "18",
+      "unitNumber": "18",
+      "kind": "time",
+      "value": "seven years",
+      "sortKey": 2555,
+      "quote": "…if he has been in practice as an advocate for not less than seven years. (8) The Central Government or the State Government may app…",
+      "verify": true
+    },
+    {
+      "unitId": "18",
+      "unitNumber": "18",
+      "kind": "time",
+      "value": "ten years",
+      "sortKey": 3650,
+      "quote": "…n who has been in practice as an advocate for not less than ten years as a Special Public Prosecutor: Provided that the Court may…",
+      "verify": true
+    },
+    {
+      "unitId": "20",
+      "unitNumber": "20",
+      "kind": "time",
+      "value": "fifteen years",
+      "sortKey": 5475,
+      "quote": "…if he has been in practice as an advocate for not less than fifteen years or is or has been a Sessions Judge; (b) as an Assistant Dir…",
+      "verify": true
+    },
+    {
+      "unitId": "20",
+      "unitNumber": "20",
+      "kind": "time",
+      "value": "seven years",
+      "sortKey": 2555,
+      "quote": "…if he has been in practice as an advocate for not less than seven years or has been a Magistrate of the first class. (3) The Direct…",
+      "verify": true
+    },
+    {
+      "unitId": "20",
+      "unitNumber": "20",
+      "kind": "time",
+      "value": "ten years",
+      "sortKey": 3650,
+      "quote": "…ll be to monitor cases in which offences are punishable for ten years or more, or with life imprisonment, or with death; to exped…",
+      "verify": true
+    },
+    {
+      "unitId": "20",
+      "unitNumber": "20",
+      "kind": "time",
+      "value": "seven years",
+      "sortKey": 2555,
+      "quote": "…and monitor the cases in which offences are punishable for seven years or more, but less than ten years, for ensuring their expedi…",
+      "verify": true
+    },
+    {
+      "unitId": "20",
+      "unitNumber": "20",
+      "kind": "time",
+      "value": "ten years",
+      "sortKey": 3650,
+      "quote": "…ences are punishable for seven years or more, but less than ten years, for ensuring their expeditious disposal. (9) The functions…",
+      "verify": true
+    },
+    {
+      "unitId": "20",
+      "unitNumber": "20",
+      "kind": "time",
+      "value": "seven years",
+      "sortKey": 2555,
+      "quote": "…onitor cases in which offences are punishable for less than seven years. (10) Notwithstanding anything contained in sub-sections (7…",
+      "verify": true
+    },
+    {
+      "unitId": "23",
+      "unitNumber": "23",
+      "kind": "time",
+      "value": "seven years",
+      "sortKey": 2555,
+      "quote": "…prisonment for life or of imprisonment for a term exceeding seven years. (2) The Court of a Magistrate of the first class may pass…",
+      "verify": true
+    },
+    {
+      "unitId": "23",
+      "unitNumber": "23",
+      "kind": "time",
+      "value": "three years",
+      "sortKey": 1095,
+      "quote": "…ay pass a sentence of imprisonment for a term not exceeding three years, or of fine not exceeding fifty thousand rupees, or of both…",
+      "verify": false
+    },
+    {
+      "unitId": "23",
+      "unitNumber": "23",
+      "kind": "time",
+      "value": "one year",
+      "sortKey": 365,
+      "quote": "…ay pass a sentence of imprisonment for a term not exceeding one year, or of fine not exceeding ten thousand rupees, or of both,…",
+      "verify": false
+    },
+    {
+      "unitId": "25",
+      "unitNumber": "25",
+      "kind": "time",
+      "value": "twenty years",
+      "sortKey": 7300,
+      "quote": "…erson be sentenced to imprisonment for a longer period than twenty years; (b) the aggregate punishment shall not exceed twice the am…",
+      "verify": true
+    },
+    {
+      "unitId": "34",
+      "unitNumber": "34",
+      "kind": "time",
+      "value": "ten years",
+      "sortKey": 3650,
+      "quote": "…e under any of the offence punishable with imprisonment for ten years or more or with imprisonment for life or with death under t…",
+      "verify": true
+    },
+    {
+      "unitId": "35",
+      "unitNumber": "35",
+      "kind": "time",
+      "value": "seven years",
+      "sortKey": 2555,
+      "quote": "…ishable with imprisonment for a term which may be less than seven years or which may extend to seven years whether with or without…",
+      "verify": true
+    },
+    {
+      "unitId": "35",
+      "unitNumber": "35",
+      "kind": "time",
+      "value": "seven years",
+      "sortKey": 2555,
+      "quote": "…m which may be less than seven years or which may extend to seven years whether with or without fine, if the following conditions a…",
+      "verify": true
+    },
+    {
+      "unitId": "35",
+      "unitNumber": "35",
+      "kind": "time",
+      "value": "seven years",
+      "sortKey": 2555,
+      "quote": "…with imprisonment for a term which may extend to more than seven years whether with or without fine or with death sentence and the…",
+      "verify": true
+    },
+    {
+      "unitId": "35",
+      "unitNumber": "35",
+      "kind": "time",
+      "value": "three years",
+      "sortKey": 1095,
+      "quote": "…n offence which is punishable for imprisonment of less than three years and such person is infirm or is above sixty years of age.",
+      "verify": true
+    },
+    {
+      "unitId": "35",
+      "unitNumber": "35",
+      "kind": "time",
+      "value": "sixty years",
+      "sortKey": 21900,
+      "quote": "…less than three years and such person is infirm or is above sixty years of age.",
+      "verify": true
+    },
+    {
+      "unitId": "40",
+      "unitNumber": "40",
+      "kind": "time",
+      "value": "six hours",
+      "sortKey": 0.25,
+      "quote": "…laimed offender, and, without unnecessary delay, but within six hours from such arrest, shall make over or cause to be made over…",
+      "verify": false
+    },
+    {
+      "unitId": "63",
+      "unitNumber": "63",
+      "kind": "authority",
+      "value": "presiding officer",
+      "sortKey": "presiding officer",
+      "quote": "…hita shall be,- (i) in writing, in duplicate, signed by the presiding officer of such Court or by such other officer as the High Court ma…",
+      "verify": false
+    },
+    {
+      "unitId": "68",
+      "unitNumber": "68",
+      "kind": "authority",
+      "value": "head of the office",
+      "sortKey": "head of the office",
+      "quote": "…ng the summons shall ordinarily send it in duplicate to the head of the office in which such person is employed; and such head shall there…",
+      "verify": false
+    },
+    {
+      "unitId": "72",
+      "unitNumber": "72",
+      "kind": "authority",
+      "value": "presiding officer",
+      "sortKey": "presiding officer",
+      "quote": "…Court under this Sanhita shall be in writing, signed by the presiding officer of such Court and shall bear the seal of the Court. (2) Eve…",
+      "verify": false
+    },
+    {
+      "unitId": "84",
+      "unitNumber": "84",
+      "kind": "time",
+      "value": "thirty days",
+      "sortKey": 30,
+      "quote": "…at a specified place and at a specified time not less than thirty days from the date of publishing such proclamation. (2) The proc…",
+      "verify": true
+    },
+    {
+      "unitId": "84",
+      "unitNumber": "84",
+      "kind": "time",
+      "value": "ten years",
+      "sortKey": 3650,
+      "quote": "…of an offence which is made punishable with imprisonment of ten years or more, or imprisonment for life or with death under the B…",
+      "verify": true
+    },
+    {
+      "unitId": "87",
+      "unitNumber": "87",
+      "kind": "time",
+      "value": "six months",
+      "sortKey": 180,
+      "quote": "…tachment of, any property attached under section 85, within six months from the date of such attachment, by any person other than…",
+      "verify": false
+    },
+    {
+      "unitId": "87",
+      "unitNumber": "87",
+      "kind": "time",
+      "value": "a period of one year",
+      "sortKey": 365,
+      "quote": "…le or in part by an order under sub-section (1) may, within a period of one year from the date of such order, institute a suit to establish…",
+      "verify": false
+    },
+    {
+      "unitId": "88",
+      "unitNumber": "88",
+      "kind": "time",
+      "value": "six months",
+      "sortKey": 180,
+      "quote": "…overnment; but it shall not be sold until the expiration of six months from the date of the attachment and until any claim preferr…",
+      "verify": true
+    },
+    {
+      "unitId": "88",
+      "unitNumber": "88",
+      "kind": "time",
+      "value": "two years",
+      "sortKey": 730,
+      "quote": "…cause it to be sold whenever it thinks fit. (3) If, within two years from the date of the attachment, any person whose property…",
+      "verify": false
+    },
+    {
+      "unitId": "99",
+      "unitNumber": "99",
+      "kind": "time",
+      "value": "two months",
+      "sortKey": 60,
+      "quote": "…n of forfeiture has been made under section 98, may, within two months from the date of publication in the Official Gazette of suc…",
+      "verify": false
+    },
+    {
+      "unitId": "107",
+      "unitNumber": "107",
+      "kind": "time",
+      "value": "a period of sixty days",
+      "sortKey": 60,
+      "quote": "…nder sub-section (6), the District Magistrate shall, within a period of sixty days distribute the proceeds of crime either by himself or autho…",
+      "verify": false
+    },
+    {
+      "unitId": "110",
+      "unitNumber": "110",
+      "kind": "authority",
+      "value": "presiding officer",
+      "sortKey": "presiding officer",
+      "quote": "…ummons or warrant in duplicate by post or otherwise, to the presiding officer of that Court to be served or executed; and where any summo…",
+      "verify": false
+    },
+    {
+      "unitId": "110",
+      "unitNumber": "110",
+      "kind": "authority",
+      "value": "presiding officer",
+      "sortKey": "presiding officer",
+      "quote": "…ection 70 shall apply in relation to such summons as if the presiding officer of the Court to whom it is sent were a Magistrate in the sa…",
+      "verify": false
+    },
+    {
+      "unitId": "117",
+      "unitNumber": "117",
+      "kind": "time",
+      "value": "a period of thirty days",
+      "sortKey": 30,
+      "quote": "…id order is confirmed by an order of the said Court, within a period of thirty days of its being made.",
+      "verify": false
+    },
+    {
+      "unitId": "119",
+      "unitNumber": "119",
+      "kind": "time",
+      "value": "a period of thirty days",
+      "sortKey": 30,
+      "quote": "…referred to as the person affected) calling upon him within a period of thirty days specified in the notice to indicate the source of income, e…",
+      "verify": false
+    },
+    {
+      "unitId": "120",
+      "unitNumber": "120",
+      "kind": "time",
+      "value": "a period of thirty days",
+      "sortKey": 30,
+      "quote": "…ear before the Court or represent his case before it within a period of thirty days specified in the show-cause notice, the Court may proceed t…",
+      "verify": false
+    },
+    {
+      "unitId": "125",
+      "unitNumber": "125",
+      "kind": "time",
+      "value": "three years",
+      "sortKey": 1095,
+      "quote": "…bond, for keeping the peace for such period, not exceeding three years, as it thinks fit. (2) The offences referred to in sub-sect…",
+      "verify": false
+    },
+    {
+      "unitId": "126",
+      "unitNumber": "126",
+      "kind": "time",
+      "value": "one year",
+      "sortKey": 365,
+      "quote": "…l bond for keeping the peace for such period, not exceeding one year, as the Magistrate thinks fit. (2) Proceedings under this s…",
+      "verify": false
+    },
+    {
+      "unitId": "127",
+      "unitNumber": "127",
+      "kind": "time",
+      "value": "one year",
+      "sortKey": 365,
+      "quote": "…bond, for his good behaviour for such period, not exceeding one year, as the Magistrate thinks fit. (2) No proceedings shall be…",
+      "verify": false
+    },
+    {
+      "unitId": "128",
+      "unitNumber": "128",
+      "kind": "time",
+      "value": "one year",
+      "sortKey": 365,
+      "quote": "…bond for his good behaviour for such period, not exceeding one year, as the Magistrate thinks fit.",
+      "verify": false
+    },
+    {
+      "unitId": "129",
+      "unitNumber": "129",
+      "kind": "time",
+      "value": "three years",
+      "sortKey": 1095,
+      "quote": "…bond, for his good behaviour for such period, not exceeding three years, as the Magistrate thinks fit.",
+      "verify": false
+    },
+    {
+      "unitId": "135",
+      "unitNumber": "135",
+      "kind": "time",
+      "value": "a period of six months",
+      "sortKey": 180,
+      "quote": "…terminated earlier, shall stand terminated on the expiry of a period of six months of such detention. (7) Where any direction is made under su…",
+      "verify": true
+    },
+    {
+      "unitId": "141",
+      "unitNumber": "141",
+      "kind": "time",
+      "value": "one year",
+      "sortKey": 365,
+      "quote": "…red by a Magistrate to give security for a period exceeding one year, such Magistrate shall, if such person does not give such s…",
+      "verify": true
+    },
+    {
+      "unitId": "141",
+      "unitNumber": "141",
+      "kind": "time",
+      "value": "three years",
+      "sortKey": 1095,
+      "quote": "…is imprisoned for failure to give security shall not exceed three years. (4) If security has been required in the course of the sam…",
+      "verify": true
+    },
+    {
+      "unitId": "144",
+      "unitNumber": "144",
+      "kind": "time",
+      "value": "sixty days",
+      "sortKey": 60,
+      "quote": "…nd proviso shall, as far as possible, be disposed of within sixty days from the date of the service of notice of the application t…",
+      "verify": false
+    },
+    {
+      "unitId": "144",
+      "unitNumber": "144",
+      "kind": "time",
+      "value": "one month",
+      "sortKey": 30,
+      "quote": "…the warrant, to imprisonment for a term which may extend to one month or until payment if sooner made: Provided that no warrant s…",
+      "verify": true
+    },
+    {
+      "unitId": "144",
+      "unitNumber": "144",
+      "kind": "time",
+      "value": "a period of one year",
+      "sortKey": 365,
+      "quote": "…application be made to the Court to levy such amount within a period of one year from the date on which it became due: Provided further that…",
+      "verify": false
+    },
+    {
+      "unitId": "145",
+      "unitNumber": "145",
+      "kind": "time",
+      "value": "three months",
+      "sortKey": 90,
+      "quote": "…et aside for good cause shown on an application made within three months from the date thereof subject to such terms including terms…",
+      "verify": false
+    },
+    {
+      "unitId": "157",
+      "unitNumber": "157",
+      "kind": "time",
+      "value": "a period of ninety days",
+      "sortKey": 90,
+      "quote": "…his section shall be completed, as soon as possible, within a period of ninety days, which may be extended for the reasons to be recorded in wr…",
+      "verify": false
+    },
+    {
+      "unitId": "163",
+      "unitNumber": "163",
+      "kind": "time",
+      "value": "two months",
+      "sortKey": 60,
+      "quote": "…rder under this section shall remain in force for more than two months from the making thereof: Provided that if the State Governm…",
+      "verify": true
+    },
+    {
+      "unitId": "163",
+      "unitNumber": "163",
+      "kind": "time",
+      "value": "six months",
+      "sortKey": 180,
+      "quote": "…shall remain in force for such further period not exceeding six months from the date on which the order made by the Magistrate wou…",
+      "verify": false
+    },
+    {
+      "unitId": "164",
+      "unitNumber": "164",
+      "kind": "time",
+      "value": "two months",
+      "sortKey": 60,
+      "quote": "…party has been forcibly and wrongfully dispossessed within two months next before the date on which the report of a police office…",
+      "verify": false
+    },
+    {
+      "unitId": "166",
+      "unitNumber": "166",
+      "kind": "time",
+      "value": "three months",
+      "sortKey": 90,
+      "quote": "…es of the year, unless such right has been exercised within three months next before the receipt under sub-section (1) of the report…",
+      "verify": false
+    },
+    {
+      "unitId": "173",
+      "unitNumber": "173",
+      "kind": "time",
+      "value": "three days",
+      "sortKey": 3,
+      "quote": "…, it shall be taken on record by him on being signed within three days by the person giving it, and the substance thereof shall be…",
+      "verify": false
+    },
+    {
+      "unitId": "173",
+      "unitNumber": "173",
+      "kind": "time",
+      "value": "three years",
+      "sortKey": 1095,
+      "quote": "…ion of any cognizable offence, which is made punishable for three years or more but less than seven years, the officer in charge of…",
+      "verify": true
+    },
+    {
+      "unitId": "173",
+      "unitNumber": "173",
+      "kind": "time",
+      "value": "seven years",
+      "sortKey": 2555,
+      "quote": "…ch is made punishable for three years or more but less than seven years, the officer in charge of the police station may with the p…",
+      "verify": true
+    },
+    {
+      "unitId": "176",
+      "unitNumber": "176",
+      "kind": "time",
+      "value": "seven years",
+      "sortKey": 2555,
+      "quote": "…o the commission of an offence which is made punishable for seven years or more, the officer in charge of a police station shall, f…",
+      "verify": true
+    },
+    {
+      "unitId": "176",
+      "unitNumber": "176",
+      "kind": "time",
+      "value": "a period of five years",
+      "sortKey": 1825,
+      "quote": "…ce station shall, from such date, as may be notified within a period of five years by the State Government in this regard, cause the forensic…",
+      "verify": false
+    },
+    {
+      "unitId": "179",
+      "unitNumber": "179",
+      "kind": "time",
+      "value": "fifteen years",
+      "sortKey": 5475,
+      "quote": "…so required: Provided that no male person under the age of fifteen years or above the age of sixty years or a woman or a mentally or…",
+      "verify": true
+    },
+    {
+      "unitId": "179",
+      "unitNumber": "179",
+      "kind": "time",
+      "value": "sixty years",
+      "sortKey": 21900,
+      "quote": "…e person under the age of fifteen years or above the age of sixty years or a woman or a mentally or physically disabled person or a…",
+      "verify": true
+    },
+    {
+      "unitId": "183",
+      "unitNumber": "183",
+      "kind": "time",
+      "value": "ten years",
+      "sortKey": 3650,
+      "quote": "…s relating to the offences punishable with imprisonment for ten years or more or with imprisonment for life or with death, the Ma…",
+      "verify": true
+    },
+    {
+      "unitId": "184",
+      "unitNumber": "184",
+      "kind": "time",
+      "value": "a period of seven days",
+      "sortKey": 7,
+      "quote": "…port. (6) The registered medical practitioner shall, within a period of seven days forward the report to the investigating officer who shall f…",
+      "verify": false
+    },
+    {
+      "unitId": "185",
+      "unitNumber": "185",
+      "kind": "time",
+      "value": "forty-eight hours",
+      "sortKey": 2,
+      "quote": "…(1) or sub-section (3) shall forthwith, but not later than forty-eight hours, be sent to the nearest Magistrate empowered to take cogniz…",
+      "verify": false
+    },
+    {
+      "unitId": "187",
+      "unitNumber": "187",
+      "kind": "time",
+      "value": "fifteen days",
+      "sortKey": 15,
+      "quote": "…ody as such Magistrate thinks fit, for a term not exceeding fifteen days in the whole, or in parts, at any time during the initial f…",
+      "verify": false
+    },
+    {
+      "unitId": "187",
+      "unitNumber": "187",
+      "kind": "time",
+      "value": "forty days",
+      "sortKey": 40,
+      "quote": "…s in the whole, or in parts, at any time during the initial forty days or sixty days out of detention period of sixty days or nine…",
+      "verify": true
+    },
+    {
+      "unitId": "187",
+      "unitNumber": "187",
+      "kind": "time",
+      "value": "sixty days",
+      "sortKey": 60,
+      "quote": "…, or in parts, at any time during the initial forty days or sixty days out of detention period of sixty days or ninety days, as th…",
+      "verify": true
+    },
+    {
+      "unitId": "187",
+      "unitNumber": "187",
+      "kind": "time",
+      "value": "sixty days",
+      "sortKey": 60,
+      "quote": "…initial forty days or sixty days out of detention period of sixty days or ninety days, as the case may be, as provided in sub-sect…",
+      "verify": true
+    },
+    {
+      "unitId": "187",
+      "unitNumber": "187",
+      "kind": "time",
+      "value": "ninety days",
+      "sortKey": 90,
+      "quote": "…days or sixty days out of detention period of sixty days or ninety days, as the case may be, as provided in sub-section (3), and if…",
+      "verify": true
+    },
+    {
+      "unitId": "187",
+      "unitNumber": "187",
+      "kind": "time",
+      "value": "fifteen days",
+      "sortKey": 15,
+      "quote": "…e the detention of the accused person, beyond the period of fifteen days, if he is satisfied that adequate grounds exist for doing s…",
+      "verify": true
+    },
+    {
+      "unitId": "187",
+      "unitNumber": "187",
+      "kind": "time",
+      "value": "ninety days",
+      "sortKey": 90,
+      "quote": "…dy under this sub-section for a total period exceeding- (i) ninety days, where the investigation relates to an offence punishable w…",
+      "verify": true
+    },
+    {
+      "unitId": "187",
+      "unitNumber": "187",
+      "kind": "time",
+      "value": "ten years",
+      "sortKey": 3650,
+      "quote": "…death, imprisonment for life or imprisonment for a term of ten years or more; (ii) sixty days, where the investigation relates t…",
+      "verify": true
+    },
+    {
+      "unitId": "187",
+      "unitNumber": "187",
+      "kind": "time",
+      "value": "sixty days",
+      "sortKey": 60,
+      "quote": "…life or imprisonment for a term of ten years or more; (ii) sixty days, where the investigation relates to any other offence, and,…",
+      "verify": true
+    },
+    {
+      "unitId": "187",
+      "unitNumber": "187",
+      "kind": "time",
+      "value": "ninety days",
+      "sortKey": 90,
+      "quote": "…any other offence, and, on the expiry of the said period of ninety days, or sixty days, as the case may be, the accused person shal…",
+      "verify": true
+    },
+    {
+      "unitId": "187",
+      "unitNumber": "187",
+      "kind": "time",
+      "value": "sixty days",
+      "sortKey": 60,
+      "quote": "…e, and, on the expiry of the said period of ninety days, or sixty days, as the case may be, the accused person shall be released o…",
+      "verify": true
+    },
+    {
+      "unitId": "187",
+      "unitNumber": "187",
+      "kind": "time",
+      "value": "seven days",
+      "sortKey": 7,
+      "quote": "…n such custody as he may think fit for a term not exceeding seven days in the aggregate; and, on the expiry of the period of deten…",
+      "verify": false
+    },
+    {
+      "unitId": "187",
+      "unitNumber": "187",
+      "kind": "time",
+      "value": "a period of six months",
+      "sortKey": 180,
+      "quote": "…s a summons-case, the investigation is not concluded within a period of six months from the date on which the accused was arrested, the Magist…",
+      "verify": false
+    },
+    {
+      "unitId": "187",
+      "unitNumber": "187",
+      "kind": "time",
+      "value": "six months",
+      "sortKey": 180,
+      "quote": "…the continuation of the investigation beyond the period of six months is necessary. (10) Where any order stopping further investi…",
+      "verify": true
+    },
+    {
+      "unitId": "193",
+      "unitNumber": "193",
+      "kind": "time",
+      "value": "two months",
+      "sortKey": 60,
+      "quote": "…en from Sexual Offences Act, 2012 shall be completed within two months from the date on which the information was recorded by the…",
+      "verify": false
+    },
+    {
+      "unitId": "193",
+      "unitNumber": "193",
+      "kind": "time",
+      "value": "a period of ninety days",
+      "sortKey": 90,
+      "quote": "…of electronic device; (ii) the police officer shall, within a period of ninety days, inform the progress of the investigation by any means incl…",
+      "verify": false
+    },
+    {
+      "unitId": "193",
+      "unitNumber": "193",
+      "kind": "time",
+      "value": "a period of ninety days",
+      "sortKey": 90,
+      "quote": "…ourt trying the case and the same shall be completed within a period of ninety days which may be extended with the permission of the Court.",
+      "verify": false
+    },
+    {
+      "unitId": "194",
+      "unitNumber": "194",
+      "kind": "time",
+      "value": "seven years",
+      "sortKey": 2555,
+      "quote": "…. (3) When- (i) the case involves suicide by a woman within seven years of her marriage; or (ii) the case relates to the death of a…",
+      "verify": false
+    },
+    {
+      "unitId": "194",
+      "unitNumber": "194",
+      "kind": "time",
+      "value": "seven years",
+      "sortKey": 2555,
+      "quote": "…ge; or (ii) the case relates to the death of a woman within seven years of her marriage in any circumstances raising a reasonable s…",
+      "verify": false
+    },
+    {
+      "unitId": "194",
+      "unitNumber": "194",
+      "kind": "time",
+      "value": "seven years",
+      "sortKey": 2555,
+      "quote": "…n; or (iii) the case relates to the death of a woman within seven years of her marriage and any relative of the woman has made a re…",
+      "verify": false
+    },
+    {
+      "unitId": "195",
+      "unitNumber": "195",
+      "kind": "time",
+      "value": "fifteen years",
+      "sortKey": 5475,
+      "quote": "…r forfeiture: Provided that no male person under the age of fifteen years or above the age of sixty years or a woman or a mentally or…",
+      "verify": true
+    },
+    {
+      "unitId": "195",
+      "unitNumber": "195",
+      "kind": "time",
+      "value": "sixty years",
+      "sortKey": 21900,
+      "quote": "…e person under the age of fifteen years or above the age of sixty years or a woman or a mentally or physically disabled person or a…",
+      "verify": true
+    },
+    {
+      "unitId": "217",
+      "unitNumber": "217",
+      "kind": "time",
+      "value": "two years",
+      "sortKey": 730,
+      "quote": "…mprisonment for life or rigorous imprisonment for a term of two years or upwards, unless the State Government or the District Mag…",
+      "verify": true
+    },
+    {
+      "unitId": "219",
+      "unitNumber": "219",
+      "kind": "time",
+      "value": "one year",
+      "sortKey": 365,
+      "quote": "…e, the wife being under eighteen years of age, if more than one year has elapsed from the date of the commission of the offence.…",
+      "verify": true
+    },
+    {
+      "unitId": "219",
+      "unitNumber": "219",
+      "kind": "authority",
+      "value": "competent authority",
+      "sortKey": "competent authority",
+      "quote": "…ind by a person who has not been appointed or declared by a competent authority to be the guardian of the child, or of the person of unsoun…",
+      "verify": false
+    },
+    {
+      "unitId": "222",
+      "unitNumber": "222",
+      "kind": "time",
+      "value": "six months",
+      "sortKey": 180,
+      "quote": "…e under sub-section (2) unless the complaint is made within six months from the date on which the offence is alleged to have been…",
+      "verify": false
+    },
+    {
+      "unitId": "229",
+      "unitNumber": "229",
+      "kind": "time",
+      "value": "three months",
+      "sortKey": 90,
+      "quote": "…fence punishable with imprisonment for a term not exceeding three months, or with fine, or with both where the Magistrate is of opin…",
+      "verify": false
+    },
+    {
+      "unitId": "232",
+      "unitNumber": "232",
+      "kind": "time",
+      "value": "a period of ninety days",
+      "sortKey": 90,
+      "quote": "…he proceedings under this section shall be completed within a period of ninety days from the date of taking cognizance, and such period may be…",
+      "verify": false
+    },
+    {
+      "unitId": "232",
+      "unitNumber": "232",
+      "kind": "time",
+      "value": "one hundred and eighty days",
+      "sortKey": 180,
+      "quote": "…ay be extended by the Magistrate for a period not exceeding one hundred and eighty days for the reasons to be recorded in writing: Provided further…",
+      "verify": false
+    },
+    {
+      "unitId": "235",
+      "unitNumber": "235",
+      "kind": "time",
+      "value": "one year",
+      "sortKey": 365,
+      "quote": "…d between the first and last of such dates shall not exceed one year.",
+      "verify": true
+    },
+    {
+      "unitId": "242",
+      "unitNumber": "242",
+      "kind": "time",
+      "value": "twelve months",
+      "sortKey": 360,
+      "quote": "…ces than one of the same kind committed within the space of twelve months from the first to the last of such offences, whether in res…",
+      "verify": true
+    },
+    {
+      "unitId": "246",
+      "unitNumber": "246",
+      "kind": "time",
+      "value": "twelve months",
+      "sortKey": 360,
+      "quote": "…section 242 committed by them jointly within the period of twelve months; (d) persons accused of different offences committed in the…",
+      "verify": true
+    },
+    {
+      "unitId": "250",
+      "unitNumber": "250",
+      "kind": "time",
+      "value": "a period of sixty days",
+      "sortKey": 60,
+      "quote": "…The accused may prefer an application for discharge within a period of sixty days from the date of commitment of the case under section 232.…",
+      "verify": false
+    },
+    {
+      "unitId": "251",
+      "unitNumber": "251",
+      "kind": "time",
+      "value": "a period of sixty days",
+      "sortKey": 60,
+      "quote": "…shall frame in writing a charge against the accused within a period of sixty days from the date of first hearing on charge. (2) Where the Jud…",
+      "verify": false
+    },
+    {
+      "unitId": "258",
+      "unitNumber": "258",
+      "kind": "time",
+      "value": "a period of thirty days",
+      "sortKey": 30,
+      "quote": "…ll give a judgment in the case, as soon as possible, within a period of thirty days from the date of completion of arguments, which may be exte…",
+      "verify": false
+    },
+    {
+      "unitId": "258",
+      "unitNumber": "258",
+      "kind": "time",
+      "value": "a period of forty-five days",
+      "sortKey": 45,
+      "quote": "…e date of completion of arguments, which may be extended to a period of forty-five days for reasons to be recorded in writing. (2) If the accused i…",
+      "verify": true
+    },
+    {
+      "unitId": "262",
+      "unitNumber": "262",
+      "kind": "time",
+      "value": "a period of sixty days",
+      "sortKey": 60,
+      "quote": "…The accused may prefer an application for discharge within a period of sixty days from the date of supply of copies of documents under sectio…",
+      "verify": false
+    },
+    {
+      "unitId": "263",
+      "unitNumber": "263",
+      "kind": "time",
+      "value": "a period of sixty days",
+      "sortKey": 60,
+      "quote": "…shall frame in writing a charge against the accused within a period of sixty days from the date of first hearing on charge. (2) The charge sh…",
+      "verify": false
+    },
+    {
+      "unitId": "272",
+      "unitNumber": "272",
+      "kind": "time",
+      "value": "thirty days",
+      "sortKey": 30,
+      "quote": "…s not a cognizable offence, the Magistrate may after giving thirty days' time to the complainant to be present, in his discretion,…",
+      "verify": true
+    },
+    {
+      "unitId": "273",
+      "unitNumber": "273",
+      "kind": "time",
+      "value": "thirty days",
+      "sortKey": 30,
+      "quote": "…hall undergo simple imprisonment for a period not exceeding thirty days. (4) When any person is imprisoned under sub-section (3), t…",
+      "verify": false
+    },
+    {
+      "unitId": "273",
+      "unitNumber": "273",
+      "kind": "time",
+      "value": "one month",
+      "sortKey": 30,
+      "quote": "…the compensation shall not be paid before the expiration of one month from the date of the order. (8) The provisions of this sect…",
+      "verify": true
+    },
+    {
+      "unitId": "279",
+      "unitNumber": "279",
+      "kind": "time",
+      "value": "thirty days",
+      "sortKey": 30,
+      "quote": "…lainant does not appear, the Magistrate shall, after giving thirty days' time to the complainant to be present, notwithstanding any…",
+      "verify": true
+    },
+    {
+      "unitId": "282",
+      "unitNumber": "282",
+      "kind": "time",
+      "value": "six months",
+      "sortKey": 180,
+      "quote": "…n offence punishable with imprisonment for a term exceeding six months, it appears to the Magistrate that in the interests of just…",
+      "verify": true
+    },
+    {
+      "unitId": "283",
+      "unitNumber": "283",
+      "kind": "time",
+      "value": "three years",
+      "sortKey": 1095,
+      "quote": "…imprisonment for life or imprisonment for a term exceeding three years: Provided that no appeal shall lie against the decision of…",
+      "verify": true
+    },
+    {
+      "unitId": "284",
+      "unitNumber": "284",
+      "kind": "time",
+      "value": "six months",
+      "sortKey": 180,
+      "quote": "…nly with fine or with imprisonment for a term not exceeding six months with or without fine, and any abetment of or attempt to com…",
+      "verify": false
+    },
+    {
+      "unitId": "285",
+      "unitNumber": "285",
+      "kind": "time",
+      "value": "three months",
+      "sortKey": 90,
+      "quote": "…ioned. (2) No sentence of imprisonment for a term exceeding three months shall be passed in the case of any conviction under this Ch…",
+      "verify": true
+    },
+    {
+      "unitId": "289",
+      "unitNumber": "289",
+      "kind": "time",
+      "value": "seven years",
+      "sortKey": 2555,
+      "quote": "…prisonment for life or of imprisonment for a term exceeding seven years has been provided under the law for the time being in force…",
+      "verify": true
+    },
+    {
+      "unitId": "290",
+      "unitNumber": "290",
+      "kind": "time",
+      "value": "a period of thirty days",
+      "sortKey": 30,
+      "quote": "…offence may file an application for plea bargaining within a period of thirty days from the date of framing of charge in the Court in which su…",
+      "verify": false
+    },
+    {
+      "unitId": "290",
+      "unitNumber": "290",
+      "kind": "time",
+      "value": "sixty days",
+      "sortKey": 60,
+      "quote": "…e accused voluntarily, it shall provide time, not exceeding sixty days, to the Public Prosecutor or the complainant of the case an…",
+      "verify": false
+    },
+    {
+      "unitId": "292",
+      "unitNumber": "292",
+      "kind": "authority",
+      "value": "presiding officer",
+      "sortKey": "presiding officer",
+      "quote": "…e a report of such disposition which shall be signed by the presiding officer of the Court and all other persons who participated in the…",
+      "verify": false
+    },
+    {
+      "unitId": "294",
+      "unitNumber": "294",
+      "kind": "authority",
+      "value": "presiding officer",
+      "sortKey": "presiding officer",
+      "quote": "…n 293 in the open Court and the same shall be signed by the presiding officer of the Court.",
+      "verify": false
+    },
+    {
+      "unitId": "330",
+      "unitNumber": "330",
+      "kind": "time",
+      "value": "thirty days",
+      "sortKey": 30,
+      "quote": "…on after supply of such documents and in no case later than thirty days after such supply: Provided that the Court may, in its disc…",
+      "verify": true
+    },
+    {
+      "unitId": "343",
+      "unitNumber": "343",
+      "kind": "time",
+      "value": "seven years",
+      "sortKey": 2555,
+      "quote": "…ny offence punishable with imprisonment which may extend to seven years or with a more severe sentence. (3) Every Magistrate who te…",
+      "verify": true
+    },
+    {
+      "unitId": "346",
+      "unitNumber": "346",
+      "kind": "time",
+      "value": "a period of two months",
+      "sortKey": 60,
+      "quote": "…anhita, 2023 the inquiry or trial shall be completed within a period of two months from the date of filing of the chargesheet. (2) If the Cour…",
+      "verify": false
+    },
+    {
+      "unitId": "346",
+      "unitNumber": "346",
+      "kind": "time",
+      "value": "fifteen days",
+      "sortKey": 15,
+      "quote": "…d person to custody under this section for a term exceeding fifteen days at a time: Provided further that when witnesses are in atte…",
+      "verify": true
+    },
+    {
+      "unitId": "356",
+      "unitNumber": "356",
+      "kind": "time",
+      "value": "a period of ninety days",
+      "sortKey": 90,
+      "quote": "…Provided that the Court shall not commence the trial unless a period of ninety days has lapsed from the date of framing of the charge. (2) The…",
+      "verify": true
+    },
+    {
+      "unitId": "356",
+      "unitNumber": "356",
+      "kind": "time",
+      "value": "thirty days",
+      "sortKey": 30,
+      "quote": "…secutive warrants of arrest within the interval of at least thirty days; (ii) publish in a national or local daily newspaper circul…",
+      "verify": true
+    },
+    {
+      "unitId": "356",
+      "unitNumber": "356",
+      "kind": "time",
+      "value": "thirty days",
+      "sortKey": 30,
+      "quote": "…al and informing him that in case he fails to appear within thirty days from the date of such publication, the trial shall commence…",
+      "verify": false
+    },
+    {
+      "unitId": "356",
+      "unitNumber": "356",
+      "kind": "time",
+      "value": "three years",
+      "sortKey": 1095,
+      "quote": "…no appeal against conviction shall lie after the expiry of three years from the date of the judgment. (8) The State may, by notifi…",
+      "verify": false
+    },
+    {
+      "unitId": "363",
+      "unitNumber": "363",
+      "kind": "time",
+      "value": "three years",
+      "sortKey": 1095,
+      "quote": "…ratiya Nyaya Sanhita, 2023, with imprisonment for a term of three years or upwards, is again accused of any offence punishable unde…",
+      "verify": true
+    },
+    {
+      "unitId": "363",
+      "unitNumber": "363",
+      "kind": "time",
+      "value": "three years",
+      "sortKey": 1095,
+      "quote": "…er either of those Chapters with imprisonment for a term of three years or upwards, and the Magistrate before whom the case is pend…",
+      "verify": true
+    },
+    {
+      "unitId": "379",
+      "unitNumber": "379",
+      "kind": "authority",
+      "value": "presiding officer",
+      "sortKey": "presiding officer",
+      "quote": "…urt as the Court may appoint; (b) in any other case, by the presiding officer of the Court or by such officer of the Court as the Court m…",
+      "verify": false
+    },
+    {
+      "unitId": "383",
+      "unitNumber": "383",
+      "kind": "time",
+      "value": "three months",
+      "sortKey": 90,
+      "quote": "…sentence him to imprisonment for a term which may extend to three months, or to fine which may extend to one thousand rupees, or wit…",
+      "verify": true
+    },
+    {
+      "unitId": "384",
+      "unitNumber": "384",
+      "kind": "time",
+      "value": "one month",
+      "sortKey": 30,
+      "quote": "…fine, to simple imprisonment for a term which may extend to one month, unless such fine be sooner paid. (2) In every such case th…",
+      "verify": true
+    },
+    {
+      "unitId": "388",
+      "unitNumber": "388",
+      "kind": "time",
+      "value": "seven days",
+      "sortKey": 7,
+      "quote": "…stody of an officer of the Court for any term not exceeding seven days, unless in the meantime, such person consents to be examine…",
+      "verify": false
+    },
+    {
+      "unitId": "392",
+      "unitNumber": "392",
+      "kind": "time",
+      "value": "forty-five days",
+      "sortKey": 45,
+      "quote": "…tion of the trial or at some subsequent time not later than forty-five days of which notice shall be given to the parties or their advo…",
+      "verify": false
+    },
+    {
+      "unitId": "392",
+      "unitNumber": "392",
+      "kind": "time",
+      "value": "a period of seven days",
+      "sortKey": 7,
+      "quote": "…cable, upload the copy of the judgment on its portal within a period of seven days from the date of judgment. (5) If the accused is in custody…",
+      "verify": false
+    },
+    {
+      "unitId": "392",
+      "unitNumber": "392",
+      "kind": "authority",
+      "value": "presiding officer",
+      "sortKey": "presiding officer",
+      "quote": "…ginal jurisdiction shall be pronounced in open Court by the presiding officer immediately after the termination of the trial or at some s…",
+      "verify": false
+    },
+    {
+      "unitId": "392",
+      "unitNumber": "392",
+      "kind": "authority",
+      "value": "presiding officer",
+      "sortKey": "presiding officer",
+      "quote": "…gment is delivered under clause (a) of sub-section (1), the presiding officer shall cause it to be taken down in short-hand, sign the tra…",
+      "verify": false
+    },
+    {
+      "unitId": "392",
+      "unitNumber": "392",
+      "kind": "authority",
+      "value": "presiding officer",
+      "sortKey": "presiding officer",
+      "quote": "…1), as the case may be, it shall be dated and signed by the presiding officer in open Court, and if it is not written with his own hand,…",
+      "verify": false
+    },
+    {
+      "unitId": "392",
+      "unitNumber": "392",
+      "kind": "authority",
+      "value": "presiding officer",
+      "sortKey": "presiding officer",
+      "quote": "…on the date on which the judgment is to be pronounced, the presiding officer may, in order to avoid undue delay in the disposal of the c…",
+      "verify": false
+    },
+    {
+      "unitId": "393",
+      "unitNumber": "393",
+      "kind": "time",
+      "value": "one year",
+      "sortKey": 365,
+      "quote": "…s for an offence punishable with imprisonment for a term of one year or more, but the Court imposes a sentence of imprisonment f…",
+      "verify": true
+    },
+    {
+      "unitId": "393",
+      "unitNumber": "393",
+      "kind": "time",
+      "value": "three months",
+      "sortKey": 90,
+      "quote": "…imposes a sentence of imprisonment for a term of less than three months, it shall record its reasons for awarding such sentence, un…",
+      "verify": true
+    },
+    {
+      "unitId": "394",
+      "unitNumber": "394",
+      "kind": "time",
+      "value": "three years",
+      "sortKey": 1095,
+      "quote": "…ia of an offence punishable with imprisonment for a term of three years, or upwards, is again convicted of any offence punishable w…",
+      "verify": true
+    },
+    {
+      "unitId": "394",
+      "unitNumber": "394",
+      "kind": "time",
+      "value": "three years",
+      "sortKey": 1095,
+      "quote": "…d of any offence punishable with imprisonment for a term of three years or upwards by any Court other than that of a Magistrate of…",
+      "verify": true
+    },
+    {
+      "unitId": "394",
+      "unitNumber": "394",
+      "kind": "time",
+      "value": "five years",
+      "sortKey": 1825,
+      "quote": "…e notified as hereinafter provided for a term not exceeding five years from the date of the expiration of such sentence. (2) The p…",
+      "verify": false
+    },
+    {
+      "unitId": "396",
+      "unitNumber": "396",
+      "kind": "time",
+      "value": "two months",
+      "sortKey": 60,
+      "quote": "…ward adequate compensation by completing the enquiry within two months. (6) The State or the District Legal Services Authority, as…",
+      "verify": false
+    },
+    {
+      "unitId": "399",
+      "unitNumber": "399",
+      "kind": "time",
+      "value": "thirty days",
+      "sortKey": 30,
+      "quote": "…entenced to simple imprisonment for such term not exceeding thirty days as the Magistrate directs, unless such sum is sooner paid.…",
+      "verify": false
+    },
+    {
+      "unitId": "400",
+      "unitNumber": "400",
+      "kind": "time",
+      "value": "thirty days",
+      "sortKey": 30,
+      "quote": "…shall suffer simple imprisonment for a period not exceeding thirty days and such costs may include any expenses incurred in respect…",
+      "verify": false
+    },
+    {
+      "unitId": "401",
+      "unitNumber": "401",
+      "kind": "time",
+      "value": "seven years",
+      "sortKey": 2555,
+      "quote": "…unishable with fine only or with imprisonment for a term of seven years or less, or when any person under twenty-one years of age o…",
+      "verify": true
+    },
+    {
+      "unitId": "401",
+      "unitNumber": "401",
+      "kind": "time",
+      "value": "three years",
+      "sortKey": 1095,
+      "quote": "…sentence when called upon during such period (not exceeding three years) as the Court may direct, and in the meantime to keep the p…",
+      "verify": false
+    },
+    {
+      "unitId": "401",
+      "unitNumber": "401",
+      "kind": "time",
+      "value": "two years",
+      "sortKey": 730,
+      "quote": "…haratiya Nyaya Sanhita, 2023, punishable with not more than two years' imprisonment or any offence punishable with fine only and…",
+      "verify": true
+    },
+    {
+      "unitId": "415",
+      "unitNumber": "415",
+      "kind": "time",
+      "value": "seven years",
+      "sortKey": 2555,
+      "quote": "…her Court in which a sentence of imprisonment for more than seven years has been passed against him or against any other person con…",
+      "verify": true
+    },
+    {
+      "unitId": "415",
+      "unitNumber": "415",
+      "kind": "time",
+      "value": "a period of six months",
+      "sortKey": 180,
+      "quote": "…Nyaya Sanhita, 2023, the appeal shall be disposed of within a period of six months from the date of filing of such appeal.",
+      "verify": false
+    },
+    {
+      "unitId": "417",
+      "unitNumber": "417",
+      "kind": "time",
+      "value": "three months",
+      "sortKey": 90,
+      "quote": "…es only a sentence of imprisonment for a term not exceeding three months or of fine not exceeding one thousand rupees, or of both su…",
+      "verify": false
+    },
+    {
+      "unitId": "418",
+      "unitNumber": "418",
+      "kind": "time",
+      "value": "a period of six months",
+      "sortKey": 180,
+      "quote": "…Nyaya Sanhita, 2023, the appeal shall be disposed of within a period of six months from the date of filing of such appeal.",
+      "verify": false
+    },
+    {
+      "unitId": "419",
+      "unitNumber": "419",
+      "kind": "time",
+      "value": "six months",
+      "sortKey": 180,
+      "quote": "…shall be entertained by the High Court after the expiry of six months, where the complainant is a public servant, and sixty days…",
+      "verify": false
+    },
+    {
+      "unitId": "419",
+      "unitNumber": "419",
+      "kind": "time",
+      "value": "sixty days",
+      "sortKey": 60,
+      "quote": "…six months, where the complainant is a public servant, and sixty days in every other case, computed from the date of that order o…",
+      "verify": true
+    },
+    {
+      "unitId": "420",
+      "unitNumber": "420",
+      "kind": "time",
+      "value": "ten years",
+      "sortKey": 3650,
+      "quote": "…r to imprisonment for life or to imprisonment for a term of ten years or more, he may appeal to the Supreme Court.",
+      "verify": true
+    },
+    {
+      "unitId": "430",
+      "unitNumber": "430",
+      "kind": "time",
+      "value": "ten years",
+      "sortKey": 3650,
+      "quote": "…onment for life or imprisonment for a term of not less than ten years, shall give opportunity to the Public Prosecutor for showin…",
+      "verify": true
+    },
+    {
+      "unitId": "430",
+      "unitNumber": "430",
+      "kind": "time",
+      "value": "three years",
+      "sortKey": 1095,
+      "quote": "…bail, is sentenced to imprisonment for a term not exceeding three years; or (ii) where the offence of which such person has been co…",
+      "verify": false
+    },
+    {
+      "unitId": "435",
+      "unitNumber": "435",
+      "kind": "time",
+      "value": "thirty days",
+      "sortKey": 30,
+      "quote": "…ndency of the appeal, any of his near relatives may, within thirty days of the death of the appellant, apply to the Appellate Court…",
+      "verify": false
+    },
+    {
+      "unitId": "457",
+      "unitNumber": "457",
+      "kind": "time",
+      "value": "three years",
+      "sortKey": 1095,
+      "quote": "…erefrom, be sent back to the civil jail, unless either- (a) three years have elapsed since he was removed to the criminal jail, in…",
+      "verify": true
+    },
+    {
+      "unitId": "464",
+      "unitNumber": "464",
+      "kind": "time",
+      "value": "thirty days",
+      "sortKey": 30,
+      "quote": "…be payable either in full on or before a date not more than thirty days from the date of the order, or in two or three installments…",
+      "verify": true
+    },
+    {
+      "unitId": "464",
+      "unitNumber": "464",
+      "kind": "time",
+      "value": "thirty days",
+      "sortKey": 30,
+      "quote": "…he first shall be payable on or before a date not more than thirty days from the date of the order and the other or others at an in…",
+      "verify": true
+    },
+    {
+      "unitId": "464",
+      "unitNumber": "464",
+      "kind": "time",
+      "value": "thirty days",
+      "sortKey": 30,
+      "quote": "…erval or at intervals, as the case may be, of not more than thirty days; (b) suspend the execution of the sentence of imprisonment…",
+      "verify": true
+    },
+    {
+      "unitId": "472",
+      "unitNumber": "472",
+      "kind": "time",
+      "value": "a period of thirty days",
+      "sortKey": 30,
+      "quote": "…r of the State under article 161 of the Constitution within a period of thirty days from the date on which the Superintendent of the jail,- (i)…",
+      "verify": false
+    },
+    {
+      "unitId": "472",
+      "unitNumber": "472",
+      "kind": "time",
+      "value": "a period of sixty days",
+      "sortKey": 60,
+      "quote": "…overnor, the petition shall be made to the President within a period of sixty days from the date of rejection or disposal of such petition. (3…",
+      "verify": false
+    },
+    {
+      "unitId": "472",
+      "unitNumber": "472",
+      "kind": "time",
+      "value": "a period of sixty days",
+      "sortKey": 60,
+      "quote": "…one convict in a case, also files the mercy petition within a period of sixty days and on non-receipt of such petition from the other convicts…",
+      "verify": false
+    },
+    {
+      "unitId": "472",
+      "unitNumber": "472",
+      "kind": "time",
+      "value": "a period of sixty days",
+      "sortKey": 60,
+      "quote": "…sident in this behalf, as expeditiously as possible, within a period of sixty days from the date of receipt of comments of the State Governmen…",
+      "verify": false
+    },
+    {
+      "unitId": "472",
+      "unitNumber": "472",
+      "kind": "time",
+      "value": "forty-eight hours",
+      "sortKey": 2,
+      "quote": "…on the mercy petition, the Central Government shall within forty-eight hours, communicate the same to the Home Department of the State G…",
+      "verify": false
+    },
+    {
+      "unitId": "474",
+      "unitNumber": "474",
+      "kind": "time",
+      "value": "seven years",
+      "sortKey": 2555,
+      "quote": "…sonment for life, for imprisonment for a term not less than seven years; (c) a sentence of imprisonment for seven years or more, fo…",
+      "verify": true
+    },
+    {
+      "unitId": "474",
+      "unitNumber": "474",
+      "kind": "time",
+      "value": "seven years",
+      "sortKey": 2555,
+      "quote": "…t less than seven years; (c) a sentence of imprisonment for seven years or more, for imprisonment for a term not less than three ye…",
+      "verify": true
+    },
+    {
+      "unitId": "474",
+      "unitNumber": "474",
+      "kind": "time",
+      "value": "three years",
+      "sortKey": 1095,
+      "quote": "…en years or more, for imprisonment for a term not less than three years; (d) a sentence of imprisonment for less than seven years,…",
+      "verify": true
+    },
+    {
+      "unitId": "474",
+      "unitNumber": "474",
+      "kind": "time",
+      "value": "seven years",
+      "sortKey": 2555,
+      "quote": "…n three years; (d) a sentence of imprisonment for less than seven years, for fine; (e) a sentence of rigorous imprisonment, for sim…",
+      "verify": true
+    },
+    {
+      "unitId": "480",
+      "unitNumber": "480",
+      "kind": "time",
+      "value": "seven years",
+      "sortKey": 2555,
+      "quote": "…hable with death, imprisonment for life or imprisonment for seven years or more, or he had been previously convicted on two or more…",
+      "verify": true
+    },
+    {
+      "unitId": "480",
+      "unitNumber": "480",
+      "kind": "time",
+      "value": "three years",
+      "sortKey": 1095,
+      "quote": "…ns of a cognizable offence punishable with imprisonment for three years or more but less than seven years: Provided that the Court…",
+      "verify": true
+    },
+    {
+      "unitId": "480",
+      "unitNumber": "480",
+      "kind": "time",
+      "value": "seven years",
+      "sortKey": 2555,
+      "quote": "…ble with imprisonment for three years or more but less than seven years: Provided that the Court may direct that a person referred…",
+      "verify": true
+    },
+    {
+      "unitId": "480",
+      "unitNumber": "480",
+      "kind": "time",
+      "value": "fifteen days",
+      "sortKey": 15,
+      "quote": "…during investigation or for police custody beyond the first fifteen days shall not be sufficient ground for refusing to grant bail i…",
+      "verify": true
+    },
+    {
+      "unitId": "480",
+      "unitNumber": "480",
+      "kind": "time",
+      "value": "seven years",
+      "sortKey": 2555,
+      "quote": "…able with death, imprisonment for life, or imprisonment for seven years or more, be released on bail by the Court under this sub-se…",
+      "verify": true
+    },
+    {
+      "unitId": "480",
+      "unitNumber": "480",
+      "kind": "time",
+      "value": "seven years",
+      "sortKey": 2555,
+      "quote": "…an offence punishable with imprisonment which may extend to seven years or more or of an offence under Chapter VI, Chapter VII or C…",
+      "verify": true
+    },
+    {
+      "unitId": "480",
+      "unitNumber": "480",
+      "kind": "time",
+      "value": "a period of sixty days",
+      "sortKey": 60,
+      "quote": "…accused of any non-bailable offence is not concluded within a period of sixty days from the first date fixed for taking evidence in the case,…",
+      "verify": false
+    },
+    {
+      "unitId": "481",
+      "unitNumber": "481",
+      "kind": "time",
+      "value": "six months",
+      "sortKey": 180,
+      "quote": "…of the respective Court and such bond shall be in force for six months. (2) If such accused fails to appear, the bond stand forfei…",
+      "verify": true
+    },
+    {
+      "unitId": "483",
+      "unitNumber": "483",
+      "kind": "time",
+      "value": "a period of fifteen days",
+      "sortKey": 15,
+      "quote": "…of the application for bail to the Public Prosecutor within a period of fifteen days from the date of receipt of the notice of such application.…",
+      "verify": false
+    },
+    {
+      "unitId": "491",
+      "unitNumber": "491",
+      "kind": "time",
+      "value": "six months",
+      "sortKey": 180,
+      "quote": "…o imprisonment in civil jail for a term which may extend to six months. (3) The Court may, after recording its reasons for doing s…",
+      "verify": true
+    },
+    {
+      "unitId": "498",
+      "unitNumber": "498",
+      "kind": "time",
+      "value": "two months",
+      "sortKey": 60,
+      "quote": "…der made under sub-section (1) shall not be carried out for two months, or when an appeal is presented, until such appeal has been…",
+      "verify": true
+    },
+    {
+      "unitId": "499",
+      "unitNumber": "499",
+      "kind": "time",
+      "value": "six months",
+      "sortKey": 180,
+      "quote": "…the price paid by such purchaser be delivered to him within six months from the date of such order.",
+      "verify": false
+    },
+    {
+      "unitId": "502",
+      "unitNumber": "502",
+      "kind": "time",
+      "value": "one month",
+      "sortKey": 30,
+      "quote": "…ded that no such order shall be made by the Court more than one month after the date of the conviction. (2) Where the Court tryin…",
+      "verify": true
+    },
+    {
+      "unitId": "503",
+      "unitNumber": "503",
+      "kind": "time",
+      "value": "six months",
+      "sortKey": 180,
+      "quote": "…hereto, to appear before him and establish his claim within six months from the date of such proclamation.",
+      "verify": false
+    },
+    {
+      "unitId": "514",
+      "unitNumber": "514",
+      "kind": "time",
+      "value": "six months",
+      "sortKey": 180,
+      "quote": "…d of limitation. (2) The period of limitation shall be- (a) six months, if the offence is punishable with fine only; (b) one year,…",
+      "verify": true
+    },
+    {
+      "unitId": "514",
+      "unitNumber": "514",
+      "kind": "time",
+      "value": "one year",
+      "sortKey": 365,
+      "quote": "…ix months, if the offence is punishable with fine only; (b) one year, if the offence is punishable with imprisonment for a term…",
+      "verify": true
+    },
+    {
+      "unitId": "514",
+      "unitNumber": "514",
+      "kind": "time",
+      "value": "one year",
+      "sortKey": 365,
+      "quote": "…ce is punishable with imprisonment for a term not exceeding one year; (c) three years, if the offence is punishable with impriso…",
+      "verify": false
+    },
+    {
+      "unitId": "514",
+      "unitNumber": "514",
+      "kind": "time",
+      "value": "three years",
+      "sortKey": 1095,
+      "quote": "…le with imprisonment for a term not exceeding one year; (c) three years, if the offence is punishable with imprisonment for a term…",
+      "verify": true
+    },
+    {
+      "unitId": "514",
+      "unitNumber": "514",
+      "kind": "time",
+      "value": "one year",
+      "sortKey": 365,
+      "quote": "…ffence is punishable with imprisonment for a term exceeding one year but not exceeding three years. (3) For the purposes of this…",
+      "verify": true
+    },
+    {
+      "unitId": "514",
+      "unitNumber": "514",
+      "kind": "time",
+      "value": "three years",
+      "sortKey": 1095,
+      "quote": "…mprisonment for a term exceeding one year but not exceeding three years. (3) For the purposes of this section, the period of limita…",
+      "verify": false
+    }
+  ]
+}

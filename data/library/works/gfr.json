@@ -1,7 +1,7 @@
 {
   "$schema": "../../../schemas/library-work.schema.json",
   "version": "1.0.0",
-  "generatedAt": "2026-09-02",
+  "generatedAt": "2026-09-03",
   "id": "gfr",
   "title": {
     "en": "General Financial Rules, 2017",
@@ -4035,6 +4035,7 @@
     "finance",
     "departmental-exam"
   ],
+  "amendments": {},
   "officialUrl": "https://doe.gov.in/files/circulars_document/GFRupdatedupto31012026.pdf",
   "source": {
     "name": "Department of Expenditure, Ministry of Finance — General Financial Rules 2017 — updated up to 31 January 2026",

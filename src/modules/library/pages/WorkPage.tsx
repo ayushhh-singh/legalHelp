@@ -1,16 +1,12 @@
-import { ArrowLeft, BookOpen, Clock, Search, X } from 'lucide-react'
+import { ArrowLeft, BookOpen, Clock, Download, Search, Trash2, X } from 'lucide-react'
 import { useMemo, useState } from 'react'
 import { Link, Navigate, useParams } from 'react-router-dom'
 
+import { QuickRefTables } from '../components/QuickRefTables'
 import { TocTree } from '../components/TocTree'
-import { toUnitHref } from '../url'
-import {
-  useLastReadUnitId,
-  useReadUnitIds,
-  useWork,
-  useWorkCorpus,
-  useWorkSearchIndex,
-} from '../useLibrary'
+import { toCompareHref, toUnitHref } from '../url'
+import { useLastReadUnitId, useReadUnitIds, useWorkSearchIndex } from '../useLibrary'
+import { useQuickRef, useReaderCorpus, useReaderWork } from '../useAnnotations'
 
 import { DataVersion } from '@/components/common/DataVersion'
 import { Disclaimer } from '@/components/common/Disclaimer'
@@ -19,9 +15,21 @@ import { SourceChip } from '@/components/common/SourceChip'
 import { Badge, Chip, QueryErrorState, SectionCard, SectionNumber, Skeleton } from '@/components/ui-x'
 import { Button } from '@/components/ui/button'
 import { useT } from '@/i18n/useT'
-import { firstUnitId, isSearchable, isWorkId, searchWithin, tagLabel, unitLabel } from '@/lib/library'
+import {
+  deletePersonalWork,
+  firstUnitId,
+  getPersonalWork,
+  isPersonalWorkId,
+  isSearchable,
+  isWorkId,
+  personalFileName,
+  searchWithin,
+  tagLabel,
+  toPersonalFile,
+  unitLabel,
+  type ReaderWork,
+} from '@/lib/library'
 import { cn } from '@/lib/utils'
-import type { LibraryWork } from '@/schemas/library'
 
 /**
  * `/library/:workId` — one work's table of contents, and search inside it.
@@ -35,8 +43,8 @@ import type { LibraryWork } from '@/schemas/library'
 
 const SEARCH_LIMIT = 50
 
-const versionKeyFor = (work: LibraryWork): string =>
-  work.corpus.kind === 'law' ? `law-${work.id}` : `rules-${work.id}`
+const versionKeyFor = (work: ReaderWork): string | null =>
+  work.origin === 'personal' ? null : work.corpus.kind === 'law' ? `law-${work.id}` : `rules-${work.id}`
 
 function minutesLabel(minutes: number, t: ReturnType<typeof useT>['t']): string {
   return minutes >= 90
@@ -47,14 +55,18 @@ function minutesLabel(minutes: number, t: ReturnType<typeof useT>['t']): string 
 export default function WorkPage() {
   const { t, language } = useT()
   const { workId } = useParams<{ workId: string }>()
-  const work = useWork(workId)
+  const work = useReaderWork(workId)
   const [query, setQuery] = useState('')
+  const [view, setView] = useState<'contents' | 'quickref'>('contents')
 
   // `isSearchable` is the same rule the index uses, so the corpus is not
   // loaded for a query that would match nothing — and a one-digit query, which
-  // IS searchable, is not turned away before it gets there.
+  // IS searchable, is not turned away before it gets there. The quick-reference
+  // tables need it too, and only once that view has been asked for: on a
+  // personal document they are extracted from the corpus in the browser.
   const searching = isSearchable(query)
-  const corpus = useWorkCorpus(work.data, searching)
+  const corpus = useReaderCorpus(work.work, searching || view === 'quickref')
+  const quickref = useQuickRef(work.work, corpus.data, view === 'quickref')
   const index = useWorkSearchIndex(corpus.data)
   const readIds = useReadUnitIds(workId)
   const lastRead = useLastReadUnitId(workId)
@@ -72,7 +84,9 @@ export default function WorkPage() {
    * failure card, and an exemption whose reason is untrue excuses nothing while
    * looking as though it does.
    */
-  if (workId !== undefined && !isWorkId(workId)) return <Navigate to="/library" replace />
+  if (workId !== undefined && !isWorkId(workId) && !isPersonalWorkId(workId)) {
+    return <Navigate to="/library" replace />
+  }
 
   if (work.status === 'error') {
     return (
@@ -92,7 +106,9 @@ export default function WorkPage() {
   // of contents that came from a precached chunk; a device whose storage is
   // refused never resolves that query and used to sit on this skeleton for
   // ever. See `useReadUnitIds`.
-  if (work.status === 'loading') {
+  if (work.status === 'missing') return <Navigate to="/library" replace />
+
+  if (work.status === 'loading' || !work.work) {
     return (
       <div className="mx-auto flex max-w-4xl flex-col gap-4">
         <Skeleton className="h-20 w-full" />
@@ -101,7 +117,35 @@ export default function WorkPage() {
     )
   }
 
-  const data = work.data
+  const data = work.work
+  const versionKey = versionKeyFor(data)
+
+  /**
+   * Export the reader's own document as a file they can keep or pass on.
+   *
+   * A plain JSON blob, saved by the reader — not sent anywhere. `parsePersonalFile`
+   * reissues the id on the way back in, so importing a copy of a document
+   * somebody already has adds a second one rather than overwriting the first
+   * along with every highlight keyed to it.
+   */
+  const exportWork = async () => {
+    const row = await getPersonalWork(data.id)
+    if (!row) return
+    try {
+      const blob = new Blob([JSON.stringify(toPersonalFile(row), null, 2)], {
+        type: 'application/json;charset=utf-8',
+      })
+      const url = URL.createObjectURL(blob)
+      const link = document.createElement('a')
+      link.href = url
+      link.download = personalFileName(row)
+      link.click()
+      URL.revokeObjectURL(url)
+    } catch {
+      // A managed device can refuse a blob download. Nothing is lost; the
+      // document is still on the shelf.
+    }
+  }
   const first = firstUnitId(data)
   const read = readIds ?? new Set<string>()
   const readCount = data.readingOrder.filter((id) => read.has(id)).length
@@ -133,6 +177,9 @@ export default function WorkPage() {
               {minutesLabel(data.estimatedMinutes, t)}
             </span>
             <span>{t('library.readCount', { read: readCount, total: data.readingOrder.length })}</span>
+            {data.origin === 'personal' ? (
+              <Badge tone="warning">{t('library.add.yourDocument')}</Badge>
+            ) : null}
             {data.verify ? <Badge tone="warning">{t('common.verifyWithDdo')}</Badge> : null}
           </div>
 
@@ -152,20 +199,59 @@ export default function WorkPage() {
             </div>
           ) : null}
 
-          <p className="text-xs text-muted-foreground">
-            {t('library.publishedBy', { publisher: data.publisher })}
-          </p>
-          <div className="flex flex-wrap items-center gap-2">
-            <SourceChip name={data.source.name} url={data.source.url} />
-            <a
-              href={data.officialUrl}
-              target="_blank"
-              rel="noopener noreferrer"
-              className="text-xs text-primary underline-offset-4 hover:underline"
-            >
-              {t('library.officialText')}
-            </a>
-          </div>
+          {data.origin === 'personal' ? (
+            <>
+              <p className="rounded-md border-l-[3px] border-marigold bg-marigold/15 px-3 py-2 text-xs text-marigold-foreground">
+                {t('library.add.notOfficial')}
+              </p>
+              {data.originNote ? <p className="text-xs text-muted-foreground">{data.originNote}</p> : null}
+              <div className="flex flex-wrap items-center gap-2">
+                <Button variant="outline" size="sm" onClick={() => void exportWork()}>
+                  <Download aria-hidden="true" />
+                  {t('library.add.export')}
+                </Button>
+                <Button
+                  variant="outline"
+                  size="sm"
+                  onClick={() => {
+                    // A typed confirmation would be theatre for one document;
+                    // a plain confirm names it and says the annotations go too,
+                    // which is the part a reader would not otherwise expect.
+                    if (!window.confirm(t('library.add.deleteWorkConfirm', { title: data.title.en }))) return
+                    void deletePersonalWork(data.id)
+                  }}
+                >
+                  <Trash2 aria-hidden="true" />
+                  {t('library.add.deleteWork')}
+                </Button>
+              </div>
+            </>
+          ) : (
+            <>
+              <p className="text-xs text-muted-foreground">
+                {t('library.publishedBy', { publisher: data.publisher })}
+              </p>
+              <div className="flex flex-wrap items-center gap-2">
+                {data.source ? <SourceChip name={data.source.name} url={data.source.url} /> : null}
+                {data.officialUrl ? (
+                  <a
+                    href={data.officialUrl}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="text-xs text-primary underline-offset-4 hover:underline"
+                  >
+                    {t('library.officialText')}
+                  </a>
+                ) : null}
+                <Link
+                  to={toCompareHref(first ? { workId: data.id, unitId: first } : null)}
+                  className="text-xs text-primary underline-offset-4 hover:underline"
+                >
+                  {t('library.compare.title')}
+                </Link>
+              </div>
+            </>
+          )}
         </div>
       </SectionCard>
 
@@ -200,6 +286,31 @@ export default function WorkPage() {
           ) : null}
         </div>
       </div>
+
+      {searching ? null : (
+        <div
+          role="group"
+          aria-label={t('library.toc.title')}
+          className="flex rounded-md border border-input p-0.5"
+        >
+          {(['contents', 'quickref'] as const).map((option) => (
+            <button
+              key={option}
+              type="button"
+              aria-pressed={view === option}
+              onClick={() => setView(option)}
+              className={cn(
+                'min-h-9 flex-1 rounded-sm px-3 text-xs transition-colors focus-visible:ring-2 focus-visible:ring-ring focus-visible:outline-none',
+                view === option
+                  ? 'bg-action font-semibold text-action-foreground'
+                  : 'text-muted-foreground hover:bg-accent hover:text-accent-foreground',
+              )}
+            >
+              {t(option === 'contents' ? 'library.toc.title' : 'library.quickref.title')}
+            </button>
+          ))}
+        </div>
+      )}
 
       {searching ? (
         <section aria-label={t('library.search.within')}>
@@ -248,6 +359,17 @@ export default function WorkPage() {
             </>
           )}
         </section>
+      ) : view === 'quickref' ? (
+        corpus.status === 'loading' || quickref.loading ? (
+          <Skeleton className="h-64 w-full" />
+        ) : (
+          <QuickRefTables
+            workId={data.id}
+            rows={quickref.data.rows}
+            counts={quickref.data.counts}
+            extractedHere={quickref.extractedHere}
+          />
+        )
       ) : (
         <section aria-labelledby="library-toc-heading">
           <h2 id="library-toc-heading" className="mb-3 text-lg font-semibold">
@@ -266,7 +388,7 @@ export default function WorkPage() {
       )}
 
       <Disclaimer />
-      <DataVersion dataset={versionKeyFor(data)} />
+      {versionKey ? <DataVersion dataset={versionKey} /> : null}
     </div>
   )
 }

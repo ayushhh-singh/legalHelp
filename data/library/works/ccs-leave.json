@@ -1,7 +1,7 @@
 {
   "$schema": "../../../schemas/library-work.schema.json",
   "version": "1.0.0",
-  "generatedAt": "2026-09-02",
+  "generatedAt": "2026-09-03",
   "id": "ccs-leave",
   "title": {
     "en": "Central Civil Services (Leave) Rules, 1972",
@@ -1010,6 +1010,7 @@
     "establishment",
     "departmental-exam"
   ],
+  "amendments": {},
   "officialUrl": "https://documents.doptcirculars.nic.in/D2/D02est/updatedccsleaverulesN9ExV.pdf",
   "source": {
     "name": "Department of Personnel and Training — CCS (Leave) Rules, 1972 — updated as on 24 September 2024",

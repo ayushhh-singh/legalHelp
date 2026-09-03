@@ -6,9 +6,15 @@ import { toLawSearchHref, toPractiseHref, toUnitHref } from '../url'
 
 import { SectionCard, SectionNumber } from '@/components/ui-x'
 import { useT } from '@/i18n/useT'
-import { lawCrossReferences, tocPath, unitLabel, type LibraryCorpus, type LibraryUnit } from '@/lib/library'
+import {
+  lawCrossReferences,
+  tocPath,
+  unitLabel,
+  type LibraryCorpus,
+  type LibraryUnit,
+  type ReaderWork,
+} from '@/lib/library'
 import { cn } from '@/lib/utils'
-import type { LibraryWork } from '@/schemas/library'
 
 /**
  * What else points at the unit on screen — three sources, each of which is
@@ -32,7 +38,7 @@ import type { LibraryWork } from '@/schemas/library'
 const NEARBY_LIMIT = 6
 
 interface RelatedRailProps {
-  work: LibraryWork
+  work: ReaderWork
   corpus: LibraryCorpus
   unit: LibraryUnit
   /** Trainer cards whose `ruleRef.textId` is this unit. */

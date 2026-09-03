@@ -1,9 +1,17 @@
-import { BookOpen, Clock } from 'lucide-react'
+import { BookOpen, Bookmark, Clock, Highlighter, Plus, Search } from 'lucide-react'
 import { useMemo } from 'react'
 import { Link } from 'react-router-dom'
 
 import { ProgressRing } from '../components/ProgressRing'
-import { toUnitHref, toWorkHref } from '../url'
+import {
+  toAddWorkHref,
+  toBookmarksHref,
+  toLibrarySearchHref,
+  toMineHref,
+  toUnitHref,
+  toWorkHref,
+} from '../url'
+import { usePersonalWorks } from '../useAnnotations'
 import { shelfProgress, useAllProgress, useLibraryIndex } from '../useLibrary'
 
 import { DataVersion } from '@/components/common/DataVersion'
@@ -120,6 +128,7 @@ export default function LibraryHubPage() {
   const { t } = useT()
   const index = useLibraryIndex()
   const progress = useAllProgress()
+  const personal = usePersonalWorks()
 
   const { readByWork, resumeByWork, latestWorkId } = useMemo(() => shelfProgress(progress), [progress])
 
@@ -157,6 +166,68 @@ export default function LibraryHubPage() {
           hours: Math.round(totals.minutes / 60),
         })}
       </p>
+
+      {/*
+        The four screens that are ABOUT the shelf rather than on it. Plain links
+        rather than a second nav: `src/lib/nav.ts` is the one list of
+        destinations, and a work and a unit are screens inside this module.
+      */}
+      <nav aria-label={t('library.mine.title')} className="flex flex-wrap gap-2">
+        {(
+          [
+            [toMineHref(), Highlighter, t('library.mine.title')],
+            [toBookmarksHref(), Bookmark, t('library.bookmark.title')],
+            [toLibrarySearchHref(), Search, t('library.search.allTitle')],
+            [toAddWorkHref(), Plus, t('library.add.cta')],
+          ] as const
+        ).map(([href, Icon, label]) => (
+          <Link
+            key={href}
+            to={href}
+            className="inline-flex min-h-11 items-center gap-2 rounded-lg border border-input px-3 text-sm transition-colors hover:bg-accent hover:text-accent-foreground focus-visible:ring-2 focus-visible:ring-ring focus-visible:outline-none"
+          >
+            <Icon aria-hidden="true" className="h-4 w-4" />
+            {label}
+          </Link>
+        ))}
+      </nav>
+
+      {/*
+        The reader's own documents, first and separately. They are not one of
+        the fifteen categories and must never be grouped with them: everything
+        here is unverified by construction, and the badge says so on every card.
+      */}
+      {(personal ?? []).length > 0 ? (
+        <section aria-labelledby="library-personal-heading">
+          <h2
+            id="library-personal-heading"
+            className="mb-3 font-sans text-xs font-semibold text-muted-foreground uppercase"
+          >
+            {t('library.add.mine')}
+          </h2>
+          <div className="grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
+            {(personal ?? []).map((row) => (
+              <SectionCard key={row.id} className="flex flex-col">
+                <div className="flex flex-1 flex-col gap-2 p-4">
+                  <h3 className="text-base leading-snug font-semibold">
+                    <Link
+                      to={toWorkHref(row.id)}
+                      className="rounded-sm after:absolute after:inset-0 focus-visible:ring-2 focus-visible:ring-ring focus-visible:outline-none"
+                    >
+                      {row.title}
+                    </Link>
+                  </h3>
+                  <Badge tone="warning">{t('library.add.yourDocument')}</Badge>
+                  {row.note ? <p className="text-sm text-muted-foreground">{row.note}</p> : null}
+                  <p className="text-xs text-muted-foreground tabular-nums">
+                    {t('library.unitsCount', { count: row.units.length })}
+                  </p>
+                </div>
+              </SectionCard>
+            ))}
+          </div>
+        </section>
+      ) : null}
 
       {grouped.map((group) => (
         <section key={group.category} aria-labelledby={`library-cat-${group.category}`}>

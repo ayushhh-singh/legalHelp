@@ -7,6 +7,8 @@ import type { DraftingIndex } from '@/modules/drafting/schema'
 import type { LawSearchEngine } from '@/modules/law/search'
 import { actOf, searchLaw } from '@/modules/law/search'
 import { toLawHref } from '@/modules/law/url'
+import { toLibrarySearchHref, toWorkHref } from '@/modules/library/url'
+import type { LibraryIndex } from '@/schemas/library'
 import type { JobIndex } from '@/modules/pay/pick'
 import { searchJobs } from '@/modules/pay/pick'
 import type { Portal, PortalsDataset } from '@/modules/utils/portals/schema'
@@ -16,7 +18,7 @@ import { romanKey } from '@/lib/transliterate'
 
 /**
  * Turning a query into a ranked slice of each section — Law, Job posts,
- * Glossary, Document types, Trainer topics, Portals.
+ * Glossary, Document types, Trainer topics, Portals, Library.
  *
  * Every section reuses the module's OWN existing search — `searchLaw`,
  * `searchJobs`, `searchGlossary` — rather than a second, palette-shaped index
@@ -166,4 +168,52 @@ export function portalItems(dataset: PortalsDataset, query: string): PaletteItem
       to: `/utils/portals?q=${encodeURIComponent(portal.shortName.en)}`,
       recordRecent: true,
     }))
+}
+
+/**
+ * The Library section: the works whose names match, and one row that runs the
+ * query across every book.
+ *
+ * IT DOES NOT SEARCH THE CORPORA. Every other section here reuses an index its
+ * module already builds; the Library's equivalent would be fifteen corpora and
+ * 5.5 MB of statute parsed to answer a keystroke, which `/library/search` makes
+ * a deliberate, progress-reported act for exactly that reason. So the palette
+ * offers what it can answer instantly — the fifteen names, from the 11 KB shelf
+ * index — and hands the expensive question to the screen built for it.
+ *
+ * The "search everything" row is last and is never recorded as a recent: it is
+ * a query, not a place, and `commandRecents` is a list of places to go back to.
+ */
+export function libraryItems(index: LibraryIndex, query: string): PaletteItem[] {
+  const needle = query.trim().toLowerCase()
+  if (!needle) return []
+  const folded = romanKey(needle)
+
+  const works = index.works
+    .filter((work) => {
+      const haystack = [work.title.en, work.title.hi, work.shortTitle.en, work.shortTitle.hi]
+      return haystack.some(
+        (value) => value.toLowerCase().includes(needle) || romanKey(value).includes(folded),
+      )
+    })
+    .slice(0, RESULTS_PER_SECTION - 1)
+    .map((work): PaletteItem => ({
+      id: `library:${work.id}`,
+      en: work.title.en,
+      hi: work.title.hi,
+      hint: work.publisher,
+      to: toWorkHref(work.id),
+      recordRecent: true,
+    }))
+
+  return [
+    ...works,
+    {
+      id: `library:search:${needle}`,
+      en: `Search the whole Library for “${query.trim()}”`,
+      hi: `पूरे पुस्तकालय में “${query.trim()}” खोजें`,
+      to: toLibrarySearchHref(query.trim()),
+      recordRecent: false,
+    },
+  ]
 }

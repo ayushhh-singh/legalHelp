@@ -1,7 +1,16 @@
-import { buildCorpus, type CorpusJson } from './corpus'
+import { buildCorpus, type CorpusJson, type CorpusWork } from './corpus'
 import type { LibraryCorpus } from './types'
 
-import { libraryIndexSchema, libraryWorkSchema, type LibraryIndex, type LibraryWork } from '@/schemas/library'
+import {
+  libraryDefinitionsSchema,
+  libraryIndexSchema,
+  libraryQuickRefSchema,
+  libraryWorkSchema,
+  type LibraryDefinitions,
+  type LibraryIndex,
+  type LibraryQuickRef,
+  type LibraryWork,
+} from '@/schemas/library'
 
 /**
  * Loading `data/library` and the corpora it points at.
@@ -65,6 +74,51 @@ const CORPUS_LOADERS: Record<string, () => Promise<{ default: string }>> = {
   'rules/text/osa.json': () => import('../../../data/rules/text/osa.json?raw'),
   'rules/text/posh.json': () => import('../../../data/rules/text/posh.json?raw'),
   'rules/text/rti.json': () => import('../../../data/rules/text/rti.json?raw'),
+}
+
+/**
+ * The two EXTRACT datasets, each behind its own control on the work page.
+ *
+ * Written out one per file for the reason the two maps above are: a bundler can
+ * only chunk a specifier it can see. They are separate maps rather than one
+ * because they are fetched at different moments — definitions when the reader
+ * turns defined terms on in the reader, quick-reference when they open that tab
+ * on the work page — and a combined loader would charge for both.
+ */
+const DEFINITION_LOADERS: Record<string, () => Promise<{ default: string }>> = {
+  bns: () => import('../../../data/library/definitions/bns.json?raw'),
+  bnss: () => import('../../../data/library/definitions/bnss.json?raw'),
+  bsa: () => import('../../../data/library/definitions/bsa.json?raw'),
+  'ccs-cca': () => import('../../../data/library/definitions/ccs-cca.json?raw'),
+  'ccs-conduct': () => import('../../../data/library/definitions/ccs-conduct.json?raw'),
+  'ccs-leave': () => import('../../../data/library/definitions/ccs-leave.json?raw'),
+  'ccs-pension': () => import('../../../data/library/definitions/ccs-pension.json?raw'),
+  csmop: () => import('../../../data/library/definitions/csmop.json?raw'),
+  'fr-sr': () => import('../../../data/library/definitions/fr-sr.json?raw'),
+  gfr: () => import('../../../data/library/definitions/gfr.json?raw'),
+  'ol-act': () => import('../../../data/library/definitions/ol-act.json?raw'),
+  'ol-rules': () => import('../../../data/library/definitions/ol-rules.json?raw'),
+  osa: () => import('../../../data/library/definitions/osa.json?raw'),
+  posh: () => import('../../../data/library/definitions/posh.json?raw'),
+  rti: () => import('../../../data/library/definitions/rti.json?raw'),
+}
+
+const QUICKREF_LOADERS: Record<string, () => Promise<{ default: string }>> = {
+  bns: () => import('../../../data/library/quickref/bns.json?raw'),
+  bnss: () => import('../../../data/library/quickref/bnss.json?raw'),
+  bsa: () => import('../../../data/library/quickref/bsa.json?raw'),
+  'ccs-cca': () => import('../../../data/library/quickref/ccs-cca.json?raw'),
+  'ccs-conduct': () => import('../../../data/library/quickref/ccs-conduct.json?raw'),
+  'ccs-leave': () => import('../../../data/library/quickref/ccs-leave.json?raw'),
+  'ccs-pension': () => import('../../../data/library/quickref/ccs-pension.json?raw'),
+  csmop: () => import('../../../data/library/quickref/csmop.json?raw'),
+  'fr-sr': () => import('../../../data/library/quickref/fr-sr.json?raw'),
+  gfr: () => import('../../../data/library/quickref/gfr.json?raw'),
+  'ol-act': () => import('../../../data/library/quickref/ol-act.json?raw'),
+  'ol-rules': () => import('../../../data/library/quickref/ol-rules.json?raw'),
+  osa: () => import('../../../data/library/quickref/osa.json?raw'),
+  posh: () => import('../../../data/library/quickref/posh.json?raw'),
+  rti: () => import('../../../data/library/quickref/rti.json?raw'),
 }
 
 /** Every work id the Library can open. */
@@ -137,7 +191,7 @@ export function loadWork(workId: string): Promise<LibraryWork> {
  * Sanhita a visible pause. What this file DOES check is the pointer — an
  * unknown `corpus.file` rejects by name.
  */
-export function loadCorpus(work: LibraryWork): Promise<LibraryCorpus> {
+export function loadCorpus(work: CorpusWork): Promise<LibraryCorpus> {
   const loader = loaderFor(CORPUS_LOADERS, work.corpus.file)
   if (!loader) return Promise.reject(new Error(`unknown corpus pointer: ${work.corpus.file}`))
   return once(`corpus:${work.corpus.file}:${work.id}`, async () =>
@@ -149,3 +203,60 @@ export function loadCorpus(work: LibraryWork): Promise<LibraryCorpus> {
 export function resetLibraryCache(): void {
   cache.clear()
 }
+
+/**
+ * One work's defined terms, and one work's quick-reference rows.
+ *
+ * Both resolve to an EMPTY dataset for a work id with no file rather than
+ * rejecting: a personal work has neither, and the surfaces that use these run
+ * their own extraction over it instead (`src/lib/library/personal.ts`). A
+ * rejection would make every one of those surfaces handle an error for a case
+ * that is not an error.
+ */
+export function loadDefinitions(workId: string): Promise<LibraryDefinitions> {
+  const loader = DEFINITION_LOADERS[workId]
+  if (!loader) return Promise.resolve(emptyDefinitions(workId))
+  return once(`definitions:${workId}`, async () =>
+    libraryDefinitionsSchema.parse(parse<unknown>((await loader()).default)),
+  )
+}
+
+export function loadQuickRef(workId: string): Promise<LibraryQuickRef> {
+  const loader = QUICKREF_LOADERS[workId]
+  if (!loader) return Promise.resolve(emptyQuickRef(workId))
+  return once(`quickref:${workId}`, async () =>
+    libraryQuickRefSchema.parse(parse<unknown>((await loader()).default)),
+  )
+}
+
+/**
+ * An empty dataset cites nothing, and says so with an empty string rather than
+ * a placeholder domain.
+ *
+ * The first version used `https://example.invalid` to satisfy the source type,
+ * and `tests/no-external-urls.test.ts` refused it — correctly. A URL that
+ * exists only to satisfy a type is still a URL in the shipped bundle, and the
+ * allowlist that would have let it through is meant for citations somebody
+ * reviewed. The only consumer of this is a personal work, whose source is the
+ * reader themselves and which renders no source chip at all.
+ */
+const NO_SOURCE = { name: '', url: '' }
+
+const emptyDefinitions = (workId: string): LibraryDefinitions => ({
+  version: '1.0.0',
+  generatedAt: '1970-01-01',
+  workId,
+  unitId: null,
+  unitNumber: null,
+  source: NO_SOURCE,
+  terms: [],
+})
+
+const emptyQuickRef = (workId: string): LibraryQuickRef => ({
+  version: '1.0.0',
+  generatedAt: '1970-01-01',
+  workId,
+  source: NO_SOURCE,
+  counts: { time: 0, money: 0, authority: 0 },
+  rows: [],
+})

@@ -1,0 +1,89 @@
+{
+  "$schema": "../../../schemas/library-quickref.schema.json",
+  "version": "1.0.0",
+  "generatedAt": "2026-09-03",
+  "workId": "bsa",
+  "source": {
+    "name": "NCRB Sankalan — BSA / IEA correspondence table",
+    "url": "https://www.ncrb.gov.in/uploads/SankalanPortal/SectionTableBSA.html"
+  },
+  "counts": {
+    "time": 8,
+    "money": 0,
+    "authority": 0
+  },
+  "rows": [
+    {
+      "unitId": "92",
+      "unitNumber": "92",
+      "kind": "time",
+      "value": "thirty years",
+      "sortKey": 10950,
+      "quote": "Where any document, purporting or proved to be thirty years old, is produced from any custody which the Court in the pa…",
+      "verify": true
+    },
+    {
+      "unitId": "93",
+      "unitNumber": "93",
+      "kind": "time",
+      "value": "five years",
+      "sortKey": 1825,
+      "quote": "Where any electronic record, purporting or proved to be five years old, is produced from any custody which the Court in the pa…",
+      "verify": true
+    },
+    {
+      "unitId": "102",
+      "unitNumber": "102",
+      "kind": "time",
+      "value": "three months",
+      "sortKey": 90,
+      "quote": "…elivery. At the same time, they make an oral agreement that three months' credit shall be given to A. This could not be shown as bet…",
+      "verify": true
+    },
+    {
+      "unitId": "110",
+      "unitNumber": "110",
+      "kind": "time",
+      "value": "thirty years",
+      "sortKey": 10950,
+      "quote": "…is alive or dead, and it is shown that he was alive within thirty years, the burden of proving that he is dead is on the person who…",
+      "verify": false
+    },
+    {
+      "unitId": "111",
+      "unitNumber": "111",
+      "kind": "time",
+      "value": "seven years",
+      "sortKey": 2555,
+      "quote": "…or dead, and it is proved that he has not been heard of for seven years by those who would naturally have heard of him if he had be…",
+      "verify": true
+    },
+    {
+      "unitId": "115",
+      "unitNumber": "115",
+      "kind": "time",
+      "value": "one month",
+      "sortKey": 30,
+      "quote": "…ny area in which there has been, over a period of more than one month, extensive disturbance of the public peace, and it is shown…",
+      "verify": true
+    },
+    {
+      "unitId": "117",
+      "unitNumber": "117",
+      "kind": "time",
+      "value": "a period of seven years",
+      "sortKey": 2555,
+      "quote": "…sband and it is shown that she had committed suicide within a period of seven years from the date of her marriage and that her husband or such…",
+      "verify": false
+    },
+    {
+      "unitId": "119",
+      "unitNumber": "119",
+      "kind": "time",
+      "value": "five years",
+      "sortKey": 1825,
+      "quote": "…ation (d)-it is proved that a river ran in a certain course five years ago, but it is known that there have been floods since that…",
+      "verify": true
+    }
+  ]
+}

@@ -1,0 +1,217 @@
+{
+  "$schema": "../../../schemas/library-definitions.schema.json",
+  "version": "1.0.0",
+  "generatedAt": "2026-09-03",
+  "workId": "gfr",
+  "unitId": "gfr-2",
+  "unitNumber": "2",
+  "source": {
+    "name": "Department of Expenditure, Ministry of Finance — General Financial Rules 2017 — updated up to 31 January 2026",
+    "url": "https://doe.gov.in/files/circulars_document/GFRupdatedupto31012026.pdf"
+  },
+  "terms": [
+    {
+      "term": "Accounts Officer",
+      "definition": "the Head of an Office of Accounts or the Head of a Pay and Accounts Office set up under the scheme of departmentalization of accounts",
+      "marker": "(i)",
+      "confidence": "high",
+      "verify": false
+    },
+    {
+      "term": "Administrator",
+      "definition": "Administrator of a Union Territory, by whatever name designated",
+      "marker": "(ii)",
+      "confidence": "high",
+      "verify": false
+    },
+    {
+      "term": "Appropriation",
+      "definition": "the assignment, to meet specified expenditure, of funds included in a primary unit of appropriation",
+      "marker": "(iii)",
+      "confidence": "high",
+      "verify": false
+    },
+    {
+      "term": "Audit Officer",
+      "definition": "the Head of an Office of Audit",
+      "marker": "(iv)",
+      "confidence": "high",
+      "verify": false
+    },
+    {
+      "term": "Competent Authority",
+      "definition": "in respect of the power to be exercised under any of these Rules, the President or such other authority to which the power is delegated by or under these Rules, Delegation of Financial Power Rules or any other general or special orders issued by the Government of India",
+      "marker": "(v)",
+      "confidence": "high",
+      "verify": false
+    },
+    {
+      "term": "Comptroller and Auditor General",
+      "definition": "the Comptroller and Auditor General of India",
+      "marker": "(vi)",
+      "confidence": "high",
+      "verify": false
+    },
+    {
+      "term": "Consolidated Fund",
+      "definition": "the Consolidated Fund of India referred to in Article 266 (1) of the Constitution",
+      "marker": "(vii)",
+      "confidence": "high",
+      "verify": false
+    },
+    {
+      "term": "Constitution",
+      "definition": "the Constitution of India",
+      "marker": "(viii)",
+      "confidence": "high",
+      "verify": false
+    },
+    {
+      "term": "Contingency Fund",
+      "definition": "the Contingency Fund of India established under the Contingency Fund of India Act, 1950, in terms of Article 267 (1) of the Constitution",
+      "marker": "(ix)",
+      "confidence": "high",
+      "verify": false
+    },
+    {
+      "term": "Controlling Officer",
+      "definition": "an officer entrusted by a Department of the Central Government with the responsibility of controlling the incurring of expenditure and/or the collection of revenue. The term shall include a Head of Department and also an Administrator",
+      "marker": "(x)",
+      "confidence": "high",
+      "verify": false
+    },
+    {
+      "term": "Department of the Government of India",
+      "definition": "any of the Ministries, Departments, Secretariats and Offices as notified from time to time and listed in the First Schedule to the Government of India (Allocation of Business Rules)",
+      "marker": "(xi)",
+      "confidence": "high",
+      "verify": false
+    },
+    {
+      "term": "Drawing and Disbursing Officer",
+      "definition": "a Head of Office and also any other Gazetted Officer so designated by a Department of the Central Government, a Head of Department or an Administrator, to draw bills and make payments on behalf of the Central Government. The term shall also include a Head of Department or an Administrator where he himself discharges such function",
+      "marker": "(xii)",
+      "confidence": "high",
+      "verify": false
+    },
+    {
+      "term": "Ministry of Finance",
+      "definition": "the Ministry of Finance of the Central Government",
+      "marker": "(xiii)",
+      "confidence": "high",
+      "verify": false
+    },
+    {
+      "term": "Financial Year",
+      "definition": "the year beginning on the 1st of April and ending on the 31st of March following",
+      "marker": "(xiv)",
+      "confidence": "high",
+      "verify": false
+    },
+    {
+      "term": "Government",
+      "definition": "the Central Government",
+      "marker": "(xv)",
+      "confidence": "high",
+      "verify": false
+    },
+    {
+      "term": "Government Account",
+      "definition": "the account relating to the Consolidated Fund, the Contingency Fund and the Public Account; as defined in these rules; (xvii) \"Head of the Department'' means an authority or person (not below the rank of a Deputy Secretary to the Government of India), declared by the concerned Department in the Government of India as a Head of Department in relation to an identifiable establishment or establishments to exercise the delegated financial powers under these Rules",
+      "marker": "(xvi)",
+      "confidence": "high",
+      "verify": false
+    },
+    {
+      "term": "Head of Office",
+      "definition": "(a) a Gazetted Officer declared as such in the Delegation of Financial Powers Rules and (b) any other authority declared as such under any general or special orders of the competent authority",
+      "marker": "(xviii)",
+      "confidence": "high",
+      "verify": false
+    },
+    {
+      "term": "Local Body",
+      "definition": "an authority legally entitled or specially empowered by Ch.-1 - INTRODUCTION Government to administer a local fund",
+      "marker": "(xix)",
+      "confidence": "high",
+      "verify": false
+    },
+    {
+      "term": "Local Fund",
+      "definition": "a local fund as defined in Rule 652 of the Treasury Rules",
+      "marker": "(xx)",
+      "confidence": "high",
+      "verify": false
+    },
+    {
+      "term": "Non-recurring expenditure",
+      "definition": "expenditure other than recurring expenditure",
+      "marker": "(xxi)",
+      "confidence": "high",
+      "verify": false
+    },
+    {
+      "term": "President",
+      "definition": "the President of India",
+      "marker": "(xxii)",
+      "confidence": "high",
+      "verify": false
+    },
+    {
+      "term": "Primary unit of appropriation",
+      "definition": "a primary unit of appropriation referred to in Rule 8 of the Delegation of Financial Powers Rules",
+      "marker": "(xxiii)",
+      "confidence": "high",
+      "verify": false
+    },
+    {
+      "term": "Public Account",
+      "definition": "the Public Account of India referred to in Article 266 (2) of the Constitution",
+      "marker": "(xxiv)",
+      "confidence": "high",
+      "verify": false
+    },
+    {
+      "term": "Public Works",
+      "definition": "civil/ electrical works including public buildings, public services, transport infrastructure etc., both original and repair works and any other project, including infrastructure which is for the use of general public",
+      "marker": "(xxv)",
+      "confidence": "high",
+      "verify": false
+    },
+    {
+      "term": "Re-appropriation",
+      "definition": "the transfer of funds from one primary unit of appropriation to another such unit",
+      "marker": "(xxvi)",
+      "confidence": "high",
+      "verify": false
+    },
+    {
+      "term": "Recurring expenditure",
+      "definition": "the expenditure which is incurred at periodical intervals for the same purpose. Expenditures other than recurring expenditure are non-recurring expenditure; (xxviii)",
+      "marker": "(xxvii)",
+      "confidence": "high",
+      "verify": false
+    },
+    {
+      "term": "Reserve Bank",
+      "definition": "the Reserve Bank of India or any office or agency of the Reserve Bank of India and includes any Bank acting as the agent of the Reserve Bank of India in accordance with the provisions of the Reserve Bank of India Act, 1934 (Act II of 1934)",
+      "marker": null,
+      "confidence": "medium",
+      "verify": true
+    },
+    {
+      "term": "Subordinate authority",
+      "definition": "a Department of the Central Government or any authority subordinate to the President",
+      "marker": "(xxix)",
+      "confidence": "high",
+      "verify": false
+    },
+    {
+      "term": "Treasury Rules",
+      "definition": "the Treasury Rules of the Central Government; (xxxi) CAPEX model: In the CAPEX Model, Capital expenditures is used by the buyer to straightway purchase goods followed by procurement of consumables, arranging comprehensive maintenance contract after warranty period and finally disposing the product after useful life; (xxxii) OPEX model: In the OPEX model, the Seller provides the goods, maintains it and also provides the consumables as required and finally takes back the goods after useful / contracted life. The expenditure is made by the Buyer in a staggered manner as per the terms and conditions of the contract",
+      "marker": "(xxx)",
+      "confidence": "high",
+      "verify": false
+    }
+  ]
+}

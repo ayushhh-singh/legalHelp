@@ -1,0 +1,872 @@
+{
+  "$schema": "../../../schemas/library-quickref.schema.json",
+  "version": "1.0.0",
+  "generatedAt": "2026-09-03",
+  "workId": "csmop",
+  "source": {
+    "name": "Department of Administrative Reforms and Public Grievances — Central Secretariat Manual of Office Procedure, 2022 (16th edition) — English",
+    "url": "https://www.darpg.gov.in/static/uploads/2025/10/774e0b8f427b7875158363d842fa431f.pdf"
+  },
+  "counts": {
+    "time": 36,
+    "money": 14,
+    "authority": 45
+  },
+  "rows": [
+    {
+      "unitId": "csmop-2-8",
+      "unitNumber": "2.8",
+      "kind": "authority",
+      "value": "Central Information Commission",
+      "sortKey": "central information commission",
+      "quote": "…n Act of the Parliament (e.g. Central Vigilance Commission, Central Information Commission, Central Board of Film Certification, National Commission f…",
+      "verify": false
+    },
+    {
+      "unitId": "csmop-4-2",
+      "unitNumber": "4.2",
+      "kind": "authority",
+      "value": "competent authority",
+      "sortKey": "competent authority",
+      "quote": "…re such authority is required to be exercised by some other competent authority under these Rules; and (ii) when the subject of a case conc…",
+      "verify": false
+    },
+    {
+      "unitId": "csmop-4-2",
+      "unitNumber": "4.2",
+      "kind": "authority",
+      "value": "competent authority",
+      "sortKey": "competent authority",
+      "quote": "…o determine a. the procedure to be followed; and b. who the competent authority is.",
+      "verify": false
+    },
+    {
+      "unitId": "csmop-4-3",
+      "unitNumber": "4.3",
+      "kind": "money",
+      "value": "rs 5",
+      "sortKey": 5,
+      "quote": "…d treaties with foreign countries Ministry of External Affairs 5. Proposals concerning North Eastern Region Ministry of Deve…",
+      "verify": false
+    },
+    {
+      "unitId": "csmop-4-3",
+      "unitNumber": "4.3",
+      "kind": "authority",
+      "value": "Head of Department",
+      "sortKey": "head of department",
+      "quote": "…enerally been delegated to the Secretary of a Department or Head of Department or a Head of Office: (i) In cases of matters delegated to t…",
+      "verify": false
+    },
+    {
+      "unitId": "csmop-4-3",
+      "unitNumber": "4.3",
+      "kind": "authority",
+      "value": "Head of Office",
+      "sortKey": "head of office",
+      "quote": "…to the Secretary of a Department or Head of Department or a Head of Office: (i) In cases of matters delegated to the Secretary of the…",
+      "verify": false
+    },
+    {
+      "unitId": "csmop-4-3",
+      "unitNumber": "4.3",
+      "kind": "authority",
+      "value": "Head of Department",
+      "sortKey": "head of department",
+      "quote": "…of matters delegated to the Secretary of the Department, a Head of Department or a Head of Office, the case is processed by the office on…",
+      "verify": false
+    },
+    {
+      "unitId": "csmop-4-3",
+      "unitNumber": "4.3",
+      "kind": "authority",
+      "value": "Head of Office",
+      "sortKey": "head of office",
+      "quote": "…the Secretary of the Department, a Head of Department or a Head of Office, the case is processed by the office on a file to enable th…",
+      "verify": false
+    },
+    {
+      "unitId": "csmop-4-3",
+      "unitNumber": "4.3",
+      "kind": "authority",
+      "value": "competent authority",
+      "sortKey": "competent authority",
+      "quote": "…the case is processed by the office on a file to enable the competent authority to take a decision. (ii) In case of decisions bearing finan…",
+      "verify": false
+    },
+    {
+      "unitId": "csmop-4-4",
+      "unitNumber": "4.4",
+      "kind": "authority",
+      "value": "competent authority",
+      "sortKey": "competent authority",
+      "quote": "…the initiating officer on a file which is submitted to the competent authority through the channel of submission.",
+      "verify": false
+    },
+    {
+      "unitId": "csmop-4-9",
+      "unitNumber": "4.9",
+      "kind": "time",
+      "value": "three years",
+      "sortKey": 1095,
+      "quote": "…s, other than the classified ones. Review, at least once in three years, the levels of disposal and channels of submission. Based o…",
+      "verify": true
+    },
+    {
+      "unitId": "csmop-5-7",
+      "unitNumber": "5.7",
+      "kind": "time",
+      "value": "one day",
+      "sortKey": 1,
+      "quote": "…any receipt which is not received back from officers within one day. Box - e.5.9. eFile tracks every movement of a Receipt or a…",
+      "verify": false
+    },
+    {
+      "unitId": "csmop-5-9",
+      "unitNumber": "5.9",
+      "kind": "time",
+      "value": "2 working days",
+      "sortKey": 2,
+      "quote": "…le for the settlement of the dispute at the earliest within 2 working days from the date of receipt in the department, except that in…",
+      "verify": false
+    },
+    {
+      "unitId": "csmop-6-13",
+      "unitNumber": "6.13",
+      "kind": "money",
+      "value": "rs. 2",
+      "sortKey": 2,
+      "quote": "…e. before the receipts are handed over to the dealing officers. 2. Devanagari script will be used for registering Hindi recei…",
+      "verify": false
+    },
+    {
+      "unitId": "csmop-6-13",
+      "unitNumber": "6.13",
+      "kind": "authority",
+      "value": "competent authority",
+      "sortKey": "competent authority",
+      "quote": "…, they will append the signature and submit the file to the competent authority. Else, they may (a) return the file with written advice or…",
+      "verify": false
+    },
+    {
+      "unitId": "csmop-6-13",
+      "unitNumber": "6.13",
+      "kind": "authority",
+      "value": "competent authority",
+      "sortKey": "competent authority",
+      "quote": "…ith written advice or (b) record own note and submit to the competent authority APPENDIX 5.1. (Para - 5.3(i)) DAK@ REGISTER Registration Nu…",
+      "verify": false
+    },
+    {
+      "unitId": "csmop-6-13",
+      "unitNumber": "6.13",
+      "kind": "authority",
+      "value": "Head of Department",
+      "sortKey": "head of department",
+      "quote": "…rtment to the other a list will be prepared and approval of Head of Department will be taken. The Department/ Section taking over the reco…",
+      "verify": false
+    },
+    {
+      "unitId": "csmop-7-1",
+      "unitNumber": "7.1",
+      "kind": "authority",
+      "value": "competent authority",
+      "sortKey": "competent authority",
+      "quote": "…ers' in the hierarchy to facilitate decision making by the 'competent authority'.",
+      "verify": false
+    },
+    {
+      "unitId": "csmop-7-2",
+      "unitNumber": "7.2",
+      "kind": "authority",
+      "value": "competent authority",
+      "sortKey": "competent authority",
+      "quote": "…t). (ii) A note is submitted either to seek approval of the competent authority or for information. (iii) A note must be concise and to the…",
+      "verify": false
+    },
+    {
+      "unitId": "csmop-7-3",
+      "unitNumber": "7.3",
+      "kind": "authority",
+      "value": "competent authority",
+      "sortKey": "competent authority",
+      "quote": "…with alternative courses of action for consideration of the competent authority. (x) Indicate the authority competent to take decision alon…",
+      "verify": false
+    },
+    {
+      "unitId": "csmop-7-5",
+      "unitNumber": "7.5",
+      "kind": "authority",
+      "value": "competent authority",
+      "sortKey": "competent authority",
+      "quote": "…s, and the recommended course of action for approval by the competent authority.",
+      "verify": false
+    },
+    {
+      "unitId": "csmop-7-6",
+      "unitNumber": "7.6",
+      "kind": "time",
+      "value": "three years",
+      "sortKey": 1095,
+      "quote": "…evel of disposal and channel of submission at least once in three years keeping the number of levels to the minimum by delegating p…",
+      "verify": true
+    },
+    {
+      "unitId": "csmop-7-6",
+      "unitNumber": "7.6",
+      "kind": "authority",
+      "value": "competent authority",
+      "sortKey": "competent authority",
+      "quote": "…-Ministerial Consultation (IMC) if needed Submission to the competent authority within the Department Communicate decision to the parties c…",
+      "verify": false
+    },
+    {
+      "unitId": "csmop-7-6",
+      "unitNumber": "7.6",
+      "kind": "authority",
+      "value": "competent authority",
+      "sortKey": "competent authority",
+      "quote": "…te decision to the parties concerned Obtain approval of the competent authority (iii) For addressing cross cutting issues, the Secretary of…",
+      "verify": false
+    },
+    {
+      "unitId": "csmop-7-14",
+      "unitNumber": "7.14",
+      "kind": "time",
+      "value": "5 years",
+      "sortKey": 1825,
+      "quote": "…d substantively? Yes / No 4. Does she/he have not less than 5 years' service Yes / No 5. Is the proposed study relevant to the…",
+      "verify": true
+    },
+    {
+      "unitId": "csmop-7-14",
+      "unitNumber": "7.14",
+      "kind": "authority",
+      "value": "competent authority",
+      "sortKey": "competent authority",
+      "quote": "…initiating a note to submit a more effective note; and the competent authority to take decisions quickly. It categorizes the types of case…",
+      "verify": false
+    },
+    {
+      "unitId": "csmop-7-14",
+      "unitNumber": "7.14",
+      "kind": "authority",
+      "value": "competent authority",
+      "sortKey": "competent authority",
+      "quote": "…variables of a case are filled in to obtain approval of the competent authority on each case. No conventional note will be recorded in such…",
+      "verify": false
+    },
+    {
+      "unitId": "csmop-7-14",
+      "unitNumber": "7.14",
+      "kind": "authority",
+      "value": "competent authority",
+      "sortKey": "competent authority",
+      "quote": "…sultations needed? If so, with whom and how? (8) Who is the competent authority? (iii) Policy and Planning Cases: These types of cases woul…",
+      "verify": false
+    },
+    {
+      "unitId": "csmop-7-14",
+      "unitNumber": "7.14",
+      "kind": "authority",
+      "value": "Competent authority",
+      "sortKey": "competent authority",
+      "quote": "…gested course of action 14. Any other relevant issue(s) 15. Competent authority Signature of the Initiating Officer Date (dd/mm/yy) Signatu…",
+      "verify": false
+    },
+    {
+      "unitId": "csmop-7-14",
+      "unitNumber": "7.14",
+      "kind": "authority",
+      "value": "competent authority",
+      "sortKey": "competent authority",
+      "quote": "…m/yy) Signature of other officers in the hierarchy till the competent authority COMMUNICATION - FORMS, CHANNELS AND PROCEDURE CHAPTER - 8",
+      "verify": false
+    },
+    {
+      "unitId": "csmop-8-2",
+      "unitNumber": "8.2",
+      "kind": "authority",
+      "value": "competent authority",
+      "sortKey": "competent authority",
+      "quote": "…Department. The decision or the observation approved by the competent authority will then be recorded on the file of the other Department p…",
+      "verify": false
+    },
+    {
+      "unitId": "csmop-8-3",
+      "unitNumber": "8.3",
+      "kind": "authority",
+      "value": "competent authority",
+      "sortKey": "competent authority",
+      "quote": "…ce Nodal Section or Ministry Process to get approval of the competent authority in the nodal office Section or `Ministry that gives advice…",
+      "verify": false
+    },
+    {
+      "unitId": "csmop-8-9",
+      "unitNumber": "8.9",
+      "kind": "time",
+      "value": "15 days",
+      "sortKey": 15,
+      "quote": "…ed association or a public body will be acknowledged within 15 days, followed by a reply within the next 15 days of acknowledge…",
+      "verify": false
+    },
+    {
+      "unitId": "csmop-8-9",
+      "unitNumber": "8.9",
+      "kind": "time",
+      "value": "15 days",
+      "sortKey": 15,
+      "quote": "…wledged within 15 days, followed by a reply within the next 15 days of acknowledgement sent. (ii) Where (i) delay is anticipate…",
+      "verify": true
+    },
+    {
+      "unitId": "csmop-8-9",
+      "unitNumber": "8.9",
+      "kind": "time",
+      "value": "15 days",
+      "sortKey": 15,
+      "quote": "…try or another office, an interim reply will be sent within 15 days (from the date of receipt) indicating the possible date by…",
+      "verify": false
+    },
+    {
+      "unitId": "csmop-8-9",
+      "unitNumber": "8.9",
+      "kind": "time",
+      "value": "5 working days",
+      "sortKey": 5,
+      "quote": "…ed to a Department, it will be transferred promptly (within 5 working days of its receipt) to the appropriate Department under intimat…",
+      "verify": false
+    },
+    {
+      "unitId": "csmop-8-11",
+      "unitNumber": "8.11",
+      "kind": "money",
+      "value": "Rs. 500",
+      "sortKey": 500,
+      "quote": "…Financial Powers Rules, to write off irrecoverable loss of Rs. 5000 (Rupees Five Thousand only) being the value of the followi…",
+      "verify": false
+    },
+    {
+      "unitId": "csmop-8-11",
+      "unitNumber": "8.11",
+      "kind": "money",
+      "value": "Rupees Five Thousand",
+      "sortKey": 5000,
+      "quote": "…Powers Rules, to write off irrecoverable loss of Rs. 5000 (Rupees Five Thousand only) being the value of the following articles belonging t…",
+      "verify": true
+    },
+    {
+      "unitId": "csmop-8-11",
+      "unitNumber": "8.11",
+      "kind": "money",
+      "value": "rs. 4",
+      "sortKey": 4,
+      "quote": "…ations issued by or under the authority of Chief Commissioners. 4. Miscellaneous notifications including Notifications, Order…",
+      "verify": false
+    },
+    {
+      "unitId": "csmop-8-11",
+      "unitNumber": "8.11",
+      "kind": "authority",
+      "value": "competent authority",
+      "sortKey": "competent authority",
+      "quote": "…in case of Supreme Court of India, invariably signed by the competent authority. III. All the matters to be furnished in both the formats i…",
+      "verify": false
+    },
+    {
+      "unitId": "csmop-8-11",
+      "unitNumber": "8.11",
+      "kind": "authority",
+      "value": "competent authority",
+      "sortKey": "competent authority",
+      "quote": "…rmats i.e. Soft and Hard copy with the certificate from the competent authority that both the versions are same. IV. The original typescrip…",
+      "verify": false
+    },
+    {
+      "unitId": "csmop-8-11",
+      "unitNumber": "8.11",
+      "kind": "authority",
+      "value": "Competent authority",
+      "sortKey": "competent authority",
+      "quote": "…certificate confirming that Soft and Hard copy are same 10. Competent authority for Extra ordinary Gazette Under the signature or the appro…",
+      "verify": false
+    },
+    {
+      "unitId": "csmop-9-1",
+      "unitNumber": "9.1",
+      "kind": "authority",
+      "value": "competent authority",
+      "sortKey": "competent authority",
+      "quote": "…level officer. (iii) After a final decision is taken by the competent authority, he may have the fair communication made for his signature,…",
+      "verify": false
+    },
+    {
+      "unitId": "csmop-9-6",
+      "unitNumber": "9.6",
+      "kind": "authority",
+      "value": "competent authority",
+      "sortKey": "competent authority",
+      "quote": "…ndary responsibility Fair copying the draft approved by the competent authority. This includes ensuring that all corrections made have been…",
+      "verify": false
+    },
+    {
+      "unitId": "csmop-9-6",
+      "unitNumber": "9.6",
+      "kind": "authority",
+      "value": "competent authority",
+      "sortKey": "competent authority",
+      "quote": "…Fair copying the draft demi-official letter approved by the competent authority, This includes ensuring that all corrections made have been…",
+      "verify": false
+    },
+    {
+      "unitId": "csmop-9-6",
+      "unitNumber": "9.6",
+      "kind": "authority",
+      "value": "competent authority",
+      "sortKey": "competent authority",
+      "quote": "…(fax or email) with enclosures, if any, as approved by the competent authority, P.S. of the officer signing the D.O. Dealing Officer 5. Is…",
+      "verify": false
+    },
+    {
+      "unitId": "csmop-9-6",
+      "unitNumber": "9.6",
+      "kind": "authority",
+      "value": "competent authority",
+      "sortKey": "competent authority",
+      "quote": "…n. This includes sending of fax or email as approved by the competent authority Personal staff of the officer signing the D.O. letter Deali…",
+      "verify": false
+    },
+    {
+      "unitId": "csmop-9-6",
+      "unitNumber": "9.6",
+      "kind": "authority",
+      "value": "competent authority",
+      "sortKey": "competent authority",
+      "quote": "…Officer Section Officer (i) After obtaining approval of the competent authority, as per the Departmental Instructions, the Section/Officer…",
+      "verify": false
+    },
+    {
+      "unitId": "csmop-10-2",
+      "unitNumber": "10.2",
+      "kind": "time",
+      "value": "one year",
+      "sortKey": 365,
+      "quote": "…f little reference or research value may be destroyed after one year without being formally recorded. Box-e.10.1. In eFile, the…",
+      "verify": true
+    },
+    {
+      "unitId": "csmop-10-2",
+      "unitNumber": "10.2",
+      "kind": "authority",
+      "value": "competent authority",
+      "sortKey": "competent authority",
+      "quote": "…ed by the creator of the file after getting approval of the competent authority, which may be of the level of Section Officer or above base…",
+      "verify": false
+    },
+    {
+      "unitId": "csmop-10-2",
+      "unitNumber": "10.2",
+      "kind": "authority",
+      "value": "competent authority",
+      "sortKey": "competent authority",
+      "quote": "…e official who has closed the file with the approval of the competent authority. The closed file can be reopened / retrieved by the officia…",
+      "verify": false
+    },
+    {
+      "unitId": "csmop-10-4",
+      "unitNumber": "10.4",
+      "kind": "time",
+      "value": "10 years",
+      "sortKey": 3650,
+      "quote": "…e having reference value for a limited period not exceeding 10 years. In exceptional cases, if the record is required to be reta…",
+      "verify": false
+    },
+    {
+      "unitId": "csmop-10-4",
+      "unitNumber": "10.4",
+      "kind": "time",
+      "value": "10 years",
+      "sortKey": 3650,
+      "quote": "…onal cases, if the record is required to be retained beyond 10 years it will be upgraded to 'B' Category. The eFiles may be reco…",
+      "verify": true
+    },
+    {
+      "unitId": "csmop-10-5",
+      "unitNumber": "10.5",
+      "kind": "time",
+      "value": "5 years",
+      "sortKey": 1825,
+      "quote": "…view) 2/2023 on a file cover of the file to be retained for 5 years from the date of closure in 2/2018\". This is done after the…",
+      "verify": true
+    },
+    {
+      "unitId": "csmop-10-7",
+      "unitNumber": "10.7",
+      "kind": "time",
+      "value": "5 years",
+      "sortKey": 1825,
+      "quote": "…ii) The above schedules should be reviewed at least once in 5 years.",
+      "verify": true
+    },
+    {
+      "unitId": "csmop-10-8",
+      "unitNumber": "10.8",
+      "kind": "time",
+      "value": "one year",
+      "sortKey": 365,
+      "quote": "…arranged in the sections/desks concerned for not more than one year, after which they are to be transferred to the departmental…",
+      "verify": true
+    },
+    {
+      "unitId": "csmop-10-9",
+      "unitNumber": "10.9",
+      "kind": "time",
+      "value": "10 years",
+      "sortKey": 3650,
+      "quote": "…Retention after a review will be for a period not exceeding 10 years, including the period already retained. (ii) Category 'A' &…",
+      "verify": false
+    },
+    {
+      "unitId": "csmop-10-13",
+      "unitNumber": "10.13",
+      "kind": "time",
+      "value": "6 months",
+      "sortKey": 180,
+      "quote": "…e departmental record room will normally be returned within 6 months. If they are not received back within this period, the depa…",
+      "verify": false
+    },
+    {
+      "unitId": "csmop-10-13",
+      "unitNumber": "10.13",
+      "kind": "time",
+      "value": "10 years",
+      "sortKey": 3650,
+      "quote": "…proposed to be retained for a further period not exceeding 10 years from the date of their closing. 4. Both the copies of the l…",
+      "verify": false
+    },
+    {
+      "unitId": "csmop-10-13",
+      "unitNumber": "10.13",
+      "kind": "money",
+      "value": "rs. 5",
+      "sortKey": 5,
+      "quote": "…cal reports and summaries, legal opinions on important matters. 5. Papers concerning rules, regulations, departmental guides…",
+      "verify": false
+    },
+    {
+      "unitId": "csmop-10-13",
+      "unitNumber": "10.13",
+      "kind": "authority",
+      "value": "reviewing authority",
+      "sortKey": "reviewing authority",
+      "quote": "…ist of files due for review Sl. No. File No. Instruction of reviewing authority INSTRUCTIONS 1. The departmental record room will prepare t…",
+      "verify": false
+    },
+    {
+      "unitId": "csmop-12-7",
+      "unitNumber": "12.7",
+      "kind": "time",
+      "value": "3 years",
+      "sortKey": 1095,
+      "quote": "…der a scheme to different State Governments during the last 3 years and also during the current financial year. It may contain…",
+      "verify": true
+    },
+    {
+      "unitId": "csmop-12-7",
+      "unitNumber": "12.7",
+      "kind": "time",
+      "value": "7 working days",
+      "sortKey": 7,
+      "quote": "…l rule, no official shall keep a case pending for more than 7 working days unless higher limits have been prescribed for specific type…",
+      "verify": true
+    },
+    {
+      "unitId": "csmop-12-7",
+      "unitNumber": "12.7",
+      "kind": "time",
+      "value": "a period of three months",
+      "sortKey": 90,
+      "quote": "…he Assurances which are not likely to be implemented within a period of three months. (iii) The Branch Officer will keep the higher officers and…",
+      "verify": false
+    },
+    {
+      "unitId": "csmop-12-7",
+      "unitNumber": "12.7",
+      "kind": "authority",
+      "value": "competent authority",
+      "sortKey": "competent authority",
+      "quote": "…pplied iii. Suggested course of action iv. Indicate who the competent authority is v. Points on which decision is sought e) Design a format…",
+      "verify": false
+    },
+    {
+      "unitId": "csmop-12-7",
+      "unitNumber": "12.7",
+      "kind": "authority",
+      "value": "Public Information Officer",
+      "sortKey": "public information officer",
+      "quote": "…lt with and monitored - including online - by the Assistant Public Information Officer, Public Information Officer, Central Public Information Off…",
+      "verify": false
+    },
+    {
+      "unitId": "csmop-12-7",
+      "unitNumber": "12.7",
+      "kind": "authority",
+      "value": "Public Information Officer",
+      "sortKey": "public information officer",
+      "quote": "…uding online - by the Assistant Public Information Officer, Public Information Officer, Central Public Information Officer and Appellate Authority…",
+      "verify": false
+    },
+    {
+      "unitId": "csmop-12-7",
+      "unitNumber": "12.7",
+      "kind": "authority",
+      "value": "Central Public Information Officer",
+      "sortKey": "central public information officer",
+      "quote": "…ant Public Information Officer, Public Information Officer, Central Public Information Officer and Appellate Authority as per the relevant provisions cont…",
+      "verify": false
+    },
+    {
+      "unitId": "csmop-12-7",
+      "unitNumber": "12.7",
+      "kind": "authority",
+      "value": "Appellate Authority",
+      "sortKey": "appellate authority",
+      "quote": "…Information Officer, Central Public Information Officer and Appellate Authority as per the relevant provisions contained in the RTI Act - 2…",
+      "verify": false
+    },
+    {
+      "unitId": "csmop-12-8",
+      "unitNumber": "12.8",
+      "kind": "time",
+      "value": "three years",
+      "sortKey": 1095,
+      "quote": "…be reviewed at the level of Joint Secretary or above every three years with the following objectives; a. to eliminate unnecessary…",
+      "verify": true
+    },
+    {
+      "unitId": "csmop-12-10",
+      "unitNumber": "12.10",
+      "kind": "time",
+      "value": "three hours",
+      "sortKey": 0.125,
+      "quote": "…duce pending matters to the minimum possible:- (a) Dedicate three hours every week for the special camapign. (b) Designate Nodal Of…",
+      "verify": true
+    },
+    {
+      "unitId": "csmop-12-10",
+      "unitNumber": "12.10",
+      "kind": "time",
+      "value": "one year",
+      "sortKey": 365,
+      "quote": "…iminated Currently in Use 7. Position of Pending cases over one year Period MP References Court cases Others Total 1-2 Years old…",
+      "verify": true
+    },
+    {
+      "unitId": "csmop-12-10",
+      "unitNumber": "12.10",
+      "kind": "time",
+      "value": "2 Years",
+      "sortKey": 730,
+      "quote": "…er one year Period MP References Court cases Others Total 1-2 Years old 2-5 Years old More than 5 Years Total 8. Annual inspect…",
+      "verify": true
+    },
+    {
+      "unitId": "csmop-12-10",
+      "unitNumber": "12.10",
+      "kind": "time",
+      "value": "5 Years",
+      "sortKey": 1825,
+      "quote": "…riod MP References Court cases Others Total 1-2 Years old 2-5 Years old More than 5 Years Total 8. Annual inspection of Section…",
+      "verify": true
+    },
+    {
+      "unitId": "csmop-12-10",
+      "unitNumber": "12.10",
+      "kind": "time",
+      "value": "5 Years",
+      "sortKey": 1825,
+      "quote": "…rt cases Others Total 1-2 Years old 2-5 Years old More than 5 Years Total 8. Annual inspection of Sections Total number of Sect…",
+      "verify": true
+    },
+    {
+      "unitId": "csmop-12-10",
+      "unitNumber": "12.10",
+      "kind": "time",
+      "value": "25 years",
+      "sortKey": 9125,
+      "quote": "…at the end of the year Out of the above, No. of files over 25 years old at the start of the year at the end of the year No. of…",
+      "verify": true
+    },
+    {
+      "unitId": "csmop-12-10",
+      "unitNumber": "12.10",
+      "kind": "money",
+      "value": "rs 7",
+      "sortKey": 7,
+      "quote": "…rnors of States 5. Former Presidents 6. Deputy Prime Ministers 7. Chief Justice of India 8. Speaker of Lok Sabha 9. Cabinet…",
+      "verify": false
+    },
+    {
+      "unitId": "csmop-12-10",
+      "unitNumber": "12.10",
+      "kind": "money",
+      "value": "rs 13",
+      "sortKey": 13,
+      "quote": "…ates 11. Vice Chairman (Niti Aayog) 12. Former Prime Ministers 13. Judges of the Supreme Court 14. Chief Election Commissione…",
+      "verify": false
+    },
+    {
+      "unitId": "csmop-13-2",
+      "unitNumber": "13.2",
+      "kind": "time",
+      "value": "five years",
+      "sortKey": 1825,
+      "quote": "…tions. (ii) Every classified file shall be reviewed once in five years for declassification. A declassified file considered fit fo…",
+      "verify": true
+    },
+    {
+      "unitId": "csmop-14-4",
+      "unitNumber": "14.4",
+      "kind": "time",
+      "value": "a period of 45 days",
+      "sortKey": 45,
+      "quote": "…ce Redressal are: (i) A grievance should be disposed within a period of 45 days and in case of delay, an interim reply with reasons for del…",
+      "verify": false
+    },
+    {
+      "unitId": "csmop-14-5",
+      "unitNumber": "14.5",
+      "kind": "time",
+      "value": "a period of five years",
+      "sortKey": 1825,
+      "quote": "…(l) Public Grievance records on CPGRAMS are archived after a period of five years.",
+      "verify": true
+    },
+    {
+      "unitId": "csmop-14-8",
+      "unitNumber": "14.8",
+      "kind": "time",
+      "value": "30 days",
+      "sortKey": 30,
+      "quote": "…nabled. (iii) The stipulated time for disposal of Appeal is 30 days. (iv) Every Ministry/ Department should have a Nodal Appell…",
+      "verify": true
+    },
+    {
+      "unitId": "csmop-14-8",
+      "unitNumber": "14.8",
+      "kind": "authority",
+      "value": "Appellate Authority",
+      "sortKey": "appellate authority",
+      "quote": "…0 days. (iv) Every Ministry/ Department should have a Nodal Appellate Authority (NAA), details of whom are to be given in the portal, namel…",
+      "verify": false
+    },
+    {
+      "unitId": "csmop-14-8",
+      "unitNumber": "14.8",
+      "kind": "authority",
+      "value": "Appellate Authority",
+      "sortKey": "appellate authority",
+      "quote": "…en in the portal, namely, at pgportal.gov.in. (v) The Nodal Appellate Authority should be one level above the designated Nodal Public Griev…",
+      "verify": false
+    },
+    {
+      "unitId": "csmop-14-8",
+      "unitNumber": "14.8",
+      "kind": "authority",
+      "value": "Appellate Authority",
+      "sortKey": "appellate authority",
+      "quote": "…ted Nodal Public Grievance Officer. (vi) NAA can create Sub Appellate Authority for disposal of appeal. Appendix 14.1 National Emblem Logo…",
+      "verify": false
+    },
+    {
+      "unitId": "csmop-15-2",
+      "unitNumber": "15.2",
+      "kind": "time",
+      "value": "six months",
+      "sortKey": 180,
+      "quote": "…i. Files  All the files that are likely to continue beyond six months in the open status should be selected  For the files that…",
+      "verify": true
+    },
+    {
+      "unitId": "csmop-15-2",
+      "unitNumber": "15.2",
+      "kind": "time",
+      "value": "six months",
+      "sortKey": 180,
+      "quote": "…elected  For the files that are likely to be closed within six months, the files should be selected on the following criteria: …",
+      "verify": false
+    },
+    {
+      "unitId": "csmop-15-2",
+      "unitNumber": "15.2",
+      "kind": "time",
+      "value": "four months",
+      "sortKey": 120,
+      "quote": "…nd the files which will be disposed of in the next three to four months time will not be scanned unless they are candidates for the…",
+      "verify": true
+    },
+    {
+      "unitId": "csmop-16-5",
+      "unitNumber": "16.5",
+      "kind": "time",
+      "value": "15 days",
+      "sortKey": 15,
+      "quote": "…submit a compliance report to his/her senior officer within 15 days, endorsing a copy to the Divisional Head and to the designa…",
+      "verify": false
+    },
+    {
+      "unitId": "csmop-16-7",
+      "unitNumber": "16.7",
+      "kind": "money",
+      "value": "rs. 35",
+      "sortKey": 35,
+      "quote": "…ons of the central receipt and issue section during such hours. 35. 'Note' means the remarks recorded on a case to facilitate…",
+      "verify": false
+    },
+    {
+      "unitId": "csmop-16-7",
+      "unitNumber": "16.7",
+      "kind": "money",
+      "value": "rs. 38",
+      "sortKey": 38,
+      "quote": "…partments to ensure uniformity in handling of specific matters. 38. 'Ordinary postal dak' means postal dak for which no acknow…",
+      "verify": false
+    },
+    {
+      "unitId": "csmop-16-7",
+      "unitNumber": "16.7",
+      "kind": "money",
+      "value": "rs. 40",
+      "sortKey": 40,
+      "quote": "…in the Government of India, Ministry of Parliamentary Affairs. 40. 'Paper under consideration (PUC)' means a receipt on a cas…",
+      "verify": false
+    },
+    {
+      "unitId": "csmop-16-7",
+      "unitNumber": "16.7",
+      "kind": "money",
+      "value": "rs. 51",
+      "sortKey": 51,
+      "quote": "…l as in the diary register with the Personal Staff of Officers. 51. 'Registration number': The term 'Registration number' is u…",
+      "verify": false
+    },
+    {
+      "unitId": "csmop-16-7",
+      "unitNumber": "16.7",
+      "kind": "money",
+      "value": "rs. 52",
+      "sortKey": 52,
+      "quote": "…d to a receipt in the section diary/Personal Staff of Officers. 52. 'Routine note' means a note of a temporary value or epheme…",
+      "verify": false
+    },
+    {
+      "unitId": "csmop-16-7",
+      "unitNumber": "16.7",
+      "kind": "money",
+      "value": "rs. 53",
+      "sortKey": 53,
+      "quote": "…ded to facilitate consideration of the case by higher officers. 53. 'Running summary of facts' in relation to a case means a s…",
+      "verify": false
+    }
+  ]
+}

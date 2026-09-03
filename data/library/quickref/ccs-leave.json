@@ -1,0 +1,1736 @@
+{
+  "$schema": "../../../schemas/library-quickref.schema.json",
+  "version": "1.0.0",
+  "generatedAt": "2026-09-03",
+  "workId": "ccs-leave",
+  "source": {
+    "name": "Department of Personnel and Training — CCS (Leave) Rules, 1972 — updated as on 24 September 2024",
+    "url": "https://documents.doptcirculars.nic.in/D2/D02est/updatedccsleaverulesN9ExV.pdf"
+  },
+  "counts": {
+    "time": 136,
+    "money": 0,
+    "authority": 55
+  },
+  "rows": [
+    {
+      "unitId": "ccs-leave-3",
+      "unitNumber": "3",
+      "kind": "time",
+      "value": "one year",
+      "sortKey": 365,
+      "quote": "…(2) of the said Schedule; (d) Completed years of service or one year's continuous service‖ means continuous service of specified…",
+      "verify": true
+    },
+    {
+      "unitId": "ccs-leave-3",
+      "unitNumber": "3",
+      "kind": "time",
+      "value": "three years",
+      "sortKey": 1095,
+      "quote": "…o become permanent but is not confirmed after completion of three years continuous service; (B) an officer who may be declared as q…",
+      "verify": true
+    },
+    {
+      "unitId": "ccs-leave-3",
+      "unitNumber": "3",
+      "kind": "authority",
+      "value": "Audit Officer",
+      "sortKey": "audit officer",
+      "quote": "…inistrator means an Administrator of a Union Territory; (b) Audit Officer means the Accounts and Audit Officer, whatever his official…",
+      "verify": false
+    },
+    {
+      "unitId": "ccs-leave-3",
+      "unitNumber": "3",
+      "kind": "authority",
+      "value": "Audit Officer",
+      "sortKey": "audit officer",
+      "quote": "…a Union Territory; (b) Audit Officer means the Accounts and Audit Officer, whatever his official designation, in whose circle the off…",
+      "verify": false
+    },
+    {
+      "unitId": "ccs-leave-3",
+      "unitNumber": "3",
+      "kind": "authority",
+      "value": "Authority competent to grant leave",
+      "sortKey": "authority competent to grant leave",
+      "quote": "…ircle the office of the Government servant is situated; (c) Authority competent to grant leave means the authority specified in Column (3) of the First Sc…",
+      "verify": false
+    },
+    {
+      "unitId": "ccs-leave-6",
+      "unitNumber": "6",
+      "kind": "time",
+      "value": "300 days",
+      "sortKey": 300,
+      "quote": "…ve and half pay leave at his credit subject to a maximum of 300 days and the cash so granted shall be a sum equal to the leave s…",
+      "verify": true
+    },
+    {
+      "unitId": "ccs-leave-6",
+      "unitNumber": "6",
+      "kind": "time",
+      "value": "300 days",
+      "sortKey": 300,
+      "quote": "…pay leave to be encashed on superannuation does not exceed 300 days; (b) On premature retirement.- cash equivalent of unutilize…",
+      "verify": true
+    },
+    {
+      "unitId": "ccs-leave-6",
+      "unitNumber": "6",
+      "kind": "time",
+      "value": "300 days",
+      "sortKey": 300,
+      "quote": "…ave to be encashed on premature retirement shall not exceed 300 days. (DOPT Notification No. 11012/1/2009-Estt.(L) dated 01.12.2…",
+      "verify": true
+    },
+    {
+      "unitId": "ccs-leave-6",
+      "unitNumber": "6",
+      "kind": "authority",
+      "value": "authority competent to grant leave",
+      "sortKey": "authority competent to grant leave",
+      "quote": "…s are governed by the Factories Act, 1948 (63 of 1948), the authority competent to grant leave shall, suo motu, issue an order granting cash equivalent of…",
+      "verify": false
+    },
+    {
+      "unitId": "ccs-leave-10",
+      "unitNumber": "10",
+      "kind": "time",
+      "value": "a period of 30 days",
+      "sortKey": 30,
+      "quote": "…y, or any other authority designated in this behalf, within a period of 30 days of the concerned Government servant joining his duty on the…",
+      "verify": false
+    },
+    {
+      "unitId": "ccs-leave-12",
+      "unitNumber": "12",
+      "kind": "time",
+      "value": "five years",
+      "sortKey": 1825,
+      "quote": "…granted leave of any kind for a continuous period exceeding five years (2) Unless the President, in view of the exceptional circum…",
+      "verify": true
+    },
+    {
+      "unitId": "ccs-leave-12",
+      "unitNumber": "12",
+      "kind": "time",
+      "value": "five years",
+      "sortKey": 1825,
+      "quote": "…remains absent from duty for a continuous period exceeding five years other than on foreign service, with or without leave, shall…",
+      "verify": true
+    },
+    {
+      "unitId": "ccs-leave-14",
+      "unitNumber": "14",
+      "kind": "authority",
+      "value": "authority competent to grant leave",
+      "sortKey": "authority competent to grant leave",
+      "quote": "…ve or for extension of leave shall be made in Form 1 to the authority competent to grant leave. Provided that where a Government servant is unable to subm…",
+      "verify": false
+    },
+    {
+      "unitId": "ccs-leave-15",
+      "unitNumber": "15",
+      "kind": "authority",
+      "value": "Audit Officer",
+      "sortKey": "audit officer",
+      "quote": "…be maintained in Form 2 for each Government servant by the Audit Officer in the case of Gazetted Government servants and by the Head…",
+      "verify": false
+    },
+    {
+      "unitId": "ccs-leave-15",
+      "unitNumber": "15",
+      "kind": "authority",
+      "value": "Head of Office",
+      "sortKey": "head of office",
+      "quote": "…icer in the case of Gazetted Government servants and by the Head of Office or an officer authorized by him in the case of non-Gazetted…",
+      "verify": false
+    },
+    {
+      "unitId": "ccs-leave-15",
+      "unitNumber": "15",
+      "kind": "authority",
+      "value": "Head of Office",
+      "sortKey": "head of office",
+      "quote": "…nts whose pay and allowances are drawn and disbursed by the Head of Office, the leave account shall be maintained by that Head of Offi…",
+      "verify": false
+    },
+    {
+      "unitId": "ccs-leave-15",
+      "unitNumber": "15",
+      "kind": "authority",
+      "value": "Head of Office",
+      "sortKey": "head of office",
+      "quote": "…ad of Office, the leave account shall be maintained by that Head of Office. (MOF Notification No. 4(7)-E.IV(A)/72 dated 30.04.1973)",
+      "verify": false
+    },
+    {
+      "unitId": "ccs-leave-16",
+      "unitNumber": "16",
+      "kind": "time",
+      "value": "sixty days",
+      "sortKey": 60,
+      "quote": "…ue provisional sanction of leave for a period not exceeding sixty days. (b) The grant of leave under this sub-rule shall be subjec…",
+      "verify": false
+    },
+    {
+      "unitId": "ccs-leave-16",
+      "unitNumber": "16",
+      "kind": "time",
+      "value": "sixty days",
+      "sortKey": 60,
+      "quote": "…a provisional leave salary slip for a period not exceeding sixty days. NOTE.- In the case of leave preparatory to retirement or w…",
+      "verify": false
+    },
+    {
+      "unitId": "ccs-leave-16",
+      "unitNumber": "16",
+      "kind": "authority",
+      "value": "authority competent to grant leave",
+      "sortKey": "authority competent to grant leave",
+      "quote": "…taining of admissibility report will be unduly delayed, the authority competent to grant leave may calculate, on the basis of available information, the a…",
+      "verify": false
+    },
+    {
+      "unitId": "ccs-leave-16",
+      "unitNumber": "16",
+      "kind": "authority",
+      "value": "Audit Officer",
+      "sortKey": "audit officer",
+      "quote": "…ssary. (c) In the case of Gazetted Government servants, the Audit Officer may, at the request of the authority competent to grant lea…",
+      "verify": false
+    },
+    {
+      "unitId": "ccs-leave-16",
+      "unitNumber": "16",
+      "kind": "authority",
+      "value": "authority competent to grant leave",
+      "sortKey": "authority competent to grant leave",
+      "quote": "…ment servants, the Audit Officer may, at the request of the authority competent to grant leave, issue a provisional leave salary slip for a period not exc…",
+      "verify": false
+    },
+    {
+      "unitId": "ccs-leave-19",
+      "unitNumber": "19",
+      "kind": "time",
+      "value": "three days",
+      "sortKey": 3,
+      "quote": "…case of an application for leave for a period not exceeding three days at a time. Such leave shall not, however, be treated as lea…",
+      "verify": false
+    },
+    {
+      "unitId": "ccs-leave-19",
+      "unitNumber": "19",
+      "kind": "authority",
+      "value": "Competent Authority",
+      "sortKey": "competent authority",
+      "quote": "…zation or indoor specialized treatment duly approved by the Competent Authority in respect of particular kind of disease like heart disease…",
+      "verify": false
+    },
+    {
+      "unitId": "ccs-leave-19",
+      "unitNumber": "19",
+      "kind": "authority",
+      "value": "Head of Office",
+      "sortKey": "head of office",
+      "quote": "…withstanding anything in these rules, no reference from the Head of Office or any other authority may be required for issue of medical…",
+      "verify": false
+    },
+    {
+      "unitId": "ccs-leave-19",
+      "unitNumber": "19",
+      "kind": "authority",
+      "value": "authority competent to grant leave",
+      "sortKey": "authority competent to grant leave",
+      "quote": "…red for issue of medical certificate of disability. (3) The authority competent to grant leave may, at its discretion, secure a second medical opinion by…",
+      "verify": false
+    },
+    {
+      "unitId": "ccs-leave-19",
+      "unitNumber": "19",
+      "kind": "authority",
+      "value": "authority competent to grant leave",
+      "sortKey": "authority competent to grant leave",
+      "quote": "…to leave; the medical certificate shall be forwarded to the authority competent to grant leave and orders of that authority awaited. (6) The authority com…",
+      "verify": false
+    },
+    {
+      "unitId": "ccs-leave-19",
+      "unitNumber": "19",
+      "kind": "authority",
+      "value": "authority competent to grant leave",
+      "sortKey": "authority competent to grant leave",
+      "quote": "…o grant leave and orders of that authority awaited. (6) The authority competent to grant leave may, in its discretion, waive the production of a medical c…",
+      "verify": false
+    },
+    {
+      "unitId": "ccs-leave-20",
+      "unitNumber": "20",
+      "kind": "time",
+      "value": "twelve months",
+      "sortKey": 360,
+      "quote": "…y, will never again be fit for service, leave not exceeding twelve months at a time may be granted and such leave shall not be extend…",
+      "verify": false
+    },
+    {
+      "unitId": "ccs-leave-20",
+      "unitNumber": "20",
+      "kind": "authority",
+      "value": "authority competent to grant leave",
+      "sortKey": "authority competent to grant leave",
+      "quote": "…nment servant. (b) The leave may be granted, if due, by the authority competent to grant leave on the following conditions:-. (i) if the Medical Authority…",
+      "verify": false
+    },
+    {
+      "unitId": "ccs-leave-22",
+      "unitNumber": "22",
+      "kind": "authority",
+      "value": "Head of Department",
+      "sortKey": "head of department",
+      "quote": "…vant remains responsible for the moneys in this charge, the Head of Department may, in any particular case, waive the application of Claus…",
+      "verify": false
+    },
+    {
+      "unitId": "ccs-leave-22",
+      "unitNumber": "22",
+      "kind": "authority",
+      "value": "authority competent to grant leave",
+      "sortKey": "authority competent to grant leave",
+      "quote": "…Clause (a) of the proviso to sub- rule (1). (3) Unless the authority competent to grant leave in any case otherwise directs - (a) if holidays are prefixe…",
+      "verify": false
+    },
+    {
+      "unitId": "ccs-leave-23",
+      "unitNumber": "23",
+      "kind": "time",
+      "value": "three months",
+      "sortKey": 90,
+      "quote": "…of his leave by the date of leaving for India on recall or three months, whichever is shorter; (iv) travelling allowance, under the…",
+      "verify": true
+    },
+    {
+      "unitId": "ccs-leave-24",
+      "unitNumber": "24",
+      "kind": "time",
+      "value": "three months",
+      "sortKey": 90,
+      "quote": "…g cases:- (i) Cases in which the leave is for not more than three months; (ii) Cases in which leave is for more than three months or…",
+      "verify": true
+    },
+    {
+      "unitId": "ccs-leave-24",
+      "unitNumber": "24",
+      "kind": "time",
+      "value": "three months",
+      "sortKey": 90,
+      "quote": "…an three months; (ii) Cases in which leave is for more than three months or leave for three months or less is extended beyond three…",
+      "verify": true
+    },
+    {
+      "unitId": "ccs-leave-24",
+      "unitNumber": "24",
+      "kind": "time",
+      "value": "three months",
+      "sortKey": 90,
+      "quote": "…s in which leave is for more than three months or leave for three months or less is extended beyond three months, and the medical Bo…",
+      "verify": true
+    },
+    {
+      "unitId": "ccs-leave-24",
+      "unitNumber": "24",
+      "kind": "time",
+      "value": "three months",
+      "sortKey": 90,
+      "quote": "…months or leave for three months or less is extended beyond three months, and the medical Board states, at the time of granting the…",
+      "verify": true
+    },
+    {
+      "unitId": "ccs-leave-25",
+      "unitNumber": "25",
+      "kind": "authority",
+      "value": "authority competent to grant leave",
+      "sortKey": "authority competent to grant leave",
+      "quote": "(1) Unless the authority competent to grant leave extends the leave, a Government servant who remains absent…",
+      "verify": false
+    },
+    {
+      "unitId": "ccs-leave-26",
+      "unitNumber": "26",
+      "kind": "time",
+      "value": "15 days",
+      "sortKey": 15,
+      "quote": "…dited with earned leave, in advance, in two installments of 15 days each on the first day of January and July of every calendar…",
+      "verify": true
+    },
+    {
+      "unitId": "ccs-leave-26",
+      "unitNumber": "26",
+      "kind": "time",
+      "value": "15 days",
+      "sortKey": 15,
+      "quote": "…vices (Joining Time) Rules, 1979, subject to the maximum of 15 days reduced by the number of days actually availed of, shall be…",
+      "verify": true
+    },
+    {
+      "unitId": "ccs-leave-26",
+      "unitNumber": "26",
+      "kind": "time",
+      "value": "240 days",
+      "sortKey": 240,
+      "quote": "…time allowed to be so credited shall not exceed 300days. (\"240 days substituted with 300 days\" vide DOPT Notification No. 13026…",
+      "verify": true
+    },
+    {
+      "unitId": "ccs-leave-26",
+      "unitNumber": "26",
+      "kind": "time",
+      "value": "300 days",
+      "sortKey": 300,
+      "quote": "…dited shall not exceed 300days. (\"240 days substituted with 300 days\" vide DOPT Notification No. 13026/1/99-Estt. (L), dated 18.…",
+      "verify": true
+    },
+    {
+      "unitId": "ccs-leave-26",
+      "unitNumber": "26",
+      "kind": "time",
+      "value": "300 days",
+      "sortKey": 300,
+      "quote": "…redit for the half- year do not exceed the maximum limit of 300 days. Provided that where the earned leave at the credit of Gove…",
+      "verify": true
+    },
+    {
+      "unitId": "ccs-leave-26",
+      "unitNumber": "26",
+      "kind": "time",
+      "value": "300 days",
+      "sortKey": 300,
+      "quote": "…overnment servant as on the last day of December of June is 300 days or less but more than 285 days, the advance credit of 15 da…",
+      "verify": true
+    },
+    {
+      "unitId": "ccs-leave-26",
+      "unitNumber": "26",
+      "kind": "time",
+      "value": "285 days",
+      "sortKey": 285,
+      "quote": "…t day of December of June is 300 days or less but more than 285 days, the advance credit of 15 days earned leave on first day of…",
+      "verify": true
+    },
+    {
+      "unitId": "ccs-leave-26",
+      "unitNumber": "26",
+      "kind": "time",
+      "value": "15 days",
+      "sortKey": 15,
+      "quote": "…days or less but more than 285 days, the advance credit of 15 days earned leave on first day of January or July to be afforded…",
+      "verify": true
+    },
+    {
+      "unitId": "ccs-leave-26",
+      "unitNumber": "26",
+      "kind": "time",
+      "value": "300 days",
+      "sortKey": 300,
+      "quote": "…leave already at credit do not exceed the maximum limit of 300 days. (225 days substituted with 285 days vide DOPT Notification…",
+      "verify": true
+    },
+    {
+      "unitId": "ccs-leave-26",
+      "unitNumber": "26",
+      "kind": "time",
+      "value": "225 days",
+      "sortKey": 225,
+      "quote": "…ady at credit do not exceed the maximum limit of 300 days. (225 days substituted with 285 days vide DOPT Notification No. 13026/…",
+      "verify": true
+    },
+    {
+      "unitId": "ccs-leave-26",
+      "unitNumber": "26",
+      "kind": "time",
+      "value": "285 days",
+      "sortKey": 285,
+      "quote": "…d the maximum limit of 300 days. (225 days substituted with 285 days vide DOPT Notification No. 13026/1/99-Estt. (L), dated 18.0…",
+      "verify": true
+    },
+    {
+      "unitId": "ccs-leave-26",
+      "unitNumber": "26",
+      "kind": "time",
+      "value": "180 days",
+      "sortKey": 180,
+      "quote": "…ses to earn such leave when the earned leave due amounts to 180 days. (2) Subject to the provisions of Rules 7 and 39 and sub-ru…",
+      "verify": true
+    },
+    {
+      "unitId": "ccs-leave-26",
+      "unitNumber": "26",
+      "kind": "time",
+      "value": "180 days",
+      "sortKey": 180,
+      "quote": "…m earned leave that may be granted at a time shall be - (i) 180 days in the case of any Government servant employed in India, or…",
+      "verify": true
+    },
+    {
+      "unitId": "ccs-leave-26",
+      "unitNumber": "26",
+      "kind": "time",
+      "value": "150 days",
+      "sortKey": 150,
+      "quote": "…Notification No. 11014/3/89-Estt.(L) dated 02.05.1991) (ii) 150 days, in the case of any Government servant mentioned in the Exc…",
+      "verify": true
+    },
+    {
+      "unitId": "ccs-leave-26",
+      "unitNumber": "26",
+      "kind": "time",
+      "value": "180 days",
+      "sortKey": 180,
+      "quote": "…ed in the Exception to sub-rule (1), for a period exceeding 180 days but not exceeding 300 days if the entire leave so granted o…",
+      "verify": true
+    },
+    {
+      "unitId": "ccs-leave-26",
+      "unitNumber": "26",
+      "kind": "time",
+      "value": "300 days",
+      "sortKey": 300,
+      "quote": "…rule (1), for a period exceeding 180 days but not exceeding 300 days if the entire leave so granted or any portion thereof is sp…",
+      "verify": false
+    },
+    {
+      "unitId": "ccs-leave-26",
+      "unitNumber": "26",
+      "kind": "time",
+      "value": "180 days",
+      "sortKey": 180,
+      "quote": "…an: Provided that where earned leave for a period exceeding 180 days, is granted under this sub-rule, the period of such leave s…",
+      "verify": true
+    },
+    {
+      "unitId": "ccs-leave-27",
+      "unitNumber": "27",
+      "kind": "time",
+      "value": "15 days",
+      "sortKey": 15,
+      "quote": "…period of such leave and/or dies non subject to maximum of 15 days. (MOF Notification No. 11012/1/77-E.IV(A) dated 21.11.1979)…",
+      "verify": true
+    },
+    {
+      "unitId": "ccs-leave-28",
+      "unitNumber": "28",
+      "kind": "time",
+      "value": "five days",
+      "sortKey": 5,
+      "quote": "…redited with earned leave, in advance in two instalments of five days each on the first day of January and July of every calendar…",
+      "verify": true
+    },
+    {
+      "unitId": "ccs-leave-28",
+      "unitNumber": "28",
+      "kind": "time",
+      "value": "twenty days",
+      "sortKey": 20,
+      "quote": "…e entitled to additional earned leave in such proportion of twenty days, as the number of days of vacation not taken bears to the f…",
+      "verify": true
+    },
+    {
+      "unitId": "ccs-leave-28",
+      "unitNumber": "28",
+      "kind": "time",
+      "value": "thirty days",
+      "sortKey": 30,
+      "quote": "…, provided the total earned leave credited shall not exceed thirty days in a calendar year. (c) If, in any year, the Government ser…",
+      "verify": true
+    },
+    {
+      "unitId": "ccs-leave-28",
+      "unitNumber": "28",
+      "kind": "time",
+      "value": "twelve months",
+      "sortKey": 360,
+      "quote": "…g a calendar year in which duty is performed but as meaning twelve months of actual duty in a Vacation Department. NoTE 1.- A Governm…",
+      "verify": true
+    },
+    {
+      "unitId": "ccs-leave-28",
+      "unitNumber": "28",
+      "kind": "time",
+      "value": "fifteen days",
+      "sortKey": 15,
+      "quote": "…he has been prevented by such order from enjoying more than fifteen days of the vacation, he shall be considered to have availed him…",
+      "verify": true
+    },
+    {
+      "unitId": "ccs-leave-28",
+      "unitNumber": "28",
+      "kind": "time",
+      "value": "300 days",
+      "sortKey": 300,
+      "quote": "…dit for the half year shall not exceed the maximum limit of 300 days. NOTE.- The facility of crediting of unavailed portion of j…",
+      "verify": true
+    },
+    {
+      "unitId": "ccs-leave-29",
+      "unitNumber": "29",
+      "kind": "time",
+      "value": "ten days",
+      "sortKey": 10,
+      "quote": "…dited with half pay leave in advance, in two instalments of ten days each on the first day of January and July of every calendar…",
+      "verify": true
+    },
+    {
+      "unitId": "ccs-leave-29",
+      "unitNumber": "29",
+      "kind": "time",
+      "value": "3 days",
+      "sortKey": 3,
+      "quote": "…hall be credited to the said leave account at the rate of 5/3 days for each completed calendar month of service which he is li…",
+      "verify": true
+    },
+    {
+      "unitId": "ccs-leave-29",
+      "unitNumber": "29",
+      "kind": "time",
+      "value": "3 days",
+      "sortKey": 3,
+      "quote": "…resigns from the service shall be allowed at the rate of 5/3 days per completed calendar month up to the date of retirement o…",
+      "verify": true
+    },
+    {
+      "unitId": "ccs-leave-29",
+      "unitNumber": "29",
+      "kind": "time",
+      "value": "3 days",
+      "sortKey": 3,
+      "quote": "…credit of half pay leave shall be allowed at the rate of 5/3 days per completed calendar month up to the end of the calendar…",
+      "verify": true
+    },
+    {
+      "unitId": "ccs-leave-29",
+      "unitNumber": "29",
+      "kind": "time",
+      "value": "ten days",
+      "sortKey": 10,
+      "quote": "…ighteenth of the period of dies non subject to a maximum of ten days. (DOPT Notification No. 13014/1/87-Estt.(L) dated 16.06.198…",
+      "verify": true
+    },
+    {
+      "unitId": "ccs-leave-29",
+      "unitNumber": "29",
+      "kind": "time",
+      "value": "twenty days",
+      "sortKey": 20,
+      "quote": "…leave under Rule 49, shall be entitled to half pay leave of twenty days on completion of twelve months of actual duty. (4) The leav…",
+      "verify": true
+    },
+    {
+      "unitId": "ccs-leave-29",
+      "unitNumber": "29",
+      "kind": "time",
+      "value": "twelve months",
+      "sortKey": 360,
+      "quote": "…entitled to half pay leave of twenty days on completion of twelve months of actual duty. (4) The leave under this rule may be grante…",
+      "verify": true
+    },
+    {
+      "unitId": "ccs-leave-30",
+      "unitNumber": "30",
+      "kind": "time",
+      "value": "180 days",
+      "sortKey": 180,
+      "quote": "…4 dated 11.04.1975) (1-A) Half pay leave up to a maximum of 180 days may be allowed to be commuted during the entire service (wi…",
+      "verify": true
+    },
+    {
+      "unitId": "ccs-leave-30",
+      "unitNumber": "30",
+      "kind": "authority",
+      "value": "authority competent to grant leave",
+      "sortKey": "authority competent to grant leave",
+      "quote": "…ary officer), subject to the following conditions:- (a) the authority competent to grant leave is satisfied that there is reasonable prospect of the Gover…",
+      "verify": false
+    },
+    {
+      "unitId": "ccs-leave-31",
+      "unitNumber": "31",
+      "kind": "time",
+      "value": "360 days",
+      "sortKey": 360,
+      "quote": "…loy (other than a military officer) limited to a maximum of 360 days during the entire service on medical certificate subject to…",
+      "verify": true
+    },
+    {
+      "unitId": "ccs-leave-31",
+      "unitNumber": "31",
+      "kind": "time",
+      "value": "360 days",
+      "sortKey": 360,
+      "quote": "…prosy, Cancer or Mental Illness, for a period not exceeding 360 days during entire service, subject to fulfillment of conditions…",
+      "verify": false
+    },
+    {
+      "unitId": "ccs-leave-31",
+      "unitNumber": "31",
+      "kind": "time",
+      "value": "one year",
+      "sortKey": 365,
+      "quote": "…88) (i) that the Government servant has put in a minimum of one year's service; (ii) that the post from which the Government ser…",
+      "verify": true
+    },
+    {
+      "unitId": "ccs-leave-31",
+      "unitNumber": "31",
+      "kind": "authority",
+      "value": "authority competent to grant leave",
+      "sortKey": "authority competent to grant leave",
+      "quote": "…l certificate subject to the following conditions:- (a) The authority competent to grant leave is satisfied that there is reasonable prospect of the Gover…",
+      "verify": false
+    },
+    {
+      "unitId": "ccs-leave-32",
+      "unitNumber": "32",
+      "kind": "time",
+      "value": "three months",
+      "sortKey": 90,
+      "quote": "…on any one occasion in excess of the following limits:- (a) three months; (b) six months where the Government servant has completed…",
+      "verify": true
+    },
+    {
+      "unitId": "ccs-leave-32",
+      "unitNumber": "32",
+      "kind": "time",
+      "value": "six months",
+      "sortKey": 180,
+      "quote": "…n in excess of the following limits:- (a) three months; (b) six months where the Government servant has completed one year's conti…",
+      "verify": true
+    },
+    {
+      "unitId": "ccs-leave-32",
+      "unitNumber": "32",
+      "kind": "time",
+      "value": "one year",
+      "sortKey": 365,
+      "quote": "…; (b) six months where the Government servant has completed one year's continuous service on the date of expiry of leave of the…",
+      "verify": true
+    },
+    {
+      "unitId": "ccs-leave-32",
+      "unitNumber": "32",
+      "kind": "time",
+      "value": "three months",
+      "sortKey": 90,
+      "quote": "…of the kind due and admissible under these rules, including three months' extraordinary leave under Clause (a) and his request for s…",
+      "verify": true
+    },
+    {
+      "unitId": "ccs-leave-32",
+      "unitNumber": "32",
+      "kind": "time",
+      "value": "one year",
+      "sortKey": 365,
+      "quote": "…teen months, where the Government servant who has completed one year's continuous service is undergoing treatment for - (i) Pulm…",
+      "verify": true
+    },
+    {
+      "unitId": "ccs-leave-32",
+      "unitNumber": "32",
+      "kind": "time",
+      "value": "three years",
+      "sortKey": 1095,
+      "quote": "…st, provided the Government servant concerned has completed three years' continuous service on the date of expiry of leave of the k…",
+      "verify": true
+    },
+    {
+      "unitId": "ccs-leave-32",
+      "unitNumber": "32",
+      "kind": "time",
+      "value": "a period of three years",
+      "sortKey": 1095,
+      "quote": "…on the expiry of such leave or quitting the service before a period of three years after return to duty. (b) The Bond shall be supported by Su…",
+      "verify": true
+    },
+    {
+      "unitId": "ccs-leave-32",
+      "unitNumber": "32",
+      "kind": "authority",
+      "value": "Head of Department",
+      "sortKey": "head of department",
+      "quote": "…rnment from time to time, be granted extraordinary leave by Head of Department in relaxation of the provisions of sub- rule (2). (5) Two s…",
+      "verify": false
+    },
+    {
+      "unitId": "ccs-leave-32",
+      "unitNumber": "32",
+      "kind": "authority",
+      "value": "authority competent to grant leave",
+      "sortKey": "authority competent to grant leave",
+      "quote": "…traordinary leave for the purposes of sub-rule (2). (6) The authority competent to grant leave may commute retrospectively periods of absence without leav…",
+      "verify": false
+    },
+    {
+      "unitId": "ccs-leave-33",
+      "unitNumber": "33",
+      "kind": "time",
+      "value": "one month",
+      "sortKey": 30,
+      "quote": "…ve salary equivalent to half pay for a period not exceeding one month in any year of apprenticeship; (b) extraordinary leave unde…",
+      "verify": false
+    },
+    {
+      "unitId": "ccs-leave-38",
+      "unitNumber": "38",
+      "kind": "time",
+      "value": "300 days",
+      "sortKey": 300,
+      "quote": "…retirement to the extent of earned leave due, not exceeding 300 days together with half pay leave due, subject to the condition…",
+      "verify": false
+    },
+    {
+      "unitId": "ccs-leave-38",
+      "unitNumber": "38",
+      "kind": "time",
+      "value": "240 days",
+      "sortKey": 240,
+      "quote": "…leave extends up to and includes the date of retirement. (\"240 days substituted with 300 days\" vide DOPT Notification No. 13026…",
+      "verify": true
+    },
+    {
+      "unitId": "ccs-leave-38",
+      "unitNumber": "38",
+      "kind": "time",
+      "value": "300 days",
+      "sortKey": 300,
+      "quote": "…ncludes the date of retirement. (\"240 days substituted with 300 days\" vide DOPT Notification No. 13026/1/2002-Estt. (L), dated t…",
+      "verify": true
+    },
+    {
+      "unitId": "ccs-leave-38",
+      "unitNumber": "38",
+      "kind": "authority",
+      "value": "authority competent to grant leave",
+      "sortKey": "authority competent to grant leave",
+      "quote": "(1) A Government servant may be permitted by the authority competent to grant leave to take leave preparatory to retirement to the extent of ea…",
+      "verify": false
+    },
+    {
+      "unitId": "ccs-leave-38a",
+      "unitNumber": "38A",
+      "kind": "time",
+      "value": "ten days",
+      "sortKey": 10,
+      "quote": "…nment servant may be permitted to encash earned leave up to ten days at the time of availing of Leave Travel Concession while in…",
+      "verify": true
+    },
+    {
+      "unitId": "ccs-leave-38a",
+      "unitNumber": "38A",
+      "kind": "time",
+      "value": "thirty days",
+      "sortKey": 30,
+      "quote": "…, subject to the conditions that- (a) a balance of at least thirty days of earned leave is available to his credit after taking int…",
+      "verify": true
+    },
+    {
+      "unitId": "ccs-leave-38a",
+      "unitNumber": "38A",
+      "kind": "time",
+      "value": "sixty days",
+      "sortKey": 60,
+      "quote": "…leave so encashed during the entire career does not exceed sixty days in the aggregate; (2) The cash equivalent for encashment of…",
+      "verify": true
+    },
+    {
+      "unitId": "ccs-leave-39",
+      "unitNumber": "39",
+      "kind": "time",
+      "value": "300 days",
+      "sortKey": 300,
+      "quote": "…rvant on the date of his retirement subject to a maximum of 300 days; (b) The cash equivalent of leave salary under Clause (a) s…",
+      "verify": true
+    },
+    {
+      "unitId": "ccs-leave-39",
+      "unitNumber": "39",
+      "kind": "time",
+      "value": "300 days",
+      "sortKey": 300,
+      "quote": "…the total of earned leave and half pay leave not exceeding 300 days (ii) Cash payment in lieu of half pay leave component = Hal…",
+      "verify": false
+    },
+    {
+      "unitId": "ccs-leave-39",
+      "unitNumber": "39",
+      "kind": "time",
+      "value": "300 days",
+      "sortKey": 300,
+      "quote": "…of earned leave and half pay leave at credit not exceeding 300 days NOTE.- The overall limit for encashment of leave including…",
+      "verify": false
+    },
+    {
+      "unitId": "ccs-leave-39",
+      "unitNumber": "39",
+      "kind": "time",
+      "value": "300 days",
+      "sortKey": 300,
+      "quote": "…uding both earned leave and half pay leave shall not exceed 300 days. (c) To make up the shortfall in earned leave, no commutati…",
+      "verify": true
+    },
+    {
+      "unitId": "ccs-leave-39",
+      "unitNumber": "39",
+      "kind": "time",
+      "value": "180 days",
+      "sortKey": 180,
+      "quote": "…redit on the date of his retirement subject to a maximum of 180 days / 300 days as the case may be, as prescribed in Rule 26. (D…",
+      "verify": true
+    },
+    {
+      "unitId": "ccs-leave-39",
+      "unitNumber": "39",
+      "kind": "time",
+      "value": "300 days",
+      "sortKey": 300,
+      "quote": "…e date of his retirement subject to a maximum of 180 days / 300 days as the case may be, as prescribed in Rule 26. (DOPT Notific…",
+      "verify": true
+    },
+    {
+      "unitId": "ccs-leave-39",
+      "unitNumber": "39",
+      "kind": "time",
+      "value": "300 days",
+      "sortKey": 300,
+      "quote": "…eave availed of during such period, subject to a maximum of 300 days.] (DOPT Notification No. 11012/1/2009-Estt. (L), dated 01.1…",
+      "verify": true
+    },
+    {
+      "unitId": "ccs-leave-39",
+      "unitNumber": "39",
+      "kind": "time",
+      "value": "300 days",
+      "sortKey": 300,
+      "quote": "…ve and half pay leave at his credit subject to a maximum of 300 days. The cash equivalent payable shall be the same as in sub-ru…",
+      "verify": true
+    },
+    {
+      "unitId": "ccs-leave-39",
+      "unitNumber": "39",
+      "kind": "time",
+      "value": "300 days",
+      "sortKey": 300,
+      "quote": "…on which he ceases to be in service subject to a maximum of 300 days and the cash equivalent payable shall be the same as in sub…",
+      "verify": true
+    },
+    {
+      "unitId": "ccs-leave-39",
+      "unitNumber": "39",
+      "kind": "time",
+      "value": "150 days",
+      "sortKey": 150,
+      "quote": "…f half of such leave at his credit, subject to a maximum of 150 days. (DOPT Notification No. 14028/9/80 -Estt. (L), dated 01.10.…",
+      "verify": true
+    },
+    {
+      "unitId": "ccs-leave-39",
+      "unitNumber": "39",
+      "kind": "time",
+      "value": "120 days",
+      "sortKey": 120,
+      "quote": "…Notification No. 14028/9/80 -Estt. (L), dated 01.10.1981) (\"120 days substituted with 150 days\" vide DOPT Notification No. 13026…",
+      "verify": true
+    },
+    {
+      "unitId": "ccs-leave-39",
+      "unitNumber": "39",
+      "kind": "time",
+      "value": "150 days",
+      "sortKey": 150,
+      "quote": "…0 -Estt. (L), dated 01.10.1981) (\"120 days substituted with 150 days\" vide DOPT Notification No. 13026/1/99- Estt. (L), dated 18…",
+      "verify": true
+    },
+    {
+      "unitId": "ccs-leave-39",
+      "unitNumber": "39",
+      "kind": "time",
+      "value": "300 days",
+      "sortKey": 300,
+      "quote": "…te of termination of re- employment subject to a maximum of 300 days including the period for which encashment was allowed at th…",
+      "verify": true
+    },
+    {
+      "unitId": "ccs-leave-39",
+      "unitNumber": "39",
+      "kind": "authority",
+      "value": "authority competent to grant leave",
+      "sortKey": "authority competent to grant leave",
+      "quote": "…t under the terms and conditions governing his service, the authority competent to grant leave shall, suo motu, issue an order granting cash equivalent of…",
+      "verify": false
+    },
+    {
+      "unitId": "ccs-leave-39",
+      "unitNumber": "39",
+      "kind": "authority",
+      "value": "authority competent to grant leave",
+      "sortKey": "authority competent to grant leave",
+      "quote": "…tion No. 11012/1/2009- Estt. (L), dated 01.12.2009) (3) The authority competent to grant leave may withhold whole or part of cash equivalent of earned lea…",
+      "verify": false
+    },
+    {
+      "unitId": "ccs-leave-39",
+      "unitNumber": "39",
+      "kind": "authority",
+      "value": "authority competent to grant leave",
+      "sortKey": "authority competent to grant leave",
+      "quote": "…Clause (c) of sub-rule (1), may be granted suo motu, by the authority competent to grant leave, cash equivalent of the leave salary in respect of both ear…",
+      "verify": false
+    },
+    {
+      "unitId": "ccs-leave-39",
+      "unitNumber": "39",
+      "kind": "authority",
+      "value": "authority competent to grant leave",
+      "sortKey": "authority competent to grant leave",
+      "quote": "…ons of his appointment, he may be granted, suo motu, by the authority competent to grant leave, cash equivalent in respect of both earned leave and half p…",
+      "verify": false
+    },
+    {
+      "unitId": "ccs-leave-39",
+      "unitNumber": "39",
+      "kind": "authority",
+      "value": "authority competent to grant leave",
+      "sortKey": "authority competent to grant leave",
+      "quote": "…signs or quits service, he may be granted, suo motu, by the authority competent to grant leave, cash equivalent in respect of earned leave at his credit o…",
+      "verify": false
+    },
+    {
+      "unitId": "ccs-leave-39",
+      "unitNumber": "39",
+      "kind": "authority",
+      "value": "authority competent to grant leave",
+      "sortKey": "authority competent to grant leave",
+      "quote": "…rmination of his re-employment, be granted, suo motu, by an authority competent to grant leave, cash equivalent in respect of both earned leave and half p…",
+      "verify": false
+    },
+    {
+      "unitId": "ccs-leave-39a",
+      "unitNumber": "39A",
+      "kind": "time",
+      "value": "300 days",
+      "sortKey": 300,
+      "quote": "…Government servant on the date of his death, not exceeding 300 days shall be paid to his family in the manner specified in Rule…",
+      "verify": false
+    },
+    {
+      "unitId": "ccs-leave-39b",
+      "unitNumber": "39B",
+      "kind": "time",
+      "value": "300 days",
+      "sortKey": 300,
+      "quote": "…date of invalidation from service, subject to a maximum of 300 days and the cash equivalent payable shall be the same as in sub…",
+      "verify": true
+    },
+    {
+      "unitId": "ccs-leave-39b",
+      "unitNumber": "39B",
+      "kind": "authority",
+      "value": "authority competent to grant leave",
+      "sortKey": "authority competent to grant leave",
+      "quote": "…itated for further service may be granted, suo motu, by the authority competent to grant leave, cash equivalent of leave salary in respect of both earned…",
+      "verify": false
+    },
+    {
+      "unitId": "ccs-leave-39d",
+      "unitNumber": "39D",
+      "kind": "time",
+      "value": "300 days",
+      "sortKey": 300,
+      "quote": "…is credit on the date of absorption subject to a maximum of 300 days. This will be calculated in the same manner as indicated in…",
+      "verify": true
+    },
+    {
+      "unitId": "ccs-leave-39d",
+      "unitNumber": "39D",
+      "kind": "authority",
+      "value": "authority competent to grant leave",
+      "sortKey": "authority competent to grant leave",
+      "quote": "…e than one such Government shall be granted suo motu by the authority competent to grant leave cash equivalent of leave salary in respect of earned leave…",
+      "verify": false
+    },
+    {
+      "unitId": "ccs-leave-42",
+      "unitNumber": "42",
+      "kind": "time",
+      "value": "thirty days",
+      "sortKey": 30,
+      "quote": "…ign service, proceeding on leave for a period not less than thirty days may be allowed an advance in lieu of leave salary up to a m…",
+      "verify": true
+    },
+    {
+      "unitId": "ccs-leave-43",
+      "unitNumber": "43",
+      "kind": "time",
+      "value": "180 days",
+      "sortKey": 180,
+      "quote": "…e by an authority competent to grant leave for a period of (180 days) from the date of its commencement. (MOF Notification No. P…",
+      "verify": true
+    },
+    {
+      "unitId": "ccs-leave-43",
+      "unitNumber": "43",
+      "kind": "time",
+      "value": "135 days",
+      "sortKey": 135,
+      "quote": "…F Notification No. P-11012/1/77-E-IV(A) dated 21.11.1979) (\"135 days substituted by 180 days\" vide DOPT Notification No. 1101 2/…",
+      "verify": true
+    },
+    {
+      "unitId": "ccs-leave-43",
+      "unitNumber": "43",
+      "kind": "time",
+      "value": "180 days",
+      "sortKey": 180,
+      "quote": "…12/1/77-E-IV(A) dated 21.11.1979) (\"135 days substituted by 180 days\" vide DOPT Notification No. 1101 2/1/2009-Estt.(L), dated 0…",
+      "verify": true
+    },
+    {
+      "unitId": "ccs-leave-43",
+      "unitNumber": "43",
+      "kind": "time",
+      "value": "45 days",
+      "sortKey": 45,
+      "quote": "…the corresponding period. (3) Maternity leave not exceeding 45 days may also be granted to a female Government servant (irrespe…",
+      "verify": false
+    },
+    {
+      "unitId": "ccs-leave-43",
+      "unitNumber": "43",
+      "kind": "time",
+      "value": "60 days",
+      "sortKey": 60,
+      "quote": "…ssible (including commuted leave for a period not exceeding 60 days and leave not due) up to a maximum of two year may, if appl…",
+      "verify": false
+    },
+    {
+      "unitId": "ccs-leave-43",
+      "unitNumber": "43",
+      "kind": "time",
+      "value": "two year",
+      "sortKey": 730,
+      "quote": "…not exceeding 60 days and leave not due) up to a maximum of two year may, if applied for, be granted in continuation of maternit…",
+      "verify": true
+    },
+    {
+      "unitId": "ccs-leave-43",
+      "unitNumber": "43",
+      "kind": "time",
+      "value": "180 days",
+      "sortKey": 180,
+      "quote": "…n two surviving children, may be granted maternity leave of 180 days, in case either or both of them are Government servants. (D…",
+      "verify": true
+    },
+    {
+      "unitId": "ccs-leave-43",
+      "unitNumber": "43",
+      "kind": "authority",
+      "value": "authority competent to grant leave",
+      "sortKey": "authority competent to grant leave",
+      "quote": "…two surviving children may be granted maternity leave by an authority competent to grant leave for a period of (180 days) from the date of its commencemen…",
+      "verify": false
+    },
+    {
+      "unitId": "ccs-leave-43a",
+      "unitNumber": "43A",
+      "kind": "time",
+      "value": "a period of 15 days",
+      "sortKey": 15,
+      "quote": "…aternity Leave by an authority competent to grant leave for a period of 15 days, during the confinement of his wife for childbirth, i.e., u…",
+      "verify": true
+    },
+    {
+      "unitId": "ccs-leave-43a",
+      "unitNumber": "43A",
+      "kind": "time",
+      "value": "15 days",
+      "sortKey": 15,
+      "quote": "…ing the confinement of his wife for childbirth, i.e., up to 15 days before, or up to six months from the date of delivery of th…",
+      "verify": true
+    },
+    {
+      "unitId": "ccs-leave-43a",
+      "unitNumber": "43A",
+      "kind": "time",
+      "value": "six months",
+      "sortKey": 180,
+      "quote": "…s wife for childbirth, i.e., up to 15 days before, or up to six months from the date of delivery of the child. (2) During such per…",
+      "verify": true
+    },
+    {
+      "unitId": "ccs-leave-43a",
+      "unitNumber": "43A",
+      "kind": "time",
+      "value": "15 days",
+      "sortKey": 15,
+      "quote": "…he date of delivery of the child. (2) During such period of 15 days, he shall be paid leave salary equal to the pay drawn immed…",
+      "verify": true
+    },
+    {
+      "unitId": "ccs-leave-43a",
+      "unitNumber": "43A",
+      "kind": "time",
+      "value": "15 days",
+      "sortKey": 15,
+      "quote": "…an two surviving children may be granted paternity leave of 15 days within the period of 6 months from the date of delivery of…",
+      "verify": true
+    },
+    {
+      "unitId": "ccs-leave-43a",
+      "unitNumber": "43A",
+      "kind": "time",
+      "value": "6 months",
+      "sortKey": 180,
+      "quote": "…be granted paternity leave of 15 days within the period of 6 months from the date of delivery of the child. (DOPT Notification…",
+      "verify": true
+    },
+    {
+      "unitId": "ccs-leave-43a",
+      "unitNumber": "43A",
+      "kind": "authority",
+      "value": "authority competent to grant leave",
+      "sortKey": "authority competent to grant leave",
+      "quote": "…wo surviving children, may be granted Paternity Leave by an authority competent to grant leave for a period of 15 days, during the confinement of his wife…",
+      "verify": false
+    },
+    {
+      "unitId": "ccs-leave-43aa",
+      "unitNumber": "43AA",
+      "kind": "time",
+      "value": "one year",
+      "sortKey": 365,
+      "quote": "…oster care or on valid adoption of a child below the age of one year, may be granted Paternity Leave for a period of 15 days, wi…",
+      "verify": true
+    },
+    {
+      "unitId": "ccs-leave-43aa",
+      "unitNumber": "43AA",
+      "kind": "time",
+      "value": "a period of 15 days",
+      "sortKey": 15,
+      "quote": "…low the age of one year, may be granted Paternity Leave for a period of 15 days, within a period of six months, from the date of accepting…",
+      "verify": true
+    },
+    {
+      "unitId": "ccs-leave-43aa",
+      "unitNumber": "43AA",
+      "kind": "time",
+      "value": "a period of six months",
+      "sortKey": 180,
+      "quote": "…be granted Paternity Leave for a period of 15 days, within a period of six months, from the date of accepting the child in pre-adoption foste…",
+      "verify": false
+    },
+    {
+      "unitId": "ccs-leave-43aa",
+      "unitNumber": "43AA",
+      "kind": "time",
+      "value": "15 days",
+      "sortKey": 15,
+      "quote": "…of such male Government Servant. (2) During such period of 15 days, he shall be paid leave salary equal to the pay drawn immed…",
+      "verify": true
+    },
+    {
+      "unitId": "ccs-leave-43b",
+      "unitNumber": "43B",
+      "kind": "time",
+      "value": "one year",
+      "sortKey": 365,
+      "quote": "…oster care or on valid adoption of a child below the age of one year, may be granted child adoption leave, by an authority compe…",
+      "verify": true
+    },
+    {
+      "unitId": "ccs-leave-43b",
+      "unitNumber": "43B",
+      "kind": "time",
+      "value": "a period of 180 days",
+      "sortKey": 180,
+      "quote": "…option leave, by an authority competent to grant leave, for a period of 180 days, immediately after accepting the child in pre-adoption fost…",
+      "verify": true
+    },
+    {
+      "unitId": "ccs-leave-43b",
+      "unitNumber": "43B",
+      "kind": "time",
+      "value": "60 days",
+      "sortKey": 60,
+      "quote": "…e (including leave not due and commuted leave not exceeding 60 days without production of medical certificate) for a period up…",
+      "verify": false
+    },
+    {
+      "unitId": "ccs-leave-43b",
+      "unitNumber": "43B",
+      "kind": "time",
+      "value": "one year",
+      "sortKey": 365,
+      "quote": "…thout production of medical certificate) for a period up to one year reduced by the age of the adopted child on the date of vali…",
+      "verify": true
+    },
+    {
+      "unitId": "ccs-leave-43b",
+      "unitNumber": "43B",
+      "kind": "authority",
+      "value": "authority competent to grant leave",
+      "sortKey": "authority competent to grant leave",
+      "quote": "…age of one year, may be granted child adoption leave, by an authority competent to grant leave, for a period of 180 days, immediately after accepting the…",
+      "verify": false
+    },
+    {
+      "unitId": "ccs-leave-43c",
+      "unitNumber": "43C",
+      "kind": "time",
+      "value": "five days",
+      "sortKey": 5,
+      "quote": "…child care leave may not be granted for a period less than five days at a time. (4) During the period of child care leave, a fem…",
+      "verify": true
+    },
+    {
+      "unitId": "ccs-leave-43c",
+      "unitNumber": "43C",
+      "kind": "time",
+      "value": "sixty days",
+      "sortKey": 60,
+      "quote": "…due and admissible (including Commuted Leave not exceeding sixty days and Leave Not Due) up to a maximum of one year, if applied…",
+      "verify": false
+    },
+    {
+      "unitId": "ccs-leave-43c",
+      "unitNumber": "43C",
+      "kind": "time",
+      "value": "one year",
+      "sortKey": 365,
+      "quote": "…exceeding sixty days and Leave Not Due) up to a maximum of one year, if applied for, be granted in continuation with child care…",
+      "verify": true
+    },
+    {
+      "unitId": "ccs-leave-43c",
+      "unitNumber": "43C",
+      "kind": "authority",
+      "value": "authority competent to grant leave",
+      "sortKey": "authority competent to grant leave",
+      "quote": "…le Government servant may be granted child care leave by an authority competent to grant leave for a maximum period of seven hundred and thirty days durin…",
+      "verify": false
+    },
+    {
+      "unitId": "ccs-leave-44",
+      "unitNumber": "44",
+      "kind": "time",
+      "value": "six months",
+      "sortKey": 180,
+      "quote": "…than a military officer) - full pay and allowances for the six months immediately following hospitalization and Half Pay for twel…",
+      "verify": true
+    },
+    {
+      "unitId": "ccs-leave-44",
+      "unitNumber": "44",
+      "kind": "time",
+      "value": "twelve months",
+      "sortKey": 360,
+      "quote": "…nths immediately following hospitalization and Half Pay for twelve months beyond the said period of six months. The Half Pay period m…",
+      "verify": true
+    },
+    {
+      "unitId": "ccs-leave-44",
+      "unitNumber": "44",
+      "kind": "time",
+      "value": "six months",
+      "sortKey": 180,
+      "quote": "…on and Half Pay for twelve months beyond the said period of six months. The Half Pay period may be commuted to full pay with corre…",
+      "verify": true
+    },
+    {
+      "unitId": "ccs-leave-44",
+      "unitNumber": "44",
+      "kind": "time",
+      "value": "six months",
+      "sortKey": 180,
+      "quote": "…f Central Armed Police Forces - full pay and allowances for six months immediately following the hospitalization and full pay only…",
+      "verify": true
+    },
+    {
+      "unitId": "ccs-leave-44",
+      "unitNumber": "44",
+      "kind": "authority",
+      "value": "authority competent to grant leave",
+      "sortKey": "authority competent to grant leave",
+      "quote": "…fication No. 11020/01/2017-Estt. (L), dated 11.12.2018) The authority competent to grant leave may grant Work Related Illness and Injury Leave (hereinafte…",
+      "verify": false
+    },
+    {
+      "unitId": "ccs-leave-47",
+      "unitNumber": "47",
+      "kind": "time",
+      "value": "six weeks",
+      "sortKey": 42,
+      "quote": "…n leave salary equal to full pay for a period not exceeding six weeks: Provided that such shall not be granted if a Government Me…",
+      "verify": false
+    },
+    {
+      "unitId": "ccs-leave-47",
+      "unitNumber": "47",
+      "kind": "time",
+      "value": "three months",
+      "sortKey": 90,
+      "quote": "…salary equal to full pay for a maximum period not exceeding three months, if the following conditions are fulfilled, namely:- (a) a…",
+      "verify": false
+    },
+    {
+      "unitId": "ccs-leave-47",
+      "unitNumber": "47",
+      "kind": "authority",
+      "value": "authority competent to grant leave",
+      "sortKey": "authority competent to grant leave",
+      "quote": "…ither on his vessel or in hospital, be granted leave, by an authority competent to grant leave, on leave salary equal to full pay for a period not exceedi…",
+      "verify": false
+    },
+    {
+      "unitId": "ccs-leave-48",
+      "unitNumber": "48",
+      "kind": "time",
+      "value": "a period of 90 days",
+      "sortKey": 90,
+      "quote": "…n No. 13026/2/2016-Estt.(L), dated 15.03.2017.) Leave up to a period of 90 days may be granted to an aggrieved female Government servant on…",
+      "verify": true
+    },
+    {
+      "unitId": "ccs-leave-48",
+      "unitNumber": "48",
+      "kind": "authority",
+      "value": "Local Committee",
+      "sortKey": "local committee",
+      "quote": "…vant on the recommendation of the Internal Committee or the Local Committee, as the case maybe, during the pendency of inquiry under th…",
+      "verify": false
+    },
+    {
+      "unitId": "ccs-leave-49",
+      "unitNumber": "49",
+      "kind": "time",
+      "value": "six months",
+      "sortKey": 180,
+      "quote": "…e granted at times other than the recess, for not more than six months at a time, by directors in the Survey of India, provided th…",
+      "verify": true
+    },
+    {
+      "unitId": "ccs-leave-49",
+      "unitNumber": "49",
+      "kind": "time",
+      "value": "one year",
+      "sortKey": 365,
+      "quote": "…es, be extended by the Surveyor- General up to a maximum of one year in all. (c) Leave on medical certificate shall not be regar…",
+      "verify": true
+    },
+    {
+      "unitId": "ccs-leave-49",
+      "unitNumber": "49",
+      "kind": "time",
+      "value": "six months",
+      "sortKey": 180,
+      "quote": "…l be paid leave salary at the end of each month up to first six months and thereafter it shall be paid when the Government servant…",
+      "verify": true
+    },
+    {
+      "unitId": "ccs-leave-50",
+      "unitNumber": "50",
+      "kind": "time",
+      "value": "five years",
+      "sortKey": 1825,
+      "quote": "…ompleted period of probation and has rendered not less than five years' regular continuous service including the period of probati…",
+      "verify": true
+    },
+    {
+      "unitId": "ccs-leave-50",
+      "unitNumber": "50",
+      "kind": "time",
+      "value": "three years",
+      "sortKey": 1095,
+      "quote": "…e age of superannuation from the Government service within [three years (five years in the case of Central Health Service Officer w…",
+      "verify": true
+    },
+    {
+      "unitId": "ccs-leave-50",
+      "unitNumber": "50",
+      "kind": "time",
+      "value": "five years",
+      "sortKey": 1825,
+      "quote": "…rannuation from the Government service within [three years (five years in the case of Central Health Service Officer who has been…",
+      "verify": true
+    },
+    {
+      "unitId": "ccs-leave-50",
+      "unitNumber": "50",
+      "kind": "time",
+      "value": "six months",
+      "sortKey": 180,
+      "quote": "…Central Health Service Officer who has been granted thirty six months study leave under sub- rule (2) of Rule 51) from] the date…",
+      "verify": true
+    },
+    {
+      "unitId": "ccs-leave-50",
+      "unitNumber": "50",
+      "kind": "time",
+      "value": "three years",
+      "sortKey": 1095,
+      "quote": "…53 (4) undertaking to serve the Government for a period of [three years (five years in the case of Central Health Service Officer w…",
+      "verify": true
+    },
+    {
+      "unitId": "ccs-leave-50",
+      "unitNumber": "50",
+      "kind": "time",
+      "value": "five years",
+      "sortKey": 1825,
+      "quote": "…aking to serve the Government for a period of [three years (five years in the case of Central Health Service Officer who has been…",
+      "verify": true
+    },
+    {
+      "unitId": "ccs-leave-50",
+      "unitNumber": "50",
+      "kind": "authority",
+      "value": "authority competent to grant leave",
+      "sortKey": "authority competent to grant leave",
+      "quote": "…he particular study or study tour should be approved by the authority competent to grant leave; and (b) the Government servant should be required to submi…",
+      "verify": false
+    },
+    {
+      "unitId": "ccs-leave-50",
+      "unitNumber": "50",
+      "kind": "authority",
+      "value": "authority competent to grant leave",
+      "sortKey": "authority competent to grant leave",
+      "quote": "…ave shall not be granted unless- (i) it is certified by the authority competent to grant leave that the proposed course of study or training shall be of d…",
+      "verify": false
+    },
+    {
+      "unitId": "ccs-leave-51",
+      "unitNumber": "51",
+      "kind": "time",
+      "value": "twelve months",
+      "sortKey": 360,
+      "quote": "…n Central Health Service Officers, shall be- (a) ordinarily twelve months at any one time, and (b) during his entire service, twenty-…",
+      "verify": true
+    },
+    {
+      "unitId": "ccs-leave-51",
+      "unitNumber": "51",
+      "kind": "time",
+      "value": "a period of five years",
+      "sortKey": 1825,
+      "quote": "…d under sub-rule (4) of Rule 53 to serve the Government for a period of five years after completion of the study course.",
+      "verify": true
+    },
+    {
+      "unitId": "ccs-leave-52",
+      "unitNumber": "52",
+      "kind": "authority",
+      "value": "authority competent to grant leave",
+      "sortKey": "authority competent to grant leave",
+      "quote": "…tudy leave shall be submitted through proper channel to the authority competent to grant leave. (b) The course or courses of study contemplated by the Gov…",
+      "verify": false
+    },
+    {
+      "unitId": "ccs-leave-52",
+      "unitNumber": "52",
+      "kind": "authority",
+      "value": "authority competent to grant leave",
+      "sortKey": "authority competent to grant leave",
+      "quote": "…ulars as soon as possible to the Head of the Mission or the authority competent to grant leave, as the case may be, and shall not, unless prepared to do s…",
+      "verify": false
+    },
+    {
+      "unitId": "ccs-leave-53",
+      "unitNumber": "53",
+      "kind": "authority",
+      "value": "Audit Officer",
+      "sortKey": "audit officer",
+      "quote": "…admissibility of the study leave shall be obtained from the Audit Officer: Provided that the study leave, if any, already availed of…",
+      "verify": false
+    },
+    {
+      "unitId": "ccs-leave-53",
+      "unitNumber": "53",
+      "kind": "authority",
+      "value": "Authority competent to grant leave",
+      "sortKey": "authority competent to grant leave",
+      "quote": "…nsion of such study leave granted to him commences. (c) The Authority competent to grant leave shall send to the Audit Officer a certificate to the effect…",
+      "verify": false
+    },
+    {
+      "unitId": "ccs-leave-53",
+      "unitNumber": "53",
+      "kind": "authority",
+      "value": "Audit Officer",
+      "sortKey": "audit officer",
+      "quote": "…c) The Authority competent to grant leave shall send to the Audit Officer a certificate to the effect that the Government servant ref…",
+      "verify": false
+    },
+    {
+      "unitId": "ccs-leave-54",
+      "unitNumber": "54",
+      "kind": "time",
+      "value": "eight months",
+      "sortKey": 240,
+      "quote": "…aordinary leave involve a total absence of more than twenty eight months generally and thirty-six months for the courses leading to…",
+      "verify": true
+    },
+    {
+      "unitId": "ccs-leave-54",
+      "unitNumber": "54",
+      "kind": "time",
+      "value": "six months",
+      "sortKey": 180,
+      "quote": "…rvant. Explanation:-the limit of twenty-eight months/thirty six months of absence prescribed in this sub-rule includes the period…",
+      "verify": true
+    },
+    {
+      "unitId": "ccs-leave-55",
+      "unitNumber": "55",
+      "kind": "authority",
+      "value": "authority competent to grant leave",
+      "sortKey": "authority competent to grant leave",
+      "quote": "…of the courseof study, unless the previous sanction of the authority competent to grant leave has been obtained to treat the period of shortfall as ordin…",
+      "verify": false
+    },
+    {
+      "unitId": "ccs-leave-63",
+      "unitNumber": "63",
+      "kind": "time",
+      "value": "three years",
+      "sortKey": 1095,
+      "quote": "…o duty after a period of study leave or within a period of [three years (five years in the case of Central Health Service Officer w…",
+      "verify": true
+    },
+    {
+      "unitId": "ccs-leave-63",
+      "unitNumber": "63",
+      "kind": "time",
+      "value": "five years",
+      "sortKey": 1825,
+      "quote": "…a period of study leave or within a period of [three years (five years in the case of Central Health Service Officer who has been…",
+      "verify": true
+    },
+    {
+      "unitId": "ccs-leave-66",
+      "unitNumber": "66",
+      "kind": "time",
+      "value": "120 days",
+      "sortKey": 120,
+      "quote": "…be exercised only in respect of earned leave not exceeding 120 days and while taking decision to grant or refuse leave preparat…",
+      "verify": false
+    },
+    {
+      "unitId": "ccs-leave-66",
+      "unitNumber": "66",
+      "kind": "time",
+      "value": "a period of one year",
+      "sortKey": 365,
+      "quote": "…ave on medical grounds with effect from ………….to ………….(up to a period of one year). [#Please strike out if a certificate is being issued unde…",
+      "verify": true
+    },
+    {
+      "unitId": "ccs-leave-66",
+      "unitNumber": "66",
+      "kind": "time",
+      "value": "a period of three years",
+      "sortKey": 1095,
+      "quote": "…iling to complete the course of study or at any time within a period of three years/five years after my return to duty, I shall forthwith pay t…",
+      "verify": false
+    },
+    {
+      "unitId": "ccs-leave-66",
+      "unitNumber": "66",
+      "kind": "time",
+      "value": "five years",
+      "sortKey": 1825,
+      "quote": "…urse of study or at any time within a period of three years/five years after my return to duty, I shall forthwith pay to the Gover…",
+      "verify": true
+    },
+    {
+      "unitId": "ccs-leave-66",
+      "unitNumber": "66",
+      "kind": "time",
+      "value": "a period of three years",
+      "sortKey": 1095,
+      "quote": "…iling to complete the course of Study or at any time within a period of three years/five years after his return to duty, the Obligor and the Su…",
+      "verify": false
+    },
+    {
+      "unitId": "ccs-leave-66",
+      "unitNumber": "66",
+      "kind": "time",
+      "value": "five years",
+      "sortKey": 1825,
+      "quote": "…urse of Study or at any time within a period of three years/five years after his return to duty, the Obligor and the Sureties shal…",
+      "verify": true
+    },
+    {
+      "unitId": "ccs-leave-66",
+      "unitNumber": "66",
+      "kind": "time",
+      "value": "five years",
+      "sortKey": 1825,
+      "quote": "…se of study or at any time within a period of three years / five years after his return to duty, the Obligor and the Sureties shal…",
+      "verify": true
+    },
+    {
+      "unitId": "ccs-leave-66",
+      "unitNumber": "66",
+      "kind": "authority",
+      "value": "Authority competent to grant leave",
+      "sortKey": "authority competent to grant leave",
+      "quote": "…TIES COMPETENT TO GRANT LEAVE Sl. No. (1) Kind of leave (2) Authority competent to grant leave (3) 1. Earned Leave, Half Pay Leave, Commuted Leave, Leave…",
+      "verify": false
+    },
+    {
+      "unitId": "ccs-leave-66",
+      "unitNumber": "66",
+      "kind": "authority",
+      "value": "Head of Department",
+      "sortKey": "head of department",
+      "quote": "…Administrator. (iii) Comptroller and Auditor- General. (iv) Head of Department. (v) Any other authority which is the appointing authority.…",
+      "verify": false
+    },
+    {
+      "unitId": "ccs-leave-66",
+      "unitNumber": "66",
+      "kind": "authority",
+      "value": "appointing authority",
+      "sortKey": "appointing authority",
+      "quote": "…v) Head of Department. (v) Any other authority which is the appointing authority. (vi) Any subordinate authority to which the authority at (…",
+      "verify": false
+    },
+    {
+      "unitId": "ccs-leave-66",
+      "unitNumber": "66",
+      "kind": "authority",
+      "value": "Controlling Officer",
+      "sortKey": "controlling officer",
+      "quote": "…licant (with date) 12. Remarks and/or recommendation of the Controlling Officer Signature (with date) Designation CERTIFICATE REGARDING ADM…",
+      "verify": false
+    },
+    {
+      "unitId": "ccs-leave-66",
+      "unitNumber": "66",
+      "kind": "authority",
+      "value": "authority competent to grant leave",
+      "sortKey": "authority competent to grant leave",
+      "quote": "…1972. Signature (with date) Designation *14. Orders of the authority competent to grant leave … Signature (with date) Designation * If the applicant is d…",
+      "verify": false
+    },
+    {
+      "unitId": "ccs-leave-66",
+      "unitNumber": "66",
+      "kind": "authority",
+      "value": "authority competent to grant leave",
+      "sortKey": "authority competent to grant leave",
+      "quote": "…. NOTE 3.- Should a second medical opinion be required, the authority competent to grant leave should arrange for the second medical examination to be mad…",
+      "verify": false
+    }
+  ]
+}

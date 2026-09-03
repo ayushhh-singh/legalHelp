@@ -1,6 +1,15 @@
 import { afterEach, describe, expect, it } from 'vitest'
 
-import { isWorkId, loadCorpus, loadLibraryIndex, loadWork, resetLibraryCache, WORK_IDS } from './data'
+import {
+  isWorkId,
+  loadCorpus,
+  loadDefinitions,
+  loadLibraryIndex,
+  loadQuickRef,
+  loadWork,
+  resetLibraryCache,
+  WORK_IDS,
+} from './data'
 
 import type { LibraryWork } from '@/schemas/library'
 
@@ -115,5 +124,56 @@ describe('a corpus', () => {
   it('hands the same parsed corpus back rather than re-parsing megabytes', async () => {
     const work = await loadWork('osa')
     expect(await loadCorpus(work)).toBe(await loadCorpus(work))
+  })
+})
+
+/**
+ * The two extract datasets, through their REAL `?raw` specifiers.
+ *
+ * Thirty more hand-written import paths, which is thirty more chances to typo
+ * one — and a typo here is a work whose defined terms silently never load,
+ * invisible to `tests/library-extracts.test.ts` because that reads the same
+ * files with `node:fs`. This is the same reason ADR-038 §1 gives for loading
+ * all fifteen works and all fifteen corpora here.
+ */
+describe('the definitions and quick-reference loaders', () => {
+  it.each(WORK_IDS)('loads %s through its own specifier', async (id) => {
+    const definitions = await loadDefinitions(id)
+    const quickref = await loadQuickRef(id)
+    expect(definitions.workId).toBe(id)
+    expect(quickref.workId).toBe(id)
+  })
+
+  it('reads the RTI Act’s defined terms and its thirty-day clock', async () => {
+    const definitions = await loadDefinitions('rti')
+    expect(definitions.terms.some((term) => /^information$/i.test(term.term))).toBe(true)
+
+    const quickref = await loadQuickRef('rti')
+    expect(quickref.rows.some((row) => row.kind === 'time' && row.sortKey === 30)).toBe(true)
+  })
+
+  /**
+   * A personal work has neither dataset, and that is not an error: the reader
+   * page runs the same extraction over it in the browser instead. Rejecting
+   * would make every surface handle an error for a case that is not one.
+   */
+  it('answers with an empty dataset for a work id it has no file for', async () => {
+    const definitions = await loadDefinitions('my-something-abc')
+    expect(definitions.terms).toEqual([])
+    expect(definitions.unitId).toBeNull()
+
+    const quickref = await loadQuickRef('my-something-abc')
+    expect(quickref.rows).toEqual([])
+    expect(quickref.counts).toEqual({ time: 0, money: 0, authority: 0 })
+  })
+
+  it('cites nothing rather than a placeholder domain for a work it has no file for', async () => {
+    // A URL that exists only to satisfy a type still ships in the bundle;
+    // `tests/no-external-urls.test.ts` caught exactly that here.
+    expect((await loadDefinitions('my-something-abc')).source.url).toBe('')
+  })
+
+  it('parses each dataset once', async () => {
+    expect(await loadQuickRef('osa')).toBe(await loadQuickRef('osa'))
   })
 })

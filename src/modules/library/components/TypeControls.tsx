@@ -1,6 +1,6 @@
 import { Minus, Plus } from 'lucide-react'
 
-import type { LineHeight, ReaderPrefs, ReadingMode, TypeFamily } from '../useLibrary'
+import type { LineHeight, ReaderPrefs, ReadingMode, ReadingSurface, TypeFamily } from '../useLibrary'
 
 import { Button } from '@/components/ui/button'
 import { useT } from '@/i18n/useT'
@@ -15,6 +15,10 @@ import { cn } from '@/lib/utils'
  *   master context's `line-height ≥ 1.75` rule. The control is disabled rather
  *   than hidden, with the reason stated — ADR-030's line, and the same one the
  *   AI tier picker takes: a control that vanishes teaches nothing.
+ * - **The warm surface is an 8% `--marigold` wash, not cream paper.** The
+ *   design system's NEVER list rules out reintroducing "cream paper + serif +
+ *   terracotta" piecemeal, and this control sits next to a serif toggle. See
+ *   `.library-sepia` in `src/styles/index.css`.
  * - **The serif face is the SYSTEM serif stack, not a fourth webfont.** ADR-018
  *   refused ~25 KB of woff2 for the pay slip's numerals; a reading preference
  *   does not get to spend more than a pay slip did. Devanagari falls through to
@@ -24,6 +28,7 @@ import { cn } from '@/lib/utils'
 const MODES: readonly ReadingMode[] = ['en', 'hi', 'both']
 const FAMILIES: readonly TypeFamily[] = ['sans', 'serif']
 const HEIGHTS: readonly LineHeight[] = ['normal', 'relaxed']
+const SURFACES: readonly ReadingSurface[] = ['default', 'sepia']
 
 interface TypeControlsProps {
   prefs: ReaderPrefs
@@ -79,7 +84,7 @@ export function TypeControls({ prefs, onChange, devanagariShown, className }: Ty
   const { t } = useT()
 
   return (
-    <div data-print-hide className={cn('grid gap-4 sm:grid-cols-2 lg:grid-cols-4', className)}>
+    <div data-print-hide className={cn('grid gap-4 sm:grid-cols-2 lg:grid-cols-5', className)}>
       <SegmentedGroup
         legend={t('library.lang.label')}
         options={MODES}
@@ -128,6 +133,16 @@ export function TypeControls({ prefs, onChange, devanagariShown, className }: Ty
         value={prefs.family}
         labelFor={(family) => t(`library.type.${family}`)}
         onSelect={(family) => onChange({ family })}
+      />
+
+      <SegmentedGroup
+        legend={t('library.polish.surface')}
+        options={SURFACES}
+        value={prefs.surface}
+        labelFor={(surface) =>
+          t(surface === 'sepia' ? 'library.polish.surfaceSepia' : 'library.polish.surfaceDefault')
+        }
+        onSelect={(surface) => onChange({ surface })}
       />
 
       <div className="flex flex-col gap-1">

@@ -1,0 +1,3824 @@
+{
+  "$schema": "../../../schemas/library-quickref.schema.json",
+  "version": "1.0.0",
+  "generatedAt": "2026-09-03",
+  "workId": "gfr",
+  "source": {
+    "name": "Department of Expenditure, Ministry of Finance — General Financial Rules 2017 — updated up to 31 January 2026",
+    "url": "https://doe.gov.in/files/circulars_document/GFRupdatedupto31012026.pdf"
+  },
+  "counts": {
+    "time": 113,
+    "money": 87,
+    "authority": 223
+  },
+  "rows": [
+    {
+      "unitId": "gfr-2",
+      "unitNumber": "2",
+      "kind": "authority",
+      "value": "Accounts Officer",
+      "sortKey": "accounts officer",
+      "quote": "In these rules, unless the context otherwise requires- (i) \"Accounts Officer\" means the Head of an Office of Accounts or the Head of a P…",
+      "verify": false
+    },
+    {
+      "unitId": "gfr-2",
+      "unitNumber": "2",
+      "kind": "authority",
+      "value": "Audit Officer",
+      "sortKey": "audit officer",
+      "quote": "…of funds included in a primary unit of appropriation; (iv) \"Audit Officer\" means the Head of an Office of Audit; (v) \"Competent Autho…",
+      "verify": false
+    },
+    {
+      "unitId": "gfr-2",
+      "unitNumber": "2",
+      "kind": "authority",
+      "value": "Competent Authority",
+      "sortKey": "competent authority",
+      "quote": "…\"Audit Officer\" means the Head of an Office of Audit; (v) \"Competent Authority\" means, in respect of the power to be exercised under any o…",
+      "verify": false
+    },
+    {
+      "unitId": "gfr-2",
+      "unitNumber": "2",
+      "kind": "authority",
+      "value": "Controlling Officer",
+      "sortKey": "controlling officer",
+      "quote": "…1950, in terms of Article 267 (1) of the Constitution; (x) \"Controlling Officer\" means an officer entrusted by a Department of the Central…",
+      "verify": false
+    },
+    {
+      "unitId": "gfr-2",
+      "unitNumber": "2",
+      "kind": "authority",
+      "value": "Head of Department",
+      "sortKey": "head of department",
+      "quote": "…and/or the collection of revenue. The term shall include a Head of Department and also an Administrator; (xi) \"Department of the Governme…",
+      "verify": false
+    },
+    {
+      "unitId": "gfr-2",
+      "unitNumber": "2",
+      "kind": "authority",
+      "value": "Drawing and Disbursing Officer",
+      "sortKey": "drawing and disbursing officer",
+      "quote": "…Government of India (Allocation of Business Rules); (xii) \"Drawing and Disbursing Officer\" means a Head of Office and also any other Gazetted Officer…",
+      "verify": false
+    },
+    {
+      "unitId": "gfr-2",
+      "unitNumber": "2",
+      "kind": "authority",
+      "value": "Head of Office",
+      "sortKey": "head of office",
+      "quote": "…ness Rules); (xii) \"Drawing and Disbursing Officer\" means a Head of Office and also any other Gazetted Officer so designated by a Depa…",
+      "verify": false
+    },
+    {
+      "unitId": "gfr-2",
+      "unitNumber": "2",
+      "kind": "authority",
+      "value": "Head of Department",
+      "sortKey": "head of department",
+      "quote": "…so designated by a Department of the Central Government, a Head of Department or an Administrator, to draw bills and make payments on beh…",
+      "verify": false
+    },
+    {
+      "unitId": "gfr-2",
+      "unitNumber": "2",
+      "kind": "authority",
+      "value": "Head of Department",
+      "sortKey": "head of department",
+      "quote": "…lf of the Central Government. The term shall also include a Head of Department or an Administrator where he himself discharges such functi…",
+      "verify": false
+    },
+    {
+      "unitId": "gfr-2",
+      "unitNumber": "2",
+      "kind": "authority",
+      "value": "Head of Department",
+      "sortKey": "head of department",
+      "quote": "…by the concerned Department in the Government of India as a Head of Department in relation to an identifiable establishment or establishme…",
+      "verify": false
+    },
+    {
+      "unitId": "gfr-2",
+      "unitNumber": "2",
+      "kind": "authority",
+      "value": "Head of Office",
+      "sortKey": "head of office",
+      "quote": "…the delegated financial powers under these Rules; (xviii) \"Head of Office\" means (a) a Gazetted Officer declared as such in the Deleg…",
+      "verify": false
+    },
+    {
+      "unitId": "gfr-2",
+      "unitNumber": "2",
+      "kind": "authority",
+      "value": "competent authority",
+      "sortKey": "competent authority",
+      "quote": "…declared as such under any general or special orders of the competent authority; (xix) \"Local Body\" means an authority legally entitled or…",
+      "verify": false
+    },
+    {
+      "unitId": "gfr-10",
+      "unitNumber": "10",
+      "kind": "authority",
+      "value": "Accounts Officer",
+      "sortKey": "accounts officer",
+      "quote": "…ompare them with the statements of credits furnished by the Accounts Officer to see that the amounts reported as collected have been dul…",
+      "verify": false
+    },
+    {
+      "unitId": "gfr-10",
+      "unitNumber": "10",
+      "kind": "authority",
+      "value": "Accounts Officer",
+      "sortKey": "accounts officer",
+      "quote": "…ted as collected have been duly credited. Accordingly, each Accounts Officer will send an extract from his accounts showing the amounts…",
+      "verify": false
+    },
+    {
+      "unitId": "gfr-10",
+      "unitNumber": "10",
+      "kind": "authority",
+      "value": "Controlling Officer",
+      "sortKey": "controlling officer",
+      "quote": "…unts brought to credit in the accounts in each month to the Controlling Officer concerned.",
+      "verify": false
+    },
+    {
+      "unitId": "gfr-12",
+      "unitNumber": "12",
+      "kind": "authority",
+      "value": "competent authority",
+      "sortKey": "competent authority",
+      "quote": "…such amounts appear to be irrecoverable, the orders of the competent authority shall be obtained for their adjustment.",
+      "verify": false
+    },
+    {
+      "unitId": "gfr-18",
+      "unitNumber": "18",
+      "kind": "authority",
+      "value": "competent authority",
+      "sortKey": "competent authority",
+      "quote": "…not be remitted or abandoned save with the sanction of the competent authority.",
+      "verify": false
+    },
+    {
+      "unitId": "gfr-19",
+      "unitNumber": "19",
+      "kind": "money",
+      "value": "Rupees one thousand",
+      "sortKey": 1000,
+      "quote": "…the force of law, provided that individual remissions below Rupees one thousand need not be included in the statements. Rule 19 (2) For inc…",
+      "verify": true
+    },
+    {
+      "unitId": "gfr-19",
+      "unitNumber": "19",
+      "kind": "authority",
+      "value": "Audit Officer",
+      "sortKey": "audit officer",
+      "quote": "…t of Posts, shall submit annually on the 1st of June to the Audit Officer and the Accounts Officer concerned, statements showing the…",
+      "verify": false
+    },
+    {
+      "unitId": "gfr-19",
+      "unitNumber": "19",
+      "kind": "authority",
+      "value": "Accounts Officer",
+      "sortKey": "accounts officer",
+      "quote": "…it annually on the 1st of June to the Audit Officer and the Accounts Officer concerned, statements showing the remissions of revenue and…",
+      "verify": false
+    },
+    {
+      "unitId": "gfr-22",
+      "unitNumber": "22",
+      "kind": "authority",
+      "value": "competent authority",
+      "sortKey": "competent authority",
+      "quote": "…e Public Accounts) unless the same has been sanctioned by a competent authority.",
+      "verify": false
+    },
+    {
+      "unitId": "gfr-24",
+      "unitNumber": "24",
+      "kind": "authority",
+      "value": "Financial Adviser",
+      "sortKey": "financial adviser",
+      "quote": "…Department concerned after consultation with the concerned Financial Adviser of the Ministry or Department. A confirmation to this effec…",
+      "verify": false
+    },
+    {
+      "unitId": "gfr-26",
+      "unitNumber": "26",
+      "kind": "authority",
+      "value": "controlling officer",
+      "sortKey": "controlling officer",
+      "quote": "The duties and responsibilities of a controlling officer in respect of funds placed at his disposal are to ensure: (…",
+      "verify": false
+    },
+    {
+      "unitId": "gfr-29",
+      "unitNumber": "29",
+      "kind": "authority",
+      "value": "competent authority",
+      "sortKey": "competent authority",
+      "quote": "…f sanctions. All financial sanctions and orders issued by a competent authority shall be communicated to the Audit Officer and the Accounts…",
+      "verify": false
+    },
+    {
+      "unitId": "gfr-29",
+      "unitNumber": "29",
+      "kind": "authority",
+      "value": "Audit Officer",
+      "sortKey": "audit officer",
+      "quote": "…ssued by a competent authority shall be communicated to the Audit Officer and the Accounts Officer. The procedure to be followed for…",
+      "verify": false
+    },
+    {
+      "unitId": "gfr-29",
+      "unitNumber": "29",
+      "kind": "authority",
+      "value": "Accounts Officer",
+      "sortKey": "accounts officer",
+      "quote": "…uthority shall be communicated to the Audit Officer and the Accounts Officer. The procedure to be followed for communication of financia…",
+      "verify": false
+    },
+    {
+      "unitId": "gfr-29",
+      "unitNumber": "29",
+      "kind": "authority",
+      "value": "Accounts Officer",
+      "sortKey": "accounts officer",
+      "quote": "…e basis of which payment is to be made or authorized by the Accounts Officer, should be addressed to him. (ii) All other sanctions shoul…",
+      "verify": false
+    },
+    {
+      "unitId": "gfr-29",
+      "unitNumber": "29",
+      "kind": "authority",
+      "value": "Accounts Officer",
+      "sortKey": "accounts officer",
+      "quote": "…any authority, but a copy thereof should be endorsed to the Accounts Officer concerned. (iii) In the case of non-recurring expenditure,…",
+      "verify": false
+    },
+    {
+      "unitId": "gfr-29",
+      "unitNumber": "29",
+      "kind": "authority",
+      "value": "Accounts Officer",
+      "sortKey": "accounts officer",
+      "quote": "…ance Ministry, as applicable, should be communicated to the Accounts Officer in accordance with the procedure laid down in the Delegatio…",
+      "verify": false
+    },
+    {
+      "unitId": "gfr-29",
+      "unitNumber": "29",
+      "kind": "authority",
+      "value": "Head of Department",
+      "sortKey": "head of department",
+      "quote": "…nt of expenditure sanctioned. (vii) Sanctions accorded by a Head of Department may be communicated to the Accounts Officer by an authorize…",
+      "verify": false
+    },
+    {
+      "unitId": "gfr-29",
+      "unitNumber": "29",
+      "kind": "authority",
+      "value": "Accounts Officer",
+      "sortKey": "accounts officer",
+      "quote": "…accorded by a Head of Department may be communicated to the Accounts Officer by an authorized Gazetted Officer of his Office duly signed…",
+      "verify": false
+    },
+    {
+      "unitId": "gfr-29",
+      "unitNumber": "29",
+      "kind": "authority",
+      "value": "Head of Department",
+      "sortKey": "head of department",
+      "quote": "…d Gazetted Officer of his Office duly signed by him for the Head of Department or conveyed in the name of the Head of the Department. (vii…",
+      "verify": false
+    },
+    {
+      "unitId": "gfr-29",
+      "unitNumber": "29",
+      "kind": "authority",
+      "value": "Accounts Officer",
+      "sortKey": "accounts officer",
+      "quote": "…for the grant of such additions to pay so as to enable the Accounts Officer to see that it is correctly termed as Special Allowance, Pe…",
+      "verify": false
+    },
+    {
+      "unitId": "gfr-29",
+      "unitNumber": "29",
+      "kind": "authority",
+      "value": "Head of Department",
+      "sortKey": "head of department",
+      "quote": "…d by Ministries or Departments proper and under powers of a Head of Department). (xii) Sanctions accorded by competent authority to grants…",
+      "verify": false
+    },
+    {
+      "unitId": "gfr-29",
+      "unitNumber": "29",
+      "kind": "authority",
+      "value": "competent authority",
+      "sortKey": "competent authority",
+      "quote": "…owers of a Head of Department). (xii) Sanctions accorded by competent authority to grants of land and alienation of land revenue, other tha…",
+      "verify": false
+    },
+    {
+      "unitId": "gfr-29",
+      "unitNumber": "29",
+      "kind": "authority",
+      "value": "Accounts Officer",
+      "sortKey": "accounts officer",
+      "quote": "…ash payment, shall be communicated to the Audit and/ or the Accounts Officer, as the case may be, in a consolidated monthly return givin…",
+      "verify": false
+    },
+    {
+      "unitId": "gfr-30",
+      "unitNumber": "30",
+      "kind": "time",
+      "value": "a period of twelve months",
+      "sortKey": 360,
+      "quote": "…apse if no payment in whole or in part has been made during a period of twelve months from the date of issue of such sanction. Provided that - (i…",
+      "verify": true
+    },
+    {
+      "unitId": "gfr-30",
+      "unitNumber": "30",
+      "kind": "time",
+      "value": "one year",
+      "sortKey": 365,
+      "quote": "…) on the Central Purchase Organization within the period of one year of the date of issue of that sanction, even if the actual p…",
+      "verify": true
+    },
+    {
+      "unitId": "gfr-31",
+      "unitNumber": "31",
+      "kind": "authority",
+      "value": "competent authority",
+      "sortKey": "competent authority",
+      "quote": "…ishment, made from year to year under a general scheme by a competent authority, or in respect of an allowance sanctioned for a post or for…",
+      "verify": false
+    },
+    {
+      "unitId": "gfr-33",
+      "unitNumber": "33",
+      "kind": "money",
+      "value": "Rupees ten thousand",
+      "sortKey": 10000,
+      "quote": "…were time-barred: (ii) Petty losses of value not exceeding Rupees ten thousand. Rule 33 (2) Cases involving serious irregularities shall b…",
+      "verify": true
+    },
+    {
+      "unitId": "gfr-33",
+      "unitNumber": "33",
+      "kind": "authority",
+      "value": "Audit Officer",
+      "sortKey": "audit officer",
+      "quote": "…ed to the next higher authority as well as to the Statutory Audit Officer and to the concerned Principal Accounts Officer, even when…",
+      "verify": false
+    },
+    {
+      "unitId": "gfr-33",
+      "unitNumber": "33",
+      "kind": "authority",
+      "value": "Accounts Officer",
+      "sortKey": "accounts officer",
+      "quote": "…the Statutory Audit Officer and to the concerned Principal Accounts Officer, even when such loss has been made good by the party respon…",
+      "verify": false
+    },
+    {
+      "unitId": "gfr-33",
+      "unitNumber": "33",
+      "kind": "authority",
+      "value": "Financial Adviser",
+      "sortKey": "financial adviser",
+      "quote": "…ng serious irregularities shall be brought to the notice of Financial Adviser or Chief Accounting Authority of the Ministry or Department…",
+      "verify": false
+    },
+    {
+      "unitId": "gfr-36",
+      "unitNumber": "36",
+      "kind": "authority",
+      "value": "Audit officer",
+      "sortKey": "audit officer",
+      "quote": "…r an abstract thereof being simultaneously forwarded to the Audit officer and Pay and Accounts Officer.",
+      "verify": false
+    },
+    {
+      "unitId": "gfr-36",
+      "unitNumber": "36",
+      "kind": "authority",
+      "value": "Accounts Officer",
+      "sortKey": "accounts officer",
+      "quote": "…g simultaneously forwarded to the Audit officer and Pay and Accounts Officer.",
+      "verify": false
+    },
+    {
+      "unitId": "gfr-39",
+      "unitNumber": "39",
+      "kind": "authority",
+      "value": "Audit Officer",
+      "sortKey": "audit officer",
+      "quote": "…ate authority shall afford all reasonable facilities to the Audit Officer and Pay and Accounts Officer for the discharge of his funct…",
+      "verify": false
+    },
+    {
+      "unitId": "gfr-39",
+      "unitNumber": "39",
+      "kind": "authority",
+      "value": "Accounts Officer",
+      "sortKey": "accounts officer",
+      "quote": "…all reasonable facilities to the Audit Officer and Pay and Accounts Officer for the discharge of his functions, and furnish fullest pos…",
+      "verify": false
+    },
+    {
+      "unitId": "gfr-40",
+      "unitNumber": "40",
+      "kind": "authority",
+      "value": "Audit Officer",
+      "sortKey": "audit officer",
+      "quote": "any information, books or other documents required by the Audit Officer or Accounts Officer.",
+      "verify": false
+    },
+    {
+      "unitId": "gfr-40",
+      "unitNumber": "40",
+      "kind": "authority",
+      "value": "Accounts Officer",
+      "sortKey": "accounts officer",
+      "quote": "…, books or other documents required by the Audit Officer or Accounts Officer.",
+      "verify": false
+    },
+    {
+      "unitId": "gfr-45",
+      "unitNumber": "45",
+      "kind": "time",
+      "value": "three years",
+      "sortKey": 1095,
+      "quote": "…head/ Detailed wise estimate along with actuals of the past three years. While doing the head wise classification, it may be ensure…",
+      "verify": true
+    },
+    {
+      "unitId": "gfr-47",
+      "unitNumber": "47",
+      "kind": "time",
+      "value": "three years",
+      "sortKey": 1095,
+      "quote": "…with appropriate price indices and reviewed at least every three years. (iv) In order to enable ease of revision of user charges,…",
+      "verify": true
+    },
+    {
+      "unitId": "gfr-53",
+      "unitNumber": "53",
+      "kind": "authority",
+      "value": "Financial Adviser",
+      "sortKey": "financial adviser",
+      "quote": "…gs between the Secretary (Expenditure) and the Secretary or Financial Adviser of the Department concerned. The final estimates arrived at…",
+      "verify": false
+    },
+    {
+      "unitId": "gfr-57",
+      "unitNumber": "57",
+      "kind": "authority",
+      "value": "Drawing and Disbursing Officer",
+      "sortKey": "drawing and disbursing officer",
+      "quote": "…he procedure as given below: - (i) For drawal of money, the Drawing and Disbursing Officer shall (a) Prepare and present bills for \"charged\" and \"vote…",
+      "verify": false
+    },
+    {
+      "unitId": "gfr-57",
+      "unitNumber": "57",
+      "kind": "authority",
+      "value": "Controlling Officer",
+      "sortKey": "controlling officer",
+      "quote": "…ining it, to the Head of the Department or other designated Controlling Officer. This statement shall also include adjustment of an inward…",
+      "verify": false
+    },
+    {
+      "unitId": "gfr-57",
+      "unitNumber": "57",
+      "kind": "authority",
+      "value": "Accounts Officer",
+      "sortKey": "accounts officer",
+      "quote": "…djustment of an inward claim, etc., communicated by Pay and Accounts Officer directly to the DDO (and not to his Grant Controlling Offic…",
+      "verify": false
+    },
+    {
+      "unitId": "gfr-57",
+      "unitNumber": "57",
+      "kind": "authority",
+      "value": "DDO",
+      "sortKey": "ddo",
+      "quote": "…., communicated by Pay and Accounts Officer directly to the DDO (and not to his Grant Controlling Officer). If there are no…",
+      "verify": false
+    },
+    {
+      "unitId": "gfr-57",
+      "unitNumber": "57",
+      "kind": "authority",
+      "value": "Controlling Officer",
+      "sortKey": "controlling officer",
+      "quote": "…Accounts Officer directly to the DDO (and not to his Grant Controlling Officer). If there are no entries in the register in any month, a '…",
+      "verify": false
+    },
+    {
+      "unitId": "gfr-57",
+      "unitNumber": "57",
+      "kind": "authority",
+      "value": "Controlling Officer",
+      "sortKey": "controlling officer",
+      "quote": "…ter in any month, a 'nil' statement shall be sent. (iv) The Controlling Officer will maintain a broadsheet in Form GFR 6 to monitor the rec…",
+      "verify": false
+    },
+    {
+      "unitId": "gfr-57",
+      "unitNumber": "57",
+      "kind": "authority",
+      "value": "Controlling Officer",
+      "sortKey": "controlling officer",
+      "quote": "…(v) On receipt of the returns from Disbursing Officers, the Controlling Officer shall examine them and satisfy himself: (a) that the accoun…",
+      "verify": false
+    },
+    {
+      "unitId": "gfr-57",
+      "unitNumber": "57",
+      "kind": "authority",
+      "value": "Controlling Officer",
+      "sortKey": "controlling officer",
+      "quote": "…returns have been signed by Disbursing Officers. Where the Controlling Officer finds defects in any of these respects, he shall take steps…",
+      "verify": false
+    },
+    {
+      "unitId": "gfr-57",
+      "unitNumber": "57",
+      "kind": "authority",
+      "value": "Controlling Officer",
+      "sortKey": "controlling officer",
+      "quote": "…ular month have been received and found to be in order, the Controlling Officer shall compile a statement in Form GFR 7, in which he shall…",
+      "verify": false
+    },
+    {
+      "unitId": "gfr-57",
+      "unitNumber": "57",
+      "kind": "authority",
+      "value": "Accounts Officer",
+      "sortKey": "accounts officer",
+      "quote": "…er the various detailed heads as communicated to him by the Accounts Officer on account of transfer entries and expenditure debited to t…",
+      "verify": false
+    },
+    {
+      "unitId": "gfr-57",
+      "unitNumber": "57",
+      "kind": "authority",
+      "value": "Accounts Officer",
+      "sortKey": "accounts officer",
+      "quote": "…ed by his DDOs. (vii) If any adjustment communicated by the Accounts Officer affects the appropriation at the disposal of a subordinate…",
+      "verify": false
+    },
+    {
+      "unitId": "gfr-57",
+      "unitNumber": "57",
+      "kind": "authority",
+      "value": "Controlling Officer",
+      "sortKey": "controlling officer",
+      "quote": "…t the adjustment has been made shall be communicated by the Controlling Officer to the Disbursing Officer concerned. (viii) On receipt of a…",
+      "verify": false
+    },
+    {
+      "unitId": "gfr-57",
+      "unitNumber": "57",
+      "kind": "authority",
+      "value": "Accounts Officer",
+      "sortKey": "accounts officer",
+      "quote": "…eding month. Rule 57 (5) The Head of the Department and the Accounts Officer shall be jointly responsible for the monthly reconciliation…",
+      "verify": false
+    },
+    {
+      "unitId": "gfr-57",
+      "unitNumber": "57",
+      "kind": "authority",
+      "value": "Accounts Officer",
+      "sortKey": "accounts officer",
+      "quote": "…d by the Head of the Department with those appearing in the Accounts Officer's books. The procedure for reconciliation shall be as follo…",
+      "verify": false
+    },
+    {
+      "unitId": "gfr-57",
+      "unitNumber": "57",
+      "kind": "authority",
+      "value": "DDO",
+      "sortKey": "ddo",
+      "quote": "…of e- payments are verified from the reports available with DDO on PFMS portal these shall be noted in the appropriate colu…",
+      "verify": false
+    },
+    {
+      "unitId": "gfr-57",
+      "unitNumber": "57",
+      "kind": "authority",
+      "value": "DDO",
+      "sortKey": "ddo",
+      "quote": "…e two sets of figures shall be promptly investigated by the DDO in consultation with the PAO. He shall also note in the GFR…",
+      "verify": false
+    },
+    {
+      "unitId": "gfr-57",
+      "unitNumber": "57",
+      "kind": "authority",
+      "value": "DDO",
+      "sortKey": "ddo",
+      "quote": "…d by the PAO through the monthly statement. Thereafter, the DDO shall furnish to the PAO a certificate of agreement of the…",
+      "verify": false
+    },
+    {
+      "unitId": "gfr-57",
+      "unitNumber": "57",
+      "kind": "authority",
+      "value": "Accounts Officer",
+      "sortKey": "accounts officer",
+      "quote": "…e month following the month of accounts. (iv) The Principal Accounts Officer (or PAO wherever payments, relating to a grant are handled…",
+      "verify": false
+    },
+    {
+      "unitId": "gfr-57",
+      "unitNumber": "57",
+      "kind": "authority",
+      "value": "Accounts Officer",
+      "sortKey": "accounts officer",
+      "quote": "…ry as a whole. The figures so communicated by the Principal Accounts Officer (or the PAO concerned) shall be compared by the Heads of De…",
+      "verify": false
+    },
+    {
+      "unitId": "gfr-57",
+      "unitNumber": "57",
+      "kind": "authority",
+      "value": "Accounts Officer",
+      "sortKey": "accounts officer",
+      "quote": "…ment shall furnish a quarterly certificate to the Principal Accounts Officer certifying the correctness of the figures for the quarter b…",
+      "verify": false
+    },
+    {
+      "unitId": "gfr-57",
+      "unitNumber": "57",
+      "kind": "authority",
+      "value": "Head of Department",
+      "sortKey": "head of department",
+      "quote": "…maintained by the Departments of Central Government or each Head of Department and other authorities directly under them, to watch the pro…",
+      "verify": false
+    },
+    {
+      "unitId": "gfr-58",
+      "unitNumber": "58",
+      "kind": "authority",
+      "value": "Controlling Officer",
+      "sortKey": "controlling officer",
+      "quote": "…re. In order to maintain proper control over expenditure, a Controlling Officer shall obtain from the spending authorities liability statem…",
+      "verify": false
+    },
+    {
+      "unitId": "gfr-58",
+      "unitNumber": "58",
+      "kind": "authority",
+      "value": "Controlling Officer",
+      "sortKey": "controlling officer",
+      "quote": "…rting from the month of October in each financial year. The Controlling Officer shall also maintain a Liability Register in Form GFR 3.",
+      "verify": false
+    },
+    {
+      "unitId": "gfr-59",
+      "unitNumber": "59",
+      "kind": "authority",
+      "value": "Controlling Officer",
+      "sortKey": "controlling officer",
+      "quote": "/ Controlling Officer required to estimate savings or excesses. A Head of Departm…",
+      "verify": false
+    },
+    {
+      "unitId": "gfr-59",
+      "unitNumber": "59",
+      "kind": "authority",
+      "value": "Head of Department",
+      "sortKey": "head of department",
+      "quote": "…rolling Officer required to estimate savings or excesses. A Head of Department or Controlling Officer shall be in a position to estimate t…",
+      "verify": false
+    },
+    {
+      "unitId": "gfr-59",
+      "unitNumber": "59",
+      "kind": "authority",
+      "value": "Controlling Officer",
+      "sortKey": "controlling officer",
+      "quote": "…ed to estimate savings or excesses. A Head of Department or Controlling Officer shall be in a position to estimate the likelihood of saving…",
+      "verify": false
+    },
+    {
+      "unitId": "gfr-60",
+      "unitNumber": "60",
+      "kind": "authority",
+      "value": "Accounts Officer",
+      "sortKey": "accounts officer",
+      "quote": "…imate responsibility of the authority administering it. The Accounts Officer shall report to the Head of the Department concerned immedi…",
+      "verify": false
+    },
+    {
+      "unitId": "gfr-60",
+      "unitNumber": "60",
+      "kind": "authority",
+      "value": "Accounts Officer",
+      "sortKey": "accounts officer",
+      "quote": "…of expenditure against the grant/appropriation and not the Accounts Officer.",
+      "verify": false
+    },
+    {
+      "unitId": "gfr-61",
+      "unitNumber": "61",
+      "kind": "authority",
+      "value": "Accounts Officer",
+      "sortKey": "accounts officer",
+      "quote": "1. The Accounts Officer shall not allow any payment against sanctions in excess of…",
+      "verify": false
+    },
+    {
+      "unitId": "gfr-62",
+      "unitNumber": "62",
+      "kind": "authority",
+      "value": "Accounts Officer",
+      "sortKey": "accounts officer",
+      "quote": "…acceptance of such surrenders as are accepted by it to the Accounts Officer, before the close of the year. The funds provided during th…",
+      "verify": false
+    },
+    {
+      "unitId": "gfr-65",
+      "unitNumber": "65",
+      "kind": "money",
+      "value": "Rupees 1 lakh",
+      "sortKey": 100000,
+      "quote": "…ning re-appropriation, the reasons for saving and excess of Rupees 1 lakh or over and the primary units (secondary units, wherever ne…",
+      "verify": false
+    },
+    {
+      "unitId": "gfr-65",
+      "unitNumber": "65",
+      "kind": "authority",
+      "value": "competent authority",
+      "sortKey": "competent authority",
+      "quote": "…nit within a grant or appropriation, may be sanctioned by a competent authority at any time before the close of the financial year to which…",
+      "verify": false
+    },
+    {
+      "unitId": "gfr-65",
+      "unitNumber": "65",
+      "kind": "authority",
+      "value": "Accounts Officer",
+      "sortKey": "accounts officer",
+      "quote": "…e re-appropriation shall endorse a copy of the order to the Accounts Officer.",
+      "verify": false
+    },
+    {
+      "unitId": "gfr-71",
+      "unitNumber": "71",
+      "kind": "time",
+      "value": "six months",
+      "sortKey": 180,
+      "quote": "…l be submitted to the President of India, preferably within six months of close of the Financial Year, who shall cause them to be…",
+      "verify": false
+    },
+    {
+      "unitId": "gfr-81",
+      "unitNumber": "81",
+      "kind": "authority",
+      "value": "Controlling Officer",
+      "sortKey": "controlling officer",
+      "quote": "…returns relating to them as may be required by Government, Controlling Officer or Accounts Officer, as the case may be.",
+      "verify": false
+    },
+    {
+      "unitId": "gfr-81",
+      "unitNumber": "81",
+      "kind": "authority",
+      "value": "Accounts Officer",
+      "sortKey": "accounts officer",
+      "quote": "…em as may be required by Government, Controlling Officer or Accounts Officer, as the case may be.",
+      "verify": false
+    },
+    {
+      "unitId": "gfr-82",
+      "unitNumber": "82",
+      "kind": "authority",
+      "value": "Accounts Officer",
+      "sortKey": "accounts officer",
+      "quote": "…be accounted, the matter shall be referred to the Principal Accounts Officer of the Ministry/ Department concerned for clarification of…",
+      "verify": false
+    },
+    {
+      "unitId": "gfr-85",
+      "unitNumber": "85",
+      "kind": "authority",
+      "value": "Drawing and Disbursing Officer",
+      "sortKey": "drawing and disbursing officer",
+      "quote": "…a Ministry or Department. Pay & Accounts offices and Cheque Drawing and Disbursing Officer shall have assignment accounts with the identified branches…",
+      "verify": false
+    },
+    {
+      "unitId": "gfr-95",
+      "unitNumber": "95",
+      "kind": "authority",
+      "value": "Accounts Officer",
+      "sortKey": "accounts officer",
+      "quote": "…any. Such accounts and statements shall be submitted to the Accounts Officer on such date as may be required by him. The same shall be a…",
+      "verify": false
+    },
+    {
+      "unitId": "gfr-98",
+      "unitNumber": "98",
+      "kind": "authority",
+      "value": "competent authority",
+      "sortKey": "competent authority",
+      "quote": "…life of the asset, as may be sanctioned under rules made by competent authority. (b) Subject to Clause (c) below, revenue shall bear subseq…",
+      "verify": false
+    },
+    {
+      "unitId": "gfr-109",
+      "unitNumber": "109",
+      "kind": "time",
+      "value": "a period of three years",
+      "sortKey": 1095,
+      "quote": "As a convention, a period of three years has been accepted by the Central and State Governments for…",
+      "verify": true
+    },
+    {
+      "unitId": "gfr-111",
+      "unitNumber": "111",
+      "kind": "money",
+      "value": "Rupees ten thousand",
+      "sortKey": 10000,
+      "quote": "…refer petty and isolated claims for an amount not exceeding Rupees ten thousand against one another",
+      "verify": true
+    },
+    {
+      "unitId": "gfr-115",
+      "unitNumber": "115",
+      "kind": "time",
+      "value": "five years",
+      "sortKey": 1825,
+      "quote": "…um for any individual item (or connected group of items), a five years contract shall be offered to the State Government during wh…",
+      "verify": true
+    },
+    {
+      "unitId": "gfr-115",
+      "unitNumber": "115",
+      "kind": "time",
+      "value": "five years",
+      "sortKey": 1825,
+      "quote": "…nt will be subjected to review at the end of each period of five years. (d) If the amount agreed upon exceeds Rupees Fifty thousan…",
+      "verify": true
+    },
+    {
+      "unitId": "gfr-125",
+      "unitNumber": "125",
+      "kind": "time",
+      "value": "three years",
+      "sortKey": 1095,
+      "quote": "…l Government, within the same financial year and not beyond three years from the date of transaction. This limitation, however, may…",
+      "verify": true
+    },
+    {
+      "unitId": "gfr-127",
+      "unitNumber": "127",
+      "kind": "authority",
+      "value": "Accounts Officer",
+      "sortKey": "accounts officer",
+      "quote": "…gh not of fixed amount, are of a fixed character, etc., the Accounts Officer will automatically make the adjustment in the accounts befo…",
+      "verify": false
+    },
+    {
+      "unitId": "gfr-127",
+      "unitNumber": "127",
+      "kind": "authority",
+      "value": "Controlling Officer",
+      "sortKey": "controlling officer",
+      "quote": "…ld not have been reasonably anticipated should lie with the Controlling Officer. As between different Departments of the same Government, t…",
+      "verify": false
+    },
+    {
+      "unitId": "gfr-133",
+      "unitNumber": "133",
+      "kind": "money",
+      "value": "Rupees Sixty Lakhs",
+      "sortKey": 6000000,
+      "quote": "…may directly execute repair works estimated to cost up to [Rupees Sixty Lakhs]1 after following due procedure indicated in Rule 139, 159…",
+      "verify": true
+    },
+    {
+      "unitId": "gfr-133",
+      "unitNumber": "133",
+      "kind": "money",
+      "value": "Rupees Sixty Lakhs",
+      "sortKey": 6000000,
+      "quote": "…ts discretion, assign repair works estimated to cost above [Rupees Sixty Lakhs]2 and original/ minor works of any value to any Public Work…",
+      "verify": true
+    },
+    {
+      "unitId": "gfr-133",
+      "unitNumber": "133",
+      "kind": "money",
+      "value": "Rupees Sixty Lakhs",
+      "sortKey": 6000000,
+      "quote": "…Department may award repair works estimated to cost above [Rupees Sixty Lakhs]3 and original works of any value to: (i) Any Public Sector…",
+      "verify": true
+    },
+    {
+      "unitId": "gfr-133",
+      "unitNumber": "133",
+      "kind": "money",
+      "value": "Rs 5 crore",
+      "sortKey": 50000000,
+      "quote": "…Departments can assign repair Works estimated to cost up to Rs 5 crore on nomination basis even in normal cases only to the organi…",
+      "verify": false
+    },
+    {
+      "unitId": "gfr-136",
+      "unitNumber": "136",
+      "kind": "authority",
+      "value": "competent authority",
+      "sortKey": "competent authority",
+      "quote": "…i) Sanction to incur expenditure has been obtained from the competent authority. (iii) A properly detailed design has been sanctioned; whil…",
+      "verify": false
+    },
+    {
+      "unitId": "gfr-136",
+      "unitNumber": "136",
+      "kind": "authority",
+      "value": "competent authority",
+      "sortKey": "competent authority",
+      "quote": "…s to cover the charge during the year have been provided by competent authority. (vi) Tenders invited and processed in accordance with rule…",
+      "verify": false
+    },
+    {
+      "unitId": "gfr-136",
+      "unitNumber": "136",
+      "kind": "authority",
+      "value": "competent authority",
+      "sortKey": "competent authority",
+      "quote": "…usly, he should initiate action to obtain approval from the competent authority and also to intimate the concerned Accounts Officer. Rule 1…",
+      "verify": false
+    },
+    {
+      "unitId": "gfr-136",
+      "unitNumber": "136",
+      "kind": "authority",
+      "value": "Accounts Officer",
+      "sortKey": "accounts officer",
+      "quote": "…the competent authority and also to intimate the concerned Accounts Officer. Rule 136 (3) Any development of a project considered neces…",
+      "verify": false
+    },
+    {
+      "unitId": "gfr-139",
+      "unitNumber": "139",
+      "kind": "money",
+      "value": "Rs. Ten lakh",
+      "sortKey": 1000000,
+      "quote": "…framed; (iv) Open tenders will be called for works costing [Rs. Ten lakh to Rs. Sixty lakh]5, (v) limited tenders will be called for…",
+      "verify": true
+    },
+    {
+      "unitId": "gfr-139",
+      "unitNumber": "139",
+      "kind": "money",
+      "value": "Rs. Sixty lakh",
+      "sortKey": 6000000,
+      "quote": "…n tenders will be called for works costing [Rs. Ten lakh to Rs. Sixty lakh]5, (v) limited tenders will be called for works costing les…",
+      "verify": true
+    },
+    {
+      "unitId": "gfr-139",
+      "unitNumber": "139",
+      "kind": "money",
+      "value": "Rupees Ten lakhs",
+      "sortKey": 1000000,
+      "quote": "…limited tenders will be called for works costing less than [Rupees Ten lakhs]6, (vi) Execution of Contract Agreement or Award of work sh…",
+      "verify": true
+    },
+    {
+      "unitId": "gfr-139",
+      "unitNumber": "139",
+      "kind": "authority",
+      "value": "Accounts Officer",
+      "sortKey": "accounts officer",
+      "quote": "…by departmental regulations framed in consultation with the Accounts Officer, generally based on the procedures and the principles under…",
+      "verify": false
+    },
+    {
+      "unitId": "gfr-139",
+      "unitNumber": "139",
+      "kind": "authority",
+      "value": "competent Authority",
+      "sortKey": "competent authority",
+      "quote": "…of Administrative Approval and Expenditure Sanction by the competent Authority on the basis of estimates framed; (iv) Open tenders will be…",
+      "verify": false
+    },
+    {
+      "unitId": "gfr-141",
+      "unitNumber": "141",
+      "kind": "money",
+      "value": "Rs. 100 crore",
+      "sortKey": 1000000000,
+      "quote": "After a project costing Rs. 100 crore or above is approved, the Administrative Ministry or Depart…",
+      "verify": false
+    },
+    {
+      "unitId": "gfr-141",
+      "unitNumber": "141",
+      "kind": "money",
+      "value": "Rs. 100 crores",
+      "sortKey": 1000000000,
+      "quote": "…10% of the approved estimates. For works costing less than Rs. 100 crores, it 5 Amended vide Department of Expenditure (DoE), Ministr…",
+      "verify": false
+    },
+    {
+      "unitId": "gfr-144",
+      "unitNumber": "144",
+      "kind": "authority",
+      "value": "procuring entity",
+      "sortKey": "procuring entity",
+      "quote": "…ary Government, where such standards exist. Provided that a procuring entity may, for reasons to be recorded in writing, adopt any other…",
+      "verify": false
+    },
+    {
+      "unitId": "gfr-146",
+      "unitNumber": "146",
+      "kind": "money",
+      "value": "Rs. 1,00,000",
+      "sortKey": 100000,
+      "quote": "…OM No. F/1/3/2024-PPD dated 10.07.2024. 5 Replace with upto Rs. 1,00,000/- in case of Scientific Ministries/Departments/Organisation…",
+      "verify": false
+    },
+    {
+      "unitId": "gfr-149",
+      "unitNumber": "149",
+      "kind": "time",
+      "value": "30 days",
+      "sortKey": 30,
+      "quote": "…Procurement Plan of goods and services on GeM portal within 30 days of Budget approval. (vii) The Government Buyers may ascerta…",
+      "verify": false
+    },
+    {
+      "unitId": "gfr-149",
+      "unitNumber": "149",
+      "kind": "money",
+      "value": "Rs.50,000",
+      "sortKey": 50000,
+      "quote": "…buyers for direct on-line purchases as under: (i) [Up to [(Rs.50,000/-)4]5 through any of the available suppliers on the GeM, me…",
+      "verify": false
+    },
+    {
+      "unitId": "gfr-149",
+      "unitNumber": "149",
+      "kind": "money",
+      "value": "Rs.50,000",
+      "sortKey": 50000,
+      "quote": "…ub-rule is permitted without any ceiling limit. (ii) Above [Rs.50,000/- and up to Rs.10,00,000/-6]7 through the GeM Seller having…",
+      "verify": false
+    },
+    {
+      "unitId": "gfr-149",
+      "unitNumber": "149",
+      "kind": "money",
+      "value": "Rs.10,00,000",
+      "sortKey": 1000000,
+      "quote": "…ithout any ceiling limit. (ii) Above [Rs.50,000/- and up to Rs.10,00,000/-6]7 through the GeM Seller having lowest price amongst the…",
+      "verify": false
+    },
+    {
+      "unitId": "gfr-149",
+      "unitNumber": "149",
+      "kind": "money",
+      "value": "Rs. 1,00,000",
+      "sortKey": 100000,
+      "quote": "…M No. F/1/3/2024-PPD dated 10.07.2024. 7 Replace with above Rs. 1,00,000/- and up to Rs. 10,00,000/- in case of Scientific Ministrie…",
+      "verify": false
+    },
+    {
+      "unitId": "gfr-149",
+      "unitNumber": "149",
+      "kind": "money",
+      "value": "Rs. 10,00,000",
+      "sortKey": 1000000,
+      "quote": "…d 10.07.2024. 7 Replace with above Rs. 1,00,000/- and up to Rs. 10,00,000/- in case of Scientific Ministries/Departments /Organisatio…",
+      "verify": false
+    },
+    {
+      "unitId": "gfr-149",
+      "unitNumber": "149",
+      "kind": "money",
+      "value": "Rs 10,00,000",
+      "sortKey": 1000000,
+      "quote": "…2024. be used by the Buyer even for procurements less than [Rs 10,00,000]8. (iii) Above [Rs.10,00,000/-]9 through the supplier havin…",
+      "verify": false
+    },
+    {
+      "unitId": "gfr-149",
+      "unitNumber": "149",
+      "kind": "money",
+      "value": "Rs.10,00,000",
+      "sortKey": 1000000,
+      "quote": "…en for procurements less than [Rs 10,00,000]8. (iii) Above [Rs.10,00,000/-]9 through the supplier having lowest price meeting the re…",
+      "verify": false
+    },
+    {
+      "unitId": "gfr-150",
+      "unitNumber": "150",
+      "kind": "time",
+      "value": "3 years",
+      "sortKey": 1095,
+      "quote": "…lier(s) will be registered for a fixed period (between 1 to 3 years) depending on the nature of the goods. At the end of this p…",
+      "verify": true
+    },
+    {
+      "unitId": "gfr-150",
+      "unitNumber": "150",
+      "kind": "authority",
+      "value": "Procuring Entity",
+      "sortKey": "procuring entity",
+      "quote": "…bject matter of procurement be exhibited on websites of the Procuring Entity/ their e-Procurement portals.]11",
+      "verify": false
+    },
+    {
+      "unitId": "gfr-151",
+      "unitNumber": "151",
+      "kind": "time",
+      "value": "three years",
+      "sortKey": 1095,
+      "quote": "…process of any procuring entity for a period not exceeding three years commencing from the date of debarment. Department of Expend…",
+      "verify": false
+    },
+    {
+      "unitId": "gfr-151",
+      "unitNumber": "151",
+      "kind": "time",
+      "value": "two years",
+      "sortKey": 730,
+      "quote": "…rement process undertaken by it, for a period not exceeding two years, if it determines that the bidder has breached the code of…",
+      "verify": false
+    },
+    {
+      "unitId": "gfr-151",
+      "unitNumber": "151",
+      "kind": "authority",
+      "value": "procuring entity",
+      "sortKey": "procuring entity",
+      "quote": "…be eligible to participate in a procurement process of any procuring entity for a period not exceeding three years commencing from the…",
+      "verify": false
+    },
+    {
+      "unitId": "gfr-151",
+      "unitNumber": "151",
+      "kind": "authority",
+      "value": "procuring entity",
+      "sortKey": "procuring entity",
+      "quote": "…ed vide DoE OM No. F.1/20/2018-PPD dated 02.11.2021 (iii) A procuring entity may debar a bidder or any of its successors, from participa…",
+      "verify": false
+    },
+    {
+      "unitId": "gfr-152",
+      "unitNumber": "152",
+      "kind": "money",
+      "value": "Rs. 2,00,000",
+      "sortKey": 200000,
+      "quote": "…7.2024. 16 Replace with purchase of goods upto the value of Rs. 2,00,000/- (Rupees Two lakh) only on each occasion in case of Scient…",
+      "verify": false
+    },
+    {
+      "unitId": "gfr-152",
+      "unitNumber": "152",
+      "kind": "money",
+      "value": "Rupees Two lakh",
+      "sortKey": 200000,
+      "quote": "…ce with purchase of goods upto the value of Rs. 2,00,000/- (Rupees Two lakh) only on each occasion in case of Scientific Ministries/ De…",
+      "verify": true
+    },
+    {
+      "unitId": "gfr-154",
+      "unitNumber": "154",
+      "kind": "money",
+      "value": "Rs. 50,000",
+      "sortKey": 50000,
+      "quote": "…lable on GeM portal], Purchase of goods upto the value of [{Rs. 50,000 (Rupees fifty thousand) only}15]16 on each occasion may be…",
+      "verify": false
+    },
+    {
+      "unitId": "gfr-154",
+      "unitNumber": "154",
+      "kind": "authority",
+      "value": "competent authority",
+      "sortKey": "competent authority",
+      "quote": "…or bids on the basis of a certificate to be recorded by the competent authority in the following format. \"I am personally satisfied that th…",
+      "verify": false
+    },
+    {
+      "unitId": "gfr-155",
+      "unitNumber": "155",
+      "kind": "money",
+      "value": "Rs.50,000",
+      "sortKey": 50000,
+      "quote": "…ble on the GeM portal]17, Purchase of goods costing above [{Rs.50,000 (Rupees Fifty thousand only) and upto Rs.5,00,000/- (Rupees…",
+      "verify": false
+    },
+    {
+      "unitId": "gfr-155",
+      "unitNumber": "155",
+      "kind": "money",
+      "value": "Rs.5,00,000",
+      "sortKey": 500000,
+      "quote": "…ing above [{Rs.50,000 (Rupees Fifty thousand only) and upto Rs.5,00,000/- (Rupees Five lakh only)}18]19 on each goods are not avail…",
+      "verify": false
+    },
+    {
+      "unitId": "gfr-155",
+      "unitNumber": "155",
+      "kind": "money",
+      "value": "Rupees Five lakh",
+      "sortKey": 500000,
+      "quote": "…50,000 (Rupees Fifty thousand only) and upto Rs.5,00,000/- (Rupees Five lakh only)}18]19 on each goods are not available on Government e…",
+      "verify": true
+    },
+    {
+      "unitId": "gfr-155",
+      "unitNumber": "155",
+      "kind": "money",
+      "value": "Rs. 2,00,000",
+      "sortKey": 200000,
+      "quote": "…10.07.2024 19 Replace with purchase of goods costing above Rs. 2,00,000/- (Rupees Two lakh) and upto Rs. 25,00,000/- (Rupees Twenty…",
+      "verify": false
+    },
+    {
+      "unitId": "gfr-155",
+      "unitNumber": "155",
+      "kind": "money",
+      "value": "Rupees Two lakh",
+      "sortKey": 200000,
+      "quote": "…eplace with purchase of goods costing above Rs. 2,00,000/- (Rupees Two lakh) and upto Rs. 25,00,000/- (Rupees Twenty Five lakh) on each…",
+      "verify": true
+    },
+    {
+      "unitId": "gfr-155",
+      "unitNumber": "155",
+      "kind": "money",
+      "value": "Rs. 25,00,000",
+      "sortKey": 2500000,
+      "quote": "…ods costing above Rs. 2,00,000/- (Rupees Two lakh) and upto Rs. 25,00,000/- (Rupees Twenty Five lakh) on each occasion in case of Sci…",
+      "verify": false
+    },
+    {
+      "unitId": "gfr-155",
+      "unitNumber": "155",
+      "kind": "money",
+      "value": "Rupees Twenty",
+      "sortKey": 20,
+      "quote": "…Rs. 2,00,000/- (Rupees Two lakh) and upto Rs. 25,00,000/- (Rupees Twenty Five lakh) on each occasion in case of Scientific Ministrie…",
+      "verify": true
+    },
+    {
+      "unitId": "gfr-160",
+      "unitNumber": "160",
+      "kind": "authority",
+      "value": "Competent Authority",
+      "sortKey": "competent authority",
+      "quote": "…. (v) In case of tenders floated by Indian Missions Abroad, Competent Authority to decide the tender, may exempt such case from e-procureme…",
+      "verify": false
+    },
+    {
+      "unitId": "gfr-161",
+      "unitNumber": "161",
+      "kind": "time",
+      "value": "three weeks",
+      "sortKey": 21,
+      "quote": "…minimum time to be allowed for submission of bids should be three weeks from the date of publication of institutions and Universiti…",
+      "verify": true
+    },
+    {
+      "unitId": "gfr-161",
+      "unitNumber": "161",
+      "kind": "time",
+      "value": "four weeks",
+      "sortKey": 28,
+      "quote": "…ning bids from abroad, the minimum period should be kept as four weeks for both domestic and foreign bidders.",
+      "verify": true
+    },
+    {
+      "unitId": "gfr-161",
+      "unitNumber": "161",
+      "kind": "money",
+      "value": "Rs. 50 lakhs",
+      "sortKey": 5000000,
+      "quote": "…ld be used for procurement of goods of estimated value of [(Rs. 50 lakhs (Rupees Fifty Lakh) and above)24]25 Advertisement in such c…",
+      "verify": false
+    },
+    {
+      "unitId": "gfr-161",
+      "unitNumber": "161",
+      "kind": "money",
+      "value": "Rs. 1,00,00,000",
+      "sortKey": 10000000,
+      "quote": "…024 25 Replace with procurement of goods estimated value of Rs. 1,00,00,000/- (Rupees one crore) and above in case of Scientific Minist…",
+      "verify": false
+    },
+    {
+      "unitId": "gfr-161",
+      "unitNumber": "161",
+      "kind": "money",
+      "value": "Rupees one crore",
+      "sortKey": 10000000,
+      "quote": "…procurement of goods estimated value of Rs. 1,00,00,000/- (Rupees one crore) and above in case of Scientific Ministries/ Departments/ O…",
+      "verify": true
+    },
+    {
+      "unitId": "gfr-161",
+      "unitNumber": "161",
+      "kind": "money",
+      "value": "Rs 200 crore",
+      "sortKey": 2000000000,
+      "quote": "…r Enquiry (GTE), however shall be invited for tenders up to Rs 200 crore or such limit as may be prescribed by the Department of Exp…",
+      "verify": false
+    },
+    {
+      "unitId": "gfr-161",
+      "unitNumber": "161",
+      "kind": "authority",
+      "value": "Competent Authority",
+      "sortKey": "competent authority",
+      "quote": "…ek prior approval for relaxation to the above rule from the Competent Authority specified by the Department of Expenditure.]26 (v) In order…",
+      "verify": false
+    },
+    {
+      "unitId": "gfr-162",
+      "unitNumber": "162",
+      "kind": "money",
+      "value": "Rs. 50 lakhs",
+      "sortKey": 5000000,
+      "quote": "…when estimated value of the goods to be procured is up to [Rs. 50 lakhs (Rupees Fifty Lakhs)27]28. Copies of the bidding document s…",
+      "verify": false
+    },
+    {
+      "unitId": "gfr-162",
+      "unitNumber": "162",
+      "kind": "money",
+      "value": "Rupees one crore",
+      "sortKey": 10000000,
+      "quote": "…mated value of goods to be procured is up to 1,00,00,000/- (Rupees one crore) and above in case of Scientific Ministries/ Departments/ O…",
+      "verify": true
+    },
+    {
+      "unitId": "gfr-162",
+      "unitNumber": "162",
+      "kind": "authority",
+      "value": "competent authority",
+      "sortKey": "competent authority",
+      "quote": "…uding its affiliated institutions and Universities, (a) The competent authority in the Ministry or Department certifies that the demand is…",
+      "verify": false
+    },
+    {
+      "unitId": "gfr-162",
+      "unitNumber": "162",
+      "kind": "authority",
+      "value": "competent authority",
+      "sortKey": "competent authority",
+      "quote": "…re are sufficient reasons, to be recorded in writing by the competent authority, indicating that it will not be in public interest to procu…",
+      "verify": false
+    },
+    {
+      "unitId": "gfr-164",
+      "unitNumber": "164",
+      "kind": "authority",
+      "value": "procuring entity",
+      "sortKey": "procuring entity",
+      "quote": "…g the relevant terms and conditions of the procurement, the procuring entity shall not modify the fundamental nature of the procurement…",
+      "verify": false
+    },
+    {
+      "unitId": "gfr-164",
+      "unitNumber": "164",
+      "kind": "authority",
+      "value": "procuring entity",
+      "sortKey": "procuring entity",
+      "quote": "…uation; (e) In the second stage of the bidding process, the procuring entity shall invite bids from all those bidders whose bids at the…",
+      "verify": false
+    },
+    {
+      "unitId": "gfr-166",
+      "unitNumber": "166",
+      "kind": "authority",
+      "value": "competent authority",
+      "sortKey": "competent authority",
+      "quote": "…reason for such decision is to be recorded and approval of competent authority obtained. (iii) For standardisation of machinery or spare p…",
+      "verify": false
+    },
+    {
+      "unitId": "gfr-166",
+      "unitNumber": "166",
+      "kind": "authority",
+      "value": "competent authority",
+      "sortKey": "competent authority",
+      "quote": "…advice of a competent technical expert and approved by the competent authority), the required item is to be purchased only from a selected…",
+      "verify": false
+    },
+    {
+      "unitId": "gfr-166",
+      "unitNumber": "166",
+      "kind": "authority",
+      "value": "competent authority",
+      "sortKey": "competent authority",
+      "quote": "…ng to the proposal vide: ………………………………… (iv) Approval of the competent authority vide: (Signature with date and designation of the indenting…",
+      "verify": false
+    },
+    {
+      "unitId": "gfr-167",
+      "unitNumber": "167",
+      "kind": "authority",
+      "value": "procuring entity",
+      "sortKey": "procuring entity",
+      "quote": "…ns an online real-time purchasing technique utilised by the procuring entity to select the successful bid, which involves presentation b…",
+      "verify": false
+    },
+    {
+      "unitId": "gfr-167",
+      "unitNumber": "167",
+      "kind": "authority",
+      "value": "procuring entity",
+      "sortKey": "procuring entity",
+      "quote": "…led period of time and automatic evaluation of bids; (ii) A procuring entity may choose to procure a subject matter of procurement by th…",
+      "verify": false
+    },
+    {
+      "unitId": "gfr-167",
+      "unitNumber": "167",
+      "kind": "authority",
+      "value": "procuring entity",
+      "sortKey": "procuring entity",
+      "quote": "…onic reverse auction method, if: (a) It is feasible for the procuring entity to formulate a detailed description of the subject matter o…",
+      "verify": false
+    },
+    {
+      "unitId": "gfr-167",
+      "unitNumber": "167",
+      "kind": "authority",
+      "value": "procuring entity",
+      "sortKey": "procuring entity",
+      "quote": "…competition is ensured; (c) The criteria to be used by the procuring entity in determining the successful bid are quantifiable and can…",
+      "verify": false
+    },
+    {
+      "unitId": "gfr-167",
+      "unitNumber": "167",
+      "kind": "authority",
+      "value": "procuring entity",
+      "sortKey": "procuring entity",
+      "quote": "…everse auction shall include the following, namely: (a) The procuring entity shall solicit bids through an invitation to the electronic…",
+      "verify": false
+    },
+    {
+      "unitId": "gfr-170",
+      "unitNumber": "170",
+      "kind": "time",
+      "value": "a period of forty-five days",
+      "sortKey": 45,
+      "quote": "…respects. The bid security is normally to remain valid for a period of forty-five days beyond the final bid validity period. (ii) Bid securities o…",
+      "verify": true
+    },
+    {
+      "unitId": "gfr-170",
+      "unitNumber": "170",
+      "kind": "time",
+      "value": "30 days",
+      "sortKey": 30,
+      "quote": "…ge i.e. technical evaluation etc. should be returned within 30 days of declaration of result of first stage i.e. technical eval…",
+      "verify": false
+    },
+    {
+      "unitId": "gfr-171",
+      "unitNumber": "171",
+      "kind": "time",
+      "value": "a period of sixty days",
+      "sortKey": 60,
+      "quote": "…respects. (ii) Performance Security should remain valid for a period of sixty days beyond the date of completion of all contractual obligation…",
+      "verify": true
+    },
+    {
+      "unitId": "gfr-172",
+      "unitNumber": "172",
+      "kind": "time",
+      "value": "six months",
+      "sortKey": 180,
+      "quote": "…ntract, the amount should not exceed the amount payable for six months under the contract. Ministries or Departments of the Centra…",
+      "verify": true
+    },
+    {
+      "unitId": "gfr-172",
+      "unitNumber": "172",
+      "kind": "money",
+      "value": "Rs. 50 lakhs",
+      "sortKey": 5000000,
+      "quote": "…h Committee in case estimated value of procurement exceeds [Rs. 50 lakhs]39. Rule Efficiency, Economy and Accountability in Public P…",
+      "verify": false
+    },
+    {
+      "unitId": "gfr-172",
+      "unitNumber": "172",
+      "kind": "authority",
+      "value": "procuring entity",
+      "sortKey": "procuring entity",
+      "quote": "…ll not be considered\". (ii) Any other information which the procuring entity considers necessary for the bidders to submit their bids. (…",
+      "verify": false
+    },
+    {
+      "unitId": "gfr-172",
+      "unitNumber": "172",
+      "kind": "authority",
+      "value": "procuring entity",
+      "sortKey": "procuring entity",
+      "quote": "…ly affects the terms contained in the bidding document, the procuring entity shall publish or communicate such modification or clarifica…",
+      "verify": false
+    },
+    {
+      "unitId": "gfr-172",
+      "unitNumber": "172",
+      "kind": "authority",
+      "value": "procuring entity",
+      "sortKey": "procuring entity",
+      "quote": "…tion or modification is issued to the bidding document, the procuring entity shall, before the last date for submission of bids, extend…",
+      "verify": false
+    },
+    {
+      "unitId": "gfr-172",
+      "unitNumber": "172",
+      "kind": "authority",
+      "value": "procuring entity",
+      "sortKey": "procuring entity",
+      "quote": "…r the modifications are made to the bidding document by the procuring entity: Provided that the bid last submitted or the bid as modifie…",
+      "verify": false
+    },
+    {
+      "unitId": "gfr-172",
+      "unitNumber": "172",
+      "kind": "authority",
+      "value": "competent authority",
+      "sortKey": "competent authority",
+      "quote": "…ntract, every Ministry/Department, with the approval of the competent authority, may delegate, wherever necessary, appropriate purchasing p…",
+      "verify": false
+    },
+    {
+      "unitId": "gfr-175",
+      "unitNumber": "175",
+      "kind": "time",
+      "value": "three years",
+      "sortKey": 1095,
+      "quote": "…b-clause (i) with any entity in any country during the last three years or of being debarred by any other procuring entity. Rule 17…",
+      "verify": true
+    },
+    {
+      "unitId": "gfr-175",
+      "unitNumber": "175",
+      "kind": "authority",
+      "value": "procuring entity",
+      "sortKey": "procuring entity",
+      "quote": "No official of a procuring entity or a bidder shall act in contravention of the codes which i…",
+      "verify": false
+    },
+    {
+      "unitId": "gfr-175",
+      "unitNumber": "175",
+      "kind": "authority",
+      "value": "procuring entity",
+      "sortKey": "procuring entity",
+      "quote": "…nt process. (d) Improper use of information provided by the procuring entity to the bidder with an intent to gain unfair advantage in th…",
+      "verify": false
+    },
+    {
+      "unitId": "gfr-175",
+      "unitNumber": "175",
+      "kind": "authority",
+      "value": "procuring entity",
+      "sortKey": "procuring entity",
+      "quote": "…ess transactions between the bidder and any official of the procuring entity related to tender or execution process of contract; which c…",
+      "verify": false
+    },
+    {
+      "unitId": "gfr-175",
+      "unitNumber": "175",
+      "kind": "authority",
+      "value": "procuring entity",
+      "sortKey": "procuring entity",
+      "quote": "…n process of contract; which can affect the decision of the procuring entity directly or indirectly. (f) Any coercion or any threat to i…",
+      "verify": false
+    },
+    {
+      "unitId": "gfr-175",
+      "unitNumber": "175",
+      "kind": "authority",
+      "value": "procuring entity",
+      "sortKey": "procuring entity",
+      "quote": "…ring the last three years or of being debarred by any other procuring entity. Rule 175 (2) The procuring entity, after giving a reasonab…",
+      "verify": false
+    },
+    {
+      "unitId": "gfr-175",
+      "unitNumber": "175",
+      "kind": "authority",
+      "value": "procuring entity",
+      "sortKey": "procuring entity",
+      "quote": "…ng debarred by any other procuring entity. Rule 175 (2) The procuring entity, after giving a reasonable opportunity of being heard, come…",
+      "verify": false
+    },
+    {
+      "unitId": "gfr-176",
+      "unitNumber": "176",
+      "kind": "authority",
+      "value": "competent authority",
+      "sortKey": "competent authority",
+      "quote": "When it is decided with the approval of the competent authority to replace an existing old item(s) with a new and better ve…",
+      "verify": false
+    },
+    {
+      "unitId": "gfr-177",
+      "unitNumber": "177",
+      "kind": "authority",
+      "value": "procuring entity",
+      "sortKey": "procuring entity",
+      "quote": "…es or any other service classified or declared as such by a procuring entity but does not include direct engagement of a retired Governm…",
+      "verify": false
+    },
+    {
+      "unitId": "gfr-180",
+      "unitNumber": "180",
+      "kind": "authority",
+      "value": "competent authority",
+      "sortKey": "competent authority",
+      "quote": "…partment does not have requisite expertise. Approval of the competent authority should be obtained before engaging consultant(s).",
+      "verify": false
+    },
+    {
+      "unitId": "gfr-193",
+      "unitNumber": "193",
+      "kind": "authority",
+      "value": "competent authority",
+      "sortKey": "competent authority",
+      "quote": "…election should be recorded in the file and approval of the competent authority obtained before resorting to such single- source selection.…",
+      "verify": false
+    },
+    {
+      "unitId": "gfr-201",
+      "unitNumber": "201",
+      "kind": "money",
+      "value": "Rs. 50 lakhs",
+      "sortKey": 5000000,
+      "quote": "…) For estimated value of the non- consulting service above [Rs. 50 lakhs]45: The Ministry or Department should issue advertisement i…",
+      "verify": false
+    },
+    {
+      "unitId": "gfr-204",
+      "unitNumber": "204",
+      "kind": "authority",
+      "value": "Competent Authority",
+      "sortKey": "competent authority",
+      "quote": "…nsulting service from a specifically chosen contractor, the Competent Authority in the Ministry or Department may do so in consultation wit…",
+      "verify": false
+    },
+    {
+      "unitId": "gfr-204",
+      "unitNumber": "204",
+      "kind": "authority",
+      "value": "Financial Adviser",
+      "sortKey": "financial adviser",
+      "quote": "…e Ministry or Department may do so in consultation with the Financial Adviser. In such cases the detailed justification, the circumstance…",
+      "verify": false
+    },
+    {
+      "unitId": "gfr-206",
+      "unitNumber": "206",
+      "kind": "authority",
+      "value": "procuring entity",
+      "sortKey": "procuring entity",
+      "quote": "…to Rule 205 for procurement of non-consulting services, the procuring entity may refer Rule 142 to Rule 176 pertaining to procurement of…",
+      "verify": false
+    },
+    {
+      "unitId": "gfr-212",
+      "unitNumber": "212",
+      "kind": "authority",
+      "value": "competent authority",
+      "sortKey": "competent authority",
+      "quote": "…d other charges as determined under rules prescribed by the competent authority, should be recovered regularly. Calculation of the charges…",
+      "verify": false
+    },
+    {
+      "unitId": "gfr-213",
+      "unitNumber": "213",
+      "kind": "authority",
+      "value": "competent authority",
+      "sortKey": "competent authority",
+      "quote": "…ecorded in the stock register for appropriate action by the competent authority. Rule 213 (3) Procedure for verification: (i) Verification…",
+      "verify": false
+    },
+    {
+      "unitId": "gfr-213",
+      "unitNumber": "213",
+      "kind": "authority",
+      "value": "competent authority",
+      "sortKey": "competent authority",
+      "quote": "…fication, shall immediately be brought to the notice of the competent authority for taking appropriate action in accordance with provision…",
+      "verify": false
+    },
+    {
+      "unitId": "gfr-214",
+      "unitNumber": "214",
+      "kind": "authority",
+      "value": "competent authority",
+      "sortKey": "competent authority",
+      "quote": "…material, optimum buffer stock should be determined by the competent authority. Note: As the inventory carrying cost is an expenditure tha…",
+      "verify": false
+    },
+    {
+      "unitId": "gfr-215",
+      "unitNumber": "215",
+      "kind": "time",
+      "value": "three years",
+      "sortKey": 1095,
+      "quote": "…volumes, such verification should be done at least once in three years. Sample physical verification at intervals of not more than…",
+      "verify": true
+    },
+    {
+      "unitId": "gfr-215",
+      "unitNumber": "215",
+      "kind": "time",
+      "value": "three years",
+      "sortKey": 1095,
+      "quote": "…Sample physical verification at intervals of not more than three years should be done in case of libraries having more than fifty…",
+      "verify": true
+    },
+    {
+      "unitId": "gfr-215",
+      "unitNumber": "215",
+      "kind": "money",
+      "value": "Rs. 1,000",
+      "sortKey": 1000,
+      "quote": "…or negligence. However, loss of a book of a value exceeding Rs. 1,000/- (Rupees One thousand only) and rare books irrespective of…",
+      "verify": false
+    },
+    {
+      "unitId": "gfr-215",
+      "unitNumber": "215",
+      "kind": "money",
+      "value": "Rupees One thousand",
+      "sortKey": 1000,
+      "quote": "…. However, loss of a book of a value exceeding Rs. 1,000/- (Rupees One thousand only) and rare books irrespective of value shall invariably…",
+      "verify": true
+    },
+    {
+      "unitId": "gfr-217",
+      "unitNumber": "217",
+      "kind": "authority",
+      "value": "competent authority",
+      "sortKey": "competent authority",
+      "quote": "…d by the authority competent to purchase the item. (ii) The competent authority may, at his discretion, constitute a committee at appropria…",
+      "verify": false
+    },
+    {
+      "unitId": "gfr-218",
+      "unitNumber": "218",
+      "kind": "money",
+      "value": "Rupees Four Lakh",
+      "sortKey": 400000,
+      "quote": "…te or unserviceable goods of assessed residual value above [Rupees Four Lakh]1 should be disposed of by: (a) Obtaining bids through adve…",
+      "verify": true
+    },
+    {
+      "unitId": "gfr-218",
+      "unitNumber": "218",
+      "kind": "money",
+      "value": "Rupees Four Lakh",
+      "sortKey": 400000,
+      "quote": "…olete or unserviceable goods with residual value less than [Rupees Four Lakh]2, the mode of disposal will be determined by the competent…",
+      "verify": true
+    },
+    {
+      "unitId": "gfr-218",
+      "unitNumber": "218",
+      "kind": "authority",
+      "value": "competent authority",
+      "sortKey": "competent authority",
+      "quote": "…Four Lakh]2, the mode of disposal will be determined by the competent authority, keeping in view the necessity to avoid accumulation of suc…",
+      "verify": false
+    },
+    {
+      "unitId": "gfr-220",
+      "unitNumber": "220",
+      "kind": "authority",
+      "value": "competent authority",
+      "sortKey": "competent authority",
+      "quote": "…The composition of the auction team will be decided by the competent authority. The team should however include an officer of the Internal…",
+      "verify": false
+    },
+    {
+      "unitId": "gfr-221",
+      "unitNumber": "221",
+      "kind": "authority",
+      "value": "competent authority",
+      "sortKey": "competent authority",
+      "quote": "…ose of the same at its scrap value with the approval of the competent authority in consultation with Finance division. In case the Ministry…",
+      "verify": false
+    },
+    {
+      "unitId": "gfr-223",
+      "unitNumber": "223",
+      "kind": "authority",
+      "value": "competent authority",
+      "sortKey": "competent authority",
+      "quote": "…corded and adjusted where necessary. Formal sanction of the competent authority shall be obtained in respect of losses, even though no form…",
+      "verify": false
+    },
+    {
+      "unitId": "gfr-225",
+      "unitNumber": "225",
+      "kind": "time",
+      "value": "21 days",
+      "sortKey": 21,
+      "quote": "…ntract document, where necessary, should be executed within 21 days of the issue of letter of acceptance. Non- fulfilment of th…",
+      "verify": false
+    },
+    {
+      "unitId": "gfr-225",
+      "unitNumber": "225",
+      "kind": "time",
+      "value": "three years",
+      "sortKey": 1095,
+      "quote": "…ent from contractor shall be entertained after the lapse of three years of arising of the claim.",
+      "verify": true
+    },
+    {
+      "unitId": "gfr-225",
+      "unitNumber": "225",
+      "kind": "money",
+      "value": "Rupees two lakh",
+      "sortKey": 200000,
+      "quote": "….2024 may, at its discretion, make purchases of value up to Rupees two lakh and fifty thousand by issuing purchase orders containing ba…",
+      "verify": true
+    },
+    {
+      "unitId": "gfr-225",
+      "unitNumber": "225",
+      "kind": "money",
+      "value": "Rupees one lakh",
+      "sortKey": 100000,
+      "quote": "…Works Contracts, or Contracts for purchases valued between Rupees one lakh to Rupees ten lakhs, where tender documents include the Gen…",
+      "verify": true
+    },
+    {
+      "unitId": "gfr-225",
+      "unitNumber": "225",
+      "kind": "money",
+      "value": "Rupees ten lakhs",
+      "sortKey": 1000000,
+      "quote": "…r Contracts for purchases valued between Rupees one lakh to Rupees ten lakhs, where tender documents include the General Conditions of C…",
+      "verify": true
+    },
+    {
+      "unitId": "gfr-225",
+      "unitNumber": "225",
+      "kind": "money",
+      "value": "Rupees ten lakhs",
+      "sortKey": 1000000,
+      "quote": "…) In respect of contracts for works with estimated value of Rupees ten lakhs or above or for purchase above Rupees ten lakhs, a Contract…",
+      "verify": true
+    },
+    {
+      "unitId": "gfr-225",
+      "unitNumber": "225",
+      "kind": "money",
+      "value": "Rupees ten lakhs",
+      "sortKey": 1000000,
+      "quote": "…ed value of Rupees ten lakhs or above or for purchase above Rupees ten lakhs, a Contract document should be executed, with all necessary…",
+      "verify": true
+    },
+    {
+      "unitId": "gfr-225",
+      "unitNumber": "225",
+      "kind": "money",
+      "value": "Rupees Twenty",
+      "sortKey": 20,
+      "quote": "…all contracts and agreements for purchases of the value of Rupees Twenty-five Lakhs and above entered into by civil departments of t…",
+      "verify": true
+    },
+    {
+      "unitId": "gfr-225",
+      "unitNumber": "225",
+      "kind": "authority",
+      "value": "Audit Officer",
+      "sortKey": "audit officer",
+      "quote": "…civil departments of the Government, should be sent to the Audit Officer and or the Accounts officer as the case may be.]2 (xiv) (a)…",
+      "verify": false
+    },
+    {
+      "unitId": "gfr-225",
+      "unitNumber": "225",
+      "kind": "authority",
+      "value": "Accounts officer",
+      "sortKey": "accounts officer",
+      "quote": "…Government, should be sent to the Audit Officer and or the Accounts officer as the case may be.]2 (xiv) (a) The terms of a contract, in…",
+      "verify": false
+    },
+    {
+      "unitId": "gfr-225",
+      "unitNumber": "225",
+      "kind": "authority",
+      "value": "procuring entity",
+      "sortKey": "procuring entity",
+      "quote": "…actor. Only in exceptional circumstances to be justified by procuring entity in writing, an exemption from such provision can be made. (…",
+      "verify": false
+    },
+    {
+      "unitId": "gfr-226",
+      "unitNumber": "226",
+      "kind": "time",
+      "value": "three months",
+      "sortKey": 90,
+      "quote": "…of all Bank Guarantees or other instruments expiring after three months, along with a review of the progress of supply or work. Ext…",
+      "verify": true
+    },
+    {
+      "unitId": "gfr-229",
+      "unitNumber": "229",
+      "kind": "time",
+      "value": "five years",
+      "sortKey": 1825,
+      "quote": "…rnal peer review of autonomous organisations every three or five years depending on the size and nature of activity. Such a review…",
+      "verify": true
+    },
+    {
+      "unitId": "gfr-229",
+      "unitNumber": "229",
+      "kind": "time",
+      "value": "five years",
+      "sortKey": 1825,
+      "quote": "…ative Department. Further releases of Grant (after three or five years, as the case may be), should be made conditional on conduct…",
+      "verify": true
+    },
+    {
+      "unitId": "gfr-229",
+      "unitNumber": "229",
+      "kind": "money",
+      "value": "Rupees five crores",
+      "sortKey": 50000000,
+      "quote": "…ations as also others with a budgetary support of more than Rupees five crores per annum, should be required to enter in to a Memorandum o…",
+      "verify": true
+    },
+    {
+      "unitId": "gfr-230",
+      "unitNumber": "230",
+      "kind": "time",
+      "value": "3 months",
+      "sortKey": 90,
+      "quote": "…) Cash balance at a time should preferably not be more than 3 months of requirements (ii) Funds should be released as per actual…",
+      "verify": true
+    },
+    {
+      "unitId": "gfr-230",
+      "unitNumber": "230",
+      "kind": "time",
+      "value": "two years",
+      "sortKey": 730,
+      "quote": "…to meet the bonafide expenditure incurred not earlier than two years prior to the date of issue of the sanction. Rule 230 (16) T…",
+      "verify": true
+    },
+    {
+      "unitId": "gfr-230",
+      "unitNumber": "230",
+      "kind": "money",
+      "value": "Rupees twenty lakhs",
+      "sortKey": 2000000,
+      "quote": "…is in receipt of a general purpose annual Grants-in-aid of Rupees twenty lakhs and above from the Consolidated Fund of India; (c) the Gran…",
+      "verify": true
+    },
+    {
+      "unitId": "gfr-230",
+      "unitNumber": "230",
+      "kind": "authority",
+      "value": "Financial Adviser",
+      "sortKey": "financial adviser",
+      "quote": "…of Grants-in- aid in installments in consultation with the Financial Adviser. However, the release of the last installment of the Annual…",
+      "verify": false
+    },
+    {
+      "unitId": "gfr-234",
+      "unitNumber": "234",
+      "kind": "authority",
+      "value": "Drawing and Disbursing Officer",
+      "sortKey": "drawing and disbursing officer",
+      "quote": "…en be submitted to the Gazetted Officer nominated to act as Drawing and Disbursing Officer with the register for signing the bill and to the sanctioni…",
+      "verify": false
+    },
+    {
+      "unitId": "gfr-235",
+      "unitNumber": "235",
+      "kind": "authority",
+      "value": "Accounts Officer",
+      "sortKey": "accounts officer",
+      "quote": "…sidiary accounts of the Government grant and furnish to the Accounts Officer a set of audited statement of accounts. These audited state…",
+      "verify": false
+    },
+    {
+      "unitId": "gfr-236",
+      "unitNumber": "236",
+      "kind": "time",
+      "value": "two years",
+      "sortKey": 730,
+      "quote": "…hall continue to audit the accounts for a further period of two years notwithstanding that the conditions outlined above are not…",
+      "verify": true
+    },
+    {
+      "unitId": "gfr-236",
+      "unitNumber": "236",
+      "kind": "money",
+      "value": "Rupees twenty",
+      "sortKey": 20,
+      "quote": "…ns to the institution in a financial year are not less than Rupees twenty- five lakhs and also not less than seventy-five percent of…",
+      "verify": true
+    },
+    {
+      "unitId": "gfr-236",
+      "unitNumber": "236",
+      "kind": "money",
+      "value": "Rupees one crore",
+      "sortKey": 10000000,
+      "quote": "…f the Grants or loans in a financial year are not less than Rupees one crore. Where the accounts are so audited by the Comptroller and A…",
+      "verify": true
+    },
+    {
+      "unitId": "gfr-238",
+      "unitNumber": "238",
+      "kind": "time",
+      "value": "twelve months",
+      "sortKey": 360,
+      "quote": "…ent. The Utilization Certificate should be submitted within twelve months of the closure of the financial year by the Institution or…",
+      "verify": false
+    },
+    {
+      "unitId": "gfr-238",
+      "unitNumber": "238",
+      "kind": "time",
+      "value": "nine months",
+      "sortKey": 270,
+      "quote": "…s and above should be laid on the Table of the House within nine months of the close of the succeeding financial year of the Grante…",
+      "verify": false
+    },
+    {
+      "unitId": "gfr-238",
+      "unitNumber": "238",
+      "kind": "time",
+      "value": "nine months",
+      "sortKey": 270,
+      "quote": "…ide DoE OM No. F.No.8(5)/2020-E.IIA dated 09.10.2020 within nine months of the close of the succeeding financial year of the grante…",
+      "verify": false
+    },
+    {
+      "unitId": "gfr-238",
+      "unitNumber": "238",
+      "kind": "money",
+      "value": "Rupees ten lakhs",
+      "sortKey": 1000000,
+      "quote": "…ntary Organizations receiving recurring Grants- in-aid from Rupees ten lakhs to less than Rupees fifty lakhs, all the Ministries or Depa…",
+      "verify": true
+    },
+    {
+      "unitId": "gfr-238",
+      "unitNumber": "238",
+      "kind": "money",
+      "value": "Rupees ten lakhs",
+      "sortKey": 1000000,
+      "quote": "…me assistance or non-recurring Grants as Grants-in-aid from Rupees ten lakhs to Rupees five crore, all Ministries or Departments of Gove…",
+      "verify": true
+    },
+    {
+      "unitId": "gfr-238",
+      "unitNumber": "238",
+      "kind": "money",
+      "value": "Rupees five crore",
+      "sortKey": 50000000,
+      "quote": "…-recurring Grants as Grants-in-aid from Rupees ten lakhs to Rupees five crore, all Ministries or Departments of Government of India shoul…",
+      "verify": true
+    },
+    {
+      "unitId": "gfr-238",
+      "unitNumber": "238",
+      "kind": "money",
+      "value": "Rupees Five Crore",
+      "sortKey": 50000000,
+      "quote": "…1860, receiving one-time assistance/non-recurring Grants of Rupees Five Crore and above should also be laid on the Table of the House, 3…",
+      "verify": true
+    },
+    {
+      "unitId": "gfr-242",
+      "unitNumber": "242",
+      "kind": "time",
+      "value": "six months",
+      "sortKey": 180,
+      "quote": "…end of the financial year, and in any case, not later than six months after the close of the financial year. (ii) In regard to no…",
+      "verify": false
+    },
+    {
+      "unitId": "gfr-242",
+      "unitNumber": "242",
+      "kind": "money",
+      "value": "Rupees twenty",
+      "sortKey": 20,
+      "quote": "…cases. However, in the case of Grants-in-aid not exceeding Rupees twenty five lakhs, the sanctioning authority may dispense with the…",
+      "verify": true
+    },
+    {
+      "unitId": "gfr-242",
+      "unitNumber": "242",
+      "kind": "money",
+      "value": "Rupees Two crore",
+      "sortKey": 20000000,
+      "quote": "…of Accounts of Autonomous Organisations receiving grants of Rupees Two crore and above are required to be laid on the table of the Parli…",
+      "verify": true
+    },
+    {
+      "unitId": "gfr-242",
+      "unitNumber": "242",
+      "kind": "money",
+      "value": "Rupees two crore",
+      "sortKey": 20000000,
+      "quote": "…these Autonomous Organisations are getting funds less than Rupees two crore, all the Departments of Central Government should include i…",
+      "verify": true
+    },
+    {
+      "unitId": "gfr-242",
+      "unitNumber": "242",
+      "kind": "money",
+      "value": "Rupees ten lakhs",
+      "sortKey": 1000000,
+      "quote": "…t. (b) In all other cases, if the Grants-in- aid (a) exceed Rupees ten lakhs but less than rupees fifty lakhs in the case of recurring g…",
+      "verify": true
+    },
+    {
+      "unitId": "gfr-242",
+      "unitNumber": "242",
+      "kind": "money",
+      "value": "Rupees ten lakh",
+      "sortKey": 1000000,
+      "quote": "…fifty lakhs in the case of recurring grants and (b) exceed Rupees ten lakh but less than Rupees five crore in the case of non-recurrin…",
+      "verify": true
+    },
+    {
+      "unitId": "gfr-242",
+      "unitNumber": "242",
+      "kind": "money",
+      "value": "Rupees five crore",
+      "sortKey": 50000000,
+      "quote": "…curring grants and (b) exceed Rupees ten lakh but less than Rupees five crore in the case of non-recurring grants, the Ministry or Depart…",
+      "verify": true
+    },
+    {
+      "unitId": "gfr-242",
+      "unitNumber": "242",
+      "kind": "money",
+      "value": "Rupees five crore",
+      "sortKey": 50000000,
+      "quote": "…rganisations. (c) In cases where the Grants-in- aid are for Rupees five crore or more in the case of non-recurring grants and Rupees fift…",
+      "verify": true
+    },
+    {
+      "unitId": "gfr-243",
+      "unitNumber": "243",
+      "kind": "authority",
+      "value": "competent authority",
+      "sortKey": "competent authority",
+      "quote": "…ants shall be regulated by general or special orders of the competent authority specifying the object for which the Grants can be made and…",
+      "verify": false
+    },
+    {
+      "unitId": "gfr-245",
+      "unitNumber": "245",
+      "kind": "money",
+      "value": "Rupees twenty",
+      "sortKey": 20,
+      "quote": "…num. In addition to this, an additional Grant- in-aid up to Rupees twenty-five per head per annum to match the subscriptions collecte…",
+      "verify": true
+    },
+    {
+      "unitId": "gfr-245",
+      "unitNumber": "245",
+      "kind": "money",
+      "value": "Rupees twenty",
+      "sortKey": 20,
+      "quote": "…is to be given, an additional matching grants- in-aid up to Rupees twenty- five per head per annum, to match the subscription collect…",
+      "verify": true
+    },
+    {
+      "unitId": "gfr-250",
+      "unitNumber": "250",
+      "kind": "time",
+      "value": "thirty years",
+      "sortKey": 10950,
+      "quote": "…terest due. The terms may, in very special cases, extend to thirty years. (ii) The term is to be calculated from the date on which t…",
+      "verify": true
+    },
+    {
+      "unitId": "gfr-250",
+      "unitNumber": "250",
+      "kind": "time",
+      "value": "one month",
+      "sortKey": 30,
+      "quote": "…also hold in cases where adjustment in accounts is made in one month but date of adjustment in the books of the Reserve Bank of…",
+      "verify": true
+    },
+    {
+      "unitId": "gfr-250",
+      "unitNumber": "250",
+      "kind": "time",
+      "value": "3 years",
+      "sortKey": 1095,
+      "quote": "…e and expenditure) accounts and balance sheets for the last 3 years; (b) the main sources of income and how the loan is propose…",
+      "verify": true
+    },
+    {
+      "unitId": "gfr-250",
+      "unitNumber": "250",
+      "kind": "authority",
+      "value": "competent authority",
+      "sortKey": "competent authority",
+      "quote": "…e date on which the loan is completely drawn or declared by competent authority to be closed. (iii) The repayment of loans shall be effecte…",
+      "verify": false
+    },
+    {
+      "unitId": "gfr-254",
+      "unitNumber": "254",
+      "kind": "authority",
+      "value": "competent authority",
+      "sortKey": "competent authority",
+      "quote": "…hird per cent. more than the amount of the loan. However, a competent authority may accept security of less value for adequate reasons to b…",
+      "verify": false
+    },
+    {
+      "unitId": "gfr-256",
+      "unitNumber": "256",
+      "kind": "time",
+      "value": "18 months",
+      "sortKey": 540,
+      "quote": "…ates are to be furnished to Accounts Officer, the period of 18 months shall be reckoned from the expiry of the financial year in…",
+      "verify": true
+    },
+    {
+      "unitId": "gfr-256",
+      "unitNumber": "256",
+      "kind": "authority",
+      "value": "Accounts Officer",
+      "sortKey": "accounts officer",
+      "quote": "…e loan shall be primarily responsible for certifying to the Accounts Officer where necessary, the fulfillment of the conditions attachin…",
+      "verify": false
+    },
+    {
+      "unitId": "gfr-256",
+      "unitNumber": "256",
+      "kind": "authority",
+      "value": "Audit Officer",
+      "sortKey": "audit officer",
+      "quote": "…R 12-B and at such intervals as maybe agreed to between the Audit Officer and/or the Accounts Officer, as the case may be, and the Mi…",
+      "verify": false
+    },
+    {
+      "unitId": "gfr-256",
+      "unitNumber": "256",
+      "kind": "authority",
+      "value": "Accounts Officer",
+      "sortKey": "accounts officer",
+      "quote": "…als as maybe agreed to between the Audit Officer and/or the Accounts Officer, as the case may be, and the Ministry or Department concern…",
+      "verify": false
+    },
+    {
+      "unitId": "gfr-256",
+      "unitNumber": "256",
+      "kind": "authority",
+      "value": "Accounts Officer",
+      "sortKey": "accounts officer",
+      "quote": "…ficate of Utilization of the loan shall be furnished to the Accounts Officer in every case of loan made for specific purposes, even if o…",
+      "verify": false
+    },
+    {
+      "unitId": "gfr-256",
+      "unitNumber": "256",
+      "kind": "authority",
+      "value": "Accounts Officer",
+      "sortKey": "accounts officer",
+      "quote": "…which Utilization Certificates need not be furnished to the Accounts Officer. The Certificate shall indicate the year-wise and object-wi…",
+      "verify": false
+    },
+    {
+      "unitId": "gfr-256",
+      "unitNumber": "256",
+      "kind": "authority",
+      "value": "Accounts Officer",
+      "sortKey": "accounts officer",
+      "quote": "…each sub-head of account to facilitate verification by the Accounts Officer. (v) The Utilization Certificates shall be furnished within…",
+      "verify": false
+    },
+    {
+      "unitId": "gfr-256",
+      "unitNumber": "256",
+      "kind": "authority",
+      "value": "Accounts Officer",
+      "sortKey": "accounts officer",
+      "quote": "…Utilization Certificates by the Department concerned to the Accounts Officer. The target date shall, as far as possible, be not later th…",
+      "verify": false
+    },
+    {
+      "unitId": "gfr-256",
+      "unitNumber": "256",
+      "kind": "authority",
+      "value": "Accounts Officer",
+      "sortKey": "accounts officer",
+      "quote": "…onsolidated Utilization Certificates are to be furnished to Accounts Officer, the period of 18 months shall be reckoned from the expiry…",
+      "verify": false
+    },
+    {
+      "unitId": "gfr-256",
+      "unitNumber": "256",
+      "kind": "authority",
+      "value": "Audit Officer",
+      "sortKey": "audit officer",
+      "quote": "…tation with the Ministry of Finance under intimation to the Audit Officer and/or the Accounts Officer, as the case may be. No further…",
+      "verify": false
+    },
+    {
+      "unitId": "gfr-256",
+      "unitNumber": "256",
+      "kind": "authority",
+      "value": "Accounts Officer",
+      "sortKey": "accounts officer",
+      "quote": "…of Finance under intimation to the Audit Officer and/or the Accounts Officer, as the case may be. No further loans shall be sanctioned u…",
+      "verify": false
+    },
+    {
+      "unitId": "gfr-257",
+      "unitNumber": "257",
+      "kind": "authority",
+      "value": "Accounts Officer",
+      "sortKey": "accounts officer",
+      "quote": "…t loan closed, and order repayment of capital to begin. The Accounts Officer shall bring to notice any delay that appears to him to requ…",
+      "verify": false
+    },
+    {
+      "unitId": "gfr-258",
+      "unitNumber": "258",
+      "kind": "authority",
+      "value": "Accounts Officer",
+      "sortKey": "accounts officer",
+      "quote": "…e repayment of principal, shall be promptly reported by the Accounts Officer, to the authority which sanctioned the loan. The responsibi…",
+      "verify": false
+    },
+    {
+      "unitId": "gfr-258",
+      "unitNumber": "258",
+      "kind": "authority",
+      "value": "Accounts Officer",
+      "sortKey": "accounts officer",
+      "quote": "…hority which sanctioned the loan. The responsibility of the Accounts Officer, under this rule refers only to the loans, the detailed acc…",
+      "verify": false
+    },
+    {
+      "unitId": "gfr-259",
+      "unitNumber": "259",
+      "kind": "authority",
+      "value": "competent authority",
+      "sortKey": "competent authority",
+      "quote": "Loans. A competent authority, after prior approval of the Ministry of Finance may remit…",
+      "verify": false
+    },
+    {
+      "unitId": "gfr-260",
+      "unitNumber": "260",
+      "kind": "authority",
+      "value": "Accounts Officer",
+      "sortKey": "accounts officer",
+      "quote": "…tutions and Organizations, etc., shall be maintained by the Accounts Officer who shall watch their recovery and see that the conditions…",
+      "verify": false
+    },
+    {
+      "unitId": "gfr-262",
+      "unitNumber": "262",
+      "kind": "authority",
+      "value": "Accounts Officer",
+      "sortKey": "accounts officer",
+      "quote": "Each Principal Accounts Officer shall submit to the concerned Ministry or Department of Gov…",
+      "verify": false
+    },
+    {
+      "unitId": "gfr-263",
+      "unitNumber": "263",
+      "kind": "authority",
+      "value": "Accounts Officer",
+      "sortKey": "accounts officer",
+      "quote": "…of the Annual Statements in Form GFR 20 regularly from the Accounts Officer and conduct a close review of the cases of defaults in repa…",
+      "verify": false
+    },
+    {
+      "unitId": "gfr-263",
+      "unitNumber": "263",
+      "kind": "authority",
+      "value": "Accounts Officer",
+      "sortKey": "accounts officer",
+      "quote": "…rest due. If these statements are not received in time, the Accounts Officer shall be reminded promptly. To facilitate a proper review o…",
+      "verify": false
+    },
+    {
+      "unitId": "gfr-267",
+      "unitNumber": "267",
+      "kind": "time",
+      "value": "four months",
+      "sortKey": 120,
+      "quote": "…, the Funding Agency disburses the estimated expenditure of four months for the projects as initial advance to Government of India…",
+      "verify": true
+    },
+    {
+      "unitId": "gfr-269",
+      "unitNumber": "269",
+      "kind": "time",
+      "value": "six weeks",
+      "sortKey": 42,
+      "quote": "…nds shall be released to Project Implementing Agency within six weeks by the administrative Ministry or Department with reference…",
+      "verify": false
+    },
+    {
+      "unitId": "gfr-277",
+      "unitNumber": "277",
+      "kind": "time",
+      "value": "three years",
+      "sortKey": 1095,
+      "quote": "…he Company, the actuals vis-à-vis targets for the preceding three years should be indicated. The data should be furnished in the Fo…",
+      "verify": true
+    },
+    {
+      "unitId": "gfr-277",
+      "unitNumber": "277",
+      "kind": "authority",
+      "value": "Financial Adviser",
+      "sortKey": "financial adviser",
+      "quote": "…Affairs shall examine the proposal in consultation with the Financial Adviser in the same manner as a proposal for loan. While examining…",
+      "verify": false
+    },
+    {
+      "unitId": "gfr-278",
+      "unitNumber": "278",
+      "kind": "authority",
+      "value": "competent authority",
+      "sortKey": "competent authority",
+      "quote": "…ng should relate to the Projects approved by the prescribed competent authority of the Central Government. (iii) Wherever guarantee is to b…",
+      "verify": false
+    },
+    {
+      "unitId": "gfr-281",
+      "unitNumber": "281",
+      "kind": "authority",
+      "value": "Financial Adviser",
+      "sortKey": "financial adviser",
+      "quote": "…very year for the previous financial year. Rule 281 (2) The Financial Adviser of the Ministries or Departments would be responsible for e…",
+      "verify": false
+    },
+    {
+      "unitId": "gfr-281",
+      "unitNumber": "281",
+      "kind": "authority",
+      "value": "Financial Adviser",
+      "sortKey": "financial adviser",
+      "quote": "…irs shall conduct an annual review in consultation with the Financial Adviser (DEA). For this purpose, the Financial Adviser (DEA) shall…",
+      "verify": false
+    },
+    {
+      "unitId": "gfr-281",
+      "unitNumber": "281",
+      "kind": "authority",
+      "value": "Financial Adviser",
+      "sortKey": "financial adviser",
+      "quote": "…ion with the Financial Adviser (DEA). For this purpose, the Financial Adviser (DEA) shall ensure the maintenance of the required register…",
+      "verify": false
+    },
+    {
+      "unitId": "gfr-286",
+      "unitNumber": "286",
+      "kind": "authority",
+      "value": "Audit Officer",
+      "sortKey": "audit officer",
+      "quote": "…Rule 286 (3) The additional procedure to be followed by an Audit Officer or Accounts Officer, etc., in making over charge of his fun…",
+      "verify": false
+    },
+    {
+      "unitId": "gfr-286",
+      "unitNumber": "286",
+      "kind": "authority",
+      "value": "Accounts Officer",
+      "sortKey": "accounts officer",
+      "quote": "…additional procedure to be followed by an Audit Officer or Accounts Officer, etc., in making over charge of his functions in connection…",
+      "verify": false
+    },
+    {
+      "unitId": "gfr-288",
+      "unitNumber": "288",
+      "kind": "time",
+      "value": "six months",
+      "sortKey": 180,
+      "quote": "…as indicated below:- (i) To the existing employees - within six months of the date on which these rules become effective, if not a…",
+      "verify": false
+    },
+    {
+      "unitId": "gfr-288",
+      "unitNumber": "288",
+      "kind": "time",
+      "value": "one month",
+      "sortKey": 30,
+      "quote": "…tive, if not already given. (ii) To new appointees - within one month of the date of appointment. Rule 288 (3) In January each ye…",
+      "verify": false
+    },
+    {
+      "unitId": "gfr-288",
+      "unitNumber": "288",
+      "kind": "time",
+      "value": "thirty days",
+      "sortKey": 30,
+      "quote": "…shall update and return it to the Government Servant within thirty days of its receipt. Rule 288 (4) In case the Government servant…",
+      "verify": false
+    },
+    {
+      "unitId": "gfr-288",
+      "unitNumber": "288",
+      "kind": "money",
+      "value": "Rs. 500",
+      "sortKey": 500,
+      "quote": "…rnment servant, it shall be replaced on payment of a sum of Rs. 500/-. Rule 288 (5) All Service Books should be digitised for e…",
+      "verify": false
+    },
+    {
+      "unitId": "gfr-288",
+      "unitNumber": "288",
+      "kind": "authority",
+      "value": "Head of Office",
+      "sortKey": "head of office",
+      "quote": "…d in the establishment should be verified every year by the Head of Office who, after satisfying himself that the services of Governme…",
+      "verify": false
+    },
+    {
+      "unitId": "gfr-288",
+      "unitNumber": "288",
+      "kind": "authority",
+      "value": "Head of the Office",
+      "sortKey": "head of the office",
+      "quote": "…plicate. First copy shall be retained and maintained by the Head of the Office and the second copy should be given to the government serva…",
+      "verify": false
+    },
+    {
+      "unitId": "gfr-290",
+      "unitNumber": "290",
+      "kind": "time",
+      "value": "sixty days",
+      "sortKey": 60,
+      "quote": "…rney. He shall submit the travelling allowance claim within sixty days of its becoming due failing which it shall stand forfeited.",
+      "verify": false
+    },
+    {
+      "unitId": "gfr-292",
+      "unitNumber": "292",
+      "kind": "time",
+      "value": "thirty days",
+      "sortKey": 30,
+      "quote": "…aims shall be as under :- (i) In case advance drawn: Within thirty days of the due date. (ii) In case advance not drawn: Within six…",
+      "verify": false
+    },
+    {
+      "unitId": "gfr-292",
+      "unitNumber": "292",
+      "kind": "time",
+      "value": "sixty days",
+      "sortKey": 60,
+      "quote": "…ays of the due date. (ii) In case advance not drawn: Within sixty days of the due date. In case of (i) above if the claim is not s…",
+      "verify": false
+    },
+    {
+      "unitId": "gfr-292",
+      "unitNumber": "292",
+      "kind": "time",
+      "value": "one month",
+      "sortKey": 30,
+      "quote": "…. In case of (i) above if the claim is not submitted within one month of the due date, the amount of advance shall be recovered b…",
+      "verify": false
+    },
+    {
+      "unitId": "gfr-293",
+      "unitNumber": "293",
+      "kind": "time",
+      "value": "60 days",
+      "sortKey": 60,
+      "quote": "…es. The claim shall stand forfeited if not submitted within 60 days of the due date.",
+      "verify": false
+    },
+    {
+      "unitId": "gfr-294",
+      "unitNumber": "294",
+      "kind": "time",
+      "value": "one year",
+      "sortKey": 365,
+      "quote": "…e the date on which it falls due for payment, the period of one year should be counted from the date on which it falls due and n…",
+      "verify": true
+    },
+    {
+      "unitId": "gfr-294",
+      "unitNumber": "294",
+      "kind": "authority",
+      "value": "competent authority",
+      "sortKey": "competent authority",
+      "quote": "…he date on which the Increment Certificate is signed by the competent authority. Even where an increment is withheld, the time- limit shoul…",
+      "verify": false
+    },
+    {
+      "unitId": "gfr-295",
+      "unitNumber": "295",
+      "kind": "time",
+      "value": "two years",
+      "sortKey": 730,
+      "quote": "…ear claim of a Government servant which is preferred within two years of its becoming due shall be settled by the Drawing and Dis…",
+      "verify": false
+    },
+    {
+      "unitId": "gfr-295",
+      "unitNumber": "295",
+      "kind": "time",
+      "value": "two years",
+      "sortKey": 730,
+      "quote": "…s been allowed to remain in abeyance for a period exceeding two years, should be investigated by the Head of the Department conce…",
+      "verify": true
+    },
+    {
+      "unitId": "gfr-295",
+      "unitNumber": "295",
+      "kind": "authority",
+      "value": "Drawing and Disbursing Officer",
+      "sortKey": "drawing and disbursing officer",
+      "quote": "…ithin two years of its becoming due shall be settled by the Drawing and Disbursing Officer or Accounts Officer, as the case may be, after usual checks…",
+      "verify": false
+    },
+    {
+      "unitId": "gfr-295",
+      "unitNumber": "295",
+      "kind": "authority",
+      "value": "Accounts Officer",
+      "sortKey": "accounts officer",
+      "quote": "…e shall be settled by the Drawing and Disbursing Officer or Accounts Officer, as the case may be, after usual checks. Rule 295 (2) For t…",
+      "verify": false
+    },
+    {
+      "unitId": "gfr-295",
+      "unitNumber": "295",
+      "kind": "authority",
+      "value": "Head of Department",
+      "sortKey": "head of department",
+      "quote": "…nvestigated by the Head of the Department concerned. If the Head of Department is satisfied about the genuineness of the claim on the basi…",
+      "verify": false
+    },
+    {
+      "unitId": "gfr-295",
+      "unitNumber": "295",
+      "kind": "authority",
+      "value": "Drawing and Disbursing Officer",
+      "sortKey": "drawing and disbursing officer",
+      "quote": "…in preferring the claims, the claims should be paid by the Drawing and Disbursing Officer or Accounts Officer, as the case may be, after usual checks…",
+      "verify": false
+    },
+    {
+      "unitId": "gfr-295",
+      "unitNumber": "295",
+      "kind": "authority",
+      "value": "Accounts Officer",
+      "sortKey": "accounts officer",
+      "quote": "…ims should be paid by the Drawing and Disbursing Officer or Accounts Officer, as the case may be, after usual checks. (ii) A Head of Dep…",
+      "verify": false
+    },
+    {
+      "unitId": "gfr-295",
+      "unitNumber": "295",
+      "kind": "authority",
+      "value": "Head of Department",
+      "sortKey": "head of department",
+      "quote": "…nts Officer, as the case may be, after usual checks. (ii) A Head of Department may delegate the powers, conferred on him by sub rule (i) a…",
+      "verify": false
+    },
+    {
+      "unitId": "gfr-299",
+      "unitNumber": "299",
+      "kind": "time",
+      "value": "a period of three month",
+      "sortKey": 90,
+      "quote": "…, unless it is specifically renewed, lapse on the expiry of a period of three month. This will, however, not apply to withdrawals effected in i…",
+      "verify": true
+    },
+    {
+      "unitId": "gfr-301",
+      "unitNumber": "301",
+      "kind": "authority",
+      "value": "Competent authority",
+      "sortKey": "competent authority",
+      "quote": "…iture for purposes of grants or appropriation. Rule 301 (5) Competent authority in case of credits wrongly classified. In cases where reven…",
+      "verify": false
+    },
+    {
+      "unitId": "gfr-306",
+      "unitNumber": "306",
+      "kind": "time",
+      "value": "four months",
+      "sortKey": 120,
+      "quote": "…(iii) the period of officiating arrangement does not exceed four months.",
+      "verify": true
+    },
+    {
+      "unitId": "gfr-307",
+      "unitNumber": "307",
+      "kind": "authority",
+      "value": "competent authority",
+      "sortKey": "competent authority",
+      "quote": "…ted with the custody of stores, which in the opinion of the competent authority are not considerable. (b) Government servants, who are entr…",
+      "verify": false
+    },
+    {
+      "unitId": "gfr-307",
+      "unitNumber": "307",
+      "kind": "authority",
+      "value": "Head of Office",
+      "sortKey": "head of office",
+      "quote": "…y and other articles required for office management, if the Head of Office is satisfied about the safeguards against loss through pilf…",
+      "verify": false
+    },
+    {
+      "unitId": "gfr-308",
+      "unitNumber": "308",
+      "kind": "time",
+      "value": "six months",
+      "sortKey": 180,
+      "quote": "…aken from Government servant shall be retained for at least six months from the date he vacates his post, but a security bond shal…",
+      "verify": true
+    },
+    {
+      "unitId": "gfr-323",
+      "unitNumber": "323",
+      "kind": "time",
+      "value": "fifteen days",
+      "sortKey": 15,
+      "quote": "…if any, shall be submitted by the government servant within fifteen days of the drawal of advance, failing which the advance or bala…",
+      "verify": false
+    },
+    {
+      "unitId": "gfr-323",
+      "unitNumber": "323",
+      "kind": "authority",
+      "value": "Head of the Office",
+      "sortKey": "head of the office",
+      "quote": "The Head of the Office may sanction advances to a Government Servant for purchase…",
+      "verify": false
+    },
+    {
+      "unitId": "gfr-323",
+      "unitNumber": "323",
+      "kind": "authority",
+      "value": "Head of the Office",
+      "sortKey": "head of the office",
+      "quote": "…advance should not be more than the power delegated to the Head of the Office for the purpose. (iv) The Head of the Office shall be respo…",
+      "verify": false
+    },
+    {
+      "unitId": "gfr-323",
+      "unitNumber": "323",
+      "kind": "authority",
+      "value": "Head of the Office",
+      "sortKey": "head of the office",
+      "quote": "…legated to the Head of the Office for the purpose. (iv) The Head of the Office shall be responsible for timely recovery or adjustment of t…",
+      "verify": false
+    },
+    {
+      "unitId": "gfr-324",
+      "unitNumber": "324",
+      "kind": "time",
+      "value": "three years",
+      "sortKey": 1095,
+      "quote": "…uld be framed taking into account the trends over preceding three years and other relevant factors like changes in rates of pay, al…",
+      "verify": true
+    },
+    {
+      "unitId": "gfr-324",
+      "unitNumber": "324",
+      "kind": "time",
+      "value": "six months",
+      "sortKey": 180,
+      "quote": "…of the land, the option to do so shall be exercised within six months of the date on which the Union Government signify their int…",
+      "verify": false
+    },
+    {
+      "unitId": "gfr-324",
+      "unitNumber": "324",
+      "kind": "time",
+      "value": "3 months",
+      "sortKey": 90,
+      "quote": "…gements and such acknowledgements shall be furnished within 3 months from the date of publication of accounts in the Official Ga…",
+      "verify": false
+    },
+    {
+      "unitId": "gfr-324",
+      "unitNumber": "324",
+      "kind": "time",
+      "value": "2 years",
+      "sortKey": 730,
+      "quote": "…aph 1 above (including sanctions Relating to grants-in-aid) 2 years, or one year after completion of audit, whichever is later.…",
+      "verify": true
+    },
+    {
+      "unitId": "gfr-324",
+      "unitNumber": "324",
+      "kind": "time",
+      "value": "one year",
+      "sortKey": 365,
+      "quote": "…(including sanctions Relating to grants-in-aid) 2 years, or one year after completion of audit, whichever is later. Subject to:…",
+      "verify": true
+    },
+    {
+      "unitId": "gfr-324",
+      "unitNumber": "324",
+      "kind": "time",
+      "value": "3 years",
+      "sortKey": 1095,
+      "quote": "…Payments) Rules,1983. 10years. (iii)Contingent expenditure. 3 years, or one year after completion of audit, Whichever is later.…",
+      "verify": true
+    },
+    {
+      "unitId": "gfr-324",
+      "unitNumber": "324",
+      "kind": "time",
+      "value": "one year",
+      "sortKey": 365,
+      "quote": "…les,1983. 10years. (iii)Contingent expenditure. 3 years, or one year after completion of audit, Whichever is later. (iv)Arrear c…",
+      "verify": true
+    },
+    {
+      "unitId": "gfr-324",
+      "unitNumber": "324",
+      "kind": "time",
+      "value": "3 years",
+      "sortKey": 1095,
+      "quote": "…ms (including sanction for investigation, Where necessary). 3 years, or 1 year after completion of audit, Whichever is later. P…",
+      "verify": true
+    },
+    {
+      "unitId": "gfr-324",
+      "unitNumber": "324",
+      "kind": "time",
+      "value": "1 year",
+      "sortKey": 365,
+      "quote": "…g sanction for investigation, Where necessary). 3 years, or 1 year after completion of audit, Whichever is later. Papers relat…",
+      "verify": true
+    },
+    {
+      "unitId": "gfr-324",
+      "unitNumber": "324",
+      "kind": "time",
+      "value": "1 year",
+      "sortKey": 365,
+      "quote": "…ouse building, higher technical education of children, etc. 1 year. (ix) GPF annual statements. 1 year. (x)T.A./Transfer T.A.…",
+      "verify": true
+    },
+    {
+      "unitId": "gfr-324",
+      "unitNumber": "324",
+      "kind": "time",
+      "value": "1 year",
+      "sortKey": 365,
+      "quote": "…ation of children, etc. 1 year. (ix) GPF annual statements. 1 year. (x)T.A./Transfer T.A. claims 3 years, or one year after co…",
+      "verify": true
+    },
+    {
+      "unitId": "gfr-324",
+      "unitNumber": "324",
+      "kind": "time",
+      "value": "3 years",
+      "sortKey": 1095,
+      "quote": "…GPF annual statements. 1 year. (x)T.A./Transfer T.A. claims 3 years, or one year after completion of audit, whichever is later.…",
+      "verify": true
+    },
+    {
+      "unitId": "gfr-324",
+      "unitNumber": "324",
+      "kind": "time",
+      "value": "one year",
+      "sortKey": 365,
+      "quote": "…tatements. 1 year. (x)T.A./Transfer T.A. claims 3 years, or one year after completion of audit, whichever is later. 2. 3. Budget…",
+      "verify": true
+    },
+    {
+      "unitId": "gfr-324",
+      "unitNumber": "324",
+      "kind": "time",
+      "value": "3 years",
+      "sortKey": 1095,
+      "quote": "…: (a) Officials entitled to retirement / terminal benefits. 3 years. 3 years after issue of final pension/ gratuity payment ord…",
+      "verify": true
+    },
+    {
+      "unitId": "gfr-324",
+      "unitNumber": "324",
+      "kind": "time",
+      "value": "3 years",
+      "sortKey": 1095,
+      "quote": "…icials entitled to retirement / terminal benefits. 3 years. 3 years after issue of final pension/ gratuity payment order. The r…",
+      "verify": true
+    },
+    {
+      "unitId": "gfr-324",
+      "unitNumber": "324",
+      "kind": "time",
+      "value": "3 years",
+      "sortKey": 1095,
+      "quote": "…Section for the Department as a whole. (b) Other employees. 3 years after they have ceased to be in service. 4. Leave Account o…",
+      "verify": true
+    },
+    {
+      "unitId": "gfr-324",
+      "unitNumber": "324",
+      "kind": "time",
+      "value": "3 years",
+      "sortKey": 1095,
+      "quote": "…final pension/ gratuity payment order. (b) Other employees. 3 years after they have ceased to be in service. 5. Service records…",
+      "verify": true
+    },
+    {
+      "unitId": "gfr-324",
+      "unitNumber": "324",
+      "kind": "time",
+      "value": "1 year",
+      "sortKey": 365,
+      "quote": "…case of Departments preparing bringing out the compilation. 1 year - after settlement of benefits. 3 years. . Subject to the n…",
+      "verify": true
+    },
+    {
+      "unitId": "gfr-324",
+      "unitNumber": "324",
+      "kind": "time",
+      "value": "3 years",
+      "sortKey": 1095,
+      "quote": "…out the compilation. 1 year - after settlement of benefits. 3 years. . Subject to the nomination in original or an authenticate…",
+      "verify": true
+    },
+    {
+      "unitId": "gfr-324",
+      "unitNumber": "324",
+      "kind": "time",
+      "value": "1 year",
+      "sortKey": 365,
+      "quote": "…ts (i.e., those supplying information for such compilation) 1 year after issue of relevant compilation. Description of records…",
+      "verify": true
+    },
+    {
+      "unitId": "gfr-324",
+      "unitNumber": "324",
+      "kind": "time",
+      "value": "3 years",
+      "sortKey": 1095,
+      "quote": "…II of Service Book/Personal file (d) Admission of previous 3 years; or 1year after - do - Service not supported by Completion…",
+      "verify": true
+    },
+    {
+      "unitId": "gfr-324",
+      "unitNumber": "324",
+      "kind": "time",
+      "value": "35 years",
+      "sortKey": 12775,
+      "quote": "…a retiring Govern- ment servant. 8. (a) Pay Bill register . 35 years (b) Office copies 35 years of Establishment pay bills and r…",
+      "verify": true
+    },
+    {
+      "unitId": "gfr-324",
+      "unitNumber": "324",
+      "kind": "time",
+      "value": "35 years",
+      "sortKey": 12775,
+      "quote": "…vant. 8. (a) Pay Bill register . 35 years (b) Office copies 35 years of Establishment pay bills and related schedules (in respec…",
+      "verify": true
+    },
+    {
+      "unitId": "gfr-324",
+      "unitNumber": "324",
+      "kind": "time",
+      "value": "3 years",
+      "sortKey": 1095,
+      "quote": "…hich pay bill register is not maintained). (c) Schedules to 3 years, or one year after the Establishment the completion of audi…",
+      "verify": true
+    },
+    {
+      "unitId": "gfr-324",
+      "unitNumber": "324",
+      "kind": "time",
+      "value": "one year",
+      "sortKey": 365,
+      "quote": "…l register is not maintained). (c) Schedules to 3 years, or one year after the Establishment the completion of audit, pay bills…",
+      "verify": true
+    },
+    {
+      "unitId": "gfr-324",
+      "unitNumber": "324",
+      "kind": "time",
+      "value": "3 years",
+      "sortKey": 1095,
+      "quote": "…for which pay bill register is maintained. (d) Acquaintance 3 years, or one year after Roll. the completion of audit, whichever…",
+      "verify": true
+    },
+    {
+      "unitId": "gfr-324",
+      "unitNumber": "324",
+      "kind": "time",
+      "value": "one year",
+      "sortKey": 365,
+      "quote": "…y bill register is maintained. (d) Acquaintance 3 years, or one year after Roll. the completion of audit, whichever is later. De…",
+      "verify": true
+    },
+    {
+      "unitId": "gfr-324",
+      "unitNumber": "324",
+      "kind": "time",
+      "value": "5 years",
+      "sortKey": 1825,
+      "quote": "…al years of payment excluding the financial year of payment 5 years. 5 years 5 years after the contract/ agreement is fulfilled…",
+      "verify": true
+    },
+    {
+      "unitId": "gfr-324",
+      "unitNumber": "324",
+      "kind": "time",
+      "value": "5 years",
+      "sortKey": 1825,
+      "quote": "…of payment excluding the financial year of payment 5 years. 5 years 5 years after the contract/ agreement is fulfilled or termi…",
+      "verify": true
+    },
+    {
+      "unitId": "gfr-324",
+      "unitNumber": "324",
+      "kind": "time",
+      "value": "5 years",
+      "sortKey": 1825,
+      "quote": "…nt excluding the financial year of payment 5 years. 5 years 5 years after the contract/ agreement is fulfilled or terminated. I…",
+      "verify": true
+    },
+    {
+      "unitId": "gfr-324",
+      "unitNumber": "324",
+      "kind": "time",
+      "value": "3 years",
+      "sortKey": 1095,
+      "quote": "…ies or have been reviewed by the Public Accounts Committee. 3 years after the expiry of the financial year in which the expendi…",
+      "verify": true
+    },
+    {
+      "unitId": "gfr-324",
+      "unitNumber": "324",
+      "kind": "time",
+      "value": "5 years",
+      "sortKey": 1825,
+      "quote": "…eriod as prescribed for preservation of paid cheques, viz., 5 years. However, in cases where the counter foils are required to…",
+      "verify": true
+    },
+    {
+      "unitId": "gfr-324",
+      "unitNumber": "324",
+      "kind": "time",
+      "value": "five years",
+      "sortKey": 1825,
+      "quote": "…le in this case before the counterfoils which are more than five years old are actually destroyed. 13. Sub-vouchers Relating to th…",
+      "verify": true
+    },
+    {
+      "unitId": "gfr-324",
+      "unitNumber": "324",
+      "kind": "time",
+      "value": "1 year",
+      "sortKey": 365,
+      "quote": "…lassification of posts. (I) Continuance / revival of posts. 1 year Subject to particulars of sanction being noted in Establish…",
+      "verify": true
+    },
+    {
+      "unitId": "gfr-324",
+      "unitNumber": "324",
+      "kind": "time",
+      "value": "10 years",
+      "sortKey": 3650,
+      "quote": "…ent/ Sanction Register. (ii) Conversion of temporary posts. 10 years - do - (iii) Creation of posts. 10 years - do - (iv) Revisi…",
+      "verify": true
+    },
+    {
+      "unitId": "gfr-324",
+      "unitNumber": "324",
+      "kind": "time",
+      "value": "10 years",
+      "sortKey": 3650,
+      "quote": "…f temporary posts. 10 years - do - (iii) Creation of posts. 10 years - do - (iv) Revision of scales of pay. Permanent in the cas…",
+      "verify": true
+    },
+    {
+      "unitId": "gfr-324",
+      "unitNumber": "324",
+      "kind": "time",
+      "value": "10 years",
+      "sortKey": 3650,
+      "quote": "…d when they become obsolete. - do - (v) Upgrading of posts. 10 years - do - 2. Review for Establishment / Permanent. Where, for…",
+      "verify": true
+    },
+    {
+      "unitId": "gfr-324",
+      "unitNumber": "324",
+      "kind": "time",
+      "value": "3 years",
+      "sortKey": 1095,
+      "quote": "…the register is re-written, the old volume will be kept for 3 years. determining Sanction Register. suitability of employees fo…",
+      "verify": true
+    },
+    {
+      "unitId": "gfr-324",
+      "unitNumber": "324",
+      "kind": "time",
+      "value": "3 years",
+      "sortKey": 1095,
+      "quote": "…ontinuance in service. 3. Arbitration and litigation cases. 3 years Subject to: (a) the file not being closed until the award/…",
+      "verify": true
+    },
+    {
+      "unitId": "gfr-324",
+      "unitNumber": "324",
+      "kind": "time",
+      "value": "3 years",
+      "sortKey": 1095,
+      "quote": "…tigation case and would, therefore, need to be retained for 3 years. 5. Recruitment. Condonation of break in service. 5years Su…",
+      "verify": true
+    },
+    {
+      "unitId": "gfr-324",
+      "unitNumber": "324",
+      "kind": "time",
+      "value": "1 year",
+      "sortKey": 365,
+      "quote": "…advance (xxi) Grant of other advance (a)copies of sanction 1 year Being placed on Personal files; and (b)mortgage deeds and O…",
+      "verify": true
+    },
+    {
+      "unitId": "gfr-324",
+      "unitNumber": "324",
+      "kind": "time",
+      "value": "1 year",
+      "sortKey": 365,
+      "quote": "…t Separately in safe Custody for the period They are valid. 1 year 7. Surety Bonds 3 years after the Bond executed in favor Ce…",
+      "verify": true
+    },
+    {
+      "unitId": "gfr-324",
+      "unitNumber": "324",
+      "kind": "time",
+      "value": "3 years",
+      "sortKey": 1095,
+      "quote": "…stody for the period They are valid. 1 year 7. Surety Bonds 3 years after the Bond executed in favor Ceases to be of a temporar…",
+      "verify": true
+    },
+    {
+      "unitId": "gfr-324",
+      "unitNumber": "324",
+      "kind": "time",
+      "value": "one year",
+      "sortKey": 365,
+      "quote": "…perseded ones as and when they become obsolete. 3years Till one year after the last beneficiary of the family pension ceases to…",
+      "verify": true
+    },
+    {
+      "unitId": "gfr-324",
+      "unitNumber": "324",
+      "kind": "time",
+      "value": "5 years",
+      "sortKey": 1825,
+      "quote": "…y of the family pension ceases to been titled to receive or 5 years whichever is later. 5years 15years retirement. (General asp…",
+      "verify": true
+    },
+    {
+      "unitId": "gfr-324",
+      "unitNumber": "324",
+      "kind": "time",
+      "value": "a period of five years",
+      "sortKey": 1825,
+      "quote": "…it for inspection is that such files should be retained for a period of five years after they have been recorded. If, at any time during the p…",
+      "verify": true
+    },
+    {
+      "unitId": "gfr-324",
+      "unitNumber": "324",
+      "kind": "time",
+      "value": "five years",
+      "sortKey": 1825,
+      "quote": "…ey have been recorded. If, at any time during the period of five years, an audit objection having reference to the transaction dea…",
+      "verify": true
+    },
+    {
+      "unitId": "gfr-324",
+      "unitNumber": "324",
+      "kind": "time",
+      "value": "five years",
+      "sortKey": 1825,
+      "quote": "…so, if local audit does not take place within the period of five years, the Head of the Office should ascertain from the audit aut…",
+      "verify": true
+    },
+    {
+      "unitId": "gfr-324",
+      "unitNumber": "324",
+      "kind": "time",
+      "value": "five year",
+      "sortKey": 1825,
+      "quote": "…arlier years, due for weeding out by the application of the five year formula, being destroyed or retained for a further period f…",
+      "verify": true
+    },
+    {
+      "unitId": "gfr-324",
+      "unitNumber": "324",
+      "kind": "time",
+      "value": "5 years",
+      "sortKey": 1825,
+      "quote": "…mestic as well as external borrowings Less than or equal to 5 years More than 5 years Category A 0.5 0.6 Category B 0.7 0.9 Sug…",
+      "verify": true
+    },
+    {
+      "unitId": "gfr-324",
+      "unitNumber": "324",
+      "kind": "time",
+      "value": "5 years",
+      "sortKey": 1825,
+      "quote": "…external borrowings Less than or equal to 5 years More than 5 years Category A 0.5 0.6 Category B 0.7 0.9 Suggested Framework f…",
+      "verify": true
+    },
+    {
+      "unitId": "gfr-324",
+      "unitNumber": "324",
+      "kind": "time",
+      "value": "Three years",
+      "sortKey": 1095,
+      "quote": "…ratios by assigning 1 and 2 values to 'A or 'B' category. *Three years' average ratio may be considered for calculating the overal…",
+      "verify": true
+    },
+    {
+      "unitId": "gfr-324",
+      "unitNumber": "324",
+      "kind": "time",
+      "value": "7 months",
+      "sortKey": 210,
+      "quote": "…First Month Last Month Total Eight Seven Five Four Accounts 7 months Minor Heads Accounts Current year Ensuing Year Last year Cu…",
+      "verify": true
+    },
+    {
+      "unitId": "gfr-324",
+      "unitNumber": "324",
+      "kind": "time",
+      "value": "24 hours",
+      "sortKey": 1,
+      "quote": "…on in the accounts of the said ……………………………………………………. within 24 hours after the amount of such loss and /or defalcation shall hav…",
+      "verify": false
+    },
+    {
+      "unitId": "gfr-324",
+      "unitNumber": "324",
+      "kind": "time",
+      "value": "twelve months",
+      "sortKey": 360,
+      "quote": "…insurance or within a reasonable time thereafter or within twelve months after determination of such employment whichever event shal…",
+      "verify": false
+    },
+    {
+      "unitId": "gfr-324",
+      "unitNumber": "324",
+      "kind": "time",
+      "value": "three months",
+      "sortKey": 90,
+      "quote": "…ve come to the Employer or his said representatives. Within three months after such notice the Employer shall deliver to the Corpora…",
+      "verify": false
+    },
+    {
+      "unitId": "gfr-324",
+      "unitNumber": "324",
+      "kind": "time",
+      "value": "five years",
+      "sortKey": 1825,
+      "quote": "…expert agency and the same is indicated in Column 3, every five years. FORM GFR 25 [See Rule 281. (2) & (3)] GOVERNMENT GUARANTEE…",
+      "verify": true
+    },
+    {
+      "unitId": "gfr-324",
+      "unitNumber": "324",
+      "kind": "money",
+      "value": "Rupees twenty",
+      "sortKey": 20,
+      "quote": "…to which Government is a party, up to the maximum limit of Rupees twenty-five thousand at a time. The amount so advanced should be a…",
+      "verify": true
+    },
+    {
+      "unitId": "gfr-324",
+      "unitNumber": "324",
+      "kind": "money",
+      "value": "₹ 50 crore",
+      "sortKey": 500000000,
+      "quote": "…ructural Assets; 5. Arms and Ammunitions; and 6. Land Above ₹ 50 crore but not exceeding ₹ 100 crore, subject to savings within sa…",
+      "verify": false
+    },
+    {
+      "unitId": "gfr-324",
+      "unitNumber": "324",
+      "kind": "money",
+      "value": "₹ 100 crore",
+      "sortKey": 1000000000,
+      "quote": "…Ammunitions; and 6. Land Above ₹ 50 crore but not exceeding ₹ 100 crore, subject to savings within same section of the Grant Above…",
+      "verify": false
+    },
+    {
+      "unitId": "gfr-324",
+      "unitNumber": "324",
+      "kind": "money",
+      "value": "₹ 100 crore",
+      "sortKey": 1000000000,
+      "quote": "…, subject to savings within same section of the Grant Above ₹ 100 crore, subject to savings within same section of the Grant New In…",
+      "verify": false
+    },
+    {
+      "unitId": "gfr-324",
+      "unitNumber": "324",
+      "kind": "money",
+      "value": "₹ 100 crore",
+      "sortKey": 1000000000,
+      "quote": "…GIA Salary upto 20% of the original appropriation* OR upto ₹ 100 crore whichever is higher [subject to savings within same section…",
+      "verify": false
+    },
+    {
+      "unitId": "gfr-324",
+      "unitNumber": "324",
+      "kind": "money",
+      "value": "₹ 100 crore",
+      "sortKey": 1000000000,
+      "quote": "…of the original appropriation (15-digit line item) OR Above ₹ 100 crore, whichever is higher [subject to savings within same sectio…",
+      "verify": false
+    },
+    {
+      "unitId": "gfr-324",
+      "unitNumber": "324",
+      "kind": "money",
+      "value": "Rs. 3 crores",
+      "sortKey": 30000000,
+      "quote": "…of escalation exceeds 20 per cent of the sanctioned cost or Rs. 3 crores, whichever is more, full reasons therefor and the effect th…",
+      "verify": false
+    },
+    {
+      "unitId": "gfr-324",
+      "unitNumber": "324",
+      "kind": "money",
+      "value": "Rs. 5 crore",
+      "sortKey": 50000000,
+      "quote": "…nt showing details of individual works and projects costing Rs. 5 crore or above. (v) Statement showing revised cost estimates of p…",
+      "verify": false
+    },
+    {
+      "unitId": "gfr-324",
+      "unitNumber": "324",
+      "kind": "money",
+      "value": "Rs. 5 lakhs",
+      "sortKey": 500000,
+      "quote": "…ransfer or gift of Government properties of value exceeding Rs. 5 lakhs to non- Government bodies. (vii) Statement showing contribu…",
+      "verify": false
+    },
+    {
+      "unitId": "gfr-324",
+      "unitNumber": "324",
+      "kind": "money",
+      "value": "Rs. 5 lakhs",
+      "sortKey": 500000,
+      "quote": "…ceding year. (ix) Statement showing grants-in-aid exceeding Rs. 5 lakhs (recurring) or Rs. 10 lakhs (non-recurring) actually sancti…",
+      "verify": false
+    },
+    {
+      "unitId": "gfr-324",
+      "unitNumber": "324",
+      "kind": "money",
+      "value": "Rs. 10 lakhs",
+      "sortKey": 1000000,
+      "quote": "…showing grants-in-aid exceeding Rs. 5 lakhs (recurring) or Rs. 10 lakhs (non-recurring) actually sanctioned to private institutions…",
+      "verify": false
+    },
+    {
+      "unitId": "gfr-324",
+      "unitNumber": "324",
+      "kind": "money",
+      "value": "rs. 3",
+      "sortKey": 3,
+      "quote": "…of India, Ministry of Finance, Department of Economic Affairs. 3. An amount equivalent to forty per cent of the Fund corpus…",
+      "verify": false
+    },
+    {
+      "unitId": "gfr-324",
+      "unitNumber": "324",
+      "kind": "money",
+      "value": "Rs. 100",
+      "sortKey": 100,
+      "quote": "…ecurities in a registered cover and to insure the cover for Rs. 100. These do not require to be endorsed, as the vesting order…",
+      "verify": false
+    },
+    {
+      "unitId": "gfr-324",
+      "unitNumber": "324",
+      "kind": "money",
+      "value": "rs 3",
+      "sortKey": 3,
+      "quote": "…ANCE SHEET OF SECURITIES HELD UNDER ACT VI OF 1890 Particulars 3 ½ per cent Loan of 1865 (A pair of columns for each differe…",
+      "verify": false
+    },
+    {
+      "unitId": "gfr-324",
+      "unitNumber": "324",
+      "kind": "money",
+      "value": "rs. 3",
+      "sortKey": 3,
+      "quote": "…Officials entitled to retirement / terminal benefits. 3 years. 3 years after issue of final pension/ gratuity payment order.…",
+      "verify": false
+    },
+    {
+      "unitId": "gfr-324",
+      "unitNumber": "324",
+      "kind": "money",
+      "value": "rs. 5",
+      "sortKey": 5,
+      "quote": "…ars of payment excluding the financial year of payment 5 years. 5 years 5 years after the contract/ agreement is fulfilled or…",
+      "verify": false
+    },
+    {
+      "unitId": "gfr-324",
+      "unitNumber": "324",
+      "kind": "money",
+      "value": "rs 5",
+      "sortKey": 5,
+      "quote": "…yment excluding the financial year of payment 5 years. 5 years 5 years after the contract/ agreement is fulfilled or termina…",
+      "verify": false
+    },
+    {
+      "unitId": "gfr-324",
+      "unitNumber": "324",
+      "kind": "money",
+      "value": "rs. 5",
+      "sortKey": 5,
+      "quote": "…ion case and would, therefore, need to be retained for 3 years. 5. Recruitment. Condonation of break in service. 5years Subje…",
+      "verify": false
+    },
+    {
+      "unitId": "gfr-324",
+      "unitNumber": "324",
+      "kind": "money",
+      "value": "rs 1",
+      "sortKey": 1,
+      "quote": "…o been titled to receive or 5 years whichever is later. 5years 15years retirement. (General aspects.) (ii) In respect of Gro…",
+      "verify": false
+    },
+    {
+      "unitId": "gfr-324",
+      "unitNumber": "324",
+      "kind": "money",
+      "value": "Rs. 5 lakhs",
+      "sortKey": 500000,
+      "quote": "…Parties having aggregate outstanding balances of less than Rs. 5 lakhs each and which are not defaulters may be grouped together w…",
+      "verify": false
+    },
+    {
+      "unitId": "gfr-324",
+      "unitNumber": "324",
+      "kind": "authority",
+      "value": "competent authority",
+      "sortKey": "competent authority",
+      "quote": "…he expenditure and the custody of his own money. While, the competent authority may, in special cases, condone an officer's honest errors o…",
+      "verify": false
+    },
+    {
+      "unitId": "gfr-324",
+      "unitNumber": "324",
+      "kind": "authority",
+      "value": "Audit Officer",
+      "sortKey": "audit officer",
+      "quote": "…972 as amended from time to time and immediately inform the Audit Officer and/or the Accounts Officer, as the case may be, responsibl…",
+      "verify": false
+    },
+    {
+      "unitId": "gfr-324",
+      "unitNumber": "324",
+      "kind": "authority",
+      "value": "Accounts Officer",
+      "sortKey": "accounts officer",
+      "quote": "…to time and immediately inform the Audit Officer and/or the Accounts Officer, as the case may be, responsible for reporting on his title…",
+      "verify": false
+    },
+    {
+      "unitId": "gfr-324",
+      "unitNumber": "324",
+      "kind": "authority",
+      "value": "Audit Officer",
+      "sortKey": "audit officer",
+      "quote": "…the administrative authority require the assistance of the Audit Officer and/or the Accounts Officer, as the case may be, in pursuin…",
+      "verify": false
+    },
+    {
+      "unitId": "gfr-324",
+      "unitNumber": "324",
+      "kind": "authority",
+      "value": "Accounts Officer",
+      "sortKey": "accounts officer",
+      "quote": "…rity require the assistance of the Audit Officer and/or the Accounts Officer, as the case may be, in pursuing the investigation, he may…",
+      "verify": false
+    },
+    {
+      "unitId": "gfr-324",
+      "unitNumber": "324",
+      "kind": "authority",
+      "value": "Audit Officer",
+      "sortKey": "audit officer",
+      "quote": "…igation is complex and he needs the assistance of an expert Audit Officer/ Accounts Officer to unravel it, he should apply forthwith…",
+      "verify": false
+    },
+    {
+      "unitId": "gfr-324",
+      "unitNumber": "324",
+      "kind": "authority",
+      "value": "Accounts Officer",
+      "sortKey": "accounts officer",
+      "quote": "…lex and he needs the assistance of an expert Audit Officer/ Accounts Officer to unravel it, he should apply forthwith for that assistanc…",
+      "verify": false
+    },
+    {
+      "unitId": "gfr-324",
+      "unitNumber": "324",
+      "kind": "authority",
+      "value": "Audit Officer",
+      "sortKey": "audit officer",
+      "quote": "…hat assistance to Government which will then negotiate with Audit Officer and/or the Accounts Officer concerned for the services of a…",
+      "verify": false
+    },
+    {
+      "unitId": "gfr-324",
+      "unitNumber": "324",
+      "kind": "authority",
+      "value": "Accounts Officer",
+      "sortKey": "accounts officer",
+      "quote": "…ent which will then negotiate with Audit Officer and/or the Accounts Officer concerned for the services of an investigating staff. There…",
+      "verify": false
+    },
+    {
+      "unitId": "gfr-324",
+      "unitNumber": "324",
+      "kind": "authority",
+      "value": "Audit Officer",
+      "sortKey": "audit officer",
+      "quote": "…ll be furnished to the Ministry of Finance by the concerned Audit Officer / Accounts Officer wherever departmentalization of accounts…",
+      "verify": false
+    },
+    {
+      "unitId": "gfr-324",
+      "unitNumber": "324",
+      "kind": "authority",
+      "value": "Accounts Officer",
+      "sortKey": "accounts officer",
+      "quote": "…to the Ministry of Finance by the concerned Audit Officer / Accounts Officer wherever departmentalization of accounts has not taken plac…",
+      "verify": false
+    },
+    {
+      "unitId": "gfr-324",
+      "unitNumber": "324",
+      "kind": "authority",
+      "value": "Financial Adviser",
+      "sortKey": "financial adviser",
+      "quote": "…ure Estimates for reporting to the Ministry of Finance, the Financial Adviser in each Ministry / Department will obtain detailed estimate…",
+      "verify": false
+    },
+    {
+      "unitId": "gfr-324",
+      "unitNumber": "324",
+      "kind": "authority",
+      "value": "Financial Adviser",
+      "sortKey": "financial adviser",
+      "quote": "…and Centrally Sponsored Schemes) for the ensuing year. The Financial Adviser in each Ministry / Department of the Central Government wil…",
+      "verify": false
+    },
+    {
+      "unitId": "gfr-324",
+      "unitNumber": "324",
+      "kind": "authority",
+      "value": "Accounts Officer",
+      "sortKey": "accounts officer",
+      "quote": "…es of the Demand skeleton may then be sent to the Principal Accounts Officer, as the case may be, for filling the 'Actuals' column for t…",
+      "verify": false
+    },
+    {
+      "unitId": "gfr-324",
+      "unitNumber": "324",
+      "kind": "authority",
+      "value": "Accounts Officer",
+      "sortKey": "accounts officer",
+      "quote": "…ost (1) the figures of actuals as reported by the Principal Accounts Officer / Accountant-General; (2) Revised Estimates for the current…",
+      "verify": false
+    },
+    {
+      "unitId": "gfr-324",
+      "unitNumber": "324",
+      "kind": "authority",
+      "value": "Controlling Officer",
+      "sortKey": "controlling officer",
+      "quote": "…an excess of either type the Head of the Department or the Controlling Officer concerned should proceed as follows: - (i) He should, in th…",
+      "verify": false
+    },
+    {
+      "unitId": "gfr-324",
+      "unitNumber": "324",
+      "kind": "authority",
+      "value": "Controlling Officer",
+      "sortKey": "controlling officer",
+      "quote": "…cases. The process amounts only to redistribution which the Controlling Officer can ordinarily effect without reference to any other author…",
+      "verify": false
+    },
+    {
+      "unitId": "gfr-324",
+      "unitNumber": "324",
+      "kind": "authority",
+      "value": "competent authority",
+      "sortKey": "competent authority",
+      "quote": "…rry it out. Otherwise, he should obtain the sanction of the competent authority. (iii)If the provision of funds from within the primary uni…",
+      "verify": false
+    },
+    {
+      "unitId": "gfr-324",
+      "unitNumber": "324",
+      "kind": "authority",
+      "value": "Audit Officer",
+      "sortKey": "audit officer",
+      "quote": "…. If, under any general or special orders of Government, an Audit Officer / Accounts Officer or any other Government officer is requi…",
+      "verify": false
+    },
+    {
+      "unitId": "gfr-324",
+      "unitNumber": "324",
+      "kind": "authority",
+      "value": "Accounts Officer",
+      "sortKey": "accounts officer",
+      "quote": "…general or special orders of Government, an Audit Officer / Accounts Officer or any other Government officer is required to act in his o…",
+      "verify": false
+    },
+    {
+      "unitId": "gfr-324",
+      "unitNumber": "324",
+      "kind": "authority",
+      "value": "Controlling Officer",
+      "sortKey": "controlling officer",
+      "quote": "…ative audit and issue of audit certificate by the nominated Controlling Officer. 10. Bill Register Maintained in FormTR-28-A 11. Paid chequ…",
+      "verify": false
+    },
+    {
+      "unitId": "gfr-324",
+      "unitNumber": "324",
+      "kind": "authority",
+      "value": "Audit Officer",
+      "sortKey": "audit officer",
+      "quote": "…an Audit and Accounts Departments shall be forwarded to the Audit Officer and or the Accounts Officers, as the case may be, for his c…",
+      "verify": false
+    },
+    {
+      "unitId": "gfr-324",
+      "unitNumber": "324",
+      "kind": "authority",
+      "value": "Head of Department",
+      "sortKey": "head of department",
+      "quote": "…their destruction before the destruction is ordered by the Head of Department. (5) Full details shall be maintained permanently, in each…",
+      "verify": false
+    },
+    {
+      "unitId": "gfr-324",
+      "unitNumber": "324",
+      "kind": "authority",
+      "value": "Head of the Office",
+      "sortKey": "head of the office",
+      "quote": "…it does not take place within the period of five years, the Head of the Office should ascertain from the audit authorities whether they ha…",
+      "verify": false
+    },
+    {
+      "unitId": "gfr-324",
+      "unitNumber": "324",
+      "kind": "authority",
+      "value": "DDO",
+      "sortKey": "ddo",
+      "quote": "…ise an effective check in this behalf, a separate register (DDO- wise Bill Passing-cum-Expenditure Control Register -Form C…",
+      "verify": false
+    },
+    {
+      "unitId": "gfr-324",
+      "unitNumber": "324",
+      "kind": "authority",
+      "value": "Accounts Officer",
+      "sortKey": "accounts officer",
+      "quote": "…Control Register -Form CAM -9) should be maintained in the Accounts Officer for each Drawing Officer and by sub-heads and units of appr…",
+      "verify": false
+    },
+    {
+      "unitId": "gfr-324",
+      "unitNumber": "324",
+      "kind": "authority",
+      "value": "Accounts Officer",
+      "sortKey": "accounts officer",
+      "quote": "…is not covered by an advance from the Contingency Fund, the Accounts Officer should decline payment under advice to the authority contro…",
+      "verify": false
+    },
+    {
+      "unitId": "gfr-324",
+      "unitNumber": "324",
+      "kind": "authority",
+      "value": "Head of Department",
+      "sortKey": "head of department",
+      "quote": "…nly on receipt of an assurance in writing from the Ministry/Head of Department controlling the grant that the expenditure involved is not…",
+      "verify": false
+    },
+    {
+      "unitId": "gfr-324",
+      "unitNumber": "324",
+      "kind": "authority",
+      "value": "Controlling Officer",
+      "sortKey": "controlling officer",
+      "quote": "…r additional funds therefor are allocated in writing by the Controlling Officer. M0 APPENDIX - 11 [See Rule 225 (viii) (b)] FORMULA FOR PRI…",
+      "verify": false
+    },
+    {
+      "unitId": "gfr-324",
+      "unitNumber": "324",
+      "kind": "authority",
+      "value": "competent authority",
+      "sortKey": "competent authority",
+      "quote": "…f Appropriation Original Appropriation as years modified by competent authority Expenditure Additional appropriation applied for Expenditur…",
+      "verify": false
+    },
+    {
+      "unitId": "gfr-324",
+      "unitNumber": "324",
+      "kind": "authority",
+      "value": "Controlling Officer",
+      "sortKey": "controlling officer",
+      "quote": "…osals for re-appropriation by - (1) Disbursing Officer: (2) Controlling Officer: (3) Head of Department: (4) Secretary to Government in Adm…",
+      "verify": false
+    },
+    {
+      "unitId": "gfr-324",
+      "unitNumber": "324",
+      "kind": "authority",
+      "value": "Head of Department",
+      "sortKey": "head of department",
+      "quote": "…n by - (1) Disbursing Officer: (2) Controlling Officer: (3) Head of Department: (4) Secretary to Government in Administrative Department.…",
+      "verify": false
+    },
+    {
+      "unitId": "gfr-324",
+      "unitNumber": "324",
+      "kind": "authority",
+      "value": "Accounts Officer",
+      "sortKey": "accounts officer",
+      "quote": "…............................ Add Adjustment communicated by Accounts Officer and not reckoned by DDOs ..................................…",
+      "verify": false
+    },
+    {
+      "unitId": "gfr-324",
+      "unitNumber": "324",
+      "kind": "authority",
+      "value": "Head of Department",
+      "sortKey": "head of department",
+      "quote": "…to the Government of India in the Administrative Ministry/ Head of Department under which the employed is working. FORM GFR 18 [ See Rule…",
+      "verify": false
+    },
+    {
+      "unitId": "gfr-324",
+      "unitNumber": "324",
+      "kind": "authority",
+      "value": "Accounts Officer",
+      "sortKey": "accounts officer",
+      "quote": "…d PSB Branch in New Delhi by the due date. Yours faithfully Accounts Officer FORM GFR 20 [See Rule 305 (1)] REGISTER OF POLICY HOLDER Sl…",
+      "verify": false
+    },
+    {
+      "unitId": "gfr-324",
+      "unitNumber": "324",
+      "kind": "authority",
+      "value": "Accounts Officer",
+      "sortKey": "accounts officer",
+      "quote": "…is required to be furnished by sanctioning authority to the Accounts Officer, as the case may be. (xi) Date by which the statements of a…",
+      "verify": false
+    }
+  ]
+}

@@ -1,0 +1,217 @@
+{
+  "$schema": "../../../schemas/library-definitions.schema.json",
+  "version": "1.0.0",
+  "generatedAt": "2026-09-03",
+  "workId": "bnss",
+  "unitId": "2",
+  "unitNumber": "2",
+  "source": {
+    "name": "NCRB Sankalan — BNSS / CrPC correspondence table",
+    "url": "https://www.ncrb.gov.in/uploads/SankalanPortal/SectionTableBNSS.html"
+  },
+  "terms": [
+    {
+      "term": "audio-video electronic means",
+      "definition": "use of any communication device for the purposes of video conferencing, recording of processes of identification, search and seizure or evidence, transmission of electronic communication and for such other purposes and by such other means as the State Government may, by rules provide",
+      "marker": "(a)",
+      "confidence": "high",
+      "verify": false
+    },
+    {
+      "term": "bail",
+      "definition": "release of a person accused of or suspected of commission of an offence from the custody of law upon certain conditions imposed by an officer or Court on execution by such person of a bond or a bail bond",
+      "marker": "(b)",
+      "confidence": "high",
+      "verify": false
+    },
+    {
+      "term": "bailable offence",
+      "definition": "an offence which is shown as bailable in the First Schedule, or which is made bailable by any other law for the time being in force",
+      "marker": "(c)",
+      "confidence": "high",
+      "verify": false
+    },
+    {
+      "term": "non-bailable offence",
+      "definition": "any other offence",
+      "marker": null,
+      "confidence": "medium",
+      "verify": true
+    },
+    {
+      "term": "bail bond",
+      "definition": "an undertaking for release with surety",
+      "marker": "(d)",
+      "confidence": "high",
+      "verify": false
+    },
+    {
+      "term": "bond",
+      "definition": "a personal bond or an undertaking for release without surety",
+      "marker": "(e)",
+      "confidence": "high",
+      "verify": false
+    },
+    {
+      "term": "charge",
+      "definition": "any head of charge when the charge contains more heads than one",
+      "marker": "(f)",
+      "confidence": "high",
+      "verify": false
+    },
+    {
+      "term": "cognizable offence",
+      "definition": "an offence for which",
+      "marker": "(g)",
+      "confidence": "high",
+      "verify": false
+    },
+    {
+      "term": "cognizable case",
+      "definition": "a case in which, a police officer may, in accordance with the First Schedule or under any other law for the time being in force, arrest without warrant",
+      "marker": null,
+      "confidence": "medium",
+      "verify": true
+    },
+    {
+      "term": "complaint",
+      "definition": "any allegation made orally or in writing to a Magistrate, with a view to his taking action under this Sanhita, that some person, whether known or unknown, has committed an offence, but does not include a police report. Explanation .-A report made by a police officer in a case which discloses, after investigation, the commission of a non-cognizable offence shall be deemed to be a complaint; and the police officer by whom such report is made shall be deemed to be the complainant",
+      "marker": "(h)",
+      "confidence": "high",
+      "verify": false
+    },
+    {
+      "term": "electronic communication",
+      "definition": "the communication of any written, verbal, pictorial information or video content transmitted or transferred (whether from one person to another or from one device to another or from a person to a device or from a device to a person) by means of an electronic device including a telephone, mobile phone, or other wireless telecommunication device, or a computer, or audio-video player or camera or any other electronic device or electronic form as may be specified by notification, by the Central Government",
+      "marker": "(i)",
+      "confidence": "high",
+      "verify": false
+    },
+    {
+      "term": "High Court",
+      "definition": "(i) in relation to any State, the High Court for that State; (ii) in relation to a Union territory to which the jurisdiction of the High Court for a State has been extended by law, that High Court; (iii) in relation to any other Union territory, the highest Court of criminal appeal for that territory other than the Supreme Court of India",
+      "marker": "(j)",
+      "confidence": "high",
+      "verify": false
+    },
+    {
+      "term": "inquiry",
+      "definition": "every inquiry, other than a trial, conducted under this Sanhita by a Magistrate or Court",
+      "marker": "(k)",
+      "confidence": "high",
+      "verify": false
+    },
+    {
+      "term": "investigation",
+      "definition": "all the proceedings under this Sanhita for the collection of evidence conducted by a police officer or by any person (other than a Magistrate) who is authorised by a Magistrate in this behalf. Explanation .-Where any of the provisions of a special Act are inconsistent with the provisions of this Sanhita, the provisions of the special Act shall prevail",
+      "marker": "(l)",
+      "confidence": "high",
+      "verify": false
+    },
+    {
+      "term": "judicial proceeding",
+      "definition": "any proceeding in the course of which evidence is or may be legally taken on oath",
+      "marker": "(m)",
+      "confidence": "high",
+      "verify": false
+    },
+    {
+      "term": "local jurisdiction",
+      "definition": "the local area within which the Court or Magistrate may exercise all or any of its or his powers under this Sanhita and such local area may comprise the whole of the State, or any part of the State, as the State Government may, by notification, specify",
+      "marker": "(n)",
+      "confidence": "high",
+      "verify": false
+    },
+    {
+      "term": "non-cognizable offence",
+      "definition": "an offence for which",
+      "marker": "(o)",
+      "confidence": "high",
+      "verify": false
+    },
+    {
+      "term": "non-cognizable case",
+      "definition": "a case in which, a police officer has no authority to arrest without warrant",
+      "marker": null,
+      "confidence": "medium",
+      "verify": true
+    },
+    {
+      "term": "notification",
+      "definition": "a notification published in the Official Gazette",
+      "marker": "(p)",
+      "confidence": "high",
+      "verify": false
+    },
+    {
+      "term": "offence",
+      "definition": "any act or omission made punishable by any law for the time being in force and includes any act in respect of which a complaint may be made under section 20 of the Cattle Trespass Act, 1871",
+      "marker": "(q)",
+      "confidence": "high",
+      "verify": false
+    },
+    {
+      "term": "officer in charge of a police station",
+      "definition": "when the officer in charge of the police station is absent from the station-house or unable from illness or other cause to perform his duties, the police officer present at the station-house who is next in rank to such officer and is above the rank of constable or, when the State Government so directs, any other police officer so present",
+      "marker": "(r)",
+      "confidence": "high",
+      "verify": false
+    },
+    {
+      "term": "place",
+      "definition": "a house, building, tent, vehicle and vessel",
+      "marker": "(s)",
+      "confidence": "high",
+      "verify": false
+    },
+    {
+      "term": "police report",
+      "definition": "a report forwarded by a police officer to a Magistrate under sub-section (3) of section 193",
+      "marker": "(t)",
+      "confidence": "high",
+      "verify": false
+    },
+    {
+      "term": "police station",
+      "definition": "any post or place declared generally or specially by the State Government, to be a police station, and includes any local area specified by the State Government in this behalf",
+      "marker": "(u)",
+      "confidence": "high",
+      "verify": false
+    },
+    {
+      "term": "Public Prosecutor",
+      "definition": "any person appointed under section 18, and includes any person acting under the directions of a Public Prosecutor",
+      "marker": "(v)",
+      "confidence": "high",
+      "verify": false
+    },
+    {
+      "term": "sub-division",
+      "definition": "a sub-division of a district",
+      "marker": "(w)",
+      "confidence": "high",
+      "verify": false
+    },
+    {
+      "term": "summons-case",
+      "definition": "a case relating to an offence, and not being a warrant-case",
+      "marker": "(x)",
+      "confidence": "high",
+      "verify": false
+    },
+    {
+      "term": "victim",
+      "definition": "a person who has suffered any loss or injury caused by reason of the act or omission of the accused person and includes the guardian or legal heir of such victim",
+      "marker": "(y)",
+      "confidence": "high",
+      "verify": false
+    },
+    {
+      "term": "warrant-case",
+      "definition": "a case relating to an offence punishable with death, imprisonment for life or imprisonment for a term exceeding two years. (2) Words and expressions used herein and not defined but defined in the Information Technology Act, 2000 and the Bharatiya Nyaya Sanhita, 2023 shall have the meanings respectively assigned to them in that Act and Sanhita",
+      "marker": "(z)",
+      "confidence": "high",
+      "verify": false
+    }
+  ]
+}

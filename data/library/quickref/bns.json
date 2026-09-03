@@ -1,0 +1,4112 @@
+{
+  "$schema": "../../../schemas/library-quickref.schema.json",
+  "version": "1.0.0",
+  "generatedAt": "2026-09-03",
+  "workId": "bns",
+  "source": {
+    "name": "NCRB Sankalan — BNS / IPC correspondence table",
+    "url": "https://www.ncrb.gov.in/uploads/SankalanPortal/SectionTableBNS.html"
+  },
+  "counts": {
+    "time": 452,
+    "money": 1,
+    "authority": 2
+  },
+  "rows": [
+    {
+      "unitId": "2",
+      "unitNumber": "2",
+      "kind": "time",
+      "value": "six months",
+      "sortKey": 180,
+      "quote": "…s punishable under such law with imprisonment for a term of six months or more, whether with or without fine; (25) \"omission\" deno…",
+      "verify": true
+    },
+    {
+      "unitId": "3",
+      "unitNumber": "3",
+      "kind": "time",
+      "value": "seven years",
+      "sortKey": 2555,
+      "quote": "…definitions of offences, do not express that a child under seven years of age cannot commit such offences; but the definitions are…",
+      "verify": true
+    },
+    {
+      "unitId": "3",
+      "unitNumber": "3",
+      "kind": "time",
+      "value": "seven years",
+      "sortKey": 2555,
+      "quote": "…nothing shall be an offence which is done by a child under seven years of age. (b) A, a police officer, without warrant, apprehend…",
+      "verify": true
+    },
+    {
+      "unitId": "3",
+      "unitNumber": "3",
+      "kind": "time",
+      "value": "six hours",
+      "sortKey": 0.25,
+      "quote": "…as such have the charge of Z, a prisoner, alternatively for six hours at a time. A and B, intending to cause Z's death, knowingly…",
+      "verify": true
+    },
+    {
+      "unitId": "6",
+      "unitNumber": "6",
+      "kind": "time",
+      "value": "twenty years",
+      "sortKey": 7300,
+      "quote": "…or life shall be reckoned as equivalent to imprisonment for twenty years unless otherwise provided.",
+      "verify": true
+    },
+    {
+      "unitId": "8",
+      "unitNumber": "8",
+      "kind": "time",
+      "value": "two months",
+      "sortKey": 60,
+      "quote": "…or in default of community service, shall not exceed,- (a) two months when the amount of the fine does not exceed five thousand r…",
+      "verify": true
+    },
+    {
+      "unitId": "8",
+      "unitNumber": "8",
+      "kind": "time",
+      "value": "four months",
+      "sortKey": 120,
+      "quote": "…mount of the fine does not exceed five thousand rupees; (b) four months when the amount of the fine does not exceed ten thousand ru…",
+      "verify": true
+    },
+    {
+      "unitId": "8",
+      "unitNumber": "8",
+      "kind": "time",
+      "value": "one year",
+      "sortKey": 365,
+      "quote": "…nt of the fine does not exceed ten thousand rupees; and (c) one year in any other case. (6) (a) The imprisonment which is impose…",
+      "verify": true
+    },
+    {
+      "unitId": "8",
+      "unitNumber": "8",
+      "kind": "time",
+      "value": "four months",
+      "sortKey": 120,
+      "quote": "…on . A is sentenced to a fine of one thousand rupees and to four months' imprisonment in default of payment. Here, if seven hundred…",
+      "verify": true
+    },
+    {
+      "unitId": "8",
+      "unitNumber": "8",
+      "kind": "time",
+      "value": "one month",
+      "sortKey": 30,
+      "quote": "…pees of the fine be paid or levied before the expiration of one month of the imprisonment, A will be discharged as soon as the fi…",
+      "verify": true
+    },
+    {
+      "unitId": "8",
+      "unitNumber": "8",
+      "kind": "time",
+      "value": "two months",
+      "sortKey": 60,
+      "quote": "…pees of the fine be paid or levied before the expiration of two months of the imprisonment, A will be discharged as soon as the tw…",
+      "verify": true
+    },
+    {
+      "unitId": "8",
+      "unitNumber": "8",
+      "kind": "time",
+      "value": "two months",
+      "sortKey": 60,
+      "quote": "…hs of the imprisonment, A will be discharged as soon as the two months are completed. If five hundred rupees be paid or levied at…",
+      "verify": true
+    },
+    {
+      "unitId": "8",
+      "unitNumber": "8",
+      "kind": "time",
+      "value": "two months",
+      "sortKey": 60,
+      "quote": "…es be paid or levied at the time of the expiration of those two months, or at any later time while A continues in imprisonment, A…",
+      "verify": true
+    },
+    {
+      "unitId": "8",
+      "unitNumber": "8",
+      "kind": "time",
+      "value": "six years",
+      "sortKey": 2190,
+      "quote": "…reof which remains unpaid, may be levied at any time within six years after the passing of the sentence, and if, under the senten…",
+      "verify": false
+    },
+    {
+      "unitId": "8",
+      "unitNumber": "8",
+      "kind": "time",
+      "value": "six years",
+      "sortKey": 2190,
+      "quote": "…offender be liable to imprisonment for a longer period than six years, then at any time previous to the expiration of that period…",
+      "verify": true
+    },
+    {
+      "unitId": "11",
+      "unitNumber": "11",
+      "kind": "time",
+      "value": "three months",
+      "sortKey": 90,
+      "quote": "…of the imprisonment to which he is sentenced, not exceeding three months in the whole, according to the following scale, namely:- (a…",
+      "verify": false
+    },
+    {
+      "unitId": "11",
+      "unitNumber": "11",
+      "kind": "time",
+      "value": "one month",
+      "sortKey": 30,
+      "quote": "…g to the following scale, namely:- (a) a time not exceeding one month if the term of imprisonment shall not exceed six months; (b…",
+      "verify": false
+    },
+    {
+      "unitId": "11",
+      "unitNumber": "11",
+      "kind": "time",
+      "value": "six months",
+      "sortKey": 180,
+      "quote": "…ding one month if the term of imprisonment shall not exceed six months; (b) a time not exceeding two months if the term of impriso…",
+      "verify": true
+    },
+    {
+      "unitId": "11",
+      "unitNumber": "11",
+      "kind": "time",
+      "value": "two months",
+      "sortKey": 60,
+      "quote": "…nment shall not exceed six months; (b) a time not exceeding two months if the term of imprisonment shall exceed six months and sha…",
+      "verify": false
+    },
+    {
+      "unitId": "11",
+      "unitNumber": "11",
+      "kind": "time",
+      "value": "six months",
+      "sortKey": 180,
+      "quote": "…ceeding two months if the term of imprisonment shall exceed six months and shall not exceed one year; (c) a time not exceeding thr…",
+      "verify": true
+    },
+    {
+      "unitId": "11",
+      "unitNumber": "11",
+      "kind": "time",
+      "value": "one year",
+      "sortKey": 365,
+      "quote": "…f imprisonment shall exceed six months and shall not exceed one year; (c) a time not exceeding three months if the term of impri…",
+      "verify": true
+    },
+    {
+      "unitId": "11",
+      "unitNumber": "11",
+      "kind": "time",
+      "value": "three months",
+      "sortKey": 90,
+      "quote": "…ths and shall not exceed one year; (c) a time not exceeding three months if the term of imprisonment shall exceed one year.",
+      "verify": false
+    },
+    {
+      "unitId": "11",
+      "unitNumber": "11",
+      "kind": "time",
+      "value": "one year",
+      "sortKey": 365,
+      "quote": "…eding three months if the term of imprisonment shall exceed one year.",
+      "verify": true
+    },
+    {
+      "unitId": "12",
+      "unitNumber": "12",
+      "kind": "time",
+      "value": "three months",
+      "sortKey": 90,
+      "quote": "…uch periods; and when the imprisonment awarded shall exceed three months, the solitary confinement shall not exceed seven days in an…",
+      "verify": true
+    },
+    {
+      "unitId": "12",
+      "unitNumber": "12",
+      "kind": "time",
+      "value": "seven days",
+      "sortKey": 7,
+      "quote": "…eed three months, the solitary confinement shall not exceed seven days in any one month of the whole imprisonment awarded, with in…",
+      "verify": true
+    },
+    {
+      "unitId": "12",
+      "unitNumber": "12",
+      "kind": "time",
+      "value": "one month",
+      "sortKey": 30,
+      "quote": "…the solitary confinement shall not exceed seven days in any one month of the whole imprisonment awarded, with intervals between t…",
+      "verify": true
+    },
+    {
+      "unitId": "13",
+      "unitNumber": "13",
+      "kind": "time",
+      "value": "three years",
+      "sortKey": 1095,
+      "quote": "…nhita with imprisonment of either description for a term of three years or upwards, shall be guilty of any offence punishable under…",
+      "verify": true
+    },
+    {
+      "unitId": "13",
+      "unitNumber": "13",
+      "kind": "time",
+      "value": "ten years",
+      "sortKey": 3650,
+      "quote": "…onment of either description for a term which may extend to ten years.",
+      "verify": true
+    },
+    {
+      "unitId": "20",
+      "unitNumber": "20",
+      "kind": "time",
+      "value": "seven years",
+      "sortKey": 2555,
+      "quote": "Nothing is an offence which is done by a child under seven years of age.",
+      "verify": true
+    },
+    {
+      "unitId": "21",
+      "unitNumber": "21",
+      "kind": "time",
+      "value": "seven years",
+      "sortKey": 2555,
+      "quote": "Nothing is an offence which is done by a child above seven years of age and under twelve years of age, who has not attained…",
+      "verify": true
+    },
+    {
+      "unitId": "21",
+      "unitNumber": "21",
+      "kind": "time",
+      "value": "twelve years",
+      "sortKey": 4380,
+      "quote": "…which is done by a child above seven years of age and under twelve years of age, who has not attained sufficient maturity of underst…",
+      "verify": true
+    },
+    {
+      "unitId": "27",
+      "unitNumber": "27",
+      "kind": "time",
+      "value": "twelve years",
+      "sortKey": 4380,
+      "quote": "…ich is done in good faith for the benefit of a person under twelve years of age, or person of unsound mind, by, or by consent, eithe…",
+      "verify": true
+    },
+    {
+      "unitId": "28",
+      "unitNumber": "28",
+      "kind": "time",
+      "value": "twelve years",
+      "sortKey": 4380,
+      "quote": "…e context, if the consent is given by a person who is under twelve years of age.",
+      "verify": true
+    },
+    {
+      "unitId": "46",
+      "unitNumber": "46",
+      "kind": "time",
+      "value": "seven years",
+      "sortKey": 2555,
+      "quote": "…h the intention of murdering Z, instigates B, a child under seven years of age, to do an act which causes Z's death. B, in conseque…",
+      "verify": true
+    },
+    {
+      "unitId": "55",
+      "unitNumber": "55",
+      "kind": "time",
+      "value": "seven years",
+      "sortKey": 2555,
+      "quote": "…onment of either description for a term which may extend to seven years, and shall also be liable to fine; and if any act for which…",
+      "verify": true
+    },
+    {
+      "unitId": "55",
+      "unitNumber": "55",
+      "kind": "time",
+      "value": "seven years",
+      "sortKey": 2555,
+      "quote": "…A is liable to imprisonment for a term which may extend to seven years and also to a fine; and if any hurt be done to Z in consequ…",
+      "verify": true
+    },
+    {
+      "unitId": "57",
+      "unitNumber": "57",
+      "kind": "time",
+      "value": "seven years",
+      "sortKey": 2555,
+      "quote": "…onment of either description for a term which may extend to seven years and with fine. Illustration . A affixes in a public place a…",
+      "verify": true
+    },
+    {
+      "unitId": "58",
+      "unitNumber": "58",
+      "kind": "time",
+      "value": "seven years",
+      "sortKey": 2555,
+      "quote": "…onment of either description for a term which may extend to seven years; or (b) if the offence be not committed, with imprisonment…",
+      "verify": true
+    },
+    {
+      "unitId": "58",
+      "unitNumber": "58",
+      "kind": "time",
+      "value": "three years",
+      "sortKey": 1095,
+      "quote": "…nment of either description, for a term which may extend to three years, and shall also be liable to fine. Illustration . A, knowin…",
+      "verify": true
+    },
+    {
+      "unitId": "59",
+      "unitNumber": "59",
+      "kind": "time",
+      "value": "ten years",
+      "sortKey": 3650,
+      "quote": "…onment of either description for a term which may extend to ten years; or (c) if the offence be not committed, shall be punished…",
+      "verify": true
+    },
+    {
+      "unitId": "61",
+      "unitNumber": "61",
+      "kind": "time",
+      "value": "two years",
+      "sortKey": 730,
+      "quote": "…mprisonment for life or rigorous imprisonment for a term of two years or upwards, shall, where no express provision is made in th…",
+      "verify": true
+    },
+    {
+      "unitId": "61",
+      "unitNumber": "61",
+      "kind": "time",
+      "value": "six months",
+      "sortKey": 180,
+      "quote": "…imprisonment of either description for a term not exceeding six months, or with fine or with both. Of attempt",
+      "verify": false
+    },
+    {
+      "unitId": "64",
+      "unitNumber": "64",
+      "kind": "time",
+      "value": "ten years",
+      "sortKey": 3650,
+      "quote": "…either description for a term which shall not be less than ten years, but which may extend to imprisonment for life, and shall a…",
+      "verify": true
+    },
+    {
+      "unitId": "64",
+      "unitNumber": "64",
+      "kind": "time",
+      "value": "ten years",
+      "sortKey": 3650,
+      "quote": "…gorous imprisonment for a term which shall not be less than ten years, but which may extend to imprisonment for life, which shall…",
+      "verify": true
+    },
+    {
+      "unitId": "65",
+      "unitNumber": "65",
+      "kind": "time",
+      "value": "twenty years",
+      "sortKey": 7300,
+      "quote": "…gorous imprisonment for a term which shall not be less than twenty years, but which may extend to imprisonment for life, which shall…",
+      "verify": true
+    },
+    {
+      "unitId": "65",
+      "unitNumber": "65",
+      "kind": "time",
+      "value": "twelve years",
+      "sortKey": 4380,
+      "quote": "…d to the victim. (2) Whoever, commits rape on a woman under twelve years of age shall be punished with rigorous imprisonment for a t…",
+      "verify": true
+    },
+    {
+      "unitId": "66",
+      "unitNumber": "66",
+      "kind": "time",
+      "value": "twenty years",
+      "sortKey": 7300,
+      "quote": "…gorous imprisonment for a term which shall not be less than twenty years, but which may extend to imprisonment for life, which shall…",
+      "verify": true
+    },
+    {
+      "unitId": "67",
+      "unitNumber": "67",
+      "kind": "time",
+      "value": "two years",
+      "sortKey": 730,
+      "quote": "…either description for a term which shall not be less than two years but which may extend to seven years, and shall also be liab…",
+      "verify": true
+    },
+    {
+      "unitId": "67",
+      "unitNumber": "67",
+      "kind": "time",
+      "value": "seven years",
+      "sortKey": 2555,
+      "quote": "…ch shall not be less than two years but which may extend to seven years, and shall also be liable to fine. Explanation .-In this se…",
+      "verify": true
+    },
+    {
+      "unitId": "68",
+      "unitNumber": "68",
+      "kind": "time",
+      "value": "five years",
+      "sortKey": 1825,
+      "quote": "…either description for a term which shall not be less than five years, but which may extend to ten years, and shall also be liabl…",
+      "verify": true
+    },
+    {
+      "unitId": "68",
+      "unitNumber": "68",
+      "kind": "time",
+      "value": "ten years",
+      "sortKey": 3650,
+      "quote": "…shall not be less than five years, but which may extend to ten years, and shall also be liable to fine. Explanation 1.-In this s…",
+      "verify": true
+    },
+    {
+      "unitId": "69",
+      "unitNumber": "69",
+      "kind": "time",
+      "value": "ten years",
+      "sortKey": 3650,
+      "quote": "…onment of either description for a term which may extend to ten years and shall also be liable to fine. Explanation .-\"deceitful…",
+      "verify": true
+    },
+    {
+      "unitId": "70",
+      "unitNumber": "70",
+      "kind": "time",
+      "value": "twenty years",
+      "sortKey": 7300,
+      "quote": "…gorous imprisonment for a term which shall not be less than twenty years, but which may extend to imprisonment for life which shall…",
+      "verify": true
+    },
+    {
+      "unitId": "72",
+      "unitNumber": "72",
+      "kind": "time",
+      "value": "two years",
+      "sortKey": 730,
+      "quote": "…onment of either description for a term which may extend to two years and shall also be liable to fine. (2) Nothing in sub-sectio…",
+      "verify": true
+    },
+    {
+      "unitId": "73",
+      "unitNumber": "73",
+      "kind": "time",
+      "value": "two years",
+      "sortKey": 730,
+      "quote": "…onment of either description for a term which may extend to two years and shall also be liable to fine. Explanation .-The printin…",
+      "verify": true
+    },
+    {
+      "unitId": "74",
+      "unitNumber": "74",
+      "kind": "time",
+      "value": "one year",
+      "sortKey": 365,
+      "quote": "…either description for a term which shall not be less than one year but which may extend to five years, and shall also be liabl…",
+      "verify": true
+    },
+    {
+      "unitId": "74",
+      "unitNumber": "74",
+      "kind": "time",
+      "value": "five years",
+      "sortKey": 1825,
+      "quote": "…ich shall not be less than one year but which may extend to five years, and shall also be liable to fine.",
+      "verify": true
+    },
+    {
+      "unitId": "75",
+      "unitNumber": "75",
+      "kind": "time",
+      "value": "three years",
+      "sortKey": 1095,
+      "quote": "…d with rigorous imprisonment for a term which may extend to three years, or with fine, or with both. (3) Any man who commits the of…",
+      "verify": true
+    },
+    {
+      "unitId": "75",
+      "unitNumber": "75",
+      "kind": "time",
+      "value": "one year",
+      "sortKey": 365,
+      "quote": "…onment of either description for a term which may extend to one year, or with fine, or with both.",
+      "verify": true
+    },
+    {
+      "unitId": "76",
+      "unitNumber": "76",
+      "kind": "time",
+      "value": "three years",
+      "sortKey": 1095,
+      "quote": "…either description for a term which shall not be less than three years but which may extend to seven years, and shall also be liab…",
+      "verify": true
+    },
+    {
+      "unitId": "76",
+      "unitNumber": "76",
+      "kind": "time",
+      "value": "seven years",
+      "sortKey": 2555,
+      "quote": "…shall not be less than three years but which may extend to seven years, and shall also be liable to fine.",
+      "verify": true
+    },
+    {
+      "unitId": "77",
+      "unitNumber": "77",
+      "kind": "time",
+      "value": "one year",
+      "sortKey": 365,
+      "quote": "…either description for a term which shall not be less than one year, but which may extend to three years, and shall also be lia…",
+      "verify": true
+    },
+    {
+      "unitId": "77",
+      "unitNumber": "77",
+      "kind": "time",
+      "value": "three years",
+      "sortKey": 1095,
+      "quote": "…ch shall not be less than one year, but which may extend to three years, and shall also be liable to fine, and be punished on a sec…",
+      "verify": true
+    },
+    {
+      "unitId": "77",
+      "unitNumber": "77",
+      "kind": "time",
+      "value": "three years",
+      "sortKey": 1095,
+      "quote": "…either description for a term which shall not be less than three years, but which may extend to seven years, and shall also be lia…",
+      "verify": true
+    },
+    {
+      "unitId": "77",
+      "unitNumber": "77",
+      "kind": "time",
+      "value": "seven years",
+      "sortKey": 2555,
+      "quote": "…shall not be less than three years, but which may extend to seven years, and shall also be liable to fine. Explanation 1.-For the p…",
+      "verify": true
+    },
+    {
+      "unitId": "78",
+      "unitNumber": "78",
+      "kind": "time",
+      "value": "three years",
+      "sortKey": 1095,
+      "quote": "…onment of either description for a term which may extend to three years, and shall also be liable to fine; and be punished on a sec…",
+      "verify": true
+    },
+    {
+      "unitId": "78",
+      "unitNumber": "78",
+      "kind": "time",
+      "value": "five years",
+      "sortKey": 1825,
+      "quote": "…onment of either description for a term which may extend to five years, and shall also be liable to fine.",
+      "verify": true
+    },
+    {
+      "unitId": "79",
+      "unitNumber": "79",
+      "kind": "time",
+      "value": "three years",
+      "sortKey": 1095,
+      "quote": "…hed with simple imprisonment for a term which may extend to three years, and also with fine.",
+      "verify": true
+    },
+    {
+      "unitId": "80",
+      "unitNumber": "80",
+      "kind": "time",
+      "value": "seven years",
+      "sortKey": 2555,
+      "quote": "…or occurs otherwise than under normal circumstances within seven years of her marriage and it is shown that soon before her death…",
+      "verify": false
+    },
+    {
+      "unitId": "80",
+      "unitNumber": "80",
+      "kind": "time",
+      "value": "seven years",
+      "sortKey": 2555,
+      "quote": "…d with imprisonment for a term which shall not be less than seven years but which may extend to imprisonment for life.",
+      "verify": true
+    },
+    {
+      "unitId": "81",
+      "unitNumber": "81",
+      "kind": "time",
+      "value": "ten years",
+      "sortKey": 3650,
+      "quote": "…onment of either description for a term which may extend to ten years, and shall also be liable to fine.",
+      "verify": true
+    },
+    {
+      "unitId": "82",
+      "unitNumber": "82",
+      "kind": "time",
+      "value": "seven years",
+      "sortKey": 2555,
+      "quote": "…onment of either description for a term which may extend to seven years, and shall also be liable to fine. Exception .-This sub-sec…",
+      "verify": true
+    },
+    {
+      "unitId": "82",
+      "unitNumber": "82",
+      "kind": "time",
+      "value": "seven years",
+      "sortKey": 2555,
+      "quote": "…e been continually absent from such person for the space of seven years, and shall not have been heard of by such person as being a…",
+      "verify": true
+    },
+    {
+      "unitId": "82",
+      "unitNumber": "82",
+      "kind": "time",
+      "value": "ten years",
+      "sortKey": 3650,
+      "quote": "…onment of either description for a term which may extend to ten years, and shall also be liable to fine.",
+      "verify": true
+    },
+    {
+      "unitId": "83",
+      "unitNumber": "83",
+      "kind": "time",
+      "value": "seven years",
+      "sortKey": 2555,
+      "quote": "…onment of either description for a term which may extend to seven years, and shall also be liable to fine.",
+      "verify": true
+    },
+    {
+      "unitId": "84",
+      "unitNumber": "84",
+      "kind": "time",
+      "value": "two years",
+      "sortKey": 730,
+      "quote": "…onment of either description for a term which may extend to two years, or with fine, or with both.",
+      "verify": true
+    },
+    {
+      "unitId": "85",
+      "unitNumber": "85",
+      "kind": "time",
+      "value": "three years",
+      "sortKey": 1095,
+      "quote": "…e punished with imprisonment for a term which may extend to three years and shall also be liable to fine.",
+      "verify": true
+    },
+    {
+      "unitId": "87",
+      "unitNumber": "87",
+      "kind": "time",
+      "value": "ten years",
+      "sortKey": 3650,
+      "quote": "…onment of either description for a term which may extend to ten years, and shall also be liable to fine; and whoever, by means of…",
+      "verify": true
+    },
+    {
+      "unitId": "88",
+      "unitNumber": "88",
+      "kind": "time",
+      "value": "three years",
+      "sortKey": 1095,
+      "quote": "…onment of either description for a term which may extend to three years, or with fine, or with both; and, if the woman be quick wit…",
+      "verify": true
+    },
+    {
+      "unitId": "88",
+      "unitNumber": "88",
+      "kind": "time",
+      "value": "seven years",
+      "sortKey": 2555,
+      "quote": "…onment of either description for a term which may extend to seven years, and shall also be liable to fine. Explanation .-A woman wh…",
+      "verify": true
+    },
+    {
+      "unitId": "89",
+      "unitNumber": "89",
+      "kind": "time",
+      "value": "ten years",
+      "sortKey": 3650,
+      "quote": "…onment of either description for a term which may extend to ten years, and shall also be liable to fine.",
+      "verify": true
+    },
+    {
+      "unitId": "90",
+      "unitNumber": "90",
+      "kind": "time",
+      "value": "ten years",
+      "sortKey": 3650,
+      "quote": "…onment of either description for a term which may extend to ten years, and shall also be liable to fine. (2) Where the act referr…",
+      "verify": true
+    },
+    {
+      "unitId": "91",
+      "unitNumber": "91",
+      "kind": "time",
+      "value": "ten years",
+      "sortKey": 3650,
+      "quote": "…onment of either description for a term which may extend to ten years, or with fine, or with both.",
+      "verify": true
+    },
+    {
+      "unitId": "92",
+      "unitNumber": "92",
+      "kind": "time",
+      "value": "ten years",
+      "sortKey": 3650,
+      "quote": "…onment of either description for a term which may extend to ten years, and shall also be liable to fine. Illustration . A, knowin…",
+      "verify": true
+    },
+    {
+      "unitId": "93",
+      "unitNumber": "93",
+      "kind": "time",
+      "value": "twelve years",
+      "sortKey": 4380,
+      "quote": "…ever being the father or mother of a child under the age of twelve years, or having the care of such child, shall expose or leave su…",
+      "verify": true
+    },
+    {
+      "unitId": "93",
+      "unitNumber": "93",
+      "kind": "time",
+      "value": "seven years",
+      "sortKey": 2555,
+      "quote": "…onment of either description for a term which may extend to seven years, or with fine, or with both. Explanation .-This section is…",
+      "verify": true
+    },
+    {
+      "unitId": "94",
+      "unitNumber": "94",
+      "kind": "time",
+      "value": "two years",
+      "sortKey": 730,
+      "quote": "…onment of either description for a term which may extend to two years, or with fine, or with both.",
+      "verify": true
+    },
+    {
+      "unitId": "95",
+      "unitNumber": "95",
+      "kind": "time",
+      "value": "three years",
+      "sortKey": 1095,
+      "quote": "…isonment of either description which shall not be less than three years but which may extend to ten years, and with fine; and if th…",
+      "verify": true
+    },
+    {
+      "unitId": "95",
+      "unitNumber": "95",
+      "kind": "time",
+      "value": "ten years",
+      "sortKey": 3650,
+      "quote": "…shall not be less than three years but which may extend to ten years, and with fine; and if the offence be committed shall also…",
+      "verify": true
+    },
+    {
+      "unitId": "96",
+      "unitNumber": "96",
+      "kind": "time",
+      "value": "ten years",
+      "sortKey": 3650,
+      "quote": "…n shall be punishable with imprisonment which may extend to ten years, and shall also be liable to fine.",
+      "verify": true
+    },
+    {
+      "unitId": "97",
+      "unitNumber": "97",
+      "kind": "time",
+      "value": "ten years",
+      "sortKey": 3650,
+      "quote": "Whoever kidnaps or abducts any child under the age of ten years with the intention of taking dishonestly any movable proper…",
+      "verify": true
+    },
+    {
+      "unitId": "97",
+      "unitNumber": "97",
+      "kind": "time",
+      "value": "seven years",
+      "sortKey": 2555,
+      "quote": "…onment of either description for a term which may extend to seven years, and shall also be liable to fine.",
+      "verify": true
+    },
+    {
+      "unitId": "98",
+      "unitNumber": "98",
+      "kind": "time",
+      "value": "ten years",
+      "sortKey": 3650,
+      "quote": "…onment of either description for a term which may extend to ten years, and shall also be liable to fine. Explanation 1.-When a fe…",
+      "verify": true
+    },
+    {
+      "unitId": "99",
+      "unitNumber": "99",
+      "kind": "time",
+      "value": "seven years",
+      "sortKey": 2555,
+      "quote": "…either description for a term which shall not be less than seven years but which may extend to fourteen years, and shall also be l…",
+      "verify": true
+    },
+    {
+      "unitId": "105",
+      "unitNumber": "105",
+      "kind": "time",
+      "value": "five years",
+      "sortKey": 1825,
+      "quote": "…either description for a term which shall not be less than five years but which may extend to ten years, and shall also be liable…",
+      "verify": true
+    },
+    {
+      "unitId": "105",
+      "unitNumber": "105",
+      "kind": "time",
+      "value": "ten years",
+      "sortKey": 3650,
+      "quote": "…h shall not be less than five years but which may extend to ten years, and shall also be liable to fine, if the act by which the…",
+      "verify": true
+    },
+    {
+      "unitId": "105",
+      "unitNumber": "105",
+      "kind": "time",
+      "value": "ten years",
+      "sortKey": 3650,
+      "quote": "…onment of either description for a term which may extend to ten years and with fine, if the act is done with the knowledge that i…",
+      "verify": true
+    },
+    {
+      "unitId": "106",
+      "unitNumber": "106",
+      "kind": "time",
+      "value": "five years",
+      "sortKey": 1825,
+      "quote": "…onment of either description for a term which may extend to five years, and shall also be liable to fine; and if such act is done…",
+      "verify": true
+    },
+    {
+      "unitId": "106",
+      "unitNumber": "106",
+      "kind": "time",
+      "value": "two years",
+      "sortKey": 730,
+      "quote": "…onment of either description for a term which may extend to two years, and shall also be liable to fine. Explanation .- For the p…",
+      "verify": true
+    },
+    {
+      "unitId": "106",
+      "unitNumber": "106",
+      "kind": "time",
+      "value": "ten years",
+      "sortKey": 3650,
+      "quote": "…sonment of either description of a term which may extend to ten years, and shall also be liable to fine. (Section 106(2) of BNS s…",
+      "verify": true
+    },
+    {
+      "unitId": "107",
+      "unitNumber": "107",
+      "kind": "time",
+      "value": "ten years",
+      "sortKey": 3650,
+      "quote": "…isonment for life, or imprisonment for a term not exceeding ten years, and shall also be liable to fine.",
+      "verify": false
+    },
+    {
+      "unitId": "108",
+      "unitNumber": "108",
+      "kind": "time",
+      "value": "ten years",
+      "sortKey": 3650,
+      "quote": "…onment of either description for a term which may extend to ten years, and shall also be liable to fine.",
+      "verify": true
+    },
+    {
+      "unitId": "109",
+      "unitNumber": "109",
+      "kind": "time",
+      "value": "ten years",
+      "sortKey": 3650,
+      "quote": "…onment of either description for a term which may extend to ten years, and shall also be liable to fine; and if hurt is caused to…",
+      "verify": true
+    },
+    {
+      "unitId": "110",
+      "unitNumber": "110",
+      "kind": "time",
+      "value": "three years",
+      "sortKey": 1095,
+      "quote": "…onment of either description for a term which may extend to three years, or with fine, or with both; and, if hurt is caused to any…",
+      "verify": true
+    },
+    {
+      "unitId": "110",
+      "unitNumber": "110",
+      "kind": "time",
+      "value": "seven years",
+      "sortKey": 2555,
+      "quote": "…onment of either description for a term which may extend to seven years, or with fine, or with both. Illustration . A, on grave and…",
+      "verify": true
+    },
+    {
+      "unitId": "111",
+      "unitNumber": "111",
+      "kind": "time",
+      "value": "three years",
+      "sortKey": 1095,
+      "quote": "…ich is a cognizable offence punishable with imprisonment of three years or more, undertaken by any person, either singly or jointly…",
+      "verify": true
+    },
+    {
+      "unitId": "111",
+      "unitNumber": "111",
+      "kind": "time",
+      "value": "ten years",
+      "sortKey": 3650,
+      "quote": "…led before a competent Court within the preceding period of ten years and that Court has taken cognizance of such offence, and in…",
+      "verify": true
+    },
+    {
+      "unitId": "111",
+      "unitNumber": "111",
+      "kind": "time",
+      "value": "five years",
+      "sortKey": 1825,
+      "quote": "…d with imprisonment for a term which shall not be less than five years but which may extend to imprisonment for life, and shall al…",
+      "verify": true
+    },
+    {
+      "unitId": "111",
+      "unitNumber": "111",
+      "kind": "time",
+      "value": "three years",
+      "sortKey": 1095,
+      "quote": "…d with imprisonment for a term which shall not be less than three years but which may extend to imprisonment for life, and shall al…",
+      "verify": true
+    },
+    {
+      "unitId": "111",
+      "unitNumber": "111",
+      "kind": "time",
+      "value": "three years",
+      "sortKey": 1095,
+      "quote": "…e with imprisonment for a term which shall not be less than three years but which may extend to imprisonment for life and shall als…",
+      "verify": true
+    },
+    {
+      "unitId": "111",
+      "unitNumber": "111",
+      "kind": "time",
+      "value": "ten years",
+      "sortKey": 3650,
+      "quote": "…s than three years but which may extend to imprisonment for ten years and shall also be liable to fine which shall not be less th…",
+      "verify": true
+    },
+    {
+      "unitId": "112",
+      "unitNumber": "112",
+      "kind": "time",
+      "value": "one year",
+      "sortKey": 365,
+      "quote": "…d with imprisonment for a term which shall not be less than one year but which may extend to seven years, and shall also be liab…",
+      "verify": true
+    },
+    {
+      "unitId": "112",
+      "unitNumber": "112",
+      "kind": "time",
+      "value": "seven years",
+      "sortKey": 2555,
+      "quote": "…ich shall not be less than one year but which may extend to seven years, and shall also be liable to fine.",
+      "verify": true
+    },
+    {
+      "unitId": "113",
+      "unitNumber": "113",
+      "kind": "time",
+      "value": "five years",
+      "sortKey": 1825,
+      "quote": "…d with imprisonment for a term which shall not be less than five years but which may extend to imprisonment for life, and shall al…",
+      "verify": true
+    },
+    {
+      "unitId": "113",
+      "unitNumber": "113",
+      "kind": "time",
+      "value": "three years",
+      "sortKey": 1095,
+      "quote": "…d with imprisonment for a term which shall not be less than three years but which may extend to imprisonment for life, and shall al…",
+      "verify": true
+    },
+    {
+      "unitId": "115",
+      "unitNumber": "115",
+      "kind": "time",
+      "value": "one year",
+      "sortKey": 365,
+      "quote": "…onment of either description for a term which may extend to one year, or with fine which may extend to ten thousand rupees, or w…",
+      "verify": true
+    },
+    {
+      "unitId": "116",
+      "unitNumber": "116",
+      "kind": "time",
+      "value": "fifteen days",
+      "sortKey": 15,
+      "quote": "…life or which causes the sufferer to be during the space of fifteen days in severe bodily pain, or unable to follow his ordinary pur…",
+      "verify": true
+    },
+    {
+      "unitId": "117",
+      "unitNumber": "117",
+      "kind": "time",
+      "value": "fifteen days",
+      "sortKey": 15,
+      "quote": "…hich causes Z to suffer severe bodily pain for the space of fifteen days. A has voluntarily caused grievous hurt. (2) Whoever, excep…",
+      "verify": true
+    },
+    {
+      "unitId": "117",
+      "unitNumber": "117",
+      "kind": "time",
+      "value": "seven years",
+      "sortKey": 2555,
+      "quote": "…onment of either description for a term which may extend to seven years, and shall also be liable to fine. (3) Whoever commits an o…",
+      "verify": true
+    },
+    {
+      "unitId": "117",
+      "unitNumber": "117",
+      "kind": "time",
+      "value": "ten years",
+      "sortKey": 3650,
+      "quote": "…gorous imprisonment for a term which shall not be less than ten years but which may extend to imprisonment for life, which shall…",
+      "verify": true
+    },
+    {
+      "unitId": "118",
+      "unitNumber": "118",
+      "kind": "time",
+      "value": "three years",
+      "sortKey": 1095,
+      "quote": "…onment of either description for a term which may extend to three years, or with fine which may extend to twenty thousand rupees, o…",
+      "verify": true
+    },
+    {
+      "unitId": "118",
+      "unitNumber": "118",
+      "kind": "time",
+      "value": "one year",
+      "sortKey": 365,
+      "quote": "…either description for a term which shall not be less than one year but which may extend to ten years, and shall also be liable…",
+      "verify": true
+    },
+    {
+      "unitId": "118",
+      "unitNumber": "118",
+      "kind": "time",
+      "value": "ten years",
+      "sortKey": 3650,
+      "quote": "…ich shall not be less than one year but which may extend to ten years, and shall also be liable to fine.",
+      "verify": true
+    },
+    {
+      "unitId": "119",
+      "unitNumber": "119",
+      "kind": "time",
+      "value": "ten years",
+      "sortKey": 3650,
+      "quote": "…onment of either description for a term which may extend to ten years, and shall also be liable to fine. (2) Whoever voluntarily…",
+      "verify": true
+    },
+    {
+      "unitId": "120",
+      "unitNumber": "120",
+      "kind": "time",
+      "value": "seven years",
+      "sortKey": 2555,
+      "quote": "…onment of either description for a term which may extend to seven years, and shall also be liable to fine. Illustrations. (a) A, a…",
+      "verify": true
+    },
+    {
+      "unitId": "120",
+      "unitNumber": "120",
+      "kind": "time",
+      "value": "ten years",
+      "sortKey": 3650,
+      "quote": "…onment of either description for a term which may extend to ten years, and shall also be liable to fine.",
+      "verify": true
+    },
+    {
+      "unitId": "121",
+      "unitNumber": "121",
+      "kind": "time",
+      "value": "five years",
+      "sortKey": 1825,
+      "quote": "…onment of either description for a term which may extend to five years, or with fine, or with both. (2) Whoever voluntarily causes…",
+      "verify": true
+    },
+    {
+      "unitId": "121",
+      "unitNumber": "121",
+      "kind": "time",
+      "value": "one year",
+      "sortKey": 365,
+      "quote": "…either description for a term which shall not be less than one year but which may extend to ten years, and shall also be liable…",
+      "verify": true
+    },
+    {
+      "unitId": "121",
+      "unitNumber": "121",
+      "kind": "time",
+      "value": "ten years",
+      "sortKey": 3650,
+      "quote": "…ich shall not be less than one year but which may extend to ten years, and shall also be liable to fine.",
+      "verify": true
+    },
+    {
+      "unitId": "122",
+      "unitNumber": "122",
+      "kind": "time",
+      "value": "one month",
+      "sortKey": 30,
+      "quote": "…onment of either description for a term which may extend to one month, or with fine which may extend to five thousand rupees, or…",
+      "verify": true
+    },
+    {
+      "unitId": "122",
+      "unitNumber": "122",
+      "kind": "time",
+      "value": "five years",
+      "sortKey": 1825,
+      "quote": "…onment of either description for a term which may extend to five years, or with fine which may extend to ten thousand rupees, or w…",
+      "verify": true
+    },
+    {
+      "unitId": "123",
+      "unitNumber": "123",
+      "kind": "time",
+      "value": "ten years",
+      "sortKey": 3650,
+      "quote": "…onment of either description for a term which may extend to ten years, and shall also be liable to fine.",
+      "verify": true
+    },
+    {
+      "unitId": "124",
+      "unitNumber": "124",
+      "kind": "time",
+      "value": "ten years",
+      "sortKey": 3650,
+      "quote": "…either description for a term which shall not be less than ten years but which may extend to imprisonment for life, and with fin…",
+      "verify": true
+    },
+    {
+      "unitId": "124",
+      "unitNumber": "124",
+      "kind": "time",
+      "value": "five years",
+      "sortKey": 1825,
+      "quote": "…either description for a term which shall not be less than five years but which may extend to seven years, and shall also be liab…",
+      "verify": true
+    },
+    {
+      "unitId": "124",
+      "unitNumber": "124",
+      "kind": "time",
+      "value": "seven years",
+      "sortKey": 2555,
+      "quote": "…h shall not be less than five years but which may extend to seven years, and shall also be liable to fine. Explanation 1.-For the p…",
+      "verify": true
+    },
+    {
+      "unitId": "125",
+      "unitNumber": "125",
+      "kind": "time",
+      "value": "three months",
+      "sortKey": 90,
+      "quote": "…onment of either description for a term which may extend to three months or with fine which may extend to two thousand five hundred…",
+      "verify": true
+    },
+    {
+      "unitId": "125",
+      "unitNumber": "125",
+      "kind": "time",
+      "value": "six months",
+      "sortKey": 180,
+      "quote": "…onment of either description for a term which may extend to six months, or with fine which may extend to five thousand rupees, or…",
+      "verify": true
+    },
+    {
+      "unitId": "125",
+      "unitNumber": "125",
+      "kind": "time",
+      "value": "three years",
+      "sortKey": 1095,
+      "quote": "…onment of either description for a term which may extend to three years, or with fine which may extend to ten thousand rupees, or w…",
+      "verify": true
+    },
+    {
+      "unitId": "126",
+      "unitNumber": "126",
+      "kind": "time",
+      "value": "one month",
+      "sortKey": 30,
+      "quote": "…hed with simple imprisonment for a term which may extend to one month, or with fine which may extend to five thousand rupees, or…",
+      "verify": true
+    },
+    {
+      "unitId": "127",
+      "unitNumber": "127",
+      "kind": "time",
+      "value": "one year",
+      "sortKey": 365,
+      "quote": "…onment of either description for a term which may extend to one year, or with fine which may extend to five thousand rupees, or…",
+      "verify": true
+    },
+    {
+      "unitId": "127",
+      "unitNumber": "127",
+      "kind": "time",
+      "value": "three days",
+      "sortKey": 3,
+      "quote": "…r with both. (3) Whoever wrongfully confines any person for three days, or more, shall be punished with imprisonment of either des…",
+      "verify": true
+    },
+    {
+      "unitId": "127",
+      "unitNumber": "127",
+      "kind": "time",
+      "value": "three years",
+      "sortKey": 1095,
+      "quote": "…onment of either description for a term which may extend to three years, or with fine which may extend to ten thousand rupees, or w…",
+      "verify": true
+    },
+    {
+      "unitId": "127",
+      "unitNumber": "127",
+      "kind": "time",
+      "value": "ten days",
+      "sortKey": 10,
+      "quote": "…r with both. (4) Whoever wrongfully confines any person for ten days or more, shall be punished with imprisonment of either desc…",
+      "verify": true
+    },
+    {
+      "unitId": "127",
+      "unitNumber": "127",
+      "kind": "time",
+      "value": "five years",
+      "sortKey": 1825,
+      "quote": "…onment of either description for a term which may extend to five years, and shall also be liable to fine which shall not be less t…",
+      "verify": true
+    },
+    {
+      "unitId": "127",
+      "unitNumber": "127",
+      "kind": "time",
+      "value": "two years",
+      "sortKey": 730,
+      "quote": "…onment of either description for a term which may extend to two years in addition to any term of imprisonment to which he may be…",
+      "verify": true
+    },
+    {
+      "unitId": "131",
+      "unitNumber": "131",
+      "kind": "time",
+      "value": "three months",
+      "sortKey": 90,
+      "quote": "…onment of either description for a term which may extend to three months, or with fine which may extend to one thousand rupees, or w…",
+      "verify": true
+    },
+    {
+      "unitId": "132",
+      "unitNumber": "132",
+      "kind": "time",
+      "value": "two years",
+      "sortKey": 730,
+      "quote": "…onment of either description for a term which may extend to two years, or with fine, or with both.",
+      "verify": true
+    },
+    {
+      "unitId": "133",
+      "unitNumber": "133",
+      "kind": "time",
+      "value": "two years",
+      "sortKey": 730,
+      "quote": "…onment of either description for a term which may extend to two years, or with fine, or with both.",
+      "verify": true
+    },
+    {
+      "unitId": "134",
+      "unitNumber": "134",
+      "kind": "time",
+      "value": "two years",
+      "sortKey": 730,
+      "quote": "…onment of either description for a term which may extend to two years, or with fine, or with both.",
+      "verify": true
+    },
+    {
+      "unitId": "135",
+      "unitNumber": "135",
+      "kind": "time",
+      "value": "one year",
+      "sortKey": 365,
+      "quote": "…onment of either description for a term which may extend to one year, or with fine which may extend to five thousand rupees, or…",
+      "verify": true
+    },
+    {
+      "unitId": "136",
+      "unitNumber": "136",
+      "kind": "time",
+      "value": "one month",
+      "sortKey": 30,
+      "quote": "…hed with simple imprisonment for a term which may extend to one month, or with fine which may extend to one thousand rupees, or w…",
+      "verify": true
+    },
+    {
+      "unitId": "137",
+      "unitNumber": "137",
+      "kind": "time",
+      "value": "seven years",
+      "sortKey": 2555,
+      "quote": "…onment of either description for a term which may extend to seven years, and shall also be liable to fine.",
+      "verify": true
+    },
+    {
+      "unitId": "139",
+      "unitNumber": "139",
+      "kind": "time",
+      "value": "ten years",
+      "sortKey": 3650,
+      "quote": "…gorous imprisonment for a term which shall not be less than ten years but which may extend to imprisonment for life, and shall al…",
+      "verify": true
+    },
+    {
+      "unitId": "139",
+      "unitNumber": "139",
+      "kind": "time",
+      "value": "twenty years",
+      "sortKey": 7300,
+      "quote": "…e punishable with imprisonment which shall not be less than twenty years, but which may extend to life which shall mean imprisonment…",
+      "verify": true
+    },
+    {
+      "unitId": "140",
+      "unitNumber": "140",
+      "kind": "time",
+      "value": "ten years",
+      "sortKey": 3650,
+      "quote": "…ife or rigorous imprisonment for a term which may extend to ten years, and shall also be liable to fine. Illustrations. (a) A kid…",
+      "verify": true
+    },
+    {
+      "unitId": "140",
+      "unitNumber": "140",
+      "kind": "time",
+      "value": "seven years",
+      "sortKey": 2555,
+      "quote": "…onment of either description for a term which may extend to seven years, and shall also be liable to fine. (4) Whoever kidnaps or a…",
+      "verify": true
+    },
+    {
+      "unitId": "140",
+      "unitNumber": "140",
+      "kind": "time",
+      "value": "ten years",
+      "sortKey": 3650,
+      "quote": "…onment of either description for a term which may extend to ten years, and shall also be liable to fine.",
+      "verify": true
+    },
+    {
+      "unitId": "141",
+      "unitNumber": "141",
+      "kind": "time",
+      "value": "ten years",
+      "sortKey": 3650,
+      "quote": "…, shall be punishable with imprisonment which may extend to ten years and shall also be liable to fine.",
+      "verify": true
+    },
+    {
+      "unitId": "143",
+      "unitNumber": "143",
+      "kind": "time",
+      "value": "seven years",
+      "sortKey": 2555,
+      "quote": "…gorous imprisonment for a term which shall not be less than seven years, but which may extend to ten years, and shall also be liabl…",
+      "verify": true
+    },
+    {
+      "unitId": "143",
+      "unitNumber": "143",
+      "kind": "time",
+      "value": "ten years",
+      "sortKey": 3650,
+      "quote": "…shall not be less than seven years, but which may extend to ten years, and shall also be liable to fine. (3) Where the offence in…",
+      "verify": true
+    },
+    {
+      "unitId": "143",
+      "unitNumber": "143",
+      "kind": "time",
+      "value": "ten years",
+      "sortKey": 3650,
+      "quote": "…gorous imprisonment for a term which shall not be less than ten years but which may extend to imprisonment for life, and shall al…",
+      "verify": true
+    },
+    {
+      "unitId": "144",
+      "unitNumber": "144",
+      "kind": "time",
+      "value": "five years",
+      "sortKey": 1825,
+      "quote": "…gorous imprisonment for a term which shall not be less than five years, but which may extend to ten years , and shall also be liab…",
+      "verify": true
+    },
+    {
+      "unitId": "144",
+      "unitNumber": "144",
+      "kind": "time",
+      "value": "ten years",
+      "sortKey": 3650,
+      "quote": "…shall not be less than five years, but which may extend to ten years , and shall also be liable to fine. (2) Whoever, knowingly…",
+      "verify": true
+    },
+    {
+      "unitId": "144",
+      "unitNumber": "144",
+      "kind": "time",
+      "value": "three years",
+      "sortKey": 1095,
+      "quote": "…gorous imprisonment for a term which shall not be less than three years, but which may extend to seven years , and shall also be li…",
+      "verify": true
+    },
+    {
+      "unitId": "144",
+      "unitNumber": "144",
+      "kind": "time",
+      "value": "seven years",
+      "sortKey": 2555,
+      "quote": "…shall not be less than three years, but which may extend to seven years , and shall also be liable to fine.",
+      "verify": true
+    },
+    {
+      "unitId": "145",
+      "unitNumber": "145",
+      "kind": "time",
+      "value": "ten years",
+      "sortKey": 3650,
+      "quote": "…imprisonment of either description for a term not exceeding ten years, and shall also be liable to fine.",
+      "verify": false
+    },
+    {
+      "unitId": "146",
+      "unitNumber": "146",
+      "kind": "time",
+      "value": "one year",
+      "sortKey": 365,
+      "quote": "…onment of either description for a term which may extend to one year, or with fine, or with both.",
+      "verify": true
+    },
+    {
+      "unitId": "148",
+      "unitNumber": "148",
+      "kind": "time",
+      "value": "ten years",
+      "sortKey": 3650,
+      "quote": "…with imprisonment of either description which may extend to ten years, and shall also be liable to fine. Explanation .-To constit…",
+      "verify": true
+    },
+    {
+      "unitId": "149",
+      "unitNumber": "149",
+      "kind": "time",
+      "value": "ten years",
+      "sortKey": 3650,
+      "quote": "…imprisonment of either description for a term not exceeding ten years, and shall also be liable to fine.",
+      "verify": false
+    },
+    {
+      "unitId": "150",
+      "unitNumber": "150",
+      "kind": "time",
+      "value": "ten years",
+      "sortKey": 3650,
+      "quote": "…onment of either description for a term which may extend to ten years, and shall also be liable to fine.",
+      "verify": true
+    },
+    {
+      "unitId": "151",
+      "unitNumber": "151",
+      "kind": "time",
+      "value": "seven years",
+      "sortKey": 2555,
+      "quote": "…onment of either description for a term which may extend to seven years, and shall also be liable to fine.",
+      "verify": true
+    },
+    {
+      "unitId": "152",
+      "unitNumber": "152",
+      "kind": "time",
+      "value": "seven years",
+      "sortKey": 2555,
+      "quote": "…risonment for life or with imprisonment which may extend to seven years, and shall also be liable to fine. Explanation .-Comments e…",
+      "verify": true
+    },
+    {
+      "unitId": "153",
+      "unitNumber": "153",
+      "kind": "time",
+      "value": "seven years",
+      "sortKey": 2555,
+      "quote": "…onment of either description for a term which may extend to seven years, to which fine may be added, or with fine.",
+      "verify": true
+    },
+    {
+      "unitId": "154",
+      "unitNumber": "154",
+      "kind": "time",
+      "value": "seven years",
+      "sortKey": 2555,
+      "quote": "…onment of either description for a term which may extend to seven years, and shall also be liable to fine and to forfeiture of any…",
+      "verify": true
+    },
+    {
+      "unitId": "155",
+      "unitNumber": "155",
+      "kind": "time",
+      "value": "seven years",
+      "sortKey": 2555,
+      "quote": "…onment of either description for a term which may extend to seven years, and shall also be liable to fine and to forfeiture of the…",
+      "verify": true
+    },
+    {
+      "unitId": "156",
+      "unitNumber": "156",
+      "kind": "time",
+      "value": "ten years",
+      "sortKey": 3650,
+      "quote": "…onment of either description for a term which may extend to ten years, and shall also be liable to fine.",
+      "verify": true
+    },
+    {
+      "unitId": "157",
+      "unitNumber": "157",
+      "kind": "time",
+      "value": "three years",
+      "sortKey": 1095,
+      "quote": "…hed with simple imprisonment for a term which may extend to three years, and shall also be liable to fine.",
+      "verify": true
+    },
+    {
+      "unitId": "158",
+      "unitNumber": "158",
+      "kind": "time",
+      "value": "ten years",
+      "sortKey": 3650,
+      "quote": "…onment of either description for a term which may extend to ten years, and shall also be liable to fine. Explanation .-A State pr…",
+      "verify": true
+    },
+    {
+      "unitId": "159",
+      "unitNumber": "159",
+      "kind": "time",
+      "value": "ten years",
+      "sortKey": 3650,
+      "quote": "…onment of either description for a term which may extend to ten years, and shall also be liable to fine.",
+      "verify": true
+    },
+    {
+      "unitId": "160",
+      "unitNumber": "160",
+      "kind": "time",
+      "value": "ten years",
+      "sortKey": 3650,
+      "quote": "…onment of either description for a term which may extend to ten years, and shall also be liable to fine.",
+      "verify": true
+    },
+    {
+      "unitId": "161",
+      "unitNumber": "161",
+      "kind": "time",
+      "value": "three years",
+      "sortKey": 1095,
+      "quote": "…onment of either description for a term which may extend to three years, and shall also be liable to fine.",
+      "verify": true
+    },
+    {
+      "unitId": "162",
+      "unitNumber": "162",
+      "kind": "time",
+      "value": "seven years",
+      "sortKey": 2555,
+      "quote": "…onment of either description for a term which may extend to seven years, and shall also be liable to fine.",
+      "verify": true
+    },
+    {
+      "unitId": "163",
+      "unitNumber": "163",
+      "kind": "time",
+      "value": "two years",
+      "sortKey": 730,
+      "quote": "…onment of either description for a term which may extend to two years, or with fine, or with both.",
+      "verify": true
+    },
+    {
+      "unitId": "164",
+      "unitNumber": "164",
+      "kind": "time",
+      "value": "two years",
+      "sortKey": 730,
+      "quote": "…onment of either description for a term which may extend to two years, or with fine or with both. Exception .-This provision does…",
+      "verify": true
+    },
+    {
+      "unitId": "166",
+      "unitNumber": "166",
+      "kind": "time",
+      "value": "two years",
+      "sortKey": 730,
+      "quote": "…onment of either description for a term which may extend to two years, or with fine, or with both.",
+      "verify": true
+    },
+    {
+      "unitId": "168",
+      "unitNumber": "168",
+      "kind": "time",
+      "value": "three months",
+      "sortKey": 90,
+      "quote": "…onment of either description for a term which may extend to three months, or with fine which may extend to two thousand rupees, or w…",
+      "verify": true
+    },
+    {
+      "unitId": "173",
+      "unitNumber": "173",
+      "kind": "time",
+      "value": "one year",
+      "sortKey": 365,
+      "quote": "…onment of either description for a term which may extend to one year, or with fine, or with both: Provided that bribery by treat…",
+      "verify": true
+    },
+    {
+      "unitId": "174",
+      "unitNumber": "174",
+      "kind": "time",
+      "value": "one year",
+      "sortKey": 365,
+      "quote": "…onment of either description for a term which may extend to one year or with fine, or with both.",
+      "verify": true
+    },
+    {
+      "unitId": "176",
+      "unitNumber": "176",
+      "kind": "time",
+      "value": "ten days",
+      "sortKey": 10,
+      "quote": "…g the amount of ten rupees without authority obtains within ten days from the date on which such expenses were incurred the appr…",
+      "verify": false
+    },
+    {
+      "unitId": "178",
+      "unitNumber": "178",
+      "kind": "time",
+      "value": "ten years",
+      "sortKey": 3650,
+      "quote": "…onment of either description for a term which may extend to ten years, and shall also be liable to fine. Explanation .-For the pu…",
+      "verify": true
+    },
+    {
+      "unitId": "179",
+      "unitNumber": "179",
+      "kind": "time",
+      "value": "ten years",
+      "sortKey": 3650,
+      "quote": "…onment of either description for a term which may extend to ten years, and shall also be liable to fine.",
+      "verify": true
+    },
+    {
+      "unitId": "180",
+      "unitNumber": "180",
+      "kind": "time",
+      "value": "seven years",
+      "sortKey": 2555,
+      "quote": "…onment of either description for a term which may extend to seven years, or with fine, or with both. Explanation .-If a person esta…",
+      "verify": true
+    },
+    {
+      "unitId": "181",
+      "unitNumber": "181",
+      "kind": "time",
+      "value": "ten years",
+      "sortKey": 3650,
+      "quote": "…onment of either description for a term which may extend to ten years, and shall also be liable to fine.",
+      "verify": true
+    },
+    {
+      "unitId": "183",
+      "unitNumber": "183",
+      "kind": "time",
+      "value": "three years",
+      "sortKey": 1095,
+      "quote": "…onment of either description for a term which may extend to three years, or with fine, or with both.",
+      "verify": true
+    },
+    {
+      "unitId": "184",
+      "unitNumber": "184",
+      "kind": "time",
+      "value": "two years",
+      "sortKey": 730,
+      "quote": "…onment of either description for a term which may extend to two years, or with fine, or with both.",
+      "verify": true
+    },
+    {
+      "unitId": "185",
+      "unitNumber": "185",
+      "kind": "time",
+      "value": "three years",
+      "sortKey": 1095,
+      "quote": "…onment of either description for a term which may extend to three years, or with fine, or with both.",
+      "verify": true
+    },
+    {
+      "unitId": "187",
+      "unitNumber": "187",
+      "kind": "time",
+      "value": "seven years",
+      "sortKey": 2555,
+      "quote": "…onment of either description for a term which may extend to seven years, and shall also be liable to fine.",
+      "verify": true
+    },
+    {
+      "unitId": "188",
+      "unitNumber": "188",
+      "kind": "time",
+      "value": "seven years",
+      "sortKey": 2555,
+      "quote": "…onment of either description for a term which may extend to seven years, and shall also be liable to fine.",
+      "verify": true
+    },
+    {
+      "unitId": "189",
+      "unitNumber": "189",
+      "kind": "time",
+      "value": "six months",
+      "sortKey": 180,
+      "quote": "…onment of either description for a term which may extend to six months, or with fine, or with both. (3) Whoever joins or continues…",
+      "verify": true
+    },
+    {
+      "unitId": "189",
+      "unitNumber": "189",
+      "kind": "time",
+      "value": "two years",
+      "sortKey": 730,
+      "quote": "…onment of either description for a term which may extend to two years, or with fine, or with both. (4) Whoever, being armed with…",
+      "verify": true
+    },
+    {
+      "unitId": "191",
+      "unitNumber": "191",
+      "kind": "time",
+      "value": "two years",
+      "sortKey": 730,
+      "quote": "…onment of either description for a term which may extend to two years, or with fine, or with both. (3) Whoever is guilty of rioti…",
+      "verify": true
+    },
+    {
+      "unitId": "191",
+      "unitNumber": "191",
+      "kind": "time",
+      "value": "five years",
+      "sortKey": 1825,
+      "quote": "…onment of either description for a term which may extend to five years, or with fine, or with both.",
+      "verify": true
+    },
+    {
+      "unitId": "192",
+      "unitNumber": "192",
+      "kind": "time",
+      "value": "one year",
+      "sortKey": 365,
+      "quote": "…onment of either description for a term which may extend to one year, or with fine, or with both; and if the offence of rioting…",
+      "verify": true
+    },
+    {
+      "unitId": "192",
+      "unitNumber": "192",
+      "kind": "time",
+      "value": "six months",
+      "sortKey": 180,
+      "quote": "…onment of either description for a term which may extend to six months, or with fine, or with both.",
+      "verify": true
+    },
+    {
+      "unitId": "194",
+      "unitNumber": "194",
+      "kind": "time",
+      "value": "one month",
+      "sortKey": 30,
+      "quote": "…onment of either description for a term which may extend to one month, or with fine which may extend to one thousand rupees, or w…",
+      "verify": true
+    },
+    {
+      "unitId": "195",
+      "unitNumber": "195",
+      "kind": "time",
+      "value": "three years",
+      "sortKey": 1095,
+      "quote": "…onment of either description for a term which may extend to three years, or with fine which shall not be less than twenty-five thou…",
+      "verify": true
+    },
+    {
+      "unitId": "195",
+      "unitNumber": "195",
+      "kind": "time",
+      "value": "one year",
+      "sortKey": 365,
+      "quote": "…onment of either description for a term which may extend to one year, or with fine, or with both.",
+      "verify": true
+    },
+    {
+      "unitId": "196",
+      "unitNumber": "196",
+      "kind": "time",
+      "value": "three years",
+      "sortKey": 1095,
+      "quote": "…ty, shall be punished with imprisonment which may extend to three years, or with fine, or with both. (2) Whoever commits an offence…",
+      "verify": true
+    },
+    {
+      "unitId": "196",
+      "unitNumber": "196",
+      "kind": "time",
+      "value": "five years",
+      "sortKey": 1825,
+      "quote": "…es, shall be punished with imprisonment which may extend to five years and shall also be liable to fine.",
+      "verify": true
+    },
+    {
+      "unitId": "197",
+      "unitNumber": "197",
+      "kind": "time",
+      "value": "three years",
+      "sortKey": 1095,
+      "quote": "…ia, shall be punished with imprisonment which may extend to three years, or with fine, or with both. (2) Whoever commits an offence…",
+      "verify": true
+    },
+    {
+      "unitId": "197",
+      "unitNumber": "197",
+      "kind": "time",
+      "value": "five years",
+      "sortKey": 1825,
+      "quote": "…es, shall be punished with imprisonment which may extend to five years and shall also be liable to fine.",
+      "verify": true
+    },
+    {
+      "unitId": "198",
+      "unitNumber": "198",
+      "kind": "time",
+      "value": "one year",
+      "sortKey": 365,
+      "quote": "…hed with simple imprisonment for a term which may extend to one year, or with fine, or with both. Illustration. A, being an offi…",
+      "verify": true
+    },
+    {
+      "unitId": "199",
+      "unitNumber": "199",
+      "kind": "time",
+      "value": "six months",
+      "sortKey": 180,
+      "quote": "…gorous imprisonment for a term which shall not be less than six months but which may extend to two years, and shall also be liable…",
+      "verify": true
+    },
+    {
+      "unitId": "199",
+      "unitNumber": "199",
+      "kind": "time",
+      "value": "two years",
+      "sortKey": 730,
+      "quote": "…h shall not be less than six months but which may extend to two years, and shall also be liable to fine.",
+      "verify": true
+    },
+    {
+      "unitId": "200",
+      "unitNumber": "200",
+      "kind": "time",
+      "value": "one year",
+      "sortKey": 365,
+      "quote": "…e punished with imprisonment for a term which may extend to one year, or with fine, or with both.",
+      "verify": true
+    },
+    {
+      "unitId": "201",
+      "unitNumber": "201",
+      "kind": "time",
+      "value": "three years",
+      "sortKey": 1095,
+      "quote": "…onment of either description for a term which may extend to three years, or with fine, or with both.",
+      "verify": true
+    },
+    {
+      "unitId": "202",
+      "unitNumber": "202",
+      "kind": "time",
+      "value": "one year",
+      "sortKey": 365,
+      "quote": "…hed with simple imprisonment for a term which may extend to one year, or with fine, or with both or with community service.",
+      "verify": true
+    },
+    {
+      "unitId": "203",
+      "unitNumber": "203",
+      "kind": "time",
+      "value": "two years",
+      "sortKey": 730,
+      "quote": "…hed with simple imprisonment for a term which may extend to two years, or with fine, or with both; and the property, if purchased…",
+      "verify": true
+    },
+    {
+      "unitId": "204",
+      "unitNumber": "204",
+      "kind": "time",
+      "value": "six months",
+      "sortKey": 180,
+      "quote": "…either description for a term which shall not be less than six months but which may extend to three years and with fine.",
+      "verify": true
+    },
+    {
+      "unitId": "204",
+      "unitNumber": "204",
+      "kind": "time",
+      "value": "three years",
+      "sortKey": 1095,
+      "quote": "…h shall not be less than six months but which may extend to three years and with fine.",
+      "verify": true
+    },
+    {
+      "unitId": "205",
+      "unitNumber": "205",
+      "kind": "time",
+      "value": "three months",
+      "sortKey": 90,
+      "quote": "…onment of either description for a term which may extend to three months, or with fine which may extend to five thousand rupees, or…",
+      "verify": true
+    },
+    {
+      "unitId": "206",
+      "unitNumber": "206",
+      "kind": "time",
+      "value": "one month",
+      "sortKey": 30,
+      "quote": "…hed with simple imprisonment for a term which may extend to one month, or with fine which may extend to five thousand rupees, or…",
+      "verify": true
+    },
+    {
+      "unitId": "206",
+      "unitNumber": "206",
+      "kind": "time",
+      "value": "six months",
+      "sortKey": 180,
+      "quote": "…hed with simple imprisonment for a term which may extend to six months, or with fine which may extend to ten thousand rupees, or w…",
+      "verify": true
+    },
+    {
+      "unitId": "207",
+      "unitNumber": "207",
+      "kind": "time",
+      "value": "one month",
+      "sortKey": 30,
+      "quote": "…hed with simple imprisonment for a term which may extend to one month, or with fine which may extend to five thousand rupees, or…",
+      "verify": true
+    },
+    {
+      "unitId": "207",
+      "unitNumber": "207",
+      "kind": "time",
+      "value": "six months",
+      "sortKey": 180,
+      "quote": "…rt, with simple imprisonment for a term which may extend to six months, or with fine which may extend to ten thousand rupees, or w…",
+      "verify": true
+    },
+    {
+      "unitId": "208",
+      "unitNumber": "208",
+      "kind": "time",
+      "value": "one month",
+      "sortKey": 30,
+      "quote": "…hed with simple imprisonment for a term which may extend to one month, or with fine which may extend to five thousand rupees, or…",
+      "verify": true
+    },
+    {
+      "unitId": "208",
+      "unitNumber": "208",
+      "kind": "time",
+      "value": "six months",
+      "sortKey": 180,
+      "quote": "…urt with simple imprisonment for a term which may extend to six months, or with fine which may extend to ten thousand rupees, or w…",
+      "verify": true
+    },
+    {
+      "unitId": "209",
+      "unitNumber": "209",
+      "kind": "time",
+      "value": "three years",
+      "sortKey": 1095,
+      "quote": "…e punished with imprisonment for a term which may extend to three years, or with fine, or with both, or with community service, and…",
+      "verify": true
+    },
+    {
+      "unitId": "209",
+      "unitNumber": "209",
+      "kind": "time",
+      "value": "seven years",
+      "sortKey": 2555,
+      "quote": "…e punished with imprisonment for a term which may extend to seven years and shall also be liable to fine.",
+      "verify": true
+    },
+    {
+      "unitId": "210",
+      "unitNumber": "210",
+      "kind": "time",
+      "value": "one month",
+      "sortKey": 30,
+      "quote": "…hed with simple imprisonment for a term which may extend to one month, or with fine which may extend to five thousand rupees, or…",
+      "verify": true
+    },
+    {
+      "unitId": "210",
+      "unitNumber": "210",
+      "kind": "time",
+      "value": "six months",
+      "sortKey": 180,
+      "quote": "…urt with simple imprisonment for a term which may extend to six months, or with fine which may extend to ten thousand rupees, or w…",
+      "verify": true
+    },
+    {
+      "unitId": "211",
+      "unitNumber": "211",
+      "kind": "time",
+      "value": "one month",
+      "sortKey": 30,
+      "quote": "…hed with simple imprisonment for a term which may extend to one month, or with fine which may extend to five thousand rupees, or…",
+      "verify": true
+    },
+    {
+      "unitId": "211",
+      "unitNumber": "211",
+      "kind": "time",
+      "value": "six months",
+      "sortKey": 180,
+      "quote": "…er, with simple imprisonment for a term which may extend to six months, or with fine which may extend to ten thousand rupees, or w…",
+      "verify": true
+    },
+    {
+      "unitId": "211",
+      "unitNumber": "211",
+      "kind": "time",
+      "value": "six months",
+      "sortKey": 180,
+      "quote": "…onment of either description for a term which may extend to six months, or with fine which may extend to one thousand rupees, or w…",
+      "verify": true
+    },
+    {
+      "unitId": "212",
+      "unitNumber": "212",
+      "kind": "time",
+      "value": "six months",
+      "sortKey": 180,
+      "quote": "…hed with simple imprisonment for a term which may extend to six months, or with fine which may extend to five thousand rupees, or…",
+      "verify": true
+    },
+    {
+      "unitId": "212",
+      "unitNumber": "212",
+      "kind": "time",
+      "value": "two years",
+      "sortKey": 730,
+      "quote": "…onment of either description for a term which may extend to two years, or with fine, or with both. Illustrations. (a) A, a landho…",
+      "verify": true
+    },
+    {
+      "unitId": "213",
+      "unitNumber": "213",
+      "kind": "time",
+      "value": "six months",
+      "sortKey": 180,
+      "quote": "…hed with simple imprisonment for a term which may extend to six months, or with fine which may extend to five thousand rupees, or…",
+      "verify": true
+    },
+    {
+      "unitId": "214",
+      "unitNumber": "214",
+      "kind": "time",
+      "value": "six months",
+      "sortKey": 180,
+      "quote": "…hed with simple imprisonment for a term which may extend to six months, or with fine which may extend to five thousand rupees, or…",
+      "verify": true
+    },
+    {
+      "unitId": "215",
+      "unitNumber": "215",
+      "kind": "time",
+      "value": "three months",
+      "sortKey": 90,
+      "quote": "…hed with simple imprisonment for a term which may extend to three months, or with fine which may extend to three thousand rupees, or…",
+      "verify": true
+    },
+    {
+      "unitId": "216",
+      "unitNumber": "216",
+      "kind": "time",
+      "value": "three years",
+      "sortKey": 1095,
+      "quote": "…onment of either description for a term which may extend to three years, and shall also be liable to fine.",
+      "verify": true
+    },
+    {
+      "unitId": "217",
+      "unitNumber": "217",
+      "kind": "time",
+      "value": "one year",
+      "sortKey": 365,
+      "quote": "…onment of either description for a term which may extend to one year, or with fine which may extend to ten thousand rupees, or w…",
+      "verify": true
+    },
+    {
+      "unitId": "218",
+      "unitNumber": "218",
+      "kind": "time",
+      "value": "six months",
+      "sortKey": 180,
+      "quote": "…onment of either description for a term which may extend to six months, or with fine which may extend to ten thousand rupees, or w…",
+      "verify": true
+    },
+    {
+      "unitId": "219",
+      "unitNumber": "219",
+      "kind": "time",
+      "value": "one month",
+      "sortKey": 30,
+      "quote": "…onment of either description for a term which may extend to one month, or with fine which may extend to five thousand rupees, or…",
+      "verify": true
+    },
+    {
+      "unitId": "220",
+      "unitNumber": "220",
+      "kind": "time",
+      "value": "one month",
+      "sortKey": 30,
+      "quote": "…onment of either description for a term which may extend to one month, or with fine which may extend to two hundred rupees, or wi…",
+      "verify": true
+    },
+    {
+      "unitId": "221",
+      "unitNumber": "221",
+      "kind": "time",
+      "value": "three months",
+      "sortKey": 90,
+      "quote": "…onment of either description for a term which may extend to three months, or with fine which may extend to two thousand and five hun…",
+      "verify": true
+    },
+    {
+      "unitId": "222",
+      "unitNumber": "222",
+      "kind": "time",
+      "value": "one month",
+      "sortKey": 30,
+      "quote": "…hed with simple imprisonment for a term which may extend to one month, or with fine which may extend to two thousand and five hun…",
+      "verify": true
+    },
+    {
+      "unitId": "222",
+      "unitNumber": "222",
+      "kind": "time",
+      "value": "six months",
+      "sortKey": 180,
+      "quote": "…hed with simple imprisonment for a term which may extend to six months, or with fine which may extend to five thousand rupees, or…",
+      "verify": true
+    },
+    {
+      "unitId": "223",
+      "unitNumber": "223",
+      "kind": "time",
+      "value": "six months",
+      "sortKey": 180,
+      "quote": "…hed with simple imprisonment for a term which may extend to six months, or with fine which may extend to two thousand and five hun…",
+      "verify": true
+    },
+    {
+      "unitId": "223",
+      "unitNumber": "223",
+      "kind": "time",
+      "value": "one year",
+      "sortKey": 365,
+      "quote": "…onment of either description for a term which may extend to one year, or with fine which may extend to five thousand rupees, or…",
+      "verify": true
+    },
+    {
+      "unitId": "224",
+      "unitNumber": "224",
+      "kind": "time",
+      "value": "two years",
+      "sortKey": 730,
+      "quote": "…onment of either description for a term which may extend to two years, or with fine, or with both.",
+      "verify": true
+    },
+    {
+      "unitId": "225",
+      "unitNumber": "225",
+      "kind": "time",
+      "value": "one year",
+      "sortKey": 365,
+      "quote": "…onment of either description for a term which may extend to one year, or with fine, or with both.",
+      "verify": true
+    },
+    {
+      "unitId": "226",
+      "unitNumber": "226",
+      "kind": "time",
+      "value": "one year",
+      "sortKey": 365,
+      "quote": "…hed with simple imprisonment for a term which may extend to one year, or with fine, or with both, or with community service.",
+      "verify": true
+    },
+    {
+      "unitId": "229",
+      "unitNumber": "229",
+      "kind": "time",
+      "value": "seven years",
+      "sortKey": 2555,
+      "quote": "…onment of either description for a term which may extend to seven years, and shall also be liable to fine which may extend to ten t…",
+      "verify": true
+    },
+    {
+      "unitId": "229",
+      "unitNumber": "229",
+      "kind": "time",
+      "value": "three years",
+      "sortKey": 1095,
+      "quote": "…onment of either description for a term which may extend to three years, and shall also be liable to fine which may extend to five…",
+      "verify": true
+    },
+    {
+      "unitId": "230",
+      "unitNumber": "230",
+      "kind": "time",
+      "value": "ten years",
+      "sortKey": 3650,
+      "quote": "…r with rigorous imprisonment for a term which may extend to ten years, and shall also be liable to fine which may extend to fifty…",
+      "verify": true
+    },
+    {
+      "unitId": "231",
+      "unitNumber": "231",
+      "kind": "time",
+      "value": "seven years",
+      "sortKey": 2555,
+      "quote": "…e with imprisonment for life, or imprisonment for a term of seven years or upwards, shall be punished as a person convicted of that…",
+      "verify": true
+    },
+    {
+      "unitId": "231",
+      "unitNumber": "231",
+      "kind": "time",
+      "value": "ten years",
+      "sortKey": 3650,
+      "quote": "…fe, or rigorous imprisonment for a term which may extend to ten years, with or without fine. A, therefore, is liable to imprisonm…",
+      "verify": true
+    },
+    {
+      "unitId": "232",
+      "unitNumber": "232",
+      "kind": "time",
+      "value": "seven years",
+      "sortKey": 2555,
+      "quote": "…onment of either description for a term which may extend to seven years, or with fine, or with both. (2) If innocent person is conv…",
+      "verify": true
+    },
+    {
+      "unitId": "232",
+      "unitNumber": "232",
+      "kind": "time",
+      "value": "seven years",
+      "sortKey": 2555,
+      "quote": "…n sub-section (1), with death or imprisonment for more than seven years, the person who threatens shall be punished with the same p…",
+      "verify": true
+    },
+    {
+      "unitId": "238",
+      "unitNumber": "238",
+      "kind": "time",
+      "value": "seven years",
+      "sortKey": 2555,
+      "quote": "…onment of either description for a term which may extend to seven years, and shall also be liable to fine; (b) if the offence is pu…",
+      "verify": true
+    },
+    {
+      "unitId": "238",
+      "unitNumber": "238",
+      "kind": "time",
+      "value": "ten years",
+      "sortKey": 3650,
+      "quote": "…isonment for life, or with imprisonment which may extend to ten years, be punished with imprisonment of either description for a…",
+      "verify": true
+    },
+    {
+      "unitId": "238",
+      "unitNumber": "238",
+      "kind": "time",
+      "value": "three years",
+      "sortKey": 1095,
+      "quote": "…onment of either description for a term which may extend to three years, and shall also be liable to fine; (c) if the offence is pu…",
+      "verify": true
+    },
+    {
+      "unitId": "238",
+      "unitNumber": "238",
+      "kind": "time",
+      "value": "ten years",
+      "sortKey": 3650,
+      "quote": "…punishable with imprisonment for any term not extending to ten years, be punished with imprisonment of the description provided…",
+      "verify": true
+    },
+    {
+      "unitId": "238",
+      "unitNumber": "238",
+      "kind": "time",
+      "value": "seven years",
+      "sortKey": 2555,
+      "quote": "…ment. A is liable to imprisonment of either description for seven years, and also to fine.",
+      "verify": true
+    },
+    {
+      "unitId": "239",
+      "unitNumber": "239",
+      "kind": "time",
+      "value": "six months",
+      "sortKey": 180,
+      "quote": "…onment of either description for a term which may extend to six months, or with fine which may extend to five thousand rupees, or…",
+      "verify": true
+    },
+    {
+      "unitId": "240",
+      "unitNumber": "240",
+      "kind": "time",
+      "value": "two years",
+      "sortKey": 730,
+      "quote": "…onment of either description for a term which may extend to two years, or with fine, or with both. Explanation .-In sections 238…",
+      "verify": true
+    },
+    {
+      "unitId": "241",
+      "unitNumber": "241",
+      "kind": "time",
+      "value": "three years",
+      "sortKey": 1095,
+      "quote": "…onment of either description for a term which may extend to three years, or with fine which may extend to five thousand rupees, or…",
+      "verify": true
+    },
+    {
+      "unitId": "242",
+      "unitNumber": "242",
+      "kind": "time",
+      "value": "three years",
+      "sortKey": 1095,
+      "quote": "…onment of either description for a term which may extend to three years, or with fine, or with both.",
+      "verify": true
+    },
+    {
+      "unitId": "243",
+      "unitNumber": "243",
+      "kind": "time",
+      "value": "three years",
+      "sortKey": 1095,
+      "quote": "…onment of either description for a term which may extend to three years, or with fine which may extend to five thousand rupees, or…",
+      "verify": true
+    },
+    {
+      "unitId": "243",
+      "unitNumber": "243",
+      "kind": "authority",
+      "value": "competent authority",
+      "sortKey": "competent authority",
+      "quote": "…he knows to be likely to be pronounced, by a Court or other competent authority, or from being taken in execution of a decree or order whic…",
+      "verify": false
+    },
+    {
+      "unitId": "244",
+      "unitNumber": "244",
+      "kind": "time",
+      "value": "two years",
+      "sortKey": 730,
+      "quote": "…onment of either description for a term which may extend to two years, or with fine, or with both.",
+      "verify": true
+    },
+    {
+      "unitId": "244",
+      "unitNumber": "244",
+      "kind": "authority",
+      "value": "competent authority",
+      "sortKey": "competent authority",
+      "quote": "…he knows to be likely to be pronounced by a Court or other competent authority, or from being taken in execution of a decree or order whic…",
+      "verify": false
+    },
+    {
+      "unitId": "245",
+      "unitNumber": "245",
+      "kind": "time",
+      "value": "two years",
+      "sortKey": 730,
+      "quote": "…onment of either description for a term which may extend to two years, or with fine, or with both. Illustration. A institutes a s…",
+      "verify": true
+    },
+    {
+      "unitId": "246",
+      "unitNumber": "246",
+      "kind": "time",
+      "value": "two years",
+      "sortKey": 730,
+      "quote": "…onment of either description for a term which may extend to two years, and shall also be liable to fine.",
+      "verify": true
+    },
+    {
+      "unitId": "247",
+      "unitNumber": "247",
+      "kind": "time",
+      "value": "two years",
+      "sortKey": 730,
+      "quote": "…onment of either description for a term which may extend to two years, or with fine, or with both.",
+      "verify": true
+    },
+    {
+      "unitId": "248",
+      "unitNumber": "248",
+      "kind": "time",
+      "value": "five years",
+      "sortKey": 1825,
+      "quote": "…onment of either description for a term which may extend to five years, or with fine which may extend to two lakh rupees, or with…",
+      "verify": true
+    },
+    {
+      "unitId": "248",
+      "unitNumber": "248",
+      "kind": "time",
+      "value": "ten years",
+      "sortKey": 3650,
+      "quote": "…able with death, imprisonment for life, or imprisonment for ten years or upwards, shall be punishable with imprisonment of either…",
+      "verify": true
+    },
+    {
+      "unitId": "248",
+      "unitNumber": "248",
+      "kind": "time",
+      "value": "ten years",
+      "sortKey": 3650,
+      "quote": "…onment of either description for a term which may extend to ten years, and shall also be liable to fine.",
+      "verify": true
+    },
+    {
+      "unitId": "249",
+      "unitNumber": "249",
+      "kind": "time",
+      "value": "five years",
+      "sortKey": 1825,
+      "quote": "…onment of either description for a term which may extend to five years, and shall also be liable to fine; (b) if the offence is pu…",
+      "verify": true
+    },
+    {
+      "unitId": "249",
+      "unitNumber": "249",
+      "kind": "time",
+      "value": "ten years",
+      "sortKey": 3650,
+      "quote": "…isonment for life, or with imprisonment which may extend to ten years, be punished with imprisonment of either description for a…",
+      "verify": true
+    },
+    {
+      "unitId": "249",
+      "unitNumber": "249",
+      "kind": "time",
+      "value": "three years",
+      "sortKey": 1095,
+      "quote": "…onment of either description for a term which may extend to three years, and shall also be liable to fine; (c) if the offence is pu…",
+      "verify": true
+    },
+    {
+      "unitId": "249",
+      "unitNumber": "249",
+      "kind": "time",
+      "value": "one year",
+      "sortKey": 365,
+      "quote": "…offence is punishable with imprisonment which may extend to one year, and not to ten years, be punished with imprisonment of the…",
+      "verify": true
+    },
+    {
+      "unitId": "249",
+      "unitNumber": "249",
+      "kind": "time",
+      "value": "ten years",
+      "sortKey": 3650,
+      "quote": "…with imprisonment which may extend to one year, and not to ten years, be punished with imprisonment of the description provided…",
+      "verify": true
+    },
+    {
+      "unitId": "249",
+      "unitNumber": "249",
+      "kind": "time",
+      "value": "three years",
+      "sortKey": 1095,
+      "quote": "…imprisonment of either description for a term not exceeding three years, and is also liable to fine.",
+      "verify": false
+    },
+    {
+      "unitId": "250",
+      "unitNumber": "250",
+      "kind": "time",
+      "value": "seven years",
+      "sortKey": 2555,
+      "quote": "…onment of either description for a term which may extend to seven years, and shall also be liable to fine; (b) if the offence is pu…",
+      "verify": true
+    },
+    {
+      "unitId": "250",
+      "unitNumber": "250",
+      "kind": "time",
+      "value": "ten years",
+      "sortKey": 3650,
+      "quote": "…isonment for life, or with imprisonment which may extend to ten years, be punished with imprisonment of either description for a…",
+      "verify": true
+    },
+    {
+      "unitId": "250",
+      "unitNumber": "250",
+      "kind": "time",
+      "value": "three years",
+      "sortKey": 1095,
+      "quote": "…onment of either description for a term which may extend to three years, and shall also be liable to fine; (c) if the offence is pu…",
+      "verify": true
+    },
+    {
+      "unitId": "250",
+      "unitNumber": "250",
+      "kind": "time",
+      "value": "ten years",
+      "sortKey": 3650,
+      "quote": "…he offence is punishable with imprisonment not extending to ten years, be punished with imprisonment of the description provided…",
+      "verify": true
+    },
+    {
+      "unitId": "251",
+      "unitNumber": "251",
+      "kind": "time",
+      "value": "seven years",
+      "sortKey": 2555,
+      "quote": "…onment of either description for a term which may extend to seven years, and shall also be liable to fine; (b) if the offence is pu…",
+      "verify": true
+    },
+    {
+      "unitId": "251",
+      "unitNumber": "251",
+      "kind": "time",
+      "value": "ten years",
+      "sortKey": 3650,
+      "quote": "…risonment for life or with imprisonment which may extend to ten years, be punished with imprisonment of either description for a…",
+      "verify": true
+    },
+    {
+      "unitId": "251",
+      "unitNumber": "251",
+      "kind": "time",
+      "value": "three years",
+      "sortKey": 1095,
+      "quote": "…onment of either description for a term which may extend to three years, and shall also be liable to fine; (c) if the offence is pu…",
+      "verify": true
+    },
+    {
+      "unitId": "251",
+      "unitNumber": "251",
+      "kind": "time",
+      "value": "ten years",
+      "sortKey": 3650,
+      "quote": "…he offence is punishable with imprisonment not extending to ten years, be punished with imprisonment of the description provided…",
+      "verify": true
+    },
+    {
+      "unitId": "252",
+      "unitNumber": "252",
+      "kind": "time",
+      "value": "two years",
+      "sortKey": 730,
+      "quote": "…onment of either description for a term which may extend to two years, or with fine, or with both.",
+      "verify": true
+    },
+    {
+      "unitId": "253",
+      "unitNumber": "253",
+      "kind": "time",
+      "value": "seven years",
+      "sortKey": 2555,
+      "quote": "…onment of either description for a term which may extend to seven years, and shall also be liable to fine; (b) if the offence is pu…",
+      "verify": true
+    },
+    {
+      "unitId": "253",
+      "unitNumber": "253",
+      "kind": "time",
+      "value": "ten years",
+      "sortKey": 3650,
+      "quote": "…s punishable with imprisonment for life or imprisonment for ten years, he shall be punished with imprisonment of either descripti…",
+      "verify": true
+    },
+    {
+      "unitId": "253",
+      "unitNumber": "253",
+      "kind": "time",
+      "value": "three years",
+      "sortKey": 1095,
+      "quote": "…onment of either description for a term which may extend to three years, with or without fine; (c) if the offence is punishable wit…",
+      "verify": true
+    },
+    {
+      "unitId": "253",
+      "unitNumber": "253",
+      "kind": "time",
+      "value": "one year",
+      "sortKey": 365,
+      "quote": "…offence is punishable with imprisonment which may extend to one year and not to ten years, he shall be punished with imprisonmen…",
+      "verify": true
+    },
+    {
+      "unitId": "253",
+      "unitNumber": "253",
+      "kind": "time",
+      "value": "ten years",
+      "sortKey": 3650,
+      "quote": "…e with imprisonment which may extend to one year and not to ten years, he shall be punished with imprisonment of the description…",
+      "verify": true
+    },
+    {
+      "unitId": "254",
+      "unitNumber": "254",
+      "kind": "time",
+      "value": "seven years",
+      "sortKey": 2555,
+      "quote": "…d with rigorous imprisonment for a term which may extend to seven years, and shall also be liable to fine. Explanation .-For the pu…",
+      "verify": true
+    },
+    {
+      "unitId": "255",
+      "unitNumber": "255",
+      "kind": "time",
+      "value": "two years",
+      "sortKey": 730,
+      "quote": "…onment of either description for a term which may extend to two years, or with fine, or with both.",
+      "verify": true
+    },
+    {
+      "unitId": "256",
+      "unitNumber": "256",
+      "kind": "time",
+      "value": "three years",
+      "sortKey": 1095,
+      "quote": "…onment of either description for a term which may extend to three years, or with fine, or with both.",
+      "verify": true
+    },
+    {
+      "unitId": "257",
+      "unitNumber": "257",
+      "kind": "time",
+      "value": "seven years",
+      "sortKey": 2555,
+      "quote": "…onment of either description for a term which may extend to seven years, or with fine, or with both.",
+      "verify": true
+    },
+    {
+      "unitId": "258",
+      "unitNumber": "258",
+      "kind": "time",
+      "value": "seven years",
+      "sortKey": 2555,
+      "quote": "…onment of either description for a term which may extend to seven years, or with fine, or with both.",
+      "verify": true
+    },
+    {
+      "unitId": "259",
+      "unitNumber": "259",
+      "kind": "time",
+      "value": "seven years",
+      "sortKey": 2555,
+      "quote": "…onment of either description for a term which may extend to seven years, with or without fine, if the person in confinement, or who…",
+      "verify": true
+    },
+    {
+      "unitId": "259",
+      "unitNumber": "259",
+      "kind": "time",
+      "value": "three years",
+      "sortKey": 1095,
+      "quote": "…onment of either description for a term which may extend to three years, with or without fine, if the person in confinement, or who…",
+      "verify": true
+    },
+    {
+      "unitId": "259",
+      "unitNumber": "259",
+      "kind": "time",
+      "value": "ten years",
+      "sortKey": 3650,
+      "quote": "…ent for life or imprisonment for a term which may extend to ten years; or (c) with imprisonment of either description for a term…",
+      "verify": true
+    },
+    {
+      "unitId": "259",
+      "unitNumber": "259",
+      "kind": "time",
+      "value": "two years",
+      "sortKey": 730,
+      "quote": "…onment of either description for a term which may extend to two years, with or without fine, if the person in confinement, or who…",
+      "verify": true
+    },
+    {
+      "unitId": "259",
+      "unitNumber": "259",
+      "kind": "time",
+      "value": "ten years",
+      "sortKey": 3650,
+      "quote": "…n offence punishable with imprisonment for a term less than ten years.",
+      "verify": true
+    },
+    {
+      "unitId": "260",
+      "unitNumber": "260",
+      "kind": "time",
+      "value": "seven years",
+      "sortKey": 2555,
+      "quote": "…onment of either description for a term which may extend to seven years, with or without fine, if the person in confinement or who…",
+      "verify": true
+    },
+    {
+      "unitId": "260",
+      "unitNumber": "260",
+      "kind": "time",
+      "value": "ten years",
+      "sortKey": 3650,
+      "quote": "…nce, to imprisonment for life or imprisonment for a term of ten years, or upwards; or (c) with imprisonment of either description…",
+      "verify": true
+    },
+    {
+      "unitId": "260",
+      "unitNumber": "260",
+      "kind": "time",
+      "value": "three years",
+      "sortKey": 1095,
+      "quote": "…onment of either description for a term which may extend to three years, or with fine, or with both, if the person in confinement o…",
+      "verify": true
+    },
+    {
+      "unitId": "260",
+      "unitNumber": "260",
+      "kind": "time",
+      "value": "ten years",
+      "sortKey": 3650,
+      "quote": "…ence of a Court to imprisonment for a term not extending to ten years or if the person was lawfully committed to custody.",
+      "verify": true
+    },
+    {
+      "unitId": "261",
+      "unitNumber": "261",
+      "kind": "time",
+      "value": "two years",
+      "sortKey": 730,
+      "quote": "…hed with simple imprisonment for a term which may extend to two years, or with fine, or with both.",
+      "verify": true
+    },
+    {
+      "unitId": "262",
+      "unitNumber": "262",
+      "kind": "time",
+      "value": "two years",
+      "sortKey": 730,
+      "quote": "…onment of either description for a term which may extend to two years, or with fine, or with both. Explanation .-The punishment i…",
+      "verify": true
+    },
+    {
+      "unitId": "263",
+      "unitNumber": "263",
+      "kind": "time",
+      "value": "two years",
+      "sortKey": 730,
+      "quote": "…onment of either description for a term which may extend to two years, or with fine, or with both; or (b) if the person to be app…",
+      "verify": true
+    },
+    {
+      "unitId": "263",
+      "unitNumber": "263",
+      "kind": "time",
+      "value": "ten years",
+      "sortKey": 3650,
+      "quote": "…ent for life or imprisonment for a term which may extend to ten years, shall be punished with imprisonment of either description…",
+      "verify": true
+    },
+    {
+      "unitId": "263",
+      "unitNumber": "263",
+      "kind": "time",
+      "value": "three years",
+      "sortKey": 1095,
+      "quote": "…onment of either description for a term which may extend to three years, and shall also be liable to fine; or (c) if the person to…",
+      "verify": true
+    },
+    {
+      "unitId": "263",
+      "unitNumber": "263",
+      "kind": "time",
+      "value": "seven years",
+      "sortKey": 2555,
+      "quote": "…onment of either description for a term which may extend to seven years, and shall also be liable to fine; or (d) if the person to…",
+      "verify": true
+    },
+    {
+      "unitId": "263",
+      "unitNumber": "263",
+      "kind": "time",
+      "value": "ten years",
+      "sortKey": 3650,
+      "quote": "…ce, to imprisonment for life, or imprisonment for a term of ten years or upwards, shall be punished with imprisonment of either d…",
+      "verify": true
+    },
+    {
+      "unitId": "263",
+      "unitNumber": "263",
+      "kind": "time",
+      "value": "ten years",
+      "sortKey": 3650,
+      "quote": "…imprisonment of either description for a term not exceeding ten years, and shall also be liable to fine.",
+      "verify": false
+    },
+    {
+      "unitId": "264",
+      "unitNumber": "264",
+      "kind": "time",
+      "value": "three years",
+      "sortKey": 1095,
+      "quote": "…onment of either description for a term which may extend to three years, or with fine, or with both; and (b) if he does so negligen…",
+      "verify": true
+    },
+    {
+      "unitId": "264",
+      "unitNumber": "264",
+      "kind": "time",
+      "value": "two years",
+      "sortKey": 730,
+      "quote": "…ly, with simple imprisonment for a term which may extend to two years, or with fine, or with both.",
+      "verify": true
+    },
+    {
+      "unitId": "265",
+      "unitNumber": "265",
+      "kind": "time",
+      "value": "six months",
+      "sortKey": 180,
+      "quote": "…onment of either description for a term which may extend to six months, or with fine, or with both.",
+      "verify": true
+    },
+    {
+      "unitId": "267",
+      "unitNumber": "267",
+      "kind": "time",
+      "value": "six months",
+      "sortKey": 180,
+      "quote": "…hed with simple imprisonment for a term which may extend to six months, or with fine which may extend to five thousand rupees, or…",
+      "verify": true
+    },
+    {
+      "unitId": "268",
+      "unitNumber": "268",
+      "kind": "time",
+      "value": "two years",
+      "sortKey": 730,
+      "quote": "…onment of either description for a term which may extend to two years, or with fine, or with both.",
+      "verify": true
+    },
+    {
+      "unitId": "269",
+      "unitNumber": "269",
+      "kind": "time",
+      "value": "one year",
+      "sortKey": 365,
+      "quote": "…onment of either description for a term which may extend to one year, or with fine, or with both. Explanation .-The punishment u…",
+      "verify": true
+    },
+    {
+      "unitId": "271",
+      "unitNumber": "271",
+      "kind": "time",
+      "value": "six months",
+      "sortKey": 180,
+      "quote": "…onment of either description for a term which may extend to six months, or with fine, or with both.",
+      "verify": true
+    },
+    {
+      "unitId": "272",
+      "unitNumber": "272",
+      "kind": "time",
+      "value": "two years",
+      "sortKey": 730,
+      "quote": "…onment of either description for a term which may extend to two years, or with fine, or with both.",
+      "verify": true
+    },
+    {
+      "unitId": "273",
+      "unitNumber": "273",
+      "kind": "time",
+      "value": "six months",
+      "sortKey": 180,
+      "quote": "…onment of either description for a term which may extend to six months, or with fine, or with both.",
+      "verify": true
+    },
+    {
+      "unitId": "274",
+      "unitNumber": "274",
+      "kind": "time",
+      "value": "six months",
+      "sortKey": 180,
+      "quote": "…onment of either description for a term which may extend to six months, or with fine which may extend to five thousand rupees, or…",
+      "verify": true
+    },
+    {
+      "unitId": "275",
+      "unitNumber": "275",
+      "kind": "time",
+      "value": "six months",
+      "sortKey": 180,
+      "quote": "…onment of either description for a term which may extend to six months, or with fine which may extend to five thousand rupees, or…",
+      "verify": true
+    },
+    {
+      "unitId": "276",
+      "unitNumber": "276",
+      "kind": "time",
+      "value": "one year",
+      "sortKey": 365,
+      "quote": "…onment of either description for a term which may extend to one year, or with fine which may extend to five thousand rupees, or…",
+      "verify": true
+    },
+    {
+      "unitId": "277",
+      "unitNumber": "277",
+      "kind": "time",
+      "value": "six months",
+      "sortKey": 180,
+      "quote": "…onment of either description for a term which may extend to six months, or with fine which may extend to five thousand rupees, or…",
+      "verify": true
+    },
+    {
+      "unitId": "278",
+      "unitNumber": "278",
+      "kind": "time",
+      "value": "six months",
+      "sortKey": 180,
+      "quote": "…onment of either description for a term which may extend to six months, or with fine which may extend to five thousand rupees, or…",
+      "verify": true
+    },
+    {
+      "unitId": "279",
+      "unitNumber": "279",
+      "kind": "time",
+      "value": "six months",
+      "sortKey": 180,
+      "quote": "…onment of either description for a term which may extend to six months, or with fine which may extend to five thousand rupees, or…",
+      "verify": true
+    },
+    {
+      "unitId": "281",
+      "unitNumber": "281",
+      "kind": "time",
+      "value": "six months",
+      "sortKey": 180,
+      "quote": "…onment of either description for a term which may extend to six months, or with fine which may extend to one thousand rupees, or w…",
+      "verify": true
+    },
+    {
+      "unitId": "282",
+      "unitNumber": "282",
+      "kind": "time",
+      "value": "six months",
+      "sortKey": 180,
+      "quote": "…onment of either description for a term which may extend to six months, or with fine which may extend to ten thousand rupees, or w…",
+      "verify": true
+    },
+    {
+      "unitId": "283",
+      "unitNumber": "283",
+      "kind": "time",
+      "value": "seven years",
+      "sortKey": 2555,
+      "quote": "…onment of either description for a term which may extend to seven years, and with fine which shall not be less than ten thousand ru…",
+      "verify": true
+    },
+    {
+      "unitId": "284",
+      "unitNumber": "284",
+      "kind": "time",
+      "value": "six months",
+      "sortKey": 180,
+      "quote": "…onment of either description for a term which may extend to six months, or with fine which may extend to five thousand rupees, or…",
+      "verify": true
+    },
+    {
+      "unitId": "286",
+      "unitNumber": "286",
+      "kind": "time",
+      "value": "six months",
+      "sortKey": 180,
+      "quote": "…onment of either description for a term which may extend to six months, or with fine which may extend to five thousand rupees, or…",
+      "verify": true
+    },
+    {
+      "unitId": "287",
+      "unitNumber": "287",
+      "kind": "time",
+      "value": "six months",
+      "sortKey": 180,
+      "quote": "…onment of either description for a term which may extend to six months, or with fine which may extend to two thousand rupees, or w…",
+      "verify": true
+    },
+    {
+      "unitId": "288",
+      "unitNumber": "288",
+      "kind": "time",
+      "value": "six months",
+      "sortKey": 180,
+      "quote": "…onment of either description for a term which may extend to six months, or with fine which may extend to five thousand rupees, or…",
+      "verify": true
+    },
+    {
+      "unitId": "289",
+      "unitNumber": "289",
+      "kind": "time",
+      "value": "six months",
+      "sortKey": 180,
+      "quote": "…onment of either description for a term which may extend to six months, or with fine which may extend to five thousand rupees, or…",
+      "verify": true
+    },
+    {
+      "unitId": "290",
+      "unitNumber": "290",
+      "kind": "time",
+      "value": "six months",
+      "sortKey": 180,
+      "quote": "…onment of either description for a term which may extend to six months, or with fine which may extend to five thousand rupees, or…",
+      "verify": true
+    },
+    {
+      "unitId": "291",
+      "unitNumber": "291",
+      "kind": "time",
+      "value": "six months",
+      "sortKey": 180,
+      "quote": "…onment of either description for a term which may extend to six months, or with fine which may extend to five thousand rupees, or…",
+      "verify": true
+    },
+    {
+      "unitId": "293",
+      "unitNumber": "293",
+      "kind": "time",
+      "value": "six months",
+      "sortKey": 180,
+      "quote": "…hed with simple imprisonment for a term which may extend to six months, or with fine which may extend to five thousand rupees, or…",
+      "verify": true
+    },
+    {
+      "unitId": "294",
+      "unitNumber": "294",
+      "kind": "time",
+      "value": "two years",
+      "sortKey": 730,
+      "quote": "…onment of either description for a term which may extend to two years, and with fine which may extend to five thousand rupees, an…",
+      "verify": true
+    },
+    {
+      "unitId": "294",
+      "unitNumber": "294",
+      "kind": "time",
+      "value": "five years",
+      "sortKey": 1825,
+      "quote": "…onment of either description for a term which may extend to five years, and also with fine which may extend to ten thousand rupees…",
+      "verify": true
+    },
+    {
+      "unitId": "295",
+      "unitNumber": "295",
+      "kind": "time",
+      "value": "three years",
+      "sortKey": 1095,
+      "quote": "…onment of either description for a term which may extend to three years, and with fine which may extend to two thousand rupees, and…",
+      "verify": true
+    },
+    {
+      "unitId": "295",
+      "unitNumber": "295",
+      "kind": "time",
+      "value": "seven years",
+      "sortKey": 2555,
+      "quote": "…onment of either description for a term which may extend to seven years, and also with fine which may extend to five thousand rupee…",
+      "verify": true
+    },
+    {
+      "unitId": "296",
+      "unitNumber": "296",
+      "kind": "time",
+      "value": "three months",
+      "sortKey": 90,
+      "quote": "…onment of either description for a term which may extend to three months, or with fine which may extend to one thousand rupees, or w…",
+      "verify": true
+    },
+    {
+      "unitId": "297",
+      "unitNumber": "297",
+      "kind": "time",
+      "value": "six months",
+      "sortKey": 180,
+      "quote": "…onment of either description for a term which may extend to six months, or with fine, or with both. (2) Whoever publishes any prop…",
+      "verify": true
+    },
+    {
+      "unitId": "298",
+      "unitNumber": "298",
+      "kind": "time",
+      "value": "two years",
+      "sortKey": 730,
+      "quote": "…onment of either description for a term which may extend to two years, or with fine, or with both.",
+      "verify": true
+    },
+    {
+      "unitId": "299",
+      "unitNumber": "299",
+      "kind": "time",
+      "value": "three years",
+      "sortKey": 1095,
+      "quote": "…onment of either description for a term which may extend to three years, or with fine, or with both.",
+      "verify": true
+    },
+    {
+      "unitId": "300",
+      "unitNumber": "300",
+      "kind": "time",
+      "value": "one year",
+      "sortKey": 365,
+      "quote": "…onment of either description for a term which may extend to one year, or with fine, or with both.",
+      "verify": true
+    },
+    {
+      "unitId": "301",
+      "unitNumber": "301",
+      "kind": "time",
+      "value": "one year",
+      "sortKey": 365,
+      "quote": "…onment of either description for a term which may extend to one year, or with fine, or with both.",
+      "verify": true
+    },
+    {
+      "unitId": "302",
+      "unitNumber": "302",
+      "kind": "time",
+      "value": "one year",
+      "sortKey": 365,
+      "quote": "…onment of either description for a term which may extend to one year, or with fine, or with both.",
+      "verify": true
+    },
+    {
+      "unitId": "303",
+      "unitNumber": "303",
+      "kind": "time",
+      "value": "three years",
+      "sortKey": 1095,
+      "quote": "…onment of either description for a term which may extend to three years, or with fine, or with both and in case of second or subseq…",
+      "verify": true
+    },
+    {
+      "unitId": "303",
+      "unitNumber": "303",
+      "kind": "time",
+      "value": "one year",
+      "sortKey": 365,
+      "quote": "…gorous imprisonment for a term which shall not be less than one year but which may extend to five years and with fine: Provided…",
+      "verify": true
+    },
+    {
+      "unitId": "303",
+      "unitNumber": "303",
+      "kind": "time",
+      "value": "five years",
+      "sortKey": 1825,
+      "quote": "…ich shall not be less than one year but which may extend to five years and with fine: Provided that in cases of theft where the va…",
+      "verify": true
+    },
+    {
+      "unitId": "304",
+      "unitNumber": "304",
+      "kind": "time",
+      "value": "three years",
+      "sortKey": 1095,
+      "quote": "…onment of either description for a term which may extend to three years, and shall also be liable to fine.",
+      "verify": true
+    },
+    {
+      "unitId": "305",
+      "unitNumber": "305",
+      "kind": "time",
+      "value": "seven years",
+      "sortKey": 2555,
+      "quote": "…onment of either description for a term which may extend to seven years, and shall also be liable to fine.",
+      "verify": true
+    },
+    {
+      "unitId": "306",
+      "unitNumber": "306",
+      "kind": "time",
+      "value": "seven years",
+      "sortKey": 2555,
+      "quote": "…onment of either description for a term which may extend to seven years, and shall also be liable to fine.",
+      "verify": true
+    },
+    {
+      "unitId": "307",
+      "unitNumber": "307",
+      "kind": "time",
+      "value": "ten years",
+      "sortKey": 3650,
+      "quote": "…d with rigorous imprisonment for a term which may extend to ten years, and shall also be liable to fine. Illustrations. (a) A com…",
+      "verify": true
+    },
+    {
+      "unitId": "308",
+      "unitNumber": "308",
+      "kind": "time",
+      "value": "seven years",
+      "sortKey": 2555,
+      "quote": "…onment of either description for a term which may extend to seven years, or with fine, or with both. (3) Whoever, in order to the c…",
+      "verify": true
+    },
+    {
+      "unitId": "308",
+      "unitNumber": "308",
+      "kind": "time",
+      "value": "two years",
+      "sortKey": 730,
+      "quote": "…onment of either description for a term which may extend to two years, or with fine, or with both. (4) Whoever, in order to the c…",
+      "verify": true
+    },
+    {
+      "unitId": "308",
+      "unitNumber": "308",
+      "kind": "time",
+      "value": "ten years",
+      "sortKey": 3650,
+      "quote": "…onment of either description for a term which may extend to ten years, and shall also be liable to fine. (6) Whoever, in order to…",
+      "verify": true
+    },
+    {
+      "unitId": "308",
+      "unitNumber": "308",
+      "kind": "time",
+      "value": "ten years",
+      "sortKey": 3650,
+      "quote": "…r life, or with imprisonment for a term which may extend to ten years, shall be punished with imprisonment of either description…",
+      "verify": true
+    },
+    {
+      "unitId": "309",
+      "unitNumber": "309",
+      "kind": "time",
+      "value": "ten years",
+      "sortKey": 3650,
+      "quote": "…d with rigorous imprisonment for a term which may extend to ten years, and shall also be liable to fine; and, if the robbery be c…",
+      "verify": true
+    },
+    {
+      "unitId": "309",
+      "unitNumber": "309",
+      "kind": "time",
+      "value": "seven years",
+      "sortKey": 2555,
+      "quote": "…d with rigorous imprisonment for a term which may extend to seven years, and shall also be liable to fine. (6) If any person, in co…",
+      "verify": true
+    },
+    {
+      "unitId": "309",
+      "unitNumber": "309",
+      "kind": "time",
+      "value": "ten years",
+      "sortKey": 3650,
+      "quote": "…r with rigorous imprisonment for a term which may extend to ten years, and shall also be liable to fine.",
+      "verify": true
+    },
+    {
+      "unitId": "310",
+      "unitNumber": "310",
+      "kind": "time",
+      "value": "ten years",
+      "sortKey": 3650,
+      "quote": "…r with rigorous imprisonment for a term which may extend to ten years, and shall also be liable to fine. (3) If any one of five o…",
+      "verify": true
+    },
+    {
+      "unitId": "310",
+      "unitNumber": "310",
+      "kind": "time",
+      "value": "ten years",
+      "sortKey": 3650,
+      "quote": "…gorous imprisonment for a term which shall not be less than ten years, and shall also be liable to fine. (4) Whoever makes any pr…",
+      "verify": true
+    },
+    {
+      "unitId": "310",
+      "unitNumber": "310",
+      "kind": "time",
+      "value": "ten years",
+      "sortKey": 3650,
+      "quote": "…d with rigorous imprisonment for a term which may extend to ten years, and shall also be liable to fine. (5) Whoever is one of fi…",
+      "verify": true
+    },
+    {
+      "unitId": "310",
+      "unitNumber": "310",
+      "kind": "time",
+      "value": "seven years",
+      "sortKey": 2555,
+      "quote": "…d with rigorous imprisonment for a term which may extend to seven years, and shall also be liable to fine. (6) Whoever belongs to a…",
+      "verify": true
+    },
+    {
+      "unitId": "311",
+      "unitNumber": "311",
+      "kind": "time",
+      "value": "seven years",
+      "sortKey": 2555,
+      "quote": "…hich such offender shall be punished shall not be less than seven years.",
+      "verify": true
+    },
+    {
+      "unitId": "312",
+      "unitNumber": "312",
+      "kind": "time",
+      "value": "seven years",
+      "sortKey": 2555,
+      "quote": "…hich such offender shall be punished shall not be less than seven years.",
+      "verify": true
+    },
+    {
+      "unitId": "313",
+      "unitNumber": "313",
+      "kind": "time",
+      "value": "seven years",
+      "sortKey": 2555,
+      "quote": "…d with rigorous imprisonment for a term which may extend to seven years, and shall also be liable to fine.",
+      "verify": true
+    },
+    {
+      "unitId": "314",
+      "unitNumber": "314",
+      "kind": "time",
+      "value": "six months",
+      "sortKey": 180,
+      "quote": "…either description for a term which shall not be less than six months but which may extend to two years and with fine Illustratio…",
+      "verify": true
+    },
+    {
+      "unitId": "314",
+      "unitNumber": "314",
+      "kind": "time",
+      "value": "two years",
+      "sortKey": 730,
+      "quote": "…h shall not be less than six months but which may extend to two years and with fine Illustrations. (a) A takes property belonging…",
+      "verify": true
+    },
+    {
+      "unitId": "315",
+      "unitNumber": "315",
+      "kind": "time",
+      "value": "three years",
+      "sortKey": 1095,
+      "quote": "…onment of either description for a term which may extend to three years, and shall also be liable to fine, and if the offender at t…",
+      "verify": true
+    },
+    {
+      "unitId": "315",
+      "unitNumber": "315",
+      "kind": "time",
+      "value": "seven years",
+      "sortKey": 2555,
+      "quote": "…y him as a clerk or servant, the imprisonment may extend to seven years. Illustration. Z dies in possession of furniture and money.…",
+      "verify": true
+    },
+    {
+      "unitId": "316",
+      "unitNumber": "316",
+      "kind": "time",
+      "value": "five years",
+      "sortKey": 1825,
+      "quote": "…onment of either description for a term which may extend to five years, or with fine, or with both. (3) Whoever, being entrusted w…",
+      "verify": true
+    },
+    {
+      "unitId": "316",
+      "unitNumber": "316",
+      "kind": "time",
+      "value": "seven years",
+      "sortKey": 2555,
+      "quote": "…onment of either description for a term which may extend to seven years, and shall also be liable to fine. (4) Whoever, being a cle…",
+      "verify": true
+    },
+    {
+      "unitId": "316",
+      "unitNumber": "316",
+      "kind": "time",
+      "value": "ten years",
+      "sortKey": 3650,
+      "quote": "…onment of either description for a term which may extend to ten years, and shall also be liable to fine.",
+      "verify": true
+    },
+    {
+      "unitId": "317",
+      "unitNumber": "317",
+      "kind": "time",
+      "value": "three years",
+      "sortKey": 1095,
+      "quote": "…onment of either description for a term which may extend to three years, or with fine, or with both. (3) Whoever dishonestly receiv…",
+      "verify": true
+    },
+    {
+      "unitId": "317",
+      "unitNumber": "317",
+      "kind": "time",
+      "value": "ten years",
+      "sortKey": 3650,
+      "quote": "…r with rigorous imprisonment for a term which may extend to ten years, and shall also be liable to fine. (4) Whoever habitually r…",
+      "verify": true
+    },
+    {
+      "unitId": "317",
+      "unitNumber": "317",
+      "kind": "time",
+      "value": "ten years",
+      "sortKey": 3650,
+      "quote": "…onment of either description for a term which may extend to ten years, and shall also be liable to fine. (5) Whoever voluntarily…",
+      "verify": true
+    },
+    {
+      "unitId": "318",
+      "unitNumber": "318",
+      "kind": "time",
+      "value": "three years",
+      "sortKey": 1095,
+      "quote": "…onment of either description for a term which may extend to three years, or with fine, or with both. (3) Whoever cheats with the kn…",
+      "verify": true
+    },
+    {
+      "unitId": "318",
+      "unitNumber": "318",
+      "kind": "time",
+      "value": "five years",
+      "sortKey": 1825,
+      "quote": "…onment of either description for a term which may extend to five years, or with fine, or with both. (4) Whoever cheats and thereby…",
+      "verify": true
+    },
+    {
+      "unitId": "318",
+      "unitNumber": "318",
+      "kind": "time",
+      "value": "seven years",
+      "sortKey": 2555,
+      "quote": "…onment of either description for a term which may extend to seven years, and shall also be liable to fine.",
+      "verify": true
+    },
+    {
+      "unitId": "319",
+      "unitNumber": "319",
+      "kind": "time",
+      "value": "five years",
+      "sortKey": 1825,
+      "quote": "…onment of either description for a term which may extend to five years, or with fine, or with both.",
+      "verify": true
+    },
+    {
+      "unitId": "320",
+      "unitNumber": "320",
+      "kind": "time",
+      "value": "six months",
+      "sortKey": 180,
+      "quote": "…either description for a term which shall not be less than six months but which may extend to two years, or with fine, or with bo…",
+      "verify": true
+    },
+    {
+      "unitId": "320",
+      "unitNumber": "320",
+      "kind": "time",
+      "value": "two years",
+      "sortKey": 730,
+      "quote": "…h shall not be less than six months but which may extend to two years, or with fine, or with both.",
+      "verify": true
+    },
+    {
+      "unitId": "321",
+      "unitNumber": "321",
+      "kind": "time",
+      "value": "two years",
+      "sortKey": 730,
+      "quote": "…onment of either description for a term which may extend to two years, or with fine, or with both.",
+      "verify": true
+    },
+    {
+      "unitId": "322",
+      "unitNumber": "322",
+      "kind": "time",
+      "value": "three years",
+      "sortKey": 1095,
+      "quote": "…onment of either description for a term which may extend to three years, or with fine, or with both.",
+      "verify": true
+    },
+    {
+      "unitId": "323",
+      "unitNumber": "323",
+      "kind": "time",
+      "value": "three years",
+      "sortKey": 1095,
+      "quote": "…onment of either description for a term which may extend to three years , or with fine, or with both.",
+      "verify": true
+    },
+    {
+      "unitId": "324",
+      "unitNumber": "324",
+      "kind": "time",
+      "value": "six months",
+      "sortKey": 180,
+      "quote": "…onment of either description for a term which may extend to six months, or with fine, or with both. (3) Whoever commits mischief a…",
+      "verify": true
+    },
+    {
+      "unitId": "324",
+      "unitNumber": "324",
+      "kind": "time",
+      "value": "one year",
+      "sortKey": 365,
+      "quote": "…onment of either description for a term which may extend to one year, or with fine, or with both. (4) Whoever commits mischief a…",
+      "verify": true
+    },
+    {
+      "unitId": "324",
+      "unitNumber": "324",
+      "kind": "time",
+      "value": "two years",
+      "sortKey": 730,
+      "quote": "…onment of either description for a term which may extend to two years, or with fine, or with both. (5) Whoever commits mischief a…",
+      "verify": true
+    },
+    {
+      "unitId": "324",
+      "unitNumber": "324",
+      "kind": "time",
+      "value": "five years",
+      "sortKey": 1825,
+      "quote": "…onment of either description for a term which may extend to five years, or with fine, or with both. (6) Whoever commits mischief,…",
+      "verify": true
+    },
+    {
+      "unitId": "325",
+      "unitNumber": "325",
+      "kind": "time",
+      "value": "five years",
+      "sortKey": 1825,
+      "quote": "…onment of either description for a term which may extend to five years, or with fine, or with both.",
+      "verify": true
+    },
+    {
+      "unitId": "326",
+      "unitNumber": "326",
+      "kind": "time",
+      "value": "five years",
+      "sortKey": 1825,
+      "quote": "…onment of either description for a term which may extend to five years, or with fine, or with both; (b) doing any act which render…",
+      "verify": true
+    },
+    {
+      "unitId": "326",
+      "unitNumber": "326",
+      "kind": "time",
+      "value": "seven years",
+      "sortKey": 2555,
+      "quote": "…onment of either description for a term which may extend to seven years, or with fine, or with both; (e) destroying or moving any l…",
+      "verify": true
+    },
+    {
+      "unitId": "326",
+      "unitNumber": "326",
+      "kind": "time",
+      "value": "one year",
+      "sortKey": 365,
+      "quote": "…onment of either description for a term which may extend to one year, or with fine, or with both; (f) fire or any explosive subs…",
+      "verify": true
+    },
+    {
+      "unitId": "326",
+      "unitNumber": "326",
+      "kind": "time",
+      "value": "ten years",
+      "sortKey": 3650,
+      "quote": "…onment of either description for a term which may extend to ten years, and shall also be liable to fine.",
+      "verify": true
+    },
+    {
+      "unitId": "327",
+      "unitNumber": "327",
+      "kind": "time",
+      "value": "ten years",
+      "sortKey": 3650,
+      "quote": "…onment of either description for a term which may extend to ten years, and shall also be liable to fine. (2) Whoever commits, or…",
+      "verify": true
+    },
+    {
+      "unitId": "328",
+      "unitNumber": "328",
+      "kind": "time",
+      "value": "ten years",
+      "sortKey": 3650,
+      "quote": "…onment of either description for a term which may extend to ten years, and shall also be liable to fine.",
+      "verify": true
+    },
+    {
+      "unitId": "329",
+      "unitNumber": "329",
+      "kind": "time",
+      "value": "three months",
+      "sortKey": 90,
+      "quote": "…onment of either description for a term which may extend to three months, or with fine which may extend to five thousand rupees, or…",
+      "verify": true
+    },
+    {
+      "unitId": "329",
+      "unitNumber": "329",
+      "kind": "time",
+      "value": "one year",
+      "sortKey": 365,
+      "quote": "…onment of either description for a term which may extend to one year, or with fine which may extend to five thousand rupees, or…",
+      "verify": true
+    },
+    {
+      "unitId": "331",
+      "unitNumber": "331",
+      "kind": "time",
+      "value": "two years",
+      "sortKey": 730,
+      "quote": "…onment of either description for a term which may extend to two years, and shall also be liable to fine. (2) Whoever commits lurk…",
+      "verify": true
+    },
+    {
+      "unitId": "331",
+      "unitNumber": "331",
+      "kind": "time",
+      "value": "three years",
+      "sortKey": 1095,
+      "quote": "…onment of either description for a term which may extend to three years, and shall also be liable to fine. (3) Whoever commits lurk…",
+      "verify": true
+    },
+    {
+      "unitId": "331",
+      "unitNumber": "331",
+      "kind": "time",
+      "value": "ten years",
+      "sortKey": 3650,
+      "quote": "…d is theft, the term of the imprisonment may be extended to ten years. (4) Whoever commits lurking house-trespass or house-breaki…",
+      "verify": true
+    },
+    {
+      "unitId": "331",
+      "unitNumber": "331",
+      "kind": "time",
+      "value": "five years",
+      "sortKey": 1825,
+      "quote": "…onment of either description for a term which may extend to five years, and shall also be liable to fine; and, if the offence inte…",
+      "verify": true
+    },
+    {
+      "unitId": "331",
+      "unitNumber": "331",
+      "kind": "time",
+      "value": "ten years",
+      "sortKey": 3650,
+      "quote": "…sonment of either description or a term which may extend to ten years, and shall also be liable to fine. (6) Whoever commits lurk…",
+      "verify": true
+    },
+    {
+      "unitId": "331",
+      "unitNumber": "331",
+      "kind": "time",
+      "value": "ten years",
+      "sortKey": 3650,
+      "quote": "…onment of either description for a term which may extend to ten years, and shall also be liable to fine. (8) If, at the time of t…",
+      "verify": true
+    },
+    {
+      "unitId": "332",
+      "unitNumber": "332",
+      "kind": "time",
+      "value": "ten years",
+      "sortKey": 3650,
+      "quote": "…ife, or with rigorous imprisonment for a term not exceeding ten years, and shall also be liable to fine; (b) punishable with impr…",
+      "verify": false
+    },
+    {
+      "unitId": "332",
+      "unitNumber": "332",
+      "kind": "time",
+      "value": "ten years",
+      "sortKey": 3650,
+      "quote": "…imprisonment of either description for a term not exceeding ten years, and shall also be liable to fine; (c) punishable with impr…",
+      "verify": false
+    },
+    {
+      "unitId": "332",
+      "unitNumber": "332",
+      "kind": "time",
+      "value": "two years",
+      "sortKey": 730,
+      "quote": "…onment of either description for a term which may extend to two years, and shall also be liable to fine: Provided that if the off…",
+      "verify": true
+    },
+    {
+      "unitId": "332",
+      "unitNumber": "332",
+      "kind": "time",
+      "value": "seven years",
+      "sortKey": 2555,
+      "quote": "…d is theft, the term of the imprisonment may be extended to seven years.",
+      "verify": true
+    },
+    {
+      "unitId": "333",
+      "unitNumber": "333",
+      "kind": "time",
+      "value": "seven years",
+      "sortKey": 2555,
+      "quote": "…onment of either description for a term which may extend to seven years, and shall also be liable to fine.",
+      "verify": true
+    },
+    {
+      "unitId": "334",
+      "unitNumber": "334",
+      "kind": "time",
+      "value": "two years",
+      "sortKey": 730,
+      "quote": "…onment of either description for a term which may extend to two years, or with fine, or with both. (2) Whoever, being entrusted w…",
+      "verify": true
+    },
+    {
+      "unitId": "334",
+      "unitNumber": "334",
+      "kind": "time",
+      "value": "three years",
+      "sortKey": 1095,
+      "quote": "…onment of either description for a term which may extend to three years, or with fine, or with both.",
+      "verify": true
+    },
+    {
+      "unitId": "335",
+      "unitNumber": "335",
+      "kind": "time",
+      "value": "six months",
+      "sortKey": 180,
+      "quote": "…state, executes a conveyance of the same estate to B, dated six months earlier than the date of the conveyance to Z, intending it…",
+      "verify": true
+    },
+    {
+      "unitId": "335",
+      "unitNumber": "335",
+      "kind": "time",
+      "value": "six months",
+      "sortKey": 180,
+      "quote": "…at a nominal rent and for a long period and dates the lease six months prior to the seizure, with intent to defraud A, and to caus…",
+      "verify": true
+    },
+    {
+      "unitId": "335",
+      "unitNumber": "335",
+      "kind": "money",
+      "value": "rupees 10,000",
+      "sortKey": 10000,
+      "quote": "…ion. Illustrations. (a) A has a letter of credit upon B for rupees 10,000, written by Z. A, in order to defraud B, adds cipher to the…",
+      "verify": false
+    },
+    {
+      "unitId": "336",
+      "unitNumber": "336",
+      "kind": "time",
+      "value": "two years",
+      "sortKey": 730,
+      "quote": "…onment of either description for a term which may extend to two years, or with fine, or with both. (3) Whoever commits forgery, i…",
+      "verify": true
+    },
+    {
+      "unitId": "336",
+      "unitNumber": "336",
+      "kind": "time",
+      "value": "seven years",
+      "sortKey": 2555,
+      "quote": "…onment of either description for a term which may extend to seven years, and shall also be liable to fine. (4) Whoever commits forg…",
+      "verify": true
+    },
+    {
+      "unitId": "336",
+      "unitNumber": "336",
+      "kind": "time",
+      "value": "three years",
+      "sortKey": 1095,
+      "quote": "…onment of either description for a term which may extend to three years, and shall also be liable to fine.",
+      "verify": true
+    },
+    {
+      "unitId": "337",
+      "unitNumber": "337",
+      "kind": "time",
+      "value": "seven years",
+      "sortKey": 2555,
+      "quote": "…onment of either description for a term which may extend to seven years, and shall also be liable to fine. Explanation .-For the pu…",
+      "verify": true
+    },
+    {
+      "unitId": "338",
+      "unitNumber": "338",
+      "kind": "time",
+      "value": "ten years",
+      "sortKey": 3650,
+      "quote": "…onment of either description for a term which may extend to ten years, and shall also be liable to fine.",
+      "verify": true
+    },
+    {
+      "unitId": "339",
+      "unitNumber": "339",
+      "kind": "time",
+      "value": "seven years",
+      "sortKey": 2555,
+      "quote": "…onment of either description for a term which may extend to seven years, and shall also be liable to fine; and if the document is o…",
+      "verify": true
+    },
+    {
+      "unitId": "339",
+      "unitNumber": "339",
+      "kind": "time",
+      "value": "seven years",
+      "sortKey": 2555,
+      "quote": "…nment of either description, for a term which may extend to seven years, and shall also be liable to fine.",
+      "verify": true
+    },
+    {
+      "unitId": "341",
+      "unitNumber": "341",
+      "kind": "time",
+      "value": "seven years",
+      "sortKey": 2555,
+      "quote": "…onment of either description for a term which may extend to seven years, and shall also be liable to fine. (2) Whoever makes or cou…",
+      "verify": true
+    },
+    {
+      "unitId": "341",
+      "unitNumber": "341",
+      "kind": "time",
+      "value": "three years",
+      "sortKey": 1095,
+      "quote": "…onment of either description for a term which may extend to three years, and shall also be liable to fine. (4) Whoever fraudulently…",
+      "verify": true
+    },
+    {
+      "unitId": "342",
+      "unitNumber": "342",
+      "kind": "time",
+      "value": "seven years",
+      "sortKey": 2555,
+      "quote": "…onment of either description for a term which may extend to seven years, and shall also be liable to fine. (2) Whoever counterfeits…",
+      "verify": true
+    },
+    {
+      "unitId": "343",
+      "unitNumber": "343",
+      "kind": "time",
+      "value": "seven years",
+      "sortKey": 2555,
+      "quote": "…onment of either description for a term which may extend to seven years, and shall also be liable to fine.",
+      "verify": true
+    },
+    {
+      "unitId": "344",
+      "unitNumber": "344",
+      "kind": "time",
+      "value": "seven years",
+      "sortKey": 2555,
+      "quote": "…onment of either description for a term which may extend to seven years, or with fine, or with both. Explanation.- It shall be suff…",
+      "verify": true
+    },
+    {
+      "unitId": "345",
+      "unitNumber": "345",
+      "kind": "time",
+      "value": "one year",
+      "sortKey": 365,
+      "quote": "…onment of either description for a term which may extend to one year, or with fine, or with both.",
+      "verify": true
+    },
+    {
+      "unitId": "346",
+      "unitNumber": "346",
+      "kind": "time",
+      "value": "one year",
+      "sortKey": 365,
+      "quote": "…onment of either description for a term which may extend to one year, or with fine, or with both.",
+      "verify": true
+    },
+    {
+      "unitId": "347",
+      "unitNumber": "347",
+      "kind": "time",
+      "value": "two years",
+      "sortKey": 730,
+      "quote": "…onment of either description for a term which may extend to two years, or with fine, or with both. (2) Whoever counterfeits any p…",
+      "verify": true
+    },
+    {
+      "unitId": "347",
+      "unitNumber": "347",
+      "kind": "time",
+      "value": "three years",
+      "sortKey": 1095,
+      "quote": "…onment of either description for a term which may extend to three years, and shall also be liable to fine.",
+      "verify": true
+    },
+    {
+      "unitId": "348",
+      "unitNumber": "348",
+      "kind": "time",
+      "value": "three years",
+      "sortKey": 1095,
+      "quote": "…onment of either description for a term which may extend to three years, or with fine, or with both.",
+      "verify": true
+    },
+    {
+      "unitId": "349",
+      "unitNumber": "349",
+      "kind": "time",
+      "value": "one year",
+      "sortKey": 365,
+      "quote": "…onment of either description for a term which may extend to one year, or with fine, or with both.",
+      "verify": true
+    },
+    {
+      "unitId": "350",
+      "unitNumber": "350",
+      "kind": "time",
+      "value": "three years",
+      "sortKey": 1095,
+      "quote": "…onment of either description for a term which may extend to three years, or with fine, or with both. (2) Whoever makes use of any f…",
+      "verify": true
+    },
+    {
+      "unitId": "351",
+      "unitNumber": "351",
+      "kind": "time",
+      "value": "two years",
+      "sortKey": 730,
+      "quote": "…onment of either description for a term which may extend to two years, or with fine, or with both. (3) Whoever commits the offenc…",
+      "verify": true
+    },
+    {
+      "unitId": "351",
+      "unitNumber": "351",
+      "kind": "time",
+      "value": "seven years",
+      "sortKey": 2555,
+      "quote": "…r life, or with imprisonment for a term which may extend to seven years, or to impute unchastity to a woman, shall be punished with…",
+      "verify": true
+    },
+    {
+      "unitId": "351",
+      "unitNumber": "351",
+      "kind": "time",
+      "value": "seven years",
+      "sortKey": 2555,
+      "quote": "…onment of either description for a term which may extend to seven years, or with fine, or with both. (4) Whoever commits the offenc…",
+      "verify": true
+    },
+    {
+      "unitId": "352",
+      "unitNumber": "352",
+      "kind": "time",
+      "value": "two years",
+      "sortKey": 730,
+      "quote": "…onment of either description for a term which may extend to two years, or with fine, or with both.",
+      "verify": true
+    },
+    {
+      "unitId": "353",
+      "unitNumber": "353",
+      "kind": "time",
+      "value": "three years",
+      "sortKey": 1095,
+      "quote": "…ty, shall be punished with imprisonment which may extend to three years, or with fine, or with both (2) Whoever makes, publishes or…",
+      "verify": true
+    },
+    {
+      "unitId": "353",
+      "unitNumber": "353",
+      "kind": "time",
+      "value": "three years",
+      "sortKey": 1095,
+      "quote": "…es, shall be punished with imprisonment which may extend to three years, or with fine, or with both. (3) Whoever commits an offence…",
+      "verify": true
+    },
+    {
+      "unitId": "353",
+      "unitNumber": "353",
+      "kind": "time",
+      "value": "five years",
+      "sortKey": 1825,
+      "quote": "…es, shall be punished with imprisonment which may extend to five years and shall also be liable to fine. Exception .-It does not a…",
+      "verify": true
+    },
+    {
+      "unitId": "354",
+      "unitNumber": "354",
+      "kind": "time",
+      "value": "one year",
+      "sortKey": 365,
+      "quote": "…onment of either description for a term which may extend to one year, or with fine, or with both. Illustrations. (a) A sits dhar…",
+      "verify": true
+    },
+    {
+      "unitId": "356",
+      "unitNumber": "356",
+      "kind": "time",
+      "value": "two years",
+      "sortKey": 730,
+      "quote": "…hed with simple imprisonment for a term which may extend to two years, or with fine, or with both, or with community service. (3)…",
+      "verify": true
+    },
+    {
+      "unitId": "357",
+      "unitNumber": "357",
+      "kind": "time",
+      "value": "three months",
+      "sortKey": 90,
+      "quote": "…onment of either description for a term which may extend to three months, or with fine which may extend to five thousand rupees, or…",
+      "verify": true
+    }
+  ]
+}

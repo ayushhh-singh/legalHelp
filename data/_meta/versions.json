@@ -462,14 +462,34 @@
     },
     "library": {
       "version": "1.0.0",
-      "updated": "2026-09-02",
+      "updated": "2026-09-03",
       "label": {
         "en": "Library reading structure",
         "hi": "पुस्तकालय पठन-संरचना"
       },
       "rows": 15,
       "units": 1877
+    },
+    "library-definitions": {
+      "version": "1.0.0",
+      "updated": "2026-09-03",
+      "label": {
+        "en": "Library defined terms",
+        "hi": "पुस्तकालय परिभाषित शब्द"
+      },
+      "rows": 15,
+      "terms": 174
+    },
+    "library-quickref": {
+      "version": "1.0.0",
+      "updated": "2026-09-03",
+      "label": {
+        "en": "Library quick reference",
+        "hi": "पुस्तकालय त्वरित संदर्भ"
+      },
+      "rows": 15,
+      "entries": 2694
     }
   },
-  "generatedAt": "2026-09-02"
+  "generatedAt": "2026-09-03"
 }

@@ -1,7 +1,7 @@
 {
   "$schema": "../../../schemas/library-work.schema.json",
   "version": "1.0.0",
-  "generatedAt": "2026-09-02",
+  "generatedAt": "2026-09-03",
   "id": "posh",
   "title": {
     "en": "Sexual Harassment of Women at Workplace (Prevention, Prohibition and Redressal) Act, 2013",
@@ -429,6 +429,7 @@
     "establishment",
     "induction"
   ],
+  "amendments": {},
   "officialUrl": "https://www.indiacode.nic.in/bitstream/123456789/2104/1/A2013-14.pdf",
   "source": {
     "name": "Ministry of Women and Child Development — The Sexual Harassment of Women at Workplace Act, 2013",

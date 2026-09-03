@@ -1,5 +1,6 @@
-import { Bookmark, BookmarkCheck, Check, Copy, Printer, Share2 } from 'lucide-react'
+import { Bookmark, BookmarkCheck, Check, Columns2, Copy, Printer, Share2 } from 'lucide-react'
 import { useEffect, useState } from 'react'
+import { Link } from 'react-router-dom'
 
 import { citationFor, shareText } from '../citation'
 import { addFavourite, isFavourite, removeFavourite } from '../saved'
@@ -7,6 +8,7 @@ import type { LawCode, LawDataset, LawSection } from '../types'
 
 import { Button } from '@/components/ui/button'
 import { useT } from '@/i18n/useT'
+import { toCompareHref } from '@/modules/library/url'
 
 /**
  * Copy · Share · Save · Print, for one section.
@@ -136,6 +138,22 @@ export function SectionActions({
         <Button type="button" variant="outline" size="sm" onClick={onPrint}>
           <Printer aria-hidden="true" />
           {t('law.actions.print')}
+        </Button>
+
+        {/*
+          Into the Library, with THIS section already on the left.
+          `/library/compare` is where a provision is set beside another one word
+          by word — which is the question an officer holding an old section
+          number is actually asking. The Library holds the three Sanhitas, so
+          the link is a real one; the repealed Act's own text is not in this
+          repository, which is why the right-hand side is a picker rather than
+          a pre-filled counterpart.
+        */}
+        <Button asChild type="button" variant="outline" size="sm">
+          <Link to={toCompareHref({ workId: code, unitId: record.section })}>
+            <Columns2 aria-hidden="true" />
+            {t('library.compare.fromLaw')}
+          </Link>
         </Button>
       </div>
 

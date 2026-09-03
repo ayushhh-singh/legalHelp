@@ -1,7 +1,7 @@
 {
   "$schema": "../../../schemas/library-work.schema.json",
   "version": "1.0.0",
-  "generatedAt": "2026-09-02",
+  "generatedAt": "2026-09-03",
   "id": "ccs-cca",
   "title": {
     "en": "Central Civil Services (Classification, Control and Appeal) Rules, 1965",
@@ -480,6 +480,7 @@
     "departmental-exam",
     "ldce"
   ],
+  "amendments": {},
   "officialUrl": "https://dopt.gov.in/sites/default/files/CCS-CCA-Rules-FINAL.pdf",
   "source": {
     "name": "Department of Personnel and Training — CCS (CCA) Rules, 1965 — consolidated",

@@ -47,6 +47,14 @@ const ROUTES = [
   // contents and the search box.
   '/library/ccs-conduct',
   '/library/ccs-conduct/ccs-conduct-3',
+  // Session 27's five screens. Each is as much markup again as the shelf, and
+  // four of them are mostly FORM — filter selects, a picker pair, a file input
+  // and a review list — which is where a missing label costs a reader most.
+  '/library/mine',
+  '/library/bookmarks',
+  '/library/compare',
+  '/library/search',
+  '/library/add',
   '/utils',
   // 1,891 terms is as much markup as the picker sweep would never see —
   // /utils alone never renders a single row of it.

@@ -1,0 +1,105 @@
+{
+  "$schema": "../../../schemas/library-definitions.schema.json",
+  "version": "1.0.0",
+  "generatedAt": "2026-09-03",
+  "workId": "ccs-leave",
+  "unitId": "ccs-leave-3",
+  "unitNumber": "3",
+  "source": {
+    "name": "Department of Personnel and Training — CCS (Leave) Rules, 1972 — updated as on 24 September 2024",
+    "url": "https://documents.doptcirculars.nic.in/D2/D02est/updatedccsleaverulesN9ExV.pdf"
+  },
+  "terms": [
+    {
+      "term": "Administrator",
+      "definition": "an Administrator of a Union Territory",
+      "marker": "(a)",
+      "confidence": "low",
+      "verify": true
+    },
+    {
+      "term": "Audit Officer",
+      "definition": "the Accounts and Audit Officer, whatever his official designation, in whose circle the office of the Government servant is situated",
+      "marker": "(b)",
+      "confidence": "low",
+      "verify": true
+    },
+    {
+      "term": "Authority competent to grant leave",
+      "definition": "the authority specified in Column (3) of the First Schedule to these rules, competent to grant the kind of leave specified in the corresponding entries in Column (2) of the said Schedule",
+      "marker": "(c)",
+      "confidence": "low",
+      "verify": true
+    },
+    {
+      "term": "Completed years of service or one year's continuous service‖",
+      "definition": "continuous service of specified duration under the Central Government and includes the period spent on duty as well as on leave including extraordinary leave; (e) Date of retirement or date of his retirement in relation to a Government servant, means the afternoon of the last day of the month in which the Government servant attains the age prescribed for retirement under the terms and conditions governing his services. (MOF Notification No. 5(7)-E.IV(A)/75 dated 02.12.1975)",
+      "marker": "(d)",
+      "confidence": "low",
+      "verify": true
+    },
+    {
+      "term": "Department of the Central Government",
+      "definition": "a Ministry or aDepartment of the Central Government as notified from time to time and includes the Planning Commission, the Department of Parliamentary Affairs, the President's Secretariat, the Vice-President's Secretariat, the Cabinet Secretariat and the Prime Minister's Secretariat",
+      "marker": "(f)",
+      "confidence": "low",
+      "verify": true
+    },
+    {
+      "term": "disability",
+      "definition": "\"specified disability\", \"benchmark disability\" and \"disability having high support needs\" as referred to in the Rights of Persons with Disabilities Act, 2016 (49 of 2016). (DOPT Notification No. No. 18017/l/2014-Estt. (L), dated 03.04.2018)",
+      "marker": "(fa)",
+      "confidence": "high",
+      "verify": false
+    },
+    {
+      "term": "Foreign service",
+      "definition": "service in which a Government servant receiveshis pay with the sanction of Government from any source other than the Consolidated Fund of India or the Consolidated Fund of any State [or the Consolidated Fund of a Union Territory]",
+      "marker": "(g)",
+      "confidence": "low",
+      "verify": true
+    },
+    {
+      "term": "Form",
+      "definition": "a Form appended to the Second Schedule to these rules",
+      "marker": "(h)",
+      "confidence": "low",
+      "verify": true
+    },
+    {
+      "term": "Government servant in quasi-permanent employ‖",
+      "definition": "(A) an officer who, having been declared by the Union Public Service Commission to be eligible for appointment to the ministerial Services of the Government of India, has been appointed to a temporary or officiating vacancy on the understanding given to him in writing before he took up the appointment, that that vacancy is expected to become permanent but is not confirmed after completion of three years continuous service; (B) an officer who may be declared as quasi-permanent under the Central Civil Services (Temporary Services) Rules, 1965",
+      "marker": "(i)",
+      "confidence": "low",
+      "verify": true
+    },
+    {
+      "term": "Government servant in permanent employ",
+      "definition": "an officer who holds substantively or provisionally substantively a permanent post or who holds a lien on a permanent post or who would have held a lien on permanent post had the lien not been suspended",
+      "marker": "(j)",
+      "confidence": "low",
+      "verify": true
+    },
+    {
+      "term": "Head of Mission",
+      "definition": "Ambassador, Charge d' Affaires, Minister, Consul- General, High Commissioner or any other authority declared as such by the Central Government, in the country in which the Government servant undergoes a course of study or training",
+      "marker": "(k)",
+      "confidence": "low",
+      "verify": true
+    },
+    {
+      "term": "Military Officer",
+      "definition": "an officer of the Armed Forces who is- (i) a Commissioned Officer of the Army, the Navy or the Air Force, or (ii) (a) a Junior Commissioned Officer (including an honorary commissioned officer), or an other rank' of the Army, or (b) a Branch List Officer or rating of the Navy, or (c) an airman including a Master Warrant Officer of the Air Force",
+      "marker": "(l)",
+      "confidence": "low",
+      "verify": true
+    },
+    {
+      "term": "Vacation Department",
+      "definition": "a department or part of a department, to which regular vacations are allowed, during which Government servants serving in the department are permitted to be absent from duty. (2) Words and expressions used herein and not defined but defined in the Fundamental Rules and Supplementary Rules shall have the meanings respectively assigned to them in the Fundamental Rules and Supplementary Rules",
+      "marker": "(m)",
+      "confidence": "low",
+      "verify": true
+    }
+  ]
+}

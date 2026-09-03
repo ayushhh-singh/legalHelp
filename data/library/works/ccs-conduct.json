@@ -1,7 +1,7 @@
 {
   "$schema": "../../../schemas/library-work.schema.json",
   "version": "1.0.0",
-  "generatedAt": "2026-09-02",
+  "generatedAt": "2026-09-03",
   "id": "ccs-conduct",
   "title": {
     "en": "Central Civil Services (Conduct) Rules, 1964",
@@ -456,6 +456,7 @@
     "probation",
     "departmental-exam"
   ],
+  "amendments": {},
   "officialUrl": "https://dopt.gov.in/sites/default/files/CCS_Conduct_Rules_1964_Updated_27Feb15_0.pdf",
   "source": {
     "name": "Department of Personnel and Training — CCS (Conduct) Rules, 1964 — updated as on 27 February 2015",

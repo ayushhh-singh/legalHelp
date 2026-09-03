@@ -1,7 +1,7 @@
 {
   "$schema": "../../../schemas/library-work.schema.json",
   "version": "1.0.0",
-  "generatedAt": "2026-09-02",
+  "generatedAt": "2026-09-03",
   "id": "bnss",
   "title": {
     "en": "Bharatiya Nagarik Suraksha Sanhita, 2023",
@@ -7409,6 +7409,21 @@
     "investigation",
     "departmental-exam"
   ],
+  "amendments": {
+    "1": [
+      {
+        "date": "2024-07-01",
+        "note": {
+          "en": "Brought into force on 1 July 2024 by the Ministry of Home Affairs notification of 23 February 2024. A proceeding pending immediately before that date continues under the Code of Criminal Procedure, 1973 — see section 531.",
+          "hi": "गृह मंत्रालय की 23 फरवरी 2024 की अधिसूचना द्वारा 1 जुलाई 2024 से प्रवृत्त। उस तिथि से ठीक पूर्व लंबित कार्यवाही दंड प्रक्रिया संहिता, 1973 के अधीन जारी रहती है — धारा 531 देखें।"
+        },
+        "source": {
+          "name": "Ministry of Home Affairs notification, 23 February 2024",
+          "url": "https://www.mha.gov.in/sites/default/files/BharatiyaNagarikSurakshaSanhita_24022024.pdf"
+        }
+      }
+    ]
+  },
   "officialUrl": "https://www.ncrb.gov.in/uploads/SankalanPortal/ChaptersBNSS.html",
   "source": {
     "name": "NCRB Sankalan — BNSS / CrPC correspondence table",
