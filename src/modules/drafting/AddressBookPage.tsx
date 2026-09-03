@@ -27,6 +27,8 @@ export default function AddressBookPage() {
   const [query, setQuery] = useState('')
   const [editing, setEditing] = useState<AddressBookEntry | null>(null)
   const [notice, setNotice] = useState('')
+  const [pendingDelete, setPendingDelete] = useState<string | null>(null)
+  const [undo, setUndo] = useState<AddressBookEntry | null>(null)
 
   const shown = useMemo(() => searchAddressees(entries, query), [entries, query])
 
@@ -53,6 +55,23 @@ export default function AddressBookPage() {
       <p aria-live="polite" className="text-sm text-muted-foreground">
         {notice}
       </p>
+
+      {undo ? (
+        <div className="flex items-center justify-between gap-3 rounded-lg border border-border bg-muted/50 p-3 text-sm">
+          <span>{t('draft.editor.deleted', { title: undo.name.en || undo.name.hi })}</span>
+          <Button
+            size="sm"
+            variant="outline"
+            onClick={() =>
+              void putAddressee(undo).then(() => {
+                setUndo(null)
+              })
+            }
+          >
+            {t('draft.editor.undo')}
+          </Button>
+        </div>
+      ) : null}
 
       {editing ? (
         <SectionCard className="flex flex-col gap-3 p-4">
@@ -176,22 +195,52 @@ export default function AddressBookPage() {
                 <Button variant="outline" size="sm" onClick={() => setEditing(entry)}>
                   {t('draft.addressBook.edit')}
                 </Button>
-                <Button
-                  variant="ghost"
-                  size="sm"
-                  aria-label={t('draft.addressBook.delete')}
-                  onClick={() =>
-                    void deleteAddressee(entry.id).then((result) =>
-                      setNotice(
-                        result.referencedBy > 0
-                          ? t('draft.addressBook.deleteReferenced', { count: result.referencedBy })
-                          : t('draft.addressBook.deleteConfirm', { name: entry.name.en || entry.name.hi }),
-                      ),
-                    )
-                  }
-                >
-                  <Trash2 aria-hidden="true" className="size-4" />
-                </Button>
+                {/*
+                  Deleting asks first, and then hands back an undo.
+
+                  It used to do neither: one press removed the row and the
+                  CONFIRMATION string was then shown as a past-tense notice —
+                  "Delete Shri X?" after Shri X was already gone. Every other
+                  destructive control in this app is undoable (a draft, a
+                  document, a Trainer card), and an address book is a list an
+                  officer builds over years.
+                */}
+                {pendingDelete === entry.id ? (
+                  <span className="flex items-center gap-2">
+                    <span className="text-xs">
+                      {t('draft.addressBook.deleteConfirm', { name: entry.name.en || entry.name.hi })}
+                    </span>
+                    <Button
+                      variant="outline"
+                      size="sm"
+                      onClick={() =>
+                        void deleteAddressee(entry.id).then((result) => {
+                          setPendingDelete(null)
+                          setUndo(result.entry)
+                          setNotice(
+                            result.referencedBy > 0
+                              ? t('draft.addressBook.deleteReferenced', { count: result.referencedBy })
+                              : '',
+                          )
+                        })
+                      }
+                    >
+                      {t('draft.addressBook.delete')}
+                    </Button>
+                    <Button variant="ghost" size="sm" onClick={() => setPendingDelete(null)}>
+                      {t('draft.addressBook.cancel')}
+                    </Button>
+                  </span>
+                ) : (
+                  <Button
+                    variant="ghost"
+                    size="sm"
+                    aria-label={t('draft.addressBook.delete')}
+                    onClick={() => setPendingDelete(entry.id)}
+                  >
+                    <Trash2 aria-hidden="true" className="size-4" />
+                  </Button>
+                )}
               </span>
             </li>
           ))}

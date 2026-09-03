@@ -5,6 +5,7 @@ import { Link } from 'react-router-dom'
 
 import { RecentDrafts } from './components/RecentDrafts'
 import { listFavourites, listPersonal, listRecents, toggleFavourite } from './personalStore'
+import { profileIsSet, readProfile } from './profileStore'
 import { useDraftingIndex } from './useDraftingData'
 
 import { DataVersion } from '@/components/common/DataVersion'
@@ -64,6 +65,7 @@ export default function PickerPage() {
         </Button>
       </nav>
 
+      <ProfileNudge />
       <PersonalTemplates />
 
       <section aria-labelledby="draft-forms" className="flex flex-col gap-4">
@@ -86,6 +88,29 @@ export default function PickerPage() {
       <Disclaimer />
       <DataVersion dataset="drafting-templates" />
     </div>
+  )
+}
+
+/**
+ * "Set up your drafting profile" — shown until there is one.
+ *
+ * `profileIsSet` and the string it renders both shipped in Session 29 with
+ * nothing calling them, which an edge-case pass found by sweeping for i18n keys
+ * no source file references. Without a profile, every new document starts with
+ * an empty letterhead and an unsigned signature block, and the officer has to
+ * discover why.
+ */
+function ProfileNudge() {
+  const { t } = useT()
+  const profile = useLiveQuery(() => readProfile(), [])
+  if (!profile || profileIsSet(profile)) return null
+  return (
+    <SectionCard className="flex flex-wrap items-center justify-between gap-3 p-4">
+      <p className="min-w-0 text-sm text-muted-foreground">{t('draft.profile.notSet')}</p>
+      <Button asChild size="sm">
+        <Link to="/draft/profile">{t('draft.profile.open')}</Link>
+      </Button>
+    </SectionCard>
   )
 }
 

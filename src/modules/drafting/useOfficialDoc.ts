@@ -188,6 +188,25 @@ export function useOfficialDoc(id: string): UseOfficialDoc {
   const resolveConflict = useCallback(
     async (choice: 'mine' | 'theirs') => {
       if (save.kind !== 'conflict') return
+
+      /*
+        Cancel anything already queued, FIRST, whichever way this goes.
+
+        The editor stays editable under the conflict banner — it has to, or an
+        officer cannot copy their own paragraph out of it — so by the time they
+        press a button there may be a debounced write in flight holding the text
+        they typed while deciding. Taking the other tab's version and then
+        letting that write land wrote their text straight back over the version
+        they had just chosen, 700 ms later, with the banner already gone. Both
+        answers below re-establish `seenAt` deliberately; a stale timer is the
+        one thing that can undo either of them.
+      */
+      if (timer.current) {
+        clearTimeout(timer.current)
+        timer.current = null
+      }
+      pending.current = null
+
       if (choice === 'theirs') {
         seenAt.current = save.theirs.updatedAt
         setDoc(save.theirs)

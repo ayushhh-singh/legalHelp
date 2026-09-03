@@ -1,6 +1,6 @@
 import { renderDocument } from './engine'
 import { paraMarker, toDevanagariDigits } from './format'
-import { bindings, type BodyDoc, type BodyNode, type OfficialDoc } from './model'
+import { bindings, pick, type BodyDoc, type BodyNode, type OfficialDoc } from './model'
 
 import type {
   BilingualRenderResult,
@@ -284,11 +284,18 @@ export function renderOfficialDoc(
   }
 
   const result = renderDocument(template, draftValues, lang, options)
-  if (!field) return result
+  if (!field) {
+    const chrome = applyStationery(doc, lang, result.document.blocks)
+    return { ...result, document: { ...result.document, blocks: chrome } }
+  }
 
   const index = template.layout[lang].findIndex((block) => block.role === 'body' && block.source === field)
-  const blocks: RenderedBlock[] = result.document.blocks.map((block) =>
-    block.layoutIndex === index ? withNodes(block, nodes, template, lang, options) : block,
+  const blocks: RenderedBlock[] = applyStationery(
+    doc,
+    lang,
+    result.document.blocks.map((block) =>
+      block.layoutIndex === index ? withNodes(block, nodes, template, lang, options) : block,
+    ),
   )
   return {
     ...result,
@@ -338,6 +345,49 @@ function withNodes(
     filled: lines.length > 0,
   }
 }
+
+/**
+ * The three things the model stores about the page's chrome that the layout
+ * cannot know, applied to the blocks the layout produced.
+ *
+ * All three had a control and did nothing, which an edge-case pass found: an
+ * officer could set a letterhead, untick "print -Sd/- above the name" and move
+ * the signature block to the left, and the document came out identical. They
+ * are applied HERE rather than in the templates because they are properties of
+ * the officer's own stationery, not of the form — the same distinction that
+ * puts `meta.from` on the document and the block layout in `data/drafting`.
+ *
+ * It touches `header` and `signature` only. The body block — and therefore
+ * `nodes`, `projectBody` and everything Session 30 builds on them — is not
+ * reachable from here.
+ */
+function applyStationery(doc: OfficialDoc, lang: Lang, blocks: RenderedBlock[]): RenderedBlock[] {
+  const { letterhead } = doc.meta.from
+  const { showSd, layout } = doc.meta.signature
+  const lines = letterhead.map((line) => pick(line, lang)).filter((line) => line.trim().length > 0)
+
+  let headerSeen = false
+  return blocks.map((block) => {
+    if (block.role === 'header' && !headerSeen) {
+      headerSeen = true
+      // Above the Government of India block, which is where a Department's own
+      // letterhead sits on the printed page.
+      return lines.length > 0 ? { ...block, lines: [...lines, ...block.lines], filled: true } : block
+    }
+    if (block.role !== 'signature') return block
+    return {
+      ...block,
+      align: layout === 'centre' ? 'center' : layout,
+      // `-Sd/-` (and the Hindi `-हस्ताक्षरित/-`) is a fair copy's mark that the
+      // original was signed. A draft going up for approval does not carry it,
+      // and the templates print it unconditionally.
+      lines: showSd ? block.lines : block.lines.filter((line) => !SIGNED_MARK.test(line)),
+    }
+  })
+}
+
+/** The "signed" mark, in both issues. `-Sd/-` and `-हस्ताक्षरित/-`. */
+const SIGNED_MARK = /^\s*-\s*(Sd|हस्ताक्षरित)\s*\/?-?\s*$/u
 
 /** Both languages, paired the way `renderBilingual` pairs them — on layout index. */
 export function renderOfficialDocBilingual(

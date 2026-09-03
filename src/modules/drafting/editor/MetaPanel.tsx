@@ -3,6 +3,7 @@ import { cloneElement, isValidElement, useId, useState } from 'react'
 
 import { Button } from '@/components/ui/button'
 import { useT } from '@/i18n/useT'
+import { isoDateValue } from '@/lib/drafting/format'
 import {
   URGENCIES,
   type Addressee,
@@ -209,6 +210,7 @@ export function MetaPanel({
   numberControl,
   onChange,
   onSaveToBook,
+  onFillFromProfile,
 }: {
   doc: OfficialDoc
   variables: readonly TemplateVariable[]
@@ -217,6 +219,8 @@ export function MetaPanel({
   numberControl?: React.ReactNode
   onChange: (next: OfficialDoc) => void
   onSaveToBook: (person: Addressee) => void
+  /** Re-take the profile snapshot for THIS document, on request. */
+  onFillFromProfile: () => void
 }) {
   const { t, language } = useT()
   const meta = doc.meta
@@ -233,6 +237,20 @@ export function MetaPanel({
 
   return (
     <div className="flex flex-col gap-4">
+      <div className="flex flex-wrap items-center justify-between gap-2">
+        <h2 className="text-base font-semibold">{t('draft.meta.heading')}</h2>
+        {/*
+          The explicit half of "a profile change never rewrites a document".
+          The snapshot rule (ADR-041 §5) is right — February's minutes must not
+          be re-signed with March's designation — but an officer who has just
+          corrected a typo in their own designation needs SOME way to bring it
+          into the document in front of them. This is it, and it is a button
+          rather than an automatic sync for exactly that reason.
+        */}
+        <Button variant="outline" size="sm" onClick={onFillFromProfile}>
+          {t('draft.meta.fillFromProfile')}
+        </Button>
+      </div>
       <div className="grid gap-3 sm:grid-cols-2">
         <Row label={t('draft.meta.number')}>
           <input
@@ -246,7 +264,7 @@ export function MetaPanel({
           <input
             type="date"
             className={field}
-            value={/^\d{4}-\d{2}-\d{2}$/.test(meta.date) ? meta.date : ''}
+            value={isoDateValue(meta.date)}
             onChange={(event) => setMeta({ date: event.target.value })}
           />
         </Row>
@@ -323,6 +341,22 @@ export function MetaPanel({
         onSaveToBook={onSaveToBook}
       />
 
+      <Row label={t('draft.meta.tags')}>
+        <input
+          className={field}
+          value={doc.tags.join(', ')}
+          onChange={(event) =>
+            onChange({
+              ...doc,
+              tags: event.target.value
+                .split(',')
+                .map((tag) => tag.trim())
+                .filter(Boolean),
+            })
+          }
+        />
+      </Row>
+
       <Row label={t('draft.meta.enclosures')} hint={t('draft.meta.enclosuresHint')}>
         <textarea
           rows={3}
@@ -355,7 +389,7 @@ export function MetaPanel({
                 type="date"
                 className={field}
                 aria-label={t('draft.meta.refDate')}
-                value={/^\d{4}-\d{2}-\d{2}$/.test(line.date) ? line.date : ''}
+                value={isoDateValue(line.date)}
                 onChange={(event) =>
                   setMeta({
                     referenceLines: meta.referenceLines.map((entry, position) =>
@@ -438,6 +472,24 @@ export function MetaPanel({
           />
           {t('draft.meta.signatureSd')}
         </label>
+        <Row label={t('draft.meta.signatureLayout')}>
+          <select
+            className={field}
+            value={meta.signature.layout}
+            onChange={(event) =>
+              setMeta({
+                signature: {
+                  ...meta.signature,
+                  layout: event.target.value as DocMeta['signature']['layout'],
+                },
+              })
+            }
+          >
+            <option value="right">right</option>
+            <option value="left">left</option>
+            <option value="centre">centre</option>
+          </select>
+        </Row>
       </fieldset>
 
       {variables.length > 0 ? (

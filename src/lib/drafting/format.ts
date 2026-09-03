@@ -95,3 +95,20 @@ export function paraMarker(number: number | null, lang: Lang, devanagariDigits =
 export function countWords(text: string): number {
   return text.split(/\s+/).filter(Boolean).length
 }
+
+/**
+ * A stored date as an `<input type="date">` value, or `''`.
+ *
+ * An HTML date input accepts only `yyyy-mm-dd`, and the app stores whatever the
+ * officer or the migration produced — every document migrated from the Session
+ * 8 editor carries `dd.mm.yyyy`, because that is what CSMOP's specimens print.
+ * Handing the input a dotted date makes it render EMPTY, which tells the
+ * officer their document has no date when it has one, and invites them to type
+ * it again. `parseDate` already reads both shapes in either script; this is the
+ * one line that was missing between it and the control.
+ */
+export function isoDateValue(raw: string): string {
+  const parsed = parseDate(raw)
+  if (!parsed) return ''
+  return `${parsed.year}-${pad(parsed.month)}-${pad(parsed.day)}`
+}

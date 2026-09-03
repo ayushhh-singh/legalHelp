@@ -1,13 +1,16 @@
 import { useLiveQuery } from 'dexie-react-hooks'
 import { useState } from 'react'
+import { Link } from 'react-router-dom'
 
-import { readProfile, saveProfile } from './profileStore'
+import { listAddressees, readProfile, saveProfile } from './profileStore'
+
+import { LetterheadCard } from './components/LetterheadCard'
 
 import { PageHeader } from '@/components/common/PageHeader'
 import { SectionCard } from '@/components/ui-x'
 import { Button } from '@/components/ui/button'
 import { useT } from '@/i18n/useT'
-import { DATE_FORMATS, emptyProfile, type DraftingProfile } from '@/lib/drafting/profile'
+import { emptyProfile, type DraftingProfile } from '@/lib/drafting/profile'
 import { URGENCIES } from '@/lib/drafting/model'
 
 /**
@@ -56,6 +59,7 @@ function Pair({
 export default function ProfilePage() {
   const { t } = useT()
   const stored = useLiveQuery(() => readProfile(), [])
+  const book = useLiveQuery(() => listAddressees(), []) ?? []
   /**
    * The officer's unsaved edits, or nothing.
    *
@@ -196,26 +200,6 @@ export default function ProfilePage() {
             </select>
           </label>
           <label className="flex flex-col gap-1 text-sm">
-            <span className="font-medium">{t('draft.profile.dateFormat')}</span>
-            <select
-              className={field}
-              value={value.dateFormat}
-              onChange={(event) => set({ dateFormat: event.target.value as DraftingProfile['dateFormat'] })}
-            >
-              {DATE_FORMATS.map((format) => (
-                <option key={format} value={format}>
-                  {t(
-                    format === 'dd.mm.yyyy'
-                      ? 'draft.profile.dateFormats.dotted'
-                      : format === 'd Month yyyy'
-                        ? 'draft.profile.dateFormats.long'
-                        : 'draft.profile.dateFormats.devanagari',
-                  )}
-                </option>
-              ))}
-            </select>
-          </label>
-          <label className="flex flex-col gap-1 text-sm">
             <span className="font-medium">{t('draft.profile.signatureLayout')}</span>
             <select
               className={field}
@@ -245,6 +229,51 @@ export default function ProfilePage() {
           </label>
         </div>
 
+        {/*
+          The default copy-to list.
+
+          `createDocument` has always read this and copied the named entries
+          into every new document — and there was no way to set it, so it was
+          always empty and that code could never run. It is a multi-select over
+          the address book because a copy-to list IS a list of people this
+          officer already writes to; anyone not in the book is added on the
+          document itself.
+        */}
+        <fieldset className="rounded-xl border border-border p-3">
+          <legend className="px-1 text-sm font-semibold">{t('draft.profile.defaultCopyTo')}</legend>
+          {book.length === 0 ? (
+            <p className="text-sm text-muted-foreground">
+              {t('draft.addressBook.none')}{' '}
+              <Link to="/draft/address-book" className="text-primary underline-offset-4 hover:underline">
+                {t('draft.addressBook.add')}
+              </Link>
+            </p>
+          ) : (
+            <ul className="flex flex-col gap-1">
+              {book.map((entry) => (
+                <li key={entry.id}>
+                  <label className="flex items-center gap-2 text-sm">
+                    <input
+                      type="checkbox"
+                      className="size-4"
+                      checked={value.defaultCopyTo.includes(entry.id)}
+                      onChange={(event) =>
+                        set({
+                          defaultCopyTo: event.target.checked
+                            ? [...value.defaultCopyTo, entry.id]
+                            : value.defaultCopyTo.filter((id) => id !== entry.id),
+                        })
+                      }
+                    />
+                    {entry.name.en || entry.name.hi}
+                    {entry.designation.en ? ` — ${entry.designation.en}` : ''}
+                  </label>
+                </li>
+              ))}
+            </ul>
+          )}
+        </fieldset>
+
         <label className="flex items-center gap-2 text-sm">
           <input
             type="checkbox"
@@ -270,6 +299,8 @@ export default function ProfilePage() {
           </span>
         </div>
       </SectionCard>
+
+      <LetterheadCard />
     </div>
   )
 }

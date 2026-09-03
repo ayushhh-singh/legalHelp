@@ -132,10 +132,24 @@ export function replaceAll(
   return { body: rewrite(body) as BodyDoc, count }
 }
 
-/** `$1`..`$9` in a replacement, against one match's capture groups. */
+/**
+ * `$1`..`$9` in a replacement, against one match's capture groups.
+ *
+ * The groups have to be SLICED out of the callback's arguments rather than
+ * indexed straight, and the reason is a real defect this file shipped:
+ * `String.replace` calls back with `(match, p1…pn, offset, string)` — and with
+ * a pattern that has NO capture groups there are no `pn`, so `args[2]` is the
+ * whole input. `$2` in a replacement therefore inserted the entire paragraph
+ * into itself. `$1` escaped only by luck: `args[1]` was the offset, a number,
+ * which the `typeof` guard happened to reject.
+ *
+ * Named groups add a trailing object, so the tail is two arguments or three.
+ */
 function expandGroups(replacement: string, args: unknown[]): string {
+  const hasNamedGroups = args.length > 2 && typeof args[args.length - 1] === 'object'
+  const groups = args.slice(1, args.length - (hasNamedGroups ? 3 : 2))
   return replacement.replace(/\$(\d)/g, (whole, digit: string) => {
-    const group = args[Number(digit)]
+    const group = groups[Number(digit) - 1]
     return typeof group === 'string' ? group : whole
   })
 }

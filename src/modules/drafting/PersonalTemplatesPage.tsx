@@ -27,6 +27,7 @@ import { exportTemplates, importTemplates } from '@/lib/drafting/personal'
  * rule that cannot be forgotten (ADR-041, `src/lib/drafting/personal.ts`).
  */
 export default function PersonalTemplatesPage() {
+  const [pendingDelete, setPendingDelete] = useState<string | null>(null)
   const { t } = useT()
   const templates = useLiveQuery(() => listPersonal(), []) ?? []
   const favourites = useLiveQuery(() => listFavourites(), []) ?? []
@@ -138,14 +139,38 @@ export default function PersonalTemplatesPage() {
                     {t('draft.editor.newDocument')}
                   </Link>
                 </Button>
-                <Button
-                  variant="ghost"
-                  size="sm"
-                  aria-label={t('draft.personal.delete')}
-                  onClick={() => void deletePersonal(template.id)}
-                >
-                  <Trash2 aria-hidden="true" className="size-4" />
-                </Button>
+                {/*
+                  Two presses to delete, for the reason the address book needed
+                  them: one press used to remove the row with no confirmation
+                  and no undo, and this is somebody's own work.
+                */}
+                {pendingDelete === template.id ? (
+                  <span className="flex items-center gap-2">
+                    <Button
+                      variant="outline"
+                      size="sm"
+                      onClick={() =>
+                        void deletePersonal(template.id).then(() => {
+                          setPendingDelete(null)
+                        })
+                      }
+                    >
+                      {t('draft.personal.delete')}
+                    </Button>
+                    <Button variant="ghost" size="sm" onClick={() => setPendingDelete(null)}>
+                      {t('draft.addressBook.cancel')}
+                    </Button>
+                  </span>
+                ) : (
+                  <Button
+                    variant="ghost"
+                    size="sm"
+                    aria-label={t('draft.personal.delete')}
+                    onClick={() => setPendingDelete(template.id)}
+                  >
+                    <Trash2 aria-hidden="true" className="size-4" />
+                  </Button>
+                )}
               </span>
             </li>
           ))}

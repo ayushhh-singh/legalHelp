@@ -30,6 +30,7 @@ export default function NumberingPage() {
   const { t, language } = useT()
   const patterns = useLiveQuery(() => listPatterns(), []) ?? []
   const [draft, setDraft] = useState<NumberPattern | null>(null)
+  const [pendingDelete, setPendingDelete] = useState<string | null>(null)
   const year = new Date().getFullYear()
 
   const value = draft
@@ -197,14 +198,40 @@ export default function NumberingPage() {
               <Button variant="outline" size="sm" onClick={() => setDraft(pattern)}>
                 {t('draft.addressBook.edit')}
               </Button>
-              <Button
-                variant="ghost"
-                size="sm"
-                aria-label={t('draft.numbering.delete')}
-                onClick={() => void deletePattern(pattern.id)}
-              >
-                <Trash2 aria-hidden="true" className="size-4" />
-              </Button>
+              {/*
+                Two presses. Deleting a scheme does NOT delete its issued
+                numbers — `numberIssues` is the register, and an audit trail
+                that a tidy-up can erase is not one. But the scheme itself
+                carries the running serial, and one press used to take it with
+                no confirmation.
+              */}
+              {pendingDelete === pattern.id ? (
+                <>
+                  <Button
+                    variant="outline"
+                    size="sm"
+                    onClick={() =>
+                      void deletePattern(pattern.id).then(() => {
+                        setPendingDelete(null)
+                      })
+                    }
+                  >
+                    {t('draft.numbering.delete')}
+                  </Button>
+                  <Button variant="ghost" size="sm" onClick={() => setPendingDelete(null)}>
+                    {t('draft.addressBook.cancel')}
+                  </Button>
+                </>
+              ) : (
+                <Button
+                  variant="ghost"
+                  size="sm"
+                  aria-label={t('draft.numbering.delete')}
+                  onClick={() => setPendingDelete(pattern.id)}
+                >
+                  <Trash2 aria-hidden="true" className="size-4" />
+                </Button>
+              )}
             </span>
           </li>
         ))}

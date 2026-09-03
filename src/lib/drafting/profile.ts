@@ -20,8 +20,17 @@ import { emptyBilingual, type Addressee, type Bilingual, type Sender, type Signa
 
 const bilingualSchema = z.object({ en: z.string(), hi: z.string() })
 
-export const DATE_FORMATS = ['dd.mm.yyyy', 'd Month yyyy', 'devanagari'] as const
-export type DateFormat = (typeof DATE_FORMATS)[number]
+/*
+  There is deliberately no `dateFormat` on the profile.
+
+  It was here, with a select in the profile screen offering three formats, and
+  nothing anywhere read it — an edge-case pass found it. Removed rather than
+  implemented, because there is nothing for it to decide: CSMOP's specimens
+  print dd.mm.yyyy and `format.ts#formatDate` produces exactly that, and the
+  one real variation — Devanagari numerals — is already a global setting
+  (`SETTING_KEYS.devanagariDigits`, wired through `RenderOptions`). A second
+  control for the same thing is a second answer.
+*/
 
 export const draftingProfileSchema = z.object({
   id: z.literal('profile'),
@@ -42,7 +51,6 @@ export const draftingProfileSchema = z.object({
   defaultCopyTo: z.array(z.string()).default([]),
   signatureLayout: z.enum(['right', 'left', 'centre']).default('right'),
   signatureShowSd: z.boolean().default(true),
-  dateFormat: z.enum(DATE_FORMATS).default('dd.mm.yyyy'),
   defaultLanguage: z.enum(['en', 'hi', 'bilingual']).default('en'),
   updatedAt: z.string(),
 })
@@ -67,7 +75,6 @@ export function emptyProfile(at: string): DraftingProfile {
     defaultCopyTo: [],
     signatureLayout: 'right',
     signatureShowSd: true,
-    dateFormat: 'dd.mm.yyyy',
     defaultLanguage: 'en',
     updatedAt: at,
   }

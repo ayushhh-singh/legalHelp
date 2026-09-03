@@ -55,8 +55,23 @@ export const shouldAutoSnapshot = (editsSinceSnapshot: number): boolean =>
  * thirty-deep list already reaches back through a whole day's work.
  */
 export function prune(versions: readonly DocVersion[], cap = VERSION_CAP): DocVersion[] {
-  return [...versions].sort((a, b) => b.at.localeCompare(a.at)).slice(0, cap)
+  return [...versions].sort((a, b) => compareAt(b.at, a.at)).slice(0, cap)
 }
+
+/**
+ * Newest first, by CODE UNIT.
+ *
+ * Not `localeCompare`: ICU collation depends on the locale and on the ICU build
+ * the runtime happens to ship, and `prune` does not merely display a list — it
+ * slices it, and its caller deletes everything that fell off. Two devices
+ * holding the same version list must keep the same thirty.
+ * `src/lib/srs/types.ts#compareStrings` states the same rule for the Trainer's
+ * export, and `purity.test.ts` here enforces it across this directory.
+ *
+ * Every `at` is what `toISOString()` produced, which is fixed-width and ASCII,
+ * so code-unit order IS chronological order.
+ */
+export const compareAt = (a: string, b: string): number => (a < b ? -1 : a > b ? 1 : 0)
 
 // -------------------------------------------------------------------- diff
 

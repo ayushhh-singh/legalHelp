@@ -6611,3 +6611,110 @@ protects is the SELECTION, and jsdom implements no layout at all. Stubbing
 _worse_ than the absence does. The claim is in the browser spec now, and a
 comment sits where the jsdom test would have been saying why. A test that cannot
 fail is not evidence; one that looks like evidence is worse than none.
+
+### Second addendum — the edge-case pass
+
+A pass over Session 29 after the commit found **eleven** defects. Every fix
+below has a test that was confirmed to fail against the committed code first;
+`src/lib/drafting/edge.test.ts`, `purity.test.ts` and
+`src/modules/drafting/useOfficialDoc.test.tsx` are the regression files.
+
+The shape is ADR-039's second addendum, not ADR-032's. There is no model here
+and the untrusted halves were guarded — a document written by a newer build is
+refused, a version that will not parse is skipped, a personal template that
+would produce an invalid form falls back to the official one. **What failed
+instead was a set of controls that were wired up, labelled in both languages,
+and could not do anything.** Seven of the eleven are that; the mechanical check
+that found them was sweeping the i18n catalogue for keys no source file
+references, which took a minute and is worth doing at the end of any session
+that adds a screen.
+
+**Could never fire.**
+
+1. **The terminology lint.** The brief asked for it, `lintTerminology` implements
+   it, `lint.test.ts` covers it five ways — and its only caller passed no
+   glossary, so it returned `[]` every time. ADR-041 §6 made the glossary an
+   argument (970 KB behind a lazy import) and nobody was left to hand it over.
+   `DocEditorPage` now loads it through `useGlossary(language === 'hi')`, so an
+   English document still downloads none of it.
+2. **"Save as my template."** `personalFromDocument` shipped tested sixteen ways
+   with nine i18n strings and no dialog. The brief's item 6.
+3. **The Ctrl+/ shortcuts sheet.** Ctrl+S, Ctrl+P and Ctrl+F worked; the one
+   shortcut whose entire job is to tell you the others exist did nothing, and
+   its ten strings were dead.
+4. **`meta.from.letterhead`, `meta.signature.showSd` and `meta.signature.layout`.**
+   Four bilingual letterhead inputs, a "print -Sd/- above the name" checkbox and
+   a signature-position select — all stored on every document, none of them
+   rendered. `applyStationery` in `renderDoc.ts` applies all three, to the
+   `header` and `signature` blocks only; it does not touch the body block, so
+   `nodes` and `projectBody` are unaffected (Session 30 builds on those).
+5. **`profile.defaultCopyTo`.** `createDocument` had always read it and copied
+   the named entries into every new document. Nothing set it, so it was always
+   empty.
+6. **The profile nudge and the numeral-conversion confirmation.**
+   `profileIsSet` had no caller; converting every numeral in a document — a
+   whole-document edit whose extent an officer cannot see — announced nothing.
+7. **`profile.dateFormat`** was the one dead control REMOVED rather than
+   implemented. There is nothing for it to decide: CSMOP's specimens print
+   dd.mm.yyyy, `formatDate` produces exactly that, and the one real variation is
+   already a global setting. A second control for the same thing is a second
+   answer. `draft.review.terminologyApply` went the same way — ADR-041 §6 says a
+   terminology finding names the standard term and changes nothing, so a
+   control to apply it would have been building the thing the ADR forbids.
+
+**Genuinely wrong.**
+
+8. **The first Hindi keystroke could wipe the English.** The editor asked which
+   body slot a language edits TWICE — the read said `bodyHi ? bodyHi : body`,
+   the write said `lang === 'bilingual' ? bodyHi : body` — and for a bilingual
+   document whose `bodyHi` was absent (a shape the schema permits, since
+   `bodyHi` is optional) the two disagreed. The officer saw the English text,
+   typed one character, and the English vanished: the keystroke landed in
+   `bodyHi`, which then became the slot the read preferred.
+   `src/lib/drafting/docLang.ts#bodySlotForLanguage` is the one answer now, and
+   `separateHindiBody` is the affordance that was missing — a control to make a
+   Hindi body, seeded from the English, the way `values.ts#splitField` already
+   worked for a field.
+9. **`$2` in a find-and-replace inserted the whole paragraph.**
+   `String.replace` calls back with `(match, p1…pn, offset, string)`, and with a
+   pattern that has no capture groups there are no `pn` — so `args[2]` is the
+   entire input. `$1` escaped only by luck: `args[1]` was the offset, a number,
+   which the `typeof` guard rejected by accident rather than by design. The
+   groups are sliced out of the tail now.
+10. **A reference number issued on a migrated document used the year 28.**
+    `Number(date.slice(0, 4))` reads `28` out of `28.09.2026`, and 28 is truthy,
+    so it did not even reach the fallback — a yearly-reset pattern restarted its
+    series and stamped `seqYear: 28`. Every document migrated from the Session 8
+    editor carries a dd.mm.yyyy date, because that is what CSMOP prints.
+    `parseDate` already read both shapes in either script; it was not asked.
+    The same omission made the date input render EMPTY for those documents,
+    telling an officer their document had no date when it had one —
+    `format.ts#isoDateValue` is the line that was missing between the two.
+11. **"Take the other tab's version" could be undone 700 ms later.** The editor
+    stays editable under the conflict banner — it has to, or an officer cannot
+    copy their own paragraph out of it — so a keystroke typed while deciding
+    left a debounced write in flight, which landed after the banner had gone and
+    wrote their text back over the version they had just chosen.
+    `resolveConflict` cancels the pending write first, for both answers.
+
+**And one claim that was not true.** ADR-041 §2 said
+"`src/lib/drafting/purity.test.ts` asserts it by reading the files" and named
+the rules it enforced. The file did not exist. That is exactly the shape
+ADR-037's addendum says to distrust — an invariant described rather than
+implemented — and an ADR is where the next session goes to find out what is
+guaranteed. It exists now, and writing it immediately found `versions.ts#prune`
+ordering ISO instants with `localeCompare`: not a demonstrable misordering
+(ICU and code-unit order agree on ASCII timestamps), but `prune` does not
+display a list, it slices one and its caller deletes what fell off, and
+CLAUDE.md's rule for anything that decides bytes is the rule for a reason.
+
+The purity test departs from `src/lib/srs`'s and `src/lib/study`'s shape in one
+way worth copying back: the per-file rules run over the DIRECTORY and the
+hand-written list is a separate assertion. Those two loop over the list, so a
+file added and not listed is a file no rule applies to until somebody notices.
+Reading the directory means a new file is guarded from the moment it lands, and
+the ledger still catches "added without being looked at" — it just is not what
+decides whether the file is guarded. This mattered immediately: Session 30 is
+building the import/export layer in the same directory in the same working
+tree, and its eight files were covered by every rule before either session had
+committed.

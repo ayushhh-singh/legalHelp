@@ -237,4 +237,87 @@ test.describe('the document editor', () => {
     await expect(page.getByRole('tab', { name: 'लिखें' })).toBeVisible()
     await expect(page.getByRole('toolbar', { name: 'स्वरूपण' })).toBeVisible()
   })
+
+  test('the controls an edge-case pass found dead are reachable and do something', async ({ page }) => {
+    /*
+      Seven controls shipped wired up, labelled in both languages, and unable to
+      do anything (ADR-041's second addendum). Each one is pressed here, because
+      the way they were found was a sweep for i18n keys nothing referenced — and
+      a key being referenced is not the same as the control working.
+    */
+    await page.goto('/draft/profile')
+
+    // The nudge on the picker, while there is no profile.
+    await page.goto('/draft')
+    await expect(page.getByText(/Set up your drafting profile/)).toBeVisible()
+
+    // A letterhead and an unticked -Sd/- reach the page.
+    await page.goto('/draft/profile')
+    await page.getByLabel('Name', { exact: true }).fill('A.B.C.')
+    await page.getByLabel(/^Letterhead lines 1$/).fill('ESTABLISHMENT SECTION')
+    await page.getByLabel(/print -Sd\/- above the name/i).uncheck()
+    await page.getByRole('button', { name: /Save profile/ }).click()
+    await expect(page.getByText('Profile saved.')).toBeVisible()
+
+    // …and the nudge is gone.
+    await page.goto('/draft')
+    await expect(page.getByText(/Set up your drafting profile/)).toHaveCount(0)
+
+    await page.goto('/draft/new/office-memorandum')
+    await expect(page).toHaveURL(/\/draft\/d\//)
+    await page.getByRole(...tab('Preview')).click()
+    await expect(page.getByText('ESTABLISHMENT SECTION').first()).toBeVisible()
+    await expect(page.getByText('-Sd/-')).toHaveCount(0)
+
+    // The shortcuts sheet, on Ctrl+/.
+    await page.keyboard.press('Control+/')
+    await expect(page.getByRole('dialog')).toBeVisible()
+    await expect(page.getByText(/Editor shortcuts|संपादक शॉर्टकट/)).toBeVisible()
+    await page.keyboard.press('Escape')
+
+    // Converting numerals says how many it changed.
+    await page.getByRole(...tab('Write')).click()
+    await page.getByRole('textbox', { name: BODY }).click()
+    await page.keyboard.type('Rule 12 of 2026.')
+    await page.getByRole('button', { name: /To Devanagari/ }).click()
+    await expect(page.getByRole('textbox', { name: BODY })).toContainText('१२')
+
+    // "Save as my template", the brief's item 6.
+    await page.getByRole('button', { name: /Save as my template/ }).click()
+    await expect(page.getByRole('dialog')).toBeVisible()
+    await page.getByLabel(/Template name/).fill('My O.M.')
+    await page.getByRole('button', { name: /^Save template$/ }).click()
+    // Wait on the app's OWN confirmation before navigating. A Dexie write does
+    // not finish before the click that started it returns — CLAUDE.md records
+    // this costing a Library test a failure reported two screens away, and this
+    // test reproduced it exactly: `/draft/my-templates` was empty because the
+    // navigation beat the write, not because saving was broken.
+    await expect(page.getByText(/Saved as "My O\.M\."/)).toBeVisible()
+    await page.goto('/draft/my-templates')
+    await expect(page.getByText('My O.M.')).toBeVisible()
+  })
+
+  test('deleting an addressee asks first and can be undone', async ({ page }) => {
+    await page.goto('/draft/address-book')
+    await page.getByRole('button', { name: /Add an addressee/ }).click()
+    await page.getByLabel('Name', { exact: true }).fill('Shri X')
+    await page.getByRole('button', { name: /^Save$/ }).click()
+    await expect(page.getByText('Shri X')).toBeVisible()
+
+    // One press asks…
+    await page.getByRole('button', { name: /^Delete$/ }).click()
+    await expect(page.getByText(/Delete Shri X\?/)).toBeVisible()
+    // …and the row is still there until the second.
+    await expect(page.getByRole('listitem').filter({ hasText: 'Shri X' })).toHaveCount(1)
+
+    await page
+      .getByRole('button', { name: /^Delete$/ })
+      .last()
+      .click()
+    await expect(page.getByRole('listitem').filter({ hasText: 'Shri X' })).toHaveCount(0)
+
+    // And it comes back.
+    await page.getByRole('button', { name: /^Undo$/ }).click()
+    await expect(page.getByRole('listitem').filter({ hasText: 'Shri X' })).toHaveCount(1)
+  })
 })

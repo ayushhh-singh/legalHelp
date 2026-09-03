@@ -43,6 +43,7 @@ export function DocumentEditor({
   onAddCopyTo,
   readOnly = false,
   label,
+  onNotice,
 }: {
   body: BodyDoc
   lang: 'en' | 'hi'
@@ -56,6 +57,7 @@ export function DocumentEditor({
   onAddCopyTo: () => void
   readOnly?: boolean
   label: string
+  onNotice: (message: string) => void
 }) {
   const { t } = useT()
   const lastEmitted = useRef<string>('')
@@ -129,6 +131,7 @@ export function DocumentEditor({
         onAddEnclosure={onAddEnclosure}
         onAddCopyTo={onAddCopyTo}
         onChange={onChange}
+        onNotice={onNotice}
         body={body}
       />
       <div

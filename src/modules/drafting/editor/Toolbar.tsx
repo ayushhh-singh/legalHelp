@@ -71,6 +71,18 @@ function ToolButton({
 
 const Sep = () => <span aria-hidden="true" className="mx-1 h-6 w-px shrink-0 bg-border" />
 
+/** How many characters the conversion actually changed. */
+function countConverted(before: BodyDoc, after: BodyDoc): number {
+  const text = (body: BodyDoc) => JSON.stringify(body)
+  const a = text(before)
+  const b = text(after)
+  let changed = 0
+  for (let index = 0; index < Math.min(a.length, b.length); index += 1) {
+    if (a[index] !== b[index]) changed += 1
+  }
+  return changed
+}
+
 export function EditorToolbar({
   editor,
   placeholders,
@@ -81,6 +93,7 @@ export function EditorToolbar({
   onInsertGlossary,
   onAddEnclosure,
   onAddCopyTo,
+  onNotice,
 }: {
   editor: Editor | null
   placeholders: readonly string[]
@@ -91,6 +104,8 @@ export function EditorToolbar({
   onInsertGlossary: () => void
   onAddEnclosure: () => void
   onAddCopyTo: () => void
+  /** Announced in the page's live region — a whole-document edit says so. */
+  onNotice: (message: string) => void
 }) {
   const { t } = useT()
   const [placeholderOpen, setPlaceholderOpen] = useState(false)
@@ -226,17 +241,32 @@ export function EditorToolbar({
         <ToolButton label={t('draft.toolbar.findReplace')} onClick={onFindReplace}>
           <Search aria-hidden="true" className="size-4" />
         </ToolButton>
+        {/*
+          Converting numerals rewrites the WHOLE document, so it says how many
+          it changed. It used to do it silently, which for an edit an officer
+          cannot see the extent of is the difference between a tool and a
+          surprise — and `draft.toolbar.digitsDone` was authored for exactly
+          this and referenced by nothing.
+        */}
         <ToolButton
           label={t('draft.toolbar.toDevanagari')}
           disabled={disabled}
-          onClick={() => onChange(convertDigits(body, 'devanagari'))}
+          onClick={() => {
+            const next = convertDigits(body, 'devanagari')
+            onChange(next)
+            onNotice(t('draft.toolbar.digitsDone', { count: countConverted(body, next) }))
+          }}
         >
           ०-९
         </ToolButton>
         <ToolButton
           label={t('draft.toolbar.toAscii')}
           disabled={disabled}
-          onClick={() => onChange(convertDigits(body, 'ascii'))}
+          onClick={() => {
+            const next = convertDigits(body, 'ascii')
+            onChange(next)
+            onNotice(t('draft.toolbar.digitsDone', { count: countConverted(body, next) }))
+          }}
         >
           0-9
         </ToolButton>

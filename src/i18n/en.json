@@ -841,7 +841,8 @@
         "details": "Details",
         "review": "Review",
         "versions": "Versions",
-        "comments": "Notes to self"
+        "comments": "Notes to self",
+        "export": "Export"
       },
       "formHeading": "Fill in the form",
       "fillSample": "Fill with the worked example",
@@ -904,7 +905,10 @@
         "draft": "Draft",
         "final": "Final",
         "sent": "Sent"
-      }
+      },
+      "separateHindi": "Write the Hindi separately",
+      "separateHindiHint": "One body serves both issues until you say they differ. Separating seeds the Hindi from what is written now, so you edit rather than retype.",
+      "separatedHindi": "The Hindi is now a document of its own."
     },
     "body": {
       "toolbar": "Insert into the body",
@@ -1003,7 +1007,21 @@
       "blockedBody": "Exporting is held back until every required checklist item passes. Open the checklist to see which.",
       "openChecklist": "Open the checklist",
       "anyway": "Export anyway",
-      "anywayHint": "Only recommended items are failing. You may export, but check them first."
+      "anywayHint": "Only recommended items are failing. You may export, but check them first.",
+      "options": "Export options",
+      "pageSize": "Paper size",
+      "wordNumbering": "Let Word number the paragraphs",
+      "wordNumberingHint": "On, the numbers renumber themselves when the document is edited in Word. Off, they are fixed text exactly as previewed here.",
+      "includeLetterhead": "Include the letterhead",
+      "pageNumbers": "Page numbers in the footer",
+      "bilingualMode": "Both languages",
+      "sequential": "One after the other",
+      "sideBySide": "Side by side",
+      "fontNote": "Hindi is written in the complex-script slot as {{font}}. Word substitutes another Devanagari face where that one is not installed; {{alternatives}} are the ones it will find on most machines.",
+      "stripped": "{{count}} character(s) that Word cannot print — emoji or invisible direction marks — were removed from the exported file.",
+      "imported": "Import a document",
+      "printRoute": "Print / PDF",
+      "language": "Which language"
     },
     "suggestion": {
       "title": "Suggested change",
@@ -1107,7 +1125,6 @@
       "heading": "Formatting",
       "paragraph": "Paragraph",
       "numberedPara": "Numbered paragraph",
-      "subPara": "Sub-paragraph",
       "headingLevel": "Heading {{level}}",
       "bold": "Bold",
       "italic": "Italic",
@@ -1121,7 +1138,6 @@
       "placeholderPrompt": "Which field is this blank for?",
       "enclosure": "Add an enclosure",
       "copyTo": "Add a copy-to",
-      "urgency": "Urgency grading",
       "glossary": "Insert a Hindi term",
       "phrase": "Insert a standard phrase",
       "findReplace": "Find and replace",
@@ -1130,8 +1146,7 @@
       "toAscii": "To Arabic (0-9)",
       "digitsDone": "{{count}} numeral(s) converted.",
       "undo": "Undo",
-      "redo": "Redo",
-      "slashHint": "Type / for commands"
+      "redo": "Redo"
     },
     "find": {
       "heading": "Find and replace",
@@ -1200,8 +1215,9 @@
         "warning": "Check",
         "hint": "Suggestion"
       },
-      "terminologyApply": "Use \"{{term}}\"",
-      "exportBlocked": "An export is blocked while something must be fixed."
+      "exportBlocked": "An export is blocked while something must be fixed.",
+      "placeholders": "Unfilled fields: {{count}}",
+      "goToText": "Go to the text"
     },
     "versions": {
       "heading": "Versions",
@@ -1260,12 +1276,6 @@
       "defaultCopyTo": "Default copy-to list",
       "signatureLayout": "Signature block position",
       "signatureSd": "Print -Sd/- above the name",
-      "dateFormat": "Date format",
-      "dateFormats": {
-        "dotted": "Day.month.year — 28.08.2026",
-        "long": "28 August 2026",
-        "devanagari": "Devanagari digits — २८.०८.२०२६"
-      },
       "defaultLanguage": "Default language for a new document",
       "save": "Save profile",
       "saved": "Profile saved.",
@@ -1327,8 +1337,6 @@
       "freeze": "Keep as it is",
       "save": "Save template",
       "saved": "Saved as \"{{name}}\".",
-      "clone": "Copy to my templates",
-      "edit": "Edit template",
       "delete": "Delete template",
       "none": "No templates of your own yet.",
       "export": "Export my templates",
@@ -1361,6 +1369,140 @@
       "numbered": "Numbered paragraph",
       "indent": "Make it a sub-paragraph",
       "outdent": "Back to a top-level paragraph"
+    },
+    "import": {
+      "title": "Import a document",
+      "lead": "Open a Word or PDF file you already have, and carry on editing it here.",
+      "privacy": "The file is read on this device. Nothing is uploaded, and nothing leaves this browser.",
+      "choose": "Choose a file",
+      "drop": "Drop a file here",
+      "cap": "Up to 20 MB. .docx, .pdf, .txt or .md.",
+      "or": "or",
+      "pasteInstead": "Paste the text instead",
+      "pasteLabel": "Paste the text of the document",
+      "pastePlaceholder": "Paste here…",
+      "pasteApply": "Use this text",
+      "reading": "Reading the file…",
+      "readingFile": "Reading {{name}}…",
+      "back": "Back to my documents",
+      "errors": {
+        "tooBig": "That file is larger than 20 MB. Split it, or paste the part you need.",
+        "empty": "That file is empty. Choose another one, or paste the text instead.",
+        "unsupported": "This app reads .docx, .pdf, .txt and .md. Open the file in Word and save it as .docx.",
+        "wrongKind": "The name says one thing and the contents say another. Open the file and save it again in the format its name claims.",
+        "wrongKindDoc": "This is an older Word file (.doc). Open it in Word and use File → Save As → Word Document (.docx).",
+        "pdfPassword": "This PDF is password-protected. Open it in a PDF reader, remove the password, and try again — or paste the text instead.",
+        "pdfNoText": "This PDF is a scan — a picture of a page with no text in it. This app does not read scans. Paste the text instead.",
+        "docxEmpty": "There was no text in that file.",
+        "failed": "The file could not be read. Paste the text instead."
+      },
+      "garbled": {
+        "title": "The Hindi in this file may not be readable",
+        "body": "The text layer uses a legacy font, so the Hindi comes out as the wrong letters. Nothing has been corrected — check it against the original, or paste the Hindi in by hand."
+      },
+      "notices": {
+        "title": "What was not imported",
+        "lead": "Everything below is either missing from the imported document or has been changed. The text itself is complete.",
+        "none": "Everything in the file was imported.",
+        "trackedChanges": "Tracked changes: all {{count}} were accepted. Deletions were removed and insertions kept.",
+        "images": "{{count}} image(s) were left out. This app stores documents as text.",
+        "mergedCells": "{{count}} merged table cell(s) were flattened. The text is in the cell it was in; the merge itself is gone.",
+        "header": "The page header was read and is offered as a letterhead below. It has not been applied.",
+        "footer": "The page footer was read and is shown below. It has not been applied.",
+        "footnotes": "{{count}} footnote(s) were left out.",
+        "columns": "{{count}} page(s) were set in two columns and have been read column by column.",
+        "numberedParas": "{{count}} numbered paragraph(s) were recognised, and this app now numbers them.",
+        "unsupported": "{{count}} thing(s) this app does not understand were dropped: {{items}}.",
+        "items": "For example: {{items}}"
+      },
+      "review": {
+        "title": "Check what was read",
+        "lead": "Nothing here was invented. A box left empty is one the file did not say.",
+        "number": "File number",
+        "date": "Date",
+        "subject": "Subject",
+        "to": "Addressed to",
+        "reference": "Reference",
+        "letterhead": "Letterhead lines",
+        "useLetterhead": "Use these as this document’s letterhead",
+        "confidence": {
+          "high": "Labelled in the file",
+          "low": "Guessed — please check",
+          "none": "Not found"
+        },
+        "template": "Which form is this?",
+        "language": "Language",
+        "preview": "What will be imported",
+        "paragraphs": "{{count}} paragraph(s)"
+      },
+      "create": "Create the document",
+      "creating": "Creating…",
+      "createFailed": "The document could not be created. There may be no room left in this browser’s storage."
+    },
+    "print": {
+      "title": "Print",
+      "subtitle": "Print this document, or save it as a PDF.",
+      "open": "Print / save as PDF",
+      "close": "Close",
+      "pageSize": "Paper",
+      "a4": "A4",
+      "letter": "Letter",
+      "view": "What to print",
+      "viewEn": "English",
+      "viewHi": "हिंदी",
+      "viewBoth": "Both",
+      "letterheadOn": "Print the letterhead",
+      "pageNumbers": "Print page numbers",
+      "instructions": {
+        "title": "To save this as a PDF",
+        "one": "Press Print below. Your browser’s print window opens.",
+        "two": "Under Destination or Printer, choose “Save as PDF”.",
+        "three": "Set Margins to “Default” and turn Headers and footers off — this page supplies its own.",
+        "four": "Press Save."
+      },
+      "pdfNote": "This app has no PDF writer of its own, deliberately: your browser already shapes Devanagari correctly, and a JavaScript PDF library does not.",
+      "pageOf": "of",
+      "mismatch": "The English and Hindi halves of this document have a different number of paragraphs ({{en}} and {{hi}}). The shorter side is padded with —."
+    },
+    "batch": {
+      "title": "Export several documents",
+      "select": "Select",
+      "selectAll": "Select all",
+      "clearSelection": "Clear",
+      "selected": "{{count}} selected",
+      "none": "Select a document first.",
+      "exportZip": "Download as a .zip of Word files",
+      "copyText": "Copy all as plain text",
+      "share": "Share",
+      "building": "Preparing {{done}} of {{total}}…",
+      "done": "{{count}} document(s) exported.",
+      "copied": "Copied to the clipboard.",
+      "copyFailed": "This browser refused the clipboard.",
+      "failed": "The export failed. Try fewer documents at a time.",
+      "partial": "{{count}} document(s) could not be exported and were left out of the archive.",
+      "zipName": "documents",
+      "shareTitle": "Documents"
+    },
+    "letterhead": {
+      "heading": "Letterhead image",
+      "lead": "An image printed above every page — your office’s own letterhead, if you have one as a file.",
+      "noEmblem": "This app supplies no emblem, crest or seal. Use only an image your own office permits you to use.",
+      "choose": "Choose an image",
+      "replace": "Replace",
+      "remove": "Remove",
+      "removed": "The letterhead image was removed.",
+      "saved": "The letterhead image was saved.",
+      "current": "Current letterhead",
+      "hint": "PNG, JPEG or SVG, up to 512 KB. It prints at up to 30 mm tall.",
+      "size": "{{width}} × {{height}} mm on the page",
+      "svgNote": "An SVG prints and previews correctly but is not embedded in Word files. Supply a PNG if the Word export needs the image.",
+      "errors": {
+        "tooBig": "That image is over 512 KB. Save it smaller and try again.",
+        "unsupported": "Choose a PNG, JPEG or SVG file.",
+        "empty": "That file is empty.",
+        "unsafe-svg": "That SVG contains a script or a link to another website, so it was refused. Export it again from your drawing program as a plain SVG.",
+        "undecodable": "That image could not be read."
+      }
     }
   },
   "utils": {

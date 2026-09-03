@@ -4,11 +4,14 @@ import { useCallback, useEffect, useMemo, useState } from 'react'
 import { Link, useParams, useSearchParams } from 'react-router-dom'
 
 import { A4Preview } from './components/A4Preview'
+import { DocExportPanel } from './components/DocExportPanel'
 import { CommentsPanel } from './editor/CommentsPanel'
 import { DocumentEditor } from './editor/DocumentEditor'
 import { FindReplace } from './editor/FindReplace'
 import { MetaPanel } from './editor/MetaPanel'
 import { ReviewPanel } from './editor/ReviewPanel'
+import { SaveAsTemplate } from './editor/SaveAsTemplate'
+import { ShortcutsSheet } from './editor/ShortcutsSheet'
 import { VersionsPanel } from './editor/VersionsPanel'
 import {
   addComment,
@@ -19,10 +22,11 @@ import {
   setCommentResolved,
 } from './documents'
 import { getPattern, issueNumber, listPatterns } from './numberingStore'
-import { listAddressees, putAddressee } from './profileStore'
-import { getPersonal } from './personalStore'
+import { listAddressees, putAddressee, readProfile } from './profileStore'
+import { getPersonal, listPersonal, personalId, savePersonal } from './personalStore'
 import { useOfficialDoc, useStorageQuota } from './useOfficialDoc'
 import { useTemplate } from './useDraftingData'
+import { useGlossary } from '@/modules/utils/glossary/useGlossaryData'
 
 import { PageHeader } from '@/components/common/PageHeader'
 import { Badge, QueryErrorState, SectionCard, Skeleton } from '@/components/ui-x'
@@ -31,8 +35,14 @@ import { useAppStore } from '@/app/store'
 import { useT } from '@/i18n/useT'
 import { evaluateChecklist } from '@/lib/drafting/checklist'
 import { lintBlocksExport, lintDocument } from '@/lib/drafting/lint'
-import { entryFromAddressee } from '@/lib/drafting/profile'
+import { entryFromAddressee, senderFromProfile, signatureFromProfile } from '@/lib/drafting/profile'
 import { resolvePersonal } from '@/lib/drafting/personal'
+import {
+  bodyForLanguage,
+  bodySlotForLanguage,
+  separateHindiBody,
+  yearOfDocument,
+} from '@/lib/drafting/docLang'
 import { placeholderFields, type Addressee, type BodyDoc, type OfficialDoc } from '@/lib/drafting/model'
 import { renderOfficialDoc, renderOfficialDocBilingual } from '@/lib/drafting/renderDoc'
 import type { DocTemplate } from './schema'
@@ -51,8 +61,12 @@ import type { DocTemplate } from './schema'
  * old preview on and it is preserved exactly (ADR-041 §3).
  */
 
-type Tab = 'write' | 'details' | 'preview' | 'review' | 'versions' | 'comments'
-const TABS: readonly Tab[] = ['write', 'details', 'preview', 'review', 'versions', 'comments']
+type Tab = 'write' | 'details' | 'preview' | 'review' | 'export' | 'versions' | 'comments'
+/*
+  `export` sits after `review` deliberately: the checklist is what gates the
+  export, so the tab that explains a refusal is the one before it in the strip.
+*/
+const TABS: readonly Tab[] = ['write', 'details', 'preview', 'review', 'export', 'versions', 'comments']
 
 export default function DocEditorPage() {
   const { t } = useT()
@@ -145,6 +159,7 @@ function Editor({
   )
 
   const [findOpen, setFindOpen] = useState(false)
+  const [shortcutsOpen, setShortcutsOpen] = useState(false)
   const [notice, setNotice] = useState('')
   const [versionNotice, setVersionNotice] = useState('')
   const quota = useStorageQuota()
@@ -153,6 +168,7 @@ function Editor({
   const versions = useLiveQuery(() => listVersions(doc.id), [doc.id]) ?? []
   const comments = useLiveQuery(() => listComments(doc.id), [doc.id]) ?? []
   const patterns = useLiveQuery(() => listPatterns(), []) ?? []
+  const myTemplates = useLiveQuery(() => listPersonal(), []) ?? []
 
   const options = useMemo(() => ({ devanagariDigits }), [devanagariDigits])
   const single = useMemo(
@@ -165,18 +181,52 @@ function Editor({
   )
   const checklist = useMemo(() => evaluateChecklist(template, single), [template, single])
   const nowIso = useNowIso()
+  /*
+    The terminology check needs the glossary, and the glossary is 970 KB.
+
+    `lintDocument` takes it as an ARGUMENT rather than importing it, so the
+    970 KB stays out of whatever imports the lint (ADR-041 §6). The consequence
+    is that somebody has to hand it over — and nobody did, so the check that
+    suggests the standard Hindi term for an English word was implemented,
+    tested, labelled in both languages, and could never fire. That is the shape
+    ADR-039's second addendum named, found again here.
+
+    `useGlossary(enabled)` is the same lazy gate `/utils/glossary` uses: the
+    dataset is fetched only when the officer is actually reading Hindi, and an
+    English document downloads none of it.
+  */
+  const glossary = useGlossary(language === 'hi')
+  const glossaryTerms = useMemo(
+    () => (glossary.status === 'ready' ? glossary.data.terms : undefined),
+    [glossary],
+  )
   const findings = useMemo(
-    () => lintDocument({ doc, template, lang: language, result: single, now: nowIso }),
-    [doc, template, language, single, nowIso],
+    () =>
+      lintDocument({
+        doc,
+        template,
+        lang: language,
+        result: single,
+        now: nowIso,
+        ...(glossaryTerms ? { glossary: glossaryTerms } : {}),
+      }),
+    [doc, template, language, single, nowIso, glossaryTerms],
   )
   const blocked = lintBlocksExport(findings)
 
-  const body: BodyDoc = language === 'hi' && doc.bodyHi ? doc.bodyHi : doc.body
+  /*
+    Which slot this language edits is asked ONCE, by `bodySlotForLanguage`.
+
+    It used to be asked twice — the read said `bodyHi ? bodyHi : body`, the
+    write said `lang === 'bilingual' ? bodyHi : body` — and for a bilingual
+    document whose `bodyHi` was absent the two disagreed: the officer saw the
+    English text, typed one character, and the English vanished.
+  */
+  const slot = bodySlotForLanguage(doc, language)
+  const body: BodyDoc = bodyForLanguage(doc, language)
   const setBody = useCallback(
     (next: BodyDoc) => {
-      state.update(
-        language === 'hi' && doc.lang === 'bilingual' ? { ...doc, bodyHi: next } : { ...doc, body: next },
-      )
+      state.update({ ...doc, [bodySlotForLanguage(doc, language)]: next })
     },
     [doc, language, state],
   )
@@ -212,6 +262,12 @@ function Editor({
       } else if (key === 'f') {
         event.preventDefault()
         setFindOpen(true)
+      } else if (event.key === '/') {
+        // `event.key`, not the lower-cased `key`: on a keyboard where `/` needs
+        // a modifier the two differ, and `?` is what CLAUDE.md records the
+        // global shortcuts sheet binding for the same reason.
+        event.preventDefault()
+        setShortcutsOpen((current) => !current)
       }
     }
     window.addEventListener('keydown', onKey)
@@ -266,6 +322,17 @@ function Editor({
           </Link>
         </Button>
         {personalName ? <Badge tone="warning">{t('draft.editor.yours')}</Badge> : null}
+        <SaveAsTemplate
+          doc={doc}
+          template={template}
+          existingNames={myTemplates.map((entry) => entry.name)}
+          onSave={(personal) => {
+            const at = new Date().toISOString()
+            void savePersonal({ ...personal, id: personalId(), createdAt: at, updatedAt: at }).then((saved) =>
+              setNotice(t('draft.personal.saved', { name: saved.name })),
+            )
+          }}
+        />
         <SaveIndicator state={state} />
       </div>
 
@@ -300,6 +367,8 @@ function Editor({
       <p aria-live="polite" className="sr-only">
         {notice}
       </p>
+
+      <ShortcutsSheet open={shortcutsOpen} onOpenChange={setShortcutsOpen} />
 
       <div
         role="tablist"
@@ -361,6 +430,30 @@ function Editor({
                   onClose={() => setFindOpen(false)}
                 />
               ) : null}
+              {/*
+                A bilingual document is one the officer SAID has two issues.
+                Until then one body serves both, exactly as `values.ts#splitField`
+                does for a field in the Session 8 form — and separating seeds the
+                Hindi from what is written now rather than blanking it, for the
+                same reason: an officer pressing this wants to edit, not retype.
+              */}
+              {language === 'hi' && slot === 'body' ? (
+                <div className="flex flex-wrap items-center gap-2 rounded-xl border border-border bg-muted/40 p-3 text-sm">
+                  <span className="min-w-0 flex-1 text-muted-foreground">
+                    {t('draft.editor.separateHindiHint')}
+                  </span>
+                  <Button
+                    size="sm"
+                    variant="outline"
+                    onClick={() => {
+                      state.update(separateHindiBody(doc))
+                      setNotice(t('draft.editor.separatedHindi'))
+                    }}
+                  >
+                    {t('draft.editor.separateHindi')}
+                  </Button>
+                </div>
+              ) : null}
               <DocumentEditor
                 body={body}
                 lang={language}
@@ -372,6 +465,7 @@ function Editor({
                 onInsertGlossary={() => setTab('details')}
                 onAddEnclosure={() => setTab('details')}
                 onAddCopyTo={() => setTab('details')}
+                onNotice={setNotice}
               />
             </div>
             <A4Preview view={language} single={single} bilingual={null} className="min-w-0" />
@@ -386,6 +480,20 @@ function Editor({
             numberControl={numberControl}
             onChange={state.update}
             onSaveToBook={(person) => void saveToBook(person)}
+            onFillFromProfile={() =>
+              void readProfile().then((profile) => {
+                state.update({
+                  ...doc,
+                  meta: {
+                    ...doc.meta,
+                    from: senderFromProfile(profile),
+                    signature: { ...signatureFromProfile(profile) },
+                    place: profile.place || doc.meta.place,
+                  },
+                })
+                setNotice(t('draft.profile.saved'))
+              })
+            }
           />
         ) : null}
 
@@ -393,6 +501,18 @@ function Editor({
 
         {tab === 'review' ? (
           <ReviewPanel checklist={checklist} findings={findings} language={language} />
+        ) : null}
+
+        {tab === 'export' ? (
+          <DocExportPanel
+            doc={doc}
+            single={single}
+            bilingual={bilingual}
+            checklist={checklist}
+            lintBlocked={blocked}
+            fallbackName={personalName ?? template.shortName[language]}
+            onGoToText={() => setTab('write')}
+          />
         ) : null}
 
         {tab === 'versions' ? (
@@ -491,13 +611,16 @@ function IssueNumberButton({
 
   if (patterns.length === 0) {
     return (
-      <Button asChild variant="outline" size="sm">
-        <Link to="/draft/numbering">{t('draft.meta.numberAddPattern')}</Link>
-      </Button>
+      <div className="flex w-full flex-wrap items-center gap-2 text-sm">
+        <span className="text-muted-foreground">{t('draft.meta.numberNoPattern')}</span>
+        <Button asChild variant="outline" size="sm">
+          <Link to="/draft/numbering">{t('draft.meta.numberAddPattern')}</Link>
+        </Button>
+      </div>
     )
   }
 
-  const year = Number((doc.meta.date || '').slice(0, 4)) || new Date().getFullYear()
+  const year = yearOfDocument(doc, new Date().getFullYear())
 
   return (
     <div className="flex w-full flex-wrap items-end gap-2">

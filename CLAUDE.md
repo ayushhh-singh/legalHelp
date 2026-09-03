@@ -736,6 +736,74 @@ are load-bearing, and each is enforced by a test rather than by convention:
 
 ### Notes for the next session
 
+- **An edge-case pass over Session 29 found ELEVEN defects, and seven of them were controls that
+  could not do anything.** Read ADR-041's second addendum. The mechanical check that found them took
+  a minute and is worth running at the end of any session that adds a screen: **sweep the i18n
+  catalogue for keys the session added that no source file references.** Thirty-three came back. Nine
+  were "Save as my template" (the brief's item 6 — the whole pure layer shipped tested, with no
+  dialog); ten were the Ctrl+/ shortcuts sheet; the rest were a letterhead, a `-Sd/-` checkbox, a
+  signature-position select, a default copy-to list, a profile nudge and a numeral-conversion
+  confirmation. Every one had a label in both languages and did nothing. This is ADR-039's second
+  addendum arriving in a new module, and the lesson generalises: **an i18n key with no reader is a
+  feature with no reader.**
+
+- **The terminology lint could never fire, and the reason is worth knowing before you write another
+  pure checker.** `lintDocument` takes the glossary as an ARGUMENT, because `data/glossary.json` is
+  970 KB and a pure function that reaches for a dataset puts the dataset in whatever chunk imports
+  the function (ADR-041 §6). That decision is right and it left nobody responsible for handing the
+  argument over — so the check was implemented, tested five ways, and returned `[]` on every run.
+  If you make a dataset an argument, the same commit owes it a caller.
+
+- **Ask "which slot does this edit" ONCE.** `DocEditorPage` asked twice — the read said
+  `bodyHi ? bodyHi : body`, the write said `lang === 'bilingual' ? bodyHi : body` — and for a
+  bilingual document with no `bodyHi` (a shape the schema permits) the officer saw the English text,
+  typed one character, and the English vanished. `src/lib/drafting/docLang.ts#bodySlotForLanguage` is
+  the one answer, and `separateHindiBody` is the affordance that was missing.
+
+- **`String.replace`'s callback has no capture groups when the pattern has none, so `args[2]` is the
+  whole input.** Find-and-replace expanded `$2` into the entire paragraph. `$1` escaped only by luck:
+  `args[1]` was the offset, a number, which a `typeof` guard rejected by accident. Slice the groups
+  out of the tail — `args.slice(1, args.length - 2)`, or `- 3` when named groups add their object.
+
+- **Every document migrated from the Session 8 editor carries a dd.mm.yyyy date, and two places read
+  it as ISO.** `Number(date.slice(0, 4))` reads **28** out of `28.09.2026` — and 28 is truthy, so it
+  never reached the fallback: issuing a reference number on a migrated document stamped `seqYear: 28`
+  and restarted a yearly-reset series. The `<input type="date">` beside it rendered EMPTY for the
+  same documents, telling an officer their document had no date when it had one. `parseDate` reads
+  both shapes in either script; `yearOfDocument` and `format.ts#isoDateValue` are the two lines that
+  were missing between it and the callers.
+
+- **The editor stays editable under the conflict banner, so a write can be in flight when the officer
+  answers.** "Take the other tab's version" set the document, cleared the banner, and left the
+  debounce armed — 700 ms later the officer's text landed on top of the version they had just chosen.
+  `resolveConflict` cancels the pending write first, for both answers.
+
+- **`src/lib/drafting/purity.test.ts` runs its rules over the DIRECTORY and keeps the hand-written
+  list as a separate assertion — copy this shape back to `src/lib/srs` and `src/lib/study`.** Those
+  two loop over the list, so a file added and not listed is a file no rule applies to until somebody
+  notices. Reading the directory means a new file is guarded from the moment it lands; the ledger
+  still catches "added without being looked at", it just is not what decides whether the file is
+  guarded. This mattered immediately — Session 30 is building the import/export layer in the same
+  directory in the same working tree, and its eight files were covered by every rule before either
+  session had committed.
+
+- **ADR-041 §2 claimed that purity test existed before it did.** An invariant described rather than
+  implemented is what ADR-037's addendum says to distrust on sight, and an ADR is where the next
+  session goes to find out what is guaranteed. Writing the file immediately found
+  `versions.ts#prune` ordering ISO instants with `localeCompare` — `prune` does not display a list,
+  it slices one and its caller deletes what fell off.
+
+- **Sessions 29 and 30 ran concurrently in this working tree and coordinated by direct message**, the
+  arrangement Sessions 12/13, 14, 15, 21 and the law/pay sessions established. Ownership was split by
+  path: Session 30 owns `src/lib/drafting/{html,zip,extract,importDocx,importPdf,paste,letterhead,print,docx}.ts`,
+  `src/modules/drafting/{import,print,batch}/**`, `ExportBar.tsx` and Dexie **v15**; this session owns
+  v14 and everything else under `src/modules/drafting`. Two things that bit and are worth expecting:
+  a peer's in-progress file made `pnpm build` fail, which killed a Playwright run with
+  "Process from config.webServer was not able to start" and nothing about the real cause; and my
+  purity test's exhaustive file list went red four times while their files landed, which is why it
+  now guards by directory and ledgers by name.
+
+
 - **The MODEL was the deliverable, and `src/lib/drafting/model.ts` is where to start reading.**
   Sessions 30 (print, `.docx`) and 31 (an issue register, threads) build on it, and two members are
   already there waiting for Session 31 with nothing writing them: `linkedIntakeId` and `threadId`,

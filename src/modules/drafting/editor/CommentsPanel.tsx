@@ -46,7 +46,10 @@ export function CommentsPanel({
 
   return (
     <div className="flex flex-col gap-4">
-      <p className="text-sm text-muted-foreground">{t('draft.comments.hint')}</p>
+      <div>
+        <h2 className="text-base font-semibold">{t('draft.comments.heading')}</h2>
+        <p className="text-sm text-muted-foreground">{t('draft.comments.hint')}</p>
+      </div>
 
       <div className="flex flex-col gap-2 rounded-xl border border-border p-3">
         <label className="flex flex-col gap-1 text-sm">
@@ -90,41 +93,48 @@ export function CommentsPanel({
       {comments.length === 0 ? (
         <p className="text-sm text-muted-foreground">{t('draft.comments.none')}</p>
       ) : (
-        <ul className="flex flex-col gap-2">
-          {comments.map((comment) => {
-            const anchored = commentIsAnchored(comment, body, lang)
-            return (
-              <li
-                key={comment.id}
-                className={cn(
-                  'rounded-lg border border-border bg-card p-2 text-sm',
-                  comment.resolved && 'opacity-60',
-                )}
-              >
-                <p className="text-xs text-muted-foreground">
-                  {t('draft.comments.onParagraph', { number: comment.blockIndex + 1 })}
-                  {anchored ? '' : ` — ${t('draft.comments.moved')}`}
-                </p>
-                <p className="my-1 whitespace-pre-wrap">{comment.text}</p>
-                {anchored ? null : (
-                  <p className="mb-1 rounded bg-muted/60 p-1 text-xs italic">{comment.blockText}</p>
-                )}
-                <div className="flex gap-2">
-                  <Button
-                    variant="outline"
-                    size="sm"
-                    onClick={() => onResolve(comment.id, !comment.resolved)}
-                  >
-                    {comment.resolved ? t('draft.comments.reopen') : t('draft.comments.resolve')}
-                  </Button>
-                  <Button variant="ghost" size="sm" onClick={() => onDelete(comment.id)}>
-                    {t('draft.comments.delete')}
-                  </Button>
-                </div>
-              </li>
-            )
-          })}
-        </ul>
+        <>
+          {comments.some((comment) => comment.resolved) ? (
+            <p className="text-xs text-muted-foreground">
+              {t('draft.comments.resolvedCount', { count: comments.filter((c) => c.resolved).length })}
+            </p>
+          ) : null}
+          <ul className="flex flex-col gap-2">
+            {comments.map((comment) => {
+              const anchored = commentIsAnchored(comment, body, lang)
+              return (
+                <li
+                  key={comment.id}
+                  className={cn(
+                    'rounded-lg border border-border bg-card p-2 text-sm',
+                    comment.resolved && 'opacity-60',
+                  )}
+                >
+                  <p className="text-xs text-muted-foreground">
+                    {t('draft.comments.onParagraph', { number: comment.blockIndex + 1 })}
+                    {anchored ? '' : ` — ${t('draft.comments.moved')}`}
+                  </p>
+                  <p className="my-1 whitespace-pre-wrap">{comment.text}</p>
+                  {anchored ? null : (
+                    <p className="mb-1 rounded bg-muted/60 p-1 text-xs italic">{comment.blockText}</p>
+                  )}
+                  <div className="flex gap-2">
+                    <Button
+                      variant="outline"
+                      size="sm"
+                      onClick={() => onResolve(comment.id, !comment.resolved)}
+                    >
+                      {comment.resolved ? t('draft.comments.reopen') : t('draft.comments.resolve')}
+                    </Button>
+                    <Button variant="ghost" size="sm" onClick={() => onDelete(comment.id)}>
+                      {t('draft.comments.delete')}
+                    </Button>
+                  </div>
+                </li>
+              )
+            })}
+          </ul>
+        </>
       )}
     </div>
   )

@@ -34,6 +34,7 @@ function Harness({ initial = body('One paragraph.') }: { initial?: BodyDoc }) {
       onInsertGlossary={noop}
       onAddEnclosure={noop}
       onAddCopyTo={noop}
+      onNotice={noop}
     />
   )
 }
@@ -57,6 +58,7 @@ function ExternalChange() {
         onInsertGlossary={noop}
         onAddEnclosure={noop}
         onAddCopyTo={noop}
+        onNotice={noop}
       />
     </>
   )
