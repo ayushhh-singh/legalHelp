@@ -7413,3 +7413,82 @@ can have it without a static import of the agent — the same
 session, which is what makes it worth writing down as a rule rather than as an
 incident: **a panel may import TYPES from a lazily loaded agent and never
 values.**
+
+---
+
+### Second addendum — the edge-case pass, and the shape it found
+
+Seven defects over the two new screens and the extractor, each confirmed to
+fail against the committed code before its fix was written
+(`src/modules/drafting/{edge.test.tsx,hooks.edge.test.tsx}`,
+`src/lib/drafting/intake.test.ts`).
+
+**The pattern was not the one the first addendum found.** That one was "wired
+end to end and unable to fire", twice. This pass found that shape once more —
+and the other six split into two families that are worth naming separately,
+because the mechanical check for each is different.
+
+**Family one: state that is not keyed on what it is about.** Three of the
+seven, and the worst defect in the set is here. `EntryForm` in the register
+held its draft in `useState(entry)`, which runs on MOUNT — so pressing Edit on
+a second row while the form was open kept the FIRST row's values, and Save
+wrote them to the second row's id. Nothing throws, nothing looks wrong, and the
+officer's correction lands on a communication they were not looking at. That is
+CLAUDE.md's `FeynmanBox` lesson exactly ("a rail component that is not keyed on
+the unit will save one provision's writing against another"), in a module that
+had not existed when it was written.
+
+`IntakeAiPanel` was the same family and worse in one respect: its own header
+said "the `key` on this component in `ReplyPage` is the letter's text, so
+pasting a second letter asks again", and there was no key. The confirmation
+that letter A may be sent silently covered letter B. **An invariant described
+rather than implemented is what ADR-037's addendum says to distrust on sight,
+and ADR-041 §2 had already been caught by it once** — this is the third time in
+four sessions, which makes it worth a habit rather than a note: when a comment
+asserts that something elsewhere is true, open that place.
+
+**Family two: a fallback that quietly answers a question nobody asked.** Two
+of the seven, both in `ReplyPage`. `activeText` was `text || stored?.text || ''`,
+so emptying the box fell straight back to the stored letter and refilled it —
+Clear did nothing at all on any letter the officer had kept, which is every
+letter they come back to. An empty string is a VALUE here and `||` cannot tell
+it from an absence; `text` is `string | null` now, which is the same
+distinction `useLiveQuery`'s `undefined` needed in the Library one type down.
+And the form select opened on an empty "Suggested" placeholder whose fallback
+was `index.data.templates[0]?.id` — the first of forty-three in sorted order,
+which is `acknowledgement`. Every officer taking the default got an
+Acknowledgement. The select's value is always a real form now, named on screen;
+there is no fallback computed anywhere else.
+
+**The extractor's two were both about the other language and the other
+extreme.** `ACT_TAIL` looked only AFTER a citation for its Act name, because
+that is where English puts it — so "भारतीय दंड संहिता की धारा 420", which is
+where Hindi puts it, came back with no Act and could never be resolved. The
+Devanagari-fixture rule (ADR-035, ADR-039) in a third place: the English half
+working is not evidence. And `findAsks` had no cap while the letter body has
+one, so a long circular could push a far larger context than the letter it came
+from — `MAX_ASKS` is 12, and a dropped ask that carries a DEADLINE displaces a
+kept one that does not, because a cap that silently dropped the one sentence a
+follow-up can be set from would be worse than no cap. Writing that test found a
+third thing: "The reply may be sent by 30.09.2026" was not an ask at all,
+because it uses no request formula. A sentence that sets a time limit is a
+request, and it is one now.
+
+**Two of the pass's own tests could not fail, and were rewritten before they
+were believed.** One asserted `expect(vi.fn()).not.toHaveBeenCalled()` on a
+mock nothing could ever call — it passes against a hook with no cleanup at all.
+It watches the `AbortSignal` the provider was handed now, which is what
+`wire.ts` gives `fetch` and therefore what decides whether the officer goes on
+paying. The other polled a fixed `setTimeout(0)` for a run that needs tens of
+milliseconds to dynamic-import its agent, and reported an empty `seen` — which
+looks exactly like a hook that never calls its provider. Poll the thing being
+asserted about, not a proxy for it; `ai-local.spec.ts` records the same lesson
+from the other end.
+
+**And one duplication, found by asking who calls what.** `acceptAll` and
+`rejectAll` were exported from `proposal.ts`, covered by `proposal.test.ts`,
+and called by nothing but tests — while `DocSuggestion` reimplemented both
+inline. The version with tests behind it was not the version that ran.
+`DocSuggestion` calls them now. The check that finds this is the same one the
+first addendum names: for each function a session exports, name the line that
+makes it run.

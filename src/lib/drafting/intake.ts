@@ -194,20 +194,75 @@ export function sentencesOf(text: string): string[] {
     .filter((sentence) => sentence.length > 0)
 }
 
+/**
+ * How many requests one letter may produce.
+ *
+ * The cap is here rather than at the agent, so the chips an officer corrects
+ * and the prompt a run is given agree about what the letter asks for. It is
+ * needed because `src/ai/agents/intake.ts` puts every ask into its context: the
+ * letter BODY is capped at `LETTER_CAP` characters and the sentences derived
+ * from it were not, so a long circular could push a far larger context than the
+ * letter it came from.
+ *
+ * Twelve is well past any real letter — the longest fixture in
+ * `tests/fixtures/drafting/intake.ts` asks for three things — and short enough
+ * that a document which produced fifty is a document the extractor has
+ * misread, which is a thing the officer should see rather than pay for.
+ */
+export const MAX_ASKS = 12
+
 export function findAsks(text: string): Ask[] {
-  const out: Ask[] = []
+  const found: Ask[] = []
   sentencesOf(text).forEach((sentence, index) => {
     const matched = ASK_PATTERNS.find(({ pattern }) => pattern.test(sentence))
-    if (!matched) return
     const deadline = deadlineIn(sentence)
-    out.push({
+    /*
+      A sentence that sets a TIME LIMIT is a request even when it uses no
+      request formula. "The reply may be sent by 30.09.2026" asks for something
+      by a date, and an office writes exactly that; requiring "may kindly" as
+      well would drop the one sentence a follow-up can be set from.
+    *
+      The false-positive risk is small because `deadlineIn` needs both a limit
+      word ("by", "before", "not later than", "तक", "के भीतर") AND a date that
+      parses — so "your letter dated 30.09.2026 refers" is not an ask, which is
+      correct.
+    */
+    if (!matched && !deadline) return
+    found.push({
       text: sentence,
-      kind: deadline ? 'deadline' : matched.kind,
+      kind: deadline ? 'deadline' : (matched?.kind ?? 'request'),
       deadline: deadline ?? '',
       index,
     })
   })
-  return out
+  if (found.length <= MAX_ASKS) return found
+
+  /*
+    The FIRST `MAX_ASKS`, because that is where an office puts what it most
+    wants — but never at the price of a deadline. A cap that silently dropped
+    the one sentence carrying a date would take the follow-up with it, and a
+    follow-up that quietly does not exist is worse than one set for the wrong
+    day.
+  */
+  const kept = found.slice(0, MAX_ASKS)
+  const dropped = found.slice(MAX_ASKS)
+  for (const ask of dropped) {
+    if (!ask.deadline) continue
+    // A plain reverse scan rather than `findLastIndex`: this project's
+    // TypeScript `lib` does not declare it, so it resolves to `any` and the
+    // type-aware lint rules reject the call. The loop is three lines and needs
+    // no library assumption.
+    let replaceAt = -1
+    for (let index = kept.length - 1; index >= 0; index -= 1) {
+      if (!kept[index]?.deadline) {
+        replaceAt = index
+        break
+      }
+    }
+    if (replaceAt === -1) break
+    kept[replaceAt] = ask
+  }
+  return kept.sort((a, b) => a.index - b.index)
 }
 
 /** The ISO date a sentence sets a limit for, or `null`. */
@@ -304,6 +359,29 @@ const PROVISION_NUMBER = '(\\d{1,4}[A-Z]{0,2}(?:\\s*\\([0-9a-zA-Z]{1,4}\\))*)'
 const ACT_TAIL =
   /^\s*(?:of|under|,)?\s*(?:the\s+)?([A-Z][^.;\n]{2,80}?(?:Act|Code|Rules|Regulations|Sanhita|Adhiniyam)(?:,\s*\d{4})?)/
 
+/**
+ * The Act name where it comes BEFORE the citation, which is where Hindi puts it.
+ *
+ * English writes "section 420 of the Indian Penal Code" and `ACT_TAIL` reads
+ * that. Hindi writes "भारतीय दंड संहिता की धारा 420" — the Act first, then a
+ * postposition, then the unit word — so every Devanagari citation came back
+ * with no Act at all, and nothing downstream could resolve one. The English
+ * half working is not evidence; this is the Devanagari-fixture rule (ADR-035,
+ * ADR-039) in a third place.
+ *
+ * The name may not cross a sentence boundary, which is the whole risk of
+ * looking backwards: "…examined under the Indian Penal Code. Rule 3 of the
+ * Conduct Rules also applies" must not attach the Penal Code to Rule 3. The
+ * character class excludes every sentence-ending mark in both scripts, so a
+ * lead that would have to cross one cannot match at all.
+ *
+ * It is consulted only when `ACT_TAIL` found nothing: English is the common
+ * case here and a name that FOLLOWS its citation is the less ambiguous of the
+ * two readings.
+ */
+const ACT_LEAD =
+  /([^\s.।?!\n][^.।?!\n]{2,80}?(?:संहिता|अधिनियम|नियमावली|नियम|विनियम|Act|Code|Rules|Regulations)(?:,\s*\d{4})?)\s*(?:की|के|का|में|अंतर्गत|अधीन)?\s*$/
+
 export function findProvisions(text: string): FoundProvision[] {
   const source = text.replace(/\s+/g, ' ')
   const pattern = new RegExp(`${UNIT_WORDS}\\s*\\.?\\s*${PROVISION_NUMBER}`, 'gi')
@@ -316,11 +394,21 @@ export function findProvisions(text: string): FoundProvision[] {
     if (!number) continue
     const unitWord = whole.slice(0, whole.length - (match[1] ?? '').length)
     const unit = UNIT_CANON.find((entry) => entry.pattern.test(unitWord.trim()))?.unit ?? 'section'
-    const after = source.slice((match.index ?? 0) + whole.length)
-    const act = ACT_TAIL.exec(after)?.[1]?.trim() ?? ''
+    const at = match.index ?? 0
+    const after = source.slice(at + whole.length)
+    const before = source.slice(Math.max(0, at - 120), at)
+    const act = (ACT_TAIL.exec(after)?.[1] ?? ACT_LEAD.exec(before)?.[1] ?? '').trim()
     const key = `${unit}:${number}:${act.toLowerCase()}`
     if (seen.has(key)) continue
     seen.add(key)
+    /*
+      `text` reads the way the officer would say it, and that means the Act
+      goes AFTER the citation whichever side it was written on — the chip is
+      read in one language and the letter may be in the other. It also matters
+      downstream: `resolveProvisions.ts#actOf` matches its Act patterns against
+      `act` and `text` together, so a name only ever found in the lead has to
+      reach one of them.
+    */
     out.push({ text: `${whole.trim()}${act ? ` of the ${act}` : ''}`, unit, number, act })
   }
   return out

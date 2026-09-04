@@ -46,6 +46,16 @@ const IntakeAiPanel = lazy(() =>
   import('./IntakeAiPanel').then((module) => ({ default: module.IntakeAiPanel })),
 )
 
+/**
+ * What a reply is written on when nothing has suggested otherwise.
+ *
+ * A letter: the form CSMOP prescribes for communicating outside the Department
+ * (8.4(1)) and the one form that can answer anything. It is a CONSTANT rather
+ * than "the first template in the index", which is what it used to be — and
+ * which sorted to `acknowledgement`.
+ */
+const DEFAULT_REPLY_FORM = 'letter'
+
 export default function ReplyPage() {
   const { t, language } = useT()
   const params = useParams<{ id: string }>()
@@ -56,13 +66,34 @@ export default function ReplyPage() {
   const stored = useLiveQuery(async () => (params.id ? await getIntake(params.id) : null), [params.id])
   const kept = useLiveQuery(() => listIntakes(12), []) ?? []
 
-  const [text, setText] = useState('')
+  /*
+    `null` means "the officer has not touched the box", which is different from
+    "the officer emptied it" — and `||` cannot tell the two apart.
+
+    `activeText` was `text || stored?.text || ''`, so clearing the box fell
+    straight back to the stored letter and refilled it: Clear did nothing at all
+    on any letter that had been kept, which is every letter an officer comes
+    back to. Same distinction `useLiveQuery`'s `undefined` needed in the Library
+    (ADR-039's addendum), one type down.
+  */
+  const [text, setText] = useState<string | null>(null)
   const [analysis, setAnalysis] = useState<IntakeAnalysis | null>(null)
   const [acknowledged, setAcknowledged] = useState(false)
   const [notice, setNotice] = useState('')
   const [undo, setUndo] = useState<Awaited<ReturnType<typeof deleteIntake>>>(null)
   const [intakeId, setIntakeId] = useState<string | null>(params.id ?? null)
-  const [chosenType, setChosenType] = useState('')
+  /*
+    Always a real form id, never an empty placeholder.
+
+    The select used to open on "Suggested" with an empty value, and
+    `draftReply` then fell back to `index.data.templates[0]?.id` — the first of
+    forty-three in sorted order, which is `acknowledgement`. An officer taking
+    the default got an Acknowledgement for every letter, and nothing on the
+    screen said so. `letter` is the default because it is the form CSMOP
+    prescribes for writing outside the Department and the one that answers
+    anything; the AI analysis overwrites it when it has a better idea.
+  */
+  const [chosenType, setChosenType] = useState(DEFAULT_REPLY_FORM)
 
   /*
     A stored letter opens with its own analysis. The read is keyed on the route
@@ -72,7 +103,7 @@ export default function ReplyPage() {
     `wrongAnswer` already uses in the Trainer.
   */
   const active = analysis ?? stored?.analysis ?? null
-  const activeText = text || stored?.text || ''
+  const activeText = text ?? stored?.text ?? ''
 
   /*
     The key is the citations themselves rather than the analysis object, so
@@ -94,12 +125,12 @@ export default function ReplyPage() {
   )
 
   const read = () => {
-    const trimmed = text.trim()
+    const trimmed = activeText.trim()
     if (trimmed.length < 40) {
       setNotice(t('draft.intake.tooShort'))
       return
     }
-    setAnalysis(analyseIntake(text))
+    setAnalysis(analyseIntake(activeText))
     setNotice('')
   }
 
@@ -127,10 +158,8 @@ export default function ReplyPage() {
   const draftReply = async () => {
     if (!active) return
     const at = new Date().toISOString()
-    const templateId =
-      chosenType || (index.status === 'ready' ? (index.data.templates[0]?.id ?? 'letter') : 'letter')
     const doc = await createDocumentFromIntake({
-      templateId,
+      templateId: chosenType,
       analysis: active,
       intakeId,
       at,
@@ -218,7 +247,6 @@ export default function ReplyPage() {
               value={chosenType}
               onChange={(event) => setChosenType(event.target.value)}
             >
-              <option value="">{t('draft.intake.suggestedForm')}</option>
               {index.status === 'ready'
                 ? index.data.templates.map((entry) => (
                     <option key={entry.id} value={entry.id}>
@@ -251,6 +279,24 @@ export default function ReplyPage() {
       {active && draftingAiAvailable(ai.enabled) ? (
         <Suspense fallback={null}>
           <IntakeAiPanel
+            /*
+              Keyed on the LETTER, so pasting a second one asks for the
+              confirmation again.
+
+              `IntakeAiPanel`'s own header said this key existed and it did not
+              — an invariant described rather than implemented, which is exactly
+              what ADR-037's addendum says to distrust on sight, and which
+              ADR-041 §2 had already been caught by once. The confirmation is
+              about the CONTENT that is going to be sent, so a second letter
+              inheriting the first one's consent is the one failure this panel
+              exists to prevent.
+
+              The key is the text's length and its opening, not the whole letter:
+              a `key` is compared on every render and comparing forty kilobytes
+              of pasted text per keystroke is a cost with no benefit — two
+              letters that agree on both are the same letter for this purpose.
+            */
+            key={`${activeText.length}:${activeText.slice(0, 64)}`}
             text={activeText}
             extracted={active}
             provisions={provisions.status === 'ready' ? provisions.data : []}

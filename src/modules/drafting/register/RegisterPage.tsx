@@ -15,6 +15,7 @@ import {
   duplicateNumbers,
   filterEntries,
   followUpState,
+  newEntry,
   threadOf,
   toCsv,
   toJsonExport,
@@ -59,7 +60,18 @@ export default function RegisterPage() {
   const [status, setStatus] = useState<RegisterStatus | 'all'>('all')
   const [notice, setNotice] = useState('')
   const [undo, setUndo] = useState<RegisterEntry | null>(null)
+  /*
+    The entry being edited, which may be one that has never been WRITTEN.
+
+    "Add an entry" used to call `createEntry` and then open the form on the row
+    it had just filed — so Add followed by Cancel left a blank entry in the
+    register, sorted by its creation instant to the top of the list. A register
+    is a record of what happened, and an empty row is a record of the officer
+    having pressed a button. `newEntry` is pure, so an unsaved entry is just a
+    value; `saveEntry` below decides whether it is a create or an update.
+  */
   const [editing, setEditing] = useState<RegisterEntry | null>(null)
+  const [isNew, setIsNew] = useState(false)
 
   const threadId = params.get('thread') ?? ''
 
@@ -173,9 +185,11 @@ export default function RegisterPage() {
       <div className="flex flex-wrap gap-2">
         <Button
           size="sm"
-          onClick={() =>
-            void createEntry({ direction: 'received', at: new Date().toISOString() }).then(setEditing)
-          }
+          onClick={() => {
+            const at = new Date().toISOString()
+            setEditing(newEntry({ id: `reg-new-${at}`, direction: 'received', at }))
+            setIsNew(true)
+          }}
         >
           <Plus aria-hidden="true" className="mr-1 size-4" />
           {t('draft.register.add')}
@@ -239,15 +253,36 @@ export default function RegisterPage() {
 
       {editing ? (
         <EntryForm
+          /*
+            Keyed on the entry, so pressing Edit on a second row while the form
+            is open rebuilds it from THAT row.
+
+            Without it the form kept the first row's values — `useState(entry)`
+            runs on mount — and Save wrote them to the second row's id. Nothing
+            throws and nothing looks wrong; the officer's correction lands on a
+            communication they were not looking at. CLAUDE.md records the same
+            shape costing the Library a Feynman attempt saved against the wrong
+            provision. A `key`, never an effect that resynchronises.
+          */
+          key={editing.id}
           entry={editing}
           entries={entries}
-          onCancel={() => setEditing(null)}
-          onSave={(patch) =>
-            void updateEntry(editing.id, patch, new Date().toISOString()).then(() => {
+          isNew={isNew}
+          onCancel={() => {
+            setEditing(null)
+            setIsNew(false)
+          }}
+          onSave={(patch) => {
+            const at = new Date().toISOString()
+            const write = isNew
+              ? createEntry({ direction: 'received', at, patch })
+              : updateEntry(editing.id, patch, at)
+            void write.then(() => {
               setEditing(null)
+              setIsNew(false)
               setNotice('')
             })
-          }
+          }}
         />
       ) : null}
 
@@ -410,11 +445,14 @@ function Row({
 function EntryForm({
   entry,
   entries,
+  isNew,
   onCancel,
   onSave,
 }: {
   entry: RegisterEntry
   entries: readonly RegisterEntry[]
+  /** True for an entry that has never been written; changes the heading only. */
+  isNew: boolean
   onCancel: () => void
   onSave: (patch: Partial<RegisterEntry>) => void
 }) {
@@ -435,7 +473,7 @@ function EntryForm({
 
   return (
     <SectionCard className="flex flex-col gap-3 p-4">
-      <h2 className="text-sm font-semibold">{t('draft.register.edit')}</h2>
+      <h2 className="text-sm font-semibold">{t(isNew ? 'draft.register.add' : 'draft.register.edit')}</h2>
 
       <div className="grid gap-3 sm:grid-cols-2">
         {field(
@@ -482,6 +520,19 @@ function EntryForm({
             }
           />,
         )}
+        {isNew
+          ? field(
+              t('draft.register.filterDirection'),
+              <select
+                className={input}
+                value={draft.direction}
+                onChange={(event) => set('direction', event.target.value as RegisterEntry['direction'])}
+              >
+                <option value="received">{t('draft.register.received')}</option>
+                <option value="sent">{t('draft.register.sent')}</option>
+              </select>,
+            )
+          : null}
         {field(
           t('draft.register.status'),
           <select
@@ -554,6 +605,7 @@ function EntryForm({
           size="sm"
           onClick={() =>
             onSave({
+              ...(isNew ? { direction: draft.direction } : {}),
               number: draft.number,
               date: draft.date,
               receivedOn: draft.receivedOn,

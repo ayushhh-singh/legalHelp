@@ -866,6 +866,65 @@ are load-bearing, and each is enforced by a test rather than by convention:
 
 ### Notes for the next session
 
+- **An edge-case pass over this session found SEVEN defects, and they split into two families with
+  different mechanical checks.** ADR-043's second addendum has all seven;
+  `src/modules/drafting/{edge.test.tsx,hooks.edge.test.tsx}` and `src/lib/drafting/intake.test.ts`
+  are the regression files, and every test in them was confirmed to fail against the committed code
+  first.
+
+  **Family one: state not keyed on what it is about.** The register's edit form held its draft in
+  `useState(entry)` — which runs on MOUNT — so pressing Edit on a second row while the form was open
+  kept the FIRST row's values and Save wrote them to the second row's id. Nothing throws and nothing
+  looks wrong; the officer's correction lands on a communication they were not looking at. That is
+  CLAUDE.md's own `FeynmanBox` lesson in a module that did not exist when it was written. The check
+  is: **any component that edits or records something has to be keyed on the thing, and a `key` is
+  the fix, never an effect that resynchronises.**
+
+  **Family two: a fallback that quietly answers a question nobody asked.** `activeText` was
+  `text || stored?.text || ''`, so Clear refilled the box from the stored letter and appeared to do
+  nothing on every letter an officer comes back to — an empty string is a VALUE and `||` cannot tell
+  it from an absence. And the reply form's select opened on an empty "Suggested" placeholder whose
+  fallback was `templates[0]?.id`, which sorts to `acknowledgement`: every officer taking the
+  default got an Acknowledgement. The check is: **a control whose value is empty is a control whose
+  behaviour is decided somewhere the officer cannot see.**
+
+- **A comment that asserts something is true elsewhere is a claim to go and check.**
+  `IntakeAiPanel`'s own header said "the `key` on this component in `ReplyPage` is the letter's
+  text, so pasting a second letter asks again". There was no key, so the confirmation that letter A
+  could be sent silently covered letter B. Third time in four sessions — ADR-037's addendum
+  (`ensureLocalEngine`'s "has to wait"), ADR-041 §2 (a purity test described before it existed), and
+  now this. **Open the place a comment points at.**
+
+- **`\b` is not the only trap with two language halves; so is WHERE the Act name sits.** `ACT_TAIL`
+  read the Act after a citation, because that is where English puts it — "section 420 of the Indian
+  Penal Code". Hindi puts it first: "भारतीय दंड संहिता की धारा 420". So every Devanagari citation
+  came back with no Act and could never be resolved, while every English one worked. The English
+  half working is not evidence (ADR-035, ADR-039, and now ADR-043). `ACT_LEAD` looks backwards and
+  may not cross a sentence boundary, which is the whole risk of looking backwards.
+
+- **A cap on the input is not a cap on what is derived from it.** The letter body is capped at
+  `LETTER_CAP` characters before it is sent; `findAsks` had no cap, and every ask goes into the
+  prompt — so a long circular could push a far larger context than the letter it came from.
+  `MAX_ASKS` is 12, and a dropped ask carrying a DEADLINE displaces a kept one that does not,
+  because a cap that silently dropped the one sentence a follow-up can be set from is worse than no
+  cap. Writing that test found a third thing: "The reply may be sent by 30.09.2026" was not an ask
+  at all, because it uses no request formula. **A sentence that sets a time limit is a request.**
+
+- **Two of that pass's own tests could not fail, and were rewritten before they were believed.** One
+  asserted `expect(vi.fn()).not.toHaveBeenCalled()` on a mock nothing could ever call — it passes
+  against a hook with no cleanup at all. It watches the `AbortSignal` the provider was handed now,
+  which is what `wire.ts` gives `fetch` and so what decides whether the officer goes on paying. The
+  other polled a fixed `setTimeout(0)` for a run that needs tens of milliseconds to dynamic-import
+  its agent, and reported an empty list — which looks exactly like a hook that never calls its
+  provider. `ai-local.spec.ts` records the same lesson from the other end: **poll the thing you are
+  asserting about, not a proxy for it.**
+
+- **A stub of a dataset type is a stub of every field the code happens to read.**
+  `{ id, checklist: [] } as unknown as DocTemplate` made `buildInstruction` throw on
+  `template.layout.en`, the hook caught it, and the test failed with "the run never reached the
+  provider" — which reads as a broken hook. The real committed template is one `readFileSync` away
+  and cannot lie.
+
 - **Fourth session in a row to find something wired end to end that nothing called, and this one
   slipped past the check that was invented for it.** `recordIssuedNumber` was written, tested against
   `fake-indexeddb` five ways, and called by no line of application code — the register would have

@@ -8,6 +8,7 @@ import {
   findEnclosures,
   findProvisions,
   findUrgency,
+  MAX_ASKS,
   periodIn,
   resolveProvisions,
   sentencesOf,
@@ -310,5 +311,69 @@ describe('deadlines and periods', () => {
 describe('sentences', () => {
   it('ends a sentence on a danda as well as a full stop', () => {
     expect(sentencesOf('पहला वाक्य। दूसरा वाक्य।')).toHaveLength(2)
+  })
+})
+
+describe('what the edge-case pass found', () => {
+  it('names the Act when it comes BEFORE the number, which is where Hindi puts it', () => {
+    /*
+      `ACT_TAIL` looked only AFTER the number, because that is where English
+      puts it — "section 420 of the Indian Penal Code". Hindi puts it first:
+      "भारतीय दंड संहिता की धारा 420". So every Devanagari citation came back
+      with `act: ''`, and `resolveProvisions`' caller — which decides what Act a
+      citation names by matching patterns against `act` and `text` — could never
+      resolve one. The English half working is not evidence (ADR-035, ADR-039).
+    */
+    const [hindi] = findProvisions('भारतीय दंड संहिता की धारा 420 के अधीन अपराध कारित किया गया।')
+    expect(hindi?.number).toBe('420')
+    expect(hindi?.act).toMatch(/भारतीय दंड संहिता/)
+
+    // And English still reads the Act that follows, as it always did.
+    const [english] = findProvisions('an offence under section 420 of the Indian Penal Code, 1860')
+    expect(english?.act).toMatch(/Indian Penal Code/)
+  })
+
+  it('does not take a preceding Act name across a sentence boundary', () => {
+    // The whole risk of looking backwards: "…under the Indian Penal Code. Rule
+    // 3 of the Conduct Rules also applies" must not attach the Penal Code to
+    // Rule 3.
+    const found = findProvisions(
+      'The matter was examined under the Indian Penal Code. Rule 3 of the CCS (Conduct) Rules, 1964 also applies.',
+    )
+    const rule = found.find((each) => each.unit === 'rule')
+    expect(rule?.act).toMatch(/CCS \(Conduct\) Rules/)
+    expect(rule?.act).not.toMatch(/Penal Code/)
+  })
+
+  it('caps how many requests one letter can produce', () => {
+    /*
+      `findAsks` had no cap, and every ask it finds is put into the prompt by
+      `src/ai/agents/intake.ts` — the letter BODY is capped at 12,000 characters
+      and the sentences derived from it were not, so a long circular could push
+      a far larger context than the letter it came from. The cap is on the
+      extractor rather than on the agent so the chips and the prompt agree about
+      what the letter asks for.
+    */
+    const many = Array.from(
+      { length: MAX_ASKS + 20 },
+      (_, index) => `It is requested that item ${index + 1} may kindly be furnished.`,
+    ).join(' ')
+    const asks = findAsks(many)
+    expect(asks).toHaveLength(MAX_ASKS)
+    // The letter's own order is kept: it is the FIRST asks that survive, which
+    // is where an office puts what it most wants.
+    expect(asks[0]?.text).toMatch(/item 1 /)
+  })
+
+  it('keeps a deadline that falls past the cap', () => {
+    // A cap that dropped the one sentence carrying a date would take the
+    // follow-up with it, so a deadline is kept over a plain request.
+    const filler = Array.from(
+      { length: MAX_ASKS + 5 },
+      (_, index) => `It is requested that item ${index + 1} may kindly be furnished.`,
+    ).join(' ')
+    const asks = findAsks(`${filler} The reply may be sent by 30.09.2026.`)
+    expect(asks).toHaveLength(MAX_ASKS)
+    expect(asks.some((ask) => ask.deadline === '2026-09-30')).toBe(true)
   })
 })

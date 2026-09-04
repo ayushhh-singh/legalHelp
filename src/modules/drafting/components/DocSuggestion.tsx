@@ -6,7 +6,9 @@ import { Button } from '@/components/ui/button'
 import { useT } from '@/i18n/useT'
 import { changesOf } from '../suggestion'
 import {
+  acceptAll,
   decidableBlocks,
+  rejectAll,
   type BlockProposal,
   type Decisions,
   type DocProposal,
@@ -70,9 +72,23 @@ export function DocSuggestion({ proposal, onApply, onDiscard, fixed = [], broken
   const takenFields = proposal.fields.filter((field) => fields[field.path]).length
   const taken = takenBlocks + takenFields
 
+  /*
+    Through the pure layer, not a second copy of it.
+
+    This reimplemented `acceptAll`/`rejectAll` inline, which left those two
+    exported, covered by `proposal.test.ts`, and called by nothing but tests —
+    so the version with tests behind it was not the version that ran. Two
+    implementations of one decision is what ADR-039 §4 spent a Node script
+    avoiding, and here it cost nothing to avoid.
+
+    `words` is cleared either way: a per-word decision inside a block the
+    officer has just accepted or refused WHOLE is a decision about a narrower
+    thing than the one they last expressed.
+  */
   const setAll = (value: boolean) => {
-    setAccepted(Object.fromEntries(blocks.map((block) => [block.id, value])))
-    setFields(Object.fromEntries(proposal.fields.map((field) => [field.path, value])))
+    const decisions = value ? acceptAll(proposal) : rejectAll(proposal)
+    setAccepted(decisions.blocks)
+    setFields(decisions.fields ?? {})
     setWords({})
   }
 
