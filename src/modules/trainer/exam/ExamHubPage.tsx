@@ -2,6 +2,7 @@ import { CalendarDays, ClipboardCheck, ListChecks, Target } from 'lucide-react'
 import { useMemo, useState } from 'react'
 import { Link } from 'react-router-dom'
 
+import { loadExamProfile } from './data'
 import { ExamBanner } from './components/ExamBanner'
 import { ReadinessBars } from './components/ReadinessBars'
 import { RevisionSheetsCard } from './components/RevisionSheetsCard'
@@ -25,7 +26,8 @@ import {
   setTargetDate,
   type NextAction,
 } from '@/lib/exam'
-import { isIstDay, istDay } from '@/lib/srs'
+import { isIstDay, istDay, loadSettings, saveSettings } from '@/lib/srs'
+import { trainerActHintsForProfile, type TrainerActHint } from '@/modules/onboarding/actHints'
 
 import type { ExamIndexEntry, ExamProfile } from '@/schemas/exam'
 
@@ -54,6 +56,15 @@ export default function ExamHubPage() {
   const { t } = useT()
   const index = useExamIndex()
   const choice = useActiveExam()
+  /*
+    The Trainer act hint, if choosing a profile produced one.
+
+    Held HERE rather than in the picker, because the picker unmounts the moment
+    a profile is chosen and the note has to be read on the readiness screen that
+    replaces it. `null` covers both "nothing was applied" and "nothing has been
+    chosen yet", which is the same thing from the reader's side.
+  */
+  const [actsHint, setActsHint] = useState<TrainerActHint | null>(null)
 
   /*
     The header renders in EVERY state, including while loading and on an error.
@@ -98,9 +109,14 @@ export default function ExamHubPage() {
         used to leave this screen on a skeleton for ever.
           */}
       {choice === null || !knowsProfile(choice.id) ? (
-        <ProfilePicker entries={index.data.profiles} />
+        <ProfilePicker entries={index.data.profiles} onApplied={setActsHint} />
       ) : (
-        <ChosenExam profileId={choice.id} targetDate={choice.targetDate} dailyMinutes={choice.dailyMinutes} />
+        <ChosenExam
+          profileId={choice.id}
+          targetDate={choice.targetDate}
+          dailyMinutes={choice.dailyMinutes}
+          actsHint={actsHint}
+        />
       )}
     </div>
   )
@@ -110,14 +126,53 @@ export default function ExamHubPage() {
  * The picker
  * ------------------------------------------------------------------ */
 
-function ProfilePicker({ entries }: { entries: readonly ExamIndexEntry[] }) {
+function ProfilePicker({
+  entries,
+  onApplied,
+}: {
+  entries: readonly ExamIndexEntry[]
+  onApplied: (hint: TrainerActHint | null) => void
+}) {
   const { t, language } = useT()
   const [busy, setBusy] = useState<string | null>(null)
 
+  /*
+    Choosing a profile also offers the Trainer a set of rule books — but only
+    where the reader has not chosen their own, and never silently.
+
+    `actsEnabled: []` is the default and means EVERY rule book, so an empty list
+    is "this reader has not decided" and anything else is a decision they made.
+    Overwriting a decision because somebody tapped a card on a different screen
+    is a change they would never connect to the action, so it is applied only to
+    the default — and the note the hint carries is then rendered on the screen
+    that replaces this one, which is the arrangement `OnboardingPage` already
+    uses for the job-derived version of the same hint.
+
+    The profile is loaded here rather than passed in because the picker only has
+    the 2 KB index entry; `ChosenExam` is about to load it anyway, and
+    `loadExamProfile` caches, so this costs the fetch that was coming next.
+  */
   const choose = async (id: string) => {
     setBusy(id)
     try {
       await setActiveExam(id)
+      const [profile, settings] = await Promise.all([loadExamProfile(id), loadSettings()])
+      if (settings.actsEnabled.length > 0) {
+        onApplied(null)
+        return
+      }
+      const hint = trainerActHintsForProfile(profile)
+      if (hint.acts.length === 0) {
+        onApplied(null)
+        return
+      }
+      await saveSettings({ actsEnabled: hint.acts })
+      onApplied(hint)
+    } catch {
+      // Choosing the profile is the thing the reader asked for and it has
+      // already happened; a failed hint must not undo it or surface as an
+      // error about something they did not do.
+      onApplied(null)
     } finally {
       setBusy(null)
     }
@@ -202,10 +257,12 @@ function ChosenExam({
   profileId,
   targetDate,
   dailyMinutes,
+  actsHint,
 }: {
   profileId: string
   targetDate: string | null
   dailyMinutes: number | null
+  actsHint: TrainerActHint | null
 }) {
   const { t, language } = useT()
   const now = useNow(60_000)
@@ -261,6 +318,17 @@ function ChosenExam({
       </SectionCard>
 
       <ExamBanner profile={profile} />
+
+      {/*
+        Applied AND said, in the same view — never applied silently. A reader
+        whose Trainer has just narrowed from twelve rule books to eight needs to
+        know why, and needs to know where to change it back.
+      */}
+      {actsHint?.note ? (
+        <p className="rounded-md bg-marigold/15 p-3 text-sm text-marigold-foreground" role="status">
+          {actsHint.note[language] || actsHint.note.en}
+        </p>
+      ) : null}
 
       <TargetDateCard profileId={profileId} targetDate={targetDate} dailyMinutes={dailyMinutes} />
 

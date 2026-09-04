@@ -1,4 +1,5 @@
 import { render, screen, waitFor } from '@testing-library/react'
+import userEvent from '@testing-library/user-event'
 import { MemoryRouter, Route, Routes } from 'react-router-dom'
 import { beforeEach, describe, expect, it } from 'vitest'
 
@@ -146,6 +147,47 @@ describe('Settings names the examination rather than its slug', () => {
     )
     expect(await screen.findByText(/Central Secretariat Service/)).toBeInTheDocument()
     expect(screen.queryByText(/css-so-ldce/)).not.toBeInTheDocument()
+  })
+})
+
+describe('choosing a profile offers the Trainer its rule books', () => {
+  it('applies the examination’s own acts to a reader who has chosen none, and SAYS so', async () => {
+    // Gap #56's better signal: a profile's units come off a gazette-notified
+    // reference list, where `trainerActHintsForJob` infers from an organisation
+    // name. Applied and announced in the same view — the arrangement
+    // `OnboardingPage` already uses for the job-derived version.
+    const user = userEvent.setup()
+    const { loadSettings } = await import('@/lib/srs')
+    expect((await loadSettings()).actsEnabled).toEqual([])
+
+    at('/learn/exam')
+    const cards = await screen.findAllByRole('button', { name: 'Prepare for this' })
+    await user.click(cards[0]!)
+
+    expect(await screen.findByText(/your examination’s own reference list names/i)).toBeInTheDocument()
+    await waitFor(async () => {
+      expect((await loadSettings()).actsEnabled).toContain('ccs-conduct')
+    })
+  })
+
+  it('never overwrites rule books the reader has chosen themselves', async () => {
+    /*
+      `actsEnabled: []` is the default and means EVERY rule book, so an empty
+      list is "has not decided" and anything else is a decision. Silently
+      discarding it because somebody tapped a card on a different screen is a
+      change they would never connect to the action.
+    */
+    const user = userEvent.setup()
+    const { loadSettings, saveSettings } = await import('@/lib/srs')
+    await saveSettings({ actsEnabled: ['gfr'] })
+
+    at('/learn/exam')
+    const cards = await screen.findAllByRole('button', { name: 'Prepare for this' })
+    await user.click(cards[0]!)
+
+    await screen.findByText('Readiness')
+    expect((await loadSettings()).actsEnabled).toEqual(['gfr'])
+    expect(screen.queryByText(/own reference list names/i)).not.toBeInTheDocument()
   })
 })
 
