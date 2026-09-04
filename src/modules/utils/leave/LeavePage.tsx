@@ -71,7 +71,7 @@ const num = (value: string): number => {
   return Number.isFinite(parsed) && parsed >= 0 ? parsed : 0
 }
 
-/** `/utils/leave` — the CCS (Leave) Rules, 1972 leave calculator. */
+/** `/tools/leave` — the CCS (Leave) Rules, 1972 leave calculator. */
 export default function LeavePage() {
   const { t, language } = useT()
   const today = istDay()
@@ -106,7 +106,7 @@ export default function LeavePage() {
 
   return (
     <div className="mx-auto flex max-w-4xl flex-col gap-6">
-      <PageHeader title={t('utils.leave.title')} subtitle={t('utils.leave.subtitle')} />
+      <PageHeader as="h2" title={t('utils.leave.title')} subtitle={t('utils.leave.subtitle')} />
 
       <SectionCard active className="p-4">
         <h2 className="mb-3 text-sm font-semibold">{t('utils.leave.inputsTitle')}</h2>

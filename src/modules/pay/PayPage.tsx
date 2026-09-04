@@ -37,11 +37,11 @@ import type { PayTables } from '@/lib/pay/tables'
  * Level, cell, city, Dearness Allowance rate, every allowance the reader
  * departed from the post's defaults on, the comparison's second post and the
  * private package all live in `useSearchParams`, and every control writes
- * straight to it. `/pay?job=ib-acio-ii-executive&city=delhi&da=60` restores
+ * straight to it. `/tools/salary?job=ib-acio-ii-executive&city=delhi&da=60` restores
  * exactly this screen, which is what makes "Share" worth pressing.
  *
  * The one thing NOT in the URL is the last scenario, which is in IndexedDB so
- * that reopening `/pay` with no query puts the form back as it was left. It is
+ * that reopening `/tools/salary` with no query puts the form back as it was left. It is
  * read once, and only when the URL says nothing — a shared link always wins
  * over what this device happens to remember.
  */
@@ -55,7 +55,7 @@ export default function PayPage() {
   if (tables.status === 'error') {
     return (
       <div className="space-y-6">
-        <PageHeader title={t('pages.pay.title')} subtitle={t('pages.pay.subtitle')} />
+        <PageHeader as="h2" title={t('pages.pay.title')} subtitle={t('pages.pay.subtitle')} />
         <QueryErrorState body={t('pay.loadFailed')} onRetry={tables.retry} />
       </div>
     )
@@ -64,7 +64,7 @@ export default function PayPage() {
   if (tables.status === 'loading') {
     return (
       <div className="space-y-6">
-        <PageHeader title={t('pages.pay.title')} subtitle={t('pages.pay.subtitle')} />
+        <PageHeader as="h2" title={t('pages.pay.title')} subtitle={t('pages.pay.subtitle')} />
         <div className="grid gap-4 lg:grid-cols-[minmax(0,22rem)_1fr]">
           <SectionCard className="space-y-3 p-5">
             <Skeleton className="h-11 w-full" />
@@ -147,7 +147,7 @@ function Calculator({
     write({ scenario: normaliseScenario({ ...scenario, ...delta }, tables) })
 
   /**
-   * Reopening `/pay` with nothing in the URL puts back the last scenario. A
+   * Reopening `/tools/salary` with nothing in the URL puts back the last scenario. A
    * link always wins: `hasQuery` is checked before the read, and the read only
    * ever runs on the first render of a bare route.
    */
@@ -164,8 +164,8 @@ function Calculator({
 
       `setSearchParams` navigates to ITS OWN route's path with the new search,
       not to wherever the reader now is — so a write from an unmounted
-      `/pay` does not append a query to `/law`, it pulls the reader back onto
-      `/pay?level=8&cell=3`. Demonstrated under both MemoryRouter and
+      `/tools/salary` does not append a query to `/law`, it pulls the reader back onto
+      `/tools/salary?level=8&cell=3`. Demonstrated under both MemoryRouter and
       BrowserRouter with the unmount asserted; the window is one Dexie read,
       which is tens of milliseconds on a cold IndexedDB open.
 
@@ -243,7 +243,7 @@ function Calculator({
 
   return (
     <div className="space-y-6">
-      <PageHeader title={t('pages.pay.title')} subtitle={t('pages.pay.subtitle')} />
+      <PageHeader as="h2" title={t('pages.pay.title')} subtitle={t('pages.pay.subtitle')} />
 
       <ChipGroup<PayTab>
         label={t('pay.tabs.label')}

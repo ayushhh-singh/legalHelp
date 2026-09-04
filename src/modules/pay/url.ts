@@ -6,7 +6,7 @@ import { DEFAULT_PRIVATE_INPUT, type PrivateInput } from '@/lib/pay/compare'
 /**
  * The whole calculator in the URL.
  *
- * `/pay?job=ib-acio-ii-executive&city=delhi&da=60` restores the exact pay slip,
+ * `/tools/salary?job=ib-acio-ii-executive&city=delhi&da=60` restores the exact pay slip,
  * and that is what "Share" links to. It matters here for the same reason it
  * does in the Law Converter: a figure sent to a colleague is worthless if the
  * link lands them on an empty form, and the assumptions behind a pay slip —
@@ -17,7 +17,7 @@ import { DEFAULT_PRIVATE_INPUT, type PrivateInput } from '@/lib/pay/compare'
  * of `data/pay` has been imported. `scenarioFromParams` then applies the picked
  * post's defaults and the reader's departures from them, once the tables are
  * there. A single-step parse would have meant either loading the datasets on
- * every visit to `/pay` or holding the URL in a second piece of state.
+ * every visit to `/tools/salary` or holding the URL in a second piece of state.
  *
  * Every value is validated on the way in. A deep link is untrusted input:
  * `pension=drop-tables` must produce the default form, not a broken one.
@@ -316,8 +316,8 @@ export function paramsFromView(view: PayView, tables: PayTables): URLSearchParam
   return out
 }
 
-/** `"/pay?job=…"`. Used by share links and by the saved-scenario list. */
-export function toPayHref(view: PayView, tables: PayTables, pathname = '/pay'): string {
+/** `"/tools/salary?job=…"`. Used by share links and by the saved-scenario list. */
+export function toPayHref(view: PayView, tables: PayTables, pathname = '/tools/salary'): string {
   const query = paramsFromView(view, tables).toString()
   return query ? `${pathname}?${query}` : pathname
 }

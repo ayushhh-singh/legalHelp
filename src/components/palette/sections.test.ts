@@ -134,6 +134,6 @@ describe('portalItems', () => {
 
   it('points at the portals page with the portal’s own name prefilled', () => {
     const items = portalItems(PORTALS, 'e-HRMS')
-    expect(items[0]?.to).toBe('/utils/portals?q=e-HRMS')
+    expect(items[0]?.to).toBe('/tools/portals?q=e-HRMS')
   })
 })

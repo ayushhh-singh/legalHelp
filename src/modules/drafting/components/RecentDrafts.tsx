@@ -1,9 +1,10 @@
 import { Copy, FileText, Pencil, Trash2, Undo2 } from 'lucide-react'
 import { useLiveQuery } from 'dexie-react-hooks'
 import { useState } from 'react'
-import { Link } from 'react-router-dom'
+import { useNavigate } from 'react-router-dom'
 
 import { deleteDraft, duplicateDraft, listDrafts, renameDraft, restoreDraft } from '../drafts'
+import { migrateOneDraft } from '../migrateDrafts'
 
 import { SectionCard } from '@/components/ui-x'
 import { Button } from '@/components/ui/button'
@@ -39,9 +40,11 @@ const COLLAPSED = 5
 
 export function RecentDrafts() {
   const { t, language } = useT()
+  const navigate = useNavigate()
   const [undoable, setUndoable] = useState<DraftRow | null>(null)
   const [message, setMessage] = useState('')
   const [expanded, setExpanded] = useState(false)
+  const [opening, setOpening] = useState<string | null>(null)
 
   // `undefined` while Dexie is answering, `[]` once it has and there is
   // nothing — the two must not render the same thing, or an empty state
@@ -87,6 +90,27 @@ export function RecentDrafts() {
 
   const title = (row: DraftRow) => row.title.trim() || t('draft.recent.untitled')
 
+  /*
+    Opening a Session 8 draft now means bringing it across first.
+
+    ADR-046 removed the form-and-preview editor these rows used to open, and the
+    old route redirects to "create a new document of this type" — which would
+    look like it worked and would silently discard the officer's text. So the
+    row migrates ITS OWN draft (a copy; `drafts` is untouched) and opens the
+    document that comes out. Pressing it twice reopens the same document rather
+    than making a second copy.
+  */
+  const open = async (row: DraftRow) => {
+    setOpening(row.id)
+    try {
+      const result = await migrateOneDraft(row.id)
+      if (result.ok) void navigate(`/draft/d/${result.docId}`)
+      else setMessage(t('draft.recent.openFailed', { title: title(row) }))
+    } finally {
+      setOpening(null)
+    }
+  }
+
   return (
     <section aria-labelledby="draft-recent" className="flex flex-col gap-3">
       <h2 id="draft-recent" className="text-lg font-semibold">
@@ -100,6 +124,8 @@ export function RecentDrafts() {
       <p aria-live="polite" className="sr-only">
         {message}
       </p>
+
+      <p className="max-w-prose text-sm text-muted-foreground">{t('draft.recent.migrateHint')}</p>
 
       {undoable ? (
         <div className="flex flex-wrap items-center justify-between gap-2 rounded-lg border border-border bg-muted px-3 py-2">
@@ -117,9 +143,11 @@ export function RecentDrafts() {
         <ul className="divide-y divide-border">
           {shown.map((row) => (
             <li key={row.id} className="flex flex-wrap items-center gap-2 p-3">
-              <Link
-                to={`/draft/${row.templateId}?d=${row.id}`}
-                className="flex min-h-11 min-w-0 flex-1 items-center gap-3 rounded-md px-1 focus-visible:ring-2 focus-visible:ring-ring focus-visible:outline-none"
+              <button
+                type="button"
+                disabled={opening === row.id}
+                onClick={() => void open(row)}
+                className="flex min-h-11 min-w-0 flex-1 items-center gap-3 rounded-md px-1 text-start focus-visible:ring-2 focus-visible:ring-ring focus-visible:outline-none"
               >
                 <FileText aria-hidden="true" className="h-4 w-4 shrink-0 text-muted-foreground" />
                 <span className="min-w-0">
@@ -131,7 +159,7 @@ export function RecentDrafts() {
                     })}
                   </span>
                 </span>
-              </Link>
+              </button>
 
               <span className="flex shrink-0 items-center gap-1">
                 <IconButton

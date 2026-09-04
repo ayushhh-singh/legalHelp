@@ -17,7 +17,7 @@ import { cn } from '@/lib/utils'
 
 import type { Portal, PortalCategory } from './schema'
 
-/** `/utils/portals` — the portals & helplines directory. */
+/** `/tools/portals` — the portals & helplines directory. */
 export default function PortalsPage() {
   const { t, language } = useT()
   const state = useAsync(loadPortals, 'portals', true)
@@ -26,7 +26,7 @@ export default function PortalsPage() {
   // initialiser handles the first render (the value is available
   // synchronously from the URL and needs no dataset), and the effect below
   // handles every navigation AFTER that: this route never remounts when only
-  // its search params change (same `/utils/portals` element throughout), so
+  // its search params change (same `/tools/portals` element throughout), so
   // picking a SECOND portal result from the palette while already on this
   // page updates the URL but not, without this, the search box — `lastQ`
   // guards against the effect fighting the reader's own typing, which never
@@ -88,7 +88,7 @@ export default function PortalsPage() {
 
   return (
     <div className="mx-auto flex max-w-4xl flex-col gap-6">
-      <PageHeader title={t('utils.portals.title')} subtitle={t('utils.portals.subtitle')} />
+      <PageHeader as="h2" title={t('utils.portals.title')} subtitle={t('utils.portals.subtitle')} />
 
       <SectionCard active className="p-4">
         <label className="sr-only" htmlFor="portals-search">

@@ -307,7 +307,9 @@ describe('inside the Law Converter', () => {
    */
   it('shows no Ask input at all when AI is off', async () => {
     renderConverter()
-    await screen.findByRole('heading', { level: 1 })
+    // The converter is a sub-tab of the Law section now, so its own masthead
+    // is an `<h2>` — `TabLayout` owns the `<h1>` (ADR-046).
+    await screen.findByRole('heading', { level: 2, name: 'Law Converter' })
 
     expect(screen.queryByRole('heading', { name: 'Ask about a section' })).not.toBeInTheDocument()
     expect(screen.queryByLabelText('What do you want to know?')).not.toBeInTheDocument()

@@ -72,7 +72,7 @@ export default function RevisionSheetPage() {
     })
   }, [aids, chapter, corpus.data, highlights, language, mode, notes, quickRef, workId])
 
-  if (!isWorkId(workId)) return <Navigate to="/library" replace />
+  if (!isWorkId(workId)) return <Navigate to="/study/read" replace />
   if (work.status === 'error') return <QueryErrorState onRetry={work.retry} />
   if (work.status === 'loading' || corpus.status === 'loading') return <Skeleton className="h-96 w-full" />
   if (corpus.status === 'error') return <QueryErrorState onRetry={corpus.retry} />

@@ -235,7 +235,7 @@ function Editor({
     tested, labelled in both languages, and could never fire. That is the shape
     ADR-039's second addendum named, found again here.
 
-    `useGlossary(enabled)` is the same lazy gate `/utils/glossary` uses: the
+    `useGlossary(enabled)` is the same lazy gate `/tools/glossary` uses: the
     dataset is fetched only when the officer is actually reading Hindi, and an
     English document downloads none of it.
   */
@@ -712,7 +712,7 @@ function IssueNumberButton({
       <div className="flex w-full flex-wrap items-center gap-2 text-sm">
         <span className="text-muted-foreground">{t('draft.meta.numberNoPattern')}</span>
         <Button asChild variant="outline" size="sm">
-          <Link to="/draft/numbering">{t('draft.meta.numberAddPattern')}</Link>
+          <Link to="/settings/numbering">{t('draft.meta.numberAddPattern')}</Link>
         </Button>
       </div>
     )

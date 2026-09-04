@@ -23,7 +23,7 @@ import { expect, test, type Page } from '@playwright/test'
 const HEADERS_FILE = fileURLToPath(new NodeURL('../../public/_headers', import.meta.url))
 
 /** Every route the acceptance checks name, plus the two the palette reaches. */
-const ROUTES = ['/', '/law', '/pay', '/draft', '/learn', '/utils', '/settings']
+const ROUTES = ['/', '/law', '/tools/salary', '/draft', '/study/practise', '/tools', '/settings']
 
 /**
  * Cloudflare Pages' `_headers` grammar: an unindented line is a path pattern,
@@ -251,7 +251,7 @@ test.describe('under the production Content-Security-Policy', () => {
     await page.keyboard.press('Escape')
 
     // The drafting A4 preview, which prints against a named @page rule.
-    await page.goto('/draft/office-memorandum')
+    await page.goto('/draft/new/office-memorandum')
     await expect(page.getByRole('heading', { level: 1 })).toBeVisible()
 
     expect(unexpected(await violations(page))).toEqual([])

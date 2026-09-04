@@ -33,7 +33,7 @@ import type { PreviewView } from '../url'
  *
  * It is ~340 KB, it is needed once per document at most, and a great many
  * drafts are printed rather than exported. A static import would put it in the
- * editor's chunk and charge every visit to `/draft` for it. The dynamic import
+ * editor's chunk and charge every visit to `/draft/documents` for it. The dynamic import
  * is what keeps the route light, in the same way `useLawEngine(enabled)` keeps
  * 490 KB of statute off a reader who has not searched yet.
  */

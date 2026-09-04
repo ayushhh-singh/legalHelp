@@ -46,7 +46,7 @@ import { cardSchema } from '@/modules/trainer/schema'
  * `propose_card` always stores `reviewState: 'unreviewed'` in `proposedCards`,
  * a table `get_user_weak_areas` (via `weakAreasFor`) never reads: that
  * function aggregates `reviewLog`/`srsCards`, which a freshly proposed card has
- * none of until a human accepts it at `/learn/review-queue`. An AI-authored
+ * none of until a human accepts it at `/study/practise/review-queue`. An AI-authored
  * card therefore cannot move a weak-area figure, a streak, or anything else
  * this agent reports, on its own.
  */
@@ -431,7 +431,7 @@ export async function proposeScenario(params: ProposeScenarioParams): Promise<Tu
     status: 'ok',
     text: run.text,
     cardId: parsedOutput.data.id,
-    reviewQueueUrl: parsedOutput.data.reviewQueueUrl ?? '/learn/review-queue',
+    reviewQueueUrl: parsedOutput.data.reviewQueueUrl ?? '/study/practise/review-queue',
     usage: run.usage,
     cost: estimateCost(run.meta.model, run.usage),
     meta: run.meta,

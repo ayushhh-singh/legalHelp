@@ -14,7 +14,7 @@ import { useT } from '@/i18n/useT'
 import { isServed, type Card } from '@/modules/trainer/schema'
 
 /**
- * `/learn/browse` — every rule book, opened one at a time, with a per-rule
+ * `/study/practise/browse` — every rule book, opened one at a time, with a per-rule
  * mastery bar built from `srsCards`.
  *
  * Rule headings are not loaded here — `data/rules/text/*.json` (~2.9 MB) is
@@ -85,7 +85,7 @@ export default function BrowsePage() {
         subtitle={t('trainer.browse.subtitle')}
         actions={
           <Button asChild variant="outline" size="sm">
-            <Link to="/learn">
+            <Link to="/study/practise">
               <ArrowLeft aria-hidden="true" />
               {t('trainer.review.backHome')}
             </Link>

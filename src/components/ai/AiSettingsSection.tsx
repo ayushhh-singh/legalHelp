@@ -160,6 +160,14 @@ export default function AiSettingsSection() {
   return (
     <section className="flex flex-col gap-4" aria-labelledby="ai-settings-heading">
       <div className="flex flex-wrap items-center gap-x-3 gap-y-1">
+        {/*
+          Stays an `<h2>` even on `/settings/ai`, where this section is the
+          whole page: everything inside it is an `<h3>`, and promoting this one
+          to `<h1>` made the page jump h1 → h3, which axe reports as
+          `heading-order`. The page's own `<h1>` is the section's name from
+          `SETTINGS_SECTIONS` — "AI" — and this heading is the feature plus its
+          on/off badge, which is a different sentence.
+        */}
         <h2 id="ai-settings-heading" className="text-lg font-semibold">
           {t('ai.sectionTitle')}
         </h2>

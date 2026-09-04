@@ -14,7 +14,7 @@ import { z } from 'zod'
  * reported by nothing, while the JSON Schema (`additionalProperties: false`)
  * rejects it outright. Nothing here imports `data/glossary.json` — it is
  * ~700 KB and belongs behind the lazy import in `data.ts`, loaded only once
- * `/utils/glossary` is opened.
+ * `/tools/glossary` is opened.
  */
 
 const bilingual = z.strictObject({ en: z.string().min(1), hi: z.string().min(1) })

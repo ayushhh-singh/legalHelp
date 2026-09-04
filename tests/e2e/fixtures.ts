@@ -291,9 +291,18 @@ export async function setLanguage(page: Page, language: Language): Promise<void>
   const current = await page.locator('html').getAttribute('lang')
   if (current === language) return
 
-  await page
-    .getByRole('button', { name: language === 'hi' ? 'Switch to Hindi' : 'अंग्रेज़ी में बदलें' })
-    .click()
+  /*
+    At focus level (the reader, a review session, the document editor) the app's
+    top bar is hidden and the toggle lives in the FocusBar's ⋯ menu instead
+    (ADR-046) — with the SAME accessible name, so only the way in differs.
+  */
+  const toggle = page.getByRole('button', {
+    name: language === 'hi' ? 'Switch to Hindi' : 'अंग्रेज़ी में बदलें',
+  })
+  if ((await toggle.count()) === 0) {
+    await page.getByRole('button', { name: /More actions|अन्य क्रियाएँ/ }).click()
+  }
+  await toggle.click()
   await expect(page.locator('html')).toHaveAttribute('lang', language)
   await expect.poll(() => storedSetting(page, 'language')).toBe(language)
 }
@@ -377,30 +386,13 @@ export const formatViolations = (violations: readonly AxeViolation[]): string[] 
 /** True in the `mobile-chromium` project, where the shell is a different shape. */
 export const onPhone = (page: Page): boolean => (page.viewportSize()?.width ?? 1280) < 1024
 
-/**
- * Bring the Drafting Studio's A4 preview and its export bar on screen.
- *
- * Below 1024px the editor is two TABS rather than two columns, and the export
- * bar lives in the preview one — so a spec that fills the form and then reaches
- * for "Word (.docx)" finds a button that is genuinely not on the page. On a
- * desktop both panes are always rendered and this does nothing.
- */
-export async function showPreviewPane(page: Page, language: Language = 'en'): Promise<void> {
-  if (!onPhone(page)) return
-  // `.first()`, not the bare locator: Playwright matches a string name as a
-  // SUBSTRING, so the check ("is there at least one?") permitted a state the
-  // action forbids ("there is exactly one") — two matches would fail as a
-  // strict-mode violation rather than as anything a reader could diagnose.
-  const tab = page.getByRole('radio', { name: t(language, 'draft.editor.tabs.preview') }).first()
-  if ((await tab.count()) > 0) await tab.click()
-}
-
-/** The form half of the same two-tab layout. */
-export async function showFormPane(page: Page, language: Language = 'en'): Promise<void> {
-  if (!onPhone(page)) return
-  const tab = page.getByRole('radio', { name: t(language, 'draft.editor.tabs.form') }).first()
-  if ((await tab.count()) > 0) await tab.click()
-}
+/*
+  `showPreviewPane` and `showFormPane` lived here until ADR-046. They existed
+  for the Session 8 form-and-preview editor, which below 1024px was two TABS
+  rather than two columns — and that editor is gone. The document editor's own
+  six tabs are ordinary `role="tab"` controls at every width, so a spec that
+  wants the preview asks for the Preview tab by name.
+*/
 
 /**
  * Dismiss the service worker's "Ready to work offline." notice.

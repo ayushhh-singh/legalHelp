@@ -1,4 +1,4 @@
-import { Languages, Moon, Search, Sun } from 'lucide-react'
+import { Languages, Moon, Search, Settings, Sun } from 'lucide-react'
 import { Link } from 'react-router-dom'
 
 import { usePaletteStore } from './paletteStore'
@@ -7,8 +7,22 @@ import { useAppStore } from './store'
 import { OfflineBadge } from '@/components/common/OfflineBadge'
 import { LANGUAGE_LABELS } from '@/i18n'
 import { useT } from '@/i18n/useT'
-import { HOME_PATH } from '@/lib/nav'
+import { HOME_PATH, SETTINGS_PATH } from '@/lib/nav'
 
+/**
+ * Brand · search · language · theme · settings.
+ *
+ * Settings is a control HERE rather than a seventh tab (ADR-046): it is where
+ * everyone looks for it, and putting a screen an officer opens a handful of
+ * times a year in the same rank as the four they open every day is what cost
+ * the bottom bar a slot it needed. The gear is a link, not a menu, because the
+ * settings section's own index IS the menu — one that survives a reload and
+ * that somebody can send a link to.
+ *
+ * The whole bar is hidden at focus level; `FocusLayout`'s own ⋯ menu carries
+ * the language toggle, the theme toggle and this link, so a reader inside the
+ * reader or the editor never loses them.
+ */
 export function TopBar() {
   const { t, language } = useT()
   const theme = useAppStore((s) => s.theme)
@@ -78,6 +92,14 @@ export function TopBar() {
               <Sun aria-hidden="true" className="h-4 w-4" />
             )}
           </button>
+
+          <Link
+            to={SETTINGS_PATH}
+            aria-label={t('pages.settings.title')}
+            className="flex h-9 w-9 items-center justify-center rounded-md text-muted-foreground transition-colors hover:bg-accent hover:text-accent-foreground"
+          >
+            <Settings aria-hidden="true" className="h-4 w-4" />
+          </Link>
         </div>
       </div>
     </header>

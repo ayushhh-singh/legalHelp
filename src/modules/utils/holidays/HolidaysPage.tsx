@@ -91,7 +91,7 @@ function dayOf(date: string): number {
   return Number(date.slice(8, 10))
 }
 
-/** `/utils/holidays` — the DoPT holiday calendar, with restricted-holiday picks and an .ics export. */
+/** `/tools/holidays` — the DoPT holiday calendar, with restricted-holiday picks and an .ics export. */
 export default function HolidaysPage() {
   const { t, language } = useT()
   const year = AVAILABLE_YEARS[0] ?? new Date().getFullYear()
@@ -131,7 +131,7 @@ export default function HolidaysPage() {
 
   return (
     <div className="mx-auto flex max-w-4xl flex-col gap-6">
-      <PageHeader title={t('utils.holidays.title')} subtitle={t('utils.holidays.subtitle')} />
+      <PageHeader as="h2" title={t('utils.holidays.title')} subtitle={t('utils.holidays.subtitle')} />
 
       {calendar.status === 'error' ? (
         <QueryErrorState body={t('errors.body')} onRetry={calendar.retry} />

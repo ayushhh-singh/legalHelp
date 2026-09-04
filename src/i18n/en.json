@@ -19,7 +19,11 @@
     "toggleThemeLight": "Switch to light theme",
     "currentPage": "Current page",
     "breadcrumbs": "Breadcrumbs",
-    "openCommandPalette": "Open command palette"
+    "openCommandPalette": "Open command palette",
+    "sectionTabs": "Sections",
+    "waiting": "waiting",
+    "backToParent": "back to where this is filed",
+    "moreActions": "More actions"
   },
   "common": {
     "loading": "Loading…",
@@ -33,7 +37,8 @@
     "comingSoon": "Coming soon",
     "retry": "Try again",
     "on": "On",
-    "off": "Off"
+    "off": "Off",
+    "back": "Back"
   },
   "errors": {
     "title": "Something went wrong",
@@ -90,12 +95,6 @@
         "title": "Devanagari digits",
         "hint": "Use ०-९ instead of 0-9 wherever numerals are shown in Hindi."
       },
-      "reminder": {
-        "title": "Daily reminder",
-        "on": "On, at {{time}}.",
-        "off": "Off.",
-        "trainerLink": "Set the time and which rule books it covers in Trainer settings"
-      },
       "updates": {
         "title": "Check for data updates",
         "hint": "Compares the dataset versions this build shipped with against what is currently on the server.",
@@ -143,7 +142,20 @@
         "updated": "Updated",
         "rows": "Rows",
         "source": "Source"
-      }
+      },
+      "sections": "More settings"
+    },
+    "home": {
+      "title": "Home",
+      "subtitle": "Where you left off, and what is waiting"
+    },
+    "study": {
+      "title": "Study",
+      "subtitle": "Read the rule books, practise them, and prepare for a departmental examination"
+    },
+    "tools": {
+      "title": "Tools",
+      "subtitle": "Salary, leave, pension, holidays, glossary and portals"
     }
   },
   "onboarding": {
@@ -168,7 +180,8 @@
       "noAccounts": "No account, no sign-in, no server. There is nothing to lose access to.",
       "noAnalytics": "No analytics — nothing about how you use this app is collected. One exception: this app can run fully offline, so before now it made no request on its own; now, while online, at most once a day, it asks whether newer reference data exists, which lets the server see only that a device opened the app that day. Turn this off in Settings, beside the manual \"Check for data updates\" button.",
       "finishError": "Could not save your post and city — check your device's storage and try again, or use \"Skip setup\" above to continue without them."
-    }
+    },
+    "title": "Setting up"
   },
   "ai": {
     "sectionTitle": "AI features",
@@ -825,7 +838,9 @@
       "actionsFor": "Actions for “{{title}}”",
       "untitled": "Untitled draft",
       "showAll": "Show all {{count}} drafts",
-      "showFewer": "Show fewer"
+      "showFewer": "Show fewer",
+      "openFailed": "Could not open “{{title}}”. Its form is no longer in this app.",
+      "migrateHint": "These were written in the earlier editor. Opening one brings it into the document editor; the original is kept."
     },
     "privacy": {
       "title": "Drafts stay on this device.",
@@ -1921,7 +1936,8 @@
       "firstRunTitle": "No cards yet",
       "firstRunBody": "Spaced repetition shows you a card right before you'd otherwise forget it, so a few minutes a day covers what cramming cannot.",
       "mockUnavailableReason": "No mock-test questions are approved yet for the rule books you've chosen.",
-      "mockUnavailableLink": "Browse the rule bank instead"
+      "todayTitle": "Today",
+      "moreTitle": "Everything else in Practise"
     },
     "review": {
       "title": "Review",
@@ -2089,7 +2105,6 @@
     "exam": {
       "title": "Exam mode",
       "subtitle": "Departmental examination preparation, over the rule books this app already carries.",
-      "navTitle": "Exam mode",
       "banner": "Pattern from public notifications; confirm against your department's current circular.",
       "sourceLabel": "Pattern read from",
       "verifyBadge": "Pattern not confirmed",
@@ -2336,7 +2351,8 @@
       "noHindiShort": "Hindi not available",
       "curatedHindi": "The Hindi heading here is written by this app, not published by the Ministry. Verify against the official gazette or order.",
       "readTime": "about {{count}} min to read",
-      "bookmarkFailed": "That could not be saved on this device."
+      "bookmarkFailed": "That could not be saved on this device.",
+      "title": "Reading"
     },
     "lang": {
       "label": "Reading language",
@@ -2453,7 +2469,8 @@
       "kind": {
         "highlight": "Highlights",
         "note": "Notes",
-        "bookmark": "Bookmarks"
+        "bookmark": "Bookmarks",
+        "feynman": "Own-words attempts"
       },
       "select": "Select for export",
       "selectAll": "Select all",
@@ -2858,6 +2875,9 @@
         "title": "Study",
         "reviseAndPlan": "Revise and plan"
       }
+    },
+    "work": {
+      "title": "Rule book"
     }
   },
   "palette": {
@@ -2883,13 +2903,64 @@
     "title": "Keyboard shortcuts",
     "palette": "Open the command palette",
     "goLaw": "Go to Law Converter",
-    "goPay": "Go to Pay & Allowances",
     "goDraft": "Go to Drafting Studio",
-    "goLearn": "Go to Rules Trainer",
-    "goUtils": "Go to Utilities",
     "focusSearch": "Focus this page's search box",
     "help": "Show this list",
     "close": "Close a dialog or sheet",
-    "note": "None of these fire while you are typing in a field."
+    "note": "None of these fire while you are typing in a field.",
+    "goHome": "Go to Home",
+    "goStudy": "Go to Study",
+    "goRead": "Go to Study — Read",
+    "goPractise": "Go to Study — Practise",
+    "goTools": "Go to Tools"
+  },
+  "home": {
+    "search": {
+      "placeholder": "Search a section, a post, a form or a term…"
+    },
+    "quick": {
+      "title": "Start something",
+      "newDocument": "New document",
+      "reply": "Reply to a letter",
+      "convert": "Convert a section",
+      "salary": "Salary"
+    },
+    "reading": {
+      "title": "Continue reading",
+      "resume": "Carry on",
+      "empty": "Nothing opened yet.",
+      "browse": "Open the shelf"
+    },
+    "drafting": {
+      "title": "Continue drafting",
+      "resume": "Open it",
+      "empty": "No documents on this device yet."
+    },
+    "due": {
+      "title": "Due today",
+      "cards_one": "{{count}} card",
+      "cards_other": "{{count}} cards",
+      "chapters_one": "and {{count}} chapter to revise",
+      "chapters_other": "and {{count}} chapters to revise",
+      "narrowed": "You have narrowed your rule books, so the session itself may show fewer.",
+      "start": "Start review",
+      "open": "Open Practise",
+      "empty": "Nothing due. Come back tomorrow."
+    },
+    "followUps": {
+      "title": "Follow-ups",
+      "count_one": "{{count}} waiting",
+      "count_other": "{{count}} waiting",
+      "empty": "Nothing is waiting on a reply.",
+      "open": "Open the register"
+    },
+    "exam": {
+      "title": "Your examination",
+      "daysLeft_one": "{{count}} day to go",
+      "daysLeft_other": "{{count}} days to go",
+      "noDate": "No date set yet.",
+      "passed": "That date has passed.",
+      "open": "Open Exam"
+    }
   }
 }

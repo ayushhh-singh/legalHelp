@@ -45,7 +45,7 @@ test('sends exactly one request, with the expected headers, only on the button p
     })
   })
 
-  await page.goto('/settings')
+  await page.goto('/settings/ai')
 
   await page.getByRole('button', { name: 'Read what this sends' }).click()
   await page.getByRole('button', { name: 'I have read this — enable AI' }).click()
@@ -104,7 +104,7 @@ test('a rejected key is reported, and the failure is not silent', async ({ page,
     }),
   )
 
-  await page.goto('/settings')
+  await page.goto('/settings/ai')
   await page.getByRole('button', { name: 'Read what this sends' }).click()
   await page.getByRole('button', { name: 'I have read this — enable AI' }).click()
   await page

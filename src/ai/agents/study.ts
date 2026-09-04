@@ -444,7 +444,7 @@ function describe(tool: string, output: Record<string, unknown>): Described | nu
       return {
         source: str(output.citation) || `${work} ${unit}`,
         text: [str(output.heading), str(output.text)].filter(Boolean).join(' — '),
-        href: work && unit ? `/library/${work}/${unit}` : null,
+        href: work && unit ? `/study/read/${work}/${unit}` : null,
       }
     }
     case 'get_study_aid': {
@@ -462,7 +462,7 @@ function describe(tool: string, output: Record<string, unknown>): Described | nu
       return {
         source: `study aid, ${work} ${unit}`,
         text: lines.join(' '),
-        href: work && unit ? `/library/${work}/${unit}` : null,
+        href: work && unit ? `/study/read/${work}/${unit}` : null,
       }
     }
     case 'get_definitions': {

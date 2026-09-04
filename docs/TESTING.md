@@ -235,12 +235,15 @@ about shape, never wording — a test that asserted a model's prose would fail o
 everyone would learn to ignore it. The one assertion worth having is that a brief which withholds
 the file number comes back with a blank rather than a number.
 
-In the browser, `tests/e2e/ai-draft.spec.ts` turns AI on through Settings the way a reader does,
-opens the panel and runs axe over it both gated and open. It declares **no** `allowCrossOrigin`,
-unlike `ai-byok.spec.ts`, so the automatic gate proves that enabling AI and reading the whole panel
-sends nothing; pressing "Draft it" is what sends, and that spec never does. The counterpart is in
-`tests/e2e/draft.spec.ts`: with AI off, the panel, the ✨ controls and any chunk matching
-`AiDraftPanel|anthropic` are all absent.
+In the browser there used to be two specs for this — `tests/e2e/ai-draft.spec.ts` and
+`tests/e2e/draft.spec.ts` — and both are gone with ADR-046, along with the route they needed. The
+Session 8 form-and-preview editor at `/draft/<type>` was the only screen that mounted the AI drafting
+panel, and deleting that route left the panel (and the glossary sheet, and the phrase library) in the
+tree with no way in. Everything below the surface is still tested: `src/ai/agents/drafting.test.ts`,
+`drafting.edge.test.ts`, `src/modules/drafting/components/AiDraftPanel.test.tsx` and
+`aiPanel.edge.test.tsx` all still run the panel end to end against `MockProvider`. What is no longer
+checked in a browser is the gating — and that is `docs/DATA-GAPS.md` #94, to be restored with the
+surface when it is re-homed on the document editor.
 
 ### Tier 0, which is the one tier a test cannot run end to end
 
@@ -294,7 +297,7 @@ row and nothing else.
 **Only a browser answers whether a mark survives.**
 `tests/e2e/library-annotations.spec.ts` highlights a real phrase in the CCS (Conduct) Rules, reloads,
 finds it still drawn over the text, writes a note on it, reloads again, and then adds it to the
-Trainer and finds it in `/learn/review-queue`. A second test pastes an act, confirms the split and
+Trainer and finds it in `/study/practise/review-queue`. A second test pastes an act, confirms the split and
 reads the result with the network off. Neither declares `allowCrossOrigin`, so both are also privacy
 assertions.
 
@@ -305,7 +308,7 @@ not the platform's drag handling.
 **Two defects came out of that split and both were on the browser side.** A personal work bounced back
 to the shelf on the first render after it was saved, because `useLiveQuery` reports "still asking" and
 `Table.get` reports "no such row" with the same `undefined` — nothing in jsdom opened a personal work
-by its route. And `/library/add` shipped an `sr-only` file input, which is still in the accessibility
+by its route. And `/study/read/add` shipped an `sr-only` file input, which is still in the accessibility
 tree and still needs a label; only the axe sweep says so.
 
 ### 8b. The document editor — where THAT split runs
@@ -395,7 +398,7 @@ counters, and a batch `.zip` counted by its local file headers. Its first
 execution found three things nothing else could: an export refusal pointing at a
 control that did not exist, `extensionOf` returning the last character of a name
 with no dot in it (Playwright saves a download to a path with no extension), and
-a `link-in-text-block` violation on `/draft/profile` that arrived with the route
+a `link-in-text-block` violation on `/settings/profile` that arrived with the route
 being added to the axe sweep.
 
 ### 9. Data pipeline — Python
@@ -443,7 +446,7 @@ are uploaded for 14 days — `pnpm exec playwright show-trace <file>`.
 Kept as a record of what each layer is actually for.
 
 - **The "Upcoming" holiday strip could not be scrolled with a keyboard** — a sideways-scrolling region whose contents are all plain text, so there was nothing to focus and everything past the viewport edge was unreachable (WCAG 2.1.1). Found by extending the axe sweep to Utilities' four tools; invisible to jsdom, which has no layout and so never overflows. Fixed with a labelled `ScrollStrip` wrapper.
-- **`/utils/portals` copied a URL and announced nothing** — the button swapped an `aria-hidden` icon and said nothing at all, while every other copy affordance in the app writes into a live region. Found by asking, for each confirmation, whether it was inside one.
+- **`/tools/portals` copied a URL and announced nothing** — the button swapped an `aria-hidden` icon and said nothing at all, while every other copy affordance in the app writes into a live region. Found by asking, for each confirmation, whether it was inside one.
 - **A suggestion diff silently discarded the model's capitalisation and punctuation** — `diffWords`
   folds case and punctuation before comparing and re-attaches the BEFORE token on an `equal` run,
   which is right for the Law Converter and wrong for a diff the reader ACCEPTS: a rewrite whose only
@@ -453,8 +456,8 @@ Kept as a record of what each layer is actually for.
   `{ exact: true }` (ADR-032 §6).
 - **The PWA "Ready to work offline." toast blocked a primary action on a phone** — a full-width bar at `bottom-[4.5rem]` waiting for an acknowledgement, sitting exactly on the mock test's "Next question" button and intercepting every click on it. Found by the `mobile-chromium` project on its first run; `docs/DATA-GAPS.md` #59.
 - **A language chunk that failed to load left the app showing raw translation keys, permanently** — i18next resolves rather than rejecting on a backend failure, and the broken preference was then persisted. Found by asking what the ADR-031 split had made newly possible; fixed in `store.ts` and `src/i18n/index.ts`, with the library behaviour pinned in `src/i18n/chunk-failure.test.ts`.
-- **`/learn/review` was swept by neither axe nor the offline reload** — the Trainer's most-used screen, with every route around it covered. `tests/route-coverage.test.ts` now derives the route set from the routers and fails on any route in neither sweep.
-- **`/utils/portals` announced a repeat copy to nobody** — one live region shared by every row, so the second identical message was silent. Fixed by keying the announcement; the test asserts node identity, because asserting the text passes against the broken version.
+- **`/study/practise/review` was swept by neither axe nor the offline reload** — the Trainer's most-used screen, with every route around it covered. `tests/route-coverage.test.ts` now derives the route set from the routers and fails on any route in neither sweep. ADR-046 gave it a third question: a route the routers declare and `src/lib/nav.ts`'s `APP_ROUTES` does not is a route with no layout, no breadcrumb and no back control — a page an officer cannot get out of — so that is a failure too, and so is a stale `APP_ROUTES` entry naming a route that no longer exists.
+- **`/tools/portals` announced a repeat copy to nobody** — one live region shared by every row, so the second identical message was silent. Fixed by keying the announcement; the test asserts node identity, because asserting the text passes against the broken version.
 - **The coverage report sorted its rows with `localeCompare`**, in a file CI byte-compares.
 - **`isWorkId` said yes to `constructor`, `toString` and `__proto__`** — `WORK_LOADERS` is an object
   literal and `in` walks the prototype chain, so a work id out of the address bar could name a
@@ -494,3 +497,34 @@ Kept as a record of what each layer is actually for.
   for a reason that had nothing to do with what either test was checking. Both derive the count now,
   one from the widest viewport and one from the More sheet itself.
 - **Four unit files failed intermittently and passed in isolation** — the signature of a budget, not a defect. `waitFor`'s 1-second default and Vitest's 5-second default are races against CPU contention, not against the code; both are raised in `vite.config.ts` and `src/test/setup.ts`, with the assertions unchanged.
+
+## The information architecture (ADR-046)
+
+Four files carry the claims the restructure rests on, and each answers a question the flat nav array
+could not:
+
+- **`src/lib/nav.test.ts`** (36) — the shape of the tree. Five tabs in the order both chromes render
+  them; every tab's `defaultSubTab` is one of its own; every sub-tab lives under its section or AT it
+  (`/law` is the converter's own path, deliberately, so every `?q=` link ever shared stays
+  canonical); no duplicate paths anywhere. Then the part that matters most: **every `detail` and
+  `focus` route declares a parent, every parent is itself a registered route, and following parents
+  from any page reaches a tab.** `useBackTo` has no third branch, and that is what removes the need
+  for one.
+- **`src/app/useBackTo.test.tsx`** (6) — both branches, driven. Arriving at the document editor from
+  the register pops history (the register comes back with its filters and scroll); arriving from
+  another section, or cold, pushes the declared parent. A tab route offers no back control at all.
+- **`tests/redirects.test.tsx`** (44) — every URL this app has ever served, visited, with the
+  location it lands on asserted. The table is written out **by hand**: a test that read
+  `LEGACY_REDIRECTS` would assert that the array equals itself, and what is worth checking is that
+  each row goes where somebody's old bookmark meant to go. A second test then fails if a row of
+  `LEGACY_REDIRECTS` is missing from that table. The harness reproduces the app's own mounting,
+  because `/draft/:type` mounted in the app router instead of inside `DraftPage` would claim
+  `/draft/documents`.
+- **`tests/route-coverage.test.ts`** — the routers are still the source of the route list; see the
+  note above for the question ADR-046 added.
+
+In the browser, `tests/e2e/nav.spec.ts` asserts that every tab is on the bar at every breakpoint with
+**no button in either chrome** (a button in a nav bar is an overflow trigger, and there is no
+overflow), that a page three levels deep still marks its section, and that level 3 drops the tab bar,
+the sidebar and the app top bar while giving back a named way out. `tests/e2e/a11y.spec.ts` sweeps a
+focus screen on a phone for the same reason.

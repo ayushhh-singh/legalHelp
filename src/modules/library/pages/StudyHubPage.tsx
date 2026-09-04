@@ -14,7 +14,7 @@ import { goalProgress, weeklyReview, saveGoal } from '@/lib/study'
 import { useNow } from '@/modules/trainer/useNow'
 
 /**
- * `/library/study` — the weekly review and the goals.
+ * `/study/progress` — the weekly review and the goals.
  *
  * Everything here is arithmetic over rows this device already holds, and the
  * screen says so: there is no server that could know any of it. Nothing on it

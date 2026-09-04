@@ -399,7 +399,7 @@ describe('AddToTrainerDialog', () => {
     const [row] = await db.proposedCards.toArray()
     const card = row!.card as { reviewState: string; act: string; ruleRef: { textId: string } }
     // Never approved, never scheduled: it waits for a human in
-    // `/learn/review-queue`, which is the one path a card enters by.
+    // `/study/practise/review-queue`, which is the one path a card enters by.
     expect(card.reviewState).toBe('unreviewed')
     expect(card.act).toBe('ccs-conduct')
     expect(card.ruleRef.textId).toBe('ccs-conduct-3')

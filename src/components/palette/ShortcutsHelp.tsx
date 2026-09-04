@@ -17,11 +17,13 @@ import { useT } from '@/i18n/useT'
  */
 const ROWS = [
   { keys: ['Ctrl', 'K'], labelKey: 'shortcuts.palette' },
-  { keys: ['g', 'l'], labelKey: 'shortcuts.goLaw' },
-  { keys: ['g', 'p'], labelKey: 'shortcuts.goPay' },
+  { keys: ['g', 'h'], labelKey: 'shortcuts.goHome' },
+  { keys: ['g', 's'], labelKey: 'shortcuts.goStudy' },
+  { keys: ['g', 'r'], labelKey: 'shortcuts.goRead' },
+  { keys: ['g', 'p'], labelKey: 'shortcuts.goPractise' },
   { keys: ['g', 'd'], labelKey: 'shortcuts.goDraft' },
-  { keys: ['g', 'e'], labelKey: 'shortcuts.goLearn' },
-  { keys: ['g', 'u'], labelKey: 'shortcuts.goUtils' },
+  { keys: ['g', 'l'], labelKey: 'shortcuts.goLaw' },
+  { keys: ['g', 't'], labelKey: 'shortcuts.goTools' },
   { keys: ['/'], labelKey: 'shortcuts.focusSearch' },
   { keys: ['?'], labelKey: 'shortcuts.help' },
   { keys: ['Esc'], labelKey: 'shortcuts.close' },

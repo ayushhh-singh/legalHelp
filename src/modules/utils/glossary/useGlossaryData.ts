@@ -10,7 +10,7 @@ import type { Glossary } from './schema'
  * Same shape as `useDraftingData.ts`'s `useAsync`: only the SETTLED outcome is
  * state, so nothing sets state during an effect body and there is no window in
  * which the two disagree. `enabled` is what keeps the ~700 KB glossary off the
- * wire for a reader who opens `/utils` but never opens the glossary card, and
+ * wire for a reader who opens `/tools` but never opens the glossary card, and
  * for a reader drafting a document who never opens the toolbar's term sheet.
  */
 

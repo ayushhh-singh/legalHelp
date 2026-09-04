@@ -66,7 +66,7 @@ export function jobItems(jobIndex: JobIndex, query: string): PaletteItem[] {
     en: option.job.title.en,
     hi: option.job.title.hi,
     hint: option.organisation.en,
-    to: `/pay?job=${encodeURIComponent(option.job.id)}`,
+    to: `/tools/salary?job=${encodeURIComponent(option.job.id)}`,
     recordRecent: true,
   }))
 }
@@ -121,7 +121,7 @@ export function draftingItems(index: DraftingIndex, query: string): PaletteItem[
     en: template.name.en,
     hi: template.name.hi,
     hint: template.shortName.en,
-    to: `/draft/${template.id}`,
+    to: `/draft/new/${template.id}`,
     recordRecent: true,
   }))
 }
@@ -165,7 +165,7 @@ export function portalItems(dataset: PortalsDataset, query: string): PaletteItem
       en: portal.name.en,
       hi: portal.name.hi,
       hint: portal.purpose.en,
-      to: `/utils/portals?q=${encodeURIComponent(portal.shortName.en)}`,
+      to: `/tools/portals?q=${encodeURIComponent(portal.shortName.en)}`,
       recordRecent: true,
     }))
 }
@@ -176,7 +176,7 @@ export function portalItems(dataset: PortalsDataset, query: string): PaletteItem
  *
  * IT DOES NOT SEARCH THE CORPORA. Every other section here reuses an index its
  * module already builds; the Library's equivalent would be fifteen corpora and
- * 5.5 MB of statute parsed to answer a keystroke, which `/library/search` makes
+ * 5.5 MB of statute parsed to answer a keystroke, which `/study/read/search` makes
  * a deliberate, progress-reported act for exactly that reason. So the palette
  * offers what it can answer instantly — the fifteen names, from the 11 KB shelf
  * index — and hands the expensive question to the screen built for it.

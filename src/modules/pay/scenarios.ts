@@ -7,7 +7,7 @@ import { db, getSetting, setSetting, SETTING_KEYS, type PayScenarioRow } from '@
  * Two different things are stored, and only one of them is the reader's:
  *
  *  - **The last scenario**, in `settings.pay`. It is a convenience — reopening
- *    `/pay` puts back the form as it was left — and it is overwritten silently.
+ *    `/tools/salary` puts back the form as it was left — and it is overwritten silently.
  *  - **Named scenarios**, in `payScenarios`. These the reader created
  *    deliberately, so nothing here ever deletes one to make room. When the
  *    limit is reached `saveScenario` REFUSES and says so; evicting the oldest

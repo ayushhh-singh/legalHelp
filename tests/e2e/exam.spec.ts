@@ -22,7 +22,7 @@ function futureDay(days: number): string {
 }
 
 test('pick a profile, generate a mock, answer five, read the per-topic results', async ({ page }) => {
-  await page.goto('/learn/exam')
+  await page.goto('/study/exam')
 
   // The picker is honest about the ratio BEFORE the reader chooses.
   await expect(page.getByRole('heading', { name: t('en', 'trainer.exam.picker.title') })).toBeVisible()
@@ -55,7 +55,7 @@ test('pick a profile, generate a mock, answer five, read the per-topic results',
   await expect(page.getByText(t('en', 'trainer.exam.plan.today'), { exact: true })).toBeVisible()
 
   // The mock.
-  await page.goto('/learn/exam/mock')
+  await page.goto('/study/exam/mock')
   await expect(page.getByText(t('en', 'trainer.exam.mock.generated'))).toBeVisible()
   await expect(page.getByText(/Not mocked:/)).toBeVisible()
   // The default paper is the one this app can actually fill — Paper II here,
@@ -104,7 +104,7 @@ test('pick a profile, generate a mock, answer five, read the per-topic results',
 })
 
 test('the exam-day checklist says only what the notification says', async ({ page }) => {
-  await page.goto('/learn/exam')
+  await page.goto('/study/exam')
   await page
     .locator('li', { hasText: 'Central Secretariat Service' })
     .first()
@@ -123,14 +123,17 @@ test('the exam-day checklist says only what the notification says', async ({ pag
   */
   await expect(page.getByText(t('en', 'trainer.exam.banner'))).toBeVisible()
 
-  await page.goto('/learn/exam/checklist')
+  await page.goto('/study/exam')
 
   // The three items that would cost a candidate the most to be wrong about,
   // each traceable to a clause of the fetched Rules.
   await expect(page.getByText(/even switched off/)).toBeVisible()
   await expect(page.getByText(/is FINAL/)).toBeVisible()
   await expect(page.getByText(/A question left blank costs nothing/)).toBeVisible()
-  await expect(page.getByText(/No\. 6\/1\/2020-CS\.I\(P\)/)).toBeVisible()
+  // Scoped to the checklist's own source line: the notification is ALSO named
+  // by the banner at the top of the same page since ADR-046 folded the
+  // checklist into it, so an unscoped match resolves to two elements.
+  await expect(page.getByText(/^Read off /)).toContainText(/No\. 6\/1\/2020-CS\.I\(P\)/)
 
   // It is a checklist, so it has checkboxes, and each one is labelled by the
   // sentence beside it rather than by its position.
@@ -142,7 +145,7 @@ test('the exam-day checklist says only what the notification says', async ({ pag
 
 test('a Hindi reader gets the whole of it in Hindi', async ({ page }) => {
   // `setLanguage` waits on an h1, so it needs a rendered page to work from.
-  await page.goto('/learn/exam')
+  await page.goto('/study/exam')
   await setLanguage(page, 'hi')
 
   await expect(page.getByRole('heading', { name: t('hi', 'trainer.exam.picker.title') })).toBeVisible()
@@ -166,7 +169,7 @@ test('a Hindi reader gets the whole of it in Hindi', async ({ page }) => {
 })
 
 test('axe over the readiness screen and a running mock paper', async ({ page }) => {
-  await page.goto('/learn/exam')
+  await page.goto('/study/exam')
   await page
     .locator('li', { hasText: 'Intelligence Bureau' })
     .first()
@@ -179,7 +182,7 @@ test('axe over the readiness screen and a running mock paper', async ({ page }) 
   // `a11y.spec.ts` can see, because that sweep runs with nothing chosen.
   expect(formatViolations(await audit(page)), 'the readiness screen').toEqual([])
 
-  await page.goto('/learn/exam/mock')
+  await page.goto('/study/exam/mock')
   await page.getByRole('button', { name: t('en', 'trainer.exam.mock.start') }).click()
   // `exact` for the third time in this file: "1, blank" is a substring of
   // "11, blank" and "21, blank", so an inexact match is a strict-mode
@@ -191,16 +194,25 @@ test('axe over the readiness screen and a running mock paper', async ({ page }) 
   expect(formatViolations(await audit(page)), 'a running mock paper').toEqual([])
 })
 
-test('exam mode is offered from the Trainer home and never forced', async ({ page }) => {
-  await page.goto('/learn')
-  const link = page.getByRole('link', { name: t('en', 'trainer.exam.navTitle') })
-  await expect(link).toBeVisible()
+test('exam mode is one sub-tab of Study, offered and never forced', async ({ page }) => {
+  /*
+    It was a sixth button in a grid on the Trainer's home screen. ADR-046 made
+    it a sub-tab of Study — still offered rather than a mode the app switches
+    into, and now visible from Read and My notes as well, which is where a
+    reader deciding whether to prepare for an examination actually is.
 
-  // On a phone the Trainer's own grid is two columns; the link is still there,
-  // which is the thing that matters — `onPhone` is what distinguishes a layout
-  // assertion from a "the control is missing" one.
-  if (onPhone(page)) await expect(link).toBeVisible()
+    The claim that matters is unchanged: a reader who is not sitting one sees a
+    label and downloads none of `data/exams`.
+  */
+  await page.goto('/study/practise')
+  const tab = page.getByRole('link', { name: 'Exam' })
+  await expect(tab).toBeVisible()
 
-  await link.click()
+  // On a phone the strip scrolls rather than wrapping; the tab is still there,
+  // which is the thing that matters.
+  if (onPhone(page)) await expect(tab).toBeVisible()
+
+  await tab.click()
+  await expect(page).toHaveURL(/\/study\/exam$/)
   await expect(page.getByRole('heading', { name: t('en', 'trainer.exam.picker.title') })).toBeVisible()
 })

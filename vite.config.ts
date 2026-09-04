@@ -89,7 +89,13 @@ function withProxyConnectSrc(headers: string): string {
  * the list is repeated — and `tests/seo.test.ts` reads the BUILT sitemap back
  * and compares it against NAV_ITEMS, which is what stops the two drifting.
  */
-const SITEMAP_ROUTES = ['/', '/law', '/pay', '/draft', '/learn', '/library', '/utils', '/settings']
+/*
+  The five sections and Settings (ADR-046). Sub-tabs are deliberately NOT listed:
+  a crawler that has `/study` has the section, and `/study/read` is where a bare
+  `/study` lands anyway — six entries that resolve to the same six pages would be
+  six duplicate documents in an index.
+*/
+const SITEMAP_ROUTES = ['/', '/home', '/study', '/draft', '/law', '/tools', '/settings']
 
 /**
  * robots.txt and sitemap.xml, emitted at build time rather than committed to
@@ -151,17 +157,21 @@ function seoFiles(): Plugin {
  * bundle and fails the build if a path stops matching a chunk.
  */
 const ROUTE_CRITICAL_MODULES: Record<string, string[]> = {
-  // A bare `/` decides between onboarding and the law module once IndexedDB
+  // A bare `/` decides between onboarding and the home route once IndexedDB
   // answers, and cannot know which until then — so both, and they are the two
   // smallest module chunks in the app.
-  '/': ['src/modules/onboarding/OnboardingPage.tsx', 'src/modules/law/LawPage.tsx'],
+  '/': ['src/modules/onboarding/OnboardingPage.tsx', 'src/modules/home/HomePage.tsx'],
+  '/home': ['src/modules/home/HomePage.tsx'],
   '/law': ['src/modules/law/LawPage.tsx', 'src/modules/law/ConverterPage.tsx'],
-  '/pay': ['src/modules/pay/PayPage.tsx'],
-  '/draft': ['src/modules/drafting/DraftPage.tsx', 'src/modules/drafting/PickerPage.tsx'],
-  '/learn': ['src/modules/trainer/LearnPage.tsx', 'src/modules/trainer/pages/HomePage.tsx'],
-  '/library': ['src/modules/library/LibraryPage.tsx', 'src/modules/library/pages/LibraryHubPage.tsx'],
-  '/utils': ['src/modules/utils/UtilsPage.tsx', 'src/modules/utils/UtilsHubPage.tsx'],
-  '/settings': ['src/modules/settings/SettingsPage.tsx'],
+  '/study': ['src/modules/study/StudyPage.tsx', 'src/modules/library/pages/LibraryHubPage.tsx'],
+  '/study/read': ['src/modules/study/StudyPage.tsx', 'src/modules/library/pages/LibraryHubPage.tsx'],
+  '/study/practise': ['src/modules/study/StudyPage.tsx', 'src/modules/trainer/pages/HomePage.tsx'],
+  '/draft': ['src/modules/drafting/DraftPage.tsx', 'src/modules/drafting/DocumentsPage.tsx'],
+  '/draft/documents': ['src/modules/drafting/DraftPage.tsx', 'src/modules/drafting/DocumentsPage.tsx'],
+  '/draft/new': ['src/modules/drafting/DraftPage.tsx', 'src/modules/drafting/PickerPage.tsx'],
+  '/tools': ['src/modules/utils/ToolsPage.tsx', 'src/modules/pay/PayPage.tsx'],
+  '/tools/salary': ['src/modules/utils/ToolsPage.tsx', 'src/modules/pay/PayPage.tsx'],
+  '/settings': ['src/modules/settings/SettingsPage.tsx', 'src/modules/settings/pages/SettingsIndexPage.tsx'],
 }
 
 /**

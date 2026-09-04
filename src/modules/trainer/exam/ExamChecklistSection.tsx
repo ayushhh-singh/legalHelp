@@ -1,9 +1,7 @@
-import { ArrowLeft, Printer } from 'lucide-react'
-import { Link } from 'react-router-dom'
+import { Printer } from 'lucide-react'
 
-import { knowsProfile, useActiveExam, useExamProfile } from './useExam'
+import { useExamProfile } from './useExam'
 
-import { PageHeader } from '@/components/common/PageHeader'
 import { QueryErrorState, SectionCard, Skeleton } from '@/components/ui-x'
 import { Button } from '@/components/ui/button'
 import { useT } from '@/i18n/useT'
@@ -12,7 +10,7 @@ import { CHECKLIST_GROUPS, checklistFor, type ChecklistGroup, type ChecklistItem
 import type { ExamProfile } from '@/schemas/exam'
 
 /**
- * `/learn/exam/checklist` — the exam-day list.
+ * `/study/exam#checklist` — the exam-day list.
  *
  * Every item is something the fetched notification actually says, and
  * `src/lib/exam/checklist.ts` names the clause each one comes from. Nothing
@@ -26,41 +24,6 @@ import type { ExamProfile } from '@/schemas/exam'
  * a facsimile of nothing, and using it would put `--muted-foreground` on white
  * in the dark theme (ADR-040's own note, in a new file).
  */
-export default function ExamChecklistPage() {
-  const { t } = useT()
-  const choice = useActiveExam()
-
-  // The header renders while the Dexie row is still being read, for the
-  // reason `ExamHubPage` states: a screen with no `<h1>` is a screen a
-  // reader tabbing in cannot place, and the title is known before the row.
-  if (choice === undefined) {
-    return (
-      <div className="mx-auto flex max-w-3xl flex-col gap-4">
-        <PageHeader title={t('trainer.exam.checklist.title')} />
-        <Skeleton className="h-64 w-full" />
-      </div>
-    )
-  }
-  /*
-    `null` is "nothing chosen"; an id this build cannot load takes the SAME
-    branch, because from the reader's side it is the same situation and the
-    picker is the only honest exit. A row naming a withdrawn or renamed profile
-    used to leave this screen on a skeleton for ever.
-  */
-  if (choice === null || !knowsProfile(choice.id)) {
-    return (
-      <div className="mx-auto flex max-w-3xl flex-col gap-4">
-        <PageHeader title={t('trainer.exam.checklist.title')} />
-        <p className="text-sm text-muted-foreground">{t('trainer.exam.readiness.empty')}</p>
-        <Button asChild size="sm">
-          <Link to="/learn/exam">{t('trainer.exam.picker.title')}</Link>
-        </Button>
-      </div>
-    )
-  }
-  return <ChecklistFor profileId={choice.id} />
-}
-
 const GROUP_LABELS = {
   before: 'trainer.exam.checklist.groupBefore',
   carry: 'trainer.exam.checklist.groupCarry',
@@ -87,15 +50,16 @@ const ITEM_LABELS = {
   'confirm-circular': 'trainer.exam.checklist.item.confirmCircular',
 } as const
 
-function ChecklistFor({ profileId }: { profileId: string }) {
+export function ExamChecklistSection({ profileId }: { profileId: string }) {
   const { t, language } = useT()
   const state = useExamProfile(profileId)
 
   if (state.status === 'error' || state.status === 'loading') {
-    // Same rule: the header before the data, so the route always has an `<h1>`.
+    // The heading before the data, so a reader jumping to `#checklist` lands
+    // on something that names itself rather than on a bare skeleton.
     return (
-      <div className="mx-auto flex max-w-3xl flex-col gap-4">
-        <PageHeader title={t('trainer.exam.checklist.title')} />
+      <div className="flex flex-col gap-4">
+        <Heading />
         {state.status === 'error' ? (
           <QueryErrorState onRetry={state.retry} />
         ) : (
@@ -109,23 +73,13 @@ function ChecklistFor({ profileId }: { profileId: string }) {
   const items = checklistFor(profile)
 
   return (
-    <div className="mx-auto flex max-w-3xl flex-col gap-4">
-      <PageHeader
-        title={t('trainer.exam.checklist.title')}
-        subtitle={t('trainer.exam.checklist.subtitle')}
-        actions={
-          <div className="flex gap-2 print:hidden">
-            <Button type="button" variant="outline" size="sm" onClick={() => window.print()}>
-              <Printer aria-hidden="true" />
-              {t('trainer.exam.checklist.print')}
-            </Button>
-            <Button asChild variant="outline" size="sm">
-              <Link to="/learn/exam">
-                <ArrowLeft aria-hidden="true" />
-                {t('trainer.exam.title')}
-              </Link>
-            </Button>
-          </div>
+    <div className="flex flex-col gap-4">
+      <Heading
+        action={
+          <Button type="button" variant="outline" size="sm" onClick={() => window.print()}>
+            <Printer aria-hidden="true" />
+            {t('trainer.exam.checklist.print')}
+          </Button>
         }
       />
 
@@ -174,5 +128,19 @@ function Row({ item }: { item: ChecklistItem }) {
         {t(key, item.params)}
       </label>
     </li>
+  )
+}
+
+/** The section's own `<h2>`; the page's `<h1>` is the section header above it. */
+function Heading({ action }: { action?: React.ReactNode }) {
+  const { t } = useT()
+  return (
+    <div className="flex flex-wrap items-end justify-between gap-3 border-b border-border pb-3">
+      <div className="space-y-1">
+        <h2 className="text-xl leading-tight font-semibold">{t('trainer.exam.checklist.title')}</h2>
+        <p className="text-sm text-muted-foreground">{t('trainer.exam.checklist.subtitle')}</p>
+      </div>
+      {action ? <div className="print:hidden">{action}</div> : null}
+    </div>
   )
 }

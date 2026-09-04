@@ -34,25 +34,25 @@ async function renderShell(route: string) {
 describe('routing edge cases', () => {
   it.each([
     ['an unknown path', '/does-not-exist'],
-    ['a deep unknown path', '/law/section/302/extra'],
-    ['a path with a trailing slash', '/law/'],
-  ])('recovers from %s by landing on the law page', async (_label, route) => {
+    ['a deep unknown path', '/nowhere/at/all'],
+    ['a path with a trailing slash', '/nowhere/'],
+  ])('recovers from %s by landing on the home page', async (_label, route) => {
     await renderShell(route)
-    expect(screen.getByRole('heading', { level: 1 })).toHaveTextContent(en.pages.law.title)
+    expect(screen.getByRole('heading', { level: 1 })).toHaveTextContent(en.pages.home.title)
   })
 
   // `/` is the one path onboarding gates (App.tsx) — a deep or unknown link
   // never is, which the three cases above cover. Split out because the
   // expected heading depends on whether this device has been onboarded.
-  it('sends a fresh device from the root to onboarding, not the law page', async () => {
+  it('sends a fresh device from the root to onboarding, not the home page', async () => {
     await renderShell('/')
     expect(screen.getByRole('heading', { level: 1 })).toHaveTextContent(en.onboarding.step1.title)
   })
 
-  it('sends an already-onboarded device from the root straight to the law page', async () => {
+  it('sends an already-onboarded device from the root straight to the home page', async () => {
     await setSetting(SETTING_KEYS.onboarded, true)
     await renderShell('/')
-    expect(screen.getByRole('heading', { level: 1 })).toHaveTextContent(en.pages.law.title)
+    expect(screen.getByRole('heading', { level: 1 })).toHaveTextContent(en.pages.home.title)
   })
 
   it('opens a deep-linked route directly', async () => {

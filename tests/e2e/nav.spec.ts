@@ -1,106 +1,29 @@
-import type { Page } from '@playwright/test'
-
 import { expect, test } from './fixtures'
 
 /**
- * The bottom bar's edge cases, in a real browser. Each of these is a defect
- * that was found by probing rather than by the suite, and each would be
- * invisible to a jsdom test: they are about tab order, IDREF resolution and
- * viewport breakpoints.
+ * The two chromes, in a real browser.
+ *
+ * Before ADR-046 this file was about the "More" sheet's edge cases — tab order
+ * into it, whether its `aria-controls` resolved while it was shut, whether it
+ * closed on a link to the route already showing. There is no sheet any more:
+ * five tabs fit the bottom bar at every width this app supports, so every
+ * destination is on screen at every breakpoint and none of those questions can
+ * be asked. What replaces them is the claim that made the sheet removable, plus
+ * the one thing the new chrome does that the old one did not: it gets out of
+ * the way at level 3.
  */
 
 const MOBILE = { width: 390, height: 780 }
 
-const focusedLabel = (page: Page) =>
-  page.evaluate(() => {
-    const el = document.activeElement
-    if (!el) return 'none'
-    return `${el.tagName}:${(el.getAttribute('aria-label') ?? el.textContent ?? '').trim().slice(0, 30)}`
-  })
-
-test.describe('bottom bar', () => {
-  test.use({ viewport: MOBILE })
-
-  test('Tab from the open More button lands inside the sheet', async ({ page }) => {
-    // The sheet is painted above the bar but must FOLLOW its trigger in the
-    // DOM, or forward Tab skips the sheet entirely and leaves the page.
-    await page.goto('/law')
-    await expect(page.getByRole('heading', { level: 1 })).toBeVisible()
-
-    const more = page.getByRole('button', { name: 'More destinations' })
-    await more.focus()
-    await page.keyboard.press('Enter')
-    await expect(more).toHaveAttribute('aria-expanded', 'true')
-
-    // Derived from the sheet rather than named: Session 26 added the Library
-    // as a third overflow destination, and a spec that hard-codes the two it
-    // used to have fails for a reason that is not about tab order — which is
-    // the thing this test exists to check.
-    const sheetLinks = await page
-      .locator('#nav-more-sheet a')
-      .evaluateAll((links) => links.map((link) => link.getAttribute('aria-label') ?? link.textContent ?? ''))
-    expect(sheetLinks.length).toBeGreaterThanOrEqual(2)
-
-    for (const label of sheetLinks) {
-      await page.keyboard.press('Tab')
-      expect(await focusedLabel(page)).toContain(label.trim().split(' (')[0] ?? '')
-    }
-  })
-
-  test('aria-controls always resolves, open or shut', async ({ page }) => {
-    await page.goto('/law')
-    await expect(page.getByRole('heading', { level: 1 })).toBeVisible()
-
-    const target = () => page.evaluate(() => !!document.getElementById('nav-more-sheet'))
-    const visible = () =>
-      page.evaluate(() => (document.getElementById('nav-more-sheet')?.getClientRects().length ?? 0) > 0)
-
-    expect(await target()).toBe(true)
-    expect(await visible()).toBe(false)
-
-    await page.getByRole('button', { name: 'More destinations' }).click()
-    expect(await visible()).toBe(true)
-  })
-
-  test('closes when the destination it links to is the one already showing', async ({ page }) => {
-    // `openedAt === pathname` alone leaves the sheet open here, because
-    // navigating to the current route never changes the pathname.
-    await page.goto('/utils')
-    await expect(page.getByRole('heading', { level: 1 })).toBeVisible()
-
-    await page.getByRole('button', { name: 'More destinations' }).click()
-    const sheet = page.locator('#nav-more-sheet')
-    await expect(sheet).toBeVisible()
-
-    await sheet.getByRole('link', { name: 'Utilities' }).click()
-    await expect(sheet).toBeHidden()
-  })
-
-  test('closes on Escape and on a click outside', async ({ page }) => {
-    await page.goto('/law')
-    const sheet = page.locator('#nav-more-sheet')
-
-    await page.getByRole('button', { name: 'More destinations' }).click()
-    await expect(sheet).toBeVisible()
-    await page.keyboard.press('Escape')
-    await expect(sheet).toBeHidden()
-
-    await page.getByRole('button', { name: 'More destinations' }).click()
-    await expect(sheet).toBeVisible()
-    await page.getByRole('main').click({ position: { x: 10, y: 10 } })
-    await expect(sheet).toBeHidden()
-  })
-})
-
-test('every destination is reachable at every breakpoint', async ({ page }) => {
+test('every tab is on the bar at every breakpoint, with no overflow', async ({ page }) => {
   // 767/768 and 1023/1024 are the two boundaries. A gap at any of them would
-  // leave a module unreachable on that class of device.
+  // leave a section unreachable on that class of device — which is what the
+  // "More" sheet existed to paper over.
   //
   // The expected COUNT is read from the widest viewport, where the sidebar
-  // shows every destination there is, rather than written down here. A literal
+  // shows every destination there is, rather than written down here: a literal
   // is a second copy of `src/lib/nav.ts`'s length that goes stale the next time
-  // a module is added — which is exactly what happened when the Library landed
-  // (Session 26), and the failure said nothing about breakpoints.
+  // a section is added.
   let expected: number | null = null
 
   for (const width of [1280, 320, 390, 767, 768, 1023, 1024]) {
@@ -108,25 +31,66 @@ test('every destination is reachable at every breakpoint', async ({ page }) => {
     await page.goto('/law')
     await expect(page.getByRole('heading', { level: 1 })).toBeVisible()
 
-    const reachable = await page.evaluate(() => {
+    const counted = await page.evaluate(() => {
       const shown = (el: Element | null) => !!el && el.getClientRects().length > 0
       const sidebar = document.querySelector('nav[aria-label="Main navigation"]')
       const bar = document.querySelector('nav[aria-label="Main tabs"]')
-      const inSidebar = shown(sidebar) ? (sidebar?.querySelectorAll('a').length ?? 0) : 0
-      const inBar = [...(bar?.querySelectorAll('ul > li > a') ?? [])].filter(shown).length
-      const behindMore = shown(bar?.querySelector('button') ?? null)
-        ? (document.querySelectorAll('#nav-more-sheet a').length ?? 0)
-        : 0
-      return inSidebar + inBar + behindMore
+      return {
+        reachable:
+          (shown(sidebar) ? (sidebar?.querySelectorAll('a').length ?? 0) : 0) +
+          [...(bar?.querySelectorAll('ul > li > a') ?? [])].filter(shown).length,
+        // Nothing in either chrome may be a button: a button in a nav bar is an
+        // overflow trigger, and there is no overflow.
+        buttons:
+          (sidebar?.querySelectorAll('button').length ?? 0) + (bar?.querySelectorAll('button').length ?? 0),
+      }
     })
+
+    expect(counted.buttons, `${width}px has a control in the nav that is not a link`).toBe(0)
 
     if (expected === null) {
       // A guard that counts zero is not a guard.
-      expect(reachable, 'the widest viewport reached no destinations at all').toBeGreaterThanOrEqual(5)
-      expected = reachable
+      expect(counted.reachable, 'the widest viewport reached no destinations at all').toBeGreaterThanOrEqual(
+        5,
+      )
+      expected = counted.reachable
       continue
     }
 
-    expect(reachable, `${width}px reaches ${reachable} of ${expected} destinations`).toBe(expected)
+    expect(counted.reachable, `${width}px reaches ${counted.reachable} of ${expected} tabs`).toBe(expected)
   }
+})
+
+test.describe('the tab bar on a phone', () => {
+  test.use({ viewport: MOBILE })
+
+  test('marks the section a deep page belongs to, not just the section root', async ({ page }) => {
+    // A reader three levels into Study has to be able to see, without reading
+    // the URL, which of the five they are in.
+    await page.goto('/study/read')
+    await expect(page.getByRole('heading', { level: 1 })).toBeVisible({ timeout: 30_000 })
+
+    const bar = page.getByRole('navigation', { name: 'Main tabs' })
+    await expect(bar.getByRole('link', { name: 'Study' })).toHaveAttribute('aria-current', 'page')
+    await expect(bar.getByRole('link', { name: 'Law Converter' })).not.toHaveAttribute('aria-current', 'page')
+  })
+
+  test('gets out of the way at level 3, and gives back a way out', async ({ page }) => {
+    await page.goto('/study/read/ccs-conduct/ccs-conduct-3')
+    await expect(page.getByRole('heading', { level: 1 })).toBeVisible({ timeout: 30_000 })
+
+    // No tab bar, no sidebar, no app top bar — and the FocusBar's own control
+    // back to the page above, named after it.
+    await expect(page.getByRole('navigation', { name: 'Main tabs' })).toHaveCount(0)
+    await expect(page.getByRole('navigation', { name: 'Main navigation' })).toHaveCount(0)
+    await expect(page.getByRole('banner')).toHaveCount(0)
+
+    // By the sentence only the FocusBar's back control carries: the reader also
+    // has a "Read aloud" button, and `/Read/` matched that one first.
+    await page.getByRole('button', { name: /back to where this is filed/ }).click()
+    await expect(page).toHaveURL(/\/study\/read\/ccs-conduct$/)
+
+    // And the chrome is back.
+    await expect(page.getByRole('navigation', { name: 'Main tabs' })).toBeVisible()
+  })
 })

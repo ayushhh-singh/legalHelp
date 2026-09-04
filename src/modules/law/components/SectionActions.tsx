@@ -142,7 +142,7 @@ export function SectionActions({
 
         {/*
           Into the Library, with THIS section already on the left.
-          `/library/compare` is where a provision is set beside another one word
+          `/study/notes/compare` is where a provision is set beside another one word
           by word — which is the question an officer holding an old section
           number is actually asking. The Library holds the three Sanhitas, so
           the link is a real one; the repealed Act's own text is not in this

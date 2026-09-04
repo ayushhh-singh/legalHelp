@@ -256,7 +256,7 @@ export default function ProfilePage() {
                 already states for navigation ("active state is never colour
                 alone") applies to a link in a paragraph too.
               */}
-              <Link to="/draft/address-book" className="text-primary underline underline-offset-4">
+              <Link to="/settings/address-book" className="text-primary underline underline-offset-4">
                 {t('draft.addressBook.add')}
               </Link>
             </p>

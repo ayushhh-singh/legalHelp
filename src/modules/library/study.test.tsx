@@ -32,11 +32,11 @@ const at = (path: string) =>
   render(
     <MemoryRouter initialEntries={[path]}>
       <Routes>
-        <Route path="/library/study" element={<StudyHubPage />} />
-        <Route path="/library/:workId/quiz/:nodeId" element={<ChapterQuizPage />} />
-        <Route path="/library/:workId/sheet/:nodeId" element={<RevisionSheetPage />} />
-        <Route path="/library/:workId/:unitId" element={<ReaderPage />} />
-        <Route path="/library" element={<h1>Shelf</h1>} />
+        <Route path="/study/progress" element={<StudyHubPage />} />
+        <Route path="/study/read/:workId/quiz/:nodeId" element={<ChapterQuizPage />} />
+        <Route path="/study/read/:workId/sheet/:nodeId" element={<RevisionSheetPage />} />
+        <Route path="/study/read/:workId/:unitId" element={<ReaderPage />} />
+        <Route path="/study/read" element={<h1>Shelf</h1>} />
       </Routes>
     </MemoryRouter>,
   )
@@ -59,7 +59,7 @@ describe('with AI off, the study layer is still there', () => {
     const aid = aids.aids.find((row) => row.reviewState === 'approved')
     expect(aid, 'the fixture needs at least one approved aid').toBeDefined()
 
-    at(`/library/${aid!.workId}/${aid!.unitId}`)
+    at(`/study/read/${aid!.workId}/${aid!.unitId}`)
 
     expect(await screen.findByText(/Sahayak’s explanation/i)).toBeInTheDocument()
     expect(screen.getByText(aid!.explanation.en)).toBeInTheDocument()
@@ -69,7 +69,7 @@ describe('with AI off, the study layer is still there', () => {
   it('does not render the Ask panel at all', async () => {
     const aids = await loadStudyAids('ccs-conduct')
     const aid = aids.aids.find((row) => row.reviewState === 'approved')!
-    at(`/library/${aid.workId}/${aid.unitId}`)
+    at(`/study/read/${aid.workId}/${aid.unitId}`)
 
     await screen.findByText(/Sahayak’s explanation/i)
     // The heading, the intent chips and the textarea are all inside the panel.
@@ -83,7 +83,7 @@ describe('the own-words attempt round trip', () => {
     const user = userEvent.setup()
     const aids = await loadStudyAids('ccs-conduct')
     const aid = aids.aids.find((row) => row.reviewState === 'approved')!
-    at(`/library/${aid.workId}/${aid.unitId}`)
+    at(`/study/read/${aid.workId}/${aid.unitId}`)
 
     await user.click(await screen.findByRole('button', { name: /Write my own version/i }))
     const box = screen.getByRole('textbox', { name: /own words/i })
@@ -107,7 +107,7 @@ describe('the chapter quiz', () => {
   it('offers only approved cards, and says so', async () => {
     const work = await loadWork('ccs-conduct')
     const chapter = chaptersOf(work)[0]!
-    at(`/library/ccs-conduct/quiz/${chapter.nodeId}`)
+    at(`/study/read/ccs-conduct/quiz/${chapter.nodeId}`)
 
     const note = await screen.findByText(/has been through its four-stage review/i)
     expect(note).toBeInTheDocument()
@@ -119,7 +119,7 @@ describe('the revision sheet', () => {
   it('prints the chapter with its citation and disclaimer', async () => {
     const work = await loadWork('ccs-conduct')
     const chapter = chaptersOf(work)[0]!
-    at(`/library/ccs-conduct/sheet/${chapter.nodeId}`)
+    at(`/study/read/ccs-conduct/sheet/${chapter.nodeId}`)
 
     expect(await screen.findByRole('heading', { name: /Revision sheet/i })).toBeInTheDocument()
     expect(screen.getByRole('button', { name: /Print/i })).toBeInTheDocument()
@@ -135,7 +135,7 @@ describe('the revision sheet', () => {
     expect(withTrap, 'the fixture needs an approved aid with a misconception').toBeDefined()
     const chapter = chapters.find((row) => row.unitIds.includes(withTrap!.unitId))!
 
-    at(`/library/ccs-conduct/sheet/${chapter.nodeId}?mode=24h`)
+    at(`/study/read/ccs-conduct/sheet/${chapter.nodeId}?mode=24h`)
 
     await screen.findByRole('heading', { name: /Revision sheet/i })
     expect(screen.getByText(withTrap!.misconception!.en)).toBeInTheDocument()
@@ -155,7 +155,7 @@ describe('the weekly review', () => {
       grades: ['got-it', 'partial', 'missed'],
     })
 
-    at('/library/study')
+    at('/study/progress')
 
     await screen.findByText('Chapters revised')
     /*
@@ -174,7 +174,7 @@ describe('the weekly review', () => {
   })
 
   it('says every figure stays on the device', async () => {
-    at('/library/study')
+    at('/study/progress')
     expect(await screen.findByText(/comes from this device and stays on it/i)).toBeInTheDocument()
   })
 })

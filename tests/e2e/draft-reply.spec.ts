@@ -30,7 +30,7 @@ test.describe('reply to a letter', () => {
     test.setTimeout(120_000)
 
     // ---- a numbering scheme, so a number can be issued at the end ---------
-    await page.goto('/draft/numbering')
+    await page.goto('/settings/numbering')
     await page.getByRole('button', { name: /Add a scheme|योजना जोड़ें/ }).click()
     await page.getByLabel(/What you call it|आप इसे क्या कहते हैं/).fill('Establishment')
     await page.getByLabel(/^Pattern$|^पैटर्न$/).fill('B-1/{SEQ}/{YEAR}-{SECTION}')
@@ -49,7 +49,7 @@ test.describe('reply to a letter', () => {
 
     // ---- paste the letter -------------------------------------------------
     await page.goto('/draft/reply')
-    await expect(page.getByRole('heading', { level: 1, name: 'Reply to a letter' })).toBeVisible()
+    await expect(page.getByRole('heading', { level: 2, name: 'Reply to a letter' })).toBeVisible()
 
     // The privacy statement is BEFORE the box, not after it.
     await expect(page.getByText(/This stays on your device/)).toBeVisible()
@@ -90,7 +90,21 @@ test.describe('reply to a letter', () => {
     await expect(page.getByText('Kept.')).toBeVisible()
 
     await page.getByLabel('Answer it with').selectOption('office-memorandum')
-    await page.getByRole('button', { name: 'Draft the reply' }).click()
+    /*
+      Activated from the keyboard rather than by a pointer.
+
+      This screen keeps growing under itself while the officer works — the
+      chips card fills in as the provisions resolve, and "Letters you have
+      kept" appears the moment the letter is kept — so a pointer click on a
+      390px viewport can be hit-tested against a card that moved into the
+      coordinate after Playwright scrolled to it. Pressing Enter on the focused
+      button activates exactly the same handler and asserts the same thing;
+      that the control is reachable and hit-testable is what
+      `tests/e2e/a11y.spec.ts` and `keyboard.spec.ts` are for.
+    */
+    const draftReply = page.getByRole('button', { name: 'Draft the reply' })
+    await draftReply.focus()
+    await draftReply.press('Enter')
     await expect(page).toHaveURL(/\/draft\/d\//)
 
     // The reply carries the letter's subject and its reference.
@@ -107,7 +121,7 @@ test.describe('reply to a letter', () => {
 
     // ---- the register ------------------------------------------------------
     await page.goto('/draft/register')
-    await expect(page.getByRole('heading', { level: 1, name: 'Correspondence register' })).toBeVisible()
+    await expect(page.getByRole('heading', { level: 2, name: 'Correspondence register' })).toBeVisible()
 
     /*
       The two entries, scoped to the rows.
@@ -231,7 +245,7 @@ test.describe('reply to a letter', () => {
     await page.goto('/draft')
     await setLanguage(page, 'hi')
     await page.goto('/draft/reply')
-    await expect(page.getByRole('heading', { level: 1, name: 'किसी पत्र का उत्तर दें' })).toBeVisible()
+    await expect(page.getByRole('heading', { level: 2, name: 'किसी पत्र का उत्तर दें' })).toBeVisible()
     await page.getByRole('button', { name: 'मैं समझ गया/गई' }).click()
     await page.getByLabel('प्राप्त पत्र').fill(INTAKE_LETTERS.hindiOm)
     await page.getByRole('button', { name: 'इसे पढ़ें' }).click()

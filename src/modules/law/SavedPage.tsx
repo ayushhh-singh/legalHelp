@@ -30,6 +30,7 @@ export default function SavedPage() {
   return (
     <div className="mx-auto flex max-w-4xl flex-col gap-6">
       <PageHeader
+        as="h2"
         title={t('law.saved.title')}
         subtitle={t('law.saved.subtitle')}
         actions={

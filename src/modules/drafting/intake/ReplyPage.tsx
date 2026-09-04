@@ -171,7 +171,7 @@ export default function ReplyPage() {
 
   return (
     <div className="mx-auto flex max-w-4xl flex-col gap-5">
-      <PageHeader title={t('draft.intake.heading')} subtitle={t('draft.intake.lead')} />
+      <PageHeader as="h2" title={t('draft.intake.heading')} subtitle={t('draft.intake.lead')} />
 
       <SectionCard className="p-4">
         <h2 className="text-sm font-semibold">{t('draft.intake.privacyTitle')}</h2>
@@ -214,7 +214,7 @@ export default function ReplyPage() {
               {t('draft.intake.clear')}
             </Button>
             <Button asChild size="sm" variant="outline">
-              <Link to="/draft/import">
+              <Link to="/draft/documents/import">
                 <FileUp aria-hidden="true" className="mr-1 size-4" />
                 {t('draft.intake.import')}
               </Link>

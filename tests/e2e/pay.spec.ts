@@ -27,7 +27,7 @@ const cityPicker = (page: import('@playwright/test').Page) =>
 
 async function openPay(page: import('@playwright/test').Page, query = '') {
   await page.goto(`/pay${query}`)
-  await expect(page.getByRole('heading', { level: 1, name: 'Pay & Allowances' })).toBeVisible()
+  await expect(page.getByRole('heading', { level: 2, name: 'Pay & Allowances' })).toBeVisible()
   // `exact` matters: Playwright matches a string name as a case-insensitive
   // SUBSTRING, and "Place of posting" contains "post".
   await expect(jobPicker(page)).toBeVisible({ timeout: 30_000 })
@@ -61,7 +61,7 @@ test('switching language moves the labels and leaves the figures alone', async (
   await page.getByRole('button', { name: 'Switch to Hindi' }).click()
   await expect(page.locator('html')).toHaveAttribute('lang', 'hi')
 
-  await expect(page.getByRole('heading', { level: 1, name: 'वेतन एवं भत्ते' })).toBeVisible()
+  await expect(page.getByRole('heading', { level: 2, name: 'वेतन एवं भत्ते' })).toBeVisible()
   await expect(page.getByText('मूल वेतन').first()).toBeVisible()
   await expect(page.getByText('सकल').first()).toBeVisible()
 
@@ -136,10 +136,10 @@ test('answers a pay calculation with no network at all', async ({ page, context 
   await page.waitForFunction(() => navigator.serviceWorker.controller !== null)
 
   await context.setOffline(true)
-  await page.goto('/pay?job=ib-acio-ii-executive&city=delhi&da=60')
+  await page.goto('/tools/salary?job=ib-acio-ii-executive&city=delhi&da=60')
 
   // 1.2 MB of pay datasets, served entirely out of the precache.
-  await expect(page.getByRole('heading', { level: 1, name: 'Pay & Allowances' })).toBeVisible()
+  await expect(page.getByRole('heading', { level: 2, name: 'Pay & Allowances' })).toBeVisible()
   await expect(page.getByText('₹1,00,050').first()).toBeVisible()
   await expect(page.getByText('₹92,156').first()).toBeVisible()
 })
@@ -260,8 +260,8 @@ test('a wide table scrolls inside its own region, reachable from the keyboard', 
   await page.setViewportSize({ width: 390, height: 844 })
   // Not `openPay`: the comparison has two post pickers, so it waits on one of
   // the side-specific ones instead.
-  await page.goto('/pay?job=ib-acio-ii-executive&city=delhi&da=60&tab=compare')
-  await expect(page.getByRole('heading', { level: 1, name: 'Pay & Allowances' })).toBeVisible()
+  await page.goto('/tools/salary?job=ib-acio-ii-executive&city=delhi&da=60&tab=compare')
+  await expect(page.getByRole('heading', { level: 2, name: 'Pay & Allowances' })).toBeVisible()
   await expect(page.getByRole('combobox', { name: 'First post', exact: true })).toBeVisible({
     timeout: 30_000,
   })

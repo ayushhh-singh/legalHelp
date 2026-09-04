@@ -34,7 +34,7 @@ test.describe('importing a document', () => {
     */
     test.setTimeout(180_000)
 
-    await page.goto('/draft/import')
+    await page.goto('/draft/documents/import')
     await expect(page.getByRole('heading', { name: /Import a document/ })).toBeVisible()
 
     await page.locator('input[type="file"]').setInputFiles(fixture('om.docx'))
@@ -106,7 +106,7 @@ test.describe('importing a document', () => {
     expect(readFileSync(exported).length).toBeGreaterThan(1000)
 
     // ---- re-import it ----------------------------------------------------
-    await page.goto('/draft/import')
+    await page.goto('/draft/documents/import')
     await page.locator('input[type="file"]').setInputFiles(exported)
     await expect(page.getByText('A-11011/2/2026-Estt.(Allowances)')).toBeVisible()
     await expect(page.getByText(/Children Education Allowance/).first()).toBeVisible()
@@ -116,7 +116,7 @@ test.describe('importing a document', () => {
   })
 
   test('a scanned PDF is refused with something the officer can act on', async ({ page }) => {
-    await page.goto('/draft/import')
+    await page.goto('/draft/documents/import')
     await page.locator('input[type="file"]').setInputFiles(fixture('scanned.pdf'))
     // NO OCR, and the message says what to do instead rather than "failed".
     await expect(page.getByRole('alert')).toContainText(/scan/)
@@ -126,13 +126,13 @@ test.describe('importing a document', () => {
   })
 
   test('an older .doc under a .docx name says how to convert it', async ({ page }) => {
-    await page.goto('/draft/import')
+    await page.goto('/draft/documents/import')
     await page.locator('input[type="file"]').setInputFiles(fixture('actually-a-doc.docx'))
     await expect(page.getByRole('alert')).toBeVisible()
   })
 
   test('the header of a Word file is offered as a letterhead and never applied', async ({ page }) => {
-    await page.goto('/draft/import')
+    await page.goto('/draft/documents/import')
     await page.locator('input[type="file"]').setInputFiles(fixture('headers-footers.docx'))
     // Scoped to the letterhead list, not the whole page: the "not imported"
     // notice quotes the same line as an example, so an unscoped `getByText`
@@ -151,7 +151,7 @@ test.describe('importing a document', () => {
   test('the whole screen works in Hindi', async ({ page }) => {
     // `setLanguage` waits for an `h1`, so it needs a page. Calling it before
     // the first `goto` runs it against `about:blank`.
-    await page.goto('/draft/import')
+    await page.goto('/draft/documents/import')
     await setLanguage(page, 'hi')
     await expect(page.getByRole('heading', { name: /दस्तावेज़ आयात करें/ })).toBeVisible()
     await page.locator('input[type="file"]').setInputFiles(fixture('om.docx'))
@@ -161,7 +161,7 @@ test.describe('importing a document', () => {
 
 test.describe('the print route', () => {
   test('renders the document, its page counters and its instructions', async ({ page }) => {
-    await page.goto('/draft/import')
+    await page.goto('/draft/documents/import')
     await page.locator('input[type="file"]').setInputFiles(fixture('om.docx'))
     await page.getByRole('button', { name: /Create the document/ }).click()
     await page.waitForURL(/\/draft\/d\/[0-9a-f]+/)
@@ -233,7 +233,7 @@ test.describe('batch export', () => {
 
     // Two documents, both real, both created through the importer.
     for (const name of ['om.docx', 'headers-footers.docx']) {
-      await page.goto('/draft/import')
+      await page.goto('/draft/documents/import')
       await page.locator('input[type="file"]').setInputFiles(fixture(name))
       await page.getByRole('button', { name: /Create the document/ }).click()
       await page.waitForURL(/\/draft\/d\/[0-9a-f]+/)
@@ -266,7 +266,7 @@ test.describe('batch export', () => {
   })
 
   test('copying every selected document as text needs no checklist to pass', async ({ page }) => {
-    await page.goto('/draft/import')
+    await page.goto('/draft/documents/import')
     await page.locator('input[type="file"]').setInputFiles(fixture('om.docx'))
     await page.getByRole('button', { name: /Create the document/ }).click()
     await page.waitForURL(/\/draft\/d\/[0-9a-f]+/)

@@ -19,40 +19,43 @@ import { audit, expect, formatViolations as format, storedSetting, test } from '
  */
 
 const ROUTES = [
+  // The landing route (ADR-046): six cards, a search control and the quick
+  // actions, every one of them a link into a section.
+  '/home',
   '/law',
   '/law/whats-new',
   '/law/saved',
-  '/pay',
-  '/draft',
+  '/tools/salary',
+  '/draft/documents',
+  // The template gallery: forty-three cards and a search box.
+  '/draft/new',
   // The editor is as much markup again as the picker — a guided form, a body
   // toolbar, an A4 preview and an export bar — and the picker sweep would
   // never see any of it.
-  '/draft/office-memorandum',
   // Session 29's document editor and the four screens around it. The editor is
   // the one that matters — a six-tab tablist, a `role="toolbar"` of twenty-odd
   // controls and a contenteditable surface, none of which the picker sweep can
   // see — and `/draft/d/:id` is parameterised, so `EXEMPT` in
   // `tests/route-coverage.test.ts` names the instance this sweep visits.
-  '/draft/documents',
-  '/draft/profile',
-  '/draft/address-book',
-  '/draft/numbering',
-  '/draft/my-templates',
-  '/draft/import',
+  '/settings/profile',
+  '/settings/address-book',
+  '/settings/numbering',
+  '/draft/templates',
+  '/draft/documents/import',
   '/draft/reply',
   '/draft/register',
-  '/learn',
+  '/study/practise',
   // The review card itself — a radiogroup of options, four grade buttons and a
   // report dialog — is the single most-used screen in the Trainer and was swept
   // by neither this sweep nor the offline one until `tests/route-coverage.test.ts`
   // was written to notice. Every route around it was covered, which is why.
-  '/learn/review',
-  '/learn/browse',
-  '/learn/mock',
-  '/learn/settings',
-  '/learn/bookmarks',
-  '/learn/reports',
-  '/learn/review-queue',
+  '/study/practise/review',
+  '/study/practise/browse',
+  '/study/practise/mock',
+  '/settings/trainer',
+  '/study/practise/bookmarks',
+  '/study/practise/reports',
+  '/study/practise/review-queue',
   /*
     Exam mode's four screens. The hub is the one that matters — a profile
     picker, a date control, a readiness figure with its caveat and a per-topic
@@ -65,58 +68,60 @@ const ROUTES = [
     the plan therefore render their "pick an examination first" branch.
     `tests/e2e/exam.spec.ts` chooses a profile and audits the full screens.
   */
-  '/learn/exam',
-  '/learn/exam/plan',
-  '/learn/exam/mock',
-  '/learn/exam/checklist',
-  '/library',
+  '/study/exam',
+  '/study/exam/mock',
+  '/study/read',
   // The reader is where the Library's markup actually is — a sticky progress
   // header, four groups of type controls, the unit itself and a related rail —
   // and the shelf sweep would see none of it. The work page is the table of
   // contents and the search box.
-  '/library/ccs-conduct',
-  '/library/ccs-conduct/ccs-conduct-3',
+  '/study/read/ccs-conduct',
+  '/study/read/ccs-conduct/ccs-conduct-3',
   // Session 28's four study screens. The quiz is a radio-shaped option list and
   // a results table; the sheet is a printable document; the hub is the weekly
   // review with a goal FORM in it — three number inputs and a select, which is
   // where a missing label costs a reader most.
-  '/library/study',
-  '/library/ccs-conduct/quiz/group-n-ccs-conduct-1',
-  '/library/ccs-conduct/sheet/group-n-ccs-conduct-1',
+  '/study/progress',
+  '/study/read/ccs-conduct/quiz/group-n-ccs-conduct-1',
+  '/study/read/ccs-conduct/sheet/group-n-ccs-conduct-1',
   // Session 27's five screens. Each is as much markup again as the shelf, and
   // four of them are mostly FORM — filter selects, a picker pair, a file input
   // and a review list — which is where a missing label costs a reader most.
-  '/library/mine',
-  '/library/bookmarks',
-  '/library/compare',
-  '/library/search',
-  '/library/add',
-  '/utils',
+  '/study/notes',
+  '/study/notes/compare',
+  '/study/read/search',
+  '/study/read/add',
   // 1,891 terms is as much markup as the picker sweep would never see —
   // /utils alone never renders a single row of it.
-  '/utils/glossary',
+  '/tools/glossary',
   // Utilities' other four tools, each of which is a form and a results panel
   // the hub route never renders: a month grid and a restricted-holiday picker,
   // six number inputs, a scheme radio group, and a searchable directory. The
   // sweep covered none of them until this session.
-  '/utils/holidays',
-  '/utils/leave',
-  '/utils/pension',
-  '/utils/portals',
+  '/tools/holidays',
+  '/tools/leave',
+  '/tools/pension',
+  '/tools/portals',
   '/settings',
+  // Settings is eight pages now rather than one screen eleven sections long,
+  // and each of them is markup the single-page sweep used to cover in one go.
+  '/settings/ai',
+  '/settings/data',
+  '/settings/backup',
+  '/settings/about',
   '/onboarding',
 ]
 
 /**
  * A route that renders a skeleton first must be audited AFTER its data lands.
  *
- * `/pay` imports 1.2 MB of datasets before it can draw a single figure, and its
+ * `/tools/salary` imports 1.2 MB of datasets before it can draw a single figure, and its
  * `<h1>` is on screen for the whole of that. Auditing on the h1 alone would run
  * axe over the skeleton and pass the route without ever having seen the form —
  * which is a green tick for a page nobody checked.
  */
 const READY: Readonly<Record<string, RegExp>> = {
-  '/pay': /Post|पद/,
+  '/tools/salary': /Post|पद/,
 }
 
 /**
@@ -125,8 +130,7 @@ const READY: Readonly<Record<string, RegExp>> = {
  * pass the editor without having seen the form.
  */
 const READY_BUTTON: Readonly<Record<string, RegExp>> = {
-  '/draft/office-memorandum': /Fill with the worked example|नमूने से भरें/,
-  '/learn/mock': /Start test|टेस्ट आरंभ करें/,
+  '/study/practise/mock': /Start test|टेस्ट आरंभ करें/,
 }
 
 /**
@@ -135,16 +139,16 @@ const READY_BUTTON: Readonly<Record<string, RegExp>> = {
  * `GlossaryPage.tsx` renders only once `data/glossary.json` has settled.
  */
 const READY_TEXT: Readonly<Record<string, RegExp>> = {
-  '/utils/glossary': /\d+ terms?|\d+ शब्द/,
+  '/tools/glossary': /\d+ terms?|\d+ शब्द/,
   // Every rule book's collapsed row carries its rule count, once
   // `data/rules`'s twelve card files have loaded — present whether or not the
   // reader has reviewed a single card yet.
-  '/learn/browse': /\d+ rules?|\d+ नियम/,
-  '/learn/settings': /New cards per day|प्रतिदिन नए कार्ड/,
+  '/study/practise/browse': /\d+ rules?|\d+ नियम/,
+  '/settings/trainer': /New cards per day|प्रतिदिन नए कार्ड/,
   // Home renders EITHER the first-run empty state or the full dashboard on a
   // fresh device, and both carry this control — but it is a <Link>, not a
   // <button> (`asChild`), so it has to be matched by text rather than role.
-  '/learn': /Start review|पुनरीक्षण आरंभ करें/,
+  '/study/practise': /Start review|पुनरीक्षण आरंभ करें/,
 }
 
 /**
@@ -252,7 +256,7 @@ for (const language of ['en', 'hi'] as const) {
 /**
  * The Pay module's other three tabs.
  *
- * The route sweep above audits `/pay` as it opens, which is the calculator.
+ * The route sweep above audits `/tools/salary` as it opens, which is the calculator.
  * The simulations, the comparison and the private-versus-government panels are
  * as much markup again — a range input, three data tables and two more
  * comboboxes — and none of it would ever be looked at by the sweep.
@@ -263,7 +267,7 @@ for (const [tab, ready] of [
   ['private', 'The private package'],
 ] as const) {
   test(`no axe violations on the pay ${tab} tab`, async ({ page }) => {
-    await page.goto('/pay?job=ib-acio-ii-executive&city=delhi&da=60&pctc=1800000')
+    await page.goto('/tools/salary?job=ib-acio-ii-executive&city=delhi&da=60&pctc=1800000')
     await expect(page.getByRole('heading', { level: 1 })).toBeVisible()
     await expect(page.getByRole('combobox', { name: /Post/ }).first()).toBeVisible({ timeout: 30_000 })
 
@@ -333,17 +337,24 @@ test('no axe violations while browsing a whole Act', async ({ page }) => {
   expect(format(await audit(page))).toEqual([])
 })
 
-test('no axe violations with the More sheet open', async ({ page }) => {
-  // The one piece of chrome that is not on screen by default. 390px so the
-  // sheet's own breakpoint (<768px) applies.
+test('no axe violations on a focus screen, where the chrome is gone', async ({ page }) => {
+  /*
+    Level 3 replaces three landmarks with one bar (ADR-046), and the bar is the
+    only way out of the screen — so it is the one piece of chrome that has to
+    be audited on its own. 390px because a phone is where losing the tab bar
+    matters most.
+
+    It replaces the "More sheet" sweep, which audited a control that no longer
+    exists: five tabs fit the bottom bar at every width, so there is no
+    overflow to open.
+  */
   await page.setViewportSize({ width: 390, height: 780 })
-  await page.goto('/law')
-  await expect(page.getByRole('heading', { level: 1 })).toBeVisible()
-  await page.getByRole('button', { name: 'More destinations' }).click()
-  await expect(page.getByRole('button', { name: 'More destinations' })).toHaveAttribute(
-    'aria-expanded',
-    'true',
-  )
+  await page.goto('/study/read/ccs-conduct/ccs-conduct-3')
+  await expect(page.getByRole('heading', { level: 1 })).toBeVisible({ timeout: 30_000 })
+
+  // The chrome is gone and the way out is not.
+  await expect(page.getByRole('navigation', { name: 'Main tabs' })).toHaveCount(0)
+  await expect(page.getByRole('button', { name: /back to where this is filed/ })).toBeVisible()
 
   expect(format(await audit(page))).toEqual([])
 })
@@ -391,7 +402,7 @@ test('no axe violations on the shortcuts help sheet', async ({ page }) => {
 for (const theme of ['light', 'dark'] as const) {
   test(`no axe violations on the AI consent modal and banner in ${theme}`, async ({ page }) => {
     await setChrome(page, 'en', theme)
-    await page.goto('/settings')
+    await page.goto('/settings/ai')
     await expect(page.getByRole('heading', { name: 'AI features' })).toBeVisible()
 
     await page.getByRole('button', { name: 'Read what this sends' }).click()

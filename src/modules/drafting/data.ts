@@ -7,7 +7,7 @@ import type { DocTemplate, DocTemplateFile, DraftingIndex, PhraseLibrary, Struct
  * dynamic import, never a `fetch` of `/data/*.json`. That is what keeps
  * `src/ai/providers/wire.ts` the only module in the app allowed to call
  * `fetch`, and what makes the templates work offline on a device that has
- * never opened `/draft` online — the service worker precaches the chunks
+ * never opened `/draft/documents` online — the service worker precaches the chunks
  * through the ordinary JavaScript glob.
  *
  * The specifiers are written out one per file rather than built from a

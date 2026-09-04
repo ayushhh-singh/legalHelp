@@ -62,7 +62,7 @@ const num = (value: string, fallback = 0): number => {
   return Number.isFinite(parsed) ? parsed : fallback
 }
 
-/** `/utils/pension` — superannuation date, NPS/UPS projection, gratuity and commutation. */
+/** `/tools/pension` — superannuation date, NPS/UPS projection, gratuity and commutation. */
 export default function PensionPage() {
   const { t, language } = useT()
   const tables = useAsync(loadPensionTables, 'pension-tables', true)
@@ -132,7 +132,7 @@ export default function PensionPage() {
 
   return (
     <div className="mx-auto flex max-w-4xl flex-col gap-6">
-      <PageHeader title={t('utils.pension.title')} subtitle={t('utils.pension.subtitle')} />
+      <PageHeader as="h2" title={t('utils.pension.title')} subtitle={t('utils.pension.subtitle')} />
 
       <SectionCard active className="p-4">
         <h2 className="mb-3 text-sm font-semibold">{t('utils.pension.inputsTitle')}</h2>

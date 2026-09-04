@@ -23,7 +23,7 @@ const UNIT = 'ccs-conduct-3'
 test('the study aid is there with AI off, and nothing leaves the device', async ({ page, network }) => {
   const typed = network.sentinel('feynman')
 
-  await page.goto(`/library/${WORK}/${UNIT}`)
+  await page.goto(`/study/read/${WORK}/${UNIT}`)
   await expect(page.getByRole('heading', { level: 1 })).toBeVisible()
 
   // The aid renders first in the rail, badged as this project's own writing —
@@ -47,7 +47,7 @@ test('the study aid is there with AI off, and nothing leaves the device', async 
 })
 
 test('rating a chapter puts it in the revise list when it falls due', async ({ page }) => {
-  await page.goto(`/library/${WORK}/${UNIT}`)
+  await page.goto(`/study/read/${WORK}/${UNIT}`)
   await expect(page.getByRole('heading', { level: 1 })).toBeVisible()
 
   // "I would have to look it up" — a Hard grade, so the interval is short but
@@ -56,7 +56,7 @@ test('rating a chapter puts it in the revise list when it falls due', async ({ p
   await expect(page.getByText(/^Rated\./)).toBeVisible()
 
   // Nothing is due yet — the rating just moved it into the future.
-  await page.goto('/library')
+  await page.goto('/study/read')
   await expect(page.getByRole('heading', { level: 1 })).toBeVisible()
   await expect(page.getByText(t('en', 'library.study.revise.heading'))).toHaveCount(0)
 
@@ -97,32 +97,32 @@ test('rating a chapter puts it in the revise list when it falls due', async ({ p
 })
 
 test('the chapter quiz draws approved trainer cards and says nothing is generated', async ({ page }) => {
-  await page.goto(`/library/${WORK}`)
+  await page.goto(`/study/read/${WORK}`)
   await expect(page.getByRole('heading', { level: 1 })).toBeVisible()
 
   await page
     .getByRole('link', { name: t('en', 'library.study.quiz.title') })
     .first()
     .click()
-  await expect(page).toHaveURL(/\/library\/ccs-conduct\/quiz\//)
+  await expect(page).toHaveURL(/\/study\/read\/ccs-conduct\/quiz\//)
   await expect(page.getByText(t('en', 'library.study.quiz.onlyApproved'))).toBeVisible()
 })
 
 test('the weekly review and the revision sheet work offline', async ({ page, context }) => {
-  await page.goto('/settings')
+  await page.goto('/settings/ai')
   await expect(page.getByRole('main')).toBeVisible()
   await serviceWorkerReady(page)
   await dismissPwaToasts(page)
 
   await context.setOffline(true)
 
-  await page.goto('/library/study')
+  await page.goto('/study/progress')
   await expect(
     page.getByRole('heading', { level: 1, name: t('en', 'library.study.review.title') }),
   ).toBeVisible()
   await expect(page.getByText(t('en', 'library.study.review.localOnly'))).toBeVisible()
 
-  await page.goto(`/library/${WORK}/sheet/group-n-ccs-conduct-1`)
+  await page.goto(`/study/read/${WORK}/sheet/group-n-ccs-conduct-1`)
   await expect(page.getByRole('heading', { level: 1, name: /Revision sheet/ })).toBeVisible()
 })
 
@@ -130,7 +130,7 @@ test('the study layer is bilingual', async ({ page }) => {
   // `setLanguage` asserts an <h1> is on screen before it toggles, so the page
   // has to be somewhere first — it is idempotent and the preference persists,
   // so arriving on the reader afterwards is already Hindi.
-  await page.goto(`/library/${WORK}/${UNIT}`)
+  await page.goto(`/study/read/${WORK}/${UNIT}`)
   await expect(page.getByRole('heading', { level: 1 })).toBeVisible()
   await setLanguage(page, 'hi')
   await expect(page.getByText(t('hi', 'library.study.aid.badge'))).toBeVisible()

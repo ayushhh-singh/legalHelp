@@ -17,7 +17,7 @@ import { cardSchema, type Card } from '@/modules/trainer/schema'
  * IndexedDB rows" (`src/ai/tools/registry.ts`). The fourth, `propose_card`, is
  * the one WRITE any tool in this app performs: it stores a candidate card in
  * `proposedCards`, `reviewState: 'unreviewed'`, where it sits until a reader
- * accepts it through `/learn/review-queue` — see
+ * accepts it through `/study/practise/review-queue` — see
  * `src/modules/trainer/reviewQueue.ts#effectiveCatalogue`. Nothing proposed
  * here ever reaches the FSRS schedule on its own.
  */
@@ -175,13 +175,13 @@ export function registerRulesTools(): void {
     description: {
       en:
         'Draft a new practice card for a reader to review. It is stored locally, unreviewed, and NEVER ' +
-        'enters the schedule on its own — a human opens `/learn/review-queue`, reads it beside the rule ' +
+        'enters the schedule on its own — a human opens `/study/practise/review-queue`, reads it beside the rule ' +
         'it cites, and accepts or rejects it. Every field this tool accepts is exactly what a card in ' +
         '`data/rules` carries; `ruleRef.citation` and `groundingRuleIds`-equivalent grounding are what ' +
         'let the reviewer check the card against the rule before it is ever shown to anyone.',
       hi:
         'उपयोगकर्ता के अभ्यास हेतु एक नया कार्ड प्रारूपित करें। यह स्थानीय रूप से, असमीक्षित, संचित ' +
-        'होता है और अपने-आप कभी अनुसूची में प्रवेश नहीं करता — एक व्यक्ति `/learn/review-queue` खोलकर, ' +
+        'होता है और अपने-आप कभी अनुसूची में प्रवेश नहीं करता — एक व्यक्ति `/study/practise/review-queue` खोलकर, ' +
         'उद्धृत नियम के साथ इसे पढ़कर, इसे स्वीकार या अस्वीकार करता है। यह उपकरण जो भी फ़ील्ड लेता है वे ' +
         'ठीक वही हैं जो `data/rules` में एक कार्ड रखता है।',
     },
@@ -230,7 +230,7 @@ export function registerRulesTools(): void {
       }
 
       await db.proposedCards.put({ id, card: parsed.data, createdAt: new Date().toISOString() })
-      return { stored: true, id, reviewQueueUrl: '/learn/review-queue' }
+      return { stored: true, id, reviewQueueUrl: '/study/practise/review-queue' }
     },
   })
 }

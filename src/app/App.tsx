@@ -1,6 +1,7 @@
 import { lazy, Suspense, useEffect } from 'react'
 import { Navigate, Route, Routes, useLocation } from 'react-router-dom'
 
+import { LegacyRedirect } from './LegacyRedirect'
 import { BottomTabs, Sidebar } from './Nav'
 import { usePaletteStore } from './paletteStore'
 import { PwaNotices } from './pwa'
@@ -10,14 +11,14 @@ import { useGlobalShortcuts } from './useGlobalShortcuts'
 
 import { ErrorBoundary } from '@/components/common/ErrorBoundary'
 import { useT } from '@/i18n/useT'
-import { HOME_PATH } from '@/lib/nav'
+import { APP_LEVEL_REDIRECTS, HOME_PATH, levelOf } from '@/lib/nav'
+import { cn } from '@/lib/utils'
 
+const HomePage = lazy(() => import('@/modules/home/HomePage'))
 const LawPage = lazy(() => import('@/modules/law/LawPage'))
-const PayPage = lazy(() => import('@/modules/pay/PayPage'))
+const StudyPage = lazy(() => import('@/modules/study/StudyPage'))
 const DraftPage = lazy(() => import('@/modules/drafting/DraftPage'))
-const LearnPage = lazy(() => import('@/modules/trainer/LearnPage'))
-const LibraryPage = lazy(() => import('@/modules/library/LibraryPage'))
-const UtilsPage = lazy(() => import('@/modules/utils/UtilsPage'))
+const ToolsPage = lazy(() => import('@/modules/utils/ToolsPage'))
 const SettingsPage = lazy(() => import('@/modules/settings/SettingsPage'))
 
 /**
@@ -54,16 +55,28 @@ export function App() {
 
   useGlobalShortcuts()
 
+  /*
+    Which chrome this route gets, decided SYNCHRONOUSLY from the route registry
+    rather than reported upwards by the layout that renders.
+
+    `FocusLayout` could set a flag in an effect and this component could read
+    it — and every focus route would then paint one frame with the sidebar and
+    the tab bar still on it before they vanished, on every navigation into the
+    reader or the editor. `levelOf` is a pure function over the pathname
+    (`src/lib/nav.ts`), so the first frame is already right.
+  */
+  const focus = levelOf(pathname) === 'focus'
+
   return (
     <div className="flex min-h-dvh flex-col bg-background text-foreground">
       <a href="#main" className="skip-link">
         {t('a11y.skipToContent')}
       </a>
 
-      <TopBar />
+      {focus ? null : <TopBar />}
 
       <div className="flex flex-1">
-        <Sidebar />
+        {focus ? null : <Sidebar />}
 
         <main
           id="main"
@@ -71,12 +84,19 @@ export function App() {
           // Safari and Firefox, so keyboard users land back at the top.
           tabIndex={-1}
           aria-label={t('a11y.mainContent')}
-          // The bottom padding clears the tab bar, plus however much room a
-          // service-worker toast currently needs above it (`--pwa-toast-space`,
-          // measured in `pwa.tsx`; 0 whenever no toast is on screen, which is
-          // almost always). Without the second term the toast is an overlay
-          // covering the last action on the page — docs/DATA-GAPS.md #59.
-          className="min-w-0 flex-1 px-4 pt-6 pb-[calc(6rem+var(--pwa-toast-space,0px))] focus-visible:outline-none sm:px-6 lg:pb-[calc(2.5rem+var(--pwa-toast-space,0px))]"
+          className={cn(
+            'flex min-w-0 flex-1 flex-col focus-visible:outline-none',
+            // At focus level the layout supplies its own bar and padding, and
+            // there is no tab bar to clear.
+            focus
+              ? ''
+              : // The bottom padding clears the tab bar, plus however much room a
+                // service-worker toast currently needs above it (`--pwa-toast-space`,
+                // measured in `pwa.tsx`; 0 whenever no toast is on screen, which is
+                // almost always). Without the second term the toast is an overlay
+                // covering the last action on the page — docs/DATA-GAPS.md #59.
+                'px-4 pt-6 pb-[calc(6rem+var(--pwa-toast-space,0px))] sm:px-6 lg:pb-[calc(2.5rem+var(--pwa-toast-space,0px))]',
+          )}
         >
           <ErrorBoundary resetKey={pathname}>
             <Suspense fallback={<RouteFallback />}>
@@ -103,21 +123,35 @@ export function App() {
                   }
                 />
                 <Route path="/onboarding" element={<OnboardingPage />} />
-                {/* The Law Converter owns its own sub-routes (/law/whats-new, /law/saved);
-                    src/lib/nav.ts stays the one list of navigation destinations. */}
-                <Route path="/law/*" element={<LawPage />} />
-                <Route path="/pay" element={<PayPage />} />
-                {/* The Drafting Studio owns /draft and /draft/:type the same way. */}
+
+                {/*
+                  Five sections, each owning its own sub-tree, plus Settings.
+                  `src/lib/nav.ts` is still the one list of destinations; what
+                  changed in ADR-046 is that it is a tree, so the layout a route
+                  renders in and the page it goes back to come from the same
+                  place as the sidebar's labels.
+                */}
+                <Route path="/home" element={<HomePage />} />
+                <Route path="/study/*" element={<StudyPage />} />
                 <Route path="/draft/*" element={<DraftPage />} />
-                {/* The Rules Trainer owns its own sub-routes (/learn/review, /learn/mock, …)
-                    the same way. */}
-                <Route path="/learn/*" element={<LearnPage />} />
-                {/* The Library owns /library, /library/:workId and the reader
-                    below it the same way. */}
-                <Route path="/library/*" element={<LibraryPage />} />
-                {/* Utilities owns its own sub-routes (/utils/glossary) the same way. */}
-                <Route path="/utils/*" element={<UtilsPage />} />
-                <Route path="/settings" element={<SettingsPage />} />
+                <Route path="/law/*" element={<LawPage />} />
+                <Route path="/tools/*" element={<ToolsPage />} />
+                <Route path="/settings/*" element={<SettingsPage />} />
+
+                {/*
+                  Every path this app used to have. Kept for ever: the point of
+                  a stable URL is that nobody has to know when it changed.
+                  The Drafting Studio's own legacy paths are mounted inside
+                  `DraftPage` instead — see `redirectsUnder` for why.
+                */}
+                {APP_LEVEL_REDIRECTS.map((redirect) => (
+                  <Route
+                    key={redirect.from}
+                    path={redirect.from}
+                    element={<LegacyRedirect redirect={redirect} />}
+                  />
+                ))}
+
                 <Route path="*" element={<Navigate to={HOME_PATH} replace />} />
               </Routes>
             </Suspense>
@@ -125,7 +159,7 @@ export function App() {
         </main>
       </div>
 
-      <BottomTabs />
+      {focus ? null : <BottomTabs />}
       <PwaNotices />
       {paletteWanted ? (
         <Suspense fallback={null}>

@@ -262,7 +262,7 @@ function Answer({
 }) {
   const { t, language } = useT()
   // Keyed on a counter so an identical repeat message is a real DOM insertion
-  // and is announced again — the `/utils/portals` lesson.
+  // and is announced again — the `/tools/portals` lesson.
   const [copied, setCopied] = useState(0)
   const [copyFailed, setCopyFailed] = useState(false)
 

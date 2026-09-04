@@ -43,17 +43,20 @@ test('walks language, post/city and the privacy step, then lands on the law page
   await expect(page.getByRole('heading', { name: 'शुरू करने से पहले' })).toBeVisible()
   await page.getByRole('button', { name: 'समझ गया/गई' }).click()
 
-  await expect(page.getByRole('heading', { level: 1, name: 'विधि परिवर्तक' })).toBeVisible()
+  // Onboarding lands on Home since ADR-046, not on the Law Converter: the
+  // first thing a reader who has just told the app who they are should see is
+  // what the app can already do for them.
+  await expect(page.getByRole('heading', { level: 1, name: 'मुख पृष्ठ' })).toBeVisible()
 
   // Reloading the actual start_url must not show onboarding a second time.
   await page.goto('/')
-  await expect(page.getByRole('heading', { level: 1, name: 'विधि परिवर्तक' })).toBeVisible()
+  await expect(page.getByRole('heading', { level: 1, name: 'मुख पृष्ठ' })).toBeVisible()
 
   // The post/city choice reached the Pay calculator: opening a bare /pay
   // restores the onboarding-time scenario from IndexedDB and writes it back
   // into the URL (PayPage.tsx), the same "the URL is the state" contract a
   // shared link relies on.
-  await page.goto('/pay')
+  await page.goto('/tools/salary')
   await expect(page).toHaveURL(/job=ib-acio-ii-executive/)
   await expect(page).toHaveURL(/city=delhi/)
 })
@@ -63,14 +66,14 @@ test('"Skip setup" finishes onboarding with no post or city chosen', async ({ pa
   await expect(page.getByRole('heading', { level: 1, name: 'Choose your language' })).toBeVisible()
 
   await page.getByRole('button', { name: 'Skip setup' }).click()
-  await expect(page.getByRole('heading', { level: 1, name: 'Law Converter' })).toBeVisible()
+  await expect(page.getByRole('heading', { level: 1, name: 'Home' })).toBeVisible()
 
   await page.goto('/')
-  await expect(page.getByRole('heading', { level: 1, name: 'Law Converter' })).toBeVisible()
+  await expect(page.getByRole('heading', { level: 1, name: 'Home' })).toBeVisible()
 })
 
 test('a deep link is never interrupted by onboarding on a fresh device', async ({ page }) => {
   await page.goto('/law?q=302')
-  await expect(page.getByRole('heading', { level: 1, name: 'Law Converter' })).toBeVisible()
+  await expect(page.getByRole('heading', { level: 2, name: 'Law Converter' })).toBeVisible()
   await expect(page.getByText(/"302" is now BNS 103/)).toBeVisible()
 })

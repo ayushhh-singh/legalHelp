@@ -23,7 +23,7 @@ import { getDueQueue, reviewCard, type Grade } from '@/lib/srs'
 const REPORT_REASONS = ['wrongAnswer', 'unclear', 'typo', 'duplicate', 'other'] as const
 
 /**
- * `/learn/review?act=<id>` — one card at a time.
+ * `/study/practise/review?act=<id>` — one card at a time.
  *
  * The queue is a `useLiveQuery` over `getDueQueue`, so grading a card (which
  * writes `srsCards`/`reviewLog`/`streaks` inside one Dexie transaction) makes
@@ -98,7 +98,7 @@ export default function ReviewPage() {
         subtitle={queue.length > 0 ? t('trainer.review.remaining', { count: queue.length }) : undefined}
         actions={
           <Button asChild variant="outline" size="sm">
-            <Link to="/learn">
+            <Link to="/study/practise">
               <ArrowLeft aria-hidden="true" />
               {t('trainer.review.backHome')}
             </Link>
@@ -183,7 +183,7 @@ export default function ReviewPage() {
           body={t('trainer.review.sessionCompleteBody')}
           action={
             <Button asChild>
-              <Link to="/learn">{t('trainer.review.backHome')}</Link>
+              <Link to="/study/practise">{t('trainer.review.backHome')}</Link>
             </Button>
           }
         />

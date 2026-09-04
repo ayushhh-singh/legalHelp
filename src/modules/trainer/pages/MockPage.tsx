@@ -53,7 +53,7 @@ const formatTime = (ms: number): string => {
 }
 
 /**
- * `/learn/mock` — setup, a timed run with no explanations, then results.
+ * `/study/practise/mock` — setup, a timed run with no explanations, then results.
  *
  * Scoped to `mcq` / `trueFalse` / `scenario` cards only: those are the ones
  * with an objective right answer, and they are exactly `data/rules`'s
@@ -151,7 +151,7 @@ export default function MockPage() {
         subtitle={stage.phase === 'setup' ? t('trainer.mock.subtitle') : undefined}
         actions={
           <Button asChild variant="outline" size="sm">
-            <Link to="/learn">
+            <Link to="/study/practise">
               <ArrowLeft aria-hidden="true" />
               {t('trainer.review.backHome')}
             </Link>
@@ -365,7 +365,7 @@ function ResultsView({
           {t('trainer.mock.resultsRetake')}
         </Button>
         <Button asChild variant="outline">
-          <Link to="/learn">{t('trainer.mock.resultsBackHome')}</Link>
+          <Link to="/study/practise">{t('trainer.mock.resultsBackHome')}</Link>
         </Button>
       </div>
     </div>

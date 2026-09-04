@@ -1,5 +1,5 @@
 import { useLiveQuery } from 'dexie-react-hooks'
-import { BookMarked, FileText, Flag, GraduationCap, ListChecks, Settings, Target } from 'lucide-react'
+import { BookMarked, ChevronRight, FileText, Flag, GraduationCap, ListChecks, Settings } from 'lucide-react'
 import { useState } from 'react'
 import { Link } from 'react-router-dom'
 
@@ -37,7 +37,7 @@ import { isServed } from '@/modules/trainer/schema'
 const MOCK_KINDS = new Set(['mcq', 'trueFalse', 'scenario'])
 
 /**
- * `/learn` — the Trainer's dashboard: due count, streak, today's goal, weak
+ * `/study/practise` — the Trainer's dashboard: due count, streak, today's goal, weak
  * areas and the act toggles, plus the two entry points into a session.
  *
  * Every number here is a `useLiveQuery` over the FSRS store, so a grade given
@@ -126,11 +126,12 @@ export default function HomePage() {
   return (
     <div className="mx-auto flex max-w-4xl flex-col gap-6">
       <PageHeader
+        as="h2"
         title={t('pages.learn.title')}
         subtitle={t('pages.learn.subtitle')}
         actions={
           <Button asChild variant="outline" size="sm">
-            <Link to="/learn/settings">
+            <Link to="/settings/trainer">
               <Settings aria-hidden="true" />
               {t('trainer.home.settingsLink')}
             </Link>
@@ -152,56 +153,69 @@ export default function HomePage() {
             </SectionCard>
           ) : null}
 
-          <div className="grid grid-cols-2 gap-3 sm:grid-cols-5">
-            <StatCard label={t('trainer.home.dueLabel')} value={String(remaining)} />
-            <StatCard
-              label={t('trainer.home.streakLabel')}
-              value={t('trainer.home.streakDays', { count: streakCount })}
-              hint={t('trainer.home.longestStreakLabel') + ': ' + bestStreak}
-            />
-            <StatCard label={t('trainer.home.reviewedTodayLabel')} value={String(stats?.reviewed ?? 0)} />
-            <StatCard label={t('trainer.home.newTodayLabel')} value={String(stats?.newIntroduced ?? 0)} />
-          </div>
+          {/* Today: one card, one decision. */}
+          <SectionCard active className="flex flex-col gap-4 p-4">
+            <h2 className="text-sm font-semibold">{t('trainer.home.todayTitle')}</h2>
 
-          <SectionCard className="p-4">
-            <div className="flex items-center justify-between gap-3">
-              <p className="text-sm font-medium">{t('trainer.home.goalRingLabel')}</p>
-              <p className="font-display text-sm">{goalPct}%</p>
+            <div className="grid grid-cols-2 gap-3 sm:grid-cols-4">
+              <StatCard label={t('trainer.home.dueLabel')} value={String(remaining)} />
+              <StatCard
+                label={t('trainer.home.streakLabel')}
+                value={t('trainer.home.streakDays', { count: streakCount })}
+                hint={t('trainer.home.longestStreakLabel') + ': ' + bestStreak}
+              />
+              <StatCard label={t('trainer.home.reviewedTodayLabel')} value={String(stats?.reviewed ?? 0)} />
+              <StatCard label={t('trainer.home.newTodayLabel')} value={String(stats?.newIntroduced ?? 0)} />
             </div>
-            <ProgressBar className="mt-2" value={goalPct} label={t('trainer.home.goalRingLabel')} />
-            <p className="mt-2 text-xs text-muted-foreground">
-              {remaining === 0 ? t('trainer.home.allCaughtUp') : t('trainer.home.nothingDue')}
-            </p>
+
+            <div>
+              <div className="flex items-center justify-between gap-3">
+                <p className="text-sm font-medium">{t('trainer.home.goalRingLabel')}</p>
+                <p className="font-display text-sm">{goalPct}%</p>
+              </div>
+              <ProgressBar className="mt-2" value={goalPct} label={t('trainer.home.goalRingLabel')} />
+              <p className="mt-2 text-xs text-muted-foreground">
+                {remaining === 0 ? t('trainer.home.allCaughtUp') : t('trainer.home.nothingDue')}
+              </p>
+            </div>
+
+            <Button asChild size="lg" className="w-full sm:w-fit">
+              <Link to="/study/practise/review">{t('trainer.home.startReview')}</Link>
+            </Button>
           </SectionCard>
 
-          <div className="grid gap-3 sm:grid-cols-2">
-            <Button asChild size="lg">
-              <Link to="/learn/review">{t('trainer.home.startReview')}</Link>
-            </Button>
-            {mockDisabled ? (
-              <Button
-                type="button"
-                size="lg"
-                variant="outline"
-                disabled
-                aria-describedby="mock-unavailable-reason"
-              >
-                {t('trainer.home.startMock')}
-              </Button>
-            ) : (
-              <Button asChild size="lg" variant="outline">
-                <Link to="/learn/mock">{t('trainer.home.startMock')}</Link>
-              </Button>
-            )}
-          </div>
-          {mockDisabled ? (
-            <p id="mock-unavailable-reason" className="text-xs text-muted-foreground">
-              {t('trainer.home.mockUnavailableReason')}{' '}
-              <Link className="text-primary underline" to="/learn/browse">
-                {t('trainer.home.mockUnavailableLink')}
-              </Link>
-            </p>
-          ) : null}
+          {/*
+            The five secondary destinations, always visible.
+
+            The mock used to be a large button beside Start review that went
+            DISABLED when no eligible card existed, which put a dead control in
+            the most prominent place on the screen. It is a row here like the
+            others, and the reason it cannot run yet is a sentence under it
+            rather than an `aria-describedby` on a button nobody can press
+            (Session 25's rule: disabled with a reason, never hidden).
+          */}
+          <nav aria-label={t('trainer.home.moreTitle')}>
+            <ul className="flex flex-col gap-2">
+              <DestinationRow
+                to="/study/practise/mock"
+                icon={ListChecks}
+                label={t('trainer.home.startMock')}
+                {...(mockDisabled ? { note: t('trainer.home.mockUnavailableReason') } : {})}
+              />
+              <DestinationRow to="/study/practise/browse" icon={FileText} label={t('trainer.home.browse')} />
+              <DestinationRow
+                to="/study/practise/bookmarks"
+                icon={BookMarked}
+                label={t('trainer.home.bookmarks')}
+              />
+              <DestinationRow to="/study/practise/reports" icon={Flag} label={t('trainer.home.reports')} />
+              <DestinationRow
+                to="/study/practise/review-queue"
+                icon={ListChecks}
+                label={t('trainer.home.reviewQueue')}
+              />
+            </ul>
+          </nav>
 
           <SectionCard className="p-4">
             <h2 className="text-sm font-semibold">{t('trainer.home.weakAreasTitle')}</h2>
@@ -258,47 +272,46 @@ export default function HomePage() {
                 : null}
             </div>
           </SectionCard>
-
-          <div className="grid grid-cols-2 gap-3 sm:grid-cols-4">
-            <Button asChild variant="outline">
-              <Link to="/learn/browse">
-                <FileText aria-hidden="true" />
-                {t('trainer.home.browse')}
-              </Link>
-            </Button>
-            <Button asChild variant="outline">
-              <Link to="/learn/bookmarks">
-                <BookMarked aria-hidden="true" />
-                {t('trainer.home.bookmarks')}
-              </Link>
-            </Button>
-            <Button asChild variant="outline">
-              <Link to="/learn/review-queue">
-                <ListChecks aria-hidden="true" />
-                {t('trainer.home.reviewQueue')}
-              </Link>
-            </Button>
-            <Button asChild variant="outline">
-              <Link to="/learn/reports">
-                <Flag aria-hidden="true" />
-                {t('trainer.home.reports')}
-              </Link>
-            </Button>
-            {/*
-              Exam mode is offered and never forced: it is a button beside the
-              other four, not a mode the Trainer switches into. A reader who is
-              not sitting a departmental examination sees one more link and
-              downloads none of `data/exams`.
-            */}
-            <Button asChild variant="outline">
-              <Link to="/learn/exam">
-                <Target aria-hidden="true" />
-                {t('trainer.exam.navTitle')}
-              </Link>
-            </Button>
-          </div>
         </>
       )}
     </div>
+  )
+}
+
+/**
+ * One secondary destination: a full-width row with its own reason, if it has
+ * one.
+ *
+ * A row rather than a button in a grid, because five equal buttons in a grid
+ * read as five equal choices — and after "Start review" none of these is the
+ * thing an officer came here to do.
+ */
+function DestinationRow({
+  to,
+  icon: Icon,
+  label,
+  note,
+}: {
+  to: string
+  icon: typeof BookMarked
+  label: string
+  note?: string
+}) {
+  return (
+    <li>
+      <SectionCard className="transition-colors hover:border-input">
+        <Link
+          to={to}
+          className="flex min-h-11 items-center gap-3 rounded-lg px-4 py-3 focus-visible:ring-2 focus-visible:ring-ring focus-visible:outline-none"
+        >
+          <Icon aria-hidden="true" className="h-4 w-4 shrink-0 text-muted-foreground" />
+          <span className="min-w-0 flex-1">
+            <span className="block text-sm font-medium">{label}</span>
+            {note ? <span className="block text-xs text-muted-foreground">{note}</span> : null}
+          </span>
+          <ChevronRight aria-hidden="true" className="h-4 w-4 shrink-0 text-muted-foreground" />
+        </Link>
+      </SectionCard>
+    </li>
   )
 }

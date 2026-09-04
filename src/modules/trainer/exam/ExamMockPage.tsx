@@ -41,9 +41,9 @@ type Stage =
   | { phase: 'results'; paper: MockPaper; rows: AnswerRow[] }
 
 /**
- * `/learn/exam/mock` — a weighted mock paper.
+ * `/study/exam/mock` — a weighted mock paper.
  *
- * Its own screen rather than a mode of `/learn/mock`, because an examination
+ * Its own screen rather than a mode of `/study/practise/mock`, because an examination
  * paper has affordances a study test does not: sections weighted by the
  * syllabus, a real clock taken from the notification, a penalty for a wrong
  * answer, marking for review, and an answer sheet a candidate can jump around.
@@ -81,7 +81,7 @@ export default function ExamMockPage() {
         <PageHeader title={t('trainer.exam.mock.title')} />
         <p className="text-sm text-muted-foreground">{t('trainer.exam.readiness.empty')}</p>
         <Button asChild size="sm">
-          <Link to="/learn/exam">{t('trainer.exam.picker.title')}</Link>
+          <Link to="/study/exam">{t('trainer.exam.picker.title')}</Link>
         </Button>
       </div>
     )
@@ -142,7 +142,7 @@ function MockFor({ profileId }: { profileId: string }) {
       subtitle={stage.phase === 'setup' ? t('trainer.exam.mock.subtitle') : undefined}
       actions={
         <Button asChild variant="outline" size="sm">
-          <Link to="/learn/exam">
+          <Link to="/study/exam">
             <ArrowLeft aria-hidden="true" />
             {t('trainer.exam.title')}
           </Link>
@@ -658,7 +658,7 @@ function Results({
           {t('trainer.exam.mock.resultsRetake')}
         </Button>
         <Button asChild variant="outline">
-          <Link to="/learn/exam">{t('trainer.exam.title')}</Link>
+          <Link to="/study/exam">{t('trainer.exam.title')}</Link>
         </Button>
       </div>
     </>

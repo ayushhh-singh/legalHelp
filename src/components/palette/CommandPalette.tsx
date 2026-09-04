@@ -32,7 +32,7 @@ import type { PaletteItem, PaletteSection } from './types'
 import { usePaletteData } from './usePaletteData'
 
 import { useT } from '@/i18n/useT'
-import { NAV_ITEMS } from '@/lib/nav'
+import { navDestinations } from '@/lib/nav'
 import { romanKey } from '@/lib/transliterate'
 
 /**
@@ -77,11 +77,22 @@ export function CommandPalette() {
       .catch(() => setRecents([]))
   }, [open])
 
+  /*
+    "Go to" — every section AND every sub-tab inside it (ADR-046 §12).
+
+    The flat nav array offered seven rows and the app now has twenty-eight
+    places; a palette that could only reach the section root would make the
+    reader land on Study and then hunt for "Exam", which is the two-step
+    navigation this restructure exists to remove. The section's own name is
+    carried as the hint, so "Bookmarks" is legible as Study's rather than the
+    Law Converter's — both exist.
+  */
   const navResults = useMemo(() => {
-    const items: PaletteItem[] = NAV_ITEMS.map((item) => ({
+    const items: PaletteItem[] = navDestinations().map((item) => ({
       id: `nav:${item.id}`,
       en: item.label.en,
       hi: item.label.hi,
+      ...(item.parentLabel ? { hint: item.parentLabel.en } : {}),
       to: item.path,
     }))
     if (!trimmed) return items

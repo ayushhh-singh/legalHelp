@@ -107,7 +107,7 @@ export default function ChapterQuizPage() {
     setOutcome(null)
   }, [nodeId, workId])
 
-  if (!isWorkId(workId)) return <Navigate to="/library" replace />
+  if (!isWorkId(workId)) return <Navigate to="/study/read" replace />
   if (work.status === 'error') return <QueryErrorState onRetry={work.retry} />
   if (work.status === 'loading' || !catalogue) return <Skeleton className="h-64 w-full" />
   if (!chapter) return <Navigate to={toWorkHref(workId)} replace />

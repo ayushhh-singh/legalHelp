@@ -159,7 +159,7 @@ describe('toPayHref', () => {
   it('builds a shareable link', () => {
     const scenario = scenarioForJob('ib-acio-ii-executive', tables, { daRate: 60, cityId: 'delhi' })
     const href = toPayHref({ scenario, tab: 'calculator', compare: null, private: null }, tables)
-    expect(href.startsWith('/pay?')).toBe(true)
+    expect(href.startsWith('/tools/salary?')).toBe(true)
     expect(href).toContain('job=ib-acio-ii-executive')
   })
 })

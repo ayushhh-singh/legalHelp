@@ -8,7 +8,7 @@ import { defaultScenario, type PayScenario } from '@/lib/pay/scenario'
 import { loadPayTables } from './data'
 
 /**
- * The restore on a bare `/pay`, and the two ways it can go wrong.
+ * The restore on a bare `/tools/salary`, and the two ways it can go wrong.
  *
  * `readLastScenario` is mocked so the race is a decision rather than a
  * millisecond window: the test holds the promise open, moves the reader, and
@@ -22,7 +22,7 @@ import { loadPayTables } from './data'
  * The two tests guard different things, and neither is redundant:
  *
  *  - the first fails against the code BEFORE the fix, landing the reader on
- *    `/pay?level=8&cell=3&da=60` after they had left;
+ *    `/tools/salary?level=8&cell=3&da=60` after they had left;
  *  - the second passes against that code and fails against the obvious WRONG
  *    fix — an `alive` flag with no latch reset — which never restores the
  *    scenario under StrictMode at all.
@@ -56,7 +56,7 @@ function LawLike() {
   return (
     <div data-testid="law-marker">
       law
-      <button type="button" onClick={() => void navigate('/pay')}>
+      <button type="button" onClick={() => void navigate('/tools/salary')}>
         back to pay
       </button>
     </div>
@@ -69,7 +69,7 @@ function Harness() {
       <Where />
       <Suspense fallback={<p>loading</p>}>
         <Routes>
-          <Route path="/pay" element={<PayPage />} />
+          <Route path="/tools/salary" element={<PayPage />} />
           <Route path="/law" element={<LawLike />} />
         </Routes>
       </Suspense>
@@ -81,7 +81,7 @@ function Harness() {
  * A scenario that actually differs from the defaults.
  *
  * Built from the real tables rather than hand-written: `paramsFromView` omits
- * every value that equals its default, so a stub restores to a BARE `/pay` and
+ * every value that equals its default, so a stub restores to a BARE `/tools/salary` and
  * the StrictMode assertion below would fail for a reason that has nothing to
  * do with the latch it is testing.
  */
@@ -91,10 +91,10 @@ async function savedScenario(): Promise<PayScenario> {
 }
 
 beforeEach(() => {
-  window.history.replaceState({}, '', '/pay')
+  window.history.replaceState({}, '', '/tools/salary')
 })
 
-describe('restoring the last scenario on a bare /pay', () => {
+describe('restoring the last scenario on a bare /tools/salary', () => {
   it('does not pull back a reader who has already left', async () => {
     const user = userEvent.setup()
     render(<Harness />)
@@ -116,7 +116,7 @@ describe('restoring the last scenario on a bare /pay', () => {
       await Promise.resolve()
     })
 
-    // Without the `alive` guard this reads /pay?level=8&cell=3: setSearchParams
+    // Without the `alive` guard this reads /tools/salary?level=8&cell=3: setSearchParams
     // navigates to its OWN route, so the reader is yanked back onto the page
     // they left rather than merely gaining a stray query string.
     expect(screen.getByTestId('where')).toHaveTextContent('/law')

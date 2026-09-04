@@ -14,7 +14,7 @@ import { expect, onPhone, test } from './fixtures'
 /** The section tables load as their own chunks; wait for the first result. */
 async function search(page: Page, query: string) {
   await page.goto('/law')
-  await expect(page.getByRole('heading', { level: 1, name: 'Law Converter' })).toBeVisible()
+  await expect(page.getByRole('heading', { level: 2, name: 'Law Converter' })).toBeVisible()
   await page.getByLabel(/Search a section/).fill(query)
 }
 
@@ -167,13 +167,22 @@ test('opening a section keeps the search box on a desktop and reveals it on a ph
   // scroll the APP never asked for — which shows up as a flake under load
   // rather than as a real regression in the two-pane layout.
   const row = wide.getByRole('button').nth(3)
+  /*
+    Scrolled into view first, and that is not a workaround. ADR-046 put the
+    section's own `<h1>` and the sub-tab strip above this list, so the fourth
+    row starts a little below the fold on a 900px-tall window — and the
+    assertion this test actually makes is about what the APP does after the
+    click, not about where the row happened to start.
+  */
+  await row.scrollIntoViewIfNeeded()
   await expect(row).toBeInViewport()
+  const before = await page.evaluate(() => window.scrollY)
   await row.click()
   await expect(page.getByRole('heading', { name: 'Punishments.' })).toBeVisible()
   // Not exactly zero: focusing the clicked row nudges the page a pixel or two.
   // What matters is that the search box is still on screen, not that nothing
   // moved at all.
-  expect(await page.evaluate(() => window.scrollY)).toBeLessThan(40)
+  expect(Math.abs((await page.evaluate(() => window.scrollY)) - before)).toBeLessThan(40)
   await expect(page.getByLabel(/Search a section/)).toBeInViewport()
 
   // Stacked on a phone the card is far below the fold, which is the case where

@@ -2,7 +2,7 @@ import { existsSync } from 'node:fs'
 
 import { describe, expect, it } from 'vitest'
 
-import { NAV_ITEMS } from '@/lib/nav'
+import { NAV_TABS, SETTINGS_PATH } from '@/lib/nav'
 import { fromRoot, readFromRoot } from '@/test/paths'
 
 import en from '@/i18n/en.json'
@@ -36,7 +36,7 @@ describe('what a crawler sees', () => {
     expect(robots).toMatch(/^Sitemap: https:\/\/\S+\/sitemap\.xml$/m)
   })
 
-  built('the sitemap lists the entry point and every nav destination, once each', () => {
+  built('the sitemap lists the entry point, every section and Settings, once each', () => {
     const sitemap = readFromRoot('dist/sitemap.xml')
     const locs = [...sitemap.matchAll(/<loc>([^<]+)<\/loc>/g)].map((match) => match[1] ?? '')
 
@@ -45,7 +45,10 @@ describe('what a crawler sees', () => {
     const origin = new URL(locs[0] ?? 'https://example.invalid').origin
     const paths = locs.map((loc) => new URL(loc).pathname)
 
-    expect(paths).toEqual(['/', ...NAV_ITEMS.map((item) => item.path)])
+    // The five sections and Settings. Sub-tabs are not in the sitemap and must
+    // not be: `/study/read` is where `/study` lands, and listing both would put
+    // the same document in a crawler's index twice.
+    expect(paths).toEqual(['/', ...NAV_TABS.map((item) => item.path), SETTINGS_PATH])
     for (const loc of locs) expect(loc.startsWith(origin)).toBe(true)
   })
 

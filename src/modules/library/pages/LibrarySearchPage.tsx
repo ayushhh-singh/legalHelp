@@ -22,7 +22,7 @@ import {
 } from '@/lib/library'
 
 /**
- * `/library/search` — one query across every work on this device.
+ * `/study/read/search` — one query across every work on this device.
  *
  * IT IS A DELIBERATE ACT, not something a keystroke triggers. Searching the
  * whole Library means parsing 5.5 MB of statute, and while none of it is
@@ -124,7 +124,7 @@ export default function LibrarySearchPage() {
         subtitle={t('library.search.allSubtitle')}
         actions={
           <Button asChild variant="outline" size="sm">
-            <Link to="/library">
+            <Link to="/study/read">
               <ArrowLeft aria-hidden="true" />
               {t('library.back')}
             </Link>

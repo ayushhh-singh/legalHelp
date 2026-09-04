@@ -3,10 +3,8 @@ import userEvent from '@testing-library/user-event'
 import { MemoryRouter, Route, Routes } from 'react-router-dom'
 import { beforeEach, describe, expect, it } from 'vitest'
 
-import ExamChecklistPage from './ExamChecklistPage'
 import ExamHubPage from './ExamHubPage'
 import ExamMockPage from './ExamMockPage'
-import ExamPlanPage from './ExamPlanPage'
 import { EXAM_PROFILE_IDS, loadExamIndex, loadExamProfile } from './data'
 
 import { ExamModeSection } from '@/modules/settings/components/ExamModeSection'
@@ -27,10 +25,8 @@ const at = (path: string) =>
   render(
     <MemoryRouter initialEntries={[path]}>
       <Routes>
-        <Route path="/learn/exam" element={<ExamHubPage />} />
-        <Route path="/learn/exam/plan" element={<ExamPlanPage />} />
-        <Route path="/learn/exam/mock" element={<ExamMockPage />} />
-        <Route path="/learn/exam/checklist" element={<ExamChecklistPage />} />
+        <Route path="/study/exam" element={<ExamHubPage />} />
+        <Route path="/study/exam/mock" element={<ExamMockPage />} />
       </Routes>
     </MemoryRouter>,
   )
@@ -57,18 +53,19 @@ describe('a stored profile this build does not have', () => {
 
   it('sends the reader back to the picker rather than to a permanent skeleton', async () => {
     await setActiveExam(GONE)
-    at('/learn/exam')
+    at('/study/exam')
     expect(await screen.findByRole('heading', { name: 'Which examination?' })).toBeInTheDocument()
   })
 
   it('offers a way out from every other exam screen too', async () => {
     await setActiveExam(GONE)
     await setTargetDate(GONE, '2027-01-01')
-    for (const path of ['/learn/exam/plan', '/learn/exam/mock', '/learn/exam/checklist']) {
-      const view = at(path)
-      expect(await screen.findByRole('link', { name: 'Which examination?' }), path).toBeInTheDocument()
-      view.unmount()
-    }
+    // The plan and the checklist are sections of the hub since ADR-046, and
+    // the hub answers a profile it cannot load with the picker (asserted just
+    // above). The mock is the one screen that is still reachable on its own.
+    const view = at('/study/exam/mock')
+    expect(await screen.findByRole('link', { name: 'Which examination?' })).toBeInTheDocument()
+    view.unmount()
   })
 })
 
@@ -114,7 +111,7 @@ describe('the next-three-actions can offer a mock', () => {
 
     await setActiveExam('css-so-ldce')
     await setTargetDate('css-so-ldce', istDayFromNow(3))
-    at('/learn/exam')
+    at('/study/exam')
 
     await screen.findByText('Readiness')
     await waitFor(() => {
@@ -127,7 +124,7 @@ describe('the next-three-actions can offer a mock', () => {
     // passing test.
     await setActiveExam('css-so-ldce')
     await setTargetDate('css-so-ldce', istDayFromNow(300))
-    at('/learn/exam')
+    at('/study/exam')
     await screen.findByText('Readiness')
     expect(screen.queryByText('Sit a mock paper')).not.toBeInTheDocument()
   })
@@ -160,7 +157,7 @@ describe('choosing a profile offers the Trainer its rule books', () => {
     const { loadSettings } = await import('@/lib/srs')
     expect((await loadSettings()).actsEnabled).toEqual([])
 
-    at('/learn/exam')
+    at('/study/exam')
     const cards = await screen.findAllByRole('button', { name: 'Prepare for this' })
     await user.click(cards[0]!)
 
@@ -181,7 +178,7 @@ describe('choosing a profile offers the Trainer its rule books', () => {
     const { loadSettings, saveSettings } = await import('@/lib/srs')
     await saveSettings({ actsEnabled: ['gfr'] })
 
-    at('/learn/exam')
+    at('/study/exam')
     const cards = await screen.findAllByRole('button', { name: 'Prepare for this' })
     await user.click(cards[0]!)
 
@@ -209,7 +206,7 @@ describe('the plan honours the reader’s Session 28 study goal', () => {
 
     await setActiveExam('css-so-ldce')
     await setTargetDate('css-so-ldce', istDayFromNow(40))
-    at('/learn/exam/plan')
+    at('/study/exam')
 
     expect(await screen.findByText(/About 30 minutes a day/)).toBeInTheDocument()
     expect(screen.getByText(/Taken from your weekly Library goal/)).toBeInTheDocument()
@@ -223,7 +220,7 @@ describe('the plan honours the reader’s Session 28 study goal', () => {
 
     await setActiveExam('css-so-ldce')
     await setTargetDate('css-so-ldce', istDayFromNow(40))
-    at('/learn/exam/plan')
+    at('/study/exam')
 
     expect(await screen.findByText(/About 50 minutes a day/)).toBeInTheDocument()
   })
@@ -238,14 +235,14 @@ describe('the plan says why it stops', () => {
     const row = await db.examChoices.get('css-so-ldce')
     await db.examChoices.put({ ...row!, targetDate: 'not-a-day' })
 
-    at('/learn/exam/plan')
+    at('/study/exam')
     expect(await screen.findByText(/is not a date this app can read/i)).toBeInTheDocument()
   })
 
   it('says a window was cut short rather than just ending early', async () => {
     await setActiveExam('css-so-ldce')
     await setTargetDate('css-so-ldce', '2036-09-04')
-    at('/learn/exam/plan')
+    at('/study/exam')
     expect(await screen.findByText(/only the first/i)).toBeInTheDocument()
   })
 })

@@ -27,8 +27,8 @@ describe('the study streak must not disagree with the Trainer’s about the same
    *     let day = met.has(today) ? today : addIstDays(today, -1)
    *
    * `studyStreak` started from today unconditionally, so a reader with thirty
-   * consecutive days saw **0** on `/library/study` every morning until they
-   * studied, while `/learn` showed 30 at the same moment. That is not a
+   * consecutive days saw **0** on `/study/progress` every morning until they
+   * studied, while `/study/practise` showed 30 at the same moment. That is not a
    * conservative reading of the same fact — it destroys the fact. The screen
    * already has a separate line for "nothing studied today yet"
    * (`library.study.review.noStreak`), so the two statements never needed to be

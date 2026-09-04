@@ -15,7 +15,7 @@ import { audit, dismissPwaToasts, expect, formatViolations, test } from './fixtu
 const FAKE_KEY = 'sk-ant-api03-playwright-not-a-real-key'
 
 async function enableAi(page: import('@playwright/test').Page): Promise<void> {
-  await page.goto('/settings')
+  await page.goto('/settings/ai')
   await page.getByRole('button', { name: 'Read what this sends' }).click()
   await page.getByRole('button', { name: 'I have read this — enable AI' }).click()
   await page
@@ -30,9 +30,9 @@ async function enableAi(page: import('@playwright/test').Page): Promise<void> {
 test('the calculator offers "Explain my payslip" once a post is picked and AI is on', async ({ page }) => {
   await enableAi(page)
 
-  await page.goto('/pay?job=ib-acio-ii-executive')
+  await page.goto('/tools/salary?job=ib-acio-ii-executive')
   await dismissPwaToasts(page)
-  await expect(page.getByRole('heading', { level: 1, name: 'Pay & Allowances' })).toBeVisible()
+  await expect(page.getByRole('heading', { level: 2, name: 'Pay & Allowances' })).toBeVisible()
 
   await expect(page.getByRole('complementary', { name: 'AI notice' })).toBeVisible()
   await expect(page.getByRole('button', { name: 'Explain my payslip' })).toBeVisible()
@@ -44,15 +44,15 @@ test('the calculator offers "Explain my payslip" once a post is picked and AI is
 test('the compare tab offers a neutral-summary action once both posts are picked', async ({ page }) => {
   await enableAi(page)
 
-  await page.goto('/pay?tab=compare&job=ib-acio-ii-executive&b_job=aso-css')
+  await page.goto('/tools/salary?tab=compare&job=ib-acio-ii-executive&b_job=aso-css')
   await dismissPwaToasts(page)
   await expect(page.getByRole('button', { name: 'Compare these two posts for me' })).toBeVisible()
 })
 
 test('AI off — no explain action renders, no post picked — no explain action either', async ({ page }) => {
-  await page.goto('/pay?job=ib-acio-ii-executive')
+  await page.goto('/tools/salary?job=ib-acio-ii-executive')
   await dismissPwaToasts(page)
-  await expect(page.getByRole('heading', { level: 1, name: 'Pay & Allowances' })).toBeVisible()
+  await expect(page.getByRole('heading', { level: 2, name: 'Pay & Allowances' })).toBeVisible()
   await expect(page.getByRole('button', { name: 'Explain my payslip' })).toHaveCount(0)
   await expect(page.getByRole('complementary', { name: 'AI notice' })).toHaveCount(0)
 })

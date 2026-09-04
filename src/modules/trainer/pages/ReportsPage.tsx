@@ -12,7 +12,7 @@ import { Button } from '@/components/ui/button'
 import { useT } from '@/i18n/useT'
 
 /**
- * `/learn/reports` — every card a reader has flagged, kept visible for an
+ * `/study/practise/reports` — every card a reader has flagged, kept visible for an
  * auditor rather than acted on automatically (see `TrainerReportRow`'s own
  * note in `src/db/index.ts`). "Exportable" is a CSV download built entirely
  * client-side — no network, matching the master context's zero-analytics rule.
@@ -50,7 +50,7 @@ export default function ReportsPage() {
         subtitle={t('trainer.reports.subtitle')}
         actions={
           <Button asChild variant="outline" size="sm">
-            <Link to="/learn">
+            <Link to="/study/practise">
               <ArrowLeft aria-hidden="true" />
               {t('trainer.review.backHome')}
             </Link>

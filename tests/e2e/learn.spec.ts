@@ -19,7 +19,15 @@ import { dismissPwaToasts, expect, test } from './fixtures'
  * card any fresh install of this app will ever show, not a fixture.
  */
 
-const homeStat = (page: Page, label: string) => page.locator('section', { hasText: label })
+/**
+ * One statistic on the Practise tab, by its own label.
+ *
+ * `.last()` because ADR-046 put the four stats inside ONE "Today" card, which
+ * is itself a `<section>` — so an unfiltered `hasText` matches the card as well
+ * as the `StatCard` inside it, and the card contains every figure on the
+ * screen. The innermost match is the one that is about this label.
+ */
+const homeStat = (page: Page, label: string) => page.locator('section', { hasText: label }).last()
 
 test('start review → reveal → grade Good → next card → finish → home counts update, and a language toggle mid-card keeps the same card', async ({
   page,
@@ -31,22 +39,33 @@ test('start review → reveal → grade Good → next card → finish → home c
     if (new URL(request.url()).origin !== origin) crossOrigin.push(`${request.method()} ${request.url()}`)
   })
 
-  await page.goto('/learn')
+  await page.goto('/study/practise')
   await expect(page.getByRole('heading', { level: 1 })).toBeVisible()
   await page.getByRole('link', { name: /Start review|पुनरीक्षण आरंभ करें/ }).click()
 
-  await expect(page).toHaveURL(/\/learn\/review/)
+  await expect(page).toHaveURL(/\/study\/practise\/review/)
   await expect(page.getByText('Rule 1, Central Civil Services (Conduct) Rules, 1964')).toBeVisible({
     timeout: 30_000,
   })
   await expect(page.getByText('Short title, commencement and application', { exact: false })).toBeVisible()
 
-  // Toggle the app's language mid-card — the same card must still be on
-  // screen, in the other language, not reset to the queue's first card again.
+  /*
+    Toggle the app's language mid-card — the same card must still be on screen,
+    in the other language, not reset to the queue's first card again.
+
+    A review session is a FOCUS screen since ADR-046, so the app's top bar is
+    hidden and the toggle lives in the FocusBar's ⋯ menu. That the control is
+    still reachable from inside a session is the point: an officer who wants to
+    read a rule in Hindi should not have to leave the card to do it.
+  */
+  const openMenu = async () => page.getByRole('button', { name: 'More actions' }).click()
+
+  await openMenu()
   await page.getByRole('button', { name: 'Switch to Hindi' }).click()
   await expect(page.locator('html')).toHaveAttribute('lang', 'hi')
   await expect(page.getByText('नियम 1, केंद्रीय सिविल सेवा (आचरण) नियम, 1964')).toBeVisible()
 
+  await page.getByRole('button', { name: 'अन्य क्रियाएँ' }).click()
   await page.getByRole('button', { name: 'अंग्रेज़ी में बदलें' }).click()
   await expect(page.locator('html')).toHaveAttribute('lang', 'en')
   await expect(page.getByText('Rule 1, Central Civil Services (Conduct) Rules, 1964')).toBeVisible()
@@ -65,7 +84,7 @@ test('start review → reveal → grade Good → next card → finish → home c
   await page.getByRole('button', { name: /^Good/ }).click()
 
   await page.getByRole('link', { name: 'Back to Home' }).click()
-  await expect(page).toHaveURL(/\/learn$/)
+  await expect(page).toHaveURL(/\/study\/practise$/)
   await expect(homeStat(page, 'Reviewed today').getByText('2', { exact: true })).toBeVisible()
   await expect(homeStat(page, 'New today').getByText('2', { exact: true })).toBeVisible()
 
@@ -73,7 +92,7 @@ test('start review → reveal → grade Good → next card → finish → home c
 })
 
 test('a mock test can be completed start to finish', async ({ page }) => {
-  await page.goto('/learn/mock')
+  await page.goto('/study/practise/mock')
   await expect(page.getByRole('button', { name: 'Start test' })).toBeVisible({ timeout: 30_000 })
 
   // 10 questions, no timer — the defaults — over every rule book.
@@ -97,9 +116,9 @@ test('a mock test can be completed start to finish', async ({ page }) => {
 
 test('the whole review loop works with no network at all', async ({ page, context }) => {
   // Warm the service worker, exactly as tests/e2e/offline.spec.ts does.
-  await page.goto('/learn')
+  await page.goto('/study/practise')
   await expect(page.getByRole('link', { name: 'Start review' })).toBeVisible({ timeout: 30_000 })
-  await page.goto('/learn/review')
+  await page.goto('/study/practise/review')
   await expect(page.getByText('Rule 1, Central Civil Services (Conduct) Rules, 1964')).toBeVisible({
     timeout: 30_000,
   })
@@ -121,7 +140,7 @@ test('a topic’s Copy link on Browse produces the same URL a review-scope link 
   context,
 }) => {
   await context.grantPermissions(['clipboard-read', 'clipboard-write'])
-  await page.goto('/learn/browse')
+  await page.goto('/study/practise/browse')
   await expect(page.getByRole('heading', { level: 1 })).toBeVisible()
   await expect(page.getByText('Central Civil Services (Conduct) Rules, 1964', { exact: false })).toBeVisible({
     timeout: 30_000,
@@ -130,11 +149,11 @@ test('a topic’s Copy link on Browse produces the same URL a review-scope link 
   await page.getByRole('button', { name: 'Copy link to this rule book' }).first().click()
   await expect(page.getByText('Link copied to the clipboard.')).toBeVisible()
   const copied = await page.evaluate(() => navigator.clipboard.readText())
-  expect(copied).toContain('/learn/review?act=ccs-conduct')
+  expect(copied).toContain('/study/practise/review?act=ccs-conduct')
 
   // The link itself restores the same scoped review the weak-area chips on
   // Home already use `?act=` for.
-  await page.goto('/learn/review?act=ccs-conduct')
+  await page.goto('/study/practise/review?act=ccs-conduct')
   await expect(page.getByText('Rule 1, Central Civil Services (Conduct) Rules, 1964')).toBeVisible({
     timeout: 30_000,
   })

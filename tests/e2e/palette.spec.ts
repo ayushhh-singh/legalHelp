@@ -35,7 +35,7 @@ test.describe('command palette', () => {
   })
 
   test('opens with Ctrl/Cmd+K from any route', async ({ page }) => {
-    await page.goto('/pay')
+    await page.goto('/tools/salary')
     await expect(page.getByRole('heading', { level: 1 })).toBeVisible()
 
     await page.keyboard.press('Control+k')
@@ -92,15 +92,21 @@ test.describe('command palette', () => {
 })
 
 test.describe('global keyboard shortcuts', () => {
-  test('g then a letter jumps to each module', async ({ page }) => {
+  test('g then a letter jumps to each section', async ({ page }) => {
     await page.goto('/law')
     await expect(page.getByRole('heading', { level: 1 })).toBeVisible()
 
+    // One letter per tab (ADR-046), plus the two places inside Study a reader
+    // goes straight to — "open the shelf" and "start practising" are different
+    // intentions, and landing on the section root would make one of them a
+    // second keystroke.
     const cases: Array<[string, RegExp]> = [
-      ['p', /\/pay/],
-      ['d', /\/draft/],
-      ['e', /\/learn/],
-      ['u', /\/utils/],
+      ['h', /\/home/],
+      ['s', /\/study\/read/],
+      ['p', /\/study\/practise/],
+      ['r', /\/study\/read/],
+      ['d', /\/draft\/documents/],
+      ['t', /\/tools\/salary/],
       ['l', /\/law/],
     ]
 
@@ -136,7 +142,7 @@ test.describe('global keyboard shortcuts', () => {
   })
 
   test('/ focuses the current page’s own search box', async ({ page }) => {
-    await page.goto('/utils/glossary')
+    await page.goto('/tools/glossary')
     await expect(page.getByRole('heading', { level: 1 })).toBeVisible()
     // Focus something else first, so the shortcut has to move it.
     await page.getByRole('button', { name: 'Open command palette' }).first().focus()

@@ -9,9 +9,9 @@ import { useAppStore } from './store'
 
 import { ErrorBoundary } from '@/components/common/ErrorBoundary'
 import i18n, { detectBrowserLanguage } from '@/i18n'
-import { NAV_ITEMS, OVERFLOW_NAV_ITEMS, PRIMARY_NAV_ITEMS } from '@/lib/nav'
+import { NAV_TABS } from '@/lib/nav'
 
-async function renderShell(route = '/law') {
+async function renderShell(route = '/home') {
   const result = render(
     <MemoryRouter initialEntries={[route]}>
       <App />
@@ -186,82 +186,75 @@ describe('language detection', () => {
 })
 
 describe('bottom tab bar', () => {
-  it('renders every destination plus the More trigger', async () => {
+  it('renders all five tabs, with no "More" sheet', async () => {
     await renderShell()
 
     const tabList = screen.getByRole('navigation', { name: i18n.t('a11y.tabNavigation') }).querySelector('ul')
 
     expect(tabList).not.toBeNull()
-    // Four flagship slots + the overflow items (inline from 768px) + "More".
-    expect(tabList?.children).toHaveLength(NAV_ITEMS.length + 1)
-    expect(tabList?.querySelectorAll('a')).toHaveLength(NAV_ITEMS.length)
+    expect(tabList?.children).toHaveLength(NAV_TABS.length)
+    expect(tabList?.querySelectorAll('a')).toHaveLength(NAV_TABS.length)
+    // The sheet is gone, not hidden: ADR-046 removed the overflow entirely
+    // because five tabs fit the bar at every width this app supports. A
+    // trigger left behind would be a control opening an empty sheet.
+    expect(tabList?.querySelectorAll('button')).toHaveLength(0)
   })
 
   it('gives every target in the bar at least the 44px WCAG 2.5.8 minimum', async () => {
     await renderShell()
 
-    // The whole landmark, which now includes the More sheet's own links: the
-    // sheet sits inside <nav> so its content is not outside every landmark, and
-    // after the trigger so Tab reaches it.
     const bar = screen.getByRole('navigation', { name: i18n.t('a11y.tabNavigation') })
     const targets = bar.querySelectorAll('a, button')
-    expect(targets.length).toBe(NAV_ITEMS.length + 1 + OVERFLOW_NAV_ITEMS.length)
+    expect(targets.length).toBe(NAV_TABS.length)
 
     for (const target of targets) {
-      // The rule is 44px, not one particular class. min-h-11 is exactly 44px
-      // (sheet rows), min-h-14 is 56px (tab bar); asserting the literal class
-      // would fail on a legal size and pass on an illegal one.
+      // The rule is 44px, not one particular class. min-h-11 is exactly 44px,
+      // min-h-14 is 56px (tab bar); asserting the literal class would fail on
+      // a legal size and pass on an illegal one.
       const size = /\bmin-h-(\d+)\b/.exec(target.className)?.[1]
       expect(size, `no min-h-* on ${target.textContent}`).toBeDefined()
       expect(Number(size) * 4, target.textContent ?? '').toBeGreaterThanOrEqual(44)
     }
   })
 
-  it('opens the More sheet and closes it on Escape', async () => {
-    const user = userEvent.setup()
-    await renderShell()
+  it('hides both chromes on a focus route', async () => {
+    // Level 3 is a page an officer is INSIDE — the reader, a review session,
+    // the document editor — and `App.tsx` drops the top bar, the sidebar and
+    // the tab bar synchronously from the route registry rather than being told
+    // by the layout that rendered, so there is no frame with them still on it.
+    await renderShell('/study/practise/review')
 
-    const more = screen.getByRole('button', { name: i18n.t('nav.moreSheet') })
-    expect(more).toHaveAttribute('aria-expanded', 'false')
-
-    await user.click(more)
-    expect(more).toHaveAttribute('aria-expanded', 'true')
-    for (const item of OVERFLOW_NAV_ITEMS) {
-      expect(screen.getAllByRole('link', { name: item.label.en }).length).toBeGreaterThan(0)
-    }
-
-    await user.keyboard('{Escape}')
-    expect(screen.getByRole('button', { name: i18n.t('nav.moreSheet') })).toHaveAttribute(
-      'aria-expanded',
-      'false',
-    )
+    expect(screen.queryByRole('navigation', { name: i18n.t('a11y.tabNavigation') })).toBeNull()
+    expect(screen.queryByRole('navigation', { name: i18n.t('a11y.mainNavigation') })).toBeNull()
+    expect(screen.queryByRole('banner')).toBeNull()
   })
 })
 
 describe('the nav config is the single source of truth', () => {
-  it('splits into flagship tabs and overflow with nothing lost', () => {
-    expect([...PRIMARY_NAV_ITEMS, ...OVERFLOW_NAV_ITEMS].map((i) => i.id).sort()).toEqual(
-      NAV_ITEMS.map((i) => i.id).sort(),
-    )
-    // Four flagship slots; everything else belongs to "More".
-    expect(PRIMARY_NAV_ITEMS).toHaveLength(4)
+  it('is five tabs, and they are these five', () => {
+    // Asserted BY NAME, not by count: a swap keeps the count at five, and a
+    // reader who loses a tab they use every day would find out from the phone
+    // in their hand rather than from this suite.
+    expect(NAV_TABS.map((tab) => tab.id)).toEqual(['home', 'study', 'draft', 'law', 'tools'])
   })
 
-  it('keeps the four visible tabs the four they have always been', () => {
-    // Session 26 added the Library as a sixth destination, and the brief was
-    // explicit that it must enter the "More" sheet rather than silently push
-    // one of these out. Asserted BY NAME, not by count: a swap keeps the count
-    // at four, and a reader who loses a tab they use every day would find out
-    // from the phone in their hand rather than from this suite.
-    expect(PRIMARY_NAV_ITEMS.map((item) => item.id)).toEqual(['law', 'pay', 'draft', 'learn'])
-    expect(OVERFLOW_NAV_ITEMS.map((item) => item.id)).toContain('library')
+  it('gives every tab a default sub-tab that is one of its own', () => {
+    for (const tab of NAV_TABS) {
+      expect(
+        tab.subTabs.map((subTab) => subTab.id),
+        `${tab.id}.defaultSubTab`,
+      ).toContain(tab.defaultSubTab)
+    }
   })
 
-  it('labels every destination in both languages', () => {
-    for (const item of NAV_ITEMS) {
+  it('labels every tab and every sub-tab in both languages', () => {
+    for (const item of NAV_TABS) {
       for (const language of ['en', 'hi'] as const) {
         expect(item.label[language], `${item.id}.label.${language}`).toBeTruthy()
         expect(item.short[language], `${item.id}.short.${language}`).toBeTruthy()
+        for (const subTab of item.subTabs) {
+          expect(subTab.label[language], `${item.id}.${subTab.id}.label.${language}`).toBeTruthy()
+        }
       }
     }
   })

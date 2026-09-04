@@ -3,17 +3,21 @@ import userEvent from '@testing-library/user-event'
 import { MemoryRouter, Route, Routes } from 'react-router-dom'
 import { beforeEach, describe, expect, it } from 'vitest'
 
-import ExamChecklistPage from './ExamChecklistPage'
 import ExamHubPage from './ExamHubPage'
 import ExamMockPage from './ExamMockPage'
-import ExamPlanPage from './ExamPlanPage'
 import { EXAM_PROFILE_IDS, loadExamIndex, loadExamProfile } from './data'
 
 import { clearAllData } from '@/db'
 import { setActiveExam, setTargetDate } from '@/lib/exam'
 
 /**
- * Exam mode's four screens, in jsdom, against the REAL committed profiles.
+ * Exam mode, in jsdom, against the REAL committed profiles.
+ *
+ * TWO routes since ADR-046, not four: the plan and the exam-day checklist are
+ * sections of `/study/exam` under `#plan` and `#checklist`, so the tests that
+ * used to visit them render the hub and read the section on it. That is what
+ * the redirects from `/learn/exam/plan` and `/learn/exam/checklist` land on
+ * too, so the assertions describe what a reader following an old link sees.
  *
  * Not a fixture profile: a stub of a dataset type is a stub of every field the
  * code happens to read, and `data/exams/profiles/*.json` is one `?raw` import
@@ -30,10 +34,8 @@ const at = (path: string) =>
   render(
     <MemoryRouter initialEntries={[path]}>
       <Routes>
-        <Route path="/learn/exam" element={<ExamHubPage />} />
-        <Route path="/learn/exam/plan" element={<ExamPlanPage />} />
-        <Route path="/learn/exam/mock" element={<ExamMockPage />} />
-        <Route path="/learn/exam/checklist" element={<ExamChecklistPage />} />
+        <Route path="/study/exam" element={<ExamHubPage />} />
+        <Route path="/study/exam/mock" element={<ExamMockPage />} />
       </Routes>
     </MemoryRouter>,
   )
@@ -49,7 +51,7 @@ beforeEach(async () => {
 
 describe('the picker', () => {
   it('lists every bundled profile with its honest mapped/external ratio', async () => {
-    at('/learn/exam')
+    at('/study/exam')
     // Each name appears twice on a card — the examination and the organisation
     // — so these are `getAllByText`. An unscoped `getByText` fails on strict
     // mode here, which is the shape CLAUDE.md already records for the reply
@@ -64,14 +66,14 @@ describe('the picker', () => {
   })
 
   it('says the boundary out loud, and names the three exams that are not here', async () => {
-    at('/learn/exam')
+    at('/study/exam')
     expect(await screen.findByText(/only public syllabus structure/i)).toBeInTheDocument()
     expect(screen.getByText(/no public notification of a CBI/i)).toBeInTheDocument()
   })
 
   it('shows the readiness screen once a profile is chosen, not the list', async () => {
     const user = userEvent.setup()
-    at('/learn/exam')
+    at('/study/exam')
     const cards = await screen.findAllByRole('button', { name: 'Prepare for this' })
     await user.click(cards[0]!)
 
@@ -89,7 +91,7 @@ describe('the readiness screen', () => {
     // The difference between "80% ready" and "80% ready over three tenths of
     // the paper" is the whole honesty of this module, and a caveat one card
     // away is a caveat nobody reads. Scoped to the card, not to the page.
-    at('/learn/exam')
+    at('/study/exam')
     const heading = await screen.findByText('Readiness')
     const card = heading.closest('div')!
     expect(within(card).getByText(/0% ready/)).toBeInTheDocument()
@@ -97,7 +99,7 @@ describe('the readiness screen', () => {
   })
 
   it('shows the mandatory banner and the weights caveat under it', async () => {
-    at('/learn/exam')
+    at('/study/exam')
     expect(await screen.findByText(/confirm against your department's current circular/i)).toBeInTheDocument()
     // The weights caveat is `weightBasis` from the profile itself, rendered
     // under the banner — asserted against the dataset's own words rather than
@@ -106,7 +108,7 @@ describe('the readiness screen', () => {
   })
 
   it('renders external topics as external rather than leaving them out', async () => {
-    at('/learn/exam')
+    at('/study/exam')
     await screen.findByText('Readiness')
     // Paper III is 200 of the 500 marks and this app holds nothing for it. A
     // screen that showed only what it could teach would be describing a
@@ -121,7 +123,7 @@ describe('the readiness screen', () => {
     // work file, so the card is behind a `<details>` and loads nothing until the
     // reader opens it — asserted here by the list being absent first.
     const user = userEvent.setup()
-    at('/learn/exam')
+    at('/study/exam')
     const summary = await screen.findByText('Revision sheets')
     expect(screen.queryByRole('link', { name: /^24h$/ })).not.toBeInTheDocument()
 
@@ -134,7 +136,7 @@ describe('the readiness screen', () => {
   it('lets a saved date be taken off again', async () => {
     const user = userEvent.setup()
     await setTargetDate('css-so-ldce', futureDay(30))
-    at('/learn/exam')
+    at('/study/exam')
     await user.click(await screen.findByRole('button', { name: 'Remove date' }))
     await waitFor(() => {
       expect(screen.getByText('No date set yet')).toBeInTheDocument()
@@ -142,13 +144,13 @@ describe('the readiness screen', () => {
   })
 
   it('asks for a target date first when there is none', async () => {
-    at('/learn/exam')
+    at('/study/exam')
     expect(await screen.findByText(/Set your examination date/i)).toBeInTheDocument()
   })
 
   it('reports the days remaining once a date is saved', async () => {
     const user = userEvent.setup()
-    at('/learn/exam')
+    at('/study/exam')
     const input = await screen.findByLabelText('Examination date')
     await user.type(input, futureDay(30))
     await user.click(screen.getByRole('button', { name: 'Save date' }))
@@ -175,7 +177,7 @@ describe('the readiness screen', () => {
 describe('the plan', () => {
   it('says nothing is drawn until a date is set', async () => {
     await setActiveExam('css-so-ldce')
-    at('/learn/exam/plan')
+    at('/study/exam')
     expect(await screen.findByText(/Set an examination date to draw a plan/i)).toBeInTheDocument()
   })
 
@@ -183,9 +185,9 @@ describe('the plan', () => {
     await setActiveExam('css-so-ldce')
     await setTargetDate('css-so-ldce', futureDay(60))
     const user = userEvent.setup()
-    at('/learn/exam/plan')
+    at('/study/exam')
     expect(await screen.findByText(/never saved/i)).toBeInTheDocument()
-    expect(screen.getByText('Today')).toBeInTheDocument()
+    expect(screen.getAllByText('Today').length).toBeGreaterThan(0)
     // The sprint is at the END of the window, and the plan opens on the next
     // fortnight — so it is behind "show the whole plan", which is the control
     // that has to actually work for the sprint to be reachable at all.
@@ -196,7 +198,7 @@ describe('the plan', () => {
   it('reports a date that has already passed rather than drawing nothing', async () => {
     await setActiveExam('css-so-ldce')
     await setTargetDate('css-so-ldce', '2020-01-01')
-    at('/learn/exam/plan')
+    at('/study/exam')
     expect(await screen.findByText(/already passed/i)).toBeInTheDocument()
   })
 })
@@ -207,7 +209,7 @@ describe('the mock paper', () => {
   })
 
   it('labels itself generated, and says which paper it cannot mock', async () => {
-    at('/learn/exam/mock')
+    at('/study/exam/mock')
     expect(await screen.findByText('Generated paper')).toBeInTheDocument()
     expect(screen.getByText(/No question paper of any examination is in this app/i)).toBeInTheDocument()
     // Paper III is subjective: a written paper has no key a generated test
@@ -216,7 +218,7 @@ describe('the mock paper', () => {
   })
 
   it('names the topics it could draw no questions for', async () => {
-    at('/learn/exam/mock')
+    at('/study/exam/mock')
     expect(
       (await screen.findAllByText(/studied outside this app, so no questions were drawn/i)).length,
     ).toBeGreaterThan(0)
@@ -224,14 +226,14 @@ describe('the mock paper', () => {
 
   it('warns about the penalty AND that a blank costs nothing, once a paper is running', async () => {
     const user = userEvent.setup()
-    at('/learn/exam/mock')
+    at('/study/exam/mock')
     await user.click(await screen.findByRole('button', { name: 'Start the paper' }))
     expect(await screen.findByText(/A blank costs nothing/i)).toBeInTheDocument()
   })
 
   it('marks an answer sheet cell by NAME, not by colour alone', async () => {
     const user = userEvent.setup()
-    at('/learn/exam/mock')
+    at('/study/exam/mock')
     await user.click(await screen.findByRole('button', { name: 'Start the paper' }))
     // Answered / marked for review / blank are three states a reader must be
     // able to tell apart without seeing them.
@@ -244,7 +246,7 @@ describe('the mock paper', () => {
 describe('the exam-day checklist', () => {
   it('carries the medium warning and the blank-costs-nothing rule', async () => {
     await setActiveExam('css-so-ldce')
-    at('/learn/exam/checklist')
+    at('/study/exam')
     expect(await screen.findByText(/is FINAL/)).toBeInTheDocument()
     expect(screen.getByText(/A question left blank costs nothing/i)).toBeInTheDocument()
     expect(screen.getByText(/Confirm every date, paper and rule/i)).toBeInTheDocument()
@@ -252,18 +254,19 @@ describe('the exam-day checklist', () => {
 
   it('names the document every item was read off', async () => {
     await setActiveExam('css-so-ldce')
-    at('/learn/exam/checklist')
+    at('/study/exam')
     expect(await screen.findByText(/No\. 6\/1\/2020-CS\.I\(P\)/)).toBeInTheDocument()
   })
 })
 
 describe('with no examination chosen', () => {
   it('sends the reader to the picker from every other screen', async () => {
-    for (const path of ['/learn/exam/plan', '/learn/exam/mock', '/learn/exam/checklist']) {
-      const view = at(path)
-      expect(await screen.findByRole('link', { name: 'Which examination?' })).toBeInTheDocument()
-      view.unmount()
-    }
+    // The plan and the checklist are sections of the hub, which shows the
+    // PICKER when nothing is chosen — so the only other screen that can be
+    // reached with no examination is the mock, and it has to offer a way out.
+    const view = at('/study/exam/mock')
+    expect(await screen.findByRole('link', { name: 'Which examination?' })).toBeInTheDocument()
+    view.unmount()
   })
 })
 

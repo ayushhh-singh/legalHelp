@@ -3,6 +3,8 @@ import { useMemo, useState } from 'react'
 import { Link } from 'react-router-dom'
 
 import { loadExamProfile } from './data'
+import { ExamChecklistSection } from './ExamChecklistSection'
+import { ExamPlanSection } from './ExamPlanSection'
 import { ExamBanner } from './components/ExamBanner'
 import { ReadinessBars } from './components/ReadinessBars'
 import { RevisionSheetsCard } from './components/RevisionSheetsCard'
@@ -41,7 +43,7 @@ const pct = (value: number) => Math.round(value * 100)
 const MIN_DAILY_MINUTES = 10
 
 /**
- * `/learn/exam` — pick an examination, set a date, see where you stand.
+ * `/study/exam` — pick an examination, set a date, see where you stand.
  *
  * Two screens in one route, and which one renders is the reader's own choice
  * rather than a tab: with nothing chosen this is the picker, and with a profile
@@ -77,7 +79,7 @@ export default function ExamHubPage() {
     cannot place, and the fix is the same one every other page here already
     has: the title is known before the data is.
   */
-  const header = <PageHeader title={t('trainer.exam.title')} subtitle={t('trainer.exam.subtitle')} />
+  const header = <PageHeader as="h2" title={t('trainer.exam.title')} subtitle={t('trainer.exam.subtitle')} />
 
   if (index.status === 'error') {
     return (
@@ -362,21 +364,28 @@ function ChosenExam({
             profile={profile}
           />
 
+          {/*
+            Two of these three move the reader down THIS page and one leaves it.
+            An anchor and a route look alike and behave differently, so the one
+            that leaves is the one that is not styled as the primary action: the
+            mock is a focus screen an officer sits inside, and the plan and the
+            checklist are sections a few hundred pixels below.
+          */}
           <div className="flex flex-wrap gap-2">
-            <Button asChild size="sm">
-              <Link to="/learn/exam/plan">
+            <Button asChild size="sm" variant="outline">
+              <Link to="#plan">
                 <CalendarDays aria-hidden="true" />
                 {t('trainer.exam.plan.title')}
               </Link>
             </Button>
-            <Button asChild size="sm" variant="outline">
-              <Link to="/learn/exam/mock">
+            <Button asChild size="sm">
+              <Link to="/study/exam/mock">
                 <ListChecks aria-hidden="true" />
                 {t('trainer.exam.mock.title')}
               </Link>
             </Button>
             <Button asChild size="sm" variant="outline">
-              <Link to="/learn/exam/checklist">
+              <Link to="#checklist">
                 <ClipboardCheck aria-hidden="true" />
                 {t('trainer.exam.checklist.title')}
               </Link>
@@ -387,6 +396,22 @@ function ChosenExam({
 
           <h2 className="mt-2 text-sm font-semibold">{t('trainer.exam.readiness.unitsTitle')}</h2>
           <ReadinessBars readiness={readiness} papers={profile.papers} />
+
+          {/*
+            `scroll-mt-16` because the app's top bar is sticky: without it an
+            anchor lands the section's heading underneath the chrome, which
+            reads as "the link did nothing".
+          */}
+          <section id="plan" aria-labelledby="exam-plan-heading" className="scroll-mt-16 pt-4">
+            <span id="exam-plan-heading" className="sr-only">
+              {t('trainer.exam.plan.title')}
+            </span>
+            <ExamPlanSection profileId={profileId} targetDate={targetDate} dailyMinutes={dailyMinutes} />
+          </section>
+
+          <section id="checklist" className="scroll-mt-16 pt-4">
+            <ExamChecklistSection profileId={profileId} />
+          </section>
         </>
       )}
     </>
@@ -417,12 +442,12 @@ function NextActionsCard({ actions, profile }: { actions: NextAction[]; profile:
             </span>
             {action.actId ? (
               <Button asChild size="sm" variant="outline">
-                <Link to={`/learn/review?act=${action.actId}`}>{t('trainer.exam.actions.go')}</Link>
+                <Link to={`/study/practise/review?act=${action.actId}`}>{t('trainer.exam.actions.go')}</Link>
               </Button>
             ) : null}
             {action.kind === 'take-mock' ? (
               <Button asChild size="sm" variant="outline">
-                <Link to="/learn/exam/mock">{t('trainer.exam.actions.go')}</Link>
+                <Link to="/study/exam/mock">{t('trainer.exam.actions.go')}</Link>
               </Button>
             ) : null}
           </li>
@@ -507,7 +532,7 @@ function TargetDateCard({
   }
 
   return (
-    <SectionCard className="p-4">
+    <SectionCard id="exam-target" className="scroll-mt-16 p-4">
       <h2 className="text-sm font-semibold">{t('trainer.exam.target.label')}</h2>
       <p className="mt-1 text-sm text-muted-foreground" id="exam-date-hint">
         {t('trainer.exam.target.hint')}

@@ -9,7 +9,7 @@ import type { ExamProfile } from '@/schemas/exam'
 /**
  * Onboarding step 2's "enable relevant trainer acts" — a starting preset for
  * `TrainerSettings.actsEnabled`, from the post the reader picked. Nothing
- * here is permanent: `/learn/settings` lets the reader change it in one tap,
+ * here is permanent: `/settings/trainer` lets the reader change it in one tap,
  * and the note this returns says so.
  *
  * `actsEnabled: []` means "every rule book" (`src/lib/srs/types.ts`'s own

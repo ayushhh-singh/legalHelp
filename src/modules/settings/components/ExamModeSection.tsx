@@ -13,7 +13,7 @@ import { useT } from '@/i18n/useT'
  * import that would reach the exam layer is dynamic. Settings sits on the
  * initial route's chunk graph, and a static import of `@/lib/exam` or of
  * `data/exams` for one line would put the plan builder, the mock draw and the
- * readiness engine on the device of every reader who never opens `/learn/exam`.
+ * readiness engine on the device of every reader who never opens `/study/exam`.
  *
  * The NAME is loaded rather than derived from the id. The first version rendered
  * `active.id` — "Preparing for css-so-ldce." — which is a slug shown to a human,
@@ -49,7 +49,7 @@ export function ExamModeSection() {
         const entry = index.profiles.find((profile) => profile.id === id)
         // A row naming a profile this build no longer has keeps its id rather
         // than rendering nothing — the reader still needs to see that SOMETHING
-        // is set, and `/learn/exam` is where they change it.
+        // is set, and `/study/exam` is where they change it.
         setResolved({ id, name: entry ? entry.name[language] || entry.name.en : id })
       })
       .catch(() => {
@@ -78,7 +78,7 @@ export function ExamModeSection() {
         {active ? t('trainer.exam.settings.current', { name: name ?? '…' }) : t('trainer.exam.settings.none')}
       </p>
       <div className="flex flex-wrap items-center gap-3">
-        <Link to="/learn/exam" className="text-sm text-primary underline-offset-4 hover:underline">
+        <Link to="/study/exam" className="text-sm text-primary underline-offset-4 hover:underline">
           {t('trainer.exam.settings.open')}
         </Link>
         {active ? (

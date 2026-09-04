@@ -21,7 +21,7 @@ import {
  * (ADR-013): a `?raw` dynamic import, never a `fetch` of `/data/*.json`. That
  * is what keeps `src/ai/providers/wire.ts` the only module in the app allowed
  * to call `fetch`, and what makes the Library work offline on a device that has
- * never opened `/library` online — the service worker precaches the chunks
+ * never opened `/study/read` online — the service worker precaches the chunks
  * through the ordinary JavaScript glob, so a work read on a train was cached
  * when the app installed rather than when the reader first opened it.
  *

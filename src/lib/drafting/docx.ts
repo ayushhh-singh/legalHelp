@@ -32,7 +32,7 @@ import type { DocumentModel, RenderedBlock, RenderedNode, RenderedRun } from './
  * needed only by a reader who presses Export, which is once per document at
  * most and never at all for a reader who prints instead. `ExportBar.tsx` pulls
  * it in on the click; a static import would put it in the editor chunk and
- * charge every visit to `/draft` for it.
+ * charge every visit to `/draft/documents` for it.
  *
  * ### Two projections, one file, and which one wins
  *

@@ -128,7 +128,7 @@ export default function WorkPage() {
    * looking as though it does.
    */
   if (workId !== undefined && !isWorkId(workId) && !isPersonalWorkId(workId)) {
-    return <Navigate to="/library" replace />
+    return <Navigate to="/study/read" replace />
   }
 
   if (work.status === 'error') {
@@ -136,7 +136,7 @@ export default function WorkPage() {
       <div className="mx-auto max-w-4xl">
         <QueryErrorState onRetry={work.retry} />
         <Button asChild variant="outline" size="sm" className="mt-4">
-          <Link to="/library">
+          <Link to="/study/read">
             <ArrowLeft aria-hidden="true" />
             {t('library.back')}
           </Link>
@@ -149,7 +149,7 @@ export default function WorkPage() {
   // of contents that came from a precached chunk; a device whose storage is
   // refused never resolves that query and used to sit on this skeleton for
   // ever. See `useReadUnitIds`.
-  if (work.status === 'missing') return <Navigate to="/library" replace />
+  if (work.status === 'missing') return <Navigate to="/study/read" replace />
 
   if (work.status === 'loading' || !work.work) {
     return (
@@ -200,7 +200,7 @@ export default function WorkPage() {
         subtitle={data.description[language]}
         actions={
           <Button asChild variant="outline" size="sm">
-            <Link to="/library">
+            <Link to="/study/read">
               <ArrowLeft aria-hidden="true" />
               {t('library.back')}
             </Link>

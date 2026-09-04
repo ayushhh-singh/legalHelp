@@ -1,35 +1,36 @@
 import { describe, expect, it } from 'vitest'
 
+import { APP_ROUTES, LEGACY_REDIRECTS } from '@/lib/nav'
 import { readFromRoot } from '@/test/paths'
 
 /**
- * Every route the app can render is swept by axe and reloaded offline.
+ * Every route the app can render is swept by axe and reloaded offline, is
+ * registered in `src/lib/nav.ts` with a layout level, and — if it is a detail
+ * or a focus page — declares what it goes back to.
  *
  * The two sweeps are plain arrays — `ROUTES` in `tests/e2e/a11y.spec.ts` and
  * `EVERY_ROUTE` in `tests/e2e/offline.spec.ts` — and `docs/TESTING.md` tells
  * the next person to add a new route to both. That is a convention, and a
  * convention with nothing enforcing it is a convention that lasts until the
- * session that is in a hurry.
+ * session that is in a hurry. It had already lapsed when this test was first
+ * written: `/learn/review` — the Trainer's actual review card, and the single
+ * most-used screen in that module — was in NEITHER sweep.
  *
- * It had already lapsed when this test was written. `/learn/review` — the
- * Trainer's actual review card, with a radiogroup of options, four grade
- * buttons and a report dialog, and the single most-used screen in that module —
- * was in NEITHER sweep. `/onboarding`, `/learn/mock` and `/learn/review-queue`
- * were missing from the offline one. Every route around them was covered, which
- * is exactly why nobody noticed.
+ * ADR-046 added the third question. A route with no entry in `APP_ROUTES` gets
+ * no layout, no breadcrumb and no back chevron, and the way that fails is not
+ * a crash — it is a page an officer cannot get out of.
  *
- * This reads the routes out of the router itself rather than restating them, so
- * the list cannot drift from the app: a route added to `LearnPage.tsx` is a
- * failure here until it is swept.
+ * Everything here reads the routers themselves rather than restating them, so
+ * the lists cannot drift from the app.
  */
 
 /** Files that declare routes, and the path each one is mounted under. */
 const ROUTERS: ReadonlyArray<{ file: string; base: string }> = [
   { file: 'src/modules/law/LawPage.tsx', base: '/law' },
+  { file: 'src/modules/study/StudyPage.tsx', base: '/study' },
   { file: 'src/modules/drafting/DraftPage.tsx', base: '/draft' },
-  { file: 'src/modules/trainer/LearnPage.tsx', base: '/learn' },
-  { file: 'src/modules/library/LibraryPage.tsx', base: '/library' },
-  { file: 'src/modules/utils/UtilsPage.tsx', base: '/utils' },
+  { file: 'src/modules/utils/ToolsPage.tsx', base: '/tools' },
+  { file: 'src/modules/settings/SettingsPage.tsx', base: '/settings' },
 ]
 
 /**
@@ -39,24 +40,22 @@ const ROUTERS: ReadonlyArray<{ file: string; base: string }> = [
  */
 const EXEMPT: Readonly<Record<string, string>> = {
   '/': 'a redirect, not a screen — App.tsx sends it to /onboarding or the home route',
-  '/draft/:type':
-    'parameterised; the sweeps visit /draft/office-memorandum, a real instance of it, because a literal ":type" renders the not-found redirect',
+  '/study/read/:workId':
+    'parameterised; the sweeps visit /study/read/ccs-conduct, a real instance of it, because a literal ":workId" renders the not-found redirect',
+  '/study/read/:workId/:unitId':
+    'parameterised; the sweeps visit /study/read/ccs-conduct/ccs-conduct-3, a real unit of a real work, for the same reason',
+  '/study/read/:workId/quiz/:nodeId':
+    'parameterised; the sweeps visit /study/read/ccs-conduct/quiz/group-n-ccs-conduct-1, a real chapter of a real work, for the same reason',
+  '/study/read/:workId/sheet/:nodeId':
+    'parameterised; the sweeps visit /study/read/ccs-conduct/sheet/group-n-ccs-conduct-1, likewise',
   '/draft/d/:id':
     'parameterised; a document id is minted by `crypto.getRandomValues` and exists only on the device that made one. `tests/e2e/draft-editor.spec.ts` creates a real document and sweeps the editor with axe there, which is the only place a real id exists.',
   '/draft/d/:id/print':
-    'parameterised for the same reason as /draft/d/:id above — it prints ONE document, and a document id exists only on the device that made one. `tests/e2e/draft-io.spec.ts` creates a real document and sweeps the print route with axe there.',
+    'parameterised for the same reason as /draft/d/:id above — it prints ONE document. `tests/e2e/draft-io.spec.ts` creates a real document and sweeps the print route with axe there.',
   '/draft/new/:type':
     'parameterised, and not a screen: it creates a document and redirects. `tests/e2e/draft-editor.spec.ts` walks through it on the way to the editor.',
   '/draft/reply/:id':
-    'parameterised; an intake id is minted on the device that kept the letter, so a literal ":id" renders the empty reply screen. `/draft/reply` — the same component with no letter open — IS swept, and `tests/e2e/draft-reply.spec.ts` pastes a real letter and keeps it, which is the only place a real id exists.',
-  '/library/:workId':
-    'parameterised; the sweeps visit /library/ccs-conduct, a real instance of it, because a literal ":workId" renders the not-found redirect',
-  '/library/:workId/:unitId':
-    'parameterised; the sweeps visit /library/ccs-conduct/ccs-conduct-3, a real unit of a real work, for the same reason',
-  '/library/:workId/quiz/:nodeId':
-    'parameterised; the sweeps visit /library/ccs-conduct/quiz/group-n-ccs-conduct-1, a real chapter of a real work, for the same reason',
-  '/library/:workId/sheet/:nodeId':
-    'parameterised; the sweeps visit /library/ccs-conduct/sheet/group-n-ccs-conduct-1, likewise',
+    'parameterised; an intake id is minted on the device that kept the letter, so a literal ":id" renders the empty reply screen. `/draft/reply` — the same component with no letter open — IS swept, and `tests/e2e/draft-reply.spec.ts` pastes a real letter and keeps it.',
 }
 
 /** `<Route path="x" ...>` from a module router, ignoring the catch-all. */
@@ -117,39 +116,80 @@ const ROUTES = appRoutes()
 const AXE = sweptRoutes('tests/e2e/a11y.spec.ts', 'const ROUTES')
 const OFFLINE = sweptRoutes('tests/e2e/offline.spec.ts', 'const EVERY_ROUTE')
 
+/**
+ * Paths that are a decision rather than a screen: a bare `/` (onboarding or
+ * home, once IndexedDB answers) and the three section roots, each of which only
+ * ever redirects to its default sub-tab.
+ */
+const SECTION_ROOTS = new Set(['/', '/study', '/draft', '/tools'])
+
+/** Everything the routers declare that is not itself a redirect. */
+const REAL_ROUTES = ROUTES.filter(
+  (route) => !SECTION_ROOTS.has(route) && !LEGACY_REDIRECTS.some((redirect) => redirect.from === route),
+)
+
 describe('the route list this guard reads', () => {
   it('found the routers, rather than silently parsing nothing', () => {
     // A guard that asserts over an empty list is not a guard. These floors are
     // deliberately below the real counts so ordinary growth does not touch them.
-    expect(ROUTES.length).toBeGreaterThanOrEqual(20)
-    expect(AXE.length).toBeGreaterThanOrEqual(15)
-    expect(OFFLINE.length).toBeGreaterThanOrEqual(15)
+    expect(ROUTES.length).toBeGreaterThanOrEqual(30)
+    expect(AXE.length).toBeGreaterThanOrEqual(25)
+    expect(OFFLINE.length).toBeGreaterThanOrEqual(25)
   })
 
-  it('includes the sub-routes each module owns, not just its base', () => {
+  it('includes the sub-routes each section owns, not just its base', () => {
     // If the `<Route path="...">` shape ever changes, this fails rather than
-    // quietly reducing the guard to four base paths.
-    for (const route of ['/law/whats-new', '/learn/review', '/utils/pension', '/library/:workId']) {
+    // quietly reducing the guard to five base paths.
+    for (const route of [
+      '/law/whats-new',
+      '/study/practise/review',
+      '/tools/pension',
+      '/study/read/:workId',
+      '/settings/backup',
+    ]) {
       expect(ROUTES, `${route} was not derived from the routers`).toContain(route)
     }
   })
 })
 
 describe('every route is swept', () => {
-  const checked = ROUTES.filter((route) => !(route in EXEMPT))
+  const checked = REAL_ROUTES.filter((route) => !(route in EXEMPT))
 
-  it.each(checked)('%s is audited by axe in both languages and both themes', (route) => {
+  it.each(checked)('%s is audited by axe in both languages and both themes', (route: string) => {
     expect(
       AXE,
       `${route} is not in ROUTES in tests/e2e/a11y.spec.ts. Add it there, or add it to EXEMPT in this file with the reason.`,
     ).toContain(route)
   })
 
-  it.each(checked)('%s still renders after an offline reload', (route) => {
+  it.each(checked)('%s still renders after an offline reload', (route: string) => {
     expect(
       OFFLINE,
       `${route} is not in EVERY_ROUTE in tests/e2e/offline.spec.ts. Add it there, or add it to EXEMPT in this file with the reason.`,
     ).toContain(route)
+  })
+})
+
+describe('every route has a layout level', () => {
+  const registered = new Set(APP_ROUTES.map((route) => route.path))
+
+  it.each(REAL_ROUTES)('%s is registered in src/lib/nav.ts', (route: string) => {
+    // A route with no entry gets no layout, no breadcrumb trail and no back
+    // control — and that failure is not a crash, it is a page an officer
+    // cannot get out of.
+    expect(
+      registered.has(route),
+      `${route} is declared by a router and is not in APP_ROUTES. Add it with a level, and a parent if it is a detail or focus page.`,
+    ).toBe(true)
+  })
+
+  it('registers nothing the routers do not declare', () => {
+    // The other direction: a stale entry is a level, a parent and a breadcrumb
+    // for a page that no longer exists.
+    const declared = new Set([...ROUTES, ...SECTION_ROOTS])
+    for (const route of APP_ROUTES) {
+      expect(declared.has(route.path), `APP_ROUTES names ${route.path}, which no router declares`).toBe(true)
+    }
   })
 })
 
@@ -158,10 +198,7 @@ describe('the exemptions', () => {
     for (const route of Object.keys(EXEMPT)) {
       // A stale exemption is a route silently excused after it stopped being a
       // route — or, worse, a typo excusing nothing while looking like it does.
-      const known =
-        ROUTES.includes(route) ||
-        ['/draft/:type', '/library/:workId', '/library/:workId/:unitId'].includes(route)
-      expect(known, `EXEMPT names ${route}, which the routers do not declare`).toBe(true)
+      expect(ROUTES.includes(route), `EXEMPT names ${route}, which the routers do not declare`).toBe(true)
     }
   })
 

@@ -103,6 +103,73 @@ export async function migrateAllDrafts(): Promise<MigrationReport> {
   return report
 }
 
+/**
+ * Bring ONE draft across, and say where it landed.
+ *
+ * ADR-046 removed the Session 8 form-and-preview editor, which is the only
+ * screen that could open a `drafts` row — so a row in that table now has
+ * exactly one useful action, and this is it. The alternative considered was
+ * letting the old route redirect to `/draft/new/<type>`, which creates a blank
+ * document of the right type and silently loses the officer's afternoon; a
+ * redirect that appears to work and throws the work away is worse than a dead
+ * link.
+ *
+ * A draft already migrated returns the document it became rather than making a
+ * second copy: this is reachable by pressing the row twice, and two documents
+ * with the same text is a worse outcome than either.
+ *
+ * `drafts` is NOT deleted here, exactly as `migrateAllDrafts` does not delete
+ * it. The migration copies; the originals stay until the officer erases them.
+ */
+export async function migrateOneDraft(
+  draftId: string,
+): Promise<
+  | { ok: true; docId: string; alreadyMigrated: boolean; keptAsVars: string[] }
+  | { ok: false; reason: 'missing' | 'unknown-template' | 'unreadable' }
+> {
+  const draft = await db.drafts.get(draftId)
+  if (!draft) return { ok: false, reason: 'missing' }
+
+  const existing = (await db.documents.toArray()).find((row) => row.migratedFrom === draftId)
+  if (existing) return { ok: true, docId: existing.id, alreadyMigrated: true, keptAsVars: [] }
+
+  const template = await loadTemplate(draft.templateId).catch(() => null)
+  if (!template) return { ok: false, reason: 'unknown-template' }
+
+  let result: MigrationResult
+  try {
+    result = migrateDraft({
+      id: draft.id,
+      templateId: draft.templateId,
+      title: draft.title,
+      values: valuesOf(draft),
+      createdAt: draft.createdAt,
+      updatedAt: draft.updatedAt,
+      template,
+    })
+  } catch {
+    return { ok: false, reason: 'unreadable' }
+  }
+
+  await db.documents.put({
+    id: result.doc.id,
+    templateId: result.doc.templateId,
+    title: result.doc.title,
+    status: result.doc.status,
+    createdAt: result.doc.createdAt,
+    updatedAt: result.doc.updatedAt,
+    migratedFrom: draft.id,
+    doc: result.doc,
+  })
+
+  return {
+    ok: true,
+    docId: result.doc.id,
+    alreadyMigrated: false,
+    keptAsVars: [...new Set([...result.keptAsVars, ...result.unknownFields])],
+  }
+}
+
 /** How many drafts are still waiting — what a "migrate my drafts" banner reads. */
 export async function pendingMigrationCount(): Promise<number> {
   const drafts = await db.drafts.count()

@@ -7,7 +7,7 @@ import type { Card, RulesCards, RulesIndex, RulesText } from './schema'
  * a `?raw` dynamic import, never a `fetch` of `/data/*.json`. That is what
  * keeps `src/ai/providers/wire.ts` the only module in the app allowed to call
  * `fetch`, and what makes the Trainer work offline on a device that has never
- * opened `/learn` online — the service worker precaches the chunks through the
+ * opened `/study/practise` online — the service worker precaches the chunks through the
  * ordinary JavaScript glob. The twelve specifiers are written out one per act
  * for the reason `src/modules/drafting/data.ts` records: a bundler can only
  * chunk a specifier it can see.

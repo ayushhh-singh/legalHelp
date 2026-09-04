@@ -1,14 +1,13 @@
 import { useLiveQuery } from 'dexie-react-hooks'
-import { ArrowLeft, BookOpen, Brain, FileText, ListChecks } from 'lucide-react'
+import { BookOpen, Brain, FileText, ListChecks } from 'lucide-react'
 import { useMemo, useState } from 'react'
 import { Link } from 'react-router-dom'
 
-import { knowsProfile, useActiveExam, useExamProfile, useSrsStates } from './useExam'
+import { useExamProfile, useSrsStates } from './useExam'
 
 import { useEffectiveCatalogue } from '../useCatalogue'
 import { useNow } from '../useNow'
 
-import { PageHeader } from '@/components/common/PageHeader'
 import { db } from '@/db'
 import { Chip, InfoCard, QueryErrorState, SectionCard, Skeleton } from '@/components/ui-x'
 import { Button } from '@/components/ui/button'
@@ -23,7 +22,13 @@ import type { ExamProfile } from '@/schemas/exam'
 const PREVIEW_DAYS = 14
 
 /**
- * `/learn/exam/plan` — the day-by-day plan.
+ * The day-by-day plan — a SECTION of `/study/exam`, anchored at `#plan`.
+ *
+ * It was its own route (`/learn/exam/plan`). ADR-046 flattened exam mode onto
+ * one page because the four screens were four views of one decision — which
+ * examination, by when, where do I stand, what do I do about it — and a reader
+ * comparing their readiness against their remaining days had to hold two of
+ * them in their head. The old path still works and lands on this anchor.
  *
  * Rebuilt on every render from the profile, the live schedule and today's date.
  * **It is never stored**, and the card at the top says so: a stored plan is out
@@ -38,43 +43,7 @@ const PREVIEW_DAYS = 14
  * map, whose values are unevaluated `import()` thunks, and none of the 1.8 MB
  * behind them.
  */
-export default function ExamPlanPage() {
-  const { t } = useT()
-  const choice = useActiveExam()
-
-  // The header renders while the Dexie row is still being read, for the
-  // reason `ExamHubPage` states: a screen with no `<h1>` is a screen a
-  // reader tabbing in cannot place, and the title is known before the row.
-  if (choice === undefined) {
-    return (
-      <div className="mx-auto flex max-w-3xl flex-col gap-4">
-        <PageHeader title={t('trainer.exam.plan.title')} />
-        <Skeleton className="h-64 w-full" />
-      </div>
-    )
-  }
-  /*
-    `null` is "nothing chosen"; an id this build cannot load takes the SAME
-    branch, because from the reader's side it is the same situation and the
-    picker is the only honest exit. A row naming a withdrawn or renamed profile
-    used to leave this screen on a skeleton for ever.
-  */
-  if (choice === null || !knowsProfile(choice.id)) {
-    return (
-      <div className="mx-auto flex max-w-3xl flex-col gap-4">
-        <PageHeader title={t('trainer.exam.plan.title')} />
-        <p className="text-sm text-muted-foreground">{t('trainer.exam.readiness.empty')}</p>
-        <Button asChild size="sm">
-          <Link to="/learn/exam">{t('trainer.exam.picker.title')}</Link>
-        </Button>
-      </div>
-    )
-  }
-
-  return <PlanFor profileId={choice.id} targetDate={choice.targetDate} dailyMinutes={choice.dailyMinutes} />
-}
-
-function PlanFor({
+export function ExamPlanSection({
   profileId,
   targetDate,
   dailyMinutes,
@@ -117,26 +86,19 @@ function PlanFor({
   }, [state, catalogue, states, goals, now, targetDate, dailyMinutes])
 
   const header = (
-    <PageHeader
-      title={t('trainer.exam.plan.title')}
-      subtitle={t('trainer.exam.plan.subtitle')}
-      actions={
-        <Button asChild variant="outline" size="sm">
-          <Link to="/learn/exam">
-            <ArrowLeft aria-hidden="true" />
-            {t('trainer.exam.title')}
-          </Link>
-        </Button>
-      }
-    />
+    <div className="flex flex-wrap items-end justify-between gap-3 border-b border-border pb-3">
+      <div className="space-y-1">
+        <h2 className="text-xl leading-tight font-semibold">{t('trainer.exam.plan.title')}</h2>
+        <p className="text-sm text-muted-foreground">{t('trainer.exam.plan.subtitle')}</p>
+      </div>
+    </div>
   )
 
-  // Both branches keep the header, for the reason `ExamHubPage` states: this
-  // component IS the page, so returning a bare skeleton leaves the route with
-  // no level-1 heading at all.
+  // Both branches keep the heading: a section that renders a bare skeleton is
+  // a section a reader jumping to `#plan` lands on with nothing to read.
   if (state.status === 'error') {
     return (
-      <div className="mx-auto flex max-w-3xl flex-col gap-4">
+      <div className="flex flex-col gap-4">
         {header}
         <QueryErrorState onRetry={state.retry} />
       </div>
@@ -144,7 +106,7 @@ function PlanFor({
   }
   if (state.status === 'loading') {
     return (
-      <div className="mx-auto flex max-w-3xl flex-col gap-4">
+      <div className="flex flex-col gap-4">
         {header}
         <Skeleton className="h-64 w-full" />
       </div>
@@ -153,11 +115,11 @@ function PlanFor({
 
   if (!targetDate) {
     return (
-      <div className="mx-auto flex max-w-3xl flex-col gap-4">
+      <div className="flex flex-col gap-4">
         {header}
         <p className="text-sm text-muted-foreground">{t('trainer.exam.plan.empty')}</p>
-        <Button asChild size="sm">
-          <Link to="/learn/exam">{t('trainer.exam.target.label')}</Link>
+        <Button asChild size="sm" variant="outline">
+          <Link to="#exam-target">{t('trainer.exam.target.label')}</Link>
         </Button>
       </div>
     )
@@ -165,7 +127,7 @@ function PlanFor({
 
   if (plan === null) {
     return (
-      <div className="mx-auto flex max-w-3xl flex-col gap-4">
+      <div className="flex flex-col gap-4">
         {header}
         <Skeleton className="h-64 w-full" />
       </div>
@@ -182,13 +144,13 @@ function PlanFor({
   */
   if (plan.expired || plan.unreadableDate) {
     return (
-      <div className="mx-auto flex max-w-3xl flex-col gap-4">
+      <div className="flex flex-col gap-4">
         {header}
         <p className="text-sm text-coral-foreground">
           {plan.unreadableDate ? t('trainer.exam.plan.unreadableDate') : t('trainer.exam.plan.expired')}
         </p>
-        <Button asChild size="sm">
-          <Link to="/learn/exam">{t('trainer.exam.target.label')}</Link>
+        <Button asChild size="sm" variant="outline">
+          <Link to="#exam-target">{t('trainer.exam.target.label')}</Link>
         </Button>
       </div>
     )
@@ -199,7 +161,7 @@ function PlanFor({
   const sprintDays = plan.days.filter((day) => day.phase === 'revision').length
 
   return (
-    <div className="mx-auto flex max-w-3xl flex-col gap-4">
+    <div className="flex flex-col gap-4">
       {header}
 
       <InfoCard title={t('trainer.exam.plan.budget', { minutes: plan.dailyMinutes })} icon={Brain}>
@@ -320,9 +282,9 @@ function TaskRow({ task, profile }: { task: PlanTask; profile: ExamProfile }) {
   }
 
   const href = (): string | null => {
-    if (task.kind === 'mock') return '/learn/exam/mock'
+    if (task.kind === 'mock') return '/study/exam/mock'
     if (task.kind === 'read' && task.workId) return `/library/${task.workId}`
-    if (task.kind === 'drill' && task.actId) return `/learn/review?act=${task.actId}`
+    if (task.kind === 'drill' && task.actId) return `/study/practise/review?act=${task.actId}`
     // A revise task points at the Library work, where the chapter sheets are —
     // a sheet route needs a chapter node id, which only the work page knows.
     if (task.kind === 'revise' && task.workId) return `/library/${task.workId}`

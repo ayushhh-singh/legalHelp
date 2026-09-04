@@ -4,16 +4,24 @@ import { useNavigate } from 'react-router-dom'
 import { usePaletteStore } from './paletteStore'
 
 /**
- * `g` then a destination letter, matching `src/lib/nav.ts`'s five modules.
- * `u` reaches Utilities rather than a sixth module — Settings has no letter of
- * its own and stays reachable from the sidebar and the palette's own list.
+ * `g` then a destination letter — one per tab in `src/lib/nav.ts`, plus the two
+ * places inside Study an officer goes straight to.
+ *
+ * The letters follow the tab NAMES rather than the old module names: `h` home,
+ * `s` study, `d` draft, `l` law, `t` tools. `r` and `p` reach Study's Read and
+ * Practise sub-tabs directly, because "open the shelf" and "start practising"
+ * are two different intentions and landing on the section root would make one
+ * of them a second keystroke. Settings has no letter of its own and stays
+ * reachable from the top-right menu and the palette's own list.
  */
 const CHORD_TARGETS: Readonly<Record<string, string>> = {
-  l: '/law',
-  p: '/pay',
+  h: '/home',
+  s: '/study',
+  r: '/study/read',
+  p: '/study/practise',
   d: '/draft',
-  e: '/learn',
-  u: '/utils',
+  l: '/law',
+  t: '/tools',
 }
 
 /** How long a bare `g` stays "pending" before it reverts to a plain `g`. */
@@ -26,7 +34,8 @@ const CHORD_WINDOW_MS = 900
  * - `Ctrl`/`Cmd`+`K` toggles the command palette, from anywhere, even while a
  *   field elsewhere on the page has focus — the one shortcut here that is a
  *   modifier combo, so it cannot collide with ordinary typing.
- * - `g` then `l`/`p`/`d`/`e`/`u` jumps to a module. The `g` is "pending" for
+ * - `g` then `h`/`s`/`d`/`l`/`t` jumps to a section (and `r`/`p` to Study's
+ *   Read and Practise tabs). The `g` is "pending" for
  *   `CHORD_WINDOW_MS`; anything else read as a plain keypress instead.
  * - `?` opens the shortcuts-help sheet.
  * - `/` focuses the current page's own search box (`[data-module-search]`),

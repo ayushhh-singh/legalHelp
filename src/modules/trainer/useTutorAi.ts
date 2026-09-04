@@ -7,7 +7,7 @@ import type { Language } from '@/i18n'
 
 /**
  * The Rules Trainer's half of the AI layer: state, cancellation, and the
- * dynamic imports that keep the agent out of `/learn`'s own chunk — the same
+ * dynamic imports that keep the agent out of `/study/practise`'s own chunk — the same
  * shape as `src/modules/drafting/useDraftingAi.ts`, for the same reason
  * (`docs/AI.md`: laziness here is a privacy property, not a performance one).
  * One run at a time; starting a new one aborts whatever was in flight, and

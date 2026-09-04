@@ -1,4 +1,4 @@
-import { toUnitHref } from './url'
+import { toUnitHref, toWorkHref } from './url'
 
 import type { Language } from '@/i18n'
 import { unitLabel, type LibraryCorpus } from '@/lib/library'
@@ -116,7 +116,7 @@ export function docsFromDefinitions(
     citation: `${term.term} — ${work.shortTitle[language] || work.shortTitle.en}`,
     heading: term.term,
     text: term.definition,
-    href: unitId ? toUnitHref(work.id, unitId) : `/library/${work.id}`,
+    href: unitId ? toUnitHref(work.id, unitId) : toWorkHref(work.id),
     sourceUrl: null,
     personal: false,
     workId: work.id,
@@ -133,7 +133,7 @@ export function docsFromGlossary(terms: readonly GlossaryTerm[]): RetrievalDoc[]
     text: [term.hi, ...(term.alsoHi ?? []), term.note?.en ?? '', term.note?.hi ?? '']
       .filter(Boolean)
       .join(' '),
-    href: `/utils/glossary?term=${encodeURIComponent(term.id)}`,
+    href: `/tools/glossary?term=${encodeURIComponent(term.id)}`,
     sourceUrl: null,
     personal: false,
     alsoSearch: term.hi,

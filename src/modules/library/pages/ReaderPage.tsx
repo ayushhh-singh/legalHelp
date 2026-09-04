@@ -476,7 +476,7 @@ export default function ReaderPage() {
   // personal work id is equally valid here and is checked separately, because
   // `isWorkId` only knows the fifteen this app ships.
   if (workId !== undefined && !isWorkId(workId) && !isPersonalWorkId(workId)) {
-    return <Navigate to="/library" replace />
+    return <Navigate to="/study/read" replace />
   }
 
   if (workState.status === 'error' || corpus.status === 'error') {
@@ -484,7 +484,7 @@ export default function ReaderPage() {
       <div className="mx-auto max-w-3xl">
         <QueryErrorState onRetry={workState.status === 'error' ? workState.retry : corpus.retry} />
         <Button asChild variant="outline" size="sm" className="mt-4">
-          <Link to="/library">
+          <Link to="/study/read">
             <ArrowLeft aria-hidden="true" />
             {t('library.back')}
           </Link>
@@ -497,7 +497,7 @@ export default function ReaderPage() {
   // decoration on a control; the SECTION is what the reader came for, and on a
   // device whose storage is refused that query never resolves at all.
   if (workState.status === 'loading' || corpus.status === 'loading' || !work) {
-    if (workState.status === 'missing') return <Navigate to="/library" replace />
+    if (workState.status === 'missing') return <Navigate to="/study/read" replace />
     return (
       <div className="mx-auto flex max-w-3xl flex-col gap-4">
         <Skeleton className="h-16 w-full" />

@@ -7,7 +7,7 @@ import { App } from './App'
 import { useAppStore } from './store'
 
 import i18n, { type Language } from '@/i18n'
-import { NAV_ITEMS } from '@/lib/nav'
+import { NAV_TABS } from '@/lib/nav'
 
 /**
  * axe over the whole shell, in both languages.
@@ -77,7 +77,7 @@ describe.each(['en', 'hi'] as const)('shell accessibility (%s)', (language) => {
 })
 
 describe('shell routing', () => {
-  it.each(NAV_ITEMS.map((item) => item.path))('renders %s without axe violations', async (path) => {
+  it.each(NAV_TABS.map((item) => item.path))('renders %s without axe violations', async (path: string) => {
     const { container } = await renderShell('hi', path)
     expect(await auditFor(container)).toEqual([])
   })

@@ -15,7 +15,7 @@ import { db } from '@/db'
 import { useT } from '@/i18n/useT'
 
 /**
- * `/learn/review-queue` — cards `data/rules` shipped `unreviewed`, plus
+ * `/study/practise/review-queue` — cards `data/rules` shipped `unreviewed`, plus
  * `propose_card`'s AI output, one at a time. Approving or rejecting writes a
  * `cardOverrideRow`; nothing here ever writes a `Card` field directly, and
  * nothing is scheduled until `effectiveCatalogue` (`../reviewQueue.ts`) folds
@@ -107,7 +107,7 @@ export default function ReviewQueuePage() {
         subtitle={t('trainer.reviewQueue.subtitle')}
         actions={
           <Button asChild variant="outline" size="sm">
-            <Link to="/learn">
+            <Link to="/study/practise">
               <ArrowLeft aria-hidden="true" />
               {t('trainer.review.backHome')}
             </Link>

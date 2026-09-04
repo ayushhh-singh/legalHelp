@@ -8,7 +8,7 @@ import { expect, test } from './fixtures'
  * offer "Install app" is a short, checkable list, and every item on it is
  * origin-wide rather than per-page — one manifest, one service worker scoped
  * to `/`. The reason to check it on each route anyway is the SPA fallback:
- * `/pay` is not a file, it is public/_redirects serving index.html, and a
+ * `/tools/salary` is not a file, it is public/_redirects serving index.html, and a
  * fallback that stopped carrying the manifest link would make the app
  * installable from its home page and from nowhere else. That is exactly the
  * failure a reader arriving on a shared deep link would hit.
@@ -17,7 +17,7 @@ import { expect, test } from './fixtures'
  * from and which Cloudflare Pages supplies.
  */
 
-const ROUTES = ['/', '/law', '/pay', '/draft', '/learn', '/utils']
+const ROUTES = ['/', '/law', '/tools/salary', '/draft', '/study/practise', '/tools']
 
 type Manifest = {
   name?: string
@@ -73,7 +73,7 @@ test('every route serves the manifest, the icons and a controlling service worke
  * hand-written 404 page would silently break.
  */
 test('a deep link into a module serves the shell, not a 404', async ({ page }) => {
-  for (const route of ['/law/whats-new', '/utils/glossary', '/learn/browse']) {
+  for (const route of ['/law/whats-new', '/tools/glossary', '/study/practise/browse']) {
     const response = await page.goto(route)
     expect(response?.status(), `${route} did not serve 200`).toBe(200)
     await expect(page.getByRole('heading', { level: 1 })).toBeVisible()

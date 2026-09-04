@@ -1,30 +1,44 @@
 import { lazy, Suspense } from 'react'
 import { Navigate, Route, Routes } from 'react-router-dom'
 
+import { useDueFollowUpCount } from './register/useFollowUps'
+
+import { LegacyRedirect } from '@/app/LegacyRedirect'
+import { DetailLayout } from '@/app/layouts/DetailLayout'
+import { FocusLayout } from '@/app/layouts/FocusLayout'
+import { TabLayout } from '@/app/layouts/TabLayout'
 import { useT } from '@/i18n/useT'
+import { redirectsUnder } from '@/lib/nav'
 
 /**
  * The Drafting Studio's own router, mounted at `/draft/*` by `src/app/App.tsx`.
  *
- * The module owns its sub-routes, exactly as the Law Converter does, so
- * `src/lib/nav.ts` stays the one list of navigation DESTINATIONS — a document
- * type is a screen inside a module, not a place in the navigation, and the
- * sidebar's segment-boundary match already keeps "Drafting Studio" active on
- * every one of them.
+ * Thirteen sibling routes off a picker became five sub-tabs and the pages under
+ * them (ADR-046 §6):
  *
- * Each screen is its own chunk, and the split earns its keep here: the picker
- * needs `index.json` and nothing else, while the editor pulls in the engine,
- * the checklist evaluator and a 24 KB template. An officer looking at the list
- * of forms should not download the editor to read fourteen names.
+ * - **Documents** is the library — continue, search, filter, import, bulk
+ *   export — with the import flow as a page under it rather than beside it.
+ * - **New** is the template gallery. Choosing a form creates the document and
+ *   opens the editor; there is no second editor any more.
+ * - **Reply**, **Register** and **Templates** are what they were.
+ *
+ * Profile, address book and numbering MOVED to `/settings/*`. They are things
+ * an officer sets once and every new document reads, which is what Settings is
+ * for — and having them as siblings of "Documents" was three of the thirteen.
+ *
+ * ### The redirects live here, not in the app router
+ *
+ * `/draft/:type` is the Session 8 editor's old route and it matches every
+ * single-segment path under `/draft/documents`. React Router ranks a dynamic segment
+ * above a splat, so mounting it beside `/draft/*` in the app router would make
+ * it claim `/draft/documents` and send an officer's document list to a
+ * template called "documents". Inside this router it is simply LAST, after
+ * every real route — which is exactly where it was before.
  */
 const PickerPage = lazy(() => import('./PickerPage'))
-const EditorPage = lazy(() => import('./EditorPage'))
 const DocEditorPage = lazy(() => import('./DocEditorPage'))
 const DocumentsPage = lazy(() => import('./DocumentsPage'))
 const NewDocumentPage = lazy(() => import('./NewDocumentPage'))
-const ProfilePage = lazy(() => import('./ProfilePage'))
-const AddressBookPage = lazy(() => import('./AddressBookPage'))
-const NumberingPage = lazy(() => import('./NumberingPage'))
 const PersonalTemplatesPage = lazy(() => import('./PersonalTemplatesPage'))
 /*
   The import screen and the print route are their own chunks, and both matter.
@@ -35,12 +49,6 @@ const PersonalTemplatesPage = lazy(() => import('./PersonalTemplatesPage'))
 */
 const ImportPage = lazy(() => import('./ImportPage'))
 const PrintPage = lazy(() => import('./PrintPage'))
-/*
-  Session 31's two screens. The reply screen pulls `data/law` when a letter it
-  read actually cites something, and the register pulls nothing at all — so
-  both are split for the ordinary reason: they are screens, and an officer
-  writing a new O.M. should download neither.
-*/
 const ReplyPage = lazy(() => import('./intake/ReplyPage'))
 const RegisterPage = lazy(() => import('./register/RegisterPage'))
 
@@ -53,32 +61,54 @@ function Fallback() {
   )
 }
 
+/** Everything under `/draft/documents` that used to be somewhere else. */
+const LEGACY = redirectsUnder('/draft/documents').filter((redirect) => redirect.from !== '/draft/documents')
+
 export default function DraftPage() {
+  const followUps = useDueFollowUpCount()
+
   return (
     <Suspense fallback={<Fallback />}>
       <Routes>
-        <Route index element={<PickerPage />} />
-        <Route path="documents" element={<DocumentsPage />} />
-        <Route path="new/:type" element={<NewDocumentPage />} />
-        <Route path="d/:id" element={<DocEditorPage />} />
-        <Route path="d/:id/print" element={<PrintPage />} />
-        <Route path="import" element={<ImportPage />} />
-        <Route path="reply" element={<ReplyPage />} />
-        <Route path="reply/:id" element={<ReplyPage />} />
-        <Route path="register" element={<RegisterPage />} />
-        <Route path="profile" element={<ProfilePage />} />
-        <Route path="address-book" element={<AddressBookPage />} />
-        <Route path="numbering" element={<NumberingPage />} />
-        <Route path="my-templates" element={<PersonalTemplatesPage />} />
+        <Route index element={<Navigate to="/draft/documents" replace />} />
+
+        {/* Level 1 — the five sub-tabs. */}
+        <Route element={<TabLayout badges={{ register: followUps }} />}>
+          <Route path="documents" element={<DocumentsPage />} />
+          <Route path="new" element={<PickerPage />} />
+          <Route path="reply" element={<ReplyPage />} />
+          <Route path="register" element={<RegisterPage />} />
+          <Route path="templates" element={<PersonalTemplatesPage />} />
+        </Route>
+
+        {/* Level 2. */}
+        <Route element={<DetailLayout />}>
+          <Route path="documents/import" element={<ImportPage />} />
+          <Route path="new/:type" element={<NewDocumentPage />} />
+        </Route>
+
+        {/* Level 3 — a document, a letter, a sheet of paper. */}
+        <Route element={<FocusLayout />}>
+          <Route path="d/:id" element={<DocEditorPage />} />
+          <Route path="d/:id/print" element={<PrintPage />} />
+          <Route path="reply/:id" element={<ReplyPage />} />
+        </Route>
+
         {/*
-          The Session 8 form-and-preview editor. It is kept, and kept reachable,
-          because every draft in the `drafts` table still opens in it and the
-          migration into `documents` is offered rather than forced. Its route is
-          LAST so a document type that collides with one of the names above —
-          none does today — cannot shadow a real screen.
+          Declared after every real route. `/draft/:type` is last of these,
+          because `LEGACY_REDIRECTS` puts it last and the reason is written
+          there — it matches everything, and React Router ranks it above the
+          splat below.
         */}
-        <Route path=":type" element={<EditorPage />} />
-        <Route path="*" element={<Navigate to="/draft" replace />} />
+        {LEGACY.map((redirect) => (
+          <Route
+            key={redirect.from}
+            path={redirect.from.slice('/draft/'.length)}
+            element={<LegacyRedirect redirect={redirect} />}
+          />
+        ))}
+
+        <Route path="*" element={<Navigate to="/draft/documents" replace />} />
       </Routes>
     </Suspense>
   )

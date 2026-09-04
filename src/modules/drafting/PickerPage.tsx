@@ -3,17 +3,12 @@ import { useLiveQuery } from 'dexie-react-hooks'
 import { useMemo, useState } from 'react'
 import { Link } from 'react-router-dom'
 
-import { DraftHome } from './components/DraftHome'
-import { RecentDrafts } from './components/RecentDrafts'
-import { listFavourites, listPersonal, listRecents, toggleFavourite } from './personalStore'
-import { profileIsSet, readProfile } from './profileStore'
+import { listFavourites, listRecents, toggleFavourite } from './personalStore'
 import { useDraftingIndex } from './useDraftingData'
 
 import { DataVersion } from '@/components/common/DataVersion'
 import { Disclaimer } from '@/components/common/Disclaimer'
-import { PageHeader } from '@/components/common/PageHeader'
 import { Badge, Chip, QueryErrorState, SectionCard, Skeleton } from '@/components/ui-x'
-import { Button } from '@/components/ui/button'
 import { useT } from '@/i18n/useT'
 import type { DraftingIndex } from './schema'
 
@@ -32,6 +27,11 @@ import type { DraftingIndex } from './schema'
  *
  * No card carries the file tab. The signature means *this is the one you are
  * in*, and on a screen whose whole job is choosing, none of them is yet.
+ *
+ * ADR-046 made this the "New" sub-tab and gave it back its one job. The draft
+ * library, the older drafts, the profile nudge and the officer's own templates
+ * used to sit above the grid on the same screen; they are now Documents and
+ * Templates, two tabs along, and the section header comes from `TabLayout`.
  */
 
 /** CSMOP's own order of business: outward, inward, personal, statutory. */
@@ -43,29 +43,7 @@ export default function PickerPage() {
   const index = useDraftingIndex()
 
   return (
-    <div className="mx-auto flex max-w-6xl flex-col gap-6">
-      <PageHeader title={t('pages.draft.title')} subtitle={t('pages.draft.subtitle')} />
-
-      {/*
-        The draft library (Session 31, ADR-043 §6): continue editing, what is
-        waiting for a reply, the actions, and search across every document on
-        the device. It is FIRST because most visits here are to carry on with
-        something rather than to start a new form — and the template grid is
-        still the second thing on the same screen, which is why nothing that
-        linked to `/draft` for a form had to change.
-      */}
-      <DraftHome />
-
-      {/*
-        The Session 8 drafts, still reachable in the editor that wrote them.
-        Kept below the new list rather than removed: `drafts` is not dropped and
-        the migration on `/draft/documents` copies rather than moves.
-      */}
-      <RecentDrafts />
-
-      <ProfileNudge />
-      <PersonalTemplates />
-
+    <div className="flex flex-col gap-6">
       <section aria-labelledby="draft-forms" className="flex flex-col gap-4">
         <div className="space-y-1">
           <h2 id="draft-forms" className="text-lg font-semibold">
@@ -86,62 +64,6 @@ export default function PickerPage() {
       <Disclaimer />
       <DataVersion dataset="drafting-templates" />
     </div>
-  )
-}
-
-/**
- * "Set up your drafting profile" — shown until there is one.
- *
- * `profileIsSet` and the string it renders both shipped in Session 29 with
- * nothing calling them, which an edge-case pass found by sweeping for i18n keys
- * no source file references. Without a profile, every new document starts with
- * an empty letterhead and an unsigned signature block, and the officer has to
- * discover why.
- */
-function ProfileNudge() {
-  const { t } = useT()
-  const profile = useLiveQuery(() => readProfile(), [])
-  if (!profile || profileIsSet(profile)) return null
-  return (
-    <SectionCard className="flex flex-wrap items-center justify-between gap-3 p-4">
-      <p className="min-w-0 text-sm text-muted-foreground">{t('draft.profile.notSet')}</p>
-      <Button asChild size="sm">
-        <Link to="/draft/profile">{t('draft.profile.open')}</Link>
-      </Button>
-    </SectionCard>
-  )
-}
-
-function PersonalTemplates() {
-  const { t } = useT()
-  const templates = useLiveQuery(() => listPersonal(), []) ?? []
-  if (templates.length === 0) return null
-  return (
-    <section aria-labelledby="draft-mine" className="flex flex-col gap-3">
-      <h2 id="draft-mine" className="text-xs font-semibold tracking-wide text-muted-foreground uppercase">
-        {t('draft.personal.heading')}
-      </h2>
-      <ul className="grid gap-3 sm:grid-cols-2 xl:grid-cols-3">
-        {templates.slice(0, 6).map((template) => (
-          <li key={template.id} className="contents">
-            <SectionCard className="transition-colors hover:border-input">
-              <Link
-                to={`/draft/new/${template.baseTemplateId}?personal=${template.id}`}
-                className="flex h-full min-h-11 flex-col gap-2 rounded-lg p-4"
-              >
-                <span className="flex items-center gap-2">
-                  <span className="text-base font-semibold">{template.name}</span>
-                  <Badge tone="warning">{t('draft.editor.yours')}</Badge>
-                </span>
-                <span className="text-sm text-muted-foreground">
-                  {t('draft.editor.yoursHint', { name: template.baseTemplateId })}
-                </span>
-              </Link>
-            </SectionCard>
-          </li>
-        ))}
-      </ul>
-    </section>
   )
 }
 

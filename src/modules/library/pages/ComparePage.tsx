@@ -16,7 +16,7 @@ import { anchorText, diffOf, unitLabel, type LibraryCorpus } from '@/lib/library
 import { cn } from '@/lib/utils'
 
 /**
- * `/library/compare?a=work:unit&b=work:unit` — two units side by side.
+ * `/study/notes/compare?a=work:unit&b=work:unit` — two units side by side.
  *
  * The diff is the Law Converter's own word diff (`src/lib/diff.ts`), used in
  * its DEFAULT mode: case and punctuation folded. That is right here for the
@@ -183,7 +183,7 @@ export default function ComparePage() {
         subtitle={t('library.compare.subtitle')}
         actions={
           <Button asChild variant="outline" size="sm">
-            <Link to="/library">
+            <Link to="/study/read">
               <ArrowLeft aria-hidden="true" />
               {t('library.back')}
             </Link>

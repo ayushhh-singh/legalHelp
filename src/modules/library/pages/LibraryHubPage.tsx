@@ -26,7 +26,7 @@ import { cn } from '@/lib/utils'
 import type { LibraryIndexEntry } from '@/schemas/library'
 
 /**
- * `/library` — the shelf.
+ * `/study/read` — the shelf.
  *
  * Loads `data/library/index.json` and NOTHING else: fifteen names, counts and
  * citations, ~11 KB. A work's table of contents (8–220 KB) and its corpus (up
@@ -159,7 +159,7 @@ export default function LibraryHubPage() {
 
   return (
     <div className="mx-auto flex max-w-5xl flex-col gap-6">
-      <PageHeader title={t('library.title')} subtitle={t('library.subtitle')} />
+      <PageHeader as="h2" title={t('library.title')} subtitle={t('library.subtitle')} />
 
       <p className="text-sm text-muted-foreground tabular-nums">
         {t('library.shelfSummary', {

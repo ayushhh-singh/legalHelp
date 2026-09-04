@@ -29,9 +29,11 @@ const at = (path: string) =>
   render(
     <MemoryRouter initialEntries={[path]}>
       <Routes>
-        <Route path="/library" element={<LibraryHubPage />} />
-        <Route path="/library/:workId" element={<WorkPage />} />
-        <Route path="/library/:workId/:unitId" element={<ReaderPage />} />
+        {/* The shelf is the Read SUB-TAB now, so its own masthead is an `<h2>`
+            and `TabLayout` owns the `<h1>` — hence `level: 2` below (ADR-046). */}
+        <Route path="/study/read" element={<LibraryHubPage />} />
+        <Route path="/study/read/:workId" element={<WorkPage />} />
+        <Route path="/study/read/:workId/:unitId" element={<ReaderPage />} />
         {/* Somewhere to land, so a redirect is observable. */}
         <Route path="/law" element={<h1>Law Converter</h1>} />
       </Routes>
@@ -71,8 +73,8 @@ describe('a screen must not wait on a read it only decorates itself with', () =>
   it('renders the shelf even when progress never resolves', async () => {
     const spy = vi.spyOn(db.libraryProgress, 'toArray').mockReturnValue(new Promise(() => undefined) as never)
     try {
-      at('/library')
-      expect(await screen.findByRole('heading', { level: 1, name: 'Library' })).toBeInTheDocument()
+      at('/study/read')
+      expect(await screen.findByRole('heading', { level: 2, name: 'Library' })).toBeInTheDocument()
       expect(await screen.findByText(/Central Civil Services \(Conduct\) Rules, 1964/)).toBeInTheDocument()
     } finally {
       spy.mockRestore()
@@ -84,7 +86,7 @@ describe('a screen must not wait on a read it only decorates itself with', () =>
       equals: () => ({ toArray: () => new Promise(() => undefined) }),
     } as never)
     try {
-      at('/library/ccs-conduct')
+      at('/study/read/ccs-conduct')
       expect(await screen.findByRole('heading', { level: 1 })).toHaveTextContent(/Conduct/)
       expect(await screen.findByRole('heading', { name: 'Contents' })).toBeInTheDocument()
     } finally {
@@ -97,7 +99,7 @@ describe('a screen must not wait on a read it only decorates itself with', () =>
       equals: () => ({ toArray: () => new Promise(() => undefined) }),
     } as never)
     try {
-      at('/library/ccs-conduct/ccs-conduct-3')
+      at('/study/read/ccs-conduct/ccs-conduct-3')
       expect(await ruleText()).toBeInTheDocument()
     } finally {
       spy.mockRestore()
@@ -118,14 +120,14 @@ describe('continue reading', () => {
     await read('ccs-conduct', 'ccs-conduct-3', '2026-09-01T10:00:00.000Z')
     await read('rti', 'rti-8', '2026-09-02T10:00:00.000Z')
 
-    at('/library')
-    await screen.findByRole('heading', { level: 1, name: 'Library' })
+    at('/study/read')
+    await screen.findByRole('heading', { level: 2, name: 'Library' })
 
     const links = await screen.findAllByRole('link', { name: /Continue reading/ })
     expect(links).toHaveLength(2)
     expect(links.map((link) => link.getAttribute('href')).sort()).toEqual([
-      '/library/ccs-conduct/ccs-conduct-3',
-      '/library/rti/rti-8',
+      '/study/read/ccs-conduct/ccs-conduct-3',
+      '/study/read/rti/rti-8',
     ])
   })
 
@@ -134,7 +136,7 @@ describe('continue reading', () => {
     await read('ccs-conduct', 'ccs-conduct-3', '2026-09-01T10:00:00.000Z')
     await read('rti', 'rti-8', '2026-09-02T10:00:00.000Z')
 
-    const { container } = at('/library')
+    const { container } = at('/study/read')
     await screen.findAllByRole('link', { name: /Continue reading/ })
 
     expect(container.querySelectorAll('.bg-marigold')).toHaveLength(1)
@@ -150,8 +152,8 @@ describe('the progress ring', () => {
   it('does not tell a reader who has read something that they have not started', async () => {
     await read('bnss', '1', '2026-09-01T10:00:00.000Z')
 
-    at('/library')
-    await screen.findByRole('heading', { level: 1, name: 'Library' })
+    at('/study/read')
+    await screen.findByRole('heading', { level: 2, name: 'Library' })
 
     const ring = await screen.findByRole('img', { name: /Reading progress in BNSS/ })
     const card = ring.closest('section')
@@ -159,8 +161,8 @@ describe('the progress ring', () => {
   })
 
   it('still says so for a work with no progress at all', async () => {
-    at('/library')
-    await screen.findByRole('heading', { level: 1, name: 'Library' })
+    at('/study/read')
+    await screen.findByRole('heading', { level: 2, name: 'Library' })
 
     const ring = await screen.findByRole('img', { name: /Reading progress in BNSS/ })
     expect(ring.closest('section')?.textContent).toContain('Not started')
@@ -180,7 +182,7 @@ describe('a search hit in a work that publishes no headings', () => {
     const work = await loadWork('fr-sr')
     const corpus = await loadCorpus(work)
 
-    at('/library/fr-sr')
+    at('/study/read/fr-sr')
     await screen.findByRole('heading', { level: 1 })
 
     await user.type(screen.getByLabelText('Search inside this work'), 'joining time')
@@ -217,7 +219,7 @@ describe('the related rail', () => {
    * book except the three Sanhitas and CSMOP.
    */
   it('offers neighbours in a work whose table of contents is flat', async () => {
-    at('/library/ccs-conduct/ccs-conduct-3')
+    at('/study/read/ccs-conduct/ccs-conduct-3')
     await ruleText()
 
     const rail = await screen.findByRole('region', { name: 'Around this' })
@@ -226,7 +228,7 @@ describe('the related rail', () => {
   })
 
   it('still groups by chapter in a work that has them', async () => {
-    at('/library/bns/103')
+    at('/study/read/bns/103')
     await screen.findByRole('heading', { level: 1 })
 
     const rail = await screen.findByRole('region', { name: 'Around this' })
@@ -236,7 +238,7 @@ describe('the related rail', () => {
 
 describe('an id in the address bar that names no work', () => {
   /**
-   * `tests/route-coverage.test.ts` exempts `/library/:workId` on the stated
+   * `tests/route-coverage.test.ts` exempts `/study/read/:workId` on the stated
    * grounds that a literal ":workId" "renders the not-found redirect". It did
    * not: it rendered a red failure card, which is what a real load error should
    * look like and is the wrong thing to show for a URL that was simply never a
@@ -244,20 +246,20 @@ describe('an id in the address bar that names no work', () => {
    * nothing while looking like it does.
    */
   it('goes back to the shelf rather than reporting a failure', async () => {
-    at('/library/not-a-work')
-    expect(await screen.findByRole('heading', { level: 1, name: 'Library' })).toBeInTheDocument()
+    at('/study/read/not-a-work')
+    expect(await screen.findByRole('heading', { level: 2, name: 'Library' })).toBeInTheDocument()
     expect(screen.queryByRole('alert')).not.toBeInTheDocument()
   })
 
   it('goes back to the shelf from the reader too', async () => {
-    at('/library/not-a-work/whatever')
-    expect(await screen.findByRole('heading', { level: 1, name: 'Library' })).toBeInTheDocument()
+    at('/study/read/not-a-work/whatever')
+    expect(await screen.findByRole('heading', { level: 2, name: 'Library' })).toBeInTheDocument()
   })
 
   it('still says so for a real work whose unit does not exist', async () => {
     // A different question with a different answer: the work is real, the URL
     // is nearly right, and telling the reader is more use than moving them.
-    at('/library/ccs-conduct/ccs-conduct-999')
+    at('/study/read/ccs-conduct/ccs-conduct-999')
     expect(await screen.findByText('This work has no such unit.')).toBeInTheDocument()
   })
 })
@@ -270,8 +272,8 @@ describe('unitIdFromPath', () => {
    * refresh it. This is that parse.
    */
   it('reads the unit out of a reader path', () => {
-    expect(unitIdFromPath('/library/ccs-conduct/ccs-conduct-3', 'ccs-conduct')).toBe('ccs-conduct-3')
-    expect(unitIdFromPath('/library/bns/103', 'bns')).toBe('103')
+    expect(unitIdFromPath('/study/read/ccs-conduct/ccs-conduct-3', 'ccs-conduct')).toBe('ccs-conduct-3')
+    expect(unitIdFromPath('/study/read/bns/103', 'bns')).toBe('103')
   })
 
   it('decodes, so a unit id that needed escaping survives the round trip', () => {
@@ -280,15 +282,15 @@ describe('unitIdFromPath', () => {
   })
 
   it('answers null for anything that is not this work’s reader', () => {
-    expect(unitIdFromPath('/library/ccs-conduct', 'ccs-conduct')).toBeNull()
-    expect(unitIdFromPath('/library/bns/103', 'bnss')).toBeNull()
+    expect(unitIdFromPath('/study/read/ccs-conduct', 'ccs-conduct')).toBeNull()
+    expect(unitIdFromPath('/study/read/bns/103', 'bnss')).toBeNull()
     expect(unitIdFromPath('/law?q=302', 'bns')).toBeNull()
     // A deeper path is a different route, not a unit with a slash in it.
-    expect(unitIdFromPath('/library/bns/103/notes', 'bns')).toBeNull()
+    expect(unitIdFromPath('/study/read/bns/103/notes', 'bns')).toBeNull()
   })
 
   it('does not throw on a malformed escape in the address bar', () => {
-    expect(unitIdFromPath('/library/bns/%E0%A4', 'bns')).toBeNull()
+    expect(unitIdFromPath('/study/read/bns/%E0%A4', 'bns')).toBeNull()
   })
 })
 
@@ -301,7 +303,7 @@ describe('the reader’s own keyboard shortcuts', () => {
    */
   it('does not move between units while a dialog is open over the page', async () => {
     const user = userEvent.setup()
-    at('/library/ccs-conduct/ccs-conduct-3')
+    at('/study/read/ccs-conduct/ccs-conduct-3')
     await ruleText()
 
     // Stands in for the shortcuts-help sheet or the AI consent modal — neither
@@ -325,7 +327,7 @@ describe('the reader’s own keyboard shortcuts', () => {
     // navigation at all, which the first version did not: an unguarded
     // `scrollIntoView` in the unit-change effect threw and took the route down.
     const user = userEvent.setup()
-    at('/library/ccs-conduct/ccs-conduct-3')
+    at('/study/read/ccs-conduct/ccs-conduct-3')
     await ruleText()
 
     await user.keyboard('j')
@@ -362,7 +364,7 @@ describe('the 30-second dwell timer', () => {
     vi.useFakeTimers({ toFake: ['setInterval', 'clearInterval'] })
     const visibility = vi.spyOn(document, 'visibilityState', 'get').mockReturnValue('hidden')
     try {
-      at('/library/ccs-conduct/ccs-conduct-3')
+      at('/study/read/ccs-conduct/ccs-conduct-3')
       await vi.waitFor(async () => expect(await ruleText()).toBeInTheDocument())
 
       // Arrival is still recorded — that is what "continue reading" reads back.
@@ -388,7 +390,7 @@ describe('the table of contents on a work already being read', () => {
   it('opens the branch the reader was last in', async () => {
     await read('bns', '103', '2026-09-01T10:00:00.000Z')
 
-    at('/library/bns')
+    at('/study/read/bns')
     await screen.findByRole('heading', { name: 'Contents' })
 
     // BNS 103 is in "Of offences affecting the human body", not chapter I —
@@ -397,11 +399,11 @@ describe('the table of contents on a work already being read', () => {
     // merely that a link named "Punishment for murder" exists would pass on
     // BNS 103A, a different offence in the same chapter.
     const here = await screen.findByRole('link', { current: 'page' })
-    expect(here).toHaveAttribute('href', '/library/bns/103')
+    expect(here).toHaveAttribute('href', '/study/read/bns/103')
   })
 
   it('opens the first branch on a work with no progress, rather than none', async () => {
-    at('/library/bns')
+    at('/study/read/bns')
     await screen.findByRole('heading', { name: 'Contents' })
 
     expect(screen.queryByRole('link', { current: 'page' })).not.toBeInTheDocument()

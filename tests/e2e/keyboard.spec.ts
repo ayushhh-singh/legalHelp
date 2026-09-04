@@ -108,14 +108,14 @@ for (const language of LANGUAGES) {
 }
 
 test('the Rules Trainer can be reviewed with the keyboard alone', async ({ page }) => {
-  await page.goto('/learn')
+  await page.goto('/study/practise')
   await expect(page.getByRole('heading', { level: 1 })).toBeVisible()
 
   await tabTo(page, (description) => description.includes(t('en', 'trainer.home.startReview')), {
     limit: 60,
   })
   await page.keyboard.press('Enter')
-  await expect(page).toHaveURL(/\/learn\/review/)
+  await expect(page).toHaveURL(/\/study\/practise\/review/)
 
   // The review screen's own shortcuts, which are the point of it: a reader
   // working through fifty cards is not reaching for a mouse each time.
@@ -188,15 +188,17 @@ test('the theme toggle still animates when reduced motion is NOT requested', asy
 test('a copy confirmation is announced, not only drawn', async ({ page, context }) => {
   // Every copy affordance in the app writes into a live region. The icon swap
   // alone is `aria-hidden`, so to a screen reader an un-announced copy is a
-  // button that did nothing at all — which is what `/utils/portals` used to do.
+  // button that did nothing at all — which is what `/tools/portals` used to do.
   await context.grantPermissions(['clipboard-read', 'clipboard-write'])
 
   for (const [route, ready, action, confirmation] of [
-    ['/utils/portals', 'utils.portals.title', 'utils.portals.copyUrl', 'utils.portals.copied'],
+    ['/tools/portals', 'utils.portals.title', 'utils.portals.copyUrl', 'utils.portals.copied'],
     ['/law?q=302&code=bns', 'pages.law.title', 'law.actions.copy', 'law.actions.copied'],
   ] as const) {
     await page.goto(route)
-    await expect(page.getByRole('heading', { level: 1, name: t('en', ready) })).toBeVisible({
+    // Both routes are sub-tab pages, so their own masthead is an `<h2>` —
+    // `TabLayout` owns the section's `<h1>` (ADR-046).
+    await expect(page.getByRole('heading', { level: 2, name: t('en', ready) })).toBeVisible({
       timeout: 30_000,
     })
 

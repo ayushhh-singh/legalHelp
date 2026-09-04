@@ -55,7 +55,7 @@ test.describe('the document editor', () => {
     const typed = network.sentinel('body')
 
     // ---- a numbering scheme, so "Issue number" has something to issue -----
-    await page.goto('/draft/numbering')
+    await page.goto('/settings/numbering')
     await page.getByRole('button', { name: /Add a scheme|योजना जोड़ें/ }).click()
     await page.getByLabel(/What you call it|आप इसे क्या कहते हैं/).fill('Establishment')
     const patternBox = page.getByLabel(/^Pattern$|^पैटर्न$/)
@@ -245,14 +245,14 @@ test.describe('the document editor', () => {
       the way they were found was a sweep for i18n keys nothing referenced — and
       a key being referenced is not the same as the control working.
     */
-    await page.goto('/draft/profile')
+    await page.goto('/settings/profile')
 
     // The nudge on the picker, while there is no profile.
     await page.goto('/draft')
     await expect(page.getByText(/Set up your drafting profile/)).toBeVisible()
 
     // A letterhead and an unticked -Sd/- reach the page.
-    await page.goto('/draft/profile')
+    await page.goto('/settings/profile')
     await page.getByLabel('Name', { exact: true }).fill('A.B.C.')
     await page.getByLabel(/^Letterhead lines 1$/).fill('ESTABLISHMENT SECTION')
     await page.getByLabel(/print -Sd\/- above the name/i).uncheck()
@@ -290,15 +290,15 @@ test.describe('the document editor', () => {
     // Wait on the app's OWN confirmation before navigating. A Dexie write does
     // not finish before the click that started it returns — CLAUDE.md records
     // this costing a Library test a failure reported two screens away, and this
-    // test reproduced it exactly: `/draft/my-templates` was empty because the
+    // test reproduced it exactly: `/draft/templates` was empty because the
     // navigation beat the write, not because saving was broken.
     await expect(page.getByText(/Saved as "My O\.M\."/)).toBeVisible()
-    await page.goto('/draft/my-templates')
+    await page.goto('/draft/templates')
     await expect(page.getByText('My O.M.')).toBeVisible()
   })
 
   test('deleting an addressee asks first and can be undone', async ({ page }) => {
-    await page.goto('/draft/address-book')
+    await page.goto('/settings/address-book')
     await page.getByRole('button', { name: /Add an addressee/ }).click()
     await page.getByLabel('Name', { exact: true }).fill('Shri X')
     await page.getByRole('button', { name: /^Save$/ }).click()

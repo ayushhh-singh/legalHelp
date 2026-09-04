@@ -1,7 +1,7 @@
 /**
  * The Library's three routes, built in one place.
  *
- * `/library/:workId/:unitId` puts BOTH ids in the path rather than one in a
+ * `/study/read/:workId/:unitId` puts BOTH ids in the path rather than one in a
  * query string, because a unit is a document in its own right — it is what a
  * reader bookmarks in their browser, shares, and prints. The Law Converter puts
  * its whole view in the query string for the opposite reason (ADR-013: its view
@@ -11,17 +11,24 @@
  * the bare section number (`103`), which is only unique WITHIN its code — which
  * is exactly why the work id is in the path too.
  */
-export const toLibraryHref = (): string => '/library'
-
-/** The Library's own screens, beside the shelf. */
-export const toMineHref = (): string => '/library/mine'
-export const toBookmarksHref = (): string => '/library/bookmarks'
-export const toAddWorkHref = (): string => '/library/add'
-export const toLibrarySearchHref = (query?: string): string =>
-  query ? `/library/search?q=${encodeURIComponent(query)}` : '/library/search'
+export const toLibraryHref = (): string => '/study/read'
 
 /**
- * `/library/compare?a=<work>:<unit>&b=…` — two units side by side.
+ * The reading module's own screens, beside the shelf.
+ *
+ * ADR-046 folded the Library into Study as its "Read" sub-tab and merged its
+ * annotations, bookmarks and compare screens into "My notes". The paths moved;
+ * this file is where they moved, so nothing else had to change, and every old
+ * `/library/*` URL redirects here (`LEGACY_REDIRECTS`).
+ */
+export const toMineHref = (): string => '/study/notes'
+export const toBookmarksHref = (): string => '/study/notes?type=bookmark'
+export const toAddWorkHref = (): string => '/study/read/add'
+export const toLibrarySearchHref = (query?: string): string =>
+  query ? `/study/read/search?q=${encodeURIComponent(query)}` : '/study/read/search'
+
+/**
+ * `/study/notes/compare?a=<work>:<unit>&b=…` — two units side by side.
  *
  * A colon-joined pair rather than four parameters, because the two sides are
  * one thing the reader swaps: `a` and `b` trading places must be one edit, and
@@ -56,13 +63,13 @@ export function toCompareHref(
   if (a) params.set('a', compareRef(a.workId, a.unitId))
   if (b) params.set('b', compareRef(b.workId, b.unitId))
   const query = params.toString()
-  return query ? `/library/compare?${query}` : '/library/compare'
+  return query ? `/study/notes/compare?${query}` : '/study/notes/compare'
 }
 
-export const toWorkHref = (workId: string): string => `/library/${encodeURIComponent(workId)}`
+export const toWorkHref = (workId: string): string => `/study/read/${encodeURIComponent(workId)}`
 
 export const toUnitHref = (workId: string, unitId: string): string =>
-  `/library/${encodeURIComponent(workId)}/${encodeURIComponent(unitId)}`
+  `/study/read/${encodeURIComponent(workId)}/${encodeURIComponent(unitId)}`
 
 /**
  * A cross-reference into the Law Converter, as a QUERY that names the Act.
@@ -75,10 +82,11 @@ export const toUnitHref = (workId: string, unitId: string): string =>
 export const toLawSearchHref = (query: string): string => `/law?q=${encodeURIComponent(query)}`
 
 /** The Trainer, filtered to the rule book a unit belongs to. */
-export const toPractiseHref = (actId: string): string => `/learn/review?act=${encodeURIComponent(actId)}`
+export const toPractiseHref = (actId: string): string =>
+  `/study/practise/review?act=${encodeURIComponent(actId)}`
 
 /**
- * The unit id in a `/library/<workId>/<unitId>` path, or `null`.
+ * The unit id in a `/study/read/<workId>/<unitId>` path, or `null`.
  *
  * The inverse of `toUnitHref`, and it exists for one reason: the reader's
  * keyboard handler needs to know which unit it is on AT THE MOMENT A KEY IS
@@ -100,7 +108,7 @@ export const toPractiseHref = (actId: string): string => `/learn/review?act=${en
  * effects flush between interactions anyway, still exercise the same code.
  */
 export function unitIdFromPath(pathname: string, workId: string): string | null {
-  const prefix = `/library/${encodeURIComponent(workId)}/`
+  const prefix = `/study/read/${encodeURIComponent(workId)}/`
   if (!pathname.startsWith(prefix)) return null
   const rest = pathname.slice(prefix.length)
   if (!rest || rest.includes('/')) return null
@@ -117,7 +125,7 @@ export function unitIdFromPath(pathname: string, workId: string): string | null 
  * ------------------------------------------------------------------ */
 
 /**
- * `/library/:workId/quiz/:nodeId` and `/library/:workId/sheet/:nodeId`.
+ * `/study/read/:workId/quiz/:nodeId` and `/study/read/:workId/sheet/:nodeId`.
  *
  * The NODE is in the path rather than in a query string, for the reason
  * `toUnitHref` puts a unit there: a chapter quiz and a revision sheet are each
@@ -129,12 +137,12 @@ export function unitIdFromPath(pathname: string, workId: string): string | null 
  * any of the fifteen corpora is either word.
  */
 export const toChapterQuizHref = (workId: string, nodeId: string): string =>
-  `/library/${encodeURIComponent(workId)}/quiz/${encodeURIComponent(nodeId)}`
+  `/study/read/${encodeURIComponent(workId)}/quiz/${encodeURIComponent(nodeId)}`
 
 export const toRevisionSheetHref = (workId: string, nodeId: string, mode?: 'twentyFourHour'): string =>
-  `/library/${encodeURIComponent(workId)}/sheet/${encodeURIComponent(nodeId)}${
+  `/study/read/${encodeURIComponent(workId)}/sheet/${encodeURIComponent(nodeId)}${
     mode === 'twentyFourHour' ? '?mode=24h' : ''
   }`
 
-/** `/library/study` — the weekly review, the goals and the coverage map. */
-export const toStudyHref = (): string => '/library/study'
+/** `/study/progress` — the weekly review, the goals and the coverage map. */
+export const toStudyHref = (): string => '/study/progress'

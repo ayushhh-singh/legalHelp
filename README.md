@@ -22,6 +22,17 @@ twelve rule books — works with the aeroplane mode on.
 
 ## Features
 
+Five tabs — **Home · Study · Draft · Law · Tools** — and Settings behind the gear in the top-right corner.
+Every page inside a tab knows what it is inside of, so "back" goes where you came from rather than wherever
+the browser happens to remember (ADR-046).
+
+### Home — `/home`
+
+Where you left off and what is waiting: the last provision you were reading, the last document you were
+writing, what is due for review today, which replies are overdue, and a countdown if you have set a
+departmental examination. Every figure comes from this device; nothing on this screen is a feature of its
+own, and every card is a way into one.
+
 ### Law Converter — `/law`
 
 IPC ↔ BNS, CrPC ↔ BNSS, Evidence Act ↔ BSA, in both directions, for **every** section: 1,059 of them,
@@ -35,7 +46,18 @@ under the new code, and bilingual citations you can copy, share or print.
 boundary — so the converter asks for the date and answers accordingly. The date is written nowhere: not to
 IndexedDB, not to `sessionStorage`. It lives in a module variable for the tab's life.
 
-### Rules Trainer — `/learn`
+### Study — `/study`
+
+Four sub-tabs over one activity: getting a rule from the book into your head.
+
+**Read** is the Library — fifteen works, a table of contents, a reader with English / हिंदी / both, four text
+sizes, read-aloud, highlights and notes, and your own documents beside the fifteen. **Practise** is the Rules
+Trainer, below. **Exam** is departmental-exam mode: a profile, a target date, a readiness figure that says
+what share of the paper it is measuring, a day-by-day plan, a generated mock and the exam-day checklist — all
+on one page. **My notes** is everything you have highlighted, written, bookmarked or explained in your own
+words, filterable and exportable to Markdown with citations.
+
+#### Practise — `/study/practise`
 
 Spaced repetition over twelve rule books — CCS (Conduct), CCS (CCA), CCS (Leave), CCS (Pension), GFR 2017,
 FR/SR, the RTI Act, the Official Secrets Act, PoSH 2013, the Official Languages Act and Rules, and
@@ -43,13 +65,18 @@ CSMOP 2022 — extracted into 818 rules and 2,607 cards, of which 571 are hand-r
 Scheduling is FSRS (`ts-fsrs`), with the fuzz deliberately switched off so two devices holding the same
 history agree about the schedule.
 
-Home with a due count and a streak, review over five card kinds, a timed mock test with an accuracy-by-rule-book
-chart, browse by Act and rule with per-rule mastery, bookmarks, a report-a-card queue with CSV export, and a
-local review queue. Every question cites the rule it comes from, in both languages.
+One "Today" card — due count, streak, today's goal, and Start review — with five secondary destinations
+underneath: a timed mock test with an accuracy-by-rule-book chart, browse by Act and rule with per-rule
+mastery, bookmarks, a report-a-card queue with CSV export, and a local review queue. Every question cites the
+rule it comes from, in both languages.
 
 ### Drafting Studio — `/draft`
 
-All fourteen document types an officer actually writes — Office Memorandum, D.O. letter, U.O. / I.D. note,
+Five sub-tabs: **Documents** (continue, search every document's body, filter by type, status or thread, bulk
+export, import), **New** (the template gallery), **Reply** (paste a letter that arrived and draft the answer),
+**Register** (what came in, what went out, what is waiting) and **Templates** (your own).
+
+All forty-three document types an officer actually writes — Office Memorandum, D.O. letter, U.O. / I.D. note,
 noting on a file, notification, circular, endorsement, ordinary letter, leave application, representation,
 RTI reply, show-cause reply, tour programme, T.A. bill covering letter — each with a guided bilingual form
 beside a live A4 preview (English / हिंदी / side-by-side), a Hindi administrative glossary and phrase library
@@ -59,7 +86,11 @@ Export to `.docx` (real Word, correct margins, both font slots so bilingual text
 PDF. Drafts autosave locally, with duplicate, rename and an undoable delete. Seven of the fourteen forms are
 ones CSMOP prescribes no format for; those are badged, and each names the form whose format it borrows.
 
-### Pay & Allowances — `/pay`
+### Tools — `/tools`
+
+Six sub-tabs: Salary, Leave, Pension, Holidays, Glossary, Portals.
+
+#### Salary — `/tools/salary`
 
 The complete 7th CPC matrix — 19 levels, 540 cells — with grade pay shown, a picker over 67 posts that knows
 its acronyms (`ACIO` finds a post whose title never spells it) and 102 cities with aliases. Pick a post and
@@ -74,7 +105,7 @@ The 8th CPC screen shows **no matrix and never will** — nothing has been recom
 a guess multiplied by a pay matrix. It carries the constitution date, the status and the projections it is
 labelled with.
 
-### Utilities — `/utils`
+#### The other five
 
 - **Holiday calendar** — gazetted and restricted holidays from the DoPT O.M., a month grid, restricted-holiday
   picks, and an `.ics` export of the gazetted list.
@@ -88,21 +119,34 @@ labelled with.
 
 ### Everywhere
 
-Command palette on Ctrl/⌘-K over law sections, posts, glossary terms, document types, rule books and portals;
-`g` + a letter to jump modules; a language toggle on every screen; light and dark themes; first-run
-onboarding; export, import and erase of everything the app has stored about you.
+Command palette on Ctrl/⌘-K over law sections, posts, glossary terms, document types, rule books and portals —
+and over every tab and sub-tab by name; `g` + a letter to jump (`h` home, `s` study, `r` read, `p` practise,
+`d` draft, `l` law, `t` tools); a language toggle on every screen, including inside a reader or an editor
+where the top bar is hidden; light and dark themes; first-run onboarding; export, import and erase of
+everything the app has stored about you.
+
+Every URL this app has ever served still works. `/pay?job=…&city=…` lands on `/tools/salary` with the query
+intact, `/library/ccs-conduct/ccs-conduct-3` on the reader, `/learn/exam/plan` on the plan section of the exam
+page — 38 redirects, kept for ever, because the point of a stable URL is that nobody has to know when it
+changed.
 
 ## Screenshots
 
-_To add — one per module, light and dark, English and Hindi:_
+_To add — one per tab, plus the three page levels, light and dark, English and Hindi:_
 
-- `docs/screenshots/law-converter.png` — a section open with the old-vs-new diff
+- `docs/screenshots/home.png` — `/home`: continue reading, continue drafting, what is due
+- `docs/screenshots/study-read.png` — `/study/read`: the shelf with the sub-tab strip above it
+- `docs/screenshots/study-practise.png` — `/study/practise`: the Today card and the five rows
+- `docs/screenshots/study-exam.png` — `/study/exam`: readiness with its caveat on the same card
+- `docs/screenshots/draft-documents.png` — `/draft/documents`: continue, follow-ups, the list
+- `docs/screenshots/law-converter.png` — `/law`: a section open with the old-vs-new diff
 - `docs/screenshots/law-converter-hi.png` — the same section in Hindi
-- `docs/screenshots/pay-calculator.png` — the payslip card with a "why" disclosure open
-- `docs/screenshots/drafting-studio.png` — the O.M. editor beside its A4 preview
-- `docs/screenshots/rules-trainer.png` — a review card and the due/streak home
-- `docs/screenshots/utilities.png` — the holiday calendar
+- `docs/screenshots/tools-salary.png` — `/tools/salary`: the payslip with a "why" disclosure open
+- `docs/screenshots/tools-holidays.png` — `/tools/holidays`: the holiday calendar
+- `docs/screenshots/reader-focus.png` — the reader at level 3: no sidebar, no tab bar, one FocusBar
+- `docs/screenshots/settings.png` — `/settings`: the three switches and the eight sections
 - `docs/screenshots/command-palette.png` — Ctrl-K over a bilingual query
+- `docs/screenshots/mobile-tabs.png` — the five-tab bottom bar on a phone, with the gold file tab
 - `docs/screenshots/installed-android.png` — the installed PWA on a phone, offline
 
 ## Privacy

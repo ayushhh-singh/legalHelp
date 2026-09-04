@@ -75,7 +75,7 @@ export default function PersonalTemplatesPage() {
 
   return (
     <div className="mx-auto flex max-w-3xl flex-col gap-4">
-      <PageHeader title={t('draft.personal.heading')} />
+      <PageHeader as="h2" title={t('draft.personal.heading')} />
 
       <div className="flex flex-wrap gap-2">
         <Button variant="outline" size="sm" onClick={download} disabled={templates.length === 0}>

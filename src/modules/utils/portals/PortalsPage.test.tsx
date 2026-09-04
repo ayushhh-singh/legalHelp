@@ -21,7 +21,7 @@ import PortalsPage from './PortalsPage'
 
 function renderPage() {
   return render(
-    <MemoryRouter initialEntries={['/utils/portals']}>
+    <MemoryRouter initialEntries={['/tools/portals']}>
       <PortalsPage />
     </MemoryRouter>,
   )

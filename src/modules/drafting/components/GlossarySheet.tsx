@@ -194,7 +194,7 @@ function StructuralPanel({ onInsert }: { onInsert: (text: string) => void }) {
 /**
  * The wider Rajbhasha glossary — `data/glossary.json`, ~1,500 terms, loaded
  * only once this tab is opened (`useGlossary(true)` here, never at the sheet
- * level). Session 10 built this dataset as `/utils/glossary`'s own module; this
+ * level). Session 10 built this dataset as `/tools/glossary`'s own module; this
  * panel is what wires that same `onInsert` callback to it, so the toolbar
  * button an officer already knows reaches both glossaries.
  */

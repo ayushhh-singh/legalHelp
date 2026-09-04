@@ -81,9 +81,9 @@ describe('the reader’s rail must not carry one unit’s state onto the next', 
   it('does not carry one unit’s own-words draft onto the next unit', async () => {
     const user = userEvent.setup()
     render(
-      <MemoryRouter initialEntries={[`/library/${WORK}/ccs-conduct-3`]}>
+      <MemoryRouter initialEntries={[`/study/read/${WORK}/ccs-conduct-3`]}>
         <Routes>
-          <Route path="/library/:workId/:unitId" element={<ReaderPage />} />
+          <Route path="/study/read/:workId/:unitId" element={<ReaderPage />} />
         </Routes>
       </MemoryRouter>,
     )
@@ -119,9 +119,9 @@ describe('the reader’s rail must not carry one unit’s state onto the next', 
     const firstOfSecond = chapters[1]!.unitIds[0]!
 
     render(
-      <MemoryRouter initialEntries={[`/library/${WORK}/${chapters[0]!.unitIds[0]!}`]}>
+      <MemoryRouter initialEntries={[`/study/read/${WORK}/${chapters[0]!.unitIds[0]!}`]}>
         <Routes>
-          <Route path="/library/:workId/:unitId" element={<ReaderPage />} />
+          <Route path="/study/read/:workId/:unitId" element={<ReaderPage />} />
         </Routes>
       </MemoryRouter>,
     )
@@ -243,9 +243,9 @@ describe('the chapter quiz must not grade one wrong answer twice', () => {
   it('records exactly one review per question, even after the results screen', async () => {
     const user = userEvent.setup()
     render(
-      <MemoryRouter initialEntries={[`/library/${WORK}/quiz/group-n-ccs-conduct-1`]}>
+      <MemoryRouter initialEntries={[`/study/read/${WORK}/quiz/group-n-ccs-conduct-1`]}>
         <Routes>
-          <Route path="/library/:workId/quiz/:nodeId" element={<ChapterQuizPage />} />
+          <Route path="/study/read/:workId/quiz/:nodeId" element={<ChapterQuizPage />} />
         </Routes>
       </MemoryRouter>,
     )
@@ -378,9 +378,9 @@ describe('the revision sheet’s mode toggle', () => {
   it('goes both ways', async () => {
     const user = userEvent.setup()
     render(
-      <MemoryRouter initialEntries={[`/library/${WORK}/sheet/group-n-ccs-conduct-1`]}>
+      <MemoryRouter initialEntries={[`/study/read/${WORK}/sheet/group-n-ccs-conduct-1`]}>
         <Routes>
-          <Route path="/library/:workId/sheet/:nodeId" element={<RevisionSheetPage />} />
+          <Route path="/study/read/:workId/sheet/:nodeId" element={<RevisionSheetPage />} />
         </Routes>
       </MemoryRouter>,
     )
@@ -448,9 +448,9 @@ describe('the Ask panel must not be offered where its tools cannot reach', () =>
       and watch the assertion go red before believing it.
     */
     const warm = render(
-      <MemoryRouter initialEntries={[`/library/${WORK}/ccs-conduct-3`]}>
+      <MemoryRouter initialEntries={[`/study/read/${WORK}/ccs-conduct-3`]}>
         <Routes>
-          <Route path="/library/:workId/:unitId" element={<ReaderPage />} />
+          <Route path="/study/read/:workId/:unitId" element={<ReaderPage />} />
         </Routes>
       </MemoryRouter>,
     )
@@ -473,9 +473,9 @@ describe('the Ask panel must not be offered where its tools cannot reach', () =>
     })
 
     render(
-      <MemoryRouter initialEntries={[`/library/${id}/${id}-1`]}>
+      <MemoryRouter initialEntries={[`/study/read/${id}/${id}-1`]}>
         <Routes>
-          <Route path="/library/:workId/:unitId" element={<ReaderPage />} />
+          <Route path="/study/read/:workId/:unitId" element={<ReaderPage />} />
         </Routes>
       </MemoryRouter>,
     )
@@ -492,9 +492,9 @@ describe('the Ask panel must not be offered where its tools cannot reach', () =>
   it('is present on a dataset work with the same consent', async () => {
     await consented()
     render(
-      <MemoryRouter initialEntries={[`/library/${WORK}/ccs-conduct-3`]}>
+      <MemoryRouter initialEntries={[`/study/read/${WORK}/ccs-conduct-3`]}>
         <Routes>
-          <Route path="/library/:workId/:unitId" element={<ReaderPage />} />
+          <Route path="/study/read/:workId/:unitId" element={<ReaderPage />} />
         </Routes>
       </MemoryRouter>,
     )

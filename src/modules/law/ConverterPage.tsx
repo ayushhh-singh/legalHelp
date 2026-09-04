@@ -246,6 +246,7 @@ export default function ConverterPage() {
     <div className={cn('mx-auto flex flex-col gap-6', selected ? 'max-w-6xl' : 'max-w-4xl')}>
       <div data-print-hide>
         <PageHeader
+          as="h2"
           title={t('pages.law.title')}
           subtitle={t('pages.law.subtitle')}
           actions={

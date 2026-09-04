@@ -2,12 +2,12 @@ import { expect, test } from './fixtures'
 
 const ROUTES = [
   '/law',
-  '/pay',
+  '/tools/salary',
   '/draft',
-  '/draft/office-memorandum',
-  '/learn',
-  '/utils',
-  '/utils/glossary',
+  '/draft/new',
+  '/study/practise',
+  '/tools',
+  '/tools/glossary',
   '/settings',
   '/onboarding',
 ]
@@ -41,11 +41,19 @@ test('makes no cross-origin request while browsing every route or switching lang
     await expect(page.getByRole('heading', { level: 1 })).toBeVisible()
   }
 
-  // The language toggle is a different code path (i18next resource lookup, a
-  // full re-render, and since ADR-031 a chunk fetch for the other catalogue) —
-  // worth the same guarantee. Located by its accessible name rather than by
-  // position: the first button in the header is the command palette's, which
-  // is `hidden sm:flex` and so is not there at all on a phone.
+  /*
+    The language toggle is a different code path (i18next resource lookup, a
+    full re-render, and since ADR-031 a chunk fetch for the other catalogue) —
+    worth the same guarantee. Located by its accessible name rather than by
+    position: the first button in the header is the command palette's, which is
+    `hidden sm:flex` and so is not there at all on a phone.
+
+    From a TAB route, because the loop above ends on `/onboarding`, which is a
+    focus route and has no app top bar at all (ADR-046). Inside a focus screen
+    the toggle lives in the FocusBar's ⋯ menu instead.
+  */
+  await page.goto('/home')
+  await expect(page.getByRole('heading', { level: 1 })).toBeVisible()
   await page.getByRole('button', { name: 'Switch to Hindi' }).click()
   await expect(page.getByRole('heading', { level: 1 })).toBeVisible()
 
@@ -113,7 +121,7 @@ test('sends nothing while the glossary is searched, copied and saved', async ({ 
   })
 
   await context.grantPermissions(['clipboard-read', 'clipboard-write'])
-  await page.goto('/utils/glossary')
+  await page.goto('/tools/glossary')
   await expect(page.getByRole('heading', { level: 1 })).toBeVisible()
 
   await page.getByLabel('Search the glossary').fill('Cabinet Secretary')
@@ -182,7 +190,7 @@ test('sends nothing while a card is graded, bookmarked, reported and a setting c
     if (url.origin !== origin) crossOrigin.push(`${request.method()} ${request.url()}`)
   })
 
-  await page.goto('/learn/review')
+  await page.goto('/study/practise/review')
   await expect(page.getByRole('heading', { name: 'Review' })).toBeVisible({ timeout: 30_000 })
   await expect(page.getByText('Rule 1, Central Civil Services (Conduct) Rules, 1964')).toBeVisible({
     timeout: 30_000,
@@ -197,7 +205,7 @@ test('sends nothing while a card is graded, bookmarked, reported and a setting c
   await page.getByRole('button', { name: 'Show answer' }).click()
   await page.getByRole('button', { name: /^Good/ }).click()
 
-  await page.goto('/learn/settings')
+  await page.goto('/settings/trainer')
   await expect(page.getByLabel('New cards per day')).toBeVisible({ timeout: 30_000 })
   await page.getByLabel('New cards per day').fill('5')
 
@@ -218,7 +226,7 @@ test('sends nothing while the AI section is read, consented to and configured', 
     if (url.origin !== origin) crossOrigin.push(`${request.method()} ${request.url()}`)
   })
 
-  await page.goto('/settings')
+  await page.goto('/settings/ai')
 
   // Visible, and off.
   const heading = page.getByRole('heading', { name: 'AI features' })
@@ -282,7 +290,7 @@ test('sends nothing while onboarding is walked through, post and city included',
 
   await expect(page.getByRole('heading', { name: 'Before you begin' })).toBeVisible()
   await page.getByRole('button', { name: 'Understood' }).click()
-  await expect(page.getByRole('heading', { level: 1, name: 'Law Converter' })).toBeVisible()
+  await expect(page.getByRole('heading', { level: 1, name: 'Home' })).toBeVisible()
 
   expect(crossOrigin).toEqual([])
 })

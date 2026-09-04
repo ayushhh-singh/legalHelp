@@ -101,7 +101,7 @@ export function studyStreak(input: Omit<WeeklyInput, 'days'>): number {
 
     Starting from today unconditionally looked more conservative and was not: a
     reader with thirty consecutive days saw 0 on this screen every morning until
-    they opened something, while `/learn` showed 30 at the same moment — two
+    they opened something, while `/study/practise` showed 30 at the same moment — two
     screens of one app contradicting each other about one reader for most of
     every day. The screen already says "nothing studied today yet" on its own
     line, so one number never had to carry both facts.

@@ -58,7 +58,7 @@ describe('font stacks', () => {
     // else, so it claims the rupee sign and no other character — which is the
     // point: U+20B9 lives in Inter's 85 KB latin-ext subset, and resolving it
     // to the Devanagari face the bilingual chrome already fetches takes that
-    // file off /pay's critical path entirely (ADR-030). Every other character
+    // file off /tools/salary's critical path entirely (ADR-030). Every other character
     // still falls to Inter, which is what the second assertion holds.
     expect(stack('sans')).toMatch(/^'Rupee Devanagari',\s*'Inter Variable'/)
     expect(stack('sans')).toMatch(/'Inter Variable',\s*'Inter'/)

@@ -200,7 +200,7 @@ describe('proposeScenario', () => {
     expect(result.status).toBe('ok')
     if (result.status !== 'ok') return
     expect(result.cardId).toBeTruthy()
-    expect(result.reviewQueueUrl).toBe('/learn/review-queue')
+    expect(result.reviewQueueUrl).toBe('/study/practise/review-queue')
 
     const rows = await db.proposedCards.toArray()
     expect(rows).toHaveLength(1)

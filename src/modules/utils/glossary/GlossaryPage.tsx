@@ -36,7 +36,7 @@ const MAX_RENDERED = 100
 const EMPTY_MAP: ReadonlyMap<string, GlossaryTerm> = new Map()
 
 /**
- * `/utils/glossary` — the full Hindi administrative glossary.
+ * `/tools/glossary` — the full Hindi administrative glossary.
  *
  * Search, a category filter, favourites and recents all live here rather than
  * in the Drafting Studio's own glossary sheet (`GlossarySheet.tsx`), which
@@ -60,7 +60,7 @@ export default function GlossaryPage() {
    * A share link (`?term=<id>`) puts the term's own English text into the
    * search box — guarded by the term id itself, not a one-shot boolean: this
    * route never remounts when only its search params change (same
-   * `/utils/glossary` element throughout), so picking a SECOND term from the
+   * `/tools/glossary` element throughout), so picking a SECOND term from the
    * palette while already on this page must apply too. `lastTermId` is what
    * makes that "once per distinct id" rather than "once ever" — the same
    * StrictMode-safe shape `useDraft.ts` uses for a restore, extended to cover
@@ -148,7 +148,7 @@ export default function GlossaryPage() {
 
   return (
     <div className="mx-auto flex max-w-4xl flex-col gap-6">
-      <PageHeader title={t('utils.glossary.title')} subtitle={t('utils.glossary.subtitle')} />
+      <PageHeader as="h2" title={t('utils.glossary.title')} subtitle={t('utils.glossary.subtitle')} />
 
       <SectionCard active className="flex flex-col">
         <div

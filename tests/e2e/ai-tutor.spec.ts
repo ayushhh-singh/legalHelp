@@ -16,7 +16,7 @@ import { audit, dismissPwaToasts, expect, formatViolations, test } from './fixtu
 const FAKE_KEY = 'sk-ant-api03-playwright-not-a-real-key'
 
 async function enableAi(page: import('@playwright/test').Page): Promise<void> {
-  await page.goto('/settings')
+  await page.goto('/settings/ai')
   await page.getByRole('button', { name: 'Read what this sends' }).click()
   await page.getByRole('button', { name: 'I have read this — enable AI' }).click()
   await page
@@ -33,7 +33,7 @@ test('the review session offers a scenario action once AI is on, and reaches no 
 }) => {
   await enableAi(page)
 
-  await page.goto('/learn/review')
+  await page.goto('/study/practise/review')
   await dismissPwaToasts(page)
   // The first card a fresh device ever shows — see learn.spec.ts's own note.
   await expect(page.getByText('Rule 1, Central Civil Services (Conduct) Rules, 1964')).toBeVisible({
@@ -56,19 +56,19 @@ test('the home screen offers a focus plan action once AI is on', async ({ page }
 
   // A fresh device shows the first-run empty state, not the dashboard the
   // focus plan card lives on — grade one card first, as learn.spec.ts does.
-  await page.goto('/learn/review')
+  await page.goto('/study/practise/review')
   await dismissPwaToasts(page)
   await expect(page.getByRole('button', { name: 'Show answer' })).toBeVisible({ timeout: 30_000 })
   await page.getByRole('button', { name: 'Show answer' }).click()
   await page.getByRole('button', { name: /^Good/ }).click()
 
   await page.getByRole('link', { name: 'Back to Home' }).click()
-  await expect(page).toHaveURL(/\/learn$/)
+  await expect(page).toHaveURL(/\/study\/practise$/)
   await expect(page.getByRole('button', { name: 'Get a focus plan' })).toBeVisible()
 })
 
 test('AI off — neither action renders, and the panel downloads nothing', async ({ page }) => {
-  await page.goto('/learn/review')
+  await page.goto('/study/practise/review')
   await dismissPwaToasts(page)
   await expect(page.getByText('Rule 1, Central Civil Services (Conduct) Rules, 1964')).toBeVisible({
     timeout: 30_000,

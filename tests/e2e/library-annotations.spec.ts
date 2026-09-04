@@ -55,7 +55,7 @@ async function selectPhrase(page: import('@playwright/test').Page, phrase: strin
 }
 
 test('highlights a passage, writes a note on it, and adds it to the trainer', async ({ page }) => {
-  await page.goto(`/library/${WORK}/${UNIT}`)
+  await page.goto(`/study/read/${WORK}/${UNIT}`)
   await expect(page.getByRole('heading', { level: 1 })).toBeVisible()
   await dismissPwaToasts(page)
 
@@ -105,19 +105,19 @@ test('highlights a passage, writes a note on it, and adds it to the trainer', as
   await dialog.getByRole('button', { name: t('en', 'library.trainer.add') }).click()
   await expect(dialog.getByText(t('en', 'library.trainer.added'))).toBeVisible()
 
-  await page.goto('/learn/review-queue')
+  await page.goto('/study/practise/review-queue')
   await expect(page.getByRole('heading', { level: 1 })).toBeVisible()
   // The proposed card is waiting for a human, in the ONE queue this app has.
   await expect(page.getByText(phrase).first()).toBeVisible()
 })
 
 test('adds a pasted document, confirms the split, and reads it offline', async ({ page, context }) => {
-  await page.goto('/settings')
+  await page.goto('/settings/ai')
   await expect(page.getByRole('main')).toBeVisible()
   await serviceWorkerReady(page)
   await dismissPwaToasts(page)
 
-  await page.goto('/library/add')
+  await page.goto('/study/read/add')
   await expect(page.getByRole('heading', { level: 1, name: t('en', 'library.add.title') })).toBeVisible()
 
   const document = [
@@ -148,7 +148,7 @@ test('adds a pasted document, confirms the split, and reads it offline', async (
   await page.getByRole('button', { name: t('en', 'library.add.confirm') }).click()
 
   // Saved: the reader lands on its own work page, marked as their document.
-  await expect(page).toHaveURL(/\/library\/my-model-office-rules-/)
+  await expect(page).toHaveURL(/\/study\/read\/my-model-office-rules-/)
   await expect(page.getByText(t('en', 'library.add.yourDocument')).first()).toBeVisible()
 
   // ---- and it reads with no network at all -----------------------------
@@ -166,7 +166,7 @@ test('adds a pasted document, confirms the split, and reads it offline', async (
 })
 
 test('shows a bookmark, a note and a highlight together in My Study', async ({ page }) => {
-  await page.goto(`/library/${WORK}/${UNIT}`)
+  await page.goto(`/study/read/${WORK}/${UNIT}`)
   await expect(page.getByRole('heading', { level: 1 })).toBeVisible()
   await dismissPwaToasts(page)
 
@@ -192,8 +192,8 @@ test('shows a bookmark, a note and a highlight together in My Study', async ({ p
     page.getByRole('region', { name: t('en', 'library.highlight.title') }).getByText('devotion to duty'),
   ).toBeVisible()
 
-  await page.goto('/library/mine')
-  await expect(page.getByRole('heading', { level: 1, name: t('en', 'library.mine.title') })).toBeVisible()
+  await page.goto('/study/notes')
+  await expect(page.getByRole('heading', { level: 2, name: t('en', 'library.mine.title') })).toBeVisible()
   await expect(page.getByText('devotion to duty')).toBeVisible()
 
   // Filtering by colour is one of the three the brief names.

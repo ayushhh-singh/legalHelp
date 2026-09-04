@@ -108,7 +108,7 @@ export function useDueChapters(
   )
 }
 
-/** Every chapter card on the device — what the hub and `/learn` count from. */
+/** Every chapter card on the device — what the hub and `/study/practise` count from. */
 export function useAllChapterCards(): ChapterCardRow[] | undefined {
   return useLiveQuery(() => allChapterCards(), [])
 }

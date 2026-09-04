@@ -22,7 +22,7 @@ import { cn } from '@/lib/utils'
 import type { LibraryPersonalWorkRow } from '@/db'
 
 /**
- * `/library/add` — paste or upload a document, check how it was split, save it.
+ * `/study/read/add` — paste or upload a document, check how it was split, save it.
  *
  * NOTHING IS SAVED UNTIL THE READER CONFIRMS, and that is the whole shape of
  * this screen. No heuristic over an arbitrary PDF is right every time, so the
@@ -129,7 +129,7 @@ export default function AddWorkPage() {
         subtitle={t('library.add.subtitle')}
         actions={
           <Button asChild variant="outline" size="sm">
-            <Link to="/library">
+            <Link to="/study/read">
               <ArrowLeft aria-hidden="true" />
               {t('library.back')}
             </Link>

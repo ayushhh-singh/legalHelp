@@ -12,7 +12,7 @@ import { Button } from '@/components/ui/button'
 import { db } from '@/db'
 import { useT } from '@/i18n/useT'
 
-/** `/learn/bookmarks` — cards saved outside the FSRS schedule, newest first. */
+/** `/study/practise/bookmarks` — cards saved outside the FSRS schedule, newest first. */
 export default function BookmarksPage() {
   const { t, language } = useT()
   const catalogue = useEffectiveCatalogue()
@@ -40,7 +40,7 @@ export default function BookmarksPage() {
         subtitle={t('trainer.bookmarks.subtitle')}
         actions={
           <Button asChild variant="outline" size="sm">
-            <Link to="/learn">
+            <Link to="/study/practise">
               <ArrowLeft aria-hidden="true" />
               {t('trainer.review.backHome')}
             </Link>
@@ -63,7 +63,7 @@ export default function BookmarksPage() {
                 <p className="mt-1 truncate text-sm">{card!.front[language] || card!.front.en}</p>
               </div>
               <Button asChild size="sm" variant="outline">
-                <Link to={`/learn/review?act=${encodeURIComponent(card!.act)}`}>
+                <Link to={`/study/practise/review?act=${encodeURIComponent(card!.act)}`}>
                   {t('trainer.bookmarks.reviewThis')}
                 </Link>
               </Button>

@@ -7935,3 +7935,235 @@ had `strip_volatile` and `generatedAt` was already in `VOLATILE_KEYS`; this was 
 using it. Verified in both directions: a real content change still fails the check, because a check
 that cannot fail is no better than one that cannot pass — and this pass had already swapped one for
 the other once. Pre-existing, confirmed by running `--check` in a worktree at `bb29d49`.
+
+---
+
+## ADR-046 — Information architecture v2: five tabs, three page levels, parent-aware back, and a redirect for every URL this app has ever had
+
+**Status.** Accepted (Session 34).
+
+**Context.** The app had grown to **seven top-level destinations and ~45 routes** with no page
+hierarchy. Three of the seven lived behind a "More" sheet on a phone, so half the app was invisible
+until you opened a menu that told you nothing about where you were. Underneath them, features were
+nested behind hubs whose only content was links one level down (Utilities), or spread across sibling
+routes with no relationship expressed anywhere (thirteen off the Drafting Studio's picker, four for
+exam mode). There were **two document editors**. Nothing anywhere said what a page was inside of, so
+there was no back control that could be right, and the browser's own back button was the only way out
+of a document — which is exactly the button a reader has just spent five taps not using.
+
+This is a UI/IA change. **No dataset changed, no feature was added or removed**, every module keeps
+its own directory, and every URL the app has ever served still resolves.
+
+### 1. The old tree
+
+```
+/                     -> /law
+/law                  /law/whats-new  /law/saved
+/pay
+/draft                /draft/documents  /draft/new/:type  /draft/d/:id  /draft/d/:id/print
+                      /draft/import  /draft/reply  /draft/reply/:id  /draft/register
+                      /draft/profile  /draft/address-book  /draft/numbering
+                      /draft/my-templates  /draft/:type          <- the Session 8 editor
+/learn                /learn/review  /learn/mock  /learn/browse  /learn/bookmarks
+                      /learn/reports  /learn/settings  /learn/review-queue
+                      /learn/exam  /learn/exam/plan  /learn/exam/mock  /learn/exam/checklist
+/library              /library/mine  /library/bookmarks  /library/compare  /library/search
+                      /library/add  /library/study
+                      /library/:workId  /library/:workId/:unitId
+                      /library/:workId/quiz/:nodeId  /library/:workId/sheet/:nodeId
+/utils                /utils/glossary  /utils/holidays  /utils/leave  /utils/pension  /utils/portals
+/settings             (one page, eleven sections)
+/onboarding
+```
+
+Four tabs on the bottom bar (`law`, `pay`, `draft`, `learn`); `library`, `utils` and `settings` in a
+"More" sheet.
+
+### 2. The new tree
+
+```
+/home                                       L1   the landing route
+/study                                      ->   /study/read
+  /study/read                               L1   Read
+    /study/read/search                      L2
+    /study/read/add                         L2
+    /study/read/:workId                     L2       parent /study/read
+    /study/read/:workId/:unitId             L3       parent /study/read/:workId
+    /study/read/:workId/quiz/:nodeId        L3       parent /study/read/:workId
+    /study/read/:workId/sheet/:nodeId       L2       parent /study/read/:workId
+  /study/progress                           L2       parent /study/read
+  /study/practise                           L1   Practise
+    /study/practise/review                  L3       parent /study/practise
+    /study/practise/mock                    L3       parent /study/practise
+    /study/practise/browse                  L2
+    /study/practise/bookmarks               L2
+    /study/practise/reports                 L2
+    /study/practise/review-queue            L2
+  /study/exam                               L1   Exam   (plan + checklist are #anchors on it)
+    /study/exam/mock                        L3       parent /study/exam
+  /study/notes                              L1   My notes
+    /study/notes/compare                    L2
+/draft                                      ->   /draft/documents
+  /draft/documents                          L1   Documents
+    /draft/documents/import                 L2
+  /draft/new                                L1   New
+    /draft/new/:type                        L2
+  /draft/reply                              L1   Reply
+    /draft/reply/:id                        L3       parent /draft/reply
+  /draft/register                           L1   Register
+  /draft/templates                          L1   Templates
+  /draft/d/:id                              L3       parent /draft/documents
+    /draft/d/:id/print                      L3       parent /draft/d/:id
+/law                                        L1   Convert   (the section root IS the converter)
+  /law/whats-new                            L1   What's new
+  /law/saved                                L1   Saved
+/tools                                      ->   /tools/salary
+  /tools/salary /tools/leave /tools/pension /tools/holidays /tools/glossary /tools/portals   L1
+/settings                                   L2   the sections list
+  /settings/profile  /settings/address-book  /settings/numbering  /settings/trainer
+  /settings/ai  /settings/data  /settings/backup  /settings/about                            L2
+/onboarding                                 L3   (rendered without a FocusBar)
+```
+
+Five tabs — **Home · Study · Draft · Law · Tools** — and they fit the bottom bar at every width this
+app supports, so `OVERFLOW_NAV_ITEMS` and the "More" sheet are gone rather than hidden.
+
+### 3. Why these five, and why Settings is not one of them
+
+**Study is the section that was three.** The Library, the Rules Trainer and exam mode were three
+top-level destinations (two of them behind the sheet) doing one thing: getting a rule from the book
+into an officer's head. Reading a provision, drilling a card about it and checking where that leaves
+you for a departmental examination are three views of one activity, and moving between them meant
+crossing the whole navigation.
+
+**Tools absorbed the Pay calculator and dissolved a hub.** `UtilsHubPage` was a grid of five cards
+whose only content was links to its own children — a tap an officer paid on every visit, replaced by
+the sub-tab strip, which says the same thing and costs nothing. Salary is the first of the six.
+
+**Settings is the top-right gear**, which is where everyone looks for it, and putting a screen an
+officer opens a handful of times a year in the same rank as the four they open every day is what cost
+the bottom bar a slot it needed. It is a section of its own — eight pages, from one page that was
+eleven sections long — and three of those pages came from the Drafting Studio (profile, address book,
+numbering), because "set once, read by every new document" is what this section is for.
+
+**Home is new and is the only genuinely new screen.** `/` went to the Law Converter, so "carry on
+with the O.M. I was writing" meant remembering which of seven tabs it was under. Every card on it is
+a link into a section and none of them is a feature of its own; every figure comes from IndexedDB
+plus two small index files (the Library's 11 KB shelf, the exam picker's 2 KB index). It reads no
+corpus, no card catalogue, no pay table.
+
+### 4. Three page levels, decided from the route registry rather than reported upwards
+
+`APP_ROUTES` in `src/lib/nav.ts` gives every route a `level` and — for every `detail` and `focus`
+route — a **required `parent`**.
+
+- **`tab` (L1)** — `TabLayout`: chrome, one `<h1>` naming the section, the sub-tab strip, the page.
+  Every sub-tab page's own masthead is therefore an `<h2>` (`PageHeader` gained an `as` prop), because
+  four pages each claiming to be the top of the same section is the flatness this was for.
+- **`detail` (L2)** — `DetailLayout`: chrome, a breadcrumb trail from 1024px, a back chevron below it.
+  Both are built from the same declared parents, so they cannot point at different places.
+- **`focus` (L3)** — `FocusLayout`: no sidebar, no bottom bar, no app top bar. One `FocusBar` with
+  back-to-parent, a title, a status slot, a ⋯ menu and a panel-toggle slot. Escape leaves, with the
+  same two exclusions `useGlobalShortcuts` makes (typing, or a dialog open).
+
+**`App.tsx` asks `levelOf(pathname)` synchronously and hides the chrome itself.** The obvious
+alternative — `FocusLayout` setting a flag in an effect — paints one frame with the sidebar and the
+tab bar still on it, on every navigation into the reader or the editor. `levelOf` is a pure function
+over the pathname, so the first frame is already right.
+
+The ⋯ menu carries the language and theme toggles **because the app's top bar is hidden at this
+level**. A reader who cannot switch to Hindi in the middle of reading a rule has lost the one control
+this app promises everywhere.
+
+### 5. Back has two branches, and the difference is not cosmetic
+
+`useBackTo` asks one question: _did we arrive here from inside this section?_ `AppLink` is what makes
+it answerable, by stamping the current section into `location.state`.
+
+- **Yes** → `navigate(-1)`. A reader who reached the document editor by pressing a row in the register
+  wants the register _as they left it_: the same filters, the same scroll position, the same expanded
+  thread. A pushed parent route gives them none of that.
+- **No** → push the declared parent. A reader who arrived from a shared link, a bookmark, the command
+  palette or a cold start has no history to pop, and popping would take them out of the app — the
+  classic broken back chevron.
+
+There is no third case, because the parent is required on every detail and focus route
+(`src/lib/nav.test.ts` asserts it, that every parent is itself a registered route, and that following
+parents from any page reaches a tab).
+
+### 6. Sub-tab strips are links, not `role="tab"`
+
+`SegmentedTabs` is a labelled `<nav>` of `NavLink`s carrying `aria-current="page"`, with Left/Right/
+Home/End moving focus between them. The ARIA tab pattern promises a tabpanel swapped in place and a
+widget that owns its own focus; neither is true of a router, and claiming both is how
+`aria-required-children` and "where did my back button go" arrive together. The keyboard behaviour a
+reader actually wants is implemented on the links, where it costs nothing and lies about nothing.
+
+The **badge slot** exists on every sub-tab and exactly one is wired: the Register's follow-up count,
+which is an exact figure from a small Dexie table. Study's "due reviews" badge is deliberately NOT
+wired — the exact filtered figure needs the 4 MB card catalogue, and an approximate count that
+disagrees with the Practise page a tap later is worse than no count. The value is supplied by the
+section's own lazily-loaded router, never by a hook in the shell: a count computed in the shell is a
+count every reader downloads the machinery for.
+
+### 7. What was removed, and what was merged
+
+- **The Session 8 form-and-preview editor (`/draft/:type`, `EditorPage.tsx`) is deleted.** Its route
+  redirects to `/draft/new/:type` — create a document of that type and open it in the editor that
+  replaced it, which is what the link was for. The `drafts` table is untouched: `RecentDrafts` now
+  migrates the row it is asked to open (`migrateOneDraft`, a copy, idempotent) and opens the document
+  that comes out. Letting the redirect alone handle an old draft link would have created a blank
+  document and silently discarded the officer's afternoon — a redirect that appears to work and throws
+  the work away is worse than a dead link.
+- **`UtilsHubPage` is deleted** — see §3.
+- **Exam mode's plan and checklist became sections of `/study/exam`** under `#plan` and `#checklist`,
+  with jump links. They were views of one decision — which examination, by when, and what to do about
+  it — and a reader comparing "62% ready" against "nineteen days left" had to hold two screens in
+  their head. The mock stays a route because sitting a paper is the one thing here an officer is
+  _inside_.
+- **My notes is the old My Study, the Library's bookmarks list and the compare entry point in one
+  page.** All three were lists of the reader's own work and the only thing separating them was which
+  table the row came from — which is what that screen's Kind filter already was. A fourth kind
+  (own-words attempts) joined it. `?type=`, `?work=` and `?colour=` are in the URL, which is what
+  makes `/library/bookmarks` → `/study/notes?type=bookmark` a redirect that lands somewhere useful.
+- **The Practise tab has one "Today" card** (due, streak, goal, Start review) and five secondary
+  destinations as rows underneath, always rendered. The mock used to be a large button beside Start
+  review that went _disabled_ when no eligible card existed, which put a dead control in the most
+  prominent place on the screen; the reason it cannot run is now a sentence in its row.
+- **The Documents tab is `DraftHome` plus the profile nudge, the migration banner, the older drafts
+  and an Import button.** Import is a page _under_ Documents rather than a sibling of it: importing is
+  one way of getting a document into the list, not a place in the navigation.
+
+### 8. Redirects are kept for ever
+
+`LEGACY_REDIRECTS` is 38 rows, each turned into a `<Route>` rendering `<Navigate replace>`. Query
+strings, fragments and route parameters all travel; where the target has its own query (
+`/library/bookmarks` MEANS `?type=bookmark`) that wins. `tests/redirects.test.tsx` visits all of them
+through a harness that reproduces the app's own mounting, and a second test fails if a row is missing
+from the hand-written table.
+
+**The Drafting Studio's redirects are mounted inside `DraftPage`, not in the app router.**
+`/draft/:type` matches every single-segment path under `/draft`, and React Router ranks a dynamic
+segment above a splat — so mounted beside `/draft/*` it would claim `/draft/documents` and send an
+officer's document list to a template called "documents". Inside the section's own router it is
+simply last, after every real route, which is where it was before.
+
+`/law` is deliberately NOT a redirect. The converter's whole view lives in the query string
+(ADR-013), so `/law?q=302&code=bns` — in a bookmark, in a shared message, in the palette's own results
+— stays canonical. That is why one sub-tab's path is allowed to equal its section's root.
+
+### 9. What this cost, and one thing it did not buy
+
+Two mechanical passes over the tree caused most of the work: `PageHeader` demoted to `<h2>` on
+seventeen sub-tab pages, and every hard-coded internal path rewritten. A path-rewriting script run
+over `src/` with a lookahead of `["'`?#$]`also matched the closing quote of **module specifiers** —`@/lib/utils`became`@/lib/tools`, `@/lib/library`became`@/lib/study/read`— across 117 files. It
+was caught by`pnpm typecheck`in under a minute and repaired by restoring every changed import line
+from`HEAD`, but the lesson is worth the sentence: **a route literal and a module specifier are the
+same string in the same quotes, and a regex cannot tell them apart.** Rewrite paths through the
+`url.ts` helpers that already centralise them, and read the diff of any bulk substitution before
+running the tests.
+
+What it did not buy: **nothing here changes what the app can do.** No data, no feature, no dataset
+version. The measurable win is structural — five reachable tabs instead of four plus a sheet, one back
+control that is right in both cases instead of none, and a URL tree in which every page can say what
+it is inside of.

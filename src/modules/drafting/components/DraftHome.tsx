@@ -27,7 +27,8 @@ import type { DocumentRow } from '@/db'
  * The draft library: continue editing, what is waiting for a reply, and search
  * across everything on the device.
  *
- * It sits at the TOP of `/draft`, above the forty-three template cards, because
+ * It IS the `/draft/documents` tab (ADR-046); it used to sit at the top of the
+ * picker, above the forty-three template cards, because
  * that is the order an officer actually works in — most visits to this screen
  * are to carry on with something, and only some are to start a new form. The
  * template grid is still on the same screen and still the second thing on it,
@@ -141,16 +142,16 @@ export function DraftHome() {
           <Link to="/draft/documents">{t('draft.editor.documents')}</Link>
         </Button>
         <Button asChild variant="outline" size="sm">
-          <Link to="/draft/my-templates">{t('draft.personal.heading')}</Link>
+          <Link to="/draft/templates">{t('draft.personal.heading')}</Link>
         </Button>
         <Button asChild variant="outline" size="sm">
-          <Link to="/draft/profile">{t('draft.profile.heading')}</Link>
+          <Link to="/settings/profile">{t('draft.profile.heading')}</Link>
         </Button>
         <Button asChild variant="outline" size="sm">
-          <Link to="/draft/address-book">{t('draft.addressBook.heading')}</Link>
+          <Link to="/settings/address-book">{t('draft.addressBook.heading')}</Link>
         </Button>
         <Button asChild variant="outline" size="sm">
-          <Link to="/draft/numbering">{t('draft.numbering.heading')}</Link>
+          <Link to="/settings/numbering">{t('draft.numbering.heading')}</Link>
         </Button>
       </nav>
 
@@ -285,9 +286,30 @@ export function DraftHome() {
           {t('draft.home.searchHint')}
         </p>
 
-        <p aria-live="polite" className="text-sm text-muted-foreground">
-          {notice || t('draft.home.results', { count: matches.length })}
-        </p>
+        <div className="flex flex-wrap items-center gap-2">
+          <p aria-live="polite" className="text-sm text-muted-foreground">
+            {notice || t('draft.home.results', { count: matches.length })}
+          </p>
+          {/*
+            "Select all" moved here with ADR-046: it was on the old
+            `DocumentsPage` list, and this IS that list now. It selects what is
+            SHOWN rather than everything on the device — a filter the officer
+            has just set is a statement about which documents they mean.
+          */}
+          {matches.length > 0 ? (
+            <Button
+              variant="ghost"
+              size="sm"
+              onClick={() =>
+                setSelected((current) =>
+                  current.size === matches.length ? new Set() : new Set(matches.map((row) => row.id)),
+                )
+              }
+            >
+              {t('draft.batch.selectAll')}
+            </Button>
+          ) : null}
+        </div>
 
         {chosen.length > 0 ? <BatchExportBar ids={chosen} onClear={() => setSelected(new Set())} /> : null}
 

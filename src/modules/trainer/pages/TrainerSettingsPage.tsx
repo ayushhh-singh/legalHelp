@@ -19,7 +19,7 @@ import { useT } from '@/i18n/useT'
 import { MAX_DESIRED_RETENTION, MIN_DESIRED_RETENTION } from '@/lib/srs'
 
 /**
- * `/learn/settings` — daily new, the review cap, target retention, which rule
+ * `/settings/trainer` — daily new, the review cap, target retention, which rule
  * books, and the local daily reminder.
  */
 export default function TrainerSettingsPage() {
@@ -65,7 +65,7 @@ export default function TrainerSettingsPage() {
         subtitle={t('trainer.settings.subtitle')}
         actions={
           <Button asChild variant="outline" size="sm">
-            <Link to="/learn">
+            <Link to="/study/practise">
               <ArrowLeft aria-hidden="true" />
               {t('trainer.review.backHome')}
             </Link>

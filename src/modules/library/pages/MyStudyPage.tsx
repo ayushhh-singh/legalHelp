@@ -1,6 +1,7 @@
-import { AlertTriangle, ArrowLeft, Download } from 'lucide-react'
+import { AlertTriangle, Columns2, Download, Pencil } from 'lucide-react'
+import { useLiveQuery } from 'dexie-react-hooks'
 import { useMemo, useState } from 'react'
-import { Link } from 'react-router-dom'
+import { Link, useSearchParams } from 'react-router-dom'
 
 import { NoteBody } from '../components/NoteBody'
 import { toUnitHref } from '../url'
@@ -9,12 +10,14 @@ import { usePersonalWorks, useStudyContext, useStudyRows } from '../useAnnotatio
 
 import { EmptyState } from '@/components/common/EmptyState'
 import { PageHeader } from '@/components/common/PageHeader'
+import { allAttempts } from '@/lib/study'
 import { Badge, SectionCard, SectionNumber, Skeleton } from '@/components/ui-x'
 import { Button } from '@/components/ui/button'
 import { useT } from '@/i18n/useT'
 import {
   colourOf,
   HIGHLIGHT_COLOURS,
+  setBookmarkLabel,
   noteToPlainText,
   toMarkdown,
   type ExportableAnnotation,
@@ -23,7 +26,7 @@ import {
 import { cn } from '@/lib/utils'
 
 /**
- * `/library/mine` — everything the reader has written, in one place.
+ * `/study/notes` — everything the reader has written, in one place.
  *
  * Three things it must do that a plain list would not:
  *
@@ -40,7 +43,10 @@ import { cn } from '@/lib/utils'
  *    the screen unusable on the device it is for.
  */
 
-type Kind = 'highlight' | 'note' | 'bookmark'
+type Kind = 'highlight' | 'note' | 'bookmark' | 'feynman'
+
+/** The kinds a `?type=` in the URL may name — anything else is ignored. */
+const KINDS: readonly Kind[] = ['highlight', 'note', 'bookmark', 'feynman']
 
 interface Entry {
   id: string
@@ -72,9 +78,35 @@ export default function MyStudyPage() {
    */
   const health = useStudyContext(rows, language)
 
-  const [work, setWork] = useState('')
-  const [colour, setColour] = useState('')
-  const [kind, setKind] = useState<'' | Kind>('')
+  /*
+    The reader's own-words attempts, the fourth kind.
+
+    Read here rather than through `useStudyRows` because that hook is the
+    Library's three annotation tables and this one belongs to the study layer —
+    a screen that shows all four is not a reason to make one hook know about
+    both. `allAttempts` is a plain Dexie read of a small table.
+  */
+  const attempts = useLiveQuery(() => allAttempts(), [], undefined)
+
+  const [params, setParams] = useSearchParams()
+  const work = params.get('work') ?? ''
+  const colour = params.get('colour') ?? ''
+  const requested = params.get('type') ?? ''
+  const kind: '' | Kind = (KINDS as readonly string[]).includes(requested) ? (requested as Kind) : ''
+
+  /*
+    The three filters that identify WHAT is being looked at live in the URL, so
+    "my bookmarks" is a link somebody can keep — which is what the redirect from
+    `/library/bookmarks` relies on. The date window and the search box do not:
+    they are how a reader narrows a list they are already looking at, and a
+    history entry per keystroke is what `replace` exists to avoid.
+  */
+  const setFilter = (name: 'work' | 'colour' | 'type', value: string) => {
+    const next = new URLSearchParams(params)
+    if (value) next.set(name, value)
+    else next.delete(name)
+    setParams(next, { replace: true })
+  }
   const [within, setWithin] = useState('')
   const [query, setQuery] = useState('')
   const [chosen, setChosen] = useState<ReadonlySet<string>>(new Set())
@@ -129,8 +161,18 @@ export default function MyStudyPage() {
         text: row.label ?? '',
         lost: false,
       })),
+      ...(attempts ?? []).map((row) => ({
+        id: row.id,
+        kind: 'feynman' as const,
+        workId: row.workId,
+        unitId: row.unitId,
+        createdAt: row.at,
+        colour: null,
+        text: row.body,
+        lost: false,
+      })),
     ].sort((a, b) => (a.createdAt < b.createdAt ? 1 : -1))
-  }, [rows, health.lost])
+  }, [rows, attempts, health.lost])
 
   const shown = useMemo(() => {
     const needle = query.trim().toLowerCase()
@@ -225,13 +267,17 @@ export default function MyStudyPage() {
   return (
     <div className="mx-auto flex max-w-4xl flex-col gap-6">
       <PageHeader
+        as="h2"
         title={t('library.mine.title')}
         subtitle={t('library.mine.subtitle')}
+        /* The compare screen's entry point. It belongs on this tab rather than
+           on its own, because comparing two provisions is something a reader
+           does WITH what they have marked. */
         actions={
           <Button asChild variant="outline" size="sm">
-            <Link to="/library">
-              <ArrowLeft aria-hidden="true" />
-              {t('library.back')}
+            <Link to="/study/notes/compare">
+              <Columns2 aria-hidden="true" />
+              {t('library.compare.title')}
             </Link>
           </Button>
         }
@@ -244,7 +290,11 @@ export default function MyStudyPage() {
           <div className="flex flex-wrap gap-2">
             <label className="flex flex-col gap-1 text-xs text-muted-foreground">
               {t('library.mine.filterWork')}
-              <select value={work} onChange={(event) => setWork(event.target.value)} className={select}>
+              <select
+                value={work}
+                onChange={(event) => setFilter('work', event.target.value)}
+                className={select}
+              >
                 <option value="">{t('library.mine.allWorks')}</option>
                 {[...names.entries()].map(([id, name]) => (
                   <option key={id} value={id}>
@@ -256,7 +306,11 @@ export default function MyStudyPage() {
 
             <label className="flex flex-col gap-1 text-xs text-muted-foreground">
               {t('library.mine.filterColour')}
-              <select value={colour} onChange={(event) => setColour(event.target.value)} className={select}>
+              <select
+                value={colour}
+                onChange={(event) => setFilter('colour', event.target.value)}
+                className={select}
+              >
                 <option value="">{t('library.mine.allColours')}</option>
                 {HIGHLIGHT_COLOURS.map((option) => (
                   <option key={option} value={option}>
@@ -270,11 +324,11 @@ export default function MyStudyPage() {
               {t('library.mine.filterKind')}
               <select
                 value={kind}
-                onChange={(event) => setKind(event.target.value as '' | Kind)}
+                onChange={(event) => setFilter('type', event.target.value)}
                 className={select}
               >
                 <option value="">{t('library.mine.allKinds')}</option>
-                {(['highlight', 'note', 'bookmark'] as const).map((option) => (
+                {KINDS.map((option) => (
                   <option key={option} value={option}>
                     {t(`library.mine.kind.${option}`)}
                   </option>
@@ -372,7 +426,17 @@ export default function MyStudyPage() {
                           ) : null}
                         </div>
 
-                        {entry.kind === 'note' ? (
+                        {/*
+                          A bookmark's label is editable HERE, because the
+                          screen that used to hold that control was the Library's
+                          own bookmarks list and ADR-046 merged it into this one.
+                          A label is what tells a reader why they marked
+                          something, and a list that shows it and cannot change
+                          it is a list that goes stale.
+                        */}
+                        {entry.kind === 'bookmark' ? (
+                          <BookmarkLabel entry={entry} />
+                        ) : entry.kind === 'note' ? (
                           <NoteBody
                             body={entry.text}
                             resolveWiki={(workId, unitId) => ({
@@ -406,6 +470,62 @@ export default function MyStudyPage() {
           )}
         </>
       )}
+    </div>
+  )
+}
+
+/**
+ * The label on one bookmark, editable in place.
+ *
+ * Keyed on the row by its own `entry.id` through the parent's `key`, so the
+ * draft cannot follow the reader on to a different bookmark — the family
+ * CLAUDE.md records for `FeynmanBox` and the register's edit form.
+ */
+function BookmarkLabel({ entry }: { entry: Entry }) {
+  const { t } = useT()
+  const [editing, setEditing] = useState(false)
+  const [draft, setDraft] = useState(entry.text)
+
+  if (!editing) {
+    return (
+      <div className="flex flex-wrap items-center gap-2">
+        {entry.text ? <p className="min-w-0 flex-1 text-sm">{entry.text}</p> : null}
+        <button
+          type="button"
+          onClick={() => {
+            setDraft(entry.text)
+            setEditing(true)
+          }}
+          className="inline-flex min-h-8 items-center gap-1.5 rounded-md px-2 text-xs text-muted-foreground transition-colors hover:bg-accent hover:text-accent-foreground focus-visible:ring-2 focus-visible:ring-ring focus-visible:outline-none"
+        >
+          <Pencil aria-hidden="true" className="h-3.5 w-3.5" />
+          {entry.text ? t('library.bookmark.edit') : t('library.bookmark.label')}
+        </button>
+      </div>
+    )
+  }
+
+  return (
+    <div className="flex flex-wrap items-center gap-2">
+      <label htmlFor={`library-bookmark-${entry.id}`} className="sr-only">
+        {t('library.bookmark.label')}
+      </label>
+      <input
+        id={`library-bookmark-${entry.id}`}
+        value={draft}
+        onChange={(event) => setDraft(event.target.value)}
+        placeholder={t('library.bookmark.labelPlaceholder')}
+        className="h-9 min-w-0 flex-1 rounded-md border border-input bg-background px-2 text-sm focus-visible:ring-2 focus-visible:ring-ring focus-visible:outline-none"
+      />
+      <Button
+        size="sm"
+        onClick={() => {
+          void setBookmarkLabel(entry.workId, entry.unitId, draft)
+          setEditing(false)
+        }}
+      >
+        {t('library.bookmark.save')}
+      </Button>
     </div>
   )
 }

@@ -19,7 +19,7 @@ import {
 import type { Card, RulesIndex } from '../schema'
 
 /**
- * `/learn` Home, in isolation from Dexie and `data/rules`: every hook that
+ * `/study/practise` Home, in isolation from Dexie and `data/rules`: every hook that
  * would otherwise touch IndexedDB or fetch a `?raw` chunk is mocked, so what
  * is under test is HomePage's own logic — what it renders while first-run,
  * and when the mock test has nothing to draw from — not the scheduler or the
@@ -167,15 +167,21 @@ describe('HomePage, first run (an empty Dexie)', () => {
 
     await waitFor(() => expect(screen.getByText('No cards yet')).toBeInTheDocument())
 
-    expect(screen.getByRole('link', { name: /^browse$/i })).toHaveAttribute('href', '/learn/browse')
-    expect(screen.getByRole('link', { name: /bookmarks/i })).toHaveAttribute('href', '/learn/bookmarks')
-    expect(screen.getByRole('link', { name: /reports/i })).toHaveAttribute('href', '/learn/reports')
+    expect(screen.getByRole('link', { name: /^browse$/i })).toHaveAttribute('href', '/study/practise/browse')
+    expect(screen.getByRole('link', { name: /bookmarks/i })).toHaveAttribute(
+      'href',
+      '/study/practise/bookmarks',
+    )
+    expect(screen.getByRole('link', { name: /reports/i })).toHaveAttribute('href', '/study/practise/reports')
     expect(screen.getByRole('link', { name: /local review queue/i })).toHaveAttribute(
       'href',
-      '/learn/review-queue',
+      '/study/practise/review-queue',
     )
-    expect(screen.getByRole('link', { name: /start review/i })).toHaveAttribute('href', '/learn/review')
-    expect(screen.getByRole('link', { name: /mock test/i })).toHaveAttribute('href', '/learn/mock')
+    expect(screen.getByRole('link', { name: /start review/i })).toHaveAttribute(
+      'href',
+      '/study/practise/review',
+    )
+    expect(screen.getByRole('link', { name: /mock test/i })).toHaveAttribute('href', '/study/practise/mock')
   })
 
   it('does not show the banner once a card has been graded', async () => {
@@ -195,13 +201,21 @@ describe('HomePage, the mock test button', () => {
     mockReady([RULE_CARD], { ...SETTINGS, actsEnabled: ['ccs-conduct'] }, [])
     renderHome()
 
-    const mockButton = await screen.findByRole('button', { name: /mock test/i })
-    expect(mockButton).toBeDisabled()
-    expect(screen.queryByRole('link', { name: /mock test/i })).not.toBeInTheDocument()
+    /*
+      ADR-046 turned the five secondary destinations into rows that are ALWAYS
+      there — the mock used to be a large disabled button beside "Start review",
+      which put a dead control in the most prominent place on the screen. The
+      reason it cannot run yet is now a sentence under the row rather than an
+      `aria-describedby` on something nobody can press.
+    */
+    const mockRow = await screen.findByRole('link', { name: /mock test/i })
+    expect(mockRow).toHaveAttribute('href', '/study/practise/mock')
+    expect(mockRow).toHaveTextContent(/no mock-test questions are approved yet/i)
 
-    expect(screen.getByText(/no mock-test questions are approved yet/i)).toBeInTheDocument()
-    const browseLink = screen.getByRole('link', { name: /browse the rule bank instead/i })
-    expect(browseLink).toHaveAttribute('href', '/learn/browse')
+    // The deck is the next row down, so the note no longer needs a link of its
+    // own inside it — `trainer.home.mockUnavailableLink` was removed with it,
+    // because an i18n key with no reader is a feature with no reader.
+    expect(screen.getByRole('link', { name: 'Browse' })).toHaveAttribute('href', '/study/practise/browse')
 
     await i18n.changeLanguage('hi')
     expect(
@@ -215,7 +229,7 @@ describe('HomePage, the mock test button', () => {
     renderHome()
 
     const mockLink = await screen.findByRole('link', { name: /mock test/i })
-    expect(mockLink).toHaveAttribute('href', '/learn/mock')
+    expect(mockLink).toHaveAttribute('href', '/study/practise/mock')
     expect(screen.queryByText(/no mock-test questions are approved yet/i)).not.toBeInTheDocument()
   })
 })

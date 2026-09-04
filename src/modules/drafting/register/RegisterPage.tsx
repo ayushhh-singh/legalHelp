@@ -109,7 +109,7 @@ export default function RegisterPage() {
 
   return (
     <div className="mx-auto flex max-w-5xl flex-col gap-5">
-      <PageHeader title={t('draft.register.heading')} subtitle={t('draft.register.lead')} />
+      <PageHeader as="h2" title={t('draft.register.heading')} subtitle={t('draft.register.lead')} />
 
       {dropped > 0 ? (
         <p className="rounded-lg border border-marigold/40 bg-marigold/15 p-3 text-sm text-marigold-foreground">

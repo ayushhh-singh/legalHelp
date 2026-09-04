@@ -31,6 +31,7 @@ export default function WhatsNewPage() {
   return (
     <div className="mx-auto flex max-w-4xl flex-col gap-6">
       <PageHeader
+        as="h2"
         title={t('law.whatsNew.title')}
         subtitle={t('law.whatsNew.subtitle')}
         actions={

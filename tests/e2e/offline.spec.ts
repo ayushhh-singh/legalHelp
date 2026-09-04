@@ -10,7 +10,13 @@ test('shows the offline chip when the network drops, and the shell survives a re
   page,
   context,
 }) => {
-  await page.goto('/')
+  /*
+    `/home` and not `/`: a bare `/` on a device that has never been onboarded
+    goes to `/onboarding`, which is a FOCUS route with no app top bar — and the
+    offline chip lives in that bar (ADR-046). The service worker installs from
+    any route.
+  */
+  await page.goto('/home')
   await expect(page.getByRole('main')).toBeVisible()
 
   // First install: clientsClaim (vite.config.ts) lets the new worker take
@@ -49,7 +55,7 @@ test('answers a section lookup with no network at all', async ({ page, context }
   await context.setOffline(true)
   await page.goto('/law')
 
-  await expect(page.getByRole('heading', { level: 1, name: 'Law Converter' })).toBeVisible()
+  await expect(page.getByRole('heading', { level: 2, name: 'Law Converter' })).toBeVisible()
   await page.getByLabel(/Search a section/).fill('302')
 
   // The answer, from 3.9 MB of section text served entirely out of the cache.
@@ -61,7 +67,7 @@ test('answers a section lookup with no network at all', async ({ page, context }
  * The same guarantee for the glossary: `data/glossary.json` reaches the
  * browser as a `?raw` dynamic import (`src/modules/utils/glossary/data.ts`),
  * precached through the ordinary JavaScript glob exactly like the statute —
- * an officer who has never opened `/utils/glossary` online must still be able
+ * an officer who has never opened `/tools/glossary` online must still be able
  * to look a term up on a train with no signal.
  */
 test('answers a glossary lookup with no network at all', async ({ page, context }) => {
@@ -70,9 +76,9 @@ test('answers a glossary lookup with no network at all', async ({ page, context 
   await page.waitForFunction(() => navigator.serviceWorker.controller !== null)
 
   await context.setOffline(true)
-  await page.goto('/utils/glossary')
+  await page.goto('/tools/glossary')
 
-  await expect(page.getByRole('heading', { level: 1, name: 'Hindi administrative glossary' })).toBeVisible()
+  await expect(page.getByRole('heading', { level: 2, name: 'Hindi administrative glossary' })).toBeVisible()
   await page.getByLabel('Search the glossary').fill('Cabinet Secretary')
   await expect(page.getByText('मंत्रिमंडल सचिव')).toBeVisible()
 })
@@ -82,7 +88,7 @@ test('answers a glossary lookup with no network at all', async ({ page, context 
  *
  * The two lookups above prove the datasets are reachable offline. This proves
  * the shell is: `navigateFallback: '/index.html'` (vite.config.ts) means a
- * client-routed path like `/utils/pension` is never precached under its own
+ * client-routed path like `/tools/pension` is never precached under its own
  * name, so a hard reload there has to be answered by the cached shell and then
  * re-routed by React Router. That is a different mechanism from a client-side
  * navigation, and it is the one an officer actually hits — a PWA is reopened,
@@ -93,67 +99,69 @@ test('answers a glossary lookup with no network at all', async ({ page, context 
  * at all, which would pass this test without ever exercising the fallback.
  */
 const EVERY_ROUTE = [
+  // The landing route: every figure on it is a Dexie read, so it must draw
+  // with no network at all.
+  '/home',
   // Onboarding is reachable offline on a device that has never completed it,
   // which is the likeliest first run for an officer installing this on a train.
   '/onboarding',
   '/law',
   '/law/whats-new',
   '/law/saved',
-  '/pay',
-  '/draft',
-  '/draft/office-memorandum',
+  '/tools/salary',
+  '/draft/documents',
+  '/draft/new',
   // The document editor's own chunk carries Tiptap and ProseMirror — 141 KB
   // gzip — and an offline reload is what proves the service worker precached
   // it rather than fetching it when the officer first opened a document.
-  '/draft/documents',
-  '/draft/profile',
-  '/draft/address-book',
-  '/draft/numbering',
-  '/draft/my-templates',
-  '/draft/import',
+  '/settings/profile',
+  '/settings/address-book',
+  '/settings/numbering',
+  '/draft/templates',
+  '/draft/documents/import',
   '/draft/reply',
   '/draft/register',
-  '/learn',
-  '/learn/review',
+  '/study/practise',
+  '/study/practise/review',
   // recharts is behind this route's own chunk; an offline reload is what proves
   // the chunk was precached rather than fetched on demand.
-  '/learn/mock',
-  '/learn/browse',
-  '/learn/bookmarks',
-  '/learn/reports',
-  '/learn/settings',
-  '/learn/review-queue',
-  '/learn/exam',
-  '/learn/exam/plan',
-  '/learn/exam/mock',
-  '/learn/exam/checklist',
-  '/library',
-  '/library/ccs-conduct',
+  '/study/practise/mock',
+  '/study/practise/browse',
+  '/study/practise/bookmarks',
+  '/study/practise/reports',
+  '/settings/trainer',
+  '/study/practise/review-queue',
+  '/study/exam',
+  '/study/exam/mock',
+  '/study/read',
+  '/study/read/ccs-conduct',
   // The reader is what an officer actually opens on a train; the corpus chunk
   // it needs is precached rather than fetched on demand, and an offline reload
   // is what proves it.
-  '/library/ccs-conduct/ccs-conduct-3',
+  '/study/read/ccs-conduct/ccs-conduct-3',
   // Session 28's study screens. Every figure on them is arithmetic over rows
   // this device already holds, and the quiz draws from a precached catalogue,
   // so all three must work with no network at all.
-  '/library/study',
-  '/library/ccs-conduct/quiz/group-n-ccs-conduct-1',
-  '/library/ccs-conduct/sheet/group-n-ccs-conduct-1',
+  '/study/progress',
+  '/study/read/ccs-conduct/quiz/group-n-ccs-conduct-1',
+  '/study/read/ccs-conduct/sheet/group-n-ccs-conduct-1',
   // Everything a reader wrote is in IndexedDB and everything they added is a
   // row, so these five must work with no network at all — which is the only
   // condition most of this session's work will ever be used under.
-  '/library/mine',
-  '/library/bookmarks',
-  '/library/compare',
-  '/library/search',
-  '/library/add',
-  '/utils',
-  '/utils/glossary',
-  '/utils/holidays',
-  '/utils/leave',
-  '/utils/pension',
-  '/utils/portals',
+  '/study/notes',
+  '/study/notes/compare',
+  '/study/read/search',
+  '/study/read/add',
+  '/tools/glossary',
+  '/tools/holidays',
+  '/tools/leave',
+  '/tools/pension',
+  '/tools/portals',
   '/settings',
+  '/settings/ai',
+  '/settings/data',
+  '/settings/backup',
+  '/settings/about',
 ]
 
 test('reloads every route with no network and still renders its own page', async ({ page, context }) => {
@@ -164,7 +172,7 @@ test('reloads every route with no network and still renders its own page', async
     carries one: this is ONE test that does a great deal, and the default 30s
     is a ceiling on the whole loop rather than on any one route. Session 29's
     seven new `/draft` routes are what pushed it past — the failure was
-    `/utils/portals`, thirty-fifth in the list and nothing to do with the
+    `/tools/portals`, thirty-fifth in the list and nothing to do with the
     change. An intermittent failure that passes in isolation is a budget, not a
     defect (CLAUDE.md); the per-route `toBeVisible` below keeps its own 30s, so
     a route that genuinely never renders still fails fast and by name.

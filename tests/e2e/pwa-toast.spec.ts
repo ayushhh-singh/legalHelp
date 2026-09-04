@@ -30,7 +30,7 @@ const barHeightPx = (page: import('@playwright/test').Page) =>
   })
 
 test('the toast sits above the tab bar, not on it', async ({ page }) => {
-  await page.goto('/learn')
+  await page.goto('/study/practise')
   await expect(page.getByRole('heading', { level: 1 })).toBeVisible()
 
   const bar = await barHeightPx(page)
@@ -62,7 +62,7 @@ test('the toast sits above the tab bar, not on it', async ({ page }) => {
 })
 
 test('a visible toast reserves room under the content instead of covering it', async ({ page }) => {
-  await page.goto('/learn')
+  await page.goto('/study/practise')
   await expect(page.getByRole('heading', { level: 1 })).toBeVisible()
 
   const paddingBottom = () =>
@@ -84,7 +84,7 @@ test('a visible toast reserves room under the content instead of covering it', a
 test('the reserved space is enough to clear a real toast on a phone', async ({ page }) => {
   test.skip(!onPhone(page), 'the overlap this is about only happens where the toast is full width')
 
-  await page.goto('/learn')
+  await page.goto('/study/practise')
   await expect(page.getByRole('heading', { level: 1 })).toBeVisible()
 
   // A toast is one line in English and can wrap to three in Hindi, which is why

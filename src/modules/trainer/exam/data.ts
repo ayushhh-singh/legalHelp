@@ -6,7 +6,7 @@ import { examIndexSchema, examProfileSchema, type ExamIndex, type ExamProfile } 
  * Same arrangement as every other dataset in this app (ADR-013): a `?raw`
  * dynamic import, never a `fetch` of `/data/*.json`. That is what keeps
  * `src/ai/providers/wire.ts` the only module allowed to call `fetch`, and what
- * makes exam mode work offline on a device that has never opened `/learn/exam`
+ * makes exam mode work offline on a device that has never opened `/study/exam`
  * online — the service worker precaches the chunks through the ordinary
  * JavaScript glob.
  *

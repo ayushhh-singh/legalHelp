@@ -13,7 +13,7 @@ import type { LibraryUnit } from '@/lib/library'
  *
  * IT REUSES THE EXISTING PROPOSAL PATH AND ADDS NO SECOND ONE. The row goes
  * into `proposedCards` with `reviewState: 'unreviewed'`, exactly as the AI
- * `propose_card` tool writes it, and `/learn/review-queue` is where a human
+ * `propose_card` tool writes it, and `/study/practise/review-queue` is where a human
  * accepts it — `effectiveCatalogue` then folds the approval over the dataset
  * (ADR-027). Nothing here can reach the FSRS schedule, and nothing here mutates
  * `data/rules`.
@@ -123,7 +123,7 @@ export function AddToTrainerDialog({
                 {t('library.trainer.added')}
               </p>
               <Button asChild variant="outline" size="sm" className="self-start">
-                <Link to="/learn/review-queue" onClick={() => onOpenChange(false)}>
+                <Link to="/study/practise/review-queue" onClick={() => onOpenChange(false)}>
                   {t('library.trainer.openQueue')}
                 </Link>
               </Button>

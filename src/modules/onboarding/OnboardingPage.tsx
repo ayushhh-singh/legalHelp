@@ -51,7 +51,7 @@ export default function OnboardingPage() {
   /**
    * Exam mode is OFFERED here and never chosen here.
    *
-   * All this does is decide where "Understood" lands — `/learn/exam` instead of
+   * All this does is decide where "Understood" lands — `/study/exam` instead of
    * the home route — and it writes nothing. Two reasons it stops there. The
    * first is that a profile is a claim about which examination somebody is
    * eligible to sit, and this app is not positioned to make that claim from a
@@ -93,7 +93,7 @@ export default function OnboardingPage() {
       await setOnboarded(true)
       // The one thing the exam offer does: where "Understood" lands. Skipping
       // always lands on the home route, because a skip is a skip.
-      void navigate(wantsExam ? '/learn/exam' : HOME_PATH, { replace: true })
+      void navigate(wantsExam ? '/study/exam' : HOME_PATH, { replace: true })
     } catch {
       setFinishFailed(true)
     } finally {

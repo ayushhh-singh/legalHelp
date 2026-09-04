@@ -28,7 +28,7 @@ import { audit, dismissPwaToasts, expect, formatViolations, test } from './fixtu
 const MODEL_HOSTS = /^https:\/\/(huggingface\.co|raw\.githubusercontent\.com)\//
 
 async function chooseLocalTier(page: import('@playwright/test').Page): Promise<void> {
-  await page.goto('/settings')
+  await page.goto('/settings/ai')
   await dismissPwaToasts(page)
   await page.getByRole('button', { name: 'Read what this sends' }).click()
   await page.getByRole('button', { name: 'I have read this — enable AI' }).click()
@@ -169,7 +169,7 @@ test('the on-device section passes axe', async ({ page }) => {
 test('with AI off, nothing about the on-device model renders at all', async ({ page }) => {
   // Every device's default. The section, the model list and the ~6 MB runtime
   // are all behind this.
-  await page.goto('/settings')
+  await page.goto('/settings/ai')
   await dismissPwaToasts(page)
   await expect(page.getByRole('heading', { name: 'AI features' })).toBeVisible()
   await expect(page.getByRole('radiogroup', { name: 'On-device model' })).toHaveCount(0)

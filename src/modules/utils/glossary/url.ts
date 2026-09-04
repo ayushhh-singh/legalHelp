@@ -1,7 +1,7 @@
 /**
  * A shareable link to one glossary term.
  *
- * `/utils/glossary?term=<id>` — the same shape the Law Converter and the Pay
+ * `/tools/glossary?term=<id>` — the same shape the Law Converter and the Pay
  * calculator use for a share link (`toLawHref`, `toPayHref`): the id is
  * enough to find the term again once `data/glossary.json` has loaded,
  * `GlossaryPage.tsx` reads it on mount and puts the term's own English text
@@ -10,7 +10,7 @@
  * might type next.
  */
 export function toGlossaryHref(termId: string): string {
-  return `/utils/glossary?term=${encodeURIComponent(termId)}`
+  return `/tools/glossary?term=${encodeURIComponent(termId)}`
 }
 
 export function parseGlossaryTermParam(params: URLSearchParams): string | null {

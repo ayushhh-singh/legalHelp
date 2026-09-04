@@ -26,7 +26,7 @@ const FAKE_KEY = 'sk-ant-api03-playwright-not-a-real-key'
 
 /** Turn AI on the way a reader does: consent, tier, key. Sends nothing. */
 async function enableAi(page: import('@playwright/test').Page): Promise<void> {
-  await page.goto('/settings')
+  await page.goto('/settings/ai')
   await page.getByRole('button', { name: 'Read what this sends' }).click()
   await page.getByRole('button', { name: 'I have read this — enable AI' }).click()
   await page

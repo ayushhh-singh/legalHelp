@@ -2,7 +2,7 @@ import { readFileSync } from 'node:fs'
 
 import type { Page } from '@playwright/test'
 
-import { expect, LANGUAGES, setLanguage, showPreviewPane, t, test, type Language } from './fixtures'
+import { expect, LANGUAGES, setLanguage, t, test, type Language } from './fixtures'
 
 /**
  * The eight journeys from the session brief, each run in BOTH languages and —
@@ -44,10 +44,16 @@ const MURDER: Record<Language, string> = {
   hi: 'हत्या के लिए दण्ड।',
 }
 
-async function open(page: Page, language: Language, route: string, titleKey: string) {
+/**
+ * `level` is 2 by default because most of these are SUB-TAB pages: since
+ * ADR-046 `TabLayout` owns the section's `<h1>` and the page below it starts at
+ * `<h2>`. A detail page — Settings' own index, for one — still owns its `<h1>`,
+ * and passes 1.
+ */
+async function open(page: Page, language: Language, route: string, titleKey: string, level: 1 | 2 = 2) {
   await page.goto(route)
   await setLanguage(page, language)
-  await expect(page.getByRole('heading', { level: 1, name: t(language, titleKey) })).toBeVisible({
+  await expect(page.getByRole('heading', { level, name: t(language, titleKey) })).toBeVisible({
     timeout: 30_000,
   })
 }
@@ -88,7 +94,7 @@ for (const language of LANGUAGES) {
      * 2. Pay — the IB ACIO-II slip
      * ---------------------------------------------------------------- */
     test('shows the IB ACIO-II pay slip with the same figures in either language', async ({ page }) => {
-      await open(page, language, '/pay?job=ib-acio-ii-executive&city=delhi&da=60', 'pages.pay.title')
+      await open(page, language, '/tools/salary?job=ib-acio-ii-executive&city=delhi&da=60', 'pages.pay.title')
 
       // Level 7, cell 1. The numerals are Latin in BOTH languages — a pay slip
       // is read as a column of figures and Devanagari digits would break the
@@ -106,25 +112,29 @@ for (const language of LANGUAGES) {
      * 3. Drafting — open the O.M. and see the live preview follow a keystroke
      * ---------------------------------------------------------------- */
     test('opens the Office Memorandum and previews what is typed', async ({ page, network }) => {
-      await page.goto('/draft')
+      await page.goto('/draft/documents')
       await setLanguage(page, language)
-      await page.goto('/draft/office-memorandum')
-      await expect(page.getByRole('heading', { level: 1 })).toBeVisible({ timeout: 30_000 })
+      /*
+        `/draft/new/<type>` creates the document and opens the editor — the one
+        way in since ADR-046 removed the Session 8 form-and-preview editor. The
+        journey is the same one an officer takes from the New tab.
+      */
+      await page.goto('/draft/new/office-memorandum')
+      await expect(page).toHaveURL(/\/draft\/d\//, { timeout: 30_000 })
 
-      // Two controls carry this word — the toolbar button, which appends the
-      // outstanding count, and the drawer's own "open" button. The toolbar one
-      // is first in the DOM and is the one that means the editor has loaded.
-      await expect(page.getByRole('button', { name: /^Checklist|^जाँच-सूची/ }).first()).toBeVisible({
-        timeout: 30_000,
-      })
+      // The editor's own tabs are what say it has loaded.
+      await expect(page.getByRole('tab', { name: /^Write|^लिखें/ })).toBeVisible({ timeout: 30_000 })
 
       const subject = network.sentinel('om-subject')
-      await page.locator('#draft-field-subject').fill(subject)
+      await page.getByRole('tab', { name: /^Details|^विवरण/ }).click()
+      await page
+        .getByLabel(/^Subject|^विषय/)
+        .first()
+        .fill(subject)
 
       // The A4 preview is the point of the editor: what was typed has to be on
-      // the page immediately, with no save step. Below 1024px it is the second
-      // of two tabs rather than the second of two columns.
-      await showPreviewPane(page, language)
+      // the page immediately, with no save step.
+      await page.getByRole('tab', { name: /^Preview|^पूर्वावलोकन/ }).click()
       await expect(page.getByText(subject).last()).toBeVisible()
     })
 
@@ -132,13 +142,13 @@ for (const language of LANGUAGES) {
      * 4. Trainer — grade one card and watch the queue move
      * ---------------------------------------------------------------- */
     test('grades a card and the queue moves on', async ({ page }) => {
-      await open(page, language, '/learn', 'pages.learn.title')
+      await open(page, language, '/study/practise', 'pages.learn.title')
 
       const start = page.getByRole('link', { name: t(language, 'trainer.home.startReview') })
       await expect(start).toBeVisible({ timeout: 30_000 })
       await start.click()
 
-      await expect(page).toHaveURL(/\/learn\/review/)
+      await expect(page).toHaveURL(/\/study\/practise\/review/)
 
       // The first card a fresh device shows is CCS (Conduct) Rule 1 — a `rule`
       // card, which is open recall: reveal, then grade. `learn.spec.ts` asserts
@@ -173,7 +183,7 @@ for (const language of LANGUAGES) {
      * 5. Utilities — all four tools answer
      * ---------------------------------------------------------------- */
     test('answers in the holiday calendar', async ({ page }) => {
-      await open(page, language, '/utils/holidays', 'utils.holidays.title')
+      await open(page, language, '/tools/holidays', 'utils.holidays.title')
       await expect(page.getByText(t(language, 'utils.holidays.gazettedListTitle'))).toBeVisible({
         timeout: 30_000,
       })
@@ -181,7 +191,7 @@ for (const language of LANGUAGES) {
     })
 
     test('computes a leave balance', async ({ page }) => {
-      await open(page, language, '/utils/leave', 'utils.leave.title')
+      await open(page, language, '/tools/leave', 'utils.leave.title')
 
       await page.getByLabel(t(language, 'utils.leave.doj')).fill('2020-01-01')
       await page.getByLabel(t(language, 'utils.leave.asOf')).fill('2026-01-01')
@@ -199,7 +209,7 @@ for (const language of LANGUAGES) {
     })
 
     test('computes a superannuation date', async ({ page }) => {
-      await open(page, language, '/utils/pension', 'utils.pension.title')
+      await open(page, language, '/tools/pension', 'utils.pension.title')
 
       // Born on the 1st: FR 56(a) retires such an officer at the end of the
       // PRECEDING month, so 1 August 1966 + 60 gives 31 July 2026, not 31
@@ -217,7 +227,7 @@ for (const language of LANGUAGES) {
 
     test('finds a portal and copies its URL out loud', async ({ page, context }) => {
       await context.grantPermissions(['clipboard-read', 'clipboard-write'])
-      await open(page, language, '/utils/portals', 'utils.portals.title')
+      await open(page, language, '/tools/portals', 'utils.portals.title')
 
       await page.getByLabel(t(language, 'utils.portals.searchLabel')).fill('CGHS')
       const copy = page.getByRole('button', { name: t(language, 'utils.portals.copyUrl') }).first()
@@ -235,7 +245,12 @@ for (const language of LANGUAGES) {
      * 6. Onboarding
      * ---------------------------------------------------------------- */
     test('walks through onboarding and lands in the app', async ({ page }) => {
-      await page.goto('/onboarding')
+      /*
+        The language is set from a TAB route: `/onboarding` is a focus route
+        (ADR-046) and renders no app top bar, deliberately — a reader halfway
+        through a three-step flow has nowhere useful to navigate to.
+      */
+      await page.goto('/home')
       await setLanguage(page, language)
       await page.goto('/onboarding')
       await expect(page.getByRole('heading', { level: 1 })).toBeVisible()
@@ -274,7 +289,10 @@ for (const language of LANGUAGES) {
       })
       await page.getByRole('button', { name: t(language, 'law.actions.favourite') }).click()
 
-      await open(page, language, '/settings', 'pages.settings.title')
+      // Export and erase are one page since ADR-046, deliberately: the one
+      // thing somebody about to erase everything should have in front of them
+      // is the control that exports it first.
+      await open(page, language, '/settings/backup', 'pages.settings.backup.title', 1)
 
       const download = page.waitForEvent('download')
       await page.getByRole('button', { name: t(language, 'pages.settings.backup.export') }).click()
