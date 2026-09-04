@@ -44,3 +44,7 @@ docs/COVERAGE.md
 # object per line, the same reason data/ is here. Prettier would reformat 16
 # files nobody reads by hand and quadruple the diff on every re-measurement.
 docs/lighthouse/
+
+# data/exams is written by scripts/ingest/exams_seed.py through the same
+# write_json, for the same reason every other dataset above is here.
+data/exams/

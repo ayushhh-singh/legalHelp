@@ -8,7 +8,7 @@ import { useT } from '@/i18n/useT'
 /**
  * The Rules Trainer's own router, mounted at `/learn/*` by `src/app/App.tsx`
  * — the same arrangement `DraftPage.tsx` uses for `/draft/*`, so
- * `src/lib/nav.ts` stays the one list of navigation DESTINATIONS. Eight
+ * `src/lib/nav.ts` stays the one list of navigation DESTINATIONS. Twelve
  * screens, each its own chunk: Home needs only the catalogue and today's
  * counts, while the review session pulls in the FSRS engine and the mock test
  * pulls in `recharts`.
@@ -21,6 +21,13 @@ const BookmarksPage = lazy(() => import('./pages/BookmarksPage'))
 const ReportsPage = lazy(() => import('./pages/ReportsPage'))
 const TrainerSettingsPage = lazy(() => import('./pages/TrainerSettingsPage'))
 const ReviewQueuePage = lazy(() => import('./pages/ReviewQueuePage'))
+// Exam mode's four screens, each its own chunk. Nothing under `exam/` is
+// reached until the reader opens `/learn/exam`, so a reader who never sits a
+// departmental examination never downloads `data/exams` or `src/lib/exam`.
+const ExamHubPage = lazy(() => import('./exam/ExamHubPage'))
+const ExamPlanPage = lazy(() => import('./exam/ExamPlanPage'))
+const ExamMockPage = lazy(() => import('./exam/ExamMockPage'))
+const ExamChecklistPage = lazy(() => import('./exam/ExamChecklistPage'))
 
 function Fallback() {
   const { t } = useT()
@@ -45,6 +52,10 @@ export default function LearnPage() {
         <Route path="reports" element={<ReportsPage />} />
         <Route path="settings" element={<TrainerSettingsPage />} />
         <Route path="review-queue" element={<ReviewQueuePage />} />
+        <Route path="exam" element={<ExamHubPage />} />
+        <Route path="exam/plan" element={<ExamPlanPage />} />
+        <Route path="exam/mock" element={<ExamMockPage />} />
+        <Route path="exam/checklist" element={<ExamChecklistPage />} />
         <Route path="*" element={<Navigate to="/learn" replace />} />
       </Routes>
     </Suspense>

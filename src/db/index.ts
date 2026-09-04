@@ -768,6 +768,37 @@ export interface StudyGoalRow {
   updatedAt: string
 }
 
+/**
+ * One departmental examination the reader is preparing for (Session 32, ADR-044).
+ *
+ * The row holds CHOICES and never a plan. `src/lib/exam/plan.ts` rebuilds the
+ * day-by-day plan from the profile, the target date and the schedule as it
+ * stands now — a stored plan is out of date the moment a card is graded, and a
+ * reader who has raced ahead on the Leave Rules should not be sent back to them
+ * on Thursday because a plan written on Monday said so.
+ *
+ * It is keyed on the PROFILE id rather than on a literal `"exam"`, so switching
+ * profiles keeps the target date the reader already typed against the one they
+ * switched away from. `active` is what says which is current; `setActiveExam`
+ * clears the others in one transaction, and `activeExamChoice` reads the flag
+ * rather than a second settings row.
+ *
+ * Nothing here identifies an organisation's business: a profile id names a
+ * PUBLIC examination, and the date is the reader's own.
+ */
+export interface ExamChoiceRow {
+  /** A profile id from `data/exams/index.json`. */
+  id: string
+  /** IST day (`YYYY-MM-DD`) of the examination, or null while none is chosen. */
+  targetDate: string | null
+  /** Minutes a day, or null to take the Session 28 study goal instead. */
+  dailyMinutes: number | null
+  /** Exactly one row is true. */
+  active: boolean
+  createdAt: string
+  updatedAt: string
+}
+
 export class SahayakDB extends Dexie {
   settings!: Table<SettingRow, string>
   secrets!: Table<SecretsRow, string>
@@ -813,6 +844,7 @@ export class SahayakDB extends Dexie {
   letterheadImages!: Table<LetterheadImageRow, string>
   intakes!: Table<IntakeRow, string>
   registerEntries!: Table<RegisterEntryRow, string>
+  examChoices!: Table<ExamChoiceRow, string>
 
   constructor(name = 'sahayak') {
     super(name)
@@ -1313,6 +1345,73 @@ export class SahayakDB extends Dexie {
       letterheadImages: '&id, updatedAt',
       intakes: '&id, createdAt, updatedAt',
       registerEntries: '&id, direction, number, status, threadId, followUpDate, date, updatedAt',
+    })
+    /*
+      Version 17 — the departmental-exam mode's one table (Session 32, ADR-044).
+
+      `examChoices` is indexed on `active`, because "which examination am I
+      preparing for" is asked on four screens and is a one-row answer, and on
+      `updatedAt` so a picker can list the reader's own choices newest-first.
+
+      No `upgrade()` block: the table is new and empty, and an empty upgrade
+      function would suggest a migration was considered and found unnecessary
+      rather than that none was needed (v15's note, and v16's).
+
+      It is in the backup automatically, because `buildBackup` excludes by NAME
+      rather than including by name. Asserted anyway in
+      `src/lib/exam/store.test.ts`, because "it is backed up" is a claim rather
+      than a comment.
+
+      Every table of every version above is repeated verbatim: Dexie reads a
+      version's `stores()` as the COMPLETE schema at that version, so an omitted
+      table is a dropped table.
+    */
+    this.version(17).stores({
+      settings: '&key',
+      secrets: '&id',
+      aiAnswers: '&id, agentId, dataVersion, createdAt',
+      aiUsage: '&month',
+      lawFavourites: '&id, createdAt',
+      lawRecents: '&id, viewedAt',
+      payScenarios: '&id, name, updatedAt',
+      drafts: '&id, templateId, updatedAt',
+      draftDefaults: '&id, templateId, updatedAt',
+      glossaryFavourites: '&id, createdAt',
+      glossaryRecents: '&id, viewedAt',
+      srsCards: '&qId, due, state',
+      reviewLog: '&id, qId, at',
+      streaks: '&date',
+      trainerSettings: '&id',
+      trainerBookmarks: '&qId, createdAt',
+      trainerReports: '&id, qId, createdAt',
+      proposedCards: '&id, createdAt',
+      cardOverrides: '&qId, decidedAt',
+      holidayPicks: '&id, year, createdAt',
+      commandRecents: '&id, viewedAt',
+      libraryProgress: '&id, workId, at',
+      libraryBookmarks: '&id, workId, createdAt',
+      libraryHighlights: '&id, [workId+unitId], workId, colour, createdAt',
+      libraryNotes: '&id, [workId+unitId], workId, updatedAt',
+      libraryPersonalWorks: '&id, updatedAt',
+      chapterCards: '&id, workId, due',
+      chapterLog: '&id, cardId, workId, at',
+      feynmanAttempts: '&id, [workId+unitId], workId, at',
+      studySessions: '&id, workId, startedAt',
+      studyGoals: '&id, updatedAt',
+      documents: '&id, templateId, status, updatedAt, threadId',
+      docVersions: '&id, docId, at',
+      docComments: '&id, docId, resolved, createdAt',
+      draftingProfile: '&id',
+      addressBook: '&id, updatedAt, createdAt',
+      personalTemplates: '&id, baseTemplateId, updatedAt',
+      numberPatterns: '&id, updatedAt',
+      numberIssues: '&id, patternId, number, issuedAt',
+      templateFavourites: '&id, createdAt',
+      templateRecents: '&id, viewedAt',
+      letterheadImages: '&id, updatedAt',
+      intakes: '&id, createdAt, updatedAt',
+      registerEntries: '&id, direction, number, status, threadId, followUpDate, date, updatedAt',
+      examChoices: '&id, active, updatedAt',
     })
   }
 }

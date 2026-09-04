@@ -14,6 +14,7 @@ import { useAppStore, type Theme } from '@/app/store'
 import { LANGUAGES, LANGUAGE_NAMES, type Language } from '@/i18n'
 import { useT } from '@/i18n/useT'
 import { loadReminderSetting } from '@/modules/trainer/reminder'
+import { ExamModeSection } from './components/ExamModeSection'
 
 /**
  * The AI settings live behind their own dynamic import, not merely behind this
@@ -112,6 +113,14 @@ export default function SettingsPage() {
           {t('draft.profile.open')}
         </Link>
       </section>
+
+      {/*
+        Exam mode, the same way: one choice, one screen, a link from wherever
+        else it is looked for. The line under the heading names the examination
+        the reader picked, so "am I still preparing for that?" is answered here
+        rather than by opening the module.
+      */}
+      <ExamModeSection />
 
       <section className="flex flex-col gap-2">
         <h2 className="text-lg font-semibold">{t('pages.settings.privacyTitle')}</h2>

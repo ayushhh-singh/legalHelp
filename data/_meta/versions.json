@@ -500,7 +500,21 @@
       },
       "rows": 15,
       "entries": 2694
+    },
+    "exam-profiles": {
+      "version": "1.0.0",
+      "updated": "2026-09-04",
+      "label": {
+        "en": "Departmental exam profiles",
+        "hi": "विभागीय परीक्षा प्रोफ़ाइल"
+      },
+      "rows": 3,
+      "sha256": "9201e3141662c450ad03abc5576607eb9c30eb7bf5ac4f35bf0dfca3f4f9a6d4",
+      "source": {
+        "name": "Section Officers' / Stenographers' (Grade 'B' / Grade I) Limited Departmental Competitive Examination, 2016 & 2017 — Notification of Rules, No. 6/1/2020-CS.I(P) dated 15.09.2021 (Gazette of India, Extraordinary, Part II, Section 3, Sub-section (i))",
+        "url": "https://documents.doptcirculars.nic.in/D2/D02csd/SO%20LDCE%202016%202017D3tcU.pdf"
+      }
     }
   },
-  "generatedAt": "2026-09-03"
+  "generatedAt": "2026-09-04"
 }

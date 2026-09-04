@@ -53,6 +53,22 @@ const ROUTES = [
   '/learn/bookmarks',
   '/learn/reports',
   '/learn/review-queue',
+  /*
+    Exam mode's four screens. The hub is the one that matters — a profile
+    picker, a date control, a readiness figure with its caveat and a per-topic
+    bar list — and the mock paper is the other, because an answer sheet is
+    forty-odd buttons whose state has to be in their accessible NAME rather
+    than in their colour.
+
+    All four are swept with no examination chosen, which is a fresh device's
+    state and is what the sweep's own `setChrome` leaves behind; the mock and
+    the plan therefore render their "pick an examination first" branch.
+    `tests/e2e/exam.spec.ts` chooses a profile and audits the full screens.
+  */
+  '/learn/exam',
+  '/learn/exam/plan',
+  '/learn/exam/mock',
+  '/learn/exam/checklist',
   '/library',
   // The reader is where the Library's markup actually is — a sticky progress
   // header, four groups of type controls, the unit itself and a related rail —
@@ -178,22 +194,22 @@ for (const language of ['en', 'hi'] as const) {
   for (const theme of ['light', 'dark'] as const) {
     test(`no axe violations in ${language} / ${theme}`, async ({ page }) => {
       /*
-        Four minutes, not the default thirty seconds.
+        Five minutes, not the default thirty seconds.
 
-        This is one test that navigates 21 routes and runs a full axe pass on
-        each; a quiet run takes about 21 seconds, which is already at the
+        This is one test that navigates 45 routes and runs a full axe pass
+        on each; a quiet run takes about 45 seconds, which is already at the
         default ceiling before any contention. Under `pnpm test:e2e`'s four
         workers across two projects it went over — as a 30s test timeout, and
         as a 5s `expect` timeout on the `<h1>` of whichever route happened to
         be loading when another worker took the CPU. Both are budgets rather
         than defects: every case passes at `--workers=1`, and splitting the
-        sweep per route would multiply the setChrome() cost by 21.
+        sweep per route would multiply the setChrome() cost by 45.
 
         Raised deliberately and stated here, rather than left to be
         rediscovered as a flake in CI — the same conclusion CLAUDE.md records
         for tests/rules-data.test.ts.
       */
-      test.setTimeout(240_000)
+      test.setTimeout(300_000)
 
       await setChrome(page, language, theme)
 
@@ -201,7 +217,15 @@ for (const language of ['en', 'hi'] as const) {
         await page.goto(route)
         await expect(page.getByRole('heading', { level: 1 })).toBeVisible({ timeout: 30_000 })
         const ready = READY[route]
-        if (ready) await expect(page.getByRole('combobox', { name: ready }).first()).toBeVisible()
+        if (ready) {
+          // 30s like its three siblings below. This was the one readiness wait
+          // left on the 5s default, and under `pnpm test:e2e`'s four workers it
+          // is the one that loses — which is the exact failure the comment
+          // above describes and had not been fixed, only budgeted around.
+          await expect(page.getByRole('combobox', { name: ready }).first()).toBeVisible({
+            timeout: 30_000,
+          })
+        }
         const readyButton = READY_BUTTON[route]
         if (readyButton) {
           await expect(page.getByRole('button', { name: readyButton }).first()).toBeVisible({

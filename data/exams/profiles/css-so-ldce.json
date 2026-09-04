@@ -1,0 +1,299 @@
+{
+  "$schema": "../../../schemas/exam-profile.schema.json",
+  "version": "1.0.0",
+  "generatedAt": "2026-09-04",
+  "id": "css-so-ldce",
+  "name": {
+    "en": "Section Officers' Grade LDCE — Central Secretariat Service",
+    "hi": "अनुभाग अधिकारी ग्रेड सीमित विभागीय प्रतियोगी परीक्षा — केंद्रीय सचिवालय सेवा"
+  },
+  "organisation": {
+    "en": "Central Secretariat Service (Category I)",
+    "hi": "केंद्रीय सचिवालय सेवा (श्रेणी I)"
+  },
+  "examType": "ldce",
+  "eligibilityNote": {
+    "en": "Assistant Section Officers of the Central Secretariat Service, and Personal Assistants (Stenographer Grade 'C') of the Central Secretariat Stenographers' Service, with not less than five years' approved service and at least four Annual Performance Appraisal Reports in that grade on the crucial date; a Personal Assistant of the CSSS must hold a Bachelor's degree. Selection also counts a separate evaluation of record of service worth 100 marks, in which the notification requires a minimum of 40 per cent; the three written papers below carry 500 of the 600 total marks. This is a competitive examination, not a qualifying one.",
+    "hi": "केंद्रीय सचिवालय सेवा के सहायक अनुभाग अधिकारी तथा केंद्रीय सचिवालय आशुलिपिक सेवा के वैयक्तिक सहायक (आशुलिपिक ग्रेड 'ग'), जिनकी उस ग्रेड में निर्णायक तिथि को कम से कम पाँच वर्ष की अनुमोदित सेवा हो तथा कम से कम चार वार्षिक कार्य निष्पादन मूल्यांकन रिपोर्ट हों; सीएसएसएस के वैयक्तिक सहायक के पास स्नातक उपाधि होनी चाहिए। चयन में सेवा-अभिलेख का पृथक मूल्यांकन भी गिना जाता है, जो 100 अंकों का है और जिसमें अधिसूचना के अनुसार न्यूनतम 40 प्रतिशत अंक अनिवार्य हैं; नीचे दिए गए तीन लिखित प्रश्नपत्र कुल 600 में से 500 अंकों के हैं। यह प्रतियोगी परीक्षा है, अर्हक परीक्षा नहीं।"
+  },
+  "papers": [
+    {
+      "id": "paper-1",
+      "name": {
+        "en": "Paper I — General Studies and General Knowledge",
+        "hi": "प्रश्नपत्र I — सामान्य अध्ययन तथा सामान्य ज्ञान"
+      },
+      "marks": 150,
+      "durationMinutes": 120,
+      "objective": true,
+      "negativeMarking": 0.3333,
+      "units": [
+        {
+          "id": "current-affairs",
+          "name": {
+            "en": "Current affairs, the Five Year Plans, the Indian economy and major developmental schemes",
+            "hi": "सामयिक घटनाएँ, पंचवर्षीय योजनाएँ, भारतीय अर्थव्यवस्था तथा प्रमुख विकास योजनाएँ"
+          },
+          "coverage": {
+            "external": true,
+            "note": {
+              "en": "Not in this app. A daily newspaper and the Ministry's own scheme pages are the sources the notification points at.",
+              "hi": "इस ऐप में नहीं। अधिसूचना जिन स्रोतों की ओर संकेत करती है वे दैनिक समाचार पत्र तथा संबंधित मंत्रालय के योजना पृष्ठ हैं।"
+            }
+          },
+          "weight": 0.2
+        },
+        {
+          "id": "constitution",
+          "name": {
+            "en": "Principles of the Constitution of India",
+            "hi": "भारत के संविधान के सिद्धांत"
+          },
+          "coverage": {
+            "external": true,
+            "note": {
+              "en": "Not in this app. This app ships the criminal codes and the service rules, not the Constitution.",
+              "hi": "इस ऐप में नहीं। यह ऐप दंड संहिताएँ तथा सेवा नियम रखता है, संविधान नहीं।"
+            }
+          },
+          "weight": 0.2
+        },
+        {
+          "id": "parliament-procedure",
+          "name": {
+            "en": "Rules of Procedure and Conduct of Business in the Lok Sabha and the Rajya Sabha",
+            "hi": "लोक सभा तथा राज्य सभा में प्रक्रिया एवं कार्य संचालन के नियम"
+          },
+          "coverage": {
+            "external": true,
+            "note": {
+              "en": "Not in this app. Both Houses publish their own Rules of Procedure.",
+              "hi": "इस ऐप में नहीं। दोनों सदन अपनी प्रक्रिया-नियमावली स्वयं प्रकाशित करते हैं।"
+            }
+          },
+          "weight": 0.2
+        },
+        {
+          "id": "machinery-of-government",
+          "name": {
+            "en": "Organisation of the machinery of the Government of India — allocation of subjects between Ministries, Departments and attached and subordinate offices",
+            "hi": "भारत सरकार के तंत्र का संगठन — मंत्रालयों, विभागों तथा संलग्न एवं अधीनस्थ कार्यालयों के बीच विषयों का आवंटन"
+          },
+          "coverage": {
+            "external": true,
+            "note": {
+              "en": "Not in this app. The Government of India (Allocation of Business) Rules are the source.",
+              "hi": "इस ऐप में नहीं। इसका स्रोत भारत सरकार (कार्य आवंटन) नियम हैं।"
+            }
+          },
+          "weight": 0.2
+        },
+        {
+          "id": "rti-act",
+          "name": {
+            "en": "The Right to Information Act, 2005",
+            "hi": "सूचना का अधिकार अधिनियम, 2005"
+          },
+          "coverage": [
+            {
+              "act": "rti"
+            }
+          ],
+          "weight": 0.2
+        }
+      ]
+    },
+    {
+      "id": "paper-2",
+      "name": {
+        "en": "Paper II — Procedure and practice in the Government of India Secretariat, and General Financial and Service Rules",
+        "hi": "प्रश्नपत्र II — भारत सरकार सचिवालय में प्रक्रिया एवं कार्यपद्धति, तथा सामान्य वित्तीय एवं सेवा नियम"
+      },
+      "marks": 150,
+      "durationMinutes": 120,
+      "objective": true,
+      "negativeMarking": 0.3333,
+      "units": [
+        {
+          "id": "manual-of-office-procedure",
+          "name": {
+            "en": "Manual of Office Procedure (latest edition)",
+            "hi": "कार्यालय प्रक्रिया नियमावली (नवीनतम संस्करण)"
+          },
+          "coverage": [
+            {
+              "act": "csmop"
+            }
+          ],
+          "weight": 0.1
+        },
+        {
+          "id": "istm-office-procedure-notes",
+          "name": {
+            "en": "Notes on office procedure issued by the Institute of Secretariat Training and Management",
+            "hi": "सचिवालय प्रशिक्षण एवं प्रबंधन संस्थान द्वारा जारी कार्यालय प्रक्रिया संबंधी टिप्पणियाँ"
+          },
+          "coverage": {
+            "external": true,
+            "note": {
+              "en": "ISTM publishes this reading material itself; it is not a rule book this app ships.",
+              "hi": "यह पठन-सामग्री आईएसटीएम स्वयं प्रकाशित करता है; यह इस ऐप में उपलब्ध नियम-पुस्तक नहीं है।"
+            }
+          },
+          "weight": 0.1
+        },
+        {
+          "id": "official-language-handbook",
+          "name": {
+            "en": "Handbook of orders regarding use of Hindi for the official purposes of the Union",
+            "hi": "संघ के राजकीय प्रयोजनों हेतु हिंदी के प्रयोग संबंधी आदेशों की पुस्तिका"
+          },
+          "coverage": [
+            {
+              "act": "ol-act"
+            },
+            {
+              "act": "ol-rules"
+            }
+          ],
+          "weight": 0.1
+        },
+        {
+          "id": "fundamental-and-supplementary-rules",
+          "name": {
+            "en": "Fundamental and Supplementary Rules",
+            "hi": "मूल तथा अनुपूरक नियम"
+          },
+          "coverage": [
+            {
+              "act": "fr-sr"
+            }
+          ],
+          "weight": 0.1
+        },
+        {
+          "id": "ccs-pension-rules",
+          "name": {
+            "en": "The Central Civil Services (Pension) Rules",
+            "hi": "केंद्रीय सिविल सेवा (पेंशन) नियम"
+          },
+          "coverage": [
+            {
+              "act": "ccs-pension"
+            }
+          ],
+          "weight": 0.1
+        },
+        {
+          "id": "ccs-conduct-rules",
+          "name": {
+            "en": "The Central Civil Services (Conduct) Rules",
+            "hi": "केंद्रीय सिविल सेवा (आचरण) नियम"
+          },
+          "coverage": [
+            {
+              "act": "ccs-conduct"
+            }
+          ],
+          "weight": 0.1
+        },
+        {
+          "id": "ccs-cca-rules",
+          "name": {
+            "en": "The Central Civil Services (Classification, Control and Appeal) Rules",
+            "hi": "केंद्रीय सिविल सेवा (वर्गीकरण, नियंत्रण तथा अपील) नियम"
+          },
+          "coverage": [
+            {
+              "act": "ccs-cca"
+            }
+          ],
+          "weight": 0.1
+        },
+        {
+          "id": "ccs-leave-rules",
+          "name": {
+            "en": "The Central Civil Services (Leave) Rules",
+            "hi": "केंद्रीय सिविल सेवा (अवकाश) नियम"
+          },
+          "coverage": [
+            {
+              "act": "ccs-leave"
+            }
+          ],
+          "weight": 0.1
+        },
+        {
+          "id": "general-financial-rules",
+          "name": {
+            "en": "Compilation of the General Financial Rules",
+            "hi": "सामान्य वित्तीय नियमों का संकलन"
+          },
+          "coverage": [
+            {
+              "act": "gfr"
+            }
+          ],
+          "weight": 0.1
+        },
+        {
+          "id": "delegation-of-financial-powers-rules",
+          "name": {
+            "en": "Delegation of Financial Powers Rules",
+            "hi": "वित्तीय शक्तियों का प्रत्यायोजन नियम"
+          },
+          "coverage": {
+            "external": true,
+            "note": {
+              "en": "Not in this app. The Department of Expenditure publishes these rules; this app ships the General Financial Rules but not the delegation rules.",
+              "hi": "इस ऐप में नहीं। ये नियम व्यय विभाग प्रकाशित करता है; इस ऐप में सामान्य वित्तीय नियम हैं, प्रत्यायोजन नियम नहीं।"
+            }
+          },
+          "weight": 0.1
+        }
+      ]
+    },
+    {
+      "id": "paper-3",
+      "name": {
+        "en": "Paper III — Noting and Drafting, Precis Writing",
+        "hi": "प्रश्नपत्र III — टिप्पणी एवं प्रारूपण, सार-लेखन"
+      },
+      "marks": 200,
+      "durationMinutes": 180,
+      "objective": false,
+      "units": [
+        {
+          "id": "noting-drafting-precis",
+          "name": {
+            "en": "Noting and drafting on a given problem, and precis of a passage",
+            "hi": "दी गई समस्या पर टिप्पणी एवं प्रारूपण, तथा गद्यांश का सार-लेखन"
+          },
+          "coverage": {
+            "external": true,
+            "note": {
+              "en": "A written paper with no key, so this app cannot set a mock for it. Practise it in the Drafting Studio, which carries the CSMOP 2022 forms and a checklist for each.",
+              "hi": "यह लिखित प्रश्नपत्र है जिसकी कोई उत्तर-कुंजी नहीं, अतः इस हेतु यह ऐप मॉक नहीं बना सकता। प्रारूपण कक्ष में अभ्यास करें, जिसमें सीएसएमओपी 2022 के प्रपत्र तथा प्रत्येक हेतु जाँच-सूची है।"
+            }
+          },
+          "weight": 1.0
+        }
+      ]
+    }
+  ],
+  "patternSource": {
+    "name": "Section Officers' / Stenographers' (Grade 'B' / Grade I) Limited Departmental Competitive Examination, 2016 & 2017 — Notification of Rules, No. 6/1/2020-CS.I(P) dated 15.09.2021 (Gazette of India, Extraordinary, Part II, Section 3, Sub-section (i))",
+    "url": "https://documents.doptcirculars.nic.in/D2/D02csd/SO%20LDCE%202016%202017D3tcU.pdf",
+    "fetchedAt": "2026-09-04T00:00:00Z",
+    "sha256": "c0a918c1b2e234a5c4e177a4015ab8f9783630c2c6579d75e129f76e988e0c2c"
+  },
+  "weightBasis": {
+    "en": "Each head named in the notification's own Schedule for a paper carries an equal share of that paper's marks. No notification apportions a paper between its topics, so this split is this app's, not the Commission's — use it to decide what to study next, never as a marks table.",
+    "hi": "अधिसूचना की अपनी अनुसूची में किसी प्रश्नपत्र हेतु नामित प्रत्येक शीर्ष को उस प्रश्नपत्र के अंकों का समान भाग दिया गया है। कोई भी अधिसूचना प्रश्नपत्र के अंकों को विषयों में नहीं बाँटती, अतः यह विभाजन इस ऐप का है, आयोग का नहीं — इसे आगे क्या पढ़ना है यह तय करने हेतु प्रयोग करें, अंक-तालिका के रूप में कभी नहीं।"
+  },
+  "disclaimer": {
+    "en": "Reference only; verify with the official gazette/order or your DDO.",
+    "hi": "केवल संदर्भ हेतु; आधिकारिक राजपत्र/आदेश अथवा अपने डीडीओ से पुष्टि करें।"
+  },
+  "verify": false
+}

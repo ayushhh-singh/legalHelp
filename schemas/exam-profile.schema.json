@@ -1,0 +1,145 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://sahayak.local/schemas/exam-profile.schema.json",
+  "title": "One departmental examination profile",
+  "description": "PUBLIC syllabus structure over PUBLIC law, and nothing else. A profile records which papers an examination has, what each is worth, and which of the rule books this app already ships each syllabus head maps on to — read off a public recruitment rule or examination notification, cited in `patternSource`. It carries NO question paper, no departmental manual, no internally circulated material and nothing about any organisation's operations. A syllabus head that cannot be mapped to an act in `data/rules` is recorded as `{ \"external\": true }` — named, weighted, and left empty, so the readiness figure counts it against the reader rather than pretending it does not exist. Weights are NOT in any notification: a notification gives a paper's marks, not a topic's, so `weight` is this app's own apportionment and every surface says so.",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "version",
+    "generatedAt",
+    "id",
+    "name",
+    "organisation",
+    "examType",
+    "eligibilityNote",
+    "papers",
+    "patternSource",
+    "weightBasis",
+    "disclaimer",
+    "verify"
+  ],
+  "properties": {
+    "$schema": { "type": "string" },
+    "version": { "type": "string", "pattern": "^\\d+\\.\\d+\\.\\d+$" },
+    "generatedAt": { "type": "string", "pattern": "^\\d{4}-\\d{2}-\\d{2}$" },
+    "id": { "type": "string", "pattern": "^[a-z0-9-]+$" },
+    "name": { "$ref": "#/$defs/bilingual" },
+    "organisation": { "$ref": "#/$defs/bilingual" },
+    "examType": {
+      "description": "`ldce` is a Limited Departmental Competitive Examination — a selection, not a qualification. `departmental-promotion` is an examination a promotion is conditional on; `confirmation` is one probation is conditional on; `other` is anything else. The three differ in what a reader is preparing FOR, which is why the plan and the readiness screen say which.",
+      "enum": ["ldce", "departmental-promotion", "confirmation", "other"]
+    },
+    "eligibilityNote": {
+      "description": "Who may sit, in the notification's own terms, plus anything about the examination the papers below cannot carry (a shorthand test, an evaluation of record of service). Never advice about a particular reader.",
+      "$ref": "#/$defs/bilingual"
+    },
+    "papers": { "type": "array", "minItems": 1, "items": { "$ref": "#/$defs/paper" } },
+    "patternSource": {
+      "description": "The public notification or recruitment rule the pattern is read from. `fetchedAt` is present only where this repository actually retrieved the document; a profile compiled without one carries `verify: true` and a row in docs/DATA-GAPS.md.",
+      "$ref": "#/$defs/source"
+    },
+    "weightBasis": {
+      "description": "How the per-unit weights below were arrived at, stated in both languages and rendered on the profile. Required, because a weight is the one number here that no notification supplies.",
+      "$ref": "#/$defs/bilingual"
+    },
+    "disclaimer": { "$ref": "#/$defs/bilingual" },
+    "verify": {
+      "description": "True where the pattern could not be read from a document this repository fetched. The banner is shown either way; this decides whether the profile also carries the marigold 'verify' treatment every other unconfirmed record in this app carries.",
+      "type": "boolean"
+    }
+  },
+  "$defs": {
+    "bilingual": {
+      "description": "Both languages present and non-empty. Equal bilingual footing is a hard rule of this project: a missing Hindi string is a CI failure, never a fallback.",
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["en", "hi"],
+      "properties": {
+        "en": { "type": "string", "minLength": 1 },
+        "hi": { "type": "string", "minLength": 1 }
+      }
+    },
+    "source": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["name", "url"],
+      "properties": {
+        "name": { "type": "string", "minLength": 1 },
+        "url": { "type": "string", "pattern": "^https?://" },
+        "fetchedAt": { "type": "string", "pattern": "^\\d{4}-\\d{2}-\\d{2}T" },
+        "sha256": { "type": "string", "pattern": "^[0-9a-f]{64}$" }
+      }
+    },
+    "paper": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["id", "name", "marks", "durationMinutes", "objective", "units"],
+      "properties": {
+        "id": { "type": "string", "pattern": "^[a-z0-9-]+$" },
+        "name": { "$ref": "#/$defs/bilingual" },
+        "marks": { "type": "integer", "minimum": 1 },
+        "durationMinutes": { "type": "integer", "minimum": 1 },
+        "objective": {
+          "description": "True for a multiple-choice paper. The weighted mock builder draws ONLY from objective papers — a noting-and-drafting paper has no key a generated test could mark — and the mock screen says which papers it skipped and why.",
+          "type": "boolean"
+        },
+        "negativeMarking": {
+          "description": "The fraction of a question's marks deducted for a wrong answer, e.g. 0.3333 for the one-third the UPSC notification prescribes. Absent means none. A blank answer is never penalised, which is the rule every notification states and `src/lib/exam/mock.ts` implements.",
+          "type": "number",
+          "exclusiveMinimum": 0,
+          "maximum": 1
+        },
+        "qualifyingMarks": {
+          "description": "Present only where the notification FIXES a figure. Where it reserves the right to fix one at the Commission's discretion, this is absent rather than guessed.",
+          "type": "integer",
+          "minimum": 0
+        },
+        "units": { "type": "array", "minItems": 1, "items": { "$ref": "#/$defs/unit" } }
+      }
+    },
+    "unit": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["id", "name", "weight", "coverage"],
+      "properties": {
+        "id": { "type": "string", "pattern": "^[a-z0-9-]+$" },
+        "name": { "$ref": "#/$defs/bilingual" },
+        "weight": {
+          "description": "Share of its own paper, 0-1. The units of one paper sum to 1. This app's apportionment, never a notification's — see `weightBasis`.",
+          "type": "number",
+          "exclusiveMinimum": 0,
+          "maximum": 1
+        },
+        "coverage": {
+          "description": "Either a list of pointers into data/rules, or the single object `{ \"external\": true }` for a syllabus head this app holds nothing for. Never both, and never an empty list — a unit that maps to nothing is external, and saying so is the point.",
+          "oneOf": [
+            { "type": "array", "minItems": 1, "items": { "$ref": "#/$defs/coverageRef" } },
+            {
+              "type": "object",
+              "additionalProperties": false,
+              "required": ["external"],
+              "properties": {
+                "external": { "const": true },
+                "note": {
+                  "description": "What the reader should study instead, and where. Rendered as 'self-study, outside this app'.",
+                  "$ref": "#/$defs/bilingual"
+                }
+              }
+            }
+          ]
+        }
+      }
+    },
+    "coverageRef": {
+      "description": "An act id in data/rules/index.json, optionally narrowed to particular rule ids in data/rules/text/<act>.json. `tests/exam-data.test.ts` resolves every one of these against the committed corpus, in both directions.",
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["act"],
+      "properties": {
+        "act": { "type": "string", "pattern": "^[a-z0-9-]+$" },
+        "rules": { "type": "array", "minItems": 1, "items": { "type": "string", "pattern": "^[a-z0-9-]+$" } }
+      }
+    }
+  }
+}

@@ -1,0 +1,65 @@
+{
+  "$schema": "../../schemas/exam-index.schema.json",
+  "version": "1.0.0",
+  "generatedAt": "2026-09-04",
+  "disclaimer": {
+    "en": "Reference only; verify with the official gazette/order or your DDO.",
+    "hi": "केवल संदर्भ हेतु; आधिकारिक राजपत्र/आदेश अथवा अपने डीडीओ से पुष्टि करें।"
+  },
+  "profiles": [
+    {
+      "id": "css-so-ldce",
+      "name": {
+        "en": "Section Officers' Grade LDCE — Central Secretariat Service",
+        "hi": "अनुभाग अधिकारी ग्रेड सीमित विभागीय प्रतियोगी परीक्षा — केंद्रीय सचिवालय सेवा"
+      },
+      "organisation": {
+        "en": "Central Secretariat Service (Category I)",
+        "hi": "केंद्रीय सचिवालय सेवा (श्रेणी I)"
+      },
+      "examType": "ldce",
+      "file": "profiles/css-so-ldce.json",
+      "paperCount": 3,
+      "totalMarks": 500,
+      "mappedUnits": 9,
+      "externalUnits": 7,
+      "verify": false
+    },
+    {
+      "id": "ib-so-ldce",
+      "name": {
+        "en": "Section Officers' Grade LDCE — Intelligence Bureau (ministerial cadre)",
+        "hi": "अनुभाग अधिकारी ग्रेड सीमित विभागीय प्रतियोगी परीक्षा — आसूचना ब्यूरो (लिपिकीय संवर्ग)"
+      },
+      "organisation": {
+        "en": "Intelligence Bureau, Ministry of Home Affairs (Category VIII)",
+        "hi": "आसूचना ब्यूरो, गृह मंत्रालय (श्रेणी VIII)"
+      },
+      "examType": "ldce",
+      "file": "profiles/ib-so-ldce.json",
+      "paperCount": 3,
+      "totalMarks": 500,
+      "mappedUnits": 8,
+      "externalUnits": 8,
+      "verify": false
+    },
+    {
+      "id": "railway-so-ldce",
+      "name": {
+        "en": "Section Officers' Grade LDCE — Railway Board Secretariat Service",
+        "hi": "अनुभाग अधिकारी ग्रेड सीमित विभागीय प्रतियोगी परीक्षा — रेलवे बोर्ड सचिवालय सेवा"
+      },
+      "organisation": {
+        "en": "Railway Board Secretariat Service (Category III)",
+        "hi": "रेलवे बोर्ड सचिवालय सेवा (श्रेणी III)"
+      },
+      "examType": "ldce",
+      "file": "profiles/railway-so-ldce.json",
+      "paperCount": 3,
+      "totalMarks": 500,
+      "mappedUnits": 2,
+      "externalUnits": 11,
+      "verify": false
+    }
+  ]
+}

@@ -29,7 +29,13 @@ type Keyed<T> = Settled<T> & { key: string }
 
 const LOADING = { status: 'loading', data: null, error: null } as const
 
-function useAsync<T>(
+/**
+ * Exported since Session 32: `src/modules/trainer/exam/useExam.ts` loads
+ * `data/exams` the same way and is the SAME module one directory down, so a
+ * second copy here would be two implementations of one hook rather than the
+ * per-module ownership the comment above argues for.
+ */
+export function useAsync<T>(
   load: () => Promise<T>,
   key: string,
   enabled = true,

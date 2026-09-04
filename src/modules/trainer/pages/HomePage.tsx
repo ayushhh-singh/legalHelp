@@ -1,5 +1,5 @@
 import { useLiveQuery } from 'dexie-react-hooks'
-import { BookMarked, FileText, Flag, GraduationCap, ListChecks, Settings } from 'lucide-react'
+import { BookMarked, FileText, Flag, GraduationCap, ListChecks, Settings, Target } from 'lucide-react'
 import { useState } from 'react'
 import { Link } from 'react-router-dom'
 
@@ -152,7 +152,7 @@ export default function HomePage() {
             </SectionCard>
           ) : null}
 
-          <div className="grid grid-cols-2 gap-3 sm:grid-cols-4">
+          <div className="grid grid-cols-2 gap-3 sm:grid-cols-5">
             <StatCard label={t('trainer.home.dueLabel')} value={String(remaining)} />
             <StatCard
               label={t('trainer.home.streakLabel')}
@@ -282,6 +282,18 @@ export default function HomePage() {
               <Link to="/learn/reports">
                 <Flag aria-hidden="true" />
                 {t('trainer.home.reports')}
+              </Link>
+            </Button>
+            {/*
+              Exam mode is offered and never forced: it is a button beside the
+              other four, not a mode the Trainer switches into. A reader who is
+              not sitting a departmental examination sees one more link and
+              downloads none of `data/exams`.
+            */}
+            <Button asChild variant="outline">
+              <Link to="/learn/exam">
+                <Target aria-hidden="true" />
+                {t('trainer.exam.navTitle')}
               </Link>
             </Button>
           </div>

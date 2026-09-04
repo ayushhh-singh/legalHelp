@@ -1,0 +1,268 @@
+{
+  "$schema": "../../../schemas/exam-profile.schema.json",
+  "version": "1.0.0",
+  "generatedAt": "2026-09-04",
+  "id": "railway-so-ldce",
+  "name": {
+    "en": "Section Officers' Grade LDCE — Railway Board Secretariat Service",
+    "hi": "अनुभाग अधिकारी ग्रेड सीमित विभागीय प्रतियोगी परीक्षा — रेलवे बोर्ड सचिवालय सेवा"
+  },
+  "organisation": {
+    "en": "Railway Board Secretariat Service (Category III)",
+    "hi": "रेलवे बोर्ड सचिवालय सेवा (श्रेणी III)"
+  },
+  "examType": "ldce",
+  "eligibilityNote": {
+    "en": "Assistant Section Officers of the Railway Board Secretariat Service, and Grade II / Grade C of the Railway Board Secretariat Stenographers' Service, with not less than five years' approved and continuous service. Most of this examination's Paper II is railway rule books this app does not hold — check the ratio on the profile card before relying on it. Selection also counts a separate evaluation of record of service worth 100 marks, in which the notification requires a minimum of 40 per cent; the three written papers below carry 500 of the 600 total marks. This is a competitive examination, not a qualifying one.",
+    "hi": "रेलवे बोर्ड सचिवालय सेवा के सहायक अनुभाग अधिकारी तथा रेलवे बोर्ड सचिवालय आशुलिपिक सेवा के ग्रेड II / ग्रेड सी, जिनकी कम से कम पाँच वर्ष की अनुमोदित एवं निरंतर सेवा हो। इस परीक्षा के प्रश्नपत्र II का अधिकांश भाग रेलवे की उन नियम-पुस्तकों पर है जो इस ऐप में नहीं हैं — इस पर निर्भर होने से पूर्व प्रोफ़ाइल कार्ड पर अनुपात देखें। चयन में सेवा-अभिलेख का पृथक मूल्यांकन भी गिना जाता है, जो 100 अंकों का है और जिसमें अधिसूचना के अनुसार न्यूनतम 40 प्रतिशत अंक अनिवार्य हैं; नीचे दिए गए तीन लिखित प्रश्नपत्र कुल 600 में से 500 अंकों के हैं। यह प्रतियोगी परीक्षा है, अर्हक परीक्षा नहीं।"
+  },
+  "papers": [
+    {
+      "id": "paper-1",
+      "name": {
+        "en": "Paper I — General Studies and General Knowledge",
+        "hi": "प्रश्नपत्र I — सामान्य अध्ययन तथा सामान्य ज्ञान"
+      },
+      "marks": 150,
+      "durationMinutes": 120,
+      "objective": true,
+      "negativeMarking": 0.3333,
+      "units": [
+        {
+          "id": "current-affairs",
+          "name": {
+            "en": "Current affairs, the Five Year Plans, the Indian economy and major developmental schemes",
+            "hi": "सामयिक घटनाएँ, पंचवर्षीय योजनाएँ, भारतीय अर्थव्यवस्था तथा प्रमुख विकास योजनाएँ"
+          },
+          "coverage": {
+            "external": true,
+            "note": {
+              "en": "Not in this app. A daily newspaper and the Ministry's own scheme pages are the sources the notification points at.",
+              "hi": "इस ऐप में नहीं। अधिसूचना जिन स्रोतों की ओर संकेत करती है वे दैनिक समाचार पत्र तथा संबंधित मंत्रालय के योजना पृष्ठ हैं।"
+            }
+          },
+          "weight": 0.2
+        },
+        {
+          "id": "constitution",
+          "name": {
+            "en": "Principles of the Constitution of India",
+            "hi": "भारत के संविधान के सिद्धांत"
+          },
+          "coverage": {
+            "external": true,
+            "note": {
+              "en": "Not in this app. This app ships the criminal codes and the service rules, not the Constitution.",
+              "hi": "इस ऐप में नहीं। यह ऐप दंड संहिताएँ तथा सेवा नियम रखता है, संविधान नहीं।"
+            }
+          },
+          "weight": 0.2
+        },
+        {
+          "id": "parliament-procedure",
+          "name": {
+            "en": "Rules of Procedure and Conduct of Business in the Lok Sabha and the Rajya Sabha",
+            "hi": "लोक सभा तथा राज्य सभा में प्रक्रिया एवं कार्य संचालन के नियम"
+          },
+          "coverage": {
+            "external": true,
+            "note": {
+              "en": "Not in this app. Both Houses publish their own Rules of Procedure.",
+              "hi": "इस ऐप में नहीं। दोनों सदन अपनी प्रक्रिया-नियमावली स्वयं प्रकाशित करते हैं।"
+            }
+          },
+          "weight": 0.2
+        },
+        {
+          "id": "machinery-of-government",
+          "name": {
+            "en": "Organisation of the machinery of the Government of India — allocation of subjects between Ministries, Departments and attached and subordinate offices",
+            "hi": "भारत सरकार के तंत्र का संगठन — मंत्रालयों, विभागों तथा संलग्न एवं अधीनस्थ कार्यालयों के बीच विषयों का आवंटन"
+          },
+          "coverage": {
+            "external": true,
+            "note": {
+              "en": "Not in this app. The Government of India (Allocation of Business) Rules are the source.",
+              "hi": "इस ऐप में नहीं। इसका स्रोत भारत सरकार (कार्य आवंटन) नियम हैं।"
+            }
+          },
+          "weight": 0.2
+        },
+        {
+          "id": "rti-act",
+          "name": {
+            "en": "The Right to Information Act, 2005",
+            "hi": "सूचना का अधिकार अधिनियम, 2005"
+          },
+          "coverage": [
+            {
+              "act": "rti"
+            }
+          ],
+          "weight": 0.2
+        }
+      ]
+    },
+    {
+      "id": "paper-2",
+      "name": {
+        "en": "Paper II — Procedure and practice in the Government of India Secretariat, and General Financial and Service Rules",
+        "hi": "प्रश्नपत्र II — भारत सरकार सचिवालय में प्रक्रिया एवं कार्यपद्धति, तथा सामान्य वित्तीय एवं सेवा नियम"
+      },
+      "marks": 150,
+      "durationMinutes": 120,
+      "objective": true,
+      "negativeMarking": 0.3333,
+      "units": [
+        {
+          "id": "railway-board-manual-of-office-procedure",
+          "name": {
+            "en": "Manual of Office Procedure issued by the Ministry of Railways (Railway Board)",
+            "hi": "रेल मंत्रालय (रेलवे बोर्ड) द्वारा जारी कार्यालय प्रक्रिया नियमावली"
+          },
+          "coverage": {
+            "external": true,
+            "note": {
+              "en": "The Railway Board's own manual, not the Central Secretariat Manual of Office Procedure this app ships. The two are different documents.",
+              "hi": "यह रेलवे बोर्ड की अपनी नियमावली है, इस ऐप में उपलब्ध केंद्रीय सचिवालय कार्यालय प्रक्रिया नियमावली नहीं। दोनों भिन्न दस्तावेज़ हैं।"
+            }
+          },
+          "weight": 0.1429
+        },
+        {
+          "id": "official-language-handbook",
+          "name": {
+            "en": "Handbook of orders regarding use of Hindi for the official purposes of the Union",
+            "hi": "संघ के राजकीय प्रयोजनों हेतु हिंदी के प्रयोग संबंधी आदेशों की पुस्तिका"
+          },
+          "coverage": [
+            {
+              "act": "ol-act"
+            },
+            {
+              "act": "ol-rules"
+            }
+          ],
+          "weight": 0.1429
+        },
+        {
+          "id": "indian-railway-administration-and-finance",
+          "name": {
+            "en": "Indian Railway Administration and Finance",
+            "hi": "भारतीय रेल प्रशासन तथा वित्त"
+          },
+          "coverage": {
+            "external": true,
+            "note": {
+              "en": "Not in this app. Excludes Chapters V, VI, VIII and IX, per the notification.",
+              "hi": "इस ऐप में नहीं। अधिसूचना के अनुसार अध्याय V, VI, VIII तथा IX इसमें सम्मिलित नहीं हैं।"
+            }
+          },
+          "weight": 0.1429
+        },
+        {
+          "id": "indian-railway-financial-code",
+          "name": {
+            "en": "Indian Railway Financial Code, Volume I",
+            "hi": "भारतीय रेल वित्त संहिता, खंड I"
+          },
+          "coverage": {
+            "external": true,
+            "note": {
+              "en": "Not in this app. Excludes Chapters II and VI, per the notification.",
+              "hi": "इस ऐप में नहीं। अधिसूचना के अनुसार अध्याय II तथा VI इसमें सम्मिलित नहीं हैं।"
+            }
+          },
+          "weight": 0.1429
+        },
+        {
+          "id": "indian-railway-establishment-code",
+          "name": {
+            "en": "Indian Railway Establishment Code, Volume I",
+            "hi": "भारतीय रेल स्थापना संहिता, खंड I"
+          },
+          "coverage": {
+            "external": true,
+            "note": {
+              "en": "Not in this app.",
+              "hi": "इस ऐप में नहीं।"
+            }
+          },
+          "weight": 0.1429
+        },
+        {
+          "id": "railway-services-conduct-rules",
+          "name": {
+            "en": "The Railway Services (Conduct) Rules, 1966",
+            "hi": "रेल सेवा (आचरण) नियम, 1966"
+          },
+          "coverage": {
+            "external": true,
+            "note": {
+              "en": "A separate rule book from the CCS (Conduct) Rules this app ships. They are close in shape and different in text — do not study one for the other.",
+              "hi": "यह इस ऐप में उपलब्ध सीसीएस (आचरण) नियमों से भिन्न नियम-पुस्तक है। दोनों का ढाँचा मिलता-जुलता है किंतु पाठ भिन्न है — एक के स्थान पर दूसरा न पढ़ें।"
+            }
+          },
+          "weight": 0.1429
+        },
+        {
+          "id": "railway-servants-discipline-and-appeal-rules",
+          "name": {
+            "en": "The Railway Servants (Discipline and Appeal) Rules, 1968",
+            "hi": "रेल सेवक (अनुशासन तथा अपील) नियम, 1968"
+          },
+          "coverage": {
+            "external": true,
+            "note": {
+              "en": "A separate rule book from the CCS (CCA) Rules this app ships. Do not study one for the other.",
+              "hi": "यह इस ऐप में उपलब्ध सीसीएस (सीसीए) नियमों से भिन्न नियम-पुस्तक है। एक के स्थान पर दूसरा न पढ़ें।"
+            }
+          },
+          "weight": 0.1426
+        }
+      ]
+    },
+    {
+      "id": "paper-3",
+      "name": {
+        "en": "Paper III — Noting and Drafting, Precis Writing",
+        "hi": "प्रश्नपत्र III — टिप्पणी एवं प्रारूपण, सार-लेखन"
+      },
+      "marks": 200,
+      "durationMinutes": 180,
+      "objective": false,
+      "units": [
+        {
+          "id": "noting-drafting-precis",
+          "name": {
+            "en": "Noting and drafting on a given problem, and precis of a passage",
+            "hi": "दी गई समस्या पर टिप्पणी एवं प्रारूपण, तथा गद्यांश का सार-लेखन"
+          },
+          "coverage": {
+            "external": true,
+            "note": {
+              "en": "A written paper with no key, so this app cannot set a mock for it. Practise it in the Drafting Studio, which carries the CSMOP 2022 forms and a checklist for each.",
+              "hi": "यह लिखित प्रश्नपत्र है जिसकी कोई उत्तर-कुंजी नहीं, अतः इस हेतु यह ऐप मॉक नहीं बना सकता। प्रारूपण कक्ष में अभ्यास करें, जिसमें सीएसएमओपी 2022 के प्रपत्र तथा प्रत्येक हेतु जाँच-सूची है।"
+            }
+          },
+          "weight": 1.0
+        }
+      ]
+    }
+  ],
+  "patternSource": {
+    "name": "Section Officers' / Stenographers' (Grade 'B' / Grade I) Limited Departmental Competitive Examination, 2016 & 2017 — Notification of Rules, No. 6/1/2020-CS.I(P) dated 15.09.2021 (Gazette of India, Extraordinary, Part II, Section 3, Sub-section (i))",
+    "url": "https://documents.doptcirculars.nic.in/D2/D02csd/SO%20LDCE%202016%202017D3tcU.pdf",
+    "fetchedAt": "2026-09-04T00:00:00Z",
+    "sha256": "c0a918c1b2e234a5c4e177a4015ab8f9783630c2c6579d75e129f76e988e0c2c"
+  },
+  "weightBasis": {
+    "en": "Each head named in the notification's own Schedule for a paper carries an equal share of that paper's marks. No notification apportions a paper between its topics, so this split is this app's, not the Commission's — use it to decide what to study next, never as a marks table.",
+    "hi": "अधिसूचना की अपनी अनुसूची में किसी प्रश्नपत्र हेतु नामित प्रत्येक शीर्ष को उस प्रश्नपत्र के अंकों का समान भाग दिया गया है। कोई भी अधिसूचना प्रश्नपत्र के अंकों को विषयों में नहीं बाँटती, अतः यह विभाजन इस ऐप का है, आयोग का नहीं — इसे आगे क्या पढ़ना है यह तय करने हेतु प्रयोग करें, अंक-तालिका के रूप में कभी नहीं।"
+  },
+  "disclaimer": {
+    "en": "Reference only; verify with the official gazette/order or your DDO.",
+    "hi": "केवल संदर्भ हेतु; आधिकारिक राजपत्र/आदेश अथवा अपने डीडीओ से पुष्टि करें।"
+  },
+  "verify": false
+}

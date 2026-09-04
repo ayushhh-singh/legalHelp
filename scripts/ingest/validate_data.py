@@ -171,6 +171,10 @@ MANIFEST: dict[str, str] = {
     "library/quickref/osa.json": "library-quickref.schema.json",
     "library/quickref/posh.json": "library-quickref.schema.json",
     "library/quickref/rti.json": "library-quickref.schema.json",
+    "exams/index.json": "exam-index.schema.json",
+    "exams/profiles/css-so-ldce.json": "exam-profile.schema.json",
+    "exams/profiles/ib-so-ldce.json": "exam-profile.schema.json",
+    "exams/profiles/railway-so-ldce.json": "exam-profile.schema.json",
     "pension/pension-facts.json": "pension-facts.schema.json",
 }
 

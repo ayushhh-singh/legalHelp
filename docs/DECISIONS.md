@@ -7492,3 +7492,188 @@ inline. The version with tests behind it was not the version that ran.
 `DocSuggestion` calls them now. The check that finds this is the same one the
 first addendum names: for each function a session exports, name the line that
 makes it run.
+
+---
+
+## ADR-044 — Departmental exam mode: a profile is public syllabus structure over public law, a readiness figure that says what it is measuring, and three exams that were deliberately not shipped
+
+**Status.** Accepted (Session 32).
+
+**Context.** The Trainer schedules cards over twelve rule books and the Library reads them, and
+neither knows what the reader is preparing FOR. An officer sitting a departmental examination has a
+syllabus: particular acts, in particular proportions, in particular papers. This session adds a
+generic mode for that — profiles, a plan, weighted mock papers and a readiness figure — and ships
+three profiles.
+
+The brief set a boundary before it set a feature, and the boundary is the whole of this ADR:
+
+> an exam profile encodes only PUBLIC syllabus structure over PUBLIC law — which acts, what weight,
+> what pattern, from a public recruitment rule or notification. No internal question papers, no
+> departmental manuals, no internally circulated material, nothing about any organisation's
+> operations.
+
+### 1. One fetched notification, three profiles — and three that were not written
+
+The brief named six examinations. Research produced exactly one document that carries a scheme:
+
+> Section Officers' / Stenographers' (Grade 'B' / Grade I) Limited Departmental Competitive
+> Examination, 2016 & 2017 — Notification of Rules, No. 6/1/2020-CS.I(P) dated 15 September 2021,
+> Gazette of India, Extraordinary, Part II, Section 3, Sub-section (i).
+
+Fetched from `documents.doptcirculars.nic.in` — a host `scripts/authoring/authoring_common.py`
+already knows how to reach and one already on `CITATION_HOSTS` — and its sha256 is recorded in
+`patternSource`. It is a COMBINED examination, so its Appendix carries one scheme (three written
+papers, 500 marks, plus a 100-mark evaluation of record of service) and its Schedule carries a
+per-CATEGORY reference list. Three of its nine categories are cadres this app can serve, so there
+are three profiles: `css-so-ldce` (Category I), `ib-so-ldce` (Category VIII) and `railway-so-ldce`
+(Category III). Each one's Paper II units are that category's own reference list, in the
+notification's order.
+
+The other three were **not written**. `upsc.gov.in` redirects every PDF to its homepage;
+`incometaxindia.gov.in` returns 403 to `WebFetch` and to `curl` with a browser User-Agent alike;
+no CBI or CAPF departmental scheme was found on any Ministry host at all. `docs/DATA-GAPS.md` #91
+records what was tried for each. **A profile with an invented paper list is the exact failure the
+boundary exists to prevent**, and one transcribed from a search engine's summary of a document this
+repository never read is a claim with no artefact behind it. Three sourced profiles is a better
+outcome than six, half of them fiction.
+
+### 2. `external: true` is a first-class state, and it is COUNTED
+
+A syllabus head this app holds nothing for — the Delegation of Financial Powers Rules, the Indian
+Railway Establishment Code, ISTM's own notes, the Intelligence Bureau's standing orders — is
+`{ external: true }` with a note saying what to study instead. It is named, weighted, and left empty.
+
+The alternative was to leave it out, and that is the failure mode this whole module has to avoid: a
+readiness figure over the topics an app happens to cover is a figure about a smaller examination
+than the one the reader is sitting. `coverage.ts#mappedMarksShare` is the caveat as a NUMBER, and
+`ExamHubPage` renders it on the same card as the figure — for `css-so-ldce` it is exactly 0.3, which
+`tests/exam-data.test.ts` asserts to ten places rather than bounding, because the exact figure is
+the honest headline.
+
+`railway-so-ldce` is the worked example of the boundary being expensive: two mapped units against
+eleven external ones, because the Railway Board's own Manual of Office Procedure, the Indian Railway
+Establishment Code, the Railway Services (Conduct) Rules 1966 and the Railway Servants (Discipline
+and Appeal) Rules 1968 are none of them in `data/rules`. The picker shows both counts on the card so
+a reader sees the ratio BEFORE choosing. And the last two are deliberately NOT mapped on to the CCS
+rules of the same shape: they are close in shape and different in text, and mapping one on to the
+other would send a candidate to the wrong rule book with the app telling them it was the right one.
+
+**The Intelligence Bureau's standing orders are the case that matters most.** They are on the
+Schedule's list for Category VIII, so a candidate who does not know they are examinable is worse
+off — the unit is NAMED. This app holds no departmental manual or internally circulated material,
+so it is EMPTY. Both halves are asserted in `tests/exam-data.test.ts`.
+
+### 3. The plan is rebuilt, never stored
+
+`examChoices` (Dexie v17) holds the profile id, the target date and a minute budget. That is all it
+holds. `plan.ts#buildPlan` is a pure function of those, the catalogue and the live schedule, and the
+plan screen recomputes it on every render.
+
+A stored plan is out of date the moment a card is graded. A reader who has raced ahead on the Leave
+Rules should not be sent back to them on Thursday because a plan written on Monday said so. The cost
+is that the plan must be deterministic — the same inputs must give the same plan on two devices and
+on two visits, or it is a plan nobody follows — which is why `src/lib/exam/purity.test.ts` bans
+`Math.random()` and `Date.now()` in the directory, exactly as `src/lib/srs` and `src/lib/study` do.
+
+Ordering is `marks × (1 − ready)`: the marks still to be won. Not accuracy — a unit worth thirty
+marks the reader is half-ready on is worth more of a limited evening than one worth eight they have
+not started. Time remaining decides how much FITS, not what matters, which is the honest place for
+it. The last 15% is a revision sprint that introduces nothing; a one-day window is a revision day,
+because the day before an examination is not the day to meet a new rule. Session 28's study goals
+are honoured through `dailyBudget`, which takes the largest weekly goal the reader set on a work
+this examination draws on — a goal is a promise the reader made about their own week, and a plan
+that ignores it argues with them every evening.
+
+### 4. Three numbers per unit, because they answer three questions
+
+`mastery` is about the reader: of the cards this app CAN ask, how far through them are they.
+`coverage` is about the app: of the cards that exist, how many are approved to ask. `ready` is the
+product.
+
+Collapsing them is the tempting simplification and the one that makes the module dishonest.
+`mastery` alone reaches 1.0 on a unit the app has four cards for. `coverage` alone says nothing
+about the reader. Only the product moves for the right reason in both directions, and the screen
+shows all three so a reader can see which half is short — the difference between "study more" and
+"this app cannot help you here".
+
+`cardScore` is non-decreasing in a card's progress, and `relearning` scores exactly as `learning`
+rather than above it: scoring a lapsed card higher would let a reader raise their readiness by
+forgetting things. Monotonicity is asserted over the REAL committed catalogue in
+`tests/exam-data.test.ts`, walking every served card up a four-rung ladder in chunks — over the real
+catalogue rather than a fixture, because a fixture cannot catch the thing that would actually break
+it, which is two units whose coverage overlaps.
+
+### 5. Weights are this app's apportionment, and every screen says so
+
+No notification found apportions a paper between its topics. So each head the Schedule names for a
+paper takes an equal share, `weightBasis` is a REQUIRED field stating that in both languages, and
+`ExamBanner` renders it unconditionally beneath the mandatory banner. `verify` is therefore about
+the PATTERN — papers, marks, duration, negative marking — which for all three profiles was read from
+a fetched, hashed document, so all three are `verify: false` and the flag still carries information.
+
+`docs/DATA-GAPS.md` #93 records why the split must not be "improved": weighting reference books
+against each other would be this project's guess presented as a marks table, which is worse than an
+even split that admits what it is.
+
+### 6. A generated paper is labelled generated, and reports what it could not draw
+
+Every question in a mock is one of this app's own cards. No question paper of any examination is in
+this repository. `drawPaper` apportions by largest remainder (`Math.round(count × weight)` per unit
+overshoots — ten units at 0.1 with a count of 25 asks 30 questions on a 25-question paper), draws
+distinct cards only, shuffles deterministically within each unit by `hash(seed:cardId)` rather than
+slicing the catalogue's own rule order, and refuses a subjective paper outright rather than
+inventing a marking scheme for it.
+
+What it could not fill is REPORTED: `shortfall` per unit, `skippedPapers` for the papers with no
+key. The marking is the notification's own arithmetic — a wrong answer costs `negativeMarking` × the
+question's marks, **a blank costs nothing**, and the total floors at zero. That middle rule is the
+one an implementation is most likely to get wrong by treating "not correct" as "wrong", and it is
+the rule a candidate's whole guess-or-leave-it decision turns on, so it is on the exam-day checklist
+in its own right.
+
+### 7. The exam-day checklist says only what the notification says
+
+Eleven items, each traceable to a clause: the prohibited-articles item is clause 7(xii), the medium
+item is Appendix paragraph 5 and its Notes, the numerals item is paragraph 12, the handwriting
+deduction is paragraph 10, "appearance in all three papers is a must" is paragraph 8. Items are
+conditional on the profile where the notification makes them so. Nothing here is general examination
+advice: a checklist a candidate follows on the morning of an examination is the worst place in this
+app to be confidently wrong.
+
+The items are ids and parameters in `checklist.ts` and sentences in `src/i18n`. That is not a style
+rule — this library is pure and has no `useT`, so any sentence written into it would be
+single-language by construction. `purity.test.ts` fails on a Devanagari code point anywhere in the
+directory for exactly that reason.
+
+### 8. `actHints.ts` was not widened, and the reason is worth stating in these words
+
+`src/modules/onboarding/actHints.ts` switches CCS (Conduct) and OSA cards on for a reader whose post
+is in an intelligence or enforcement organisation. The session brief suggested OSA as a unit of the
+Intelligence Bureau profile. It is **not** in the notification's reference list for Category VIII,
+so it is not a unit, and `scripts/ingest/test_exams_seed.py` asserts that no profile maps `osa` at
+all.
+
+**Enabling a rule book because of somebody's job is a guess about their work; putting it on a
+syllabus is a claim about an examination.** Only the second one needed a source. Onboarding's own
+offer follows the same line: it decides where "Understood" lands and writes nothing, because a
+profile is a claim about which examination somebody is eligible to sit and this app cannot make that
+claim from a job title — the weaker version of which `actHints.ts` already refuses.
+
+### Addendum — the cadre correction, made mid-session by a real reader
+
+An officer about to join the Intelligence Bureau as an ACIO said so during this session, and read
+`ib-so-ldce` as their examination. It is not. The notification's eligibility column for Category VIII
+names _"Assistant / Stenographers Grade-II (Personal Assistants)"_ — the **ministerial** cadre; the
+executive line (ACIO and above) is a different progression the notification says nothing about.
+
+The profile's name now carries "(ministerial cadre)" and its `eligibilityNote` says in terms that it
+is not the executive line's examination. `docs/DATA-GAPS.md` #92 records that no public notification
+of a pattern for that line could be found on `mha.gov.in`, `ncs.gov.in`, `egazette.gov.in` or
+`dopt.gov.in` — what is published is ACIO-II direct-recruitment advertising, never a departmental
+promotion syllabus — and that the syllabus for that line is issued by the organisation to its own
+officers, which puts it outside this app's boundary permanently.
+
+The general lesson: **a profile's NAME is the part a reader acts on, and it has to carry the cadre.**
+An eligibility note three taps down is not where somebody checks whether an examination is theirs.
+Nothing but a real reader would have found this, and the same trap is waiting on any future profile
+whose organisation runs more than one cadre.

@@ -48,6 +48,20 @@ export default function OnboardingPage() {
   const [step, setStep] = useState<Step>(1)
   const [job, setJob] = useState<JobOption | null>(null)
   const [cityId, setCityId] = useState<string | null>(null)
+  /**
+   * Exam mode is OFFERED here and never chosen here.
+   *
+   * All this does is decide where "Understood" lands — `/learn/exam` instead of
+   * the home route — and it writes nothing. Two reasons it stops there. The
+   * first is that a profile is a claim about which examination somebody is
+   * eligible to sit, and this app is not positioned to make that claim from a
+   * job title: `actHints.ts` already refuses the much weaker version of it (a
+   * per-organisation legal classification) for the same reason, and the reader
+   * picks their own profile on the screen this sends them to. The second is
+   * that nothing about a reader's employment should reach IndexedDB because
+   * they walked past a card in onboarding.
+   */
+  const [wantsExam, setWantsExam] = useState(false)
   const [finishing, setFinishing] = useState(false)
   const [finishFailed, setFinishFailed] = useState(false)
 
@@ -77,7 +91,9 @@ export default function OnboardingPage() {
         }
       }
       await setOnboarded(true)
-      void navigate(HOME_PATH, { replace: true })
+      // The one thing the exam offer does: where "Understood" lands. Skipping
+      // always lands on the home route, because a skip is a skip.
+      void navigate(wantsExam ? '/learn/exam' : HOME_PATH, { replace: true })
     } catch {
       setFinishFailed(true)
     } finally {
@@ -157,6 +173,24 @@ export default function OnboardingPage() {
                 <p className="rounded-md bg-marigold/15 p-3 text-sm text-marigold-foreground">
                   {hint.note[language]}
                 </p>
+              ) : null}
+              {job ? (
+                <div className="rounded-md border border-border p-3">
+                  <h3 className="text-sm font-semibold">{t('trainer.exam.offer.title')}</h3>
+                  <p className="mt-1 text-sm text-muted-foreground">{t('trainer.exam.offer.body')}</p>
+                  <div className="mt-3 flex flex-wrap items-center gap-2">
+                    <Button
+                      type="button"
+                      size="sm"
+                      variant={wantsExam ? 'default' : 'outline'}
+                      aria-pressed={wantsExam}
+                      onClick={() => setWantsExam((value) => !value)}
+                    >
+                      {t('trainer.exam.offer.accept')}
+                    </Button>
+                    <span className="text-xs text-muted-foreground">{t('trainer.exam.offer.settings')}</span>
+                  </div>
+                </div>
               ) : null}
             </div>
           )}

@@ -123,6 +123,10 @@ const EVERY_ROUTE = [
   '/learn/reports',
   '/learn/settings',
   '/learn/review-queue',
+  '/learn/exam',
+  '/learn/exam/plan',
+  '/learn/exam/mock',
+  '/learn/exam/checklist',
   '/library',
   '/library/ccs-conduct',
   // The reader is what an officer actually opens on a train; the corpus chunk
