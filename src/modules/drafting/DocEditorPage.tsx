@@ -1,6 +1,6 @@
 import { useLiveQuery } from 'dexie-react-hooks'
 import { ArrowLeft } from 'lucide-react'
-import { useCallback, useEffect, useMemo, useState } from 'react'
+import { lazy, Suspense, useCallback, useEffect, useMemo, useState } from 'react'
 import { Link, useParams, useSearchParams } from 'react-router-dom'
 
 import { A4Preview } from './components/A4Preview'
@@ -20,13 +20,26 @@ import {
   listVersions,
   restoreVersion,
   setCommentResolved,
+  snapshot,
 } from './documents'
 import { getPattern, issueNumber, listPatterns } from './numberingStore'
+import { duplicatesOf, listEntries, recordIssuedNumber } from './register/registerStore'
 import { listAddressees, putAddressee, readProfile } from './profileStore'
 import { getPersonal, listPersonal, personalId, savePersonal } from './personalStore'
 import { useOfficialDoc, useStorageQuota } from './useOfficialDoc'
 import { useTemplate } from './useDraftingData'
 import { useGlossary } from '@/modules/utils/glossary/useGlossaryData'
+import { useAi } from '@/ai/useAi'
+
+/*
+  The "Change" panel is lazy for the reason the whole AI layer is: laziness here
+  is a privacy property, not a performance one (`docs/AI.md`). It pulls
+  `@/ai/agents/modify` only when a run starts, so opening the tab to use the
+  consistency check costs nothing.
+*/
+const ModifyPanel = lazy(() =>
+  import('./editor/ModifyPanel').then((module) => ({ default: module.ModifyPanel })),
+)
 
 import { PageHeader } from '@/components/common/PageHeader'
 import { Badge, QueryErrorState, SectionCard, Skeleton } from '@/components/ui-x'
@@ -61,12 +74,27 @@ import type { DocTemplate } from './schema'
  * old preview on and it is preserved exactly (ADR-041 §3).
  */
 
-type Tab = 'write' | 'details' | 'preview' | 'review' | 'export' | 'versions' | 'comments'
+type Tab = 'write' | 'details' | 'preview' | 'review' | 'modify' | 'export' | 'versions' | 'comments'
 /*
   `export` sits after `review` deliberately: the checklist is what gates the
   export, so the tab that explains a refusal is the one before it in the strip.
 */
-const TABS: readonly Tab[] = ['write', 'details', 'preview', 'review', 'export', 'versions', 'comments']
+/*
+  Both the union and this array need a new id, or the tab renders as a blank
+  panel — the tablist maps over the array and the panel switch is keyed on the
+  union, so adding to one and not the other is a tab that exists and shows
+  nothing. Session 30 warned about exactly that when they added `export`.
+*/
+const TABS: readonly Tab[] = [
+  'write',
+  'details',
+  'preview',
+  'review',
+  'modify',
+  'export',
+  'versions',
+  'comments',
+]
 
 export default function DocEditorPage() {
   const { t } = useT()
@@ -147,6 +175,7 @@ function Editor({
   const { t, language } = useT()
   const doc = state.doc as OfficialDoc
   const devanagariDigits = useAppStore((s) => s.devanagariDigits)
+  const ai = useAi()
   const [params, setParams] = useSearchParams()
   const tab = TABS.find((entry) => entry === params.get('tab')) ?? 'write'
   const setTab = useCallback(
@@ -168,6 +197,21 @@ function Editor({
   const versions = useLiveQuery(() => listVersions(doc.id), [doc.id]) ?? []
   const comments = useLiveQuery(() => listComments(doc.id), [doc.id]) ?? []
   const patterns = useLiveQuery(() => listPatterns(), []) ?? []
+  /*
+    The register entry for the letter this document answers, so issuing a
+    number files the reply on the letter's own thread.
+
+    `null` when the document answers nothing — which is most documents — and the
+    lookup is by `intakeId` rather than by subject or number, because those are
+    both things an officer edits.
+  */
+  const inboundEntryId = useLiveQuery(async () => {
+    if (!doc.linkedIntakeId) return null
+    const found = (await listEntries()).find(
+      (entry) => entry.direction === 'received' && entry.intakeId === doc.linkedIntakeId,
+    )
+    return found?.id ?? null
+  }, [doc.linkedIntakeId])
   const myTemplates = useLiveQuery(() => listPersonal(), []) ?? []
 
   const options = useMemo(() => ({ devanagariDigits }), [devanagariDigits])
@@ -300,9 +344,34 @@ function Editor({
       doc={doc}
       template={template}
       patterns={patterns}
-      onIssued={(number) =>
-        state.update({ ...doc, meta: { ...doc.meta, number }, issuedAt: new Date().toISOString() })
-      }
+      onIssued={(number) => {
+        const at = new Date().toISOString()
+        state.update({ ...doc, meta: { ...doc.meta, number }, issuedAt: at })
+        /*
+          The register's automatic entry (ADR-043 §5).
+
+          It is HERE and not inside `issueNumber`, deliberately: issuing a
+          number is a fact about the numbering series, and the register is a
+          different ledger — wiring one into the other would mean a build with
+          the register turned off could no longer issue a number. It is
+          idempotent on the document id, so renumbering updates the entry
+          rather than filing the same communication twice.
+
+          `void` and not `await`: the officer's number is already on screen, and
+          a register write that fails must not take the issue with it. The
+          register is a record of what happened, and what happened is that the
+          number was issued.
+        */
+        void recordIssuedNumber({
+          docId: doc.id,
+          number,
+          date: doc.meta.date,
+          subject: doc.meta.subject[language] || doc.title,
+          at,
+          intakeId: doc.linkedIntakeId ?? null,
+          ...(inboundEntryId ? { inReplyTo: inboundEntryId } : {}),
+        })
+      }}
       onNotice={setNotice}
     />
   )
@@ -503,6 +572,34 @@ function Editor({
           <ReviewPanel checklist={checklist} findings={findings} language={language} />
         ) : null}
 
+        {/*
+          "Change" — modify by instruction (Session 31, ADR-043 §3).
+
+          Lazy AND behind `draftingAiAvailable`, the same gate `EditorPage` puts
+          on the drafting panel: a reader with AI off downloads none of the
+          agent. The panel itself still renders in that case, because its
+          consistency check is `lintDocument` and needs no model — see its own
+          note.
+        */}
+        {tab === 'modify' ? (
+          <Suspense fallback={<p className="text-sm text-muted-foreground">{t('common.loading')}</p>}>
+            <ModifyPanel
+              doc={doc}
+              template={template}
+              lang={language}
+              devanagariDigits={devanagariDigits}
+              ai={ai}
+              onApply={async (next) => {
+                // A version FIRST, so the state being changed away from is
+                // recoverable even after the officer accepts. `restoreVersion`
+                // follows the same non-destructive rule one level up.
+                await snapshot(doc, 'manual', t('draft.modify.tab'))
+                state.update(next)
+              }}
+            />
+          </Suspense>
+        ) : null}
+
         {tab === 'export' ? (
           <DocExportPanel
             doc={doc}
@@ -657,12 +754,42 @@ function IssueNumberButton({
               onNotice(t('draft.meta.numberUnknownToken', { token: `{${result.unknownTokens[0]}}` }))
               return
             }
+            /*
+              The duplicate warning has TWO sources, and this is where they meet.
+
+              `issueNumber` returns what THIS APP issued (`numberIssues`, matched
+              as an exact string). `duplicatesOf` also finds what the officer
+              recorded by hand in the register for a communication issued before
+              they had the app — and it folds whitespace and case, because
+              `A-11011/2/2026-Estt.` and `A-11011/2/2026 -Estt.` are the same
+              number written twice and warning about neither is worse than
+              warning about both.
+
+              It is a warning rather than a bar for the reason `validatePattern`'s
+              `no-seq` case gives: an office genuinely re-issues a number — a
+              corrigendum carries the number of the communication it corrects.
+            */
+            const alsoInRegister = (await duplicatesOf(result.number)).filter(
+              // Not this document. `onIssued` below files an entry for it, and
+              // reading the register AFTER that would have the document warn
+              // about itself — so the read happens first and excludes it
+              // anyway, because a renumber to the same number would collide
+              // with the entry the last issue left.
+              (entry) => entry.docId !== doc.id,
+            )
+            const duplicateCount = result.duplicates.length + alsoInRegister.length
+
             onIssued(result.number)
             onNotice(
-              result.duplicates.length > 0
+              duplicateCount > 0
                 ? t('draft.meta.numberDuplicate', {
                     number: result.number,
-                    date: (result.duplicates[0]?.issuedAt ?? '').slice(0, 10),
+                    date: (
+                      result.duplicates[0]?.issuedAt ??
+                      alsoInRegister[0]?.date ??
+                      alsoInRegister[0]?.createdAt ??
+                      ''
+                    ).slice(0, 10),
                   })
                 : t('draft.meta.numberIssued', { number: result.number }),
             )

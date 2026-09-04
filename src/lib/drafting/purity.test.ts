@@ -98,6 +98,23 @@ const FILES = [
   'paste.ts',
   'print.ts',
   'zip.ts',
+
+  /*
+    Session 31's files (instruction builders, intake analysis, the modify
+    proposal, the correspondence register), built in this same working tree and
+    read before being listed — which is what an entry here means.
+
+    `register.ts` is the one worth a second look, because it is the first file
+    in this directory that imports zod and holds a stored row's schema. It is
+    still pure by every rule below: the schema parses, `normaliseDates` reads a
+    date through `format.ts`, and every clock is an argument (`today`, `at`), so
+    "this follow-up is overdue" is a test that fails rather than one that passes
+    until tomorrow.
+  */
+  'instructions.ts',
+  'intake.ts',
+  'proposal.ts',
+  'register.ts',
 ] as const
 
 /**

@@ -1,0 +1,2416 @@
+// Vitest Snapshot v1, https://vitest.dev/guide/snapshot.html
+
+exports[`every form has an instruction > acknowledgement 1`] = `
+"Form: Acknowledgement / पावती (id: acknowledgement).
+Used by: Any section that has received a communication from outside Government.
+CSMOP 2022, sixteenth edition, paragraph 8.9(i).
+CSMOP prescribes no format for this document. This form follows the format of the nearest prescribed one; say nothing that claims the Manual specifies it.
+
+Structure:
+1. the urgency grading, at the very top
+2. the file number
+3. the letterhead — Ministry, Department and office
+4. the place and date
+5. the form’s own title, centred
+6. the subject line, one sentence, ending in “regarding.” or “के संबंध में।”
+7. the body paragraphs
+8. the signature block — name, designation, telephone and e-mail
+9. the addressee block
+10. the list of enclosures
+11. the copy-to list
+
+Rules:
+- Write in the THIRD person throughout — "the undersigned", "it is requested", never "I" or "we".
+- This form carries NO salutation.
+- This form carries NO subscription.
+- An urgency grading (Immediate / Priority / Top Priority — तत्काल / प्राथमिकता / परम अग्रता) may be shown at the top. Grade it only if the officer asked for one; an ungraded communication is the normal case.
+- Hindi register: use the administrative Hindi of the Central Secretariat (Rajbhasha) — "कार्यालय ज्ञापन", "अवर सचिव", "एतद्द्वारा" — and not everyday or literary Hindi. Keep file numbers, section numbers and English proper names in their original form.
+- Leave anything you were not told as four underscores (____). Never invent a file number, a date, an amount, a name or a designation.
+
+The document will be marked against this checklist, by the app, after you answer. Every item below must pass:
+- The subject is stated — The specimens in Appendix 8.1 carry a subject line above the body on every form that is addressed to anyone.
+- Number and date are on the draft — Every draft put up on a file bears the file number, and the number and date of the last communication in the series must be quoted.
+- Written in the third person — An Office Memorandum is written in the third person and bears no salutation or subscription.
+- Signature block carries designation, telephone and email — The name, designation, telephone number, fax number and e-mail address of the signing officer must invariably be on the draft.
+- The date a reply will be sent by is named — An acknowledgement that does not say when a reply will come is a receipt, not an acknowledgement — CSMOP 8.9(ii) wants the date named.
+- No placeholder is left unfilled — A draft that goes out with {{…}} still in it has not been read.
+
+What the officer has already written. Complete it — do not replace what is there:
+- urgency: none
+- fileNumber: A-11011/2/2026-Estt.
+- ministry: Ministry of Personnel, Public Grievances and Pensions
+- department: Department of Personnel and Training
+- place: New Delhi
+- date: 2026-08-28
+- addressee: The Under Secretary
+Department of Expenditure
+North Block, New Delhi
+- subject: Acknowledgement of your representation dated 05.06.2026.
+- paras: The undersigned is directed to acknowledge the receipt of your representation regarding the fixation of pay dated 05.06.2026, received in this Department on 10.06.2026 and registered as diary number DY/2026/1187.
+The matter is under examination and a reply will be sent by 25.06.2026.
+- signatoryName: A.B.C.
+- signatoryDesignation: Under Secretary to the Govt. of India
+- phone: 011-2309 2590
+- email: us-estt@nic.in
+- copyTo: The section dealing with the case.
+The file.
+
+Still empty: papers, receivedDate, receiptDate, diaryNumber, replyBy."
+`;
+
+exports[`every form has an instruction > advisory 1`] = `
+"Form: Advisory / परामर्शी (id: advisory).
+Used by: A Department, to its own offices and attached and subordinate offices.
+CSMOP 2022, sixteenth edition, paragraphs 8.4(3), 9.2(iii).
+CSMOP prescribes no format for this document. This form follows the format of the nearest prescribed one; say nothing that claims the Manual specifies it.
+
+Structure:
+1. the urgency grading, at the very top
+2. the file number
+3. the letterhead — Ministry, Department and office
+4. the place and date
+5. the form’s own title, centred
+6. the subject line, one sentence, ending in “regarding.” or “के संबंध में।”
+7. the body paragraphs
+8. the signature block — name, designation, telephone and e-mail
+9. the addressee block
+10. the list of enclosures
+11. the copy-to list
+
+Rules:
+- Write in the THIRD person throughout — "the undersigned", "it is requested", never "I" or "we".
+- This form carries NO salutation.
+- This form carries NO subscription.
+- An urgency grading (Immediate / Priority / Top Priority — तत्काल / प्राथमिकता / परम अग्रता) may be shown at the top. Grade it only if the officer asked for one; an ungraded communication is the normal case.
+- Hindi register: use the administrative Hindi of the Central Secretariat (Rajbhasha) — "कार्यालय ज्ञापन", "अवर सचिव", "एतद्द्वारा" — and not everyday or literary Hindi. Keep file numbers, section numbers and English proper names in their original form.
+- Leave anything you were not told as four underscores (____). Never invent a file number, a date, an amount, a name or a designation.
+
+The document will be marked against this checklist, by the app, after you answer. Every item below must pass:
+- The subject is stated — The specimens in Appendix 8.1 carry a subject line above the body on every form that is addressed to anyone.
+- Number and date are on the draft — Every draft put up on a file bears the file number, and the number and date of the last communication in the series must be quoted.
+- Written in the third person — An Office Memorandum is written in the third person and bears no salutation or subscription.
+- Signature block carries designation, telephone and email — The name, designation, telephone number, fax number and e-mail address of the signing officer must invariably be on the draft.
+- The instruction being recalled is cited — An advisory that cites nothing reads as a new requirement, which is exactly what an advisory is not.
+- No placeholder is left unfilled — A draft that goes out with {{…}} still in it has not been read.
+
+What the officer has already written. Complete it — do not replace what is there:
+- urgency: none
+- fileNumber: A-11011/2/2026-Estt.
+- ministry: Ministry of Personnel, Public Grievances and Pensions
+- department: Department of Personnel and Training
+- place: New Delhi
+- date: 2026-08-28
+- addressee: The Under Secretary
+Department of Expenditure
+North Block, New Delhi
+- subject: Timely submission of Annual Performance Appraisal Reports — advisory.
+- paras: The undersigned is directed to invite attention to the Department of Personnel and Training O.M. No. 21011/1/2005-Estt.(A) dated 14.05.2009, which prescribes the time schedule for the completion of Annual Performance Appraisal Reports.
+It has been observed that reports for a number of officers are being submitted well beyond the prescribed dates.
+All concerned are advised to ensure compliance with the said instructions with effect from 01.10.2026. This issues with the approval of the Joint Secretary (Administration).
+- signatoryName: A.B.C.
+- signatoryDesignation: Under Secretary to the Govt. of India
+- phone: 011-2309 2590
+- email: us-estt@nic.in
+- copyTo: All Divisions and Sections in the Department.
+All attached and subordinate offices.
+The Department's website, for publication.
+
+Still empty: instruction, whatItSays, observation, effectiveFrom, approvedBy."
+`;
+
+exports[`every form has an instruction > agenda-note 1`] = `
+"Form: Agenda note / कार्यसूची टिप्पणी (id: agenda-note).
+Used by: The section that services the committee.
+CSMOP 2022, sixteenth edition, paragraphs 7.2(viii), 7.14.
+CSMOP prescribes no format for this document. This form follows the format of the nearest prescribed one; say nothing that claims the Manual specifies it.
+
+Structure:
+1. the urgency grading, at the very top
+2. the file number
+3. the letterhead — Ministry, Department and office
+4. the place and date
+5. the form’s own title, centred
+6. the subject line, one sentence, ending in “regarding.” or “के संबंध में।”
+7. the body paragraphs
+8. the signature block — name, designation, telephone and e-mail
+9. the addressee block
+10. the list of enclosures
+11. the copy-to list
+
+Rules:
+- Write in the THIRD person throughout — "the undersigned", "it is requested", never "I" or "we".
+- This form carries NO salutation.
+- This form carries NO subscription.
+- An urgency grading (Immediate / Priority / Top Priority — तत्काल / प्राथमिकता / परम अग्रता) may be shown at the top. Grade it only if the officer asked for one; an ungraded communication is the normal case.
+- Hindi register: use the administrative Hindi of the Central Secretariat (Rajbhasha) — "कार्यालय ज्ञापन", "अवर सचिव", "एतद्द्वारा" — and not everyday or literary Hindi. Keep file numbers, section numbers and English proper names in their original form.
+- Leave anything you were not told as four underscores (____). Never invent a file number, a date, an amount, a name or a designation.
+
+The document will be marked against this checklist, by the app, after you answer. Every item below must pass:
+- The subject is stated — The specimens in Appendix 8.1 carry a subject line above the body on every form that is addressed to anyone.
+- Number and date are on the draft — Every draft put up on a file bears the file number, and the number and date of the last communication in the series must be quoted.
+- Signature block carries designation, telephone and email — The name, designation, telephone number, fax number and e-mail address of the signing officer must invariably be on the draft.
+- The decision sought is stated — A note that describes a problem without saying what is being asked for leaves the committee to draft the proposal itself.
+- No placeholder is left unfilled — A draft that goes out with {{…}} still in it has not been read.
+
+What the officer has already written. Complete it — do not replace what is there:
+- urgency: none
+- fileNumber: A-11011/2/2026-Estt.
+- ministry: Ministry of Personnel, Public Grievances and Pensions
+- department: Department of Personnel and Training
+- place: New Delhi
+- date: 2026-08-28
+- addressee: The Under Secretary
+Department of Expenditure
+North Block, New Delhi
+- subject: Agenda item 3 — revision of the Recruitment Rules for the post of Assistant Section Officer.
+- paras: The item is placed before the Departmental Promotion Committee at its meeting to be held on 20.09.2026.
+# Background
+The Recruitment Rules for the post were last notified in 2011 and do not reflect the restructuring of the Section carried out in 2024.
+# The issue
+Whether the qualifying service for promotion should be reduced from eight years to five.
+# What the rules provide
+The Department of Personnel and Training's model Recruitment Rules provide for five years' qualifying service at this level.
+# Decision sought
+The Committee may approve the reduction of the qualifying service to five years and the issue of the revised Rules.
+- signatoryName: A.B.C.
+- signatoryDesignation: Under Secretary to the Govt. of India
+- phone: 011-2309 2590
+- email: us-estt@nic.in
+- enclosures: The draft Recruitment Rules, 2026.
+- copyTo: All members of the Committee.
+The agenda file.
+
+Still empty: committee, meetingDate, background, issue, provision, decisionSought."
+`;
+
+exports[`every form has an instruction > appeal 1`] = `
+"Form: Appeal to the appellate authority / अपीलीय प्राधिकारी को अपील (id: appeal).
+Used by: An officer, on their own behalf.
+CSMOP 2022, sixteenth edition, paragraph 8.4(1).
+CSMOP prescribes no format for this document. This form follows the format of the nearest prescribed one; say nothing that claims the Manual specifies it.
+
+Structure:
+1. the place and date
+2. the addressee block
+3. the subject line, one sentence, ending in “regarding.” or “के संबंध में।”
+4. the salutation
+5. the body paragraphs
+6. the subscription
+7. the signature block — name, designation, telephone and e-mail
+8. the list of enclosures
+
+Rules:
+- Write in the FIRST person — this form is one named officer writing to another.
+- This form carries NO salutation.
+- This form carries NO subscription.
+- This form carries NO urgency grading.
+- Hindi register: use the administrative Hindi of the Central Secretariat (Rajbhasha) — "कार्यालय ज्ञापन", "अवर सचिव", "एतद्द्वारा" — and not everyday or literary Hindi. Keep file numbers, section numbers and English proper names in their original form.
+- Leave anything you were not told as four underscores (____). Never invent a file number, a date, an amount, a name or a designation.
+
+The document will be marked against this checklist, by the app, after you answer. Every item below must pass:
+- The date of the order and of its delivery are given — Rule 25 runs the forty-five days from the date the order was delivered. An appeal that gives neither date invites a preliminary objection instead of an answer.
+- The language is courteous and temperate — Rule 24 requires an appeal to be couched in courteous and temperate language and free from any disrespectful or improper expression.
+- The subject is stated — The specimens in Appendix 8.1 carry a subject line above the body on every form that is addressed to anyone.
+- Paragraphs are serially numbered — The specimens leave the first paragraph unnumbered and number the rest from 2.
+- No placeholder is left unfilled — A draft that goes out with {{…}} still in it has not been read.
+
+What the officer has already written. Complete it — do not replace what is there:
+- place: New Delhi
+- date: 2026-08-28
+- addressee: The Joint Secretary (Administration)
+Department of Personnel and Training
+North Block, New Delhi
+(through the Under Secretary (Establishment))
+- subject: Appeal under rule 23 of the CCS (CCA) Rules, 1965 against the order dated 12.08.2026.
+- paras: This appeal is preferred under rule 23 of the Central Civil Services (Classification, Control and Appeal) Rules, 1965 against the order No. A-11012/7/2026-Vig. dated 12.08.2026, by which the penalty of censure was imposed upon me under rule 11(i) of the said Rules. The order was delivered to me on 18.08.2026 and this appeal is within the forty-five days allowed by rule 25.
+# Grounds of appeal
+# Prayer
+It is prayed that the impugned order may be set aside and the penalty quashed.
+The appeal is complete in itself and does not contain any disrespectful or improper language.
+- signatoryName: A.B.C.
+- signatoryDesignation: Section Officer
+- phone: 011-2309 2590
+- email: abc@nic.in
+- enclosures: A copy of the order dated 12.08.2026 appealed against.
+
+Still empty: orderNumber, orderDate, deliveryDate, whatWasOrdered, grounds, prayer."
+`;
+
+exports[`every form has an instruction > certificate 1`] = `
+"Form: Certificate (experience / no dues) / प्रमाणपत्र (अनुभव / अदेयता) (id: certificate).
+Used by: An establishment or accounts section.
+CSMOP 2022, sixteenth edition, paragraph 8.4(3).
+CSMOP prescribes no format for this document. This form follows the format of the nearest prescribed one; say nothing that claims the Manual specifies it.
+
+Structure:
+1. the file number
+2. the letterhead — Ministry, Department and office
+3. the place and date
+4. the form’s own title, centred
+5. the subject line, one sentence, ending in “regarding.” or “के संबंध में।”
+6. the body paragraphs
+7. the signature block — name, designation, telephone and e-mail
+8. the addressee block
+9. the list of enclosures
+10. the copy-to list
+
+Rules:
+- Write in the THIRD person throughout — "the undersigned", "it is requested", never "I" or "we".
+- This form carries NO salutation.
+- This form carries NO subscription.
+- This form carries NO urgency grading.
+- Hindi register: use the administrative Hindi of the Central Secretariat (Rajbhasha) — "कार्यालय ज्ञापन", "अवर सचिव", "एतद्द्वारा" — and not everyday or literary Hindi. Keep file numbers, section numbers and English proper names in their original form.
+- Leave anything you were not told as four underscores (____). Never invent a file number, a date, an amount, a name or a designation.
+
+The document will be marked against this checklist, by the app, after you answer. Every item below must pass:
+- The subject is stated — The specimens in Appendix 8.1 carry a subject line above the body on every form that is addressed to anyone.
+- Number and date are on the draft — Every draft put up on a file bears the file number, and the number and date of the last communication in the series must be quoted.
+- Written in the third person — An Office Memorandum is written in the third person and bears no salutation or subscription.
+- Signature block carries designation, telephone and email — The name, designation, telephone number, fax number and e-mail address of the signing officer must invariably be on the draft.
+- No placeholder is left unfilled — A draft that goes out with {{…}} still in it has not been read.
+
+What the officer has already written. Complete it — do not replace what is there:
+- fileNumber: A-11011/2/2026-Estt.
+- ministry: Ministry of Personnel, Public Grievances and Pensions
+- department: Department of Personnel and Training
+- place: New Delhi
+- date: 2026-08-28
+- addressee: The Under Secretary
+Department of Expenditure
+North Block, New Delhi
+- subject: Certificate of service and experience in respect of Shri A.B.C.
+- paras: This is to certify that, as per the service book and the pay bill register maintained in this office, Shri A.B.C., Assistant Section Officer has served in this Department in the Establishment Section, dealing with recruitment rules, promotions and pension cases, and that no dues are outstanding against the employee.
+The period covered by this certificate is 15.07.2019 to 31.08.2026.
+This certificate is issued at the request of the employee for submission to the Department of Expenditure.
+- signatoryName: A.B.C.
+- signatoryDesignation: Under Secretary to the Govt. of India
+- phone: 011-2309 2590
+- email: us-estt@nic.in
+- copyTo: The employee concerned.
+The personal file.
+
+Still empty: recordBasis, employeeName, certifiedFact, purpose."
+`;
+
+exports[`every form has an instruction > charge-report 1`] = `
+"Form: Handing over / taking over charge report / कार्यभार हस्तांतरण / ग्रहण रिपोर्ट (id: charge-report).
+Used by: The officer handing over and the officer taking over, jointly.
+CSMOP 2022, sixteenth edition, paragraph 8.4(1).
+CSMOP prescribes no format for this document. This form follows the format of the nearest prescribed one; say nothing that claims the Manual specifies it.
+
+Structure:
+1. the place and date
+2. the addressee block
+3. the subject line, one sentence, ending in “regarding.” or “के संबंध में।”
+4. the salutation
+5. the body paragraphs
+6. the subscription
+7. the signature block — name, designation, telephone and e-mail
+8. the list of enclosures
+
+Rules:
+- Write in the THIRD person throughout — "the undersigned", "it is requested", never "I" or "we".
+- This form carries NO salutation.
+- This form carries NO subscription.
+- This form carries NO urgency grading.
+- Hindi register: use the administrative Hindi of the Central Secretariat (Rajbhasha) — "कार्यालय ज्ञापन", "अवर सचिव", "एतद्द्वारा" — and not everyday or literary Hindi. Keep file numbers, section numbers and English proper names in their original form.
+- Leave anything you were not told as four underscores (____). Never invent a file number, a date, an amount, a name or a designation.
+
+The document will be marked against this checklist, by the app, after you answer. Every item below must pass:
+- The subject is stated — The specimens in Appendix 8.1 carry a subject line above the body on every form that is addressed to anyone.
+- Paragraphs are serially numbered — The specimens leave the first paragraph unnumbered and number the rest from 2.
+- Both officers are named — A charge report signed by one officer records a handover nobody acknowledged receiving.
+- No placeholder is left unfilled — A draft that goes out with {{…}} still in it has not been read.
+
+What the officer has already written. Complete it — do not replace what is there:
+- place: New Delhi
+- date: 2026-08-28
+- addressee: The Under Secretary (Establishment)
+Department of Personnel and Training
+North Block, New Delhi
+- subject: Handing over and taking over of the charge of the post of Section Officer (Establishment).
+- paras: I, A.B.C., Section Officer (Establishment), have handed over the charge of the post of Section Officer (Establishment) on the afternoon of 31.08.2026 to P.Q.R., Section Officer, who has taken over the same.
+# Handed over
+. 
+The following matters were pending on the date of transfer of charge and have been brought to the notice of the incoming officer: the revision of the Recruitment Rules, on which comments of three Divisions are awaited
+The charge report is submitted for record and for the necessary entries in the service books of both officers.
+- signatoryName: A.B.C.
+- signatoryDesignation: Section Officer
+- phone: 011-2309 2590
+- email: abc@nic.in
+- enclosures: The cash book and the permanent advance register.
+
+Still empty: outgoingOfficer, outgoingDesignation, incomingOfficer, incomingDesignation, post, chargeDate, time, itemsHandedOver."
+`;
+
+exports[`every form has an instruction > charges-reply 1`] = `
+"Form: Reply to a memorandum of charges / आरोप ज्ञापन का उत्तर (id: charges-reply).
+Used by: An officer, on their own behalf.
+CSMOP 2022, sixteenth edition, paragraph 8.4(1).
+CSMOP prescribes no format for this document. This form follows the format of the nearest prescribed one; say nothing that claims the Manual specifies it.
+
+Structure:
+1. the place and date
+2. the addressee block
+3. the subject line, one sentence, ending in “regarding.” or “के संबंध में।”
+4. the salutation
+5. the body paragraphs
+6. the subscription
+7. the signature block — name, designation, telephone and e-mail
+8. the list of enclosures
+
+Rules:
+- Write in the FIRST person — this form is one named officer writing to another.
+- This form carries NO salutation.
+- This form carries NO subscription.
+- This form carries NO urgency grading.
+- Hindi register: use the administrative Hindi of the Central Secretariat (Rajbhasha) — "कार्यालय ज्ञापन", "अवर सचिव", "एतद्द्वारा" — and not everyday or literary Hindi. Keep file numbers, section numbers and English proper names in their original form.
+- Leave anything you were not told as four underscores (____). Never invent a file number, a date, an amount, a name or a designation.
+
+The document will be marked against this checklist, by the app, after you answer. Every item below must pass:
+- Each article of charge is answered separately — An article of charge that is not specifically denied is treated as admitted. Answering the memorandum as a whole is the commonest and costliest defect in a defence statement.
+- Whether an oral inquiry is desired is stated — The disciplinary authority has to record this; leaving it out means the decision is taken without knowing what the charged officer wanted.
+- The subject is stated — The specimens in Appendix 8.1 carry a subject line above the body on every form that is addressed to anyone.
+- Paragraphs are serially numbered — The specimens leave the first paragraph unnumbered and number the rest from 2.
+- No placeholder is left unfilled — A draft that goes out with {{…}} still in it has not been read.
+
+What the officer has already written. Complete it — do not replace what is there:
+- place: New Delhi
+- date: 2026-08-28
+- addressee: The Disciplinary Authority
+Department of Personnel and Training
+North Block, New Delhi
+- subject: Written statement of defence in respect of the memorandum of charges dated 12.08.2026.
+- paras: This written statement of defence is submitted in reply to the memorandum of charges No. A-11012/7/2026-Vig. dated 12.08.2026, served on me on 18.08.2026, under rule 16 of the Central Civil Services (Classification, Control and Appeal) Rules, 1965.
+# Reply to each article of charge
+For the purpose of my defence I request that the following documents may be made available to me: the file movement register of the Section for the period 01.07.2026 to 31.07.2026
+I desire an oral inquiry in the matter. The statement is submitted with respect, and I pray that the charges may be dropped.
+- signatoryName: A.B.C.
+- signatoryDesignation: Section Officer
+- phone: 011-2309 2590
+- email: abc@nic.in
+- enclosures: A copy of the memorandum of charges dated 12.08.2026.
+
+Still empty: memoNumber, memoDate, servedDate, ccaRule, articleReplies, inquiryWanted."
+`;
+
+exports[`every form has an instruction > circular 1`] = `
+"Form: Circular / परिपत्र (id: circular).
+Used by: A Department bringing one instruction to the notice of everyone at once — all sections, all officers, or all Ministries.
+CSMOP 2022, sixteenth edition, paragraphs 8.4(3), Appendix 8.1.
+CSMOP prescribes no format for this document. This form follows the format of the nearest prescribed one; say nothing that claims the Manual specifies it.
+
+Structure:
+1. the urgency grading, at the very top
+2. the file number
+3. the letterhead — Ministry, Department and office
+4. the place and date
+5. the form’s own title, centred
+6. the subject line, one sentence, ending in “regarding.” or “के संबंध में।”
+7. the body paragraphs
+8. the signature block — name, designation, telephone and e-mail
+9. the addressee block
+10. the list of enclosures
+11. the copy-to list
+
+Rules:
+- Write in the THIRD person throughout — "the undersigned", "it is requested", never "I" or "we".
+- This form carries NO salutation.
+- This form carries NO subscription.
+- An urgency grading (Immediate / Priority / Top Priority — तत्काल / प्राथमिकता / परम अग्रता) may be shown at the top. Grade it only if the officer asked for one; an ungraded communication is the normal case.
+- Hindi register: use the administrative Hindi of the Central Secretariat (Rajbhasha) — "कार्यालय ज्ञापन", "अवर सचिव", "एतद्द्वारा" — and not everyday or literary Hindi. Keep file numbers, section numbers and English proper names in their original form.
+- Leave anything you were not told as four underscores (____). Never invent a file number, a date, an amount, a name or a designation.
+- A circular says the same thing to many addressees at once, so it names no individual and asks for nothing that would differ between them.
+
+The document will be marked against this checklist, by the app, after you answer. Every item below must pass:
+- Written in the third person — An Office Memorandum is written in the third person and bears no salutation or subscription.
+- Number and date are on the draft — Every draft put up on a file bears the file number, and the number and date of the last communication in the series must be quoted.
+- The subject is stated — The specimens in Appendix 8.1 carry a subject line above the body on every form that is addressed to anyone.
+- Paragraphs are serially numbered — The specimens leave the first paragraph unnumbered and number the rest from 2.
+- Addressed to everyone it is meant for — A circular that names no addressee is an O.M. that will be filed and forgotten.
+- Signature block carries designation, telephone and email — The name, designation, telephone number, fax number and e-mail address of the signing officer must invariably be on the draft.
+- Enclosures mentioned in the text are listed — A draft should clearly specify the enclosures which are to accompany the fair copy, and the number goes at the bottom left.
+- No placeholder is left unfilled — A draft that goes out with {{…}} still in it has not been read.
+
+What the officer has already written. Complete it — do not replace what is there:
+- urgency: none
+- fileNumber: A-11011/2/2026-Estt.
+- ministry: Ministry of Personnel, Public Grievances and Pensions
+- department: Department of Personnel and Training
+- place: New Delhi
+- date: 2026-08-28
+- subject: Observance of office timings and use of the biometric attendance system — regarding.
+- paras: It has been observed that office timings are not being adhered to uniformly across sections. All officers and staff are reminded that the prescribed office hours are 9.00 a.m. to 5.30 p.m., with a half-hour lunch break.
+Attendance is to be marked on the biometric attendance system on arrival and before leaving. Late arrival on more than two occasions in a month will be regulated in accordance with the instructions on the subject.
+All Heads of Divisions are requested to bring this to the notice of every officer and member of the staff working under them by 15.09.2026.
+- signatoryName: A.B.C.
+- signatoryDesignation: Under Secretary to the Govt. of India
+- phone: 011-2309 2590
+- email: us-estt@nic.in
+- addressee: All officers and staff of the Department
+All Heads of Divisions
+- copyTo: Notice board
+Departmental website
+Guard file
+
+Still empty: mainPoint."
+`;
+
+exports[`every form has an instruction > condolence-do 1`] = `
+"Form: Condolence / felicitation D.O. letter / शोक / बधाई अर्ध-सरकारी पत्र (id: condolence-do).
+Used by: One officer, writing personally to another.
+CSMOP 2022, sixteenth edition, paragraphs 8.4(2), 9.5(i), 9.5(ii).
+CSMOP prescribes no format for this document. This form follows the format of the nearest prescribed one; say nothing that claims the Manual specifies it.
+
+Structure:
+1. the letterhead — Ministry, Department and office
+2. the file number
+3. the place and date
+4. the salutation
+5. the body paragraphs
+6. the subscription
+7. the signature block — name, designation, telephone and e-mail
+8. the addressee block
+
+Rules:
+- Write in the FIRST person — this form is one named officer writing to another.
+- This form carries NO salutation.
+- This form carries NO subscription.
+- This form carries NO urgency grading.
+- Hindi register: use the administrative Hindi of the Central Secretariat (Rajbhasha) — "कार्यालय ज्ञापन", "अवर सचिव", "एतद्द्वारा" — and not everyday or literary Hindi. Keep file numbers, section numbers and English proper names in their original form.
+- Leave anything you were not told as four underscores (____). Never invent a file number, a date, an amount, a name or a designation.
+
+The document will be marked against this checklist, by the app, after you answer. Every item below must pass:
+- Written in the first person — A demi-official letter is written in the first person and in a personal, friendly tone. A condolence in the third person reads as a circular.
+- No placeholder is left unfilled — A draft that goes out with {{…}} still in it has not been read.
+
+What the officer has already written. Complete it — do not replace what is there:
+- fileNumber: A-11011/2/2026-Estt.
+- ministry: Ministry of Personnel, Public Grievances and Pensions
+- department: Department of Personnel and Training
+- place: New Delhi
+- date: 2026-08-28
+- addresseeName: Shri R.K. Sharma
+- addressee: Joint Secretary
+Department of Expenditure
+North Block, New Delhi
+- paras: I was deeply saddened to learn of the passing of your father.
+I had the privilege of meeting him during your posting at Lucknow, and I remember his warmth and his interest in the work of this Department. Please convey my condolences to your family.
+Please do let me know if there is anything I can do.
+- signatoryName: A.B.C.
+- signatoryDesignation: Joint Secretary to the Govt. of India
+- phone: 011-2309 2590
+
+Still empty: opening, message, closing."
+`;
+
+exports[`every form has an instruction > demi-official 1`] = `
+"Form: Demi-official letter (D.O.) / अर्ध-सरकारी पत्र (डी.ओ.) (id: demi-official).
+Used by: One Government officer writing to another to draw their personal attention to an official matter of importance or urgency; also to a non-official, and by a Minister to another Minister or a Member of Parliament.
+CSMOP 2022, sixteenth edition, paragraphs 8.4(2), 9.5, Appendix 8.1.
+
+Structure:
+1. the letterhead — Ministry, Department and office
+2. the file number
+3. the place and date
+4. the subject line, one sentence, ending in “regarding.” or “के संबंध में।”
+5. the salutation
+6. the body paragraphs
+7. the subscription
+8. the signature block — name, designation, telephone and e-mail
+9. the addressee block
+10. the list of enclosures
+
+Rules:
+- Write in the FIRST person — this form is one named officer writing to another.
+- Open with the salutation "My dear Shri / Dear Shri".
+- Close with the subscription "Yours sincerely,".
+- This form carries NO urgency grading.
+- Hindi register: use the administrative Hindi of the Central Secretariat (Rajbhasha) — "कार्यालय ज्ञापन", "अवर सचिव", "एतद्द्वारा" — and not everyday or literary Hindi. Keep file numbers, section numbers and English proper names in their original form.
+- Leave anything you were not told as four underscores (____). Never invent a file number, a date, an amount, a name or a designation.
+- A D.O. is written from one named officer to another, in the FIRST person, signed with the writer’s own name and no designation above it (CSMOP 8.4(2)).
+
+The document will be marked against this checklist, by the app, after you answer. Every item below must pass:
+- Written in the first person — The object of a D.O. is to invite the addressee's personal attention, so the style is direct, personal and friendly.
+- Signed by name, with the sender's designation at the head — A D.O. carries the writer's name and designation at the top left and is signed by name — it is a personal communication.
+- Enclosures mentioned in the text are listed — A draft should clearly specify the enclosures which are to accompany the fair copy, and the number goes at the bottom left.
+- No placeholder is left unfilled — A draft that goes out with {{…}} still in it has not been read.
+
+What the officer has already written. Complete it — do not replace what is there:
+- fileNumber: A-11011/2/2026-Estt.
+- ministry: Ministry of Personnel, Public Grievances and Pensions
+- department: Department of Personnel and Training
+- place: New Delhi
+- date: 2026-08-28
+- addresseeName: Shri R. K. Sharma
+- addressee: Shri R. K. Sharma
+Joint Secretary
+Ministry of Finance
+Department of Expenditure
+North Block, New Delhi - 110001
+- paras: We propose to draw up a model scheme for the training of newly recruited Assistant Section Officers; a copy of the outline prepared in this connection is enclosed.
+I shall be grateful if you would let me have your comments as soon as possible. I may add that we intend circulating the draft scheme formally to all Departments in due course for their comments.
+- signatoryName: A.B.C.
+- signatoryDesignation: Deputy Secretary to the Govt. of India
+- phone: 011-2309 2590
+- email: us-estt@nic.in
+- enclosures: Outline of the proposed model training scheme (4 pages)
+
+Still empty: mainPoint."
+`;
+
+exports[`every form has an instruction > endorsement 1`] = `
+"Form: Endorsement / पृष्ठांकन (id: endorsement).
+Used by: A Department returning a paper in original to its sender, or sending a paper or its copy to another Department or office for information or action, or forwarding a copy of a communication to a party other than the one it is addressed to.
+CSMOP 2022, sixteenth edition, paragraphs 8.4(9), Appendix 8.1.
+
+Structure:
+1. the urgency grading, at the very top
+2. the file number
+3. the letterhead — Ministry, Department and office
+4. the place and date
+5. the form’s own title, centred
+6. the body paragraphs
+7. the signature block — name, designation, telephone and e-mail
+8. the list of enclosures
+9. the addressee block
+10. the copy-to list
+
+Rules:
+- Write in the THIRD person throughout — "the undersigned", "it is requested", never "I" or "we".
+- This form carries NO salutation.
+- This form carries NO subscription.
+- An urgency grading (Immediate / Priority / Top Priority — तत्काल / प्राथमिकता / परम अग्रता) may be shown at the top. Grade it only if the officer asked for one; an ungraded communication is the normal case.
+- Hindi register: use the administrative Hindi of the Central Secretariat (Rajbhasha) — "कार्यालय ज्ञापन", "अवर सचिव", "एतद्द्वारा" — and not everyday or literary Hindi. Keep file numbers, section numbers and English proper names in their original form.
+- Leave anything you were not told as four underscores (____). Never invent a file number, a date, an amount, a name or a designation.
+- An endorsement adds no new matter of its own — it passes a communication on, and anything the endorsing office wants to say goes in a covering paragraph above it (CSMOP 8.4(8)).
+
+The document will be marked against this checklist, by the app, after you answer. Every item below must pass:
+- The papers being forwarded are listed — The specimen carries a 'List of papers forwarded' below the signature — an endorsement with nothing listed says nothing.
+- Number and date are on the draft — Every draft put up on a file bears the file number, and the number and date of the last communication in the series must be quoted.
+- Signature block carries designation, telephone and email — The name, designation, telephone number, fax number and e-mail address of the signing officer must invariably be on the draft.
+- No placeholder is left unfilled — A draft that goes out with {{…}} still in it has not been read.
+
+What the officer has already written. Complete it — do not replace what is there:
+- urgency: none
+- fileNumber: A-11011/2/2026-Estt.
+- ministry: Ministry of Personnel, Public Grievances and Pensions
+- department: Department of Personnel and Training
+- place: New Delhi
+- date: 2026-08-28
+- paras: A copy each of the papers mentioned below is forwarded for information and necessary action.
+- signatoryName: A.B.C.
+- signatoryDesignation: Under Secretary to the Govt. of India
+- phone: 011-2309 2590
+- email: us-estt@nic.in
+- papers: Application of Shri X.Y.Z. dated 04.08.2026 for allotment of General Pool residential accommodation (in original)
+This Department's O.M. No. A-11011/2/2026-Estt. dated 20.08.2026
+- addressee: The Director of Estates
+Directorate of Estates
+Nirman Bhawan, New Delhi - 110011
+- copyTo: Shri X.Y.Z., Section Officer
+Guard file
+
+Still empty: mainPoint."
+`;
+
+exports[`every form has an instruction > explanation-letter 1`] = `
+"Form: Letter calling for an explanation / स्पष्टीकरण माँगने का पत्र (id: explanation-letter).
+Used by: A controlling officer or an establishment section.
+CSMOP 2022, sixteenth edition, paragraph 8.4(3).
+CSMOP prescribes no format for this document. This form follows the format of the nearest prescribed one; say nothing that claims the Manual specifies it.
+
+Structure:
+1. the urgency grading, at the very top
+2. the file number
+3. the letterhead — Ministry, Department and office
+4. the place and date
+5. the form’s own title, centred
+6. the subject line, one sentence, ending in “regarding.” or “के संबंध में।”
+7. the body paragraphs
+8. the signature block — name, designation, telephone and e-mail
+9. the addressee block
+10. the list of enclosures
+11. the copy-to list
+
+Rules:
+- Write in the THIRD person throughout — "the undersigned", "it is requested", never "I" or "we".
+- This form carries NO salutation.
+- This form carries NO subscription.
+- An urgency grading (Immediate / Priority / Top Priority — तत्काल / प्राथमिकता / परम अग्रता) may be shown at the top. Grade it only if the officer asked for one; an ungraded communication is the normal case.
+- Hindi register: use the administrative Hindi of the Central Secretariat (Rajbhasha) — "कार्यालय ज्ञापन", "अवर सचिव", "एतद्द्वारा" — and not everyday or literary Hindi. Keep file numbers, section numbers and English proper names in their original form.
+- Leave anything you were not told as four underscores (____). Never invent a file number, a date, an amount, a name or a designation.
+
+The document will be marked against this checklist, by the app, after you answer. Every item below must pass:
+- The subject is stated — The specimens in Appendix 8.1 carry a subject line above the body on every form that is addressed to anyone.
+- Number and date are on the draft — Every draft put up on a file bears the file number, and the number and date of the last communication in the series must be quoted.
+- Written in the third person — An Office Memorandum is written in the third person and bears no salutation or subscription.
+- Signature block carries designation, telephone and email — The name, designation, telephone number, fax number and e-mail address of the signing officer must invariably be on the draft.
+- No placeholder is left unfilled — A draft that goes out with {{…}} still in it has not been read.
+
+What the officer has already written. Complete it — do not replace what is there:
+- urgency: none
+- fileNumber: A-11011/2/2026-Estt.
+- ministry: Ministry of Personnel, Public Grievances and Pensions
+- department: Department of Personnel and Training
+- place: New Delhi
+- date: 2026-08-28
+- addressee: The Under Secretary
+Department of Expenditure
+North Block, New Delhi
+- subject: Explanation called for — unauthorised absence from duty from 10.08.2026 to 14.08.2026.
+- paras: The undersigned is directed to state that the attendance record of the Section shows that you remained absent from duty from 10.08.2026 to 14.08.2026 without any application for leave having been received.
+Shri A.B.C., Assistant Section Officer, is requested to furnish an explanation in the matter so as to reach the undersigned by 10.09.2026.
+The explanation will be considered before a view is taken in the matter. No decision has been taken and nothing in this communication is to be read as a charge.
+- signatoryName: A.B.C.
+- signatoryDesignation: Under Secretary to the Govt. of India
+- phone: 011-2309 2590
+- email: us-estt@nic.in
+- copyTo: The personal file.
+
+Still empty: observedFact, employeeName, employeeDesignation, replyBy."
+`;
+
+exports[`every form has an instruction > forwarding-letter 1`] = `
+"Form: Forwarding letter / अग्रेषण पत्र (id: forwarding-letter).
+Used by: Any section forwarding a representation, bill, application or reference.
+CSMOP 2022, sixteenth edition, paragraphs 8.4(1), 8.9(iii), 9.2(vii).
+CSMOP prescribes no format for this document. This form follows the format of the nearest prescribed one; say nothing that claims the Manual specifies it.
+
+Structure:
+1. the urgency grading, at the very top
+2. the file number
+3. the letterhead — Ministry, Department and office
+4. the place and date
+5. the addressee block
+6. the subject line, one sentence, ending in “regarding.” or “के संबंध में।”
+7. the salutation
+8. the body paragraphs
+9. the subscription
+10. the signature block — name, designation, telephone and e-mail
+11. the list of enclosures
+12. the copy-to list
+
+Rules:
+- Write in the FIRST person — this form is one named officer writing to another.
+- This form carries NO salutation.
+- This form carries NO subscription.
+- An urgency grading (Immediate / Priority / Top Priority — तत्काल / प्राथमिकता / परम अग्रता) may be shown at the top. Grade it only if the officer asked for one; an ungraded communication is the normal case.
+- Hindi register: use the administrative Hindi of the Central Secretariat (Rajbhasha) — "कार्यालय ज्ञापन", "अवर सचिव", "एतद्द्वारा" — and not everyday or literary Hindi. Keep file numbers, section numbers and English proper names in their original form.
+- Leave anything you were not told as four underscores (____). Never invent a file number, a date, an amount, a name or a designation.
+
+The document will be marked against this checklist, by the app, after you answer. Every item below must pass:
+- The subject is stated — The specimens in Appendix 8.1 carry a subject line above the body on every form that is addressed to anyone.
+- Number and date are on the draft — Every draft put up on a file bears the file number, and the number and date of the last communication in the series must be quoted.
+- Enclosures mentioned in the text are listed — A draft should clearly specify the enclosures which are to accompany the fair copy, and the number goes at the bottom left.
+- Signature block carries designation, telephone and email — The name, designation, telephone number, fax number and e-mail address of the signing officer must invariably be on the draft.
+- Paragraphs are serially numbered — The specimens leave the first paragraph unnumbered and number the rest from 2.
+- No placeholder is left unfilled — A draft that goes out with {{…}} still in it has not been read.
+
+What the officer has already written. Complete it — do not replace what is there:
+- urgency: none
+- fileNumber: A-11011/2/2026-Estt.
+- ministry: Ministry of Personnel, Public Grievances and Pensions
+- department: Department of Personnel and Training
+- place: New Delhi
+- date: 2026-08-28
+- addressee: The Under Secretary
+Department of Expenditure
+North Block, New Delhi
+- subject: Forwarding of the representation of Shri A.B.C. regarding fixation of pay.
+- paras: I am directed to forward herewith the representation dated 05.06.2026 of Shri A.B.C., Section Officer received in this Department from Shri A.B.C., Section Officer on 10.06.2026, which relates to a matter within the competence of your office.
+It is requested that the matter may be examined and a reply sent directly to the applicant, under intimation to this Department, by 15.07.2026.
+The applicant has been informed of this transfer.
+- signatoryName: A.B.C.
+- signatoryDesignation: Under Secretary to the Govt. of India
+- phone: 011-2309 2590
+- email: us-estt@nic.in
+- enclosures: The representation dated 05.06.2026 of Shri A.B.C., in original.
+- copyTo: The office order file.
+
+Still empty: papers, receivedFrom, receivedOn, replyBy."
+`;
+
+exports[`every form has an instruction > gpf-advance 1`] = `
+"Form: GPF advance / withdrawal application / सामान्य भविष्य निधि अग्रिम / आहरण आवेदन (id: gpf-advance).
+Used by: An officer, on their own behalf.
+CSMOP 2022, sixteenth edition, paragraph 8.4(1).
+CSMOP prescribes no format for this document. This form follows the format of the nearest prescribed one; say nothing that claims the Manual specifies it.
+
+Structure:
+1. the place and date
+2. the addressee block
+3. the subject line, one sentence, ending in “regarding.” or “के संबंध में।”
+4. the salutation
+5. the body paragraphs
+6. the subscription
+7. the signature block — name, designation, telephone and e-mail
+8. the list of enclosures
+
+Rules:
+- Write in the FIRST person — this form is one named officer writing to another.
+- This form carries NO salutation.
+- This form carries NO subscription.
+- This form carries NO urgency grading.
+- Hindi register: use the administrative Hindi of the Central Secretariat (Rajbhasha) — "कार्यालय ज्ञापन", "अवर सचिव", "एतद्द्वारा" — and not everyday or literary Hindi. Keep file numbers, section numbers and English proper names in their original form.
+- Leave anything you were not told as four underscores (____). Never invent a file number, a date, an amount, a name or a designation.
+
+The document will be marked against this checklist, by the app, after you answer. Every item below must pass:
+- The balance at credit is stated — The sanctioning authority checks the amount asked for against the balance. An application without it cannot be decided at all.
+- The subject is stated — The specimens in Appendix 8.1 carry a subject line above the body on every form that is addressed to anyone.
+- Paragraphs are serially numbered — The specimens leave the first paragraph unnumbered and number the rest from 2.
+- No placeholder is left unfilled — A draft that goes out with {{…}} still in it has not been read.
+
+What the officer has already written. Complete it — do not replace what is there:
+- place: New Delhi
+- date: 2026-08-28
+- addressee: The Under Secretary (Establishment)
+Department of Personnel and Training
+North Block, New Delhi
+- subject: Application for a temporary advance from the General Provident Fund.
+- paras: I request the sanction of a temporary advance of Rs. 1,50,000 from my General Provident Fund account No. DPT/12345 for the purpose of meeting the cost of higher education of my daughter.
+The balance at my credit as on 31.03.2026 was Rs. 8,42,000, as per the account statement enclosed. A temporary advance of Rs. 60,000 sanctioned in March 2024 has been fully recovered.
+I request that the advance may be recovered in 36 monthly instalments beginning with the pay for the month of November 2026.
+- signatoryName: A.B.C.
+- signatoryDesignation: Assistant Section Officer
+- phone: 011-2309 2590
+- email: abc@nic.in
+- enclosures: A statement of my General Provident Fund account as on 31.03.2026.
+
+Still empty: advanceKind, amount, accountNumber, purpose, balanceDate, balance."
+`;
+
+exports[`every form has an instruction > grievance 1`] = `
+"Form: Grievance / complaint / शिकायत (id: grievance).
+Used by: An officer, on their own behalf.
+CSMOP 2022, sixteenth edition, paragraphs 8.9(i), 8.9(iv).
+CSMOP prescribes no format for this document. This form follows the format of the nearest prescribed one; say nothing that claims the Manual specifies it.
+
+Structure:
+1. the place and date
+2. the addressee block
+3. the subject line, one sentence, ending in “regarding.” or “के संबंध में।”
+4. the salutation
+5. the body paragraphs
+6. the subscription
+7. the signature block — name, designation, telephone and e-mail
+8. the list of enclosures
+
+Rules:
+- Write in the FIRST person — this form is one named officer writing to another.
+- This form carries NO salutation.
+- This form carries NO subscription.
+- This form carries NO urgency grading.
+- Hindi register: use the administrative Hindi of the Central Secretariat (Rajbhasha) — "कार्यालय ज्ञापन", "अवर सचिव", "एतद्द्वारा" — and not everyday or literary Hindi. Keep file numbers, section numbers and English proper names in their original form.
+- Leave anything you were not told as four underscores (____). Never invent a file number, a date, an amount, a name or a designation.
+
+The document will be marked against this checklist, by the app, after you answer. Every item below must pass:
+- What is asked for is stated — A grievance that describes a wrong without saying what would put it right leaves the office to decide what the complainant wanted.
+- The subject is stated — The specimens in Appendix 8.1 carry a subject line above the body on every form that is addressed to anyone.
+- Paragraphs are serially numbered — The specimens leave the first paragraph unnumbered and number the rest from 2.
+- No placeholder is left unfilled — A draft that goes out with {{…}} still in it has not been read.
+
+What the officer has already written. Complete it — do not replace what is there:
+- place: New Delhi
+- date: 2026-08-28
+- addressee: The Under Secretary (Establishment)
+Department of Personnel and Training
+North Block, New Delhi
+- subject: Grievance regarding non-payment of Children Education Allowance for 2025-26.
+- paras: I wish to bring to notice that my claim for Children Education Allowance for the academic year 2025-26, submitted on 10.04.2026, has not been settled although eight months have passed.
+This is not consistent with the Department of Expenditure O.M. dated 16.08.2024, which prescribes settlement within sixty days.
+I have already written to the Drawing and Disbursing Officer twice, on 20.06.2026 and 05.08.2026, without result.
+I request that the claim may be settled and the amount credited with the pay for the current month, and that I may be informed of the action taken by 30.09.2026.
+- signatoryName: A.B.C.
+- signatoryDesignation: Assistant Section Officer
+- phone: 011-2309 2590
+- email: abc@nic.in
+- enclosures: A copy of my claim dated 10.04.2026.
+
+Still empty: whatHappened, provision, redressSought, replyBy."
+`;
+
+exports[`every form has an instruction > house-allotment 1`] = `
+"Form: House allotment application / आवास आवंटन आवेदन (id: house-allotment).
+Used by: An officer, on their own behalf.
+CSMOP 2022, sixteenth edition, paragraph 8.4(1).
+CSMOP prescribes no format for this document. This form follows the format of the nearest prescribed one; say nothing that claims the Manual specifies it.
+
+Structure:
+1. the place and date
+2. the addressee block
+3. the subject line, one sentence, ending in “regarding.” or “के संबंध में।”
+4. the salutation
+5. the body paragraphs
+6. the subscription
+7. the signature block — name, designation, telephone and e-mail
+8. the list of enclosures
+
+Rules:
+- Write in the FIRST person — this form is one named officer writing to another.
+- This form carries NO salutation.
+- This form carries NO subscription.
+- This form carries NO urgency grading.
+- Hindi register: use the administrative Hindi of the Central Secretariat (Rajbhasha) — "कार्यालय ज्ञापन", "अवर सचिव", "एतद्द्वारा" — and not everyday or literary Hindi. Keep file numbers, section numbers and English proper names in their original form.
+- Leave anything you were not told as four underscores (____). Never invent a file number, a date, an amount, a name or a designation.
+
+The document will be marked against this checklist, by the app, after you answer. Every item below must pass:
+- Whether accommodation is already held is declared — Eligibility turns on it, and a declaration found later to be wrong is a matter under the CCS (Conduct) Rules, not merely a wrong allotment.
+- The subject is stated — The specimens in Appendix 8.1 carry a subject line above the body on every form that is addressed to anyone.
+- Paragraphs are serially numbered — The specimens leave the first paragraph unnumbered and number the rest from 2.
+- No placeholder is left unfilled — A draft that goes out with {{…}} still in it has not been read.
+
+What the officer has already written. Complete it — do not replace what is there:
+- place: New Delhi
+- date: 2026-08-28
+- addressee: The Deputy Director of Estates
+Directorate of Estates
+Nirman Bhawan, New Delhi - 110011
+- subject: Application for allotment of General Pool residential accommodation of Type IV.
+- paras: I request that I may be considered for the allotment of General Pool residential accommodation of Type IV, for which I am eligible on a basic pay of Rs. 67,700 in Level 10 of the Pay Matrix.
+My date of entitlement to this type is 01.07.2024 and my present station of posting is New Delhi. I am not in occupation of any Government accommodation at present.
+My preferences, in order, are: Kaka Nagar, Pandara Road, R.K. Puram Sector 12
+The application is submitted through the Establishment Section of this Department, which is requested to certify the particulars above.
+- signatoryName: A.B.C.
+- signatoryDesignation: Assistant Section Officer
+- phone: 011-2309 2590
+- email: abc@nic.in
+- enclosures: A copy of my last pay certificate.
+
+Still empty: houseType, basicPay, payLevel, entitlementDate, station, accommodationHeld."
+`;
+
+exports[`every form has an instruction > id-note 1`] = `
+"Form: Inter-Departmental note (U.O. note) / अंतर-विभागीय टिप्पणी (यू.ओ. टिप्पणी) (id: id-note).
+Used by: One Ministry or Department consulting another — for advice, views, comments or concurrence on a proposal, or for a clarification of existing rules from the nodal Department. Also between a Department and its attached and subordinate offices.
+CSMOP 2022, sixteenth edition, paragraphs 8.1, 8.1.2(v), 8.1.2(vi), 9.6(iv), Appendix 8.1.
+
+Structure:
+1. the urgency grading, at the very top
+2. the letterhead — Ministry, Department and office
+3. the form’s own title, centred
+4. the subject line, one sentence, ending in “regarding.” or “के संबंध में।”
+5. the body paragraphs
+6. the signature block — name, designation, telephone and e-mail
+7. the addressee block
+8. the list of enclosures
+9. the footer
+
+Rules:
+- Write in the THIRD person throughout — "the undersigned", "it is requested", never "I" or "we".
+- This form carries NO salutation.
+- This form carries NO subscription.
+- An urgency grading (Immediate / Priority / Top Priority — तत्काल / प्राथमिकता / परम अग्रता) may be shown at the top. Grade it only if the officer asked for one; an ungraded communication is the normal case.
+- Hindi register: use the administrative Hindi of the Central Secretariat (Rajbhasha) — "कार्यालय ज्ञापन", "अवर सचिव", "एतद्द्वारा" — and not everyday or literary Hindi. Keep file numbers, section numbers and English proper names in their original form.
+- Leave anything you were not told as four underscores (____). Never invent a file number, a date, an amount, a name or a designation.
+- An inter-departmental note asks another Department for its views and is returned on the same file; it never conveys a decision (CSMOP 8.4(6)).
+
+The document will be marked against this checklist, by the app, after you answer. Every item below must pass:
+- Every paragraph is numbered, from 1 — The Appendix 8.1 specimen of an I.D. note numbers its first paragraph 1, unlike a letter or an O.M.
+- The point on which advice is sought is in the last paragraph — Clearly state the points on which the advice or concurrence of the other Department is sought, preferably in the concluding paragraph.
+- A time limit is prescribed — Prescribe a time limit when calling for advice or concurrence; without one the originating Ministry has nothing to wait until.
+- I.D. number and date are at the foot — The specimen closes with 'Department of … I.D. No. … dated …' below a rule.
+- Signed at Under Secretary level or above — Inter-Departmental references are made with the approval of an officer not below Joint Secretary, under the signature of an officer not below Under Secretary.
+- The subject is stated — The specimens in Appendix 8.1 carry a subject line above the body on every form that is addressed to anyone.
+- Enclosures mentioned in the text are listed — A draft should clearly specify the enclosures which are to accompany the fair copy, and the number goes at the bottom left.
+- No placeholder is left unfilled — A draft that goes out with {{…}} still in it has not been read.
+
+What the officer has already written. Complete it — do not replace what is there:
+- urgency: none
+- ministry: Ministry of Personnel, Public Grievances and Pensions
+- department: Department of Personnel and Training
+- subject: Grant of Children Education Allowance — clarification regarding.
+- paras: The present rules regulating the issue of identity cards provide, inter alia, that a card is to be surrendered on the date of superannuation.
+A question has now arisen whether an officer re-employed immediately on superannuation may retain the card issued to him before retirement.
+The matter has been examined in this Department. The rules are silent on re-employment, and no precedent is available on the file.
+It is felt that a card carrying the pre-retirement designation would be misleading and that a fresh card should be issued.
+This Department will be grateful for the advice of the Department of Legal Affairs on the issue raised in para 4 above. Comments are requested by 30.09.2026, please.
+- signatoryName: A.B.C.
+- signatoryDesignation: Deputy Secretary
+- phone: 011-2309 2590
+- email: us-estt@nic.in
+- addressee: Department of Legal Affairs (Vidhi Karya Vibhag), Shri A. K. Menon, Shastri Bhawan, New Delhi
+- idNumber: A-11011/2/2026-Estt.
+- date: 2026-08-28
+- enclosures: Draft instructions proposed to be issued (1 page)
+
+Still empty: mainPoint."
+`;
+
+exports[`every form has an instruction > interim-reply 1`] = `
+"Form: Interim reply / अंतरिम उत्तर (id: interim-reply).
+Used by: Any section that cannot reply finally within the time limit.
+CSMOP 2022, sixteenth edition, paragraphs 8.9(ii), 8.10.
+CSMOP prescribes no format for this document. This form follows the format of the nearest prescribed one; say nothing that claims the Manual specifies it.
+
+Structure:
+1. the urgency grading, at the very top
+2. the file number
+3. the letterhead — Ministry, Department and office
+4. the place and date
+5. the form’s own title, centred
+6. the subject line, one sentence, ending in “regarding.” or “के संबंध में।”
+7. the reference to the communication being answered — its number and its date
+8. the body paragraphs
+9. the signature block — name, designation, telephone and e-mail
+10. the addressee block
+11. the list of enclosures
+12. the copy-to list
+
+Rules:
+- Write in the THIRD person throughout — "the undersigned", "it is requested", never "I" or "we".
+- This form carries NO salutation.
+- This form carries NO subscription.
+- An urgency grading (Immediate / Priority / Top Priority — तत्काल / प्राथमिकता / परम अग्रता) may be shown at the top. Grade it only if the officer asked for one; an ungraded communication is the normal case.
+- Hindi register: use the administrative Hindi of the Central Secretariat (Rajbhasha) — "कार्यालय ज्ञापन", "अवर सचिव", "एतद्द्वारा" — and not everyday or literary Hindi. Keep file numbers, section numbers and English proper names in their original form.
+- Leave anything you were not told as four underscores (____). Never invent a file number, a date, an amount, a name or a designation.
+- An interim reply says only that the matter is receiving attention and when a substantive reply may be expected. It must not anticipate the decision.
+
+The document will be marked against this checklist, by the app, after you answer. Every item below must pass:
+- The subject is stated — The specimens in Appendix 8.1 carry a subject line above the body on every form that is addressed to anyone.
+- Number and date are on the draft — Every draft put up on a file bears the file number, and the number and date of the last communication in the series must be quoted.
+- Written in the third person — An Office Memorandum is written in the third person and bears no salutation or subscription.
+- Signature block carries designation, telephone and email — The name, designation, telephone number, fax number and e-mail address of the signing officer must invariably be on the draft.
+- The date of the final reply is named — An interim reply exists to give the party a date. Without one it says only that nothing has happened, which the party already knows.
+- No placeholder is left unfilled — A draft that goes out with {{…}} still in it has not been read.
+
+What the officer has already written. Complete it — do not replace what is there:
+- urgency: none
+- fileNumber: A-11011/2/2026-Estt.
+- ministry: Ministry of Personnel, Public Grievances and Pensions
+- department: Department of Personnel and Training
+- place: New Delhi
+- date: 2026-08-28
+- addressee: The Under Secretary
+Department of Expenditure
+North Block, New Delhi
+- subject: Interim reply — grant of Children Education Allowance for the academic year 2025-26.
+- paras: The undersigned is directed to refer to the communication cited above and to say that the matter requires the comments of the Integrated Finance Division, which has been called for from the Integrated Finance Division.
+A final reply will be sent by 31.07.2026.
+- signatoryName: A.B.C.
+- signatoryDesignation: Under Secretary to the Govt. of India
+- phone: 011-2309 2590
+- email: us-estt@nic.in
+- reference: this Department's O.M. of even number dated 12.05.2026
+- copyTo: The office order file.
+
+Still empty: whatIsAwaited, awaitedFrom, finalReplyBy."
+`;
+
+exports[`every form has an instruction > joining-report 1`] = `
+"Form: Joining report / कार्यग्रहण रिपोर्ट (id: joining-report).
+Used by: An officer joining a post.
+CSMOP 2022, sixteenth edition, paragraph 8.4(1).
+CSMOP prescribes no format for this document. This form follows the format of the nearest prescribed one; say nothing that claims the Manual specifies it.
+
+Structure:
+1. the place and date
+2. the addressee block
+3. the subject line, one sentence, ending in “regarding.” or “के संबंध में।”
+4. the salutation
+5. the body paragraphs
+6. the subscription
+7. the signature block — name, designation, telephone and e-mail
+8. the list of enclosures
+
+Rules:
+- Write in the THIRD person throughout — "the undersigned", "it is requested", never "I" or "we".
+- This form carries NO salutation.
+- This form carries NO subscription.
+- This form carries NO urgency grading.
+- Hindi register: use the administrative Hindi of the Central Secretariat (Rajbhasha) — "कार्यालय ज्ञापन", "अवर सचिव", "एतद्द्वारा" — and not everyday or literary Hindi. Keep file numbers, section numbers and English proper names in their original form.
+- Leave anything you were not told as four underscores (____). Never invent a file number, a date, an amount, a name or a designation.
+
+The document will be marked against this checklist, by the app, after you answer. Every item below must pass:
+- The subject is stated — The specimens in Appendix 8.1 carry a subject line above the body on every form that is addressed to anyone.
+- Paragraphs are serially numbered — The specimens leave the first paragraph unnumbered and number the rest from 2.
+- The forenoon or afternoon of joining is stated — Pay and the joining time run from the half-day. A report giving only a date will come back.
+- No placeholder is left unfilled — A draft that goes out with {{…}} still in it has not been read.
+
+What the officer has already written. Complete it — do not replace what is there:
+- place: New Delhi
+- date: 2026-08-28
+- addressee: The Under Secretary (Establishment)
+Department of Expenditure
+North Block, New Delhi
+- subject: Joining report on transfer to the Department of Expenditure.
+- paras: I have to report that I have joined the post of Section Officer in this Department on the forenoon of 01.09.2026, in pursuance of order No. A-32011/4/2026-Estt. dated 12.08.2026.
+I was relieved from the Department of Personnel and Training on the afternoon of 31.08.2026 vide their order No. A-32011/4/2026-Estt..
+It is requested that my joining may kindly be taken on record and the necessary entries made in the service book.
+- signatoryName: A.B.C.
+- signatoryDesignation: Section Officer
+- phone: 011-2309 2590
+- email: abc@nic.in
+- enclosures: A copy of the relieving order dated 31.08.2026.
+
+Still empty: post, joiningDate, joiningTime, orderReference, previousOffice, reliefDate, reliefTime, relievingOrder."
+`;
+
+exports[`every form has an instruction > leave-application 1`] = `
+"Form: Leave application / अवकाश आवेदन (id: leave-application).
+Used by: An officer or member of the staff applying for leave to the authority competent to sanction it, through the Section Officer or Branch Officer.
+CSMOP 2022, sixteenth edition, paragraphs 8.4(4), Appendix 8.1.
+CSMOP prescribes no format for this document. This form follows the format of the nearest prescribed one; say nothing that claims the Manual specifies it.
+
+Structure:
+1. the place and date
+2. the addressee block
+3. the subject line, one sentence, ending in “regarding.” or “के संबंध में।”
+4. the salutation
+5. the body paragraphs
+6. the subscription
+7. the signature block — name, designation, telephone and e-mail
+8. the list of enclosures
+
+Rules:
+- Write in the FIRST person — this form is one named officer writing to another.
+- Open with the salutation "Sir / Madam,".
+- Close with the subscription "Yours faithfully,".
+- This form carries NO urgency grading.
+- Hindi register: use the administrative Hindi of the Central Secretariat (Rajbhasha) — "कार्यालय ज्ञापन", "अवर सचिव", "एतद्द्वारा" — and not everyday or literary Hindi. Keep file numbers, section numbers and English proper names in their original form.
+- Leave anything you were not told as four underscores (____). Never invent a file number, a date, an amount, a name or a designation.
+
+The document will be marked against this checklist, by the app, after you answer. Every item below must pass:
+- Kind of leave, dates and number of days are stated — An application that does not say which leave, from when and for how many days cannot be sanctioned without going back to the applicant.
+- The subject is stated — The specimens in Appendix 8.1 carry a subject line above the body on every form that is addressed to anyone.
+- Paragraphs are serially numbered — The specimens leave the first paragraph unnumbered and number the rest from 2.
+- Enclosures mentioned in the text are listed — A draft should clearly specify the enclosures which are to accompany the fair copy, and the number goes at the bottom left.
+- No placeholder is left unfilled — A draft that goes out with {{…}} still in it has not been read.
+
+What the officer has already written. Complete it — do not replace what is there:
+- place: New Delhi
+- date: 2026-08-28
+- addressee: The Under Secretary (Administration)
+Department of Personnel and Training
+North Block, New Delhi - 110001
+(Through the Section Officer, Establishment Section)
+- leaveType: earned
+- fromDate: 2026-10-01
+- toDate: 2026-10-30
+- days: 30
+- subject: Application for 30 days' earned leave — regarding.
+- paras: I request that I may kindly be granted 30 days' earned leave from 01.10.2026 to 30.10.2026, with permission to prefix 30.09.2026 and suffix 31.10.2026, both public holidays, to the leave.
+The leave is required to attend to a family commitment. My address during the period of leave will be 14, Rajaji Marg, Coimbatore - 641002, telephone 98xxx xxxxx.
+During my absence the work of the Section may kindly be entrusted to Shri P.Q.R., Assistant Section Officer, who has agreed to hold the charge.
+It is certified that I am likely, on the expiry of this leave, to return to duty at the station from which I proceed on leave.
+- signatoryName: X. Y. Zachariah
+- signatoryDesignation: Section Officer, Establishment Section
+- phone: 011-2309 2591
+- enclosures: Leave account, as verified by the Establishment Section
+
+Still empty: mainPoint."
+`;
+
+exports[`every form has an instruction > letter 1`] = `
+"Form: Letter / पत्र (id: letter).
+Used by: A Department writing to a State Government, the UPSC or another constitutional body, the head of an attached or subordinate office, a public enterprise, a statutory authority, a public body or a member of the public.
+CSMOP 2022, sixteenth edition, paragraphs 8.4(1), 8.8 Table 8.1, Appendix 8.1.
+
+Structure:
+1. the urgency grading, at the very top
+2. the file number
+3. the letterhead — Ministry, Department and office
+4. the place and date
+5. the addressee block
+6. the “Kind attention” line
+7. the subject line, one sentence, ending in “regarding.” or “के संबंध में।”
+8. the salutation
+9. the body paragraphs
+10. the subscription
+11. the signature block — name, designation, telephone and e-mail
+12. the list of enclosures
+13. the copy-to list
+
+Rules:
+- Write in the FIRST person — this form is one named officer writing to another.
+- Open with the salutation "Sir / Madam,".
+- Close with the subscription "Yours faithfully,".
+- An urgency grading (Immediate / Priority / Top Priority — तत्काल / प्राथमिकता / परम अग्रता) may be shown at the top. Grade it only if the officer asked for one; an ungraded communication is the normal case.
+- Hindi register: use the administrative Hindi of the Central Secretariat (Rajbhasha) — "कार्यालय ज्ञापन", "अवर सचिव", "एतद्द्वारा" — and not everyday or literary Hindi. Keep file numbers, section numbers and English proper names in their original form.
+- Leave anything you were not told as four underscores (____). Never invent a file number, a date, an amount, a name or a designation.
+
+The document will be marked against this checklist, by the app, after you answer. Every item below must pass:
+- Number and date are on the draft — Every draft put up on a file bears the file number, and the number and date of the last communication in the series must be quoted.
+- The subject is stated — The specimens in Appendix 8.1 carry a subject line above the body on every form that is addressed to anyone.
+- Salutation and subscription are present — A letter begins with 'Sir / Madam' and ends with 'Yours faithfully'.
+- Paragraphs are serially numbered — The specimens leave the first paragraph unnumbered and number the rest from 2.
+- Enclosures mentioned in the text are listed — A draft should clearly specify the enclosures which are to accompany the fair copy, and the number goes at the bottom left.
+- Signature block carries designation, telephone and email — The name, designation, telephone number, fax number and e-mail address of the signing officer must invariably be on the draft.
+- No placeholder is left unfilled — A draft that goes out with {{…}} still in it has not been read.
+
+What the officer has already written. Complete it — do not replace what is there:
+- urgency: none
+- fileNumber: A-11011/2/2026-Estt.
+- ministry: Ministry of Personnel, Public Grievances and Pensions
+- department: Department of Personnel and Training
+- place: New Delhi
+- date: 2026-08-28
+- addressee: The Chief Secretary
+Government of Rajasthan
+Secretariat, Jaipur - 302005
+- subject: Grant of Children Education Allowance — clarification regarding.
+- paras: With reference to your letter No. F.3/17/2026-GAD dated 04.08.2026 on the subject cited above, I am directed to say that the revised rates of Children Education Allowance apply to the officers of the All India Services serving in connection with the affairs of the State.
+The relevant orders of the Department of Expenditure are enclosed for ready reference.
+It is requested that the position may be brought to the notice of all concerned and a compliance report sent to this Department by 30.09.2026.
+- signatoryName: A.B.C.
+- signatoryDesignation: Under Secretary to the Govt. of India
+- phone: 011-2309 2590
+- email: us-estt@nic.in
+- enclosures: Department of Expenditure O.M. No. 12011/03/2008-Estt.(AL) dated 11.11.2008 (2 pages)
+- copyTo: The Accountant General (A&E), Rajasthan, Jaipur
+Guard file
+
+Still empty: mainPoint."
+`;
+
+exports[`every form has an instruction > ltc-application 1`] = `
+"Form: LTC application / अवकाश यात्रा रियायत आवेदन (id: ltc-application).
+Used by: An officer, on their own behalf.
+CSMOP 2022, sixteenth edition, paragraph 8.4(1).
+CSMOP prescribes no format for this document. This form follows the format of the nearest prescribed one; say nothing that claims the Manual specifies it.
+
+Structure:
+1. the place and date
+2. the addressee block
+3. the subject line, one sentence, ending in “regarding.” or “के संबंध में।”
+4. the salutation
+5. the body paragraphs
+6. the subscription
+7. the signature block — name, designation, telephone and e-mail
+8. the list of enclosures
+
+Rules:
+- Write in the FIRST person — this form is one named officer writing to another.
+- This form carries NO salutation.
+- This form carries NO subscription.
+- This form carries NO urgency grading.
+- Hindi register: use the administrative Hindi of the Central Secretariat (Rajbhasha) — "कार्यालय ज्ञापन", "अवर सचिव", "एतद्द्वारा" — and not everyday or literary Hindi. Keep file numbers, section numbers and English proper names in their original form.
+- Leave anything you were not told as four underscores (____). Never invent a file number, a date, an amount, a name or a designation.
+
+The document will be marked against this checklist, by the app, after you answer. Every item below must pass:
+- The block year is declared — The concession is availed in a four-year block and the sanctioning authority checks the block before anything else.
+- The subject is stated — The specimens in Appendix 8.1 carry a subject line above the body on every form that is addressed to anyone.
+- Paragraphs are serially numbered — The specimens leave the first paragraph unnumbered and number the rest from 2.
+- No placeholder is left unfilled — A draft that goes out with {{…}} still in it has not been read.
+
+What the officer has already written. Complete it — do not replace what is there:
+- place: New Delhi
+- date: 2026-08-28
+- addressee: The Under Secretary (Establishment)
+Department of Personnel and Training
+North Block, New Delhi
+- subject: Application for leave travel concession for the block year 2026-2029.
+- paras: I request that I may be permitted to avail of leave travel concession of the home town kind for the block year 2026-2029, in respect of myself and the members of my family listed below.
+My declared home town is Varanasi and the place to be visited is Varanasi. The journey is proposed to be performed from 10.10.2026 to 20.10.2026 by rail, in the entitled class.
+# Family members travelling
+. 
+An advance of Rs. 30,000 is requested, which I undertake to adjust by submitting the claim within one month of the completion of the return journey.
+I have applied separately for leave for the period of the journey.
+- signatoryName: A.B.C.
+- signatoryDesignation: Assistant Section Officer
+- phone: 011-2309 2590
+- email: abc@nic.in
+- enclosures: A copy of the declaration of my home town.
+
+Still empty: ltcType, blockYear, homeTown, destination, fromDate, toDate, modeOfTravel, familyMembers."
+`;
+
+exports[`every form has an instruction > minutes-of-meeting 1`] = `
+"Form: Minutes of meeting / बैठक का कार्यवृत्त (id: minutes-of-meeting).
+Used by: The section that convened the meeting.
+CSMOP 2022, sixteenth edition, paragraph 8.4(10).
+CSMOP prescribes no format for this document. This form follows the format of the nearest prescribed one; say nothing that claims the Manual specifies it.
+
+Structure:
+1. the file number
+2. the letterhead — Ministry, Department and office
+3. the place and date
+4. the form’s own title, centred
+5. the subject line, one sentence, ending in “regarding.” or “के संबंध में।”
+6. the body paragraphs
+7. the signature block — name, designation, telephone and e-mail
+8. the addressee block
+9. the list of enclosures
+10. the copy-to list
+
+Rules:
+- Write in the THIRD person throughout — "the undersigned", "it is requested", never "I" or "we".
+- This form carries NO salutation.
+- This form carries NO subscription.
+- This form carries NO urgency grading.
+- Hindi register: use the administrative Hindi of the Central Secretariat (Rajbhasha) — "कार्यालय ज्ञापन", "अवर सचिव", "एतद्द्वारा" — and not everyday or literary Hindi. Keep file numbers, section numbers and English proper names in their original form.
+- Leave anything you were not told as four underscores (____). Never invent a file number, a date, an amount, a name or a designation.
+
+The document will be marked against this checklist, by the app, after you answer. Every item below must pass:
+- The subject is stated — The specimens in Appendix 8.1 carry a subject line above the body on every form that is addressed to anyone.
+- Number and date are on the draft — Every draft put up on a file bears the file number, and the number and date of the last communication in the series must be quoted.
+- Written in the third person — An Office Memorandum is written in the third person and bears no salutation or subscription.
+- Signature block carries designation, telephone and email — The name, designation, telephone number, fax number and e-mail address of the signing officer must invariably be on the draft.
+- Date, venue and who presided are recorded — Minutes record the date, time and venue of the meeting and who presided over it.
+- No placeholder is left unfilled — A draft that goes out with {{…}} still in it has not been read.
+
+What the officer has already written. Complete it — do not replace what is there:
+- fileNumber: A-11011/2/2026-Estt.
+- ministry: Ministry of Personnel, Public Grievances and Pensions
+- department: Department of Personnel and Training
+- place: New Delhi
+- date: 2026-08-28
+- addressee: The Under Secretary
+Department of Expenditure
+North Block, New Delhi
+- subject: Minutes of the meeting held on 20.08.2026 on the revision of the Recruitment Rules.
+- paras: A meeting was held on 20.08.2026 at 11.00 a.m. in Room No. 108, North Block, New Delhi under the chairmanship of Shri R.K. Sharma, Joint Secretary (Administration) to consider the revision of the Recruitment Rules for the post of Assistant Section Officer.
+# Participants
+. 
+# Discussion and decisions
+The meeting ended with a vote of thanks to the Chair. Action on each decision above rests with the office named against it, and a compliance report is to reach this Section by 30.09.2026.
+- signatoryName: A.B.C.
+- signatoryDesignation: Under Secretary to the Govt. of India
+- phone: 011-2309 2590
+- email: us-estt@nic.in
+- enclosures: The agenda circulated for the meeting.
+- copyTo: All participants.
+The meeting file.
+
+Still empty: meetingDate, meetingTime, venue, chairperson, agenda, participants, decisions, complianceBy."
+`;
+
+exports[`every form has an instruction > noc-issue 1`] = `
+"Form: No Objection Certificate / अनापत्ति प्रमाणपत्र (id: noc-issue).
+Used by: An establishment section, as the employer.
+CSMOP 2022, sixteenth edition, paragraph 8.4(3).
+CSMOP prescribes no format for this document. This form follows the format of the nearest prescribed one; say nothing that claims the Manual specifies it.
+
+Structure:
+1. the urgency grading, at the very top
+2. the file number
+3. the letterhead — Ministry, Department and office
+4. the place and date
+5. the form’s own title, centred
+6. the subject line, one sentence, ending in “regarding.” or “के संबंध में।”
+7. the body paragraphs
+8. the signature block — name, designation, telephone and e-mail
+9. the addressee block
+10. the list of enclosures
+11. the copy-to list
+
+Rules:
+- Write in the THIRD person throughout — "the undersigned", "it is requested", never "I" or "we".
+- This form carries NO salutation.
+- This form carries NO subscription.
+- An urgency grading (Immediate / Priority / Top Priority — तत्काल / प्राथमिकता / परम अग्रता) may be shown at the top. Grade it only if the officer asked for one; an ungraded communication is the normal case.
+- Hindi register: use the administrative Hindi of the Central Secretariat (Rajbhasha) — "कार्यालय ज्ञापन", "अवर सचिव", "एतद्द्वारा" — and not everyday or literary Hindi. Keep file numbers, section numbers and English proper names in their original form.
+- Leave anything you were not told as four underscores (____). Never invent a file number, a date, an amount, a name or a designation.
+
+The document will be marked against this checklist, by the app, after you answer. Every item below must pass:
+- The subject is stated — The specimens in Appendix 8.1 carry a subject line above the body on every form that is addressed to anyone.
+- Number and date are on the draft — Every draft put up on a file bears the file number, and the number and date of the last communication in the series must be quoted.
+- Written in the third person — An Office Memorandum is written in the third person and bears no salutation or subscription.
+- Signature block carries designation, telephone and email — The name, designation, telephone number, fax number and e-mail address of the signing officer must invariably be on the draft.
+- The purpose and validity are stated — A no-objection certificate with no purpose and no expiry on it is a certificate the office has lost control of.
+- No placeholder is left unfilled — A draft that goes out with {{…}} still in it has not been read.
+
+What the officer has already written. Complete it — do not replace what is there:
+- urgency: none
+- fileNumber: A-11011/2/2026-Estt.
+- ministry: Ministry of Personnel, Public Grievances and Pensions
+- department: Department of Personnel and Training
+- place: New Delhi
+- date: 2026-08-28
+- addressee: The Under Secretary
+Department of Expenditure
+North Block, New Delhi
+- subject: No Objection Certificate for the issue of an ordinary passport.
+- paras: This is to certify that Shri A.B.C. is employed in this Department as Assistant Section Officer since 15.07.2019 and that the Department has no objection to the issue of an ordinary passport to the employee.
+No disciplinary or vigilance proceedings are pending or contemplated against the employee.
+This certificate is issued at the request of the employee for applying for an ordinary passport and is valid up to 31.12.2026. It is not to be used for any other purpose.
+- signatoryName: A.B.C.
+- signatoryDesignation: Under Secretary to the Govt. of India
+- phone: 011-2309 2590
+- email: us-estt@nic.in
+- copyTo: The employee concerned.
+The personal file.
+
+Still empty: employeeName, employeeDesignation, sinceDate, noObjectionTo, purpose, validUpto."
+`;
+
+exports[`every form has an instruction > noc-request 1`] = `
+"Form: NOC request / अनापत्ति हेतु अनुरोध (id: noc-request).
+Used by: An officer, on their own behalf.
+CSMOP 2022, sixteenth edition, paragraph 8.4(1).
+CSMOP prescribes no format for this document. This form follows the format of the nearest prescribed one; say nothing that claims the Manual specifies it.
+
+Structure:
+1. the place and date
+2. the addressee block
+3. the subject line, one sentence, ending in “regarding.” or “के संबंध में।”
+4. the salutation
+5. the body paragraphs
+6. the subscription
+7. the signature block — name, designation, telephone and e-mail
+8. the list of enclosures
+
+Rules:
+- Write in the FIRST person — this form is one named officer writing to another.
+- This form carries NO salutation.
+- This form carries NO subscription.
+- This form carries NO urgency grading.
+- Hindi register: use the administrative Hindi of the Central Secretariat (Rajbhasha) — "कार्यालय ज्ञापन", "अवर सचिव", "एतद्द्वारा" — and not everyday or literary Hindi. Keep file numbers, section numbers and English proper names in their original form.
+- Leave anything you were not told as four underscores (____). Never invent a file number, a date, an amount, a name or a designation.
+
+The document will be marked against this checklist, by the app, after you answer. Every item below must pass:
+- The purpose is stated — The office certifies against the purpose named and no other; a request with none asks the office to certify at large.
+- The subject is stated — The specimens in Appendix 8.1 carry a subject line above the body on every form that is addressed to anyone.
+- Paragraphs are serially numbered — The specimens leave the first paragraph unnumbered and number the rest from 2.
+- No placeholder is left unfilled — A draft that goes out with {{…}} still in it has not been read.
+
+What the officer has already written. Complete it — do not replace what is there:
+- place: New Delhi
+- date: 2026-08-28
+- addressee: The Under Secretary (Establishment)
+Department of Personnel and Training
+North Block, New Delhi
+- subject: Request for a no objection certificate for the issue of an ordinary passport.
+- paras: I request that a no objection certificate may kindly be issued in my favour for applying for an ordinary passport.
+My particulars are: name A.B.C., designation Assistant Section Officer, date of joining this Department 15.07.2019, employee code DPT/2019/0451.
+A copy of the application form and the passport-size photographs are enclosed.
+It is certified that no disciplinary or vigilance proceedings are pending or contemplated against me to the best of my knowledge.
+- signatoryName: A.B.C.
+- signatoryDesignation: Assistant Section Officer
+- phone: 011-2309 2590
+- email: abc@nic.in
+- enclosures: A copy of the application form.
+Two passport-size photographs.
+
+Still empty: purpose, employeeName, employeeDesignation, joiningDate, employeeCode."
+`;
+
+exports[`every form has an instruction > notification 1`] = `
+"Form: Notification / अधिसूचना (id: notification).
+Used by: A Department notifying the promulgation of statutory rules and orders, and the appointment or promotion of certain categories of officers, through publication in the Gazette of India.
+CSMOP 2022, sixteenth edition, paragraphs 8.4(6), 9.3, Appendix 8.1, Appendix 8.2.
+
+Structure:
+1. the gazette publication line
+2. the file number
+3. the letterhead — Ministry, Department and office
+4. the place and date
+5. the form’s own title, centred
+6. the body paragraphs
+7. the signature block — name, designation, telephone and e-mail
+8. the addressee block
+9. the copy-to list
+10. the list of enclosures
+
+Rules:
+- Write in the THIRD person throughout — "the undersigned", "it is requested", never "I" or "we".
+- This form carries NO salutation.
+- This form carries NO subscription.
+- This form carries NO urgency grading.
+- Hindi register: use the administrative Hindi of the Central Secretariat (Rajbhasha) — "कार्यालय ज्ञापन", "अवर सचिव", "एतद्द्वारा" — and not everyday or literary Hindi. Keep file numbers, section numbers and English proper names in their original form.
+- Leave anything you were not told as four underscores (____). Never invent a file number, a date, an amount, a name or a designation.
+- A notification is for publication in the Gazette of India and is written in the passive, impersonal register the Gazette prints; the enabling provision is quoted in the opening words.
+
+The document will be marked against this checklist, by the app, after you answer. Every item below must pass:
+- The Gazette Part and Section are stated at the top — The specimen opens '(To be published in the Gazette of India Part I, Section 2)'; Appendix 8.2 says what goes where.
+- Addressed to the Government of India Press — A notification is sent to the Manager, Government of India Press for publication; the people it concerns get copies.
+- Signed at Under Secretary level or above — Orders and instruments made in the name of the President are signed by an officer of or above the rank of Under Secretary, or one specifically authorised under the Authentication (Orders and Other Instruments) Rules, 2002.
+- Number and date are on the draft — Every draft put up on a file bears the file number, and the number and date of the last communication in the series must be quoted.
+- Enclosures mentioned in the text are listed — A draft should clearly specify the enclosures which are to accompany the fair copy, and the number goes at the bottom left.
+- No placeholder is left unfilled — A draft that goes out with {{…}} still in it has not been read.
+
+What the officer has already written. Complete it — do not replace what is there:
+- fileNumber: A-11011/2/2026-Estt.
+- ministry: Ministry of Personnel, Public Grievances and Pensions
+- department: Department of Personnel and Training
+- place: New Delhi
+- date: 2026-08-28
+- gazettePart: I
+- gazetteSection: 2
+- paras: No. A-32014/1/2026-Estt. — Shri X.Y.Z., Under Secretary in the Department of Personnel and Training, is appointed to officiate as Deputy Secretary in that Department with effect from 01.10.2026, vice Shri L.M.N., transferred to the Department of Expenditure.
+- signatoryName: A.B.C.
+- signatoryDesignation: Joint Secretary to the Govt. of India
+- phone: 011-2309 2590
+- email: us-estt@nic.in
+- addressee: The Manager
+Government of India Press
+Minto Road, New Delhi
+- copyTo: The officer concerned
+The Pay and Accounts Officer
+Guard file
+
+Still empty: mainPoint."
+`;
+
+exports[`every form has an instruction > noting 1`] = `
+"Form: Note on a file (noting) / फाइल पर टिप्पणी (id: noting).
+Used by: The Dealing Officer and every officer above in the channel of submission, recording a note on the notes portion of a file so that the competent authority can decide.
+CSMOP 2022, sixteenth edition, paragraphs 7.1, 7.2, 7.3, 7.6, 7.14, 6.7, 6.8.
+
+Structure:
+1. the urgency grading, at the very top
+2. the file number
+3. the subject line, one sentence, ending in “regarding.” or “के संबंध में।”
+4. the reference to the communication being answered — its number and its date
+5. the body paragraphs
+6. the signature block — name, designation, telephone and e-mail
+7. the footer
+
+Rules:
+- Write in the THIRD person throughout — "the undersigned", "it is requested", never "I" or "we".
+- This form carries NO salutation.
+- This form carries NO subscription.
+- An urgency grading (Immediate / Priority / Top Priority — तत्काल / प्राथमिकता / परम अग्रता) may be shown at the top. Grade it only if the officer asked for one; an ungraded communication is the normal case.
+- Hindi register: use the administrative Hindi of the Central Secretariat (Rajbhasha) — "कार्यालय ज्ञापन", "अवर सचिव", "एतद्द्वारा" — and not everyday or literary Hindi. Keep file numbers, section numbers and English proper names in their original form.
+- Leave anything you were not told as four underscores (____). Never invent a file number, a date, an amount, a name or a designation.
+- A note on a file is written for the officer who will decide, not for the addressee of the case: state the facts, the rule, the precedent and then the precise point on which orders are sought (CSMOP 7.3).
+
+The document will be marked against this checklist, by the app, after you answer. Every item below must pass:
+- Divided into serially numbered paragraphs — A note will be divided into serially numbered paragraphs; in a problem-solving or policy case the paragraphs may carry brief titles.
+- Full signature with the complete date — The Dealing Officer affixes a full signature with the complete date (dd/mm/yyyy) on the left below the note; a Section Officer and above sign on the right.
+- The competent authority is named — Indicate the authority competent to take the decision, along with the delegation of powers relied on.
+- A course of action is proposed — Suggest the course of action to be taken with justification, along with the alternatives for the competent authority to consider.
+- The subject is stated — The specimens in Appendix 8.1 carry a subject line above the body on every form that is addressed to anyone.
+- No placeholder is left unfilled — A draft that goes out with {{…}} still in it has not been read.
+
+What the officer has already written. Complete it — do not replace what is there:
+- urgency: none
+- fileNumber: A-11011/2/2026-Estt.
+- subject: Grant of Children Education Allowance — clarification regarding.
+- noteType: problem-solving
+- references: PUC at page 7/c — application of Shri X.Y.Z. dated 04.08.2026
+Flag 'A' — CCS (Leave) Rules, 1972, Rule 26
+Flag 'B' — File No. A-11011/9/2024-Estt., page 12/n (precedent)
+- paras: The paper under consideration at page 7/c is an application from Shri X.Y.Z., Section Officer, for 30 days' earned leave from 01.10.2026 to 30.10.2026, with permission to prefix 30.09.2026 and suffix 31.10.2026, both public holidays.
+The rule position is at flag 'A'. Rule 26 of the CCS (Leave) Rules, 1972 permits earned leave up to 180 days at a time, and prefixing and suffixing of holidays is admissible unless the leave is on medical grounds followed by fitness certification.
+The applicant has 96 days of earned leave to his credit as on 01.10.2026, as verified from the leave account at page 9/c. The Section can be managed by Shri P.Q.R. during the period.
+A precedent in a similar case is at flag 'B', decided at the level of the Under Secretary.
+In view of the above, it is proposed that the leave applied for may be sanctioned. If approved, a draft Office Order is placed below for signature.
+Under Secretary (Administration) is the competent authority to sanction earned leave to a Section Officer. Submitted for approval.
+- levelOfDisposal: Under Secretary (Administration)
+- signatoryName: S. Iyer
+- signatoryDesignation: Assistant Section Officer
+- date: 2026-08-28
+
+Still empty: mainPoint."
+`;
+
+exports[`every form has an instruction > office-memorandum 1`] = `
+"Form: Office Memorandum (O.M.) / कार्यालय ज्ञापन (id: office-memorandum).
+Used by: A Department communicating a decision to other Departments including its attached and subordinate offices, calling for or providing information, writing to its own employees, and exchanging information between sections within a Ministry.
+CSMOP 2022, sixteenth edition, paragraphs 8.4(3), 8.8 Table 8.1, Appendix 8.1.
+
+Structure:
+1. the urgency grading, at the very top
+2. the file number
+3. the letterhead — Ministry, Department and office
+4. the place and date
+5. the form’s own title, centred
+6. the subject line, one sentence, ending in “regarding.” or “के संबंध में।”
+7. the body paragraphs
+8. the signature block — name, designation, telephone and e-mail
+9. the addressee block
+10. the list of enclosures
+11. the copy-to list
+
+Rules:
+- Write in the THIRD person throughout — "the undersigned", "it is requested", never "I" or "we".
+- This form carries NO salutation.
+- This form carries NO subscription.
+- An urgency grading (Immediate / Priority / Top Priority — तत्काल / प्राथमिकता / परम अग्रता) may be shown at the top. Grade it only if the officer asked for one; an ungraded communication is the normal case.
+- Hindi register: use the administrative Hindi of the Central Secretariat (Rajbhasha) — "कार्यालय ज्ञापन", "अवर सचिव", "एतद्द्वारा" — and not everyday or literary Hindi. Keep file numbers, section numbers and English proper names in their original form.
+- Leave anything you were not told as four underscores (____). Never invent a file number, a date, an amount, a name or a designation.
+- Never address an O.M. to a constitutional or statutory authority; a letter is used for that (CSMOP 8.4(3)).
+
+The document will be marked against this checklist, by the app, after you answer. Every item below must pass:
+- Written in the third person — An Office Memorandum is written in the third person and bears no salutation or subscription.
+- Number and date are on the draft — Every draft put up on a file bears the file number, and the number and date of the last communication in the series must be quoted.
+- The subject is stated — The specimens in Appendix 8.1 carry a subject line above the body on every form that is addressed to anyone.
+- Paragraphs are serially numbered — The specimens leave the first paragraph unnumbered and number the rest from 2.
+- Enclosures mentioned in the text are listed — A draft should clearly specify the enclosures which are to accompany the fair copy, and the number goes at the bottom left.
+- Signature block carries designation, telephone and email — The name, designation, telephone number, fax number and e-mail address of the signing officer must invariably be on the draft.
+- No placeholder is left unfilled — A draft that goes out with {{…}} still in it has not been read.
+
+What the officer has already written. Complete it — do not replace what is there:
+- urgency: none
+- fileNumber: A-11011/2/2026-Estt.
+- ministry: Ministry of Personnel, Public Grievances and Pensions
+- department: Department of Personnel and Training
+- place: New Delhi
+- date: 2026-08-28
+- subject: Grant of Children Education Allowance — clarification regarding.
+- paras: The undersigned is directed to refer to this Department's O.M. No. A-11011/2/2025-Estt. dated 12.03.2025 on the subject cited above and to say that the question of reimbursement of Children Education Allowance in respect of a child studying under the National Institute of Open Schooling has been under consideration.
+Doubts have been expressed whether the provisions of the said O.M. also apply to such a child. It is hereby clarified that reimbursement is admissible on production of a certificate of enrolment from the institution, subject to the two-child limit.
+This issues with the approval of the competent authority.
+- signatoryName: A.B.C.
+- signatoryDesignation: Under Secretary to the Govt. of India
+- phone: 011-2309 2590
+- email: us-estt@nic.in
+- addressee: All Ministries / Departments of the Government of India
+(as per standard list)
+- copyTo: The Pay and Accounts Officer, Department of Personnel and Training
+Guard file
+Hindi Section — for Hindi version
+
+Still empty: mainPoint."
+`;
+
+exports[`every form has an instruction > office-order 1`] = `
+"Form: Office Order / कार्यालय आदेश (id: office-order).
+Used by: A Department, for its own establishment.
+CSMOP 2022, sixteenth edition, paragraphs 8.4(4), Appendix 8.1.
+CSMOP prescribes no format for this document. This form follows the format of the nearest prescribed one; say nothing that claims the Manual specifies it.
+
+Structure:
+1. the file number
+2. the letterhead — Ministry, Department and office
+3. the place and date
+4. the form’s own title, centred
+5. the subject line, one sentence, ending in “regarding.” or “के संबंध में।”
+6. the body paragraphs
+7. the signature block — name, designation, telephone and e-mail
+8. the list of enclosures
+9. the copy-to list
+
+Rules:
+- Write in the THIRD person throughout — "the undersigned", "it is requested", never "I" or "we".
+- This form carries NO salutation.
+- This form carries NO subscription.
+- This form carries NO urgency grading.
+- Hindi register: use the administrative Hindi of the Central Secretariat (Rajbhasha) — "कार्यालय ज्ञापन", "अवर सचिव", "एतद्द्वारा" — and not everyday or literary Hindi. Keep file numbers, section numbers and English proper names in their original form.
+- Leave anything you were not told as four underscores (____). Never invent a file number, a date, an amount, a name or a designation.
+
+The document will be marked against this checklist, by the app, after you answer. Every item below must pass:
+- The subject is stated — The specimens in Appendix 8.1 carry a subject line above the body on every form that is addressed to anyone.
+- Number and date are on the draft — Every draft put up on a file bears the file number, and the number and date of the last communication in the series must be quoted.
+- Written in the third person — An Office Memorandum is written in the third person and bears no salutation or subscription.
+- Signature block carries designation, telephone and email — The name, designation, telephone number, fax number and e-mail address of the signing officer must invariably be on the draft.
+- No placeholder is left unfilled — A draft that goes out with {{…}} still in it has not been read.
+
+What the officer has already written. Complete it — do not replace what is there:
+- fileNumber: A-11011/2/2026-Estt.
+- ministry: Ministry of Personnel, Public Grievances and Pensions
+- department: Department of Personnel and Training
+- place: New Delhi
+- date: 2026-08-28
+- subject: Grant of earned leave to Shri A.B.C., Assistant Section Officer.
+- paras: Earned leave for 10 days from 01.09.2026 to 10.09.2026 is sanctioned in favour of Shri A.B.C., Assistant Section Officer, under rule 26 of the CCS (Leave) Rules, 1972.
+The officer will hand over charge to Shri P.Q.R., Assistant Section Officer before proceeding on leave and will resume duty on the forenoon of the day following the expiry of the leave.
+- signatoryName: A.B.C.
+- signatoryDesignation: Under Secretary to the Govt. of India
+- phone: 011-2309 2590
+- email: us-estt@nic.in
+- copyTo: The officer concerned.
+The Cashier.
+The Section concerned.
+The office order file.
+
+Still empty: officerName, officerDesignation, days, fromDate, toDate."
+`;
+
+exports[`every form has an instruction > relieving-order 1`] = `
+"Form: Relieving order / कार्यमुक्ति आदेश (id: relieving-order).
+Used by: An establishment section.
+CSMOP 2022, sixteenth edition, paragraph 8.4(4).
+CSMOP prescribes no format for this document. This form follows the format of the nearest prescribed one; say nothing that claims the Manual specifies it.
+
+Structure:
+1. the file number
+2. the letterhead — Ministry, Department and office
+3. the place and date
+4. the form’s own title, centred
+5. the subject line, one sentence, ending in “regarding.” or “के संबंध में।”
+6. the body paragraphs
+7. the signature block — name, designation, telephone and e-mail
+8. the list of enclosures
+9. the copy-to list
+
+Rules:
+- Write in the THIRD person throughout — "the undersigned", "it is requested", never "I" or "we".
+- This form carries NO salutation.
+- This form carries NO subscription.
+- This form carries NO urgency grading.
+- Hindi register: use the administrative Hindi of the Central Secretariat (Rajbhasha) — "कार्यालय ज्ञापन", "अवर सचिव", "एतद्द्वारा" — and not everyday or literary Hindi. Keep file numbers, section numbers and English proper names in their original form.
+- Leave anything you were not told as four underscores (____). Never invent a file number, a date, an amount, a name or a designation.
+
+The document will be marked against this checklist, by the app, after you answer. Every item below must pass:
+- The subject is stated — The specimens in Appendix 8.1 carry a subject line above the body on every form that is addressed to anyone.
+- Number and date are on the draft — Every draft put up on a file bears the file number, and the number and date of the last communication in the series must be quoted.
+- Written in the third person — An Office Memorandum is written in the third person and bears no salutation or subscription.
+- Signature block carries designation, telephone and email — The name, designation, telephone number, fax number and e-mail address of the signing officer must invariably be on the draft.
+- The forenoon or afternoon of relief is stated — Pay, allowances and the joining time all run from the half-day of relief. An order that gives only a date leaves the receiving office to guess.
+- No placeholder is left unfilled — A draft that goes out with {{…}} still in it has not been read.
+
+What the officer has already written. Complete it — do not replace what is there:
+- fileNumber: A-11011/2/2026-Estt.
+- ministry: Ministry of Personnel, Public Grievances and Pensions
+- department: Department of Personnel and Training
+- place: New Delhi
+- date: 2026-08-28
+- subject: Relieving of Shri A.B.C., Section Officer, on transfer.
+- paras: Consequent upon the transfer of Shri A.B.C., Assistant Section Officer, to the Department of Expenditure vide order No. A-32011/4/2026-Estt. dated 12.08.2026, the officer is relieved of the duties of this office with effect from the afternoon of 31.08.2026.
+The officer has handed over charge to Shri P.Q.R., Assistant Section Officer and there are no dues outstanding against the officer in this office as on the date of relief.
+- signatoryName: A.B.C.
+- signatoryDesignation: Under Secretary to the Govt. of India
+- phone: 011-2309 2590
+- email: us-estt@nic.in
+- copyTo: The officer concerned.
+The office to which the officer is transferred.
+The Cashier.
+The Pay and Accounts Officer.
+The personal file.
+
+Still empty: officerName, officerDesignation, newOffice, transferOrder, transferDate, reliefDate, reliefTime, chargeTo."
+`;
+
+exports[`every form has an instruction > reminder 1`] = `
+"Form: Reminder / अनुस्मारक (id: reminder).
+Used by: Any section awaiting a reply.
+CSMOP 2022, sixteenth edition, paragraphs 8.10, 9.2(iv), 9.2(v).
+CSMOP prescribes no format for this document. This form follows the format of the nearest prescribed one; say nothing that claims the Manual specifies it.
+
+Structure:
+1. the urgency grading, at the very top
+2. the file number
+3. the letterhead — Ministry, Department and office
+4. the place and date
+5. the addressee block
+6. the subject line, one sentence, ending in “regarding.” or “के संबंध में।”
+7. the salutation
+8. the body paragraphs
+9. the subscription
+10. the signature block — name, designation, telephone and e-mail
+11. the list of enclosures
+12. the copy-to list
+
+Rules:
+- Write in the FIRST person — this form is one named officer writing to another.
+- This form carries NO salutation.
+- This form carries NO subscription.
+- An urgency grading (Immediate / Priority / Top Priority — तत्काल / प्राथमिकता / परम अग्रता) may be shown at the top. Grade it only if the officer asked for one; an ungraded communication is the normal case.
+- Hindi register: use the administrative Hindi of the Central Secretariat (Rajbhasha) — "कार्यालय ज्ञापन", "अवर सचिव", "एतद्द्वारा" — and not everyday or literary Hindi. Keep file numbers, section numbers and English proper names in their original form.
+- Leave anything you were not told as four underscores (____). Never invent a file number, a date, an amount, a name or a designation.
+- A reminder quotes the number and the date of the communication being reminded about and adds nothing else; the substance was in the original.
+
+The document will be marked against this checklist, by the app, after you answer. Every item below must pass:
+- The subject is stated — The specimens in Appendix 8.1 carry a subject line above the body on every form that is addressed to anyone.
+- Number and date are on the draft — Every draft put up on a file bears the file number, and the number and date of the last communication in the series must be quoted.
+- Signature block carries designation, telephone and email — The name, designation, telephone number, fax number and e-mail address of the signing officer must invariably be on the draft.
+- Paragraphs are serially numbered — The specimens leave the first paragraph unnumbered and number the rest from 2.
+- The communication being chased is quoted — A reminder that does not quote the number and date of what it is reminding about is a reminder the receiving section cannot connect to anything.
+- No placeholder is left unfilled — A draft that goes out with {{…}} still in it has not been read.
+
+What the officer has already written. Complete it — do not replace what is there:
+- urgency: none
+- fileNumber: A-11011/2/2026-Estt.
+- ministry: Ministry of Personnel, Public Grievances and Pensions
+- department: Department of Personnel and Training
+- place: New Delhi
+- date: 2026-08-28
+- addressee: The Under Secretary
+Department of Expenditure
+North Block, New Delhi
+- subject: Reminder — information called for on the revision of the Recruitment Rules.
+- paras: I am directed to invite a reference to this Department's Office Memorandum No. A-11011/2/2026-Estt. dated 12.05.2026 on the subject cited above, to which a reply is still awaited.
+A reminder was also issued vide No. A-11011/2/2026-Estt.(i) dated 20.06.2026.
+It is requested that the information may be furnished by 31.07.2026, so that the matter can be placed before the competent authority.
+- signatoryName: A.B.C.
+- signatoryDesignation: Under Secretary to the Govt. of India
+- phone: 011-2309 2590
+- email: us-estt@nic.in
+- copyTo: The office order file.
+
+Still empty: stage, originalForm, originalNumber, originalDate, replyBy."
+`;
+
+exports[`every form has an instruction > representation 1`] = `
+"Form: Representation / अभ्यावेदन (id: representation).
+Used by: A Government servant representing to the competent authority on a matter of personal grievance — seniority, pay fixation, transfer, a denied claim — through proper channel.
+CSMOP 2022, sixteenth edition, paragraphs 8.4(1), 8.9, Appendix 8.1.
+CSMOP prescribes no format for this document. This form follows the format of the nearest prescribed one; say nothing that claims the Manual specifies it.
+
+Structure:
+1. the place and date
+2. the addressee block
+3. the subject line, one sentence, ending in “regarding.” or “के संबंध में।”
+4. the reference to the communication being answered — its number and its date
+5. the salutation
+6. the body paragraphs
+7. the subscription
+8. the signature block — name, designation, telephone and e-mail
+9. the list of enclosures
+
+Rules:
+- Write in the FIRST person — this form is one named officer writing to another.
+- Open with the salutation "Sir / Madam,".
+- Close with the subscription "Yours faithfully,".
+- This form carries NO urgency grading.
+- Hindi register: use the administrative Hindi of the Central Secretariat (Rajbhasha) — "कार्यालय ज्ञापन", "अवर सचिव", "एतद्द्वारा" — and not everyday or literary Hindi. Keep file numbers, section numbers and English proper names in their original form.
+- Leave anything you were not told as four underscores (____). Never invent a file number, a date, an amount, a name or a designation.
+
+The document will be marked against this checklist, by the app, after you answer. Every item below must pass:
+- The order represented against is identified — The number and date of the last communication in the series must always be referred to; a representation against an unidentified order cannot be examined.
+- Routed through the proper channel — A representation goes to the competent authority through the head of office, who forwards it with the Department's comments.
+- The relief sought is stated — Say what you are asking for. A representation that describes a grievance without naming the relief leaves the deciding officer nothing to order.
+- The subject is stated — The specimens in Appendix 8.1 carry a subject line above the body on every form that is addressed to anyone.
+- Paragraphs are serially numbered — The specimens leave the first paragraph unnumbered and number the rest from 2.
+- Enclosures mentioned in the text are listed — A draft should clearly specify the enclosures which are to accompany the fair copy, and the number goes at the bottom left.
+- No placeholder is left unfilled — A draft that goes out with {{…}} still in it has not been read.
+
+What the officer has already written. Complete it — do not replace what is there:
+- place: New Delhi
+- date: 2026-08-28
+- addressee: The Joint Secretary (Administration)
+Department of Personnel and Training
+North Block, New Delhi - 110001
+(Through proper channel)
+- subject: Representation against fixation of pay on promotion to the post of Section Officer — regarding.
+- reference: Office Order No. A-11011/4/2026-Estt. dated 12.06.2026
+- paras: I respectfully submit the following representation for kind consideration against the fixation of my pay on promotion to the post of Section Officer, communicated vide the Office Order cited above.
+I was promoted to the post of Section Officer with effect from 01.05.2026 and my pay was fixed at Level 8, Cell 1 of the Pay Matrix. I had exercised the option under FR 22(I)(a)(1) to have my pay fixed from the date of my next increment, which option is on record at page 11 of my service book.
+The option appears not to have been given effect to. Had it been applied, my pay would have been fixed at Level 8, Cell 2 with effect from 01.07.2026, and the difference works out to Rs. 2,400 per month.
+In similar circumstances, the pay of Shri A.B.C., Section Officer, was re-fixed by this Department vide Office Order No. A-11011/7/2025-Estt. dated 09.09.2025, a copy of which is enclosed.
+I therefore request that my pay may kindly be re-fixed in terms of the option exercised, and the arrears released. I shall be grateful for a decision at an early date.
+- signatoryName: X. Y. Zachariah
+- signatoryDesignation: Section Officer, Establishment Section
+- phone: 011-2309 2591
+- enclosures: Copy of Office Order No. A-11011/7/2025-Estt. dated 09.09.2025
+Copy of the option exercised under FR 22(I)(a)(1)
+
+Still empty: mainPoint."
+`;
+
+exports[`every form has an instruction > rti-application 1`] = `
+"Form: RTI application (as a citizen) / आरटीआई आवेदन (नागरिक के रूप में) (id: rti-application).
+Used by: An officer, on their own behalf.
+CSMOP 2022, sixteenth edition, paragraph 12.5.
+CSMOP prescribes no format for this document. This form follows the format of the nearest prescribed one; say nothing that claims the Manual specifies it.
+
+Structure:
+1. the place and date
+2. the addressee block
+3. the subject line, one sentence, ending in “regarding.” or “के संबंध में।”
+4. the salutation
+5. the body paragraphs
+6. the subscription
+7. the signature block — name, designation, telephone and e-mail
+8. the list of enclosures
+
+Rules:
+- Write in the FIRST person — this form is one named officer writing to another.
+- This form carries NO salutation.
+- This form carries NO subscription.
+- This form carries NO urgency grading.
+- Hindi register: use the administrative Hindi of the Central Secretariat (Rajbhasha) — "कार्यालय ज्ञापन", "अवर सचिव", "एतद्द्वारा" — and not everyday or literary Hindi. Keep file numbers, section numbers and English proper names in their original form.
+- Leave anything you were not told as four underscores (____). Never invent a file number, a date, an amount, a name or a designation.
+
+The document will be marked against this checklist, by the app, after you answer. Every item below must pass:
+- The fee is accounted for — A request under section 6(1) is accompanied by the prescribed fee; without it the clock does not start.
+- The subject is stated — The specimens in Appendix 8.1 carry a subject line above the body on every form that is addressed to anyone.
+- Paragraphs are serially numbered — The specimens leave the first paragraph unnumbered and number the rest from 2.
+- No placeholder is left unfilled — A draft that goes out with {{…}} still in it has not been read.
+
+What the officer has already written. Complete it — do not replace what is there:
+- place: New Delhi
+- date: 2026-08-28
+- addressee: The Central Public Information Officer
+Department of Personnel and Training
+North Block, New Delhi - 110001
+- subject: Request for information under section 6 of the Right to Information Act, 2005.
+- paras: I request the following information under section 6 of the Right to Information Act, 2005, relating to the filling of the posts of Assistant Section Officer by promotion for the period 1 April 2024 to 31 March 2026.
+. 
+The prescribed fee of Rs. 10 has been paid by an Indian Postal Order of Rs. 10 bearing number 45F 123456, enclosed. I am a citizen of India.
+The information may kindly be sent to the address given above. If any part of this request is held to relate to another public authority, it may be transferred under section 6(3) within five days and I may be informed.
+- signatoryName: A.B.C.
+- signatoryDesignation: Applicant
+- phone: 011-2309 2590
+- email: abc@nic.in
+- enclosures: Indian Postal Order No. 45F 123456 for Rs. 10.
+
+Still empty: aboutWhat, period, points, feeMode."
+`;
+
+exports[`every form has an instruction > rti-first-appeal-reply 1`] = `
+"Form: RTI first appeal — order / आरटीआई प्रथम अपील — आदेश (id: rti-first-appeal-reply).
+Used by: The First Appellate Authority.
+CSMOP 2022, sixteenth edition, paragraph 12.5.
+CSMOP prescribes no format for this document. This form follows the format of the nearest prescribed one; say nothing that claims the Manual specifies it.
+
+Structure:
+1. the file number
+2. the letterhead — Ministry, Department and office
+3. the place and date
+4. the form’s own title, centred
+5. the subject line, one sentence, ending in “regarding.” or “के संबंध में।”
+6. the body paragraphs
+7. the signature block — name, designation, telephone and e-mail
+8. the addressee block
+9. the list of enclosures
+10. the copy-to list
+
+Rules:
+- Write in the THIRD person throughout — "the undersigned", "it is requested", never "I" or "we".
+- This form carries NO salutation.
+- This form carries NO subscription.
+- This form carries NO urgency grading.
+- Hindi register: use the administrative Hindi of the Central Secretariat (Rajbhasha) — "कार्यालय ज्ञापन", "अवर सचिव", "एतद्द्वारा" — and not everyday or literary Hindi. Keep file numbers, section numbers and English proper names in their original form.
+- Leave anything you were not told as four underscores (____). Never invent a file number, a date, an amount, a name or a designation.
+- A first-appeal order is a speaking order: it records the appeal, the CPIO’s reply, the finding on each ground, and the further appeal to the Central Information Commission within ninety days (RTI Act s.19(3)).
+
+The document will be marked against this checklist, by the app, after you answer. Every item below must pass:
+- The subject is stated — The specimens in Appendix 8.1 carry a subject line above the body on every form that is addressed to anyone.
+- Number and date are on the draft — Every draft put up on a file bears the file number, and the number and date of the last communication in the series must be quoted.
+- Signature block carries designation, telephone and email — The name, designation, telephone number, fax number and e-mail address of the signing officer must invariably be on the draft.
+- The second appeal to the CIC is stated with its time limit — Section 19(3) gives ninety days for a second appeal to the Central Information Commission. An order that does not name the forum and the limit leaves the appellant to find both.
+- Reasons for the decision are recorded — A first-appeal order is a quasi-judicial order and must give the reasons on its face.
+- No placeholder is left unfilled — A draft that goes out with {{…}} still in it has not been read.
+
+What the officer has already written. Complete it — do not replace what is there:
+- fileNumber: A-11011/2/2026-Estt.
+- ministry: Ministry of Personnel, Public Grievances and Pensions
+- department: Department of Personnel and Training
+- place: New Delhi
+- date: 2026-08-28
+- addressee: Shri A.B.C.
+12, Rajendra Nagar
+New Delhi - 110060
+- subject: Order in first appeal under section 19(1) of the RTI Act, 2005 — appeal of Shri A.B.C.
+- paras: The appellant filed an application under the Right to Information Act, 2005 on 02.05.2026, which was replied to by the Central Public Information Officer on 29.05.2026. The present appeal under section 19(1) was received on 18.06.2026.
+The appellant's grievance is that point 3 of the application, relating to the file notings, was not answered at all.
+The record and the submissions of the Central Public Information Officer have been examined. The reply of the Central Public Information Officer does not deal with point 3, and no exemption under section 8 has been claimed in respect of it.
+Accordingly, the appeal is partly allowed. The Central Public Information Officer is directed to furnish a point-wise reply to point 3 free of cost within fifteen days of the receipt of this order.
+If the appellant is not satisfied with this order, a second appeal lies to the Central Information Commission, Baba Gangnath Marg, Munirka, New Delhi - 110067, under section 19(3) of the Act, within ninety days of the date on which this order is received.
+- signatoryName: A.B.C.
+- signatoryDesignation: First Appellate Authority
+- phone: 011-2309 2590
+- email: us-estt@nic.in
+- copyTo: The Central Public Information Officer concerned.
+The RTI file.
+
+Still empty: applicationDate, cpioReplyDate, appealDate, grievance, finding, decision, direction."
+`;
+
+exports[`every form has an instruction > rti-reply 1`] = `
+"Form: Reply to an RTI application / सूचना का अधिकार आवेदन का उत्तर (id: rti-reply).
+Used by: The Central Public Information Officer replying to an application under the Right to Information Act, 2005.
+CSMOP 2022, sixteenth edition, paragraphs 8.4(1), 8.9, 12.5, Appendix 8.1.
+CSMOP prescribes no format for this document. This form follows the format of the nearest prescribed one; say nothing that claims the Manual specifies it.
+
+Structure:
+1. the file number
+2. the letterhead — Ministry, Department and office
+3. the place and date
+4. the addressee block
+5. the subject line, one sentence, ending in “regarding.” or “के संबंध में।”
+6. the reference to the communication being answered — its number and its date
+7. the salutation
+8. the body paragraphs
+9. the subscription
+10. the signature block — name, designation, telephone and e-mail
+11. the footer
+12. the list of enclosures
+13. the copy-to list
+
+Rules:
+- Write in the FIRST person — this form is one named officer writing to another.
+- Open with the salutation "Sir / Madam,".
+- Close with the subscription "Yours faithfully,".
+- This form carries NO urgency grading.
+- Hindi register: use the administrative Hindi of the Central Secretariat (Rajbhasha) — "कार्यालय ज्ञापन", "अवर सचिव", "एतद्द्वारा" — and not everyday or literary Hindi. Keep file numbers, section numbers and English proper names in their original form.
+- Leave anything you were not told as four underscores (____). Never invent a file number, a date, an amount, a name or a designation.
+- An RTI reply states the information, or the exemption relied on with the sub-clause of section 8(1) or 9, and it must always give the name and address of the First Appellate Authority and the thirty-day limit (RTI Act s.7, s.19(1)).
+
+The document will be marked against this checklist, by the app, after you answer. Every item below must pass:
+- The First Appellate Authority is named with the 30-day limit — Section 7(8) of the Act requires the reply to state the particulars of the appellate authority and the time limit. Its absence is itself a ground of appeal.
+- Answered point by point — Reply in the applicant's own numbering. A single paragraph answering four questions leaves the applicant unable to tell which was refused.
+- The application date and the date of receipt are both stated — The 30 days run from receipt, not from the date the applicant wrote. Both dates on the reply are what let anyone check that it was in time.
+- The subject is stated — The specimens in Appendix 8.1 carry a subject line above the body on every form that is addressed to anyone.
+- Signature block carries designation, telephone and email — The name, designation, telephone number, fax number and e-mail address of the signing officer must invariably be on the draft.
+- Enclosures mentioned in the text are listed — A draft should clearly specify the enclosures which are to accompany the fair copy, and the number goes at the bottom left.
+- No placeholder is left unfilled — A draft that goes out with {{…}} still in it has not been read.
+
+What the officer has already written. Complete it — do not replace what is there:
+- fileNumber: A-11011/2/2026-Estt.
+- ministry: Ministry of Personnel, Public Grievances and Pensions
+- department: Department of Personnel and Training
+- place: New Delhi
+- date: 2026-08-28
+- addressee: Shri Ramesh Kumar
+27, Gandhi Nagar
+Meerut, Uttar Pradesh - 250002
+- subject: Reply to the application dated 04.08.2026 under the Right to Information Act, 2005 — regarding.
+- applicationDate: 2026-08-04
+- receivedOn: 2026-08-11
+- paras: Please refer to your application dated 04.08.2026 under the Right to Information Act, 2005, received in this office on 11.08.2026 and registered at No. DOPT/R/2026/60214. The information sought is furnished point-wise below.
+Point 1: The number of posts of Section Officer sanctioned in this Department as on 01.04.2026 is 214, of which 187 are filled. A statement is enclosed.
+Point 2: The information sought relates to the deliberations of a Departmental Promotion Committee and is exempt from disclosure under Section 8(1)(j) of the Act, being personal information the disclosure of which has no relationship to any public activity or interest.
+Point 3: The information sought is not held by this Department. Your application has been transferred in respect of this point to the Central Public Information Officer, Department of Expenditure, under Section 6(3) of the Act, and you are advised accordingly.
+If you are not satisfied with this reply, you may prefer a first appeal under Section 19(1) of the Act within 30 days to Shri A. K. Menon, Deputy Secretary and First Appellate Authority, Department of Personnel and Training, North Block, New Delhi - 110001.
+- signatoryName: A.B.C.
+- signatoryDesignation: Under Secretary and Central Public Information Officer
+- phone: 011-2309 2590
+- email: us-estt@nic.in
+- appellateAuthority: Shri A. K. Menon, Deputy Secretary
+Department of Personnel and Training
+North Block, New Delhi - 110001
+- enclosures: Statement of sanctioned and filled posts of Section Officer as on 01.04.2026 (1 page)
+- copyTo: The Central Public Information Officer, Department of Expenditure — for information and necessary action under Section 6(3)
+
+Still empty: mainPoint."
+`;
+
+exports[`every form has an instruction > sanction-order 1`] = `
+"Form: Sanction order / स्वीकृति आदेश (id: sanction-order).
+Used by: A Department, exercising delegated financial powers.
+CSMOP 2022, sixteenth edition, paragraphs 8.4(5), 9.3(i), Appendix 8.1.
+CSMOP prescribes no format for this document. This form follows the format of the nearest prescribed one; say nothing that claims the Manual specifies it.
+
+Structure:
+1. the file number
+2. the letterhead — Ministry, Department and office
+3. the place and date
+4. the form’s own title, centred
+5. the subject line, one sentence, ending in “regarding.” or “के संबंध में।”
+6. the body paragraphs
+7. the signature block — name, designation, telephone and e-mail
+8. the list of enclosures
+9. the copy-to list
+
+Rules:
+- Write in the THIRD person throughout — "the undersigned", "it is requested", never "I" or "we".
+- This form carries NO salutation.
+- This form carries NO subscription.
+- This form carries NO urgency grading.
+- Hindi register: use the administrative Hindi of the Central Secretariat (Rajbhasha) — "कार्यालय ज्ञापन", "अवर सचिव", "एतद्द्वारा" — and not everyday or literary Hindi. Keep file numbers, section numbers and English proper names in their original form.
+- Leave anything you were not told as four underscores (____). Never invent a file number, a date, an amount, a name or a designation.
+- A sanction order names the authority sanctioning, the exact amount in figures and in words, the head of account and the financial year, and quotes the rule of the GFR or the delegation under which the sanction is issued.
+
+The document will be marked against this checklist, by the app, after you answer. Every item below must pass:
+- The subject is stated — The specimens in Appendix 8.1 carry a subject line above the body on every form that is addressed to anyone.
+- Number and date are on the draft — Every draft put up on a file bears the file number, and the number and date of the last communication in the series must be quoted.
+- Written in the third person — An Office Memorandum is written in the third person and bears no salutation or subscription.
+- Signature block carries designation, telephone and email — The name, designation, telephone number, fax number and e-mail address of the signing officer must invariably be on the draft.
+- The sanction is expressed to be the President's — An instrument made in the name of the President must be expressed to be so made; a sanction that merely says 'sanction is accorded' names no authority at all.
+- The amount is given in figures and in words — A sanction carrying a figure alone is a sanction one keystroke can multiply by ten.
+- No placeholder is left unfilled — A draft that goes out with {{…}} still in it has not been read.
+
+What the officer has already written. Complete it — do not replace what is there:
+- fileNumber: A-11011/2/2026-Estt.
+- ministry: Ministry of Personnel, Public Grievances and Pensions
+- department: Department of Personnel and Training
+- place: New Delhi
+- date: 2026-08-28
+- subject: Sanction for the purchase of office furniture for the Establishment Section.
+- paras: Sanction of the President is hereby accorded under rule 10 of the Delegation of Financial Powers Rules, 1978 to the incurring of an expenditure of Rs. 1,25,000 (Rupees one lakh twenty-five thousand only) on the purchase of office furniture for the Establishment Section.
+The expenditure is debitable to the head of account 2052.00.090.01.13 — Office Expenses for the financial year 2026-27 and is within the sanctioned budget provision.
+This issues with the concurrence of the Integrated Finance Division vide their Dy. No. IFD/2026/431 dated 20.08.2026.
+- signatoryName: A.B.C.
+- signatoryDesignation: Under Secretary to the Govt. of India
+- phone: 011-2309 2590
+- email: us-estt@nic.in
+- copyTo: The Pay and Accounts Officer.
+The Integrated Finance Division.
+The sanction file.
+
+Still empty: authority, amount, amountWords, purpose, headOfAccount, financialYear."
+`;
+
+exports[`every form has an instruction > show-cause-reply 1`] = `
+"Form: Reply to a show-cause notice / कारण बताओ नोटिस का उत्तर (id: show-cause-reply).
+Used by: A Government servant replying to a show-cause notice or a memorandum of charges issued by the disciplinary authority.
+CSMOP 2022, sixteenth edition, paragraphs 8.4(1), 7.2(xi), Appendix 8.1.
+CSMOP prescribes no format for this document. This form follows the format of the nearest prescribed one; say nothing that claims the Manual specifies it.
+
+Structure:
+1. the place and date
+2. the addressee block
+3. the subject line, one sentence, ending in “regarding.” or “के संबंध में।”
+4. the reference to the communication being answered — its number and its date
+5. the salutation
+6. the body paragraphs
+7. the subscription
+8. the signature block — name, designation, telephone and e-mail
+9. the list of enclosures
+
+Rules:
+- Write in the FIRST person — this form is one named officer writing to another.
+- Open with the salutation "Sir / Madam,".
+- Close with the subscription "Yours faithfully,".
+- This form carries NO urgency grading.
+- Hindi register: use the administrative Hindi of the Central Secretariat (Rajbhasha) — "कार्यालय ज्ञापन", "अवर सचिव", "एतद्द्वारा" — and not everyday or literary Hindi. Keep file numbers, section numbers and English proper names in their original form.
+- Leave anything you were not told as four underscores (____). Never invent a file number, a date, an amount, a name or a designation.
+- A reply to a show-cause notice answers each charge separately, in the officer’s own voice, and never argues a point the notice did not raise.
+
+The document will be marked against this checklist, by the app, after you answer. Every item below must pass:
+- The notice is identified by number and date — The number and date of the communication being replied to must always be quoted.
+- Each allegation is answered separately — A reply that answers the notice as a whole leaves the disciplinary authority to guess which allegation is admitted and which is denied.
+- Courteous and temperate language, free from personal remarks — Where an incorrect statement has to be countered, care is taken to make the observation in courteous and temperate language free from personal remarks.
+- What is asked for is stated — Say whether you want the notice withdrawn, more time, the documents relied on, or a personal hearing.
+- The subject is stated — The specimens in Appendix 8.1 carry a subject line above the body on every form that is addressed to anyone.
+- Paragraphs are serially numbered — The specimens leave the first paragraph unnumbered and number the rest from 2.
+- Enclosures mentioned in the text are listed — A draft should clearly specify the enclosures which are to accompany the fair copy, and the number goes at the bottom left.
+- No placeholder is left unfilled — A draft that goes out with {{…}} still in it has not been read.
+
+What the officer has already written. Complete it — do not replace what is there:
+- place: New Delhi
+- date: 2026-08-28
+- addressee: The Deputy Secretary (Vigilance)
+Department of Personnel and Training
+North Block, New Delhi - 110001
+(Through proper channel)
+- subject: Reply to the show-cause notice dated 12.08.2026 — regarding.
+- reference: Show-cause notice No. A-19011/3/2026-Vig. dated 12.08.2026
+- paras: Please refer to the show-cause notice cited above. My reply to the allegations contained in it is submitted below, with respect.
+Allegation 1 — that the files at Sl. Nos. 4 to 9 of the Annexure were not submitted within the prescribed time. The delay in respect of five of these files is admitted. The files were received in the Section on 02.07.2026, when the Section was working with two of its four posts vacant, as recorded in this Department's own O.M. No. A-12011/2/2026-Estt. dated 08.07.2026.
+Allegation 2 — that the delay was not brought to the notice of the Branch Officer. This is not correct. The position was reported in my note dated 09.07.2026 at page 23/n of File No. A-12011/2/2026-Estt., a copy of which is enclosed.
+I have at no stage acted in disregard of the instructions on timely disposal, and no loss has been caused to the Government.
+In view of the above, I request that the notice may kindly be withdrawn and the matter dropped. Should it be considered necessary, I request an opportunity of a personal hearing before a decision is taken.
+- signatoryName: X. Y. Zachariah
+- signatoryDesignation: Section Officer, Establishment Section
+- phone: 011-2309 2591
+- enclosures: Copy of the note dated 09.07.2026 at page 23/n of File No. A-12011/2/2026-Estt.
+
+Still empty: mainPoint."
+`;
+
+exports[`every form has an instruction > speaking-order 1`] = `
+"Form: Speaking order / सकारण आदेश (id: speaking-order).
+Used by: A competent authority deciding a matter that affects a person's rights.
+CSMOP 2022, sixteenth edition, paragraph 8.4(5).
+CSMOP prescribes no format for this document. This form follows the format of the nearest prescribed one; say nothing that claims the Manual specifies it.
+
+Structure:
+1. the file number
+2. the letterhead — Ministry, Department and office
+3. the place and date
+4. the form’s own title, centred
+5. the subject line, one sentence, ending in “regarding.” or “के संबंध में।”
+6. the body paragraphs
+7. the signature block — name, designation, telephone and e-mail
+8. the list of enclosures
+9. the copy-to list
+
+Rules:
+- Write in the THIRD person throughout — "the undersigned", "it is requested", never "I" or "we".
+- This form carries NO salutation.
+- This form carries NO subscription.
+- This form carries NO urgency grading.
+- Hindi register: use the administrative Hindi of the Central Secretariat (Rajbhasha) — "कार्यालय ज्ञापन", "अवर सचिव", "एतद्द्वारा" — and not everyday or literary Hindi. Keep file numbers, section numbers and English proper names in their original form.
+- Leave anything you were not told as four underscores (____). Never invent a file number, a date, an amount, a name or a designation.
+- A speaking order records the material considered, the submissions made and the reason for the conclusion, in that order — a conclusion with no reason behind it is the defect the form exists to prevent.
+
+The document will be marked against this checklist, by the app, after you answer. Every item below must pass:
+- The subject is stated — The specimens in Appendix 8.1 carry a subject line above the body on every form that is addressed to anyone.
+- Number and date are on the draft — Every draft put up on a file bears the file number, and the number and date of the last communication in the series must be quoted.
+- Signature block carries designation, telephone and email — The name, designation, telephone number, fax number and e-mail address of the signing officer must invariably be on the draft.
+- Reasons for the decision are recorded — An order that decides a claim without giving reasons is not a speaking order and is liable to be set aside on appeal for that reason alone.
+- The appellate remedy is stated — A person told what has been decided must also be told to whom and within what time they may appeal, or the remedy is one they have to discover.
+- No placeholder is left unfilled — A draft that goes out with {{…}} still in it has not been read.
+
+What the officer has already written. Complete it — do not replace what is there:
+- fileNumber: A-11011/2/2026-Estt.
+- ministry: Ministry of Personnel, Public Grievances and Pensions
+- department: Department of Personnel and Training
+- place: New Delhi
+- date: 2026-08-28
+- subject: Order on the representation of Shri A.B.C. against the fixation of his pay.
+- paras: Shri A.B.C., Section Officer, has made a representation dated 05.06.2026 praying that his pay on promotion be re-fixed with effect from 01.07.2025.
+The representation has been examined with reference to FR 22(I)(a)(1) and the Department of Expenditure O.M. dated 27.07.2017 and to the records of the case.
+On the facts, the option for re-fixation was exercised beyond the period prescribed in the said O.M..
+In view of the foregoing, the representation is rejected. The option is required to be exercised within one month of the date of promotion, and no ground has been shown for condoning the delay of eleven months.
+The applicant may, if aggrieved, prefer an appeal to the Joint Secretary (Administration) within 45 days of the receipt of this order.
+- signatoryName: A.B.C.
+- signatoryDesignation: Under Secretary to the Govt. of India
+- phone: 011-2309 2590
+- email: us-estt@nic.in
+- copyTo: The office order file.
+
+Still empty: applicantName, applicantDesignation, representationDate, prayer, provision, finding, decision, reasons, appellateAuthority, appealDays."
+`;
+
+exports[`every form has an instruction > ta-bill-cover 1`] = `
+"Form: Covering letter for a travelling allowance bill / यात्रा भत्ता बिल का अग्रेषण पत्र (id: ta-bill-cover).
+Used by: An officer forwarding a completed travelling allowance bill to the Drawing and Disbursing Officer after a tour.
+CSMOP 2022, sixteenth edition, paragraphs 8.4(1), 8.4(9), 9.2(vii), Appendix 8.1.
+CSMOP prescribes no format for this document. This form follows the format of the nearest prescribed one; say nothing that claims the Manual specifies it.
+
+Structure:
+1. the file number
+2. the place and date
+3. the addressee block
+4. the subject line, one sentence, ending in “regarding.” or “के संबंध में।”
+5. the reference to the communication being answered — its number and its date
+6. the salutation
+7. the body paragraphs
+8. the subscription
+9. the signature block — name, designation, telephone and e-mail
+10. the list of enclosures
+
+Rules:
+- Write in the FIRST person — this form is one named officer writing to another.
+- Open with the salutation "Sir / Madam,".
+- Close with the subscription "Yours faithfully,".
+- This form carries NO urgency grading.
+- Hindi register: use the administrative Hindi of the Central Secretariat (Rajbhasha) — "कार्यालय ज्ञापन", "अवर सचिव", "एतद्द्वारा" — and not everyday or literary Hindi. Keep file numbers, section numbers and English proper names in their original form.
+- Leave anything you were not told as four underscores (____). Never invent a file number, a date, an amount, a name or a designation.
+
+The document will be marked against this checklist, by the app, after you answer. Every item below must pass:
+- Every voucher is listed — A draft should clearly specify the enclosures which are to accompany the fair copy, and the number goes at the bottom left. A T.A. bill without its tickets comes back.
+- The tour approval is cited — The bill is settled against the approved tour programme; cite the order that approved it by number and date.
+- The certificates the DDO needs are included — Class of travel actually used, no free transport or hospitality availed, daily allowance only for halts actually made, and whether an advance was drawn.
+- The amount claimed is stated — The covering letter states the amount so the bill can be checked against it.
+- The subject is stated — The specimens in Appendix 8.1 carry a subject line above the body on every form that is addressed to anyone.
+- Number and date are on the draft — Every draft put up on a file bears the file number, and the number and date of the last communication in the series must be quoted.
+- No placeholder is left unfilled — A draft that goes out with {{…}} still in it has not been read.
+
+What the officer has already written. Complete it — do not replace what is there:
+- fileNumber: A-11011/2/2026-Estt.
+- place: New Delhi
+- date: 2026-08-28
+- addressee: The Drawing and Disbursing Officer
+Department of Personnel and Training
+North Block, New Delhi - 110001
+- subject: Travelling allowance bill in respect of the tour to Mumbai from 15.09.2026 to 18.09.2026 — forwarding regarding.
+- reference: Tour programme approved vide Office Order No. A-24011/6/2026-Admn. dated 08.09.2026
+- amount: 18,640
+- paras: The travelling allowance bill in respect of the tour undertaken to Mumbai from 15.09.2026 to 18.09.2026, approved vide the Office Order cited above, is forwarded herewith for arranging payment. The amount claimed is Rs. 18,640.
+It is certified that the journeys were performed by the class of accommodation for which the claim is made, that no free transport or hospitality was availed of, and that the daily allowance claimed is for the halts actually made.
+No advance was drawn against this tour.
+- signatoryName: X. Y. Zachariah
+- signatoryDesignation: Section Officer, Level 8
+- phone: 011-2309 2591
+- enclosures: Travelling allowance bill in the prescribed form (2 pages)
+Copy of the approved tour programme
+Rail tickets and reservation slips, onward and return
+Hotel receipt for three nights at Mumbai
+
+Still empty: mainPoint."
+`;
+
+exports[`every form has an instruction > tour-programme 1`] = `
+"Form: Tour programme / दौरा कार्यक्रम (id: tour-programme).
+Used by: An officer putting up the itinerary of an official tour for the approval of the controlling authority, before the tour is undertaken.
+CSMOP 2022, sixteenth edition, paragraphs 8.4(4), Appendix 8.1.
+CSMOP prescribes no format for this document. This form follows the format of the nearest prescribed one; say nothing that claims the Manual specifies it.
+
+Structure:
+1. the urgency grading, at the very top
+2. the file number
+3. the letterhead — Ministry, Department and office
+4. the place and date
+5. the form’s own title, centred
+6. the subject line, one sentence, ending in “regarding.” or “के संबंध में।”
+7. the reference to the communication being answered — its number and its date
+8. the body paragraphs
+9. the footer
+10. the signature block — name, designation, telephone and e-mail
+11. the list of enclosures
+12. the copy-to list
+
+Rules:
+- Write in the THIRD person throughout — "the undersigned", "it is requested", never "I" or "we".
+- This form carries NO salutation.
+- This form carries NO subscription.
+- An urgency grading (Immediate / Priority / Top Priority — तत्काल / प्राथमिकता / परम अग्रता) may be shown at the top. Grade it only if the officer asked for one; an ungraded communication is the normal case.
+- Hindi register: use the administrative Hindi of the Central Secretariat (Rajbhasha) — "कार्यालय ज्ञापन", "अवर सचिव", "एतद्द्वारा" — and not everyday or literary Hindi. Keep file numbers, section numbers and English proper names in their original form.
+- Leave anything you were not told as four underscores (____). Never invent a file number, a date, an amount, a name or a designation.
+
+The document will be marked against this checklist, by the app, after you answer. Every item below must pass:
+- The itinerary is given date by date — The travelling allowance bill is settled against the approved itinerary; a programme without dates cannot be checked against a bill.
+- The purpose of the tour is stated — The approving authority is approving an expenditure; the purpose is what it is approving it for.
+- The approving authority is named — Indicate the authority competent to approve, the way a note indicates the level of disposal.
+- The subject is stated — The specimens in Appendix 8.1 carry a subject line above the body on every form that is addressed to anyone.
+- Number and date are on the draft — Every draft put up on a file bears the file number, and the number and date of the last communication in the series must be quoted.
+- Signature block carries designation, telephone and email — The name, designation, telephone number, fax number and e-mail address of the signing officer must invariably be on the draft.
+- No placeholder is left unfilled — A draft that goes out with {{…}} still in it has not been read.
+
+What the officer has already written. Complete it — do not replace what is there:
+- urgency: none
+- fileNumber: A-11011/2/2026-Estt.
+- ministry: Ministry of Personnel, Public Grievances and Pensions
+- department: Department of Personnel and Training
+- place: New Delhi
+- date: 2026-08-28
+- subject: Tour programme of Shri X.Y.Z., Section Officer, from 15.09.2026 to 18.09.2026 — approval regarding.
+- officerName: Shri X. Y. Zachariah
+- officerDesignation: Section Officer, Level 8
+- purpose: To attend the regional review meeting on implementation of e-Office version 7.0 and to inspect the Central Registration Unit of the Regional Office.
+- itinerary: 15.09.2026 — Depart New Delhi 06:00 by Train 12951 (2A); arrive Mumbai 22:30. Halt at Mumbai.
+16.09.2026 — Regional review meeting at the Regional Office, Mumbai, 10:00 to 17:00. Halt at Mumbai.
+17.09.2026 — Inspection of the Central Registration Unit, Regional Office, Mumbai. Halt at Mumbai.
+18.09.2026 — Depart Mumbai 08:00 by Train 12952 (2A); arrive New Delhi 23:35.
+- paras: The tour programme of Shri X.Y.Z., Section Officer (Level 8), for the period 15.09.2026 to 18.09.2026 is placed below for approval.
+Travel is proposed by rail in AC 2-tier, which is the entitlement at Level 8, and the officer will not be leaving headquarters on a public holiday. Daily allowance is claimed for three nights of halt at Mumbai.
+The expenditure is debitable to the sanctioned travel budget of the Division for the current financial year, in which a balance of Rs. 3,80,000 is available.
+- signatoryName: A.B.C.
+- signatoryDesignation: Under Secretary to the Govt. of India
+- phone: 011-2309 2590
+- email: us-estt@nic.in
+- approvingAuthority: Joint Secretary (Administration)
+- copyTo: The officer concerned
+The Drawing and Disbursing Officer
+Guard file
+
+Still empty: mainPoint."
+`;
+
+exports[`every form has an instruction > tour-report 1`] = `
+"Form: Tour report / दौरा रिपोर्ट (id: tour-report).
+Used by: The officer who undertook the tour.
+CSMOP 2022, sixteenth edition, paragraph 8.4(3).
+CSMOP prescribes no format for this document. This form follows the format of the nearest prescribed one; say nothing that claims the Manual specifies it.
+
+Structure:
+1. the file number
+2. the letterhead — Ministry, Department and office
+3. the place and date
+4. the form’s own title, centred
+5. the subject line, one sentence, ending in “regarding.” or “के संबंध में।”
+6. the body paragraphs
+7. the signature block — name, designation, telephone and e-mail
+8. the addressee block
+9. the list of enclosures
+10. the copy-to list
+
+Rules:
+- Write in the THIRD person throughout — "the undersigned", "it is requested", never "I" or "we".
+- This form carries NO salutation.
+- This form carries NO subscription.
+- This form carries NO urgency grading.
+- Hindi register: use the administrative Hindi of the Central Secretariat (Rajbhasha) — "कार्यालय ज्ञापन", "अवर सचिव", "एतद्द्वारा" — and not everyday or literary Hindi. Keep file numbers, section numbers and English proper names in their original form.
+- Leave anything you were not told as four underscores (____). Never invent a file number, a date, an amount, a name or a designation.
+
+The document will be marked against this checklist, by the app, after you answer. Every item below must pass:
+- The subject is stated — The specimens in Appendix 8.1 carry a subject line above the body on every form that is addressed to anyone.
+- Number and date are on the draft — Every draft put up on a file bears the file number, and the number and date of the last communication in the series must be quoted.
+- Signature block carries designation, telephone and email — The name, designation, telephone number, fax number and e-mail address of the signing officer must invariably be on the draft.
+- The tour approval is cited — The T.A. bill is settled against the approved programme; a report that does not cite the approval cannot be matched to it.
+- No placeholder is left unfilled — A draft that goes out with {{…}} still in it has not been read.
+
+What the officer has already written. Complete it — do not replace what is there:
+- fileNumber: A-11011/2/2026-Estt.
+- ministry: Ministry of Personnel, Public Grievances and Pensions
+- department: Department of Personnel and Training
+- place: New Delhi
+- date: 2026-08-28
+- addressee: The Under Secretary
+Department of Expenditure
+North Block, New Delhi
+- subject: Tour report — inspection of the Regional Office, Lucknow, from 12.08.2026 to 14.08.2026.
+- paras: The tour was undertaken with the approval of the Joint Secretary (Administration) conveyed vide O.M. No. A-19011/3/2026-Estt. dated 05.08.2026, for the purpose of the annual inspection of the Regional Office, Lucknow.
+# Places visited
+. 
+# Observations
+The Office is functioning with four posts vacant against a sanctioned strength of eleven, and disposal of pension cases has slipped to an average of 62 days.
+# Action proposed
+The vacancies may be filled on priority and a monthly disposal statement called for from the Regional Office.
+No free transport or hospitality was availed of during the tour except as stated above.
+- signatoryName: A.B.C.
+- signatoryDesignation: Under Secretary to the Govt. of India
+- phone: 011-2309 2590
+- email: us-estt@nic.in
+- enclosures: Boarding passes and hotel bills for the journey.
+- copyTo: The Establishment Section, for the T.A. bill.
+The tour file.
+
+Still empty: approvingAuthority, approvalReference, purpose, places, observations, actionProposed."
+`;
+
+exports[`every form has an instruction > transfer-request 1`] = `
+"Form: Transfer request / स्थानांतरण अनुरोध (id: transfer-request).
+Used by: An officer, on their own behalf.
+CSMOP 2022, sixteenth edition, paragraph 8.4(1).
+CSMOP prescribes no format for this document. This form follows the format of the nearest prescribed one; say nothing that claims the Manual specifies it.
+
+Structure:
+1. the place and date
+2. the addressee block
+3. the subject line, one sentence, ending in “regarding.” or “के संबंध में।”
+4. the salutation
+5. the body paragraphs
+6. the subscription
+7. the signature block — name, designation, telephone and e-mail
+8. the list of enclosures
+
+Rules:
+- Write in the FIRST person — this form is one named officer writing to another.
+- This form carries NO salutation.
+- This form carries NO subscription.
+- This form carries NO urgency grading.
+- Hindi register: use the administrative Hindi of the Central Secretariat (Rajbhasha) — "कार्यालय ज्ञापन", "अवर सचिव", "एतद्द्वारा" — and not everyday or literary Hindi. Keep file numbers, section numbers and English proper names in their original form.
+- Leave anything you were not told as four underscores (____). Never invent a file number, a date, an amount, a name or a designation.
+
+The document will be marked against this checklist, by the app, after you answer. Every item below must pass:
+- A ground the policy recognises is named — A request that gives no ground is decided against the general seniority position, which is rarely what the applicant wanted.
+- The subject is stated — The specimens in Appendix 8.1 carry a subject line above the body on every form that is addressed to anyone.
+- Paragraphs are serially numbered — The specimens leave the first paragraph unnumbered and number the rest from 2.
+- No placeholder is left unfilled — A draft that goes out with {{…}} still in it has not been read.
+
+What the officer has already written. Complete it — do not replace what is there:
+- place: New Delhi
+- date: 2026-08-28
+- addressee: The Under Secretary (Establishment)
+Department of Personnel and Training
+North Block, New Delhi
+- subject: Request for transfer to the Regional Office, Lucknow, on grounds of spouse posting.
+- paras: I request that I may be considered for transfer to the Regional Office, Lucknow, on the ground that my spouse, who is also in Central Government service, has been posted at Lucknow with effect from 01.07.2026.
+I have been serving at New Delhi since 15.07.2019, that is, for 7 years, and my present post is Assistant Section Officer, Establishment Section.
+In support, a copy of my spouse's posting order dated 20.06.2026 is enclosed.
+I shall be grateful if the request may be considered in accordance with the transfer policy of the Department. I am willing to be relieved at the convenience of the office.
+- signatoryName: A.B.C.
+- signatoryDesignation: Assistant Section Officer
+- phone: 011-2309 2590
+- email: abc@nic.in
+- enclosures: A copy of my spouse's posting order dated 20.06.2026.
+
+Still empty: requestedStation, ground, presentStation, sinceDate, durationYears, presentPost."
+`;
+
+exports[`every form has an instruction > vigilance-clearance 1`] = `
+"Form: Vigilance clearance request / सतर्कता निकासी अनुरोध (id: vigilance-clearance).
+Used by: An officer, on their own behalf.
+CSMOP 2022, sixteenth edition, paragraph 8.4(3).
+CSMOP prescribes no format for this document. This form follows the format of the nearest prescribed one; say nothing that claims the Manual specifies it.
+
+Structure:
+1. the place and date
+2. the addressee block
+3. the subject line, one sentence, ending in “regarding.” or “के संबंध में।”
+4. the salutation
+5. the body paragraphs
+6. the subscription
+7. the signature block — name, designation, telephone and e-mail
+8. the list of enclosures
+
+Rules:
+- Write in the FIRST person — this form is one named officer writing to another.
+- This form carries NO salutation.
+- This form carries NO subscription.
+- This form carries NO urgency grading.
+- Hindi register: use the administrative Hindi of the Central Secretariat (Rajbhasha) — "कार्यालय ज्ञापन", "अवर सचिव", "एतद्द्वारा" — and not everyday or literary Hindi. Keep file numbers, section numbers and English proper names in their original form.
+- Leave anything you were not told as four underscores (____). Never invent a file number, a date, an amount, a name or a designation.
+
+The document will be marked against this checklist, by the app, after you answer. Every item below must pass:
+- Both disciplinary and vigilance status are asked about — Clearance on disciplinary proceedings is not clearance on a vigilance case; a request that asks about one gets an answer about one.
+- The subject is stated — The specimens in Appendix 8.1 carry a subject line above the body on every form that is addressed to anyone.
+- Paragraphs are serially numbered — The specimens leave the first paragraph unnumbered and number the rest from 2.
+- No placeholder is left unfilled — A draft that goes out with {{…}} still in it has not been read.
+
+What the officer has already written. Complete it — do not replace what is there:
+- place: New Delhi
+- date: 2026-08-28
+- addressee: The Vigilance Officer
+Department of Personnel and Training
+North Block, New Delhi
+- subject: Vigilance clearance in respect of Shri A.B.C., Section Officer, for deputation.
+- paras: Vigilance clearance is requested in respect of Shri A.B.C., Section Officer, for deputation to the Department of Expenditure, covering the period the last ten years.
+It may kindly be confirmed whether any disciplinary proceedings under the CCS (CCA) Rules, 1965 are pending or contemplated against the officer, and whether any vigilance case, complaint or investigation is pending.
+The information is required by 20.09.2026, as the proposal has to be submitted to the Department of Expenditure by that date.
+- signatoryName: A.B.C.
+- signatoryDesignation: Under Secretary to the Govt. of India
+- phone: 011-2309 2590
+- email: abc@nic.in
+- enclosures: The deputation proposal in respect of the officer.
+
+Still empty: officerName, officerDesignation, purpose, period, replyBy, submitTo."
+`;

@@ -3,6 +3,7 @@ import { useLiveQuery } from 'dexie-react-hooks'
 import { useMemo, useState } from 'react'
 import { Link } from 'react-router-dom'
 
+import { DraftHome } from './components/DraftHome'
 import { RecentDrafts } from './components/RecentDrafts'
 import { listFavourites, listPersonal, listRecents, toggleFavourite } from './personalStore'
 import { profileIsSet, readProfile } from './profileStore'
@@ -45,25 +46,22 @@ export default function PickerPage() {
     <div className="mx-auto flex max-w-6xl flex-col gap-6">
       <PageHeader title={t('pages.draft.title')} subtitle={t('pages.draft.subtitle')} />
 
-      <RecentDrafts />
+      {/*
+        The draft library (Session 31, ADR-043 §6): continue editing, what is
+        waiting for a reply, the actions, and search across every document on
+        the device. It is FIRST because most visits here are to carry on with
+        something rather than to start a new form — and the template grid is
+        still the second thing on the same screen, which is why nothing that
+        linked to `/draft` for a form had to change.
+      */}
+      <DraftHome />
 
-      <nav aria-label={t('draft.editor.documents')} className="flex flex-wrap gap-2">
-        <Button asChild variant="outline" size="sm">
-          <Link to="/draft/documents">{t('draft.editor.documents')}</Link>
-        </Button>
-        <Button asChild variant="outline" size="sm">
-          <Link to="/draft/my-templates">{t('draft.personal.heading')}</Link>
-        </Button>
-        <Button asChild variant="outline" size="sm">
-          <Link to="/draft/profile">{t('draft.profile.heading')}</Link>
-        </Button>
-        <Button asChild variant="outline" size="sm">
-          <Link to="/draft/address-book">{t('draft.addressBook.heading')}</Link>
-        </Button>
-        <Button asChild variant="outline" size="sm">
-          <Link to="/draft/numbering">{t('draft.numbering.heading')}</Link>
-        </Button>
-      </nav>
+      {/*
+        The Session 8 drafts, still reachable in the editor that wrote them.
+        Kept below the new list rather than removed: `drafts` is not dropped and
+        the migration on `/draft/documents` copies rather than moves.
+      */}
+      <RecentDrafts />
 
       <ProfileNudge />
       <PersonalTemplates />

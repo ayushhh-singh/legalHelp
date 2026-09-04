@@ -840,6 +840,7 @@
         "write": "Write",
         "details": "Details",
         "review": "Review",
+        "modify": "Change",
         "versions": "Versions",
         "comments": "Notes to self",
         "export": "Export"
@@ -1518,7 +1519,6 @@
       "dueToday": "Due today",
       "reply": "Reply to a letter",
       "replyHint": "Paste a letter that arrived and draft the answer to it.",
-      "newFromTemplate": "New from a template",
       "register": "Correspondence register",
       "search": "Search your documents",
       "searchHint": "Subject, reference number, or anything in the body.",
@@ -1533,8 +1533,7 @@
       "results": "{{count}} document",
       "results_other": "{{count}} documents",
       "rename": "Rename",
-      "renamePrompt": "New title",
-      "bulkExport": "Export the selected documents"
+      "renamePrompt": "New title"
     },
     "intake": {
       "heading": "Reply to a letter",
@@ -1585,9 +1584,7 @@
       "confirmTitle": "The letter will be sent",
       "confirmBody": "The whole letter goes to the AI provider you configured in Settings. Do not do this with official, sensitive or classified correspondence. Everything above was read on this device and needs no provider.",
       "confirm": "Send it and analyse",
-      "cancel": "Cancel",
       "run": "Analyse",
-      "running": "Analysing…",
       "step": {
         "screening": "Checking what would be sent…",
         "reading": "Reading the letter…",
@@ -1611,9 +1608,6 @@
       "instruction": "What to change",
       "instructionHint": "For example: make the third paragraph firmer, shorten it to one page, or add a reference to Rule 18(2) of the Conduct Rules.",
       "run": "Suggest the change",
-      "running": "Working…",
-      "cancel": "Cancel",
-      "scopeWhole": "The whole document",
       "scopeSelection": "The selected paragraph only",
       "scopeSelectionHint": "Anything the suggestion changes outside it is discarded.",
       "quick": "Quick changes",
@@ -1671,13 +1665,11 @@
       "delete": "Delete",
       "deleted": "The entry has been deleted.",
       "undo": "Undo",
-      "direction": "Direction",
       "received": "Received",
       "sent": "Sent",
       "number": "Reference number",
       "date": "Date",
       "receivedOn": "Received on",
-      "correspondent": "From / To",
       "correspondentName": "Name",
       "correspondentOrg": "Office",
       "subject": "Subject",
@@ -1690,7 +1682,6 @@
       "notes": "Notes",
       "inReplyTo": "In reply to",
       "inReplyToNone": "Nothing — this starts a thread",
-      "thread": "Thread",
       "threadOf": "{{count}} entry in this thread",
       "threadOf_other": "{{count}} entries in this thread",
       "openThread": "Open the thread",
@@ -1717,9 +1708,6 @@
       "cancel": "Cancel",
       "count": "{{count}} entry",
       "count_other": "{{count}} entries",
-      "reminderTitle": "A follow-up is due",
-      "reminderBody": "{{count}} entry in your register is waiting for a reply.",
-      "reminderBody_other": "{{count}} entries in your register are waiting for a reply.",
       "reminderNote": "Reminders can only appear while Sahayak is open in a tab — this app has no server to send one from."
     }
   },

@@ -39,6 +39,8 @@ const ROUTES = [
   '/draft/numbering',
   '/draft/my-templates',
   '/draft/import',
+  '/draft/reply',
+  '/draft/register',
   '/learn',
   // The review card itself — a radiogroup of options, four grade buttons and a
   // report dialog — is the single most-used screen in the Trainer and was swept

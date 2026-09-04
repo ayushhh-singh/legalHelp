@@ -35,6 +35,14 @@ const PersonalTemplatesPage = lazy(() => import('./PersonalTemplatesPage'))
 */
 const ImportPage = lazy(() => import('./ImportPage'))
 const PrintPage = lazy(() => import('./PrintPage'))
+/*
+  Session 31's two screens. The reply screen pulls `data/law` when a letter it
+  read actually cites something, and the register pulls nothing at all — so
+  both are split for the ordinary reason: they are screens, and an officer
+  writing a new O.M. should download neither.
+*/
+const ReplyPage = lazy(() => import('./intake/ReplyPage'))
+const RegisterPage = lazy(() => import('./register/RegisterPage'))
 
 function Fallback() {
   const { t } = useT()
@@ -55,6 +63,9 @@ export default function DraftPage() {
         <Route path="d/:id" element={<DocEditorPage />} />
         <Route path="d/:id/print" element={<PrintPage />} />
         <Route path="import" element={<ImportPage />} />
+        <Route path="reply" element={<ReplyPage />} />
+        <Route path="reply/:id" element={<ReplyPage />} />
+        <Route path="register" element={<RegisterPage />} />
         <Route path="profile" element={<ProfilePage />} />
         <Route path="address-book" element={<AddressBookPage />} />
         <Route path="numbering" element={<NumberingPage />} />

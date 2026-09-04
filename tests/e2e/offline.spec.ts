@@ -111,6 +111,8 @@ const EVERY_ROUTE = [
   '/draft/numbering',
   '/draft/my-templates',
   '/draft/import',
+  '/draft/reply',
+  '/draft/register',
   '/learn',
   '/learn/review',
   // recharts is behind this route's own chunk; an offline reload is what proves
