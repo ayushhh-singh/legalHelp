@@ -4,17 +4,17 @@ import { beforeEach, describe, expect, it } from 'vitest'
 
 import {
   activeExamChoice,
-  allExamChoices,
   clearActiveExam,
-  examChoice,
   forgetExam,
   setActiveExam,
   setDailyMinutes,
   setTargetDate,
 } from './store'
 
+import { db } from '@/db'
+
 import { buildBackup } from '@/lib/backup'
-import { clearAllData, db } from '@/db'
+import { clearAllData } from '@/db'
 
 const NOW = new Date('2026-09-04T06:00:00.000Z')
 const LATER = new Date('2026-09-05T06:00:00.000Z')
@@ -39,7 +39,7 @@ describe('choosing an examination', () => {
   it('keeps exactly one row active', async () => {
     await setActiveExam('css-so-ldce', NOW)
     await setActiveExam('ib-so-ldce', LATER)
-    const rows = await allExamChoices()
+    const rows = await db.examChoices.toArray()
     expect(rows.filter((row) => row.active).map((row) => row.id)).toEqual(['ib-so-ldce'])
     expect(rows).toHaveLength(2)
   })
@@ -52,7 +52,7 @@ describe('choosing an examination', () => {
     await setTargetDate('css-so-ldce', '2027-03-15', NOW)
     await setActiveExam('ib-so-ldce', LATER)
     await setActiveExam('css-so-ldce', LATER)
-    expect((await examChoice('css-so-ldce'))?.targetDate).toBe('2027-03-15')
+    expect((await db.examChoices.get('css-so-ldce'))?.targetDate).toBe('2027-03-15')
   })
 
   it('reports null rather than undefined when nothing is chosen', async () => {
@@ -82,7 +82,7 @@ describe('the target date', () => {
     for (const bad of ['2027-3-15', 'tomorrow', '2027-02-31', '', '15.03.2027']) {
       expect(await setTargetDate('css-so-ldce', bad, LATER), bad).toBeNull()
     }
-    expect((await examChoice('css-so-ldce'))?.targetDate).toBeNull()
+    expect((await db.examChoices.get('css-so-ldce'))?.targetDate).toBeNull()
   })
 
   it('accepts null, which is how a reader takes the date off again', async () => {
@@ -105,7 +105,7 @@ describe('the daily budget', () => {
     for (const bad of [0, -10, Number.NaN, Number.POSITIVE_INFINITY]) {
       expect(await setDailyMinutes('css-so-ldce', bad, NOW), String(bad)).toBeNull()
     }
-    expect((await examChoice('css-so-ldce'))?.dailyMinutes).toBe(45)
+    expect((await db.examChoices.get('css-so-ldce'))?.dailyMinutes).toBe(45)
   })
 
   it('accepts null, which falls back to the Session 28 study goal', async () => {
@@ -120,14 +120,26 @@ describe('stopping', () => {
     await setTargetDate('css-so-ldce', '2027-03-15', NOW)
     await clearActiveExam(LATER)
     expect(await activeExamChoice()).toBeNull()
-    expect((await examChoice('css-so-ldce'))?.targetDate).toBe('2027-03-15')
+    expect((await db.examChoices.get('css-so-ldce'))?.targetDate).toBe('2027-03-15')
+  })
+
+  it('leaves NOTHING on the device when an examination is forgotten', async () => {
+    // "Stop preparing" in Settings calls this rather than `clearActiveExam`,
+    // because clearing the flag alone leaves a row recording which departmental
+    // examination this officer was preparing for — which is not what the
+    // control says it does.
+    await setActiveExam('css-so-ldce')
+    await setTargetDate('css-so-ldce', '2027-03-15')
+    await forgetExam('css-so-ldce')
+    expect(await db.examChoices.toArray()).toEqual([])
+    expect(await activeExamChoice()).toBeNull()
   })
 
   it('forgets one examination entirely when asked to', async () => {
     await setActiveExam('css-so-ldce', NOW)
     await forgetExam('css-so-ldce')
-    expect(await examChoice('css-so-ldce')).toBeUndefined()
-    expect(await allExamChoices()).toEqual([])
+    expect(await db.examChoices.get('css-so-ldce')).toBeUndefined()
+    expect(await db.examChoices.toArray()).toEqual([])
   })
 })
 

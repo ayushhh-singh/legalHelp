@@ -1,7 +1,7 @@
 import { ArrowLeft, Printer } from 'lucide-react'
 import { Link } from 'react-router-dom'
 
-import { useActiveExam, useExamProfile } from './useExam'
+import { knowsProfile, useActiveExam, useExamProfile } from './useExam'
 
 import { PageHeader } from '@/components/common/PageHeader'
 import { QueryErrorState, SectionCard, Skeleton } from '@/components/ui-x'
@@ -41,7 +41,13 @@ export default function ExamChecklistPage() {
       </div>
     )
   }
-  if (choice === null) {
+  /*
+    `null` is "nothing chosen"; an id this build cannot load takes the SAME
+    branch, because from the reader's side it is the same situation and the
+    picker is the only honest exit. A row naming a withdrawn or renamed profile
+    used to leave this screen on a skeleton for ever.
+  */
+  if (choice === null || !knowsProfile(choice.id)) {
     return (
       <div className="mx-auto flex max-w-3xl flex-col gap-4">
         <PageHeader title={t('trainer.exam.checklist.title')} />

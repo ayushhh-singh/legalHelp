@@ -349,12 +349,13 @@
       "name": "Central Civil Services (Commutation of Pension) Rules, 1981 — Table of commutation values",
       "url": "https://persmin.gov.in/pension/rules_new/ccs_coprules_1981_060613.pdf",
       "reference": "Schedule",
+      "dated": "2008-09-02",
       "note": {
-        "en": "The fetched PDF's content stream could not be parsed for the table this session; every value below was cross-checked against two independent secondary reproductions of the same official table, which agreed on every row compared (docs/DATA-GAPS.md #52).",
-        "hi": "इस सत्र में प्राप्त पीडीएफ की सामग्री धारा से तालिका पार्स नहीं की जा सकी; नीचे प्रत्येक मान की जाँच उसी आधिकारिक तालिका के दो स्वतंत्र द्वितीयक पुनरुत्पादनों से की गई, जो तुलना की गई प्रत्येक पंक्ति पर सहमत थे (docs/DATA-GAPS.md #52)।"
+        "en": "Read from the Schedule on page 36 of the fetched PDF with PyMuPDF and compared row by row against the table below: all 62 rows, ages 20 to 81, agree exactly. Basis stated on the page itself — LIC (94-96) Ultimate Tables at 8.00 per cent interest, effective 1 January 2006.",
+        "hi": "प्राप्त पीडीएफ के पृष्ठ 36 की अनुसूची से PyMuPDF द्वारा पढ़ी गई और नीचे दी गई तालिका से पंक्ति-दर-पंक्ति मिलान किया गया: आयु 20 से 81 तक सभी 62 पंक्तियाँ पूर्णतः मेल खाती हैं। आधार पृष्ठ पर ही अंकित है — एलआईसी (94-96) अल्टीमेट सारणी, 8.00 प्रतिशत ब्याज, 1 जनवरी 2006 से प्रभावी।"
       }
     },
-    "verify": true
+    "verify": false
   },
   "gpf": {
     "rateHistory": [

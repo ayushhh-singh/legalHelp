@@ -30,7 +30,16 @@ const PROFILE_LOADERS: Record<string, () => Promise<{ default: string }>> = {
   'railway-so-ldce': () => import('../../../../data/exams/profiles/railway-so-ldce.json?raw'),
 }
 
-/** Every profile id this build can load. */
+/**
+ * Every profile id this build can load — the loader map's own list.
+ *
+ * A TEST SEAM, like `resetExamCache` below and like `src/lib/library/data.ts`'s
+ * `resetLibraryCache`: the picker renders from `index.json` rather than from
+ * this, so nothing in production reads it. What it buys is the guard in
+ * `data.test.ts` that keeps the two in step in BOTH directions — a profile in
+ * `data/exams` with no loader is unreachable from the app, and a loader for a
+ * profile the index does not list is a card the picker will never draw.
+ */
 export const EXAM_PROFILE_IDS = Object.keys(PROFILE_LOADERS)
 
 /**
@@ -77,7 +86,10 @@ export function loadExamProfile(profileId: string): Promise<ExamProfile> {
   return once(`exam:${profileId}`, async () => examProfileSchema.parse(JSON.parse((await loader()).default)))
 }
 
-/** Test seam. Production never needs to drop what it has parsed. */
+/**
+ * Test seam. Production never needs to drop what it has parsed — the same
+ * arrangement, and the same justification, as `resetLibraryCache`.
+ */
 export function resetExamCache(): void {
   cache.clear()
 }

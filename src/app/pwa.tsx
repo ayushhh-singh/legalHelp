@@ -1,4 +1,4 @@
-import { useEffect, useRef, useState } from 'react'
+import { useCallback, useEffect, useRef, useState } from 'react'
 import { useNavigate } from 'react-router-dom'
 import type { Workbox } from 'workbox-window'
 
@@ -182,6 +182,61 @@ function PwaToast({
   )
 }
 
+/**
+ * Reserve exactly as much room above the tab bar as the visible toasts need.
+ *
+ * docs/DATA-GAPS.md #59: this bar is `position: fixed` over the content, and on
+ * a 412px viewport it sat on top of the Rules Trainer mock test's "Next
+ * question" button and swallowed every tap on it. Two things were wrong and
+ * only one of them was the offset.
+ *
+ *   * The offset ignored `env(safe-area-inset-bottom)`, so on a phone with a
+ *     home indicator the toast sat ON the tab bar rather than above it — the
+ *     bar itself pads by that inset (`src/app/Nav.tsx`) and the toast did not.
+ *   * Even placed correctly, an overlay covers whatever is beneath it. The
+ *     content reserves `pb-24` for the tab bar and nothing for a toast, so the
+ *     last actionable thing on a scrolled-to-bottom page is underneath it.
+ *
+ * Moving the toast up only relocates the collision, so the space is reserved
+ * instead: the measured height goes into `--pwa-toast-space`, which `App.tsx`
+ * adds to the main element's bottom padding. Measured rather than assumed
+ * because these strings wrap to different heights in English and Hindi, and
+ * `ResizeObserver` rather than a one-shot read because dismissing one of two
+ * stacked toasts changes the height without unmounting anything.
+ *
+ * The callback ref is what makes this correct on the way out: React calls it
+ * with `null` when the element goes, which is also every path by which the last
+ * toast disappears, so there is no route that leaves the padding behind.
+ */
+function useReservedToastSpace() {
+  const observerRef = useRef<ResizeObserver | null>(null)
+
+  return useCallback((node: HTMLDivElement | null) => {
+    const root = document.documentElement
+    observerRef.current?.disconnect()
+    observerRef.current = null
+
+    if (!node) {
+      root.style.removeProperty('--pwa-toast-space')
+      return
+    }
+
+    const apply = () => {
+      // A gap above and below, so the toast is not flush against either the
+      // tab bar under it or the content over it.
+      root.style.setProperty('--pwa-toast-space', `${Math.ceil(node.offsetHeight) + 16}px`)
+    }
+    apply()
+
+    // Absent in jsdom, and this is a layout refinement rather than a
+    // correctness one — the first measurement above has already run.
+    if (typeof ResizeObserver === 'undefined') return
+    const observer = new ResizeObserver(apply)
+    observer.observe(node)
+    observerRef.current = observer
+  }, [])
+}
+
 /** Mounted once, near the root of the shell. Renders nothing until there's something to say. */
 export function PwaNotices({ className }: { className?: string }) {
   const { t, language } = useT()
@@ -190,18 +245,28 @@ export function PwaNotices({ className }: { className?: string }) {
   const { updateReady, updateDismissed, dismissUpdate, offlineReady, reload, dismissOfflineReady } =
     usePwaLifecycle()
   const { result: dataUpdate, dismiss: dismissDataUpdate } = useAutoDataUpdateCheck(hydrated)
+  const measureRef = useReservedToastSpace()
 
   if ((!updateReady || updateDismissed) && !offlineReady && !dataUpdate) return null
 
   return (
     <div
+      ref={measureRef}
+      style={{
+        // Clears the tab bar AND the home indicator under it. `Nav.tsx` pads
+        // the bar by that same inset and this did not, which is what put the
+        // toast on top of the bar on every phone reporting one. The breakpoint
+        // is handled by the variable (index.css), not by a class that would
+        // have to out-specify an inline style.
+        bottom: 'var(--pwa-toast-bottom)',
+      }}
       className={cn(
         // pointer-events-none on the container, restored on each toast: the
         // container is a full-width fixed box on a phone, so without this it
         // intercepts every tap in the strip above the tab bar even where
         // there is nothing drawn — including the gap between two toasts.
-        'pointer-events-none fixed inset-x-3 bottom-[4.5rem] z-50 flex flex-col gap-2',
-        'sm:inset-x-auto sm:right-4 sm:w-80 lg:bottom-4',
+        'pointer-events-none fixed inset-x-3 z-50 flex flex-col gap-2',
+        'sm:inset-x-auto sm:right-4 sm:w-80',
         className,
       )}
     >

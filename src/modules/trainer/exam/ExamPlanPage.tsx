@@ -1,17 +1,19 @@
+import { useLiveQuery } from 'dexie-react-hooks'
 import { ArrowLeft, BookOpen, Brain, FileText, ListChecks } from 'lucide-react'
 import { useMemo, useState } from 'react'
 import { Link } from 'react-router-dom'
 
-import { useActiveExam, useExamProfile, useSrsStates } from './useExam'
+import { knowsProfile, useActiveExam, useExamProfile, useSrsStates } from './useExam'
 
 import { useEffectiveCatalogue } from '../useCatalogue'
 import { useNow } from '../useNow'
 
 import { PageHeader } from '@/components/common/PageHeader'
+import { db } from '@/db'
 import { Chip, InfoCard, QueryErrorState, SectionCard, Skeleton } from '@/components/ui-x'
 import { Button } from '@/components/ui/button'
 import { useT } from '@/i18n/useT'
-import { buildPlan, type PlanDay, type PlanTask } from '@/lib/exam'
+import { buildPlan, DEFAULT_DAILY_MINUTES, type PlanDay, type PlanTask } from '@/lib/exam'
 import { WORK_IDS } from '@/lib/library/data'
 import { istDay } from '@/lib/srs'
 
@@ -51,7 +53,13 @@ export default function ExamPlanPage() {
       </div>
     )
   }
-  if (choice === null) {
+  /*
+    `null` is "nothing chosen"; an id this build cannot load takes the SAME
+    branch, because from the reader's side it is the same situation and the
+    picker is the only honest exit. A row naming a withdrawn or renamed profile
+    used to leave this screen on a skeleton for ever.
+  */
+  if (choice === null || !knowsProfile(choice.id)) {
     return (
       <div className="mx-auto flex max-w-3xl flex-col gap-4">
         <PageHeader title={t('trainer.exam.plan.title')} />
@@ -80,10 +88,22 @@ function PlanFor({
   const state = useExamProfile(profileId)
   const catalogue = useEffectiveCatalogue()
   const states = useSrsStates()
+  /*
+    The reader's Session 28 study goals, which `dailyBudget` reads and which the
+    first version of this screen never passed — so the goals branch was dead
+    from the only place that calls it, and the card underneath still read "Taken
+    from your weekly Library goal" whenever no explicit budget was set. That is
+    worse than a hidden branch: it is a false sentence on the screen.
+
+    Read straight off Dexie rather than through `src/lib/study`, which would
+    pull the chapter deck, the quiz and the session timer into this chunk to
+    answer a question about one number.
+  */
+  const goals = useLiveQuery(() => db.studyGoals.toArray(), [], undefined)
   const [showAll, setShowAll] = useState(false)
 
   const plan = useMemo(() => {
-    if (state.status !== 'ready' || !catalogue || !states || !targetDate) return null
+    if (state.status !== 'ready' || !catalogue || !states || !goals || !targetDate) return null
     return buildPlan({
       profile: state.data,
       catalogue,
@@ -91,9 +111,10 @@ function PlanFor({
       now,
       targetDate,
       libraryWorkIds: WORK_IDS,
+      goals,
       ...(dailyMinutes === null ? {} : { dailyMinutes }),
     })
-  }, [state, catalogue, states, now, targetDate, dailyMinutes])
+  }, [state, catalogue, states, goals, now, targetDate, dailyMinutes])
 
   const header = (
     <PageHeader
@@ -151,11 +172,21 @@ function PlanFor({
     )
   }
 
-  if (plan.expired) {
+  /*
+    Three ways a plan can fail to be drawn, and they are three different
+    sentences. `expired` is "that day has gone"; `unreadableDate` is "the date
+    on this record is not a date", which is only reachable from a row another
+    build wrote and which used to produce a full four-hundred-day plan; and a
+    truncated window is a plan that IS drawn and stops short, which is the one
+    that most needs saying because it otherwise just ends.
+  */
+  if (plan.expired || plan.unreadableDate) {
     return (
       <div className="mx-auto flex max-w-3xl flex-col gap-4">
         {header}
-        <p className="text-sm text-coral-foreground">{t('trainer.exam.plan.expired')}</p>
+        <p className="text-sm text-coral-foreground">
+          {plan.unreadableDate ? t('trainer.exam.plan.unreadableDate') : t('trainer.exam.plan.expired')}
+        </p>
         <Button asChild size="sm">
           <Link to="/learn/exam">{t('trainer.exam.target.label')}</Link>
         </Button>
@@ -173,11 +204,22 @@ function PlanFor({
 
       <InfoCard title={t('trainer.exam.plan.budget', { minutes: plan.dailyMinutes })} icon={Brain}>
         <p className="text-sm text-muted-foreground">{t('trainer.exam.plan.notStored')}</p>
-        {dailyMinutes === null ? (
+        {/*
+          Only where a goal was actually the source: no explicit budget AND a
+          figure that differs from the default. Saying it unconditionally was
+          the defect — the sentence was true of the code and false of the run.
+        */}
+        {dailyMinutes === null && plan.dailyMinutes !== DEFAULT_DAILY_MINUTES ? (
           <p className="mt-1 text-xs text-muted-foreground">{t('trainer.exam.plan.budgetFromGoal')}</p>
         ) : null}
         <p className="mt-2 text-sm">{t('trainer.exam.plan.sprintNote', { count: sprintDays })}</p>
       </InfoCard>
+
+      {plan.truncated ? (
+        <p className="text-sm text-muted-foreground">
+          {t('trainer.exam.plan.truncated', { count: plan.days.length })}
+        </p>
+      ) : null}
 
       {plan.notReached.length > 0 ? (
         /*

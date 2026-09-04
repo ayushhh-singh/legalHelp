@@ -2164,7 +2164,9 @@
         "expired": "That examination date has already passed.",
         "empty": "Set an examination date to draw a plan.",
         "showAll": "Show the whole plan",
-        "showLess": "Show the next fortnight"
+        "showLess": "Show the next fortnight",
+        "unreadableDate": "The examination date on this record is not a date this app can read. Set it again to draw a plan.",
+        "truncated": "That date is a long way off, so only the first {{count}} days are drawn. Open this again nearer the time for the rest."
       },
       "mock": {
         "title": "Mock paper",
@@ -2208,7 +2210,8 @@
         "resultsAddedWrong": "{{count}} added to your review deck.",
         "resultsRetake": "Sit another",
         "resultsNothingWrong": "Nothing to add — you got them all.",
-        "practiceOnly": "A practice figure over this app's own bank, not a prediction."
+        "practiceOnly": "A practice figure over this app's own bank, not a prediction.",
+        "resultsAddFailed": "Could not save to your review deck — your device may be out of storage. Try again, or check Settings."
       },
       "checklist": {
         "title": "Exam-day checklist",

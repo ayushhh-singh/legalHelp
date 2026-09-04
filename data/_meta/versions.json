@@ -10,16 +10,16 @@
       "version": "0.1.0"
     },
     "law-bns": {
-      "version": "1.1.0",
-      "updated": "2026-08-29",
+      "version": "1.2.0",
+      "updated": "2026-09-04",
       "label": {
         "en": "BNS ↔ IPC mapping",
         "hi": "BNS ↔ IPC तत्संगत तालिका"
       },
       "rows": 358,
       "mappings": 534,
-      "sha256": "2adadb16dc15a13890e05b98ff593ea7dd1e3921fd627e1dc4b2f650ea43668b",
-      "fetchedAt": "2026-08-29T17:39:04Z",
+      "sha256": "833510dd34335cd262ed89ef38a1c92c0e06c6e6819b6935bf434f9fb74cb300",
+      "fetchedAt": "2026-09-04T08:21:20Z",
       "parsePath": "inline-html",
       "source": {
         "name": "NCRB Sankalan",
@@ -27,16 +27,16 @@
       }
     },
     "law-bnss": {
-      "version": "1.1.0",
-      "updated": "2026-08-29",
+      "version": "1.2.0",
+      "updated": "2026-09-04",
       "label": {
         "en": "BNSS ↔ CrPC mapping",
         "hi": "BNSS ↔ CrPC तत्संगत तालिका"
       },
       "rows": 531,
       "mappings": 568,
-      "sha256": "0c290e1263e22ac7d7c34c3de07a664341e9deb769badbafd054b20256a6d5aa",
-      "fetchedAt": "2026-08-29T17:39:04Z",
+      "sha256": "8b1d2f50ca67c9b8ed6d1616a4fd08354a8ecd21c7cdd9c869e60c81a493fca5",
+      "fetchedAt": "2026-09-04T08:21:20Z",
       "parsePath": "inline-html",
       "source": {
         "name": "NCRB Sankalan",
@@ -44,16 +44,16 @@
       }
     },
     "law-bsa": {
-      "version": "1.1.0",
-      "updated": "2026-08-29",
+      "version": "1.2.0",
+      "updated": "2026-09-04",
       "label": {
         "en": "BSA ↔ IEA mapping",
         "hi": "BSA ↔ IEA तत्संगत तालिका"
       },
       "rows": 170,
       "mappings": 180,
-      "sha256": "1c57c3036e779cbdf7cc96c18780d03f4952e61da61762f939ae8130605758c1",
-      "fetchedAt": "2026-08-29T17:39:04Z",
+      "sha256": "f095f1f53c31f95ba7474508befb2d4a4c7a9742017933b2fdcc3da20a9748b9",
+      "fetchedAt": "2026-09-04T08:21:20Z",
       "parsePath": "inline-html",
       "source": {
         "name": "NCRB Sankalan",
@@ -61,15 +61,15 @@
       }
     },
     "law-index": {
-      "version": "1.1.0",
-      "updated": "2026-08-29",
+      "version": "1.2.0",
+      "updated": "2026-09-04",
       "label": {
         "en": "Repealed-Act reverse index",
         "hi": "निरसित अधिनियम व्युत्क्रम अनुक्रमणिका"
       },
       "rows": 1293,
-      "sha256": "14f222881da9fd51675f65c0ffc0f12e30ae3a578d67e53778a0f3633cac36d3",
-      "fetchedAt": "2026-08-29T17:39:04Z",
+      "sha256": "f551763efddd7edd234f8a84ac546a2e09eb2cb5c8e0c5a657e3b993e20a3794",
+      "fetchedAt": "2026-09-04T08:21:20Z",
       "source": {
         "name": "NCRB Sankalan",
         "url": "https://www.ncrb.gov.in/uploads/SankalanPortal/Index.html"
@@ -302,7 +302,7 @@
         "hi": "पेंशन तथ्य"
       },
       "rows": 62,
-      "sha256": "3b63bb8f5dbdabcb6dfeb643591c8b41612fbc02d2965430c726a56b6de9efa9"
+      "sha256": "0407d143a55a3a39ae002d39b4a7b253c1f6e753ab92b7134a769e086c38ba48"
     },
     "rules-ccs-conduct": {
       "version": "1.0.0",
@@ -516,5 +516,5 @@
       }
     }
   },
-  "generatedAt": "2026-09-04"
+  "generatedAt": "2026-08-29"
 }

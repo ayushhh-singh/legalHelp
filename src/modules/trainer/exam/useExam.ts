@@ -24,14 +24,31 @@ export function useExamIndex(enabled = true): AsyncState<ExamIndex> & { retry: (
   return useAsync(loadExamIndex, 'exam-index', enabled)
 }
 
+/**
+ * One profile, or an ERROR state for an id this build does not have.
+ *
+ * The distinction is the whole point. The first version disabled `useAsync` for
+ * an unknown id, and a disabled `useAsync` never leaves `loading` — so a row
+ * naming a profile this build had dropped (a backup restored from a later
+ * release, a withdrawn notification, a rename) left every exam screen on a
+ * skeleton for ever, with no picker, no message and no way back. That is
+ * `normaliseScenario`'s stale `jobId` arriving in a new module, and worse: the
+ * Pay module's version rendered an empty box, this one rendered nothing at all.
+ *
+ * `enabled` now means only "there is an id to load". Whether the id is one this
+ * build knows is `loadExamProfile`'s question, and it rejects.
+ */
 export function useExamProfile(profileId: string | null): AsyncState<ExamProfile> & { retry: () => void } {
-  const id = profileId && isExamProfileId(profileId) ? profileId : null
   return useAsync(
-    () => (id ? loadExamProfile(id) : Promise.reject(new Error('no profile'))),
-    `exam-profile:${id ?? 'none'}`,
-    id !== null,
+    () => (profileId ? loadExamProfile(profileId) : Promise.reject(new Error('no exam profile chosen'))),
+    `exam-profile:${profileId ?? 'none'}`,
+    profileId !== null,
   )
 }
+
+/** Whether the reader's stored choice names a profile this build can load. */
+export const knowsProfile = (profileId: string | null | undefined): boolean =>
+  typeof profileId === 'string' && isExamProfileId(profileId)
 
 /**
  * The examination the reader is preparing for.

@@ -50,6 +50,7 @@ from ingest_common import (  # noqa: E402
     REPORT_DIR,
     VERSIONS_FILE,
     FetchError,
+    SectionRef,
     archive_raw,
     clean_text,
     fetch,
@@ -72,10 +73,12 @@ from ingest_common import (  # noqa: E402
 # in one release must not be replayed after that release's data changes."
 # 1.0.0 -> 1.1.0: Session 20 extended data/law/overlays/ from 94 curated BNS
 # Hindi headings to full coverage of all 1,059 BNS/BNSS/BSA headings, plus
-# Hindi punishment text for every classified BNS section — a reader-visible
-# change this version number is the only thing that tells a cached AI answer
-# about.
-DATASET_VERSION = "1.1.0"
+# 1.2.0: the BNSS First Schedule's continuation rows. 24 classification rows
+# were being dropped, including the "Second or subsequent conviction" limbs of
+# BNS 77 and 78(2), which are NON-bailable where the first conviction is
+# bailable — a reader-visible change, and the kind a cached AI answer must be
+# invalidated for, which is the only thing this number does.
+DATASET_VERSION = "1.2.0"
 
 PRIMARY = "https://www.ncrb.gov.in/uploads/SankalanPortal"
 # Documented mirror. It has answered 404 for these paths on every attempt so far
@@ -461,28 +464,76 @@ class ScheduleEntry:
 
 
 def parse_first_schedule(soup: BeautifulSoup) -> list[ScheduleEntry]:
-    """The BNSS First Schedule, part I - offences under the Bharatiya Nyaya Sanhita."""
+    """The BNSS First Schedule, part I - offences under the Bharatiya Nyaya Sanhita.
+
+    A row whose section column is EMPTY continues the section above it. The
+    Schedule uses that shape for two different things and both are real rows,
+    not wrapped text:
+
+      * an aggravated or repeat limb of the same offence - BNS 77 (voyeurism)
+        and 78(2) (stalking) each carry a "Second or subsequent conviction"
+        row that is **non-bailable** where the first conviction is bailable;
+      * a header naming the offence, followed by lettered circumstances that
+        carry the punishment - BNS 264 is the only one, and its own row has no
+        punishment, cognizable or bailable value at all.
+
+    Reading only the rows that carry a section number dropped 25 classification
+    rows, and answered "is this bailable" for a second conviction with the
+    first conviction's answer. So the section is carried forward, and a header
+    row - recognised by having no punishment AND no cognizable AND no bailable
+    value, with a continuation directly beneath it - is not emitted on its own;
+    its text becomes the prefix of each circumstance below it, which is the
+    only place the offence is actually named.
+    """
     tables = soup.find_all("table")
     if not tables:
         raise ValueError("no tables in the schedule page")
     body = tables[0].find("tbody") or tables[0]
 
-    entries: list[ScheduleEntry] = []
+    rows: list[list[str]] = []
     for tr in body.find_all("tr", recursive=False):
         cells = [clean_text(td.get_text(" ", strip=True)) for td in tr.find_all("td", recursive=False)]
-        if len(cells) < 6:
-            continue
+        if len(cells) >= 6:
+            rows.append(cells)
+
+    def is_continuation(cells: list[str]) -> bool:
+        return not tidy_parens(cells[0]).strip() and bool(cells[1])
+
+    entries: list[ScheduleEntry] = []
+    carried: SectionRef | None = None
+    prefix = ""
+    for position, cells in enumerate(rows):
         section = tidy_parens(cells[0]).strip()
-        if not section or section in {"1", "2", "3", "4", "5", "6"} and cells[1] in {"2", "Offence"}:
-            continue
-        ref = parse_section_ref(section)
-        if not ref or not cells[1]:
-            continue
+
+        if is_continuation(cells):
+            # Belongs to the section above. Without one there is nothing to
+            # attach it to, so it is dropped exactly as it was before.
+            if carried is None:
+                continue
+            ref, offence = carried, f"{prefix}{cells[1]}" if prefix else cells[1]
+        else:
+            if not section or section in {"1", "2", "3", "4", "5", "6"} and cells[1] in {"2", "Offence"}:
+                continue
+            parsed = parse_section_ref(section)
+            if not parsed or not cells[1]:
+                continue
+            carried = parsed
+            header = not cells[2].strip() and not cells[3].strip() and not cells[4].strip()
+            following = rows[position + 1] if position + 1 < len(rows) else None
+            if header and following is not None and is_continuation(following):
+                # Names the offence and states nothing about it. Emitting it
+                # would put a row on the section's card with every column
+                # blank; its text belongs on the circumstances instead.
+                prefix = f"{cells[1]} "
+                continue
+            prefix = ""
+            ref, offence = parsed, cells[1]
+
         entries.append(
             ScheduleEntry(
                 section=ref.section,
                 base=ref.base,
-                offence=cells[1],
+                offence=offence,
                 punishment=cells[2],
                 cognizable=classify_word(cells[3], COGNIZABLE, "cognizable", "non-cognizable"),
                 bailable=classify_word(cells[4], BAILABLE, "bailable", "non-bailable"),

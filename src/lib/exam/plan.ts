@@ -100,8 +100,31 @@ export interface Plan {
    * screen says how many it could not fit and what they were.
    */
   notReached: string[]
-  /** Null when the target date has already passed — there is no plan to draw. */
+  /** The target date has already passed — there is no plan to draw. */
   expired: boolean
+  /**
+   * The target date could not be read as an IST calendar day.
+   *
+   * Distinct from `expired`, because the two mean different things to the
+   * reader: one is "that day has gone", the other is "the date on this record
+   * is not a date". The second is only reachable from a row written by another
+   * build or restored from a backup — `setTargetDate` refuses anything else —
+   * and before this existed it produced a full-length plan, because
+   * `'not-a-day' < '2026-09-04'` is false as a string comparison and the walk
+   * that followed saturated at its own limit.
+   */
+  unreadableDate: boolean
+  /**
+   * The window was longer than `MAX_PLAN_DAYS` and the plan stops short of the
+   * examination.
+   *
+   * Reported for the reason `notReached` is: a plan that simply stops looks
+   * exactly like a plan that ends where it should. `to` is the last day
+   * actually drawn when this is true, so the header and the days agree — the
+   * first version left `to` at the target date and ended the list nine years
+   * earlier with nothing saying why.
+   */
+  truncated: boolean
 }
 
 export interface PlanInput {
@@ -208,20 +231,29 @@ export function buildPlan(input: PlanInput): Plan {
     targetDate: input.targetDate,
   })
 
-  const empty = (expired: boolean): Plan => ({
+  const empty = (over: Partial<Pick<Plan, 'expired' | 'unreadableDate'>>): Plan => ({
     days: [],
     from: today,
     to: input.targetDate,
     sprintFrom: input.targetDate,
     dailyMinutes,
     notReached: [],
-    expired,
+    expired: false,
+    unreadableDate: false,
+    truncated: false,
+    ...over,
   })
 
-  if (input.targetDate < today) return empty(true)
+  // `daysRemaining` is null exactly when the stored date is not an IST calendar
+  // day. Checked BEFORE the expiry comparison, because that comparison is a
+  // string one and a non-date loses it in whichever direction happens to suit.
+  if (readiness.daysRemaining === null) return empty({ unreadableDate: true })
+  if (readiness.daysRemaining < 0) return empty({ expired: true })
 
-  const total = Math.min((readiness.daysRemaining ?? 0) + 1, MAX_PLAN_DAYS)
-  if (total <= 0) return empty(true)
+  const wanted = readiness.daysRemaining + 1
+  const total = Math.min(wanted, MAX_PLAN_DAYS)
+  const truncated = wanted > MAX_PLAN_DAYS
+  if (total <= 0) return empty({ expired: true })
 
   // The sprint takes the tail, but never the whole window: with two days there
   // is one of each, and with one day the single day is a revision day, because
@@ -274,11 +306,15 @@ export function buildPlan(input: PlanInput): Plan {
   return {
     days,
     from: today,
-    to: input.targetDate,
+    // The last day actually drawn, so the header and the list agree. On an
+    // untruncated plan this IS the target date.
+    to: days.at(-1)?.day ?? input.targetDate,
     sprintFrom: addIstDays(today, buildDays),
     dailyMinutes,
     notReached,
     expired: false,
+    unreadableDate: false,
+    truncated,
   }
 }
 

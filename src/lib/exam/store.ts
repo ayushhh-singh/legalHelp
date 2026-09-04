@@ -18,11 +18,6 @@ import { isIstDay, type IstDay } from '@/lib/srs'
 
 const iso = (at: Date): string => at.toISOString()
 
-export const allExamChoices = (): Promise<ExamChoiceRow[]> => db.examChoices.toArray()
-
-export const examChoice = (profileId: string): Promise<ExamChoiceRow | undefined> =>
-  db.examChoices.get(profileId)
-
 /**
  * The one the reader is preparing for, or `null`.
  *
@@ -127,7 +122,16 @@ export async function clearActiveExam(now = new Date()): Promise<void> {
   })
 }
 
-/** Forget one examination entirely — the row and the date with it. */
+/**
+ * Forget one examination entirely — the row and the date with it.
+ *
+ * The difference from `clearActiveExam` is deliberate and the two are labelled
+ * differently on screen. "Change examination", on the hub, clears the flag and
+ * keeps the row, so a reader who looks at a second profile and comes back finds
+ * their own date where they left it. "Stop preparing", in Settings, means what
+ * it says: the row goes, and nothing on the device records which departmental
+ * examination this officer was preparing for.
+ */
 export async function forgetExam(profileId: string): Promise<void> {
   await db.examChoices.delete(profileId)
 }

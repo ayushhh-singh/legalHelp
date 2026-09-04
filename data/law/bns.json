@@ -1,8 +1,8 @@
 {
   "$schema": "../../schemas/law-mapping.schema.json",
   "id": "bns",
-  "version": "1.1.0",
-  "fetchedAt": "2026-08-29T17:39:04Z",
+  "version": "1.2.0",
+  "fetchedAt": "2026-09-04T08:21:20Z",
   "newAct": {
     "id": "BNS",
     "year": 2023,
@@ -6087,6 +6087,29 @@
             "hi": ""
           },
           "source": "bnss-first-schedule"
+        },
+        {
+          "clause": "55",
+          "offence": {
+            "en": "If an act which causes harm to be done in consequence of the abetment.",
+            "hi": ""
+          },
+          "punishment": {
+            "en": "Imprisonment for 14 years and fine.",
+            "hi": ""
+          },
+          "cognizable": "non-cognizable",
+          "bailable": "non-bailable",
+          "triableBy": {
+            "en": "Court by which offence abetted is triable.",
+            "hi": ""
+          },
+          "compoundable": "non-compoundable",
+          "compoundableBy": {
+            "en": "",
+            "hi": ""
+          },
+          "source": "bnss-first-schedule"
         }
       ],
       "punishment": {
@@ -6204,6 +6227,29 @@
           },
           "punishment": {
             "en": "Imprisonment extending to one-fourth of the longest term provided for the offence, or fine, or both.",
+            "hi": ""
+          },
+          "cognizable": "non-cognizable",
+          "bailable": "non-bailable",
+          "triableBy": {
+            "en": "Court by which offence abetted is triable.",
+            "hi": ""
+          },
+          "compoundable": "non-compoundable",
+          "compoundableBy": {
+            "en": "",
+            "hi": ""
+          },
+          "source": "bnss-first-schedule"
+        },
+        {
+          "clause": "56",
+          "offence": {
+            "en": "If the abettor or the person abetted be a public servant whose duty it is to prevent the offence.",
+            "hi": ""
+          },
+          "punishment": {
+            "en": "Imprisonment extending to one-half of the longest term provided for the offence, or fine, or both.",
             "hi": ""
           },
           "cognizable": "non-cognizable",
@@ -9289,6 +9335,29 @@
             "hi": ""
           },
           "source": "bnss-first-schedule"
+        },
+        {
+          "clause": "77",
+          "offence": {
+            "en": "Second or subsequent conviction.",
+            "hi": ""
+          },
+          "punishment": {
+            "en": "Imprisonment for not less than 3 years but which may extend to 7 years and fine.",
+            "hi": ""
+          },
+          "cognizable": "cognizable",
+          "bailable": "non-bailable",
+          "triableBy": {
+            "en": "Court of Session.",
+            "hi": ""
+          },
+          "compoundable": "non-compoundable",
+          "compoundableBy": {
+            "en": "",
+            "hi": ""
+          },
+          "source": "bnss-first-schedule"
         }
       ],
       "punishment": {
@@ -9409,6 +9478,29 @@
           },
           "cognizable": "cognizable",
           "bailable": "bailable",
+          "triableBy": {
+            "en": "Any Magistrate.",
+            "hi": ""
+          },
+          "compoundable": "non-compoundable",
+          "compoundableBy": {
+            "en": "",
+            "hi": ""
+          },
+          "source": "bnss-first-schedule"
+        },
+        {
+          "clause": "78(2)",
+          "offence": {
+            "en": "Second or subsequent conviction.",
+            "hi": ""
+          },
+          "punishment": {
+            "en": "Imprisonment up to 5 years and fine.",
+            "hi": ""
+          },
+          "cognizable": "cognizable",
+          "bailable": "non-bailable",
           "triableBy": {
             "en": "Any Magistrate.",
             "hi": ""
@@ -10849,6 +10941,29 @@
             "hi": ""
           },
           "source": "bnss-first-schedule"
+        },
+        {
+          "clause": "88",
+          "offence": {
+            "en": "If the woman be quick with child.",
+            "hi": ""
+          },
+          "punishment": {
+            "en": "Imprisonment for 7 years and fine.",
+            "hi": ""
+          },
+          "cognizable": "non-cognizable",
+          "bailable": "bailable",
+          "triableBy": {
+            "en": "Magistrate of the first class.",
+            "hi": ""
+          },
+          "compoundable": "compoundable-with-court-permission",
+          "compoundableBy": {
+            "en": "The women to whom miscarriage is caused",
+            "hi": ""
+          },
+          "source": "bnss-first-schedule"
         }
       ],
       "punishment": {
@@ -11830,6 +11945,29 @@
           "bailable": "non-bailable",
           "triableBy": {
             "en": "Magistrate of the first class.",
+            "hi": ""
+          },
+          "compoundable": "non-compoundable",
+          "compoundableBy": {
+            "en": "",
+            "hi": ""
+          },
+          "source": "bnss-first-schedule"
+        },
+        {
+          "clause": "95",
+          "offence": {
+            "en": "If offence be committed.",
+            "hi": ""
+          },
+          "punishment": {
+            "en": "Same as for the offence committed.",
+            "hi": ""
+          },
+          "cognizable": "cognizable",
+          "bailable": "non-bailable",
+          "triableBy": {
+            "en": "Court by which offence committed is triable.",
             "hi": ""
           },
           "compoundable": "non-compoundable",
@@ -13046,6 +13184,29 @@
             "hi": ""
           },
           "source": "bnss-first-schedule"
+        },
+        {
+          "clause": "105",
+          "offence": {
+            "en": "If act be done with knowledge that it is likely to cause death, but without any intention to cause death, etc.",
+            "hi": ""
+          },
+          "punishment": {
+            "en": "Imprisonment for 10 years and with fine.",
+            "hi": ""
+          },
+          "cognizable": "cognizable",
+          "bailable": "non-bailable",
+          "triableBy": {
+            "en": "Court of Session.",
+            "hi": ""
+          },
+          "compoundable": "non-compoundable",
+          "compoundableBy": {
+            "en": "",
+            "hi": ""
+          },
+          "source": "bnss-first-schedule"
         }
       ],
       "punishment": {
@@ -13174,6 +13335,29 @@
           },
           "punishment": {
             "en": "Imprisonment for 5 years and fine.",
+            "hi": ""
+          },
+          "cognizable": "cognizable",
+          "bailable": "bailable",
+          "triableBy": {
+            "en": "Magistrate of the first class.",
+            "hi": ""
+          },
+          "compoundable": "non-compoundable",
+          "compoundableBy": {
+            "en": "",
+            "hi": ""
+          },
+          "source": "bnss-first-schedule"
+        },
+        {
+          "clause": "106(1)",
+          "offence": {
+            "en": "Causing death by negligence by registered medical practitioner.",
+            "hi": ""
+          },
+          "punishment": {
+            "en": "Imprisonment for 2 years and fine.",
             "hi": ""
           },
           "cognizable": "cognizable",
@@ -13650,6 +13834,29 @@
           "source": "bnss-first-schedule"
         },
         {
+          "clause": "109(1)",
+          "offence": {
+            "en": "If such act causes hurt to any person.",
+            "hi": ""
+          },
+          "punishment": {
+            "en": "Imprisonment for life, or as above.",
+            "hi": ""
+          },
+          "cognizable": "cognizable",
+          "bailable": "non-bailable",
+          "triableBy": {
+            "en": "Court of Session.",
+            "hi": ""
+          },
+          "compoundable": "non-compoundable",
+          "compoundableBy": {
+            "en": "",
+            "hi": ""
+          },
+          "source": "bnss-first-schedule"
+        },
+        {
           "clause": "109(2)",
           "offence": {
             "en": "Attempt by life-convict to murder, if hurt is caused.",
@@ -13803,6 +14010,29 @@
           },
           "punishment": {
             "en": "Imprisonment for 3 years or fine, or both.",
+            "hi": ""
+          },
+          "cognizable": "cognizable",
+          "bailable": "non-bailable",
+          "triableBy": {
+            "en": "Court of Session.",
+            "hi": ""
+          },
+          "compoundable": "non-compoundable",
+          "compoundableBy": {
+            "en": "",
+            "hi": ""
+          },
+          "source": "bnss-first-schedule"
+        },
+        {
+          "clause": "110",
+          "offence": {
+            "en": "If such act causes hurt to any person.",
+            "hi": ""
+          },
+          "punishment": {
+            "en": "Imprisonment for 7 years or fine, or both.",
             "hi": ""
           },
           "cognizable": "cognizable",
@@ -26047,6 +26277,29 @@
             "hi": ""
           },
           "source": "bnss-first-schedule"
+        },
+        {
+          "clause": "192",
+          "offence": {
+            "en": "If not committed.",
+            "hi": ""
+          },
+          "punishment": {
+            "en": "Imprisonment for 6 months, or fine, or both.",
+            "hi": ""
+          },
+          "cognizable": "cognizable",
+          "bailable": "bailable",
+          "triableBy": {
+            "en": "Any Magistrate.",
+            "hi": ""
+          },
+          "compoundable": "non-compoundable",
+          "compoundableBy": {
+            "en": "",
+            "hi": ""
+          },
+          "source": "bnss-first-schedule"
         }
       ],
       "punishment": {
@@ -28577,6 +28830,29 @@
           },
           "punishment": {
             "en": "Imprisonment for 3 years, or fine, or both, or community service.",
+            "hi": ""
+          },
+          "cognizable": "cognizable",
+          "bailable": "non-bailable",
+          "triableBy": {
+            "en": "Magistrate of the first class.",
+            "hi": ""
+          },
+          "compoundable": "non-compoundable",
+          "compoundableBy": {
+            "en": "",
+            "hi": ""
+          },
+          "source": "bnss-first-schedule"
+        },
+        {
+          "clause": "209",
+          "offence": {
+            "en": "In a case where declaration has been made under sub-section (4) of section 84 of this Sanhita pronouncing a person as proclaimed offender.",
+            "hi": ""
+          },
+          "punishment": {
+            "en": "Imprisonment for 7 years and fine.",
             "hi": ""
           },
           "cognizable": "cognizable",
@@ -36407,17 +36683,40 @@
         {
           "clause": "264",
           "offence": {
-            "en": "Omission to apprehend, or sufferance of escape on part of public servant, in cases not otherwise provided for:-",
+            "en": "Omission to apprehend, or sufferance of escape on part of public servant, in cases not otherwise provided for:- ( a ) in case of intentional omission or sufferance;",
             "hi": ""
           },
           "punishment": {
+            "en": "Imprisonment for 3 years, or fine, or both.",
+            "hi": ""
+          },
+          "cognizable": "non-cognizable",
+          "bailable": "bailable",
+          "triableBy": {
+            "en": "Magistrate of the first class.",
+            "hi": ""
+          },
+          "compoundable": "non-compoundable",
+          "compoundableBy": {
             "en": "",
             "hi": ""
           },
-          "cognizable": "unspecified",
-          "bailable": "unspecified",
+          "source": "bnss-first-schedule"
+        },
+        {
+          "clause": "264",
+          "offence": {
+            "en": "Omission to apprehend, or sufferance of escape on part of public servant, in cases not otherwise provided for:- ( b ) in case of negligent omission or sufferance.",
+            "hi": ""
+          },
+          "punishment": {
+            "en": "Simple imprisonment for 2 years, or fine, or both.",
+            "hi": ""
+          },
+          "cognizable": "non-cognizable",
+          "bailable": "bailable",
           "triableBy": {
-            "en": "",
+            "en": "Any Magistrate.",
             "hi": ""
           },
           "compoundable": "non-compoundable",
@@ -36429,7 +36728,7 @@
         }
       ],
       "punishment": {
-        "en": "",
+        "en": "Imprisonment for 3 years, or fine, or both.",
         "hi": "(क) यदि साशय किया जाए, तो 3 वर्ष तक के कारावास से, या जुर्माने से, या दोनों से; और (ख) यदि उपेक्षा से किया जाए, तो 2 वर्ष तक के सादा कारावास से, या जुर्माने से, या दोनों से।"
       },
       "keywords": {
@@ -41577,6 +41876,29 @@
             "hi": ""
           },
           "source": "bnss-first-schedule"
+        },
+        {
+          "clause": "303(2)",
+          "offence": {
+            "en": "Where value of property is less than 5,000 rupees.",
+            "hi": ""
+          },
+          "punishment": {
+            "en": "Upon return of the value of property or restoration of the stolen property, shall be punished with community service.",
+            "hi": ""
+          },
+          "cognizable": "non-cognizable",
+          "bailable": "bailable",
+          "triableBy": {
+            "en": "Any Magistrate.",
+            "hi": ""
+          },
+          "compoundable": "compoundable",
+          "compoundableBy": {
+            "en": "The owner of the property stolen.",
+            "hi": ""
+          },
+          "source": "bnss-first-schedule"
         }
       ],
       "punishment": {
@@ -42566,6 +42888,29 @@
           },
           "punishment": {
             "en": "Rigorous imprisonment for 10 years and fine.",
+            "hi": ""
+          },
+          "cognizable": "cognizable",
+          "bailable": "non-bailable",
+          "triableBy": {
+            "en": "Magistrate of the first class.",
+            "hi": ""
+          },
+          "compoundable": "non-compoundable",
+          "compoundableBy": {
+            "en": "",
+            "hi": ""
+          },
+          "source": "bnss-first-schedule"
+        },
+        {
+          "clause": "309(4)",
+          "offence": {
+            "en": "If robbery committed on highway between sunset and sunrise.",
+            "hi": ""
+          },
+          "punishment": {
+            "en": "Rigorous imprisonment for 14 years.",
             "hi": ""
           },
           "cognizable": "cognizable",
@@ -43588,6 +43933,29 @@
           },
           "punishment": {
             "en": "Imprisonment for 3 years and fine.",
+            "hi": ""
+          },
+          "cognizable": "non-cognizable",
+          "bailable": "bailable",
+          "triableBy": {
+            "en": "Magistrate of the first class.",
+            "hi": ""
+          },
+          "compoundable": "non-compoundable",
+          "compoundableBy": {
+            "en": "",
+            "hi": ""
+          },
+          "source": "bnss-first-schedule"
+        },
+        {
+          "clause": "315",
+          "offence": {
+            "en": "If by clerk or person employed by deceased.",
+            "hi": ""
+          },
+          "punishment": {
+            "en": "Imprisonment for 7 years.",
             "hi": ""
           },
           "cognizable": "non-cognizable",
@@ -46761,6 +47129,29 @@
           "source": "bnss-first-schedule"
         },
         {
+          "clause": "331(3)",
+          "offence": {
+            "en": "If the offence be theft.",
+            "hi": ""
+          },
+          "punishment": {
+            "en": "Imprisonment for 10 years.",
+            "hi": ""
+          },
+          "cognizable": "cognizable",
+          "bailable": "non-bailable",
+          "triableBy": {
+            "en": "Magistrate of the first class.",
+            "hi": ""
+          },
+          "compoundable": "non-compoundable",
+          "compoundableBy": {
+            "en": "",
+            "hi": ""
+          },
+          "source": "bnss-first-schedule"
+        },
+        {
           "clause": "331(4)",
           "offence": {
             "en": "Lurking house-trespass or house-breaking by night in order to the commission of an offence punishable with imprisonment.",
@@ -46774,6 +47165,29 @@
           "bailable": "non-bailable",
           "triableBy": {
             "en": "Any Magistrate.",
+            "hi": ""
+          },
+          "compoundable": "non-compoundable",
+          "compoundableBy": {
+            "en": "",
+            "hi": ""
+          },
+          "source": "bnss-first-schedule"
+        },
+        {
+          "clause": "331(4)",
+          "offence": {
+            "en": "If the offence be theft.",
+            "hi": ""
+          },
+          "punishment": {
+            "en": "Imprisonment for 14 years.",
+            "hi": ""
+          },
+          "cognizable": "cognizable",
+          "bailable": "non-bailable",
+          "triableBy": {
+            "en": "Magistrate of the first class.",
             "hi": ""
           },
           "compoundable": "non-compoundable",
@@ -47072,6 +47486,29 @@
           },
           "cognizable": "cognizable",
           "bailable": "bailable",
+          "triableBy": {
+            "en": "Any Magistrate.",
+            "hi": ""
+          },
+          "compoundable": "compoundable",
+          "compoundableBy": {
+            "en": "The person in possession of the property trespassed upon.",
+            "hi": ""
+          },
+          "source": "bnss-first-schedule"
+        },
+        {
+          "clause": "332(c)",
+          "offence": {
+            "en": "If the offence is theft.",
+            "hi": ""
+          },
+          "punishment": {
+            "en": "Imprisonment for 7 years.",
+            "hi": ""
+          },
+          "cognizable": "cognizable",
+          "bailable": "non-bailable",
           "triableBy": {
             "en": "Any Magistrate.",
             "hi": ""
@@ -48053,6 +48490,29 @@
             "hi": ""
           },
           "source": "bnss-first-schedule"
+        },
+        {
+          "clause": "338",
+          "offence": {
+            "en": "When the valuable security is a promissory note of the Central Government.",
+            "hi": ""
+          },
+          "punishment": {
+            "en": "Imprisonment for life, or imprisonment for 10 years and fine.",
+            "hi": ""
+          },
+          "cognizable": "cognizable",
+          "bailable": "non-bailable",
+          "triableBy": {
+            "en": "Magistrate of the first class.",
+            "hi": ""
+          },
+          "compoundable": "non-compoundable",
+          "compoundableBy": {
+            "en": "",
+            "hi": ""
+          },
+          "source": "bnss-first-schedule"
         }
       ],
       "punishment": {
@@ -48170,6 +48630,29 @@
             "hi": ""
           },
           "cognizable": "cognizable",
+          "bailable": "bailable",
+          "triableBy": {
+            "en": "Magistrate of the first class.",
+            "hi": ""
+          },
+          "compoundable": "non-compoundable",
+          "compoundableBy": {
+            "en": "",
+            "hi": ""
+          },
+          "source": "bnss-first-schedule"
+        },
+        {
+          "clause": "339",
+          "offence": {
+            "en": "If the document is one of the description mentioned in section 338.",
+            "hi": ""
+          },
+          "punishment": {
+            "en": "Imprisonment for life, or imprisonment for 7 years and fine.",
+            "hi": ""
+          },
+          "cognizable": "non-cognizable",
           "bailable": "bailable",
           "triableBy": {
             "en": "Magistrate of the first class.",
@@ -50878,6 +51361,29 @@
           "source": "bnss-first-schedule"
         },
         {
+          "clause": "356(2)",
+          "offence": {
+            "en": "Defamation in any other case.",
+            "hi": ""
+          },
+          "punishment": {
+            "en": "Simple imprisonment for 2 years, or fine or both, or community service.",
+            "hi": ""
+          },
+          "cognizable": "non-cognizable",
+          "bailable": "bailable",
+          "triableBy": {
+            "en": "Magistrate of the first class.",
+            "hi": ""
+          },
+          "compoundable": "compoundable-with-court-permission",
+          "compoundableBy": {
+            "en": "The person defamed.",
+            "hi": ""
+          },
+          "source": "bnss-first-schedule"
+        },
+        {
           "clause": "356(3)",
           "offence": {
             "en": "Printing or engraving matter knowing it to be defamatory against the President or the Vice- President or the Governor of a State or Administrator of a Union territory or a Minister in respect of his conduct in the discharge of his public functions when instituted upon a complaint made by the Public Prosecutor.",
@@ -50901,6 +51407,29 @@
           "source": "bnss-first-schedule"
         },
         {
+          "clause": "356(3)",
+          "offence": {
+            "en": "Printing or engraving matter knowing it to be defamatory, in any other case.",
+            "hi": ""
+          },
+          "punishment": {
+            "en": "Simple imprisonment for 2 years, or fine, or both.",
+            "hi": ""
+          },
+          "cognizable": "non-cognizable",
+          "bailable": "bailable",
+          "triableBy": {
+            "en": "Magistrate of the first class.",
+            "hi": ""
+          },
+          "compoundable": "compoundable",
+          "compoundableBy": {
+            "en": "The person defamed",
+            "hi": ""
+          },
+          "source": "bnss-first-schedule"
+        },
+        {
           "clause": "356(4)",
           "offence": {
             "en": "Sale of printed or engraved substance containing defamatory matter, knowing it to contain such matter against the President or the Vice- President or the Governor of a State or Administrator of a Union territory or a Minister in respect of his conduct in the discharge of his public functions when instituted upon a complaint made by the Public Prosecutor.",
@@ -50914,6 +51443,29 @@
           "bailable": "bailable",
           "triableBy": {
             "en": "Court of Session.",
+            "hi": ""
+          },
+          "compoundable": "compoundable",
+          "compoundableBy": {
+            "en": "The person defamed",
+            "hi": ""
+          },
+          "source": "bnss-first-schedule"
+        },
+        {
+          "clause": "356(4)",
+          "offence": {
+            "en": "Sale of printed or engraved substance containing defamatory matter, knowing it to contain such matter in any other case.",
+            "hi": ""
+          },
+          "punishment": {
+            "en": "Simple imprisonment for 2 years, or fine, or both.",
+            "hi": ""
+          },
+          "cognizable": "non-cognizable",
+          "bailable": "bailable",
+          "triableBy": {
+            "en": "Magistrate of the first class.",
             "hi": ""
           },
           "compoundable": "compoundable",

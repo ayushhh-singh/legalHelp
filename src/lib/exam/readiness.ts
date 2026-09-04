@@ -1,7 +1,7 @@
 import { cardsForUnit, coverageOf, splitByCoverage } from './coverage'
 import { paperUnits, type PaperUnit } from './types'
 
-import { addIstDays, compareStrings, istDay, type IstDay, type SrsCardRow } from '@/lib/srs'
+import { compareStrings, istDay, isIstDay, type IstDay, type SrsCardRow } from '@/lib/srs'
 import type { ExamProfile } from '@/schemas/exam'
 import type { Card } from '@/modules/trainer/schema'
 
@@ -66,11 +66,24 @@ export function cardScore(row: SrsCardRow | undefined): number {
     case 'learning':
     case 'relearning':
       return LEARNING_CREDIT
-    case 'review':
-      return Math.min(
-        1,
-        REVIEW_FLOOR + (1 - REVIEW_FLOOR) * Math.min(1, row.stability / STABILITY_TARGET_DAYS),
-      )
+    case 'review': {
+      /*
+        A row out of IndexedDB is untrusted input, and two values that cannot
+        occur in a schedule this app wrote both used to get through here.
+
+        A non-finite stability made `Math.min(1, NaN / 21)` NaN, and the mean
+        below carried that all the way to `overall` — "NaN% ready" is what the
+        screen rendered. A NEGATIVE stability scored 0.50: more than a card the
+        reader has genuinely met once, out of a number that means nothing.
+
+        Clamped to [0, 1] before use, so a corrupt row scores its state's floor
+        rather than poisoning every figure above it.
+      */
+      const ratio = Number.isFinite(row.stability)
+        ? Math.min(1, Math.max(0, row.stability / STABILITY_TARGET_DAYS))
+        : 0
+      return REVIEW_FLOOR + (1 - REVIEW_FLOOR) * ratio
+    }
   }
 }
 
@@ -120,22 +133,37 @@ export interface Readiness {
   unseenCards: number
 }
 
-/** Whole IST days from `now` to the examination. 0 on the day itself. */
-export function daysUntil(target: IstDay, now: Date): number {
+/** Milliseconds in a day. IST has a fixed +05:30 offset, so a difference of two
+ * IST calendar days is exact arithmetic rather than an approximation. */
+const MS_PER_DAY = 86_400_000
+
+/**
+ * Whole IST days from `now` to the examination. 0 on the day itself, negative
+ * once it has passed, and **null for anything that is not an IST calendar day**.
+ *
+ * The first version walked `addIstDays` up to a five-year limit and returned the
+ * limit when it ran out. Two things were wrong with that, and the second is the
+ * one that matters. A date ten years away reported 1,830 days — wrong, and
+ * wrong in a way nothing on the screen could contradict. And a string that is
+ * not a date at all reported 1,830 too, so a corrupt row was indistinguishable
+ * from a real five-year window: `daysUntil('not-a-day', now) === daysUntil(
+ * '2031-09-04', now)`. A row out of IndexedDB is untrusted input like any
+ * other, and a function that cannot read one has to say so rather than return
+ * a plausible number.
+ *
+ * `null` rather than a throw, for the reason `src/lib/study/types.ts#isConfidence`
+ * refuses rather than clamps: the caller decides what an unreadable date means,
+ * and on the readiness screen it means "no date set" while on the plan it means
+ * "nothing to draw".
+ */
+export function daysUntil(target: IstDay, now: Date): number | null {
+  if (!isIstDay(target)) return null
   const today = istDay(now)
-  // Walking a bounded range rather than differencing two timestamps: IST has a
-  // fixed +05:30 offset so a subtraction would also work, but the walk is exact
-  // by construction and `addIstDays` is already the one place that arithmetic
-  // lives. The cap is five years, which is longer than any preparation window
-  // and short enough that a corrupt stored date cannot spin.
-  const LIMIT = 366 * 5
-  if (target === today) return 0
-  if (target > today) {
-    for (let n = 1; n <= LIMIT; n += 1) if (addIstDays(today, n) === target) return n
-    return LIMIT
-  }
-  for (let n = 1; n <= LIMIT; n += 1) if (addIstDays(today, -n) === target) return -n
-  return -LIMIT
+  // Both sides are IST calendar days at midnight IST, so the offset cancels and
+  // this is a difference of two dates rather than of two instants. `ExamHubPage`
+  // had its own copy of exactly this arithmetic — two code paths answering one
+  // question, and disagreeing about it while the walk above was saturating.
+  return Math.round((Date.parse(`${target}T00:00:00Z`) - Date.parse(`${today}T00:00:00Z`)) / MS_PER_DAY)
 }
 
 export function readinessFor(input: ReadinessInput): Readiness {
@@ -210,8 +238,36 @@ export interface NextAction {
 
 export interface NextActionsInput extends Readiness {
   profile: ExamProfile
-  /** How far through the preparation window the reader is, 0-1. Null with no date. */
+  /**
+   * How far through the preparation window the reader is, 0-1.
+   *
+   * Optional, and DERIVED when it is not given — which is the fix for the
+   * defect this parameter caused. `nextActions` already has `daysRemaining`;
+   * requiring the caller to work the fraction out meant `ExamHubPage` passed
+   * `null` on every render and `take-mock` could never fire from the only place
+   * that calls it. A caller with a better idea of the window (a plan screen
+   * that knows the start date) can still pass one.
+   */
   elapsedFraction?: number | null
+}
+
+/**
+ * The share of the preparation window that has gone, from the days remaining
+ * alone.
+ *
+ * The window's START is not stored — `examChoices` holds a target date and
+ * nothing else — so this reads the remaining days against a nominal window
+ * rather than against a real one. `NOMINAL_WINDOW_DAYS` is what a departmental
+ * examination is usually notified ahead by; the figure only ever decides
+ * whether a mock is worth suggesting yet, so being approximately right is what
+ * it needs to be.
+ */
+export const NOMINAL_WINDOW_DAYS = 90
+
+export function elapsedFractionOf(daysRemaining: number | null): number {
+  if (daysRemaining === null) return 0
+  if (daysRemaining <= 0) return 1
+  return Math.min(1, Math.max(0, 1 - daysRemaining / NOMINAL_WINDOW_DAYS))
 }
 
 /** A unit at or above this is not something to do next. */
@@ -271,7 +327,8 @@ export function nextActions(input: NextActionsInput): NextAction[] {
   // A mock earns its place once there is something to measure and the window is
   // past its half-way point — sitting one on day one measures nothing but the
   // reader's morale.
-  if (input.overall >= 0.3 && (input.elapsedFraction ?? 0) >= 0.5) {
+  const elapsed = input.elapsedFraction ?? elapsedFractionOf(input.daysRemaining)
+  if (input.overall >= 0.3 && elapsed >= 0.5) {
     actions.push({ kind: 'take-mock', unitKey: null, paperId: null, unitId: null, actId: null, count: 0 })
   }
 

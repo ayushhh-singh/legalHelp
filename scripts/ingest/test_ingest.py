@@ -24,6 +24,7 @@ from indiacode_seed import RateLimiter, has_hindi, hindi_share, is_spa_shell  # 
 from ncrb_sankalan import (  # noqa: E402
     RawRow,
     parse_correspondence,
+    parse_first_schedule,
     render_table,
     sentence_case,
     split_heading,
@@ -274,6 +275,84 @@ class Correspondence(unittest.TestCase):
 # --------------------------------------------------------------------------
 # Generated Markdown
 # --------------------------------------------------------------------------
+
+
+# --------------------------------------------------------------------------
+# BNSS First Schedule
+# --------------------------------------------------------------------------
+
+# Three shapes, all of them real. 77 is an offence whose SECOND conviction is
+# graded differently; 264 is the one header row in the Schedule, naming an
+# offence and stating nothing about it; 100 is the ordinary one-row case.
+SCHEDULE = """
+<table><tbody>
+  <tr><td><p>1</p></td><td><p>2</p></td><td><p>3</p></td><td><p>4</p></td><td><p>5</p></td><td><p>6</p></td></tr>
+  <tr><td><p>77</p></td><td><p>Voyeurism.</p></td><td><p>Imprisonment for 1 year.</p></td>
+      <td><p>Cognizable.</p></td><td><p>Bailable.</p></td><td><p>Any Magistrate.</p></td></tr>
+  <tr><td><p></p></td><td><p>Second or subsequent conviction.</p></td><td><p>Imprisonment for 3 years.</p></td>
+      <td><p>Cognizable.</p></td><td><p>Non-Bailable.</p></td><td><p>Any Magistrate.</p></td></tr>
+  <tr><td><p>264</p></td><td><p>Omission to apprehend, in cases not otherwise provided for:-</p></td>
+      <td><p></p></td><td><p></p></td><td><p></p></td><td><p></p></td></tr>
+  <tr><td><p></p></td><td><p>( a ) in case of intentional omission;</p></td><td><p>Imprisonment for 3 years.</p></td>
+      <td><p>Non-cognizable.</p></td><td><p>Bailable.</p></td><td><p>Magistrate of the first class.</p></td></tr>
+  <tr><td><p></p></td><td><p>( b ) in case of negligent omission.</p></td><td><p>Simple imprisonment for 2 years.</p></td>
+      <td><p>Non-cognizable.</p></td><td><p>Bailable.</p></td><td><p>Any Magistrate.</p></td></tr>
+  <tr><td><p>100</p></td><td><p>Culpable homicide.</p></td><td><p>Imprisonment for life.</p></td>
+      <td><p>Cognizable.</p></td><td><p>Non-Bailable.</p></td><td><p>Court of Session.</p></td></tr>
+</tbody></table>
+"""
+
+
+class FirstSchedule(unittest.TestCase):
+    """A row with an empty section column continues the section above it.
+
+    Reading only the rows that carry a section number dropped 24 real rows from
+    the committed dataset and left one section with every column blank.
+    """
+
+    def entries(self):
+        from bs4 import BeautifulSoup
+
+        return parse_first_schedule(BeautifulSoup(SCHEDULE, "lxml"))
+
+    def test_a_continuation_row_is_kept_and_carries_the_section_above_it(self):
+        rows = [e for e in self.entries() if e.base == "77"]
+        self.assertEqual(len(rows), 2)
+        self.assertEqual([e.offence for e in rows][1], "Second or subsequent conviction.")
+
+    def test_a_second_conviction_keeps_its_own_bailability(self):
+        # The whole point. BNS 77 and 78(2) are bailable on a first conviction
+        # and NOT on a second, and answering the second with the first's value
+        # is a wrong answer to the question an officer actually asks.
+        first, second = [e for e in self.entries() if e.base == "77"]
+        self.assertEqual(first.bailable, "bailable")
+        self.assertEqual(second.bailable, "non-bailable")
+
+    def test_a_header_row_is_not_emitted_on_its_own(self):
+        # It has no punishment, cognizable or bailable value, so on its own it
+        # would render a classification row with every column empty.
+        rows = [e for e in self.entries() if e.base == "264"]
+        self.assertEqual(len(rows), 2)
+        for row in rows:
+            self.assertNotIn(row.cognizable, {"unspecified", ""})
+            self.assertTrue(row.punishment)
+
+    def test_a_header_names_the_offence_for_each_circumstance_below_it(self):
+        # The circumstances say "in case of intentional omission" and never
+        # what was omitted; the header is the only place the offence is named.
+        rows = [e for e in self.entries() if e.base == "264"]
+        for row in rows:
+            self.assertTrue(row.offence.startswith("Omission to apprehend"))
+        self.assertIn("intentional", rows[0].offence)
+        self.assertIn("negligent", rows[1].offence)
+
+    def test_an_ordinary_single_row_section_is_untouched(self):
+        rows = [e for e in self.entries() if e.base == "100"]
+        self.assertEqual(len(rows), 1)
+        self.assertEqual(rows[0].bailable, "non-bailable")
+
+    def test_the_column_header_row_is_still_dropped(self):
+        self.assertEqual({e.base for e in self.entries()}, {"77", "264", "100"})
 
 
 class GeneratedTable(unittest.TestCase):

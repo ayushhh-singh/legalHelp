@@ -71,7 +71,12 @@ export function App() {
           // Safari and Firefox, so keyboard users land back at the top.
           tabIndex={-1}
           aria-label={t('a11y.mainContent')}
-          className="min-w-0 flex-1 px-4 pt-6 pb-24 focus-visible:outline-none sm:px-6 lg:pb-10"
+          // The bottom padding clears the tab bar, plus however much room a
+          // service-worker toast currently needs above it (`--pwa-toast-space`,
+          // measured in `pwa.tsx`; 0 whenever no toast is on screen, which is
+          // almost always). Without the second term the toast is an overlay
+          // covering the last action on the page — docs/DATA-GAPS.md #59.
+          className="min-w-0 flex-1 px-4 pt-6 pb-[calc(6rem+var(--pwa-toast-space,0px))] focus-visible:outline-none sm:px-6 lg:pb-[calc(2.5rem+var(--pwa-toast-space,0px))]"
         >
           <ErrorBoundary resetKey={pathname}>
             <Suspense fallback={<RouteFallback />}>

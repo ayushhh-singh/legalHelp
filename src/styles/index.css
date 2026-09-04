@@ -2,6 +2,33 @@
 @import './tokens.css';
 
 @layer base {
+  :root {
+    /*
+      The bottom tab bar's own height, in one place. `src/app/Nav.tsx` sets the
+      bar's rows to `min-h-14`; `src/app/pwa.tsx` has to sit ABOVE the bar and
+      cannot read a Tailwind class, so both read this instead of restating 56px.
+
+      `--pwa-toast-space` is how much room a visible service-worker toast needs
+      above that. It is 0 whenever no toast is on screen — which is almost
+      always — and `src/app/pwa.tsx` measures the real rendered height into it,
+      because a toast is one line in English and can wrap to three in Hindi.
+      Reserving a fixed number would be wrong in one language or the other.
+    */
+    --tab-bar-height: 3.5rem;
+    --pwa-toast-space: 0px;
+    /* Above the bar and above the home indicator under it. */
+    --pwa-toast-bottom: calc(var(--tab-bar-height) + env(safe-area-inset-bottom, 0px) + 0.75rem);
+  }
+
+  /* From `lg` the bottom bar is not rendered at all (`Nav.tsx` is `lg:hidden`),
+     so its height is genuinely zero and the toast is an ordinary corner card. */
+  @media (min-width: 1024px) {
+    :root {
+      --tab-bar-height: 0rem;
+      --pwa-toast-bottom: 1rem;
+    }
+  }
+
   * {
     @apply border-border;
   }

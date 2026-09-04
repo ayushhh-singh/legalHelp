@@ -2,7 +2,7 @@ import { ArrowLeft, Flag } from 'lucide-react'
 import { useMemo, useState } from 'react'
 import { Link } from 'react-router-dom'
 
-import { useActiveExam, useExamProfile } from './useExam'
+import { knowsProfile, useActiveExam, useExamProfile } from './useExam'
 
 import { bookmarkMany } from '../store'
 import { useEffectiveCatalogue } from '../useCatalogue'
@@ -69,7 +69,13 @@ export default function ExamMockPage() {
       </div>
     )
   }
-  if (choice === null) {
+  /*
+    `null` is "nothing chosen"; an id this build cannot load takes the SAME
+    branch, because from the reader's side it is the same situation and the
+    picker is the only honest exit. A row naming a withdrawn or renamed profile
+    used to leave this screen on a skeleton for ever.
+  */
+  if (choice === null || !knowsProfile(choice.id)) {
     return (
       <div className="mx-auto flex max-w-3xl flex-col gap-4">
         <PageHeader title={t('trainer.exam.mock.title')} />
@@ -93,6 +99,7 @@ function MockFor({ profileId }: { profileId: string }) {
   const [paperId, setPaperId] = useState<string | null>(null)
   const [count, setCount] = useState<(typeof COUNT_OPTIONS)[number]>(30)
   const [added, setAdded] = useState<number | null>(null)
+  const [addFailed, setAddFailed] = useState(false)
 
   const profile = state.status === 'ready' ? state.data : null
   const objective = useMemo(() => profile?.papers.filter((paper) => paper.objective) ?? [], [profile])
@@ -271,8 +278,16 @@ function MockFor({ profileId }: { profileId: string }) {
           added={added}
           onAddWrong={() => {
             const wrong = wrongCards(stage.paper, stage.rows)
-            void bookmarkMany(wrong.map((card) => card.id)).then(() => setAdded(wrong.length))
+            // `.catch`, because `bookmarkMany` is an ordinary Dexie write with
+            // no fallback of its own: on a device whose storage is blocked or
+            // full this was an unhandled rejection and a button that silently
+            // did nothing. The same omission CLAUDE.md records for onboarding's
+            // `finish()`.
+            void bookmarkMany(wrong.map((card) => card.id))
+              .then(() => setAdded(wrong.length))
+              .catch(() => setAddFailed(true))
           }}
+          addFailed={addFailed}
           onRetake={() => setStage({ phase: 'setup' })}
         />
       </div>
@@ -521,12 +536,14 @@ function Results({
   paper,
   rows,
   added,
+  addFailed,
   onAddWrong,
   onRetake,
 }: {
   paper: MockPaper
   rows: readonly AnswerRow[]
   added: number | null
+  addFailed: boolean
   onAddWrong: () => void
   onRetake: () => void
 }) {
@@ -567,6 +584,15 @@ function Results({
             ? ` · ${t('trainer.exam.mock.resultsPenalty', { penalty: round1(result.penalty) })}`
             : ''}
         </p>
+        {/*
+          `result.qualified` is computed by `markPaper` and deliberately not
+          rendered. No profile in `data/exams` fixes a qualifying mark, because
+          the notification RESERVES the right to fix minimum standards rather
+          than fixing them — so a pass/fail line here would need two i18n keys
+          that nothing shipped can ever show, which is the "key with no reader"
+          this session spent an hour removing seven of. The field stays on the
+          result, unit-tested on both sides, for the profile that fixes one.
+        */}
         <p className="mt-3 text-xs text-muted-foreground">{t('trainer.exam.mock.practiceOnly')}</p>
       </SectionCard>
 
@@ -610,9 +636,16 @@ function Results({
         {wrong.length === 0 ? (
           <p className="text-sm text-tulsi-foreground">{t('trainer.exam.mock.resultsNothingWrong')}</p>
         ) : added === null ? (
-          <Button type="button" size="sm" variant="outline" onClick={onAddWrong}>
-            {t('trainer.exam.mock.resultsAddWrong')}
-          </Button>
+          <>
+            <Button type="button" size="sm" variant="outline" onClick={onAddWrong}>
+              {t('trainer.exam.mock.resultsAddWrong')}
+            </Button>
+            {addFailed ? (
+              <p role="alert" className="mt-2 text-sm text-coral-foreground">
+                {t('trainer.exam.mock.resultsAddFailed')}
+              </p>
+            ) : null}
+          </>
         ) : (
           <p className="text-sm text-tulsi-foreground" role="status">
             {t('trainer.exam.mock.resultsAddedWrong', { count: added })}

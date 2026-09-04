@@ -1,3 +1,5 @@
+import { totalDurationMinutes } from './types'
+
 import type { ExamProfile } from '@/schemas/exam'
 
 /**
@@ -54,9 +56,9 @@ export function checklistFor(profile: ExamProfile): ChecklistItem[] {
     // Appendix paragraph 8: "Appearance of candidates in all the three papers
     // is a must for qualifying in the examination."
     item('all-papers', 'before', { papers: profile.papers.length }),
-    item('venue-and-time', 'before', {
-      minutes: profile.papers.reduce((sum, paper) => sum + paper.durationMinutes, 0),
-    }),
+    // `totalDurationMinutes`, not a second `reduce` over the same field — the
+    // caller-sweep found this file quietly reimplementing it.
+    item('venue-and-time', 'before', { minutes: totalDurationMinutes(profile) }),
   ]
 
   // Appendix paragraph 5 and its Notes: the option to answer the subjective

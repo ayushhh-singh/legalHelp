@@ -5,7 +5,7 @@ import { Link } from 'react-router-dom'
 import { ExamBanner } from './components/ExamBanner'
 import { ReadinessBars } from './components/ReadinessBars'
 import { RevisionSheetsCard } from './components/RevisionSheetsCard'
-import { useActiveExam, useExamIndex, useExamProfile, useSrsStates } from './useExam'
+import { knowsProfile, useActiveExam, useExamIndex, useExamProfile, useSrsStates } from './useExam'
 
 import { useEffectiveCatalogue } from '../useCatalogue'
 import { useNow } from '../useNow'
@@ -91,7 +91,13 @@ export default function ExamHubPage() {
   return (
     <div className="mx-auto flex max-w-3xl flex-col gap-4">
       {header}
-      {choice === null ? (
+      {/*
+        `null` is "nothing chosen"; an id this build cannot load takes the SAME
+        branch, because from the reader's side it is the same situation and the
+        picker is the only honest exit. A row naming a withdrawn or renamed profile
+        used to leave this screen on a skeleton for ever.
+          */}
+      {choice === null || !knowsProfile(choice.id) ? (
         <ProfilePicker entries={index.data.profiles} />
       ) : (
         <ChosenExam profileId={choice.id} targetDate={choice.targetDate} dailyMinutes={choice.dailyMinutes} />

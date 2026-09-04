@@ -7677,3 +7677,53 @@ The general lesson: **a profile's NAME is the part a reader acts on, and it has 
 An eligibility note three taps down is not where somebody checks whether an examination is theirs.
 Nothing but a real reader would have found this, and the same trap is waiting on any future profile
 whose organisation runs more than one cadre.
+
+### ADR-044 addendum — the edge-case pass: thirteen defects, and eleven of them were the app not trusting its own storage or its own call sites
+
+An edge-case pass over this session's own work, run after the commit. Every regression test in
+`src/lib/exam/edge.test.ts` and `src/modules/trainer/exam/edge.test.tsx` was confirmed to FAIL against
+the committed code before its fix was written.
+
+**The pattern is not the one ADR-032 and ADR-035 found**, and it is worth naming because there is no
+model anywhere in this module. Those two concluded "the model's half was guarded and the code's half
+was not". Here the DATA was guarded — a profile is schema-parsed, every coverage entry resolves in
+both directions, a card is checked for a key before it is marked — while two things the app writes
+itself were trusted completely: **rows out of IndexedDB, and its own call sites.**
+
+_Untrusted storage, read as though this app had written it that minute (4)._ `daysUntil` walked
+`addIstDays` to a five-year limit and returned the limit, so a date ten years out reported 1,830 days
+and so did a string that is not a date — a corrupt row and a real long window were the same number.
+`cardScore` let a non-finite stability through as NaN, which the mean carried to `overall` and the
+screen rendered as "NaN% ready"; a NEGATIVE stability scored 0.50, more than a card the reader has
+actually met. `buildPlan` drew a full four-hundred-day plan for a target date that is not a date,
+because `'not-a-day' < '2026-09-04'` is false as a string comparison. And a stored profile id this
+build no longer has — a backup from a later release, a withdrawn notification, a rename — left every
+exam screen on a skeleton for ever, because `useAsync` was DISABLED for an unknown id and a disabled
+`useAsync` never leaves `loading`. That last one is `normaliseScenario`'s stale `jobId` in a new
+module, and worse: the Pay module's version rendered an empty box, this rendered nothing at all.
+
+_A branch reachable in the library and dead from the only place that calls it (3)._ `take-mock` had
+its kind, its i18n key and its slot in the composition — and `ExamHubPage` passed
+`elapsedFraction: null` on every render, so it could never fire. `dailyBudget` reads the reader's
+Session 28 study goals, and the plan screen never passed any, **while the card underneath still read
+"Taken from your weekly Library goal"** — worse than a hidden branch, because it is a false sentence
+on the screen. And `plan.truncated` did not exist at all: a date ten years out silently produced 400
+days ending in 2027 while `to` still read 2036.
+
+_A control that says one thing and does another (2)._ Settings rendered `active.id` — "Preparing for
+css-so-ldce." — a slug shown to a human, produced by the correct decision not to import
+`@/lib/exam` there. And "Stop preparing" called `clearActiveExam`, which clears a flag and leaves a
+row recording which departmental examination this officer was preparing for; it calls `forgetExam`
+now, and the hub's "Change examination" is the other affordance, which deliberately keeps the date.
+
+_Three found by the caller sweep and the key sweep rather than by thinking (4)._ `checklist.ts` had
+its own `reduce` over `durationMinutes` beside `totalDurationMinutes`. Two store accessors and a hook
+had no reader at all. Seven i18n keys named features this session did not build. `bookmarkMany`'s
+rejection was swallowed entirely, so a device with no storage left got a button that silently did
+nothing — the omission CLAUDE.md already records for onboarding's `finish()`.
+
+**The two mechanical checks that found nine of the thirteen take a minute each**, and both are in
+CLAUDE.md already: sweep the i18n catalogue for keys the session added that no source file
+references, and for each function the session exports, name the line that makes it run. The second
+one has to exclude tests to be worth anything — every export in this module had a caller until the
+sweep was narrowed to production callers, and four of the five it then found were real.

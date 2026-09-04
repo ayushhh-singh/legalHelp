@@ -405,16 +405,17 @@ COMMUTATION_SOURCE = {
     "name": "Central Civil Services (Commutation of Pension) Rules, 1981 — Table of commutation values",
     "url": "https://persmin.gov.in/pension/rules_new/ccs_coprules_1981_060613.pdf",
     "reference": "Schedule",
+    "dated": "2008-09-02",
     "note": {
         "en": (
-            "The fetched PDF's content stream could not be parsed for the table this session; every value "
-            "below was cross-checked against two independent secondary reproductions of the same official "
-            "table, which agreed on every row compared (docs/DATA-GAPS.md #52)."
+            "Read from the Schedule on page 36 of the fetched PDF with PyMuPDF and compared row by row "
+            "against the table below: all 62 rows, ages 20 to 81, agree exactly. Basis stated on the page "
+            "itself — LIC (94-96) Ultimate Tables at 8.00 per cent interest, effective 1 January 2006."
         ),
         "hi": (
-            "इस सत्र में प्राप्त पीडीएफ की सामग्री धारा से तालिका पार्स नहीं की जा सकी; नीचे प्रत्येक मान की जाँच "
-            "उसी आधिकारिक तालिका के दो स्वतंत्र द्वितीयक पुनरुत्पादनों से की गई, जो तुलना की गई प्रत्येक पंक्ति पर सहमत "
-            "थे (docs/DATA-GAPS.md #52)।"
+            "प्राप्त पीडीएफ के पृष्ठ 36 की अनुसूची से PyMuPDF द्वारा पढ़ी गई और नीचे दी गई तालिका से पंक्ति-दर-पंक्ति "
+            "मिलान किया गया: आयु 20 से 81 तक सभी 62 पंक्तियाँ पूर्णतः मेल खाती हैं। आधार पृष्ठ पर ही अंकित है — "
+            "एलआईसी (94-96) अल्टीमेट सारणी, 8.00 प्रतिशत ब्याज, 1 जनवरी 2006 से प्रभावी।"
         ),
     },
 }
@@ -428,9 +429,23 @@ GPF_SOURCE = {
     },
 }
 
-# age next birthday -> commutation value (years' purchase), per Rs. 1 p.a. of
-# pension commuted. Cross-checked against two independent secondary
-# reproductions of the CCS (Commutation of Pension) Rules 1981 table.
+# Age next birthday -> commutation value (years' purchase), per Rs. 1 p.a. of
+# pension commuted.
+#
+# Read from the primary source: page 36 ("TABLE - COMMUTATION VALUES FOR A
+# PENSION OF Re. 1 PER ANNUM") of the CCS (Commutation of Pension) Rules 1981
+# PDF, parsed with PyMuPDF and compared against every row below. The earlier
+# note said the PDF's content stream could not be parsed and the values rested
+# on two secondary reproductions instead (docs/DATA-GAPS.md #52); pdfplumber
+# finds no table there because the page draws no rules, but the text layer is
+# clean and reads in three age/value column pairs. All 62 rows matched, so the
+# secondary reproductions were right and this is no longer taking their word
+# for it.
+#
+# The table is kept here rather than re-parsed on every run for the reason
+# pay_matrix.py gives: this file reaches no host, so a dataset cannot change
+# because a portal was re-published. `src/lib/pension/engine.test.ts` pins the
+# three factors an error would most plausibly move.
 COMMUTATION_TABLE = [
     (20, 9.188), (21, 9.187), (22, 9.186), (23, 9.185), (24, 9.184), (25, 9.183),
     (26, 9.182), (27, 9.180), (28, 9.178), (29, 9.176), (30, 9.173), (31, 9.169),
@@ -507,7 +522,10 @@ def build_pension_facts() -> dict[str, Any]:
             ),
             "table": [{"ageNextBirthday": age, "factor": factor} for age, factor in COMMUTATION_TABLE],
             "source": COMMUTATION_SOURCE,
-            "verify": True,
+            # Read from the Schedule of the Rules themselves — see the note on
+            # COMMUTATION_TABLE. Everything else in this dataset that is still
+            # `True` is still waiting on its own order.
+            "verify": False,
         },
         "gpf": {
             "rateHistory": [

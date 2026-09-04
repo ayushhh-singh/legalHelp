@@ -329,6 +329,69 @@ describe('classification and punishment', () => {
     expect(missing).toEqual([])
   })
 
+  it('leaves a BNS section unclassified only when it punishes nothing', () => {
+    /*
+      70 of the 358 BNS sections carry no First Schedule classification, and
+      that is correct rather than missing: the Schedule classifies sections
+      that CREATE an offence, and those 70 are definitions, general
+      exceptions and the repeal. Section 63 defines rape and 64 punishes it;
+      101 defines murder and 103 punishes it — the definition has nothing to
+      be bailable about.
+
+      Asserting the number 70 would only restate today's data. What is worth
+      holding is the reason: a section with no classification must also carry
+      no punishment, or the Schedule row for a real offence has been dropped.
+      Verified once against the source too — the committed
+      `ScheduleBNSS.html` names 288 distinct BNS sections, the dataset
+      classifies exactly those 288, and none of the 70 appears in it.
+    */
+    const unclassifiedButPunishing = Object.values(bns.sections)
+      .filter((section) => section.classification.length === 0)
+      .filter((section) => section.punishment.en.trim().length > 0)
+      .map((section) => section.section)
+    expect(unclassifiedButPunishing).toEqual([])
+  })
+
+  it('gives every classified BNS section a punishment to show', () => {
+    // The other direction. A classification row with no punishment renders a
+    // card with a blank column — BNS 264 did exactly that until the Schedule's
+    // continuation rows were read.
+    const classifiedButBlank = Object.values(bns.sections)
+      .filter((section) => section.classification.length > 0)
+      .filter((section) => !section.punishment.en.trim())
+      .map((section) => section.section)
+    expect(classifiedButBlank).toEqual([])
+  })
+
+  it('grades a second conviction separately from the first', () => {
+    /*
+      The BNSS First Schedule puts an aggravated limb on its own row, with the
+      section column left empty because it continues the row above. Voyeurism
+      and stalking are each BAILABLE on a first conviction and NOT on a
+      second, so a parser that reads only the numbered rows answers "is this
+      bailable" with the wrong half of the Schedule.
+    */
+    for (const ref of ['77', '78']) {
+      const rows = getSection(bns, ref)?.classification ?? []
+      expect(rows.length).toBeGreaterThanOrEqual(2)
+      const repeat = rows.find((row) => /second or subsequent/i.test(row.offence.en))
+      expect(repeat, `BNS ${ref} has no second-conviction row`).toBeDefined()
+      expect(repeat?.bailable).toBe('non-bailable')
+      expect(rows.some((row) => row.bailable === 'bailable')).toBe(true)
+    }
+  })
+
+  it('never leaves a classification column unanswered', () => {
+    // "unspecified" is what the parser emits when a cell was empty. One row
+    // (BNS 264) carried it, because the values were on the two rows beneath.
+    const unspecified = Object.values(bns.sections).flatMap((section) =>
+      section.classification
+        .filter((row) => row.cognizable === 'unspecified' || row.bailable === 'unspecified')
+        .map((row) => `${section.section}/${row.clause}`),
+    )
+    expect(unspecified).toEqual([])
+  })
+
   it('leaves the procedural codes unclassified', () => {
     // Cognizable/bailable/triable are properties of offences under the BNS. A
     // classification on a BNSS or BSA section would mean the schedule parser
