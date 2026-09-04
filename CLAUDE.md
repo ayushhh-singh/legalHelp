@@ -875,6 +875,16 @@ are load-bearing, and each is enforced by a test rather than by convention:
   session exports, name the line that makes it run.** A store function with no caller is a feature
   with no reader, one layer down from a key with no reader.
 
+  **The same check caught a second one in the same session, and that one was a whole feature.**
+  `ModifyPanel` took the scoped selection as a PROP, `DocEditorPage` never passed one, and the
+  control that turned scoping on was guarded by `selection && selection.size > 0` — so
+  `restrictToBlocks`, enforced in code and tested five ways in `src/ai/agents/modify.test.ts`, could
+  not fire from the screen at all. What found it was working down the brief's own list at the end
+  and naming, for each item, the control that makes it happen. The scope is a `<select>` of the
+  document's own paragraphs now, which is also better than the editor's caret would have been: it
+  keeps this panel from knowing about Tiptap, it does not change under the officer while they type
+  the instruction, and it is something they can read before spending anything.
+
 - **`INEFFECTIVE_DYNAMIC_IMPORT` in the build log is load-bearing and nobody reads build logs.**
   `ModifyPanel` imported `QUICK_ACTIONS` — one object of seven strings — statically from
   `@/ai/agents/modify`, which cancelled `useModifyAi`'s dynamic import of the same module. That
@@ -882,8 +892,10 @@ are load-bearing, and each is enforced by a test rather than by convention:
   editor's chunk for every reader with AI off, and `docs/AI.md` is explicit that laziness in
   `src/ai` is a PRIVACY property rather than a performance one. `src/ai/agents/modify-actions.ts` is
   the values-only module that fixes it: **types are erased and may still be imported from a lazily
-  loaded agent; values may not.** Grep the build output for that warning at the end of any session
-  that adds a panel.
+  loaded agent; values may not.** It happened TWICE in one session — the second time when the scope
+  control needed `numberedBlocks`, which moved out of the agent and into
+  `src/lib/drafting/proposal.ts` for the same reason. Grep the build output for that warning at the
+  end of any session that adds a panel.
 
 - **Two dates from two sources compare wrong, and it has two faces.** An intake's date is
   `2026-08-12` (read off a letter) and a document's `meta.date` is `12.08.2026` (what CSMOP prints).

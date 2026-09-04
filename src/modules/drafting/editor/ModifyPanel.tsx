@@ -6,6 +6,7 @@ import { AiProgress, AiSpend } from '../components/AiProgress'
 import { DocSuggestion } from '../components/DocSuggestion'
 
 import { QUICK_ACTIONS, type ModifyPhase, type QuickAction } from '@/ai/agents/modify-actions'
+import { applyProposal, numberedBlocks, type Decisions } from '@/lib/drafting/proposal'
 import type { UseAi } from '@/ai/useAi'
 import { AiBanner } from '@/components/ai/AiBanner'
 import { SectionCard } from '@/components/ui-x'
@@ -13,7 +14,6 @@ import { Button } from '@/components/ui/button'
 import { useT } from '@/i18n/useT'
 import { lintDocument } from '@/lib/drafting/lint'
 import { renderOfficialDoc } from '@/lib/drafting/renderDoc'
-import { applyProposal, type Decisions } from '@/lib/drafting/proposal'
 import type { OfficialDoc } from '@/lib/drafting/model'
 import type { Lang } from '@/lib/drafting/types'
 import type { DocTemplate } from '../schema'
@@ -46,26 +46,33 @@ export interface ModifyPanelProps {
   lang: Lang
   devanagariDigits: boolean
   ai: UseAi
-  /** Block indices the officer has selected, if any. */
-  selection?: ReadonlySet<number>
   /** Applies the accepted changes. Snapshots a version first — see above. */
   onApply: (next: OfficialDoc) => Promise<void> | void
 }
 
 const QUICK_ORDER: QuickAction[] = ['formal', 'shorter', 'plainer', 'hindi', 'english', 'closing', 'renumber']
 
-export function ModifyPanel({
-  doc,
-  template,
-  lang,
-  devanagariDigits,
-  ai,
-  selection,
-  onApply,
-}: ModifyPanelProps) {
+export function ModifyPanel({ doc, template, lang, devanagariDigits, ai, onApply }: ModifyPanelProps) {
   const { t, language } = useT()
   const [instruction, setInstruction] = useState('')
-  const [scoped, setScoped] = useState(false)
+  /*
+    Which paragraph the change is confined to: `''` is the whole document, and
+    anything else is a block index.
+
+    The paragraph is chosen HERE rather than read from the editor's caret, and
+    that is a decision. Reading the caret would mean this panel knew about
+    Tiptap, which nothing downstream of the editor is allowed to
+    (`purity.test.ts` guards the library half of that rule and this is the same
+    line one level up) — and it would mean the scope changed under the officer
+    every time they clicked in the text while composing the instruction. A
+    select they can see is a scope they can check before spending anything.
+
+    The first version of this panel took the selection as a PROP and nothing
+    passed it, so the whole scoping feature — enforced in `restrictToBlocks`,
+    tested five ways in `modify.test.ts` — could never fire from the screen.
+    That is the trap ADR-043's addendum records, met in this session's own code.
+  */
+  const [scopeBlock, setScopeBlock] = useState('')
   const [notice, setNotice] = useState('')
   const [consistency, setConsistency] = useState<string[] | null>(null)
 
@@ -81,7 +88,8 @@ export function ModifyPanel({
     onSpent: () => void ai.refreshBudget(),
   })
 
-  const scope = scoped && selection && selection.size > 0 ? selection : undefined
+  const blocks = useMemo(() => numberedBlocks(doc, lang), [doc, lang])
+  const scope = scopeBlock === '' ? undefined : new Set([Number(scopeBlock)])
 
   const start = (text: string) => {
     if (!text.trim()) return
@@ -177,19 +185,31 @@ export function ModifyPanel({
           {t('draft.modify.instructionHint')}
         </p>
 
-        {selection && selection.size > 0 ? (
-          <label className="flex items-center gap-2 text-sm">
-            <input
-              type="checkbox"
-              className="size-4"
-              checked={scoped}
-              onChange={(event) => setScoped(event.target.checked)}
-            />
-            <span>
-              {t('draft.modify.scopeSelection')}{' '}
-              <span className="text-muted-foreground">({t('draft.modify.scopeSelectionHint')})</span>
-            </span>
+        {blocks.length > 1 ? (
+          <label className="flex flex-col gap-1 text-sm">
+            <span className="font-medium">{t('draft.modify.scopeSelection')}</span>
+            <select
+              className="min-h-11 rounded-[10px] border border-input bg-card px-3 text-sm"
+              value={scopeBlock}
+              onChange={(event) => setScopeBlock(event.target.value)}
+              aria-describedby="modify-scope-hint"
+            >
+              <option value="">{t('draft.modify.scopeWhole')}</option>
+              {blocks.map((text, index) => (
+                <option key={index} value={String(index)}>
+                  {/* The paragraph's own opening words, so the officer picks by
+                      what it SAYS rather than by a number the renderer counts —
+                      the same reason the rationale may not name one. */}
+                  {index + 1}. {text.replace(/^\[block \d+\] /, '').slice(0, 60)}
+                </option>
+              ))}
+            </select>
           </label>
+        ) : null}
+        {blocks.length > 1 ? (
+          <p id="modify-scope-hint" className="text-xs text-muted-foreground">
+            {t('draft.modify.scopeSelectionHint')}
+          </p>
         ) : null}
 
         <div className="flex flex-wrap gap-2">

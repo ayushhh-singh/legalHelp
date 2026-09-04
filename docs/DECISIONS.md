@@ -7391,3 +7391,25 @@ class of trap for a study aid quoting the provision it explains.
 literal per render is a new reference, so the draft library's body search would
 have re-walked every document on each keystroke anywhere in the tree. One frozen
 constant makes "still loading" and "loaded and empty" the same stable value.
+
+**And the trap this ADR names in its own first addendum item was in this
+session's own code, twice.** `recordIssuedNumber` was the first. The second was
+worse, because it was the feature §3 is about: `ModifyPanel` took the scoped
+selection as a PROP, `DocEditorPage` never passed one, and the checkbox that
+turned scoping on was guarded by `selection && selection.size > 0` — so
+`restrictToBlocks`, enforced in code and tested five ways, could never fire from
+the screen. It was found by working down the brief's own list at the end of the
+session and asking, for each item, which control makes it happen.
+
+The fix is also better than what was planned. The scope is now a `<select>` of
+the document's own paragraphs, by their opening words, rather than the editor's
+caret — which keeps this panel from knowing about Tiptap (the line
+`purity.test.ts` guards one level down), stops the scope changing under the
+officer every time they click in the text while composing the instruction, and
+makes what a run will be given something they can read before spending
+anything. `numberedBlocks` moved from the agent into `proposal.ts` so the panel
+can have it without a static import of the agent — the same
+`INEFFECTIVE_DYNAMIC_IMPORT` hazard as `QUICK_ACTIONS`, met a second time in one
+session, which is what makes it worth writing down as a rule rather than as an
+incident: **a panel may import TYPES from a lazily loaded agent and never
+values.**

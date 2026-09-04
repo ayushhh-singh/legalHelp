@@ -1,15 +1,16 @@
-import { render, screen, waitFor } from '@testing-library/react'
+import { render, screen, waitFor, within } from '@testing-library/react'
 import userEvent from '@testing-library/user-event'
 import { readFileSync } from 'node:fs'
 import { join } from 'node:path'
 import { beforeEach, describe, expect, it, vi } from 'vitest'
 
 import { DocSuggestion } from '../components/DocSuggestion'
+import { ModifyPanel } from './ModifyPanel'
 import { listVersions, putDocument, snapshot } from '../documents'
 
 import { clearAllData } from '@/db'
 import { newDoc, type BodyDoc, type OfficialDoc } from '@/lib/drafting/model'
-import { applyProposal, proposeChanges, textOf } from '@/lib/drafting/proposal'
+import { applyProposal, numberedBlocks, proposeChanges, textOf } from '@/lib/drafting/proposal'
 import { docTemplateFileSchema } from '../schema'
 
 /**
@@ -172,5 +173,81 @@ describe('the suggestion surface', () => {
       />,
     )
     expect(screen.getByText(/would break/i)).toBeInTheDocument()
+  })
+})
+
+describe('the scope control', () => {
+  /*
+    The test this session owed itself.
+
+    `restrictToBlocks` is enforced in code and tested five ways in
+    `src/ai/agents/modify.test.ts` — and the first version of `ModifyPanel` took
+    the selection as a PROP that nothing passed, so the whole feature could
+    never fire from the screen. That is the "wired end to end and unable to
+    fire" trap in this session's own code, and this is the assertion that stops
+    it coming back: the control exists, it names the document's own paragraphs,
+    and choosing one narrows what a run is given.
+  */
+  const ai = {
+    enabled: true,
+    provider: null,
+    tier: 'byok' as const,
+    settings: { monthlyTokenBudget: 200_000 },
+    refreshBudget: () => Promise.resolve(),
+  } as unknown as Parameters<typeof ModifyPanel>[0]['ai']
+
+  it('offers every paragraph of the document, by its own words', () => {
+    render(
+      <ModifyPanel
+        doc={DOC}
+        template={TEMPLATE}
+        lang="en"
+        devanagariDigits={false}
+        ai={ai}
+        onApply={() => {}}
+      />,
+    )
+
+    const scope = screen.getByLabelText(/The selected paragraph only/i)
+    const options = within(scope as HTMLSelectElement).getAllByRole('option')
+    // The whole document, plus one per paragraph that has text in it.
+    expect(options).toHaveLength(numberedBlocks(DOC, 'en').length + 1)
+    expect(options[0]).toHaveValue('')
+    expect(options[1]?.textContent).toContain('First paragraph.')
+  })
+
+  it('is not offered at all for a one-paragraph document', () => {
+    // A scope control whose only option is "the whole document" is a control
+    // that cannot do anything.
+    const single: OfficialDoc = { ...DOC, body: bodyOf('The only paragraph.') }
+    render(
+      <ModifyPanel
+        doc={single}
+        template={TEMPLATE}
+        lang="en"
+        devanagariDigits={false}
+        ai={ai}
+        onApply={() => {}}
+      />,
+    )
+    expect(screen.queryByLabelText(/The selected paragraph only/i)).not.toBeInTheDocument()
+  })
+
+  it('keeps the consistency check when AI is off, and drops everything else', () => {
+    // Turning AI off must cost this tab its model half and not its
+    // deterministic one — `src/modules/library/ai-seam.ts` states the rule.
+    const off = { ...ai, enabled: false }
+    render(
+      <ModifyPanel
+        doc={DOC}
+        template={TEMPLATE}
+        lang="en"
+        devanagariDigits={false}
+        ai={off}
+        onApply={() => {}}
+      />,
+    )
+    expect(screen.getByRole('button', { name: /Check consistency/i })).toBeInTheDocument()
+    expect(screen.queryByLabelText(/What to change/i)).not.toBeInTheDocument()
   })
 })

@@ -20,8 +20,8 @@ import { screenOutbound, type BriefRefusal } from './drafting'
 import type { Language } from '@/i18n'
 import { evaluateChecklist } from '@/lib/drafting/checklist'
 import { buildInstruction } from '@/lib/drafting/instructions'
-import { bindings, bodySchema, readDoc, type BodyDoc, type OfficialDoc } from '@/lib/drafting/model'
-import { proposeChanges, restrictToBlocks, textOf, type DocProposal } from '@/lib/drafting/proposal'
+import { bindings, bodySchema, readDoc, type OfficialDoc } from '@/lib/drafting/model'
+import { numberedBlocks, proposeChanges, restrictToBlocks, type DocProposal } from '@/lib/drafting/proposal'
 import { renderOfficialDoc } from '@/lib/drafting/renderDoc'
 import type { Lang } from '@/lib/drafting/types'
 import type { RetrievedSnippet } from '@/lib/retrieval'
@@ -210,17 +210,6 @@ export interface ModifyAgentParams {
 /* ------------------------------------------------------------------ *
  * Context
  * ------------------------------------------------------------------ */
-
-const bodyFor = (doc: OfficialDoc, lang: Lang): BodyDoc =>
-  lang === 'hi' && doc.bodyHi ? doc.bodyHi : doc.body
-
-/** The document as numbered blocks, which is the unit the scope talks about. */
-export function numberedBlocks(doc: OfficialDoc, lang: Lang): string[] {
-  return (bodyFor(doc, lang).content ?? [])
-    .map(textOf)
-    .filter((text) => text.length > 0)
-    .map((text, index) => `[block ${index}] ${text}`)
-}
 
 function modifyContext(params: {
   doc: OfficialDoc

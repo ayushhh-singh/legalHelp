@@ -1608,6 +1608,7 @@
       "instruction": "What to change",
       "instructionHint": "For example: make the third paragraph firmer, shorten it to one page, or add a reference to Rule 18(2) of the Conduct Rules.",
       "run": "Suggest the change",
+      "scopeWhole": "The whole document",
       "scopeSelection": "The selected paragraph only",
       "scopeSelectionHint": "Anything the suggestion changes outside it is discarded.",
       "quick": "Quick changes",

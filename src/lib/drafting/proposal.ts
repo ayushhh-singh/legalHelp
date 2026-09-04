@@ -127,6 +127,28 @@ const bodyFor = (doc: OfficialDoc, lang: Lang): BodyDoc =>
   lang === 'hi' && doc.bodyHi ? doc.bodyHi : doc.body
 
 /**
+ * The document's blocks as numbered lines — the unit a SCOPE talks about.
+ *
+ * Here rather than in `src/ai/agents/modify.ts`, where it started, because two
+ * things need it and one of them is a React panel: the agent, to tell the model
+ * which block it may change, and `ModifyPanel`, to let the officer pick one. A
+ * panel importing a value from the agent module cancels the dynamic import that
+ * keeps the agent off the device of a reader with AI off — the
+ * `INEFFECTIVE_DYNAMIC_IMPORT` this session already hit once with
+ * `QUICK_ACTIONS`.
+ *
+ * The index is the position among blocks that HAVE text, which is the same
+ * index `proposeChanges` assigns and the same one `restrictToBlocks` filters
+ * on. Empty spacer paragraphs are not blocks anybody can scope to.
+ */
+export function numberedBlocks(doc: OfficialDoc, lang: Lang): string[] {
+  return (bodyFor(doc, lang).content ?? [])
+    .map(textOf)
+    .filter((text) => text.length > 0)
+    .map((text, index) => `[block ${index}] ${text}`)
+}
+
+/**
  * A block's stable identity across a proposal.
  *
  * Position, not content: an officer accepting the third change then the first
