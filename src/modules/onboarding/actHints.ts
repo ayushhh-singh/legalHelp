@@ -1,4 +1,8 @@
-import { actsOf } from '@/lib/exam'
+// The LEAF module, never the `@/lib/exam` barrel: the barrel re-exports
+// `store.ts` (Dexie), the plan builder and the mock draw, and onboarding sits
+// on the initial route's chunk graph. `coverage.ts` on its own is the walk and
+// nothing else.
+import { actsOf } from '@/lib/exam/coverage'
 import type { Job } from '@/modules/pay/schema'
 import type { ExamProfile } from '@/schemas/exam'
 

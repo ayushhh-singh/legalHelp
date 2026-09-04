@@ -1,0 +1,144 @@
+{
+  "generatedAt": "2026-09-04",
+  "what": "Whether each fetched Hindi source has a text layer that can be read. A document must pass all three tests to be usable; see audit_hindi(). Scope is the RULE BOOKS in scripts/authoring/sources/_manifest.json. The three Sanhitas are the law pipeline's and are not fetched here — MHA publishes Hindi PDFs of all three and all three fail the same way; the URLs and per-document figures are in docs/DATA-GAPS.md #16.",
+  "documents": [
+    {
+      "file": "ccs-conduct-hi.pdf",
+      "act": "ccs-conduct",
+      "characters": 448233,
+      "devanagariRatio": 0.67,
+      "foreignLetters": 70688,
+      "worstOffenders": [
+        {
+          "char": "ð",
+          "codepoint": "U+00F0",
+          "count": 28489
+        },
+        {
+          "char": "î",
+          "codepoint": "U+00EE",
+          "count": 4662
+        },
+        {
+          "char": "Ü",
+          "codepoint": "U+00DC",
+          "count": 3418
+        },
+        {
+          "char": "ò",
+          "codepoint": "U+00F2",
+          "count": 3174
+        },
+        {
+          "char": "ç",
+          "codepoint": "U+00E7",
+          "count": 2736
+        }
+      ],
+      "visualOrderShare": 0.1426,
+      "usable": false
+    },
+    {
+      "file": "ccs-cca-hi.pdf",
+      "act": "ccs-cca",
+      "characters": 350321,
+      "devanagariRatio": 0.835,
+      "foreignLetters": 19281,
+      "worstOffenders": [
+        {
+          "char": "É",
+          "codepoint": "U+00C9",
+          "count": 10909
+        },
+        {
+          "char": "º",
+          "codepoint": "U+00BA",
+          "count": 974
+        },
+        {
+          "char": "ä",
+          "codepoint": "U+00E4",
+          "count": 914
+        },
+        {
+          "char": "Ê",
+          "codepoint": "U+00CA",
+          "count": 852
+        },
+        {
+          "char": "ª",
+          "codepoint": "U+00AA",
+          "count": 671
+        }
+      ],
+      "visualOrderShare": 0.1799,
+      "usable": false
+    },
+    {
+      "file": "rti-hi.pdf",
+      "act": "rti",
+      "characters": 58533,
+      "devanagariRatio": 0.929,
+      "foreignLetters": 1869,
+      "worstOffenders": [
+        {
+          "char": "ᳰ",
+          "codepoint": "U+1CF0",
+          "count": 406
+        },
+        {
+          "char": "ᳱ",
+          "codepoint": "U+1CF1",
+          "count": 329
+        },
+        {
+          "char": "ᱶ",
+          "codepoint": "U+1C76",
+          "count": 270
+        },
+        {
+          "char": "ᲂ",
+          "codepoint": "U+1C82",
+          "count": 263
+        },
+        {
+          "char": "ᳯ",
+          "codepoint": "U+1CEF",
+          "count": 133
+        }
+      ],
+      "visualOrderShare": 0.0987,
+      "usable": false
+    },
+    {
+      "file": "ol-act-hi.pdf",
+      "act": "ol-act",
+      "characters": 11706,
+      "devanagariRatio": 0.996,
+      "foreignLetters": 0,
+      "worstOffenders": [],
+      "visualOrderShare": 0.0448,
+      "usable": false
+    },
+    {
+      "file": "fr-sr-hi.pdf",
+      "act": "fr-sr",
+      "characters": 295,
+      "devanagariRatio": 0.0,
+      "foreignLetters": 0,
+      "worstOffenders": [],
+      "visualOrderShare": 0.0,
+      "usable": false
+    },
+    {
+      "file": "csmop-hi.pdf",
+      "act": "csmop",
+      "characters": 346256,
+      "devanagariRatio": 0.981,
+      "foreignLetters": 0,
+      "worstOffenders": [],
+      "visualOrderShare": 0.032,
+      "usable": false
+    }
+  ]
+}

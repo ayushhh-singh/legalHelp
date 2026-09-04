@@ -510,7 +510,7 @@ def parse_first_schedule(soup: BeautifulSoup) -> list[ScheduleEntry]:
             # attach it to, so it is dropped exactly as it was before.
             if carried is None:
                 continue
-            ref, offence = carried, f"{prefix}{cells[1]}" if prefix else cells[1]
+            ref, offence = carried, (f"{prefix}{cells[1]}" if prefix else cells[1])
         else:
             if not section or section in {"1", "2", "3", "4", "5", "6"} and cells[1] in {"2", "Offence"}:
                 continue
@@ -1228,6 +1228,14 @@ def render_gap_markdown(report: dict[str, Any]) -> str:
             "",
             "The classification columns count only the BNS: cognizable, bailable and compoundable are properties",
             "of offences, and the BNSS and the BSA are procedural.",
+            "",
+            "**\"No classification\" is not a gap.** The First Schedule classifies sections that CREATE an offence,",
+            "and the unclassified BNS sections define one without punishing it, state a general exception, or",
+            "repeal — s.63 defines rape and s.64 punishes it; s.101 defines murder and s.103 punishes it. A",
+            "definition has nothing to be bailable about. Checked against the Schedule itself rather than assumed:",
+            "it names 288 distinct BNS sections, this dataset classifies exactly those 288, and none of the",
+            "unclassified ones appears in it. `tests/law-data.test.ts` holds the invariant that makes it",
+            "checkable without the source — an unclassified section must also carry no punishment text.",
             "",
             f"Repealed-Act sections with no counterpart at all (NCRB marks them \"Deleted\"): **{omitted['count']}** -",
             f"{preview}.",

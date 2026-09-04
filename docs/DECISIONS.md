@@ -7767,3 +7767,111 @@ this session's, agreed by message before either was written. It is also the sess
 `git add -A` in that shared tree swept a peer's uncommitted work into commit `9613b67`; nothing was
 lost, the message was amended to list what it actually carries, and the rule is written into it:
 with two sessions in one tree, `git add <paths>` is the only safe form.
+
+---
+
+## ADR-045 — The Hindi statute is published and unreadable, the First Schedule's continuation rows, and a performance option measured and rejected
+
+**Status.** Accepted (Session 33).
+
+**Context.** A gap-closing sweep over `docs/DATA-GAPS.md` rather than a feature: the Hindi statutory
+text (#16, #45), the BNS sections carrying no First Schedule classification, the commutation table
+(#52), Lighthouse mobile performance (#58), the service-worker toast (#59) and the Trainer act hints
+(#56).
+
+### 1. The Hindi Sanhitas were found, and the finding is that they cannot be read
+
+Row 16 had said no official Hindi text of the three Sanhitas had been located. It had — Session 20
+looked for `mha.gov.in`'s `..._english_...`/`..._hindi_...` filename convention and the Hindi files
+are not named that way. MHA's own **Hindi-language** page links all three, and they were fetched.
+
+All three are unusable, and this is measured rather than asserted. They set Hindi in `Mangal` subsets
+mapped through `WinAnsiEncoding` alongside one correct `Identity-H` subset, so glyphs are dropped
+wholesale: the title of the BNS extracts as `भाययायंहा, 2023`. Two further publishers were checked —
+PRS India's Hindi bill text is a scan with no text layer at all, and BPRD's Hindi handbook is legacy
+visual-order and is a police handbook rather than the statute. Eleven documents from five publishers;
+every one fails.
+
+The decision this forces is the one the master context already fixed: **nothing is machine-translated
+and nothing is guessed.** All 1,059 section texts keep `hi: ""` and the reader's "not yet available"
+notice fires. What changes is that a future session need not search again — the obstacle moved from
+discovery to font mapping, and `scripts/ingest/reports/hindi-text-layers.json` is the committed
+record. `sources/` is git-ignored, so without that report the measurement would have to be redone
+from ~90 MB of PDFs to be believed.
+
+### 2. `--audit-hindi` had a hole, and it was contradicting this repository's own notes
+
+The audit asked two questions: is the text overwhelmingly Devanagari, and does it contain letters from
+outside that block. A legacy font that maps Devanagari glyphs onto **real Devanagari codepoints in
+visual order** answers both correctly and still produces nonsense. Two fetched Hindi rule books passed
+on that basis, one of them CSMOP — which `docs/DATA-GAPS.md` #36 has recorded as unreadable since
+Session 8. An audit disagreeing with a written finding is worse than no audit, because the audit is
+what a future session would trust.
+
+`authoring_common.visual_order_share()` is the third test. Unicode stores Devanagari in **logical**
+order, so a dependent vowel sign always follows its consonant and **no token can begin with one**; a
+legacy font stores glyphs in the order they are drawn, where the i-matra sits to the left, so `किसी`
+comes out `िकसी`. It needs no word list, which is what makes it honest — no document can pass by
+happening to use vocabulary the checker knows. Measured: CSMOP 3.2%, the OL Act 4.5%, DoPT's CCA rules
+18.0%, this project's own authored Hindi 0.0%.
+
+Writing the control found a false positive that was correct: `ccs-conduct.json`'s `_note` quotes the
+corrupt extraction as the reason the file exists. The test skips `_`-prefixed metadata keys — the same
+shape as `src/lib/study/purity.test.ts` stripping comments because `quiz.ts` names `Math.random()` in
+one.
+
+### 3. "No classification" was right; checking it found 24 dropped rows
+
+The 70 unclassified BNS sections are definitions, general exceptions and the repeal — s.63 defines
+rape and s.64 punishes it. Verified against the Schedule rather than reasoned about: it names 288
+distinct BNS sections, the dataset classifies exactly those 288, and none of the 70 appears in it.
+
+Checking it exposed a real defect. A Schedule row whose section column is **empty** continues the row
+above, and `parse_first_schedule` read only numbered rows. Twenty-five such rows exist, and they are
+not wrapped text: **BNS 77 (voyeurism) and 78(2) (stalking) are bailable on a first conviction and
+NOT on a second**, each on a continuation row. The app was answering "is this bailable" with the wrong
+half of the Schedule. BNS 264 was the one true header row — an offence named with every column blank,
+its punishment on the two lettered rows beneath — and it rendered a classification card with nothing
+in it.
+
+441 → 465 rows over 21 sections; dataset version 1.2.0, because a cached AI answer must be invalidated
+for it. The invariant that makes this checkable without the source is in `tests/law-data.test.ts`: an
+unclassified section must carry no punishment text.
+
+### 4. #58's option (b) was tried, measured and reverted
+
+Folding each module's index view into its module chunk removes one hop on paper. It buys nothing,
+because `routePreloadHeaders()` was **already** emitting a `Link: rel=preload` for the view chunk
+beside the module chunk — the browser had been fetching both in parallel since that plugin landed, so
+the hop was never on the critical path. Measured back to back on one machine: `/law` LCP 4.4s → 4.5s;
+across seven routes 86/84/81/80/75/89/89 → 85/84/80/79/75/89/88. No route better, four marginally
+worse, and 0.7 KB gzip added to the initial route.
+
+Reverted. **A preload hint and a static import remove the same round trip and only one of them is
+free** — which is the check to run before re-trying it.
+
+Neither run was committed. Both sat at load average 19-25, so their absolute values are not comparable
+with the quiet-machine baseline even though the A/B between them is, and `docs/lighthouse/` still
+describes the committed code because the change was reverted. `docs/lighthouse/README.md` already
+recorded a 23-point contention swing; this session reproduced it, and the control that identified it
+is worth more than the conclusion: `/utils` and `/settings` dropped too, and route splitting cannot
+plausibly move those.
+
+### 5. The toast reserves space rather than moving
+
+Two defects. The offset ignored `env(safe-area-inset-bottom)` while `Nav.tsx` pads the tab bar by that
+inset, so on a phone reporting one the toast sat on the bar. And an overlay covers what is under it at
+any offset — moving it up only relocates the collision. `--pwa-toast-space` is measured from the
+rendered toast by a `ResizeObserver` and added to the main element's bottom padding; measured because
+these strings are one line in English and can be three in Hindi, and via a callback ref so every path
+by which the last toast disappears also gives the space back. `--tab-bar-height` is now the single
+definition of the bar's height.
+
+### 6. The commutation table parses
+
+#52 said the PDF's content stream could not be read. `pdfplumber` finds no table on that page because
+the page draws no ruling lines; the text layer is clean and PyMuPDF reads it as three age/value column
+pairs. All 62 rows agree with page 36 of the Rules, so `commutation.verify` is now `false` — and
+`tests/pension-data.test.ts` is `data/pension/`'s first dataset test of any kind, which is its own
+finding: the engine over that data is thorough and runs entirely against a fixture, so the committed
+table was read by nothing.

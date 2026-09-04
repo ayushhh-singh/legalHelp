@@ -638,6 +638,39 @@ def devanagari_ratio(value: str) -> float:
     return len(_DEVANAGARI.findall("".join(letters))) / len(letters)
 
 
+# A dependent vowel sign (matra) and the other combining marks. Unicode stores
+# Devanagari in LOGICAL order, so every one of these follows the consonant it
+# attaches to and none of them can begin a word.
+_MATRAS = "\u093e\u093f\u0940\u0941\u0942\u0943\u0947\u0948\u094b\u094c\u0902\u0903\u0901\u094d"
+_DEVANAGARI_TOKEN = re.compile(r"[\u0900-\u097f]+")
+
+
+def visual_order_share(value: str) -> float:
+    """Share of Devanagari tokens that BEGIN with a matra. 0.0 for clean text.
+
+    The one test that separates real Unicode Devanagari from a legacy 8-bit font
+    dump, and it needs no word list, so no document can pass it by using
+    vocabulary the checker happens to know.
+
+    A legacy font stores glyphs in the order they are DRAWN. The i-matra is
+    drawn to the left of its consonant, so `किसी` ("kisi") comes out of such a
+    PDF as `िकसी` — a token beginning with U+093F, which well-formed Unicode
+    cannot produce. Measured on this project's own authored Hindi the figure is
+    0.00%; on DoPT's Hindi Conduct rules it is 14.3% and on the CCA rules 18.0%.
+
+    This is what `devanagari_ratio` alone cannot see. That measure asks whether
+    the characters are Devanagari, and a font mapped onto REAL Devanagari
+    codepoints in visual order answers yes while producing `हकया` for `किया` and
+    `ूशासन` for `प्रशासन`. Two Hindi sources passed the old audit for exactly
+    that reason (docs/DATA-GAPS.md #36 already recorded one of them as
+    unreadable, so the audit was contradicting the repository's own finding).
+    """
+    tokens = _DEVANAGARI_TOKEN.findall(value)
+    if not tokens:
+        return 0.0
+    return sum(1 for token in tokens if token[0] in _MATRAS) / len(tokens)
+
+
 def normalise_rule_number(value: str) -> str:
     """``"11 A"``, ``"11-A"`` and ``"11A."`` all become ``"11A"``.
 

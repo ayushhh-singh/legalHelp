@@ -105,6 +105,65 @@ class TestNoInferenceApi(unittest.TestCase):
                         )
 
 
+class TestVisualOrderDetection(unittest.TestCase):
+    """The one test that separates real Devanagari from a legacy font dump.
+
+    `devanagari_ratio` asks whether the CHARACTERS are Devanagari, and a font
+    that maps glyphs onto real Devanagari codepoints in the order they are
+    DRAWN answers yes while producing nonsense. Two fetched Hindi rule books
+    passed the audit on that basis — one of them CSMOP, which
+    docs/DATA-GAPS.md #36 had already recorded as unreadable.
+    """
+
+    # "किसी अधिकारी ने नियम का पालन किया" — logical order, as Unicode stores it.
+    CLEAN = "किसी अधिकारी ने नियम का पालन किया"
+    # The same sentence out of a legacy 8-bit PDF: every i-matra has moved to
+    # the front of its consonant, because that is where it is drawn.
+    VISUAL = "िकसी अिधकारी ने िनयम का पालन िकया"
+
+    def test_clean_unicode_scores_zero(self):
+        self.assertEqual(common.visual_order_share(self.CLEAN), 0.0)
+
+    def test_visual_order_is_caught(self):
+        self.assertGreater(common.visual_order_share(self.VISUAL), 0.2)
+
+    def test_both_sentences_look_equally_devanagari(self):
+        # Which is the whole point: the measure that was already there cannot
+        # tell these apart, so it cannot be the one deciding "usable".
+        self.assertAlmostEqual(
+            common.devanagari_ratio(self.CLEAN), common.devanagari_ratio(self.VISUAL), places=6
+        )
+
+    def test_english_and_empty_text_score_zero_rather_than_dividing_by_nothing(self):
+        self.assertEqual(common.visual_order_share(""), 0.0)
+        self.assertEqual(common.visual_order_share("Rule 3 of the CCS (Conduct) Rules"), 0.0)
+
+    def test_this_project_own_authored_hindi_passes(self):
+        """The control. Every authored heading must read 0.
+
+        The `_`-prefixed metadata keys are skipped, and finding out why is what
+        this test was worth writing for: `ccs-conduct.json`'s `_note` QUOTES the
+        corrupt extraction (`ूशासन` for `प्रशासन`) as the reason the file exists,
+        so the detector flagged it — correctly. Scanning the notes would be
+        measuring this project's documentation of the problem rather than its
+        Hindi. Same shape as `src/lib/study/purity.test.ts` needing to strip
+        comments because `quiz.ts` names `Math.random()` in a comment explaining
+        why it does not call it.
+        """
+        for act in ("ccs-conduct", "gfr", "csmop"):
+            path = common.AUTHORING_DIR / "hindi" / f"{act}.json"
+            if not path.exists():
+                continue
+            headings = {
+                key: value
+                for key, value in common.read_json(path, default={}).items()
+                if not key.startswith("_")
+            }
+            self.assertGreater(len(headings), 10, act)
+            text = " ".join(str(v) for v in headings.values())
+            self.assertEqual(common.visual_order_share(text), 0.0, act)
+
+
 class TestFurniture(unittest.TestCase):
     def test_a_rule_marker_is_not_furniture(self) -> None:
         """"1." appears on 24 pages of the Conduct rules and is a rule marker.

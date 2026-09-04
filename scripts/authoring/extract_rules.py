@@ -53,6 +53,7 @@ sys.path.insert(0, str(Path(__file__).resolve().parent))
 
 from authoring_common import (  # noqa: E402
     ACTS,
+    REPO_ROOT,
     ACTS_BY_ID,
     DISCLAIMER,
     RULES_TEXT_DIR,
@@ -60,6 +61,7 @@ from authoring_common import (  # noqa: E402
     Act,
     clean_text,
     devanagari_ratio,
+    visual_order_share,
     log,
     read_html,
     read_json,
@@ -756,11 +758,24 @@ def extract_act(config: ParseConfig) -> ActExtraction:
 def audit_hindi() -> list[dict[str, Any]]:
     """Measure every Hindi document's text layer and say whether it is usable.
 
-    A text layer is usable only if it is overwhelmingly Devanagari *and* carries
-    almost no letters from outside that block. Every Hindi rule book fetched
-    fails the second test: they are typeset from legacy fonts that map
-    Devanagari glyphs onto Latin-1 or, in the RTI Act's case, onto Vedic and
-    Ol Chiki codepoints.
+    THREE tests, and a document has to pass all three:
+
+    1. overwhelmingly Devanagari (``devanagariRatio``);
+    2. almost no letters from outside that block (``foreignLetters``) — the
+       legacy maps that reach for Latin-1, or for Vedic and Ol Chiki as the RTI
+       Act's does;
+    3. almost no token BEGINNING with a matra (``visualOrderShare``).
+
+    The third test was missing and two documents passed without it. A font that
+    maps Devanagari glyphs onto REAL Devanagari codepoints, in the order they
+    are DRAWN rather than the order they are spoken, satisfies both of the
+    first two tests and still yields `हकया` for `किया`. `csmop-hi.pdf` and
+    `ol-act-hi.pdf` were both reported "usable" on that basis — and
+    docs/DATA-GAPS.md #36 has recorded CSMOP's Hindi text layer as unreadable
+    since Session 8, so the audit was contradicting a finding this repository
+    had already written down. Measured now: CSMOP 3.2 per cent of tokens
+    matra-initial, the OL Act 4.5, DoPT's CCA rules 18.0, and this project's own
+    authored Hindi 0.0.
     """
     manifest = read_json(SOURCES_DIR / "_manifest.json", default={"documents": []})
     rows: list[dict[str, Any]] = []
@@ -783,7 +798,16 @@ def audit_hindi() -> list[dict[str, Any]]:
                 "worstOffenders": [
                     {"char": c, "codepoint": f"U+{ord(c):04X}", "count": n} for c, n in foreign.most_common(5)
                 ],
-                "usable": len(text) > 0 and sum(foreign.values()) < len(letters) * 0.001,
+                "visualOrderShare": round(visual_order_share(text), 4),
+                # All three, because each catches a different pipeline and any
+                # one of them passing alone is what let a broken document
+                # through. The 0.5 per cent floor on the third is generous:
+                # clean text measures 0.
+                "usable": (
+                    len(text) > 0
+                    and sum(foreign.values()) < len(letters) * 0.001
+                    and visual_order_share(text) < 0.005
+                ),
             }
         )
     return rows
@@ -830,14 +854,38 @@ def main() -> int:
     args = parser.parse_args()
 
     if args.audit_hindi:
-        for row in audit_hindi():
+        rows = audit_hindi()
+        for row in rows:
             verdict = "usable" if row["usable"] else "UNUSABLE"
             log(
                 f"{row['file']:<22} {verdict:<9} chars={row['characters']:<8} "
-                f"deva={row['devanagariRatio']:<6} foreign={row['foreignLetters']}"
+                f"deva={row['devanagariRatio']:<6} foreign={row['foreignLetters']:<7} "
+                f"visual-order={row['visualOrderShare']:.1%}"
             )
             for bad in row["worstOffenders"]:
                 log(f"      {bad['char']!r} {bad['codepoint']} x{bad['count']}")
+        # Committed, so the next session can read the answer instead of
+        # re-fetching ~90 MB of PDFs to rediscover it. `sources/` itself is
+        # git-ignored (it would put a copy of the rule books in the repository
+        # rather than a citation to them), so this report is the only durable
+        # record that the measurement was made and what it said.
+        report_path = REPO_ROOT / "scripts" / "ingest" / "reports" / "hindi-text-layers.json"
+        changed, _digest = write_json(
+            report_path,
+            {
+                "generatedAt": utc_now()[:10],
+                "what": (
+                    "Whether each fetched Hindi source has a text layer that can be read. A document "
+                    "must pass all three tests to be usable; see audit_hindi(). Scope is the RULE "
+                    "BOOKS in scripts/authoring/sources/_manifest.json. The three Sanhitas are the "
+                    "law pipeline's and are not fetched here — MHA publishes Hindi PDFs of all three "
+                    "and all three fail the same way; the URLs and per-document figures are in "
+                    "docs/DATA-GAPS.md #16."
+                ),
+                "documents": rows,
+            },
+        )
+        log(f"{'wrote' if changed else 'same '} {report_path}")
         return 0
 
     by_act: dict[str, list[ParseConfig]] = {}
