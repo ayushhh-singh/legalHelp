@@ -516,6 +516,14 @@ def parse_first_schedule(soup: BeautifulSoup) -> list[ScheduleEntry]:
                 continue
             parsed = parse_section_ref(section)
             if not parsed or not cells[1]:
+                # This row names SOMETHING in its section column and it is not
+                # a section — a column header, or a chapter banner if NCRB ever
+                # adds one. Whatever follows is no longer under the section
+                # above, so stop carrying it: a continuation after this is
+                # dropped, exactly as it was before continuations were read at
+                # all, rather than silently attached to the wrong offence.
+                carried = None
+                prefix = ""
                 continue
             carried = parsed
             header = not cells[2].strip() and not cells[3].strip() and not cells[4].strip()

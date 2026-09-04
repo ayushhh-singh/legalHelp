@@ -164,6 +164,58 @@ class TestVisualOrderDetection(unittest.TestCase):
             self.assertEqual(common.visual_order_share(text), 0.0, act)
 
 
+class TestHindiLayerVerdict(unittest.TestCase):
+    """`usable` is the signal that would let a future session extract Hindi.
+
+    A false UNUSABLE costs somebody a hand-check. A false USABLE puts garbled
+    statutory text in front of an officer, so every test here is written from
+    the side that says yes.
+    """
+
+    CLEAN = "यह नियम प्रत्येक सरकारी कर्मचारी पर लागू होगा और इसका पालन अनिवार्य है। " * 40
+
+    def test_a_clean_hindi_document_is_usable(self):
+        # The positive control. Without it every test below passes against a
+        # predicate hard-coded to False.
+        verdict = extract.measure_hindi_layer(self.CLEAN)
+        self.assertTrue(verdict["usable"])
+        self.assertGreaterEqual(verdict["devanagariRatio"], 0.9)
+
+    def test_an_english_document_labelled_hindi_is_not_usable(self):
+        # It has no letters from outside the Devanagari block for the reason
+        # that it has none inside it either, and it is in logical order because
+        # it is not Devanagari at all — so two of the four tests passed it and
+        # `devanagariRatio` was reported without ever being gated on.
+        verdict = extract.measure_hindi_layer("These are the rules in English, at length. " * 40)
+        self.assertEqual(verdict["devanagariRatio"], 0.0)
+        self.assertFalse(verdict["usable"])
+
+    def test_a_scan_yielding_a_handful_of_characters_is_not_usable(self):
+        # Perfect Devanagari ratio, no foreign letters, nothing in visual
+        # order — and no evidence of anything, because every ratio above was
+        # measured against almost no denominator.
+        verdict = extract.measure_hindi_layer("  नियम कुछ  ")
+        self.assertEqual(verdict["devanagariRatio"], 1.0)
+        self.assertFalse(verdict["usable"])
+
+    def test_visual_order_alone_is_enough_to_refuse(self):
+        # The CSMOP case: real Devanagari codepoints, no foreign letters, and
+        # every i-matra in front of its consonant.
+        verdict = extract.measure_hindi_layer("िकसी अिधकारी ने िनयम का पालन िकया । " * 40)
+        self.assertEqual(verdict["foreignLetters"], 0)
+        self.assertGreater(verdict["visualOrderShare"], 0.005)
+        self.assertFalse(verdict["usable"])
+
+    def test_foreign_letters_alone_are_enough_to_refuse(self):
+        # The DoPT case: a legacy map reaching for Latin-1.
+        verdict = extract.measure_hindi_layer(self.CLEAN + "ðîÜòç" * 400)
+        self.assertGreater(verdict["foreignLetters"], 0)
+        self.assertFalse(verdict["usable"])
+
+    def test_empty_text_is_not_usable(self):
+        self.assertFalse(extract.measure_hindi_layer("")["usable"])
+
+
 class TestFurniture(unittest.TestCase):
     def test_a_rule_marker_is_not_furniture(self) -> None:
         """"1." appears on 24 pages of the Conduct rules and is a rule marker.

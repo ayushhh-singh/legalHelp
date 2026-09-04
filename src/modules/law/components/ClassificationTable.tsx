@@ -63,8 +63,17 @@ export function ClassificationTable({ rows }: { rows: readonly Classification[] 
           </tr>
         </thead>
         <tbody>
-          {rows.map((row) => (
-            <tr key={row.clause} className="border-b border-border align-top last:border-0">
+          {/*
+            Keyed on the clause AND the position, because a clause is not
+            unique here. The BNSS First Schedule grades some offences by
+            circumstance and puts each limb on its own row under one section
+            number — BNS 77 and 78(2) each carry a "Second or subsequent
+            conviction" row that is non-bailable where the first conviction is
+            bailable. Two rows keyed `77` is a duplicate React key, which
+            reconciles the wrong cells onto the wrong row.
+          */}
+          {rows.map((row, index) => (
+            <tr key={`${row.clause}#${index}`} className="border-b border-border align-top last:border-0">
               <th scope="row" className="py-2 pr-3 font-semibold whitespace-nowrap tabular-nums">
                 {row.clause}
               </th>

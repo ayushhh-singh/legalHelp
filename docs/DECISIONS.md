@@ -7875,3 +7875,54 @@ pairs. All 62 rows agree with page 36 of the Rules, so `commutation.verify` is n
 `tests/pension-data.test.ts` is `data/pension/`'s first dataset test of any kind, which is its own
 finding: the engine over that data is thorough and runs entirely against a fixture, so the committed
 table was read by nothing.
+
+### ADR-045 addendum — the edge-case pass, four defects
+
+Every test named here was confirmed to fail against commit `fffd54e` before its fix was written.
+Three of the four are in code this session wrote; the fourth is code this session **broke from a
+distance**, and that is the one worth carrying forward.
+
+**1 & 2. `usable` said yes to two documents that carry no readable Hindi.** The predicate's own
+docstring claimed three tests and gated on two: `devanagariRatio` was computed, reported in the
+committed JSON, and never consulted. So an English PDF mislabelled `lang: "hi"` came back **usable** —
+it has no letters from outside the Devanagari block for the reason that it has none inside it either,
+and it is in logical order because it is not Devanagari at all. Separately there was no minimum
+volume, so a scan yielding a dozen stray glyphs scored a perfect ratio against almost no denominator
+and also came back usable. `MIN_LETTERS` (500) and `MIN_DEVANAGARI_RATIO` (0.20) close both; the
+smallest real Hindi rule book has ~7,800 letters at 0.996, so neither threshold is near anything
+genuine.
+
+The direction matters more than the numbers. A false UNUSABLE costs somebody a hand-check; a false
+USABLE is the signal that would let a future session extract garbled statutory text. This is the same
+failure the session had already fixed once — an audit reporting a broken document as usable — arriving
+from a second direction, which is a fair sign the predicate deserved the split below.
+
+`measure_hindi_layer()` is now pure and `audit_hindi()` is IO plus a call to it. It was previously
+reachable only by putting a PDF on disk and naming it in the manifest, and both holes were found by
+calling it directly with text no real document produces. **A predicate that can only be exercised
+through the filesystem is a predicate whose edges nobody has seen.**
+
+**3. A continuation row after an unparseable section row attached to the wrong offence.**
+`parse_first_schedule` carries the section forward across continuation rows; if a row's section column
+holds something that is _not_ a section — a column header, or a chapter banner if NCRB adds one — the
+parser skipped it and kept carrying the section from before, so anything continuing after it landed on
+an offence it was never written about. `carried` is cleared on such a row now, so the continuation is
+dropped exactly as it was before continuations were read at all. Latent rather than live: the
+Schedule's only unparseable row today is its column header and nothing continues it. Kept because the
+cost of the wrong answer here is a cognizable/bailable value on the wrong offence, which nothing
+downstream can detect.
+
+**4. The 24 recovered rows gave `ClassificationTable` duplicate React keys.** `key={row.clause}` was
+correct for every build before this one, because a section's classification rows had distinct clauses.
+Reading the Schedule's continuation rows made BNS 77 carry two rows both clause `77`, and React
+reconciles by key — on a re-render it can carry one limb's cells onto the other's row, and the two
+limbs differ on exactly the value an officer is reading. **A data change broke a consumer that was
+correct when it was written, and no test in the repository failed.**
+
+Worth the whole addendum: the first two tests written for it — that both rows render, and that they
+show different bailability — **pass against the duplicate key**, because React logs the collision and
+renders both rows anyway. A content assertion cannot see a key collision. The test that catches it
+spies on `console.error` and asserts React reported no duplicate; it fails against `fffd54e` naming
+key `77`. That is the fourth time this repository has recorded "break the code and watch the new
+assertion go red before believing it", and the first where the too-weak test was written during an
+edge-case pass whose entire purpose was to distrust exactly that.

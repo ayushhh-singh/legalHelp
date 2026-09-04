@@ -355,6 +355,71 @@ class FirstSchedule(unittest.TestCase):
         self.assertEqual({e.base for e in self.entries()}, {"77", "264", "100"})
 
 
+# A row with an empty section column continues the row above it, which is what
+# makes "the row above" worth being careful about.
+def _schedule(*rows: str) -> str:
+    return "<table><tbody>" + "".join(rows) + "</tbody></table>"
+
+
+def _row(*cells: str) -> str:
+    return "<tr>" + "".join(f"<td><p>{cell}</p></td>" for cell in cells) + "</tr>"
+
+
+class FirstScheduleContinuationEdges(unittest.TestCase):
+    """Where a continuation attaches, when the answer is not obvious."""
+
+    def entries(self, *rows: str):
+        from bs4 import BeautifulSoup
+
+        return parse_first_schedule(BeautifulSoup(_schedule(*rows), "lxml"))
+
+    def test_a_continuation_with_nothing_above_it_is_dropped(self):
+        # There is no section to attach it to. Dropping it is what the parser
+        # did before continuations were read at all, so this is the one case
+        # where the old behaviour is still the right one.
+        self.assertEqual(self.entries(_row("", "Orphan.", "P", "Cognizable.", "Bailable.", "Any Magistrate.")), [])
+
+    def test_a_continuation_after_an_unparseable_row_is_dropped_not_misattached(self):
+        """The row above is a chapter banner, so "the section above" is unknown.
+
+        Carrying the last section that happened to parse would put a
+        cognizable/bailable answer on an offence it was never written about —
+        a wrong answer to the question this table exists to answer, and one
+        nothing downstream could detect. NCRB's Schedule has no such banner
+        today; the column header is the only row that fails to parse, and it is
+        not followed by a continuation. This is a guard, not a fix.
+        """
+        rows = self.entries(
+            _row("100", "Culpable homicide.", "P", "Cognizable.", "Non-Bailable.", "Court of Session."),
+            _row("CHAPTER XVII", "Of offences against property", "", "", "", ""),
+            _row("", "Continuation.", "P", "Cognizable.", "Bailable.", "Any Magistrate."),
+        )
+        self.assertEqual([e.base for e in rows], ["100"])
+        self.assertEqual(rows[0].offence, "Culpable homicide.")
+
+    def test_a_header_prefix_does_not_leak_onto_a_later_section(self):
+        # 264's header names its circumstances; 300's own continuation must
+        # come back as itself.
+        rows = self.entries(
+            _row("264", "Omission:-", "", "", "", ""),
+            _row("", "( a ) intentional;", "P1", "Non-cognizable.", "Bailable.", "MFC"),
+            _row("300", "Theft.", "P2", "Cognizable.", "Non-Bailable.", "Any Magistrate."),
+            _row("", "Second or subsequent conviction.", "P3", "Cognizable.", "Non-Bailable.", "Any Magistrate."),
+        )
+        by_base = {}
+        for entry in rows:
+            by_base.setdefault(entry.base, []).append(entry.offence)
+        self.assertEqual(by_base["264"], ["Omission:- ( a ) intentional;"])
+        self.assertEqual(by_base["300"], ["Theft.", "Second or subsequent conviction."])
+
+    def test_a_header_with_no_continuation_beneath_it_is_still_emitted(self):
+        # It is then just a row with missing columns, and dropping it would
+        # lose the section from the dataset entirely. Suppression is only ever
+        # a trade against a continuation that carries the values instead.
+        rows = self.entries(_row("264", "Header alone:-", "", "", "", ""))
+        self.assertEqual([e.base for e in rows], ["264"])
+
+
 class GeneratedTable(unittest.TestCase):
     def test_pads_columns_the_way_prettier_does(self):
         # docs/DATA-GAPS.md is Prettier-formatted and this block is rewritten

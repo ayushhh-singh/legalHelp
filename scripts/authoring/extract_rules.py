@@ -755,12 +755,66 @@ def extract_act(config: ParseConfig) -> ActExtraction:
     return out
 
 
+# Below this much extracted text, no ratio computed from it means anything —
+# a scan yielding a dozen stray glyphs used to score a perfect Devanagari ratio
+# and no foreign letters, and so came back "usable".
+MIN_LETTERS = 500
+
+# And below this share of Devanagari there is no Hindi text layer to read,
+# whatever else is true of it. Deliberately a low bar rather than the
+# "overwhelmingly Devanagari" the docstring used to claim: a bilingual gazette
+# is a legitimate Hindi source, and the failure being closed here is an English
+# document reporting 0.00 and passing.
+MIN_DEVANAGARI_RATIO = 0.20
+
+
+def measure_hindi_layer(text: str) -> dict[str, Any]:
+    """The four tests, over a string. Pure, so each one can be tested.
+
+    Split out of ``audit_hindi`` because it was reachable only by putting a PDF
+    on disk and naming it in the manifest — and two of its holes were only
+    found by calling it directly with text no real document produces.
+    """
+    letters = [c for c in text if c.isalpha()]
+    foreign = Counter(c for c in letters if not c.isascii() and not ("ऀ" <= c <= "ॿ"))
+    ratio = devanagari_ratio(text)
+    visual = visual_order_share(text)
+    return {
+        "characters": len(text),
+        "letters": len(letters),
+        "devanagariRatio": round(ratio, 3),
+        "foreignLetters": sum(foreign.values()),
+        "worstOffenders": [
+            {"char": c, "codepoint": f"U+{ord(c):04X}", "count": n} for c, n in foreign.most_common(5)
+        ],
+        "visualOrderShare": round(visual, 4),
+        # All four, because each catches a different pipeline and any one of
+        # them passing alone is what let a broken document through. Every
+        # threshold is generous against the real corpus: the smallest Hindi rule
+        # book fetched has ~7,800 letters at a Devanagari ratio of 0.996, and
+        # clean text measures 0 on the visual-order test.
+        "usable": (
+            len(letters) >= MIN_LETTERS
+            and ratio >= MIN_DEVANAGARI_RATIO
+            and sum(foreign.values()) < len(letters) * 0.001
+            and visual < 0.005
+        ),
+    }
+
+
 def audit_hindi() -> list[dict[str, Any]]:
     """Measure every Hindi document's text layer and say whether it is usable.
 
-    THREE tests, and a document has to pass all three:
+    FOUR tests, and a document has to pass all four:
 
-    1. overwhelmingly Devanagari (``devanagariRatio``);
+    0. enough extracted text to be evidence of anything at all
+       (``MIN_LETTERS``) — a scan that yields a handful of stray characters
+       tells you nothing, and used to answer "usable" because every ratio
+       below it was measured against almost no denominator;
+    1. actually carrying Hindi (``devanagariRatio``) — this was REPORTED and
+       never gated on, so an English document mislabelled ``lang: "hi"`` came
+       back usable: it has no letters outside the Devanagari block for the
+       reason that it has none inside it either;
     2. almost no letters from outside that block (``foreignLetters``) — the
        legacy maps that reach for Latin-1, or for Vedic and Ol Chiki as the RTI
        Act's does;
@@ -786,30 +840,7 @@ def audit_hindi() -> list[dict[str, Any]]:
         if not path.exists():
             continue
         text = (read_html(path) if entry["kind"] == "html" else read_pdf(path)).text
-        letters = [c for c in text if c.isalpha()]
-        foreign = Counter(c for c in letters if not c.isascii() and not ("ऀ" <= c <= "ॿ"))
-        rows.append(
-            {
-                "file": entry["file"],
-                "act": entry["act"],
-                "characters": len(text),
-                "devanagariRatio": round(devanagari_ratio(text), 3),
-                "foreignLetters": sum(foreign.values()),
-                "worstOffenders": [
-                    {"char": c, "codepoint": f"U+{ord(c):04X}", "count": n} for c, n in foreign.most_common(5)
-                ],
-                "visualOrderShare": round(visual_order_share(text), 4),
-                # All three, because each catches a different pipeline and any
-                # one of them passing alone is what let a broken document
-                # through. The 0.5 per cent floor on the third is generous:
-                # clean text measures 0.
-                "usable": (
-                    len(text) > 0
-                    and sum(foreign.values()) < len(letters) * 0.001
-                    and visual_order_share(text) < 0.005
-                ),
-            }
-        )
+        rows.append({"file": entry["file"], "act": entry["act"], **measure_hindi_layer(text)})
     return rows
 
 
