@@ -201,3 +201,75 @@ describe('the export panel says what it cannot embed', () => {
 /** Kept so the router import is used — every test above renders bare. */
 export const routerIsAvailable = MemoryRouter
 export const typingIsAvailable = userEvent
+
+describe('the date at the head of an exported page', () => {
+  it('is formatted, not the raw stored value', async () => {
+    /*
+      Found by Session 31's warning that a register holding dates from two
+      sources sorts wrong — the same hazard one step along, and it was here.
+
+      A document created by the IMPORTER stores `2026-09-03`, because that is
+      what a date input needs; one typed in the Session 8 editor stores
+      `03.09.2026`, because that is what CSMOP prints. The engine formats
+      whatever it is given, so the body of the document reads `, the 03.09.2026`
+      — and the number/date table this session adds at the head of the page
+      passed `meta.date` through untouched, so the SAME page carried
+      `2026-09-03` above `03.09.2026`. An ISO storage date is not a form any
+      CSMOP specimen uses, and it reached a signed document.
+
+      `formatDate` is the engine's own function, so the two cannot disagree
+      again.
+    */
+    const { buildDocxOptions, defaultExportSettings } = await import('./exportDoc')
+    const { emptyMeta, newDoc } = await import('@/lib/drafting/model')
+    const labels = { pageOf: 'of', columnEn: 'English', columnHi: 'हिंदी' }
+    const doc = (date: string) =>
+      newDoc({
+        id: 'x',
+        templateId: 'office-memorandum',
+        lang: 'en',
+        at: '2026-09-03T10:00:00.000Z',
+        meta: { ...emptyMeta(), number: 'A-11011/2/2026-Estt.', date },
+      })
+    const dateIn = (stored: string, lang: 'en' | 'hi' = 'en', devanagariDigits = false) =>
+      buildDocxOptions({
+        doc: doc(stored),
+        lang,
+        settings: defaultExportSettings(),
+        letterhead: null,
+        labels,
+        devanagariDigits,
+      }).numberDate?.date
+
+    // Both storage forms print the one form CSMOP's specimens use.
+    expect(dateIn('2026-09-03')).toBe('03.09.2026')
+    expect(dateIn('03.09.2026')).toBe('03.09.2026')
+
+    // And it follows the app-wide Devanagari-digits setting exactly as
+    // `formatDate` does everywhere else — which means the HINDI issue only.
+    // An office that files its own O.M. numbers in ASCII wants the English
+    // issue's date to match them, so the setting is not a global substitution
+    // (`src/lib/drafting/format.ts`).
+    expect(dateIn('2026-09-03', 'hi', true)).toBe('०३.०९.२०२६')
+    expect(dateIn('2026-09-03', 'en', true)).toBe('03.09.2026')
+  })
+
+  it('leaves a date it cannot parse exactly as the officer typed it', async () => {
+    const { buildDocxOptions, defaultExportSettings } = await import('./exportDoc')
+    const { emptyMeta, newDoc } = await import('@/lib/drafting/model')
+    const options = buildDocxOptions({
+      doc: newDoc({
+        id: 'x',
+        templateId: 'office-memorandum',
+        lang: 'en',
+        at: '2026-09-03T10:00:00.000Z',
+        meta: { ...emptyMeta(), number: 'A-1/2026', date: 'the third of September' },
+      }),
+      lang: 'en',
+      settings: defaultExportSettings(),
+      letterhead: null,
+      labels: { pageOf: 'of', columnEn: 'English', columnHi: 'हिंदी' },
+    })
+    expect(options.numberDate?.date).toBe('the third of September')
+  })
+})

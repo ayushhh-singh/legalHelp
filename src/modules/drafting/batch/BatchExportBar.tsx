@@ -5,6 +5,7 @@ import { batchPlainText, buildBatchZip } from './exportBatch'
 import { canShareFiles, defaultExportSettings, saveBlob, shareFallbackNeeded } from '../exportDoc'
 
 import { Button } from '@/components/ui/button'
+import { useAppStore } from '@/app/store'
 import { useT } from '@/i18n/useT'
 
 /**
@@ -28,6 +29,7 @@ import { useT } from '@/i18n/useT'
  */
 export function BatchExportBar({ ids, onClear }: { ids: readonly string[]; onClear: () => void }) {
   const { t, language } = useT()
+  const devanagariDigits = useAppStore((state) => state.devanagariDigits)
   const [busy, setBusy] = useState(false)
   const [progress, setProgress] = useState({ done: 0, total: 0 })
   const [message, setMessage] = useState('')
@@ -49,6 +51,7 @@ export function BatchExportBar({ ids, onClear }: { ids: readonly string[]; onCle
         lang: language,
         settings: defaultExportSettings(),
         labels,
+        devanagariDigits,
         modified: new Date(),
         onProgress: (done, total) => setProgress({ done, total }),
       })

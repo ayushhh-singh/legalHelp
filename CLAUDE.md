@@ -803,7 +803,7 @@ are load-bearing, and each is enforced by a test rather than by convention:
 
 ### Notes for the next session
 
-- **An edge-case pass over Session 30 found ELEVEN defects, and the pattern is one sentence: the FILE
+- **An edge-case pass over Session 30 found TWELVE defects, and the pattern is one sentence: the FILE
   was distrusted and the CONVERSION was not.** Every way an officer can hand this app the wrong thing
   — a `.doc` in disguise, a scan, an encrypted PDF, a garbled text layer, an over-cap file, a
   zero-byte one — already had its own refusal and a message saying what to do next, because a file is
@@ -859,6 +859,15 @@ are load-bearing, and each is enforced by a test rather than by convention:
 - **A subtractive test needs a floor.** "Take away the words a page number is made of and the digits,
   and if nothing is left that is all it was" drops `011-23092345` — a footer holding nothing but the
   office telephone. A line with no page WORD in it is a page number only if it is short.
+
+- **Two dates from two sources in one place is a shape worth recognising.** A document created by the
+  importer stores `2026-09-03` (a date input needs it); one typed in the Session 8 editor stores
+  `03.09.2026` (CSMOP prints it). The `.docx` number/date table passed `meta.date` through untouched,
+  so one sheet carried both forms — and the ISO one reached a signed document. Everything that
+  displays a date goes through `format.ts#formatDate`, and everything that COMPARES two must go
+  through `isoDateValue` first: the concurrent session found the same hazard sorting a register,
+  where `'04.09.2026' < '2026-08-12'` as strings put a September reply above the August letter it
+  answered. CLAUDE.md's own `Number(date.slice(0, 4))` trap, twice more.
 
 - **The export panel's language selector chose between two identical files.** `DocEditorPage` renders
   `single` in the APP language and `bilingual` in both, and `documentsFor` answered `'hi'` with

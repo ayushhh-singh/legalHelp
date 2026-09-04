@@ -6958,7 +6958,7 @@ one is in a paragraph, which is the case the rule is about. It arrived in the
 concurrent session's commit and its author's session had ended, so it is fixed
 here — the sweep it fails is one this session added the route to.
 
-### Second addendum — the edge-case pass, and eleven defects
+### Second addendum — the edge-case pass, and twelve defects
 
 The pass over this session's own work found eleven, each confirmed to fail
 against the committed code before its fix was written
@@ -7053,6 +7053,24 @@ times.
 11. **A dead `AbortSignal`.** `buildBatchEntries` checked one between documents
     and no caller could pass one, because the bar disables every control while a
     batch is building. Removed rather than left as a feature that cannot fire.
+12. **The number/date table printed the raw stored date beside a formatted one.**
+    A document created by the IMPORTER stores `2026-09-03`, because that is what
+    an `<input type="date">` needs; one typed in the Session 8 editor stores
+    `03.09.2026`, because that is what CSMOP prints. The engine formats whatever
+    it is given, so the body of the page read `, the 03.09.2026` while the table
+    this session adds at its head read `2026-09-03` — two renderings of one date
+    on one sheet, and an ISO storage form in a signed Government document, which
+    no CSMOP specimen uses. It goes through `formatDate` now, which is the
+    engine's own function, so the two cannot disagree again; a date the officer
+    typed in words survives as they typed it, because `formatDate` returns its
+    input unchanged when it cannot parse it.
+
+    **This one was found by a warning from the concurrent session**, which had
+    just hit the same hazard from the other side: a register holding an intake's
+    `2026-08-12` next to a document's `12.08.2026` sorts a September reply above
+    the August letter it answers, because `'04.09.2026' < '2026-08-12'` as
+    strings. Two dates from two sources in one place is the shape; sorting and
+    printing are two of its faces.
 
 Two things worth carrying forward beyond the list. **A proxy assertion is not an
 assertion**: three of these had tests that passed against the broken code because
@@ -7070,3 +7088,306 @@ and every rule for improving it is a guess that is wrong in the other language o
 on the other form ("The Under Secretary" is a designation; "Shri A.B. Sharma" is
 a name; `अवर सचिव` is a designation and looks like neither). `docs/DATA-GAPS.md`
 #88 records it rather than trading one wrong guess for another.
+
+---
+
+## ADR-043 — Instruction builders derived from the dataset, a reply flow whose first pass is deterministic, a modify agent that returns a proposal rather than a document, and a register that is arithmetic
+
+**Status.** Accepted (Session 31).
+
+**Context.** Sessions 29 and 30 gave the Drafting Studio a document model, a real
+editor, forty-three forms, import and export. What an officer spends their day
+on is still not in it: most of what they write is a REPLY to something that
+arrived, and most of the rest is a change to something they have already
+written. This session builds those two, plus the register that ties them
+together and a home screen that shows what is waiting.
+
+The brief also asked for `instructionBuilder(values, context?)` on every
+template, generation progress, and a draft library — each of which is a small
+decision with one non-obvious answer.
+
+---
+
+### 1. One instruction builder, derived from the template, not forty-three
+
+`data/drafting/templates/*.json` is JSON and a function is not JSON, so "add
+`instructionBuilder` to every template" is a choice between forty-three
+hand-written builders in TypeScript beside a dataset that already states the
+same facts, and one builder that DERIVES the instruction from the template it is
+handed.
+
+`src/lib/drafting/instructions.ts` is the second. `person`, `salutation`,
+`subscription`, `urgencyAllowed`, `csmopRef.paras`, the layout's block order and
+the checklist's `must` items are already in the dataset, already validated by
+two schemas (`schemas/drafting-*.schema.json` and `src/modules/drafting/
+schema.ts`), and already what `renderOfficialDoc` and `evaluateChecklist` read.
+A second, prose copy of them would be the "two implementations of one grammar"
+ADR-039 §4 spent a Node script avoiding, and it would go stale the first time
+`drafting_seed.py` changed a form.
+
+It is forty-three builders in the only sense that matters: it produces a
+different, form-specific instruction for each, and
+`tests/drafting-instructions.test.ts` commits all forty-three as snapshots, so a
+change to any one of them shows up in a diff somebody reads. 189 assertions
+beside them check what the derivation may never lose — the person rule, the
+salutation rule, the urgency rule, every CSMOP paragraph, the Hindi register
+note, the four-underscore blank rule and every `must` checklist item.
+
+`TEMPLATE_NOTES` holds fourteen per-form lines the dataset cannot state (an O.M.
+never goes to a constitutional authority; an endorsement adds no matter of its
+own; an RTI reply must always name the First Appellate Authority). It is
+deliberately small and every entry cites CSMOP or the Act — a note there is an
+assertion about the Manual, and one with no paragraph behind it is the thing
+`verify: true` exists to mark.
+
+**Sanitisation lives in the builder rather than at the call site**, so there is
+no path from a field value into a prompt that skips it: control characters and
+bidi overrides removed, whitespace normalised, and a 5,000-character cap per
+FIELD (not per instruction — capping the whole thing would let one long field
+push the CSMOP rules off the end) with the truncation reported rather than
+silent.
+
+The instruction is **not** cached prompt prefix. It varies per document, per
+language and per field value, so it goes in the volatile part of a request; a
+`buildSystem({ instructions })` block must be the same bytes on every request.
+
+---
+
+### 2. The reply flow's first pass is deterministic, and it is the feature
+
+`src/lib/drafting/intake.ts` reads a letter with no model in the room: its
+reference number, its date, its RECEIPT date, its subject, its urgency grading,
+its enclosure count, the provisions it cites and the sentences that ask for
+something. It runs on every device with AI off, which is every device's default,
+and "Draft the reply" works from those chips alone. `docs/AI.md` §13's ordering —
+precomputed first, retrieval always, a model last — is what put the analysis
+panel at the BOTTOM of that screen.
+
+It is built ON Session 30's `extract.ts` rather than beside it. That file said in
+its own header that this session would reuse it, "because two extractors that
+disagree about what 'the number' is would make a thread that never joins up" —
+which is exactly what would have gone wrong, since the register threads on the
+number.
+
+Four decisions inside it:
+
+**Two dates, and the second is never inferred.** A letter has a date on it and a
+date it was received, and a follow-up is counted from the second. `receiptDate`
+is read only from an explicit diary or receipt stamp and is otherwise empty for
+the officer to fill. `stripReceiptStamp` blanks those lines before `extractMeta`
+sees them, because a diary stamp carries a LABELLED date and `extractMeta`
+correctly prefers a labelled one — so on a stamped letter it was reading the day
+the paper arrived as the day the letter was written. That fix is here rather
+than in `extract.ts`: a `.docx` of the office's own document has no receipt
+stamp, so changing its date rule would be paying for this case everywhere.
+
+**A request is a FORMULA, not a verb.** "furnish" alone matches "the information
+furnished by your office", which is a statement about the past. `ASK_PATTERNS`
+matches "may kindly", "it is requested", "you are requested", "कृपया" — the
+forms in which an office actually asks. A period ("within 15 days") is reported
+as a number of days and is never turned into a date: the letter date and the
+receipt date are different starting points and the office knows which it counts
+from.
+
+**Provisions are FOUND here and RESOLVED elsewhere.** `findProvisions` is a pure
+scan; `src/modules/drafting/intake/resolveProvisions.ts` is where they meet
+`data/law`'s 3.9 MB, behind the route's own lazy import. The offence-date rule is
+stated by the APP, in both languages, and is never asked of a model —
+`dateRuleCaveat()` makes the same decision for the law agent (ADR-035). An
+inbound letter almost never gives an offence date, so the note usually says it
+does not know which Sanhita governs, which is the honest answer and the one that
+stops an officer citing the wrong one in something they sign.
+
+**Nothing is stored until the officer chooses to keep it.** A letter pasted to
+read the chips and then abandoned leaves no row at all — the analysis lives in
+component state and dies with the tab. `tests/e2e/draft-reply.spec.ts` counts
+`intakes` through the real IndexedDB to prove it, because a privacy claim nobody
+tests is a privacy claim.
+
+**The AI pass** (`src/ai/agents/intake.ts`, agent id `intake-analyse`) adds what
+extraction cannot: a bilingual summary, a reading of what is being asked, the
+risks and the next steps. One rule fails it closed — **a cited provision must be
+backed by a snippet it was shown**, and a snippet id it was not given ends the
+run rather than being dropped and reported. That is stricter than the drafting
+agent's posture, and the difference is what the output IS: there an unknown
+field is a value nobody asked for and the rest of the draft is usable; here the
+whole output is one claim about what the letter says.
+
+---
+
+### 3. Modify by instruction returns a PROPOSAL, and the scope is the app's
+
+`src/ai/agents/modify.ts` (agent id `doc-modify`) is handed the officer's
+document and an instruction and returns a whole new body. **That body never
+reaches anybody.** It is parsed against `bodySchema`'s closed node list, read
+back through `readDoc`, diffed against what the officer has
+(`src/lib/drafting/proposal.ts`), marked against the checklist, and returned as
+a list of decisions with accept and reject on each. Nothing is applied until the
+officer accepts, and an accepted set creates one version — so the state before
+the change is recoverable even after they say yes.
+
+That is a stronger guarantee than the drafting agent's, and it is the right one
+for the difference between the two: `runDraftingAgent` completes a form the
+officer is still filling in; this changes writing they have finished.
+
+**Scope is enforced in code, never trusted from the prompt.** "Rewrite this
+paragraph" tells the model which block, and `restrictToBlocks` then discards
+every change outside it and REPORTS what it discarded. A persona instruction is
+not a check (ADR-036's lesson, in a new place), and the test that matters hands
+a mock a document with an out-of-scope block changed and asserts the change is
+gone and a sentence says so.
+
+**The proposal's unit is a body BLOCK, not a rendered line.** `versions.ts#
+diffDocuments` diffs rendered lines, which is right for showing what changed
+between two saved versions and wrong here: a rendered line cannot be turned back
+into a body node, so accepting one would leave nothing to store. The two share
+the matching algorithm and the reason for it.
+
+**A partially accepted block loses its marks, and says so.** Accepting a changed
+block whole takes the model's node unchanged; accepting some of its words
+assembles text from two different nodes, and there is no honest way to decide
+which set of bold runs survives. `applyProposal` reports it in `flattened`. The
+alternative — keeping the before-node's marks over after-text — would apply
+emphasis to words the officer never saw emphasised.
+
+**The rationale may not name a paragraph number**, for two independent reasons.
+The real one is that a paragraph number here is generated by POSITION, so
+accepting an insertion renumbers everything below it and a rationale saying
+"paragraph 3 has been made firmer" is then talking about a paragraph the officer
+never touched. The second is that it would fail the run anyway:
+`context.ts#NUMBERED_PROVISION_PATTERN` reads `paragraph N` as a claim about a
+provision, so an answer citing no snippet containing an N is rejected as an
+invented citation — `docs/DATA-GAPS.md` #60's wall, hit from a new direction.
+`modify.test.ts` asserts that failure rather than leaving it to be discovered.
+
+**Eight quick actions, and one of them is not AI.** Seven expand to a
+`QUICK_ACTIONS` sentence the officer could have typed — a preset that took its
+own code path would be a second feature to test and the officer could not see
+what it was asking for. "Check consistency" calls `lintDocument`, Session 29's
+eight deterministic format checks, and runs offline at no cost. It is on the same
+row as the paid ones because it answers the same question, and it is the caller
+CLAUDE.md said `lintDocument`'s glossary argument was owed.
+
+---
+
+### 4. `groundedRequired` is off on both new passes, and four checks replace it
+
+Both agents make one toolless pass — everything they may use is numbered
+PLATFORM CONTEXT — so "cite a tool result" is unsatisfiable by construction.
+ADR-035 §1 established the shape and `pay.ts`, `tutor.ts`, `law.ts` and
+`study.ts` all take it: `groundedRequired: false` at the CALL SITE, with
+`TASK_DEFAULTS` left true so a second, tool-calling pass added later is grounded
+by default rather than inheriting an exemption nobody chose.
+
+What replaces it is in code, in both files: for the intake, a cited provision
+must be one of the snippets it was shown (and fails the run if not), the
+citation an officer sees is re-derived from that snippet, a suggested form must
+be one of the forty-three, and the extractor's deadline beats the model's. For
+modify, the officer accepts each change one at a time, the scope is enforced,
+the body is parsed against a closed node list and read back, and the checklist is
+evaluated over the result. `validateCitations` still runs over both answers with
+`requireCitation` off.
+
+---
+
+### 5. The register is a fact about paper, and it is arithmetic
+
+`src/lib/drafting/register.ts` is pure — the row shape, the thread walk, the
+follow-up state, the duplicate check and the two exports. Nothing on
+`/draft/register` asks a model anything, and that is not an omission: a register
+is exactly the surface `docs/AI.md` §13 says should be a deterministic function
+over the reader's own rows.
+
+Three rules:
+
+1. **An entry POINTS at a document or an intake and never copies one.** Deleting
+   the document leaves the entry, which is the whole point of a register — an
+   office that could lose the record of a letter by deleting its draft has no
+   register at all.
+2. **A thread is a chain of `inReplyTo`, walked, never a stored tree.** A stored
+   `children[]` is a second copy of the same relation and the two go out of step
+   the first time an entry is deleted. The walk is cycle-safe, because an officer
+   editing two entries into each other's `inReplyTo` is a thing that will happen.
+3. **Overdue is computed from a date the caller supplies.** No clock here
+   (`purity.test.ts`), which is what makes "overdue tomorrow" a test that fails
+   rather than one that passes until tomorrow.
+
+**Every date is stored ISO, and that was found rather than designed.** An
+intake's date is `2026-08-12`, read off a letter; a document's `meta.date` is
+`12.08.2026`, which is what CSMOP's specimens print. Stored as they arrive and
+compared as strings, `04.09.2026` sorts BEFORE `2026-08-12` — so a September
+reply appeared above the August letter it answered, in the list, in the thread
+view and in the CSV. `normaliseDates` runs every write through
+`format.ts#isoDateValue`. This is CLAUDE.md's own `Number(date.slice(0, 4))`
+trap in a new place.
+
+**The automatic entry is wired at the CALLER, not inside `issueNumber`.**
+Issuing a number is a fact about the numbering series and the register is a
+different ledger; wiring one into the other would mean a build with the register
+turned off could no longer issue a number. It is idempotent on the document id,
+so renumbering updates the entry rather than filing the same communication
+twice.
+
+**The duplicate check has two halves.** `numberingStore.ts` knows what this app
+ISSUED (`numberIssues`); the register also knows what the officer recorded by
+hand for a communication issued before they had the app. Both feed one warning,
+and it is a warning rather than a bar for the reason `validatePattern`'s `no-seq`
+case gives — an office's numbering is the office's.
+
+---
+
+### 6. `/draft` is the draft library, and the template grid stays on it
+
+The brief asked for a home with continue-editing, recents, pending follow-ups,
+"reply to a letter", "new from template", search across drafts, filters,
+duplicate, rename, delete-with-undo and bulk export. `DraftHome` is all of that
+and sits ABOVE the forty-three template cards on the same screen, because most
+visits are to carry on with something and only some are to start a form — and
+because nothing that linked to `/draft` for a form then had to change.
+
+Search reads the body, which costs a parse of every row, so it is done only once
+something has been typed. `bodyText` reuses `proposal.ts#textOf`, so "what the
+search sees" and "what a diff compares" are the same reading of a document.
+
+---
+
+### Addendum — four things this session got wrong first
+
+Each was found by a test or by a build, and each is the kind that looks correct
+on a screenshot.
+
+**`recordIssuedNumber` was written, tested and called by nothing.** The register
+would have shown inbound letters and never a single outbound communication. This
+is the fourth session in a row to land on "wired end to end and unable to fire"
+(ADR-039's addendum, ADR-040's, ADR-041's second). The mechanical check that
+catches it is the one ADR-041 already records — sweep for i18n keys nothing
+references — but it does not catch this one, because the keys WERE referenced by
+a store function nobody called. The generalisation: ask what would have to
+happen for each exported function to run, and find the line that makes it
+happen.
+
+**A static import of one constant cancelled a dynamic import of the whole
+agent.** `ModifyPanel` imported `QUICK_ACTIONS` from `@/ai/agents/modify`, and
+rolldown said so in as many words — `INEFFECTIVE_DYNAMIC_IMPORT` — which is a
+line in a build log nobody reads. It would have put the agent, the renderer, the
+checklist evaluator, the proposal diff and zod into the editor's chunk for every
+reader with AI off, and `docs/AI.md` is explicit that laziness in `src/ai` is a
+PRIVACY property. `src/ai/agents/modify-actions.ts` is the values-only module
+that fixes it. Types are erased and may still be imported from the agent; values
+may not.
+
+**Three of the first six browser assertions matched the textarea holding the
+letter.** Every value on the "what was read" card also exists on the page
+verbatim, because the letter is still in the box above it — so an unscoped
+`getByText('A-11011/4/2026-Estt.(Allowances)')` matched twice and failed on
+strict mode. The fix is a NAMED region, which is also the a11y fix: a screen
+reader hearing the same file number twice with nothing between them cannot tell
+which is what the app read and which is the paper. The register's list needed
+the same treatment for the same reason — its filter `<select>`s carry the words
+"Received", "Sent" and "Pending" as hidden options. CLAUDE.md records the same
+class of trap for a study aid quoting the provision it explains.
+
+**`?? []` on a `useLiveQuery` defeats every `useMemo` below it.** A fresh array
+literal per render is a new reference, so the draft library's body search would
+have re-walked every document on each keystroke anywhere in the tree. One frozen
+constant makes "still loading" and "loaded and empty" the same stable value.

@@ -17,6 +17,7 @@ import {
 
 import { SectionCard } from '@/components/ui-x'
 import { Button } from '@/components/ui/button'
+import { useAppStore } from '@/app/store'
 import { useT } from '@/i18n/useT'
 import { serialise, serialiseBilingual } from '@/lib/drafting/engine'
 import { placeholderFields, type BodyDoc, type OfficialDoc } from '@/lib/drafting/model'
@@ -73,6 +74,7 @@ export function DocExportPanel({
   const [override, setOverride] = useState(false)
 
   const letterheadRow = useLiveQuery(() => getLetterhead(), [])
+  const devanagariDigits = useAppStore((state) => state.devanagariDigits)
 
   const failing = checklist.filter((item) => !item.passed)
   const must = failing.filter((item) => item.severity === 'must').length
@@ -110,6 +112,7 @@ export function DocExportPanel({
             columnEn: t('draft.preview.columnEn'),
             columnHi: t('draft.preview.columnHi'),
           },
+          devanagariDigits,
         }),
       )
       saveBlob(blob, nameFor(doc, fallbackName, view === 'both' ? 'EN-HI' : view.toUpperCase(), new Set()))

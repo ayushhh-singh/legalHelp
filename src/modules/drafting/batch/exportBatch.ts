@@ -44,6 +44,7 @@ export interface BatchOptions {
   lang: Lang
   settings?: ExportSettings
   labels: { pageOf: string; columnEn: string; columnHi: string }
+  devanagariDigits?: boolean
   onProgress?: (done: number, total: number) => void
 }
 
@@ -96,6 +97,7 @@ export async function buildBatchEntries(ids: readonly string[], options: BatchOp
           settings,
           letterhead,
           labels: options.labels,
+          devanagariDigits: options.devanagariDigits ?? false,
         }),
       })
       entries.push({

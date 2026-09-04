@@ -7,6 +7,7 @@ import {
 } from '@/lib/drafting/docx'
 import { defaultPageSetup, type PageSetup } from '@/lib/drafting/print'
 import { embeddableInDocx, type LetterheadType } from '@/lib/drafting/letterhead'
+import { formatDate } from '@/lib/drafting/format'
 import { pick, type OfficialDoc } from '@/lib/drafting/model'
 import { letterheadSizeMm } from './letterheadStore'
 import type { LetterheadImageRow } from '@/db'
@@ -59,6 +60,8 @@ export interface BuildOptionsArgs {
   letterhead: DocxLetterhead | null
   /** Translated strings — this module never reaches for i18n itself. */
   labels: { pageOf: string; columnEn: string; columnHi: string }
+  /** The app-wide setting, as every other generated numeral in this app obeys. */
+  devanagariDigits?: boolean
 }
 
 /**
@@ -99,7 +102,27 @@ export function buildDocxOptions(args: BuildOptionsArgs): DocxOptions {
     letterhead: settings.letterhead ? letterhead : null,
     pageNumbers: settings.pageNumbers,
     pageNumberLabel: { of: labels.pageOf },
-    numberDate: doc.meta.number && doc.meta.date ? { number: doc.meta.number, date: doc.meta.date } : null,
+    /*
+      FORMATTED, not the raw stored value.
+
+      A document created by the importer stores `2026-09-03` — that is what a
+      date input needs — and one typed in the Session 8 editor stores
+      `03.09.2026`, which is what CSMOP prints. The engine formats whatever it
+      is given, so passing `meta.date` through untouched put `2026-09-03` at the
+      head of a page whose own date line read `03.09.2026`: two renderings of
+      one date on one sheet, in a form no CSMOP specimen uses.
+
+      `formatDate` is the engine's own function and returns its input unchanged
+      when it cannot parse it, so a date the officer typed in words survives as
+      they typed it.
+    */
+    numberDate:
+      doc.meta.number && doc.meta.date
+        ? {
+            number: doc.meta.number,
+            date: formatDate(doc.meta.date, lang, args.devanagariDigits ?? false),
+          }
+        : null,
     properties: {
       title: doc.title || pick(doc.meta.subject, lang),
       subject: pick(doc.meta.subject, lang),
