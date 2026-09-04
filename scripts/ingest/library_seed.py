@@ -51,6 +51,7 @@ from ingest_common import (  # noqa: E402
     log,
     read_json,
     section_sort_key,
+    strip_volatile,
     update_versions,
     utc_now,
     validate,
@@ -821,7 +822,14 @@ def main() -> int:
     if args.check:
         ok = True
         for path, payload in outputs.items():
-            if read_json(path) != payload:
+            # Compare the CONTENT, not the run stamp. Every payload carries a
+            # `generatedAt` of today, so a bare `!=` reported all sixteen files
+            # as differing on any day after they were written — a check that
+            # could never pass, and so one nobody could put in CI. It is the
+            # same masking `ingest_common.write_if_content_changed` already
+            # does for the weekly law cron, and `generatedAt` was already in
+            # `VOLATILE_KEYS`; this was the one caller not using it.
+            if strip_volatile(read_json(path)) != strip_volatile(payload):
                 log(f"! {path}: on disk differs from what this script builds")
                 ok = False
         log(f"{'ok' if ok else 'FAILED'}: {len(outputs)} file(s) compared")

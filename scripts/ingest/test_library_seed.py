@@ -17,6 +17,7 @@ import copy
 import unittest
 
 import library_seed as seed
+from ingest_common import strip_volatile
 
 
 def a_work() -> dict:
@@ -168,3 +169,36 @@ class Pointers(unittest.TestCase):
 
 if __name__ == "__main__":
     unittest.main()
+
+
+class CheckIgnoresTheRunStampAndNothingElse(unittest.TestCase):
+    """`--check` compares content, and it has to be able to fail.
+
+    It could not pass: every payload carries a `generatedAt` of today, and the
+    comparison was a bare `!=`, so all sixteen files reported as differing on
+    any day after they were written. That is why the run was not in CI — it
+    would have failed every day — and why the drift it exists to catch had
+    nobody watching it. The fix masks `VOLATILE_KEYS`, which already contained
+    `generatedAt`; `library_seed` was the one caller not using it.
+
+    Both directions, because a check that cannot fail is no better than one
+    that cannot pass, and this session swapped one for the other once already.
+    """
+
+    def test_two_runs_on_different_days_compare_equal(self):
+        today = {"id": "rti", "generatedAt": "2026-09-03", "units": [{"id": "1"}]}
+        tomorrow = {"id": "rti", "generatedAt": "2026-09-04", "units": [{"id": "1"}]}
+        self.assertNotEqual(today, tomorrow)
+        self.assertEqual(strip_volatile(today), strip_volatile(tomorrow))
+
+    def test_a_real_content_change_still_differs(self):
+        before = {"id": "rti", "generatedAt": "2026-09-03", "estimatedMinutes": 12}
+        after = {"id": "rti", "generatedAt": "2026-09-03", "estimatedMinutes": 13}
+        self.assertNotEqual(strip_volatile(before), strip_volatile(after))
+
+    def test_the_stamp_is_masked_at_any_depth(self):
+        # A work nests `source.fetchedAt` under each unit, so a shallow mask
+        # would leave the check failing daily for a different reason.
+        before = {"units": [{"source": {"fetchedAt": "2026-09-03T00:00:00Z", "url": "u"}}]}
+        after = {"units": [{"source": {"fetchedAt": "2026-09-04T00:00:00Z", "url": "u"}}]}
+        self.assertEqual(strip_volatile(before), strip_volatile(after))

@@ -7926,3 +7926,12 @@ spies on `console.error` and asserts React reported no duplicate; it fails again
 key `77`. That is the fourth time this repository has recorded "break the code and watch the new
 assertion go red before believing it", and the first where the too-weak test was written during an
 edge-case pass whose entire purpose was to distrust exactly that.
+
+**5. `library_seed.py --check` could never pass.** Found while running CI's gates by hand before
+pushing. Every payload carries a `generatedAt` of today and the comparison was a bare `!=`, so all
+sixteen files reported as differing on any day after they were written — which is why that run is not
+a CI step, and so why the drift it exists to catch had nobody watching it. `ingest_common` already
+had `strip_volatile` and `generatedAt` was already in `VOLATILE_KEYS`; this was the one caller not
+using it. Verified in both directions: a real content change still fails the check, because a check
+that cannot fail is no better than one that cannot pass — and this pass had already swapped one for
+the other once. Pre-existing, confirmed by running `--check` in a worktree at `bb29d49`.
