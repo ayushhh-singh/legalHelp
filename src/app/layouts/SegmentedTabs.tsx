@@ -97,16 +97,28 @@ export function SegmentedTabs({
                     {subTab.icon ? <subTab.icon aria-hidden="true" className="h-4 w-4 shrink-0" /> : null}
                     <span className="whitespace-nowrap">{subTab.label[language]}</span>
                     {/*
-                      The badge slot. It is inside the link's accessible name on
-                      purpose: "Register, 3 waiting" is what a screen-reader
-                      user needs to hear, and a number rendered `aria-hidden`
-                      beside a label is a number only sighted readers get.
+                      The badge slot, and its count is part of the link's
+                      accessible name on purpose: "Register 3 waiting" is what a
+                      screen-reader user needs to hear, and a number drawn
+                      beside a label but kept out of the tree is a number only
+                      sighted readers get.
+
+                      Every `{' '}` here is load-bearing. Adjacent inline
+                      elements are concatenated with NO separator by the
+                      accessible-name calculation, and a space written as JSX
+                      text between a `>` and a `{` is trimmed — so the obvious
+                      markup announces "Practise12waiting". Measured twice, once
+                      for each missing space. An explicit expression is the one
+                      separator that survives both JSX and the name calculation.
                     */}
                     {count !== undefined && count > 0 ? (
-                      <span className="font-display rounded-full bg-marigold/20 px-1.5 text-[0.6875rem] text-marigold-foreground tabular-nums">
-                        {count}
-                        <span className="sr-only"> {t('a11y.waiting')}</span>
-                      </span>
+                      <>
+                        {' '}
+                        <span className="font-display rounded-full bg-marigold/20 px-1.5 text-[0.6875rem] text-marigold-foreground tabular-nums">
+                          {count}
+                        </span>{' '}
+                        <span className="sr-only">{t('a11y.waiting')}</span>
+                      </>
                     ) : null}
                     {isActive ? <span className="sr-only"> ({t('a11y.currentPage')})</span> : null}
                   </>

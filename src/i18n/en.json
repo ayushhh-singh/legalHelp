@@ -21,9 +21,9 @@
     "breadcrumbs": "Breadcrumbs",
     "openCommandPalette": "Open command palette",
     "sectionTabs": "Sections",
-    "waiting": "waiting",
     "backToParent": "back to where this is filed",
-    "moreActions": "More actions"
+    "moreActions": "More actions",
+    "waiting": "waiting"
   },
   "common": {
     "loading": "Loading…",
@@ -2352,7 +2352,19 @@
       "curatedHindi": "The Hindi heading here is written by this app, not published by the Ministry. Verify against the official gazette or order.",
       "readTime": "about {{count}} min to read",
       "bookmarkFailed": "That could not be saved on this device.",
-      "title": "Reading"
+      "title": "Reading",
+      "switchUnit": "Go to another provision",
+      "jumpTo": "Go to",
+      "jumpPlaceholder": "A number or a heading…",
+      "actions": "What to do with this provision",
+      "highlightNoSelection": "Select some words in the provision first, then choose a colour.",
+      "railShow": "Show the study panel",
+      "railHide": "Hide the study panel",
+      "sourceAndVersion": "Source & version",
+      "copyCitation": "Copy the citation",
+      "citationCopied": "Citation copied.",
+      "citationCopyFailed": "This browser would not let the app use the clipboard.",
+      "compareWith": "Compare with…"
     },
     "lang": {
       "label": "Reading language",
@@ -2372,7 +2384,8 @@
       "lineHeight": "Line spacing",
       "normal": "Normal",
       "relaxed": "Relaxed",
-      "relaxedLocked": "Devanagari is always set at the relaxed spacing."
+      "relaxedLocked": "Devanagari is always set at the relaxed spacing.",
+      "sample": "The Government servant shall at all times maintain absolute integrity."
     },
     "rail": {
       "title": "Around this",
@@ -2530,12 +2543,10 @@
         "macos": "On macOS: System Settings → Accessibility → Spoken Content → System Voice → Manage Voices.",
         "ios": "On iOS: Settings → Accessibility → Spoken Content → Voices.",
         "other": "Install a text-to-speech voice for this language through your operating system's settings."
-      }
+      },
+      "close": "Close read aloud"
     },
     "polish": {
-      "focus": "Focus mode",
-      "focusOn": "Hide everything but the text",
-      "focusOff": "Show the rails again",
       "surface": "Reading surface",
       "surfaceDefault": "Default",
       "surfaceSepia": "Sepia",
@@ -2878,6 +2889,21 @@
     },
     "work": {
       "title": "Rule book"
+    },
+    "railTabs": {
+      "label": "Study this provision",
+      "understand": "Understand",
+      "practise": "Practise",
+      "related": "Related",
+      "ask": "Ask",
+      "open": "Understand",
+      "close": "Close the study panel"
+    },
+    "coach": {
+      "aa": "Reading language, text size, typeface and the warm surface all live behind “Aa” at the top. They are remembered on this device.",
+      "highlight": "Select a few words in the provision to highlight them, add a note, or turn them into a trainer card.",
+      "rail": "The study panel beside the text explains this provision, tests you on it and shows what is related.",
+      "dismiss": "Got it"
     }
   },
   "palette": {
@@ -2960,7 +2986,8 @@
       "daysLeft_other": "{{count}} days to go",
       "noDate": "No date set yet.",
       "passed": "That date has passed.",
-      "open": "Open Exam"
+      "open": "Open Exam",
+      "unreadableDate": "That date could not be read. Set it again on the exam page."
     }
   }
 }

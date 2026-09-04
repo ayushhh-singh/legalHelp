@@ -19,9 +19,11 @@ import { PageHeader } from '@/components/common/PageHeader'
 import { SectionCard } from '@/components/ui-x'
 import { Button } from '@/components/ui/button'
 import { db } from '@/db'
-import { useT } from '@/i18n/useT'
+import { activeExamChoice } from '@/lib/exam/store'
 import { dueFollowUps } from '@/lib/drafting/register'
-import { istDay } from '@/lib/istDay'
+import { listEntries } from '@/modules/drafting/register/registerStore'
+import { useT } from '@/i18n/useT'
+import { diffDays, isIsoDate, istDay } from '@/lib/istDay'
 import { loadLibraryIndex } from '@/lib/library/data'
 import { loadExamIndex } from '@/modules/trainer/exam/data'
 import { toUnitHref } from '@/modules/library/url'
@@ -259,14 +261,17 @@ function DueToday() {
 
 function FollowUps() {
   const { t } = useT()
+  /*
+    Through the register's OWN reader, not `row.entry` raw.
+
+    `listEntries` parses every row with `readEntry` and drops the ones this
+    build cannot read; reading the raw field instead counted a row the register
+    itself does not — two screens disagreeing about one number, which is how a
+    reader stops believing either. It costs one zod parse per row on a table
+    that holds an office's correspondence, not a corpus.
+  */
   const due = useLiveQuery(
-    async () => {
-      const rows = await db.registerEntries.toArray()
-      const entries = rows
-        .map((row) => row.entry)
-        .filter((entry): entry is NonNullable<typeof entry> => Boolean(entry))
-      return dueFollowUps(entries as never, istDay(Date.now())).length
-    },
+    async () => dueFollowUps(await listEntries(), istDay(Date.now())).length,
     [],
     undefined,
   )
@@ -306,9 +311,20 @@ function ExamCountdown() {
     `react-hooks/purity` refuses — and a countdown does not need the day to
     advance while the screen is open.
   */
+  /*
+    Through `activeExamChoice`, not a second copy of its query.
+
+    The obvious `where('active').equals(1)` is the fast path in that function
+    and it **never matches**: IndexedDB has no boolean key type, so `true` is
+    not indexable and the scan underneath is what actually answers. This card
+    had only the query, so the countdown could not render for any reader who
+    had chosen an examination — a card wired end to end, labelled in both
+    languages, and unable to fire. `store.ts` says all of this in a comment two
+    lines below the query, which is where it should have been read.
+  */
   const choice = useLiveQuery(
     async () => {
-      const row = (await db.examChoices.where('active').equals(1).toArray())[0] ?? null
+      const row = await activeExamChoice()
       return row ? { row, today: istDay(Date.now()) } : null
     },
     [],
@@ -343,16 +359,29 @@ function ExamCountdown() {
           <CalendarClock aria-hidden="true" className="h-4 w-4 shrink-0 text-muted-foreground" />
           {name ?? t('home.exam.title')}
         </h2>
+        {/*
+          A date this app cannot READ is its own answer, not a number.
+
+          `setTargetDate` refuses anything that is not an IST calendar day, so
+          this is only reachable from a row another build wrote — which is
+          exactly the case ADR-044's addendum records `daysUntil` being written
+          for. Without the guard `Date.parse` returns NaN and the first screen
+          an officer sees says "NaN days to go"; `2027-02-31` is worse, because
+          it parses as the 3rd of March and the figure looks fine.
+
+          The arithmetic is `@/lib/istDay`'s, not a third copy of it. Importing
+          `daysUntil` from `@/lib/exam` would be the same function — and would
+          pull the coverage engine and the card catalogue's types into the chunk
+          of the one screen that promises to load neither.
+        */}
         <p className="mt-1 text-sm text-muted-foreground">
           {!target
             ? t('home.exam.noDate')
-            : target < today
-              ? t('home.exam.passed')
-              : t('home.exam.daysLeft', {
-                  count: Math.round(
-                    (Date.parse(`${target}T00:00:00Z`) - Date.parse(`${today}T00:00:00Z`)) / 86_400_000,
-                  ),
-                })}
+            : !isIsoDate(target)
+              ? t('home.exam.unreadableDate')
+              : target < today
+                ? t('home.exam.passed')
+                : t('home.exam.daysLeft', { count: diffDays(today, target) })}
         </p>
       </div>
       <Button asChild size="sm" variant="outline">

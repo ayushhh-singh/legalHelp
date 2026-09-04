@@ -346,6 +346,47 @@ export const APP_ROUTES: readonly AppRoute[] = [
   { path: '/onboarding', level: 'focus', section: 'home', parent: HOME_PATH },
 ] as const
 
+/**
+ * The raw segments of a pathname, ignoring one trailing slash.
+ *
+ * A trailing slash is the same page — React Router matches it, a phone keyboard
+ * adds one and a copied link carries one — so every function here that answers
+ * about a pathname has to agree with the router rather than with a naive split.
+ */
+function segmentsOf(pathname: string): string[] {
+  const parts = pathname.split('/')
+  if (parts.length > 1 && parts[parts.length - 1] === '') parts.pop()
+  return parts
+}
+
+/**
+ * Substitute one pattern's parameters into another, taking each value VERBATIM
+ * out of the pathname the reader is on.
+ *
+ * Not from `matchPath`'s `params`, and that is the whole point. `matchPath`
+ * decodes some parameters and not others — measured: on
+ * `/study/read/my%2Fa/u%201` it returns `{ workId: 'my/a', unitId: 'u%201' }`,
+ * the first decoded and the second not. Re-encoding what it hands back
+ * therefore double-encodes exactly the parameters it chose to leave alone, and
+ * the reader lands on an id that does not exist. Nothing throws; the link
+ * simply goes somewhere else, which is the worst kind of wrong.
+ *
+ * Copying the segment is exact by construction: the source pattern matched this
+ * pathname, so its segments line up, and a segment that is already correctly
+ * escaped stays correctly escaped.
+ */
+function fillFrom(target: string, source: string, pathname: string): string {
+  const actual = segmentsOf(pathname)
+  const values = new Map<string, string>()
+  source.split('/').forEach((segment, at) => {
+    if (segment.startsWith(':')) values.set(segment.slice(1), actual[at] ?? segment)
+  })
+  return target
+    .split('/')
+    .map((segment) => (segment.startsWith(':') ? (values.get(segment.slice(1)) ?? segment) : segment))
+    .join('/')
+}
+
 /** How specific a pattern is: static segments beat dynamic ones. */
 function specificity(pattern: string): number {
   const segments = pattern.split('/').filter(Boolean)
@@ -417,7 +458,7 @@ export function defaultSubTabOf(tab: NavTab): SubTab {
 }
 
 /**
- * Substitute a matched path's parameters into a parent PATTERN.
+ * The parent of a pathname, with the page's own parameters substituted in.
  *
  * `/study/read/:workId/:unitId` on `/study/read/bns/103` gives a parent of
  * `/study/read/bns`. A parameter the child does not carry leaves the segment
@@ -426,16 +467,7 @@ export function defaultSubTabOf(tab: NavTab): SubTab {
 export function resolveParent(pathname: string): string | null {
   const route = routeFor(pathname)
   if (!route?.parent) return null
-  const match = matchPath({ path: route.path, end: true }, pathname)
-  const params = match?.params ?? {}
-  return route.parent
-    .split('/')
-    .map((segment) => {
-      if (!segment.startsWith(':')) return segment
-      const value = params[segment.slice(1)]
-      return value === undefined ? segment : encodeURIComponent(value)
-    })
-    .join('/')
+  return fillFrom(route.parent, route.path, pathname)
 }
 
 /* ------------------------------------------------------------------ *
@@ -521,18 +553,10 @@ export const LEGACY_REDIRECTS: readonly Redirect[] = [
  * the query string and the fragment.
  */
 export function redirectTarget(redirect: Redirect, pathname: string, search = '', hash = ''): string | null {
-  const match = matchPath({ path: redirect.from, end: true }, pathname)
-  if (!match) return null
+  if (!matchPath({ path: redirect.from, end: true }, pathname)) return null
   const [withoutHash = '', ownHash = ''] = redirect.to.split('#')
   const [pathPart = '', ownSearch = ''] = withoutHash.split('?')
-  const filled = pathPart
-    .split('/')
-    .map((segment) => {
-      if (!segment.startsWith(':')) return segment
-      const value = match.params[segment.slice(1)]
-      return value === undefined ? segment : encodeURIComponent(value)
-    })
-    .join('/')
+  const filled = fillFrom(pathPart, redirect.from, pathname)
 
   // The target's own query wins where it has one — `/library/bookmarks` means
   // `?type=bookmark` and nothing else — otherwise the caller's is carried.

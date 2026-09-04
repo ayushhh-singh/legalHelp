@@ -1,8 +1,8 @@
 import { ArrowLeft, Languages, MoreHorizontal, Moon, Settings, Sun } from 'lucide-react'
-import { useEffect, useRef, useState } from 'react'
+import { useEffect, useRef } from 'react'
 import { Link, Outlet, useLocation } from 'react-router-dom'
 
-import { FocusSlotsProvider, useFocusSlotState } from './focusSlots'
+import { FocusSlotsProvider, useFocusSlotState, type FocusHost } from './focusSlots'
 import { pathLabel } from './labels'
 
 import { useAppStore } from '../store'
@@ -13,6 +13,10 @@ import { useT } from '@/i18n/useT'
 import { SETTINGS_PATH } from '@/lib/nav'
 import { cn } from '@/lib/utils'
 
+/** The one class every entry in the ⋯ menu wears, page entries included. */
+export const FOCUS_MENU_ITEM =
+  'flex min-h-11 w-full items-center gap-2 rounded-md px-3 text-start text-sm text-muted-foreground transition-colors hover:bg-accent hover:text-accent-foreground disabled:cursor-not-allowed disabled:opacity-50'
+
 /* ------------------------------------------------------------------ *
  * The bar
  * ------------------------------------------------------------------ */
@@ -21,16 +25,21 @@ export function FocusBar({
   backLabel,
   onBack,
   title,
+  titleHint,
   status,
   actions,
   panel,
+  hostRef,
 }: {
   backLabel: string
   onBack: () => void
   title: string
+  /** A second line under the title, for a document's own form name. */
+  titleHint?: string | null
   status?: React.ReactNode
   actions?: React.ReactNode
   panel?: React.ReactNode
+  hostRef?: (host: FocusHost) => (element: HTMLElement | null) => void
 }) {
   const { t } = useT()
 
@@ -44,15 +53,16 @@ export function FocusBar({
     is inside `main` already, so it is not orphaned.
   */
   return (
-    <div className="sticky top-0 z-40 border-b border-border bg-card">
+    <div data-print-hide className="sticky top-0 z-40 border-b border-border bg-card">
       <div className="flex h-14 items-center gap-2 px-3 sm:px-4">
         <button
           type="button"
           onClick={onBack}
-          className="-ms-1 inline-flex min-h-11 items-center gap-1.5 rounded-md px-2 text-sm text-muted-foreground transition-colors hover:bg-accent hover:text-accent-foreground"
+          className="-ms-1 inline-flex min-h-11 shrink-0 items-center gap-1.5 rounded-md px-2 text-sm text-muted-foreground transition-colors hover:bg-accent hover:text-accent-foreground"
         >
           <ArrowLeft aria-hidden="true" className="h-4 w-4 shrink-0" />
-          <span className="max-w-[9rem] truncate sm:max-w-none">{backLabel}</span>
+          <span className="hidden max-w-[9rem] truncate sm:inline">{backLabel}</span>
+          <span className="sr-only sm:hidden">{backLabel}</span>
           <span className="sr-only"> — {t('a11y.backToParent')}</span>
         </button>
 
@@ -60,7 +70,21 @@ export function FocusBar({
             marking the one thing the reader is inside. */}
         <span aria-hidden="true" className="h-6 w-[3px] shrink-0 rounded-sm bg-marigold" />
 
-        <span className="min-w-0 flex-1 truncate text-sm font-semibold">{title}</span>
+        {/*
+          The centre. A page that portals a control in here (the reader's unit
+          switcher, the editor's title box) replaces the plain text; one that
+          does not gets the route's own name. The fallback is `hidden` rather
+          than removed so the two cannot both be on screen for a frame.
+        */}
+        <span ref={hostRef?.('title')} className="focus-title-host flex min-w-0 items-center empty:hidden" />
+        <span className="focus-title-fallback min-w-0 flex-1 truncate text-sm font-semibold">
+          <span className="truncate">{title}</span>
+          {titleHint ? (
+            <span className="ms-2 hidden truncate text-xs font-normal text-muted-foreground lg:inline">
+              {titleHint}
+            </span>
+          ) : null}
+        </span>
 
         {status ? (
           <span role="status" className="hidden shrink-0 text-xs text-muted-foreground sm:inline">
@@ -69,6 +93,7 @@ export function FocusBar({
         ) : null}
 
         <span className="flex shrink-0 items-center gap-1">
+          <span ref={hostRef?.('actions')} className="flex items-center gap-1" />
           {panel}
           {actions}
         </span>
@@ -86,13 +111,23 @@ export function FocusBar({
  * `<button>`s in a `hidden` container rather than a Radix menu: the palette is
  * the only dialog this app opens with a keyboard shortcut, and adding a second
  * focus trap to a screen an officer is working inside buys nothing here.
+ *
+ * A focus page's own actions — print a rule, export a document — are PORTALLED
+ * into the top of this one list rather than opening a second ⋯ beside it.
  */
-function FocusActions() {
+function FocusActions({
+  open,
+  setOpen,
+  hostRef,
+}: {
+  open: boolean
+  setOpen: (next: boolean) => void
+  hostRef: (host: FocusHost) => (element: HTMLElement | null) => void
+}) {
   const { t, language } = useT()
   const theme = useAppStore((s) => s.theme)
   const toggleLanguage = useAppStore((s) => s.toggleLanguage)
   const toggleTheme = useAppStore((s) => s.toggleTheme)
-  const [open, setOpen] = useState(false)
   const wrapper = useRef<HTMLDivElement>(null)
   const otherLanguage = language === 'en' ? 'hi' : 'en'
 
@@ -103,16 +138,13 @@ function FocusActions() {
     }
     document.addEventListener('pointerdown', onPointerDown)
     return () => document.removeEventListener('pointerdown', onPointerDown)
-  }, [open])
-
-  const item =
-    'flex min-h-11 w-full items-center gap-2 rounded-md px-3 text-start text-sm text-muted-foreground transition-colors hover:bg-accent hover:text-accent-foreground'
+  }, [open, setOpen])
 
   return (
     <div ref={wrapper} className="relative">
       <button
         type="button"
-        onClick={() => setOpen((value) => !value)}
+        onClick={() => setOpen(!open)}
         aria-expanded={open}
         aria-controls="focus-actions"
         aria-label={t('a11y.moreActions')}
@@ -123,8 +155,12 @@ function FocusActions() {
       <div
         id="focus-actions"
         hidden={!open}
-        className="absolute end-0 top-11 z-50 w-56 rounded-lg border border-border bg-card p-1 shadow-lg"
+        className="absolute end-0 top-11 z-50 max-h-[70vh] w-64 overflow-y-auto rounded-lg border border-border bg-card p-1 shadow-lg"
       >
+        {/* The page's own entries, then a rule, then the three the shell owes
+            every focus route. */}
+        <div ref={hostRef('menu')} className="flex flex-col" data-focus-menu />
+        <hr className="my-1 border-border" />
         {/*
           The SAME accessible names the top bar's own toggles carry, because
           this is the same control in the one place that bar is hidden — a
@@ -133,7 +169,7 @@ function FocusActions() {
         */}
         <button
           type="button"
-          className={item}
+          className={FOCUS_MENU_ITEM}
           aria-label={t('a11y.toggleLanguage')}
           onClick={() => {
             // Closes after it acts, like the Settings link below it does. A
@@ -148,7 +184,7 @@ function FocusActions() {
         </button>
         <button
           type="button"
-          className={item}
+          className={FOCUS_MENU_ITEM}
           aria-label={theme === 'light' ? t('a11y.toggleTheme') : t('a11y.toggleThemeLight')}
           onClick={() => {
             setOpen(false)
@@ -162,7 +198,7 @@ function FocusActions() {
           )}
           {theme === 'light' ? t('a11y.toggleTheme') : t('a11y.toggleThemeLight')}
         </button>
-        <Link to={SETTINGS_PATH} className={item} onClick={() => setOpen(false)}>
+        <Link to={SETTINGS_PATH} className={FOCUS_MENU_ITEM} onClick={() => setOpen(false)}>
           <Settings aria-hidden="true" className="h-4 w-4" />
           {t('pages.settings.title')}
         </Link>
@@ -188,7 +224,7 @@ export function FocusLayout({ className }: { className?: string }) {
   const { t, language } = useT()
   const { pathname } = useLocation()
   const back = useBackTo()
-  const { slots, provider } = useFocusSlotState()
+  const { slots, hostRef, menuOpen, setMenuOpen, provider } = useFocusSlotState()
 
   const goBack = back?.goBack
   useEffect(() => {
@@ -203,6 +239,17 @@ export function FocusLayout({ className }: { className?: string }) {
           target.tagName === 'SELECT' ||
           target.isContentEditable)
       if (typing) return
+      /*
+        The ⋯ menu is nearest, so it wins. Closed here rather than by a
+        listener of its own: two capture-phase listeners on `window` fire in
+        registration order, and a guarantee that depends on which component
+        mounted first is not a guarantee.
+      */
+      if (menuOpen) {
+        event.preventDefault()
+        setMenuOpen(false)
+        return
+      }
       /*
         A dialog that is OPEN owns this press, and the check has to happen
         before it closes.
@@ -220,7 +267,7 @@ export function FocusLayout({ className }: { className?: string }) {
     }
     window.addEventListener('keydown', onKeyDown, true)
     return () => window.removeEventListener('keydown', onKeyDown, true)
-  }, [goBack])
+  }, [goBack, menuOpen, setMenuOpen])
 
   const title = slots.title ?? pathLabel(pathname, t, language)
 
@@ -233,8 +280,9 @@ export function FocusLayout({ className }: { className?: string }) {
             onBack={back.goBack}
             title={title}
             status={slots.status}
-            actions={<FocusActions />}
+            actions={<FocusActions open={menuOpen} setOpen={setMenuOpen} hostRef={hostRef} />}
             panel={slots.panel}
+            hostRef={hostRef}
           />
         ) : null}
         <div className="min-w-0 flex-1 px-4 pt-4 pb-[calc(2.5rem+var(--pwa-toast-space,0px))] sm:px-6">
