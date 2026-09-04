@@ -7727,3 +7727,43 @@ CLAUDE.md already: sweep the i18n catalogue for keys the session added that no s
 references, and for each function the session exports, name the line that makes it run. The second
 one has to exclude tests to be worth anything — every export in this module had a caller until the
 sweep was narrowed to production callers, and four of the five it then found were real.
+
+### ADR-044 second addendum — the act hint fires when a profile is chosen, applies only to the default, and says so
+
+`docs/DATA-GAPS.md` #56 asked for the Trainer's act hints to come from the reader's chosen exam
+profile rather than from their job title, and §8 above is why that is the better signal: a profile's
+units are read off a gazette-notified reference list whose sha256 is in its own `patternSource`,
+where `trainerActHintsForJob` infers from an organisation name.
+
+**Where it fires was the real question.** `trainerActHintsForJob` is applied in exactly one place,
+`OnboardingPage#finish`, and onboarding deliberately does not choose a profile — a profile is a claim
+about which examination somebody is eligible to sit, and this app cannot make that claim from a job
+title. So the only honest moment is the one where the reader actually chooses one, which is
+`ProfilePicker#choose` in `ExamHubPage.tsx`.
+
+**Two constraints, and the second goes beyond what was asked for.**
+
+It applies only when `actsEnabled` is empty. That is the default and it means _every_ rule book, so an
+empty list is "this reader has not decided" and anything else is a decision they made. Overwriting a
+decision because somebody tapped a card on a different screen is a change they would never connect to
+the action.
+
+And it is **announced in the same view, never applied silently** — which matters even for the
+default. The picker actively invites browsing: it shows three profiles side by side with their
+mapped/external ratios precisely so a reader can compare them before committing. A reader who taps
+the Railway profile to look would otherwise find their Trainer narrowed to two rule books and their
+due count collapsed, with nothing on screen connecting the two. `ProfilePicker` hands the hint up to
+`ExamHubPage`, which renders its note as a `role="status"` panel on the readiness screen that
+replaces the picker — the arrangement `OnboardingPage` already uses for the job-derived version of
+the same hint.
+
+The negative test is the one that carries the weight: a reader with `actsEnabled: ['gfr']` chooses a
+profile, and the setting is asserted untouched with no note shown. Without it, "applies the hint" and
+"always overwrites" are the same passing test.
+
+**Session note.** This landed across two concurrent sessions in one working tree —
+`trainerActHintsForProfile` and its tests are legalhelp-ab's, the call site and its two tests are
+this session's, agreed by message before either was written. It is also the session where a
+`git add -A` in that shared tree swept a peer's uncommitted work into commit `9613b67`; nothing was
+lost, the message was amended to list what it actually carries, and the rule is written into it:
+with two sessions in one tree, `git add <paths>` is the only safe form.

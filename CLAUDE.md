@@ -958,6 +958,24 @@ are load-bearing, and each is enforced by a test rather than by convention:
 
 ### Notes for the next session
 
+- **`git add -A` in a shared working tree sweeps up your peer's uncommitted work, and the commit then
+  tells a story that is not true.** It happened this session: commit `9613b67`, whose subject is an
+  exam-mode edge pass, also carries a concurrent session's BNSS First Schedule parser fix, four
+  regenerated `data/law` datasets, a service-worker toast fix and two new test files. Nothing was
+  lost and the peer caught it within minutes, but a reader bisecting later would have found a First
+  Schedule fix inside an exam commit with no explanation. The tip had nothing on top of it so the
+  MESSAGE was amended to list what the commit actually carries — history was not rewritten, because
+  re-splitting two sessions' trees mid-flight is a worse trade than an accurate note. **`git add
+<paths>`, and `git diff --cached --stat` before every commit.** Two seconds.
+
+- **A contended machine produces Lighthouse numbers that look exactly like a regression.** A peer's
+  first run this session came back 5–15 points down on every route while a 5,500-test suite was
+  running next to it (load average 41). The tell was that `/utils` and `/settings` dropped too, which
+  the change under test could not plausibly affect — so the common cause was the machine. Check the
+  load average before reading a performance number, and ask which routes moved: a change that only
+  touches route splitting cannot move a route it does not touch. CLAUDE.md already records the
+  neighbouring version of this, where a concurrent `pnpm build` replaced `dist/` mid-run.
+
 - **An edge-case pass over this session found THIRTEEN defects, and eleven were the app not trusting
   its own storage or its own call sites.** ADR-044's addendum has all thirteen;
   `src/lib/exam/edge.test.ts` and `src/modules/trainer/exam/edge.test.tsx` are the regression files,
