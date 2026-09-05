@@ -22,6 +22,10 @@ import { audit, expect, formatViolations, onPhone, setLanguage, t, test } from '
 const WORK = 'ccs-conduct'
 const UNIT = 'ccs-conduct-3'
 
+/** The unit's action row, which on a phone is also the way into the rail. */
+const actions = (page: import('@playwright/test').Page) =>
+  page.getByRole('group', { name: t('en', 'library.reader.actions') })
+
 /**
  * "Size 2 of 4", from the catalogue rather than typed here.
  *
@@ -66,7 +70,9 @@ test.describe('the reader', () => {
     await expect(page.getByRole('heading', { level: 1 })).toBeVisible()
 
     if (onPhone(page)) {
-      await page.getByRole('button', { name: t('en', 'library.railTabs.open') }).click()
+      await actions(page)
+        .getByRole('button', { name: t('en', 'library.reader.railShow') })
+        .click()
     }
     const related = page.getByRole('tab', { name: t('en', 'library.railTabs.related') })
     await related.click()
@@ -75,7 +81,9 @@ test.describe('the reader', () => {
     await page.reload()
     await expect(page.getByRole('heading', { level: 1 })).toBeVisible()
     if (onPhone(page)) {
-      await page.getByRole('button', { name: t('en', 'library.railTabs.open') }).click()
+      await actions(page)
+        .getByRole('button', { name: t('en', 'library.reader.railShow') })
+        .click()
     }
     await expect(page.getByRole('tab', { name: t('en', 'library.railTabs.related') })).toHaveAttribute(
       'aria-selected',
@@ -87,19 +95,19 @@ test.describe('the reader', () => {
     await page.goto(`/study/read/${WORK}/${UNIT}`)
     await expect(page.getByRole('heading', { level: 1 })).toBeVisible()
 
-    const open = page.getByRole('button', { name: t('en', 'library.railTabs.open') })
+    const open = actions(page).getByRole('button', { name: t('en', 'library.reader.railShow') })
 
     if (onPhone(page)) {
       // A rail below a 4,000-character provision is a rail nobody scrolls to,
-      // so on a phone it is a floating button and a sheet over the page.
-      await expect(open).toBeVisible()
+      // so on a phone it is a sheet, opened from the action row.
+      await expect(page.getByRole('tab', { name: t('en', 'library.railTabs.understand') })).toBeHidden()
       await open.click()
       await expect(page.getByRole('button', { name: t('en', 'library.railTabs.close') })).toBeVisible()
       await expect(page.getByRole('tab', { name: t('en', 'library.railTabs.understand') })).toBeVisible()
     } else {
-      // Beside the text, so there is nothing to open.
-      await expect(open).toBeHidden()
+      // Beside the text already, so the control hides it rather than opens it.
       await expect(page.getByRole('tab', { name: t('en', 'library.railTabs.understand') })).toBeVisible()
+      await expect(open).toHaveCount(0)
     }
   })
 
@@ -301,5 +309,172 @@ test.describe('the document editor', () => {
       await expect(page.getByRole('tablist', { name: 'About this document' })).toBeVisible()
       await expect(page.getByRole('textbox', { name: 'Document body' })).toBeVisible()
     }
+  })
+})
+
+/**
+ * The edge-case pass (ADR-047's addendum).
+ *
+ * Every test in this block was confirmed to FAIL against the commit that
+ * introduced the screens it is about, before its fix was written. The family is
+ * one sentence: **an overlay is something the officer is INSIDE, and this
+ * session added five of them without asking what happens at their edges.**
+ */
+test.describe('the editor’s outline', () => {
+  test('ignores a drop that is not one of its own rows', async ({ page }) => {
+    test.skip(onPhone(page), 'the outline column is a desktop affordance')
+    /*
+      `onDrop` read `text/plain` as a row index — and `text/plain` is what every
+      drag in the world carries, so dragging the character "1" out of the
+      document, or in from another application, silently reordered an officer's
+      paragraphs. In a browser, because jsdom has no `DataTransfer` and a test
+      written there fails with a `ReferenceError` whatever the code does.
+    */
+    await page.goto('/draft/new/office-memorandum')
+    await expect(page.getByRole('textbox', { name: 'Document body' })).toBeVisible()
+    await page.locator('.draft-placeholder').first().click()
+    await page.keyboard.press('Backspace')
+    await page.keyboard.type('First point.')
+    await page.keyboard.press('Enter')
+    await page.keyboard.type('Second point.')
+
+    const outline = page.getByRole('navigation', { name: 'Outline' })
+    await expect(outline.getByRole('listitem')).toHaveCount(2)
+    const before = await outline.getByRole('listitem').allInnerTexts()
+
+    const drop = (type: string, value: string) =>
+      outline
+        .getByRole('listitem')
+        .first()
+        .evaluate(
+          (element, payload) => {
+            const data = new DataTransfer()
+            data.setData(payload.type, payload.value)
+            element.dispatchEvent(new DragEvent('drop', { bubbles: true, dataTransfer: data }))
+          },
+          { type, value },
+        )
+
+    await drop('text/plain', '1')
+    await page.waitForTimeout(300)
+    expect(await outline.getByRole('listitem').allInnerTexts()).toEqual(before)
+
+    // …and the outline's OWN drag still reorders, so this is a guard rather
+    // than a feature that stopped working.
+    await drop('application/x-sahayak-outline', '1')
+    await expect.poll(() => outline.getByRole('listitem').allInnerTexts()).not.toEqual(before)
+  })
+})
+
+test.describe('the reader’s overlays', () => {
+  /** Select the first few words of a paragraph — the case that goes off-screen. */
+  async function selectFromTheMargin(page: import('@playwright/test').Page, chars = 40) {
+    /*
+      `[data-para-start]` — the provision's own paragraphs, which is also the
+      one thing `src/modules/library/selection.ts` maps a DOM range against.
+      A plain `p` under the card matches the hint inside the highlight tray too,
+      which is `hidden` and would make this wait 30s for the wrong element.
+    */
+    const para = page.locator('[data-para-start]').first()
+    await expect(para).toBeVisible()
+    const box = (await para.boundingBox())!
+    await page.mouse.move(box.x + 2, box.y + box.height / 2)
+    await page.mouse.down()
+    await page.mouse.move(box.x + chars, box.y + box.height / 2, { steps: 8 })
+    await page.mouse.up()
+  }
+
+  test('the selection toolbar stays inside the viewport at the left margin', async ({ page }) => {
+    /*
+      THE ONE A READER REPORTED. `anchor()` clamped `top` at both ends and never
+      touched `left`, and the toolbar is `translateX(-50%)` about the middle of
+      the selection — so marking the first two words of a provision put the
+      whole colour row at x = -91 and the first swatch entirely off the screen.
+      Highlighting "did not work" because the control was not reachable.
+    */
+    await page.goto('/study/read/bns/1')
+    await expect(page.getByRole('heading', { level: 1 })).toBeVisible()
+    await selectFromTheMargin(page)
+
+    const toolbar = page.getByRole('toolbar', { name: /What to do with/ })
+    await expect(toolbar).toBeVisible()
+    const box = (await toolbar.boundingBox())!
+    const viewport = page.viewportSize()!
+    expect(box.x, 'the toolbar starts off the left edge').toBeGreaterThanOrEqual(0)
+    expect(box.x + box.width, 'the toolbar runs off the right edge').toBeLessThanOrEqual(viewport.width)
+
+    // …and every control in it can actually be pressed.
+    for (const control of await toolbar.getByRole('button').all()) {
+      const swatch = (await control.boundingBox())!
+      expect(swatch.x).toBeGreaterThanOrEqual(0)
+      expect(swatch.x + swatch.width).toBeLessThanOrEqual(viewport.width)
+    }
+  })
+
+  test('a selection does not survive a jump to another provision', async ({ page }) => {
+    /*
+      The DOM selection outlives the navigation, because React reuses the
+      paragraph nodes — so after `j` the browser still reports a range, mapped
+      on to WHATEVER words now occupy those nodes. The floating toolbar and the
+      action row both offered to highlight it, and the stored quote was words
+      the officer never marked, in a provision they had just left.
+    */
+    await page.goto('/study/read/bns/1')
+    await expect(page.getByRole('heading', { level: 1 })).toBeVisible()
+    await selectFromTheMargin(page, 120)
+    await expect(page.getByRole('toolbar', { name: /What to do with/ })).toBeVisible()
+
+    await page.keyboard.press('j')
+    await expect(page).toHaveURL(/\/study\/read\/bns\/2$/)
+
+    // Nothing is selected on the provision the reader is now looking at.
+    await expect(page.getByRole('toolbar', { name: /What to do with/ })).toHaveCount(0)
+    const group = page.getByRole('group', { name: 'What to do with this provision' })
+    await group.getByRole('button', { name: /^Highlight/ }).click()
+    await expect(
+      group.getByRole('group', { name: 'Highlights' }).getByRole('button', { name: 'Yellow' }),
+    ).toBeDisabled()
+  })
+
+  test('the unit switcher closes when the reader presses the page behind it', async ({ page }) => {
+    test.skip(onPhone(page), 'the study rail used to dismiss it is a sheet on a phone')
+    /*
+      It had an Escape handler and nothing else, so the list stayed open over
+      the provision — and being an overlay, it swallowed the press meant for the
+      text underneath. Every other menu in this app closes on an outside
+      pointer-down.
+    */
+    await page.goto('/study/read/bns/1')
+    await expect(page.getByRole('heading', { level: 1 })).toBeVisible()
+
+    const switcher = page.getByRole('button', { name: /Go to another provision/ })
+    await switcher.click()
+    await expect(switcher).toHaveAttribute('aria-expanded', 'true')
+
+    await page.getByRole('tab', { name: t('en', 'library.railTabs.related') }).click()
+    await expect(switcher).toHaveAttribute('aria-expanded', 'false')
+  })
+
+  test('Escape closes an open tray whatever has focus, and does not leave the page', async ({ page }) => {
+    /*
+      An overlay that tells `FocusLayout` to stand down (`data-focus-overlay`)
+      has to handle the press ITSELF, unconditionally. `Popover` only handled
+      Escape when the event target was inside it, so with focus anywhere else
+      the press did nothing at all: the tray was stuck open AND the route could
+      not be left. Suppressing a global control and then not replacing it is
+      worse than not suppressing it.
+    */
+    await page.goto('/study/read/bns/1')
+    await expect(page.getByRole('heading', { level: 1 })).toBeVisible()
+
+    const aa = page.getByRole('button', { name: t('en', 'library.type.label'), exact: true })
+    await aa.click()
+    await expect(aa).toHaveAttribute('aria-expanded', 'true')
+
+    await page.evaluate(() => (document.activeElement as HTMLElement | null)?.blur())
+    await page.keyboard.press('Escape')
+
+    await expect(aa).toHaveAttribute('aria-expanded', 'false')
+    await expect(page).toHaveURL(/\/study\/read\/bns\/1$/)
   })
 })

@@ -27,60 +27,43 @@ export function SaveAsTemplate({
   template,
   existingNames,
   onSave,
-  open: controlledOpen,
+  open,
   onOpenChange,
-  hideTrigger = false,
 }: {
   doc: OfficialDoc
   template: DocTemplate
   existingNames: readonly string[]
   onSave: (personal: PersonalTemplate) => void
   /**
-   * Optional control, for a caller that opens this from somewhere else.
+   * Controlled, always, and the caller mounts this only while it is open.
    *
-   * Session 35 moved "Save as my template" into the focus bar's ⋯ menu, which
-   * is a `<button>` in a list rather than a place a `Dialog.Trigger` can sit —
-   * so the dialog has to be openable without its own button. `hideTrigger`
-   * removes that button; passing neither leaves the component exactly as it
-   * was.
+   * "Save as my template" lives in the focus bar's ⋯ menu, which is a `<button>`
+   * in a list rather than a place a `Dialog.Trigger` can sit — so the dialog is
+   * opened from outside. It first kept its own uncontrolled state as well, and
+   * that combination had a quiet defect: the fields are seeded in Radix's
+   * `onOpenChange`, which fires when the DIALOG asks to change state and never
+   * when a controlled `open` is simply true. An officer opening it from the
+   * menu met an empty required Name field where the old trigger had pre-filled
+   * the document's title.
+   *
+   * Mounting it only while open makes a lazy `useState` initialiser the right
+   * shape for that — no effect, nothing to resynchronise, and the seed cannot
+   * disagree with the reason the dialog is on screen. It is `key`-by-mount,
+   * which is this project's standing answer to "reset when something changes".
    */
-  open?: boolean
-  onOpenChange?: (next: boolean) => void
-  hideTrigger?: boolean
+  open: boolean
+  onOpenChange: (next: boolean) => void
 }) {
   const { t, language } = useT()
-  const [uncontrolledOpen, setUncontrolledOpen] = useState(false)
-  const open = controlledOpen ?? uncontrolledOpen
-  const setOpen = (next: boolean) => {
-    setUncontrolledOpen(next)
-    onOpenChange?.(next)
-  }
-  const [name, setName] = useState('')
+  const setOpen = onOpenChange
+  const [name, setName] = useState(() => doc.title || template.name[language])
   const [keep, setKeep] = useState<string[]>([])
 
   const variables = template.variables ?? []
   const field = 'w-full rounded-[10px] border border-input bg-card px-3 py-2 text-sm'
 
   return (
-    <Dialog.Root
-      open={open}
-      onOpenChange={(next) => {
-        setOpen(next)
-        if (next) {
-          // Reset on OPEN rather than on close: a dialog that keeps the last
-          // answer is one an officer has to re-read every time.
-          setName(doc.title || template.name[language])
-          setKeep([])
-        }
-      }}
-    >
-      {hideTrigger ? null : (
-        <Dialog.Trigger asChild>
-          <Button variant="outline" size="sm">
-            {t('draft.personal.saveAs')}
-          </Button>
-        </Dialog.Trigger>
-      )}
+    <Dialog.Root open={open} onOpenChange={setOpen}>
       <Dialog.Portal>
         <Dialog.Overlay className="fixed inset-0 z-50 bg-foreground/40" />
         <Dialog.Content className="fixed top-1/2 left-1/2 z-50 max-h-[85vh] w-[min(34rem,calc(100vw-2rem))] -translate-x-1/2 -translate-y-1/2 overflow-y-auto rounded-xl border border-border bg-card p-5 shadow-lg">

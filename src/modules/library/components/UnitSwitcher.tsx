@@ -1,5 +1,5 @@
 import { ChevronDown } from 'lucide-react'
-import { useDeferredValue, useEffect, useMemo, useState } from 'react'
+import { useDeferredValue, useEffect, useMemo, useRef, useState } from 'react'
 import { Link } from 'react-router-dom'
 
 import { toUnitHref } from '../url'
@@ -54,6 +54,24 @@ export function UnitSwitcher({
 }) {
   const { t, language } = useT()
   const [query, setQuery] = useState('')
+  const wrapper = useRef<HTMLDivElement>(null)
+
+  /*
+    A press outside shuts the list.
+
+    It had Escape and nothing else, so the panel stayed open over the provision
+    — and being an overlay it swallowed the press meant for the text beneath.
+    Every other menu in this app closes on an outside pointer-down; one that
+    does not is a control the reader has to notice in order to get rid of.
+  */
+  useEffect(() => {
+    if (!open) return
+    const onPointerDown = (event: PointerEvent) => {
+      if (!wrapper.current?.contains(event.target as Node)) onOpenChange(false)
+    }
+    document.addEventListener('pointerdown', onPointerDown)
+    return () => document.removeEventListener('pointerdown', onPointerDown)
+  }, [open, onOpenChange])
 
   /*
     Escape shuts the list, and does NOT leave the provision.
@@ -103,7 +121,7 @@ export function UnitSwitcher({
   }, [corpus, deferred, language])
 
   return (
-    <div className="relative flex min-w-0 flex-1">
+    <div ref={wrapper} className="relative flex min-w-0 flex-1">
       <button
         type="button"
         aria-expanded={open}

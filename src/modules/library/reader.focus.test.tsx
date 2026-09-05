@@ -172,19 +172,22 @@ describe('the study rail', () => {
   })
 
   /**
-   * The phone's sheet.
+   * The phone's sheet, opened from the unit's action row.
    *
-   * jsdom applies no CSS, so `hidden lg:block` hides nothing here and both
-   * presentations are in the tree at once. That makes the floating button
-   * findable, which is what this needs — and it is why every OTHER assertion in
-   * these suites is scoped or made on stored state rather than on a count.
+   * There is ONE control for it — an edge-case pass removed a floating
+   * "Understand" button that did the same job and, being pinned to the same
+   * corner, sat on top of both the action row and the "Next" link. jsdom
+   * applies no CSS, so the sheet's markup is here at every width; what this
+   * asserts is the wiring, and `tests/e2e/focus.spec.ts` asserts which of the
+   * two presentations a given width actually gets.
    */
-  it('opens as a sheet from the floating button', async () => {
+  it('opens as a sheet from the action row', async () => {
     const user = userEvent.setup()
     at(`/study/read/${WORK}/${UNIT}`)
     await screen.findByRole('heading', { level: 1 })
 
-    await user.click(screen.getByRole('button', { name: /^Understand$/ }))
+    const group = await screen.findByRole('group', { name: 'What to do with this provision' })
+    await user.click(within(group).getByRole('button', { name: 'Show the study panel' }))
     expect(await screen.findByRole('button', { name: 'Close the study panel' })).toBeInTheDocument()
   })
 })
@@ -234,5 +237,54 @@ describe('the footer', () => {
     await user.click(disclosure)
     expect(disclosure).toHaveAttribute('aria-expanded', 'true')
     expect(screen.getByRole('link', { name: /Department of Personnel/ })).toBeInTheDocument()
+  })
+})
+
+/**
+ * The edge-case pass (ADR-047's addendum).
+ *
+ * Two labels, and a label is a promise. Both were confirmed wrong against the
+ * commit that introduced the action row.
+ */
+describe('the unit action row’s labels', () => {
+  it('names the highlight control after what it IS, not after why it is off', async () => {
+    /*
+      Its accessible name with nothing selected was the whole sentence "Select
+      some words in the provision first, then choose a colour." — a DESCRIPTION
+      used as a NAME. CLAUDE.md records the same mistake on three numbering
+      fields: a name says what the control is, a description says what to do
+      about it. The sentence is still there, as the description.
+    */
+    at(`/study/read/${WORK}/${UNIT}`)
+    const group = await screen.findByRole('group', { name: 'What to do with this provision' })
+    const highlight = within(group).getAllByRole('button')[0]!
+
+    expect(highlight).toHaveAccessibleName('Highlight')
+    expect(highlight).toHaveAccessibleDescription(/Select some words in the provision first/)
+  })
+
+  it('does not call the trainer control by the dialog’s own Save button’s name', async () => {
+    /*
+      Both were `library.trainer.add` — "Add to the review queue" — so the icon
+      that OPENS the dialog and the button that COMMITS the card had one name
+      and two jobs.
+    */
+    at(`/study/read/${WORK}/${UNIT}`)
+    const group = await screen.findByRole('group', { name: 'What to do with this provision' })
+    expect(within(group).queryByRole('button', { name: 'Add to the review queue' })).toBeNull()
+    expect(within(group).getByRole('button', { name: 'Add to trainer' })).toBeInTheDocument()
+  })
+
+  it('will not offer to make a card out of nothing', async () => {
+    /*
+      The dialog builds a cloze whose ANSWER is the selected words. Opened from
+      this row with no selection it offered to store a card whose answer is the
+      empty string — the same "a control that cannot succeed" as the highlight
+      swatches, which are disabled for exactly this reason one button to the
+      left.
+    */
+    at(`/study/read/${WORK}/${UNIT}`)
+    const group = await screen.findByRole('group', { name: 'What to do with this provision' })
+    expect(within(group).getByRole('button', { name: 'Add to trainer' })).toBeDisabled()
   })
 })

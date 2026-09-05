@@ -24,12 +24,20 @@ import { cn } from '@/lib/utils'
  *   it first whatever this one does, and Escape in the reader's "Aa" tray threw
  *   the officer out of the provision. ADR-029's "two Escape handlers on one
  *   press", which this project has now hit four times.
+ *
+ *   It handles the press whatever has focus, and that is the other half. The
+ *   first version only acted when the event target was inside the panel, so
+ *   with focus anywhere else Escape did NOTHING AT ALL — the layout stood down
+ *   because of the marker and this stood down because of the target, and the
+ *   tray was stuck open on a screen that could no longer be left. An overlay
+ *   that suppresses a global control has to replace it unconditionally.
  * - A pointer-down outside closes it, which is what every menu in this app does.
  * - `hidden`, not unmounted: the panel's own state (a search box's text, a
  *   scroll position) survives being shut and reopened.
  */
 export function Popover({
   label,
+  description,
   trigger,
   children,
   align = 'end',
@@ -38,8 +46,10 @@ export function Popover({
   open: controlledOpen,
   onOpenChange,
 }: {
-  /** The trigger's accessible name. */
+  /** The trigger's accessible name — what the control IS. */
   label: string
+  /** Its description — what to do about it, when that is a different thing. */
+  description?: string
   /** What the trigger shows. */
   trigger: React.ReactNode
   children: React.ReactNode
@@ -57,6 +67,7 @@ export function Popover({
     onOpenChange?.(next)
   }
   const id = useId()
+  const hintId = `${id}-hint`
   const wrapper = useRef<HTMLDivElement>(null)
   const button = useRef<HTMLButtonElement>(null)
 
@@ -70,7 +81,6 @@ export function Popover({
     }
     const onKeyDown = (event: KeyboardEvent) => {
       if (event.key !== 'Escape') return
-      if (!wrapper.current?.contains(event.target as Node)) return
       // Ours, and nobody else's: without this the same press also leaves the
       // focus route, and the reader loses the page as well as the panel.
       event.stopPropagation()
@@ -95,6 +105,7 @@ export function Popover({
         aria-expanded={open}
         aria-controls={id}
         aria-label={label}
+        {...(description ? { 'aria-describedby': hintId } : {})}
         onClick={() => setOpen(!open)}
         className={cn(
           'inline-flex h-9 min-w-9 items-center justify-center gap-1 rounded-md px-2 text-sm text-muted-foreground transition-colors hover:bg-accent hover:text-accent-foreground focus-visible:ring-2 focus-visible:ring-ring focus-visible:outline-none',
@@ -104,6 +115,11 @@ export function Popover({
       >
         {trigger}
       </button>
+      {description ? (
+        <span id={hintId} className="sr-only">
+          {description}
+        </span>
+      ) : null}
       <div
         id={id}
         hidden={!open}

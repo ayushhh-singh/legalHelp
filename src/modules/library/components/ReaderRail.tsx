@@ -1,4 +1,4 @@
-import { Lightbulb, X } from 'lucide-react'
+import { X } from 'lucide-react'
 import { useEffect, useRef } from 'react'
 
 import { RAIL_TABS, type RailTab } from '../useLibrary'
@@ -30,8 +30,13 @@ import { cn } from '@/lib/utils'
  *
  * Desktop: a sticky column beside the text, collapsible, with the choice
  * remembered. Phone: the same tablist and the same panel in a sheet over the
- * page, opened by a floating "Understand" button — because a rail below a
+ * page, opened from the unit's action row — because a rail below a
  * 4,000-character provision is a rail nobody scrolls to.
+ *
+ * It had a floating "Understand" button of its own until the edge-case pass
+ * measured the phone's bottom edge: that button, the action row and the
+ * prev/next bar were three fixed things in the same 60 pixels, overlapping,
+ * and two of them opened this panel. One control per job.
  */
 
 export interface ReaderRailProps {
@@ -159,20 +164,6 @@ export function ReaderRail({
 
   return (
     <>
-      {/*
-        The floating opener — below `lg` only, and only while the sheet is shut.
-      */}
-      {sheetOpen ? null : (
-        <Button
-          data-print-hide
-          className="fixed end-4 bottom-[calc(1rem+env(safe-area-inset-bottom,0px)+var(--pwa-toast-space,0px))] z-45 rounded-full shadow-lg lg:hidden"
-          onClick={() => onSheetOpen(true)}
-        >
-          <Lightbulb aria-hidden="true" />
-          {t('library.railTabs.open')}
-        </Button>
-      )}
-
       {/*
         ONE panel, styled two ways.
 

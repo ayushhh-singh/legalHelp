@@ -1,6 +1,9 @@
 import { ChevronDown, ChevronUp, Heading, Pilcrow } from 'lucide-react'
 
 import { useT } from '@/i18n/useT'
+
+/** Our own drag payload. A drop without it is somebody else's drag. */
+const DRAG_TYPE = 'application/x-sahayak-outline'
 import { moveBlock, outlineOf } from '@/lib/drafting/outline'
 import type { BodyDoc } from '@/lib/drafting/model'
 import { cn } from '@/lib/utils'
@@ -10,6 +13,14 @@ import { cn } from '@/lib/utils'
  *
  * Headings and numbered paragraphs, indented by level, each a button that
  * takes the caret there, each with a pair of controls that move it.
+ *
+ * ### A drag has to say it is OURS before it may move anything
+ *
+ * `text/plain` is what every drag in the world carries — a word out of the
+ * document, a line out of another application — and the first version read it
+ * as a row index, so dragging the character "1" on to the outline reordered an
+ * officer's paragraphs. The payload is a private MIME type now, and a drop
+ * carrying anything else is ignored.
  *
  * ### Reordering is buttons FIRST and drag second
  *
@@ -79,11 +90,13 @@ export function DocumentOutline({
             <li
               key={`${entry.index}-${entry.kind}`}
               draggable
-              onDragStart={(event) => event.dataTransfer.setData('text/plain', String(position))}
+              onDragStart={(event) => event.dataTransfer.setData(DRAG_TYPE, String(position))}
               onDragOver={(event) => event.preventDefault()}
               onDrop={(event) => {
                 event.preventDefault()
-                const from = Number(event.dataTransfer.getData('text/plain'))
+                const payload = event.dataTransfer.getData(DRAG_TYPE)
+                if (payload === '') return
+                const from = Number(payload)
                 const source = entries[from]
                 if (!source || from === position) return
                 onChange(moveBlock(body, source.index, entry.index))

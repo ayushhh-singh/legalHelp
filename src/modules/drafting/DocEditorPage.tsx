@@ -883,7 +883,19 @@ function Editor({
               <select
                 value={doc.threadId ?? ''}
                 onChange={(event) => {
-                  const next = event.target.value
+                  /*
+                    `new` means "start one here", and it is the option that
+                    makes this control usable at all: the list is built from the
+                    threads the officer's OTHER documents are on, and `newReply`
+                    is the only thing that has ever set one — so on a device
+                    where nobody has replied to a letter the menu opened a card
+                    whose single option was the state the document was already
+                    in. A document's own id is what `threadIdFor` uses for the
+                    first communication on a thread, so this is the register's
+                    own convention rather than a second one.
+                  */
+                  const chosen = event.target.value
+                  const next = chosen === 'new' ? doc.id : chosen
                   /*
                     `threadId` is OPTIONAL on the model, so "no thread" is the
                     key being absent rather than an empty string — a stored
@@ -899,11 +911,16 @@ function Editor({
                 className="h-11 rounded-[10px] border border-input bg-card px-3 text-sm"
               >
                 <option value="">{t('draft.editor.threadNone')}</option>
-                {threads.map((entry) => (
-                  <option key={entry.id} value={entry.id}>
-                    {entry.title}
-                  </option>
-                ))}
+                {doc.threadId === doc.id ? null : (
+                  <option value="new">{t('draft.editor.threadStart')}</option>
+                )}
+                {threads
+                  .filter((entry) => entry.id !== doc.id)
+                  .map((entry) => (
+                    <option key={entry.id} value={entry.id}>
+                      {entry.title}
+                    </option>
+                  ))}
               </select>
             </label>
             <Button variant="outline" size="sm" onClick={() => setThreadOpen(false)}>
@@ -939,20 +956,28 @@ function Editor({
         />
       ) : null}
 
-      <SaveAsTemplate
-        doc={doc}
-        template={template}
-        existingNames={myTemplates.map((entry) => entry.name)}
-        open={templateOpen}
-        onOpenChange={setTemplateOpen}
-        hideTrigger
-        onSave={(personal) => {
-          const at = new Date().toISOString()
-          void savePersonal({ ...personal, id: personalId(), createdAt: at, updatedAt: at }).then((saved) =>
-            setNotice(t('draft.personal.saved', { name: saved.name })),
-          )
-        }}
-      />
+      {/*
+        Mounted only while it is open, which is what lets it seed its Name field
+        from the document with a lazy initialiser rather than an effect. Radix's
+        `onOpenChange` never fires for a controlled `open` that is simply true,
+        so the seed has to happen at mount or not at all — and it did not, which
+        is how the menu's way in produced an empty required field.
+      */}
+      {templateOpen ? (
+        <SaveAsTemplate
+          doc={doc}
+          template={template}
+          existingNames={myTemplates.map((entry) => entry.name)}
+          open
+          onOpenChange={setTemplateOpen}
+          onSave={(personal) => {
+            const at = new Date().toISOString()
+            void savePersonal({ ...personal, id: personalId(), createdAt: at, updatedAt: at }).then((saved) =>
+              setNotice(t('draft.personal.saved', { name: saved.name })),
+            )
+          }}
+        />
+      ) : null}
 
       {/*
         The phone's three-way strip. A real tab widget: one panel is swapped in

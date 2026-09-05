@@ -1,5 +1,5 @@
 import { GraduationCap, StickyNote, X } from 'lucide-react'
-import { useEffect, useRef } from 'react'
+import { useEffect, useLayoutEffect, useRef, useState } from 'react'
 
 import { useT } from '@/i18n/useT'
 import { HIGHLIGHT_COLOURS, type HighlightColour } from '@/lib/library'
@@ -36,7 +36,7 @@ interface SelectionToolbarProps {
 }
 
 /**
- * Where the toolbar sits, clamped at BOTH ends of the viewport.
+ * Where the toolbar sits, clamped on ALL FOUR sides of the viewport.
  *
  * Above the selection by default. The first version clamped only the top
  * (`Math.max(8, top - 56)`), so a selection in the last paragraph of a rule on
@@ -48,23 +48,57 @@ interface SelectionToolbarProps {
  * height plus a margin, and it is subtracted unconditionally: the bar is hidden
  * from 1024px, and eight pixels of extra clearance on a desktop is not worth a
  * viewport-width branch that only one of the two layouts ever exercises.
+ *
+ * **The horizontal clamp is Session 35's, and it is the one a reader reported.**
+ * The element is centred on the selection with `translateX(-50%)`, so marking
+ * the first words of a provision — the left margin of the column — put the
+ * whole row at x = -91 with the first colour entirely off the screen.
+ * Highlighting "did not work" because the control could not be pressed.
+ *
+ * The WIDTH has to be measured rather than assumed: this row is four swatches,
+ * "Note", "Add to trainer" and a close button, and the Hindi strings are longer
+ * than the English ones. `--pwa-toast-space` is measured for the same reason
+ * (CLAUDE.md), and a constant here would be a guess that is wrong in one
+ * language. `offsetWidth` is independent of the transform, so the clamp
+ * converges in one pass rather than chasing its own correction.
  */
 const TOOLBAR_HEIGHT = 52
 const TAB_BAR = 84
+const MARGIN = 8
 
-function anchor(at: { top: number; left: number }): { top: number; left: number } {
-  const viewport = typeof window === 'undefined' ? 800 : window.innerHeight
-  const floor = viewport - TAB_BAR - TOOLBAR_HEIGHT
+function anchor(at: { top: number; left: number }, width: number): { top: number; left: number } {
+  const viewportHeight = typeof window === 'undefined' ? 800 : window.innerHeight
+  const viewportWidth = typeof window === 'undefined' ? 1280 : window.innerWidth
+  const floor = viewportHeight - TAB_BAR - TOOLBAR_HEIGHT
   const above = at.top - 56
   // Below the selection when there is no room above it, and never past the
   // floor either way.
   const top = above < 8 ? Math.min(at.top + 24, Math.max(8, floor)) : Math.min(above, Math.max(8, floor))
-  return { top: Math.max(8, top), left: at.left }
+
+  // `left` is the CENTRE, because of the transform. A toolbar too wide for the
+  // viewport is centred rather than clamped to a bound that has crossed over.
+  const half = width / 2
+  const lowest = MARGIN + half
+  const highest = viewportWidth - MARGIN - half
+  const left = lowest > highest ? viewportWidth / 2 : Math.min(Math.max(at.left, lowest), highest)
+
+  return { top: Math.max(8, top), left }
 }
 
 export function SelectionToolbar({ at, quote, onColour, onNote, onTrainer, onClose }: SelectionToolbarProps) {
   const { t } = useT()
   const ref = useRef<HTMLDivElement>(null)
+  const [width, setWidth] = useState(0)
+
+  /*
+    Measured before the browser paints, so the toolbar never appears in the
+    wrong place and then hops. `offsetWidth` does not include the transform, so
+    reading it cannot be affected by the clamp it feeds.
+  */
+  useLayoutEffect(() => {
+    const measured = ref.current?.offsetWidth ?? 0
+    setWidth((current) => (Math.abs(current - measured) > 0.5 ? measured : current))
+  }, [quote])
 
   useEffect(() => {
     ref.current?.querySelector('button')?.focus()
@@ -89,7 +123,7 @@ export function SelectionToolbar({ at, quote, onColour, onNote, onTrainer, onClo
       role="toolbar"
       aria-label={t('library.select.toolbar', { quote: short })}
       data-print-hide
-      style={at ? { position: 'fixed', ...anchor(at), transform: 'translateX(-50%)' } : undefined}
+      style={at ? { position: 'fixed', ...anchor(at, width), transform: 'translateX(-50%)' } : undefined}
       className={cn(
         // z-45, ABOVE the bottom tab bar (z-40) and below a dialog (z-50).
         // At z-40 it tied with the tab bar and lost on DOM order, so on a phone

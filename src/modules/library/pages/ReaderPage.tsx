@@ -58,6 +58,7 @@ import { useStudyAid } from '../useStudy'
 import { useReadAloud } from '../useReadAloud'
 
 import { useAi } from '@/ai/useAi'
+import { useReservedSpace } from '@/app/useReservedSpace'
 import { FOCUS_MENU_ITEM } from '@/app/layouts/FocusLayout'
 import { FocusSlot } from '@/app/layouts/FocusSlot'
 import { useFocusMenuClose, useFocusStatus } from '@/app/layouts/focusSlots'
@@ -293,12 +294,29 @@ export default function ReaderPage() {
   // ------------------------------------------------------------- selection
 
   const textRef = useRef<HTMLDivElement>(null)
-  const [selection, setSelection] = useState<{
+  /*
+    A selection carries the UNIT it was made in, and a stale one is never used.
+
+    The DOM selection outlives a navigation, because React reuses the paragraph
+    nodes — so after `j` the browser still reports a range, mapped on to
+    whatever words now occupy those nodes. Both the floating toolbar and the
+    action row offered to highlight it, and what got stored was words the
+    officer never marked, in a provision they had just left.
+
+    Derived rather than cleared by an effect: the rule CLAUDE.md records for
+    `ReviewPage`'s `wrongAnswer` and `switcherFor` two blocks up — an effect
+    that resynchronises is one render late, and one render is all it takes.
+  */
+  const [rawSelection, setRawSelection] = useState<{
+    unitId: string
     start: number
     end: number
     text: string
     at: { top: number; left: number } | null
   } | null>(null)
+  /** The selection, only while it still belongs to the provision on screen. */
+  const selection = rawSelection && rawSelection.unitId === unitId ? rawSelection : null
+
   const [pendingNote, setPendingNote] = useState<string | null>(null)
   const [trainerOpen, setTrainerOpen] = useState(false)
   const [helpOpen, setHelpOpen] = useState(false)
@@ -333,14 +351,21 @@ export default function ReaderPage() {
    */
   const readSelection = useCallback(() => {
     const offsets = selectionOffsets(textRef.current)
-    if (!offsets) {
-      setSelection(null)
+    /*
+      The unit comes from the URL at READ time, never from this closure —
+      `unitIdFromPath`'s standing rule on this page. This callback has an empty
+      dependency array and outlives every navigation, so a captured id would be
+      the one the reader was on when the listener was made.
+    */
+    const here = workId ? unitIdFromPath(window.location.pathname, workId) : null
+    if (!offsets || !here) {
+      setRawSelection(null)
       return null
     }
-    const next = { ...offsets, at: selectionAnchor(textRef.current) }
-    setSelection(next)
+    const next = { unitId: here, ...offsets, at: selectionAnchor(textRef.current) }
+    setRawSelection(next)
     return next
-  }, [])
+  }, [workId])
 
   useEffect(() => {
     const onUp = (event: Event) => {
@@ -370,7 +395,7 @@ export default function ReaderPage() {
           text: unitText,
         })
         setNotice(t('library.highlight.added'))
-        setSelection(null)
+        setRawSelection(null)
         clearSelection(textRef.current)
         return row
       } catch {
@@ -513,6 +538,20 @@ export default function ReaderPage() {
     }
   }, [unitId])
 
+  /*
+    The BROWSER's selection goes with the provision it was made in.
+
+    Keying `rawSelection` on the unit is what stops a stale range being USED;
+    this is what stops it being re-read. The DOM range survives a navigation
+    because React reuses the paragraph nodes, so the next `mouseup` anywhere —
+    pressing the highlighter, for instance — maps it on to whatever words now
+    occupy them and hands back a perfectly valid selection of text the officer
+    never marked.
+  */
+  useEffect(() => {
+    clearSelection(textRef.current)
+  }, [unitId])
+
   useEffect(() => {
     if (firstUnitOfSession === null && unitId) firstUnitOfSession = unitId
   }, [unitId])
@@ -564,6 +603,14 @@ export default function ReaderPage() {
   */
   useFocusStatus(around ? t('library.reader.of', { position: around.position, total: around.total }) : null)
   const closeFocusMenu = useFocusMenuClose()
+
+  /*
+    The action row is `fixed` at the foot of a phone, so everything else that
+    wants that edge has to know how much of it is taken. Measured, not assumed:
+    the row loses a control on a work no rule book backs, and the rail button
+    carries a word below `lg` that is longer in Hindi.
+  */
+  const actionsRef = useReservedSpace('--reader-actions-space', 8)
 
   /*
     Copying the citation is the ⋯ menu's cheapest entry and the one most likely
@@ -972,7 +1019,7 @@ export default function ReaderPage() {
                 thumb is not at the top of the screen.
               */}
               <UnitActions
-                className="hidden lg:flex"
+                ref={actionsRef}
                 hasSelection={selection !== null}
                 onHighlight={(colour) => void highlight(colour)}
                 onNote={() => setPendingNote('')}
@@ -989,8 +1036,10 @@ export default function ReaderPage() {
                     ? () => setTrainerOpen(true)
                     : null
                 }
-                railOpen={prefs.railOpen}
-                onToggleRail={() => void update({ railOpen: !prefs.railOpen })}
+                columnOpen={prefs.railOpen}
+                onToggleColumn={() => void update({ railOpen: !prefs.railOpen })}
+                sheetOpen={railSheetOpen}
+                onToggleSheet={() => setRailSheetOpen(!railSheetOpen)}
                 onHelp={() => setHelpOpen(true)}
               />
 
@@ -1056,7 +1105,7 @@ export default function ReaderPage() {
                   }}
                   onTrainer={() => setTrainerOpen(true)}
                   onClose={() => {
-                    setSelection(null)
+                    setRawSelection(null)
                     clearSelection(textRef.current)
                   }}
                 />
@@ -1176,7 +1225,7 @@ export default function ReaderPage() {
           <nav
             data-print-hide
             aria-label={t('library.toc.title')}
-            className="sticky bottom-0 z-30 -mx-4 flex items-stretch gap-3 border-t border-border bg-background/95 px-4 py-2 backdrop-blur sm:-mx-6 sm:px-6 lg:static lg:mx-0 lg:border-0 lg:bg-transparent lg:px-0 lg:backdrop-filter-none"
+            className="sticky bottom-[var(--reader-actions-space,0px)] z-30 -mx-4 flex items-stretch gap-3 border-t border-border bg-background/95 px-4 py-2 backdrop-blur sm:-mx-6 sm:px-6 lg:static lg:mx-0 lg:border-0 lg:bg-transparent lg:px-0 lg:backdrop-filter-none"
           >
             {around.previous ? (
               <Button asChild variant="outline" className="h-auto flex-1 justify-start py-2 text-left">
@@ -1224,26 +1273,6 @@ export default function ReaderPage() {
           </ReaderRail>
         ) : null}
       </div>
-
-      {/* The phone's action bar. Same component, same handlers, pinned. */}
-      <UnitActions
-        className="fixed inset-x-0 bottom-0 z-40 justify-center border-t border-border bg-card px-2 pt-2 pb-[calc(0.5rem+env(safe-area-inset-bottom,0px))] lg:hidden"
-        hasSelection={selection !== null}
-        onHighlight={(colour) => void highlight(colour)}
-        onNote={() => setPendingNote('')}
-        bookmarked={isBookmarked}
-        onBookmark={() => {
-          void toggleBookmark(work.id, unit.id)
-            .then((now) => setNotice(now ? t('library.reader.bookmarked') : t('library.reader.bookmark')))
-            .catch(() => setNotice(t('library.reader.bookmarkFailed')))
-        }}
-        onAddToTrainer={
-          work.origin === 'dataset' && work.corpus.kind === 'rules' ? () => setTrainerOpen(true) : null
-        }
-        railOpen={railSheetOpen}
-        onToggleRail={() => setRailSheetOpen(!railSheetOpen)}
-        onHelp={() => setHelpOpen(true)}
-      />
 
       {aloudOpen ? (
         <ReadAloudPill

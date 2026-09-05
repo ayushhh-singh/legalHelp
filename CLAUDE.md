@@ -1126,6 +1126,66 @@ are load-bearing, and each is enforced by a test rather than by convention:
 
 ### Notes for the next session
 
+- **An edge-case pass over this session found TEN defects and the family is one
+  sentence: an overlay is something the officer is INSIDE, and this session added five of them
+  without asking what happens at their edges.** ADR-047's addendum has all ten;
+  `tests/e2e/focus.spec.ts`'s last two describes and the new blocks in
+  `src/modules/library/reader.focus.test.tsx` and
+  `src/modules/drafting/editor/workspace.test.tsx` are the regression files. The four most
+  transferable are below, and the one a reader actually reported was that **the selection
+  toolbar rendered at x = -91**: `anchor()` clamped `top` at both ends and never touched `left`,
+  so marking the first words of a provision put the colours off the screen and highlighting
+  "did not work" because the control could not be pressed.
+
+- **Suppressing a global control and then not replacing it is worse than not suppressing it.**
+  `data-focus-overlay` tells `FocusLayout` to leave Escape alone — and `Popover` handled Escape
+  only when the event target was inside it, so with focus anywhere else NOTHING happened: the
+  tray was stuck open on a screen that could no longer be left. If you add the marker, handle
+  the press unconditionally. The unit switcher had the opposite half missing: an Escape handler
+  and no outside-pointer-down, so the list sat over the provision swallowing presses meant for
+  the text.
+
+- **Measure the phone's bottom edge before adding anything to it.** Three fixed elements were
+  overlapping there — prev/next at y 728-799, the action row at 786-839, a floating button at
+  779-823 — and two of them opened the same panel. `src/app/useReservedSpace.ts` is the hook the
+  PWA toast already had, now shared: an element publishes its measured height as a CSS variable
+  and whatever sits above adds it in CSS. `docs/DATA-GAPS.md` #59 is the same lesson from
+  Session 15 and the selection toolbar's own vertical clamp is it from Session 27; this is the
+  third time, so **anything new that is `fixed bottom-0` on a phone owes a measurement.**
+
+- **One control cannot describe two states, and two controls for one job is worse.** The reader's
+  rail is a sheet below `lg` and a column above it, separately remembered — the first fix OR-ed
+  them into one button whose label was then wrong at one of the two widths, and its own test
+  caught it. It is two buttons, one per width, and only one is ever in the accessibility tree.
+  That is NOT the duplication this session removed from `ReaderRail`: there, two subtrees held
+  two tablists with two different selected tabs.
+
+- **Two of this pass's own confirmations were worthless and had to be redone**, which is the
+  part worth keeping. The jsdom test for the outline's drag payload failed with
+  `ReferenceError: DataTransfer is not defined` — red against the defect AND against the fix,
+  so evidence of neither; the claim belongs in a browser. And the first fix for the stale
+  selection was a `python` string replacement whose anchor no longer existed: it printed "ok",
+  changed nothing, and the regression stayed red until the effect was actually inserted.
+  **A test that fails for a reason other than the defect is not a confirmation, and an edit that
+  reports success is not a change** — assert the anchor exists before replacing on it.
+
+- **A label is a promise, and two of them were not kept.** The highlighter's accessible NAME was
+  "Select some words in the provision first, then choose a colour" (a description used as a
+  name — CLAUDE.md records the same on three numbering fields), and the trainer icon carried
+  `library.trainer.add`, the same string as the dialog's own Save button. Separately, that icon
+  offered to build a cloze card whose ANSWER is the selected words with nothing selected: it is
+  disabled with a description now, like the swatches one button to its left.
+
+- **A dialog seeded in Radix's `onOpenChange` is not seeded by a controlled `open`.** That
+  callback fires when the DIALOG asks to change state, so "Save as my template" opened from the
+  ⋯ menu with an empty required Name field where the old trigger had pre-filled it. Mount such a
+  dialog only while it is open and seed it with a lazy `useState` initialiser — no effect,
+  nothing to resynchronise.
+
+- **A drop carrying `text/plain` is not necessarily yours.** The editor's outline read it as a
+  row index, so dragging the character "1" out of the document reordered an officer's
+  paragraphs. Use a private MIME type and ignore a drop without it.
+
 - **A capture-phase listener on `window` beats one on `document`, so `stopPropagation()` in a
   popover is not what makes Escape work.** `FocusLayout` leaves the screen on Escape and listens on
   `window` in the capture phase; the reader's "Aa" tray and its study sheet both listened on

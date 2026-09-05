@@ -1,4 +1,6 @@
-import { useCallback, useEffect, useRef, useState } from 'react'
+import { useEffect, useRef, useState } from 'react'
+
+import { useReservedSpace } from './useReservedSpace'
 import { useNavigate } from 'react-router-dom'
 import type { Workbox } from 'workbox-window'
 
@@ -208,34 +210,7 @@ function PwaToast({
  * with `null` when the element goes, which is also every path by which the last
  * toast disappears, so there is no route that leaves the padding behind.
  */
-function useReservedToastSpace() {
-  const observerRef = useRef<ResizeObserver | null>(null)
-
-  return useCallback((node: HTMLDivElement | null) => {
-    const root = document.documentElement
-    observerRef.current?.disconnect()
-    observerRef.current = null
-
-    if (!node) {
-      root.style.removeProperty('--pwa-toast-space')
-      return
-    }
-
-    const apply = () => {
-      // A gap above and below, so the toast is not flush against either the
-      // tab bar under it or the content over it.
-      root.style.setProperty('--pwa-toast-space', `${Math.ceil(node.offsetHeight) + 16}px`)
-    }
-    apply()
-
-    // Absent in jsdom, and this is a layout refinement rather than a
-    // correctness one — the first measurement above has already run.
-    if (typeof ResizeObserver === 'undefined') return
-    const observer = new ResizeObserver(apply)
-    observer.observe(node)
-    observerRef.current = observer
-  }, [])
-}
+const useReservedToastSpace = () => useReservedSpace('--pwa-toast-space', 16)
 
 /** Mounted once, near the root of the shell. Renders nothing until there's something to say. */
 export function PwaNotices({ className }: { className?: string }) {

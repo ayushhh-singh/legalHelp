@@ -937,7 +937,8 @@
       "thread": "Thread",
       "threadNone": "Not on a thread",
       "threadMoved": "Moved to that thread.",
-      "threadCleared": "Taken off its thread."
+      "threadCleared": "Taken off its thread.",
+      "threadStart": "Start a thread on this document"
     },
     "body": {
       "toolbar": "Insert into the body",
@@ -2396,14 +2397,15 @@
       "jumpTo": "Go to",
       "jumpPlaceholder": "A number or a heading…",
       "actions": "What to do with this provision",
-      "highlightNoSelection": "Select some words in the provision first, then choose a colour.",
       "railShow": "Show the study panel",
       "railHide": "Hide the study panel",
       "sourceAndVersion": "Source & version",
       "copyCitation": "Copy the citation",
       "citationCopied": "Citation copied.",
       "citationCopyFailed": "This browser would not let the app use the clipboard.",
-      "compareWith": "Compare with…"
+      "compareWith": "Compare with…",
+      "highlight": "Highlight",
+      "needsSelection": "Select some words in the provision first."
     },
     "lang": {
       "label": "Reading language",
@@ -2935,7 +2937,6 @@
       "practise": "Practise",
       "related": "Related",
       "ask": "Ask",
-      "open": "Understand",
       "close": "Close the study panel"
     },
     "coach": {

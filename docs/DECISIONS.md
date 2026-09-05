@@ -8340,3 +8340,102 @@ The one self-inflicted trap worth recording: the "Aa" tray's sample line was fir
 (Conduct) Rule 3's own words, which read beautifully and put a hidden, `aria-hidden` copy of "absolute
 integrity" on the page — the exact phrase four committed specs use to check that the RULE is on
 screen. A sample is about itself now.
+
+### Addendum — the edge-case pass (Session 35)
+
+**Ten defects.** Every regression below was confirmed to FAIL against `a68db9c`
+before its fix was written, and two of the confirmations were thrown away and
+redone because the first attempt failed for the wrong reason.
+
+The family is one sentence: **an overlay is something the officer is INSIDE, and
+this session added five of them without asking what happens at their edges.**
+
+1. **The one a reader reported: the selection toolbar was off the screen.**
+   `anchor()` clamped `top` at both ends and never touched `left`, and the row
+   is centred on the selection with `translateX(-50%)` — so marking the first
+   words of a provision, at the column's left margin, put it at x = -91 with the
+   first colour entirely unreachable. Highlighting "did not work" because the
+   control could not be pressed. The width is MEASURED (`offsetWidth`, which the
+   transform does not affect, so the clamp converges in one pass) rather than
+   assumed, because this row is four swatches plus three labelled controls and
+   the Hindi strings are longer.
+
+2. **A selection survived a jump to another provision.** The DOM range outlives
+   a navigation, because React reuses the paragraph nodes — so after `j` the
+   browser still reports a selection, mapped on to whatever words now occupy
+   them. Both the floating toolbar and the action row offered to highlight it,
+   and what got stored was words the officer never marked, in a provision they
+   had just left. `rawSelection` carries its unit and the live one is DERIVED;
+   the browser's own selection is cleared when the unit changes, because keying
+   the state stops a stale range being used and only clearing the DOM stops it
+   being re-read by the next `mouseup`.
+
+3. **`Popover` handled Escape only when the event target was inside it**, so
+   with focus anywhere else the press did nothing at all: `FocusLayout` stood
+   down because of `data-focus-overlay` and the popover stood down because of
+   the target, and the tray was stuck open on a screen that could no longer be
+   left. **An overlay that suppresses a global control has to replace it
+   unconditionally** — that is the other half of §2 of this ADR, and shipping
+   the first half without it made Escape worse than it had been.
+
+4. **The unit switcher never closed on an outside press.** It had Escape and
+   nothing else, so the list stayed open over the provision and, being an
+   overlay, swallowed the press meant for the text beneath.
+
+5. **Three fixed things were fighting for the phone's bottom edge**, measured on
+   a Pixel 7: prev/next at y 728-799, the action row at 786-839 and a floating
+   "Understand" button at 779-823, overlapping each other and the "Next" link.
+   Two of the three opened the same panel. The floating button is gone — the
+   action row's rail control carries the label instead — and prev/next now
+   stacks above the action row on `--reader-actions-space`, measured through the
+   hook the PWA toast already used. That hook moved to
+   `src/app/useReservedSpace.ts` so there is one of it.
+
+   The rail control is **two buttons, one per width**, and that is not the
+   duplication this session spent a day removing: below `lg` the panel is a
+   sheet and above it a column, they are separately remembered, and a single
+   control cannot carry a state that is "hidden" on one and "showing" on the
+   other. Only one is ever in the accessibility tree. The first attempt OR-ed
+   the two states into one button and its own test caught the incoherence.
+
+6. **Two labels were promises the controls did not keep.** The highlighter's
+   accessible name was "Select some words in the provision first, then choose a
+   colour" — a description used as a name, which is the mistake CLAUDE.md
+   records on three of the numbering fields. And the trainer icon was
+   `library.trainer.add`, the same string as the dialog's own Save button: one
+   name, two jobs.
+
+7. **"Add to trainer" would have made a card out of nothing.** The dialog builds
+   a cloze whose ANSWER is the selected words; offered from the action row with
+   no selection it stored one whose answer is the empty string. It is disabled
+   with a description now, like the swatches one button to its left.
+
+8. **"Save as my template" opened from the ⋯ menu with an empty Name.** The
+   dialog seeds its fields in Radix's `onOpenChange`, which fires when the
+   DIALOG asks to change state and never when a controlled `open` is simply
+   true. It is mounted only while open now, so a lazy `useState` initialiser is
+   the right shape — no effect, nothing to resynchronise. Its `Dialog.Trigger`
+   and the `hideTrigger` prop went with it: nothing had used them since the
+   action moved into the menu.
+
+9. **"Move to thread" could not fire on a device with no threads.** The select
+   was built from the threads the officer's OTHER documents are on, and
+   `newReply` is the only thing that has ever set one — so the menu opened a
+   card whose single option was the state the document was already in. "Start a
+   thread on this document" uses the document's own id, which is what
+   `threadIdFor` already does for the first communication on a thread.
+
+10. **The outline accepted any drag.** `onDrop` read `text/plain` as a row
+    index, and `text/plain` is what every drag in the world carries — dragging
+    the character "1" out of the document, or in from another application,
+    silently reordered an officer's paragraphs. The payload is a private MIME
+    type now.
+
+**Two confirmations were worthless and were redone.** The jsdom test for #10
+failed with `ReferenceError: DataTransfer is not defined` — red against the
+defect AND against the fix, which is evidence of neither; the claim moved to a
+browser. And the first fix for #2 was a `python` string replacement whose anchor
+no longer existed: it printed "ok", changed nothing, and the regression stayed
+red until the effect was actually inserted. **A test that fails for a reason
+other than the defect is not a confirmation, and an edit that reports success is
+not a change.**

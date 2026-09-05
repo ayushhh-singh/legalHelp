@@ -37,7 +37,12 @@ async function rail(
   language: 'en' | 'hi' = 'en',
 ) {
   if (onPhone(page)) {
-    const open = page.getByRole('button', { name: t(language, 'library.railTabs.open') })
+    // On a phone the rail is a sheet, opened from the unit's action row — the
+    // ONE control for it at that width (an edge-case pass removed a floating
+    // button that did the same job and sat on top of "Next").
+    const open = page
+      .getByRole('group', { name: t(language, 'library.reader.actions') })
+      .getByRole('button', { name: t(language, 'library.reader.railShow') })
     if (await open.isVisible()) await open.click()
   }
   const control = page.getByRole('tab', { name: t(language, `library.railTabs.${tab}`) })

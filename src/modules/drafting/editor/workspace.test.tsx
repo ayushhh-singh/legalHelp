@@ -354,3 +354,61 @@ describe('deleting', () => {
     expect(await db.documents.get(id)).toBeUndefined()
   })
 })
+
+/**
+ * The edge-case pass (ADR-047's addendum).
+ *
+ * Each of these was confirmed to FAIL against the commit that introduced the
+ * control it is about. All three are the same family: a control that is
+ * reachable, labelled and translated, and cannot do the thing it offers.
+ */
+describe('controls that could not do what they offered', () => {
+  it('opens “Save as my template” with the document’s own name in the box', async () => {
+    /*
+      The dialog resets its fields in Radix's `onOpenChange`, which fires when
+      the dialog asks to change state — and a CONTROLLED `open` never asks. So
+      opening it from the ⋯ menu (Session 35's way in) left the name field
+      empty, where the old trigger had pre-filled it with the document's title.
+      An officer saving their first template met a blank required field.
+    */
+    const user = userEvent.setup()
+    const id = await seed()
+    at(`/draft/d/${id}`)
+    await screen.findByRole('textbox', { name: 'Document body' })
+
+    await user.click(screen.getByRole('button', { name: 'More actions' }))
+    await user.click(within(document.getElementById('focus-actions')!).getByText('Save as my template'))
+
+    expect(await screen.findByLabelText(/Template name/)).toHaveValue('Children Education Allowance')
+  })
+
+  it('lets a document START a thread, not only join one that exists', async () => {
+    /*
+      The select was built from the threads the officer's OTHER documents are
+      already on — and `newReply` is the only thing that has ever set one, so on
+      a device where nobody has replied to a letter the menu entry opened a card
+      offering exactly one option: "Not on a thread", which is what the document
+      already was. A control whose only option is the current state is a control
+      that cannot fire.
+    */
+    const user = userEvent.setup()
+    const id = await seed()
+    at(`/draft/d/${id}`)
+    await screen.findByRole('textbox', { name: 'Document body' })
+
+    await user.click(screen.getByRole('button', { name: 'More actions' }))
+    await user.click(within(document.getElementById('focus-actions')!).getByText('Move to thread'))
+
+    const select = await screen.findByLabelText('Thread')
+    await user.selectOptions(select, 'new')
+    await waitFor(async () => expect((await stored(id)).threadId).toBe(id))
+  })
+
+  /*
+    The third of this pass's findings — a drop carrying any `text/plain` moved
+    an officer's paragraphs — is asserted in `tests/e2e/focus.spec.ts` and not
+    here. jsdom has no `DataTransfer` at all, so a test written for it fails
+    with a `ReferenceError` whatever the code does: it went red against the
+    defect AND against the fix, which is not evidence of either.
+  */
+})
