@@ -44,6 +44,9 @@ export function DocumentEditor({
   readOnly = false,
   label,
   onNotice,
+  onJumpReady,
+  onInsertReady,
+  className,
 }: {
   body: BodyDoc
   lang: 'en' | 'hi'
@@ -58,6 +61,27 @@ export function DocumentEditor({
   readOnly?: boolean
   label: string
   onNotice: (message: string) => void
+  /**
+   * Hands the caller a way to put the caret at a top-level block.
+   *
+   * The outline column needs it and must not know that Tiptap exists — the
+   * same line `src/lib/drafting`'s purity test draws one level down. Called
+   * with a NEW function whenever the editor instance changes (a language
+   * switch remounts it), so the caller should store the latest rather than the
+   * first.
+   */
+  onJumpReady?: (jumpTo: (index: number) => void) => void
+  /**
+   * Hands the caller a way to type text in at the caret.
+   *
+   * The Rajbhasha glossary sheet and the phrase library are Session 8
+   * components built around a textarea's caret and an `onInsert(text)`
+   * callback; this is that callback, over a ProseMirror selection. Same
+   * arrangement as `onJumpReady` and for the same reason — neither sheet may
+   * know that Tiptap exists.
+   */
+  onInsertReady?: (insert: (text: string) => void) => void
+  className?: string
 }) {
   const { t } = useT()
   const lastEmitted = useRef<string>('')
@@ -78,6 +102,26 @@ export function DocumentEditor({
           'aria-label': label,
           role: 'textbox',
           'aria-multiline': 'true',
+        },
+        /*
+          Escape LEAVES THE TEXT, and a second Escape leaves the screen.
+
+          `FocusLayout`'s Escape handler bails while the caret is in an editable
+          element, which is right — an officer mid-sentence must not lose the
+          document to a stray keypress. But in this editor the caret is in an
+          editable element almost all the time, so without this the way out
+          would be unreachable from the keyboard exactly where it is most
+          wanted. Blurring is the ordinary editor idiom for it and costs
+          nothing: the text is untouched and the next Tab is back into it.
+        */
+        handleKeyDown: (view, event) => {
+          if (event.key !== 'Escape') return false
+          // `view.dom` rather than the editor instance: this closure is built
+          // while `useEditor` is still constructing it, so there is nothing to
+          // reach for yet — and blurring the contenteditable element IS the
+          // whole operation.
+          view.dom.blur()
+          return true
         },
       },
       onUpdate: ({ editor: instance }) => {
@@ -120,8 +164,66 @@ export function DocumentEditor({
 
   const focus = useCallback(() => editor?.commands.focus(), [editor])
 
+  /*
+    Put the caret at the start of the Nth top-level block.
+
+    ProseMirror positions are not array indices — every node occupies its own
+    size — so this walks the document rather than arithmetic on the index.
+    `+ 1` steps inside the block, which is where a caret can actually sit.
+  */
+  const jumpTo = useCallback(
+    (index: number) => {
+      if (!editor) return
+      let target: number | null = null
+      editor.state.doc.forEach((_node, offset, position) => {
+        if (position === index) target = offset + 1
+      })
+      if (target === null) return
+      /*
+        `scrollIntoView: false`, and the scroll done here instead.
+
+        Tiptap's `focus()` scrolls by default, and ProseMirror's scroller
+        MEASURES — which throws `target.getClientRects is not a function` under
+        jsdom, asynchronously, as an unhandled error a `try` around this call
+        cannot catch. Moving the caret is the part that matters; scrolling to it
+        is a courtesy, and `scrollIntoView?.()` on the element is the same
+        guarded shape `ReaderPage` uses for exactly this reason: an environment
+        with no layout must still be able to EDIT.
+      */
+      editor.chain().setTextSelection(target).focus(undefined, { scrollIntoView: false }).run()
+      const at = editor.view.domAtPos(target).node
+      const element = at instanceof HTMLElement ? at : at.parentElement
+      element?.scrollIntoView?.({ block: 'center', behavior: 'auto' })
+    },
+    [editor],
+  )
+
+  useEffect(() => {
+    onJumpReady?.(jumpTo)
+  }, [onJumpReady, jumpTo])
+
+  const insert = useCallback(
+    (text: string) => {
+      /*
+        At the current selection, which replaces it when there is one — the
+        behaviour a textarea's caret gave the sheets before.
+
+        `scrollIntoView: false` for the reason `jumpTo` above gives: Tiptap's
+        `focus()` scrolls by default and ProseMirror's scroller measures, which
+        throws asynchronously under jsdom. Typing at the caret needs no scroll —
+        the caret is already where the officer is looking.
+      */
+      editor?.chain().focus(undefined, { scrollIntoView: false }).insertContent(text).run()
+    },
+    [editor],
+  )
+
+  useEffect(() => {
+    onInsertReady?.(insert)
+  }, [onInsertReady, insert])
+
   return (
-    <div className="flex min-w-0 flex-col gap-2">
+    <div className={cn('flex min-w-0 flex-col gap-2', className)}>
       <EditorToolbar
         editor={editor}
         placeholders={placeholders}
@@ -134,9 +236,18 @@ export function DocumentEditor({
         onNotice={onNotice}
         body={body}
       />
+      {/*
+        A sheet, not a box.
+
+        `draft-editor-page` gives it A4 proportions and the manual's own
+        margins, so the line length an officer writes at is the line length the
+        document prints at — which is the point of editing in a page-like
+        surface rather than a textarea beside a preview. Nothing here decides
+        what the document says; the renderer still does that.
+      */}
       <div
         className={cn(
-          'rounded-xl border border-border bg-card p-4 text-[15px] leading-relaxed',
+          'draft-editor-page rounded-xl border border-border bg-card text-[15px] leading-relaxed',
           'focus-within:ring-2 focus-within:ring-primary/60',
         )}
         lang={lang}

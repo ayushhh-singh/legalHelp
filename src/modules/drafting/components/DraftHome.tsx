@@ -3,6 +3,8 @@ import { ArrowRight, Copy, FileText, Mail, Pencil, Trash2 } from 'lucide-react'
 import { useMemo, useState } from 'react'
 import { Link } from 'react-router-dom'
 
+import { AppLink } from '@/app/AppLink'
+
 import {
   deleteDocument,
   duplicateDocument,
@@ -162,10 +164,10 @@ export function DraftHome() {
             <p className="truncate font-semibold">{continueWith.title || t('draft.editor.untitled')}</p>
           </div>
           <Button asChild size="sm">
-            <Link to={`/draft/d/${continueWith.id}`}>
+            <AppLink to={`/draft/d/${continueWith.id}`}>
               {t('draft.home.continue')}
               <ArrowRight aria-hidden="true" className="ml-1 size-4" />
-            </Link>
+            </AppLink>
           </Button>
         </SectionCard>
       ) : null}
@@ -355,7 +357,7 @@ export function DraftHome() {
                     })
                   }
                 />
-                <Link
+                <AppLink
                   to={`/draft/d/${row.id}`}
                   className="flex min-w-0 flex-1 items-center gap-2 text-sm hover:underline"
                 >
@@ -368,7 +370,7 @@ export function DraftHome() {
                       {new Date(row.updatedAt).toLocaleString(language === 'hi' ? 'hi-IN' : 'en-IN')}
                     </span>
                   </span>
-                </Link>
+                </AppLink>
                 <span className="flex shrink-0 items-center gap-1">
                   <Badge
                     tone={row.status === 'sent' ? 'success' : row.status === 'final' ? 'info' : 'neutral'}

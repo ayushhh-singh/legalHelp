@@ -109,6 +109,10 @@ test('states the missing Hindi text rather than showing an empty pane', async ({
   await page.goto(`/study/read/${WORK}/${UNITS[2]}`)
   await expect(page.getByRole('heading', { level: 1 })).toBeVisible()
 
+  // The reading language lives in the bar's "Aa" tray now (Session 35): the
+  // five control groups that used to sit between the officer and the provision
+  // are one popover, set once.
+  await page.getByRole('button', { name: t('en', 'library.type.label'), exact: true }).click()
   await page.getByRole('button', { name: t('en', 'library.lang.hi'), exact: true }).click()
 
   await expect(page.getByText(t('en', 'library.reader.noHindi'))).toBeVisible()

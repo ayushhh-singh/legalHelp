@@ -250,9 +250,11 @@ test.describe('under the production Content-Security-Policy', () => {
     await expect(page.getByRole('option').first()).toBeVisible()
     await page.keyboard.press('Escape')
 
-    // The drafting A4 preview, which prints against a named @page rule.
+    // The drafting A4 preview, which prints against a named @page rule. The
+    // editor's own `<h1>` is `sr-only` (the visible title is the focus bar's
+    // editable box), so what says the screen has loaded is the body itself.
     await page.goto('/draft/new/office-memorandum')
-    await expect(page.getByRole('heading', { level: 1 })).toBeVisible()
+    await expect(page.getByRole('textbox', { name: 'Document body' })).toBeVisible()
 
     expect(unexpected(await violations(page))).toEqual([])
     expect(unexpectedConsole(consoleErrors)).toEqual([])

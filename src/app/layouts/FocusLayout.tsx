@@ -251,6 +251,24 @@ export function FocusLayout({ className }: { className?: string }) {
         return
       }
       /*
+        A page's own OVERLAY owns this press, and it cannot say so by handling
+        the event first.
+
+        This listener is on `window` in the capture phase and a popover's is on
+        `document`, so this one runs FIRST whatever either does — capture walks
+        from the window down. The reader's "Aa" tray and its study sheet both
+        stopped propagation and both were still thrown out of the provision they
+        were open over, because by the time their handler ran this one had
+        already navigated.
+
+        So an overlay marks itself in the DOM instead — `data-focus-overlay` on
+        the element while it is open — and this asks. That is the same shape as
+        the `[role="dialog"]` check below, and it is order-independent, which is
+        the property the ⋯ menu's own comment above says a registration-order
+        guarantee is not.
+      */
+      if (document.querySelector('[data-focus-overlay]')) return
+      /*
         A dialog that is OPEN owns this press, and the check has to happen
         before it closes.
 

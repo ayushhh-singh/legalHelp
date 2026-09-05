@@ -1,7 +1,8 @@
 import { readFileSync } from 'node:fs'
 import { resolve } from 'node:path'
 
-import { audit, expect, formatViolations, setLanguage, test } from './fixtures'
+import { openDetails, showDocument, showExport } from './editor-helpers'
+import { audit, expect, formatViolations, onPhone, setLanguage, test } from './fixtures'
 
 /**
  * Import and export, in a real browser.
@@ -20,8 +21,6 @@ import { audit, expect, formatViolations, setLanguage, test } from './fixtures'
 
 const FIXTURES = resolve(process.cwd(), 'tests/fixtures/drafting')
 const fixture = (name: string) => resolve(FIXTURES, name)
-
-const tab = (name: string) => ['tab' as const, { name: new RegExp(`^${name}`) }] as const
 
 test.describe('importing a document', () => {
   test('a .docx → the review screen → a document → export → re-import', async ({ page }) => {
@@ -53,11 +52,15 @@ test.describe('importing a document', () => {
     await page.waitForURL(/\/draft\/d\/[0-9a-f]+/)
     const documentUrl = page.url()
 
-    // The text really arrived, structure and all.
-    await expect(page.getByText(/Doubts have been expressed/).first()).toBeVisible()
+    // The text really arrived, structure and all — in the DOCUMENT, not in the
+    // outline column beside it, which lists the same opening words and is
+    // `hidden` below `lg`.
+    await expect(
+      page.getByRole('textbox', { name: 'Document body' }).getByText(/Doubts have been expressed/),
+    ).toBeVisible()
 
     // ---- the export gate refuses, and says where to go -------------------
-    await page.getByRole(...tab('Export')).click()
+    await showExport(page)
     /*
       An imported letter has no signature block, and CSMOP 9.2(x) makes one a
       required item — so the export is held back. That is correct, and what the
@@ -70,7 +73,8 @@ test.describe('importing a document', () => {
     await expect(page.getByText(/Signature block carries designation/)).toBeVisible()
 
     // ---- fill it in, exactly as an officer would --------------------------
-    await page.getByRole(...tab('Details')).click()
+    if (onPhone(page)) await showDocument(page)
+    await openDetails(page)
     await page
       .getByLabel(/^Name$/)
       .last()
@@ -83,7 +87,7 @@ test.describe('importing a document', () => {
     await page.getByLabel(/^E-mail$/).fill('us.estt@nic.in')
 
     // ---- export it -------------------------------------------------------
-    await page.getByRole(...tab('Export')).click()
+    await showExport(page)
     const download = page.waitForEvent('download')
     await page.getByRole('button', { name: /Word \(\.docx\)/ }).click()
     const file = await download
@@ -112,7 +116,9 @@ test.describe('importing a document', () => {
     await expect(page.getByText(/Children Education Allowance/).first()).toBeVisible()
 
     await page.goto(documentUrl)
-    await expect(page.getByText(/Doubts have been expressed/).first()).toBeVisible()
+    await expect(
+      page.getByRole('textbox', { name: 'Document body' }).getByText(/Doubts have been expressed/),
+    ).toBeVisible()
   })
 
   test('a scanned PDF is refused with something the officer can act on', async ({ page }) => {

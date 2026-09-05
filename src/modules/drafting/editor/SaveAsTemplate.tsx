@@ -27,14 +27,34 @@ export function SaveAsTemplate({
   template,
   existingNames,
   onSave,
+  open: controlledOpen,
+  onOpenChange,
+  hideTrigger = false,
 }: {
   doc: OfficialDoc
   template: DocTemplate
   existingNames: readonly string[]
   onSave: (personal: PersonalTemplate) => void
+  /**
+   * Optional control, for a caller that opens this from somewhere else.
+   *
+   * Session 35 moved "Save as my template" into the focus bar's ⋯ menu, which
+   * is a `<button>` in a list rather than a place a `Dialog.Trigger` can sit —
+   * so the dialog has to be openable without its own button. `hideTrigger`
+   * removes that button; passing neither leaves the component exactly as it
+   * was.
+   */
+  open?: boolean
+  onOpenChange?: (next: boolean) => void
+  hideTrigger?: boolean
 }) {
   const { t, language } = useT()
-  const [open, setOpen] = useState(false)
+  const [uncontrolledOpen, setUncontrolledOpen] = useState(false)
+  const open = controlledOpen ?? uncontrolledOpen
+  const setOpen = (next: boolean) => {
+    setUncontrolledOpen(next)
+    onOpenChange?.(next)
+  }
   const [name, setName] = useState('')
   const [keep, setKeep] = useState<string[]>([])
 
@@ -54,11 +74,13 @@ export function SaveAsTemplate({
         }
       }}
     >
-      <Dialog.Trigger asChild>
-        <Button variant="outline" size="sm">
-          {t('draft.personal.saveAs')}
-        </Button>
-      </Dialog.Trigger>
+      {hideTrigger ? null : (
+        <Dialog.Trigger asChild>
+          <Button variant="outline" size="sm">
+            {t('draft.personal.saveAs')}
+          </Button>
+        </Dialog.Trigger>
+      )}
       <Dialog.Portal>
         <Dialog.Overlay className="fixed inset-0 z-50 bg-foreground/40" />
         <Dialog.Content className="fixed top-1/2 left-1/2 z-50 max-h-[85vh] w-[min(34rem,calc(100vw-2rem))] -translate-x-1/2 -translate-y-1/2 overflow-y-auto rounded-xl border border-border bg-card p-5 shadow-lg">

@@ -25,9 +25,11 @@ import { useT } from '@/i18n/useT'
 */
 const KEYS = [
   { keys: 'Ctrl S', label: 'draft.shortcuts.save' },
-  { keys: 'Ctrl P', label: 'draft.shortcuts.preview' },
-  { keys: 'Ctrl F', label: 'draft.shortcuts.find' },
+  { keys: 'Ctrl P', label: 'draft.shortcuts.print' },
+  { keys: 'Ctrl E', label: 'draft.shortcuts.export' },
+  { keys: 'Ctrl Shift F', label: 'draft.shortcuts.find' },
   { keys: 'Ctrl /', label: 'draft.shortcuts.help' },
+  { keys: 'Esc', label: 'draft.shortcuts.escape' },
   { keys: 'Ctrl B', label: 'draft.shortcuts.bold' },
   { keys: 'Ctrl I', label: 'draft.shortcuts.italic' },
   { keys: 'Tab', label: 'draft.shortcuts.indent' },

@@ -1,7 +1,9 @@
 import { useLiveQuery } from 'dexie-react-hooks'
 import { Download, FileText, Mail, Plus, Trash2 } from 'lucide-react'
 import { useMemo, useState } from 'react'
-import { Link, useSearchParams } from 'react-router-dom'
+import { useSearchParams } from 'react-router-dom'
+
+import { AppLink } from '@/app/AppLink'
 
 import { createEntry, deleteEntry, listEntriesWithDropped, putEntry, updateEntry } from './registerStore'
 
@@ -405,16 +407,16 @@ function Row({
       <div className="flex shrink-0 flex-wrap items-center gap-1">
         {entry.docId ? (
           <Button asChild variant="ghost" size="sm" aria-label={t('draft.register.openDocument')}>
-            <Link to={`/draft/d/${entry.docId}`}>
+            <AppLink to={`/draft/d/${entry.docId}`}>
               <FileText aria-hidden="true" className="size-4" />
-            </Link>
+            </AppLink>
           </Button>
         ) : null}
         {entry.intakeId ? (
           <Button asChild variant="ghost" size="sm" aria-label={t('draft.register.openLetter')}>
-            <Link to={`/draft/reply/${entry.intakeId}`}>
+            <AppLink to={`/draft/reply/${entry.intakeId}`}>
               <Mail aria-hidden="true" className="size-4" />
-            </Link>
+            </AppLink>
           </Button>
         ) : null}
         <Button variant="outline" size="sm" onClick={onEdit}>

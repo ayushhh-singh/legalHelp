@@ -71,6 +71,20 @@ function ToolButton({
 
 const Sep = () => <span aria-hidden="true" className="mx-1 h-6 w-px shrink-0 bg-border" />
 
+/**
+ * One named band of the toolbar.
+ *
+ * `role="group"` with a label, so a screen-reader user hears "Insert, table"
+ * rather than twenty-two unrelated buttons in one strip. The label is not drawn
+ * — a toolbar that spent a line on four captions would be taller than the
+ * document on a phone — and the separator between bands is what shows it.
+ */
+const Group = ({ label, children }: { label: string; children: React.ReactNode }) => (
+  <div role="group" aria-label={label} className="flex flex-wrap items-center gap-1">
+    {children}
+  </div>
+)
+
 /** How many characters the conversion actually changed. */
 function countConverted(before: BodyDoc, after: BodyDoc): number {
   const text = (body: BodyDoc) => JSON.stringify(body)
@@ -119,158 +133,171 @@ export function EditorToolbar({
         aria-orientation="horizontal"
         className="flex flex-wrap items-center gap-1 rounded-xl border border-border bg-muted/40 p-2"
       >
-        <ToolButton
-          label={t('draft.toolbar.paragraph')}
-          active={editor?.isActive('paragraph') ?? false}
-          disabled={disabled}
-          onClick={() => editor?.chain().focus().setNode('paragraph').run()}
-        >
-          ¶
-        </ToolButton>
-        <ToolButton
-          label={t('draft.toolbar.numberedPara')}
-          active={editor?.isActive('numberedPara') ?? false}
-          disabled={disabled}
-          onClick={() => editor && toggleNumberedPara(editor)}
-        >
-          1.
-        </ToolButton>
-        {[1, 2, 3].map((level) => (
+        <Group label={t('draft.toolbar.groupParagraph')}>
           <ToolButton
-            key={level}
-            label={t('draft.toolbar.headingLevel', { level })}
-            active={editor?.isActive('heading', { level }) ?? false}
+            label={t('draft.toolbar.paragraph')}
+            active={editor?.isActive('paragraph') ?? false}
             disabled={disabled}
-            onClick={() =>
-              editor
-                ?.chain()
-                .focus()
-                .toggleHeading({ level: level as 1 | 2 | 3 })
-                .run()
-            }
+            onClick={() => editor?.chain().focus().setNode('paragraph').run()}
           >
-            H{level}
+            ¶
           </ToolButton>
-        ))}
+          <ToolButton
+            label={t('draft.toolbar.numberedPara')}
+            active={editor?.isActive('numberedPara') ?? false}
+            disabled={disabled}
+            onClick={() => editor && toggleNumberedPara(editor)}
+          >
+            1.
+          </ToolButton>
+          {[1, 2, 3].map((level) => (
+            <ToolButton
+              key={level}
+              label={t('draft.toolbar.headingLevel', { level })}
+              active={editor?.isActive('heading', { level }) ?? false}
+              disabled={disabled}
+              onClick={() =>
+                editor
+                  ?.chain()
+                  .focus()
+                  .toggleHeading({ level: level as 1 | 2 | 3 })
+                  .run()
+              }
+            >
+              H{level}
+            </ToolButton>
+          ))}
+          <ToolButton
+            label={t('draft.toolbar.bulletList')}
+            active={editor?.isActive('bulletList') ?? false}
+            disabled={disabled}
+            onClick={() => editor?.chain().focus().toggleBulletList().run()}
+          >
+            <List aria-hidden="true" className="size-4" />
+          </ToolButton>
+          <ToolButton
+            label={t('draft.toolbar.orderedList')}
+            active={editor?.isActive('orderedList') ?? false}
+            disabled={disabled}
+            onClick={() => editor?.chain().focus().toggleOrderedList().run()}
+          >
+            <ListOrdered aria-hidden="true" className="size-4" />
+          </ToolButton>
+          <ToolButton
+            label={t('draft.toolbar.quote')}
+            active={editor?.isActive('blockquote') ?? false}
+            disabled={disabled}
+            onClick={() => editor?.chain().focus().toggleBlockquote().run()}
+          >
+            <Quote aria-hidden="true" className="size-4" />
+          </ToolButton>
+        </Group>
         <Sep />
-        <ToolButton
-          label={t('draft.toolbar.bold')}
-          active={editor?.isActive('bold') ?? false}
-          disabled={disabled}
-          onClick={() => editor?.chain().focus().toggleBold().run()}
-        >
-          <Bold aria-hidden="true" className="size-4" />
-        </ToolButton>
-        <ToolButton
-          label={t('draft.toolbar.italic')}
-          active={editor?.isActive('italic') ?? false}
-          disabled={disabled}
-          onClick={() => editor?.chain().focus().toggleItalic().run()}
-        >
-          <Italic aria-hidden="true" className="size-4" />
-        </ToolButton>
-        <ToolButton
-          label={t('draft.toolbar.underline')}
-          active={editor?.isActive('underline') ?? false}
-          disabled={disabled}
-          onClick={() => editor?.chain().focus().toggleUnderline().run()}
-        >
-          <Underline aria-hidden="true" className="size-4" />
-        </ToolButton>
+        <Group label={t('draft.toolbar.groupText')}>
+          <ToolButton
+            label={t('draft.toolbar.bold')}
+            active={editor?.isActive('bold') ?? false}
+            disabled={disabled}
+            onClick={() => editor?.chain().focus().toggleBold().run()}
+          >
+            <Bold aria-hidden="true" className="size-4" />
+          </ToolButton>
+          <ToolButton
+            label={t('draft.toolbar.italic')}
+            active={editor?.isActive('italic') ?? false}
+            disabled={disabled}
+            onClick={() => editor?.chain().focus().toggleItalic().run()}
+          >
+            <Italic aria-hidden="true" className="size-4" />
+          </ToolButton>
+          <ToolButton
+            label={t('draft.toolbar.underline')}
+            active={editor?.isActive('underline') ?? false}
+            disabled={disabled}
+            onClick={() => editor?.chain().focus().toggleUnderline().run()}
+          >
+            <Underline aria-hidden="true" className="size-4" />
+          </ToolButton>
+        </Group>
         <Sep />
-        <ToolButton
-          label={t('draft.toolbar.bulletList')}
-          active={editor?.isActive('bulletList') ?? false}
-          disabled={disabled}
-          onClick={() => editor?.chain().focus().toggleBulletList().run()}
-        >
-          <List aria-hidden="true" className="size-4" />
-        </ToolButton>
-        <ToolButton
-          label={t('draft.toolbar.orderedList')}
-          active={editor?.isActive('orderedList') ?? false}
-          disabled={disabled}
-          onClick={() => editor?.chain().focus().toggleOrderedList().run()}
-        >
-          <ListOrdered aria-hidden="true" className="size-4" />
-        </ToolButton>
-        <ToolButton
-          label={t('draft.toolbar.quote')}
-          active={editor?.isActive('blockquote') ?? false}
-          disabled={disabled}
-          onClick={() => editor?.chain().focus().toggleBlockquote().run()}
-        >
-          <Quote aria-hidden="true" className="size-4" />
-        </ToolButton>
-        <ToolButton
-          label={t('draft.toolbar.table')}
-          disabled={disabled}
-          onClick={() => editor && insertTable(editor)}
-        >
-          <TableIcon aria-hidden="true" className="size-4" />
-        </ToolButton>
-        <ToolButton
-          label={t('draft.toolbar.pageBreak')}
-          disabled={disabled}
-          onClick={() => editor && insertPageBreak(editor)}
-        >
-          ⤶
-        </ToolButton>
+        <Group label={t('draft.toolbar.groupInsert')}>
+          <ToolButton
+            label={t('draft.toolbar.table')}
+            disabled={disabled}
+            onClick={() => editor && insertTable(editor)}
+          >
+            <TableIcon aria-hidden="true" className="size-4" />
+          </ToolButton>
+          <ToolButton
+            label={t('draft.toolbar.pageBreak')}
+            disabled={disabled}
+            onClick={() => editor && insertPageBreak(editor)}
+          >
+            ⤶
+          </ToolButton>
+          <ToolButton
+            label={t('draft.toolbar.placeholder')}
+            disabled={disabled}
+            active={placeholderOpen}
+            onClick={() => setPlaceholderOpen((open) => !open)}
+          >
+            {'{{ }}'}
+          </ToolButton>
+          <ToolButton label={t('draft.toolbar.enclosure')} onClick={onAddEnclosure}>
+            {t('draft.toolbar.enclosure')}
+          </ToolButton>
+          <ToolButton label={t('draft.toolbar.copyTo')} onClick={onAddCopyTo}>
+            {t('draft.toolbar.copyTo')}
+          </ToolButton>
+          <ToolButton label={t('draft.toolbar.phrase')} onClick={onInsertPhrase}>
+            {t('draft.toolbar.phrase')}
+          </ToolButton>
+          <ToolButton label={t('draft.toolbar.glossary')} onClick={onInsertGlossary}>
+            {t('draft.toolbar.glossary')}
+          </ToolButton>
+        </Group>
         <Sep />
-        <ToolButton
-          label={t('draft.toolbar.placeholder')}
-          disabled={disabled}
-          active={placeholderOpen}
-          onClick={() => setPlaceholderOpen((open) => !open)}
-        >
-          {'{{ }}'}
-        </ToolButton>
-        <ToolButton label={t('draft.toolbar.enclosure')} onClick={onAddEnclosure}>
-          {t('draft.toolbar.enclosure')}
-        </ToolButton>
-        <ToolButton label={t('draft.toolbar.copyTo')} onClick={onAddCopyTo}>
-          {t('draft.toolbar.copyTo')}
-        </ToolButton>
-        <ToolButton label={t('draft.toolbar.phrase')} onClick={onInsertPhrase}>
-          {t('draft.toolbar.phrase')}
-        </ToolButton>
-        <ToolButton label={t('draft.toolbar.glossary')} onClick={onInsertGlossary}>
-          {t('draft.toolbar.glossary')}
-        </ToolButton>
-        <Sep />
-        <ToolButton label={t('draft.toolbar.findReplace')} onClick={onFindReplace}>
-          <Search aria-hidden="true" className="size-4" />
-        </ToolButton>
-        {/*
+        <Group label={t('draft.toolbar.groupLanguage')}>
+          {/*
           Converting numerals rewrites the WHOLE document, so it says how many
           it changed. It used to do it silently, which for an edit an officer
           cannot see the extent of is the difference between a tool and a
           surprise — and `draft.toolbar.digitsDone` was authored for exactly
           this and referenced by nothing.
         */}
-        <ToolButton
-          label={t('draft.toolbar.toDevanagari')}
-          disabled={disabled}
-          onClick={() => {
-            const next = convertDigits(body, 'devanagari')
-            onChange(next)
-            onNotice(t('draft.toolbar.digitsDone', { count: countConverted(body, next) }))
-          }}
-        >
-          ०-९
-        </ToolButton>
-        <ToolButton
-          label={t('draft.toolbar.toAscii')}
-          disabled={disabled}
-          onClick={() => {
-            const next = convertDigits(body, 'ascii')
-            onChange(next)
-            onNotice(t('draft.toolbar.digitsDone', { count: countConverted(body, next) }))
-          }}
-        >
-          0-9
-        </ToolButton>
+          <ToolButton
+            label={t('draft.toolbar.toDevanagari')}
+            disabled={disabled}
+            onClick={() => {
+              const next = convertDigits(body, 'devanagari')
+              onChange(next)
+              onNotice(t('draft.toolbar.digitsDone', { count: countConverted(body, next) }))
+            }}
+          >
+            ०-९
+          </ToolButton>
+          <ToolButton
+            label={t('draft.toolbar.toAscii')}
+            disabled={disabled}
+            onClick={() => {
+              const next = convertDigits(body, 'ascii')
+              onChange(next)
+              onNotice(t('draft.toolbar.digitsDone', { count: countConverted(body, next) }))
+            }}
+          >
+            0-9
+          </ToolButton>
+        </Group>
         <Sep />
+        {/*
+          Find, undo and redo are in no band, deliberately: they are about the
+          editing session rather than the document, and inventing a fifth
+          caption for three controls that already say what they do would be a
+          label added for symmetry.
+        */}
+        <ToolButton label={t('draft.toolbar.findReplace')} onClick={onFindReplace}>
+          <Search aria-hidden="true" className="size-4" />
+        </ToolButton>
         <ToolButton
           label={t('draft.toolbar.undo')}
           disabled={disabled || !editor?.can().undo()}

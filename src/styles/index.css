@@ -121,6 +121,25 @@
   letter-spacing: -0.02em;
 }
 
+/*
+ * The focus bar's centre (Session 35).
+ *
+ * A focus page may PORTAL a control into the middle of the bar — the reader's
+ * unit switcher, the editor's title box — and the plain route name has to get
+ * out of the way when it does. `:empty` is what answers that with no
+ * JavaScript and no `:has()`: the host span holds nothing until a portal
+ * mounts into it, and a rule keyed on the host decides for the sibling. Doing
+ * it in React instead would mean the layout knew which pages fill the slot.
+ */
+.focus-title-host:not(:empty) {
+  flex: 1 1 0%;
+  min-width: 0;
+}
+
+.focus-title-host:not(:empty) + .focus-title-fallback {
+  display: none;
+}
+
 /* Opt-in heading face for text that is a heading in role but not in tag. */
 .font-heading {
   font-family: var(--font-heading);
@@ -317,6 +336,12 @@
     background-color: color-mix(in srgb, var(--marigold) 8%, var(--card));
   }
 
+  /* The same wash, on the "Aa" tray's sample line, so choosing the surface
+     shows the surface rather than describing it. */
+  .library-sepia-swatch {
+    background-color: color-mix(in srgb, var(--marigold) 8%, var(--card));
+  }
+
   @page library-a4 {
     size: A4;
     margin: 20mm;
@@ -368,6 +393,32 @@
  * the marigold /15 tint with its paired `-foreground`, which is the rule every
  * accent in this app follows: never the raw token as text.
  * ------------------------------------------------------------------ */
+
+/*
+ * The editing surface as a SHEET (Session 35).
+ *
+ * A4 is 210mm wide and CSMOP's margins are one inch, so the text column is
+ * 210 - 2×25.4 = 159.2mm. Setting that as the page's width and padding means
+ * the line an officer writes is the line the document prints, which is the
+ * whole argument for editing in a page rather than in a box beside a preview.
+ *
+ * `max-width` rather than a fixed width: below ~700px the sheet would overflow
+ * the viewport and a horizontal scrollbar on the thing you are typing into is
+ * worse than a narrower page. The padding shrinks with it, in one media query,
+ * so a phone does not spend half its screen on margins it cannot use.
+ */
+.draft-editor-page {
+  width: 100%;
+  max-width: 210mm;
+  margin-inline: auto;
+  padding: 25.4mm;
+}
+
+@media (max-width: 48rem) {
+  .draft-editor-page {
+    padding: 1rem;
+  }
+}
 
 .draft-editor-surface {
   min-height: 18rem;

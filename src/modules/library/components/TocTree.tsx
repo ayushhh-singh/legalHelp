@@ -1,6 +1,7 @@
 import { Check, ChevronDown, ChevronRight } from 'lucide-react'
 import { useState } from 'react'
-import { Link } from 'react-router-dom'
+
+import { AppLink } from '@/app/AppLink'
 
 import { toUnitHref } from '../url'
 
@@ -41,7 +42,7 @@ function UnitRow({ node, work, read, current }: UnitRowProps) {
 
   return (
     <li>
-      <Link
+      <AppLink
         to={toUnitHref(work.id, unitId)}
         aria-current={current ? 'page' : undefined}
         className={cn(
@@ -62,7 +63,7 @@ function UnitRow({ node, work, read, current }: UnitRowProps) {
             <span className="sr-only">{t('library.toc.read')}</span>
           </span>
         ) : null}
-      </Link>
+      </AppLink>
     </li>
   )
 }

@@ -9,6 +9,7 @@ import RevisionSheetPage from './pages/RevisionSheetPage'
 import StudyHubPage from './pages/StudyHubPage'
 
 import { db } from '@/db'
+import { expectRailTab, openRail } from '@/test/rail'
 import { loadStudyAids } from '@/lib/library'
 import { chaptersOf, rateChapterCard, saveAttempt } from '@/lib/study'
 import { loadWork } from '@/lib/library'
@@ -55,14 +56,21 @@ beforeEach(async () => {
 
 describe('with AI off, the study layer is still there', () => {
   it('renders the precomputed aid and the own-words box on a unit that has one', async () => {
+    const user = userEvent.setup()
     const aids = await loadStudyAids('ccs-conduct')
     const aid = aids.aids.find((row) => row.reviewState === 'approved')
     expect(aid, 'the fixture needs at least one approved aid').toBeDefined()
 
     at(`/study/read/${aid!.workId}/${aid!.unitId}`)
 
+    // The rail opens on Understand, which is where the precomputed aid is —
+    // that ordering is the module's whole argument (`docs/AI.md` §13) and a
+    // default that opened anywhere else would bury it.
+    await expectRailTab('Understand')
     expect(await screen.findByText(/Sahayak’s explanation/i)).toBeInTheDocument()
     expect(screen.getByText(aid!.explanation.en)).toBeInTheDocument()
+
+    await openRail(user, 'Practise')
     expect(screen.getByRole('button', { name: /Write my own version/i })).toBeInTheDocument()
   })
 
@@ -85,6 +93,7 @@ describe('the own-words attempt round trip', () => {
     const aid = aids.aids.find((row) => row.reviewState === 'approved')!
     at(`/study/read/${aid.workId}/${aid.unitId}`)
 
+    await openRail(user, 'Practise')
     await user.click(await screen.findByRole('button', { name: /Write my own version/i }))
     const box = screen.getByRole('textbox', { name: /own words/i })
     // Trailing whitespace and a line break survive: the attempt is the

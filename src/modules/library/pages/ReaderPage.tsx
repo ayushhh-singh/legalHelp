@@ -1,15 +1,16 @@
 import {
   ArrowLeft,
-  Bookmark,
-  BookmarkCheck,
   CheckCircle2,
   ChevronLeft,
   ChevronRight,
   Circle,
-  Keyboard,
-  Maximize2,
-  Minimize2,
+  Columns2,
+  Copy,
+  ExternalLink,
+  Flag,
+  Headphones,
   Printer,
+  Type,
 } from 'lucide-react'
 import { Suspense, lazy, useCallback, useEffect, useMemo, useRef, useState } from 'react'
 import { Link, Navigate, useNavigate, useParams } from 'react-router-dom'
@@ -22,7 +23,12 @@ import { AnnotationsPanel } from '../components/AnnotationsPanel'
 import { DefinitionPopover } from '../components/DefinitionPopover'
 import { KeyboardHelpSheet } from '../components/KeyboardHelpSheet'
 import { NoteEditor } from '../components/NoteEditor'
-import { ReadAloudBar } from '../components/ReadAloudBar'
+import { CoachMark } from '../components/CoachMark'
+import { ReadAloudPill } from '../components/ReadAloudPill'
+import { ReaderRail } from '../components/ReaderRail'
+import { SourceFooter } from '../components/SourceFooter'
+import { UnitActions } from '../components/UnitActions'
+import { UnitSwitcher } from '../components/UnitSwitcher'
 import { FeynmanBox } from '../components/FeynmanBox'
 import { RelatedRail } from '../components/RelatedRail'
 import { StudyAidCard } from '../components/StudyAidCard'
@@ -30,7 +36,7 @@ import { TestMeCard } from '../components/TestMeCard'
 import { SelectionToolbar } from '../components/SelectionToolbar'
 import { TypeControls } from '../components/TypeControls'
 import { clearSelection, selectionAnchor, selectionOffsets } from '../selection'
-import { toLawSearchHref, toUnitHref, toWorkHref, unitIdFromPath } from '../url'
+import { compareRef, toCompareHref, toLawSearchHref, toUnitHref, toWorkHref, unitIdFromPath } from '../url'
 import {
   useBookmark,
   useDefinedTerms,
@@ -41,12 +47,22 @@ import {
   useUnitProgress,
 } from '../useAnnotations'
 import { studyAiAvailable } from '../ai-seam'
-import { useBookmarkedUnitIds, useReaderPrefs } from '../useLibrary'
+import {
+  COACH_MARKS,
+  useBookmarkedUnitIds,
+  useReaderPrefs,
+  type CoachMarkId,
+  type RailTab,
+} from '../useLibrary'
 import { useStudyAid } from '../useStudy'
 import { useReadAloud } from '../useReadAloud'
 
 import { useAi } from '@/ai/useAi'
+import { FOCUS_MENU_ITEM } from '@/app/layouts/FocusLayout'
+import { FocusSlot } from '@/app/layouts/FocusSlot'
+import { useFocusMenuClose, useFocusStatus } from '@/app/layouts/focusSlots'
 import { chapterFor } from '@/lib/study'
+import { reportMailto } from '@/lib/reportMailto'
 
 /**
  * The Ask panel is `lazy` and is mounted only when AI is on, so a reader with
@@ -60,10 +76,14 @@ const StudyAskPanel = lazy(() =>
   import('../components/StudyAskPanel').then((module) => ({ default: module.StudyAskPanel })),
 )
 
-import { DataVersion } from '@/components/common/DataVersion'
-import { Disclaimer } from '@/components/common/Disclaimer'
-import { SourceChip } from '@/components/common/SourceChip'
-import { Badge, ProgressBar, QueryErrorState, SectionCard, SectionNumber, Skeleton } from '@/components/ui-x'
+import {
+  Popover,
+  ProgressBar,
+  QueryErrorState,
+  SectionCard,
+  SectionNumber,
+  Skeleton,
+} from '@/components/ui-x'
 import { Button } from '@/components/ui/button'
 import { useT } from '@/i18n/useT'
 import type { Language } from '@/i18n'
@@ -133,6 +153,28 @@ const DWELL_MS = 30_000
 
 /** How long after the reader stops scrolling before the position is stored. */
 const SCROLL_DEBOUNCE_MS = 400
+
+/** How close to the foot of the page counts as "you have read this". */
+const END_OF_UNIT_PX = 120
+
+/**
+ * Has the standing disclaimer been shown as a BANNER yet, this tab?
+ *
+ * The master context requires the sentence on every data surface and
+ * `SourceFooter` renders it on every unit — this only decides how loudly. A
+ * reader working through a chapter meets it thirty times in a sitting, and the
+ * thirtieth banner is read by nobody.
+ *
+ * A module variable rather than a stored row, exactly as `src/modules/law/url.ts`
+ * holds the offence date: it lasts the tab's life, is written nowhere, and is
+ * gone on reload — so every session's FIRST provision gets the full banner.
+ *
+ * It records WHICH unit was first rather than a boolean, and that is not
+ * fussiness: a boolean has to be flipped back to false when the reader moves
+ * on, and StrictMode double-invokes the effect that would do it. An id is
+ * written once, idempotently, and every render after it is a comparison.
+ */
+let firstUnitOfSession: string | null = null
 
 const versionKeyFor = (work: ReaderWork): string | null =>
   work.origin === 'personal' ? null : work.corpus.kind === 'law' ? `law-${work.id}` : `rules-${work.id}`
@@ -261,6 +303,20 @@ export default function ReaderPage() {
   const [trainerOpen, setTrainerOpen] = useState(false)
   const [helpOpen, setHelpOpen] = useState(false)
   const [notice, setNotice] = useState<string | null>(null)
+  // Focus-bar and overlay state. None of it is remembered across units except
+  // the rail, whose tab and open/closed live in `prefs`.
+  /*
+    Which unit's switcher is open, not whether one is.
+
+    Keyed on the unit so a jump closes it by DERIVATION rather than by an effect
+    that resynchronises one render late — the rule CLAUDE.md records for
+    `ReviewPage`'s `wrongAnswer` and `TrainerActHint`, and the one
+    `react-hooks/set-state-in-effect` is right to enforce.
+  */
+  const [switcherFor, setSwitcherFor] = useState<string | null>(null)
+  const [aloudOpen, setAloudOpen] = useState(false)
+  const [railSheetOpen, setRailSheetOpen] = useState(false)
+  const [atEnd, setAtEnd] = useState(false)
 
   /**
    * Selections are read on `mouseup`/`keyup` AT THE DOCUMENT, not from handlers
@@ -433,6 +489,34 @@ export default function ReaderPage() {
     }
   }, [workId])
 
+  /**
+   * Whether the reader has reached the foot of this provision.
+   *
+   * "Mark as read" appears there and only there, because a control offered
+   * before anybody has read anything is a control that records something
+   * untrue. It is its own listener rather than a branch inside the debounced
+   * position writer above: this has to answer on every frame of the scroll and
+   * that one deliberately answers 400 ms after it stops.
+   */
+  useEffect(() => {
+    const check = () => {
+      const room = document.documentElement.scrollHeight - window.innerHeight
+      // A unit shorter than the viewport has nothing to scroll, and is read.
+      setAtEnd(room <= 0 || window.scrollY >= room - END_OF_UNIT_PX)
+    }
+    check()
+    window.addEventListener('scroll', check, { passive: true })
+    window.addEventListener('resize', check)
+    return () => {
+      window.removeEventListener('scroll', check)
+      window.removeEventListener('resize', check)
+    }
+  }, [unitId])
+
+  useEffect(() => {
+    if (firstUnitOfSession === null && unitId) firstUnitOfSession = unitId
+  }, [unitId])
+
   // Moving between units keeps the page scrolled where the previous unit
   // ended, which reads as a page that did not change. A remembered position
   // wins over the top of the unit — that is what remembering it is for.
@@ -469,6 +553,36 @@ export default function ReaderPage() {
   }, [autoContinue, workId, nextId, navigate])
 
   const aloud = useReadAloud(unitText, anchorLang, prefs, onFinishedReading)
+
+  /*
+    Where the reader is, in the ONE row that is always on screen.
+
+    A hook, so it has to sit above every early return — which is why it reads
+    `around` (computed from the corpus) rather than anything derived after the
+    guards. While the corpus is still loading there is no position to state and
+    the bar simply carries none.
+  */
+  useFocusStatus(around ? t('library.reader.of', { position: around.position, total: around.total }) : null)
+  const closeFocusMenu = useFocusMenuClose()
+
+  /*
+    Copying the citation is the ⋯ menu's cheapest entry and the one most likely
+    to be used, and like every other copy affordance in this app it is wrapped:
+    a browser that refuses the clipboard — an insecure origin, a denied
+    permission, a locked-down managed device — otherwise gives an unhandled
+    rejection and a menu entry that silently does nothing, so the officer pastes
+    whatever was there before.
+  */
+  const copyCitation = useCallback(
+    (text: string) => {
+      closeFocusMenu()
+      void navigator.clipboard
+        ?.writeText(text)
+        .then(() => setNotice(t('library.reader.citationCopied')))
+        .catch(() => setNotice(t('library.reader.citationCopyFailed')))
+    },
+    [closeFocusMenu, t],
+  )
 
   // --------------------------------------------------------------- render
 
@@ -585,137 +699,318 @@ export default function ReaderPage() {
     )
   }
 
+  /*
+    The rail's four tabs, and which of them have anything behind them.
+
+    A tab with nothing under it is not rendered at all: a work with no authored
+    aid has no Understand tab, `Related` waits for the corpus, and `Ask` is
+    absent unless AI is on AND the work is one its tools can reach. The reader's
+    stored tab is honoured only if it is one of the ones actually there —
+    otherwise the panel would be empty and the tablist would point at nothing.
+
+    `practise` is ALWAYS available, including on a document the reader added
+    themselves: writing a provision out in your own words works on any text, and
+    `TestMeCard`/`ChapterRevisionCard` already render nothing when there is no
+    chapter. Gating the tab on the work's origin would have taken the one study
+    surface that needs no dataset away from the one kind of document that has no
+    dataset behind it.
+  */
+  const railAvailable: Record<RailTab, boolean> = {
+    understand: Boolean(studyAid),
+    practise: true,
+    related: corpus.data !== null,
+    ask: studyAiAvailable(ai.enabled) && work.origin !== 'personal',
+  }
+  const railTab: RailTab = railAvailable[prefs.railTab]
+    ? prefs.railTab
+    : ((['understand', 'practise', 'related', 'ask'] as RailTab[]).find((tab) => railAvailable[tab]) ??
+      'related')
+  const railHasAnything = Object.values(railAvailable).some(Boolean)
+
+  /*
+    ONE coach mark at a time, in the order they are first needed.
+
+    Three at once is a tour, and a tour is what a reader dismisses without
+    reading. `COACH_MARKS` is the order — the "Aa" tray first because it is
+    where four controls went, then highlighting, then the rail.
+  */
+  const nextCoach: CoachMarkId | null = COACH_MARKS.find((mark) => !prefs.coach[mark]) ?? null
+  const dismissCoach = (mark: CoachMarkId) => void update({ coach: { ...prefs.coach, [mark]: true } })
+
+  const firstOfSession = firstUnitOfSession === null || firstUnitOfSession === unit.id
+
+  const railPanel = (
+    <>
+      {railTab === 'understand' && studyAid ? (
+        <StudyAidCard aid={studyAid} corpus={corpus.data} workId={work.id} />
+      ) : null}
+
+      {railTab === 'practise' ? (
+        <>
+          {/*
+              KEYED ON THE UNIT, and this one is not cosmetic.
+
+              `j`/`k` and the prev/next links navigate between units without
+              unmounting this rail, so without the key a reader who starts
+              writing about Rule 3, moves to Rule 4 and presses Save has their
+              words about Rule 3 stored against **Rule 4** — `saveAttempt`
+              takes `unit.id` from the props it has now. Nothing throws and
+              both screens look right.
+
+              A key rather than an effect that clears the state, for the reason
+              CLAUDE.md records for `ReviewPage`'s `wrongAnswer`: derive or
+              remount, never resynchronise one render late.
+          */}
+          <FeynmanBox key={unit.id} workId={work.id} unit={unit} chapter={chapter} />
+          <TestMeCard chapter={chapter} cited={chapterCitedCards} />
+          {/*
+            The confidence rating sits HERE rather than on a screen of its own,
+            because a reader can only judge whether they could use a chapter
+            while they are in it. The due list on both hubs links to the
+            chapter's first unit for the same reason.
+          */}
+          {chapter ? <ChapterRevisionCard key={chapter.id} chapter={chapter} /> : null}
+        </>
+      ) : null}
+
+      {railTab === 'related' && corpus.data ? (
+        <RelatedRail work={work} corpus={corpus.data} unit={unit} cardCount={cardCount} />
+      ) : null}
+
+      {/*
+          A PERSONAL work is excluded, and this is a reachability condition
+          rather than a policy one.
+
+          Every tool in `src/ai/tools/library.ts` guards on `isWorkId`, which a
+          `my-`-prefixed id fails by construction — so on a document the reader
+          added themselves, `get_unit`, `get_study_aid`, `get_definitions`,
+          `retrieve` and `get_related_cards` all return "unknown work", the run
+          cites nothing, and `groundedRequired` discards it. The panel rendered
+          anyway: an input, six intent chips and a button that could only ever
+          produce "it could not answer".
+      */}
+      {railTab === 'ask' && railAvailable.ask ? (
+        <Suspense fallback={null}>
+          {/*
+              Keyed on the unit for the same reason as the two above: an answer
+              about the previous provision must not still be sitting under this
+              one, and a run in flight for a unit the reader has left is a run
+              they are paying for and will not read — the key unmounts the hook,
+              whose cleanup aborts it.
+          */}
+          <StudyAskPanel
+            key={unit.id}
+            ai={ai}
+            workId={work.id}
+            unitId={unit.id}
+            nodeId={chapter?.nodeId ?? null}
+            onOpenCitation={(href) => void navigate(href)}
+          />
+        </Suspense>
+      ) : null}
+    </>
+  )
+
   return (
     <div
       className={cn(
-        'mx-auto flex max-w-6xl flex-col gap-4',
+        // The focus level already took the sidebar, the tab bar and the app's
+        // top bar off this screen; what is left is a reading column and, from
+        // 1024px, a rail beside it.
+        'mx-auto flex w-full max-w-6xl flex-col gap-4',
         // A reading surface, not a third theme: it repaints what is behind the
         // text and nothing else. See `ReadingSurface` in `../useLibrary.ts`.
         prefs.surface === 'sepia' && 'library-sepia',
       )}
     >
-      <div
-        data-print-hide
-        className="sticky top-14 z-20 -mx-4 border-b border-border bg-background/95 px-4 py-3 backdrop-blur sm:-mx-6 sm:px-6"
-      >
-        <div className="mx-auto flex max-w-6xl flex-col gap-2">
-          <div className="flex flex-wrap items-center justify-between gap-2">
-            <Link
-              to={toWorkHref(work.id)}
-              className="inline-flex min-h-9 items-center gap-1.5 text-sm text-primary underline-offset-4 hover:underline"
-            >
-              <ArrowLeft aria-hidden="true" className="h-4 w-4" />
-              {work.shortTitle[language]}
-            </Link>
-            <span className="text-xs text-muted-foreground tabular-nums">
-              {t('library.reader.of', { position: around.position, total: around.total })} ·{' '}
-              {t('library.reader.readTime', { count: readMinutes })}
-              {minutesLeft > 0 ? ` · ${t('library.polish.timeLeft', { count: minutesLeft })}` : ''}
-            </span>
-          </div>
-          <ProgressBar
-            value={(around.position / Math.max(1, around.total)) * 100}
-            label={t('library.progressLabel', { work: work.shortTitle[language] })}
-          />
-        </div>
-      </div>
+      {/* ------------------------------------------------ the focus bar */}
 
-      {/* Focus mode hides the controls, not the text. */}
-      {prefs.focus ? null : (
-        <>
+      <FocusSlot host="title">
+        <UnitSwitcher
+          work={work}
+          corpus={corpus.data}
+          currentUnitId={unit.id}
+          number={unit.number}
+          heading={shownHeading.text}
+          open={switcherFor === unit.id}
+          onOpenChange={(next) => setSwitcherFor(next ? unit.id : null)}
+        />
+      </FocusSlot>
+
+      <FocusSlot host="actions">
+        {/*
+          "Aa" — the five control groups that used to sit permanently between
+          the officer and the provision, behind one button. They are set once.
+        */}
+        <Popover
+          label={t('library.type.label')}
+          panelClassName="w-[min(20rem,calc(100vw-2rem))]"
+          trigger={
+            <>
+              <Type aria-hidden="true" className="h-4 w-4" />
+              <span aria-hidden="true" className="hidden text-xs font-semibold sm:inline">
+                Aa
+              </span>
+            </>
+          }
+        >
           <TypeControls prefs={prefs} onChange={(patch) => void update(patch)} devanagariShown={hindiShown} />
-          <ReadAloudBar aloud={aloud} prefs={prefs} onPrefs={(patch) => void update(patch)} />
-        </>
-      )}
+        </Popover>
 
-      <div className={cn('grid gap-6', prefs.focus ? '' : 'lg:grid-cols-[minmax(0,1fr)_20rem]')}>
-        <article className="library-print-root flex min-w-0 flex-col gap-4">
+        <Button
+          variant="ghost"
+          size="icon"
+          className="h-9 w-9"
+          aria-pressed={aloudOpen}
+          aria-label={aloudOpen ? t('library.tts.close') : t('library.tts.title')}
+          onClick={() => setAloudOpen(!aloudOpen)}
+        >
+          <Headphones aria-hidden="true" />
+        </Button>
+      </FocusSlot>
+
+      <FocusSlot host="menu">
+        <button
+          type="button"
+          className={FOCUS_MENU_ITEM}
+          onClick={() => {
+            closeFocusMenu()
+            window.print()
+          }}
+        >
+          <Printer aria-hidden="true" className="h-4 w-4" />
+          {t('library.reader.print')}
+        </button>
+        <button
+          type="button"
+          className={FOCUS_MENU_ITEM}
+          onClick={() => copyCitation(unit.citation[language])}
+        >
+          <Copy aria-hidden="true" className="h-4 w-4" />
+          {t('library.reader.copyCitation')}
+        </button>
+        {work.officialUrl ? (
+          <a
+            href={work.officialUrl}
+            target="_blank"
+            rel="noopener noreferrer"
+            className={FOCUS_MENU_ITEM}
+            onClick={closeFocusMenu}
+          >
+            <ExternalLink aria-hidden="true" className="h-4 w-4" />
+            {t('library.officialText')}
+            <span className="sr-only"> ({t('common.opensInNewTab')})</span>
+          </a>
+        ) : null}
+        <Link
+          to={toCompareHref({ workId: work.id, unitId: unit.id })}
+          className={FOCUS_MENU_ITEM}
+          onClick={closeFocusMenu}
+        >
+          <Columns2 aria-hidden="true" className="h-4 w-4" />
+          {t('library.reader.compareWith')}
+        </Link>
+        {/*
+          A prefilled `mailto:`, never a form this app submits — the master
+          context rules out a backend for anything the reader types. The
+          citation travels in the body so a report names the provision without
+          the officer retyping it.
+        */}
+        <a
+          href={reportMailto(language, `${unit.citation[language]} (${compareRef(work.id, unit.id)})`)}
+          className={FOCUS_MENU_ITEM}
+          onClick={closeFocusMenu}
+        >
+          <Flag aria-hidden="true" className="h-4 w-4" />
+          {t('pages.settings.about.reportError')}
+        </a>
+      </FocusSlot>
+
+      {/* ------------------------------------------------ the page */}
+
+      <ProgressBar
+        data-print-hide
+        value={(around.position / Math.max(1, around.total)) * 100}
+        label={t('library.progressLabel', { work: work.shortTitle[language] })}
+      />
+
+      <div
+        className={cn(
+          'grid gap-6',
+          railHasAnything && prefs.railOpen ? 'lg:grid-cols-[minmax(0,1fr)_20rem]' : '',
+        )}
+      >
+        <article className="library-print-root mx-auto flex w-full min-w-0 flex-col gap-4">
           <SectionCard active className="library-print-page">
             <div className="flex flex-col gap-4 p-4 sm:p-6">
-              <div className="flex flex-wrap items-start justify-between gap-3">
-                <div className="flex min-w-0 items-start gap-3">
-                  <SectionNumber className="mt-1 shrink-0">{unit.number}</SectionNumber>
-                  <h1
-                    ref={headingRef}
-                    lang={shownHeading.lang}
-                    className={cn(
-                      'min-w-0 scroll-mt-32 text-xl leading-snug font-semibold sm:text-2xl',
-                      // A unit with no published heading is titled by a
-                      // quotation of its own opening; it is set apart so
-                      // nobody reads it as the heading the Ministry printed.
-                      shownHeading.isExcerpt && 'font-sans text-lg font-medium text-muted-foreground italic',
-                    )}
-                  >
-                    {shownHeading.text}
-                  </h1>
-                </div>
-                <div data-print-hide className="flex shrink-0 items-center gap-2">
-                  <Button
-                    variant="outline"
-                    size="icon"
-                    className="h-9 w-9"
-                    aria-pressed={markedRead}
-                    aria-label={markedRead ? t('library.polish.unmark') : t('library.polish.markRead')}
-                    onClick={() => void setMarkedRead(work.id, unit.id, !markedRead)}
-                  >
-                    {markedRead ? (
-                      <CheckCircle2 aria-hidden="true" className="text-tulsi-foreground" />
-                    ) : (
-                      <Circle aria-hidden="true" />
-                    )}
-                  </Button>
-                  <Button
-                    variant="outline"
-                    size="icon"
-                    className="h-9 w-9"
-                    aria-pressed={isBookmarked}
-                    aria-label={
-                      isBookmarked ? t('library.reader.removeBookmark') : t('library.reader.bookmark')
-                    }
-                    onClick={() => {
-                      void toggleBookmark(work.id, unit.id)
-                        .then((now) =>
-                          setNotice(now ? t('library.reader.bookmarked') : t('library.reader.bookmark')),
-                        )
-                        .catch(() => setNotice(t('library.reader.bookmarkFailed')))
-                    }}
-                  >
-                    {isBookmarked ? <BookmarkCheck aria-hidden="true" /> : <Bookmark aria-hidden="true" />}
-                  </Button>
-                  <Button
-                    variant="outline"
-                    size="icon"
-                    className="h-9 w-9"
-                    aria-pressed={prefs.focus}
-                    aria-label={prefs.focus ? t('library.polish.focusOff') : t('library.polish.focusOn')}
-                    onClick={() => void update({ focus: !prefs.focus })}
-                  >
-                    {prefs.focus ? <Minimize2 aria-hidden="true" /> : <Maximize2 aria-hidden="true" />}
-                  </Button>
-                  <Button
-                    variant="outline"
-                    size="icon"
-                    className="h-9 w-9"
-                    aria-label={t('library.polish.help')}
-                    onClick={() => setHelpOpen(true)}
-                  >
-                    <Keyboard aria-hidden="true" />
-                  </Button>
-                  <Button
-                    variant="outline"
-                    size="icon"
-                    className="h-9 w-9"
-                    aria-label={t('library.reader.print')}
-                    onClick={() => window.print()}
-                  >
-                    <Printer aria-hidden="true" />
-                  </Button>
-                </div>
+              {/*
+                The provision's identity is stated ONCE on screen — the bar's
+                switcher carries the number, so a chip repeating it beside the
+                heading was the same fact twice on one row. On paper the bar
+                does not exist, so the number is printed instead.
+              */}
+              <div className="hidden print:block">
+                <SectionNumber>{unit.number}</SectionNumber>
               </div>
+              <h1
+                ref={headingRef}
+                lang={shownHeading.lang}
+                className={cn(
+                  'min-w-0 scroll-mt-20 text-xl leading-snug font-semibold sm:text-2xl',
+                  // A unit with no published heading is titled by a quotation
+                  // of its own opening; it is set apart so nobody reads it as
+                  // the heading the Ministry printed.
+                  shownHeading.isExcerpt && 'font-sans text-lg font-medium text-muted-foreground italic',
+                )}
+              >
+                {shownHeading.text}
+              </h1>
+
+              {/*
+                What an officer does to a provision: one row under the title on
+                a desktop, and a fixed bar at the foot of a phone, because a
+                thumb is not at the top of the screen.
+              */}
+              <UnitActions
+                className="hidden lg:flex"
+                hasSelection={selection !== null}
+                onHighlight={(colour) => void highlight(colour)}
+                onNote={() => setPendingNote('')}
+                bookmarked={isBookmarked}
+                onBookmark={() => {
+                  void toggleBookmark(work.id, unit.id)
+                    .then((now) =>
+                      setNotice(now ? t('library.reader.bookmarked') : t('library.reader.bookmark')),
+                    )
+                    .catch(() => setNotice(t('library.reader.bookmarkFailed')))
+                }}
+                onAddToTrainer={
+                  work.origin === 'dataset' && work.corpus.kind === 'rules'
+                    ? () => setTrainerOpen(true)
+                    : null
+                }
+                railOpen={prefs.railOpen}
+                onToggleRail={() => void update({ railOpen: !prefs.railOpen })}
+                onHelp={() => setHelpOpen(true)}
+              />
+
+              {/*
+                How long this provision takes, and how much of the CHAPTER is
+                left after it — the branch of the table of contents rather than
+                the whole work, because "about four hours left in the BNSS" is
+                true and useless while "about six minutes left in this chapter"
+                is a decision an officer can act on.
+              */}
+              <p className="text-xs text-muted-foreground tabular-nums">
+                {t('library.reader.readTime', { count: readMinutes })}
+                {minutesLeft > 0 ? ` · ${t('library.polish.timeLeft', { count: minutesLeft })}` : ''}
+              </p>
 
               <p aria-live="polite" className="sr-only">
                 {notice ?? ''}
               </p>
+
+              {nextCoach ? <CoachMark id={nextCoach} onDismiss={dismissCoach} /> : null}
 
               {unit.chapter ? (
                 <p className="text-xs text-muted-foreground">
@@ -767,12 +1062,17 @@ export default function ReaderPage() {
                 />
               ) : null}
 
+              {/*
+                68ch, which is the measure a long statutory sentence is
+                readable at. It is a max on the COLUMN and not on the card, so
+                a side-by-side bilingual reading still gets two of them.
+              */}
               <div
                 ref={textRef}
                 className={cn(
                   prefs.mode === 'both' && (unit.body.hi.length ?? 0) > 0
                     ? 'grid gap-6 lg:grid-cols-2'
-                    : 'flex flex-col',
+                    : 'flex max-w-[68ch] flex-col',
                 )}
               >
                 {/*
@@ -815,18 +1115,34 @@ export default function ReaderPage() {
                 })}
               </div>
 
-              <footer className="flex flex-col gap-2 border-t border-border pt-4">
-                <p className="text-xs text-muted-foreground">{unit.citation[language]}</p>
-                <div className="flex flex-wrap items-center gap-2">
-                  {work.source ? <SourceChip name={work.source.name} url={work.source.url} /> : null}
-                  {work.origin === 'personal' ? (
-                    <Badge tone="warning">{t('library.add.yourDocument')}</Badge>
-                  ) : null}
-                  {work.verify ? <Badge tone="warning">{t('common.verifyWithDdo')}</Badge> : null}
+              {/*
+                "Mark as read" arrives at the FOOT of the provision and only
+                there. Offering it beside the title would be offering to record
+                something nobody has done yet.
+              */}
+              {atEnd || markedRead ? (
+                <div data-print-hide>
+                  <Button
+                    variant={markedRead ? 'outline' : 'default'}
+                    size="sm"
+                    aria-pressed={markedRead}
+                    onClick={() => void setMarkedRead(work.id, unit.id, !markedRead)}
+                  >
+                    {markedRead ? <CheckCircle2 aria-hidden="true" /> : <Circle aria-hidden="true" />}
+                    {markedRead ? t('library.polish.unmark') : t('library.polish.markRead')}
+                  </Button>
                 </div>
-                {versionKey ? <DataVersion dataset={versionKey} /> : null}
-                <Disclaimer className="mt-1" />
-              </footer>
+              ) : null}
+
+              <SourceFooter
+                citation={unit.citation[language]}
+                sourceName={work.source?.name ?? null}
+                sourceUrl={work.source?.url ?? null}
+                personal={work.origin === 'personal'}
+                verify={work.verify}
+                versionKey={versionKey}
+                firstOfSession={firstOfSession}
+              />
             </div>
           </SectionCard>
 
@@ -851,7 +1167,17 @@ export default function ReaderPage() {
             onOpenNoteFor={setPendingNote}
           />
 
-          <nav data-print-hide aria-label={t('library.toc.title')} className="flex items-stretch gap-3">
+          {/*
+            Previous and next: an ordinary pair on a desktop, where `j`/`k` are
+            the real controls, and pinned to the bottom edge on a phone, where
+            they are the only ones. `lg:static` is what makes that one element
+            rather than two, so the two cannot drift apart.
+          */}
+          <nav
+            data-print-hide
+            aria-label={t('library.toc.title')}
+            className="sticky bottom-0 z-30 -mx-4 flex items-stretch gap-3 border-t border-border bg-background/95 px-4 py-2 backdrop-blur sm:-mx-6 sm:px-6 lg:static lg:mx-0 lg:border-0 lg:bg-transparent lg:px-0 lg:backdrop-filter-none"
+          >
             {around.previous ? (
               <Button asChild variant="outline" className="h-auto flex-1 justify-start py-2 text-left">
                 <Link to={toUnitHref(work.id, around.previous.id)}>
@@ -883,94 +1209,55 @@ export default function ReaderPage() {
           </nav>
         </article>
 
-        {/* Below the text on a phone, beside it from 1024px, off the printed
-            page entirely, and gone in focus mode. */}
-        {prefs.focus ? null : (
-          <div data-print-hide className="h-fit lg:sticky lg:top-40">
-            {/*
-                The rail's order is the session brief's, and it is the ordering
-                the whole module is built on: the precomputed aid first (zero
-                cost, no key, works offline on every device), then the reader's
-                own explanation, then a quiz over cards that already exist, and
-                only then anything that reaches a model. Everything above Ask
-                is complete without it — see `src/modules/library/ai-seam.ts`.
-            */}
-            <div className="flex flex-col gap-4">
-              {studyAid ? <StudyAidCard aid={studyAid} corpus={corpus.data} workId={work.id} /> : null}
-
-              {/*
-                  KEYED ON THE UNIT, and this one is not cosmetic.
-
-                  `j`/`k` and the prev/next links navigate between units without
-                  unmounting this rail, so without the key a reader who starts
-                  writing about Rule 3, moves to Rule 4 and presses Save has
-                  their words about Rule 3 stored against **Rule 4** —
-                  `saveAttempt` takes `unit.id` from the props it has now.
-                  Nothing throws and both screens look right.
-
-                  A key rather than an effect that clears the state, for the
-                  reason CLAUDE.md records for `ReviewPage`'s `wrongAnswer`:
-                  derive or remount, never resynchronise one render late.
-              */}
-              <FeynmanBox key={unit.id} workId={work.id} unit={unit} chapter={chapter} />
-
-              <TestMeCard chapter={chapter} cited={chapterCitedCards} />
-
-              {/*
-                The confidence rating sits HERE rather than on a screen of its
-                own, because a reader can only judge whether they could use a
-                chapter while they are in it. The due list on both hubs links
-                to the chapter's first unit for the same reason.
-              */}
-              {chapter ? <ChapterRevisionCard key={chapter.id} chapter={chapter} /> : null}
-
-              {/*
-                  A PERSONAL work is excluded, and this is a reachability
-                  condition rather than a policy one.
-
-                  Every tool in `src/ai/tools/library.ts` guards on `isWorkId`,
-                  which a `my-`-prefixed id fails by construction — so on a
-                  document the reader added themselves, `get_unit`,
-                  `get_study_aid`, `get_definitions`, `retrieve` and
-                  `get_related_cards` all return "unknown work", the run cites
-                  nothing, and `groundedRequired` discards it. The panel
-                  rendered anyway: an input, six intent chips and a button that
-                  could only ever produce "it could not answer".
-
-                  Widening the tools to reach a personal document is a separate
-                  decision with its own question — those units are not published
-                  statute and nothing about them is citable — so what changes
-                  here is only that the app stops offering a control it cannot
-                  honour. ADR-039's second addendum, for the fourth time in this
-                  session.
-              */}
-              {studyAiAvailable(ai.enabled) && work.origin !== 'personal' ? (
-                <Suspense fallback={null}>
-                  {/*
-                      Keyed on the unit for the same reason as the two above: an
-                      answer about the previous provision must not still be
-                      sitting under this one, and a run in flight for a unit the
-                      reader has left is a run they are paying for and will not
-                      read — the key unmounts the hook, whose cleanup aborts it.
-                  */}
-                  <StudyAskPanel
-                    key={unit.id}
-                    ai={ai}
-                    workId={work.id}
-                    unitId={unit.id}
-                    nodeId={chapter?.nodeId ?? null}
-                    onOpenCitation={(href) => void navigate(href)}
-                  />
-                </Suspense>
-              ) : null}
-
-              {corpus.data ? (
-                <RelatedRail work={work} corpus={corpus.data} unit={unit} cardCount={cardCount} />
-              ) : null}
-            </div>
-          </div>
-        )}
+        {/* Beside the text from 1024px, a bottom sheet below it, off the
+            printed page entirely. */}
+        {railHasAnything ? (
+          <ReaderRail
+            className={cn('h-fit lg:sticky lg:top-20', prefs.railOpen ? '' : 'lg:hidden')}
+            tab={railTab}
+            onTab={(next) => void update({ railTab: next })}
+            available={railAvailable}
+            sheetOpen={railSheetOpen}
+            onSheetOpen={setRailSheetOpen}
+          >
+            {railPanel}
+          </ReaderRail>
+        ) : null}
       </div>
+
+      {/* The phone's action bar. Same component, same handlers, pinned. */}
+      <UnitActions
+        className="fixed inset-x-0 bottom-0 z-40 justify-center border-t border-border bg-card px-2 pt-2 pb-[calc(0.5rem+env(safe-area-inset-bottom,0px))] lg:hidden"
+        hasSelection={selection !== null}
+        onHighlight={(colour) => void highlight(colour)}
+        onNote={() => setPendingNote('')}
+        bookmarked={isBookmarked}
+        onBookmark={() => {
+          void toggleBookmark(work.id, unit.id)
+            .then((now) => setNotice(now ? t('library.reader.bookmarked') : t('library.reader.bookmark')))
+            .catch(() => setNotice(t('library.reader.bookmarkFailed')))
+        }}
+        onAddToTrainer={
+          work.origin === 'dataset' && work.corpus.kind === 'rules' ? () => setTrainerOpen(true) : null
+        }
+        railOpen={railSheetOpen}
+        onToggleRail={() => setRailSheetOpen(!railSheetOpen)}
+        onHelp={() => setHelpOpen(true)}
+      />
+
+      {aloudOpen ? (
+        <ReadAloudPill
+          aloud={aloud}
+          prefs={prefs}
+          onPrefs={(patch) => void update(patch)}
+          onClose={() => {
+            // Stopping first, because a pill that is gone and still speaking
+            // is a voice with no control left to silence it.
+            aloud.stop()
+            setAloudOpen(false)
+          }}
+        />
+      ) : null}
 
       {term ? (
         <DefinitionPopover

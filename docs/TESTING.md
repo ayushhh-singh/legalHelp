@@ -498,6 +498,42 @@ Kept as a record of what each layer is actually for.
   one from the widest viewport and one from the More sheet itself.
 - **Four unit files failed intermittently and passed in isolation** — the signature of a budget, not a defect. `waitFor`'s 1-second default and Vitest's 5-second default are races against CPU contention, not against the code; both are raised in `vite.config.ts` and `src/test/setup.ts`, with the assertions unchanged.
 
+## Focus screens — the reader and the document editor (ADR-047)
+
+Two shared harnesses, because eight specs drive these two screens and the two of them changed shape.
+
+**`src/test/rail.ts`** — `openRail(user, label)` and `expectRailTab(label)` for the reader's
+four-tab study rail. `openRail` ASSERTS the tab it opened is selected, and that is the point of it
+being a helper: the choice is remembered in IndexedDB, so after a navigation a test that then checks
+something is ABSENT would pass because the panel is off screen rather than because state was reset.
+Two of the reader's edge tests exist precisely to catch state carried between units and both would
+have gone green against the bug they were written for.
+
+**`tests/e2e/editor-helpers.ts`** — `tab`, `editorMenu`, `panelTab`, `showPreview`, `showDocument`,
+`openDetails`, `showExport`. The editor is three columns on a desktop and a Write / Preview / Check
+strip on a phone, so "click the Versions tab" is one press at one width and two at the other. They
+are here rather than in `fixtures.ts` because that file is the network gate and
+`tests/e2e-harness.test.ts` polices what it exports; these are ordinary helpers over one module's UI.
+
+Three things a spec against these screens has to know:
+
+- **Render the page inside `FocusLayout`.** The reader's unit switcher, its "Aa" tray and every ⋯
+  entry on both screens are PORTALLED into that bar (`FocusSlot`). A page mounted bare has none of
+  them, so a suite that did would be asserting about a screen no reader sees.
+  `src/modules/library/reader.focus.test.tsx` and
+  `src/modules/drafting/editor/workspace.test.tsx` both do it.
+- **The editor's `<h1>` is `sr-only`.** Its visible name is the editable title box in the bar. What
+  says the editor has loaded is `getByRole('textbox', { name: 'Document body' })`, which is what
+  `csp.spec.ts` and `journeys.spec.ts` wait on now.
+- **Anchor a role name at the start, not at the end, on any tab that can grow.** "Check" becomes
+  "Check — 1 must be fixed" when something is failing, which is precisely the document most worth
+  testing. And `exact` is an option `getByText` takes and `getByRole` does not.
+
+`document.elementFromPoint` is stubbed to `() => null` in `src/test/setup.ts`: jsdom has none and
+ProseMirror calls it while syncing the DOM selection, asynchronously, so it arrives as an unhandled
+error with no failing assertion to point at. It stubs the ENVIRONMENT rather than the app, which is
+why the shipped code path stays the one under test.
+
 ## The information architecture (ADR-046)
 
 Four files carry the claims the restructure rests on, and each answers a question the flat nav array

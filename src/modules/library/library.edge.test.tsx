@@ -8,6 +8,7 @@ import ReaderPage from './pages/ReaderPage'
 import WorkPage from './pages/WorkPage'
 
 import { db } from '@/db'
+import { openRail } from '@/test/rail'
 import { loadCorpus, loadWork, unitLabel } from '@/lib/library'
 import { toUnitHref, unitIdFromPath } from './url'
 
@@ -219,18 +220,22 @@ describe('the related rail', () => {
    * book except the three Sanhitas and CSMOP.
    */
   it('offers neighbours in a work whose table of contents is flat', async () => {
+    const user = userEvent.setup()
     at('/study/read/ccs-conduct/ccs-conduct-3')
     await ruleText()
 
+    await openRail(user, 'Related')
     const rail = await screen.findByRole('region', { name: 'Around this' })
     const nearby = await within(rail).findByRole('region', { name: /Nearby in this work/ })
     expect(within(nearby).getAllByRole('link').length).toBeGreaterThan(1)
   })
 
   it('still groups by chapter in a work that has them', async () => {
+    const user = userEvent.setup()
     at('/study/read/bns/103')
     await screen.findByRole('heading', { level: 1 })
 
+    await openRail(user, 'Related')
     const rail = await screen.findByRole('region', { name: 'Around this' })
     expect(within(rail).getByRole('region', { name: /Elsewhere in this chapter/ })).toBeInTheDocument()
   })

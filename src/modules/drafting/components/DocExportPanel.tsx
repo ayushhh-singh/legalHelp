@@ -156,6 +156,17 @@ export function DocExportPanel({
 
   return (
     <div data-print-hide className="flex flex-col gap-4">
+      {/*
+        The panel names itself.
+
+        It used to be a tab, and the tab's label was the name — so when Session
+        35 moved the export into the ⋯ menu it arrived as a screen of `<h3>`s
+        under the page's own `<h1>`, which axe reports as a heading jump on a
+        phone (where the right-hand panel and its `<h2>` are off screen). A
+        heading is also the plainer answer to "what am I looking at".
+      */}
+      <h2 className="text-base font-semibold">{t('draft.export.title')}</h2>
+
       {blocked ? (
         <div role="status" className="flex flex-col gap-2 rounded-lg border border-coral/30 bg-coral/15 p-3">
           <p className="flex items-center gap-2 text-sm font-semibold text-coral-foreground">

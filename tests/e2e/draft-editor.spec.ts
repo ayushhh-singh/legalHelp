@@ -1,4 +1,13 @@
-import { audit, expect, formatViolations, setLanguage, test } from './fixtures'
+import {
+  editorMenu,
+  openDetails,
+  panelTab,
+  showDocument,
+  showExport,
+  showPreview,
+  tab,
+} from './editor-helpers'
+import { audit, expect, formatViolations, onPhone, setLanguage, test } from './fixtures'
 
 /**
  * The document editor, in a real browser.
@@ -17,22 +26,6 @@ import { audit, expect, formatViolations, setLanguage, test } from './fixtures'
  */
 
 const BODY = 'Document body'
-
-/**
- * The editor's tabs, matched on the START of the accessible name.
- *
- * Two things force this. A plain string `name` is a case-insensitive SUBSTRING
- * match, so `'Review'` also matches "Preview" — CLAUDE.md records the same trap
- * costing half an hour on `{ name: 'Post' }` matching "Place of posting". And
- * `exact: true` fails too, because the Review tab's name legitimately carries
- * more than its label: when something must be fixed it gains an `aria-hidden`
- * dot and an `sr-only` sentence saying what the dot means, so a screen reader
- * hears "Review — 1 must be fixed" rather than "Review bullet".
- *
- * Anchoring at the start distinguishes "Review…" from "Preview" and keeps the
- * sr-only suffix, which is the part that is actually worth having.
- */
-const tab = (name: string) => ['tab' as const, { name: new RegExp(`^${name}`) }] as const
 
 test.describe('the document editor', () => {
   test('create → fill → issue a number → save a version → edit → diff → restore', async ({
@@ -104,13 +97,13 @@ test.describe('the document editor', () => {
     await expect(editor).toContainText(`${typed} is admissible. Further orders will follow.`)
 
     // ---- the details, and the number --------------------------------------
-    await page.getByRole(...tab('Details')).click()
+    await openDetails(page)
     await page.getByLabel(/^Subject$/).fill('Children Education Allowance — clarification')
     await page.getByRole('button', { name: /Issue number|संख्या जारी करें/ }).click()
     await expect(page.getByLabel(/Reference number|संदर्भ संख्या/)).toHaveValue(/A-11011\/1\/\d{4}-Estt\./)
 
     // ---- save a version ----------------------------------------------------
-    await page.getByRole(...tab('Versions')).click()
+    await panelTab(page, 'Versions')
     await page.getByLabel(/What is this version|यह संस्करण क्या है/).fill('before the second para')
     await page.getByRole('button', { name: /Save this version|यह संस्करण सहेजें/ }).click()
     // Scoped to the list: the label also appears in the two compare selects.
@@ -118,7 +111,9 @@ test.describe('the document editor', () => {
     await expect(versionList).toHaveCount(1)
 
     // ---- edit ---------------------------------------------------------------
-    await page.getByRole(...tab('Write')).click()
+    // Beside the panel on a desktop (outline, document, panel); behind the
+    // strip's "Write" on a phone.
+    if (onPhone(page)) await showDocument(page)
     await page.locator('.draft-editor-surface p').last().click()
     await page.keyboard.press('End')
     await page.keyboard.press('Enter')
@@ -126,24 +121,33 @@ test.describe('the document editor', () => {
     await expect(editor).toContainText('This supersedes the earlier clarification.')
 
     // ---- diff --------------------------------------------------------------
-    await page.getByRole(...tab('Versions')).click()
+    await panelTab(page, 'Versions')
     await page
       .getByRole('button', { name: /^Compare$|^तुलना करें$/ })
       .first()
       .click()
-    await expect(page.getByText('This supersedes the earlier clarification.')).toBeVisible()
+    /*
+      Scoped to the right-hand panel BY ID. On a desktop the document is on
+      screen beside it and the sentence being diffed is in both, so an unscoped
+      match resolves to two elements — and `getByRole('tabpanel')` is two as
+      well, because the middle column is one too (it is what the phone's strip
+      swaps). The id is the only thing that names this one panel.
+    */
+    await expect(
+      page.locator('#draft-panel-body').getByText('This supersedes the earlier clarification.'),
+    ).toBeVisible()
 
     // ---- restore ------------------------------------------------------------
     await page.getByRole('button', { name: /Restore this version|यह संस्करण पुनर्स्थापित करें/ }).click()
     await expect(page.getByText(/Restored\./)).toBeVisible()
 
-    await page.getByRole(...tab('Write')).click()
+    if (onPhone(page)) await showDocument(page)
     await expect(editor).toContainText(`${typed} is admissible.`)
     await expect(editor).not.toContainText('This supersedes the earlier clarification.')
 
     // …and the restore is itself undoable, because what was on screen was
     // snapshotted before it was written over.
-    await page.getByRole(...tab('Versions')).click()
+    await panelTab(page, 'Versions')
     // Scoped to the list again: the label is also in the two compare selects.
     await expect(
       page.getByRole('listitem').filter({ hasText: /Before a restore|पुनर्स्थापन से पहले/ }),
@@ -158,7 +162,7 @@ test.describe('the document editor', () => {
     await page.goto('/draft/new/sanction-order')
     await expect(page).toHaveURL(/\/draft\/d\//)
 
-    await page.getByRole(...tab('Review')).click()
+    await panelTab(page, 'Review')
     // The skeleton of a sanction order leaves several blanks, and every one of
     // them is an ERROR rather than a suggestion: `{{amount}}` printed on a
     // signed financial sanction is the failure this whole layer exists to stop.
@@ -201,32 +205,53 @@ test.describe('the document editor', () => {
     await expect(page.getByText(/document model version 99/)).toBeVisible()
   })
 
-  test('the editor passes axe, and so does the document list', async ({ page }) => {
+  test('the editor passes axe, on every panel and with the details open', async ({ page }) => {
     await page.goto('/draft/new/office-memorandum')
     await expect(page).toHaveURL(/\/draft\/d\//)
     await expect(page.getByRole('textbox', { name: BODY })).toBeVisible()
 
-    for (const name of ['Write', 'Details', 'Preview', 'Review', 'Versions', 'Notes to self']) {
-      await page.getByRole(...tab(name)).click()
+    for (const name of ['Review', 'Change', 'Versions', 'Notes to self']) {
+      await panelTab(page, name)
       const violations = await audit(page)
       expect(formatViolations(violations), name).toEqual([])
     }
+
+    // The details card, the preview and the export are the three things the
+    // middle column can be, and each is a different set of controls.
+    if (onPhone(page)) await showDocument(page)
+    await openDetails(page)
+    expect(formatViolations(await audit(page)), 'details').toEqual([])
+
+    await showPreview(page)
+    expect(formatViolations(await audit(page)), 'preview').toEqual([])
+
+    await showExport(page)
+    expect(formatViolations(await audit(page)), 'export').toEqual([])
   })
 
   test('the whole editor is reachable from the keyboard', async ({ page }) => {
     await page.goto('/draft/new/office-memorandum')
     await expect(page.getByRole('textbox', { name: BODY })).toBeVisible()
 
-    // Every tab is a real tab, and the toolbar is a real toolbar.
-    await expect(page.getByRole('tablist')).toBeVisible()
-    for (const name of ['Write', 'Details', 'Preview', 'Review', 'Versions', 'Notes to self']) {
+    // Every panel tab is a real tab, and the toolbar is a real toolbar.
+    if (onPhone(page)) await page.getByRole('tab', { name: /^Check/ }).click()
+    await expect(
+      page.getByRole('tablist', { name: /About this document|इस दस्तावेज़ के बारे में/ }),
+    ).toBeVisible()
+    for (const name of ['Review', 'Change', 'Versions', 'Notes to self']) {
       await expect(page.getByRole(...tab(name))).toBeVisible()
     }
+    if (onPhone(page)) await showDocument(page)
     await expect(page.getByRole('toolbar', { name: /Formatting|स्वरूपण/ })).toBeVisible()
 
-    // Ctrl+P moves to the preview without a pointer.
+    // Ctrl+E opens the export without a pointer…
+    await page.keyboard.press('Control+e')
+    await expect(page.getByText(/Word \(\.docx\)/).first()).toBeVisible()
+
+    // …and Ctrl+P goes to the PRINT ROUTE, where paper, language and the
+    // generated `@page` rule are chosen (ADR-042 §5) rather than to a preview.
     await page.keyboard.press('Control+p')
-    await expect(page.getByRole(...tab('Preview'))).toHaveAttribute('aria-selected', 'true')
+    await expect(page).toHaveURL(/\/draft\/d\/[0-9a-f]+\/print$/)
   })
 
   test('reads the same in Hindi', async ({ page }) => {
@@ -234,7 +259,9 @@ test.describe('the document editor', () => {
     await setLanguage(page, 'hi')
     await page.goto('/draft/new/office-memorandum')
     await expect(page).toHaveURL(/\/draft\/d\//)
-    await expect(page.getByRole('tab', { name: 'लिखें' })).toBeVisible()
+    if (onPhone(page)) await page.getByRole('tab', { name: /^जाँच/ }).click()
+    await expect(page.getByRole('tab', { name: 'समीक्षा' })).toBeVisible()
+    if (onPhone(page)) await page.getByRole('tab', { name: 'लिखें' }).click()
     await expect(page.getByRole('toolbar', { name: 'स्वरूपण' })).toBeVisible()
   })
 
@@ -265,9 +292,10 @@ test.describe('the document editor', () => {
 
     await page.goto('/draft/new/office-memorandum')
     await expect(page).toHaveURL(/\/draft\/d\//)
-    await page.getByRole(...tab('Preview')).click()
+    await showPreview(page)
     await expect(page.getByText('ESTABLISHMENT SECTION').first()).toBeVisible()
     await expect(page.getByText('-Sd/-')).toHaveCount(0)
+    await showDocument(page)
 
     // The shortcuts sheet, on Ctrl+/.
     await page.keyboard.press('Control+/')
@@ -276,14 +304,13 @@ test.describe('the document editor', () => {
     await page.keyboard.press('Escape')
 
     // Converting numerals says how many it changed.
-    await page.getByRole(...tab('Write')).click()
     await page.getByRole('textbox', { name: BODY }).click()
     await page.keyboard.type('Rule 12 of 2026.')
     await page.getByRole('button', { name: /To Devanagari/ }).click()
     await expect(page.getByRole('textbox', { name: BODY })).toContainText('१२')
 
-    // "Save as my template", the brief's item 6.
-    await page.getByRole('button', { name: /Save as my template/ }).click()
+    // "Save as my template", the brief's item 6 — in the ⋯ menu now.
+    await editorMenu(page, /Save as my template/)
     await expect(page.getByRole('dialog')).toBeVisible()
     await page.getByLabel(/Template name/).fill('My O.M.')
     await page.getByRole('button', { name: /^Save template$/ }).click()

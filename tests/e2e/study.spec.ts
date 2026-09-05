@@ -1,4 +1,6 @@
-import { dismissPwaToasts, expect, serviceWorkerReady, setLanguage, t, test } from './fixtures'
+import type { Page } from '@playwright/test'
+
+import { dismissPwaToasts, expect, onPhone, serviceWorkerReady, setLanguage, t, test } from './fixtures'
 
 /**
  * Session 28's study layer, in a real browser.
@@ -20,14 +22,46 @@ import { dismissPwaToasts, expect, serviceWorkerReady, setLanguage, t, test } fr
 const WORK = 'ccs-conduct'
 const UNIT = 'ccs-conduct-3'
 
+/**
+ * Open one of the reader rail's four tabs (Session 35).
+ *
+ * The rail was a column of six cards and is four tabs now, so a test that wants
+ * the own-words box or the chapter card has to say which panel it means. On a
+ * phone the rail is a sheet, and the floating button is what opens it — so the
+ * helper asks the page which presentation it is looking at rather than assuming
+ * the desktop one, which is the whole reason the mobile project exists.
+ */
+async function rail(
+  page: Page,
+  tab: 'understand' | 'practise' | 'related' | 'ask',
+  language: 'en' | 'hi' = 'en',
+) {
+  if (onPhone(page)) {
+    const open = page.getByRole('button', { name: t(language, 'library.railTabs.open') })
+    if (await open.isVisible()) await open.click()
+  }
+  const control = page.getByRole('tab', { name: t(language, `library.railTabs.${tab}`) })
+  await control.click()
+  await expect(control).toHaveAttribute('aria-selected', 'true')
+}
+
 test('the study aid is there with AI off, and nothing leaves the device', async ({ page, network }) => {
   const typed = network.sentinel('feynman')
 
   await page.goto(`/study/read/${WORK}/${UNIT}`)
   await expect(page.getByRole('heading', { level: 1 })).toBeVisible()
 
-  // The aid renders first in the rail, badged as this project's own writing —
-  // never as the provision, which is the card above it.
+  /*
+    The aid is the rail's FIRST tab, badged as this project's own writing —
+    never as the provision, which is the card beside it.
+
+    On a phone the rail is a sheet, so "first" means one tap on a floating
+    button rather than on screen already: a rail under a 4,000-character
+    provision is a rail nobody scrolls to, and one tap is nearer than that.
+    `docs/AI.md` §13's ordering is about which of the four comes first, and it
+    still does.
+  */
+  await rail(page, 'understand')
   await expect(page.getByText(t('en', 'library.study.aid.badge'))).toBeVisible()
   await expect(page.getByText(t('en', 'library.study.aid.disclaimer'))).toBeVisible()
 
@@ -36,6 +70,7 @@ test('the study aid is there with AI off, and nothing leaves the device', async 
   await expect(page.getByText(t('en', 'library.study.ask.title'))).toHaveCount(0)
 
   // The own-words box is the one place a reader types prose on this screen.
+  await rail(page, 'practise')
   await page.getByRole('button', { name: t('en', 'library.study.feynman.start') }).click()
   await page.getByRole('textbox', { name: /own words/i }).fill(typed)
   await page.getByRole('button', { name: t('en', 'library.study.feynman.submit') }).click()
@@ -52,6 +87,7 @@ test('rating a chapter puts it in the revise list when it falls due', async ({ p
 
   // "I would have to look it up" — a Hard grade, so the interval is short but
   // still measured in days, which is exactly why the clock has to move.
+  await rail(page, 'practise')
   await page.getByRole('button', { name: t('en', 'library.study.revise.level.2') }).click()
   await expect(page.getByText(/^Rated\./)).toBeVisible()
 
@@ -133,6 +169,8 @@ test('the study layer is bilingual', async ({ page }) => {
   await page.goto(`/study/read/${WORK}/${UNIT}`)
   await expect(page.getByRole('heading', { level: 1 })).toBeVisible()
   await setLanguage(page, 'hi')
+  await rail(page, 'understand', 'hi')
   await expect(page.getByText(t('hi', 'library.study.aid.badge'))).toBeVisible()
+  await rail(page, 'practise', 'hi')
   await expect(page.getByRole('button', { name: t('hi', 'library.study.feynman.start') })).toBeVisible()
 })

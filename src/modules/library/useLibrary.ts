@@ -164,6 +164,33 @@ export type LineHeight = 'normal' | 'relaxed'
  */
 export type ReadingSurface = 'default' | 'sepia'
 
+/*
+  `focus` is GONE from this row (Session 35), and a stored one is simply not
+  read — `normalise` builds the object from named fields, so a key nobody asks
+  for cannot reach a component. It was a toggle that hid the type controls and
+  the rail; the reader IS a focus route now (ADR-046), the type controls are
+  behind "Aa", and the rail has its own remembered `railOpen`. Three controls
+  doing one job is how they come to disagree.
+*/
+
+/** Which of the reader's four rail tabs is open. */
+export type RailTab = 'understand' | 'practise' | 'related' | 'ask'
+
+export const RAIL_TABS: readonly RailTab[] = ['understand', 'practise', 'related', 'ask']
+
+/**
+ * The three first-run coach marks, by id.
+ *
+ * Stored as a record of booleans rather than a list of ids, because a record
+ * normalises the same way every other preference here does — an unknown id in
+ * a stored row is simply not read, and a missing one is `false`.
+ */
+export type CoachMarkId = 'aa' | 'highlight' | 'rail'
+
+export const COACH_MARKS: readonly CoachMarkId[] = ['aa', 'highlight', 'rail']
+
+export type CoachSeen = Record<CoachMarkId, boolean>
+
 export interface ReaderPrefs {
   mode: ReadingMode
   /** 1-4. The step, not a pixel size — the sizes themselves live in the reader. */
@@ -171,8 +198,6 @@ export interface ReaderPrefs {
   family: TypeFamily
   lineHeight: LineHeight
   surface: ReadingSurface
-  /** Focus mode: the rails and the type controls go away, the text stays. */
-  focus: boolean
   /** Dotted underlines and a popover on every term the document defines. */
   terms: boolean
   /** Read aloud: keep going into the next unit when this one finishes. */
@@ -181,6 +206,12 @@ export interface ReaderPrefs {
   rate: number
   /** The chosen voice, by URI. Null until one is picked, and after one is uninstalled. */
   voiceURI: string | null
+  /** Which rail tab was last open. */
+  railTab: RailTab
+  /** Whether the rail is expanded at all — remembered across units and works. */
+  railOpen: boolean
+  /** Which first-run coach marks have been dismissed. */
+  coach: CoachSeen
 }
 
 export const DEFAULT_READER_PREFS: ReaderPrefs = {
@@ -191,13 +222,15 @@ export const DEFAULT_READER_PREFS: ReaderPrefs = {
   family: 'sans',
   lineHeight: 'normal',
   surface: 'default',
-  focus: false,
   // On by default: a reader who has not heard of the feature is better served
   // by seeing that "competent authority" is defined than by not.
   terms: true,
   autoContinue: false,
   rate: 1,
   voiceURI: null,
+  railTab: 'understand',
+  railOpen: true,
+  coach: { aa: false, highlight: false, rail: false },
 }
 
 const clampSize = (value: unknown): number => {
@@ -212,6 +245,15 @@ const clampRate = (value: unknown): number => {
 
 const bool = (value: unknown, fallback: boolean): boolean => (typeof value === 'boolean' ? value : fallback)
 
+const coachSeen = (value: unknown): CoachSeen => {
+  const row = (value ?? {}) as Partial<Record<CoachMarkId, unknown>>
+  return {
+    aa: bool(row.aa, false),
+    highlight: bool(row.highlight, false),
+    rail: bool(row.rail, false),
+  }
+}
+
 /** A stored row is untrusted input, the same way every other settings row is. */
 function normalise(stored: unknown, language: Language): ReaderPrefs {
   const row = (stored ?? {}) as Partial<ReaderPrefs>
@@ -221,7 +263,6 @@ function normalise(stored: unknown, language: Language): ReaderPrefs {
     family: row.family === 'serif' ? 'serif' : 'sans',
     lineHeight: row.lineHeight === 'relaxed' ? 'relaxed' : 'normal',
     surface: row.surface === 'sepia' ? 'sepia' : 'default',
-    focus: bool(row.focus, DEFAULT_READER_PREFS.focus),
     terms: bool(row.terms, DEFAULT_READER_PREFS.terms),
     autoContinue: bool(row.autoContinue, DEFAULT_READER_PREFS.autoContinue),
     rate: clampRate(row.rate),
@@ -229,6 +270,9 @@ function normalise(stored: unknown, language: Language): ReaderPrefs {
     // been uninstalled; the picker re-checks it against the installed list
     // rather than trusting it here.
     voiceURI: typeof row.voiceURI === 'string' ? row.voiceURI : null,
+    railTab: RAIL_TABS.includes(row.railTab as RailTab) ? (row.railTab as RailTab) : 'understand',
+    railOpen: bool(row.railOpen, DEFAULT_READER_PREFS.railOpen),
+    coach: coachSeen(row.coach),
   }
 }
 

@@ -8167,3 +8167,176 @@ What it did not buy: **nothing here changes what the app can do.** No data, no f
 version. The measurable win is structural — five reachable tabs instead of four plus a sheet, one back
 control that is right in both cases instead of none, and a URL tree in which every page can say what
 it is inside of.
+
+---
+
+## ADR-047 — Focus mode: the reader and the document editor at level 3
+
+**Status.** Accepted (Session 35).
+
+**Context.** ADR-046 made `/study/read/:workId/:unitId` and `/draft/d/:id` **focus** routes — no
+sidebar, no bottom tab bar, no app top bar, one `FocusBar` above them. It did not change either page,
+so both were still built for a screen with chrome around it: the reader put five permanent control
+groups, a read-aloud card and a progress header between the officer and the provision, and the editor
+put eight tabs across the top of a document nobody could see while using any of them. The bar's own
+slots — `title`, `status`, `panel` — were declared by that session and used by nothing.
+
+**No capability was added or removed** except where §7 says so. Every control that existed is still
+reachable; several that were unreachable are reachable again.
+
+### 1. A page's controls reach the bar by PORTAL, never by storing a node in state
+
+`focusSlots.tsx` keeps `title` and `status` as strings in state, because a string is a stable
+dependency and `useFocusTitle` cannot loop. Everything richer — the reader's unit switcher, its "Aa"
+and headphones buttons, both pages' ⋯ entries — is a portal into one of three hosts (`title`,
+`actions`, `menu`) that `FocusBar` renders.
+
+Storing a React element in state is the loop that rules out: an element is a new object every render,
+so an effect depending on one sets state and fires again. A portal has no such problem and buys two
+more things — the controls stay in the PAGE's tree (its state, its handlers, no stale closures) while
+appearing in the BAR's DOM in reading order, so the tab order is right.
+
+**There is ONE ⋯ menu.** A page's entries are portalled to the top of the shell's, above the language
+toggle, the theme toggle and Settings. A second ⋯ beside the first would be asking the reader which
+of two identical glyphs they wanted.
+
+### 2. `data-focus-overlay`, because stopping propagation is not enough and looks as though it is
+
+`FocusLayout` leaves the screen on Escape. Its listener is on `window` in the capture phase, so it
+runs **before** any listener a page's popover puts on `document` — capture walks from the window
+down. The reader's "Aa" tray and its study sheet both called `stopPropagation()` and both were still
+thrown out of the provision they were open over, because by the time their handler ran the layout had
+already navigated.
+
+So an overlay marks itself in the DOM — `data-focus-overlay` while it is open — and `FocusLayout`
+asks, next to the `[role="dialog"]` check it already made. That is order-independent, which is the
+property a registration-order guarantee is not: the ⋯ menu's own comment in that file says exactly
+that about two capture-phase `window` listeners, and this is the same argument one layer out. Fourth
+time this project has hit "two Escape handlers on one press" (ADR-029's addendum, ADR-041 §9, the
+editor's shortcuts sheet, this).
+
+**In the editor, Escape does two things in order.** `FocusLayout` will not leave a screen while the
+caret is in an editable element — right, and in a document editor the caret almost always is, so the
+way out would have been unreachable from the keyboard exactly where it is most wanted. The first
+Escape takes the caret out of the document (an ordinary editor idiom, nothing changed); the second
+leaves.
+
+### 3. The reader: one tray, one bar, one column, one rail
+
+- **"Aa" is one popover** holding what were five permanent control groups — reading language, size,
+  typeface, spacing, surface. They are set once, and a control that is set once does not earn a fifth
+  of the screen on every unit for ever. `TypeControls` is unchanged apart from its layout and a live
+  sample line, which is what a popover has to add in exchange: with the controls on the page, the text
+  itself was the preview.
+- **The bar's centre is a unit switcher** — number, heading, and a popover with a plain substring
+  filter over the reading order. Not the table of contents (`TocTree` is that, on the work page) and
+  not a search index: fuse.js is gated behind `isSearchable` on the work page for a corpus that
+  reaches 531 sections, and a switcher opened to jump two rules forward must not pay for one.
+- **The text column is 68ch and the unit's identity is stated once.** The `SectionNumber` chip beside
+  the heading was the same fact the bar now carries, on the same row; it prints instead.
+- **The rail is four tabs — Understand · Practise · Related · Ask —** and these ARE `role="tab"`,
+  which ADR-046 §6 refuses for the sub-tab strips. Both halves of that objection are false here: one
+  panel is swapped in place, in the same document, with no navigation and no URL change, and the
+  widget owns arrow-key focus. The order is `docs/AI.md` §13's order and Ask is present only when AI
+  is on, so turning it off costs the rail one tab out of four.
+- **One rail, styled two ways.** The first version rendered a desktop column and a phone sheet as two
+  subtrees and let `hidden lg:block` choose — correct on screen and wrong everywhere else: both are
+  in the DOM at every width, so a screen reader met the aid twice and the tablist existed twice with
+  two different tabs selected. The overrides that make one element do both are pure CSS, because a
+  viewport branch in React disagrees with the rendered layout for a frame after every resize.
+- **The footer is one line and a disclosure.** Citation visible (it is what an officer copies), source
+  and dataset version behind "Source & version" and forced open in print. The standing disclaimer is
+  a full banner on the session's FIRST provision and the same sentence as a muted note thereafter —
+  a decision about emphasis, not presence, and `firstUnitOfSession` is a module variable holding an
+  id rather than a boolean, because a boolean has to be flipped back and StrictMode double-invokes
+  the effect that would do it.
+- **Three first-run coach marks, one at a time** ("Aa", highlight-by-selecting, the rail), dismissed
+  individually into the same Dexie row as every other reading preference. Three at once is a tour,
+  and a tour is what a reader dismisses without reading.
+
+`ReaderPrefs.focus` is **gone**. It hid the type controls and the rail; the reader IS a focus route
+now, the type controls are behind "Aa", and the rail has its own remembered `railOpen`. Three
+controls doing one job is how they come to disagree.
+
+### 4. The editor: a workspace, not a tab strip
+
+Outline · document · panel, and two URL parameters rather than one.
+
+- `view` is what the MIDDLE shows (`write` / `preview` / `panel` / `export`) and `panel` is what the
+  RIGHT shows (`check` / `assist` / `versions` / `comments`). On a desktop both are on screen at
+  once, so one parameter could not describe the screen. `view=panel` is the phone's way of saying
+  "the panel instead of the document", and on a desktop it reads as `write`.
+- **The outline is headings and numbered paragraphs**, indented by level, each a button that takes
+  the caret there and a pair that moves it. `src/lib/drafting/outline.ts` is the pure half; an entry's
+  `index` is a position in `body.content`, which is what makes a heading step over the paragraphs
+  under the heading above rather than burying itself inside them. **It prints no paragraph numbers**:
+  markers are generated by position (ADR-041 §7), so a number here would be wrong the moment anything
+  above it moved — on the one screen whose purpose is moving things.
+- **Reordering is buttons first and drag second.** A move-up/move-down pair is reachable from a
+  keyboard, announced, and works on a phone; native drag is none of the three. `draggable` is a
+  convenience over the same `onMove`, so the two paths cannot disagree.
+- **The details are a `<details>` card at the head of the surface**, shut by default, rendered in
+  place in the preview — not a page of its own. An officer opening a document is opening it to write.
+- **The editing surface is a sheet**: `.draft-editor-page` is 210mm wide with the manual's own one-inch
+  margins, so the line an officer writes is the line the document prints. Page breaks already drew a
+  rule.
+- **The toolbar is four named `role="group"` bands** — Text · Paragraph · Insert · Language — with
+  find, undo and redo in none of them, because those are about the editing session rather than the
+  document and a fifth caption invented for symmetry is a worse label than none.
+- **Its `<h1>` is `sr-only`.** The visible name is the editable title box in the bar; a heading and an
+  input saying the same thing twice is what the bar was for. But a screen with no `<h1>` is a screen a
+  reader tabbing in cannot place, which is the defect CLAUDE.md records all four exam routes shipping
+  with.
+- **Keyboard:** Ctrl+S a version, Ctrl+P the PRINT ROUTE (not the preview — `/draft/d/:id/print` is
+  where paper, language and the generated `@page` rule are chosen, ADR-042 §5), Ctrl+E export,
+  Ctrl+Shift+F find, Ctrl+/ help, Escape out of the text and then out of the screen.
+
+### 5. `AppLink` had no callers, so ADR-046 §5's history branch could not fire
+
+`useBackTo` has two branches and the register → editor journey is the worked example ADR-046 §5 gives
+for the first one. Every link into the editor and the reader was a plain `<Link>`, and `AppLink` was
+used on the Home page and nowhere else — so the branch this app built for exactly that journey took
+the parent path from everywhere. The register's two row controls, the draft list's rows, the work
+page's "Start reading" and its search hits, and the table of contents are `AppLink` now.
+
+`AppLinkState` also gained `fromPath`, read **only** to name the control: a chevron that pops back to
+the register must not be labelled "Documents". `usesHistory` is still the only condition that selects
+the branch and `resolveParent` is still the only source of `to`.
+
+### 6. `useOfficialDoc.discard()`, because deleting a document un-deleted it
+
+The editor flushes its debounced write on unmount. Deleting from the ⋯ menu navigated to the document
+list, the page unmounted, the flush landed, and Dexie put the row straight back — a deleted document
+that reappears, silently, on the list the officer is now looking at. `discard()` cancels the queued
+write and clears `dirty`; `resolveConflict` cancels the same timer for the same reason one line
+further on. Found by a test asserting the ROW was gone rather than that the screen had changed.
+
+### 7. What changed beyond layout, and it is three things
+
+1. **"Move to thread"** is new behaviour. `threadId` has been on `OfficialDoc` since Session 29 and
+   was written only by `newReply`; nothing let an officer set or clear it. The brief named it, so the
+   ⋯ menu offers a select over the threads their own documents are already on. Absence is the key
+   being absent, never `''` — a stored empty string would group every threadless document into one
+   thread called nothing.
+2. **The glossary sheet and the phrase library are reachable again** — `docs/DATA-GAPS.md` #94, two of
+   its three. `DocumentEditor` hands its caller an `insert(text)` over the ProseMirror selection, the
+   same arrangement as `onJumpReady` and for the same reason: neither sheet may know Tiptap exists.
+   Before this the two toolbar buttons opened the Details tab, which is a control doing something
+   other than what it says. "Draft with AI" is still orphaned and #94 still records it.
+3. **The Status control moved to the bar and its duplicate in `MetaPanel` is deleted.** It is visible
+   at every width, and the alternative was keeping a second copy in the details card — which is the
+   "a control that duplicates one now in the bar" this session set out to remove.
+
+### 8. What it cost
+
+Three specs needed a shared vocabulary rather than patching (`tests/e2e/editor-helpers.ts`,
+`src/test/rail.ts`), and one of those helpers ASSERTS the tab it opened is selected — because the
+rail's tab is remembered in IndexedDB, and a test that then checks something is ABSENT would pass
+because the panel was off screen rather than because state was reset. Two of the reader's edge tests
+exist precisely to catch state carried between units; both would have gone green against the bug they
+were written for.
+
+The one self-inflicted trap worth recording: the "Aa" tray's sample line was first set in CCS
+(Conduct) Rule 3's own words, which read beautifully and put a hidden, `aria-hidden` copy of "absolute
+integrity" on the page — the exact phrase four committed specs use to check that the RULE is on
+screen. A sample is about itself now.

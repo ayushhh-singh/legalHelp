@@ -2,6 +2,8 @@ import { ArrowLeft, BookOpen, Clock, Download, Search, Trash2, X } from 'lucide-
 import { useMemo, useState } from 'react'
 import { Link, Navigate, useParams } from 'react-router-dom'
 
+import { AppLink } from '@/app/AppLink'
+
 import { ChapterStudyList } from '../components/ChapterStudyList'
 import { CoverageMap } from '../components/CoverageMap'
 import { QuickRefTables } from '../components/QuickRefTables'
@@ -237,7 +239,7 @@ export default function WorkPage() {
           {first ? (
             <div>
               <Button asChild>
-                <Link to={toUnitHref(data.id, first)}>{t('library.startReading')}</Link>
+                <AppLink to={toUnitHref(data.id, first)}>{t('library.startReading')}</AppLink>
               </Button>
             </div>
           ) : null}
@@ -375,7 +377,7 @@ export default function WorkPage() {
                 <ul className="flex flex-col gap-2">
                   {hits.map((hit) => (
                     <li key={hit.unit.id}>
-                      <Link
+                      <AppLink
                         to={toUnitHref(data.id, hit.unit.id)}
                         className={cn(
                           'flex flex-col gap-1 rounded-lg border border-border bg-card p-3 transition-colors',
@@ -394,7 +396,7 @@ export default function WorkPage() {
                           </span>
                         </span>
                         <span className="text-xs text-muted-foreground">{hit.snippet}</span>
-                      </Link>
+                      </AppLink>
                     </li>
                   ))}
                 </ul>

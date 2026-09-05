@@ -115,6 +115,15 @@ const FILES = [
   'intake.ts',
   'proposal.ts',
   'register.ts',
+
+  /*
+    Session 35's one file. `outline.ts` is the document's spine — its headings
+    and numbered paragraphs — and the single operation that reorders them. It
+    is pure by every rule below and imports nothing but this directory's own
+    `model.ts`, which is what lets the editor's outline column reorder a
+    document without the outline knowing that Tiptap exists.
+  */
+  'outline.ts',
 ] as const
 
 /**

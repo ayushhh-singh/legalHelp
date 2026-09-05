@@ -18,13 +18,16 @@ import { routeFor } from '@/lib/nav'
  * or focus page. A plain `<Link>` still works everywhere — it simply falls to
  * the parent branch, which is the safe one — so this is an improvement to
  * reach for rather than a rule to enforce.
+ *
+ * It stamps the PATH too, and that is only ever read to name the control: a
+ * chevron that pops back to the register must not be labelled "Documents".
  */
 export const AppLink = forwardRef<HTMLAnchorElement, LinkProps>(function AppLink({ state, ...props }, ref) {
   const { pathname } = useLocation()
   const from = routeFor(pathname)?.section
   const merged: AppLinkState & Record<string, unknown> = {
     ...(typeof state === 'object' && state !== null ? (state as Record<string, unknown>) : {}),
-    ...(from ? { from } : {}),
+    ...(from ? { from, fromPath: pathname } : {}),
   }
   return <Link ref={ref} state={merged} {...props} />
 })

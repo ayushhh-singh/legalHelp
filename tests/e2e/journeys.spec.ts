@@ -2,6 +2,7 @@ import { readFileSync } from 'node:fs'
 
 import type { Page } from '@playwright/test'
 
+import { openDetails, showPreview } from './editor-helpers'
 import { expect, LANGUAGES, setLanguage, t, test, type Language } from './fixtures'
 
 /**
@@ -122,11 +123,14 @@ for (const language of LANGUAGES) {
       await page.goto('/draft/new/office-memorandum')
       await expect(page).toHaveURL(/\/draft\/d\//, { timeout: 30_000 })
 
-      // The editor's own tabs are what say it has loaded.
-      await expect(page.getByRole('tab', { name: /^Write|^लिखें/ })).toBeVisible({ timeout: 30_000 })
+      // The document body is what says it has loaded — the editor's own `<h1>`
+      // is `sr-only`, because its visible name is the focus bar's title box.
+      await expect(page.getByRole('textbox', { name: /Document body|दस्तावेज़ का मुख्य भाग/ })).toBeVisible({
+        timeout: 30_000,
+      })
 
       const subject = network.sentinel('om-subject')
-      await page.getByRole('tab', { name: /^Details|^विवरण/ }).click()
+      await openDetails(page)
       await page
         .getByLabel(/^Subject|^विषय/)
         .first()
@@ -134,7 +138,7 @@ for (const language of LANGUAGES) {
 
       // The A4 preview is the point of the editor: what was typed has to be on
       // the page immediately, with no save step.
-      await page.getByRole('tab', { name: /^Preview|^पूर्वावलोकन/ }).click()
+      await showPreview(page)
       await expect(page.getByText(subject).last()).toBeVisible()
     })
 

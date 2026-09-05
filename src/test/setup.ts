@@ -18,6 +18,22 @@ if (!globalThis.crypto?.subtle) {
   Object.defineProperty(globalThis, 'crypto', { value: webcrypto, configurable: true })
 }
 
+/*
+  jsdom implements no layout, so `document.elementFromPoint` does not exist —
+  and ProseMirror calls it while syncing the DOM selection after a
+  `focus()`/`insertContent()`. It throws asynchronously, which Vitest reports
+  as an unhandled error with no failing assertion to point at.
+
+  A no-op returning `null` is the honest stub: "nothing is at that point" is
+  true of an environment that paints nothing, and it is the answer ProseMirror
+  already handles. It stubs the ENVIRONMENT rather than the app, which is why
+  it belongs here and not behind a branch in `DocumentEditor` — the shipped
+  code path stays the one under test.
+*/
+if (typeof document !== 'undefined' && typeof document.elementFromPoint !== 'function') {
+  document.elementFromPoint = () => null
+}
+
 beforeEach(async () => {
   // Each test starts from an empty device and the default language. Every
   // table is cleared, not only `settings`, so an AI test cannot leak a key or

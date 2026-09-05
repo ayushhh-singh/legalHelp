@@ -10,6 +10,15 @@ import { resolveParent, routeFor } from '@/lib/nav'
 export interface AppLinkState {
   /** The section the reader was in when they followed the link. */
   from?: string
+  /**
+   * The exact page they followed it from.
+   *
+   * Only ever used to NAME the control — the destination on the history branch
+   * is whatever `navigate(-1)` finds, which is the point of that branch. A
+   * chevron reading "Documents" while it actually returns to the register is a
+   * chevron telling the officer something untrue about their own history.
+   */
+  fromPath?: string
 }
 
 export interface BackTarget {
@@ -56,7 +65,17 @@ export function useBackTo(): BackTarget | null {
   const state = location.state as AppLinkState | null
   const usesHistory = Boolean(route && state?.from && state.from === route.section)
 
-  const label = useMemo(() => (to ? pathLabel(to, t, language) : ''), [to, t, language])
+  /*
+    Named after where the control actually goes.
+
+    On the history branch that is the page the reader came FROM, when the link
+    said so and it is a route this app knows; a stamped path that is no longer a
+    route (an old link, a hand-edited state) falls back to the declared parent
+    rather than printing a raw pathname.
+  */
+  const origin = usesHistory && state?.fromPath && routeFor(state.fromPath) ? state.fromPath : null
+  const named = origin ?? to
+  const label = useMemo(() => (named ? pathLabel(named, t, language) : ''), [named, t, language])
 
   const goBack = useCallback(() => {
     if (!to) return

@@ -10,6 +10,7 @@ import { SessionTimer } from './components/SessionTimer'
 import RevisionSheetPage from './pages/RevisionSheetPage'
 
 import { db } from '@/db'
+import { expectRailTab, openRail } from '@/test/rail'
 import { loadWork } from '@/lib/library'
 import { QUIZ_LENGTH, chaptersOf } from '@/lib/study'
 import type { Card } from '@/modules/trainer/schema'
@@ -88,12 +89,22 @@ describe('the reader’s rail must not carry one unit’s state onto the next', 
       </MemoryRouter>,
     )
 
+    await openRail(user, 'Practise')
     await user.click(await screen.findByRole('button', { name: /Write my own version/i }))
     await user.type(screen.getByRole('textbox', { name: /own words/i }), 'This is about Rule 3.')
 
     // The reader moves on WITHOUT saving.
     await user.click(next())
     await waitFor(() => expect(screen.getByRole('heading', { level: 1 })).toBeInTheDocument())
+
+    /*
+      The rail must still be on Practise, and this is asserted before anything
+      else. The choice is remembered in IndexedDB, so it survives the
+      navigation — but if it did not, the box would be off screen entirely and
+      the "not in the document" check below would pass for the wrong reason,
+      against the very bug this test exists for.
+    */
+    await expectRailTab('Practise')
 
     // The box on the next provision must be closed and empty.
     await waitFor(() => {
@@ -126,6 +137,7 @@ describe('the reader’s rail must not carry one unit’s state onto the next', 
       </MemoryRouter>,
     )
 
+    await openRail(user, 'Practise')
     await user.click(await screen.findByRole('button', { name: /I could use it/i }))
     await screen.findByText(/^Rated\./)
 
@@ -137,6 +149,9 @@ describe('the reader’s rail must not carry one unit’s state onto the next', 
       if (window.location.pathname.endsWith(firstOfSecond)) break
     }
 
+    // Same reason as above: the panel has to be the one on screen before its
+    // absence means anything.
+    await expectRailTab('Practise')
     await waitFor(() => expect(screen.queryByText(/^Rated\./)).not.toBeInTheDocument())
   })
 })
@@ -454,6 +469,7 @@ describe('the Ask panel must not be offered where its tools cannot reach', () =>
         </Routes>
       </MemoryRouter>,
     )
+    await openRail(userEvent.setup(), 'Ask')
     await screen.findByText('Ask about this')
     warm.unmount()
 
@@ -481,9 +497,17 @@ describe('the Ask panel must not be offered where its tools cannot reach', () =>
     )
 
     await screen.findByRole('heading', { level: 1 })
-    // The own-words box is there — it works on any document, and should.
+    /*
+      The own-words box is there — it works on any document, and should. The
+      rail's stored tab is `ask` from the warm-up above and Ask does not exist
+      here, so the rail falls to the first tab that does: `understand` has no
+      authored aid for a pasted document, which leaves Practise. That fall-back
+      is what makes this assertion meaningful rather than incidental.
+    */
+    await expectRailTab('Practise')
     expect(screen.getByRole('button', { name: /Write my own version/i })).toBeInTheDocument()
-    // The Ask panel is not.
+    // The Ask panel is not — and neither is a tab offering it.
+    expect(screen.queryByRole('tab', { name: 'Ask' })).not.toBeInTheDocument()
     await waitFor(() => {
       expect(screen.queryByText('Ask about this')).not.toBeInTheDocument()
     })
@@ -499,6 +523,7 @@ describe('the Ask panel must not be offered where its tools cannot reach', () =>
       </MemoryRouter>,
     )
     await screen.findByRole('heading', { level: 1 })
+    await openRail(userEvent.setup(), 'Ask')
     expect(await screen.findByText('Ask about this')).toBeInTheDocument()
   })
 })

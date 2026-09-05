@@ -1,3 +1,4 @@
+import { openDetails } from './editor-helpers'
 import { audit, expect, formatViolations, setLanguage, test } from './fixtures'
 import { INTAKE_LETTERS } from '../fixtures/drafting/intake'
 
@@ -108,9 +109,12 @@ test.describe('reply to a letter', () => {
     await expect(page).toHaveURL(/\/draft\/d\//)
 
     // The reply carries the letter's subject and its reference.
-    await expect(page.getByRole('heading', { level: 1 })).toBeVisible()
-    await page.getByRole('tab', { name: /^Details/ }).click()
-    await expect(page.locator('input[value*="Reply — Grant of Children Education Allowance"]')).toBeVisible()
+    await expect(page.getByRole('textbox', { name: 'Document body' })).toBeVisible()
+    await openDetails(page)
+    // The SUBJECT field, by its label: the focus bar's title box carries the
+    // same string (a reply is titled after what it answers), so an unscoped
+    // value selector resolves to two inputs.
+    await expect(page.getByLabel(/^Subject$/)).toHaveValue(/Reply — Grant of Children Education Allowance/)
 
     // ---- issue a number ---------------------------------------------------
     await page.getByRole('button', { name: /Issue number|संख्या निर्गत करें/ }).click()

@@ -101,10 +101,7 @@ export function useFocusSlotState(): FocusSlotState {
 
   const closeMenu = useCallback(() => setMenuOpen(false), [])
 
-  const provider = useMemo<FocusContextValue>(
-    () => ({ set, hosts, closeMenu }),
-    [set, hosts, closeMenu],
-  )
+  const provider = useMemo<FocusContextValue>(() => ({ set, hosts, closeMenu }), [set, hosts, closeMenu])
 
   return { slots, hostRef, menuOpen, setMenuOpen, provider }
 }

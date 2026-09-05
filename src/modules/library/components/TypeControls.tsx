@@ -7,7 +7,15 @@ import { useT } from '@/i18n/useT'
 import { cn } from '@/lib/utils'
 
 /**
- * The reader's own controls: reading language, text size, typeface, spacing.
+ * The reader's own controls: reading language, text size, typeface, spacing and
+ * surface — ONE tray behind the bar's "Aa", not five groups permanently between
+ * the officer and the provision.
+ *
+ * Session 35 moved them there and changed nothing about what they do. The
+ * argument is the one the whole focus level rests on: these are set once, and a
+ * control that is set once does not earn a fifth of the screen on every unit
+ * for ever. The sample line below the stepper is what a popover has to add in
+ * exchange — with the controls on the page the text itself was the preview.
  *
  * Two of the four are constrained by facts rather than taste:
  *
@@ -36,6 +44,14 @@ interface TypeControlsProps {
   /** True when Devanagari is on screen, which pins the spacing. */
   devanagariShown: boolean
   className?: string
+}
+
+/** The same four steps `UnitBody` sets the provision in. */
+const SAMPLE_SIZE: Readonly<Record<number, string>> = {
+  1: 'text-sm',
+  2: 'text-base',
+  3: 'text-lg',
+  4: 'text-xl',
 }
 
 function SegmentedGroup<T extends string>({
@@ -84,7 +100,7 @@ export function TypeControls({ prefs, onChange, devanagariShown, className }: Ty
   const { t } = useT()
 
   return (
-    <div data-print-hide className={cn('grid gap-4 sm:grid-cols-2 lg:grid-cols-5', className)}>
+    <div data-print-hide className={cn('flex flex-col gap-4', className)}>
       <SegmentedGroup
         legend={t('library.lang.label')}
         options={MODES}
@@ -126,6 +142,35 @@ export function TypeControls({ prefs, onChange, devanagariShown, className }: Ty
           </Button>
         </div>
       </div>
+
+      {/*
+        The live preview.
+
+        It is set from the SAME class table `UnitBody` uses, and it is a
+        sentence rather than "Aa" because the thing being previewed is a
+        typeface, a size, a leading and a surface all at once — none of which a
+        two-letter specimen shows. It carries `lang` so a Hindi reader sees
+        Devanagari at the leading Devanagari will actually get.
+
+        The sentence is about ITSELF and quotes no provision, deliberately. The
+        first version was CCS (Conduct) Rule 3's own words, which read well and
+        collided with every test in this repository that probes for "absolute
+        integrity" to check the rule is on screen — a hidden, `aria-hidden`
+        copy of the phrase the assertion was looking for.
+      */}
+      <p
+        aria-hidden="true"
+        lang={prefs.mode === 'hi' ? 'hi' : 'en'}
+        className={cn(
+          'rounded-lg border border-border px-3 py-2',
+          prefs.surface === 'sepia' ? 'library-sepia-swatch' : 'bg-card',
+          SAMPLE_SIZE[prefs.size] ?? SAMPLE_SIZE[2],
+          prefs.family === 'serif' ? 'font-reading' : 'font-sans',
+          (devanagariShown || prefs.lineHeight === 'relaxed') && 'leading-[1.9]',
+        )}
+      >
+        {t('library.type.sample')}
+      </p>
 
       <SegmentedGroup
         legend={t('library.type.family')}

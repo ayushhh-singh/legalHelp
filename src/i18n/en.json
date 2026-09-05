@@ -38,7 +38,8 @@
     "retry": "Try again",
     "on": "On",
     "off": "Off",
-    "back": "Back"
+    "back": "Back",
+    "cancel": "Cancel"
   },
   "errors": {
     "title": "Something went wrong",
@@ -924,7 +925,19 @@
       },
       "separateHindi": "Write the Hindi separately",
       "separateHindiHint": "One body serves both issues until you say they differ. Separating seeds the Hindi from what is written now, so you edit rather than retype.",
-      "separatedHindi": "The Hindi is now a document of its own."
+      "separatedHindi": "The Hindi is now a document of its own.",
+      "titleLabel": "What this document is called",
+      "details": "Document details",
+      "detailsNoNumber": "No reference number yet",
+      "duplicateOf": "Copy of {{name}}",
+      "duplicateFailed": "That document could not be copied on this device.",
+      "deleteConfirm": "Delete “{{name}}”? Its versions and notes go with it.",
+      "moveToThread": "Move to thread",
+      "moveToThreadHint": "A thread keeps a letter and the documents answering it together on the Documents list and in the register.",
+      "thread": "Thread",
+      "threadNone": "Not on a thread",
+      "threadMoved": "Moved to that thread.",
+      "threadCleared": "Taken off its thread."
     },
     "body": {
       "toolbar": "Insert into the body",
@@ -1037,7 +1050,9 @@
       "stripped": "{{count}} character(s) that Word cannot print — emoji or invisible direction marks — were removed from the exported file.",
       "imported": "Import a document",
       "printRoute": "Print / PDF",
-      "language": "Which language"
+      "language": "Which language",
+      "printPdf": "Print / PDF",
+      "menuDocx": "Export as .docx"
     },
     "suggestion": {
       "title": "Suggested change",
@@ -1162,7 +1177,11 @@
       "toAscii": "To Arabic (0-9)",
       "digitsDone": "{{count}} numeral(s) converted.",
       "undo": "Undo",
-      "redo": "Redo"
+      "redo": "Redo",
+      "groupText": "Text",
+      "groupParagraph": "Paragraph",
+      "groupInsert": "Insert",
+      "groupLanguage": "Language"
     },
     "find": {
       "heading": "Find and replace",
@@ -1379,14 +1398,16 @@
     "shortcuts": {
       "heading": "Editor shortcuts",
       "save": "Save a version",
-      "preview": "Preview",
       "help": "This list",
       "find": "Find and replace",
       "bold": "Bold",
       "italic": "Italic",
       "numbered": "Numbered paragraph",
       "indent": "Make it a sub-paragraph",
-      "outdent": "Back to a top-level paragraph"
+      "outdent": "Back to a top-level paragraph",
+      "print": "Print / PDF",
+      "export": "Export",
+      "escape": "Leave the text, then the document"
     },
     "import": {
       "title": "Import a document",
@@ -1725,6 +1746,24 @@
       "count": "{{count}} entry",
       "count_other": "{{count}} entries",
       "reminderNote": "Reminders can only appear while Sahayak is open in a tab — this app has no server to send one from."
+    },
+    "outline": {
+      "title": "Outline",
+      "empty": "Headings and numbered paragraphs appear here as you write them.",
+      "untitled": "Empty paragraph",
+      "moveUp": "Move “{{name}}” up",
+      "moveDown": "Move “{{name}}” down"
+    },
+    "panel": {
+      "label": "About this document",
+      "show": "Show the panel",
+      "hide": "Back to the document"
+    },
+    "view": {
+      "write": "Write",
+      "preview": "Preview",
+      "panel": "Check",
+      "export": "Export"
     }
   },
   "utils": {
@@ -2385,7 +2424,7 @@
       "normal": "Normal",
       "relaxed": "Relaxed",
       "relaxedLocked": "Devanagari is always set at the relaxed spacing.",
-      "sample": "The Government servant shall at all times maintain absolute integrity."
+      "sample": "This sample line shows the size, typeface and spacing you have chosen."
     },
     "rail": {
       "title": "Around this",

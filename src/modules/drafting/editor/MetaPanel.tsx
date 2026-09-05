@@ -303,17 +303,6 @@ export function MetaPanel({
             ))}
           </select>
         </Row>
-        <Row label={t('draft.editor.status.label')}>
-          <select
-            className={field}
-            value={doc.status}
-            onChange={(event) => onChange({ ...doc, status: event.target.value as OfficialDoc['status'] })}
-          >
-            <option value="draft">{t('draft.editor.status.draft')}</option>
-            <option value="final">{t('draft.editor.status.final')}</option>
-            <option value="sent">{t('draft.editor.status.sent')}</option>
-          </select>
-        </Row>
       </div>
 
       <label className="flex items-center gap-2 text-sm">

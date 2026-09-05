@@ -121,6 +121,39 @@ describe('the history branch', () => {
   })
 })
 
+describe('what the control is CALLED', () => {
+  /**
+   * The label names where the chevron actually GOES.
+   *
+   * On the parent branch that is the declared parent, which the block above
+   * already checks. On the history branch it is the page the reader came from —
+   * and a chevron that pops back to the register while reading "Documents" is
+   * telling an officer something untrue about their own history. `AppLink`
+   * stamps the path for this and nothing else: `usesHistory` is still the only
+   * condition that picks the branch, and `resolveParent` is still the only
+   * source of `to`.
+   */
+  it('names the page it came from when history is what will be popped', async () => {
+    const user = userEvent.setup()
+    render(<App start="/draft/register" />)
+
+    await user.click(screen.getByRole('link', { name: 'open the document' }))
+    expect(screen.getByTestId('mode')).toHaveTextContent('history')
+    expect(screen.getByTestId('label')).toHaveTextContent('Register')
+    // …and the destination is unchanged: still the declared parent, because
+    // `to` is what `goBack` falls back to and the label may not move it.
+    expect(screen.getByTestId('to')).toHaveTextContent('/draft/documents')
+  })
+
+  it('falls back to the parent’s name when the link came from another section', async () => {
+    const user = userEvent.setup()
+    render(<App start="/law" />)
+
+    await user.click(screen.getByRole('link', { name: 'open the document' }))
+    expect(screen.getByTestId('label')).toHaveTextContent('Documents')
+  })
+})
+
 describe('a tab route', () => {
   it('offers no back control at all', () => {
     // A section root has no parent inside the app, and a chevron there is a

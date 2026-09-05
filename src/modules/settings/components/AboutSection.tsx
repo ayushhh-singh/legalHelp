@@ -1,6 +1,7 @@
 import pkg from '../../../../package.json'
 
 import { useT } from '@/i18n/useT'
+import { reportMailto } from '@/lib/reportMailto'
 
 /**
  * `__BUILD_SHA__` is substituted at build time (vite.config.ts's `define`),
@@ -8,22 +9,6 @@ import { useT } from '@/i18n/useT'
  * HEAD` resolved to when the config last loaded — 'unknown' where there is
  * no `.git` to ask.
  */
-
-/**
- * "Report a data error" (Settings): a prefilled `mailto:`, never a form this
- * app submits anywhere. The master context rules out a backend for anything
- * the reader types, and a bug report about a wrong figure is exactly that.
- */
-const REPORT_EMAIL = 'asingh9@ee.iitr.ac.in'
-
-function reportMailto(language: string): string {
-  const subject = language === 'hi' ? 'Sahayak — डेटा में त्रुटि' : 'Sahayak — data error report'
-  const body =
-    language === 'hi'
-      ? 'कृपया बताएं कि कौन-सा आँकड़ा गलत है, और सही स्रोत का लिंक हो तो जोड़ें:\n\n'
-      : 'Which figure or record is wrong, and (if you have it) a link to the correct source:\n\n'
-  return `mailto:${REPORT_EMAIL}?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`
-}
 
 export function AboutSection() {
   const { t, language } = useT()

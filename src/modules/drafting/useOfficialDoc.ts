@@ -53,6 +53,18 @@ export interface UseOfficialDoc {
   update: (next: OfficialDoc) => void
   /** Write now — what Ctrl+S, an export and a navigation guard use. */
   flush: () => Promise<void>
+  /**
+   * Throw away anything queued, and stop calling the document dirty.
+   *
+   * There is exactly one caller and it is DELETING the document. Without it the
+   * page unmounts on the way to the document list, the unmount flush lands the
+   * debounced write, and Dexie puts the row straight back — a deleted document
+   * that reappears, silently, with the officer already looking at a list that
+   * still has it on. `resolveConflict` cancels the same timer for the same
+   * reason one line further on; this is that lesson with nothing to write back
+   * to at all.
+   */
+  discard: () => void
   /** Take a labelled snapshot of what is on screen. */
   saveVersion: (label: string) => Promise<void>
   /** Conflict resolution: keep what is in this tab, or take the other tab's. */
@@ -225,6 +237,15 @@ export function useOfficialDoc(id: string): UseOfficialDoc {
     [save, doc, write],
   )
 
+  const discard = useCallback(() => {
+    if (timer.current) {
+      clearTimeout(timer.current)
+      timer.current = null
+    }
+    pending.current = null
+    setDirty(false)
+  }, [])
+
   useEffect(
     () => () => {
       if (timer.current) clearTimeout(timer.current)
@@ -240,6 +261,7 @@ export function useOfficialDoc(id: string): UseOfficialDoc {
     dirty,
     update,
     flush,
+    discard,
     saveVersion,
     resolveConflict,
     reload: () => setNonce((value) => value + 1),
