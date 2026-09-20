@@ -61,11 +61,11 @@ function ToolButton({
       disabled={disabled}
       onClick={onClick}
       className={cn(
-        'inline-flex h-9 min-w-9 items-center justify-center gap-1 rounded-[10px] border px-2 text-sm',
-        'disabled:opacity-50',
+        'inline-flex h-8 min-w-8 items-center justify-center gap-1 rounded-md px-1.5 text-sm transition-colors',
+        'disabled:opacity-40',
         active
-          ? 'border-action bg-action font-semibold text-action-foreground'
-          : 'border-border bg-card text-foreground hover:bg-muted',
+          ? 'bg-action font-semibold text-action-foreground shadow-sm'
+          : 'text-foreground hover:bg-card hover:shadow-sm',
       )}
     >
       {children}
@@ -73,18 +73,24 @@ function ToolButton({
   )
 }
 
-const Sep = () => <span aria-hidden="true" className="mx-1 h-6 w-px shrink-0 bg-border" />
-
 /**
- * One named band of the toolbar.
+ * One named band of the toolbar, drawn as its own small pill.
  *
  * `role="group"` with a label, so a screen-reader user hears "Insert, table"
  * rather than twenty-two unrelated buttons in one strip. The label is not drawn
  * — a toolbar that spent a line on four captions would be taller than the
- * document on a phone — and the separator between bands is what shows it.
+ * document on a phone — and the pill's own boundary is what shows it now,
+ * replacing a run of thin `<Sep>` rules with something that actually reads as
+ * "these buttons belong together" at a glance, the way a real toolbar's
+ * button clusters do. `ToolButton` is borderless for exactly this reason: the
+ * pill is the boundary, so a button no longer needs its own box around it.
  */
 const Group = ({ label, children }: { label: string; children: React.ReactNode }) => (
-  <div role="group" aria-label={label} className="flex flex-wrap items-center gap-1">
+  <div
+    role="group"
+    aria-label={label}
+    className="flex flex-wrap items-center gap-0.5 rounded-lg border border-border/60 bg-muted/70 p-1"
+  >
     {children}
   </div>
 )
@@ -135,7 +141,7 @@ export function EditorToolbar({
         role="toolbar"
         aria-label={t('draft.toolbar.heading')}
         aria-orientation="horizontal"
-        className="flex flex-wrap items-center gap-1 rounded-xl border border-border bg-muted/40 p-2"
+        className="flex flex-wrap items-center gap-2 rounded-xl border border-border bg-card p-2"
       >
         <Group label={t('draft.toolbar.groupParagraph')}>
           <ToolButton
@@ -196,7 +202,6 @@ export function EditorToolbar({
             <Quote aria-hidden="true" className="size-4" />
           </ToolButton>
         </Group>
-        <Sep />
         <Group label={t('draft.toolbar.groupText')}>
           <ToolButton
             label={t('draft.toolbar.bold')}
@@ -223,7 +228,6 @@ export function EditorToolbar({
             <Underline aria-hidden="true" className="size-4" />
           </ToolButton>
         </Group>
-        <Sep />
         <Group label={t('draft.toolbar.groupInsert')}>
           <ToolButton
             label={t('draft.toolbar.table')}
@@ -274,7 +278,6 @@ export function EditorToolbar({
             {t('draft.toolbar.glossary')}
           </ToolButton>
         </Group>
-        <Sep />
         <Group label={t('draft.toolbar.groupLanguage')}>
           {/*
           Converting numerals rewrites the WHOLE document, so it says how many
@@ -307,35 +310,40 @@ export function EditorToolbar({
           </ToolButton>
         </Group>
         {/*
-          Find, undo and redo are in no band, deliberately: they are about the
-          editing session rather than the document, and inventing a fifth
-          caption for three controls that already say what they do would be a
-          label added for symmetry.
+          Find, undo and redo carry no `role="group"`/`aria-label` — they are
+          about the editing session rather than the document, and inventing a
+          fifth CAPTION for three controls that already say what they do
+          would be a label added for symmetry. They still sit in the same
+          visual pill as every other band, purely so the row reads as one
+          family of clusters rather than three styled bands and three bare
+          icons floating with nothing around them.
 
           `ms-auto` was tried here to push them to the row's far end and
           reverted: on `flex-wrap` that pushes to the end of whichever LINE
           this group lands on after wrapping, not the end of the toolbar —
           with the language group alone on the last line that left a wide,
-          lopsided gap between "0-9" and Find/Undo/Redo. Plain inline flow
-          after a separator, like every other band, wraps predictably.
+          lopsided gap between "0-9" and Find/Undo/Redo. Plain inline flow,
+          like every other band, wraps predictably.
         */}
-        <ToolButton label={t('draft.toolbar.findReplace')} onClick={onFindReplace}>
-          <Search aria-hidden="true" className="size-4" />
-        </ToolButton>
-        <ToolButton
-          label={t('draft.toolbar.undo')}
-          disabled={disabled || !editor?.can().undo()}
-          onClick={() => editor?.chain().focus().undo().run()}
-        >
-          <Undo2 aria-hidden="true" className="size-4" />
-        </ToolButton>
-        <ToolButton
-          label={t('draft.toolbar.redo')}
-          disabled={disabled || !editor?.can().redo()}
-          onClick={() => editor?.chain().focus().redo().run()}
-        >
-          <Redo2 aria-hidden="true" className="size-4" />
-        </ToolButton>
+        <div className="flex flex-wrap items-center gap-0.5 rounded-lg border border-border/60 bg-muted/70 p-1">
+          <ToolButton label={t('draft.toolbar.findReplace')} onClick={onFindReplace}>
+            <Search aria-hidden="true" className="size-4" />
+          </ToolButton>
+          <ToolButton
+            label={t('draft.toolbar.undo')}
+            disabled={disabled || !editor?.can().undo()}
+            onClick={() => editor?.chain().focus().undo().run()}
+          >
+            <Undo2 aria-hidden="true" className="size-4" />
+          </ToolButton>
+          <ToolButton
+            label={t('draft.toolbar.redo')}
+            disabled={disabled || !editor?.can().redo()}
+            onClick={() => editor?.chain().focus().redo().run()}
+          >
+            <Redo2 aria-hidden="true" className="size-4" />
+          </ToolButton>
+        </div>
       </div>
 
       {placeholderOpen ? (
