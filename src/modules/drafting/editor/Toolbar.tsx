@@ -61,11 +61,11 @@ function ToolButton({
       disabled={disabled}
       onClick={onClick}
       className={cn(
-        'inline-flex h-8 min-w-8 items-center justify-center gap-1 rounded-md px-1.5 text-sm transition-colors',
+        'inline-flex h-8 min-w-8 items-center justify-center gap-1 rounded-md border px-1.5 text-sm transition-colors',
         'disabled:opacity-40',
         active
-          ? 'bg-action font-semibold text-action-foreground shadow-sm'
-          : 'text-foreground hover:bg-card hover:shadow-sm',
+          ? 'border-action bg-action font-semibold text-action-foreground shadow-sm'
+          : 'border-border/70 bg-card text-foreground shadow-xs hover:border-input hover:bg-accent hover:text-accent-foreground',
       )}
     >
       {children}
@@ -79,11 +79,17 @@ function ToolButton({
  * `role="group"` with a label, so a screen-reader user hears "Insert, table"
  * rather than twenty-two unrelated buttons in one strip. The label is not drawn
  * — a toolbar that spent a line on four captions would be taller than the
- * document on a phone — and the pill's own boundary is what shows it now,
- * replacing a run of thin `<Sep>` rules with something that actually reads as
- * "these buttons belong together" at a glance, the way a real toolbar's
- * button clusters do. `ToolButton` is borderless for exactly this reason: the
- * pill is the boundary, so a button no longer needs its own box around it.
+ * document on a phone — and the pill's own muted background is what shows it
+ * now, replacing a run of thin `<Sep>` rules with something that actually
+ * reads as "these buttons belong together" at a glance.
+ *
+ * Each `ToolButton` inside keeps its own white chip (`bg-card` + a hairline
+ * border) rather than sitting flush on the pill — a first pass tried
+ * borderless buttons on the muted background and it read as unclear rather
+ * than clean: nothing marked where one button ended and the next began, and
+ * an icon alone (¶, the quote glyph, the table icon) is not self-explanatory
+ * without a boundary around it. Light pill, white chip, light pill again is
+ * the same rhythm a physical toolbar ribbon uses for the same reason.
  */
 const Group = ({ label, children }: { label: string; children: React.ReactNode }) => (
   <div
