@@ -1,14 +1,18 @@
 import {
+  BookText,
   Bold,
   Italic,
+  Languages,
   List,
   ListOrdered,
+  Paperclip,
   Quote,
   Redo2,
   Search,
   Table as TableIcon,
   Underline,
   Undo2,
+  Users,
 } from 'lucide-react'
 import { useState } from 'react'
 
@@ -243,16 +247,30 @@ export function EditorToolbar({
           >
             {'{{ }}'}
           </ToolButton>
+          {/*
+            A small separator INSIDE the group, not a second `role="group"`:
+            these four are still "Insert" as far as a screen reader is
+            concerned. It is here only so the icon-only mark-up trio above
+            (table / page break / placeholder) reads as visually distinct
+            from the icon-plus-label content trio below — the mix of bare
+            icons and bare text was what made this row read as clutter
+            rather than four purposeful actions.
+          */}
+          <span aria-hidden="true" className="mx-0.5 h-5 w-px shrink-0 bg-border/70" />
           <ToolButton label={t('draft.toolbar.enclosure')} onClick={onAddEnclosure}>
+            <Paperclip aria-hidden="true" className="size-4" />
             {t('draft.toolbar.enclosure')}
           </ToolButton>
           <ToolButton label={t('draft.toolbar.copyTo')} onClick={onAddCopyTo}>
+            <Users aria-hidden="true" className="size-4" />
             {t('draft.toolbar.copyTo')}
           </ToolButton>
           <ToolButton label={t('draft.toolbar.phrase')} onClick={onInsertPhrase}>
+            <BookText aria-hidden="true" className="size-4" />
             {t('draft.toolbar.phrase')}
           </ToolButton>
           <ToolButton label={t('draft.toolbar.glossary')} onClick={onInsertGlossary}>
+            <Languages aria-hidden="true" className="size-4" />
             {t('draft.toolbar.glossary')}
           </ToolButton>
         </Group>
@@ -288,30 +306,34 @@ export function EditorToolbar({
             0-9
           </ToolButton>
         </Group>
-        <Sep />
         {/*
           Find, undo and redo are in no band, deliberately: they are about the
           editing session rather than the document, and inventing a fifth
           caption for three controls that already say what they do would be a
-          label added for symmetry.
+          label added for symmetry. Pushed to the far end with `ml-auto`
+          (wrapping to their own line first on a narrow screen, same as every
+          other group here) so they read as "session controls" rather than
+          blending into the document-editing bands beside them.
         */}
-        <ToolButton label={t('draft.toolbar.findReplace')} onClick={onFindReplace}>
-          <Search aria-hidden="true" className="size-4" />
-        </ToolButton>
-        <ToolButton
-          label={t('draft.toolbar.undo')}
-          disabled={disabled || !editor?.can().undo()}
-          onClick={() => editor?.chain().focus().undo().run()}
-        >
-          <Undo2 aria-hidden="true" className="size-4" />
-        </ToolButton>
-        <ToolButton
-          label={t('draft.toolbar.redo')}
-          disabled={disabled || !editor?.can().redo()}
-          onClick={() => editor?.chain().focus().redo().run()}
-        >
-          <Redo2 aria-hidden="true" className="size-4" />
-        </ToolButton>
+        <span className="ms-auto flex items-center gap-1">
+          <ToolButton label={t('draft.toolbar.findReplace')} onClick={onFindReplace}>
+            <Search aria-hidden="true" className="size-4" />
+          </ToolButton>
+          <ToolButton
+            label={t('draft.toolbar.undo')}
+            disabled={disabled || !editor?.can().undo()}
+            onClick={() => editor?.chain().focus().undo().run()}
+          >
+            <Undo2 aria-hidden="true" className="size-4" />
+          </ToolButton>
+          <ToolButton
+            label={t('draft.toolbar.redo')}
+            disabled={disabled || !editor?.can().redo()}
+            onClick={() => editor?.chain().focus().redo().run()}
+          >
+            <Redo2 aria-hidden="true" className="size-4" />
+          </ToolButton>
+        </span>
       </div>
 
       {placeholderOpen ? (

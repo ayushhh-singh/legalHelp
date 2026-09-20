@@ -1,4 +1,4 @@
-import { Plus, Trash2 } from 'lucide-react'
+import { Link2, ListChecks, PenLine, Plus, Trash2, Users } from 'lucide-react'
 import { cloneElement, isValidElement, useId, useState } from 'react'
 
 import { Button } from '@/components/ui/button'
@@ -62,6 +62,24 @@ function Row({ label, hint, children }: { label: string; hint?: string; children
   )
 }
 
+/**
+ * A fieldset's own `<legend>`, with a small icon.
+ *
+ * Purely a scanning aid over a long column of otherwise-identical bordered
+ * boxes — "To", "Copy to", "References" and "Signature" all look alike from a
+ * glance, and a distinct glyph per box is what lets an officer find the one
+ * they want without reading every label. The icon is decorative only; the
+ * legend's own text is still what names the fieldset for a screen reader.
+ */
+function Legend({ icon: Icon, children }: { icon: typeof Users; children: React.ReactNode }) {
+  return (
+    <legend className="flex items-center gap-1.5 px-1 text-sm font-semibold">
+      <Icon aria-hidden="true" className="size-4 text-muted-foreground" />
+      {children}
+    </legend>
+  )
+}
+
 function AddresseeList({
   title,
   people,
@@ -83,7 +101,7 @@ function AddresseeList({
 
   return (
     <fieldset className="rounded-xl border border-border p-3">
-      <legend className="px-1 text-sm font-semibold">{title}</legend>
+      <Legend icon={Users}>{title}</Legend>
       <div className="flex flex-col gap-3">
         {people.map((person, index) => (
           <div key={person.id} className="grid gap-2 rounded-lg border border-border/70 p-2 sm:grid-cols-2">
@@ -356,7 +374,7 @@ export function MetaPanel({
       </Row>
 
       <fieldset className="rounded-xl border border-border p-3">
-        <legend className="px-1 text-sm font-semibold">{t('draft.meta.references')}</legend>
+        <Legend icon={Link2}>{t('draft.meta.references')}</Legend>
         <p className="mb-2 text-xs text-muted-foreground">{t('draft.meta.referencesHint')}</p>
         <div className="flex flex-col gap-2">
           {meta.referenceLines.map((line, index) => (
@@ -424,7 +442,7 @@ export function MetaPanel({
       </fieldset>
 
       <fieldset className="rounded-xl border border-border p-3">
-        <legend className="px-1 text-sm font-semibold">{t('draft.meta.signature')}</legend>
+        <Legend icon={PenLine}>{t('draft.meta.signature')}</Legend>
         <div className="grid gap-3 sm:grid-cols-2">
           <Row label={t('draft.meta.signatureName')}>
             <input
@@ -512,7 +530,7 @@ export function MetaPanel({
 
       {variables.length > 0 ? (
         <fieldset className="rounded-xl border border-border p-3">
-          <legend className="px-1 text-sm font-semibold">{t('draft.meta.variables')}</legend>
+          <Legend icon={ListChecks}>{t('draft.meta.variables')}</Legend>
           <div className="grid gap-3 sm:grid-cols-2">
             {variables.map((variable) => (
               <Row

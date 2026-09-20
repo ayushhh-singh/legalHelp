@@ -501,14 +501,32 @@
   font-weight: 600;
 }
 
-/* An unfilled `{{field}}`. It reads as a chip and prints as the literal text. */
+/*
+  An unfilled `{{field}}`. It reads as a chip on screen and prints as the
+  literal text — the `::before` pencil mark is generated content, so it adds
+  nothing to the node's own text and is switched off for print, where a
+  decorative glyph next to an unresolved field is the last thing a signed
+  document should carry.
+*/
 .draft-placeholder {
   border-radius: 9999px;
+  border: 1px dashed color-mix(in srgb, var(--marigold) 55%, transparent);
   background: color-mix(in srgb, var(--marigold) 15%, transparent);
   color: var(--marigold-foreground);
-  padding-inline: 0.4rem;
+  padding-inline: 0.5rem;
   font-size: 0.9em;
   white-space: nowrap;
+  cursor: text;
+}
+.draft-placeholder::before {
+  content: '✎';
+  margin-inline-end: 0.2rem;
+  opacity: 0.75;
+}
+@media print {
+  .draft-placeholder::before {
+    content: none;
+  }
 }
 
 .draft-page-break {
