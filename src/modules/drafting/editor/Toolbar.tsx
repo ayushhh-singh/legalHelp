@@ -310,30 +310,32 @@ export function EditorToolbar({
           Find, undo and redo are in no band, deliberately: they are about the
           editing session rather than the document, and inventing a fifth
           caption for three controls that already say what they do would be a
-          label added for symmetry. Pushed to the far end with `ml-auto`
-          (wrapping to their own line first on a narrow screen, same as every
-          other group here) so they read as "session controls" rather than
-          blending into the document-editing bands beside them.
+          label added for symmetry.
+
+          `ms-auto` was tried here to push them to the row's far end and
+          reverted: on `flex-wrap` that pushes to the end of whichever LINE
+          this group lands on after wrapping, not the end of the toolbar —
+          with the language group alone on the last line that left a wide,
+          lopsided gap between "0-9" and Find/Undo/Redo. Plain inline flow
+          after a separator, like every other band, wraps predictably.
         */}
-        <span className="ms-auto flex items-center gap-1">
-          <ToolButton label={t('draft.toolbar.findReplace')} onClick={onFindReplace}>
-            <Search aria-hidden="true" className="size-4" />
-          </ToolButton>
-          <ToolButton
-            label={t('draft.toolbar.undo')}
-            disabled={disabled || !editor?.can().undo()}
-            onClick={() => editor?.chain().focus().undo().run()}
-          >
-            <Undo2 aria-hidden="true" className="size-4" />
-          </ToolButton>
-          <ToolButton
-            label={t('draft.toolbar.redo')}
-            disabled={disabled || !editor?.can().redo()}
-            onClick={() => editor?.chain().focus().redo().run()}
-          >
-            <Redo2 aria-hidden="true" className="size-4" />
-          </ToolButton>
-        </span>
+        <ToolButton label={t('draft.toolbar.findReplace')} onClick={onFindReplace}>
+          <Search aria-hidden="true" className="size-4" />
+        </ToolButton>
+        <ToolButton
+          label={t('draft.toolbar.undo')}
+          disabled={disabled || !editor?.can().undo()}
+          onClick={() => editor?.chain().focus().undo().run()}
+        >
+          <Undo2 aria-hidden="true" className="size-4" />
+        </ToolButton>
+        <ToolButton
+          label={t('draft.toolbar.redo')}
+          disabled={disabled || !editor?.can().redo()}
+          onClick={() => editor?.chain().focus().redo().run()}
+        >
+          <Redo2 aria-hidden="true" className="size-4" />
+        </ToolButton>
       </div>
 
       {placeholderOpen ? (

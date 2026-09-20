@@ -1,6 +1,7 @@
 import { useLiveQuery } from 'dexie-react-hooks'
 import {
   ArrowLeft,
+  ChevronDown,
   Copy,
   Eye,
   FileDown,
@@ -502,9 +503,9 @@ function Editor({
       <details
         open={detailsOpen}
         onToggle={(event) => setDetailsOpen(event.currentTarget.open)}
-        className="rounded-xl border border-border bg-card"
+        className="overflow-hidden rounded-xl border border-border bg-card"
       >
-        <summary className="flex min-h-11 cursor-pointer items-center gap-2 px-4 text-sm font-semibold">
+        <summary className="flex min-h-11 cursor-pointer list-none items-center gap-2 rounded-t-xl px-4 text-sm font-semibold transition-colors hover:bg-muted/60 [&::-webkit-details-marker]:hidden">
           {/*
             The label is its own element, so it can be addressed as itself: the
             summary also carries the reference number, and anything matching on
@@ -514,6 +515,18 @@ function Editor({
           <span className="font-normal text-muted-foreground">
             {doc.meta.number || t('draft.editor.detailsNoNumber')}
           </span>
+          {/*
+            The native `<summary>` triangle is suppressed above (`list-none` +
+            hiding the WebKit marker) and replaced with this one, explicit and
+            the same in every browser — a bare `<summary>` gave no visual hint
+            that the whole card was a disclosure rather than a static header.
+          */}
+          <ChevronDown
+            aria-hidden="true"
+            className={cn('ms-auto size-4 shrink-0 text-muted-foreground transition-transform', {
+              'rotate-180': detailsOpen,
+            })}
+          />
         </summary>
         <div className="flex flex-col gap-3 border-t border-border p-4">
           {/*

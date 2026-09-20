@@ -247,7 +247,7 @@ export function DocumentEditor({
       */}
       <div
         className={cn(
-          'draft-editor-page rounded-xl border border-border bg-card text-[15px] leading-relaxed',
+          'draft-editor-page rounded-xl border border-border bg-card text-[15px] leading-relaxed shadow-sm',
           'focus-within:ring-2 focus-within:ring-primary/60',
         )}
         lang={lang}
