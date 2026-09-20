@@ -37,6 +37,7 @@ export const ROUTE_TITLE_KEYS = {
   '/study/notes/compare': 'library.compare.title',
   '/draft/documents/import': 'draft.import.title',
   '/draft/new/:type': 'draft.editor.newDocument',
+  '/draft/new/:type/preview': 'draft.editor.tabs.preview',
   '/draft/d/:id': 'draft.editor.title',
   '/draft/d/:id/print': 'draft.print.title',
   '/draft/reply/:id': 'draft.intake.heading',

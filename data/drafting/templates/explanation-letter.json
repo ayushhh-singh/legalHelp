@@ -169,14 +169,14 @@
         "required": true,
         "sample": {
           "en": [
-            "The Under Secretary",
-            "Department of Expenditure",
-            "North Block, New Delhi"
+            "Shri A.B.C.",
+            "Assistant Section Officer",
+            "Establishment Section"
           ],
           "hi": [
-            "अवर सचिव",
-            "व्यय विभाग",
-            "नॉर्थ ब्लॉक, नई दिल्ली"
+            "श्री ए.बी.सी.",
+            "सहायक अनुभाग अधिकारी",
+            "स्थापना अनुभाग"
           ]
         },
         "hint": {
@@ -207,12 +207,12 @@
         "required": true,
         "sample": {
           "en": [
-            "The undersigned is directed to state that the attendance record of the Section shows that you remained absent from duty from 10.08.2026 to 14.08.2026 without any application for leave having been received.",
+            "The undersigned is directed to state that the attendance record of the Section shows that the officer remained absent from duty from 10.08.2026 to 14.08.2026 without any application for leave having been received.",
             "Shri A.B.C., Assistant Section Officer, is requested to furnish an explanation in the matter so as to reach the undersigned by 10.09.2026.",
             "The explanation will be considered before a view is taken in the matter. No decision has been taken and nothing in this communication is to be read as a charge."
           ],
           "hi": [
-            "अधोहस्ताक्षरी को निदेश हुआ है कि यह बताएँ कि अनुभाग के उपस्थिति अभिलेख से पता चलता है कि आप 10.08.2026 से 14.08.2026 तक कर्तव्य से अनुपस्थित रहे और अवकाश हेतु कोई आवेदन प्राप्त नहीं हुआ।",
+            "अधोहस्ताक्षरी को निदेश हुआ है कि यह बताएँ कि अनुभाग के उपस्थिति अभिलेख से पता चलता है कि संबंधित अधिकारी 10.08.2026 से 14.08.2026 तक कर्तव्य से अनुपस्थित रहे और अवकाश हेतु कोई आवेदन प्राप्त नहीं हुआ।",
             "श्री ए.बी.सी., सहायक अनुभाग अधिकारी से अनुरोध है कि इस विषय में अपना स्पष्टीकरण इस प्रकार प्रस्तुत करें कि वह 10.09.2026 तक अधोहस्ताक्षरी को प्राप्त हो जाए।",
             "इस विषय में कोई मत बनाने से पहले स्पष्टीकरण पर विचार किया जाएगा। अभी कोई निर्णय नहीं लिया गया है और इस पत्र में कुछ भी आरोप के रूप में नहीं पढ़ा जाना है।"
           ]
@@ -631,8 +631,8 @@
         "type": "textarea",
         "required": true,
         "sample": {
-          "en": "the attendance record of the Section shows that you remained absent from duty from 10.08.2026 to 14.08.2026 without any application for leave having been received",
-          "hi": "अनुभाग के उपस्थिति अभिलेख से पता चलता है कि आप 10.08.2026 से 14.08.2026 तक कर्तव्य से अनुपस्थित रहे और अवकाश हेतु कोई आवेदन प्राप्त नहीं हुआ"
+          "en": "the attendance record of the Section shows that the officer remained absent from duty from 10.08.2026 to 14.08.2026 without any application for leave having been received",
+          "hi": "अनुभाग के उपस्थिति अभिलेख से पता चलता है कि संबंधित अधिकारी 10.08.2026 से 14.08.2026 तक कर्तव्य से अनुपस्थित रहे और अवकाश हेतु कोई आवेदन प्राप्त नहीं हुआ"
         }
       },
       {

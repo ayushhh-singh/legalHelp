@@ -75,6 +75,12 @@ def skeleton(en: list[str], hi: list[str]) -> dict[str, Any]:
 PLACEHOLDER = re.compile(r"\{\{\s*([a-zA-Z@.][\w.]*|\.)\s*\}\}")
 IF_OPEN = re.compile(r"^\{\{#if\s+([a-zA-Z][\w.]*)\}\}$")
 EACH_OPEN = re.compile(r"^\{\{#each\s+([a-zA-Z][\w.]*)\}\}$")
+# A manual "1." ahead of an each-item, meaningful in the rich body (where a
+# list item is not otherwise numbered) and redundant in `derive()`'s flat
+# rendering (where every paragraph of `paras`, including this one, is already
+# numbered by the layout). Stripped there rather than substituted — see
+# `derive()`.
+INDEX_MARKER = re.compile(r"^\{\{@index\}\}\.\s*")
 
 
 def derive(paras: list[tuple[str, str]], variables: list[dict[str, Any]],
@@ -84,9 +90,25 @@ def derive(paras: list[tuple[str, str]], variables: list[dict[str, Any]],
     This is the Python half of ``src/lib/drafting/skeleton.ts`` and it is
     deliberately the *simplest* half: it takes the true branch of every
     ``{{#if}}`` whose variable has an example, and one pass of every
-    ``{{#each}}``. Its only job is to produce the ``paras`` sample the fourteen
+    ``{{#each}}`` — ``{{.}}`` inside that pass resolves to the SAME example
+    the ``{{#each ...}}`` opener itself tested for truthiness (one item, not a
+    list). Its only job is to produce the ``paras`` sample the fourteen
     original templates carry by hand, so that every one of the forty-three
     renders from its own worked example with no placeholder left in it.
+
+    A line opening ``# `` or ``> `` is a heading or a blockquote in the rich
+    ``bodySkeleton`` (``_node()`` above) — this flat rendering has no such
+    concept, so the marker is stripped rather than left as a literal ``#`` or
+    ``>`` in front of a sentence a reader is meant to believe is prose. And a
+    line opening ``{{@index}}.`` (one each-block, `minutes-of-meeting`'s
+    participant list, numbers each entry itself) is stripped of that manual
+    marker rather than resolving `{{@index}}` to a digit: the flat renderer
+    numbers every paragraph of `paras` automatically, and a manual "1." ahead
+    of the automatic "3." reads as "3. 1. Shri A.B.C." — a document that looks
+    like it lost count of itself. None of this shows up reading the RICH body
+    instead of the flat one: it renders "Grounds of appeal" as an actual
+    heading and "{{.}}" as the iterated ground, so nothing there ever
+    exercises this flat-only path.
 
     The TypeScript instantiator is the one that runs for a reader. Keeping this
     one small is what stops two implementations of one grammar drifting: the
@@ -102,6 +124,10 @@ def derive(paras: list[tuple[str, str]], variables: list[dict[str, Any]],
     def one(index: int) -> list[str]:
         out: list[str] = []
         skip_depth = 0
+        # The field name of every `{{#each}}` currently open, innermost last —
+        # what `{{.}}` refers to. Never populated for an `{{#if}}`, which has
+        # no per-item value for `{{.}}` to mean.
+        each_stack: list[str] = []
         for pair in paras:
             text = pair[index].strip()
             open_if = IF_OPEN.match(text)
@@ -111,14 +137,33 @@ def derive(paras: list[tuple[str, str]], variables: list[dict[str, Any]],
                 got = examples.get(key, ("", ""))[index]
                 if skip_depth or not got.strip():
                     skip_depth += 1
+                elif open_each:
+                    each_stack.append(key)
                 continue
             if text in ("{{/if}}", "{{/each}}"):
                 if skip_depth:
                     skip_depth -= 1
+                elif text == "{{/each}}" and each_stack:
+                    each_stack.pop()
                 continue
             if skip_depth:
                 continue
-            out.append(PLACEHOLDER.sub(lambda m: examples.get(m.group(1), ("", ""))[index], pair[index]))
+
+            def substitute(match: re.Match[str]) -> str:
+                name = match.group(1)
+                if name == "." and each_stack:
+                    return examples.get(each_stack[-1], ("", ""))[index]
+                if name == "@index":
+                    return ""
+                return examples.get(name, ("", ""))[index]
+
+            source = INDEX_MARKER.sub("", pair[index])
+            line = PLACEHOLDER.sub(substitute, source)
+            if line.startswith("# "):
+                line = line[2:]
+            elif line.startswith("> "):
+                line = line[2:]
+            out.append(line)
         return [line for line in out if line.strip()]
 
     return one(0), one(1)
@@ -1564,6 +1609,12 @@ def build(H: Any) -> list[dict[str, Any]]:  # noqa: C901 - one form per branch, 
         name=("Letter calling for an explanation", "स्पष्टीकरण माँगने का पत्र"),
         short=("Call for explanation", "स्पष्टीकरण"),
         title=("OFFICE MEMORANDUM", "कार्यालय ज्ञापन"),
+        # An OM naming an officer and calling for THAT officer's explanation is
+        # addressed to the officer, not to `mk()`'s default addressee (a
+        # different Department entirely) — the mismatch is what a reader
+        # would notice first in the worked example.
+        addressee=(["Shri A.B.C.", "Assistant Section Officer", "Establishment Section"],
+                   ["श्री ए.बी.सी.", "सहायक अनुभाग अधिकारी", "स्थापना अनुभाग"]),
         use_when=("Calling for an explanation before deciding whether any further action is needed.",
                   "यह तय करने से पहले कि आगे कोई कार्रवाई आवश्यक है या नहीं, स्पष्टीकरण माँगना।"),
         used_by=("A controlling officer or an establishment section.",
@@ -1599,10 +1650,14 @@ def build(H: Any) -> list[dict[str, Any]]:  # noqa: C901 - one form per branch, 
         ],
         variables=[
             var("observedFact", bl("The fact observed", "देखा गया तथ्य"), "textarea", True,
-                ex=("the attendance record of the Section shows that you remained absent from duty from "
-                    "10.08.2026 to 14.08.2026 without any application for leave having been received",
-                    "अनुभाग के उपस्थिति अभिलेख से पता चलता है कि आप 10.08.2026 से 14.08.2026 तक कर्तव्य से "
-                    "अनुपस्थित रहे और अवकाश हेतु कोई आवेदन प्राप्त नहीं हुआ")),
+                # Third person, to match the OM's own person and the sentence
+                # naming the officer immediately after this one — "you" here
+                # read as though the OM were addressed to the officer in the
+                # second person, which an Office Memorandum never is.
+                ex=("the attendance record of the Section shows that the officer remained absent from duty "
+                    "from 10.08.2026 to 14.08.2026 without any application for leave having been received",
+                    "अनुभाग के उपस्थिति अभिलेख से पता चलता है कि संबंधित अधिकारी 10.08.2026 से 14.08.2026 तक "
+                    "कर्तव्य से अनुपस्थित रहे और अवकाश हेतु कोई आवेदन प्राप्त नहीं हुआ")),
             var("employeeName", bl("Employee's name", "कर्मचारी का नाम"), "text", True, ex=("Shri A.B.C.", "श्री ए.बी.सी.")),
             var("employeeDesignation", bl("Designation", "पदनाम"), "text", True,
                 ex=("Assistant Section Officer", "सहायक अनुभाग अधिकारी")),

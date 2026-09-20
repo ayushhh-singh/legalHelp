@@ -1,4 +1,4 @@
-import { ArrowRight, Star } from 'lucide-react'
+import { ArrowRight, Eye, Star } from 'lucide-react'
 import { useLiveQuery } from 'dexie-react-hooks'
 import { useMemo, useState } from 'react'
 import { Link } from 'react-router-dom'
@@ -192,7 +192,12 @@ function FormCard({ entry, favourite }: { entry: DraftingIndex['templates'][numb
 
   return (
     <li className="contents">
-      <SectionCard className="relative transition-colors focus-within:border-input hover:border-input">
+      {/*
+        `flex flex-col` so the primary `Link` below can take `flex-1` rather
+        than `h-full` — that is what leaves room for the Preview footer
+        without the Link's own content having to know it is there.
+      */}
+      <SectionCard className="relative flex flex-col transition-colors focus-within:border-input hover:border-input">
         <button
           type="button"
           aria-label={t('draft.personal.favourite')}
@@ -202,10 +207,18 @@ function FormCard({ entry, favourite }: { entry: DraftingIndex['templates'][numb
         >
           <Star aria-hidden="true" className={favourite ? 'size-4 fill-current text-marigold' : 'size-4'} />
         </button>
+        {/*
+          The card's own primary click is unchanged: it still creates a
+          document, exactly as it always has. Preview is an ADDITIVE control
+          in its own footer row below, never a change to what this Link does
+          or a second `to="/draft/new/:type"` link occupying the same space —
+          two interactive elements cannot nest, so it could not have gone
+          inside this one anyway.
+        */}
         <Link
           to={`/draft/new/${entry.id}`}
           aria-label={t('draft.picker.open', { name: entry.name[language] })}
-          className="flex h-full min-h-11 flex-col gap-2 rounded-lg p-4 focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 focus-visible:ring-offset-background focus-visible:outline-none"
+          className="flex min-h-11 flex-1 flex-col gap-2 rounded-lg p-4 focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 focus-visible:ring-offset-background focus-visible:outline-none"
         >
           <span className="flex items-start justify-between gap-2">
             <span className="text-base font-semibold text-foreground">{entry.name[language]}</span>
@@ -229,6 +242,16 @@ function FormCard({ entry, favourite }: { entry: DraftingIndex['templates'][numb
             {entry.verify ? <Badge tone="warning">{t('draft.picker.notInManual')}</Badge> : null}
           </span>
         </Link>
+        <div className="flex justify-end border-t border-border px-2 py-1">
+          <Link
+            to={`/draft/new/${entry.id}/preview`}
+            aria-label={t('draft.picker.previewAria', { name: entry.name[language] })}
+            className="inline-flex min-h-11 items-center gap-1.5 rounded-md px-2 text-sm text-muted-foreground transition-colors hover:bg-accent hover:text-accent-foreground focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 focus-visible:ring-offset-background focus-visible:outline-none"
+          >
+            <Eye aria-hidden="true" className="h-4 w-4" />
+            {t('draft.picker.preview')}
+          </Link>
+        </div>
       </SectionCard>
     </li>
   )

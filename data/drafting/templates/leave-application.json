@@ -234,13 +234,13 @@
         "sample": {
           "en": [
             "I request that I may kindly be granted 30 days' earned leave from 01.10.2026 to 30.10.2026, with permission to prefix 30.09.2026 and suffix 31.10.2026, both public holidays, to the leave.",
-            "The leave is required to attend to a family commitment. My address during the period of leave will be 14, Rajaji Marg, Coimbatore - 641002, telephone 98xxx xxxxx.",
+            "The leave is required to attend to a family commitment. My address during the period of leave will be 14, Rajaji Marg, Coimbatore - 641002, telephone 94123 56780.",
             "During my absence the work of the Section may kindly be entrusted to Shri P.Q.R., Assistant Section Officer, who has agreed to hold the charge.",
             "It is certified that I am likely, on the expiry of this leave, to return to duty at the station from which I proceed on leave."
           ],
           "hi": [
             "अनुरोध है कि मुझे दिनांक 01.10.2026 से 30.10.2026 तक 30 दिनों का अर्जित अवकाश स्वीकृत करने की कृपा की जाए, तथा अवकाश के साथ दिनांक 30.09.2026 को उपसर्ग और 31.10.2026 को प्रत्यय के रूप में जोड़ने की अनुमति दी जाए, ये दोनों सार्वजनिक अवकाश हैं।",
-            "अवकाश एक पारिवारिक दायित्व के निर्वहन हेतु अपेक्षित है। अवकाश की अवधि में मेरा पता 14, राजाजी मार्ग, कोयंबटूर - 641002 तथा दूरभाष 98xxx xxxxx रहेगा।",
+            "अवकाश एक पारिवारिक दायित्व के निर्वहन हेतु अपेक्षित है। अवकाश की अवधि में मेरा पता 14, राजाजी मार्ग, कोयंबटूर - 641002 तथा दूरभाष 94123 56780 रहेगा।",
             "मेरी अनुपस्थिति में अनुभाग का कार्य श्री पी.क्यू.आर., सहायक अनुभाग अधिकारी को सौंपने की कृपा की जाए, जिन्होंने कार्यभार संभालने पर सहमति दी है।",
             "यह प्रमाणित किया जाता है कि इस अवकाश की समाप्ति पर मेरे उसी स्टेशन पर ड्यूटी पर लौटने की संभावना है जहाँ से मैं अवकाश पर जा रहा हूँ।"
           ]
@@ -592,8 +592,8 @@
         "type": "textarea",
         "required": true,
         "sample": {
-          "en": "The leave is required to attend to a family commitment. My address during the period of leave will be 14, Rajaji Marg, Coimbatore - 641002, telephone 98xxx xxxxx. During my absence the work of the Section may kindly be entrusted to Shri P.Q.R., Assistant Section Officer, who has agreed to hold the charge. It is certified that I am likely, on the expiry of this leave, to return to duty at the station from which I proceed on leave.",
-          "hi": "अवकाश एक पारिवारिक दायित्व के निर्वहन हेतु अपेक्षित है। अवकाश की अवधि में मेरा पता 14, राजाजी मार्ग, कोयंबटूर - 641002 तथा दूरभाष 98xxx xxxxx रहेगा। मेरी अनुपस्थिति में अनुभाग का कार्य श्री पी.क्यू.आर., सहायक अनुभाग अधिकारी को सौंपने की कृपा की जाए, जिन्होंने कार्यभार संभालने पर सहमति दी है। यह प्रमाणित किया जाता है कि इस अवकाश की समाप्ति पर मेरे उसी स्टेशन पर ड्यूटी पर लौटने की संभावना है जहाँ से मैं अवकाश पर जा रहा हूँ।"
+          "en": "The leave is required to attend to a family commitment. My address during the period of leave will be 14, Rajaji Marg, Coimbatore - 641002, telephone 94123 56780. During my absence the work of the Section may kindly be entrusted to Shri P.Q.R., Assistant Section Officer, who has agreed to hold the charge. It is certified that I am likely, on the expiry of this leave, to return to duty at the station from which I proceed on leave.",
+          "hi": "अवकाश एक पारिवारिक दायित्व के निर्वहन हेतु अपेक्षित है। अवकाश की अवधि में मेरा पता 14, राजाजी मार्ग, कोयंबटूर - 641002 तथा दूरभाष 94123 56780 रहेगा। मेरी अनुपस्थिति में अनुभाग का कार्य श्री पी.क्यू.आर., सहायक अनुभाग अधिकारी को सौंपने की कृपा की जाए, जिन्होंने कार्यभार संभालने पर सहमति दी है। यह प्रमाणित किया जाता है कि इस अवकाश की समाप्ति पर मेरे उसी स्टेशन पर ड्यूटी पर लौटने की संभावना है जहाँ से मैं अवकाश पर जा रहा हूँ।"
         },
         "hint": {
           "en": "What is being decided, asked for or conveyed. Add further paragraphs in the editor.",

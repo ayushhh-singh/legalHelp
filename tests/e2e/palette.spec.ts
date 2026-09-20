@@ -78,7 +78,30 @@ test.describe('command palette', () => {
     await page.keyboard.press('Control+k')
     await page.getByRole('combobox').fill('OM')
 
-    await expect(page.getByRole('option', { name: /Office Memorandum/i })).toBeVisible({ timeout: 20_000 })
+    // Two rows now match "Office Memorandum" — creating one and previewing
+    // its worked example — and a bare substring match finds both (the
+    // option's accessible name carries its hint text too, so `exact: true`
+    // does not disambiguate them either). Anchored at the START: the create
+    // row's name begins "Office Memorandum …", the preview row's begins
+    // "Preview: Office Memorandum …".
+    await expect(
+      page.getByRole('option', { name: /^Office Memorandum \(O\.M\.\)/ }),
+    ).toBeVisible({ timeout: 20_000 })
+  })
+
+  test('previewing a template from the palette opens its read-only worked example', async ({ page }) => {
+    await page.goto('/law')
+    await expect(page.getByRole('heading', { level: 1 })).toBeVisible()
+    await page.keyboard.press('Control+k')
+    await page.getByRole('combobox').fill('OM')
+
+    const previewRow = page.getByRole('option', { name: /Preview: Office Memorandum/i })
+    await expect(previewRow).toBeVisible({ timeout: 20_000 })
+    await previewRow.click()
+
+    await expect(page).toHaveURL(/\/draft\/new\/office-memorandum\/preview/)
+    await expect(page.getByRole('link', { name: 'Use this template' })).toBeVisible()
+    await expect(page.getByRole('dialog')).toBeHidden()
   })
 
   test('Escape closes the palette', async ({ page }) => {

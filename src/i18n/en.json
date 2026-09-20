@@ -814,7 +814,7 @@
     },
     "picker": {
       "heading": "Choose a form",
-      "lead": "Fourteen Central Secretariat documents. Each one carries the CSMOP paragraph its format comes from, and a checklist that reads what you have written.",
+      "lead": "Forty-three Central Secretariat documents. Each one carries the CSMOP paragraph its format comes from, and a checklist that reads what you have written.",
       "person": {
         "first": "First person",
         "third": "Third person"
@@ -822,7 +822,9 @@
       "csmop": "CSMOP {{paras}}",
       "notInManual": "Format not prescribed",
       "notInManualHint": "The manual prescribes no format for this document. It borrows the format of the {{chassis}} — verify against your own Department's practice.",
-      "open": "Open {{name}}"
+      "open": "Open {{name}}",
+      "preview": "Preview",
+      "previewAria": "Preview {{name}}"
     },
     "recent": {
       "title": "Recent drafts",
@@ -1004,7 +1006,13 @@
       "empty": "Nothing to show yet. Fill in the form and the document appears here.",
       "page": "A4 page",
       "columnEn": "English",
-      "columnHi": "हिंदी"
+      "columnHi": "हिंदी",
+      "sample": {
+        "title": "{{name}} — worked example",
+        "use": "Use this template",
+        "banner": "Example content only — for reference. Creating a document starts blank.",
+        "dismiss": "Dismiss"
+      }
     },
     "checklist": {
       "title": "Checklist",

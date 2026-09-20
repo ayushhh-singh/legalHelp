@@ -49,6 +49,7 @@ const PersonalTemplatesPage = lazy(() => import('./PersonalTemplatesPage'))
 */
 const ImportPage = lazy(() => import('./ImportPage'))
 const PrintPage = lazy(() => import('./PrintPage'))
+const PreviewSamplePage = lazy(() => import('./PreviewSamplePage'))
 const ReplyPage = lazy(() => import('./intake/ReplyPage'))
 const RegisterPage = lazy(() => import('./register/RegisterPage'))
 
@@ -91,6 +92,7 @@ export default function DraftPage() {
         <Route element={<FocusLayout />}>
           <Route path="d/:id" element={<DocEditorPage />} />
           <Route path="d/:id/print" element={<PrintPage />} />
+          <Route path="new/:type/preview" element={<PreviewSamplePage />} />
           <Route path="reply/:id" element={<ReplyPage />} />
         </Route>
 

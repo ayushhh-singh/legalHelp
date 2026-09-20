@@ -54,6 +54,8 @@ const EXEMPT: Readonly<Record<string, string>> = {
     'parameterised for the same reason as /draft/d/:id above — it prints ONE document. `tests/e2e/draft-io.spec.ts` creates a real document and sweeps the print route with axe there.',
   '/draft/new/:type':
     'parameterised, and not a screen: it creates a document and redirects. `tests/e2e/draft-editor.spec.ts` walks through it on the way to the editor.',
+  '/draft/new/:type/preview':
+    'parameterised; a literal ":type" names no template. `tests/e2e/draft-preview.spec.ts` opens /draft/new/office-memorandum/preview, a real template of this app, and sweeps it with axe there — the same pattern /draft/d/:id above uses.',
   '/draft/reply/:id':
     'parameterised; an intake id is minted on the device that kept the letter, so a literal ":id" renders the empty reply screen. `/draft/reply` — the same component with no letter open — IS swept, and `tests/e2e/draft-reply.spec.ts` pastes a real letter and keeps it.',
 }

@@ -116,14 +116,30 @@ export function draftingItems(index: DraftingIndex, query: string): PaletteItem[
     .filter((hit): hit is { template: DraftingIndex['templates'][number]; score: number } => hit !== null)
     .sort((a, b) => a.score - b.score)
 
-  return scored.slice(0, RESULTS_PER_SECTION).map(({ template }) => ({
-    id: `draft:${template.id}`,
-    en: template.name.en,
-    hi: template.name.hi,
-    hint: template.shortName.en,
-    to: `/draft/new/${template.id}`,
-    recordRecent: true,
-  }))
+  /*
+    Two rows per matched template: create it, or read its worked example
+    first. Both are real places to go — the preview is read-only and never
+    creates anything, so it earns its own row rather than living behind the
+    create one — and both are worth returning to, so both record a recent.
+  */
+  return scored.slice(0, RESULTS_PER_SECTION).flatMap(({ template }) => [
+    {
+      id: `draft:${template.id}`,
+      en: template.name.en,
+      hi: template.name.hi,
+      hint: template.shortName.en,
+      to: `/draft/new/${template.id}`,
+      recordRecent: true,
+    },
+    {
+      id: `draft-preview:${template.id}`,
+      en: `Preview: ${template.name.en}`,
+      hi: `पूर्वावलोकन: ${template.name.hi}`,
+      hint: template.shortName.en,
+      to: `/draft/new/${template.id}/preview`,
+      recordRecent: true,
+    },
+  ])
 }
 
 export function trainerTopicItems(index: RulesIndex, query: string): PaletteItem[] {

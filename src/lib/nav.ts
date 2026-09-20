@@ -306,6 +306,12 @@ export const APP_ROUTES: readonly AppRoute[] = [
   { path: '/draft/documents/import', level: 'detail', section: 'draft', parent: '/draft/documents' },
   { path: '/draft/new', level: 'tab', section: 'draft' },
   { path: '/draft/new/:type', level: 'detail', section: 'draft', parent: '/draft/new' },
+  // A read-only reference view of the template's own worked example — never a
+  // step on the way to a document, so its parent is the gallery itself
+  // (`/draft/new`), not the `/draft/new/:type` route that actually creates
+  // one. ADR-041 §5's guarantee is untouched: nothing here calls
+  // `documentFromTemplate`.
+  { path: '/draft/new/:type/preview', level: 'focus', section: 'draft', parent: '/draft/new' },
   { path: '/draft/d/:id', level: 'focus', section: 'draft', parent: '/draft/documents' },
   { path: '/draft/d/:id/print', level: 'focus', section: 'draft', parent: '/draft/d/:id' },
   { path: '/draft/reply', level: 'tab', section: 'draft' },

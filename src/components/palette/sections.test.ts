@@ -112,6 +112,20 @@ describe('draftingItems', () => {
   it('returns nothing for an empty query', () => {
     expect(draftingItems(DRAFTING_INDEX, '   ')).toEqual([])
   })
+
+  it('pairs every match with its own read-only preview, right after it', () => {
+    // Two rows per template — creating one and reading its worked example —
+    // never one collapsing into the other: a reader searching "OM" should be
+    // able to look before they create.
+    const items = draftingItems(DRAFTING_INDEX, 'OM')
+    expect(items[0]).toMatchObject({ id: 'draft:office-memorandum', to: '/draft/new/office-memorandum' })
+    expect(items[1]).toMatchObject({
+      id: 'draft-preview:office-memorandum',
+      to: '/draft/new/office-memorandum/preview',
+    })
+    expect(items[1]?.en).toContain('Office Memorandum')
+    expect(items[1]?.hi).toContain('कार्यालय ज्ञापन')
+  })
 })
 
 describe('trainerTopicItems', () => {
