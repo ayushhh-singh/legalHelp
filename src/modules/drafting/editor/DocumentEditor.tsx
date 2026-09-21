@@ -260,7 +260,7 @@ export function DocumentEditor({
       */}
       <div
         className={cn(
-          'draft-editor-page rounded-xl border-2 border-border bg-card text-[15px] leading-relaxed shadow-sm transition-colors',
+          'draft-editor-page rounded-xl border border-border bg-card text-[15px] leading-relaxed shadow-sm transition-colors',
           'focus-within:border-primary focus-within:ring-2 focus-within:ring-primary/30 focus-within:ring-offset-2 focus-within:ring-offset-background',
         )}
         lang={lang}
