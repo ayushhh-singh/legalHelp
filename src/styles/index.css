@@ -653,6 +653,23 @@
   font-weight: 400;
 }
 
+/*
+  The SAME break, one case further: an officer can toggle the sole paragraph
+  of a brand-new, still-empty document straight into a numbered one (the
+  toolbar's control does not check whether there is anything else in the
+  document). That paragraph carries `is-editor-empty`, not `is-empty`, so
+  the rule above never matches it — and without this one, the WHOLE-
+  DOCUMENT placeholder ("Write the document…", the longest string this
+  surface ever shows) inherited the bare "#" marker's `width: 1.1rem` and
+  `font-weight: 600` the same way the mid-document case did before it was
+  fixed. Same fix, same reasoning, the other empty-doc rule (five blocks up).
+*/
+.draft-editor-surface p[data-numbered].is-editor-empty::before {
+  content: '# ' attr(data-placeholder);
+  width: auto;
+  font-weight: 400;
+}
+
 @media print {
   .draft-page-break {
     border: 0;

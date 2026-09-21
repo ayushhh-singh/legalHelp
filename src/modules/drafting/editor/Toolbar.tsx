@@ -259,12 +259,12 @@ export function EditorToolbar({
           </ToolButton>
           {/*
             A small separator INSIDE the group, not a second `role="group"`:
-            these four are still "Insert" as far as a screen reader is
+            all seven are still "Insert" as far as a screen reader is
             concerned. It is here only so the icon-only mark-up trio above
             (table / page break / placeholder) reads as visually distinct
-            from the icon-plus-label content trio below — the mix of bare
+            from the icon-plus-label content quartet below — the mix of bare
             icons and bare text was what made this row read as clutter
-            rather than four purposeful actions.
+            rather than seven purposeful actions.
           */}
           <span aria-hidden="true" className="mx-0.5 h-5 w-px shrink-0 bg-border/70" />
           <ToolButton label={t('draft.toolbar.enclosure')} onClick={onAddEnclosure}>

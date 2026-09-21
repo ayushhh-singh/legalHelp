@@ -1,4 +1,4 @@
-import { Link2, ListChecks, PenLine, Plus, Trash2, Users } from 'lucide-react'
+import { Copy, Link2, ListChecks, PenLine, Plus, Trash2, Users } from 'lucide-react'
 import { cloneElement, isValidElement, useId, useState } from 'react'
 
 import { Button } from '@/components/ui/button'
@@ -82,12 +82,14 @@ function Legend({ icon: Icon, children }: { icon: typeof Users; children: React.
 
 function AddresseeList({
   title,
+  icon = Users,
   people,
   book,
   onChange,
   onSaveToBook,
 }: {
   title: string
+  icon?: typeof Users
   people: Addressee[]
   book: readonly AddressBookEntry[]
   onChange: (next: Addressee[]) => void
@@ -101,7 +103,7 @@ function AddresseeList({
 
   return (
     <fieldset className="rounded-xl border border-border p-3">
-      <Legend icon={Users}>{title}</Legend>
+      <Legend icon={icon}>{title}</Legend>
       <div className="flex flex-col gap-3">
         {people.map((person, index) => (
           <div key={person.id} className="grid gap-2 rounded-lg border border-border/70 p-2 sm:grid-cols-2">
@@ -342,6 +344,7 @@ export function MetaPanel({
       />
       <AddresseeList
         title={t('draft.meta.copyTo')}
+        icon={Copy}
         people={meta.copyTo}
         book={book}
         onChange={(copyTo) => setMeta({ copyTo })}

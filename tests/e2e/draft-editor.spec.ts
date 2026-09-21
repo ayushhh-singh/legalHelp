@@ -389,4 +389,46 @@ test.describe('the document editor', () => {
     const rect = await numbered.evaluate((el) => el.getBoundingClientRect())
     expect(rect.height).toBeLessThan(60)
   })
+
+  test('toggling the sole, still-empty paragraph to numbered does not clamp the doc placeholder', async ({
+    page,
+  }) => {
+    /*
+      The same clamping bug, one case further than the test above: the
+      toolbar's "numbered paragraph" toggle does not check whether there is
+      anything else in the document, so an officer can convert the FIRST,
+      still-empty paragraph of a brand-new document straight into a numbered
+      one. That paragraph carries `is-editor-empty` (the whole-document-empty
+      case), not `is-empty`, so the fix above — scoped to
+      `p[data-numbered].is-empty:not(.is-editor-empty)` — never matched it,
+      and the longer whole-document placeholder ("Write the document…")
+      inherited the bare "#" marker's `width: 1.1rem` / `font-weight: 600`
+      exactly as the mid-document case once did.
+    */
+    await page.goto('/draft/new/office-memorandum')
+    await expect(page).toHaveURL(/\/draft\/d\/[0-9a-f]+$/)
+    const editor = page.getByRole('textbox', { name: 'Document body' })
+    await expect(editor).toBeVisible()
+
+    await editor.click()
+    await page.keyboard.press('ControlOrMeta+a')
+    await page.keyboard.press('Backspace')
+    const firstPara = editor.locator('p').first()
+    await expect(firstPara).toHaveClass(/is-editor-empty/)
+
+    await page.getByRole('button', { name: /numbered paragraph/i }).click()
+    await expect(firstPara).toHaveAttribute('data-numbered', '')
+
+    const before = await firstPara.evaluate((el) => {
+      const style = window.getComputedStyle(el, '::before')
+      return { content: style.content, width: parseFloat(style.width), fontWeight: style.fontWeight }
+    })
+    expect(before.content).toContain('#')
+    expect(before.content).toContain('Write the document')
+    expect(before.width).toBeGreaterThan(100)
+    expect(before.fontWeight).toBe('400')
+
+    const rect = await firstPara.evaluate((el) => el.getBoundingClientRect())
+    expect(rect.height).toBeLessThan(60)
+  })
 })
