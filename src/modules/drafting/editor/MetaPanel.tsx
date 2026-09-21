@@ -1,4 +1,4 @@
-import { Copy, Link2, ListChecks, PenLine, Plus, Trash2, Users } from 'lucide-react'
+import { Forward, Link2, ListChecks, PenLine, Plus, Trash2, Users } from 'lucide-react'
 import { cloneElement, isValidElement, useId, useState } from 'react'
 
 import { Button } from '@/components/ui/button'
@@ -344,7 +344,7 @@ export function MetaPanel({
       />
       <AddresseeList
         title={t('draft.meta.copyTo')}
-        icon={Copy}
+        icon={Forward}
         people={meta.copyTo}
         book={book}
         onChange={(copyTo) => setMeta({ copyTo })}
