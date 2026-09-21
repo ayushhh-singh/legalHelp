@@ -7,7 +7,7 @@ import { BODY_NODES, bodySchema } from '@/lib/drafting/model'
 
 describe('the editor produces only nodes the model can store', () => {
   it('every schema node name is one the model knows', () => {
-    const editor = new Editor({ extensions: editorExtensions({ placeholder: 'x' }) })
+    const editor = new Editor({ extensions: editorExtensions({ placeholder: 'x', linePlaceholder: 'y' }) })
     const names = Object.keys(editor.schema.nodes)
     editor.destroy()
     const unknown = names.filter((name) => !(BODY_NODES as readonly string[]).includes(name))
@@ -16,7 +16,7 @@ describe('the editor produces only nodes the model can store', () => {
 
   it('round-trips a document with each of the app-specific nodes', () => {
     const editor = new Editor({
-      extensions: editorExtensions({ placeholder: 'x' }),
+      extensions: editorExtensions({ placeholder: 'x', linePlaceholder: 'y' }),
       content: {
         type: 'doc',
         content: [

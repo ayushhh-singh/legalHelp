@@ -6,6 +6,7 @@ import {
   Eye,
   FileDown,
   History,
+  Info,
   Link2,
   PanelRight,
   Printer,
@@ -296,6 +297,17 @@ function Editor({
   const myTemplates = useLiveQuery(() => listPersonal(), []) ?? []
 
   const options = useMemo(() => ({ devanagariDigits }), [devanagariDigits])
+  /*
+    What number the body's numbered paragraphs actually start at, for the
+    caption near the editor below. `renderDoc.ts#withNodes` reads the exact
+    same `layout[lang][i].numberFrom` to number the rich body, so this is not
+    a second guess at the rule — it is the one place outside that file asking
+    the same question.
+  */
+  const numberFrom = useMemo(
+    () => template.layout[language].find((block) => block.role === 'body')?.numberFrom ?? 2,
+    [template, language],
+  )
   const single = useMemo(
     () => renderOfficialDoc(doc, template, language, options),
     [doc, template, language, options],
@@ -597,6 +609,22 @@ function Editor({
             {t('draft.editor.separateHindi')}
           </Button>
         </div>
+      ) : null}
+
+      {/*
+        Why the FIRST numbered paragraph an officer sees is "2." — the
+        specimens in Appendix 8.1 leave the opening paragraph unnumbered
+        (`ReviewPanel`'s own "Paragraphs are serially numbered" item carries
+        the same sentence, but only while that check is FAILING; a reader who
+        already has it right never sees the explanation, which is exactly
+        the case that produced the confusion this caption exists for). Shown
+        only when the count is not the plain, unsurprising 1.
+      */}
+      {numberFrom !== 1 ? (
+        <p className="flex items-start gap-1.5 text-xs text-muted-foreground">
+          <Info aria-hidden="true" className="mt-0.5 size-3.5 shrink-0" />
+          {t('draft.editor.numberFromHint', { count: numberFrom })}
+        </p>
       ) : null}
 
       <DocumentEditor

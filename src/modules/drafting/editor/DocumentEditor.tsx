@@ -89,7 +89,10 @@ export function DocumentEditor({
 
   const editor = useEditor(
     {
-      extensions: editorExtensions({ placeholder: t('draft.editor.bodyPlaceholder') }),
+      extensions: editorExtensions({
+        placeholder: t('draft.editor.bodyPlaceholder'),
+        linePlaceholder: t('draft.editor.linePlaceholder'),
+      }),
       content: body,
       editable: !readOnly,
       // The shell paints before this mounts, and Tiptap's own advice is to keep
@@ -244,11 +247,21 @@ export function DocumentEditor({
         document prints at — which is the point of editing in a page-like
         surface rather than a textarea beside a preview. Nothing here decides
         what the document says; the renderer still does that.
+
+        `focus-within` changes the BORDER's own colour, not only a ring beside
+        it — a page that is this large makes a faint ring around its outer
+        edge easy to miss entirely when what an officer actually wants to know
+        is "did my click land in the text". The border itself turning primary
+        blue, with the usual ring-offset halo alongside it, is the same
+        unambiguous "you are typing here now" every input in this app already
+        gives; `caret-color` on the surface (below) is the other half — the
+        blinking cursor itself, in a colour that is never ambiguous with the
+        page's own black ink.
       */}
       <div
         className={cn(
-          'draft-editor-page rounded-xl border border-border bg-card text-[15px] leading-relaxed shadow-sm',
-          'focus-within:ring-2 focus-within:ring-primary/60',
+          'draft-editor-page rounded-xl border-2 border-border bg-card text-[15px] leading-relaxed shadow-sm transition-colors',
+          'focus-within:border-primary focus-within:ring-2 focus-within:ring-primary/30 focus-within:ring-offset-2 focus-within:ring-offset-background',
         )}
         lang={lang}
         onClick={focus}

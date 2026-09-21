@@ -119,8 +119,15 @@ export const PageBreak = Node.create({
 })
 
 export interface EditorExtensionOptions {
-  /** The empty-document hint, in the reader's own language. */
+  /** The empty-DOCUMENT hint — shown once, only while the whole thing is blank. */
   placeholder: string
+  /**
+   * Shown on an empty paragraph the caret is CURRENTLY in, anywhere else in
+   * an otherwise non-empty document — the reminder that a standard phrase is
+   * one click away, right where an officer is about to start typing one by
+   * hand instead.
+   */
+  linePlaceholder: string
 }
 
 /**
@@ -143,7 +150,25 @@ export function editorExtensions(options: EditorExtensionOptions): Extensions {
       link: false,
       underline: {},
     }),
-    Placeholder.configure({ placeholder: options.placeholder }),
+    Placeholder.configure({
+      /*
+        A function, not a fixed string: the WHOLE-document-empty case (a
+        brand new document, nothing written yet) wants the general "Write the
+        document…" hint, and the SAME empty node mid-document — the officer
+        has already written something, moved on, and is looking at a fresh
+        empty paragraph — wants the narrower reminder that a standard phrase
+        exists. `showOnlyCurrent` (the extension's own default, left
+        unchanged) is what keeps the second case from repeating itself down
+        every blank line in the document — it only ever shows on the ONE
+        empty node the caret is actually inside.
+      */
+      placeholder: ({ editor, node }) =>
+        editor.isEmpty
+          ? options.placeholder
+          : node.type.name === 'paragraph' || node.type.name === 'numberedPara'
+            ? options.linePlaceholder
+            : '',
+    }),
     Table.configure({ resizable: false }),
     TableRow,
     TableHeader,
