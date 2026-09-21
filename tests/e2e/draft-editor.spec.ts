@@ -347,4 +347,46 @@ test.describe('the document editor', () => {
     await page.getByRole('button', { name: /^Undo$/ }).click()
     await expect(page.getByRole('listitem').filter({ hasText: 'Shri X' })).toHaveCount(1)
   })
+
+  test('an empty numbered paragraph shows its marker and the phrase hint at a real width', async ({
+    page,
+  }) => {
+    /*
+      jsdom implements no layout, so a claim about a `::before` pseudo-
+      element's computed width belongs here and nowhere else — this is
+      exactly the CLAUDE.md lesson about `Range.getClientRects` in a new
+      place. The bug this guards: the marker rule fixes its box at
+      `width: 1.1rem` for the bare "#", and the empty-paragraph placeholder
+      rule cascades that SAME width in wherever it did not explicitly
+      override it — clamping a whole sentence into a sliver the instant an
+      officer pressed Enter to start a fresh numbered paragraph.
+    */
+    await page.goto('/draft/new/office-memorandum')
+    await expect(page).toHaveURL(/\/draft\/d\/[0-9a-f]+$/)
+    const editor = page.getByRole('textbox', { name: 'Document body' })
+    await expect(editor).toBeVisible()
+
+    const numbered = editor.locator('p[data-numbered]').first()
+    await expect(numbered).toBeVisible()
+    await numbered.click({ clickCount: 3 })
+    await page.keyboard.press('Backspace')
+    await expect(numbered).toHaveAttribute('data-numbered', '')
+    await expect(numbered).toHaveText('')
+
+    const before = await numbered.evaluate((el) => {
+      const style = window.getComputedStyle(el, '::before')
+      return { content: style.content, width: parseFloat(style.width), fontWeight: style.fontWeight }
+    })
+    expect(before.content).toContain('Type, or insert a standard phrase')
+    // Not a string comparison against one fragile pixel value — a floated,
+    // auto-width box sized to a whole sentence is comfortably three figures;
+    // the bug clamped it to ~17.6px (1.1rem).
+    expect(before.width).toBeGreaterThan(100)
+    expect(before.fontWeight).toBe('400')
+
+    // And the paragraph box itself stays one ordinary line — a genuine
+    // regression here shows up as gross overflow, not a subtle pixel drift.
+    const rect = await numbered.evaluate((el) => el.getBoundingClientRect())
+    expect(rect.height).toBeLessThan(60)
+  })
 })

@@ -630,14 +630,27 @@
 /*
   An empty NUMBERED paragraph gets both signals at once: the "#" marker that
   says what kind of paragraph this is (the rule two blocks up, which this one
-  only overrides `content` on — every other property still applies) AND the
-  reminder that a phrase is one click away. Losing the "#" the moment a
-  numbered paragraph is empty — exactly when an officer has nothing else on
-  screen to tell them so — would be the one case this whole marker was added
-  for going quiet right when it matters most.
+  only overrides `content`/`width`/`font-weight` on — every OTHER property,
+  including `float`/`height: 0`, still cascades in from the placeholder rule
+  above) AND the reminder that a phrase is one click away. Losing the "#" the
+  moment a numbered paragraph is empty — exactly when an officer has nothing
+  else on screen to tell them so — would be the one case this whole marker
+  was added for going quiet right when it matters most.
+
+  `width: auto` and `font-weight: 400` are NOT decoration — they are the fix
+  for a real break. The plain "#" marker fixes its box at `width: 1.1rem`
+  because a bare "#" is meant to sit in the reserved gutter and nothing more.
+  Left unset here, that same 1.1rem width cascaded in for THIS selector too —
+  clamping a whole sentence ("# Type, or insert a standard phrase") into a
+  box built for one character, which is what broke the layout the moment an
+  officer pressed Enter to start a fresh numbered paragraph. `font-weight` is
+  reset for the same reason a sentence should not be bold merely because the
+  marker it is riding alongside is.
 */
 .draft-editor-surface p[data-numbered].is-empty:not(.is-editor-empty)::before {
   content: '# ' attr(data-placeholder);
+  width: auto;
+  font-weight: 400;
 }
 
 @media print {
